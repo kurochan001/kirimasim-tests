@@ -1,0 +1,217 @@
+{
+  "generated_at": "2026-11-07T22:40:36.422324+00:00",
+  "scope": "One run of every legal row, outside the selected witnesses, to look for expectations that the model and its independent interpretation share in error. The rows are not fixed-suite tests and do not enter any count. Rows are compiled from generator output in a temporary directory.",
+  "kirimasim": {
+    "version": "kirimasim 0.0.0 (commit 28c6c1a1cb83), built with AppleClang 21.0.0.21000401",
+    "binary_sha256": "57e8c2ed74e0095a2d29e649f7a098ec7f1f0baab8136fa1146cc50e07b31896"
+  },
+  "icarus": {
+    "version": "Icarus Verilog version 13.0 (stable) (v13_0)"
+  },
+  "verilator": {
+    "version": "Verilator 5.052 2026-09-05",
+    "seed": 1,
+    "models": [
+      "hierarchical_process_control",
+      "hierarchical_name_display",
+      "array_query_loop"
+    ],
+    "note": "Icarus 13.0 rejects $root, statement labels, type names and two-dimensional selects in array queries, so every legal row of the three models also ran once on Verilator."
+  },
+  "correction": null,
+  "models": {
+    "hierarchical_process_control": {
+      "legal_rows": 252,
+      "selected": 42,
+      "kirimasim_differences": 0,
+      "kirimasim_nonmatching_rows_by_factor": {},
+      "icarus": {
+        "match": 216,
+        "differ": 0,
+        "reject": 36,
+        "timeout": 0
+      },
+      "icarus_nonmatching_rows_by_factor": {
+        "action": {
+          "disable": 6,
+          "trigger": 6,
+          "write": 6,
+          "level": 6,
+          "nba": 6,
+          "call": 6
+        },
+        "path": {
+          "root": 36
+        },
+        "timing": {
+          "waiting": 18,
+          "late": 18
+        },
+        "actor": {
+          "initial": 12,
+          "task": 12,
+          "fork": 12
+        }
+      },
+      "icarus_nonmatching_rows_sha256": "f6cb47177408080ff2af6b56a39100c7e52c83b3b9ab37687d0d3721ddabb04d",
+      "verilator": {
+        "match": 240,
+        "differ": 0,
+        "reject": 12,
+        "nonmatching_rows_by_factor": {
+          "action": {
+            "disable": 12
+          },
+          "path": {
+            "array": 6,
+            "generate": 6
+          },
+          "timing": {
+            "waiting": 6,
+            "late": 6
+          },
+          "actor": {
+            "initial": 4,
+            "task": 4,
+            "fork": 4
+          }
+        }
+      }
+    },
+    "hierarchical_name_display": {
+      "legal_rows": 177,
+      "selected": 65,
+      "kirimasim_differences": 0,
+      "kirimasim_nonmatching_rows_by_factor": {},
+      "icarus": {
+        "match": 125,
+        "differ": 0,
+        "reject": 52,
+        "timeout": 0
+      },
+      "icarus_nonmatching_rows_by_factor": {
+        "place": {
+          "top": 8,
+          "inst": 8,
+          "nested": 8,
+          "array": 8,
+          "loopgen": 8,
+          "namedgen": 8,
+          "unnamedgen": 4
+        },
+        "scope": {
+          "label": 14,
+          "loop": 14,
+          "task": 6,
+          "auto": 6,
+          "function": 12
+        },
+        "call": {
+          "own": 28,
+          "root": 24
+        },
+        "process": {
+          "initial": 32,
+          "final": 20
+        }
+      },
+      "icarus_nonmatching_rows_sha256": "164c1a19b13f00ea2dfa14c012fe155013450046f38816a4f1ba878cdebdcad9",
+      "verilator": {
+        "match": 163,
+        "differ": 14,
+        "reject": 0,
+        "nonmatching_rows_by_factor": {
+          "place": {
+            "top": 2,
+            "inst": 2,
+            "nested": 2,
+            "array": 2,
+            "loopgen": 2,
+            "namedgen": 2,
+            "unnamedgen": 2
+          },
+          "scope": {
+            "loop": 14
+          },
+          "call": {
+            "own": 14
+          },
+          "process": {
+            "initial": 7,
+            "final": 7
+          }
+        }
+      }
+    },
+    "array_query_loop": {
+      "legal_rows": 440,
+      "selected": 40,
+      "kirimasim_differences": 0,
+      "kirimasim_nonmatching_rows_by_factor": {},
+      "icarus": {
+        "match": 169,
+        "differ": 49,
+        "reject": 221,
+        "timeout": 1
+      },
+      "icarus_nonmatching_rows_by_factor": {
+        "shape": {
+          "asc": 34,
+          "desc": 34,
+          "offset": 34,
+          "neg": 34,
+          "packed": 35,
+          "dynamic": 34,
+          "queue": 34,
+          "empty": 32
+        },
+        "form": {
+          "type": 85,
+          "elem": 135,
+          "dim": 1,
+          "var": 50
+        },
+        "loop": {
+          "for": 64,
+          "while": 64,
+          "do": 62,
+          "repeat": 64,
+          "foreach": 17
+        },
+        "bounds": {
+          "leftright": 79,
+          "lowhigh": 64,
+          "highlow": 64,
+          "size": 64
+        }
+      },
+      "icarus_nonmatching_rows_sha256": "2a4b20db20efb8a57075e47341e94b636ed48101849582b5f5ae6f8c9c383183",
+      "verilator": {
+        "match": 432,
+        "differ": 8,
+        "reject": 0,
+        "nonmatching_rows_by_factor": {
+          "shape": {
+            "dynamic": 1,
+            "queue": 1,
+            "empty": 6
+          },
+          "form": {
+            "elem": 5,
+            "var": 3
+          },
+          "loop": {
+            "foreach": 2,
+            "do": 6
+          },
+          "bounds": {
+            "leftright": 2,
+            "lowhigh": 2,
+            "highlow": 2,
+            "size": 2
+          }
+        }
+      }
+    }
+  }
+}

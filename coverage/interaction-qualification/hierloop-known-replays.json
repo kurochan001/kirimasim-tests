@@ -1,0 +1,1072 @@
+{
+  "models": [
+    "hierarchical_process_control",
+    "hierarchical_name_display",
+    "array_query_loop"
+  ],
+  "generated_at": "2026-11-07T22:44:17.853002+00:00",
+  "scope": "All 52 Icarus differences and rejections, and one representative of each form of the known-input Verilator differences at both seeds. The first differing line of every known result is in the run records. Nothing here changes an expectation or counts as a pass. No simulator implementation source was read.",
+  "icarus_version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+  "icarus_originals": [
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_asc_elem_repeat_leftright.sv",
+      "input_sha256": "5271cab19621b089c49b148d166b25b59da6483445a763e5afe3aa0cc89a0530",
+      "reason": "compile failed: tests/gen/ch20/test_gen_cross_arrayloop_asc_elem_repeat_leftright.sv:35: error: Array w['sd1] needs 2 indices, but got only 1.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 11,
+          "stderr": "tests/gen/ch20/test_gen_cross_arrayloop_asc_elem_repeat_leftright.sv:35: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_asc_elem_repeat_leftright.sv:35: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_asc_elem_repeat_leftright.sv:35: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_asc_elem_repeat_leftright.sv:36: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_asc_elem_repeat_leftright.sv:36: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_asc_elem_repeat_leftright.sv:36: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_asc_elem_repeat_leftright.sv:37: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_asc_elem_repeat_leftright.sv:37: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_asc_elem_repeat_leftright.sv:39: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_asc_elem_repeat_leftright.sv:40: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_asc_elem_repeat_leftright.sv:40: Unable to elaborate repeat expression.\n11 error(s) during elaboration.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv",
+      "input_sha256": "a8dc560153920e88390ed5652da05f5ad330e687a733b55037542301a0dd3bee",
+      "reason": "compile failed: tests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:36: error: Type names are not valid expressions here.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 20,
+          "stderr": "tests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:36: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:36: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:36:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:36:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:36: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:36: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:36:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:36:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:36: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:36: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:36:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:36:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:37: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:37: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:37:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:37:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:37: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:37: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:37:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:37:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:37: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:37: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:37:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:37:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:38: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:38: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:38:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:38:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:38: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:38: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:38:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:38:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:40: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:40: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:40:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:40:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:44: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:44: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:44:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh.sv:44:               : Expression type: 10PETypename\n20 error(s) during elaboration.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv",
+      "input_sha256": "7985c53af8e9ab2c3fc6a242b1d352f3daa356ddcf4bf9abcdc52a2401541dbf",
+      "reason": "compile failed: tests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:36: error: Type names are not valid expressions here.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 16,
+          "stderr": "tests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:36: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:36: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:36:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:36:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:36: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:36: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:36:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:36:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:36: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:36: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:36:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:36:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:37: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:37: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:37:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:37:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:37: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:37: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:37:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:37:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:37: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:37: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:37:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:37:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:38: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:38: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:38:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:38:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:38: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:38: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:38:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright.sv:38:               : Expression type: 10PETypename\n16 error(s) during elaboration.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_desc_elem_for_highlow.sv",
+      "input_sha256": "120b41271c952f76d3ce068bef40138a3c2f18f1f3bbb35717a1c6746680689b",
+      "reason": "compile failed: tests/gen/ch20/test_gen_cross_arrayloop_desc_elem_for_highlow.sv:35: error: Array w['sd1] needs 2 indices, but got only 1.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 10,
+          "stderr": "tests/gen/ch20/test_gen_cross_arrayloop_desc_elem_for_highlow.sv:35: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_desc_elem_for_highlow.sv:35: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_desc_elem_for_highlow.sv:35: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_desc_elem_for_highlow.sv:36: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_desc_elem_for_highlow.sv:36: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_desc_elem_for_highlow.sv:36: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_desc_elem_for_highlow.sv:37: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_desc_elem_for_highlow.sv:37: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_desc_elem_for_highlow.sv:39: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_desc_elem_for_highlow.sv:39: error: Array w['sd1] needs 2 indices, but got only 1.\n10 error(s) during elaboration.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv",
+      "input_sha256": "158f9447b61cd8512b66a4f8bbc7f942730d6043482bbb498210a35083515463",
+      "reason": "compile failed: tests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:36: error: Type names are not valid expressions here.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 21,
+          "stderr": "tests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:36: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:36: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:36:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:36:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:36: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:36: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:36:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:36:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:36: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:36: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:36:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:36:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:37: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:37: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:37:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:37:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:37: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:37: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:37:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:37:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:37: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:37: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:37:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:37:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:38: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:38: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:38:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:38:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:38: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:38: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:38:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:38:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:40: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:40: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:40:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:40:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:41: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:41: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:41:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:41:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright.sv:41: Unable to elaborate repeat expression.\n21 error(s) during elaboration.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_dynamic_elem_repeat_size.sv",
+      "input_sha256": "4e8a45b3b1c1202eafd09c014ba0c782a719dbe68a97a83f2271e5f3868c2cad",
+      "reason": "compile failed: tests/gen/ch20/test_gen_cross_arrayloop_dynamic_elem_repeat_size.sv:28: Sorry: Dynamic array of type `11netuarray_t` is not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch20/test_gen_cross_arrayloop_dynamic_elem_repeat_size.sv:28: Sorry: Dynamic array of type `11netuarray_t` is not yet supported.\ntests/gen/ch20/test_gen_cross_arrayloop_dynamic_elem_repeat_size.sv:31: error: The new array constructor may only be used in an assignment to a dynamic array.\ntests/gen/ch20/test_gen_cross_arrayloop_dynamic_elem_repeat_size.sv:32: assert: elab_lval.cc:722: failed assertion name_tail.index.size() == 1\nsh: line 1: 49092 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg2312d598e\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg312d598e\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli312d598e\"\n     49093 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlh312d598e\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_dynamic_var_do_leftright.sv",
+      "input_sha256": "9f1f9647e2543998e7779ccdf1c3e1acfae7afa59fc905ca6da8f0ef837aa78b",
+      "reason": "timed out",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "timed_out_after_seconds": 60
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_dynamic_var_for_lowhigh.sv",
+      "input_sha256": "33f9771788df4c25ec4bbfa8976bb19e53eb4398cdf7ec99494d18a6be88fc98",
+      "reason": "output differs: line 1 is 'left=0 right=3 inc=3', expected 'left=0 right=3 inc=-1'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "left=0 right=3 inc=3\nlow=0 high=3 size=4\ndims=0 unpacked=0\nvisit 0:11 1:22 2:33 3:44\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_dynamic_var_foreach_leftright.sv",
+      "input_sha256": "e6672382f8c06c9def802d9d344d74a2d68e5aec042846f796bf38fe5943d019",
+      "reason": "output differs: line 1 is 'left=0 right=3 inc=3', expected 'left=0 right=3 inc=-1'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "left=0 right=3 inc=3\nlow=0 high=3 size=4\ndims=0 unpacked=0\nvisit 0:11 1:22 2:33 3:44\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_dynamic_var_while_highlow.sv",
+      "input_sha256": "77e9d641878e962bea36853a7c1eb973556b82c66a54febd23ac59741100df2c",
+      "reason": "output differs: line 1 is 'left=0 right=3 inc=3', expected 'left=0 right=3 inc=-1'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "left=0 right=3 inc=3\nlow=0 high=3 size=4\ndims=0 unpacked=0\nvisit 3:44 2:33 1:22 0:11\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_empty_elem_do_highlow.sv",
+      "input_sha256": "b18393349977a0c8fb05aa03eb2521a1c9d5766a989ae03ca6e15db254713eaa",
+      "reason": "compile failed: tests/gen/ch20/test_gen_cross_arrayloop_empty_elem_do_highlow.sv:28: Sorry: Dynamic array of type `11netuarray_t` is not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 139,
+          "stderr": "tests/gen/ch20/test_gen_cross_arrayloop_empty_elem_do_highlow.sv:28: Sorry: Dynamic array of type `11netuarray_t` is not yet supported.\nsh: line 1: 52925 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg2350456fd\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg350456fd\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli350456fd\"\n     52926 Segmentation fault: 11  | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlh350456fd\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_empty_var_for_lowhigh.sv",
+      "input_sha256": "a80a66bd601d770c8ed00283b72803a3cb5e18377c9976ee39038e45b239473d",
+      "reason": "output differs: line 3 is 'dims=0 unpacked=0', expected 'dims=2 unpacked=1'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "left=0 right=-1 inc=-1\nlow=0 high=-1 size=0\ndims=0 unpacked=0\nvisit\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_empty_var_foreach_leftright.sv",
+      "input_sha256": "41d639bb9df85de0f163bb1d795a3d6b7195f588e828735017bc3fe23ec81a7e",
+      "reason": "output differs: line 3 is 'dims=0 unpacked=0', expected 'dims=2 unpacked=1'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "left=0 right=-1 inc=-1\nlow=0 high=-1 size=0\ndims=0 unpacked=0\nvisit\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_empty_var_repeat_size.sv",
+      "input_sha256": "5f91726f71bec0219d8f715ff2a20a66aaf5c5645554f8206cdb24b2879aa1ce",
+      "reason": "output differs: line 3 is 'dims=0 unpacked=0', expected 'dims=2 unpacked=1'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "left=0 right=-1 inc=-1\nlow=0 high=-1 size=0\ndims=0 unpacked=0\nvisit\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_empty_var_while_leftright.sv",
+      "input_sha256": "323ebcf357578ada60e589c921653abd1f7c78006b55623980fbc752104dde2d",
+      "reason": "output differs: line 3 is 'dims=0 unpacked=0', expected 'dims=2 unpacked=1'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "left=0 right=-1 inc=-1\nlow=0 high=-1 size=0\ndims=0 unpacked=0\nvisit\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_neg_elem_while_lowhigh.sv",
+      "input_sha256": "e34aa1d0ae06be02af9a726ca56776d79113479df6651c24e3cfbcb7123ccf8f",
+      "reason": "compile failed: tests/gen/ch20/test_gen_cross_arrayloop_neg_elem_while_lowhigh.sv:35: error: Array w['sd1] needs 2 indices, but got only 1.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 10,
+          "stderr": "tests/gen/ch20/test_gen_cross_arrayloop_neg_elem_while_lowhigh.sv:35: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_neg_elem_while_lowhigh.sv:35: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_neg_elem_while_lowhigh.sv:35: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_neg_elem_while_lowhigh.sv:36: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_neg_elem_while_lowhigh.sv:36: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_neg_elem_while_lowhigh.sv:36: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_neg_elem_while_lowhigh.sv:37: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_neg_elem_while_lowhigh.sv:37: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_neg_elem_while_lowhigh.sv:39: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_neg_elem_while_lowhigh.sv:40: error: Array w['sd1] needs 2 indices, but got only 1.\n10 error(s) during elaboration.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv",
+      "input_sha256": "23d037e6a963620ab344d50ebbb8536913717ae1988384973c0154776b045f1c",
+      "reason": "compile failed: tests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:36: error: Type names are not valid expressions here.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 22,
+          "stderr": "tests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:36: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:36: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:36:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:36:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:36: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:36: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:36:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:36:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:36: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:36: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:36:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:36:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:37: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:37: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:37:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:37:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:37: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:37: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:37:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:37:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:37: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:37: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:37:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:37:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:38: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:38: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:38:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:38:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:38: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:38: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:38:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:38:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:45: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:45: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:45:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:45:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:42: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:42: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:42:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:42:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:42: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:42: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:42:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_neg_type_do_size.sv:42:               : Expression type: 10PETypename\n22 error(s) during elaboration.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_offset_elem_while_size.sv",
+      "input_sha256": "c568843cbde13e5cb4e6dc63bb5daf0fabf983cb9bbfb0d2a5e53913ba014e35",
+      "reason": "compile failed: tests/gen/ch20/test_gen_cross_arrayloop_offset_elem_while_size.sv:35: error: Array w['sd1] needs 2 indices, but got only 1.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 11,
+          "stderr": "tests/gen/ch20/test_gen_cross_arrayloop_offset_elem_while_size.sv:35: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_offset_elem_while_size.sv:35: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_offset_elem_while_size.sv:35: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_offset_elem_while_size.sv:36: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_offset_elem_while_size.sv:36: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_offset_elem_while_size.sv:36: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_offset_elem_while_size.sv:37: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_offset_elem_while_size.sv:37: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_offset_elem_while_size.sv:40: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_offset_elem_while_size.sv:41: error: Array w['sd1] needs 2 indices, but got only 1.\ntests/gen/ch20/test_gen_cross_arrayloop_offset_elem_while_size.sv:41: error: Array w['sd1] needs 2 indices, but got only 1.\n11 error(s) during elaboration.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv",
+      "input_sha256": "b343611d67ee9520966479b2a28f75e0fc1400b68b312239fd8055a6c9f8fc88",
+      "reason": "compile failed: tests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:36: error: Type names are not valid expressions here.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 20,
+          "stderr": "tests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:36: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:36: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:36:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:36:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:36: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:36: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:36:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:36:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:36: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:36: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:36:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:36:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:37: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:37: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:37:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:37:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:37: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:37: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:37:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:37:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:37: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:37: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:37:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:37:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:38: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:38: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:38:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:38:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:38: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:38: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:38:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:38:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:40: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:40: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:40:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:40:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:40: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:40: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:40:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow.sv:40:               : Expression type: 10PETypename\n20 error(s) during elaboration.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_packed_elem_do_leftright.sv",
+      "input_sha256": "082fe48c14821be18d4206518da01e42e3c66cb55c8abc3f33789239e21b0d3c",
+      "reason": "compile failed: sh: line 1: 97341 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg26182822f\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg6182822f\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli6182822f\"",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 139,
+          "stderr": "sh: line 1: 52991 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg235150264\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg35150264\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli35150264\"\n     52992 Segmentation fault: 11  | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlh35150264\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv",
+      "input_sha256": "343660448d6d87c15ea971f66c334ffdf7bdc07774a6851dc483fdeb06de20ac",
+      "reason": "compile failed: tests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:36: error: Type names are not valid expressions here.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 22,
+          "stderr": "tests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:36: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:36: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:36:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:36:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:36: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:36: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:36:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:36:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:36: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:36: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:36:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:36:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:37: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:37: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:37:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:37:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:37: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:37: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:37:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:37:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:37: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:37: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:37:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:37:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:38: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:38: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:38:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:38:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:38: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:38: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:38:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:38:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:41: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:41: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:41:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:41:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:42: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:42: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:42:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:42:               : Expression type: 10PETypename\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:42: error: Type names are not valid expressions here.\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:42: internal error: I do not know how to elaborate this expression. \ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:42:               : Expression is: <type>\ntests/gen/ch20/test_gen_cross_arrayloop_packed_type_while_size.sv:42:               : Expression type: 10PETypename\n22 error(s) during elaboration.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_queue_elem_foreach_leftright.sv",
+      "input_sha256": "01b15e211d6c7d8d97db27267a877f8fb42767f796d8b64fa85fa860fc12cf9a",
+      "reason": "compile failed: tests/gen/ch20/test_gen_cross_arrayloop_queue_elem_foreach_leftright.sv:28: Sorry: Queue of type `11netuarray_t` is not yet supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 139,
+          "stderr": "tests/gen/ch20/test_gen_cross_arrayloop_queue_elem_foreach_leftright.sv:28: Sorry: Queue of type `11netuarray_t` is not yet supported.\nsh: line 1: 53003 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg235181638\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg35181638\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli35181638\"\n     53004 Segmentation fault: 11  | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlh35181638\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_queue_var_do_size.sv",
+      "input_sha256": "291b5ba4e3316a3e426005d519dc9226d51de9bee1ad9b52a4d907ce2d38e83a",
+      "reason": "output differs: line 1 is 'left=0 right=0 inc=0', expected 'left=0 right=3 inc=-1'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "left=0 right=0 inc=0\nlow=0 high=3 size=4\ndims=0 unpacked=0\nvisit 0:11 0:11 0:11 0:11\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_queue_var_for_lowhigh.sv",
+      "input_sha256": "eb589a8c9a90b2ab9cbb7d50b77fcfae6417cc049b291150ca7bf7e5dc0644b1",
+      "reason": "output differs: line 1 is 'left=0 right=0 inc=0', expected 'left=0 right=3 inc=-1'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "left=0 right=0 inc=0\nlow=0 high=3 size=4\ndims=0 unpacked=0\nvisit 0:11 1:22 2:33 3:44\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_queue_var_repeat_leftright.sv",
+      "input_sha256": "20650e6836423614a985701078f0bcb5468e5b994d6ecc21da1424a090d4e4a1",
+      "reason": "output differs: line 1 is 'left=0 right=0 inc=0', expected 'left=0 right=3 inc=-1'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "left=0 right=0 inc=0\nlow=0 high=3 size=4\ndims=0 unpacked=0\nvisit 0:11 0:11 0:11 0:11\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_queue_var_while_highlow.sv",
+      "input_sha256": "7c89e5bf92cd38b7b8af83ce6070b8c4e4e85d834f1b31d1b7275eeeeffae5ad",
+      "reason": "output differs: line 1 is 'left=0 right=0 inc=0', expected 'left=0 right=3 inc=-1'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "left=0 right=0 inc=0\nlow=0 high=3 size=4\ndims=0 unpacked=0\nvisit 3:44 2:33 1:22 0:11\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_array_label_own_initial.sv",
+      "input_sha256": "68189a259b8f5c7838a0960ddb884a07b61693ecb5533399ae1c281be7a64acc",
+      "reason": "compile failed: tests/gen/ch21/test_gen_cross_hiername_array_label_own_initial.sv:29: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch21/test_gen_cross_hiername_array_label_own_initial.sv:29: syntax error\ntests/gen/ch21/test_gen_cross_hiername_array_label_own_initial.sv:29: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_array_loop_own_initial.sv",
+      "input_sha256": "5f5d129b18239d1d7674a0512283b95aa88a7a8356907758973aac97bb27b922",
+      "reason": "compile failed: tests/gen/ch21/test_gen_cross_hiername_array_loop_own_initial.sv:29: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 6,
+          "stderr": "tests/gen/ch21/test_gen_cross_hiername_array_loop_own_initial.sv:29: syntax error\ntests/gen/ch21/test_gen_cross_hiername_array_loop_own_initial.sv:29: Syntax in assignment statement l-value.\ntests/gen/ch21/test_gen_cross_hiername_array_loop_own_initial.sv:29: syntax error\ntests/gen/ch21/test_gen_cross_hiername_array_loop_own_initial.sv:29: error: Malformed statement\ntests/gen/ch21/test_gen_cross_hiername_array_loop_own_initial.sv:29: syntax error\ntests/gen/ch21/test_gen_cross_hiername_array_loop_own_initial.sv:29: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_array_task_root_initial.sv",
+      "input_sha256": "c81b2b145cf8bcd592c8fb511b1db6c99cebe4ea723d9b13c06fc26fcff0a857",
+      "reason": "compile failed: tests/gen/ch21/test_gen_cross_hiername_array_task_root_initial.sv:35: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch21/test_gen_cross_hiername_array_task_root_initial.sv:35: syntax error\ntests/gen/ch21/test_gen_cross_hiername_array_task_root_initial.sv:35: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_inst_label_own_initial.sv",
+      "input_sha256": "0127c2f176a636a3e02d269ab7cecf5b55e65e3dd39c52ea0ba57f2c00a1dfd4",
+      "reason": "compile failed: tests/gen/ch21/test_gen_cross_hiername_inst_label_own_initial.sv:29: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch21/test_gen_cross_hiername_inst_label_own_initial.sv:29: syntax error\ntests/gen/ch21/test_gen_cross_hiername_inst_label_own_initial.sv:29: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_inst_loop_own_initial.sv",
+      "input_sha256": "7ebb1cf87cd8ecc3d20c8449f5e259e7bce7e8a59ec04e3deb37d06e5b1a9edc",
+      "reason": "compile failed: tests/gen/ch21/test_gen_cross_hiername_inst_loop_own_initial.sv:29: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 6,
+          "stderr": "tests/gen/ch21/test_gen_cross_hiername_inst_loop_own_initial.sv:29: syntax error\ntests/gen/ch21/test_gen_cross_hiername_inst_loop_own_initial.sv:29: Syntax in assignment statement l-value.\ntests/gen/ch21/test_gen_cross_hiername_inst_loop_own_initial.sv:29: syntax error\ntests/gen/ch21/test_gen_cross_hiername_inst_loop_own_initial.sv:29: error: Malformed statement\ntests/gen/ch21/test_gen_cross_hiername_inst_loop_own_initial.sv:29: syntax error\ntests/gen/ch21/test_gen_cross_hiername_inst_loop_own_initial.sv:29: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_inst_task_root_initial.sv",
+      "input_sha256": "5a97fc174c507d9403c18214dde83f3a9bffcd0662fe89a963fffcc0bec0d1b1",
+      "reason": "compile failed: tests/gen/ch21/test_gen_cross_hiername_inst_task_root_initial.sv:35: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch21/test_gen_cross_hiername_inst_task_root_initial.sv:35: syntax error\ntests/gen/ch21/test_gen_cross_hiername_inst_task_root_initial.sv:35: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_loopgen_function_root_final.sv",
+      "input_sha256": "875ba5534949c2e832d8a7a8706f3ceb703b48285cf49b7208d61e001dd64139",
+      "reason": "compile failed: tests/gen/ch21/test_gen_cross_hiername_loopgen_function_root_final.sv:37: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch21/test_gen_cross_hiername_loopgen_function_root_final.sv:37: syntax error\ntests/gen/ch21/test_gen_cross_hiername_loopgen_function_root_final.sv:37: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_loopgen_label_own_initial.sv",
+      "input_sha256": "0c79728c21d425ac14a4767487d2e5742342c17ccf47d86e48aaffcd2c0844b8",
+      "reason": "compile failed: tests/gen/ch21/test_gen_cross_hiername_loopgen_label_own_initial.sv:29: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch21/test_gen_cross_hiername_loopgen_label_own_initial.sv:29: syntax error\ntests/gen/ch21/test_gen_cross_hiername_loopgen_label_own_initial.sv:29: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_loopgen_loop_own_initial.sv",
+      "input_sha256": "9758151d9c73012d2da84d98ed93f6ff99815fa0c1826136faf96e4d5fdf3e94",
+      "reason": "compile failed: tests/gen/ch21/test_gen_cross_hiername_loopgen_loop_own_initial.sv:29: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 6,
+          "stderr": "tests/gen/ch21/test_gen_cross_hiername_loopgen_loop_own_initial.sv:29: syntax error\ntests/gen/ch21/test_gen_cross_hiername_loopgen_loop_own_initial.sv:29: Syntax in assignment statement l-value.\ntests/gen/ch21/test_gen_cross_hiername_loopgen_loop_own_initial.sv:29: syntax error\ntests/gen/ch21/test_gen_cross_hiername_loopgen_loop_own_initial.sv:29: error: Malformed statement\ntests/gen/ch21/test_gen_cross_hiername_loopgen_loop_own_initial.sv:29: syntax error\ntests/gen/ch21/test_gen_cross_hiername_loopgen_loop_own_initial.sv:29: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_namedgen_label_own_initial.sv",
+      "input_sha256": "2a3d8ec4f6c992a501438a6336f677ad43596c6b531a207b214b559df33f1658",
+      "reason": "compile failed: tests/gen/ch21/test_gen_cross_hiername_namedgen_label_own_initial.sv:29: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch21/test_gen_cross_hiername_namedgen_label_own_initial.sv:29: syntax error\ntests/gen/ch21/test_gen_cross_hiername_namedgen_label_own_initial.sv:29: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_namedgen_loop_own_initial.sv",
+      "input_sha256": "49a33619fcf8c9a9c689d3bcc9b4ed88a8db1ddda37ae9e815e54e5b4e7821ed",
+      "reason": "compile failed: tests/gen/ch21/test_gen_cross_hiername_namedgen_loop_own_initial.sv:29: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 6,
+          "stderr": "tests/gen/ch21/test_gen_cross_hiername_namedgen_loop_own_initial.sv:29: syntax error\ntests/gen/ch21/test_gen_cross_hiername_namedgen_loop_own_initial.sv:29: Syntax in assignment statement l-value.\ntests/gen/ch21/test_gen_cross_hiername_namedgen_loop_own_initial.sv:29: syntax error\ntests/gen/ch21/test_gen_cross_hiername_namedgen_loop_own_initial.sv:29: error: Malformed statement\ntests/gen/ch21/test_gen_cross_hiername_namedgen_loop_own_initial.sv:29: syntax error\ntests/gen/ch21/test_gen_cross_hiername_namedgen_loop_own_initial.sv:29: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_namedgen_task_root_initial.sv",
+      "input_sha256": "62e7c81c25f0ecd6a7d75c4a244d761ee448fbd1990088c3dd9ed6dd3a69348b",
+      "reason": "compile failed: tests/gen/ch21/test_gen_cross_hiername_namedgen_task_root_initial.sv:37: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch21/test_gen_cross_hiername_namedgen_task_root_initial.sv:37: syntax error\ntests/gen/ch21/test_gen_cross_hiername_namedgen_task_root_initial.sv:37: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_nested_function_root_initial.sv",
+      "input_sha256": "4768efd2ce60f0695d22db4a43c27befe0abe709822b91c3839ba7c72efc3cc6",
+      "reason": "compile failed: tests/gen/ch21/test_gen_cross_hiername_nested_function_root_initial.sv:38: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch21/test_gen_cross_hiername_nested_function_root_initial.sv:38: syntax error\ntests/gen/ch21/test_gen_cross_hiername_nested_function_root_initial.sv:38: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_nested_label_own_final.sv",
+      "input_sha256": "5c34a227af427239b876870938c7b3ee95e90c1dca88f98eb4ac85c3579acda0",
+      "reason": "compile failed: tests/gen/ch21/test_gen_cross_hiername_nested_label_own_final.sv:29: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch21/test_gen_cross_hiername_nested_label_own_final.sv:29: syntax error\ntests/gen/ch21/test_gen_cross_hiername_nested_label_own_final.sv:29: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_nested_loop_own_initial.sv",
+      "input_sha256": "8031ae743441a226b00cd8e2367d8395d26b63c002e92b3b44030d80c73d256a",
+      "reason": "compile failed: tests/gen/ch21/test_gen_cross_hiername_nested_loop_own_initial.sv:29: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 6,
+          "stderr": "tests/gen/ch21/test_gen_cross_hiername_nested_loop_own_initial.sv:29: syntax error\ntests/gen/ch21/test_gen_cross_hiername_nested_loop_own_initial.sv:29: Syntax in assignment statement l-value.\ntests/gen/ch21/test_gen_cross_hiername_nested_loop_own_initial.sv:29: syntax error\ntests/gen/ch21/test_gen_cross_hiername_nested_loop_own_initial.sv:29: error: Malformed statement\ntests/gen/ch21/test_gen_cross_hiername_nested_loop_own_initial.sv:29: syntax error\ntests/gen/ch21/test_gen_cross_hiername_nested_loop_own_initial.sv:29: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_top_auto_root_initial.sv",
+      "input_sha256": "4a5aa094a12fc8aebfe9d15799126b3018ddb6af5d0d65960963b7d55763eaed",
+      "reason": "compile failed: tests/gen/ch21/test_gen_cross_hiername_top_auto_root_initial.sv:32: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch21/test_gen_cross_hiername_top_auto_root_initial.sv:32: syntax error\ntests/gen/ch21/test_gen_cross_hiername_top_auto_root_initial.sv:32: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_top_label_own_initial.sv",
+      "input_sha256": "04ecdad5d46095923df8b80c44e2657f3c26be0ed077d1a5373dcc1122382241",
+      "reason": "compile failed: tests/gen/ch21/test_gen_cross_hiername_top_label_own_initial.sv:29: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch21/test_gen_cross_hiername_top_label_own_initial.sv:29: syntax error\ntests/gen/ch21/test_gen_cross_hiername_top_label_own_initial.sv:29: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_top_loop_own_final.sv",
+      "input_sha256": "0ba6915fcdb0ec065ab4ef40fb47c434f0be432cf286fcaea4a4675363b9be22",
+      "reason": "compile failed: tests/gen/ch21/test_gen_cross_hiername_top_loop_own_final.sv:29: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 6,
+          "stderr": "tests/gen/ch21/test_gen_cross_hiername_top_loop_own_final.sv:29: syntax error\ntests/gen/ch21/test_gen_cross_hiername_top_loop_own_final.sv:29: Syntax in assignment statement l-value.\ntests/gen/ch21/test_gen_cross_hiername_top_loop_own_final.sv:29: syntax error\ntests/gen/ch21/test_gen_cross_hiername_top_loop_own_final.sv:29: error: Malformed statement\ntests/gen/ch21/test_gen_cross_hiername_top_loop_own_final.sv:29: syntax error\ntests/gen/ch21/test_gen_cross_hiername_top_loop_own_final.sv:29: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_unnamedgen_label_own_initial.sv",
+      "input_sha256": "0f583438065daa88c410528e1bf6fb2128f9d967007150cd1b62aa6d3094168c",
+      "reason": "compile failed: tests/gen/ch21/test_gen_cross_hiername_unnamedgen_label_own_initial.sv:29: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch21/test_gen_cross_hiername_unnamedgen_label_own_initial.sv:29: syntax error\ntests/gen/ch21/test_gen_cross_hiername_unnamedgen_label_own_initial.sv:29: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_unnamedgen_loop_own_initial.sv",
+      "input_sha256": "c2b30252307d95be75e2b7b5ad37cd7fa674a10d06350cc8dd439fbe75962a02",
+      "reason": "compile failed: tests/gen/ch21/test_gen_cross_hiername_unnamedgen_loop_own_initial.sv:29: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 6,
+          "stderr": "tests/gen/ch21/test_gen_cross_hiername_unnamedgen_loop_own_initial.sv:29: syntax error\ntests/gen/ch21/test_gen_cross_hiername_unnamedgen_loop_own_initial.sv:29: Syntax in assignment statement l-value.\ntests/gen/ch21/test_gen_cross_hiername_unnamedgen_loop_own_initial.sv:29: syntax error\ntests/gen/ch21/test_gen_cross_hiername_unnamedgen_loop_own_initial.sv:29: error: Malformed statement\ntests/gen/ch21/test_gen_cross_hiername_unnamedgen_loop_own_initial.sv:29: syntax error\ntests/gen/ch21/test_gen_cross_hiername_unnamedgen_loop_own_initial.sv:29: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_hierproc_call_root_late_initial.sv",
+      "input_sha256": "84b7e1286e86c4372fd15b2fb2a4881def6ad2b998f69ab4c8f812c699db9f7b",
+      "reason": "compile failed: tests/gen/ch23/test_gen_cross_hierproc_call_root_late_initial.sv:42: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch23/test_gen_cross_hierproc_call_root_late_initial.sv:42: syntax error\ntests/gen/ch23/test_gen_cross_hierproc_call_root_late_initial.sv:42: error: Malformed statement\ntests/gen/ch23/test_gen_cross_hierproc_call_root_late_initial.sv:43: syntax error\ntests/gen/ch23/test_gen_cross_hierproc_call_root_late_initial.sv:43: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_hierproc_disable_root_late_initial.sv",
+      "input_sha256": "2ad2c3d27237f812740f5d091241d3e95ee9b17c9366155273f436dac839f1ca",
+      "reason": "compile failed: tests/gen/ch23/test_gen_cross_hierproc_disable_root_late_initial.sv:45: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch23/test_gen_cross_hierproc_disable_root_late_initial.sv:45: syntax error\ntests/gen/ch23/test_gen_cross_hierproc_disable_root_late_initial.sv:45: error: Malformed statement\ntests/gen/ch23/test_gen_cross_hierproc_disable_root_late_initial.sv:46: syntax error\ntests/gen/ch23/test_gen_cross_hierproc_disable_root_late_initial.sv:46: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_hierproc_level_root_late_task.sv",
+      "input_sha256": "bbfc07f07c2d9da93c6b044b3b3fe07fde8a9dd2cf56221979cf0142dee1455a",
+      "reason": "compile failed: tests/gen/ch23/test_gen_cross_hierproc_level_root_late_task.sv:41: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch23/test_gen_cross_hierproc_level_root_late_task.sv:41: syntax error\ntests/gen/ch23/test_gen_cross_hierproc_level_root_late_task.sv:41: error: Malformed statement\ntests/gen/ch23/test_gen_cross_hierproc_level_root_late_task.sv:42: syntax error\ntests/gen/ch23/test_gen_cross_hierproc_level_root_late_task.sv:42: Syntax in assignment statement l-value.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_hierproc_nba_root_late_task.sv",
+      "input_sha256": "3fcff03316ed27292d37d4cd91cda537ad9d31eaad2d7f145824a5f081c72f1e",
+      "reason": "compile failed: tests/gen/ch23/test_gen_cross_hierproc_nba_root_late_task.sv:41: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 6,
+          "stderr": "tests/gen/ch23/test_gen_cross_hierproc_nba_root_late_task.sv:41: syntax error\ntests/gen/ch23/test_gen_cross_hierproc_nba_root_late_task.sv:41: error: Malformed statement\ntests/gen/ch23/test_gen_cross_hierproc_nba_root_late_task.sv:42: syntax error\ntests/gen/ch23/test_gen_cross_hierproc_nba_root_late_task.sv:42: Syntax in assignment statement l-value.\ntests/gen/ch23/test_gen_cross_hierproc_nba_root_late_task.sv:44: syntax error\ntests/gen/ch23/test_gen_cross_hierproc_nba_root_late_task.sv:44: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_hierproc_trigger_root_waiting_task.sv",
+      "input_sha256": "927604a11c22cceda51af61d0b0dacee110d4007c1a9441c06b504a518a66eaa",
+      "reason": "compile failed: tests/gen/ch23/test_gen_cross_hierproc_trigger_root_waiting_task.sv:41: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch23/test_gen_cross_hierproc_trigger_root_waiting_task.sv:41: syntax error\ntests/gen/ch23/test_gen_cross_hierproc_trigger_root_waiting_task.sv:41: error: Malformed statement\ntests/gen/ch23/test_gen_cross_hierproc_trigger_root_waiting_task.sv:42: syntax error\ntests/gen/ch23/test_gen_cross_hierproc_trigger_root_waiting_task.sv:42: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_hierproc_write_root_late_fork.sv",
+      "input_sha256": "0be7a220d364dbe6c47b6fdf1735274cd673541f97d55ac0bdb07e4f0e53b142",
+      "reason": "compile failed: tests/gen/ch23/test_gen_cross_hierproc_write_root_late_fork.sv:44: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch23/test_gen_cross_hierproc_write_root_late_fork.sv:44: syntax error\ntests/gen/ch23/test_gen_cross_hierproc_write_root_late_fork.sv:44: error: Malformed statement\ntests/gen/ch23/test_gen_cross_hierproc_write_root_late_fork.sv:45: syntax error\ntests/gen/ch23/test_gen_cross_hierproc_write_root_late_fork.sv:45: Syntax in assignment statement l-value.\n"
+        }
+      ]
+    }
+  ],
+  "verilator_originals": [
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_queue_elem_foreach_leftright.sv",
+      "seed": 1,
+      "input_sha256": "01b15e211d6c7d8d97db27267a877f8fb42767f796d8b64fa85fa860fc12cf9a",
+      "reason": "output differs: line 4 is 'visit', expected 'visit 0:11 1:22 2:33 3:44'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "left=0 right=3 inc=-1\nlow=0 high=3 size=4\ndims=2 unpacked=1\nvisit\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: end at 0s; walltime 0.000 s; speed 0.000 s/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_queue_elem_foreach_leftright.sv",
+      "seed": 73,
+      "input_sha256": "01b15e211d6c7d8d97db27267a877f8fb42767f796d8b64fa85fa860fc12cf9a",
+      "reason": "output differs: line 4 is 'visit', expected 'visit 0:11 1:22 2:33 3:44'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "left=0 right=3 inc=-1\nlow=0 high=3 size=4\ndims=2 unpacked=1\nvisit\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: end at 0s; walltime 0.000 s; speed 0.000 s/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_array_loop_own_initial.sv",
+      "seed": 1,
+      "input_sha256": "5f5d129b18239d1d7674a0512283b95aa88a7a8356907758973aac97bb27b922",
+      "reason": "output differs: line 2 is 'in test_gen_cross_hiername_array_loop_own_initial.u[1].lp...', expected 'in test_gen_cross_hiername_array_loop_own_initial.u[1].lp'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "from test_gen_cross_hiername_array_loop_own_initial.u[1]\nin test_gen_cross_hiername_array_loop_own_initial.u[1].lp.unnamedblk1\n- tests/gen/ch21/test_gen_cross_hiername_array_loop_own_initial.sv:34: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 1ps; walltime 0.000 s; speed 6.289 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_array_loop_own_initial.sv",
+      "seed": 73,
+      "input_sha256": "5f5d129b18239d1d7674a0512283b95aa88a7a8356907758973aac97bb27b922",
+      "reason": "output differs: line 2 is 'in test_gen_cross_hiername_array_loop_own_initial.u[1].lp...', expected 'in test_gen_cross_hiername_array_loop_own_initial.u[1].lp'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "from test_gen_cross_hiername_array_loop_own_initial.u[1]\nin test_gen_cross_hiername_array_loop_own_initial.u[1].lp.unnamedblk1\n- tests/gen/ch21/test_gen_cross_hiername_array_loop_own_initial.sv:34: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 1ps; walltime 0.000 s; speed 7.634 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_inst_loop_own_initial.sv",
+      "seed": 1,
+      "input_sha256": "7ebb1cf87cd8ecc3d20c8449f5e259e7bce7e8a59ec04e3deb37d06e5b1a9edc",
+      "reason": "output differs: line 2 is 'in test_gen_cross_hiername_inst_loop_own_initial.u.lp.unn...', expected 'in test_gen_cross_hiername_inst_loop_own_initial.u.lp'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "from test_gen_cross_hiername_inst_loop_own_initial.u\nin test_gen_cross_hiername_inst_loop_own_initial.u.lp.unnamedblk1\n- tests/gen/ch21/test_gen_cross_hiername_inst_loop_own_initial.sv:34: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 1ps; walltime 0.000 s; speed 6.024 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_inst_loop_own_initial.sv",
+      "seed": 73,
+      "input_sha256": "7ebb1cf87cd8ecc3d20c8449f5e259e7bce7e8a59ec04e3deb37d06e5b1a9edc",
+      "reason": "output differs: line 2 is 'in test_gen_cross_hiername_inst_loop_own_initial.u.lp.unn...', expected 'in test_gen_cross_hiername_inst_loop_own_initial.u.lp'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "from test_gen_cross_hiername_inst_loop_own_initial.u\nin test_gen_cross_hiername_inst_loop_own_initial.u.lp.unnamedblk1\n- tests/gen/ch21/test_gen_cross_hiername_inst_loop_own_initial.sv:34: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 1ps; walltime 0.000 s; speed 5.882 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_loopgen_loop_own_initial.sv",
+      "seed": 1,
+      "input_sha256": "9758151d9c73012d2da84d98ed93f6ff99815fa0c1826136faf96e4d5fdf3e94",
+      "reason": "output differs: line 2 is 'in test_gen_cross_hiername_loopgen_loop_own_initial.g[1]....', expected 'in test_gen_cross_hiername_loopgen_loop_own_initial.g[1]....'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "from test_gen_cross_hiername_loopgen_loop_own_initial.g[1].u\nin test_gen_cross_hiername_loopgen_loop_own_initial.g[1].u.lp.unnamedblk1\n- tests/gen/ch21/test_gen_cross_hiername_loopgen_loop_own_initial.sv:36: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 1ps; walltime 0.000 s; speed 6.098 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_loopgen_loop_own_initial.sv",
+      "seed": 73,
+      "input_sha256": "9758151d9c73012d2da84d98ed93f6ff99815fa0c1826136faf96e4d5fdf3e94",
+      "reason": "output differs: line 2 is 'in test_gen_cross_hiername_loopgen_loop_own_initial.g[1]....', expected 'in test_gen_cross_hiername_loopgen_loop_own_initial.g[1]....'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "from test_gen_cross_hiername_loopgen_loop_own_initial.g[1].u\nin test_gen_cross_hiername_loopgen_loop_own_initial.g[1].u.lp.unnamedblk1\n- tests/gen/ch21/test_gen_cross_hiername_loopgen_loop_own_initial.sv:36: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 1ps; walltime 0.000 s; speed 6.849 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_namedgen_loop_own_initial.sv",
+      "seed": 1,
+      "input_sha256": "49a33619fcf8c9a9c689d3bcc9b4ed88a8db1ddda37ae9e815e54e5b4e7821ed",
+      "reason": "output differs: line 2 is 'in test_gen_cross_hiername_namedgen_loop_own_initial.n.u....', expected 'in test_gen_cross_hiername_namedgen_loop_own_initial.n.u.lp'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "from test_gen_cross_hiername_namedgen_loop_own_initial.n.u\nin test_gen_cross_hiername_namedgen_loop_own_initial.n.u.lp.unnamedblk1\n- tests/gen/ch21/test_gen_cross_hiername_namedgen_loop_own_initial.sv:36: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 1ps; walltime 0.000 s; speed 7.246 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_namedgen_loop_own_initial.sv",
+      "seed": 73,
+      "input_sha256": "49a33619fcf8c9a9c689d3bcc9b4ed88a8db1ddda37ae9e815e54e5b4e7821ed",
+      "reason": "output differs: line 2 is 'in test_gen_cross_hiername_namedgen_loop_own_initial.n.u....', expected 'in test_gen_cross_hiername_namedgen_loop_own_initial.n.u.lp'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "from test_gen_cross_hiername_namedgen_loop_own_initial.n.u\nin test_gen_cross_hiername_namedgen_loop_own_initial.n.u.lp.unnamedblk1\n- tests/gen/ch21/test_gen_cross_hiername_namedgen_loop_own_initial.sv:36: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 1ps; walltime 0.000 s; speed 6.135 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_nested_loop_own_initial.sv",
+      "seed": 1,
+      "input_sha256": "8031ae743441a226b00cd8e2367d8395d26b63c002e92b3b44030d80c73d256a",
+      "reason": "output differs: line 2 is 'in test_gen_cross_hiername_nested_loop_own_initial.w.v.lp...', expected 'in test_gen_cross_hiername_nested_loop_own_initial.w.v.lp'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "from test_gen_cross_hiername_nested_loop_own_initial.w.v\nin test_gen_cross_hiername_nested_loop_own_initial.w.v.lp.unnamedblk1\n- tests/gen/ch21/test_gen_cross_hiername_nested_loop_own_initial.sv:37: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 1ps; walltime 0.000 s; speed 6.849 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_nested_loop_own_initial.sv",
+      "seed": 73,
+      "input_sha256": "8031ae743441a226b00cd8e2367d8395d26b63c002e92b3b44030d80c73d256a",
+      "reason": "output differs: line 2 is 'in test_gen_cross_hiername_nested_loop_own_initial.w.v.lp...', expected 'in test_gen_cross_hiername_nested_loop_own_initial.w.v.lp'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "from test_gen_cross_hiername_nested_loop_own_initial.w.v\nin test_gen_cross_hiername_nested_loop_own_initial.w.v.lp.unnamedblk1\n- tests/gen/ch21/test_gen_cross_hiername_nested_loop_own_initial.sv:37: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 1ps; walltime 0.000 s; speed 6.667 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_top_loop_own_final.sv",
+      "seed": 1,
+      "input_sha256": "0ba6915fcdb0ec065ab4ef40fb47c434f0be432cf286fcaea4a4675363b9be22",
+      "reason": "output differs: line 2 is 'in test_gen_cross_hiername_top_loop_own_final.lp.unnamedblk1', expected 'in test_gen_cross_hiername_top_loop_own_final.lp'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "- tests/gen/ch21/test_gen_cross_hiername_top_loop_own_final.sv:31: Verilog $finish\nfrom test_gen_cross_hiername_top_loop_own_final\nin test_gen_cross_hiername_top_loop_own_final.lp.unnamedblk1\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 1ps; walltime 0.000 s; speed 6.289 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_top_loop_own_final.sv",
+      "seed": 73,
+      "input_sha256": "0ba6915fcdb0ec065ab4ef40fb47c434f0be432cf286fcaea4a4675363b9be22",
+      "reason": "output differs: line 2 is 'in test_gen_cross_hiername_top_loop_own_final.lp.unnamedblk1', expected 'in test_gen_cross_hiername_top_loop_own_final.lp'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "- tests/gen/ch21/test_gen_cross_hiername_top_loop_own_final.sv:31: Verilog $finish\nfrom test_gen_cross_hiername_top_loop_own_final\nin test_gen_cross_hiername_top_loop_own_final.lp.unnamedblk1\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 1ps; walltime 0.000 s; speed 7.092 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_unnamedgen_loop_own_initial.sv",
+      "seed": 1,
+      "input_sha256": "c2b30252307d95be75e2b7b5ad37cd7fa674a10d06350cc8dd439fbe75962a02",
+      "reason": "output differs: line 2 is 'in test_gen_cross_hiername_unnamedgen_loop_own_initial.ge...', expected 'in test_gen_cross_hiername_unnamedgen_loop_own_initial.ge...'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "from test_gen_cross_hiername_unnamedgen_loop_own_initial.genblk2.u\nin test_gen_cross_hiername_unnamedgen_loop_own_initial.genblk2.u.lp.unnamedblk1\n- tests/gen/ch21/test_gen_cross_hiername_unnamedgen_loop_own_initial.sv:39: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 1ps; walltime 0.000 s; speed 6.849 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_cross_hiername_unnamedgen_loop_own_initial.sv",
+      "seed": 73,
+      "input_sha256": "c2b30252307d95be75e2b7b5ad37cd7fa674a10d06350cc8dd439fbe75962a02",
+      "reason": "output differs: line 2 is 'in test_gen_cross_hiername_unnamedgen_loop_own_initial.ge...', expected 'in test_gen_cross_hiername_unnamedgen_loop_own_initial.ge...'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "from test_gen_cross_hiername_unnamedgen_loop_own_initial.genblk2.u\nin test_gen_cross_hiername_unnamedgen_loop_own_initial.genblk2.u.lp.unnamedblk1\n- tests/gen/ch21/test_gen_cross_hiername_unnamedgen_loop_own_initial.sv:39: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 1ps; walltime 0.000 s; speed 6.944 ns/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_hierproc_disable_array_waiting_fork.sv",
+      "seed": 1,
+      "input_sha256": "47e298f300ff6a8c7b27b538541b69a66fc392f36fabcdea2a822ffa45190073",
+      "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch23/test_gen_cross_hierproc_disable_array_waiting_fork.sv:48:9: Node of type CELLREF referenced by disable",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 1,
+          "diagnostics": [
+            "%Error-UNSUPPORTED: tests/gen/ch23/test_gen_cross_hierproc_disable_array_waiting_fork.sv:48:9: Node of type CELLREF referenced by disable",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_hierproc_disable_array_waiting_fork.sv",
+      "seed": 73,
+      "input_sha256": "47e298f300ff6a8c7b27b538541b69a66fc392f36fabcdea2a822ffa45190073",
+      "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch23/test_gen_cross_hierproc_disable_array_waiting_fork.sv:48:9: Node of type CELLREF referenced by disable",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 1,
+          "diagnostics": [
+            "%Error-UNSUPPORTED: tests/gen/ch23/test_gen_cross_hierproc_disable_array_waiting_fork.sv:48:9: Node of type CELLREF referenced by disable",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_hierproc_disable_generate_waiting_initial.sv",
+      "seed": 1,
+      "input_sha256": "dea61bd3d628df014dc9d85fd1d798b7fc83793a8c05977fbeb091f6536dd1ff",
+      "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch23/test_gen_cross_hierproc_disable_generate_waiting_initial.sv:48:5: Unsupported: Generate block referenced by disable",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 1,
+          "diagnostics": [
+            "%Error-UNSUPPORTED: tests/gen/ch23/test_gen_cross_hierproc_disable_generate_waiting_initial.sv:48:5: Unsupported: Generate block referenced by disable",
+            "%Error-UNSUPPORTED: tests/gen/ch23/test_gen_cross_hierproc_disable_generate_waiting_initial.sv:48:5: Node of type CELLREF referenced by disable",
+            "%Error: Exiting due to 2 error(s)"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch23/test_gen_cross_hierproc_disable_generate_waiting_initial.sv",
+      "seed": 73,
+      "input_sha256": "dea61bd3d628df014dc9d85fd1d798b7fc83793a8c05977fbeb091f6536dd1ff",
+      "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch23/test_gen_cross_hierproc_disable_generate_waiting_initial.sv:48:5: Unsupported: Generate block referenced by disable",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 1,
+          "diagnostics": [
+            "%Error-UNSUPPORTED: tests/gen/ch23/test_gen_cross_hierproc_disable_generate_waiting_initial.sv:48:5: Unsupported: Generate block referenced by disable",
+            "%Error-UNSUPPORTED: tests/gen/ch23/test_gen_cross_hierproc_disable_generate_waiting_initial.sv:48:5: Node of type CELLREF referenced by disable",
+            "%Error: Exiting due to 2 error(s)"
+          ]
+        }
+      ]
+    }
+  ],
+  "runner_sha256": {
+    "icarus": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+    "verilator": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+    "kirimasim": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb"
+  },
+  "executables_sha256": {
+    "iverilog": "5df81b269e1ff2c965dd00ad5a8071ca17717f416003b3661a18b2dde430e73c",
+    "vvp": "1a9bdf1f40102f64f015514f5069f99a5dd9f9f38de343743ef4c169fb358392",
+    "verilator_driver": "098b09b11ba7d3e904ae13d924a9e8dac8ced5c9d7c9beff3b9d36119a417581"
+  }
+}

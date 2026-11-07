@@ -6,9 +6,9 @@ Updated on 2026-11-06 JST, retaining the repair records from 2026-11-03. Preserv
 and selected models while addressing known failures, inventorying unsupported mechanisms
 and reviewing unexamined chapter pairs, in that order.
 
-The current [complete local selection](../coverage/interaction-results/cross101-kirimasim-eee8cd16-paramassertlit.json) has 101 models and 4,023 cases, run on kirimasim `eee8cd16ba1d`, built from the latest main:
-3,536 pass, 479 unsupported and eight failures: the four config failures and four additions where `defparam` gets the type and range wrong. Against the [previous complete run on `6e32b04ed6ec`](../coverage/interaction-results/cross98-kirimasim-6e32b04e-ifexprloopfmt.json), preceding 3,887 inputs and statuses are unchanged.
-The previous 195 cases passed the pinned comparisons in [Check on `b81077b0`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42377388671). These 136 cases have not run in formal Check/Nightly.
+The current [complete local selection](../coverage/interaction-results/cross104-kirimasim-28c6c1a1-hierloop.json) has 104 models and 4,170 cases, run on kirimasim `28c6c1a1cb83`, built from the latest main:
+3,683 pass, 479 unsupported and eight failures: the four config failures and the four where `defparam` gets the type and range wrong. Against the [previous complete run on `eee8cd16ba1d`](../coverage/interaction-results/cross101-kirimasim-eee8cd16-paramassertlit.json), preceding 4,023 inputs and statuses are unchanged.
+The previous 136 cases passed the pinned comparisons in [Check on `76cb9785`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42386486773). These 147 cases have not run in formal Check/Nightly.
 
 [Check on baseline 67321079](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584) passed pinned comparisons/static checks on the preceding 88-model suite.
 [Nightly on the same baseline](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265) and all its jobs succeeded; individual artifacts remain uninspected. Later additions are outside both runs.
@@ -99,7 +99,7 @@ At the initial review, two R pairs were reviewed and 590 remained unassessed.
   independent factors. First establish legal expressions and positive dimensions and repair the
   known config reset difference.
 
-The current triage is M177, E3, C2, N117 and R521. See the
+The current triage is M181, E3, C2, N117 and R517. See the
 [pair rationales and fingerprints](chapter-cross-triage.en.md). Reuse existing regression matrices
 and extend confirmed mechanisms with boundaries, operation sequences and fault controls.
 No parallel-purpose runner or addition of random outcomes to fixed requirement coverage was introduced.
@@ -169,7 +169,7 @@ Requirement bindings, thirteen random profiles, existing regressions and core so
 The four items below were left out because kirimasim has not implemented them. They have no tests yet, so no result changes when the feature arrives, and only a check reveals it.
 When a full cross run uses a new kirimasim build, try the programs below. When one no longer reports `not implemented yet`, add the model or observation.
 The 529 existing unsupported cases are not listed: they have tests, and their results change once the feature is implemented.
-Add anything else left out for this reason here, and remove an item once it is added. The status is from kirimasim `eee8cd16ba1d` on 2026-11-07.
+Add anything else left out for this reason here, and remove an item once it is added. The status is from kirimasim `28c6c1a1cb83` on 2026-11-08.
 
 Take expectations from the standard, and check them by [running every legal row once](interaction-verification-method.en.md#run-every-legal-row-once).
 
@@ -250,3 +250,12 @@ endmodule
 - kirimasim has no difference on all 922 rows of the assertion and literal-argument models.
 - Concurrent assertions are not implemented in kirimasim, so they were added to the [candidates waiting for kirimasim](#models-waiting-for-kirimasim). The other three are still unimplemented on `eee8cd16ba1d`.
 - The simulator sources of `eee8cd16ba1d` are the same as those of `6e32b04ed6ec`, and preceding 3,887 inputs and statuses do not change.
+
+## Process control through hierarchical names, %m, array query functions and loops (2026-11-08)
+
+- Added models for [process control through hierarchical names](interaction-verification.en.md#hierarchical-process-control), [hierarchical names printed by %m](interaction-verification.en.md#hierarchical-name-display) and [array query functions and loops](interaction-verification.en.md#array-query-loop).
+- Four chapter pairs moved from R to M: 9 x 23, 15 x 23, 21 x 23 and 12 x 20.
+- One complete 4,170-case run on kirimasim `28c6c1a1cb83` records 3,683 pass, 479 unsupported and eight failures. All 147 additions pass. Totals: 104 models, 181 chapter pairs, 79 full-selection-pass models.
+- kirimasim has no difference on all 869 legal rows, and no expectation changed. Every difference from Icarus and Verilator, including six rows where two-state Verilator cannot hold x, was judged against the clauses to be on the side of that simulator.
+- The front end of `28c6c1a1cb83` changed since `eee8cd16ba1d`, but preceding 4,023 inputs and statuses do not change. The four `defparam` cases still fail.
+- The four [candidates waiting for kirimasim](#models-waiting-for-kirimasim) still report `not implemented yet` on `28c6c1a1cb83`.

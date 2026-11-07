@@ -14,12 +14,19 @@ Before reading model counts, see [a three-way condition missing from 100% pairwi
 
 ## Saved-run summary
 
+The 2026-11-08 hierarchical-process-control, %m and array-query-loop additions bring totals to **104 models / 4,170 cases / 181 chapter pairs**.
+The [single run](../coverage/interaction-results/cross104-kirimasim-28c6c1a1-hierloop.json) on kirimasim `28c6c1a1cb83`, built from the latest main, records
+**3,683 pass / 479 unsupported / eight fail**: the four existing config failures and the four where `defparam` gets the type and range wrong, as before.
+All 147 additions pass, and preceding 4,023 inputs and statuses are unchanged. 79 models pass their entire selection.
+See [process control through hierarchical names](#hierarchical-process-control), [hierarchical names printed by %m](#hierarchical-name-display) and [array query functions and loops](#array-query-loop) for the independent checks and pinned comparisons.
+The 147 additions have not run in formal Check/Nightly.
+
 The 2026-11-07 parameter-override, assertion-query and literal-argument additions bring totals to **101 models / 4,023 cases / 177 chapter pairs**.
 The [single run](../coverage/interaction-results/cross101-kirimasim-eee8cd16-paramassertlit.json) on kirimasim `eee8cd16ba1d`, built from the latest main, records
 **3,536 pass / 479 unsupported / eight fail**: the four existing config failures and four additions where `defparam` gets the type and range wrong.
 132 of the 136 additions pass, and preceding 3,887 inputs and statuses are unchanged. 76 models pass their entire selection.
 See [parameter overrides and types](#parameter-override-type), [bit vector functions in assertions](#assertion-vector-query) and [literal arguments and conversion](#literal-argument-conversion) for the independent checks and pinned comparisons.
-The 136 additions have not run in formal Check/Nightly.
+The 136 additions passed the pinned comparisons in [Check on `76cb9785`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42386486773); they have not run in Nightly.
 
 The 2026-11-07 interface-expression, loop-control and literal-format additions bring totals to **98 models / 3,887 cases / 173 chapter pairs**.
 The [single run](../coverage/interaction-results/cross98-kirimasim-6e32b04e-ifexprloopfmt.json) on kirimasim `6e32b04ed6ec`, built from the latest main, records
@@ -4325,3 +4332,106 @@ In the [single complete 4,023-case run](../coverage/interaction-results/cross101
 
 [Pinned Icarus 13.0](../coverage/interaction-results/cross101-paramassertlit-icarus13.json) has 57 pass / 5 known. Over all rows it matches 422, differs on 20 and rejects 30, all of them default-argument rows.
 [Pinned Verilator 5.052](../coverage/interaction-results/cross101-paramassertlit-verilator5052-seed1.json) has 57 pass / 5 known also at [seed 73](../coverage/interaction-results/cross101-paramassertlit-verilator5052-seed73.json).
+
+<a id="hierarchical-process-control"></a>
+
+## Process control through hierarchical names (2026-11-08)
+
+[`interaction_hierproc.py`](../generators/interaction_hierproc.py) defines `hierarchical_process_control@1`.
+Chapters 9 x 23 map to all 42 cases; chapters 15 x 23 map to event-trigger rows, 13 x 23 to task-call rows and 10 x 23 to value-write rows.
+
+### Factors and scope
+
+The action (`disable` of a named block, `->` of an event, a blocking write that wakes `@`, a blocking write that lets `wait` go on, a nonblocking write, a call of a task with a delay),
+the hierarchical name (downward, downward to a grandchild, an element of an instance array, inside a loop generate block, from `$root`, upward by the module name, upward to a sibling instance),
+the timing (the target waits from time 1, or from time 4 after the action) and the actor (initial, its own task, a child of `fork`-`join_none`) are crossed.
+42 cases come from 252 legal rows, covering 149 targets including the action, timing and actor group and keeping seven mandatory witnesses.
+
+### What it distinguishes
+
+A downward name, a name from `$root`, and an upward name by a module name or a sibling instance name all reach the same target (23.6, 23.8).
+Disabling a running block goes on after that block. [Disabling a block that is not running](../tests/gen/ch23/test_gen_cross_hierproc_disable_root_late_initial.sv) does nothing (9.6.2).
+An event trigger or a value change with no process waiting is lost, but [a `wait`](../tests/gen/ch23/test_gen_cross_hierproc_level_generate_late_initial.sv) goes on at once when its condition already holds as it starts (9.4.3).
+A read right after a nonblocking write gives the old value. A task called through a hierarchical name writes the variable of the instance where it is declared, and its delay passes in the calling process.
+The actor prints before it acts, so no two processes race to print in the same time slot.
+
+### Independent check and runs
+
+[`qualify_hierproc.py`](../tools/qualify_hierproc.py) builds the tree of instances, generate blocks, tasks and named blocks from the actual SV and resolves names by the steps of 23.6 and 23.8.
+It runs each process under a scheduler with an active and an NBA region, and checks that every start order of the processes gives the same output. All 252 programs match.
+The [auxiliary evidence](../coverage/interaction-qualification/hierproc.json) keeps seven normal controls and seven executable faults, all detected by an output difference after a normal exit.
+
+In the [single complete 4,170-case run](../coverage/interaction-results/cross104-kirimasim-28c6c1a1-hierloop.json) on kirimasim `28c6c1a1cb83`, all 42 additions pass. kirimasim has no difference on all 252 rows.
+
+### Pinned-release differences
+
+[Pinned Icarus 13.0](../coverage/interaction-results/cross104-hierloop-icarus13.json) has 36 pass / 6 known. Over all rows it reports a syntax error on the 36 rows with `$root` and matches the other 216.
+[Pinned Verilator 5.052](../coverage/interaction-results/cross104-hierloop-verilator5052-seed1.json) has 40 pass / 2 known also at [seed 73](../coverage/interaction-results/cross104-hierloop-verilator5052-seed73.json). Over all rows it does not support `disable` through an instance array element or a generate block (12 rows) and matches the other 240.
+
+<a id="hierarchical-name-display"></a>
+
+## Hierarchical names printed by %m (2026-11-08)
+
+[`interaction_hiername.py`](../generators/interaction_hiername.py) defines `hierarchical_name_display@1`.
+Chapters 21 x 23 map to all 65 cases; chapters 21 x 27 map to rows inside generate blocks, 13 x 21 to subroutine rows, 9 x 21 to named-block and label rows, and 12 x 21 to loop-label rows.
+
+### Factors and scope
+
+The place (the top module, a child, a grandchild, an element of an instance array, a loop generate block, a named generate block, an unnamed generate block),
+the scope (the module, a named begin, nested begins, a named fork, a statement label, the label of a `for` that declares its variable, a task, an automatic task, a function),
+the call (from its own module, downward, from `$root`, upward by the module name) and the procedure (initial, final) are crossed.
+65 cases come from 177 legal rows, covering 170 targets including the scope, call and procedure group and keeping seven mandatory witnesses.
+
+### What it distinguishes
+
+`%m` prints the hierarchical name of the module instance, named block, labeled statement or subroutine that holds the display (21.2.1.5).
+A subroutine prints the name where it is declared, whether it is called from its own module, downward, from `$root` or [upward](../tests/gen/ch21/test_gen_cross_hiername_unnamedgen_task_up_initial.sv). The caller first prints its own name.
+A statement label and the label of a `for` that declares its variable make a named block (9.3.5).
+An unnamed generate block is named `genblk` with the number of its generate construct counted in its scope (27.6). Here a named loop generate comes first, so the name is `genblk2`.
+Names inside an unnamed generate block cannot be reached from outside it, so downward and `$root` calls into it are left out. A final procedure holds only what a function may hold, so task calls and `fork`-`join` are left out there.
+
+### Independent check and runs
+
+[`qualify_hiername.py`](../tools/qualify_hiername.py) builds the tree from the actual SV, names unnamed generate blocks by the numbers of the generate constructs, and resolves labels and subroutine names. All 177 programs match.
+The [auxiliary evidence](../coverage/interaction-qualification/hiername.json) keeps seven normal controls and seven executable faults, all detected by an output difference after a normal exit.
+
+In the [single complete 4,170-case run](../coverage/interaction-results/cross104-kirimasim-28c6c1a1-hierloop.json) on kirimasim `28c6c1a1cb83`, all 65 additions pass. kirimasim has no difference on all 177 rows.
+
+### Pinned-release differences
+
+[Pinned Icarus 13.0](../coverage/interaction-results/cross104-hierloop-icarus13.json) has 45 pass / 20 known. Over all rows it reports a syntax error on 28 rows with statement or loop labels and 24 rows with `$root`, and matches the other 125.
+[Pinned Verilator 5.052](../coverage/interaction-results/cross104-hierloop-verilator5052-seed1.json) has 58 pass / 7 known also at [seed 73](../coverage/interaction-results/cross104-hierloop-verilator5052-seed73.json). Over all rows `%m` adds an extra `.unnamedblk1` on the 14 loop-label rows.
+
+<a id="array-query-loop"></a>
+
+## Array query functions and loops (2026-11-08)
+
+[`interaction_arrayloop.py`](../generators/interaction_arrayloop.py) defines `array_query_loop@1`.
+Chapters 12 x 20 and 7 x 20 map to all 40 cases; chapters 7 x 12 map to `foreach` and `do`-`while` rows.
+
+### Factors and scope
+
+The dimension (`[0:3]`, `[3:0]`, `[5:2]`, `[-2:1]`, a packed `[1:4]`, a dynamic array, a queue, an empty dynamic array),
+the query (the variable, a `typedef` type name, the second dimension, the element select `w[1]`),
+the loop (`for`, `while`, `do`-`while`, `repeat`, `foreach`) and the range (left to right, low to high, high to low, counting `$size`) are crossed.
+40 cases come from 440 legal rows, covering 151 pair targets and keeping seven mandatory witnesses.
+
+### What it distinguishes
+
+`$increment` is 1 for a fixed dimension whose left bound is not less than its right bound, -1 for another fixed dimension, and -1 for a dynamic array or a queue; `$low` and `$high` follow from it (20.7).
+An empty dynamic array has `$right` and `$high` of -1 and `$size` of 0. `$dimensions` counts packed dimensions as well, and `$unpacked_dimensions` does not.
+[A query of the second dimension](../tests/gen/ch20/test_gen_cross_arrayloop_neg_dim_for_leftright.sv) walks the negative range `[-2:1]` from left to right. A type name and a dimension after the first are queried on fixed-size dimensions only (20.7.1).
+`foreach` goes from the left index to the right (12.7.3). [A `do`-`while` on an empty array](../tests/gen/ch20/test_gen_cross_arrayloop_empty_elem_do_highlow.sv) runs once and reads x from the element that does not exist (7.4.5).
+
+### Independent check and runs
+
+[`qualify_arrayloop.py`](../tools/qualify_arrayloop.py) lists the dimensions from the declarations of the actual SV, unpacked first and then packed, computes the queries by the rules of 20.7, and evaluates the statements and loops directly. All 440 programs match.
+The [auxiliary evidence](../coverage/interaction-qualification/arrayloop.json) keeps seven normal controls and seven executable faults, all detected by an output difference after a normal exit.
+
+In the [single complete 4,170-case run](../coverage/interaction-results/cross104-kirimasim-28c6c1a1-hierloop.json) on kirimasim `28c6c1a1cb83`, all 40 additions pass. kirimasim has no difference on all 440 rows.
+
+### Pinned-release differences
+
+[Pinned Icarus 13.0](../coverage/interaction-results/cross104-hierloop-icarus13.json) has 14 pass / 26 known. Over all rows it matches 169, differs on 49, rejects 221 and does not end on one.
+[Pinned Verilator 5.052](../coverage/interaction-results/cross104-hierloop-verilator5052-seed1.json) has 38 pass / 2 known also at [seed 73](../coverage/interaction-results/cross104-hierloop-verilator5052-seed73.json). Over all rows it matches 432 and differs on eight.
+See the [simulator differences](simulator-differences.md#hier-array-differences).

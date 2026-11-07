@@ -2797,6 +2797,158 @@
           "reason": "二値の型・real・stringの仮引数へ渡すと、xが0になり、実数が丸められ、文字列が文字のまま渡ることを確かめる。"
         }
       ]
+    },
+    {
+      "id": "hierarchical_process_control",
+      "primary_chapter": 23,
+      "pairs": [
+        {
+          "chapters": [
+            9,
+            23
+          ],
+          "reason": "別のインスタンスのプロセスを、階層名によるdisable・イベント・値の変化・taskの呼出しで止めたり起こしたりし、待ち始める前の操作が失われることを確かめる。"
+        },
+        {
+          "chapters": [
+            15,
+            23
+          ],
+          "when": {
+            "action": [
+              "trigger"
+            ]
+          },
+          "reason": "階層名で指したイベントの起動が、待っているプロセスだけを起こすことを確かめる。"
+        },
+        {
+          "chapters": [
+            13,
+            23
+          ],
+          "when": {
+            "action": [
+              "call"
+            ]
+          },
+          "reason": "階層名で呼んだtaskが、定義したインスタンスの変数を書き、遅延を呼び出し元のプロセスで経過させることを確かめる。"
+        },
+        {
+          "chapters": [
+            10,
+            23
+          ],
+          "when": {
+            "action": [
+              "write",
+              "level",
+              "nba"
+            ]
+          },
+          "reason": "階層名への即時代入とノンブロッキング代入で、同じタイムスロットに読む値と、待つプロセスが起きる時刻を確かめる。"
+        }
+      ]
+    },
+    {
+      "id": "hierarchical_name_display",
+      "primary_chapter": 21,
+      "pairs": [
+        {
+          "chapters": [
+            21,
+            23
+          ],
+          "reason": "%mが、子・孫・インスタンス配列・上向きと$rootの呼出しでも、表示を含むスコープの階層名を出すことを確かめる。"
+        },
+        {
+          "chapters": [
+            21,
+            27
+          ],
+          "when": {
+            "place": [
+              "loopgen",
+              "namedgen",
+              "unnamedgen"
+            ]
+          },
+          "reason": "ループ生成・名前付きの生成ブロック・番号で名前の付く生成ブロックが、%mの階層名に入ることを確かめる。"
+        },
+        {
+          "chapters": [
+            13,
+            21
+          ],
+          "when": {
+            "scope": [
+              "task",
+              "auto",
+              "function"
+            ]
+          },
+          "reason": "task・automatic task・functionの中の%mが、呼び出し元ではなく定義の場所の名前になることを確かめる。"
+        },
+        {
+          "chapters": [
+            9,
+            21
+          ],
+          "when": {
+            "scope": [
+              "block",
+              "nested",
+              "fork",
+              "label"
+            ]
+          },
+          "reason": "名前付きのbegin・fork・文のラベルが、%mの階層名を一段深くすることを確かめる。"
+        },
+        {
+          "chapters": [
+            12,
+            21
+          ],
+          "when": {
+            "scope": [
+              "loop"
+            ]
+          },
+          "reason": "変数を宣言するforのラベルが、ループの暗黙のブロックの名前として%mに出ることを確かめる。"
+        }
+      ]
+    },
+    {
+      "id": "array_query_loop",
+      "primary_chapter": 20,
+      "pairs": [
+        {
+          "chapters": [
+            12,
+            20
+          ],
+          "reason": "for・while・do-while・repeat・foreachの範囲を$left・$right・$low・$high・$increment・$sizeで決め、訪れる添字の順序を確かめる。"
+        },
+        {
+          "chapters": [
+            7,
+            20
+          ],
+          "reason": "固定・パック・動的配列・キュー・空の動的配列と、型の名前・2番目の次元・要素の選択への問い合わせの値を確かめる。"
+        },
+        {
+          "chapters": [
+            7,
+            12
+          ],
+          "when": {
+            "loop": [
+              "foreach",
+              "do"
+            ]
+          },
+          "reason": "foreachが添字を左から右へ進み、do-whileが空の配列でもない要素を一度読むことを確かめる。"
+        }
+      ]
     }
   ]
 }

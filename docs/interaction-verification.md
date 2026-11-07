@@ -14,12 +14,19 @@
 
 ## 保存実行の概要
 
+2026-11-08の階層名によるプロセスの制御・%mの階層名・配列の問い合わせ関数とループの追加で、**104モデル・4,170件・181章対**になりました。
+最新のmainをビルドしたkirimasim `28c6c1a1cb83`の[単一実行](../coverage/interaction-results/cross104-kirimasim-28c6c1a1-hierloop.json)は、
+**3,683 pass・479 unsupported・8 fail**です。failは既存configの4件と、`defparam`の型と範囲を取り違える4件で、前回と同じです。
+追加147件は全PASSで、従来4,023件の入力と状態は不変です。全選択ケースPASSは79モデルです。
+[階層名によるプロセスの制御](#hierarchical-process-control)、[%mの階層名](#hierarchical-name-display)、[配列の問い合わせ関数とループ](#array-query-loop)に独立検算と固定版比較を記録します。
+追加147件は正式Check・Nightlyでは未実行です。
+
 2026-11-07のパラメータの上書き・アサーションのビットベクタ関数・リテラルの引数の追加で、**101モデル・4,023件・177章対**になりました。
 最新のmainをビルドしたkirimasim `eee8cd16ba1d`の[単一実行](../coverage/interaction-results/cross101-kirimasim-eee8cd16-paramassertlit.json)は、
 **3,536 pass・479 unsupported・8 fail**です。failは既存configの4件と、`defparam`の型と範囲を取り違える追加の4件です。
 追加136件のうち132件がPASSで、従来3,887件の入力と状態は不変です。全選択ケースPASSは76モデルです。
 [パラメータの上書きと型](#parameter-override-type)、[アサーションの中のビットベクタ関数](#assertion-vector-query)、[リテラルの引数と変換](#literal-argument-conversion)に独立検算と固定版比較を記録します。
-追加136件は正式Check・Nightlyでは未実行です。
+追加136件は[`76cb9785`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42386486773)で固定版比較が成功しました。Nightlyでは未実行です。
 
 2026-11-07のインタフェースの式・ループの制御・リテラルの表示の追加で、**98モデル・3,887件・173章対**になりました。
 最新のmainをビルドしたkirimasim `6e32b04ed6ec`の[単一実行](../coverage/interaction-results/cross98-kirimasim-6e32b04e-ifexprloopfmt.json)は、
@@ -4301,3 +4308,106 @@ kirimasim `eee8cd16ba1d`の[単一の全4,023件](../coverage/interaction-result
 
 [固定Icarus 13.0](../coverage/interaction-results/cross101-paramassertlit-icarus13.json)は57 pass・5 knownです。全行では422行が一致し、20行が異なり、30行を拒否します。差はすべて既定値の行です。
 [固定Verilator 5.052](../coverage/interaction-results/cross101-paramassertlit-verilator5052-seed1.json)は[seed 73](../coverage/interaction-results/cross101-paramassertlit-verilator5052-seed73.json)でも57 pass・5 knownです。
+
+<a id="hierarchical-process-control"></a>
+
+## 階層名によるプロセスの制御（2026-11-08）
+
+[`interaction_hierproc.py`](../generators/interaction_hierproc.py)は`hierarchical_process_control@1`を定義します。
+第9章×第23章は全42件に対応し、第15章×第23章はイベントの起動の行、第13章×第23章はtaskの呼出しの行、第10章×第23章は値の書込みの行に対応します。
+
+### 因子・対象範囲
+
+操作（名前付きブロックの`disable`、イベントの`->`、即時代入で`@`を起こす、即時代入で`wait`を進める、ノンブロッキング代入、遅延のあるtaskの呼出し）、
+階層名（下向き、孫への下向き、インスタンス配列の要素、ループ生成ブロックの中、`$root`から、モジュール名による上向き、兄弟のインスタンスへの上向き）、
+タイミング（対象が時刻1から待つ、操作の後の時刻4から待つ）、操作する側（initial、自分のtask、`fork`-`join_none`の子）を交差します。
+合法252行から42件を選びます。操作・タイミング・操作する側の3因子群を含む149目標、必須7件を保持します。
+
+### 何を区別するか
+
+階層名は、下向きの名前、`$root`からの名前、モジュール名や兄弟のインスタンス名による上向きの名前のどれでも同じ対象を指します（23.6、23.8）。
+実行中のブロックを`disable`すると、そのブロックの後から続きます。[実行中でないブロックの`disable`](../tests/gen/ch23/test_gen_cross_hierproc_disable_root_late_initial.sv)は何もしません（9.6.2）。
+待つプロセスのないイベントの起動と値の変化は失われますが、[`wait`](../tests/gen/ch23/test_gen_cross_hierproc_level_generate_late_initial.sv)は待ち始めに条件が成り立っていればすぐに進みます（9.4.3）。
+ノンブロッキング代入の直後に読む値は古い値です。階層名で呼んだtaskは、定義したインスタンスの変数を書き、遅延は呼び出し元のプロセスで経過します。
+操作する側は操作の前に値を表示するので、同じタイムスロットでほかのプロセスと表示の順序を競いません。
+
+### 独立検算と実行結果
+
+[`qualify_hierproc.py`](../tools/qualify_hierproc.py)は実際のSVからインスタンス・生成ブロック・task・名前付きブロックの木を作り、23.6と23.8の手順で名前を解決します。
+各プロセスをActive領域とNBA領域を持つスケジューラで実行し、プロセスの開始の全順序で同じ出力になることを確かめました。全252プログラムが一致しました。
+[補助証跡](../coverage/interaction-qualification/hierproc.json)には正常対照7件と実行可能な誤り7件を保存し、すべて正常終了後の出力差で検出しました。
+
+kirimasim `28c6c1a1cb83`の[単一の全4,170件](../coverage/interaction-results/cross104-kirimasim-28c6c1a1-hierloop.json)で追加42件は全PASSです。全252行でkirimasimの差は0件です。
+
+### 固定版の差異
+
+[固定Icarus 13.0](../coverage/interaction-results/cross104-hierloop-icarus13.json)は36 pass・6 knownです。全行では`$root`を含む36行を構文エラーとし、残る216行は一致します。
+[固定Verilator 5.052](../coverage/interaction-results/cross104-hierloop-verilator5052-seed1.json)は[seed 73](../coverage/interaction-results/cross104-hierloop-verilator5052-seed73.json)でも40 pass・2 knownです。全行ではインスタンス配列の要素と生成ブロックを通る`disable`の12行を未対応とし、残る240行は一致します。
+
+<a id="hierarchical-name-display"></a>
+
+## %mの階層名（2026-11-08）
+
+[`interaction_hiername.py`](../generators/interaction_hiername.py)は`hierarchical_name_display@1`を定義します。
+第21章×第23章は全65件に対応し、第21章×第27章は生成ブロックの中の行、第13章×第21章はサブルーチンの行、第9章×第21章は名前付きブロックとラベルの行、第12章×第21章はループのラベルの行に対応します。
+
+### 因子・対象範囲
+
+場所（トップ、子、孫、インスタンス配列の要素、ループ生成、名前付きの生成ブロック、名前のない生成ブロック）、
+スコープ（モジュール、名前付きbegin、入れ子のbegin、名前付きfork、文のラベル、変数を宣言する`for`のラベル、task、automatic task、function）、
+呼出し（自分のモジュール、下向き、`$root`から、モジュール名による上向き）、手続き（initial、final）を交差します。
+合法177行から65件を選びます。スコープ・呼出し・手続きの3因子群を含む170目標、必須7件を保持します。
+
+### 何を区別するか
+
+`%m`は表示を含むモジュールのインスタンス、名前付きブロック、ラベル付きの文、サブルーチンの階層名を出します（21.2.1.5）。
+サブルーチンは、自分のモジュール・下向き・`$root`・[上向き](../tests/gen/ch21/test_gen_cross_hiername_unnamedgen_task_up_initial.sv)のどこから呼んでも、定義の場所の名前になります。呼び出す側は先に自分の名前を表示します。
+文のラベルと、変数を宣言する`for`のラベルは名前付きのブロックを作ります（9.3.5）。
+名前のない生成ブロックは、同じスコープの生成構文を前から数えた番号で`genblk`と名付けます（27.6）。このモデルでは名前付きのループ生成が先にあるので`genblk2`です。
+名前のない生成ブロックの中は外から参照できないので、その下向きと`$root`の呼出しは除きます。finalは関数に書ける文だけを持つので、taskの呼出しと`fork`-`join`を除きます。
+
+### 独立検算と実行結果
+
+[`qualify_hiername.py`](../tools/qualify_hiername.py)は実際のSVから木を作り、生成構文の番号から名前のない生成ブロックの名前を決め、ラベルとサブルーチンの名前を解決します。全177プログラムが一致しました。
+[補助証跡](../coverage/interaction-qualification/hiername.json)には正常対照7件と実行可能な誤り7件を保存し、すべて正常終了後の出力差で検出しました。
+
+kirimasim `28c6c1a1cb83`の[単一の全4,170件](../coverage/interaction-results/cross104-kirimasim-28c6c1a1-hierloop.json)で追加65件は全PASSです。全177行でkirimasimの差は0件です。
+
+### 固定版の差異
+
+[固定Icarus 13.0](../coverage/interaction-results/cross104-hierloop-icarus13.json)は45 pass・20 knownです。全行では文のラベルとループのラベルの28行、`$root`の24行を構文エラーとし、残る125行は一致します。
+[固定Verilator 5.052](../coverage/interaction-results/cross104-hierloop-verilator5052-seed1.json)は[seed 73](../coverage/interaction-results/cross104-hierloop-verilator5052-seed73.json)でも58 pass・7 knownです。全行ではループのラベルの14行で、`%m`が`.unnamedblk1`を余分に足します。
+
+<a id="array-query-loop"></a>
+
+## 配列の問い合わせ関数とループ（2026-11-08）
+
+[`interaction_arrayloop.py`](../generators/interaction_arrayloop.py)は`array_query_loop@1`を定義します。
+第12章×第20章と第7章×第20章は全40件に対応し、第7章×第12章は`foreach`と`do`-`while`の行に対応します。
+
+### 因子・対象範囲
+
+次元（`[0:3]`、`[3:0]`、`[5:2]`、`[-2:1]`、パックの`[1:4]`、動的配列、キュー、空の動的配列）、
+問い合わせ（変数、`typedef`の型の名前、2番目の次元、要素の選択`w[1]`）、
+ループ（`for`、`while`、`do`-`while`、`repeat`、`foreach`）、範囲（左から右、小さい順、大きい順、`$size`で数える）を交差します。
+合法440行から40件を選びます。全因子対151目標、必須7件を保持します。
+
+### 何を区別するか
+
+`$increment`は固定の次元で左が右以上なら1、そうでなければ-1、動的配列とキューでは-1です。`$low`と`$high`はそこから決まります（20.7）。
+空の動的配列では`$right`と`$high`が-1、`$size`が0です。`$dimensions`はパックの次元も数え、`$unpacked_dimensions`は数えません。
+[2番目の次元の問い合わせ](../tests/gen/ch20/test_gen_cross_arrayloop_neg_dim_for_leftright.sv)は負の範囲`[-2:1]`を左から右へ進みます。型の名前と2番目の次元は固定の大きさの次元だけに使います（20.7.1）。
+`foreach`は左の添字から右へ進みます（12.7.3）。[空の配列の`do`-`while`](../tests/gen/ch20/test_gen_cross_arrayloop_empty_elem_do_highlow.sv)は一度実行して、ない要素のxを読みます（7.4.5）。
+
+### 独立検算と実行結果
+
+[`qualify_arrayloop.py`](../tools/qualify_arrayloop.py)は実際のSVの宣言から、アンパック・パックの順に次元を並べ、20.7の規則で問い合わせを計算して、文とループを直接評価します。全440プログラムが一致しました。
+[補助証跡](../coverage/interaction-qualification/arrayloop.json)には正常対照7件と実行可能な誤り7件を保存し、すべて正常終了後の出力差で検出しました。
+
+kirimasim `28c6c1a1cb83`の[単一の全4,170件](../coverage/interaction-results/cross104-kirimasim-28c6c1a1-hierloop.json)で追加40件は全PASSです。全440行でkirimasimの差は0件です。
+
+### 固定版の差異
+
+[固定Icarus 13.0](../coverage/interaction-results/cross104-hierloop-icarus13.json)は14 pass・26 knownです。全行では169行が一致し、49行が異なり、221行を拒否し、1行が終わりません。
+[固定Verilator 5.052](../coverage/interaction-results/cross104-hierloop-verilator5052-seed1.json)は[seed 73](../coverage/interaction-results/cross104-hierloop-verilator5052-seed73.json)でも38 pass・2 knownです。全行では432行が一致し、8行が異なります。
+内訳は[シミュレータ差異](simulator-differences.ja.md#hier-array-differences)を参照してください。

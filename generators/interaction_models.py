@@ -100,6 +100,9 @@ import interaction_ifexpr
 import interaction_paramtype
 import interaction_assertquery
 import interaction_litarg
+import interaction_hierproc
+import interaction_hiername
+import interaction_arrayloop
 import interaction_loopsched
 import interaction_litfmt
 import interaction_compound
@@ -110,7 +113,7 @@ import combination_monitors
 import scheduling
 from interaction_cover import Model, Row
 
-GENERATORS = (interaction_paramtype, interaction_assertquery, interaction_litarg, interaction_ifexpr, interaction_loopsched, interaction_litfmt, interaction_macro, interaction_force, interaction_sense, interaction_gatearray, interaction_literal, interaction_timescope, interaction_eventflow, interaction_pkgquery, interaction_progframe, interaction_scansel, interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
+GENERATORS = (interaction_hierproc, interaction_hiername, interaction_arrayloop, interaction_paramtype, interaction_assertquery, interaction_litarg, interaction_ifexpr, interaction_loopsched, interaction_litfmt, interaction_macro, interaction_force, interaction_sense, interaction_gatearray, interaction_literal, interaction_timescope, interaction_eventflow, interaction_pkgquery, interaction_progframe, interaction_scansel, interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
               interaction_shift, interaction_cast, interaction_task, interaction_binding,
               interaction_struct, interaction_case, interaction_port,
               interaction_array, interaction_query, interaction_stream,
@@ -883,5 +886,29 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_litarg.MODEL.select(),
             "符号付き・無サイズ・unbased unsized・実数・文字列のリテラルを、型の違う仮引数・既定値・戻り値へ渡す。"
             "代入と同じ変換と、エスケープした識別子の名前による結合を確かめる。",
+        ),
+        SuiteModel(
+            interaction_hierproc.MODEL,
+            lambda row: "tests/gen/ch23/" + interaction_hierproc.case_name(row) + ".sv",
+            interaction_hierproc.MODEL.select(),
+            "下向き・入れ子・インスタンス配列・生成ブロック・$root・モジュール名による上向き・兄弟への上向きの階層名で、"
+            "別のインスタンスの名前付きブロックのdisable、イベントの起動、値の書込み、taskの呼出しをする。"
+            "対象が待ち始める前後で、効果が失われるか残るかを確かめる。",
+        ),
+        SuiteModel(
+            interaction_hiername.MODEL,
+            lambda row: "tests/gen/ch21/" + interaction_hiername.case_name(row) + ".sv",
+            interaction_hiername.MODEL.select(),
+            "トップ・子・孫・インスタンス配列・ループ生成・名前付きと名前のない生成ブロックの中で、"
+            "モジュール・名前付きブロック・fork・文のラベル・ループのラベル・task・function・automatic taskから%mを表示する。"
+            "サブルーチンを自分のモジュール・下向き・$root・上向きから呼んでも、定義の場所の名前になることを確かめる。",
+        ),
+        SuiteModel(
+            interaction_arrayloop.MODEL,
+            lambda row: "tests/gen/ch20/" + interaction_arrayloop.case_name(row) + ".sv",
+            interaction_arrayloop.MODEL.select(),
+            "昇順・降順・オフセット・負の範囲の固定の次元、パックの次元、動的配列、キュー、空の動的配列を、"
+            "変数・型の名前・2番目の次元・要素の選択から$left・$right・$low・$high・$increment・$sizeで問い合わせる。"
+            "for・while・do-while・repeat・foreachで、左から右・小さい順・大きい順・個数で進むことを確かめる。",
         ),
     )

@@ -24549,6 +24549,9 @@
     "Bit vector functions count only the bits they name, inside immediate and deferred assertions": "ビットベクタ関数は、即時・遅延アサーションの中でも指定したビットだけを数える",
     "A literal passed to a subroutine is converted to the type of the formal": "サブルーチンに渡したリテラルは、仮引数の型へ変換される",
     "buf and not gates whose input is the constant ZXQPH0QXZ or an undriven net drive x, and the nets they drive take that value": "入力が定数 ZXQPH0QXZ または未駆動のネットである buf ゲートと not ゲートは x を駆動し、それらが駆動するネットはその値をとる",
-    "an ZXQPH0QXZ declared unsigned holds all ones as ZXQPH1QXZ and compares and shifts as an unsigned value, unlike an ZXQPH2QXZ": "unsigned と宣言した ZXQPH0QXZ は、すべてのビットが 1 の値を ZXQPH1QXZ として保持し、ZXQPH2QXZ と違って符号なしの値として比較・シフトされる"
+    "an ZXQPH0QXZ declared unsigned holds all ones as ZXQPH1QXZ and compares and shifts as an unsigned value, unlike an ZXQPH2QXZ": "unsigned と宣言した ZXQPH0QXZ は、すべてのビットが 1 の値を ZXQPH1QXZ として保持し、ZXQPH2QXZ と違って符号なしの値として比較・シフトされる",
+    "Loops take their bounds from the array query functions": "ループの範囲を配列の問い合わせ関数で決める",
+    "%m prints the hierarchical name of the scope that holds the display": "%mは表示を含むスコープの階層名を出す",
+    "A process acts on a process of another instance through a hierarchical name": "階層名で別のインスタンスのプロセスに作用する"
   }
 }

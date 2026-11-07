@@ -4,7 +4,7 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の110生成器から5,336件のテストを生成しています。
+現在の113生成器から5,483件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
@@ -17,6 +17,7 @@
 | [`combination_monitors`](../generators/combination_monitors.py) | 21 | 18 | 9種類の登録場所と2種類のコンテナ・記述子を組み合わせ、ファイルを読み戻して、Postponedの最終値、非選択要素、選択・置換、monitoroff、閉鎖後の出力抑止を確認する。 |
 | [`combination_nba`](../generators/combination_nba.py) | 10, 13 | 16 | 境界条件16件。`ref static`経由の遅延・イベント制御付きNBA、値と添字の確定、文字列の文字要素、配列スライスのコピーアウトを確認 |
 | [`interaction_array`](../generators/interaction_array.py) | 7 | 36 | 2組の入力を配列全体／スライスへコピーし、宣言順の対応、非選択要素の保持、コピー元変更後の独立性と、読み出した要素の符号拡張を確認する。 |
+| [`interaction_arrayloop`](../generators/interaction_arrayloop.py) | 20 | 40 | 昇順・降順・オフセット・負の範囲の固定の次元、パックの次元、動的配列、キュー、空の動的配列を、変数・型の名前・2番目の次元・要素の選択から$left・$right・$low・$high・$increment・$sizeで問い合わせる。for・while・do-while・repeat・foreachで、左から右・小さい順・大きい順・個数で進むことを確かめる。 |
 | [`interaction_assertion`](../generators/interaction_assertion.py) | 16 | 36 | 更新前後の既知値とX/Zで、assertionのpass/fail回数、サンプル値と1ビットの式の値、Reactiveのライブ値と最終値を観測する。型、式、エッジ、blocking/NBA、更新時点、module/interfaceを組み合わせ、サンプリング時点とaction実行時点を区別する。 |
 | [`interaction_assertquery`](../generators/interaction_assertquery.py) | 16 | 30 | x・zを含む値に$onehot・$onehot0・$countones・$isunknown・$countbitsを使い、即時・#0・finalのアサーションで判定する。always_combの途中の値による遅延アサーションの報告の取消しと、クロックの立上りと同時のNBAを確かめる。 |
 | [`interaction_assocquery`](../generators/interaction_assocquery.py) | 20 | 18 | 連想配列の挿入・上書き・削除・再利用で、添字型の範囲と割当て済みの範囲、問い合わせのinteger変換とfirst/lastの幅・符号、要素数と全キー/値を照合する。 |
@@ -63,6 +64,8 @@
 | [`interaction_genexpr`](../generators/interaction_genexpr.py) | 27 | 36 | 定数式のオペランド符号・代入文脈の幅・結果の宣言符号を分離し、生成分岐・個数・幅を照合する。$bitsによる形状、各生成要素の全幅データ、別実体の保持、X/Zと既知値への回復を観測する。 |
 | [`interaction_genloop`](../generators/interaction_genloop.py) | 27 | 36 | 生成プロセスごとの配列走査とbreak/continueを、訪問数・保持数・重み・全幅の結果で照合する。一スコープの入力変更、別guardの更新、立上りでの再起動、立下りと待機中の状態保持を観測する。 |
 | [`interaction_gensub`](../generators/interaction_gensub.py) | 27 | 36 | 生成スコープごとに異なる型・範囲の配列とサブルーチンを宣言し、既定引数の結合先と再評価を照合する。function/taskの入出力変換、呼出し順序、外部更新後の再呼出し、隣接要素と別スコープの状態保持を観測する。 |
+| [`interaction_hiername`](../generators/interaction_hiername.py) | 21 | 65 | トップ・子・孫・インスタンス配列・ループ生成・名前付きと名前のない生成ブロックの中で、モジュール・名前付きブロック・fork・文のラベル・ループのラベル・task・function・automatic taskから%mを表示する。サブルーチンを自分のモジュール・下向き・$root・上向きから呼んでも、定義の場所の名前になることを確かめる。 |
+| [`interaction_hierproc`](../generators/interaction_hierproc.py) | 23 | 42 | 下向き・入れ子・インスタンス配列・生成ブロック・$root・モジュール名による上向き・兄弟への上向きの階層名で、別のインスタンスの名前付きブロックのdisable、イベントの起動、値の書込み、taskの呼出しをする。対象が待ち始める前後で、効果が失われるか残るかを確かめる。 |
 | [`interaction_ifexpr`](../generators/interaction_ifexpr.py) | 25 | 49 | 符号付き8・符号なし8・符号付き4ビットのメンバを、ポート・modport・総称ポート・配列の要素・階層名から読む。除算・算術シフト・比較・単項マイナス・乗算と、文の制御・importしたtaskによる共有の更新を確かめる。 |
 | [`interaction_iff`](../generators/interaction_iff.py) | 9 | 27 | 独立した左右のイベント数と条件付きORの起床数、条件だけを変えた後の保持を観測し、iffの項ごとの結合、orとカンマの同義性、名前付きイベントの再発火、X/Zを含む条件の真偽、ブロッキング/NBAの更新時点を確認する。 |
 | [`interaction_ifgenerate`](../generators/interaction_ifgenerate.py) | 27 | 36 | generate要素ごとに幅の違うinterfaceを2個置き、if/caseで選択した側をwhole/modportのwriter/readerへ接続する。bit/logicへの格納前の反転、非選択側の対照、実際の幅・識別タグ・接続先と全要素の独立性を観測する。 |

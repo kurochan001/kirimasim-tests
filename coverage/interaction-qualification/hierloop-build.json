@@ -1,0 +1,48 @@
+{
+  "models": [
+    "hierarchical_process_control",
+    "hierarchical_name_display",
+    "array_query_loop"
+  ],
+  "generated_at": "2026-11-07T22:42:13.049438+00:00",
+  "scope": "Final headers with pinned-release oracles. The latest main was cloned to a separate directory, configured and built before one complete finite-cross run, so the shared checkout stayed untouched. An identical immutable binary snapshot ran. Every earlier input and status is unchanged, although the front end changed since eee8cd16ba1d. Formal CI is separate.",
+  "base_revision": "28c6c1a1cb83e8db75b2e90b405a56e0b455f99b",
+  "upstream_main_revision": "28c6c1a1cb83e8db75b2e90b405a56e0b455f99b",
+  "tracked_worktree_clean_at_build": true,
+  "binary_sha256": "57e8c2ed74e0095a2d29e649f7a098ec7f1f0baab8136fa1146cc50e07b31896",
+  "binary_unchanged": true,
+  "slang_revision": "d02b7cda02d3183f35c6c4d4db2b2fc03f19f4ae",
+  "version": "kirimasim 0.0.0 (commit 28c6c1a1cb83), built with AppleClang 21.0.0.21000401",
+  "run": "coverage/interaction-results/cross104-kirimasim-28c6c1a1-hierloop.json",
+  "counts": {
+    "pass": 3683,
+    "unsupported": 479,
+    "fail": 8
+  },
+  "new_cases": 147,
+  "new_cases_by_model": {
+    "arrayloop": 40,
+    "hiername": 65,
+    "hierproc": 42
+  },
+  "previous_cases": 4023,
+  "previous_run": "coverage/interaction-results/cross101-kirimasim-eee8cd16-paramassertlit.json",
+  "previous_version": "kirimasim 0.0.0 (commit eee8cd16ba1d), built with AppleClang 21.0.0.21000401",
+  "previous_inputs_changed": [],
+  "previous_status_changes": {},
+  "new_case_statuses": {
+    "pass": 147
+  },
+  "new_case_failures": {},
+  "earlier_failures": [
+    "gen/ch23/test_gen_cross_paramtype_signed_concat_both",
+    "gen/ch23/test_gen_cross_paramtype_signed_ssized_defparam",
+    "gen/ch23/test_gen_cross_paramtype_untyped_ssized_both",
+    "gen/ch23/test_gen_cross_paramtype_untyped_wide_defparam",
+    "gen/ch33/test_gen_cross_config_1_both_reset_all_0_if_literal_direct",
+    "gen/ch33/test_gen_cross_config_32_defparam_reset_all_0_case_literal_wrapped",
+    "gen/ch33/test_gen_cross_config_32_defparam_reset_all_0_if_literal_direct",
+    "gen/ch33/test_gen_cross_config_64_both_reset_all_0_if_literal_wrapped"
+  ],
+  "earlier_failure_note": "The four config failures and the four parameter_override_type defparam failures of the previous run remain, with the same statuses."
+}

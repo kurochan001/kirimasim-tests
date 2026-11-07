@@ -36,10 +36,13 @@ suite `19cd790a5f639348ad67fd63959dce9811d3ab56`の[Nightly](https://github.com/
 
 ### 直近のローカル追加
 
-最新のローカル追加は[パラメータの上書き](interaction-verification.md#parameter-override-type)・[アサーションのビットベクタ関数](interaction-verification.md#assertion-vector-query)・[リテラルの引数](interaction-verification.md#literal-argument-conversion)の136件で、101モデル・4,023件です。
-最新のmainをビルドした`eee8cd16ba1d`による[単一実行](../coverage/interaction-results/cross101-kirimasim-eee8cd16-paramassertlit.json)は3,536 pass・479 unsupported・8 failです。追加136件のうち`defparam`の4件がfailで、従来3,887件の入力と状態は不変です。今回の136件は正式Check・Nightlyでは未実行です。
+最新のローカル追加は[階層名によるプロセスの制御](interaction-verification.md#hierarchical-process-control)・[%mの階層名](interaction-verification.md#hierarchical-name-display)・[配列の問い合わせ関数とループ](interaction-verification.md#array-query-loop)の147件で、104モデル・4,170件です。
+最新のmainをビルドした`28c6c1a1cb83`による[単一実行](../coverage/interaction-results/cross104-kirimasim-28c6c1a1-hierloop.json)は3,683 pass・479 unsupported・8 failです。追加147件は全PASSで、従来4,023件の入力と状態は不変です。今回の147件は正式Check・Nightlyでは未実行です。
 
-その前のローカル追加は[インタフェースのメンバ](interaction-verification.md#interface-member-expression)・[ループの制御](interaction-verification.md#loop-control-scheduling)・[リテラルの表示](interaction-verification.md#literal-format-display)の195件で、98モデル・3,887件です。
+その前のローカル追加は[パラメータの上書き](interaction-verification.md#parameter-override-type)・[アサーションのビットベクタ関数](interaction-verification.md#assertion-vector-query)・[リテラルの引数](interaction-verification.md#literal-argument-conversion)の136件で、101モデル・4,023件です。
+最新のmainをビルドした`eee8cd16ba1d`による[単一実行](../coverage/interaction-results/cross101-kirimasim-eee8cd16-paramassertlit.json)は3,536 pass・479 unsupported・8 failです。追加136件のうち`defparam`の4件がfailで、従来3,887件の入力と状態は不変です。この136件は[`76cb9785`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42386486773)で固定版比較が成功し、Nightlyでは未実行です。
+
+以前のローカル追加は[インタフェースのメンバ](interaction-verification.md#interface-member-expression)・[ループの制御](interaction-verification.md#loop-control-scheduling)・[リテラルの表示](interaction-verification.md#literal-format-display)の195件で、98モデル・3,887件です。
 最新のmainをビルドした`6e32b04ed6ec`による[単一実行](../coverage/interaction-results/cross98-kirimasim-6e32b04e-ifexprloopfmt.json)は3,404 pass・479 unsupported・4 failです。追加195件は全PASS、従来3,692件の入力は不変で、50件がunsupportedからPASSになりました。この195件は[`b81077b0`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42377388671)で固定版比較が成功し、Nightlyでは未実行です。
 
 以前のローカル追加は[マクロ展開](interaction-verification.md#macro-expansion-context)・[force/release](interaction-verification.md#force-release-visibility)・[暗黙の感度](interaction-verification.md#implicit-sensitivity-update)の247件で、95モデル・3,692件です。

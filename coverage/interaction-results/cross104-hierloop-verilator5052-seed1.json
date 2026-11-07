@@ -1,0 +1,612 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch20/test_gen_cross_arrayloop_asc_dim_while_highlow": {
+   "status": "pass",
+   "inputs_sha256": "8eced26c6f4b2281ac16bd3675d55066d8c80ec0103fbb65e012d81850aaf0c6"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_asc_elem_repeat_leftright": {
+   "status": "pass",
+   "inputs_sha256": "5271cab19621b089c49b148d166b25b59da6483445a763e5afe3aa0cc89a0530"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_asc_type_do_lowhigh": {
+   "status": "pass",
+   "inputs_sha256": "a8dc560153920e88390ed5652da05f5ad330e687a733b55037542301a0dd3bee"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_asc_type_foreach_leftright": {
+   "status": "pass",
+   "inputs_sha256": "7985c53af8e9ab2c3fc6a242b1d352f3daa356ddcf4bf9abcdc52a2401541dbf"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_asc_var_for_size": {
+   "status": "pass",
+   "inputs_sha256": "6586009c22b249777230ea7d797369ac907ef32aba646075e9e26cc0b236ac85"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_desc_dim_do_size": {
+   "status": "pass",
+   "inputs_sha256": "f275a96d7ac216fc47e7f71d1d0c329d59576f5e9e232c927cab47deecf26f36"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_desc_elem_for_highlow": {
+   "status": "pass",
+   "inputs_sha256": "120b41271c952f76d3ce068bef40138a3c2f18f1f3bbb35717a1c6746680689b"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_desc_type_repeat_leftright": {
+   "status": "pass",
+   "inputs_sha256": "158f9447b61cd8512b66a4f8bbc7f942730d6043482bbb498210a35083515463"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_desc_var_foreach_leftright": {
+   "status": "pass",
+   "inputs_sha256": "5dfc9d0aba08d5cbc8db5f431b62592fb4df49ea0467b1470ff04554e5627ce8"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_desc_var_while_lowhigh": {
+   "status": "pass",
+   "inputs_sha256": "b2e860431688a85fd02136fb602723e693048808a4b9785672aac5a4ed87d77d"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_dynamic_elem_repeat_size": {
+   "status": "pass",
+   "inputs_sha256": "4e8a45b3b1c1202eafd09c014ba0c782a719dbe68a97a83f2271e5f3868c2cad"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_dynamic_var_do_leftright": {
+   "status": "pass",
+   "inputs_sha256": "9f1f9647e2543998e7779ccdf1c3e1acfae7afa59fc905ca6da8f0ef837aa78b"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_dynamic_var_for_lowhigh": {
+   "status": "pass",
+   "inputs_sha256": "33f9771788df4c25ec4bbfa8976bb19e53eb4398cdf7ec99494d18a6be88fc98"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_dynamic_var_foreach_leftright": {
+   "status": "pass",
+   "inputs_sha256": "e6672382f8c06c9def802d9d344d74a2d68e5aec042846f796bf38fe5943d019"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_dynamic_var_while_highlow": {
+   "status": "pass",
+   "inputs_sha256": "77e9d641878e962bea36853a7c1eb973556b82c66a54febd23ac59741100df2c"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_empty_elem_do_highlow": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'visit -1:f6', expected 'visit -1:xx'",
+   "inputs_sha256": "b18393349977a0c8fb05aa03eb2521a1c9d5766a989ae03ca6e15db254713eaa"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_empty_var_for_lowhigh": {
+   "status": "pass",
+   "inputs_sha256": "a80a66bd601d770c8ed00283b72803a3cb5e18377c9976ee39038e45b239473d"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_empty_var_foreach_leftright": {
+   "status": "pass",
+   "inputs_sha256": "41d639bb9df85de0f163bb1d795a3d6b7195f588e828735017bc3fe23ec81a7e"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_empty_var_repeat_size": {
+   "status": "pass",
+   "inputs_sha256": "5f91726f71bec0219d8f715ff2a20a66aaf5c5645554f8206cdb24b2879aa1ce"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_empty_var_while_leftright": {
+   "status": "pass",
+   "inputs_sha256": "323ebcf357578ada60e589c921653abd1f7c78006b55623980fbc752104dde2d"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_neg_dim_for_leftright": {
+   "status": "pass",
+   "inputs_sha256": "16330ad5389a0a93094827eb274a1ad78f291ae26dea2aa98bd8d478463e031e"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_neg_elem_while_lowhigh": {
+   "status": "pass",
+   "inputs_sha256": "e34aa1d0ae06be02af9a726ca56776d79113479df6651c24e3cfbcb7123ccf8f"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_neg_type_do_size": {
+   "status": "pass",
+   "inputs_sha256": "23d037e6a963620ab344d50ebbb8536913717ae1988384973c0154776b045f1c"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_neg_var_foreach_leftright": {
+   "status": "pass",
+   "inputs_sha256": "927fecf36b17aed3e7518a07586cf4acc938e6defd895f4d70c93a67c305fe31"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_neg_var_repeat_highlow": {
+   "status": "pass",
+   "inputs_sha256": "3ef03faa7f78e380b6d9bcb29a6ea2b7494a07c386891e266df3a099468ffe29"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_offset_dim_foreach_leftright": {
+   "status": "pass",
+   "inputs_sha256": "78a16ce963ee8d6f5850ba200c11112132e6778126b5f0cb3a729ce243882bff"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_offset_elem_while_size": {
+   "status": "pass",
+   "inputs_sha256": "c568843cbde13e5cb4e6dc63bb5daf0fabf983cb9bbfb0d2a5e53913ba014e35"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_offset_type_for_highlow": {
+   "status": "pass",
+   "inputs_sha256": "b343611d67ee9520966479b2a28f75e0fc1400b68b312239fd8055a6c9f8fc88"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_offset_var_do_leftright": {
+   "status": "pass",
+   "inputs_sha256": "a0f5ff1bb8a1f590f4269f8720753db5b58ec04bbab5258ad63b86e316a19ad9"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_offset_var_repeat_lowhigh": {
+   "status": "pass",
+   "inputs_sha256": "3c777992d6e1e8aa0e3184b6560a39a5c6a842225d2ea66059292650a8c38d26"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_packed_dim_for_lowhigh": {
+   "status": "pass",
+   "inputs_sha256": "24ba79394fb2bbddd5a556ed1df5ae7a6fe1f328e641a064a24a3331ace2ac4a"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_packed_dim_repeat_highlow": {
+   "status": "pass",
+   "inputs_sha256": "b2efb0ec7eec53008c40e5f037cc554fcd2d3f99ac52cdd8301f589443273e30"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_packed_elem_do_leftright": {
+   "status": "pass",
+   "inputs_sha256": "082fe48c14821be18d4206518da01e42e3c66cb55c8abc3f33789239e21b0d3c"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_packed_type_while_size": {
+   "status": "pass",
+   "inputs_sha256": "343660448d6d87c15ea971f66c334ffdf7bdc07774a6851dc483fdeb06de20ac"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_packed_var_foreach_leftright": {
+   "status": "pass",
+   "inputs_sha256": "569d16490c8104a116ff247bf9f111a22a820702d63d3b06aeadfbf03179974e"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_queue_elem_foreach_leftright": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'visit', expected 'visit 0:11 1:22 2:33 3:44'",
+   "inputs_sha256": "01b15e211d6c7d8d97db27267a877f8fb42767f796d8b64fa85fa860fc12cf9a"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_queue_var_do_size": {
+   "status": "pass",
+   "inputs_sha256": "291b5ba4e3316a3e426005d519dc9226d51de9bee1ad9b52a4d907ce2d38e83a"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_queue_var_for_lowhigh": {
+   "status": "pass",
+   "inputs_sha256": "eb589a8c9a90b2ab9cbb7d50b77fcfae6417cc049b291150ca7bf7e5dc0644b1"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_queue_var_repeat_leftright": {
+   "status": "pass",
+   "inputs_sha256": "20650e6836423614a985701078f0bcb5468e5b994d6ecc21da1424a090d4e4a1"
+  },
+  "gen/ch20/test_gen_cross_arrayloop_queue_var_while_highlow": {
+   "status": "pass",
+   "inputs_sha256": "7c89e5bf92cd38b7b8af83ce6070b8c4e4e85d834f1b31d1b7275eeeeffae5ad"
+  },
+  "gen/ch21/test_gen_cross_hiername_array_auto_down_initial": {
+   "status": "pass",
+   "inputs_sha256": "8c74476a81f808445bd3640510b7ded932b35515fc67d36362761a601fe87909"
+  },
+  "gen/ch21/test_gen_cross_hiername_array_block_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "4ead3d7bbd231e2e9b955946510fbfbf983ed48b243d9d91f471c3440ed33e51"
+  },
+  "gen/ch21/test_gen_cross_hiername_array_fork_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "666c1ca09bf1f2267d1bdb9fc8f096fc605a204959d3115cdc1987b7ab3fb23e"
+  },
+  "gen/ch21/test_gen_cross_hiername_array_function_up_final": {
+   "status": "pass",
+   "inputs_sha256": "5a39803d49d424308345370d58961f70ba76e085d1d70521f84810be3752f961"
+  },
+  "gen/ch21/test_gen_cross_hiername_array_label_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "68189a259b8f5c7838a0960ddb884a07b61693ecb5533399ae1c281be7a64acc"
+  },
+  "gen/ch21/test_gen_cross_hiername_array_loop_own_initial": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'in test_gen_cross_hiername_array_loop_own_initial.u[1].lp...', expected 'in test_gen_cross_hiername_array_loop_own_initial.u[1].lp'",
+   "inputs_sha256": "5f5d129b18239d1d7674a0512283b95aa88a7a8356907758973aac97bb27b922"
+  },
+  "gen/ch21/test_gen_cross_hiername_array_module_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "6a4afd55b41476ee75a76ed80eca632f044f8d53bfea49e9399e13aef2c30688"
+  },
+  "gen/ch21/test_gen_cross_hiername_array_nested_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "bca7bd0953d29085b45935ac83acd1712f0efc3fff405bcc5c7e948b4ba8716e"
+  },
+  "gen/ch21/test_gen_cross_hiername_array_task_root_initial": {
+   "status": "pass",
+   "inputs_sha256": "c81b2b145cf8bcd592c8fb511b1db6c99cebe4ea723d9b13c06fc26fcff0a857"
+  },
+  "gen/ch21/test_gen_cross_hiername_inst_auto_up_initial": {
+   "status": "pass",
+   "inputs_sha256": "13320b23f8433e7e37559a8e75683db301a2c7e4cfca3e7ea52f04043430c6db"
+  },
+  "gen/ch21/test_gen_cross_hiername_inst_block_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "f9201c61bdefdebd68784ce1bf5869052c59fbb7d364c00b62219239190445a6"
+  },
+  "gen/ch21/test_gen_cross_hiername_inst_fork_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "68b9e4a1922840addb0a368eebe94babcac7672dbedf2ac8d52fd7c5cdcf7334"
+  },
+  "gen/ch21/test_gen_cross_hiername_inst_function_down_final": {
+   "status": "pass",
+   "inputs_sha256": "f4f61842264721a4b658fecfb4bc549aed6c82a192f3ca2773e647eeecea9156"
+  },
+  "gen/ch21/test_gen_cross_hiername_inst_label_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "0127c2f176a636a3e02d269ab7cecf5b55e65e3dd39c52ea0ba57f2c00a1dfd4"
+  },
+  "gen/ch21/test_gen_cross_hiername_inst_loop_own_initial": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'in test_gen_cross_hiername_inst_loop_own_initial.u.lp.unn...', expected 'in test_gen_cross_hiername_inst_loop_own_initial.u.lp'",
+   "inputs_sha256": "7ebb1cf87cd8ecc3d20c8449f5e259e7bce7e8a59ec04e3deb37d06e5b1a9edc"
+  },
+  "gen/ch21/test_gen_cross_hiername_inst_module_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "3d8774f9d8949b9039598b701747a6045faa1d172808eede8baf50dd3df7157f"
+  },
+  "gen/ch21/test_gen_cross_hiername_inst_nested_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "cfdf71f73bdd3a2ea58089e63e6e3b3b76ca9249238d4be3258b33f839441345"
+  },
+  "gen/ch21/test_gen_cross_hiername_inst_task_root_initial": {
+   "status": "pass",
+   "inputs_sha256": "5a97fc174c507d9403c18214dde83f3a9bffcd0662fe89a963fffcc0bec0d1b1"
+  },
+  "gen/ch21/test_gen_cross_hiername_loopgen_auto_up_initial": {
+   "status": "pass",
+   "inputs_sha256": "ed0d851bde9c05bb89faacb2c3ea6ec23d8790c4f12aefc9fa9a75b0709e4cf8"
+  },
+  "gen/ch21/test_gen_cross_hiername_loopgen_block_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "692809ef734f03561e475233be2a7ea2f3f24a6c4193365c0f19c62d53de5e7c"
+  },
+  "gen/ch21/test_gen_cross_hiername_loopgen_fork_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "ff28faf7a2caaa56dda8faf2ca249e8a5fd314887a36e2afe9c8584cb9e62112"
+  },
+  "gen/ch21/test_gen_cross_hiername_loopgen_function_root_final": {
+   "status": "pass",
+   "inputs_sha256": "875ba5534949c2e832d8a7a8706f3ceb703b48285cf49b7208d61e001dd64139"
+  },
+  "gen/ch21/test_gen_cross_hiername_loopgen_label_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "0c79728c21d425ac14a4767487d2e5742342c17ccf47d86e48aaffcd2c0844b8"
+  },
+  "gen/ch21/test_gen_cross_hiername_loopgen_loop_own_initial": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'in test_gen_cross_hiername_loopgen_loop_own_initial.g[1]....', expected 'in test_gen_cross_hiername_loopgen_loop_own_initial.g[1]....'",
+   "inputs_sha256": "9758151d9c73012d2da84d98ed93f6ff99815fa0c1826136faf96e4d5fdf3e94"
+  },
+  "gen/ch21/test_gen_cross_hiername_loopgen_module_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "ec55d513ed993f4f4601c0adda6352ff0ee234f0fa9a6f58a773bb413c4ee2cd"
+  },
+  "gen/ch21/test_gen_cross_hiername_loopgen_nested_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "1d209381bb90d57abada4d1ea307d28bf0f4a21465190f1de051389d46898305"
+  },
+  "gen/ch21/test_gen_cross_hiername_loopgen_task_down_initial": {
+   "status": "pass",
+   "inputs_sha256": "065d347940d90dbdb6a1a1f1ddb64ddbe256e4f0d20abe9fb26831c688e1458d"
+  },
+  "gen/ch21/test_gen_cross_hiername_namedgen_auto_up_initial": {
+   "status": "pass",
+   "inputs_sha256": "88fd1d61273f277541e63791ae94a641561b39294c08df46b688d76d95b8e1ef"
+  },
+  "gen/ch21/test_gen_cross_hiername_namedgen_block_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "9d26ff28badde0490f29fa53a1c6b398dac3b121940edbe6e68b0b229578c627"
+  },
+  "gen/ch21/test_gen_cross_hiername_namedgen_fork_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "c2c71a2be08e44e641cd9fc084832e1cd56abc148824ce2d759b222d40501bd0"
+  },
+  "gen/ch21/test_gen_cross_hiername_namedgen_function_down_initial": {
+   "status": "pass",
+   "inputs_sha256": "6ddd6daf81e6b5e5a9e189e87a2aafa664028cdef8beaaab69e5efcf806fa7ae"
+  },
+  "gen/ch21/test_gen_cross_hiername_namedgen_label_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "2a3d8ec4f6c992a501438a6336f677ad43596c6b531a207b214b559df33f1658"
+  },
+  "gen/ch21/test_gen_cross_hiername_namedgen_loop_own_initial": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'in test_gen_cross_hiername_namedgen_loop_own_initial.n.u....', expected 'in test_gen_cross_hiername_namedgen_loop_own_initial.n.u.lp'",
+   "inputs_sha256": "49a33619fcf8c9a9c689d3bcc9b4ed88a8db1ddda37ae9e815e54e5b4e7821ed"
+  },
+  "gen/ch21/test_gen_cross_hiername_namedgen_module_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "fdf68c416cd72dfe19767dbd9438c10eee1a83b0be364b0c5ad37ad51698e645"
+  },
+  "gen/ch21/test_gen_cross_hiername_namedgen_nested_own_final": {
+   "status": "pass",
+   "inputs_sha256": "ea55b77af30e92f5cbfee812e2d2c3e669d36d6ba7f206eabb08620e6818720e"
+  },
+  "gen/ch21/test_gen_cross_hiername_namedgen_task_root_initial": {
+   "status": "pass",
+   "inputs_sha256": "62e7c81c25f0ecd6a7d75c4a244d761ee448fbd1990088c3dd9ed6dd3a69348b"
+  },
+  "gen/ch21/test_gen_cross_hiername_nested_auto_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "6b17cf8a36e145d4130889078ce3e1aef045e7a05a6936bd05b4daec079b34ed"
+  },
+  "gen/ch21/test_gen_cross_hiername_nested_block_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "a1452482062d7f779a1d4ccbe9032327839510cf3fa8ccf1cdfe37b1dfb6a3df"
+  },
+  "gen/ch21/test_gen_cross_hiername_nested_fork_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "b68a02cb49ebc4c44a5ac5a8311edb3a3026c81f72a2201f50d04e5e9bf4f079"
+  },
+  "gen/ch21/test_gen_cross_hiername_nested_function_root_initial": {
+   "status": "pass",
+   "inputs_sha256": "4768efd2ce60f0695d22db4a43c27befe0abe709822b91c3839ba7c72efc3cc6"
+  },
+  "gen/ch21/test_gen_cross_hiername_nested_label_own_final": {
+   "status": "pass",
+   "inputs_sha256": "5c34a227af427239b876870938c7b3ee95e90c1dca88f98eb4ac85c3579acda0"
+  },
+  "gen/ch21/test_gen_cross_hiername_nested_loop_own_initial": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'in test_gen_cross_hiername_nested_loop_own_initial.w.v.lp...', expected 'in test_gen_cross_hiername_nested_loop_own_initial.w.v.lp'",
+   "inputs_sha256": "8031ae743441a226b00cd8e2367d8395d26b63c002e92b3b44030d80c73d256a"
+  },
+  "gen/ch21/test_gen_cross_hiername_nested_module_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "119d49b4d97f461df40a9f07478d0973a67b949147a83bd4dc425782e78b64cb"
+  },
+  "gen/ch21/test_gen_cross_hiername_nested_nested_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "0fbbdc56e2fd2e64f02acb54391fbeeb40765a15060de062928593417e94314c"
+  },
+  "gen/ch21/test_gen_cross_hiername_nested_task_down_initial": {
+   "status": "pass",
+   "inputs_sha256": "4cbb909c061e033405b71b4ac71a82dbf83372831bb56bf83abf9a058973faa4"
+  },
+  "gen/ch21/test_gen_cross_hiername_nested_task_up_initial": {
+   "status": "pass",
+   "inputs_sha256": "443984cea82aa69747aec0e8bc692ee3d3e284119d1326ddb9992502208f03ac"
+  },
+  "gen/ch21/test_gen_cross_hiername_top_auto_root_initial": {
+   "status": "pass",
+   "inputs_sha256": "4a5aa094a12fc8aebfe9d15799126b3018ddb6af5d0d65960963b7d55763eaed"
+  },
+  "gen/ch21/test_gen_cross_hiername_top_block_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "a1ca75192398b07f097897b15dcfe6da8a8134f17112c174102cfea74e813801"
+  },
+  "gen/ch21/test_gen_cross_hiername_top_fork_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "34f67ab67207875c48e1a676632bdbd6f05c3f64238cd131063b4bbc26ed66dd"
+  },
+  "gen/ch21/test_gen_cross_hiername_top_function_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "7249acefd5bed2c8a4c10bbc8d08d747ed1102e1f0e5dba0940434003b5c7c78"
+  },
+  "gen/ch21/test_gen_cross_hiername_top_function_up_initial": {
+   "status": "pass",
+   "inputs_sha256": "80b4205893dc86a76b2223d29e1458d35235606aa28da6da290bfd169a9c1bef"
+  },
+  "gen/ch21/test_gen_cross_hiername_top_label_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "04ecdad5d46095923df8b80c44e2657f3c26be0ed077d1a5373dcc1122382241"
+  },
+  "gen/ch21/test_gen_cross_hiername_top_loop_own_final": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'in test_gen_cross_hiername_top_loop_own_final.lp.unnamedblk1', expected 'in test_gen_cross_hiername_top_loop_own_final.lp'",
+   "inputs_sha256": "0ba6915fcdb0ec065ab4ef40fb47c434f0be432cf286fcaea4a4675363b9be22"
+  },
+  "gen/ch21/test_gen_cross_hiername_top_module_own_final": {
+   "status": "pass",
+   "inputs_sha256": "5966c36f1a35f91e677c63169c3ebb76f7abd4a81a11a55112973b8449dacd53"
+  },
+  "gen/ch21/test_gen_cross_hiername_top_nested_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "a733ca15990e457b2caf1a99a2e3f2066321bb9c51d1a1e65daa13cd1c62f32d"
+  },
+  "gen/ch21/test_gen_cross_hiername_top_task_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "7f3bbb0168f62ca4218f8e06345f0bb6a8ecd52255a5405d6fd484415121d487"
+  },
+  "gen/ch21/test_gen_cross_hiername_unnamedgen_auto_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "365616fafe19d4b890ea67bd9c8ebcbd18d7624158ea0d6b099dc07163f1d93d"
+  },
+  "gen/ch21/test_gen_cross_hiername_unnamedgen_block_own_final": {
+   "status": "pass",
+   "inputs_sha256": "b1228dd7cad59cf3fc197f58df7de727f2bde424a53820e8870c243280335efa"
+  },
+  "gen/ch21/test_gen_cross_hiername_unnamedgen_fork_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "fbd447bcc0cb7b809673a56462a419e45f085c6b91339e438c0728765fa83c17"
+  },
+  "gen/ch21/test_gen_cross_hiername_unnamedgen_function_own_final": {
+   "status": "pass",
+   "inputs_sha256": "37033b2f6575a78dc048af52a8edf5210e2ef9a96f09b6dc1ea279b90f989b6d"
+  },
+  "gen/ch21/test_gen_cross_hiername_unnamedgen_label_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "0f583438065daa88c410528e1bf6fb2128f9d967007150cd1b62aa6d3094168c"
+  },
+  "gen/ch21/test_gen_cross_hiername_unnamedgen_loop_own_initial": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'in test_gen_cross_hiername_unnamedgen_loop_own_initial.ge...', expected 'in test_gen_cross_hiername_unnamedgen_loop_own_initial.ge...'",
+   "inputs_sha256": "c2b30252307d95be75e2b7b5ad37cd7fa674a10d06350cc8dd439fbe75962a02"
+  },
+  "gen/ch21/test_gen_cross_hiername_unnamedgen_module_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "19cdb231574228706242228d7f8faf03efe179529497a528333870a4002370cb"
+  },
+  "gen/ch21/test_gen_cross_hiername_unnamedgen_nested_own_initial": {
+   "status": "pass",
+   "inputs_sha256": "9a9b37da49186b21f6f4d96201f54be0406132eb020b72946ca0d093fc612f99"
+  },
+  "gen/ch21/test_gen_cross_hiername_unnamedgen_task_up_initial": {
+   "status": "pass",
+   "inputs_sha256": "0bde6ca403a193ee6903ce36d50d8c499e41b427467d6fd9af6a2055bcc7c056"
+  },
+  "gen/ch23/test_gen_cross_hierproc_call_array_late_task": {
+   "status": "pass",
+   "inputs_sha256": "ecb33f0c799b56be737b0664dab944f4d62fc53ce423698f1e0c89bf9e6f41a3"
+  },
+  "gen/ch23/test_gen_cross_hierproc_call_down_waiting_initial": {
+   "status": "pass",
+   "inputs_sha256": "0aabb713e5a22b0a4d55954436298553bd772625d06ecd47561f1a02e1133dad"
+  },
+  "gen/ch23/test_gen_cross_hierproc_call_generate_waiting_task": {
+   "status": "pass",
+   "inputs_sha256": "60efc2910b5539102857c5e7d7a281d5eebd635bffabdf608c3d8b14c018d9d4"
+  },
+  "gen/ch23/test_gen_cross_hierproc_call_nested_waiting_fork": {
+   "status": "pass",
+   "inputs_sha256": "d42bf009847d38d83cc180483c3e90baeec69154a870d716d6d3fa1554b05c93"
+  },
+  "gen/ch23/test_gen_cross_hierproc_call_root_late_initial": {
+   "status": "pass",
+   "inputs_sha256": "84b7e1286e86c4372fd15b2fb2a4881def6ad2b998f69ab4c8f812c699db9f7b"
+  },
+  "gen/ch23/test_gen_cross_hierproc_call_sibling_waiting_initial": {
+   "status": "pass",
+   "inputs_sha256": "5dcbd545c94cecb6aea47bc0931e4d19da5c0699543ab330a0204258f5bcd0ee"
+  },
+  "gen/ch23/test_gen_cross_hierproc_call_up_late_fork": {
+   "status": "pass",
+   "inputs_sha256": "00bdcbdfc07b10db360f55d4526ced43817f9161f43c847976658a29a3186aca"
+  },
+  "gen/ch23/test_gen_cross_hierproc_disable_array_waiting_fork": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch23/test_gen_cross_hierproc_disable_array_waiting_fork.sv:48:9: Node of type CELLREF referenced by disable",
+   "inputs_sha256": "47e298f300ff6a8c7b27b538541b69a66fc392f36fabcdea2a822ffa45190073"
+  },
+  "gen/ch23/test_gen_cross_hierproc_disable_down_waiting_initial": {
+   "status": "pass",
+   "inputs_sha256": "6212677051513dce712bf896a497660817b110c0ab601d9fe95c6df84b0919f5"
+  },
+  "gen/ch23/test_gen_cross_hierproc_disable_generate_waiting_initial": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch23/test_gen_cross_hierproc_disable_generate_waiting_initial.sv:48:5: Unsupported: Generate block referenced by disable",
+   "inputs_sha256": "dea61bd3d628df014dc9d85fd1d798b7fc83793a8c05977fbeb091f6536dd1ff"
+  },
+  "gen/ch23/test_gen_cross_hierproc_disable_nested_late_fork": {
+   "status": "pass",
+   "inputs_sha256": "7446dedae61e25232eb21702f6a692ab7f3984f5317665c211dd8be81679089f"
+  },
+  "gen/ch23/test_gen_cross_hierproc_disable_root_late_initial": {
+   "status": "pass",
+   "inputs_sha256": "2ad2c3d27237f812740f5d091241d3e95ee9b17c9366155273f436dac839f1ca"
+  },
+  "gen/ch23/test_gen_cross_hierproc_disable_sibling_late_task": {
+   "status": "pass",
+   "inputs_sha256": "866eac683c5e48eef07fd36e8713ff82949d6462a094ca99f18f9cbd5d55b38c"
+  },
+  "gen/ch23/test_gen_cross_hierproc_disable_up_waiting_task": {
+   "status": "pass",
+   "inputs_sha256": "7b34b95f80ff23a4e6d197367f28956067af9689b44c17f3e8ef887f2024ddd5"
+  },
+  "gen/ch23/test_gen_cross_hierproc_level_array_waiting_initial": {
+   "status": "pass",
+   "inputs_sha256": "58e3ef04719db2cb065ab5de7803a77d5eb4a07f3a8f3422d0519f3c0ac2af0f"
+  },
+  "gen/ch23/test_gen_cross_hierproc_level_down_waiting_fork": {
+   "status": "pass",
+   "inputs_sha256": "6fa103ed2bb5470bccb4441129807984793508d9997ce465a23756a4cd6fd8ce"
+  },
+  "gen/ch23/test_gen_cross_hierproc_level_generate_late_initial": {
+   "status": "pass",
+   "inputs_sha256": "8f9b6f4e01ae3289839446dfa6093e09ccded5fcdfac95256b9d375d4de2d146"
+  },
+  "gen/ch23/test_gen_cross_hierproc_level_nested_waiting_task": {
+   "status": "pass",
+   "inputs_sha256": "5b094bd6920d88a54af749faad02f1f6b65a3bf70ccae8e0d59ae157b1b16851"
+  },
+  "gen/ch23/test_gen_cross_hierproc_level_root_late_task": {
+   "status": "pass",
+   "inputs_sha256": "bbfc07f07c2d9da93c6b044b3b3fe07fde8a9dd2cf56221979cf0142dee1455a"
+  },
+  "gen/ch23/test_gen_cross_hierproc_level_sibling_waiting_initial": {
+   "status": "pass",
+   "inputs_sha256": "769df5a2b1fdd8da62af2a4ecd3fb8df1b01b4d63ffe89f2c747ecadec7682a1"
+  },
+  "gen/ch23/test_gen_cross_hierproc_level_up_late_fork": {
+   "status": "pass",
+   "inputs_sha256": "967e06b6fb201069cf5e67075bbe7a40ba7b6fb1a3b96efaa3e02b9e1c7f9be4"
+  },
+  "gen/ch23/test_gen_cross_hierproc_nba_array_waiting_initial": {
+   "status": "pass",
+   "inputs_sha256": "13c3e34f20210523f42a7b4dcfdb382e9c17dddd67096083070b371537b54e70"
+  },
+  "gen/ch23/test_gen_cross_hierproc_nba_down_waiting_fork": {
+   "status": "pass",
+   "inputs_sha256": "eb0db858df2ac92913b0bfd821b12a1e92fbef1a9940b5e2ac2665e8968f8784"
+  },
+  "gen/ch23/test_gen_cross_hierproc_nba_generate_waiting_task": {
+   "status": "pass",
+   "inputs_sha256": "3f22656b557abb61f905f661b72394b0d44a8735ef38c274994368f6456cd5ab"
+  },
+  "gen/ch23/test_gen_cross_hierproc_nba_nested_late_initial": {
+   "status": "pass",
+   "inputs_sha256": "45ac44645db1f59dd2cccd53ac84d3e3f3d6e123dfc30e4d820f800180872eed"
+  },
+  "gen/ch23/test_gen_cross_hierproc_nba_root_late_task": {
+   "status": "pass",
+   "inputs_sha256": "3fcff03316ed27292d37d4cd91cda537ad9d31eaad2d7f145824a5f081c72f1e"
+  },
+  "gen/ch23/test_gen_cross_hierproc_nba_sibling_waiting_initial": {
+   "status": "pass",
+   "inputs_sha256": "426b58f8bc1acc9cd246aa178f03349623cf1c1267638a24d37e8ec8648a1ea0"
+  },
+  "gen/ch23/test_gen_cross_hierproc_nba_up_late_fork": {
+   "status": "pass",
+   "inputs_sha256": "a439935a5a4f31256ee098ba343a9a3b36e9a1afef90758263c40d18ae70c17e"
+  },
+  "gen/ch23/test_gen_cross_hierproc_trigger_array_late_fork": {
+   "status": "pass",
+   "inputs_sha256": "95b35a3dfe856d69dc5b380278bd7099bf785f2831e17667de2c91ddb606b7d9"
+  },
+  "gen/ch23/test_gen_cross_hierproc_trigger_down_late_task": {
+   "status": "pass",
+   "inputs_sha256": "c22fb6a90a3e67f9eb334fed897a158b49f962f76b40d9b9b3794bb74a358d4c"
+  },
+  "gen/ch23/test_gen_cross_hierproc_trigger_generate_waiting_initial": {
+   "status": "pass",
+   "inputs_sha256": "cd13cd270b42d7989c24d9f6d7f3d0458479a04482681356c786c254256634c7"
+  },
+  "gen/ch23/test_gen_cross_hierproc_trigger_nested_late_initial": {
+   "status": "pass",
+   "inputs_sha256": "2513faeec5175d2d3ed27866488ab6b6b79f7f8fb3868edf0f83998f5d3d7d4b"
+  },
+  "gen/ch23/test_gen_cross_hierproc_trigger_root_waiting_task": {
+   "status": "pass",
+   "inputs_sha256": "927604a11c22cceda51af61d0b0dacee110d4007c1a9441c06b504a518a66eaa"
+  },
+  "gen/ch23/test_gen_cross_hierproc_trigger_sibling_waiting_fork": {
+   "status": "pass",
+   "inputs_sha256": "1c245d74f13b882fc6625e4c5da441583c50654c03978cb36bdf56e66e077c39"
+  },
+  "gen/ch23/test_gen_cross_hierproc_trigger_up_waiting_initial": {
+   "status": "pass",
+   "inputs_sha256": "68eb7d49ea875217b6ec1b58af862c119011eac3814cf7e61feda7ce7ddb17ec"
+  },
+  "gen/ch23/test_gen_cross_hierproc_write_array_waiting_task": {
+   "status": "pass",
+   "inputs_sha256": "ad6bd3904237ff3ad97e87e87e4d8d7881ef7d4e4aae3e2db3fa620d577f7ec4"
+  },
+  "gen/ch23/test_gen_cross_hierproc_write_down_late_task": {
+   "status": "pass",
+   "inputs_sha256": "dd91d514d7ab5d1dc5dfbfc5716ee20601f5432adee5fd7197b6c155df4aaa24"
+  },
+  "gen/ch23/test_gen_cross_hierproc_write_generate_waiting_fork": {
+   "status": "pass",
+   "inputs_sha256": "99a0e3e7cd9d2f34fb47a3028093d65a910552808b4de55256cf2a7089a29ed6"
+  },
+  "gen/ch23/test_gen_cross_hierproc_write_nested_waiting_initial": {
+   "status": "pass",
+   "inputs_sha256": "0586c3d4abd86dad85200de77532caba22d27cf6253f4d01cefd87d9c9aca77d"
+  },
+  "gen/ch23/test_gen_cross_hierproc_write_root_late_fork": {
+   "status": "pass",
+   "inputs_sha256": "0be7a220d364dbe6c47b6fdf1735274cd673541f97d55ac0bdb07e4f0e53b142"
+  },
+  "gen/ch23/test_gen_cross_hierproc_write_sibling_late_initial": {
+   "status": "pass",
+   "inputs_sha256": "a8a030c9de5c89dceb2435ba9705722c4d18717287d21a19afbee77ba816d3fb"
+  },
+  "gen/ch23/test_gen_cross_hierproc_write_up_waiting_initial": {
+   "status": "pass",
+   "inputs_sha256": "58fb7fe7b7b432bd6fec1dd9aa8ff422331403ae6da79d10c63b64dad53a185f"
+  }
+ },
+ "generated_at": "2026-11-07T22:38:36.517273+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

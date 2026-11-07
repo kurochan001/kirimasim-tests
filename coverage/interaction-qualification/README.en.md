@@ -10,7 +10,7 @@ This directory stores records of fixed-version verification-source selection, in
 
 ## Current evidence checkpoint (2026-11-06 JST)
 
-The selection now contains 101 models / 4,023 cases; see [parameter-override, assertion-query and literal-argument qualification](#param-assert-literal-qualification).
+The selection now contains 104 models / 4,170 cases; see [hierarchical-process-control, %m and array-query-loop qualification](#hier-array-qualification).
 [`handoff-ci-67321079-20261106.json`](handoff-ci-67321079-20261106.json) records successful Check/Nightly workflows and all jobs on baseline 67321079. Individual artifacts remain uninspected; retain the older detailed checkpoints below separately.
 [`check-9c39d865-20261106.json`](check-9c39d865-20261106.json) confirms Check’s pinned comparisons/static checks for the preceding 86-model suite.
 [`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json) records an 82-model formal Nightly/publish and 96 random passes; these are separate runs.
@@ -552,3 +552,17 @@ Preceding 3,887 inputs and statuses are unchanged. Totals: 101 models / 177 chap
 The [all-row record](paramassertlit-all-rows.json) is one run of all 1,174 rows and enters neither the fixed suite nor requirement coverage. kirimasim differs only on the 24 parameter rows.
 To cover rows that Icarus does not accept, all rows of the parameter and literal-argument models also ran once on Verilator.
 See the [design and rerun](../../docs/interaction-verification.en.md#parameter-override-type).
+
+<a id="hier-array-qualification"></a>
+
+## Hierarchical-process-control, %m and array-query-loop qualification
+
+[`hierproc.json`](hierproc.json) checks all 252 rows, [`hiername.json`](hiername.json) all 177 and [`arrayloop.json`](arrayloop.json) all 440 by independent interpretation.
+Each has seven normal controls and seven faulty SV programs, all detected by an output difference after a normal exit.
+The [build record](hierloop-build.json) identifies one complete 4,170-case run on `28c6c1a1cb83` (3,683 pass / 479 unsupported / eight fail). All 147 additions pass.
+Preceding 4,023 inputs and statuses are unchanged, and the failures are the same four config and four `defparam` cases as before. Totals: 104 models / 181 chapter pairs / 79 full-selection-pass models.
+[Pinned comparisons](hierloop-fixed-replays.json) record Icarus 95 pass / 52 known and Verilator 136 pass / 11 known at both seeds.
+[All Icarus differences and representative Verilator outputs](hierloop-known-replays.json) are retained. The one Icarus run that never ends is cut at 60 seconds and recorded so.
+The [all-row record](hierloop-all-rows.json) is one run of all 869 rows and enters neither the fixed suite nor requirement coverage. kirimasim has no difference.
+To cover rows that Icarus does not accept, all rows of the three models also ran once on Verilator.
+See the [design and rerun](../../docs/interaction-verification.en.md#hierarchical-process-control).

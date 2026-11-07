@@ -29,10 +29,10 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 17 | [Checkers](ch17.md) | 108 | 27 |
 | 18 | [Constrained random value generation](ch18.md) | 257 | 57 |
 | 19 | [Functional coverage](ch19.md) | 190 | 33 |
-| 20 | [Utility system tasks and system functions](ch20.md) | 367 | 97 |
-| 21 | [Input/output system tasks and system functions](ch21.md) | 430 | 217 |
+| 20 | [Utility system tasks and system functions](ch20.md) | 407 | 137 |
+| 21 | [Input/output system tasks and system functions](ch21.md) | 495 | 282 |
 | 22 | [Compiler directives](ch22.md) | 512 | 402 |
-| 23 | [Modules and hierarchy](ch23.md) | 375 | 119 |
+| 23 | [Modules and hierarchy](ch23.md) | 417 | 161 |
 | 24 | [Programs](ch24.md) | 160 | 117 |
 | 25 | [Interfaces](ch25.md) | 253 | 134 |
 | 26 | [Packages](ch26.md) | 225 | 142 |

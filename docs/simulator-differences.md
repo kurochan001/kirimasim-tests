@@ -1037,3 +1037,21 @@ See the [scope](interaction-verification.en.md#interface-member-expression).
 
 See [all Icarus differences and representative Verilator outputs](../coverage/interaction-qualification/paramassertlit-known-replays.json).
 kirimasim `eee8cd16ba1d` matches the standard's expectations on all 922 rows of the assertion and literal-argument models. The 24 parameter rows that differ are recorded in the [scope](interaction-verification.en.md#parameter-override-type).
+
+<a id="hier-array-differences"></a>
+
+## Process control through hierarchical names, %m, array query functions and loops (2026-11-08)
+
+- **Icarus 13.0 `$root`:** a hierarchical name that starts with `$root` is a syntax error (36 process-control rows, 24 `%m` rows). `$root` names the top of the design (23.6).
+- **Icarus 13.0 statement labels:** a label on a statement other than begin and fork, and on a `for`, is a syntax error (28 `%m` rows). A label may go before any procedural statement (9.3.5).
+- **Icarus 13.0 array queries:** a type name cannot be the argument (85 rows), and the element select `w[1]` of a two-dimensional unpacked array is not accepted (68 rows).
+  An element select of a two-dimensional packed array stops the compiler itself (17 rows), and `foreach (w[m, j])` over a two-dimensional packed array is rejected as not constant (one row). Dynamic arrays and queues of arrays are unsupported (50 rows).
+- **Icarus 13.0 dynamic arrays and queues:** `$increment` of a dynamic array is 3, `$right` and `$increment` of a queue are 0, and `$dimensions` and `$unpacked_dimensions` of a dynamic array, a queue and an empty dynamic array are 0 (49 rows).
+  The standard gives `$increment` -1, `$dimensions` 2 and `$unpacked_dimensions` 1 for all of them (20.7). Because of the wrong `$increment`, one `do`-`while` row over a dynamic array never ends.
+- **Verilator 5.052 `disable`:** a `disable` through an instance array element or a generate block is unsupported (12 rows).
+- **Verilator 5.052 `%m`:** inside the label of a `for` that declares its variable, `%m` adds `.unnamedblk1` (14 rows). The label is the name of the implicit block of the loop (9.3.5).
+- **Verilator 5.052 `foreach`:** `foreach (w[m, j])` whose second dimension is a dynamic array or a queue never iterates (two rows). It iterates over the elements of each `w[m]` (12.7.3).
+- **Verilator 5.052 empty arrays:** reading an element that does not exist gives a random value instead of x (six rows). It is two-state and cannot hold x.
+
+See [all Icarus differences and representative Verilator outputs](../coverage/interaction-qualification/hierloop-known-replays.json).
+kirimasim `28c6c1a1cb83` matches the standard's expectations on all 869 rows of the three models.

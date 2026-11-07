@@ -336,3 +336,12 @@
   固定Icarusは111 pass・25 known、Verilatorは両seedとも111 pass・25 knownです。
 - suiteは11,771件、生成5,336件・110生成器です。要求カバレッジと13ランダムプロファイルを維持しました。
   並行アサーションを[kirimasimの実装を待つ候補](cross-verification-followup.md#models-waiting-for-kirimasim)に加えました。今回の追加は正式Check・Nightlyでは未実行です。[設計・証跡](interaction-verification.md#parameter-override-type)を参照してください。
+
+### 2026-11-08（階層名によるプロセスの制御・%mの階層名・配列の問い合わせ関数とループの追加）
+
+- 階層名によるプロセスの制御、%mの階層名、配列の問い合わせ関数とループのモデルを追加しました。合法869行から147件を選び、4章対をRからMへ移しました。
+- 最新のmainをビルドした`28c6c1a1cb83`の単一の全4,170件は3,683 pass・479 unsupported・8 failです。追加147件は全PASSで、従来4,023件の入力と状態は不変です。
+- 全体は104モデル・181章対・全選択ケースPASSは79モデル、仕分けはM181/E3/C2/N117/R517です。
+  固定Icarusは95 pass・52 known、Verilatorは両seedとも136 pass・11 knownです。
+- suiteは11,920件、生成5,483件・113生成器です。要求カバレッジと13ランダムプロファイルを維持しました。
+  [kirimasimの実装を待つ候補](cross-verification-followup.md#models-waiting-for-kirimasim)の4件はまだ未実装です。今回の追加は正式Check・Nightlyでは未実行です。[設計・証跡](interaction-verification.md#hierarchical-process-control)を参照してください。

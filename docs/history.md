@@ -362,3 +362,12 @@ clause 37.
   Pinned Icarus has 111 pass / 25 known and Verilator 111 pass / 25 known at both seeds.
 - The suite has 11,771 tests, 5,336 generated from 110 generators. Requirement coverage and thirteen random profiles are unchanged.
   Concurrent assertions were added to the [candidates waiting for kirimasim](cross-verification-followup.en.md#models-waiting-for-kirimasim). This addition has not run in formal Check/Nightly. See the [design and evidence](interaction-verification.en.md#parameter-override-type).
+
+### 2026-11-08 (hierarchical-process-control, %m and array-query-loop addition)
+
+- Added models for process control through hierarchical names, hierarchical names printed by %m, and array query functions and loops. 147 cases come from 869 legal rows, and four chapter pairs moved from R to M.
+- One complete 4,170-case run on `28c6c1a1cb83`, built from the latest main, records 3,683 pass / 479 unsupported / eight fail. All 147 additions pass; preceding 4,023 inputs and statuses are unchanged.
+- Totals: 104 models, 181 chapter pairs, 79 full-selection-pass models; triage M181/E3/C2/N117/R517.
+  Pinned Icarus has 95 pass / 52 known and Verilator 136 pass / 11 known at both seeds.
+- The suite has 11,920 tests, 5,483 generated from 113 generators. Requirement coverage and thirteen random profiles are unchanged.
+  The four [candidates waiting for kirimasim](cross-verification-followup.en.md#models-waiting-for-kirimasim) are still unimplemented. This addition has not run in formal Check/Nightly. See the [design and evidence](interaction-verification.en.md#hierarchical-process-control).

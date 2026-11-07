@@ -1036,3 +1036,21 @@ kirimasimの実測版`6f5c69841228`は元の全36件で規格期待値と一致�
 
 [全Icarusの差とVerilatorの代表出力](../coverage/interaction-qualification/paramassertlit-known-replays.json)を保存しました。
 kirimasim `eee8cd16ba1d`は、アサーションとリテラルの引数の全922行で規格の期待値と一致しました。パラメータの24行の差は[範囲](interaction-verification.md#parameter-override-type)に記録しています。
+
+<a id="hier-array-differences"></a>
+
+## 階層名によるプロセスの制御・%mの階層名・配列の問い合わせ関数とループ（2026-11-08）
+
+- **Icarus 13.0の`$root`：** `$root`で始まる階層名を構文エラーとします（プロセスの制御の36行、`%m`の24行）。`$root`は設計の最上位を指す名前です（23.6）。
+- **Icarus 13.0の文のラベル：** beginとfork以外の文のラベルと、`for`のラベルを構文エラーとします（`%m`の28行）。ラベルはどの手続き文にも付けられます（9.3.5）。
+- **Icarus 13.0の配列の問い合わせ：** 型の名前を引数にできず（85行）、2次元のアンパック配列の要素の選択`w[1]`を受け付けません（68行）。
+  パックの2次元の要素の選択ではコンパイラ自体が異常終了し（17行）、パックの2次元の`foreach (w[m, j])`を定数でないとして拒否します（1行）。動的配列とキューの配列は未対応です（50行）。
+- **Icarus 13.0の動的配列とキュー：** 動的配列の`$increment`を3、キューの`$right`と`$increment`を0とし、動的配列・キュー・空の動的配列の`$dimensions`と`$unpacked_dimensions`を0とします（49行）。
+  規格ではどれも`$increment`が-1、`$dimensions`が2、`$unpacked_dimensions`が1です（20.7）。誤った`$increment`のため、動的配列の`do`-`while`の1行はループが終わりません。
+- **Verilator 5.052の`disable`：** インスタンス配列の要素と生成ブロックを通る名前の`disable`を未対応とします（12行）。
+- **Verilator 5.052の`%m`：** 変数を宣言する`for`のラベルの中で、`%m`に`.unnamedblk1`を足します（14行）。ラベルはループの暗黙のブロックの名前です（9.3.5）。
+- **Verilator 5.052の`foreach`：** 2番目の次元が動的配列かキューの`foreach (w[m, j])`を一度も繰り返しません（2行）。各`w[m]`の要素の数だけ繰り返します（12.7.3）。
+- **Verilator 5.052の空の配列：** ない要素を読むと、xではなく乱数になります（6行）。二値のシミュレータなのでxを表せません。
+
+[全Icarusの差とVerilatorの代表出力](../coverage/interaction-qualification/hierloop-known-replays.json)を保存しました。
+kirimasim `28c6c1a1cb83`は、3モデルの全869行で規格の期待値と一致しました。
