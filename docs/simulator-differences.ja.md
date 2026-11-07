@@ -979,3 +979,17 @@ Verilator両seedは各3 pass・33 knownで、既知値2件だけにoracleを登�
 元の`->>`だけを`->`へ変え、変更後の期待値を独立解釈した別対照4件は、Verilator両seedで一致します。
 この補助結果を元のNBAケースの成功へ加算せず、内部原因やNBA機能全般の可否は断定しません。
 kirimasimの実測版`6f5c69841228`は元の全36件で規格期待値と一致しました。[範囲と具体例](interaction-verification.md#named-event-loop-transfer)を参照してください。
+
+<a id="time-literal-gate-differences"></a>
+
+## 時間スコープ・リテラル・ゲート配列（2026-11-07）
+
+- **Icarus 13.0の入れ子：** 入れ子のmoduleは定義を解決できず、入れ子のinterfaceはinterface内のインスタンス化の制限で拒否します。`time_scope_delay`の全行で計1,152行です。
+- **Icarus 13.0のゲート配列の遅延：** 2値か3値の遅延で語の中に異なる遷移が混ざると、ビットごとの遅延になりません。`gate_array_connection`の全行で計1,440行です。
+- **Icarus 13.0の`$timeunit`：** `$timeunit`と`$timeprecision`を定義なしとし、プログラムが実行できません。このモデルでは使いません。
+- **Verilator 5.052の時間スコープ：** `time_scope_delay`の48件はすべてknownです。代表例では、`$unit`のtimeunitが後の`` `timescale ``より優先される、遅延がスコープの精度へ丸められない、`%t`の桁が規格の期待と異なるという差があります。入れ子は未対応です。
+- **Verilator 5.052のリテラル：** サイズより長い桁をエラーにする形があります（9件）。規格は左からの切り捨てを定めています。zを含む加算の2件は三状態の未対応です。
+- **Verilator 5.052のゲート配列：** 遅延付きの三状態の構文を未対応とします（12件）。既知入力の1件（`not`の配列、スカラ入力、2値の遅延）は出力がseedで変わります。
+
+[全Icarusの差と代表出力](../coverage/interaction-qualification/timelitgate-known-replays.json)を保存しました。kirimasim `60c26d7c8113`は3モデルの全19,080行で規格の期待値と一致しました。
+[範囲](interaction-verification.md#time-scope-delay)を参照してください。

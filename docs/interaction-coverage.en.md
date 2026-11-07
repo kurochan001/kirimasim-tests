@@ -1887,6 +1887,70 @@ Cross break/continue with registration order in event-consuming for loops, check
 
 Constraints: Represent the unused pivot by middle in all rows: remove 576 duplicates from 2592 Cartesian rows, leaving 2016 legal rows. Use two static named events without copying or rebinding event values. Trigger the target at 2/8/14/20 and the control at 5/11/17/23. Assign the payload before triggering. For late rows, create the waiter with join_none after the first trigger statement; the parent’s timed suspension starts it in the same tick. An edge wait does not retain past triggers; a triggered wait detects a trigger in the same time slot. A bounded four-iteration for loop continues or breaks once, advancing 1 tick before rearming. Observe 2 ticks after each trigger, avoiding same-tick observation and child rearming. Cancel remaining children at 26, create fresh waiters at 28, and check known recovery inputs at 30/33. Retain every saved word, receive time, retention mask, accumulator and count, displaying X/Z before conversion into bit too. No exclusions for unsupported behavior. Dynamic events, null, ref, delayed triggers, simultaneous triggers and GC are outside scope.
 
+## time_scope_delay / model 1
+
+- The number of combinations satisfying the constraint is 8064.
+- Existing and new tests available: 48.
+- Selected cases for focused execution: 48.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 291/291.
+- Planned 3-factor coverage: 136/136.
+
+Set the time scope of a task delay by a declaration, \`timescale , $unit or nesting, and add settings that must lose. Compare the scaling and rounding of the delay with the caller's scope through reads of $time , $stime , $ realtime and %t.
+
+- binding: keyword, slash, directive, unit_scope, nested。
+- container: module, interface, package。
+- unit: 1us, 10ns, 100ps。
+- precision: same, tenth, milli。
+- delay: real, suffix, fine, argument。
+- rounding: exact, down, tie, up。
+- caller: coarser, finer。
+- control: statement, nba。
+
+Constraints: Only the nested rows of a package are excluded, because packages cannot nest. Do not exclude rows for simulator limitations. The time scope of a task with a delay comes from a declaration, \`timescale , the timeunit of $unit or inheritance by nesting. A \`timescale and a timeunit of $unit that must lose turn a precedence error into different output. The caller has another time unit, so the same number waits a different time. Values round down, tie exactly in binary, round up or need no rounding at the digit of the precision. Reads of $time , $stime , $ realtime and %t are observed in both scopes after each step. Ties of $time , $timeunit , $printtimescale , programs and class methods are outside the scope.
+
+## literal_context_extension / model 1
+
+- The number of combinations satisfying the constraint is 6552.
+- Existing and new tests available: 66.
+- Selected cases for focused execution: 66.
+- Mandatory cases retained individually: 8.
+- Planned 2-factor coverage: 303/303.
+- Planned 3-factor coverage: 148/148.
+
+Carry literals of varied base, sign, digit count and leading digit directly, by a localparam , by macro tokens and by a continuous assignment. Observe every bit of the left padding and truncation, the extension by expression context, the target width and the conversion to bit .
+
+- base: b, o, d, h, fill。
+- sign: unsigned, signed。
+- fit: narrow, exact, truncate, unsized。
+- top: zero, one, x, z。
+- context: assign, add_signed, add_unsigned, cond, negate, ashr。
+- target: logic, signed, bit。
+- width: 8, 33, 65。
+
+Constraints: Forms outside the grammar are excluded: an unbased literal with s or a size, and base 10 with x or z among several digits. An unsized number above 32 bits has an implementation-defined width, so all digits stay within 32 bits. A right shift of an unsized number led by x or z is excluded, because its width shows in the result. An unsized unsigned number led by x or z extends to the width of the expression with that value ( 5.7.1 , Example 4 ). The same literal is written directly in an initial procedure, held by an untyped localparam , expanded from three macro tokens and used in a continuous assignment. A localparam takes the literal's own width, so an unbased unsized literal widens as 1 bit. A bit target converts X and Z to 0 . The net of a continuous assignment is observed with its 4 values. The $bits of an unsized number is only at least 32 , so it is not observed.
+
+## gate_array_connection / model 1
+
+- The number of combinations satisfying the constraint is 4464.
+- Existing and new tests available: 51.
+- Selected cases for focused execution: 51.
+- Mandatory cases retained individually: 6.
+- Planned 2-factor coverage: 278/278.
+- Planned 3-factor coverage: 135/135.
+
+Connect ascending and descending vectors, part-selects, concatenations and scalars to an array of 4 gates, and check the bit mapping. Through changes from known values to X or Z and back, read the truth table and the rise, fall and turn-off delay of each output at half times.
+
+- gate: and, xnor, not, bufif1, nmos。
+- range: down, up, offset。
+- output: whole_down, whole_up, part, concat。
+- input: whole_down, whole_up, concat, scalar。
+- control: scalar, vector, none。
+- delay: none, one, two, three。
+- value: known, x, z。
+
+Constraints: A not gate has no second input. Three delays are allowed only on bufif1 and nmos. Do not exclude rows for simulator limitations. Terminals are ascending or descending vectors, part-selects, concatenations or scalars; one of the single-instance width is shared by all instances, and otherwise the instance of the right-hand index takes the LSB of the expression. Inputs go from known values to values with the X or Z of the row, then back to known values. Changes are far apart compared with the delays, and the final output value and its delay come from the tables of the standard. Reads happen at half times, which no output event shares, and observe every bit. The standard does not define an output before its first delay ends, so the first phase is read after every output settles. Pulses shorter than a delay are not used, because Clause 28 has no rule for them. The strengths of %v are left to the strength model.
+
 <a id="入力指紋が一致した実行の確認"></a>
 
 ## Verify that the input fingerprint matches the execution.
@@ -2342,6 +2406,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/assertion-wait-20261031-verilator5.052-seed1.json
 
@@ -2792,6 +2871,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/assertion-wait-20261031-verilator5.052-seed73.json
 
@@ -3242,6 +3336,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/binding-20261031-icarus13.json
 
@@ -3692,6 +3801,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/binding-20261031-verilator5.052-seed1.json
 
@@ -4142,6 +4266,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/binding-20261031-verilator5.052-seed73.json
 
@@ -4592,6 +4731,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/class-method-20261031-icarus13.json
 
@@ -5042,6 +5196,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/class-method-20261031-verilator5.052-seed1.json
 
@@ -5492,6 +5661,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/class-method-20261031-verilator5.052-seed73.json
 
@@ -5942,6 +6126,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/clocking-20261031-icarus13.json
 
@@ -6392,6 +6591,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/clocking-20261031-verilator5.052-seed1.json
 
@@ -6842,6 +7056,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/clocking-20261031-verilator5.052-seed73.json
 
@@ -7292,6 +7521,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/config-20261101-icarus13.json
 
@@ -7742,6 +7986,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/config-20261101-verilator5.052-seed1.json
 
@@ -8192,6 +8451,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/config-20261101-verilator5.052-seed73.json
 
@@ -8642,6 +8916,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261029-expanded-icarus13.json
 
@@ -9092,6 +9381,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261029-expanded-kirimasim-f8408ea.json
 
@@ -9542,6 +9846,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261029-expanded-verilator5052-seed1.json
 
@@ -9992,6 +10311,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261029-expanded-verilator5052-seed73.json
 
@@ -10442,6 +10776,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261029-hierarchy-icarus13.json
 
@@ -10892,6 +11241,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261029-hierarchy-kirimasim-ee36c83.json
 
@@ -11342,6 +11706,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261029-hierarchy-verilator5052-seed1.json
 
@@ -11792,6 +12171,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261029-hierarchy-verilator5052-seed73.json
 
@@ -12242,6 +12636,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261029-icarus13.json
 
@@ -12692,6 +13101,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261029-kirimasim-dd2c018.json
 
@@ -13142,6 +13566,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261029-paths-icarus13.json
 
@@ -13592,6 +14031,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261029-paths-kirimasim-b86ccb6.json
 
@@ -14042,6 +14496,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261029-paths-verilator5052-seed1.json
 
@@ -14492,6 +14961,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261029-paths-verilator5052-seed73.json
 
@@ -14942,6 +15426,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261029-remaining-icarus13.json
 
@@ -15392,6 +15891,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261029-remaining-kirimasim-5e8ab59.json
 
@@ -15842,6 +16356,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261029-remaining-qualified-icarus13.json
 
@@ -16292,6 +16821,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261029-remaining-qualified-kirimasim-5e8ab59.json
 
@@ -16742,6 +17286,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261029-remaining-qualified-verilator5052-seed1.json
 
@@ -17192,6 +17751,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261029-remaining-qualified-verilator5052-seed73.json
 
@@ -17642,6 +18216,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261029-remaining-verilator5052-seed1.json
 
@@ -18092,6 +18681,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261029-remaining-verilator5052-seed73.json
 
@@ -18542,6 +19146,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261029-verilator5052-seed1.json
 
@@ -18992,6 +19611,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261029-verilator5052-seed73.json
 
@@ -19442,6 +20076,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261030-concatlogic-icarus13.json
 
@@ -19892,6 +20541,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261030-concatlogic-kirimasim-1d67d4e.json
 
@@ -20342,6 +21006,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261030-concatlogic-verilator5052-seed1.json
 
@@ -20792,6 +21471,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261030-concatlogic-verilator5052-seed73.json
 
@@ -21242,6 +21936,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261030-divresize-icarus13.json
 
@@ -21692,6 +22401,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261030-divresize-kirimasim-2020305.json
 
@@ -22142,6 +22866,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261030-divresize-verilator5052-seed1.json
 
@@ -22592,6 +23331,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261030-divresize-verilator5052-seed73.json
 
@@ -23042,6 +23796,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261030-indexqueue-icarus13.json
 
@@ -23492,6 +24261,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261030-indexqueue-kirimasim-b0fc996.json
 
@@ -23942,6 +24726,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261030-indexqueue-verilator5052-seed1.json
 
@@ -24392,6 +25191,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261030-indexqueue-verilator5052-seed73.json
 
@@ -24842,6 +25656,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261030-logicedge-icarus13.json
 
@@ -25292,6 +26121,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261030-logicedge-kirimasim-51cda31.json
 
@@ -25742,6 +26586,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261030-logicedge-verilator5052-seed1.json
 
@@ -26192,6 +27051,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261030-logicedge-verilator5052-seed73.json
 
@@ -26642,6 +27516,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261030-operators-icarus13.json
 
@@ -27092,6 +27981,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261030-operators-kirimasim-5e8ab59.json
 
@@ -27542,6 +28446,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261030-operators-verilator5052-seed1.json
 
@@ -27992,6 +28911,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-20261030-operators-verilator5052-seed73.json
 
@@ -28442,6 +29376,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-followup-sdf-icarus13.json
 
@@ -28892,6 +29841,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross-followup-subroutine-kirimasim-26a3e5a3-insidefix.json
 
@@ -29342,6 +30306,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross25-icarus-13.json
 
@@ -29792,6 +30771,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross25-kirimasim-latest.json
 
@@ -30242,6 +31236,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross25-verilator-5.052-seed1.json
 
@@ -30692,6 +31701,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross25-verilator-5.052-seed73.json
 
@@ -31142,6 +32166,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross26-icarus-13.json
 
@@ -31592,6 +32631,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross26-kirimasim-latest.json
 
@@ -32042,6 +33096,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross26-verilator-5.052-seed1.json
 
@@ -32492,6 +33561,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross26-verilator-5.052-seed73.json
 
@@ -32942,6 +34026,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross27-icarus-13.json
 
@@ -33392,6 +34491,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross27-kirimasim-fb79248e.json
 
@@ -33842,6 +34956,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross27-kirimasim-latest.json
 
@@ -34292,6 +35421,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross27-verilator-5.052-seed1.json
 
@@ -34742,6 +35886,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross27-verilator-5.052-seed73.json
 
@@ -35192,6 +36351,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross28-icarus-13.json
 
@@ -35642,6 +36816,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross28-kirimasim-f303beca.json
 
@@ -36092,6 +37281,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross28-verilator-5.052-seed1.json
 
@@ -36542,6 +37746,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross28-verilator-5.052-seed73.json
 
@@ -36992,6 +38211,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross29-icarus-13.json
 
@@ -37442,6 +38676,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross29-kirimasim-f303beca.json
 
@@ -37892,6 +39141,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross29-verilator-5.052-seed1.json
 
@@ -38342,6 +39606,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross29-verilator-5.052-seed73.json
 
@@ -38792,6 +40071,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross30-kirimasim-17b7192b.json
 
@@ -39242,6 +40536,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross31-kirimasim-29ad7315.json
 
@@ -39692,6 +41001,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross32-kirimasim-a08e3489.json
 
@@ -40142,6 +41466,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross33-kirimasim-55ce80b9.json
 
@@ -40592,6 +41931,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross35-kirimasim-3a31b060.json
 
@@ -41042,6 +42396,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross36-kirimasim-3a31b060.json
 
@@ -41492,6 +42861,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross37-kirimasim-3a31b060.json
 
@@ -41942,6 +43326,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross38-kirimasim-95eefebe.json
 
@@ -42392,6 +43791,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross39-kirimasim-95eefebe.json
 
@@ -42842,6 +44256,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross40-kirimasim-4b58e29f.json
 
@@ -43292,6 +44721,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross41-kirimasim-4b58e29f.json
 
@@ -43742,6 +45186,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross42-kirimasim-4b58e29f.json
 
@@ -44192,6 +45651,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross43-kirimasim-4b58e29f.json
 
@@ -44642,6 +46116,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross44-kirimasim-4b58e29f.json
 
@@ -45092,6 +46581,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross45-kirimasim-4b58e29f.json
 
@@ -45542,6 +47046,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross46-kirimasim-4b58e29f.json
 
@@ -45992,6 +47511,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross47-kirimasim-4b58e29f.json
 
@@ -46442,6 +47976,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross48-kirimasim-4b58e29f.json
 
@@ -46892,6 +48441,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross49-kirimasim-4b58e29f.json
 
@@ -47342,6 +48906,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross50-kirimasim-4b58e29f.json
 
@@ -47792,6 +49371,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross51-kirimasim-4b58e29f.json
 
@@ -48242,6 +49836,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross52-kirimasim-3550d774.json
 
@@ -48692,6 +50301,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross53-kirimasim-4fb5f6b1.json
 
@@ -49142,6 +50766,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross54-kirimasim-d0865eb6.json
 
@@ -49592,6 +51231,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross55-kirimasim-ddf48e2b.json
 
@@ -50042,6 +51696,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross56-dpi-nba-verilator5052-seed1.json
 
@@ -50492,6 +52161,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross56-dpi-nba-verilator5052-seed73.json
 
@@ -50942,6 +52626,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross56-kirimasim-1144b2ac.json
 
@@ -51392,6 +53091,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross57-constraint-verilator5052-seed1.json
 
@@ -51842,6 +53556,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross57-constraint-verilator5052-seed73.json
 
@@ -52292,6 +54021,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross57-kirimasim-1144b2ac.json
 
@@ -52742,6 +54486,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross58-clockassert-verilator5052-seed1.json
 
@@ -53192,6 +54951,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross58-clockassert-verilator5052-seed73.json
 
@@ -53642,6 +55416,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross58-kirimasim-1144b2ac.json
 
@@ -54092,6 +55881,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross59-dpi-array-verilator5052-seed1.json
 
@@ -54542,6 +56346,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross59-dpi-array-verilator5052-seed73.json
 
@@ -54992,6 +56811,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross59-kirimasim-f2d9a113.json
 
@@ -55442,6 +57276,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross60-class-array-verilator5052-seed1.json
 
@@ -55892,6 +57741,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross60-class-array-verilator5052-seed73.json
 
@@ -56342,6 +58206,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross60-kirimasim-f2d9a113.json
 
@@ -56792,6 +58671,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross61-kirimasim-f2d9a113.json
 
@@ -57242,6 +59136,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross61-strength-format-icarus13.json
 
@@ -57692,6 +59601,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross62-kirimasim-80859f34.json
 
@@ -58142,6 +60066,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross62-vif-class-verilator5052-seed1.json
 
@@ -58592,6 +60531,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross62-vif-class-verilator5052-seed73.json
 
@@ -59042,6 +60996,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross63-clockiff-verilator5052-seed1.json
 
@@ -59492,6 +61461,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross63-clockiff-verilator5052-seed73.json
 
@@ -59942,6 +61926,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross63-kirimasim-80859f34.json
 
@@ -60392,6 +62391,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross64-assocquery-icarus13.json
 
@@ -60842,6 +62856,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross64-assocquery-verilator5052-seed1.json
 
@@ -61292,6 +63321,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross64-assocquery-verilator5052-seed73.json
 
@@ -61742,6 +63786,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross64-kirimasim-80859f34.json
 
@@ -62192,6 +64251,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross65-kirimasim-80859f34.json
 
@@ -62642,6 +64716,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross65-randreduce-icarus13.json
 
@@ -63092,6 +65181,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross65-randreduce-verilator5052-seed1.json
 
@@ -63542,6 +65646,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross65-randreduce-verilator5052-seed73.json
 
@@ -63992,6 +66111,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross66-gendisable-icarus13.json
 
@@ -64442,6 +66576,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross66-gendisable-verilator5052-seed1.json
 
@@ -64892,6 +67041,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross66-gendisable-verilator5052-seed73.json
 
@@ -65342,6 +67506,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross66-kirimasim-2edfebbc.json
 
@@ -65792,6 +67971,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross67-dist-icarus13.json
 
@@ -66242,6 +68436,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross67-dist-verilator5052-seed1.json
 
@@ -66692,6 +68901,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross67-dist-verilator5052-seed73.json
 
@@ -67142,6 +69366,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross67-kirimasim-50f1f77b.json
 
@@ -67592,6 +69831,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross68-eventlife-icarus13.json
 
@@ -68042,6 +70296,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross68-eventlife-verilator5052-seed1.json
 
@@ -68492,6 +70761,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross68-eventlife-verilator5052-seed73.json
 
@@ -68942,6 +71226,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross68-kirimasim-50f1f77b.json
 
@@ -69392,6 +71691,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross69-dpiquery-icarus13.json
 
@@ -69842,6 +72156,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross69-dpiquery-verilator5052-seed1.json
 
@@ -70292,6 +72621,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross69-dpiquery-verilator5052-seed73.json
 
@@ -70742,6 +73086,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross69-kirimasim-50f1f77b.json
 
@@ -71192,6 +73551,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross70-kirimasim-2ffb5ddd.json
 
@@ -71642,6 +74016,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross70-sdfpath-icarus13.json
 
@@ -72092,6 +74481,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross70-sdfpath-verilator5052-seed1.json
 
@@ -72542,6 +74946,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross70-sdfpath-verilator5052-seed73.json
 
@@ -72992,6 +75411,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross71-checksample-icarus13.json
 
@@ -73442,6 +75876,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross71-checksample-verilator5052-seed1.json
 
@@ -73892,6 +76341,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross71-checksample-verilator5052-seed73.json
 
@@ -74342,6 +76806,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross71-kirimasim-2ffb5ddd.json
 
@@ -74792,6 +77271,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross72-kirimasim-786c94bb.json
 
@@ -75242,6 +77736,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross72-progassert-icarus13.json
 
@@ -75692,6 +78201,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross72-progassert-verilator5052-seed1.json
 
@@ -76142,6 +78666,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross72-progassert-verilator5052-seed73.json
 
@@ -76592,6 +79131,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross73-cgsample-icarus13.json
 
@@ -77042,6 +79596,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross73-cgsample-verilator5052-seed1.json
 
@@ -77492,6 +80061,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross73-cgsample-verilator5052-seed73.json
 
@@ -77942,6 +80526,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross73-kirimasim-786c94bb.json
 
@@ -78392,6 +80991,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross74-deferdis-icarus13.json
 
@@ -78842,6 +81456,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross74-deferdis-verilator5052-seed1.json
 
@@ -79292,6 +81921,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross74-deferdis-verilator5052-seed73.json
 
@@ -79742,6 +82386,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross74-kirimasim-786c94bb.json
 
@@ -80192,6 +82851,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross75-clockevent-icarus13.json
 
@@ -80642,6 +83316,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross75-clockevent-verilator5052-seed1.json
 
@@ -81092,6 +83781,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross75-clockevent-verilator5052-seed73.json
 
@@ -81542,6 +84246,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross75-deferdis-kirimasim-7654825d-labelcancel.json
 
@@ -81992,6 +84711,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross75-kirimasim-26a3e5a3-insidefix.json
 
@@ -82442,6 +85176,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross75-kirimasim-7654825d-labelcancel-final.json
 
@@ -82892,6 +85641,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross75-kirimasim-7654825d-labelcancel.json
 
@@ -83342,6 +86106,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross75-kirimasim-f3ea0379.json
 
@@ -83792,6 +86571,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross76-deferarg-icarus13.json
 
@@ -84242,6 +87036,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross76-deferarg-verilator5052-seed1.json
 
@@ -84692,6 +87501,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross76-deferarg-verilator5052-seed73.json
 
@@ -85142,6 +87966,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross76-kirimasim-7654825d-deferarg.json
 
@@ -85592,6 +88431,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross77-genenum-icarus13.json
 
@@ -86042,6 +88896,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross77-genenum-verilator5052-seed1.json
 
@@ -86492,6 +89361,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross77-genenum-verilator5052-seed73.json
 
@@ -86942,6 +89826,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross77-kirimasim-7554bb47-genenum.json
 
@@ -87392,6 +90291,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross78-kirimasim-7554bb47-pkgnba.json
 
@@ -87842,6 +90756,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross78-pkgnba-icarus13.json
 
@@ -88292,6 +91221,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross78-pkgnba-verilator5052-seed1.json
 
@@ -88742,6 +91686,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross78-pkgnba-verilator5052-seed73.json
 
@@ -89192,6 +92151,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross79-kirimasim-a682e19e-pkgwatch.json
 
@@ -89642,6 +92616,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross79-pkgwatch-icarus13.json
 
@@ -90092,6 +93081,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross79-pkgwatch-verilator5052-seed1.json
 
@@ -90542,6 +93546,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross79-pkgwatch-verilator5052-seed73.json
 
@@ -90992,6 +94011,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross80-classimp-final-icarus13.json
 
@@ -91442,6 +94476,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross80-classimp-final-verilator5052-seed1.json
 
@@ -91892,6 +94941,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross80-classimp-final-verilator5052-seed73.json
 
@@ -92342,6 +95406,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross80-classimp-icarus13.json
 
@@ -92792,6 +95871,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross80-classimp-verilator5052-seed1.json
 
@@ -93242,6 +96336,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross80-classimp-verilator5052-seed73.json
 
@@ -93692,6 +96801,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross80-kirimasim-91139559-classimp-final.json
 
@@ -94142,6 +97266,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross80-kirimasim-91139559-classimp.json
 
@@ -94592,6 +97731,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross81-gensub-icarus13.json
 
@@ -95042,6 +98196,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross81-gensub-verilator5052-seed1.json
 
@@ -95492,6 +98661,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross81-gensub-verilator5052-seed73.json
 
@@ -95942,6 +99126,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross81-kirimasim-16222215-gensub.json
 
@@ -96392,6 +99591,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross82-classsel-icarus13.json
 
@@ -96842,6 +100056,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross82-classsel-verilator5052-seed1.json
 
@@ -97292,6 +100521,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross82-classsel-verilator5052-seed73.json
 
@@ -97742,6 +100986,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross82-kirimasim-16222215-classsel.json
 
@@ -98192,6 +101451,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross83-genloop-icarus13.json
 
@@ -98642,6 +101916,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross83-genloop-verilator5052-seed1.json
 
@@ -99092,6 +102381,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross83-genloop-verilator5052-seed73.json
 
@@ -99542,6 +102846,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross83-kirimasim-50a897de-genloop.json
 
@@ -99992,6 +103311,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross84-ifquery-icarus13.json
 
@@ -100442,6 +103776,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross84-ifquery-verilator5052-seed1.json
 
@@ -100892,6 +104241,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross84-ifquery-verilator5052-seed73.json
 
@@ -101342,6 +104706,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross84-kirimasim-50a897de-ifquery.json
 
@@ -101792,6 +105171,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross85-genexpr-icarus13.json
 
@@ -102242,6 +105636,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross85-genexpr-verilator5052-seed1.json
 
@@ -102692,6 +106101,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross85-genexpr-verilator5052-seed73.json
 
@@ -103142,6 +106566,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross85-kirimasim-92001039-genexpr.json
 
@@ -103592,6 +107031,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross86-kirimasim-6f5c6984-scansel.json
 
@@ -104042,6 +107496,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross86-scansel-icarus13.json
 
@@ -104492,6 +107961,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross86-scansel-verilator5052-seed1.json
 
@@ -104942,6 +108426,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross86-scansel-verilator5052-seed73.json
 
@@ -105392,6 +108891,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross87-kirimasim-6f5c6984-progframe.json
 
@@ -105842,6 +109356,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross87-progframe-icarus13.json
 
@@ -106292,6 +109821,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross87-progframe-verilator5052-seed1.json
 
@@ -106742,6 +110286,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross87-progframe-verilator5052-seed73.json
 
@@ -107192,6 +110751,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross88-kirimasim-6f5c6984-pkgquery.json
 
@@ -107642,6 +111216,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross88-pkgquery-icarus13.json
 
@@ -108092,6 +111681,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross88-pkgquery-verilator5052-seed1.json
 
@@ -108542,6 +112146,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross88-pkgquery-verilator5052-seed73.json
 
@@ -108992,6 +112611,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross89-eventflow-icarus13.json
 
@@ -109442,6 +113076,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross89-eventflow-verilator5052-seed1.json
 
@@ -109892,6 +113541,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 40/140.
   - Mandatory case: 2/6.
   - Case statuses: pass=8, fail=0, known=28, unsupported=0, stale=0, not_run=0.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross89-eventflow-verilator5052-seed73.json
 
@@ -110342,6 +114006,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 40/140.
   - Mandatory case: 2/6.
   - Case statuses: pass=8, fail=0, known=28, unsupported=0, stale=0, not_run=0.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross89-kirimasim-1e840ea3-assignwait.json
 
@@ -110792,6 +114471,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 140/140.
   - Mandatory case: 6/6.
   - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/cross89-kirimasim-6f5c6984-eventflow.json
 
@@ -111242,6 +114936,1881 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 140/140.
   - Mandatory case: 6/6.
   - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
+
+### coverage/interaction-results/cross92-kirimasim-60c26d7c-timelitgate.json
+
+- Environment: kirimasim 0.0.0 (commit 60c26d7c8113), built with AppleClang 21.0.0.21000401.
+- Execution timestamp: 2026-11-07T01:05:38.206063+00:00.
+
+- scheduling_visibility:
+  - The confirmed combination of the 2 factor: 126/126.
+  - The confirmed combination of the 3 factor: 51/51.
+  - Individual mandatory cases: No objects.
+  - Case statuses: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=274.
+- nba_capture:
+  - The confirmed combination of the 2 factor: 162/162.
+  - The confirmed combination of the 3 factor: 44/44.
+  - Mandatory case: 3/3.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- expression_context:
+  - The confirmed combination of the 2 factor: 143/143.
+  - The confirmed combination of the 3 factor: 63/63.
+  - Mandatory case: 3/3.
+  - Case statuses: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- packed_part_select:
+  - The confirmed combination of the 2 factor: 162/162.
+  - The confirmed combination of the 3 factor: 48/48.
+  - Mandatory case: 3/3.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- conditional_merge:
+  - The confirmed combination of the 2 factor: 185/185.
+  - The confirmed combination of the 3 factor: 76/76.
+  - Mandatory case: 3/3.
+  - Case statuses: pass=32, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- shift_context:
+  - The confirmed combination of the 2 factor: 298/298.
+  - The confirmed combination of the 3 factor: 92/92.
+  - Mandatory case: 4/4.
+  - Case statuses: pass=56, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- cast_pipeline:
+  - The confirmed combination of the 2 factor: 214/214.
+  - The confirmed combination of the 3 factor: 76/76.
+  - Mandatory case: 3/3.
+  - Case statuses: pass=32, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- task_argument_visibility:
+  - The confirmed combination of the 2 factor: 144/144.
+  - The confirmed combination of the 3 factor: 52/52.
+  - Mandatory case: 3/3.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- argument_binding_index:
+  - The confirmed combination of the 2 factor: 162/162.
+  - The confirmed combination of the 3 factor: 63/63.
+  - Mandatory case: 5/5.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- packed_structure:
+  - The confirmed combination of the 2 factor: 186/186.
+  - The confirmed combination of the 3 factor: 52/52.
+  - Mandatory case: 3/3.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- case_matching:
+  - The confirmed combination of the 2 factor: 220/220.
+  - The confirmed combination of the 3 factor: 82/82.
+  - Mandatory case: 3/3.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- port_connection:
+  - The confirmed combination of the 2 factor: 204/204.
+  - The confirmed combination of the 3 factor: 56/56.
+  - Mandatory case: 5/5.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- unpacked_array_copy:
+  - The confirmed combination of the 2 factor: 148/148.
+  - The confirmed combination of the 3 factor: 52/52.
+  - Mandatory case: 3/3.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- bit_vector_queries:
+  - The confirmed combination of the 2 factor: 285/285.
+  - The confirmed combination of the 3 factor: 108/108.
+  - Mandatory case: 4/4.
+  - Case statuses: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- streaming_permutation:
+  - The confirmed combination of the 2 factor: 182/182.
+  - The confirmed combination of the 3 factor: 68/68.
+  - Mandatory case: 4/4.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- comparison_context:
+  - The confirmed combination of the 2 factor: 302/302.
+  - The confirmed combination of the 3 factor: 174/174.
+  - Mandatory case: 4/4.
+  - Case statuses: pass=100, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- array_reduction_pipeline:
+  - The confirmed combination of the 2 factor: 261/261.
+  - The confirmed combination of the 3 factor: 162/162.
+  - Mandatory case: 8/8.
+  - Case statuses: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- variable_bit_index:
+  - The confirmed combination of the 2 factor: 253/253.
+  - The confirmed combination of the 3 factor: 106/106.
+  - Mandatory case: 4/4.
+  - Case statuses: pass=44, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- queue_update_capacity:
+  - The confirmed combination of the 2 factor: 258/258.
+  - The confirmed combination of the 3 factor: 120/120.
+  - Mandatory case: 5/5.
+  - Case statuses: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- queue_element_reference:
+  - The confirmed combination of the 2 factor: 257/257.
+  - The confirmed combination of the 3 factor: 96/96.
+  - Mandatory case: 5/5.
+  - Case statuses: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- division_context:
+  - The confirmed combination of the 2 factor: 283/283.
+  - The confirmed combination of the 3 factor: 98/98.
+  - Mandatory case: 5/5.
+  - Case statuses: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- dynamic_array_resize:
+  - The confirmed combination of the 2 factor: 219/219.
+  - The confirmed combination of the 3 factor: 96/96.
+  - Mandatory case: 5/5.
+  - Case statuses: pass=38, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- concatenated_assignment:
+  - The confirmed combination of the 2 factor: 265/265.
+  - The confirmed combination of the 3 factor: 126/126.
+  - Mandatory case: 5/5.
+  - Case statuses: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- packed_logical_reduction:
+  - The confirmed combination of the 2 factor: 218/218.
+  - The confirmed combination of the 3 factor: 142/142.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=70, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- logical_short_circuit:
+  - The confirmed combination of the 2 factor: 214/214.
+  - The confirmed combination of the 3 factor: 236/236.
+  - Mandatory case: 5/5.
+  - Case statuses: pass=92, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- edge_event_expression:
+  - The confirmed combination of the 2 factor: 260/260.
+  - The confirmed combination of the 3 factor: 152/152.
+  - Mandatory case: 5/5.
+  - Case statuses: pass=64, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- event_or_iff:
+  - The confirmed combination of the 2 factor: 104/104.
+  - The confirmed combination of the 3 factor: 59/59.
+  - Mandatory case: 4/4.
+  - Case statuses: pass=27, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- heap_file_monitor_context:
+  - The confirmed combination of the 2 factor: 40/40.
+  - Mandatory case: 3/3.
+  - Case statuses: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- compound_shift_target:
+  - The confirmed combination of the 2 factor: 308/308.
+  - The confirmed combination of the 3 factor: 90/90.
+  - Mandatory case: 4/4.
+  - Case statuses: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- membership_container:
+  - The confirmed combination of the 2 factor: 214/305.
+  - The confirmed combination of the 3 factor: 89/174.
+  - Mandatory case: 2/5.
+  - Case statuses: pass=20, fail=0, known=0, unsupported=26, stale=0, not_run=0.
+- membership_range:
+  - The confirmed combination of the 2 factor: 252/303.
+  - The confirmed combination of the 3 factor: 117/178.
+  - Mandatory case: 4/6.
+  - Case statuses: pass=30, fail=0, known=0, unsupported=16, stale=0, not_run=0.
+- case_inside_selection:
+  - The confirmed combination of the 2 factor: 277/315.
+  - The confirmed combination of the 3 factor: 120/154.
+  - Mandatory case: 4/7.
+  - Case statuses: pass=26, fail=0, known=0, unsupported=8, stale=0, not_run=0.
+- clocking_input_sampling:
+  - The confirmed combination of the 2 factor: 118/165.
+  - The confirmed combination of the 3 factor: 38/72.
+  - Mandatory case: 2/5.
+  - Case statuses: pass=24, fail=0, known=0, unsupported=12, stale=0, not_run=0.
+- assertion_sample_visibility:
+  - The confirmed combination of the 2 factor: 0/225.
+  - The confirmed combination of the 3 factor: 0/96.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=36, stale=0, not_run=0.
+- container_wait_visibility:
+  - The confirmed combination of the 2 factor: 214/214.
+  - The confirmed combination of the 3 factor: 88/88.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- class_method_reference:
+  - The confirmed combination of the 2 factor: 135/202.
+  - The confirmed combination of the 3 factor: 39/99.
+  - Mandatory case: 2/6.
+  - Case statuses: pass=18, fail=0, known=0, unsupported=18, stale=0, not_run=0.
+- function_loop_return:
+  - The confirmed combination of the 2 factor: 161/161.
+  - The confirmed combination of the 3 factor: 120/120.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- loop_assignment_order:
+  - The confirmed combination of the 2 factor: 246/246.
+  - The confirmed combination of the 3 factor: 111/111.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- implicit_process_visibility:
+  - The confirmed combination of the 2 factor: 242/242.
+  - The confirmed combination of the 3 factor: 96/96.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- generate_scope_lookup:
+  - The confirmed combination of the 2 factor: 148/148.
+  - The confirmed combination of the 3 factor: 68/68.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- default_argument_scope:
+  - The confirmed combination of the 2 factor: 159/159.
+  - The confirmed combination of the 3 factor: 128/128.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- event_task_scope:
+  - The confirmed combination of the 2 factor: 109/109.
+  - The confirmed combination of the 3 factor: 52/52.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=13, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- continuous_delay_inertial:
+  - The confirmed combination of the 2 factor: 141/141.
+  - The confirmed combination of the 3 factor: 129/129.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=63, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- port_import_scope:
+  - The confirmed combination of the 2 factor: 158/158.
+  - The confirmed combination of the 3 factor: 141/141.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=39, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- typed_memory_file:
+  - The confirmed combination of the 2 factor: 248/248.
+  - The confirmed combination of the 3 factor: 82/82.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- program_descendant_shutdown:
+  - The confirmed combination of the 2 factor: 109/109.
+  - The confirmed combination of the 3 factor: 38/38.
+  - Mandatory case: 4/4.
+  - Case statuses: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- implicit_port_nettype:
+  - The confirmed combination of the 2 factor: 156/156.
+  - The confirmed combination of the 3 factor: 72/72.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- generated_interface_binding:
+  - The confirmed combination of the 2 factor: 165/165.
+  - The confirmed combination of the 3 factor: 74/74.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- program_reactive_handoff:
+  - The confirmed combination of the 2 factor: 183/183.
+  - The confirmed combination of the 3 factor: 84/84.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- configuration_generated_shape:
+  - The confirmed combination of the 2 factor: 207/213.
+  - The confirmed combination of the 3 factor: 72/80.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=37, fail=4, known=0, unsupported=0, stale=0, not_run=0.
+- udp_array_strength:
+  - The confirmed combination of the 2 factor: 182/182.
+  - The confirmed combination of the 3 factor: 80/80.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=25, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- generated_udp_state:
+  - The confirmed combination of the 2 factor: 165/165.
+  - The confirmed combination of the 3 factor: 68/68.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- interface_header_import:
+  - The confirmed combination of the 2 factor: 183/183.
+  - The confirmed combination of the 3 factor: 78/78.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- mailbox_class_alias:
+  - The confirmed combination of the 2 factor: 0/245.
+  - The confirmed combination of the 3 factor: 0/92.
+  - Mandatory case: 0/9.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=36, stale=0, not_run=0.
+- distribution_expression_binding:
+  - The confirmed combination of the 2 factor: 0/154.
+  - The confirmed combination of the 3 factor: 0/81.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=31, stale=0, not_run=0.
+- generate_default_disable:
+  - The confirmed combination of the 2 factor: 0/93.
+  - The confirmed combination of the 3 factor: 0/60.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=18, stale=0, not_run=0.
+- array_reduction_constraint:
+  - The confirmed combination of the 2 factor: 0/96.
+  - The confirmed combination of the 3 factor: 0/40.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=13, stale=0, not_run=0.
+- associative_array_queries:
+  - The confirmed combination of the 2 factor: 0/93.
+  - The confirmed combination of the 3 factor: 0/54.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=18, stale=0, not_run=0.
+- clocking_event_iff:
+  - The confirmed combination of the 2 factor: 0/109.
+  - The confirmed combination of the 3 factor: 0/44.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=12, stale=0, not_run=0.
+- class_virtual_interface:
+  - The confirmed combination of the 2 factor: 0/96.
+  - The confirmed combination of the 3 factor: 0/48.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=13, stale=0, not_run=0.
+- resolved_strength_format:
+  - The confirmed combination of the 2 factor: 87/87.
+  - The confirmed combination of the 3 factor: 78/78.
+  - Mandatory case: 4/4.
+  - Case statuses: pass=31, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- class_array_shallow_copy:
+  - The confirmed combination of the 2 factor: 67/108.
+  - The confirmed combination of the 3 factor: 21/60.
+  - Mandatory case: 1/4.
+  - Case statuses: pass=6, fail=0, known=0, unsupported=12, stale=0, not_run=0.
+- dpi_openarray_shape:
+  - The confirmed combination of the 2 factor: 0/100.
+  - The confirmed combination of the 3 factor: 0/72.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=30, stale=0, not_run=0.
+- clocking_assertion_sampling:
+  - The confirmed combination of the 2 factor: 0/109.
+  - The confirmed combination of the 3 factor: 0/50.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=18, stale=0, not_run=0.
+- constraint_inheritance:
+  - The confirmed combination of the 2 factor: 0/70.
+  - The confirmed combination of the 3 factor: 0/40.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=13, stale=0, not_run=0.
+- dpi_nba_capture:
+  - The confirmed combination of the 2 factor: 0/81.
+  - The confirmed combination of the 3 factor: 0/48.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=18, stale=0, not_run=0.
+- aggregate_event_lifetime:
+  - The confirmed combination of the 2 factor: 0/123.
+  - The confirmed combination of the 3 factor: 0/54.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=18, stale=0, not_run=0.
+- sv_dpi_array_queries:
+  - The confirmed combination of the 2 factor: 0/177.
+  - The confirmed combination of the 3 factor: 0/66.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=19, stale=0, not_run=0.
+- sdf_conditional_paths:
+  - The confirmed combination of the 2 factor: 0/109.
+  - The confirmed combination of the 3 factor: 0/46.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=18, stale=0, not_run=0.
+- checker_assertion_sampling:
+  - The confirmed combination of the 2 factor: 0/174.
+  - The confirmed combination of the 3 factor: 0/63.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=27, stale=0, not_run=0.
+- program_assertion_attempts:
+  - The confirmed combination of the 2 factor: 0/138.
+  - The confirmed combination of the 3 factor: 0/75.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=27, stale=0, not_run=0.
+- container_coverage_sampling:
+  - The confirmed combination of the 2 factor: 0/172.
+  - The confirmed combination of the 3 factor: 0/79.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=33, stale=0, not_run=0.
+- deferred_disable_reports:
+  - The confirmed combination of the 2 factor: 151/151.
+  - The confirmed combination of the 3 factor: 92/92.
+  - Mandatory case: 10/10.
+  - Case statuses: pass=31, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- event_rebinding:
+  - The confirmed combination of the 2 factor: 0/138.
+  - The confirmed combination of the 3 factor: 0/69.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=27, stale=0, not_run=0.
+- clocking_named_event:
+  - The confirmed combination of the 2 factor: 78/100.
+  - The confirmed combination of the 3 factor: 22/40.
+  - Mandatory case: 3/6.
+  - Case statuses: pass=12, fail=0, known=0, unsupported=12, stale=0, not_run=0.
+- deferred_argument_capture:
+  - The confirmed combination of the 2 factor: 145/145.
+  - The confirmed combination of the 3 factor: 71/71.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=29, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- generated_enum_navigation:
+  - The confirmed combination of the 2 factor: 181/181.
+  - The confirmed combination of the 3 factor: 110/110.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- package_nba_capture:
+  - The confirmed combination of the 2 factor: 183/183.
+  - The confirmed combination of the 3 factor: 126/126.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- package_change_observers:
+  - The confirmed combination of the 2 factor: 225/225.
+  - The confirmed combination of the 3 factor: 122/122.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- class_method_package_lookup:
+  - The confirmed combination of the 2 factor: 244/244.
+  - The confirmed combination of the 3 factor: 110/110.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=34, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- generated_subroutine_binding:
+  - The confirmed combination of the 2 factor: 228/228.
+  - The confirmed combination of the 3 factor: 112/112.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- class_conditional_return:
+  - The confirmed combination of the 2 factor: 183/183.
+  - The confirmed combination of the 3 factor: 135/135.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- generated_process_loop_transfer:
+  - The confirmed combination of the 2 factor: 293/293.
+  - The confirmed combination of the 3 factor: 160/160.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- interface_array_query_walk:
+  - The confirmed combination of the 2 factor: 274/274.
+  - The confirmed combination of the 3 factor: 96/96.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- generated_constant_expression_shape:
+  - The confirmed combination of the 2 factor: 297/297.
+  - The confirmed combination of the 3 factor: 132/132.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- formatted_scan_partial_write:
+  - The confirmed combination of the 2 factor: 292/292.
+  - The confirmed combination of the 3 factor: 142/142.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- program_task_frame_lifetime:
+  - The confirmed combination of the 2 factor: 249/249.
+  - The confirmed combination of the 3 factor: 100/100.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- package_array_query_scope:
+  - The confirmed combination of the 2 factor: 249/249.
+  - The confirmed combination of the 3 factor: 118/118.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- named_event_loop_transfer:
+  - The confirmed combination of the 2 factor: 223/223.
+  - The confirmed combination of the 3 factor: 140/140.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 291/291.
+  - The confirmed combination of the 3 factor: 136/136.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 303/303.
+  - The confirmed combination of the 3 factor: 148/148.
+  - Mandatory case: 8/8.
+  - Case statuses: pass=66, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 278/278.
+  - The confirmed combination of the 3 factor: 135/135.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+
+### coverage/interaction-results/cross92-timelitgate-icarus13.json
+
+- Environment: Icarus Verilog version 13.0 (stable) (v13_0).
+- Execution timestamp: 2026-11-07T01:00:46.202948+00:00.
+
+- scheduling_visibility:
+  - The confirmed combination of the 2 factor: 0/126.
+  - The confirmed combination of the 3 factor: 0/51.
+  - Individual mandatory cases: No objects.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=325.
+- nba_capture:
+  - The confirmed combination of the 2 factor: 0/162.
+  - The confirmed combination of the 3 factor: 0/44.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- expression_context:
+  - The confirmed combination of the 2 factor: 0/143.
+  - The confirmed combination of the 3 factor: 0/63.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
+- packed_part_select:
+  - The confirmed combination of the 2 factor: 0/162.
+  - The confirmed combination of the 3 factor: 0/48.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- conditional_merge:
+  - The confirmed combination of the 2 factor: 0/185.
+  - The confirmed combination of the 3 factor: 0/76.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32.
+- shift_context:
+  - The confirmed combination of the 2 factor: 0/298.
+  - The confirmed combination of the 3 factor: 0/92.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=56.
+- cast_pipeline:
+  - The confirmed combination of the 2 factor: 0/214.
+  - The confirmed combination of the 3 factor: 0/76.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32.
+- task_argument_visibility:
+  - The confirmed combination of the 2 factor: 0/144.
+  - The confirmed combination of the 3 factor: 0/52.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- argument_binding_index:
+  - The confirmed combination of the 2 factor: 0/162.
+  - The confirmed combination of the 3 factor: 0/63.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- packed_structure:
+  - The confirmed combination of the 2 factor: 0/186.
+  - The confirmed combination of the 3 factor: 0/52.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- case_matching:
+  - The confirmed combination of the 2 factor: 0/220.
+  - The confirmed combination of the 3 factor: 0/82.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- port_connection:
+  - The confirmed combination of the 2 factor: 0/204.
+  - The confirmed combination of the 3 factor: 0/56.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- unpacked_array_copy:
+  - The confirmed combination of the 2 factor: 0/148.
+  - The confirmed combination of the 3 factor: 0/52.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- bit_vector_queries:
+  - The confirmed combination of the 2 factor: 0/285.
+  - The confirmed combination of the 3 factor: 0/108.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60.
+- streaming_permutation:
+  - The confirmed combination of the 2 factor: 0/182.
+  - The confirmed combination of the 3 factor: 0/68.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- comparison_context:
+  - The confirmed combination of the 2 factor: 0/302.
+  - The confirmed combination of the 3 factor: 0/174.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=100.
+- array_reduction_pipeline:
+  - The confirmed combination of the 2 factor: 0/261.
+  - The confirmed combination of the 3 factor: 0/162.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72.
+- variable_bit_index:
+  - The confirmed combination of the 2 factor: 0/253.
+  - The confirmed combination of the 3 factor: 0/106.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44.
+- queue_update_capacity:
+  - The confirmed combination of the 2 factor: 0/258.
+  - The confirmed combination of the 3 factor: 0/120.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- queue_element_reference:
+  - The confirmed combination of the 2 factor: 0/257.
+  - The confirmed combination of the 3 factor: 0/96.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60.
+- division_context:
+  - The confirmed combination of the 2 factor: 0/283.
+  - The confirmed combination of the 3 factor: 0/98.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72.
+- dynamic_array_resize:
+  - The confirmed combination of the 2 factor: 0/219.
+  - The confirmed combination of the 3 factor: 0/96.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=38.
+- concatenated_assignment:
+  - The confirmed combination of the 2 factor: 0/265.
+  - The confirmed combination of the 3 factor: 0/126.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72.
+- packed_logical_reduction:
+  - The confirmed combination of the 2 factor: 0/218.
+  - The confirmed combination of the 3 factor: 0/142.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=70.
+- logical_short_circuit:
+  - The confirmed combination of the 2 factor: 0/214.
+  - The confirmed combination of the 3 factor: 0/236.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=92.
+- edge_event_expression:
+  - The confirmed combination of the 2 factor: 0/260.
+  - The confirmed combination of the 3 factor: 0/152.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=64.
+- event_or_iff:
+  - The confirmed combination of the 2 factor: 0/104.
+  - The confirmed combination of the 3 factor: 0/59.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27.
+- heap_file_monitor_context:
+  - The confirmed combination of the 2 factor: 0/40.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18.
+- compound_shift_target:
+  - The confirmed combination of the 2 factor: 0/308.
+  - The confirmed combination of the 3 factor: 0/90.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40.
+- membership_container:
+  - The confirmed combination of the 2 factor: 0/305.
+  - The confirmed combination of the 3 factor: 0/174.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46.
+- membership_range:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/178.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46.
+- case_inside_selection:
+  - The confirmed combination of the 2 factor: 0/315.
+  - The confirmed combination of the 3 factor: 0/154.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34.
+- clocking_input_sampling:
+  - The confirmed combination of the 2 factor: 0/165.
+  - The confirmed combination of the 3 factor: 0/72.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- assertion_sample_visibility:
+  - The confirmed combination of the 2 factor: 0/225.
+  - The confirmed combination of the 3 factor: 0/96.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- container_wait_visibility:
+  - The confirmed combination of the 2 factor: 0/214.
+  - The confirmed combination of the 3 factor: 0/88.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- class_method_reference:
+  - The confirmed combination of the 2 factor: 0/202.
+  - The confirmed combination of the 3 factor: 0/99.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- function_loop_return:
+  - The confirmed combination of the 2 factor: 0/161.
+  - The confirmed combination of the 3 factor: 0/120.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- loop_assignment_order:
+  - The confirmed combination of the 2 factor: 0/246.
+  - The confirmed combination of the 3 factor: 0/111.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- implicit_process_visibility:
+  - The confirmed combination of the 2 factor: 0/242.
+  - The confirmed combination of the 3 factor: 0/96.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- generate_scope_lookup:
+  - The confirmed combination of the 2 factor: 0/148.
+  - The confirmed combination of the 3 factor: 0/68.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- default_argument_scope:
+  - The confirmed combination of the 2 factor: 0/159.
+  - The confirmed combination of the 3 factor: 0/128.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- event_task_scope:
+  - The confirmed combination of the 2 factor: 0/109.
+  - The confirmed combination of the 3 factor: 0/52.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13.
+- continuous_delay_inertial:
+  - The confirmed combination of the 2 factor: 0/141.
+  - The confirmed combination of the 3 factor: 0/129.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=63.
+- port_import_scope:
+  - The confirmed combination of the 2 factor: 0/158.
+  - The confirmed combination of the 3 factor: 0/141.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39.
+- typed_memory_file:
+  - The confirmed combination of the 2 factor: 0/248.
+  - The confirmed combination of the 3 factor: 0/82.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- program_descendant_shutdown:
+  - The confirmed combination of the 2 factor: 0/109.
+  - The confirmed combination of the 3 factor: 0/38.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18.
+- implicit_port_nettype:
+  - The confirmed combination of the 2 factor: 0/156.
+  - The confirmed combination of the 3 factor: 0/72.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40.
+- generated_interface_binding:
+  - The confirmed combination of the 2 factor: 0/165.
+  - The confirmed combination of the 3 factor: 0/74.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- program_reactive_handoff:
+  - The confirmed combination of the 2 factor: 0/183.
+  - The confirmed combination of the 3 factor: 0/84.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- configuration_generated_shape:
+  - The confirmed combination of the 2 factor: 0/213.
+  - The confirmed combination of the 3 factor: 0/80.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41.
+- udp_array_strength:
+  - The confirmed combination of the 2 factor: 0/182.
+  - The confirmed combination of the 3 factor: 0/80.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25.
+- generated_udp_state:
+  - The confirmed combination of the 2 factor: 0/165.
+  - The confirmed combination of the 3 factor: 0/68.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- interface_header_import:
+  - The confirmed combination of the 2 factor: 0/183.
+  - The confirmed combination of the 3 factor: 0/78.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- mailbox_class_alias:
+  - The confirmed combination of the 2 factor: 0/245.
+  - The confirmed combination of the 3 factor: 0/92.
+  - Mandatory case: 0/9.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- distribution_expression_binding:
+  - The confirmed combination of the 2 factor: 0/154.
+  - The confirmed combination of the 3 factor: 0/81.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=31.
+- generate_default_disable:
+  - The confirmed combination of the 2 factor: 0/93.
+  - The confirmed combination of the 3 factor: 0/60.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18.
+- array_reduction_constraint:
+  - The confirmed combination of the 2 factor: 0/96.
+  - The confirmed combination of the 3 factor: 0/40.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13.
+- associative_array_queries:
+  - The confirmed combination of the 2 factor: 0/93.
+  - The confirmed combination of the 3 factor: 0/54.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18.
+- clocking_event_iff:
+  - The confirmed combination of the 2 factor: 0/109.
+  - The confirmed combination of the 3 factor: 0/44.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=12.
+- class_virtual_interface:
+  - The confirmed combination of the 2 factor: 0/96.
+  - The confirmed combination of the 3 factor: 0/48.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13.
+- resolved_strength_format:
+  - The confirmed combination of the 2 factor: 0/87.
+  - The confirmed combination of the 3 factor: 0/78.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=31.
+- class_array_shallow_copy:
+  - The confirmed combination of the 2 factor: 0/108.
+  - The confirmed combination of the 3 factor: 0/60.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18.
+- dpi_openarray_shape:
+  - The confirmed combination of the 2 factor: 0/100.
+  - The confirmed combination of the 3 factor: 0/72.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=30.
+- clocking_assertion_sampling:
+  - The confirmed combination of the 2 factor: 0/109.
+  - The confirmed combination of the 3 factor: 0/50.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18.
+- constraint_inheritance:
+  - The confirmed combination of the 2 factor: 0/70.
+  - The confirmed combination of the 3 factor: 0/40.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13.
+- dpi_nba_capture:
+  - The confirmed combination of the 2 factor: 0/81.
+  - The confirmed combination of the 3 factor: 0/48.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18.
+- aggregate_event_lifetime:
+  - The confirmed combination of the 2 factor: 0/123.
+  - The confirmed combination of the 3 factor: 0/54.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18.
+- sv_dpi_array_queries:
+  - The confirmed combination of the 2 factor: 0/177.
+  - The confirmed combination of the 3 factor: 0/66.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=19.
+- sdf_conditional_paths:
+  - The confirmed combination of the 2 factor: 0/109.
+  - The confirmed combination of the 3 factor: 0/46.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18.
+- checker_assertion_sampling:
+  - The confirmed combination of the 2 factor: 0/174.
+  - The confirmed combination of the 3 factor: 0/63.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27.
+- program_assertion_attempts:
+  - The confirmed combination of the 2 factor: 0/138.
+  - The confirmed combination of the 3 factor: 0/75.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27.
+- container_coverage_sampling:
+  - The confirmed combination of the 2 factor: 0/172.
+  - The confirmed combination of the 3 factor: 0/79.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=33.
+- deferred_disable_reports:
+  - The confirmed combination of the 2 factor: 0/151.
+  - The confirmed combination of the 3 factor: 0/92.
+  - Mandatory case: 0/10.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=31.
+- event_rebinding:
+  - The confirmed combination of the 2 factor: 0/138.
+  - The confirmed combination of the 3 factor: 0/69.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27.
+- clocking_named_event:
+  - The confirmed combination of the 2 factor: 0/100.
+  - The confirmed combination of the 3 factor: 0/40.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24.
+- deferred_argument_capture:
+  - The confirmed combination of the 2 factor: 0/145.
+  - The confirmed combination of the 3 factor: 0/71.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=29.
+- generated_enum_navigation:
+  - The confirmed combination of the 2 factor: 0/181.
+  - The confirmed combination of the 3 factor: 0/110.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- package_nba_capture:
+  - The confirmed combination of the 2 factor: 0/183.
+  - The confirmed combination of the 3 factor: 0/126.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- package_change_observers:
+  - The confirmed combination of the 2 factor: 0/225.
+  - The confirmed combination of the 3 factor: 0/122.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- class_method_package_lookup:
+  - The confirmed combination of the 2 factor: 0/244.
+  - The confirmed combination of the 3 factor: 0/110.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34.
+- generated_subroutine_binding:
+  - The confirmed combination of the 2 factor: 0/228.
+  - The confirmed combination of the 3 factor: 0/112.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- class_conditional_return:
+  - The confirmed combination of the 2 factor: 0/183.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- generated_process_loop_transfer:
+  - The confirmed combination of the 2 factor: 0/293.
+  - The confirmed combination of the 3 factor: 0/160.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- interface_array_query_walk:
+  - The confirmed combination of the 2 factor: 0/274.
+  - The confirmed combination of the 3 factor: 0/96.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- generated_constant_expression_shape:
+  - The confirmed combination of the 2 factor: 0/297.
+  - The confirmed combination of the 3 factor: 0/132.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- formatted_scan_partial_write:
+  - The confirmed combination of the 2 factor: 0/292.
+  - The confirmed combination of the 3 factor: 0/142.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- program_task_frame_lifetime:
+  - The confirmed combination of the 2 factor: 0/249.
+  - The confirmed combination of the 3 factor: 0/100.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- package_array_query_scope:
+  - The confirmed combination of the 2 factor: 0/249.
+  - The confirmed combination of the 3 factor: 0/118.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- named_event_loop_transfer:
+  - The confirmed combination of the 2 factor: 0/223.
+  - The confirmed combination of the 3 factor: 0/140.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 270/291.
+  - The confirmed combination of the 3 factor: 124/136.
+  - Mandatory case: 4/6.
+  - Case statuses: pass=44, fail=0, known=4, unsupported=0, stale=0, not_run=0.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 303/303.
+  - The confirmed combination of the 3 factor: 148/148.
+  - Mandatory case: 8/8.
+  - Case statuses: pass=66, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 255/278.
+  - The confirmed combination of the 3 factor: 98/135.
+  - Mandatory case: 4/6.
+  - Case statuses: pass=34, fail=0, known=17, unsupported=0, stale=0, not_run=0.
+
+### coverage/interaction-results/cross92-timelitgate-verilator5052-seed1.json
+
+- Environment: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905.
+- Execution timestamp: 2026-11-07T01:02:44.512550+00:00.
+
+- scheduling_visibility:
+  - The confirmed combination of the 2 factor: 0/126.
+  - The confirmed combination of the 3 factor: 0/51.
+  - Individual mandatory cases: No objects.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=325.
+- nba_capture:
+  - The confirmed combination of the 2 factor: 0/162.
+  - The confirmed combination of the 3 factor: 0/44.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- expression_context:
+  - The confirmed combination of the 2 factor: 0/143.
+  - The confirmed combination of the 3 factor: 0/63.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
+- packed_part_select:
+  - The confirmed combination of the 2 factor: 0/162.
+  - The confirmed combination of the 3 factor: 0/48.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- conditional_merge:
+  - The confirmed combination of the 2 factor: 0/185.
+  - The confirmed combination of the 3 factor: 0/76.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32.
+- shift_context:
+  - The confirmed combination of the 2 factor: 0/298.
+  - The confirmed combination of the 3 factor: 0/92.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=56.
+- cast_pipeline:
+  - The confirmed combination of the 2 factor: 0/214.
+  - The confirmed combination of the 3 factor: 0/76.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32.
+- task_argument_visibility:
+  - The confirmed combination of the 2 factor: 0/144.
+  - The confirmed combination of the 3 factor: 0/52.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- argument_binding_index:
+  - The confirmed combination of the 2 factor: 0/162.
+  - The confirmed combination of the 3 factor: 0/63.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- packed_structure:
+  - The confirmed combination of the 2 factor: 0/186.
+  - The confirmed combination of the 3 factor: 0/52.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- case_matching:
+  - The confirmed combination of the 2 factor: 0/220.
+  - The confirmed combination of the 3 factor: 0/82.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- port_connection:
+  - The confirmed combination of the 2 factor: 0/204.
+  - The confirmed combination of the 3 factor: 0/56.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- unpacked_array_copy:
+  - The confirmed combination of the 2 factor: 0/148.
+  - The confirmed combination of the 3 factor: 0/52.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- bit_vector_queries:
+  - The confirmed combination of the 2 factor: 0/285.
+  - The confirmed combination of the 3 factor: 0/108.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60.
+- streaming_permutation:
+  - The confirmed combination of the 2 factor: 0/182.
+  - The confirmed combination of the 3 factor: 0/68.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- comparison_context:
+  - The confirmed combination of the 2 factor: 0/302.
+  - The confirmed combination of the 3 factor: 0/174.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=100.
+- array_reduction_pipeline:
+  - The confirmed combination of the 2 factor: 0/261.
+  - The confirmed combination of the 3 factor: 0/162.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72.
+- variable_bit_index:
+  - The confirmed combination of the 2 factor: 0/253.
+  - The confirmed combination of the 3 factor: 0/106.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44.
+- queue_update_capacity:
+  - The confirmed combination of the 2 factor: 0/258.
+  - The confirmed combination of the 3 factor: 0/120.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- queue_element_reference:
+  - The confirmed combination of the 2 factor: 0/257.
+  - The confirmed combination of the 3 factor: 0/96.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60.
+- division_context:
+  - The confirmed combination of the 2 factor: 0/283.
+  - The confirmed combination of the 3 factor: 0/98.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72.
+- dynamic_array_resize:
+  - The confirmed combination of the 2 factor: 0/219.
+  - The confirmed combination of the 3 factor: 0/96.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=38.
+- concatenated_assignment:
+  - The confirmed combination of the 2 factor: 0/265.
+  - The confirmed combination of the 3 factor: 0/126.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72.
+- packed_logical_reduction:
+  - The confirmed combination of the 2 factor: 0/218.
+  - The confirmed combination of the 3 factor: 0/142.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=70.
+- logical_short_circuit:
+  - The confirmed combination of the 2 factor: 0/214.
+  - The confirmed combination of the 3 factor: 0/236.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=92.
+- edge_event_expression:
+  - The confirmed combination of the 2 factor: 0/260.
+  - The confirmed combination of the 3 factor: 0/152.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=64.
+- event_or_iff:
+  - The confirmed combination of the 2 factor: 0/104.
+  - The confirmed combination of the 3 factor: 0/59.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27.
+- heap_file_monitor_context:
+  - The confirmed combination of the 2 factor: 0/40.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18.
+- compound_shift_target:
+  - The confirmed combination of the 2 factor: 0/308.
+  - The confirmed combination of the 3 factor: 0/90.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40.
+- membership_container:
+  - The confirmed combination of the 2 factor: 0/305.
+  - The confirmed combination of the 3 factor: 0/174.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46.
+- membership_range:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/178.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46.
+- case_inside_selection:
+  - The confirmed combination of the 2 factor: 0/315.
+  - The confirmed combination of the 3 factor: 0/154.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34.
+- clocking_input_sampling:
+  - The confirmed combination of the 2 factor: 0/165.
+  - The confirmed combination of the 3 factor: 0/72.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- assertion_sample_visibility:
+  - The confirmed combination of the 2 factor: 0/225.
+  - The confirmed combination of the 3 factor: 0/96.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- container_wait_visibility:
+  - The confirmed combination of the 2 factor: 0/214.
+  - The confirmed combination of the 3 factor: 0/88.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- class_method_reference:
+  - The confirmed combination of the 2 factor: 0/202.
+  - The confirmed combination of the 3 factor: 0/99.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- function_loop_return:
+  - The confirmed combination of the 2 factor: 0/161.
+  - The confirmed combination of the 3 factor: 0/120.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- loop_assignment_order:
+  - The confirmed combination of the 2 factor: 0/246.
+  - The confirmed combination of the 3 factor: 0/111.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- implicit_process_visibility:
+  - The confirmed combination of the 2 factor: 0/242.
+  - The confirmed combination of the 3 factor: 0/96.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- generate_scope_lookup:
+  - The confirmed combination of the 2 factor: 0/148.
+  - The confirmed combination of the 3 factor: 0/68.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- default_argument_scope:
+  - The confirmed combination of the 2 factor: 0/159.
+  - The confirmed combination of the 3 factor: 0/128.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- event_task_scope:
+  - The confirmed combination of the 2 factor: 0/109.
+  - The confirmed combination of the 3 factor: 0/52.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13.
+- continuous_delay_inertial:
+  - The confirmed combination of the 2 factor: 0/141.
+  - The confirmed combination of the 3 factor: 0/129.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=63.
+- port_import_scope:
+  - The confirmed combination of the 2 factor: 0/158.
+  - The confirmed combination of the 3 factor: 0/141.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39.
+- typed_memory_file:
+  - The confirmed combination of the 2 factor: 0/248.
+  - The confirmed combination of the 3 factor: 0/82.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- program_descendant_shutdown:
+  - The confirmed combination of the 2 factor: 0/109.
+  - The confirmed combination of the 3 factor: 0/38.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18.
+- implicit_port_nettype:
+  - The confirmed combination of the 2 factor: 0/156.
+  - The confirmed combination of the 3 factor: 0/72.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40.
+- generated_interface_binding:
+  - The confirmed combination of the 2 factor: 0/165.
+  - The confirmed combination of the 3 factor: 0/74.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- program_reactive_handoff:
+  - The confirmed combination of the 2 factor: 0/183.
+  - The confirmed combination of the 3 factor: 0/84.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- configuration_generated_shape:
+  - The confirmed combination of the 2 factor: 0/213.
+  - The confirmed combination of the 3 factor: 0/80.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41.
+- udp_array_strength:
+  - The confirmed combination of the 2 factor: 0/182.
+  - The confirmed combination of the 3 factor: 0/80.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25.
+- generated_udp_state:
+  - The confirmed combination of the 2 factor: 0/165.
+  - The confirmed combination of the 3 factor: 0/68.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- interface_header_import:
+  - The confirmed combination of the 2 factor: 0/183.
+  - The confirmed combination of the 3 factor: 0/78.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- mailbox_class_alias:
+  - The confirmed combination of the 2 factor: 0/245.
+  - The confirmed combination of the 3 factor: 0/92.
+  - Mandatory case: 0/9.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- distribution_expression_binding:
+  - The confirmed combination of the 2 factor: 0/154.
+  - The confirmed combination of the 3 factor: 0/81.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=31.
+- generate_default_disable:
+  - The confirmed combination of the 2 factor: 0/93.
+  - The confirmed combination of the 3 factor: 0/60.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18.
+- array_reduction_constraint:
+  - The confirmed combination of the 2 factor: 0/96.
+  - The confirmed combination of the 3 factor: 0/40.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13.
+- associative_array_queries:
+  - The confirmed combination of the 2 factor: 0/93.
+  - The confirmed combination of the 3 factor: 0/54.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18.
+- clocking_event_iff:
+  - The confirmed combination of the 2 factor: 0/109.
+  - The confirmed combination of the 3 factor: 0/44.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=12.
+- class_virtual_interface:
+  - The confirmed combination of the 2 factor: 0/96.
+  - The confirmed combination of the 3 factor: 0/48.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13.
+- resolved_strength_format:
+  - The confirmed combination of the 2 factor: 0/87.
+  - The confirmed combination of the 3 factor: 0/78.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=31.
+- class_array_shallow_copy:
+  - The confirmed combination of the 2 factor: 0/108.
+  - The confirmed combination of the 3 factor: 0/60.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18.
+- dpi_openarray_shape:
+  - The confirmed combination of the 2 factor: 0/100.
+  - The confirmed combination of the 3 factor: 0/72.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=30.
+- clocking_assertion_sampling:
+  - The confirmed combination of the 2 factor: 0/109.
+  - The confirmed combination of the 3 factor: 0/50.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18.
+- constraint_inheritance:
+  - The confirmed combination of the 2 factor: 0/70.
+  - The confirmed combination of the 3 factor: 0/40.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13.
+- dpi_nba_capture:
+  - The confirmed combination of the 2 factor: 0/81.
+  - The confirmed combination of the 3 factor: 0/48.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18.
+- aggregate_event_lifetime:
+  - The confirmed combination of the 2 factor: 0/123.
+  - The confirmed combination of the 3 factor: 0/54.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18.
+- sv_dpi_array_queries:
+  - The confirmed combination of the 2 factor: 0/177.
+  - The confirmed combination of the 3 factor: 0/66.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=19.
+- sdf_conditional_paths:
+  - The confirmed combination of the 2 factor: 0/109.
+  - The confirmed combination of the 3 factor: 0/46.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18.
+- checker_assertion_sampling:
+  - The confirmed combination of the 2 factor: 0/174.
+  - The confirmed combination of the 3 factor: 0/63.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27.
+- program_assertion_attempts:
+  - The confirmed combination of the 2 factor: 0/138.
+  - The confirmed combination of the 3 factor: 0/75.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27.
+- container_coverage_sampling:
+  - The confirmed combination of the 2 factor: 0/172.
+  - The confirmed combination of the 3 factor: 0/79.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=33.
+- deferred_disable_reports:
+  - The confirmed combination of the 2 factor: 0/151.
+  - The confirmed combination of the 3 factor: 0/92.
+  - Mandatory case: 0/10.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=31.
+- event_rebinding:
+  - The confirmed combination of the 2 factor: 0/138.
+  - The confirmed combination of the 3 factor: 0/69.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27.
+- clocking_named_event:
+  - The confirmed combination of the 2 factor: 0/100.
+  - The confirmed combination of the 3 factor: 0/40.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24.
+- deferred_argument_capture:
+  - The confirmed combination of the 2 factor: 0/145.
+  - The confirmed combination of the 3 factor: 0/71.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=29.
+- generated_enum_navigation:
+  - The confirmed combination of the 2 factor: 0/181.
+  - The confirmed combination of the 3 factor: 0/110.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- package_nba_capture:
+  - The confirmed combination of the 2 factor: 0/183.
+  - The confirmed combination of the 3 factor: 0/126.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- package_change_observers:
+  - The confirmed combination of the 2 factor: 0/225.
+  - The confirmed combination of the 3 factor: 0/122.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- class_method_package_lookup:
+  - The confirmed combination of the 2 factor: 0/244.
+  - The confirmed combination of the 3 factor: 0/110.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34.
+- generated_subroutine_binding:
+  - The confirmed combination of the 2 factor: 0/228.
+  - The confirmed combination of the 3 factor: 0/112.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- class_conditional_return:
+  - The confirmed combination of the 2 factor: 0/183.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- generated_process_loop_transfer:
+  - The confirmed combination of the 2 factor: 0/293.
+  - The confirmed combination of the 3 factor: 0/160.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- interface_array_query_walk:
+  - The confirmed combination of the 2 factor: 0/274.
+  - The confirmed combination of the 3 factor: 0/96.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- generated_constant_expression_shape:
+  - The confirmed combination of the 2 factor: 0/297.
+  - The confirmed combination of the 3 factor: 0/132.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- formatted_scan_partial_write:
+  - The confirmed combination of the 2 factor: 0/292.
+  - The confirmed combination of the 3 factor: 0/142.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- program_task_frame_lifetime:
+  - The confirmed combination of the 2 factor: 0/249.
+  - The confirmed combination of the 3 factor: 0/100.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- package_array_query_scope:
+  - The confirmed combination of the 2 factor: 0/249.
+  - The confirmed combination of the 3 factor: 0/118.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- named_event_loop_transfer:
+  - The confirmed combination of the 2 factor: 0/223.
+  - The confirmed combination of the 3 factor: 0/140.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=48, unsupported=0, stale=0, not_run=0.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 210/303.
+  - The confirmed combination of the 3 factor: 69/148.
+  - Mandatory case: 1/8.
+  - Case statuses: pass=32, fail=0, known=34, unsupported=0, stale=0, not_run=0.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 94/278.
+  - The confirmed combination of the 3 factor: 18/135.
+  - Mandatory case: 1/6.
+  - Case statuses: pass=6, fail=0, known=45, unsupported=0, stale=0, not_run=0.
+
+### coverage/interaction-results/cross92-timelitgate-verilator5052-seed73.json
+
+- Environment: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905.
+- Execution timestamp: 2026-11-07T01:04:47.714028+00:00.
+
+- scheduling_visibility:
+  - The confirmed combination of the 2 factor: 0/126.
+  - The confirmed combination of the 3 factor: 0/51.
+  - Individual mandatory cases: No objects.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=325.
+- nba_capture:
+  - The confirmed combination of the 2 factor: 0/162.
+  - The confirmed combination of the 3 factor: 0/44.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- expression_context:
+  - The confirmed combination of the 2 factor: 0/143.
+  - The confirmed combination of the 3 factor: 0/63.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
+- packed_part_select:
+  - The confirmed combination of the 2 factor: 0/162.
+  - The confirmed combination of the 3 factor: 0/48.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- conditional_merge:
+  - The confirmed combination of the 2 factor: 0/185.
+  - The confirmed combination of the 3 factor: 0/76.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32.
+- shift_context:
+  - The confirmed combination of the 2 factor: 0/298.
+  - The confirmed combination of the 3 factor: 0/92.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=56.
+- cast_pipeline:
+  - The confirmed combination of the 2 factor: 0/214.
+  - The confirmed combination of the 3 factor: 0/76.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32.
+- task_argument_visibility:
+  - The confirmed combination of the 2 factor: 0/144.
+  - The confirmed combination of the 3 factor: 0/52.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- argument_binding_index:
+  - The confirmed combination of the 2 factor: 0/162.
+  - The confirmed combination of the 3 factor: 0/63.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- packed_structure:
+  - The confirmed combination of the 2 factor: 0/186.
+  - The confirmed combination of the 3 factor: 0/52.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- case_matching:
+  - The confirmed combination of the 2 factor: 0/220.
+  - The confirmed combination of the 3 factor: 0/82.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- port_connection:
+  - The confirmed combination of the 2 factor: 0/204.
+  - The confirmed combination of the 3 factor: 0/56.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- unpacked_array_copy:
+  - The confirmed combination of the 2 factor: 0/148.
+  - The confirmed combination of the 3 factor: 0/52.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- bit_vector_queries:
+  - The confirmed combination of the 2 factor: 0/285.
+  - The confirmed combination of the 3 factor: 0/108.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60.
+- streaming_permutation:
+  - The confirmed combination of the 2 factor: 0/182.
+  - The confirmed combination of the 3 factor: 0/68.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- comparison_context:
+  - The confirmed combination of the 2 factor: 0/302.
+  - The confirmed combination of the 3 factor: 0/174.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=100.
+- array_reduction_pipeline:
+  - The confirmed combination of the 2 factor: 0/261.
+  - The confirmed combination of the 3 factor: 0/162.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72.
+- variable_bit_index:
+  - The confirmed combination of the 2 factor: 0/253.
+  - The confirmed combination of the 3 factor: 0/106.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44.
+- queue_update_capacity:
+  - The confirmed combination of the 2 factor: 0/258.
+  - The confirmed combination of the 3 factor: 0/120.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- queue_element_reference:
+  - The confirmed combination of the 2 factor: 0/257.
+  - The confirmed combination of the 3 factor: 0/96.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60.
+- division_context:
+  - The confirmed combination of the 2 factor: 0/283.
+  - The confirmed combination of the 3 factor: 0/98.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72.
+- dynamic_array_resize:
+  - The confirmed combination of the 2 factor: 0/219.
+  - The confirmed combination of the 3 factor: 0/96.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=38.
+- concatenated_assignment:
+  - The confirmed combination of the 2 factor: 0/265.
+  - The confirmed combination of the 3 factor: 0/126.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72.
+- packed_logical_reduction:
+  - The confirmed combination of the 2 factor: 0/218.
+  - The confirmed combination of the 3 factor: 0/142.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=70.
+- logical_short_circuit:
+  - The confirmed combination of the 2 factor: 0/214.
+  - The confirmed combination of the 3 factor: 0/236.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=92.
+- edge_event_expression:
+  - The confirmed combination of the 2 factor: 0/260.
+  - The confirmed combination of the 3 factor: 0/152.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=64.
+- event_or_iff:
+  - The confirmed combination of the 2 factor: 0/104.
+  - The confirmed combination of the 3 factor: 0/59.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27.
+- heap_file_monitor_context:
+  - The confirmed combination of the 2 factor: 0/40.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18.
+- compound_shift_target:
+  - The confirmed combination of the 2 factor: 0/308.
+  - The confirmed combination of the 3 factor: 0/90.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40.
+- membership_container:
+  - The confirmed combination of the 2 factor: 0/305.
+  - The confirmed combination of the 3 factor: 0/174.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46.
+- membership_range:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/178.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46.
+- case_inside_selection:
+  - The confirmed combination of the 2 factor: 0/315.
+  - The confirmed combination of the 3 factor: 0/154.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34.
+- clocking_input_sampling:
+  - The confirmed combination of the 2 factor: 0/165.
+  - The confirmed combination of the 3 factor: 0/72.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- assertion_sample_visibility:
+  - The confirmed combination of the 2 factor: 0/225.
+  - The confirmed combination of the 3 factor: 0/96.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- container_wait_visibility:
+  - The confirmed combination of the 2 factor: 0/214.
+  - The confirmed combination of the 3 factor: 0/88.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- class_method_reference:
+  - The confirmed combination of the 2 factor: 0/202.
+  - The confirmed combination of the 3 factor: 0/99.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- function_loop_return:
+  - The confirmed combination of the 2 factor: 0/161.
+  - The confirmed combination of the 3 factor: 0/120.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- loop_assignment_order:
+  - The confirmed combination of the 2 factor: 0/246.
+  - The confirmed combination of the 3 factor: 0/111.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- implicit_process_visibility:
+  - The confirmed combination of the 2 factor: 0/242.
+  - The confirmed combination of the 3 factor: 0/96.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- generate_scope_lookup:
+  - The confirmed combination of the 2 factor: 0/148.
+  - The confirmed combination of the 3 factor: 0/68.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- default_argument_scope:
+  - The confirmed combination of the 2 factor: 0/159.
+  - The confirmed combination of the 3 factor: 0/128.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- event_task_scope:
+  - The confirmed combination of the 2 factor: 0/109.
+  - The confirmed combination of the 3 factor: 0/52.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13.
+- continuous_delay_inertial:
+  - The confirmed combination of the 2 factor: 0/141.
+  - The confirmed combination of the 3 factor: 0/129.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=63.
+- port_import_scope:
+  - The confirmed combination of the 2 factor: 0/158.
+  - The confirmed combination of the 3 factor: 0/141.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39.
+- typed_memory_file:
+  - The confirmed combination of the 2 factor: 0/248.
+  - The confirmed combination of the 3 factor: 0/82.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- program_descendant_shutdown:
+  - The confirmed combination of the 2 factor: 0/109.
+  - The confirmed combination of the 3 factor: 0/38.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18.
+- implicit_port_nettype:
+  - The confirmed combination of the 2 factor: 0/156.
+  - The confirmed combination of the 3 factor: 0/72.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40.
+- generated_interface_binding:
+  - The confirmed combination of the 2 factor: 0/165.
+  - The confirmed combination of the 3 factor: 0/74.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- program_reactive_handoff:
+  - The confirmed combination of the 2 factor: 0/183.
+  - The confirmed combination of the 3 factor: 0/84.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- configuration_generated_shape:
+  - The confirmed combination of the 2 factor: 0/213.
+  - The confirmed combination of the 3 factor: 0/80.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41.
+- udp_array_strength:
+  - The confirmed combination of the 2 factor: 0/182.
+  - The confirmed combination of the 3 factor: 0/80.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25.
+- generated_udp_state:
+  - The confirmed combination of the 2 factor: 0/165.
+  - The confirmed combination of the 3 factor: 0/68.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- interface_header_import:
+  - The confirmed combination of the 2 factor: 0/183.
+  - The confirmed combination of the 3 factor: 0/78.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- mailbox_class_alias:
+  - The confirmed combination of the 2 factor: 0/245.
+  - The confirmed combination of the 3 factor: 0/92.
+  - Mandatory case: 0/9.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- distribution_expression_binding:
+  - The confirmed combination of the 2 factor: 0/154.
+  - The confirmed combination of the 3 factor: 0/81.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=31.
+- generate_default_disable:
+  - The confirmed combination of the 2 factor: 0/93.
+  - The confirmed combination of the 3 factor: 0/60.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18.
+- array_reduction_constraint:
+  - The confirmed combination of the 2 factor: 0/96.
+  - The confirmed combination of the 3 factor: 0/40.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13.
+- associative_array_queries:
+  - The confirmed combination of the 2 factor: 0/93.
+  - The confirmed combination of the 3 factor: 0/54.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18.
+- clocking_event_iff:
+  - The confirmed combination of the 2 factor: 0/109.
+  - The confirmed combination of the 3 factor: 0/44.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=12.
+- class_virtual_interface:
+  - The confirmed combination of the 2 factor: 0/96.
+  - The confirmed combination of the 3 factor: 0/48.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13.
+- resolved_strength_format:
+  - The confirmed combination of the 2 factor: 0/87.
+  - The confirmed combination of the 3 factor: 0/78.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=31.
+- class_array_shallow_copy:
+  - The confirmed combination of the 2 factor: 0/108.
+  - The confirmed combination of the 3 factor: 0/60.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18.
+- dpi_openarray_shape:
+  - The confirmed combination of the 2 factor: 0/100.
+  - The confirmed combination of the 3 factor: 0/72.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=30.
+- clocking_assertion_sampling:
+  - The confirmed combination of the 2 factor: 0/109.
+  - The confirmed combination of the 3 factor: 0/50.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18.
+- constraint_inheritance:
+  - The confirmed combination of the 2 factor: 0/70.
+  - The confirmed combination of the 3 factor: 0/40.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13.
+- dpi_nba_capture:
+  - The confirmed combination of the 2 factor: 0/81.
+  - The confirmed combination of the 3 factor: 0/48.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18.
+- aggregate_event_lifetime:
+  - The confirmed combination of the 2 factor: 0/123.
+  - The confirmed combination of the 3 factor: 0/54.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18.
+- sv_dpi_array_queries:
+  - The confirmed combination of the 2 factor: 0/177.
+  - The confirmed combination of the 3 factor: 0/66.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=19.
+- sdf_conditional_paths:
+  - The confirmed combination of the 2 factor: 0/109.
+  - The confirmed combination of the 3 factor: 0/46.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18.
+- checker_assertion_sampling:
+  - The confirmed combination of the 2 factor: 0/174.
+  - The confirmed combination of the 3 factor: 0/63.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27.
+- program_assertion_attempts:
+  - The confirmed combination of the 2 factor: 0/138.
+  - The confirmed combination of the 3 factor: 0/75.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27.
+- container_coverage_sampling:
+  - The confirmed combination of the 2 factor: 0/172.
+  - The confirmed combination of the 3 factor: 0/79.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=33.
+- deferred_disable_reports:
+  - The confirmed combination of the 2 factor: 0/151.
+  - The confirmed combination of the 3 factor: 0/92.
+  - Mandatory case: 0/10.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=31.
+- event_rebinding:
+  - The confirmed combination of the 2 factor: 0/138.
+  - The confirmed combination of the 3 factor: 0/69.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27.
+- clocking_named_event:
+  - The confirmed combination of the 2 factor: 0/100.
+  - The confirmed combination of the 3 factor: 0/40.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24.
+- deferred_argument_capture:
+  - The confirmed combination of the 2 factor: 0/145.
+  - The confirmed combination of the 3 factor: 0/71.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=29.
+- generated_enum_navigation:
+  - The confirmed combination of the 2 factor: 0/181.
+  - The confirmed combination of the 3 factor: 0/110.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- package_nba_capture:
+  - The confirmed combination of the 2 factor: 0/183.
+  - The confirmed combination of the 3 factor: 0/126.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- package_change_observers:
+  - The confirmed combination of the 2 factor: 0/225.
+  - The confirmed combination of the 3 factor: 0/122.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- class_method_package_lookup:
+  - The confirmed combination of the 2 factor: 0/244.
+  - The confirmed combination of the 3 factor: 0/110.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34.
+- generated_subroutine_binding:
+  - The confirmed combination of the 2 factor: 0/228.
+  - The confirmed combination of the 3 factor: 0/112.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- class_conditional_return:
+  - The confirmed combination of the 2 factor: 0/183.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- generated_process_loop_transfer:
+  - The confirmed combination of the 2 factor: 0/293.
+  - The confirmed combination of the 3 factor: 0/160.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- interface_array_query_walk:
+  - The confirmed combination of the 2 factor: 0/274.
+  - The confirmed combination of the 3 factor: 0/96.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- generated_constant_expression_shape:
+  - The confirmed combination of the 2 factor: 0/297.
+  - The confirmed combination of the 3 factor: 0/132.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- formatted_scan_partial_write:
+  - The confirmed combination of the 2 factor: 0/292.
+  - The confirmed combination of the 3 factor: 0/142.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- program_task_frame_lifetime:
+  - The confirmed combination of the 2 factor: 0/249.
+  - The confirmed combination of the 3 factor: 0/100.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- package_array_query_scope:
+  - The confirmed combination of the 2 factor: 0/249.
+  - The confirmed combination of the 3 factor: 0/118.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- named_event_loop_transfer:
+  - The confirmed combination of the 2 factor: 0/223.
+  - The confirmed combination of the 3 factor: 0/140.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=48, unsupported=0, stale=0, not_run=0.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 210/303.
+  - The confirmed combination of the 3 factor: 69/148.
+  - Mandatory case: 1/8.
+  - Case statuses: pass=32, fail=0, known=34, unsupported=0, stale=0, not_run=0.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 94/278.
+  - The confirmed combination of the 3 factor: 18/135.
+  - Mandatory case: 1/6.
+  - Case statuses: pass=6, fail=0, known=45, unsupported=0, stale=0, not_run=0.
 
 ### coverage/interaction-results/default-20261031-icarus13.json
 
@@ -111692,6 +117261,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/default-20261031-verilator5.052-seed1.json
 
@@ -112142,6 +117726,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/default-20261031-verilator5.052-seed73.json
 
@@ -112592,6 +118191,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/delay-20261031-icarus13.json
 
@@ -113042,6 +118656,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/delay-20261031-verilator5.052-seed1.json
 
@@ -113492,6 +119121,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/delay-20261031-verilator5.052-seed73.json
 
@@ -113942,6 +119586,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/event-or-iff-20261031-icarus13.json
 
@@ -114392,6 +120051,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/event-or-iff-20261031-verilator5.052-seed1.json
 
@@ -114842,6 +120516,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/event-or-iff-20261031-verilator5.052-seed73.json
 
@@ -115292,6 +120981,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/event-rebind-20261101-icarus13.json
 
@@ -115742,6 +121446,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/event-rebind-20261101-verilator5.052-seed1.json
 
@@ -116192,6 +121911,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/event-rebind-20261101-verilator5.052-seed73.json
 
@@ -116642,6 +122376,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/event-task-20261031-icarus13.json
 
@@ -117092,6 +122841,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/event-task-20261031-verilator5.052-seed1.json
 
@@ -117542,6 +123306,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/event-task-20261031-verilator5.052-seed73.json
 
@@ -117992,6 +123771,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/generate-20261031-icarus13.json
 
@@ -118442,6 +124236,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/generate-20261031-verilator5.052-seed1.json
 
@@ -118892,6 +124701,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/generate-20261031-verilator5.052-seed73.json
 
@@ -119342,6 +125166,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/ifgenerate-20261101-icarus13.json
 
@@ -119792,6 +125631,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/ifgenerate-20261101-verilator5.052-seed1.json
 
@@ -120242,6 +126096,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/ifgenerate-20261101-verilator5.052-seed73.json
 
@@ -120692,6 +126561,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/ifimport-20261101-icarus13.json
 
@@ -121142,6 +127026,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/ifimport-20261101-verilator5.052-seed1.json
 
@@ -121592,6 +127491,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/ifimport-20261101-verilator5.052-seed73.json
 
@@ -122042,6 +127956,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/import-20261031-icarus13.json
 
@@ -122492,6 +128421,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/import-20261031-verilator5.052-seed1.json
 
@@ -122942,6 +128886,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/import-20261031-verilator5.052-seed73.json
 
@@ -123392,6 +129351,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/loop-nba-20261031-icarus13.json
 
@@ -123842,6 +129816,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/loop-nba-20261031-verilator5.052-seed1.json
 
@@ -124292,6 +130281,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/loop-nba-20261031-verilator5.052-seed73.json
 
@@ -124742,6 +130746,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/mailbox-20261101-icarus13.json
 
@@ -125192,6 +131211,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/mailbox-20261101-verilator5.052-seed1.json
 
@@ -125642,6 +131676,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/mailbox-20261101-verilator5.052-seed73.json
 
@@ -126092,6 +132141,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/memfile-20261031-icarus13.json
 
@@ -126542,6 +132606,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/memfile-20261031-verilator5.052-seed1.json
 
@@ -126992,6 +133071,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/memfile-20261031-verilator5.052-seed73.json
 
@@ -127442,6 +133536,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/nettype-20261031-icarus13.json
 
@@ -127892,6 +134001,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/process-20261031-icarus13.json
 
@@ -128342,6 +134466,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/process-20261031-verilator5.052-seed1.json
 
@@ -128792,6 +134931,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/process-20261031-verilator5.052-seed73.json
 
@@ -129242,6 +135396,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/program-20261031-icarus13.json
 
@@ -129692,6 +135861,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/program-20261031-verilator5.052-seed1.json
 
@@ -130142,6 +136326,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/program-20261031-verilator5.052-seed73.json
 
@@ -130592,6 +136791,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/queue-ref-20261031-icarus13.json
 
@@ -131042,6 +137256,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/queue-ref-20261031-verilator5.052-seed1.json
 
@@ -131492,6 +137721,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/queue-ref-20261031-verilator5.052-seed73.json
 
@@ -131942,6 +138186,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/reactive-20261101-icarus13.json
 
@@ -132392,6 +138651,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/reactive-20261101-verilator5.052-seed1.json
 
@@ -132842,6 +139116,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/reactive-20261101-verilator5.052-seed73.json
 
@@ -133292,6 +139581,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/return-20261031-icarus13.json
 
@@ -133742,6 +140046,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/return-20261031-verilator5.052-seed1.json
 
@@ -134192,6 +140511,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/return-20261031-verilator5.052-seed73.json
 
@@ -134642,6 +140976,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/scheduling-20261107-icarus13.json
 
@@ -135092,6 +141441,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/scheduling-20261107-verilator5052-seed1.json
 
@@ -135542,6 +141906,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/scheduling-20261107-verilator5052-seed73.json
 
@@ -135992,6 +142371,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/udp-20261101-icarus13.json
 
@@ -136442,6 +142836,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/udpstate-20261101-icarus13.json
 
@@ -136892,6 +143301,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/udpstate-20261101-verilator5.052-seed1.json
 
@@ -137342,6 +143766,21 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.
 
 ### coverage/interaction-results/udpstate-20261101-verilator5.052-seed73.json
 
@@ -137792,3 +144231,18 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/140.
   - Mandatory case: 0/6.
   - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 0/291.
+  - The confirmed combination of the 3 factor: 0/136.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/148.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 0/278.
+  - The confirmed combination of the 3 factor: 0/135.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51.

@@ -10,7 +10,7 @@ This directory stores records of fixed-version verification-source selection, in
 
 ## Current evidence checkpoint (2026-11-06 JST)
 
-The selection now contains 89 models / 3,280 cases; see [event-loop qualification](#event-loop-qualification).
+The selection now contains 92 models / 3,445 cases; see [time-scope, literal and gate-array qualification](#time-literal-gate-qualification).
 [`handoff-ci-67321079-20261106.json`](handoff-ci-67321079-20261106.json) records successful Check/Nightly workflows and all jobs on baseline 67321079. Individual artifacts remain uninspected; retain the older detailed checkpoints below separately.
 [`check-9c39d865-20261106.json`](check-9c39d865-20261106.json) confirms Check’s pinned comparisons/static checks for the preceding 86-model suite.
 [`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json) records an 82-model formal Nightly/publish and 96 random passes; these are separate runs.
@@ -497,3 +497,16 @@ All 36 additions pass and preceding 3,244 inputs/statuses are unchanged. Totals:
 [Pinned comparisons](eventflow-fixed-replays.json) record Icarus at 36 known and Verilator at 8 pass / 28 known for both seeds.
 Retain [original diagnostics/outputs](eventflow-known-replays.json) and [four separate blocking-trigger controls](eventflow-blocking-controls/).
 Their eight Verilator matches do not qualify original NBA cases. See [design and reruns](../../docs/interaction-verification.en.md#named-event-loop-transfer).
+
+<a id="time-literal-gate-qualification"></a>
+
+## Time-scope, literal and gate-array qualification
+
+[`timescope.json`](timescope.json) checks all 8,064 rows, [`literal.json`](literal.json) all 6,552 and [`gatearray.json`](gatearray.json) all 4,464 by independent interpretation.
+Normal controls are five, six and six; faulty SV programs are nine each, all detected by an output difference after a normal exit.
+The [build record](timelitgate-build.json) identifies one complete 3,445-case run on `60c26d7c8113`: 2,912 pass / 529 unsupported / four existing failures.
+All 165 additions pass and preceding 3,280 inputs/statuses are unchanged. Totals: 92 models / 151 chapter pairs / 65 full-selection-pass models.
+[Pinned comparisons](timelitgate-fixed-replays.json) record Icarus 144 pass / 21 known and Verilator 38 pass / 127 known at both seeds.
+[All Icarus differences and representative Verilator outputs](timelitgate-known-replays.json) are retained.
+The [all-row record](timelitgate-all-rows.json) is one run of all 19,080 rows and enters neither the fixed suite nor requirement coverage. It also records the correction of the literal expectation.
+See the [design and rerun](../../docs/interaction-verification.en.md#time-scope-delay).

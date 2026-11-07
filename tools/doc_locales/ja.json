@@ -24535,6 +24535,9 @@
     "Package array query binding controls scans while retaining local namesakes": "package配列の問い合わせ先が走査を決め、同名ローカル配列を保持する",
     "Named-event loop transfers preserve delivery history and bounded recovery": "名前付きイベントのループ制御が受信履歴と上限付きの回復を保持する",
     "The reader waits again until the value is ZXQPH0QXZ , because the continuous assignment's first update at time ZXQPH1QXZ may wake it first ( ZXQPH2QXZ );": "連続代入の時刻 ZXQPH1QXZ の最初の更新が先に読み手を起こす場合があるため（ ZXQPH2QXZ ）、読み手は値が ZXQPH0QXZ になるまで待ち直す。",
-    "that update does not decide what it prints.": "その更新は表示内容を左右しない。"
+    "that update does not decide what it prints.": "その更新は表示内容を左右しない。",
+    "An array of gate instances maps terminal bits by position and keeps per- ZXQPH0QXZ delays": "ゲートインスタンスの配列は端子のビットを位置で割り当て、 ZXQPH0QXZ ごとの遅延を保つ",
+    "A time scope decides how a task delay scales, rounds and reads back": "時間スコープがtaskの遅延の換算・丸め・読出しを決める",
+    "A literal keeps its bits and sign through carriers and expression context": "リテラルは運び方と式の文脈を通じてビットと符号を保つ"
   }
 }

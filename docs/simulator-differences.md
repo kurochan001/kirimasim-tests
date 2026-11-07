@@ -980,3 +980,17 @@ Retain [all original Icarus diagnostics and Verilator outputs](../coverage/inter
 Four separate controls change only `->>` to `->`, independently interpreting expectations for the changed semantics; both Verilator seeds match.
 These auxiliary matches do not count as original NBA passes or establish an internal cause/general NBA support.
 Tested kirimasim `6f5c69841228` matches standard expectations for all 36 originals. See [scope and examples](interaction-verification.en.md#named-event-loop-transfer).
+
+<a id="time-literal-gate-differences"></a>
+
+## Time scopes, literals and gate arrays (2026-11-07)
+
+- **Icarus 13.0 nesting:** a nested module does not resolve, and a nested interface is rejected by the limit on instances in interfaces. Over all rows of `time_scope_delay` this is 1,152 rows.
+- **Icarus 13.0 gate-array delays:** with two or three delay values, a word that mixes transitions does not get per-bit delays. Over all rows of `gate_array_connection` this is 1,440 rows.
+- **Icarus 13.0 `$timeunit`:** `$timeunit` and `$timeprecision` are undefined, so the program does not run. This model does not use them.
+- **Verilator 5.052 time scopes:** all 48 `time_scope_delay` cases are known. Representative differences: the timeunit of `$unit` wins over a later `` `timescale ``, delays are not rounded to the precision of their scope, and the digits of `%t` differ from the expected ones. Nesting is unsupported.
+- **Verilator 5.052 literals:** some forms with more digits than the size are errors (nine cases). The standard specifies truncation from the left. Two additions with z are unsupported tristate forms.
+- **Verilator 5.052 gate arrays:** tristate forms with delays are unsupported (12 cases). The output of one known-input case (an array of `not`, a scalar input, two delay values) changes with the seed.
+
+See [all Icarus differences and representative outputs](../coverage/interaction-qualification/timelitgate-known-replays.json). kirimasim `60c26d7c8113` matches the standard's expectations on all 19,080 rows of the three models.
+See the [scope](interaction-verification.en.md#time-scope-delay).

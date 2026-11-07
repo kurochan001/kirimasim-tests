@@ -1,0 +1,35 @@
+{
+  "models": [
+    "time_scope_delay",
+    "literal_context_extension",
+    "gate_array_connection"
+  ],
+  "generated_at": "2026-11-07T01:08:56.114467+00:00",
+  "scope": "Final headers with pinned-release oracles. The latest main was cloned to a separate directory, configured and built before one complete finite-cross run, so the shared checkout stayed untouched. An identical immutable binary snapshot ran. Formal CI is separate.",
+  "base_revision": "60c26d7c8113933708c973325f0deda00ab104d3",
+  "upstream_main_revision": "60c26d7c8113933708c973325f0deda00ab104d3",
+  "tracked_worktree_clean_at_build": true,
+  "binary_sha256": "e614be9b26551253932829efbc2860c055fa14cd8a1f6c008c5ef0d11887f191",
+  "binary_unchanged": true,
+  "slang_revision": "d02b7cda02d3183f35c6c4d4db2b2fc03f19f4ae",
+  "version": "kirimasim 0.0.0 (commit 60c26d7c8113), built with AppleClang 21.0.0.21000401",
+  "run": "coverage/interaction-results/cross92-kirimasim-60c26d7c-timelitgate.json",
+  "counts": {
+    "pass": 2912,
+    "unsupported": 529,
+    "fail": 4
+  },
+  "new_cases": 165,
+  "new_cases_by_model": {
+    "gatearray": 51,
+    "timescope": 48,
+    "literal": 66
+  },
+  "previous_cases": 3280,
+  "previous_run": "coverage/interaction-results/cross89-kirimasim-1e840ea3-assignwait.json",
+  "previous_inputs_changed": [],
+  "previous_status_changes": [],
+  "new_case_statuses": {
+    "pass": 165
+  }
+}

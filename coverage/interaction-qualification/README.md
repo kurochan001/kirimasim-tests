@@ -10,7 +10,7 @@
 
 ## 最新証跡の確認（2026-11-06 日本時間）
 
-現行は89モデル・3,280件で、[イベント受信ループの独立確認](#event-loop-qualification)を参照してください。
+現行は92モデル・3,445件で、[時間スコープ・リテラル・ゲート配列の独立確認](#time-literal-gate-qualification)を参照してください。
 [`handoff-ci-67321079-20261106.json`](handoff-ci-67321079-20261106.json)は、基点67321079のCheck/Nightlyと全ジョブの成功を記録します。個別artifactは未照合です。以下の旧基点は詳細照合の範囲を区別して保持します。
 [`check-9c39d865-20261106.json`](check-9c39d865-20261106.json)は前回までの86モデルの固定版比較・静的検査のCheck成功を確認します。
 [`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json)は82モデルを対象にした正式Nightly・publish・ランダム96 PASSの記録であり、実行を混同しません。
@@ -496,3 +496,16 @@ Zのビルド診断、Icarusの拒否を保持します。2値の観測でX/Zの
 [固定版比較](eventflow-fixed-replays.json)はIcarus 36 known、Verilator両seedとも8 pass・28 knownです。
 [元の診断・出力](eventflow-known-replays.json)と[別のblocking発火対照4件](eventflow-blocking-controls/)を保存しました。
 後者のVerilator両seed計8一致を元のNBAケースのPASSへ数えません。[設計と再実行](../../docs/interaction-verification.md#named-event-loop-transfer)を参照してください。
+
+<a id="time-literal-gate-qualification"></a>
+
+## 時間スコープ・リテラル・ゲート配列の独立確認
+
+[`timescope.json`](timescope.json)は全8,064行、[`literal.json`](literal.json)は全6,552行、[`gatearray.json`](gatearray.json)は全4,464行を独立した解釈で照合します。
+正常対照は順に5件・6件・6件、誤ったSVは各9件で、誤りはすべて正常終了後の出力差で検出しました。
+[ビルド記録](timelitgate-build.json)は`60c26d7c8113`の全3,445件（2,912 pass・529 unsupported・既存4 fail）を識別します。
+追加165件は全PASS、従来3,280件の入力・分類は不変です。92モデル・151章対・全選択ケースPASSは65モデルです。
+[固定版比較](timelitgate-fixed-replays.json)はIcarus 144 pass・21 known、Verilator両seedとも38 pass・127 knownです。
+[全Icarusの差とVerilatorの代表出力](timelitgate-known-replays.json)を保存しました。
+[全行の記録](timelitgate-all-rows.json)は全19,080行の一度きりの実行で、固定suiteや要求カバレッジへ加算しません。リテラルの期待値を直した経緯も記録します。
+[設計と再実行](../../docs/interaction-verification.md#time-scope-delay)を参照してください。

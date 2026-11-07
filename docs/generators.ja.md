@@ -4,7 +4,7 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の98生成器から4,593件のテストを生成しています。
+現在の101生成器から4,758件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
@@ -54,6 +54,7 @@
 | [`interaction_eventflow`](../generators/interaction_eventflow.py) | 15 | 36 | 名前付きイベントを読むforループでbreak/continueと待機開始順を交差し、受信と保持の履歴を照合する。同じタイムスロットのtriggeredとエッジ待機、NBA発火、別イベントの独立性と取消し後の再待機を観測する。 |
 | [`interaction_eventlife`](../generators/interaction_eventlife.py) | 15 | 18 | 自動タスク復帰後の構造体内イベントの同一性・別名解放・遅延した待機登録と、別呼出しの独立性・全体コピー後のpayload・起床時刻を照合する。 |
 | [`interaction_expr`](../generators/interaction_expr.py) | 11 | 51 | 4組の入力で加減乗算の結果を確認する。演算前の符号・ゼロ拡張、代入先からの幅の伝播、キャリー、最終的な切り捨てを組み合わせる。 |
+| [`interaction_gatearray`](../generators/interaction_gatearray.py) | 28 | 51 | 4個のゲートの配列へ昇順・降順のベクタ、部分選択、連結、スカラをつなぎ、ビットの対応を調べる。既知値・X/Z・既知値の変化で、各出力の真理値表と立上り・立下り・ターンオフの遅延を半時刻で読む。 |
 | [`interaction_gendisable`](../generators/interaction_gendisable.py) | 16 | 18 | generate内でのdefault disable iffの継承・上書き・名前解決・宣言位置と、明示条件・ゼロによる取消しを照合する。二つの実体を独立に無効化し、開始前・クロック間・終了クロックのNBAで、無効化と成功・失敗の回数を対照と比較する。 |
 | [`interaction_genenum`](../generators/interaction_genenum.py) | 6 | 36 | generateの反復と分岐が列挙型の幅と値表を決め、符号・宣言順・巡回数とnext/prevの観測へ反映される。二初期状態と別要素の操作後・アイドル時の読出しで、値と保持したコピーの独立性も照合する。 |
 | [`interaction_generate`](../generators/interaction_generate.py) | 27 | 36 | 2インスタンスのgenerate要素を階層名で読み、選択分岐・局所宣言・genvar定数・型幅・package定数と連続代入の値を観測する。importと明示修飾、入れ子、型と定数の隠蔽、X/Zを含む入力変更への追従と各スコープの独立性を確認する。 |
@@ -67,6 +68,7 @@
 | [`interaction_import`](../generators/interaction_import.py) | 23 | 39 | packageのwildcard/明示import、局所宣言、.*・.name・明示接続で入力の接続先と既定値を区別する。既定値0/全1の2子と独立した対照スコープを観測し、ライブ値の追従・隠蔽・型変換を確認する。 |
 | [`interaction_index`](../generators/interaction_index.py) | 11 | 44 | 可変インデックスのビット列と書き込み前後の全ビットを観測し、添字の符号、範囲の始点と向き、無効な読み取りの既定値、無効な書き込み時の保持を確認する。 |
 | [`interaction_inside`](../generators/interaction_inside.py) | 11 | 46 | 個別列挙・固定配列・動的配列・キューの要素とサイズ、異なる幅・符号の入力、生の判定値・拡張・bit変換・逆順リストを観測し、片側ワイルドカードとORを確認する。 |
+| [`interaction_literal`](../generators/interaction_literal.py) | 5 | 66 | 基数・符号・桁数・先頭桁を変えたリテラルを、直接・localparam・マクロの字句・continuous assignで運ぶ。左への詰めと切り捨て、式の文脈による拡張、代入先の幅とbitへの変換を全ビットで観測する。 |
 | [`interaction_logic`](../generators/interaction_logic.py) | 11 | 70 | 各行で全6リダクションと論理否定の入力・実際の式・結果を観測し、支配値とX/Z、演算前後の状態変換、1ビットunsigned結果の拡張、入力の自己決定幅を確認する。 |
 | [`interaction_loop_nba`](../generators/interaction_loop_nba.py) | 10 | 36 | for/while/repeat内の複数代入で、途中結果を使うblockingと旧値からNBAを予約する動作を区別する。A/B/A呼出しの各反復の値・添字、ActiveとNBA後の全要素・カウンタ・ガードを観測し、書込み順序、状態変換、module/interfaceの独立した格納先を確認する。 |
 | [`interaction_mailbox`](../generators/interaction_mailbox.py) | 15 | 36 | classハンドルをtyped/typelessのmailboxへ渡し、FIFO・get/peek・容量制限・nullメッセージと取得前後の双方向のメンバ更新を確認する。別mailboxの保持と後の更新、空の非ブロッキング戻り値も観測する。 |
@@ -99,6 +101,7 @@
 | [`interaction_strengthfmt`](../generators/interaction_strengthfmt.py) | 21 | 31 | 2ドライバの競合・解放とtri0/tri1のpull既定値を、3種類のformat APIで値と強度を分けて照合する。強度差・更新順・極性を交差し、全11観測の上書きと独立したsupply対照を確認する。 |
 | [`interaction_struct`](../generators/interaction_struct.py) | 7 | 36 | 構造体の全ビット・payload・tagと、メンバ／全体の拡張結果を観測し、配置、更新領域、NBAの値の確定、各式の符号属性を確認する。 |
 | [`interaction_task`](../generators/interaction_task.py) | 13 | 36 | タスク内部・復帰直前・復帰後から実引数を観測し、コピー渡しと参照渡しの更新時点の違い、値と隣接要素の保持を確認する。 |
+| [`interaction_timescope`](../generators/interaction_timescope.py) | 3 | 48 | taskの遅延の時間スコープを宣言・`timescale・$unit・入れ子で決め、効かないはずの指定も置く。遅延の換算と精度への丸めを、$time・$stime・$realtime・%tの読出しで呼出し元のスコープと比べる。 |
 | [`interaction_udp`](../generators/interaction_udp.py) | 29 | 25 | 組合せUDPの配列へベクタをビット分配し、スカラーを共通接続する。単独出力・競合する別ドライバ付きの出力・名前なしの単一UDPを比較し、強度・全4状態の入力対・位置識別を照合する。 |
 | [`interaction_udpstate`](../generators/interaction_udpstate.py) | 29 | 36 | generateで初期値の異なる逐次UDPをビットごとに選択し、共通/交互のクロックで個別の状態を採取・保持する。bit/logicへのX/Z格納、未知入力前の全1準備、既知値への回復、別クロックの対照の保持と後の採取を照合する。 |
 | [`interaction_vif_class`](../generators/interaction_vif_class.py) | 25 | 13 | クラスのvirtual interfaceの結合を浅いコピー/ハンドル代入で比較し、再結合とnull時の書込み抑止を照合する。別に保存した参照・元/コピーの結合先・成功回数・guardを、メソッド/直接経路とfull/modport型で確認する。 |

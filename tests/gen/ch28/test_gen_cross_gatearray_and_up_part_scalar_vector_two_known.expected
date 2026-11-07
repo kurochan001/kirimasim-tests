@@ -1,0 +1,9 @@
+p0 t3 z1111zzz a=1 c=1111
+p1 t0 z1111zzz a=0 c=1100
+p1 t1 z1111zzz a=0 c=1100
+p1 t2 z1111zzz a=0 c=1100
+p1 t3 z0000zzz a=0 c=1100
+p2 t0 z0000zzz a=1 c=0110
+p2 t1 z0110zzz a=1 c=0110
+p2 t2 z0110zzz a=1 c=0110
+p2 t3 z0110zzz a=1 c=0110

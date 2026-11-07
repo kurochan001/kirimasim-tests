@@ -14,6 +14,13 @@
 
 ## 保存実行の概要
 
+2026-11-07の時間スコープ・リテラル・ゲート配列の追加で、**92モデル・3,445件・151章対**になりました。
+最新のmainをビルドしたkirimasim `60c26d7c8113`の[単一実行](../coverage/interaction-results/cross92-kirimasim-60c26d7c-timelitgate.json)は、
+**2,912 pass・529 unsupported・既存configの4 fail**です。追加165件は全PASSで、従来3,280件の入力・状態分類は不変です。
+全選択ケースPASSは65モデルです。第3章と第5章を主題とするモデルは初めてです。
+[時間スコープと遅延](#time-scope-delay)、[リテラルと式の文脈](#literal-context-extension)、[ゲート配列の接続](#gate-array-connection)に独立検算と固定版比較を記録します。
+追加165件とイベント受信ループの36件は正式Check・Nightlyでは未実行です。以下は各追加時点の記録です。
+
 2026-11-07にIssue #28の修正で`scheduling_visibility`の選択ケース2件の入力が変わったので、kirimasim `1e840ea322cc`の保存ビルドで[全3,280件を再実行](../coverage/interaction-results/cross89-kirimasim-1e840ea3-assignwait.json)しました。
 **2,747 pass・529 unsupported・既存configの4 fail**で、`6f5c69841228`の前回の全実行から状態の変化はありません。同じモデルの51件は[Icarus 13.0](../coverage/interaction-results/scheduling-20261107-icarus13.json)で全PASS、Verilator 5.052の[seed 1](../coverage/interaction-results/scheduling-20261107-verilator5052-seed1.json)・[seed 73](../coverage/interaction-results/scheduling-20261107-verilator5052-seed73.json)で43 pass・8 knownです。
 
@@ -3812,4 +3819,139 @@ python3 tools/run_icarus.py --iverilog-bin /path/to/icarus/bin -j 4 \
   --json my-results/eventflow-icarus-new.json tests/gen/ch15/test_gen_cross_eventflow_*.sv
 python3 tools/run_verilator.py --all --seed 1 -j 3 \
   --json my-results/eventflow-verilator-new.json tests/gen/ch15/test_gen_cross_eventflow_*.sv
+```
+
+<a id="time-scope-delay"></a>
+
+## 時間スコープと遅延（2026-11-07）
+
+[`interaction_timescope.py`](../generators/interaction_timescope.py)は`time_scope_delay@1`を定義します。第3章を主題とする初めてのモデルです。
+第3章×第20章・第21章は全48件に対応し、第5・9・10・13・22・23・25・26章との章対は条件に合う行だけに対応します。
+全48件が同じ保存実行で成功して初めてモデル全体のPASSです。
+
+### 因子・対象範囲
+
+スコープの決め方（timeunitとtimeprecision、スラッシュ付きtimeunit、`` `timescale ``、`$unit`のtimeunit、入れ子の継承）、
+入れ物（module/interface/package）、単位（1us/10ns/100ps）、精度（単位と同じ・10分の1・1000分の1）、
+遅延の書き方（実数、単位と同じ接尾辞の時間リテラル、細かい接尾辞の時間リテラル、実数の実引数）、
+丸め（端数なし・切下げ・同点・切上げ）、呼出し元の単位（10倍・10分の1）、文（遅延文・NBAの代入内遅延）を交差します。
+packageの入れ子だけを除いた合法8,064行から48件を選びます。全因子対291目標、重点3因子136目標、必須6件を保持します。
+
+`$timeunit`・`$printtimescale`・program・クラスメソッドは対象外です。固定Icarusが`$timeunit`を受理せず、kirimasimがpackage内の`$printtimescale`を未対応とするので、
+遅延と時刻の読出しだけで単位と精度を観測します。
+
+### 何を区別するか
+
+効かないはずの指定を必ず置きます。宣言と入れ子の行では`` `timescale 1ms/1us ``を前に置き、`` `timescale ``の行では`$unit`のtimeunitを置きます。
+優先順位（3.14.2.3）を誤ると、遅延の長さが変わって出力に現れます。定義の後ろの`` `timescale ``が先行する定義へ届かないことも同じ観測で確かめます。
+
+[実数の遅延の例](../tests/gen/ch3/test_gen_cross_timescope_keyword_module_10ns_tenth_real_up_finer_statement.sv)では、単位10ns・精度1nsの`#1.27`は12.7nsで、13nsへ丸められます。
+呼出しを2回行うと13ns+13nsで、合計の25.4nsを丸めた値にはなりません。呼出し元は1nsの単位なので、同じ`#1.27`は1.27nsです。
+読出しは呼び出したスコープの単位になり、同じ時刻でもtask内と呼出し元で`$time`と`$realtime`が変わります（20.3）。`%t`は`$timeformat`で揃えたfs表記で比べます。
+
+同点には二進で正確に表せる値（2.5・1.25・1.0625）だけを使い、3.14.1の2.75→2.8の例に従って切り上げます。
+`$time`自体の同点は規格の定めがはっきりしないので、呼出し元の開始遅延を0.47にして全行で現れないようにしました。検算は同点の読出しを誤りとして止めます。
+
+### 独立検算と実行結果
+
+[`qualify_timescope.py`](../tools/qualify_timescope.py)は実際のSVを読み、宣言・指令・入れ子の順にスコープを決め、時刻をfsの正確な分数で進めます。
+主モデルの閉形式の期待値・換算関数を呼ばず、全8,064プログラムが一致しました。[補助証跡](../coverage/interaction-qualification/timescope.json)には正常対照5件と実行可能な誤り9件を保存し、すべて正常終了後の出力差で検出しました。
+
+kirimasim `60c26d7c8113`の[単一の全3,445件](../coverage/interaction-results/cross92-kirimasim-60c26d7c-timelitgate.json)で追加48件は全PASSです。[ビルド記録](../coverage/interaction-qualification/timelitgate-build.json)にrevisionと固定バイナリの指紋を保持します。
+
+### 固定版の差異
+
+[固定Icarus 13.0](../coverage/interaction-results/cross92-timelitgate-icarus13.json)は44 pass・4 knownです。knownは入れ子の4件で、moduleは未解決の定義、interfaceはインスタンス化の制限としてビルドを拒否します。
+[固定Verilator 5.052](../coverage/interaction-results/cross92-timelitgate-verilator5052-seed1.json)は[seed 73](../coverage/interaction-results/cross92-timelitgate-verilator5052-seed73.json)でも48 knownで、4件は入れ子の未対応、44件は出力の差です。[代表出力](../coverage/interaction-qualification/timelitgate-known-replays.json)を保存しました。
+
+<a id="literal-context-extension"></a>
+
+## リテラルと式の文脈（2026-11-07）
+
+[`interaction_literal.py`](../generators/interaction_literal.py)は`literal_context_extension@1`を定義します。第5章を主題とする初めてのモデルです。
+第5章×第11・10・22章は全66件に対応し、第6章はbitの代入先、第20章はサイズ付きの行に対応します。
+
+### 因子・対象範囲
+
+基数（b/o/d/h、unbased unsized）、符号指定、桁とサイズの関係（短い・ちょうど・切り捨て・無サイズ）、先頭桁（0/1/x/z）、文脈（代入、符号付きとの加算、符号なしとの加算、条件演算、単項マイナス、算術右シフト）、
+代入先（logic、signed、bit）、幅（8/33/65）を交差します。文法に合わない形を除いた合法6,552行から66件を選びます。全因子対303目標、重点3因子148目標、必須8件を保持します。
+
+1件の中で同じリテラルを四通りに運びます。initial内の直接の記述、型なしlocalparam、サイズ・基数・桁を分けたマクロ、continuous assignです。
+無サイズ数は「少なくとも32ビット」なので、桁は32ビット以内に収め、`$bits`を観測しません。その幅が結果に現れる形（先頭がx/zの無サイズ数の右シフト）も除外します。
+
+### 何を区別するか
+
+短い桁は左を0で詰め、先頭がx/zならその値で詰めます。長い桁は左から切り捨てるので、切り捨てる桁にx/zを置いても残りません（5.7.1）。
+符号はリテラル自身ではなく式全体で決まり、符号なしの相手と加算すると符号付きリテラルもゼロ拡張されます（11.8）。代入先の符号は拡張に影響しません。
+先頭がx/zの符号なし無サイズ数とunbased unsizedは式の幅まで広がり、localparamに入れると固有の幅の値になります。例えば`'hx`を65ビットへ代入するとすべてxですが、localparamを経ると上位33ビットは0です。
+
+### 期待値の誤りと全行の実行
+
+**最初の版は期待値が誤っていました。** 生成器と独立検算の両方が、先頭がx/zの符号なし無サイズ数を32ビットを超えるとゼロ拡張していました。5.7.1の例4（85ビットへの`'hx`）とは異なります。
+選択66件には該当行が入らなかったので、kirimasimとIcarusの選択実行は全PASSでした。全合法行を一度実行して96行の差が出て、kirimasim側が規格どおりと分かりました。
+両方を条文から直し、必須2件を足しました。[全行の記録](../coverage/interaction-qualification/timelitgate-all-rows.json)に経緯と件数を残します。これを受けて、[手順](interaction-verification-method.md#run-every-legal-row-once)に全行の実行を加えました。
+
+### 独立検算と実行結果
+
+[`qualify_literal.py`](../tools/qualify_literal.py)はマクロ展開後の字句からビットを作り、式の幅と符号を演算子ごとに求めます。全6,552プログラムが一致しました。
+[補助証跡](../coverage/interaction-qualification/literal.json)には正常対照6件と実行可能な誤り9件を保存しました。単一の全実行で追加66件は全PASSです。
+
+### 固定版の差異
+
+固定Icarus 13.0は全66件が一致します。固定Verilator 5.052は両seedとも32 pass・34 knownです。known 34件のうち11件はビルドを拒否し（9件はサイズより長い桁、2件はzを含む加算の三状態の未対応）、23件はx/zの出力差です。
+x/zの行の2値の一致は4値の確認に使いません。
+
+<a id="gate-array-connection"></a>
+
+## ゲート配列の接続（2026-11-07）
+
+[`interaction_gatearray.py`](../generators/interaction_gatearray.py)は`gate_array_connection@1`を定義します。
+第7・23章×第28章は全51件に対応し、第11章は連結の出力、第4章は遅延付きの行に対応します。
+
+### 因子・対象範囲
+
+ゲート（and、xnor、not、bufif1、nmos）、配列の範囲（`[3:0]`、`[0:3]`、`[6:9]`）、出力の式（降順・昇順のベクタ、部分選択、連結）、入力の式（降順・昇順のベクタ、連結、スカラ）、
+第二入力（スカラ、部分選択、なし）、遅延（なし・1値・2値・3値）、入力の値（既知、X、Z）を交差します。合法4,464行から51件を選びます。全因子対278目標、重点3因子135目標、必須6件を保持します。
+
+遅延より短いパルスは第28章に規則がないので使いません。最初の遅延が終わる前の出力も規格が定めない（6.5）ので、第一段階は全出力が落ち着いてから読みます。
+試作ではこの区間の`nmos`の出力がkirimasimはz、Icarusはxで、どちらも規格に反しないので期待値にしません。
+
+### 何を区別するか
+
+幅が同じ端子は全インスタンスで共有し、異なる端子は配列範囲の右端のインスタンスが式のLSBを受けます（28.3.6）。
+ビットの対応は式の中の位置で決まるので、配列の向きを変えても結果は同じです。全行でこの不変を検査します。部分選択の外のビットはzのままです。
+
+配列は別々のゲートの集まりなので、遅延もビットごとに選びます（28.16）。[例](../tests/gen/ch28/test_gen_cross_gatearray_bufif1_up_whole_up_concat_vector_three_x.sv)の`bufif1 #(1, 3, 2)`では、
+同じ語の中で1へは1、xへは1、zへは2、0へは3の時間で変わります。読出しは半時刻で行うので、出力の更新と同じ時刻になりません。
+
+### 独立検算と実行結果
+
+[`qualify_gatearray.py`](../tools/qualify_gatearray.py)は端子の式を宣言からビットの列に直し、インスタンスごとに真理値表と遅延を適用します。全4,464プログラムが一致しました。
+パルス、最初の遅延より前の読出し、接続の不一致は検算自体が止めます。[補助証跡](../coverage/interaction-qualification/gatearray.json)には正常対照6件と実行可能な誤り9件を保存しました。単一の全実行で追加51件は全PASSです。
+
+### 固定版の差異
+
+固定Icarus 13.0は34 pass・17 knownです。knownはすべて2値か3値の遅延の行で、語の中に異なる遷移が混ざるとビットごとの遅延になりません。全行の実行でも差は2値・3値の行だけで、計1,440行です。
+固定Verilator 5.052は両seedとも6 pass・45 knownです。12件は三状態の未対応でビルドを拒否し、残りは出力の差です。既知入力の1件はseedで出力が変わります。
+
+全行の実行で、kirimasim `60c26d7c8113`は3モデルの全19,080行で期待値と一致しました。この行は固定suiteに含めず、件数にも加えません。
+
+suiteは165件増えて11,193件、生成4,758件・101生成器です。要求対応・分母・確認率と13ランダムプロファイルは維持しています。
+今回の追加はローカル確認で、正式Check・Nightlyでは未実行です。
+
+### 再実行
+
+```sh
+python3 -m unittest discover -s tools -p 'test_interaction_timescope.py'
+python3 -m unittest discover -s tools -p 'test_interaction_literal.py'
+python3 -m unittest discover -s tools -p 'test_interaction_gatearray.py'
+python3 tools/run_kirimasim.py --kirimasim /path/to/latest-build/kirimasim -j 8 \
+  --json my-results/timelitgate-native-new.json tests/gen/ch3/test_gen_cross_timescope_*.sv \
+  tests/gen/ch5/test_gen_cross_literal_*.sv tests/gen/ch28/test_gen_cross_gatearray_*.sv
+python3 tools/qualify_timescope.py --kirimasim /path/to/latest-build/kirimasim \
+  --output my-results/timescope-qualification-new.json
+python3 tools/qualify_literal.py --kirimasim /path/to/latest-build/kirimasim \
+  --output my-results/literal-qualification-new.json
+python3 tools/qualify_gatearray.py --kirimasim /path/to/latest-build/kirimasim \
+  --output my-results/gatearray-qualification-new.json
 ```

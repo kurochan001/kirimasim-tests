@@ -90,6 +90,9 @@ import interaction_scansel
 import interaction_progframe
 import interaction_pkgquery
 import interaction_eventflow
+import interaction_timescope
+import interaction_literal
+import interaction_gatearray
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -98,7 +101,7 @@ import combination_monitors
 import scheduling
 from interaction_cover import Model, Row
 
-GENERATORS = (interaction_eventflow, interaction_pkgquery, interaction_progframe, interaction_scansel, interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
+GENERATORS = (interaction_gatearray, interaction_literal, interaction_timescope, interaction_eventflow, interaction_pkgquery, interaction_progframe, interaction_scansel, interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
               interaction_shift, interaction_cast, interaction_task, interaction_binding,
               interaction_struct, interaction_case, interaction_port,
               interaction_array, interaction_query, interaction_stream,
@@ -787,5 +790,26 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_eventflow.MODEL.select(),
             "名前付きイベントを読むforループでbreak/continueと待機開始順を交差し、受信と保持の履歴を照合する。"
             "同じタイムスロットのtriggeredとエッジ待機、NBA発火、別イベントの独立性と取消し後の再待機を観測する。",
+        ),
+        SuiteModel(
+            interaction_timescope.MODEL,
+            lambda row: "tests/gen/ch3/" + interaction_timescope.case_name(row) + ".sv",
+            interaction_timescope.MODEL.select(),
+            "taskの遅延の時間スコープを宣言・`timescale・$unit・入れ子で決め、効かないはずの指定も置く。"
+            "遅延の換算と精度への丸めを、$time・$stime・$realtime・%tの読出しで呼出し元のスコープと比べる。",
+        ),
+        SuiteModel(
+            interaction_literal.MODEL,
+            lambda row: "tests/gen/ch5/" + interaction_literal.case_name(row) + ".sv",
+            interaction_literal.MODEL.select(),
+            "基数・符号・桁数・先頭桁を変えたリテラルを、直接・localparam・マクロの字句・continuous assignで運ぶ。"
+            "左への詰めと切り捨て、式の文脈による拡張、代入先の幅とbitへの変換を全ビットで観測する。",
+        ),
+        SuiteModel(
+            interaction_gatearray.MODEL,
+            lambda row: "tests/gen/ch28/" + interaction_gatearray.case_name(row) + ".sv",
+            interaction_gatearray.MODEL.select(),
+            "4個のゲートの配列へ昇順・降順のベクタ、部分選択、連結、スカラをつなぎ、ビットの対応を調べる。"
+            "既知値・X/Z・既知値の変化で、各出力の真理値表と立上り・立下り・ターンオフの遅延を半時刻で読む。",
         ),
     )

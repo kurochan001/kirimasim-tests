@@ -319,3 +319,13 @@ clause 37.
   Pinned Icarus records 36 known; Verilator records 8 pass / 28 known at both seeds. Separate blocking-control matches do not count as original NBA passes.
 - Suite totals: 11,030, including 4,593 generated cases from 98 generators. Requirement coverage and thirteen random profiles are unchanged; 1,068 tool tests pass.
   These additions have not run in formal Check/Nightly. See [design and evidence](interaction-verification.en.md#named-event-loop-transfer).
+
+### 2026-11-07 (time-scope, literal and gate-array addition)
+
+- Added the first models whose primary chapters are 3 and 5, and a gate-array model for chapter 28. 165 cases come from 19,080 legal rows, and 19 chapter pairs moved from R to M.
+- One complete 3,445-case run on `60c26d7c8113`, built from the latest main, records 2,912 pass / 529 unsupported / four existing config failures. All 165 additions pass; preceding 3,280 inputs/statuses are unchanged.
+- Totals: 92 models, 151 chapter pairs, 65 full-selection-pass models; triage M151/E3/C2/N117/R547.
+  Pinned Icarus has 144 pass / 21 known and Verilator 38 pass / 127 known at both seeds.
+- The literal expectation was wrong once; a run of all legal rows revealed it and it was corrected from the clause. The method now includes the all-row run.
+- The suite has 11,193 tests, 4,758 generated from 101 generators. Requirement coverage and thirteen random profiles are unchanged.
+  This addition has not run in formal Check/Nightly. See the [design and evidence](interaction-verification.en.md#time-scope-delay).

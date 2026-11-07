@@ -1,0 +1,9 @@
+p0 t3 z1111zzz a=1 c=1
+p1 t0 z1111zzz a=x c=x
+p1 t1 z1111zzz a=x c=x
+p1 t2 zxxxxzzz a=x c=x
+p1 t3 zxxxxzzz a=x c=x
+p2 t0 zxxxxzzz a=1 c=1
+p2 t1 zxxxxzzz a=1 c=1
+p2 t2 z1111zzz a=1 c=1
+p2 t3 z1111zzz a=1 c=1

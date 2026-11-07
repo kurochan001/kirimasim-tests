@@ -5,9 +5,9 @@
 2026-11-06（日本時間）の更新です。2026-11-03の対応記録を保持し、固定回帰・正式Nightly・既存期待値・選択モデルを維持し、
 既知の不一致の修正、未対応の整理、要精査の章対の確認の順に進めています。
 
-現在の[全クロスのローカル選択](../coverage/interaction-results/cross89-kirimasim-1e840ea3-assignwait.json)は89モデル・3,280件で、kirimasim `1e840ea322cc`の保存ビルドで実行しました。
-2,747 pass・529 unsupported・configの4 failです。イベント受信ループの追加36件は全PASSです。`6f5c69841228`の前回の全実行と比べて状態の変化はなく、入力が変わったのはIssue #28で修正した`assign_wait`の選択ケース2件だけです。
-今回の36件は正式Check・Nightlyでは未実行です。
+現在の[全クロスのローカル選択](../coverage/interaction-results/cross92-kirimasim-60c26d7c-timelitgate.json)は92モデル・3,445件で、最新のmainをビルドしたkirimasim `60c26d7c8113`で実行しました。
+2,912 pass・529 unsupported・configの4 failです。追加165件は全PASSです。[`1e840ea322cc`の前回の全実行](../coverage/interaction-results/cross89-kirimasim-1e840ea3-assignwait.json)と比べて従来3,280件の入力・状態は不変です。
+イベント受信ループの36件と今回の165件は正式Check・Nightlyでは未実行です。
 
 [基点67321079のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584)は成功し、追加前の88モデルを含む固定版比較・静的検査を確認しました。
 [同じ基点のNightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265)もworkflowと全ジョブが成功しましたが、個別artifactは未照合です。今回の36件は両実行の対象外です。
@@ -95,7 +95,7 @@ upstream mainの公開済み修正ではありません。[版・修正元・ソ
   演算・条件式を将来の独立因子として検討します。合法な式と正の寸法の確定、
   既知のconfigリセット不一致の修正を先に行います。
 
-現在の仕分けはM132・E3・C2・N117・R566です。
+現在の仕分けはM151・E3・C2・N117・R547です。
 [章対の根拠と指紋](chapter-cross-triage.md)を参照してください。
 既存の回帰matrixを先に活用し、原因が確定した機構に境界・操作列・故障対照を追加します。
 同じ目的の別runnerや、ランダム結果を固定要求カバレッジへ加算する仕組みは追加していません。
@@ -148,3 +148,11 @@ Icarusは31入力に一致し、repeat回数1の5件は拒否を保持して、�
   第11×21章の対応は部分選択24件、第20×21章は実行時書式12件で、モデル全体は全36件の同時成功を要求します。
 - 固定suiteは10,922件、うち4,485件は95生成器による自動生成です。要求対応付け・既存回帰・本体コード・ランダム13プロファイルは不変です。
   今回の36件は正式Check・Nightlyでは未実行です。
+
+## 時間スコープ・リテラル・ゲート配列（2026-11-07）
+
+- これまでモデルのなかった第3章と第5章に、[時間スコープ](interaction-verification.md#time-scope-delay)と[リテラル](interaction-verification.md#literal-context-extension)のモデルを追加しました。[ゲート配列](interaction-verification.md#gate-array-connection)で第7・11・23・4章×第28章も精査しました。
+- 第3章×第5・9・10・13・20・21・22・23・25・26章、第5章×第6・10・11・20・22章、第4・7・11・23章×第28章の19章対をRからMへ移しました。
+- kirimasim `60c26d7c8113`の単一の全3,445件は2,912 pass・529 unsupported・既存configの4 failです。追加165件は全PASSです。92モデル・151章対・全選択ケースPASSは65モデルです。
+- クラスのNBAと`$assertoff`も候補に調べましたが、kirimasimが未実装で固定版とも比較できないので見送りました。第8×10章と第16×20章は要精査のまま残ります。
+- リテラルの期待値を一度誤り、全合法行の実行で気づいて条文から直しました。[経緯](interaction-verification.md#literal-context-extension)を参照してください。

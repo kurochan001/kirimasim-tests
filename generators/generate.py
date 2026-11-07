@@ -96,6 +96,9 @@ import interaction_scansel
 import interaction_progframe
 import interaction_pkgquery
 import interaction_eventflow
+import interaction_timescope
+import interaction_literal
+import interaction_gatearray
 import interaction_compound
 import interaction_inside
 import interaction_range
@@ -112,7 +115,7 @@ import wide_paths
 import width_sign
 import xz_propagation
 
-GENERATORS = [interaction_eventflow, interaction_pkgquery, interaction_progframe, interaction_scansel, interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, width_sign, xz_propagation, strength, wide_paths, keywords,
+GENERATORS = [interaction_gatearray, interaction_literal, interaction_timescope, interaction_eventflow, interaction_pkgquery, interaction_progframe, interaction_scansel, interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, width_sign, xz_propagation, strength, wide_paths, keywords,
               interaction_nba, interaction_expr, interaction_select, interaction_cond,
               interaction_shift, interaction_cast, interaction_task, interaction_binding,
               interaction_struct, interaction_case, interaction_port,

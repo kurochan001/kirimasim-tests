@@ -1,0 +1,9 @@
+p0 t3 0101 a=0101 c=1
+p1 t0 0101 a=0z11 c=z
+p1 t1 0xxx a=0z11 c=z
+p1 t2 0xxx a=0z11 c=z
+p1 t3 0xxx a=0z11 c=z
+p2 t0 0xxx a=1010 c=1
+p2 t1 1x1x a=1010 c=1
+p2 t2 1x1x a=1010 c=1
+p2 t3 1010 a=1010 c=1

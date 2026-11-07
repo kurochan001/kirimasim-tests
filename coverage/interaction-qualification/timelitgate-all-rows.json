@@ -1,0 +1,133 @@
+{
+  "generated_at": "2026-11-07T01:27:25.459329+00:00",
+  "scope": "One run of every legal row, outside the selected witnesses, to look for expectations that the model and its independent interpretation share in error. The rows are not fixed-suite tests and do not enter any count. Rows are compiled from generator output in a temporary directory.",
+  "kirimasim": {
+    "version": "kirimasim 0.0.0 (commit 60c26d7c8113), built with AppleClang 21.0.0.21000401",
+    "binary_sha256": "e614be9b26551253932829efbc2860c055fa14cd8a1f6c008c5ef0d11887f191"
+  },
+  "icarus": {
+    "version": "Icarus Verilog version 13.0 (stable) (v13_0)"
+  },
+  "correction": {
+    "model": "literal_context_extension",
+    "first_version_kirimasim_differences": 96,
+    "cause": "The first model and its interpretation both zero-extended an unsized unsigned number led by x or z beyond 32 bits. Clause 5.7.1 and its Example 4 extend it to the size of the expression, as kirimasim did.",
+    "selected_witnesses_showed_it": false,
+    "fix": "Both were corrected from the clause, and two mandatory rows were added."
+  },
+  "models": {
+    "time_scope_delay": {
+      "legal_rows": 8064,
+      "selected": 48,
+      "kirimasim_differences": 0,
+      "icarus": {
+        "match": 6912,
+        "differ": 0,
+        "reject": 1152
+      },
+      "icarus_nonmatching_rows_by_factor": {
+        "binding": {
+          "nested": 1152
+        },
+        "container": {
+          "module": 576,
+          "interface": 576
+        },
+        "unit": {
+          "1us": 384,
+          "10ns": 384,
+          "100ps": 384
+        },
+        "precision": {
+          "same": 384,
+          "tenth": 384,
+          "milli": 384
+        },
+        "delay": {
+          "real": 288,
+          "suffix": 288,
+          "fine": 288,
+          "argument": 288
+        },
+        "rounding": {
+          "exact": 288,
+          "down": 288,
+          "tie": 288,
+          "up": 288
+        },
+        "caller": {
+          "coarser": 576,
+          "finer": 576
+        },
+        "control": {
+          "statement": 576,
+          "nba": 576
+        }
+      },
+      "icarus_nonmatching_rows_sha256": "8d6dad8701a27a3f10e0f8390abac259e5e163c8b0e10124ddfe380621fadec2"
+    },
+    "literal_context_extension": {
+      "legal_rows": 6552,
+      "selected": 66,
+      "kirimasim_differences": 0,
+      "icarus": {
+        "match": 6552,
+        "differ": 0,
+        "reject": 0
+      },
+      "icarus_nonmatching_rows_by_factor": {},
+      "icarus_nonmatching_rows_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "gate_array_connection": {
+      "legal_rows": 4464,
+      "selected": 51,
+      "kirimasim_differences": 0,
+      "icarus": {
+        "match": 3024,
+        "differ": 1440,
+        "reject": 0
+      },
+      "icarus_nonmatching_rows_by_factor": {
+        "gate": {
+          "and": 168,
+          "xnor": 216,
+          "not": 108,
+          "bufif1": 480,
+          "nmos": 468
+        },
+        "range": {
+          "down": 480,
+          "up": 480,
+          "offset": 480
+        },
+        "output": {
+          "whole_down": 360,
+          "whole_up": 360,
+          "part": 360,
+          "concat": 360
+        },
+        "input": {
+          "whole_down": 432,
+          "whole_up": 432,
+          "concat": 432,
+          "scalar": 144
+        },
+        "control": {
+          "scalar": 612,
+          "vector": 720,
+          "none": 108
+        },
+        "delay": {
+          "two": 948,
+          "three": 492
+        },
+        "value": {
+          "x": 516,
+          "z": 504,
+          "known": 420
+        }
+      },
+      "icarus_nonmatching_rows_sha256": "4d311e95673489ada57d6b2e4c013e4f28649ef1b366dcf1de6ec78cfca570ee"
+    }
+  }
+}

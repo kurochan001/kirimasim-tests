@@ -1,0 +1,932 @@
+{
+  "models": [
+    "time_scope_delay",
+    "literal_context_extension",
+    "gate_array_connection"
+  ],
+  "generated_at": "2026-11-07T01:11:05.432908+00:00",
+  "scope": "All 21 unchanged Icarus differences and rejections, and one representative of each form of the known-input Verilator differences at both seeds. The first differing line of every known result is in the run records. Nothing here changes an expectation or counts as a pass. No simulator implementation source was read.",
+  "icarus_version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+  "icarus_originals": [
+    {
+      "test": "tests/gen/ch28/test_gen_cross_gatearray_and_offset_whole_down_whole_down_scalar_two_z.sv",
+      "input_sha256": "e4db41d6893ed7de68b34623e57bd7aedad09a906a95afcd3042658fc4409c49",
+      "reason": "output differs: line 7 is 'p2 t1 0xxx a=1010 c=1', expected 'p2 t1 1x1x a=1010 c=1'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "p0 t3 0101 a=0101 c=1\np1 t0 0101 a=0z11 c=z\np1 t1 0xxx a=0z11 c=z\np1 t2 0xxx a=0z11 c=z\np1 t3 0xxx a=0z11 c=z\np2 t0 0xxx a=1010 c=1\np2 t1 0xxx a=1010 c=1\np2 t2 0xxx a=1010 c=1\np2 t3 1010 a=1010 c=1\ntests/gen/ch28/test_gen_cross_gatearray_and_offset_whole_down_whole_down_scalar_two_z.sv:60: $finish called at 30000 (1ps)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch28/test_gen_cross_gatearray_and_offset_whole_up_concat_scalar_two_x.sv",
+      "input_sha256": "bd577e9658ce4932b12c1097f4b6ea951b91afd64588130de3d5734e18cbbc02",
+      "reason": "output differs: line 7 is 'p2 t1 0xxx a=1010 c=1', expected 'p2 t1 1x1x a=1010 c=1'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "p0 t3 0101 a=0101 c=1\np1 t0 0101 a=0x11 c=x\np1 t1 0xxx a=0x11 c=x\np1 t2 0xxx a=0x11 c=x\np1 t3 0xxx a=0x11 c=x\np2 t0 0xxx a=1010 c=1\np2 t1 0xxx a=1010 c=1\np2 t2 0xxx a=1010 c=1\np2 t3 1010 a=1010 c=1\ntests/gen/ch28/test_gen_cross_gatearray_and_offset_whole_up_concat_scalar_two_x.sv:69: $finish called at 30000 (1ps)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch28/test_gen_cross_gatearray_bufif1_down_whole_down_whole_up_scalar_three_known.sv",
+      "input_sha256": "e5b7528068cd3563519808609d1a0512e8d5a35b1d1977b5175ad096887defb5",
+      "reason": "output differs: line 7 is 'p2 t1 zzzz a=1010 c=1', expected 'p2 t1 1z1z a=1010 c=1'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "p0 t3 0101 a=0101 c=1\np1 t0 0101 a=0011 c=0\np1 t1 0101 a=0011 c=0\np1 t2 zzzz a=0011 c=0\np1 t3 zzzz a=0011 c=0\np2 t0 zzzz a=1010 c=1\np2 t1 zzzz a=1010 c=1\np2 t2 zzzz a=1010 c=1\np2 t3 1010 a=1010 c=1\ntests/gen/ch28/test_gen_cross_gatearray_bufif1_down_whole_down_whole_up_scalar_three_known.sv:60: $finish called at 30000 (1ps)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch28/test_gen_cross_gatearray_bufif1_offset_concat_whole_down_scalar_two_x.sv",
+      "input_sha256": "2e9e8308d628fa618bb37ecc98f501b682a23060168ad9db9193cf998c582a26",
+      "reason": "output differs: line 7 is 'p2 t1 xxxx a=1010 c=1', expected 'p2 t1 1x1x a=1010 c=1'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "p0 t3 0101 a=0101 c=1\np1 t0 0101 a=0x11 c=x\np1 t1 xxxx a=0x11 c=x\np1 t2 xxxx a=0x11 c=x\np1 t3 xxxx a=0x11 c=x\np2 t0 xxxx a=1010 c=1\np2 t1 xxxx a=1010 c=1\np2 t2 xxxx a=1010 c=1\np2 t3 1010 a=1010 c=1\ntests/gen/ch28/test_gen_cross_gatearray_bufif1_offset_concat_whole_down_scalar_two_x.sv:60: $finish called at 30000 (1ps)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch28/test_gen_cross_gatearray_bufif1_offset_concat_whole_up_scalar_three_z.sv",
+      "input_sha256": "d6a44049fbb445994043429b863e11fea5ec81a5fb01b8ceda44afa2600cf632",
+      "reason": "output differs: line 7 is 'p2 t1 xxxx a=1010 c=1', expected 'p2 t1 1x1x a=1010 c=1'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "p0 t3 0101 a=0101 c=1\np1 t0 0101 a=0z11 c=z\np1 t1 xxxx a=0z11 c=z\np1 t2 xxxx a=0z11 c=z\np1 t3 xxxx a=0z11 c=z\np2 t0 xxxx a=1010 c=1\np2 t1 xxxx a=1010 c=1\np2 t2 xxxx a=1010 c=1\np2 t3 1010 a=1010 c=1\ntests/gen/ch28/test_gen_cross_gatearray_bufif1_offset_concat_whole_up_scalar_three_z.sv:60: $finish called at 30000 (1ps)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch28/test_gen_cross_gatearray_bufif1_offset_part_concat_scalar_two_known.sv",
+      "input_sha256": "012e2b2449a0fc2cd373eb29f52c34036a5a71bbb8dafa26699c7521e22b472f",
+      "reason": "output differs: line 7 is 'p2 t1 zzzzzzzz a=1010 c=1', expected 'p2 t1 z1z1zzzz a=1010 c=1'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "p0 t3 z0101zzz a=0101 c=1\np1 t0 z0101zzz a=0011 c=0\np1 t1 zzzzzzzz a=0011 c=0\np1 t2 zzzzzzzz a=0011 c=0\np1 t3 zzzzzzzz a=0011 c=0\np2 t0 zzzzzzzz a=1010 c=1\np2 t1 zzzzzzzz a=1010 c=1\np2 t2 zzzzzzzz a=1010 c=1\np2 t3 z1010zzz a=1010 c=1\ntests/gen/ch28/test_gen_cross_gatearray_bufif1_offset_part_concat_scalar_two_known.sv:69: $finish called at 30000 (1ps)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch28/test_gen_cross_gatearray_bufif1_up_whole_down_whole_down_vector_two_z.sv",
+      "input_sha256": "f562c94e4c9d9182522a4deb33e00df056148cbbe7557ac9fa40da9cb855b278",
+      "reason": "output differs: line 7 is 'p2 t1 0xzx a=1010 c=0110', expected 'p2 t1 zx1z a=1010 c=0110'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "p0 t3 0101 a=0101 c=1111\np1 t0 0101 a=0z11 c=110z\np1 t1 0xzx a=0z11 c=110z\np1 t2 0xzx a=0z11 c=110z\np1 t3 0xzx a=0z11 c=110z\np2 t0 0xzx a=1010 c=0110\np2 t1 0xzx a=1010 c=0110\np2 t2 0xzx a=1010 c=0110\np2 t3 z01z a=1010 c=0110\ntests/gen/ch28/test_gen_cross_gatearray_bufif1_up_whole_down_whole_down_vector_two_z.sv:60: $finish called at 30000 (1ps)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch28/test_gen_cross_gatearray_bufif1_up_whole_up_concat_vector_three_x.sv",
+      "input_sha256": "a357e459951ecebbc8211ebcfaee9f1d0ec30fe3e84742f25cc4807808b15064",
+      "reason": "output differs: line 3 is 'p1 t1 0101 a=0x11 c=110x', expected 'p1 t1 0x0x a=0x11 c=110x'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "p0 t3 0101 a=0101 c=1111\np1 t0 0101 a=0x11 c=110x\np1 t1 0101 a=0x11 c=110x\np1 t2 0xzx a=0x11 c=110x\np1 t3 0xzx a=0x11 c=110x\np2 t0 0xzx a=1010 c=0110\np2 t1 0xzx a=1010 c=0110\np2 t2 0xzx a=1010 c=0110\np2 t3 z01z a=1010 c=0110\ntests/gen/ch28/test_gen_cross_gatearray_bufif1_up_whole_up_concat_vector_three_x.sv:69: $finish called at 30000 (1ps)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch28/test_gen_cross_gatearray_nmos_down_concat_whole_down_scalar_three_known.sv",
+      "input_sha256": "f877aaef57fb2819e11e7ecd5daa10e16b39533c8ead476d58fc6c6cd36177f1",
+      "reason": "output differs: line 7 is 'p2 t1 zzzz a=1010 c=1', expected 'p2 t1 1z1z a=1010 c=1'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "p0 t3 0101 a=0101 c=1\np1 t0 0101 a=0011 c=0\np1 t1 0101 a=0011 c=0\np1 t2 zzzz a=0011 c=0\np1 t3 zzzz a=0011 c=0\np2 t0 zzzz a=1010 c=1\np2 t1 zzzz a=1010 c=1\np2 t2 zzzz a=1010 c=1\np2 t3 1010 a=1010 c=1\ntests/gen/ch28/test_gen_cross_gatearray_nmos_down_concat_whole_down_scalar_three_known.sv:60: $finish called at 30000 (1ps)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch28/test_gen_cross_gatearray_nmos_down_whole_down_whole_down_scalar_three_x.sv",
+      "input_sha256": "8d1d032f5fb45993cf0c5bd3d493e82eb26aa3b7933ff4ab479020fc19b020a1",
+      "reason": "output differs: line 7 is 'p2 t1 xxxx a=1010 c=1', expected 'p2 t1 1x1x a=1010 c=1'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "p0 t3 0101 a=0101 c=1\np1 t0 0101 a=0x11 c=x\np1 t1 xxxx a=0x11 c=x\np1 t2 xxxx a=0x11 c=x\np1 t3 xxxx a=0x11 c=x\np2 t0 xxxx a=1010 c=1\np2 t1 xxxx a=1010 c=1\np2 t2 xxxx a=1010 c=1\np2 t3 1010 a=1010 c=1\ntests/gen/ch28/test_gen_cross_gatearray_nmos_down_whole_down_whole_down_scalar_three_x.sv:60: $finish called at 30000 (1ps)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch28/test_gen_cross_gatearray_nmos_down_whole_down_whole_down_scalar_two_known.sv",
+      "input_sha256": "a44e45437512adfed09c2c04108168c0cdc1e5959352285f4ddc45013b5168be",
+      "reason": "output differs: line 7 is 'p2 t1 zzzz a=1010 c=1', expected 'p2 t1 1z1z a=1010 c=1'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "p0 t3 0101 a=0101 c=1\np1 t0 0101 a=0011 c=0\np1 t1 zzzz a=0011 c=0\np1 t2 zzzz a=0011 c=0\np1 t3 zzzz a=0011 c=0\np2 t0 zzzz a=1010 c=1\np2 t1 zzzz a=1010 c=1\np2 t2 zzzz a=1010 c=1\np2 t3 1010 a=1010 c=1\ntests/gen/ch28/test_gen_cross_gatearray_nmos_down_whole_down_whole_down_scalar_two_known.sv:60: $finish called at 30000 (1ps)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch28/test_gen_cross_gatearray_nmos_down_whole_down_whole_down_scalar_two_z.sv",
+      "input_sha256": "85c0e2f8935f3df9d574d54f24f9df6232b4bd63122e11c575915c3ae12882bf",
+      "reason": "output differs: line 7 is 'p2 t1 xzxx a=1010 c=1', expected 'p2 t1 1z1x a=1010 c=1'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "p0 t3 0101 a=0101 c=1\np1 t0 0101 a=0z11 c=z\np1 t1 xzxx a=0z11 c=z\np1 t2 xzxx a=0z11 c=z\np1 t3 xzxx a=0z11 c=z\np2 t0 xzxx a=1010 c=1\np2 t1 xzxx a=1010 c=1\np2 t2 xzxx a=1010 c=1\np2 t3 1010 a=1010 c=1\ntests/gen/ch28/test_gen_cross_gatearray_nmos_down_whole_down_whole_down_scalar_two_z.sv:60: $finish called at 30000 (1ps)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch28/test_gen_cross_gatearray_not_offset_part_whole_down_none_two_z.sv",
+      "input_sha256": "5f62da8195ce505846ade725aa3285b2e81415adfa069a09a36c038015f84e71",
+      "reason": "output differs: line 3 is 'p1 t1 z1010zzz a=0z11', expected 'p1 t1 z1x10zzz a=0z11'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "p0 t3 z1010zzz a=0101\np1 t0 z1010zzz a=0z11\np1 t1 z1010zzz a=0z11\np1 t2 z1010zzz a=0z11\np1 t3 z1x00zzz a=0z11\np2 t0 z1x00zzz a=1010\np2 t1 z1x00zzz a=1010\np2 t2 z1x00zzz a=1010\np2 t3 z0101zzz a=1010\ntests/gen/ch28/test_gen_cross_gatearray_not_offset_part_whole_down_none_two_z.sv:56: $finish called at 30000 (1ps)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch28/test_gen_cross_gatearray_not_up_concat_whole_up_none_two_x.sv",
+      "input_sha256": "87537b934f04058b2107ff5af8f2c1dc9d92bdc1368fdc3f5e22233d2c16eff1",
+      "reason": "output differs: line 3 is 'p1 t1 1010 a=0x11', expected 'p1 t1 1x10 a=0x11'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "p0 t3 1010 a=0101\np1 t0 1010 a=0x11\np1 t1 1010 a=0x11\np1 t2 1010 a=0x11\np1 t3 1x00 a=0x11\np2 t0 1x00 a=1010\np2 t1 1x00 a=1010\np2 t2 1x00 a=1010\np2 t3 0101 a=1010\ntests/gen/ch28/test_gen_cross_gatearray_not_up_concat_whole_up_none_two_x.sv:56: $finish called at 30000 (1ps)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch28/test_gen_cross_gatearray_xnor_down_whole_up_whole_up_scalar_two_z.sv",
+      "input_sha256": "2382bd5cbd0e557dbc081e8764b7d88cd5f82268b2f0a3330ad9a04a5ff00e1f",
+      "reason": "output differs: line 7 is 'p2 t1 xxxx a=1010 c=1', expected 'p2 t1 1x1x a=1010 c=1'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "p0 t3 0101 a=0101 c=1\np1 t0 0101 a=0z11 c=z\np1 t1 xxxx a=0z11 c=z\np1 t2 xxxx a=0z11 c=z\np1 t3 xxxx a=0z11 c=z\np2 t0 xxxx a=1010 c=1\np2 t1 xxxx a=1010 c=1\np2 t2 xxxx a=1010 c=1\np2 t3 1010 a=1010 c=1\ntests/gen/ch28/test_gen_cross_gatearray_xnor_down_whole_up_whole_up_scalar_two_z.sv:60: $finish called at 30000 (1ps)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch28/test_gen_cross_gatearray_xnor_offset_whole_down_concat_scalar_two_x.sv",
+      "input_sha256": "63da72870c7ca858ee2f0dbc8f57bc768f66dc91af4e0b9928743af0860fb504",
+      "reason": "output differs: line 7 is 'p2 t1 xxxx a=1010 c=1', expected 'p2 t1 1x1x a=1010 c=1'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "p0 t3 0101 a=0101 c=1\np1 t0 0101 a=0x11 c=x\np1 t1 xxxx a=0x11 c=x\np1 t2 xxxx a=0x11 c=x\np1 t3 xxxx a=0x11 c=x\np2 t0 xxxx a=1010 c=1\np2 t1 xxxx a=1010 c=1\np2 t2 xxxx a=1010 c=1\np2 t3 1010 a=1010 c=1\ntests/gen/ch28/test_gen_cross_gatearray_xnor_offset_whole_down_concat_scalar_two_x.sv:69: $finish called at 30000 (1ps)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch28/test_gen_cross_gatearray_xnor_up_part_concat_scalar_two_known.sv",
+      "input_sha256": "d1d2bbf113eb3ed637e098935d9a8e668974d35cb508482b62a1f9c0b8e6d4d7",
+      "reason": "output differs: line 3 is 'p1 t1 z0101zzz a=0011 c=0', expected 'p1 t1 z1101zzz a=0011 c=0'",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "tool": "vvp",
+          "returncode": 0,
+          "stdout": "p0 t3 z0101zzz a=0101 c=1\np1 t0 z0101zzz a=0011 c=0\np1 t1 z0101zzz a=0011 c=0\np1 t2 z0101zzz a=0011 c=0\np1 t3 z1100zzz a=0011 c=0\np2 t0 z1100zzz a=1010 c=1\np2 t1 z1100zzz a=1010 c=1\np2 t2 z1100zzz a=1010 c=1\np2 t3 z1010zzz a=1010 c=1\ntests/gen/ch28/test_gen_cross_gatearray_xnor_up_part_concat_scalar_two_known.sv:69: $finish called at 30000 (1ps)\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_nested_interface_10ns_same_suffix_tie_coarser_nba.sv",
+      "input_sha256": "9a174a0b12fdee3e7beb8fd2d0fc1ebf9b23c5af1db1e0274e59e507e30d8a21",
+      "reason": "compile failed: tests/gen/ch3/test_gen_cross_timescope_nested_interface_10ns_same_suffix_tie_coarser_nba.sv:38: error: Module instantiations are not allowed in interfaces.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 1,
+          "stderr": "tests/gen/ch3/test_gen_cross_timescope_nested_interface_10ns_same_suffix_tie_coarser_nba.sv:38: error: Module instantiations are not allowed in interfaces.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_nested_interface_1us_same_argument_up_finer_nba.sv",
+      "input_sha256": "f8a0715797b7212481b8ce227500a00923558318481e5e54e2b82c5b03764dde",
+      "reason": "compile failed: tests/gen/ch3/test_gen_cross_timescope_nested_interface_1us_same_argument_up_finer_nba.sv:40: error: Module instantiations are not allowed in interfaces.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 1,
+          "stderr": "tests/gen/ch3/test_gen_cross_timescope_nested_interface_1us_same_argument_up_finer_nba.sv:40: error: Module instantiations are not allowed in interfaces.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_nested_module_100ps_tenth_real_exact_coarser_statement.sv",
+      "input_sha256": "4c3c348f16cff6e175864209931833e0a6662f5f05ff32d868c57368afb92247",
+      "reason": "compile failed: tests/gen/ch3/test_gen_cross_timescope_nested_module_100ps_tenth_real_exact_coarser_statement.sv:37: error: Unknown module type: worker",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch3/test_gen_cross_timescope_nested_module_100ps_tenth_real_exact_coarser_statement.sv:37: error: Unknown module type: worker\n2 error(s) during elaboration.\n*** These modules were missing:\n        worker referenced 1 times.\n***\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_nested_module_1us_milli_fine_down_finer_statement.sv",
+      "input_sha256": "bbbbf121ba26f01f21b6c18f8769ff5c6956b08a5ff923dab0ef7a3972aa8eb8",
+      "reason": "compile failed: tests/gen/ch3/test_gen_cross_timescope_nested_module_1us_milli_fine_down_finer_statement.sv:37: error: Unknown module type: worker",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch3/test_gen_cross_timescope_nested_module_1us_milli_fine_down_finer_statement.sv:37: error: Unknown module type: worker\n2 error(s) during elaboration.\n*** These modules were missing:\n        worker referenced 1 times.\n***\n"
+        }
+      ]
+    }
+  ],
+  "verilator_originals": [
+    {
+      "test": "tests/gen/ch28/test_gen_cross_gatearray_not_offset_whole_up_scalar_none_two_known.sv",
+      "seed": 1,
+      "input_sha256": "6009799b4d50014a40ddd0d7d715dbca6e9a1fb4a8a26ed8e367f20a3cb686dc",
+      "reason": "output differs: line 1 is 'p0 t3 0100 a=1', expected 'p0 t3 0000 a=1'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": [
+            "%Warning-ASCRANGE: tests/gen/ch28/test_gen_cross_gatearray_not_offset_whole_up_scalar_none_two_known.sv:28:8: Ascending bit range vector: left < right of bit range: [0:3]",
+            "%Warning-ASCRANGE: tests/gen/ch28/test_gen_cross_gatearray_not_offset_whole_up_scalar_none_two_known.sv:30:16: Ascending bit range vector: left < right of bit range: [6:9]"
+          ]
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "p0 t3 0100 a=1\np1 t0 0100 a=0\np1 t1 0100 a=0\np1 t2 0100 a=0\np1 t3 0100 a=0\np2 t0 0100 a=1\np2 t1 0100 a=1\np2 t2 0100 a=1\np2 t3 0100 a=1\n- tests/gen/ch28/test_gen_cross_gatearray_not_offset_whole_up_scalar_none_two_known.sv:56: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 30ns; walltime 0.000 s; speed 201.342 us/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch28/test_gen_cross_gatearray_not_offset_whole_up_scalar_none_two_known.sv",
+      "seed": 73,
+      "input_sha256": "6009799b4d50014a40ddd0d7d715dbca6e9a1fb4a8a26ed8e367f20a3cb686dc",
+      "reason": "output differs: line 1 is 'p0 t3 1011 a=1', expected 'p0 t3 0000 a=1'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": [
+            "%Warning-ASCRANGE: tests/gen/ch28/test_gen_cross_gatearray_not_offset_whole_up_scalar_none_two_known.sv:28:8: Ascending bit range vector: left < right of bit range: [0:3]",
+            "%Warning-ASCRANGE: tests/gen/ch28/test_gen_cross_gatearray_not_offset_whole_up_scalar_none_two_known.sv:30:16: Ascending bit range vector: left < right of bit range: [6:9]"
+          ]
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "p0 t3 1011 a=1\np1 t0 1011 a=0\np1 t1 1011 a=0\np1 t2 1011 a=0\np1 t3 1011 a=0\np2 t0 1011 a=1\np2 t1 1011 a=1\np2 t2 1011 a=1\np2 t3 1011 a=1\n- tests/gen/ch28/test_gen_cross_gatearray_not_offset_whole_up_scalar_none_two_known.sv:56: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 30ns; walltime 0.000 s; speed 165.746 us/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_directive_interface_10ns_tenth_argument_tie_finer_statement.sv",
+      "seed": 1,
+      "input_sha256": "efd6e93592ec0ff3b19359a568f6430de3c4daf8d5c71b2b585e7b40acc517e1",
+      "reason": "output differs: line 2 is 'w 1 1 1 1.250000470 1000000000000fs 1250000470000fs', expected 'w 1 1 1 1.347000000 10000000fs 13470000fs'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": [
+            "%Warning-ZERODLY: tests/gen/ch3/test_gen_cross_timescope_directive_interface_10ns_tenth_argument_tie_finer_statement.sv:31:5: Value of # delay control statically unknown. Assuming it can be #0."
+          ]
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "c 0 0 0 0.470000000 0fs 470000fs\nw 1 1 1 1.250000470 1000000000000fs 1250000470000fs\nc 1 1250000 1250000 1250000.470000000 1250000000000000000fs 1250000470000000000fs\nw 2 3 3 2.500000470 3000000000000fs 2500000470000fs\nc 2 2500000 2500000 2500000.470000000 2500000000000000000fs 2500000470000000000fs\no 2 2500002 2500002 2500001.720000000 2500002000000fs 2500001720000fs\nw 3 4 4 3.750001720 4000000000000fs 3750001720000fs\nc 3 3750002 3750002 3750001.720000000 3750002000000000000fs 3750001720000000000fs\n- tests/gen/ch3/test_gen_cross_timescope_directive_interface_10ns_tenth_argument_tie_finer_statement.sv:57: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 4ms; walltime 0.000 s; speed 16.376 s/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_directive_interface_10ns_tenth_argument_tie_finer_statement.sv",
+      "seed": 73,
+      "input_sha256": "efd6e93592ec0ff3b19359a568f6430de3c4daf8d5c71b2b585e7b40acc517e1",
+      "reason": "output differs: line 2 is 'w 1 1 1 1.250000470 1000000000000fs 1250000470000fs', expected 'w 1 1 1 1.347000000 10000000fs 13470000fs'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": [
+            "%Warning-ZERODLY: tests/gen/ch3/test_gen_cross_timescope_directive_interface_10ns_tenth_argument_tie_finer_statement.sv:31:5: Value of # delay control statically unknown. Assuming it can be #0."
+          ]
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "c 0 0 0 0.470000000 0fs 470000fs\nw 1 1 1 1.250000470 1000000000000fs 1250000470000fs\nc 1 1250000 1250000 1250000.470000000 1250000000000000000fs 1250000470000000000fs\nw 2 3 3 2.500000470 3000000000000fs 2500000470000fs\nc 2 2500000 2500000 2500000.470000000 2500000000000000000fs 2500000470000000000fs\no 2 2500002 2500002 2500001.720000000 2500002000000fs 2500001720000fs\nw 3 4 4 3.750001720 4000000000000fs 3750001720000fs\nc 3 3750002 3750002 3750001.720000000 3750002000000000000fs 3750001720000000000fs\n- tests/gen/ch3/test_gen_cross_timescope_directive_interface_10ns_tenth_argument_tie_finer_statement.sv:57: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 4ms; walltime 0.000 s; speed 19.330 s/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_directive_module_1us_same_real_tie_coarser_nba.sv",
+      "seed": 1,
+      "input_sha256": "9126374c3152605a2fcd91d96b52c1024e054192806ef14503500cd6458eece3",
+      "reason": "output differs: line 2 is 'w 1 7 7 7.200000000 7000000000fs 7200000000fs', expected 'w 1 8 8 7.700000000 8000000000fs 7700000000fs'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "c 0 0 0 0.470000000 0fs 4700000000fs\nw 1 7 7 7.200000000 7000000000fs 7200000000fs\nc 1 1 1 0.720000000 1000000000fs 720000000fs\nw 2 10 10 9.700000000 10000000000fs 9700000000fs\nc 2 1 1 0.970000000 1000000000fs 970000000fs\no 2 3 3 3.470000000 30000000000fs 34700000000fs\nw 3 37 37 37.200000000 37000000000fs 37200000000fs\nc 3 4 4 3.720000000 4000000000fs 3720000000fs\n- tests/gen/ch3/test_gen_cross_timescope_directive_module_1us_same_real_tie_coarser_nba.sv:58: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 37us; walltime 0.000 s; speed 201.081 ms/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_directive_module_1us_same_real_tie_coarser_nba.sv",
+      "seed": 73,
+      "input_sha256": "9126374c3152605a2fcd91d96b52c1024e054192806ef14503500cd6458eece3",
+      "reason": "output differs: line 2 is 'w 1 7 7 7.200000000 7000000000fs 7200000000fs', expected 'w 1 8 8 7.700000000 8000000000fs 7700000000fs'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "c 0 0 0 0.470000000 0fs 4700000000fs\nw 1 7 7 7.200000000 7000000000fs 7200000000fs\nc 1 1 1 0.720000000 1000000000fs 720000000fs\nw 2 10 10 9.700000000 10000000000fs 9700000000fs\nc 2 1 1 0.970000000 1000000000fs 970000000fs\no 2 3 3 3.470000000 30000000000fs 34700000000fs\nw 3 37 37 37.200000000 37000000000fs 37200000000fs\nc 3 4 4 3.720000000 4000000000fs 3720000000fs\n- tests/gen/ch3/test_gen_cross_timescope_directive_module_1us_same_real_tie_coarser_nba.sv:58: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 37us; walltime 0.000 s; speed 206.667 ms/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_directive_package_100ps_milli_fine_up_coarser_statement.sv",
+      "seed": 1,
+      "input_sha256": "9f132ba06cc497e12557a8163bb6fd9b037821faf205eeefd65cbc9b938a9818",
+      "reason": "output differs: line 3 is 'c 1 1 1 0.576300000 100000fs 57630fs', expected 'c 1 1 1 0.576300000 1000000fs 576300fs'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "c 0 0 0 0.470000000 0fs 470000fs\nw 1 6 6 5.763000000 600000fs 576300fs\nc 1 1 1 0.576300000 100000fs 57630fs\nw 2 7 7 6.826000000 700000fs 682600fs\nc 2 1 1 0.682600000 100000fs 68260fs\no 2 2 2 1.745300000 2000000fs 1745300fs\nw 3 19 19 18.516000000 1900000fs 1851600fs\nc 3 2 2 1.851600000 200000fs 185160fs\n- tests/gen/ch3/test_gen_cross_timescope_directive_package_100ps_milli_fine_up_coarser_statement.sv:57: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 2ns; walltime 0.000 s; speed 11.154 us/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_directive_package_100ps_milli_fine_up_coarser_statement.sv",
+      "seed": 73,
+      "input_sha256": "9f132ba06cc497e12557a8163bb6fd9b037821faf205eeefd65cbc9b938a9818",
+      "reason": "output differs: line 3 is 'c 1 1 1 0.576300000 100000fs 57630fs', expected 'c 1 1 1 0.576300000 1000000fs 576300fs'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "c 0 0 0 0.470000000 0fs 470000fs\nw 1 6 6 5.763000000 600000fs 576300fs\nc 1 1 1 0.576300000 100000fs 57630fs\nw 2 7 7 6.826000000 700000fs 682600fs\nc 2 1 1 0.682600000 100000fs 68260fs\no 2 2 2 1.745300000 2000000fs 1745300fs\nw 3 19 19 18.516000000 1900000fs 1851600fs\nc 3 2 2 1.851600000 200000fs 185160fs\n- tests/gen/ch3/test_gen_cross_timescope_directive_package_100ps_milli_fine_up_coarser_statement.sv:57: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 2ns; walltime 0.000 s; speed 10.828 us/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_keyword_interface_100ps_same_suffix_down_finer_statement.sv",
+      "seed": 1,
+      "input_sha256": "4c2e3b6d1f20b2fb13ec2934782a9432797485e27f37acd004066f34342def6f",
+      "reason": "output differs: line 2 is 'w 1 2 2 2.347000000 200000fs 234700fs', expected 'w 1 2 2 2.047000000 200000fs 204700fs'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "c 0 0 0 0.470000000 0fs 4700fs\nw 1 2 2 2.347000000 200000fs 234700fs\nc 1 23 23 23.470000000 2300000fs 2347000fs\nw 2 5 5 4.647000000 500000fs 464700fs\nc 2 46 46 46.470000000 4600000fs 4647000fs\no 2 49 49 48.770000000 490000fs 487700fs\nw 3 7 7 7.177000000 700000fs 717700fs\nc 3 72 72 71.770000000 7200000fs 7177000fs\n- tests/gen/ch3/test_gen_cross_timescope_keyword_interface_100ps_same_suffix_down_finer_statement.sv:58: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 718ps; walltime 0.000 s; speed 4.247 us/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_keyword_interface_100ps_same_suffix_down_finer_statement.sv",
+      "seed": 73,
+      "input_sha256": "4c2e3b6d1f20b2fb13ec2934782a9432797485e27f37acd004066f34342def6f",
+      "reason": "output differs: line 2 is 'w 1 2 2 2.347000000 200000fs 234700fs', expected 'w 1 2 2 2.047000000 200000fs 204700fs'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "c 0 0 0 0.470000000 0fs 4700fs\nw 1 2 2 2.347000000 200000fs 234700fs\nc 1 23 23 23.470000000 2300000fs 2347000fs\nw 2 5 5 4.647000000 500000fs 464700fs\nc 2 46 46 46.470000000 4600000fs 4647000fs\no 2 49 49 48.770000000 490000fs 487700fs\nw 3 7 7 7.177000000 700000fs 717700fs\nc 3 72 72 71.770000000 7200000fs 7177000fs\n- tests/gen/ch3/test_gen_cross_timescope_keyword_interface_100ps_same_suffix_down_finer_statement.sv:58: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 718ps; walltime 0.000 s; speed 3.901 us/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_keyword_module_100ps_milli_real_exact_coarser_statement.sv",
+      "seed": 1,
+      "input_sha256": "e02a81ccb26a9b70d842817d6b5cae8fa47edced24acb345c5f34534477cfefa",
+      "reason": "output differs: line 3 is 'c 1 1 1 0.670000000 100000fs 67000fs', expected 'c 1 1 1 0.670000000 1000000fs 670000fs'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "c 0 0 0 0.470000000 0fs 470000fs\nw 1 7 7 6.700000000 700000fs 670000fs\nc 1 1 1 0.670000000 100000fs 67000fs\nw 2 9 9 8.700000000 900000fs 870000fs\nc 2 1 1 0.870000000 100000fs 87000fs\no 2 3 3 2.870000000 3000000fs 2870000fs\nw 3 31 31 30.700000000 3100000fs 3070000fs\nc 3 3 3 3.070000000 300000fs 307000fs\n- tests/gen/ch3/test_gen_cross_timescope_keyword_module_100ps_milli_real_exact_coarser_statement.sv:58: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 3ns; walltime 0.000 s; speed 19.068 us/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_keyword_module_100ps_milli_real_exact_coarser_statement.sv",
+      "seed": 73,
+      "input_sha256": "e02a81ccb26a9b70d842817d6b5cae8fa47edced24acb345c5f34534477cfefa",
+      "reason": "output differs: line 3 is 'c 1 1 1 0.670000000 100000fs 67000fs', expected 'c 1 1 1 0.670000000 1000000fs 670000fs'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "c 0 0 0 0.470000000 0fs 470000fs\nw 1 7 7 6.700000000 700000fs 670000fs\nc 1 1 1 0.670000000 100000fs 67000fs\nw 2 9 9 8.700000000 900000fs 870000fs\nc 2 1 1 0.870000000 100000fs 87000fs\no 2 3 3 2.870000000 3000000fs 2870000fs\nw 3 31 31 30.700000000 3100000fs 3070000fs\nc 3 3 3 3.070000000 300000fs 307000fs\n- tests/gen/ch3/test_gen_cross_timescope_keyword_module_100ps_milli_real_exact_coarser_statement.sv:58: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 3ns; walltime 0.000 s; speed 18.059 us/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_keyword_package_10ns_milli_argument_exact_coarser_nba.sv",
+      "seed": 1,
+      "input_sha256": "49d9bfc079e7bf4977373df61a1dbaac8aa89857c25c71203534648e890e1310",
+      "reason": "output differs: line 3 is 'c 1 1 1 0.670000000 10000000fs 6700000fs', expected 'c 1 1 1 0.670000000 100000000fs 67000000fs'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": [
+            "%Warning-ZERODLY: tests/gen/ch3/test_gen_cross_timescope_keyword_package_10ns_milli_argument_exact_coarser_nba.sv:34:10: Value of # delay control statically unknown. Assuming it can be #0."
+          ]
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "c 0 0 0 0.470000000 0fs 47000000fs\nw 1 7 7 6.700000000 70000000fs 67000000fs\nc 1 1 1 0.670000000 10000000fs 6700000fs\nw 2 9 9 8.700000000 90000000fs 87000000fs\nc 2 1 1 0.870000000 10000000fs 8700000fs\no 2 3 3 2.870000000 300000000fs 287000000fs\nw 3 31 31 30.700000000 310000000fs 307000000fs\nc 3 3 3 3.070000000 30000000fs 30700000fs\n- tests/gen/ch3/test_gen_cross_timescope_keyword_package_10ns_milli_argument_exact_coarser_nba.sv:61: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 307ns; walltime 0.000 s; speed 1.744 ms/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_keyword_package_10ns_milli_argument_exact_coarser_nba.sv",
+      "seed": 73,
+      "input_sha256": "49d9bfc079e7bf4977373df61a1dbaac8aa89857c25c71203534648e890e1310",
+      "reason": "output differs: line 3 is 'c 1 1 1 0.670000000 10000000fs 6700000fs', expected 'c 1 1 1 0.670000000 100000000fs 67000000fs'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": [
+            "%Warning-ZERODLY: tests/gen/ch3/test_gen_cross_timescope_keyword_package_10ns_milli_argument_exact_coarser_nba.sv:34:10: Value of # delay control statically unknown. Assuming it can be #0."
+          ]
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "c 0 0 0 0.470000000 0fs 47000000fs\nw 1 7 7 6.700000000 70000000fs 67000000fs\nc 1 1 1 0.670000000 10000000fs 6700000fs\nw 2 9 9 8.700000000 90000000fs 87000000fs\nc 2 1 1 0.870000000 10000000fs 8700000fs\no 2 3 3 2.870000000 300000000fs 287000000fs\nw 3 31 31 30.700000000 310000000fs 307000000fs\nc 3 3 3 3.070000000 30000000fs 30700000fs\n- tests/gen/ch3/test_gen_cross_timescope_keyword_package_10ns_milli_argument_exact_coarser_nba.sv:61: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 307ns; walltime 0.000 s; speed 1.687 ms/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_nested_interface_10ns_same_suffix_tie_coarser_nba.sv",
+      "seed": 1,
+      "input_sha256": "9a174a0b12fdee3e7beb8fd2d0fc1ebf9b23c5af1db1e0274e59e507e30d8a21",
+      "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch3/test_gen_cross_timescope_nested_interface_10ns_same_suffix_tie_coarser_nba.sv:38:3: Unsupported: interface decls within interface decls",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 1,
+          "diagnostics": [
+            "%Error-UNSUPPORTED: tests/gen/ch3/test_gen_cross_timescope_nested_interface_10ns_same_suffix_tie_coarser_nba.sv:38:3: Unsupported: interface decls within interface decls",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_nested_interface_10ns_same_suffix_tie_coarser_nba.sv",
+      "seed": 73,
+      "input_sha256": "9a174a0b12fdee3e7beb8fd2d0fc1ebf9b23c5af1db1e0274e59e507e30d8a21",
+      "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch3/test_gen_cross_timescope_nested_interface_10ns_same_suffix_tie_coarser_nba.sv:38:3: Unsupported: interface decls within interface decls",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 1,
+          "diagnostics": [
+            "%Error-UNSUPPORTED: tests/gen/ch3/test_gen_cross_timescope_nested_interface_10ns_same_suffix_tie_coarser_nba.sv:38:3: Unsupported: interface decls within interface decls",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_nested_module_100ps_tenth_real_exact_coarser_statement.sv",
+      "seed": 1,
+      "input_sha256": "4c3c348f16cff6e175864209931833e0a6662f5f05ff32d868c57368afb92247",
+      "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch3/test_gen_cross_timescope_nested_module_100ps_tenth_real_exact_coarser_statement.sv:37:3: Unsupported: module decls within module decls",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 1,
+          "diagnostics": [
+            "%Error-UNSUPPORTED: tests/gen/ch3/test_gen_cross_timescope_nested_module_100ps_tenth_real_exact_coarser_statement.sv:37:3: Unsupported: module decls within module decls",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_nested_module_100ps_tenth_real_exact_coarser_statement.sv",
+      "seed": 73,
+      "input_sha256": "4c3c348f16cff6e175864209931833e0a6662f5f05ff32d868c57368afb92247",
+      "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch3/test_gen_cross_timescope_nested_module_100ps_tenth_real_exact_coarser_statement.sv:37:3: Unsupported: module decls within module decls",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 1,
+          "diagnostics": [
+            "%Error-UNSUPPORTED: tests/gen/ch3/test_gen_cross_timescope_nested_module_100ps_tenth_real_exact_coarser_statement.sv:37:3: Unsupported: module decls within module decls",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_slash_interface_100ps_milli_fine_tie_coarser_nba.sv",
+      "seed": 1,
+      "input_sha256": "663166c77ebbf3efa06e2d2d9374cb30368839815e11124dc7fb7ae1a154c172",
+      "reason": "output differs: line 3 is 'c 1 1 1 0.576300000 100000fs 57630fs', expected 'c 1 1 1 0.576300000 1000000fs 576300fs'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "c 0 0 0 0.470000000 0fs 470000fs\nw 1 6 6 5.763000000 600000fs 576300fs\nc 1 1 1 0.576300000 100000fs 57630fs\nw 2 7 7 6.826000000 700000fs 682600fs\nc 2 1 1 0.682600000 100000fs 68260fs\no 2 2 2 1.745100000 2000000fs 1745100fs\nw 3 19 19 18.514000000 1900000fs 1851400fs\nc 3 2 2 1.851400000 200000fs 185140fs\n- tests/gen/ch3/test_gen_cross_timescope_slash_interface_100ps_milli_fine_tie_coarser_nba.sv:58: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 2ns; walltime 0.000 s; speed 16.679 us/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_slash_interface_100ps_milli_fine_tie_coarser_nba.sv",
+      "seed": 73,
+      "input_sha256": "663166c77ebbf3efa06e2d2d9374cb30368839815e11124dc7fb7ae1a154c172",
+      "reason": "output differs: line 3 is 'c 1 1 1 0.576300000 100000fs 57630fs', expected 'c 1 1 1 0.576300000 1000000fs 576300fs'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "c 0 0 0 0.470000000 0fs 470000fs\nw 1 6 6 5.763000000 600000fs 576300fs\nc 1 1 1 0.576300000 100000fs 57630fs\nw 2 7 7 6.826000000 700000fs 682600fs\nc 2 1 1 0.682600000 100000fs 68260fs\no 2 2 2 1.745100000 2000000fs 1745100fs\nw 3 19 19 18.514000000 1900000fs 1851400fs\nc 3 2 2 1.851400000 200000fs 185140fs\n- tests/gen/ch3/test_gen_cross_timescope_slash_interface_100ps_milli_fine_tie_coarser_nba.sv:58: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 2ns; walltime 0.000 s; speed 11.358 us/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_slash_module_1us_milli_suffix_exact_finer_statement.sv",
+      "seed": 1,
+      "input_sha256": "bca2fbcb624896c0cb57d7e609a46d7f9c5ae5b8f9a37288c2983c9a0617ee80",
+      "reason": "output differs: line 3 is 'c 1 20 20 20.470000000 20000000000fs 20470000000fs', expected 'c 1 20 20 20.470000000 2000000000fs 2047000000fs'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "c 0 0 0 0.470000000 0fs 47000000fs\nw 1 2 2 2.047000000 2000000000fs 2047000000fs\nc 1 20 20 20.470000000 20000000000fs 20470000000fs\nw 2 4 4 4.047000000 4000000000fs 4047000000fs\nc 2 40 40 40.470000000 40000000000fs 40470000000fs\no 2 42 42 42.470000000 4200000000fs 4247000000fs\nw 3 6 6 6.247000000 6000000000fs 6247000000fs\nc 3 62 62 62.470000000 62000000000fs 62470000000fs\n- tests/gen/ch3/test_gen_cross_timescope_slash_module_1us_milli_suffix_exact_finer_statement.sv:57: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 6us; walltime 0.000 s; speed 29.748 ms/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_slash_module_1us_milli_suffix_exact_finer_statement.sv",
+      "seed": 73,
+      "input_sha256": "bca2fbcb624896c0cb57d7e609a46d7f9c5ae5b8f9a37288c2983c9a0617ee80",
+      "reason": "output differs: line 3 is 'c 1 20 20 20.470000000 20000000000fs 20470000000fs', expected 'c 1 20 20 20.470000000 2000000000fs 2047000000fs'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "c 0 0 0 0.470000000 0fs 47000000fs\nw 1 2 2 2.047000000 2000000000fs 2047000000fs\nc 1 20 20 20.470000000 20000000000fs 20470000000fs\nw 2 4 4 4.047000000 4000000000fs 4047000000fs\nc 2 40 40 40.470000000 40000000000fs 40470000000fs\no 2 42 42 42.470000000 4200000000fs 4247000000fs\nw 3 6 6 6.247000000 6000000000fs 6247000000fs\nc 3 62 62 62.470000000 62000000000fs 62470000000fs\n- tests/gen/ch3/test_gen_cross_timescope_slash_module_1us_milli_suffix_exact_finer_statement.sv:57: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 6us; walltime 0.000 s; speed 38.091 ms/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_slash_package_100ps_tenth_argument_up_coarser_nba.sv",
+      "seed": 1,
+      "input_sha256": "a568124b6525f439cd85f62d984e0b8a359b86daed2a90263fa812b83ed5603a",
+      "reason": "output differs: line 3 is 'c 1 1 1 0.600000000 100000fs 60000fs', expected 'c 1 1 1 0.600000000 1000000fs 600000fs'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": [
+            "%Warning-ZERODLY: tests/gen/ch3/test_gen_cross_timescope_slash_package_100ps_tenth_argument_up_coarser_nba.sv:33:10: Value of # delay control statically unknown. Assuming it can be #0."
+          ]
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "c 0 0 0 0.470000000 0fs 470000fs\nw 1 6 6 6.000000000 600000fs 600000fs\nc 1 1 1 0.600000000 100000fs 60000fs\nw 2 7 7 7.300000000 700000fs 730000fs\nc 2 1 1 0.730000000 100000fs 73000fs\no 2 2 2 2.000000000 2000000fs 2000000fs\nw 3 21 21 21.300000000 2100000fs 2130000fs\nc 3 2 2 2.130000000 200000fs 213000fs\n- tests/gen/ch3/test_gen_cross_timescope_slash_package_100ps_tenth_argument_up_coarser_nba.sv:60: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 2ns; walltime 0.000 s; speed 12.171 us/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_slash_package_100ps_tenth_argument_up_coarser_nba.sv",
+      "seed": 73,
+      "input_sha256": "a568124b6525f439cd85f62d984e0b8a359b86daed2a90263fa812b83ed5603a",
+      "reason": "output differs: line 3 is 'c 1 1 1 0.600000000 100000fs 60000fs', expected 'c 1 1 1 0.600000000 1000000fs 600000fs'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": [
+            "%Warning-ZERODLY: tests/gen/ch3/test_gen_cross_timescope_slash_package_100ps_tenth_argument_up_coarser_nba.sv:33:10: Value of # delay control statically unknown. Assuming it can be #0."
+          ]
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "c 0 0 0 0.470000000 0fs 470000fs\nw 1 6 6 6.000000000 600000fs 600000fs\nc 1 1 1 0.600000000 100000fs 60000fs\nw 2 7 7 7.300000000 700000fs 730000fs\nc 2 1 1 0.730000000 100000fs 73000fs\no 2 2 2 2.000000000 2000000fs 2000000fs\nw 3 21 21 21.300000000 2100000fs 2130000fs\nc 3 2 2 2.130000000 200000fs 213000fs\n- tests/gen/ch3/test_gen_cross_timescope_slash_package_100ps_tenth_argument_up_coarser_nba.sv:60: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 2ns; walltime 0.000 s; speed 8.589 us/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_unit_scope_interface_10ns_same_fine_exact_finer_statement.sv",
+      "seed": 1,
+      "input_sha256": "ac94d3c9713aa3bdbec61e44172a26f296c9165c15ef533ab57492c780fe90bd",
+      "reason": "output differs: line 3 is 'c 1 20 20 20.470000000 200000000fs 204700000fs', expected 'c 1 20 20 20.470000000 20000000fs 20470000fs'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "c 0 0 0 0.470000000 0fs 470000fs\nw 1 2 2 2.047000000 20000000fs 20470000fs\nc 1 20 20 20.470000000 200000000fs 204700000fs\nw 2 4 4 4.047000000 40000000fs 40470000fs\nc 2 40 40 40.470000000 400000000fs 404700000fs\no 2 42 42 42.470000000 42000000fs 42470000fs\nw 3 6 6 6.247000000 60000000fs 62470000fs\nc 3 62 62 62.470000000 620000000fs 624700000fs\n- tests/gen/ch3/test_gen_cross_timescope_unit_scope_interface_10ns_same_fine_exact_finer_statement.sv:56: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 62ns; walltime 0.000 s; speed 367.471 us/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_unit_scope_interface_10ns_same_fine_exact_finer_statement.sv",
+      "seed": 73,
+      "input_sha256": "ac94d3c9713aa3bdbec61e44172a26f296c9165c15ef533ab57492c780fe90bd",
+      "reason": "output differs: line 3 is 'c 1 20 20 20.470000000 200000000fs 204700000fs', expected 'c 1 20 20 20.470000000 20000000fs 20470000fs'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "c 0 0 0 0.470000000 0fs 470000fs\nw 1 2 2 2.047000000 20000000fs 20470000fs\nc 1 20 20 20.470000000 200000000fs 204700000fs\nw 2 4 4 4.047000000 40000000fs 40470000fs\nc 2 40 40 40.470000000 400000000fs 404700000fs\no 2 42 42 42.470000000 42000000fs 42470000fs\nw 3 6 6 6.247000000 60000000fs 62470000fs\nc 3 62 62 62.470000000 620000000fs 624700000fs\n- tests/gen/ch3/test_gen_cross_timescope_unit_scope_interface_10ns_same_fine_exact_finer_statement.sv:56: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 62ns; walltime 0.000 s; speed 328.789 us/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_unit_scope_module_100ps_tenth_argument_down_finer_statement.sv",
+      "seed": 1,
+      "input_sha256": "067b564a87a869e163cdb9437284e6b8c22d279af4826162be0b16104ae77989",
+      "reason": "output differs: line 2 is 'w 1 1 1 1.277000000 100000fs 127700fs', expected 'w 1 1 1 1.247000000 100000fs 124700fs'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": [
+            "%Warning-ZERODLY: tests/gen/ch3/test_gen_cross_timescope_unit_scope_module_100ps_tenth_argument_down_finer_statement.sv:30:5: Value of # delay control statically unknown. Assuming it can be #0."
+          ]
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "c 0 0 0 0.470000000 0fs 4700fs\nw 1 1 1 1.277000000 100000fs 127700fs\nc 1 13 13 12.770000000 1300000fs 1277000fs\nw 2 3 3 2.507000000 300000fs 250700fs\nc 2 25 25 25.070000000 2500000fs 2507000fs\no 2 26 26 26.300000000 260000fs 263000fs\nw 3 4 4 3.860000000 400000fs 386000fs\nc 3 39 39 38.600000000 3900000fs 3860000fs\n- tests/gen/ch3/test_gen_cross_timescope_unit_scope_module_100ps_tenth_argument_down_finer_statement.sv:56: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 386ps; walltime 0.000 s; speed 2.339 us/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_unit_scope_module_100ps_tenth_argument_down_finer_statement.sv",
+      "seed": 73,
+      "input_sha256": "067b564a87a869e163cdb9437284e6b8c22d279af4826162be0b16104ae77989",
+      "reason": "output differs: line 2 is 'w 1 1 1 1.277000000 100000fs 127700fs', expected 'w 1 1 1 1.247000000 100000fs 124700fs'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": [
+            "%Warning-ZERODLY: tests/gen/ch3/test_gen_cross_timescope_unit_scope_module_100ps_tenth_argument_down_finer_statement.sv:30:5: Value of # delay control statically unknown. Assuming it can be #0."
+          ]
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "c 0 0 0 0.470000000 0fs 4700fs\nw 1 1 1 1.277000000 100000fs 127700fs\nc 1 13 13 12.770000000 1300000fs 1277000fs\nw 2 3 3 2.507000000 300000fs 250700fs\nc 2 25 25 25.070000000 2500000fs 2507000fs\no 2 26 26 26.300000000 260000fs 263000fs\nw 3 4 4 3.860000000 400000fs 386000fs\nc 3 39 39 38.600000000 3900000fs 3860000fs\n- tests/gen/ch3/test_gen_cross_timescope_unit_scope_module_100ps_tenth_argument_down_finer_statement.sv:56: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 386ps; walltime 0.000 s; speed 1.643 us/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_unit_scope_package_10ns_milli_suffix_tie_coarser_nba.sv",
+      "seed": 1,
+      "input_sha256": "fc34a84a5bd44ef59c3f0d00eaff25a963d4e36e7977adfeffe53b07d24df1de",
+      "reason": "output differs: line 3 is 'c 1 1 1 0.576300000 10000000fs 5763000fs', expected 'c 1 1 1 0.576300000 100000000fs 57630000fs'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "c 0 0 0 0.470000000 0fs 47000000fs\nw 1 6 6 5.763000000 60000000fs 57630000fs\nc 1 1 1 0.576300000 10000000fs 5763000fs\nw 2 7 7 6.826000000 70000000fs 68260000fs\nc 2 1 1 0.682600000 10000000fs 6826000fs\no 2 2 2 1.745100000 200000000fs 174510000fs\nw 3 19 19 18.514000000 190000000fs 185140000fs\nc 3 2 2 1.851400000 20000000fs 18514000fs\n- tests/gen/ch3/test_gen_cross_timescope_unit_scope_package_10ns_milli_suffix_tie_coarser_nba.sv:57: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 185ns; walltime 0.000 s; speed 1.046 ms/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch3/test_gen_cross_timescope_unit_scope_package_10ns_milli_suffix_tie_coarser_nba.sv",
+      "seed": 73,
+      "input_sha256": "fc34a84a5bd44ef59c3f0d00eaff25a963d4e36e7977adfeffe53b07d24df1de",
+      "reason": "output differs: line 3 is 'c 1 1 1 0.576300000 10000000fs 5763000fs', expected 'c 1 1 1 0.576300000 100000000fs 57630000fs'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "c 0 0 0 0.470000000 0fs 47000000fs\nw 1 6 6 5.763000000 60000000fs 57630000fs\nc 1 1 1 0.576300000 10000000fs 5763000fs\nw 2 7 7 6.826000000 70000000fs 68260000fs\nc 2 1 1 0.682600000 10000000fs 6826000fs\no 2 2 2 1.745100000 200000000fs 174510000fs\nw 3 19 19 18.514000000 190000000fs 185140000fs\nc 3 2 2 1.851400000 20000000fs 18514000fs\n- tests/gen/ch3/test_gen_cross_timescope_unit_scope_package_10ns_milli_suffix_tie_coarser_nba.sv:57: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: $finish at 185ns; walltime 0.000 s; speed 954.330 us/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    }
+  ],
+  "runner_sha256": {
+    "icarus": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+    "verilator": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+    "kirimasim": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb"
+  },
+  "executables_sha256": {
+    "iverilog": "5df81b269e1ff2c965dd00ad5a8071ca17717f416003b3661a18b2dde430e73c",
+    "vvp": "1a9bdf1f40102f64f015514f5069f99a5dd9f9f38de343743ef4c169fb358392",
+    "verilator_driver": "098b09b11ba7d3e904ae13d924a9e8dac8ced5c9d7c9beff3b9d36119a417581"
+  }
+}

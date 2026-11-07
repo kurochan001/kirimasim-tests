@@ -361,3 +361,14 @@ The independent model holds objects, references and a bounded queue; it does not
 Cross late waiters, retained old handles, independent noise, relay-handle changes, multiple waiters and unused slots to distinguish identity errors, registration-time errors and shared/confused wait queues. The design procedure also applies to callback registration, subscription changes and connection switching. Expected values use closed-form timing selection, while the independent model operates objects and registration queues in order.
 
 The model selects 27 cases from 648 legal combinations and reaches the lower bound imposed by 27 targets in the required strength-3 group. Observational differences for 13 fault types in the reference model do not count as runtime fault detection or combination fulfillment when the target tool cannot execute the operations. Record syntax acceptance, independent expectation checks, behavioral execution and executable fault injection with their respective evidence and limits.
+
+<a id="run-every-legal-row-once"></a>
+
+## Run every legal row once
+
+An independent check computes expectations by a separate procedure, but one author can misread a rule the same way twice.
+When the selection holds no such row, a comparison with simulators does not reveal it either.
+In the 2026-11-07 literal model, the generator and the check made the same error on extending unsized numbers, and the selected runs all passed. Only a run of all legal rows gave the 96 differences.
+
+When adding a model, run all legal rows once on the target and a reference simulator, outside the fixed suite.
+Decide differing rows from the clause and not by majority. These rows enter neither the fixed suite nor requirement coverage. Keep the counts and history in the auxiliary evidence.

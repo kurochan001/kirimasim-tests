@@ -14,6 +14,13 @@ Before reading model counts, see [a three-way condition missing from 100% pairwi
 
 ## Saved-run summary
 
+The 2026-11-07 time-scope, literal and gate-array additions bring totals to **92 models / 3,445 cases / 151 chapter pairs**.
+The [single run](../coverage/interaction-results/cross92-kirimasim-60c26d7c-timelitgate.json) on kirimasim `60c26d7c8113`, built from the latest main, records
+**2,912 pass / 529 unsupported / four existing config failures**. All 165 additions pass; preceding 3,280 inputs/statuses are unchanged.
+65 models pass their entire selection. These are the first models whose primary chapters are 3 and 5.
+See [time scopes and delays](#time-scope-delay), [literals and expression context](#literal-context-extension) and [gate-array connections](#gate-array-connection).
+The 165 additions and the 36 event-loop cases have not run in formal Check/Nightly. Records below describe each addition at its time.
+
 On 2026-11-07 the fix for Issue #28 changed the inputs of two selected `scheduling_visibility` cases, so [all 3,280 cases were run again](../coverage/interaction-results/cross89-kirimasim-1e840ea3-assignwait.json) on a saved build of kirimasim `1e840ea322cc`.
 The run records **2,747 pass / 529 unsupported / four existing config failures**, with no status changed from the previous complete run on `6f5c69841228`. The model's 51 cases all pass on [Icarus 13.0](../coverage/interaction-results/scheduling-20261107-icarus13.json); Verilator 5.052 [seed 1](../coverage/interaction-results/scheduling-20261107-verilator5052-seed1.json) and [seed 73](../coverage/interaction-results/scheduling-20261107-verilator5052-seed73.json) record 43 pass and 8 known.
 
@@ -3836,4 +3843,139 @@ python3 tools/run_icarus.py --iverilog-bin /path/to/icarus/bin -j 4 \
   --json my-results/eventflow-icarus-new.json tests/gen/ch15/test_gen_cross_eventflow_*.sv
 python3 tools/run_verilator.py --all --seed 1 -j 3 \
   --json my-results/eventflow-verilator-new.json tests/gen/ch15/test_gen_cross_eventflow_*.sv
+```
+
+<a id="time-scope-delay"></a>
+
+## Time scopes and delays (2026-11-07)
+
+[`interaction_timescope.py`](../generators/interaction_timescope.py) defines `time_scope_delay@1`, the first model whose primary chapter is 3.
+Chapter 3 x 20 and x 21 map to all 48 cases; pairs with chapters 5, 9, 10, 13, 22, 23, 25 and 26 map only to the rows that meet their conditions.
+The model passes only when all 48 succeed in one saved run.
+
+### Factors and scope
+
+Crosses how the scope is set (timeunit with timeprecision, timeunit with a slash, `` `timescale ``, the timeunit of `$unit`, inheritance by nesting),
+the container (module/interface/package), the unit (1us/10ns/100ps), the precision (same as the unit, a tenth, a thousandth),
+the delay form (real, time literal with the unit's suffix, time literal with a finer suffix, real actual argument),
+rounding (none, down, tie, up), the caller's unit (ten times, a tenth) and the statement (delay statement, intra-assignment delay of a nonblocking assignment).
+48 cases are selected from 8,064 legal rows, excluding only nested packages. They keep 291 pair targets, 136 focused triple targets and six mandatory rows.
+
+`$timeunit`, `$printtimescale`, programs and class methods are outside the scope. Pinned Icarus does not accept `$timeunit` and kirimasim does not support `$printtimescale` in a package,
+so units and precisions are observed only through delays and time reads.
+
+### What it separates
+
+Every row has settings that must lose. Declaration and nesting rows have `` `timescale 1ms/1us `` before them, and `` `timescale `` rows have a timeunit in `$unit`.
+A precedence error (3.14.2.3) changes the length of the delay, which shows in the output. The same observation checks that a `` `timescale `` after a definition does not reach it.
+
+In the [real-delay example](../tests/gen/ch3/test_gen_cross_timescope_keyword_module_10ns_tenth_real_up_finer_statement.sv), `#1.27` with unit 10ns and precision 1ns is 12.7 ns, rounded to 13 ns.
+Two calls wait 13 ns + 13 ns, not a rounded 25.4 ns. The caller's unit is 1 ns, so the same `#1.27` there is 1.27 ns.
+A read uses the unit of the scope that calls it, so `$time` and `$realtime` differ in the task and in the caller at one time (20.3). `%t` compares them in the same fs form through `$timeformat`.
+
+Ties use only values exact in binary (2.5, 1.25, 1.0625) and round up, following the 2.75 to 2.8 example of 3.14.1.
+The standard is not clear about a tie of `$time` itself, so the caller's first delay is 0.47, which keeps such ties out of every row. The interpretation stops on a tied read.
+
+### Independent check and results
+
+[`qualify_timescope.py`](../tools/qualify_timescope.py) reads the actual SV, sets scopes by declarations, directives and nesting in text order, and keeps time as exact fractions of femtoseconds.
+It calls no closed-form expectation or scaling helper of the primary model, and all 8,064 programs match. [Auxiliary evidence](../coverage/interaction-qualification/timescope.json) holds five normal controls and nine executable faults, each detected by an output difference after a normal exit.
+
+In the [complete 3,445-case run](../coverage/interaction-results/cross92-kirimasim-60c26d7c-timelitgate.json) on kirimasim `60c26d7c8113`, all 48 additions pass. The [build record](../coverage/interaction-qualification/timelitgate-build.json) keeps the revision and the fingerprint of the fixed binary.
+
+### Pinned-release differences
+
+[Pinned Icarus 13.0](../coverage/interaction-results/cross92-timelitgate-icarus13.json) has 44 pass / 4 known. The known cases are the four nested rows, whose builds fail with an unresolved module definition or the limit on instances in interfaces.
+[Pinned Verilator 5.052](../coverage/interaction-results/cross92-timelitgate-verilator5052-seed1.json) has 48 known, also at [seed 73](../coverage/interaction-results/cross92-timelitgate-verilator5052-seed73.json): four are nested forms it does not support and 44 are output differences. See [representative outputs](../coverage/interaction-qualification/timelitgate-known-replays.json).
+
+<a id="literal-context-extension"></a>
+
+## Literals and expression context (2026-11-07)
+
+[`interaction_literal.py`](../generators/interaction_literal.py) defines `literal_context_extension@1`, the first model whose primary chapter is 5.
+Chapter 5 x 11, x 10 and x 22 map to all 66 cases; chapter 6 maps to bit targets and chapter 20 to sized rows.
+
+### Factors and scope
+
+Crosses base (b/o/d/h, unbased unsized), sign designator, digits against size (short, exact, truncated, unsized), leading digit (0/1/x/z), context (assignment, addition with a signed or an unsigned variable, conditional, unary minus, arithmetic right shift),
+target (logic, signed, bit) and width (8/33/65). 66 cases are selected from 6,552 legal rows, excluding forms outside the grammar. They keep 303 pair targets, 148 focused triple targets and eight mandatory rows.
+
+Each case carries one literal four ways: written directly in an initial procedure, through an untyped localparam, from macros holding the size, base and digits, and in a continuous assignment.
+An unsized number is only "at least 32 bits", so digits stay within 32 bits and `$bits` is not observed. Forms whose width shows in the result, right shifts of unsized numbers led by x or z, are excluded too.
+
+### What it separates
+
+Short digits pad with 0 on the left, or with x or z when that leads. Long digits truncate from the left, so an x or z in a dropped digit does not remain (5.7.1).
+The sign comes from the whole expression and not from the literal alone, so a signed literal is zero-extended when added to an unsigned variable (11.8). The sign of the target does not affect the extension.
+An unsized unsigned number led by x or z and an unbased unsized literal take the width of the expression, and a localparam holds them at their own width. `'hx` assigned to 65 bits is all x, but through a localparam its upper 33 bits are 0.
+
+### The expectation error and the all-row run
+
+**The first version had a wrong expectation.** Both the generator and the independent check zero-extended an unsized unsigned number led by x or z beyond 32 bits, unlike Example 4 of 5.7.1 (`'hx` into 85 bits).
+The 66 selected cases held no such row, so the selected runs on kirimasim and Icarus all passed. One run of all legal rows gave 96 differences, and kirimasim turned out to follow the standard.
+Both were corrected from the clause, and two mandatory rows were added. The [all-row record](../coverage/interaction-qualification/timelitgate-all-rows.json) keeps the history and counts. As a result, the [method](interaction-verification-method.en.md#run-every-legal-row-once) now includes the all-row run.
+
+### Independent check and results
+
+[`qualify_literal.py`](../tools/qualify_literal.py) builds bits from the tokens after macro expansion and finds the width and sign of each expression by operator. All 6,552 programs match.
+[Auxiliary evidence](../coverage/interaction-qualification/literal.json) holds six normal controls and nine executable faults. All 66 additions pass in the complete run.
+
+### Pinned-release differences
+
+Pinned Icarus 13.0 matches all 66. Pinned Verilator 5.052 has 32 pass / 34 known at both seeds: 11 of the known cases fail to build (nine on more digits than the size, two on tristate forms in an addition with z) and 23 are x or z output differences.
+A two-state match on an x or z row does not stand for a four-state check.
+
+<a id="gate-array-connection"></a>
+
+## Gate-array connections (2026-11-07)
+
+[`interaction_gatearray.py`](../generators/interaction_gatearray.py) defines `gate_array_connection@1`.
+Chapters 7 and 23 x 28 map to all 51 cases; chapter 11 maps to concatenated outputs and chapter 4 to rows with delays.
+
+### Factors and scope
+
+Crosses the gate (and, xnor, not, bufif1, nmos), the array range (`[3:0]`, `[0:3]`, `[6:9]`), the output expression (descending or ascending vector, part-select, concatenation), the input expression (descending or ascending vector, concatenation, scalar),
+the second input (scalar, part-select, none), the delay (none, one, two, three values) and the input values (known, X, Z). 51 cases are selected from 4,464 legal rows. They keep 278 pair targets, 135 focused triple targets and six mandatory rows.
+
+Pulses shorter than a delay are not used, because Clause 28 has no rule for them. The standard does not define an output before its first delay ends (6.5), so the first phase is read after every output settles.
+In a probe, `nmos` read z on kirimasim and x on Icarus in that window. Neither departs from the standard, so it is no expectation.
+
+### What it separates
+
+A terminal of the single-instance width is shared by all instances; otherwise the instance of the right-hand index takes the expression's least significant bit (28.3.6).
+The bit mapping follows the position in the expression, so turning the array around does not change the result, and every row checks this. Bits outside a part-select stay z.
+
+An array is a set of separate gates, so each bit chooses its own delay (28.16). In the [example](../tests/gen/ch28/test_gen_cross_gatearray_bufif1_up_whole_up_concat_vector_three_x.sv) with `bufif1 #(1, 3, 2)`,
+bits of one word change after 1 to 1, 1 to x, 2 to z and 3 to 0. Reads happen at half times, which no output update shares.
+
+### Independent check and results
+
+[`qualify_gatearray.py`](../tools/qualify_gatearray.py) turns terminal expressions into lists of bits from the declarations and applies truth tables and delays to each instance. All 4,464 programs match.
+The check itself stops on pulses, reads before the first delay and connection mismatches. [Auxiliary evidence](../coverage/interaction-qualification/gatearray.json) holds six normal controls and nine executable faults. All 51 additions pass in the complete run.
+
+### Pinned-release differences
+
+Pinned Icarus 13.0 has 34 pass / 17 known. All known cases have two or three delay values: when a word mixes transitions, the delays are not per bit. In the all-row run the differences also stay within such rows, 1,440 in total.
+Pinned Verilator 5.052 has 6 pass / 45 known at both seeds: 12 fail to build on tristate forms it does not support and the rest are output differences. The output of one known-input case changes with the seed.
+
+In the all-row run, kirimasim `60c26d7c8113` matches the expectations of all 19,080 rows of the three models. These rows are not in the fixed suite and enter no count.
+
+The suite adds 165 tests, totaling 11,193, including 4,758 generated cases from 101 generators. Requirement bindings/denominators/rates and thirteen random profiles are unchanged.
+This addition is local evidence and has not run in formal Check/Nightly.
+
+### Rerun
+
+```sh
+python3 -m unittest discover -s tools -p 'test_interaction_timescope.py'
+python3 -m unittest discover -s tools -p 'test_interaction_literal.py'
+python3 -m unittest discover -s tools -p 'test_interaction_gatearray.py'
+python3 tools/run_kirimasim.py --kirimasim /path/to/latest-build/kirimasim -j 8 \
+  --json my-results/timelitgate-native-new.json tests/gen/ch3/test_gen_cross_timescope_*.sv \
+  tests/gen/ch5/test_gen_cross_literal_*.sv tests/gen/ch28/test_gen_cross_gatearray_*.sv
+python3 tools/qualify_timescope.py --kirimasim /path/to/latest-build/kirimasim \
+  --output my-results/timescope-qualification-new.json
+python3 tools/qualify_literal.py --kirimasim /path/to/latest-build/kirimasim \
+  --output my-results/literal-qualification-new.json
+python3 tools/qualify_gatearray.py --kirimasim /path/to/latest-build/kirimasim \
+  --output my-results/gatearray-qualification-new.json
 ```

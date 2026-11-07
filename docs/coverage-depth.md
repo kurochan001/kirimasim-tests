@@ -14,22 +14,22 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 11028 |
+| Tests | 11193 |
 | Clauses in scope | 1010 |
 | Clauses out of scope | 149 |
 | Clauses with a direct test | 1010/1010 |
 | Clauses with at least two direct tests | 1010/1010 |
 | Clauses with one test | 0 |
-| Clauses with two tests or fewer | 113 |
+| Clauses with two tests or fewer | 112 |
 | Clauses with only standard-only tests | 197 |
 | Clauses with one test and only a standard-only test | 0 |
 
 | Oracle | Tests |
 | --- | ---: |
 | both releases | 806 |
-| Icarus Verilog 13.0 only | 5009 |
+| Icarus Verilog 13.0 only | 5153 |
 | Verilator 5.052 only | 2014 |
-| standard only | 3199 |
+| standard only | 3220 |
 
 <a id="章別"></a>
 
@@ -37,9 +37,9 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 
 | Chapter | Title | Tests | In scope | Tests/clause | One test | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: |
-| 3 | Design and verification building blocks | 88 | 16 | 5.5 | 0 | 10 |
+| 3 | Design and verification building blocks | 136 | 16 | 8.5 | 0 | 14 |
 | 4 | Scheduling semantics | 412 | 27 | 15.3 | 0 | 15 |
-| 5 | Lexical conventions | 346 | 16 | 21.6 | 0 | 7 |
+| 5 | Lexical conventions | 412 | 16 | 25.8 | 0 | 7 |
 | 6 | Data types | 681 | 76 | 9.0 | 0 | 123 |
 | 7 | Aggregate data types | 772 | 49 | 15.8 | 0 | 201 |
 | 8 | Classes | 411 | 43 | 9.6 | 0 | 109 |
@@ -62,7 +62,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | 25 | Interfaces | 204 | 12 | 17.0 | 0 | 31 |
 | 26 | Packages | 225 | 6 | 37.5 | 0 | 102 |
 | 27 | Generate constructs | 283 | 5 | 56.6 | 0 | 31 |
-| 28 | Gate-level and switch-level modeling | 245 | 26 | 9.4 | 0 | 48 |
+| 28 | Gate-level and switch-level modeling | 296 | 26 | 11.4 | 0 | 65 |
 | 29 | User-defined primitives | 142 | 14 | 10.1 | 0 | 36 |
 | 30 | Specify blocks | 60 | 22 | 2.7 | 0 | 24 |
 | 31 | Timing checks | 66 | 20 | 3.3 | 0 | 48 |

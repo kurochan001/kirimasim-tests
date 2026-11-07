@@ -6,9 +6,9 @@ Updated on 2026-11-06 JST, retaining the repair records from 2026-11-03. Preserv
 and selected models while addressing known failures, inventorying unsupported mechanisms
 and reviewing unexamined chapter pairs, in that order.
 
-The current [complete local selection](../coverage/interaction-results/cross89-kirimasim-1e840ea3-assignwait.json) has 89 models and 3,280 cases, run on a saved build of kirimasim `1e840ea322cc`:
-2,747 pass, 529 unsupported and four config failures. All 36 event-loop additions pass. Compared with the previous complete run on `6f5c69841228`, no status changed, and only the inputs of the two selected `assign_wait` cases corrected for Issue #28 differ.
-The new 36 cases have not run in formal Check/Nightly.
+The current [complete local selection](../coverage/interaction-results/cross92-kirimasim-60c26d7c-timelitgate.json) has 92 models and 3,445 cases, run on kirimasim `60c26d7c8113`, built from the latest main:
+2,912 pass, 529 unsupported and four config failures. All 165 additions pass. Against the [previous complete run on `1e840ea322cc`](../coverage/interaction-results/cross89-kirimasim-1e840ea3-assignwait.json), preceding 3,280 inputs and statuses are unchanged.
+The 36 event-loop cases and these 165 have not run in formal Check/Nightly.
 
 [Check on baseline 67321079](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584) passed pinned comparisons/static checks on the preceding 88-model suite.
 [Nightly on the same baseline](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265) and all its jobs succeeded; individual artifacts remain uninspected. These new 36 cases are outside both runs.
@@ -99,7 +99,7 @@ At the initial review, two R pairs were reviewed and 590 remained unassessed.
   independent factors. First establish legal expressions and positive dimensions and repair the
   known config reset difference.
 
-The current triage is M132, E3, C2, N117 and R566. See the
+The current triage is M151, E3, C2, N117 and R547. See the
 [pair rationales and fingerprints](chapter-cross-triage.en.md). Reuse existing regression matrices
 and extend confirmed mechanisms with boundaries, operation sequences and fault controls.
 No parallel-purpose runner or addition of random outcomes to fixed requirement coverage was introduced.
@@ -153,3 +153,11 @@ Requirement bindings, thirteen random profiles, existing regressions and core so
   Map 24 part-select cases to 11×21 and twelve runtime-format cases to 20×21; full-model success requires all 36 together.
 - Suite totals: 10,922 tests, including 4,485 generated cases from 95 generators. Requirement bindings, existing regressions, core code and thirteen random profiles are unchanged.
   The new 36 cases have not run in formal Check/Nightly.
+
+## Time scopes, literals and gate arrays (2026-11-07)
+
+- Chapters 3 and 5, which had no model, now have [time-scope](interaction-verification.en.md#time-scope-delay) and [literal](interaction-verification.en.md#literal-context-extension) models. [Gate arrays](interaction-verification.en.md#gate-array-connection) also review chapters 7, 11, 23 and 4 x 28.
+- 19 chapter pairs moved from R to M: chapter 3 x 5, 9, 10, 13, 20, 21, 22, 23, 25 and 26; chapter 5 x 6, 10, 11, 20 and 22; chapters 4, 7, 11 and 23 x 28.
+- One complete 3,445-case run on kirimasim `60c26d7c8113` records 2,912 pass, 529 unsupported and four existing config failures. All 165 additions pass. Totals: 92 models, 151 chapter pairs, 65 full-selection-pass models.
+- Class-property NBAs and `$assertoff` were candidates too, but kirimasim has not implemented them and the pinned releases give no comparison, so they were left out. Chapter 8 x 10 and 16 x 20 stay under review.
+- The literal expectation was wrong once; a run of all legal rows revealed it and it was corrected from the clause. See the [history](interaction-verification.en.md#literal-context-extension).

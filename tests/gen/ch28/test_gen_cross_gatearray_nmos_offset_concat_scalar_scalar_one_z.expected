@@ -1,0 +1,9 @@
+p0 t3 1111 a=1 c=1
+p1 t0 1111 a=z c=z
+p1 t1 1111 a=z c=z
+p1 t2 zzzz a=z c=z
+p1 t3 zzzz a=z c=z
+p2 t0 zzzz a=1 c=1
+p2 t1 zzzz a=1 c=1
+p2 t2 1111 a=1 c=1
+p2 t3 1111 a=1 c=1

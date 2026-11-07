@@ -12,9 +12,9 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 
 | Clause | Title | Tests | Generated |
 | ---: | --- | ---: | ---: |
-| 3 | [Design and verification building blocks](ch3.md) | 88 ||
+| 3 | [Design and verification building blocks](ch3.md) | 136 | 48 |
 | 4 | [Scheduling semantics](ch4.md) | 412 | 325 |
-| 5 | [Lexical conventions](ch5.md) | 346 | 248 |
+| 5 | [Lexical conventions](ch5.md) | 412 | 314 |
 | 6 | [Data types](ch6.md) | 681 | 79 |
 | 7 | [Aggregate data types](ch7.md) | 772 | 304 |
 | 8 | [Classes](ch8.md) | 411 | 90 |
@@ -37,7 +37,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 25 | [Interfaces](ch25.md) | 204 | 85 |
 | 26 | [Packages](ch26.md) | 225 | 142 |
 | 27 | [Generate constructs](ch27.md) | 283 | 180 |
-| 28 | [Gate-level and switch-level modeling](ch28.md) | 245 | 136 |
+| 28 | [Gate-level and switch-level modeling](ch28.md) | 296 | 187 |
 | 29 | [User-defined primitives](ch29.md) | 142 | 61 |
 | 30 | [Specify blocks](ch30.md) | 60 ||
 | 31 | [Timing checks](ch31.md) | 66 ||

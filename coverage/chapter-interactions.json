@@ -2110,6 +2110,225 @@
           "reason": "continueは次のイベント待機へ進み、breakは受信ループを終了することを、待機方式・開始順・発火領域と交差し、取得した語・受信時刻・保持マスク・回数で区別する。"
         }
       ]
+    },
+    {
+      "id": "time_scope_delay",
+      "primary_chapter": 3,
+      "pairs": [
+        {
+          "chapters": [
+            3,
+            20
+          ],
+          "reason": "時間スコープが決める単位と精度を、$time・$stime・$realtimeの丸めと実数の読出しで呼出し元のスコープと比べる。"
+        },
+        {
+          "chapters": [
+            3,
+            21
+          ],
+          "reason": "$timeformatの%tが、読出し値を呼び出したスコープの単位で解釈して同じfs表記で出すことを、$timeと$realtimeの両方で照合する。"
+        },
+        {
+          "chapters": [
+            3,
+            9
+          ],
+          "when": {
+            "control": [
+              "statement"
+            ]
+          },
+          "reason": "手続き文の遅延がそのスコープの単位で換算され、一つずつ精度へ丸められて累積することを、呼出し元の同じ数値の遅延と比べる。"
+        },
+        {
+          "chapters": [
+            3,
+            10
+          ],
+          "when": {
+            "control": [
+              "nba"
+            ]
+          },
+          "reason": "NBAの代入内遅延もtaskのスコープで換算され、更新で起きた後の時刻が文の遅延と同じ丸めになることを照合する。"
+        },
+        {
+          "chapters": [
+            3,
+            13
+          ],
+          "when": {
+            "delay": [
+              "argument"
+            ]
+          },
+          "reason": "実数の実引数は呼出し元ではなく遅延を実行するtaskのスコープで換算されることを、両スコープの読出しで区別する。"
+        },
+        {
+          "chapters": [
+            3,
+            5
+          ],
+          "when": {
+            "delay": [
+              "suffix",
+              "fine"
+            ]
+          },
+          "reason": "時間リテラルをスコープの単位へ換算して精度へ丸めることを、単位と同じ接尾辞と細かい接尾辞で確認する。"
+        },
+        {
+          "chapters": [
+            3,
+            22
+          ],
+          "when": {
+            "binding": [
+              "directive"
+            ]
+          },
+          "reason": "最後の`timescaleが$unitのtimeunitに優先し、後続の`timescaleは先行する定義に効かないことを、遅延の換算で区別する。"
+        },
+        {
+          "chapters": [
+            3,
+            23
+          ],
+          "when": {
+            "binding": [
+              "nested"
+            ],
+            "container": [
+              "module"
+            ]
+          },
+          "reason": "入れ子のmoduleが、外側の`timescaleではなく親のtimeunitを継承することを遅延と読出しで確認する。"
+        },
+        {
+          "chapters": [
+            3,
+            25
+          ],
+          "when": {
+            "container": [
+              "interface"
+            ]
+          },
+          "reason": "interfaceのtaskの遅延がinterfaceの時間スコープで換算され、呼出し元のmoduleの単位を使わないことを照合する。"
+        },
+        {
+          "chapters": [
+            3,
+            26
+          ],
+          "when": {
+            "container": [
+              "package"
+            ]
+          },
+          "reason": "packageのtaskの遅延と読出しがpackageの時間スコープを使い、importした呼出し元の単位を使わないことを照合する。"
+        }
+      ]
+    },
+    {
+      "id": "literal_context_extension",
+      "primary_chapter": 5,
+      "pairs": [
+        {
+          "chapters": [
+            5,
+            11
+          ],
+          "reason": "リテラルの左詰めと符号を、加算・条件・単項マイナス・算術シフトの文脈が決める幅と符号による拡張と合わせて照合する。"
+        },
+        {
+          "chapters": [
+            5,
+            6
+          ],
+          "when": {
+            "target": [
+              "bit"
+            ]
+          },
+          "reason": "リテラルのX/Zが2値の代入先で0へ変わる順序を、幅の拡張の後に観測する。型なしlocalparamの型も同じ観測で確かめる。"
+        },
+        {
+          "chapters": [
+            5,
+            10
+          ],
+          "reason": "continuous assignの網が同じリテラルの式の値を4値のまま受けることを、手続き代入の結果と並べて観測する。"
+        },
+        {
+          "chapters": [
+            5,
+            22
+          ],
+          "reason": "サイズ・基数・桁の三字句をマクロで置いても、直接の記述と同じリテラルになることを全ビットで照合する。"
+        },
+        {
+          "chapters": [
+            5,
+            20
+          ],
+          "when": {
+            "fit": [
+              "narrow",
+              "exact",
+              "truncate"
+            ]
+          },
+          "reason": "サイズ付きリテラルの$bitsが、桁数によらず指定のサイズを返すことを値の切り捨てや詰めと並べて確認する。"
+        }
+      ]
+    },
+    {
+      "id": "gate_array_connection",
+      "primary_chapter": 28,
+      "pairs": [
+        {
+          "chapters": [
+            7,
+            28
+          ],
+          "reason": "昇順・降順のパックド配列と部分選択を端子につないだときのインスタンスへのビットの割当てを、全出力ビットで照合する。"
+        },
+        {
+          "chapters": [
+            11,
+            28
+          ],
+          "when": {
+            "output": [
+              "concat"
+            ]
+          },
+          "reason": "連結を出力端子につないだときの左右の順と、入力の値から決まる各インスタンスの出力を照合する。"
+        },
+        {
+          "chapters": [
+            23,
+            28
+          ],
+          "reason": "インスタンスの配列の接続規則（同じ幅は共有、異なる幅は右端のインスタンスへLSB）を、配列の向きと端子の形を交差して確認する。"
+        },
+        {
+          "chapters": [
+            4,
+            28
+          ],
+          "when": {
+            "delay": [
+              "one",
+              "two",
+              "three"
+            ]
+          },
+          "reason": "遅延付きゲートの出力が、入力の変化から立上り・立下り・ターンオフの表の時間の後に更新されることを、重ならない時刻で読む。"
+        }
+      ]
     }
   ]
 }
