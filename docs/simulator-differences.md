@@ -341,7 +341,7 @@ The tests written for open requirements (see the [result report](gap-tests-20261
 | Clause | What it does | Tests |
 | --- | --- | --- |
 | 6.16 (Table 6-9) | `s_b < "ab"` with `string s_b = "b"` gives 1 (and `s_b > "ab"` also gives 1). | `ch6/test_string_comparison_operators_and_literals` |
-| 6.11.3, 6.8 | `integer unsigned u = '1;` displays -1 with `%0d`: the unsigned keyword on integer is ignored. | `ch6/test_integer_types_state_and_signing` |
+| 6.11.3, 6.8 | `integer unsigned u = '1;` displays -1 with `%0d`, although it compares and shifts as an unsigned value. | `ch6/test_integer_unsigned_keyword` |
 | 6.12, 6.13 | A shortreal initialized to `1.0 + 2.0 ** -30` compares unequal to 1.0 (the value is kept at double precision), although `$shortrealtobits` of it gives 3f800000. | `ch6/test_shortreal_ieee754_single` |
 | 6.10, 23.2.2.1, 22.8 | Under `` `default_nettype wand ``, the implicit net of a non-ANSI port with only a port declaration (`output [3:0] y;`) is a wire: two drivers 1101 and 0110 resolve to x1xx. (Implicit nets from continuous assignments, port connections and gate terminals do get wand: `ch6/test_implicit_net_scope_and_lookup` matches.) | `ch6/test_implicit_port_expression_nets` |
 | 6.16.10 | `s[i].atoreal()` on the elements of a string array returns 0.0 for every element (`"2.5e3xyz"`, `"3.75"`, ...), and the empty element prints as a space. | `ch6/test_string_atoreal_scan_rules` |
@@ -507,7 +507,7 @@ The second run of tests for open requirements (see its [result report](gap-tests
 | 8.14, 8.20 | A call of a virtual method through a base-class handle that holds a derived object runs the base version (b.virt_get() gives 12, not 54). Same kind of difference as the one already listed for test_typed_constructor_into_base_handle. | `ch8/test_base_handle_redeclared_members_and_virtual_dispatch` |
 | 16.3 | Skips immediate `cover` statements: the expression is not evaluated (a function in it is never called) and the pass statement never runs, also when the expression is true. | `ch16/test_immediate_cover_pass_statement` |
 | 24.2, 4.4 | Runs a program initial that wakes at the same time as a module before the module's active-region statements and before the NBA update (prints b=0 first) | `ch24/test_program_reactive_region_after_nba` |
-| 28.5 | Buf or not whose input is the constant 1'bz or an undriven net gives z; Table 28-4 gives x (with a variable holding z as input it gives x, which the test uses) | `ch3/test_builtin_primitive_categories` |
+| 28.5, 6.7.1 | Buf or not whose input is the constant 1'bz or an undriven net gives z; Table 28-4 gives x, and a net takes the value of its drivers (6.7.1). With a variable holding z as input it gives x. | `ch28/test_buf_not_constant_z_and_undriven_input` |
 | 38.37 | vpi_user.h declares the tfname field of t_vpi_systf_data as const char * instead of PLI_BYTE8 *. | `ch38/test_vpi_systf_data_structure` |
 
 <a id="icarus-verilog-130受理する違法デザイン2回目"></a>

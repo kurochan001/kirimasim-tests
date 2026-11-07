@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[All chapters](README.md). 681 tests, 79 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 682 tests, 79 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -194,6 +194,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_logic_reg_same_type`](../../tests/ch6/test_logic_reg_same_type.sv) | reg and logic denote the same data type, so type references of reg and logic declarations with the same signing and range compare equal, while bit and a different signing do not | 6.11.2 6.23 6.22.1 | Verilator 5.052 ||
 | [`test_longint_edge_cases`](../../tests/ch6/test_longint_edge_cases.sv) | Longint edge cases | 6.11.2 | Icarus Verilog 13.0 ||
 | [`test_integer_atom_defaults_and_widths`](../../tests/ch6/test_integer_atom_defaults_and_widths.sv) | Integer atom types have fixed widths and signed default arithmetic | 6.11.3 6.11 6.8 | Icarus Verilog 13.0 | x/z |
+| [`test_integer_unsigned_keyword`](../../tests/ch6/test_integer_unsigned_keyword.sv) | an integer declared unsigned holds all ones as 4294967295 and compares and shifts as an unsigned value, unlike an integer | 6.11.3 11.4.4 11.4.10 | Verilator 5.052 ||
 | [`test_illegal_real_bit_select`](../../tests/ch6/test_illegal_real_bit_select.sv) | A bit-select of a real variable is not allowed | 6.12 11.5.1 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_real_edge_event`](../../tests/ch6/test_illegal_real_edge_event.sv) | An edge event control on a real variable is not allowed | 6.12 9.4.2 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_real_index_bit_select`](../../tests/ch6/test_illegal_real_index_bit_select.sv) | A bit-select of a vector cannot have a real index | 6.12 11.5.1 | Icarus Verilog 13.0 | illegal design |

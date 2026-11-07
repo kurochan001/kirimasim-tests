@@ -1,0 +1,4 @@
+bits: u=32 s=32
+value: u=4294967295 s=-1
+greater than 0: u=1 s=0
+shifted by 31: u=1 s=-1

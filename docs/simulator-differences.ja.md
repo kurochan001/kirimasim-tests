@@ -340,7 +340,7 @@ Icarus Verilog 13.0安定版（v13_0-dirty）は、連想配列またはunpacked
 |条項|何をするのか|テスト|
 | --- | --- | --- |
 |6.16 ( 6-9 表 )|`string s_b = "b"`を伴う`s_b < "ab"`は1を返す（`s_b > "ab"`も1を返す）。| `ch6/test_string_comparison_operators_and_literals` |
-| 6.11.3, 6.8 |`integer unsigned u = '1;`は、-1を`%0d`で表示する。integerのunsignedキーワードが無視される。| `ch6/test_integer_types_state_and_signing` |
+| 6.11.3, 6.8 |`integer unsigned u = '1;`は、`%0d`で-1と表示される。比較とシフトでは符号なしの値として扱われる。| `ch6/test_integer_unsigned_keyword` |
 | 6.12, 6.13 |`1.0 + 2.0 ** -30`で初期化したshortrealは、値を倍精度で保持するため、1.0と等しくないと判定されます。ただし`$shortrealtobits`の結果は3f800000です。| `ch6/test_shortreal_ieee754_single` |
 | 6.10, 23.2.2.1, 22.8 |`` `default_nettype wand ``の下で、ポート宣言だけを持つ非ANSIポート（`output [3:0] y;`）の暗黙ネットがwireになります。2つのドライバ1101と0110は、x1xxへ解決されます。（連続代入、ポート接続、ゲート端子から生じる暗黙netはwandとなる。`ch6/test_implicit_net_scope_and_lookup`は一致する。）| `ch6/test_implicit_port_expression_nets` |
 | 6.16.10 |文字列配列の要素への`s[i].atoreal()`は、すべての要素に0.0を返す（`"2.5e3xyz"`、`"3.75"`、…）。空の要素は空白として出力される。| `ch6/test_string_atoreal_scan_rules` |
@@ -506,7 +506,7 @@ Icarus Verilog 13.0安定版（v13_0-dirty）は、連想配列またはunpacked
 | 8.14, 8.20 |派生オブジェクトを保持する基底クラスのハンドル経由でvirtualメソッドを呼ぶと、基底側が実行されます（b.virt_get()は54ではなく12を返します）。これはtest_typed_constructor_into_base_handleの 既存の差異と同じです| `ch8/test_base_handle_redeclared_members_and_virtual_dispatch` |
 | 16.3 |即時`cover`文をスキップする。式は評価されず、式中の関数も一度も呼び出されず、式が真でも成功文は実行されない。| `ch16/test_immediate_cover_pass_statement` |
 | 24.2, 4.4 |moduleと同時に起床するprogramのinitialを、moduleのActive領域の文より前、かつNBAの更新より前に実行する（b = 0を先に出力する）。| `ch24/test_program_reactive_region_after_nba` |
-| 28.5 |入力が定数1'bzまたは未駆動ネットであるbufやnotの出力が、zになります。28-4 テーブルは x を返します（z を入力として持つ変数は x を返し、テストはそれを使用します）。| `ch3/test_builtin_primitive_categories` |
+| 28.5, 6.7.1 |入力が定数1'bzまたは未駆動ネットであるbufやnotの出力が、zになる。表28-4ではxであり、ネットはドライバの値をとる（6.7.1）。zを保持する変数を入力にするとxになる。| `ch28/test_buf_not_constant_z_and_undriven_input` |
 | 38.37 |vpi_user.hは、t_vpi_systf_dataのtfnameフィールドをPLI_BYTE8*ではなくconst char*として宣言する。| `ch38/test_vpi_systf_data_structure` |
 
 <a id="icarus-verilog-130-illegal-designs-that-it-accepts-second-run"></a>

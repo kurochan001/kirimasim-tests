@@ -314,7 +314,7 @@ tests/ch6/test_automatic_data_declarations_in_static_procedural_scopes.sv",Maint
 6,Data types,10,Assignment statements,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,815,"tests/ch10/test_alias_undeclared_name_implicit_net.sv
 tests/ch10/test_array_pattern_index_type_default_keys.sv
 tests/ch10/test_assignment_like_contexts.sv",Maintaining the planning and execution evidence of existing models.,,
-6,Data types,11,Operators and expressions,M,Modeling licensed,登録済み,14,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,1758,"tests/ch11/test_A_extra_specparam_range.sv
+6,Data types,11,Operators and expressions,M,Modeling licensed,登録済み,14,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,1759,"tests/ch11/test_A_extra_specparam_range.sv
 tests/ch11/test_a8_3_a8_4_constant_primaries.sv
 tests/ch11/test_concatenation_pattern_string_operand_and_replication_once.sv",Maintaining the planning and execution evidence of existing models.,,
 6,Data types,12,Procedural programming statements,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,270,"tests/ch11/test_propagated_operand_sign.sv
@@ -361,7 +361,7 @@ tests/ch25/test_interface_declaration_all_header_elements.sv",Maintaining the pl
 6,Data types,27,Generate constructs,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,228,"tests/ch22/test_define_value_in_parameters.sv
 tests/ch23/test_hierarchical_identifier_forms_through_instances.sv
 tests/ch23/test_module_items_nonport_kinds.sv",Maintaining the planning and execution evidence of existing models.,,
-6,Data types,28,Gate-level and switch-level modeling,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,167,"tests/ch10/test_net_decl_assign_resolution.sv
+6,Data types,28,Gate-level and switch-level modeling,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,168,"tests/ch10/test_net_decl_assign_resolution.sv
 tests/ch23/test_23_extra_uwire_dominates.sv
 tests/ch23/test_23_extra_uwire_warn.sv",Maintaining the planning and execution evidence of existing models.,,
 6,Data types,29,User-defined primitives,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,38,"tests/ch23/test_interconnect_terminal_wire_resolution.sv

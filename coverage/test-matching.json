@@ -2,9 +2,9 @@
   "schema": 1,
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
-  "test_files": 11771,
+  "test_files": 11773,
   "linked_test_files": 5309,
-  "unlinked_test_files": 6462,
+  "unlinked_test_files": 6464,
   "chapters": [
     {
       "chapter": "ch3",
@@ -26,9 +26,9 @@
     },
     {
       "chapter": "ch6",
-      "test_files": 681,
+      "test_files": 682,
       "linked_test_files": 416,
-      "unlinked_test_files": 265
+      "unlinked_test_files": 266
     },
     {
       "chapter": "ch7",
@@ -158,9 +158,9 @@
     },
     {
       "chapter": "ch28",
-      "test_files": 296,
+      "test_files": 297,
       "linked_test_files": 200,
-      "unlinked_test_files": 96
+      "unlinked_test_files": 97
     },
     {
       "chapter": "ch29",
@@ -182244,6 +182244,48 @@
       "broader_citations": []
     },
     {
+      "test": "tests/ch28/test_buf_not_constant_z_and_undriven_input.sv",
+      "inputs_sha256": "725ce1d2a9acca6112e2be6d7cd4c18e8363017a6d4d5515b6cac4e5eddb47c9",
+      "cited_clauses": [
+        "28.5",
+        "6.7.1"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-28.5-EXTRACT-N-OUTPUT-DELAYS",
+        "SV2023-28.5-EXTRACT-N-OUTPUT-KEYWORDS",
+        "SV2023-28.5-EXTRACT-N-OUTPUT-TERMINALS",
+        "SV2023-28.5-EXTRACT-TRUTH-BUF-0",
+        "SV2023-28.5-EXTRACT-TRUTH-BUF-1",
+        "SV2023-28.5-EXTRACT-TRUTH-BUF-X",
+        "SV2023-28.5-EXTRACT-TRUTH-BUF-Z",
+        "SV2023-28.5-EXTRACT-TRUTH-NOT-0",
+        "SV2023-28.5-EXTRACT-TRUTH-NOT-1",
+        "SV2023-28.5-EXTRACT-TRUTH-NOT-X",
+        "SV2023-28.5-EXTRACT-TRUTH-NOT-Z",
+        "SV2023-6.7.1-EXTRACT-BUILTIN-NET-TYPE-RESOLUTION",
+        "SV2023-6.7.1-EXTRACT-FOUR-STATE-NET-TYPES",
+        "SV2023-6.7.1-EXTRACT-GROUPED-NET-DECLARATIONS",
+        "SV2023-6.7.1-EXTRACT-IMPLICIT-NET-LOGIC",
+        "SV2023-6.7.1-EXTRACT-NET-FOUR-STATE-STRENGTH",
+        "SV2023-6.7.1-EXTRACT-NET-INITIAL-Z",
+        "SV2023-6.7.1-EXTRACT-NET-RECURSIVE-TYPE-DOMAIN",
+        "SV2023-6.7.1-EXTRACT-REG-SEPARATED-TOKENS",
+        "SV2023-6.7.1-EXTRACT-TRIREG-INITIAL-X"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-6.7.1-EXTRACT-INTERCONNECT-NO-EXPLICIT-TYPE",
+        "SV2023-6.7.1-EXTRACT-INTERCONNECT-NO-INITIAL-ASSIGNMENT",
+        "SV2023-6.7.1-EXTRACT-INTERCONNECT-NO-STRENGTH",
+        "SV2023-6.7.1-EXTRACT-INTERCONNECT-SINGLE-DELAY",
+        "SV2023-6.7.1-EXTRACT-REG-LEXICAL-RESTRICTION"
+      ],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch28/test_buf_not_multiple_outputs.sv",
       "inputs_sha256": "8b4e87b526091abbef56c37169862067fd980d8ca342e1bca555eb9b4594d33d",
       "cited_clauses": [
@@ -328904,6 +328946,43 @@
           "descendant_requirement_count": 12
         }
       ]
+    },
+    {
+      "test": "tests/ch6/test_integer_unsigned_keyword.sv",
+      "inputs_sha256": "781be86f7f1865d3f3f7723bdf2e6601080b63c4268034c69b7f92a47abdf381",
+      "cited_clauses": [
+        "6.11.3",
+        "11.4.4",
+        "11.4.10"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-11.4.10-EXTRACT-ARITH-RIGHT-SIGNED",
+        "SV2023-11.4.10-EXTRACT-ARITH-RIGHT-UNSIGNED",
+        "SV2023-11.4.10-EXTRACT-LEFT-SHIFT-ZERO",
+        "SV2023-11.4.10-EXTRACT-LOGICAL-RIGHT-ZERO",
+        "SV2023-11.4.10-EXTRACT-SHIFT-SIGN-CONTEXT",
+        "SV2023-11.4.10-EXTRACT-UNKNOWN-SHIFT-COUNT",
+        "SV2023-11.4.10-EXTRACT-UNSIGNED-COUNT",
+        "SV2023-11.4.4-EXTRACT-BOOLEAN-RESULT",
+        "SV2023-11.4.4-EXTRACT-GE",
+        "SV2023-11.4.4-EXTRACT-GT",
+        "SV2023-11.4.4-EXTRACT-LE",
+        "SV2023-11.4.4-EXTRACT-LT",
+        "SV2023-11.4.4-EXTRACT-REAL-COMPARISON",
+        "SV2023-11.4.4-EXTRACT-RELATIONAL-PRECEDENCE",
+        "SV2023-11.4.4-EXTRACT-SIGNED-COMPARISON",
+        "SV2023-11.4.4-EXTRACT-UNSIGNED-COMPARISON",
+        "SV2023-6.11.3-EXTRACT-DEFAULT-SIGNED-INTEGERS",
+        "SV2023-6.11.3-EXTRACT-DEFAULT-UNSIGNED-INTEGERS",
+        "SV2023-6.11.3-EXTRACT-EXPLICIT-INTEGER-SIGNING",
+        "SV2023-6.11.3-SIGNED-ATOMS"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
     },
     {
       "test": "tests/ch6/test_interconnect_and_net_port_types.sv",

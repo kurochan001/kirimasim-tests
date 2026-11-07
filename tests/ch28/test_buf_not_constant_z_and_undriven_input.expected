@@ -1,0 +1,2 @@
+constant 1'bz: buf=x not=x
+undriven net z: buf=xx not=x

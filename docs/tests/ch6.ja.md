@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[すべての章](README.ja.md) .681 79 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
+[すべての章](README.ja.md) .682 79 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -194,6 +194,7 @@
 | [`test_logic_reg_same_type`](../../tests/ch6/test_logic_reg_same_type.sv) |regとlogicは同じデータタイプを表し，同じ署名と範囲を持つregとlogicの宣言のタイプ参照は等しいが，bitと異なる署名は等しくない。| 6.11.2 6.23 6.22.1 | Verilator 5.052 ||
 | [`test_longint_edge_cases`](../../tests/ch6/test_longint_edge_cases.sv) |長辺の場合| 6.11.2 | Icarus Verilog 13.0 ||
 | [`test_integer_atom_defaults_and_widths`](../../tests/ch6/test_integer_atom_defaults_and_widths.sv) |整数原子型は固定幅と符号付きデフォルト算術を持つ| 6.11.3 6.11 6.8 | Icarus Verilog 13.0 | x/z |
+| [`test_integer_unsigned_keyword`](../../tests/ch6/test_integer_unsigned_keyword.sv) |unsigned と宣言した integer は、すべてのビットが 1 の値を 4294967295 として保持し、integer と違って符号なしの値として比較・シフトされる| 6.11.3 11.4.4 11.4.10 | Verilator 5.052 ||
 | [`test_illegal_real_bit_select`](../../tests/ch6/test_illegal_real_bit_select.sv) |実変数の bit -select は許可されていません| 6.12 11.5.1 | Icarus Verilog 13.0 |違法なデザインだ|
 | [`test_illegal_real_edge_event`](../../tests/ch6/test_illegal_real_edge_event.sv) |実変数のエッジイベント制御は許可されていません| 6.12 9.4.2 | Icarus Verilog 13.0 |違法なデザインだ|
 | [`test_illegal_real_index_bit_select`](../../tests/ch6/test_illegal_real_index_bit_select.sv) |ベクトルのbit選択に実数添字は使えない| 6.12 11.5.1 | Icarus Verilog 13.0 |違法なデザインだ|
