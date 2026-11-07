@@ -19,7 +19,8 @@
 // is disabled through bus at time 5: it returns at 5 with no bit set. The
 // second, from time 5, is disabled through m0 at time 10: m1 still sets its
 // bit at 15, when the call returns. The third runs without a disable and
-// sets both bits at 25.
+// sets both bits at 25. §25.10: a modport restricts what a port connection can
+// reach to the objects it lists, so tgt lists mask as well as work.
 // Oracle checks: Icarus Verilog 13.0 and the 5.052 release of Verilator do
 // not support extern forkjoin tasks.
 
@@ -28,7 +29,7 @@
 interface fd_bus;
   bit [1:0] mask;
   extern forkjoin task work();
-  modport tgt (export work);
+  modport tgt (ref mask, export work);
 endinterface
 
 module fd_target #(parameter int ID = 0) (fd_bus.tgt b);

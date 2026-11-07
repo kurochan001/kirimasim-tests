@@ -71,11 +71,11 @@
 - `coverage-tests-20261029-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T22:47:59.529525+00:00` / 2/12298 動作確認、古い入力との対応 1 件。
 - `coverage-tests-20261029-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T22:46:15.799172+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12298 動作確認、古い入力との対応 0 件。
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7883/12298 動作確認、古い入力との対応 87 件。
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7962/12298 動作確認、古い入力との対応 24 件。
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7866/12298 動作確認、古い入力との対応 87 件。
-- `issues-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T13:33:20.979624+00:00` / 2/12298 動作確認、古い入力との対応 13 件。
-- `issues-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T13:45:50.335531+00:00` / 3794/12298 動作確認、古い入力との対応 293 件。
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7882/12298 動作確認、古い入力との対応 102 件。
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7961/12298 動作確認、古い入力との対応 39 件。
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7865/12298 動作確認、古い入力との対応 102 件。
+- `issues-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T13:33:20.979624+00:00` / 2/12298 動作確認、古い入力との対応 14 件。
+- `issues-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T13:45:50.335531+00:00` / 3793/12298 動作確認、古い入力との対応 308 件。
 - `issues-20261031-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-30T20:31:55.476769+00:00` / 13/12298 動作確認、古い入力との対応 19 件。
 - `issues-20261031-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-30T20:31:59.218896+00:00` / 42/12298 動作確認、古い入力との対応 19 件。
 - `issues-20261031-verilator-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-30T20:32:01.484680+00:00` / 42/12298 動作確認、古い入力との対応 19 件。
@@ -91,11 +91,15 @@
 - `issues-45-47-20261107-kirimasim-1e840ea3.json`: `kirimasim 0.0.0 (commit 1e840ea322cc), built with AppleClang 21.0.0.21000334` / `2026-11-06T15:47:52.084505+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
 - `issues-45-47-20261107-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-06T15:47:55.538904+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
 - `issues-45-47-20261107-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-06T15:47:58.713949+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
+- `issues-48-57-20261107-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-07T05:02:50.753452+00:00` / 5/12298 動作確認、古い入力との対応 0 件。
+- `issues-48-57-20261107-kirimasim-60c26d7c.json`: `kirimasim 0.0.0 (commit 60c26d7c8113), built with AppleClang 21.0.0.21000401` / `2026-11-07T05:02:50.566184+00:00` / 1/12298 動作確認、古い入力との対応 0 件。
+- `issues-48-57-20261107-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-07T05:02:55.425886+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
+- `issues-48-57-20261107-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-07T05:02:59.962760+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
 - `quality-persim-20261027-icarus14.json`: `Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)` / `2026-10-27T13:37:34.824763+00:00` / 21/12298 動作確認、古い入力との対応 2 件。
 - `quality-persim-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T13:37:34.897897+00:00` / 19/12298 動作確認、古い入力との対応 2 件。
 - `quality-persim-20261027-verilator-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T13:37:34.973472+00:00` / 19/12298 動作確認、古い入力との対応 2 件。
-- `refresh-20261027-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T14:45:42.063155+00:00` / 3122/12298 動作確認、古い入力との対応 526 件。
-- `refresh-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T14:43:38.130423+00:00` / 2637/12298 動作確認、古い入力との対応 470 件。
+- `refresh-20261027-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T14:45:42.063155+00:00` / 3118/12298 動作確認、古い入力との対応 540 件。
+- `refresh-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T14:43:38.130423+00:00` / 2636/12298 動作確認、古い入力との対応 479 件。
 - `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 72/12298 動作確認、古い入力との対応 1 件。
 - `test-fixes-20261031-icarus-include.json`: `Icarus Verilog version 13.0 (stable) (v13_0-25-g07dd50d37)` / `2026-10-31T12:25:03.867848+00:00` / 0/12298 動作確認、古い入力との対応 1 件。
 - `test-fixes-20261031-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-25-g07dd50d37)` / `2026-10-31T12:23:47.414500+00:00` / 4/12298 動作確認、古い入力との対応 1 件。
@@ -37259,7 +37263,7 @@ module_common_itemとしての手続きコード外の静的な遅延直接ア�
 
 ### SV2023-16.5.1-EXTRACT-CHECKER-HISTORY
 
-`16.5.1` / `normal` / 実行確認あり
+`16.5.1` / `normal` / テスト対応あり・実行未確認
 
 アクティブなフリーチェッカー変数への過去／未来サンプル値参照は，対応する過去／未来クロックティックのPostponedにある値を使用する。
 
@@ -37267,7 +37271,7 @@ module_common_itemとしての手続きコード外の静的な遅延直接ア�
 
 規定の性質: `mandatory`。
 
-- [test_ch16_sim_checker_history.sv](../tests/ch16/test_ch16_sim_checker_history.sv) : シミュレーションで 16.5.1 - EXTRACT-CHECKER-HISTORY を観測する。チェッカフリー変数v（ランダム，それを参照するassumeステートメントによって活性化される）は，各チックで観測される。checkerは各tickでvの現在値を記録し、次のtickで$past(v)が記録値と等しいことを検査し、$future_を記録する。区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: { 'icarus' : 'known' , 'verilator' : 'known' }
+- [test_ch16_sim_checker_history.sv](../tests/ch16/test_ch16_sim_checker_history.sv): チェッカの自由変数 v を assume で有効に保ち、各ティックの現在値を記録して次のティックの $past(v) と比べる。$future_gclk(v) のアサーションのアクションブロックは次のグローバルクロックのティックで動き、pass では v が 1、fail では v が 0 であることを確かめる。 区別: 過去や未来の参照がそのティックの Postponed の値を取らないと、記録した値や現在の値と違い、mismatches が 0 にならない。
 
 ### SV2023-16.5.1-EXTRACT-CLOCKING-INPUT
 
@@ -55552,7 +55556,7 @@ shortreal フォーマットは、ここで述べた C 言語のフォーマッ�
 
 ### SV2023-21.2.1.1-EXTRACT-TIMEFORMAT-GLOBAL
 
-`21.2.1.1` / `normal` / テスト対応あり・実行未確認
+`21.2.1.1` / `normal` / 実行確認あり
 
 %t は、異なるスケールのモジュール間で一様な単位、精度、表示のために $timeformat の設定を使用します。
 
@@ -121011,7 +121015,7 @@ randcase は一つまたは複数の表現重み付きコロン命令/ヌル項�
 
 規定の性質: `definition`。
 
-- [test_syntax_case_matches_and_inside_forms.sv](../tests/ch12/test_syntax_case_matches_and_inside_forms.sv) : case inside は、入力 3 の範囲 \[ 2:4 \] への照合で 1、入力 9 の \[ 10 +/- 2 \] への照合で 2、値 20 に対して 3、入力 31 の \[ 30 +%- 10 \] への照合で 4、入力 252 の \[ 250 :$ \] への照合で 5、入力 240 の \[ $: 240 \] への照合で 6、100 に対して 0 を返す。区別: 境界、許容差、または $ の値が誤っていると、これらの入力のいずれかが別の項目または default にマッチする。
+- [test_syntax_case_matches_and_inside_forms.sv](../tests/ch12/test_syntax_case_matches_and_inside_forms.sv) : case inside は、入力 3 の範囲 \[ 2:4 \] への照合で 1、入力 9 の \[ 10 +/- 2 \] への照合で 2、値 20 に対して 3、入力 31 の \[ 30 +%- 10 \] への照合で 4、入力 252 の \[ 250 :$ \] への照合で 5、入力 240 の \[ $: 240 \] への照合で 6、245 に対して 0 を返す。区別: 境界、許容差、または $ の値が誤っていると、これらの入力のいずれかが別の項目または default にマッチする。
 
 ### SV2023-A.6.7.1-EXTRACT-ASSIGNMENT-PATTERN
 

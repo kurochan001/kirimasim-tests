@@ -1,0 +1,76 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch12/test_syntax_case_matches_and_inside_forms": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch12/test_syntax_case_matches_and_inside_forms.sv:38:13: Unsupported: &&& expression",
+   "inputs_sha256": "85c7e16c08a72146b60a6b79410c6371995094871169582901b3d415788fae72"
+  },
+  "ch16/test_ch16_sim_checker_history": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch16/test_ch16_sim_checker_history.sv:46:3: Unsupported: checker rand",
+   "inputs_sha256": "259400e43f8dac51d1e56ef28861749c3f5dd43d072113b715962598cfd42a9c"
+  },
+  "ch16/test_clocking_block_assertions": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch16/test_clocking_block_assertions.sv:33:14: Unsupported: assertion items in clocking blocks",
+   "inputs_sha256": "12d9bb9ad766a17ad989dd29636110a41855e9d53a8bc04228577cdd721c286a"
+  },
+  "ch20/test_pla_sync_snapshot_versus_async_update": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch20/test_pla_sync_snapshot_versus_async_update.sv:28:5: Unsupported or unknown PLI call: '$async$and$array'",
+   "inputs_sha256": "4f4ad222769875cecc695ef4af46d6bcd02e151082871c4b8a5e9c6c07f6811c"
+  },
+  "ch25/test_extern_forkjoin_disable_interface_and_module": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch25/test_extern_forkjoin_disable_interface_and_module.sv:31:3: Unsupported: extern forkjoin",
+   "inputs_sha256": "a406e1ecf0e5cfcafca61870951ae72005a88de4cd3c902e149a6e7914d2654e"
+  },
+  "ch25/test_illegal_extern_forkjoin_function": {
+   "status": "pass",
+   "inputs_sha256": "18469603acb2fc6ec265a65bc4ad3f4d7b3574695ecd5784242739e8228590b6"
+  },
+  "ch25/test_illegal_function_exported_by_two_modules": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_function_exported_by_two_modules\\\\.sv:(30|38|39):'; the first is: %Error-UNSUPPORTED: tests/ch25/test_illegal_function_exported_by_two_modules.sv:25:3: Unsupported: extern function",
+   "inputs_sha256": "33740fd77edd438f67906569abd309ca578e33ae29f469657b140f27e4388d66"
+  },
+  "ch25/test_illegal_hierarchical_task_definition_not_declared": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_hierarchical_task_definition_not_declared\\\\.sv:37:'; the first is: %Error-UNSUPPORTED: tests/ch25/test_illegal_hierarchical_task_definition_not_declared.sv:26:3: Unsupported: extern task",
+   "inputs_sha256": "2cc93c3eb512dc616899eb2bf5e4fff0149aa0c6e8b4dca0bc66104ad2da473c"
+  },
+  "ch25/test_illegal_modport_export_task_not_defined": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_modport_export_task_not_defined\\\\.sv:(40|49):'; the first is: %Error-UNSUPPORTED: tests/ch25/test_illegal_modport_export_task_not_defined.sv:26:3: Unsupported: extern task",
+   "inputs_sha256": "9c638cb80fe70279c34cb708f404f1efce65ca091c170679433fccae5e4356a3"
+  },
+  "ch25/test_illegal_modport_export_task_prototype_mismatch": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_modport_export_task_prototype_mismatch\\\\.sv:(37|45):'; the first is: %Error-UNSUPPORTED: tests/ch25/test_illegal_modport_export_task_prototype_mismatch.sv:26:3: Unsupported: extern task",
+   "inputs_sha256": "adafb8502f1647754b18fecd6e66954bfa52a07ba014ea1dd3ce77deb1eb22a7"
+  },
+  "ch25/test_illegal_modport_import_from_module_without_prototype": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_modport_import_from_module_without_prototype\\\\.sv:(30|44):'; the first is: %Error-UNSUPPORTED: tests/ch25/test_illegal_modport_import_from_module_without_prototype.sv:27:3: Unsupported: extern task",
+   "inputs_sha256": "48c9fa7174965d716acb4dee27cfd6660519aecb072ba08e843ffd41d0f788df"
+  },
+  "ch25/test_illegal_task_exported_by_two_modules": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_task_exported_by_two_modules\\\\.sv:(36|43|44):'; the first is: %Error-UNSUPPORTED: tests/ch25/test_illegal_task_exported_by_two_modules.sv:27:3: Unsupported: extern forkjoin",
+   "inputs_sha256": "d1639e735ec3ee186d0d77d48d2b68478f7f097ce56078031c2cf91cf428f65c"
+  },
+  "imported/ch21/test_time_format_matrix": {
+   "status": "pass",
+   "inputs_sha256": "2d42ed7f5b342b874790be524387abb07482e3f98f74bf15f869411ace0a9675"
+  }
+ },
+ "generated_at": "2026-11-07T05:02:55.425886+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

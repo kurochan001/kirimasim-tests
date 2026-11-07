@@ -22,8 +22,8 @@
 // runs. inside_ranges shows the six value ranges for an 8-bit unsigned value,
 // where $ is 255: [2:4] is 2 to 4, [10 +/- 2] is 8 to 12, 20 is the single
 // value 20, [30 +%- 10] is 30 plus and minus 10 percent, that is 27 to 33,
-// [250:$] is 250 to 255, and [$:240] is 0 to 240. A value that matches none
-// of them runs default.
+// [250:$] is 250 to 255, and [$:240] is 0 to 240. The value 245 matches none
+// of them, so it runs default.
 //
 // The expected output follows the standard; Icarus Verilog 13.0 does not
 // support case with matches, and Verilator 5.052 does not support the +/- or
@@ -60,6 +60,6 @@ module test_syntax_case_matches_and_inside_forms;
     $display("ranges: %0d %0d %0d %0d %0d %0d %0d",
              inside_ranges(3), inside_ranges(9), inside_ranges(20),
              inside_ranges(31), inside_ranges(252), inside_ranges(240),
-             inside_ranges(100));
+             inside_ranges(245));
   end
 endmodule

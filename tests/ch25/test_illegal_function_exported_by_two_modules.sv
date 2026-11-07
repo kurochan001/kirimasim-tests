@@ -23,7 +23,7 @@
 interface mfe_bus;
   int n;
   extern function int peek();
-  modport tgt (export peek);
+  modport tgt (ref n, export peek);
 endinterface
 
 module mfe_target(mfe_bus.tgt b);

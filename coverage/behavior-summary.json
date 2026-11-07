@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
-  "registry_sha256": "ef9e15d186aa181d503cb941dbea1ac894454712537af52723b70b40d4c55e42",
+  "registry_sha256": "c7eeb0dc2663441a50aedf5c6dfc84d090eed875ecb08acf94bdb16c0935f603",
   "source_url": null,
   "source_audit": {
     "audited": 1740,
@@ -209,9 +209,9 @@
       "title": "Assertions",
       "registered": 555,
       "mapped": 539,
-      "executed": 341,
+      "executed": 340,
       "design_percent": 97.11711711711712,
-      "execution_percent": 61.44144144144144,
+      "execution_percent": 61.26126126126126,
       "interpretation_pending": 0
     },
     {
@@ -259,9 +259,9 @@
       "title": "Input/output system tasks and system functions",
       "registered": 383,
       "mapped": 347,
-      "executed": 332,
+      "executed": 333,
       "design_percent": 90.60052219321149,
-      "execution_percent": 86.68407310704961,
+      "execution_percent": 86.94516971279373,
       "interpretation_pending": 0
     },
     {
@@ -3039,7 +3039,6 @@
           "SV2023-16.5-EXTRACT-CLOCK-TICK",
           "SV2023-16.5-EXTRACT-GLITCH-FREE",
           "SV2023-16.5-EXTRACT-SAMPLED-OBSERVED",
-          "SV2023-16.5.1-EXTRACT-CHECKER-HISTORY",
           "SV2023-16.5.2-EXTRACT-ACTIVE-EVENT",
           "SV2023-16.5.2-EXTRACT-CLOCK-CURRENT",
           "SV2023-16.5.2-EXTRACT-PROPERTY-KEYWORD",
@@ -10035,14 +10034,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 87,
+        "stale_links": 102,
         "status_counts": {
-          "pass": 7883,
-          "fail": 1461,
+          "pass": 7882,
+          "fail": 1454,
           "known": 0,
           "unsupported": 0,
-          "unreviewed_oracle": 1279,
-          "stale": 67,
+          "unreviewed_oracle": 1274,
+          "stale": 80,
           "not_run": 290,
           "unmapped": 1318,
           "interpretation_pending": 0
@@ -10943,7 +10942,6 @@
           "SV2023-16.5-EXTRACT-CLOCK-TICK",
           "SV2023-16.5-EXTRACT-GLITCH-FREE",
           "SV2023-16.5-EXTRACT-SAMPLED-OBSERVED",
-          "SV2023-16.5.1-EXTRACT-CHECKER-HISTORY",
           "SV2023-16.5.2-EXTRACT-ACTIVE-EVENT",
           "SV2023-16.5.2-EXTRACT-CLOCK-CURRENT",
           "SV2023-16.5.2-EXTRACT-PROPERTY-KEYWORD",
@@ -18017,14 +18015,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 24,
+        "stale_links": 39,
         "status_counts": {
-          "pass": 7962,
-          "fail": 1441,
+          "pass": 7961,
+          "fail": 1434,
           "known": 0,
           "unsupported": 0,
-          "unreviewed_oracle": 1279,
-          "stale": 8,
+          "unreviewed_oracle": 1274,
+          "stale": 21,
           "not_run": 290,
           "unmapped": 1318,
           "interpretation_pending": 0
@@ -18923,7 +18921,6 @@
           "SV2023-16.5-EXTRACT-CLOCK-TICK",
           "SV2023-16.5-EXTRACT-GLITCH-FREE",
           "SV2023-16.5-EXTRACT-SAMPLED-OBSERVED",
-          "SV2023-16.5.1-EXTRACT-CHECKER-HISTORY",
           "SV2023-16.5.2-EXTRACT-ACTIVE-EVENT",
           "SV2023-16.5.2-EXTRACT-CLOCK-CURRENT",
           "SV2023-16.5.2-EXTRACT-PROPERTY-KEYWORD",
@@ -25903,14 +25900,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 87,
+        "stale_links": 102,
         "status_counts": {
-          "pass": 7866,
-          "fail": 1559,
+          "pass": 7865,
+          "fail": 1552,
           "known": 0,
           "unsupported": 0,
-          "unreviewed_oracle": 1198,
-          "stale": 67,
+          "unreviewed_oracle": 1193,
+          "stale": 80,
           "not_run": 290,
           "unmapped": 1318,
           "interpretation_pending": 0
@@ -25925,14 +25922,14 @@
           "SV2023-21.7.1.2-EXTRACT-DUMPVARS-ALL",
           "SV2023-22.4-EXTRACT-INCLUDE-SYNTAX"
         ],
-        "stale_links": 13,
+        "stale_links": 14,
         "status_counts": {
           "pass": 2,
           "fail": 0,
-          "known": 76,
+          "known": 75,
           "unsupported": 0,
           "unreviewed_oracle": 0,
-          "stale": 11,
+          "stale": 12,
           "not_run": 10891,
           "unmapped": 1318,
           "interpretation_pending": 0
@@ -26910,7 +26907,6 @@
           "SV2023-25.5-EXTRACT-MODPORT-OPTIONAL",
           "SV2023-25.5-EXTRACT-MODPORT-PORT-REFERENCE",
           "SV2023-25.5.5-EXTRACT-MODPORT-CLOCKING-LOCAL",
-          "SV2023-25.7-EXTRACT-FORKJOIN-TASK-ONLY",
           "SV2023-25.8-EXTRACT-INTERFACE-PARAMETER-SEMANTICS",
           "SV2023-25.9-EXTRACT-VARIABLE-DECLARATION-FOOTNOTE",
           "SV2023-25.9-EXTRACT-VIRTUAL-ASSIGNMENT",
@@ -29739,14 +29735,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 293,
+        "stale_links": 308,
         "status_counts": {
-          "pass": 3794,
+          "pass": 3793,
           "fail": 0,
-          "known": 5967,
+          "known": 5955,
           "unsupported": 0,
           "unreviewed_oracle": 668,
-          "stale": 259,
+          "stale": 272,
           "not_run": 292,
           "unmapped": 1318,
           "interpretation_pending": 0
@@ -30156,6 +30152,96 @@
           "unreviewed_oracle": 0,
           "stale": 0,
           "not_run": 10977,
+          "unmapped": 1318,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "issues-48-57-20261107-icarus13.json",
+        "simulator": "icarus",
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+        "generated_at": "2026-11-07T05:02:50.753452+00:00",
+        "executed": [
+          "SV2023-21.2.1.1-EXTRACT-TIMEFORMAT-GLOBAL",
+          "SV2023-25.7-EXTRACT-HIERARCHICAL-METHOD-DECLARATION",
+          "SV2023-25.7-EXTRACT-MISSING-MISMATCHED-EXPORT",
+          "SV2023-25.7.4-EXTRACT-MULTIPLE-TASK-EXPORT",
+          "SV2023-25.7.4-EXTRACT-NO-MULTIPLE-FUNCTION-EXPORT"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 5,
+          "fail": 0,
+          "known": 8,
+          "unsupported": 0,
+          "unreviewed_oracle": 1,
+          "stale": 0,
+          "not_run": 10966,
+          "unmapped": 1318,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "issues-48-57-20261107-kirimasim-60c26d7c.json",
+        "simulator": "kirimasim",
+        "version": "kirimasim 0.0.0 (commit 60c26d7c8113), built with AppleClang 21.0.0.21000401",
+        "generated_at": "2026-11-07T05:02:50.566184+00:00",
+        "executed": [
+          "SV2023-21.2.1.1-EXTRACT-TIMEFORMAT-GLOBAL"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 1,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 8,
+          "unreviewed_oracle": 5,
+          "stale": 0,
+          "not_run": 10966,
+          "unmapped": 1318,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "issues-48-57-20261107-verilator5.052-seed1.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+        "generated_at": "2026-11-07T05:02:55.425886+00:00",
+        "executed": [
+          "SV2023-21.2.1.1-EXTRACT-TIMEFORMAT-GLOBAL",
+          "SV2023-25.7-EXTRACT-FORKJOIN-TASK-ONLY"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 2,
+          "fail": 0,
+          "known": 12,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 10966,
+          "unmapped": 1318,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "issues-48-57-20261107-verilator5.052-seed73.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+        "generated_at": "2026-11-07T05:02:59.962760+00:00",
+        "executed": [
+          "SV2023-21.2.1.1-EXTRACT-TIMEFORMAT-GLOBAL",
+          "SV2023-25.7-EXTRACT-FORKJOIN-TASK-ONLY"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 2,
+          "fail": 0,
+          "known": 12,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 10966,
           "unmapped": 1318,
           "interpretation_pending": 0
         }
@@ -31460,10 +31546,6 @@
           "SV2023-24.3-EXTRACT-PROGRAM-TIMEUNITS-FOOTNOTE",
           "SV2023-25.3-EXTRACT-INTERFACE-TIMEUNIT-FOOTNOTE",
           "SV2023-25.5-EXTRACT-MODPORT-BOTH-MATCH",
-          "SV2023-25.7-EXTRACT-HIERARCHICAL-METHOD-DECLARATION",
-          "SV2023-25.7-EXTRACT-MISSING-MISMATCHED-EXPORT",
-          "SV2023-25.7.4-EXTRACT-MULTIPLE-TASK-EXPORT",
-          "SV2023-25.7.4-EXTRACT-NO-MULTIPLE-FUNCTION-EXPORT",
           "SV2023-25.9-EXTRACT-VIRTUAL-EXTERNAL-REFERENCES",
           "SV2023-26.2-EXTRACT-PACKAGE-TIMEUNIT-FOOTNOTE",
           "SV2023-26.3-EXTRACT-EXPLICIT-IMPORT-COLLISION",
@@ -33408,14 +33490,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 526,
+        "stale_links": 540,
         "status_counts": {
-          "pass": 3122,
+          "pass": 3118,
           "fail": 0,
-          "known": 7103,
+          "known": 7096,
           "unsupported": 0,
-          "unreviewed_oracle": 159,
-          "stale": 477,
+          "unreviewed_oracle": 158,
+          "stale": 489,
           "not_run": 119,
           "unmapped": 1318,
           "interpretation_pending": 0
@@ -33947,7 +34029,6 @@
           "SV2023-25.5-EXTRACT-MODPORT-OPTIONAL",
           "SV2023-25.5-EXTRACT-MODPORT-PORT-REFERENCE",
           "SV2023-25.5.5-EXTRACT-MODPORT-CLOCKING-LOCAL",
-          "SV2023-25.7-EXTRACT-FORKJOIN-TASK-ONLY",
           "SV2023-25.8-EXTRACT-INTERFACE-PARAMETER-SEMANTICS",
           "SV2023-25.9-EXTRACT-VARIABLE-DECLARATION-FOOTNOTE",
           "SV2023-25.9-EXTRACT-VIRTUAL-ASSIGNMENT",
@@ -36065,14 +36146,14 @@
           "SV2023-M.2-EXTRACT-GUARD",
           "SV2023-M.2-EXTRACT-REGISTER"
         ],
-        "stale_links": 470,
+        "stale_links": 479,
         "status_counts": {
-          "pass": 2637,
+          "pass": 2636,
           "fail": 0,
-          "known": 4683,
+          "known": 4676,
           "unsupported": 0,
           "unreviewed_oracle": 84,
-          "stale": 446,
+          "stale": 454,
           "not_run": 3130,
           "unmapped": 1318,
           "interpretation_pending": 0

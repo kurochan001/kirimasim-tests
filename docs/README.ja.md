@@ -155,3 +155,4 @@
 | Claude Codeへの引き継ぎ（2026-11-06） | [日本語](codex-handoff-20261106.md) | [English](codex-handoff-20261106.en.md) |
 | Issue #45・#47 の規格照合とテスト修正（2026-11-07） | [日本語](issues-45-47-review-20261107.md) | [English](issues-45-47-review-20261107.en.md) |
 | Issue #24・#27・#28 の判断とテスト修正（2026-11-07） | [日本語](issues-24-27-28-review-20261107.md) | [English](issues-24-27-28-review-20261107.en.md) |
+| Issue #48〜#57 の判断とテスト修正（2026-11-07） | [日本語](issues-48-57-review-20261107.md) | [English](issues-48-57-review-20261107.en.md) |

@@ -24,7 +24,7 @@
 interface mxp_bus;
   int r;
   extern task put(input int v);
-  modport tgt (export task put(input int v));
+  modport tgt (ref r, export task put(input int v));
 endinterface
 
 module mxp_ok(mxp_bus.tgt b);

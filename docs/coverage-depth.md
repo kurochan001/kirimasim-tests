@@ -26,10 +26,10 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 
 | Oracle | Tests |
 | --- | ---: |
-| both releases | 806 |
+| both releases | 807 |
 | Icarus Verilog 13.0 only | 5153 |
 | Verilator 5.052 only | 2014 |
-| standard only | 3220 |
+| standard only | 3219 |
 
 <a id="章別"></a>
 
@@ -55,7 +55,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | 18 | Constrained random value generation | 257 | 44 | 5.8 | 0 | 105 |
 | 19 | Functional coverage | 190 | 24 | 7.9 | 0 | 127 |
 | 20 | Utility system tasks and system functions | 367 | 31 | 11.8 | 0 | 92 |
-| 21 | Input/output system tasks and system functions | 339 | 47 | 7.2 | 0 | 95 |
+| 21 | Input/output system tasks and system functions | 339 | 47 | 7.2 | 0 | 94 |
 | 22 | Compiler directives | 398 | 21 | 19.0 | 0 | 36 |
 | 23 | Modules and hierarchy | 331 | 33 | 10.0 | 0 | 71 |
 | 24 | Programs | 160 | 7 | 22.9 | 0 | 110 |

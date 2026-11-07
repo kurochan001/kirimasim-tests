@@ -28,7 +28,7 @@ interface fjf_bus;
   int n;
   extern forkjoin task count();
   extern forkjoin function int peek();   // illegal: a function
-  modport tgt (export count, export peek);
+  modport tgt (ref n, export count, export peek);
 endinterface
 
 module fjf_target(fjf_bus.tgt b);

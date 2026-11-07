@@ -155,3 +155,4 @@ Code, identifiers, raw execution evidence and license terms retain their origina
 | Handoff to Claude Code (2026-11-06) | [English](codex-handoff-20261106.en.md) | [日本語](codex-handoff-20261106.md) |
 | Issues #45 and #47: standard matching and test fix (2026-11-07) | [English](issues-45-47-review-20261107.en.md) | [日本語](issues-45-47-review-20261107.md) |
 | Issues #24, #27 and #28: decisions and test fixes (2026-11-07) | [English](issues-24-27-28-review-20261107.en.md) | [日本語](issues-24-27-28-review-20261107.md) |
+| Issues #48 to #57: decisions and test fixes (2026-11-07) | [English](issues-48-57-review-20261107.en.md) | [日本語](issues-48-57-review-20261107.md) |

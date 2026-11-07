@@ -18995,7 +18995,7 @@
     "a program uses all of them": "プログラムはこれら全てを使い",
     "a program-object clock causes an outer scheduling-loop iteration to Observed.": "プログラムオブジェクトクロックが 外部スケジューリングループ反復を Observed に起こす",
     "a property case statement with two default items is illegal": "default項目が2つあるプロパティのcase文は不正である",
-    "a property declared in a clocking block is clocked by its clocking event, and a clocking block input used in a concurrent assertion is sampled only by the clocking block, with its input skew, not again by the assertion": "クラッキングブロックに宣言されたプロパティは、そのクロックイベントによってクロックされ、並行アサーションに使用されたクロックブロック入力は、クロックブロックのみでサンプリングされ、その入力スキューは、アサーションによってサンプリングされません。",
+    "a property declared in a clocking block is clocked by its clocking event, and a clocking block input used in a concurrent assertion is sampled only by the clocking block, with # ZXQPH0QXZ , so it has the same value as the assertion's own sample": "クロッキングブロックで宣言したプロパティはそのクロッキングイベントでクロックされ、並行アサーションで使うクロッキングブロック入力はクロッキングブロックだけが # ZXQPH0QXZ でサンプリングするので、アサーション自身のサンプルと同じ値になる",
     "a property declared in a clocking block may not be multiclocked, while a property there with no clock of its own is clocked only by the clocking block": "ブロックに宣言されたプロパティは マルチクロックされないことができるが、 ブロックに宣告されていないプロパティは クロックブロックによってのみクロックされる。",
     "a property evaluation can be nonvacuous independently of whether it satisfies the property.": "性質評価は性質を満たすかどうかに関係なく非真空である。",
     "a property formal can stand for a property expression or the whole property spec, formals take defaults, names and casts as for sequences, properties combine with sequences, and disable iff before a property expression makes a property spec": "プロパティフォームはプロパティ表現またはプロパティスペック全体を表すことができ、フォームはデフォルト、名前、シーケンスのキャストを受け入れ、プロパティはシーケンスと結合し、プロパティ表現がプロパティスペックを作成する前に iffを無効にします。",

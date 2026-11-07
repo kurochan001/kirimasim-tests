@@ -24,7 +24,7 @@
 interface hmd_bus;
   int r;
   extern task put(input int v);
-  modport tgt (export put, export task get(output int v));
+  modport tgt (ref r, export put, export task get(output int v));
 endinterface
 
 module hmd_target(hmd_bus.tgt b);

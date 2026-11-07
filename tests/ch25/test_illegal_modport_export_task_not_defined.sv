@@ -25,7 +25,7 @@ interface mxd_bus;
   int r;
   extern task put(input int v);
   extern task get(output int v);
-  modport tgt (export put, export get);
+  modport tgt (ref r, export put, export get);
 endinterface
 
 module mxd_full(mxd_bus.tgt b);

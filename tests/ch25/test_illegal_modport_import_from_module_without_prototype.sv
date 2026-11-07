@@ -25,7 +25,7 @@
 interface mip_bus;
   int r;
   extern task put(input int v);
-  modport tgt (export put);
+  modport tgt (ref r, export put);
   modport ini_ok (import task put(input int v));
   modport ini_bad (import put);   // illegal: put comes from another module
 endinterface

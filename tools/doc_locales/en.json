@@ -21194,6 +21194,9 @@
     "サイズ・基数・桁の三字句をマクロで置いても、直接の記述と同じリテラルになることを全ビットで照合する。": "Check every bit that the size, base and digit tokens given by macros make the same literal as writing it directly.",
     "昇順・降順のパックド配列と部分選択を端子につないだときのインスタンスへのビットの割当てを、全出力ビットで照合する。": "Check on every output bit how ascending and descending packed arrays and part-selects on terminals assign bits to instances.",
     "連結を出力端子につないだときの左右の順と、入力の値から決まる各インスタンスの出力を照合する。": "Check the left-to-right order of a concatenation on the output terminal and the output of each instance from its input values.",
-    "インスタンスの配列の接続規則（同じ幅は共有、異なる幅は右端のインスタンスへ ZXQPH0QXZ ）を、配列の向きと端子の形を交差して確認する。": "Check the connection rule of instance arrays (one width is shared, another puts the ZXQPH0QXZ on the instance of the right-hand index), crossing array direction with terminal forms."
+    "インスタンスの配列の接続規則（同じ幅は共有、異なる幅は右端のインスタンスへ ZXQPH0QXZ ）を、配列の向きと端子の形を交差して確認する。": "Check the connection rule of instance arrays (one width is shared, another puts the ZXQPH0QXZ on the instance of the right-hand index), crossing array direction with terminal forms.",
+    "ZXQPH0QXZ : チェッカの自由変数 v を assume で有効に保ち、各ティックの現在値を記録して次のティックの ZXQPH1QXZ (v) と比べる。": "ZXQPH0QXZ : The checker keeps its free variable v active with an assume statement, records the current value at each tick and compares it with ZXQPH1QXZ (v) at the next tick.",
+    "ZXQPH0QXZ (v) のアサーションのアクションブロックは次のグローバルクロックのティックで動き、pass では v が ZXQPH1QXZ 、fail では v が ZXQPH2QXZ であることを確かめる。": "ZXQPH0QXZ (v) in an assertion runs its action block at the next global clock tick, where the pass action requires v to be ZXQPH1QXZ and the fail action requires v to be ZXQPH2QXZ .",
+    "過去や未来の参照がそのティックの Postponed の値を取らないと、記録した値や現在の値と違い、mismatches が ZXQPH0QXZ にならない。": "If a past or future reference does not take the Postponed value of its tick, it differs from the recorded or current value and mismatches is not ZXQPH0QXZ ."
   }
 }

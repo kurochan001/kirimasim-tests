@@ -40139,7 +40139,7 @@
     },
     {
       "test": "tests/ch12/test_syntax_case_matches_and_inside_forms.sv",
-      "inputs_sha256": "458373ce1d42cb4aae109c8c1da99e7d00febfc70fa4f0f97fcf6eccef445369",
+      "inputs_sha256": "85c7e16c08a72146b60a6b79410c6371995094871169582901b3d415788fae72",
       "cited_clauses": [
         "12.5",
         "12.5.4",
@@ -59283,7 +59283,7 @@
     },
     {
       "test": "tests/ch16/test_ch16_sim_checker_history.sv",
-      "inputs_sha256": "f0cd3ddf8fde59a689290fc2270aabc7e8da48241099b00e3fcb1796b09353a7",
+      "inputs_sha256": "259400e43f8dac51d1e56ef28861749c3f5dd43d072113b715962598cfd42a9c",
       "cited_clauses": [
         "16.5.1",
         "17.7",
@@ -59923,7 +59923,7 @@
     },
     {
       "test": "tests/ch16/test_clocking_block_assertions.sv",
-      "inputs_sha256": "9d1a0078cbcf19f7b3feead7e0e2edb10c992c2f2b4f9ece818103b37d436a01",
+      "inputs_sha256": "12d9bb9ad766a17ad989dd29636110a41855e9d53a8bc04228577cdd721c286a",
       "cited_clauses": [
         "16.18",
         "14.3",
@@ -130116,7 +130116,7 @@
     },
     {
       "test": "tests/ch20/test_pla_sync_snapshot_versus_async_update.sv",
-      "inputs_sha256": "47d6a85f547a1b70f9e9fb0e82116457a1f9301589609bce2035c143090f4b63",
+      "inputs_sha256": "4f4ad222769875cecc695ef4af46d6bcd02e151082871c4b8a5e9c6c07f6811c",
       "cited_clauses": [
         "20.16.1",
         "20.16.2",
@@ -130148,23 +130148,23 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch20/test_pla_sync_snapshot_versus_async_update.sv",
-        "inputs_sha256": "47d6a85f547a1b70f9e9fb0e82116457a1f9301589609bce2035c143090f4b63",
-        "reviewed_on": "2026-10-23",
-        "reviewer": "Codex (AI); not an independent human review",
+        "inputs_sha256": "4f4ad222769875cecc695ef4af46d6bcd02e151082871c4b8a5e9c6c07f6811c",
+        "reviewed_on": "2026-11-07",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
             "requirement_ids": [
               "SV2023-20.16-EXTRACT-PLA-OUTPUT-VARIABLE"
             ],
-            "disposition": "oracle_issue",
-            "explanation": "M65: PLA output_termsはvariable lvalue必須だが、asynchronousをwireと宣言して出力引数に渡している。仕様上正常なsimulation caseとしては承認できない。同期側の値だけを取り出してファイル全体の合法性を見落とさず、入力修正と再実行が必要。",
-            "reviewed_on": "2026-10-23",
-            "reviewer": "Codex (AI); not an independent human review",
+            "disposition": "partial_observation",
+            "explanation": "M65 の指摘どおり出力を logic 変数に直した。正常系なので、net を拒否することは観測しない。net の拒否は ch20/test_illegal_pla_output_net が扱う。",
+            "reviewed_on": "2026-11-07",
+            "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
             "evidence": [
               {
                 "file": "tests/ch20/test_pla_sync_snapshot_versus_async_update.sv",
-                "contains": "wire [0:1] asynchronous;"
+                "contains": "  logic [0:1] asynchronous, synchronous, plane_result;"
               }
             ]
           },
@@ -130173,18 +130173,22 @@
               "SV2023-20.16.1-EXTRACT-SYNC-EVALUATION",
               "SV2023-20.16.1-EXTRACT-PLA-NO-DELAY"
             ],
-            "disposition": "oracle_issue",
-            "explanation": "M100: 20.16 は PLA タスクの output_terms を variable_lvalue とし「output terms shall only be variables」と定めるが、この正常系テストは $async$and$array の出力に net（wire [0:1] asynchronous）を渡している。規格上違法な構文を含むため、sync/async の比較（changed=00,10 など）を同期評価や無遅延更新の証拠にできない。出力を logic 変数に直すまで照合しない。",
-            "reviewed_on": "2026-10-23",
+            "disposition": "partial_observation",
+            "explanation": "M100 の指摘どおり出力を logic 変数に直したので、正常系として読める。入力の変更後に同期側は値を保ち、非同期側は追従する。読み出しは #1 の後なので、遅延がないことの証拠にはならない。対応付けは ch20 の他のテストのまま。",
+            "reviewed_on": "2026-11-07",
             "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
             "evidence": [
               {
                 "file": "tests/ch20/test_pla_sync_snapshot_versus_async_update.sv",
-                "contains": "  wire [0:1] asynchronous;"
+                "contains": "  logic [0:1] asynchronous, synchronous, plane_result;"
               },
               {
                 "file": "tests/ch20/test_pla_sync_snapshot_versus_async_update.sv",
                 "contains": "    $async$and$array(personality, inputs, asynchronous);"
+              },
+              {
+                "file": "tests/ch20/test_pla_sync_snapshot_versus_async_update.expected",
+                "contains": "changed=00,10 plane=00"
               }
             ]
           },
@@ -130195,18 +130199,18 @@
               "SV2023-20.16.4-EXTRACT-PLANE-QUESTION",
               "SV2023-20.16.4-EXTRACT-PLANE-UNKNOWN"
             ],
-            "disposition": "oracle_issue",
-            "explanation": "非同期 PLA の出力に net（wire）を渡しており、20.16 の output_terms は variable_lvalue という条件に反するため正常系の観測に使えない。加えて nand/nor の平面と ? のドントケアを刺激しておらず、これら4条件は別テストが必要。",
-            "reviewed_on": "2026-10-25",
-            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "disposition": "partial_observation",
+            "explanation": "出力を logic 変数に直したが、nand と nor の平面、personality の動的な変更、平面形式の ? と x を刺激していないので、これら4条件は観測しない。",
+            "reviewed_on": "2026-11-07",
+            "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
             "evidence": [
               {
                 "file": "tests/ch20/test_pla_sync_snapshot_versus_async_update.sv",
-                "contains": "wire [0:1] asynchronous;"
+                "contains": "  logic [0:1] asynchronous, synchronous, plane_result;"
               },
               {
                 "file": "tests/ch20/test_pla_sync_snapshot_versus_async_update.sv",
-                "contains": "$async$and$array(personality, inputs, asynchronous);"
+                "contains": "    $async$and$array(personality, inputs, asynchronous);"
               }
             ]
           }
@@ -168860,7 +168864,7 @@
     },
     {
       "test": "tests/ch25/test_extern_forkjoin_disable_interface_and_module.sv",
-      "inputs_sha256": "a110013f1ef5adc806656068d5cf8ce0d883ee5484f424204940e7ed74794a54",
+      "inputs_sha256": "a406e1ecf0e5cfcafca61870951ae72005a88de4cd3c902e149a6e7914d2654e",
       "cited_clauses": [
         "25.7.4"
       ],
@@ -169235,7 +169239,7 @@
     },
     {
       "test": "tests/ch25/test_illegal_extern_forkjoin_function.sv",
-      "inputs_sha256": "136d6094f91fe872b8cc810dd71d7ec07bc200c954564573eaf6bdfa69a402ec",
+      "inputs_sha256": "18469603acb2fc6ec265a65bc4ad3f4d7b3574695ecd5784242739e8228590b6",
       "cited_clauses": [
         "25.7",
         "25.7.4"
@@ -169270,9 +169274,9 @@
       ],
       "scoped_review": {
         "test": "tests/ch25/test_illegal_extern_forkjoin_function.sv",
-        "inputs_sha256": "136d6094f91fe872b8cc810dd71d7ec07bc200c954564573eaf6bdfa69a402ec",
-        "reviewed_on": "2026-10-26",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "18469603acb2fc6ec265a65bc4ad3f4d7b3574695ecd5784242739e8228590b6",
+        "reviewed_on": "2026-11-07",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -169295,7 +169299,7 @@
     },
     {
       "test": "tests/ch25/test_illegal_function_exported_by_two_modules.sv",
-      "inputs_sha256": "0d0c4b3b9a6bb31f3888ad15ea93150d30397750941ce9c2bc5500a75eeedf63",
+      "inputs_sha256": "33740fd77edd438f67906569abd309ca578e33ae29f469657b140f27e4388d66",
       "cited_clauses": [
         "25.7.4"
       ],
@@ -169362,7 +169366,7 @@
     },
     {
       "test": "tests/ch25/test_illegal_hierarchical_task_definition_not_declared.sv",
-      "inputs_sha256": "799fe2866105cb5d55c47b0df56e3089229d055cbd0b6e075fd33062afaaddf7",
+      "inputs_sha256": "2cc93c3eb512dc616899eb2bf5e4fff0149aa0c6e8b4dca0bc66104ad2da473c",
       "cited_clauses": [
         "25.7"
       ],
@@ -169611,7 +169615,7 @@
     },
     {
       "test": "tests/ch25/test_illegal_modport_export_task_not_defined.sv",
-      "inputs_sha256": "56c83aef2190886105a87bf2043056d28404a9f95c4c7cb1062bc6ad811c0c2b",
+      "inputs_sha256": "9c638cb80fe70279c34cb708f404f1efce65ca091c170679433fccae5e4356a3",
       "cited_clauses": [
         "25.7"
       ],
@@ -169642,7 +169646,7 @@
     },
     {
       "test": "tests/ch25/test_illegal_modport_export_task_prototype_mismatch.sv",
-      "inputs_sha256": "41133dbb3571dd10f3da464c9ae6524df06f661d4d0c17642f16f5e86ca3a61d",
+      "inputs_sha256": "adafb8502f1647754b18fecd6e66954bfa52a07ba014ea1dd3ce77deb1eb22a7",
       "cited_clauses": [
         "25.7"
       ],
@@ -169732,7 +169736,7 @@
     },
     {
       "test": "tests/ch25/test_illegal_modport_import_from_module_without_prototype.sv",
-      "inputs_sha256": "b712e5dbc49f26d799ee78a578b41eb6a0603d8f6983ec7eb5804c8d58efaa12",
+      "inputs_sha256": "48c9fa7174965d716acb4dee27cfd6660519aecb072ba08e843ffd41d0f788df",
       "cited_clauses": [
         "25.7"
       ],
@@ -170177,7 +170181,7 @@
     },
     {
       "test": "tests/ch25/test_illegal_task_exported_by_two_modules.sv",
-      "inputs_sha256": "9a9e920dbb1f7f106bbcf6372a4f00dc0710c407c33749c032aeb557d7343518",
+      "inputs_sha256": "d1639e735ec3ee186d0d77d48d2b68478f7f097ce56078031c2cf91cf428f65c",
       "cited_clauses": [
         "25.7.4"
       ],
@@ -867674,7 +867678,7 @@
     },
     {
       "test": "tests/imported/ch21/test_time_format_matrix.sv",
-      "inputs_sha256": "3d9c06623fb0857a53a096e84a7a748151628c36a1ad426dce38d0a5771bc5b8",
+      "inputs_sha256": "2d42ed7f5b342b874790be524387abb07482e3f98f74bf15f869411ace0a9675",
       "cited_clauses": [
         "21.2.1.1",
         "20.4.3"
@@ -869282,10 +869286,10 @@
   "review_disposition_counts": {
     "citation_refinement": 196,
     "compound_requirement": 176,
-    "oracle_issue": 252,
-    "partial_observation": 2133
+    "oracle_issue": 249,
+    "partial_observation": 2136
   },
-  "registry_sha256": "ef9e15d186aa181d503cb941dbea1ac894454712537af52723b70b40d4c55e42",
+  "registry_sha256": "c7eeb0dc2663441a50aedf5c6dfc84d090eed875ecb08acf94bdb16c0935f603",
   "inventory_sha256": "7f708bec45a4f398aa534c8f94565cb0bcd1a4fbfdf0a0e21997df20add41768",
-  "review_ledger_sha256": "c3968e8c9a7a241a36c88799693821befdaab351cd07a48ab336e26112282b93"
+  "review_ledger_sha256": "efca1ea7694d507cd61cda11f8e000325e15f1feb16427a2d9ec1f26b90b51fb"
 }

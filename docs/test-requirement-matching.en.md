@@ -32,8 +32,8 @@ Do not treat a requirement without a candidate or an unregistered test as eviden
 
 - `citation_refinement` : 196 item.
 - `compound_requirement` : 176 item.
-- `oracle_issue` : 252 item.
-- `partial_observation` : 2133 item.
+- `oracle_issue` : 249 item.
+- `partial_observation` : 2136 item.
 
 <a id="章別の登録状況"></a>
 

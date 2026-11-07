@@ -20,14 +20,16 @@
 // it stays active. The action block of ap records the current value of v at
 // each tick in seen; at the next tick $past(v) must equal the recorded
 // value, because the Postponed value of the tick where it was recorded is
-// the value it had then. af takes the future value of v in its property
-// expression and saves it in saved_future. §16.9.4 allows a global clocking
-// future sampled value function only in a sequence or property expression,
-// and not in an assertion that has a sequence match item, and it runs the
-// action block of such an assertion at the next global clock tick. The action
-// block of af therefore runs at the tick whose Postponed value the future
-// function returned, and it compares saved_future with the current value of v
-// there; the two must be equal. The value of the last tick is not compared,
+// the value it had then. The property of af is the future value of v, so af
+// passes when that value is 1 and fails when it is 0. §16.6 does not allow a
+// function with a side effect in that expression, so the value is not saved
+// anywhere. §16.9.4 allows a global clocking future sampled value function
+// only in a sequence or property expression, and not in an assertion that has
+// a sequence match item, and it runs the action block of such an assertion at
+// the next global clock tick. The action block of af therefore runs at the
+// tick whose Postponed value the future function returned, so the current
+// value of v there must be 1 in the pass action and 0 in the fail action. The
+// value of the last tick is not compared,
 // because its action block runs after the test prints its result. The random
 // values themselves are not printed, so the output does not depend on the
 // random seed. §17.7 also does not allow a module to read a checker variable
@@ -45,7 +47,6 @@ checker hist(logic clk, output int ticks_out, output int mismatches_out);
   global clocking gclk @(posedge clk); endclocking
   default clocking @(posedge clk); endclocking
   bit seen[$];
-  bit saved_future;
   int ticks = 0, mismatches = 0;
 
   assign ticks_out = ticks;
@@ -53,19 +54,16 @@ checker hist(logic clk, output int ticks_out, output int mismatches_out);
 
   m1: assume property (v inside {0, 1});
 
-  function bit save_future(bit fv);
-    saved_future = fv;
-    return 1'b1;
-  endfunction
-
   ap: assert property (1'b1) begin
         if (seen.size() > 0 && $past(v) != seen[$]) mismatches++;
         seen.push_back(v);
         ticks++;
       end
 
-  af: assert property (save_future($future_gclk(v))) begin
-        if (saved_future != v) mismatches++;
+  af: assert property ($future_gclk(v)) begin
+        if (v != 1'b1) mismatches++;
+      end else begin
+        if (v != 1'b0) mismatches++;
       end
 endchecker
 

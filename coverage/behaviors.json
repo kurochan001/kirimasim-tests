@@ -127682,9 +127682,9 @@
         {
           "test": "tests/ch12/test_syntax_case_matches_and_inside_forms.sv",
           "observation": "case (c) matches で RED、GREEN &&& v>0、GREEN、default を順に試し matches: 1 2 3 4 を出し、case (x) inside で [2:4]、[10 +/- 2]、20、[30 +%- 10]、[250:$]、[$:240]、default の各 range_list を試して ranges: 1 2 3 4 5 6 0 を出す。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "458373ce1d42cb4aae109c8c1da99e7d00febfc70fa4f0f97fcf6eccef445369",
+          "reviewed_on": "2026-11-07",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "85c7e16c08a72146b60a6b79410c6371995094871169582901b3d415788fae72",
           "evidence": [
             {
               "file": "tests/ch12/test_syntax_case_matches_and_inside_forms.sv",
@@ -145502,10 +145502,10 @@
       "checks": [
         {
           "test": "tests/ch16/test_ch16_sim_checker_history.sv",
-          "observation": "シミュレーションで16.5.1-EXTRACT-CHECKER-HISTORYを観測する。A checker free variable v (rand, kept active by an assume statement that references it) is observed at every tick. The checker records the current value of v at each tick and checks at the next tick that $past(v) equals the recorded value, and records $future_ 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'known'}",
-          "reviewed_on": "2026-10-28",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "f0cd3ddf8fde59a689290fc2270aabc7e8da48241099b00e3fcb1796b09353a7",
+          "observation": "チェッカの自由変数 v を assume で有効に保ち、各ティックの現在値を記録して次のティックの $past(v) と比べる。$future_gclk(v) のアサーションのアクションブロックは次のグローバルクロックのティックで動き、pass では v が 1、fail では v が 0 であることを確かめる。 区別: 過去や未来の参照がそのティックの Postponed の値を取らないと、記録した値や現在の値と違い、mismatches が 0 にならない。",
+          "reviewed_on": "2026-11-07",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "259400e43f8dac51d1e56ef28861749c3f5dd43d072113b715962598cfd42a9c",
           "evidence": [
             {
               "file": "tests/ch16/test_ch16_sim_checker_history.sv",
@@ -210099,9 +210099,9 @@
         {
           "test": "tests/imported/ch21/test_time_format_matrix.sv",
           "observation": "タイムスケール10ns・1us・1ps・1nsの4モジュールから同じ時刻値7を%tで表示し、$timeformat(-9,3,\" ns\",12)の下で70.000 ns・7000.000 ns・0.007 ns・7.000 nsと同じ単位・精度・接尾辞・幅12で出ることを比べる。 区別: %tがモジュール自身のタイムスケールで表示する実装ではm1usの行が7.000 us等になり、$timeformatを呼び出したモジュールだけに効かせる実装でも他モジュールの行が変わるため、期待行と区別できる。",
-          "reviewed_on": "2026-10-25",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "3d9c06623fb0857a53a096e84a7a748151628c36a1ad426dce38d0a5771bc5b8",
+          "reviewed_on": "2026-11-07",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "2d42ed7f5b342b874790be524387abb07482e3f98f74bf15f869411ace0a9675",
           "evidence": [
             {
               "file": "tests/imported/ch21/test_time_format_matrix.sv",
@@ -257148,9 +257148,9 @@
         {
           "test": "tests/ch25/test_illegal_extern_forkjoin_function.sv",
           "observation": "インタフェース fjf_bus でタスク count を extern forkjoin で宣言し、同じバスに接続した2つのインスタンス t1/t2 がどちらも count を定義する（合法な対照）。同じ形で関数 peek も extern forkjoin で宣言し、t1/t2 の両方が b.peek を定義する。:expected_stderr_regex: は関数の extern forkjoin 宣言行（または関数定義行・2つ目のインスタンス行）でのエラーを要求する。 区別: extern forkjoin による複数インスタンス定義を関数にも許す誤実装は設計を受理し、エラーが出ないので不合格になる。逆にタスクの複数定義まで拒否する誤実装は count 側（29行・35行）で報告し、正規表現の行（30/38/46行）とずれる。Verilator 5.052 は30行を task を期待する構文エラーとして拒否する。",
-          "reviewed_on": "2026-10-24",
+          "reviewed_on": "2026-11-07",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "136d6094f91fe872b8cc810dd71d7ec07bc200c954564573eaf6bdfa69a402ec",
+          "inputs_sha256": "18469603acb2fc6ec265a65bc4ad3f4d7b3574695ecd5784242739e8228590b6",
           "evidence": [
             {
               "file": "tests/ch25/test_illegal_extern_forkjoin_function.sv",
@@ -257192,9 +257192,9 @@
         {
           "test": "tests/ch25/test_illegal_hierarchical_task_definition_not_declared.sv",
           "observation": "モジュール hmd_target がインタフェースポート b を通して階層名で3つのタスクを定義する。put はインタフェースで extern 宣言され modport tgt で export（合法）、get は modport でプロトタイプ付き export のみ（合法）、clear はインタフェースにも modport にも宣言がない。:expected_stderr_regex: は b.clear の定義行（37行）でのエラーを要求する。 区別: extern 宣言も modport の export もない階層名定義を受理する誤実装はエラーを出さず不合格になる。extern と export の両方を要求する誤実装は get の定義行（34行）で報告し、37行と一致しない。",
-          "reviewed_on": "2026-10-24",
+          "reviewed_on": "2026-11-07",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "799fe2866105cb5d55c47b0df56e3089229d055cbd0b6e075fd33062afaaddf7",
+          "inputs_sha256": "2cc93c3eb512dc616899eb2bf5e4fff0149aa0c6e8b4dca0bc66104ad2da473c",
           "evidence": [
             {
               "file": "tests/ch25/test_illegal_hierarchical_task_definition_not_declared.sv",
@@ -257202,7 +257202,7 @@
             },
             {
               "file": "tests/ch25/test_illegal_hierarchical_task_definition_not_declared.sv",
-              "contains": "modport tgt (export put, export task get(output int v));"
+              "contains": "modport tgt (ref r, export put, export task get(output int v));"
             },
             {
               "file": "tests/ch25/test_illegal_hierarchical_task_definition_not_declared.sv",
@@ -257250,9 +257250,9 @@
         {
           "test": "tests/ch25/test_illegal_modport_export_task_not_defined.sv",
           "observation": "modport tgt が put と get を export する。mxd_full は両方定義（インスタンス ok、合法）、mxd_partial は put だけを定義し、そのインスタンス u は get を定義しない。:expected_stderr_regex: は mxd_partial のヘッダ行（40行）か u の行（49行）を要求する。",
-          "reviewed_on": "2026-10-24",
+          "reviewed_on": "2026-11-07",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "56c83aef2190886105a87bf2043056d28404a9f95c4c7cb1062bc6ad811c0c2b",
+          "inputs_sha256": "9c638cb80fe70279c34cb708f404f1efce65ca091c170679433fccae5e4356a3",
           "evidence": [
             {
               "file": "tests/ch25/test_illegal_modport_export_task_not_defined.sv",
@@ -257260,7 +257260,7 @@
             },
             {
               "file": "tests/ch25/test_illegal_modport_export_task_not_defined.sv",
-              "contains": "modport tgt (export put, export get);"
+              "contains": "modport tgt (ref r, export put, export get);"
             },
             {
               "file": "tests/ch25/test_illegal_modport_export_task_not_defined.sv",
@@ -257271,9 +257271,9 @@
         {
           "test": "tests/ch25/test_illegal_modport_export_task_prototype_mismatch.sv",
           "observation": "modport tgt がプロトタイプ task put(input int v) を export する。mxp_ok は同じシグネチャで定義（合法）、mxp_bad は引数型を logic [7:0] にして定義する。:expected_stderr_regex: は mxp_bad の put 定義行（37行）か u の行（45行）を要求する。",
-          "reviewed_on": "2026-10-24",
+          "reviewed_on": "2026-11-07",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "41133dbb3571dd10f3da464c9ae6524df06f661d4d0c17642f16f5e86ca3a61d",
+          "inputs_sha256": "adafb8502f1647754b18fecd6e66954bfa52a07ba014ea1dd3ce77deb1eb22a7",
           "evidence": [
             {
               "file": "tests/ch25/test_illegal_modport_export_task_prototype_mismatch.sv",
@@ -257281,7 +257281,7 @@
             },
             {
               "file": "tests/ch25/test_illegal_modport_export_task_prototype_mismatch.sv",
-              "contains": "modport tgt (export task put(input int v));"
+              "contains": "modport tgt (ref r, export task put(input int v));"
             },
             {
               "file": "tests/ch25/test_illegal_modport_export_task_prototype_mismatch.sv",
@@ -257490,9 +257490,9 @@
         {
           "test": "tests/ch25/test_illegal_modport_import_from_module_without_prototype.sv",
           "observation": "put は mip_target が modport tgt の export を通して定義する。modport ini_ok はフルプロトタイプで import（合法）、ini_bad は名前だけで import し、mip_name が ini_bad を通して put を呼ぶ。:expected_stderr_regex: は ini_bad の modport 行（30行）か呼び出し行（44行）を要求する。",
-          "reviewed_on": "2026-10-24",
+          "reviewed_on": "2026-11-07",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "b712e5dbc49f26d799ee78a578b41eb6a0603d8f6983ec7eb5804c8d58efaa12",
+          "inputs_sha256": "48c9fa7174965d716acb4dee27cfd6660519aecb072ba08e843ffd41d0f788df",
           "evidence": [
             {
               "file": "tests/ch25/test_illegal_modport_import_from_module_without_prototype.sv",
@@ -257603,9 +257603,9 @@
         {
           "test": "tests/ch25/test_extern_forkjoin_disable_interface_and_module.sv",
           "observation": "extern forkjoin タスク work を m0/m1 の両方が定義し（#10 後に自分の mask ビットを立てる）、時刻0の bus.work() を時刻5に disable bus.work でインタフェースインスタンス経由で無効化する。期待出力1行目は '5: disabled through bus: mask=00'。対照として3回目の無効化なしの呼び出しが '25: not disabled: mask=11' になる。 区別: インタフェース経由の disable が片方のモジュールの呼び出ししか止めない誤実装では残った定義が時刻10にビットを立て、1行目が '10: ... mask=01' などに変わる。disable が効かない誤実装は '10: ... mask=11' になる。",
-          "reviewed_on": "2026-10-24",
+          "reviewed_on": "2026-11-07",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "a110013f1ef5adc806656068d5cf8ce0d883ee5484f424204940e7ed74794a54",
+          "inputs_sha256": "a406e1ecf0e5cfcafca61870951ae72005a88de4cd3c902e149a6e7914d2654e",
           "evidence": [
             {
               "file": "tests/ch25/test_extern_forkjoin_disable_interface_and_module.sv",
@@ -257647,9 +257647,9 @@
         {
           "test": "tests/ch25/test_extern_forkjoin_disable_interface_and_module.sv",
           "observation": "時刻5に始めた2回目の bus.work() を、時刻10に disable m0.b.work でモジュールインスタンス m0 経由で無効化する。m1 の定義は続き時刻15にビット1を立て、呼び出しは時刻15に戻る。期待出力2行目は '15: disabled through m0: mask=10'。 区別: モジュール経由の disable で全モジュールの呼び出しを止める誤実装は時刻10に戻り mask=00 になる。m0 を止められない誤実装は mask=11 になる。どちらも2行目が変わる。",
-          "reviewed_on": "2026-10-24",
+          "reviewed_on": "2026-11-07",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "a110013f1ef5adc806656068d5cf8ce0d883ee5484f424204940e7ed74794a54",
+          "inputs_sha256": "a406e1ecf0e5cfcafca61870951ae72005a88de4cd3c902e149a6e7914d2654e",
           "evidence": [
             {
               "file": "tests/ch25/test_extern_forkjoin_disable_interface_and_module.sv",
@@ -257705,9 +257705,9 @@
         {
           "test": "tests/ch25/test_illegal_task_exported_by_two_modules.sv",
           "observation": "インタフェース mte_bus で count を extern forkjoin、put を forkjoin なしの extern で宣言し、modport tgt で両方を export する。同じバス bus に mte_target の2インスタンス t1/t2 を接続し、両方が count と put を定義する。count の二重定義は extern forkjoin により合法、put の二重 export がエラーで、:expected_stderr_regex: は put の定義行または t1/t2 の行を要求する。 区別: 同名タスクの複数モジュールからの export を常に許す誤実装はエラーを出さず不合格になる。extern forkjoin でも複数定義を拒否する誤実装は count の定義行（33行）で報告し得て、正規表現の行（36/43/44行）とずれる。",
-          "reviewed_on": "2026-10-24",
+          "reviewed_on": "2026-11-07",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "9a9e920dbb1f7f106bbcf6372a4f00dc0710c407c33749c032aeb557d7343518",
+          "inputs_sha256": "d1639e735ec3ee186d0d77d48d2b68478f7f097ce56078031c2cf91cf428f65c",
           "evidence": [
             {
               "file": "tests/ch25/test_illegal_task_exported_by_two_modules.sv",
@@ -257749,9 +257749,9 @@
         {
           "test": "tests/ch25/test_illegal_function_exported_by_two_modules.sv",
           "observation": "インタフェース mfe_bus の extern function peek を modport tgt で export し、mfe_target が b.peek を定義する。インタフェース solo には1インスタンス only だけを接続し（合法な対照）、インタフェース bus には t1 と t2 の2インスタンスを接続して peek を二重に export させる。:expected_stderr_regex: は関数定義行または t1/t2 のインスタンス行でのエラーを要求する。 区別: 関数の複数モジュールからの export を（タスクの extern forkjoin と同様に）許す誤実装は設計を受理してエラーを出さず不合格になる。1つの export まで拒否する誤実装は only の行（37行）で報告し、正規表現の行（30/38/39行）と一致しない。",
-          "reviewed_on": "2026-10-24",
+          "reviewed_on": "2026-11-07",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "0d0c4b3b9a6bb31f3888ad15ea93150d30397750941ce9c2bc5500a75eeedf63",
+          "inputs_sha256": "33740fd77edd438f67906569abd309ca578e33ae29f469657b140f27e4388d66",
           "evidence": [
             {
               "file": "tests/ch25/test_illegal_function_exported_by_two_modules.sv",
@@ -452426,9 +452426,9 @@
         {
           "test": "tests/ch12/test_syntax_case_matches_and_inside_forms.sv",
           "observation": "case with matches prints matches 1 2 3 4 for the pattern items and case with inside prints ranges 1 2 3 4 5 6 0.",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "458373ce1d42cb4aae109c8c1da99e7d00febfc70fa4f0f97fcf6eccef445369",
+          "reviewed_on": "2026-11-07",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "85c7e16c08a72146b60a6b79410c6371995094871169582901b3d415788fae72",
           "evidence": [
             {
               "file": "tests/ch12/test_syntax_case_matches_and_inside_forms.sv",
@@ -452491,9 +452491,9 @@
         {
           "test": "tests/ch12/test_syntax_case_matches_and_inside_forms.sv",
           "observation": "pattern items with &&& and inside items with range lists and default print matches 1 2 3 4 and ranges 1 2 3 4 5 6 0.",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "458373ce1d42cb4aae109c8c1da99e7d00febfc70fa4f0f97fcf6eccef445369",
+          "reviewed_on": "2026-11-07",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "85c7e16c08a72146b60a6b79410c6371995094871169582901b3d415788fae72",
           "evidence": [
             {
               "file": "tests/ch12/test_syntax_case_matches_and_inside_forms.sv",
@@ -452574,10 +452574,10 @@
       "checks": [
         {
           "test": "tests/ch12/test_syntax_case_matches_and_inside_forms.sv",
-          "observation": "case inside returns 1 for [2:4] at 3, 2 for [10 +/- 2] at 9, 3 for the value 20, 4 for [30 +%- 10] at 31, 5 for [250:$] at 252, 6 for [$:240] at 240 and 0 for 100. 区別: A wrong bound, tolerance or $ value would make one of these inputs match another item or default.",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "458373ce1d42cb4aae109c8c1da99e7d00febfc70fa4f0f97fcf6eccef445369",
+          "observation": "case inside returns 1 for [2:4] at 3, 2 for [10 +/- 2] at 9, 3 for the value 20, 4 for [30 +%- 10] at 31, 5 for [250:$] at 252, 6 for [$:240] at 240 and 0 for 245. 区別: A wrong bound, tolerance or $ value would make one of these inputs match another item or default.",
+          "reviewed_on": "2026-11-07",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "85c7e16c08a72146b60a6b79410c6371995094871169582901b3d415788fae72",
           "evidence": [
             {
               "file": "tests/ch12/test_syntax_case_matches_and_inside_forms.sv",

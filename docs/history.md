@@ -329,3 +329,9 @@ clause 37.
 - The literal expectation was wrong once; a run of all legal rows revealed it and it was corrected from the clause. The method now includes the all-row run.
 - The suite has 11,193 tests, 4,758 generated from 101 generators. Requirement coverage and thirteen random profiles are unchanged.
   This addition has not run in formal Check/Nightly. See the [design and evidence](interaction-verification.en.md#time-scope-delay).
+
+### 2026-11-07 (Issues #48 to #57)
+
+- Five of the ten issues were mistakes in the tests and were fixed; the other five change no test. A script search found the mistake of #56 in seven more illegal-design tests.
+- Design coverage stays at 10,980/12,298 and execution at 9,537/12,298. One requirement left the execution count until Ghost runs its changed test, and the time-format requirement joined it. The suite stays at 11,193 tests.
+  These fixes have not yet run in Nightly. See the [decisions](issues-48-57-review-20261107.en.md).

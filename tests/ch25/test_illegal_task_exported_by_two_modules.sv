@@ -26,7 +26,7 @@ interface mte_bus;
   int n;
   extern forkjoin task count();
   extern task put(input int v);
-  modport tgt (export count, export put);
+  modport tgt (ref n, export count, export put);
 endinterface
 
 module mte_target(mte_bus.tgt b);

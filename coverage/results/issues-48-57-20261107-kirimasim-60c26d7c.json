@@ -1,0 +1,69 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.0.0 (commit 60c26d7c8113), built with AppleClang 21.0.0.21000401",
+ "tests": {
+  "ch12/test_syntax_case_matches_and_inside_forms": {
+   "status": "unsupported",
+   "reason": "statement 'PatternCase' (not implemented yet)",
+   "inputs_sha256": "85c7e16c08a72146b60a6b79410c6371995094871169582901b3d415788fae72"
+  },
+  "ch16/test_ch16_sim_checker_history": {
+   "status": "unsupported",
+   "reason": "module member 'CheckerInstance' (not implemented yet)",
+   "inputs_sha256": "259400e43f8dac51d1e56ef28861749c3f5dd43d072113b715962598cfd42a9c"
+  },
+  "ch16/test_clocking_block_assertions": {
+   "status": "unsupported",
+   "reason": "this clocking block member (not implemented yet)",
+   "inputs_sha256": "12d9bb9ad766a17ad989dd29636110a41855e9d53a8bc04228577cdd721c286a"
+  },
+  "ch20/test_pla_sync_snapshot_versus_async_update": {
+   "status": "unsupported",
+   "reason": "system task $async$and$array (not implemented yet)",
+   "inputs_sha256": "4f4ad222769875cecc695ef4af46d6bcd02e151082871c4b8a5e9c6c07f6811c"
+  },
+  "ch25/test_extern_forkjoin_disable_interface_and_module": {
+   "status": "unsupported",
+   "reason": "module member 'MethodPrototype' (not implemented yet)",
+   "inputs_sha256": "a406e1ecf0e5cfcafca61870951ae72005a88de4cd3c902e149a6e7914d2654e"
+  },
+  "ch25/test_illegal_extern_forkjoin_function": {
+   "status": "pass",
+   "inputs_sha256": "18469603acb2fc6ec265a65bc4ad3f4d7b3574695ecd5784242739e8228590b6"
+  },
+  "ch25/test_illegal_function_exported_by_two_modules": {
+   "status": "pass",
+   "inputs_sha256": "33740fd77edd438f67906569abd309ca578e33ae29f469657b140f27e4388d66"
+  },
+  "ch25/test_illegal_hierarchical_task_definition_not_declared": {
+   "status": "pass",
+   "inputs_sha256": "2cc93c3eb512dc616899eb2bf5e4fff0149aa0c6e8b4dca0bc66104ad2da473c"
+  },
+  "ch25/test_illegal_modport_export_task_not_defined": {
+   "status": "pass",
+   "inputs_sha256": "9c638cb80fe70279c34cb708f404f1efce65ca091c170679433fccae5e4356a3"
+  },
+  "ch25/test_illegal_modport_export_task_prototype_mismatch": {
+   "status": "pass",
+   "inputs_sha256": "adafb8502f1647754b18fecd6e66954bfa52a07ba014ea1dd3ce77deb1eb22a7"
+  },
+  "ch25/test_illegal_modport_import_from_module_without_prototype": {
+   "status": "unsupported",
+   "reason": "module member 'MethodPrototype' (not implemented yet)",
+   "inputs_sha256": "48c9fa7174965d716acb4dee27cfd6660519aecb072ba08e843ffd41d0f788df"
+  },
+  "ch25/test_illegal_task_exported_by_two_modules": {
+   "status": "pass",
+   "inputs_sha256": "d1639e735ec3ee186d0d77d48d2b68478f7f097ce56078031c2cf91cf428f65c"
+  },
+  "imported/ch21/test_time_format_matrix": {
+   "status": "pass",
+   "inputs_sha256": "2d42ed7f5b342b874790be524387abb07482e3f98f74bf15f869411ace0a9675"
+  }
+ },
+ "generated_at": "2026-11-07T05:02:50.566184+00:00",
+ "runner_sha256": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb",
+ "runner_changed": false,
+ "configuration": {}
+}

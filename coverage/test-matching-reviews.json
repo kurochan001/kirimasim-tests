@@ -12830,23 +12830,23 @@
     },
     {
       "test": "tests/ch20/test_pla_sync_snapshot_versus_async_update.sv",
-      "inputs_sha256": "47d6a85f547a1b70f9e9fb0e82116457a1f9301589609bce2035c143090f4b63",
-      "reviewed_on": "2026-10-23",
-      "reviewer": "Codex (AI); not an independent human review",
+      "inputs_sha256": "4f4ad222769875cecc695ef4af46d6bcd02e151082871c4b8a5e9c6c07f6811c",
+      "reviewed_on": "2026-11-07",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
         {
           "requirement_ids": [
             "SV2023-20.16-EXTRACT-PLA-OUTPUT-VARIABLE"
           ],
-          "disposition": "oracle_issue",
-          "explanation": "M65: PLA output_termsはvariable lvalue必須だが、asynchronousをwireと宣言して出力引数に渡している。仕様上正常なsimulation caseとしては承認できない。同期側の値だけを取り出してファイル全体の合法性を見落とさず、入力修正と再実行が必要。",
-          "reviewed_on": "2026-10-23",
-          "reviewer": "Codex (AI); not an independent human review",
+          "disposition": "partial_observation",
+          "explanation": "M65 の指摘どおり出力を logic 変数に直した。正常系なので、net を拒否することは観測しない。net の拒否は ch20/test_illegal_pla_output_net が扱う。",
+          "reviewed_on": "2026-11-07",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
           "evidence": [
             {
               "file": "tests/ch20/test_pla_sync_snapshot_versus_async_update.sv",
-              "contains": "wire [0:1] asynchronous;"
+              "contains": "  logic [0:1] asynchronous, synchronous, plane_result;"
             }
           ]
         },
@@ -12855,18 +12855,22 @@
             "SV2023-20.16.1-EXTRACT-SYNC-EVALUATION",
             "SV2023-20.16.1-EXTRACT-PLA-NO-DELAY"
           ],
-          "disposition": "oracle_issue",
-          "explanation": "M100: 20.16 は PLA タスクの output_terms を variable_lvalue とし「output terms shall only be variables」と定めるが、この正常系テストは $async$and$array の出力に net（wire [0:1] asynchronous）を渡している。規格上違法な構文を含むため、sync/async の比較（changed=00,10 など）を同期評価や無遅延更新の証拠にできない。出力を logic 変数に直すまで照合しない。",
-          "reviewed_on": "2026-10-23",
+          "disposition": "partial_observation",
+          "explanation": "M100 の指摘どおり出力を logic 変数に直したので、正常系として読める。入力の変更後に同期側は値を保ち、非同期側は追従する。読み出しは #1 の後なので、遅延がないことの証拠にはならない。対応付けは ch20 の他のテストのまま。",
+          "reviewed_on": "2026-11-07",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
           "evidence": [
             {
               "file": "tests/ch20/test_pla_sync_snapshot_versus_async_update.sv",
-              "contains": "  wire [0:1] asynchronous;"
+              "contains": "  logic [0:1] asynchronous, synchronous, plane_result;"
             },
             {
               "file": "tests/ch20/test_pla_sync_snapshot_versus_async_update.sv",
               "contains": "    $async$and$array(personality, inputs, asynchronous);"
+            },
+            {
+              "file": "tests/ch20/test_pla_sync_snapshot_versus_async_update.expected",
+              "contains": "changed=00,10 plane=00"
             }
           ]
         },
@@ -12877,18 +12881,18 @@
             "SV2023-20.16.4-EXTRACT-PLANE-QUESTION",
             "SV2023-20.16.4-EXTRACT-PLANE-UNKNOWN"
           ],
-          "disposition": "oracle_issue",
-          "explanation": "非同期 PLA の出力に net（wire）を渡しており、20.16 の output_terms は variable_lvalue という条件に反するため正常系の観測に使えない。加えて nand/nor の平面と ? のドントケアを刺激しておらず、これら4条件は別テストが必要。",
-          "reviewed_on": "2026-10-25",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "disposition": "partial_observation",
+          "explanation": "出力を logic 変数に直したが、nand と nor の平面、personality の動的な変更、平面形式の ? と x を刺激していないので、これら4条件は観測しない。",
+          "reviewed_on": "2026-11-07",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
           "evidence": [
             {
               "file": "tests/ch20/test_pla_sync_snapshot_versus_async_update.sv",
-              "contains": "wire [0:1] asynchronous;"
+              "contains": "  logic [0:1] asynchronous, synchronous, plane_result;"
             },
             {
               "file": "tests/ch20/test_pla_sync_snapshot_versus_async_update.sv",
-              "contains": "$async$and$array(personality, inputs, asynchronous);"
+              "contains": "    $async$and$array(personality, inputs, asynchronous);"
             }
           ]
         }
@@ -47678,9 +47682,9 @@
     },
     {
       "test": "tests/ch25/test_illegal_extern_forkjoin_function.sv",
-      "inputs_sha256": "136d6094f91fe872b8cc810dd71d7ec07bc200c954564573eaf6bdfa69a402ec",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "inputs_sha256": "18469603acb2fc6ec265a65bc4ad3f4d7b3574695ecd5784242739e8228590b6",
+      "reviewed_on": "2026-11-07",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
         {

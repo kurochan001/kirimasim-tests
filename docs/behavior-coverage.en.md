@@ -71,11 +71,11 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `coverage-tests-20261029-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T22:47:59.529525+00:00` / 2/12298 execution checked; 1 entries refer to older inputs.
 - `coverage-tests-20261029-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T22:46:15.799172+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12298 execution checked; 0 entries refer to older inputs.
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7883/12298 execution checked; 87 entries refer to older inputs.
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7962/12298 execution checked; 24 entries refer to older inputs.
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7866/12298 execution checked; 87 entries refer to older inputs.
-- `issues-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T13:33:20.979624+00:00` / 2/12298 execution checked; 13 entries refer to older inputs.
-- `issues-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T13:45:50.335531+00:00` / 3794/12298 execution checked; 293 entries refer to older inputs.
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7882/12298 execution checked; 102 entries refer to older inputs.
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7961/12298 execution checked; 39 entries refer to older inputs.
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7865/12298 execution checked; 102 entries refer to older inputs.
+- `issues-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T13:33:20.979624+00:00` / 2/12298 execution checked; 14 entries refer to older inputs.
+- `issues-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T13:45:50.335531+00:00` / 3793/12298 execution checked; 308 entries refer to older inputs.
 - `issues-20261031-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-30T20:31:55.476769+00:00` / 13/12298 execution checked; 19 entries refer to older inputs.
 - `issues-20261031-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-30T20:31:59.218896+00:00` / 42/12298 execution checked; 19 entries refer to older inputs.
 - `issues-20261031-verilator-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-30T20:32:01.484680+00:00` / 42/12298 execution checked; 19 entries refer to older inputs.
@@ -91,11 +91,15 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `issues-45-47-20261107-kirimasim-1e840ea3.json`: `kirimasim 0.0.0 (commit 1e840ea322cc), built with AppleClang 21.0.0.21000334` / `2026-11-06T15:47:52.084505+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
 - `issues-45-47-20261107-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-06T15:47:55.538904+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
 - `issues-45-47-20261107-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-06T15:47:58.713949+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
+- `issues-48-57-20261107-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-07T05:02:50.753452+00:00` / 5/12298 execution checked; 0 entries refer to older inputs.
+- `issues-48-57-20261107-kirimasim-60c26d7c.json`: `kirimasim 0.0.0 (commit 60c26d7c8113), built with AppleClang 21.0.0.21000401` / `2026-11-07T05:02:50.566184+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
+- `issues-48-57-20261107-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-07T05:02:55.425886+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
+- `issues-48-57-20261107-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-07T05:02:59.962760+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
 - `quality-persim-20261027-icarus14.json`: `Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)` / `2026-10-27T13:37:34.824763+00:00` / 21/12298 execution checked; 2 entries refer to older inputs.
 - `quality-persim-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T13:37:34.897897+00:00` / 19/12298 execution checked; 2 entries refer to older inputs.
 - `quality-persim-20261027-verilator-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T13:37:34.973472+00:00` / 19/12298 execution checked; 2 entries refer to older inputs.
-- `refresh-20261027-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T14:45:42.063155+00:00` / 3122/12298 execution checked; 526 entries refer to older inputs.
-- `refresh-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T14:43:38.130423+00:00` / 2637/12298 execution checked; 470 entries refer to older inputs.
+- `refresh-20261027-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T14:45:42.063155+00:00` / 3118/12298 execution checked; 540 entries refer to older inputs.
+- `refresh-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T14:43:38.130423+00:00` / 2636/12298 execution checked; 479 entries refer to older inputs.
 - `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 72/12298 execution checked; 1 entries refer to older inputs.
 - `test-fixes-20261031-icarus-include.json`: `Icarus Verilog version 13.0 (stable) (v13_0-25-g07dd50d37)` / `2026-10-31T12:25:03.867848+00:00` / 0/12298 execution checked; 1 entries refer to older inputs.
 - `test-fixes-20261031-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-25-g07dd50d37)` / `2026-10-31T12:23:47.414500+00:00` / 4/12298 execution checked; 1 entries refer to older inputs.
@@ -37259,7 +37263,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.5.1-EXTRACT-CHECKER-HISTORY
 
-`16.5.1` / `normal` / Execution confirmed
+`16.5.1` / `normal` / Test mapped; execution unconfirmed
 
 Past/future sampled-value references to active free checker variables use their values in Postponed of the corresponding past/future clock tick.
 
@@ -37267,7 +37271,7 @@ Acceptance criterion: Past/future sampled-value references to active free checke
 
 Normative role: `mandatory`。
 
-- [test_ch16_sim_checker_history.sv](../tests/ch16/test_ch16_sim_checker_history.sv): 16.5.1 - EXTRACT-CHECKER-HISTORY are observed in simulation. A checker free variable v (rand, kept active by an assume statement that references it) is observed at every tick. The checker records the current value of v at each tick and checks at the next tick that $past (v) equals the recorded value, and records $future_ Distinguishing observation: The condition of the demand is stimulated and compared with the expected value derived from the standard. Execution results: { 'icarus' : 'known' , 'verilator' : 'known' }
+- [test_ch16_sim_checker_history.sv](../tests/ch16/test_ch16_sim_checker_history.sv) : The checker keeps its free variable v active with an assume statement, records the current value at each tick and compares it with $past (v) at the next tick. $future_gclk (v) in an assertion runs its action block at the next global clock tick, where the pass action requires v to be 1 and the fail action requires v to be 0 . Distinguishing observation: If a past or future reference does not take the Postponed value of its tick, it differs from the recorded or current value and mismatches is not 0 .
 
 ### SV2023-16.5.1-EXTRACT-CLOCKING-INPUT
 
@@ -55552,7 +55556,7 @@ Normative role: `definition`。
 
 ### SV2023-21.2.1.1-EXTRACT-TIMEFORMAT-GLOBAL
 
-`21.2.1.1` / `normal` / Test mapped; execution unconfirmed
+`21.2.1.1` / `normal` / Execution confirmed
 
 %t uses $timeformat settings for uniform units, precision and presentation across differently scaled modules.
 
@@ -121011,7 +121015,7 @@ Acceptance criterion: A range list is nonempty and comma-separated; value ranges
 
 Normative role: `definition`。
 
-- [test_syntax_case_matches_and_inside_forms.sv](../tests/ch12/test_syntax_case_matches_and_inside_forms.sv): case inside returns 1 for \[2:4\] at 3, 2 for \[10 +/- 2\] at 9, 3 for the value 20, 4 for \[30 +%- 10\] at 31, 5 for \[250:$\] at 252, 6 for \[$:240\] at 240 and 0 for 100. Distinguishing observation: A wrong bound, tolerance or $ value would make one of these inputs match another item or default.
+- [test_syntax_case_matches_and_inside_forms.sv](../tests/ch12/test_syntax_case_matches_and_inside_forms.sv): case inside returns 1 for \[2:4\] at 3, 2 for \[10 +/- 2\] at 9, 3 for the value 20, 4 for \[30 +%- 10\] at 31, 5 for \[250:$\] at 252, 6 for \[$:240\] at 240 and 0 for 245. Distinguishing observation: A wrong bound, tolerance or $ value would make one of these inputs match another item or default.
 
 ### SV2023-A.6.7.1-EXTRACT-ASSIGNMENT-PATTERN
 
