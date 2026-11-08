@@ -385,3 +385,10 @@
 ### 2026-11-08（programのサブルーチン呼出しでのslangの退行）
 
 - kirimasim `f029ddd0`はslangを`d02b7cda`から`6fbb158f`へ更新し、それ以降、24.5ではエラーとなるmoduleからのprogramのタスクの呼出しを受理します。`33b93822`はまだエラーを出します。`ch24/test_illegal_module_calls_program_task`は期待をそのままにし、退行を[シミュレータの差異](simulator-differences.ja.md#slang-program-subroutine-call)に記録しました。
+
+### 2026-11-08（Lyraの修正後のNightly）
+
+- `36ba5dd1`で[Nightlyを手動実行](https://github.com/kurochan001/kirimasim-tests/actions/runs/42477954992)しました。GCC 13.3でビルドしたkirimasim `33cee3fa2f0d`は11,897件中9,417件が一致します。スコープ付きクラスの6件は、macOSと同じくここでも終了コード3で失敗します（[詳細](interaction-verification.md#scoped-class-declaration)）。
+- Lyraのジョブの1回目は、Lyra `ed6c62dc`のビルドがキャッシュになく、BazelがGitHubから`bazel-lib`をダウンロードする途中でタイムアウトして止まりました。このジョブを再実行すると、Lyraのビルドに85分、GCC 13.3でのスイートの実行に4時間20分かかり、ジョブの6時間の上限のうち5時間47分を使いました。
+- Lyraは11,897件中9,674件が一致し、unsupportedは1,600件、failは623件です。2026-11-06（`3ee7454c`）にも実行した10,723件では、そのとき一致したテストはすべて今も一致し、さらに143件（以前はunsupported 135件・fail 8件）が一致するようになりました。
+- Lyraのジョブを再実行したのでpublishのジョブが2回動き、結果の履歴にはこの実行が2行あります。2行目がLyraを含みます。

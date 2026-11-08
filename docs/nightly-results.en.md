@@ -242,6 +242,7 @@ These times were measured on a manually dispatched branch run with 6,009 tests o
 | Lyra | 35–70 minutes of tests with a cached build; an uncached revision added 42–89 minutes to build |
 
 Lyra determined the full-run time, about 40 minutes to 1 hour 15 minutes. These measurements do not guarantee durations for current counts, revisions or cache conditions. The first main Lyra build on October 24 took about 2 hours 40 minutes (89 minutes building and 70 testing). The four-job run on October 23 took about 42 minutes.
+In the [run of November 8, 2026](https://github.com/kurochan001/kirimasim-tests/actions/runs/42477954992) (11,897 tests), the first since Lyra builds each test with GCC, Lyra's tests took 4 hours 20 minutes and an uncached build 85 minutes, 5 hours 47 minutes of the job's 6-hour limit.
 
 The Verilator job limits each process's address space to 6 GB with `ulimit -v`. An illegal cyclic named-sequence test, `tests/ch16/test_illegal_sequence_cycle_through_bodies.sv`, otherwise recursively exhausted the runner's 16 GB memory and GitHub terminated the job. With the limit, that test alone fails.
 

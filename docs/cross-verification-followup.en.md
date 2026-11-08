@@ -169,7 +169,7 @@ Requirement bindings, thirteen random profiles, existing regressions and core so
 The six items below were left out because kirimasim has not implemented them. They have no tests yet, so no result changes when the feature arrives, and only a check reveals it.
 When a full cross run uses a new kirimasim build, try the programs below. When one no longer reports `not implemented yet`, add the model or observation.
 The 529 existing unsupported cases are not listed: they have tests, and their results change once the feature is implemented.
-Add anything else left out for this reason here, and remove an item once it is added. The status is from kirimasim `f029ddd0eee1` on 2026-11-08.
+Add anything else left out for this reason here, and remove an item once it is added. The status is from kirimasim `33cee3fa2f0d` on 2026-11-08; all six are unchanged since `f029ddd0eee1`.
 
 Take expectations from the standard, and check them by [running every legal row once](interaction-verification-method.en.md#run-every-legal-row-once).
 

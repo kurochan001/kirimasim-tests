@@ -411,3 +411,10 @@ clause 37.
 ### 2026-11-08 (slang regression on program subroutine calls)
 
 - kirimasim `f029ddd0` updates slang from `d02b7cda` to `6fbb158f`, and since then accepts a module that calls a program task, which 24.5 makes an error; `33b93822` still reports it. `ch24/test_illegal_module_calls_program_task` keeps its expectation, and the regression is recorded in the [simulator differences](simulator-differences.md#slang-program-subroutine-call).
+
+### 2026-11-08 (Nightly run after the Lyra fix)
+
+- A [manual Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/42477954992) ran on `36ba5dd1`. kirimasim `33cee3fa2f0d`, built with GCC 13.3, matches 9,417 of 11,897 tests. The six scoped-class cases end with exit code 3 there too, as they do on macOS ([details](interaction-verification.en.md#scoped-class-declaration)).
+- The first attempt of the Lyra job found no cached build of Lyra `ed6c62dc` and stopped when Bazel timed out downloading `bazel-lib` from GitHub. The re-run of that job built Lyra in 85 minutes and ran the suite with GCC 13.3 in 4 hours 20 minutes, using 5 hours 47 minutes of the job's 6-hour limit.
+- Lyra matches 9,674 of 11,897 tests, with 1,600 unsupported and 623 failures. Of the 10,723 tests also run on 2026-11-06 (`3ee7454c`), every test that passed then passes now, and 143 more pass (135 unsupported and 8 failing before).
+- Because the Lyra job was re-run, the publish job ran twice, and the results history lists this run twice; the second row includes Lyra.

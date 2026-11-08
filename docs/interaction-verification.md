@@ -4562,6 +4562,7 @@ topから[`u1.g[0].h.get()`](../tests/gen/ch8/test_gen_cross_scopeclass_gen_for_
 kirimasim `f029ddd0eee1`の[単一の全4,416件](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json)では、追加48件のうち42件がPASSで、6件がfailです。
 failは、if・caseの生成ブロックのクラスが静的プロパティを持つ行です。インスタンスにならない分岐の、静的プロパティを持つクラスとその型の変数で、kirimasimが内部エラーになります。
 全240行では、この形の30行がすべて同じ内部エラーで、ほかの210行は一致します。期待値は規格どおりのままです。
+kirimasim `33cee3fa2f0d`でも同じ6件が同じ内部エラーになり、Ubuntu 24.04のGCC 13.3でビルドした[Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/42477954992)でも終了コード3で失敗しました。
 
 ### 固定版の差異
 

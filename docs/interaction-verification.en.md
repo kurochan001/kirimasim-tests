@@ -4586,6 +4586,7 @@ The [auxiliary evidence](../coverage/interaction-qualification/scopeclass.json) 
 In the [single complete 4,416-case run](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json) on kirimasim `f029ddd0eee1`, 42 of the 48 additions pass and six fail.
 The failures are the rows where a class in an if or case generate block has a static property. kirimasim stops with an internal error on a class with a static property, and a variable of its type, in the branch that is not instantiated.
 Over all 240 rows, the 30 rows of this form all give the same internal error, and the other 210 match. The expectations stay as the standard gives them.
+kirimasim `33cee3fa2f0d` gives the same internal error for the same six, and in the [Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/42477954992) built with GCC 13.3 on Ubuntu 24.04 they also fail, with exit code 3.
 
 ### Pinned-release differences
 
