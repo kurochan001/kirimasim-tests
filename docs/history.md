@@ -407,3 +407,7 @@ clause 37.
 - `SV2023-6.16-EXTRACT-REPLICATION-OPERANDS` lost its only witness and its mapping was withdrawn. Design coverage becomes 10,979/12,298 (89.27%), and clauses 1 to 40 8,267/9,465 (87.34%).
   Execution coverage is 9,535/12,298 (77.53%); the README had kept 9,537 since 89df6e9b, which had already changed it.
 - The suite has 12,165 tests and 1,929 illegal designs.
+
+### 2026-11-08 (slang regression on program subroutine calls)
+
+- kirimasim `f029ddd0` updates slang from `d02b7cda` to `6fbb158f`, and since then accepts a module that calls a program task, which 24.5 makes an error; `33b93822` still reports it. `ch24/test_illegal_module_calls_program_task` keeps its expectation, and the regression is recorded in the [simulator differences](simulator-differences.md#slang-program-subroutine-call).

@@ -1094,3 +1094,13 @@ A test cannot accept both a compile error and a pass, so `ch6/test_illegal_strin
 Its requirement `SV2023-6.16-EXTRACT-REPLICATION-OPERANDS` lost its only witness and its mapping was withdrawn.
 The legal forms it kept as controls remain covered, for example a variable multiplier by `ch11/test_string_replication_variable_multiplier`.
 An int variable assigned to a string variable without a cast stays an error under both readings (`ch6/test_illegal_string_assigned_int_without_cast`).
+
+<a id="slang-program-subroutine-call"></a>
+
+## kirimasim: a module calling a program task (2026-11-08)
+
+24.5 makes a call of a program subroutine from a design module an error.
+kirimasim `33b93822` and earlier, with slang `d02b7cda`, report slang's error at the call in `ch24/test_illegal_module_calls_program_task` ("cannot reference program item from outside of a program").
+Since `f029ddd0`, which updates slang to `6fbb158f` and otherwise only adapts to slang's interface for generic class specializations, kirimasim runs the design and prints `v=5`.
+This is a regression of slang, not a reading the standard leaves open, so the test keeps its expectation. The [Nightly of 2026-11-08](https://github.com/kurochan001/kirimasim-tests/actions/runs/42422374691) flagged it.
+Icarus 13.0 and Verilator 5.052 accept the design as well.

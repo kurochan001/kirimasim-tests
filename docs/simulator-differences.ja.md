@@ -1093,3 +1093,13 @@ Icarus 13.0・Verilator 5.052・kirimasimはこれを受理し、kirimasimは`8e
 その要求`SV2023-6.16-EXTRACT-REPLICATION-OPERANDS`は唯一の根拠を失ったので、対応付けを取り下げました。
 対照として使っていた合法な形は、たとえば変数の乗数を`ch11/test_string_replication_variable_multiplier`が引き続き確かめます。
 キャストなしでint変数をstring変数に代入するのは、どちらの読み方でもエラーのままです（`ch6/test_illegal_string_assigned_int_without_cast`）。
+
+<a id="slang-program-subroutine-call"></a>
+
+## kirimasim：moduleからprogramのタスクを呼ぶ（2026-11-08）
+
+24.5は、設計のmoduleからprogramのサブルーチンを呼ぶことをエラーとします。
+slang `d02b7cda`を使うkirimasim `33b93822`以前は、`ch24/test_illegal_module_calls_program_task`の呼出しでslangのエラー（"cannot reference program item from outside of a program"）を出します。
+slangを`6fbb158f`に更新した`f029ddd0`からは、kirimasimが設計を実行して`v=5`を表示します。このコミットのほかの変更は、総称クラスの特殊化に関するslangのインタフェースへの対応だけです。
+規格の読み方が分かれる点ではなくslangの退行なので、テストの期待はそのままにします。[2026-11-08のNightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/42422374691)の前夜比較で見つかりました。
+Icarus 13.0とVerilator 5.052もこの設計を受理します。

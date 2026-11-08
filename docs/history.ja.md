@@ -381,3 +381,7 @@
 - `SV2023-6.16-EXTRACT-REPLICATION-OPERANDS`は唯一の根拠を失ったので、対応付けを取り下げました。要求カバレッジ（テスト設計）は10,979/12,298（89.27%）、1〜40章は8,267/9,465（87.34%）です。
   実行確認率は9,535/12,298（77.53%）です。89df6e9bですでに変わっていましたが、READMEは9,537のままでした。
 - スイートは12,165本、規格違反の設計は1,929本です。
+
+### 2026-11-08（programのサブルーチン呼出しでのslangの退行）
+
+- kirimasim `f029ddd0`はslangを`d02b7cda`から`6fbb158f`へ更新し、それ以降、24.5ではエラーとなるmoduleからのprogramのタスクの呼出しを受理します。`33b93822`はまだエラーを出します。`ch24/test_illegal_module_calls_program_task`は期待をそのままにし、退行を[シミュレータの差異](simulator-differences.ja.md#slang-program-subroutine-call)に記録しました。
