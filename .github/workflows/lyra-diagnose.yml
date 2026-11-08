@@ -1,0 +1,74 @@
+name: Lyra diagnosis
+
+# One-off diagnosis of the Nightly Lyra job, run by hand. Since Lyra
+# 4872d420, almost every test fails with "compiling 'sv_esc_std.cpp' failed",
+# and the suite runs into the 6-hour limit. Lyra's own CI passes at those
+# commits, so the job looks for what differs in ours. It reuses the cached
+# builds of the last good commit and of the two bad ones (nothing is built),
+# runs one plain test with and without the 6 GB address-space limit of the
+# Nightly job, and keeps Lyra's whole standard error and the peak memory.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        commit:
+          - 3ee7454cc747bc9ac7d32b90b2189c5f536d51a5 # last good (Nightly 2026-11-06)
+          - 4872d4201a4dc77e7371f9b5e67a785446f57ece # first bad (Nightly 2026-11-07)
+          - b9c9a0613e8110a052cf178cb1e53ca6feb8eb10 # Nightly 2026-11-08
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Restore Lyra
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/lyra
+          key: lyra-${{ matrix.commit }}-ubuntu-24.04
+          fail-on-cache-miss: true
+
+      - name: Drop the runfiles manifest
+        run: rm -f "$HOME/lyra/lyra.runfiles/MANIFEST"
+
+      - name: Show the tools
+        run: |
+          "$HOME/lyra/lyra" --version || true
+          for c in cc c++ clang clang++ ld; do command -v "$c" && "$c" --version | head -n 1; done
+          nproc; free -m; ulimit -a
+          command -v /usr/bin/time || sudo apt-get install -y -q time
+
+      # The same command as tools/run_lyra.py, once under the Nightly limit
+      # and once without it, each with a cache directory of its own.
+      - name: Run one test
+        run: |
+          mkdir -p out
+          for limit in 6291456 unlimited; do
+            cache="$RUNNER_TEMP/cache-$limit"
+            mkdir -p "$cache"
+            set +e
+            ( ulimit -v "$limit"
+              cd "$RUNNER_TEMP" &&
+              /usr/bin/time -v "$HOME/lyra/lyra" run --no-color --progress none -j 1 \
+                --cache-dir "$cache" "$GITHUB_WORKSPACE/tests/ch10/test_assign_blocking.sv" ) \
+              > "out/stdout-$limit.txt" 2> "out/stderr-$limit.txt"
+            echo "exit $? with ulimit -v $limit" | tee "out/exit-$limit.txt"
+            set -e
+            echo "::group::standard error with ulimit -v $limit"
+            tail -n 300 "out/stderr-$limit.txt"
+            echo "::endgroup::"
+            find "$cache" -maxdepth 3 | head -n 50 > "out/cache-$limit.txt"
+          done
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: ${{ !cancelled() }}
+        with:
+          name: lyra-diagnosis-${{ matrix.commit }}
+          path: out/
+          retention-days: 7
