@@ -24555,6 +24555,9 @@
     "A process acts on a process of another instance through a hierarchical name": "階層名で別のインスタンスのプロセスに作用する",
     "A name in a loop binds by the package search order of ZXQPH0QXZ": "ループの中の名前は ZXQPH0QXZ のpackageの探索の順序で結合する",
     "An escaped identifier binds as the identifier without its backslash": "エスケープした識別子は\\を除いた識別子として結合する",
-    "A delay waits for the value of its literal, rounded to the time precision": "遅延はリテラルの値を時間の精度へ丸めた時間だけ待つ"
+    "A delay waits for the value of its literal, rounded to the time precision": "遅延はリテラルの値を時間の精度へ丸めた時間だけ待つ",
+    "A structure literal sets each member through its key and its type": "構造体リテラルはキーと型で各メンバーを設定する",
+    "A case item with ?, z or x digits matches by the literal and case rules": "?・z・xの桁を持つcaseの項目は、リテラルとcaseの規則で一致する",
+    "A class method binds the names of the scope that declares the class": "クラスのメソッドは、クラスを宣言したスコープの名前に結合する"
   }
 }

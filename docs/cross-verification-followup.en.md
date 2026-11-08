@@ -6,9 +6,9 @@ Updated on 2026-11-06 JST, retaining the repair records from 2026-11-03. Preserv
 and selected models while addressing known failures, inventorying unsupported mechanisms
 and reviewing unexamined chapter pairs, in that order.
 
-The current [complete local selection](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json) has 107 models and 4,296 cases, run on kirimasim `28c6c1a1cb83`, built from the latest main:
-3,809 pass, 479 unsupported and eight failures: the four config failures and the four where `defparam` gets the type and range wrong. Against the [previous complete run](../coverage/interaction-results/cross104-kirimasim-28c6c1a1-hierloop.json), preceding 4,170 inputs and statuses are unchanged.
-The previous 147 cases passed the pinned comparisons in [Check on `b091fd3a`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42424091234). These 126 cases have not run in formal Check/Nightly.
+The current [complete local selection](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json) has 110 models and 4,416 cases, run on kirimasim `f029ddd0eee1`, built from the latest main:
+3,915 pass, 487 unsupported and 14 failures: the four config failures, the four `defparam` failures and six where kirimasim stops with an internal error on a class in a generate block. Against the [previous complete run](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json), preceding 4,296 inputs and statuses are unchanged.
+The previous 126 cases passed the pinned comparisons in [Check on `c229a05f`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42435564931) and have not run in Nightly; these 120 cases have not run in formal Check/Nightly.
 
 [Check on baseline 67321079](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584) passed pinned comparisons/static checks on the preceding 88-model suite.
 [Nightly on the same baseline](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265) and all its jobs succeeded; individual artifacts remain uninspected. Later additions are outside both runs.
@@ -99,7 +99,7 @@ At the initial review, two R pairs were reviewed and 590 remained unassessed.
   independent factors. First establish legal expressions and positive dimensions and repair the
   known config reset difference.
 
-The current triage is M185, E3, C2, N117 and R513. See the
+The current triage is M189, E3, C2, N117 and R509. See the
 [pair rationales and fingerprints](chapter-cross-triage.en.md). Reuse existing regression matrices
 and extend confirmed mechanisms with boundaries, operation sequences and fault controls.
 No parallel-purpose runner or addition of random outcomes to fixed requirement coverage was introduced.
@@ -166,10 +166,10 @@ Requirement bindings, thirteen random profiles, existing regressions and core so
 
 ## Candidates waiting for kirimasim
 
-The four items below were left out because kirimasim has not implemented them. They have no tests yet, so no result changes when the feature arrives, and only a check reveals it.
+The six items below were left out because kirimasim has not implemented them. They have no tests yet, so no result changes when the feature arrives, and only a check reveals it.
 When a full cross run uses a new kirimasim build, try the programs below. When one no longer reports `not implemented yet`, add the model or observation.
 The 529 existing unsupported cases are not listed: they have tests, and their results change once the feature is implemented.
-Add anything else left out for this reason here, and remove an item once it is added. The status is from kirimasim `28c6c1a1cb83` on 2026-11-08.
+Add anything else left out for this reason here, and remove an item once it is added. The status is from kirimasim `f029ddd0eee1` on 2026-11-08.
 
 Take expectations from the standard, and check them by [running every legal row once](interaction-verification-method.en.md#run-every-legal-row-once).
 
@@ -223,6 +223,55 @@ module top;
 endmodule
 ```
 
+### Cycle delays and synchronous drives (new model, chapter 12 x 14)
+
+kirimasim reports `##` as `unsupported: timing control` and clocking outputs as `unsupported: output or inout clocking variable`, not implemented yet.
+In 14.11, `##N` waits for N events of the default clocking, and `##0` waits only when that event has not yet occurred in the current time step. A synchronous drive of 14.16 changes the value at the clocking event plus the output skew.
+Cross `##0`, `##1` and `##(expression)` in `for`, `repeat`, `fork` and tasks, started at and between clock edges, with synchronous drives that have output skews and a `##` on the right side.
+Pinned Icarus 13.0 does not accept clocking blocks, and pinned Verilator 5.052 prints `a 5`, `b 15` and `o 9` for the program below.
+
+```systemverilog
+module top;
+  bit clk;
+  logic [3:0] o;
+  always #5 clk = ~clk;
+  default clocking cb @(posedge clk);
+    output #1 o;
+  endclocking
+  initial begin
+    #3 ##0 $display("a %0t", $time);
+    ##1 $display("b %0t", $time);
+    cb.o <= ##2 4'd9;
+    #30 $display("o %0d", o);
+    $finish;
+  end
+endmodule
+```
+
+### Clocking inputs bound to expressions (new model, chapters 7 x 14 and 11 x 14)
+
+kirimasim reports a concatenation as `unsupported: noncontiguous clocking source`, and a sum, a structure member or an array element as `unsupported: clocking source without static packed storage`, not implemented yet.
+In 14.5, a clocking signal can be bound to any expression legal as a connection to an input port, slices and concatenations included, and 14.13 samples the value of that expression.
+Bind inputs to concatenations, part-selects, structure members, array elements and hierarchical names, change each part around the clock edges and read after `@(cb)`.
+Pinned Icarus 13.0 does not accept clocking blocks, and pinned Verilator 5.052 prints `e` for the program below.
+
+```systemverilog
+module top;
+  bit clk;
+  logic [3:0] a = 4'h1, b = 4'h2;
+  clocking cb @(posedge clk);
+    input #1step v = {a[1:0], b[1:0]};
+  endclocking
+  initial begin
+    #1 clk = 1;
+    #1 a = 4'h3; clk = 0;
+    #1 clk = 1;
+    @(cb) $display("%h", cb.v);
+    $finish;
+  end
+endmodule
+```
+
 ## Macro expansion, force and release, implicit sensitivity (2026-11-07)
 
 - Added models for [macro expansion](interaction-verification.en.md#macro-expansion-context), [force and release](interaction-verification.en.md#force-release-visibility) and [implicit sensitivity](interaction-verification.en.md#implicit-sensitivity-update).
@@ -267,3 +316,14 @@ endmodule
 - One complete 4,296-case run on kirimasim `28c6c1a1cb83` records 3,809 pass, 479 unsupported and eight failures. All 126 additions pass. Totals: 107 models, 185 chapter pairs, 82 full-selection-pass models.
 - kirimasim has no difference on all 496 legal rows, and no expectation changed. Pinned Icarus 13.0 matches all rows too. Verilator differs only where it reads x and z delays as two-state values and on unsupported z delays.
 - For package name lookup, the 28 combinations that 26.3 makes illegal are left out, and the independent interpretation reports each of them as an error.
+
+## Classes in modules and generate blocks, case item literals, structure literals (2026-11-08)
+
+- Added models for [classes declared in a module or a generate block](interaction-verification.en.md#scoped-class-declaration), [case item literal digits](interaction-verification.en.md#case-literal-wildcard) and [structure literal keys](interaction-verification.en.md#aggregate-literal-key).
+- Four chapter pairs moved from R to M: 8 x 23, 8 x 27, 5 x 12 and 5 x 7.
+- One complete 4,416-case run on kirimasim `f029ddd0eee1`, built from the latest main, records 3,915 pass, 487 unsupported and 14 failures. 106 of the 120 additions pass. Totals: 110 models, 189 chapter pairs, 83 full-selection-pass models.
+- The six new failures are rows where a class in an if or case generate block has a static property. kirimasim stops with an internal error on a class with a static property, and a variable of its type, in the branch that is not instantiated; 30 of the 240 rows. Pinned Verilator 5.052 matches the standard's expectations on every row. No expectation changed.
+- The eight structure literal localparam cases are unsupported, because kirimasim has not implemented a localparam of an unpacked structure.
+- kirimasim has no difference on all 312 case item literal rows.
+- `f029ddd0eee1` includes a slang update, but preceding 4,296 inputs and statuses do not change. The four `defparam` cases still fail.
+- Cycle delays with synchronous drives, and clocking inputs bound to expressions, are not implemented in kirimasim, so they were added to the [candidates waiting for kirimasim](#models-waiting-for-kirimasim). The other four still report `not implemented yet` on `f029ddd0eee1`.

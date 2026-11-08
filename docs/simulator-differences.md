@@ -1066,3 +1066,19 @@ kirimasim `28c6c1a1cb83` matches the standard's expectations on all 869 rows of 
 
 See the [pinned comparisons](../coverage/interaction-qualification/delaypkgesc-fixed-replays.json) and [representative Verilator outputs](../coverage/interaction-qualification/delaypkgesc-known-replays.json).
 kirimasim `28c6c1a1cb83` matches the standard's expectations on all 496 rows of the three models.
+
+<a id="scope-case-literal-differences"></a>
+
+## Classes in generate blocks, case item literals and structure literals (2026-11-08)
+
+- **Icarus 13.0 classes:** a class declaration in a generate block fails an internal check of the compiler (`!pform_cur_generate` in `pform.cc`) and stops (180 rows).
+  A call `C::get()` of a static method of a class declared in a module is a syntax error (12 rows).
+- **Icarus 13.0 `case inside`:** rejected as a syntax error (78 rows).
+- **Icarus 13.0 structure literals:** unpacked structures are not implemented, so all 192 rows are rejected.
+- **Verilator 5.052 case:** passing a value with z to a task argument is rejected as an unsupported tristate construct (all 312 rows).
+- **Verilator 5.052 structure literals:** default does not go down into the members of the nested structure and array (60 rows).
+  A typedef name is not accepted as a type key (48 rows), and `'x` is read as a two-state value. The standard takes default into nested members and allows a type name as a key (10.9.2).
+- On classes declared in modules and generate blocks, pinned Verilator 5.052 matches all 240 rows.
+
+See the [pinned comparisons](../coverage/interaction-qualification/scopecaselit-fixed-replays.json) and [all Icarus rejections and representative Verilator outputs](../coverage/interaction-qualification/scopecaselit-known-replays.json).
+kirimasim `f029ddd0eee1` matches all 312 case item rows. The 30 class rows stop on an internal error, and the 48 structure localparam rows are not implemented.

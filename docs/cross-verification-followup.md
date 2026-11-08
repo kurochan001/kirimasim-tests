@@ -5,9 +5,9 @@
 2026-11-06（日本時間）の更新です。2026-11-03の対応記録を保持し、固定回帰・正式Nightly・既存期待値・選択モデルを維持し、
 既知の不一致の修正、未対応の整理、要精査の章対の確認の順に進めています。
 
-現在の[全クロスのローカル選択](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json)は107モデル・4,296件で、最新のmainをビルドしたkirimasim `28c6c1a1cb83`で実行しました。
-3,809 pass・479 unsupported・8 failです。failはconfigの4件と、`defparam`の型と範囲を取り違える4件です。[前回の全実行](../coverage/interaction-results/cross104-kirimasim-28c6c1a1-hierloop.json)と比べて従来4,170件の入力と状態は不変です。
-前回の147件は[`b091fd3a`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42424091234)で固定版比較が成功しました。今回の126件は正式Check・Nightlyでは未実行です。
+現在の[全クロスのローカル選択](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json)は110モデル・4,416件で、最新のmainをビルドしたkirimasim `f029ddd0eee1`で実行しました。
+3,915 pass・487 unsupported・14 failです。failはconfigの4件、`defparam`の4件と、生成ブロックのクラスでkirimasimが内部エラーになる6件です。[前回の全実行](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json)と比べて従来4,296件の入力と状態は不変です。
+前回の126件は[`c229a05f`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42435564931)で固定版比較が成功し、Nightlyでは未実行です。今回の120件は正式Check・Nightlyでは未実行です。
 
 [基点67321079のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584)は成功し、追加前の88モデルを含む固定版比較・静的検査を確認しました。
 [同じ基点のNightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265)もworkflowと全ジョブが成功しましたが、個別artifactは未照合です。その後の追加は両実行の対象外です。
@@ -95,7 +95,7 @@ upstream mainの公開済み修正ではありません。[版・修正元・ソ
   演算・条件式を将来の独立因子として検討します。合法な式と正の寸法の確定、
   既知のconfigリセット不一致の修正を先に行います。
 
-現在の仕分けはM185・E3・C2・N117・R513です。
+現在の仕分けはM189・E3・C2・N117・R509です。
 [章対の根拠と指紋](chapter-cross-triage.md)を参照してください。
 既存の回帰matrixを先に活用し、原因が確定した機構に境界・操作列・故障対照を追加します。
 同じ目的の別runnerや、ランダム結果を固定要求カバレッジへ加算する仕組みは追加していません。
@@ -161,10 +161,10 @@ Icarusは31入力に一致し、repeat回数1の5件は拒否を保持して、�
 
 ## kirimasimの実装を待つ候補
 
-次の4件は、kirimasimが未実装なので見送りました。テストがまだないので、実装されても結果は変わらず、確認しなければ気づけません。
+次の6件は、kirimasimが未実装なので見送りました。テストがまだないので、実装されても結果は変わらず、確認しなければ気づけません。
 kirimasimの新しいビルドで全クロスを実行するときに下のプログラムを試し、`not implemented yet`が出なくなったらモデルや観測を追加します。
 既存の未対応529件はテストがあり、実装されれば結果が変わるので、この一覧には入れません。
-同じ理由で見送るものが増えたらここへ足し、追加を終えた項目は消します。状態は2026-11-08のkirimasim `28c6c1a1cb83`のものです。
+同じ理由で見送るものが増えたらここへ足し、追加を終えた項目は消します。状態は2026-11-08のkirimasim `f029ddd0eee1`のものです。
 
 期待値は規格から求め、[全合法行を一度実行](interaction-verification-method.md#run-every-legal-row-once)して確かめます。
 
@@ -218,6 +218,55 @@ module top;
 endmodule
 ```
 
+### サイクル遅延と同期駆動（第12×14章の新モデル）
+
+kirimasimは`##`を`unsupported: timing control`、clockingの出力を`unsupported: output or inout clocking variable`として未実装とします。
+14.11の`##N`は既定のclockingのイベントをN回待ち、`##0`は現在の時刻にそのイベントがまだないときだけ待ちます。14.16の同期駆動は、clockingのイベントに出力のskewを足した時刻に値を変えます。
+`##0`・`##1`・`##(式)`を`for`・`repeat`・`fork`・taskの中で、クロックの時刻と時刻の間から始め、出力のskewと右辺の`##`を持つ同期駆動と交差します。
+固定Icarus 13.0はclockingブロックを受け付けず、固定Verilator 5.052は下のプログラムで`a 5`・`b 15`・`o 9`を出します。
+
+```systemverilog
+module top;
+  bit clk;
+  logic [3:0] o;
+  always #5 clk = ~clk;
+  default clocking cb @(posedge clk);
+    output #1 o;
+  endclocking
+  initial begin
+    #3 ##0 $display("a %0t", $time);
+    ##1 $display("b %0t", $time);
+    cb.o <= ##2 4'd9;
+    #30 $display("o %0d", o);
+    $finish;
+  end
+endmodule
+```
+
+### 式に結び付けたclockingの入力（第7×14・11×14章の新モデル）
+
+kirimasimは、連結を`unsupported: noncontiguous clocking source`、和・構造体のメンバー・配列の要素を`unsupported: clocking source without static packed storage`として未実装とします。
+14.5では、clockingの信号を入力ポートへの接続として合法な式（部分選択や連結を含む）に結び付けられ、14.13はその式の値を採取します。
+連結・部分選択・構造体のメンバー・配列の要素・階層名に結び付け、各部分をクロックの前後で変えて`@(cb)`の後に読みます。
+固定Icarus 13.0はclockingブロックを受け付けず、固定Verilator 5.052は下のプログラムで`e`を出します。
+
+```systemverilog
+module top;
+  bit clk;
+  logic [3:0] a = 4'h1, b = 4'h2;
+  clocking cb @(posedge clk);
+    input #1step v = {a[1:0], b[1:0]};
+  endclocking
+  initial begin
+    #1 clk = 1;
+    #1 a = 4'h3; clk = 0;
+    #1 clk = 1;
+    @(cb) $display("%h", cb.v);
+    $finish;
+  end
+endmodule
+```
+
 ## マクロ展開・force/release・暗黙の感度（2026-11-07）
 
 - [マクロ展開](interaction-verification.md#macro-expansion-context)、[force/release](interaction-verification.md#force-release-visibility)、[暗黙の感度](interaction-verification.md#implicit-sensitivity-update)のモデルを追加しました。
@@ -262,3 +311,14 @@ endmodule
 - kirimasim `28c6c1a1cb83`の単一の全4,296件は3,809 pass・479 unsupported・8 failです。追加126件は全PASSです。107モデル・185章対・全選択ケースPASSは82モデルです。
 - 全合法行496行でkirimasimの差は0件で、期待値の修正はありません。固定Icarus 13.0も全行で一致しました。Verilatorとの差は、xとzの遅延を二値で読む行とzの遅延の未対応だけです。
 - packageの名前の探索では、26.3が不正とする28通りの組合せを除き、独立した解釈がそれらをエラーとすることを確かめました。
+
+## moduleとgenerateブロックのクラス・case項目のリテラル・構造体リテラル（2026-11-08）
+
+- [moduleとgenerateブロックで宣言したクラス](interaction-verification.md#scoped-class-declaration)、[case項目のリテラルの桁](interaction-verification.md#case-literal-wildcard)、[構造体リテラルのキー](interaction-verification.md#aggregate-literal-key)のモデルを追加しました。
+- 第8×23・8×27・5×12・5×7章の4章対をRからMへ移しました。
+- 最新のmainをビルドしたkirimasim `f029ddd0eee1`の単一の全4,416件は3,915 pass・487 unsupported・14 failです。追加120件のうち106件がPASSです。110モデル・189章対・全選択ケースPASSは83モデルです。
+- 新しいfail 6件は、if・caseの生成ブロックのクラスが静的プロパティを持つ行です。インスタンスにならない分岐の、静的プロパティを持つクラスとその型の変数で、kirimasimが内部エラーになります。全240行では30行です。固定Verilator 5.052は全行で規格どおりの期待値と一致します。期待値は変更していません。
+- 構造体リテラルのlocalparamの8件は、kirimasimが非パックの構造体のlocalparamを未実装なのでunsupportedです。
+- case項目のリテラルの全312行で、kirimasimの差は0件です。
+- `f029ddd0eee1`はslangの更新を含みますが、従来4,296件の入力と状態は変わりません。`defparam`の4件もまだfailです。
+- サイクル遅延と同期駆動、式に結び付けたclockingの入力は、kirimasimが未実装なので[実装を待つ候補](#models-waiting-for-kirimasim)に加えました。ほかの4件も`f029ddd0eee1`でまだ`not implemented yet`です。

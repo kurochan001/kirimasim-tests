@@ -1,0 +1,264 @@
+{
+  "generated_at": "2026-11-08T02:21:20.396083+00:00",
+  "scope": "One run of every legal row, outside the selected witnesses, to look for expectations that the model and its independent interpretation share in error. The rows are not fixed-suite tests and do not enter any count. Rows are compiled from generator output in a temporary directory.",
+  "kirimasim": {
+    "version": "kirimasim 0.0.0 (commit f029ddd0eee1), built with AppleClang 21.0.0.21000401",
+    "binary_sha256": "c8fda34a8887c17f6012a483a53cdca8971a8a87189770dffba6382247f8d9d9"
+  },
+  "icarus": {
+    "version": "Icarus Verilog version 13.0 (stable) (v13_0)"
+  },
+  "verilator": {
+    "version": "Verilator 5.052 2026-09-05",
+    "seed": 1,
+    "models": [
+      "scoped_class_declaration",
+      "case_literal_wildcard",
+      "aggregate_literal_key"
+    ],
+    "note": "Every legal row of the three models also ran once on Verilator."
+  },
+  "correction": null,
+  "models": {
+    "scoped_class_declaration": {
+      "legal_rows": 240,
+      "selected": 48,
+      "kirimasim_differences": 30,
+      "kirimasim_unsupported": 0,
+      "kirimasim_internal_errors": 30,
+      "kirimasim_nonmatching_rows_by_factor": {
+        "scope": {
+          "gen_if": 15,
+          "gen_case": 15
+        },
+        "item": {
+          "param": 10,
+          "local": 10,
+          "variable": 10
+        },
+        "caller": {
+          "local": 18,
+          "hier": 12
+        },
+        "method": {
+          "instance": 12,
+          "static": 6,
+          "derived": 12
+        },
+        "shadow": {
+          "property": 30
+        }
+      },
+      "icarus": {
+        "match": 48,
+        "differ": 0,
+        "reject": 192,
+        "timeout": 0
+      },
+      "icarus_nonmatching_rows_by_factor": {
+        "scope": {
+          "module": 12,
+          "gen_for": 60,
+          "gen_if": 60,
+          "gen_case": 60
+        },
+        "item": {
+          "param": 48,
+          "local": 48,
+          "variable": 48,
+          "function": 48
+        },
+        "caller": {
+          "local": 120,
+          "hier": 72
+        },
+        "method": {
+          "static": 48,
+          "instance": 72,
+          "derived": 72
+        },
+        "shadow": {
+          "none": 64,
+          "property": 64,
+          "outer": 64
+        }
+      },
+      "icarus_nonmatching_rows_sha256": "a767adbcc6c02de673fb58204776eb2ffff711145a47a015c21749302fd49d12",
+      "verilator": {
+        "match": 240,
+        "differ": 0,
+        "reject": 0,
+        "nonmatching_rows_by_factor": {}
+      }
+    },
+    "case_literal_wildcard": {
+      "legal_rows": 312,
+      "selected": 24,
+      "kirimasim_differences": 0,
+      "kirimasim_unsupported": 0,
+      "kirimasim_internal_errors": 0,
+      "kirimasim_nonmatching_rows_by_factor": {},
+      "icarus": {
+        "match": 234,
+        "differ": 0,
+        "reject": 78,
+        "timeout": 0
+      },
+      "icarus_nonmatching_rows_by_factor": {
+        "base": {
+          "bin": 24,
+          "oct": 24,
+          "hex": 18,
+          "dec": 12
+        },
+        "digit": {
+          "q": 26,
+          "z": 26,
+          "x": 26
+        },
+        "lead": {
+          "wild": 45,
+          "known": 33
+        },
+        "size": {
+          "narrow": 15,
+          "same": 21,
+          "wide": 21,
+          "unsized": 21
+        },
+        "statement": {
+          "inside": 78
+        }
+      },
+      "icarus_nonmatching_rows_sha256": "c8230f936d62a7a3377dec055bfff2a80efbb419fa3cc05cee6880091d3ca310",
+      "verilator": {
+        "match": 0,
+        "differ": 0,
+        "reject": 312,
+        "nonmatching_rows_by_factor": {
+          "base": {
+            "bin": 96,
+            "oct": 96,
+            "hex": 72,
+            "dec": 48
+          },
+          "digit": {
+            "q": 104,
+            "z": 104,
+            "x": 104
+          },
+          "lead": {
+            "wild": 180,
+            "known": 132
+          },
+          "size": {
+            "narrow": 60,
+            "same": 84,
+            "wide": 84,
+            "unsized": 84
+          },
+          "statement": {
+            "case": 78,
+            "casez": 78,
+            "casex": 78,
+            "inside": 78
+          }
+        }
+      }
+    },
+    "aggregate_literal_key": {
+      "legal_rows": 192,
+      "selected": 48,
+      "kirimasim_differences": 48,
+      "kirimasim_unsupported": 48,
+      "kirimasim_internal_errors": 0,
+      "kirimasim_nonmatching_rows_by_factor": {
+        "key": {
+          "position": 6,
+          "member": 6,
+          "replicate": 6,
+          "default": 6,
+          "type": 6,
+          "type_default": 6,
+          "member_type": 6,
+          "last_type": 6
+        },
+        "value": {
+          "fill1": 8,
+          "fillx": 8,
+          "neg": 8,
+          "real": 8,
+          "wide": 8,
+          "snarrow": 8
+        },
+        "context": {
+          "param": 48
+        }
+      },
+      "icarus": {
+        "match": 0,
+        "differ": 0,
+        "reject": 192,
+        "timeout": 0
+      },
+      "icarus_nonmatching_rows_by_factor": {
+        "key": {
+          "position": 24,
+          "member": 24,
+          "replicate": 24,
+          "default": 24,
+          "type": 24,
+          "type_default": 24,
+          "member_type": 24,
+          "last_type": 24
+        },
+        "value": {
+          "fill1": 32,
+          "fillx": 32,
+          "neg": 32,
+          "real": 32,
+          "wide": 32,
+          "snarrow": 32
+        },
+        "context": {
+          "init": 48,
+          "assign": 48,
+          "typed": 48,
+          "param": 48
+        }
+      },
+      "icarus_nonmatching_rows_sha256": "579a6866ae99e69dc5832587ae537223fecd0dd134172647b7a286f6ad7a3320",
+      "verilator": {
+        "match": 60,
+        "differ": 84,
+        "reject": 48,
+        "nonmatching_rows_by_factor": {
+          "key": {
+            "position": 4,
+            "member": 4,
+            "replicate": 4,
+            "default": 24,
+            "type": 24,
+            "type_default": 24,
+            "member_type": 24,
+            "last_type": 24
+          },
+          "value": {
+            "fillx": 32,
+            "fill1": 20,
+            "neg": 20,
+            "real": 20,
+            "wide": 20,
+            "snarrow": 20
+          },
+          "context": {
+            "init": 33,
+            "assign": 33,
+            "typed": 33,
+            "param": 33
+          }
+        }
+      }
+    }
+  }
+}

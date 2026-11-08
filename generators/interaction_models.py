@@ -100,6 +100,9 @@ import interaction_ifexpr
 import interaction_paramtype
 import interaction_assertquery
 import interaction_litarg
+import interaction_scopeclass
+import interaction_casedigit
+import interaction_agglit
 import interaction_delayval
 import interaction_pkglookup
 import interaction_escname
@@ -116,7 +119,7 @@ import combination_monitors
 import scheduling
 from interaction_cover import Model, Row
 
-GENERATORS = (interaction_delayval, interaction_pkglookup, interaction_escname, interaction_hierproc, interaction_hiername, interaction_arrayloop, interaction_paramtype, interaction_assertquery, interaction_litarg, interaction_ifexpr, interaction_loopsched, interaction_litfmt, interaction_macro, interaction_force, interaction_sense, interaction_gatearray, interaction_literal, interaction_timescope, interaction_eventflow, interaction_pkgquery, interaction_progframe, interaction_scansel, interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
+GENERATORS = (interaction_scopeclass, interaction_casedigit, interaction_agglit, interaction_delayval, interaction_pkglookup, interaction_escname, interaction_hierproc, interaction_hiername, interaction_arrayloop, interaction_paramtype, interaction_assertquery, interaction_litarg, interaction_ifexpr, interaction_loopsched, interaction_litfmt, interaction_macro, interaction_force, interaction_sense, interaction_gatearray, interaction_literal, interaction_timescope, interaction_eventflow, interaction_pkgquery, interaction_progframe, interaction_scansel, interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
               interaction_shift, interaction_cast, interaction_task, interaction_binding,
               interaction_struct, interaction_case, interaction_port,
               interaction_array, interaction_query, interaction_stream,
@@ -934,5 +937,27 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_escname.MODEL.select(),
             "モジュール・インスタンス・ポート・パラメータ・変数・task・生成ブロックの名前をエスケープし、"
             "平易な形との入れ替え、+を含む名前、エスケープしたキーワード、空白・タブ・改行での終わりで結合を確かめる。",
+        ),
+        SuiteModel(
+            interaction_scopeclass.MODEL,
+            lambda row: "tests/gen/ch8/" + interaction_scopeclass.case_name(row) + ".sv",
+            interaction_scopeclass.MODEL.select(),
+            "子モジュールと、そのfor・if・caseの生成ブロックでクラスを宣言し、メソッドから宣言の場所のパラメータ・"
+            "局所パラメータ・変数・関数を読む。静的メソッド・派生クラス・階層名での呼出し、クラスの静的メンバーと"
+            "外側の同じ名前との関係を確かめる。",
+        ),
+        SuiteModel(
+            interaction_casedigit.MODEL,
+            lambda row: "tests/gen/ch5/" + interaction_casedigit.case_name(row) + ".sv",
+            interaction_casedigit.MODEL.select(),
+            "?・z・xの桁を持つ二進・八進・十六進・十進のリテラルを、先頭の桁と幅を変えてcaseの項目に書き、"
+            "case・casez・casex・case insideで、桁の埋め方と比べ方を確かめる。",
+        ),
+        SuiteModel(
+            interaction_agglit.MODEL,
+            lambda row: "tests/gen/ch5/" + interaction_agglit.case_name(row) + ".sv",
+            interaction_agglit.MODEL.select(),
+            "入れ子の構造体と配列を持つ構造体へ、位置・メンバー名・複製・default・型キーで値を与える。"
+            "各メンバーの型への変換と、キーの優先順位を、初期値・代入・型付きの式・localparamで確かめる。",
         ),
     )

@@ -10,7 +10,7 @@
 
 ## 最新証跡の確認（2026-11-06 日本時間）
 
-現行は107モデル・4,296件で、[遅延の値の書き方・packageの名前の探索・エスケープした識別子の独立確認](#delay-package-escape-qualification)を参照してください。
+現行は110モデル・4,416件で、[moduleとgenerateブロックのクラス・case項目のリテラル・構造体リテラルの独立確認](#scope-case-literal-qualification)を参照してください。
 [`handoff-ci-67321079-20261106.json`](handoff-ci-67321079-20261106.json)は、基点67321079のCheck/Nightlyと全ジョブの成功を記録します。個別artifactは未照合です。以下の旧基点は詳細照合の範囲を区別して保持します。
 [`check-9c39d865-20261106.json`](check-9c39d865-20261106.json)は前回までの86モデルの固定版比較・静的検査のCheck成功を確認します。
 [`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json)は82モデルを対象にした正式Nightly・publish・ランダム96 PASSの記録であり、実行を混同しません。
@@ -578,3 +578,17 @@ Icarusが受理しない行を補うため、3モデルの全行はVerilatorで�
 Icarusの差はなく、Verilatorのknownは二値で読むxとzの遅延だけなので、[再実行の記録](delaypkgesc-known-replays.json)の代表出力は空です。
 [全行の記録](delaypkgesc-all-rows.json)は全496行の一度きりの実行で、固定suiteや要求カバレッジへ加算しません。kirimasimとIcarusの差は0件です。
 [設計と再実行](../../docs/interaction-verification.md#delay-value-form)を参照してください。
+
+<a id="scope-case-literal-qualification"></a>
+
+## moduleとgenerateブロックのクラス・case項目のリテラル・構造体リテラルの独立確認
+
+[`scopeclass.json`](scopeclass.json)は全240行、[`casedigit.json`](casedigit.json)は全312行、[`agglit.json`](agglit.json)は全192行を独立した解釈で照合します。
+正常対照はどれも7件、誤ったSVもどれも7件で、誤りはすべて正常終了後の出力差で検出しました。正常対照はkirimasimがPASSする行から選びました。
+[ビルド記録](scopecaselit-build.json)は、最新のmainをビルドした`f029ddd0eee1`の全4,416件（3,915 pass・487 unsupported・14 fail）を識別します。追加120件のうち106件がPASSです。
+新しいfail 6件はクラスの内部エラー、unsupported 8件は構造体のlocalparamです。従来4,296件の入力と状態は不変です。110モデル・189章対・全選択ケースPASSは83モデルです。
+[固定版比較](scopecaselit-fixed-replays.json)はIcarus 29 pass・91 known、Verilatorはseed 1・73とも63 pass・57 knownです。
+[再実行の記録](scopecaselit-known-replays.json)は、Icarusの91件すべてと、二値の入力でのVerilatorの差の代表を保存します。
+[全行の記録](scopecaselit-all-rows.json)は全744行の一度きりの実行で、固定suiteや要求カバレッジへ加算しません。
+kirimasimはcase項目の全行で一致し、クラスの30行が内部エラー、構造体のlocalparamの48行がunsupportedです。Verilatorはクラスの全240行で一致します。
+[設計と再実行](../../docs/interaction-verification.md#scoped-class-declaration)を参照してください。

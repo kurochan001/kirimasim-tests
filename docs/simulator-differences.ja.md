@@ -1065,3 +1065,19 @@ kirimasim `28c6c1a1cb83`は、3モデルの全869行で規格の期待値と一�
 
 [固定版比較の記録](../coverage/interaction-qualification/delaypkgesc-fixed-replays.json)と[Verilatorの代表出力](../coverage/interaction-qualification/delaypkgesc-known-replays.json)を保存しました。
 kirimasim `28c6c1a1cb83`は、3モデルの全496行で規格の期待値と一致しました。
+
+<a id="scope-case-literal-differences"></a>
+
+## 生成ブロックのクラス・case項目のリテラル・構造体リテラル（2026-11-08）
+
+- **Icarus 13.0のクラス：** 生成ブロックの中のクラス宣言で、コンパイラの内部の検査（`pform.cc`の`!pform_cur_generate`）に失敗して止まります（180行）。
+  moduleで宣言したクラスの静的メソッドを`C::get()`で呼ぶ文は構文エラーです（12行）。
+- **Icarus 13.0の`case inside`：** 構文エラーで受け付けません（78行）。
+- **Icarus 13.0の構造体リテラル：** 非パックの構造体を未実装とし、全192行を拒否します。
+- **Verilator 5.052のcase：** zを含む値をタスクの引数に渡すところを、未対応のtristateの構文として拒否します（全312行）。
+- **Verilator 5.052の構造体リテラル：** defaultを入れ子の構造体と配列のメンバーへ降ろしません（60行）。
+  typedefの名前を型キーとして受け付けません（48行）。`'x`を二値の値として読みます。規格ではdefaultは入れ子へ降り、型キーには型の名前を書けます（10.9.2）。
+- moduleとgenerateブロックで宣言したクラスでは、固定Verilator 5.052が全240行で一致しました。
+
+[固定版比較の記録](../coverage/interaction-qualification/scopecaselit-fixed-replays.json)と[Icarusの全拒否とVerilatorの代表出力](../coverage/interaction-qualification/scopecaselit-known-replays.json)を保存しました。
+kirimasim `f029ddd0eee1`は、case項目の全312行で一致しました。クラスの30行は内部エラーで、構造体のlocalparamの48行は未実装です。

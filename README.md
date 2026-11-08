@@ -65,24 +65,24 @@ For a first test, [walk through 24 real lines](docs/faq.en.md#q49-read-a-real-te
 These are inventory and expectation-provenance counts, not current simulator passes. See [what `:lrm:` and `:oracle:` record](docs/faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
 <!-- suite-stats:begin -->
-The suite has **12046 tests** in 38 chapters. 5609 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
+The suite has **12166 tests** in 38 chapters. 5729 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 6618 |
-| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 2172 |
-| The standard only, with no fixed-release simulator oracle recorded | 3256 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 6647 |
+| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 2224 |
+| The standard only, with no fixed-release simulator oracle recorded | 3295 |
 
-2883 tests depend on x or z values (`:fourstate: yes`). 684 tests come with C code: 189 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1930 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 33 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 54 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+2915 tests depend on x or z values (`:fourstate: yes`). 684 tests come with C code: 189 DPI tests (`:dpi_c:`) and 495 VPI tests (`:vpi_c:`). 1930 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 33 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 54 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
 | 3 | Design and verification building blocks | 136 | 110 | 12 | 14 |
 | 4 | Scheduling semantics | 473 | 442 | 7 | 24 |
-| 5 | Lexical conventions | 441 | 420 | 14 | 7 |
+| 5 | Lexical conventions | 513 | 438 | 29 | 46 |
 | 6 | Data types | 682 | 396 | 163 | 123 |
 | 7 | Aggregate data types | 772 | 290 | 281 | 201 |
-| 8 | Classes | 411 | 82 | 220 | 109 |
+| 8 | Classes | 459 | 93 | 257 | 109 |
 | 9 | Processes | 443 | 339 | 48 | 56 |
 | 10 | Assignment statements | 425 | 314 | 64 | 47 |
 | 11 | Operators and expressions | 1644 | 1262 | 132 | 250 |
@@ -182,18 +182,18 @@ partial successes from separate runs are not combined into a successful requirem
 
 [Feature-interaction verification](docs/interaction-verification.en.md) uses constrained
 pairwise coverage, selected higher-order factor groups and mandatory boundary cases.
-The focused selection contains **4,296 tests across 107 models**; the normal full-suite
+The focused selection contains **4,416 tests across 110 models**; the normal full-suite
 run retains all existing tests. Models cover value/type conversion, scheduling,
 argument and reference binding, scope and hierarchy, state retention and I/O.
 The selection plan does not change the whole-standard requirement denominator.
 
-The [latest complete local cross run](coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json),
-on kirimasim **`28c6c1a1cb83`**, built from the latest main, records
-**3,809 pass, 479 unsupported and eight fail**. All 126 additions for delay values, package name lookup and escaped identifiers pass.
-Compared with the [previous complete run](coverage/interaction-results/cross104-kirimasim-28c6c1a1-hierloop.json) on the same build, no status or input of the preceding 4,170 cases changed.
+The [latest complete local cross run](coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json),
+on kirimasim **`f029ddd0eee1`**, built from the latest main, records
+**3,915 pass, 487 unsupported and 14 fail**. Of the 120 additions for scoped classes, case item literals and structure literals, 106 pass.
+Compared with the [previous complete run](coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json) on the earlier build, no status or input of the preceding 4,296 cases changed.
 [Check on baseline 67321079](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584) passed pinned comparisons/static checks on the preceding 88-model suite.
 [Nightly on the same baseline](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265) and all its jobs succeeded; individual artifacts remain uninspected. Later additions are outside both runs.
-All inputs retain their original expectations; four failures are config parameter resets localized to pinned slang, and four are the [`defparam` type and range](docs/interaction-verification.en.md#parameter-override-type) mismatch. The
+All inputs retain their original expectations; four failures are config parameter resets localized to pinned slang, four are the [`defparam` type and range](docs/interaction-verification.en.md#parameter-override-type) mismatch, and six are a kirimasim internal error on [a class in a generate block](docs/interaction-verification.en.md#scoped-class-declaration). The
 [follow-up record](docs/cross-verification-followup.en.md) retains the earlier 11→9→4 history,
 complete-output replays, the 19-mechanism unsupported inventory and reviewed chapter pairs.
 The chapter CSVs use the single complete local cross89 run; formal confirmation is recorded separately.

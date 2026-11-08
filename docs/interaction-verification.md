@@ -14,12 +14,20 @@
 
 ## 保存実行の概要
 
+2026-11-08のmoduleとgenerateブロックで宣言したクラス・case項目のリテラルの桁・構造体リテラルのキーの追加で、**110モデル・4,416件・189章対**になりました。
+最新のmainをビルドしたkirimasim `f029ddd0eee1`の[単一実行](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json)は、
+**3,915 pass・487 unsupported・14 fail**です。failは既存configの4件、`defparam`の4件と、追加のクラスの6件です。
+追加120件のうち106件がPASSで、6件は条件の生成ブロックのクラスでkirimasimが内部エラーになり、8件は構造体のlocalparamが未実装です。
+従来4,296件の入力と状態は不変です。全選択ケースPASSは83モデルです。
+[moduleとgenerateブロックで宣言したクラス](#scoped-class-declaration)、[case項目のリテラルの桁](#case-literal-wildcard)、[構造体リテラルのキー](#aggregate-literal-key)に独立検算と固定版比較を記録します。
+追加120件は正式Check・Nightlyでは未実行です。
+
 2026-11-08の遅延の値の書き方・packageの名前の探索・エスケープした識別子の追加で、**107モデル・4,296件・185章対**になりました。
 kirimasim `28c6c1a1cb83`の[単一実行](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json)は、
 **3,809 pass・479 unsupported・8 fail**です。failは既存configの4件と、`defparam`の型と範囲を取り違える4件で、前回と同じです。
 追加126件は全PASSで、従来4,170件の入力と状態は不変です。全選択ケースPASSは82モデルです。
 [遅延の値の書き方](#delay-value-form)、[packageの名前の探索](#package-name-lookup)、[エスケープした識別子の結合](#escaped-name-binding)に独立検算と固定版比較を記録します。
-追加126件は正式Check・Nightlyでは未実行です。
+追加126件は[`c229a05f`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42435564931)で固定版比較が成功しました。Nightlyでは未実行です。
 
 2026-11-08の階層名によるプロセスの制御・%mの階層名・配列の問い合わせ関数とループの追加で、**104モデル・4,170件・181章対**になりました。
 最新のmainをビルドしたkirimasim `28c6c1a1cb83`の[単一実行](../coverage/interaction-results/cross104-kirimasim-28c6c1a1-hierloop.json)は、
@@ -4517,3 +4525,120 @@ kirimasim `28c6c1a1cb83`の[単一の全4,296件](../coverage/interaction-result
 ### 固定版の差異
 
 [固定Icarus 13.0](../coverage/interaction-results/cross107-delaypkgesc-icarus13.json)と[固定Verilator 5.052](../coverage/interaction-results/cross107-delaypkgesc-verilator5052-seed1.json)（[seed 73](../coverage/interaction-results/cross107-delaypkgesc-verilator5052-seed73.json)も）は、全29件と全126行で一致します。
+
+<a id="scoped-class-declaration"></a>
+
+## moduleとgenerateブロックで宣言したクラス（2026-11-08）
+
+[`interaction_scopeclass.py`](../generators/interaction_scopeclass.py)は`scoped_class_declaration@1`を定義します。
+第8章×第23章は全48件に対応し、第8章×第27章は生成ブロックで宣言した36件に対応します。
+
+### 因子・対象範囲
+
+クラスを宣言する場所（子module、forの生成ブロック、if-elseの生成ブロック、caseの生成ブロック）、
+メソッドが読むもの（パラメータ`P`、局所パラメータ`L`、変数`v`、関数`f()`）、
+呼び出す場所（宣言したスコープの`initial`、topからの階層名）、
+メソッド（インスタンスメソッド、クラススコープで呼ぶ静的メソッド、`super.get()`に1000を足す派生クラスのメソッド）、
+同じ名前（なし、クラスの静的メンバー、外側のスコープ）を交差します。子moduleは`P`が1と2の二つのインスタンスにします。
+静的メソッドは宣言したスコープからだけ呼ぶので、階層名との組合せを除きます。
+合法240行から48件を選びます。場所・読むもの・同じ名前の3因子群を含む148目標、必須7件を保持します。
+
+### 何を区別するか
+
+メソッドの中の名前は、クラスのメンバーと継承したメンバーを先に探し、次にクラスを宣言したスコープと、その外側のスコープを探します（23.9）。
+そのため[forの生成ブロックのクラス](../tests/gen/ch8/test_gen_cross_scopeclass_gen_for_local_local_instance_outer.sv)は、そのブロックの`L`を読み、子moduleとtopの同じ名前は使いません。
+変数は二回の読み出しの間に100増やし、メソッドが呼出し時の値を読むことを確かめます。
+条件の生成では選ばれたブロックだけが存在し、両方の分岐にある同じ名前のクラス`C`は別の型です（27.5）。
+[ifの分岐で静的メソッドが呼ぶ`f()`](../tests/gen/ch8/test_gen_cross_scopeclass_gen_if_function_local_static_property.sv)は、クラスの静的メソッドが外側の関数を隠します。
+topから[`u1.g[0].h.get()`](../tests/gen/ch8/test_gen_cross_scopeclass_gen_for_variable_hier_derived_outer.sv)で呼んでも、名前は宣言の場所で結合し、topの同じ名前は読みません。
+
+### 独立検算と実行結果
+
+[`qualify_scopeclass.py`](../tools/qualify_scopeclass.py)は実際のSVのmodule・生成構文・宣言・クラス・`initial`を読みます。
+インスタンスごとにパラメータで展開し、forはgenvarごとのブロックを、if・caseは条件が成り立つブロックだけを作ります。
+メソッドの名前は23.9の順で探し、`initial`を遅延の順に実行します。全240プログラムが一致しました。
+[補助証跡](../coverage/interaction-qualification/scopeclass.json)には正常対照7件と実行可能な誤り7件を保存し、すべて正常終了後の出力差で検出しました。
+
+kirimasim `f029ddd0eee1`の[単一の全4,416件](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json)では、追加48件のうち42件がPASSで、6件がfailです。
+failは、if・caseの生成ブロックのクラスが静的プロパティを持つ行です。インスタンスにならない分岐の、静的プロパティを持つクラスとその型の変数で、kirimasimが内部エラーになります。
+全240行では、この形の30行がすべて同じ内部エラーで、ほかの210行は一致します。期待値は規格どおりのままです。
+
+### 固定版の差異
+
+[固定Icarus 13.0](../coverage/interaction-results/cross110-scopecaselit-icarus13.json)は11件がPASSで37件がknownです。生成ブロックの中のクラスは、コンパイラの内部の検査で止まります。
+moduleで宣言したクラスの静的メソッドの呼出し`C::get()`は構文エラーです。全240行では48行が一致し、192行を拒否します。
+[固定Verilator 5.052](../coverage/interaction-results/cross110-scopecaselit-verilator5052-seed1.json)は、seed 1と[seed 73](../coverage/interaction-results/cross110-scopecaselit-verilator5052-seed73.json)のどちらも全48件がPASSで、全240行も一致します。
+kirimasimがfailする6件も、Verilatorは期待値と一致します。
+
+<a id="case-literal-wildcard"></a>
+
+## case項目のリテラルの?・z・xの桁（2026-11-08）
+
+[`interaction_casedigit.py`](../generators/interaction_casedigit.py)は`case_literal_wildcard@1`を定義します。
+第5章×第12章は全24件に対応します。
+
+### 因子・対象範囲
+
+項目のリテラルの基数（2進、8進、16進、10進）、桁（`?`、`z`、`x`）、先頭の桁（不定値、既知の値）、
+幅（6ビット、8ビット、12ビット、無サイズ）、文（`case`、`casez`、`casex`、`case inside`）を交差します。
+10進は不定値の桁を一つだけ書けるので先頭は不定値だけ、16進の2桁は6ビットに入らないので除きます。
+合法312行から24件を選びます。桁・先頭の桁・文の3因子群を含む136目標、必須7件を保持します。
+各プログラムは8ビットの選択式を5回比べます。不定値の位置を既知の値で埋めた値、既知の位置を一つ反転した値、既知の位置をzにした値とxにした値、項目と同じ4値の値です。
+
+### 何を区別するか
+
+`?`は`z`の別の書き方で、16進の一桁は4ビット、8進は3ビットを決めます。10進の`x`・`z`・`?`は全ビットを決めます（5.7.1）。
+リテラルが幅より短いときは、先頭のビットがxかzならその値で、そうでなければ0で左を埋めます。
+caseは、そのあと選択式と項目を広いほうの幅へ0で広げます（12.5）。
+そのため[`6'b1z0z`](../tests/gen/ch5/test_gen_cross_casedigit_bin_z_known_narrow_casez.sv)の上の2ビットは0で、[`12'b?1?0`](../tests/gen/ch5/test_gen_cross_casedigit_bin_q_wild_wide_casez.sv)の上のビットはzです。
+`casez`はzを、`casex`はxとzを、どちらの側にあっても比べません（12.5.1）。
+`case inside`は項目の側のxとzだけを比べず、選択式のxやzは一致しません（12.5.4、11.4.6）。[`8'hx5`の`case inside`](../tests/gen/ch5/test_gen_cross_casedigit_hex_x_wild_same_inside.sv)で、この非対称を確かめます。
+
+### 独立検算と実行結果
+
+[`qualify_casedigit.py`](../tools/qualify_casedigit.py)は実際のSVのリテラルを5.7.1で読み、文の種類ごとの規則でビットを比べます。全312プログラムが一致しました。
+[補助証跡](../coverage/interaction-qualification/casedigit.json)には正常対照7件と実行可能な誤り7件を保存し、すべて正常終了後の出力差で検出しました。
+
+kirimasim `f029ddd0eee1`の[単一の全4,416件](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json)で追加24件は全PASSです。全312行でkirimasimの差は0件です。
+
+### 固定版の差異
+
+[固定Icarus 13.0](../coverage/interaction-results/cross110-scopecaselit-icarus13.json)は18件がPASSです。`case inside`の6件は構文エラーです。全312行では`case inside`以外の234行が一致します。
+[固定Verilator 5.052](../coverage/interaction-results/cross110-scopecaselit-verilator5052-seed1.json)（[seed 73](../coverage/interaction-results/cross110-scopecaselit-verilator5052-seed73.json)も）は、zを含む値をタスクの引数に渡すところを、未対応のtristateの構文として全行で拒否します。
+
+<a id="aggregate-literal-key"></a>
+
+## 構造体リテラルのキー（2026-11-08）
+
+[`interaction_agglit.py`](../generators/interaction_agglit.py)は`aggregate_literal_key@1`を定義します。
+第5章×第7章は全48件に対応します。
+
+### 因子・対象範囲
+
+構造体は、`nib_t`（`logic [3:0]`）のメンバー`a`、int・`nib_t`・byte・integerの4メンバーを持つ構造体`n`、intの配列`q[2]`を持ちます。
+キー（位置、メンバー名、複製、default、入れ子のパターンの型キー、型キーとdefault、メンバー名と型キーとdefault、二回書いた型キー）、
+値（`'1`、`'x`、`-2`、`2.5`、`12'h9f5`、`3'sb101`）、文脈（宣言の初期値、手続きの代入、型付きのパターン式、localparam）を交差します。
+全192行が合法で、48件を選びます。全因子対104目標、必須7件を保持します。
+
+### 何を区別するか
+
+構造体リテラルは、位置・メンバー名・型・defaultで値を与えます（5.10、10.9.2）。
+メンバー名が先、次に型が一致する型キー、最後にdefaultです。同じ型キーを二回書けば後の値を使います。
+defaultは、名前でも型でも決まらない構造体と配列のメンバーの中へ降り、そこでも型キーを当てはめます。
+intとintegerは状態の数が違うので一致する型ではなく（6.22.1）、[intのキーはintegerに当たりません](../tests/gen/ch5/test_gen_cross_agglit_type_default_fillx_assign.sv)。
+値は各メンバーへの代入として変換します（10.7）。`3'sb101`は符号を広げ、`12'h9f5`は切り詰め、`2.5`は3に丸め、二値のメンバーではxが0になります。
+defaultがないときに型キーが入れ子へ降りるかは読み方が分かれるので、その形では型キーを入れ子のパターンに直接書きます。
+
+### 独立検算と実行結果
+
+[`qualify_agglit.py`](../tools/qualify_agglit.py)は実際のSVのtypedefを型に読み、パターンを10.9の規則で当てはめて、各メンバーの型へ変換します。全192プログラムが一致しました。
+[補助証跡](../coverage/interaction-qualification/agglit.json)には正常対照7件と実行可能な誤り7件を保存し、すべて正常終了後の出力差で検出しました。
+
+kirimasim `f029ddd0eee1`の[単一の全4,416件](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json)では、追加48件のうち40件がPASSで、localparamの8件がunsupportedです。
+kirimasimは非パックの構造体のlocalparamをまだ実装していません。全192行では、localparamの48行がunsupportedで、ほかの144行は一致します。
+
+### 固定版の差異
+
+[固定Icarus 13.0](../coverage/interaction-results/cross110-scopecaselit-icarus13.json)は非パックの構造体を実装しておらず、全48件と全192行を拒否します。
+[固定Verilator 5.052](../coverage/interaction-results/cross110-scopecaselit-verilator5052-seed1.json)（[seed 73](../coverage/interaction-results/cross110-scopecaselit-verilator5052-seed73.json)も）は15件がPASSで、33件がknownです。
+defaultを入れ子の構造体と配列へ降ろさず、typedefの名前の型キーを受け付けず、`'x`を二値で読みます。全192行では60行が一致します。

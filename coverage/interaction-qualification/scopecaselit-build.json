@@ -1,0 +1,73 @@
+{
+  "models": [
+    "scoped_class_declaration",
+    "case_literal_wildcard",
+    "aggregate_literal_key"
+  ],
+  "generated_at": "2026-11-08T02:21:40.988024+00:00",
+  "scope": "Final headers with pinned-release oracles. The latest main was fetched into a separate clone, configured and built before one complete finite-cross run, so the shared checkout stayed untouched. This build is newer than the one of the previous complete run; every earlier input and status is unchanged. Formal CI is separate.",
+  "base_revision": "f029ddd0eee1790b4c5a1b6bd08302312a275265",
+  "upstream_main_revision": "f029ddd0eee1790b4c5a1b6bd08302312a275265",
+  "tracked_worktree_clean_at_build": true,
+  "binary_sha256": "c8fda34a8887c17f6012a483a53cdca8971a8a87189770dffba6382247f8d9d9",
+  "binary_unchanged": true,
+  "slang_revision": "6fbb158f156436a1cb4d0ce9de5373a416a05d4c",
+  "version": "kirimasim 0.0.0 (commit f029ddd0eee1), built with AppleClang 21.0.0.21000401",
+  "run": "coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json",
+  "counts": {
+    "pass": 3915,
+    "unsupported": 487,
+    "fail": 14
+  },
+  "new_cases": 120,
+  "new_cases_by_model": {
+    "agglit": 48,
+    "casedigit": 24,
+    "scopeclass": 48
+  },
+  "previous_cases": 4296,
+  "previous_run": "coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json",
+  "previous_version": "kirimasim 0.0.0 (commit 28c6c1a1cb83), built with AppleClang 21.0.0.21000401",
+  "previous_inputs_changed": [],
+  "previous_status_changes": {},
+  "new_case_statuses": {
+    "pass": 106,
+    "unsupported": 8,
+    "fail": 6
+  },
+  "new_case_failures": {
+    "gen/ch8/test_gen_cross_scopeclass_gen_case_local_local_instance_property": "output differs (exit 3): line 1 is missing, expected 'P1 900 900'",
+    "gen/ch8/test_gen_cross_scopeclass_gen_case_param_local_instance_property": "output differs (exit 3): line 1 is missing, expected 'P1 900 900'",
+    "gen/ch8/test_gen_cross_scopeclass_gen_case_variable_local_instance_property": "output differs (exit 3): line 1 is missing, expected 'P1 900 900'",
+    "gen/ch8/test_gen_cross_scopeclass_gen_if_local_local_instance_property": "output differs (exit 3): line 1 is missing, expected 'P1 900 900'",
+    "gen/ch8/test_gen_cross_scopeclass_gen_if_param_local_instance_property": "output differs (exit 3): line 1 is missing, expected 'P1 900 900'",
+    "gen/ch8/test_gen_cross_scopeclass_gen_if_variable_local_instance_property": "output differs (exit 3): line 1 is missing, expected 'P1 900 900'"
+  },
+  "new_case_unsupported": {
+    "gen/ch5/test_gen_cross_agglit_default_real_param": "assignment of this unpacked structure value (not implemented yet)",
+    "gen/ch5/test_gen_cross_agglit_last_type_neg_param": "assignment of this unpacked structure value (not implemented yet)",
+    "gen/ch5/test_gen_cross_agglit_member_fill1_param": "assignment of this unpacked structure value (not implemented yet)",
+    "gen/ch5/test_gen_cross_agglit_member_type_neg_param": "assignment of this unpacked structure value (not implemented yet)",
+    "gen/ch5/test_gen_cross_agglit_position_neg_param": "assignment of this unpacked structure value (not implemented yet)",
+    "gen/ch5/test_gen_cross_agglit_replicate_fillx_param": "assignment of this unpacked structure value (not implemented yet)",
+    "gen/ch5/test_gen_cross_agglit_type_default_snarrow_param": "assignment of this unpacked structure value (not implemented yet)",
+    "gen/ch5/test_gen_cross_agglit_type_wide_param": "assignment of this unpacked structure value (not implemented yet)"
+  },
+  "earlier_failures": [
+    "gen/ch23/test_gen_cross_paramtype_signed_concat_both",
+    "gen/ch23/test_gen_cross_paramtype_signed_ssized_defparam",
+    "gen/ch23/test_gen_cross_paramtype_untyped_ssized_both",
+    "gen/ch23/test_gen_cross_paramtype_untyped_wide_defparam",
+    "gen/ch33/test_gen_cross_config_1_both_reset_all_0_if_literal_direct",
+    "gen/ch33/test_gen_cross_config_32_defparam_reset_all_0_case_literal_wrapped",
+    "gen/ch33/test_gen_cross_config_32_defparam_reset_all_0_if_literal_direct",
+    "gen/ch33/test_gen_cross_config_64_both_reset_all_0_if_literal_wrapped",
+    "gen/ch8/test_gen_cross_scopeclass_gen_case_local_local_instance_property",
+    "gen/ch8/test_gen_cross_scopeclass_gen_case_param_local_instance_property",
+    "gen/ch8/test_gen_cross_scopeclass_gen_case_variable_local_instance_property",
+    "gen/ch8/test_gen_cross_scopeclass_gen_if_local_local_instance_property",
+    "gen/ch8/test_gen_cross_scopeclass_gen_if_param_local_instance_property",
+    "gen/ch8/test_gen_cross_scopeclass_gen_if_variable_local_instance_property"
+  ],
+  "earlier_failure_note": "The four config failures and the four parameter_override_type defparam failures of the previous run remain, with the same statuses. The six new failures are scoped_class_declaration rows where kirimasim stops with an internal error on a class with a static property in a generate block that is not instantiated."
+}

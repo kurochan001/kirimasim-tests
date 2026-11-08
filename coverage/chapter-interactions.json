@@ -3052,6 +3052,59 @@
           "reason": "エスケープした生成ブロックの名前を、階層名で読む。"
         }
       ]
+    },
+    {
+      "id": "scoped_class_declaration",
+      "primary_chapter": 8,
+      "pairs": [
+        {
+          "chapters": [
+            8,
+            23
+          ],
+          "reason": "パラメータの異なる二つのインスタンスで宣言したクラスのメソッドが、宣言したモジュールの名前を読み、階層名を通しても同じ結合になることを確かめる。"
+        },
+        {
+          "chapters": [
+            8,
+            27
+          ],
+          "when": {
+            "scope": [
+              "gen_for",
+              "gen_if",
+              "gen_case"
+            ]
+          },
+          "reason": "for・if・caseの生成ブロックで宣言したクラスが、そのブロックのgenvarと宣言を読み、選ばれた分岐だけが存在することを確かめる。"
+        }
+      ]
+    },
+    {
+      "id": "case_literal_wildcard",
+      "primary_chapter": 5,
+      "pairs": [
+        {
+          "chapters": [
+            5,
+            12
+          ],
+          "reason": "?・z・xの桁を持つリテラルの埋め方と、case・casez・casex・case insideでの比べ方を合わせて確かめる。"
+        }
+      ]
+    },
+    {
+      "id": "aggregate_literal_key",
+      "primary_chapter": 5,
+      "pairs": [
+        {
+          "chapters": [
+            5,
+            7
+          ],
+          "reason": "構造体リテラルの位置・メンバー名・複製・default・型キーが、入れ子の構造体と配列の各メンバーをその型で設定することを確かめる。"
+        }
+      ]
     }
   ]
 }

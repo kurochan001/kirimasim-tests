@@ -10,7 +10,7 @@ This directory stores records of fixed-version verification-source selection, in
 
 ## Current evidence checkpoint (2026-11-06 JST)
 
-The selection now contains 107 models / 4,296 cases; see [delay-value, package-lookup and escaped-name qualification](#delay-package-escape-qualification).
+The selection now contains 110 models / 4,416 cases; see [scoped-class, case-literal and structure-literal qualification](#scope-case-literal-qualification).
 [`handoff-ci-67321079-20261106.json`](handoff-ci-67321079-20261106.json) records successful Check/Nightly workflows and all jobs on baseline 67321079. Individual artifacts remain uninspected; retain the older detailed checkpoints below separately.
 [`check-9c39d865-20261106.json`](check-9c39d865-20261106.json) confirms Check’s pinned comparisons/static checks for the preceding 86-model suite.
 [`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json) records an 82-model formal Nightly/publish and 96 random passes; these are separate runs.
@@ -579,3 +579,17 @@ Preceding 4,170 inputs and statuses are unchanged, and the failures are the same
 Icarus has no difference, and the Verilator known results are only x and z delays read as two-state values, so the representative outputs in the [replay record](delaypkgesc-known-replays.json) are empty.
 The [all-row record](delaypkgesc-all-rows.json) is one run of all 496 rows and enters neither the fixed suite nor requirement coverage. kirimasim and Icarus have no difference.
 See the [design and rerun](../../docs/interaction-verification.en.md#delay-value-form).
+
+<a id="scope-case-literal-qualification"></a>
+
+## Scoped-class, case-literal and structure-literal qualification
+
+[`scopeclass.json`](scopeclass.json) checks all 240 rows, [`casedigit.json`](casedigit.json) all 312 and [`agglit.json`](agglit.json) all 192 by independent interpretation.
+Each has seven normal controls and seven faulty SV programs, all detected by an output difference after a normal exit. The normal controls are rows that kirimasim passes.
+The [build record](scopecaselit-build.json) identifies one complete 4,416-case run on `f029ddd0eee1`, built from the latest main (3,915 pass / 487 unsupported / 14 fail). 106 of the 120 additions pass.
+The six new failures are the class internal error, and the eight unsupported cases are structure localparams. Preceding 4,296 inputs and statuses are unchanged. Totals: 110 models / 189 chapter pairs / 83 full-selection-pass models.
+[Pinned comparisons](scopecaselit-fixed-replays.json) record Icarus 29 pass / 91 known, and Verilator 63 pass / 57 known at both seeds 1 and 73.
+The [replay record](scopecaselit-known-replays.json) keeps all 91 Icarus results and representatives of the Verilator differences on two-state inputs.
+The [all-row record](scopecaselit-all-rows.json) is one run of all 744 rows and enters neither the fixed suite nor requirement coverage.
+kirimasim matches every case item row; 30 class rows stop on an internal error and 48 structure localparam rows are unsupported. Verilator matches all 240 class rows.
+See the [design and rerun](../../docs/interaction-verification.en.md#scoped-class-declaration).

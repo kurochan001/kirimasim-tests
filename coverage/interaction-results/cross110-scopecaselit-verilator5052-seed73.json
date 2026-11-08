@@ -1,0 +1,550 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch5/test_gen_cross_agglit_default_fill1_init": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'a=1111 i=1 l=0000 b=0 g=0 q=-1,0', expected 'a=1111 i=-1 l=1111 b=-1 g=-1 q=-1,-1'",
+   "inputs_sha256": "7aa94060cfbd7a87d9768370dcc8b771aadbb0ca799a1731f791db38652e4edc"
+  },
+  "gen/ch5/test_gen_cross_agglit_default_fillx_init": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'a=0111 i=0 l=0000 b=0 g=0 q=1839709311,0', expected 'a=xxxx i=0 l=xxxx b=0 g=x q=0,0'",
+   "inputs_sha256": "83a9429446755e124e77013db961696adec82d5d68e6addb78d828c2781cb776"
+  },
+  "gen/ch5/test_gen_cross_agglit_default_neg_typed": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'a=1110 i=0 l=0000 b=0 g=0 q=-2,0', expected 'a=1110 i=-2 l=1110 b=-2 g=-2 q=-2,-2'",
+   "inputs_sha256": "18301c1b36fbce36865ce6c7cec020d12338a1d5512d991319917ef3f01e467b"
+  },
+  "gen/ch5/test_gen_cross_agglit_default_real_param": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'a=0011 i=1 l=0000 b=0 g=0 q=3,0', expected 'a=0011 i=3 l=0011 b=3 g=3 q=3,3'",
+   "inputs_sha256": "2e85014c46febb24040a7e2dce1e280bcb99703c112cb30069730323f83de5b9"
+  },
+  "gen/ch5/test_gen_cross_agglit_default_snarrow_init": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'a=1101 i=5 l=0000 b=0 g=0 q=-3,0', expected 'a=1101 i=-3 l=1101 b=-3 g=-3 q=-3,-3'",
+   "inputs_sha256": "e7b084c548f8f86645aaad4d6a5a803eafa241269451312d4ecced1dd4c8fb51"
+  },
+  "gen/ch5/test_gen_cross_agglit_default_wide_assign": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'a=0101 i=245 l=0000 b=0 g=0 q=2549,0', expected 'a=0101 i=2549 l=0101 b=-11 g=2549 q=2549,2549'",
+   "inputs_sha256": "da1894402732450fd01bebdca409f7b023e29e62e3b7fca014e78ca60becad28"
+  },
+  "gen/ch5/test_gen_cross_agglit_last_type_fill1_init": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'a=0111 i=7 l=0000 b=0 g=0 q=7,0', expected 'a=0111 i=-1 l=0111 b=7 g=7 q=-1,-1'",
+   "inputs_sha256": "4570bcd85a8cdfd04ac312972b6793eb8744b39b06133933451b1cc973829885"
+  },
+  "gen/ch5/test_gen_cross_agglit_last_type_fillx_assign": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'a=0111 i=7 l=0000 b=0 g=0 q=7,0', expected 'a=0111 i=0 l=0111 b=7 g=7 q=0,0'",
+   "inputs_sha256": "8131eccb4a9ceea0fea23cf311795096698301124313a5f6ac76f599c8976a07"
+  },
+  "gen/ch5/test_gen_cross_agglit_last_type_neg_param": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'a=0111 i=7 l=0000 b=0 g=0 q=7,0', expected 'a=0111 i=-2 l=0111 b=7 g=7 q=-2,-2'",
+   "inputs_sha256": "d5378631d12679a6fa200553fe0c311056b410ee2a2a198aad28e662a762ff3d"
+  },
+  "gen/ch5/test_gen_cross_agglit_last_type_real_typed": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'a=0111 i=7 l=0000 b=0 g=0 q=7,0', expected 'a=0111 i=3 l=0111 b=7 g=7 q=3,3'",
+   "inputs_sha256": "79e2c8197126ccb1278a876a533cf7b8aaaa8c962fb4b01cfdf4b98beb78e368"
+  },
+  "gen/ch5/test_gen_cross_agglit_last_type_snarrow_init": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'a=0111 i=7 l=0000 b=0 g=0 q=7,0', expected 'a=0111 i=-3 l=0111 b=7 g=7 q=-3,-3'",
+   "inputs_sha256": "b253681d07bd6ca86317e459f89d08479abc1e4863497297b802d8b46f2c0f55"
+  },
+  "gen/ch5/test_gen_cross_agglit_last_type_wide_init": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'a=0111 i=7 l=0000 b=0 g=0 q=7,0', expected 'a=0111 i=2549 l=0111 b=7 g=7 q=2549,2549'",
+   "inputs_sha256": "648d4a7aea7cf14da1aad6df0de8468e9839cdd2c02cf7426730b881e78cb86f"
+  },
+  "gen/ch5/test_gen_cross_agglit_member_fill1_param": {
+   "status": "pass",
+   "inputs_sha256": "43e14b8d02c06089bdf87957c82c3db4076863b2b9cdcf30cbe45f41895ccc76"
+  },
+  "gen/ch5/test_gen_cross_agglit_member_fillx_init": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'a=1011 i=-1032009963 l=0011 b=-66 g=-1083554689 q=-950092...', expected 'a=xxxx i=0 l=xxxx b=0 g=x q=0,0'",
+   "inputs_sha256": "44b271519a4cad733ca6075b9e1d56cbdea59dba7b664da3e31c6ce1fa8f7733"
+  },
+  "gen/ch5/test_gen_cross_agglit_member_neg_assign": {
+   "status": "pass",
+   "inputs_sha256": "21ef5ee41b23f8a0c4c30a3d5debd36b57dc86f1b84566e5168ceb421050a6f2"
+  },
+  "gen/ch5/test_gen_cross_agglit_member_real_init": {
+   "status": "pass",
+   "inputs_sha256": "d6d8e1634b6bfe323e575640f8c0701b2ec960386ad175bd21c96a164a780763"
+  },
+  "gen/ch5/test_gen_cross_agglit_member_snarrow_init": {
+   "status": "pass",
+   "inputs_sha256": "c1f8865f4d695672d81655e4747859aee2c476905d0dbed1a03d7601fa863fe5"
+  },
+  "gen/ch5/test_gen_cross_agglit_member_type_fill1_assign": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch5/test_gen_cross_agglit_member_type_fill1_assign.sv:36:18: Assignment pattern key 'nib_t' not found as member",
+   "inputs_sha256": "830dc5a507b852c65bdf5a3aa6f049c237fd1430dd698f5a2666cd7f59fd7706"
+  },
+  "gen/ch5/test_gen_cross_agglit_member_type_fillx_typed": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch5/test_gen_cross_agglit_member_type_fillx_typed.sv:34:30: Assignment pattern key 'nib_t' not found as member",
+   "inputs_sha256": "5c451b6af401eec6e1eb6a35c29c08c89e8ef77e7d5fa59c5894081dc99fc557"
+  },
+  "gen/ch5/test_gen_cross_agglit_member_type_neg_param": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch5/test_gen_cross_agglit_member_type_neg_param.sv:34:33: Assignment pattern key 'nib_t' not found as member",
+   "inputs_sha256": "214ff393a42592ce7a43de15e1b105334dc7b37f8aa3a0bf4092481cf5bd0cfc"
+  },
+  "gen/ch5/test_gen_cross_agglit_member_type_real_init": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch5/test_gen_cross_agglit_member_type_real_init.sv:34:23: Assignment pattern key 'nib_t' not found as member",
+   "inputs_sha256": "32ccccfac5c3cf312e07698c03aa41245e8e81d43fba68498075f3e98e0b851a"
+  },
+  "gen/ch5/test_gen_cross_agglit_member_type_snarrow_init": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch5/test_gen_cross_agglit_member_type_snarrow_init.sv:34:27: Assignment pattern key 'nib_t' not found as member",
+   "inputs_sha256": "556b48cf1a74b0670feb6b10a36641eeba789343843fdcb4a098ba21b3b533ea"
+  },
+  "gen/ch5/test_gen_cross_agglit_member_type_wide_init": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch5/test_gen_cross_agglit_member_type_wide_init.sv:34:27: Assignment pattern key 'nib_t' not found as member",
+   "inputs_sha256": "b543b38b3d376b29f1e99daf5d70b46122d65f4a280c849e314da6c779aead0c"
+  },
+  "gen/ch5/test_gen_cross_agglit_member_wide_typed": {
+   "status": "pass",
+   "inputs_sha256": "34df8941ee3c5d3460cf989db960c300f642c050579256488cc1a4f52c7a1877"
+  },
+  "gen/ch5/test_gen_cross_agglit_position_fill1_init": {
+   "status": "pass",
+   "inputs_sha256": "796953d4184c31a96a24958aab7e2dbd5e93fa398e98a14f0eb46f438070c680"
+  },
+  "gen/ch5/test_gen_cross_agglit_position_fillx_typed": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'a=0110 i=-158428926 l=0100 b=75 g=1657773759 q=1417015993...', expected 'a=xxxx i=0 l=xxxx b=0 g=x q=0,0'",
+   "inputs_sha256": "80cee2fc2e9811ae77e6af9df2b8428cb2947c2d845634577357b5476f6cadba"
+  },
+  "gen/ch5/test_gen_cross_agglit_position_neg_param": {
+   "status": "pass",
+   "inputs_sha256": "355729dfebb116ae3cfb7326426ce7db907e3355a179d3f465dc574a4745f23a"
+  },
+  "gen/ch5/test_gen_cross_agglit_position_real_assign": {
+   "status": "pass",
+   "inputs_sha256": "3d6384c70813835abf3fa50517ad15b9e0cc190b0ba1760ef4eb0e113c725471"
+  },
+  "gen/ch5/test_gen_cross_agglit_position_snarrow_init": {
+   "status": "pass",
+   "inputs_sha256": "9a1302e39bf8fe043364800a91245aa8f66655e4fb47fa8137355d888e51bfb2"
+  },
+  "gen/ch5/test_gen_cross_agglit_position_wide_init": {
+   "status": "pass",
+   "inputs_sha256": "5b3e6b36f171a589596ec019b6cc7f2fec90ef2531e8c7b99a1e64a3d981c4ca"
+  },
+  "gen/ch5/test_gen_cross_agglit_replicate_fill1_typed": {
+   "status": "pass",
+   "inputs_sha256": "b63746c890a0e94b1a1439cd4d78f748eebd7af3b2c8794477a40c35007c213c"
+  },
+  "gen/ch5/test_gen_cross_agglit_replicate_fillx_param": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'a=0000 i=0 l=0000 b=0 g=0 q=0,0', expected 'a=xxxx i=0 l=xxxx b=0 g=x q=0,0'",
+   "inputs_sha256": "b4794872a9f7d2955e66024a795d1edf4461c1e92a51af3f5bd4188779501272"
+  },
+  "gen/ch5/test_gen_cross_agglit_replicate_neg_init": {
+   "status": "pass",
+   "inputs_sha256": "df7b6e5e0ae7af2577aab5d1d03d75f9e5bd0eb2b4d726c2b881693ab86b6eb2"
+  },
+  "gen/ch5/test_gen_cross_agglit_replicate_real_init": {
+   "status": "pass",
+   "inputs_sha256": "340b95fbd8326cf219931fa34508e49e8c0bc86927b8599e784db091387b6315"
+  },
+  "gen/ch5/test_gen_cross_agglit_replicate_snarrow_assign": {
+   "status": "pass",
+   "inputs_sha256": "08f942fe489bcb4eae4a2309f24eaa85f83f6a49d38f089c4ec424a28fc3e903"
+  },
+  "gen/ch5/test_gen_cross_agglit_replicate_wide_init": {
+   "status": "pass",
+   "inputs_sha256": "656a5c43bdd6493496902be45da24182366677c1427ff4013f1646c7d88075e1"
+  },
+  "gen/ch5/test_gen_cross_agglit_type_default_fill1_typed": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'a=1001 i=9 l=0000 b=0 g=0 q=9,0', expected 'a=1001 i=-1 l=1001 b=9 g=9 q=-1,-1'",
+   "inputs_sha256": "eb0e685a25c239c0551b4a077a392b0647bd66084336b666e70663cd06ac13fd"
+  },
+  "gen/ch5/test_gen_cross_agglit_type_default_fillx_assign": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'a=1001 i=9 l=0000 b=0 g=0 q=9,0', expected 'a=1001 i=0 l=1001 b=9 g=9 q=0,0'",
+   "inputs_sha256": "0292695e78c51baa5fd04e9a16659dda6897c63063adb210f447593eb68e3319"
+  },
+  "gen/ch5/test_gen_cross_agglit_type_default_neg_init": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'a=1001 i=9 l=0000 b=0 g=0 q=9,0', expected 'a=1001 i=-2 l=1001 b=9 g=9 q=-2,-2'",
+   "inputs_sha256": "a9b466362e973ff871d47b398fbaa915d3a5171c32408877773ece5e611c769d"
+  },
+  "gen/ch5/test_gen_cross_agglit_type_default_real_init": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'a=1001 i=9 l=0000 b=0 g=0 q=9,0', expected 'a=1001 i=3 l=1001 b=9 g=9 q=3,3'",
+   "inputs_sha256": "361c8e78b95aad1733135620033cf4177a026082fda6c9b186996925d8244af2"
+  },
+  "gen/ch5/test_gen_cross_agglit_type_default_snarrow_param": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'a=1001 i=9 l=0000 b=0 g=0 q=9,0', expected 'a=1001 i=-3 l=1001 b=9 g=9 q=-3,-3'",
+   "inputs_sha256": "e1576c9965ee2571485b0c5ce97caf8b39d978df36800fc866ca74d48a5756a8"
+  },
+  "gen/ch5/test_gen_cross_agglit_type_default_wide_init": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'a=1001 i=9 l=0000 b=0 g=0 q=9,0', expected 'a=1001 i=2549 l=1001 b=9 g=9 q=2549,2549'",
+   "inputs_sha256": "a366ee67fba0291c78f6ee6968271c3f69529caa784f18b8cd345b49ce39a688"
+  },
+  "gen/ch5/test_gen_cross_agglit_type_fill1_assign": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch5/test_gen_cross_agglit_type_fill1_assign.sv:36:31: Assignment pattern key 'nib_t' not found as member",
+   "inputs_sha256": "dee669828ffdaba400a6eedadeb02f7d805f3252b30382ff3b732f0cc845569a"
+  },
+  "gen/ch5/test_gen_cross_agglit_type_fillx_init": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch5/test_gen_cross_agglit_type_fillx_init.sv:34:35: Assignment pattern key 'nib_t' not found as member",
+   "inputs_sha256": "0e7c2ab8a3140203fefe34e5ef6a3f097fbf4f90e969174e0beb96ec37e13e48"
+  },
+  "gen/ch5/test_gen_cross_agglit_type_neg_init": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch5/test_gen_cross_agglit_type_neg_init.sv:34:35: Assignment pattern key 'nib_t' not found as member",
+   "inputs_sha256": "060ca024dc448752138c61a91a65798ad13a8a91a1f38ab909f79a4b87b9836d"
+  },
+  "gen/ch5/test_gen_cross_agglit_type_real_init": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch5/test_gen_cross_agglit_type_real_init.sv:34:36: Assignment pattern key 'nib_t' not found as member",
+   "inputs_sha256": "1616dd48ad3af0beeef34b3716ef8969917d2d466f880738e1fc4a81bd0ce8ae"
+  },
+  "gen/ch5/test_gen_cross_agglit_type_snarrow_typed": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch5/test_gen_cross_agglit_type_snarrow_typed.sv:35:42: Assignment pattern key 'nib_t' not found as member",
+   "inputs_sha256": "7fa650f3d8c01c09509063ff5267a3d09038f146f649ab6d9daa6f7e2287b6c7"
+  },
+  "gen/ch5/test_gen_cross_agglit_type_wide_param": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch5/test_gen_cross_agglit_type_wide_param.sv:35:45: Assignment pattern key 'nib_t' not found as member",
+   "inputs_sha256": "4ac4cc3cf768f4b1c5607559c84d56e65d2e0dfa162c9d1b8cac70ec6e283eca"
+  },
+  "gen/ch5/test_gen_cross_casedigit_bin_q_wild_unsized_casex": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch5/test_gen_cross_casedigit_bin_q_wild_unsized_casex.sv:35:19: Unsupported tristate construct: ARG",
+   "inputs_sha256": "bc79c46c0dcf106df2650f921a0709e987b34d803e93f2f38b82a5cac2e77a2d"
+  },
+  "gen/ch5/test_gen_cross_casedigit_bin_q_wild_wide_casez": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch5/test_gen_cross_casedigit_bin_q_wild_wide_casez.sv:35:19: Unsupported tristate construct: ARG",
+   "inputs_sha256": "b2ef667014c0e4887301001c794d7631d2dc0d57d1924b89136594c500e48c8e"
+  },
+  "gen/ch5/test_gen_cross_casedigit_bin_x_known_narrow_casex": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch5/test_gen_cross_casedigit_bin_x_known_narrow_casex.sv:35:19: Unsupported tristate construct: ARG",
+   "inputs_sha256": "ef4e2f01962df12f6f23032095e2f8ce9b2f4453e784a23f3f36fb0fa1ba7831"
+  },
+  "gen/ch5/test_gen_cross_casedigit_bin_x_known_narrow_casez": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch5/test_gen_cross_casedigit_bin_x_known_narrow_casez.sv:35:19: Unsupported tristate construct: ARG",
+   "inputs_sha256": "0edd36614cca361125adae4654c03f19a89453aad4be3e251d6f6f35efa841ee"
+  },
+  "gen/ch5/test_gen_cross_casedigit_bin_x_known_same_case": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch5/test_gen_cross_casedigit_bin_x_known_same_case.sv:35:19: Unsupported tristate construct: ARG",
+   "inputs_sha256": "2d17c80117e9029681ba2e97658a74e95e794492d2b431b158192e5b5c992645"
+  },
+  "gen/ch5/test_gen_cross_casedigit_bin_x_known_wide_inside": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch5/test_gen_cross_casedigit_bin_x_known_wide_inside.sv:35:19: Unsupported tristate construct: ARG",
+   "inputs_sha256": "ef1630fdaf558388119e7cd1b47b9fa03062506220fbe4b76da0553636926035"
+  },
+  "gen/ch5/test_gen_cross_casedigit_bin_z_known_narrow_case": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch5/test_gen_cross_casedigit_bin_z_known_narrow_case.sv:35:19: Unsupported tristate construct: ARG",
+   "inputs_sha256": "7f08e8e84de24508d2dc99f1ff45317230ba427a992d1b214e24520b649f0593"
+  },
+  "gen/ch5/test_gen_cross_casedigit_bin_z_known_narrow_casez": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch5/test_gen_cross_casedigit_bin_z_known_narrow_casez.sv:35:19: Unsupported tristate construct: ARG",
+   "inputs_sha256": "56d4b102489897f553b124655f2f57ba4cdfaa0842f5250cd433ce9a11396b2d"
+  },
+  "gen/ch5/test_gen_cross_casedigit_bin_z_wild_narrow_inside": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch5/test_gen_cross_casedigit_bin_z_wild_narrow_inside.sv:35:19: Unsupported tristate construct: ARG",
+   "inputs_sha256": "8da23d0c6139cf24c7b84f888b8cc086fe01e3c98503c07c5ef69adc83dc25fc"
+  },
+  "gen/ch5/test_gen_cross_casedigit_dec_q_wild_narrow_inside": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch5/test_gen_cross_casedigit_dec_q_wild_narrow_inside.sv:35:19: Unsupported tristate construct: ARG",
+   "inputs_sha256": "b22967ee925f606209aebd7aa846d89d68769836c22dfffd31550d931689a27d"
+  },
+  "gen/ch5/test_gen_cross_casedigit_dec_q_wild_unsized_case": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch5/test_gen_cross_casedigit_dec_q_wild_unsized_case.sv:35:19: Unsupported tristate construct: ARG",
+   "inputs_sha256": "7f158ccc95cc670e21b54b9ed1f2e965d8043316d035c64a90f2d1695647ed25"
+  },
+  "gen/ch5/test_gen_cross_casedigit_dec_x_wild_narrow_case": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch5/test_gen_cross_casedigit_dec_x_wild_narrow_case.sv:35:19: Unsupported tristate construct: ARG",
+   "inputs_sha256": "c0dd0851002052bef8b8f784d072c9d304b1235e440c1b10694538fc2d073717"
+  },
+  "gen/ch5/test_gen_cross_casedigit_dec_z_wild_same_casex": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch5/test_gen_cross_casedigit_dec_z_wild_same_casex.sv:35:19: Unsupported tristate construct: ARG",
+   "inputs_sha256": "851b47a5c13cfd111c026b036fe143ffca8a69d9793d4edae4c1547cde5a8687"
+  },
+  "gen/ch5/test_gen_cross_casedigit_dec_z_wild_wide_casez": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch5/test_gen_cross_casedigit_dec_z_wild_wide_casez.sv:35:19: Unsupported tristate construct: ARG",
+   "inputs_sha256": "b4d497ea7888ddb3c0995a4878df20662c6a89978149871e89c1ccb835953d84"
+  },
+  "gen/ch5/test_gen_cross_casedigit_hex_q_known_same_casez": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch5/test_gen_cross_casedigit_hex_q_known_same_casez.sv:35:19: Unsupported tristate construct: ARG",
+   "inputs_sha256": "7a117c840eba4b33c30632d5d89f4e33c6ae05dad2f917c31af188c8da05100e"
+  },
+  "gen/ch5/test_gen_cross_casedigit_hex_q_known_wide_case": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch5/test_gen_cross_casedigit_hex_q_known_wide_case.sv:35:19: Unsupported tristate construct: ARG",
+   "inputs_sha256": "930ef2c5503295c8ac2fb6bbcb75772c7c9f72f22f77797a5079d61f33503d75"
+  },
+  "gen/ch5/test_gen_cross_casedigit_hex_x_wild_same_inside": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch5/test_gen_cross_casedigit_hex_x_wild_same_inside.sv:35:19: Unsupported tristate construct: ARG",
+   "inputs_sha256": "67a29a7200e5ad32f12863cd8d844a0b0d97bf698247440e00a5a83a1d6e7742"
+  },
+  "gen/ch5/test_gen_cross_casedigit_hex_z_known_same_casex": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch5/test_gen_cross_casedigit_hex_z_known_same_casex.sv:35:19: Unsupported tristate construct: ARG",
+   "inputs_sha256": "1143306865e45186e168267853aad38184313fb88af6547da653e180d19b51c6"
+  },
+  "gen/ch5/test_gen_cross_casedigit_hex_z_known_unsized_inside": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch5/test_gen_cross_casedigit_hex_z_known_unsized_inside.sv:35:19: Unsupported tristate construct: ARG",
+   "inputs_sha256": "e69449ef31f007392e5bd7b965fa676f9b3b02f6d3b2f2b02c7c56df5adf8b39"
+  },
+  "gen/ch5/test_gen_cross_casedigit_oct_q_known_same_inside": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch5/test_gen_cross_casedigit_oct_q_known_same_inside.sv:35:19: Unsupported tristate construct: ARG",
+   "inputs_sha256": "d92c15c105873f43454fc9a8f053dde7ab17172a74daf820d425abf9988180f0"
+  },
+  "gen/ch5/test_gen_cross_casedigit_oct_q_known_wide_casex": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch5/test_gen_cross_casedigit_oct_q_known_wide_casex.sv:35:19: Unsupported tristate construct: ARG",
+   "inputs_sha256": "4fb3c625cc269ce90036426e521f6d4fca730dedf518d4b4ffc1a9dd88ddd96f"
+  },
+  "gen/ch5/test_gen_cross_casedigit_oct_x_wild_narrow_casex": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch5/test_gen_cross_casedigit_oct_x_wild_narrow_casex.sv:35:19: Unsupported tristate construct: ARG",
+   "inputs_sha256": "8e37a4becb1ebd8006fed590a7833fd9e083599b774eea4a4a10dc19ca2c9199"
+  },
+  "gen/ch5/test_gen_cross_casedigit_oct_x_wild_unsized_casez": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch5/test_gen_cross_casedigit_oct_x_wild_unsized_casez.sv:35:19: Unsupported tristate construct: ARG",
+   "inputs_sha256": "07a4732ffc5255cd3a68f2c5af7fdc5a215a3a175dee51084cd236161b83f122"
+  },
+  "gen/ch5/test_gen_cross_casedigit_oct_z_wild_wide_case": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch5/test_gen_cross_casedigit_oct_z_wild_wide_case.sv:35:19: Unsupported tristate construct: ARG",
+   "inputs_sha256": "a8b0fce04ed649e30ac8ff5f3ab0861fba5c4613b8c04d92b04a22ce133144c5"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_case_function_local_derived_outer": {
+   "status": "pass",
+   "inputs_sha256": "cb865024510c0d83dcfe8fc9fbe10d3722c998fd5dbe77583b2bd8c5a47dc64b"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_case_function_local_instance_none": {
+   "status": "pass",
+   "inputs_sha256": "b0d473038904f6725dc4be3ca1ce2b8be10d833b7fe83e52a2fde857d3752cb3"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_case_function_local_instance_property": {
+   "status": "pass",
+   "inputs_sha256": "34f87639d984e48cccbecb298ae0c8c63b83306f02dbf22f2a884be8192dab8e"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_case_local_hier_instance_outer": {
+   "status": "pass",
+   "inputs_sha256": "d6a2913592ab820cb4e6f9693bbea68c529d1f0b97070b913cd8799d63cdab33"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_case_local_local_instance_none": {
+   "status": "pass",
+   "inputs_sha256": "97fb4ac7b7f3ab9656cb5dd290d561e5a46642354ca949b98cefe9eb81fd36da"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_case_local_local_instance_property": {
+   "status": "pass",
+   "inputs_sha256": "b1eab6683fe5fbaf88d60e0425c9de94c59dc199451a42b07e4fcb9e3c6e2d6e"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_case_param_local_instance_none": {
+   "status": "pass",
+   "inputs_sha256": "64f857625022d719a060cbf97c2d3a6b8d21c5f62f7030518f9783d3d51891a4"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_case_param_local_instance_outer": {
+   "status": "pass",
+   "inputs_sha256": "be361ab2c885bd481e37bfd2e5015ad065c766558aaa2059b7fe8fa40603da98"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_case_param_local_instance_property": {
+   "status": "pass",
+   "inputs_sha256": "b45d196cbf578bef985f0ab250d5bbdcf18624da71ae430550bca8d85bd37e4f"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_case_variable_local_instance_outer": {
+   "status": "pass",
+   "inputs_sha256": "e5ef5917d75e48a66832114de90d59171551de54da94cdbb49bebfead23ef8bb"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_case_variable_local_instance_property": {
+   "status": "pass",
+   "inputs_sha256": "d084cd129fc9ffd101f33b52ea0ae878524f1f34020f05666e8e27deacbd8c0c"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_case_variable_local_static_none": {
+   "status": "pass",
+   "inputs_sha256": "0e5a7dd7d49f0c566d4a7c87f190b69e00fa424a0303b5f23f58c9d951e169e8"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_for_function_local_instance_none": {
+   "status": "pass",
+   "inputs_sha256": "16b6f26f379033efc973a16f018fff5da485736fd35efa54c4cf19b5cc43d1ec"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_for_function_local_instance_outer": {
+   "status": "pass",
+   "inputs_sha256": "8a77cee042bc76c1155d677e022b5e17d4c96b1eaf9fcabb51ad2e4ea8fc914d"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_for_function_local_instance_property": {
+   "status": "pass",
+   "inputs_sha256": "e0b3bfdb43e75e7b5ea19042668d9804213ce39e0d53e25328a77609c5c90748"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_for_local_local_derived_property": {
+   "status": "pass",
+   "inputs_sha256": "f1a0fc7cf718ec15a5ede8729a310205a86aeb305fa3ef1882e28f55bdf9207d"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_for_local_local_instance_none": {
+   "status": "pass",
+   "inputs_sha256": "7636a37fc43c2ffb6a2fe2ccb3f989935066169c0358043fd834767831cb711f"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_for_local_local_instance_outer": {
+   "status": "pass",
+   "inputs_sha256": "0d8471ebdc9f01f50b980725411bbcce2e586d3e61b71f7de94e77154b97decc"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_for_param_local_instance_none": {
+   "status": "pass",
+   "inputs_sha256": "9687faedced5b3ed2b9850c54241225e50fc588a26f716d676a22948ee50f8d2"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_for_param_local_instance_property": {
+   "status": "pass",
+   "inputs_sha256": "4107e1481f5dcdaaaa216918ebd9e087e49fb77aaf1849c79c2030ae6809589a"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_for_param_local_static_outer": {
+   "status": "pass",
+   "inputs_sha256": "d404b0bb1072af3ab7ba1c1ddf9faf86afe99eea2113c64599fb2df506364a14"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_for_variable_hier_derived_outer": {
+   "status": "pass",
+   "inputs_sha256": "9a95cdae65787e34d3b96bdc09dccfdcd989bf5689ef261f03a7bd8a90dfc72e"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_for_variable_local_instance_none": {
+   "status": "pass",
+   "inputs_sha256": "288e0c0a959c7809eaa5e967324ee9ebc3596cd31bdf1adbeb2666ad3ce65572"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_for_variable_local_instance_property": {
+   "status": "pass",
+   "inputs_sha256": "77853b4b3be5181aa12abd90a8e4e8909db8683e9061c9ca5dd4c496934a7518"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_if_function_local_instance_none": {
+   "status": "pass",
+   "inputs_sha256": "8977aad83643840f50d21240101e039c103e79be959553dd311f7a41cc1303f1"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_if_function_local_instance_outer": {
+   "status": "pass",
+   "inputs_sha256": "08abdc2f44b7182cbfd6fc55ee5af122f1863849706a7651241dbae3d3e65189"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_if_function_local_static_property": {
+   "status": "pass",
+   "inputs_sha256": "10c0f16cc146a858d4410c1c6bff851be33a4120d981e2d0f0b392d7fa73a36c"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_if_local_local_instance_none": {
+   "status": "pass",
+   "inputs_sha256": "c77ab232474af3bbee95bf7513823979b7014f31e98bae308f5a96cb6c568b04"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_if_local_local_instance_outer": {
+   "status": "pass",
+   "inputs_sha256": "464ac12b9f0d518ba3a4055366c0e1658910c4a44b10705b9e6a5750eb8a7bab"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_if_local_local_instance_property": {
+   "status": "pass",
+   "inputs_sha256": "0df6a5f0111b90fe360665ac090fdd146d7c4c784d8895efb653e381f4d0ca6a"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_if_param_hier_derived_none": {
+   "status": "pass",
+   "inputs_sha256": "0269ea4eeb661d96763a0b909b3806ed43d855f54a940f5a2e17e90b4ac65be9"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_if_param_local_instance_outer": {
+   "status": "pass",
+   "inputs_sha256": "5c3e826b6484ac9ea5584020fe89b569abb887b40ea0d8282e456ed1e7a546b0"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_if_param_local_instance_property": {
+   "status": "pass",
+   "inputs_sha256": "286b0913684a113557fd0b3b3e700d1d9344b73ee92b7794160cfb9984fa6a48"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_if_variable_local_instance_none": {
+   "status": "pass",
+   "inputs_sha256": "5ebabdf6a63459ac28c2c8ecf4bbb3550042eb16b1951cf602b7fa3d295be52f"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_if_variable_local_instance_outer": {
+   "status": "pass",
+   "inputs_sha256": "c0942168ba0447ec5884fbf3bc827ab70642da7a91a720a31c6b5e8771f93439"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_gen_if_variable_local_instance_property": {
+   "status": "pass",
+   "inputs_sha256": "dff4f9a6d34610347f5b7d94a0eb49251b7e051a33272e8c686e86e898b02708"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_module_function_hier_derived_property": {
+   "status": "pass",
+   "inputs_sha256": "7b837dc853d39b605c1e2a0231837e217e9783b99009bb71671a123b1c7f21e1"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_module_function_local_instance_none": {
+   "status": "pass",
+   "inputs_sha256": "22b10f4bb80a473eb0c6460577c7978f7315aa4b25b9af5312a29fa7772995e9"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_module_function_local_instance_outer": {
+   "status": "pass",
+   "inputs_sha256": "14ef37f0edb69617a065ca877c360820aa19183b8f7c3b030846272df1f71fbf"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_module_local_local_instance_outer": {
+   "status": "pass",
+   "inputs_sha256": "42254aa0cde683273fc29a906aa958bb213baf426cc76f1bcc4a9c48550f80b0"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_module_local_local_instance_property": {
+   "status": "pass",
+   "inputs_sha256": "5412592f1512057539bfc92c9e92667614d09f43abc84f49462b52437bea71ec"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_module_local_local_static_none": {
+   "status": "pass",
+   "inputs_sha256": "23c0928d2afbd4834e03f68fdeace57b0e4d59f62e3031aade936fbc9f429f86"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_module_param_local_instance_none": {
+   "status": "pass",
+   "inputs_sha256": "74120ab15b66a82a561c1a3babf5bcfc1d783827e34ce0881ba564942932fb06"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_module_param_local_instance_outer": {
+   "status": "pass",
+   "inputs_sha256": "ae05fc126628a0cc046ef586da77a6f0ead27e051ea50ee73d0edfffd4d24b71"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_module_param_local_instance_property": {
+   "status": "pass",
+   "inputs_sha256": "5b8483e36b0dd8708d2589166ecd5a0791a87da423dc7dca099ffb1039ba6e56"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_module_variable_local_instance_none": {
+   "status": "pass",
+   "inputs_sha256": "346fb6f4094d19601863b09aada14f2cff57e7aee4ba1b281e8b62ea9ca67af7"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_module_variable_local_instance_outer": {
+   "status": "pass",
+   "inputs_sha256": "1bbfa237b35e919eb3b4d0e19127f2b536431f491a0a5746eb68acf9c901a586"
+  },
+  "gen/ch8/test_gen_cross_scopeclass_module_variable_local_instance_property": {
+   "status": "pass",
+   "inputs_sha256": "1db8c900ec8f33170522824267b8c4623ac573dd7c0f9a4cf0e4228262f5c3e9"
+  }
+ },
+ "generated_at": "2026-11-08T02:19:48.029980+00:00",
+ "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

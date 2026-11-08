@@ -354,3 +354,13 @@
   固定Icarusは126 pass、Verilatorはseed 1で112 pass・14 known、seed 73で109 pass・17 knownです。
 - suiteは12,046件、生成5,609件・116生成器です。要求カバレッジと13ランダムプロファイルを維持しました。
   今回の追加は正式Check・Nightlyでは未実行です。[設計・証跡](interaction-verification.md#delay-value-form)を参照してください。
+
+### 2026-11-08（moduleとgenerateブロックのクラス・case項目のリテラル・構造体リテラルの追加）
+
+- moduleとgenerateブロックで宣言したクラス、case項目のリテラルの桁、構造体リテラルのキーのモデルを追加しました。合法744行から120件を選び、4章対をRからMへ移しました。
+- 最新のmainをビルドした`f029ddd0eee1`の単一の全4,416件は3,915 pass・487 unsupported・14 failです。追加120件のうち106件がPASS、6件がkirimasimの内部エラーによるfail、8件がunsupportedです。従来4,296件の入力と状態は不変です。
+- 全体は110モデル・189章対・全選択ケースPASSは83モデル、仕分けはM189/E3/C2/N117/R509です。
+  固定Icarusは29 pass・91 known、Verilatorはseed 1・73とも63 pass・57 knownです。
+- suiteは12,166件、生成5,729件・119生成器です。要求カバレッジと13ランダムプロファイルを維持しました。
+  サイクル遅延と同期駆動、式に結び付けたclockingの入力を、kirimasimの実装を待つ候補に加えました。
+  今回の追加は正式Check・Nightlyでは未実行です。[設計・証跡](interaction-verification.md#scoped-class-declaration)を参照してください。

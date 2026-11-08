@@ -14,12 +14,20 @@ Before reading model counts, see [a three-way condition missing from 100% pairwi
 
 ## Saved-run summary
 
+The 2026-11-08 additions for classes declared in modules and generate blocks, case item literal digits and structure literal keys bring totals to **110 models / 4,416 cases / 189 chapter pairs**.
+The [single run](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json) on kirimasim `f029ddd0eee1`, built from the latest main, records
+**3,915 pass / 487 unsupported / 14 fail**: the four existing config failures, the four `defparam` failures and six of the new class cases.
+106 of the 120 additions pass; six stop on a kirimasim internal error for a class in a conditional generate block, and eight use a structure localparam that kirimasim has not implemented.
+Preceding 4,296 inputs and statuses are unchanged. 83 models pass their entire selection.
+See [classes declared in a module or a generate block](#scoped-class-declaration), [case item literal digits](#case-literal-wildcard) and [structure literal keys](#aggregate-literal-key) for the independent checks and pinned comparisons.
+The 120 additions have not run in formal Check/Nightly.
+
 The 2026-11-08 delay-value, package-lookup and escaped-name additions bring totals to **107 models / 4,296 cases / 185 chapter pairs**.
 The [single run](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json) on kirimasim `28c6c1a1cb83` records
 **3,809 pass / 479 unsupported / eight fail**: the four existing config failures and the four where `defparam` gets the type and range wrong, as before.
 All 126 additions pass, and preceding 4,170 inputs and statuses are unchanged. 82 models pass their entire selection.
 See [how a delay value is written](#delay-value-form), [package name lookup](#package-name-lookup) and [escaped identifier binding](#escaped-name-binding) for the independent checks and pinned comparisons.
-The 126 additions have not run in formal Check/Nightly.
+The 126 additions passed the pinned comparisons in [Check on `c229a05f`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42435564931); they have not run in Nightly.
 
 The 2026-11-08 hierarchical-process-control, %m and array-query-loop additions bring totals to **104 models / 4,170 cases / 181 chapter pairs**.
 The [single run](../coverage/interaction-results/cross104-kirimasim-28c6c1a1-hierloop.json) on kirimasim `28c6c1a1cb83`, built from the latest main, records
@@ -4541,3 +4549,120 @@ In the [single complete 4,296-case run](../coverage/interaction-results/cross107
 ### Pinned-release differences
 
 [Pinned Icarus 13.0](../coverage/interaction-results/cross107-delaypkgesc-icarus13.json) and [pinned Verilator 5.052](../coverage/interaction-results/cross107-delaypkgesc-verilator5052-seed1.json) (also at [seed 73](../coverage/interaction-results/cross107-delaypkgesc-verilator5052-seed73.json)) match all 29 cases and all 126 rows.
+
+<a id="scoped-class-declaration"></a>
+
+## Classes declared in a module or a generate block (2026-11-08)
+
+[`interaction_scopeclass.py`](../generators/interaction_scopeclass.py) defines `scoped_class_declaration@1`.
+Chapters 8 x 23 map to all 48 cases; chapters 8 x 27 map to the 36 cases that declare the class in a generate block.
+
+### Factors and scope
+
+The place that declares the class (the child module, a loop generate block, an if-else generate block, a case generate block),
+what the method reads (the parameter `P`, the local parameter `L`, the variable `v`, the function `f()`),
+the caller (an `initial` in the declaring scope, a hierarchical name from the top module),
+the method (an instance method, a static method called through the class scope, a method of a derived class that adds 1000 to `super.get()`)
+and the same name (none, a static member of the class, the outer scopes) are crossed. The child module has two instances, with `P` 1 and 2.
+A static method is called only from its declaring scope, so its rows with a hierarchical caller are left out.
+48 cases come from 240 legal rows, covering 148 targets with the place, the item and the same-name group, and keeping seven mandatory witnesses.
+
+### What it distinguishes
+
+A name in a method is looked up first among the class members and the inherited members, then in the scope that declares the class and the scopes around it (23.9).
+So [a class in a loop generate block](../tests/gen/ch8/test_gen_cross_scopeclass_gen_for_local_local_instance_outer.sv) reads the `L` of its block and none of the same names in the child module and the top module.
+The variable is increased by 100 between two reads, which shows that the method reads the value at the call.
+A conditional generate makes only the selected block, and the classes `C` of the two branches are different types (27.5).
+[A static method that calls `f()` in an if branch](../tests/gen/ch8/test_gen_cross_scopeclass_gen_if_function_local_static_property.sv) finds the static method of the class, which hides the function outside.
+A call from the top module through [`u1.g[0].h.get()`](../tests/gen/ch8/test_gen_cross_scopeclass_gen_for_variable_hier_derived_outer.sv) binds names where the class is declared and does not read the same names in the top module.
+
+### Independent check and runs
+
+[`qualify_scopeclass.py`](../tools/qualify_scopeclass.py) reads the modules, generate constructs, declarations, classes and `initial` procedures of the actual SV.
+It elaborates each instance with its parameter: a block per genvar value for a loop, and only the block whose condition holds for if and case.
+Method names are looked up in the order of 23.9, and the `initial` procedures run in the order of their delays. All 240 programs match.
+The [auxiliary evidence](../coverage/interaction-qualification/scopeclass.json) keeps seven normal controls and seven executable faults, all detected by an output difference after a normal exit.
+
+In the [single complete 4,416-case run](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json) on kirimasim `f029ddd0eee1`, 42 of the 48 additions pass and six fail.
+The failures are the rows where a class in an if or case generate block has a static property. kirimasim stops with an internal error on a class with a static property, and a variable of its type, in the branch that is not instantiated.
+Over all 240 rows, the 30 rows of this form all give the same internal error, and the other 210 match. The expectations stay as the standard gives them.
+
+### Pinned-release differences
+
+[Pinned Icarus 13.0](../coverage/interaction-results/cross110-scopecaselit-icarus13.json) has 11 pass and 37 known. A class in a generate block stops on an internal check of the compiler.
+A static method call `C::get()` of a class declared in a module is a syntax error. Over all 240 rows, 48 match and 192 are rejected.
+[Pinned Verilator 5.052](../coverage/interaction-results/cross110-scopecaselit-verilator5052-seed1.json) passes all 48 cases at seed 1 and at [seed 73](../coverage/interaction-results/cross110-scopecaselit-verilator5052-seed73.json), and matches all 240 rows.
+It also matches the expectations of the six cases that kirimasim fails.
+
+<a id="case-literal-wildcard"></a>
+
+## ?, z and x digits in case item literals (2026-11-08)
+
+[`interaction_casedigit.py`](../generators/interaction_casedigit.py) defines `case_literal_wildcard@1`.
+Chapters 5 x 12 map to all 24 cases.
+
+### Factors and scope
+
+The base of the item literal (binary, octal, hexadecimal, decimal), its digit (`?`, `z`, `x`), its leftmost digit (the wildcard or a known digit),
+its width (6, 8 or 12 bits, unsized) and the statement (`case`, `casez`, `casex`, `case inside`) are crossed.
+A decimal number may hold only one such digit, so it always leads with it, and two hexadecimal digits do not fit in six bits, so those rows are left out.
+24 cases come from 312 legal rows, covering 136 targets with the digit, the leftmost digit and the statement group, and keeping seven mandatory witnesses.
+Each program compares an 8-bit selector five times: with the wildcard positions filled with known bits, with one known bit flipped, with one known bit made z, or made x, and with the item's own four-state bits.
+
+### What it distinguishes
+
+`?` is another spelling of `z`; a hexadecimal digit sets 4 bits and an octal digit 3, and a decimal `x`, `z` or `?` sets every bit (5.7.1).
+A literal shorter than its size is padded on the left with its leftmost bit if that is x or z, and with zeros otherwise.
+The case then extends the selector and the item to the wider width with zeros (12.5).
+So the two upper bits of [`6'b1z0z`](../tests/gen/ch5/test_gen_cross_casedigit_bin_z_known_narrow_casez.sv) are 0, and the upper bits of [`12'b?1?0`](../tests/gen/ch5/test_gen_cross_casedigit_bin_q_wild_wide_casez.sv) are z.
+`casez` skips a bit that is z on either side, and `casex` one that is x or z (12.5.1).
+`case inside` skips only an x or z bit of the item, and an x or z in the selector does not match (12.5.4, 11.4.6). [`8'hx5` in a `case inside`](../tests/gen/ch5/test_gen_cross_casedigit_hex_x_wild_same_inside.sv) shows this asymmetry.
+
+### Independent check and runs
+
+[`qualify_casedigit.py`](../tools/qualify_casedigit.py) reads the literals of the actual SV by 5.7.1 and compares the bits by the rule of each statement. All 312 programs match.
+The [auxiliary evidence](../coverage/interaction-qualification/casedigit.json) keeps seven normal controls and seven executable faults, all detected by an output difference after a normal exit.
+
+In the [single complete 4,416-case run](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json) on kirimasim `f029ddd0eee1`, all 24 additions pass. kirimasim has no difference on all 312 rows.
+
+### Pinned-release differences
+
+[Pinned Icarus 13.0](../coverage/interaction-results/cross110-scopecaselit-icarus13.json) passes 18 cases; the six `case inside` cases are syntax errors. Over all 312 rows, the 234 rows other than `case inside` match.
+[Pinned Verilator 5.052](../coverage/interaction-results/cross110-scopecaselit-verilator5052-seed1.json) (also at [seed 73](../coverage/interaction-results/cross110-scopecaselit-verilator5052-seed73.json)) rejects every row, where a value with z is passed to a task argument, as an unsupported tristate construct.
+
+<a id="aggregate-literal-key"></a>
+
+## Keys of structure literals (2026-11-08)
+
+[`interaction_agglit.py`](../generators/interaction_agglit.py) defines `aggregate_literal_key@1`.
+Chapters 5 x 7 map to all 48 cases.
+
+### Factors and scope
+
+The structure has a member `a` of `nib_t` (`logic [3:0]`), a structure `n` with int, `nib_t`, byte and integer members, and an int array `q[2]`.
+The keys (positions, member names, replication, default, type keys in the nested patterns, a type key with default, a member name with a type key and default, a type key given twice),
+the value (`'1`, `'x`, `-2`, `2.5`, `12'h9f5`, `3'sb101`) and the context (a declaration initializer, a procedural assignment, a typed pattern expression, a localparam) are crossed.
+All 192 rows are legal, and 48 cases are selected, covering 104 pair targets and keeping seven mandatory witnesses.
+
+### What it distinguishes
+
+A structure literal gives values by position, member name, type and default (5.10, 10.9.2).
+A member name comes first, then a type key whose type matches, then default; a type key given twice uses its later value.
+Default goes down into structure and array members that no name or type sets, and the type keys apply there as well.
+int and integer differ in the number of states, so they are not matching types (6.22.1), and [an int key does not reach an integer member](../tests/gen/ch5/test_gen_cross_agglit_type_default_fillx_assign.sv).
+A value is converted as an assignment to each member (10.7): `3'sb101` is sign-extended, `12'h9f5` truncated, `2.5` rounded to 3, and x becomes 0 in a two-state member.
+Whether type keys go down into a nested structure when there is no default is read in two ways, so in that form the type keys are written in the nested patterns themselves.
+
+### Independent check and runs
+
+[`qualify_agglit.py`](../tools/qualify_agglit.py) reads the typedefs of the actual SV into types, applies the pattern by the rules of 10.9 and converts each value to its member type. All 192 programs match.
+The [auxiliary evidence](../coverage/interaction-qualification/agglit.json) keeps seven normal controls and seven executable faults, all detected by an output difference after a normal exit.
+
+In the [single complete 4,416-case run](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json) on kirimasim `f029ddd0eee1`, 40 of the 48 additions pass and the eight localparam cases are unsupported.
+kirimasim has not implemented a localparam of an unpacked structure yet. Over all 192 rows, the 48 localparam rows are unsupported and the other 144 match.
+
+### Pinned-release differences
+
+[Pinned Icarus 13.0](../coverage/interaction-results/cross110-scopecaselit-icarus13.json) has not implemented unpacked structures and rejects all 48 cases and all 192 rows.
+[Pinned Verilator 5.052](../coverage/interaction-results/cross110-scopecaselit-verilator5052-seed1.json) (also at [seed 73](../coverage/interaction-results/cross110-scopecaselit-verilator5052-seed73.json)) has 15 pass and 33 known.
+It does not take default down into the nested structure and array, does not accept a typedef name as a type key, and reads `'x` as two-state. Over all 192 rows, 60 match.

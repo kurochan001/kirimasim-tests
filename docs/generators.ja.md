@@ -4,7 +4,7 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の116生成器から5,609件のテストを生成しています。
+現在の119生成器から5,729件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
@@ -16,6 +16,7 @@
 | [`combination_io`](../generators/combination_io.py) | 9, 10, 21 | 13 | 境界条件13件。`$fread`の格納先とバイト順、キュー・動的配列の暗黙感度、SV内で読み戻したVCDの内容を確認 |
 | [`combination_monitors`](../generators/combination_monitors.py) | 21 | 18 | 9種類の登録場所と2種類のコンテナ・記述子を組み合わせ、ファイルを読み戻して、Postponedの最終値、非選択要素、選択・置換、monitoroff、閉鎖後の出力抑止を確認する。 |
 | [`combination_nba`](../generators/combination_nba.py) | 10, 13 | 16 | 境界条件16件。`ref static`経由の遅延・イベント制御付きNBA、値と添字の確定、文字列の文字要素、配列スライスのコピーアウトを確認 |
+| [`interaction_agglit`](../generators/interaction_agglit.py) | 5 | 48 | 入れ子の構造体と配列を持つ構造体へ、位置・メンバー名・複製・default・型キーで値を与える。各メンバーの型への変換と、キーの優先順位を、初期値・代入・型付きの式・localparamで確かめる。 |
 | [`interaction_array`](../generators/interaction_array.py) | 7 | 36 | 2組の入力を配列全体／スライスへコピーし、宣言順の対応、非選択要素の保持、コピー元変更後の独立性と、読み出した要素の符号拡張を確認する。 |
 | [`interaction_arrayloop`](../generators/interaction_arrayloop.py) | 20 | 40 | 昇順・降順・オフセット・負の範囲の固定の次元、パックの次元、動的配列、キュー、空の動的配列を、変数・型の名前・2番目の次元・要素の選択から$left・$right・$low・$high・$increment・$sizeで問い合わせる。for・while・do-while・repeat・foreachで、左から右・小さい順・大きい順・個数で進むことを確かめる。 |
 | [`interaction_assertion`](../generators/interaction_assertion.py) | 16 | 36 | 更新前後の既知値とX/Zで、assertionのpass/fail回数、サンプル値と1ビットの式の値、Reactiveのライブ値と最終値を観測する。型、式、エッジ、blocking/NBA、更新時点、module/interfaceを組み合わせ、サンプリング時点とaction実行時点を区別する。 |
@@ -24,6 +25,7 @@
 | [`interaction_binding`](../generators/interaction_binding.py) | 13 | 36 | 呼出し後に添字を同値・次要素・-1へ変更し、実引数と仮引数の複数時刻の値を観測して、元の要素への結合、inputの値コピー、refの双方向の可視性、const refのライブな読取り、復帰時の書戻しや隣接要素の破壊がないことを確認する。 |
 | [`interaction_case`](../generators/interaction_case.py) | 12 | 36 | セレクタと項目値を表示し、重複項目とフォールバック項目の2回の分岐結果から、幅・符号の統一、X/Zの扱い、最初に一致した項目の優先を確認する。 |
 | [`interaction_case_inside`](../generators/interaction_case_inside.py) | 12 | 34 | 値・範囲・固定配列・2値のリストを先頭項目にしたcase insideで、各項目とdefaultを狙う4組のケース式、格納後の項目値、選ばれた分岐、ケース式と数える項目の評価回数を観測し、Xの比較を不一致として後続へ進むこと、端点の拡張、unique0の評価を確認する。 |
+| [`interaction_casedigit`](../generators/interaction_casedigit.py) | 5 | 24 | ?・z・xの桁を持つ二進・八進・十六進・十進のリテラルを、先頭の桁と幅を変えてcaseの項目に書き、case・casez・casex・case insideで、桁の埋め方と比べ方を確かめる。 |
 | [`interaction_cast`](../generators/interaction_cast.py) | 6 | 32 | 元の値・キャスト直後の値・後続演算の結果を分けて表示し、キャストの幅と符号、演算前のX/Z変換、外側の代入コンテキストと最終変換の順序を確認する。 |
 | [`interaction_cgsample`](../generators/interaction_cgsample.py) | 19 | 33 | 配列・キューの変更前後でサイズ・先頭/末尾値をsampleし、直接参照と引数、空のガード、必要ヒット数と対象/対照それぞれのbin履歴を照合する。 |
 | [`interaction_checksample`](../generators/interaction_checksample.py) | 17 | 27 | checkerとmodule参照モデルで、判定・サンプル値・Reactiveの値・実行時刻を照合する。接続形式と配置を変え、2実体の独立性と出力引数の伝播も観測する。 |
@@ -107,6 +109,7 @@
 | [`interaction_resize`](../generators/interaction_resize.py) | 7 | 38 | 再確保前後のサイズと全要素を観測し、別配列コピー・自己リサイズ・初期化式なしの再生成、切り詰め、追加領域の型別既定値、コピー後の独立性を確認する。 |
 | [`interaction_return`](../generators/interaction_return.py) | 13 | 36 | for/while/repeat内で最初の非0ビットからreturnし、戻り値・走査回数と添字の総和・末尾到達・return後の副作用を観測する。A/B/A呼出しでインスタンス別状態とpackageの共有状態、呼出し元の同名変数の保持、X/Zの2状態変換も確認する。 |
 | [`interaction_scansel`](../generators/interaction_scansel.py) | 21 | 36 | 文字列の読取りが途中で止まる位置と成功した書込みだけを、戻り値・全語・部分選択外の保持で照合する。$bitsを使う実行時書式、文字数としてのフィールド幅、既知ASCIIのX/Z数字と格納時の変換を観測する。 |
+| [`interaction_scopeclass`](../generators/interaction_scopeclass.py) | 8 | 48 | 子モジュールと、そのfor・if・caseの生成ブロックでクラスを宣言し、メソッドから宣言の場所のパラメータ・局所パラメータ・変数・関数を読む。静的メソッド・派生クラス・階層名での呼出し、クラスの静的メンバーと外側の同じ名前との関係を確かめる。 |
 | [`interaction_sdfpath`](../generators/interaction_sdfpath.py) | 32 | 18 | SDFの条件・注釈範囲・置換/加算と、立上り/立下りの遅延を照合する。兄弟インスタンスと別出力を対照とし、値・変化回数・最終変化時刻を観測する。 |
 | [`interaction_select`](../generators/interaction_select.py) | 11 | 36 | 部分選択への書き込み前後にベクタ全体と選択範囲を表示し、添字方向・選択方向・X/Z変換に加え、選択していないビットの保持も確認する。 |
 | [`interaction_sense`](../generators/interaction_sense.py) | 4 | 61 | always_comb・always_latch・@*・連続代入で読む式の形を変え、読む部分と読まない部分へ書き込む。再評価の回数と出力の値で、最長静的接頭辞と関数の中の読出しの扱いを確かめる。 |

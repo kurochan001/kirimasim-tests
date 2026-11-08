@@ -1,0 +1,1292 @@
+{
+  "models": [
+    "scoped_class_declaration",
+    "case_literal_wildcard",
+    "aggregate_literal_key"
+  ],
+  "generated_at": "2026-11-08T02:21:59.609002+00:00",
+  "scope": "All Icarus differences and rejections, and one representative of each form of the known-input Verilator differences at both seeds. The first differing line of every known result is in the run records. Nothing here changes an expectation or counts as a pass. No simulator implementation source was read.",
+  "icarus_version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+  "icarus_originals": [
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_default_fill1_init.sv",
+      "input_sha256": "7aa94060cfbd7a87d9768370dcc8b771aadbb0ca799a1731f791db38652e4edc",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_default_fill1_init.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_default_fill1_init.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_default_fill1_init.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_default_fill1_init.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_default_fill1_init.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_default_fillx_init.sv",
+      "input_sha256": "83a9429446755e124e77013db961696adec82d5d68e6addb78d828c2781cb776",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_default_fillx_init.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_default_fillx_init.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_default_fillx_init.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_default_fillx_init.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_default_fillx_init.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_default_neg_typed.sv",
+      "input_sha256": "18301c1b36fbce36865ce6c7cec020d12338a1d5512d991319917ef3f01e467b",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_default_neg_typed.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_default_neg_typed.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_default_neg_typed.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_default_neg_typed.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_default_neg_typed.sv:34: error: Syntax error in task arguments.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_default_real_param.sv",
+      "input_sha256": "2e85014c46febb24040a7e2dce1e280bcb99703c112cb30069730323f83de5b9",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_default_real_param.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_default_real_param.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_default_real_param.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_default_real_param.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_default_real_param.sv:34: error: Invalid module item.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_default_snarrow_init.sv",
+      "input_sha256": "e7b084c548f8f86645aaad4d6a5a803eafa241269451312d4ecced1dd4c8fb51",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_default_snarrow_init.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_default_snarrow_init.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_default_snarrow_init.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_default_snarrow_init.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_default_snarrow_init.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_default_wide_assign.sv",
+      "input_sha256": "da1894402732450fd01bebdca409f7b023e29e62e3b7fca014e78ca60becad28",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_default_wide_assign.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_default_wide_assign.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_default_wide_assign.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_default_wide_assign.sv:36: syntax error\ntests/gen/ch5/test_gen_cross_agglit_default_wide_assign.sv:36: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_last_type_fill1_init.sv",
+      "input_sha256": "4570bcd85a8cdfd04ac312972b6793eb8744b39b06133933451b1cc973829885",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_last_type_fill1_init.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_last_type_fill1_init.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_last_type_fill1_init.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_last_type_fill1_init.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_last_type_fill1_init.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_last_type_fillx_assign.sv",
+      "input_sha256": "8131eccb4a9ceea0fea23cf311795096698301124313a5f6ac76f599c8976a07",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_last_type_fillx_assign.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_last_type_fillx_assign.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_last_type_fillx_assign.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_last_type_fillx_assign.sv:36: syntax error\ntests/gen/ch5/test_gen_cross_agglit_last_type_fillx_assign.sv:36: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_last_type_neg_param.sv",
+      "input_sha256": "d5378631d12679a6fa200553fe0c311056b410ee2a2a198aad28e662a762ff3d",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_last_type_neg_param.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_last_type_neg_param.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_last_type_neg_param.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_last_type_neg_param.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_last_type_neg_param.sv:34: error: Invalid module item.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_last_type_real_typed.sv",
+      "input_sha256": "79e2c8197126ccb1278a876a533cf7b8aaaa8c962fb4b01cfdf4b98beb78e368",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_last_type_real_typed.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_last_type_real_typed.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_last_type_real_typed.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_last_type_real_typed.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_last_type_real_typed.sv:34: error: Syntax error in task arguments.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_last_type_snarrow_init.sv",
+      "input_sha256": "b253681d07bd6ca86317e459f89d08479abc1e4863497297b802d8b46f2c0f55",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_last_type_snarrow_init.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_last_type_snarrow_init.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_last_type_snarrow_init.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_last_type_snarrow_init.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_last_type_snarrow_init.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_last_type_wide_init.sv",
+      "input_sha256": "648d4a7aea7cf14da1aad6df0de8468e9839cdd2c02cf7426730b881e78cb86f",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_last_type_wide_init.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_last_type_wide_init.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_last_type_wide_init.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_last_type_wide_init.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_last_type_wide_init.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_member_fill1_param.sv",
+      "input_sha256": "43e14b8d02c06089bdf87957c82c3db4076863b2b9cdcf30cbe45f41895ccc76",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_member_fill1_param.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_member_fill1_param.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_member_fill1_param.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_member_fill1_param.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_member_fill1_param.sv:34: error: Invalid module item.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_member_fillx_init.sv",
+      "input_sha256": "44b271519a4cad733ca6075b9e1d56cbdea59dba7b664da3e31c6ce1fa8f7733",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_member_fillx_init.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_member_fillx_init.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_member_fillx_init.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_member_fillx_init.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_member_fillx_init.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_member_neg_assign.sv",
+      "input_sha256": "21ef5ee41b23f8a0c4c30a3d5debd36b57dc86f1b84566e5168ceb421050a6f2",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_member_neg_assign.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_member_neg_assign.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_member_neg_assign.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_member_neg_assign.sv:36: syntax error\ntests/gen/ch5/test_gen_cross_agglit_member_neg_assign.sv:36: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_member_real_init.sv",
+      "input_sha256": "d6d8e1634b6bfe323e575640f8c0701b2ec960386ad175bd21c96a164a780763",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_member_real_init.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_member_real_init.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_member_real_init.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_member_real_init.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_member_real_init.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_member_snarrow_init.sv",
+      "input_sha256": "c1f8865f4d695672d81655e4747859aee2c476905d0dbed1a03d7601fa863fe5",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_member_snarrow_init.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_member_snarrow_init.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_member_snarrow_init.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_member_snarrow_init.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_member_snarrow_init.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_member_type_fill1_assign.sv",
+      "input_sha256": "830dc5a507b852c65bdf5a3aa6f049c237fd1430dd698f5a2666cd7f59fd7706",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_member_type_fill1_assign.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_member_type_fill1_assign.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_member_type_fill1_assign.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_member_type_fill1_assign.sv:36: syntax error\ntests/gen/ch5/test_gen_cross_agglit_member_type_fill1_assign.sv:36: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_member_type_fillx_typed.sv",
+      "input_sha256": "5c451b6af401eec6e1eb6a35c29c08c89e8ef77e7d5fa59c5894081dc99fc557",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_member_type_fillx_typed.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_member_type_fillx_typed.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_member_type_fillx_typed.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_member_type_fillx_typed.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_member_type_fillx_typed.sv:34: error: Syntax error in task arguments.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_member_type_neg_param.sv",
+      "input_sha256": "214ff393a42592ce7a43de15e1b105334dc7b37f8aa3a0bf4092481cf5bd0cfc",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_member_type_neg_param.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_member_type_neg_param.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_member_type_neg_param.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_member_type_neg_param.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_member_type_neg_param.sv:34: error: Invalid module item.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_member_type_real_init.sv",
+      "input_sha256": "32ccccfac5c3cf312e07698c03aa41245e8e81d43fba68498075f3e98e0b851a",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_member_type_real_init.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_member_type_real_init.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_member_type_real_init.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_member_type_real_init.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_member_type_real_init.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_member_type_snarrow_init.sv",
+      "input_sha256": "556b48cf1a74b0670feb6b10a36641eeba789343843fdcb4a098ba21b3b533ea",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_member_type_snarrow_init.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_member_type_snarrow_init.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_member_type_snarrow_init.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_member_type_snarrow_init.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_member_type_snarrow_init.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_member_type_wide_init.sv",
+      "input_sha256": "b543b38b3d376b29f1e99daf5d70b46122d65f4a280c849e314da6c779aead0c",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_member_type_wide_init.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_member_type_wide_init.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_member_type_wide_init.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_member_type_wide_init.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_member_type_wide_init.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_member_wide_typed.sv",
+      "input_sha256": "34df8941ee3c5d3460cf989db960c300f642c050579256488cc1a4f52c7a1877",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_member_wide_typed.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_member_wide_typed.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_member_wide_typed.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_member_wide_typed.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_member_wide_typed.sv:34: error: Syntax error in task arguments.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_position_fill1_init.sv",
+      "input_sha256": "796953d4184c31a96a24958aab7e2dbd5e93fa398e98a14f0eb46f438070c680",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_position_fill1_init.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_position_fill1_init.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_position_fill1_init.sv:29: sorry: Unpacked structs not supported.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_position_fillx_typed.sv",
+      "input_sha256": "80cee2fc2e9811ae77e6af9df2b8428cb2947c2d845634577357b5476f6cadba",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_position_fillx_typed.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_position_fillx_typed.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_position_fillx_typed.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_position_fillx_typed.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_position_fillx_typed.sv:34: error: Syntax error in task arguments.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_position_neg_param.sv",
+      "input_sha256": "355729dfebb116ae3cfb7326426ce7db907e3355a179d3f465dc574a4745f23a",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_position_neg_param.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_position_neg_param.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_position_neg_param.sv:29: sorry: Unpacked structs not supported.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_position_real_assign.sv",
+      "input_sha256": "3d6384c70813835abf3fa50517ad15b9e0cc190b0ba1760ef4eb0e113c725471",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_position_real_assign.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_position_real_assign.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_position_real_assign.sv:29: sorry: Unpacked structs not supported.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_position_snarrow_init.sv",
+      "input_sha256": "9a1302e39bf8fe043364800a91245aa8f66655e4fb47fa8137355d888e51bfb2",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_position_snarrow_init.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_position_snarrow_init.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_position_snarrow_init.sv:29: sorry: Unpacked structs not supported.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_position_wide_init.sv",
+      "input_sha256": "5b3e6b36f171a589596ec019b6cc7f2fec90ef2531e8c7b99a1e64a3d981c4ca",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_position_wide_init.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_position_wide_init.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_position_wide_init.sv:29: sorry: Unpacked structs not supported.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_replicate_fill1_typed.sv",
+      "input_sha256": "b63746c890a0e94b1a1439cd4d78f748eebd7af3b2c8794477a40c35007c213c",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_replicate_fill1_typed.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_replicate_fill1_typed.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_replicate_fill1_typed.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_replicate_fill1_typed.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_replicate_fill1_typed.sv:34: error: Syntax error in task arguments.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_replicate_fillx_param.sv",
+      "input_sha256": "b4794872a9f7d2955e66024a795d1edf4461c1e92a51af3f5bd4188779501272",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_replicate_fillx_param.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_replicate_fillx_param.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_replicate_fillx_param.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_replicate_fillx_param.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_replicate_fillx_param.sv:34: error: Invalid module item.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_replicate_neg_init.sv",
+      "input_sha256": "df7b6e5e0ae7af2577aab5d1d03d75f9e5bd0eb2b4d726c2b881693ab86b6eb2",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_replicate_neg_init.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_replicate_neg_init.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_replicate_neg_init.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_replicate_neg_init.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_replicate_neg_init.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_replicate_real_init.sv",
+      "input_sha256": "340b95fbd8326cf219931fa34508e49e8c0bc86927b8599e784db091387b6315",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_replicate_real_init.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_replicate_real_init.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_replicate_real_init.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_replicate_real_init.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_replicate_real_init.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_replicate_snarrow_assign.sv",
+      "input_sha256": "08f942fe489bcb4eae4a2309f24eaa85f83f6a49d38f089c4ec424a28fc3e903",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_replicate_snarrow_assign.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_replicate_snarrow_assign.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_replicate_snarrow_assign.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_replicate_snarrow_assign.sv:36: syntax error\ntests/gen/ch5/test_gen_cross_agglit_replicate_snarrow_assign.sv:36: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_replicate_wide_init.sv",
+      "input_sha256": "656a5c43bdd6493496902be45da24182366677c1427ff4013f1646c7d88075e1",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_replicate_wide_init.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_replicate_wide_init.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_replicate_wide_init.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_replicate_wide_init.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_replicate_wide_init.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_type_default_fill1_typed.sv",
+      "input_sha256": "eb0e685a25c239c0551b4a077a392b0647bd66084336b666e70663cd06ac13fd",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_type_default_fill1_typed.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_type_default_fill1_typed.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_type_default_fill1_typed.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_type_default_fill1_typed.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_type_default_fill1_typed.sv:34: error: Syntax error in task arguments.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_type_default_fillx_assign.sv",
+      "input_sha256": "0292695e78c51baa5fd04e9a16659dda6897c63063adb210f447593eb68e3319",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_type_default_fillx_assign.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_type_default_fillx_assign.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_type_default_fillx_assign.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_type_default_fillx_assign.sv:36: syntax error\ntests/gen/ch5/test_gen_cross_agglit_type_default_fillx_assign.sv:36: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_type_default_neg_init.sv",
+      "input_sha256": "a9b466362e973ff871d47b398fbaa915d3a5171c32408877773ece5e611c769d",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_type_default_neg_init.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_type_default_neg_init.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_type_default_neg_init.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_type_default_neg_init.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_type_default_neg_init.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_type_default_real_init.sv",
+      "input_sha256": "361c8e78b95aad1733135620033cf4177a026082fda6c9b186996925d8244af2",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_type_default_real_init.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_type_default_real_init.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_type_default_real_init.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_type_default_real_init.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_type_default_real_init.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_type_default_snarrow_param.sv",
+      "input_sha256": "e1576c9965ee2571485b0c5ce97caf8b39d978df36800fc866ca74d48a5756a8",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_type_default_snarrow_param.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_type_default_snarrow_param.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_type_default_snarrow_param.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_type_default_snarrow_param.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_type_default_snarrow_param.sv:34: error: Invalid module item.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_type_default_wide_init.sv",
+      "input_sha256": "a366ee67fba0291c78f6ee6968271c3f69529caa784f18b8cd345b49ce39a688",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_type_default_wide_init.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_type_default_wide_init.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_type_default_wide_init.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_type_default_wide_init.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_type_default_wide_init.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_type_fill1_assign.sv",
+      "input_sha256": "dee669828ffdaba400a6eedadeb02f7d805f3252b30382ff3b732f0cc845569a",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_type_fill1_assign.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_type_fill1_assign.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_type_fill1_assign.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_type_fill1_assign.sv:36: syntax error\ntests/gen/ch5/test_gen_cross_agglit_type_fill1_assign.sv:36: error: Malformed statement\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_type_fillx_init.sv",
+      "input_sha256": "0e7c2ab8a3140203fefe34e5ef6a3f097fbf4f90e969174e0beb96ec37e13e48",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_type_fillx_init.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_type_fillx_init.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_type_fillx_init.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_type_fillx_init.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_type_fillx_init.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_type_neg_init.sv",
+      "input_sha256": "060ca024dc448752138c61a91a65798ad13a8a91a1f38ab909f79a4b87b9836d",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_type_neg_init.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_type_neg_init.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_type_neg_init.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_type_neg_init.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_type_neg_init.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_type_real_init.sv",
+      "input_sha256": "1616dd48ad3af0beeef34b3716ef8969917d2d466f880738e1fc4a81bd0ce8ae",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_type_real_init.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_type_real_init.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_type_real_init.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_type_real_init.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_type_real_init.sv:1: error: Syntax error in variable list.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_type_snarrow_typed.sv",
+      "input_sha256": "7fa650f3d8c01c09509063ff5267a3d09038f146f649ab6d9daa6f7e2287b6c7",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_type_snarrow_typed.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_type_snarrow_typed.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_type_snarrow_typed.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_type_snarrow_typed.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_type_snarrow_typed.sv:34: error: Syntax error in task arguments.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_type_wide_param.sv",
+      "input_sha256": "4ac4cc3cf768f4b1c5607559c84d56e65d2e0dfa162c9d1b8cac70ec6e283eca",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_agglit_type_wide_param.sv:28: sorry: Unpacked structs not supported.",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch5/test_gen_cross_agglit_type_wide_param.sv:28: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_type_wide_param.sv:29: sorry: Unpacked structs not supported.\ntests/gen/ch5/test_gen_cross_agglit_type_wide_param.sv:34: syntax error\ntests/gen/ch5/test_gen_cross_agglit_type_wide_param.sv:36: error: Invalid module item.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_casedigit_bin_x_known_wide_inside.sv",
+      "input_sha256": "ef1630fdaf558388119e7cd1b47b9fa03062506220fbe4b76da0553636926035",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_casedigit_bin_x_known_wide_inside.sv:27: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch5/test_gen_cross_casedigit_bin_x_known_wide_inside.sv:27: syntax error\ntests/gen/ch5/test_gen_cross_casedigit_bin_x_known_wide_inside.sv:28: error: Incomprehensible case expression.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_casedigit_bin_z_wild_narrow_inside.sv",
+      "input_sha256": "8da23d0c6139cf24c7b84f888b8cc086fe01e3c98503c07c5ef69adc83dc25fc",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_casedigit_bin_z_wild_narrow_inside.sv:27: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch5/test_gen_cross_casedigit_bin_z_wild_narrow_inside.sv:27: syntax error\ntests/gen/ch5/test_gen_cross_casedigit_bin_z_wild_narrow_inside.sv:28: error: Incomprehensible case expression.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_casedigit_dec_q_wild_narrow_inside.sv",
+      "input_sha256": "b22967ee925f606209aebd7aa846d89d68769836c22dfffd31550d931689a27d",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_casedigit_dec_q_wild_narrow_inside.sv:27: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch5/test_gen_cross_casedigit_dec_q_wild_narrow_inside.sv:27: syntax error\ntests/gen/ch5/test_gen_cross_casedigit_dec_q_wild_narrow_inside.sv:28: error: Incomprehensible case expression.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_casedigit_hex_x_wild_same_inside.sv",
+      "input_sha256": "67a29a7200e5ad32f12863cd8d844a0b0d97bf698247440e00a5a83a1d6e7742",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_casedigit_hex_x_wild_same_inside.sv:27: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch5/test_gen_cross_casedigit_hex_x_wild_same_inside.sv:27: syntax error\ntests/gen/ch5/test_gen_cross_casedigit_hex_x_wild_same_inside.sv:28: error: Incomprehensible case expression.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_casedigit_hex_z_known_unsized_inside.sv",
+      "input_sha256": "e69449ef31f007392e5bd7b965fa676f9b3b02f6d3b2f2b02c7c56df5adf8b39",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_casedigit_hex_z_known_unsized_inside.sv:27: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch5/test_gen_cross_casedigit_hex_z_known_unsized_inside.sv:27: syntax error\ntests/gen/ch5/test_gen_cross_casedigit_hex_z_known_unsized_inside.sv:28: error: Incomprehensible case expression.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_casedigit_oct_q_known_same_inside.sv",
+      "input_sha256": "d92c15c105873f43454fc9a8f053dde7ab17172a74daf820d425abf9988180f0",
+      "reason": "compile failed: tests/gen/ch5/test_gen_cross_casedigit_oct_q_known_same_inside.sv:27: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 2,
+          "stderr": "tests/gen/ch5/test_gen_cross_casedigit_oct_q_known_same_inside.sv:27: syntax error\ntests/gen/ch5/test_gen_cross_casedigit_oct_q_known_same_inside.sv:28: error: Incomprehensible case expression.\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_case_function_local_derived_outer.sv",
+      "input_sha256": "cb865024510c0d83dcfe8fc9fbe10d3722c998fd5dbe77583b2bd8c5a47dc64b",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_case_function_local_derived_outer.sv:41: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_case_function_local_derived_outer.sv:41: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21c0cb9a\" -f\"<tmp>/ivrlg1c0cb9a\" -p\"<tmp>/ivrli1c0cb9a\"\n      1753 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1c0cb9a\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_case_function_local_instance_none.sv",
+      "input_sha256": "b0d473038904f6725dc4be3ca1ce2b8be10d833b7fe83e52a2fde857d3752cb3",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_case_function_local_instance_none.sv:36: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_case_function_local_instance_none.sv:36: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21c2972b\" -f\"<tmp>/ivrlg1c2972b\" -p\"<tmp>/ivrli1c2972b\"\n      1761 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1c2972b\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_case_function_local_instance_property.sv",
+      "input_sha256": "34f87639d984e48cccbecb298ae0c8c63b83306f02dbf22f2a884be8192dab8e",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_case_function_local_instance_property.sv:36: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_case_function_local_instance_property.sv:36: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21c42115\" -f\"<tmp>/ivrlg1c42115\" -p\"<tmp>/ivrli1c42115\"\n      1772 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1c42115\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_case_local_hier_instance_outer.sv",
+      "input_sha256": "d6a2913592ab820cb4e6f9693bbea68c529d1f0b97070b913cd8799d63cdab33",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_case_local_hier_instance_outer.sv:41: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_case_local_hier_instance_outer.sv:41: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21c77690\" -f\"<tmp>/ivrlg1c77690\" -p\"<tmp>/ivrli1c77690\"\n      1781 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1c77690\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_case_local_local_instance_none.sv",
+      "input_sha256": "97fb4ac7b7f3ab9656cb5dd290d561e5a46642354ca949b98cefe9eb81fd36da",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_case_local_local_instance_none.sv:36: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_case_local_local_instance_none.sv:36: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21c94221\" -f\"<tmp>/ivrlg1c94221\" -p\"<tmp>/ivrli1c94221\"\n      1786 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1c94221\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_case_local_local_instance_property.sv",
+      "input_sha256": "b1eab6683fe5fbaf88d60e0425c9de94c59dc199451a42b07e4fcb9e3c6e2d6e",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_case_local_local_instance_property.sv:36: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_case_local_local_instance_property.sv:36: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21ccd943\" -f\"<tmp>/ivrlg1ccd943\" -p\"<tmp>/ivrli1ccd943\"\n      1801 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1ccd943\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_case_param_local_instance_none.sv",
+      "input_sha256": "64f857625022d719a060cbf97c2d3a6b8d21c5f62f7030518f9783d3d51891a4",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_case_param_local_instance_none.sv:36: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_case_param_local_instance_none.sv:36: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21ce632d\" -f\"<tmp>/ivrlg1ce632d\" -p\"<tmp>/ivrli1ce632d\"\n      1806 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1ce632d\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_case_param_local_instance_outer.sv",
+      "input_sha256": "be361ab2c885bd481e37bfd2e5015ad065c766558aaa2059b7fe8fa40603da98",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_case_param_local_instance_outer.sv:41: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_case_param_local_instance_outer.sv:41: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21cfed17\" -f\"<tmp>/ivrlg1cfed17\" -p\"<tmp>/ivrli1cfed17\"\n      1822 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1cfed17\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_case_param_local_instance_property.sv",
+      "input_sha256": "b45d196cbf578bef985f0ab250d5bbdcf18624da71ae430550bca8d85bd37e4f",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_case_param_local_instance_property.sv:36: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_case_param_local_instance_property.sv:36: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21d40787\" -f\"<tmp>/ivrlg1d40787\" -p\"<tmp>/ivrli1d40787\"\n      1828 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1d40787\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_case_variable_local_instance_outer.sv",
+      "input_sha256": "e5ef5917d75e48a66832114de90d59171551de54da94cdbb49bebfead23ef8bb",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_case_variable_local_instance_outer.sv:41: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_case_variable_local_instance_outer.sv:41: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21d5d318\" -f\"<tmp>/ivrlg1d5d318\" -p\"<tmp>/ivrli1d5d318\"\n      1835 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1d5d318\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_case_variable_local_instance_property.sv",
+      "input_sha256": "d084cd129fc9ffd101f33b52ea0ae878524f1f34020f05666e8e27deacbd8c0c",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_case_variable_local_instance_property.sv:36: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_case_variable_local_instance_property.sv:36: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21d7e050\" -f\"<tmp>/ivrlg1d7e050\" -p\"<tmp>/ivrli1d7e050\"\n      1844 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1d7e050\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_case_variable_local_static_none.sv",
+      "input_sha256": "0e5a7dd7d49f0c566d4a7c87f190b69e00fa424a0303b5f23f58c9d951e169e8",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_case_variable_local_static_none.sv:36: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_case_variable_local_static_none.sv:36: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21d9abe1\" -f\"<tmp>/ivrlg1d9abe1\" -p\"<tmp>/ivrli1d9abe1\"\n      1851 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1d9abe1\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_for_function_local_instance_none.sv",
+      "input_sha256": "16b6f26f379033efc973a16f018fff5da485736fd35efa54c4cf19b5cc43d1ec",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_for_function_local_instance_none.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_for_function_local_instance_none.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21db7772\" -f\"<tmp>/ivrlg1db7772\" -p\"<tmp>/ivrli1db7772\"\n      1857 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1db7772\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_for_function_local_instance_outer.sv",
+      "input_sha256": "8a77cee042bc76c1155d677e022b5e17d4c96b1eaf9fcabb51ad2e4ea8fc914d",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_for_function_local_instance_outer.sv:40: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_for_function_local_instance_outer.sv:40: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21dd4303\" -f\"<tmp>/ivrlg1dd4303\" -p\"<tmp>/ivrli1dd4303\"\n      1864 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1dd4303\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_for_function_local_instance_property.sv",
+      "input_sha256": "e0b3bfdb43e75e7b5ea19042668d9804213ce39e0d53e25328a77609c5c90748",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_for_function_local_instance_property.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_for_function_local_instance_property.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21df0e94\" -f\"<tmp>/ivrlg1df0e94\" -p\"<tmp>/ivrli1df0e94\"\n      1871 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1df0e94\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_for_local_local_derived_property.sv",
+      "input_sha256": "f1a0fc7cf718ec15a5ede8729a310205a86aeb305fa3ef1882e28f55bdf9207d",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_for_local_local_derived_property.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_for_local_local_derived_property.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21e056d7\" -f\"<tmp>/ivrlg1e056d7\" -p\"<tmp>/ivrli1e056d7\"\n      1878 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1e056d7\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_for_local_local_instance_none.sv",
+      "input_sha256": "7636a37fc43c2ffb6a2fe2ccb3f989935066169c0358043fd834767831cb711f",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_for_local_local_instance_none.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_for_local_local_instance_none.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21e2640f\" -f\"<tmp>/ivrlg1e2640f\" -p\"<tmp>/ivrli1e2640f\"\n      1884 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1e2640f\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_for_local_local_instance_outer.sv",
+      "input_sha256": "0d8471ebdc9f01f50b980725411bbcce2e586d3e61b71f7de94e77154b97decc",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_for_local_local_instance_outer.sv:40: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_for_local_local_instance_outer.sv:40: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21e3edf9\" -f\"<tmp>/ivrlg1e3edf9\" -p\"<tmp>/ivrli1e3edf9\"\n      1891 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1e3edf9\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_for_param_local_instance_none.sv",
+      "input_sha256": "9687faedced5b3ed2b9850c54241225e50fc588a26f716d676a22948ee50f8d2",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_for_param_local_instance_none.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_for_param_local_instance_none.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21e5b98a\" -f\"<tmp>/ivrlg1e5b98a\" -p\"<tmp>/ivrli1e5b98a\"\n      1897 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1e5b98a\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_for_param_local_instance_property.sv",
+      "input_sha256": "4107e1481f5dcdaaaa216918ebd9e087e49fb77aaf1849c79c2030ae6809589a",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_for_param_local_instance_property.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_for_param_local_instance_property.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21e74374\" -f\"<tmp>/ivrlg1e74374\" -p\"<tmp>/ivrli1e74374\"\n      1904 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1e74374\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_for_param_local_static_outer.sv",
+      "input_sha256": "d404b0bb1072af3ab7ba1c1ddf9faf86afe99eea2113c64599fb2df506364a14",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_for_param_local_static_outer.sv:40: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_for_param_local_static_outer.sv:40: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21e90f05\" -f\"<tmp>/ivrlg1e90f05\" -p\"<tmp>/ivrli1e90f05\"\n      1910 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1e90f05\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_for_variable_hier_derived_outer.sv",
+      "input_sha256": "9a95cdae65787e34d3b96bdc09dccfdcd989bf5689ef261f03a7bd8a90dfc72e",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_for_variable_hier_derived_outer.sv:40: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_for_variable_hier_derived_outer.sv:40: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21ea98ef\" -f\"<tmp>/ivrlg1ea98ef\" -p\"<tmp>/ivrli1ea98ef\"\n      1917 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1ea98ef\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_for_variable_local_instance_none.sv",
+      "input_sha256": "288e0c0a959c7809eaa5e967324ee9ebc3596cd31bdf1adbeb2666ad3ce65572",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_for_variable_local_instance_none.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_for_variable_local_instance_none.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21ec6480\" -f\"<tmp>/ivrlg1ec6480\" -p\"<tmp>/ivrli1ec6480\"\n      1923 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1ec6480\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_for_variable_local_instance_property.sv",
+      "input_sha256": "77853b4b3be5181aa12abd90a8e4e8909db8683e9061c9ca5dd4c496934a7518",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_for_variable_local_instance_property.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_for_variable_local_instance_property.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21ee3011\" -f\"<tmp>/ivrlg1ee3011\" -p\"<tmp>/ivrli1ee3011\"\n      1931 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1ee3011\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_if_function_local_instance_none.sv",
+      "input_sha256": "8977aad83643840f50d21240101e039c103e79be959553dd311f7a41cc1303f1",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_if_function_local_instance_none.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_if_function_local_instance_none.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21efb9fb\" -f\"<tmp>/ivrlg1efb9fb\" -p\"<tmp>/ivrli1efb9fb\"\n      1937 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1efb9fb\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_if_function_local_instance_outer.sv",
+      "input_sha256": "08abdc2f44b7182cbfd6fc55ee5af122f1863849706a7651241dbae3d3e65189",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_if_function_local_instance_outer.sv:40: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_if_function_local_instance_outer.sv:40: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21f1858c\" -f\"<tmp>/ivrlg1f1858c\" -p\"<tmp>/ivrli1f1858c\"\n      1944 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1f1858c\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_if_function_local_static_property.sv",
+      "input_sha256": "10c0f16cc146a858d4410c1c6bff851be33a4120d981e2d0f0b392d7fa73a36c",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_if_function_local_static_property.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_if_function_local_static_property.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21f3511d\" -f\"<tmp>/ivrlg1f3511d\" -p\"<tmp>/ivrli1f3511d\"\n      1950 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1f3511d\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_if_local_local_instance_none.sv",
+      "input_sha256": "c77ab232474af3bbee95bf7513823979b7014f31e98bae308f5a96cb6c568b04",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_if_local_local_instance_none.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_if_local_local_instance_none.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21f4db07\" -f\"<tmp>/ivrlg1f4db07\" -p\"<tmp>/ivrli1f4db07\"\n      1957 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1f4db07\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_if_local_local_instance_outer.sv",
+      "input_sha256": "464ac12b9f0d518ba3a4055366c0e1658910c4a44b10705b9e6a5750eb8a7bab",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_if_local_local_instance_outer.sv:40: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_if_local_local_instance_outer.sv:40: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21f6a698\" -f\"<tmp>/ivrlg1f6a698\" -p\"<tmp>/ivrli1f6a698\"\n      1963 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1f6a698\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_if_local_local_instance_property.sv",
+      "input_sha256": "0df6a5f0111b90fe360665ac090fdd146d7c4c784d8895efb653e381f4d0ca6a",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_if_local_local_instance_property.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_if_local_local_instance_property.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21f83082\" -f\"<tmp>/ivrlg1f83082\" -p\"<tmp>/ivrli1f83082\"\n      1970 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1f83082\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_if_param_hier_derived_none.sv",
+      "input_sha256": "0269ea4eeb661d96763a0b909b3806ed43d855f54a940f5a2e17e90b4ac65be9",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_if_param_hier_derived_none.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_if_param_hier_derived_none.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21f9ba6c\" -f\"<tmp>/ivrlg1f9ba6c\" -p\"<tmp>/ivrli1f9ba6c\"\n      1977 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1f9ba6c\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_if_param_local_instance_outer.sv",
+      "input_sha256": "5c3e826b6484ac9ea5584020fe89b569abb887b40ea0d8282e456ed1e7a546b0",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_if_param_local_instance_outer.sv:40: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_if_param_local_instance_outer.sv:40: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21fc094b\" -f\"<tmp>/ivrlg1fc094b\" -p\"<tmp>/ivrli1fc094b\"\n      1984 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1fc094b\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_if_param_local_instance_property.sv",
+      "input_sha256": "286b0913684a113557fd0b3b3e700d1d9344b73ee92b7794160cfb9984fa6a48",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_if_param_local_instance_property.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_if_param_local_instance_property.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg21fe99d1\" -f\"<tmp>/ivrlg1fe99d1\" -p\"<tmp>/ivrli1fe99d1\"\n      1995 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh1fe99d1\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_if_variable_local_instance_none.sv",
+      "input_sha256": "5ebabdf6a63459ac28c2c8ecf4bbb3550042eb16b1951cf602b7fa3d295be52f",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_if_variable_local_instance_none.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_if_variable_local_instance_none.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg2200a709\" -f\"<tmp>/ivrlg200a709\" -p\"<tmp>/ivrli200a709\"\n      2002 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh200a709\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_if_variable_local_instance_outer.sv",
+      "input_sha256": "c0942168ba0447ec5884fbf3bc827ab70642da7a91a720a31c6b5e8771f93439",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_if_variable_local_instance_outer.sv:40: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_if_variable_local_instance_outer.sv:40: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg220230f3\" -f\"<tmp>/ivrlg20230f3\" -p\"<tmp>/ivrli20230f3\"\n      2008 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh20230f3\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_gen_if_variable_local_instance_property.sv",
+      "input_sha256": "dff4f9a6d34610347f5b7d94a0eb49251b7e051a33272e8c686e86e898b02708",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_gen_if_variable_local_instance_property.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 134,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_gen_if_variable_local_instance_property.sv:35: assert: pform.cc:584: failed assertion !pform_cur_generate\nsh: line 1:  <pid> Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>/ivrlg22043e2b\" -f\"<tmp>/ivrlg2043e2b\" -p\"<tmp>/ivrli2043e2b\"\n      2017 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>/ivrlh2043e2b\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch8/test_gen_cross_scopeclass_module_local_local_static_none.sv",
+      "input_sha256": "23c0928d2afbd4834e03f68fdeace57b0e4d59f62e3031aade936fbc9f429f86",
+      "reason": "compile failed: tests/gen/ch8/test_gen_cross_scopeclass_module_local_local_static_none.sv:43: syntax error",
+      "executions": [
+        {
+          "tool": "iverilog",
+          "returncode": 4,
+          "stderr": "tests/gen/ch8/test_gen_cross_scopeclass_module_local_local_static_none.sv:43: syntax error\ntests/gen/ch8/test_gen_cross_scopeclass_module_local_local_static_none.sv:43: error: Malformed statement\ntests/gen/ch8/test_gen_cross_scopeclass_module_local_local_static_none.sv:45: syntax error\ntests/gen/ch8/test_gen_cross_scopeclass_module_local_local_static_none.sv:45: error: Malformed statement\n"
+        }
+      ]
+    }
+  ],
+  "verilator_originals": [
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_default_fill1_init.sv",
+      "seed": 1,
+      "input_sha256": "7aa94060cfbd7a87d9768370dcc8b771aadbb0ca799a1731f791db38652e4edc",
+      "reason": "output differs: line 1 is 'a=1111 i=1 l=0000 b=0 g=0 q=-1,0', expected 'a=1111 i=-1 l=1111 b=-1 g=-1 q=-1,-1'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "a=1111 i=1 l=0000 b=0 g=0 q=-1,0\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: end at 0s; walltime 0.000 s; speed 0.000 s/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_default_fill1_init.sv",
+      "seed": 73,
+      "input_sha256": "7aa94060cfbd7a87d9768370dcc8b771aadbb0ca799a1731f791db38652e4edc",
+      "reason": "output differs: line 1 is 'a=1111 i=1 l=0000 b=0 g=0 q=-1,0', expected 'a=1111 i=-1 l=1111 b=-1 g=-1 q=-1,-1'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "a=1111 i=1 l=0000 b=0 g=0 q=-1,0\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: end at 0s; walltime 0.000 s; speed 0.000 s/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_last_type_fill1_init.sv",
+      "seed": 1,
+      "input_sha256": "4570bcd85a8cdfd04ac312972b6793eb8744b39b06133933451b1cc973829885",
+      "reason": "output differs: line 1 is 'a=0111 i=7 l=0000 b=0 g=0 q=7,0', expected 'a=0111 i=-1 l=0111 b=7 g=7 q=-1,-1'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "a=0111 i=7 l=0000 b=0 g=0 q=7,0\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: end at 0s; walltime 0.000 s; speed 0.000 s/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_last_type_fill1_init.sv",
+      "seed": 73,
+      "input_sha256": "4570bcd85a8cdfd04ac312972b6793eb8744b39b06133933451b1cc973829885",
+      "reason": "output differs: line 1 is 'a=0111 i=7 l=0000 b=0 g=0 q=7,0', expected 'a=0111 i=-1 l=0111 b=7 g=7 q=-1,-1'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "a=0111 i=7 l=0000 b=0 g=0 q=7,0\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: end at 0s; walltime 0.000 s; speed 0.000 s/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_member_type_fill1_assign.sv",
+      "seed": 1,
+      "input_sha256": "830dc5a507b852c65bdf5a3aa6f049c237fd1430dd698f5a2666cd7f59fd7706",
+      "reason": "build failed: %Error: tests/gen/ch5/test_gen_cross_agglit_member_type_fill1_assign.sv:36:18: Assignment pattern key 'nib_t' not found as member",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 1,
+          "diagnostics": [
+            "%Error: tests/gen/ch5/test_gen_cross_agglit_member_type_fill1_assign.sv:36:18: Assignment pattern key 'nib_t' not found as member",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_member_type_fill1_assign.sv",
+      "seed": 73,
+      "input_sha256": "830dc5a507b852c65bdf5a3aa6f049c237fd1430dd698f5a2666cd7f59fd7706",
+      "reason": "build failed: %Error: tests/gen/ch5/test_gen_cross_agglit_member_type_fill1_assign.sv:36:18: Assignment pattern key 'nib_t' not found as member",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 1,
+          "diagnostics": [
+            "%Error: tests/gen/ch5/test_gen_cross_agglit_member_type_fill1_assign.sv:36:18: Assignment pattern key 'nib_t' not found as member",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_type_default_fill1_typed.sv",
+      "seed": 1,
+      "input_sha256": "eb0e685a25c239c0551b4a077a392b0647bd66084336b666e70663cd06ac13fd",
+      "reason": "output differs: line 1 is 'a=1001 i=9 l=0000 b=0 g=0 q=9,0', expected 'a=1001 i=-1 l=1001 b=9 g=9 q=-1,-1'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "a=1001 i=9 l=0000 b=0 g=0 q=9,0\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: end at 0s; walltime 0.000 s; speed 0.000 s/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_type_default_fill1_typed.sv",
+      "seed": 73,
+      "input_sha256": "eb0e685a25c239c0551b4a077a392b0647bd66084336b666e70663cd06ac13fd",
+      "reason": "output differs: line 1 is 'a=1001 i=9 l=0000 b=0 g=0 q=9,0', expected 'a=1001 i=-1 l=1001 b=9 g=9 q=-1,-1'",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 0,
+          "diagnostics": []
+        },
+        {
+          "tool": "simulation",
+          "returncode": 0,
+          "stdout": "a=1001 i=9 l=0000 b=0 g=0 q=9,0\n- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05\n- Verilator: end at 0s; walltime 0.000 s; speed 0.000 s/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 2 MB\n"
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_type_fill1_assign.sv",
+      "seed": 1,
+      "input_sha256": "dee669828ffdaba400a6eedadeb02f7d805f3252b30382ff3b732f0cc845569a",
+      "reason": "build failed: %Error: tests/gen/ch5/test_gen_cross_agglit_type_fill1_assign.sv:36:31: Assignment pattern key 'nib_t' not found as member",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 134,
+          "diagnostics": [
+            "%Error: tests/gen/ch5/test_gen_cross_agglit_type_fill1_assign.sv:36:31: Assignment pattern key 'nib_t' not found as member",
+            "%Error: tests/gen/ch5/test_gen_cross_agglit_type_fill1_assign.sv:36:20: Assignment pattern missed initializing elements: 'logic[3:0]' 'l'",
+            "%Error: Verilator aborted. Suggest trying --debug --gdbbt",
+            "%Error: Command Failed /opt/homebrew/Cellar/verilator/5.052/bin/verilator_bin --binary --timing --coverage-user -Wno-fatal --top-module test_gen_cross_agglit_type_fill1_assign -Mdir <tmp>/tmpvrrwctk1/obj --prefix Vt tests/gen/ch5/test_gen_cross_agglit_type_fill1_assign.sv"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch5/test_gen_cross_agglit_type_fill1_assign.sv",
+      "seed": 73,
+      "input_sha256": "dee669828ffdaba400a6eedadeb02f7d805f3252b30382ff3b732f0cc845569a",
+      "reason": "build failed: %Error: tests/gen/ch5/test_gen_cross_agglit_type_fill1_assign.sv:36:31: Assignment pattern key 'nib_t' not found as member",
+      "executions": [
+        {
+          "tool": "verilator",
+          "returncode": 134,
+          "diagnostics": [
+            "%Error: tests/gen/ch5/test_gen_cross_agglit_type_fill1_assign.sv:36:31: Assignment pattern key 'nib_t' not found as member",
+            "%Error: tests/gen/ch5/test_gen_cross_agglit_type_fill1_assign.sv:36:20: Assignment pattern missed initializing elements: 'logic[3:0]' 'l'",
+            "%Error: Verilator aborted. Suggest trying --debug --gdbbt",
+            "%Error: Command Failed /opt/homebrew/Cellar/verilator/5.052/bin/verilator_bin --binary --timing --coverage-user -Wno-fatal --top-module test_gen_cross_agglit_type_fill1_assign -Mdir <tmp>/tmpwdsi2u91/obj --prefix Vt tests/gen/ch5/test_gen_cross_agglit_type_fill1_assign.sv"
+          ]
+        }
+      ]
+    }
+  ],
+  "runner_sha256": {
+    "icarus": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+    "verilator": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+    "kirimasim": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb"
+  },
+  "executables_sha256": {
+    "iverilog": "5df81b269e1ff2c965dd00ad5a8071ca17717f416003b3661a18b2dde430e73c",
+    "vvp": "1a9bdf1f40102f64f015514f5069f99a5dd9f9f38de343743ef4c169fb358392",
+    "verilator_driver": "098b09b11ba7d3e904ae13d924a9e8dac8ced5c9d7c9beff3b9d36119a417581"
+  }
+}

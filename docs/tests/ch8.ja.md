@@ -4,7 +4,7 @@
 
 [English](ch8.md) / [日本語](ch8.ja.md)
 
-[すべての章](README.ja.md) .411 90 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
+[すべての章](README.ja.md) .459 138 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -448,3 +448,60 @@
 | [`test_gen_cross_classsel_65_logic_s_direct_if_known_keep`](../../tests/gen/ch8/test_gen_cross_classsel_65_logic_s_direct_if_known_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 | Verilator 5.052 ||
 | [`test_gen_cross_classsel_65_logic_s_nonvirtual_case_x_keep`](../../tests/gen/ch8/test_gen_cross_classsel_65_logic_s_nonvirtual_case_x_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 |標準のみ| x/z |
 | [`test_gen_cross_classsel_65_logic_u_direct_if_z_keep`](../../tests/gen/ch8/test_gen_cross_classsel_65_logic_u_direct_if_z_keep.sv) |クラスの呼出し先と型付きの早期returnが、4値の条件選択と保持した参照先を維持する| 8.6 8.12 8.20 11.4.11 11.8.2 12.4 12.5 13.4.1 |標準のみ| x/z |
+
+<a id="generated-by-generatorsinteraction_scopeclasspy"></a>
+
+## 生成者: `generators/interaction_scopeclass.py`
+
+48 テスト;見て "Generated tests" のスイートの README。
+
+|テスト|チェックするもの|条項|予期した出力を記録|ノート|
+| --- | --- | --- | --- | --- |
+| [`test_gen_cross_scopeclass_gen_case_function_local_derived_outer`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_case_function_local_derived_outer.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.5 13.4 8.13 8.15 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_case_function_local_instance_none`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_case_function_local_instance_none.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.5 13.4 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_case_function_local_instance_property`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_case_function_local_instance_property.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.5 13.4 8.9 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_case_local_hier_instance_outer`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_case_local_hier_instance_outer.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.5 6.20.4 23.6 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_case_local_local_instance_none`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_case_local_local_instance_none.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.5 6.20.4 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_case_local_local_instance_property`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_case_local_local_instance_property.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.5 6.20.4 8.9 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_case_param_local_instance_none`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_case_param_local_instance_none.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.5 6.20.2 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_case_param_local_instance_outer`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_case_param_local_instance_outer.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.5 6.20.2 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_case_param_local_instance_property`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_case_param_local_instance_property.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.5 6.20.2 8.9 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_case_variable_local_instance_outer`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_case_variable_local_instance_outer.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.5 6.8 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_case_variable_local_instance_property`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_case_variable_local_instance_property.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.5 6.8 8.9 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_case_variable_local_static_none`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_case_variable_local_static_none.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.5 6.8 8.10 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_for_function_local_instance_none`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_for_function_local_instance_none.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.4 13.4 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_for_function_local_instance_outer`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_for_function_local_instance_outer.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.4 13.4 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_for_function_local_instance_property`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_for_function_local_instance_property.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.4 13.4 8.9 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_for_local_local_derived_property`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_for_local_local_derived_property.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.4 6.20.4 8.13 8.15 8.9 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_for_local_local_instance_none`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_for_local_local_instance_none.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.4 6.20.4 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_for_local_local_instance_outer`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_for_local_local_instance_outer.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.4 6.20.4 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_for_param_local_instance_none`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_for_param_local_instance_none.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.4 6.20.2 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_for_param_local_instance_property`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_for_param_local_instance_property.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.4 6.20.2 8.9 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_for_param_local_static_outer`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_for_param_local_static_outer.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.4 6.20.2 8.10 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_for_variable_hier_derived_outer`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_for_variable_hier_derived_outer.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.4 6.8 8.13 8.15 23.6 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_for_variable_local_instance_none`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_for_variable_local_instance_none.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.4 6.8 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_for_variable_local_instance_property`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_for_variable_local_instance_property.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.4 6.8 8.9 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_if_function_local_instance_none`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_if_function_local_instance_none.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.5 13.4 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_if_function_local_instance_outer`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_if_function_local_instance_outer.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.5 13.4 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_if_function_local_static_property`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_if_function_local_static_property.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.5 13.4 8.10 8.9 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_if_local_local_instance_none`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_if_local_local_instance_none.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.5 6.20.4 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_if_local_local_instance_outer`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_if_local_local_instance_outer.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.5 6.20.4 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_if_local_local_instance_property`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_if_local_local_instance_property.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.5 6.20.4 8.9 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_if_param_hier_derived_none`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_if_param_hier_derived_none.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.5 6.20.2 8.13 8.15 23.6 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_if_param_local_instance_outer`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_if_param_local_instance_outer.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.5 6.20.2 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_if_param_local_instance_property`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_if_param_local_instance_property.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.5 6.20.2 8.9 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_if_variable_local_instance_none`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_if_variable_local_instance_none.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.5 6.8 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_if_variable_local_instance_outer`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_if_variable_local_instance_outer.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.5 6.8 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_gen_if_variable_local_instance_property`](../../tests/gen/ch8/test_gen_cross_scopeclass_gen_if_variable_local_instance_property.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 27.5 6.8 8.9 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_module_function_hier_derived_property`](../../tests/gen/ch8/test_gen_cross_scopeclass_module_function_hier_derived_property.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 23.2.1 13.4 8.13 8.15 8.9 23.6 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_scopeclass_module_function_local_instance_none`](../../tests/gen/ch8/test_gen_cross_scopeclass_module_function_local_instance_none.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 23.2.1 13.4 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_scopeclass_module_function_local_instance_outer`](../../tests/gen/ch8/test_gen_cross_scopeclass_module_function_local_instance_outer.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 23.2.1 13.4 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_scopeclass_module_local_local_instance_outer`](../../tests/gen/ch8/test_gen_cross_scopeclass_module_local_local_instance_outer.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 23.2.1 6.20.4 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_scopeclass_module_local_local_instance_property`](../../tests/gen/ch8/test_gen_cross_scopeclass_module_local_local_instance_property.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 23.2.1 6.20.4 8.9 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_scopeclass_module_local_local_static_none`](../../tests/gen/ch8/test_gen_cross_scopeclass_module_local_local_static_none.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 23.2.1 6.20.4 8.10 | Verilator 5.052 ||
+| [`test_gen_cross_scopeclass_module_param_local_instance_none`](../../tests/gen/ch8/test_gen_cross_scopeclass_module_param_local_instance_none.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 23.2.1 6.20.2 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_scopeclass_module_param_local_instance_outer`](../../tests/gen/ch8/test_gen_cross_scopeclass_module_param_local_instance_outer.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 23.2.1 6.20.2 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_scopeclass_module_param_local_instance_property`](../../tests/gen/ch8/test_gen_cross_scopeclass_module_param_local_instance_property.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 23.2.1 6.20.2 8.9 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_scopeclass_module_variable_local_instance_none`](../../tests/gen/ch8/test_gen_cross_scopeclass_module_variable_local_instance_none.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 23.2.1 6.8 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_scopeclass_module_variable_local_instance_outer`](../../tests/gen/ch8/test_gen_cross_scopeclass_module_variable_local_instance_outer.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 23.2.1 6.8 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_scopeclass_module_variable_local_instance_property`](../../tests/gen/ch8/test_gen_cross_scopeclass_module_variable_local_instance_property.sv) |クラスのメソッドは、クラスを宣言したスコープの名前に結合する| 8.3 23.9 23.2.1 6.8 8.9 | Icarus Verilog 13.0 ||

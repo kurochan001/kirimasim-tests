@@ -4,7 +4,7 @@
 
 [English](ch5.md) / [日本語](ch5.ja.md)
 
-[すべての章](README.ja.md) .441 343 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
+[すべての章](README.ja.md) .513 415 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -108,6 +108,96 @@
 | [`test_builtin_method_forms_after_mutation`](../../tests/ch5/test_builtin_method_forms_after_mutation.sv) |括弧付きと引数なしの内蔵メソッドの形式は同じ更新オブジェクトを観察します。| 5.13 | Verilator 5.052 ||
 | [`test_builtin_method_optional_parens`](../../tests/ch5/test_builtin_method_optional_parens.sv) |引数なしで呼び出された内蔵メソッド、またはデフォルトの引数のみで呼び出されたメソッドは空の括弧を省略できます。| 5.13 7.5.2 7.9.1 6.16.1 6.19.5.3 7.10.2.3 | Verilator 5.052 ||
 | [`test_illegal_method_implicit_variable_without_parentheses`](../../tests/ch5/test_illegal_method_implicit_variable_without_parentheses.sv) |結果が暗黙変数として選択された括弧のない内蔵メソッドコールは拒否されます。| 5.13 13.4.1 6.16 |標準のみ|違法なデザインだ|
+
+<a id="generated-by-generatorsinteraction_agglitpy"></a>
+
+## 生成者: `generators/interaction_agglit.py`
+
+48 テスト;見て "Generated tests" のスイートの README。
+
+|テスト|チェックするもの|条項|予期した出力を記録|ノート|
+| --- | --- | --- | --- | --- |
+| [`test_gen_cross_agglit_default_fill1_init`](../../tests/gen/ch5/test_gen_cross_agglit_default_fill1_init.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.1 10.9.2 5.7.1 10.8 6.8 |標準のみ||
+| [`test_gen_cross_agglit_default_fillx_init`](../../tests/gen/ch5/test_gen_cross_agglit_default_fillx_init.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.1 10.9.2 5.7.1 6.11 10.8 6.8 |標準のみ| x/z |
+| [`test_gen_cross_agglit_default_neg_typed`](../../tests/gen/ch5/test_gen_cross_agglit_default_neg_typed.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.1 10.9.2 5.7.1 10.7 10.9 13.3 |標準のみ||
+| [`test_gen_cross_agglit_default_real_param`](../../tests/gen/ch5/test_gen_cross_agglit_default_real_param.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.1 10.9.2 5.7.2 6.12.1 10.8 6.20.4 |標準のみ||
+| [`test_gen_cross_agglit_default_snarrow_init`](../../tests/gen/ch5/test_gen_cross_agglit_default_snarrow_init.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.1 10.9.2 5.7.1 10.7 10.8 6.8 |標準のみ||
+| [`test_gen_cross_agglit_default_wide_assign`](../../tests/gen/ch5/test_gen_cross_agglit_default_wide_assign.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.1 10.9.2 5.7.1 10.7 10.8 |標準のみ||
+| [`test_gen_cross_agglit_last_type_fill1_init`](../../tests/gen/ch5/test_gen_cross_agglit_last_type_fill1_init.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 5.7.1 10.8 6.8 |標準のみ||
+| [`test_gen_cross_agglit_last_type_fillx_assign`](../../tests/gen/ch5/test_gen_cross_agglit_last_type_fillx_assign.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 5.7.1 6.11 10.8 |標準のみ| x/z |
+| [`test_gen_cross_agglit_last_type_neg_param`](../../tests/gen/ch5/test_gen_cross_agglit_last_type_neg_param.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 5.7.1 10.7 10.8 6.20.4 |標準のみ||
+| [`test_gen_cross_agglit_last_type_real_typed`](../../tests/gen/ch5/test_gen_cross_agglit_last_type_real_typed.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 5.7.2 6.12.1 10.9 13.3 |標準のみ||
+| [`test_gen_cross_agglit_last_type_snarrow_init`](../../tests/gen/ch5/test_gen_cross_agglit_last_type_snarrow_init.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 5.7.1 10.7 10.8 6.8 |標準のみ||
+| [`test_gen_cross_agglit_last_type_wide_init`](../../tests/gen/ch5/test_gen_cross_agglit_last_type_wide_init.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 5.7.1 10.7 10.8 6.8 |標準のみ||
+| [`test_gen_cross_agglit_member_fill1_param`](../../tests/gen/ch5/test_gen_cross_agglit_member_fill1_param.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 5.7.1 10.8 6.20.4 | Verilator 5.052 ||
+| [`test_gen_cross_agglit_member_fillx_init`](../../tests/gen/ch5/test_gen_cross_agglit_member_fillx_init.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 5.7.1 6.11 10.8 6.8 |標準のみ| x/z |
+| [`test_gen_cross_agglit_member_neg_assign`](../../tests/gen/ch5/test_gen_cross_agglit_member_neg_assign.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 5.7.1 10.7 10.8 | Verilator 5.052 ||
+| [`test_gen_cross_agglit_member_real_init`](../../tests/gen/ch5/test_gen_cross_agglit_member_real_init.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 5.7.2 6.12.1 10.8 6.8 | Verilator 5.052 ||
+| [`test_gen_cross_agglit_member_snarrow_init`](../../tests/gen/ch5/test_gen_cross_agglit_member_snarrow_init.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 5.7.1 10.7 10.8 6.8 | Verilator 5.052 ||
+| [`test_gen_cross_agglit_member_type_fill1_assign`](../../tests/gen/ch5/test_gen_cross_agglit_member_type_fill1_assign.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 6.22.1 5.7.1 10.8 |標準のみ||
+| [`test_gen_cross_agglit_member_type_fillx_typed`](../../tests/gen/ch5/test_gen_cross_agglit_member_type_fillx_typed.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 6.22.1 5.7.1 6.11 10.9 13.3 |標準のみ| x/z |
+| [`test_gen_cross_agglit_member_type_neg_param`](../../tests/gen/ch5/test_gen_cross_agglit_member_type_neg_param.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 6.22.1 5.7.1 10.7 10.8 6.20.4 |標準のみ||
+| [`test_gen_cross_agglit_member_type_real_init`](../../tests/gen/ch5/test_gen_cross_agglit_member_type_real_init.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 6.22.1 5.7.2 6.12.1 10.8 6.8 |標準のみ||
+| [`test_gen_cross_agglit_member_type_snarrow_init`](../../tests/gen/ch5/test_gen_cross_agglit_member_type_snarrow_init.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 6.22.1 5.7.1 10.7 10.8 6.8 |標準のみ||
+| [`test_gen_cross_agglit_member_type_wide_init`](../../tests/gen/ch5/test_gen_cross_agglit_member_type_wide_init.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 6.22.1 5.7.1 10.7 10.8 6.8 |標準のみ||
+| [`test_gen_cross_agglit_member_wide_typed`](../../tests/gen/ch5/test_gen_cross_agglit_member_wide_typed.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 5.7.1 10.7 10.9 13.3 | Verilator 5.052 ||
+| [`test_gen_cross_agglit_position_fill1_init`](../../tests/gen/ch5/test_gen_cross_agglit_position_fill1_init.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 5.7.1 10.8 6.8 | Verilator 5.052 ||
+| [`test_gen_cross_agglit_position_fillx_typed`](../../tests/gen/ch5/test_gen_cross_agglit_position_fillx_typed.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 5.7.1 6.11 10.9 13.3 |標準のみ| x/z |
+| [`test_gen_cross_agglit_position_neg_param`](../../tests/gen/ch5/test_gen_cross_agglit_position_neg_param.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 5.7.1 10.7 10.8 6.20.4 | Verilator 5.052 ||
+| [`test_gen_cross_agglit_position_real_assign`](../../tests/gen/ch5/test_gen_cross_agglit_position_real_assign.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 5.7.2 6.12.1 10.8 | Verilator 5.052 ||
+| [`test_gen_cross_agglit_position_snarrow_init`](../../tests/gen/ch5/test_gen_cross_agglit_position_snarrow_init.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 5.7.1 10.7 10.8 6.8 | Verilator 5.052 ||
+| [`test_gen_cross_agglit_position_wide_init`](../../tests/gen/ch5/test_gen_cross_agglit_position_wide_init.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 5.7.1 10.7 10.8 6.8 | Verilator 5.052 ||
+| [`test_gen_cross_agglit_replicate_fill1_typed`](../../tests/gen/ch5/test_gen_cross_agglit_replicate_fill1_typed.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 5.11 10.9.1 10.9.2 5.7.1 10.9 13.3 | Verilator 5.052 ||
+| [`test_gen_cross_agglit_replicate_fillx_param`](../../tests/gen/ch5/test_gen_cross_agglit_replicate_fillx_param.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 5.11 10.9.1 10.9.2 5.7.1 6.11 10.8 6.20.4 |標準のみ| x/z |
+| [`test_gen_cross_agglit_replicate_neg_init`](../../tests/gen/ch5/test_gen_cross_agglit_replicate_neg_init.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 5.11 10.9.1 10.9.2 5.7.1 10.7 10.8 6.8 | Verilator 5.052 ||
+| [`test_gen_cross_agglit_replicate_real_init`](../../tests/gen/ch5/test_gen_cross_agglit_replicate_real_init.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 5.11 10.9.1 10.9.2 5.7.2 6.12.1 10.8 6.8 | Verilator 5.052 ||
+| [`test_gen_cross_agglit_replicate_snarrow_assign`](../../tests/gen/ch5/test_gen_cross_agglit_replicate_snarrow_assign.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 5.11 10.9.1 10.9.2 5.7.1 10.7 10.8 | Verilator 5.052 ||
+| [`test_gen_cross_agglit_replicate_wide_init`](../../tests/gen/ch5/test_gen_cross_agglit_replicate_wide_init.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 5.11 10.9.1 10.9.2 5.7.1 10.7 10.8 6.8 | Verilator 5.052 ||
+| [`test_gen_cross_agglit_type_default_fill1_typed`](../../tests/gen/ch5/test_gen_cross_agglit_type_default_fill1_typed.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 6.22.1 5.7.1 10.9 13.3 |標準のみ||
+| [`test_gen_cross_agglit_type_default_fillx_assign`](../../tests/gen/ch5/test_gen_cross_agglit_type_default_fillx_assign.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 6.22.1 5.7.1 6.11 10.8 |標準のみ| x/z |
+| [`test_gen_cross_agglit_type_default_neg_init`](../../tests/gen/ch5/test_gen_cross_agglit_type_default_neg_init.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 6.22.1 5.7.1 10.7 10.8 6.8 |標準のみ||
+| [`test_gen_cross_agglit_type_default_real_init`](../../tests/gen/ch5/test_gen_cross_agglit_type_default_real_init.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 6.22.1 5.7.2 6.12.1 10.8 6.8 |標準のみ||
+| [`test_gen_cross_agglit_type_default_snarrow_param`](../../tests/gen/ch5/test_gen_cross_agglit_type_default_snarrow_param.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 6.22.1 5.7.1 10.7 10.8 6.20.4 |標準のみ||
+| [`test_gen_cross_agglit_type_default_wide_init`](../../tests/gen/ch5/test_gen_cross_agglit_type_default_wide_init.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 6.22.1 5.7.1 10.7 10.8 6.8 |標準のみ||
+| [`test_gen_cross_agglit_type_fill1_assign`](../../tests/gen/ch5/test_gen_cross_agglit_type_fill1_assign.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 6.22.1 5.7.1 10.8 |標準のみ||
+| [`test_gen_cross_agglit_type_fillx_init`](../../tests/gen/ch5/test_gen_cross_agglit_type_fillx_init.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 6.22.1 5.7.1 6.11 10.8 6.8 |標準のみ| x/z |
+| [`test_gen_cross_agglit_type_neg_init`](../../tests/gen/ch5/test_gen_cross_agglit_type_neg_init.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 6.22.1 5.7.1 10.7 10.8 6.8 |標準のみ||
+| [`test_gen_cross_agglit_type_real_init`](../../tests/gen/ch5/test_gen_cross_agglit_type_real_init.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 6.22.1 5.7.2 6.12.1 10.8 6.8 |標準のみ||
+| [`test_gen_cross_agglit_type_snarrow_typed`](../../tests/gen/ch5/test_gen_cross_agglit_type_snarrow_typed.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 6.22.1 5.7.1 10.7 10.9 13.3 |標準のみ||
+| [`test_gen_cross_agglit_type_wide_param`](../../tests/gen/ch5/test_gen_cross_agglit_type_wide_param.sv) |構造体リテラルはキーと型で各メンバーを設定する| 5.10 10.9.2 6.22.1 5.7.1 10.7 10.8 6.20.4 |標準のみ||
+
+<a id="generated-by-generatorsinteraction_casedigitpy"></a>
+
+## 生成者: `generators/interaction_casedigit.py`
+
+24 テスト;見て "Generated tests" のスイートの README。
+
+|テスト|チェックするもの|条項|予期した出力を記録|ノート|
+| --- | --- | --- | --- | --- |
+| [`test_gen_cross_casedigit_bin_q_wild_unsized_casex`](../../tests/gen/ch5/test_gen_cross_casedigit_bin_q_wild_unsized_casex.sv) |?・z・xの桁を持つcaseの項目は、リテラルとcaseの規則で一致する| 5.7.1 12.5 12.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_casedigit_bin_q_wild_wide_casez`](../../tests/gen/ch5/test_gen_cross_casedigit_bin_q_wild_wide_casez.sv) |?・z・xの桁を持つcaseの項目は、リテラルとcaseの規則で一致する| 5.7.1 12.5 12.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_casedigit_bin_x_known_narrow_casex`](../../tests/gen/ch5/test_gen_cross_casedigit_bin_x_known_narrow_casex.sv) |?・z・xの桁を持つcaseの項目は、リテラルとcaseの規則で一致する| 5.7.1 12.5 12.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_casedigit_bin_x_known_narrow_casez`](../../tests/gen/ch5/test_gen_cross_casedigit_bin_x_known_narrow_casez.sv) |?・z・xの桁を持つcaseの項目は、リテラルとcaseの規則で一致する| 5.7.1 12.5 12.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_casedigit_bin_x_known_same_case`](../../tests/gen/ch5/test_gen_cross_casedigit_bin_x_known_same_case.sv) |?・z・xの桁を持つcaseの項目は、リテラルとcaseの規則で一致する| 5.7.1 12.5 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_casedigit_bin_x_known_wide_inside`](../../tests/gen/ch5/test_gen_cross_casedigit_bin_x_known_wide_inside.sv) |?・z・xの桁を持つcaseの項目は、リテラルとcaseの規則で一致する| 5.7.1 12.5.4 11.4.13 11.4.6 |標準のみ| x/z |
+| [`test_gen_cross_casedigit_bin_z_known_narrow_case`](../../tests/gen/ch5/test_gen_cross_casedigit_bin_z_known_narrow_case.sv) |?・z・xの桁を持つcaseの項目は、リテラルとcaseの規則で一致する| 5.7.1 12.5 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_casedigit_bin_z_known_narrow_casez`](../../tests/gen/ch5/test_gen_cross_casedigit_bin_z_known_narrow_casez.sv) |?・z・xの桁を持つcaseの項目は、リテラルとcaseの規則で一致する| 5.7.1 12.5 12.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_casedigit_bin_z_wild_narrow_inside`](../../tests/gen/ch5/test_gen_cross_casedigit_bin_z_wild_narrow_inside.sv) |?・z・xの桁を持つcaseの項目は、リテラルとcaseの規則で一致する| 5.7.1 12.5.4 11.4.13 11.4.6 |標準のみ| x/z |
+| [`test_gen_cross_casedigit_dec_q_wild_narrow_inside`](../../tests/gen/ch5/test_gen_cross_casedigit_dec_q_wild_narrow_inside.sv) |?・z・xの桁を持つcaseの項目は、リテラルとcaseの規則で一致する| 5.7.1 12.5.4 11.4.13 11.4.6 |標準のみ| x/z |
+| [`test_gen_cross_casedigit_dec_q_wild_unsized_case`](../../tests/gen/ch5/test_gen_cross_casedigit_dec_q_wild_unsized_case.sv) |?・z・xの桁を持つcaseの項目は、リテラルとcaseの規則で一致する| 5.7.1 12.5 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_casedigit_dec_x_wild_narrow_case`](../../tests/gen/ch5/test_gen_cross_casedigit_dec_x_wild_narrow_case.sv) |?・z・xの桁を持つcaseの項目は、リテラルとcaseの規則で一致する| 5.7.1 12.5 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_casedigit_dec_z_wild_same_casex`](../../tests/gen/ch5/test_gen_cross_casedigit_dec_z_wild_same_casex.sv) |?・z・xの桁を持つcaseの項目は、リテラルとcaseの規則で一致する| 5.7.1 12.5 12.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_casedigit_dec_z_wild_wide_casez`](../../tests/gen/ch5/test_gen_cross_casedigit_dec_z_wild_wide_casez.sv) |?・z・xの桁を持つcaseの項目は、リテラルとcaseの規則で一致する| 5.7.1 12.5 12.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_casedigit_hex_q_known_same_casez`](../../tests/gen/ch5/test_gen_cross_casedigit_hex_q_known_same_casez.sv) |?・z・xの桁を持つcaseの項目は、リテラルとcaseの規則で一致する| 5.7.1 12.5 12.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_casedigit_hex_q_known_wide_case`](../../tests/gen/ch5/test_gen_cross_casedigit_hex_q_known_wide_case.sv) |?・z・xの桁を持つcaseの項目は、リテラルとcaseの規則で一致する| 5.7.1 12.5 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_casedigit_hex_x_wild_same_inside`](../../tests/gen/ch5/test_gen_cross_casedigit_hex_x_wild_same_inside.sv) |?・z・xの桁を持つcaseの項目は、リテラルとcaseの規則で一致する| 5.7.1 12.5.4 11.4.13 11.4.6 |標準のみ| x/z |
+| [`test_gen_cross_casedigit_hex_z_known_same_casex`](../../tests/gen/ch5/test_gen_cross_casedigit_hex_z_known_same_casex.sv) |?・z・xの桁を持つcaseの項目は、リテラルとcaseの規則で一致する| 5.7.1 12.5 12.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_casedigit_hex_z_known_unsized_inside`](../../tests/gen/ch5/test_gen_cross_casedigit_hex_z_known_unsized_inside.sv) |?・z・xの桁を持つcaseの項目は、リテラルとcaseの規則で一致する| 5.7.1 12.5.4 11.4.13 11.4.6 |標準のみ| x/z |
+| [`test_gen_cross_casedigit_oct_q_known_same_inside`](../../tests/gen/ch5/test_gen_cross_casedigit_oct_q_known_same_inside.sv) |?・z・xの桁を持つcaseの項目は、リテラルとcaseの規則で一致する| 5.7.1 12.5.4 11.4.13 11.4.6 |標準のみ| x/z |
+| [`test_gen_cross_casedigit_oct_q_known_wide_casex`](../../tests/gen/ch5/test_gen_cross_casedigit_oct_q_known_wide_casex.sv) |?・z・xの桁を持つcaseの項目は、リテラルとcaseの規則で一致する| 5.7.1 12.5 12.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_casedigit_oct_x_wild_narrow_casex`](../../tests/gen/ch5/test_gen_cross_casedigit_oct_x_wild_narrow_casex.sv) |?・z・xの桁を持つcaseの項目は、リテラルとcaseの規則で一致する| 5.7.1 12.5 12.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_casedigit_oct_x_wild_unsized_casez`](../../tests/gen/ch5/test_gen_cross_casedigit_oct_x_wild_unsized_casez.sv) |?・z・xの桁を持つcaseの項目は、リテラルとcaseの規則で一致する| 5.7.1 12.5 12.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_casedigit_oct_z_wild_wide_case`](../../tests/gen/ch5/test_gen_cross_casedigit_oct_z_wild_wide_case.sv) |?・z・xの桁を持つcaseの項目は、リテラルとcaseの規則で一致する| 5.7.1 12.5 | Icarus Verilog 13.0 | x/z |
 
 <a id="generated-by-generatorsinteraction_escnamepy"></a>
 
