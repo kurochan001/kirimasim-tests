@@ -6,9 +6,9 @@
 
 このレポートは登録した有限モデルだけを対象にします。要求カバレッジや全言語の 組合せ網羅率ではありません。計画上の網羅と、実行結果に基づく合格確認を分けます。 既存テストは削減していません。選択数の削減率は実行時間の削減率ではありません。
 
-生成元・利用手順・適用限界は[導入手順](https://github.com/kurochan001/kirimasim-tests/blob/89df6e9b015c88b996199997ff8cfb6eee13c63b/docs/interaction-verification.md)を参照してください。
+生成元・利用手順・適用限界は[導入手順](https://github.com/kurochan001/kirimasim-tests/blob/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9/docs/interaction-verification.md)を参照してください。
 
-2因子100%で何を判断できるかは[4行の具体例](https://github.com/kurochan001/kirimasim-tests/blob/89df6e9b015c88b996199997ff8cfb6eee13c63b/docs/faq.md#q28-why-not-simply-cross-every-feature)、計画と実際のPASSの違いは[実行充足の説明](https://github.com/kurochan001/kirimasim-tests/blob/89df6e9b015c88b996199997ff8cfb6eee13c63b/docs/faq.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution)を参照してください。
+2因子100%で何を判断できるかは[4行の具体例](https://github.com/kurochan001/kirimasim-tests/blob/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9/docs/faq.md#q28-why-not-simply-cross-every-feature)、計画と実際のPASSの違いは[実行充足の説明](https://github.com/kurochan001/kirimasim-tests/blob/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9/docs/faq.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution)を参照してください。
 
 ## scheduling_visibility / model 1
 
@@ -2111,6 +2111,165 @@ x・zを含む値に$onehot・$onehot0・$countones・$isunknown・$countbitsを
 
 制約: 実引数・既定の引数・戻り値はどれも代入と同じ規則で仮引数の型へ変換する。unbased unsizedは整数型の仮引数の幅いっぱいに広がり、二値の型ではxが0になる。実数は最も近い整数に丸め、0.5は0から離れる向きに丸める。文字列リテラルは8ビットの文字を並べた符号なしの整数である。string型の仮引数には文字列リテラルだけを、real型にはunbased unsizedを渡さない。エスケープした識別子はtask・function・仮引数の名前に使い、空白で終える。シミュレータの未対応による除外はしない。
 
+## hierarchical_process_control / model 1
+
+- 制約を満たす組合せ数: 252。
+- 利用できる既存・新規テスト: 42。
+- 短時間実行の選択: 42。
+- 個別に保持する必須ケース: 7。
+- 2因子の計画上の網羅: 113/113。
+- 3因子の計画上の網羅: 36/36。
+
+下向き・入れ子・インスタンス配列・生成ブロック・$root・モジュール名による上向き・兄弟への上向きの階層名で、別のインスタンスの名前付きブロックのdisable、イベントの起動、値の書込み、taskの呼出しをする。対象が待ち始める前後で、効果が失われるか残るかを確かめる。
+
+- action: disable, trigger, write, level, nba, call。
+- path: down, nested, array, generate, root, up, sibling。
+- timing: waiting, late。
+- actor: initial, task, fork。
+
+制約: 対象のプロセスは時刻1か4に待ち始め、操作する側は時刻2に一度だけ操作する。操作する側は操作の前に値を表示し、同じタイムスロットでほかのプロセスと表示の順序を競わない。実行中でないブロックのdisableは何もせず、待つプロセスのないイベントの起動と値の変化は失われる。wait文は待ち始めに条件が成り立っていればすぐに進む。下向きの名前、インスタンス配列と生成ブロックを通る名前、$root、モジュール名による上向きの名前、兄弟のインスタンスへの上向きの名前で同じものを指す。
+
+## hierarchical_name_display / model 1
+
+- 制約を満たす組合せ数: 177。
+- 利用できる既存・新規テスト: 65。
+- 短時間実行の選択: 65。
+- 個別に保持する必須ケース: 7。
+- 2因子の計画上の網羅: 143/143。
+- 3因子の計画上の網羅: 27/27。
+
+トップ・子・孫・インスタンス配列・ループ生成・名前付きと名前のない生成ブロックの中で、モジュール・名前付きブロック・fork・文のラベル・ループのラベル・task・function・automatic taskから%mを表示する。サブルーチンを自分のモジュール・下向き・$root・上向きから呼んでも、定義の場所の名前になることを確かめる。
+
+- place: top, inst, nested, array, loopgen, namedgen, unnamedgen。
+- scope: module, block, nested, fork, label, loop, task, auto, function。
+- call: own, down, root, up。
+- process: initial, final。
+
+制約: %mは表示を含むスコープの階層名を出し、サブルーチンでは呼び出し元ではなく定義の場所の名前になる。文のラベルとforの宣言付きループのラベルは名前付きのブロックを作る。名前のない生成ブロックは、その前の生成構文を数えたgenblkの名前になる。外から名前のない生成ブロックの中は参照できないので、下向きと$rootの呼び出しは除く。finalには関数に書ける文だけを書けるので、taskの呼び出しとfork-joinは除く。どのテストも表示するプロセスは一つだけで、表示の順序を競わない。
+
+## array_query_loop / model 1
+
+- 制約を満たす組合せ数: 440。
+- 利用できる既存・新規テスト: 40。
+- 短時間実行の選択: 40。
+- 個別に保持する必須ケース: 7。
+- 2因子の計画上の網羅: 151/151。
+
+昇順・降順・オフセット・負の範囲の固定の次元、パックの次元、動的配列、キュー、空の動的配列を、変数・型の名前・2番目の次元・要素の選択から$left・$right・$low・$high・$increment・$sizeで問い合わせる。for・while・do-while・repeat・foreachで、左から右・小さい順・大きい順・個数で進むことを確かめる。
+
+- shape: asc, desc, offset, neg, packed, dynamic, queue, empty。
+- form: var, type, dim, elem。
+- loop: for, while, do, repeat, foreach。
+- bounds: leftright, lowhigh, highlow, size。
+
+制約: 要素は左の添字から8'h11・8'h22・8'h33・8'h44で、空の動的配列は要素を持たない。$incrementは固定の次元で左が右以上なら1、そうでなければ-1、動的配列とキューでは-1を返す。$lowと$highは$incrementで$leftと$rightから決まり、空の動的配列では$rightと$highが-1になる。型の名前と2番目の次元の問い合わせは固定の大きさの次元だけに使う。foreachは左の添字から右へ進む。do-whileは空の配列でも一度実行して、ない要素のxを読む。do-whileで$leftから$rightへ進む空の配列は終わらないので除く。
+
+## delay_value_form / model 1
+
+- 制約を満たす組合せ数: 222。
+- 利用できる既存・新規テスト: 60。
+- 短時間実行の選択: 60。
+- 個別に保持する必須ケース: 7。
+- 2因子の計画上の網羅: 126/126。
+
+無サイズ・サイズ付き・実数・時間リテラル・x・zを含む値・負の値の遅延を、文の前・即時代入とノンブロッキング代入の中・forkの枝・task・repeatで使う。精度1nsと100psへの丸め、xとzの0、負の値が終わらないことを確かめる。
+
+- value: unsized, sized, real_down, real_up, time, time_fine, x, z, xpart, neg。
+- site: stmt, blocking, nba, fork, task, repeat。
+- start: zero, later。
+- precision: unit, tenth。
+
+制約: 時間単位は1ns、精度は1nsか100psで、遅延はその精度へ丸めてから待つ。丸めの境目の値は使わない。値にxかzのビットを含む遅延は0、負の遅延は時間変数と同じ幅の符号なしの値として扱う。負の遅延は時刻0で精度1nsのときだけ使い、時間の最大値を超える場合を除く。待つ文はプロセスごとに一つで、時刻は実数で小数点以下を一桁まで表示する。
+
+## package_name_lookup / model 1
+
+- 制約を満たす組合せ数: 148。
+- 利用できる既存・新規テスト: 37。
+- 短時間実行の選択: 37。
+- 個別に保持する必須ケース: 7。
+- 2因子の計画上の網羅: 88/88。
+- 3因子の計画上の網羅: 37/37。
+
+packageの変数と関数を、モジュールとブロックのwildcard import・明示のimport・lk_p::でループの範囲に使う。前後の宣言・ブロックの変数・別のpackageのimportと競わせ、26.3の探索の順序を確かめる。
+
+- site: module_wild, block_wild, explicit, scoped。
+- competitor: none, outer_decl, inner_decl, inner_import, later_decl, later_import。
+- ref: var, call。
+- loop: for, while, repeat, do。
+
+制約: 名前はまず参照のあるスコープで、宣言と明示のimportを探し、なければその点より前のwildcard importを探す。見つからなければ外側のスコープで同じことを繰り返す。関数の呼出しは、スコープの終わりまでの宣言を探す。ブロックのwildcard importは外側の宣言より先に見つかり、後のwildcard importは参照より前に効かない。明示のimportと同じスコープの同名の宣言、参照で見えるようになったimportの後の同名の宣言、同じスコープで二つのwildcard importが同じ名前を与える参照は不正なので除く。ブロックの変数は初期化子を付けずに宣言し、文で値を入れる。
+
+## escaped_name_binding / model 1
+
+- 制約を満たす組合せ数: 126。
+- 利用できる既存・新規テスト: 29。
+- 短時間実行の選択: 29。
+- 個別に保持する必須ケース: 7。
+- 2因子の計画上の網羅: 100/100。
+
+モジュール・インスタンス・ポート・パラメータ・変数・task・生成ブロックの名前をエスケープし、平易な形との入れ替え、+を含む名前、エスケープしたキーワード、空白・タブ・改行での終わりで結合を確かめる。
+
+- item: module, inst, port, param, var, task, block。
+- spelling: plain, escaped, special, keyword。
+- ref: same, swapped。
+- gap: space, tab, newline, many。
+
+制約: エスケープした識別子は\で始まり空白で終わり、\と終わりの空白は名前に含まない。そのため\abcとabcは同じ名前で、エスケープしたキーワードは利用者の名前になる。階層名ではエスケープした名前の後に空白を置いてからピリオドを続ける。名前の読み違いが値に出るように、+を含む名前には、+の前の部分と同じ名前の宣言を別に置く。平易な参照には終わりの空白がないので、空白の種類は一つだけにする。
+
+## scoped_class_declaration / model 1
+
+- 制約を満たす組合せ数: 240。
+- 利用できる既存・新規テスト: 48。
+- 短時間実行の選択: 48。
+- 個別に保持する必須ケース: 7。
+- 2因子の計画上の網羅: 100/100。
+- 3因子の計画上の網羅: 48/48。
+
+子モジュールと、そのfor・if・caseの生成ブロックでクラスを宣言し、メソッドから宣言の場所のパラメータ・局所パラメータ・変数・関数を読む。静的メソッド・派生クラス・階層名での呼出し、クラスの静的メンバーと外側の同じ名前との関係を確かめる。
+
+- scope: module, gen_for, gen_if, gen_case。
+- item: param, local, variable, function。
+- caller: local, hier。
+- method: instance, static, derived。
+- shadow: none, property, outer。
+
+制約: クラスは子moduleの中か、そのgenerateブロック（for・if・case）の中で宣言し、子moduleをパラメータの値が異なる二つのインスタンスにする。メソッドは、クラスを宣言したスコープのパラメータ・局所パラメータ・変数・関数を名前で読む。変数は二回の読み出しの間に増やし、メソッドが呼出し時の値を読むことを確かめる。同じ名前を、クラスの静的メンバーか、外側のスコープ（topと、generateブロックを囲むmodule）に宣言した場合も作る。静的メソッドはクラススコープで呼ぶので、宣言したスコープの中からだけ呼ぶ。読み出しの時刻はインスタンスごとにずらす。
+
+## case_literal_wildcard / model 1
+
+- 制約を満たす組合せ数: 312。
+- 利用できる既存・新規テスト: 24。
+- 短時間実行の選択: 24。
+- 個別に保持する必須ケース: 7。
+- 2因子の計画上の網羅: 112/112。
+- 3因子の計画上の網羅: 24/24。
+
+?・z・xの桁を持つ二進・八進・十六進・十進のリテラルを、先頭の桁と幅を変えてcaseの項目に書き、case・casez・casex・case insideで、桁の埋め方と比べ方を確かめる。
+
+- base: bin, oct, hex, dec。
+- digit: q, z, x。
+- lead: wild, known。
+- size: narrow, same, wide, unsized。
+- statement: case, casez, casex, inside。
+
+制約: 選択式はlogic [7:0]とし、?・z・xのどれか一種類の桁を含む項目一つとdefaultで調べる。項目は二進・八進・十六進・十進のリテラルで、先頭の桁が不定値か既知の値か、幅が選択式より狭いか同じか広いか、無サイズかを変える。先頭が不定値なら、その値でリテラルの幅まで埋まる。その後でcaseが全体を最も広い式の幅へ広げ、上のビットはゼロになる。一つのプログラムで、不定値の位置を既知の値で埋めた値・既知の位置を一つ反転した値・既知の位置をzやxにした値・項目と同じ四値の値を順に比べる。十進はx・z・?を一桁だけ書けるので先頭は不定値だけにする。十六進の二桁は狭い幅に入らないので除外する。
+
+## aggregate_literal_key / model 1
+
+- 制約を満たす組合せ数: 192。
+- 利用できる既存・新規テスト: 48。
+- 短時間実行の選択: 48。
+- 個別に保持する必須ケース: 7。
+- 2因子の計画上の網羅: 104/104。
+
+入れ子の構造体と配列を持つ構造体へ、位置・メンバー名・複製・default・型キーで値を与える。各メンバーの型への変換と、キーの優先順位を、初期値・代入・型付きの式・localparamで確かめる。
+
+- key: position, member, replicate, default, type, type_default, member_type, last_type。
+- value: fill1, fillx, neg, real, wide, snarrow。
+- context: init, assign, typed, param。
+
+制約: 構造体は、nib_tのメンバーa、int・nib_t・byte・integerのメンバーを持つ構造体n、intの非パック配列qを持つ。値を位置・メンバー名・複製・default・型キーで与え、型キーはnib_t・int・byte・integerだけを使う。intとintegerは一致する型ではないので、intのキーはintegerに当たらない。defaultがあれば、型キーとdefaultは入れ子の構造体と配列へ降りて当てはまる。defaultがないときに降りるかは読み方が分かれるので、その形では型キーを入れ子のパターンに直接書く。メンバー名が型キーより、型キーがdefaultより優先し、同じ型キーは最後の値を使う。値は各メンバーへの代入として変換し、二値の型ではxをゼロにする。すべての組合せは合法で、宣言の初期値・手続きの代入・型付きのパターン式・localparamで同じ値を運ぶ。
+
 <a id="verify-that-the-input-fingerprint-matches-the-execution"></a>
 
 ## 入力指紋が一致した実行の確認
@@ -2119,8 +2278,8 @@ x・zを含む値に$onehot・$onehot0・$countones・$isunknown・$countbitsを
 
 ### results/ghost.json
 
-- 環境: private build c2138e5f3a5c。
-- 実行日時: 2026-11-08T00:03:26.516261+00:00。
+- 環境: private build 9997c689a2e6。
+- 実行日時: 2026-11-08T12:20:30.104078+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -2462,20 +2621,20 @@ x・zを含む値に$onehot・$onehot0・$countones・$isunknown・$countbitsを
   - 必須ケース: 7/7。
   - ケース状態: pass=19, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - sdf_conditional_paths:
-  - 2因子の合格確認済み組合せ: 82/109。
-  - 3因子の合格確認済み組合せ: 22/46。
-  - 必須ケース: 3/7。
-  - ケース状態: pass=6, fail=12, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 109/109。
+  - 3因子の合格確認済み組合せ: 46/46。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - checker_assertion_sampling:
-  - 2因子の合格確認済み組合せ: 169/174。
-  - 3因子の合格確認済み組合せ: 56/63。
+  - 2因子の合格確認済み組合せ: 173/174。
+  - 3因子の合格確認済み組合せ: 57/63。
   - 必須ケース: 5/6。
   - ケース状態: pass=25, fail=2, known=0, unsupported=0, stale=0, not_run=0。
 - program_assertion_attempts:
-  - 2因子の合格確認済み組合せ: 129/138。
-  - 3因子の合格確認済み組合せ: 54/75。
-  - 必須ケース: 4/6。
-  - ケース状態: pass=21, fail=6, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 137/138。
+  - 3因子の合格確認済み組合せ: 71/75。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=26, fail=1, known=0, unsupported=0, stale=0, not_run=0。
 - container_coverage_sampling:
   - 2因子の合格確認済み組合せ: 172/172。
   - 3因子の合格確認済み組合せ: 79/79。
@@ -2620,11 +2779,52 @@ x・zを含む値に$onehot・$onehot0・$countones・$isunknown・$countbitsを
   - 2因子の合格確認済み組合せ: 100/169。
   - 必須ケース: 4/8。
   - ケース状態: pass=41, fail=21, known=0, unsupported=0, stale=0, not_run=0。
+- hierarchical_process_control:
+  - 2因子の合格確認済み組合せ: 99/113。
+  - 3因子の合格確認済み組合せ: 30/36。
+  - 必須ケース: 6/7。
+  - ケース状態: pass=33, fail=9, known=0, unsupported=0, stale=0, not_run=0。
+- hierarchical_name_display:
+  - 2因子の合格確認済み組合せ: 127/143。
+  - 3因子の合格確認済み組合せ: 23/27。
+  - 必須ケース: 6/7。
+  - ケース状態: pass=59, fail=6, known=0, unsupported=0, stale=0, not_run=0。
+- array_query_loop:
+  - 2因子の合格確認済み組合せ: 149/151。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=39, fail=1, known=0, unsupported=0, stale=0, not_run=0。
+- delay_value_form:
+  - 2因子の合格確認済み組合せ: 126/126。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- package_name_lookup:
+  - 2因子の合格確認済み組合せ: 88/88。
+  - 3因子の合格確認済み組合せ: 37/37。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=37, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- escaped_name_binding:
+  - 2因子の合格確認済み組合せ: 84/100。
+  - 必須ケース: 5/7。
+  - ケース状態: pass=23, fail=6, known=0, unsupported=0, stale=0, not_run=0。
+- scoped_class_declaration:
+  - 2因子の合格確認済み組合せ: 64/100。
+  - 3因子の合格確認済み組合せ: 20/48。
+  - 必須ケース: 3/7。
+  - ケース状態: pass=20, fail=28, known=0, unsupported=0, stale=0, not_run=0。
+- case_literal_wildcard:
+  - 2因子の合格確認済み組合せ: 112/112。
+  - 3因子の合格確認済み組合せ: 24/24。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=24, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- aggregate_literal_key:
+  - 2因子の合格確認済み組合せ: 92/104。
+  - 必須ケース: 6/7。
+  - ケース状態: pass=42, fail=6, known=0, unsupported=0, stale=0, not_run=0。
 
 ### results/icarus.json
 
-- 環境: Icarus Verilog version 14.0 (devel) (s20260301-871-g66f0e8a1)。
-- 実行日時: 2026-11-08T00:00:22.822842+00:00。
+- 環境: Icarus Verilog version 14.0 (devel) (s20260301-873-gbeb32f39)。
+- 実行日時: 2026-11-08T12:01:28.040115+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -3124,11 +3324,52 @@ x・zを含む値に$onehot・$onehot0・$countones・$isunknown・$countbitsを
   - 2因子の合格確認済み組合せ: 153/169。
   - 必須ケース: 6/8。
   - ケース状態: pass=57, fail=0, known=5, unsupported=0, stale=0, not_run=0。
+- hierarchical_process_control:
+  - 2因子の合格確認済み組合せ: 102/113。
+  - 3因子の合格確認済み組合せ: 30/36。
+  - 必須ケース: 6/7。
+  - ケース状態: pass=36, fail=0, known=6, unsupported=0, stale=0, not_run=0。
+- hierarchical_name_display:
+  - 2因子の合格確認済み組合せ: 125/143。
+  - 3因子の合格確認済み組合せ: 23/27。
+  - 必須ケース: 5/7。
+  - ケース状態: pass=59, fail=0, known=6, unsupported=0, stale=0, not_run=0。
+- array_query_loop:
+  - 2因子の合格確認済み組合せ: 64/151。
+  - 必須ケース: 2/7。
+  - ケース状態: pass=14, fail=0, known=26, unsupported=0, stale=0, not_run=0。
+- delay_value_form:
+  - 2因子の合格確認済み組合せ: 126/126。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- package_name_lookup:
+  - 2因子の合格確認済み組合せ: 88/88。
+  - 3因子の合格確認済み組合せ: 37/37。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=37, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- escaped_name_binding:
+  - 2因子の合格確認済み組合せ: 100/100。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=29, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- scoped_class_declaration:
+  - 2因子の合格確認済み組合せ: 88/100。
+  - 3因子の合格確認済み組合せ: 44/48。
+  - 必須ケース: 5/7。
+  - ケース状態: pass=44, fail=0, known=4, unsupported=0, stale=0, not_run=0。
+- case_literal_wildcard:
+  - 2因子の合格確認済み組合せ: 91/112。
+  - 3因子の合格確認済み組合せ: 18/24。
+  - 必須ケース: 5/7。
+  - ケース状態: pass=18, fail=0, known=6, unsupported=0, stale=0, not_run=0。
+- aggregate_literal_key:
+  - 2因子の合格確認済み組合せ: 0/104。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=48, unsupported=0, stale=0, not_run=0。
 
 ### results/kirimasim.json
 
-- 環境: kirimasim 0.0.0 (commit f029ddd0eee1), built with GNU 13.3.0。
-- 実行日時: 2026-11-08T02:26:59.452590+00:00。
+- 環境: kirimasim 0.0.0 (commit 33cee3fa2f0d), built with GNU 13.3.0。
+- 実行日時: 2026-11-08T12:09:51.121888+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -3628,11 +3869,52 @@ x・zを含む値に$onehot・$onehot0・$countones・$isunknown・$countbitsを
   - 2因子の合格確認済み組合せ: 169/169。
   - 必須ケース: 8/8。
   - ケース状態: pass=62, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- hierarchical_process_control:
+  - 2因子の合格確認済み組合せ: 113/113。
+  - 3因子の合格確認済み組合せ: 36/36。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=42, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- hierarchical_name_display:
+  - 2因子の合格確認済み組合せ: 143/143。
+  - 3因子の合格確認済み組合せ: 27/27。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=65, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- array_query_loop:
+  - 2因子の合格確認済み組合せ: 151/151。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- delay_value_form:
+  - 2因子の合格確認済み組合せ: 126/126。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- package_name_lookup:
+  - 2因子の合格確認済み組合せ: 88/88。
+  - 3因子の合格確認済み組合せ: 37/37。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=37, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- escaped_name_binding:
+  - 2因子の合格確認済み組合せ: 100/100。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=29, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- scoped_class_declaration:
+  - 2因子の合格確認済み組合せ: 100/100。
+  - 3因子の合格確認済み組合せ: 42/48。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=42, fail=6, known=0, unsupported=0, stale=0, not_run=0。
+- case_literal_wildcard:
+  - 2因子の合格確認済み組合せ: 112/112。
+  - 3因子の合格確認済み組合せ: 24/24。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=24, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- aggregate_literal_key:
+  - 2因子の合格確認済み組合せ: 82/104。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=40, fail=0, known=0, unsupported=8, stale=0, not_run=0。
 
 ### results/verilator.json
 
-- 環境: Verilator 5.055 devel rev v5.054-117-gcd99c77f。
-- 実行日時: 2026-11-08T00:12:37.849832+00:00。
+- 環境: Verilator 5.055 devel rev v5.054-130-g423f8719。
+- 実行日時: 2026-11-08T12:38:35.460474+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -4132,3 +4414,44 @@ x・zを含む値に$onehot・$onehot0・$countones・$isunknown・$countbitsを
   - 2因子の合格確認済み組合せ: 157/169。
   - 必須ケース: 7/8。
   - ケース状態: pass=57, fail=0, known=5, unsupported=0, stale=0, not_run=0。
+- hierarchical_process_control:
+  - 2因子の合格確認済み組合せ: 111/113。
+  - 3因子の合格確認済み組合せ: 35/36。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=40, fail=0, known=2, unsupported=0, stale=0, not_run=0。
+- hierarchical_name_display:
+  - 2因子の合格確認済み組合せ: 133/143。
+  - 3因子の合格確認済み組合せ: 25/27。
+  - 必須ケース: 6/7。
+  - ケース状態: pass=58, fail=0, known=7, unsupported=0, stale=0, not_run=0。
+- array_query_loop:
+  - 2因子の合格確認済み組合せ: 147/151。
+  - 必須ケース: 6/7。
+  - ケース状態: pass=39, fail=0, known=1, unsupported=0, stale=0, not_run=0。
+- delay_value_form:
+  - 2因子の合格確認済み組合せ: 105/126。
+  - 必須ケース: 5/7。
+  - ケース状態: pass=46, fail=0, known=14, unsupported=0, stale=0, not_run=0。
+- package_name_lookup:
+  - 2因子の合格確認済み組合せ: 88/88。
+  - 3因子の合格確認済み組合せ: 37/37。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=37, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- escaped_name_binding:
+  - 2因子の合格確認済み組合せ: 100/100。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=29, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- scoped_class_declaration:
+  - 2因子の合格確認済み組合せ: 100/100。
+  - 3因子の合格確認済み組合せ: 48/48。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- case_literal_wildcard:
+  - 2因子の合格確認済み組合せ: 0/112。
+  - 3因子の合格確認済み組合せ: 0/24。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=24, unsupported=0, stale=0, not_run=0。
+- aggregate_literal_key:
+  - 2因子の合格確認済み組合せ: 46/104。
+  - 必須ケース: 3/7。
+  - ケース状態: pass=19, fail=0, known=29, unsupported=0, stale=0, not_run=0。

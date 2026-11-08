@@ -4,27 +4,27 @@
 
 The [nightly workflow](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml) of [kirimasim-tests](https://github.com/kurochan001/kirimasim-tests) writes this branch. Each night it runs every test of the suite's main branch with each simulator, adds the results to `history.json` and draws the charts below. Local runs can also be imported and are marked `local`. A test matches when its output and specified checks agree with the expected result, or an illegal design is rejected with the required diagnostic; see the suite's README for what each status means.
 
-Latest run: 2026-11-08 06:25 UTC, suite commit [`89df6e9`](https://github.com/kurochan001/kirimasim-tests/commit/89df6e9b015c88b996199997ff8cfb6eee13c63b), 11773 tests, [workflow run](https://github.com/kurochan001/kirimasim-tests/actions/runs/42422374691).
+Latest run: 2026-11-08 12:39 UTC, suite commit [`36ba5dd`](https://github.com/kurochan001/kirimasim-tests/commit/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9), 12165 tests, [workflow run](https://github.com/kurochan001/kirimasim-tests/actions/runs/42477954992).
 
 ## Latest results per simulator
 
 Each row and chapter-table column uses that simulator's most recent recorded run. Dates, suite commits and test counts can differ; older results retain their own dates and are not treated as part of the latest run.
 
-A green workflow does not mean every test passed: [why Differ can remain](https://github.com/kurochan001/kirimasim-tests/blob/89df6e9b015c88b996199997ff8cfb6eee13c63b/docs/faq.en.md#q11-why-can-nightly-be-green-with-differ-results). Read [status meanings and per-test evidence](https://github.com/kurochan001/kirimasim-tests/blob/89df6e9b015c88b996199997ff8cfb6eee13c63b/docs/faq.en.md#q9-what-do-match-differ-known-difference-and-unsupported-mean) before comparing totals.
+A green workflow does not mean every test passed: [why Differ can remain](https://github.com/kurochan001/kirimasim-tests/blob/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9/docs/faq.en.md#q11-why-can-nightly-be-green-with-differ-results). Read [status meanings and per-test evidence](https://github.com/kurochan001/kirimasim-tests/blob/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9/docs/faq.en.md#q9-what-do-match-differ-known-difference-and-unsupported-mean) before comparing totals.
 
 | Simulator | Version | Run (UTC) | Suite | Source | Match | Differ | Known differences | Unsupported |
 | --- | --- | --- | --- | --- | ---: | ---: | ---: | ---: |
-| Icarus Verilog | Icarus Verilog version 14.0 (devel) (s20260301-871-g66f0e8a1) | 2026-11-08 06:25 | [`89df6e9`](https://github.com/kurochan001/kirimasim-tests/commit/89df6e9b015c88b996199997ff8cfb6eee13c63b) | nightly | 7014 (61.0%) | 17 | 4474 | 0 |
-| Verilator | Verilator 5.055 devel rev v5.054-117-gcd99c77f | 2026-11-08 06:25 | [`89df6e9`](https://github.com/kurochan001/kirimasim-tests/commit/89df6e9b015c88b996199997ff8cfb6eee13c63b) | nightly | 6448 (56.0%) | 25 | 5032 | 0 |
-| kirimasim | kirimasim 0.0.0 (commit f029ddd0eee1), built with GNU 13.3.0 | 2026-11-08 06:25 | [`89df6e9`](https://github.com/kurochan001/kirimasim-tests/commit/89df6e9b015c88b996199997ff8cfb6eee13c63b) | nightly | 9038 (78.6%) | 123 | 0 | 2344 |
+| Icarus Verilog | Icarus Verilog version 14.0 (devel) (s20260301-873-gbeb32f39) | 2026-11-08 12:39 | [`36ba5dd`](https://github.com/kurochan001/kirimasim-tests/commit/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9) | nightly | 7306 (61.4%) | 20 | 4571 | 0 |
+| Verilator | Verilator 5.055 devel rev v5.054-130-g423f8719 | 2026-11-08 12:39 | [`36ba5dd`](https://github.com/kurochan001/kirimasim-tests/commit/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9) | nightly | 6765 (56.9%) | 25 | 5107 | 0 |
+| kirimasim | kirimasim 0.0.0 (commit 33cee3fa2f0d), built with GNU 13.3.0 | 2026-11-08 12:39 | [`36ba5dd`](https://github.com/kurochan001/kirimasim-tests/commit/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9) | nightly | 9417 (79.2%) | 128 | 0 | 2352 |
 | Lyra | Lyra (commit 3ee7454cc747) | 2026-11-06 05:05 | [`6732107`](https://github.com/kurochan001/kirimasim-tests/commit/673210797a4e131a47f75524b4662f93de866206) | nightly | 8440 (78.7%) | 545 | 0 | 1741 |
-| Ghost | private build c2138e5f3a5c | 2026-11-08 06:25 | [`89df6e9`](https://github.com/kurochan001/kirimasim-tests/commit/89df6e9b015c88b996199997ff8cfb6eee13c63b) | nightly | 10821 (94.1%) | 684 | 0 | 0 |
+| Ghost | private build 9997c689a2e6 | 2026-11-08 12:39 | [`36ba5dd`](https://github.com/kurochan001/kirimasim-tests/commit/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9) | nightly | 11222 (94.3%) | 675 | 0 | 0 |
 
 Ghost is an unidentified simulator taking part before its public debut. For now, only its test results step out from behind the curtain. Its name, source and build logs remain private; build IDs are executable hashes.
 
-![Tests that match their expected results](charts/overview.svg?v=20261108T062511)
+![Tests that match their expected results](charts/overview.svg?v=20261108T123902)
 
-![Share of the tests that match](charts/rate.svg?v=20261108T062511)
+![Share of the tests that match](charts/rate.svg?v=20261108T123902)
 
 ## Changes in the latest run
 
@@ -32,93 +32,43 @@ Tests that match now but did not in the previous run of the same simulator, and 
 
 ### Icarus Verilog
 
-Newly match (3): `ch11/test_A_extra_specparam_range`, `ch21/test_fgets_fill_newline_eof`, `imported/ch21/test_time_format_matrix`
+No longer match (5):
+
+- `ch16/test_illegal_local_variable_chandle_type`: differ — no error matches 'test_illegal_local_variable_chandle_type\\.sv:33:'; the first is: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/ch16/test_illegal_local_variable_chandle_type.sv:27: syntax error
+- `ch6/test_illegal_chandle_in_packed_struct`: known difference — no error matches 'test_illegal_chandle_in_packed_struct\\.sv:29:'
+- `ch6/test_illegal_chandle_in_untagged_union`: differ — no error matches 'test_illegal_chandle_in_untagged_union\\.sv:29:'
+- `ch6/test_illegal_chandle_port`: differ — no error matches 'test_illegal_chandle_port\\.sv:28:'
+- `ch8/test_illegal_handle_cast_to_chandle`: known difference — no error matches 'test_illegal_handle_cast_to_chandle\\.sv:27:'
 
 ### Verilator
 
-Newly match (5): `ch11/test_A_extra_specparam_range`, `ch12/test_illegal_for_init_declares_after_existing`, `ch16/test_immediate_assertion_statement_places`, `ch8/test_illegal_interface_specialization_conflict`, `imported/ch21/test_time_format_matrix`
-
-No longer match (4):
-
-- `ch16/test_illegal_concurrent_assert_in_action`: known difference — the design was accepted, but it is illegal
-- `ch16/test_illegal_cover_action_concurrent`: known difference — the design was accepted, but it is illegal
-- `ch9/test_A_extra_event_expressions`: differ — output differs: line 1 is 'or 0', expected 'or 2'
-- `ch9/test_syntax_timing_control_and_event_expressions`: differ — output differs: line 1 is '0: or', expected '2: or'
-
-### kirimasim
-
-Newly match (66): `ch11/test_A_extra_specparam_range`, `ch11/test_expr_inside_set_forms`, `ch11/test_inside_operator_2`, `ch11/test_inside_ranges_tolerance_unknown_and_types`, `ch11/test_inside_tolerance_ranges`, `ch11/test_operator_grammar_and_operand_types`, `ch21/test_ch21_extra_pattern_unpacked_struct`, `ch23/test_defparam_targets_module_interface_program`, `ch6/test_param_override_three_ways_module_interface_program`, `ch7/test_array_index_and_size_signatures`, `ch7/test_member_access_2`, `ch8/test_class_constructor_default_argument_expansion`, `ch8/test_class_multilevel_inheritance`, `ch8/test_class_prop_assign`, `ch8/test_class_super_hidden_members_and_implicit_super_new`, `ch8/test_constructor_default_argument`, `gen/ch11/test_gen_cross_inside_w129_n_us_b_queue_n1_both_unknown`, `gen/ch11/test_gen_cross_inside_w129_n_uu_b_dynamic_n0_known`, `gen/ch11/test_gen_cross_inside_w129_n_uu_l_dynamic_n3_rhs_z`, `gen/ch11/test_gen_cross_inside_w129_w_ss_l_dynamic_n3_both_unknown`, `gen/ch11/test_gen_cross_inside_w1_s_ss_l_queue_n0_lhs_x`, `gen/ch11/test_gen_cross_inside_w1_s_uu_b_dynamic_n1_lhs_x`, `gen/ch11/test_gen_cross_inside_w1_s_uu_b_dynamic_n3_known`, `gen/ch11/test_gen_cross_inside_w1_s_uu_b_queue_n1_known`, `gen/ch11/test_gen_cross_inside_w1_s_uu_b_queue_n1_lhs_x`, `gen/ch11/test_gen_cross_inside_w1_s_uu_b_queue_n3_lhs_x`, `gen/ch11/test_gen_cross_inside_w1_s_uu_l_queue_n3_rhs_x`, `gen/ch11/test_gen_cross_inside_w1_s_uu_l_queue_n3_rhs_z`, `gen/ch11/test_gen_cross_inside_w1_w_uu_l_dynamic_n1_rhs_x`, `gen/ch11/test_gen_cross_inside_w32_n_uu_l_queue_n3_both_unknown`, `gen/ch11/test_gen_cross_inside_w32_w_su_l_dynamic_n3_lhs_x`, `gen/ch11/test_gen_cross_inside_w32_w_uu_b_dynamic_n0_lhs_x`, `gen/ch11/test_gen_cross_inside_w33_n_su_b_queue_n0_lhs_x`, `gen/ch11/test_gen_cross_inside_w33_n_uu_b_queue_n1_rhs_x`, `gen/ch11/test_gen_cross_inside_w33_s_ss_b_dynamic_n1_rhs_z`, `gen/ch11/test_gen_cross_inside_w33_w_su_l_dynamic_n1_known`, `gen/ch11/test_gen_cross_inside_w64_n_uu_b_dynamic_n3_rhs_x`, `gen/ch11/test_gen_cross_inside_w64_s_su_b_queue_n0_known`, `gen/ch11/test_gen_cross_inside_w65_n_su_b_queue_n1_rhs_z`, `gen/ch11/test_gen_cross_inside_w65_s_uu_b_dynamic_n1_both_unknown`, `gen/ch11/test_gen_cross_inside_w65_w_su_b_dynamic_n0_known`, `gen/ch11/test_gen_cross_inside_w65_w_us_l_queue_n3_known`, `gen/ch11/test_gen_cross_range_w129_s_ss_l_abs_tol_bound_x_m`, `gen/ch11/test_gen_cross_range_w129_s_us_l_rel_tol_bound_z_m`, `gen/ch11/test_gen_cross_range_w129_w_us_b_abs_tol_known_s`, `gen/ch11/test_gen_cross_range_w1_s_uu_b_rel_tol_lhs_x_m`, `gen/ch11/test_gen_cross_range_w1_s_uu_l_abs_tol_bound_z_m`, `gen/ch11/test_gen_cross_range_w1_s_uu_l_abs_tol_lhs_x_m`, `gen/ch11/test_gen_cross_range_w1_s_uu_l_rel_tol_bound_x_m`, `gen/ch11/test_gen_cross_range_w32_n_su_b_abs_tol_bound_x_s`, `gen/ch11/test_gen_cross_range_w32_w_us_b_rel_tol_bound_z_s`, `gen/ch11/test_gen_cross_range_w33_s_uu_b_abs_tol_lhs_x_s`, `gen/ch11/test_gen_cross_range_w33_w_su_b_rel_tol_bound_x_s`, `gen/ch11/test_gen_cross_range_w64_n_uu_l_rel_tol_lhs_x_s`, `gen/ch11/test_gen_cross_range_w64_w_uu_b_abs_tol_bound_z_s`, `gen/ch11/test_gen_cross_range_w65_n_ss_l_rel_tol_known_s`, `gen/ch11/test_gen_cross_range_w65_n_us_l_abs_tol_known_m`, `gen/ch11/test_gen_cross_range_w65_s_su_b_rel_tol_known_m`, `gen/ch12/test_gen_cross_caseinside_w129_w_ss_b_list_expr_x_uc`, `gen/ch12/test_gen_cross_caseinside_w1_s_ss_b_array_item_z_pc`, `gen/ch12/test_gen_cross_caseinside_w1_s_uu_b_list_known_pc`, `gen/ch12/test_gen_cross_caseinside_w32_n_ss_b_array_expr_x_uc`, `gen/ch12/test_gen_cross_caseinside_w32_s_uu_l_value_expr_x_pc`, `gen/ch12/test_gen_cross_caseinside_w33_w_su_b_value_item_z_uc`, `gen/ch12/test_gen_cross_caseinside_w64_s_uu_l_range_item_x_pc`, `gen/ch12/test_gen_cross_caseinside_w65_w_us_l_range_known_uc`
-
-No longer match (2):
-
-- `ch24/test_illegal_module_calls_program_task`: differ — the design was accepted, but it is illegal
-- `ch6/test_illegal_string_replication_int_operand`: differ — the design was accepted, but it is illegal
+Newly match (1): `ch11/test_illegal_stream_slice_size_negative`
 
 ### Ghost
 
-Newly match (225): `ch10/test_assignment_pattern_variable_and_net_lvalues`, `ch11/test_expression_alternatives_with_operator_attributes`, `ch11/test_illegal_stream_into_narrower_fixed_target`, `ch11/test_stream_dynamic_target_resize_and_bitstream_types`, `ch11/test_stream_expression_with_range_forms`, `ch11/test_stream_item_order_struct_union_object_assoc`, `ch11/test_stream_with_range_extent_timing_and_partial`, `ch12/test_pattern_casez_casex_ignored_bits`, `ch12/test_pattern_conditional_predicate`, `ch12/test_syntax_case_matches_and_inside_forms`, `ch12/test_syntax_loop_statement_forms`, `ch15/test_ipc_classes_extended_shadowed_and_created`, `ch16/test_global_clock_future_functions_action_delay`, `ch17/test_checker_assume_stability`, `ch17/test_checker_body_items`, `ch17/test_checker_body_procedural_and_generate_items`, `ch17/test_checker_declaration_scope_kinds`, `ch17/test_checker_procedural_deferred_assertion`, `ch17/test_checker_procedural_instance`, `ch17/test_checker_procedures_reactive_renba`, `ch17/test_checker_rand_and_nested_checker`, `ch17/test_checker_reactive_triggered`, `ch17/test_checker_triggered_assignment`, `ch18/test_rand_mode_struct_members`, `ch18/test_rand_real_uniform_and_dist`, `ch19/test_cg_bin_syntax_all_forms`, `ch19/test_cg_excluded_transitions`, `ch19/test_cg_illegal_value_keeps_transition`, `ch20/test_array_query_default_dimension_integer_result`, `ch20/test_array_query_invalid_dimension_all_x`, `ch20/test_fatal_form_finish_number_only`, `ch20/test_fatal_form_without_parentheses`, `ch21/test_vcd_dumplimit_not_reached_keeps_dumping`, `ch21/test_vcd_dumplimit_stops_dump_with_comment`, `ch23/test_interconnect_merge_net_types`, `ch23/test_port_collapse_internal_tri0_tri1`, `ch24/test_program_and_checker_generate_items`, `ch25/test_extern_forkjoin_disable_interface_and_module`, `ch25/test_illegal_modport_import_from_module_without_prototype`, `ch25/test_virtual_if_array`, `ch28/test_user_nettype_switch_and_driver_strength`, `ch3/test_compilation_unit_shared_across_files`, `ch3/test_declaration_across_file_boundary`, `ch3/test_program_and_checker_instantiate_checkers`, `ch31/test_timing_recrem_all_arguments`, `ch31/test_timing_setuphold_all_arguments`, `ch35/test_dpi_caller_info`, `ch35/test_dpi_canonical_aval_bval_packed_kinds`, `ch35/test_dpi_export_caller_allocated_arguments`, `ch35/test_dpi_export_string_directions`, `ch35/test_dpi_formal_integer_logic_time`, `ch35/test_dpi_open_array_elem_ptr_bounds`, `ch35/test_dpi_open_array_variadic_indexing`, `ch35/test_dpi_scope_time_unit_precision`, `ch35/test_dpi_svdpi_scalar_and_chunk_types`, `ch35/test_svdpi_h_after_vpi_user_h`, `ch35/test_svdpi_h_caller_info`, `ch35/test_svdpi_h_canonical_types_and_version`, `ch35/test_svdpi_h_declarations`, `ch35/test_svdpi_h_deprecated_get_declarations`, `ch35/test_svdpi_h_deprecated_portion_types`, `ch35/test_svdpi_h_deprecated_put_declarations`, `ch35/test_svdpi_h_deprecated_size_and_types`, `ch35/test_svdpi_h_macros_and_c_linkage`, `ch35/test_svdpi_h_packed_element_copy`, `ch35/test_svdpi_h_scope_time`, `ch35/test_svdpi_h_sv_mask`, `ch35/test_svdpi_names_and_signed_bits_macro`, `ch36/test_vpi_compat_1364v1995_iterations`, `ch36/test_vpi_compatibility_1364v1995_memory_objects`, `ch36/test_vpi_compatibility_1364v2005_variable_objects`, `ch36/test_vpi_compatibility_1800v2012_routine_calls`, `ch36/test_vpi_compatibility_h_1364v1995`, `ch36/test_vpi_compatibility_h_1364v2001`, `ch36/test_vpi_compatibility_h_1364v2005`, `ch36/test_vpi_compatibility_h_1800v2005`, `ch36/test_vpi_compatibility_h_1800v2009`, `ch36/test_vpi_compatibility_h_1800v2012`, `ch36/test_vpi_user_h_macro_cleanup`, `ch36/test_vpi_user_h_macro_linkage_types`, `ch36/test_vpi_user_h_record_members`, `ch36/test_vpi_user_h_type_declarations`, `ch36/test_vpi_user_h_type_guards`, `ch36/test_vpi_variable_arrays_1364v1995_mode`, `ch36/test_vpi_variable_arrays_1364v2001_mode`, `ch36/test_vpi_variable_arrays_1364v2005_mode`, `ch40/test_coverage_control_interface_scope`, `ch40/test_coverage_control_package_scope`, `ch6/test_bitstream_cast_destination_layout`, `ch6/test_cast_unpacked_struct_bits_round_trip`, `ch6/test_net_delay_value_forms`, `ch6/test_net_unpacked_struct_union_data_types`, `ch6/test_vector_net_scalared`, `ch7/test_array_map_method`, `ch7/test_illegal_wildcard_array_find`, `ch7/test_illegal_wildcard_array_find_first_index`, `ch7/test_illegal_wildcard_array_find_index`, `ch7/test_illegal_wildcard_array_find_last_index`, `ch7/test_queue_invalid_index_write_ignored_warning`, `gen/ch11/test_gen_combo_stream_string_target_resize` and 125 more
+Newly match (65): `ch16/test_local_variable_init_two_leading_clocks`, `ch16/test_sequence_match_item_and_triggered_method`, `ch18/test_constraint_block_all_forms`, `ch19/test_cg_cross_set_function_matches`, `ch19/test_cg_cross_with_policy`, `ch19/test_covergroup_cross_and_select_forms`, `ch23/test_ansi_explicit_named_ports`, `ch32/test_sdf_backannotates_all_timing_values`, `ch32/test_sdf_device_port_instance`, `ch32/test_sdf_filename_types`, `ch32/test_sdf_interconnect_transition_values`, `ch32/test_sdf_iopath_cond_pulse_limits`, `ch32/test_sdf_iopath_one_two_three_values`, `ch32/test_sdf_iopath_retain_forms`, `ch32/test_sdf_iopath_six_twelve_values`, `ch32/test_sdf_label_recomputes_delay_expression`, `ch32/test_sdf_label_specparam`, `ch32/test_sdf_mtm_and_scale_factors`, `ch32/test_sdf_netdelay_port_interconnect`, `ch32/test_sdf_pathpulse_constructs`, `ch32/test_sdf_pulse_limit_defaults_and_preserve`, `ch32/test_sdf_recrem_limits`, `ch32/test_sdf_scale_factors`, `ch32/test_sdf_scale_type_members`, `ch32/test_sdf_tchk_edge_condition_match`, `ch32/test_sdf_tchk_setup_recovery_family`, `ch32/test_sdf_tchk_skew_width_nochange`, `ch32/test_sdf_timing_check_limits`, `ch32/test_sdf_two_values_turnoff`, `ch32/test_sdf_unannotatable_entry_warning`, `ch35/test_dpi_range_mapping_import_export`, `ch35/test_dpi_reference_arguments_forwarded`, `ch35/test_dpi_unpacked_aggregate_arguments`, `ch35/test_dpi_unpacked_types_c_layout_and_embedded_arrays`, `ch35/test_dpi_wysiwyg_formal_types`, `ch37/test_vpi_array_var_ranges_kinds`, `ch37/test_vpi_drivers_loads_ports_force`, `ch37/test_vpi_handle_by_multi_index`, `ch37/test_vpi_net_decl_flags_select`, `ch37/test_vpi_nettype_net_parts`, `ch37/test_vpi_nettype_relations`, `ch37/test_vpi_simple_expr_uses`, `ch37/test_vpi_udp_iodecl_initial`, `ch37/test_vpi_var_select_iteration`, `ch37/test_vpi_variable_driver_load_arrays`, `ch37/test_vpi_variable_drivers_loads`, `ch38/test_vpi_handle_by_multi_index_ranges`, `gen/ch17/test_gen_cross_checksample_8_module_named_before_nba_negedge_explicit_nonzero`, `gen/ch24/test_gen_cross_progassert_1_next_edge_nba_posedge_wildcard_3`, `gen/ch24/test_gen_cross_progassert_1_plain_edge_nba_posedge_positional_3`, `gen/ch24/test_gen_cross_progassert_33_plain_after_nba_posedge_positional_5`, `gen/ch24/test_gen_cross_progassert_8_next_after_nba_posedge_wildcard_5`, `gen/ch24/test_gen_cross_progassert_8_overlap_after_nba_posedge_named_3`, `gen/ch32/test_gen_cross_sdfpath_cond_absolute_fall_cell_v_high_same`, `gen/ch32/test_gen_cross_sdfpath_cond_absolute_rise_cell_v_low_same`, `gen/ch32/test_gen_cross_sdfpath_cond_increment_fall_cell_g_low_same`, `gen/ch32/test_gen_cross_sdfpath_cond_increment_rise_cell_v_high_same`, `gen/ch32/test_gen_cross_sdfpath_else_absolute_fall_cell_v_high_same`, `gen/ch32/test_gen_cross_sdfpath_else_increment_balanced_cell_v_high_same`, `gen/ch32/test_gen_cross_sdfpath_else_increment_fall_cell_g_high_same`, `gen/ch32/test_gen_cross_sdfpath_else_increment_rise_cell_v_high_opposite`, `gen/ch32/test_gen_cross_sdfpath_plain_absolute_balanced_cell_v_high_same`, `gen/ch32/test_gen_cross_sdfpath_plain_absolute_fall_cell_g_high_opposite`, `gen/ch32/test_gen_cross_sdfpath_plain_increment_balanced_cell_v_high_same`, `gen/ch32/test_gen_cross_sdfpath_plain_increment_rise_cell_v_high_same`
 
-No longer match (41):
+No longer match (1):
 
-- `ch10/test_illegal_unpacked_concat_item_without_type`: differ — the design was accepted, but it is illegal
-- `ch18/test_constraint_block_all_forms`: differ — output differs (exit 2)
-- `ch18/test_discarded_soft_distribution`: differ — output differs (exit 2)
-- `ch18/test_illegal_constraint_struct_operand`: differ — the design was accepted, but it is illegal
-- `ch20/test_illegal_array_query_dynamic_type_name`: differ — the design was accepted, but it is illegal
-- `ch6/test_event_triggered_state_lasts_time_step`: differ — output differs
-- `ch6/test_illegal_signing_cast_of_real`: differ — the design was accepted, but it is illegal
-- `ch6/test_illegal_size_cast_of_real`: differ — the design was accepted, but it is illegal
-- `ch6/test_user_nettype_resolution_forms`: differ — output differs
-- `ch7/test_queue_slice_bounds_clip_and_empty`: differ — output differs
-- `gen/ch18/test_gen_cross_randreduce_33_unsigned_dynamic_product_wide_3_fail_sat_fail`: differ — output differs (exit 2)
-- `gen/ch18/test_gen_cross_randreduce_8_signed_dynamic_sum_wide_2_fail_sat_fail`: differ — output differs (exit 2)
-- `gen/ch26/test_gen_cross_pkgwatch_129_bit_known_wildcard_scalar_blocking_full_logical`: differ — output differs
-- `gen/ch26/test_gen_cross_pkgwatch_129_bit_x_qualified_up_blocking_full_case`: differ — output differs
-- `gen/ch26/test_gen_cross_pkgwatch_129_bit_z_qualified_scalar_nba_full_logical`: differ — output differs
-- `gen/ch26/test_gen_cross_pkgwatch_129_logic_known_qualified_up_nba_full_logical`: differ — output differs
-- `gen/ch26/test_gen_cross_pkgwatch_129_logic_x_qualified_down_blocking_full_logical`: differ — output differs
-- `gen/ch26/test_gen_cross_pkgwatch_1_bit_known_qualified_scalar_blocking_full_logical`: differ — output differs
-- `gen/ch26/test_gen_cross_pkgwatch_1_bit_x_explicit_scalar_nba_full_logical`: differ — output differs
-- `gen/ch26/test_gen_cross_pkgwatch_1_bit_z_qualified_up_blocking_full_logical`: differ — output differs
-- `gen/ch26/test_gen_cross_pkgwatch_1_logic_known_qualified_down_nba_full_logical`: differ — output differs
-- `gen/ch26/test_gen_cross_pkgwatch_1_logic_x_qualified_up_nba_lsb_case`: differ — output differs
-- `gen/ch26/test_gen_cross_pkgwatch_1_logic_z_wildcard_down_blocking_lsb_logical`: differ — output differs
-- `gen/ch26/test_gen_cross_pkgwatch_32_bit_known_wildcard_scalar_nba_full_logical`: differ — output differs
-- `gen/ch26/test_gen_cross_pkgwatch_32_bit_z_qualified_down_blocking_full_logical`: differ — output differs
-- `gen/ch26/test_gen_cross_pkgwatch_32_logic_known_explicit_up_nba_full_case`: differ — output differs
-- `gen/ch26/test_gen_cross_pkgwatch_32_logic_x_qualified_up_blocking_full_logical`: differ — output differs
-- `gen/ch26/test_gen_cross_pkgwatch_32_logic_z_qualified_down_nba_full_logical`: differ — output differs
-- `gen/ch26/test_gen_cross_pkgwatch_33_bit_x_explicit_down_blocking_full_logical`: differ — output differs
-- `gen/ch26/test_gen_cross_pkgwatch_33_logic_known_qualified_scalar_nba_full_logical`: differ — output differs
-- `gen/ch26/test_gen_cross_pkgwatch_33_logic_x_qualified_up_nba_full_logical`: differ — output differs
-- `gen/ch26/test_gen_cross_pkgwatch_33_logic_z_wildcard_scalar_blocking_full_case`: differ — output differs
-- `gen/ch26/test_gen_cross_pkgwatch_64_bit_x_qualified_scalar_nba_full_logical`: differ — output differs
-- `gen/ch26/test_gen_cross_pkgwatch_64_logic_known_wildcard_down_nba_full_logical`: differ — output differs
-- `gen/ch26/test_gen_cross_pkgwatch_64_logic_x_qualified_up_nba_full_logical`: differ — output differs
-- `gen/ch26/test_gen_cross_pkgwatch_64_logic_z_qualified_down_blocking_full_logical`: differ — output differs
-- `gen/ch26/test_gen_cross_pkgwatch_65_bit_known_explicit_scalar_blocking_full_logical`: differ — output differs
-- `gen/ch26/test_gen_cross_pkgwatch_65_bit_x_qualified_down_blocking_full_logical`: differ — output differs
-- `gen/ch26/test_gen_cross_pkgwatch_65_logic_known_qualified_up_nba_full_logical`: differ — output differs
-- `gen/ch26/test_gen_cross_pkgwatch_65_logic_x_wildcard_up_blocking_full_logical`: differ — output differs
-- `gen/ch26/test_gen_cross_pkgwatch_65_logic_z_qualified_down_nba_full_logical`: differ — output differs
+- `gen/ch17/test_gen_cross_checksample_1_module_positional_edge_nba_posedge_explicit_nonzero`: differ — output differs
 
 ## By chapter
 
-Cells show matching tests / recorded results, including known and unsupported in the denominator: [8/10 example](https://github.com/kurochan001/kirimasim-tests/blob/89df6e9b015c88b996199997ff8cfb6eee13c63b/docs/faq.en.md#q12-what-percentage-does-by-chapter-show). This is [not requirement coverage](https://github.com/kurochan001/kirimasim-tests/blob/89df6e9b015c88b996199997ff8cfb6eee13c63b/docs/faq.en.md#q15-is-the-nightly-match-rate-requirement-coverage).
+Cells show matching tests / recorded results, including known and unsupported in the denominator: [8/10 example](https://github.com/kurochan001/kirimasim-tests/blob/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9/docs/faq.en.md#q12-what-percentage-does-by-chapter-show). This is [not requirement coverage](https://github.com/kurochan001/kirimasim-tests/blob/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9/docs/faq.en.md#q15-is-the-nightly-match-rate-requirement-coverage).
 
-![Matching tests by chapter](charts/chapters.svg?v=20261108T062511)
+![Matching tests by chapter](charts/chapters.svg?v=20261108T123902)
 
 ## Each simulator over time
 
-![Icarus Verilog: results by status](charts/status-icarus.svg?v=20261108T062511)
+![Icarus Verilog: results by status](charts/status-icarus.svg?v=20261108T123902)
 
-![Verilator: results by status](charts/status-verilator.svg?v=20261108T062511)
+![Verilator: results by status](charts/status-verilator.svg?v=20261108T123902)
 
-![kirimasim: results by status](charts/status-kirimasim.svg?v=20261108T062511)
+![kirimasim: results by status](charts/status-kirimasim.svg?v=20261108T123902)
 
-![Lyra: results by status](charts/status-lyra.svg?v=20261108T062511)
+![Lyra: results by status](charts/status-lyra.svg?v=20261108T123902)
 
-![Ghost: results by status](charts/status-ghost.svg?v=20261108T062511)
+![Ghost: results by status](charts/status-ghost.svg?v=20261108T123902)
 
 ## Recent runs
 
@@ -126,6 +76,7 @@ Matching tests of each simulator, with the change since its previous run. The ve
 
 | Run (UTC) | Suite | Tests | Icarus Verilog | Verilator | kirimasim | Lyra | Ghost |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| [2026-11-08 12:39](https://github.com/kurochan001/kirimasim-tests/actions/runs/42477954992) | [`36ba5dd`](https://github.com/kurochan001/kirimasim-tests/commit/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9) | 12165 | 7306 (+297 −5) `14.0 devel beb32f3` | 6765 (+317 −0) `5.055 devel 423f871` | 9417 (+379 −0) `33cee3fa2` | — | 11222 (+402 −1) `private build 9997c689a2e6` |
 | [2026-11-08 06:25](https://github.com/kurochan001/kirimasim-tests/actions/runs/42422374691) | [`89df6e9`](https://github.com/kurochan001/kirimasim-tests/commit/89df6e9b015c88b996199997ff8cfb6eee13c63b) | 11773 | 7014 (+586 −0) `14.0 devel 66f0e8a` | 6448 (+532 −4) `5.055 devel cd99c77` | 9038 (+807 −2) `f029ddd0e` | — | 10821 (+871 −41) `private build c2138e5f3a5c` |
 | [2026-11-07 06:16](https://github.com/kurochan001/kirimasim-tests/actions/runs/42313961551) | [`3c3a5ab`](https://github.com/kurochan001/kirimasim-tests/commit/3c3a5ab8cdb179aaa9d38d97990803dbc44f5cd6) | 11028 | 6428 (+19 −7) `14.0 devel 257f08d` | 5920 (+14 −3) `5.055 devel 9d9dd1c` | 8233 (+42 −0) `b279f5627` | — | 9991 (+85 −12) `private build 56cfd9e560f1` |
 | [2026-11-06 05:05](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265) | [`6732107`](https://github.com/kurochan001/kirimasim-tests/commit/673210797a4e131a47f75524b4662f93de866206) | 10994 | 6417 (+131 −0) `14.0 devel 3b5615f` | 5911 (+77 −1) `5.055 devel ab53e01` | 8191 (+216 −0) `6f5c69841` | 8440 (+225 −2) `3ee7454cc` | 9918 (+126 −1) `private build 63199c0a337a` |

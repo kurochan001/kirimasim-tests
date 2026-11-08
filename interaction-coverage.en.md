@@ -6,9 +6,9 @@
 
 This report is only for registered finite models. The coverage of the requirements and the combination of all languages is not the same. The coverage on the plan and the confirmation of the pass based on the execution result are divided. The existing test is not reduced. A reduction in selected case count is not a measured reduction in runtime.
 
-For the source, use, and limits of application, see [Import procedure](https://github.com/kurochan001/kirimasim-tests/blob/89df6e9b015c88b996199997ff8cfb6eee13c63b/docs/interaction-verification.en.md).
+For the source, use, and limits of application, see [Import procedure](https://github.com/kurochan001/kirimasim-tests/blob/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9/docs/interaction-verification.en.md).
 
-See [a 4-row example](https://github.com/kurochan001/kirimasim-tests/blob/89df6e9b015c88b996199997ff8cfb6eee13c63b/docs/faq.en.md#q28-why-not-simply-cross-every-feature) for what 100% of 2-factor coverage establishes, and [passing-execution satisfaction](https://github.com/kurochan001/kirimasim-tests/blob/89df6e9b015c88b996199997ff8cfb6eee13c63b/docs/faq.en.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution) for the difference between the plan and actual PASS.
+See [a 4-row example](https://github.com/kurochan001/kirimasim-tests/blob/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9/docs/faq.en.md#q28-why-not-simply-cross-every-feature) for what 100% of 2-factor coverage establishes, and [passing-execution satisfaction](https://github.com/kurochan001/kirimasim-tests/blob/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9/docs/faq.en.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution) for the difference between the plan and actual PASS.
 
 ## scheduling_visibility / model 1
 
@@ -2111,6 +2111,165 @@ Pass signed, unsized, unbased unsized, real and string literals to formals of ot
 
 Constraints: An actual argument, a default argument and a return value are each converted to the type of the formal by the rules of an assignment. An unbased unsized literal fills the whole width of an integral formal, and a two-state type turns x into 0 . A real rounds to the nearest integer, and 0.5 rounds away from 0 . A string literal is an unsigned integer whose characters take 8 bits each. Only the string literal goes to a string formal, and no unbased unsized literal goes to a real formal. Escaped identifiers name the task, the function and the formal, and end at white space. Do not exclude rows for simulator limitations.
 
+## hierarchical_process_control / model 1
+
+- The number of combinations satisfying the constraint is 252.
+- Existing and new tests available: 42.
+- Selected cases for focused execution: 42.
+- Mandatory cases retained individually: 7.
+- Planned 2-factor coverage: 113/113.
+- Planned 3-factor coverage: 36/36.
+
+Through a downward, nested, instance-array, generate-block, $root , upward-by-module-name or upward-to-a-sibling hierarchical name, a process disables a named block of another instance, triggers an event, writes a value or calls a task. Before and after the target starts to wait, check whether the effect is lost or kept.
+
+- action: disable, trigger, write, level, nba, call。
+- path: down, nested, array, generate, root, up, sibling。
+- timing: waiting, late。
+- actor: initial, task, fork。
+
+Constraints: The target process starts to wait at time 1 or 4 , and the acting process acts once at time 2 . The acting process prints the value before it acts, so no two processes race to print in the same time slot. Disabling a block that is not running does nothing, and an event trigger or a value change with no process waiting is lost. A wait statement goes on at once when its condition already holds as it starts. A downward name, a name through an instance array or a generate block, $root , an upward name by the module name and an upward name to a sibling instance all reach the same target.
+
+## hierarchical_name_display / model 1
+
+- The number of combinations satisfying the constraint is 177.
+- Existing and new tests available: 65.
+- Selected cases for focused execution: 65.
+- Mandatory cases retained individually: 7.
+- Planned 2-factor coverage: 143/143.
+- Planned 3-factor coverage: 27/27.
+
+In the top module, a child, a grandchild, an instance array, a loop generate block, and named and unnamed generate blocks, print %m from the module, a named block, a fork, a statement label, a loop label, a task, a function and an automatic task. Check that a subroutine prints the name where it is declared, whether it is called from its own module, downward, from $root or upward.
+
+- place: top, inst, nested, array, loopgen, namedgen, unnamedgen。
+- scope: module, block, nested, fork, label, loop, task, auto, function。
+- call: own, down, root, up。
+- process: initial, final。
+
+Constraints: %m prints the hierarchical name of the scope that holds the display; in a subroutine it is the name where the subroutine is declared, not that of the caller. A statement label and the label of a for loop that declares its variable make a named block. An unnamed generate block is named genblk with the number that counts the generate constructs up to it. Names inside an unnamed generate block cannot be reached from outside it, so downward and $root calls are left out there. A final procedure holds only the statements a function may hold, so task calls and fork-join are left out there. Each test has only one process that prints, so no prints race.
+
+## array_query_loop / model 1
+
+- The number of combinations satisfying the constraint is 440.
+- Existing and new tests available: 40.
+- Selected cases for focused execution: 40.
+- Mandatory cases retained individually: 7.
+- Planned 2-factor coverage: 151/151.
+
+Query fixed dimensions with ascending, descending, offset and negative ranges, a packed dimension, a dynamic array, a queue and an empty dynamic array with $left , $right , $low , $high , $increment and $size , through the variable, the type name, dimension 2 or an element select. Check that for, while, do-while, repeat and foreach go from left to right, from low to high, from high to low, or by the count.
+
+- shape: asc, desc, offset, neg, packed, dynamic, queue, empty。
+- form: var, type, dim, elem。
+- loop: for, while, do, repeat, foreach。
+- bounds: leftright, lowhigh, highlow, size。
+
+Constraints: The elements from the left index are 8'h11 , 8'h22 , 8'h33 and 8'h44 , and the empty dynamic array has no elements. $increment returns 1 for a fixed dimension whose left bound is not less than its right bound, -1 for another fixed dimension, and -1 for a dynamic array or a queue. $low and $high follow from $left and $right through $increment , and for an empty dynamic array $right and $high are -1 . Queries of a type name and of dimension 2 are used on fixed-size dimensions only. foreach goes from the left index to the right. A do-while runs once even on an empty array and reads x from the element that does not exist. A do-while from $left to $right over an empty array never ends, so it is left out.
+
+## delay_value_form / model 1
+
+- The number of combinations satisfying the constraint is 222.
+- Existing and new tests available: 60.
+- Selected cases for focused execution: 60.
+- Mandatory cases retained individually: 7.
+- Planned 2-factor coverage: 126/126.
+
+Use unsized, sized, real, time-literal, x- or z-bearing and negative delays before a statement, inside blocking and nonblocking assignments, in a fork branch, in a task and in a repeat loop. Check rounding to a precision of 1ns and 100ps , a delay of 0 for x and z, and a negative value that never ends.
+
+- value: unsized, sized, real_down, real_up, time, time_fine, x, z, xpart, neg。
+- site: stmt, blocking, nba, fork, task, repeat。
+- start: zero, later。
+- precision: unit, tenth。
+
+Constraints: The time unit is 1ns and the precision 1ns or 100ps ; a delay is rounded to that precision before it waits. No value lies on a rounding tie. A delay with an x or z bit is 0 , and a negative delay is taken as an unsigned value as wide as a time variable. A negative delay is used only at time 0 with a precision of 1ns , leaving out cases that pass the largest time. Each process has one waiting statement, and times are printed as reals with one digit after the point.
+
+## package_name_lookup / model 1
+
+- The number of combinations satisfying the constraint is 148.
+- Existing and new tests available: 37.
+- Selected cases for focused execution: 37.
+- Mandatory cases retained individually: 7.
+- Planned 2-factor coverage: 88/88.
+- Planned 3-factor coverage: 37/37.
+
+Use a package variable and function as a loop bound through a wildcard import in the module or the block, an explicit import, or lk_p ::. Let earlier and later declarations, a block variable and an import of another package compete, and check the search order of 26.3 .
+
+- site: module_wild, block_wild, explicit, scoped。
+- competitor: none, outer_decl, inner_decl, inner_import, later_decl, later_import。
+- ref: var, call。
+- loop: for, while, repeat, do。
+
+Constraints: A name is first searched in the scope of the reference, among declarations and explicit imports, and then among wildcard imports before that point. If it is not found, the same search repeats in the outer scope. A function call searches the declarations up to the end of the scope. A wildcard import in the block is found before an outer declaration, and a later wildcard import does not act before the reference. An explicit import with a declaration of the same name in the same scope, a declaration after a reference made an imported name visible, and a reference that two wildcard imports in one scope both supply are illegal and left out. Block variables are declared without an initializer and set by a statement.
+
+## escaped_name_binding / model 1
+
+- The number of combinations satisfying the constraint is 126.
+- Existing and new tests available: 29.
+- Selected cases for focused execution: 29.
+- Mandatory cases retained individually: 7.
+- Planned 2-factor coverage: 100/100.
+
+Escape the names of a module, an instance, a port, a parameter, a variable, a task and a generate block, and check binding with the plain and escaped forms swapped, names with a plus sign, escaped keywords, and names ended by a space, a tab or a newline.
+
+- item: module, inst, port, param, var, task, block。
+- spelling: plain, escaped, special, keyword。
+- ref: same, swapped。
+- gap: space, tab, newline, many。
+
+Constraints: An escaped identifier starts with \ and ends with white space, and neither the \ nor the ending white space is part of the name. So \abc and abc are the same name, and an escaped keyword is a user-defined name. In a hierarchical name, an escaped name is followed by white space and then the period. So that a misread name shows in the values, a name with a plus sign comes with another declaration named like its part before the plus sign. A plain reference has no ending white space, so it takes only one kind of white space.
+
+## scoped_class_declaration / model 1
+
+- The number of combinations satisfying the constraint is 240.
+- Existing and new tests available: 48.
+- Selected cases for focused execution: 48.
+- Mandatory cases retained individually: 7.
+- Planned 2-factor coverage: 100/100.
+- Planned 3-factor coverage: 48/48.
+
+Declare a class in a child module and in its for, if and case generate blocks, and read the parameter, local parameter, variable and function of the declaring scope from a method. Check static methods, derived classes and calls through hierarchical names, and how static members of the class and the same names outside relate.
+
+- scope: module, gen_for, gen_if, gen_case。
+- item: param, local, variable, function。
+- caller: local, hier。
+- method: instance, static, derived。
+- shadow: none, property, outer。
+
+Constraints: The class is declared in a child module or in one of its generate blocks (for, if, case), and the child module has two instances with different parameter values. The method reads by name a parameter, a local parameter, a variable or a function of the scope that declares the class. The variable is increased between two reads, which shows that the method reads the value at the call. Rows also declare the same name as a static member of the class, or in the outer scopes (the top module and the module around a generate block). A static method is called through the class scope, so it is called only from inside the declaring scope. Each instance reads at its own time.
+
+## case_literal_wildcard / model 1
+
+- The number of combinations satisfying the constraint is 312.
+- Existing and new tests available: 24.
+- Selected cases for focused execution: 24.
+- Mandatory cases retained individually: 7.
+- Planned 2-factor coverage: 112/112.
+- Planned 3-factor coverage: 24/24.
+
+Write binary, octal, hexadecimal and decimal literals with ?, z or x digits as case items, with varied leftmost digit and width, and check how the digits pad and compare in case, casez, casex and case inside.
+
+- base: bin, oct, hex, dec。
+- digit: q, z, x。
+- lead: wild, known。
+- size: narrow, same, wide, unsized。
+- statement: case, casez, casex, inside。
+
+Constraints: The selector is logic [ 7:0 ], checked against one item with one kind of ?, z or x digit and a default. The item is a binary, octal, hexadecimal or decimal literal, led by the wildcard digit or a known digit, narrower than, as wide as or wider than the selector, or unsized. A literal led by the wildcard digit is padded with that value to its size. The case then extends everything to the widest expression, and the upper bits are zero. One program compares in turn a value with the wildcard positions filled with known bits, one with a known bit flipped, ones with a known bit made z or x, and the four-state bits of the item itself. A decimal number may hold only one x, z or ? digit, so it is always led by the wildcard. Two hexadecimal digits do not fit the narrow width, so those rows are left out.
+
+## aggregate_literal_key / model 1
+
+- The number of combinations satisfying the constraint is 192.
+- Existing and new tests available: 48.
+- Selected cases for focused execution: 48.
+- Mandatory cases retained individually: 7.
+- Planned 2-factor coverage: 104/104.
+
+Give values to a structure with a nested structure and an array by position, member name, replication, default and type keys. Check the conversion to each member type and the precedence of the keys in an initializer, an assignment, a typed expression and a localparam .
+
+- key: position, member, replicate, default, type, type_default, member_type, last_type。
+- value: fill1, fillx, neg, real, wide, snarrow。
+- context: init, assign, typed, param。
+
+Constraints: The structure has a member a of nib_t , a structure n with int , nib_t , byte and integer members, and an unpacked array q of int . Values are given by position, member name, replication, default and type keys, and the type keys are only nib_t , int , byte and integer . int and integer are not matching types, so a int key does not reach a integer member. With a default, the type keys and the default go down into the nested structure and array. Whether they go down without a default is read in two ways, so in that form the type keys are written in the nested patterns themselves. A member name wins over a type key, a type key over default, and a type key given twice uses its last value. A value is converted as an assignment to each member, and a two-state type turns x into zero. Every combination is legal, and the same value is carried by a declaration initializer, a procedural assignment, a typed pattern expression and a localparam .
+
 <a id="入力指紋が一致した実行の確認"></a>
 
 ## Verify that the input fingerprint matches the execution.
@@ -2119,8 +2278,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/ghost.json
 
-- Environment: private build c2138e5f3a5c.
-- Execution timestamp: 2026-11-08T00:03:26.516261+00:00.
+- Environment: private build 9997c689a2e6.
+- Execution timestamp: 2026-11-08T12:20:30.104078+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -2462,20 +2621,20 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 7/7.
   - Case statuses: pass=19, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - sdf_conditional_paths:
-  - The confirmed combination of the 2 factor: 82/109.
-  - The confirmed combination of the 3 factor: 22/46.
-  - Mandatory case: 3/7.
-  - Case statuses: pass=6, fail=12, known=0, unsupported=0, stale=0, not_run=0.
+  - The confirmed combination of the 2 factor: 109/109.
+  - The confirmed combination of the 3 factor: 46/46.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - checker_assertion_sampling:
-  - The confirmed combination of the 2 factor: 169/174.
-  - The confirmed combination of the 3 factor: 56/63.
+  - The confirmed combination of the 2 factor: 173/174.
+  - The confirmed combination of the 3 factor: 57/63.
   - Mandatory case: 5/6.
   - Case statuses: pass=25, fail=2, known=0, unsupported=0, stale=0, not_run=0.
 - program_assertion_attempts:
-  - The confirmed combination of the 2 factor: 129/138.
-  - The confirmed combination of the 3 factor: 54/75.
-  - Mandatory case: 4/6.
-  - Case statuses: pass=21, fail=6, known=0, unsupported=0, stale=0, not_run=0.
+  - The confirmed combination of the 2 factor: 137/138.
+  - The confirmed combination of the 3 factor: 71/75.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=26, fail=1, known=0, unsupported=0, stale=0, not_run=0.
 - container_coverage_sampling:
   - The confirmed combination of the 2 factor: 172/172.
   - The confirmed combination of the 3 factor: 79/79.
@@ -2620,11 +2779,52 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 2 factor: 100/169.
   - Mandatory case: 4/8.
   - Case statuses: pass=41, fail=21, known=0, unsupported=0, stale=0, not_run=0.
+- hierarchical_process_control:
+  - The confirmed combination of the 2 factor: 99/113.
+  - The confirmed combination of the 3 factor: 30/36.
+  - Mandatory case: 6/7.
+  - Case statuses: pass=33, fail=9, known=0, unsupported=0, stale=0, not_run=0.
+- hierarchical_name_display:
+  - The confirmed combination of the 2 factor: 127/143.
+  - The confirmed combination of the 3 factor: 23/27.
+  - Mandatory case: 6/7.
+  - Case statuses: pass=59, fail=6, known=0, unsupported=0, stale=0, not_run=0.
+- array_query_loop:
+  - The confirmed combination of the 2 factor: 149/151.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=39, fail=1, known=0, unsupported=0, stale=0, not_run=0.
+- delay_value_form:
+  - The confirmed combination of the 2 factor: 126/126.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- package_name_lookup:
+  - The confirmed combination of the 2 factor: 88/88.
+  - The confirmed combination of the 3 factor: 37/37.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=37, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- escaped_name_binding:
+  - The confirmed combination of the 2 factor: 84/100.
+  - Mandatory case: 5/7.
+  - Case statuses: pass=23, fail=6, known=0, unsupported=0, stale=0, not_run=0.
+- scoped_class_declaration:
+  - The confirmed combination of the 2 factor: 64/100.
+  - The confirmed combination of the 3 factor: 20/48.
+  - Mandatory case: 3/7.
+  - Case statuses: pass=20, fail=28, known=0, unsupported=0, stale=0, not_run=0.
+- case_literal_wildcard:
+  - The confirmed combination of the 2 factor: 112/112.
+  - The confirmed combination of the 3 factor: 24/24.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=24, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- aggregate_literal_key:
+  - The confirmed combination of the 2 factor: 92/104.
+  - Mandatory case: 6/7.
+  - Case statuses: pass=42, fail=6, known=0, unsupported=0, stale=0, not_run=0.
 
 ### results/icarus.json
 
-- Environment: Icarus Verilog version 14.0 (devel) (s20260301-871-g66f0e8a1).
-- Execution timestamp: 2026-11-08T00:00:22.822842+00:00.
+- Environment: Icarus Verilog version 14.0 (devel) (s20260301-873-gbeb32f39).
+- Execution timestamp: 2026-11-08T12:01:28.040115+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -3124,11 +3324,52 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 2 factor: 153/169.
   - Mandatory case: 6/8.
   - Case statuses: pass=57, fail=0, known=5, unsupported=0, stale=0, not_run=0.
+- hierarchical_process_control:
+  - The confirmed combination of the 2 factor: 102/113.
+  - The confirmed combination of the 3 factor: 30/36.
+  - Mandatory case: 6/7.
+  - Case statuses: pass=36, fail=0, known=6, unsupported=0, stale=0, not_run=0.
+- hierarchical_name_display:
+  - The confirmed combination of the 2 factor: 125/143.
+  - The confirmed combination of the 3 factor: 23/27.
+  - Mandatory case: 5/7.
+  - Case statuses: pass=59, fail=0, known=6, unsupported=0, stale=0, not_run=0.
+- array_query_loop:
+  - The confirmed combination of the 2 factor: 64/151.
+  - Mandatory case: 2/7.
+  - Case statuses: pass=14, fail=0, known=26, unsupported=0, stale=0, not_run=0.
+- delay_value_form:
+  - The confirmed combination of the 2 factor: 126/126.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- package_name_lookup:
+  - The confirmed combination of the 2 factor: 88/88.
+  - The confirmed combination of the 3 factor: 37/37.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=37, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- escaped_name_binding:
+  - The confirmed combination of the 2 factor: 100/100.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=29, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- scoped_class_declaration:
+  - The confirmed combination of the 2 factor: 88/100.
+  - The confirmed combination of the 3 factor: 44/48.
+  - Mandatory case: 5/7.
+  - Case statuses: pass=44, fail=0, known=4, unsupported=0, stale=0, not_run=0.
+- case_literal_wildcard:
+  - The confirmed combination of the 2 factor: 91/112.
+  - The confirmed combination of the 3 factor: 18/24.
+  - Mandatory case: 5/7.
+  - Case statuses: pass=18, fail=0, known=6, unsupported=0, stale=0, not_run=0.
+- aggregate_literal_key:
+  - The confirmed combination of the 2 factor: 0/104.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=48, unsupported=0, stale=0, not_run=0.
 
 ### results/kirimasim.json
 
-- Environment: kirimasim 0.0.0 (commit f029ddd0eee1), built with GNU 13.3.0.
-- Execution timestamp: 2026-11-08T02:26:59.452590+00:00.
+- Environment: kirimasim 0.0.0 (commit 33cee3fa2f0d), built with GNU 13.3.0.
+- Execution timestamp: 2026-11-08T12:09:51.121888+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -3628,11 +3869,52 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 2 factor: 169/169.
   - Mandatory case: 8/8.
   - Case statuses: pass=62, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- hierarchical_process_control:
+  - The confirmed combination of the 2 factor: 113/113.
+  - The confirmed combination of the 3 factor: 36/36.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=42, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- hierarchical_name_display:
+  - The confirmed combination of the 2 factor: 143/143.
+  - The confirmed combination of the 3 factor: 27/27.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=65, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- array_query_loop:
+  - The confirmed combination of the 2 factor: 151/151.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- delay_value_form:
+  - The confirmed combination of the 2 factor: 126/126.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- package_name_lookup:
+  - The confirmed combination of the 2 factor: 88/88.
+  - The confirmed combination of the 3 factor: 37/37.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=37, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- escaped_name_binding:
+  - The confirmed combination of the 2 factor: 100/100.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=29, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- scoped_class_declaration:
+  - The confirmed combination of the 2 factor: 100/100.
+  - The confirmed combination of the 3 factor: 42/48.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=42, fail=6, known=0, unsupported=0, stale=0, not_run=0.
+- case_literal_wildcard:
+  - The confirmed combination of the 2 factor: 112/112.
+  - The confirmed combination of the 3 factor: 24/24.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=24, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- aggregate_literal_key:
+  - The confirmed combination of the 2 factor: 82/104.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=40, fail=0, known=0, unsupported=8, stale=0, not_run=0.
 
 ### results/verilator.json
 
-- Environment: Verilator 5.055 devel rev v5.054-117-gcd99c77f.
-- Execution timestamp: 2026-11-08T00:12:37.849832+00:00.
+- Environment: Verilator 5.055 devel rev v5.054-130-g423f8719.
+- Execution timestamp: 2026-11-08T12:38:35.460474+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -4132,3 +4414,44 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 2 factor: 157/169.
   - Mandatory case: 7/8.
   - Case statuses: pass=57, fail=0, known=5, unsupported=0, stale=0, not_run=0.
+- hierarchical_process_control:
+  - The confirmed combination of the 2 factor: 111/113.
+  - The confirmed combination of the 3 factor: 35/36.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=40, fail=0, known=2, unsupported=0, stale=0, not_run=0.
+- hierarchical_name_display:
+  - The confirmed combination of the 2 factor: 133/143.
+  - The confirmed combination of the 3 factor: 25/27.
+  - Mandatory case: 6/7.
+  - Case statuses: pass=58, fail=0, known=7, unsupported=0, stale=0, not_run=0.
+- array_query_loop:
+  - The confirmed combination of the 2 factor: 147/151.
+  - Mandatory case: 6/7.
+  - Case statuses: pass=39, fail=0, known=1, unsupported=0, stale=0, not_run=0.
+- delay_value_form:
+  - The confirmed combination of the 2 factor: 105/126.
+  - Mandatory case: 5/7.
+  - Case statuses: pass=46, fail=0, known=14, unsupported=0, stale=0, not_run=0.
+- package_name_lookup:
+  - The confirmed combination of the 2 factor: 88/88.
+  - The confirmed combination of the 3 factor: 37/37.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=37, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- escaped_name_binding:
+  - The confirmed combination of the 2 factor: 100/100.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=29, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- scoped_class_declaration:
+  - The confirmed combination of the 2 factor: 100/100.
+  - The confirmed combination of the 3 factor: 48/48.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- case_literal_wildcard:
+  - The confirmed combination of the 2 factor: 0/112.
+  - The confirmed combination of the 3 factor: 0/24.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=24, unsupported=0, stale=0, not_run=0.
+- aggregate_literal_key:
+  - The confirmed combination of the 2 factor: 46/104.
+  - Mandatory case: 3/7.
+  - Case statuses: pass=19, fail=0, known=29, unsupported=0, stale=0, not_run=0.
