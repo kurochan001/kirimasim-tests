@@ -63,6 +63,19 @@ class BehaviorCoverageTests(unittest.TestCase):
         self.assertEqual(ignored, [])
         self.assertIn(self.reg["requirements"][0]["id"], execution["executed"])
 
+    def test_history_drops_snapshots_of_unknown_simulators_and_counts_them(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "behavior-history.json"
+            old = {"executed": 3, "execution": {"snapshots": [
+                {"simulator": "icarus"}, {"simulator": "nvc"}, {"simulator": "other"}]}}
+            path.write_text(json.dumps({"schema": 1, "runs": [old]}))
+            coverage.append_history(path, {"executed": 4, "execution": {"snapshots": []}})
+            runs = json.loads(path.read_text())["runs"]
+        self.assertEqual([s["simulator"] for s in runs[0]["execution"]["snapshots"]],
+                         ["icarus", "nvc"])
+        self.assertEqual((runs[0]["executed"], runs[0]["dropped_snapshots"]), (3, 1))
+        self.assertEqual(len(runs), 2)
+
     def test_reproducible_execution_leaves_out_ghost_kirimasim_and_lyra(self):
         rid = self.reg["requirements"][0]["id"]
         for simulator, counted in (("icarus", True), ("verilator", True), ("sby", True),

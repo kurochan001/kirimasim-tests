@@ -40,6 +40,29 @@ class ResultsHistoryTests(unittest.TestCase):
                                   "https://example.test/local-result.json",
                                   "2026-10-27T16:21:03Z", source="local")
 
+    def test_prune_drops_simulators_without_a_runner_except_retired_ones(self):
+        run = {**self.nightly, "simulators": {**self.nightly["simulators"],
+                                              "nvc": {"name": "nvc"}, "other": {"name": "x"}}}
+        history.save_json(self.directory / "history.json", {"runs": [run]})
+        for sim in ("icarus", "nvc", "other"):
+            history.save_json(self.directory / "latest" / f"{sim}.json", {"tests": {}})
+        runs = history.prune(self.directory)
+        self.assertEqual(list(runs[0]["simulators"]), ["icarus", "nvc"])
+        saved = json.loads((self.directory / "history.json").read_text())
+        self.assertNotIn("other", json.dumps(saved))
+        self.assertEqual(sorted(p.stem for p in (self.directory / "latest").glob("*.json")),
+                         ["icarus", "nvc"])
+
+    def test_update_leaves_out_a_simulator_without_a_runner(self):
+        history.save_json(self.directory / "history.json", {"runs": [self.nightly]})
+        source = self.directory / "other.json"
+        history.save_json(source, result("other", "Other", {"ch6/test_one": "pass"}))
+        with mock.patch.object(history.suite_stats, "collect", return_value={
+                "totals": {"tests": 1}, "chapters": {6: {"tests": 1}}}):
+            run = history.update(self.directory, [source], "b" * 40, "", "2026-10-27T00:00:00Z")
+        self.assertEqual(run["simulators"], {})
+        self.assertFalse((self.directory / "latest" / "other.json").exists())
+
     def test_local_import_preserves_the_previous_real_run(self):
         before = copy.deepcopy(self.nightly)
         imported = self.import_local()

@@ -428,3 +428,9 @@ clause 37.
 
 - The same review asked for a list of the tests whose expectations rest only on the reading of the standard. `tools/review_candidates.py` reads the latest results of Icarus Verilog, Verilator, kirimasim, Lyra and Ghost and lists spec-only tests failing on Ghost, kirimasim and Lyra; spec-only tests passing on kirimasim alone; other spec-only tests passing nowhere; tests with a release oracle failing on both Ghost and Lyra; and clauses whose citing tests are all spec only.
 - The publish job of the Nightly writes the list to the results branch. [Review candidates](review-candidates.en.md) explains it, the order of review and how reviews are recorded. On the results of 2026-11-08 the five counts are 30, 21, 92, 41 and 196 (with Lyra's re-run, 30, 15, 92, 75 and 196).
+
+### 2026-11-09 (results of a simulator without a runner)
+
+- The results branch still held the results of a simulator that is no longer compared and whose results are not to be published: one file in `latest/`, its entries in six runs of `history.json`, and two execution snapshots in `behavior-history.json`.
+- `tools/results_history.py` now keeps only the simulators that have a runner and those in `RETIRED` (nvc): `update` and `render` drop any other from `history.json` and `latest/`. `tools/behavior_coverage.py` drops their execution snapshots from the behavior history and records how many in the run's `dropped_snapshots`, leaving its counts as they were measured.
+- A commit of the results branch removed the existing records. The branch's earlier commits were not rewritten.

@@ -280,7 +280,8 @@ Main includes fixed-release runs, partial reruns and local full-suite Ghost resu
 
 A simulator failing before producing output can be absent from that run. Known, unsupported and build failures are not success, and old results are not filled in as new execution. Because `latest/<simulator>.json` is the last result per environment, these files can originate from different runs.
 
-Charts and reports show only simulators with a current `tools/run_<simulator>.py`. Removed participants such as nvc retain history.json/latest data without being plotted.
+Charts and reports show only simulators with a current `tools/run_<simulator>.py`. nvc, removed on October 25, 2026, retains history.json/latest data without being plotted.
+The results of a simulator with no runner that is not in `RETIRED` of `tools/results_history.py` are not kept in history.json or latest/. Every `publish` drops them, and drops its execution records from the requirement-coverage history (`behavior-history.json`) too; each run records the number dropped in `dropped_snapshots`.
 
 <a id="differをバグとして調べるとき"></a>
 

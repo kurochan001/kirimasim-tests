@@ -39,6 +39,8 @@ SIMULATORS = {"icarus", "verilator", "kirimasim", "lyra", "ghost", "sby"}
 # are the simulators being compared, so the second execution figure leaves
 # them out; the first one is the union over every environment.
 REPRODUCIBLE_SIMULATORS = ("icarus", "verilator", "sby")
+# Simulators no longer run whose snapshots stay in the behavior history.
+RETIRED_SIMULATORS = ("nvc",)
 
 
 class InvalidCoverage(ValueError):
@@ -457,11 +459,30 @@ def compact_report(snapshot: dict, source_url: str | None = None,
     return "\n".join(lines) + "\n"
 
 
+def drop_unknown_snapshots(data: dict) -> None:
+    """Drops from each run of a behavior history the execution snapshots of a
+    simulator outside SIMULATORS and RETIRED_SIMULATORS, counting them in the
+    run's dropped_snapshots."""
+    for run in data["runs"]:
+        snapshots = run.get("execution", {}).get("snapshots", [])
+        kept = [s for s in snapshots
+                if s.get("simulator") in SIMULATORS | set(RETIRED_SIMULATORS)]
+        if len(kept) != len(snapshots):
+            run["execution"]["snapshots"] = kept
+            run["dropped_snapshots"] = run.get("dropped_snapshots", 0) + len(snapshots) - len(kept)
+
+
 def append_history(path: Path, entry: dict) -> None:
-    """Keep the denominator identity beside counts so scope changes stay visible."""
+    """Keep the denominator identity beside counts so scope changes stay visible.
+
+    Execution snapshots of a simulator outside SIMULATORS and RETIRED_SIMULATORS
+    are dropped from the earlier runs, as tools/results_history.py drops its
+    results, and the run records how many were dropped; its counts are left as
+    they were measured."""
     data = json.loads(path.read_text()) if path.is_file() else {"schema": 1, "runs": []}
     require(data.get("schema") == 1 and isinstance(data.get("runs"), list),
             "unknown behavior history format")
+    drop_unknown_snapshots(data)
     data["runs"].append(entry)
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")

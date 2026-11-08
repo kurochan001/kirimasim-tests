@@ -402,3 +402,9 @@
 
 - 同じレビューで、期待値の根拠が規格の読み方にしかないテストの一覧を求められました。`tools/review_candidates.py`は、Icarus Verilog・Verilator・kirimasim・Lyra・Ghostの最新の結果を読み、次の5種類を挙げます。specのみでGhost・kirimasim・Lyraのすべてでfailのテスト、specのみでkirimasimだけがpassのテスト、specのみでどこでもpassしないその他のテスト、固定版のoracleがありGhostとLyraの両方でfailのテスト、引用するテストがすべてspecのみの条項です。
 - Nightlyの`publish`ジョブが一覧をresultsブランチに書きます。読み方、見直しの順番、記録の仕方は[レビュー候補](review-candidates.md)にあります。2026-11-08の結果では5種類の件数は30・21・92・41・196でした（Lyraの再実行の結果では30・15・92・75・196）。
+
+### 2026-11-09（ランナーのないシミュレータの結果）
+
+- resultsブランチに、比較対象から外れ、結果を公開しないシミュレータの結果が残っていました。`latest/`の1ファイル、`history.json`の6回分の項目、`behavior-history.json`の2つの実行記録です。
+- `tools/results_history.py`は、ランナーのあるシミュレータと`RETIRED`にあるもの（nvc）の結果だけを残すようにしました。`update`と`render`は、ほかのシミュレータの結果を`history.json`と`latest/`から取り除きます。`tools/behavior_coverage.py`は、その実行記録を要求カバレッジの履歴から取り除き、取り除いた数をその回の`dropped_snapshots`に記録します。その回の件数は測ったときのままです。
+- 残っていた記録は、resultsブランチへのコミットで取り除きました。ブランチのこれまでのコミットは書き換えていません。

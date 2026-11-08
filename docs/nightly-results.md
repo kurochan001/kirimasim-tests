@@ -334,7 +334,8 @@ Nightlyは各シミュレータの開発版で実行します。
 `latest/<simulator>.json`は各環境の最後の結果なので、環境によって更新元の実行回が異なる場合があります。
 
 推移図と結果レポートには、このリポジトリにランナー（`tools/run_<simulator>.py`）があるシミュレータだけを描きます。
-2026年10月25日に比較対象から外したnvcなどの過去の結果は、`history.json`と`latest/`に残っていますが、描きません。
+2026年10月25日に比較対象から外したnvcの過去の結果は、`history.json`と`latest/`に残っていますが、描きません。
+ランナーがなく、`tools/results_history.py`の`RETIRED`にもないシミュレータの結果は、`history.json`と`latest/`に残しません。`publish`のたびに取り除き、要求カバレッジの履歴（`behavior-history.json`）からもその実行記録を取り除きます（取り除いた数は各回の`dropped_snapshots`に残ります）。
 
 <a id="investigating-differ-as-a-defect"></a>
 

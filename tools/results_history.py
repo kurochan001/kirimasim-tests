@@ -14,7 +14,9 @@ keeps the results as DIR/latest/<simulator>.json, renders, and prints a short
 Markdown summaries of the run (the nightly workflow adds them to the job
 summary). render writes DIR/charts/*.svg and DIR/README.md / DIR/README.ja.md from
 DIR/history.json alone. A simulator that the suite no longer has a runner for
-(tools/run_<simulator>.py) stays in the history but is not drawn.
+(tools/run_<simulator>.py) stays in the history but is not drawn when it is one
+of RETIRED; update and render drop the results of any other simulator without
+a runner from DIR/history.json and DIR/latest/.
 
 In the nightly workflow (.github/workflows/nightly.yml), DIR is a checkout
 of the results branch, and the tests are counted in the checkout of the suite
@@ -52,6 +54,11 @@ SIMULATORS = {
     "ghost": ("#bc4c00", "#f0883e"),
 }
 OTHER_COLORS = [("#1b7c83", "#39c5cf"), ("#953800", "#db6d28"), ("#6e7781", "#8c959f")]
+# Simulators the nightly ran before and no longer does, whose results stay in
+# the history (nvc until 2026-10-25). The history keeps no other simulator
+# without a runner: update and render drop its results from history.json and
+# latest/, so that results which are not to be published leave no record.
+RETIRED = ("nvc",)
 # The shape of each simulator's markers in the line charts. They are drawn as
 # outlines, so that markers of equal or close values stay visible together.
 MARKERS = {"icarus": "circle", "verilator": "square", "kirimasim": "diamond",
@@ -98,11 +105,33 @@ def localized(language: str, english: str, japanese: str) -> str:
 # ---------------------------------------------------------------- history
 
 
+def kept(sim: str) -> bool:
+    """Whether the history keeps the results of the simulator: one the suite
+    has a runner for, or one of RETIRED."""
+    return has_runner(sim) or sim in RETIRED
+
+
 def load_history(directory: Path) -> list[dict]:
+    """The runs of DIR/history.json, with only the simulators that kept()
+    accepts."""
     path = directory / "history.json"
     if not path.is_file():
         return []
-    return json.loads(path.read_text(encoding="utf-8"))["runs"]
+    runs = json.loads(path.read_text(encoding="utf-8"))["runs"]
+    return [{**r, "simulators": {s: v for s, v in r["simulators"].items() if kept(s)}}
+            for r in runs]
+
+
+def prune(directory: Path) -> list[dict]:
+    """Drops the results of other simulators from DIR/history.json and
+    DIR/latest/, and returns the runs."""
+    runs = load_history(directory)
+    if (directory / "history.json").is_file():
+        save_json(directory / "history.json", {"runs": runs})
+    for path in sorted((directory / "latest").glob("*.json")):
+        if not kept(path.stem):
+            path.unlink()
+    return runs
 
 
 def save_json(path: Path, data) -> None:
@@ -177,6 +206,10 @@ def update(directory: Path, results: list[Path], commit: str, run_url: str, time
     for path in results:
         result = json.loads(path.read_text(encoding="utf-8"))
         sim = result["simulator"]
+        if not kept(sim):
+            print(f"results_history: {path.name}: no runner for this simulator; left out",
+                  file=sys.stderr)
+            continue
         latest = directory / "latest" / f"{sim}.json"
         before = (json.loads(latest.read_text(encoding="utf-8"))["tests"]
                   if latest.is_file() else None)
@@ -186,7 +219,7 @@ def update(directory: Path, results: list[Path], commit: str, run_url: str, time
                            **({"source": source} if source != "nightly" else {}),
                            "tests": {t: r["status"] for t, r in result["tests"].items()}})
     run["simulators"] = dict(sorted(run["simulators"].items(), key=lambda kv: sim_order(kv[0])))
-    runs = load_history(directory) + [run]
+    runs = prune(directory) + [run]
     save_json(directory / "history.json", {"runs": runs})
     render(directory, runs)
     return run
@@ -529,8 +562,8 @@ def heatmap(runs: list[dict], language: str = "en") -> str:
 
 def has_runner(sim: str) -> bool:
     """Whether the suite has a runner for the simulator, tools/run_<sim>.py.
-    The history keeps the results of a simulator whose runner was removed, but
-    they are no longer drawn."""
+    The history keeps the results of a RETIRED simulator whose runner was
+    removed, but they are no longer drawn."""
     return (ROOT / "tools" / f"run_{sim}.py").is_file()
 
 
@@ -846,7 +879,7 @@ def main() -> int:
     args = ap.parse_args()
 
     if args.command == "render":
-        render(args.history, load_history(args.history))
+        render(args.history, prune(args.history))
         return 0
     time = args.time or dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     run = update(args.history, args.results, args.suite_commit or suite_commit(),
