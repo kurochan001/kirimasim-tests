@@ -24289,6 +24289,1162 @@
      }
     }
    }
+  },
+  {
+   "time": "2026-11-08T06:25:11Z",
+   "suite_commit": "89df6e9b015c88b996199997ff8cfb6eee13c63b",
+   "run_url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/42422374691",
+   "tests": 11773,
+   "chapters": {
+    "10": 425,
+    "11": 1644,
+    "12": 306,
+    "13": 443,
+    "14": 150,
+    "15": 189,
+    "16": 794,
+    "17": 108,
+    "18": 257,
+    "19": 190,
+    "20": 367,
+    "21": 430,
+    "22": 512,
+    "23": 375,
+    "24": 160,
+    "25": 253,
+    "26": 225,
+    "27": 283,
+    "28": 297,
+    "29": 142,
+    "3": 136,
+    "30": 60,
+    "31": 66,
+    "32": 68,
+    "33": 84,
+    "34": 4,
+    "35": 177,
+    "36": 89,
+    "37": 227,
+    "38": 109,
+    "39": 39,
+    "4": 473,
+    "40": 31,
+    "5": 412,
+    "6": 682,
+    "7": 772,
+    "8": 411,
+    "9": 383
+   },
+   "simulators": {
+    "icarus": {
+     "name": "Icarus Verilog",
+     "version": "Icarus Verilog version 14.0 (devel) (s20260301-871-g66f0e8a1)",
+     "counts": {
+      "pass": 7014,
+      "fail": 17,
+      "known": 4474,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       113,
+       136
+      ],
+      "4": [
+       442,
+       473
+      ],
+      "5": [
+       393,
+       412
+      ],
+      "6": [
+       481,
+       682
+      ],
+      "7": [
+       396,
+       772
+      ],
+      "8": [
+       117,
+       411
+      ],
+      "9": [
+       295,
+       383
+      ],
+      "10": [
+       331,
+       425
+      ],
+      "11": [
+       1353,
+       1644
+      ],
+      "12": [
+       227,
+       306
+      ],
+      "13": [
+       294,
+       443
+      ],
+      "14": [
+       18,
+       150
+      ],
+      "15": [
+       7,
+       189
+      ],
+      "16": [
+       162,
+       526
+      ],
+      "17": [
+       0,
+       108
+      ],
+      "18": [
+       55,
+       257
+      ],
+      "19": [
+       51,
+       190
+      ],
+      "20": [
+       262,
+       367
+      ],
+      "21": [
+       317,
+       430
+      ],
+      "22": [
+       441,
+       512
+      ],
+      "23": [
+       272,
+       375
+      ],
+      "24": [
+       27,
+       160
+      ],
+      "25": [
+       116,
+       253
+      ],
+      "26": [
+       58,
+       225
+      ],
+      "27": [
+       238,
+       283
+      ],
+      "28": [
+       236,
+       297
+      ],
+      "29": [
+       99,
+       142
+      ],
+      "30": [
+       36,
+       60
+      ],
+      "31": [
+       17,
+       66
+      ],
+      "32": [
+       24,
+       68
+      ],
+      "33": [
+       12,
+       84
+      ],
+      "34": [
+       2,
+       4
+      ],
+      "35": [
+       13,
+       177
+      ],
+      "36": [
+       34,
+       89
+      ],
+      "37": [
+       18,
+       227
+      ],
+      "38": [
+       56,
+       109
+      ],
+      "39": [
+       0,
+       39
+      ],
+      "40": [
+       1,
+       31
+      ]
+     },
+     "changes": {
+      "passing": 3,
+      "failing": 0,
+      "passing_tests": [
+       "ch11/test_A_extra_specparam_range",
+       "ch21/test_fgets_fill_newline_eof",
+       "imported/ch21/test_time_format_matrix"
+      ],
+      "failing_tests": [],
+      "added": 745,
+      "added_passing": 583,
+      "removed": 0
+     }
+    },
+    "verilator": {
+     "name": "Verilator",
+     "version": "Verilator 5.055 devel rev v5.054-117-gcd99c77f",
+     "counts": {
+      "pass": 6448,
+      "fail": 25,
+      "known": 5032,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       57,
+       136
+      ],
+      "4": [
+       389,
+       473
+      ],
+      "5": [
+       365,
+       412
+      ],
+      "6": [
+       478,
+       682
+      ],
+      "7": [
+       481,
+       772
+      ],
+      "8": [
+       287,
+       411
+      ],
+      "9": [
+       191,
+       383
+      ],
+      "10": [
+       248,
+       425
+      ],
+      "11": [
+       872,
+       1644
+      ],
+      "12": [
+       208,
+       306
+      ],
+      "13": [
+       303,
+       443
+      ],
+      "14": [
+       102,
+       150
+      ],
+      "15": [
+       67,
+       189
+      ],
+      "16": [
+       243,
+       526
+      ],
+      "17": [
+       55,
+       108
+      ],
+      "18": [
+       156,
+       257
+      ],
+      "19": [
+       105,
+       190
+      ],
+      "20": [
+       210,
+       367
+      ],
+      "21": [
+       221,
+       430
+      ],
+      "22": [
+       448,
+       512
+      ],
+      "23": [
+       201,
+       375
+      ],
+      "24": [
+       47,
+       160
+      ],
+      "25": [
+       163,
+       253
+      ],
+      "26": [
+       111,
+       225
+      ],
+      "27": [
+       139,
+       283
+      ],
+      "28": [
+       44,
+       297
+      ],
+      "29": [
+       39,
+       142
+      ],
+      "30": [
+       4,
+       60
+      ],
+      "31": [
+       14,
+       66
+      ],
+      "32": [
+       0,
+       68
+      ],
+      "33": [
+       20,
+       84
+      ],
+      "34": [
+       4,
+       4
+      ],
+      "35": [
+       126,
+       177
+      ],
+      "36": [
+       26,
+       89
+      ],
+      "37": [
+       1,
+       227
+      ],
+      "38": [
+       19,
+       109
+      ],
+      "39": [
+       1,
+       39
+      ],
+      "40": [
+       3,
+       31
+      ]
+     },
+     "changes": {
+      "passing": 5,
+      "failing": 4,
+      "passing_tests": [
+       "ch11/test_A_extra_specparam_range",
+       "ch12/test_illegal_for_init_declares_after_existing",
+       "ch16/test_immediate_assertion_statement_places",
+       "ch8/test_illegal_interface_specialization_conflict",
+       "imported/ch21/test_time_format_matrix"
+      ],
+      "failing_tests": [
+       [
+        "ch16/test_illegal_concurrent_assert_in_action",
+        "known",
+        "the design was accepted, but it is illegal"
+       ],
+       [
+        "ch16/test_illegal_cover_action_concurrent",
+        "known",
+        "the design was accepted, but it is illegal"
+       ],
+       [
+        "ch9/test_A_extra_event_expressions",
+        "fail",
+        "output differs: line 1 is 'or 0', expected 'or 2'"
+       ],
+       [
+        "ch9/test_syntax_timing_control_and_event_expressions",
+        "fail",
+        "output differs: line 1 is '0: or', expected '2: or'"
+       ]
+      ],
+      "added": 745,
+      "added_passing": 527,
+      "removed": 0
+     }
+    },
+    "kirimasim": {
+     "name": "kirimasim",
+     "version": "kirimasim 0.0.0 (commit f029ddd0eee1), built with GNU 13.3.0",
+     "counts": {
+      "pass": 9038,
+      "fail": 123,
+      "known": 0,
+      "unsupported": 2344
+     },
+     "chapters": {
+      "3": [
+       126,
+       136
+      ],
+      "4": [
+       460,
+       473
+      ],
+      "5": [
+       403,
+       412
+      ],
+      "6": [
+       608,
+       682
+      ],
+      "7": [
+       617,
+       772
+      ],
+      "8": [
+       332,
+       411
+      ],
+      "9": [
+       353,
+       383
+      ],
+      "10": [
+       408,
+       425
+      ],
+      "11": [
+       1603,
+       1644
+      ],
+      "12": [
+       288,
+       306
+      ],
+      "13": [
+       434,
+       443
+      ],
+      "14": [
+       62,
+       150
+      ],
+      "15": [
+       58,
+       189
+      ],
+      "16": [
+       245,
+       526
+      ],
+      "17": [
+       35,
+       108
+      ],
+      "18": [
+       78,
+       257
+      ],
+      "19": [
+       38,
+       190
+      ],
+      "20": [
+       291,
+       367
+      ],
+      "21": [
+       391,
+       430
+      ],
+      "22": [
+       502,
+       512
+      ],
+      "23": [
+       324,
+       375
+      ],
+      "24": [
+       126,
+       160
+      ],
+      "25": [
+       206,
+       253
+      ],
+      "26": [
+       217,
+       225
+      ],
+      "27": [
+       281,
+       283
+      ],
+      "28": [
+       286,
+       297
+      ],
+      "29": [
+       142,
+       142
+      ],
+      "30": [
+       28,
+       60
+      ],
+      "31": [
+       12,
+       66
+      ],
+      "32": [
+       0,
+       68
+      ],
+      "33": [
+       62,
+       84
+      ],
+      "34": [
+       4,
+       4
+      ],
+      "35": [
+       14,
+       177
+      ],
+      "36": [
+       2,
+       89
+      ],
+      "37": [
+       0,
+       227
+      ],
+      "38": [
+       0,
+       109
+      ],
+      "39": [
+       0,
+       39
+      ],
+      "40": [
+       2,
+       31
+      ]
+     },
+     "changes": {
+      "passing": 66,
+      "failing": 2,
+      "passing_tests": [
+       "ch11/test_A_extra_specparam_range",
+       "ch11/test_expr_inside_set_forms",
+       "ch11/test_inside_operator_2",
+       "ch11/test_inside_ranges_tolerance_unknown_and_types",
+       "ch11/test_inside_tolerance_ranges",
+       "ch11/test_operator_grammar_and_operand_types",
+       "ch21/test_ch21_extra_pattern_unpacked_struct",
+       "ch23/test_defparam_targets_module_interface_program",
+       "ch6/test_param_override_three_ways_module_interface_program",
+       "ch7/test_array_index_and_size_signatures",
+       "ch7/test_member_access_2",
+       "ch8/test_class_constructor_default_argument_expansion",
+       "ch8/test_class_multilevel_inheritance",
+       "ch8/test_class_prop_assign",
+       "ch8/test_class_super_hidden_members_and_implicit_super_new",
+       "ch8/test_constructor_default_argument",
+       "gen/ch11/test_gen_cross_inside_w129_n_us_b_queue_n1_both_unknown",
+       "gen/ch11/test_gen_cross_inside_w129_n_uu_b_dynamic_n0_known",
+       "gen/ch11/test_gen_cross_inside_w129_n_uu_l_dynamic_n3_rhs_z",
+       "gen/ch11/test_gen_cross_inside_w129_w_ss_l_dynamic_n3_both_unknown",
+       "gen/ch11/test_gen_cross_inside_w1_s_ss_l_queue_n0_lhs_x",
+       "gen/ch11/test_gen_cross_inside_w1_s_uu_b_dynamic_n1_lhs_x",
+       "gen/ch11/test_gen_cross_inside_w1_s_uu_b_dynamic_n3_known",
+       "gen/ch11/test_gen_cross_inside_w1_s_uu_b_queue_n1_known",
+       "gen/ch11/test_gen_cross_inside_w1_s_uu_b_queue_n1_lhs_x",
+       "gen/ch11/test_gen_cross_inside_w1_s_uu_b_queue_n3_lhs_x",
+       "gen/ch11/test_gen_cross_inside_w1_s_uu_l_queue_n3_rhs_x",
+       "gen/ch11/test_gen_cross_inside_w1_s_uu_l_queue_n3_rhs_z",
+       "gen/ch11/test_gen_cross_inside_w1_w_uu_l_dynamic_n1_rhs_x",
+       "gen/ch11/test_gen_cross_inside_w32_n_uu_l_queue_n3_both_unknown",
+       "gen/ch11/test_gen_cross_inside_w32_w_su_l_dynamic_n3_lhs_x",
+       "gen/ch11/test_gen_cross_inside_w32_w_uu_b_dynamic_n0_lhs_x",
+       "gen/ch11/test_gen_cross_inside_w33_n_su_b_queue_n0_lhs_x",
+       "gen/ch11/test_gen_cross_inside_w33_n_uu_b_queue_n1_rhs_x",
+       "gen/ch11/test_gen_cross_inside_w33_s_ss_b_dynamic_n1_rhs_z",
+       "gen/ch11/test_gen_cross_inside_w33_w_su_l_dynamic_n1_known",
+       "gen/ch11/test_gen_cross_inside_w64_n_uu_b_dynamic_n3_rhs_x",
+       "gen/ch11/test_gen_cross_inside_w64_s_su_b_queue_n0_known",
+       "gen/ch11/test_gen_cross_inside_w65_n_su_b_queue_n1_rhs_z",
+       "gen/ch11/test_gen_cross_inside_w65_s_uu_b_dynamic_n1_both_unknown",
+       "gen/ch11/test_gen_cross_inside_w65_w_su_b_dynamic_n0_known",
+       "gen/ch11/test_gen_cross_inside_w65_w_us_l_queue_n3_known",
+       "gen/ch11/test_gen_cross_range_w129_s_ss_l_abs_tol_bound_x_m",
+       "gen/ch11/test_gen_cross_range_w129_s_us_l_rel_tol_bound_z_m",
+       "gen/ch11/test_gen_cross_range_w129_w_us_b_abs_tol_known_s",
+       "gen/ch11/test_gen_cross_range_w1_s_uu_b_rel_tol_lhs_x_m",
+       "gen/ch11/test_gen_cross_range_w1_s_uu_l_abs_tol_bound_z_m",
+       "gen/ch11/test_gen_cross_range_w1_s_uu_l_abs_tol_lhs_x_m",
+       "gen/ch11/test_gen_cross_range_w1_s_uu_l_rel_tol_bound_x_m",
+       "gen/ch11/test_gen_cross_range_w32_n_su_b_abs_tol_bound_x_s",
+       "gen/ch11/test_gen_cross_range_w32_w_us_b_rel_tol_bound_z_s",
+       "gen/ch11/test_gen_cross_range_w33_s_uu_b_abs_tol_lhs_x_s",
+       "gen/ch11/test_gen_cross_range_w33_w_su_b_rel_tol_bound_x_s",
+       "gen/ch11/test_gen_cross_range_w64_n_uu_l_rel_tol_lhs_x_s",
+       "gen/ch11/test_gen_cross_range_w64_w_uu_b_abs_tol_bound_z_s",
+       "gen/ch11/test_gen_cross_range_w65_n_ss_l_rel_tol_known_s",
+       "gen/ch11/test_gen_cross_range_w65_n_us_l_abs_tol_known_m",
+       "gen/ch11/test_gen_cross_range_w65_s_su_b_rel_tol_known_m",
+       "gen/ch12/test_gen_cross_caseinside_w129_w_ss_b_list_expr_x_uc",
+       "gen/ch12/test_gen_cross_caseinside_w1_s_ss_b_array_item_z_pc",
+       "gen/ch12/test_gen_cross_caseinside_w1_s_uu_b_list_known_pc",
+       "gen/ch12/test_gen_cross_caseinside_w32_n_ss_b_array_expr_x_uc",
+       "gen/ch12/test_gen_cross_caseinside_w32_s_uu_l_value_expr_x_pc",
+       "gen/ch12/test_gen_cross_caseinside_w33_w_su_b_value_item_z_uc",
+       "gen/ch12/test_gen_cross_caseinside_w64_s_uu_l_range_item_x_pc",
+       "gen/ch12/test_gen_cross_caseinside_w65_w_us_l_range_known_uc"
+      ],
+      "failing_tests": [
+       [
+        "ch24/test_illegal_module_calls_program_task",
+        "fail",
+        "the design was accepted, but it is illegal"
+       ],
+       [
+        "ch6/test_illegal_string_replication_int_operand",
+        "fail",
+        "the design was accepted, but it is illegal"
+       ]
+      ],
+      "added": 745,
+      "added_passing": 741,
+      "removed": 0
+     }
+    },
+    "ghost": {
+     "name": "Ghost",
+     "version": "private build c2138e5f3a5c",
+     "counts": {
+      "pass": 10821,
+      "fail": 684,
+      "known": 0,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       115,
+       136
+      ],
+      "4": [
+       469,
+       473
+      ],
+      "5": [
+       408,
+       412
+      ],
+      "6": [
+       645,
+       682
+      ],
+      "7": [
+       754,
+       772
+      ],
+      "8": [
+       401,
+       411
+      ],
+      "9": [
+       376,
+       383
+      ],
+      "10": [
+       400,
+       425
+      ],
+      "11": [
+       1631,
+       1644
+      ],
+      "12": [
+       304,
+       306
+      ],
+      "13": [
+       416,
+       443
+      ],
+      "14": [
+       149,
+       150
+      ],
+      "15": [
+       184,
+       189
+      ],
+      "16": [
+       454,
+       526
+      ],
+      "17": [
+       103,
+       108
+      ],
+      "18": [
+       230,
+       257
+      ],
+      "19": [
+       165,
+       190
+      ],
+      "20": [
+       353,
+       367
+      ],
+      "21": [
+       424,
+       430
+      ],
+      "22": [
+       507,
+       512
+      ],
+      "23": [
+       345,
+       375
+      ],
+      "24": [
+       139,
+       160
+      ],
+      "25": [
+       242,
+       253
+      ],
+      "26": [
+       172,
+       225
+      ],
+      "27": [
+       211,
+       283
+      ],
+      "28": [
+       268,
+       297
+      ],
+      "29": [
+       141,
+       142
+      ],
+      "30": [
+       49,
+       60
+      ],
+      "31": [
+       54,
+       66
+      ],
+      "32": [
+       33,
+       68
+      ],
+      "33": [
+       75,
+       84
+      ],
+      "34": [
+       4,
+       4
+      ],
+      "35": [
+       155,
+       177
+      ],
+      "36": [
+       78,
+       89
+      ],
+      "37": [
+       201,
+       227
+      ],
+      "38": [
+       103,
+       109
+      ],
+      "39": [
+       36,
+       39
+      ],
+      "40": [
+       27,
+       31
+      ]
+     },
+     "changes": {
+      "passing": 225,
+      "failing": 41,
+      "passing_tests": [
+       "ch10/test_assignment_pattern_variable_and_net_lvalues",
+       "ch11/test_expression_alternatives_with_operator_attributes",
+       "ch11/test_illegal_stream_into_narrower_fixed_target",
+       "ch11/test_stream_dynamic_target_resize_and_bitstream_types",
+       "ch11/test_stream_expression_with_range_forms",
+       "ch11/test_stream_item_order_struct_union_object_assoc",
+       "ch11/test_stream_with_range_extent_timing_and_partial",
+       "ch12/test_pattern_casez_casex_ignored_bits",
+       "ch12/test_pattern_conditional_predicate",
+       "ch12/test_syntax_case_matches_and_inside_forms",
+       "ch12/test_syntax_loop_statement_forms",
+       "ch15/test_ipc_classes_extended_shadowed_and_created",
+       "ch16/test_global_clock_future_functions_action_delay",
+       "ch17/test_checker_assume_stability",
+       "ch17/test_checker_body_items",
+       "ch17/test_checker_body_procedural_and_generate_items",
+       "ch17/test_checker_declaration_scope_kinds",
+       "ch17/test_checker_procedural_deferred_assertion",
+       "ch17/test_checker_procedural_instance",
+       "ch17/test_checker_procedures_reactive_renba",
+       "ch17/test_checker_rand_and_nested_checker",
+       "ch17/test_checker_reactive_triggered",
+       "ch17/test_checker_triggered_assignment",
+       "ch18/test_rand_mode_struct_members",
+       "ch18/test_rand_real_uniform_and_dist",
+       "ch19/test_cg_bin_syntax_all_forms",
+       "ch19/test_cg_excluded_transitions",
+       "ch19/test_cg_illegal_value_keeps_transition",
+       "ch20/test_array_query_default_dimension_integer_result",
+       "ch20/test_array_query_invalid_dimension_all_x",
+       "ch20/test_fatal_form_finish_number_only",
+       "ch20/test_fatal_form_without_parentheses",
+       "ch21/test_vcd_dumplimit_not_reached_keeps_dumping",
+       "ch21/test_vcd_dumplimit_stops_dump_with_comment",
+       "ch23/test_interconnect_merge_net_types",
+       "ch23/test_port_collapse_internal_tri0_tri1",
+       "ch24/test_program_and_checker_generate_items",
+       "ch25/test_extern_forkjoin_disable_interface_and_module",
+       "ch25/test_illegal_modport_import_from_module_without_prototype",
+       "ch25/test_virtual_if_array",
+       "ch28/test_user_nettype_switch_and_driver_strength",
+       "ch3/test_compilation_unit_shared_across_files",
+       "ch3/test_declaration_across_file_boundary",
+       "ch3/test_program_and_checker_instantiate_checkers",
+       "ch31/test_timing_recrem_all_arguments",
+       "ch31/test_timing_setuphold_all_arguments",
+       "ch35/test_dpi_caller_info",
+       "ch35/test_dpi_canonical_aval_bval_packed_kinds",
+       "ch35/test_dpi_export_caller_allocated_arguments",
+       "ch35/test_dpi_export_string_directions",
+       "ch35/test_dpi_formal_integer_logic_time",
+       "ch35/test_dpi_open_array_elem_ptr_bounds",
+       "ch35/test_dpi_open_array_variadic_indexing",
+       "ch35/test_dpi_scope_time_unit_precision",
+       "ch35/test_dpi_svdpi_scalar_and_chunk_types",
+       "ch35/test_svdpi_h_after_vpi_user_h",
+       "ch35/test_svdpi_h_caller_info",
+       "ch35/test_svdpi_h_canonical_types_and_version",
+       "ch35/test_svdpi_h_declarations",
+       "ch35/test_svdpi_h_deprecated_get_declarations",
+       "ch35/test_svdpi_h_deprecated_portion_types",
+       "ch35/test_svdpi_h_deprecated_put_declarations",
+       "ch35/test_svdpi_h_deprecated_size_and_types",
+       "ch35/test_svdpi_h_macros_and_c_linkage",
+       "ch35/test_svdpi_h_packed_element_copy",
+       "ch35/test_svdpi_h_scope_time",
+       "ch35/test_svdpi_h_sv_mask",
+       "ch35/test_svdpi_names_and_signed_bits_macro",
+       "ch36/test_vpi_compat_1364v1995_iterations",
+       "ch36/test_vpi_compatibility_1364v1995_memory_objects",
+       "ch36/test_vpi_compatibility_1364v2005_variable_objects",
+       "ch36/test_vpi_compatibility_1800v2012_routine_calls",
+       "ch36/test_vpi_compatibility_h_1364v1995",
+       "ch36/test_vpi_compatibility_h_1364v2001",
+       "ch36/test_vpi_compatibility_h_1364v2005",
+       "ch36/test_vpi_compatibility_h_1800v2005",
+       "ch36/test_vpi_compatibility_h_1800v2009",
+       "ch36/test_vpi_compatibility_h_1800v2012",
+       "ch36/test_vpi_user_h_macro_cleanup",
+       "ch36/test_vpi_user_h_macro_linkage_types",
+       "ch36/test_vpi_user_h_record_members",
+       "ch36/test_vpi_user_h_type_declarations",
+       "ch36/test_vpi_user_h_type_guards",
+       "ch36/test_vpi_variable_arrays_1364v1995_mode",
+       "ch36/test_vpi_variable_arrays_1364v2001_mode",
+       "ch36/test_vpi_variable_arrays_1364v2005_mode",
+       "ch40/test_coverage_control_interface_scope",
+       "ch40/test_coverage_control_package_scope",
+       "ch6/test_bitstream_cast_destination_layout",
+       "ch6/test_cast_unpacked_struct_bits_round_trip",
+       "ch6/test_net_delay_value_forms",
+       "ch6/test_net_unpacked_struct_union_data_types",
+       "ch6/test_vector_net_scalared",
+       "ch7/test_array_map_method",
+       "ch7/test_illegal_wildcard_array_find",
+       "ch7/test_illegal_wildcard_array_find_first_index",
+       "ch7/test_illegal_wildcard_array_find_index",
+       "ch7/test_illegal_wildcard_array_find_last_index",
+       "ch7/test_queue_invalid_index_write_ignored_warning",
+       "gen/ch11/test_gen_combo_stream_string_target_resize"
+      ],
+      "failing_tests": [
+       [
+        "ch10/test_illegal_unpacked_concat_item_without_type",
+        "fail",
+        "the design was accepted, but it is illegal"
+       ],
+       [
+        "ch18/test_constraint_block_all_forms",
+        "fail",
+        "output differs (exit 2)"
+       ],
+       [
+        "ch18/test_discarded_soft_distribution",
+        "fail",
+        "output differs (exit 2)"
+       ],
+       [
+        "ch18/test_illegal_constraint_struct_operand",
+        "fail",
+        "the design was accepted, but it is illegal"
+       ],
+       [
+        "ch20/test_illegal_array_query_dynamic_type_name",
+        "fail",
+        "the design was accepted, but it is illegal"
+       ],
+       [
+        "ch6/test_event_triggered_state_lasts_time_step",
+        "fail",
+        "output differs"
+       ],
+       [
+        "ch6/test_illegal_signing_cast_of_real",
+        "fail",
+        "the design was accepted, but it is illegal"
+       ],
+       [
+        "ch6/test_illegal_size_cast_of_real",
+        "fail",
+        "the design was accepted, but it is illegal"
+       ],
+       [
+        "ch6/test_user_nettype_resolution_forms",
+        "fail",
+        "output differs"
+       ],
+       [
+        "ch7/test_queue_slice_bounds_clip_and_empty",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch18/test_gen_cross_randreduce_33_unsigned_dynamic_product_wide_3_fail_sat_fail",
+        "fail",
+        "output differs (exit 2)"
+       ],
+       [
+        "gen/ch18/test_gen_cross_randreduce_8_signed_dynamic_sum_wide_2_fail_sat_fail",
+        "fail",
+        "output differs (exit 2)"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_129_bit_known_wildcard_scalar_blocking_full_logical",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_129_bit_x_qualified_up_blocking_full_case",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_129_bit_z_qualified_scalar_nba_full_logical",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_129_logic_known_qualified_up_nba_full_logical",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_129_logic_x_qualified_down_blocking_full_logical",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_1_bit_known_qualified_scalar_blocking_full_logical",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_1_bit_x_explicit_scalar_nba_full_logical",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_1_bit_z_qualified_up_blocking_full_logical",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_1_logic_known_qualified_down_nba_full_logical",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_1_logic_x_qualified_up_nba_lsb_case",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_1_logic_z_wildcard_down_blocking_lsb_logical",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_32_bit_known_wildcard_scalar_nba_full_logical",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_32_bit_z_qualified_down_blocking_full_logical",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_32_logic_known_explicit_up_nba_full_case",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_32_logic_x_qualified_up_blocking_full_logical",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_32_logic_z_qualified_down_nba_full_logical",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_33_bit_x_explicit_down_blocking_full_logical",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_33_logic_known_qualified_scalar_nba_full_logical",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_33_logic_x_qualified_up_nba_full_logical",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_33_logic_z_wildcard_scalar_blocking_full_case",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_64_bit_x_qualified_scalar_nba_full_logical",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_64_logic_known_wildcard_down_nba_full_logical",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_64_logic_x_qualified_up_nba_full_logical",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_64_logic_z_qualified_down_blocking_full_logical",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_65_bit_known_explicit_scalar_blocking_full_logical",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_65_bit_x_qualified_down_blocking_full_logical",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_65_logic_known_qualified_up_nba_full_logical",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_65_logic_x_wildcard_up_blocking_full_logical",
+        "fail",
+        "output differs"
+       ],
+       [
+        "gen/ch26/test_gen_cross_pkgwatch_65_logic_z_qualified_down_nba_full_logical",
+        "fail",
+        "output differs"
+       ]
+      ],
+      "added": 745,
+      "added_passing": 646,
+      "removed": 0
+     }
+    }
+   }
   }
  ]
 }
