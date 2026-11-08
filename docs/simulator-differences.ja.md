@@ -681,7 +681,7 @@ Icarus Verilog 13.0安定版（v13_0-dirty）は、連想配列またはunpacked
 | 3.14.2.3 |一つのモジュールが時間単位または時間精度を宣言し、他のモジュールがどのソースからも時間単位を持っていない場合にのみ警告します。3.14.2.3では、これはエラーとなる。| `ch3/test_illegal_time_unit_specified_only_in_some_elements` |
 | 5.9.1 |"\1z"を受理する（\ 1を読み、その後zを読む）。zは、8進エスケープの数字にも、より短い8進エスケープの後の文字にもなれない。| `ch5/test_illegal_string_octal_escape_z_digit` |
 | 6.16 |int 変数を文字列変数に割り当てたとき、キャストなしで受け入れます。| `ch6/test_illegal_string_assigned_int_without_cast` |
-| 6.16 |文字列複製{2{s, k}}内のintオペランドを受理する。| `ch6/test_illegal_string_replication_int_operand` |
+| 6.16 |文字列複製{2{s, k}}内のintオペランドを受理する。2026-11-08からスイートはどちらの読み方も認め、これに依存するテストはありません。[読み方が分かれる文字列の複製の演算子](#string-replication-int-operand)を参照してください。| なし |
 | 6.18 |最終定義が構造体である前方宣言enum typedef、generateブロック内でだけ定義した前方宣言typedef、最後まで定義しない前方宣言typedefを受理します。| `ch6/test_illegal_forward_enum_defined_as_struct`, `ch6/test_illegal_forward_typedef_defined_in_generate_block`, `ch6/test_illegal_forward_typedef_never_defined` |
 | 7.10 |両方とも、正ではないキューの上限0を受理する。| `ch7/test_illegal_queue_bound_zero` |
 | 8.3 |1つのプロパティ宣言内のprotected local、rand randc、static staticを受理する。| `ch8/test_illegal_class_property_protected_and_local`, `ch8/test_illegal_class_property_rand_and_randc`, `ch8/test_illegal_class_property_static_twice` |
@@ -1081,3 +1081,15 @@ kirimasim `28c6c1a1cb83`は、3モデルの全496行で規格の期待値と一�
 
 [固定版比較の記録](../coverage/interaction-qualification/scopecaselit-fixed-replays.json)と[Icarusの全拒否とVerilatorの代表出力](../coverage/interaction-qualification/scopecaselit-known-replays.json)を保存しました。
 kirimasim `f029ddd0eee1`は、case項目の全312行で一致しました。クラスの30行は内部エラーで、構造体のlocalparamの48行は未実装です。
+
+<a id="string-replication-int-operand"></a>
+
+## 読み方が分かれる文字列の複製の演算子（2026-11-08）
+
+6.16の表6-9は、文字列の連結と複製の演算子を、文字列リテラルとstring型の式に限ります。そのため、int変数`k`を含む`{2{s, k}}`はエラーです。
+一方、11.4.12.2は、文字列の連結のほかの演算子を文字列に変換すると読むこともでき、その読み方では合法になります。
+Icarus 13.0・Verilator 5.052・kirimasimはこれを受理し、kirimasimは`8ed1c0d5`からこの読み方を採っています。slangは既定でエラーにします。
+一つのテストでコンパイルエラーと合格の両方を認めることはできないので、この規則だけのためにあった`ch6/test_illegal_string_replication_int_operand`を削除しました。
+その要求`SV2023-6.16-EXTRACT-REPLICATION-OPERANDS`は唯一の根拠を失ったので、対応付けを取り下げました。
+対照として使っていた合法な形は、たとえば変数の乗数を`ch11/test_string_replication_variable_multiplier`が引き続き確かめます。
+キャストなしでint変数をstring変数に代入するのは、どちらの読み方でもエラーのままです（`ch6/test_illegal_string_assigned_int_without_cast`）。

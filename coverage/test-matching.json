@@ -2,8 +2,8 @@
   "schema": 1,
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
-  "test_files": 12166,
-  "linked_test_files": 5309,
+  "test_files": 12165,
+  "linked_test_files": 5308,
   "unlinked_test_files": 6857,
   "chapters": [
     {
@@ -26,8 +26,8 @@
     },
     {
       "chapter": "ch6",
-      "test_files": 682,
-      "linked_test_files": 416,
+      "test_files": 681,
+      "linked_test_files": 415,
       "unlinked_test_files": 266
     },
     {
@@ -327216,66 +327216,6 @@
         "SV2023-6.16-EXTRACT-INTEGRAL-STRING-CAST-REQUIRED",
         "SV2023-6.16-EXTRACT-REPLICATION-MULTIPLIER",
         "SV2023-6.16-EXTRACT-REPLICATION-OPERANDS"
-      ],
-      "interpretation_pending_ids": [],
-      "different_case_kind_ids": [
-        "SV2023-6.16-EXTRACT-CONCAT-ALL-LITERAL",
-        "SV2023-6.16-EXTRACT-CONCAT-STRING-OPERANDS",
-        "SV2023-6.16-EXTRACT-CONCAT-STRING-PROMOTION",
-        "SV2023-6.16-EXTRACT-CONVERSION-ALL-NUL-EMPTY",
-        "SV2023-6.16-EXTRACT-CONVERSION-REMOVE-NUL",
-        "SV2023-6.16-EXTRACT-DYNAMIC-CHARACTER-COLLECTION",
-        "SV2023-6.16-EXTRACT-EMPTY-STRING-INDEX",
-        "SV2023-6.16-EXTRACT-EQUALITY-MIXED-LITERAL",
-        "SV2023-6.16-EXTRACT-INDEX-ORIENTATION",
-        "SV2023-6.16-EXTRACT-INDEX-READ-BYTE",
-        "SV2023-6.16-EXTRACT-INDEX-READ-OUT-OF-BOUNDS",
-        "SV2023-6.16-EXTRACT-INTEGRAL-STRING-BYTE-PADDING",
-        "SV2023-6.16-EXTRACT-INTEGRAL-STRING-RESIZE",
-        "SV2023-6.16-EXTRACT-LITERAL-IMPLICIT-STRING",
-        "SV2023-6.16-EXTRACT-LITERAL-INTEGRAL-ALIGNMENT",
-        "SV2023-6.16-EXTRACT-LITERAL-PACKED-REPRESENTATION",
-        "SV2023-6.16-EXTRACT-NO-NUL-CHARACTER",
-        "SV2023-6.16-EXTRACT-RELATIONAL-MIXED-LITERAL",
-        "SV2023-6.16-EXTRACT-REPLICATION-DYNAMIC-STRING",
-        "SV2023-6.16-EXTRACT-REPLICATION-LITERAL-CONSTANT",
-        "SV2023-6.16-EXTRACT-REPLICATION-ZERO",
-        "SV2023-6.16-EXTRACT-STRING-CHARACTER-READ-WRITE",
-        "SV2023-6.16-EXTRACT-STRING-DECLARATION",
-        "SV2023-6.16-EXTRACT-STRING-DEFAULT",
-        "SV2023-6.16-EXTRACT-STRING-DIRECT-ASSIGNMENT",
-        "SV2023-6.16-EXTRACT-STRING-EQUALITY",
-        "SV2023-6.16-EXTRACT-STRING-GE",
-        "SV2023-6.16-EXTRACT-STRING-GT",
-        "SV2023-6.16-EXTRACT-STRING-INEQUALITY",
-        "SV2023-6.16-EXTRACT-STRING-LE",
-        "SV2023-6.16-EXTRACT-STRING-LENGTH",
-        "SV2023-6.16-EXTRACT-STRING-LT",
-        "SV2023-6.16-EXTRACT-STRING-METHOD-DOT",
-        "SV2023-6.16-EXTRACT-STRING-NO-FIXED-TRUNCATION"
-      ],
-      "broader_citations": [
-        {
-          "clause": "6.16",
-          "descendant_requirement_count": 61
-        }
-      ]
-    },
-    {
-      "test": "tests/ch6/test_illegal_string_replication_int_operand.sv",
-      "inputs_sha256": "345c47c08732d4ec6c6d16fe9d5746cd1d059854561d78063f8c8cb5de51bcf1",
-      "cited_clauses": [
-        "6.16"
-      ],
-      "negative_test": true,
-      "registered_requirement_ids": [
-        "SV2023-6.16-EXTRACT-REPLICATION-OPERANDS"
-      ],
-      "collective_requirement_ids": [],
-      "unapproved_candidate_ids": [
-        "SV2023-6.16-EXTRACT-INTEGRAL-STRING-CAST-REQUIRED",
-        "SV2023-6.16-EXTRACT-REPLICATION-INNER-NONEMPTY",
-        "SV2023-6.16-EXTRACT-REPLICATION-MULTIPLIER"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
@@ -937601,7 +937541,7 @@
     "oracle_issue": 249,
     "partial_observation": 2136
   },
-  "registry_sha256": "05e52998d45f4c7498d0bce312e3976f9e1fe0510fa50fce336d29a844626d0d",
+  "registry_sha256": "6c498a329d56dc734799b4c81bfb49d85ab3985ed642ecd88caf3a383dd8f2d7",
   "inventory_sha256": "7f708bec45a4f398aa534c8f94565cb0bcd1a4fbfdf0a0e21997df20add41768",
   "review_ledger_sha256": "efca1ea7694d507cd61cda11f8e000325e15f1feb16427a2d9ec1f26b90b51fb"
 }

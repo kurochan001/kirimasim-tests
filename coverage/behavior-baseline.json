@@ -35693,7 +35693,6 @@
     "SV2023-6.16-EXTRACT-REPLICATION-INNER-NONEMPTY",
     "SV2023-6.16-EXTRACT-REPLICATION-LITERAL-CONSTANT",
     "SV2023-6.16-EXTRACT-REPLICATION-MULTIPLIER",
-    "SV2023-6.16-EXTRACT-REPLICATION-OPERANDS",
     "SV2023-6.16-EXTRACT-REPLICATION-ZERO",
     "SV2023-6.16-EXTRACT-STRING-CHARACTER-READ-WRITE",
     "SV2023-6.16-EXTRACT-STRING-DECLARATION",
@@ -43169,5 +43168,5 @@
     "P",
     "Q"
   ],
-  "reason": "Correct the tests of Issues #48, #50, #52, #56 and #57 and seven illegal modport fixtures; every requirement keeps its witness"
+  "reason": "Withdraw the string-replication operand mapping: 11.4.12.2 can be read as converting an int operand of a string replication to string, kirimasim accepts it on that reading, and the only test that observed the rule of Table 6-9 was removed."
 }

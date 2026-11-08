@@ -399,3 +399,11 @@ clause 37.
 - A [first diagnosis](https://github.com/kurochan001/kirimasim-tests/actions/runs/42461858263) on the cached builds found the C++ compiler's error: Lyra's runtime uses `std::expected`, which the runner's clang 18 does not find in libstdc++ 13. The 6 GB address-space limit of the job made no difference (peak memory about 380 MB).
 - A [second diagnosis](https://github.com/kurochan001/kirimasim-tests/actions/runs/42462621481) ran the 200 tests of chapter 10 on `b9c9a061` with the runner's GCC 13.3 and with clang 20, the release Lyra's own CI installs. Both gave 185 matches, six failures and nine unsupported, the same tests as on 2026-11-06.
 - The Nightly job now gives `--cxx c++` to `tools/run_lyra.py`, which passes it on to `lyra run` and records the compiler and its version in the results. When Lyra cannot compile what it generated, the reason of the failure also gives the first error of the C++ compiler. The diagnosis workflow was removed.
+
+### 2026-11-08 (string replication operand)
+
+- kirimasim `8ed1c0d5` reads 11.4.12.2 as converting an int operand of a string replication to string and accepts `{2{s, k}}`, which Table 6-9 in 6.16 makes an error; Icarus 13.0 and Verilator 5.052 accept it too.
+  A test cannot accept both a compile error and a pass, so `ch6/test_illegal_string_replication_int_operand`, which tested this rule alone, was removed and the disagreement recorded in the [simulator differences](simulator-differences.md#string-replication-int-operand).
+- `SV2023-6.16-EXTRACT-REPLICATION-OPERANDS` lost its only witness and its mapping was withdrawn. Design coverage becomes 10,979/12,298 (89.27%), and clauses 1 to 40 8,267/9,465 (87.34%).
+  Execution coverage is 9,535/12,298 (77.53%); the README had kept 9,537 since 89df6e9b, which had already changed it.
+- The suite has 12,165 tests and 1,929 illegal designs.

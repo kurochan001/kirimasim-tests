@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[すべての章](README.ja.md) .682 79 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
+[すべての章](README.ja.md) .681 79 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -242,7 +242,6 @@
 | [`test_expr_string`](../../tests/ch6/test_expr_string.sv) |文字列表現テスト| 6.16 11.4.12 | Verilator 5.052 ||
 | [`test_illegal_string_assigned_int_without_cast`](../../tests/ch6/test_illegal_string_assigned_int_without_cast.sv) |整数値は 文字列変数に割り当てられるのは| 6.16 |標準のみ|違法なデザインだ|
 | [`test_illegal_string_replication_empty_braces`](../../tests/ch6/test_illegal_string_replication_empty_braces.sv) |文字列の複製には 少なくとも1つのオペランドが必要です| 6.16 | Icarus Verilog 13.0 |違法なデザインだ|
-| [`test_illegal_string_replication_int_operand`](../../tests/ch6/test_illegal_string_replication_int_operand.sv) |文字列の複製の括弧内のオペランドは文字列リテラルまたは文字列型の表現です。int のオペランドはエラーです| 6.16 |標準のみ|違法なデザインだ|
 | [`test_illegal_string_replication_negative_multiplier`](../../tests/ch6/test_illegal_string_replication_negative_multiplier.sv) |文字列複製の反復数は負にできません。| 6.16 | Verilator 5.052 |違法なデザインだ|
 | [`test_illegal_string_replication_real_multiplier`](../../tests/ch6/test_illegal_string_replication_real_multiplier.sv) |文字列の複製の乗数は整数型でなければなりません実際の表現は違法です| 6.16 | Icarus Verilog 13.0 |違法なデザインだ|
 | [`test_illegal_string_replication_x_multiplier`](../../tests/ch6/test_illegal_string_replication_x_multiplier.sv) |文字列の複製の乗数は xbit を含めない| 6.16 | Verilator 5.052 |違法なデザイン x/z|

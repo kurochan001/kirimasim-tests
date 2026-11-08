@@ -373,3 +373,11 @@
 - キャッシュ済みのビルドを使った[1回目の診断](https://github.com/kurochan001/kirimasim-tests/actions/runs/42461858263)で、C++コンパイラのエラーが分かりました。Lyraのランタイムが使う`std::expected`を、ランナーのclang 18はlibstdc++ 13の中に見つけられません。ジョブの6 GBのアドレス空間の上限は無関係でした（最大メモリーは約380 MB）。
 - [2回目の診断](https://github.com/kurochan001/kirimasim-tests/actions/runs/42462621481)では、`b9c9a061`でch10の200件を、ランナーのGCC 13.3と、Lyra自身のCIが入れるclang 20で実行しました。どちらも185件一致・fail 6件・unsupported 9件で、該当するテストも2026-11-06と同じでした。
 - Nightlyのジョブは`tools/run_lyra.py`に`--cxx c++`を渡すようにしました。`run_lyra.py`はそれを`lyra run`に渡し、コンパイラとその版を結果に記録します。Lyraが生成したコードをコンパイルできなかったときは、失敗の理由にC++コンパイラの最初のエラーも示します。診断用のワークフローは削除しました。
+
+### 2026-11-08（文字列の複製の演算子）
+
+- kirimasim `8ed1c0d5`は、11.4.12.2を文字列の複製のint演算子を文字列に変換すると読み、`{2{s, k}}`を受理します。6.16の表6-9ではエラーです。Icarus 13.0とVerilator 5.052も受理します。
+  一つのテストでコンパイルエラーと合格の両方は認められないので、この規則だけを確かめていた`ch6/test_illegal_string_replication_int_operand`を削除し、読み方の対立を[シミュレータの差異](simulator-differences.ja.md#string-replication-int-operand)に記録しました。
+- `SV2023-6.16-EXTRACT-REPLICATION-OPERANDS`は唯一の根拠を失ったので、対応付けを取り下げました。要求カバレッジ（テスト設計）は10,979/12,298（89.27%）、1〜40章は8,267/9,465（87.34%）です。
+  実行確認率は9,535/12,298（77.53%）です。89df6e9bですでに変わっていましたが、READMEは9,537のままでした。
+- スイートは12,165本、規格違反の設計は1,929本です。

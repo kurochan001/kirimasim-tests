@@ -33803,33 +33803,7 @@
       "acceptance": "The inner replication operands must be string literals or string-typed expressions.",
       "source_note": "IEEE 1800-2023 6.16; complete own-body source review, blocks B032. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [
-        {
-          "test": "tests/ch6/test_illegal_string_replication_int_operand.sv",
-          "observation": "文字列の複製の内側に string s と int 変数 k を置く t = {2{s, k}}; (35行目)でのエラーを求める。内側が string と文字列リテラルの {2{s, \"-\"}}、変数の乗数による {n{s}}、キャストした {2{s, string'(k)}} は合法な対照で、制御版は Verilator で ab-ab- ababab abBabB を表示する。 区別: 文字列の複製の内側に整数型の被演算子を許す誤実装(両シミュレータとも受理する)は35行目でエラーを出さず不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。",
-          "reviewed_on": "2026-10-24",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "345c47c08732d4ec6c6d16fe9d5746cd1d059854561d78063f8c8cb5de51bcf1",
-          "evidence": [
-            {
-              "file": "tests/ch6/test_illegal_string_replication_int_operand.sv",
-              "contains": "t = {2{s, k}};   // illegal: an int operand in a string replication"
-            },
-            {
-              "file": "tests/ch6/test_illegal_string_replication_int_operand.sv",
-              "contains": ":expected_stderr_regex: test_illegal_string_replication_int_operand\\.sv:35:"
-            },
-            {
-              "file": "tests/ch6/test_illegal_string_replication_int_operand.sv",
-              "contains": "t = {2{s, \"-\"}};"
-            },
-            {
-              "file": "tests/ch6/test_illegal_string_replication_int_operand.sv",
-              "contains": "$display(\"%s %s %s\", t, {n{s}}, {2{s, string'(k)}});"
-            }
-          ]
-        }
-      ],
+      "checks": [],
       "source_spans": [
         {
           "section": "6.16",

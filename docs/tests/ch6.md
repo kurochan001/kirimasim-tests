@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[All chapters](README.md). 682 tests, 79 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 681 tests, 79 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -242,7 +242,6 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_expr_string`](../../tests/ch6/test_expr_string.sv) | String expressions test | 6.16 11.4.12 | Verilator 5.052 ||
 | [`test_illegal_string_assigned_int_without_cast`](../../tests/ch6/test_illegal_string_assigned_int_without_cast.sv) | an integral value can be assigned to a string variable only with a cast | 6.16 | standard only | illegal design |
 | [`test_illegal_string_replication_empty_braces`](../../tests/ch6/test_illegal_string_replication_empty_braces.sv) | a string replication needs at least one operand inside its inner braces | 6.16 | Icarus Verilog 13.0 | illegal design |
-| [`test_illegal_string_replication_int_operand`](../../tests/ch6/test_illegal_string_replication_int_operand.sv) | the operands inside the braces of a string replication are string literals or expressions of string type; an int operand is an error | 6.16 | standard only | illegal design |
 | [`test_illegal_string_replication_negative_multiplier`](../../tests/ch6/test_illegal_string_replication_negative_multiplier.sv) | the multiplier of a string replication cannot be negative | 6.16 | Verilator 5.052 | illegal design |
 | [`test_illegal_string_replication_real_multiplier`](../../tests/ch6/test_illegal_string_replication_real_multiplier.sv) | the multiplier of a string replication has to be of integral type; a real expression is illegal | 6.16 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_string_replication_x_multiplier`](../../tests/ch6/test_illegal_string_replication_x_multiplier.sv) | the multiplier of a string replication cannot contain an x bit | 6.16 | Verilator 5.052 | illegal design, x/z |

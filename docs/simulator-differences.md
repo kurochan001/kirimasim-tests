@@ -682,7 +682,7 @@ The second run of tests for open requirements (see its [result report](gap-tests
 | 3.14.2.3 | Only warn when one module declares timeunit or timeprecision and another has no time unit from any source; 3.14.2.3 makes it an error. | `ch3/test_illegal_time_unit_specified_only_in_some_elements` |
 | 5.9.1 | Accept "\1z" (read \1 and then z); z can be neither an octal escape digit nor the character after a shorter octal escape. | `ch5/test_illegal_string_octal_escape_z_digit` |
 | 6.16 | Accept an int variable assigned to a string variable without a cast. | `ch6/test_illegal_string_assigned_int_without_cast` |
-| 6.16 | Accept an int operand inside a string replication {2{s, k}}. | `ch6/test_illegal_string_replication_int_operand` |
+| 6.16 | Accept an int operand inside a string replication {2{s, k}}. Since 2026-11-08 the suite accepts either reading and no test depends on it; see [a string replication operand read two ways](#string-replication-int-operand). | none |
 | 6.18 | Accept a forward enum typedef whose final definition is a structure, a forward typedef defined only inside a generate block, and a forward typedef never defined. | `ch6/test_illegal_forward_enum_defined_as_struct`, `ch6/test_illegal_forward_typedef_defined_in_generate_block`, `ch6/test_illegal_forward_typedef_never_defined` |
 | 7.10 | Both accept the queue bound 0, which is not positive. | `ch7/test_illegal_queue_bound_zero` |
 | 8.3 | Accept protected local, rand randc and static static in one property declaration. | `ch8/test_illegal_class_property_protected_and_local`, `ch8/test_illegal_class_property_rand_and_randc`, `ch8/test_illegal_class_property_static_twice` |
@@ -1082,3 +1082,15 @@ kirimasim `28c6c1a1cb83` matches the standard's expectations on all 496 rows of 
 
 See the [pinned comparisons](../coverage/interaction-qualification/scopecaselit-fixed-replays.json) and [all Icarus rejections and representative Verilator outputs](../coverage/interaction-qualification/scopecaselit-known-replays.json).
 kirimasim `f029ddd0eee1` matches all 312 case item rows. The 30 class rows stop on an internal error, and the 48 structure localparam rows are not implemented.
+
+<a id="string-replication-int-operand"></a>
+
+## A string replication operand read two ways (2026-11-08)
+
+Table 6-9 in 6.16 allows only string literals and expressions of string type as the operands of a string concatenation or replication, so `{2{s, k}}` with the int variable `k` is an error.
+11.4.12.2 can be read as converting the other operands of a string concatenation to string, which makes it legal.
+Icarus 13.0, Verilator 5.052 and kirimasim accept it, kirimasim on that reading since `8ed1c0d5`, while slang reports an error by default.
+A test cannot accept both a compile error and a pass, so `ch6/test_illegal_string_replication_int_operand`, which existed for this rule alone, was removed.
+Its requirement `SV2023-6.16-EXTRACT-REPLICATION-OPERANDS` lost its only witness and its mapping was withdrawn.
+The legal forms it kept as controls remain covered, for example a variable multiplier by `ch11/test_string_replication_variable_multiplier`.
+An int variable assigned to a string variable without a cast stays an error under both readings (`ch6/test_illegal_string_assigned_int_without_cast`).

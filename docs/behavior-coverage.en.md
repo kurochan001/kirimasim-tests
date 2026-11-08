@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. The requirements table base of all standards (confirmation): design 89.28%, execution 77.53%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. The requirements table base of all standards (confirmation): design 89.27%, execution 77.53%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 89.28%. Requirement execution-confirmation rate: 77.53%. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 89.27%. Requirement execution-confirmation rate: 77.53%. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 10980/12298 ( 89.28% ).
+- The requirement coverage (test design) for registered behaviors is 10979/12298 ( 89.27% ).
 - Among the registered behaviors, the one with a record of path results corresponding to the current input: 9535/12298 ( 77.53% ).
-- Registered but not tested: 1318.
+- Registered but not tested: 1319.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -255,7 +255,7 @@ The number of items is the investigation status of the article by heading. This 
 - 3 Design and verification building blocks: No interpretation reservation 22/22, registration 146, test support 118.
 - 4 Scheduling semantics: no interpretation reservation 40/40, registration 107, test support 80.
 - 5 Lexical conventions: no interpretation reservation 21/21, registration 154, test support 136.
-- 6 Data types: No interpretation reservation 92/92, registration 719, test support 680.
+- 6 Data types: No interpretation reservation 92/92, registration 719, test support 679.
 - 7 Aggregate data types: no interpretation reservation 61/61, registration 345, test support 320.
 - 8 Classes: No interpretation restrictions 49/49, registration 252, test support 221.
 - 9 Processes: No interpretation reservation 34/34, registration 189, test support 166.
@@ -9691,7 +9691,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.16-EXTRACT-REPLICATION-OPERANDS
 
-`6.16` / `error` / Test mapped; execution unconfirmed
+`6.16` / `error` / No mapped test
 
 The inner replication operands must be string literals or string-typed expressions.
 
@@ -9699,7 +9699,6 @@ Acceptance criterion: The inner replication operands must be string literals or 
 
 Normative role: `mandatory`。
 
-- [test_illegal_string_replication_int_operand.sv](../tests/ch6/test_illegal_string_replication_int_operand.sv): Place string s and int variable k inside the duplicate string t = { 2 {s, k}}; The error is found at (35 line). {2 {s, "-"}} with an inner string and string literal, {n{s}} with a variable multiplier, and cast-containing {2 {s, string ' (k)}} are conforming controls. The control version prints ab-ab- ababab abBabB with Verilator. Distinguishing observation: A incorrect implementation that allows integer-type suboperators inside the string duplication (accepting both simulators) fails without an error on line 35. The rows of the contradictions recognized by the standard are for limiting the design violation to 1 of the specified rows, and the judgement is to see if the error is reported in the specified rows.
 
 ### SV2023-6.16-EXTRACT-REPLICATION-ZERO
 
