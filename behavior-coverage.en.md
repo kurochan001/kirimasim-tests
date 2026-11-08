@@ -6,10 +6,10 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](https://github.com/kurochan001/kirimasim-tests/blob/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9/docs/requirement-extraction.en.md) / [Management procedures](https://github.com/kurochan001/kirimasim-tests/blob/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9/coverage/README.en.md) / [Number of citations per paragraph](https://github.com/kurochan001/kirimasim-tests/blob/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9/docs/coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](https://github.com/kurochan001/kirimasim-tests/blob/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9/docs/faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. The requirements table base of all standards (confirmation): design 89.27%, execution 72.72%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](https://github.com/kurochan001/kirimasim-tests/blob/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9/docs/faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. The requirements table base of all standards (confirmation): design 89.27%, execution 72.94%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 89.27%. Requirement execution-confirmation rate: 72.72%. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 89.27%. Requirement execution-confirmation rate: 72.94%. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
@@ -17,7 +17,7 @@ Requirement coverage (test design): 89.27%. Requirement execution-confirmation r
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
 - The requirement coverage (test design) for registered behaviors is 10979/12298 ( 89.27% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 8943/12298 ( 72.72% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 8970/12298 ( 72.94% ).
 - Registered but not tested: 1319.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
@@ -35,6 +35,7 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `ghost.json`: `private build 9997c689a2e6` / `2026-11-08T12:20:30.104078+00:00` / 8874/12298 execution checked; 0 entries refer to older inputs.
 - `icarus.json`: `Icarus Verilog version 14.0 (devel) (s20260301-873-gbeb32f39)` / `2026-11-08T12:01:28.040115+00:00` / 2535/12298 execution checked; 0 entries refer to older inputs.
 - `kirimasim.json`: `kirimasim 0.0.0 (commit 33cee3fa2f0d), built with GNU 13.3.0` / `2026-11-08T12:09:51.121888+00:00` / 2968/12298 execution checked; 0 entries refer to older inputs.
+- `lyra.json`: `Lyra (commit ed6c62dc8c1a)` / `2026-11-08T18:31:47.821032+00:00` / 3336/12298 execution checked; 0 entries refer to older inputs.
 - `verilator.json`: `Verilator 5.055 devel rev v5.054-130-g423f8719` / `2026-11-08T12:38:35.460474+00:00` / 3696/12298 execution checked; 0 entries refer to older inputs.
 
 <a id="章附属書別の調査状態"></a>
@@ -13381,7 +13382,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.24.2-EXTRACT-AGGREGATE-ASSIGNMENT-COMPATIBILITY
 
-`6.24.2` / `normal` / Test mapped; execution unconfirmed
+`6.24.2` / `normal` / Execution confirmed
 
 For nonsingular arguments, a dynamic cast assignment is invalid if the argument types are not assignment compatible; general static bit-stream cast permissions do not extend this test.
 
@@ -13548,7 +13549,7 @@ Normative role: `permission`。
 
 ### SV2023-6.24.3-EXTRACT-ASSOCIATIVE-PACK-ORDER
 
-`6.24.3` / `normal` / Test mapped; execution unconfirmed
+`6.24.3` / `normal` / Execution confirmed
 
 Packing an associative array follows sorted-index order with the first indexed entry most significant.
 
@@ -13596,7 +13597,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.24.3-EXTRACT-DYNAMIC-PACK-ORDER
 
-`6.24.3` / `normal` / Test mapped; execution unconfirmed
+`6.24.3` / `normal` / Execution confirmed
 
 Packing a dynamic array, queue or string places its index-zero item at the most significant end, followed by increasing indices.
 
@@ -18106,7 +18107,7 @@ Normative role: `mandatory`。
 
 ### SV2023-7.12.5-EXTRACT-MAP-SELF-DETERMINED-TYPE
 
-`7.12.5` / `normal` / Test mapped; execution unconfirmed
+`7.12.5` / `normal` / Execution confirmed
 
 Each mapped element has the self-determined type of the with expression.
 
@@ -18118,7 +18119,7 @@ Normative role: `mandatory`。
 
 ### SV2023-7.12.5-EXTRACT-MAP-SHAPE
 
-`7.12.5` / `normal` / Test mapped; execution unconfirmed
+`7.12.5` / `normal` / Execution confirmed
 
 map() returns an unpacked array with the source range/index type, or the identical associative key set, replacing values without changing dimension bounds.
 
@@ -36839,7 +36840,7 @@ Normative role: `definition`。
 
 ### SV2023-16.4.1-EXTRACT-FINAL-MATURE
 
-`16.4.1` / `normal` / Test mapped; execution unconfirmed
+`16.4.1` / `normal` / Execution confirmed
 
 Unflushed final deferred reports mature and execute in Postponed and are removed from the queue; this non-iterative region avoids the described inter-region glitch.
 
@@ -36851,7 +36852,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.4.1-EXTRACT-FLUSH
 
-`16.4.1` / `normal` / Test mapped; execution unconfirmed
+`16.4.1` / `normal` / Execution confirmed
 
 At a deferred assertion flush point all pending reports in that process queue are cleared.
 
@@ -36888,7 +36889,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.4.1-EXTRACT-REACTIVE-ITERATION
 
-`16.4.1` / `normal` / Test mapped; execution unconfirmed
+`16.4.1` / `normal` / Execution confirmed
 
 A Reactive-to-Active iteration can produce an additional observed deferred report in the same time step; observed deferral does not suppress every inter-region feedback glitch.
 
@@ -36924,7 +36925,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.4.2-EXTRACT-OUTERMOST-DISABLE-FLUSH
 
-`16.4.2` / `normal` / Test mapped; execution unconfirmed
+`16.4.2` / `normal` / Execution confirmed
 
 Disabling the outermost scope of a process is a deferred assertion flush point.
 
@@ -45500,7 +45501,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.5.9-EXTRACT-PARTIAL-ORDER
 
-`18.5.9` / `normal` / Test mapped; execution unconfirmed
+`18.5.9` / `normal` / Execution confirmed
 
 solve before specifies a partial ordering with comma-separated lists of constraint-primary random variables.
 
@@ -47152,7 +47153,7 @@ Normative role: `definition`。
 
 ### SV2023-18.12-EXTRACT-SCOPE-RESULT
 
-`18.12` / `normal` / Test mapped; execution unconfirmed
+`18.12` / `normal` / Execution confirmed
 
 Scope randomize returns 1 when all selected variables receive valid values, otherwise 0.
 
@@ -48527,7 +48528,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.1-EXTRACT-EXCESS-REAL-BINS
 
-`19.5.1` / `normal` / Test mapped; execution unconfirmed
+`19.5.1` / `normal` / Execution confirmed
 
 If fixed real-bin count exceeds item count, remaining bins are empty.
 
@@ -48587,7 +48588,7 @@ Normative role: `definition`。
 
 ### SV2023-19.5.1-EXTRACT-MERGE-IDENTICAL-INTERVALS
 
-`19.5.1` / `normal` / Test mapped; execution unconfirmed
+`19.5.1` / `normal` / Execution confirmed
 
 Identical intervals arising from multiple real ranges in an open bin array merge; intervals differing in endpoint inclusivity remain distinct.
 
@@ -48599,7 +48600,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.1-EXTRACT-REAL-BIN-FORMS
 
-`19.5.1` / `normal` / Test mapped; execution unconfirmed
+`19.5.1` / `normal` / Execution confirmed
 
 Real bins support one bin for the full list, \[\] for individual values/range intervals, or \[N\] for a positive integral fixed count.
 
@@ -48635,7 +48636,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.1-EXTRACT-REAL-DOLLAR-RANGE
 
-`19.5.1` / `normal` / Test mapped; execution unconfirmed
+`19.5.1` / `normal` / Execution confirmed
 
 A real range with $ in its bound is assigned as one item/bin and shall not be partitioned into intervals.
 
@@ -48647,7 +48648,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.1-EXTRACT-REAL-INTERVAL-ENDS
 
-`19.5.1` / `normal` / Test mapped; execution unconfirmed
+`19.5.1` / `normal` / Execution confirmed
 
 Real ranges wider than type_option.real_interval split into interval-sized partitions with a possibly shorter final interval; each includes its lower endpoint and excludes its upper, except the final interval includes its upper.
 
@@ -48659,7 +48660,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.1-EXTRACT-REAL-OPEN-PARTITION
 
-`19.5.1` / `normal` / Test mapped; execution unconfirmed
+`19.5.1` / `normal` / Execution confirmed
 
 Open real bin intervals begin at the range minimum, continue from prior interval endpoints and end at the range maximum; a range smaller than the interval size uses one bin.
 
@@ -48671,7 +48672,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.1-EXTRACT-REAL-RANGE
 
-`19.5.1` / `normal` / Test mapped; execution unconfirmed
+`19.5.1` / `normal` / Execution confirmed
 
 Integral ranges denote discrete inclusive values; real ranges contain all values between inclusive bounds and may be partitioned into intervals.
 
@@ -48683,7 +48684,7 @@ Normative role: `definition`。
 
 ### SV2023-19.5.1-EXTRACT-REAL-TOLERANCE
 
-`19.5.1` / `normal` / Test mapped; execution unconfirmed
+`19.5.1` / `normal` / Execution confirmed
 
 +/- and +%- on single real bin values create tolerance ranges, to which ordinary range/interval partition rules apply, including splitting when wider than the interval size.
 
@@ -50155,7 +50156,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7-EXTRACT-OPTION-MEMBER
 
-`19.7` / `normal` / Test mapped; execution unconfirmed
+`19.7` / `normal` / Execution confirmed
 
 option is a built-in member of every group/point/cross, assigned in declarations as option.member = expression; its definition-time assignments evaluate at instantiation.
 
@@ -50379,7 +50380,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-REAL-INTERVAL-COVERPOINT
 
-`19.7.1` / `normal` / Test mapped; execution unconfirmed
+`19.7.1` / `normal` / Execution confirmed
 
 Table 19-4 permits type_option.real_interval at the coverpoint syntactic level.
 
@@ -50531,7 +50532,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-OPTION-REAL-INTERVAL
 
-`19.7.1` / `normal` / Test mapped; execution unconfirmed
+`19.7.1` / `normal` / Execution confirmed
 
 Type option real_interval defaults to 1.0 and determines the width of real range intervals distributed among bins.
 
@@ -52030,7 +52031,7 @@ Normative role: `mandatory`。
 
 ### SV2023-20.6.2-EXTRACT-BITS-EMPTY-DYNAMIC
 
-`20.6.2` / `normal` / Test mapped; execution unconfirmed
+`20.6.2` / `normal` / Execution confirmed
 
 $bits of a currently empty dynamically sized expression returns 0.
 
@@ -52065,7 +52066,7 @@ Normative role: `mandatory`。
 
 ### SV2023-20.6.2-EXTRACT-BITS-RESULT
 
-`20.6.2` / `normal` / Test mapped; execution unconfirmed
+`20.6.2` / `normal` / Execution confirmed
 
 $bits(expression or data_type) returns integer bit-stream width for 6.24.3-permitted types, counting one bit per four-state data bit rather than implementation storage.
 
@@ -52605,7 +52606,7 @@ Normative role: `mandatory`。
 
 ### SV2023-20.9-EXTRACT-BIT-FUNCTION-TYPES
 
-`20.9` / `normal` / Test mapped; execution unconfirmed
+`20.9` / `normal` / Execution confirmed
 
 $countones returns int; $onehot/$onehot0/$isunknown return bit, share the bit-stream expression rules and are legal wherever their result types are legal.
 
@@ -83794,7 +83795,7 @@ Normative role: `mandatory`。
 
 ### SV2023-35.5.1.5-EXTRACT-TASK-REENTRANCY
 
-`35.5.1.5` / `normal` / Test mapped; execution unconfirmed
+`35.5.1.5` / `normal` / Execution confirmed
 
 An import task calling an export that delays/waits may suspend its thread, allowing simultaneous active C invocations; foreign code must accommodate reentrancy, including static-data and library-call safety.
 
@@ -119269,7 +119270,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-BLOCK-EVENT
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 Block-event expressions combine with or, or use begin/end hierarchical block/task/function identifier; identifiers include hierarchical tf/block or optionally hierarchical/class-scoped method.
 

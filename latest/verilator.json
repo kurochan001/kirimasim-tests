@@ -1,7 +1,7 @@
 {
  "name": "Verilator",
  "version": "Verilator 5.055 devel rev v5.054-130-g423f8719",
- "time": "2026-11-08T12:39:02Z",
+ "time": "2026-11-08T18:32:11Z",
  "suite_commit": "36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9",
  "tests": {
   "ch10/test_a6_7_1_assignment_pattern_keys": "pass",

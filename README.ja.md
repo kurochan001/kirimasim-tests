@@ -4,7 +4,7 @@
 
 [kirimasim-tests](https://github.com/kurochan001/kirimasim-tests) の[夜間ワークフロー](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml)がこのブランチを更新します。毎晩、main ブランチの全テストを各シミュレータで実行し、結果を `history.json` に追加して、以下の図を生成します。ローカル実行の結果も取り込むことができ、`local` と表示します。出力と指定された検査が期待結果に一致する場合、または不正な設計が必要な診断付きで拒否される場合に、テストを「一致」と数えます。各ステータスの意味はスイートの README を参照してください。
 
-最新の実行: 2026-11-08 12:39 UTC、スイートのコミット [`36ba5dd`](https://github.com/kurochan001/kirimasim-tests/commit/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9)、テスト12165件、[ワークフロー実行](https://github.com/kurochan001/kirimasim-tests/actions/runs/42477954992)。
+最新の実行: 2026-11-08 18:32 UTC、スイートのコミット [`36ba5dd`](https://github.com/kurochan001/kirimasim-tests/commit/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9)、テスト12165件、[ワークフロー実行](https://github.com/kurochan001/kirimasim-tests/actions/runs/42477954992)。
 
 ## シミュレータごとの最新結果
 
@@ -14,61 +14,43 @@
 
 | シミュレータ | バージョン | 実行 (UTC) | スイート | 取り込み元 | 一致 (pass) | 不一致 (fail) | 既知の差異 (known) | 未対応 (unsupported) |
 | --- | --- | --- | --- | --- | ---: | ---: | ---: | ---: |
-| Icarus Verilog | Icarus Verilog version 14.0 (devel) (s20260301-873-gbeb32f39) | 2026-11-08 12:39 | [`36ba5dd`](https://github.com/kurochan001/kirimasim-tests/commit/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9) | nightly | 7306 (61.4%) | 20 | 4571 | 0 |
-| Verilator | Verilator 5.055 devel rev v5.054-130-g423f8719 | 2026-11-08 12:39 | [`36ba5dd`](https://github.com/kurochan001/kirimasim-tests/commit/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9) | nightly | 6765 (56.9%) | 25 | 5107 | 0 |
-| kirimasim | kirimasim 0.0.0 (commit 33cee3fa2f0d), built with GNU 13.3.0 | 2026-11-08 12:39 | [`36ba5dd`](https://github.com/kurochan001/kirimasim-tests/commit/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9) | nightly | 9417 (79.2%) | 128 | 0 | 2352 |
-| Lyra | Lyra (commit 3ee7454cc747) | 2026-11-06 05:05 | [`6732107`](https://github.com/kurochan001/kirimasim-tests/commit/673210797a4e131a47f75524b4662f93de866206) | nightly | 8440 (78.7%) | 545 | 0 | 1741 |
-| Ghost | private build 9997c689a2e6 | 2026-11-08 12:39 | [`36ba5dd`](https://github.com/kurochan001/kirimasim-tests/commit/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9) | nightly | 11222 (94.3%) | 675 | 0 | 0 |
+| Icarus Verilog | Icarus Verilog version 14.0 (devel) (s20260301-873-gbeb32f39) | 2026-11-08 18:32 | [`36ba5dd`](https://github.com/kurochan001/kirimasim-tests/commit/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9) | nightly | 7306 (61.4%) | 20 | 4571 | 0 |
+| Verilator | Verilator 5.055 devel rev v5.054-130-g423f8719 | 2026-11-08 18:32 | [`36ba5dd`](https://github.com/kurochan001/kirimasim-tests/commit/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9) | nightly | 6765 (56.9%) | 25 | 5107 | 0 |
+| kirimasim | kirimasim 0.0.0 (commit 33cee3fa2f0d), built with GNU 13.3.0 | 2026-11-08 18:32 | [`36ba5dd`](https://github.com/kurochan001/kirimasim-tests/commit/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9) | nightly | 9417 (79.2%) | 128 | 0 | 2352 |
+| Lyra | Lyra (commit ed6c62dc8c1a) | 2026-11-08 18:32 | [`36ba5dd`](https://github.com/kurochan001/kirimasim-tests/commit/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9) | nightly | 9674 (81.3%) | 623 | 0 | 1600 |
+| Ghost | private build 9997c689a2e6 | 2026-11-08 18:32 | [`36ba5dd`](https://github.com/kurochan001/kirimasim-tests/commit/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9) | nightly | 11222 (94.3%) | 675 | 0 | 0 |
 
 Ghost は正式公開前に参加している匿名のシミュレータです。現在公開しているのはテスト結果のみです。名称、ソースコード、ビルドログは非公開で、ビルドIDには実行ファイルのハッシュを使用します。
 
-![期待結果に一致するテスト数](charts/overview.ja.svg?v=20261108T123902)
+![期待結果に一致するテスト数](charts/overview.ja.svg?v=20261108T183211)
 
-![一致したテストの割合](charts/rate.ja.svg?v=20261108T123902)
+![一致したテストの割合](charts/rate.ja.svg?v=20261108T183211)
 
 ## 最新の実行での変化
 
 同じシミュレータの前回実行では一致せず今回は一致したテストと、前回は一致したものの今回は一致しなくなったテストです。スイートに追加されたテストの件数は上の表に示します。
 
-### Icarus Verilog
+### Lyra
 
-一致しなくなったテスト（5件）:
-
-- `ch16/test_illegal_local_variable_chandle_type`: 不一致 (fail) — no error matches 'test_illegal_local_variable_chandle_type\\.sv:33:'; the first is: /home/runner/work/kirimasim-tests/kirimasim-tests/tests/ch16/test_illegal_local_variable_chandle_type.sv:27: syntax error
-- `ch6/test_illegal_chandle_in_packed_struct`: 既知の差異 (known) — no error matches 'test_illegal_chandle_in_packed_struct\\.sv:29:'
-- `ch6/test_illegal_chandle_in_untagged_union`: 不一致 (fail) — no error matches 'test_illegal_chandle_in_untagged_union\\.sv:29:'
-- `ch6/test_illegal_chandle_port`: 不一致 (fail) — no error matches 'test_illegal_chandle_port\\.sv:28:'
-- `ch8/test_illegal_handle_cast_to_chandle`: 既知の差異 (known) — no error matches 'test_illegal_handle_cast_to_chandle\\.sv:27:'
-
-### Verilator
-
-新たに一致（1件）: `ch11/test_illegal_stream_slice_size_negative`
-
-### Ghost
-
-新たに一致（65件）: `ch16/test_local_variable_init_two_leading_clocks`, `ch16/test_sequence_match_item_and_triggered_method`, `ch18/test_constraint_block_all_forms`, `ch19/test_cg_cross_set_function_matches`, `ch19/test_cg_cross_with_policy`, `ch19/test_covergroup_cross_and_select_forms`, `ch23/test_ansi_explicit_named_ports`, `ch32/test_sdf_backannotates_all_timing_values`, `ch32/test_sdf_device_port_instance`, `ch32/test_sdf_filename_types`, `ch32/test_sdf_interconnect_transition_values`, `ch32/test_sdf_iopath_cond_pulse_limits`, `ch32/test_sdf_iopath_one_two_three_values`, `ch32/test_sdf_iopath_retain_forms`, `ch32/test_sdf_iopath_six_twelve_values`, `ch32/test_sdf_label_recomputes_delay_expression`, `ch32/test_sdf_label_specparam`, `ch32/test_sdf_mtm_and_scale_factors`, `ch32/test_sdf_netdelay_port_interconnect`, `ch32/test_sdf_pathpulse_constructs`, `ch32/test_sdf_pulse_limit_defaults_and_preserve`, `ch32/test_sdf_recrem_limits`, `ch32/test_sdf_scale_factors`, `ch32/test_sdf_scale_type_members`, `ch32/test_sdf_tchk_edge_condition_match`, `ch32/test_sdf_tchk_setup_recovery_family`, `ch32/test_sdf_tchk_skew_width_nochange`, `ch32/test_sdf_timing_check_limits`, `ch32/test_sdf_two_values_turnoff`, `ch32/test_sdf_unannotatable_entry_warning`, `ch35/test_dpi_range_mapping_import_export`, `ch35/test_dpi_reference_arguments_forwarded`, `ch35/test_dpi_unpacked_aggregate_arguments`, `ch35/test_dpi_unpacked_types_c_layout_and_embedded_arrays`, `ch35/test_dpi_wysiwyg_formal_types`, `ch37/test_vpi_array_var_ranges_kinds`, `ch37/test_vpi_drivers_loads_ports_force`, `ch37/test_vpi_handle_by_multi_index`, `ch37/test_vpi_net_decl_flags_select`, `ch37/test_vpi_nettype_net_parts`, `ch37/test_vpi_nettype_relations`, `ch37/test_vpi_simple_expr_uses`, `ch37/test_vpi_udp_iodecl_initial`, `ch37/test_vpi_var_select_iteration`, `ch37/test_vpi_variable_driver_load_arrays`, `ch37/test_vpi_variable_drivers_loads`, `ch38/test_vpi_handle_by_multi_index_ranges`, `gen/ch17/test_gen_cross_checksample_8_module_named_before_nba_negedge_explicit_nonzero`, `gen/ch24/test_gen_cross_progassert_1_next_edge_nba_posedge_wildcard_3`, `gen/ch24/test_gen_cross_progassert_1_plain_edge_nba_posedge_positional_3`, `gen/ch24/test_gen_cross_progassert_33_plain_after_nba_posedge_positional_5`, `gen/ch24/test_gen_cross_progassert_8_next_after_nba_posedge_wildcard_5`, `gen/ch24/test_gen_cross_progassert_8_overlap_after_nba_posedge_named_3`, `gen/ch32/test_gen_cross_sdfpath_cond_absolute_fall_cell_v_high_same`, `gen/ch32/test_gen_cross_sdfpath_cond_absolute_rise_cell_v_low_same`, `gen/ch32/test_gen_cross_sdfpath_cond_increment_fall_cell_g_low_same`, `gen/ch32/test_gen_cross_sdfpath_cond_increment_rise_cell_v_high_same`, `gen/ch32/test_gen_cross_sdfpath_else_absolute_fall_cell_v_high_same`, `gen/ch32/test_gen_cross_sdfpath_else_increment_balanced_cell_v_high_same`, `gen/ch32/test_gen_cross_sdfpath_else_increment_fall_cell_g_high_same`, `gen/ch32/test_gen_cross_sdfpath_else_increment_rise_cell_v_high_opposite`, `gen/ch32/test_gen_cross_sdfpath_plain_absolute_balanced_cell_v_high_same`, `gen/ch32/test_gen_cross_sdfpath_plain_absolute_fall_cell_g_high_opposite`, `gen/ch32/test_gen_cross_sdfpath_plain_increment_balanced_cell_v_high_same`, `gen/ch32/test_gen_cross_sdfpath_plain_increment_rise_cell_v_high_same`
-
-一致しなくなったテスト（1件）:
-
-- `gen/ch17/test_gen_cross_checksample_1_module_positional_edge_nba_posedge_explicit_nonzero`: 不一致 (fail) — output differs
+新たに一致（143件）: `ch13/test_function_nonblocking_statements_no_delay`, `ch14/test_clocking_blk_edge_cases`, `ch14/test_clocking_block_and_signal_names`, `ch14/test_clocking_block_default_and_signal_skews`, `ch14/test_clocking_block_event_after_nba_before_reactive`, `ch14/test_clocking_block_per_instance_local_scope`, `ch14/test_clocking_blocks`, `ch14/test_clocking_blocks_each_own_clock_and_skews`, `ch14/test_clocking_blocks_edge_cases`, `ch14/test_clocking_both_edges_event`, `ch14/test_clocking_declaration_items_and_skews`, `ch14/test_clocking_default_input_skew`, `ch14/test_clocking_default_output_skew`, `ch14/test_clocking_default_skew`, `ch14/test_clocking_drive_between_edges`, `ch14/test_clocking_drive_last_wins`, `ch14/test_clocking_drive_off_event_waits_next_event`, `ch14/test_clocking_drive_prefix_default_cycles_rhs_target_cycles`, `ch14/test_clocking_drives_mature_in_their_own_cycles`, `ch14/test_clocking_event_controls`, `ch14/test_clocking_event_cycle_delay`, `ch14/test_clocking_event_iff`, `ch14/test_clocking_future_drive_in_re_nba`, `ch14/test_clocking_inout_drive_keeps_input`, `ch14/test_clocking_input`, `ch14/test_clocking_input_expression_skew`, `ch14/test_clocking_input_output_skew`, `ch14/test_clocking_input_sample_holds`, `ch14/test_clocking_input_skew_fractional`, `ch14/test_clocking_input_skew_longer_than_period`, `ch14/test_clocking_input_step_skew`, `ch14/test_clocking_input_with_expression`, `ch14/test_clocking_input_zero_skew_observed`, `ch14/test_clocking_interface_modport`, `ch14/test_clocking_interface_plain_port`, `ch14/test_clocking_multiple_blocks`, `ch14/test_clocking_negedge_event`, `ch14/test_clocking_ops`, `ch14/test_clocking_output_net_driver`, `ch14/test_clocking_output_skew_cycle_delay`, `ch14/test_clocking_output_skew_zero`, `ch14/test_clocking_output_variable_procedural_write_holds`, `ch14/test_clocking_posedge_and_negedge_skew`, `ch14/test_clocking_same_cycle_drives_last_executed_wins`, `ch14/test_clocking_skew_time_unit`, `ch14/test_clocking_two_blocks_one_output`, `ch14/test_clocking_zero_skew_drive_in_re_nba`, `ch14/test_cycle_delay`, `ch14/test_cycle_delay_clocking`, `ch14/test_cycle_delay_forms_and_zero_drive_delay`, `ch14/test_syntax_clocking_drive_forms`, `ch16/test_clocking_block_other_clock_assertion`, `ch19/test_cg_clocking_block_coverpoint`, `ch19/test_cg_transition_syntax_all_forms`, `ch21/test_fopen_failure_returns_zero`, `ch23/test_23_extra_port_coercion`, `ch23/test_dotted_name_resolution_all_rules`, `ch24/test_program_clocking_input`, `ch25/test_extern_forkjoin_disable_interface_and_module`, `ch25/test_modport_clocking_block`, `ch25/test_virtual_interface_clocking_block`, `ch25/test_virtual_interface_clocking_drive`, `ch25/test_virtual_interface_clocking_drive_net_and_variable`, `ch25/test_virtual_modport_clocking_output_skew`, `ch3/test_element_and_block_name_spaces`, `ch4/test_one_step_sample_before_time_slot`, `ch7/test_unpacked_array_16777216_elements`, `ch8/test_dynamic_cast`, `ch9/test_a6_5_procedural_timing_control_statement`, `ch9/test_clocking_sampled_event`, `gen/ch14/test_gen_cross_clock_129_bit_known_interface_step_posedge_blocking`, `gen/ch14/test_gen_cross_clock_129_bit_x_local_step_posedge_blocking`, `gen/ch14/test_gen_cross_clock_129_bit_z_local_step_posedge_blocking`, `gen/ch14/test_gen_cross_clock_129_logic_known_local_step_posedge_blocking`, `gen/ch14/test_gen_cross_clock_129_logic_x_local_step_posedge_blocking`, `gen/ch14/test_gen_cross_clock_129_logic_z_virtual_zero_negedge_nba`, `gen/ch14/test_gen_cross_clock_1_bit_known_local_step_posedge_nba`, `gen/ch14/test_gen_cross_clock_1_bit_x_local_step_posedge_blocking`, `gen/ch14/test_gen_cross_clock_1_bit_z_virtual_zero_posedge_blocking`, `gen/ch14/test_gen_cross_clock_1_logic_known_local_step_posedge_blocking`, `gen/ch14/test_gen_cross_clock_1_logic_x_interface_zero_negedge_blocking`, `gen/ch14/test_gen_cross_clock_1_logic_z_local_step_posedge_blocking`, `gen/ch14/test_gen_cross_clock_32_bit_known_virtual_step_posedge_blocking`, `gen/ch14/test_gen_cross_clock_32_bit_x_interface_step_posedge_nba`, `gen/ch14/test_gen_cross_clock_32_bit_z_local_zero_posedge_blocking`, `gen/ch14/test_gen_cross_clock_32_logic_known_local_zero_negedge_nba`, `gen/ch14/test_gen_cross_clock_32_logic_x_local_step_posedge_blocking`, `gen/ch14/test_gen_cross_clock_32_logic_z_local_step_posedge_blocking`, `gen/ch14/test_gen_cross_clock_33_bit_known_interface_zero_posedge_nba`, `gen/ch14/test_gen_cross_clock_33_bit_x_virtual_zero_negedge_blocking`, `gen/ch14/test_gen_cross_clock_33_bit_z_local_step_posedge_blocking`, `gen/ch14/test_gen_cross_clock_33_logic_known_local_step_posedge_blocking`, `gen/ch14/test_gen_cross_clock_33_logic_x_local_step_posedge_blocking`, `gen/ch14/test_gen_cross_clock_33_logic_z_local_step_negedge_blocking`, `gen/ch14/test_gen_cross_clock_64_bit_known_local_step_posedge_blocking`, `gen/ch14/test_gen_cross_clock_64_bit_x_local_zero_posedge_blocking`, `gen/ch14/test_gen_cross_clock_64_bit_z_interface_step_negedge_nba`, `gen/ch14/test_gen_cross_clock_64_logic_known_virtual_step_posedge_blocking`, `gen/ch14/test_gen_cross_clock_64_logic_x_local_step_posedge_blocking`, `gen/ch14/test_gen_cross_clock_64_logic_z_local_step_posedge_blocking`、ほか43件
 
 ## 章別の結果
 
 各セルは一致数／結果登録数で、known・unsupportedも分母に含みます。[8/10の具体例](https://github.com/kurochan001/kirimasim-tests/blob/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9/docs/faq.md#q12-what-percentage-does-by-chapter-show)と、[要求カバレッジとの違い](https://github.com/kurochan001/kirimasim-tests/blob/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9/docs/faq.md#q15-is-the-nightly-match-rate-requirement-coverage)を確認してください。
 
-![章別の一致テスト数](charts/chapters.ja.svg?v=20261108T123902)
+![章別の一致テスト数](charts/chapters.ja.svg?v=20261108T183211)
 
 ## シミュレータごとの推移
 
-![Icarus Verilog：ステータス別の結果](charts/status-icarus.ja.svg?v=20261108T123902)
+![Icarus Verilog：ステータス別の結果](charts/status-icarus.ja.svg?v=20261108T183211)
 
-![Verilator：ステータス別の結果](charts/status-verilator.ja.svg?v=20261108T123902)
+![Verilator：ステータス別の結果](charts/status-verilator.ja.svg?v=20261108T183211)
 
-![kirimasim：ステータス別の結果](charts/status-kirimasim.ja.svg?v=20261108T123902)
+![kirimasim：ステータス別の結果](charts/status-kirimasim.ja.svg?v=20261108T183211)
 
-![Lyra：ステータス別の結果](charts/status-lyra.ja.svg?v=20261108T123902)
+![Lyra：ステータス別の結果](charts/status-lyra.ja.svg?v=20261108T183211)
 
-![Ghost：ステータス別の結果](charts/status-ghost.ja.svg?v=20261108T123902)
+![Ghost：ステータス別の結果](charts/status-ghost.ja.svg?v=20261108T183211)
 
 ## 最近の実行
 
@@ -76,6 +58,7 @@ Ghost は正式公開前に参加している匿名のシミュレータです�
 
 | 実行 (UTC) | スイート | テスト数 | Icarus Verilog | Verilator | kirimasim | Lyra | Ghost |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| [2026-11-08 18:32](https://github.com/kurochan001/kirimasim-tests/actions/runs/42477954992) | [`36ba5dd`](https://github.com/kurochan001/kirimasim-tests/commit/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9) | 12165 | 7306 | 6765 | 9417 | 9674 (+1235 −0) `ed6c62dc8` | 11222 |
 | [2026-11-08 12:39](https://github.com/kurochan001/kirimasim-tests/actions/runs/42477954992) | [`36ba5dd`](https://github.com/kurochan001/kirimasim-tests/commit/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9) | 12165 | 7306 (+297 −5) `14.0 devel beb32f3` | 6765 (+317 −0) `5.055 devel 423f871` | 9417 (+379 −0) `33cee3fa2` | — | 11222 (+402 −1) `private build 9997c689a2e6` |
 | [2026-11-08 06:25](https://github.com/kurochan001/kirimasim-tests/actions/runs/42422374691) | [`89df6e9`](https://github.com/kurochan001/kirimasim-tests/commit/89df6e9b015c88b996199997ff8cfb6eee13c63b) | 11773 | 7014 (+586 −0) `14.0 devel 66f0e8a` | 6448 (+532 −4) `5.055 devel cd99c77` | 9038 (+807 −2) `f029ddd0e` | — | 10821 (+871 −41) `private build c2138e5f3a5c` |
 | [2026-11-07 06:16](https://github.com/kurochan001/kirimasim-tests/actions/runs/42313961551) | [`3c3a5ab`](https://github.com/kurochan001/kirimasim-tests/commit/3c3a5ab8cdb179aaa9d38d97990803dbc44f5cd6) | 11028 | 6428 (+19 −7) `14.0 devel 257f08d` | 5920 (+14 −3) `5.055 devel 9d9dd1c` | 8233 (+42 −0) `b279f5627` | — | 9991 (+85 −12) `private build 56cfd9e560f1` |
@@ -105,7 +88,6 @@ Ghost は正式公開前に参加している匿名のシミュレータです�
 | [2026-10-21 01:02](https://github.com/kurochan001/kirimasim-tests/actions/runs/39507186309) | [`824f574`](https://github.com/kurochan001/kirimasim-tests/commit/824f5748dd619afaf472f60fd0ce83d0a547d829) | 3332 | 2435 (+857 −0) | 2477 (+549 −0) `5.053 devel 3cc4981` | 2344 (+754 −0) `0680c67d5` | — | — |
 | [2026-10-20 07:49](https://github.com/kurochan001/kirimasim-tests/actions/runs/39387575855) | [`6bffc4a`](https://github.com/kurochan001/kirimasim-tests/commit/6bffc4a184134250ca4b934ef2b40af9961bc4d5) | 2327 | 1578 `14.0 devel 7e3d0c6` | — | 1590 `b1be7015e` | — | — |
 | [2026-10-20 05:01](https://github.com/kurochan001/kirimasim-tests/actions/runs/39363555028) | [`56508cd`](https://github.com/kurochan001/kirimasim-tests/commit/56508cdce0a414ca1623756c6856dd1f49819977) | 2327 | 1578 (+56 −0) | 1928 (+103 −0) `5.053 devel 0177067` | 1590 (+60 −0) `ff80adcf6` | — | — |
-| [2026-10-19 22:42](https://github.com/kurochan001/kirimasim-tests/actions/runs/39329365210) | [`42081bd`](https://github.com/kurochan001/kirimasim-tests/commit/42081bd73c354db73c20b1b17fb076975ae5a16f) | 2176 | 1522 `14.0 devel eed9291` | 1825 `5.053 devel 60f166e` | 1530 `8b598b574` | — | — |
 
 ## ファイル
 

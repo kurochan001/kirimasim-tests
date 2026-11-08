@@ -15,7 +15,7 @@
 <text x="634.0" y="74.0" text-anchor="start">kirimasim 33cee3fa2: 9417</text>
 <line class="line c-lyra" x1="20" x2="38" y1="90" y2="90"/>
 <polygon class="mk c-lyra" points="29.0,93.5 32.2,87.5 25.8,87.5"/>
-<text x="44.0" y="94.0" text-anchor="start">Lyra 3ee7454cc: 8440</text>
+<text x="44.0" y="94.0" text-anchor="start">Lyra ed6c62dc8: 9674</text>
 <line class="line c-ghost" x1="196" x2="214" y1="90" y2="90"/>
 <polygon class="mk c-ghost" points="205.0,86.5 208.2,92.5 201.8,92.5"/>
 <text x="220.0" y="94.0" text-anchor="start">Ghost private build 9997c689a2e6: 11222</text>
@@ -35,142 +35,147 @@
 <line class="grid" x1="64" x2="852" y1="112.0" y2="112.0"/>
 <text x="56.0" y="116.0" class="muted" text-anchor="end">12000</text>
 <line class="axis" x1="64" x2="852" y1="360" y2="360"/>
-<line class="axis" x1="86.3" x2="86.3" y1="360" y2="364"/>
-<text x="86.3" y="378.0" class="muted" text-anchor="middle">10-20</text>
-<line class="axis" x1="368.0" x2="368.0" y1="360" y2="364"/>
-<text x="368.0" y="378.0" class="muted" text-anchor="middle">10-27</text>
-<line class="axis" x1="649.7" x2="649.7" y1="360" y2="364"/>
-<text x="649.7" y="378.0" class="muted" text-anchor="middle">11-03</text>
-<polyline class="line c-icarus" points="64.0,328.5 74.6,327.4 79.3,327.4 108.2,309.7 108.9,308.9 144.6,306.0 185.4,303.8 225.5,303.8 248.5,277.0 265.4,277.0 305.7,270.0 332.4,266.8 348.2,266.3"/>
-<polyline class="line c-icarus" points="389.0,265.0 404.7,264.9 429.7,264.8 434.9,264.8 471.5,246.3 512.7,242.2 553.4,232.7 615.9,231.8 639.4,231.7 656.8,231.0 675.6,230.8 718.0,230.1 758.8,227.4 801.1,227.2 841.6,215.0 852.0,209.0"/>
-<polyline class="line c-verilator" points="64.0,322.3 74.6,320.2"/>
-<polyline class="line c-verilator" points="108.2,308.8 108.9,308.1 144.6,305.0 185.4,302.1 225.5,301.7 248.5,276.9 265.4,276.8 305.7,269.3 332.4,265.9 348.2,264.0"/>
-<polyline class="line c-verilator" points="389.0,261.6 404.7,261.3 429.7,261.2 434.9,261.2 471.5,253.5 512.7,251.2 553.4,247.4 615.9,244.9 639.4,242.2 656.8,240.8 675.6,240.8 718.0,239.4 758.8,237.8 801.1,237.7 841.6,226.7 852.0,220.2"/>
-<polyline class="line c-kirimasim" points="64.0,328.4 74.6,327.1 79.3,327.1 108.2,311.6 108.9,310.3 144.6,307.3 185.4,305.0 225.5,302.4 248.5,272.5 265.4,272.5 305.7,263.0 332.4,259.4 348.2,257.3"/>
-<polyline class="line c-kirimasim" points="389.0,255.7 404.7,255.6 429.7,255.2 434.9,255.1 471.5,233.8 512.7,226.3 553.4,206.6 615.9,201.4 639.4,200.8 656.8,197.5 675.6,197.4 718.0,195.2 758.8,190.7 801.1,189.9 841.6,173.2 852.0,165.4"/>
-<polyline class="line c-lyra" points="248.5,264.8 265.4,264.8"/>
-<polyline class="line c-lyra" points="332.4,250.9 348.2,248.4"/>
-<polyline class="line c-lyra" points="389.0,246.9 404.7,246.8 429.7,246.4 434.9,246.3 471.5,224.9 512.7,216.7 553.4,202.0 615.9,199.2 639.4,195.7 656.8,192.4 675.6,192.4 718.0,190.2 758.8,185.6"/>
-<polyline class="line c-ghost" points="375.3,239.7 389.0,237.3 404.7,237.2 429.7,234.3 434.9,234.0 471.5,212.0 512.7,193.9 553.4,175.9 615.9,170.1 639.4,164.6 656.8,159.5 675.6,159.5 718.0,157.6 758.8,155.0 801.1,153.5 841.6,136.4 852.0,128.1"/>
-<polyline class="line dashed c-total" points="64.0,315.0 74.6,311.9 79.3,311.9 108.2,291.1 108.9,289.7 144.6,283.1 185.4,278.6 225.5,277.6 248.5,235.8 265.4,235.8 305.7,219.5 332.4,212.4 348.2,208.6 375.3,202.3 389.0,200.2 404.7,200.0 429.7,200.0 434.9,200.0 471.5,178.6 512.7,169.8 553.4,152.5 615.9,147.4 639.4,142.8 656.8,139.4 675.6,139.4 718.0,137.3 758.8,132.8 801.1,132.1 841.6,116.7 852.0,108.6"/>
+<line class="axis" x1="86.0" x2="86.0" y1="360" y2="364"/>
+<text x="86.0" y="378.0" class="muted" text-anchor="middle">10-20</text>
+<line class="axis" x1="364.2" x2="364.2" y1="360" y2="364"/>
+<text x="364.2" y="378.0" class="muted" text-anchor="middle">10-27</text>
+<line class="axis" x1="642.4" x2="642.4" y1="360" y2="364"/>
+<text x="642.4" y="378.0" class="muted" text-anchor="middle">11-03</text>
+<polyline class="line c-icarus" points="64.0,328.5 74.5,327.4 79.1,327.4 107.6,309.7 108.4,308.9 143.6,306.0 183.9,303.8 223.6,303.8 246.2,277.0 262.9,277.0 302.7,270.0 329.0,266.8 344.7,266.3"/>
+<polyline class="line c-icarus" points="384.9,265.0 400.5,264.9 425.2,264.8 430.3,264.8 466.5,246.3 507.1,242.2 547.4,232.7 609.1,231.8 632.3,231.7 649.4,231.0 668.0,230.8 709.9,230.1 750.2,227.4 791.9,227.2 831.9,215.0 842.3,209.0 852.0,209.0"/>
+<polyline class="line c-verilator" points="64.0,322.3 74.5,320.2"/>
+<polyline class="line c-verilator" points="107.6,308.8 108.4,308.1 143.6,305.0 183.9,302.1 223.6,301.7 246.2,276.9 262.9,276.8 302.7,269.3 329.0,265.9 344.7,264.0"/>
+<polyline class="line c-verilator" points="384.9,261.6 400.5,261.3 425.2,261.2 430.3,261.2 466.5,253.5 507.1,251.2 547.4,247.4 609.1,244.9 632.3,242.2 649.4,240.8 668.0,240.8 709.9,239.4 750.2,237.8 791.9,237.7 831.9,226.7 842.3,220.2 852.0,220.2"/>
+<polyline class="line c-kirimasim" points="64.0,328.4 74.5,327.1 79.1,327.1 107.6,311.6 108.4,310.3 143.6,307.3 183.9,305.0 223.6,302.4 246.2,272.5 262.9,272.5 302.7,263.0 329.0,259.4 344.7,257.3"/>
+<polyline class="line c-kirimasim" points="384.9,255.7 400.5,255.6 425.2,255.2 430.3,255.1 466.5,233.8 507.1,226.3 547.4,206.6 609.1,201.4 632.3,200.8 649.4,197.5 668.0,197.4 709.9,195.2 750.2,190.7 791.9,189.9 831.9,173.2 842.3,165.4 852.0,165.4"/>
+<polyline class="line c-lyra" points="246.2,264.8 262.9,264.8"/>
+<polyline class="line c-lyra" points="329.0,250.9 344.7,248.4"/>
+<polyline class="line c-lyra" points="384.9,246.9 400.5,246.8 425.2,246.4 430.3,246.3 466.5,224.9 507.1,216.7 547.4,202.0 609.1,199.2 632.3,195.7 649.4,192.4 668.0,192.4 709.9,190.2 750.2,185.6"/>
+<polyline class="line c-ghost" points="371.4,239.7 384.9,237.3 400.5,237.2 425.2,234.3 430.3,234.0 466.5,212.0 507.1,193.9 547.4,175.9 609.1,170.1 632.3,164.6 649.4,159.5 668.0,159.5 709.9,157.6 750.2,155.0 791.9,153.5 831.9,136.4 842.3,128.1 852.0,128.1"/>
+<polyline class="line dashed c-total" points="64.0,315.0 74.5,311.9 79.1,311.9 107.6,291.1 108.4,289.7 143.6,283.1 183.9,278.6 223.6,277.6 246.2,235.8 262.9,235.8 302.7,219.5 329.0,212.4 344.7,208.6 371.4,202.3 384.9,200.2 400.5,200.0 425.2,200.0 430.3,200.0 466.5,178.6 507.1,169.8 547.4,152.5 609.1,147.4 632.3,142.8 649.4,139.4 668.0,139.4 709.9,137.3 750.2,132.8 791.9,132.1 831.9,116.7 842.3,108.6 852.0,108.6"/>
 <circle class="mk c-icarus" cx="64.0" cy="328.5" r="7.5"/>
-<circle class="mk c-icarus" cx="74.6" cy="327.4" r="7.5"/>
-<circle class="mk c-icarus" cx="79.3" cy="327.4" r="7.5"/>
-<circle class="mk c-icarus" cx="108.2" cy="309.7" r="7.5"/>
-<circle class="mk c-icarus" cx="108.9" cy="308.9" r="7.5"/>
-<circle class="mk c-icarus" cx="144.6" cy="306.0" r="7.5"/>
-<circle class="mk c-icarus" cx="185.4" cy="303.8" r="7.5"/>
-<circle class="mk c-icarus" cx="225.5" cy="303.8" r="7.5"/>
-<circle class="mk c-icarus" cx="248.5" cy="277.0" r="7.5"/>
-<circle class="mk c-icarus" cx="265.4" cy="277.0" r="7.5"/>
-<circle class="mk c-icarus" cx="305.7" cy="270.0" r="7.5"/>
-<circle class="mk c-icarus" cx="332.4" cy="266.8" r="7.5"/>
-<circle class="mk c-icarus" cx="348.2" cy="266.3" r="7.5"/>
-<circle class="mk c-icarus" cx="389.0" cy="265.0" r="7.5"/>
-<circle class="mk c-icarus" cx="404.7" cy="264.9" r="7.5"/>
-<circle class="mk c-icarus" cx="429.7" cy="264.8" r="7.5"/>
-<circle class="mk c-icarus" cx="434.9" cy="264.8" r="7.5"/>
-<circle class="mk c-icarus" cx="471.5" cy="246.3" r="7.5"/>
-<circle class="mk c-icarus" cx="512.7" cy="242.2" r="7.5"/>
-<circle class="mk c-icarus" cx="553.4" cy="232.7" r="7.5"/>
-<circle class="mk c-icarus" cx="615.9" cy="231.8" r="7.5"/>
-<circle class="mk c-icarus" cx="639.4" cy="231.7" r="7.5"/>
-<circle class="mk c-icarus" cx="656.8" cy="231.0" r="7.5"/>
-<circle class="mk c-icarus" cx="675.6" cy="230.8" r="7.5"/>
-<circle class="mk c-icarus" cx="718.0" cy="230.1" r="7.5"/>
-<circle class="mk c-icarus" cx="758.8" cy="227.4" r="7.5"/>
-<circle class="mk c-icarus" cx="801.1" cy="227.2" r="7.5"/>
-<circle class="mk c-icarus" cx="841.6" cy="215.0" r="7.5"/>
+<circle class="mk c-icarus" cx="74.5" cy="327.4" r="7.5"/>
+<circle class="mk c-icarus" cx="79.1" cy="327.4" r="7.5"/>
+<circle class="mk c-icarus" cx="107.6" cy="309.7" r="7.5"/>
+<circle class="mk c-icarus" cx="108.4" cy="308.9" r="7.5"/>
+<circle class="mk c-icarus" cx="143.6" cy="306.0" r="7.5"/>
+<circle class="mk c-icarus" cx="183.9" cy="303.8" r="7.5"/>
+<circle class="mk c-icarus" cx="223.6" cy="303.8" r="7.5"/>
+<circle class="mk c-icarus" cx="246.2" cy="277.0" r="7.5"/>
+<circle class="mk c-icarus" cx="262.9" cy="277.0" r="7.5"/>
+<circle class="mk c-icarus" cx="302.7" cy="270.0" r="7.5"/>
+<circle class="mk c-icarus" cx="329.0" cy="266.8" r="7.5"/>
+<circle class="mk c-icarus" cx="344.7" cy="266.3" r="7.5"/>
+<circle class="mk c-icarus" cx="384.9" cy="265.0" r="7.5"/>
+<circle class="mk c-icarus" cx="400.5" cy="264.9" r="7.5"/>
+<circle class="mk c-icarus" cx="425.2" cy="264.8" r="7.5"/>
+<circle class="mk c-icarus" cx="430.3" cy="264.8" r="7.5"/>
+<circle class="mk c-icarus" cx="466.5" cy="246.3" r="7.5"/>
+<circle class="mk c-icarus" cx="507.1" cy="242.2" r="7.5"/>
+<circle class="mk c-icarus" cx="547.4" cy="232.7" r="7.5"/>
+<circle class="mk c-icarus" cx="609.1" cy="231.8" r="7.5"/>
+<circle class="mk c-icarus" cx="632.3" cy="231.7" r="7.5"/>
+<circle class="mk c-icarus" cx="649.4" cy="231.0" r="7.5"/>
+<circle class="mk c-icarus" cx="668.0" cy="230.8" r="7.5"/>
+<circle class="mk c-icarus" cx="709.9" cy="230.1" r="7.5"/>
+<circle class="mk c-icarus" cx="750.2" cy="227.4" r="7.5"/>
+<circle class="mk c-icarus" cx="791.9" cy="227.2" r="7.5"/>
+<circle class="mk c-icarus" cx="831.9" cy="215.0" r="7.5"/>
+<circle class="mk c-icarus" cx="842.3" cy="209.0" r="7.5"/>
 <circle class="mk c-icarus" cx="852.0" cy="209.0" r="7.5"/>
 <rect class="mk c-verilator" x="59.5" y="317.8" width="9" height="9"/>
-<rect class="mk c-verilator" x="70.1" y="315.7" width="9" height="9"/>
-<rect class="mk c-verilator" x="103.7" y="304.3" width="9" height="9"/>
-<rect class="mk c-verilator" x="104.4" y="303.6" width="9" height="9"/>
-<rect class="mk c-verilator" x="140.1" y="300.5" width="9" height="9"/>
-<rect class="mk c-verilator" x="180.9" y="297.6" width="9" height="9"/>
-<rect class="mk c-verilator" x="221.0" y="297.2" width="9" height="9"/>
-<rect class="mk c-verilator" x="244.0" y="272.4" width="9" height="9"/>
-<rect class="mk c-verilator" x="260.9" y="272.3" width="9" height="9"/>
-<rect class="mk c-verilator" x="301.2" y="264.8" width="9" height="9"/>
-<rect class="mk c-verilator" x="327.9" y="261.4" width="9" height="9"/>
-<rect class="mk c-verilator" x="343.7" y="259.5" width="9" height="9"/>
-<rect class="mk c-verilator" x="384.5" y="257.1" width="9" height="9"/>
-<rect class="mk c-verilator" x="400.2" y="256.8" width="9" height="9"/>
-<rect class="mk c-verilator" x="425.2" y="256.7" width="9" height="9"/>
-<rect class="mk c-verilator" x="430.4" y="256.7" width="9" height="9"/>
-<rect class="mk c-verilator" x="467.0" y="249.0" width="9" height="9"/>
-<rect class="mk c-verilator" x="508.2" y="246.7" width="9" height="9"/>
-<rect class="mk c-verilator" x="548.9" y="242.9" width="9" height="9"/>
-<rect class="mk c-verilator" x="611.4" y="240.4" width="9" height="9"/>
-<rect class="mk c-verilator" x="634.9" y="237.7" width="9" height="9"/>
-<rect class="mk c-verilator" x="652.3" y="236.3" width="9" height="9"/>
-<rect class="mk c-verilator" x="671.1" y="236.3" width="9" height="9"/>
-<rect class="mk c-verilator" x="713.5" y="234.9" width="9" height="9"/>
-<rect class="mk c-verilator" x="754.3" y="233.3" width="9" height="9"/>
-<rect class="mk c-verilator" x="796.6" y="233.2" width="9" height="9"/>
-<rect class="mk c-verilator" x="837.1" y="222.2" width="9" height="9"/>
+<rect class="mk c-verilator" x="70.0" y="315.7" width="9" height="9"/>
+<rect class="mk c-verilator" x="103.1" y="304.3" width="9" height="9"/>
+<rect class="mk c-verilator" x="103.9" y="303.6" width="9" height="9"/>
+<rect class="mk c-verilator" x="139.1" y="300.5" width="9" height="9"/>
+<rect class="mk c-verilator" x="179.4" y="297.6" width="9" height="9"/>
+<rect class="mk c-verilator" x="219.1" y="297.2" width="9" height="9"/>
+<rect class="mk c-verilator" x="241.7" y="272.4" width="9" height="9"/>
+<rect class="mk c-verilator" x="258.4" y="272.3" width="9" height="9"/>
+<rect class="mk c-verilator" x="298.2" y="264.8" width="9" height="9"/>
+<rect class="mk c-verilator" x="324.5" y="261.4" width="9" height="9"/>
+<rect class="mk c-verilator" x="340.2" y="259.5" width="9" height="9"/>
+<rect class="mk c-verilator" x="380.4" y="257.1" width="9" height="9"/>
+<rect class="mk c-verilator" x="396.0" y="256.8" width="9" height="9"/>
+<rect class="mk c-verilator" x="420.7" y="256.7" width="9" height="9"/>
+<rect class="mk c-verilator" x="425.8" y="256.7" width="9" height="9"/>
+<rect class="mk c-verilator" x="462.0" y="249.0" width="9" height="9"/>
+<rect class="mk c-verilator" x="502.6" y="246.7" width="9" height="9"/>
+<rect class="mk c-verilator" x="542.9" y="242.9" width="9" height="9"/>
+<rect class="mk c-verilator" x="604.6" y="240.4" width="9" height="9"/>
+<rect class="mk c-verilator" x="627.8" y="237.7" width="9" height="9"/>
+<rect class="mk c-verilator" x="644.9" y="236.3" width="9" height="9"/>
+<rect class="mk c-verilator" x="663.5" y="236.3" width="9" height="9"/>
+<rect class="mk c-verilator" x="705.4" y="234.9" width="9" height="9"/>
+<rect class="mk c-verilator" x="745.7" y="233.3" width="9" height="9"/>
+<rect class="mk c-verilator" x="787.4" y="233.2" width="9" height="9"/>
+<rect class="mk c-verilator" x="827.4" y="222.2" width="9" height="9"/>
+<rect class="mk c-verilator" x="837.8" y="215.7" width="9" height="9"/>
 <rect class="mk c-verilator" x="847.5" y="215.7" width="9" height="9"/>
 <polygon class="mk c-kirimasim" points="64.0,324.9 67.5,328.4 64.0,331.9 60.5,328.4"/>
-<polygon class="mk c-kirimasim" points="74.6,323.6 78.1,327.1 74.6,330.6 71.1,327.1"/>
-<polygon class="mk c-kirimasim" points="79.3,323.6 82.8,327.1 79.3,330.6 75.8,327.1"/>
-<polygon class="mk c-kirimasim" points="108.2,308.1 111.7,311.6 108.2,315.1 104.7,311.6"/>
-<polygon class="mk c-kirimasim" points="108.9,306.8 112.4,310.3 108.9,313.8 105.4,310.3"/>
-<polygon class="mk c-kirimasim" points="144.6,303.8 148.1,307.3 144.6,310.8 141.1,307.3"/>
-<polygon class="mk c-kirimasim" points="185.4,301.5 188.9,305.0 185.4,308.5 181.9,305.0"/>
-<polygon class="mk c-kirimasim" points="225.5,298.9 229.0,302.4 225.5,305.9 222.0,302.4"/>
-<polygon class="mk c-kirimasim" points="248.5,269.0 252.0,272.5 248.5,276.0 245.0,272.5"/>
-<polygon class="mk c-kirimasim" points="265.4,269.0 268.9,272.5 265.4,276.0 261.9,272.5"/>
-<polygon class="mk c-kirimasim" points="305.7,259.5 309.2,263.0 305.7,266.5 302.2,263.0"/>
-<polygon class="mk c-kirimasim" points="332.4,255.9 335.9,259.4 332.4,262.9 328.9,259.4"/>
-<polygon class="mk c-kirimasim" points="348.2,253.8 351.7,257.3 348.2,260.8 344.7,257.3"/>
-<polygon class="mk c-kirimasim" points="389.0,252.2 392.5,255.7 389.0,259.2 385.5,255.7"/>
-<polygon class="mk c-kirimasim" points="404.7,252.1 408.2,255.6 404.7,259.1 401.2,255.6"/>
-<polygon class="mk c-kirimasim" points="429.7,251.7 433.2,255.2 429.7,258.7 426.2,255.2"/>
-<polygon class="mk c-kirimasim" points="434.9,251.6 438.4,255.1 434.9,258.6 431.4,255.1"/>
-<polygon class="mk c-kirimasim" points="471.5,230.3 475.0,233.8 471.5,237.3 468.0,233.8"/>
-<polygon class="mk c-kirimasim" points="512.7,222.8 516.2,226.3 512.7,229.8 509.2,226.3"/>
-<polygon class="mk c-kirimasim" points="553.4,203.1 556.9,206.6 553.4,210.1 549.9,206.6"/>
-<polygon class="mk c-kirimasim" points="615.9,197.9 619.4,201.4 615.9,204.9 612.4,201.4"/>
-<polygon class="mk c-kirimasim" points="639.4,197.3 642.9,200.8 639.4,204.3 635.9,200.8"/>
-<polygon class="mk c-kirimasim" points="656.8,194.0 660.3,197.5 656.8,201.0 653.3,197.5"/>
-<polygon class="mk c-kirimasim" points="675.6,193.9 679.1,197.4 675.6,200.9 672.1,197.4"/>
-<polygon class="mk c-kirimasim" points="718.0,191.7 721.5,195.2 718.0,198.7 714.5,195.2"/>
-<polygon class="mk c-kirimasim" points="758.8,187.2 762.3,190.7 758.8,194.2 755.3,190.7"/>
-<polygon class="mk c-kirimasim" points="801.1,186.4 804.6,189.9 801.1,193.4 797.6,189.9"/>
-<polygon class="mk c-kirimasim" points="841.6,169.7 845.1,173.2 841.6,176.7 838.1,173.2"/>
+<polygon class="mk c-kirimasim" points="74.5,323.6 78.0,327.1 74.5,330.6 71.0,327.1"/>
+<polygon class="mk c-kirimasim" points="79.1,323.6 82.6,327.1 79.1,330.6 75.6,327.1"/>
+<polygon class="mk c-kirimasim" points="107.6,308.1 111.1,311.6 107.6,315.1 104.1,311.6"/>
+<polygon class="mk c-kirimasim" points="108.4,306.8 111.9,310.3 108.4,313.8 104.9,310.3"/>
+<polygon class="mk c-kirimasim" points="143.6,303.8 147.1,307.3 143.6,310.8 140.1,307.3"/>
+<polygon class="mk c-kirimasim" points="183.9,301.5 187.4,305.0 183.9,308.5 180.4,305.0"/>
+<polygon class="mk c-kirimasim" points="223.6,298.9 227.1,302.4 223.6,305.9 220.1,302.4"/>
+<polygon class="mk c-kirimasim" points="246.2,269.0 249.7,272.5 246.2,276.0 242.7,272.5"/>
+<polygon class="mk c-kirimasim" points="262.9,269.0 266.4,272.5 262.9,276.0 259.4,272.5"/>
+<polygon class="mk c-kirimasim" points="302.7,259.5 306.2,263.0 302.7,266.5 299.2,263.0"/>
+<polygon class="mk c-kirimasim" points="329.0,255.9 332.5,259.4 329.0,262.9 325.5,259.4"/>
+<polygon class="mk c-kirimasim" points="344.7,253.8 348.2,257.3 344.7,260.8 341.2,257.3"/>
+<polygon class="mk c-kirimasim" points="384.9,252.2 388.4,255.7 384.9,259.2 381.4,255.7"/>
+<polygon class="mk c-kirimasim" points="400.5,252.1 404.0,255.6 400.5,259.1 397.0,255.6"/>
+<polygon class="mk c-kirimasim" points="425.2,251.7 428.7,255.2 425.2,258.7 421.7,255.2"/>
+<polygon class="mk c-kirimasim" points="430.3,251.6 433.8,255.1 430.3,258.6 426.8,255.1"/>
+<polygon class="mk c-kirimasim" points="466.5,230.3 470.0,233.8 466.5,237.3 463.0,233.8"/>
+<polygon class="mk c-kirimasim" points="507.1,222.8 510.6,226.3 507.1,229.8 503.6,226.3"/>
+<polygon class="mk c-kirimasim" points="547.4,203.1 550.9,206.6 547.4,210.1 543.9,206.6"/>
+<polygon class="mk c-kirimasim" points="609.1,197.9 612.6,201.4 609.1,204.9 605.6,201.4"/>
+<polygon class="mk c-kirimasim" points="632.3,197.3 635.8,200.8 632.3,204.3 628.8,200.8"/>
+<polygon class="mk c-kirimasim" points="649.4,194.0 652.9,197.5 649.4,201.0 645.9,197.5"/>
+<polygon class="mk c-kirimasim" points="668.0,193.9 671.5,197.4 668.0,200.9 664.5,197.4"/>
+<polygon class="mk c-kirimasim" points="709.9,191.7 713.4,195.2 709.9,198.7 706.4,195.2"/>
+<polygon class="mk c-kirimasim" points="750.2,187.2 753.7,190.7 750.2,194.2 746.7,190.7"/>
+<polygon class="mk c-kirimasim" points="791.9,186.4 795.4,189.9 791.9,193.4 788.4,189.9"/>
+<polygon class="mk c-kirimasim" points="831.9,169.7 835.4,173.2 831.9,176.7 828.4,173.2"/>
+<polygon class="mk c-kirimasim" points="842.3,161.9 845.8,165.4 842.3,168.9 838.8,165.4"/>
 <polygon class="mk c-kirimasim" points="852.0,161.9 855.5,165.4 852.0,168.9 848.5,165.4"/>
-<polygon class="mk c-lyra" points="248.5,268.3 251.7,262.3 245.3,262.3"/>
-<polygon class="mk c-lyra" points="265.4,268.3 268.6,262.3 262.2,262.3"/>
-<polygon class="mk c-lyra" points="332.4,254.4 335.6,248.4 329.2,248.4"/>
-<polygon class="mk c-lyra" points="348.2,251.9 351.4,245.9 345.0,245.9"/>
-<polygon class="mk c-lyra" points="389.0,250.4 392.2,244.4 385.8,244.4"/>
-<polygon class="mk c-lyra" points="404.7,250.3 407.9,244.3 401.5,244.3"/>
-<polygon class="mk c-lyra" points="429.7,249.9 432.9,243.9 426.5,243.9"/>
-<polygon class="mk c-lyra" points="434.9,249.8 438.1,243.8 431.7,243.8"/>
-<polygon class="mk c-lyra" points="471.5,228.4 474.7,222.4 468.3,222.4"/>
-<polygon class="mk c-lyra" points="512.7,220.2 515.9,214.2 509.5,214.2"/>
-<polygon class="mk c-lyra" points="553.4,205.5 556.6,199.5 550.2,199.5"/>
-<polygon class="mk c-lyra" points="615.9,202.7 619.1,196.7 612.7,196.7"/>
-<polygon class="mk c-lyra" points="639.4,199.2 642.6,193.2 636.2,193.2"/>
-<polygon class="mk c-lyra" points="656.8,195.9 660.0,189.9 653.6,189.9"/>
-<polygon class="mk c-lyra" points="675.6,195.9 678.8,189.9 672.4,189.9"/>
-<polygon class="mk c-lyra" points="718.0,193.7 721.2,187.7 714.8,187.7"/>
-<polygon class="mk c-lyra" points="758.8,189.1 762.0,183.1 755.6,183.1"/>
-<polygon class="mk c-ghost" points="375.3,236.2 378.5,242.2 372.1,242.2"/>
-<polygon class="mk c-ghost" points="389.0,233.8 392.2,239.8 385.8,239.8"/>
-<polygon class="mk c-ghost" points="404.7,233.7 407.9,239.7 401.5,239.7"/>
-<polygon class="mk c-ghost" points="429.7,230.8 432.9,236.8 426.5,236.8"/>
-<polygon class="mk c-ghost" points="434.9,230.5 438.1,236.5 431.7,236.5"/>
-<polygon class="mk c-ghost" points="471.5,208.5 474.7,214.5 468.3,214.5"/>
-<polygon class="mk c-ghost" points="512.7,190.4 515.9,196.4 509.5,196.4"/>
-<polygon class="mk c-ghost" points="553.4,172.4 556.6,178.4 550.2,178.4"/>
-<polygon class="mk c-ghost" points="615.9,166.6 619.1,172.6 612.7,172.6"/>
-<polygon class="mk c-ghost" points="639.4,161.1 642.6,167.1 636.2,167.1"/>
-<polygon class="mk c-ghost" points="656.8,156.0 660.0,162.0 653.6,162.0"/>
-<polygon class="mk c-ghost" points="675.6,156.0 678.8,162.0 672.4,162.0"/>
-<polygon class="mk c-ghost" points="718.0,154.1 721.2,160.1 714.8,160.1"/>
-<polygon class="mk c-ghost" points="758.8,151.5 762.0,157.5 755.6,157.5"/>
-<polygon class="mk c-ghost" points="801.1,150.0 804.3,156.0 797.9,156.0"/>
-<polygon class="mk c-ghost" points="841.6,132.9 844.8,138.9 838.4,138.9"/>
+<polygon class="mk c-lyra" points="246.2,268.3 249.4,262.3 243.0,262.3"/>
+<polygon class="mk c-lyra" points="262.9,268.3 266.1,262.3 259.7,262.3"/>
+<polygon class="mk c-lyra" points="329.0,254.4 332.2,248.4 325.8,248.4"/>
+<polygon class="mk c-lyra" points="344.7,251.9 347.9,245.9 341.5,245.9"/>
+<polygon class="mk c-lyra" points="384.9,250.4 388.1,244.4 381.7,244.4"/>
+<polygon class="mk c-lyra" points="400.5,250.3 403.7,244.3 397.3,244.3"/>
+<polygon class="mk c-lyra" points="425.2,249.9 428.4,243.9 422.0,243.9"/>
+<polygon class="mk c-lyra" points="430.3,249.8 433.5,243.8 427.1,243.8"/>
+<polygon class="mk c-lyra" points="466.5,228.4 469.7,222.4 463.3,222.4"/>
+<polygon class="mk c-lyra" points="507.1,220.2 510.3,214.2 503.9,214.2"/>
+<polygon class="mk c-lyra" points="547.4,205.5 550.6,199.5 544.2,199.5"/>
+<polygon class="mk c-lyra" points="609.1,202.7 612.3,196.7 605.9,196.7"/>
+<polygon class="mk c-lyra" points="632.3,199.2 635.5,193.2 629.1,193.2"/>
+<polygon class="mk c-lyra" points="649.4,195.9 652.6,189.9 646.2,189.9"/>
+<polygon class="mk c-lyra" points="668.0,195.9 671.2,189.9 664.8,189.9"/>
+<polygon class="mk c-lyra" points="709.9,193.7 713.1,187.7 706.7,187.7"/>
+<polygon class="mk c-lyra" points="750.2,189.1 753.4,183.1 747.0,183.1"/>
+<polygon class="mk c-lyra" points="852.0,163.6 855.2,157.6 848.8,157.6"/>
+<polygon class="mk c-ghost" points="371.4,236.2 374.6,242.2 368.2,242.2"/>
+<polygon class="mk c-ghost" points="384.9,233.8 388.1,239.8 381.7,239.8"/>
+<polygon class="mk c-ghost" points="400.5,233.7 403.7,239.7 397.3,239.7"/>
+<polygon class="mk c-ghost" points="425.2,230.8 428.4,236.8 422.0,236.8"/>
+<polygon class="mk c-ghost" points="430.3,230.5 433.5,236.5 427.1,236.5"/>
+<polygon class="mk c-ghost" points="466.5,208.5 469.7,214.5 463.3,214.5"/>
+<polygon class="mk c-ghost" points="507.1,190.4 510.3,196.4 503.9,196.4"/>
+<polygon class="mk c-ghost" points="547.4,172.4 550.6,178.4 544.2,178.4"/>
+<polygon class="mk c-ghost" points="609.1,166.6 612.3,172.6 605.9,172.6"/>
+<polygon class="mk c-ghost" points="632.3,161.1 635.5,167.1 629.1,167.1"/>
+<polygon class="mk c-ghost" points="649.4,156.0 652.6,162.0 646.2,162.0"/>
+<polygon class="mk c-ghost" points="668.0,156.0 671.2,162.0 664.8,162.0"/>
+<polygon class="mk c-ghost" points="709.9,154.1 713.1,160.1 706.7,160.1"/>
+<polygon class="mk c-ghost" points="750.2,151.5 753.4,157.5 747.0,157.5"/>
+<polygon class="mk c-ghost" points="791.9,150.0 795.1,156.0 788.7,156.0"/>
+<polygon class="mk c-ghost" points="831.9,132.9 835.1,138.9 828.7,138.9"/>
+<polygon class="mk c-ghost" points="842.3,124.6 845.5,130.6 839.1,130.6"/>
 <polygon class="mk c-ghost" points="852.0,124.6 855.2,130.6 848.8,130.6"/>
 </svg>

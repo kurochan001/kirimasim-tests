@@ -13,7 +13,7 @@ The denominator counts requirement-ledger rows, not test files. See [Design, exe
 ## Value for all standards in the required table
 
 - Requirement coverage (test design): 89.27% ( 10979/12298 ).
-- The execution confirmation rate is 72.72% ( 8943/12298 ). Union of successes across environments.
+- The execution confirmation rate is 72.94% ( 8970/12298 ). Union of successes across environments.
 - The denominator includes pending interpretations and items without test mappings. We do not exclude non-implemented and non-supported.
 - The registration unit is the occurrence point, condition, and observation case of the requirement, and the duplication of meaning is integrated by the review of the denominator. This is neither the fraction of all program/input combinations tested nor a single simulator's standard conformance rate.
 
@@ -32,7 +32,7 @@ The denominator counts requirement-ledger rows, not test files. See [Design, exe
 ## Definite value
 
 - Requirement coverage (test design): 89.27%.
-- Requirement execution-confirmation rate: 72.72%.
+- Requirement execution-confirmation rate: 72.94%.
 - Approval of denominator: Approval. The measured state is `confirmed`.
 - The method was confirmed after document verification, resolution of the reservation interpretation, duplication of the requirement unit, and review of the denominator.
 
@@ -40,8 +40,8 @@ The denominator counts requirement-ledger rows, not test files. See [Design, exe
 
 ## Remains
 
-- There is a record of the path result corresponding to the current input: 8943 line.
-- No record of passed/passout results: 2036 line.
+- There is a record of the path result corresponding to the current input: 8970 line.
+- No record of passed/passout results: 2009 line.
 - Test compatibility not confirmed (except for interpretation reservation): 1319 line.
 - Interpretation reservation: 0 line.
 
@@ -56,6 +56,7 @@ Each row is a separate saved run. A narrow run can leave many tests unexecuted; 
 - `ghost` / `private build 9997c689a2e6` : 8874/12298 ( 72.16% )。 Measurement source: `2026-11-08T12:20:30.104078+00:00` / `ghost.json` 。 Failures 616; known mismatches 0; unsupported 0; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1199 rows.
 - `icarus` / `Icarus Verilog version 14.0 (devel) (s20260301-873-gbeb32f39)` : 2535/12298 ( 20.61% )。 Measurement source: `2026-11-08T12:01:28.040115+00:00` / `icarus.json` 。 Failures 21; known mismatches 7102; unsupported 0; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1031 rows.
 - `kirimasim` / `kirimasim 0.0.0 (commit 33cee3fa2f0d), built with GNU 13.3.0` : 2968/12298 ( 24.13% )。 Measurement source: `2026-11-08T12:09:51.121888+00:00` / `kirimasim.json` 。 Failures 196; known mismatches 0; unsupported 6267; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1258 rows.
+- `lyra` / `Lyra (commit ed6c62dc8c1a)` : 3336/12298 ( 27.13% )。 Measurement source: `2026-11-08T18:31:47.821032+00:00` / `lyra.json` 。 Failures 973; known mismatches 0; unsupported 5127; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1253 rows.
 - `verilator` / `Verilator 5.055 devel rev v5.054-130-g423f8719` : 3696/12298 ( 30.05% )。 Measurement source: `2026-11-08T12:38:35.460474+00:00` / `verilator.json` 。 Failures 23; known mismatches 6011; unsupported 0; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 959 rows.
 - The result file of the rejection: 0.
 
@@ -68,8 +69,8 @@ Each row is a separate saved run. A narrow run can leave many tests unexecuted; 
 - 3 Design and verification building blocks: test-ready 118/146 ( 80.82% ), execution-verification 102/146 ( 69.86% ), interpretation-retention 0 rows.
 - 4 Scheduling semantics: test-ready 80/107 ( 74.77% ), execution-confirm 80/107 ( 74.77% ), interpretation-reserved 0 rows.
 - 5 Lexical conventions: test compatible 136/154 ( 88.31% ), execution confirmation 119/154 ( 77.27% ), interpretation reserve 0 lines.
-- 6 Data types: test-ready 679/719 ( 94.44% ), execution-confirm 540/719 ( 75.10% ), interpretation-reserved 0 rows.
-- 7 Aggregate data types: test-ready 320/345 ( 92.75% ), execution-confirm 261/345 ( 75.65% ), interpretation-reserved 0 rows.
+- 6 Data types: test-ready 679/719 ( 94.44% ), execution-confirm 543/719 ( 75.52% ), interpretation-reserved 0 rows.
+- 7 Aggregate data types: test-ready 320/345 ( 92.75% ), execution-confirm 263/345 ( 76.23% ), interpretation-reserved 0 rows.
 - 8 Classes: Test-compatible 221/252 ( 87.70% ), execution-confirm 143/252 ( 56.75% ), interpretation-reserved 0 rows.
 - 9 Processes: Test-ready 166/189 ( 87.83% ), execution-confirm 149/189 ( 78.84% ), interpretation-reserved 0 rows.
 - 10 Assignment statements: test-compliant 130/156 ( 83.33% ), execution-confirm 94/156 ( 60.26% ), interpretation-reserved 0 lines.
@@ -78,11 +79,11 @@ Each row is a separate saved run. A narrow run can leave many tests unexecuted; 
 - 13 Tasks and functions (subroutines): Test support 92/119 ( 77.31% ), execution confirmation 62/119 ( 52.10% ), interpretation reserve 0.
 - 14 Clocking blocks: test-ready 59/87 ( 67.82% ), execution-confirm 53/87 ( 60.92% ), interpretation-reserved 0 rows.
 - 15 Interprocess synchronization and communication: test support 68/88 ( 77.27% ), execution confirmation 63/88 ( 71.59% ), interpretation reserve 0.
-- 16 Assertions: Test-compliant 539/555 ( 97.12% ), execution-confirming 379/555 ( 68.29% ), interpretation-reserved 0 rows.
+- 16 Assertions: Test-compliant 539/555 ( 97.12% ), execution-confirming 383/555 ( 69.01% ), interpretation-reserved 0 rows.
 - 17 Checkers: Test-ready 59/79 ( 74.68% ), execution-ready 36/79 ( 45.57% ), interpretation-reserved 0 lines.
-- 18 Constrained random value generation: test compatible 300/320 ( 93.75% ), execution confirmation 232/320 ( 72.50% ), interpretation reserve 0 rows.
-- 19 Functional coverage: test compatible 232/271 ( 85.61% ), execution confirmation 183/271 ( 67.53% ), interpretation reserve 0 rows.
-- 20 Utility system tasks and system functions: test support 285/316 ( 90.19% ), execution confirmation 229/316 ( 72.47% ), interpretation reserve 0.
+- 18 Constrained random value generation: test compatible 300/320 ( 93.75% ), execution confirmation 234/320 ( 73.12% ), interpretation reserve 0 rows.
+- 19 Functional coverage: test compatible 232/271 ( 85.61% ), execution confirmation 194/271 ( 71.59% ), interpretation reserve 0 rows.
+- 20 Utility system tasks and system functions: test support 285/316 ( 90.19% ), execution confirmation 232/316 ( 73.42% ), interpretation reserve 0.
 - 21 Input/output system tasks and system functions: test support 347/383 ( 90.60% ), execution confirmation 333/383 ( 86.95% ), interpretation reserve 0.
 - 22 Compiler directives: Test-ready 345/361 ( 95.57% ), execution-confirm 73/361 ( 20.22% ), interpretation-reserved 0 lines.
 - 23 Modules and hierarchy: Test-ready 251/260 ( 96.54% ), execution-confirm 159/260 ( 61.15% ), interpretation-reserved 0 rows.
@@ -97,14 +98,14 @@ Each row is a separate saved run. A narrow run can leave many tests unexecuted; 
 - 32 Backannotation using the standard delay format: test-ready 119/131 ( 90.84% ), execution-confirm 119/131 ( 90.84% ), interpretation-reserved 0 lines.
 - 33 Configuring the contents of a design: test-ready 30/63 ( 47.62% ), execution-confirm 19/63 ( 30.16% ), interpretation-reserved 0 lines.
 - 34 Protected envelopes: test-ready 5/214 ( 2.34% ), execution-confirm 5/214 ( 2.34% ), interpretation-reserved 0 rows.
-- 35 Direct programming interface: test compatible 114/142 ( 80.28% ), execution confirmation 104/142 ( 73.24% ), interpretation reserve 0 lines.
+- 35 Direct programming interface: test compatible 114/142 ( 80.28% ), execution confirmation 105/142 ( 73.94% ), interpretation reserve 0 lines.
 - 36 Programming language interface ( PLI / VPI ) overview: Test-ready 148/163 ( 90.80% ), execution-confirm 119/163 ( 73.01% ), interpretation-reserved 0 lines.
 - 37 VPI object model diagrams: test-ready 1656/1757 ( 94.25% ), execution-confirm 1502/1757 ( 85.49% ), interpretation-reserved 0 rows.
 - 38 VPI routine definitions: test-compatible 260/348 ( 74.71% ), execution-confirm 253/348 ( 72.70% ), interpretation-reserved 0 lines.
 - 39 Assertion API: Test compatible 82/95 ( 86.32% ), execution confirmation 81/95 ( 85.26% ), interpretation reserve 0 rows.
 - 40 Code coverage control and API: test support 82/128 ( 64.06% ), execution confirmation 79/128 ( 61.72% ), interpretation reserve 0.
 - 41 Data read API : Test compatible No object items, execution confirmed No object items, interpretation reserved 0 line.
-- A Formal syntax: test support 792/811 ( 97.66% ), execution confirmation 759/811 ( 93.59% ), interpretation reserve 0 lines.
+- A Formal syntax: test support 792/811 ( 97.66% ), execution confirmation 760/811 ( 93.71% ), interpretation reserve 0 lines.
 - B Keywords: Test compatible 248/248 ( 100.00% ), execution confirmation 0/248 ( 0.00% ), interpretation reserve 0.
 - C Deprecation: Test-compatible 9/20 ( 45.00% ), execution-confirm 9/20 ( 45.00% ), interpretation-reserved 0 lines.
 - D Optional system tasks and system functions: Test support No object items, execution verification No object items, interpretation reserved 0 line.

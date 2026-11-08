@@ -6,8 +6,8 @@ The [list of differences](https://github.com/kurochan001/kirimasim-tests/blob/36
 
 | Simulator | Version of the run | Run (UTC) | Suite | Named tests | Still differ | Now match | Not run |
 | --- | --- | --- | --- | ---: | ---: | ---: | ---: |
-| Icarus Verilog | Icarus Verilog version 14.0 (devel) (s20260301-873-gbeb32f39) | 2026-11-08 12:39 | [`36ba5dd`](https://github.com/kurochan001/kirimasim-tests/commit/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9) | 225 | 196 | 29 | 0 |
-| Verilator | Verilator 5.055 devel rev v5.054-130-g423f8719 | 2026-11-08 12:39 | [`36ba5dd`](https://github.com/kurochan001/kirimasim-tests/commit/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9) | 459 | 400 | 59 | 0 |
+| Icarus Verilog | Icarus Verilog version 14.0 (devel) (s20260301-873-gbeb32f39) | 2026-11-08 18:32 | [`36ba5dd`](https://github.com/kurochan001/kirimasim-tests/commit/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9) | 225 | 196 | 29 | 0 |
+| Verilator | Verilator 5.055 devel rev v5.054-130-g423f8719 | 2026-11-08 18:32 | [`36ba5dd`](https://github.com/kurochan001/kirimasim-tests/commit/36ba5dd11df6c382c8bcfbc1ece5137a536e9fb9) | 459 | 400 | 59 | 0 |
 
 Named tests counts each test once per simulator. Patterns and the items under "To check in the list" are not in these counts.
 
