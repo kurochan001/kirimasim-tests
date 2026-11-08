@@ -14,6 +14,7 @@ The denominator counts requirement-ledger rows, not test files. See [Design, exe
 
 - Requirement coverage (test design): 89.27% ( 10979/12298 ).
 - The execution confirmation rate is 77.53% ( 9535/12298 ). Union of successes across environments.
+- Execution confirmation rate without Ghost: 50.94% ( 6264/12298 ). Union of successes on Icarus Verilog, Verilator and SymbiYosys, which third parties can reproduce.
 - The denominator includes pending interpretations and items without test mappings. We do not exclude non-implemented and non-supported.
 - The registration unit is the occurrence point, condition, and observation case of the requirement, and the duplication of meaning is integrated by the review of the denominator. This is neither the fraction of all program/input combinations tested nor a single simulator's standard conformance rate.
 
@@ -133,64 +134,64 @@ Each row is a separate saved run. A narrow run can leave many tests unexecuted; 
 
 ## By chapter and appendix (percentage of registered items)
 
-- 1 Overview: Testing support No object items, execution confirmation No object items, interpretation reserved 0 line.
-- 2 Normative references: test compatible 0/2 ( 0.00% ), execution confirmation 0/2 ( 0.00% ), interpretation reserve 0.
-- 3 Design and verification building blocks: test-ready 118/146 ( 80.82% ), execution-verification 115/146 ( 78.77% ), interpretation-retention 0 rows.
-- 4 Scheduling semantics: test-ready 80/107 ( 74.77% ), execution-confirm 76/107 ( 71.03% ), interpretation-reserved 0 rows.
-- 5 Lexical conventions: test compatible 136/154 ( 88.31% ), execution confirmation 133/154 ( 86.36% ), interpretation reserve 0 lines.
-- 6 Data types: test-ready 679/719 ( 94.44% ), execution-confirm 628/719 ( 87.34% ), interpretation-reserved 0 rows.
-- 7 Aggregate data types: test-ready 320/345 ( 92.75% ), execution-confirm 290/345 ( 84.06% ), interpretation-reserved 0 rows.
-- 8 Classes: Test-compatible 221/252 ( 87.70% ), execution-confirm 181/252 ( 71.83% ), interpretation-reserved 0 rows.
-- 9 Processes: Test-ready 166/189 ( 87.83% ), execution-confirm 145/189 ( 76.72% ), interpretation-reserved 0 rows.
-- 10 Assignment statements: test-compliant 130/156 ( 83.33% ), execution-confirm 119/156 ( 76.28% ), interpretation-reserved 0 lines.
-- 11 Operators and expressions: Test-compatible 433/459 ( 94.34% ), execution-confirm 394/459 ( 85.84% ), interpretation-reserved 0 rows.
-- 12 Procedural programming statements: test-responsive 89/115 ( 77.39% ), execution-confirm 83/115 ( 72.17% ), interpretation-reserved 0 lines.
-- 13 Tasks and functions (subroutines): Test support 92/119 ( 77.31% ), execution confirmation 83/119 ( 69.75% ), interpretation reserve 0.
-- 14 Clocking blocks: test-ready 59/87 ( 67.82% ), execution-confirm 58/87 ( 66.67% ), interpretation-reserved 0 rows.
-- 15 Interprocess synchronization and communication: test support 68/88 ( 77.27% ), execution confirmation 63/88 ( 71.59% ), interpretation reserve 0.
-- 16 Assertions: Test-compliant 539/555 ( 97.12% ), execution-confirming 340/555 ( 61.26% ), interpretation-reserved 0 rows.
-- 17 Checkers: Test-ready 59/79 ( 74.68% ), execution-ready 28/79 ( 35.44% ), interpretation-reserved 0 lines.
-- 18 Constrained random value generation: test compatible 300/320 ( 93.75% ), execution confirmation 239/320 ( 74.69% ), interpretation reserve 0 rows.
-- 19 Functional coverage: test compatible 232/271 ( 85.61% ), execution confirmation 121/271 ( 44.65% ), interpretation reserve 0 rows.
-- 20 Utility system tasks and system functions: test support 285/316 ( 90.19% ), execution confirmation 229/316 ( 72.47% ), interpretation reserve 0.
-- 21 Input/output system tasks and system functions: test support 347/383 ( 90.60% ), execution confirmation 331/383 ( 86.42% ), interpretation reserve 0.
-- 22 Compiler directives: Test-ready 345/361 ( 95.57% ), execution-confirm 339/361 ( 93.91% ), interpretation-reserved 0 lines.
-- 23 Modules and hierarchy: Test-ready 251/260 ( 96.54% ), execution-confirm 162/260 ( 62.31% ), interpretation-reserved 0 rows.
-- 24 Programs: Test-ready 16/29 ( 55.17% ), execution-confirm 15/29 ( 51.72% ), interpretation-reserved 0 lines.
-- 25 Interfaces: Test-ready 43/63 ( 68.25% ), execution-confirm 31/63 ( 49.21% ), interpretation-reserved 0 lines.
-- 26 Packages: Test-ready 39/44 ( 88.64% ), execution-confirm 35/44 ( 79.55% ), interpretation-reserved 0 lines.
-- 27 Generate constructs: test-compatible 27/32 ( 84.38% ), execution-confirm 24/32 ( 75.00% ), and interpret-reserve 0 rows.
-- 28 Gate-level and switch-level modeling: test-ready 363/384 ( 94.53% ), execution-confirm 358/384 ( 93.23% ), interpretation-reserved 0 lines.
-- 29 User-defined primitives: test-ready 49/52 ( 94.23% ), execution-confirm 44/52 ( 84.62% ), interpretation-reserved 0 rows.
-- 30 Specify blocks: test-compatible 131/157 ( 83.44% ), execution-confirm 122/157 ( 77.71% ), interpretation-reserved 0 rows.
-- 31 Timing checks: test-ready 154/180 ( 85.56% ), execution-confirm 111/180 ( 61.67% ), interpretation-reserved 0 lines.
-- 32 Backannotation using the standard delay format: test-ready 119/131 ( 90.84% ), execution-confirm 78/131 ( 59.54% ), interpretation-reserved 0 lines.
-- 33 Configuring the contents of a design: test-ready 30/63 ( 47.62% ), execution-confirm 21/63 ( 33.33% ), interpretation-reserved 0 lines.
-- 34 Protected envelopes: test-ready 5/214 ( 2.34% ), execution-confirm 5/214 ( 2.34% ), interpretation-reserved 0 rows.
-- 35 Direct programming interface: test compatible 114/142 ( 80.28% ), execution confirmation 105/142 ( 73.94% ), interpretation reserve 0 lines.
-- 36 Programming language interface ( PLI / VPI ) overview: Test-ready 148/163 ( 90.80% ), execution-confirm 79/163 ( 48.47% ), interpretation-reserved 0 lines.
-- 37 VPI object model diagrams: test-ready 1656/1757 ( 94.25% ), execution-confirm 1334/1757 ( 75.92% ), interpretation-reserved 0 rows.
-- 38 VPI routine definitions: test-compatible 260/348 ( 74.71% ), execution-confirm 247/348 ( 70.98% ), interpretation-reserved 0 lines.
-- 39 Assertion API: Test compatible 82/95 ( 86.32% ), execution confirmation 81/95 ( 85.26% ), interpretation reserve 0 rows.
-- 40 Code coverage control and API: test support 82/128 ( 64.06% ), execution confirmation 79/128 ( 61.72% ), interpretation reserve 0.
-- 41 Data read API : Test compatible No object items, execution confirmed No object items, interpretation reserved 0 line.
-- A Formal syntax: test support 792/811 ( 97.66% ), execution confirmation 709/811 ( 87.42% ), interpretation reserve 0 lines.
-- B Keywords: Test compatible 248/248 ( 100.00% ), execution confirmation 248/248 ( 100.00% ), interpretation reserve 0.
-- C Deprecation: Test-compatible 9/20 ( 45.00% ), execution-confirm 9/20 ( 45.00% ), interpretation-reserved 0 lines.
-- D Optional system tasks and system functions: Test support No object items, execution verification No object items, interpretation reserved 0 line.
-- E Optional compiler directives: Test support No object items, execution verification No object items, interpretation reserved 0 line.
-- F Formal semantics of concurrent assertions: test compatible 253/253 ( 100.00% ), execution confirmation 253/253 ( 100.00% ), interpretation reserve 0 rows.
-- G Std package: test compatible 25/32 ( 78.12% ), execution confirmation 25/32 ( 78.12% ), interpretation reserve 0 lines.
-- H DPI C layer: test compatible 190/223 ( 85.20% ), execution confirmation 174/223 ( 78.03% ), interpretation reserve 0 rows.
-- I svdpi.h: test mappings 133/147 (90.48%), execution verification 130/147 (88.44%), interpretation on hold for 0 rows.
-- J Inclusion of foreign language code: test compatible 0/16 ( 0.00% ), execution confirmation 0/16 ( 0.00% ), interpretation reserve 0 lines.
-- K vpi_user.h: test mappings 541/544 (99.45%), execution verification 541/544 (99.45%), interpretation on hold for 0 rows.
-- L vpi_compatibility.h: test mappings 85/88 (96.59%), execution verification 84/88 (95.45%), interpretation on hold for 0 rows.
-- M sv_vpi_user.h: test mappings 407/412 (98.79%), execution verification 407/412 (98.79%), interpretation on hold for 0 rows.
-- N Algorithm for probabilistic distribution functions: test compatible 29/39 ( 74.36% ), execution confirmation 29/39 ( 74.36% ), interpretation reserve 0 rows.
-- O Encryption/decryption flow: Test support No object items, execution confirmation No object items, interpretation reserved 0 line.
-- P Glossary: Testing support No object items, execution confirmation No object items, interpretation reserved 0 line.
-- Q Bibliography: Test compatible No object items, execution confirmation No object items, interpretation reserved 0 line.
+- 1 Overview: test mapping no registered items, execution confirmed no registered items, execution confirmed without Ghost no registered items, interpretation pending 0 rows.
+- 2 Normative references: test mapping 0/2 ( 0.00% ), execution confirmed 0/2 ( 0.00% ), execution confirmed without Ghost 0/2 ( 0.00% ), interpretation pending 0 rows.
+- 3 Design and verification building blocks: test mapping 118/146 ( 80.82% ), execution confirmed 115/146 ( 78.77% ), execution confirmed without Ghost 110/146 ( 75.34% ), interpretation pending 0 rows.
+- 4 Scheduling semantics: test mapping 80/107 ( 74.77% ), execution confirmed 76/107 ( 71.03% ), execution confirmed without Ghost 55/107 ( 51.40% ), interpretation pending 0 rows.
+- 5 Lexical conventions: test mapping 136/154 ( 88.31% ), execution confirmed 133/154 ( 86.36% ), execution confirmed without Ghost 127/154 ( 82.47% ), interpretation pending 0 rows.
+- 6 Data types: test mapping 679/719 ( 94.44% ), execution confirmed 628/719 ( 87.34% ), execution confirmed without Ghost 521/719 ( 72.46% ), interpretation pending 0 rows.
+- 7 Aggregate data types: test mapping 320/345 ( 92.75% ), execution confirmed 290/345 ( 84.06% ), execution confirmed without Ghost 188/345 ( 54.49% ), interpretation pending 0 rows.
+- 8 Classes: test mapping 221/252 ( 87.70% ), execution confirmed 181/252 ( 71.83% ), execution confirmed without Ghost 146/252 ( 57.94% ), interpretation pending 0 rows.
+- 9 Processes: test mapping 166/189 ( 87.83% ), execution confirmed 145/189 ( 76.72% ), execution confirmed without Ghost 111/189 ( 58.73% ), interpretation pending 0 rows.
+- 10 Assignment statements: test mapping 130/156 ( 83.33% ), execution confirmed 119/156 ( 76.28% ), execution confirmed without Ghost 81/156 ( 51.92% ), interpretation pending 0 rows.
+- 11 Operators and expressions: test mapping 433/459 ( 94.34% ), execution confirmed 394/459 ( 85.84% ), execution confirmed without Ghost 357/459 ( 77.78% ), interpretation pending 0 rows.
+- 12 Procedural programming statements: test mapping 89/115 ( 77.39% ), execution confirmed 83/115 ( 72.17% ), execution confirmed without Ghost 59/115 ( 51.30% ), interpretation pending 0 rows.
+- 13 Tasks and functions (subroutines): test mapping 92/119 ( 77.31% ), execution confirmed 83/119 ( 69.75% ), execution confirmed without Ghost 75/119 ( 63.03% ), interpretation pending 0 rows.
+- 14 Clocking blocks: test mapping 59/87 ( 67.82% ), execution confirmed 58/87 ( 66.67% ), execution confirmed without Ghost 43/87 ( 49.43% ), interpretation pending 0 rows.
+- 15 Interprocess synchronization and communication: test mapping 68/88 ( 77.27% ), execution confirmed 63/88 ( 71.59% ), execution confirmed without Ghost 44/88 ( 50.00% ), interpretation pending 0 rows.
+- 16 Assertions: test mapping 539/555 ( 97.12% ), execution confirmed 340/555 ( 61.26% ), execution confirmed without Ghost 152/555 ( 27.39% ), interpretation pending 0 rows.
+- 17 Checkers: test mapping 59/79 ( 74.68% ), execution confirmed 28/79 ( 35.44% ), execution confirmed without Ghost 13/79 ( 16.46% ), interpretation pending 0 rows.
+- 18 Constrained random value generation: test mapping 300/320 ( 93.75% ), execution confirmed 239/320 ( 74.69% ), execution confirmed without Ghost 139/320 ( 43.44% ), interpretation pending 0 rows.
+- 19 Functional coverage: test mapping 232/271 ( 85.61% ), execution confirmed 121/271 ( 44.65% ), execution confirmed without Ghost 20/271 ( 7.38% ), interpretation pending 0 rows.
+- 20 Utility system tasks and system functions: test mapping 285/316 ( 90.19% ), execution confirmed 229/316 ( 72.47% ), execution confirmed without Ghost 127/316 ( 40.19% ), interpretation pending 0 rows.
+- 21 Input/output system tasks and system functions: test mapping 347/383 ( 90.60% ), execution confirmed 331/383 ( 86.42% ), execution confirmed without Ghost 209/383 ( 54.57% ), interpretation pending 0 rows.
+- 22 Compiler directives: test mapping 345/361 ( 95.57% ), execution confirmed 339/361 ( 93.91% ), execution confirmed without Ghost 333/361 ( 92.24% ), interpretation pending 0 rows.
+- 23 Modules and hierarchy: test mapping 251/260 ( 96.54% ), execution confirmed 162/260 ( 62.31% ), execution confirmed without Ghost 131/260 ( 50.38% ), interpretation pending 0 rows.
+- 24 Programs: test mapping 16/29 ( 55.17% ), execution confirmed 15/29 ( 51.72% ), execution confirmed without Ghost 3/29 ( 10.34% ), interpretation pending 0 rows.
+- 25 Interfaces: test mapping 43/63 ( 68.25% ), execution confirmed 31/63 ( 49.21% ), execution confirmed without Ghost 27/63 ( 42.86% ), interpretation pending 0 rows.
+- 26 Packages: test mapping 39/44 ( 88.64% ), execution confirmed 35/44 ( 79.55% ), execution confirmed without Ghost 30/44 ( 68.18% ), interpretation pending 0 rows.
+- 27 Generate constructs: test mapping 27/32 ( 84.38% ), execution confirmed 24/32 ( 75.00% ), execution confirmed without Ghost 20/32 ( 62.50% ), interpretation pending 0 rows.
+- 28 Gate-level and switch-level modeling: test mapping 363/384 ( 94.53% ), execution confirmed 358/384 ( 93.23% ), execution confirmed without Ghost 278/384 ( 72.40% ), interpretation pending 0 rows.
+- 29 User-defined primitives: test mapping 49/52 ( 94.23% ), execution confirmed 44/52 ( 84.62% ), execution confirmed without Ghost 40/52 ( 76.92% ), interpretation pending 0 rows.
+- 30 Specify blocks: test mapping 131/157 ( 83.44% ), execution confirmed 122/157 ( 77.71% ), execution confirmed without Ghost 102/157 ( 64.97% ), interpretation pending 0 rows.
+- 31 Timing checks: test mapping 154/180 ( 85.56% ), execution confirmed 111/180 ( 61.67% ), execution confirmed without Ghost 18/180 ( 10.00% ), interpretation pending 0 rows.
+- 32 Backannotation using the standard delay format: test mapping 119/131 ( 90.84% ), execution confirmed 78/131 ( 59.54% ), execution confirmed without Ghost 65/131 ( 49.62% ), interpretation pending 0 rows.
+- 33 Configuring the contents of a design: test mapping 30/63 ( 47.62% ), execution confirmed 21/63 ( 33.33% ), execution confirmed without Ghost 8/63 ( 12.70% ), interpretation pending 0 rows.
+- 34 Protected envelopes: test mapping 5/214 ( 2.34% ), execution confirmed 5/214 ( 2.34% ), execution confirmed without Ghost 5/214 ( 2.34% ), interpretation pending 0 rows.
+- 35 Direct programming interface: test mapping 114/142 ( 80.28% ), execution confirmed 105/142 ( 73.94% ), execution confirmed without Ghost 77/142 ( 54.23% ), interpretation pending 0 rows.
+- 36 Programming language interface ( PLI / VPI ) overview: test mapping 148/163 ( 90.80% ), execution confirmed 79/163 ( 48.47% ), execution confirmed without Ghost 46/163 ( 28.22% ), interpretation pending 0 rows.
+- 37 VPI object model diagrams: test mapping 1656/1757 ( 94.25% ), execution confirmed 1334/1757 ( 75.92% ), execution confirmed without Ghost 72/1757 ( 4.10% ), interpretation pending 0 rows.
+- 38 VPI routine definitions: test mapping 260/348 ( 74.71% ), execution confirmed 247/348 ( 70.98% ), execution confirmed without Ghost 145/348 ( 41.67% ), interpretation pending 0 rows.
+- 39 Assertion API : test mapping 82/95 ( 86.32% ), execution confirmed 81/95 ( 85.26% ), execution confirmed without Ghost 2/95 ( 2.11% ), interpretation pending 0 rows.
+- 40 Code coverage control and API : test mapping 82/128 ( 64.06% ), execution confirmed 79/128 ( 61.72% ), execution confirmed without Ghost 34/128 ( 26.56% ), interpretation pending 0 rows.
+- 41 Data read API : test mapping no registered items, execution confirmed no registered items, execution confirmed without Ghost no registered items, interpretation pending 0 rows.
+- A Formal syntax: test mapping 792/811 ( 97.66% ), execution confirmed 709/811 ( 87.42% ), execution confirmed without Ghost 511/811 ( 63.01% ), interpretation pending 0 rows.
+- B Keywords: test mapping 248/248 ( 100.00% ), execution confirmed 248/248 ( 100.00% ), execution confirmed without Ghost 248/248 ( 100.00% ), interpretation pending 0 rows.
+- C Deprecation: test mapping 9/20 ( 45.00% ), execution confirmed 9/20 ( 45.00% ), execution confirmed without Ghost 7/20 ( 35.00% ), interpretation pending 0 rows.
+- D Optional system tasks and system functions: test mapping no registered items, execution confirmed no registered items, execution confirmed without Ghost no registered items, interpretation pending 0 rows.
+- E Optional compiler directives: test mapping no registered items, execution confirmed no registered items, execution confirmed without Ghost no registered items, interpretation pending 0 rows.
+- F Formal semantics of concurrent assertions: test mapping 253/253 ( 100.00% ), execution confirmed 253/253 ( 100.00% ), execution confirmed without Ghost 253/253 ( 100.00% ), interpretation pending 0 rows.
+- G Std package: test mapping 25/32 ( 78.12% ), execution confirmed 25/32 ( 78.12% ), execution confirmed without Ghost 18/32 ( 56.25% ), interpretation pending 0 rows.
+- H DPI C layer: test mapping 190/223 ( 85.20% ), execution confirmed 174/223 ( 78.03% ), execution confirmed without Ghost 126/223 ( 56.50% ), interpretation pending 0 rows.
+- I svdpi.h : test mapping 133/147 ( 90.48% ), execution confirmed 130/147 ( 88.44% ), execution confirmed without Ghost 112/147 ( 76.19% ), interpretation pending 0 rows.
+- J Inclusion of foreign language code: test mapping 0/16 ( 0.00% ), execution confirmed 0/16 ( 0.00% ), execution confirmed without Ghost 0/16 ( 0.00% ), interpretation pending 0 rows.
+- K vpi_user.h : test mapping 541/544 ( 99.45% ), execution confirmed 541/544 ( 99.45% ), execution confirmed without Ghost 540/544 ( 99.26% ), interpretation pending 0 rows.
+- L vpi_compatibility.h : test mapping 85/88 ( 96.59% ), execution confirmed 84/88 ( 95.45% ), execution confirmed without Ghost 0/88 ( 0.00% ), interpretation pending 0 rows.
+- M sv_vpi_user.h : test mapping 407/412 ( 98.79% ), execution confirmed 407/412 ( 98.79% ), execution confirmed without Ghost 407/412 ( 98.79% ), interpretation pending 0 rows.
+- N Algorithm for probabilistic distribution functions: test mapping 29/39 ( 74.36% ), execution confirmed 29/39 ( 74.36% ), execution confirmed without Ghost 29/39 ( 74.36% ), interpretation pending 0 rows.
+- O Encryption/decryption flow: test mapping no registered items, execution confirmed no registered items, execution confirmed without Ghost no registered items, interpretation pending 0 rows.
+- P Glossary: test mapping no registered items, execution confirmed no registered items, execution confirmed without Ghost no registered items, interpretation pending 0 rows.
+- Q Bibliography: test mapping no registered items, execution confirmed no registered items, execution confirmed without Ghost no registered items, interpretation pending 0 rows.
 
 <a id="分母と履歴"></a>
 

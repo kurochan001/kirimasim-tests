@@ -34,6 +34,11 @@ OUTCOME_PRIORITY = ("pass", "fail", "known", "unsupported", "unreviewed_oracle",
 REVIEWS = {"unreviewed", "in_progress", "complete", "no_behavior"}
 KINDS = {"normal", "boundary", "error"}
 SIMULATORS = {"icarus", "verilator", "kirimasim", "lyra", "ghost", "sby"}
+# The tools whose saved results anyone can reproduce: Icarus Verilog,
+# Verilator and SymbiYosys. Ghost is a private build, and kirimasim and Lyra
+# are the simulators being compared, so the second execution figure leaves
+# them out; the first one is the union over every environment.
+REPRODUCIBLE_SIMULATORS = ("icarus", "verilator", "sby")
 
 
 class InvalidCoverage(ValueError):
@@ -285,7 +290,10 @@ def execution(rows: list, result_paths: list[Path]) -> tuple[dict, list]:
                           "status_counts": {s: sum(v == s for v in outcomes.values())
                                             for s in (*OUTCOME_PRIORITY, "unmapped", "interpretation_pending")}})
     return {"snapshots": snapshots,
-            "executed": sorted({rid for s in snapshots for rid in s["executed"]})}, ignored
+            "executed": sorted({rid for s in snapshots for rid in s["executed"]}),
+            "executed_reproducible": sorted({rid for s in snapshots
+                                             if s["simulator"] in REPRODUCIBLE_SIMULATORS
+                                             for rid in s["executed"]})}, ignored
 
 
 def summarize(sections: dict, rows: list, runs: dict, denominator_reviewed: bool = False) -> dict:
@@ -298,6 +306,7 @@ def summarize(sections: dict, rows: list, runs: dict, denominator_reviewed: bool
             "denominator_reviewed": denominator_reviewed,
             "extraction_progress_percent": 100 * audited / len(normative) if normative else None,
             "unmapped": len(rows) - mapped, "executed": len(runs["executed"]),
+            "executed_reproducible": len(runs.get("executed_reproducible", ())),
             "whole_standard_percent": 100 * mapped / len(rows) if total_known else None,
             "whole_standard_executed_percent": 100 * len(runs["executed"]) / len(rows)
             if total_known else None,
@@ -316,6 +325,7 @@ def measurement(sections: dict, rows: list, runs: dict, source_audit: dict,
     stats = summarize(sections, rows, runs, denominator_reviewed)
     complete_source = source_audit["source_review_complete"]
     executed = set(runs["executed"])
+    reproducible = set(runs.get("executed_reproducible", ()))
     partition = {"pass": 0, "mapped_without_pass": 0, "unmapped": 0, "interpretation_pending": 0}
     chapters = []
     for r in rows:
@@ -325,10 +335,13 @@ def measurement(sections: dict, rows: list, runs: dict, source_audit: dict,
         total = len(group)
         mapped = sum(r["mapped"] for r in group)
         passed = sum(r["id"] in executed for r in group)
+        reproduced = sum(r["id"] in reproducible for r in group)
         chapters.append({"clause": root, "title": sections[root]["title"],
                          "registered": total, "mapped": mapped, "executed": passed,
+                         "executed_reproducible": reproduced,
                          "design_percent": 100 * mapped / total if total else None,
                          "execution_percent": 100 * passed / total if total else None,
+                         "execution_reproducible_percent": 100 * reproduced / total if total else None,
                          "interpretation_pending": sum(bool(r.get("interpretation_issue")) for r in group)})
     identity = {"metric_policy_version": METRIC_POLICY_VERSION,
                 "inventory_sha256": inventory_sha256,
@@ -341,6 +354,9 @@ def measurement(sections: dict, rows: list, runs: dict, source_audit: dict,
             "provisional_design_percent": stats["registered_percent"] if complete_source else None,
             "provisional_execution_percent": (100 * len(executed) / len(rows)
                                                if complete_source and rows else None),
+            "reproducible_simulators": list(REPRODUCIBLE_SIMULATORS),
+            "provisional_execution_reproducible_percent": (100 * len(reproducible) / len(rows)
+                                                            if complete_source and rows else None),
             "denominator": {"count": len(rows), "unit": "registered_requirement_condition_or_observation",
                             "sha256": hashlib.sha256(json.dumps(identity, sort_keys=True).encode()).hexdigest(),
                             "reviewed": denominator_reviewed, "source_review_complete": complete_source,
@@ -383,6 +399,9 @@ def compact_report(snapshot: dict, source_url: str | None = None,
              f"({snapshot['mapped']}/{total})。",
              f"- 実行確認率: **{percent(snapshot['provisional_execution_percent'])}** "
              f"({snapshot['executed']}/{total})。複数環境の成功の和集合。",
+             f"- Ghostを除く実行確認率: **{percent(snapshot['provisional_execution_reproducible_percent'])}** "
+             f"({snapshot['executed_reproducible']}/{total})。"
+             "第三者が再現できるIcarus Verilog・Verilator・SymbiYosysの成功の和集合。",
              "- 分母には解釈保留と未対応も含みます。未実装・未対応を除外していません。",
              "- 登録単位は要求の出現箇所・条件・観測ケースであり、分母のレビューで意味の重複を統合しています。"
              if confirmed else
@@ -427,6 +446,7 @@ def compact_report(snapshot: dict, source_url: str | None = None,
         lines.append(f"- {chapter['clause']} {chapter['title']}: "
                      f"テスト対応 {ratio(chapter['mapped'], chapter['registered'])}、"
                      f"実行確認 {ratio(chapter['executed'], chapter['registered'])}、"
+                     f"Ghostを除く実行確認 {ratio(chapter['executed_reproducible'], chapter['registered'])}、"
                      f"解釈保留 {chapter['interpretation_pending']} 行。")
     lines += ["", "## 分母と履歴", "",
               f"- 分母SHA-256: `{scope['sha256']}`。",
@@ -526,14 +546,17 @@ def report(inventory: dict, sections: dict, rows: list, runs: dict, ignored: lis
     if measured:
         provisional = measured["provisional_design_percent"]
         execution_pct = measured["provisional_execution_percent"]
+        reproducible_pct = measured["provisional_execution_reproducible_percent"]
         display = lambda value: "未確定" if value is None else f"{value:.2f}%"
         if whole is not None:
             lines[6:6] = [f"**全規格の要求台帳ベース（確定）: 設計 {display(provisional)}、"
-                          f"実行 {display(execution_pct)}。**",
+                          f"実行 {display(execution_pct)}、"
+                          f"Ghostを除く実行 {display(reproducible_pct)}。**",
                           "解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。", ""]
         else:
             lines[6:6] = [f"**全規格の要求台帳ベース（暫定）: 設計 {display(provisional)}、"
-                          f"実行 {display(execution_pct)}。**",
+                          f"実行 {display(execution_pct)}、"
+                          f"Ghostを除く実行 {display(reproducible_pct)}。**",
                           "解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。", ""]
     if source_audit:
         position = lines.index(f"- 規格棚卸し: 本文1–41章と附属書A–Q、計 {stats['sections']} 見出し。") + 1

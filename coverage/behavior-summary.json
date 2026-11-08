@@ -26,6 +26,7 @@
   "extraction_progress_percent": 100.0,
   "unmapped": 1319,
   "executed": 9535,
+  "executed_reproducible": 6264,
   "whole_standard_percent": 89.27467880956253,
   "whole_standard_executed_percent": 77.53293218409497,
   "registered_percent": 89.27467880956253,
@@ -33,6 +34,12 @@
   "whole_standard_status": "confirmed",
   "provisional_design_percent": 89.27467880956253,
   "provisional_execution_percent": 77.53293218409497,
+  "reproducible_simulators": [
+    "icarus",
+    "verilator",
+    "sby"
+  ],
+  "provisional_execution_reproducible_percent": 50.935111400227676,
   "denominator": {
     "count": 12298,
     "unit": "registered_requirement_condition_or_observation",
@@ -60,8 +67,10 @@
       "registered": 0,
       "mapped": 0,
       "executed": 0,
+      "executed_reproducible": 0,
       "design_percent": null,
       "execution_percent": null,
+      "execution_reproducible_percent": null,
       "interpretation_pending": 0
     },
     {
@@ -70,8 +79,10 @@
       "registered": 2,
       "mapped": 0,
       "executed": 0,
+      "executed_reproducible": 0,
       "design_percent": 0.0,
       "execution_percent": 0.0,
+      "execution_reproducible_percent": 0.0,
       "interpretation_pending": 0
     },
     {
@@ -80,8 +91,10 @@
       "registered": 146,
       "mapped": 118,
       "executed": 115,
+      "executed_reproducible": 110,
       "design_percent": 80.82191780821918,
       "execution_percent": 78.76712328767124,
+      "execution_reproducible_percent": 75.34246575342466,
       "interpretation_pending": 0
     },
     {
@@ -90,8 +103,10 @@
       "registered": 107,
       "mapped": 80,
       "executed": 76,
+      "executed_reproducible": 55,
       "design_percent": 74.76635514018692,
       "execution_percent": 71.02803738317758,
+      "execution_reproducible_percent": 51.401869158878505,
       "interpretation_pending": 0
     },
     {
@@ -100,8 +115,10 @@
       "registered": 154,
       "mapped": 136,
       "executed": 133,
+      "executed_reproducible": 127,
       "design_percent": 88.31168831168831,
       "execution_percent": 86.36363636363636,
+      "execution_reproducible_percent": 82.46753246753246,
       "interpretation_pending": 0
     },
     {
@@ -110,8 +127,10 @@
       "registered": 719,
       "mapped": 679,
       "executed": 628,
+      "executed_reproducible": 521,
       "design_percent": 94.43671766342142,
       "execution_percent": 87.34353268428373,
+      "execution_reproducible_percent": 72.46175243393603,
       "interpretation_pending": 0
     },
     {
@@ -120,8 +139,10 @@
       "registered": 345,
       "mapped": 320,
       "executed": 290,
+      "executed_reproducible": 188,
       "design_percent": 92.7536231884058,
       "execution_percent": 84.05797101449275,
+      "execution_reproducible_percent": 54.492753623188406,
       "interpretation_pending": 0
     },
     {
@@ -130,8 +151,10 @@
       "registered": 252,
       "mapped": 221,
       "executed": 181,
+      "executed_reproducible": 146,
       "design_percent": 87.6984126984127,
       "execution_percent": 71.82539682539682,
+      "execution_reproducible_percent": 57.93650793650794,
       "interpretation_pending": 0
     },
     {
@@ -140,8 +163,10 @@
       "registered": 189,
       "mapped": 166,
       "executed": 145,
+      "executed_reproducible": 111,
       "design_percent": 87.83068783068784,
       "execution_percent": 76.71957671957672,
+      "execution_reproducible_percent": 58.73015873015873,
       "interpretation_pending": 0
     },
     {
@@ -150,8 +175,10 @@
       "registered": 156,
       "mapped": 130,
       "executed": 119,
+      "executed_reproducible": 81,
       "design_percent": 83.33333333333333,
       "execution_percent": 76.28205128205128,
+      "execution_reproducible_percent": 51.92307692307692,
       "interpretation_pending": 0
     },
     {
@@ -160,8 +187,10 @@
       "registered": 459,
       "mapped": 433,
       "executed": 394,
+      "executed_reproducible": 357,
       "design_percent": 94.33551198257081,
       "execution_percent": 85.83877995642702,
+      "execution_reproducible_percent": 77.77777777777777,
       "interpretation_pending": 0
     },
     {
@@ -170,8 +199,10 @@
       "registered": 115,
       "mapped": 89,
       "executed": 83,
+      "executed_reproducible": 59,
       "design_percent": 77.3913043478261,
       "execution_percent": 72.17391304347827,
+      "execution_reproducible_percent": 51.30434782608695,
       "interpretation_pending": 0
     },
     {
@@ -180,8 +211,10 @@
       "registered": 119,
       "mapped": 92,
       "executed": 83,
+      "executed_reproducible": 75,
       "design_percent": 77.3109243697479,
       "execution_percent": 69.74789915966386,
+      "execution_reproducible_percent": 63.02521008403362,
       "interpretation_pending": 0
     },
     {
@@ -190,8 +223,10 @@
       "registered": 87,
       "mapped": 59,
       "executed": 58,
+      "executed_reproducible": 43,
       "design_percent": 67.816091954023,
       "execution_percent": 66.66666666666667,
+      "execution_reproducible_percent": 49.42528735632184,
       "interpretation_pending": 0
     },
     {
@@ -200,8 +235,10 @@
       "registered": 88,
       "mapped": 68,
       "executed": 63,
+      "executed_reproducible": 44,
       "design_percent": 77.27272727272727,
       "execution_percent": 71.5909090909091,
+      "execution_reproducible_percent": 50.0,
       "interpretation_pending": 0
     },
     {
@@ -210,8 +247,10 @@
       "registered": 555,
       "mapped": 539,
       "executed": 340,
+      "executed_reproducible": 152,
       "design_percent": 97.11711711711712,
       "execution_percent": 61.26126126126126,
+      "execution_reproducible_percent": 27.38738738738739,
       "interpretation_pending": 0
     },
     {
@@ -220,8 +259,10 @@
       "registered": 79,
       "mapped": 59,
       "executed": 28,
+      "executed_reproducible": 13,
       "design_percent": 74.68354430379746,
       "execution_percent": 35.44303797468354,
+      "execution_reproducible_percent": 16.455696202531644,
       "interpretation_pending": 0
     },
     {
@@ -230,8 +271,10 @@
       "registered": 320,
       "mapped": 300,
       "executed": 239,
+      "executed_reproducible": 139,
       "design_percent": 93.75,
       "execution_percent": 74.6875,
+      "execution_reproducible_percent": 43.4375,
       "interpretation_pending": 0
     },
     {
@@ -240,8 +283,10 @@
       "registered": 271,
       "mapped": 232,
       "executed": 121,
+      "executed_reproducible": 20,
       "design_percent": 85.60885608856088,
       "execution_percent": 44.64944649446495,
+      "execution_reproducible_percent": 7.380073800738008,
       "interpretation_pending": 0
     },
     {
@@ -250,8 +295,10 @@
       "registered": 316,
       "mapped": 285,
       "executed": 229,
+      "executed_reproducible": 127,
       "design_percent": 90.18987341772151,
       "execution_percent": 72.46835443037975,
+      "execution_reproducible_percent": 40.18987341772152,
       "interpretation_pending": 0
     },
     {
@@ -260,8 +307,10 @@
       "registered": 383,
       "mapped": 347,
       "executed": 331,
+      "executed_reproducible": 209,
       "design_percent": 90.60052219321149,
       "execution_percent": 86.42297650130548,
+      "execution_reproducible_percent": 54.56919060052219,
       "interpretation_pending": 0
     },
     {
@@ -270,8 +319,10 @@
       "registered": 361,
       "mapped": 345,
       "executed": 339,
+      "executed_reproducible": 333,
       "design_percent": 95.56786703601108,
       "execution_percent": 93.90581717451524,
+      "execution_reproducible_percent": 92.24376731301939,
       "interpretation_pending": 0
     },
     {
@@ -280,8 +331,10 @@
       "registered": 260,
       "mapped": 251,
       "executed": 162,
+      "executed_reproducible": 131,
       "design_percent": 96.53846153846153,
       "execution_percent": 62.30769230769231,
+      "execution_reproducible_percent": 50.38461538461539,
       "interpretation_pending": 0
     },
     {
@@ -290,8 +343,10 @@
       "registered": 29,
       "mapped": 16,
       "executed": 15,
+      "executed_reproducible": 3,
       "design_percent": 55.172413793103445,
       "execution_percent": 51.724137931034484,
+      "execution_reproducible_percent": 10.344827586206897,
       "interpretation_pending": 0
     },
     {
@@ -300,8 +355,10 @@
       "registered": 63,
       "mapped": 43,
       "executed": 31,
+      "executed_reproducible": 27,
       "design_percent": 68.25396825396825,
       "execution_percent": 49.20634920634921,
+      "execution_reproducible_percent": 42.857142857142854,
       "interpretation_pending": 0
     },
     {
@@ -310,8 +367,10 @@
       "registered": 44,
       "mapped": 39,
       "executed": 35,
+      "executed_reproducible": 30,
       "design_percent": 88.63636363636364,
       "execution_percent": 79.54545454545455,
+      "execution_reproducible_percent": 68.18181818181819,
       "interpretation_pending": 0
     },
     {
@@ -320,8 +379,10 @@
       "registered": 32,
       "mapped": 27,
       "executed": 24,
+      "executed_reproducible": 20,
       "design_percent": 84.375,
       "execution_percent": 75.0,
+      "execution_reproducible_percent": 62.5,
       "interpretation_pending": 0
     },
     {
@@ -330,8 +391,10 @@
       "registered": 384,
       "mapped": 363,
       "executed": 358,
+      "executed_reproducible": 278,
       "design_percent": 94.53125,
       "execution_percent": 93.22916666666667,
+      "execution_reproducible_percent": 72.39583333333333,
       "interpretation_pending": 0
     },
     {
@@ -340,8 +403,10 @@
       "registered": 52,
       "mapped": 49,
       "executed": 44,
+      "executed_reproducible": 40,
       "design_percent": 94.23076923076923,
       "execution_percent": 84.61538461538461,
+      "execution_reproducible_percent": 76.92307692307692,
       "interpretation_pending": 0
     },
     {
@@ -350,8 +415,10 @@
       "registered": 157,
       "mapped": 131,
       "executed": 122,
+      "executed_reproducible": 102,
       "design_percent": 83.43949044585987,
       "execution_percent": 77.70700636942675,
+      "execution_reproducible_percent": 64.96815286624204,
       "interpretation_pending": 0
     },
     {
@@ -360,8 +427,10 @@
       "registered": 180,
       "mapped": 154,
       "executed": 111,
+      "executed_reproducible": 18,
       "design_percent": 85.55555555555556,
       "execution_percent": 61.666666666666664,
+      "execution_reproducible_percent": 10.0,
       "interpretation_pending": 0
     },
     {
@@ -370,8 +439,10 @@
       "registered": 131,
       "mapped": 119,
       "executed": 78,
+      "executed_reproducible": 65,
       "design_percent": 90.83969465648855,
       "execution_percent": 59.541984732824424,
+      "execution_reproducible_percent": 49.61832061068702,
       "interpretation_pending": 0
     },
     {
@@ -380,8 +451,10 @@
       "registered": 63,
       "mapped": 30,
       "executed": 21,
+      "executed_reproducible": 8,
       "design_percent": 47.61904761904762,
       "execution_percent": 33.333333333333336,
+      "execution_reproducible_percent": 12.698412698412698,
       "interpretation_pending": 0
     },
     {
@@ -390,8 +463,10 @@
       "registered": 214,
       "mapped": 5,
       "executed": 5,
+      "executed_reproducible": 5,
       "design_percent": 2.336448598130841,
       "execution_percent": 2.336448598130841,
+      "execution_reproducible_percent": 2.336448598130841,
       "interpretation_pending": 0
     },
     {
@@ -400,8 +475,10 @@
       "registered": 142,
       "mapped": 114,
       "executed": 105,
+      "executed_reproducible": 77,
       "design_percent": 80.28169014084507,
       "execution_percent": 73.94366197183099,
+      "execution_reproducible_percent": 54.225352112676056,
       "interpretation_pending": 0
     },
     {
@@ -410,8 +487,10 @@
       "registered": 163,
       "mapped": 148,
       "executed": 79,
+      "executed_reproducible": 46,
       "design_percent": 90.79754601226993,
       "execution_percent": 48.466257668711656,
+      "execution_reproducible_percent": 28.220858895705522,
       "interpretation_pending": 0
     },
     {
@@ -420,8 +499,10 @@
       "registered": 1757,
       "mapped": 1656,
       "executed": 1334,
+      "executed_reproducible": 72,
       "design_percent": 94.25156516789983,
       "execution_percent": 75.9248719408082,
+      "execution_reproducible_percent": 4.097894137734775,
       "interpretation_pending": 0
     },
     {
@@ -430,8 +511,10 @@
       "registered": 348,
       "mapped": 260,
       "executed": 247,
+      "executed_reproducible": 145,
       "design_percent": 74.71264367816092,
       "execution_percent": 70.97701149425288,
+      "execution_reproducible_percent": 41.666666666666664,
       "interpretation_pending": 0
     },
     {
@@ -440,8 +523,10 @@
       "registered": 95,
       "mapped": 82,
       "executed": 81,
+      "executed_reproducible": 2,
       "design_percent": 86.3157894736842,
       "execution_percent": 85.26315789473684,
+      "execution_reproducible_percent": 2.1052631578947367,
       "interpretation_pending": 0
     },
     {
@@ -450,8 +535,10 @@
       "registered": 128,
       "mapped": 82,
       "executed": 79,
+      "executed_reproducible": 34,
       "design_percent": 64.0625,
       "execution_percent": 61.71875,
+      "execution_reproducible_percent": 26.5625,
       "interpretation_pending": 0
     },
     {
@@ -460,8 +547,10 @@
       "registered": 0,
       "mapped": 0,
       "executed": 0,
+      "executed_reproducible": 0,
       "design_percent": null,
       "execution_percent": null,
+      "execution_reproducible_percent": null,
       "interpretation_pending": 0
     },
     {
@@ -470,8 +559,10 @@
       "registered": 811,
       "mapped": 792,
       "executed": 709,
+      "executed_reproducible": 511,
       "design_percent": 97.65721331689272,
       "execution_percent": 87.422934648582,
+      "execution_reproducible_percent": 63.00863131935882,
       "interpretation_pending": 0
     },
     {
@@ -480,8 +571,10 @@
       "registered": 248,
       "mapped": 248,
       "executed": 248,
+      "executed_reproducible": 248,
       "design_percent": 100.0,
       "execution_percent": 100.0,
+      "execution_reproducible_percent": 100.0,
       "interpretation_pending": 0
     },
     {
@@ -490,8 +583,10 @@
       "registered": 20,
       "mapped": 9,
       "executed": 9,
+      "executed_reproducible": 7,
       "design_percent": 45.0,
       "execution_percent": 45.0,
+      "execution_reproducible_percent": 35.0,
       "interpretation_pending": 0
     },
     {
@@ -500,8 +595,10 @@
       "registered": 0,
       "mapped": 0,
       "executed": 0,
+      "executed_reproducible": 0,
       "design_percent": null,
       "execution_percent": null,
+      "execution_reproducible_percent": null,
       "interpretation_pending": 0
     },
     {
@@ -510,8 +607,10 @@
       "registered": 0,
       "mapped": 0,
       "executed": 0,
+      "executed_reproducible": 0,
       "design_percent": null,
       "execution_percent": null,
+      "execution_reproducible_percent": null,
       "interpretation_pending": 0
     },
     {
@@ -520,8 +619,10 @@
       "registered": 253,
       "mapped": 253,
       "executed": 253,
+      "executed_reproducible": 253,
       "design_percent": 100.0,
       "execution_percent": 100.0,
+      "execution_reproducible_percent": 100.0,
       "interpretation_pending": 0
     },
     {
@@ -530,8 +631,10 @@
       "registered": 32,
       "mapped": 25,
       "executed": 25,
+      "executed_reproducible": 18,
       "design_percent": 78.125,
       "execution_percent": 78.125,
+      "execution_reproducible_percent": 56.25,
       "interpretation_pending": 0
     },
     {
@@ -540,8 +643,10 @@
       "registered": 223,
       "mapped": 190,
       "executed": 174,
+      "executed_reproducible": 126,
       "design_percent": 85.20179372197309,
       "execution_percent": 78.02690582959642,
+      "execution_reproducible_percent": 56.502242152466366,
       "interpretation_pending": 0
     },
     {
@@ -550,8 +655,10 @@
       "registered": 147,
       "mapped": 133,
       "executed": 130,
+      "executed_reproducible": 112,
       "design_percent": 90.47619047619048,
       "execution_percent": 88.43537414965986,
+      "execution_reproducible_percent": 76.19047619047619,
       "interpretation_pending": 0
     },
     {
@@ -560,8 +667,10 @@
       "registered": 16,
       "mapped": 0,
       "executed": 0,
+      "executed_reproducible": 0,
       "design_percent": 0.0,
       "execution_percent": 0.0,
+      "execution_reproducible_percent": 0.0,
       "interpretation_pending": 0
     },
     {
@@ -570,8 +679,10 @@
       "registered": 544,
       "mapped": 541,
       "executed": 541,
+      "executed_reproducible": 540,
       "design_percent": 99.44852941176471,
       "execution_percent": 99.44852941176471,
+      "execution_reproducible_percent": 99.26470588235294,
       "interpretation_pending": 0
     },
     {
@@ -580,8 +691,10 @@
       "registered": 88,
       "mapped": 85,
       "executed": 84,
+      "executed_reproducible": 0,
       "design_percent": 96.5909090909091,
       "execution_percent": 95.45454545454545,
+      "execution_reproducible_percent": 0.0,
       "interpretation_pending": 0
     },
     {
@@ -590,8 +703,10 @@
       "registered": 412,
       "mapped": 407,
       "executed": 407,
+      "executed_reproducible": 407,
       "design_percent": 98.7864077669903,
       "execution_percent": 98.7864077669903,
+      "execution_reproducible_percent": 98.7864077669903,
       "interpretation_pending": 0
     },
     {
@@ -600,8 +715,10 @@
       "registered": 39,
       "mapped": 29,
       "executed": 29,
+      "executed_reproducible": 29,
       "design_percent": 74.35897435897436,
       "execution_percent": 74.35897435897436,
+      "execution_reproducible_percent": 74.35897435897436,
       "interpretation_pending": 0
     },
     {
@@ -610,8 +727,10 @@
       "registered": 0,
       "mapped": 0,
       "executed": 0,
+      "executed_reproducible": 0,
       "design_percent": null,
       "execution_percent": null,
+      "execution_reproducible_percent": null,
       "interpretation_pending": 0
     },
     {
@@ -620,8 +739,10 @@
       "registered": 0,
       "mapped": 0,
       "executed": 0,
+      "executed_reproducible": 0,
       "design_percent": null,
       "execution_percent": null,
+      "execution_reproducible_percent": null,
       "interpretation_pending": 0
     },
     {
@@ -630,8 +751,10 @@
       "registered": 0,
       "mapped": 0,
       "executed": 0,
+      "executed_reproducible": 0,
       "design_percent": null,
       "execution_percent": null,
+      "execution_reproducible_percent": null,
       "interpretation_pending": 0
     }
   ],

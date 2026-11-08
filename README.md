@@ -296,6 +296,8 @@ approved it. The reviewer was an AI, not an independent human.
 Design coverage is **89.27% (10,979/12,298)**;
 execution coverage from the saved `coverage/results/` evidence is
 **77.53% (9,535/12,298)**, from Icarus Verilog, Verilator, SymbiYosys and Ghost.
+Without Ghost, from only the tools anyone can reproduce (Icarus Verilog,
+Verilator and SymbiYosys), it is **50.94% (6,264/12,298)**.
 Clauses 1 to 40 alone are at 87.34% (8,267/9,465) design coverage.
 See the [generated behavior summary](docs/behavior-coverage-summary.en.md) for the
 measurement inputs and denominator.

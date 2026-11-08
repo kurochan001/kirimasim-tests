@@ -63,6 +63,16 @@ class BehaviorCoverageTests(unittest.TestCase):
         self.assertEqual(ignored, [])
         self.assertIn(self.reg["requirements"][0]["id"], execution["executed"])
 
+    def test_reproducible_execution_leaves_out_ghost_kirimasim_and_lyra(self):
+        rid = self.reg["requirements"][0]["id"]
+        for simulator, counted in (("icarus", True), ("verilator", True), ("sby", True),
+                                   ("ghost", False), ("kirimasim", False), ("lyra", False)):
+            with self.subTest(simulator=simulator):
+                execution, ignored = self.execute(self.result(simulator=simulator))
+                self.assertEqual(ignored, [])
+                self.assertIn(rid, execution["executed"])
+                self.assertEqual(rid in execution["executed_reproducible"], counted)
+
     def test_no_requirement_inferred_from_thousands_of_citations(self):
         self.reg["requirements"] = []
         sections, rows = self.validated()

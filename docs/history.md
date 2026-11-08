@@ -418,3 +418,8 @@ clause 37.
 - The first attempt of the Lyra job found no cached build of Lyra `ed6c62dc` and stopped when Bazel timed out downloading `bazel-lib` from GitHub. The re-run of that job built Lyra in 85 minutes and ran the suite with GCC 13.3 in 4 hours 20 minutes, using 5 hours 47 minutes of the job's 6-hour limit.
 - Lyra matches 9,674 of 11,897 tests, with 1,600 unsupported and 623 failures. Of the 10,723 tests also run on 2026-11-06 (`3ee7454c`), every test that passed then passes now, and 143 more pass (135 unsupported and 8 failing before).
 - Because the Lyra job was re-run, the publish job ran twice, and the results history lists this run twice; the second row includes Lyra.
+
+### 2026-11-09 (execution coverage without Ghost)
+
+- An external review found that 3,271 of the 9,535 executed requirements rest on Ghost's results alone. Ghost is a private build, so third parties cannot reproduce them.
+- `tools/behavior_coverage.py` now also counts the requirements that pass on Icarus Verilog, Verilator or SymbiYosys, as a whole and by chapter: 6,264/12,298 (50.94%). The summary, the detailed report, the README and the FAQ show it beside the union over every environment. Which figure leads is still to be decided, so the existing figures stay as they are.
