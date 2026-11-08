@@ -4,7 +4,7 @@ with its expected output.
 
 Usage:
     python3 tools/run_lyra.py [--lyra PATH] [--commit SHA] [--cache-dir DIR]
-                              [-j N] [--json FILE] [TEST ...]
+                              [--cxx COMPILER] [-j N] [--json FILE] [TEST ...]
 
 With no TEST arguments, runs every test whose :type: is not formal. A formal
 test belongs to tools/run_sby.py and has no expected output. Exits with 1 if
@@ -23,6 +23,15 @@ after `--`, which is where the program's own arguments go. Lyra keeps what it
 builds for reuse in a cache directory, which the tests share: --cache-dir, or
 else a temporary directory that is removed at the end. Each test is built
 with `-j 1`, as the tests themselves run in parallel.
+
+Lyra builds a design with a C++ compiler: the first `clang++` or `c++` on
+PATH, or the one that --cxx names, which is passed on to `lyra run`. Its
+libstdc++ has to be 13.2 or newer, and the compiler has to see the C++23 parts
+of it that Lyra's runtime uses, such as std::expected; clang 18 with
+libstdc++ 13 does not. With --json, the compiler that --cxx names and its
+version are kept in the configuration of the results. When Lyra cannot
+compile what it generated, the reason of the failure also gives the first
+error of the C++ compiler, with the file named without its directories.
 
 Lyra prints its diagnostics on standard error as
 `<file>:<line>:<column>: error: ...`, and says of every construct that it
@@ -64,6 +73,9 @@ UNSUPPORTED = re.compile(r"is not yet supported")
 # follows a message (for example "note: in 'Test' at time 0"). A line that a
 # test prints, such as "note: 1 2", is neither.
 MESSAGE = re.compile(r"^(?:\S+:\d+:\d+: |note: in '[^']*' at time \S+$)")
+# Lyra's message when the C++ compiler rejects a file that Lyra generated; the
+# compiler's own messages follow it.
+GENERATED = re.compile(r"\berror: compiling '[^']*' failed")
 
 
 def header_field(test: Path, name: str) -> str | None:
@@ -97,7 +109,18 @@ def message(line: str) -> str:
     return re.sub(r"^\S+:\d+:\d+: ", "", line).strip()
 
 
-def run(test: Path, lyra: str, cache: Path) -> tuple[str, str]:
+def compiler_error(lines: list[str], error: str) -> str:
+    """The first error of the C++ compiler after Lyra's message that it could
+    not compile a file it generated, for the reason of the failure. The file
+    is named without its directories, which are those of the machine."""
+    if not GENERATED.search(error):
+        return ""
+    after = lines[lines.index(error) + 1:]
+    first = next((l for l in after if re.search(r"\berror: ", l)), "")
+    return ": " + re.sub(r"^\S*/", "", first.strip()) if first else ""
+
+
+def run(test: Path, lyra: str, cache: Path, cxx: str | None = None) -> tuple[str, str]:
     """The status of the test (pass, fail or unsupported) and the reason."""
     if header_field(test, "vpi_c") is not None:
         return "unsupported", "Lyra has no VPI"
@@ -112,6 +135,7 @@ def run(test: Path, lyra: str, cache: Path) -> tuple[str, str]:
         command = [lyra, "check", *OPTIONS, *design]
     else:
         command = [lyra, "run", *OPTIONS, "-j", "1", "--cache-dir", str(cache),
+                   *(["--cxx", cxx] if cxx else []),
                    *(["--dpi-link", str(dpi)] if dpi else []), *design,
                    "--", *suite_results.run_args(test)]
     with tempfile.TemporaryDirectory() as tmp:
@@ -147,7 +171,7 @@ def run(test: Path, lyra: str, cache: Path) -> tuple[str, str]:
         return "fail", message(internal)
     error = next((l for l in lines if re.search(r"\berror: ", l)), "")
     if r.returncode != 0 and error and not r.stdout:
-        return "fail", "compile failed: " + message(error)
+        return "fail", "compile failed: " + message(error) + compiler_error(lines, error)
     return "fail", "output differs" + (f" (exit {r.returncode})" if r.returncode else "") + (
         f": {message(error)}" if error and r.returncode
         else ": " + suite_results.first_difference(norm, want))
@@ -159,6 +183,9 @@ def main() -> int:
     ap.add_argument("--commit", default=None, help="the commit of Lyra that was built")
     ap.add_argument("--cache-dir", type=Path, default=None,
                     help="where Lyra keeps what it builds (default: a temporary directory)")
+    ap.add_argument("--cxx", default=None,
+                    help="the C++ compiler Lyra builds a design with "
+                         "(default: the first clang++ or c++ on PATH)")
     ap.add_argument("-j", "--jobs", type=int, default=1, help="number of tests run at once")
     ap.add_argument("--json", type=Path, default=None, help="also write the results to this file")
     ap.add_argument("tests", nargs="*", type=Path)
@@ -177,7 +204,7 @@ def main() -> int:
     with tempfile.TemporaryDirectory() as tmp:
         cache = args.cache_dir.resolve() if args.cache_dir else Path(tmp)
         with concurrent.futures.ThreadPoolExecutor(max_workers=args.jobs) as pool:
-            results = pool.map(lambda t: run(t, exe, cache), tests)
+            results = pool.map(lambda t: run(t, exe, cache, args.cxx), tests)
             for t, (status, why) in zip(tests, results):
                 name = t.relative_to(ROOT) if t.is_absolute() else t
                 if status == "unsupported":
@@ -192,8 +219,12 @@ def main() -> int:
     if args.json:
         version = (f"Lyra (commit {args.commit[:12]})" if args.commit
                    else suite_results.tool_version([exe, "--version"]) or "Lyra")
+        configuration = ({"cxx": args.cxx,
+                          "cxx_version": suite_results.tool_version([args.cxx, "--version"])}
+                         if args.cxx else {})
         suite_results.write(args.json, "lyra", "Lyra", version, statuses,
-                            inputs=inputs, runner_sha256=runner_hash)
+                            inputs=inputs, configuration=configuration,
+                            runner_sha256=runner_hash)
     return 1 if failed or unsupported else 0
 
 

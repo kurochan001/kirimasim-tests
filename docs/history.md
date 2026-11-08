@@ -390,3 +390,12 @@ clause 37.
 - The suite has 12,166 tests, 5,729 generated from 119 generators. Requirement coverage and thirteen random profiles are unchanged.
   Cycle delays with synchronous drives, and clocking inputs bound to expressions, were added to the candidates waiting for kirimasim.
   This addition has not run in formal Check/Nightly. See the [design and evidence](interaction-verification.en.md#scoped-class-declaration).
+
+<a id="2026-11-08-lyra-host-compiler"></a>
+
+### 2026-11-08 (Lyra host compiler)
+
+- The Lyra job of the Nightly runs on [2026-11-07](https://github.com/kurochan001/kirimasim-tests/actions/runs/42313961551) and [2026-11-08](https://github.com/kurochan001/kirimasim-tests/actions/runs/42422374691) reached the 6-hour limit. Since Lyra `4872d420`, almost every test failed with "compiling 'sv_esc_std.cpp' failed", and each test built the std package again. Lyra's own CI passed at those commits, and the run of 2026-11-06 on `3ee7454c` had no such failure.
+- A [first diagnosis](https://github.com/kurochan001/kirimasim-tests/actions/runs/42461858263) on the cached builds found the C++ compiler's error: Lyra's runtime uses `std::expected`, which the runner's clang 18 does not find in libstdc++ 13. The 6 GB address-space limit of the job made no difference (peak memory about 380 MB).
+- A [second diagnosis](https://github.com/kurochan001/kirimasim-tests/actions/runs/42462621481) ran the 200 tests of chapter 10 on `b9c9a061` with the runner's GCC 13.3 and with clang 20, the release Lyra's own CI installs. Both gave 185 matches, six failures and nine unsupported, the same tests as on 2026-11-06.
+- The Nightly job now gives `--cxx c++` to `tools/run_lyra.py`, which passes it on to `lyra run` and records the compiler and its version in the results. When Lyra cannot compile what it generated, the reason of the failure also gives the first error of the C++ compiler. The diagnosis workflow was removed.

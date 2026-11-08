@@ -691,7 +691,7 @@ kirimasimを根拠に記録したoracleはなく、formal以外を実行対象�
 ### Lyra
 
 ```sh
-python3 tools/run_lyra.py --lyra /path/to/lyra --commit SHA -j 8
+python3 tools/run_lyra.py --lyra /path/to/lyra --commit SHA --cxx c++ -j 8
 ```
 
 [Lyra](https://github.com/hankhsu1996/lyra)はslangとLLVMを通して設計を実行プログラムに変換します。
@@ -701,6 +701,10 @@ x86-64 Linuxだけでビルドでき、リリースがないため、`--commit`�
 `:dpi_c:`は`--dpi-link`、`:args:`は`--`の後に渡します。
 ビルド結果は共通のキャッシュディレクトリ（`--cache-dir`、または一時ディレクトリ）に保存し、
 各テストを`-j 1`でビルドします。
+Lyraは設計をC++コンパイラでビルドします。`PATH`で最初に見つかる`clang++`か`c++`、または`--cxx`で指定したものを使います。
+そのlibstdc++は13.2以上が必要で、コンパイラがLyraのランタイムの使うC++23の部分（`std::expected`など）を扱える必要があります。
+clang 18とlibstdc++ 13の組合せでは扱えません。Nightlyのジョブは`--cxx c++`でランナーのGCCを指定し、結果にコンパイラとその版を記録します。
+Lyraが生成したコードをコンパイルできなかったときは、失敗の理由にC++コンパイラの最初のエラーも示します。
 Lyraは標準エラーに診断を出し、未対応の機能を"is not yet supported"と示すので、未対応に分類します。
 標準出力のうち、Lyra自身が出す位置情報で始まる行（cover文の回数など）を除去し、
 テストが出した行を残して比較します。不正な設計は`lyra check`で確認します。

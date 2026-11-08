@@ -8,7 +8,7 @@ and reviewing unexamined chapter pairs, in that order.
 
 The current [complete local selection](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json) has 110 models and 4,416 cases, run on kirimasim `f029ddd0eee1`, built from the latest main:
 3,915 pass, 487 unsupported and 14 failures: the four config failures, the four `defparam` failures and six where kirimasim stops with an internal error on a class in a generate block. Against the [previous complete run](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json), preceding 4,296 inputs and statuses are unchanged.
-The previous 126 cases passed the pinned comparisons in [Check on `c229a05f`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42435564931) and have not run in Nightly; these 120 cases have not run in formal Check/Nightly.
+The previous 126 cases passed the pinned comparisons in [Check on `c229a05f`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42435564931) and have not run in Nightly; these 120 cases passed the pinned comparisons in [Check on `a9c8a8eb`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42461618429) and have not run in Nightly either.
 
 [Check on baseline 67321079](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584) passed pinned comparisons/static checks on the preceding 88-model suite.
 [Nightly on the same baseline](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265) and all its jobs succeeded; individual artifacts remain uninspected. Later additions are outside both runs.

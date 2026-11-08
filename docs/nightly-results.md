@@ -37,7 +37,7 @@ suite `19cd790a5f639348ad67fd63959dce9811d3ab56`の[Nightly](https://github.com/
 ### 直近のローカル追加
 
 最新のローカル追加は[moduleとgenerateブロックで宣言したクラス](interaction-verification.md#scoped-class-declaration)・[case項目のリテラルの桁](interaction-verification.md#case-literal-wildcard)・[構造体リテラルのキー](interaction-verification.md#aggregate-literal-key)の120件で、110モデル・4,416件です。
-最新のmainをビルドした`f029ddd0eee1`による[単一実行](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json)は3,915 pass・487 unsupported・14 failです。追加120件のうち106件がPASSで、6件がfail、8件がunsupportedです。従来4,296件の入力と状態は不変です。今回の120件は正式Check・Nightlyでは未実行です。
+最新のmainをビルドした`f029ddd0eee1`による[単一実行](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json)は3,915 pass・487 unsupported・14 failです。追加120件のうち106件がPASSで、6件がfail、8件がunsupportedです。従来4,296件の入力と状態は不変です。今回の120件は[`a9c8a8eb`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42461618429)で固定版比較が成功し、Nightlyでは未実行です。
 
 その前のローカル追加は[遅延の値の書き方](interaction-verification.md#delay-value-form)・[packageの名前の探索](interaction-verification.md#package-name-lookup)・[エスケープした識別子](interaction-verification.md#escaped-name-binding)の126件で、107モデル・4,296件です。
 `28c6c1a1cb83`による[単一実行](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json)は3,809 pass・479 unsupported・8 failです。追加126件は全PASSで、従来4,170件の入力と状態は不変です。この126件は[`c229a05f`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42435564931)で固定版比較が成功し、Nightlyでは未実行です。
@@ -131,7 +131,7 @@ Ghostは、公開前の正体不明なシミュレータが仮名で参加する
 毎晩、他の参加者と同じテストを実行し、正体やソースを伏せたまま結果を公開します。
 ビルドの識別には実行ファイルのハッシュを使い、取得先・内部の診断・ビルドログは公開しません。
 nvcは2026年10月24日に比較対象へ加えましたが、SystemVerilogへの対応が少ないため、10月25日に外しました。それまでのnvcの結果は`history.json`に残りますが、推移図とレポートには描きません。
-Lyraは各ジョブの開始時に`main`先端のコミットを取得します。そのSHAをソース取得・キャッシュキー・結果記録で共通に使い、同じコミットのビルドだけを再利用します。未キャッシュのコミットは再ビルドします。過去のGitHubランナーでのビルドには40〜90分かかりました。
+Lyraは各ジョブの開始時に`main`先端のコミットを取得します。そのSHAをソース取得・キャッシュキー・結果記録で共通に使い、同じコミットのビルドだけを再利用します。未キャッシュのコミットは再ビルドします。過去のGitHubランナーでのビルドには40〜90分かかりました。Lyraは各テストをランナーのGCC（`--cxx c++`）でビルドします。Lyra `4872d420`からはランナーのclang 18ではLyraのランタイムをコンパイルできず、2026-11-07と11-08のLyraのジョブが止まりました（[履歴](history.ja.md#2026-11-08-lyra-host-compiler)を参照）。
 `publish`は`main`の実行だけが行います。ほかのブランチで手動実行した場合、結果はartifactとして残るだけで、公開はされません。
 `publish`が結果を集計して`results`ブランチへpushすると、READMEから参照しているグラフと結果レポートが更新されます。
 `main`へのpushと、Nightly結果の公開は別の処理です。

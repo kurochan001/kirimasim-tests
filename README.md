@@ -806,7 +806,7 @@ terminal match-rate denominator. Its status is still recorded in JSON.
 ### Lyra
 
 ```sh
-python3 tools/run_lyra.py --lyra /path/to/lyra --commit SHA -j 8
+python3 tools/run_lyra.py --lyra /path/to/lyra --commit SHA --cxx c++ -j 8
 ```
 
 [Lyra](https://github.com/hankhsu1996/lyra) compiles a design through slang
@@ -817,7 +817,14 @@ without `:top_module:`, slang takes every module that nothing instantiates,
 the C file of `:dpi_c:` is given with `--dpi-link`, and the arguments of
 `:args:` follow `--`. Lyra keeps what it builds for reuse in a cache
 directory that the tests share (`--cache-dir`, or a temporary directory),
-and each test is built with `-j 1`. Lyra prints its diagnostics on standard
+and each test is built with `-j 1`. Lyra builds a design with a C++
+compiler: the first `clang++` or `c++` on `PATH`, or the one `--cxx` names.
+Its libstdc++ has to be 13.2 or newer, and the compiler has to see the C++23
+parts of it that Lyra's runtime uses, such as `std::expected`; clang 18 with
+libstdc++ 13 does not. The nightly job gives `--cxx c++`, the runner's GCC,
+and the results record the compiler and its version. When Lyra cannot
+compile what it generated, the reason of the failure also gives the first
+error of the C++ compiler. Lyra prints its diagnostics on standard
 error and says of every construct it does not carry out yet that it "is not
 yet supported", which makes the test unsupported. The lines that Lyra prints
 on standard output itself, which open with the place they are about (such as

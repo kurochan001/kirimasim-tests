@@ -364,3 +364,12 @@
 - suiteは12,166件、生成5,729件・119生成器です。要求カバレッジと13ランダムプロファイルを維持しました。
   サイクル遅延と同期駆動、式に結び付けたclockingの入力を、kirimasimの実装を待つ候補に加えました。
   今回の追加は正式Check・Nightlyでは未実行です。[設計・証跡](interaction-verification.md#scoped-class-declaration)を参照してください。
+
+<a id="2026-11-08-lyra-host-compiler"></a>
+
+### 2026-11-08（LyraのC++コンパイラ）
+
+- [2026-11-07](https://github.com/kurochan001/kirimasim-tests/actions/runs/42313961551)と[2026-11-08](https://github.com/kurochan001/kirimasim-tests/actions/runs/42422374691)のNightlyで、Lyraのジョブが6時間の上限に達しました。Lyra `4872d420`から、ほぼ全テストが「compiling 'sv_esc_std.cpp' failed」で失敗し、テストごとにstdパッケージを作り直していました。Lyra自身のCIはこれらのコミットで成功しており、2026-11-06の`3ee7454c`による実行にはこの失敗はありませんでした。
+- キャッシュ済みのビルドを使った[1回目の診断](https://github.com/kurochan001/kirimasim-tests/actions/runs/42461858263)で、C++コンパイラのエラーが分かりました。Lyraのランタイムが使う`std::expected`を、ランナーのclang 18はlibstdc++ 13の中に見つけられません。ジョブの6 GBのアドレス空間の上限は無関係でした（最大メモリーは約380 MB）。
+- [2回目の診断](https://github.com/kurochan001/kirimasim-tests/actions/runs/42462621481)では、`b9c9a061`でch10の200件を、ランナーのGCC 13.3と、Lyra自身のCIが入れるclang 20で実行しました。どちらも185件一致・fail 6件・unsupported 9件で、該当するテストも2026-11-06と同じでした。
+- Nightlyのジョブは`tools/run_lyra.py`に`--cxx c++`を渡すようにしました。`run_lyra.py`はそれを`lyra run`に渡し、コンパイラとその版を結果に記録します。Lyraが生成したコードをコンパイルできなかったときは、失敗の理由にC++コンパイラの最初のエラーも示します。診断用のワークフローは削除しました。

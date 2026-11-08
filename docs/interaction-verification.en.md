@@ -20,7 +20,7 @@ The [single run](../coverage/interaction-results/cross110-kirimasim-f029ddd0-sco
 106 of the 120 additions pass; six stop on a kirimasim internal error for a class in a conditional generate block, and eight use a structure localparam that kirimasim has not implemented.
 Preceding 4,296 inputs and statuses are unchanged. 83 models pass their entire selection.
 See [classes declared in a module or a generate block](#scoped-class-declaration), [case item literal digits](#case-literal-wildcard) and [structure literal keys](#aggregate-literal-key) for the independent checks and pinned comparisons.
-The 120 additions have not run in formal Check/Nightly.
+The 120 additions passed the pinned comparisons in [Check on `a9c8a8eb`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42461618429); they have not run in Nightly.
 
 The 2026-11-08 delay-value, package-lookup and escaped-name additions bring totals to **107 models / 4,296 cases / 185 chapter pairs**.
 The [single run](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json) on kirimasim `28c6c1a1cb83` records

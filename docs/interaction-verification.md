@@ -20,7 +20,7 @@
 追加120件のうち106件がPASSで、6件は条件の生成ブロックのクラスでkirimasimが内部エラーになり、8件は構造体のlocalparamが未実装です。
 従来4,296件の入力と状態は不変です。全選択ケースPASSは83モデルです。
 [moduleとgenerateブロックで宣言したクラス](#scoped-class-declaration)、[case項目のリテラルの桁](#case-literal-wildcard)、[構造体リテラルのキー](#aggregate-literal-key)に独立検算と固定版比較を記録します。
-追加120件は正式Check・Nightlyでは未実行です。
+追加120件は[`a9c8a8eb`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42461618429)で固定版比較が成功しました。Nightlyでは未実行です。
 
 2026-11-08の遅延の値の書き方・packageの名前の探索・エスケープした識別子の追加で、**107モデル・4,296件・185章対**になりました。
 kirimasim `28c6c1a1cb83`の[単一実行](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json)は、
