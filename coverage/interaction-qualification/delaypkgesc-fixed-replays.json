@@ -1,0 +1,86 @@
+{
+  "models": [
+    "delay_value_form",
+    "package_name_lookup",
+    "escaped_name_binding"
+  ],
+  "scope": "Pinned releases execute identical saved SV and standard expectations. Icarus matches receive its oracle. Icarus and Verilator differences and rejections stay known; two-state observations never qualify raw X/Z. No simulator implementation source was read.",
+  "versions_and_runs": [
+    {
+      "simulator": "icarus",
+      "run": "coverage/interaction-results/cross107-delaypkgesc-icarus13.json",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "configuration": {},
+      "counts": {
+        "pass": 126
+      },
+      "counts_by_model": {
+        "package_name_lookup": {
+          "pass": 37
+        },
+        "escaped_name_binding": {
+          "pass": 29
+        },
+        "delay_value_form": {
+          "pass": 60
+        }
+      },
+      "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46"
+    },
+    {
+      "simulator": "verilator",
+      "run": "coverage/interaction-results/cross107-delaypkgesc-verilator5052-seed1.json",
+      "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+      "configuration": {
+        "seed": 1
+      },
+      "counts": {
+        "pass": 112,
+        "known": 14
+      },
+      "counts_by_model": {
+        "package_name_lookup": {
+          "pass": 37
+        },
+        "escaped_name_binding": {
+          "pass": 29
+        },
+        "delay_value_form": {
+          "pass": 46,
+          "known": 14
+        }
+      },
+      "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf"
+    },
+    {
+      "simulator": "verilator",
+      "run": "coverage/interaction-results/cross107-delaypkgesc-verilator5052-seed73.json",
+      "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+      "configuration": {
+        "seed": 73
+      },
+      "counts": {
+        "pass": 109,
+        "known": 17
+      },
+      "counts_by_model": {
+        "package_name_lookup": {
+          "pass": 37
+        },
+        "escaped_name_binding": {
+          "pass": 29
+        },
+        "delay_value_form": {
+          "pass": 43,
+          "known": 17
+        }
+      },
+      "runner_sha256": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf"
+    }
+  ],
+  "executables_sha256": {
+    "iverilog": "5df81b269e1ff2c965dd00ad5a8071ca17717f416003b3661a18b2dde430e73c",
+    "vvp": "1a9bdf1f40102f64f015514f5069f99a5dd9f9f38de343743ef4c169fb358392",
+    "verilator_driver": "098b09b11ba7d3e904ae13d924a9e8dac8ced5c9d7c9beff3b9d36119a417581"
+  }
+}

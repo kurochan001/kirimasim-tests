@@ -4,7 +4,7 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の113生成器から5,483件のテストを生成しています。
+現在の116生成器から5,609件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
@@ -45,12 +45,14 @@
 | [`interaction_deferarg`](../generators/interaction_deferarg.py) | 13 | 29 | 遅延報告の値渡しと静的な参照渡しを、登録時の取得値・報告時の生値・幅変換と照合する。関数とタスク、報告領域、更新方式、幅と符号を交差し、引数評価の副作用と実行時刻も観測する。 |
 | [`interaction_deferdis`](../generators/interaction_deferdis.py) | 16 | 31 | disable対象のスコープと未成熟の遅延報告を、兄弟・別プロセスの対照、引数取得と副作用、報告時の生値・通常の制御移動・報告済み履歴の保持と照合する。 |
 | [`interaction_delay`](../generators/interaction_delay.py) | 10 | 63 | 幅1のスカラと幅2以上のベクタで1/2/3個の遅延を使い、短パルスの除去と予約の取消しを観測する。bit/logic格納と反転後の値、X/Zの遅延選択、全体値の更新時刻・回数・最終変化時刻を毎tick照合する。 |
+| [`interaction_delayval`](../generators/interaction_delayval.py) | 9 | 60 | 無サイズ・サイズ付き・実数・時間リテラル・x・zを含む値・負の値の遅延を、文の前・即時代入とノンブロッキング代入の中・forkの枝・task・repeatで使う。精度1nsと100psへの丸め、xとzの0、負の値が終わらないことを確かめる。 |
 | [`interaction_dist`](../generators/interaction_dist.py) | 18 | 31 | 演算子の優先順位と括弧、幅・符号、distの重みと重複項目を照合する。候補値から解を一意にし、全重みゼロによる失敗時の値保持を、毎回成功する別実体と比較する。 |
 | [`interaction_divide`](../generators/interaction_divide.py) | 11 | 72 | 両オペランドと演算結果を観測し、演算前の幅・符号の統一、商の0方向への丸め、剰余の符号、ゼロ除算とX/Zの伝播、最終的な2状態変換を確認する。 |
 | [`interaction_dpi_array`](../generators/interaction_dpi_array.py) | 35 | 30 | 固定/動的配列/キューをopen arrayとしてDPIへ渡し、各呼出しの範囲・全要素・復帰後の書戻しを照合する。入力方向・数値順の走査方向・符号パターン・繰返し前の拡大/縮小を交差し、別のguard配列の保持も確認する。 |
 | [`interaction_dpi_nba`](../generators/interaction_dpi_nba.py) | 35 | 18 | DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組み合わせる。幅・符号・bit/logicからintへの変換、復帰直後の書戻し、予約後の添字・値の変更、Postponedと次時刻の全要素を照合し、NBAの値と代入先の確定を確認する。 |
 | [`interaction_dpiquery`](../generators/interaction_dpiquery.py) | 20 | 19 | 同じ実引数のSV/DPI-C問い合わせを、次元番号の対応・packed範囲の正規化・各次元の範囲とincrement・呼出しごとの形状更新で照合する。 |
 | [`interaction_edge`](../generators/interaction_edge.py) | 9 | 64 | 両背景で初期イベントを除外し、更新直後の値と次時刻の3カウンタを観測して、X/Z遷移、式の変化、ベクタのLSB規則、状態変換、NBAの更新時点を確認する。 |
+| [`interaction_escname`](../generators/interaction_escname.py) | 5 | 29 | モジュール・インスタンス・ポート・パラメータ・変数・task・生成ブロックの名前をエスケープし、平易な形との入れ替え、+を含む名前、エスケープしたキーワード、空白・タブ・改行での終わりで結合を確かめる。 |
 | [`interaction_event_rebind`](../generators/interaction_event_rebind.py) | 15 | 27 | 静的イベントをタスク呼出し前・待機登録前・登録後に再結合し、inputのコピーとref/直接参照、登録済み待機の保持、複数待機者、後着待機者、別名の独立性とActive/NBAの観測値を照合する。 |
 | [`interaction_event_task`](../generators/interaction_event_task.py) | 15 | 13 | module/interfaceの別インスタンスまたはpackageの2イベントをinput/refで渡し、1/2/3待機者の時刻・回数・値を観測する。待機前のトリガの不保持、通常/NBA起床の値の可視性、トリガ経路、逆順での再待機、noiseと完了後の余計な起動を区別する。 |
 | [`interaction_eventflow`](../generators/interaction_eventflow.py) | 15 | 36 | 名前付きイベントを読むforループでbreak/continueと待機開始順を交差し、受信と保持の履歴を照合する。同じタイムスロットのtriggeredとエッジ待機、NBA発火、別イベントの独立性と取消し後の再待機を観測する。 |
@@ -87,6 +89,7 @@
 | [`interaction_nba`](../generators/interaction_nba.py) | 10 | 36 | 代入直後・刺激変更後・時刻1・最終結果の出力で、値と代入先の確定、隣接要素の保持、Active領域とNBA領域の順序、automaticタスクからの復帰後の更新を確認する。 |
 | [`interaction_nettype`](../generators/interaction_nettype.py) | 22 | 40 | ANSI/非ANSIのポート宣言でnet型を省略し、default_nettypeによるvectorとscalarの解決値・幅を親子で照合する。vectorだけの明示wireによる上書きと、指示解除後の別moduleを同じ刺激で比較し、既定型の適用範囲を確認する。 |
 | [`interaction_paramtype`](../generators/interaction_paramtype.py) | 23 | 44 | 型なし・範囲・符号付き範囲・signedだけ・int・logic・パック構造体のパラメータを、宣言・#()・defparamで上書きする。最終的な値・幅・符号と、defparamが#()より優先して型も決めることを確かめる。 |
+| [`interaction_pkglookup`](../generators/interaction_pkglookup.py) | 26 | 37 | packageの変数と関数を、モジュールとブロックのwildcard import・明示のimport・lk_p::でループの範囲に使う。前後の宣言・ブロックの変数・別のpackageのimportと競わせ、26.3の探索の順序を確かめる。 |
 | [`interaction_pkgnba`](../generators/interaction_pkgnba.py) | 26 | 36 | 二つのモジュールから同じpackage変数へ順にNBAを予約し、参照方法・配列添字・遅延・状態型を交差する。値と代入先の取得、予約順序、別名での読出し、隣接要素と別packageの保持をActiveとNBA後で照合する。 |
 | [`interaction_pkgquery`](../generators/interaction_pkgquery.py) | 26 | 36 | 関数内のimportと修飾参照が配列問い合わせの対象を決め、開始位置・回数・方向と全幅集計を変える。非選択packageと同名ローカル配列の更新後も、対象配列の型・全要素・履歴を保持することを照合する。 |
 | [`interaction_pkgwatch`](../generators/interaction_pkgwatch.py) | 26 | 36 | 同じpackage変数への複数のイベント待機とwait、関数内の外部参照を読むalways_combを照合する。全体と最下位ビットの感度、条件のX、再書込み・隣接要素・別packageの通知と起床履歴を観測する。 |

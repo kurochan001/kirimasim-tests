@@ -24552,6 +24552,9 @@
     "an ZXQPH0QXZ declared unsigned holds all ones as ZXQPH1QXZ and compares and shifts as an unsigned value, unlike an ZXQPH2QXZ": "unsigned と宣言した ZXQPH0QXZ は、すべてのビットが 1 の値を ZXQPH1QXZ として保持し、ZXQPH2QXZ と違って符号なしの値として比較・シフトされる",
     "Loops take their bounds from the array query functions": "ループの範囲を配列の問い合わせ関数で決める",
     "%m prints the hierarchical name of the scope that holds the display": "%mは表示を含むスコープの階層名を出す",
-    "A process acts on a process of another instance through a hierarchical name": "階層名で別のインスタンスのプロセスに作用する"
+    "A process acts on a process of another instance through a hierarchical name": "階層名で別のインスタンスのプロセスに作用する",
+    "A name in a loop binds by the package search order of ZXQPH0QXZ": "ループの中の名前は ZXQPH0QXZ のpackageの探索の順序で結合する",
+    "An escaped identifier binds as the identifier without its backslash": "エスケープした識別子は\\を除いた識別子として結合する",
+    "A delay waits for the value of its literal, rounded to the time precision": "遅延はリテラルの値を時間の精度へ丸めた時間だけ待つ"
   }
 }

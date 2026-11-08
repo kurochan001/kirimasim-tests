@@ -14,12 +14,19 @@
 
 ## 保存実行の概要
 
+2026-11-08の遅延の値の書き方・packageの名前の探索・エスケープした識別子の追加で、**107モデル・4,296件・185章対**になりました。
+kirimasim `28c6c1a1cb83`の[単一実行](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json)は、
+**3,809 pass・479 unsupported・8 fail**です。failは既存configの4件と、`defparam`の型と範囲を取り違える4件で、前回と同じです。
+追加126件は全PASSで、従来4,170件の入力と状態は不変です。全選択ケースPASSは82モデルです。
+[遅延の値の書き方](#delay-value-form)、[packageの名前の探索](#package-name-lookup)、[エスケープした識別子の結合](#escaped-name-binding)に独立検算と固定版比較を記録します。
+追加126件は正式Check・Nightlyでは未実行です。
+
 2026-11-08の階層名によるプロセスの制御・%mの階層名・配列の問い合わせ関数とループの追加で、**104モデル・4,170件・181章対**になりました。
 最新のmainをビルドしたkirimasim `28c6c1a1cb83`の[単一実行](../coverage/interaction-results/cross104-kirimasim-28c6c1a1-hierloop.json)は、
 **3,683 pass・479 unsupported・8 fail**です。failは既存configの4件と、`defparam`の型と範囲を取り違える4件で、前回と同じです。
 追加147件は全PASSで、従来4,023件の入力と状態は不変です。全選択ケースPASSは79モデルです。
 [階層名によるプロセスの制御](#hierarchical-process-control)、[%mの階層名](#hierarchical-name-display)、[配列の問い合わせ関数とループ](#array-query-loop)に独立検算と固定版比較を記録します。
-追加147件は正式Check・Nightlyでは未実行です。
+追加147件は[`b091fd3a`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42424091234)で固定版比較が成功しました。Nightlyでは未実行です。
 
 2026-11-07のパラメータの上書き・アサーションのビットベクタ関数・リテラルの引数の追加で、**101モデル・4,023件・177章対**になりました。
 最新のmainをビルドしたkirimasim `eee8cd16ba1d`の[単一実行](../coverage/interaction-results/cross101-kirimasim-eee8cd16-paramassertlit.json)は、
@@ -4411,3 +4418,102 @@ kirimasim `28c6c1a1cb83`の[単一の全4,170件](../coverage/interaction-result
 [固定Icarus 13.0](../coverage/interaction-results/cross104-hierloop-icarus13.json)は14 pass・26 knownです。全行では169行が一致し、49行が異なり、221行を拒否し、1行が終わりません。
 [固定Verilator 5.052](../coverage/interaction-results/cross104-hierloop-verilator5052-seed1.json)は[seed 73](../coverage/interaction-results/cross104-hierloop-verilator5052-seed73.json)でも38 pass・2 knownです。全行では432行が一致し、8行が異なります。
 内訳は[シミュレータ差異](simulator-differences.ja.md#hier-array-differences)を参照してください。
+
+<a id="delay-value-form"></a>
+
+## 遅延の値の書き方（2026-11-08）
+
+[`interaction_delayval.py`](../generators/interaction_delayval.py)は`delay_value_form@1`を定義します。
+第5章×第9章は全60件に対応し、第9章×第10章は代入の中の遅延の行、第3章×第9章は実数と時間リテラルの行に対応します。
+
+### 因子・対象範囲
+
+値（`3`、`(3'b101)`、`2.4`、`2.6`、`3ns`、`2700ps`、`(1'bx)`、`(1'bz)`、`(4'b00x1)`、`(-1)`）、
+場所（文の前、即時代入の中、ノンブロッキング代入の中、`fork`の枝、task、`repeat`）、
+開始（時刻0、時刻10）、精度（1ns、100ps）を交差します。時間単位はどれも1nsです。
+合法222行から60件を選びます。全因子対126目標、必須7件を保持します。
+
+### 何を区別するか
+
+遅延は時間単位で値を求め、精度へ丸めてから待ちます（3.14.1）。時間リテラルは自分の単位から換算します（5.8）。
+[`2.4`を2回待つ`repeat`](../tests/gen/ch9/test_gen_cross_delayval_real_down_repeat_later_unit.sv)は、精度1nsでは2ずつ進み、100psなら2.4ずつ進みます。丸めの境目の値は使いません。
+xかzのビットを一つでも含む遅延は0です（9.4.1）。[ノンブロッキング代入の中の`(1'bx)`](../tests/gen/ch9/test_gen_cross_delayval_x_nba_later_tenth.sv)は、その時刻のNBA領域で値を変えます。
+負の遅延は時間変数と同じ64ビットの符号なしの値なので、[その文](../tests/gen/ch9/test_gen_cross_delayval_neg_repeat_zero_unit.sv)は終わりまで実行されません。
+現在の時刻に足すと最大値を超える場合と、精度へ換算すると最大値を超える場合は、規格が定めないので使いません。
+
+### 独立検算と実行結果
+
+[`qualify_delayval.py`](../tools/qualify_delayval.py)は実際のSVの`timeunit`と`timeprecision`から、各遅延の字句を精度の刻みに直します。
+Active・Inactive・NBAの領域を持つスケジューラで、プロセスの開始の全順序を実行します。全222プログラムが一致しました。
+[補助証跡](../coverage/interaction-qualification/delayval.json)には正常対照7件と実行可能な誤り7件を保存し、すべて正常終了後の出力差で検出しました。
+
+kirimasim `28c6c1a1cb83`の[単一の全4,296件](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json)で追加60件は全PASSです。全222行でkirimasimの差は0件です。
+
+### 固定版の差異
+
+[固定Icarus 13.0](../coverage/interaction-results/cross107-delaypkgesc-icarus13.json)は全60件がPASSで、全222行も一致します。
+[固定Verilator 5.052](../coverage/interaction-results/cross107-delaypkgesc-verilator5052-seed1.json)はseed 1で46 pass・14 known、[seed 73](../coverage/interaction-results/cross107-delaypkgesc-verilator5052-seed73.json)で43 pass・17 knownです。
+全行では、xかzを含む遅延の37行が異なり、zの遅延の12行を未対応とします。
+
+<a id="package-name-lookup"></a>
+
+## packageの名前の探索（2026-11-08）
+
+[`interaction_pkglookup.py`](../generators/interaction_pkglookup.py)は`package_name_lookup@1`を定義します。
+第12章×第26章は全37件に対応し、第13章×第26章は関数の呼出しの行に対応します。
+
+### 因子・対象範囲
+
+`lk_p`の入れ方（モジュールのwildcard import、ブロックのwildcard import、明示のimport、`lk_p::`）、
+競う名前（なし、手続きの前の宣言、ブロックの変数、ブロックでの`lk_q`のwildcard import、手続きの後の宣言、手続きの後の`lk_q`のwildcard import）、
+参照（変数`n`、関数`f()`）、ループ（`for`、`while`、`repeat`、`do`-`while`）を交差します。
+不正な組合せを除いた合法148行から37件を選びます。入れ方・競う名前・参照の3因子群を含む125目標、必須7件を保持します。
+
+### 何を区別するか
+
+参照のあるスコープで、宣言と明示のimportを先に探し、なければその点より前のwildcard importを探して、外側のスコープへ進みます（26.3）。
+そのため[ブロックのwildcard import](../tests/gen/ch26/test_gen_cross_pkglookup_block_wild_outer_decl_var_for.sv)は、手続きの前のモジュールの宣言より先に見つかります。
+関数の呼出しはスコープの終わりまでの宣言を探すので、[手続きの後のモジュールの関数](../tests/gen/ch26/test_gen_cross_pkglookup_module_wild_later_decl_call_repeat.sv)が、前のwildcard importより優先します。
+参照より後のwildcard importは使いません。明示のimportと同じスコープの宣言、参照でimportされた名前の後の宣言、二つのwildcard importが同じ名前を与える参照は不正なので除きます。
+
+### 独立検算と実行結果
+
+[`qualify_pkglookup.py`](../tools/qualify_pkglookup.py)は実際のSVのpackage・import・宣言を文字の順に読み、26.3の手順でスコープごとに探します。全148プログラムが一致し、除いた不正な28行はすべてエラーとしました。
+[補助証跡](../coverage/interaction-qualification/pkglookup.json)には正常対照7件と実行可能な誤り7件を保存し、すべて正常終了後の出力差で検出しました。
+
+kirimasim `28c6c1a1cb83`の[単一の全4,296件](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json)で追加37件は全PASSです。全148行でkirimasimの差は0件です。
+
+### 固定版の差異
+
+[固定Icarus 13.0](../coverage/interaction-results/cross107-delaypkgesc-icarus13.json)と[固定Verilator 5.052](../coverage/interaction-results/cross107-delaypkgesc-verilator5052-seed1.json)（[seed 73](../coverage/interaction-results/cross107-delaypkgesc-verilator5052-seed73.json)も）は、全37件と全148行で一致します。
+
+<a id="escaped-name-binding"></a>
+
+## エスケープした識別子の結合（2026-11-08）
+
+[`interaction_escname.py`](../generators/interaction_escname.py)は`escaped_name_binding@1`を定義します。
+第5章×第23章は全29件に対応し、第5章×第13章はtaskの行、第5章×第27章は生成ブロックの行に対応します。
+
+### 因子・対象範囲
+
+名前を付けるもの（モジュール、インスタンス、ポート、パラメータ、変数、task、生成ブロック）、
+宣言の書き方（平易、同じ文字のエスケープ、`+1`を含むエスケープ、エスケープしたキーワード）、
+参照（宣言と同じ書き方、平易な形とエスケープした形の入れ替え）、参照を終える空白（空白、タブ、改行、複数の空白）を交差します。
+合法126行から29件を選びます。全因子対100目標、必須7件を保持します。
+
+### 何を区別するか
+
+エスケープした識別子は`\`から次の空白までで、`\`と終わりの空白は名前に含みません。`\abc`と`abc`は同じ名前で、エスケープしたキーワードは利用者の名前です（5.6.1）。
+階層名では、[エスケープしたインスタンス名](../tests/gen/ch5/test_gen_cross_escname_inst_special_same_newline.sv)の後に改行などの空白を置いてからピリオドを続けます（23.6）。
+`+1`を含む名前には`+`の前の部分と同じ名前の宣言を別に置き、[名前を誤って分けると値が変わる](../tests/gen/ch5/test_gen_cross_escname_var_special_same_tab.sv)ようにします。
+
+### 独立検算と実行結果
+
+[`qualify_escname.py`](../tools/qualify_escname.py)は実際のSVを5.6の規則で字句に分け、モジュール・パラメータ・ポート・変数・task・生成ブロックを名前で結合して評価します。全126プログラムが一致しました。
+[補助証跡](../coverage/interaction-qualification/escname.json)には正常対照7件と実行可能な誤り7件を保存し、すべて正常終了後の出力差で検出しました。
+
+kirimasim `28c6c1a1cb83`の[単一の全4,296件](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json)で追加29件は全PASSです。全126行でkirimasimの差は0件です。
+
+### 固定版の差異
+
+[固定Icarus 13.0](../coverage/interaction-results/cross107-delaypkgesc-icarus13.json)と[固定Verilator 5.052](../coverage/interaction-results/cross107-delaypkgesc-verilator5052-seed1.json)（[seed 73](../coverage/interaction-results/cross107-delaypkgesc-verilator5052-seed73.json)も）は、全29件と全126行で一致します。

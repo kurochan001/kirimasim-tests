@@ -10,7 +10,7 @@
 
 ## 最新証跡の確認（2026-11-06 日本時間）
 
-現行は104モデル・4,170件で、[階層名によるプロセスの制御・%mの階層名・配列の問い合わせ関数とループの独立確認](#hier-array-qualification)を参照してください。
+現行は107モデル・4,296件で、[遅延の値の書き方・packageの名前の探索・エスケープした識別子の独立確認](#delay-package-escape-qualification)を参照してください。
 [`handoff-ci-67321079-20261106.json`](handoff-ci-67321079-20261106.json)は、基点67321079のCheck/Nightlyと全ジョブの成功を記録します。個別artifactは未照合です。以下の旧基点は詳細照合の範囲を区別して保持します。
 [`check-9c39d865-20261106.json`](check-9c39d865-20261106.json)は前回までの86モデルの固定版比較・静的検査のCheck成功を確認します。
 [`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json)は82モデルを対象にした正式Nightly・publish・ランダム96 PASSの記録であり、実行を混同しません。
@@ -565,3 +565,16 @@ Icarusが受理しない行を補うため、パラメータとリテラルの�
 [全行の記録](hierloop-all-rows.json)は全869行の一度きりの実行で、固定suiteや要求カバレッジへ加算しません。kirimasimの差は0件です。
 Icarusが受理しない行を補うため、3モデルの全行はVerilatorでも一度実行しました。
 [設計と再実行](../../docs/interaction-verification.md#hierarchical-process-control)を参照してください。
+
+<a id="delay-package-escape-qualification"></a>
+
+## 遅延の値の書き方・packageの名前の探索・エスケープした識別子の独立確認
+
+[`delayval.json`](delayval.json)は全222行、[`pkglookup.json`](pkglookup.json)は全148行、[`escname.json`](escname.json)は全126行を独立した解釈で照合します。
+正常対照はどれも7件、誤ったSVもどれも7件で、誤りはすべて正常終了後の出力差で検出しました。
+[ビルド記録](delaypkgesc-build.json)は`28c6c1a1cb83`の全4,296件（3,809 pass・479 unsupported・8 fail）を識別します。追加126件は全PASSです。
+従来4,170件の入力と状態は不変で、failは前回と同じconfigの4件と`defparam`の4件です。107モデル・185章対・全選択ケースPASSは82モデルです。
+[固定版比較](delaypkgesc-fixed-replays.json)はIcarus 126 pass、Verilatorはseed 1で112 pass・14 known、seed 73で109 pass・17 knownです。
+Icarusの差はなく、Verilatorのknownは二値で読むxとzの遅延だけなので、[再実行の記録](delaypkgesc-known-replays.json)の代表出力は空です。
+[全行の記録](delaypkgesc-all-rows.json)は全496行の一度きりの実行で、固定suiteや要求カバレッジへ加算しません。kirimasimとIcarusの差は0件です。
+[設計と再実行](../../docs/interaction-verification.md#delay-value-form)を参照してください。

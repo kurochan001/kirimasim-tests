@@ -100,6 +100,9 @@ import interaction_ifexpr
 import interaction_paramtype
 import interaction_assertquery
 import interaction_litarg
+import interaction_delayval
+import interaction_pkglookup
+import interaction_escname
 import interaction_hierproc
 import interaction_hiername
 import interaction_arrayloop
@@ -113,7 +116,7 @@ import combination_monitors
 import scheduling
 from interaction_cover import Model, Row
 
-GENERATORS = (interaction_hierproc, interaction_hiername, interaction_arrayloop, interaction_paramtype, interaction_assertquery, interaction_litarg, interaction_ifexpr, interaction_loopsched, interaction_litfmt, interaction_macro, interaction_force, interaction_sense, interaction_gatearray, interaction_literal, interaction_timescope, interaction_eventflow, interaction_pkgquery, interaction_progframe, interaction_scansel, interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
+GENERATORS = (interaction_delayval, interaction_pkglookup, interaction_escname, interaction_hierproc, interaction_hiername, interaction_arrayloop, interaction_paramtype, interaction_assertquery, interaction_litarg, interaction_ifexpr, interaction_loopsched, interaction_litfmt, interaction_macro, interaction_force, interaction_sense, interaction_gatearray, interaction_literal, interaction_timescope, interaction_eventflow, interaction_pkgquery, interaction_progframe, interaction_scansel, interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
               interaction_shift, interaction_cast, interaction_task, interaction_binding,
               interaction_struct, interaction_case, interaction_port,
               interaction_array, interaction_query, interaction_stream,
@@ -910,5 +913,26 @@ def registered() -> tuple[SuiteModel, ...]:
             "昇順・降順・オフセット・負の範囲の固定の次元、パックの次元、動的配列、キュー、空の動的配列を、"
             "変数・型の名前・2番目の次元・要素の選択から$left・$right・$low・$high・$increment・$sizeで問い合わせる。"
             "for・while・do-while・repeat・foreachで、左から右・小さい順・大きい順・個数で進むことを確かめる。",
+        ),
+        SuiteModel(
+            interaction_delayval.MODEL,
+            lambda row: "tests/gen/ch9/" + interaction_delayval.case_name(row) + ".sv",
+            interaction_delayval.MODEL.select(),
+            "無サイズ・サイズ付き・実数・時間リテラル・x・zを含む値・負の値の遅延を、文の前・即時代入とノンブロッキング代入の中・"
+            "forkの枝・task・repeatで使う。精度1nsと100psへの丸め、xとzの0、負の値が終わらないことを確かめる。",
+        ),
+        SuiteModel(
+            interaction_pkglookup.MODEL,
+            lambda row: "tests/gen/ch26/" + interaction_pkglookup.case_name(row) + ".sv",
+            interaction_pkglookup.MODEL.select(),
+            "packageの変数と関数を、モジュールとブロックのwildcard import・明示のimport・lk_p::でループの範囲に使う。"
+            "前後の宣言・ブロックの変数・別のpackageのimportと競わせ、26.3の探索の順序を確かめる。",
+        ),
+        SuiteModel(
+            interaction_escname.MODEL,
+            lambda row: "tests/gen/ch5/" + interaction_escname.case_name(row) + ".sv",
+            interaction_escname.MODEL.select(),
+            "モジュール・インスタンス・ポート・パラメータ・変数・task・生成ブロックの名前をエスケープし、"
+            "平易な形との入れ替え、+を含む名前、エスケープしたキーワード、空白・タブ・改行での終わりで結合を確かめる。",
         ),
     )

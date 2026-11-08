@@ -1055,3 +1055,14 @@ kirimasim `eee8cd16ba1d` matches the standard's expectations on all 922 rows of 
 
 See [all Icarus differences and representative Verilator outputs](../coverage/interaction-qualification/hierloop-known-replays.json).
 kirimasim `28c6c1a1cb83` matches the standard's expectations on all 869 rows of the three models.
+
+<a id="delay-package-escape-differences"></a>
+
+## Delay values, package name lookup and escaped identifiers (2026-11-08)
+
+- **Verilator 5.052 delay values:** a `(1'bz)` delay is rejected as an unsupported tristate construct (12 rows).
+  A delay with an x or z bit is read as a two-state value instead of zero, which changes the wait (37 rows). The standard makes a delay with an x or z bit zero (9.4.1).
+- On package name lookup and escaped identifiers, pinned Icarus 13.0 and pinned Verilator 5.052 match all rows.
+
+See the [pinned comparisons](../coverage/interaction-qualification/delaypkgesc-fixed-replays.json) and [representative Verilator outputs](../coverage/interaction-qualification/delaypkgesc-known-replays.json).
+kirimasim `28c6c1a1cb83` matches the standard's expectations on all 496 rows of the three models.

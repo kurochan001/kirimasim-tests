@@ -6,9 +6,9 @@ Updated on 2026-11-06 JST, retaining the repair records from 2026-11-03. Preserv
 and selected models while addressing known failures, inventorying unsupported mechanisms
 and reviewing unexamined chapter pairs, in that order.
 
-The current [complete local selection](../coverage/interaction-results/cross104-kirimasim-28c6c1a1-hierloop.json) has 104 models and 4,170 cases, run on kirimasim `28c6c1a1cb83`, built from the latest main:
-3,683 pass, 479 unsupported and eight failures: the four config failures and the four where `defparam` gets the type and range wrong. Against the [previous complete run on `eee8cd16ba1d`](../coverage/interaction-results/cross101-kirimasim-eee8cd16-paramassertlit.json), preceding 4,023 inputs and statuses are unchanged.
-The previous 136 cases passed the pinned comparisons in [Check on `76cb9785`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42386486773). These 147 cases have not run in formal Check/Nightly.
+The current [complete local selection](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json) has 107 models and 4,296 cases, run on kirimasim `28c6c1a1cb83`, built from the latest main:
+3,809 pass, 479 unsupported and eight failures: the four config failures and the four where `defparam` gets the type and range wrong. Against the [previous complete run](../coverage/interaction-results/cross104-kirimasim-28c6c1a1-hierloop.json), preceding 4,170 inputs and statuses are unchanged.
+The previous 147 cases passed the pinned comparisons in [Check on `b091fd3a`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42424091234). These 126 cases have not run in formal Check/Nightly.
 
 [Check on baseline 67321079](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584) passed pinned comparisons/static checks on the preceding 88-model suite.
 [Nightly on the same baseline](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265) and all its jobs succeeded; individual artifacts remain uninspected. Later additions are outside both runs.
@@ -99,7 +99,7 @@ At the initial review, two R pairs were reviewed and 590 remained unassessed.
   independent factors. First establish legal expressions and positive dimensions and repair the
   known config reset difference.
 
-The current triage is M181, E3, C2, N117 and R517. See the
+The current triage is M185, E3, C2, N117 and R513. See the
 [pair rationales and fingerprints](chapter-cross-triage.en.md). Reuse existing regression matrices
 and extend confirmed mechanisms with boundaries, operation sequences and fault controls.
 No parallel-purpose runner or addition of random outcomes to fixed requirement coverage was introduced.
@@ -259,3 +259,11 @@ endmodule
 - kirimasim has no difference on all 869 legal rows, and no expectation changed. Every difference from Icarus and Verilator, including six rows where two-state Verilator cannot hold x, was judged against the clauses to be on the side of that simulator.
 - The front end of `28c6c1a1cb83` changed since `eee8cd16ba1d`, but preceding 4,023 inputs and statuses do not change. The four `defparam` cases still fail.
 - The four [candidates waiting for kirimasim](#models-waiting-for-kirimasim) still report `not implemented yet` on `28c6c1a1cb83`.
+
+## Delay values, package name lookup, escaped identifiers (2026-11-08)
+
+- Added models for [how a delay value is written](interaction-verification.en.md#delay-value-form), [package name lookup](interaction-verification.en.md#package-name-lookup) and [escaped identifier binding](interaction-verification.en.md#escaped-name-binding).
+- Four chapter pairs moved from R to M: 5 x 9, 12 x 26, 5 x 23 and 5 x 27.
+- One complete 4,296-case run on kirimasim `28c6c1a1cb83` records 3,809 pass, 479 unsupported and eight failures. All 126 additions pass. Totals: 107 models, 185 chapter pairs, 82 full-selection-pass models.
+- kirimasim has no difference on all 496 legal rows, and no expectation changed. Pinned Icarus 13.0 matches all rows too. Verilator differs only where it reads x and z delays as two-state values and on unsupported z delays.
+- For package name lookup, the 28 combinations that 26.3 makes illegal are left out, and the independent interpretation reports each of them as an error.

@@ -14,12 +14,19 @@ Before reading model counts, see [a three-way condition missing from 100% pairwi
 
 ## Saved-run summary
 
+The 2026-11-08 delay-value, package-lookup and escaped-name additions bring totals to **107 models / 4,296 cases / 185 chapter pairs**.
+The [single run](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json) on kirimasim `28c6c1a1cb83` records
+**3,809 pass / 479 unsupported / eight fail**: the four existing config failures and the four where `defparam` gets the type and range wrong, as before.
+All 126 additions pass, and preceding 4,170 inputs and statuses are unchanged. 82 models pass their entire selection.
+See [how a delay value is written](#delay-value-form), [package name lookup](#package-name-lookup) and [escaped identifier binding](#escaped-name-binding) for the independent checks and pinned comparisons.
+The 126 additions have not run in formal Check/Nightly.
+
 The 2026-11-08 hierarchical-process-control, %m and array-query-loop additions bring totals to **104 models / 4,170 cases / 181 chapter pairs**.
 The [single run](../coverage/interaction-results/cross104-kirimasim-28c6c1a1-hierloop.json) on kirimasim `28c6c1a1cb83`, built from the latest main, records
 **3,683 pass / 479 unsupported / eight fail**: the four existing config failures and the four where `defparam` gets the type and range wrong, as before.
 All 147 additions pass, and preceding 4,023 inputs and statuses are unchanged. 79 models pass their entire selection.
 See [process control through hierarchical names](#hierarchical-process-control), [hierarchical names printed by %m](#hierarchical-name-display) and [array query functions and loops](#array-query-loop) for the independent checks and pinned comparisons.
-The 147 additions have not run in formal Check/Nightly.
+The 147 additions passed the pinned comparisons in [Check on `b091fd3a`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42424091234); they have not run in Nightly.
 
 The 2026-11-07 parameter-override, assertion-query and literal-argument additions bring totals to **101 models / 4,023 cases / 177 chapter pairs**.
 The [single run](../coverage/interaction-results/cross101-kirimasim-eee8cd16-paramassertlit.json) on kirimasim `eee8cd16ba1d`, built from the latest main, records
@@ -4435,3 +4442,102 @@ In the [single complete 4,170-case run](../coverage/interaction-results/cross104
 [Pinned Icarus 13.0](../coverage/interaction-results/cross104-hierloop-icarus13.json) has 14 pass / 26 known. Over all rows it matches 169, differs on 49, rejects 221 and does not end on one.
 [Pinned Verilator 5.052](../coverage/interaction-results/cross104-hierloop-verilator5052-seed1.json) has 38 pass / 2 known also at [seed 73](../coverage/interaction-results/cross104-hierloop-verilator5052-seed73.json). Over all rows it matches 432 and differs on eight.
 See the [simulator differences](simulator-differences.md#hier-array-differences).
+
+<a id="delay-value-form"></a>
+
+## How a delay value is written (2026-11-08)
+
+[`interaction_delayval.py`](../generators/interaction_delayval.py) defines `delay_value_form@1`.
+Chapters 5 x 9 map to all 60 cases; chapters 9 x 10 map to rows with a delay inside an assignment, and chapters 3 x 9 to real and time-literal rows.
+
+### Factors and scope
+
+The value (`3`, `(3'b101)`, `2.4`, `2.6`, `3ns`, `2700ps`, `(1'bx)`, `(1'bz)`, `(4'b00x1)`, `(-1)`),
+the site (before a statement, inside a blocking assignment, inside a nonblocking assignment, a `fork` branch, a task, `repeat`),
+the start (time 0, time 10) and the precision (1ns, 100ps) are crossed. The time unit is always 1ns.
+60 cases come from 222 legal rows, covering 126 pair targets and keeping seven mandatory witnesses.
+
+### What it distinguishes
+
+A delay takes its value in time units and is rounded to the precision before it waits (3.14.1). A time literal is converted from its own unit (5.8).
+[A `repeat` that waits `2.4` twice](../tests/gen/ch9/test_gen_cross_delayval_real_down_repeat_later_unit.sv) steps by 2 at a precision of 1ns and by 2.4 at 100ps. No value lies on a rounding tie.
+A delay with any x or z bit is zero (9.4.1). [`(1'bx)` inside a nonblocking assignment](../tests/gen/ch9/test_gen_cross_delayval_x_nba_later_tenth.sv) changes the value in the NBA region of the same time.
+A negative delay is a 64-bit unsigned time, so [its statement](../tests/gen/ch9/test_gen_cross_delayval_neg_repeat_zero_unit.sv) never runs before the end.
+Cases where adding it to the current time, or converting it to the precision, passes the largest time are left out, because the standard does not define them.
+
+### Independent check and runs
+
+[`qualify_delayval.py`](../tools/qualify_delayval.py) turns the text of each delay into ticks of the precision from `timeunit` and `timeprecision` in the actual SV.
+It runs every start order of the processes under a scheduler with active, inactive and NBA regions. All 222 programs match.
+The [auxiliary evidence](../coverage/interaction-qualification/delayval.json) keeps seven normal controls and seven executable faults, all detected by an output difference after a normal exit.
+
+In the [single complete 4,296-case run](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json) on kirimasim `28c6c1a1cb83`, all 60 additions pass. kirimasim has no difference on all 222 rows.
+
+### Pinned-release differences
+
+[Pinned Icarus 13.0](../coverage/interaction-results/cross107-delaypkgesc-icarus13.json) passes all 60 cases and matches all 222 rows.
+[Pinned Verilator 5.052](../coverage/interaction-results/cross107-delaypkgesc-verilator5052-seed1.json) has 46 pass / 14 known at seed 1 and 43 pass / 17 known at [seed 73](../coverage/interaction-results/cross107-delaypkgesc-verilator5052-seed73.json).
+Over all rows, 37 rows with x or z delays differ and 12 rows with z delays are unsupported.
+
+<a id="package-name-lookup"></a>
+
+## Package name lookup (2026-11-08)
+
+[`interaction_pkglookup.py`](../generators/interaction_pkglookup.py) defines `package_name_lookup@1`.
+Chapters 12 x 26 map to all 37 cases; chapters 13 x 26 map to function-call rows.
+
+### Factors and scope
+
+How `lk_p` comes in (a wildcard import in the module, a wildcard import in the block, an explicit import, `lk_p::`),
+the competing name (none, a declaration before the procedure, a block variable, a wildcard import of `lk_q` in the block, a declaration after the procedure, a wildcard import of `lk_q` after the procedure),
+the reference (the variable `n`, the function `f()`) and the loop (`for`, `while`, `repeat`, `do`-`while`) are crossed.
+37 cases come from 148 legal rows, after leaving out illegal combinations, covering 125 targets including the import, competitor and reference group and keeping seven mandatory witnesses.
+
+### What it distinguishes
+
+The scope of the reference is searched first, among declarations and explicit imports and then among wildcard imports before that point, and then the outer scope (26.3).
+So [a wildcard import in the block](../tests/gen/ch26/test_gen_cross_pkglookup_block_wild_outer_decl_var_for.sv) is found before a module declaration that precedes the procedure.
+A function call searches the declarations up to the end of the scope, so [a module function after the procedure](../tests/gen/ch26/test_gen_cross_pkglookup_module_wild_later_decl_call_repeat.sv) wins over an earlier wildcard import.
+A wildcard import after the reference is not used. An explicit import with a declaration in the same scope, a declaration after a reference imported the name, and a reference that two wildcard imports both supply are illegal and left out.
+
+### Independent check and runs
+
+[`qualify_pkglookup.py`](../tools/qualify_pkglookup.py) reads the packages, imports and declarations of the actual SV in text order and searches each scope by the steps of 26.3. All 148 programs match, and all 28 illegal rows left out are errors for it.
+The [auxiliary evidence](../coverage/interaction-qualification/pkglookup.json) keeps seven normal controls and seven executable faults, all detected by an output difference after a normal exit.
+
+In the [single complete 4,296-case run](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json) on kirimasim `28c6c1a1cb83`, all 37 additions pass. kirimasim has no difference on all 148 rows.
+
+### Pinned-release differences
+
+[Pinned Icarus 13.0](../coverage/interaction-results/cross107-delaypkgesc-icarus13.json) and [pinned Verilator 5.052](../coverage/interaction-results/cross107-delaypkgesc-verilator5052-seed1.json) (also at [seed 73](../coverage/interaction-results/cross107-delaypkgesc-verilator5052-seed73.json)) match all 37 cases and all 148 rows.
+
+<a id="escaped-name-binding"></a>
+
+## Escaped identifier binding (2026-11-08)
+
+[`interaction_escname.py`](../generators/interaction_escname.py) defines `escaped_name_binding@1`.
+Chapters 5 x 23 map to all 29 cases; chapters 5 x 13 map to task rows, and chapters 5 x 27 to generate-block rows.
+
+### Factors and scope
+
+The named item (a module, an instance, a port, a parameter, a variable, a task, a generate block),
+the declared spelling (plain, the same letters escaped, an escaped name with `+1`, an escaped keyword),
+the reference (as declared, or with the plain and escaped forms swapped) and the white space that ends the reference (a space, a tab, a newline, several spaces) are crossed.
+29 cases come from 126 legal rows, covering 100 pair targets and keeping seven mandatory witnesses.
+
+### What it distinguishes
+
+An escaped identifier runs from `\` to the next white space, and neither the `\` nor the ending white space is part of the name. `\abc` and `abc` are one name, and an escaped keyword is a user-defined name (5.6.1).
+In a hierarchical name, [an escaped instance name](../tests/gen/ch5/test_gen_cross_escname_inst_special_same_newline.sv) is followed by white space, such as a newline, and then the period (23.6).
+A name with `+1` comes with another declaration named like its part before the `+`, so [splitting the name in the wrong place changes a value](../tests/gen/ch5/test_gen_cross_escname_var_special_same_tab.sv).
+
+### Independent check and runs
+
+[`qualify_escname.py`](../tools/qualify_escname.py) splits the actual SV into tokens by the rules of 5.6, binds the module, parameter, ports, variables, task and generate block by name and evaluates them. All 126 programs match.
+The [auxiliary evidence](../coverage/interaction-qualification/escname.json) keeps seven normal controls and seven executable faults, all detected by an output difference after a normal exit.
+
+In the [single complete 4,296-case run](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json) on kirimasim `28c6c1a1cb83`, all 29 additions pass. kirimasim has no difference on all 126 rows.
+
+### Pinned-release differences
+
+[Pinned Icarus 13.0](../coverage/interaction-results/cross107-delaypkgesc-icarus13.json) and [pinned Verilator 5.052](../coverage/interaction-results/cross107-delaypkgesc-verilator5052-seed1.json) (also at [seed 73](../coverage/interaction-results/cross107-delaypkgesc-verilator5052-seed73.json)) match all 29 cases and all 126 rows.

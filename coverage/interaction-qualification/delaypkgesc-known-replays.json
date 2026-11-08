@@ -1,0 +1,22 @@
+{
+  "models": [
+    "delay_value_form",
+    "package_name_lookup",
+    "escaped_name_binding"
+  ],
+  "generated_at": "2026-11-08T00:19:58.139177+00:00",
+  "scope": "All Icarus differences (there are none) and rejections, and one representative of each form of the known-input Verilator differences at both seeds. The first differing line of every known result is in the run records. Nothing here changes an expectation or counts as a pass. No simulator implementation source was read.",
+  "icarus_version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+  "icarus_originals": [],
+  "verilator_originals": [],
+  "runner_sha256": {
+    "icarus": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+    "verilator": "4748568fc82ff5d1b79abf95256aa80d6c539aa93d05d77afb9c120f616657bf",
+    "kirimasim": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb"
+  },
+  "executables_sha256": {
+    "iverilog": "5df81b269e1ff2c965dd00ad5a8071ca17717f416003b3661a18b2dde430e73c",
+    "vvp": "1a9bdf1f40102f64f015514f5069f99a5dd9f9f38de343743ef4c169fb358392",
+    "verilator_driver": "098b09b11ba7d3e904ae13d924a9e8dac8ced5c9d7c9beff3b9d36119a417581"
+  }
+}

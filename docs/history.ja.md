@@ -345,3 +345,12 @@
   固定Icarusは95 pass・52 known、Verilatorは両seedとも136 pass・11 knownです。
 - suiteは11,920件、生成5,483件・113生成器です。要求カバレッジと13ランダムプロファイルを維持しました。
   [kirimasimの実装を待つ候補](cross-verification-followup.md#models-waiting-for-kirimasim)の4件はまだ未実装です。今回の追加は正式Check・Nightlyでは未実行です。[設計・証跡](interaction-verification.md#hierarchical-process-control)を参照してください。
+
+### 2026-11-08（遅延の値の書き方・packageの名前の探索・エスケープした識別子の追加）
+
+- 遅延の値の書き方、packageの名前の探索、エスケープした識別子の結合のモデルを追加しました。合法496行から126件を選び、4章対をRからMへ移しました。
+- `28c6c1a1cb83`の単一の全4,296件は3,809 pass・479 unsupported・8 failです。追加126件は全PASSで、従来4,170件の入力と状態は不変です。
+- 全体は107モデル・185章対・全選択ケースPASSは82モデル、仕分けはM185/E3/C2/N117/R513です。
+  固定Icarusは126 pass、Verilatorはseed 1で112 pass・14 known、seed 73で109 pass・17 knownです。
+- suiteは12,046件、生成5,609件・116生成器です。要求カバレッジと13ランダムプロファイルを維持しました。
+  今回の追加は正式Check・Nightlyでは未実行です。[設計・証跡](interaction-verification.md#delay-value-form)を参照してください。

@@ -1054,3 +1054,14 @@ kirimasim `eee8cd16ba1d`は、アサーションとリテラルの引数の全92
 
 [全Icarusの差とVerilatorの代表出力](../coverage/interaction-qualification/hierloop-known-replays.json)を保存しました。
 kirimasim `28c6c1a1cb83`は、3モデルの全869行で規格の期待値と一致しました。
+
+<a id="delay-package-escape-differences"></a>
+
+## 遅延の値の書き方・packageの名前の探索・エスケープした識別子（2026-11-08）
+
+- **Verilator 5.052の遅延の値：** `(1'bz)`の遅延を、未対応のtristateの構文として拒否します（12行）。
+  xかzのビットを含む遅延を0ではなく二値の値として読み、待つ時間が変わります（37行）。規格ではxかzのビットを含む遅延は0です（9.4.1）。
+- packageの名前の探索とエスケープした識別子では、固定Icarus 13.0・固定Verilator 5.052とも全行で一致しました。
+
+[固定版比較の記録](../coverage/interaction-qualification/delaypkgesc-fixed-replays.json)と[Verilatorの代表出力](../coverage/interaction-qualification/delaypkgesc-known-replays.json)を保存しました。
+kirimasim `28c6c1a1cb83`は、3モデルの全496行で規格の期待値と一致しました。

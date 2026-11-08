@@ -10,7 +10,7 @@ This directory stores records of fixed-version verification-source selection, in
 
 ## Current evidence checkpoint (2026-11-06 JST)
 
-The selection now contains 104 models / 4,170 cases; see [hierarchical-process-control, %m and array-query-loop qualification](#hier-array-qualification).
+The selection now contains 107 models / 4,296 cases; see [delay-value, package-lookup and escaped-name qualification](#delay-package-escape-qualification).
 [`handoff-ci-67321079-20261106.json`](handoff-ci-67321079-20261106.json) records successful Check/Nightly workflows and all jobs on baseline 67321079. Individual artifacts remain uninspected; retain the older detailed checkpoints below separately.
 [`check-9c39d865-20261106.json`](check-9c39d865-20261106.json) confirms Check’s pinned comparisons/static checks for the preceding 86-model suite.
 [`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json) records an 82-model formal Nightly/publish and 96 random passes; these are separate runs.
@@ -566,3 +566,16 @@ Preceding 4,023 inputs and statuses are unchanged, and the failures are the same
 The [all-row record](hierloop-all-rows.json) is one run of all 869 rows and enters neither the fixed suite nor requirement coverage. kirimasim has no difference.
 To cover rows that Icarus does not accept, all rows of the three models also ran once on Verilator.
 See the [design and rerun](../../docs/interaction-verification.en.md#hierarchical-process-control).
+
+<a id="delay-package-escape-qualification"></a>
+
+## Delay-value, package-lookup and escaped-name qualification
+
+[`delayval.json`](delayval.json) checks all 222 rows, [`pkglookup.json`](pkglookup.json) all 148 and [`escname.json`](escname.json) all 126 by independent interpretation.
+Each has seven normal controls and seven faulty SV programs, all detected by an output difference after a normal exit.
+The [build record](delaypkgesc-build.json) identifies one complete 4,296-case run on `28c6c1a1cb83` (3,809 pass / 479 unsupported / eight fail). All 126 additions pass.
+Preceding 4,170 inputs and statuses are unchanged, and the failures are the same four config and four `defparam` cases as before. Totals: 107 models / 185 chapter pairs / 82 full-selection-pass models.
+[Pinned comparisons](delaypkgesc-fixed-replays.json) record Icarus 126 pass, and Verilator 112 pass / 14 known at seed 1 and 109 pass / 17 known at seed 73.
+Icarus has no difference, and the Verilator known results are only x and z delays read as two-state values, so the representative outputs in the [replay record](delaypkgesc-known-replays.json) are empty.
+The [all-row record](delaypkgesc-all-rows.json) is one run of all 496 rows and enters neither the fixed suite nor requirement coverage. kirimasim and Icarus have no difference.
+See the [design and rerun](../../docs/interaction-verification.en.md#delay-value-form).

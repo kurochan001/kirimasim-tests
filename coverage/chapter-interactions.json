@@ -2949,6 +2949,109 @@
           "reason": "foreachが添字を左から右へ進み、do-whileが空の配列でもない要素を一度読むことを確かめる。"
         }
       ]
+    },
+    {
+      "id": "delay_value_form",
+      "primary_chapter": 9,
+      "pairs": [
+        {
+          "chapters": [
+            5,
+            9
+          ],
+          "reason": "無サイズ・サイズ付き・実数・時間リテラル・x・zを含む値・負の値の遅延の字句が、待つ時間を決めることを確かめる。"
+        },
+        {
+          "chapters": [
+            9,
+            10
+          ],
+          "when": {
+            "site": [
+              "blocking",
+              "nba"
+            ]
+          },
+          "reason": "即時代入とノンブロッキング代入の中の遅延が、右辺を先に評価して代入だけを遅らせることを確かめる。"
+        },
+        {
+          "chapters": [
+            3,
+            9
+          ],
+          "when": {
+            "value": [
+              "real_down",
+              "real_up",
+              "time",
+              "time_fine"
+            ]
+          },
+          "reason": "実数と時間リテラルの遅延を、時間単位で換算してから精度1nsか100psへ丸めることを確かめる。"
+        }
+      ]
+    },
+    {
+      "id": "package_name_lookup",
+      "primary_chapter": 26,
+      "pairs": [
+        {
+          "chapters": [
+            12,
+            26
+          ],
+          "reason": "for・while・repeat・do-whileの範囲に使う名前が、26.3の探索の順序でpackage・宣言・別のimportへ結合することを確かめる。"
+        },
+        {
+          "chapters": [
+            13,
+            26
+          ],
+          "when": {
+            "ref": [
+              "call"
+            ]
+          },
+          "reason": "関数の呼出しがスコープの終わりまでの宣言を探し、後のwildcard importを使わないことを確かめる。"
+        }
+      ]
+    },
+    {
+      "id": "escaped_name_binding",
+      "primary_chapter": 5,
+      "pairs": [
+        {
+          "chapters": [
+            5,
+            23
+          ],
+          "reason": "モジュール・インスタンス・ポート・パラメータ・変数・生成ブロックのエスケープした名前が、平易な形と同じ名前として階層の中で結合することを確かめる。"
+        },
+        {
+          "chapters": [
+            5,
+            13
+          ],
+          "when": {
+            "item": [
+              "task"
+            ]
+          },
+          "reason": "エスケープしたtaskの名前を、インスタンスを通して呼ぶ。"
+        },
+        {
+          "chapters": [
+            5,
+            27
+          ],
+          "when": {
+            "item": [
+              "block"
+            ]
+          },
+          "reason": "エスケープした生成ブロックの名前を、階層名で読む。"
+        }
+      ]
     }
   ]
 }

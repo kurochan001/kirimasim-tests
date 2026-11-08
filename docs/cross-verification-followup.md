@@ -5,9 +5,9 @@
 2026-11-06（日本時間）の更新です。2026-11-03の対応記録を保持し、固定回帰・正式Nightly・既存期待値・選択モデルを維持し、
 既知の不一致の修正、未対応の整理、要精査の章対の確認の順に進めています。
 
-現在の[全クロスのローカル選択](../coverage/interaction-results/cross104-kirimasim-28c6c1a1-hierloop.json)は104モデル・4,170件で、最新のmainをビルドしたkirimasim `28c6c1a1cb83`で実行しました。
-3,683 pass・479 unsupported・8 failです。failはconfigの4件と、`defparam`の型と範囲を取り違える4件です。[`eee8cd16ba1d`の前回の全実行](../coverage/interaction-results/cross101-kirimasim-eee8cd16-paramassertlit.json)と比べて従来4,023件の入力と状態は不変です。
-前回の136件は[`76cb9785`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42386486773)で固定版比較が成功しました。今回の147件は正式Check・Nightlyでは未実行です。
+現在の[全クロスのローカル選択](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json)は107モデル・4,296件で、最新のmainをビルドしたkirimasim `28c6c1a1cb83`で実行しました。
+3,809 pass・479 unsupported・8 failです。failはconfigの4件と、`defparam`の型と範囲を取り違える4件です。[前回の全実行](../coverage/interaction-results/cross104-kirimasim-28c6c1a1-hierloop.json)と比べて従来4,170件の入力と状態は不変です。
+前回の147件は[`b091fd3a`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42424091234)で固定版比較が成功しました。今回の126件は正式Check・Nightlyでは未実行です。
 
 [基点67321079のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584)は成功し、追加前の88モデルを含む固定版比較・静的検査を確認しました。
 [同じ基点のNightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265)もworkflowと全ジョブが成功しましたが、個別artifactは未照合です。その後の追加は両実行の対象外です。
@@ -95,7 +95,7 @@ upstream mainの公開済み修正ではありません。[版・修正元・ソ
   演算・条件式を将来の独立因子として検討します。合法な式と正の寸法の確定、
   既知のconfigリセット不一致の修正を先に行います。
 
-現在の仕分けはM181・E3・C2・N117・R517です。
+現在の仕分けはM185・E3・C2・N117・R513です。
 [章対の根拠と指紋](chapter-cross-triage.md)を参照してください。
 既存の回帰matrixを先に活用し、原因が確定した機構に境界・操作列・故障対照を追加します。
 同じ目的の別runnerや、ランダム結果を固定要求カバレッジへ加算する仕組みは追加していません。
@@ -254,3 +254,11 @@ endmodule
 - 全合法行869行でkirimasimの差は0件で、期待値の修正はありません。IcarusとVerilatorとの差は、二値のVerilatorがxを表せない6行を含め、条文に照らして各シミュレータ側の差と判断しました。
 - `28c6c1a1cb83`はフロントエンドが`eee8cd16ba1d`から変わりましたが、従来4,023件の入力と状態は変わりません。`defparam`の4件もまだfailです。
 - [実装を待つ候補](#models-waiting-for-kirimasim)の4件は、`28c6c1a1cb83`でもまだ`not implemented yet`です。
+
+## 遅延の値の書き方・packageの名前の探索・エスケープした識別子（2026-11-08）
+
+- [遅延の値の書き方](interaction-verification.md#delay-value-form)、[packageの名前の探索](interaction-verification.md#package-name-lookup)、[エスケープした識別子の結合](interaction-verification.md#escaped-name-binding)のモデルを追加しました。
+- 第5×9・12×26・5×23・5×27章の4章対をRからMへ移しました。
+- kirimasim `28c6c1a1cb83`の単一の全4,296件は3,809 pass・479 unsupported・8 failです。追加126件は全PASSです。107モデル・185章対・全選択ケースPASSは82モデルです。
+- 全合法行496行でkirimasimの差は0件で、期待値の修正はありません。固定Icarus 13.0も全行で一致しました。Verilatorとの差は、xとzの遅延を二値で読む行とzの遅延の未対応だけです。
+- packageの名前の探索では、26.3が不正とする28通りの組合せを除き、独立した解釈がそれらをエラーとすることを確かめました。

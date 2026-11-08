@@ -371,3 +371,12 @@ clause 37.
   Pinned Icarus has 95 pass / 52 known and Verilator 136 pass / 11 known at both seeds.
 - The suite has 11,920 tests, 5,483 generated from 113 generators. Requirement coverage and thirteen random profiles are unchanged.
   The four [candidates waiting for kirimasim](cross-verification-followup.en.md#models-waiting-for-kirimasim) are still unimplemented. This addition has not run in formal Check/Nightly. See the [design and evidence](interaction-verification.en.md#hierarchical-process-control).
+
+### 2026-11-08 (delay-value, package-lookup and escaped-name addition)
+
+- Added models for how a delay value is written, package name lookup and escaped identifier binding. 126 cases come from 496 legal rows, and four chapter pairs moved from R to M.
+- One complete 4,296-case run on `28c6c1a1cb83` records 3,809 pass / 479 unsupported / eight fail. All 126 additions pass; preceding 4,170 inputs and statuses are unchanged.
+- Totals: 107 models, 185 chapter pairs, 82 full-selection-pass models; triage M185/E3/C2/N117/R513.
+  Pinned Icarus has 126 pass; Verilator has 112 pass / 14 known at seed 1 and 109 pass / 17 known at seed 73.
+- The suite has 12,046 tests, 5,609 generated from 116 generators. Requirement coverage and thirteen random profiles are unchanged.
+  This addition has not run in formal Check/Nightly. See the [design and evidence](interaction-verification.en.md#delay-value-form).
