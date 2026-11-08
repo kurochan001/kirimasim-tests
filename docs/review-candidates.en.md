@@ -51,4 +51,6 @@ Within a section, the order is that of the test paths.
 - When it is wrong, the expectation is fixed, and the test's comment and the [history](history.md) give the reason and the clauses cited. Generated tests are fixed in their generators.
 - `:spec_check: ai` stays as it is until a person checks the test.
 
-Recorded reviews: none yet.
+Recorded reviews:
+
+- [2026-11-09](spec-only-review-20261109.en.md)

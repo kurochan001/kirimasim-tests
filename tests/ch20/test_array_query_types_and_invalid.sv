@@ -11,7 +11,12 @@
 :expected_stdout: @test_array_query_types_and_invalid.expected
 */
 // IEEE 1800-2023 §20.7: the first argument may be a data type, as in
-// $size(int), $dimensions(string) and $size(Word). A call with a fixed-size
+// $size(int) and $size(Word). $dimensions returns 1 for a string; the test
+// asks it of the string variable s. The data type string itself is left out:
+// §20.7 also makes it an error to use these functions directly on a
+// dynamically sized type identifier, and §6.16 calls strings dynamic, so
+// slang and the tools built on it reject $dimensions(string); see
+// docs/simulator-differences.md. A call with a fixed-size
 // type and a constant dimension is legal in a constant expression; the
 // standard's own example has $size(Word) and $size(Ram,2) return 16. For a
 // queue, $left is 0 and $increment is -1; $right is -1 while the queue is
@@ -63,7 +68,7 @@ module test_array_query_types_and_invalid;
     chk("size(byte)", $size(byte), 8);
     chk("size(longint)", $size(longint), 64);
     chk("size(Word)", $size(Word), 16);
-    chk("dimensions(string)", $dimensions(string), 1);
+    chk("dimensions(s)", $dimensions(s), 1);
     chk("dimensions(int)", $dimensions(int), 1);
     chk("unpacked(int)", $unpacked_dimensions(int), 0);
 

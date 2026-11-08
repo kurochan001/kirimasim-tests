@@ -1,6 +1,6 @@
-0 assert zero sees 5
+0 assert zero sees 0
 1 assert final sees 6
-2 cover zero sees 8
+2 cover zero sees 7
 3 cover final sees 9
 4 assume zero pass
 5 assume final pass

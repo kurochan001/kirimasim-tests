@@ -408,3 +408,13 @@
 - resultsブランチに、比較対象から外れ、結果を公開しないシミュレータの結果が残っていました。`latest/`の1ファイル、`history.json`の6回分の項目、`behavior-history.json`の2つの実行記録です。
 - `tools/results_history.py`は、ランナーのあるシミュレータと`RETIRED`にあるもの（nvc）の結果だけを残すようにしました。`update`と`render`は、ほかのシミュレータの結果を`history.json`と`latest/`から取り除きます。`tools/behavior_coverage.py`は、その実行記録を要求カバレッジの履歴から取り除き、取り除いた数をその回の`dropped_snapshots`に記録します。その回の件数は測ったときのままです。
 - 残っていた記録は、resultsブランチへのコミットで取り除きました。ブランチのこれまでのコミットは書き換えていません。
+
+### 2026-11-09（「規格のみ」のテストの見直し）
+
+- specのみでGhost・kirimasim・Lyraのすべてでfailの30本と、specのみでkirimasimだけがpassの21本を、規格と照らしました。判断は[見直しの記録](spec-only-review-20261109.md)にあります。45本の期待値は正しく、6本を直しました。
+  - `ch10/test_syntax_assignment_pattern_forms`：10.9は、もう一方の辺に型があるときだけ代入パターンを代入の一辺にできるので、左辺のパターン2か所の右辺に型を付けました。6.21により`tr`に`static`を付けました。期待出力は変わりません。
+  - `ch16/test_deferred_flush_points`：9.2.2.2.1と9.2.2.3により、always_latchは自分が書く`lq`では再開しません。検査が`lq`の連続代入の写しを読むようにし、ブロックが再開してflushする形にしました（16.4.2）。期待出力は変わりません。
+  - `ch16/test_syntax_deferred_immediate_assertions`：16.4により、遅延アサーションは文に達したときに式と値渡しの引数を評価します。テストは後で評価すると読んでいたので、書き直しました。
+  - `ch23/test_syntax_port_expression_and_explicit_ports`：入力ポートで駆動する変数には初期値を付けられず（10.3.2、6.5）、8ビットの値を`%h`で表示すると2桁になる（21.2.1.3）ので、期待行を`explicit: hi=0a lo=05 low=3`にしました。
+  - `ch20/test_array_query_types_and_invalid`と`ch33/test_config_declaration_grammar_forms`：`$dimensions(string)`（20.7、6.16）と、use節でのパラメータの指定（Syntax 33-4・A.1.5と33.4.3の例）で、規格が食い違っています。どちらの構文もテストから外し、[シミュレータの差異](simulator-differences.ja.md#dimensions-of-string-type)に記録しました。
+- これらのテストを根拠にする28件の要求の対応で、引用の文字列・観測・入力のハッシュを付け直しました。要求カバレッジの値は変わりません。

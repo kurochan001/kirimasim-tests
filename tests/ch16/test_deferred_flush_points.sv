@@ -20,8 +20,12 @@
 // The always_comb block evaluates its assertion before the continuous
 // assignment settles nca, so the first evaluation fails and is flushed when
 // nca changes; only the settled pass is reported at 5. The always_latch block
-// evaluates before it updates lq, so the change of ld at 15 first queues a
-// failure, which the update of lq flushes; only the pass is reported. The
+// checks lqc, a continuous copy of lq: it evaluates before it updates lq, so
+// the change of ld at 15 first queues a failure, and the copy then changes
+// lqc, which the block reads, so the block resumes and flushes the failure;
+// only the pass is reported. The block cannot check lq itself: §9.2.2.2.1
+// and §9.2.2.3 leave a variable that the block writes out of its implicit
+// sensitivity, so its own update of lq would not resume it. The
 // event-controlled block queues a failure when ea changes at 25 and is
 // resumed by eb at #0 in the same time step, which flushes it, so only the
 // pass is reported. The outer_a procedure is disabled after it queues a
@@ -35,10 +39,12 @@ module test_deferred_flush_points;
   logic ca = 0;
   logic nca;
   logic en = 0, ld = 0, lq = 0;
+  logic lqc;
   logic ea = 1, eb = 1;
   logic da = 0, db = 0, dc = 0;
 
   assign nca = ~ca;
+  assign lqc = lq;
 
   task automatic note(string s);
     if ($time != 0) $display("%s", s);
@@ -51,7 +57,7 @@ module test_deferred_flush_points;
   end
 
   always_latch begin : latch_blk
-    a1: assert #0 (lq == ld || !en)
+    a1: assert #0 (lqc == ld || !en)
       note($sformatf("t=%0t latch pass", $time));
       else note($sformatf("t=%0t latch fail", $time));
     if (en) lq = ld;

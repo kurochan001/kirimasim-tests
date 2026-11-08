@@ -71,11 +71,11 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `coverage-tests-20261029-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T22:47:59.529525+00:00` / 2/12298 execution checked; 1 entries refer to older inputs.
 - `coverage-tests-20261029-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T22:46:15.799172+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12298 execution checked; 0 entries refer to older inputs.
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7880/12298 execution checked; 104 entries refer to older inputs.
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7959/12298 execution checked; 41 entries refer to older inputs.
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7863/12298 execution checked; 104 entries refer to older inputs.
-- `issues-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T13:33:20.979624+00:00` / 2/12298 execution checked; 14 entries refer to older inputs.
-- `issues-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T13:45:50.335531+00:00` / 3793/12298 execution checked; 310 entries refer to older inputs.
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7880/12298 execution checked; 132 entries refer to older inputs.
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7959/12298 execution checked; 69 entries refer to older inputs.
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7863/12298 execution checked; 132 entries refer to older inputs.
+- `issues-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T13:33:20.979624+00:00` / 2/12298 execution checked; 29 entries refer to older inputs.
+- `issues-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T13:45:50.335531+00:00` / 3793/12298 execution checked; 338 entries refer to older inputs.
 - `issues-20261031-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-30T20:31:55.476769+00:00` / 13/12298 execution checked; 19 entries refer to older inputs.
 - `issues-20261031-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-30T20:31:59.218896+00:00` / 42/12298 execution checked; 19 entries refer to older inputs.
 - `issues-20261031-verilator-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-30T20:32:01.484680+00:00` / 42/12298 execution checked; 19 entries refer to older inputs.
@@ -98,8 +98,8 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `quality-persim-20261027-icarus14.json`: `Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)` / `2026-10-27T13:37:34.824763+00:00` / 21/12298 execution checked; 2 entries refer to older inputs.
 - `quality-persim-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T13:37:34.897897+00:00` / 19/12298 execution checked; 2 entries refer to older inputs.
 - `quality-persim-20261027-verilator-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T13:37:34.973472+00:00` / 19/12298 execution checked; 2 entries refer to older inputs.
-- `refresh-20261027-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T14:45:42.063155+00:00` / 3116/12298 execution checked; 542 entries refer to older inputs.
-- `refresh-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T14:43:38.130423+00:00` / 2636/12298 execution checked; 479 entries refer to older inputs.
+- `refresh-20261027-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T14:45:42.063155+00:00` / 3116/12298 execution checked; 555 entries refer to older inputs.
+- `refresh-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T14:43:38.130423+00:00` / 2636/12298 execution checked; 492 entries refer to older inputs.
 - `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 72/12298 execution checked; 1 entries refer to older inputs.
 - `test-fixes-20261031-icarus-include.json`: `Icarus Verilog version 13.0 (stable) (v13_0-25-g07dd50d37)` / `2026-10-31T12:25:03.867848+00:00` / 0/12298 execution checked; 1 entries refer to older inputs.
 - `test-fixes-20261031-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-25-g07dd50d37)` / `2026-10-31T12:23:47.414500+00:00` / 4/12298 execution checked; 1 entries refer to older inputs.
@@ -37115,7 +37115,7 @@ Acceptance criterion: Resumption of always_comb or always_latch due to a sensiti
 
 Normative role: `mandatory`。
 
-- [test_deferred_flush_points.sv](../tests/ch16/test_deferred_flush_points.sv): a0 of always_comb reads the uncertain ncA from the change in ca and queues the failure at the first evaluation. Since the queue is rebooted and flushed with the change of nca, only the pass after the settle is t = 5. a1 of always_latch also queues for failures before lq is updated by the change in ld, and is flushed by lq update, giving only t = 15 pass. Distinguishing observation: if you do not implement a flush, t = 5 comb fail and t = 15 latch fail will be added before pass, and implementations that do not use the reboot as a flush point will leave these lines.
+- [test_deferred_flush_points.sv](../tests/ch16/test_deferred_flush_points.sv): a0 of always_comb reads the uncertain ncA from the change in ca and queues the failure at the first evaluation. Since the queue is rebooted and flushed with the change of nca, only the pass after the settle is t = 5. a1 of the always_latch reads lqc, a continuous copy of lq, and queues a failure on the change of ld before lq is updated. The change of lqc resumes the block and flushes the queue, so only the pass at t = 15 is reported (lq itself, which the block writes, is not in its implicit sensitivity). Distinguishing observation: if you do not implement a flush, t = 5 comb fail and t = 15 latch fail will be added before pass, and implementations that do not use the reboot as a flush point will leave these lines.
 
 ### SV2023-16.4.2-EXTRACT-EVENT-WAIT-FLUSH
 
@@ -115477,7 +115477,7 @@ Acceptance criterion: An explicit ANSI port has optional direction, dot port ide
 
 Normative role: `definition`。
 
-- [test_syntax_port_expression_and_explicit_ports.sv](../tests/ch23/test_syntax_port_expression_and_explicit_ports.sv): explicit_ports is.hi(r \[ 7:4 \] ),.lo(r \[ 3:0 \] ),. List direction, name, and expression as in low_in(w \[ 3:0 \]), .cell(v \[ 1 \]); .unused() omits the expression. The output is hi =a lo = 5 low = 3 cell = 42. Distinguishing observation: Sum through the various expressions of linked, partially selected, and explicit ports.
+- [test_syntax_port_expression_and_explicit_ports.sv](../tests/ch23/test_syntax_port_expression_and_explicit_ports.sv): explicit_ports is.hi(r \[ 7:4 \] ),.lo(r \[ 3:0 \] ),. List direction, name, and expression as in low_in(w \[ 3:0 \]), .cell(v \[ 1 \]); .unused() omits the expression. It prints hi = 0a lo = 05 low = 3 cell = 42. Distinguishing observation: Sum through the various expressions of linked, partially selected, and explicit ports.
 
 ### SV2023-A.1.3-EXTRACT-ANSI-NET-INTERFACE-PORT
 
@@ -116149,7 +116149,7 @@ Acceptance criterion: Configuration source has config/name, localparams, design 
 
 Normative role: `definition`。
 
-- [test_config_declaration_grammar_forms.sv](../tests/ch33/test_config_declaration_grammar_forms.sv): after config cf_cfg, localparam int WIDTH = 7; 、design work.test_config_declaration_grammar_forms ; The endconfig : cf_cfg is a rule for instance/cell. The instance rule overwrites a1 to cf_b and u1 = 0b, the cell rule overwrites a2 to cf_a and u2 = 0a, and the cell rule overwrits p3 to W = WIDTH and u3 = 7. Distinguishing observation: mishandling the config name or design statement will cause u1 / u2 / u3 to be 0a / 0a / 1, ignoring localparam WIDTH will cause u3 = 1, and mishandling the endconfig name will cause syntax errors.
+- [test_config_declaration_grammar_forms.sv](../tests/ch33/test_config_declaration_grammar_forms.sv): after config cf_cfg, localparam int WIDTH = 7; 、design work.test_config_declaration_grammar_forms ; The endconfig : cf_cfg is a rule for instance/cell. The instance rule binds a1 to cf_b, giving u1 = 0b; the cell rule with the empty liblist keeps a2 as cf_a, giving u2 = 0a; and the cell rule with a library binds p3 to work.cf_p with its default W = 1, giving u3 = 1. Distinguishing observation: Mistaking the config name or the design statement makes u1 0a, mishandling the empty liblist changes the binding of a2, and mishandling the name after endconfig gives a syntax error.
 
 ### SV2023-A.1.6-EXTRACT-INTERFACE-EXTERN
 
@@ -121062,7 +121062,7 @@ Acceptance criterion: Assignment-pattern net/variable lvalues use apostrophe bra
 
 Normative role: `definition`。
 
-- [test_syntax_assignment_pattern_forms.sv](../tests/ch10/test_syntax_assignment_pattern_forms.sv): the variable lvalue pattern '{va, vb} = '{3, 4} prints 3 and 4, and the net lvalue pattern in the continuous assignment prints n0=1 and n1=2. Distinguishing observation: If a pattern lvalue assigned the wrong target or value, the printed 3, 4, 1 or 2 would differ.
+- [test_syntax_assignment_pattern_forms.sv](../tests/ch10/test_syntax_assignment_pattern_forms.sv): the variable lvalue pattern '{va, vb} = nib2_t'{3, 4} prints 3 and 4, and the net lvalue pattern in the continuous assignment, whose right side is the typed pattern nib2_t'{1, 2}, prints n0=1 and n1=2. Distinguishing observation: If a pattern lvalue assigned the wrong target or value, the printed 3, 4, 1 or 2 would differ.
 
 ### SV2023-A.6.7.1-EXTRACT-PATTERN-NAMED
 
@@ -121290,7 +121290,7 @@ Acceptance criterion: Deferred immediate assert has final before parenthesized e
 
 Normative role: `definition`。
 
-- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv): assert final (a == 6) sees 6 at the end of step 1 and prints 1 assert final sees 6. Distinguishing observation: If the check ran when reached or in another step, it would see another value or not print.
+- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv): assert final (a == 6) reached with a=6 and followed by a=16 is evaluated when reached and prints 1 assert final sees 6. Distinguishing observation: If the check were evaluated at the end of the step, it would see 16 and print wrong.
 
 ### SV2023-A.6.10-EXTRACT-DEFERRED-ASSERT-ZERO
 
@@ -121302,7 +121302,7 @@ Acceptance criterion: Deferred immediate assert has #0 before parenthesized expr
 
 Normative role: `definition`。
 
-- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv): assert #0 reached with a=0 and followed by a=5 fails in the observed region and its else action prints 0 assert zero sees 5. Distinguishing observation: If the check ran when reached, it would see 0 and print wrong.
+- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv): assert #0 (a == 0) reached with a=0 and followed by a=5 is evaluated when reached, so its pass action prints 0 assert zero sees 0 with the value passed at that instant. Distinguishing observation: If the check or its argument were evaluated in the observed region, it would see 5 and print wrong.
 
 ### SV2023-A.6.10-EXTRACT-DEFERRED-ASSUME-FINAL
 
@@ -121314,7 +121314,7 @@ Acceptance criterion: Deferred immediate assume has final before parenthesized e
 
 Normative role: `definition`。
 
-- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv): assume final (a == 13) sees 13 at the end of step 5 and prints 5 assume final pass. Distinguishing observation: If the check used another value or time, the assumption would fail or print nothing.
+- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv): assume final (a == 13) reached with a=13 and followed by a=23 prints 5 assume final pass. Distinguishing observation: If the check ran at the end of the step, it would see 23 and print wrong.
 
 ### SV2023-A.6.10-EXTRACT-DEFERRED-ASSUME-ZERO
 
@@ -121326,7 +121326,7 @@ Acceptance criterion: Deferred immediate assume has #0 before parenthesized expr
 
 Normative role: `definition`。
 
-- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv): assume #0 reached before a=12 sees 12 in the observed region and prints 4 assume zero pass. Distinguishing observation: If the check ran when reached, the assumption would fail and its else action would print wrong.
+- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv): assume #0 (a == 11) reached with a=11 and followed by a=12 is evaluated when reached and prints 4 assume zero pass. Distinguishing observation: If the check ran in the observed region, the assumption would fail and its else action would print wrong.
 
 ### SV2023-A.6.10-EXTRACT-DEFERRED-COVER-FINAL
 
@@ -121338,7 +121338,7 @@ Acceptance criterion: Deferred immediate cover has final before parenthesized ex
 
 Normative role: `definition`。
 
-- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv): cover final (a == 9) sees 9 at the end of step 3 and runs its statement, printing 3 cover final sees 9. Distinguishing observation: If the cover used another value or time, the line would be missing.
+- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv): cover final (a == 9) reached with a=9 and followed by a=19 runs its statement, printing 3 cover final sees 9. Distinguishing observation: If the cover were evaluated at the end of the step, it would see 19 and print nothing.
 
 ### SV2023-A.6.10-EXTRACT-DEFERRED-COVER-ZERO
 
@@ -121350,7 +121350,7 @@ Acceptance criterion: Deferred immediate cover has #0 before parenthesized expre
 
 Normative role: `definition`。
 
-- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv): cover #0 reached before a=8 sees 8 in the observed region and runs its statement, printing 2 cover zero sees 8. Distinguishing observation: If the cover ran when reached, it would see 7 and print nothing.
+- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv): cover #0 (a == 7) reached with a=7 and followed by a=8 is evaluated when reached and runs its statement, printing 2 cover zero sees 7. Distinguishing observation: If the cover were evaluated in the observed region, it would see 8 and print nothing.
 
 ### SV2023-A.6.10-EXTRACT-SIMPLE-ASSERT
 

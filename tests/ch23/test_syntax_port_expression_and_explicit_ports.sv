@@ -30,6 +30,12 @@
 // instances leave them unconnected: a blank ordered connection (23.3.2.1) and
 // empty parentheses after the port name (23.3.2.2).
 //
+// The input port low_in drives w[3:0] by a continuous assignment (23.3.3), so
+// w has no initializer: 10.3.2 and 6.5 make an initializer an error on a
+// variable driven by a continuous assignment. The parent's hi and lo are
+// 8 bits wide and take the 4-bit outputs zero-extended, and %h prints all
+// their hex digits (21.2.1.3), so they print 0a and 05.
+//
 // No release compiles this: Icarus Verilog 13.0 rejects interface ports and
 // every complex port; Verilator 5.052 rejects complex ports.
 
@@ -66,7 +72,7 @@ module explicit_ports (
   input  .unused()
 );
   logic [7:0] r;
-  logic [7:0] w = 8'h30;
+  logic [7:0] w;
   int v [2];
 
   initial r = 8'hA5;

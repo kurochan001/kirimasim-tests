@@ -71,11 +71,11 @@
 - `coverage-tests-20261029-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T22:47:59.529525+00:00` / 2/12298 動作確認、古い入力との対応 1 件。
 - `coverage-tests-20261029-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T22:46:15.799172+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12298 動作確認、古い入力との対応 0 件。
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7880/12298 動作確認、古い入力との対応 104 件。
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7959/12298 動作確認、古い入力との対応 41 件。
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7863/12298 動作確認、古い入力との対応 104 件。
-- `issues-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T13:33:20.979624+00:00` / 2/12298 動作確認、古い入力との対応 14 件。
-- `issues-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T13:45:50.335531+00:00` / 3793/12298 動作確認、古い入力との対応 310 件。
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7880/12298 動作確認、古い入力との対応 132 件。
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7959/12298 動作確認、古い入力との対応 69 件。
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7863/12298 動作確認、古い入力との対応 132 件。
+- `issues-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T13:33:20.979624+00:00` / 2/12298 動作確認、古い入力との対応 29 件。
+- `issues-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T13:45:50.335531+00:00` / 3793/12298 動作確認、古い入力との対応 338 件。
 - `issues-20261031-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-30T20:31:55.476769+00:00` / 13/12298 動作確認、古い入力との対応 19 件。
 - `issues-20261031-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-30T20:31:59.218896+00:00` / 42/12298 動作確認、古い入力との対応 19 件。
 - `issues-20261031-verilator-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-30T20:32:01.484680+00:00` / 42/12298 動作確認、古い入力との対応 19 件。
@@ -98,8 +98,8 @@
 - `quality-persim-20261027-icarus14.json`: `Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)` / `2026-10-27T13:37:34.824763+00:00` / 21/12298 動作確認、古い入力との対応 2 件。
 - `quality-persim-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T13:37:34.897897+00:00` / 19/12298 動作確認、古い入力との対応 2 件。
 - `quality-persim-20261027-verilator-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T13:37:34.973472+00:00` / 19/12298 動作確認、古い入力との対応 2 件。
-- `refresh-20261027-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T14:45:42.063155+00:00` / 3116/12298 動作確認、古い入力との対応 542 件。
-- `refresh-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T14:43:38.130423+00:00` / 2636/12298 動作確認、古い入力との対応 479 件。
+- `refresh-20261027-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T14:45:42.063155+00:00` / 3116/12298 動作確認、古い入力との対応 555 件。
+- `refresh-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T14:43:38.130423+00:00` / 2636/12298 動作確認、古い入力との対応 492 件。
 - `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 72/12298 動作確認、古い入力との対応 1 件。
 - `test-fixes-20261031-icarus-include.json`: `Icarus Verilog version 13.0 (stable) (v13_0-25-g07dd50d37)` / `2026-10-31T12:25:03.867848+00:00` / 0/12298 動作確認、古い入力との対応 1 件。
 - `test-fixes-20261031-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-25-g07dd50d37)` / `2026-10-31T12:23:47.414500+00:00` / 4/12298 動作確認、古い入力との対応 1 件。
@@ -37115,7 +37115,7 @@ always_comb always_latch の感度変化による再開は，遅延したアサ�
 
 規定の性質: `mandatory`。
 
-- [test_deferred_flush_points.sv](../tests/ch16/test_deferred_flush_points.sv): always_comb の a0 は ca の変化で未確定の nca を読み、最初の評価で失敗を queue する。nca の変化で再開して queue を flush するので、settle 後の pass だけが t=5 に出る。always_latch の a1 も ld の変化で lq の更新前に失敗を queue し、lq の更新で flush されて t=15 の pass だけが出る。 区別: flush を実装しないと t=5 comb fail と t=15 latch fail が pass の前に増え、再開を flush 点としない実装はこれらの行を残す。
+- [test_deferred_flush_points.sv](../tests/ch16/test_deferred_flush_points.sv): always_comb の a0 は ca の変化で未確定の nca を読み、最初の評価で失敗を queue する。nca の変化で再開して queue を flush するので、settle 後の pass だけが t=5 に出る。always_latch の a1 は lq の連続代入の写し lqc を読み、ld の変化で lq の更新前に失敗を queue する。lqc の変化で再開して flush するので、t=15 の pass だけが出る（ブロックが書く lq 自体は暗黙の感度に入らない）。 区別: flush を実装しないと t=5 comb fail と t=15 latch fail が pass の前に増え、再開を flush 点としない実装はこれらの行を残す。
 
 ### SV2023-16.4.2-EXTRACT-EVENT-WAIT-FLUSH
 
@@ -115477,7 +115477,7 @@ ANSIポートは任意の方向，ドットポート識別子，および任意�
 
 規定の性質: `definition`。
 
-- 次の例では、[test_syntax_port_expression_and_explicit_ports.sv](../tests/ch23/test_syntax_port_expression_and_explicit_ports.sv):explicit_ports は.hi(r \[ 7:4 \] )、.lo(r \[ 3:0 \] )、、 である。low_in (w \[ 3:0 \] )、.cell(v \[ 1 \] ) のように方向・名前・式を並べ、.unused() は式を省く。hi =a lo = 5 low = 3 cell = 42 を出力する。区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。
+- 次の例では、[test_syntax_port_expression_and_explicit_ports.sv](../tests/ch23/test_syntax_port_expression_and_explicit_ports.sv):explicit_ports は.hi(r \[ 7:4 \] )、.lo(r \[ 3:0 \] )、、 である。low_in (w \[ 3:0 \] )、.cell(v \[ 1 \] ) のように方向・名前・式を並べ、.unused() は式を省く。hi = 0a lo = 05 low = 3 cell = 42 を出力する。区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。
 
 ### SV2023-A.1.3-EXTRACT-ANSI-NET-INTERFACE-PORT
 
@@ -116149,7 +116149,7 @@ $warning の厳密性命令は，省略された括弧または引数リスト�
 
 規定の性質: `definition`。
 
-- [test_config_declaration_grammar_forms.sv](../tests/ch33/test_config_declaration_grammar_forms.sv) : config cf_cfg の後に localparam int WIDTH = 7 ;、デザインwork.test_config_declaration_grammar_forms ;、instance/cell の規則、endconfig : cf_cfg を並べる。instance 規則が a1 を cf_b にして u1 = 0b 、cell 規則が a2 を cf_a のままにして u2 = 0a 、cell 規則が p3 を W = WIDTH で上書きして u3 = 7 になる。区別: config 名か design 文を取り違えると u1 / u2 / u3 が 0a / 0a / 1 になり、 localparam WIDTH を無視すると u3 = 1 、endconfig の名前の扱いを誤ると構文エラーになる。
+- [test_config_declaration_grammar_forms.sv](../tests/ch33/test_config_declaration_grammar_forms.sv) : config cf_cfg の後に localparam int WIDTH = 7 ;、デザインwork.test_config_declaration_grammar_forms ;、instance/cell の規則、endconfig : cf_cfg を並べる。instance 規則が a1 を cf_b にして u1 = 0b 、空の liblist の cell 規則が a2 を cf_a のままにして u2 = 0a 、ライブラリ付きの cell 規則が p3 を work.cf_p に結び付けて既定の W = 1 のまま u3 = 1 になる。区別: config 名か design 文を取り違えると u1 が 0a になり、空の liblist の扱いを誤ると a2 の束縛が変わり、endconfig の名前の扱いを誤ると構文エラーになる。
 
 ### SV2023-A.1.6-EXTRACT-INTERFACE-EXTERN
 
@@ -121062,7 +121062,7 @@ randcase は一つまたは複数の表現重み付きコロン命令/ヌル項�
 
 規定の性質: `definition`。
 
-- [test_syntax_assignment_pattern_forms.sv](../tests/ch10/test_syntax_assignment_pattern_forms.sv): 変数の左辺値パターン'{va, vb} = '{3, 4}は、3と4を出力します。連続代入のネットの左辺値パターンは、n0 = 1とn1 = 2を出力します。区別: パターン左辺値が誤った代入先または値を使うと、出力される3、4、1、2のいずれかが変わります。
+- [test_syntax_assignment_pattern_forms.sv](../tests/ch10/test_syntax_assignment_pattern_forms.sv): 変数の左辺値パターン'{va, vb} = nib2_t'{3, 4}は、3と4を出力します。右辺が型付きのパターンnib2_t'{1, 2}である連続代入のネットの左辺値パターンは、n0 = 1とn1 = 2を出力します。区別: パターン左辺値が誤った代入先または値を使うと、出力される3、4、1、2のいずれかが変わります。
 
 ### SV2023-A.6.7.1-EXTRACT-PATTERN-NAMED
 
@@ -121290,7 +121290,7 @@ Foreachループ変数は，次元指標を省略できるように，0以上の
 
 規定の性質: `definition`。
 
-- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv)：assert final(a == 6)は、ステップ1の終端で6を読み、「1 assert final sees 6」を出力する。区別: 到達時や別のステップで検査すると、別の値を読むか、出力しない。
+- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv)：a = 6で到達し、直後にa = 16となるassert final(a == 6)は、到達時に評価され、「1 assert final sees 6」を出力する。区別: ステップの終端で評価すると、16を読んでwrongを出力する。
 
 ### SV2023-A.6.10-EXTRACT-DEFERRED-ASSERT-ZERO
 
@@ -121302,7 +121302,7 @@ Foreachループ変数は，次元指標を省略できるように，0以上の
 
 規定の性質: `definition`。
 
-- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv): a = 0で到達し、その後にa = 5が続くassert #0は、Observed領域で失敗し、そのelseアクションは0 assert zero sees 5を出力します。区別: 到達した時点で検査すると、0が見え、wrongが出力されます。
+- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv)：a = 0で到達し、直後にa = 5となるassert #0(a == 0)は、到達時に評価されるので、成功の動作がその時点で値渡しされた値で「0 assert zero sees 0」を出力する。区別: 検査や引数をobserved領域で評価すると、5を読んでwrongを出力する。
 
 ### SV2023-A.6.10-EXTRACT-DEFERRED-ASSUME-FINAL
 
@@ -121314,7 +121314,7 @@ Foreachループ変数は，次元指標を省略できるように，0以上の
 
 規定の性質: `definition`。
 
-- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv) : assume final ( a == 13 ) はステップ 5 の終わりに 13 を観測し、5 assume final pass と表示する。区別: 別の値または時刻を使って検査すると、assumption は失敗するか、何も表示しない。
+- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv)：a = 13で到達し、直後にa = 23となるassume final(a == 13)は、「5 assume final pass」を出力する。区別: ステップの終端で検査すると、23を読んでwrongを出力する。
 
 ### SV2023-A.6.10-EXTRACT-DEFERRED-ASSUME-ZERO
 
@@ -121326,7 +121326,7 @@ Foreachループ変数は，次元指標を省略できるように，0以上の
 
 規定の性質: `definition`。
 
-- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv): a = 12以前に #0 に到達したと仮定し、観測領域に 12 を見つけ、 4 をゼロ通過と仮定して印刷します。
+- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv)：a = 11で到達し、直後にa = 12となるassume #0(a == 11)は、到達時に評価され、「4 assume zero pass」を出力する。区別: observed領域で検査すると、仮定が成り立たず、else動作がwrongを出力する。
 
 ### SV2023-A.6.10-EXTRACT-DEFERRED-COVER-FINAL
 
@@ -121338,7 +121338,7 @@ Foreachループ変数は，次元指標を省略できるように，0以上の
 
 規定の性質: `definition`。
 
-- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv)：カバーファイナル（a == 9）はステップ3の終わりに9を見てその文を実行し，3を出力するとカバーファイナルは9を見る。
+- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv)：a = 9で到達し、直後にa = 19となるcover final(a == 9)は、文を実行して「3 cover final sees 9」を出力する。区別: ステップの終端で評価すると、19を読んで何も出力しない。
 
 ### SV2023-A.6.10-EXTRACT-DEFERRED-COVER-ZERO
 
@@ -121350,7 +121350,7 @@ Foreachループ変数は，次元指標を省略できるように，0以上の
 
 規定の性質: `definition`。
 
-- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv) : a = 8 より前に到達する cover # 0 は、Observed 領域で 8 を観測してその文を実行し、2 cover zero sees 8 と表示する。区別: 到達時に cover を実行すると 7 を観測し、何も表示しない。
+- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv)：a = 7で到達し、直後にa = 8となるcover #0(a == 7)は、到達時に評価されて文を実行し、「2 cover zero sees 7」を出力する。区別: observed領域で評価すると、8を読んで何も出力しない。
 
 ### SV2023-A.6.10-EXTRACT-SIMPLE-ASSERT
 

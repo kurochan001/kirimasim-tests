@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
-  "registry_sha256": "6c498a329d56dc734799b4c81bfb49d85ab3985ed642ecd88caf3a383dd8f2d7",
+  "registry_sha256": "39a3325243ef0683ec2e9f12574d61f035073f3092bb16de14d18d1b3ff5e211",
   "source_url": null,
   "source_audit": {
     "audited": 1740,
@@ -10155,14 +10155,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 104,
+        "stale_links": 132,
         "status_counts": {
           "pass": 7880,
-          "fail": 1454,
+          "fail": 1426,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 1273,
-          "stale": 82,
+          "stale": 110,
           "not_run": 290,
           "unmapped": 1319,
           "interpretation_pending": 0
@@ -18134,14 +18134,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 41,
+        "stale_links": 69,
         "status_counts": {
           "pass": 7959,
-          "fail": 1434,
+          "fail": 1406,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 1273,
-          "stale": 23,
+          "stale": 51,
           "not_run": 290,
           "unmapped": 1319,
           "interpretation_pending": 0
@@ -26017,14 +26017,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 104,
+        "stale_links": 132,
         "status_counts": {
           "pass": 7863,
-          "fail": 1551,
+          "fail": 1523,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 1193,
-          "stale": 82,
+          "stale": 110,
           "not_run": 290,
           "unmapped": 1319,
           "interpretation_pending": 0
@@ -26039,14 +26039,14 @@
           "SV2023-21.7.1.2-EXTRACT-DUMPVARS-ALL",
           "SV2023-22.4-EXTRACT-INCLUDE-SYNTAX"
         ],
-        "stale_links": 14,
+        "stale_links": 29,
         "status_counts": {
           "pass": 2,
           "fail": 0,
-          "known": 75,
+          "known": 60,
           "unsupported": 0,
           "unreviewed_oracle": 0,
-          "stale": 12,
+          "stale": 27,
           "not_run": 10890,
           "unmapped": 1319,
           "interpretation_pending": 0
@@ -29852,14 +29852,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 310,
+        "stale_links": 338,
         "status_counts": {
           "pass": 3793,
           "fail": 0,
-          "known": 5952,
+          "known": 5924,
           "unsupported": 0,
           "unreviewed_oracle": 668,
-          "stale": 274,
+          "stale": 302,
           "not_run": 292,
           "unmapped": 1319,
           "interpretation_pending": 0
@@ -33605,14 +33605,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 542,
+        "stale_links": 555,
         "status_counts": {
           "pass": 3116,
           "fail": 0,
-          "known": 7095,
+          "known": 7082,
           "unsupported": 0,
           "unreviewed_oracle": 158,
-          "stale": 491,
+          "stale": 504,
           "not_run": 119,
           "unmapped": 1319,
           "interpretation_pending": 0
@@ -36261,14 +36261,14 @@
           "SV2023-M.2-EXTRACT-GUARD",
           "SV2023-M.2-EXTRACT-REGISTER"
         ],
-        "stale_links": 479,
+        "stale_links": 492,
         "status_counts": {
           "pass": 2636,
           "fail": 0,
-          "known": 4675,
+          "known": 4662,
           "unsupported": 0,
           "unreviewed_oracle": 84,
-          "stale": 454,
+          "stale": 467,
           "not_run": 3130,
           "unmapped": 1319,
           "interpretation_pending": 0

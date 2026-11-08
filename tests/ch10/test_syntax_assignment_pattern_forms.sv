@@ -29,6 +29,12 @@
 // assigns 3 and 4, the net lvalue pattern in a continuous assignment drives
 // 1 and 2, and each print shows the resulting values.
 //
+// §10.9: an assignment pattern has no self-determined data type and can be
+// one side of an assignment only when the other side has one, so the right
+// side of each lvalue pattern is the typed pattern nib2_t'{...}. §6.21: tr
+// is declared in a procedural block with an initializer, so it is declared
+// static explicitly.
+//
 // The expected output follows the standard; neither the Icarus Verilog 13.0
 // release nor the Verilator 5.052 release supports assignment pattern
 // lvalues, and Icarus Verilog 13.0 does not support the other forms beyond a
@@ -41,6 +47,7 @@ module test_syntax_assignment_pattern_forms;
   } pair_t;
 
   parameter type PT = pair_t;
+  typedef logic [3:0] nib2_t [2];
 
   pair_t pos = '{4'h1, 4'h2};
   pair_t named = '{hi: 4'h3, lo: 4'h4};
@@ -54,13 +61,13 @@ module test_syntax_assignment_pattern_forms;
   logic [3:0] a, b;
   wire [3:0] n0, n1;
 
-  assign '{n0, n1} = '{4'h1, 4'h2};
+  assign '{n0, n1} = nib2_t'{4'h1, 4'h2};
 
   initial begin
-    int tr = type(1)'{32{1'b1}};
+    static int tr = type(1)'{32{1'b1}};
     logic [3:0] va, vb;
 
-    '{va, vb} = '{4'h3, 4'h4};
+    '{va, vb} = nib2_t'{4'h3, 4'h4};
 
     $display("pos=%h named=%h dflt=%h", pos, named, dflt);
     $display("typed=%h param_typed=%h ia=%h", typed, param_typed, ia);

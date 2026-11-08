@@ -1103,3 +1103,22 @@ slang `d02b7cda`を使うkirimasim `33b93822`以前は、`ch24/test_illegal_modu
 slangを`6fbb158f`に更新した`f029ddd0`からは、kirimasimが設計を実行して`v=5`を表示します。このコミットのほかの変更は、総称クラスの特殊化に関するslangのインタフェースへの対応だけです。
 規格の読み方が分かれる点ではなくslangの退行なので、テストの期待はそのままにします。[2026-11-08のNightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/42422374691)の前夜比較で見つかりました。
 Icarus 13.0とVerilator 5.052もこの設計を受理します。
+
+<a id="dimensions-of-string-type"></a>
+
+## データ型stringの`$dimensions`（2026-11-09）
+
+20.7は、string型に対する`$dimensions`を1とする一方で、配列問い合わせ関数を動的な大きさの型の識別子に直接使うことをエラーとしています。6.16は文字列を動的と呼びます。
+slangと、それを使うkirimasim・Lyraは、`$dimensions(string)`を後者と読んでエラーを報告します。
+一つのテストでコンパイルエラーと合格の両方を認めることはできないので、`ch20/test_array_query_types_and_invalid`は文字列変数に対して`$dimensions`を問い合わせるようにしました。どちらの読み方でも1です。
+要求との対応付けは、根拠を失いません。
+同じテストは、範囲外の定数の次元に`'x`を返すことを引き続き期待します。これは20.7が明記しており、slangはここでもエラーを報告します。
+
+<a id="config-use-parameter-form"></a>
+
+## configのuse節でのパラメータの指定（2026-11-09）
+
+Syntax 33-4とA.1.5は、use節のパラメータの指定をセル名の直後に`use lib.cell .W(8)`と書きます。一方、33.4.3の例はすべて`use #(.W(8))`と書きます。
+slangと、それを使うkirimasim・Lyraは、`#`のある形だけを受理します。
+一つのテストでコンパイルエラーと合格の両方を認めることはできないので、`ch33/test_config_declaration_grammar_forms`はuse節でパラメータを指定せず、既定値を期待するようにしました。
+`tests/gen/ch33/`の生成されたconfigのテストは、例と同じ`#`のある形を使います。

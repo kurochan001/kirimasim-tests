@@ -144974,10 +144974,10 @@
       "checks": [
         {
           "test": "tests/ch16/test_deferred_flush_points.sv",
-          "observation": "always_comb の a0 は ca の変化で未確定の nca を読み、最初の評価で失敗を queue する。nca の変化で再開して queue を flush するので、settle 後の pass だけが t=5 に出る。always_latch の a1 も ld の変化で lq の更新前に失敗を queue し、lq の更新で flush されて t=15 の pass だけが出る。 区別: flush を実装しないと t=5 comb fail と t=15 latch fail が pass の前に増え、再開を flush 点としない実装はこれらの行を残す。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "40ed732b6a43729732047f19f9ff5518aa08848221596129a2663159813005fb",
+          "observation": "always_comb の a0 は ca の変化で未確定の nca を読み、最初の評価で失敗を queue する。nca の変化で再開して queue を flush するので、settle 後の pass だけが t=5 に出る。always_latch の a1 は lq の連続代入の写し lqc を読み、ld の変化で lq の更新前に失敗を queue する。lqc の変化で再開して flush するので、t=15 の pass だけが出る（ブロックが書く lq 自体は暗黙の感度に入らない）。 区別: flush を実装しないと t=5 comb fail と t=15 latch fail が pass の前に増え、再開を flush 点としない実装はこれらの行を残す。",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "780a1a87f7511ecf0711f9e5efc58ae1a90ce3e362cbf2addf3f8dfb9bc575fb",
           "evidence": [
             {
               "file": "tests/ch16/test_deferred_flush_points.sv",
@@ -145011,9 +145011,9 @@
         {
           "test": "tests/ch16/test_deferred_flush_points.sv",
           "observation": "ea=0 で always @(ea or eb) が失敗を queue し、同じ time step の #0 で eb=0 にして process を再開させる。event control からの再開が flush 点なので、t=25 event fail は出ず pass だけが出る。 区別: event control からの再開を flush 点としない実装は t=25 event fail を出し、pass の前に 2 行になる。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "40ed732b6a43729732047f19f9ff5518aa08848221596129a2663159813005fb",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "780a1a87f7511ecf0711f9e5efc58ae1a90ce3e362cbf2addf3f8dfb9bc575fb",
           "evidence": [
             {
               "file": "tests/ch16/test_deferred_flush_points.sv",
@@ -145175,9 +145175,9 @@
         {
           "test": "tests/ch16/test_deferred_flush_points.sv",
           "observation": "da=1 で process outer_a が失敗を queue した直後、同じ time step の #0 で outer_a を disable する。outermost の disable が queue を flush するので t=35 の報告は出ない。無効化しない outer_b は t=45 に fail し、outermost でない inner_c の disable は outer_c の pending を消さないので t=55 に fail が出る。 区別: outermost の disable で queue を flush しない実装は t=35 outer_a fail を追加し、inner の disable で flush する実装は t=55 outer_c fail を落とす。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "40ed732b6a43729732047f19f9ff5518aa08848221596129a2663159813005fb",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "780a1a87f7511ecf0711f9e5efc58ae1a90ce3e362cbf2addf3f8dfb9bc575fb",
           "evidence": [
             {
               "file": "tests/ch16/test_deferred_flush_points.sv",
@@ -198592,9 +198592,9 @@
         {
           "test": "tests/ch20/test_array_query_types_and_invalid.sv",
           "observation": "$size/$left/$right/$low/$high/$increment を、データ式 Ram とデータ型 int・byte・longint・Word・string の両方で呼ぶ。次元引数を省略した $size(Ram) と $left(Ram) が次元1を選び、明示した $size(Ram,1) と $size(Ram,2) が各次元を選ぶことを確認する。6関数すべての結果を整数として比較する。 区別: 型引数を受け付けない実装では $size(int) などがコンパイルできないか0 を返す。次元引数の既定を1としない実装では $size(Ram) が10 にならない。次元を明示した呼び出しが別の次元を選ぶ実装では Ram の1/2次元の値が入れ替わる。式と型の両方、既定次元と明示次元、6関数のすべてを同じテストで観測する。",
-          "reviewed_on": "2026-10-25",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "14525f64ae0c660385f9c4c35ea7a9f184a2f6a93150f837d324623df3318eb7",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "d2f185d75bbb2977b8b6104a5dc4b8355c8d6c715cac9a4e385368e466960520",
           "evidence": [
             {
               "file": "tests/ch20/test_array_query_types_and_invalid.sv",
@@ -198786,9 +198786,9 @@
         {
           "test": "tests/ch20/test_array_query_types_and_invalid.sv",
           "observation": "localparam int LP_WORD = $size(Word);、LP_RAM1 = $size(Ram,1);、LP_RAM2 = $size(Ram,2); を宣言し、それぞれ 16、10、16 になることを確認する。LP_WORD を使って logic [LP_WORD-1:0] uses_word を宣言し、その $bits が 16 になることも確認する。 区別: 固定サイズの型に対する問い合わせを定数式として受理しない実装では、localparam の宣言でコンパイルが止まるか、LP_WORD が0 や x になる。次元式が定数でないとして拒否する実装では LP_RAM2 が得られない。3つの localparam と、それを使ったベクタ幅16が、定数式での利用を観測する。",
-          "reviewed_on": "2026-10-25",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "14525f64ae0c660385f9c4c35ea7a9f184a2f6a93150f837d324623df3318eb7",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "d2f185d75bbb2977b8b6104a5dc4b8355c8d6c715cac9a4e385368e466960520",
           "evidence": [
             {
               "file": "tests/ch20/test_array_query_types_and_invalid.sv",
@@ -198934,9 +198934,9 @@
         {
           "test": "tests/ch20/test_array_query_types_and_invalid.sv",
           "observation": "固定次元について、Ram の1次元 [0:9] は left<right なので $increment=-1、2次元 [16:1] は left>right なので +1、int は +1 になることを確認する。動的配列 dyn と空のキュー q、要素を1つ入れた q のいずれも $increment=-1 になることを確認する。 区別: left と right の比較を逆にする実装では Ram の1次元と2次元の符号が入れ替わる。動的配列やキューに +1 を返す実装では dyn/q が1 になる。固定次元の両方向と、動的・キュー（空と非空）の -1 を分けて観測する。",
-          "reviewed_on": "2026-10-25",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "14525f64ae0c660385f9c4c35ea7a9f184a2f6a93150f837d324623df3318eb7",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "d2f185d75bbb2977b8b6104a5dc4b8355c8d6c715cac9a4e385368e466960520",
           "evidence": [
             {
               "file": "tests/ch20/test_array_query_types_and_invalid.sv",
@@ -198974,9 +198974,9 @@
         {
           "test": "tests/ch20/test_array_query_types_and_invalid.sv",
           "observation": "範囲外の次元を指定した $left(int,2)、$size(string,2)、$left(logic [7:0],2) が、いずれも32ビット全x になることを確認する。20.7 の対象外である real の呼び出しは削除したため、この check は範囲外次元だけを観測する。 区別: 無効な次元に0を返す実装では3つの x 検査がすべて BAD になる。",
-          "reviewed_on": "2026-10-25",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "14525f64ae0c660385f9c4c35ea7a9f184a2f6a93150f837d324623df3318eb7",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "d2f185d75bbb2977b8b6104a5dc4b8355c8d6c715cac9a4e385368e466960520",
           "evidence": [
             {
               "file": "tests/ch20/test_array_query_types_and_invalid.sv",
@@ -199162,9 +199162,9 @@
         {
           "test": "tests/ch20/test_array_query_types_and_invalid.sv",
           "observation": "$right が、Ram の unpacked 次元 [0:9] で9、packed 次元 [16:1] で1（最下位ビット）、int で0 になることを確認する。空の動的配列 dyn と空のキュー q で -1、要素を1つ入れた q で0 になることも確認する。 区別: packed 次元の右端を最上位ビットとする実装では Ram の2次元が16 になる。空の動的配列やキューに0 を返す実装では dyn/q が -1 にならない。固定次元・packed・空の動的・空のキュー・非空のキューの5通りが、右端の定義と空の特別扱いを分けて観測する。",
-          "reviewed_on": "2026-10-25",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "14525f64ae0c660385f9c4c35ea7a9f184a2f6a93150f837d324623df3318eb7",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "d2f185d75bbb2977b8b6104a5dc4b8355c8d6c715cac9a4e385368e466960520",
           "evidence": [
             {
               "file": "tests/ch20/test_array_query_types_and_invalid.sv",
@@ -243674,9 +243674,9 @@
         {
           "test": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
           "observation": "非 ANSI ヘッダ ({p, q}, part[1:0], .named(b), .nc(), io, rr, m, plain, sum) が、連結・部分選択・明示名・式なしの各ポート参照を並べ、方向と型は本体の input/inout/ref/output 宣言で与える。期待出力 nonansi: sum=15 rr=15 m=17 plain=34 io=3 は各参照が正しく接続されたことを示す。 区別: ポート参照と本体宣言を分離して解釈しない実装、または {p,q} や part[1:0] の選択を誤る実装では sum が 15 にならず、この行が変わる。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b2e9b67bc0678585f2a3b19c2e254a11b8c555c36d67935f29408c471f2940fa",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "37b56ebad5cf13ee26be344595316d5030658f181df154e028c7e60822d82f95",
           "evidence": [
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
@@ -429059,10 +429059,10 @@
       "checks": [
         {
           "test": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
-          "observation": "explicit_ports は .hi(r[7:4])、.lo(r[3:0])、.low_in(w[3:0])、.cell(v[1]) のように方向・名前・式を並べ、.unused() は式を省く。hi=a lo=5 low=3 cell=42 を出力する。 区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b2e9b67bc0678585f2a3b19c2e254a11b8c555c36d67935f29408c471f2940fa",
+          "observation": "explicit_ports は .hi(r[7:4])、.lo(r[3:0])、.low_in(w[3:0])、.cell(v[1]) のように方向・名前・式を並べ、.unused() は式を省く。hi=0a lo=05 low=3 cell=42 を出力する。 区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "37b56ebad5cf13ee26be344595316d5030658f181df154e028c7e60822d82f95",
           "evidence": [
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
@@ -429106,7 +429106,7 @@
             },
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.expected",
-              "contains": "explicit: hi=a lo=5 low=3"
+              "contains": "explicit: hi=0a lo=05 low=3"
             },
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.expected",
@@ -429440,9 +429440,9 @@
         {
           "test": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
           "observation": "nonansi_ports の並びは {p, q}, part[1:0], .named(b), .nc(), io, rr, m, plain, sum の 9 項目で、nonansi_empty は () の空の並びを持つ。 区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b2e9b67bc0678585f2a3b19c2e254a11b8c555c36d67935f29408c471f2940fa",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "37b56ebad5cf13ee26be344595316d5030658f181df154e028c7e60822d82f95",
           "evidence": [
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
@@ -429486,7 +429486,7 @@
             },
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.expected",
-              "contains": "explicit: hi=a lo=5 low=3"
+              "contains": "explicit: hi=0a lo=05 low=3"
             },
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.expected",
@@ -429740,9 +429740,9 @@
         {
           "test": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
           "observation": "inout tri [3:0] io は net の双方向ポートで、親の 3 を読んで sum に加える。 区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b2e9b67bc0678585f2a3b19c2e254a11b8c555c36d67935f29408c471f2940fa",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "37b56ebad5cf13ee26be344595316d5030658f181df154e028c7e60822d82f95",
           "evidence": [
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
@@ -429786,7 +429786,7 @@
             },
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.expected",
-              "contains": "explicit: hi=a lo=5 low=3"
+              "contains": "explicit: hi=0a lo=05 low=3"
             },
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.expected",
@@ -429816,9 +429816,9 @@
         {
           "test": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
           "observation": "属性付きの input wire [1:0] p, q と input logic [3:0] part が非 ANSI の宣言で、p=2 q=1 part[1:0]=1 が sum に入る。 区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b2e9b67bc0678585f2a3b19c2e254a11b8c555c36d67935f29408c471f2940fa",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "37b56ebad5cf13ee26be344595316d5030658f181df154e028c7e60822d82f95",
           "evidence": [
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
@@ -429862,7 +429862,7 @@
             },
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.expected",
-              "contains": "explicit: hi=a lo=5 low=3"
+              "contains": "explicit: hi=0a lo=05 low=3"
             },
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.expected",
@@ -429892,9 +429892,9 @@
         {
           "test": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
           "observation": "非 ANSI の宣言で ifc.master m と modport を選ばない ifc plain を置き、m.data=17 plain.data=34 を親が読む。 区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b2e9b67bc0678585f2a3b19c2e254a11b8c555c36d67935f29408c471f2940fa",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "37b56ebad5cf13ee26be344595316d5030658f181df154e028c7e60822d82f95",
           "evidence": [
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
@@ -429938,7 +429938,7 @@
             },
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.expected",
-              "contains": "explicit: hi=a lo=5 low=3"
+              "contains": "explicit: hi=0a lo=05 low=3"
             },
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.expected",
@@ -429968,9 +429968,9 @@
         {
           "test": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
           "observation": "output logic [7:0] sum は非 ANSI の宣言で、4 つのポート式の和 15 を駆動する。 区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b2e9b67bc0678585f2a3b19c2e254a11b8c555c36d67935f29408c471f2940fa",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "37b56ebad5cf13ee26be344595316d5030658f181df154e028c7e60822d82f95",
           "evidence": [
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
@@ -430014,7 +430014,7 @@
             },
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.expected",
-              "contains": "explicit: hi=a lo=5 low=3"
+              "contains": "explicit: hi=0a lo=05 low=3"
             },
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.expected",
@@ -430044,9 +430044,9 @@
         {
           "test": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
           "observation": "ref int rr は親の変数 rv=10 を参照し、タスク本体の rr = rr + 5 が親を 15 にする。 区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b2e9b67bc0678585f2a3b19c2e254a11b8c555c36d67935f29408c471f2940fa",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "37b56ebad5cf13ee26be344595316d5030658f181df154e028c7e60822d82f95",
           "evidence": [
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
@@ -430090,7 +430090,7 @@
             },
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.expected",
-              "contains": "explicit: hi=a lo=5 low=3"
+              "contains": "explicit: hi=0a lo=05 low=3"
             },
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.expected",
@@ -430196,9 +430196,9 @@
         {
           "test": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
           "observation": "{p, q} は 2 つの port_reference の連結、part[1:0] は constant_select 付きの参照で、その和が sum=15 になる。 区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b2e9b67bc0678585f2a3b19c2e254a11b8c555c36d67935f29408c471f2940fa",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "37b56ebad5cf13ee26be344595316d5030658f181df154e028c7e60822d82f95",
           "evidence": [
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
@@ -430242,7 +430242,7 @@
             },
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.expected",
-              "contains": "explicit: hi=a lo=5 low=3"
+              "contains": "explicit: hi=0a lo=05 low=3"
             },
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.expected",
@@ -430272,9 +430272,9 @@
         {
           "test": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
           "observation": "nonansi_ports は式だけのポートと .named(b) の明示ポート、式を省いた .nc()、空の並びの nonansi_empty を全部使う。 区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b2e9b67bc0678585f2a3b19c2e254a11b8c555c36d67935f29408c471f2940fa",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "37b56ebad5cf13ee26be344595316d5030658f181df154e028c7e60822d82f95",
           "evidence": [
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
@@ -430318,7 +430318,7 @@
             },
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.expected",
-              "contains": "explicit: hi=a lo=5 low=3"
+              "contains": "explicit: hi=0a lo=05 low=3"
             },
             {
               "file": "tests/ch23/test_syntax_port_expression_and_explicit_ports.expected",
@@ -431915,10 +431915,10 @@
       "checks": [
         {
           "test": "tests/ch33/test_config_declaration_grammar_forms.sv",
-          "observation": "config cf_cfg の後に localparam int WIDTH = 7;、design work.test_config_declaration_grammar_forms;、instance/cell の規則、endconfig : cf_cfg を並べる。instance 規則が a1 を cf_b にして u1=0b、cell 規則が a2 を cf_a のままにして u2=0a、cell 規則が p3 を W=WIDTH で上書きして u3=7 になる。 区別: config 名か design 文を取り違えると u1/u2/u3 が 0a/0a/1 になり、localparam WIDTH を無視すると u3=1、endconfig の名前の扱いを誤ると構文エラーになる。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "2d4f000b9dc431a2b98914bdcca8e7118aec56f420d1463aa241001632ee1238",
+          "observation": "config cf_cfg の後に localparam int WIDTH = 7;、design work.test_config_declaration_grammar_forms;、instance/cell の規則、endconfig : cf_cfg を並べる。instance 規則が a1 を cf_b にして u1=0b、空の liblist の cell 規則が a2 を cf_a のままにして u2=0a、ライブラリ付きの cell 規則が p3 を work.cf_p に結び付けて既定の W=1 のまま u3=1 になる。 区別: config 名か design 文を取り違えると u1 が 0a になり、空の liblist の扱いを誤ると a2 の束縛が変わり、endconfig の名前の扱いを誤ると構文エラーになる。",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "ff562f039990dbcde53abf64c57c124b37ed512bcaae6c038fd4cd47a82ffc8f",
           "evidence": [
             {
               "file": "tests/ch33/test_config_declaration_grammar_forms.sv",
@@ -431938,7 +431938,7 @@
             },
             {
               "file": "tests/ch33/test_config_declaration_grammar_forms.expected",
-              "contains": "u1=0b u2=0a u3=7"
+              "contains": "u1=0b u2=0a u3=1"
             }
           ]
         }
@@ -452586,9 +452586,9 @@
         {
           "test": "tests/ch10/test_syntax_assignment_pattern_forms.sv",
           "observation": "patterns with positional expressions, member keys, default, a type name, a type parameter, a replication and array keys print pos=12 named=34 dflt=55 typed=67 param_typed=89 arr=1 0 0 2 rep=7 7 7. 区別: A pattern that set the wrong member or element would change one of these printed values.",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "78029358fe04a9206c2673b9a43c07ae0aabbec25e37432a5d27afefa89b0cf5",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "3f09f35a5738590266da3e43991a1e84ef184849298e3537d4fea5a504c2d609",
           "evidence": [
             {
               "file": "tests/ch10/test_syntax_assignment_pattern_forms.sv",
@@ -452693,14 +452693,14 @@
       "checks": [
         {
           "test": "tests/ch10/test_syntax_assignment_pattern_forms.sv",
-          "observation": "the variable lvalue pattern '{va, vb} = '{3, 4} prints 3 and 4, and the net lvalue pattern in the continuous assignment prints n0=1 and n1=2. 区別: If a pattern lvalue assigned the wrong target or value, the printed 3, 4, 1 or 2 would differ.",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "78029358fe04a9206c2673b9a43c07ae0aabbec25e37432a5d27afefa89b0cf5",
+          "observation": "the variable lvalue pattern '{va, vb} = nib2_t'{3, 4} prints 3 and 4, and the net lvalue pattern in the continuous assignment, whose right side is the typed pattern nib2_t'{1, 2}, prints n0=1 and n1=2. 区別: If a pattern lvalue assigned the wrong target or value, the printed 3, 4, 1 or 2 would differ.",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "3f09f35a5738590266da3e43991a1e84ef184849298e3537d4fea5a504c2d609",
           "evidence": [
             {
               "file": "tests/ch10/test_syntax_assignment_pattern_forms.sv",
-              "contains": "  assign '{n0, n1} = '{4'h1, 4'h2};"
+              "contains": "  assign '{n0, n1} = nib2_t'{4'h1, 4'h2};"
             },
             {
               "file": "tests/ch10/test_syntax_assignment_pattern_forms.expected",
@@ -452874,9 +452874,9 @@
         {
           "test": "tests/ch10/test_syntax_assignment_pattern_forms.sv",
           "observation": "the type prefixes pair_t, PT, int and type(1) give typed=67, param_typed=89, ia=ffffffff and type reference=ffffffff. 区別: If a type prefix named the wrong type or were ignored, one of these values would differ.",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "78029358fe04a9206c2673b9a43c07ae0aabbec25e37432a5d27afefa89b0cf5",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "3f09f35a5738590266da3e43991a1e84ef184849298e3537d4fea5a504c2d609",
           "evidence": [
             {
               "file": "tests/ch10/test_syntax_assignment_pattern_forms.sv",
@@ -453377,10 +453377,10 @@
       "checks": [
         {
           "test": "tests/ch16/test_syntax_deferred_immediate_assertions.sv",
-          "observation": "assert final (a == 6) sees 6 at the end of step 1 and prints 1 assert final sees 6. 区別: If the check ran when reached or in another step, it would see another value or not print.",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "5ca8edbe1236f3a49579ff2742c7981679a3644864f1de24daa8d718f9bc31a8",
+          "observation": "assert final (a == 6) reached with a=6 and followed by a=16 is evaluated when reached and prints 1 assert final sees 6. 区別: If the check were evaluated at the end of the step, it would see 16 and print wrong.",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "59a3d8bed3c03ac7a35a0935e9926dba242cce4026d45bb338a59f76b6a35bd8",
           "evidence": [
             {
               "file": "tests/ch16/test_syntax_deferred_immediate_assertions.sv",
@@ -453413,10 +453413,10 @@
       "checks": [
         {
           "test": "tests/ch16/test_syntax_deferred_immediate_assertions.sv",
-          "observation": "assert #0 reached with a=0 and followed by a=5 fails in the observed region and its else action prints 0 assert zero sees 5. 区別: If the check ran when reached, it would see 0 and print wrong.",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "5ca8edbe1236f3a49579ff2742c7981679a3644864f1de24daa8d718f9bc31a8",
+          "observation": "assert #0 (a == 0) reached with a=0 and followed by a=5 is evaluated when reached, so its pass action prints 0 assert zero sees 0 with the value passed at that instant. 区別: If the check or its argument were evaluated in the observed region, it would see 5 and print wrong.",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "59a3d8bed3c03ac7a35a0935e9926dba242cce4026d45bb338a59f76b6a35bd8",
           "evidence": [
             {
               "file": "tests/ch16/test_syntax_deferred_immediate_assertions.sv",
@@ -453424,7 +453424,7 @@
             },
             {
               "file": "tests/ch16/test_syntax_deferred_immediate_assertions.expected",
-              "contains": "0 assert zero sees 5"
+              "contains": "0 assert zero sees 0"
             }
           ]
         }
@@ -453449,10 +453449,10 @@
       "checks": [
         {
           "test": "tests/ch16/test_syntax_deferred_immediate_assertions.sv",
-          "observation": "assume final (a == 13) sees 13 at the end of step 5 and prints 5 assume final pass. 区別: If the check used another value or time, the assumption would fail or print nothing.",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "5ca8edbe1236f3a49579ff2742c7981679a3644864f1de24daa8d718f9bc31a8",
+          "observation": "assume final (a == 13) reached with a=13 and followed by a=23 prints 5 assume final pass. 区別: If the check ran at the end of the step, it would see 23 and print wrong.",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "59a3d8bed3c03ac7a35a0935e9926dba242cce4026d45bb338a59f76b6a35bd8",
           "evidence": [
             {
               "file": "tests/ch16/test_syntax_deferred_immediate_assertions.sv",
@@ -453485,14 +453485,14 @@
       "checks": [
         {
           "test": "tests/ch16/test_syntax_deferred_immediate_assertions.sv",
-          "observation": "assume #0 reached before a=12 sees 12 in the observed region and prints 4 assume zero pass. 区別: If the check ran when reached, the assumption would fail and its else action would print wrong.",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "5ca8edbe1236f3a49579ff2742c7981679a3644864f1de24daa8d718f9bc31a8",
+          "observation": "assume #0 (a == 11) reached with a=11 and followed by a=12 is evaluated when reached and prints 4 assume zero pass. 区別: If the check ran in the observed region, the assumption would fail and its else action would print wrong.",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "59a3d8bed3c03ac7a35a0935e9926dba242cce4026d45bb338a59f76b6a35bd8",
           "evidence": [
             {
               "file": "tests/ch16/test_syntax_deferred_immediate_assertions.sv",
-              "contains": "    assume #0 (a == 12) $display("
+              "contains": "    assume #0 (a == 11) $display("
             },
             {
               "file": "tests/ch16/test_syntax_deferred_immediate_assertions.expected",
@@ -453521,10 +453521,10 @@
       "checks": [
         {
           "test": "tests/ch16/test_syntax_deferred_immediate_assertions.sv",
-          "observation": "cover final (a == 9) sees 9 at the end of step 3 and runs its statement, printing 3 cover final sees 9. 区別: If the cover used another value or time, the line would be missing.",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "5ca8edbe1236f3a49579ff2742c7981679a3644864f1de24daa8d718f9bc31a8",
+          "observation": "cover final (a == 9) reached with a=9 and followed by a=19 runs its statement, printing 3 cover final sees 9. 区別: If the cover were evaluated at the end of the step, it would see 19 and print nothing.",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "59a3d8bed3c03ac7a35a0935e9926dba242cce4026d45bb338a59f76b6a35bd8",
           "evidence": [
             {
               "file": "tests/ch16/test_syntax_deferred_immediate_assertions.sv",
@@ -453557,18 +453557,18 @@
       "checks": [
         {
           "test": "tests/ch16/test_syntax_deferred_immediate_assertions.sv",
-          "observation": "cover #0 reached before a=8 sees 8 in the observed region and runs its statement, printing 2 cover zero sees 8. 区別: If the cover ran when reached, it would see 7 and print nothing.",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "5ca8edbe1236f3a49579ff2742c7981679a3644864f1de24daa8d718f9bc31a8",
+          "observation": "cover #0 (a == 7) reached with a=7 and followed by a=8 is evaluated when reached and runs its statement, printing 2 cover zero sees 7. 区別: If the cover were evaluated in the observed region, it would see 8 and print nothing.",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "59a3d8bed3c03ac7a35a0935e9926dba242cce4026d45bb338a59f76b6a35bd8",
           "evidence": [
             {
               "file": "tests/ch16/test_syntax_deferred_immediate_assertions.sv",
-              "contains": "    cover #0 (a == 8) $display("
+              "contains": "    cover #0 (a == 7) $display("
             },
             {
               "file": "tests/ch16/test_syntax_deferred_immediate_assertions.expected",
-              "contains": "2 cover zero sees 8"
+              "contains": "2 cover zero sees 7"
             }
           ]
         }

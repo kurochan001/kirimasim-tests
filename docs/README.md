@@ -157,3 +157,4 @@ Code, identifiers, raw execution evidence and license terms retain their origina
 | Issues #45 and #47: standard matching and test fix (2026-11-07) | [English](issues-45-47-review-20261107.en.md) | [日本語](issues-45-47-review-20261107.md) |
 | Issues #24, #27 and #28: decisions and test fixes (2026-11-07) | [English](issues-24-27-28-review-20261107.en.md) | [日本語](issues-24-27-28-review-20261107.md) |
 | Issues #48 to #57: decisions and test fixes (2026-11-07) | [English](issues-48-57-review-20261107.en.md) | [日本語](issues-48-57-review-20261107.md) |
+| Review of spec-only tests (2026-11-09) | [English](spec-only-review-20261109.en.md) | [日本語](spec-only-review-20261109.md) |

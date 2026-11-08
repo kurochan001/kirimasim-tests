@@ -1104,3 +1104,22 @@ kirimasim `33b93822` and earlier, with slang `d02b7cda`, report slang's error at
 Since `f029ddd0`, which updates slang to `6fbb158f` and otherwise only adapts to slang's interface for generic class specializations, kirimasim runs the design and prints `v=5`.
 This is a regression of slang, not a reading the standard leaves open, so the test keeps its expectation. The [Nightly of 2026-11-08](https://github.com/kurochan001/kirimasim-tests/actions/runs/42422374691) flagged it.
 Icarus 13.0 and Verilator 5.052 accept the design as well.
+
+<a id="dimensions-of-string-type"></a>
+
+## `$dimensions` of the data type string (2026-11-09)
+
+20.7 gives `$dimensions` the value 1 for the string data type, and also makes it an error to use the array query functions directly on a dynamically sized type identifier; 6.16 calls strings dynamic.
+slang, and kirimasim and Lyra with it, read `$dimensions(string)` as the second case and report an error.
+A test cannot accept both a compile error and a pass, so `ch20/test_array_query_types_and_invalid` now asks `$dimensions` of a string variable, which gives 1 under both readings.
+Its requirement mappings keep their witnesses.
+The same test still expects `'x` for a constant dimension out of range, which 20.7 states plainly; slang reports an error there instead.
+
+<a id="config-use-parameter-form"></a>
+
+## Parameter assignments in a configuration's use clause (2026-11-09)
+
+Syntax 33-4 and A.1.5 write the parameter assignments of a use clause directly after the cell name, as `use lib.cell .W(8)`, while every example of 33.4.3 writes `use #(.W(8))`.
+slang, and kirimasim and Lyra with it, accept only the form with `#`.
+A test cannot accept both a compile error and a pass, so `ch33/test_config_declaration_grammar_forms` no longer assigns a parameter in its use clause and expects the default value.
+The generated configuration tests in `tests/gen/ch33/` use the form with `#` of the examples.

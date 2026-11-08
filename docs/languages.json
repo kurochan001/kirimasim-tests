@@ -425,8 +425,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "6cbea04f0c35bbf1618efa904fbcfd3a38b6c17737fe1df1017ec43613857ca4",
-        "ja": "21c9fdfd9c385aab829a4921067fdcbce4eb955d2b73c8d5db9fb8b6158516fc"
+        "en": "253fd33510ad97d4c0636d5ab0da61fb6299eb766ca3c16c1ed3672fa7bbe157",
+        "ja": "6be10d145727965495f2998b5c0a5824baaad20a28c3fc4113abe8c44a85c396"
       }
     },
     {
@@ -637,8 +637,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "f53f7f57d2fcfa1efb6c599a0c4d1f81557a140f68e5b5c8c28b2b896c68a8e6",
-        "ja": "7801b6b908784c963738b6f770a50cc7fc6a67a57ea54f81dd672f3b6dd6970a"
+        "en": "de1adb0b174a43e9849de535b5b202d449f844998a88fa66e225ca5431b0d9ee",
+        "ja": "3277ceb9a1408a1c7e0e6db012b6055f2c7a9e006240edd20eca6cdd1709718f"
       }
     },
     {
@@ -1122,8 +1122,19 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "bdab16ab024480bcf10966929bdc7ff0227128ac0bd0d74542c54f46cd31cc56",
-        "ja": "c2aa0bab10c5a8c5eda5e3e3a59fb4c4b6139f3d86656afb30a221bfd8a2f700"
+        "en": "3e4502958c2700f0c3b18a36683c74098f0740554e6dbfd8585b3272e7e5d3b6",
+        "ja": "ece45ca2b142c2c6f5f869f876adce2dda1af375ec40bd91d9f509052a923564"
+      }
+    },
+    {
+      "en": "docs/spec-only-review-20261109.en.md",
+      "ja": "docs/spec-only-review-20261109.md",
+      "source": "docs/spec-only-review-20261109.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "bc812faf6dfe2aba5a667e1afd24b7ea21b7045615465e2da39fe34e32da4139",
+        "ja": "e78275a672010652e3177a9a620be900db3621b35eb2f7ed3251c35715776508"
       }
     }
   ]

@@ -8064,7 +8064,7 @@
     },
     {
       "test": "tests/ch10/test_syntax_assignment_pattern_forms.sv",
-      "inputs_sha256": "78029358fe04a9206c2673b9a43c07ae0aabbec25e37432a5d27afefa89b0cf5",
+      "inputs_sha256": "3f09f35a5738590266da3e43991a1e84ef184849298e3537d4fea5a504c2d609",
       "cited_clauses": [
         "10.9",
         "10.9.1",
@@ -8136,9 +8136,9 @@
       ],
       "scoped_review": {
         "test": "tests/ch10/test_syntax_assignment_pattern_forms.sv",
-        "inputs_sha256": "78029358fe04a9206c2673b9a43c07ae0aabbec25e37432a5d27afefa89b0cf5",
-        "reviewed_on": "2026-10-26",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "3f09f35a5738590266da3e43991a1e84ef184849298e3537d4fea5a504c2d609",
+        "reviewed_on": "2026-11-09",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -61931,7 +61931,7 @@
     },
     {
       "test": "tests/ch16/test_deferred_flush_points.sv",
-      "inputs_sha256": "40ed732b6a43729732047f19f9ff5518aa08848221596129a2663159813005fb",
+      "inputs_sha256": "780a1a87f7511ecf0711f9e5efc58ae1a90ce3e362cbf2addf3f8dfb9bc575fb",
       "cited_clauses": [
         "16.4.2",
         "16.4.4",
@@ -94938,7 +94938,7 @@
     },
     {
       "test": "tests/ch16/test_syntax_deferred_immediate_assertions.sv",
-      "inputs_sha256": "5ca8edbe1236f3a49579ff2742c7981679a3644864f1de24daa8d718f9bc31a8",
+      "inputs_sha256": "59a3d8bed3c03ac7a35a0935e9926dba242cce4026d45bb338a59f76b6a35bd8",
       "cited_clauses": [
         "16.3",
         "16.4",
@@ -95021,9 +95021,9 @@
       ],
       "scoped_review": {
         "test": "tests/ch16/test_syntax_deferred_immediate_assertions.sv",
-        "inputs_sha256": "5ca8edbe1236f3a49579ff2742c7981679a3644864f1de24daa8d718f9bc31a8",
-        "reviewed_on": "2026-10-26",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "59a3d8bed3c03ac7a35a0935e9926dba242cce4026d45bb338a59f76b6a35bd8",
+        "reviewed_on": "2026-11-09",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -95031,17 +95031,17 @@
               "SV2023-16.4-EXTRACT-ASSUME-COVER"
             ],
             "disposition": "partial_observation",
-            "explanation": "deferred の assume/cover が後続代入の値を見て pass 文を実行することは観測するが、成熟前に flush された cover 報告が coverage として計上されないことを coverage カウンタで観測していない。",
+            "explanation": "deferred の assume/cover が文に達したときの値で式を評価して pass 文を実行することは観測するが、成熟前に flush された cover 報告が coverage として計上されないことを coverage カウンタで観測していない。",
             "reviewed_on": "2026-10-26",
             "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
             "evidence": [
               {
                 "file": "tests/ch16/test_syntax_deferred_immediate_assertions.sv",
-                "contains": "cover #0 (a == 8) $display(\"%0t cover zero sees %0d\", $time, a);"
+                "contains": "cover #0 (a == 7) $display(\"%0t cover zero sees %0d\", $time, a);"
               },
               {
                 "file": "tests/ch16/test_syntax_deferred_immediate_assertions.sv",
-                "contains": "assume #0 (a == 12) $display(\"%0t assume zero pass\", $time);"
+                "contains": "assume #0 (a == 11) $display(\"%0t assume zero pass\", $time);"
               }
             ]
           }
@@ -120701,7 +120701,7 @@
     },
     {
       "test": "tests/ch20/test_array_query_types_and_invalid.sv",
-      "inputs_sha256": "14525f64ae0c660385f9c4c35ea7a9f184a2f6a93150f837d324623df3318eb7",
+      "inputs_sha256": "d2f185d75bbb2977b8b6104a5dc4b8355c8d6c715cac9a4e385368e466960520",
       "cited_clauses": [
         "20.7"
       ],
@@ -165171,7 +165171,7 @@
     },
     {
       "test": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
-      "inputs_sha256": "b2e9b67bc0678585f2a3b19c2e254a11b8c555c36d67935f29408c471f2940fa",
+      "inputs_sha256": "37b56ebad5cf13ee26be344595316d5030658f181df154e028c7e60822d82f95",
       "cited_clauses": [
         "23.2.2.1",
         "23.2.2.2",
@@ -165241,9 +165241,9 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch23/test_syntax_port_expression_and_explicit_ports.sv",
-        "inputs_sha256": "b2e9b67bc0678585f2a3b19c2e254a11b8c555c36d67935f29408c471f2940fa",
-        "reviewed_on": "2026-10-26",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "37b56ebad5cf13ee26be344595316d5030658f181df154e028c7e60822d82f95",
+        "reviewed_on": "2026-11-09",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -209024,7 +209024,7 @@
     },
     {
       "test": "tests/ch33/test_config_declaration_grammar_forms.sv",
-      "inputs_sha256": "2d4f000b9dc431a2b98914bdcca8e7118aec56f420d1463aa241001632ee1238",
+      "inputs_sha256": "ff562f039990dbcde53abf64c57c124b37ed512bcaae6c038fd4cd47a82ffc8f",
       "cited_clauses": [
         "33.4.1",
         "33.4.3",
@@ -209062,9 +209062,9 @@
       ],
       "scoped_review": {
         "test": "tests/ch33/test_config_declaration_grammar_forms.sv",
-        "inputs_sha256": "2d4f000b9dc431a2b98914bdcca8e7118aec56f420d1463aa241001632ee1238",
-        "reviewed_on": "2026-10-26",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "inputs_sha256": "ff562f039990dbcde53abf64c57c124b37ed512bcaae6c038fd4cd47a82ffc8f",
+        "reviewed_on": "2026-11-09",
+        "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
         "decisions": [
           {
@@ -937541,7 +937541,7 @@
     "oracle_issue": 249,
     "partial_observation": 2136
   },
-  "registry_sha256": "6c498a329d56dc734799b4c81bfb49d85ab3985ed642ecd88caf3a383dd8f2d7",
+  "registry_sha256": "39a3325243ef0683ec2e9f12574d61f035073f3092bb16de14d18d1b3ff5e211",
   "inventory_sha256": "7f708bec45a4f398aa534c8f94565cb0bcd1a4fbfdf0a0e21997df20add41768",
-  "review_ledger_sha256": "efca1ea7694d507cd61cda11f8e000325e15f1feb16427a2d9ec1f26b90b51fb"
+  "review_ledger_sha256": "352c4e440b9020824b9941d65d51d97925650d38f0dc2fbc96e05f139fae2b25"
 }

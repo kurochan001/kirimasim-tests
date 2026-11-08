@@ -21464,6 +21464,11 @@
     "ZXQPH0QXZ を除く実行確認率: ZXQPH1QXZ ( ZXQPH2QXZ )。": "Execution confirmation rate without ZXQPH0QXZ: ZXQPH1QXZ ( ZXQPH2QXZ ).",
     "全規格の要求台帳ベース（確定）: 設計 ZXQPH0QXZ 、実行 ZXQPH1QXZ 、 ZXQPH2QXZ を除く実行 ZXQPH3QXZ 。": "Against the whole-standard requirement ledger (confirmed): design ZXQPH0QXZ, execution ZXQPH1QXZ, execution without ZXQPH2QXZ ZXQPH3QXZ.",
     "全規格の要求台帳ベース（暫定）: 設計 ZXQPH0QXZ 、実行 ZXQPH1QXZ 、 ZXQPH2QXZ を除く実行 ZXQPH3QXZ 。": "Against the whole-standard requirement ledger (provisional): design ZXQPH0QXZ, execution ZXQPH1QXZ, execution without ZXQPH2QXZ ZXQPH3QXZ.",
-    "第三者が再現できる ZXQPH0QXZ ・ ZXQPH1QXZ ・ ZXQPH2QXZ の成功の和集合。": "Union of successes on ZXQPH0QXZ, ZXQPH1QXZ and ZXQPH2QXZ, which third parties can reproduce."
+    "第三者が再現できる ZXQPH0QXZ ・ ZXQPH1QXZ ・ ZXQPH2QXZ の成功の和集合。": "Union of successes on ZXQPH0QXZ, ZXQPH1QXZ and ZXQPH2QXZ, which third parties can reproduce.",
+    "ZXQPH0QXZ の ZXQPH1QXZ は lq の連続代入の写し lqc を読み、ld の変化で lq の更新前に失敗を queue する。": "ZXQPH1QXZ of the ZXQPH0QXZ reads lqc, a continuous copy of lq, and queues a failure on the change of ld before lq is updated.",
+    "lqc の変化で再開して flush するので、 ZXQPH0QXZ = ZXQPH1QXZ の pass だけが出る（ブロックが書く lq 自体は暗黙の感度に入らない）。": "The change of lqc resumes the block and flushes the queue, so only the pass at ZXQPH0QXZ = ZXQPH1QXZ is reported (lq itself, which the block writes, is not in its implicit sensitivity).",
+    "ZXQPH0QXZ = ZXQPH1QXZ ZXQPH2QXZ = ZXQPH3QXZ ZXQPH4QXZ = ZXQPH5QXZ ZXQPH6QXZ = ZXQPH7QXZ を出力する。": "It prints ZXQPH0QXZ = ZXQPH1QXZ ZXQPH2QXZ = ZXQPH3QXZ ZXQPH4QXZ = ZXQPH5QXZ ZXQPH6QXZ = ZXQPH7QXZ.",
+    "instance 規則が ZXQPH0QXZ を ZXQPH1QXZ にして ZXQPH2QXZ = ZXQPH3QXZ 、空の liblist の cell 規則が ZXQPH4QXZ を ZXQPH5QXZ のままにして ZXQPH6QXZ = ZXQPH7QXZ 、ライブラリ付きの cell 規則が ZXQPH8QXZ を ZXQPH9QXZ に結び付けて既定の ZXQPH10QXZ = ZXQPH11QXZ のまま ZXQPH12QXZ = ZXQPH13QXZ になる。": "The instance rule binds ZXQPH0QXZ to ZXQPH1QXZ, giving ZXQPH2QXZ = ZXQPH3QXZ; the cell rule with the empty liblist keeps ZXQPH4QXZ as ZXQPH5QXZ, giving ZXQPH6QXZ = ZXQPH7QXZ; and the cell rule with a library binds ZXQPH8QXZ to ZXQPH9QXZ with its default ZXQPH10QXZ = ZXQPH11QXZ, giving ZXQPH12QXZ = ZXQPH13QXZ.",
+    "config 名か design 文を取り違えると ZXQPH0QXZ が ZXQPH1QXZ になり、空の liblist の扱いを誤ると ZXQPH2QXZ の束縛が変わり、endconfig の名前の扱いを誤ると構文エラーになる。": "Mistaking the config name or the design statement makes ZXQPH0QXZ ZXQPH1QXZ, mishandling the empty liblist changes the binding of ZXQPH2QXZ, and mishandling the name after endconfig gives a syntax error."
   }
 }

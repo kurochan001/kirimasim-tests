@@ -157,3 +157,4 @@
 | Issue #45・#47 の規格照合とテスト修正（2026-11-07） | [日本語](issues-45-47-review-20261107.md) | [English](issues-45-47-review-20261107.en.md) |
 | Issue #24・#27・#28 の判断とテスト修正（2026-11-07） | [日本語](issues-24-27-28-review-20261107.md) | [English](issues-24-27-28-review-20261107.en.md) |
 | Issue #48〜#57 の判断とテスト修正（2026-11-07） | [日本語](issues-48-57-review-20261107.md) | [English](issues-48-57-review-20261107.en.md) |
+| 「規格のみ」のテストの見直し（2026-11-09） | [日本語](spec-only-review-20261109.md) | [English](spec-only-review-20261109.en.md) |

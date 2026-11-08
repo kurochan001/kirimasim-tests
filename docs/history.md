@@ -434,3 +434,13 @@ clause 37.
 - The results branch still held the results of a simulator that is no longer compared and whose results are not to be published: one file in `latest/`, its entries in six runs of `history.json`, and two execution snapshots in `behavior-history.json`.
 - `tools/results_history.py` now keeps only the simulators that have a runner and those in `RETIRED` (nvc): `update` and `render` drop any other from `history.json` and `latest/`. `tools/behavior_coverage.py` drops their execution snapshots from the behavior history and records how many in the run's `dropped_snapshots`, leaving its counts as they were measured.
 - A commit of the results branch removed the existing records. The branch's earlier commits were not rewritten.
+
+### 2026-11-09 (review of spec-only tests)
+
+- The 30 spec-only tests failing on Ghost, kirimasim and Lyra and the 21 spec-only tests passing on kirimasim alone were checked against the standard; the [review](spec-only-review-20261109.en.md) records each finding. 45 expectations are right. Six tests were fixed:
+  - `ch10/test_syntax_assignment_pattern_forms`: 10.9 allows an assignment pattern on one side of an assignment only when the other side has a self-determined type, so the right sides of its two lvalue patterns are now typed; 6.21 needs `static` on `tr`. The expected output is unchanged.
+  - `ch16/test_deferred_flush_points`: by 9.2.2.2.1 and 9.2.2.3 an always_latch does not resume on its own write of `lq`, so its check now reads a continuous copy of `lq` and the block resumes and flushes (16.4.2). The expected output is unchanged.
+  - `ch16/test_syntax_deferred_immediate_assertions`: by 16.4 a deferred assertion evaluates its expression and by-value action arguments when it is reached; the test assumed later evaluation and was rewritten.
+  - `ch23/test_syntax_port_expression_and_explicit_ports`: a variable driven through an input port cannot have an initializer (10.3.2, 6.5), and `%h` of an 8-bit value prints two digits (21.2.1.3), so the expected line is now `explicit: hi=0a lo=05 low=3`.
+  - `ch20/test_array_query_types_and_invalid` and `ch33/test_config_declaration_grammar_forms`: the standard disagrees with itself on `$dimensions(string)` (20.7, 6.16) and on parameter assignments in a use clause (Syntax 33-4 and A.1.5 against the examples of 33.4.3). Both constructs were left out and recorded in the [simulator differences](simulator-differences.md#dimensions-of-string-type).
+- The 28 requirement mappings that rest on these tests have new quoted strings, observations and input digests. The requirement coverage figures do not change.
