@@ -397,3 +397,8 @@
 
 - 外部レビューで、実行確認済みの9,535要求のうち3,271要求はGhostの結果だけで確認されていると分かりました。Ghostは非公開のビルドなので、第三者はこれを再現できません。
 - `tools/behavior_coverage.py`は、Icarus Verilog・Verilator・SymbiYosysのどれかで成功した要求も、全体と章別に数えるようにしました。6,264/12,298（50.94%）です。集計概要、詳細の集計、README、FAQで、全環境の和集合と並べて示します。どちらを主な値にするかは未定なので、これまでの値はそのままです。
+
+### 2026-11-09（期待値のレビュー候補）
+
+- 同じレビューで、期待値の根拠が規格の読み方にしかないテストの一覧を求められました。`tools/review_candidates.py`は、Icarus Verilog・Verilator・kirimasim・Lyra・Ghostの最新の結果を読み、次の5種類を挙げます。specのみでGhost・kirimasim・Lyraのすべてでfailのテスト、specのみでkirimasimだけがpassのテスト、specのみでどこでもpassしないその他のテスト、固定版のoracleがありGhostとLyraの両方でfailのテスト、引用するテストがすべてspecのみの条項です。
+- Nightlyの`publish`ジョブが一覧をresultsブランチに書きます。読み方、見直しの順番、記録の仕方は[レビュー候補](review-candidates.md)にあります。2026-11-08の結果では5種類の件数は30・21・92・41・196でした（Lyraの再実行の結果では30・15・92・75・196）。

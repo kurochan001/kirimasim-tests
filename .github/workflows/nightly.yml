@@ -559,6 +559,21 @@ jobs:
             echo "::warning::The report of the listed differences on master was not written."
           fi
 
+      # The tests and clauses whose expectations rest only on the reading of
+      # the standard, from the latest results of each simulator
+      # (tools/review_candidates.py, docs/review-candidates.md). Only a
+      # report: a failure here leaves a warning and publishing goes on.
+      - name: List the expectations to review
+        run: |
+          if python3 tools/review_candidates.py --results history/latest --output history \
+               --source-url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/blob/$GITHUB_SHA"; then
+            printf '\nReview candidates / レビュー候補: [English](%s/%s/blob/results/review-candidates.md) / [日本語](%s/%s/blob/results/review-candidates.ja.md)\n' \
+              "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" \
+              "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "::warning::The list of review candidates was not written."
+          fi
+
       - name: Push the results branch
         working-directory: history
         run: |

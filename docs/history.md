@@ -423,3 +423,8 @@ clause 37.
 
 - An external review found that 3,271 of the 9,535 executed requirements rest on Ghost's results alone. Ghost is a private build, so third parties cannot reproduce them.
 - `tools/behavior_coverage.py` now also counts the requirements that pass on Icarus Verilog, Verilator or SymbiYosys, as a whole and by chapter: 6,264/12,298 (50.94%). The summary, the detailed report, the README and the FAQ show it beside the union over every environment. Which figure leads is still to be decided, so the existing figures stay as they are.
+
+### 2026-11-09 (review candidates for expected results)
+
+- The same review asked for a list of the tests whose expectations rest only on the reading of the standard. `tools/review_candidates.py` reads the latest results of Icarus Verilog, Verilator, kirimasim, Lyra and Ghost and lists spec-only tests failing on Ghost, kirimasim and Lyra; spec-only tests passing on kirimasim alone; other spec-only tests passing nowhere; tests with a release oracle failing on both Ghost and Lyra; and clauses whose citing tests are all spec only.
+- The publish job of the Nightly writes the list to the results branch. [Review candidates](review-candidates.en.md) explains it, the order of review and how reviews are recorded. On the results of 2026-11-08 the five counts are 30, 21, 92, 41 and 196 (with Lyra's re-run, 30, 15, 92, 75 and 196).

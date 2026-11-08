@@ -425,8 +425,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "349549858f32bedcab78b5b2b7934c6020d7d37e26a021655f7d895a15292f0e",
-        "ja": "720afb6d165e0e4a834d5bcf2bbc284c7764b90cfd68377eaa7a6c5dcf44b7a1"
+        "en": "a15b6e9d8854805b1a95468d24d5f3ec1c8f29525df2de5f97d2a753a135b6c4",
+        "ja": "761bf3a1818df3134375826140e309553dd512b0f04950949ceba200d161a799"
       }
     },
     {
@@ -1113,6 +1113,17 @@
       "sha256": {
         "en": "b711fcbef23e897784b3b77b2fc8591fbfde2853fe43c49d8fb0f2602a6e7c0f",
         "ja": "fe276a88bbed958f5f504af1ae3d42c209a722309501ed3bfab4301b65ae8f2d"
+      }
+    },
+    {
+      "en": "docs/review-candidates.en.md",
+      "ja": "docs/review-candidates.md",
+      "source": "docs/review-candidates.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "bdab16ab024480bcf10966929bdc7ff0227128ac0bd0d74542c54f46cd31cc56",
+        "ja": "c2aa0bab10c5a8c5eda5e3e3a59fb4c4b6139f3d86656afb30a221bfd8a2f700"
       }
     }
   ]
