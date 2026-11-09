@@ -452,3 +452,7 @@
 ### 2026-11-09（差異一覧の報告）
 
 - `tools/differences_status.py`はバッククォートを1つずつ組にしていたため、`` `define ``のようなコードの後にあるテスト名を、同じ行では拾えませんでした。Markdownと同じ読み方に直し、一覧にあるテストのうち12本（`ch22/test_undefineall`、22章のコンパイラ指令のテスト9本、6章の暗黙のネットのテスト2本）が[masterでの報告](https://github.com/kurochan001/kirimasim-tests/blob/results/differences-on-master.ja.md)に入るようになりました。外れたテストはありません。
+
+### 2026-11-09（Ghostを除く実行確認率を先に）
+
+- README、FAQ（Q16）、生成する要求カバレッジ集計で、第三者が再現できるIcarus Verilog・Verilator・SymbiYosysによる実行確認率51.12%（6,287/12,298）を先に示し、Ghostを含む和集合78.00%（9,592/12,298）をその横に示すようにしました。値と数え方は変わりません。

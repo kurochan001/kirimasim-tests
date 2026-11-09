@@ -13,8 +13,8 @@ The denominator counts requirement-ledger rows, not test files. See [Design, exe
 ## Value for all standards in the required table
 
 - Requirement coverage (test design): 90.10% ( 11081/12298 ).
-- The execution confirmation rate is 78.00% ( 9592/12298 ). Union of successes across environments.
 - Execution confirmation rate without Ghost: 51.12% ( 6287/12298 ). Union of successes on Icarus Verilog, Verilator and SymbiYosys, which third parties can reproduce.
+- The execution confirmation rate is 78.00% ( 9592/12298 ). Union of successes across environments.
 - The denominator includes pending interpretations and items without test mappings. We do not exclude non-implemented and non-supported.
 - The registration unit is the occurrence point, condition, and observation case of the requirement, and the duplication of meaning is integrated by the review of the denominator. This is neither the fraction of all program/input combinations tested nor a single simulator's standard conformance rate.
 

@@ -294,10 +294,10 @@ The requirement denominator is **12,298 requirements**, after duplicate rows
 were merged; the [denominator review](docs/denominator-review-20261028.en.md)
 approved it. The reviewer was an AI, not an independent human.
 Design coverage is **90.10% (11,081/12,298)**;
-execution coverage from the saved `coverage/results/` evidence is
-**78.00% (9,592/12,298)**, from Icarus Verilog, Verilator, SymbiYosys and Ghost.
-Without Ghost, from only the tools anyone can reproduce (Icarus Verilog,
-Verilator and SymbiYosys), it is **51.12% (6,287/12,298)**.
+execution coverage from the saved `coverage/results/` evidence of the tools
+anyone can reproduce (Icarus Verilog, Verilator and SymbiYosys) is
+**51.12% (6,287/12,298)**.
+With the results of Ghost, an unreleased simulator, added, it is 78.00% (9,592/12,298).
 Clauses 1 to 40 alone are at 88.42% (8,369/9,465) design coverage.
 See the [generated behavior summary](docs/behavior-coverage-summary.en.md) for the
 measurement inputs and denominator.

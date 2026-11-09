@@ -21832,6 +21832,8 @@
     "部分的にしかカバレッジの無い スコープでは ZXQPH0QXZ も ZXQPH1QXZ を返さなければならない。": "On a scope with only partial coverage, ZXQPH0QXZ shall also return ZXQPH1QXZ.",
     "階層名を式の唯一の項に限る規則を見落とす実装はこの値を ZXQPH0QXZ = ZXQPH1QXZ として受理し、エラーが出ない。": "An implementation that misses the rule restricting a hierarchical name to be the only term of the expression accepts this value as ZXQPH0QXZ=ZXQPH1QXZ and gives no error.",
     "領域の順序を誤る実装( ZXQPH0QXZ を Inactive より前に呼ぶ、Reactive を ZXQPH1QXZ や Observed より前に処理する、reactive 集合を空にする前に Active に戻る、Pre-Postponed を Postponed の後に置く)では、行の順序が変わるか、 ZXQPH2QXZ の行が ZXQPH3QXZ = ZXQPH4QXZ や ZXQPH5QXZ = ZXQPH6QXZ 、Re- ZXQPH7QXZ の行が ZXQPH8QXZ = ZXQPH9QXZ 、 ZXQPH10QXZ の行が ZXQPH11QXZ = ZXQPH12QXZ などになる。": "In an implementation that orders the regions wrongly (calling ZXQPH0QXZ before Inactive, processing Reactive before ZXQPH1QXZ or Observed, returning to Active before the reactive region set is empty, or putting Pre-Postponed after Postponed), the order of the lines changes, or the ZXQPH2QXZ line shows ZXQPH3QXZ=ZXQPH4QXZ or ZXQPH5QXZ=ZXQPH6QXZ, the Re-ZXQPH7QXZ line ZXQPH8QXZ=ZXQPH9QXZ, the ZXQPH10QXZ line ZXQPH11QXZ=ZXQPH12QXZ, and so on.",
-    "（ ZXQPH0QXZ 行目）とする。": "(line ZXQPH0QXZ)."
+    "（ ZXQPH0QXZ 行目）とする。": "(line ZXQPH0QXZ).",
+    "全規格の要求台帳ベース（確定）: 設計 ZXQPH0QXZ 、 ZXQPH1QXZ を除く実行 ZXQPH2QXZ 、 ZXQPH3QXZ を含む実行 ZXQPH4QXZ 。": "Against the whole-standard requirement ledger (confirmed): design ZXQPH0QXZ, execution without ZXQPH1QXZ ZXQPH2QXZ, execution with ZXQPH3QXZ ZXQPH4QXZ.",
+    "全規格の要求台帳ベース（暫定）: 設計 ZXQPH0QXZ 、 ZXQPH1QXZ を除く実行 ZXQPH2QXZ 、 ZXQPH3QXZ を含む実行 ZXQPH4QXZ 。": "Against the whole-standard requirement ledger (provisional): design ZXQPH0QXZ, execution without ZXQPH1QXZ ZXQPH2QXZ, execution with ZXQPH3QXZ ZXQPH4QXZ."
   }
 }

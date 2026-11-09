@@ -399,11 +399,11 @@ def compact_report(snapshot: dict, source_url: str | None = None,
              "## 全規格の要求台帳に対する値" if confirmed else "## 全規格の要求台帳に対する暫定値", "",
              f"- 要求カバレッジ（テスト設計）: **{percent(snapshot['provisional_design_percent'])}** "
              f"({snapshot['mapped']}/{total})。",
-             f"- 実行確認率: **{percent(snapshot['provisional_execution_percent'])}** "
-             f"({snapshot['executed']}/{total})。複数環境の成功の和集合。",
              f"- Ghostを除く実行確認率: **{percent(snapshot['provisional_execution_reproducible_percent'])}** "
              f"({snapshot['executed_reproducible']}/{total})。"
              "第三者が再現できるIcarus Verilog・Verilator・SymbiYosysの成功の和集合。",
+             f"- 実行確認率: **{percent(snapshot['provisional_execution_percent'])}** "
+             f"({snapshot['executed']}/{total})。複数環境の成功の和集合。",
              "- 分母には解釈保留と未対応も含みます。未実装・未対応を除外していません。",
              "- 登録単位は要求の出現箇所・条件・観測ケースであり、分母のレビューで意味の重複を統合しています。"
              if confirmed else
@@ -571,13 +571,13 @@ def report(inventory: dict, sections: dict, rows: list, runs: dict, ignored: lis
         display = lambda value: "未確定" if value is None else f"{value:.2f}%"
         if whole is not None:
             lines[6:6] = [f"**全規格の要求台帳ベース（確定）: 設計 {display(provisional)}、"
-                          f"実行 {display(execution_pct)}、"
-                          f"Ghostを除く実行 {display(reproducible_pct)}。**",
+                          f"Ghostを除く実行 {display(reproducible_pct)}、"
+                          f"Ghostを含む実行 {display(execution_pct)}。**",
                           "解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。", ""]
         else:
             lines[6:6] = [f"**全規格の要求台帳ベース（暫定）: 設計 {display(provisional)}、"
-                          f"実行 {display(execution_pct)}、"
-                          f"Ghostを除く実行 {display(reproducible_pct)}。**",
+                          f"Ghostを除く実行 {display(reproducible_pct)}、"
+                          f"Ghostを含む実行 {display(execution_pct)}。**",
                           "解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。", ""]
     if source_audit:
         position = lines.index(f"- 規格棚卸し: 本文1–41章と附属書A–Q、計 {stats['sections']} 見出し。") + 1

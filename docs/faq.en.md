@@ -165,7 +165,7 @@ This also differs from counts of Chapter 19 covergroup tests. Those tests exerci
 
 ### Q16. How do design and execution coverage differ?
 
-Design coverage counts requirements with reviewed mappings to test observations. Execution coverage counts requirements with admissible pass evidence matching current inputs and runners. For illustration, 60 mapped requirements and 40 with passes out of 100 produce 60% and 40%. A union of environments is not one simulator's conformance rate. Ghost is a private build whose results third parties cannot reproduce, so the summary and the README show, beside the union over every environment, the execution coverage from Icarus Verilog, Verilator and SymbiYosys alone, without Ghost. The [summary](behavior-coverage-summary.en.md) gives actual values and denominators.
+Design coverage counts requirements with reviewed mappings to test observations. Execution coverage counts requirements with admissible pass evidence matching current inputs and runners. For illustration, 60 mapped requirements and 40 with passes out of 100 produce 60% and 40%. A union of environments is not one simulator's conformance rate. Ghost is a private build whose results third parties cannot reproduce, so the README and the summary lead with the execution coverage from Icarus Verilog, Verilator and SymbiYosys alone, without Ghost, and give the union over every environment, Ghost included, beside it. The [summary](behavior-coverage-summary.en.md) gives actual values and denominators.
 
 Illegal-design tests can falsely pass through unsupported-syntax rejection. Their Icarus/Verilator execution evidence therefore requires reviewed fixed-release oracles. Nightly Match counts do not directly become confirmed requirements.
 

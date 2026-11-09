@@ -478,3 +478,7 @@ clause 37.
 ### 2026-11-09 (report of the listed differences)
 
 - `tools/differences_status.py` paired backticks one by one, so a code span such as `` `define `` made it miss the test names after it on the same line. It now reads code spans as Markdown does. Twelve tests that the list names now count: `ch22/test_undefineall`, nine other chapter 22 tests of compiler directives and two chapter 6 tests of implicit nets. They now appear in the [report on master](https://github.com/kurochan001/kirimasim-tests/blob/results/differences-on-master.md); none drops out.
+
+### 2026-11-09 (execution coverage without Ghost first)
+
+- The README, the FAQ (Q16) and the generated behavior summary now lead with the execution coverage from the tools anyone can reproduce (Icarus Verilog, Verilator and SymbiYosys), 51.12% (6,287/12,298), and give the union with Ghost, 78.00% (9,592/12,298), beside it. The figures and how they are counted do not change.
