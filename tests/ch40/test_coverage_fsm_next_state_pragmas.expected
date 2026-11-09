@@ -1,0 +1,4 @@
+with FSM coverage started, the maximum is the 5 states named: yes
+with FSM coverage started, before the first edge the current value is below it: yes
+with FSM coverage started, at time 40 the current value is the maximum: yes
+states at time 40: cs 1, fs 0, extra 0

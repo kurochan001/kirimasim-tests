@@ -1,0 +1,6 @@
+assertion coverage start is not ERROR: 1
+both assertions are found: 1
+a_mixed: 4 attempts, 2 successes and 2 failures: 1
+a_mixed: not covered, as it has failed: 1
+a_pass: covered, as it succeeded and never failed: 1
+fail actions of a_mixed: 2

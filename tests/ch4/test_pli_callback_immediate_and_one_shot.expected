@@ -1,0 +1,8 @@
+cbAfterDelay at 10: v=0
+design at 10: before the writes
+cbValueChange at 10: v=1
+design at 10: after v = 1
+cbValueChange at 10: v=2
+design at 10: after v = 2
+cbValueChange at 20: v=3
+design at 30: v=3

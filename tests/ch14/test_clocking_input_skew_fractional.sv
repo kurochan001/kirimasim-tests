@@ -1,6 +1,6 @@
 /*
 :name: test_clocking_input_skew_fractional
-:description: A clocking block input skew, also a fractional one, samples a module's input port that many time units before the clock event (IEEE 1800-2023 Section 14.4)
+:description: A clocking block input skew, also a fractional time literal, samples a module's input port that many time units before the clock event (IEEE 1800-2023 Section 14.4)
 :tags: ch14
 :type: simulation
 :lrm: 1800-2023 14.4 14.3 3.14.2.2
@@ -15,7 +15,9 @@
 // its scope (3.14.2.2). Here the time unit is 1ns with a precision of 1ps,
 // the clock rises at 50 and 150, and the input port d changes from 0 to 1 at
 // 147.3: an input skew of 3 samples d at 147.0 and gets 0, an input skew of
-// 2.5 samples it at 147.5 and gets 1.
+// 2.5ns samples it at 147.5 and gets 1. §14.3: a skew is a time literal or a
+// constant expression with a nonnegative integer value, so the fractional
+// skew is written as the time literal 2.5ns.
 
 module skew_sampler (input logic d, input logic clk);
   timeunit 1ns;
@@ -27,7 +29,7 @@ module skew_sampler (input logic d, input logic clk);
   endclocking
 
   clocking c25 @(posedge clk);
-    input #2.5 d;
+    input #2.5ns d;
   endclocking
 
   initial begin

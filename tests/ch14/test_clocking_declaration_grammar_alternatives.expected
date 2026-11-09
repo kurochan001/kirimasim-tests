@@ -1,0 +1,4 @@
+t=5 after ##1 of the unnamed default clocking
+t=15 cb.sum=3 cb.r=7 cb.s=4
+t=16 r=7 s=2
+t=19 r=3 s=2 cb.s=4

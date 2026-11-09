@@ -1,0 +1,9 @@
+Active: v=0
+Inactive: v=1 triggered=0
+NBA: v=2 triggered=0
+Reactive (a1 action): sampled v=0, v=2, triggered=1
+Reactive (program): go=1
+Re-Inactive: p=0
+Re-NBA: p=1 back=0
+Active again: back=1
+Postponed: v=2 p=1 back=1

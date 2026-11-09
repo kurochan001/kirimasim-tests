@@ -14,22 +14,22 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 12165 |
+| Tests | 12221 |
 | Clauses in scope | 1010 |
 | Clauses out of scope | 149 |
 | Clauses with a direct test | 1010/1010 |
 | Clauses with at least two direct tests | 1010/1010 |
 | Clauses with one test | 0 |
-| Clauses with two tests or fewer | 110 |
+| Clauses with two tests or fewer | 106 |
 | Clauses with only standard-only tests | 196 |
 | Clauses with one test and only a standard-only test | 0 |
 
 | Oracle | Tests |
 | --- | ---: |
-| both releases | 808 |
-| Icarus Verilog 13.0 only | 5839 |
-| Verilator 5.052 only | 2224 |
-| standard only | 3294 |
+| both releases | 809 |
+| Icarus Verilog 13.0 only | 5844 |
+| Verilator 5.052 only | 2239 |
+| standard only | 3329 |
 
 <a id="章別"></a>
 
@@ -38,7 +38,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | Chapter | Title | Tests | In scope | Tests/clause | One test | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: |
 | 3 | Design and verification building blocks | 136 | 16 | 8.5 | 0 | 14 |
-| 4 | Scheduling semantics | 473 | 27 | 17.5 | 0 | 24 |
+| 4 | Scheduling semantics | 478 | 27 | 17.7 | 0 | 28 |
 | 5 | Lexical conventions | 513 | 16 | 32.1 | 0 | 46 |
 | 6 | Data types | 681 | 76 | 9.0 | 0 | 122 |
 | 7 | Aggregate data types | 772 | 49 | 15.8 | 0 | 201 |
@@ -48,8 +48,8 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | 11 | Operators and expressions | 1644 | 42 | 39.1 | 0 | 250 |
 | 12 | Procedural programming statements | 306 | 19 | 16.1 | 0 | 49 |
 | 13 | Tasks and functions (subroutines) | 443 | 15 | 29.5 | 0 | 64 |
-| 14 | Clocking blocks | 150 | 15 | 10.0 | 0 | 58 |
-| 15 | Interprocess synchronization and communication | 189 | 21 | 9.0 | 0 | 129 |
+| 14 | Clocking blocks | 170 | 15 | 11.3 | 0 | 65 |
+| 15 | Interprocess synchronization and communication | 192 | 21 | 9.1 | 0 | 132 |
 | 16 | Assertions | 794 | 69 | 11.5 | 0 | 548 |
 | 17 | Checkers | 108 | 10 | 10.8 | 0 | 61 |
 | 18 | Constrained random value generation | 257 | 44 | 5.8 | 0 | 105 |
@@ -58,8 +58,8 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | 21 | Input/output system tasks and system functions | 495 | 47 | 10.5 | 0 | 105 |
 | 22 | Compiler directives | 512 | 21 | 24.4 | 0 | 36 |
 | 23 | Modules and hierarchy | 417 | 33 | 12.6 | 0 | 72 |
-| 24 | Programs | 160 | 7 | 22.9 | 0 | 110 |
-| 25 | Interfaces | 253 | 12 | 21.1 | 0 | 31 |
+| 24 | Programs | 167 | 7 | 23.9 | 0 | 112 |
+| 25 | Interfaces | 262 | 12 | 21.8 | 0 | 38 |
 | 26 | Packages | 262 | 6 | 43.7 | 0 | 102 |
 | 27 | Generate constructs | 283 | 5 | 56.6 | 0 | 31 |
 | 28 | Gate-level and switch-level modeling | 297 | 26 | 11.4 | 0 | 66 |
@@ -67,14 +67,14 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | 30 | Specify blocks | 60 | 22 | 2.7 | 0 | 24 |
 | 31 | Timing checks | 66 | 20 | 3.3 | 0 | 48 |
 | 32 | Backannotation using the standard delay format | 68 | 11 | 6.2 | 0 | 49 |
-| 33 | Configuring the contents of a design | 84 | 13 | 6.5 | 0 | 67 |
+| 33 | Configuring the contents of a design | 88 | 13 | 6.8 | 0 | 71 |
 | 34 | Protected envelopes | 4 | 8 | 0.5 | 0 | 0 |
 | 35 | Direct programming interface | 177 | 21 | 8.4 | 0 | 59 |
 | 36 | Programming language interface (PLI/VPI) overview | 89 | 19 | 4.7 | 0 | 36 |
 | 37 | VPI object model diagrams | 227 | 94 | 2.4 | 0 | 208 |
 | 38 | VPI routine definitions | 109 | 46 | 2.4 | 0 | 44 |
 | 39 | Assertion API | 39 | 7 | 5.6 | 0 | 38 |
-| 40 | Code coverage control and API | 31 | 18 | 1.7 | 0 | 28 |
+| 40 | Code coverage control and API | 39 | 18 | 2.2 | 0 | 36 |
 
 <a id="優先順位キュー-1-つのテスト標準のみ"></a>
 

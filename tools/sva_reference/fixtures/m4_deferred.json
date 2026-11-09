@@ -564,5 +564,29 @@
     ],
     "reviewed_on": "2026-11-03",
     "reviewer": "Codex (GPT-6), AI scope review"
+  },
+  "tests/ch4/test_pli_slot_entry_regions_run_once.sv": {
+    "source_sha256": "c68e48f7bfaf1b482c9e7f6368ea49cf7a99e33ff4cc512fb1053678e7cba9e9",
+    "reason": "PLI callbacks writing in the Pre-Postponed region and re-running the time slot need a scheduler model with VPI",
+    "evidence": [
+      "$sampled",
+      "cbAtEndOfSimTime"
+    ]
+  },
+  "tests/ch4/test_pli_time_slot_region_order.sv": {
+    "source_sha256": "6cdb60f60d988fd5cfd6915e9b1f14cf43a77d051e7cdc3f1b8f40708400bbb0",
+    "reason": "Region order observed through PLI callbacks needs a scheduler model with VPI",
+    "evidence": [
+      "$sampled",
+      "cbNBASynch"
+    ]
+  },
+  "tests/ch4/test_simulation_regions_in_one_time_slot.sv": {
+    "source_sha256": "0d0a553064a543b9f0e721f75896ae7825a97e6b09566663dd9b086d8cacb6ad",
+    "reason": "Region order across program, inactive, NBA and observed regions needs a scheduler model, not the single-clock static model",
+    "evidence": [
+      "$sampled",
+      "program"
+    ]
   }
 }

@@ -158,3 +158,4 @@ Code, identifiers, raw execution evidence and license terms retain their origina
 | Issues #24, #27 and #28: decisions and test fixes (2026-11-07) | [English](issues-24-27-28-review-20261107.en.md) | [日本語](issues-24-27-28-review-20261107.md) |
 | Issues #48 to #57: decisions and test fixes (2026-11-07) | [English](issues-48-57-review-20261107.en.md) | [日本語](issues-48-57-review-20261107.md) |
 | Review of spec-only tests (2026-11-09) | [English](spec-only-review-20261109.en.md) | [日本語](spec-only-review-20261109.md) |
+| Clauses 33 and 40: what the standard fixes, what it leaves to tools, what can be tested (2026-11-09) | [English](clauses-33-40-testability-20261109.en.md) | [日本語](clauses-33-40-testability-20261109.md) |

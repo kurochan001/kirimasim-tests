@@ -1,0 +1,3 @@
+outer module, ##3 of ca: t=25
+nested module inner, ##2 of ca: t=15
+instantiated module with its own default, ##2 of ob: t=6

@@ -1,0 +1,4 @@
+t=6 value of the nonblocking assignment seen: 1
+t=6 value of the synchronous drive seen: 1
+t=6 changes of v at 5: 2
+t=6 v ends with one of the two values: 1

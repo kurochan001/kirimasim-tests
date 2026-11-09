@@ -1,0 +1,6 @@
+cbAtStartOfSimTime at 10: v=0 w=0
+cbAtEndOfSimTime at 10: v=1 clk=0, writes w=1
+a1 pass at 10: sampled v=0, v=1
+cbReadOnlySynch at 10: v=1 w=1 clk=1
+cbNextSimTime at 20: v=1 w=1
+design at 20: v=1 w=1

@@ -1,0 +1,6 @@
+check is not ERROR: yes
+n after the calls: 2
+with statement coverage of u, nothing is covered before step runs: yes
+with statement coverage of u, the then branch alone covers some but not all: yes
+with statement coverage of u, running the same statements again adds nothing: yes
+with statement coverage of u, after the else branch every item is covered: yes

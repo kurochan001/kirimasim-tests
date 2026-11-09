@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 89.27%、実行 77.53%、Ghostを除く実行 50.94%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 90.10%、実行 78.00%、Ghostを除く実行 51.11%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 89.27%。** 規格要求の実行確認率: 77.53%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 90.10%。** 規格要求の実行確認率: 78.00%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対する要求カバレッジ（テスト設計）: 10979/12298 (89.27%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9535/12298 (77.53%)。
-- 登録済みだがテスト未対応: 1319 動作。
+- 登録済み動作に対する要求カバレッジ（テスト設計）: 11081/12298 (90.10%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9592/12298 (78.00%)。
+- 登録済みだがテスト未対応: 1217 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。
 
@@ -71,11 +71,11 @@
 - `coverage-tests-20261029-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T22:47:59.529525+00:00` / 2/12298 動作確認、古い入力との対応 1 件。
 - `coverage-tests-20261029-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T22:46:15.799172+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12298 動作確認、古い入力との対応 0 件。
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7880/12298 動作確認、古い入力との対応 132 件。
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7959/12298 動作確認、古い入力との対応 69 件。
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7863/12298 動作確認、古い入力との対応 132 件。
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7920/12298 動作確認、古い入力との対応 139 件。
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 8000/12298 動作確認、古い入力との対応 75 件。
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7903/12298 動作確認、古い入力との対応 139 件。
 - `issues-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T13:33:20.979624+00:00` / 2/12298 動作確認、古い入力との対応 29 件。
-- `issues-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T13:45:50.335531+00:00` / 3793/12298 動作確認、古い入力との対応 338 件。
+- `issues-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T13:45:50.335531+00:00` / 3801/12298 動作確認、古い入力との対応 346 件。
 - `issues-20261031-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-30T20:31:55.476769+00:00` / 13/12298 動作確認、古い入力との対応 19 件。
 - `issues-20261031-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-30T20:31:59.218896+00:00` / 42/12298 動作確認、古い入力との対応 19 件。
 - `issues-20261031-verilator-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-30T20:32:01.484680+00:00` / 42/12298 動作確認、古い入力との対応 19 件。
@@ -98,14 +98,18 @@
 - `quality-persim-20261027-icarus14.json`: `Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)` / `2026-10-27T13:37:34.824763+00:00` / 21/12298 動作確認、古い入力との対応 2 件。
 - `quality-persim-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T13:37:34.897897+00:00` / 19/12298 動作確認、古い入力との対応 2 件。
 - `quality-persim-20261027-verilator-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T13:37:34.973472+00:00` / 19/12298 動作確認、古い入力との対応 2 件。
-- `refresh-20261027-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T14:45:42.063155+00:00` / 3116/12298 動作確認、古い入力との対応 555 件。
-- `refresh-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T14:43:38.130423+00:00` / 2636/12298 動作確認、古い入力との対応 492 件。
-- `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 72/12298 動作確認、古い入力との対応 1 件。
+- `refresh-20261027-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T14:45:42.063155+00:00` / 3121/12298 動作確認、古い入力との対応 565 件。
+- `refresh-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T14:43:38.130423+00:00` / 2639/12298 動作確認、古い入力との対応 496 件。
+- `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 73/12298 動作確認、古い入力との対応 1 件。
 - `test-fixes-20261031-icarus-include.json`: `Icarus Verilog version 13.0 (stable) (v13_0-25-g07dd50d37)` / `2026-10-31T12:25:03.867848+00:00` / 0/12298 動作確認、古い入力との対応 1 件。
 - `test-fixes-20261031-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-25-g07dd50d37)` / `2026-10-31T12:23:47.414500+00:00` / 4/12298 動作確認、古い入力との対応 1 件。
 - `test-fixes-20261031-verilator-include.json`: `Verilator 5.050 2026-07-01 rev v5.050-60-g3d2421f3b` / `2026-10-31T12:25:05.281874+00:00` / 0/12298 動作確認、古い入力との対応 1 件。
 - `test-fixes-20261031-verilator-seed1.json`: `Verilator 5.050 2026-07-01 rev v5.050-60-g3d2421f3b` / `2026-10-31T12:23:57.441797+00:00` / 17/12298 動作確認、古い入力との対応 1 件。
 - `test-fixes-20261031-verilator-seed73.json`: `Verilator 5.050 2026-07-01 rev v5.050-60-g3d2421f3b` / `2026-10-31T12:24:09.320850+00:00` / 17/12298 動作確認、古い入力との対応 1 件。
+- `weak-chapters-20261109-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-08T23:40:21.171226+00:00` / 1/12298 動作確認、古い入力との対応 0 件。
+- `weak-chapters-20261109-kirimasim-33cee3fa.json`: `kirimasim 0.0.0 (commit 33cee3fa2f0d), built with AppleClang 21.0.0.21000401` / `2026-11-08T23:40:58.259537+00:00` / 4/12298 動作確認、古い入力との対応 0 件。
+- `weak-chapters-20261109-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-08T23:40:39.386829+00:00` / 8/12298 動作確認、古い入力との対応 0 件。
+- `weak-chapters-20261109-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-08T23:40:57.954861+00:00` / 8/12298 動作確認、古い入力との対応 0 件。
 - 採用しません: associative-count-refinement-20261023-icarus13.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: associative-count-refinement-20261023-verilator-seed1.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: associative-count-refinement-20261023-verilator-seed73.json: 古い、未知の、または古いランナーの出身。
@@ -253,7 +257,7 @@
 - 1 Overview: 解釈保留なし 12/12、登録 0、テスト対応 0。
 - 2 Normative references: 解釈保留なし 1/1、登録 2、テスト対応 0。
 - 3 Design and verification building blocks: 解釈保留なし 22/22、登録 146、テスト対応 118。
-- 4 Scheduling semantics: 解釈保留なし 40/40、登録 107、テスト対応 80。
+- 4 Scheduling semantics: 解釈保留なし 40/40、登録 107、テスト対応 88。
 - 5 Lexical conventions: 解釈保留なし 21/21、登録 154、テスト対応 136。
 - 6 Data types: 解釈保留なし 92/92、登録 719、テスト対応 679。
 - 7 Aggregate data types: 解釈保留なし 61/61、登録 345、テスト対応 320。
@@ -263,7 +267,7 @@
 - 11 Operators and expressions: 解釈保留なし 55/55、登録 459、テスト対応 433。
 - 12 Procedural programming statements: 解釈保留なし 28/28、登録 115、テスト対応 89。
 - 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 119、テスト対応 92。
-- 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 59。
+- 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 84。
 - 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 68。
 - 16 Assertions: 解釈保留なし 82/82、登録 555、テスト対応 539。
 - 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 59。
@@ -273,8 +277,8 @@
 - 21 入出力システムタスクとシステム関数：解釈保留なし65/65、登録383、テスト対応347。
 - 22 Compiler directives: 解釈保留なし 28/28、登録 361、テスト対応 345。
 - 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 251。
-- 24 Programs: 解釈保留なし 10/10、登録 29、テスト対応 16。
-- 25 Interfaces: 解釈保留なし 25/25、登録 63、テスト対応 43。
+- 24 Programs: 解釈保留なし 10/10、登録 29、テスト対応 25。
+- 25 Interfaces: 解釈保留なし 25/25、登録 63、テスト対応 53。
 - 26 Packages: 解釈保留なし 8/8、登録 44、テスト対応 39。
 - 27 Generate constructs: 解釈保留なし 7/7、登録 32、テスト対応 27。
 - 28 Gate-level and switch-level modeling: 解釈保留なし 34/34、登録 384、テスト対応 363。
@@ -282,14 +286,14 @@
 - 30 Specify blocks: 解釈保留なし 31/31、登録 157、テスト対応 131。
 - 31 Timing checks: 解釈保留なし 26/26、登録 180、テスト対応 154。
 - 32 Backannotation using the standard delay format: 解釈保留なし 14/14、登録 131、テスト対応 119。
-- 33 Configuring the contents of a design: 解釈保留なし 36/36、登録 63、テスト対応 30。
+- 33 Configuring the contents of a design: 解釈保留なし 36/36、登録 63、テスト対応 40。
 - 34 Protected envelopes: 解釈保留なし 104/104、登録 214、テスト対応 5。
 - 35 Direct programming interface: 解釈保留なし 31/31、登録 142、テスト対応 114。
 - 36 Programming language interface (PLI/VPI) overview: 解釈保留なし 29/29、登録 163、テスト対応 148。
 - 37 VPI object model diagrams: 解釈保留なし 101/101、登録 1757、テスト対応 1656。
 - 38 VPI routine definitions: 解釈保留なし 51/51、登録 348、テスト対応 260。
 - 39 Assertion API: 解釈保留なし 14/14、登録 95、テスト対応 82。
-- 40 Code coverage control and API: 解釈保留なし 26/26、登録 128、テスト対応 82。
+- 40 Code coverage control and API: 解釈保留なし 26/26、登録 128、テスト対応 122。
 - 41 Data read API: 解釈保留なし 1/1、登録 0、テスト対応 0。
 - A Formal syntax: 解釈保留なし 87/87、登録 811、テスト対応 792。
 - B Keywords: 解釈保留なし 1/1、登録 248、テスト対応 248。
@@ -2193,7 +2197,7 @@ PLIコールバックはシミュレーションモデルに評価イベント�
 
 ### SV2023-4.4-EXTRACT-ORDERED-REGIONS
 
-`4.4` / `normal` / テスト未対応
+`4.4` / `normal` / テスト対応あり・実行未確認
 
 タイムスロット内の領域順序は、Preponed、Pre-Active、Active、Inactive、Pre-NBA、NBA、Post-NBA、Pre-Observed、Observed、Post-Observed、Reactive、Re-Inactive、Pre-Re-NBA、Re-NBA、Post-Re-NBA、Pre-Postponed、Postponed である。
 
@@ -2201,6 +2205,7 @@ PLIコールバックはシミュレーションモデルに評価イベント�
 
 規定の性質: `definition`。
 
+- [test_pli_time_slot_region_order.sv](../tests/ch4/test_pli_time_slot_region_order.sv): 時刻 10 用に cbAtStartOfSimTime・cbNBASynch・cbAtEndOfSimTime・cbReadOnlySynch を登録し、設計は時刻 10 に Active で v = 1・v \<= 2・clk の立ち上げ・#0 を実行する。その後 NBA 更新で起きるプロセス、コンカレントアサーション a1 のパスアクションとプログラム(Reactive)、プログラムの #0(Re-Inactive)と p \<= 1(Re-NBA)、p で起きるモジュールプロセス(active 集合の再実行)が1行ずつ表示し、期待出力は Preponed($sampled(v)=0)、Pre-Active、Active、Inactive、Pre-NBA、NBA、Observed(triggered が 0 から 1 へ)、Reactive、Re-Inactive、Re-NBA、Active、Pre-Postponed、Postponed の順になる。 区別: 領域の順序を誤る実装(cbNBASynch を Inactive より前に呼ぶ、Reactive を NBA や Observed より前に処理する、reactive 集合を空にする前に Active に戻る、Pre-Postponed を Postponed の後に置く)では、行の順序が変わるか、cbNBASynch の行が v=0 や v=2、Re-NBA の行が back=1、cbAtEndOfSimTime の行が back=0 などになる。
 
 ### SV2023-4.4.1-EXTRACT-ACTIVE-SET
 
@@ -2215,7 +2220,7 @@ PLIコールバックはシミュレーションモデルに評価イベント�
 
 ### SV2023-4.4.1-EXTRACT-ITERATIVE-SET
 
-`4.4.1` / `normal` / テスト未対応
+`4.4.1` / `normal` / テスト対応あり・実行未確認
 
 反復領域はアクティブからプレポポネードまでを含み，プレポネード，プレアクティブ，ポポネードを除く。
 
@@ -2223,6 +2228,7 @@ PLIコールバックはシミュレーションモデルに評価イベント�
 
 規定の性質: `definition`。
 
+- [test_pli_slot_entry_regions_run_once.sv](../tests/ch4/test_pli_slot_entry_regions_run_once.sv): 時刻 10 の cbAtEndOfSimTime コールバック(Pre-Postponed)が v=1 clk=0 を読んで w=1 を書くと、タイムスロットは Active(always @(w) が clk を上げる)、Observed(a1 の評価)、Reactive(パスアクションの表示)をもう一度回り、その後で Postponed の cbReadOnlySynch が w=1 clk=1 を1回だけ表示する。入口の Preponed のサンプル($sampled(v)=0)と Pre-Active(cbNextSimTime は時刻 20)は繰り返されない。 区別: Pre-Postponed を反復に含めない実装では a1 の行が出ないか cbReadOnlySynch の後になり clk=0 と表示される。Preponed や Pre-Active まで反復する実装では sampled v=1(または a1 fail)や cbNextSimTime at 10 が出る。Postponed を反復の途中に置く実装では cbReadOnlySynch が w=0 clk=0 で先に出る。
 
 ### SV2023-4.4.1-EXTRACT-REACTIVE-SET
 
@@ -2237,7 +2243,7 @@ PLIコールバックはシミュレーションモデルに評価イベント�
 
 ### SV2023-4.4.2-EXTRACT-SIMULATION-REGION-SET
 
-`4.4.2` / `normal` / テスト未対応
+`4.4.2` / `normal` / テスト対応あり・実行未確認
 
 シミュレーション領域は，予備，活性，不活性，NBA，観察，反応，再不活性，再‐NBA，遅延である。
 
@@ -2245,6 +2251,7 @@ PLIコールバックはシミュレーションモデルに評価イベント�
 
 規定の性質: `definition`。
 
+- [test_simulation_regions_in_one_time_slot.sv](../tests/ch4/test_simulation_regions_in_one_time_slot.sv): 時刻 1 に、コンカレントアサーション a1 の Preponed サンプル、初期プロセスの Active と #0 後の Inactive、NBA 更新で起きる always、シーケンス s の triggered(Observed で設定)、a1 のパスアクションとプログラム(Reactive)、プログラムの #0(Re-Inactive)と p \<= 1(Re-NBA)、p で起きるモジュールプロセス(active 集合の再実行)、$strobe(Postponed)がそれぞれ1行を表示し、9つのシミュレーション領域の順序が行の順序と値になる。 区別: いずれかの領域を欠くか順序を誤る実装では、sampled v が 0 以外になる、Inactive 行が v=2 になる、triggered が active 集合の行で 1 または Reactive の行で 0 になる、Re-Inactive 行が p=1 になる、Re-NBA 行が back=1 になる、Postponed 行が途中の値になる、などの違いが出る。
 
 ### SV2023-4.4.2.1-EXTRACT-ONE-STEP-SAMPLE
 
@@ -2469,7 +2476,7 @@ NBA 更新は適用可能な Re-Inactive 作業に従う。
 
 ### SV2023-4.4.2.9-EXTRACT-POSTPONED-NO-EARLIER-EVENT
 
-`4.4.2.9` / `error` / テスト未対応
+`4.4.2.9` / `error` / テスト対応あり・実行未確認
 
 遅延イベントは、現在のスロットのより早い領域に作業をスケジュールしないこと。
 
@@ -2477,6 +2484,7 @@ NBA 更新は適用可能な Re-Inactive 作業に従う。
 
 規定の性質: `mandatory`。
 
+- [test_illegal_final_deferred_action_schedules_event.sv](../tests/ch4/test_illegal_final_deferred_action_schedules_event.sv): 最終遅延アサーション a1 の失敗アクションが void 関数 notify を呼び、notify の -\>\> done は現在のタイムスロットの NBA 領域にイベントを作る。アクションは Postponed 領域で実行されるので前の領域へのイベント予約となって不正であり、-\>\> の行(39)か a1 の呼び出し行(46)に、イベントと Postponed に触れるエラーが出なければならない。表示だけを行う a0 の report 呼び出しは規格で認められる対照になっている。 区別: Postponed から前の領域へのイベント予約を許す実装は設計を受理し、a0 failed と seen=1 を表示して正常に終わる(Verilator 5.052 がこの動作)。
 
 ### SV2023-4.4.2.9-EXTRACT-POSTPONED-NO-WRITES
 
@@ -2503,7 +2511,7 @@ NBA 更新は適用可能な Re-Inactive 作業に従う。
 
 ### SV2023-4.4.3-EXTRACT-PLI-REGION-SET
 
-`4.4.3` / `normal` / テスト未対応
+`4.4.3` / `normal` / 実行確認あり
 
 PLIの特定スケジューリングポイントは，予定，活動前，予定NBA，予定NBA，観察前，観察後，再検前NBA，再検後NBA，予定延期である。
 
@@ -2511,6 +2519,7 @@ PLIの特定スケジューリングポイントは，予定，活動前，予�
 
 規定の性質: `definition`。
 
+- [test_pli_region_callbacks.sv](../tests/ch4/test_pli_region_callbacks.sv): Pre-Active(cbAtStartOfSimTime)、Pre-Postponed(cbAtEndOfSimTime)、Postponed(cbReadOnlySynch)の3つの PLI 領域のコールバックを時刻 10 に登録し、設計の a = 1(Active)と b \<= 1(NBA)の前後で a=0 b=0、a=1 b=1、a=1 b=1 と表示される。PLI 領域が Figure 4-1 の位置でシミュレーション領域の間に入ることが行の順序と値に現れる。 区別: PLI 領域を図の位置に置かない実装(Pre-Active を設計イベントの後に回す、Pre-Postponed を NBA の前に置く、Postponed を Pre-Postponed の前に置く)では、行の順序または a, b の値が変わる。
 
 ### SV2023-4.4.3.1-EXTRACT-PREPONED-NO-CURRENT-SLOT-EVENT
 
@@ -2571,7 +2580,7 @@ Pre‐NBA PLI制御点は，NBAイベント以前の読み出し値，書き込�
 
 ### SV2023-4.4.3.4-EXTRACT-READ-WRITE-CONTROL
 
-`4.4.3.4` / `normal` / テスト未対応
+`4.4.3.4` / `normal` / 実行確認あり
 
 NBA PLI点制御点はNBA点以降の読み出し，書き込み，イベント作成を可能にする。
 
@@ -2579,6 +2588,7 @@ NBA PLI点制御点はNBA点以降の読み出し，書き込み，イベント�
 
 規定の性質: `permission`。
 
+- [test_pli_read_write_synch_write.sv](../tests/ch4/test_pli_read_write_synch_write.sv): $vt_register が時刻 10 用に cbReadWriteSynch を登録する。時刻 10 のコールバック(Pre-NBA または Post-NBA)はブロッキング代入後の a=1 を読み、vpi_put_value で w に 7 を書く。その書き込みが同じ時刻の @(w) で待つ設計プロセスを起こし、design at 10: w=7 が表示される。 区別: この制御点での書き込みやイベント生成を許さない、または書き込みを参照スケジューラに戻さない実装では、design の行が出ないか w=0 や別の時刻になる。コールバックを Active の前に走らせる実装では a=0 になる。
 
 ### SV2023-4.4.3.5-EXTRACT-PREOBSERVED-NO-CURRENT-SLOT-EVENT
 
@@ -2720,7 +2730,7 @@ NBAを通して反応性を排出し，他の領域に戻る。
 
 ### SV2023-4.4.3.10-EXTRACT-SLOT-ENTRY
 
-`4.4.3.10` / `normal` / テスト未対応
+`4.4.3.10` / `normal` / テスト対応あり・実行未確認
 
 各タイムスロットは，反復アクティブ処理を開始する前に，先行処理，次いで前アクティブ処理に入る。
 
@@ -2728,6 +2738,7 @@ NBAを通して反応性を排出し，他の領域に戻る。
 
 規定の性質: `mandatory`。
 
+- [test_pli_slot_entry_regions_run_once.sv](../tests/ch4/test_pli_slot_entry_regions_run_once.sv): 時刻 10 の cbAtStartOfSimTime(Pre-Active)は設計のイベントより前に v=0 w=0 を表示する。Pre-Postponed の cbAtEndOfSimTime が w=1 を書いてタイムスロットが再び Active から回ると、そこで立つ clk で評価される a1 のパスアクションは入口の Preponed の値 $sampled(v)=0 を表示し、cbAtEndOfSimTime の中で登録した cbNextSimTime は時刻 10 ではなく時刻 20 に実行される。 区別: 反復のたびに Preponed をやり直す実装では sampled v=1(または a1 fail)になり、Pre-Active をやり直す実装では cbNextSimTime at 10 が a1 の行より前に出る。Pre-Active を Active の後に置く実装では最初の行が v=1 になる。
 
 ### SV2023-4.5-EXTRACT-EVALUATION-CREATES-EVENTS
 
@@ -3278,7 +3289,7 @@ bitbit構造ネット表現に付加された原始入力は直接的な強度�
 
 ### SV2023-4.10-EXTRACT-CALLBACK-CATEGORIES
 
-`4.10` / `normal` / テスト未対応
+`4.10` / `normal` / 実行確認あり
 
 PLIコールバックは，指定したアクティビティで直ちに実行されるか，あるいはワンショット評価イベントとして明示的に登録される。
 
@@ -3286,6 +3297,7 @@ PLIコールバックは，指定したアクティビティで直ちに実行�
 
 規定の性質: `definition`。
 
+- [test_pli_callback_immediate_and_one_shot.sv](../tests/ch4/test_pli_callback_immediate_and_one_shot.sv): $vt_register が v の cbValueChange と遅延 10 の cbAfterDelay を登録する。時刻 10 に cbAfterDelay が設計より先に一度だけ v=0 を表示し、設計が時間制御なしに v = 1、v = 2 と書くと、各変化のコールバック行が次の $display の前に v=1、v=2 として出る。時刻 20 の v = 3 でも cbValueChange は呼ばれるが、cbAfterDelay は 20 や 30 には出ない。 区別: 値変化コールバックを即時に実行せず後の領域にまとめる実装では cbValueChange の行が design の行の後に来るか v=2 が2回出る。登録したコールバックを一回限りの評価イベントとして扱わない実装では cbAfterDelay の行が繰り返されるか、設計の行の後に来る。
 
 ### SV2023-4.10-EXTRACT-CBAFTERDELAY
 
@@ -34615,7 +34627,7 @@ DPIの輸入外国サブルートをSVのサブルートと呼び，SVのタス�
 
 ### SV2023-14.3-EXTRACT-CLOCKING-GRAMMAR
 
-`14.3` / `normal` / テスト未対応
+`14.3` / `normal` / テスト対応あり・実行未確認
 
 クロック文法は，デフォルトまたはグローバル形式，クロックイベント，オプション識別子／閉じる名前，デフォルトスキュー，方向信号代入，アサーション宣言をサポートする。これは、スキューがエッジや遅延構文を使うことを意味します。
 
@@ -34623,10 +34635,14 @@ DPIの輸入外国サブルートをSVのサブルートと呼び，SVのタス�
 
 規定の性質: `definition`。
 
+- [test_clocking_declaration_items_and_skews.sv](../tests/ch14/test_clocking_declaration_items_and_skews.sv): global clocking gclk と default clocking dcb を項目なしで宣言し、clocking cb に default input #1step output #2 と input d / output q、clocking cb2 に信号ごとのスキュー input #2 d / output #3 q2 を書く。時刻 25 の事象で cb.d は直前の 1 、時刻 25 の駆動は q に 27 、 q2 に 28 で反映され、期待出力は sample cb.d = 1 / t = 26 q = 0 q2 = 0 / t = 30 q = 1 q2 = 1 。区別: default/global 形式や default スキュー項目、方向ごとのスキューを構文として受理しない処理系はコンパイルに失敗し、default スキューや項目ごとのスキューを取り違える処理系は 26 と 30 の行の q/ q2 の組が変わる。
+- [test_clocking_declaration_grammar_alternatives.sv](../tests/ch14/test_clocking_declaration_grammar_alternatives.sv): 名前のない default clocking @(posedge clk) と、endclocking : cb で閉じる clocking cb を宣言する。cb は default input #2 だけの既定スキュー、式付きの input sum = a + b、input #1 output #3 r、inout s を持つ。##1 は時刻5で終わり、時刻15の事象で sum は13の値3、r は14の値7、s は13の値4を取る。時刻15の駆動で s は15に2、r は18に3になり、cb.s は4のまま。期待出力は t=5 after ##1 ... / t=15 cb.sum=3 cb.r=7 cb.s=4 / t=16 r=7 s=2 / t=19 r=3 s=2 cb.s=4。 区別: いずれかの形式を受理しない処理系はコンパイルに失敗する。input だけの既定スキューを無視する処理系は sum=7 や s=8 を、r の項目スキュー #1 を無視する処理系は r=6 を、出力スキュー #3 を無視する処理系は16の行で r=3 を出す。inout の駆動で入力側を変える処理系は cb.s=2 を出す。
+- [test_vpi_clocking_edges_prefix.sv](../tests/ch37/test_vpi_clocking_edges_prefix.sv): clocking ck に default input negedge output posedge、input posedge #2 c、output negedge b、output #3 e を宣言し、VPI で既定の入力・出力エッジ、c の入力エッジとスキュー2、b の出力エッジ、e の出力スキュー3を読み出して表示する。 区別: エッジだけ、またはエッジと遅延を組み合わせたスキューの構文を受理しない処理系はコンパイルに失敗し、エッジと遅延を取り違える処理系は 'default input edge negedge, default output edge posedge' や 'c: input edge posedge, input skew is a delay control 1 of 2' の行が変わる。
+- [test_clocking_block_assertions.sv](../tests/ch16/test_clocking_block_assertions.sv): clocking cb_in（input a と property p）と clocking cb_none（property p だけ）の項目として assertion_item_declaration を書き、assert property (cb_in.p) と assert property (cb_none.p) でそれぞれブロックのクロック posedge clk で検査する。a は14で1、34で0になり、期待出力は cb_in.p: 5 35 45 / cb_none.p: 5 35 45。 区別: clocking ブロックの項目としての property 宣言を受理しない処理系はコンパイルに失敗し、ブロックの中の property にブロックのクロックを与えない処理系はクロックのないアサーションとして拒否するか、別の時刻を表示する。
 
 ### SV2023-14.3-EXTRACT-CLOCKING-NAME
 
-`14.3` / `error` / テスト未対応
+`14.3` / `error` / 実行確認あり
 
 一般的なクロックブロックは、デフォルトの場合のみ名前を付けられます。名前のない宣言は参照できません。グローバルクロックは別のオプション名形式である14.14 を持つ。
 
@@ -34634,6 +34650,7 @@ DPIの輸入外国サブルートをSVのサブルートと呼び，SVのタス�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_unnamed_clocking_not_default.sv](../tests/ch14/test_illegal_unnamed_clocking_not_default.sv): default を付けない clocking @(posedge clk);を名前なしで宣言し（ 21 行目）、: expected_stderr_regex : がその行のエラーを求める。区別: default でない clocking ブロックを名前なしで受理する誤実装は設計をエラボレーションしてしまい、 21 行目のエラーが出ないので負テストが失敗する。
 
 ### SV2023-14.3-EXTRACT-DEFAULT-SKEWS
 
@@ -34698,7 +34715,7 @@ DPIの輸入外国サブルートをSVのサブルートと呼び，SVのタス�
 
 ### SV2023-14.3-EXTRACT-NO-PROCEDURAL-LOCAL-CLOCKING-SIGNAL
 
-`14.3` / `error` / テスト未対応
+`14.3` / `error` / テスト対応あり・実行未確認
 
 クロック信号は，手続きブロック使用に制限された変数を指定できない。
 
@@ -34706,6 +34723,7 @@ DPIの輸入外国サブルートをSVのサブルートと呼び，SVのタス�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_clocking_signal_dynamic_array_element.sv](../tests/ch14/test_illegal_clocking_signal_dynamic_array_element.sv): クロッキングブロックの入力 bv の式に、手続きブロックの中でしか参照できない動的配列の要素 da\[0\] を書き、その行（40行目）のエラーを求める。モジュール変数 m のクロッキング信号と、手続きの中での da\[0\] の参照は規格で認められる対照である。 区別: 手続きブロックに限られる変数をクロッキング信号として受理する実装は、この行でエラーを出さずに不合格になる。
 
 ### SV2023-14.3-EXTRACT-ONE-STEP-POSTPONED
 
@@ -34758,7 +34776,7 @@ integer値を持つ時間リテラルまたは定数表現を用いたクロッ�
 
 ### SV2023-14.4-EXTRACT-ONE-STEP-IMMEDIATELY-BEFORE
 
-`14.4` / `normal` / テスト未対応
+`14.4` / `normal` / 実行確認あり
 
 1step 入力スキューは前の時間ステップの終わり、クロックイベントの直前の最後の値を選択します。
 
@@ -34766,6 +34784,7 @@ integer値を持つ時間リテラルまたは定数表現を用いたクロッ�
 
 規定の性質: `mandatory`。
 
+- [test_one_step_sample_before_time_slot.sv](../tests/ch4/test_one_step_sample_before_time_slot.sv): default input #1step の input d を持つ clocking cb で、d は3で7になり、時刻5には同じプロセスが d = 1 と書いてから clk を立ち上げる。時刻15には clk を立ち上げてから d \<= 2 を NBA で書く。期待出力は at 6: cb.d=7 direct=1 d=1 / at 16: cb.d=1 d=2 で、標本値はどちらもクロック事象のタイムスロットの直前の値。 区別: 1step をクロック事象の時点（Observed 領域や #0 と同じ）で標本化する誤実装は at 6 で cb.d=1、at 16 で cb.d=2 を出す。
 
 ### SV2023-14.4-EXTRACT-SAMPLE-BEFORE-DRIVE-AFTER
 
@@ -34781,7 +34800,7 @@ integer値を持つ時間リテラルまたは定数表現を用いたクロッ�
 
 ### SV2023-14.4-EXTRACT-SKEW-CONSTANT-TIMESCALE
 
-`14.4` / `error` / テスト未対応
+`14.4` / `error` / 実行確認あり
 
 ここでは，スキューの定義を示し，スキューの計算方法を示した。時間単位がない場合は 現在の範囲の時間単位/時間スケールを使用します
 
@@ -34789,6 +34808,7 @@ integer値を持つ時間リテラルまたは定数表現を用いたクロッ�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_clocking_skew_variable.sv](../tests/ch14/test_illegal_clocking_skew_variable.sv): パラメータ P、定数式 (P + 1)、時間リテラル 1ns のスキューを規格で認められる対照とし、モジュール変数 d をスキューに使う input #d a（31行目）を違反とする。 区別: スキューが定数であることを検査しない処理系は変数のスキューを受理し、31行目のエラーが出ないので負テストが失敗する。パラメータのスキューを拒否する処理系は28行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-14.4-EXTRACT-SKEW-NOT-PROCEDURAL-DELAY
 
@@ -34890,7 +34910,7 @@ input／inoutの関連付け式は、モジュールのinputポートに対す�
 
 ### SV2023-14.6-EXTRACT-SHARED-SIGNALS
 
-`14.6` / `normal` / テスト未対応
+`14.6` / `normal` / 実行確認あり
 
 複数のクロックブロックにおいて，クロック／入力／output/inoutとして信号が発生する。
 
@@ -34898,10 +34918,12 @@ input／inoutの関連付け式は、モジュールのinputポートに対す�
 
 規定の性質: `permission`。
 
+- [test_clocking_multiple_blocks.sv](../tests/ch14/test_clocking_multiple_blocks.sv): 同じ信号 data を clocking early（input #3、さらに input #3 lo = data\[3:0\]）と clocking late（input #1）の両方の入力にし、クロック clk も両ブロックで共有する。data は3で21、11で43に変わり、期待出力は 5: early=00 late=21 early.lo=0 / 15: early=43 late=43 early.lo=3。 区別: 1つの信号を2つのブロックの入力にできない処理系はコンパイルに失敗し、ブロックごとに別々に標本化しない処理系は early と late が同じ値（5 で 00/00 や 21/21）になる。
+- [test_clocking_two_blocks_one_output.sv](../tests/ch14/test_clocking_two_blocks_one_output.sv): 変数 j を posedge の clocking pe と negedge の clocking ne の両方の出力にし（クロック clk も共有）、5/15/25 に pe.j、10 に ne.j を駆動して、j の変化を 'j changes: 5:1 10:2 15:3 25:4' と表示する。 区別: 1つの変数を2つのブロックの出力にできない処理系はコンパイルに失敗し、一方のブロックの駆動しか反映しない処理系は 10:2 や 5:1/15:3/25:4 の項目を欠く。
 
 ### SV2023-14.7-EXTRACT-CLOCKING-ALLOWED-SCOPES
 
-`14.7` / `error` / テスト未対応
+`14.7` / `error` / テスト対応あり・実行未確認
 
 クロックブロックはモジュール/インタフェース/チェッカー/プログラムのみで宣言できるが、ネストできず、サブルーチン/パッケージ/コンパイルユニットの外部スコープで宣言できない。
 
@@ -34909,6 +34931,11 @@ input／inoutの関連付け式は、モジュールのinputポートに対す�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_nested_clocking.sv](../tests/ch14/test_illegal_nested_clocking.sv): clocking cb の中に clocking inner @(posedge clk);endclocking を入れ子にし（ 21 行目）、その行のエラーを求める。clk は宣言されているので、エラーは入れ子だけに由来する。区別: clocking ブロックの入れ子を受理する誤実装は設計を受理し、 21 行目のエラーが出ないので負テストが失敗する。
+- [test_illegal_clocking_in_function.sv](../tests/ch14/test_illegal_clocking_in_function.sv): clk を宣言したうえで、関数 f の本体に clocking cb @(posedge clk); endclocking を置き（24行目）、その行のエラーを求める。 区別: function の中の clocking ブロックを受理する誤実装は設計を受理し、24行目のエラーが出ないので負テストが失敗する。clk が宣言されているので、未宣言の識別子のエラーで代わりに合格することはない。
+- [test_illegal_clocking_in_task.sv](../tests/ch14/test_illegal_clocking_in_task.sv): clk を宣言したうえで、タスク t の本体に clocking cb @(posedge clk); endclocking を置き（23行目）、その行のエラーを求める。 区別: task の中の clocking ブロックを受理する誤実装は設計を受理し、23行目のエラーが出ないので負テストが失敗する。clk が宣言されているので、未宣言の識別子のエラーで代わりに合格することはない。
+- [test_illegal_clocking_in_package.sv](../tests/ch14/test_illegal_clocking_in_package.sv): clk を宣言したうえで、パッケージに clocking cb @(posedge clk); endclocking を置き（22行目）、その行のエラーを求める。 区別: package の中の clocking ブロックを受理する誤実装は設計を受理し、22行目のエラーが出ないので負テストが失敗する。clk が宣言されているので、未宣言の識別子のエラーで代わりに合格することはない。
+- [test_illegal_clocking_at_unit_scope.sv](../tests/ch14/test_illegal_clocking_at_unit_scope.sv): clk を宣言したうえで、コンパイル単位の外側のスコープに clocking cb @(posedge clk); endclocking を置き（21行目）、その行のエラーを求める。 区別: compilation unit の中の clocking ブロックを受理する誤実装は設計を受理し、21行目のエラーが出ないので負テストが失敗する。clk が宣言されているので、未宣言の識別子のエラーで代わりに合格することはない。
 
 ### SV2023-14.7-EXTRACT-CLOCKING-IMPLICIT-INSTANCE
 
@@ -35033,7 +35060,7 @@ integer は非負でなければならないサイクル遅延表現である。
 
 ### SV2023-14.11-EXTRACT-NO-CYCLE-IN-ORDINARY-INTRA
 
-`14.11` / `error` / テスト未対応
+`14.11` / `error` / テスト対応あり・実行未確認
 
 サイクル制御は通常のブロック／非ブロック代入では代入内タイミングではできない。
 
@@ -35041,6 +35068,8 @@ integer は非負でなければならないサイクル遅延表現である。
 
 規定の性質: `mandatory`。
 
+- [test_illegal_cycle_delay_intra_assignment.sv](../tests/ch14/test_illegal_cycle_delay_intra_assignment.sv): default clocking cb のあるモジュールで、ブロッキング代入 b = ##1 a（26行目）にサイクル遅延を代入内遅延として書き、その行のエラーを求める。 区別: 通常の代入の代入内遅延にサイクル遅延を許す誤実装は設計を受理し、26行目のエラーが出ないので負テストが失敗する。
+- [test_illegal_cycle_delay_intra_nonblocking.sv](../tests/ch14/test_illegal_cycle_delay_intra_nonblocking.sv): 同期ドライブ cb.y \<= ##1 1'b1 と通常の代入内遅延 b \<= #1 a を規格で認められる対照とし、clockvar でない変数 b へのノンブロッキング代入 b \<= ##1 a（37行目）を違反とする。 区別: \<= の右辺のサイクル遅延を clockvar 以外にも許す誤実装は設計を受理し、37行目のエラーが出ないので負テストが失敗する。同期ドライブのサイクル遅延まで拒否する処理系は35行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-14.11-EXTRACT-ZERO-CYCLE-WAIT
 
@@ -35081,7 +35110,7 @@ integer は非負でなければならないサイクル遅延表現である。
 
 ### SV2023-14.12-EXTRACT-DEFAULT-IDENTIFIER-TYPE
 
-`14.12` / `error` / テスト未対応
+`14.12` / `error` / 実行確認あり
 
 標準クロック識別子はクロックブロックの名前を持つ必要があります。
 
@@ -35089,10 +35118,11 @@ integer は非負でなければならないサイクル遅延表現である。
 
 規定の性質: `mandatory`。
 
+- [test_illegal_default_clocking_names_variable.sv](../tests/ch14/test_illegal_default_clocking_names_variable.sv): dc_named_ok では clocking cb2 を宣言して default clocking cb2; とする規格で認められる対照を置き、テストのモジュールでは clocking cb と変数 v を宣言して default clocking v;（36行目）とする。各モジュールの default clocking 文は1つだけ。 区別: default clocking の識別子が clocking ブロックであることを検査しない処理系は設計を受理し、36行目のエラーが出ないので負テストが失敗する。識別子形式そのものを拒否する処理系は dc_named_ok の行でエラーを出し、指定行と一致しない。
 
 ### SV2023-14.12-EXTRACT-DEFAULT-LEXICAL-SCOPE
 
-`14.12` / `normal` / テスト未対応
+`14.12` / `normal` / テスト対応あり・実行未確認
 
 標準クロックは，その中に含まれるスコープとネストされたモジュール／インタフェース／チェッカ宣言に適用されるが，別々にインスタンス化された設計要素には適用されない。
 
@@ -35100,6 +35130,7 @@ integer は非負でなければならないサイクル遅延表現である。
 
 規定の性質: `mandatory`。
 
+- [test_default_clocking_nested_module_scope.sv](../tests/ch14/test_default_clocking_nested_module_scope.sv) : テストのモジュールに default clocking ca @( posedge clk_a )（事象 5/15/25/35 ）を置き、その中で宣言してインスタンス化した入れ子のモジュール inner は自分の default を持たずに ## 2 を待つ。別に宣言した own_clocked は自分の default clocking ob @( posedge clk_b )（事象 2/6 /...）で ## 2 を待ち、外側は ## 3 を待つ。期待出力は outer ...t=25 / nested module inner ...t=15 / instantiated module ...t = 6 。区別: 入れ子のモジュールに外側の default clocking を与えない処理系は inner の ## をエラーにし、インスタンス化したモジュールに外側の default を持ち込む処理系は own_clocked の行が t = 15 になる。
 
 ### SV2023-14.12-EXTRACT-NO-DUPLICATE-DEFAULT
 
@@ -35139,7 +35170,7 @@ integer は非負でなければならないサイクル遅延表現である。
 
 ### SV2023-14.13-EXTRACT-NO-RESAMPLE-WITHOUT-NEW-EVENT
 
-`14.13` / `normal` / テスト未対応
+`14.13` / `normal` / テスト対応あり・実行未確認
 
 1つの時間ステップでの反復観測処理は，アクティブ領域集合に別のクロックイベントが起こらない限り，ゼロスキュー入力をリサンプリングしない。
 
@@ -35147,6 +35178,7 @@ integer は非負でなければならないサイクル遅延表現である。
 
 規定の性質: `mandatory`。
 
+- [test_clocking_zero_skew_input_not_resampled.sv](../tests/ch14/test_clocking_zero_skew_input_not_resampled.sv): clocking cb の input #0 d を posedge clk（時刻5）で標本化する。エッジの NBA d \<= 1 の後の Observed 領域で cb.d は1を取り、同じエッジで Reactive 領域に再開したプログラムが d = 2 と書くことで Active 領域と Observed 領域がもう一度実行される（新しいクロック事象はない）。期待出力は t=6 cb.d=1 d=2 changes of d=2。 区別: Observed 領域を実行するたびに #0 入力を標本化し直す誤実装は cb.d=2 を、NBA の前に標本化する誤実装は cb.d=0 を出す。
 
 ### SV2023-14.13-EXTRACT-READ-LAST-SAMPLE
 
@@ -35162,7 +35194,7 @@ integer は非負でなければならないサイクル遅延表現である。
 
 ### SV2023-14.13-EXTRACT-SAMPLE-BEFORE-BLOCK-EVENT
 
-`14.13` / `normal` / テスト未対応
+`14.13` / `normal` / 実行確認あり
 
 クラックバーは，名前付けブロックイベントがトリガーする前にサンプルを更新し，そのイベントを待つと，ウェイター／トリガースケジューリング領域に関係なく新しいサンプルを観察する。
 
@@ -35170,6 +35202,8 @@ integer は非負でなければならないサイクル遅延表現である。
 
 規定の性質: `mandatory`。
 
+- [test_clocking_input_with_expression.sv](../tests/ch14/test_clocking_input_with_expression.sv): posedge ごとに NBA で loc を 8'h11 ずつ増やし、input x = loc の cb をモジュールの initial が @(cb) で待って直後に cb.x を表示する。期待出力は t=5 cb.x=00 / t=15 cb.x=11 / t=25 cb.x=22 で、毎回その事象で更新された標本値を読む。 区別: ブロックの事象を標本値の更新より前に起こし、待っていたプロセスが古い標本値を読む誤実装は t=15 で 00、t=25 で 11 を出す。
+- [test_program_clocking_input.sv](../tests/ch24/test_program_clocking_input.sv): プログラム p_in の clocking cb（input #2 d）をプログラムの initial が @(cb) で待ち（Reactive 領域で再開）、直後に cb.d を表示する。d は4で1、16で0に変わり、期待出力は 5: d=0 / 15: d=1 で、15ではその事象の標本値1を読む。 区別: ブロックの事象を標本値の更新より前に起こし、Reactive 領域の待ち手が古い標本値を読む誤実装は 15: d=0 を出す。
 
 ### SV2023-14.13-EXTRACT-SKEWED-POSTPONED-SAMPLING
 
@@ -35198,7 +35232,7 @@ integer は非負でなければならないサイクル遅延表現である。
 
 ### SV2023-14.14-EXTRACT-GLOBAL-AFTER-REWRITE
 
-`14.14` / `normal` / テスト未対応
+`14.14` / `normal` / テスト対応あり・実行未確認
 
 シーケンス／プロパティ／checker式のグローバルな名前探索は、書換えと実引数の置換後に行う。そのため、有効なクロックはテンプレートの宣言位置ではなく、アサーションインスタンスの位置で選ばれる。
 
@@ -35206,10 +35240,11 @@ integer は非負でなければならないサイクル遅延表現である。
 
 規定の性質: `mandatory`。
 
+- [test_global_clocking_lookup_at_assertion.sv](../tests/ch14/test_global_clocking_lookup_at_assertion.sv): gc_holder（global clocking hg、hclk の立ち上がり 1, 3, ..., 39）の中で property p_tick;@( $global_clock ) 1'b1 ;を宣言し、global clocking tg（tclk の立ち上がり 5/15/25/35 ）を持つテストのモジュールのアサーション a_tick : assert property ( h.p_tick ) n++ でインスタンス化する。期待出力は passes of a_tick by 40: 4。区別: $global_clock を宣言の位置から探す誤実装は hg の刻みで成功し 20 を出す。
 
 ### SV2023-14.14-EXTRACT-GLOBAL-ALLOWED-SCOPES
 
-`14.14` / `error` / テスト未対応
+`14.14` / `error` / テスト対応あり・実行未確認
 
 グローバルクロックはモジュール／インタフェース／チェッカ／プログラムに現れるが，そのような宣言ごとに最多1回しか現れない。発生配置は禁止。
 
@@ -35217,6 +35252,8 @@ integer は非負でなければならないサイクル遅延表現である。
 
 規定の性質: `mandatory`。
 
+- [test_illegal_two_global_clocking.sv](../tests/ch14/test_illegal_two_global_clocking.sv): 1つのモジュールに global clocking g1 と g2 を宣言し、2つ目（23行目）のエラーを求める。 区別: モジュールごとに1つという制限を検査しない誤実装は設計を受理し、23行目のエラーが出ないので負テストが失敗する。
+- [test_illegal_global_clocking_in_generate.sv](../tests/ch14/test_illegal_global_clocking_in_generate.sv): gc_ok はモジュール直下に global clocking を1つ宣言する規格で認められる対照で、テストのモジュールは if (1) begin : g の生成ブロックに通常の clocking cb（合法）と global clocking gbad（34行目）を置く。モジュールの global clocking はこの1つだけ。 区別: 生成ブロックの中の global clocking を受理する誤実装は設計を受理し、34行目のエラーが出ないので負テストが失敗する。生成ブロックの clocking ブロックまで拒否する処理系は33行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-14.14-EXTRACT-GLOBAL-CLOCK-REFERENCE
 
@@ -35232,7 +35269,7 @@ $global_clockはその参照点での有効なグローバルクロックイベ�
 
 ### SV2023-14.14-EXTRACT-GLOBAL-CLOCKING-GRAMMAR
 
-`14.14` / `normal` / テスト未対応
+`14.14` / `normal` / 実行確認あり
 
 グローバルクロックは，任意の名前とクロックイベントを宣言し，その後，信号項目なしでエンドクロックし，その名前を任意に繰り返す。
 
@@ -35240,10 +35277,11 @@ $global_clockはその参照点での有効なグローバルクロックイベ�
 
 規定の性質: `definition`。
 
+- [test_global_clocking_unnamed_and_end_label.sv](../tests/ch14/test_global_clocking_unnamed_and_end_label.sv) : gc_unnamed は名前のない global clocking @( posedge c);endclocking、gc_labeled は global clocking gl @(negedge c);endclocking : gl を宣言し、どちらも項目を持たず、各インスタンスで @( $global_clock ) の回数を数える。clk は 5/15/25/35 で立ち上がり 10/20/30 で立ち下がるので、期待出力は unnamed ...4 events / global clocking gl with end label ...3 events。区別: 名前の省略や endclocking : gl の終了ラベルを受理しない処理系はコンパイルに失敗し、 $global_clock を宣言に結び付けない処理系は回数が変わる。
 
 ### SV2023-14.14-EXTRACT-GLOBAL-MISSING-ERROR
 
-`14.14` / `error` / テスト未対応
+`14.14` / `error` / テスト対応あり・実行未確認
 
 上向きグローバルルークが最上位ブロックに到達するが、宣言を見つけられない場合はエラーとなる。
 
@@ -35251,10 +35289,11 @@ $global_clockはその参照点での有効なグローバルクロックイベ�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_global_clock_without_declaration.sv](../tests/ch14/test_illegal_global_clock_without_declaration.sv): gc_user は自分では global clocking を持たないが、親 gc_parent の global clocking gp に解決される @($global_clock) を使う（規格で認められる対照）。トップレベルのテストのモジュールは global clocking を宣言せずに always @($global_clock) m++ を書き（39行目）、その行のエラーを求める。 区別: 上位をたどってトップレベルで見つからないときにエラーにしない誤実装は設計を受理し、39行目のエラーが出ないので負テストが失敗する。親をたどらない処理系は27行目でもエラーを出す（その場合も39行目の行で合格してしまう点はコメントに記す）。
 
 ### SV2023-14.14-EXTRACT-GLOBAL-NAME-OPTIONAL
 
-`14.14` / `normal` / テスト未対応
+`14.14` / `normal` / 実行確認あり
 
 グローバルクロックは、$global_clockが識別できるので、その名前を省略することもある。
 
@@ -35262,6 +35301,7 @@ $global_clockはその参照点での有効なグローバルクロックイベ�
 
 規定の性質: `permission`。
 
+- [test_global_clocking_unnamed_and_end_label.sv](../tests/ch14/test_global_clocking_unnamed_and_end_label.sv): gc_unnamed で名前のない global clocking @(posedge c); endclocking を宣言し、名前を使わずに @($global_clock) でその事象を待って数える。clk は 5/15/25/35 で立ち上がるので、期待出力の1行目は unnamed global clocking on posedge: 4 events。 区別: global clocking の名前を必須とする処理系はコンパイルに失敗し、名前のない宣言を $global_clock に結び付けない処理系は回数が4にならない（またはエラーになる）。
 
 ### SV2023-14.14-EXTRACT-GLOBAL-NEAREST-INSTANCE
 
@@ -35349,7 +35389,7 @@ $global_clockはその参照点での有効なグローバルクロックイベ�
 
 ### SV2023-14.16-EXTRACT-DRIVE-CYCLE-ONLY-INTRA
 
-`14.16` / `error` / テスト未対応
+`14.16` / `error` / テスト対応あり・実行未確認
 
 同期ドライブでは通常の遅延／イベント割当内タイミング構文は許されない。
 
@@ -35357,6 +35397,8 @@ $global_clockはその参照点での有効なグローバルクロックイベ�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_clocking_drive_intra_delay.sv](../tests/ch14/test_illegal_clocking_drive_intra_delay.sv): @(cb) の後の同期ドライブ cb.y \<= #2 1（29行目）に通常の代入内遅延を書き、その行のエラーを求める。 区別: 同期ドライブにサイクル遅延以外の代入内遅延を許す誤実装は設計を受理し、29行目のエラーが出ないので負テストが失敗する。
+- [test_illegal_clocking_drive_intra_event.sv](../tests/ch14/test_illegal_clocking_drive_intra_event.sv): cb.z \<= ##1 1'b1（サイクル遅延の同期ドライブ）と、clockvar でない変数へのノンブロッキング代入 w \<= @(posedge clk) 1 を規格で認められる対照とし、同期ドライブ cb.y \<= @(posedge clk) 1'b1（38行目）を違反とする。 区別: 同期ドライブにイベント制御の代入内遅延を許す誤実装は設計を受理し、38行目のエラーが出ないので負テストが失敗する。通常の NBA のイベント制御まで拒否する処理系は37行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-14.16-EXTRACT-DRIVE-EVENT-PLUS-SKEW
 
@@ -35372,7 +35414,7 @@ output/inout同期ドライブは，クロックイベントと出力スキュ�
 
 ### SV2023-14.16-EXTRACT-DRIVE-RHS-COMPATIBILITY
 
-`14.16` / `error` / テスト未対応
+`14.16` / `error` / 実行確認あり
 
 また，同期駆動表現は，関連信号タイプと相容れるよう代入られる必要がある。
 
@@ -35380,6 +35422,7 @@ output/inout同期ドライブは，クロックイベントと出力スキュ�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_clocking_drive_incompatible_rhs.sv](../tests/ch14/test_illegal_clocking_drive_incompatible_rhs.sv): 64ビットのパック型ベクトル y の出力 clockvar に、8ビットの 8'hff と64ビットのパック構造体 ps を駆動する規格で認められる対照を置き、int 2要素のアンパック配列 arr を駆動する cb.y \<= ##2 arr（40行目）を違反とする。 区別: 同期ドライブの右辺の代入互換性を検査しない誤実装は設計を受理し、40行目のエラーが出ないので負テストが失敗する。整数型どうしの幅の違いまで拒否する処理系は38/39行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-14.16-EXTRACT-DRIVE-SKEW-ALWAYS
 
@@ -35394,7 +35437,7 @@ output/inout同期ドライブは，クロックイベントと出力スキュ�
 
 ### SV2023-14.16-EXTRACT-DRIVE-SNAPSHOT-NONBLOCKING
 
-`14.16` / `normal` / テスト未対応
+`14.16` / `normal` / 実行確認あり
 
 ドライブ RHS はブロックせずに即座に評価します。更新はターゲットブロックの要求サイクルと 出力スキューを待つ
 
@@ -35402,10 +35445,11 @@ output/inout同期ドライブは，クロックイベントと出力スキュ�
 
 規定の性質: `mandatory`。
 
+- [test_clocking_drive_rhs_now_update_after_cycles_and_skew.sv](../tests/ch14/test_clocking_drive_rhs_now_update_after_cycles_and_skew.sv): 時刻5の事象で r=1 のまま cb.v \<= ##2 r を実行し、直後に r = 9 として同じ時刻に 't=5 after the drives: r=9' を表示する。v は2サイクル後の事象25から出力スキュー2の後の27に、実行時の右辺値1になる（t=18/26 では v=0、t=28 で v=1）。 区別: サイクル遅延でブロックする誤実装は最初の行を t=25 で出し、成熟時に右辺を評価する誤実装は v=9 を、サイクル数やスキューを誤る誤実装は t=18/26/28 のいずれかの v を変える。
 
 ### SV2023-14.16-EXTRACT-DRIVE-TARGET-NO-CONCAT
 
-`14.16` / `error` / テスト未対応
+`14.16` / `error` / テスト対応あり・実行未確認
 
 bit/スライスの選択は可能だが，連結はできない。
 
@@ -35413,6 +35457,7 @@ bit/スライスの選択は可能だが，連結はできない。
 
 規定の性質: `mandatory`。
 
+- [test_illegal_clocking_drive_concatenation.sv](../tests/ch14/test_illegal_clocking_drive_concatenation.sv): cb.a \<= 4'h1（clockvar 全体）、cb.a\[0\] \<= 1'b1（ビット選択）、cb.a\[3:2\] \<= 2'b10（スライス）を規格で認められる対照とし、連結 {cb.a, cb.b} \<= 5'h1f（35行目）を違反とする。 区別: 同期ドライブの対象に連結を許す誤実装は設計を受理し、35行目のエラーが出ないので負テストが失敗する。ビット選択やスライスまで拒否する処理系は33/34行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-14.16-EXTRACT-FUTURE-RE-NBA
 
@@ -35464,7 +35509,7 @@ RHSを直ちに捕捉しブロックしないオフクロックドライブは�
 
 ### SV2023-14.16-EXTRACT-ONLY-SYNCHRONOUS-WRITE
 
-`14.16` / `error` / テスト未対応
+`14.16` / `error` / テスト対応あり・実行未確認
 
 クラックバーは同期ドライブ構文でのみ書くことができる。連続的な手続き的な 割り当て/強制書き込みは違法です
 
@@ -35472,6 +35517,10 @@ RHSを直ちに捕捉しブロックしないオフクロックドライブは�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_clocking_blocking_write.sv](../tests/ch14/test_illegal_clocking_blocking_write.sv): @(cb) の後に出力 clockvar へブロッキング代入 cb.y = 1（28行目）を書き、その行のエラーを求める。 区別: 同期ドライブ以外の clockvar への書き込みを許す誤実装は設計を受理し、28行目のエラーが出ないので負テストが失敗する。
+- [test_illegal_clocking_clockvar_continuous_assign.sv](../tests/ch14/test_illegal_clocking_clockvar_continuous_assign.sv): 同期ドライブ cb.y \<= 1'b0 と、clocking ブロックに属さない変数 w への同じ形の書き込みを規格で認められる対照とし、出力 clockvar cb.y そのものへの連続代入 assign cb.y = a（36行目）を違反とする。 区別: clockvar への同期ドライブ以外の書き込みを許す誤実装は設計を受理し、36行目のエラーが出ないので負テストが失敗する。
+- [test_illegal_clocking_clockvar_procedural_assign.sv](../tests/ch14/test_illegal_clocking_clockvar_procedural_assign.sv): 同期ドライブ cb.y \<= 1'b0 と、clocking ブロックに属さない変数 w への同じ形の書き込みを規格で認められる対照とし、出力 clockvar cb.y そのものへの手続き的連続代入 assign cb.y = a（37行目）を違反とする。 区別: clockvar への同期ドライブ以外の書き込みを許す誤実装は設計を受理し、37行目のエラーが出ないので負テストが失敗する。
+- [test_illegal_clocking_clockvar_force.sv](../tests/ch14/test_illegal_clocking_clockvar_force.sv): 同期ドライブ cb.y \<= 1'b0 と、clocking ブロックに属さない変数 w への同じ形の書き込みを規格で認められる対照とし、出力 clockvar cb.y そのものへのforce cb.y = a（36行目）を違反とする。 区別: clockvar への同期ドライブ以外の書き込みを許す誤実装は設計を受理し、36行目のエラーが出ないので負テストが失敗する。
 
 ### SV2023-14.16-EXTRACT-PREFIX-CYCLE-DEFAULT
 
@@ -35487,7 +35536,7 @@ RHSを直ちに捕捉しブロックしないオフクロックドライブは�
 
 ### SV2023-14.16.1-EXTRACT-DRIVE-NOT-ORDINARY-NBA
 
-`14.16.1` / `normal` / テスト未対応
+`14.16.1` / `normal` / 実行確認あり
 
 NBA と \<= を共有する同期ドライブは，通常の代入内遅延を拒否し，入出力クロック変数サンプル入力を変更しない。読み込みは 古いサンプル値を保持します
 
@@ -35495,6 +35544,7 @@ NBA と \<= を共有する同期ドライブは，通常の代入内遅延を�
 
 規定の性質: `mandatory`。
 
+- [test_clocking_inout_drive_keeps_input.sv](../tests/ch14/test_clocking_inout_drive_keeps_input.sv): inout data の clockvar に @(cb) の後 cb.data \<= 1 と駆動し、同じ時刻と1単位後に cb.data を読み、次の事象で再び読む。期待出力は after drive: cb.data=0 / one unit later: data=1 cb.data=0 / next edge: cb.data=1 で、駆動は信号 data を変えるが clockvar の入力側は最後の標本値のまま。 区別: 同期ドライブを通常の NBA として clockvar の値そのものを書き換える誤実装は1単位後に cb.data=1 を出す。
 
 ### SV2023-14.16.2-EXTRACT-ASSOCIATED-VARIABLE-PROCEDURAL
 
@@ -35546,7 +35596,7 @@ NBA と \<= を共有する同期ドライブは，通常の代入内遅延を�
 
 ### SV2023-14.16.2-EXTRACT-MULTIPLE-RE-NBA-GLITCH
 
-`14.16.2` / `normal` / テスト未対応
+`14.16.2` / `normal` / 実行確認あり
 
 NBAの異なる反復で成熟する異なる書き込みは，同じステップのクロック信号の可視的なグリッチを引き起こす。
 
@@ -35554,10 +35604,11 @@ NBAの異なる反復で成熟する異なる書き込みは，同じステッ�
 
 規定の性質: `mandatory`。
 
+- [test_clocking_drives_glitch_in_two_re_nba_iterations.sv](../tests/ch14/test_clocking_drives_glitch_in_two_re_nba_iterations.sv): 14.16.2 の例と同じく、bit a = 1 を出力にする default clocking cb で ##1 の後に cb.a \<= 0 を駆動して @(x) を待ち、a の変化を記録する always が a == 0 のときに x を起動して、同じ時刻5に cb.a \<= 1 を駆動させる。期待出力は changes of a: 5:0 5:1 / t=6 a=1 で、1 -\> 0 -\> 1 のグリッチが同じタイムステップに2回の Re-NBA で起こる。 区別: 2つ目のドライブを次のクロック事象に回す誤実装は 'changes of a: 5:0' と t=6 a=0 を出す。
 
 ### SV2023-14.16.2-EXTRACT-NBA-DRIVE-ORDER-ARBITRARY
 
-`14.16.2` / `normal` / テスト未対応
+`14.16.2` / `normal` / 実行確認あり
 
 NBAと同じ変数に対する同期ドライブは，1つの時間ステップで任意の相対書き込み順序を持つ。
 
@@ -35565,6 +35616,7 @@ NBAと同じ変数に対する同期ドライブは，1つの時間ステップ�
 
 規定の性質: `mandatory`。
 
+- [test_clocking_drive_and_nba_same_step_both_take_place.sv](../tests/ch14/test_clocking_drive_and_nba_same_step_both_take_place.sv) : 時刻 5 の事象で同じ変数 v に同期ドライブ cb.v \<= 2 と通常の NBA v \<= 1 を実行し、v の変化を記録する。どちらの順でも v は 5 で 2 回変わり、 1 と 2 の両方が見え、最後は 1 か 2 になる。期待出力は ... seen: 1 / ... seen: 1 / changes of v at 5: 2 / v ends with one of the two values: 1 で、順序には依存しない。区別: 同じタイムステップの 2 つの書き込みの一方を捨てる誤実装はどちらかのフラグを 0 にし、変化の回数を 1 にする。
 
 ### SV2023-14.16.2-EXTRACT-NO-CONTINUOUS-PRIMITIVE-VARIABLE
 
@@ -67426,7 +67478,7 @@ defparam 階層名は完全な精製の前に解決され，完全な精製の�
 
 ### SV2023-24.3-EXTRACT-DESIGN-SIGNALS
 
-`24.3` / `normal` / テスト未対応
+`24.3` / `normal` / 実行確認あり
 
 変数／ネットはモジュール，インタフェース，パッケージ，ユニットスコープで宣言され，設計信号である。
 
@@ -67434,10 +67486,11 @@ defparam 階層名は完全な精製の前に解決され，完全な精製の�
 
 規定の性質: `definition`。
 
+- [test_program_design_signals_in_package_unit_and_interface.sv](../tests/ch24/test_program_design_signals_in_package_unit_and_interface.sv): t=5 にモジュールが $unit 変数 dsu_unit_v、パッケージ変数 dsu_pkg::pkg_v、インタフェース変数 bus.if_v、モジュール変数 mod_v をブロッキング代入で変え、同時に stamp \<= 7 を NBA で書く。プログラムの4本の fork 分岐はそれぞれの変化を待って stamp を写し、4つとも 7 を出す。続いてプログラムが書いたパッケージ変数 from_prog をモジュールが t=6 に読み 9 を出す。 区別: いずれかの種類の変数を設計信号として扱わず、その変化で再開するプログラム文を Active 領域で実行する実装はその欄に 0 を出す。パッケージ変数をプログラム信号とみなす実装はモジュールからの参照を誤ってエラーにし、出力がなくなる。
 
 ### SV2023-24.3-EXTRACT-PROGRAM-CONTENTS-RESTRICTIONS
 
-`24.3` / `error` / テスト未対応
+`24.3` / `error` / テスト対応あり・実行未確認
 
 プログラムはデータ／クラス／サブルーチン／オブジェクトインスタンスと初期／最終手順を含むことができるが，常にプリミティブ／UDP，モジュール／インタフェース／プログラム宣言やインスタンスを含むことはできない。
 
@@ -67445,6 +67498,15 @@ defparam 階層名は完全な精製の前に解決され，完全な精製の�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_program_always.sv](../tests/ch24/test_illegal_program_always.sv): プログラム test_illegal_program_always_p の中の always @(posedge clk) n++; について、20行目の診断を照合する。 区別: プログラム内の always 手続きを受理する実装は20行目に診断を出さず、負テストが失敗する。
+- [test_illegal_program_module_instance.sv](../tests/ch24/test_illegal_program_module_instance.sv): プログラム test_illegal_program_module_instance_p の中のモジュールインスタンス u について、22行目の診断を照合する。 区別: プログラム内のモジュールインスタンスを受理する実装は22行目に診断を出さず、負テストが失敗する。
+- [test_illegal_program_contains_gate_instance.sv](../tests/ch3/test_illegal_program_contains_gate_instance.sv): 変数とネットと initial を持つ規格で認められるプログラムに and ゲートのインスタンス g_and を置き、26行目の診断を照合する。 区別: プログラム内のプリミティブインスタンスを受理する実装は26行目に診断を出さず、負テストが失敗する。
+- [test_illegal_program_contains_interface_instance.sv](../tests/ch3/test_illegal_program_contains_interface_instance.sv): トップモジュールでは規格で認められるインタフェースをプログラム内でもインスタンス化し (own_if)、28行目の診断を照合する。 区別: プログラム内のインタフェースインスタンスを受理する実装は28行目に診断を出さず、負テストが失敗する。
+- [test_illegal_program_contains_program_instance.sv](../tests/ch3/test_illegal_program_contains_program_instance.sv): モジュールからは合法に使われる子プログラムを外側のプログラム内でインスタンス化し (nested)、26行目の診断を照合する。 区別: プログラム内のプログラムインスタンスを受理する実装は26行目に診断を出さず、負テストが失敗する。
+- [test_illegal_program_udp_instance.sv](../tests/ch24/test_illegal_program_udp_instance.sv): モジュールでは合法にインスタンス化される組合せ UDP pu_inv をプログラム内でもインスタンス化し (u_prog)、34行目の診断を照合する。 区別: プログラム内の UDP インスタンスを受理する実装は34行目に診断を出さず、負テストが失敗する。
+- [test_illegal_program_nested_module_declaration.sv](../tests/ch24/test_illegal_program_nested_module_declaration.sv): モジュール内の入れ子モジュール宣言 (合法) と対照し、プログラム pnm_prog の本体に書いたモジュール宣言 pnm_inner について36行目の診断を照合する。 区別: プログラム内のモジュール宣言を受理する実装は36行目に診断を出さず、負テストが失敗する。
+- [test_illegal_program_nested_interface_declaration.sv](../tests/ch24/test_illegal_program_nested_interface_declaration.sv): モジュール内のインタフェース宣言とインスタンス (合法) と対照し、プログラム pni_prog の本体に書いたインタフェース宣言 pni_inner について35行目の診断を照合する。 区別: プログラム内のインタフェース宣言を受理する実装は35行目に診断を出さず、負テストが失敗する。
+- [test_illegal_program_nested_program_declaration.sv](../tests/ch24/test_illegal_program_nested_program_declaration.sv): モジュール内の入れ子プログラム pnp_ok (合法) と対照し、プログラム pnp_outer の本体に書いたプログラム宣言 pnp_inner について35行目の診断を照合する。 区別: プログラム内のプログラム宣言を受理する実装は35行目に診断を出さず、負テストが失敗する。
 
 ### SV2023-24.3-EXTRACT-PROGRAM-DESCENDANT-TERMINATION
 
@@ -67526,7 +67588,7 @@ ANSIヘッダパッケージのインポートにはパラメータポートリ�
 
 ### SV2023-24.3-EXTRACT-PROGRAM-REFERENCE-RESTRICTIONS
 
-`24.3` / `error` / テスト未対応
+`24.3` / `error` / テスト対応あり・実行未確認
 
 プログラムの外部コードはプログラム信号を参照できない。階層的な参照は許されるが、匿名のプログラムは他のプログラムのスコープを階層的に参照できない。
 
@@ -67534,6 +67596,8 @@ ANSIヘッダパッケージのインポートにはパラメータポートリ�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_program_signal_from_module.sv](../tests/ch24/test_illegal_program_signal_from_module.sv): モジュールの initial が階層名 p.count でプログラム変数を読み、27行目の診断を照合する。 区別: プログラムの外からプログラム信号を参照することを許す実装は27行目に診断を出さず、負テストが失敗する。
+- [test_illegal_anonymous_program_hierarchical_reference.sv](../tests/ch24/test_illegal_anonymous_program_hierarchical_reference.sv): 無名プログラムの関数が名前付きプログラムの変数 level を階層名で参照し、21行目の診断を照合する。 区別: 無名プログラムから他のプログラムスコープへの階層参照を許す実装は21行目に診断を出さず、負テストが失敗する。
 
 ### SV2023-24.3-EXTRACT-PROGRAM-SIGNALS
 
@@ -67584,7 +67648,7 @@ ANSIヘッダパッケージのインポートにはパラメータポートリ�
 
 ### SV2023-24.3.1-EXTRACT-PROGRAM-ASSERTION-SCHEDULING
 
-`24.3.1` / `normal` / テスト未対応
+`24.3.1` / `normal` / テスト対応あり・実行未確認
 
 プログラムの並行アサーションは，予想サンプルと観測評価を保持する。プログラムオブジェクトクロックが 外部スケジューリングループ反復を Observed に起こす
 
@@ -67592,6 +67656,8 @@ ANSIヘッダパッケージのインポートにはパラメータポートリ�
 
 規定の性質: `mandatory`。
 
+- [test_gen_cross_progassert_1_plain_edge_nba_posedge_positional_3.sv](../tests/gen/ch24/test_gen_cross_progassert_1_plain_edge_nba_posedge_positional_3.sv): プログラムとモジュールに同じ assert property (@(posedge clk) (|ack)) を置き、t=8 に p0.ack \<= 0 (NBA) と同時にクロックを上げる。プログラム側もモジュール側も Preponed の ack=1 で判定して site0 で pass=1 acksum=1 を出す。 区別: プログラム内のコンカレントアサーションを Reactive 側の値や NBA 後の値で判定する実装は site0 program の行が fail=1 acksum=0 になり、モジュール側の行と食い違う。
+- [test_program_assertion_clocked_by_program_variable.sv](../tests/ch24/test_program_assertion_clocked_by_program_variable.sv): プログラム変数 pclk でクロックされるプログラム内のアサーション a == 0 に対し、プログラムの initial が t=5 に a = 1 と pclk = 1 を同じステップで実行し、t=15 に a = 0 と pclk = 1 を実行する。行動ブロックは t=5 に sampled a=0 で pass、t=15 に sampled a=1 で fail を出す。 区別: Reactive でのクロック変化の後に Observed へ戻らない実装は同じ時刻の行を出さず、変更後の値で判定する実装は t=5 を fail、t=15 を pass にする。
 
 ### SV2023-24.3.1-EXTRACT-PROGRAM-NBA
 
@@ -67607,7 +67673,7 @@ NBA におけるプログラムの非ブロック更新は，ReactiveとRe‐Ina
 
 ### SV2023-24.3.1-EXTRACT-PROGRAM-SCHEDULING
 
-`24.3.1` / `normal` / テスト未対応
+`24.3.1` / `normal` / 実行確認あり
 
 設計信号変化に敏感なプログラム構成，連続割当，初期手順，遅延再開はReactiveでスケジュールされる。
 
@@ -67615,6 +67681,9 @@ NBA におけるプログラムの非ブロック更新は，ReactiveとRe‐Ina
 
 規定の性質: `mandatory`。
 
+- [test_program_runs_in_reactive_region_set.sv](../tests/ch3/test_program_runs_in_reactive_region_set.sv): 時刻 0 にモジュールが a \<= 1 を予約し、その更新で always が b \<= a + 1 を予約する。プログラムの initial は a=1 b=2 を、t=5 の posedge clk (設計信号) で再開したプログラム文は always_ff の更新後の q=1 を出す。 区別: プログラムの initial や設計信号の変化で再開する文を Active 領域で実行する実装は a=0 b=0 と q=0 を出す。
+- [test_program_reactive_sees_nba.sv](../tests/ch24/test_program_reactive_sees_nba.sv): モジュールが時刻 0 に a \<= 5、時刻 1 に a \<= 6 を NBA で書き、プログラムの initial は時刻 0 と #1 の後に a を読んで a=5 と a=6 を出す。 区別: プログラムの initial や # 遅延の再開を Active 領域で行う実装は NBA 前の a=0 と a=5 を出す。
+- [test_program_port_reactive.sv](../tests/ch24/test_program_port_reactive.sv): プログラムの assign pw2 = pw1 が設計の dw1 を dw2 へ写す。r が 10 で立ち上がると、モジュールの dw1 の表示と NBA の q の表示の後に dw2 の表示が出る。 区別: プログラムの連続代入を Active 領域で実行する実装は NBA 領域より前に dw2 を変え、10: dw2 = 1 が 10: q = 1 より先に出る。
 
 ### SV2023-24.3.1-EXTRACT-PROGRAM-THREAD-INHERITANCE
 
@@ -67675,7 +67744,7 @@ NBA におけるプログラムの非ブロック更新は，ReactiveとRe‐Ina
 
 ### SV2023-24.4-EXTRACT-PROGRAM-CLOCKING-RACE-ORDER
 
-`24.4` / `normal` / テスト未対応
+`24.4` / `normal` / 実行確認あり
 
 NBA駆動クロックを含む設計イベントに従うプログラム反応性実行。設計信号でクロックされたクロックブロックを通しての独占的読み取りは，レースに無関心な読み取り相互作用を与えるが，サンプリングだけではマルチクロック順序付けレースを排除できない。
 
@@ -67683,10 +67752,11 @@ NBA駆動クロックを含む設計イベントに従うプログラム反応�
 
 規定の性質: `mandatory`。
 
+- [test_program_stimulus_after_clock_edge.sv](../tests/ch24/test_program_stimulus_after_clock_edge.sv): 設計のクロックを always #5 clk \<= ~clk (NBA) で作り、DUT は posedge で q \<= d とする。プログラムは @(posedge clk) の後に q を表示して d を増やし、edge: q=1 から q=4 を出す。 区別: プログラムの再開を NBA で駆動されたクロックの設計イベントより前に行う実装は更新前の q を読み、edge: q=0 から始まる。
 
 ### SV2023-24.5-EXTRACT-PROGRAM-CALL-DIRECTION
 
-`24.5` / `error` / テスト未対応
+`24.5` / `error` / テスト対応あり・実行未確認
 
 設計モジュールはプログラムサブルーチンを呼び出せない。プログラムは他のプログラムや設計モジュールのサブルートを呼び出し、呼び出された設計タスクは反応領域スケジューリングを保持する。
 
@@ -67694,10 +67764,11 @@ NBA駆動クロックを含む設計イベントに従うプログラム反応�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_module_calls_program_task.sv](../tests/ch24/test_illegal_module_calls_program_task.sv): モジュールの initial がプログラムのタスク p.report(5) を呼び、28行目の診断を照合する。 区別: 設計モジュールからプログラムのサブルーチンを呼ぶことを許す実装は28行目に診断を出さず、負テストが失敗する。
 
 ### SV2023-24.6-EXTRACT-ANONYMOUS-SCOPE
 
-`24.6` / `error` / テスト未対応
+`24.6` / `error` / テスト対応あり・実行未確認
 
 匿名プログラムはパッケージ/ユニットスコープに現れ，新しいスコープを作成することなくプログラム全体の宣言を追加できる。周囲のネームスペースを共有する名前と、 周囲の宣言の重複はエラーです。
 
@@ -67705,10 +67776,11 @@ NBA駆動クロックを含む設計イベントに従うプログラム反応�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_anonymous_program_name_duplicates_package_item.sv](../tests/ch24/test_illegal_anonymous_program_name_duplicates_package_item.sv): パッケージ apd_pkg の無名プログラムが関数 apd_scale を宣言し、同じパッケージがその外で同名の関数を再び宣言する。33行目 (または対になる28行目) の診断を照合する。 区別: 無名プログラムが独自のスコープを作るとみなす実装は二つ目の宣言を受理し、28行目にも33行目にも診断を出さない。
 
 ### SV2023-24.6-EXTRACT-PROGRAM-WIDE-ACCESS
 
-`24.6` / `normal` / テスト未対応
+`24.6` / `normal` / 実行確認あり
 
 プログラム定義／インスタンスは，プログラムにのみアクセスできるプログラム全体のデータ／サブルーティン空間を形成する。
 
@@ -67716,6 +67788,7 @@ NBA駆動クロックを含む設計イベントに従うプログラム反応�
 
 規定の性質: `mandatory`。
 
+- [test_anonymous_program.sv](../tests/ch24/test_anonymous_program.sv): コンパイル単位の無名プログラムで宣言した関数 ap_scale とクラス ap_counter を、プログラム test_anonymous_program が単純名で使い、ap_scale(5) = 22, counter = 23 を出す。 区別: 無名プログラムの項目をプログラム全体の空間に入れない実装は名前を解決できずに拒否し、出力がなくなる。
 
 ### SV2023-24.7-EXTRACT-PROGRAM-EXIT
 
@@ -67780,7 +67853,7 @@ NBA駆動クロックを含む設計イベントに従うプログラム反応�
 
 ### SV2023-25.2-EXTRACT-MODPORT-VIEW
 
-`25.2` / `normal` / テスト未対応
+`25.2` / `normal` / 実行確認あり
 
 Modportは，接続したモジュールの視点からの方向を指定し，サブルートゥーンの使用を制限する。
 
@@ -67788,6 +67861,7 @@ Modportは，接続したモジュールの視点からの方向を指定し，�
 
 規定の性質: `definition`。
 
+- [test_interface_abstract_methods_and_broadcast.sv](../tests/ch25/test_interface_abstract_methods_and_broadcast.sv): modport store (export put, output value) で接続された am_store が value を書き、modport caller (import task put(...), import task tick(), input value, input mask) で接続された am_caller が put と tick を呼んで 0: value=7 と 5: mask=11 を出す。区別: modport の向きをモジュール側ではなくインタフェース側から解釈する実装や、import/export で許したサブルーチンの使用を扱えない実装はこの設計を拒否するか、値が変わる。
 
 ### SV2023-25.3-EXTRACT-ARRAY-INTERFACE-DEFPARAM
 
@@ -67858,7 +67932,7 @@ ANSIモジュール/インタフェース/プログラムヘッダパッケー�
 
 ### SV2023-25.3-EXTRACT-INTERFACE-MODULE-BOUNDARY
 
-`25.3` / `error` / テスト未対応
+`25.3` / `error` / テスト対応あり・実行未確認
 
 これは、モジュールがインタフェースを宣言・インスタンス化できるが、インタフェースはモジュールを宣言・インストーラを宣言できないことを意味する。インターフェースは 暗黙的にインスタンス化されません
 
@@ -67866,10 +67940,12 @@ ANSIモジュール/インタフェース/プログラムヘッダパッケー�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_interface_contains_module_instance.sv](../tests/ch25/test_illegal_interface_contains_module_instance.sv): トップモジュールがインタフェースとモジュールを、インタフェース icm_bus が入れ子のインタフェース icm_inner を インスタンス化する (いずれも合法) 中で、icm_bus の中のモジュールインスタンス u_leaf について38行目の診断を照合する。 区別: インタフェース内のモジュールインスタンスを受理する実装は38行目に診断を出さず、負テストが失敗する。
+- [test_illegal_interface_contains_module_declaration.sv](../tests/ch25/test_illegal_interface_contains_module_declaration.sv): モジュール内の入れ子インタフェースと、インタフェース内の入れ子インタフェース宣言 (いずれも合法) と対照し、インタフェース icd_bus の本体に書いたモジュール宣言 icd_inner について32行目の診断を照合する。 区別: インタフェース内のモジュール宣言を受理する実装は32行目に診断を出さず、負テストが失敗する。
 
 ### SV2023-25.3-EXTRACT-INTERFACE-NESTING-METHODS
 
-`25.3` / `normal` / テスト未対応
+`25.3` / `normal` / 実行確認あり
 
 インタフェースは小さいインタフェースを含み，ポートを通過する。これらのサブルーチンは完全に定義されるか、モジュールの定義のためにプロトタイプ化される。
 
@@ -67877,6 +67953,8 @@ ANSIモジュール/インタフェース/プログラムヘッダパッケー�
 
 規定の性質: `permission`。
 
+- [test_interface_nested_program_and_interface.sv](../tests/ch25/test_interface_nested_program_and_interface.sv): インタフェース np_if が小さいインタフェース np_inner を宣言して u_inner として明示的にインスタンス化し、トップと 入れ子プログラムが u_inner.k を読んで k=42 を出す。 区別: インタフェースが小さいインタフェースを含めない実装はこの設計を拒否し、k の値が出ない。
+- [test_interface_extern_and_generate_items.sv](../tests/ch25/test_interface_extern_and_generate_items.sv): ex_fn_bus は完全に定義した関数 local_double と、プロトタイプ extern function int ext_add(input int x) を持ち、modport fn 経由で接続された ex_fn_target が b.ext_add を x + 100 として定義する。インタフェースの initial が 5 + 100 + 2 を計算して fn result=107 を出す。 区別: インタフェースのプロトタイプに対するモジュール側の定義を結び付けない実装は拒否するか別の値を出す。
 
 ### SV2023-25.3-EXTRACT-INTERFACE-TIMEUNIT-FOOTNOTE
 
@@ -67953,7 +68031,7 @@ modport制限がないとき，ポート参照インタフェース内の変数�
 
 ### SV2023-25.4-EXTRACT-INTERFACE-EXTERNAL-PORTS
 
-`25.4` / `normal` / テスト未対応
+`25.4` / `normal` / 実行確認あり
 
 外部に接続できるのはインタフェースポートリストにあるネット／変数のみであり，名前またはインスタンス化時の位置によって接続できる。これは、モジュール宣言構文/意味論を使用するインターフェースポートです。
 
@@ -67961,6 +68039,7 @@ modport制限がないとき，ポート参照インタフェース内の変数�
 
 規定の性質: `mandatory`。
 
+- [test_interface_value_sync.sv](../tests/ch25/test_interface_value_sync.sv): インタフェース data_bus のポートリストの input logic clk を、インスタンス化 data_bus bus(clk) で位置により外部の clk に接続する。clk を 0、1 と変えると bus.clk も 0、1 になり PASS 行が出る。 区別: インタフェースのポートを外部と接続しない実装は bus.clk が x のままで FAIL 行を出す。
 
 ### SV2023-25.5-EXTRACT-MODPORT-BOTH-MATCH
 
@@ -67976,7 +68055,7 @@ modport制限がないとき，ポート参照インタフェース内の変数�
 
 ### SV2023-25.5-EXTRACT-MODPORT-DIRECTION
 
-`25.5` / `normal` / テスト未対応
+`25.5` / `normal` / 実行確認あり
 
 Modport指示はインタフェイスアクセスを制限し，接続モジュールの内部から見たように解釈する。
 
@@ -67984,6 +68063,7 @@ Modport指示はインタフェイスアクセスを制限し，接続モジュ�
 
 規定の性質: `mandatory`。
 
+- [test_modport_use.sv](../tests/ch25/test_modport_use.sv): modport producer (output data, valid, input ready) の sender が data と valid を書き、modport consumer (input data, valid, output ready) の receiver が ready を書く。トップがそれらを確かめて Modport use tests: 4/4 passed を出す。区別: modport の向きをインタフェース側から解釈する実装は output とした信号への書き込みを入力への書き込みとして拒否し、出力がなくなる。
 
 ### SV2023-25.5-EXTRACT-MODPORT-IN-ACTUAL
 
@@ -68036,7 +68116,7 @@ type.modport 参照はローカル階層参照名を与えます。interface.mod
 
 ### SV2023-25.5.4-EXTRACT-MODPORT-EXPRESSION
 
-`25.5.4` / `normal` / テスト未対応
+`25.5.4` / `normal` / テスト対応あり・実行未確認
 
 また，モッドポートはインタフェイス配列／構造要素，連結，または代入パターンを明示的に名前付けることができる。外部名はmodport接続を通じてのみ見える
 
@@ -68044,10 +68124,12 @@ type.modport 参照はローカル階層参照名を与えます。interface.mod
 
 規定の性質: `mandatory`。
 
+- [test_modport_expression_slices_read_write.sv](../tests/ch25/test_modport_expression_slices_read_write.sv): modport split(output .low(data\[3:0\]), input .high(data\[7:4\])) を通じてモジュールが bus.low に 6 を書き bus.high を読む。data=a6 observed=a が出る。 区別: modport 式を要素として結び付けない実装は拒否するか、別の範囲を書き換えて data が a6 にならない。
+- [test_modport_expression_element_concatenation_pattern.sv](../tests/ch25/test_modport_expression_element_concatenation_pattern.sv): modport user に .elem(arr\[2\])、.field(st.lo)、.cat({a, b})、.pat(pair_t'{b, a}) を置き、 mxe_user が field に 9 、cat に 8'h3c を書いて elem と pat を読む。st = 09 a = 3 b =c elem = 7e pat = c3 が出る。区別: 連結や型付き代入パターン、構造体メンバ、非パック配列要素の modport 式を扱えない実装は拒否するか、st、a、b、pat の値が変わる。
 
 ### SV2023-25.5.4-EXTRACT-MODPORT-EXPRESSION-TYPE
 
-`25.5.4` / `error` / テスト未対応
+`25.5.4` / `error` / テスト対応あり・実行未確認
 
 modport表現は自己決定的であり，代入のようなものではなく，ポート種に対して合法でなければならず，内部接続がない場合には欠けることがある。
 
@@ -68055,10 +68137,11 @@ modport表現は自己決定的であり，代入のようなものではなく�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_modport_output_expression.sv](../tests/ch25/test_illegal_modport_output_expression.sv): modport mp の output ポートに左辺値でない式 .P(r + 1) を置き、20行目の診断を照合する。 区別: modport 式がポートの種類にとって合法であることを確かめない実装は20行目に診断を出さず、負テストが失敗する。
 
 ### SV2023-25.5.4-EXTRACT-MODPORT-NAMESPACE
 
-`25.5.4` / `error` / テスト未対応
+`25.5.4` / `error` / 実行確認あり
 
 各 modport リストにはそれぞれポート識別子名前空間がある。単純なアイテムはメンバーと外部ポートの両方を名前付ける。外部定義の重複は禁止される。
 
@@ -68066,6 +68149,7 @@ modport表現は自己決定的であり，代入のようなものではなく�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_modport_duplicate_port.sv](../tests/ch25/test_illegal_modport_duplicate_port.sv): 一つの modport リスト mp で .P(r\[3:0\]) と .P(r\[7:4\]) とポート識別子 P を二度定義し、21行目の診断を照合する。 区別: modport リスト内のポート名の重複を許す実装は21行目に診断を出さず、負テストが失敗する。
 
 ### SV2023-25.5.5-EXTRACT-MODPORT-CLOCKING
 
@@ -68152,7 +68236,7 @@ modport表現は自己決定的であり，代入のようなものではなく�
 
 ### SV2023-25.7-EXTRACT-MODPORT-PROTOTYPE-DEFAULT
 
-`25.7` / `normal` / テスト未対応
+`25.7` / `normal` / テスト対応あり・実行未確認
 
 プロトタイプにデフォルトを含める必要があります。プロトタイプのデフォルトと宣言のデフォルトが異なる場合は、プロトタイプのデフォールトが優先されます。
 
@@ -68160,6 +68244,7 @@ modport表現は自己決定的であり，代入のようなものではなく�
 
 規定の性質: `mandatory`。
 
+- [test_modport_prototype_default_overrides_declaration.sv](../tests/ch25/test_modport_prototype_default_overrides_declaration.sv): インタフェースの関数 scale は宣言で k = 3、modport pro のプロトタイプで k = 10 を既定値とし、タスク add は宣言で v = 1、pro のプロトタイプで v = 100 とする。pro 経由の p.scale(4) は 40、p.add() で total=100、インスタンス経由の bus.scale(4) は 12、bus.add() で total=101 になる。 区別: modport 経由の呼び出しに宣言の既定値を使う実装は through pro の行で 12 と total=1 を出す。
 
 ### SV2023-25.7-EXTRACT-MODPORT-PROTOTYPE-MATCH
 
@@ -68328,7 +68413,7 @@ modport表現は自己決定的であり，代入のようなものではなく�
 
 ### SV2023-25.9-EXTRACT-VIRTUAL-DECLARATION-LOCATIONS
 
-`25.9` / `error` / テスト未対応
+`25.9` / `error` / テスト対応あり・実行未確認
 
 仮想インタフェースはポート，インタフェース項目，ユニオンメンバではない。
 
@@ -68336,6 +68421,9 @@ modport表現は自己決定的であり，代入のようなものではなく�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_virtual_interface_as_interface_item.sv](../tests/ch25/test_illegal_virtual_interface_as_interface_item.sv): モジュールの仮想インタフェース変数 (合法) と対照し、インタフェース vpi_outer の項目として virtual vpi_inner inner を宣言した28行目の診断を照合する。 区別: インタフェース項目としての仮想インタフェースを受理する実装は28行目に診断を出さず、負テストが失敗する。
+- [test_illegal_virtual_interface_as_union_member.sv](../tests/ch25/test_illegal_virtual_interface_as_union_member.sv): 構造体メンバの仮想インタフェース (合法) と対照し、共用体 vpu_union_t のメンバ virtual vpu_if vi について33行目の診断を照合する。 区別: 共用体メンバとしての仮想インタフェースを受理する実装は33行目に診断を出さず、負テストが失敗する。
+- [test_illegal_virtual_interface_as_port.sv](../tests/ch25/test_illegal_virtual_interface_as_port.sv): インタフェースポートと、仮想インタフェースを引数に取るタスク (いずれも合法) と対照し、モジュール vap_user の input virtual vap_if v というポートについて34行目の診断を照合する。 区別: 仮想インタフェース型のポートを受理する実装は34行目に診断を出さず、負テストが失敗する。
 
 ### SV2023-25.9-EXTRACT-VIRTUAL-EXTERNAL-DEFPARAM
 
@@ -80733,7 +80821,7 @@ SDF filename は文字列リテラル、文字列表現、または整数文字�
 
 ### SV2023-33.4.1-EXTRACT-CONFIG-GRAMMAR
 
-`33.4.1` / `normal` / テスト未対応
+`33.4.1` / `normal` / テスト対応あり・実行未確認
 
 コンフィグ構文には名前、localparams、1つのデザインステートメント、liblist/use条項を持つデフォルト/インスタンス/セル選択、およびendconfigオプションラベルが含まれます。ユースはセルバインドと名前付けパラメータ代入を許可します。
 
@@ -80741,6 +80829,7 @@ SDF filename は文字列リテラル、文字列表現、または整数文字�
 
 規定の性質: `definition`。
 
+- [test_config_declaration_grammar_forms.sv](../tests/ch33/test_config_declaration_grammar_forms.sv): config cf_cfg は localparam、1つの design 文、default/instance/cell 選択と liblist/use 展開、ライブラリ付きのセルの use、endconfig : cf_cfg を持ち、期待出力 u1=0b u2=0a u3=1 は a1 が cf_b に束縛され、a2 が空の liblist で cf_a のまま、p3 が work.cf_p に既定の W=1 で束縛されたことを示す。 区別: いずれかの構文形を受理しない実装はエラーで終わり、config を読み飛ばす実装は u1=0a を出力する。
 
 ### SV2023-33.4.1.1-EXTRACT-DESIGN-BEFORE-RULES
 
@@ -80768,7 +80857,7 @@ SDF filename は文字列リテラル、文字列表現、または整数文字�
 
 ### SV2023-33.4.1.1-EXTRACT-ONE-DESIGN-STATEMENT
 
-`33.4.1.1` / `error` / テスト未対応
+`33.4.1.1` / `error` / テスト対応あり・実行未確認
 
 configは、1つ以上のトップレベルセルを列挙するdesign文を、ちょうど1つ持ちます。これらのセル自体がconfigであってはなりません。デザイン/コンフィグ名が一致するかもしれません
 
@@ -80776,6 +80865,8 @@ configは、1つ以上のトップレベルセルを列挙するdesign文を、�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_config_two_design_statements.sv](../tests/ch33/test_illegal_config_two_design_statements.sv): config cfgd2 の27行目に2つ目の design 文 `design work.cfgd2_b;` があり、:expected_stderr_regex: が27行目のエラーを要求する。 区別: design 文を1つに限る規則を見落とす実装はこの config を受理し、27行目のエラーが出ないので不合格になる。
+- [test_illegal_config_design_is_config.sv](../tests/ch33/test_illegal_config_design_is_config.sv): config cfgdc の32行目の design 文が config cfgdc_inner を名指しし、:expected_stderr_regex: が32行目のエラーを要求する。 区別: design 文のセルが config であってはならない規則を見落とす実装は cfgdc_inner を経由して cfgdc_top を展開し、エラーを出さない。
 
 ### SV2023-33.4.1.2-EXTRACT-CONFIG-DEFAULT
 
@@ -80816,7 +80907,7 @@ configは、1つ以上のトップレベルセルを列挙するdesign文を、�
 
 ### SV2023-33.4.1.5-EXTRACT-CONFIG-EMPTY-LIBLIST
 
-`33.4.1.5` / `boundary` / テスト未対応
+`33.4.1.5` / `boundary` / 実行確認あり
 
 選択された liblist がありませんか？ または、空の liblist は、デフォルトでは親セルライブラリのみになります。
 
@@ -80824,10 +80915,11 @@ configは、1つ以上のトップレベルセルを列挙するdesign文を、�
 
 規定の性質: `mandatory`。
 
+- [test_config_empty_liblist_parent_library.sv](../tests/ch33/test_config_empty_liblist_parent_library.sv): default liblist はセルを持たないライブラリ elp_none だけを挙げ、instance 句が m に空の liblist を選ぶ。期待出力 m: work.elp_mid と m.leaf: work.elp_leaf は、空の liblist が親セルのライブラリ work だけの探索になり、m.leaf もそれを受け継ぐことを示す。 区別: 空の liblist を「どのライブラリも探さない」と読む実装や default liblist に戻す実装は m のセルを見つけられず、エラーで終わる。
 
 ### SV2023-33.4.1.5-EXTRACT-CONFIG-LIBLIST
 
-`33.4.1.5` / `normal` / テスト未対応
+`33.4.1.5` / `normal` / 実行確認あり
 
 liblist は階層的に継承される順序付けされた検索リストです。適用可能な明示的バインディングがない場合は、指定された順序で検索します。
 
@@ -80835,6 +80927,7 @@ liblist は階層的に継承される順序付けされた検索リストです
 
 規定の性質: `mandatory`。
 
+- [test_config_liblist_inherited_order.sv](../tests/ch33/test_config_liblist_inherited_order.sv): default liblist はセルを持たない lio_none だけを挙げ、instance 句が m に liblist lio_none work を与える。期待出力 m: work.lio_mid と m.leaf: work.lio_leaf は、liblist が順に探索されて2番目の work で見つかり、m.leaf が default ではなく m の liblist を受け継ぐことを示す。 区別: 先頭のライブラリしか探さない実装や、子に default liblist を当てる実装はセルを見つけられずエラーで終わる。
 
 ### SV2023-33.4.1.6-EXTRACT-CONFIG-USE-BINDING
 
@@ -80873,7 +80966,7 @@ liblist は階層的に継承される順序付けされた検索リストです
 
 ### SV2023-33.4.1.6-EXTRACT-USE-NO-LIBLIST-CHANGE
 
-`33.4.1.6` / `normal` / テスト未対応
+`33.4.1.6` / `normal` / 実行確認あり
 
 使用すると、現在の liblist は変更されません。バインドとライブラリリストは別の適用ルールで指定できる。
 
@@ -80881,6 +80974,7 @@ liblist は階層的に継承される順序付けされた検索リストです
 
 規定の性質: `mandatory`。
 
+- [test_config_use_and_liblist_rules.sv](../tests/ch33/test_config_use_and_liblist_rules.sv): m1 と m2 にはそれぞれ use 規則と liblist work 規則が逆順で与えられ、default liblist はセルの無い ulr_none だけを挙げる。期待出力 m1=b1 m2=b1 は、use が両インスタンスを ulr_mid_b に束縛し、別の liblist 規則で葉が work から見つかったことを示す。 区別: 後の規則が前の規則を置き換える実装では m1 が ulr_mid_a の a1 になるか、m2 の葉が ulr_none で見つからずエラーになる。
 
 ### SV2023-33.4.2-EXTRACT-HIERARCHICAL-CONFIG
 
@@ -80956,7 +81050,7 @@ liblist は階層的に継承される順序付けされた検索リストです
 
 ### SV2023-33.4.3-EXTRACT-CONFIG-RESET-GRAMMAR-TEXT
 
-`33.4.3` / `boundary` / テスト未対応
+`33.4.3` / `boundary` / 実行確認あり
 
 コンフィギュレーションにおいて，#(.P())を使うと，そのインスタンスのパラメータ P をそのモジュールで宣言されたデフォルト値にリセットし，空のオーバーライドリストと共に#()を使うとそのインスタンスのすべてのパラメータをオーバーライド前の値にリセットします。位置パラメータ記法は配置において禁止されている。
 
@@ -80964,10 +81058,11 @@ liblist は階層的に継承される順序付けされた検索リストです
 
 規定の性質: `mandatory`。
 
+- [test_config_parameter_override.sv](../tests/ch33/test_config_parameter_override.sv): インスタンス化で #(.W(10), .D(20)) の a3 に `use #();`、#(.W(11), .D(21)) の a4 に `use #(.W());` を与え、期待出力は a3: W=8 D=4 と a4: W=8 D=21 になる。 区別: 空の #() が全パラメータを宣言時の既定値に戻さなければ a3 の行が、名前付きの空括弧が W だけを戻さなければ a4 の行が変わる。
 
 ### SV2023-33.4.3-EXTRACT-IDENTIFIER-SCOPE
 
-`33.4.3` / `error` / テスト未対応
+`33.4.3` / `error` / テスト対応あり・実行未確認
 
 その他のパラメータ識別子は、設定されたインスタンスの親スコープから解決される。階層識別子は 表現の唯一の項目でなければなりません
 
@@ -80975,6 +81070,7 @@ liblist は階層的に継承される順序付けされた検索リストです
 
 規定の性質: `mandatory`。
 
+- [test_illegal_config_hierarchical_name_in_expression.sv](../tests/ch33/test_illegal_config_hierarchical_name_in_expression.sv): 32行目の上書き `#(.W(cfghn_top.N + 1))` が階層名に別の項を足し、:expected_stderr_regex: が32行目のエラーを要求する。 区別: 階層名を式の唯一の項に限る規則を見落とす実装はこの値を W=7 として受理し、エラーが出ない。
 
 ### SV2023-33.4.3-EXTRACT-INDEX-OPERANDS
 
@@ -80990,7 +81086,7 @@ liblist は階層的に継承される順序付けされた検索リストです
 
 ### SV2023-33.4.3-EXTRACT-LOCALPARAM-LITERAL
 
-`33.4.3` / `error` / テスト未対応
+`33.4.3` / `error` / 実行確認あり
 
 設定 localparam には、リテラル値が割り当てられます。
 
@@ -80998,6 +81094,7 @@ liblist は階層的に継承される順序付けされた検索リストです
 
 規定の性質: `mandatory`。
 
+- [test_illegal_config_localparam_not_literal.sv](../tests/ch33/test_illegal_config_localparam_not_literal.sv): config の29行目 `localparam S = 3 + 4;` がリテラルでない式を localparam に与え、:expected_stderr_regex: が29行目のエラーを要求する。 区別: config の localparam をリテラルに限る規則を見落とす実装は S=7 として受理し、エラーが出ない。
 
 ### SV2023-33.4.3-EXTRACT-NO-GENERATED-ARRAY-PATH
 
@@ -81038,7 +81135,7 @@ liblist は階層的に継承される順序付けされた検索リストです
 
 ### SV2023-33.4.3-EXTRACT-PARENT-BIND-VISIBILITY
 
-`33.4.3` / `error` / テスト未対応
+`33.4.3` / `error` / テスト対応あり・実行未確認
 
 親の識別子をバインドする場合は、バインド命令で許容されるべきである。
 
@@ -81046,6 +81143,7 @@ liblist は階層的に継承される順序付けされた検索リストです
 
 規定の性質: `mandatory`。
 
+- [test_illegal_config_parameter_wildcard_import.sv](../tests/ch33/test_illegal_config_parameter_wildcard_import.sv): cpw_top は cpw_pkg を * で import するだけで PKG_W を参照せず、47行目の上書き `#(.W(PKG_W))` は親スコープでワイルドカード候補にすぎない名前を使う。:expected_stderr_regex: は47行目のエラーを要求し、46行目の階層名 cpw_top.TOP_W（親で宣言されたパラメータ）は規格で認められる対照である。 区別: bind 文で使える識別子に限る規則を見落とす実装は PKG_W を import して W=5 として受理し、47行目のエラーが出ない。
 
 ### SV2023-33.5-EXTRACT-CONFIG-PRECOMPILED-SUPPORT
 
@@ -81104,7 +81202,7 @@ liblist は階層的に継承される順序付けされた検索リストです
 
 ### SV2023-33.5.4-EXTRACT-CONFIG-COMMAND-LINE
 
-`33.5.4` / `normal` / テスト未対応
+`33.5.4` / `normal` / 実行確認あり
 
 ワークフローは、明示的な設定またはデフォルトマッピングを選択することができる。選択された config デザインステートメントは他の非インスタンス化セルに関わらずトップを決定し、分離コンパイルの使用には config が予めコンパイルされている必要があります。
 
@@ -81112,6 +81210,7 @@ liblist は階層的に継承される順序付けされた検索リストです
 
 規定の性質: `mandatory`。
 
+- [test_config_design_statement_selects_top.sv](../tests/ch33/test_config_design_statement_selects_top.sv): cds_stray はどこからもインスタンス化されないが、config cds の design 文が試験モジュールだけを挙げるので、期待出力は top: の1行だけになる。 区別: design 文で最上位を決めず未インスタンスのセルも最上位にする実装は cds_stray elaborated を余分に出力する。
 
 ### SV2023-33.6.1-EXTRACT-NO-CONFIG-LIBRARY-ORDER
 
@@ -113443,7 +113542,7 @@ vpiAssertionKillは、アサーションハンドルと、初期化したs_vpi_t
 
 ### SV2023-40.2.1-EXTRACT-COMMON-COVERAGE-API
 
-`40.2.1` / `normal` / テスト未対応
+`40.2.1` / `normal` / 実行確認あり
 
 タイプ間の共通のカバーインタフェースを提供し，既存の使用を破壊せずに拡張し，すべてのインスタンスをエノーマリングせずにサブ階層クエリをサポートする。
 
@@ -113451,10 +113550,11 @@ vpiAssertionKillは、アサーションハンドルと、初期化したs_vpi_t
 
 規定の性質: `mandatory`。
 
+- [test_coverage_api_minimum_types.sv](../tests/ch40/test_coverage_api_minimum_types.sv): 4種類のカバレッジ型それぞれに同じ $coverage_control(\`SV_COV_CHECK, 型, \`SV_COV_HIER, u) を呼び、u の下の l を列挙せずに部分階層を照会して、4行とも accepted と出力する。 区別: 型ごとに別の呼び方を要求したり、部分階層の照会を受け付けない実装は an error の行を出す。
 
 ### SV2023-40.2.1-EXTRACT-REQUIRED-ASSERTION
 
-`40.2.1` / `normal` / テスト未対応
+`40.2.1` / `normal` / 実行確認あり
 
 カバレッジのAPIは、少なくともアサーションカバレッジに対応しなければならない。
 
@@ -113462,10 +113562,11 @@ vpiAssertionKillは、アサーションハンドルと、初期化したs_vpi_t
 
 規定の性質: `mandatory`。
 
+- [test_coverage_api_minimum_types.sv](../tests/ch40/test_coverage_api_minimum_types.sv): assertion 型について $coverage_control(`SV_COV_CHECK, …, `SV_COV_HIER, u) を呼び、戻り値が SV_COV_ERROR でないことを 「assertion: check of the subhierarchy is accepted」として出力する。 区別: この型を API が扱わない実装は SV_COV_ERROR を返し、an error と出力する。
 
 ### SV2023-40.2.1-EXTRACT-REQUIRED-FSM-STATE
 
-`40.2.1` / `normal` / テスト未対応
+`40.2.1` / `normal` / 実行確認あり
 
 カバレッジのAPIは、少なくともFSM状態のカバレッジに対応しなければならない。
 
@@ -113473,6 +113574,7 @@ vpiAssertionKillは、アサーションハンドルと、初期化したs_vpi_t
 
 規定の性質: `mandatory`。
 
+- [test_coverage_api_minimum_types.sv](../tests/ch40/test_coverage_api_minimum_types.sv): FSM state 型について $coverage_control(`SV_COV_CHECK, …, `SV_COV_HIER, u) を呼び、戻り値が SV_COV_ERROR でないことを 「FSM state: check of the subhierarchy is accepted」として出力する。 区別: この型を API が扱わない実装は SV_COV_ERROR を返し、an error と出力する。
 
 ### SV2023-40.2.1-EXTRACT-REQUIRED-FSM-TRANSITION
 
@@ -113487,7 +113589,7 @@ APIFSM遷移被覆は少なくとも支援されなければならない。
 
 ### SV2023-40.2.1-EXTRACT-REQUIRED-STATEMENT
 
-`40.2.1` / `normal` / テスト未対応
+`40.2.1` / `normal` / 実行確認あり
 
 カバレッジのAPIは、少なくとも文カバレッジに対応しなければならない。
 
@@ -113495,10 +113597,11 @@ APIFSM遷移被覆は少なくとも支援されなければならない。
 
 規定の性質: `mandatory`。
 
+- [test_coverage_api_minimum_types.sv](../tests/ch40/test_coverage_api_minimum_types.sv): statement 型について $coverage_control(`SV_COV_CHECK, …, `SV_COV_HIER, u) を呼び、戻り値が SV_COV_ERROR でないことを 「statement: check of the subhierarchy is accepted」として出力する。 区別: この型を API が扱わない実装は SV_COV_ERROR を返し、an error と出力する。
 
 ### SV2023-40.2.1-EXTRACT-REQUIRED-TOGGLE
 
-`40.2.1` / `normal` / テスト未対応
+`40.2.1` / `normal` / 実行確認あり
 
 API は最低限トグルカバーをサポートしなければならない。
 
@@ -113506,10 +113609,11 @@ API は最低限トグルカバーをサポートしなければならない。
 
 規定の性質: `mandatory`。
 
+- [test_coverage_api_minimum_types.sv](../tests/ch40/test_coverage_api_minimum_types.sv): toggle 型について $coverage_control(`SV_COV_CHECK, …, `SV_COV_HIER, u) を呼び、戻り値が SV_COV_ERROR でないことを 「toggle: check of the subhierarchy is accepted」として出力する。 区別: この型を API が扱わない実装は SV_COV_ERROR を返し、an error と出力する。
 
 ### SV2023-40.2.2-EXTRACT-ASSERTION-COVERAGE-DEFINITION
 
-`40.2.2` / `normal` / テスト未対応
+`40.2.2` / `normal` / テスト対応あり・実行未確認
 
 アサーションカバレッジは、少なくとも1回成功したかを記録します。実装側のクエリでは、試行数、成功・失敗の回数、失敗カバレッジを取得できます。
 
@@ -113517,10 +113621,11 @@ API は最低限トグルカバーをサポートしなければならない。
 
 規定の性質: `definition`。
 
+- [test_coverage_assertion_success_counts.sv](../tests/ch40/test_coverage_assertion_success_counts.sv): インスタンス u の3つのアサーションのうち、成功するのは a_pass だけ（a_fail は4回失敗、a_never は試行されない）。assertion カバレッジの start が OK なら、最大値 3、最初のエッジ前の現在値 0、時刻40の現在値 1 であることを yes と出力する。 区別: 試行を数える実装は a_fail も覆われたとして 2、成功回数を数える実装は 4 を返し、only the assertion that succeeded の行が no になる。
 
 ### SV2023-40.2.2-EXTRACT-COVERAGE-AGGREGATION
 
-`40.2.2` / `normal` / テスト未対応
+`40.2.2` / `normal` / 実行確認あり
 
 また，ブロックのコアの数を変更することで，ブロックのコードのコード長を変更することができる。
 
@@ -113528,10 +113633,11 @@ API は最低限トグルカバーをサポートしなければならない。
 
 規定の性質: `mandatory`。
 
+- [test_coverage_scope_sums.sv](../tests/ch40/test_coverage_scope_sums.sv): 4種類の型の最大値と statement/toggle の現在値について、定義名の値が u1 と u2 の和、u1 の階層が u1 と u1.in の和、最上位の階層が top と2つの階層の和になることを yes で出力する。 区別: インスタンスや階層の値が含まれるプリミティブの和でない実装では、いずれかの行が no になる。
 
 ### SV2023-40.2.2-EXTRACT-FSM-COVERAGE-DEFINITION
 
-`40.2.2` / `normal` / テスト未対応
+`40.2.2` / `normal` / 実行確認あり
 
 FSM 被覆カウントが達成状態に達しました。FSM 抽出は自動的に行われず，プラグマは標準的な強制抽出機構を提供する。
 
@@ -113539,10 +113645,11 @@ FSM 被覆カウントが達成状態に達しました。FSM 抽出は自動的
 
 規定の性質: `definition`。
 
+- [test_coverage_fsm_pragma_states.sv](../tests/ch40/test_coverage_fsm_pragma_states.sv): pragma で名付けた3つのFSM（4+3+3状態）について、FSM カバレッジの start が OK なら最大値が 10、時刻20の現在値がそれ未満、全状態に達した時刻40の現在値が最大値に等しいことを yes で出力する。 区別: 到達した状態数を数えない実装では、時刻20と40の行のどちらかが no になる。
 
 ### SV2023-40.2.2-EXTRACT-STATEMENT-COVERAGE-DEFINITION
 
-`40.2.2` / `normal` / テスト未対応
+`40.2.2` / `normal` / テスト対応あり・実行未確認
 
 ステートメントは少なくとも一度実行された後にカバーされる。実装クエリは実行を数え、ステートメント/ブロックの粒度はクエリで制御される。
 
@@ -113550,10 +113657,11 @@ FSM 被覆カウントが達成状態に達しました。FSM 抽出は自動的
 
 規定の性質: `definition`。
 
+- [test_coverage_statement_executed_once.sv](../tests/ch40/test_coverage_statement_executed_once.sv): インスタンス u の文はタスク step の if とその2つの分岐だけである。statement カバレッジの check が OK なら、呼び出し前は 0、step(1) の後は 0 より大きく最大値未満、step(1) を繰り返しても変わらず、step(0) の後は最大値に等しいことを yes で出力する。 区別: 実行回数を数える実装は繰り返しの行が no に、実行されていない else 分岐も覆われたとする実装は then 分岐の行が no になる。
 
 ### SV2023-40.2.2-EXTRACT-TOGGLE-COVERAGE-DEFINITION
 
-`40.2.2` / `normal` / テスト未対応
+`40.2.2` / `normal` / テスト対応あり・実行未確認
 
 信号bitは0と1の両方の値が見られた後に完全にトグルカバーされる。実装によっては、部分的なカバレッジ／トグル数を問い合わせられる。
 
@@ -113561,6 +113669,7 @@ FSM 被覆カウントが達成状態に達しました。FSM 抽出は自動的
 
 規定の性質: `definition`。
 
+- [test_coverage_toggle_both_values.sv](../tests/ch40/test_coverage_toggle_both_values.sv): u の唯一の信号 t\[3:0\] のうちビット0と1だけが 0→1→0 と変わる。toggle カバレッジの check が OK なら、最大値 4、変化前 0、2ビットの変化後 2、ビット0をもう一度変えても 2 のままであることを yes で出力する。 区別: 値の変化回数を数える実装は 4 や 6 を返し、2 bits と adds nothing の行が no になる。
 
 ### SV2023-40.3.1-EXTRACT-CONSTANT-SV-COV-ASSERTION
 
@@ -113756,7 +113865,7 @@ FSM 被覆カウントが達成状態に達しました。FSM 抽出は自動的
 
 ### SV2023-40.3.2.1-EXTRACT-CONTROL-RESULTS
 
-`40.3.2.1` / `normal` / テスト未対応
+`40.3.2.1` / `normal` / 実行確認あり
 
 SV_COV_OK はチェックのための完全な利用可能性または他のアクションのための完全な成功を意味します。SV_COV_ERRORは効果がない失敗を意味します。スタート/チェックは、利用可能性がない場合は NOCOV を、部分的な利用可能性の場合は PARTIAL を返します。
 
@@ -113764,6 +113873,7 @@ SV_COV_OK はチェックのための完全な利用可能性または他のア�
 
 規定の性質: `mandatory`。
 
+- [test_coverage_control_results.sv](../tests/ch40/test_coverage_control_results.sv): 4種類の型それぞれで check が OK/NOCOV/PARTIAL のいずれか、start が check と同じ値、stop と reset が OK、存在しないモジュール名の check が ERROR であることを出力する。 区別: check や start に Table 40-1 にない値を返したり、成功した stop/reset に OK 以外を返したり、誤った引数に ERROR を返さない実装は wrong の行を出す。
 
 ### SV2023-40.3.2.1-EXTRACT-COVERAGE-CHECK
 
@@ -113899,7 +114009,7 @@ SV_COV_MODULE では、定義文字列は子階層を除いたモジュールの
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-OK
 
-`40.3.2.1` / `normal` / テスト未対応
+`40.3.2.1` / `normal` / テスト対応あり・実行未確認
 
 表 40-1 は SV_COV_CHECK / SV_COV_OK をフルアクセシビリティにマッピングします。適用できない細胞は 行動の結果を 規定しない
 
@@ -113907,10 +114017,11 @@ SV_COV_MODULE では、定義文字列は子階層を除いたモジュールの
 
 規定の性質: `definition`。
 
+- [test_coverage_check_combines_parts.sv](../tests/ch40/test_coverage_check_combines_parts.sv): 最上位の階層を、最上位インスタンス単独（MODULE）、u1 の階層、u2 の階層の3つの互いに素な部分に分け、各部分に信号・文・アサーションを置く。toggle/statement/assertion それぞれで、階層全体の check が「全部分 OK なら OK、全部分 NOCOV なら NOCOV、それ以外は PARTIAL」に一致することを yes で出力する。 区別: 一部の部分にカバレッジが無いのに全体に OK を返す実装は agrees の行が no になる。
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-PARTIAL
 
-`40.3.2.1` / `normal` / テスト未対応
+`40.3.2.1` / `normal` / テスト対応あり・実行未確認
 
 表40-1は部分的な被覆に SV_COV_CHECK/SV_COV_PARTIALをマッピングします。適用できない細胞は 行動の結果を 規定しない
 
@@ -113918,6 +114029,7 @@ SV_COV_MODULE では、定義文字列は子階層を除いたモジュールの
 
 規定の性質: `definition`。
 
+- [test_coverage_check_combines_parts.sv](../tests/ch40/test_coverage_check_combines_parts.sv): 3つの互いに素な部分（最上位インスタンス単独、u1 の階層、u2 の階層）の check を組み合わせ、全部分 OK でも全部分 NOCOV でもないとき階層全体の check が PARTIAL になることを、toggle/statement/assertion それぞれ agrees の行で yes と出力する。 区別: 一部だけにカバレッジがある階層に OK や NOCOV を返す実装、全部分 OK なのに PARTIAL を返す実装は agrees の行が no になる。
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-RESET-SV-COV-ERROR
 
@@ -113981,7 +114093,7 @@ SV_COV_MODULE では、定義文字列は子階層を除いたモジュールの
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-START-SV-COV-NOCOV
 
-`40.3.2.1` / `normal` / テスト未対応
+`40.3.2.1` / `normal` / 実行確認あり
 
 表40-1では、SV_COV_START／SV_COV_NOCOVはカバレッジ対象なしとなる。適用できない細胞は 行動の結果を 規定しない
 
@@ -113989,6 +114101,7 @@ SV_COV_MODULE では、定義文字列は子階層を除いたモジュールの
 
 規定の性質: `definition`。
 
+- [test_coverage_control_check_while_stopped.sv](../tests/ch40/test_coverage_control_check_while_stopped.sv): toggle と statement の各型で、START の戻り値が直前の CHECK と同じであること、CHECK が NOCOV になるのは最大値が 0 のときに限ることを 1 として出力する。したがってカバレッジの無いスコープへの START は NOCOV を返さなければならない。 区別: カバレッジの無いスコープへの START に OK や ERROR を返す実装は start gives the checked availability の行が 0 になる。
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-START-SV-COV-OK
 
@@ -114004,7 +114117,7 @@ SV_COV_MODULE では、定義文字列は子階層を除いたモジュールの
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-START-SV-COV-PARTIAL
 
-`40.3.2.1` / `normal` / テスト未対応
+`40.3.2.1` / `normal` / 実行確認あり
 
 表40-1は部分的な被覆に SV_COV_START/SV_COV_PARTIALをマッピングします。適用できない細胞は 行動の結果を 規定しない
 
@@ -114012,6 +114125,7 @@ SV_COV_MODULE では、定義文字列は子階層を除いたモジュールの
 
 規定の性質: `definition`。
 
+- [test_coverage_control_check_while_stopped.sv](../tests/ch40/test_coverage_control_check_while_stopped.sv): CHECK が OK/NOCOV/PARTIAL のいずれかであること、START が同じ値を返すことを toggle と statement で 1 として出力する。部分的にしかカバレッジの無い スコープでは START も PARTIAL を返さなければならない。 区別: 部分的な可用性のスコープへの START に OK など CHECK と異なる値を返す実装は start gives the checked availability の行が 0 になる。
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-STOP-SV-COV-ERROR
 
@@ -114063,7 +114177,7 @@ SV_COV_MODULE では、定義文字列は子階層を除いたモジュールの
 
 ### SV2023-40.3.2.2-EXTRACT-GET-MAX-RESULT
 
-`40.3.2.2` / `normal` / テスト未対応
+`40.3.2.2` / `normal` / 実行確認あり
 
 選択した階層に対して、オーバーフローが integer の場合は -2、エラーが -1、カバーできない場合は 0、またはカバー可能な項目の正の和を返します。
 
@@ -114071,10 +114185,11 @@ SV_COV_MODULE では、定義文字列は子階層を除いたモジュールの
 
 規定の性質: `mandatory`。
 
+- [test_coverage_get_values.sv](../tests/ch40/test_coverage_get_values.sv): 4種類の型で、CHECK が NOCOV なら $coverage_get_max が NOCOV(0)、OK/PARTIAL なら正の値か OVERFLOW であること、存在しないモジュール名では ERROR(-1) であることを出力する。 区別: 可用性に合わない値や、誤った引数に ERROR 以外を返す実装は maximum agrees with the check や missing module gives ERROR の行が wrong になる。
 
 ### SV2023-40.3.2.2-EXTRACT-GET-MAX-SCOPE
 
-`40.3.2.2` / `normal` / テスト未対応
+`40.3.2.2` / `normal` / 実行確認あり
 
 $coverage_control に従って最大被覆範囲のスコープ選択を行う。
 
@@ -114082,6 +114197,7 @@ $coverage_control に従って最大被覆範囲のスコープ選択を行う�
 
 規定の性質: `mandatory`。
 
+- [test_coverage_scope_sums.sv](../tests/ch40/test_coverage_scope_sums.sv): $coverage_get_max を SV_COV_MODULE/SV_COV_HIER と定義名/インスタンス名の4通りで呼び、定義名が全インスタンスの和、HIER が配下を含む和になることを 4種類の型で yes と出力する。 区別: $coverage_control と異なるスコープ規則で数える実装では maximum の行のいずれかが no になる。
 
 ### SV2023-40.3.2.2-EXTRACT-GET-MAX-SIGNATURE
 
@@ -114109,7 +114225,7 @@ $coverage_get_max を coverage_type , scope_def , modules_or_instance で割り�
 
 ### SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE
 
-`40.3.2.3` / `normal` / テスト未対応
+`40.3.2.3` / `normal` / 実行確認あり
 
 表示されているアイテムの数を返します。最大値が正の場合、現在値/最大値*100で百分率を求めます。
 
@@ -114117,10 +114233,11 @@ $coverage_get_max を coverage_type , scope_def , modules_or_instance で割り�
 
 規定の性質: `mandatory`。
 
+- [test_coverage_get_values.sv](../tests/ch40/test_coverage_get_values.sv): 時刻1と50に4種類の型の現在値を読み、どちらも 0 以上で最大値以下、時刻50の値が時刻1の値以上であることを出力する。現在値/最大値×100 が 0 から 100 の百分率になる関係である。 区別: 覆われた項目数でなく別の量（実行回数や最大値を超える値）を返す実装では between zero and the maximum の行が wrong になる。
 
 ### SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE-STATUS
 
-`40.3.2.3` / `normal` / テスト未対応
+`40.3.2.3` / `normal` / 実行確認あり
 
 返す値は，オーバーフローがintegerの場合-2，エラーが-1，覆いがない場合0である。
 
@@ -114128,10 +114245,12 @@ $coverage_get_max を coverage_type , scope_def , modules_or_instance で割り�
 
 規定の性質: `mandatory`。
 
+- [test_coverage_uninstantiated_module.sv](../tests/ch40/test_coverage_uninstantiated_module.sv): インスタンスの無いモジュール cov_unused を SV_COV_MODULE で指定し、$coverage_get の戻り値が SV_COV_NOCOV(0) であることを 1 として出力する。 区別: カバレッジの無いスコープに ERROR や正の値を返す実装では uninstantiated current is NOCOV の行が 0 になる。
+- [test_coverage_control_bad_arguments.sv](../tests/ch40/test_coverage_control_bad_arguments.sv): 存在しない定義名 "no_such_module" を SV_COV_MODULE と SV_COV_HIER で指定して $coverage_get を呼び、どちらも ERROR(-1) と出力する。 区別: 誤った引数に 0 や正の値を返す実装では current: の行が not ERROR になる。
 
 ### SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT
 
-`40.3.2.3` / `normal` / テスト未対応
+`40.3.2.3` / `normal` / テスト対応あり・実行未確認
 
 $coverage_getの正の戻り値に関する箇条書きは、戻り値が$coverage_get_maxの形式に従い、pos_numを現在のカバレッジレベルとする、という40.3.2.3 ' s自体の規則と併せて読みます。正の結果は、指定された1つ以上の階層でカバーされた、その型のカバー可能項目の数であり、カバー可能な項目の最大数ではありません。
 
@@ -114139,10 +114258,11 @@ $coverage_getの正の戻り値に関する箇条書きは、戻り値が$covera
 
 規定の性質: `mandatory`。
 
+- [test_coverage_toggle_both_values.sv](../tests/ch40/test_coverage_toggle_both_values.sv): 4ビットのうち2ビットだけが 0 と 1 の両方をとった時点で、toggle カバレッジの check が OK なら $coverage_get が 2、$coverage_get_max が 4 で、現在値が最大値未満であることを yes で出力する。 区別: 正の戻り値として最大値を返す実装は 4 を返し、2 bits と below the maximum の行が no になる。
 
 ### SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SCOPE
 
-`40.3.2.3` / `normal` / テスト未対応
+`40.3.2.3` / `normal` / 実行確認あり
 
 現在のカバレッジの範囲選択は$coverage_controlに従います。
 
@@ -114150,6 +114270,7 @@ $coverage_getの正の戻り値に関する箇条書きは、戻り値が$covera
 
 規定の性質: `mandatory`。
 
+- [test_coverage_scope_sums.sv](../tests/ch40/test_coverage_scope_sums.sv): $coverage_get を SV_COV_MODULE/SV_COV_HIER と定義名/インスタンス名の4通りで呼び、statement と toggle の現在値について定義名が u1 と u2 の和、HIER が配下を含む和になることを yes で出力する。 区別: $coverage_control と異なるスコープ規則で数える実装では current の行のいずれかが no になる。
 
 ### SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SIGNATURE
 
@@ -114165,7 +114286,7 @@ $coverage_get は coverage_type 、 scope_def 、 modules_or_instance を取る
 
 ### SV2023-40.3.2.4-EXTRACT-MERGE-LOOKUP
 
-`40.3.2.4` / `normal` / テスト未対応
+`40.3.2.4` / `normal` / 実行確認あり
 
 任意の実装マッピング名で指定したカバーデータベースをロード/マージします。これは，データベースの構成に関係なく，データベース名を検索できるようにするための手法である。名前の欠落や別の設計のデータベースはエラーとなり、ロードエラー後のカバレッジ数は無意味になる場合がある。
 
@@ -114173,6 +114294,7 @@ $coverage_get は coverage_type 、 scope_def 、 modules_or_instance を取る
 
 規定の性質: `mandatory`。
 
+- [test_coverage_save_merge.sv](../tests/ch40/test_coverage_save_merge.sv): "test_coverage_save_merge_db" の名前で保存したデータを同じ名前で $coverage_merge し、保存が OK なら OK、一度も保存していない名前では ERROR になることを出力する。 区別: 名前でデータを見つけられない実装は merge after a successful save の行が、存在しない名前にエラーを返さない実装は never saved の行が wrong になる。
 
 ### SV2023-40.3.2.4-EXTRACT-MERGE-SIGNATURE
 
@@ -114188,7 +114310,7 @@ $coverage_merge はカバータイプと保存されたカバー名文字列を�
 
 ### SV2023-40.3.2.4-EXTRACT-MERGE-STATUS
 
-`40.3.2.4` / `normal` / テスト未対応
+`40.3.2.4` / `normal` / 実行確認あり
 
 検出/合併した場合は OK を返します。要求されたタイプが見つからない場合は NOCOV を返します。欠落/設計不正/その他の故障の場合は ERROR を返します。
 
@@ -114196,6 +114318,7 @@ $coverage_merge はカバータイプと保存されたカバー名文字列を�
 
 規定の性質: `mandatory`。
 
+- [test_coverage_save_merge.sv](../tests/ch40/test_coverage_save_merge.sv): 保存が OK なら merge が OK、保存が ERROR なら（名前の項目が消されるので）merge も ERROR、保存していない名前は ERROR であることを出力する。 区別: 見つかったデータの merge に OK 以外、見つからない名前に ERROR 以外を返す実装では該当の行が wrong になる。
 
 ### SV2023-40.3.2.5-EXTRACT-DATABASE-REPRESENTATION
 
@@ -114210,7 +114333,7 @@ $coverage_merge はカバータイプと保存されたカバー名文字列を�
 
 ### SV2023-40.3.2.5-EXTRACT-SAVE-PRESERVATION
 
-`40.3.2.5` / `normal` / テスト未対応
+`40.3.2.5` / `normal` / 実行確認あり
 
 実装特有のストレージを用いて，現在の被覆を名前で保存し，その名前でマージして検索可能にし，実行中のシミュレーション被覆状態を変更しないでおく。
 
@@ -114218,6 +114341,7 @@ $coverage_merge はカバータイプと保存されたカバー名文字列を�
 
 規定の性質: `mandatory`。
 
+- [test_coverage_save_merge.sv](../tests/ch40/test_coverage_save_merge.sv): toggle カバレッジの現在値を $coverage_save の前後で読み、同じ値であること、保存が OK なら同じ名前の merge が OK になることを出力する。 区別: 保存がシミュレーションのカバレッジを変える実装は saving does not change の行が、保存した名前で取り出せない実装は merge after a successful save の行が wrong になる。
 
 ### SV2023-40.3.2.5-EXTRACT-SAVE-SIGNATURE
 
@@ -114233,7 +114357,7 @@ $coverage_save はカバータイプと保存された名前文字列を取り�
 
 ### SV2023-40.3.2.5-EXTRACT-SAVE-STATUS
 
-`40.3.2.5` / `normal` / テスト未対応
+`40.3.2.5` / `normal` / 実行確認あり
 
 OK を返します。セーブが成功した場合、NOCOV を返します。そのカバーが利用できず、セーブが行われなかった場合、ERROR を返します。失敗した場合、名前の付いたデータベースエントリを自動的に削除します。既存の名前を上書きすることは許可されています
 
@@ -114241,10 +114365,12 @@ OK を返します。セーブが成功した場合、NOCOV を返します。�
 
 規定の性質: `mandatory`。
 
+- [test_coverage_save_merge_all_types.sv](../tests/ch40/test_coverage_save_merge_all_types.sv): 4種類の型で $root 以下の check と $coverage_save の結果を比べ、カバレッジが無ければ NOCOV か ERROR、あれば OK か ERROR であることを yes と出力する。 区別: カバレッジの無い型の保存に OK を返す、またはある型の保存に NOCOV を返す実装では save gives の行が no になる。
+- [test_coverage_save_merge.sv](../tests/ch40/test_coverage_save_merge.sv): 同じ名前に2回保存して2回目も同じ結果になること（上書きはエラーでない）、保存が ERROR ならその名前の merge も ERROR になること（失敗時に項目が消える）を出力する。 区別: 既存の名前への保存をエラーにする実装や、失敗した保存の項目を残す実装では saving again や merge after a failed save の行が wrong になる。
 
 ### SV2023-40.4-EXTRACT-FSM-EXPLICIT-OVERRIDE
 
-`40.4` / `normal` / テスト未対応
+`40.4` / `normal` / 実行確認あり
 
 標準 FSM - 説明注釈はデフォルトの抽出を上書きします。特別な自動認識機構は必要ありません
 
@@ -114252,6 +114378,7 @@ OK を返します。セーブが成功した場合、NOCOV を返します。�
 
 規定の性質: `mandatory`。
 
+- [test_coverage_fsm_pragma_states.sv](../tests/ch40/test_coverage_fsm_pragma_states.sv): 4ビットの ctl の一部 ctl\[2:1\]、{hi, lo}、sa を pragma で FSM と名付け、FSM カバレッジの start が OK なら最大値がちょうど pragma の名付けた10状態であることを yes で出力する。 区別: pragma があっても自動抽出を併用する実装は ctl 全体や sa_next を別の FSM として数え、最大値が10でなくなり no になる。
 
 ### SV2023-40.4-EXTRACT-FSM-IDENTIFICATION
 
@@ -114313,7 +114440,7 @@ FSMディスプレイ／レポート名は，そのエナミネーション関�
 
 ### SV2023-40.4.2-EXTRACT-FSM-PARTSELECT-SYNTAX
 
-`40.4.2` / `normal` / テスト未対応
+`40.4.2` / `normal` / 実行確認あり
 
 部品選択プラグマはツールstate_vector signal_name \[n：n\] FSM_name enum enumeration_nameである。
 
@@ -114321,6 +114448,7 @@ FSMディスプレイ／レポート名は，そのエナミネーション関�
 
 規定の性質: `mandatory`。
 
+- [test_coverage_fsm_pragma_states.sv](../tests/ch40/test_coverage_fsm_pragma_states.sv): pragma `tool state_vector ctl[2:1] b_fsm enum b_states` で4ビット信号の part-select を現在状態とし、FSM カバレッジの start が OK なら最大値10と、時刻40に全状態へ達して現在値が最大値に等しいことを yes で出力する。 区別: part-select の形を認識しない実装は b_fsm の3状態を数えず、最大値が10にならない。
 
 ### SV2023-40.4.3-EXTRACT-FSM-CONCAT-NO-SELECTS
 
@@ -114335,7 +114463,7 @@ FSMディスプレイ／レポート名は，そのエナミネーション関�
 
 ### SV2023-40.4.3-EXTRACT-FSM-CONCATENATION
 
-`40.4.3` / `normal` / テスト未対応
+`40.4.3` / `normal` / 実行確認あり
 
 現在状態の信号連結は、ツールにより state_vector { signal_name, signal_name, ...} FSM_name enum enumeration_name と記述されます。
 
@@ -114343,10 +114471,11 @@ FSMディスプレイ／レポート名は，そのエナミネーション関�
 
 規定の性質: `mandatory`。
 
+- [test_coverage_fsm_pragma_states.sv](../tests/ch40/test_coverage_fsm_pragma_states.sv): pragma `tool state_vector {hi, lo} c_fsm enum c_states` で2信号の連接を現在状態とし、FSM カバレッジの start が OK なら c_states の3状態を含む最大値10を yes で出力する。 区別: 連接の形を認識しない実装は c_fsm を数えず、最大値が10にならない。
 
 ### SV2023-40.4.4-EXTRACT-FSM-NEXT-STATE
 
-`40.4.4` / `normal` / テスト未対応
+`40.4.4` / `normal` / テスト対応あり・実行未確認
 
 次の状態信号宣言は、その範囲の後にツールenum enumeration_nameを使って、FSMにリンクする。
 
@@ -114354,10 +114483,11 @@ FSMディスプレイ／レポート名は，そのエナミネーション関�
 
 規定の性質: `mandatory`。
 
+- [test_coverage_fsm_next_state_pragmas.sv](../tests/ch40/test_coverage_fsm_next_state_pragmas.sv): Figure 40-2 と同じく cs は pragma なしで宣言し、次状態 ns だけを `logic [1:0] /* tool enum e_states */ ns;` で FSM に結び付ける。FSM カバレッジの start が OK なら最大値が名付けた5状態（3+2）であることを yes で出力する。 区別: 次状態信号を独立した FSM として数える実装は最大値が5を超え、no になる。
 
 ### SV2023-40.4.4-EXTRACT-FSM-NEXT-STATE-OMISSION
 
-`40.4.4` / `normal` / テスト未対応
+`40.4.4` / `normal` / 実行確認あり
 
 FSM が次の状態信号を持たない場合は、次の状態プラグマを省略します。
 
@@ -114365,10 +114495,11 @@ FSM が次の状態信号を持たない場合は、次の状態プラグマを�
 
 規定の性質: `mandatory`。
 
+- [test_coverage_fsm_pragma_states.sv](../tests/ch40/test_coverage_fsm_pragma_states.sv): 次状態信号を持たない b_fsm（ctl\[2:1\]）と c_fsm（{hi, lo}）は次状態の pragma を省き、FSM カバレッジの start が OK ならそれでも両 FSM の状態が最大値10に含まれ、時刻40に現在値が最大値に等しいことを yes で出力する。 区別: 次状態の pragma を必須とする実装はこの2つの FSM を数えず、最大値が10にならない。
 
 ### SV2023-40.4.5-EXTRACT-FSM-SAME-DECLARATION
 
-`40.4.5` / `normal` / テスト未対応
+`40.4.5` / `normal` / テスト対応あり・実行未確認
 
 enum プラグマのマルチ信号宣言に対して，最初の次の信号は現在の状態で，次の信号は次の状態である。これ以上の信号に対しては それほどの役割はないと推測されています
 
@@ -114376,10 +114507,11 @@ enum プラグマのマルチ信号宣言に対して，最初の次の信号は
 
 規定の性質: `mandatory`。
 
+- [test_coverage_fsm_next_state_pragmas.sv](../tests/ch40/test_coverage_fsm_next_state_pragmas.sv): 1つの宣言 `logic [1:0] /* tool enum f_states */ fs = 2'd0, fs_next, extra = 2'd0;` で fs を現在状態、fs_next を次状態とし、4つの値をとる extra はどちらでもない。FSM カバレッジの start が OK なら最大値が5状態であることを yes で出力する。 区別: 3番目以降の信号にも役割を推定する実装は extra を FSM として数え、最大値が5を超える。
 
 ### SV2023-40.4.6-EXTRACT-FSM-ENUM-POSITION
 
-`40.4.6` / `normal` / テスト未対応
+`40.4.6` / `normal` / 実行確認あり
 
 これは、パラメータの直後に enum プラグマを置くことで、パラメータが与えられた場合、その明示的な bit 幅の直後に置くことである。
 
@@ -114387,6 +114519,7 @@ enum プラグマのマルチ信号宣言に対して，最初の次の信号は
 
 規定の性質: `mandatory`。
 
+- [test_coverage_fsm_pragma_states.sv](../tests/ch40/test_coverage_fsm_pragma_states.sv): 状態パラメータの enum pragma を、ビット幅のある宣言では幅の直後（`parameter [1:0] // tool enum a_states`）、無い宣言では parameter の直後（`parameter /* tool enum b_states */`）に置き、FSM カバレッジの start が OK なら3つの FSM の10状態が数えられることを yes で出力する。 区別: どちらかの位置の pragma を認識しない実装は状態が欠けて最大値が10にならない。
 
 ### SV2023-40.4.6-EXTRACT-FSM-STATE-ENUMERATION
 
@@ -114402,7 +114535,7 @@ enum プラグマのマルチ信号宣言に対して，最初の次の信号は
 
 ### SV2023-40.4.7-EXTRACT-FSM-COMMENT-STYLES
 
-`40.4.7` / `normal` / テスト未対応
+`40.4.7` / `normal` / 実行確認あり
 
 FSM プラグマは /* */ ブロックコメントと // 1 行コメントの両方で動作します。
 
@@ -114410,6 +114543,7 @@ FSM プラグマは /* */ ブロックコメントと // 1 行コメントの両
 
 規定の性質: `mandatory`。
 
+- [test_coverage_fsm_pragma_states.sv](../tests/ch40/test_coverage_fsm_pragma_states.sv): pragma を `// tool state_vector sa` などの一行コメントと `/* tool state_vector ctl[2:1] … */` などのブロックコメントの両方で書き、FSM カバレッジの start が OK なら全10状態が数えられることを yes で出力する。 区別: 一方のコメント形式の pragma を読まない実装は FSM や状態が欠け、最大値が10にならない。
 
 ### SV2023-40.5.1-EXTRACT-CONSTANT-VPIASSERTATTEMPTCOVERED
 
@@ -114689,7 +114823,7 @@ VPIvpiToggleCoverageの範囲拡張は，範囲タイプカテゴリにおいて
 
 ### SV2023-40.5.2-EXTRACT-ASSERTION-COVERED-CRITERION
 
-`40.5.2` / `normal` / テスト未対応
+`40.5.2` / `normal` / テスト対応あり・実行未確認
 
 vpiCovered の場合は，少なくとも1回試みて成功し，失敗したことがないことを示す。
 
@@ -114697,6 +114831,7 @@ vpiCovered の場合は，少なくとも1回試みて成功し，失敗した�
 
 規定の性質: `mandatory`。
 
+- [test_vpi_coverage_covered_never_failed.sv](../tests/ch40/test_vpi_coverage_covered_never_failed.sv): a_mixed は4回の試行で2回成功し2回失敗し、a_pass は毎回成功する。assertion カバレッジの start が OK なら、VPI で a_mixed の試行・成功・失敗数が 4/2/2、vpiCovered が a_mixed で 0、a_pass で真であることを 1 と出力する。 区別: 1回の成功で覆われたとする実装は a_mixed を覆われたとし、not covered の行が 0 になる。
 
 ### SV2023-40.5.2-EXTRACT-ASSERTION-IN-PROGRESS
 
@@ -114735,7 +114870,7 @@ vpiCoveredCount FSM /state はコアヒット数を扱い、返します。カ�
 
 ### SV2023-40.5.2-EXTRACT-COVERED-ENTITIES
 
-`40.5.2` / `normal` / テスト未対応
+`40.5.2` / `normal` / テスト対応あり・実行未確認
 
 vpiCovered はアサーション/ステートメント/シグナル/FSM / FSM は状態ハンドルで 返すものをカバーするFSM 状態を持つ状態を表現する。
 
@@ -114743,6 +114878,7 @@ vpiCovered はアサーション/ステートメント/シグナル/FSM / FSM �
 
 規定の性質: `mandatory`。
 
+- [test_vpi_coverage_partial_entities.sv](../tests/ch40/test_vpi_coverage_partial_entities.sv): 8ビット信号のうち3ビットだけが 0→1→0 と変わり、一度も呼ばないタスク idle の2文は実行されず、3状態の FSM は2状態にしか達しない。各型の check が OK なら、vpiCovered が信号で 3、idle のブロックで 0、FSM で 2、状態ハンドルで到達した2状態だけ真であることを 1 と出力する。 区別: vpiCovered に最大値を返す実装は 8 や 3 を返し、only the 3 bits や 2 of the 3 states の行が 0 になる。
 
 ### SV2023-40.5.2-EXTRACT-COVERED-MAX
 
@@ -114806,7 +114942,7 @@ vpi_iterate ( vpiFsmStates , fsm_handle ) は FSM の全ての状態を返しま
 
 ### SV2023-40.5.2-EXTRACT-INSTANCE-COVERAGE-QUERY
 
-`40.5.2` / `normal` / テスト未対応
+`40.5.2` / `normal` / テスト対応あり・実行未確認
 
 vpi_get (coverageType , instance_handle ) は、インスタンスに含まれるそのタイプのアイテムの数を返します。
 
@@ -114814,6 +114950,7 @@ vpi_get (coverageType , instance_handle ) は、インスタンスに含まれ�
 
 規定の性質: `mandatory`。
 
+- [test_vpi_coverage_partial_entities.sv](../tests/ch40/test_vpi_coverage_partial_entities.sv): 信号 sig だけを持つインスタンス u で3ビットが覆われた後、toggle の check が OK なら vpi_get(vpiToggleCoverage, u) が 3 で、SV 側の $coverage_get(`SV_COV_TOGGLE, `SV_COV_MODULE, u) と一致することを 1 と出力する。 区別: インスタンスの覆われた項目数でなく最大値や別の量を返す実装では instance u の行が 0 になる。
 
 ### SV2023-40.5.2-EXTRACT-QUERY-VPIASSERTATTEMPTCOVERED
 
@@ -114889,7 +115026,7 @@ vpi_get (vpiAssertVacuousSuccessCovered , assertion_handle ) は空白成功数�
 
 ### SV2023-40.5.3-EXTRACT-VPI-COVERAGE-CONTROL
 
-`40.5.3` / `normal` / テスト未対応
+`40.5.3` / `normal` / テスト対応あり・実行未確認
 
 被覆収集制御にはvpi_control（coverageControl , coverageType , instance_handleまたはassertion_handle）を用いる。
 
@@ -114897,10 +115034,11 @@ vpi_get (vpiAssertVacuousSuccessCovered , assertion_handle ) は空白成功数�
 
 規定の性質: `mandatory`。
 
+- [test_vpi_coverage_control.sv](../tests/ch40/test_vpi_coverage_control.sv): VPI アプリケーションが vpi_control(vpiCoverageReset, vpiToggleCoverage, top) と vpiCoverageStop を呼び、リセット直後の toggle カバレッジが 0、停止後の変化で値が増えないことを出力する。 区別: vpi_control のカバレッジ制御を $coverage_control と同じ意味で扱わない実装では 0 や yes の行が変わる。
 
 ### SV2023-40.5.3-EXTRACT-VPI-COVERAGE-CONTROL-TARGETS
 
-`40.5.3` / `normal` / テスト未対応
+`40.5.3` / `normal` / 実行確認あり
 
 また，ステートメント，トグル，FSMカウバレーションは，ステートメント／信号／FSMではなく，インスタンスごとに制御できる。スタート/停止/リセット/チェックは $coverage_control に従い、定義された VPI のカバータイププロパティを使用します。
 
@@ -114908,10 +115046,11 @@ vpi_get (vpiAssertVacuousSuccessCovered , assertion_handle ) は空白成功数�
 
 規定の性質: `mandatory`。
 
+- [test_vpi_coverage_instance_control.sv](../tests/ch40/test_vpi_coverage_instance_control.sv): vpi_control でインスタンス u1 の toggle カバレッジをリセット・停止し、u1 が 0 になり u2 は変わらず、停止中の u1 の変化が数えられないことを yes で出力する。 区別: インスタンス単位の制御にならない実装では u2 も変わるか u1 が 0 にならず、yes の行が no になる。
 
 ### SV2023-40.5.3-EXTRACT-VPI-COVERAGE-MERGE
 
-`40.5.3` / `normal` / テスト未対応
+`40.5.3` / `normal` / テスト対応あり・実行未確認
 
 vpi_control（vpiCoverageMerge , coverageType，名前）は，$coverage_mergeの意味論と電流シミュレーションのカバーを統合した。
 
@@ -114919,10 +115058,11 @@ vpi_control（vpiCoverageMerge , coverageType，名前）は，$coverage_merge�
 
 規定の性質: `mandatory`。
 
+- [test_vpi_coverage_save_merge.sv](../tests/ch40/test_vpi_coverage_save_merge.sv): $coverage_save で保存した名前を u のリセット後に vpi_control(vpiCoverageMerge, vpiToggleCoverage, name) で merge し、check と保存が OK なら現在値がリセット前に戻ること、保存していない名前の merge では vpi_control が 0（失敗）を返すことを yes で出力する。 区別: $coverage_merge と同じ意味で merge しない実装では restores the value や never saved fails の行が no になる。
 
 ### SV2023-40.5.3-EXTRACT-VPI-COVERAGE-SAVE-NAME-TEXT
 
-`40.5.3` / `normal` / テスト未対応
+`40.5.3` / `normal` / テスト対応あり・実行未確認
 
 被覆保存はvpi_control（vpiCoverageSave , coverageType，名）を用い，被覆制御定数は40.5.1（M.2値755）のvpiCoverageSaveで，それ以外は$coverage_saveに従う。coverageSaveのスペルが40.5.3になったら vpiCoverageSaveになります
 
@@ -114930,6 +115070,7 @@ vpi_control（vpiCoverageMerge , coverageType，名前）は，$coverage_merge�
 
 規定の性質: `mandatory`。
 
+- [test_vpi_coverage_save_merge.sv](../tests/ch40/test_vpi_coverage_save_merge.sv): vpi_control(vpiCoverageSave, vpiToggleCoverage, name) で保存し、その前後で toggle カバレッジが変わらないこと、check が OK で vpi_control が 1 を返したなら 同じ名前の $coverage_merge が OK になることを yes で出力する。 区別: $coverage_save と同じ意味で保存しない実装では unchanged や merged by $coverage_merge の行が no になる。
 
 ### SV2023-A-EXTRACT-GRAMMAR-PLUS-PROSE
 

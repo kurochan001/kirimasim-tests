@@ -1,0 +1,5 @@
+start is not ERROR: yes
+fail actions of a_fail: 4
+with assertion coverage started, the maximum is the 3 assertions: yes
+with assertion coverage started, none is covered before the first edge: yes
+with assertion coverage started, only the assertion that succeeded is covered: yes

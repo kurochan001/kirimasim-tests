@@ -1,0 +1,4 @@
+saving through vpiCoverageSave leaves the coverage unchanged: yes
+data saved through vpiCoverageSave is merged by $coverage_merge: yes
+vpiCoverageMerge of data saved by $coverage_save restores the value: yes
+vpiCoverageMerge of a name never saved fails: yes

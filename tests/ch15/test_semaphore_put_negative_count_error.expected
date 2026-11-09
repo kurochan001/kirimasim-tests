@@ -1,0 +1,2 @@
+put(1), try_get(3) = 1
+calling put(-1)

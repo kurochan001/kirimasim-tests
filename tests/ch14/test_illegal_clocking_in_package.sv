@@ -9,12 +9,15 @@
 :fourstate: no
 :nondeterministic: no
 :should_fail_because: a clocking block is declared inside a package
-:expected_stderr_regex: test_illegal_clocking_in_package\.sv:19:
+:expected_stderr_regex: test_illegal_clocking_in_package\.sv:22:
 */
 // IEEE 1800-2023 §14.7: a clocking block can be declared only in a module,
 // interface, checker or program, not in a package. The package below gives the
-// illegal declaration at line 19.
+// illegal declaration at line 22. The package declares the variable clk, so
+// the clocking event names a signal and the place of the declaration is the
+// only error.
 
 package test_illegal_clocking_in_package_pkg;
+  logic clk;
   clocking cb @(posedge clk); endclocking
 endpackage

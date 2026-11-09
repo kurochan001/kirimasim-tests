@@ -4,7 +4,7 @@
 
 [English](ch4.md) / [日本語](ch4.ja.md)
 
-[すべての章](README.ja.md) .473 386 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
+[すべての章](README.ja.md) .478 386 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -15,7 +15,9 @@
 | [`test_nba_port_propagation`](../../tests/ch4/test_nba_port_propagation.sv) |NBA 書き込みはポート接続を通して伝播する| 4.3 10.4.2 4.9.6 10.3 | Icarus Verilog 13.0 ||
 | [`test_sched_region_iteration`](../../tests/ch4/test_sched_region_iteration.sv) |タイムスロットはアクティブ、インアクティブ、NBA を繰り返し、反復作業が終わった後に 遅延状態に到達します。遅延状態の次のスロットは| 4.3 4.4 4.4.1 4.4.2 4.4.3.10 | Icarus Verilog 13.0 ||
 | [`test_update_event_wakes_sensitive_processes`](../../tests/ch4/test_update_event_wakes_sensitive_processes.sv) |変数またはネットの値の変更だけが更新イベントであり、更新イベントはそれに感度のあるすべてのプロセスを起動させます。| 4.3 4.5 9.4.2 | Icarus Verilog 13.0 ||
+| [`test_pli_time_slot_region_order`](../../tests/ch4/test_pli_time_slot_region_order.sv) |1 つのタイムスロットの領域は、シミュレーション領域の間に PLI 領域を挟んで、定められた順に来る：Preponed、Pre-Active、Active、Inactive、Pre-NBA、 NBA 、Observed、Reactive、Re-Inactive、Re-NBA、再び active 領域集合、Pre-Postponed、Postponed| 4.4 4.4.2 4.4.3 4.5 4.10 38.36.2 16.13.6 24.3.1 |標準のみ| VPI |
 | [`test_time_slots_advance_in_order`](../../tests/ch4/test_time_slots_advance_in_order.sv) |シミュレーション時間は、現在のスロットのすべてのイベントが処理された後、空でない最初のタイムスロットに移動し、イベントが残っていないスロットがないときにシミュレーションが終了します。| 4.4 4.5 9.2.3 | Icarus Verilog 13.0 ||
+| [`test_simulation_regions_in_one_time_slot`](../../tests/ch4/test_simulation_regions_in_one_time_slot.sv) |1 つのタイムスロットはシミュレーション領域を順に実行する：Preponed 領域で標本化される値、次に Active・Inactive・ NBA 領域、シーケンスの終点が記録される Observed 領域、Reactive・Re-Inactive・Re-NBA 領域、再び active 領域集合、最後に Postponed 領域| 4.4.2 4.4 4.5 4.4.2.1 4.4.2.5 16.13.6 24.3.1 |標準のみ||
 | [`test_one_step_sample_before_time_slot`](../../tests/ch4/test_one_step_sample_before_time_slot.sv) |クロックブロックの #1step 入力は、そのスロットのアクティブまたは NBA 領域に書き込まれた値ではなく、クロックエッジのタイムスロット直前に信号が持っていた値をサンプリングします。| 4.4.2.1 14.4 14.3 | Verilator 5.052 ||
 | [`test_preponed_sample_observed_before_action`](../../tests/ch4/test_preponed_sample_observed_before_action.sv) |コンカレントアサーションションは NBA 更新の前にサンプルを取るが、そのパスアクションは更新されたライブ値を見る| 4.4.2.1 4.4.2.5 16.5.1 |標準のみ||
 | [`test_preponed_sampling`](../../tests/ch4/test_preponed_sampling.sv) |コンカレントアッセリは、同じ時間ステップでクロックエッジの直前に変化する変数に対しても、その時間ステップの変化の前からの Preponed 領域の値を使用します。| 4.4.2.1 16.5.1 16.9.3 | Verilator 5.052 ||
@@ -55,6 +57,7 @@
 | [`test_sched_deferred_action_arguments`](../../tests/ch4/test_sched_deferred_action_arguments.sv) |observed deferred assertionのアクションブロックはReactive領域で実行し、値渡し引数はアサーション評価時の値を使用します。一方、const ref引数は非ブロッキング更新後の値を読み出します。| 4.4.2.7 16.4 4.4.2.4 13.5.2 |標準のみ||
 | [`test_program_nonblocking_update_in_re_nba`](../../tests/ch4/test_program_nonblocking_update_in_re_nba.sv) |プログラムの非ブロック代入は、現在のタイムスロットの Re-NBA 領域で更新をスケジュールします。遅延代入の場合は、後の領域で更新します。つまり、更新はそのスロットの Reactive イベントの後に、アクティブ領域セットが再び実行される前に来ます。| 4.4.2.8 4.5 24.3.1 |標準のみ||
 | [`test_program_renba_after_zero_delay`](../../tests/ch4/test_program_renba_after_zero_delay.sv) |プログラム NBA の更新はゼロ遅延後に未着手ですが、時間が経過した後に見えるようになりました| 4.4.2.8 4.4.2.7 24.3.1 | Icarus Verilog 13.0 ||
+| [`test_illegal_final_deferred_action_schedules_event`](../../tests/ch4/test_illegal_final_deferred_action_schedules_event.sv) |最終遅延アサーションのアクションは Postponed 領域で実行されるので、ノンブロッキングのイベントトリガのようにタイムスロットの前の領域にイベントを予約するサブルーチンは呼べないが、表示だけを行うサブルーチンは合法である| 4.4.2.9 16.4 15.5.1 13.4.4 |標準のみ|違法なデザインだ|
 | [`test_postponed_strobe_monitor_after_reactive_writes`](../../tests/ch4/test_postponed_strobe_monitor_after_reactive_writes.sv) |$strobeと$monitorは遅延領域に印刷されます。それは変数がタイムスロットの NBA 、Reactive 、Re-NBA の書き込み後に持つ値を表示します。その間の値ではありません。| 4.4.2.9 4.5 21.2.2 21.2.3 24.3.1 | Icarus Verilog 13.0 ||
 | [`test_sched_monitor_once_per_time_step`](../../tests/ch4/test_sched_monitor_once_per_time_step.sv) |$monitor は、時間ステップごとに最大 1 行を出力し、その終わりに値を表示し、引数が変化しないステップでは何も出力しません。| 4.4.2.9 21.2.3 | Icarus Verilog 13.0 ||
 | [`test_sched_strobe_after_nba`](../../tests/ch4/test_sched_strobe_after_nba.sv) |$strobe は、ブロックしない更新とそれらが起動するプロセスの後、タイムステップの終わりに出力されます。| 4.4.2.9 21.2.2 10.4.2 | Icarus Verilog 13.0 ||
@@ -64,6 +67,7 @@
 | [`test_pli_nba_synch_write_before_nba`](../../tests/ch4/test_pli_nba_synch_write_before_nba.sv) |Pre-NBA領域の cbNBASynch 回帰は、アクティブイベントの後とブロックしない更新の前の値を読み、書き込む値は、更新の前に実行されているデザインプロセスを起動します。| 4.4.3.3 4.10 4.5 38.36.2 38.34 |標準のみ| VPI |
 | [`test_pli_read_write_synch_write`](../../tests/ch4/test_pli_read_write_synch_write.sv) |cbReadWriteSynch 回のコールバックは、そのタイムステップのブロック代入の後、Pre-NBA または Post-NBA 領域で実行され、書き込んだ値は、同じタイムステップで設計プロセスを起動します。| 4.4.3.4 4.4.3.3 4.10 38.36.2 | Icarus Verilog 13.0 | VPI |
 | [`test_pli_end_of_time_write`](../../tests/ch4/test_pli_end_of_time_write.sv) |cbAtEndOfSimTime cbReadOnlySynch コールバックは、ブロックしない更新の後、Pre-Postponed領域で実行され、それが書き込んだ値は、時間ステップの別の反復を開始します。| 4.4.3.9 4.4.3.10 4.10 4.5 38.36.2 | Icarus Verilog 13.0 | VPI |
+| [`test_pli_slot_entry_regions_run_once`](../../tests/ch4/test_pli_slot_entry_regions_run_once.sv) |タイムスロットは Preponed 領域と Pre-Active 領域を入口で一度だけ通り、Pre-Postponed 領域で作られた処理によって Active から Pre-Postponed までの領域をもう一度反復するときにも再び通らず、Postponed 領域は最後に一度だけ来る| 4.4.3.10 4.4.1 4.5 4.10 38.36.2 16.5.1 |標準のみ| VPI |
 | [`test_region_set_iteration_order`](../../tests/ch4/test_region_set_iteration_order.sv) |時間ステップは、Active集合の全領域が空になるまで反復してからReactive集合へ進みます。Reactive集合では、Reactive・Re-Inactive・Re-NBAの処理を空にしてから、リアクティブ側が生成したActive処理へ戻ります。| 4.4.3.10 4.5 24.3.1 |標準のみ||
 | [`test_ieee1800_2023_delta_convergence`](../../tests/ch4/test_ieee1800_2023_delta_convergence.sv) |デルタサイクル収束テスト| 4.5 4.4.2.3 10.3 | Icarus Verilog 13.0 ||
 | [`test_sched_inactive_resume_before_nba_wake`](../../tests/ch4/test_sched_inactive_resume_before_nba_wake.sv) |プロセスを同じ時間ステップでブロックしない更新で起動させる前に #0 から再開する| 4.5 4.4.2.3 4.4.2.4 9.4.2 | Icarus Verilog 13.0 ||
@@ -92,6 +96,7 @@
 | [`test_sched_subroutine_copy_out`](../../tests/ch4/test_sched_subroutine_copy_out.sv) |出力と入力の引数はタスクが返されるときにコピーされますが、ref引数は一度に書き込まれます。| 4.9.7 13.3 13.5.1 13.5.2 13.5 | Verilator 5.052 ||
 | [`test_subroutine_output_copy_only_at_return`](../../tests/ch4/test_subroutine_output_copy_only_at_return.sv) |タスク出力と入力代入はサブルーティンが戻るまでローカルに残ります。| 4.9.7 13.5.1 | Icarus Verilog 13.0 ||
 | [`test_task_output_copied_out_on_return`](../../tests/ch4/test_task_output_copied_out_on_return.sv) |次の命令が見るブロッキングアシストとして、タスクが返されるときに value で渡された出力引数を呼び出し者の変数にコピーし、その変数を待つプロセスを起動させます。| 4.9.7 13.5.1 4.9.3 | Icarus Verilog 13.0 ||
+| [`test_pli_callback_immediate_and_one_shot`](../../tests/ch4/test_pli_callback_immediate_and_one_shot.sv) |値変化コールバックは対象が変化するたびに、それを書くプロセスの文と文の間で直ちに実行され、一度登録した時刻コールバックは自身の制御点のイベントとして一度だけ実行される| 4.10 38.36.1 38.36.2 | Icarus Verilog 13.0 | VPI |
 | [`test_pli_end_of_time_after_reactive_set`](../../tests/ch4/test_pli_end_of_time_after_reactive_set.sv) |時間ステップのアクティブ領域とレアティブ領域のセットが空になった後、cbAtEndOfSimTime のコールバックは Pre-Postponed 領域で実行され、書き込む値は Postponed 領域の前に両セットの反復を再開します。| 4.10 4.4.3.9 4.4.3.10 4.5 38.36.2 24.3.1 | Icarus Verilog 13.0 | VPI |
 | [`test_pli_nba_synch_callback`](../../tests/ch4/test_pli_nba_synch_callback.sv) |ブロックの代入の後、ブロックしない更新の前に Pre-NBA 領域で cbNBASynch のコールバックが実行されます。| 4.10 4.4.3.3 38.36.2 |標準のみ| VPI |
 | [`test_pli_pre_active_next_and_start_time`](../../tests/ch4/test_pli_pre_active_next_and_start_time.sv) |cbNextSimTimeとcbAtStartOfSimTimeのコールバックは Pre-Active 領域で実行され、そのタイムステップのデザインイベントの前に実行され、書き込んだ値はそのステップのデザインプロセスに見られ、それを待っているプロセスを起動させます。| 4.10 4.4.3.2 38.36.2 38.34 | Icarus Verilog 13.0 | VPI |

@@ -13082,30 +13082,6 @@
       ]
     },
     {
-      "test": "tests/ch14/test_clocking_input_step_skew.sv",
-      "inputs_sha256": "a8b378d5b0e764fc70bfa394acf90a697b149777d02981889bd5ee92a2f3936e",
-      "reviewed_on": "2026-10-23",
-      "reviewer": "Codex (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-14.4-EXTRACT-ONE-STEP-IMMEDIATELY-BEFORE"
-          ],
-          "disposition": "oracle_issue",
-          "explanation": "M71: 説明は1stepをObserved/NBA後samplingとするが、14.3/14.4は直前time stepのPostponed値と規定。刺激は4.5/14.999で値を変えるだけで同edgeのNBA差を作らず、期待値自体は両方式で同じになる。説明訂正とregionを区別する刺激が必要。この行には未登録。",
-          "reviewed_on": "2026-10-23",
-          "reviewer": "Codex (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch14/test_clocking_input_step_skew.sv",
-              "contains": "input #1step d;"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "test": "tests/ch14/test_clocking_drive_between_edges.sv",
       "inputs_sha256": "e588dfc69d0d2d0d303a05b6714333e2ad73a98b72779f2aa4dc7612151a1b25",
       "reviewed_on": "2026-10-23",
@@ -15178,102 +15154,6 @@
             {
               "file": "tests/ch10/test_comb_strength_multi.sv",
               "contains": "    assign (supply0, supply1) w4 = 1'b1;"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "test": "tests/ch14/test_illegal_clocking_at_unit_scope.sv",
-      "inputs_sha256": "caab6d075c5dcbf3ee52ac3273cc20d1aff4fc71cdd67b149edd3e418c0533f2",
-      "reviewed_on": "2026-10-23",
-      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-14.7-EXTRACT-CLOCKING-ALLOWED-SCOPES"
-          ],
-          "disposition": "oracle_issue",
-          "explanation": "M120: コンパイル単位の外側 内の clocking cb @(posedge clk) の clk がファイル中のどこにも宣言されておらず、期待する 18 行のエラーは未宣言識別子 clk の診断でも同じ行に出る。clocking をコンパイル単位の外側内に許してしまう誤実装でも未宣言 clk のエラーで負テストが通るため、宣言場所の制限を検出した証拠にならない。clk を宣言して制限違反だけを残す修正が必要。",
-          "reviewed_on": "2026-10-23",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch14/test_illegal_clocking_at_unit_scope.sv",
-              "contains": "clocking cb @(posedge clk); endclocking"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "test": "tests/ch14/test_illegal_clocking_in_package.sv",
-      "inputs_sha256": "f34858e096ee59ed1f2ef042463934998dc5b5a972caec4c6b3d85a3361d75e7",
-      "reviewed_on": "2026-10-23",
-      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-14.7-EXTRACT-CLOCKING-ALLOWED-SCOPES"
-          ],
-          "disposition": "oracle_issue",
-          "explanation": "M121: package 内の clocking cb @(posedge clk) の clk がファイル中のどこにも宣言されておらず、期待する 19 行のエラーは未宣言識別子 clk の診断でも同じ行に出る。clocking をpackage内に許してしまう誤実装でも未宣言 clk のエラーで負テストが通るため、宣言場所の制限を検出した証拠にならない。clk を宣言して制限違反だけを残す修正が必要。",
-          "reviewed_on": "2026-10-23",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch14/test_illegal_clocking_in_package.sv",
-              "contains": "clocking cb @(posedge clk); endclocking"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "test": "tests/ch14/test_illegal_clocking_in_function.sv",
-      "inputs_sha256": "05458ca3e762e2ca2f85e008a69e15abab75e0d9e53a13bd10ded6c76b5bb828",
-      "reviewed_on": "2026-10-23",
-      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-14.7-EXTRACT-CLOCKING-ALLOWED-SCOPES"
-          ],
-          "disposition": "oracle_issue",
-          "explanation": "M122: function 内の clocking cb @(posedge clk) の clk がファイル中のどこにも宣言されておらず、期待する 21 行のエラーは未宣言識別子 clk の診断でも同じ行に出る。clocking をfunction内に許してしまう誤実装でも未宣言 clk のエラーで負テストが通るため、宣言場所の制限を検出した証拠にならない。clk を宣言して制限違反だけを残す修正が必要。",
-          "reviewed_on": "2026-10-23",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch14/test_illegal_clocking_in_function.sv",
-              "contains": "clocking cb @(posedge clk); endclocking"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "test": "tests/ch14/test_illegal_clocking_in_task.sv",
-      "inputs_sha256": "88338db3c7138e9df618ba8465d04f3328bba2ab540d1fc6096cd839b28a2045",
-      "reviewed_on": "2026-10-23",
-      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-14.7-EXTRACT-CLOCKING-ALLOWED-SCOPES"
-          ],
-          "disposition": "oracle_issue",
-          "explanation": "M123: task 内の clocking cb @(posedge clk) の clk がファイル中のどこにも宣言されておらず、期待する 20 行のエラーは未宣言識別子 clk の診断でも同じ行に出る。clocking をtask内に許してしまう誤実装でも未宣言 clk のエラーで負テストが通るため、宣言場所の制限を検出した証拠にならない。clk を宣言して制限違反だけを残す修正が必要。",
-          "reviewed_on": "2026-10-23",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch14/test_illegal_clocking_in_task.sv",
-              "contains": "clocking cb @(posedge clk); endclocking"
             }
           ]
         }

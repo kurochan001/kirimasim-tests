@@ -1,0 +1,5 @@
+through pro: scale(4)=40 scale(4, 2)=8
+through pro: add() total=100
+through same: scale(4)=12
+through the instance: scale(4)=12
+through the instance: add() total=101

@@ -1,0 +1,6 @@
+toggle: each check is OK, NOCOV or PARTIAL: yes
+toggle: the check of the hierarchy agrees with the checks of its parts: yes
+statement: each check is OK, NOCOV or PARTIAL: yes
+statement: the check of the hierarchy agrees with the checks of its parts: yes
+assertion: each check is OK, NOCOV or PARTIAL: yes
+assertion: the check of the hierarchy agrees with the checks of its parts: yes

@@ -13,7 +13,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | Clause | Title | Tests | Generated |
 | ---: | --- | ---: | ---: |
 | 3 | [Design and verification building blocks](ch3.md) | 136 | 48 |
-| 4 | [Scheduling semantics](ch4.md) | 473 | 386 |
+| 4 | [Scheduling semantics](ch4.md) | 478 | 386 |
 | 5 | [Lexical conventions](ch5.md) | 513 | 415 |
 | 6 | [Data types](ch6.md) | 681 | 79 |
 | 7 | [Aggregate data types](ch7.md) | 772 | 304 |
@@ -23,8 +23,8 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 11 | [Operators and expressions](ch11.md) | 1644 | 1122 |
 | 12 | [Procedural programming statements](ch12.md) | 306 | 125 |
 | 13 | [Tasks and functions (subroutines)](ch13.md) | 443 | 256 |
-| 14 | [Clocking blocks](ch14.md) | 150 | 72 |
-| 15 | [Interprocess synchronization and communication](ch15.md) | 189 | 133 |
+| 14 | [Clocking blocks](ch14.md) | 170 | 72 |
+| 15 | [Interprocess synchronization and communication](ch15.md) | 192 | 133 |
 | 16 | [Assertions](ch16.md) | 794 | 133 |
 | 17 | [Checkers](ch17.md) | 108 | 27 |
 | 18 | [Constrained random value generation](ch18.md) | 257 | 57 |
@@ -33,8 +33,8 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 21 | [Input/output system tasks and system functions](ch21.md) | 495 | 282 |
 | 22 | [Compiler directives](ch22.md) | 512 | 402 |
 | 23 | [Modules and hierarchy](ch23.md) | 417 | 161 |
-| 24 | [Programs](ch24.md) | 160 | 117 |
-| 25 | [Interfaces](ch25.md) | 253 | 134 |
+| 24 | [Programs](ch24.md) | 167 | 117 |
+| 25 | [Interfaces](ch25.md) | 262 | 134 |
 | 26 | [Packages](ch26.md) | 262 | 179 |
 | 27 | [Generate constructs](ch27.md) | 283 | 180 |
 | 28 | [Gate-level and switch-level modeling](ch28.md) | 297 | 187 |
@@ -42,11 +42,11 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 30 | [Specify blocks](ch30.md) | 60 ||
 | 31 | [Timing checks](ch31.md) | 66 ||
 | 32 | [Backannotation using the standard delay format](ch32.md) | 68 | 18 |
-| 33 | [Configuring the contents of a design](ch33.md) | 84 | 41 |
+| 33 | [Configuring the contents of a design](ch33.md) | 88 | 41 |
 | 34 | [Protected envelopes](ch34.md) | 4 ||
 | 35 | [Direct programming interface](ch35.md) | 177 | 48 |
 | 36 | [Programming language interface (PLI/VPI) overview](ch36.md) | 89 ||
 | 37 | [VPI object model diagrams](ch37.md) | 227 ||
 | 38 | [VPI routine definitions](ch38.md) | 109 ||
 | 39 | [Assertion API](ch39.md) | 39 ||
-| 40 | [Code coverage control and API](ch40.md) | 31 ||
+| 40 | [Code coverage control and API](ch40.md) | 39 ||

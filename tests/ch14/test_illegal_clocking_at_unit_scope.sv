@@ -9,10 +9,13 @@
 :fourstate: no
 :nondeterministic: no
 :should_fail_because: a clocking block is declared outside every module, interface, checker and program
-:expected_stderr_regex: test_illegal_clocking_at_unit_scope\.sv:18:
+:expected_stderr_regex: test_illegal_clocking_at_unit_scope\.sv:21:
 */
 // IEEE 1800-2023 §14.7: a clocking block can be declared only inside a module,
 // interface, checker or program, and not outside all declarations in a
-// compilation unit. The declaration below gives the illegal block at line 18.
+// compilation unit. The declaration below gives the illegal block at line 21.
+// The compilation unit declares the variable clk, so the clocking event names
+// a signal and the place of the declaration is the only error.
 
+logic clk;
 clocking cb @(posedge clk); endclocking

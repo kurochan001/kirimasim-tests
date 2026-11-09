@@ -9,8 +9,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "dde11b6cf6f1693acad120454f0229a723321f000e14af5537677b2fdd1b580e",
-        "ja": "97ea002f2a11e8213d9ccaafcaa8f9568f972f34a4ceba2bf252200342a14a36"
+        "en": "7b2b5844c134428228c92db6d1b010caa8683ffe117ee8c1240b4c293046dd06",
+        "ja": "28b2045e8950d4e76392d41793e6625a3e9662f25e1ff4659890fae30c125192"
       }
     },
     {
@@ -425,8 +425,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "253fd33510ad97d4c0636d5ab0da61fb6299eb766ca3c16c1ed3672fa7bbe157",
-        "ja": "6be10d145727965495f2998b5c0a5824baaad20a28c3fc4113abe8c44a85c396"
+        "en": "f4d835cc12d9730ddf5286f71961c66fdab3771921bbc47fb91dc70c3c36a114",
+        "ja": "991df9a80ff220a9095e44188d4321090dda11ba29053dc71f992d4b335629bc"
       }
     },
     {
@@ -1135,6 +1135,17 @@
       "sha256": {
         "en": "bc812faf6dfe2aba5a667e1afd24b7ea21b7045615465e2da39fe34e32da4139",
         "ja": "e78275a672010652e3177a9a620be900db3621b35eb2f7ed3251c35715776508"
+      }
+    },
+    {
+      "en": "docs/clauses-33-40-testability-20261109.en.md",
+      "ja": "docs/clauses-33-40-testability-20261109.md",
+      "source": "docs/clauses-33-40-testability-20261109.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "f2d671182a97b6300bb32c8012ff62014a77afd505a2b06606626e7f333905cd",
+        "ja": "e31cd7be17e75a117d148b72d295746c9980a644313b41a307edcbf351a9f899"
       }
     }
   ]

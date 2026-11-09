@@ -1,0 +1,6 @@
+check is not ERROR: yes
+with toggle coverage of u, the maximum is its 4 bits: yes
+with toggle coverage of u, no bit is covered before any change: yes
+with toggle coverage of u, the 2 bits that were 0 and 1 are covered: yes
+with toggle coverage of u, toggling a covered bit again adds nothing: yes
+with toggle coverage of u, the current value is below the maximum: yes

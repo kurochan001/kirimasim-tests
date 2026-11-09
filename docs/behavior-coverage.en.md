@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 89.27%, execution 77.53%, execution without Ghost 50.94%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 90.10%, execution 78.00%, execution without Ghost 51.11%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 89.27%. Requirement execution-confirmation rate: 77.53%. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 90.10%. Requirement execution-confirmation rate: 78.00%. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 10979/12298 ( 89.27% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9535/12298 ( 77.53% ).
-- Registered but not tested: 1319.
+- The requirement coverage (test design) for registered behaviors is 11081/12298 ( 90.10% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9592/12298 ( 78.00% ).
+- Registered but not tested: 1217.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -71,11 +71,11 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `coverage-tests-20261029-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T22:47:59.529525+00:00` / 2/12298 execution checked; 1 entries refer to older inputs.
 - `coverage-tests-20261029-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T22:46:15.799172+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12298 execution checked; 0 entries refer to older inputs.
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7880/12298 execution checked; 132 entries refer to older inputs.
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7959/12298 execution checked; 69 entries refer to older inputs.
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7863/12298 execution checked; 132 entries refer to older inputs.
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7920/12298 execution checked; 139 entries refer to older inputs.
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 8000/12298 execution checked; 75 entries refer to older inputs.
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7903/12298 execution checked; 139 entries refer to older inputs.
 - `issues-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T13:33:20.979624+00:00` / 2/12298 execution checked; 29 entries refer to older inputs.
-- `issues-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T13:45:50.335531+00:00` / 3793/12298 execution checked; 338 entries refer to older inputs.
+- `issues-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T13:45:50.335531+00:00` / 3801/12298 execution checked; 346 entries refer to older inputs.
 - `issues-20261031-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-30T20:31:55.476769+00:00` / 13/12298 execution checked; 19 entries refer to older inputs.
 - `issues-20261031-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-30T20:31:59.218896+00:00` / 42/12298 execution checked; 19 entries refer to older inputs.
 - `issues-20261031-verilator-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-30T20:32:01.484680+00:00` / 42/12298 execution checked; 19 entries refer to older inputs.
@@ -98,14 +98,18 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `quality-persim-20261027-icarus14.json`: `Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)` / `2026-10-27T13:37:34.824763+00:00` / 21/12298 execution checked; 2 entries refer to older inputs.
 - `quality-persim-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T13:37:34.897897+00:00` / 19/12298 execution checked; 2 entries refer to older inputs.
 - `quality-persim-20261027-verilator-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T13:37:34.973472+00:00` / 19/12298 execution checked; 2 entries refer to older inputs.
-- `refresh-20261027-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T14:45:42.063155+00:00` / 3116/12298 execution checked; 555 entries refer to older inputs.
-- `refresh-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T14:43:38.130423+00:00` / 2636/12298 execution checked; 492 entries refer to older inputs.
-- `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 72/12298 execution checked; 1 entries refer to older inputs.
+- `refresh-20261027-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T14:45:42.063155+00:00` / 3121/12298 execution checked; 565 entries refer to older inputs.
+- `refresh-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T14:43:38.130423+00:00` / 2639/12298 execution checked; 496 entries refer to older inputs.
+- `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 73/12298 execution checked; 1 entries refer to older inputs.
 - `test-fixes-20261031-icarus-include.json`: `Icarus Verilog version 13.0 (stable) (v13_0-25-g07dd50d37)` / `2026-10-31T12:25:03.867848+00:00` / 0/12298 execution checked; 1 entries refer to older inputs.
 - `test-fixes-20261031-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-25-g07dd50d37)` / `2026-10-31T12:23:47.414500+00:00` / 4/12298 execution checked; 1 entries refer to older inputs.
 - `test-fixes-20261031-verilator-include.json`: `Verilator 5.050 2026-07-01 rev v5.050-60-g3d2421f3b` / `2026-10-31T12:25:05.281874+00:00` / 0/12298 execution checked; 1 entries refer to older inputs.
 - `test-fixes-20261031-verilator-seed1.json`: `Verilator 5.050 2026-07-01 rev v5.050-60-g3d2421f3b` / `2026-10-31T12:23:57.441797+00:00` / 17/12298 execution checked; 1 entries refer to older inputs.
 - `test-fixes-20261031-verilator-seed73.json`: `Verilator 5.050 2026-07-01 rev v5.050-60-g3d2421f3b` / `2026-10-31T12:24:09.320850+00:00` / 17/12298 execution checked; 1 entries refer to older inputs.
+- `weak-chapters-20261109-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-08T23:40:21.171226+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
+- `weak-chapters-20261109-kirimasim-33cee3fa.json`: `kirimasim 0.0.0 (commit 33cee3fa2f0d), built with AppleClang 21.0.0.21000401` / `2026-11-08T23:40:58.259537+00:00` / 4/12298 execution checked; 0 entries refer to older inputs.
+- `weak-chapters-20261109-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-08T23:40:39.386829+00:00` / 8/12298 execution checked; 0 entries refer to older inputs.
+- `weak-chapters-20261109-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-08T23:40:57.954861+00:00` / 8/12298 execution checked; 0 entries refer to older inputs.
 - Not used: associative-count-refinement-20261023-icarus13.json : legacy, unknown, or stale runner provenance.
 - Not used: associative-count-refinement-20261023-verilator-seed1.json : legacy, unknown, or stale runner provenance.
 - Not used: associative-count-refinement-20261023-verilator-seed73.json : legacy, unknown, or stale runner provenance.
@@ -253,7 +257,7 @@ The number of items is the investigation status of the article by heading. This 
 - 1 Overview: No interpretation reservation 12/12, registration 0, test support 0.
 - 2 Normative references: No reservation of interpretation 1/1, registration 2, test compatibility 0.
 - 3 Design and verification building blocks: No interpretation reservation 22/22, registration 146, test support 118.
-- 4 Scheduling semantics: no interpretation reservation 40/40, registration 107, test support 80.
+- 4 Scheduling semantics: no interpretation reservation 40/40, registration 107, test support 88.
 - 5 Lexical conventions: no interpretation reservation 21/21, registration 154, test support 136.
 - 6 Data types: No interpretation reservation 92/92, registration 719, test support 679.
 - 7 Aggregate data types: no interpretation reservation 61/61, registration 345, test support 320.
@@ -263,7 +267,7 @@ The number of items is the investigation status of the article by heading. This 
 - 11 Operators and expressions: No interpretation restrictions 55/55, registration 459, test support 433.
 - 12 Procedural programming statements: no interpretation reservation 28/28, registration 115, test support 89.
 - 13 Tasks and functions (subroutines): no interpretation reservation 20/20, registration 119, test support 92.
-- 14 Clocking blocks: no interpretation reservation 19/19, registration 87, test support 59.
+- 14 Clocking blocks: no interpretation reservation 19/19, registration 87, test support 84.
 - 15 Interprocess synchronization and communication: no interpretation reservation 27/27, registration 88, test support 68.
 - 16 Assertions: No interpretation reservation 82/82, registration 555, test support 539.
 - 17 Checkers: No interpretation reservations 13/13, registration 79, test support 59.
@@ -273,8 +277,8 @@ The number of items is the investigation status of the article by heading. This 
 - 21 Input/output system tasks and system functions: no interpretation reservation 65/65, registration 383, test support 347.
 - 22 Compiler directives: 28/28 without pending interpretation issues, 361 registered, 345 mapped to tests.
 - 23 Modules and hierarchy: No interpretation reservation 47/47, registration 260, test support 251.
-- 24 Programs: No interpretation restrictions 10/10, registration 29, test support 16.
-- 25 Interfaces: No interpretation reservation 25/25, registration 63, test support 43.
+- 24 Programs: No interpretation restrictions 10/10, registration 29, test support 25.
+- 25 Interfaces: No interpretation reservation 25/25, registration 63, test support 53.
 - 26 Packages: No interpretation reservation 8/8, registration 44, testing support 39.
 - 27 Generate constructs: no interpretation reservation 7/7, registration 32, test support 27.
 - 28 Gate-level and switch-level modeling: no interpretation reservation 34/34, registration 384, test support 363.
@@ -282,14 +286,14 @@ The number of items is the investigation status of the article by heading. This 
 - 30 Specify blocks: no interpretation restrictions 31/31, registration 157, test support 131.
 - 31 Timing checks: no interpretation reservation 26/26, registration 180, test support 154.
 - 32 Backannotation using the standard delay format: no interpretation reservation 14/14, registration 131, test support 119.
-- 33 Configuring the contents of a design: No interpretation reservation 36/36, registration 63, test support 30.
+- 33 Configuring the contents of a design: No interpretation reservation 36/36, registration 63, test support 40.
 - 34 Protected envelopes: No interpretation reservation 104/104, registration 214, test support 5.
 - 35 Direct programming interface: No interpretation reservation 31/31, registration 142, test support 114.
 - 36 Programming language interface ( PLI / VPI ) overview: No interpretation restrictions 29/29, registration 163, test support 148.
 - 37 VPI object model diagrams: no interpretation restrictions 101/101, registration 1757, test support 1656.
 - 38 VPI routine definitions: no interpretation reservation 51/51, registration 348, test support 260.
 - 39 Assertion API : No interpretation reservation 14/14, registration 95, test support 82.
-- 40 Code coverage control and API : no interpretation reservation 26/26, registration 128, test support 82.
+- 40 Code coverage control and API : no interpretation reservation 26/26, registration 128, test support 122.
 - 41 Data read API : no interpretation reservation 1/1, registration 0, test support 0.
 - A Formal syntax: no interpretation reserve 87/87, registration 811, test compliant 792.
 - B Keywords: 1/1 without interpretation reservation, 248 registration, 248 test compliant.
@@ -2193,7 +2197,7 @@ Normative role: `definition`。
 
 ### SV2023-4.4-EXTRACT-ORDERED-REGIONS
 
-`4.4` / `normal` / No mapped test
+`4.4` / `normal` / Test mapped; execution unconfirmed
 
 A time slot orders its regions as Preponed, Pre-Active, Active, Inactive, Pre-NBA, NBA, Post-NBA, Pre-Observed, Observed, Post-Observed, Reactive, Re-Inactive, Pre-Re-NBA, Re-NBA, Post-Re-NBA, Pre-Postponed and Postponed.
 
@@ -2201,6 +2205,7 @@ Acceptance criterion: Use that region sequence together with the explicitly spec
 
 Normative role: `definition`。
 
+- [test_pli_time_slot_region_order.sv](../tests/ch4/test_pli_time_slot_region_order.sv): cbAtStartOfSimTime, cbNBASynch, cbAtEndOfSimTime and cbReadOnlySynch are registered for time 10, and at time 10 the design executes, in Active, v = 1, v \<= 2, a rise of clk and #0. After that, a process woken by the NBA update, the pass action of the concurrent assertion a1 and a program (Reactive), the program's #0 (Re-Inactive) and p \<= 1 (Re-NBA), and a module process woken by p (the active region set run again) each print 1 line, and the expected output comes in the order Preponed ($sampled(v)=0), Pre-Active, Active, Inactive, Pre-NBA, NBA, Observed (triggered goes from 0 to 1), Reactive, Re-Inactive, Re-NBA, Active, Pre-Postponed, Postponed. Distinguishing observation: In an implementation that orders the regions wrongly (calling cbNBASynch before Inactive, processing Reactive before NBA or Observed, returning to Active before the reactive region set is empty, or putting Pre-Postponed after Postponed), the order of the lines changes, or the cbNBASynch line shows v=0 or v=2, the Re-NBA line back=1, the cbAtEndOfSimTime line back=0, and so on.
 
 ### SV2023-4.4.1-EXTRACT-ACTIVE-SET
 
@@ -2215,7 +2220,7 @@ Normative role: `definition`。
 
 ### SV2023-4.4.1-EXTRACT-ITERATIVE-SET
 
-`4.4.1` / `normal` / No mapped test
+`4.4.1` / `normal` / Test mapped; execution unconfirmed
 
 The iterative regions run from Active through Pre-Postponed, excluding Preponed, Pre-Active and Postponed.
 
@@ -2223,6 +2228,7 @@ Acceptance criterion: Iterate the specifically listed 14 regions according to 4.
 
 Normative role: `definition`。
 
+- [test_pli_slot_entry_regions_run_once.sv](../tests/ch4/test_pli_slot_entry_regions_run_once.sv): when the cbAtEndOfSimTime callback (Pre-Postponed) at time 10 reads v=1 clk=0 and writes w=1, the time slot runs Active (always @(w) raises clk), Observed (evaluation of a1) and Reactive (the pass action prints) once more, and after that cbReadOnlySynch in Postponed prints w=1 clk=1 only 1 time. The Preponed sample on entry ($sampled(v)=0) and Pre-Active (cbNextSimTime at time 20) are not repeated. Distinguishing observation: In an implementation that does not include Pre-Postponed in the iteration, the a1 line is missing or comes after cbReadOnlySynch and shows clk=0. An implementation that iterates back to Preponed or Pre-Active prints sampled v=1 (or a1 fail) or cbNextSimTime at 10. In an implementation that puts Postponed in the middle of the iteration, cbReadOnlySynch appears first, with w=0 clk=0.
 
 ### SV2023-4.4.1-EXTRACT-REACTIVE-SET
 
@@ -2237,7 +2243,7 @@ Normative role: `definition`。
 
 ### SV2023-4.4.2-EXTRACT-SIMULATION-REGION-SET
 
-`4.4.2` / `normal` / No mapped test
+`4.4.2` / `normal` / Test mapped; execution unconfirmed
 
 Simulation regions are Preponed, Active, Inactive, NBA, Observed, Reactive, Re-Inactive, Re-NBA and Postponed.
 
@@ -2245,6 +2251,7 @@ Acceptance criterion: Simulation regions are Preponed, Active, Inactive, NBA, Ob
 
 Normative role: `definition`。
 
+- [test_simulation_regions_in_one_time_slot.sv](../tests/ch4/test_simulation_regions_in_one_time_slot.sv): at time 1, each of these prints 1 line: the Preponed sample of the concurrent assertion a1, the initial process in Active and after #0 in Inactive, an always block woken by the NBA update, triggered of the sequence s (set in Observed), the pass action of a1 and a program (Reactive), the program's #0 (Re-Inactive) and p \<= 1 (Re-NBA), a module process woken by p (the active region set run again) and $strobe (Postponed), so the order of the 9 simulation regions becomes the order and values of the lines. Distinguishing observation: An implementation that omits a region or orders the regions wrongly shows differences such as sampled v other than 0, v=2 on the Inactive line, triggered being 1 on the active region set line or 0 on the Reactive line, p=1 on the Re-Inactive line, back=1 on the Re-NBA line, or an intermediate value on the Postponed line.
 
 ### SV2023-4.4.2.1-EXTRACT-ONE-STEP-SAMPLE
 
@@ -2469,7 +2476,7 @@ Normative role: `mandatory`。
 
 ### SV2023-4.4.2.9-EXTRACT-POSTPONED-NO-EARLIER-EVENT
 
-`4.4.2.9` / `error` / No mapped test
+`4.4.2.9` / `error` / Test mapped; execution unconfirmed
 
 A Postponed event must not schedule work into an earlier region of the current slot.
 
@@ -2477,6 +2484,7 @@ Acceptance criterion: A Postponed event must not schedule work into an earlier r
 
 Normative role: `mandatory`。
 
+- [test_illegal_final_deferred_action_schedules_event.sv](../tests/ch4/test_illegal_final_deferred_action_schedules_event.sv): the fail action of the final deferred assertion a1 calls the void function notify, and -\>\> done in notify creates an event in the NBA region of the current time slot. The action runs in the Postponed region, so this schedules an event into an earlier region and is illegal, and an error that mentions the event and Postponed shall be reported on the -\>\> line (39) or on the line of the a1 call (46). The report call of a0, which only prints, is a control that the standard allows. Distinguishing observation: An implementation that allows scheduling an event from the Postponed region into an earlier region accepts the design, prints a0 failed and seen=1, and ends normally (Verilator 5.052 behaves this way).
 
 ### SV2023-4.4.2.9-EXTRACT-POSTPONED-NO-WRITES
 
@@ -2503,7 +2511,7 @@ Normative role: `mandatory`。
 
 ### SV2023-4.4.3-EXTRACT-PLI-REGION-SET
 
-`4.4.3` / `normal` / No mapped test
+`4.4.3` / `normal` / Execution confirmed
 
 PLI-specific scheduling points include Preponed, Pre-Active, Pre-NBA, Post-NBA, Pre-Observed, Post-Observed, Pre-Re-NBA, Post-Re-NBA and Pre-Postponed.
 
@@ -2511,6 +2519,7 @@ Acceptance criterion: Apply their region-specific permissions/restrictions and t
 
 Normative role: `definition`。
 
+- [test_pli_region_callbacks.sv](../tests/ch4/test_pli_region_callbacks.sv): callbacks for the 3 PLI regions Pre-Active (cbAtStartOfSimTime), Pre-Postponed (cbAtEndOfSimTime) and Postponed (cbReadOnlySynch) are registered for time 10, and around the design's a = 1 (Active) and b \<= 1 (NBA) they print a=0 b=0, a=1 b=1 and a=1 b=1. The order and values of the lines show that the PLI regions come between the simulation regions at the positions of Figure 4-1. Distinguishing observation: In an implementation that does not put the PLI regions at the positions in the figure (running Pre-Active after the design events, putting Pre-Postponed before NBA, or putting Postponed before Pre-Postponed), the order of the lines or the values of a and b change.
 
 ### SV2023-4.4.3.1-EXTRACT-PREPONED-NO-CURRENT-SLOT-EVENT
 
@@ -2571,7 +2580,7 @@ Normative role: `permission`。
 
 ### SV2023-4.4.3.4-EXTRACT-READ-WRITE-CONTROL
 
-`4.4.3.4` / `normal` / No mapped test
+`4.4.3.4` / `normal` / Execution confirmed
 
 The Post-NBA PLI control point permits reading values, writing values and creating events after NBA events.
 
@@ -2579,6 +2588,7 @@ Acceptance criterion: Honor the specified side of the region boundary and feed n
 
 Normative role: `permission`。
 
+- [test_pli_read_write_synch_write.sv](../tests/ch4/test_pli_read_write_synch_write.sv): $vt_register registers a cbReadWriteSynch for time 10. The callback at time 10 (Pre-NBA or Post-NBA) reads a=1 after the blocking assignment and writes 7 to w with vpi_put_value. That write wakes a design process waiting on @(w) at the same time, and design at 10: w=7 is printed. Distinguishing observation: In an implementation that does not allow writes or event creation at this control point, or does not return the write to the reference scheduler, the design line is missing or shows w=0 or another time. In an implementation that runs the callback before Active, it shows a=0.
 
 ### SV2023-4.4.3.5-EXTRACT-PREOBSERVED-NO-CURRENT-SLOT-EVENT
 
@@ -2720,7 +2730,7 @@ Normative role: `mandatory`。
 
 ### SV2023-4.4.3.10-EXTRACT-SLOT-ENTRY
 
-`4.4.3.10` / `normal` / No mapped test
+`4.4.3.10` / `normal` / Test mapped; execution unconfirmed
 
 Each time slot enters Preponed, then Pre-Active, before beginning iterative Active processing.
 
@@ -2728,6 +2738,7 @@ Acceptance criterion: Do not repeat Preponed or Pre-Active when looping within t
 
 Normative role: `mandatory`。
 
+- [test_pli_slot_entry_regions_run_once.sv](../tests/ch4/test_pli_slot_entry_regions_run_once.sv): cbAtStartOfSimTime (Pre-Active) at time 10 prints v=0 w=0 before the design's events. When cbAtEndOfSimTime in Pre-Postponed writes w=1 and the time slot runs again from Active, the pass action of a1, evaluated on the clk that rises there, prints the value from the entry Preponed region, $sampled(v)=0, and a cbNextSimTime registered inside cbAtEndOfSimTime runs at time 20, not at time 10. Distinguishing observation: An implementation that redoes Preponed on each iteration gives sampled v=1 (or a1 fail), and one that redoes Pre-Active prints cbNextSimTime at 10 before the a1 line. In an implementation that puts Pre-Active after Active, the first line becomes v=1.
 
 ### SV2023-4.5-EXTRACT-EVALUATION-CREATES-EVENTS
 
@@ -3278,7 +3289,7 @@ Acceptance criterion: The actual a remains 1 during the call and becomes 9 after
 
 ### SV2023-4.10-EXTRACT-CALLBACK-CATEGORIES
 
-`4.10` / `normal` / No mapped test
+`4.10` / `normal` / Execution confirmed
 
 PLI callbacks may run immediately on a specified activity or be explicitly registered as one-shot evaluation events.
 
@@ -3286,6 +3297,7 @@ Acceptance criterion: Preserve the registration/event category and its prescribe
 
 Normative role: `definition`。
 
+- [test_pli_callback_immediate_and_one_shot.sv](../tests/ch4/test_pli_callback_immediate_and_one_shot.sv): $vt_register registers a cbValueChange on v and a cbAfterDelay with delay 10. At time 10, cbAfterDelay prints v=0 once, before the design, and when the design writes v = 1 and v = 2 with no timing control, the callback line of each change appears before the next $display, as v=1 and v=2. cbValueChange is also called for v = 3 at time 20, but cbAfterDelay does not appear at 20 or 30. Distinguishing observation: In an implementation that does not run value change callbacks immediately but collects them in a later region, the cbValueChange lines come after the design lines or v=2 appears 2 times. In an implementation that does not treat a registered callback as a one-time evaluation event, the cbAfterDelay line repeats or comes after the design lines.
 
 ### SV2023-4.10-EXTRACT-CBAFTERDELAY
 
@@ -34615,7 +34627,7 @@ Normative role: `mandatory`。
 
 ### SV2023-14.3-EXTRACT-CLOCKING-GRAMMAR
 
-`14.3` / `normal` / No mapped test
+`14.3` / `normal` / Test mapped; execution unconfirmed
 
 Clocking grammar supports default or global form, clocking event, optional identifiers/closing name, default skews, directional signal assignments and assertion declarations; skews use edge and/or delay syntax.
 
@@ -34623,10 +34635,14 @@ Acceptance criterion: Clocking grammar supports default or global form, clocking
 
 Normative role: `definition`。
 
+- [test_clocking_declaration_items_and_skews.sv](../tests/ch14/test_clocking_declaration_items_and_skews.sv): global clocking gclk and default clocking dcb are declared without items, clocking cb has default input #1step output #2 with input d / output q, and clocking cb2 has the per-signal skews input #2 d / output #3 q2. At the event at time 25, cb.d is the preceding 1, and the drive at time 25 reaches q at 27 and q2 at 28, so the expected output is sample cb.d=1 / t=26 q=0 q2=0 / t=30 q=1 q2=1. Distinguishing observation: A tool that does not accept the default/global forms, the default skew item or per-direction skews in its syntax fails to compile, and a tool that confuses the default skew with per-item skews changes the q/q2 pairs on the lines for 26 and 30.
+- [test_clocking_declaration_grammar_alternatives.sv](../tests/ch14/test_clocking_declaration_grammar_alternatives.sv): the test declares an unnamed default clocking @(posedge clk) and a clocking cb closed with endclocking : cb. cb has a default skew for inputs only, default input #2, an input with an expression, input sum = a + b, input #1 output #3 r, and inout s. ##1 ends at time 5, and at the event at time 15 sum takes 3, its value at 13, r takes 7, its value at 14, and s takes 4, its value at 13. With the drive at time 15, s becomes 2 at 15 and r becomes 3 at 18, while cb.s stays 4. The expected output is t=5 after ##1 ... / t=15 cb.sum=3 cb.r=7 cb.s=4 / t=16 r=7 s=2 / t=19 r=3 s=2 cb.s=4. Distinguishing observation: A tool that does not accept one of the forms fails to compile. A tool that ignores the input-only default skew prints sum=7 or s=8, a tool that ignores the item skew #1 of r prints r=6, and a tool that ignores the output skew #3 prints r=3 on the line for 16. A tool that changes the input side when the inout is driven prints cb.s=2.
+- [test_vpi_clocking_edges_prefix.sv](../tests/ch37/test_vpi_clocking_edges_prefix.sv): clocking ck declares default input negedge output posedge, input posedge #2 c, output negedge b and output #3 e, and the test reads through VPI and prints the default input and output edges, the input edge and skew 2 of c, the output edge of b and the output skew 3 of e. Distinguishing observation: A tool that does not accept the syntax of a skew with only an edge, or with an edge and a delay, fails to compile, and a tool that confuses the edge and the delay changes the 'default input edge negedge, default output edge posedge' or 'c: input edge posedge, input skew is a delay control 1 of 2' lines.
+- [test_clocking_block_assertions.sv](../tests/ch16/test_clocking_block_assertions.sv): the test writes assertion_item_declaration as items of clocking cb_in (input a and property p) and clocking cb_none (only property p), and assert property (cb_in.p) and assert property (cb_none.p) check each with the block's clock posedge clk. a becomes 1 at 14 and 0 at 34, and the expected output is cb_in.p: 5 35 45 / cb_none.p: 5 35 45. Distinguishing observation: A tool that does not accept a property declaration as a clocking block item fails to compile, and a tool that does not give a property in the block the block's clock rejects it as an unclocked assertion or prints other times.
 
 ### SV2023-14.3-EXTRACT-CLOCKING-NAME
 
-`14.3` / `error` / No mapped test
+`14.3` / `error` / Execution confirmed
 
 An ordinary clocking block may be unnamed only if default; unnamed declarations cannot be referenced. Global clocking has the separate optional-name form of 14.14.
 
@@ -34634,6 +34650,7 @@ Acceptance criterion: An ordinary clocking block may be unnamed only if default;
 
 Normative role: `mandatory`。
 
+- [test_illegal_unnamed_clocking_not_default.sv](../tests/ch14/test_illegal_unnamed_clocking_not_default.sv): a clocking block without default, clocking @(posedge clk); is declared without a name (line 21), and :expected_stderr_regex: requires an error on that line. Distinguishing observation: A wrong implementation that accepts a non-default clocking block without a name elaborates the design and gives no error on line 21, so the negative test fails.
 
 ### SV2023-14.3-EXTRACT-DEFAULT-SKEWS
 
@@ -34698,7 +34715,7 @@ Normative role: `mandatory`。
 
 ### SV2023-14.3-EXTRACT-NO-PROCEDURAL-LOCAL-CLOCKING-SIGNAL
 
-`14.3` / `error` / No mapped test
+`14.3` / `error` / Test mapped; execution unconfirmed
 
 A clocking signal cannot designate a variable restricted to procedural-block use.
 
@@ -34706,6 +34723,7 @@ Acceptance criterion: A clocking signal cannot designate a variable restricted t
 
 Normative role: `mandatory`。
 
+- [test_illegal_clocking_signal_dynamic_array_element.sv](../tests/ch14/test_illegal_clocking_signal_dynamic_array_element.sv): the expression of the clocking block input bv is the dynamic array element da\[0\], which can be referenced only inside procedural blocks, and the test requires an error on that line (line 40). A clocking signal of the module variable m and a reference to da\[0\] inside a procedure are controls that the standard allows. Distinguishing observation: An implementation that accepts a variable restricted to procedural blocks as a clocking signal gives no error on this line and fails.
 
 ### SV2023-14.3-EXTRACT-ONE-STEP-POSTPONED
 
@@ -34758,7 +34776,7 @@ Normative role: `mandatory`。
 
 ### SV2023-14.4-EXTRACT-ONE-STEP-IMMEDIATELY-BEFORE
 
-`14.4` / `normal` / No mapped test
+`14.4` / `normal` / Execution confirmed
 
 1step input skew selects the last value at the end of the prior time step, immediately before the clock event.
 
@@ -34766,6 +34784,7 @@ Acceptance criterion: 1step input skew selects the last value at the end of the 
 
 Normative role: `mandatory`。
 
+- [test_one_step_sample_before_time_slot.sv](../tests/ch4/test_one_step_sample_before_time_slot.sv): in a clocking cb with default input #1step and input d, d becomes 7 at 3, and at time 5 the same process writes d = 1 and then raises clk. At time 15 the test raises clk and then writes d \<= 2 as an NBA. The expected output is at 6: cb.d=7 direct=1 d=1 / at 16: cb.d=1 d=2, and both sampled values are the values just before the time slot of the clock event. Distinguishing observation: A wrong implementation that samples 1step at the clock event (as in the Observed region or with #0) prints cb.d=1 on the at 6 line and cb.d=2 on the at 16 line.
 
 ### SV2023-14.4-EXTRACT-SAMPLE-BEFORE-DRIVE-AFTER
 
@@ -34781,7 +34800,7 @@ Normative role: `mandatory`。
 
 ### SV2023-14.4-EXTRACT-SKEW-CONSTANT-TIMESCALE
 
-`14.4` / `error` / No mapped test
+`14.4` / `error` / Execution confirmed
 
 A skew is constant and may use a parameter; without explicit time units it uses the current scope time unit/timescale.
 
@@ -34789,6 +34808,7 @@ Acceptance criterion: A skew is constant and may use a parameter; without explic
 
 Normative role: `mandatory`。
 
+- [test_illegal_clocking_skew_variable.sv](../tests/ch14/test_illegal_clocking_skew_variable.sv): skews given by the parameter P, the constant expression (P + 1) and the time literal 1ns are controls that the standard allows, and input #d a (line 31), which uses the module variable d as its skew, is the violation. Distinguishing observation: A tool that does not check that a skew is constant accepts the variable skew and gives no error on line 31, so the negative test fails. A tool that rejects the parameter skew reports an error on line 28, which does not match the specified line.
 
 ### SV2023-14.4-EXTRACT-SKEW-NOT-PROCEDURAL-DELAY
 
@@ -34890,7 +34910,7 @@ Normative role: `mandatory`。
 
 ### SV2023-14.6-EXTRACT-SHARED-SIGNALS
 
-`14.6` / `normal` / No mapped test
+`14.6` / `normal` / Execution confirmed
 
 A signal may occur as clock/input/output/inout in multiple clocking blocks.
 
@@ -34898,10 +34918,12 @@ Acceptance criterion: A signal may occur as clock/input/output/inout in multiple
 
 Normative role: `permission`。
 
+- [test_clocking_multiple_blocks.sv](../tests/ch14/test_clocking_multiple_blocks.sv): the same signal data is an input of both clocking early (input #3, plus input #3 lo = data\[3:0\]) and clocking late (input #1), and the two blocks also share the clock clk. data changes to 21 at 3 and to 43 at 11, and the expected output is 5: early=00 late=21 early.lo=0 / 15: early=43 late=43 early.lo=3. Distinguishing observation: A tool that cannot make 1 signal an input of 2 blocks fails to compile, and a tool that does not sample separately for each block gives early and late the same value (00/00 or 21/21 at 5).
+- [test_clocking_two_blocks_one_output.sv](../tests/ch14/test_clocking_two_blocks_one_output.sv): the variable j is an output of both clocking pe on posedge and clocking ne on negedge (which also share the clock clk), the test drives pe.j at 5/15/25 and ne.j at 10, and it prints the changes of j as 'j changes: 5:1 10:2 15:3 25:4'. Distinguishing observation: A tool that cannot make 1 variable an output of 2 blocks fails to compile, and a tool that reflects the drives of only one block lacks the entries 10:2 or 5:1/15:3/25:4.
 
 ### SV2023-14.7-EXTRACT-CLOCKING-ALLOWED-SCOPES
 
-`14.7` / `error` / No mapped test
+`14.7` / `error` / Test mapped; execution unconfirmed
 
 Clocking blocks can be declared only in modules/interfaces/checkers/programs, cannot nest and cannot be declared in subroutines/packages/compilation-unit outer scope.
 
@@ -34909,6 +34931,11 @@ Acceptance criterion: Clocking blocks can be declared only in modules/interfaces
 
 Normative role: `mandatory`。
 
+- [test_illegal_nested_clocking.sv](../tests/ch14/test_illegal_nested_clocking.sv): inside clocking cb, the test nests clocking inner @(posedge clk); endclocking (line 21), and the test requires an error on that line. clk is declared, so the error comes only from the nesting. Distinguishing observation: A wrong implementation that accepts nested clocking blocks accepts the design and gives no error on line 21, so the negative test fails.
+- [test_illegal_clocking_in_function.sv](../tests/ch14/test_illegal_clocking_in_function.sv): with clk declared, the body of function f contains clocking cb @(posedge clk); endclocking (line 24), and the test requires an error on that line. Distinguishing observation: A wrong implementation that accepts a clocking block inside a function accepts the design and gives no error on line 24, so the negative test fails. Since clk is declared, the test cannot pass instead on an error for an undeclared identifier.
+- [test_illegal_clocking_in_task.sv](../tests/ch14/test_illegal_clocking_in_task.sv): with clk declared, the body of task t contains clocking cb @(posedge clk); endclocking (line 23), and the test requires an error on that line. Distinguishing observation: A wrong implementation that accepts a clocking block inside a task accepts the design and gives no error on line 23, so the negative test fails. Since clk is declared, the test cannot pass instead on an error for an undeclared identifier.
+- [test_illegal_clocking_in_package.sv](../tests/ch14/test_illegal_clocking_in_package.sv): with clk declared, a package contains clocking cb @(posedge clk); endclocking (line 22), and the test requires an error on that line. Distinguishing observation: A wrong implementation that accepts a clocking block inside a package accepts the design and gives no error on line 22, so the negative test fails. Since clk is declared, the test cannot pass instead on an error for an undeclared identifier.
+- [test_illegal_clocking_at_unit_scope.sv](../tests/ch14/test_illegal_clocking_at_unit_scope.sv): with clk declared, the outer scope of the compilation unit contains clocking cb @(posedge clk); endclocking (line 21), and the test requires an error on that line. Distinguishing observation: A wrong implementation that accepts a clocking block in the compilation unit accepts the design and gives no error on line 21, so the negative test fails. Since clk is declared, the test cannot pass instead on an error for an undeclared identifier.
 
 ### SV2023-14.7-EXTRACT-CLOCKING-IMPLICIT-INSTANCE
 
@@ -35033,7 +35060,7 @@ Normative role: `mandatory`。
 
 ### SV2023-14.11-EXTRACT-NO-CYCLE-IN-ORDINARY-INTRA
 
-`14.11` / `error` / No mapped test
+`14.11` / `error` / Test mapped; execution unconfirmed
 
 Cycle controls cannot be intra-assignment timing on ordinary blocking/nonblocking assignments.
 
@@ -35041,6 +35068,8 @@ Acceptance criterion: Cycle controls cannot be intra-assignment timing on ordina
 
 Normative role: `mandatory`。
 
+- [test_illegal_cycle_delay_intra_assignment.sv](../tests/ch14/test_illegal_cycle_delay_intra_assignment.sv): in a module with default clocking cb, the blocking assignment b = ##1 a (line 26) uses a cycle delay as its intra-assignment delay, and the test requires an error on that line. Distinguishing observation: A wrong implementation that allows a cycle delay as the intra-assignment delay of an ordinary assignment accepts the design and gives no error on line 26, so the negative test fails.
+- [test_illegal_cycle_delay_intra_nonblocking.sv](../tests/ch14/test_illegal_cycle_delay_intra_nonblocking.sv): the synchronous drive cb.y \<= ##1 1'b1 and the ordinary intra-assignment delay b \<= #1 a are controls that the standard allows, and the nonblocking assignment b \<= ##1 a (line 37) to the variable b, which is not a clockvar, is the violation. Distinguishing observation: A wrong implementation that allows the cycle delay on the right-hand side of \<= for targets other than clockvars accepts the design and gives no error on line 37, so the negative test fails. A tool that also rejects the cycle delay of the synchronous drive reports an error on line 35, which does not match the specified line.
 
 ### SV2023-14.11-EXTRACT-ZERO-CYCLE-WAIT
 
@@ -35081,7 +35110,7 @@ Normative role: `definition`。
 
 ### SV2023-14.12-EXTRACT-DEFAULT-IDENTIFIER-TYPE
 
-`14.12` / `error` / No mapped test
+`14.12` / `error` / Execution confirmed
 
 A default clocking identifier must name a clocking block.
 
@@ -35089,10 +35118,11 @@ Acceptance criterion: A default clocking identifier must name a clocking block.
 
 Normative role: `mandatory`。
 
+- [test_illegal_default_clocking_names_variable.sv](../tests/ch14/test_illegal_default_clocking_names_variable.sv): as a control that the standard allows, dc_named_ok declares clocking cb2 and states default clocking cb2; while the test module declares clocking cb and a variable v and states default clocking v; (line 36). Each module has only 1 default clocking statement. Distinguishing observation: A tool that does not check that the identifier of default clocking is a clocking block accepts the design and gives no error on line 36, so the negative test fails. A tool that rejects the identifier form itself reports an error on the dc_named_ok line, which does not match the specified line.
 
 ### SV2023-14.12-EXTRACT-DEFAULT-LEXICAL-SCOPE
 
-`14.12` / `normal` / No mapped test
+`14.12` / `normal` / Test mapped; execution unconfirmed
 
 Default clocking applies to its containing scope and nested module/interface/checker declarations, but not separately instantiated design elements.
 
@@ -35100,6 +35130,7 @@ Acceptance criterion: Default clocking applies to its containing scope and neste
 
 Normative role: `mandatory`。
 
+- [test_default_clocking_nested_module_scope.sv](../tests/ch14/test_default_clocking_nested_module_scope.sv): the test module has default clocking ca @(posedge clk_a) (events at 5/15/25/35), and the nested module inner, declared and instantiated inside it, has no default of its own and waits ##2. The separately declared own_clocked waits ##2 with its own default clocking ob @(posedge clk_b) (events at 2/6/...), and the outer module waits ##3. The expected output is outer ... t = 25 / nested module inner ... t = 15 / instantiated module ... t = 6 。 Distinguishing observation: A tool that does not give the nested module the outer default clocking reports an error for the ## in inner, and a tool that carries the outer default into the instantiated module shows t=15 on the own_clocked line.
 
 ### SV2023-14.12-EXTRACT-NO-DUPLICATE-DEFAULT
 
@@ -35139,7 +35170,7 @@ Normative role: `mandatory`。
 
 ### SV2023-14.13-EXTRACT-NO-RESAMPLE-WITHOUT-NEW-EVENT
 
-`14.13` / `normal` / No mapped test
+`14.13` / `normal` / Test mapped; execution unconfirmed
 
 Repeated Observed processing in one time step does not resample zero-skew inputs unless another clocking event occurs in the active region set.
 
@@ -35147,6 +35178,7 @@ Acceptance criterion: Repeated Observed processing in one time step does not res
 
 Normative role: `mandatory`。
 
+- [test_clocking_zero_skew_input_not_resampled.sv](../tests/ch14/test_clocking_zero_skew_input_not_resampled.sv): input #0 d of clocking cb is sampled at posedge clk (time 5). In the Observed region after the NBA d \<= 1 of the edge, cb.d takes 1, and a program resumed in the Reactive region on the same edge writes d = 2, which makes the Active and Observed regions run once more (with no new clock event). The expected output is t=6 cb.d=1 d=2 changes of d=2. Distinguishing observation: A wrong implementation that samples the #0 input again each time it runs the Observed region prints cb.d=2, and one that samples it before NBA prints cb.d=0.
 
 ### SV2023-14.13-EXTRACT-READ-LAST-SAMPLE
 
@@ -35162,7 +35194,7 @@ Normative role: `mandatory`。
 
 ### SV2023-14.13-EXTRACT-SAMPLE-BEFORE-BLOCK-EVENT
 
-`14.13` / `normal` / No mapped test
+`14.13` / `normal` / Execution confirmed
 
 Clockvars update their samples before the named block event triggers, so waiting on that event observes the new samples regardless of waiter/trigger scheduling region.
 
@@ -35170,6 +35202,8 @@ Acceptance criterion: Clockvars update their samples before the named block even
 
 Normative role: `mandatory`。
 
+- [test_clocking_input_with_expression.sv](../tests/ch14/test_clocking_input_with_expression.sv): at each posedge, loc is increased by 8'h11 with an NBA, and the module's initial block waits on @(cb) for the cb with input x = loc and prints cb.x right after. The expected output is t=5 cb.x=00 / t=15 cb.x=11 / t=25 cb.x=22, and each time the sampled value updated at that event is read. Distinguishing observation: A wrong implementation that triggers the block's event before updating the sampled values, so that the waiting process reads the old sampled value, prints 00 at t=15 and 11 at t=25.
+- [test_program_clocking_input.sv](../tests/ch24/test_program_clocking_input.sv): the program's initial block waits on @(cb) for the clocking cb (input #2 d) of program p_in (resuming in the Reactive region) and prints cb.d right after. d changes to 1 at 4 and to 0 at 16, and the expected output is 5: d=0 / 15: d=1; at 15 the test reads the sampled value 1 of that event. Distinguishing observation: A wrong implementation that triggers the block's event before updating the sampled values, so that a waiter in the Reactive region reads the old sampled value, prints 15: d=0.
 
 ### SV2023-14.13-EXTRACT-SKEWED-POSTPONED-SAMPLING
 
@@ -35198,7 +35232,7 @@ Normative role: `mandatory`。
 
 ### SV2023-14.14-EXTRACT-GLOBAL-AFTER-REWRITE
 
-`14.14` / `normal` / No mapped test
+`14.14` / `normal` / Test mapped; execution unconfirmed
 
 Global lookup for sequence/property/checker expressions occurs after rewriting/actual substitution, so an assertion instance location rather than the template declaration selects the effective clock.
 
@@ -35206,10 +35240,11 @@ Acceptance criterion: Global lookup for sequence/property/checker expressions oc
 
 Normative role: `mandatory`。
 
+- [test_global_clocking_lookup_at_assertion.sv](../tests/ch14/test_global_clocking_lookup_at_assertion.sv): inside gc_holder (global clocking hg, rising edges of hclk at 1, 3, ..., 39), property p_tick; @( $global_clock ) 1'b1 ; is declared, and the assertion a_tick: assert property (h.p_tick) n++ of the test module, which has global clocking tg (rising edges of tclk at 5/15/25/35), instantiates it. The expected output is passes of a_tick by 40: 4. Distinguishing observation: A wrong implementation that looks up $global_clock from the position of the declaration succeeds on the ticks of hg and prints 20.
 
 ### SV2023-14.14-EXTRACT-GLOBAL-ALLOWED-SCOPES
 
-`14.14` / `error` / No mapped test
+`14.14` / `error` / Test mapped; execution unconfirmed
 
 Global clocking may appear in module/interface/checker/program, at most once per such declaration; generate placement is forbidden.
 
@@ -35217,6 +35252,8 @@ Acceptance criterion: Global clocking may appear in module/interface/checker/pro
 
 Normative role: `mandatory`。
 
+- [test_illegal_two_global_clocking.sv](../tests/ch14/test_illegal_two_global_clocking.sv): the test declares global clocking g1 and g2 in 1 module and requires an error on declaration number 2 (line 23). Distinguishing observation: A wrong implementation that does not check the limit of 1 per module accepts the design and gives no error on line 23, so the negative test fails.
+- [test_illegal_global_clocking_in_generate.sv](../tests/ch14/test_illegal_global_clocking_in_generate.sv): gc_ok is a control that the standard allows, declaring 1 global clocking directly in the module, and the test module places an ordinary clocking cb (legal) and global clocking gbad (line 34) in the generate block if (1) begin : g. The module has only this 1 global clocking. Distinguishing observation: A wrong implementation that accepts global clocking inside a generate block accepts the design and gives no error on line 34, so the negative test fails. A tool that also rejects the clocking block in the generate block reports an error on line 33, which does not match the specified line.
 
 ### SV2023-14.14-EXTRACT-GLOBAL-CLOCK-REFERENCE
 
@@ -35232,7 +35269,7 @@ Normative role: `mandatory`。
 
 ### SV2023-14.14-EXTRACT-GLOBAL-CLOCKING-GRAMMAR
 
-`14.14` / `normal` / No mapped test
+`14.14` / `normal` / Execution confirmed
 
 Global clocking declares an optional name and clock event followed by endclocking without signal items, optionally repeating its name.
 
@@ -35240,10 +35277,11 @@ Acceptance criterion: Global clocking declares an optional name and clock event 
 
 Normative role: `definition`。
 
+- [test_global_clocking_unnamed_and_end_label.sv](../tests/ch14/test_global_clocking_unnamed_and_end_label.sv): gc_unnamed declares an unnamed global clocking @(posedge c); endclocking, and gc_labeled declares global clocking gl @(negedge c); endclocking : gl; neither has items, and each instance counts the occurrences of @($global_clock). clk rises at 5/15/25/35 and falls at 10/20/30, so the expected output is unnamed ... 4 events / global clocking gl with end label ... 3 events。 Distinguishing observation: A tool that does not accept an omitted name or the end label of endclocking : gl fails to compile, and a tool that does not tie $global_clock to the declaration changes the counts.
 
 ### SV2023-14.14-EXTRACT-GLOBAL-MISSING-ERROR
 
-`14.14` / `error` / No mapped test
+`14.14` / `error` / Test mapped; execution unconfirmed
 
 If upward global lookup reaches a top-level block without finding a declaration, it is an error.
 
@@ -35251,10 +35289,11 @@ Acceptance criterion: If upward global lookup reaches a top-level block without 
 
 Normative role: `mandatory`。
 
+- [test_illegal_global_clock_without_declaration.sv](../tests/ch14/test_illegal_global_clock_without_declaration.sv): gc_user has no global clocking of its own but uses @($global_clock), which resolves to the global clocking gp of its parent gc_parent (a control that the standard allows). The top-level test module writes always @($global_clock) m++ without declaring a global clocking (line 39), and the test requires an error on that line. Distinguishing observation: A wrong implementation that gives no error when the search up the hierarchy finds nothing at the top level accepts the design and gives no error on line 39, so the negative test fails. A tool that does not search the parents also reports an error on line 27 (a comment notes that such a tool still passes on line 39).
 
 ### SV2023-14.14-EXTRACT-GLOBAL-NAME-OPTIONAL
 
-`14.14` / `normal` / No mapped test
+`14.14` / `normal` / Execution confirmed
 
 Global clocking may omit its name because $global_clock can identify it.
 
@@ -35262,6 +35301,7 @@ Acceptance criterion: Global clocking may omit its name because $global_clock ca
 
 Normative role: `permission`。
 
+- [test_global_clocking_unnamed_and_end_label.sv](../tests/ch14/test_global_clocking_unnamed_and_end_label.sv): gc_unnamed declares an unnamed global clocking @(posedge c); endclocking, and without using a name it waits for and counts that event with @($global_clock). clk rises at 5/15/25/35, so line 1 of the expected output is unnamed global clocking on posedge: 4 events. Distinguishing observation: A tool that requires a global clocking name fails to compile, and a tool that does not tie the unnamed declaration to $global_clock does not reach the count 4 (or gives an error).
 
 ### SV2023-14.14-EXTRACT-GLOBAL-NEAREST-INSTANCE
 
@@ -35349,7 +35389,7 @@ Normative role: `mandatory`。
 
 ### SV2023-14.16-EXTRACT-DRIVE-CYCLE-ONLY-INTRA
 
-`14.16` / `error` / No mapped test
+`14.16` / `error` / Test mapped; execution unconfirmed
 
 No ordinary delay/event intra-assignment timing syntax is allowed on a synchronous drive.
 
@@ -35357,6 +35397,8 @@ Acceptance criterion: No ordinary delay/event intra-assignment timing syntax is 
 
 Normative role: `mandatory`。
 
+- [test_illegal_clocking_drive_intra_delay.sv](../tests/ch14/test_illegal_clocking_drive_intra_delay.sv): the synchronous drive cb.y \<= #2 1 after @(cb) (line 29) has an ordinary intra-assignment delay, and the test requires an error on that line. Distinguishing observation: A wrong implementation that allows an intra-assignment delay other than a cycle delay on a synchronous drive accepts the design and gives no error on line 29, so the negative test fails.
+- [test_illegal_clocking_drive_intra_event.sv](../tests/ch14/test_illegal_clocking_drive_intra_event.sv): cb.z \<= ##1 1'b1 (a synchronous drive with a cycle delay) and the nonblocking assignment w \<= @(posedge clk) 1 to a variable that is not a clockvar are controls that the standard allows, and the synchronous drive cb.y \<= @(posedge clk) 1'b1 (line 38) is the violation. Distinguishing observation: A wrong implementation that allows an intra-assignment event control on a synchronous drive accepts the design and gives no error on line 38, so the negative test fails. A tool that also rejects the event control of the ordinary NBA reports an error on line 37, which does not match the specified line.
 
 ### SV2023-14.16-EXTRACT-DRIVE-EVENT-PLUS-SKEW
 
@@ -35372,7 +35414,7 @@ Normative role: `mandatory`。
 
 ### SV2023-14.16-EXTRACT-DRIVE-RHS-COMPATIBILITY
 
-`14.16` / `error` / No mapped test
+`14.16` / `error` / Execution confirmed
 
 The synchronous drive expression must be assignment compatible with the associated signal type.
 
@@ -35380,6 +35422,7 @@ Acceptance criterion: The synchronous drive expression must be assignment compat
 
 Normative role: `mandatory`。
 
+- [test_illegal_clocking_drive_incompatible_rhs.sv](../tests/ch14/test_illegal_clocking_drive_incompatible_rhs.sv): as controls that the standard allows, the test drives the 8-bit 8'hff and the 64-bit packed structure ps to the output clockvar of the 64-bit packed vector y, and makes cb.y \<= ##2 arr (line 40), which drives the unpacked array arr of 2 int elements, the violation. Distinguishing observation: A wrong implementation that does not check the assignment compatibility of the right-hand side of a synchronous drive accepts the design and gives no error on line 40, so the negative test fails. A tool that also rejects a width difference between integral types reports an error on line 38/39, which does not match the specified line.
 
 ### SV2023-14.16-EXTRACT-DRIVE-SKEW-ALWAYS
 
@@ -35394,7 +35437,7 @@ Normative role: `mandatory`。
 
 ### SV2023-14.16-EXTRACT-DRIVE-SNAPSHOT-NONBLOCKING
 
-`14.16` / `normal` / No mapped test
+`14.16` / `normal` / Execution confirmed
 
 A drive RHS evaluates immediately without blocking; update waits the target block requested cycles plus output skew.
 
@@ -35402,10 +35445,11 @@ Acceptance criterion: A drive RHS evaluates immediately without blocking; update
 
 Normative role: `mandatory`。
 
+- [test_clocking_drive_rhs_now_update_after_cycles_and_skew.sv](../tests/ch14/test_clocking_drive_rhs_now_update_after_cycles_and_skew.sv): at the event at time 5 the test executes cb.v \<= ##2 r while r=1, then sets r = 9 right after and prints 't=5 after the drives: r=9' at the same time. v takes the right-hand side value at execution, 1, at 27, which is the output skew 2 after the event 25 that comes 2 cycles later (v=0 at t=18/26, and v=1 at t=28). Distinguishing observation: A wrong implementation that blocks on the cycle delay prints the first line with t=25, one that evaluates the right-hand side when the drive matures prints v=9, and one that gets the cycle count or the skew wrong changes v in one of the t=18/26/28 lines.
 
 ### SV2023-14.16-EXTRACT-DRIVE-TARGET-NO-CONCAT
 
-`14.16` / `error` / No mapped test
+`14.16` / `error` / Test mapped; execution unconfirmed
 
 A drive target may be whole output clockvar or its bit/slice selection, but not a concatenation.
 
@@ -35413,6 +35457,7 @@ Acceptance criterion: A drive target may be whole output clockvar or its bit/sli
 
 Normative role: `mandatory`。
 
+- [test_illegal_clocking_drive_concatenation.sv](../tests/ch14/test_illegal_clocking_drive_concatenation.sv): cb.a \<= 4'h1 (a whole clockvar), cb.a\[0\] \<= 1'b1 (a bit-select) and cb.a\[3:2\] \<= 2'b10 (a slice) are controls that the standard allows, and the concatenation {cb.a, cb.b} \<= 5'h1f (line 35) is the violation. Distinguishing observation: A wrong implementation that allows a concatenation as the target of a synchronous drive accepts the design and gives no error on line 35, so the negative test fails. A tool that also rejects the bit-select or the slice reports an error on line 33/34, which does not match the specified line.
 
 ### SV2023-14.16-EXTRACT-FUTURE-RE-NBA
 
@@ -35464,7 +35509,7 @@ Normative role: `mandatory`。
 
 ### SV2023-14.16-EXTRACT-ONLY-SYNCHRONOUS-WRITE
 
-`14.16` / `error` / No mapped test
+`14.16` / `error` / Test mapped; execution unconfirmed
 
 Clockvars can be written only by synchronous drive syntax; continuous and procedural assign/force writes are illegal.
 
@@ -35472,6 +35517,10 @@ Acceptance criterion: Clockvars can be written only by synchronous drive syntax;
 
 Normative role: `mandatory`。
 
+- [test_illegal_clocking_blocking_write.sv](../tests/ch14/test_illegal_clocking_blocking_write.sv): after @(cb) the test writes the blocking assignment cb.y = 1 to an output clockvar (line 28) and requires an error on that line. Distinguishing observation: A wrong implementation that allows writes to a clockvar other than synchronous drives accepts the design and gives no error on line 28, so the negative test fails.
+- [test_illegal_clocking_clockvar_continuous_assign.sv](../tests/ch14/test_illegal_clocking_clockvar_continuous_assign.sv): the synchronous drive cb.y \<= 1'b0 and a write of the same form to the variable w, which belongs to no clocking block, are controls that the standard allows, and the continuous assignment assign cb.y = a (line 36) to the output clockvar cb.y itself is the violation. Distinguishing observation: A wrong implementation that allows writes to a clockvar other than synchronous drives accepts the design and gives no error on line 36, so the negative test fails.
+- [test_illegal_clocking_clockvar_procedural_assign.sv](../tests/ch14/test_illegal_clocking_clockvar_procedural_assign.sv): the synchronous drive cb.y \<= 1'b0 and a write of the same form to the variable w, which belongs to no clocking block, are controls that the standard allows, and the procedural continuous assignment assign cb.y = a (line 37) to the output clockvar cb.y itself is the violation. Distinguishing observation: A wrong implementation that allows writes to a clockvar other than synchronous drives accepts the design and gives no error on line 37, so the negative test fails.
+- [test_illegal_clocking_clockvar_force.sv](../tests/ch14/test_illegal_clocking_clockvar_force.sv): the synchronous drive cb.y \<= 1'b0 and a write of the same form to the variable w, which belongs to no clocking block, are controls that the standard allows, and force cb.y = a (line 36) on the output clockvar cb.y itself is the violation. Distinguishing observation: A wrong implementation that allows writes to a clockvar other than synchronous drives accepts the design and gives no error on line 36, so the negative test fails.
 
 ### SV2023-14.16-EXTRACT-PREFIX-CYCLE-DEFAULT
 
@@ -35487,7 +35536,7 @@ Normative role: `mandatory`。
 
 ### SV2023-14.16.1-EXTRACT-DRIVE-NOT-ORDINARY-NBA
 
-`14.16.1` / `normal` / No mapped test
+`14.16.1` / `normal` / Execution confirmed
 
 Synchronous drives share \<= spelling with NBA but reject ordinary intra-assignment delays and do not change an inout clockvar sampled input; reads retain its old sampled value.
 
@@ -35495,6 +35544,7 @@ Acceptance criterion: Synchronous drives share \<= spelling with NBA but reject 
 
 Normative role: `mandatory`。
 
+- [test_clocking_inout_drive_keeps_input.sv](../tests/ch14/test_clocking_inout_drive_keeps_input.sv): after @(cb) the test drives cb.data \<= 1 to the clockvar of inout data, reads cb.data at the same time and 1 unit later, and reads it again at the next event. The expected output is after drive: cb.data=0 / one unit later: data=1 cb.data=0 / next edge: cb.data=1; the drive changes the signal data, but the input side of the clockvar keeps the last sampled value. Distinguishing observation: A wrong implementation that treats the synchronous drive as an ordinary NBA and overwrites the value of the clockvar itself prints cb.data=1 when 1 unit has passed.
 
 ### SV2023-14.16.2-EXTRACT-ASSOCIATED-VARIABLE-PROCEDURAL
 
@@ -35546,7 +35596,7 @@ Normative role: `mandatory`。
 
 ### SV2023-14.16.2-EXTRACT-MULTIPLE-RE-NBA-GLITCH
 
-`14.16.2` / `normal` / No mapped test
+`14.16.2` / `normal` / Execution confirmed
 
 Different writes maturing in different Re-NBA iterations of one time step can cause visible same-step clock signal glitches.
 
@@ -35554,10 +35604,11 @@ Acceptance criterion: Different writes maturing in different Re-NBA iterations o
 
 Normative role: `mandatory`。
 
+- [test_clocking_drives_glitch_in_two_re_nba_iterations.sv](../tests/ch14/test_clocking_drives_glitch_in_two_re_nba_iterations.sv): as in the example of 14.16.2, with a default clocking cb whose output is bit a = 1, the test drives cb.a \<= 0 after ##1 and waits on @(x), and an always block that records the changes of a triggers x when a == 0, which makes cb.a \<= 1 be driven at the same time 5. The expected output is changes of a: 5:0 5:1 / t=6 a=1, and the glitch 1-\>0-\>1 happens in the same time step through 2 Re-NBA passes. Distinguishing observation: A wrong implementation that defers drive number 2 to the next clock event prints 'changes of a: 5:0' and t=6 a=0.
 
 ### SV2023-14.16.2-EXTRACT-NBA-DRIVE-ORDER-ARBITRARY
 
-`14.16.2` / `normal` / No mapped test
+`14.16.2` / `normal` / Execution confirmed
 
 A synchronous drive and ordinary NBA to the same variable in one time step have arbitrary relative write order.
 
@@ -35565,6 +35616,7 @@ Acceptance criterion: A synchronous drive and ordinary NBA to the same variable 
 
 Normative role: `mandatory`。
 
+- [test_clocking_drive_and_nba_same_step_both_take_place.sv](../tests/ch14/test_clocking_drive_and_nba_same_step_both_take_place.sv): at the event at time 5 the test executes the synchronous drive cb.v \<= 2 and an ordinary NBA v \<= 1 on the same variable v, and records the changes of v. In either order v changes 2 times at 5, both 1 and 2 are seen, and it ends as 1 or 2. The expected output is ... seen: 1 / ... seen: 1 / changes of v at 5: 2 / v ends with one of the two values: 1, which does not depend on the order. Distinguishing observation: A wrong implementation that drops one of the 2 writes in the same time step makes one of the flags 0 and the number of changes 1.
 
 ### SV2023-14.16.2-EXTRACT-NO-CONTINUOUS-PRIMITIVE-VARIABLE
 
@@ -67426,7 +67478,7 @@ Normative role: `definition`。
 
 ### SV2023-24.3-EXTRACT-DESIGN-SIGNALS
 
-`24.3` / `normal` / No mapped test
+`24.3` / `normal` / Execution confirmed
 
 Variables/nets declared in modules, interfaces, packages or unit scope are design signals.
 
@@ -67434,10 +67486,11 @@ Acceptance criterion: Variables/nets declared in modules, interfaces, packages o
 
 Normative role: `definition`。
 
+- [test_program_design_signals_in_package_unit_and_interface.sv](../tests/ch24/test_program_design_signals_in_package_unit_and_interface.sv): at t=5 a module changes the $unit variable dsu_unit_v, the package variable dsu_pkg::pkg_v, the interface variable bus.if_v and the module variable mod_v with blocking assignments, and at the same time writes stamp \<= 7 as an NBA. The 4 fork branches of the program each wait for their own change and copy stamp, and all 4 print 7. Then the module reads the package variable from_prog, written by the program, at t=6 and prints 9. Distinguishing observation: An implementation that does not treat one of these kinds of variables as a design signal, and runs a program statement resumed by its change in the Active region, prints 0 in that field. An implementation that treats a package variable as a program signal wrongly reports the reference from the module as an error, and there is no output.
 
 ### SV2023-24.3-EXTRACT-PROGRAM-CONTENTS-RESTRICTIONS
 
-`24.3` / `error` / No mapped test
+`24.3` / `error` / Test mapped; execution unconfirmed
 
 Programs may contain data/classes/subroutines/object instances and initial/final procedures, but cannot contain always, primitives/UDPs, or module/interface/program declarations or instances.
 
@@ -67445,6 +67498,15 @@ Acceptance criterion: Programs may contain data/classes/subroutines/object insta
 
 Normative role: `mandatory`。
 
+- [test_illegal_program_always.sv](../tests/ch24/test_illegal_program_always.sv): program test_illegal_program_always_p contains always @(posedge clk) n++; for it, the test checks the diagnostic on line 20. Distinguishing observation: An implementation that accepts an always procedure inside a program gives no diagnostic on line 20, and the negative test fails.
+- [test_illegal_program_module_instance.sv](../tests/ch24/test_illegal_program_module_instance.sv): the test checks the diagnostic on line 22 for the module instance u inside program test_illegal_program_module_instance_p. Distinguishing observation: An implementation that accepts a module instance inside a program gives no diagnostic on line 22, and the negative test fails.
+- [test_illegal_program_contains_gate_instance.sv](../tests/ch3/test_illegal_program_contains_gate_instance.sv): an and gate instance g_and is placed in a program that the standard otherwise allows, with variables, nets and an initial block, and the test checks the diagnostic on line 26. Distinguishing observation: An implementation that accepts a primitive instance inside a program gives no diagnostic on line 26, and the negative test fails.
+- [test_illegal_program_contains_interface_instance.sv](../tests/ch3/test_illegal_program_contains_interface_instance.sv): an interface that the standard allows the top module to instantiate is also instantiated inside a program (own_if), and the test checks the diagnostic on line 28. Distinguishing observation: An implementation that accepts an interface instance inside a program gives no diagnostic on line 28, and the negative test fails.
+- [test_illegal_program_contains_program_instance.sv](../tests/ch3/test_illegal_program_contains_program_instance.sv): a child program that a module may legally use is instantiated inside an outer program (nested), and the test checks the diagnostic on line 26. Distinguishing observation: An implementation that accepts a program instance inside a program gives no diagnostic on line 26, and the negative test fails.
+- [test_illegal_program_udp_instance.sv](../tests/ch24/test_illegal_program_udp_instance.sv): the combinational UDP pu_inv, which a module may legally instantiate, is also instantiated inside a program (u_prog), and the test checks the diagnostic on line 34. Distinguishing observation: An implementation that accepts a UDP instance inside a program gives no diagnostic on line 34, and the negative test fails.
+- [test_illegal_program_nested_module_declaration.sv](../tests/ch24/test_illegal_program_nested_module_declaration.sv): against a nested module declaration in a module (legal), the test checks the diagnostic on line 36 for the module declaration pnm_inner written in the body of program pnm_prog. Distinguishing observation: An implementation that accepts a module declaration inside a program gives no diagnostic on line 36, and the negative test fails.
+- [test_illegal_program_nested_interface_declaration.sv](../tests/ch24/test_illegal_program_nested_interface_declaration.sv): against an interface declaration and instance in a module (legal), the test checks the diagnostic on line 35 for the interface declaration pni_inner written in the body of program pni_prog. Distinguishing observation: An implementation that accepts an interface declaration inside a program gives no diagnostic on line 35, and the negative test fails.
+- [test_illegal_program_nested_program_declaration.sv](../tests/ch24/test_illegal_program_nested_program_declaration.sv): against the nested program pnp_ok in a module (legal), the test checks the diagnostic on line 35 for the program declaration pnp_inner written in the body of program pnp_outer. Distinguishing observation: An implementation that accepts a program declaration inside a program gives no diagnostic on line 35, and the negative test fails.
 
 ### SV2023-24.3-EXTRACT-PROGRAM-DESCENDANT-TERMINATION
 
@@ -67526,7 +67588,7 @@ Normative role: `mandatory`。
 
 ### SV2023-24.3-EXTRACT-PROGRAM-REFERENCE-RESTRICTIONS
 
-`24.3` / `error` / No mapped test
+`24.3` / `error` / Test mapped; execution unconfirmed
 
 Code outside every program cannot reference program signals; hierarchical references between named programs are legal, but anonymous programs cannot reference other program scopes hierarchically.
 
@@ -67534,6 +67596,8 @@ Acceptance criterion: Code outside every program cannot reference program signal
 
 Normative role: `mandatory`。
 
+- [test_illegal_program_signal_from_module.sv](../tests/ch24/test_illegal_program_signal_from_module.sv): a module's initial block reads a program variable through the hierarchical name p.count, and the test checks the diagnostic on line 27. Distinguishing observation: An implementation that allows a program signal to be referenced from outside the program gives no diagnostic on line 27, and the negative test fails.
+- [test_illegal_anonymous_program_hierarchical_reference.sv](../tests/ch24/test_illegal_anonymous_program_hierarchical_reference.sv): a function of an anonymous program references the variable level of a named program by a hierarchical name, and the test checks the diagnostic on line 21. Distinguishing observation: An implementation that allows a hierarchical reference from an anonymous program to another program scope gives no diagnostic on line 21, and the negative test fails.
 
 ### SV2023-24.3-EXTRACT-PROGRAM-SIGNALS
 
@@ -67584,7 +67648,7 @@ Normative role: `recommendation`。
 
 ### SV2023-24.3.1-EXTRACT-PROGRAM-ASSERTION-SCHEDULING
 
-`24.3.1` / `normal` / No mapped test
+`24.3.1` / `normal` / Test mapped; execution unconfirmed
 
 Program concurrent assertions retain Preponed sampling and Observed evaluation; a program-object clock causes an outer scheduling-loop iteration to Observed.
 
@@ -67592,6 +67656,8 @@ Acceptance criterion: Program concurrent assertions retain Preponed sampling and
 
 Normative role: `mandatory`。
 
+- [test_gen_cross_progassert_1_plain_edge_nba_posedge_positional_3.sv](../tests/gen/ch24/test_gen_cross_progassert_1_plain_edge_nba_posedge_positional_3.sv): the program and the module have the same assert property (@(posedge clk) (|ack)), and at t=8 the clock rises at the same time as p0.ack \<= 0 (NBA). Both the program side and the module side judge with the Preponed value ack=1 and print pass=1 acksum=1 at site0. Distinguishing observation: In an implementation that judges a concurrent assertion in a program with Reactive-side values or values after NBA, the site0 program line becomes fail=1 acksum=0 and disagrees with the module line.
+- [test_program_assertion_clocked_by_program_variable.sv](../tests/ch24/test_program_assertion_clocked_by_program_variable.sv): for the assertion a == 0 in a program, clocked by the program variable pclk, the program's initial block executes a = 1 and pclk = 1 in the same step at t=5, and a = 0 and pclk = 1 at t=15. The action block prints pass with sampled a=0 at t=5 and fail with sampled a=1 at t=15. Distinguishing observation: An implementation that does not return to Observed after the clock change in Reactive prints no line for that time, and one that judges with the changed values makes t=5 fail and t=15 pass.
 
 ### SV2023-24.3.1-EXTRACT-PROGRAM-NBA
 
@@ -67607,7 +67673,7 @@ Normative role: `mandatory`。
 
 ### SV2023-24.3.1-EXTRACT-PROGRAM-SCHEDULING
 
-`24.3.1` / `normal` / No mapped test
+`24.3.1` / `normal` / Execution confirmed
 
 Program constructs sensitive to design-signal changes, continuous assignments, initial procedures and delay resumptions are scheduled in Reactive.
 
@@ -67615,6 +67681,9 @@ Acceptance criterion: Program constructs sensitive to design-signal changes, con
 
 Normative role: `mandatory`。
 
+- [test_program_runs_in_reactive_region_set.sv](../tests/ch3/test_program_runs_in_reactive_region_set.sv): at time 0 a module schedules a \<= 1, and on that update an always block schedules b \<= a + 1. The program's initial block prints a=1 b=2, and the program statement resumed by posedge clk (a design signal) at t=5 prints q=1 after the always_ff update. Distinguishing observation: An implementation that runs the program's initial block and statements resumed by a design signal change in the Active region prints a=0 b=0 and q=0.
+- [test_program_reactive_sees_nba.sv](../tests/ch24/test_program_reactive_sees_nba.sv): a module writes a \<= 5 at time 0 and a \<= 6 at time 1 with NBA, and the program's initial block reads a at time 0 and after #1 and prints a=5 and a=6. Distinguishing observation: An implementation that runs the program's initial block and its resumption after a # delay in the Active region prints a=0 and a=5 from before the NBA.
+- [test_program_port_reactive.sv](../tests/ch24/test_program_port_reactive.sv): the program's assign pw2 = pw1 copies the design's dw1 to dw2. When r rises at 10, the module's display of dw1 and the display of q in NBA are followed by the display of dw2. Distinguishing observation: An implementation that runs the program's continuous assignment in the Active region changes dw2 before the NBA region, and 10: dw2 = 1 appears before 10: q = 1.
 
 ### SV2023-24.3.1-EXTRACT-PROGRAM-THREAD-INHERITANCE
 
@@ -67675,7 +67744,7 @@ Normative role: `permission`。
 
 ### SV2023-24.4-EXTRACT-PROGRAM-CLOCKING-RACE-ORDER
 
-`24.4` / `normal` / No mapped test
+`24.4` / `normal` / Execution confirmed
 
 Program Reactive execution follows design events including NBA-driven clocks; exclusive reads through clocking blocks clocked by design signals provide the stated race-insensitive read interaction, while sampling alone does not eliminate multi-clock ordering races.
 
@@ -67683,10 +67752,11 @@ Acceptance criterion: Program Reactive execution follows design events including
 
 Normative role: `mandatory`。
 
+- [test_program_stimulus_after_clock_edge.sv](../tests/ch24/test_program_stimulus_after_clock_edge.sv): the design's clock is generated by always #5 clk \<= ~clk (NBA), and DUT does q \<= d at posedge. After @(posedge clk) the program prints q and increments d, printing edge: q=1 through q=4. Distinguishing observation: An implementation that resumes the program before the design events of a clock driven with NBA reads q before its update, and its output starts with edge: q=0.
 
 ### SV2023-24.5-EXTRACT-PROGRAM-CALL-DIRECTION
 
-`24.5` / `error` / No mapped test
+`24.5` / `error` / Test mapped; execution unconfirmed
 
 Design modules cannot call program subroutines; programs may call other program or design-module subroutines, and called design tasks retain reactive-region scheduling.
 
@@ -67694,10 +67764,11 @@ Acceptance criterion: Design modules cannot call program subroutines; programs m
 
 Normative role: `mandatory`。
 
+- [test_illegal_module_calls_program_task.sv](../tests/ch24/test_illegal_module_calls_program_task.sv): a module's initial block calls the program task p.report(5), and the test checks the diagnostic on line 28. Distinguishing observation: An implementation that allows a design module to call a program subroutine gives no diagnostic on line 28, and the negative test fails.
 
 ### SV2023-24.6-EXTRACT-ANONYMOUS-SCOPE
 
-`24.6` / `error` / No mapped test
+`24.6` / `error` / Test mapped; execution unconfirmed
 
 Anonymous programs may appear in package/unit scope and add program-wide declarations without creating a new scope; names share the surrounding namespace and duplicate surrounding declarations are errors.
 
@@ -67705,10 +67776,11 @@ Acceptance criterion: Anonymous programs may appear in package/unit scope and ad
 
 Normative role: `mandatory`。
 
+- [test_illegal_anonymous_program_name_duplicates_package_item.sv](../tests/ch24/test_illegal_anonymous_program_name_duplicates_package_item.sv): an anonymous program in package apd_pkg declares the function apd_scale, and the same package declares a function of the same name again outside it. The test checks the diagnostic on line 33 (or on the paired line 28). Distinguishing observation: An implementation that assumes an anonymous program creates its own scope accepts the second declaration and gives a diagnostic on neither line 28 nor line 33.
 
 ### SV2023-24.6-EXTRACT-PROGRAM-WIDE-ACCESS
 
-`24.6` / `normal` / No mapped test
+`24.6` / `normal` / Execution confirmed
 
 Program definitions/instances form program-wide data/subroutine space accessible only to programs.
 
@@ -67716,6 +67788,7 @@ Acceptance criterion: Program definitions/instances form program-wide data/subro
 
 Normative role: `mandatory`。
 
+- [test_anonymous_program.sv](../tests/ch24/test_anonymous_program.sv): the program test_anonymous_program uses, by their simple names, the function ap_scale and the class ap_counter declared in an anonymous program of the compilation unit, and prints ap_scale(5) = 22, counter = 23. Distinguishing observation: An implementation that does not put the items of an anonymous program into the shared program name space cannot resolve the names and rejects the design, and there is no output.
 
 ### SV2023-24.7-EXTRACT-PROGRAM-EXIT
 
@@ -67780,7 +67853,7 @@ Normative role: `permission`。
 
 ### SV2023-25.2-EXTRACT-MODPORT-VIEW
 
-`25.2` / `normal` / No mapped test
+`25.2` / `normal` / Execution confirmed
 
 Modports specify directions from the connected module viewpoint and restrict subroutine use.
 
@@ -67788,6 +67861,7 @@ Acceptance criterion: Modports specify directions from the connected module view
 
 Normative role: `definition`。
 
+- [test_interface_abstract_methods_and_broadcast.sv](../tests/ch25/test_interface_abstract_methods_and_broadcast.sv): am_store, connected with modport store (export put, output value), writes value, and am_caller, connected with modport caller (import task put(...), import task tick(), input value, input mask), calls put and tick and prints 0: value=7 and 5: mask=11. Distinguishing observation: An implementation that reads modport directions from the interface's side instead of the module's, or that cannot handle the use of subroutines allowed by import/export, rejects this design or prints different values.
 
 ### SV2023-25.3-EXTRACT-ARRAY-INTERFACE-DEFPARAM
 
@@ -67858,7 +67932,7 @@ Normative role: `mandatory`。
 
 ### SV2023-25.3-EXTRACT-INTERFACE-MODULE-BOUNDARY
 
-`25.3` / `error` / No mapped test
+`25.3` / `error` / Test mapped; execution unconfirmed
 
 Modules may declare/instantiate interfaces, but interfaces cannot declare/instantiate modules; interfaces never instantiate implicitly.
 
@@ -67866,10 +67940,12 @@ Acceptance criterion: Modules may declare/instantiate interfaces, but interfaces
 
 Normative role: `mandatory`。
 
+- [test_illegal_interface_contains_module_instance.sv](../tests/ch25/test_illegal_interface_contains_module_instance.sv): where the top module instantiates an interface and a module and the interface icm_bus instantiates the nested interface icm_inner (both legal), the test checks the diagnostic on line 38 for the module instance u_leaf inside icm_bus. Distinguishing observation: An implementation that accepts a module instance inside an interface gives no diagnostic on line 38, and the negative test fails.
+- [test_illegal_interface_contains_module_declaration.sv](../tests/ch25/test_illegal_interface_contains_module_declaration.sv): against a nested interface in a module and a nested interface declaration in an interface (both legal), the test checks the diagnostic on line 32 for the module declaration icd_inner written in the body of the interface icd_bus. Distinguishing observation: An implementation that accepts a module declaration inside an interface gives no diagnostic on line 32, and the negative test fails.
 
 ### SV2023-25.3-EXTRACT-INTERFACE-NESTING-METHODS
 
-`25.3` / `normal` / No mapped test
+`25.3` / `normal` / Execution confirmed
 
 Interfaces may contain smaller interfaces and pass through ports; their subroutines may be fully defined or prototyped for definitions in modules.
 
@@ -67877,6 +67953,8 @@ Acceptance criterion: Interfaces may contain smaller interfaces and pass through
 
 Normative role: `permission`。
 
+- [test_interface_nested_program_and_interface.sv](../tests/ch25/test_interface_nested_program_and_interface.sv): the interface np_if declares a small interface np_inner and explicitly instantiates it as u_inner, and the top and the nested program read u_inner.k and print k=42. Distinguishing observation: An implementation in which an interface cannot contain a smaller interface rejects this design, and the value of k is not printed.
+- [test_interface_extern_and_generate_items.sv](../tests/ch25/test_interface_extern_and_generate_items.sv): ex_fn_bus has a fully defined function local_double and the prototype extern function int ext_add(input int x), and ex_fn_target, connected through modport fn, defines b.ext_add as x + 100. The interface's initial block computes 5 + 100 + 2 and prints fn result=107. Distinguishing observation: An implementation that does not bind the module's definition to the interface's prototype rejects the design or prints another value.
 
 ### SV2023-25.3-EXTRACT-INTERFACE-TIMEUNIT-FOOTNOTE
 
@@ -67953,7 +68031,7 @@ Normative role: `mandatory`。
 
 ### SV2023-25.4-EXTRACT-INTERFACE-EXTERNAL-PORTS
 
-`25.4` / `normal` / No mapped test
+`25.4` / `normal` / Execution confirmed
 
 Only nets/variables in an interface port list can be connected externally by name or position at instantiation; interface ports use module declaration syntax/semantics.
 
@@ -67961,6 +68039,7 @@ Acceptance criterion: Only nets/variables in an interface port list can be conne
 
 Normative role: `mandatory`。
 
+- [test_interface_value_sync.sv](../tests/ch25/test_interface_value_sync.sv): input logic clk in the port list of the interface data_bus is connected by position to the outside clk in the instantiation data_bus bus(clk). When clk is changed to 0 and then 1, bus.clk also becomes 0 and then 1, and the PASS line is printed. Distinguishing observation: An implementation that does not connect the interface's port to the outside leaves bus.clk at x and prints the FAIL line.
 
 ### SV2023-25.5-EXTRACT-MODPORT-BOTH-MATCH
 
@@ -67976,7 +68055,7 @@ Normative role: `mandatory`。
 
 ### SV2023-25.5-EXTRACT-MODPORT-DIRECTION
 
-`25.5` / `normal` / No mapped test
+`25.5` / `normal` / Execution confirmed
 
 Modport directions restrict interface access and are interpreted as viewed inside the connected module.
 
@@ -67984,6 +68063,7 @@ Acceptance criterion: Modport directions restrict interface access and are inter
 
 Normative role: `mandatory`。
 
+- [test_modport_use.sv](../tests/ch25/test_modport_use.sv): the sender on modport producer (output data, valid, input ready) writes data and valid, and the receiver on modport consumer (input data, valid, output ready) writes ready. The top checks them and prints Modport use tests: 4/4 passed. Distinguishing observation: An implementation that reads modport directions from the interface's side rejects the writes to signals declared output as writes to inputs, and there is no output.
 
 ### SV2023-25.5-EXTRACT-MODPORT-IN-ACTUAL
 
@@ -68036,7 +68116,7 @@ Normative role: `mandatory`。
 
 ### SV2023-25.5.4-EXTRACT-MODPORT-EXPRESSION
 
-`25.5.4` / `normal` / No mapped test
+`25.5.4` / `normal` / Test mapped; execution unconfirmed
 
 A modport may explicitly name interface array/structure elements, concatenations or assignment patterns; the external name is visible only through that modport connection.
 
@@ -68044,10 +68124,12 @@ Acceptance criterion: A modport may explicitly name interface array/structure el
 
 Normative role: `mandatory`。
 
+- [test_modport_expression_slices_read_write.sv](../tests/ch25/test_modport_expression_slices_read_write.sv): through modport split(output .low(data\[3:0\]), input .high(data\[7:4\])) a module writes 6 to bus.low and reads bus.high. data=a6 observed=a is printed. Distinguishing observation: An implementation that does not bind modport expressions as elements rejects the design or writes another range, so data does not become a6.
+- [test_modport_expression_element_concatenation_pattern.sv](../tests/ch25/test_modport_expression_element_concatenation_pattern.sv): modport user has .elem(arr\[2\]), .field(st.lo), .cat({a, b}) and .pat(pair_t'{b, a}), and mxe_user writes 9 to field and 8'h3c to cat and reads elem and pat. st=09 a=3 b=c elem=7e pat=c3 is printed. Distinguishing observation: An implementation that cannot handle modport expressions that are a concatenation, a typed assignment pattern, a structure member or an unpacked array element rejects the design or changes the values of st, a, b and pat.
 
 ### SV2023-25.5.4-EXTRACT-MODPORT-EXPRESSION-TYPE
 
-`25.5.4` / `error` / No mapped test
+`25.5.4` / `error` / Test mapped; execution unconfirmed
 
 A modport expression is self-determined, not assignment-like, must be legal for the port kind, and may be absent for no internal connection.
 
@@ -68055,10 +68137,11 @@ Acceptance criterion: A modport expression is self-determined, not assignment-li
 
 Normative role: `mandatory`。
 
+- [test_illegal_modport_output_expression.sv](../tests/ch25/test_illegal_modport_output_expression.sv): the test gives an output port of modport mp the expression .P(r + 1), which is not an lvalue, and checks the diagnostic on line 20. Distinguishing observation: An implementation that does not check that a modport expression is legal for the kind of port gives no diagnostic on line 20, and the negative test fails.
 
 ### SV2023-25.5.4-EXTRACT-MODPORT-NAMESPACE
 
-`25.5.4` / `error` / No mapped test
+`25.5.4` / `error` / Execution confirmed
 
 Each modport list has its own port-identifier namespace; a simple item names both a member and external port, and duplicate external definitions are forbidden.
 
@@ -68066,6 +68149,7 @@ Acceptance criterion: Each modport list has its own port-identifier namespace; a
 
 Normative role: `mandatory`。
 
+- [test_illegal_modport_duplicate_port.sv](../tests/ch25/test_illegal_modport_duplicate_port.sv): one modport list mp defines the port identifier P twice, as .P(r\[3:0\]) and .P(r\[7:4\]), and the test checks the diagnostic on line 21. Distinguishing observation: An implementation that allows duplicate port names in a modport list gives no diagnostic on line 21, and the negative test fails.
 
 ### SV2023-25.5.5-EXTRACT-MODPORT-CLOCKING
 
@@ -68152,7 +68236,7 @@ Normative role: `mandatory`。
 
 ### SV2023-25.7-EXTRACT-MODPORT-PROTOTYPE-DEFAULT
 
-`25.7` / `normal` / No mapped test
+`25.7` / `normal` / Test mapped; execution unconfirmed
 
 A call requiring a default must have it in the prototype; if declaration and prototype defaults differ, the prototype default wins.
 
@@ -68160,6 +68244,7 @@ Acceptance criterion: A call requiring a default must have it in the prototype; 
 
 Normative role: `mandatory`。
 
+- [test_modport_prototype_default_overrides_declaration.sv](../tests/ch25/test_modport_prototype_default_overrides_declaration.sv): the interface function scale has the default k = 3 in its declaration and k = 10 in the prototype of modport pro, and the task add has v = 1 in its declaration and v = 100 in the prototype of pro. Through pro, p.scale(4) gives 40 and p.add() makes total=100; through the instance, bus.scale(4) gives 12 and bus.add() makes total=101. Distinguishing observation: An implementation that uses the default value of the declaration for a call through the modport prints 12 and total=1 on the through pro line.
 
 ### SV2023-25.7-EXTRACT-MODPORT-PROTOTYPE-MATCH
 
@@ -68328,7 +68413,7 @@ Normative role: `mandatory`。
 
 ### SV2023-25.9-EXTRACT-VIRTUAL-DECLARATION-LOCATIONS
 
-`25.9` / `error` / No mapped test
+`25.9` / `error` / Test mapped; execution unconfirmed
 
 Virtual interfaces cannot be ports, interface items or union members.
 
@@ -68336,6 +68421,9 @@ Acceptance criterion: Virtual interfaces cannot be ports, interface items or uni
 
 Normative role: `mandatory`。
 
+- [test_illegal_virtual_interface_as_interface_item.sv](../tests/ch25/test_illegal_virtual_interface_as_interface_item.sv): against a virtual interface variable of a module (legal), the test checks the diagnostic on line 28, which declares virtual vpi_inner inner as an item of the interface vpi_outer. Distinguishing observation: An implementation that accepts a virtual interface as an interface item gives no diagnostic on line 28, and the negative test fails.
+- [test_illegal_virtual_interface_as_union_member.sv](../tests/ch25/test_illegal_virtual_interface_as_union_member.sv): against a virtual interface as a structure member (legal), the test checks the diagnostic on line 33 for the member virtual vpu_if vi of the union vpu_union_t. Distinguishing observation: An implementation that accepts a virtual interface as a union member gives no diagnostic on line 33, and the negative test fails.
+- [test_illegal_virtual_interface_as_port.sv](../tests/ch25/test_illegal_virtual_interface_as_port.sv): against an interface port and a task that takes a virtual interface as an argument (both legal), the test checks the diagnostic on line 34 for the port input virtual vap_if v of module vap_user. Distinguishing observation: An implementation that accepts a port of a virtual interface type gives no diagnostic on line 34, and the negative test fails.
 
 ### SV2023-25.9-EXTRACT-VIRTUAL-EXTERNAL-DEFPARAM
 
@@ -80733,7 +80821,7 @@ Normative role: `mandatory`。
 
 ### SV2023-33.4.1-EXTRACT-CONFIG-GRAMMAR
 
-`33.4.1` / `normal` / No mapped test
+`33.4.1` / `normal` / Test mapped; execution unconfirmed
 
 Config syntax has a name, localparams, one design statement, default/instance/cell selection with liblist/use clauses and endconfig optional label; use permits cell binding and named parameter assignments with optional config suffix.
 
@@ -80741,6 +80829,7 @@ Acceptance criterion: Config syntax has a name, localparams, one design statemen
 
 Normative role: `definition`。
 
+- [test_config_declaration_grammar_forms.sv](../tests/ch33/test_config_declaration_grammar_forms.sv): config cf_cfg has a localparam, 1 design statement, default/instance/cell selections with liblist/use expansions, a use of a cell with a library, and endconfig : cf_cfg, and the expected output u1=0b u2=0a u3=1 shows that a1 is bound to cf_b, a2 stays cf_a with an empty liblist, and p3 is bound to work.cf_p with the default W=1. Distinguishing observation: An implementation that does not accept one of the syntax forms ends with an error, and one that skips the config prints u1=0a.
 
 ### SV2023-33.4.1.1-EXTRACT-DESIGN-BEFORE-RULES
 
@@ -80768,7 +80857,7 @@ Normative role: `mandatory`。
 
 ### SV2023-33.4.1.1-EXTRACT-ONE-DESIGN-STATEMENT
 
-`33.4.1.1` / `error` / No mapped test
+`33.4.1.1` / `error` / Test mapped; execution unconfirmed
 
 A config has exactly one design statement listing one or more top-level cells, which cannot themselves be configurations; design/config names may coincide.
 
@@ -80776,6 +80865,8 @@ Acceptance criterion: A config has exactly one design statement listing one or m
 
 Normative role: `mandatory`。
 
+- [test_illegal_config_two_design_statements.sv](../tests/ch33/test_illegal_config_two_design_statements.sv): config cfgd2 has design statement number 2, `design work.cfgd2_b;`, on line 27, and :expected_stderr_regex: requires an error on line 27. Distinguishing observation: An implementation that misses the rule allowing only 1 design statement accepts this config and gives no error on line 27, so it fails.
+- [test_illegal_config_design_is_config.sv](../tests/ch33/test_illegal_config_design_is_config.sv): the design statement of config cfgdc on line 32 names config cfgdc_inner, and :expected_stderr_regex: requires an error on line 32. Distinguishing observation: An implementation that misses the rule that a cell of a design statement shall not be a config expands cfgdc_top through cfgdc_inner and gives no error.
 
 ### SV2023-33.4.1.2-EXTRACT-CONFIG-DEFAULT
 
@@ -80816,7 +80907,7 @@ Normative role: `mandatory`。
 
 ### SV2023-33.4.1.5-EXTRACT-CONFIG-EMPTY-LIBLIST
 
-`33.4.1.5` / `boundary` / No mapped test
+`33.4.1.5` / `boundary` / Execution confirmed
 
 No selected liblist or an empty selected list defaults to the parent cell library alone.
 
@@ -80824,10 +80915,11 @@ Acceptance criterion: No selected liblist or an empty selected list defaults to 
 
 Normative role: `mandatory`。
 
+- [test_config_empty_liblist_parent_library.sv](../tests/ch33/test_config_empty_liblist_parent_library.sv): the default liblist names only the library elp_none, which has no cells, and an instance clause selects an empty liblist for m. The expected output m: work.elp_mid and m.leaf: work.elp_leaf shows that the empty liblist results in a search of only work, the library of the parent cell, and that m.leaf inherits it too. Distinguishing observation: An implementation that reads the empty liblist as "search no library", or that falls back to the default liblist, cannot find the cell of m and ends with an error.
 
 ### SV2023-33.4.1.5-EXTRACT-CONFIG-LIBLIST
 
-`33.4.1.5` / `normal` / No mapped test
+`33.4.1.5` / `normal` / Execution confirmed
 
 Liblist is an ordered search list inherited down hierarchy; absent an applicable explicit binding, search it in specified order.
 
@@ -80835,6 +80927,7 @@ Acceptance criterion: Liblist is an ordered search list inherited down hierarchy
 
 Normative role: `mandatory`。
 
+- [test_config_liblist_inherited_order.sv](../tests/ch33/test_config_liblist_inherited_order.sv): the default liblist names only lio_none, which has no cells, and an instance clause gives m the liblist lio_none work. The expected output m: work.lio_mid and m.leaf: work.lio_leaf shows that the liblist is searched in order and the cell is found in work, entry 2, and that m.leaf inherits the liblist of m, not the default. Distinguishing observation: An implementation that searches only the first library, or that applies the default liblist to the children, cannot find the cell and ends with an error.
 
 ### SV2023-33.4.1.6-EXTRACT-CONFIG-USE-BINDING
 
@@ -80873,7 +80966,7 @@ Normative role: `mandatory`。
 
 ### SV2023-33.4.1.6-EXTRACT-USE-NO-LIBLIST-CHANGE
 
-`33.4.1.6` / `normal` / No mapped test
+`33.4.1.6` / `normal` / Execution confirmed
 
 Use does not change the current liblist; separate applicable rules may specify binding and library list.
 
@@ -80881,6 +80974,7 @@ Acceptance criterion: Use does not change the current liblist; separate applicab
 
 Normative role: `mandatory`。
 
+- [test_config_use_and_liblist_rules.sv](../tests/ch33/test_config_use_and_liblist_rules.sv): m1 and m2 each get a use rule and a liblist work rule, in opposite orders, and the default liblist names only ulr_none, which has no cells. The expected output m1=b1 m2=b1 shows that the use bound both instances to ulr_mid_b and that the leaf was found in work through the other liblist rule. Distinguishing observation: In an implementation where a later rule replaces an earlier one, m1 becomes the a1 of ulr_mid_a, or the leaf of m2 is not found in ulr_none and an error results.
 
 ### SV2023-33.4.2-EXTRACT-HIERARCHICAL-CONFIG
 
@@ -80956,7 +81050,7 @@ Normative role: `permission`。
 
 ### SV2023-33.4.3-EXTRACT-CONFIG-RESET-GRAMMAR-TEXT
 
-`33.4.3` / `boundary` / No mapped test
+`33.4.3` / `boundary` / Execution confirmed
 
 In a configuration, use #(.P()) resets parameter P of that instance to the default declared in its module, and use #() with an empty override list resets every parameter of that instance to the value it had before any override. Positional parameter notation remains forbidden in configurations.
 
@@ -80964,10 +81058,11 @@ Acceptance criterion: For adder #(parameter ID = "id", W = 8, D = 512) instantia
 
 Normative role: `mandatory`。
 
+- [test_config_parameter_override.sv](../tests/ch33/test_config_parameter_override.sv): `use #();` is given to a3, instantiated with #(.W(10), .D(20)), and `use #(.W());` to a4, instantiated with #(.W(11), .D(21)), and the expected output is a3: W=8 D=4 and a4: W=8 D=21. Distinguishing observation: If an empty #() does not return all parameters to their declared defaults, the a3 line changes, and if named empty parentheses do not return only W, the a4 line changes.
 
 ### SV2023-33.4.3-EXTRACT-IDENTIFIER-SCOPE
 
-`33.4.3` / `error` / No mapped test
+`33.4.3` / `error` / Test mapped; execution unconfirmed
 
 Other parameter identifiers resolve starting in the configured instance parent scope; a hierarchical identifier must be the sole expression term.
 
@@ -80975,6 +81070,7 @@ Acceptance criterion: Other parameter identifiers resolve starting in the config
 
 Normative role: `mandatory`。
 
+- [test_illegal_config_hierarchical_name_in_expression.sv](../tests/ch33/test_illegal_config_hierarchical_name_in_expression.sv): the override `#(.W(cfghn_top.N + 1))` on line 32 adds another term to a hierarchical name, and :expected_stderr_regex: requires an error on line 32. Distinguishing observation: An implementation that misses the rule restricting a hierarchical name to be the only term of the expression accepts this value as W=7 and gives no error.
 
 ### SV2023-33.4.3-EXTRACT-INDEX-OPERANDS
 
@@ -80990,7 +81086,7 @@ Normative role: `mandatory`。
 
 ### SV2023-33.4.3-EXTRACT-LOCALPARAM-LITERAL
 
-`33.4.3` / `error` / No mapped test
+`33.4.3` / `error` / Execution confirmed
 
 Configuration localparams require an assigned literal value.
 
@@ -80998,6 +81094,7 @@ Acceptance criterion: Configuration localparams require an assigned literal valu
 
 Normative role: `mandatory`。
 
+- [test_illegal_config_localparam_not_literal.sv](../tests/ch33/test_illegal_config_localparam_not_literal.sv): `localparam S = 3 + 4;` on line 29 of the config gives a localparam an expression that is not a literal, and :expected_stderr_regex: requires an error on line 29. Distinguishing observation: An implementation that misses the rule restricting a localparam of a config to literals accepts it as S=7 and gives no error.
 
 ### SV2023-33.4.3-EXTRACT-NO-GENERATED-ARRAY-PATH
 
@@ -81038,7 +81135,7 @@ Normative role: `mandatory`。
 
 ### SV2023-33.4.3-EXTRACT-PARENT-BIND-VISIBILITY
 
-`33.4.3` / `error` / No mapped test
+`33.4.3` / `error` / Test mapped; execution unconfirmed
 
 An identifier binding in that parent must be legal in a bind statement.
 
@@ -81046,6 +81143,7 @@ Acceptance criterion: An identifier binding in that parent must be legal in a bi
 
 Normative role: `mandatory`。
 
+- [test_illegal_config_parameter_wildcard_import.sv](../tests/ch33/test_illegal_config_parameter_wildcard_import.sv): cpw_top only imports cpw_pkg with * and does not reference PKG_W, and the override `#(.W(PKG_W))` on line 47 uses a name that is only a wildcard candidate in the parent scope. :expected_stderr_regex: requires an error on line 47, and the hierarchical name cpw_top.TOP_W on line 46 (a parameter declared in the parent) is a control that the standard allows. Distinguishing observation: An implementation that misses the rule restricting the override to identifiers that a bind statement could name imports PKG_W, accepts the override as W=5, and gives no error on line 47.
 
 ### SV2023-33.5-EXTRACT-CONFIG-PRECOMPILED-SUPPORT
 
@@ -81104,7 +81202,7 @@ Normative role: `mandatory`。
 
 ### SV2023-33.5.4-EXTRACT-CONFIG-COMMAND-LINE
 
-`33.5.4` / `normal` / No mapped test
+`33.5.4` / `normal` / Execution confirmed
 
 Supported workflows may select explicit config or default mapping; a selected config design statement determines tops despite other uninstantiated cells, and separate-compilation use requires the config itself precompiled.
 
@@ -81112,6 +81210,7 @@ Acceptance criterion: Supported workflows may select explicit config or default 
 
 Normative role: `mandatory`。
 
+- [test_config_design_statement_selects_top.sv](../tests/ch33/test_config_design_statement_selects_top.sv): cds_stray is not instantiated anywhere, but since the design statement of config cds names only the test module, the expected output is only 1 line, the one from top:. Distinguishing observation: An implementation that does not take the top level from the design statement and also makes uninstantiated cells top-level prints an extra cds_stray elaborated.
 
 ### SV2023-33.6.1-EXTRACT-NO-CONFIG-LIBRARY-ORDER
 
@@ -113443,7 +113542,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.2.1-EXTRACT-COMMON-COVERAGE-API
 
-`40.2.1` / `normal` / No mapped test
+`40.2.1` / `normal` / Execution confirmed
 
 Provide a common coverage interface across types, extend it without breaking existing usage, and support subhierarchy queries without enumerating every instance.
 
@@ -113451,10 +113550,11 @@ Acceptance criterion: Provide a common coverage interface across types, extend i
 
 Normative role: `mandatory`。
 
+- [test_coverage_api_minimum_types.sv](../tests/ch40/test_coverage_api_minimum_types.sv): for each of the 4 coverage types the test makes the same call $coverage_control(\`SV_COV_CHECK, type, \`SV_COV_HIER, u), queries the subhierarchy without listing the l below u, and prints accepted on all 4 lines. Distinguishing observation: An implementation that requires a different way of calling for each type, or that does not accept a query of a subhierarchy, prints a line saying an error.
 
 ### SV2023-40.2.1-EXTRACT-REQUIRED-ASSERTION
 
-`40.2.1` / `normal` / No mapped test
+`40.2.1` / `normal` / Execution confirmed
 
 The coverage API must support assertion coverage at minimum.
 
@@ -113462,10 +113562,11 @@ Acceptance criterion: The coverage API must support assertion coverage at minimu
 
 Normative role: `mandatory`。
 
+- [test_coverage_api_minimum_types.sv](../tests/ch40/test_coverage_api_minimum_types.sv): for the assertion type the test calls $coverage_control(`SV_COV_CHECK, …, `SV_COV_HIER, u) and prints that the return value is not SV_COV_ERROR as "assertion: check of the subhierarchy is accepted". Distinguishing observation: An implementation whose API does not handle this type returns SV_COV_ERROR and prints an error.
 
 ### SV2023-40.2.1-EXTRACT-REQUIRED-FSM-STATE
 
-`40.2.1` / `normal` / No mapped test
+`40.2.1` / `normal` / Execution confirmed
 
 The coverage API must support FSM state coverage at minimum.
 
@@ -113473,6 +113574,7 @@ Acceptance criterion: The coverage API must support FSM state coverage at minimu
 
 Normative role: `mandatory`。
 
+- [test_coverage_api_minimum_types.sv](../tests/ch40/test_coverage_api_minimum_types.sv): for the FSM state type the test calls $coverage_control(`SV_COV_CHECK, …, `SV_COV_HIER, u) and prints that the return value is not SV_COV_ERROR as "FSM state: check of the subhierarchy is accepted". Distinguishing observation: An implementation whose API does not handle this type returns SV_COV_ERROR and prints an error.
 
 ### SV2023-40.2.1-EXTRACT-REQUIRED-FSM-TRANSITION
 
@@ -113487,7 +113589,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.2.1-EXTRACT-REQUIRED-STATEMENT
 
-`40.2.1` / `normal` / No mapped test
+`40.2.1` / `normal` / Execution confirmed
 
 The coverage API must support statement coverage at minimum.
 
@@ -113495,10 +113597,11 @@ Acceptance criterion: The coverage API must support statement coverage at minimu
 
 Normative role: `mandatory`。
 
+- [test_coverage_api_minimum_types.sv](../tests/ch40/test_coverage_api_minimum_types.sv): for the statement type the test calls $coverage_control(`SV_COV_CHECK, …, `SV_COV_HIER, u) and prints that the return value is not SV_COV_ERROR as "statement: check of the subhierarchy is accepted". Distinguishing observation: An implementation whose API does not handle this type returns SV_COV_ERROR and prints an error.
 
 ### SV2023-40.2.1-EXTRACT-REQUIRED-TOGGLE
 
-`40.2.1` / `normal` / No mapped test
+`40.2.1` / `normal` / Execution confirmed
 
 The coverage API must support toggle coverage at minimum.
 
@@ -113506,10 +113609,11 @@ Acceptance criterion: The coverage API must support toggle coverage at minimum.
 
 Normative role: `mandatory`。
 
+- [test_coverage_api_minimum_types.sv](../tests/ch40/test_coverage_api_minimum_types.sv): for the toggle type the test calls $coverage_control(`SV_COV_CHECK, …, `SV_COV_HIER, u) and prints that the return value is not SV_COV_ERROR as "toggle: check of the subhierarchy is accepted". Distinguishing observation: An implementation whose API does not handle this type returns SV_COV_ERROR and prints an error.
 
 ### SV2023-40.2.2-EXTRACT-ASSERTION-COVERAGE-DEFINITION
 
-`40.2.2` / `normal` / No mapped test
+`40.2.2` / `normal` / Test mapped; execution unconfirmed
 
 Assertion coverage records whether an assertion has at least one success, with implementation queries able to give attempts, success/failure counts and failure coverage.
 
@@ -113517,10 +113621,11 @@ Acceptance criterion: Assertion coverage records whether an assertion has at lea
 
 Normative role: `definition`。
 
+- [test_coverage_assertion_success_counts.sv](../tests/ch40/test_coverage_assertion_success_counts.sv): of the 3 assertions of instance u, only a_pass succeeds (a_fail fails 4 times and a_never is never attempted). If the start of assertion coverage is OK, the test prints yes for the maximum 3, the current value 0 before the first edge and the current value 1 at time 40. Distinguishing observation: An implementation that counts attempts treats a_fail as covered too and returns 2, one that counts successes returns 4, and the only the assertion that succeeded line becomes no.
 
 ### SV2023-40.2.2-EXTRACT-COVERAGE-AGGREGATION
 
-`40.2.2` / `normal` / No mapped test
+`40.2.2` / `normal` / Execution confirmed
 
 Coverage over an instance/block is the sum of its contained coverage primitives.
 
@@ -113528,10 +113633,11 @@ Acceptance criterion: Coverage over an instance/block is the sum of its containe
 
 Normative role: `mandatory`。
 
+- [test_coverage_scope_sums.sv](../tests/ch40/test_coverage_scope_sums.sv): for the maximum of 4 types and the current value of statement/toggle, the test prints yes when the value for the definition name is the sum of u1 and u2, the hierarchy of u1 gives the sum of u1 and u1.in, and the top hierarchy gives the sum of top and the 2 hierarchies. Distinguishing observation: In an implementation where the value of an instance or a hierarchy is not the sum over the primitives it contains, one of the lines becomes no.
 
 ### SV2023-40.2.2-EXTRACT-FSM-COVERAGE-DEFINITION
 
-`40.2.2` / `normal` / No mapped test
+`40.2.2` / `normal` / Execution confirmed
 
 FSM coverage counts reached states; automatic FSM extraction is not required and pragmas provide a standard forced-extraction mechanism.
 
@@ -113539,10 +113645,11 @@ Acceptance criterion: FSM coverage counts reached states; automatic FSM extracti
 
 Normative role: `definition`。
 
+- [test_coverage_fsm_pragma_states.sv](../tests/ch40/test_coverage_fsm_pragma_states.sv): for the 3 FSM named by pragmas (4 + 3 + 3 states), if the start of FSM coverage is OK, the test prints yes when the maximum is 10, the current value at time 20 is below it, and the current value at time 40, when all states have been reached, equals the maximum. Distinguishing observation: In an implementation that does not count the states reached, one of the lines for times 20 and 40 becomes no.
 
 ### SV2023-40.2.2-EXTRACT-STATEMENT-COVERAGE-DEFINITION
 
-`40.2.2` / `normal` / No mapped test
+`40.2.2` / `normal` / Test mapped; execution unconfirmed
 
 A statement is covered after executing at least once; implementation queries may count executions, with statement/block granularity controlled by query.
 
@@ -113550,10 +113657,11 @@ Acceptance criterion: A statement is covered after executing at least once; impl
 
 Normative role: `definition`。
 
+- [test_coverage_statement_executed_once.sv](../tests/ch40/test_coverage_statement_executed_once.sv): the only statements of instance u are the if of the task step and its 2 branches. If the check of statement coverage is OK, the test prints yes when the value is 0 before the calls, greater than 0 and below the maximum after step(1), unchanged when step(1) is repeated, and equal to the maximum after step(0). Distinguishing observation: In an implementation that counts executions, the repetition line becomes no, and in one that treats the else branch that has not run as covered too, the then-branch line becomes no.
 
 ### SV2023-40.2.2-EXTRACT-TOGGLE-COVERAGE-DEFINITION
 
-`40.2.2` / `normal` / No mapped test
+`40.2.2` / `normal` / Test mapped; execution unconfirmed
 
 A signal bit is fully toggle-covered after both 0 and 1 values have been seen; partial coverage/toggle counts may be queried by implementations.
 
@@ -113561,6 +113669,7 @@ Acceptance criterion: A signal bit is fully toggle-covered after both 0 and 1 va
 
 Normative role: `definition`。
 
+- [test_coverage_toggle_both_values.sv](../tests/ch40/test_coverage_toggle_both_values.sv): of t\[3:0\], the only signal of u, only bits 0 and 1 change 0 → 1 → 0. If the check of toggle coverage is OK, the test prints yes for the maximum 4, 0 before any change, 2 after 2 bits change, and still 2 after bit 0 changes again. Distinguishing observation: An implementation that counts value changes returns 4 or 6, and the 2 bits and adds nothing lines become no.
 
 ### SV2023-40.3.1-EXTRACT-CONSTANT-SV-COV-ASSERTION
 
@@ -113756,7 +113865,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.3.2.1-EXTRACT-CONTROL-RESULTS
 
-`40.3.2.1` / `normal` / No mapped test
+`40.3.2.1` / `normal` / Execution confirmed
 
 SV_COV_OK means full availability for check or complete success for other actions; SV_COV_ERROR means failure with no effect. Start/check can return NOCOV for no availability or PARTIAL for partial availability.
 
@@ -113764,6 +113873,7 @@ Acceptance criterion: SV_COV_OK means full availability for check or complete su
 
 Normative role: `mandatory`。
 
+- [test_coverage_control_results.sv](../tests/ch40/test_coverage_control_results.sv): for each of the 4 types the test prints that check is one of OK/NOCOV/PARTIAL, start gives the same value as check, stop and reset give OK, and check of a module name that does not exist gives ERROR. Distinguishing observation: An implementation that returns a value not in Table 40-1 for check or start, returns something other than OK for a successful stop/reset, or does not return ERROR for wrong arguments prints a wrong line.
 
 ### SV2023-40.3.2.1-EXTRACT-COVERAGE-CHECK
 
@@ -113899,7 +114009,7 @@ Normative role: `definition`。
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-OK
 
-`40.3.2.1` / `normal` / No mapped test
+`40.3.2.1` / `normal` / Test mapped; execution unconfirmed
 
 Table 40-1 maps SV_COV_CHECK / SV_COV_OK to full availability; not-applicable cells do not prescribe that return for the action.
 
@@ -113907,10 +114017,11 @@ Acceptance criterion: Table 40-1 maps SV_COV_CHECK / SV_COV_OK to full availabil
 
 Normative role: `definition`。
 
+- [test_coverage_check_combines_parts.sv](../tests/ch40/test_coverage_check_combines_parts.sv): the top hierarchy is divided into 3 disjoint parts, the top instance alone (MODULE), the hierarchy of u1 and the hierarchy of u2, and each part has signals, statements and assertions. For each of toggle, statement and assertion, the test prints yes when the check of the whole hierarchy agrees with the rule "OK if all parts are OK, NOCOV if all parts are NOCOV, otherwise PARTIAL". Distinguishing observation: In an implementation that returns OK for the whole hierarchy although some parts have no coverage, the agrees line becomes no.
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-PARTIAL
 
-`40.3.2.1` / `normal` / No mapped test
+`40.3.2.1` / `normal` / Test mapped; execution unconfirmed
 
 Table 40-1 maps SV_COV_CHECK / SV_COV_PARTIAL to partial coverage; not-applicable cells do not prescribe that return for the action.
 
@@ -113918,6 +114029,7 @@ Acceptance criterion: Table 40-1 maps SV_COV_CHECK / SV_COV_PARTIAL to partial c
 
 Normative role: `definition`。
 
+- [test_coverage_check_combines_parts.sv](../tests/ch40/test_coverage_check_combines_parts.sv): the test combines the checks of 3 disjoint parts (the top instance alone, the hierarchy of u1 and the hierarchy of u2), and for each of toggle, statement and assertion prints yes on the agrees line when the check of the whole hierarchy is PARTIAL while the parts are neither all OK nor all NOCOV. Distinguishing observation: In an implementation that returns OK or NOCOV for a hierarchy with coverage in only some parts, or PARTIAL when all parts are OK, the agrees line becomes no.
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-RESET-SV-COV-ERROR
 
@@ -113981,7 +114093,7 @@ Normative role: `definition`。
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-START-SV-COV-NOCOV
 
-`40.3.2.1` / `normal` / No mapped test
+`40.3.2.1` / `normal` / Execution confirmed
 
 Table 40-1 maps SV_COV_START / SV_COV_NOCOV to no coverage; not-applicable cells do not prescribe that return for the action.
 
@@ -113989,6 +114101,7 @@ Acceptance criterion: Table 40-1 maps SV_COV_START / SV_COV_NOCOV to no coverage
 
 Normative role: `definition`。
 
+- [test_coverage_control_check_while_stopped.sv](../tests/ch40/test_coverage_control_check_while_stopped.sv): for each of the toggle and statement types, the test prints as 1 that the return value of START equals the CHECK just before it, and that CHECK gives NOCOV only when the maximum is 0. Therefore START on a scope without coverage shall return NOCOV. Distinguishing observation: In an implementation that returns OK or ERROR for START on a scope without coverage, the start gives the checked availability line becomes 0.
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-START-SV-COV-OK
 
@@ -114004,7 +114117,7 @@ Normative role: `definition`。
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-START-SV-COV-PARTIAL
 
-`40.3.2.1` / `normal` / No mapped test
+`40.3.2.1` / `normal` / Execution confirmed
 
 Table 40-1 maps SV_COV_START / SV_COV_PARTIAL to partial coverage; not-applicable cells do not prescribe that return for the action.
 
@@ -114012,6 +114125,7 @@ Acceptance criterion: Table 40-1 maps SV_COV_START / SV_COV_PARTIAL to partial c
 
 Normative role: `definition`。
 
+- [test_coverage_control_check_while_stopped.sv](../tests/ch40/test_coverage_control_check_while_stopped.sv): for toggle and statement, the test prints as 1 that CHECK is one of OK/NOCOV/PARTIAL and that START returns the same value. On a scope with only partial coverage, START shall also return PARTIAL. Distinguishing observation: In an implementation that returns a value different from CHECK, such as OK, for START on a scope with partial availability, the start gives the checked availability line becomes 0.
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-STOP-SV-COV-ERROR
 
@@ -114063,7 +114177,7 @@ Normative role: `definition`。
 
 ### SV2023-40.3.2.2-EXTRACT-GET-MAX-RESULT
 
-`40.3.2.2` / `normal` / No mapped test
+`40.3.2.2` / `normal` / Execution confirmed
 
 Return -2 for integer overflow,-1 for error,0 for unavailable coverage or a positive sum of coverable items for the selected hierarchy.
 
@@ -114071,10 +114185,11 @@ Acceptance criterion: Return -2 for integer overflow,-1 for error,0 for unavaila
 
 Normative role: `mandatory`。
 
+- [test_coverage_get_values.sv](../tests/ch40/test_coverage_get_values.sv): for 4 types the test prints that $coverage_get_max gives NOCOV (0) if CHECK is NOCOV, a positive value or OVERFLOW if it is OK/PARTIAL, and ERROR (-1) for a module name that does not exist. Distinguishing observation: In an implementation that returns values that do not match the availability, or something other than ERROR for wrong arguments, the maximum agrees with the check or missing module gives ERROR line becomes wrong.
 
 ### SV2023-40.3.2.2-EXTRACT-GET-MAX-SCOPE
 
-`40.3.2.2` / `normal` / No mapped test
+`40.3.2.2` / `normal` / Execution confirmed
 
 Maximum-coverage scope selection follows $coverage_control.
 
@@ -114082,6 +114197,7 @@ Acceptance criterion: Maximum-coverage scope selection follows $coverage_control
 
 Normative role: `mandatory`。
 
+- [test_coverage_scope_sums.sv](../tests/ch40/test_coverage_scope_sums.sv): $coverage_get_max is called in 4 ways, with SV_COV_MODULE/SV_COV_HIER and a definition name/instance name, and for 4 coverage types the test prints yes when the definition name gives the sum over all instances and HIER the sum including everything below. Distinguishing observation: In an implementation that counts with scope rules different from those of $coverage_control, one of the maximum lines becomes no.
 
 ### SV2023-40.3.2.2-EXTRACT-GET-MAX-SIGNATURE
 
@@ -114109,7 +114225,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE
 
-`40.3.2.3` / `normal` / No mapped test
+`40.3.2.3` / `normal` / Execution confirmed
 
 Return the current number of covered items; for a positive maximum derive percentage as current/max*100.
 
@@ -114117,10 +114233,11 @@ Acceptance criterion: Return the current number of covered items; for a positive
 
 Normative role: `mandatory`。
 
+- [test_coverage_get_values.sv](../tests/ch40/test_coverage_get_values.sv): the test reads the current values of 4 types at times 1 and 50, and prints that both are at least 0 and at most the maximum, and that the value at time 50 is at least the value at time 1. This is the relation under which current value / maximum × 100 is a percentage from 0 to 100. Distinguishing observation: In an implementation that returns another quantity (an execution count or a value above the maximum) instead of the number of covered items, the between zero and the maximum line becomes wrong.
 
 ### SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE-STATUS
 
-`40.3.2.3` / `normal` / No mapped test
+`40.3.2.3` / `normal` / Execution confirmed
 
 Return -2 on integer overflow,-1 on error and 0 for no available coverage as stated in the return list.
 
@@ -114128,10 +114245,12 @@ Acceptance criterion: Return -2 on integer overflow,-1 on error and 0 for no ava
 
 Normative role: `mandatory`。
 
+- [test_coverage_uninstantiated_module.sv](../tests/ch40/test_coverage_uninstantiated_module.sv): the module cov_unused, which has no instance, is named with SV_COV_MODULE, and the test prints as 1 that $coverage_get returns SV_COV_NOCOV (0). Distinguishing observation: In an implementation that returns ERROR or a positive value for a scope without coverage, the uninstantiated current is NOCOV line becomes 0.
+- [test_coverage_control_bad_arguments.sv](../tests/ch40/test_coverage_control_bad_arguments.sv): the test calls $coverage_get with the nonexistent definition name "no_such_module" under SV_COV_MODULE and under SV_COV_HIER, and prints ERROR (-1) for both. Distinguishing observation: In an implementation that returns 0 or a positive value for wrong arguments, the current: line becomes not ERROR.
 
 ### SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT
 
-`40.3.2.3` / `normal` / No mapped test
+`40.3.2.3` / `normal` / Test mapped; execution unconfirmed
 
 The positive-return bullet of $coverage_get is read with 40.3.2.3's own rule that the return follows the $coverage_get_max pattern but with pos_num as the current coverage level: a positive result is the number of coverable items of that type covered in the given hierarchy(ies), not the maximum coverable count.
 
@@ -114139,10 +114258,11 @@ Acceptance criterion: When $coverage_get returns a positive value, it equals the
 
 Normative role: `mandatory`。
 
+- [test_coverage_toggle_both_values.sv](../tests/ch40/test_coverage_toggle_both_values.sv): when only 2 of the 4 bits have taken both 0 and 1, and the check of toggle coverage is OK, the test prints yes when $coverage_get is 2, $coverage_get_max is 4 and the current value is below the maximum. Distinguishing observation: An implementation that returns the maximum as its positive return value returns 4, and the 2 bits and below the maximum lines become no.
 
 ### SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SCOPE
 
-`40.3.2.3` / `normal` / No mapped test
+`40.3.2.3` / `normal` / Execution confirmed
 
 Current-coverage scope selection follows $coverage_control.
 
@@ -114150,6 +114270,7 @@ Acceptance criterion: Current-coverage scope selection follows $coverage_control
 
 Normative role: `mandatory`。
 
+- [test_coverage_scope_sums.sv](../tests/ch40/test_coverage_scope_sums.sv): $coverage_get is called in 4 ways, with SV_COV_MODULE/SV_COV_HIER and a definition name/instance name, and for the current values of statement and toggle the test prints yes when the definition name gives the sum of u1 and u2 and HIER gives the sum including everything below. Distinguishing observation: In an implementation that counts with scope rules different from those of $coverage_control, one of the current lines becomes no.
 
 ### SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SIGNATURE
 
@@ -114165,7 +114286,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.3.2.4-EXTRACT-MERGE-LOOKUP
 
-`40.3.2.4` / `normal` / No mapped test
+`40.3.2.4` / `normal` / Execution confirmed
 
 Load/merge the specified coverage database by arbitrary implementation-mapped name. The name must be retrievable regardless of vendor storage layout; missing name or database from another design causes an error, and loading errors may leave coverage counts meaningless.
 
@@ -114173,6 +114294,7 @@ Acceptance criterion: Load/merge the specified coverage database by arbitrary im
 
 Normative role: `mandatory`。
 
+- [test_coverage_save_merge.sv](../tests/ch40/test_coverage_save_merge.sv): data saved under the name "test_coverage_save_merge_db" is read back by calling $coverage_merge with the same name, and the test prints that this gives OK if the save was OK and ERROR for a name that was never saved. Distinguishing observation: In an implementation that cannot find the data by name, the merge after a successful save line becomes wrong, and in one that does not return an error for a nonexistent name, the never saved line becomes wrong.
 
 ### SV2023-40.3.2.4-EXTRACT-MERGE-SIGNATURE
 
@@ -114188,7 +114310,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.3.2.4-EXTRACT-MERGE-STATUS
 
-`40.3.2.4` / `normal` / No mapped test
+`40.3.2.4` / `normal` / Execution confirmed
 
 Return OK when found/merged, NOCOV when found without the requested type, and ERROR for missing/wrong-design/other failure.
 
@@ -114196,6 +114318,7 @@ Acceptance criterion: Return OK when found/merged, NOCOV when found without the 
 
 Normative role: `mandatory`。
 
+- [test_coverage_save_merge.sv](../tests/ch40/test_coverage_save_merge.sv): the test prints that the merge gives OK if the save gave OK, that the merge also gives ERROR if the save gave ERROR (since the entry of the name is removed), and that a name that was never saved gives ERROR. Distinguishing observation: In an implementation that returns something other than OK for a merge of data that is found, or other than ERROR for a name that is not found, the corresponding line becomes wrong.
 
 ### SV2023-40.3.2.5-EXTRACT-DATABASE-REPRESENTATION
 
@@ -114210,7 +114333,7 @@ Normative role: `implementation_defined`。
 
 ### SV2023-40.3.2.5-EXTRACT-SAVE-PRESERVATION
 
-`40.3.2.5` / `normal` / No mapped test
+`40.3.2.5` / `normal` / Execution confirmed
 
 Save current coverage under the name using implementation-specific storage, make it retrievable by merge with that name, and leave running simulation coverage state unchanged.
 
@@ -114218,6 +114341,7 @@ Acceptance criterion: Save current coverage under the name using implementation-
 
 Normative role: `mandatory`。
 
+- [test_coverage_save_merge.sv](../tests/ch40/test_coverage_save_merge.sv): the test reads the current value of toggle coverage before and after $coverage_save and prints that it is the same value and that, if the save is OK, a merge of the same name gives OK. Distinguishing observation: In an implementation where saving changes the coverage of the simulation, the saving does not change line becomes wrong, and in one that cannot retrieve the data by the saved name, the merge after a successful save line becomes wrong.
 
 ### SV2023-40.3.2.5-EXTRACT-SAVE-SIGNATURE
 
@@ -114233,7 +114357,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.3.2.5-EXTRACT-SAVE-STATUS
 
-`40.3.2.5` / `normal` / No mapped test
+`40.3.2.5` / `normal` / Execution confirmed
 
 Return OK on successful save,NOCOV if that coverage is unavailable and nothing saved,ERROR on save failure. On failure remove the named database entry automatically; overwriting an existing name is allowed.
 
@@ -114241,10 +114365,12 @@ Acceptance criterion: Return OK on successful save,NOCOV if that coverage is una
 
 Normative role: `mandatory`。
 
+- [test_coverage_save_merge_all_types.sv](../tests/ch40/test_coverage_save_merge_all_types.sv): for 4 types the test compares the check below $root with the result of $coverage_save, and prints yes when the result is NOCOV or ERROR where there is no coverage and OK or ERROR where there is. Distinguishing observation: In an implementation that returns OK for saving a type without coverage, or NOCOV for saving a type with coverage, a save gives line becomes no.
+- [test_coverage_save_merge.sv](../tests/ch40/test_coverage_save_merge.sv): the test saves 2 times under the same name and prints that save number 2 gives the same result (overwriting is not an error) and that, if the save gives ERROR, a merge of that name also gives ERROR (a failure removes the entry). Distinguishing observation: In an implementation that treats a save to an existing name as an error, or keeps the entry of a failed save, the saving again or merge after a failed save line becomes wrong.
 
 ### SV2023-40.4-EXTRACT-FSM-EXPLICIT-OVERRIDE
 
-`40.4` / `normal` / No mapped test
+`40.4` / `normal` / Execution confirmed
 
 Standard FSM-description annotations override default extraction; no particular automatic recognition mechanism is required.
 
@@ -114252,6 +114378,7 @@ Acceptance criterion: Standard FSM-description annotations override default extr
 
 Normative role: `mandatory`。
 
+- [test_coverage_fsm_pragma_states.sv](../tests/ch40/test_coverage_fsm_pragma_states.sv): pragmas mark the part ctl\[2:1\] of the 4-bit ctl, {hi, lo} and sa as FSM, and if the start of FSM coverage is OK, the test prints yes when the maximum is exactly the 10 states that the pragmas name. Distinguishing observation: An implementation that also uses automatic extraction when pragmas are present counts the whole ctl or sa_next as another FSM, so the maximum is no longer 10 and the line becomes no.
 
 ### SV2023-40.4-EXTRACT-FSM-IDENTIFICATION
 
@@ -114313,7 +114440,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.4.2-EXTRACT-FSM-PARTSELECT-SYNTAX
 
-`40.4.2` / `normal` / No mapped test
+`40.4.2` / `normal` / Execution confirmed
 
 The part-select pragma is tool state_vector signal_name\[n:n\] FSM_name enum enumeration_name.
 
@@ -114321,6 +114448,7 @@ Acceptance criterion: The part-select pragma is tool state_vector signal_name\[n
 
 Normative role: `mandatory`。
 
+- [test_coverage_fsm_pragma_states.sv](../tests/ch40/test_coverage_fsm_pragma_states.sv): the pragma `tool state_vector ctl[2:1] b_fsm enum b_states` makes a part-select of a 4-bit signal the current state, and if the start of FSM coverage is OK, the test prints yes for the maximum 10 and for reaching all states at time 40 with the current value equal to the maximum. Distinguishing observation: An implementation that does not recognize the part-select form does not count the 3 states of b_fsm, and the maximum is not 10.
 
 ### SV2023-40.4.3-EXTRACT-FSM-CONCAT-NO-SELECTS
 
@@ -114335,7 +114463,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.4.3-EXTRACT-FSM-CONCATENATION
 
-`40.4.3` / `normal` / No mapped test
+`40.4.3` / `normal` / Execution confirmed
 
 A current-state signal concatenation is described by tool state_vector {signal_name,signal_name,...} FSM_name enum enumeration_name.
 
@@ -114343,10 +114471,11 @@ Acceptance criterion: A current-state signal concatenation is described by tool 
 
 Normative role: `mandatory`。
 
+- [test_coverage_fsm_pragma_states.sv](../tests/ch40/test_coverage_fsm_pragma_states.sv): the pragma `tool state_vector {hi, lo} c_fsm enum c_states` makes the concatenation of 2 signals the current state, and if the start of FSM coverage is OK, the test prints yes for the maximum 10, which includes the 3 states of c_states. Distinguishing observation: An implementation that does not recognize the concatenation form does not count c_fsm, and the maximum is not 10.
 
 ### SV2023-40.4.4-EXTRACT-FSM-NEXT-STATE
 
-`40.4.4` / `normal` / No mapped test
+`40.4.4` / `normal` / Test mapped; execution unconfirmed
 
 The next-state signal declaration uses tool enum enumeration_name after its range to link it to the FSM.
 
@@ -114354,10 +114483,11 @@ Acceptance criterion: The next-state signal declaration uses tool enum enumerati
 
 Normative role: `mandatory`。
 
+- [test_coverage_fsm_next_state_pragmas.sv](../tests/ch40/test_coverage_fsm_next_state_pragmas.sv): as in Figure 40-2, cs is declared without a pragma, and only the next state ns is linked to the FSM by `logic [1:0] /* tool enum e_states */ ns;`. If the start of FSM coverage is OK, the test prints yes when the maximum is the 5 named states (3 + 2). Distinguishing observation: An implementation that counts the next-state signal as a separate FSM gives a maximum above 5 and prints no.
 
 ### SV2023-40.4.4-EXTRACT-FSM-NEXT-STATE-OMISSION
 
-`40.4.4` / `normal` / No mapped test
+`40.4.4` / `normal` / Execution confirmed
 
 Omit this next-state pragma iff the FSM has no next-state signal.
 
@@ -114365,10 +114495,11 @@ Acceptance criterion: Omit this next-state pragma iff the FSM has no next-state 
 
 Normative role: `mandatory`。
 
+- [test_coverage_fsm_pragma_states.sv](../tests/ch40/test_coverage_fsm_pragma_states.sv): b_fsm (ctl\[2:1\]) and c_fsm ({hi, lo}), which have no next-state signal, omit the next-state pragma, and if the start of FSM coverage is OK, the test prints yes when the states of both FSM are still included in the maximum 10 and the current value equals the maximum at time 40. Distinguishing observation: An implementation that requires the next-state pragma does not count these 2 FSM, and the maximum is not 10.
 
 ### SV2023-40.4.5-EXTRACT-FSM-SAME-DECLARATION
 
-`40.4.5` / `normal` / No mapped test
+`40.4.5` / `normal` / Test mapped; execution unconfirmed
 
 For an enum pragma in a multi-signal declaration, the first following signal is current state and second next state; no such role is inferred for further signals.
 
@@ -114376,10 +114507,11 @@ Acceptance criterion: For an enum pragma in a multi-signal declaration, the firs
 
 Normative role: `mandatory`。
 
+- [test_coverage_fsm_next_state_pragmas.sv](../tests/ch40/test_coverage_fsm_next_state_pragmas.sv): in 1 declaration, `logic [1:0] /* tool enum f_states */ fs = 2'd0, fs_next, extra = 2'd0;`, fs is the current state and fs_next the next state, while extra, which takes 4 values, is neither. If the start of FSM coverage is OK, the test prints yes when the maximum is 5 states. Distinguishing observation: An implementation that also infers a role for the signals from position 3 onward counts extra as a FSM, and the maximum exceeds 5.
 
 ### SV2023-40.4.6-EXTRACT-FSM-ENUM-POSITION
 
-`40.4.6` / `normal` / No mapped test
+`40.4.6` / `normal` / Execution confirmed
 
 Place the enum pragma immediately after parameter, or immediately after its explicit bit width if given.
 
@@ -114387,6 +114519,7 @@ Acceptance criterion: Place the enum pragma immediately after parameter, or imme
 
 Normative role: `mandatory`。
 
+- [test_coverage_fsm_pragma_states.sv](../tests/ch40/test_coverage_fsm_pragma_states.sv): the enum pragma of a state parameter is placed right after the width in a declaration with a bit width (`parameter [1:0] // tool enum a_states`) and right after parameter in one without (`parameter /* tool enum b_states */`), and if the start of FSM coverage is OK, the test prints yes when the 10 states of the 3 FSM are counted. Distinguishing observation: An implementation that does not recognize the pragma in one of the two positions misses states, and the maximum is not 10.
 
 ### SV2023-40.4.6-EXTRACT-FSM-STATE-ENUMERATION
 
@@ -114402,7 +114535,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.4.7-EXTRACT-FSM-COMMENT-STYLES
 
-`40.4.7` / `normal` / No mapped test
+`40.4.7` / `normal` / Execution confirmed
 
 FSM pragmas work in both /* */ block comments and // one-line comments.
 
@@ -114410,6 +114543,7 @@ Acceptance criterion: FSM pragmas work in both /* */ block comments and // one-l
 
 Normative role: `mandatory`。
 
+- [test_coverage_fsm_pragma_states.sv](../tests/ch40/test_coverage_fsm_pragma_states.sv): pragmas are written both in one-line comments such as `// tool state_vector sa` and in block comments such as `/* tool state_vector ctl[2:1] … */`, and if the start of FSM coverage is OK, the test prints yes when all 10 states are counted. Distinguishing observation: An implementation that does not read pragmas in one of the comment forms misses FSM or states, and the maximum is not 10.
 
 ### SV2023-40.5.1-EXTRACT-CONSTANT-VPIASSERTATTEMPTCOVERED
 
@@ -114689,7 +114823,7 @@ Normative role: `definition`。
 
 ### SV2023-40.5.2-EXTRACT-ASSERTION-COVERED-CRITERION
 
-`40.5.2` / `normal` / No mapped test
+`40.5.2` / `normal` / Test mapped; execution unconfirmed
 
 For assertion vpiCovered, it must have been attempted, succeeded at least once and never failed.
 
@@ -114697,6 +114831,7 @@ Acceptance criterion: For assertion vpiCovered, it must have been attempted, suc
 
 Normative role: `mandatory`。
 
+- [test_vpi_coverage_covered_never_failed.sv](../tests/ch40/test_vpi_coverage_covered_never_failed.sv): a_mixed succeeds 2 times and fails 2 times in 4 attempts, and a_pass succeeds every time. If the start of assertion coverage is OK, the test prints 1 when, through VPI, the attempt, success and failure counts of a_mixed are 4/2/2, and vpiCovered is 0 for a_mixed and true for a_pass. Distinguishing observation: An implementation that considers an assertion covered after 1 success treats a_mixed as covered, and the not covered line becomes 0.
 
 ### SV2023-40.5.2-EXTRACT-ASSERTION-IN-PROGRESS
 
@@ -114735,7 +114870,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.5.2-EXTRACT-COVERED-ENTITIES
 
-`40.5.2` / `normal` / No mapped test
+`40.5.2` / `normal` / Test mapped; execution unconfirmed
 
 vpiCovered on assertion/statement/signal/FSM/FSM-state handles returns covered entity count; respective entities are assertions,statements,individual signal bits,FSM states,or one state.
 
@@ -114743,6 +114878,7 @@ Acceptance criterion: vpiCovered on assertion/statement/signal/FSM/FSM-state han
 
 Normative role: `mandatory`。
 
+- [test_vpi_coverage_partial_entities.sv](../tests/ch40/test_vpi_coverage_partial_entities.sv): only 3 bits of a 8-bit signal change 0 → 1 → 0, the 2 statements of the task idle, which is never called, do not run, and the 3-state FSM reaches only 2 states. If the check of each type is OK, the test prints 1 when vpiCovered gives 3 for the signal, 0 for the block of idle and 2 for the FSM, and is true for the state handles of only the 2 states reached. Distinguishing observation: An implementation that returns the maximum for vpiCovered returns 8 or 3, and the only the 3 bits or 2 of the 3 states line becomes 0.
 
 ### SV2023-40.5.2-EXTRACT-COVERED-MAX
 
@@ -114806,7 +114942,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.5.2-EXTRACT-INSTANCE-COVERAGE-QUERY
 
-`40.5.2` / `normal` / No mapped test
+`40.5.2` / `normal` / Test mapped; execution unconfirmed
 
 vpi_get(coverageType,instance_handle) returns the count of covered items of that type in the instance.
 
@@ -114814,6 +114950,7 @@ Acceptance criterion: vpi_get(coverageType,instance_handle) returns the count of
 
 Normative role: `mandatory`。
 
+- [test_vpi_coverage_partial_entities.sv](../tests/ch40/test_vpi_coverage_partial_entities.sv): after 3 bits are covered in instance u, which has only the signal sig, if the toggle check is OK the test prints 1 when vpi_get(vpiToggleCoverage, u) is 3 and agrees with $coverage_get(`SV_COV_TOGGLE, `SV_COV_MODULE, u) on the SV side. Distinguishing observation: In an implementation that returns the maximum or another quantity instead of the number of covered items of the instance, the instance u line becomes 0.
 
 ### SV2023-40.5.2-EXTRACT-QUERY-VPIASSERTATTEMPTCOVERED
 
@@ -114889,7 +115026,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.5.3-EXTRACT-VPI-COVERAGE-CONTROL
 
-`40.5.3` / `normal` / No mapped test
+`40.5.3` / `normal` / Test mapped; execution unconfirmed
 
 Use vpi_control(coverageControl,coverageType,instance_handle or assertion_handle) for coverage collection controls.
 
@@ -114897,10 +115034,11 @@ Acceptance criterion: Use vpi_control(coverageControl,coverageType,instance_hand
 
 Normative role: `mandatory`。
 
+- [test_vpi_coverage_control.sv](../tests/ch40/test_vpi_coverage_control.sv): a VPI application calls vpi_control(vpiCoverageReset, vpiToggleCoverage, top) and vpiCoverageStop, and the test prints that toggle coverage is 0 right after the reset and that changes after the stop do not increase the value. Distinguishing observation: In an implementation that does not treat the coverage control of vpi_control with the same meaning as $coverage_control, the 0 or yes lines change.
 
 ### SV2023-40.5.3-EXTRACT-VPI-COVERAGE-CONTROL-TARGETS
 
-`40.5.3` / `normal` / No mapped test
+`40.5.3` / `normal` / Execution confirmed
 
 Statement,toggle and FSM coverage can be controlled only per instance, not individually per statement/signal/FSM; start/stop/reset/check follow $coverage_control and use the defined VPI coverage-type property.
 
@@ -114908,10 +115046,11 @@ Acceptance criterion: Statement,toggle and FSM coverage can be controlled only p
 
 Normative role: `mandatory`。
 
+- [test_vpi_coverage_instance_control.sv](../tests/ch40/test_vpi_coverage_instance_control.sv): vpi_control resets and stops the toggle coverage of instance u1, and the test prints yes when u1 becomes 0, u2 does not change, and changes of u1 while stopped are not counted. Distinguishing observation: In an implementation where the control does not act per instance, u2 also changes or u1 does not become 0, and a yes line becomes no.
 
 ### SV2023-40.5.3-EXTRACT-VPI-COVERAGE-MERGE
 
-`40.5.3` / `normal` / No mapped test
+`40.5.3` / `normal` / Test mapped; execution unconfirmed
 
 vpi_control(vpiCoverageMerge,coverageType,name) merges current-simulation coverage with $coverage_merge semantics.
 
@@ -114919,10 +115058,11 @@ Acceptance criterion: vpi_control(vpiCoverageMerge,coverageType,name) merges cur
 
 Normative role: `mandatory`。
 
+- [test_vpi_coverage_save_merge.sv](../tests/ch40/test_vpi_coverage_save_merge.sv): after u is reset, the name saved with $coverage_save is merged with vpi_control(vpiCoverageMerge, vpiToggleCoverage, name), and the test prints yes when, if the check and the save are OK, the current value returns to its value before the reset, and when vpi_control returns 0 (failure) for a merge of a name that was never saved. Distinguishing observation: In an implementation that does not merge with the same meaning as $coverage_merge, the restores the value or never saved fails line becomes no.
 
 ### SV2023-40.5.3-EXTRACT-VPI-COVERAGE-SAVE-NAME-TEXT
 
-`40.5.3` / `normal` / No mapped test
+`40.5.3` / `normal` / Test mapped; execution unconfirmed
 
 Coverage save uses vpi_control(vpiCoverageSave, coverageType, name), vpiCoverageSave being the coverage-control constant of 40.5.1 (M.2 value 755), and otherwise follows $coverage_save; the coverageSave spelling in 40.5.3 denotes vpiCoverageSave.
 
@@ -114930,6 +115070,7 @@ Acceptance criterion: C code calling vpi_control(vpiCoverageSave, \<VPI coverage
 
 Normative role: `mandatory`。
 
+- [test_vpi_coverage_save_merge.sv](../tests/ch40/test_vpi_coverage_save_merge.sv): the test saves with vpi_control(vpiCoverageSave, vpiToggleCoverage, name) and prints yes when toggle coverage does not change across the save and when, if the check is OK and vpi_control returned 1, $coverage_merge with the same name gives OK. Distinguishing observation: In an implementation that does not save with the same meaning as $coverage_save, the unchanged or merged by $coverage_merge line becomes no.
 
 ### SV2023-A-EXTRACT-GRAMMAR-PLUS-PROSE
 

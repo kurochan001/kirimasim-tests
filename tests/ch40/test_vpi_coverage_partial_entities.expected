@@ -1,0 +1,12 @@
+coverage checks are not ERROR: 1
+signal: covered max 8
+signal: only the 3 bits that were 0 and 1 are covered: 1
+instance u: vpiToggleCoverage counts its 3 covered bits, as $coverage_get does: 1
+block run twice: covered max 3
+block run twice: 3 statements covered: 1
+block never run: covered max 2
+block never run: no statement covered: 1
+fsm: covered max 3
+fsm: 2 of the 3 states are covered: 1
+fsm states: 3
+fsm: states 0 and 1 are covered and state 2 is not: 1
