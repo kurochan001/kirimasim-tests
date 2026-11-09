@@ -4,7 +4,7 @@
 
 [English](ch7.md) / [日本語](ch7.ja.md)
 
-[すべての章](README.ja.md) .772 304 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
+[すべての章](README.ja.md) .776 304 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -475,9 +475,13 @@
 | [`test_illegal_reduction_and_with_real_expression`](../../tests/ch7/test_illegal_reduction_and_with_real_expression.sv) |とは言え、with の場合は、 with 表現のタイプに対して、その操作を定義する必要があります。| 7.12.3 | Icarus Verilog 13.0 |違法なデザインだ|
 | [`test_illegal_wildcard_index_method`](../../tests/ch7/test_illegal_wildcard_index_method.sv) |反復インデックス法は ワイルドカードインデックス連想配列では使えません| 7.12.4 7.8.1 |標準のみ|違法なデザインだ|
 | [`test_array_map_method`](../../tests/ch7/test_array_map_method.sv) |配列メソッドmap()は、元と同じ範囲またはキーを持つ配列を返します。各要素はitemまたは名前付きイテレータとその添字を使ったwith式の値であり、その式の自己決定型を使用します。| 7.12.5 7.12 |標準のみ||
+| [`test_illegal_map_assoc_result_to_other_index_type`](../../tests/ch7/test_illegal_map_assoc_result_to_other_index_type.sv) |連想配列の map() は同じインデックス型の連想配列を返すので、その結果を別のインデックス型の連想配列に代入できない| 7.12.5 7.9.9 |標準のみ|違法なデザインだ|
+| [`test_illegal_map_int_elements_to_string_queue`](../../tests/ch7/test_illegal_map_int_elements_to_string_queue.sv) |map() の結果の要素は with 式の型を持つので、 int 要素の結果は文字列のキューに代入できない| 7.12.5 7.6 6.16 |標準のみ|違法なデザインだ|
 | [`test_illegal_map_without_with`](../../tests/ch7/test_illegal_map_without_with.sv) |map() は結果の各要素の値を返す with 節を必要とします| 7.12.5 | Verilator 5.052 |違法なデザインだ|
+| [`test_map_element_types_and_index_names`](../../tests/ch7/test_map_element_types_and_index_names.sv) |map() は with 式の型の要素（ここでは文字列、構造体要素のメンバ、クラスオブジェクトのプロパティ）を返し、with 式は index メソッド、名前を変えた index メソッド、型がそのインデックス型である連想配列のインデックスを通じて別の配列を使える| 7.12.5 7.12.4 7.12 7.6 7.9.9 7.8.2 7.9.4 7.9.6 |標準のみ||
 | [`test_map_result_to_same_array`](../../tests/ch7/test_map_result_to_same_array.sv) |map() の結果は呼び出された配列、動的配列、またはキューに割り当てられます。| 7.12.5 | Verilator 5.052 ||
 | [`test_map_result_type_range_and_keys`](../../tests/ch7/test_map_result_type_range_and_keys.sv) |map() の結果は with 表現の自己決定型の要素、ソース配列の範囲、関連配列の場合はそのインデックスのセットを含む。| 7.12.5 |標準のみ||
+| [`test_map_selects_order_and_empty`](../../tests/ch7/test_map_selects_order_and_empty.sv) |map() の with 句の後には選択やメソッド呼び出しを続けることができ、降順の範囲の map() は各要素に元のインデックスを与え、空の配列の map() は空であり、キューや負のキーを持つ連想配列の map() は順序とキーを保ち、元の配列は変わらない| 7.12.5 7.12 7.12.4 7.12.3 7.6 7.8.4 7.9.4 7.9.6 |標準のみ||
 
 <a id="generated-by-generatorsinteraction_arraypy"></a>
 

@@ -1,0 +1,4 @@
+holder#(.S(pair_t)): RB names=3 S=16 U=16
+holder#(xy_t, rec_t): QY names=2 S=40 U=16
+i_d: names=2 last=QY
+i_o: names=3 last=RC

@@ -1,0 +1,217 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.0.0 (commit 33cee3fa2f0d), built with AppleClang 21.0.0.21000401",
+ "tests": {
+  "ch11/test_illegal_inside_tolerance_string_center": {
+   "status": "pass",
+   "inputs_sha256": "441f49361051daa6a4eceb2af90e66b7f774411d875c4582fc604b4dc6ad6c69"
+  },
+  "ch11/test_illegal_stacktrace_in_constant_expression": {
+   "status": "pass",
+   "inputs_sha256": "8f0b089638447406355746abfd14260542ef8285a453df3e54372c109c164727"
+  },
+  "ch11/test_inside_tolerance_center_type": {
+   "status": "pass",
+   "inputs_sha256": "54f90a0335c0b015df687caf93963b420d1a9843dae9acc45a3c2b8e56e7b624"
+  },
+  "ch13/test_illegal_ref_static_given_automatic_variable": {
+   "status": "pass",
+   "inputs_sha256": "ac064c7ff9a4c77e2e49448df9e900106dbe62c5d933cc8c91297ff7380b68ab"
+  },
+  "ch13/test_illegal_ref_static_given_dynamic_array_element": {
+   "status": "pass",
+   "inputs_sha256": "9943101a7d38760ec03b356909025590a6e50b69c77fda6e6258e7e959d99dcc"
+  },
+  "ch13/test_illegal_ref_static_given_non_static_property": {
+   "status": "pass",
+   "inputs_sha256": "bcf5e2813d238125cec80bb0347fd97d4010eb4e9f89fa674970848e0ebbf75d"
+  },
+  "ch13/test_illegal_ref_static_given_plain_ref_argument": {
+   "status": "pass",
+   "inputs_sha256": "7f17c2c82b60c4858c2afeb4f4161b5c6dedbb6b5c03c4fe1b7ffc20b32a6823"
+  },
+  "ch13/test_ref_static_accepted_actuals": {
+   "status": "fail",
+   "reason": "output differs (exit 2): error: cannot pass automatic variables or elements of dynamically sized arrays to 'ref static' argument",
+   "inputs_sha256": "8cde6faf0b7e6a3e89ecb4180e35833d38e6522a39454e59587d6f5584b71d87"
+  },
+  "ch13/test_ref_static_const_waits_after_return": {
+   "status": "pass",
+   "inputs_sha256": "d539da31bd3d5bbffb5fe7adc7d12096b9ef85bde0319789e3d80c5f20fbf73b"
+  },
+  "ch13/test_ref_static_force_release": {
+   "status": "unsupported",
+   "reason": "this target of assign or force (not implemented yet)",
+   "inputs_sha256": "0e12e5d0a638681a10c956d38c0404b57cad212ca817a9a5dd7a42c2a8512b56"
+  },
+  "ch18/test_disable_soft_size_derived_class": {
+   "status": "unsupported",
+   "reason": "system function randomize (not implemented yet)",
+   "inputs_sha256": "dc3212bd9d9b64b6d9ee8b7f237d1dffb53f03a6041401bf51bb511df9652848"
+  },
+  "ch18/test_disable_soft_size_inline_queue": {
+   "status": "unsupported",
+   "reason": "system function randomize (not implemented yet)",
+   "inputs_sha256": "ae3c20dce3e9b9a2c25bfafa60bac165f59f3c2167517f4b45bf9ab4cc7d0c4f"
+  },
+  "ch18/test_dist_tolerance_range_weights": {
+   "status": "unsupported",
+   "reason": "system function randomize (not implemented yet)",
+   "inputs_sha256": "55bfb471f8e083d33801ed9ab238c0d1be9f2d126d9c3d9a8f7ef7724050aae4"
+  },
+  "ch18/test_illegal_disable_soft_parentheses_variable": {
+   "status": "pass",
+   "inputs_sha256": "a99ba23bcde0d0fb115e4102beca7e50197a822b1af3eb85f5cbd6618ad59902"
+  },
+  "ch18/test_illegal_disable_soft_user_method_size": {
+   "status": "pass",
+   "inputs_sha256": "7be34548d6ce2b06fa115ba98ebd2efdac93ede25a25f480c50a34d538a3620e"
+  },
+  "ch18/test_illegal_dist_real_tolerance_colon_equal": {
+   "status": "pass",
+   "inputs_sha256": "910ce592c80b989eb27afdb06be40df7d4b0c2a134bab7bfc1a9ed3ae6e2ce89"
+  },
+  "ch18/test_illegal_randc_real_array": {
+   "status": "pass",
+   "inputs_sha256": "c415805c9b0fe23dd052b2efc58691629c21642a267a10891a55a186dbd65598"
+  },
+  "ch18/test_illegal_solve_before_size_associative": {
+   "status": "unsupported",
+   "reason": "type 'byte$[int]' (not implemented yet)",
+   "inputs_sha256": "b6b66bc13d2e4a4738b41912f03b681a399e62d218a4a4a627b0adc7dfb6c205"
+  },
+  "ch18/test_illegal_solve_before_size_circular": {
+   "status": "unsupported",
+   "reason": "system function randomize (not implemented yet)",
+   "inputs_sha256": "2142dc3e2a2babe2b548a45d2e5c29f24a7adb53c5ed2164b18515826639b9c3"
+  },
+  "ch18/test_illegal_solve_before_size_state_array": {
+   "status": "pass",
+   "inputs_sha256": "9c739a842f7a4476a9db34d183218b037579e67734d116b98c5f6ccc782644d7"
+  },
+  "ch18/test_illegal_unique_real_and_int": {
+   "status": "pass",
+   "inputs_sha256": "1863607c332ab1390c9e7d44f43cfda3b66c06651ef17d80765eaa8ea0b72813"
+  },
+  "ch18/test_illegal_unique_tolerance_range": {
+   "status": "fail",
+   "reason": "exit code 3, expected 2",
+   "inputs_sha256": "66b8f3107d8962ee3cca8138c227af580e7cd24af4a09c9891379e488b1a8b7e"
+  },
+  "ch18/test_rand_real_kinds_and_arrays": {
+   "status": "unsupported",
+   "reason": "system function randomize (not implemented yet)",
+   "inputs_sha256": "6f815c3cd243281faa52efa7717695e47d65c2c902ebbb3b7330fde453540136"
+  },
+  "ch18/test_rand_real_unique_and_conditions": {
+   "status": "unsupported",
+   "reason": "system function randomize (not implemented yet)",
+   "inputs_sha256": "5c1822b2c442b99768daf025e5891d66724793e41512a03a03073e5e6a56f5a3"
+  },
+  "ch18/test_solve_before_size_handle_prefixes": {
+   "status": "unsupported",
+   "reason": "system function randomize (not implemented yet)",
+   "inputs_sha256": "3f2c72f5b075eca839d88438c972870a2d808d9a229286dfacd63752bb3a46e0"
+  },
+  "ch18/test_solve_before_size_keeps_solutions": {
+   "status": "unsupported",
+   "reason": "system function randomize (not implemented yet)",
+   "inputs_sha256": "6a3e94ff329819fab357df8db6917bbf9790319f7c9c42b56833bb31cd4c12bc"
+  },
+  "ch19/test_cg_extends_inherited_event_base_handle": {
+   "status": "unsupported",
+   "reason": "managed event class property (not implemented yet)",
+   "inputs_sha256": "873a16a018cf67a1a24bd60e6391253f4197741e5d324f872242a0222ba54e08"
+  },
+  "ch19/test_cg_extends_type_option_inherited": {
+   "status": "unsupported",
+   "reason": "type '<unnamed covergroup>' (not implemented yet)",
+   "inputs_sha256": "c942982444baafe587a9af76df6c7aebee3e461ed53d51269689a0bf7120f62b"
+  },
+  "ch19/test_cg_tolerance_bin_arrays_transitions": {
+   "status": "unsupported",
+   "reason": "type 'cg' (not implemented yet)",
+   "inputs_sha256": "b46a3d2a4fb2f67f2ad9517819bb5509709f0f78db30db6ea9a830233c29c590"
+  },
+  "ch19/test_illegal_cg_extends_own_arguments": {
+   "status": "pass",
+   "inputs_sha256": "7a199b24e569292315d9b736cff8b95f4fd99518a77870a5be8537d7995e6786"
+  },
+  "ch19/test_illegal_cg_extends_own_event": {
+   "status": "pass",
+   "inputs_sha256": "4e1f74e4d521186e2e1135ba20e425c0f14082ce4073380e7a4bfe67f02b4972"
+  },
+  "ch19/test_illegal_cg_extends_property_name": {
+   "status": "pass",
+   "inputs_sha256": "03695281c6ee5a5ebff2d2a87075bb56cea7a134c3ac189108e9e7b20e425e70"
+  },
+  "ch20/test_stacktrace_function_call_contexts": {
+   "status": "pass",
+   "inputs_sha256": "5c3382cb5c38838be24526fe742b0238d4dfd2abec98754a94cfa14ce8366361"
+  },
+  "ch20/test_stacktrace_function_string_value": {
+   "status": "fail",
+   "reason": "output differs: line 2 is 'test_stacktrace_function_string_value.probe (../../../../...', expected 'nonempty: 1'",
+   "inputs_sha256": "f29d9e4a43a8a09b034e1648dbb054faae53e94b77e32aeaa116ef49f9edab75"
+  },
+  "ch22/test_illegal_macro_grave_triple_quote_newline_ends_text": {
+   "status": "pass",
+   "inputs_sha256": "045c9319c9f2ee01f195176da1679278a37487db9436635346697f5c23040253"
+  },
+  "ch22/test_illegal_macro_grave_triple_quote_plain_quote_unclosed": {
+   "status": "pass",
+   "inputs_sha256": "0b27c94a3e75a67af1a9d9f459e8ea04666b2a4d93778ce9152efacb66e35754"
+  },
+  "ch22/test_macro_grave_triple_quote_expansion_steps": {
+   "status": "pass",
+   "inputs_sha256": "789f21acbbd171d77feded375434bfb0fd57f02440c11196ce63b160a8aa351f"
+  },
+  "ch22/test_macro_grave_triple_quote_inner_quotes": {
+   "status": "pass",
+   "inputs_sha256": "0e6f9870341fdbf3a7fa7c1edad423961de086e3feb9133a086774136efbfd90"
+  },
+  "ch6/test_illegal_interface_class_restricted_type_parameter_given_class": {
+   "status": "pass",
+   "inputs_sha256": "449553a3c0c693cae4a9f28f19e4c086a181b0bf760187d7b3f06d6c119cf1ad"
+  },
+  "ch6/test_illegal_struct_restricted_type_parameter_given_union": {
+   "status": "pass",
+   "inputs_sha256": "7266cae328517e69c11c93d67cd0540dbfadd781aa802c5779926f031729d762"
+  },
+  "ch6/test_type_param_restricted_class_and_interface_lists": {
+   "status": "pass",
+   "inputs_sha256": "61600264c7cb43ecfad1cdae23fb9354f23e3319eaaade90ad9c79824ce7e59c"
+  },
+  "ch6/test_type_param_restricted_conforming_types": {
+   "status": "pass",
+   "inputs_sha256": "7340d4265a94aba096ef758df4456d62c15068e3e3406076a55e01f1d9f4e411"
+  },
+  "ch7/test_illegal_map_assoc_result_to_other_index_type": {
+   "status": "pass",
+   "inputs_sha256": "15365a64e66a1932790b9739a120b0b962de14d520bdddb0aa4fa671491a8366"
+  },
+  "ch7/test_illegal_map_int_elements_to_string_queue": {
+   "status": "pass",
+   "inputs_sha256": "95b2704838474d36a5b665457b1acf5dc727ba5273f48d6d4a44570726e1c913"
+  },
+  "ch7/test_map_element_types_and_index_names": {
+   "status": "unsupported",
+   "reason": "variable of type 'int$[string]' (not implemented yet)",
+   "inputs_sha256": "004b4bed5cbb07a0af1937331a10162142dd7bafc023d6df20788a0a4ae6c673"
+  },
+  "ch7/test_map_selects_order_and_empty": {
+   "status": "unsupported",
+   "reason": "variable of type 'int$[int]' (not implemented yet)",
+   "inputs_sha256": "e6e5dec3c9c7eaf1efbc6ec0f34b271622921818f16b4e2d1dc18f519c98e0c4"
+  },
+  "ch9/test_ref_static_fork_join_none_after_return": {
+   "status": "pass",
+   "inputs_sha256": "50c45dc5b1d56ed7aec1e48ca8c856b9ead66cf20252a9f9afb2648bf969d58a"
+  }
+ },
+ "generated_at": "2026-11-08T23:28:29.258156+00:00",
+ "runner_sha256": "5b798bfaa55b238ae8ffcd093c08d502296ef782c953b40604e8f89ba0a3bafb",
+ "runner_changed": false,
+ "configuration": {}
+}

@@ -1,0 +1,3 @@
+type: string
+nonempty: 1
+ends: < >

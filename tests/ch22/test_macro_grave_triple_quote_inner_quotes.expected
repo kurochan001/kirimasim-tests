@@ -1,0 +1,3 @@
+SHOW: [f("hi",2)] len=11
+ESC: Ann said "Ann" len=14
+PLAIN: Ann said "v". len=13

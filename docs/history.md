@@ -455,3 +455,10 @@ clause 37.
 - The three new chapter 4 tests of region order use `$sampled` outside the single-clock static model of the SVA reference evaluator, so its M4 inventory defers them with a reason.
 - [Clauses 33 and 40](clauses-33-40-testability-20261109.en.md) records what the standard fixes and what it leaves to tools, and which requirements this suite's format can test.
 - kirimasim `33cee3fa` differs from the standard in two new tests: slang gives a nested module no default clocking from its enclosing module (14.12), and a call through a modport import uses the definition's default argument instead of the prototype's (25.7).
+
+### 2026-11-09 (tests for IEEE 1800-2023 additions)
+
+- The external review counted few tests for some additions of IEEE 1800-2023. 47 tests were added, 23 legal and 24 illegal: triple-quoted strings in macros (2 legal, 2 illegal), `$stacktrace` (2, 1), restricted type parameters (2, 2), `map()` (2, 2), `ref static` (4, 4), `solve ... before` with an array's size (2, 3), `disable soft` with an array's size (2, 2), `rand real` (2, 2), tolerance ranges (3, 3) and `covergroup extends` (2, 3). Each of these additions now has at least three legal tests and two illegal tests.
+- The expectations come from the standard, and a second AI review, independent of the author, found all 47 right. Verilator 5.052 reproduces 7 of them with seeds 1 and 73, which now list `verilator@5.052`; the results are `coverage/results/additions2023-20261109-*.json`.
+- kirimasim `33cee3fa` matches 29, does not support 15 and fails 3: it prints the stack for `void'($stacktrace)`, rejects a member of a static unpacked structure as a `ref static` actual, and stops with an internal error (exit code 3) on a range in a `unique` list.
+- The four new tests in `tests/ch22` change the input digest of the include tests there, whose digest covers the include directory. The eleven mapped ones were rerun on Icarus Verilog 13.0 and Verilator 5.052 (`coverage/results/ch22-rehash-20261109-*.json`), which also adds two requirements to the execution coverage without Ghost: 6,287/12,298 (51.12%).

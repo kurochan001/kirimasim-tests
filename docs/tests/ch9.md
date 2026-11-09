@@ -4,7 +4,7 @@
 
 [English](ch9.md) / [日本語](ch9.ja.md)
 
-[All chapters](README.md). 443 tests, 233 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 444 tests, 233 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -111,6 +111,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_illegal_function_contains_fork_join_any`](../../tests/ch9/test_illegal_function_contains_fork_join_any.sv) | A function cannot contain a fork-join_any block | 9.3.2 13.4 | Verilator 5.052 | illegal design |
 | [`test_illegal_return_inside_fork`](../../tests/ch9/test_illegal_return_inside_fork.sv) | A return statement inside a fork-join block is a compilation error | 9.3.2 | Icarus Verilog 13.0 | illegal design |
 | [`test_join_none_children_start_after_parent_blocks`](../../tests/ch9/test_join_none_children_start_after_parent_blocks.sv) | Processes spawned by fork-join_none do not start until the parent blocks, so they see the value a static loop variable has by then | 9.3.2 | Icarus Verilog 13.0 ||
+| [`test_ref_static_fork_join_none_after_return`](../../tests/ch9/test_ref_static_fork_join_none_after_return.sv) | a process spawned by fork-join_none can read and write a ref static argument after the task has returned, reaching the caller's variable as it is then, while a plain ref argument may be used there only to initialize a variable of the fork block | 9.3.2 13.5.2 6.21 | standard only ||
 | [`test_ch9_extra_unnamed_block_scope`](../../tests/ch9/test_ch9_extra_unnamed_block_scope.sv) | a variable declared in an unnamed sequential block belongs to the unnamed scope of that block and cannot be reached by a hierarchical name | 9.3.4 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_end_name_differs_from_begin_name`](../../tests/ch9/test_illegal_end_name_differs_from_begin_name.sv) | a block name after end has to be the name of the block given after begin | 9.3.4 9.3.1 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_generate_block_end_name_differs`](../../tests/ch9/test_illegal_generate_block_end_name_differs.sv) | a name after the end of a generate block has to be the name of the block | 9.3.4 27.3 | Icarus Verilog 13.0 | illegal design |

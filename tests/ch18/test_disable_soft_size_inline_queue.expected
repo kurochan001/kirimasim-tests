@@ -1,0 +1,5 @@
+soft size kept: ok=1 size=5 q: 10 11 12 13 14
+disable soft q.size(): ok=1 size=2 q: 10 11
+soft n kept: ok=1 n=4 size=4
+disable soft n: ok=1 size=3 q: 10 11 12
+later soft kept: ok=1 size=1 q: 10

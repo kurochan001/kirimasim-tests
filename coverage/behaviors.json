@@ -226165,7 +226165,7 @@
           "observation": "`include のファイル名をマクロ LEX_INCLUDE_FILE で与えて LEX_FROM_INCLUDE=7 を読み込み、`timescale の単位と精度をマクロ LEX_UNIT/LEX_PREC（10ns/1ns）で与えて #1 が 10 ns になることを表示する。ブロックコメント内の `define、行コメント内の `undef、文字列リテラル内の `undef がどれも処理されないことを `ifdef で表示し、文字列は `undef LEX_KEEP_S のまま印字する。 区別: 指令の中でマクロを展開しない実装は `include や `timescale でエラーになるか 10 ns の行が変わる。コメントや文字列の中の指令を認識する実装では block comment/line comment/string の行が processed になり、文字列の印字内容も変わる。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
+          "inputs_sha256": "cb9bef21e98705a7990f70b8ae501af8f16b365a60e73cba38dbed9d41689ab7",
           "evidence": [
             {
               "file": "tests/ch22/test_directive_macro_expansion_not_in_comments_or_strings.sv",
@@ -226305,7 +226305,7 @@
           "observation": "` で始まる `timescale と `define の効果を、定義位置の異なる 3 つのモジュールの #1 の長さと SCOPE_VALUE で観測する。1ns/1 の後の scope_first は 1 ns・1、include したファイルの中の `timescale 1us と再定義 2 はそのファイルの終わりの後の scope_included にも効いて 1000 ns・2、後の `timescale 100ns と再定義 3 がそれを置き換えて scope_superseded は 100 ns・3。 区別: 指令の効果を include したファイルの中だけに限る実装では scope_included の行が 1 ns・1 になる。後の指令で置き換えない実装では scope_superseded の行が 1000 ns・2 になり、表示の順序も変わる。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
+          "inputs_sha256": "cb9bef21e98705a7990f70b8ae501af8f16b365a60e73cba38dbed9d41689ab7",
           "evidence": [
             {
               "file": "tests/ch22/test_directive_scope_across_include_until_superseded.sv",
@@ -226406,7 +226406,7 @@
           "observation": "`resetall の前に `default_nettype tri0、`unconnected_drive pull1、`celldefine を置き、`define と `include でマクロを定義する。`resetall の前に定義したモジュールは開放入力が 1、暗黙ネットが z だけで 0、インスタンスが cell（vpiCellInstance 1）、後に定義したモジュールは開放入力 z、暗黙ネット z、cell でない（0）。マクロ 2 つは値を保ち、`undef したものは未定義のまま。 区別: 既定値を持つ指令を戻さない実装では after の行が 1/0/cell instance 1 のままになる。既定値を持たない `define を `resetall で消す実装では width 4 や 9 の行がエラーになり、`undef したマクロを戻す実装では undefined の行が defined になる。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
+          "inputs_sha256": "cb9bef21e98705a7990f70b8ae501af8f16b365a60e73cba38dbed9d41689ab7",
           "evidence": [
             {
               "file": "tests/ch22/test_resetall_restores_defaults_keeps_macros.sv",
@@ -226524,7 +226524,7 @@
           "observation": "`include \"include_absolute_only_helper.svh\" は合法、`include \"/kirimasim_no_such_dir/include_absolute_only_helper.svh\"（30 行目）が誤り。:expected_stderr_regex: が 30 行目を照合する。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
+          "inputs_sha256": "cb9bef21e98705a7990f70b8ae501af8f16b365a60e73cba38dbed9d41689ab7",
           "evidence": [
             {
               "file": "tests/ch22/test_illegal_include_absolute_path_not_searched.sv",
@@ -226594,7 +226594,7 @@
           "observation": "1 つ目の `include の後には行コメントだけを置き（合法）、2 つ目の `include の後の同じ行に localparam 宣言を置く（25 行目）。インクルードファイルはガードで 2 回目に何も宣言しないので、他の誤りは無い。:expected_stderr_regex: は 25 行目を照合する。 区別: `include の行に空白とコメント以外を許す実装は宣言を受け付けて設計を受理する（Verilator 5.052）のでテストが失敗する。コメントまで拒む実装は 23 行目でもエラーを出すが、25 行目の照合は変わらない。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
+          "inputs_sha256": "cb9bef21e98705a7990f70b8ae501af8f16b365a60e73cba38dbed9d41689ab7",
           "evidence": [
             {
               "file": "tests/ch22/test_illegal_include_line_trailing_code.sv",
@@ -226749,7 +226749,7 @@
           "observation": "include先のtypedefとfunctionを宣言位置へ挿入し、両memberと関数結果を確認する。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
+          "inputs_sha256": "cb9bef21e98705a7990f70b8ae501af8f16b365a60e73cba38dbed9d41689ab7",
           "evidence": [
             {
               "file": "tests/ch22/test_include_file_declarations.sv",
@@ -226783,7 +226783,7 @@
           "observation": "同じincludeを2回読み、guardによりparameterが重複せずdepth6とguard定義を観測する。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
+          "inputs_sha256": "cb9bef21e98705a7990f70b8ae501af8f16b365a60e73cba38dbed9d41689ab7",
           "evidence": [
             {
               "file": "tests/ch22/test_include_guard_twice.sv",
@@ -226800,7 +226800,7 @@
           "observation": "main/helperの両ファイルで同じinclude由来macro7が使え、3倍21を両方で観測する。compilation unitの構成は固定しない。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
+          "inputs_sha256": "cb9bef21e98705a7990f70b8ae501af8f16b365a60e73cba38dbed9d41689ab7",
           "evidence": [
             {
               "file": "tests/ch22/test_include_guard_two_files.sv",
@@ -226817,7 +226817,7 @@
           "observation": "outerがincludeするinnerのparameter5とouterの計算値10を両方確認する。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
+          "inputs_sha256": "cb9bef21e98705a7990f70b8ae501af8f16b365a60e73cba38dbed9d41689ab7",
           "evidence": [
             {
               "file": "tests/ch22/test_include_nested.sv",
@@ -226887,7 +226887,7 @@
           "observation": "シミュレーションで22.4-EXTRACT-INCLUDE-SYNTAXを観測する。The design uses `include \"file\" on a line of its own before the module and between the items of the module, and `include <file> before the module. The included files supply the macro QUOTED_WIDTH, the macro ANGLE_NAME and the localparam BODY_VALUE, and the pri 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
           "reviewed_on": "2026-10-28",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
+          "inputs_sha256": "cb9bef21e98705a7990f70b8ae501af8f16b365a60e73cba38dbed9d41689ab7",
           "evidence": [
             {
               "file": "tests/ch22/test_22_extra_include_syntax.sv",
@@ -226924,7 +226924,7 @@
           "observation": "`resetall の前に `define RESETALL_KEEP_WIDTH 4、`define と `undef の RESETALL_GONE、include したファイルの `define RESETALL_FROM_INCLUDE 9 を置き、`resetall の後のモジュールで $bits を 4、RESETALL_GONE を undefined、RESETALL_FROM_INCLUDE を 9 と表示する。 区別: `resetall でテキストマクロを消す実装では `RESETALL_KEEP_WIDTH と `RESETALL_FROM_INCLUDE が未定義になりエラーになる。マクロの状態を戻す実装（undef を取り消す）では undefined の行が defined に変わる。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
+          "inputs_sha256": "cb9bef21e98705a7990f70b8ae501af8f16b365a60e73cba38dbed9d41689ab7",
           "evidence": [
             {
               "file": "tests/ch22/test_resetall_restores_defaults_keeps_macros.sv",
@@ -231099,7 +231099,7 @@
           "observation": "インクルードファイルに `begin_keywords \"1364-2005\" だけがあり、インクルード後のモジュールの logic x;（31 行目）が誤り。対の `end_keywords はこのファイルにある。:expected_stderr_regex: が 31 行目を照合する。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
+          "inputs_sha256": "cb9bef21e98705a7990f70b8ae501af8f16b365a60e73cba38dbed9d41689ab7",
           "evidence": [
             {
               "file": "tests/ch22/begin_keywords_1364_2005_helper.svh",

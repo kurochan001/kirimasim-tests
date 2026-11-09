@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
-  "registry_sha256": "a9386a38b48cdf8f92b10bc7df20055504309678ab8dc3b99a7ce764113710bb",
+  "registry_sha256": "7d4bf82592ca7994453009c50e841d1877ad92216f636c333d82e5df6bf777b1",
   "source_url": null,
   "source_audit": {
     "audited": 1740,
@@ -26,7 +26,7 @@
   "extraction_progress_percent": 100.0,
   "unmapped": 1217,
   "executed": 9592,
-  "executed_reproducible": 6285,
+  "executed_reproducible": 6287,
   "whole_standard_percent": 90.10408196454708,
   "whole_standard_executed_percent": 77.99642218246869,
   "registered_percent": 90.10408196454708,
@@ -39,7 +39,7 @@
     "verilator",
     "sby"
   ],
-  "provisional_execution_reproducible_percent": 51.10587087331273,
+  "provisional_execution_reproducible_percent": 51.122133680273215,
   "denominator": {
     "count": 12298,
     "unit": "registered_requirement_condition_or_observation",
@@ -49,9 +49,9 @@
     "interpretation_pending": 0
   },
   "test_mapping": {
-    "suite_test_files": 12221,
+    "suite_test_files": 12268,
     "linked_test_files": 5395,
-    "unlinked_test_files": 6826
+    "unlinked_test_files": 6873
   },
   "collective_requirement_count": 671,
   "requirement_status_counts": {
@@ -319,10 +319,10 @@
       "registered": 361,
       "mapped": 345,
       "executed": 339,
-      "executed_reproducible": 333,
+      "executed_reproducible": 335,
       "design_percent": 95.56786703601108,
       "execution_percent": 93.90581717451524,
-      "execution_reproducible_percent": 92.24376731301939,
+      "execution_reproducible_percent": 92.797783933518,
       "interpretation_pending": 0
     },
     {
@@ -761,6 +761,82 @@
   "execution": {
     "snapshots": [
       {
+        "file": "additions2023-20261109-icarus13.json",
+        "simulator": "icarus",
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+        "generated_at": "2026-11-08T23:28:10.924284+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11081,
+          "unmapped": 1217,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "additions2023-20261109-kirimasim-33cee3fa.json",
+        "simulator": "kirimasim",
+        "version": "kirimasim 0.0.0 (commit 33cee3fa2f0d), built with AppleClang 21.0.0.21000401",
+        "generated_at": "2026-11-08T23:28:29.258156+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11081,
+          "unmapped": 1217,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "additions2023-20261109-verilator5.052-seed1.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+        "generated_at": "2026-11-08T23:28:20.610160+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11081,
+          "unmapped": 1217,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "additions2023-20261109-verilator5.052-seed73.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+        "generated_at": "2026-11-08T23:28:28.917518+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11081,
+          "unmapped": 1217,
+          "interpretation_pending": 0
+        }
+      },
+      {
         "file": "block-namespace-20261107-icarus13.json",
         "simulator": "icarus",
         "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
@@ -1110,6 +1186,80 @@
           "unreviewed_oracle": 0,
           "stale": 1,
           "not_run": 11066,
+          "unmapped": 1217,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "ch22-rehash-20261109-icarus13.json",
+        "simulator": "icarus",
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+        "generated_at": "2026-11-09T00:42:36.088320+00:00",
+        "executed": [
+          "SV2023-22.2-EXTRACT-DIRECTIVE-LEXING",
+          "SV2023-22.2-EXTRACT-DIRECTIVE-PREFIX-SCOPE",
+          "SV2023-22.3-EXTRACT-RESET-DEFAULTS",
+          "SV2023-22.4-EXTRACT-INCLUDE-LINE",
+          "SV2023-22.4-EXTRACT-INCLUDE-SUBSTITUTION",
+          "SV2023-22.4-EXTRACT-INCLUDE-SYNTAX"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 6,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11075,
+          "unmapped": 1217,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "ch22-rehash-20261109-verilator5.052-seed1.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+        "generated_at": "2026-11-09T00:43:03.296408+00:00",
+        "executed": [
+          "SV2023-22.2-EXTRACT-DIRECTIVE-LEXING",
+          "SV2023-22.2-EXTRACT-DIRECTIVE-PREFIX-SCOPE",
+          "SV2023-22.4-EXTRACT-INCLUDE-SUBSTITUTION",
+          "SV2023-22.4-EXTRACT-INCLUDE-SYNTAX"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 4,
+          "fail": 0,
+          "known": 3,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11074,
+          "unmapped": 1217,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "ch22-rehash-20261109-verilator5.052-seed73.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+        "generated_at": "2026-11-09T00:43:29.042050+00:00",
+        "executed": [
+          "SV2023-22.2-EXTRACT-DIRECTIVE-LEXING",
+          "SV2023-22.2-EXTRACT-DIRECTIVE-PREFIX-SCOPE",
+          "SV2023-22.4-EXTRACT-INCLUDE-SUBSTITUTION",
+          "SV2023-22.4-EXTRACT-INCLUDE-SYNTAX"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 4,
+          "fail": 0,
+          "known": 3,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11074,
           "unmapped": 1217,
           "interpretation_pending": 0
         }
@@ -4131,15 +4281,10 @@
           "SV2023-22.14.4-EXTRACT-EXCLUDE-LIBLIST",
           "SV2023-22.14.4-EXTRACT-EXCLUDE-LIBRARY",
           "SV2023-22.14.4-EXTRACT-EXCLUDE-USE",
-          "SV2023-22.2-EXTRACT-DIRECTIVE-LEXING",
-          "SV2023-22.2-EXTRACT-DIRECTIVE-PREFIX-SCOPE",
           "SV2023-22.2-EXTRACT-DIRECTIVE-SAME-LINE",
-          "SV2023-22.3-EXTRACT-RESET-DEFAULTS",
           "SV2023-22.4-EXTRACT-INCLUDE-NESTING",
           "SV2023-22.4-EXTRACT-INCLUDE-QUOTED-SEARCH",
           "SV2023-22.4-EXTRACT-INCLUDE-SUBSTITUTION",
-          "SV2023-22.4-EXTRACT-INCLUDE-SYNTAX",
-          "SV2023-22.5-EXTRACT-MACRO-NO-RESET",
           "SV2023-22.5.1-EXTRACT-MACRO-CALL-SPACING",
           "SV2023-22.5.1-EXTRACT-MACRO-COMMENTS",
           "SV2023-22.5.1-EXTRACT-MACRO-COMPILATION-SCOPE",
@@ -10195,14 +10340,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 139,
+        "stale_links": 151,
         "status_counts": {
-          "pass": 7920,
-          "fail": 1428,
+          "pass": 7915,
+          "fail": 1427,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 1288,
-          "stale": 113,
+          "stale": 119,
           "not_run": 332,
           "unmapped": 1217,
           "interpretation_pending": 0
@@ -12083,15 +12228,10 @@
           "SV2023-22.14.4-EXTRACT-EXCLUDE-LIBLIST",
           "SV2023-22.14.4-EXTRACT-EXCLUDE-LIBRARY",
           "SV2023-22.14.4-EXTRACT-EXCLUDE-USE",
-          "SV2023-22.2-EXTRACT-DIRECTIVE-LEXING",
-          "SV2023-22.2-EXTRACT-DIRECTIVE-PREFIX-SCOPE",
           "SV2023-22.2-EXTRACT-DIRECTIVE-SAME-LINE",
-          "SV2023-22.3-EXTRACT-RESET-DEFAULTS",
           "SV2023-22.4-EXTRACT-INCLUDE-NESTING",
           "SV2023-22.4-EXTRACT-INCLUDE-QUOTED-SEARCH",
           "SV2023-22.4-EXTRACT-INCLUDE-SUBSTITUTION",
-          "SV2023-22.4-EXTRACT-INCLUDE-SYNTAX",
-          "SV2023-22.5-EXTRACT-MACRO-NO-RESET",
           "SV2023-22.5.1-EXTRACT-MACRO-CALL-SPACING",
           "SV2023-22.5.1-EXTRACT-MACRO-COMMENTS",
           "SV2023-22.5.1-EXTRACT-MACRO-COMPILATION-SCOPE",
@@ -18215,14 +18355,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 75,
+        "stale_links": 87,
         "status_counts": {
-          "pass": 8000,
-          "fail": 1408,
+          "pass": 7995,
+          "fail": 1407,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 1288,
-          "stale": 53,
+          "stale": 59,
           "not_run": 332,
           "unmapped": 1217,
           "interpretation_pending": 0
@@ -20073,15 +20213,10 @@
           "SV2023-22.14.4-EXTRACT-EXCLUDE-LIBLIST",
           "SV2023-22.14.4-EXTRACT-EXCLUDE-LIBRARY",
           "SV2023-22.14.4-EXTRACT-EXCLUDE-USE",
-          "SV2023-22.2-EXTRACT-DIRECTIVE-LEXING",
-          "SV2023-22.2-EXTRACT-DIRECTIVE-PREFIX-SCOPE",
           "SV2023-22.2-EXTRACT-DIRECTIVE-SAME-LINE",
-          "SV2023-22.3-EXTRACT-RESET-DEFAULTS",
           "SV2023-22.4-EXTRACT-INCLUDE-NESTING",
           "SV2023-22.4-EXTRACT-INCLUDE-QUOTED-SEARCH",
           "SV2023-22.4-EXTRACT-INCLUDE-SUBSTITUTION",
-          "SV2023-22.4-EXTRACT-INCLUDE-SYNTAX",
-          "SV2023-22.5-EXTRACT-MACRO-NO-RESET",
           "SV2023-22.5.1-EXTRACT-MACRO-CALL-SPACING",
           "SV2023-22.5.1-EXTRACT-MACRO-COMMENTS",
           "SV2023-22.5.1-EXTRACT-MACRO-COMPILATION-SCOPE",
@@ -26138,14 +26273,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 139,
+        "stale_links": 151,
         "status_counts": {
-          "pass": 7903,
-          "fail": 1526,
+          "pass": 7898,
+          "fail": 1525,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 1207,
-          "stale": 113,
+          "stale": 119,
           "not_run": 332,
           "unmapped": 1217,
           "interpretation_pending": 0
@@ -26157,17 +26292,16 @@
         "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
         "generated_at": "2026-10-28T13:33:20.979624+00:00",
         "executed": [
-          "SV2023-21.7.1.2-EXTRACT-DUMPVARS-ALL",
-          "SV2023-22.4-EXTRACT-INCLUDE-SYNTAX"
+          "SV2023-21.7.1.2-EXTRACT-DUMPVARS-ALL"
         ],
-        "stale_links": 29,
+        "stale_links": 30,
         "status_counts": {
-          "pass": 2,
+          "pass": 1,
           "fail": 0,
           "known": 62,
           "unsupported": 0,
           "unreviewed_oracle": 0,
-          "stale": 27,
+          "stale": 28,
           "not_run": 10990,
           "unmapped": 1217,
           "interpretation_pending": 0
@@ -27025,16 +27159,13 @@
           "SV2023-22.14.4-EXTRACT-EXCLUDE-LIBRARY",
           "SV2023-22.14.4-EXTRACT-EXCLUDE-USE",
           "SV2023-22.14.5-EXTRACT-VERSION-SET",
-          "SV2023-22.2-EXTRACT-DIRECTIVE-LEXING",
           "SV2023-22.2-EXTRACT-DIRECTIVE-NESTING",
           "SV2023-22.2-EXTRACT-DIRECTIVE-ONE-LINE",
-          "SV2023-22.2-EXTRACT-DIRECTIVE-PREFIX-SCOPE",
           "SV2023-22.2-EXTRACT-DIRECTIVE-SAME-LINE",
           "SV2023-22.3-EXTRACT-RESET-PLACEMENT",
           "SV2023-22.4-EXTRACT-INCLUDE-NESTING",
           "SV2023-22.4-EXTRACT-INCLUDE-QUOTED-SEARCH",
           "SV2023-22.4-EXTRACT-INCLUDE-SUBSTITUTION",
-          "SV2023-22.4-EXTRACT-INCLUDE-SYNTAX",
           "SV2023-22.5.1-EXTRACT-MACRO-ARGUMENT-DELIMITERS",
           "SV2023-22.5.1-EXTRACT-MACRO-ARITY",
           "SV2023-22.5.1-EXTRACT-MACRO-COMMENTS",
@@ -29981,14 +30112,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 346,
+        "stale_links": 358,
         "status_counts": {
-          "pass": 3801,
+          "pass": 3798,
           "fail": 0,
-          "known": 5965,
+          "known": 5962,
           "unsupported": 0,
           "unreviewed_oracle": 671,
-          "stale": 306,
+          "stale": 312,
           "not_run": 338,
           "unmapped": 1217,
           "interpretation_pending": 0

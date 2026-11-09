@@ -4,7 +4,7 @@
 
 [English](ch7.md) / [日本語](ch7.ja.md)
 
-[All chapters](README.md). 772 tests, 304 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 776 tests, 304 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -475,9 +475,13 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_illegal_reduction_and_with_real_expression`](../../tests/ch7/test_illegal_reduction_and_with_real_expression.sv) | with a with clause, a reduction method needs its operation to be defined for the type of the with expression, so and() with a real expression is illegal | 7.12.3 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_wildcard_index_method`](../../tests/ch7/test_illegal_wildcard_index_method.sv) | the iterator index method cannot be used with a wildcard-index associative array | 7.12.4 7.8.1 | standard only | illegal design |
 | [`test_array_map_method`](../../tests/ch7/test_array_map_method.sv) | The map() array method returns an array with the same range or keys whose elements are the with expression for each element, using item or a named iterator and its index, with the self-determined type of the expression | 7.12.5 7.12 | standard only ||
+| [`test_illegal_map_assoc_result_to_other_index_type`](../../tests/ch7/test_illegal_map_assoc_result_to_other_index_type.sv) | map() of an associative array returns an associative array with the same index type, so its result cannot be assigned to an associative array with another index type | 7.12.5 7.9.9 | standard only | illegal design |
+| [`test_illegal_map_int_elements_to_string_queue`](../../tests/ch7/test_illegal_map_int_elements_to_string_queue.sv) | the elements of the result of map() have the type of the with expression, so a result of int elements cannot be assigned to a queue of strings | 7.12.5 7.6 6.16 | standard only | illegal design |
 | [`test_illegal_map_without_with`](../../tests/ch7/test_illegal_map_without_with.sv) | the array method map() needs a with clause that gives the value of each element of its result | 7.12.5 | Verilator 5.052 | illegal design |
+| [`test_map_element_types_and_index_names`](../../tests/ch7/test_map_element_types_and_index_names.sv) | map() gives elements of the type of its with expression, here strings, members of structure elements and properties of class objects, and the with expression can use another array through the index method, a renamed index method, and the index of an associative array, whose type is its index type | 7.12.5 7.12.4 7.12 7.6 7.9.9 7.8.2 7.9.4 7.9.6 | standard only ||
 | [`test_map_result_to_same_array`](../../tests/ch7/test_map_result_to_same_array.sv) | The result of map() can be assigned back to the array it is called on, a dynamic array or a queue | 7.12.5 | Verilator 5.052 ||
 | [`test_map_result_type_range_and_keys`](../../tests/ch7/test_map_result_type_range_and_keys.sv) | the result of map() has elements of the self-determined type of the with expression, the range of the source array, and for an associative array its set of indices | 7.12.5 | standard only ||
+| [`test_map_selects_order_and_empty`](../../tests/ch7/test_map_selects_order_and_empty.sv) | a select or a method call can follow the with clause of map(), map() of a descending range gives each element the index it had, map() of an empty array is empty, and map() of a queue or an associative array with negative keys keeps the order and the keys, leaving the source unchanged | 7.12.5 7.12 7.12.4 7.12.3 7.6 7.8.4 7.9.4 7.9.6 | standard only ||
 
 <a id="生成者-generatorsinteraction_arraypy"></a>
 

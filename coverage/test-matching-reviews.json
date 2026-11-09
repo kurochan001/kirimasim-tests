@@ -9863,7 +9863,7 @@
     },
     {
       "test": "tests/ch22/test_include_nested.sv",
-      "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
+      "inputs_sha256": "cb9bef21e98705a7990f70b8ae501af8f16b365a60e73cba38dbed9d41689ab7",
       "reviewed_on": "2026-10-28",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -9911,7 +9911,7 @@
     },
     {
       "test": "tests/ch22/test_include_guard_two_files.sv",
-      "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
+      "inputs_sha256": "cb9bef21e98705a7990f70b8ae501af8f16b365a60e73cba38dbed9d41689ab7",
       "reviewed_on": "2026-10-28",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -45438,7 +45438,7 @@
     },
     {
       "test": "tests/ch22/test_resetall_restores_defaults_keeps_macros.sv",
-      "inputs_sha256": "5aea35d98fcae5fe17cc522b3cd0b5b3b98e89d986affe60fc6253e118231e4f",
+      "inputs_sha256": "cb9bef21e98705a7990f70b8ae501af8f16b365a60e73cba38dbed9d41689ab7",
       "reviewed_on": "2026-10-28",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",

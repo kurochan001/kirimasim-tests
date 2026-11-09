@@ -1,0 +1,55 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch22/test_22_extra_include_syntax": {
+   "status": "pass",
+   "inputs_sha256": "cb9bef21e98705a7990f70b8ae501af8f16b365a60e73cba38dbed9d41689ab7"
+  },
+  "ch22/test_directive_macro_expansion_not_in_comments_or_strings": {
+   "status": "pass",
+   "inputs_sha256": "cb9bef21e98705a7990f70b8ae501af8f16b365a60e73cba38dbed9d41689ab7"
+  },
+  "ch22/test_directive_scope_across_include_until_superseded": {
+   "status": "pass",
+   "inputs_sha256": "cb9bef21e98705a7990f70b8ae501af8f16b365a60e73cba38dbed9d41689ab7"
+  },
+  "ch22/test_illegal_begin_keywords_spans_include_boundary": {
+   "status": "pass",
+   "inputs_sha256": "cb9bef21e98705a7990f70b8ae501af8f16b365a60e73cba38dbed9d41689ab7"
+  },
+  "ch22/test_illegal_include_absolute_path_not_searched": {
+   "status": "pass",
+   "inputs_sha256": "cb9bef21e98705a7990f70b8ae501af8f16b365a60e73cba38dbed9d41689ab7"
+  },
+  "ch22/test_illegal_include_line_trailing_code": {
+   "status": "pass",
+   "inputs_sha256": "cb9bef21e98705a7990f70b8ae501af8f16b365a60e73cba38dbed9d41689ab7"
+  },
+  "ch22/test_include_file_declarations": {
+   "status": "pass",
+   "inputs_sha256": "cb9bef21e98705a7990f70b8ae501af8f16b365a60e73cba38dbed9d41689ab7"
+  },
+  "ch22/test_include_guard_twice": {
+   "status": "pass",
+   "inputs_sha256": "cb9bef21e98705a7990f70b8ae501af8f16b365a60e73cba38dbed9d41689ab7"
+  },
+  "ch22/test_include_guard_two_files": {
+   "status": "pass",
+   "inputs_sha256": "cb9bef21e98705a7990f70b8ae501af8f16b365a60e73cba38dbed9d41689ab7"
+  },
+  "ch22/test_include_nested": {
+   "status": "pass",
+   "inputs_sha256": "cb9bef21e98705a7990f70b8ae501af8f16b365a60e73cba38dbed9d41689ab7"
+  },
+  "ch22/test_resetall_restores_defaults_keeps_macros": {
+   "status": "pass",
+   "inputs_sha256": "cb9bef21e98705a7990f70b8ae501af8f16b365a60e73cba38dbed9d41689ab7"
+  }
+ },
+ "generated_at": "2026-11-09T00:42:36.088320+00:00",
+ "runner_sha256": "185575d1afe9ecb852d05b1ae3cb8bdedd526303e07fc2410c0f273152d5fe46",
+ "runner_changed": false,
+ "configuration": {}
+}

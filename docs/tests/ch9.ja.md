@@ -4,7 +4,7 @@
 
 [English](ch9.md) / [日本語](ch9.ja.md)
 
-[すべての章](README.ja.md) .443 233 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
+[すべての章](README.ja.md) .444 233 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -111,6 +111,7 @@
 | [`test_illegal_function_contains_fork_join_any`](../../tests/ch9/test_illegal_function_contains_fork_join_any.sv) |関数には fork-join_any ブロックは含まれません| 9.3.2 13.4 | Verilator 5.052 |違法なデザインだ|
 | [`test_illegal_return_inside_fork`](../../tests/ch9/test_illegal_return_inside_fork.sv) |フォークジョイントブロック内の return 命令はコンパイルエラーです| 9.3.2 | Icarus Verilog 13.0 |違法なデザインだ|
 | [`test_join_none_children_start_after_parent_blocks`](../../tests/ch9/test_join_none_children_start_after_parent_blocks.sv) |フォーク-join_none によって生成されたプロセスは、親ブロックがブロックされるまでは起動しません。したがって、その時点で静的ループ変数の値を見ることができます。| 9.3.2 | Icarus Verilog 13.0 ||
+| [`test_ref_static_fork_join_none_after_return`](../../tests/ch9/test_ref_static_fork_join_none_after_return.sv) |fork-join_none で生成したプロセスはタスクが戻った後も ref static 引数を読み書きでき、その時点の呼び出し側の変数に到達するが、通常の ref 引数はそこでは fork ブロックの変数の初期化にしか使えない| 9.3.2 13.5.2 6.21 |標準のみ||
 | [`test_ch9_extra_unnamed_block_scope`](../../tests/ch9/test_ch9_extra_unnamed_block_scope.sv) |順序ブロックの名前なしの範囲に属する変数は階層的な名前でアクセスできません| 9.3.4 | Icarus Verilog 13.0 |違法なデザインだ|
 | [`test_illegal_end_name_differs_from_begin_name`](../../tests/ch9/test_illegal_end_name_differs_from_begin_name.sv) |ブロック名は ブロック名の後に付けられる| 9.3.4 9.3.1 | Icarus Verilog 13.0 |違法なデザインだ|
 | [`test_illegal_generate_block_end_name_differs`](../../tests/ch9/test_illegal_generate_block_end_name_differs.sv) |生成ブロックの終わりの名前は ブロックの名前でなければなりません| 9.3.4 27.3 | Icarus Verilog 13.0 |違法なデザインだ|

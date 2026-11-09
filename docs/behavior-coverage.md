@@ -6,7 +6,7 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 90.10%、実行 78.00%、Ghostを除く実行 51.11%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 90.10%、実行 78.00%、Ghostを除く実行 51.12%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
 **要求カバレッジ（テスト設計）: 90.10%。** 規格要求の実行確認率: 78.00%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
@@ -32,6 +32,10 @@
 
 複数テストで一つの要求を分担する `check_groups` は、同じ実行環境・実行回で グループ内の全テストが成功した場合に限り成功とします。未指定の対応は独立した代替証拠です。
 
+- `additions2023-20261109-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-08T23:28:10.924284+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
+- `additions2023-20261109-kirimasim-33cee3fa.json`: `kirimasim 0.0.0 (commit 33cee3fa2f0d), built with AppleClang 21.0.0.21000401` / `2026-11-08T23:28:29.258156+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
+- `additions2023-20261109-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-08T23:28:20.610160+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
+- `additions2023-20261109-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-08T23:28:28.917518+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
 - `block-namespace-20261107-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-06T16:22:35.529949+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
 - `block-namespace-20261107-kirimasim-1e840ea3.json`: `kirimasim 0.0.0 (commit 1e840ea322cc), built with AppleClang 21.0.0.21000334` / `2026-11-06T16:22:35.395353+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
 - `block-namespace-20261107-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-06T16:22:41.394923+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
@@ -48,6 +52,9 @@
 - `ch21-extra-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T16:30:10.339072+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
 - `ch22-extra-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T18:08:32.360779+00:00` / 13/12298 動作確認、古い入力との対応 1 件。
 - `ch22-extra-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T18:08:36.769544+00:00` / 14/12298 動作確認、古い入力との対応 1 件。
+- `ch22-rehash-20261109-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-09T00:42:36.088320+00:00` / 6/12298 動作確認、古い入力との対応 0 件。
+- `ch22-rehash-20261109-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-09T00:43:03.296408+00:00` / 4/12298 動作確認、古い入力との対応 0 件。
+- `ch22-rehash-20261109-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-09T00:43:29.042050+00:00` / 4/12298 動作確認、古い入力との対応 0 件。
 - `ch23-extra-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T18:10:02.321608+00:00` / 5/12298 動作確認、古い入力との対応 0 件。
 - `ch23-extra-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T18:10:14.224099+00:00` / 10/12298 動作確認、古い入力との対応 0 件。
 - `ch31-extra-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T18:05:22.468557+00:00` / 10/12298 動作確認、古い入力との対応 0 件。
@@ -71,11 +78,11 @@
 - `coverage-tests-20261029-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T22:47:59.529525+00:00` / 2/12298 動作確認、古い入力との対応 1 件。
 - `coverage-tests-20261029-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T22:46:15.799172+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12298 動作確認、古い入力との対応 0 件。
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7920/12298 動作確認、古い入力との対応 139 件。
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 8000/12298 動作確認、古い入力との対応 75 件。
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7903/12298 動作確認、古い入力との対応 139 件。
-- `issues-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T13:33:20.979624+00:00` / 2/12298 動作確認、古い入力との対応 29 件。
-- `issues-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T13:45:50.335531+00:00` / 3801/12298 動作確認、古い入力との対応 346 件。
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7915/12298 動作確認、古い入力との対応 151 件。
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7995/12298 動作確認、古い入力との対応 87 件。
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7898/12298 動作確認、古い入力との対応 151 件。
+- `issues-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T13:33:20.979624+00:00` / 1/12298 動作確認、古い入力との対応 30 件。
+- `issues-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T13:45:50.335531+00:00` / 3798/12298 動作確認、古い入力との対応 358 件。
 - `issues-20261031-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-30T20:31:55.476769+00:00` / 13/12298 動作確認、古い入力との対応 19 件。
 - `issues-20261031-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-30T20:31:59.218896+00:00` / 42/12298 動作確認、古い入力との対応 19 件。
 - `issues-20261031-verilator-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-30T20:32:01.484680+00:00` / 42/12298 動作確認、古い入力との対応 19 件。
@@ -59914,7 +59921,7 @@ ASCII 0x 60 で始まる指令プロセスから現在のコンパイルユニ�
 
 ### SV2023-22.4-EXTRACT-INCLUDE-LINE
 
-`22.4` / `error` / テスト対応あり・実行未確認
+`22.4` / `error` / 実行確認あり
 
 空白文字やコメントのみが include 指令行を共有できます。
 
@@ -59982,7 +59989,7 @@ include は引用符または角括弧のファイル名を受け入れ、 行�
 
 ### SV2023-22.5-EXTRACT-MACRO-NO-RESET
 
-`22.5` / `normal` / 実行確認あり
+`22.5` / `normal` / テスト対応あり・実行未確認
 
 再インストールはテキストマクロには影響しません。
 

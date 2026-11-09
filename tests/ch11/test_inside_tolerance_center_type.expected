@@ -1,0 +1,6 @@
+4-bit A, B 20: 0 1 1 0
+byte A, B 200: 0 1 1 0
+B -2.9: 0 1 1 0
+B 0.5: 0 1 0
+real A, int B: 1 1 0 1 0
+real A, B -25 percent: 1 1 0

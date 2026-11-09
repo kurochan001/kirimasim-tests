@@ -14,13 +14,13 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 12221 |
+| Tests | 12268 |
 | Clauses in scope | 1010 |
 | Clauses out of scope | 149 |
 | Clauses with a direct test | 1010/1010 |
 | Clauses with at least two direct tests | 1010/1010 |
 | Clauses with one test | 0 |
-| Clauses with two tests or fewer | 106 |
+| Clauses with two tests or fewer | 105 |
 | Clauses with only standard-only tests | 196 |
 | Clauses with one test and only a standard-only test | 0 |
 
@@ -28,8 +28,8 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | --- | ---: |
 | both releases | 809 |
 | Icarus Verilog 13.0 only | 5844 |
-| Verilator 5.052 only | 2239 |
-| standard only | 3329 |
+| Verilator 5.052 only | 2246 |
+| standard only | 3369 |
 
 <a id="章別"></a>
 
@@ -40,23 +40,23 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | 3 | Design and verification building blocks | 136 | 16 | 8.5 | 0 | 14 |
 | 4 | Scheduling semantics | 478 | 27 | 17.7 | 0 | 28 |
 | 5 | Lexical conventions | 513 | 16 | 32.1 | 0 | 46 |
-| 6 | Data types | 681 | 76 | 9.0 | 0 | 122 |
-| 7 | Aggregate data types | 772 | 49 | 15.8 | 0 | 201 |
+| 6 | Data types | 685 | 76 | 9.0 | 0 | 123 |
+| 7 | Aggregate data types | 776 | 49 | 15.8 | 0 | 205 |
 | 8 | Classes | 459 | 43 | 10.7 | 0 | 109 |
-| 9 | Processes | 443 | 25 | 17.7 | 0 | 56 |
+| 9 | Processes | 444 | 25 | 17.8 | 0 | 57 |
 | 10 | Assignment statements | 425 | 18 | 23.6 | 0 | 47 |
-| 11 | Operators and expressions | 1644 | 42 | 39.1 | 0 | 250 |
+| 11 | Operators and expressions | 1647 | 42 | 39.2 | 0 | 252 |
 | 12 | Procedural programming statements | 306 | 19 | 16.1 | 0 | 49 |
-| 13 | Tasks and functions (subroutines) | 443 | 15 | 29.5 | 0 | 64 |
+| 13 | Tasks and functions (subroutines) | 450 | 15 | 30.0 | 0 | 71 |
 | 14 | Clocking blocks | 170 | 15 | 11.3 | 0 | 65 |
 | 15 | Interprocess synchronization and communication | 192 | 21 | 9.1 | 0 | 132 |
 | 16 | Assertions | 794 | 69 | 11.5 | 0 | 548 |
 | 17 | Checkers | 108 | 10 | 10.8 | 0 | 61 |
-| 18 | Constrained random value generation | 257 | 44 | 5.8 | 0 | 105 |
-| 19 | Functional coverage | 190 | 24 | 7.9 | 0 | 127 |
-| 20 | Utility system tasks and system functions | 407 | 31 | 13.1 | 0 | 94 |
+| 18 | Constrained random value generation | 273 | 44 | 6.2 | 0 | 121 |
+| 19 | Functional coverage | 196 | 24 | 8.2 | 0 | 133 |
+| 20 | Utility system tasks and system functions | 409 | 31 | 13.2 | 0 | 94 |
 | 21 | Input/output system tasks and system functions | 495 | 47 | 10.5 | 0 | 105 |
-| 22 | Compiler directives | 512 | 21 | 24.4 | 0 | 36 |
+| 22 | Compiler directives | 516 | 21 | 24.6 | 0 | 39 |
 | 23 | Modules and hierarchy | 417 | 33 | 12.6 | 0 | 72 |
 | 24 | Programs | 167 | 7 | 23.9 | 0 | 112 |
 | 25 | Interfaces | 262 | 12 | 21.8 | 0 | 38 |

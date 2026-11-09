@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[すべての章](README.ja.md) .681 79 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
+[すべての章](README.ja.md) .685 79 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -452,11 +452,15 @@
 | [`test_parameters_edge_cases`](../../tests/ch6/test_parameters_edge_cases.sv) |ローカルパラメータと上書きされたインスタンスパラメータ| 6.20.2 6.20.4 23.10 | Icarus Verilog 13.0 ||
 | [`test_untyped_parameter_width_from_override`](../../tests/ch6/test_untyped_parameter_width_from_override.sv) |タイプも範囲もないパラメータは、その上位値の幅を取ります。| 6.20.2 23.10.2.1 23.10.2.2 | Icarus Verilog 13.0 ||
 | [`test_illegal_enum_restricted_type_parameter_given_int`](../../tests/ch6/test_illegal_enum_restricted_type_parameter_given_int.sv) |型パラメータは、enum キーワードで制限され、エナメルタイプのみを与えられます。int はエラーです| 6.20.3 | Verilator 5.052 |違法なデザインだ|
+| [`test_illegal_interface_class_restricted_type_parameter_given_class`](../../tests/ch6/test_illegal_interface_class_restricted_type_parameter_given_class.sv) |interface class で制限した型パラメータにはインタフェースクラスしか与えられない。インタフェースクラスを実装するクラスはエラーである| 6.20.3 8.26 |標準のみ|違法なデザインだ|
+| [`test_illegal_struct_restricted_type_parameter_given_union`](../../tests/ch6/test_illegal_struct_restricted_type_parameter_given_union.sv) |struct キーワードで制限した型パラメータには構造体型しか与えられない。同じ幅の packed 共用体はエラーである| 6.20.3 | Verilator 5.052 |違法なデザインだ|
 | [`test_illegal_type_parameter_assigned_value`](../../tests/ch6/test_illegal_type_parameter_assigned_value.sv) |タイプパラメータはデータタイプにのみ設定できます。データタイプはパッケージに適合したタイプ名でなければなりません。価値表現は違法です| 6.20.3 | Icarus Verilog 13.0 |違法なデザインだ|
 | [`test_illegal_type_parameter_defparam`](../../tests/ch6/test_illegal_type_parameter_defparam.sv) |タイプパラメータは defparam ステートメントで上書きできませんが、| 6.20.3 | Icarus Verilog 13.0 |違法なデザインだ|
 | [`test_illegal_type_parameter_hierarchical_type_name`](../../tests/ch6/test_illegal_type_parameter_hierarchical_type_name.sv) |タイプパラメータに与えられたデータタイプは階層的な名前を通じて名付けることはできませんが、パッケージに限定された名前は許可されています。| 6.20.3 | Icarus Verilog 13.0 |違法なデザインだ|
 | [`test_illegal_type_parameter_scope_prefix_in_variable`](../../tests/ch6/test_illegal_type_parameter_scope_prefix_in_variable.sv) |タイプパラメータを通して :: で選択されたタイプは、typedef またはタイプパラメータ代入に使用できますが、変数宣言に直接使用できません。| 6.20.3 |標準のみ|違法なデザインだ|
 | [`test_illegal_type_parameter_scope_prefix_not_class`](../../tests/ch6/test_illegal_type_parameter_scope_prefix_not_class.sv) |クラスの範囲解決演算子の プレフィックスとして使われるタイプパラメータは クラスに解決されなければなりません| 6.20.3 | Verilator 5.052 |違法なデザインだ|
+| [`test_type_param_restricted_class_and_interface_lists`](../../tests/ch6/test_type_param_restricted_class_and_interface_lists.sv) |クラスとインタフェースのパラメータポートリストにある parameter キーワードも既定値もない制限付き型パラメータと、クラス本体の制限付きローカル型パラメータは、既定値、特殊化、上書きによって適合する型を受け取る| 6.20.3 6.20.1 6.20.4 8.25 25.8 | Verilator 5.052 ||
+| [`test_type_param_restricted_conforming_types`](../../tests/ch6/test_type_param_restricted_conforming_types.sv) |制限付き型パラメータは、 enum の typedef 名、前方 typedef で宣言した enum 、派生クラス、パラメータ化クラスの特殊化、別のインタフェースクラスを拡張するインタフェースクラス、または同じ制限を持つ別の型パラメータを与えられたときに適合する| 6.20.3 6.18 8.25 8.26 | Verilator 5.052 ||
 | [`test_type_param_restricted_kinds`](../../tests/ch6/test_type_param_restricted_kinds.sv) |タイプパラメータは enum に制限され、struct、union、class、interface クラスは単独またはタイプ代入のリストとして、デフォルトとオバーライドで適合型を取ります。| 6.20.3 6.20.1 8.26 | Verilator 5.052 ||
 | [`test_ch6_extra_localparam_sticky`](../../tests/ch6/test_ch6_extra_localparam_sticky.sv) |パラメータポートリストでは、localparam の後の宣言は次のパラメータキーワードが入力されるまでローカルに残り、名前で上書きできません。| 6.20.4 23.10.2.2 | Icarus Verilog 13.0 |違法なデザインだ|
 | [`test_generate_string_localparam`](../../tests/ch6/test_generate_string_localparam.sv) |テスト: ブロック文字列 localparam アクセスを生成| 6.20.4 27.5 | Icarus Verilog 13.0 ||

@@ -1,0 +1,6 @@
+BS: [path\<nl>end] len=9
+DFLT(): <none|"x y">
+DFLT(,5): <none|5>
+DFLT(k): <k|"x y">
+NEST(7): sum=7+2
+PASTE(abc): abc_q

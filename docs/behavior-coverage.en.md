@@ -6,7 +6,7 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 90.10%, execution 78.00%, execution without Ghost 51.11%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 90.10%, execution 78.00%, execution without Ghost 51.12%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
 Requirement coverage (test design): 90.10%. Requirement execution-confirmation rate: 78.00%. The citation of the section and the number of tests are not converted to the coverage of all actions.
@@ -32,6 +32,10 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 
 `check_groups` distributes a single request across multiple tests, and is successful only if all tests in the group are successful in the same runtime and run. The unspecified response is an independent alternative proof.
 
+- `additions2023-20261109-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-08T23:28:10.924284+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
+- `additions2023-20261109-kirimasim-33cee3fa.json`: `kirimasim 0.0.0 (commit 33cee3fa2f0d), built with AppleClang 21.0.0.21000401` / `2026-11-08T23:28:29.258156+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
+- `additions2023-20261109-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-08T23:28:20.610160+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
+- `additions2023-20261109-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-08T23:28:28.917518+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
 - `block-namespace-20261107-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-06T16:22:35.529949+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
 - `block-namespace-20261107-kirimasim-1e840ea3.json`: `kirimasim 0.0.0 (commit 1e840ea322cc), built with AppleClang 21.0.0.21000334` / `2026-11-06T16:22:35.395353+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
 - `block-namespace-20261107-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-06T16:22:41.394923+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
@@ -48,6 +52,9 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `ch21-extra-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T16:30:10.339072+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
 - `ch22-extra-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T18:08:32.360779+00:00` / 13/12298 execution checked; 1 entries refer to older inputs.
 - `ch22-extra-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T18:08:36.769544+00:00` / 14/12298 execution checked; 1 entries refer to older inputs.
+- `ch22-rehash-20261109-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-09T00:42:36.088320+00:00` / 6/12298 execution checked; 0 entries refer to older inputs.
+- `ch22-rehash-20261109-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-09T00:43:03.296408+00:00` / 4/12298 execution checked; 0 entries refer to older inputs.
+- `ch22-rehash-20261109-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-09T00:43:29.042050+00:00` / 4/12298 execution checked; 0 entries refer to older inputs.
 - `ch23-extra-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T18:10:02.321608+00:00` / 5/12298 execution checked; 0 entries refer to older inputs.
 - `ch23-extra-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T18:10:14.224099+00:00` / 10/12298 execution checked; 0 entries refer to older inputs.
 - `ch31-extra-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T18:05:22.468557+00:00` / 10/12298 execution checked; 0 entries refer to older inputs.
@@ -71,11 +78,11 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `coverage-tests-20261029-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T22:47:59.529525+00:00` / 2/12298 execution checked; 1 entries refer to older inputs.
 - `coverage-tests-20261029-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T22:46:15.799172+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12298 execution checked; 0 entries refer to older inputs.
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7920/12298 execution checked; 139 entries refer to older inputs.
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 8000/12298 execution checked; 75 entries refer to older inputs.
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7903/12298 execution checked; 139 entries refer to older inputs.
-- `issues-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T13:33:20.979624+00:00` / 2/12298 execution checked; 29 entries refer to older inputs.
-- `issues-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T13:45:50.335531+00:00` / 3801/12298 execution checked; 346 entries refer to older inputs.
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7915/12298 execution checked; 151 entries refer to older inputs.
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7995/12298 execution checked; 87 entries refer to older inputs.
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7898/12298 execution checked; 151 entries refer to older inputs.
+- `issues-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T13:33:20.979624+00:00` / 1/12298 execution checked; 30 entries refer to older inputs.
+- `issues-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T13:45:50.335531+00:00` / 3798/12298 execution checked; 358 entries refer to older inputs.
 - `issues-20261031-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-30T20:31:55.476769+00:00` / 13/12298 execution checked; 19 entries refer to older inputs.
 - `issues-20261031-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-30T20:31:59.218896+00:00` / 42/12298 execution checked; 19 entries refer to older inputs.
 - `issues-20261031-verilator-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-30T20:32:01.484680+00:00` / 42/12298 execution checked; 19 entries refer to older inputs.
@@ -59914,7 +59921,7 @@ Normative role: `implementation_defined`。
 
 ### SV2023-22.4-EXTRACT-INCLUDE-LINE
 
-`22.4` / `error` / Test mapped; execution unconfirmed
+`22.4` / `error` / Execution confirmed
 
 Only whitespace or a comment may share the include directive line.
 
@@ -59982,7 +59989,7 @@ Normative role: `mandatory`。
 
 ### SV2023-22.5-EXTRACT-MACRO-NO-RESET
 
-`22.5` / `normal` / Execution confirmed
+`22.5` / `normal` / Test mapped; execution unconfirmed
 
 resetall does not affect text macros.
 
