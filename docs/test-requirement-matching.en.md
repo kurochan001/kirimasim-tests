@@ -6,7 +6,7 @@
 
 [Requirement-coverage aggregation](behavior-coverage-summary.en.md) / [Comparison ledger for all tests](../coverage/test-matching.json) / [Content check errors](existing-test-matching-review-20261022.en.md)
 
-The reference candidates are listed from the citation section for all 12268 tests. The test which has registered the demand response based on stimulus and expected result is 5395 tests, and the test which is not registered is 6873 tests.
+The reference candidates are listed from the citation section for all 12268 tests. The test which has registered the demand response based on stimulus and expected result is 5400 tests, and the test which is not registered is 6868 tests.
 
 The mapping based on the verification content of all tests is not complete. The list of candidates is an automatic process and does not represent approval of the match. The number of registered units is the number of units that correspond to at least one requirement, and not the number of completed verification of each test. Multiple observations of one test and the response of another test verifying the same requirement are recorded in sequence.
 
@@ -51,7 +51,7 @@ Do not treat a requirement without a candidate or an unregistered test as eviden
 - ch12 : All 306 tests, registered 104 tests, unregistered 202 tests.
 - ch13 : All 450 tests, registered 114 tests, unregistered 336 tests.
 - ch14 : All 170 tests, registered 75 tests, unregistered 95 tests.
-- ch15 : All 192 tests, registered 36 tests, unregistered 156 tests.
+- ch15 : All 192 tests, registered 39 tests, unregistered 153 tests.
 - ch16 : All 794 tests, registered 608 tests, unregistered 186 tests.
 - ch17 : All 108 tests, registered 52 tests, unregistered 56 tests.
 - ch18 : All 273 tests, registered 189 tests, unregistered 84 tests.
@@ -61,7 +61,7 @@ Do not treat a requirement without a candidate or an unregistered test as eviden
 - ch22 : All 516 tests, registered 341 tests, unregistered 175 tests.
 - ch23 : All 417 tests, registered 191 tests, unregistered 226 tests.
 - ch24 : All 167 tests, registered 40 tests, unregistered 127 tests.
-- ch25 : All 262 tests, registered 82 tests, unregistered 180 tests.
+- ch25 : All 262 tests, registered 84 tests, unregistered 178 tests.
 - ch26 : All 262 tests, registered 48 tests, unregistered 214 tests.
 - ch27 : All 283 tests, registered 39 tests, unregistered 244 tests.
 - ch28 : All 297 tests, registered 200 tests, unregistered 97 tests.

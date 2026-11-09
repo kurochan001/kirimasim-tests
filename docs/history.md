@@ -482,3 +482,9 @@ clause 37.
 ### 2026-11-09 (execution coverage without Ghost first)
 
 - The README, the FAQ (Q16) and the generated behavior summary now lead with the execution coverage from the tools anyone can reproduce (Icarus Verilog, Verilator and SymbiYosys), 51.12% (6,287/12,298), and give the union with Ghost, 78.00% (9,592/12,298), beside it. The figures and how they are counted do not change.
+
+### 2026-11-09 (run-time error requirements)
+
+- Five requirements whose errors are reported while the design runs had the error kind, which maps only to illegal designs with `:should_fail_because:`: a negative key count of a semaphore's put, get and try_get (15.3.2, 15.3.3, 15.3.4), a call of an extern forkjoin task with no definition (25.7.4), and a reference through a null virtual interface (25.9). They are now normal requirements, like 6.24.2, 8.16 and 19.5.6, whose run-time errors are tested with `:expected_stderr_regex:`.
+- Each is now mapped to its test added and reviewed on 2026-11-09. The baseline of `coverage/behaviors.json` was written again with this reason, as the kind is part of each requirement's contract, so the denominator digest changes; the 12,298 rows do not.
+- Design coverage rises from 90.10% to 90.14% (11,086/12,298), and 88.47% (8,374/9,465) for clauses 1 to 40. Execution coverage does not change: no saved run of a pinned release passes these tests yet.

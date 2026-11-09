@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 90.10%、Ghostを除く実行 51.12%、Ghostを含む実行 78.00%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 90.14%、Ghostを除く実行 51.12%、Ghostを含む実行 78.00%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 90.10%。** 規格要求の実行確認率: 78.00%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 90.14%。** 規格要求の実行確認率: 78.00%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対する要求カバレッジ（テスト設計）: 11081/12298 (90.10%)。
+- 登録済み動作に対する要求カバレッジ（テスト設計）: 11086/12298 (90.14%)。
 - 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9592/12298 (78.00%)。
-- 登録済みだがテスト未対応: 1217 動作。
+- 登録済みだがテスト未対応: 1212 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。
 
@@ -275,7 +275,7 @@
 - 12 Procedural programming statements: 解釈保留なし 28/28、登録 115、テスト対応 89。
 - 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 119、テスト対応 92。
 - 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 84。
-- 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 68。
+- 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 71。
 - 16 Assertions: 解釈保留なし 82/82、登録 555、テスト対応 539。
 - 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 59。
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 300。
@@ -285,7 +285,7 @@
 - 22 Compiler directives: 解釈保留なし 28/28、登録 361、テスト対応 345。
 - 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 251。
 - 24 Programs: 解釈保留なし 10/10、登録 29、テスト対応 25。
-- 25 Interfaces: 解釈保留なし 25/25、登録 63、テスト対応 53。
+- 25 Interfaces: 解釈保留なし 25/25、登録 63、テスト対応 55。
 - 26 Packages: 解釈保留なし 8/8、登録 44、テスト対応 39。
 - 27 Generate constructs: 解釈保留なし 7/7、登録 32、テスト対応 27。
 - 28 Gate-level and switch-level modeling: 解釈保留なし 34/34、登録 384、テスト対応 363。
@@ -35738,7 +35738,7 @@ int keyCount をデフォルトのゼロとして、セマホーハンドルを�
 
 ### SV2023-15.3.2-EXTRACT-NO-NEGATIVE-PUT
 
-`15.3.2` / `error` / テスト未対応
+`15.3.2` / `normal` / テスト対応あり・実行未確認
 
 負のセマホーラプットカウントはエラーを生じる。
 
@@ -35746,6 +35746,7 @@ int keyCount をデフォルトのゼロとして、セマホーハンドルを�
 
 規定の性質: `mandatory`。
 
+- [test_semaphore_put_negative_count_error.sv](../tests/ch15/test_semaphore_put_negative_count_error.sv): 2鍵で作った semaphore に put(1) と try_get(3) を行った後、実行時に計算した n = -1 で put(n) を呼ぶ。期待出力は呼び出しの直前の行までで、実行時のメッセージに error を照合する。 区別: 負の鍵数の put をエラーにしない実装はメッセージの照合で失敗する。
 
 ### SV2023-15.3.2-EXTRACT-PUT-KEYS-UNBLOCK
 
@@ -35784,7 +35785,7 @@ int keyCount はデフォルト値である。
 
 ### SV2023-15.3.3-EXTRACT-NO-NEGATIVE-GET
 
-`15.3.3` / `error` / テスト未対応
+`15.3.3` / `normal` / テスト対応あり・実行未確認
 
 負の get キー数はエラーです。
 
@@ -35792,6 +35793,7 @@ int keyCount はデフォルト値である。
 
 規定の性質: `mandatory`。
 
+- [test_semaphore_get_negative_count_error.sv](../tests/ch15/test_semaphore_get_negative_count_error.sv): 2鍵で作った semaphore から get(2) が時刻 0 に戻り put(2) で返した後、実行時に計算した n = -1 で get(n) を呼ぶ。期待出力は呼び出しの直前の行までで、実行時のメッセージに error を照合する。 区別: 負の鍵数の get をエラーにしない実装はメッセージの照合で失敗する。
 
 ### SV2023-15.3.3-EXTRACT-SEMAPHORE-FIFO
 
@@ -35843,7 +35845,7 @@ FIFO は実際の到着順序を保持するセマホーラキューである。
 
 ### SV2023-15.3.4-EXTRACT-TRY-GET-NEGATIVE
 
-`15.3.4` / `error` / テスト未対応
+`15.3.4` / `normal` / テスト対応あり・実行未確認
 
 負の try_get 要求はゼロを返し、エラーを生成します。
 
@@ -35851,6 +35853,7 @@ FIFO は実際の到着順序を保持するセマホーラキューである。
 
 規定の性質: `mandatory`。
 
+- [test_semaphore_try_get_negative_count_error.sv](../tests/ch15/test_semaphore_try_get_negative_count_error.sv): 2鍵で作った semaphore で try_get(1) が正の値を返した後、実行時に計算した n = -1 で try_get(n) を呼び、戻り値 0 を表示する。実行時のメッセージに error を照合する。 区別: 負の鍵数で 0 以外を返す実装は try_get(-1) returned の値が変わり、エラーを報告しない実装はメッセージの照合で失敗する。
 
 ### SV2023-15.3.4-EXTRACT-TRY-GET-SUCCESS
 
@@ -68321,7 +68324,7 @@ modport表現は自己決定的であり，代入のようなものではなく�
 
 ### SV2023-25.7.4-EXTRACT-FORKJOIN-MISSING-DEFINITION
 
-`25.7.4` / `error` / テスト未対応
+`25.7.4` / `normal` / テスト対応あり・実行未確認
 
 接続された定義がないインタフェース外部のフォークジョインタスクを呼び出すと，ランタイムエラーが報告され，効果なく即座に返される。
 
@@ -68329,6 +68332,7 @@ modport表現は自己決定的であり，代入のようなものではなく�
 
 規定の性質: `mandatory`。
 
+- [test_extern_forkjoin_without_definition_runtime_error.sv](../tests/ch25/test_extern_forkjoin_without_definition_runtime_error.sv): 同じインタフェース型の二つのインスタンスのうち with_def にだけ ping を定義するモジュールを export modport で接続し、両方の呼び出し側が t=1 に ping を呼ぶ。without_def の呼び出しは t=1 に hits=0 のまま戻り、with_def は t=3 に hits=1 で戻る。実行時のメッセージに error を照合する。 区別: 定義のない extern forkjoin タスクの呼び出しでエラーを報告しない実装はメッセージの照合で失敗し、待ったり何かを実行したりする実装は bus 2 の行の時刻や hits が変わる。
 
 ### SV2023-25.7.4-EXTRACT-MULTIPLE-TASK-EXPORT
 
@@ -68495,7 +68499,7 @@ defparam に影響を受けたインタフェースのインスタンス/階層�
 
 ### SV2023-25.9-EXTRACT-VIRTUAL-NULL
 
-`25.9` / `error` / テスト未対応
+`25.9` / `normal` / テスト対応あり・実行未確認
 
 仮想インタフェースは初期にヌルであり，コンポーネント使用前に初期化される。ヌルを参照しないと ランタイムエラーが発生します
 
@@ -68503,6 +68507,7 @@ defparam に影響を受けたインタフェースのインスタンス/階層�
 
 規定の性質: `mandatory`。
 
+- [test_virtual_interface_null_component_access_fatal.sv](../tests/ch25/test_virtual_interface_null_component_access_fatal.sv): t=1 に代入していない vn が null であることと、bus を指す vok を通じた d=5 を出し、t=2 に vn.d を読む。期待出力はその直前の 行までで、読み出しの後の行と t=5 の別プロセスの行は出ない。実行時のメッセージに fatal または error を照合する。 区別: null の仮想インタフェースの参照を致命的エラーにしない実装は後続の行を出すか、エラーのメッセージがなく失敗する。
 
 ### SV2023-25.9-EXTRACT-VIRTUAL-PARAMETER-TYPE
 

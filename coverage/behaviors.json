@@ -141367,12 +141367,34 @@
     {
       "id": "SV2023-15.3.2-EXTRACT-NO-NEGATIVE-PUT",
       "clause": "15.3.2",
-      "kind": "error",
+      "kind": "normal",
       "behavior": "A negative semaphore put count produces an error.",
       "acceptance": "A negative semaphore put count produces an error.",
       "source_note": "IEEE 1800-2023 15.3.2; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch15/test_semaphore_put_negative_count_error.sv",
+          "observation": "2鍵で作った semaphore に put(1) と try_get(3) を行った後、実行時に計算した n = -1 で put(n) を呼ぶ。期待出力は呼び出しの直前の行までで、実行時のメッセージに error を照合する。 区別: 負の鍵数の put をエラーにしない実装はメッセージの照合で失敗する。",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "0dea566f66a2322ad113ae961e51e1c6bbac51d1a71787b81e49854cb7526aae",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_semaphore_put_negative_count_error.sv",
+              "contains": "    n = 1 - 2;\n    $display(\"calling put(%0d)\", n);\n    s.put(n);"
+            },
+            {
+              "file": "tests/ch15/test_semaphore_put_negative_count_error.sv",
+              "contains": ":expected_stderr_regex: (?i:\\berror\\b)"
+            },
+            {
+              "file": "tests/ch15/test_semaphore_put_negative_count_error.expected",
+              "contains": "put(1), try_get(3) = 1\ncalling put(-1)"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "15.3.2",
@@ -141475,12 +141497,34 @@
     {
       "id": "SV2023-15.3.3-EXTRACT-NO-NEGATIVE-GET",
       "clause": "15.3.3",
-      "kind": "error",
+      "kind": "normal",
       "behavior": "A negative get key count is an error.",
       "acceptance": "A negative get key count is an error.",
       "source_note": "IEEE 1800-2023 15.3.3; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch15/test_semaphore_get_negative_count_error.sv",
+          "observation": "2鍵で作った semaphore から get(2) が時刻 0 に戻り put(2) で返した後、実行時に計算した n = -1 で get(n) を呼ぶ。期待出力は呼び出しの直前の行までで、実行時のメッセージに error を照合する。 区別: 負の鍵数の get をエラーにしない実装はメッセージの照合で失敗する。",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "ff5ec1a7b6ec441bcc29918dd0db401f07a0b08589e60c8e2a2100d9c8d5beb8",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_semaphore_get_negative_count_error.sv",
+              "contains": "    n = 1 - 2;\n    $display(\"calling get(%0d)\", n);\n    s.get(n);"
+            },
+            {
+              "file": "tests/ch15/test_semaphore_get_negative_count_error.sv",
+              "contains": ":expected_stderr_regex: (?i:\\berror\\b)"
+            },
+            {
+              "file": "tests/ch15/test_semaphore_get_negative_count_error.expected",
+              "contains": "get(2) returned at t=0\ncalling get(-1)"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "15.3.3",
@@ -141670,12 +141714,34 @@
     {
       "id": "SV2023-15.3.4-EXTRACT-TRY-GET-NEGATIVE",
       "clause": "15.3.4",
-      "kind": "error",
+      "kind": "normal",
       "behavior": "A negative try_get request returns zero and produces an error.",
       "acceptance": "A negative try_get request returns zero and produces an error.",
       "source_note": "IEEE 1800-2023 15.3.4; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch15/test_semaphore_try_get_negative_count_error.sv",
+          "observation": "2鍵で作った semaphore で try_get(1) が正の値を返した後、実行時に計算した n = -1 で try_get(n) を呼び、戻り値 0 を表示する。実行時のメッセージに error を照合する。 区別: 負の鍵数で 0 以外を返す実装は try_get(-1) returned の値が変わり、エラーを報告しない実装はメッセージの照合で失敗する。",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "d369e6338523c3b5f541affe69fa7e358b7bdf232e342f66ede12ea9be58e90a",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_semaphore_try_get_negative_count_error.sv",
+              "contains": "    n = 1 - 2;\n    r = s.try_get(n);"
+            },
+            {
+              "file": "tests/ch15/test_semaphore_try_get_negative_count_error.sv",
+              "contains": ":expected_stderr_regex: (?i:\\berror\\b)"
+            },
+            {
+              "file": "tests/ch15/test_semaphore_try_get_negative_count_error.expected",
+              "contains": "try_get(1) positive: 1\ntry_get(-1) returned 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "15.3.4",
@@ -259447,12 +259513,34 @@
     {
       "id": "SV2023-25.7.4-EXTRACT-FORKJOIN-MISSING-DEFINITION",
       "clause": "25.7.4",
-      "kind": "error",
+      "kind": "normal",
       "behavior": "Calling an interface extern forkjoin task with no connected definition reports a run-time error and immediately returns without effect.",
       "acceptance": "Calling an interface extern forkjoin task with no connected definition reports a run-time error and immediately returns without effect.",
       "source_note": "IEEE 1800-2023 25.7.4; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch25/test_extern_forkjoin_without_definition_runtime_error.sv",
+          "observation": "同じインタフェース型の二つのインスタンスのうち with_def にだけ ping を定義するモジュールを export modport で接続し、両方の呼び出し側が t=1 に ping を呼ぶ。without_def の呼び出しは t=1 に hits=0 のまま戻り、with_def は t=3 に hits=1 で戻る。実行時のメッセージに error を照合する。 区別: 定義のない extern forkjoin タスクの呼び出しでエラーを報告しない実装はメッセージの照合で失敗し、待ったり何かを実行したりする実装は bus 2 の行の時刻や hits が変わる。",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "644aba02cf1b63f625685fa409d6c6369abb8f089e5c0ea2c66815b11ecf9a4e",
+          "evidence": [
+            {
+              "file": "tests/ch25/test_extern_forkjoin_without_definition_runtime_error.sv",
+              "contains": "  fjw_bus with_def (), without_def ();\n  fjw_target t (with_def);"
+            },
+            {
+              "file": "tests/ch25/test_extern_forkjoin_without_definition_runtime_error.sv",
+              "contains": ":expected_stderr_regex: (?i:\\berror\\b)"
+            },
+            {
+              "file": "tests/ch25/test_extern_forkjoin_without_definition_runtime_error.expected",
+              "contains": "bus 2: ping returned at t=1 with hits=0\nbus 1: ping returned at t=3 with hits=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "25.7.4",
@@ -260172,12 +260260,34 @@
     {
       "id": "SV2023-25.9-EXTRACT-VIRTUAL-NULL",
       "clause": "25.9",
-      "kind": "error",
+      "kind": "normal",
       "behavior": "A virtual interface initially is null and shall be initialized before component use; dereferencing null causes a fatal run-time error.",
       "acceptance": "A virtual interface initially is null and shall be initialized before component use; dereferencing null causes a fatal run-time error.",
       "source_note": "IEEE 1800-2023 25.9; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch25/test_virtual_interface_null_component_access_fatal.sv",
+          "observation": "t=1 に代入していない vn が null であることと、bus を指す vok を通じた d=5 を出し、t=2 に vn.d を読む。期待出力はその直前の 行までで、読み出しの後の行と t=5 の別プロセスの行は出ない。実行時のメッセージに fatal または error を照合する。 区別: null の仮想インタフェースの参照を致命的エラーにしない実装は後続の行を出すか、エラーのメッセージがなく失敗する。",
+          "reviewed_on": "2026-11-09",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "3064dbabf9af3bbba3e20a485946350022e3b2421fd8a3427c8ed4938aa27857",
+          "evidence": [
+            {
+              "file": "tests/ch25/test_virtual_interface_null_component_access_fatal.sv",
+              "contains": "    x = vn.d;"
+            },
+            {
+              "file": "tests/ch25/test_virtual_interface_null_component_access_fatal.sv",
+              "contains": ":expected_stderr_regex: (?i:\\b(?:fatal|error)\\b)"
+            },
+            {
+              "file": "tests/ch25/test_virtual_interface_null_component_access_fatal.expected",
+              "contains": "t=1 vn is null: 1, vok.d=5\nt=2 reading vn.d"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "25.9",

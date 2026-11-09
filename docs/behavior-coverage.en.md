@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 90.10%, execution without Ghost 51.12%, execution with Ghost 78.00%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 90.14%, execution without Ghost 51.12%, execution with Ghost 78.00%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 90.10%. Requirement execution-confirmation rate: 78.00%. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 90.14%. Requirement execution-confirmation rate: 78.00%. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 11081/12298 ( 90.10% ).
+- The requirement coverage (test design) for registered behaviors is 11086/12298 ( 90.14% ).
 - Among the registered behaviors, the one with a record of path results corresponding to the current input: 9592/12298 ( 78.00% ).
-- Registered but not tested: 1217.
+- Registered but not tested: 1212.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -275,7 +275,7 @@ The number of items is the investigation status of the article by heading. This 
 - 12 Procedural programming statements: no interpretation reservation 28/28, registration 115, test support 89.
 - 13 Tasks and functions (subroutines): no interpretation reservation 20/20, registration 119, test support 92.
 - 14 Clocking blocks: no interpretation reservation 19/19, registration 87, test support 84.
-- 15 Interprocess synchronization and communication: no interpretation reservation 27/27, registration 88, test support 68.
+- 15 Interprocess synchronization and communication: no interpretation reservation 27/27, registration 88, test support 71.
 - 16 Assertions: No interpretation reservation 82/82, registration 555, test support 539.
 - 17 Checkers: No interpretation reservations 13/13, registration 79, test support 59.
 - 18 Constrained random value generation: 58/58 without pending interpretation issues, 320 registered, 300 mapped to tests.
@@ -285,7 +285,7 @@ The number of items is the investigation status of the article by heading. This 
 - 22 Compiler directives: 28/28 without pending interpretation issues, 361 registered, 345 mapped to tests.
 - 23 Modules and hierarchy: No interpretation reservation 47/47, registration 260, test support 251.
 - 24 Programs: No interpretation restrictions 10/10, registration 29, test support 25.
-- 25 Interfaces: No interpretation reservation 25/25, registration 63, test support 53.
+- 25 Interfaces: No interpretation reservation 25/25, registration 63, test support 55.
 - 26 Packages: No interpretation reservation 8/8, registration 44, testing support 39.
 - 27 Generate constructs: no interpretation reservation 7/7, registration 32, test support 27.
 - 28 Gate-level and switch-level modeling: no interpretation reservation 34/34, registration 384, test support 363.
@@ -35738,7 +35738,7 @@ Normative role: `definition`。
 
 ### SV2023-15.3.2-EXTRACT-NO-NEGATIVE-PUT
 
-`15.3.2` / `error` / No mapped test
+`15.3.2` / `normal` / Test mapped; execution unconfirmed
 
 A negative semaphore put count produces an error.
 
@@ -35746,6 +35746,7 @@ Acceptance criterion: A negative semaphore put count produces an error.
 
 Normative role: `mandatory`。
 
+- [test_semaphore_put_negative_count_error.sv](../tests/ch15/test_semaphore_put_negative_count_error.sv): on a semaphore made with 2 keys, after put(1) and try_get(3), put(n) is called with n = -1 computed at run time. The expected output ends with the line just before the call, and the run-time message is matched against error. Distinguishing observation: An implementation that does not make a put with a negative key count an error fails the message match.
 
 ### SV2023-15.3.2-EXTRACT-PUT-KEYS-UNBLOCK
 
@@ -35784,7 +35785,7 @@ Normative role: `mandatory`。
 
 ### SV2023-15.3.3-EXTRACT-NO-NEGATIVE-GET
 
-`15.3.3` / `error` / No mapped test
+`15.3.3` / `normal` / Test mapped; execution unconfirmed
 
 A negative get key count is an error.
 
@@ -35792,6 +35793,7 @@ Acceptance criterion: A negative get key count is an error.
 
 Normative role: `mandatory`。
 
+- [test_semaphore_get_negative_count_error.sv](../tests/ch15/test_semaphore_get_negative_count_error.sv): on a semaphore made with 2 keys, get(2) returns at time 0 and the keys are given back with put(2); then get(n) is called with n = -1 computed at run time. The expected output ends with the line just before the call, and the run-time message is matched against error. Distinguishing observation: An implementation that does not make a get with a negative key count an error fails the message match.
 
 ### SV2023-15.3.3-EXTRACT-SEMAPHORE-FIFO
 
@@ -35843,7 +35845,7 @@ Normative role: `mandatory`。
 
 ### SV2023-15.3.4-EXTRACT-TRY-GET-NEGATIVE
 
-`15.3.4` / `error` / No mapped test
+`15.3.4` / `normal` / Test mapped; execution unconfirmed
 
 A negative try_get request returns zero and produces an error.
 
@@ -35851,6 +35853,7 @@ Acceptance criterion: A negative try_get request returns zero and produces an er
 
 Normative role: `mandatory`。
 
+- [test_semaphore_try_get_negative_count_error.sv](../tests/ch15/test_semaphore_try_get_negative_count_error.sv): on a semaphore made with 2 keys, after try_get(1) returns a positive value, try_get(n) is called with n = -1 computed at run time and its return value 0 is printed. The run-time message is matched against error. Distinguishing observation: An implementation that returns anything but 0 for a negative key count changes the value after try_get(-1) returned, and one that reports no error fails the message match.
 
 ### SV2023-15.3.4-EXTRACT-TRY-GET-SUCCESS
 
@@ -68321,7 +68324,7 @@ Normative role: `mandatory`。
 
 ### SV2023-25.7.4-EXTRACT-FORKJOIN-MISSING-DEFINITION
 
-`25.7.4` / `error` / No mapped test
+`25.7.4` / `normal` / Test mapped; execution unconfirmed
 
 Calling an interface extern forkjoin task with no connected definition reports a run-time error and immediately returns without effect.
 
@@ -68329,6 +68332,7 @@ Acceptance criterion: Calling an interface extern forkjoin task with no connecte
 
 Normative role: `mandatory`。
 
+- [test_extern_forkjoin_without_definition_runtime_error.sv](../tests/ch25/test_extern_forkjoin_without_definition_runtime_error.sv): of two instances of the same interface type, a module that defines ping is connected through an export modport to with_def only, and both callers call ping at t = 1. The call through without_def returns at t = 1 with hits = 0 unchanged, and with_def returns at t = 3 with hits = 1. The run-time message is matched against error. Distinguishing observation: An implementation that reports no error for a call of an extern forkjoin task without a definition fails the message match, and one that waits or runs anything changes the time or the hits on the line of bus 2.
 
 ### SV2023-25.7.4-EXTRACT-MULTIPLE-TASK-EXPORT
 
@@ -68495,7 +68499,7 @@ Normative role: `mandatory`。
 
 ### SV2023-25.9-EXTRACT-VIRTUAL-NULL
 
-`25.9` / `error` / No mapped test
+`25.9` / `normal` / Test mapped; execution unconfirmed
 
 A virtual interface initially is null and shall be initialized before component use; dereferencing null causes a fatal run-time error.
 
@@ -68503,6 +68507,7 @@ Acceptance criterion: A virtual interface initially is null and shall be initial
 
 Normative role: `mandatory`。
 
+- [test_virtual_interface_null_component_access_fatal.sv](../tests/ch25/test_virtual_interface_null_component_access_fatal.sv): at t = 1, prints that vn, never assigned, is null, and d = 5 through vok, which refers to bus; at t = 2, reads vn.d. The expected output ends with the line just before it; the line after the read and the line of another process at t = 5 do not appear. The run-time message is matched against fatal or error. Distinguishing observation: An implementation that does not make a reference through a null virtual interface a fatal error prints the later lines, or fails for lack of an error message.
 
 ### SV2023-25.9-EXTRACT-VIRTUAL-PARAMETER-TYPE
 
