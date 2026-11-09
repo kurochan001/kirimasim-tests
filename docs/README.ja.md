@@ -160,3 +160,4 @@
 | Issue #48〜#57 の判断とテスト修正（2026-11-07） | [日本語](issues-48-57-review-20261107.md) | [English](issues-48-57-review-20261107.en.md) |
 | 「規格のみ」のテストの見直し（2026-11-09） | [日本語](spec-only-review-20261109.md) | [English](spec-only-review-20261109.en.md) |
 | 33章と40章：規格が決める範囲、ツールに任せる範囲、テストできる要求（2026-11-09） | [日本語](clauses-33-40-testability-20261109.md) | [English](clauses-33-40-testability-20261109.en.md) |
+| 引き継ぎ 2026-11-10 | [日本語](claude-code-handoff-20261110.md) | [English](claude-code-handoff-20261110.en.md) |

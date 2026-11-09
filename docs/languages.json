@@ -1158,6 +1158,17 @@
         "en": "ea75e8a93990bd1ca4e4c6d7e2021feda11781d8c6bf29c3f0ca3b11110c718c",
         "ja": "469dd5cf7e292bc677735207d26ff02567711baccae00357b13f6b27ebf8aae8"
       }
+    },
+    {
+      "en": "docs/claude-code-handoff-20261110.en.md",
+      "ja": "docs/claude-code-handoff-20261110.md",
+      "source": "docs/claude-code-handoff-20261110.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "be06fc2f147e878439134e06b9b55cfd104cb73db2b2bf1432af50dccf8bc6e6",
+        "ja": "f6e1b6700968ff4ab58c3603a9085db1a67a8b84bacee620d360d5b23fff8e3e"
+      }
     }
   ]
 }
