@@ -443,3 +443,8 @@
 
 - `9eab9bf2`での[2026-11-09のNightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/42532762726)では、Lyra `927308a2`のビルドがキャッシュになく、Lyraのジョブでのビルドに1時間32分かかりました。続く固定テストに1時間50分かかり、`tests/gen/ch8`の生成テストの途中でジョブが6時間の上限に達しました。この実行にはLyraの結果がなく、Icarus・Verilator・kirimasim・Ghostの結果は記録されました。
 - ビルドを別のジョブ（`lyra-build`）に分けました。`lyra-build`はLyraの`main`の先端を取得し、キャッシュにないコミットをビルドしてキャッシュに保存します。`lyra`ジョブはそのビルドを復元し、同じSHAでテストを実行するので、テストに6時間の上限をすべて使えます。結果の集め方と記録の仕方は変わりません。
+
+### 2026-11-09（新しいテストでのVerilatorとの差）
+
+- 2026-11-09に足したテストを、Verilator 5.052のシード1と73で確かめました。18本で規格との差があり、[シミュレータ間の差異](simulator-differences.ja.md#tests-added-20261109)に載せました。結果が異なるものが10本、受理する規格違反の設計が8本です。
+- ほかの4本は載せていません。7章の`map()`の規格違反の設計2本と25章のnullの仮想インタフェースは、エラーを報告する場所や形が規格でツールに任されているためで、`ch14/test_illegal_clocking_clockvar_continuous_assign`は合格するためです。

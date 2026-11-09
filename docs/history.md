@@ -469,3 +469,8 @@ clause 37.
 
 - In the [Nightly of 2026-11-09](https://github.com/kurochan001/kirimasim-tests/actions/runs/42532762726) on `9eab9bf2`, the Lyra job found no cached build of Lyra `927308a2` and built it in 1 hour 32 minutes. The fixed tests then took 1 hour 50 minutes, and the job reached its 6-hour limit while running the generated tests of `tests/gen/ch8`. That run has no Lyra results; Icarus, Verilator, kirimasim and Ghost were recorded.
 - The build now has a job of its own, `lyra-build`, which resolves Lyra's main, builds an uncached commit and saves it in the cache. The `lyra` job restores that build and runs the tests with the same SHA, so they keep the whole 6-hour limit. How results are collected and recorded does not change.
+
+### 2026-11-09 (Verilator differences of the new tests)
+
+- The tests added on 2026-11-09 were checked against Verilator 5.052 with seeds 1 and 73. 18 of them show a departure from the standard and are listed in the [simulator differences](simulator-differences.md#tests-added-20261109): ten whose results differ and eight illegal designs that it accepts.
+- Four others were left out: the two illegal `map()` designs of chapter 7 and the null virtual interface of chapter 25 report their error in a place or form that the standard leaves to tools, and `ch14/test_illegal_clocking_clockvar_continuous_assign` passes.

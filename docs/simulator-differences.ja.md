@@ -1122,3 +1122,43 @@ Syntax 33-4とA.1.5は、use節のパラメータの指定をセル名の直後�
 slangと、それを使うkirimasim・Lyraは、`#`のある形だけを受理します。
 一つのテストでコンパイルエラーと合格の両方を認めることはできないので、`ch33/test_config_declaration_grammar_forms`はuse節でパラメータを指定せず、既定値を期待するようにしました。
 `tests/gen/ch33/`の生成されたconfigのテストは、例と同じ`#`のある形を使います。
+
+<a id="tests-added-20261109"></a>
+
+## 2026-11-09に追加したテスト
+
+2026-11-09に4・14・15・24・25・33・40章と、テストの少なかったIEEE 1800-2023の追加機能に加えたテストと、同じ日に直した14章のテスト1件は、Verilator 5.052で次の差を示します。
+シード1と73の結果は同じです。保存した実行は、[章のテスト](../coverage/results/weak-chapters-20261109-verilator5.052-seed1.json)（[シード73](../coverage/results/weak-chapters-20261109-verilator5.052-seed73.json)）と[2023年の追加機能](../coverage/results/additions2023-20261109-verilator5.052-seed1.json)（[シード73](../coverage/results/additions2023-20261109-verilator5.052-seed73.json)）です。
+
+<a id="verilator-5052-results-20261109"></a>
+
+### Verilator 5.052：結果（2026-11-09）
+
+| 条項 | 何をするのか | テスト |
+| --- | --- | --- |
+| 14.4 | 時間単位1ns・精度1psのスコープで、入力スキュー3は、時刻150のクロックイベントに対し147.3でのdの変化の後にサンプルするので、0ではなく1を得ます。サンプルは147で取る必要があります。 | `ch14/test_clocking_input_skew_fractional` |
+| 14.14 | プロパティの中の`$global_clock`を、プロパティを宣言したモジュールから探し、別のモジュールでそれを使うアサーションからは探しません。アサーションは、自分のモジュールのglobal clockingで40までに4回成功する代わりに、宣言したモジュールのglobal clockingで20回成功します。 | `ch14/test_global_clocking_lookup_at_assertion` |
+| 24.3.1, 14.13 | クロックのエッジの後のprogramの書込み`d = 2`が、同じエッジの非ブロッキング更新`d <= 1`より前に実行されるので、dは2ではなく1で終わります（上のVerilator 5.052の結果の24.3.1の行を参照）。スキュー#0の入力cb.dは正しい1ですが、dが1なので、再びサンプルされるかどうかはこのテストでは分かりません。 | `ch14/test_clocking_zero_skew_input_not_resampled` |
+| 15.3.2, 15.3.3, 15.3.4 | キーの数が-1のput()・get()・try_get()でエラーになりません。try_get(-1)は0ではなく1を返します。 | `ch15/test_semaphore_put_negative_count_error`, `ch15/test_semaphore_get_negative_count_error`, `ch15/test_semaphore_try_get_negative_count_error` |
+| 22.5.1, 5.9.1 | `` `""" ``の中の逆斜線と改行が空白になります。`` `BS(path) ``は、path・逆斜線・改行・endではなく`path\ end`になります。22.5.1の例MACRO4のとおり、逆斜線を除いて改行を残す必要があります。 | [test_macro_grave_triple_quote_expansion_steps](../tests/ch22/test_macro_grave_triple_quote_expansion_steps.sv) |
+| 22.5.1, 5.9 | `` `""" ``の後の`"`がその行で閉じていないとき、その行のエラーではなく、ファイルの終わりで閉じていない`"""`の文字列を報告します。`` `""" ``のテキストを、マクロのテキストを終えるはずの普通の改行を越えて読み続けます（下の違法デザインを参照）。 | [test_illegal_macro_grave_triple_quote_plain_quote_unclosed](../tests/ch22/test_illegal_macro_grave_triple_quote_plain_quote_unclosed.sv) |
+| 24.3.1, 24.3 | package・コンパイル単位・interface・moduleの変数の変化を待つprogramが、その時間ステップの非ブロッキング更新より前に再開し、7ではなく0を写します（同じ24.3.1の行を参照）。 | `ch24/test_program_design_signals_in_package_unit_and_interface` |
+| 25.7 | 完全なプロトタイプで関数とタスクをimportするmodportを通した呼出しで、プロトタイプではなく宣言の引数の既定値を使います。`scale(4)`は40ではなく12になり、`add()`は100ではなく1を足します。 | `ch25/test_modport_prototype_default_overrides_declaration` |
+
+<a id="verilator-5052-illegal-designs-20261109"></a>
+
+### Verilator 5.052：受け入れる違法デザイン（2026-11-09）
+
+| 条項 | 何をするのか | テスト |
+| --- | --- | --- |
+| 16.4, 4.4.2.9 | `->>`でイベントを起こす関数をアクションで呼ぶfinalの遅延アサーションを受理し、そのイベントで待っているプロセスが起きます。finalの遅延アサーションのサブルーチンはPostponed領域で呼べるものでなければならず、そこでそれより前の領域にイベントを予約するのは違法です。 | `ch4/test_illegal_final_deferred_action_schedules_event` |
+| 6.20.3 | `type interface class`と宣言した型パラメータに、interface classを実装するクラスを与えることを受理します。適合するのはinterface classだけです。 | `ch6/test_illegal_interface_class_restricted_type_parameter_given_class` |
+| 14.3, 6.21 | 動的配列の要素`da[0]`に結び付けたclockingの入力を受理します。動的配列の要素の参照は手続きブロックの中に限られます。 | `ch14/test_illegal_clocking_signal_dynamic_array_element` |
+| 14.14 | 生成ブロックの中のglobal clockingの宣言を受理します。 | `ch14/test_illegal_global_clocking_in_generate` |
+| 14.16 | clockvarの連結への同期駆動`{cb.a, cb.b} <= 5'h1f`を受理します。 | `ch14/test_illegal_clocking_drive_concatenation` |
+| 22.5.1 | 普通の改行でマクロのテキストが終わる`` `""" ``の次の行に残った`` `""" ``を受理します。改行を越えてテキストを読み続けます。 | [test_illegal_macro_grave_triple_quote_newline_ends_text](../tests/ch22/test_illegal_macro_grave_triple_quote_newline_ends_text.sv) |
+| 25.3 | interfaceの中のmoduleのインスタンスを受理します。 | `ch25/test_illegal_interface_contains_module_instance` |
+| 25.9 | 仮想インタフェースの型を持つmoduleのポート（`input virtual vap_if v`）を受理します。 | `ch25/test_illegal_virtual_interface_as_port` |
+
+挙げないもの：7章のmap()を使った違法なデザイン2件は、Verilatorが生成したC++のコードのコンパイルで初めてエラーになり、テストの行を示すメッセージはありません。25章のnullの仮想インタフェースの致命的エラーは標準出力に出ます。
+どちらもエラーを報告しており、規格は報告する場所も形も定めていません。

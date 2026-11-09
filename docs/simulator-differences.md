@@ -1123,3 +1123,43 @@ Syntax 33-4 and A.1.5 write the parameter assignments of a use clause directly a
 slang, and kirimasim and Lyra with it, accept only the form with `#`.
 A test cannot accept both a compile error and a pass, so `ch33/test_config_declaration_grammar_forms` no longer assigns a parameter in its use clause and expects the default value.
 The generated configuration tests in `tests/gen/ch33/` use the form with `#` of the examples.
+
+<a id="tests-added-20261109"></a>
+
+## Tests added on 2026-11-09
+
+The tests added on 2026-11-09 for chapters 4, 14, 15, 24, 25, 33 and 40 and for the additions of IEEE 1800-2023 that had few tests, and one chapter 14 test changed that day, show the following differences with Verilator 5.052.
+Seeds 1 and 73 give the same results. See the saved runs of the [chapter tests](../coverage/results/weak-chapters-20261109-verilator5.052-seed1.json) ([seed 73](../coverage/results/weak-chapters-20261109-verilator5.052-seed73.json)) and of the [2023 additions](../coverage/results/additions2023-20261109-verilator5.052-seed1.json) ([seed 73](../coverage/results/additions2023-20261109-verilator5.052-seed73.json)).
+
+<a id="verilator-5052-results-20261109"></a>
+
+### Verilator 5.052: results (2026-11-09)
+
+| Clause | What it does | Tests |
+| --- | --- | --- |
+| 14.4 | An input skew of 3, in a scope with time unit 1ns and precision 1ps, samples d after its change at 147.3 for the clock event at 150, so it gets 1 instead of 0. The sample has to be taken at 147. | `ch14/test_clocking_input_skew_fractional` |
+| 14.14 | `$global_clock` in a property is looked up from the module that declares the property, not from the assertion that instantiates it in another module. The assertion passes 20 times by 40 with the global clocking of the declaring module, instead of 4 times with that of its own module. | `ch14/test_global_clocking_lookup_at_assertion` |
+| 24.3.1, 14.13 | A program's write `d = 2` after the clock edge runs before the nonblocking update `d <= 1` of the same edge, so d ends at 1 instead of 2 (see the 24.3.1 row in the Verilator 5.052 results above). The input cb.d with skew #0 gives the right 1, but with d at 1 the test cannot show whether it is sampled again. | `ch14/test_clocking_zero_skew_input_not_resampled` |
+| 15.3.2, 15.3.3, 15.3.4 | put(), get() and try_get() with a key count of -1 give no error, and try_get(-1) returns 1 instead of 0. | `ch15/test_semaphore_put_negative_count_error`, `ch15/test_semaphore_get_negative_count_error`, `ch15/test_semaphore_try_get_negative_count_error` |
+| 22.5.1, 5.9.1 | A backslash and newline inside `` `""" `` become a space: `` `BS(path) `` gives `path\ end` instead of path, a backslash, a newline and end. The backslash has to be dropped and the newline kept, as in the example MACRO4 of 22.5.1. | [test_macro_grave_triple_quote_expansion_steps](../tests/ch22/test_macro_grave_triple_quote_expansion_steps.sv) |
+| 22.5.1, 5.9 | For a `"` after `` `""" `` that is not closed on its line, it reports an unterminated `"""` string at the end of the file instead of an error on that line. It reads the text of `` `""" `` on across a plain newline, which has to end the macro text (see the illegal design below). | [test_illegal_macro_grave_triple_quote_plain_quote_unclosed](../tests/ch22/test_illegal_macro_grave_triple_quote_plain_quote_unclosed.sv) |
+| 24.3.1, 24.3 | A program that waits for changes of variables of a package, the compilation unit, an interface and a module resumes before the nonblocking update of that time step, and copies 0 instead of 7 (see the same 24.3.1 row). | `ch24/test_program_design_signals_in_package_unit_and_interface` |
+| 25.7 | A call through a modport that imports a function and a task with full prototypes uses the default argument values of the declarations, not those of the prototypes: `scale(4)` gives 12 instead of 40, and `add()` adds 1 instead of 100. | `ch25/test_modport_prototype_default_overrides_declaration` |
+
+<a id="verilator-5052-illegal-designs-20261109"></a>
+
+### Verilator 5.052: illegal designs that it accepts (2026-11-09)
+
+| Clause | What it does | Tests |
+| --- | --- | --- |
+| 16.4, 4.4.2.9 | Accepts a final deferred assertion whose action calls a function that triggers an event with `->>`, and the event wakes a waiting process. The subroutine of a final deferred assertion has to be one that may be called in the Postponed region, where scheduling an event in an earlier region is illegal. | `ch4/test_illegal_final_deferred_action_schedules_event` |
+| 6.20.3 | Accepts a class that implements an interface class as the value of a type parameter declared `type interface class`; only an interface class conforms. | `ch6/test_illegal_interface_class_restricted_type_parameter_given_class` |
+| 14.3, 6.21 | Accepts a clocking input associated with `da[0]`, an element of a dynamic array, whose references are limited to procedural blocks. | `ch14/test_illegal_clocking_signal_dynamic_array_element` |
+| 14.14 | Accepts a global clocking declaration in a generate block. | `ch14/test_illegal_global_clocking_in_generate` |
+| 14.16 | Accepts a synchronous drive to a concatenation of clockvars, `{cb.a, cb.b} <= 5'h1f`. | `ch14/test_illegal_clocking_drive_concatenation` |
+| 22.5.1 | Accepts a `` `""" `` left on the line after a `` `""" `` with a plain newline, which ends the macro text. It reads the text on across the newline. | [test_illegal_macro_grave_triple_quote_newline_ends_text](../tests/ch22/test_illegal_macro_grave_triple_quote_newline_ends_text.sv) |
+| 25.3 | Accepts a module instance in an interface. | `ch25/test_illegal_interface_contains_module_instance` |
+| 25.9 | Accepts a module port of a virtual interface type (`input virtual vap_if v`). | `ch25/test_illegal_virtual_interface_as_port` |
+
+Not listed: the two illegal designs with map() in chapter 7 stop with an error only when the C++ code that Verilator generates is compiled, with no message on the line of the test, and the fatal error for a null virtual interface in chapter 25 is printed on standard output.
+Both report an error, and the standard does not set the place or the form of the report.
