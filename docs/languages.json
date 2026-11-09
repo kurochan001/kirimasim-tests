@@ -425,8 +425,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "3420d7d1ea03557ac75b96dddcb0b6ce2fe2d82d6fbe25a522fc95d0b29fc5f7",
-        "ja": "785f221d5120d43bfdb1224d7c01abf4897c470d099e816c685290c0b55b3686"
+        "en": "92f5727194fcfa5b4e7823e8f0280a1b50a5624e2191275f505e53d0977c40e4",
+        "ja": "dca69ba9d489c5d9bcf264463babba463c1fbcb071064cae773403524dde5825"
       }
     },
     {
@@ -1146,6 +1146,17 @@
       "sha256": {
         "en": "f2d671182a97b6300bb32c8012ff62014a77afd505a2b06606626e7f333905cd",
         "ja": "e31cd7be17e75a117d148b72d295746c9980a644313b41a307edcbf351a9f899"
+      }
+    },
+    {
+      "en": "docs/slang-reference.en.md",
+      "ja": "docs/slang-reference.md",
+      "source": "docs/slang-reference.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "ea75e8a93990bd1ca4e4c6d7e2021feda11781d8c6bf29c3f0ca3b11110c718c",
+        "ja": "469dd5cf7e292bc677735207d26ff02567711baccae00357b13f6b27ebf8aae8"
       }
     }
   ]

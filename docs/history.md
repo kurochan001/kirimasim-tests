@@ -488,3 +488,12 @@ clause 37.
 - Five requirements whose errors are reported while the design runs had the error kind, which maps only to illegal designs with `:should_fail_because:`: a negative key count of a semaphore's put, get and try_get (15.3.2, 15.3.3, 15.3.4), a call of an extern forkjoin task with no definition (25.7.4), and a reference through a null virtual interface (25.9). They are now normal requirements, like 6.24.2, 8.16 and 19.5.6, whose run-time errors are tested with `:expected_stderr_regex:`.
 - Each is now mapped to its test added and reviewed on 2026-11-09. The baseline of `coverage/behaviors.json` was written again with this reason, as the kind is part of each requirement's contract, so the denominator digest changes; the 12,298 rows do not.
 - Design coverage rises from 90.10% to 90.14% (11,086/12,298), and 88.47% (8,374/9,465) for clauses 1 to 40. Execution coverage does not change: no saved run of a pinned release passes these tests yet.
+
+<a id="2026-11-09-slang-reference"></a>
+
+### 2026-11-09 (slang reference)
+
+- `tools/run_slang.py` runs the slang driver on the tests of the suite. The driver is built from the commit that kirimasim pins, `6fbb158f` for kirimasim `2b05349e`. Its verdicts help to diagnose and are not counted anywhere: kirimasim and Lyra share slang, so it is not an oracle. See the [slang reference](slang-reference.en.md).
+- The record of 2026-11-09 is `coverage/slang/slang-6fbb158f-20261109.json`. slang rejects 1,833 of the 1,976 illegal tests at the marked line and accepts 143. It rejects 53 of the 9,525 legal tests without `:vpi_c:`, and 351 of the 499 with it, mostly at a system task that their C code registers.
+- On the illegal tests, kirimasim `2b05349e` exits with code 3 on two that slang rejects at the line, rejects seven that slang accepts with checks of its own, and accepts 48 that slang accepts.
+- The 53 legal tests were checked against the standard. One test is wrong: `ch3/test_compilation_unit_shared_across_files` takes a tool-specific choice of 3.12.1 as a rule. slang is stricter than the standard for 48, and 4 are unclear. No test was changed.

@@ -49,6 +49,7 @@
 | M4：シングルクロックサンプル関数（2026-10-26） | [日本語](../tools/sva_reference/M4_REVIEW.ja.md) | [English](../tools/sva_reference/M4_REVIEW.md) |
 | SVA参照評価器とフォーマル検査 | [日本語](../tools/sva_reference/README.ja.md) | [English](../tools/sva_reference/README.md) |
 | 期待値のレビュー候補 | [日本語](review-candidates.md) | [English](review-candidates.en.md) |
+| slangによる参考判定 | [日本語](slang-reference.md) | [English](slang-reference.en.md) |
 
 <a id="generated-reports-and-catalogs"></a>
 
