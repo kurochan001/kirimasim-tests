@@ -266,7 +266,7 @@
 
 - Icarus 13.0は、最後の要素のpop時にキューサイズを待つwaitを起床させない（7.10.2.7）：[test_queue_size_wait_after_pop](../tests/ch7/test_queue_size_wait_after_pop.sv)。
 - Icarus 13.0は型付きコンストラクタで派生オブジェクトを生成しますが、基底ハンドル経由では基底クラスのvirtualメソッドを呼びます（8.8、8.20）：[test_typed_constructor_into_base_handle](../tests/ch8/test_typed_constructor_into_base_handle.sv)。
-- Icarus 13.0は、`undefineall`後もソースマクロの定義を保持する（22.5.3）：[test_undefineall_clears_nested_macro_expansion](../tests/ch22/test_undefineall_clears_nested_macro_expansion.sv)。
+- Icarus 13.0は、`undefineall`後もソースマクロの定義を保持する（22.5.3）：`ch22/test_undefineall_clears_nested_macro_expansion`。
 - Icarus 13.0は、引数なしの`$stacktrace`呼出しに値引数を指定することを受理する（20.17.2）：[test_illegal_stacktrace_argument](../tests/ch20/test_illegal_stacktrace_argument.sv)。
 - 両リリースとも、入力に反応するモジュールのNBAの処理が完了する前に、programの継続代入による出力を伝播します（24.3.2）：[test_program_output_after_module_nba_chain](../tests/ch24/test_program_output_after_module_nba_chain.sv)。
 - 5.052版は、符号付き連想配列のキーを、ゼロをまたいで符号なしの値として並べます（7.8.4）：[test_assoc_signed_boundary_order](../tests/ch7/test_assoc_signed_boundary_order.sv)。
@@ -1140,8 +1140,8 @@ slangと、それを使うkirimasim・Lyraは、`#`のある形だけを受理�
 | 14.14 | プロパティの中の`$global_clock`を、プロパティを宣言したモジュールから探し、別のモジュールでそれを使うアサーションからは探しません。アサーションは、自分のモジュールのglobal clockingで40までに4回成功する代わりに、宣言したモジュールのglobal clockingで20回成功します。 | `ch14/test_global_clocking_lookup_at_assertion` |
 | 24.3.1, 14.13 | クロックのエッジの後のprogramの書込み`d = 2`が、同じエッジの非ブロッキング更新`d <= 1`より前に実行されるので、dは2ではなく1で終わります（上のVerilator 5.052の結果の24.3.1の行を参照）。スキュー#0の入力cb.dは正しい1ですが、dが1なので、再びサンプルされるかどうかはこのテストでは分かりません。 | `ch14/test_clocking_zero_skew_input_not_resampled` |
 | 15.3.2, 15.3.3, 15.3.4 | キーの数が-1のput()・get()・try_get()でエラーになりません。try_get(-1)は0ではなく1を返します。 | `ch15/test_semaphore_put_negative_count_error`, `ch15/test_semaphore_get_negative_count_error`, `ch15/test_semaphore_try_get_negative_count_error` |
-| 22.5.1, 5.9.1 | `` `""" ``の中の逆斜線と改行が空白になります。`` `BS(path) ``は、path・逆斜線・改行・endではなく`path\ end`になります。22.5.1の例MACRO4のとおり、逆斜線を除いて改行を残す必要があります。 | [test_macro_grave_triple_quote_expansion_steps](../tests/ch22/test_macro_grave_triple_quote_expansion_steps.sv) |
-| 22.5.1, 5.9 | `` `""" ``の後の`"`がその行で閉じていないとき、その行のエラーではなく、ファイルの終わりで閉じていない`"""`の文字列を報告します。`` `""" ``のテキストを、マクロのテキストを終えるはずの普通の改行を越えて読み続けます（下の違法デザインを参照）。 | [test_illegal_macro_grave_triple_quote_plain_quote_unclosed](../tests/ch22/test_illegal_macro_grave_triple_quote_plain_quote_unclosed.sv) |
+| 22.5.1, 5.9.1 | `` `""" ``の中の逆斜線と改行が空白になります。`` `BS(path) ``は、path・逆斜線・改行・endではなく`path\ end`になります。22.5.1の例MACRO4のとおり、逆斜線を除いて改行を残す必要があります。 | `ch22/test_macro_grave_triple_quote_expansion_steps` |
+| 22.5.1, 5.9 | `` `""" ``の後の`"`がその行で閉じていないとき、その行のエラーではなく、ファイルの終わりで閉じていない`"""`の文字列を報告します。`` `""" ``のテキストを、マクロのテキストを終えるはずの普通の改行を越えて読み続けます（下の違法デザインを参照）。 | `ch22/test_illegal_macro_grave_triple_quote_plain_quote_unclosed` |
 | 24.3.1, 24.3 | package・コンパイル単位・interface・moduleの変数の変化を待つprogramが、その時間ステップの非ブロッキング更新より前に再開し、7ではなく0を写します（同じ24.3.1の行を参照）。 | `ch24/test_program_design_signals_in_package_unit_and_interface` |
 | 25.7 | 完全なプロトタイプで関数とタスクをimportするmodportを通した呼出しで、プロトタイプではなく宣言の引数の既定値を使います。`scale(4)`は40ではなく12になり、`add()`は100ではなく1を足します。 | `ch25/test_modport_prototype_default_overrides_declaration` |
 
@@ -1156,7 +1156,7 @@ slangと、それを使うkirimasim・Lyraは、`#`のある形だけを受理�
 | 14.3, 6.21 | 動的配列の要素`da[0]`に結び付けたclockingの入力を受理します。動的配列の要素の参照は手続きブロックの中に限られます。 | `ch14/test_illegal_clocking_signal_dynamic_array_element` |
 | 14.14 | 生成ブロックの中のglobal clockingの宣言を受理します。 | `ch14/test_illegal_global_clocking_in_generate` |
 | 14.16 | clockvarの連結への同期駆動`{cb.a, cb.b} <= 5'h1f`を受理します。 | `ch14/test_illegal_clocking_drive_concatenation` |
-| 22.5.1 | 普通の改行でマクロのテキストが終わる`` `""" ``の次の行に残った`` `""" ``を受理します。改行を越えてテキストを読み続けます。 | [test_illegal_macro_grave_triple_quote_newline_ends_text](../tests/ch22/test_illegal_macro_grave_triple_quote_newline_ends_text.sv) |
+| 22.5.1 | 普通の改行でマクロのテキストが終わる`` `""" ``の次の行に残った`` `""" ``を受理します。改行を越えてテキストを読み続けます。 | `ch22/test_illegal_macro_grave_triple_quote_newline_ends_text` |
 | 25.3 | interfaceの中のmoduleのインスタンスを受理します。 | `ch25/test_illegal_interface_contains_module_instance` |
 | 25.9 | 仮想インタフェースの型を持つmoduleのポート（`input virtual vap_if v`）を受理します。 | `ch25/test_illegal_virtual_interface_as_port` |
 

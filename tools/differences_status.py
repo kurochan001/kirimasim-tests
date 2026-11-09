@@ -49,8 +49,9 @@ SIMULATORS = {
     "icarus": (("Icarus", "13.0"), "Icarus Verilog", "iverilog@13.0"),
     "verilator": (("Verilator", "5.052"), "Verilator", "verilator@5.052"),
 }
-TOKEN = re.compile(r"\[[^\]\n]*\]\(([^)\s]+)\)|`([^`\n]+)`")
-NAME = re.compile(r"(?<![\w/])((?:gen/|imported/)?ch\d+/test_[A-Za-z0-9_*{},]+)")
+LINK = re.compile(r"\[[^\]\n]*\]\(([^)\s]+)\)")
+TICKS = re.compile(r"`+")
+NAME =re.compile(r"(?<![\w/])((?:gen/|imported/)?ch\d+/test_[A-Za-z0-9_*{},]+)")
 SHORT = re.compile(r"_[A-Za-z0-9_]+")
 HEADING = re.compile(r"^(#{2,6}) +(.*?) *$")
 
@@ -85,10 +86,39 @@ def expand(pattern: str) -> list[str]:
             for p in expand(pattern[:m.start()] + alt + pattern[m.end():])]
 
 
+def tokens(line: str) -> list[tuple[str, str]]:
+    """The link targets and the code spans of a line, in order, each as
+    (target, "") or ("", code). As in Markdown, a run of backticks opens a code
+    span that the next run of as many backticks closes, so a span opened by
+    two backticks can hold one (the list writes the macro text delimiter of
+    22.5.1 so); a run that nothing closes is plain text."""
+    found, i = [], 0
+    while i < len(line):
+        if line[i] == "`":
+            run = TICKS.match(line, i).group(0)
+            close = re.compile(rf"(?<!`){run}(?!`)").search(line, i + len(run))
+            if close:
+                code = line[i + len(run):close.start()]
+                if len(code) > 2 and code[0] == code[-1] == " " and code.strip():
+                    code = code[1:-1]
+                found.append(("", code))
+                i = close.end()
+            else:
+                i += len(run)
+            continue
+        link = LINK.match(line, i) if line[i] == "[" else None
+        if link:
+            found.append((link.group(1), ""))
+            i = link.end()
+            continue
+        i += 1
+    return found
+
+
 def references(line: str) -> list[str]:
     """The test names of a line, short forms written out."""
     names, last = [], None
-    for target, code in TOKEN.findall(line):
+    for target, code in tokens(line):
         text = (target or code).strip()
         m = NAME.search(text.replace("../tests/", "").replace("tests/", ""))
         if m:

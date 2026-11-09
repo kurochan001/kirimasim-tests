@@ -474,3 +474,7 @@ clause 37.
 
 - The tests added on 2026-11-09 were checked against Verilator 5.052 with seeds 1 and 73. 18 of them show a departure from the standard and are listed in the [simulator differences](simulator-differences.md#tests-added-20261109): ten whose results differ and eight illegal designs that it accepts.
 - Four others were left out: the two illegal `map()` designs of chapter 7 and the null virtual interface of chapter 25 report their error in a place or form that the standard leaves to tools, and `ch14/test_illegal_clocking_clockvar_continuous_assign` passes.
+
+### 2026-11-09 (report of the listed differences)
+
+- `tools/differences_status.py` paired backticks one by one, so a code span such as `` `define `` made it miss the test names after it on the same line. It now reads code spans as Markdown does. Twelve tests that the list names now count: `ch22/test_undefineall`, nine other chapter 22 tests of compiler directives and two chapter 6 tests of implicit nets. They now appear in the [report on master](https://github.com/kurochan001/kirimasim-tests/blob/results/differences-on-master.md); none drops out.

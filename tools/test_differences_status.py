@@ -134,6 +134,15 @@ class Report(unittest.TestCase):
         found = status.classify(self.root, entries, {"icarus": statuses})
         self.assertEqual(list(found["simulators"]["icarus"]["missing"]), ["ch1/test_icb"])
 
+    def test_code_spans_that_hold_backticks(self):
+        # A span opened by two backticks holds one, and names after it count.
+        line = ('| 22.5.1 | `` `define `` and `` `""" `` text. | `ch22/test_after_quotes`, '
+                '[t](../tests/ch22/test_linked.sv) |')
+        self.assertEqual(status.references(line), ["ch22/test_after_quotes", "ch22/test_linked"])
+        # A run of backticks that nothing closes is plain text.
+        self.assertEqual(status.references("a `` alone, then `ch1/test_plain`"), ["ch1/test_plain"])
+        self.assertEqual(status.references("`` ch1/test_spaced ``"), ["ch1/test_spaced"])
+
     def test_labels_and_anchors(self):
         headings, _ = self.found()
         self.assertEqual(headings[1], ("Results", "Icarus Verilog 13.0 › Results"))
