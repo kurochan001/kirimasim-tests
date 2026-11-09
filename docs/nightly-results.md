@@ -131,7 +131,7 @@ Ghostは、公開前の正体不明なシミュレータが仮名で参加する
 毎晩、他の参加者と同じテストを実行し、正体やソースを伏せたまま結果を公開します。
 ビルドの識別には実行ファイルのハッシュを使い、取得先・内部の診断・ビルドログは公開しません。
 nvcは2026年10月24日に比較対象へ加えましたが、SystemVerilogへの対応が少ないため、10月25日に外しました。それまでのnvcの結果は`history.json`に残りますが、推移図とレポートには描きません。
-Lyraは各ジョブの開始時に`main`先端のコミットを取得します。そのSHAをソース取得・キャッシュキー・結果記録で共通に使い、同じコミットのビルドだけを再利用します。未キャッシュのコミットは再ビルドします。過去のGitHubランナーでのビルドには40〜90分かかりました。Lyraは各テストをランナーのGCC（`--cxx c++`）でビルドします。Lyra `4872d420`からはランナーのclang 18ではLyraのランタイムをコンパイルできず、2026-11-07と11-08のLyraのジョブが止まりました（[履歴](history.ja.md#2026-11-08-lyra-host-compiler)を参照）。
+Lyraはビルド用のジョブ（`lyra-build`）で実行ごとに`main`先端のコミットを取得し、テストを実行する`lyra`ジョブへ渡します。そのSHAをソース取得・キャッシュキー・結果記録で共通に使い、同じコミットのビルドだけを再利用します。未キャッシュのコミットは`lyra-build`で再ビルドするので、テストには`lyra`ジョブの6時間の上限をすべて使えます（[履歴](history.ja.md#2026-11-09-lyra-build-job)を参照）。過去のGitHubランナーでのビルドには40〜90分かかりました。Lyraは各テストをランナーのGCC（`--cxx c++`）でビルドします。Lyra `4872d420`からはランナーのclang 18ではLyraのランタイムをコンパイルできず、2026-11-07と11-08のLyraのジョブが止まりました（[履歴](history.ja.md#2026-11-08-lyra-host-compiler)を参照）。
 `publish`は`main`の実行だけが行います。ほかのブランチで手動実行した場合、結果はartifactとして残るだけで、公開はされません。
 `publish`が結果を集計して`results`ブランチへpushすると、READMEから参照しているグラフと結果レポートが更新されます。
 `main`へのpushと、Nightly結果の公開は別の処理です。
@@ -162,7 +162,8 @@ gh workflow run nightly.yml --repo kurochan001/kirimasim-tests --ref main
 
 GitHubの[Re-runは元の実行と同じコミット・refを使います](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/re-run-workflows-and-jobs)。
 `workflow_dispatch`で`main`を選ぶと、起動時の`main`先端のスイートと設定が対象になります。
-Lyraはそのジョブ開始時に上流の`main`先端を取得し、実行に使ったSHAを結果へ記録します。
+Lyraはその実行の`lyra-build`ジョブで上流の`main`先端を取得し、実行に使ったSHAを結果へ記録します。
+`lyra`ジョブだけを再実行した場合は、その実行で`lyra-build`が取得したSHAを使います。
 
 <a id="random-comparisons"></a>
 
@@ -268,6 +269,8 @@ kirimasimのランダム比較も、版`2c81a591105b`、seed `41359514776`で96�
 mainでLyraを初めてビルドした10月24日の実行では、Lyraのジョブが約2時間40分（ビルド89分、テスト70分）かかりました。
 変更前（10月23日、4ジョブ）は約42分でした。
 Lyraが各テストをGCCでビルドするようになってから最初の[2026年11月8日の実行](https://github.com/kurochan001/kirimasim-tests/actions/runs/42477954992)（11,897本）では、Lyraのテストに4時間20分、未キャッシュのビルドに85分かかり、ジョブの6時間の上限のうち5時間47分を使いました。
+[2026年11月9日の実行](https://github.com/kurochan001/kirimasim-tests/actions/runs/42532762726)（12,165本）では、Lyraの新しいコミットのビルドに1時間32分かかり、生成テストの途中でジョブが上限に達したため、この実行にはLyraの結果がありません。
+これ以降、ビルドは別のジョブで行います。
 
 Verilatorのジョブでは、各プロセスのアドレス空間を6GBに制限しています（`ulimit -v`）。
 名前付きシーケンスが互いを参照する規格違反のコード（`tests/ch16/test_illegal_sequence_cycle_through_bodies.sv`）で、Verilatorが再帰を止めずにランナーのメモリ（16GB）を使い切り、GitHubがジョブを止めたためです。

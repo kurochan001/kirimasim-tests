@@ -462,3 +462,10 @@ clause 37.
 - The expectations come from the standard, and a second AI review, independent of the author, found all 47 right. Verilator 5.052 reproduces 7 of them with seeds 1 and 73, which now list `verilator@5.052`; the results are `coverage/results/additions2023-20261109-*.json`.
 - kirimasim `33cee3fa` matches 29, does not support 15 and fails 3: it prints the stack for `void'($stacktrace)`, rejects a member of a static unpacked structure as a `ref static` actual, and stops with an internal error (exit code 3) on a range in a `unique` list.
 - The four new tests in `tests/ch22` change the input digest of the include tests there, whose digest covers the include directory. The eleven mapped ones were rerun on Icarus Verilog 13.0 and Verilator 5.052 (`coverage/results/ch22-rehash-20261109-*.json`), which also adds two requirements to the execution coverage without Ghost: 6,287/12,298 (51.12%).
+
+<a id="2026-11-09-lyra-build-job"></a>
+
+### 2026-11-09 (Lyra build job)
+
+- In the [Nightly of 2026-11-09](https://github.com/kurochan001/kirimasim-tests/actions/runs/42532762726) on `9eab9bf2`, the Lyra job found no cached build of Lyra `927308a2` and built it in 1 hour 32 minutes. The fixed tests then took 1 hour 50 minutes, and the job reached its 6-hour limit while running the generated tests of `tests/gen/ch8`. That run has no Lyra results; Icarus, Verilator, kirimasim and Ghost were recorded.
+- The build now has a job of its own, `lyra-build`, which resolves Lyra's main, builds an uncached commit and saves it in the cache. The `lyra` job restores that build and runs the tests with the same SHA, so they keep the whole 6-hour limit. How results are collected and recorded does not change.

@@ -291,7 +291,7 @@ Icarus VerilogもVerilatorもエンベロープを復号しないためで、監
 
 毎晩、[GitHub Actionsワークフロー](.github/workflows/nightly.yml)が、各シミュレータで
 `main`の各ランナーの対象テストを実行します。Icarus VerilogとVerilatorは`master`、kirimasimは`main`の
-最新開発版を使います。Lyraもジョブ開始時に`main`先端のコミットを取得し、
+最新開発版を使います。Lyraも実行ごとに`main`先端のコミットを取得し、
 同じコミットのビルドだけをキャッシュから再利用します。
 Ghostは非公開のビルドで参加します。
 結果は[`results`](https://github.com/kurochan001/kirimasim-tests/tree/results)ブランチの履歴に追加します。
@@ -825,11 +825,13 @@ GitHubが混雑していると数時間遅れることがあります。実行�
   結果は先にアップロードするので、ジョブの成否によらずその晩の履歴に含められます。
   固定スイートの後に上流mainを再取得・ビルドしてランダム比較を実行し、非PASSがあれば失敗させます。
   再現資料は専用の`random-cross-kirimasim` artifactに保存し、固定結果の公開集計には加算しません。
-- **lyra**：ジョブ開始時に`main`の最新コミットを取得し、そのSHAを`LYRA_COMMIT`に設定します。
+- **lyra-build**：実行ごとにLyraの`main`の最新コミットを取得し、そのSHAをlyraジョブへ渡します。
   ソースの取得・ビルドキャッシュ・結果に記録するコミットには、同じSHAを使います。
   未キャッシュのコミットはBazelでLLVMを含めてビルドします。
-  実行ファイルとrunfilesをBazelのツリーからコピーし、場所に依存するrunfilesマニフェストを除いて保存します。
-  formal以外の全テストを実行します。過去の所要時間は[Lyraの実行記録](docs/readme-records-20261101.ja.md#lyra-runtime-records)を参照してください。
+  実行ファイルとrunfilesをBazelのツリーからコピーし、場所に依存するrunfilesマニフェストを除いてキャッシュに保存します。
+- **lyra**：lyra-buildが保存したビルドを復元し、そのSHAを`LYRA_COMMIT`に設定して、formal以外の全テストを実行します。
+  ビルドを別のジョブに分けているので、テストにはこのジョブの6時間の上限をすべて使えます。
+  過去の所要時間は[Lyraの実行記録](docs/readme-records-20261101.ja.md#lyra-runtime-records)を参照してください。
 - **ghost**：公開前のゲストを非公開でビルドし、formal以外の全テストを実行します。
   取得先と実行プロファイルはSecretsから読みます。公開するのは仮名・ビルドのハッシュ・テスト結果で、
   ソースやビルド出力はランナー内に留めます。

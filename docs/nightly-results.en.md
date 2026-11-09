@@ -126,7 +126,7 @@ The [Nightly schedule](../.github/workflows/nightly.yml) is 19:23 UTC daily, or 
 
 `publish` runs after the five Icarus, Verilator, kirimasim, Lyra and Ghost jobs finish. Ghost is a pre-release simulator participating under an alias, using the same tests while its identity and source remain private. An executable hash identifies its build; download locations, internal diagnostics and build logs are not published. nvc joined on 2026-10-24 and was removed on 2026-10-25 for limited SystemVerilog support; its old results remain in `history.json` but are not plotted.
 
-Lyra resolves upstream main when its job starts and uses that SHA consistently for source checkout, cache identity and result metadata. Only an identical commit can reuse a build; uncached revisions are rebuilt. Previous GitHub runner builds took 40–90 minutes. Lyra builds each test with the runner's GCC (`--cxx c++`): the runner's clang 18 cannot compile Lyra's runtime since Lyra `4872d420`, which stopped the Lyra job on 2026-11-07 and 2026-11-08 (see [history](history.md#2026-11-08-lyra-host-compiler)). Only main runs publish; manually running another branch retains artifacts without publishing. When `publish` pushes history, charts and the report to results, README-linked charts update. Pushing main is a separate operation.
+Lyra's build job (`lyra-build`) resolves upstream main once per run and passes that SHA to the `lyra` job, which runs the tests; the SHA is used consistently for source checkout, cache identity and result metadata. Only an identical commit can reuse a build; uncached revisions are rebuilt in `lyra-build`, so the tests keep the whole 6-hour limit of the `lyra` job (see [history](history.md#2026-11-09-lyra-build-job)). Previous GitHub runner builds took 40–90 minutes. Lyra builds each test with the runner's GCC (`--cxx c++`): the runner's clang 18 cannot compile Lyra's runtime since Lyra `4872d420`, which stopped the Lyra job on 2026-11-07 and 2026-11-08 (see [history](history.md#2026-11-08-lyra-host-compiler)). Only main runs publish; manually running another branch retains artifacts without publishing. When `publish` pushes history, charts and the report to results, README-linked charts update. Pushing main is a separate operation.
 
 To include local execution in published charts, saving evidence on main is insufficient: update results history/charts/tables with `tools/results_history.py update --source local`, specifying actual execution time and suite commit and linking the JSON, then push results. The public report and chapter table use each simulator's latest result, identifying its time, suite and `nightly`/`local` source. Earlier execution is not presented as part of a newer run.
 
@@ -143,7 +143,7 @@ gh workflow run check.yml --repo kurochan001/kirimasim-tests --ref main
 gh workflow run nightly.yml --repo kurochan001/kirimasim-tests --ref main
 ```
 
-[GitHub Re-run uses the original commit and ref](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/re-run-workflows-and-jobs). A new `workflow_dispatch` on main uses its tip when dispatched. Lyra independently resolves its upstream main when that job starts and records the SHA actually executed.
+[GitHub Re-run uses the original commit and ref](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/re-run-workflows-and-jobs). A new `workflow_dispatch` on main uses its tip when dispatched. Lyra resolves its upstream main in the `lyra-build` job of the run and records the SHA actually executed; re-running only the `lyra` job uses the SHA that `lyra-build` resolved in that run.
 
 <a id="random-comparisons"></a>
 
@@ -243,6 +243,7 @@ These times were measured on a manually dispatched branch run with 6,009 tests o
 
 Lyra determined the full-run time, about 40 minutes to 1 hour 15 minutes. These measurements do not guarantee durations for current counts, revisions or cache conditions. The first main Lyra build on October 24 took about 2 hours 40 minutes (89 minutes building and 70 testing). The four-job run on October 23 took about 42 minutes.
 In the [run of November 8, 2026](https://github.com/kurochan001/kirimasim-tests/actions/runs/42477954992) (11,897 tests), the first since Lyra builds each test with GCC, Lyra's tests took 4 hours 20 minutes and an uncached build 85 minutes, 5 hours 47 minutes of the job's 6-hour limit.
+In the [run of November 9, 2026](https://github.com/kurochan001/kirimasim-tests/actions/runs/42532762726) (12,165 tests), a new Lyra commit took 1 hour 32 minutes to build and the job stopped at the limit while running the generated tests, so that run has no Lyra results. The build has run in a job of its own since then.
 
 The Verilator job limits each process's address space to 6 GB with `ulimit -v`. An illegal cyclic named-sequence test, `tests/ch16/test_illegal_sequence_cycle_through_bodies.sv`, otherwise recursively exhausted the runner's 16 GB memory and GitHub terminated the job. With the limit, that test alone fails.
 

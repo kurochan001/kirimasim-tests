@@ -436,3 +436,10 @@
 - 期待値は規格から決め、書き手とは別のAIのレビューで47本とも正しいと確かめました。Verilator 5.052はseed 1と73でこのうち7本を再現するので、`:oracle:`に`verilator@5.052`を足しました。実行結果は`coverage/results/additions2023-20261109-*.json`です。
 - kirimasim `33cee3fa`は29本が一致し、15本が未対応、3本が失敗します。`void'($stacktrace)`でスタックを表示すること、静的な非パック構造体のメンバーを`ref static`の実引数として拒むこと、`unique`の並びの範囲で内部エラー（終了コード3）になることです。
 - `tests/ch22`に足した4本で、そこのincludeのテストの入力のハッシュが変わります（ハッシュがincludeのディレクトリを含むため）。要求に対応付けた11本をIcarus Verilog 13.0とVerilator 5.052で再実行し（`coverage/results/ch22-rehash-20261109-*.json`）、Ghostを除く実行確認が2要求増えて6,287/12,298（51.12%）になりました。
+
+<a id="2026-11-09-lyra-build-job"></a>
+
+### 2026-11-09（Lyraのビルド用ジョブ）
+
+- `9eab9bf2`での[2026-11-09のNightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/42532762726)では、Lyra `927308a2`のビルドがキャッシュになく、Lyraのジョブでのビルドに1時間32分かかりました。続く固定テストに1時間50分かかり、`tests/gen/ch8`の生成テストの途中でジョブが6時間の上限に達しました。この実行にはLyraの結果がなく、Icarus・Verilator・kirimasim・Ghostの結果は記録されました。
+- ビルドを別のジョブ（`lyra-build`）に分けました。`lyra-build`はLyraの`main`の先端を取得し、キャッシュにないコミットをビルドしてキャッシュに保存します。`lyra`ジョブはそのビルドを復元し、同じSHAでテストを実行するので、テストに6時間の上限をすべて使えます。結果の集め方と記録の仕方は変わりません。

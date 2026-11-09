@@ -314,12 +314,19 @@ jobs:
   # A new commit builds again; a build first makes
   # room on the disk. Lyra finds its shipped files (such as svdpi.h) beside
   # the executable, in lyra.runfiles, which is copied with the executable.
-  lyra:
+  #
+  # The build has a job of its own, so that the tests in the lyra job get the
+  # whole 6-hour limit. On 2026-11-09 a new commit took 1 hour 32 minutes to
+  # build in the same job as the tests, and the tests stopped at the limit
+  # in tests/gen/ch8. The lyra job uses the commit that this job resolved and
+  # the build that it left in the cache, so a rerun of the lyra job alone
+  # runs the same commit.
+  lyra-build:
     runs-on: ubuntu-24.04
-    timeout-minutes: 360
+    timeout-minutes: 180
+    outputs:
+      sha: ${{ steps.head.outputs.sha }}
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-
       - name: Find the latest commit of Lyra
         id: head
         run: |
@@ -335,12 +342,15 @@ jobs:
           printf 'Lyra main commit: [%s](https://github.com/hankhsu1996/lyra/commit/%s)\n' \
             "$sha" "$sha" >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Restore Lyra
+      # Only looks the build up: when the cache has it, this job has nothing
+      # to do, and the lyra job restores it.
+      - name: Look up a build of the commit
         id: cache
         uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ~/lyra
           key: lyra-${{ steps.head.outputs.sha }}-ubuntu-24.04
+          lookup-only: true
 
       - name: Make room for the build
         if: steps.cache.outputs.cache-hit != 'true'
@@ -368,8 +378,9 @@ jobs:
       # which a later job that restores the cache does not have. Without the
       # manifest, Lyra finds the files in the copied directory. A copy kept
       # in the cache before this step was added still has the manifest, so
-      # it is removed after every restore as well.
+      # the lyra job removes it after every restore as well.
       - name: Drop the runfiles manifest
+        if: steps.cache.outputs.cache-hit != 'true'
         run: rm -f "$HOME/lyra/lyra.runfiles/MANIFEST"
 
       - name: Save Lyra
@@ -378,6 +389,25 @@ jobs:
         with:
           path: ~/lyra
           key: lyra-${{ steps.head.outputs.sha }}-ubuntu-24.04
+
+  lyra:
+    needs: lyra-build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    env:
+      LYRA_COMMIT: ${{ needs.lyra-build.outputs.sha }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Restore Lyra
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/lyra
+          key: lyra-${{ env.LYRA_COMMIT }}-ubuntu-24.04
+          fail-on-cache-miss: true
+
+      - name: Drop the runfiles manifest
+        run: rm -f "$HOME/lyra/lyra.runfiles/MANIFEST"
 
       # As in the Verilator job, every process of the run gets at most 6 GB of
       # address space: on 2026-10-26 a test took all the memory of the runner

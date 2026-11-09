@@ -330,7 +330,7 @@ allows and how the results of the coverage functions relate.
 Every night, a [GitHub Actions workflow](.github/workflows/nightly.yml) runs
 the applicable tests of `main` with the latest development version of each simulator:
 the `master` branches of Icarus Verilog and Verilator and the `main` branches
-of kirimasim and Lyra, resolved anew when each job starts. Builds are reused
+of kirimasim and Lyra, resolved anew in each run. Builds are reused
 only for the same resolved commit. Ghost joins from a private build. It adds the results to the
 history on the
 [`results`](https://github.com/kurochan001/kirimasim-tests/tree/results)
@@ -981,11 +981,13 @@ as additional gates. It has six jobs:
   entry has them either way. After the fixed suite it fetches/builds upstream main again
   and runs bounded random comparisons, failing on any non-pass. Replay data uses the
   separate `random-cross-kirimasim` artifact and does not enter fixed-result publication.
-- **lyra** resolves the latest `main` commit at the start of every job and
-  sets `LYRA_COMMIT` to that SHA. The same SHA selects the source checkout,
+- **lyra-build** resolves the latest `main` commit of Lyra in every run and
+  passes that SHA to the lyra job. The same SHA selects the source checkout,
   build cache and commit recorded with the results. An uncached commit is
   built with Bazel, including LLVM. The executable and its runfiles are copied out of Bazel's tree
-  without its location-dependent manifest. It runs every non-formal test.
+  without its location-dependent manifest and saved in the cache.
+- **lyra** restores that build, sets `LYRA_COMMIT` to the SHA and runs every non-formal test.
+  With the build in a job of its own, the tests have the whole 6-hour limit of this job.
   Historical timings are in the [archived Lyra notes](docs/readme-records-20261101.md#lyra-runtime-records).
 - **ghost** privately builds the unreleased guest and runs every non-formal test. Its
   checkout locations and runtime profile come from secrets. Only the public
