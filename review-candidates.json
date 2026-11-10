@@ -1,0 +1,977 @@
+{
+ "inputs": {
+  "icarus": {
+   "version": "Icarus Verilog version 14.0 (devel) (s20260301-918-g3e2189b3)",
+   "time": "2026-11-10T11:08:58Z",
+   "suite_commit": "a155aec8d7a87178f5abfa352286105aa5afbb58"
+  },
+  "verilator": {
+   "version": "Verilator 5.055 devel rev v5.054-182-g4ab62c3a",
+   "time": "2026-11-10T11:08:58Z",
+   "suite_commit": "a155aec8d7a87178f5abfa352286105aa5afbb58"
+  },
+  "kirimasim": {
+   "version": "kirimasim 0.0.0 (commit 7de185f776a1), built with GNU 13.3.0",
+   "time": "2026-11-10T11:08:58Z",
+   "suite_commit": "a155aec8d7a87178f5abfa352286105aa5afbb58"
+  },
+  "lyra": {
+   "version": "Lyra (commit eaaea03805b3)",
+   "time": "2026-11-10T11:08:58Z",
+   "suite_commit": "a155aec8d7a87178f5abfa352286105aa5afbb58"
+  },
+  "ghost": {
+   "version": "private build edda91f4108d",
+   "time": "2026-11-10T11:08:58Z",
+   "suite_commit": "a155aec8d7a87178f5abfa352286105aa5afbb58"
+  }
+ },
+ "candidates": {
+  "spec_fail_all": [
+   "ch10/test_illegal_force_mixed_driven_variable",
+   "ch11/test_stream_unpack_consumes_left_converts_state_keeps_objects",
+   "ch13/test_illegal_constant_function_call_in_constant_context",
+   "ch13/test_ref_static_accepted_actuals",
+   "ch20/test_array_query_types_and_invalid",
+   "ch20/test_illegal_isunbounded_variable",
+   "ch22/test_illegal_begin_keywords_without_end",
+   "ch22/test_illegal_line_directive_trailing_comment",
+   "ch23/test_23_extra_uwire_dominates",
+   "ch23/test_23_extra_uwire_warn",
+   "ch23/test_port_collapse_trireg_and_uwire_cells",
+   "ch23/test_port_collapse_wand_uwire_warning",
+   "ch23/test_port_collapse_wor_uwire_warning",
+   "ch25/test_illegal_modport_import_default_argument_without_prototype",
+   "ch25/test_illegal_modport_import_named_binding_without_prototype",
+   "ch25/test_illegal_modport_prototype_unnamed_named_binding",
+   "ch5/test_illegal_method_implicit_variable_without_parentheses",
+   "ch5/test_illegal_string_octal_escape_z_digit",
+   "ch6/test_illegal_chandle_event_control",
+   "ch6/test_illegal_initial_block_variable_initializer_no_keyword",
+   "ch6/test_illegal_static_task_variable_initializer_no_keyword",
+   "ch6/test_illegal_type_parameter_scope_prefix_in_variable",
+   "ch7/test_illegal_union_holding_struct_member_default",
+   "ch8/test_illegal_interface_method_default_not_constant",
+   "ch8/test_illegal_type_parameter_scope_prefix_in_variable_declaration"
+  ],
+  "kirimasim_only": [
+   "ch16/test_illegal_final_deferred_postponed_call",
+   "ch20/test_illegal_bits_function_dynamic_return",
+   "ch20/test_illegal_timeformat_unit_out_of_range",
+   "ch23/test_port_collapse_supply_cells",
+   "ch25/test_modport_expression_element_concatenation_pattern",
+   "ch4/test_illegal_final_deferred_action_schedules_event"
+  ],
+  "spec_no_pass": [
+   "ch10/test_illegal_user_nettype_assignment_two_delays",
+   "ch16/test_assertion_dist_as_inside",
+   "ch16/test_ch16_sim_checker_inference",
+   "ch16/test_ch16_sim_multiclock_init",
+   "ch16/test_ch16_sim_prop_inherited_eventually",
+   "ch16/test_illegal_assertion_clocking_input_not_1step",
+   "ch16/test_illegal_assertion_function_keeps_state",
+   "ch16/test_illegal_assertion_function_side_effect",
+   "ch16/test_illegal_local_variable_implicit_type",
+   "ch16/test_illegal_triggered_ending_clock",
+   "ch16/test_sequence_method_empty_matches",
+   "ch17/test_checker_assertion_placement",
+   "ch18/test_discarded_soft_distribution",
+   "ch18/test_illegal_constraint_function_cycle",
+   "ch18/test_illegal_constraint_function_mode",
+   "ch18/test_illegal_constraint_function_state",
+   "ch18/test_illegal_randsequence_negative_weight",
+   "ch18/test_soft_priority_layers",
+   "ch19/test_cg_four_state_literal_wildcard_enum",
+   "ch19/test_cg_illegal_transition_error",
+   "ch19/test_covergroup_bins_and_range_forms",
+   "ch20/test_assertcontrol_callbacks_selected",
+   "ch20/test_assertcontrol_callbacks_system",
+   "ch20/test_expect_wait_order_default_error_failoff",
+   "ch21/test_illegal_value_plusargs_bad_format",
+   "ch23/test_interconnect_port_inheritance_typeless",
+   "ch23/test_port_collapse_net_delay",
+   "ch23/test_port_collapse_trireg",
+   "ch30/test_illegal_edge_parallel_path_vector_destination",
+   "ch30/test_illegal_pathpulse_error_below_reject",
+   "ch30/test_illegal_pulsestyle_ondetect_after_path",
+   "ch30/test_illegal_pulsestyle_onevent_after_path",
+   "ch30/test_illegal_showcancelled_after_path",
+   "ch30/test_illegal_specify_edge_path_part_and_bit_select",
+   "ch30/test_illegal_specify_ifnone_with_unconditional_path",
+   "ch31/test_illegal_hold_limit_negative",
+   "ch31/test_illegal_recovery_limit_negative",
+   "ch31/test_illegal_removal_limit_negative",
+   "ch31/test_illegal_setup_limit_negative",
+   "ch31/test_illegal_setuphold_negative_sum",
+   "ch31/test_illegal_timing_condition_two_signals",
+   "ch33/test_vpi_module_binding_properties",
+   "ch33/test_vpi_module_config_name",
+   "ch35/test_a2_5_dpi_open_array_packed_dimension",
+   "ch36/test_vpi_compatibility_1800v2017_mode",
+   "ch36/test_vpi_compatibility_1800v2023_mode",
+   "ch36/test_vpi_interface_decl_class_current_mode",
+   "ch36/test_vpi_systf_argument_on_demand",
+   "ch36/test_vpi_systf_function_types",
+   "ch36/test_vpi_systf_override_signed_width",
+   "ch36/test_vpi_variable_arrays_1800v2005_mode",
+   "ch36/test_vpi_variable_arrays_1800v2009_mode",
+   "ch37/test_vpi_attribute_ports_params",
+   "ch37/test_vpi_class_object_members",
+   "ch37/test_vpi_class_relations_scope_typespec",
+   "ch37/test_vpi_class_specialization_members",
+   "ch37/test_vpi_class_specialization_types",
+   "ch37/test_vpi_constraint_iteration",
+   "ch37/test_vpi_constraint_orderings_dists",
+   "ch37/test_vpi_named_event_waiters_lifetime",
+   "ch37/test_vpi_program_interface_relations",
+   "ch37/test_vpi_struct_and_tagged_patterns",
+   "ch37/test_vpi_struct_union_flags_members",
+   "ch37/test_vpi_sys_func_call_value_info",
+   "ch37/test_vpi_type_constants_more",
+   "ch37/test_vpi_udp_defn_entries",
+   "ch37/test_vpi_udp_table_primitive",
+   "ch38/test_vpi_handle_by_multi_index",
+   "ch38/test_vpi_put_value_udp_array_errors",
+   "ch38/test_vpi_stmt_callback_module_wide",
+   "ch38/test_vpi_systf_function_result_kinds",
+   "ch4/test_pli_slot_entry_regions_run_once",
+   "ch40/test_vpi_coverage_cover_sequence",
+   "ch7/test_illegal_string_in_untagged_union",
+   "ch7/test_illegal_unique_index_without_with_struct_elements",
+   "ch7/test_illegal_unique_without_with_struct_elements",
+   "gen/ch35/test_gen_cross_dpi_array_dynamic_inout_1_mixed_descending_resize",
+   "gen/ch35/test_gen_cross_dpi_array_dynamic_input_1_positive_ascending_stable",
+   "gen/ch35/test_gen_cross_dpi_array_queue_inout_1_positive_descending_resize",
+   "gen/ch35/test_gen_cross_dpi_array_queue_input_1_mixed_ascending_stable"
+  ],
+  "oracle_ghost_lyra": [
+   "ch10/test_illegal_lhs_assignment_pattern_member_width",
+   "ch10/test_illegal_typed_lhs_assignment_pattern_member_width",
+   "ch11/test_illegal_stream_with_on_two_dimensional_array",
+   "ch11/test_illegal_unsized_constant_in_concatenation",
+   "ch12/test_illegal_for_type_reference_without_var",
+   "ch12/test_illegal_pattern_constant_of_real_type",
+   "ch16/test_illegal_attached_call_chandle_input",
+   "ch16/test_illegal_cycle_delay_mintypmax",
+   "ch16/test_illegal_local_variable_unassigned_compound_assignment",
+   "ch16/test_illegal_sequence_event_formal_as_boolean",
+   "ch16/test_illegal_sequence_formal_chandle_type",
+   "ch16/test_illegal_sequence_formal_goto_operand",
+   "ch16/test_illegal_sequence_property_no_match",
+   "ch16/test_illegal_triggered_ending_clock_differs",
+   "ch17/test_illegal_checker_writes_input",
+   "ch18/test_illegal_solve_before_circular",
+   "ch18/test_illegal_solve_before_unpacked_array",
+   "ch18/test_rand_enum_solver_finds_solution",
+   "ch19/test_illegal_cg_transition_length_zero",
+   "ch19/test_illegal_cg_transition_sole_range",
+   "ch22/test_illegal_directive_split_across_lines",
+   "ch22/test_illegal_include_absolute_path_in_angle_brackets",
+   "ch22/test_illegal_include_line_trailing_code",
+   "ch23/test_illegal_interconnect_left_after_elaboration",
+   "ch23/test_illegal_scope_duplicate_in_unselected_generate",
+   "ch23/test_port_collapse_uwire_external_delay",
+   "ch26/test_illegal_package_imported_before_compiled",
+   "ch30/test_illegal_edge_parallel_path_part_select_destination",
+   "ch30/test_illegal_specify_edge_path_same_edge_and_condition",
+   "ch33/test_illegal_config_constant_function",
+   "ch33/test_illegal_config_generate_scope_path",
+   "ch6/test_illegal_nettype_resolver_resizes_driver_array",
+   "ch6/test_illegal_nettype_resolver_side_effect",
+   "ch6/test_illegal_nettype_resolver_writes_driver_array",
+   "ch6/test_illegal_type_operator_dynamic_array_element",
+   "ch7/test_illegal_dynamic_new_nonblocking_assignment",
+   "ch8/test_illegal_instance_constant_assigned_twice",
+   "ch8/test_illegal_interface_typedef_scope_prefix_in_variable_declaration",
+   "ch9/test_illegal_automatic_variable_as_sequence_event_argument",
+   "gen/ch21/test_gen_cross_litfmt_fill_b_display_param",
+   "gen/ch5/test_gen_cross_literal_fill_unsigned_unsized_one_add_signed_logic_65"
+  ]
+ },
+ "spec_only_clauses": [
+  {
+   "clause": "8.30.2",
+   "tests": 2
+  },
+  {
+   "clause": "8.30.4",
+   "tests": 2
+  },
+  {
+   "clause": "8.30.5",
+   "tests": 2
+  },
+  {
+   "clause": "9.4.4",
+   "tests": 2
+  },
+  {
+   "clause": "12.4.2.2",
+   "tests": 2
+  },
+  {
+   "clause": "12.5.3.2",
+   "tests": 2
+  },
+  {
+   "clause": "16.4.5",
+   "tests": 2
+  },
+  {
+   "clause": "16.12.20",
+   "tests": 2
+  },
+  {
+   "clause": "16.14.6.3",
+   "tests": 2
+  },
+  {
+   "clause": "17.4",
+   "tests": 2
+  },
+  {
+   "clause": "19.6.1.1",
+   "tests": 2
+  },
+  {
+   "clause": "21.7.3.2",
+   "tests": 2
+  },
+  {
+   "clause": "21.7.3.3",
+   "tests": 2
+  },
+  {
+   "clause": "21.7.3.5",
+   "tests": 2
+  },
+  {
+   "clause": "21.7.3.7",
+   "tests": 2
+  },
+  {
+   "clause": "21.7.4.2",
+   "tests": 2
+  },
+  {
+   "clause": "21.7.4.3.2",
+   "tests": 2
+  },
+  {
+   "clause": "25.3.2",
+   "tests": 2
+  },
+  {
+   "clause": "28.16.2.2",
+   "tests": 2
+  },
+  {
+   "clause": "31.8",
+   "tests": 2
+  },
+  {
+   "clause": "32.2",
+   "tests": 2
+  },
+  {
+   "clause": "33.3.1.1",
+   "tests": 2
+  },
+  {
+   "clause": "33.5.4",
+   "tests": 2
+  },
+  {
+   "clause": "35.2.2.1",
+   "tests": 2
+  },
+  {
+   "clause": "35.5.1.5",
+   "tests": 2
+  },
+  {
+   "clause": "36.10.3",
+   "tests": 2
+  },
+  {
+   "clause": "37.3.5",
+   "tests": 2
+  },
+  {
+   "clause": "37.7",
+   "tests": 2
+  },
+  {
+   "clause": "37.56",
+   "tests": 2
+  },
+  {
+   "clause": "37.69",
+   "tests": 2
+  },
+  {
+   "clause": "37.79",
+   "tests": 2
+  },
+  {
+   "clause": "39.4.2.1",
+   "tests": 2
+  },
+  {
+   "clause": "39.5.3",
+   "tests": 2
+  },
+  {
+   "clause": "40.2.1",
+   "tests": 2
+  },
+  {
+   "clause": "4.9.2",
+   "tests": 3
+  },
+  {
+   "clause": "6.6.4.1",
+   "tests": 3
+  },
+  {
+   "clause": "6.6.4.2",
+   "tests": 3
+  },
+  {
+   "clause": "8.29",
+   "tests": 3
+  },
+  {
+   "clause": "8.30.3",
+   "tests": 3
+  },
+  {
+   "clause": "12.4.2.1",
+   "tests": 3
+  },
+  {
+   "clause": "12.6.3",
+   "tests": 3
+  },
+  {
+   "clause": "16.13.7",
+   "tests": 3
+  },
+  {
+   "clause": "16.14.6.2",
+   "tests": 3
+  },
+  {
+   "clause": "16.14.6.4",
+   "tests": 3
+  },
+  {
+   "clause": "17.8",
+   "tests": 3
+  },
+  {
+   "clause": "19.6.1.3",
+   "tests": 3
+  },
+  {
+   "clause": "19.6.3",
+   "tests": 3
+  },
+  {
+   "clause": "21.7.3.4",
+   "tests": 3
+  },
+  {
+   "clause": "23.3.3.7.2",
+   "tests": 3
+  },
+  {
+   "clause": "30.7.4.2",
+   "tests": 3
+  },
+  {
+   "clause": "32.4.3",
+   "tests": 3
+  },
+  {
+   "clause": "36.10.1",
+   "tests": 3
+  },
+  {
+   "clause": "37.3.2",
+   "tests": 3
+  },
+  {
+   "clause": "37.8",
+   "tests": 3
+  },
+  {
+   "clause": "37.38",
+   "tests": 3
+  },
+  {
+   "clause": "37.55",
+   "tests": 3
+  },
+  {
+   "clause": "37.62",
+   "tests": 3
+  },
+  {
+   "clause": "37.65",
+   "tests": 3
+  },
+  {
+   "clause": "37.70",
+   "tests": 3
+  },
+  {
+   "clause": "37.73",
+   "tests": 3
+  },
+  {
+   "clause": "37.76",
+   "tests": 3
+  },
+  {
+   "clause": "37.77",
+   "tests": 3
+  },
+  {
+   "clause": "37.78",
+   "tests": 3
+  },
+  {
+   "clause": "37.82",
+   "tests": 3
+  },
+  {
+   "clause": "37.84",
+   "tests": 3
+  },
+  {
+   "clause": "38.7",
+   "tests": 3
+  },
+  {
+   "clause": "38.36.1.3",
+   "tests": 3
+  },
+  {
+   "clause": "40.5.3",
+   "tests": 3
+  },
+  {
+   "clause": "4.4.2.5",
+   "tests": 4
+  },
+  {
+   "clause": "6.7.2",
+   "tests": 4
+  },
+  {
+   "clause": "6.7.3",
+   "tests": 4
+  },
+  {
+   "clause": "6.22.6",
+   "tests": 4
+  },
+  {
+   "clause": "16.4.3",
+   "tests": 4
+  },
+  {
+   "clause": "16.12.5",
+   "tests": 4
+  },
+  {
+   "clause": "19.6.1.4",
+   "tests": 4
+  },
+  {
+   "clause": "19.6.2",
+   "tests": 4
+  },
+  {
+   "clause": "19.9",
+   "tests": 4
+  },
+  {
+   "clause": "20.16.1",
+   "tests": 4
+  },
+  {
+   "clause": "20.16.2",
+   "tests": 4
+  },
+  {
+   "clause": "20.16.4",
+   "tests": 4
+  },
+  {
+   "clause": "28.16.2.1",
+   "tests": 4
+  },
+  {
+   "clause": "37.3.6",
+   "tests": 4
+  },
+  {
+   "clause": "37.3.8",
+   "tests": 4
+  },
+  {
+   "clause": "37.9",
+   "tests": 4
+  },
+  {
+   "clause": "37.18",
+   "tests": 4
+  },
+  {
+   "clause": "37.19",
+   "tests": 4
+  },
+  {
+   "clause": "37.21",
+   "tests": 4
+  },
+  {
+   "clause": "37.23",
+   "tests": 4
+  },
+  {
+   "clause": "37.24",
+   "tests": 4
+  },
+  {
+   "clause": "37.30",
+   "tests": 4
+  },
+  {
+   "clause": "37.48",
+   "tests": 4
+  },
+  {
+   "clause": "37.57",
+   "tests": 4
+  },
+  {
+   "clause": "37.58",
+   "tests": 4
+  },
+  {
+   "clause": "37.66",
+   "tests": 4
+  },
+  {
+   "clause": "37.71",
+   "tests": 4
+  },
+  {
+   "clause": "37.74",
+   "tests": 4
+  },
+  {
+   "clause": "37.80",
+   "tests": 4
+  },
+  {
+   "clause": "37.81",
+   "tests": 4
+  },
+  {
+   "clause": "39.3.2",
+   "tests": 4
+  },
+  {
+   "clause": "16.9.10",
+   "tests": 5
+  },
+  {
+   "clause": "16.12.4",
+   "tests": 5
+  },
+  {
+   "clause": "16.12.18",
+   "tests": 5
+  },
+  {
+   "clause": "16.13.2",
+   "tests": 5
+  },
+  {
+   "clause": "20.16.3",
+   "tests": 5
+  },
+  {
+   "clause": "21.7.4.1",
+   "tests": 5
+  },
+  {
+   "clause": "21.7.4.3.1",
+   "tests": 5
+  },
+  {
+   "clause": "33.4.2",
+   "tests": 5
+  },
+  {
+   "clause": "37.15",
+   "tests": 5
+  },
+  {
+   "clause": "37.46",
+   "tests": 5
+  },
+  {
+   "clause": "37.49",
+   "tests": 5
+  },
+  {
+   "clause": "37.50",
+   "tests": 5
+  },
+  {
+   "clause": "37.54",
+   "tests": 5
+  },
+  {
+   "clause": "37.60",
+   "tests": 5
+  },
+  {
+   "clause": "37.67",
+   "tests": 5
+  },
+  {
+   "clause": "37.68",
+   "tests": 5
+  },
+  {
+   "clause": "37.72",
+   "tests": 5
+  },
+  {
+   "clause": "37.83",
+   "tests": 5
+  },
+  {
+   "clause": "39.4.1",
+   "tests": 5
+  },
+  {
+   "clause": "40.3.2.4",
+   "tests": 5
+  },
+  {
+   "clause": "40.3.2.5",
+   "tests": 5
+  },
+  {
+   "clause": "15.5.4",
+   "tests": 6
+  },
+  {
+   "clause": "16.9.5",
+   "tests": 6
+  },
+  {
+   "clause": "16.9.7",
+   "tests": 6
+  },
+  {
+   "clause": "16.9.8",
+   "tests": 6
+  },
+  {
+   "clause": "19.5.7",
+   "tests": 6
+  },
+  {
+   "clause": "24.6",
+   "tests": 6
+  },
+  {
+   "clause": "28.15.2",
+   "tests": 6
+  },
+  {
+   "clause": "31.4.1",
+   "tests": 6
+  },
+  {
+   "clause": "31.4.5",
+   "tests": 6
+  },
+  {
+   "clause": "33.4.1.5",
+   "tests": 6
+  },
+  {
+   "clause": "36.8.1",
+   "tests": 6
+  },
+  {
+   "clause": "37.6",
+   "tests": 6
+  },
+  {
+   "clause": "37.29",
+   "tests": 6
+  },
+  {
+   "clause": "37.34",
+   "tests": 6
+  },
+  {
+   "clause": "37.36",
+   "tests": 6
+  },
+  {
+   "clause": "37.44",
+   "tests": 6
+  },
+  {
+   "clause": "37.53",
+   "tests": 6
+  },
+  {
+   "clause": "37.63",
+   "tests": 6
+  },
+  {
+   "clause": "37.75",
+   "tests": 6
+  },
+  {
+   "clause": "16.9.1",
+   "tests": 7
+  },
+  {
+   "clause": "16.14.6.1",
+   "tests": 7
+  },
+  {
+   "clause": "19.5.1.1",
+   "tests": 7
+  },
+  {
+   "clause": "30.7.4.1",
+   "tests": 7
+  },
+  {
+   "clause": "31.4.2",
+   "tests": 7
+  },
+  {
+   "clause": "37.3.4",
+   "tests": 7
+  },
+  {
+   "clause": "37.11",
+   "tests": 7
+  },
+  {
+   "clause": "37.26",
+   "tests": 7
+  },
+  {
+   "clause": "37.40",
+   "tests": 7
+  },
+  {
+   "clause": "37.61",
+   "tests": 7
+  },
+  {
+   "clause": "37.64",
+   "tests": 7
+  },
+  {
+   "clause": "38.36.1.1",
+   "tests": 7
+  },
+  {
+   "clause": "38.36.1.2",
+   "tests": 7
+  },
+  {
+   "clause": "17.7.2",
+   "tests": 8
+  },
+  {
+   "clause": "19.5.5",
+   "tests": 8
+  },
+  {
+   "clause": "19.5.6",
+   "tests": 8
+  },
+  {
+   "clause": "32.4.2",
+   "tests": 8
+  },
+  {
+   "clause": "37.22",
+   "tests": 8
+  },
+  {
+   "clause": "37.41",
+   "tests": 8
+  },
+  {
+   "clause": "37.51",
+   "tests": 8
+  },
+  {
+   "clause": "37.52",
+   "tests": 8
+  },
+  {
+   "clause": "40.5.2",
+   "tests": 8
+  },
+  {
+   "clause": "16.13.1",
+   "tests": 9
+  },
+  {
+   "clause": "19.6.1.2",
+   "tests": 9
+  },
+  {
+   "clause": "21.7.3.1",
+   "tests": 9
+  },
+  {
+   "clause": "31.3.5",
+   "tests": 9
+  },
+  {
+   "clause": "31.7",
+   "tests": 9
+  },
+  {
+   "clause": "39.5.1",
+   "tests": 9
+  },
+  {
+   "clause": "16.12.13",
+   "tests": 10
+  },
+  {
+   "clause": "19.11.3",
+   "tests": 10
+  },
+  {
+   "clause": "37.13",
+   "tests": 10
+  },
+  {
+   "clause": "37.20",
+   "tests": 10
+  },
+  {
+   "clause": "37.35",
+   "tests": 10
+  },
+  {
+   "clause": "39.3.1",
+   "tests": 10
+  },
+  {
+   "clause": "19.4.1",
+   "tests": 11
+  },
+  {
+   "clause": "37.59",
+   "tests": 11
+  },
+  {
+   "clause": "16.12.10",
+   "tests": 12
+  },
+  {
+   "clause": "16.17",
+   "tests": 12
+  },
+  {
+   "clause": "37.25",
+   "tests": 12
+  },
+  {
+   "clause": "16.9.2.1",
+   "tests": 13
+  },
+  {
+   "clause": "36.12.1",
+   "tests": 13
+  },
+  {
+   "clause": "37.33",
+   "tests": 13
+  },
+  {
+   "clause": "37.32",
+   "tests": 14
+  },
+  {
+   "clause": "39.5.2",
+   "tests": 14
+  },
+  {
+   "clause": "40.2.2",
+   "tests": 14
+  },
+  {
+   "clause": "37.31",
+   "tests": 15
+  },
+  {
+   "clause": "37.47",
+   "tests": 15
+  },
+  {
+   "clause": "40.3.2.2",
+   "tests": 16
+  },
+  {
+   "clause": "31.3.2",
+   "tests": 17
+  },
+  {
+   "clause": "36.12.2.1",
+   "tests": 17
+  },
+  {
+   "clause": "31.3.1",
+   "tests": 20
+  },
+  {
+   "clause": "40.3.2.3",
+   "tests": 22
+  },
+  {
+   "clause": "40.3.2.1",
+   "tests": 32
+  },
+  {
+   "clause": "24.3.2",
+   "tests": 39
+  },
+  {
+   "clause": "15.5.5.2",
+   "tests": 50
+  },
+  {
+   "clause": "15.5.5.1",
+   "tests": 52
+  },
+  {
+   "clause": "15.5.5.3",
+   "tests": 52
+  }
+ ]
+}

@@ -6,9 +6,9 @@
 
 このレポートは登録した有限モデルだけを対象にします。要求カバレッジや全言語の 組合せ網羅率ではありません。計画上の網羅と、実行結果に基づく合格確認を分けます。 既存テストは削減していません。選択数の削減率は実行時間の削減率ではありません。
 
-生成元・利用手順・適用限界は[導入手順](https://github.com/kurochan001/kirimasim-tests/blob/9eab9bf2f4316112651e9637bcb03fe555016b95/docs/interaction-verification.md)を参照してください。
+生成元・利用手順・適用限界は[導入手順](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/docs/interaction-verification.md)を参照してください。
 
-2因子100%で何を判断できるかは[4行の具体例](https://github.com/kurochan001/kirimasim-tests/blob/9eab9bf2f4316112651e9637bcb03fe555016b95/docs/faq.md#q28-why-not-simply-cross-every-feature)、計画と実際のPASSの違いは[実行充足の説明](https://github.com/kurochan001/kirimasim-tests/blob/9eab9bf2f4316112651e9637bcb03fe555016b95/docs/faq.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution)を参照してください。
+2因子100%で何を判断できるかは[4行の具体例](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/docs/faq.md#q28-why-not-simply-cross-every-feature)、計画と実際のPASSの違いは[実行充足の説明](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/docs/faq.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution)を参照してください。
 
 ## scheduling_visibility / model 1
 
@@ -2278,8 +2278,8 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
 
 ### results/ghost.json
 
-- 環境: private build b0ba803c6b49。
-- 実行日時: 2026-11-09T01:43:03.440369+00:00。
+- 環境: private build edda91f4108d。
+- 実行日時: 2026-11-10T04:08:06.233930+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -2592,9 +2592,9 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - dpi_openarray_shape:
   - 2因子の合格確認済み組合せ: 93/100。
-  - 3因子の合格確認済み組合せ: 57/72。
+  - 3因子の合格確認済み組合せ: 59/72。
   - 必須ケース: 3/4。
-  - ケース状態: pass=25, fail=5, known=0, unsupported=0, stale=0, not_run=0。
+  - ケース状態: pass=26, fail=4, known=0, unsupported=0, stale=0, not_run=0。
 - clocking_assertion_sampling:
   - 2因子の合格確認済み組合せ: 109/109。
   - 3因子の合格確認済み組合せ: 50/50。
@@ -2606,10 +2606,10 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 4/4。
   - ケース状態: pass=13, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - dpi_nba_capture:
-  - 2因子の合格確認済み組合せ: 79/81。
-  - 3因子の合格確認済み組合せ: 33/48。
-  - 必須ケース: 2/4。
-  - ケース状態: pass=12, fail=6, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 81/81。
+  - 3因子の合格確認済み組合せ: 48/48。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - aggregate_event_lifetime:
   - 2因子の合格確認済み組合せ: 123/123。
   - 3因子の合格確認済み組合せ: 54/54。
@@ -2666,35 +2666,35 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 6/6。
   - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - package_nba_capture:
-  - 2因子の合格確認済み組合せ: 168/183。
-  - 3因子の合格確認済み組合せ: 81/126。
-  - 必須ケース: 2/6。
-  - ケース状態: pass=22, fail=14, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 183/183。
+  - 3因子の合格確認済み組合せ: 126/126。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - package_change_observers:
-  - 2因子の合格確認済み組合せ: 0/225。
-  - 3因子の合格確認済み組合せ: 0/122。
-  - 必須ケース: 0/6。
-  - ケース状態: pass=0, fail=36, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 225/225。
+  - 3因子の合格確認済み組合せ: 122/122。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - class_method_package_lookup:
   - 2因子の合格確認済み組合せ: 244/244。
   - 3因子の合格確認済み組合せ: 110/110。
   - 必須ケース: 6/6。
   - ケース状態: pass=34, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - generated_subroutine_binding:
-  - 2因子の合格確認済み組合せ: 0/228。
-  - 3因子の合格確認済み組合せ: 0/112。
-  - 必須ケース: 0/6。
-  - ケース状態: pass=0, fail=36, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 228/228。
+  - 3因子の合格確認済み組合せ: 112/112。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - class_conditional_return:
   - 2因子の合格確認済み組合せ: 183/183。
   - 3因子の合格確認済み組合せ: 135/135。
   - 必須ケース: 6/6。
   - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - generated_process_loop_transfer:
-  - 2因子の合格確認済み組合せ: 0/293。
-  - 3因子の合格確認済み組合せ: 0/160。
-  - 必須ケース: 0/6。
-  - ケース状態: pass=0, fail=36, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 293/293。
+  - 3因子の合格確認済み組合せ: 160/160。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - interface_array_query_walk:
   - 2因子の合格確認済み組合せ: 274/274。
   - 3因子の合格確認済み組合せ: 96/96。
@@ -2711,10 +2711,10 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 6/6。
   - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - program_task_frame_lifetime:
-  - 2因子の合格確認済み組合せ: 162/249。
-  - 3因子の合格確認済み組合せ: 45/100。
-  - 必須ケース: 1/6。
-  - ケース状態: pass=21, fail=15, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 249/249。
+  - 3因子の合格確認済み組合せ: 100/100。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - package_array_query_scope:
   - 2因子の合格確認済み組合せ: 249/249。
   - 3因子の合格確認済み組合せ: 118/118。
@@ -2726,37 +2726,37 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 6/6。
   - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - time_scope_delay:
-  - 2因子の合格確認済み組合せ: 204/291。
-  - 3因子の合格確認済み組合せ: 69/136。
-  - 必須ケース: 2/6。
-  - ケース状態: pass=29, fail=19, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 291/291。
+  - 3因子の合格確認済み組合せ: 136/136。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - literal_context_extension:
   - 2因子の合格確認済み組合せ: 299/303。
   - 3因子の合格確認済み組合せ: 145/148。
   - 必須ケース: 7/8。
   - ケース状態: pass=65, fail=1, known=0, unsupported=0, stale=0, not_run=0。
 - gate_array_connection:
-  - 2因子の合格確認済み組合せ: 196/278。
-  - 3因子の合格確認済み組合せ: 58/135。
-  - 必須ケース: 1/6。
-  - ケース状態: pass=22, fail=29, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 278/278。
+  - 3因子の合格確認済み組合せ: 135/135。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - macro_expansion_context:
   - 2因子の合格確認済み組合せ: 463/463。
   - 必須ケース: 9/9。
   - ケース状態: pass=114, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - force_release_visibility:
-  - 2因子の合格確認済み組合せ: 205/228。
-  - 3因子の合格確認済み組合せ: 59/72。
-  - 必須ケース: 6/8。
-  - ケース状態: pass=59, fail=13, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 228/228。
+  - 3因子の合格確認済み組合せ: 72/72。
+  - 必須ケース: 8/8。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - implicit_sensitivity_update:
-  - 2因子の合格確認済み組合せ: 168/177。
-  - 必須ケース: 22/25。
-  - ケース状態: pass=57, fail=4, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 177/177。
+  - 必須ケース: 25/25。
+  - ケース状態: pass=61, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - interface_member_expression:
-  - 2因子の合格確認済み組合せ: 224/264。
-  - 必須ケース: 6/7。
-  - ケース状態: pass=44, fail=5, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 264/264。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=49, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - loop_control_scheduling:
   - 2因子の合格確認済み組合せ: 82/82。
   - 3因子の合格確認済み組合せ: 55/55。
@@ -2767,32 +2767,32 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 9/9。
   - ケース状態: pass=90, fail=1, known=0, unsupported=0, stale=0, not_run=0。
 - parameter_override_type:
-  - 2因子の合格確認済み組合せ: 110/120。
-  - 必須ケース: 6/8。
-  - ケース状態: pass=40, fail=4, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 120/120。
+  - 必須ケース: 8/8。
+  - ケース状態: pass=44, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - assertion_vector_query:
   - 2因子の合格確認済み組合せ: 130/138。
   - 3因子の合格確認済み組合せ: 13/15。
   - 必須ケース: 5/6。
   - ケース状態: pass=28, fail=2, known=0, unsupported=0, stale=0, not_run=0。
 - literal_argument_conversion:
-  - 2因子の合格確認済み組合せ: 100/169。
-  - 必須ケース: 4/8。
-  - ケース状態: pass=41, fail=21, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 169/169。
+  - 必須ケース: 8/8。
+  - ケース状態: pass=62, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - hierarchical_process_control:
-  - 2因子の合格確認済み組合せ: 99/113。
-  - 3因子の合格確認済み組合せ: 30/36。
-  - 必須ケース: 6/7。
-  - ケース状態: pass=33, fail=9, known=0, unsupported=0, stale=0, not_run=0。
-- hierarchical_name_display:
-  - 2因子の合格確認済み組合せ: 127/143。
-  - 3因子の合格確認済み組合せ: 23/27。
-  - 必須ケース: 6/7。
-  - ケース状態: pass=59, fail=6, known=0, unsupported=0, stale=0, not_run=0。
-- array_query_loop:
-  - 2因子の合格確認済み組合せ: 149/151。
+  - 2因子の合格確認済み組合せ: 113/113。
+  - 3因子の合格確認済み組合せ: 36/36。
   - 必須ケース: 7/7。
-  - ケース状態: pass=39, fail=1, known=0, unsupported=0, stale=0, not_run=0。
+  - ケース状態: pass=42, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- hierarchical_name_display:
+  - 2因子の合格確認済み組合せ: 143/143。
+  - 3因子の合格確認済み組合せ: 27/27。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=65, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- array_query_loop:
+  - 2因子の合格確認済み組合せ: 151/151。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - delay_value_form:
   - 2因子の合格確認済み組合せ: 126/126。
   - 必須ケース: 7/7。
@@ -2803,28 +2803,28 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 7/7。
   - ケース状態: pass=37, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - escaped_name_binding:
-  - 2因子の合格確認済み組合せ: 84/100。
-  - 必須ケース: 5/7。
-  - ケース状態: pass=23, fail=6, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 100/100。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=29, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - scoped_class_declaration:
-  - 2因子の合格確認済み組合せ: 69/100。
-  - 3因子の合格確認済み組合せ: 25/48。
-  - 必須ケース: 3/7。
-  - ケース状態: pass=25, fail=23, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 95/100。
+  - 3因子の合格確認済み組合せ: 46/48。
+  - 必須ケース: 6/7。
+  - ケース状態: pass=46, fail=2, known=0, unsupported=0, stale=0, not_run=0。
 - case_literal_wildcard:
   - 2因子の合格確認済み組合せ: 112/112。
   - 3因子の合格確認済み組合せ: 24/24。
   - 必須ケース: 7/7。
   - ケース状態: pass=24, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - aggregate_literal_key:
-  - 2因子の合格確認済み組合せ: 92/104。
-  - 必須ケース: 6/7。
-  - ケース状態: pass=42, fail=6, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 104/104。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 
 ### results/icarus.json
 
 - 環境: Icarus Verilog version 14.0 (devel) (s20260301-918-g3e2189b3)。
-- 実行日時: 2026-11-09T01:49:08.172785+00:00。
+- 実行日時: 2026-11-10T03:50:15.606941+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -3368,8 +3368,8 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
 
 ### results/kirimasim.json
 
-- 環境: kirimasim 0.0.0 (commit 82b3003771e4), built with GNU 13.3.0。
-- 実行日時: 2026-11-09T02:49:28.800560+00:00。
+- 環境: kirimasim 0.0.0 (commit 7de185f776a1), built with GNU 13.3.0。
+- 実行日時: 2026-11-10T02:33:06.410048+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -3911,10 +3911,555 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 7/7。
   - ケース状態: pass=40, fail=0, known=0, unsupported=8, stale=0, not_run=0。
 
+### results/lyra.json
+
+- 環境: Lyra (commit eaaea03805b3)。
+- 実行日時: 2026-11-10T11:08:35.647817+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 111/126。
+  - 3因子の合格確認済み組合せ: 36/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=226, fail=3, known=0, unsupported=96, stale=0, not_run=0。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 44/44。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 143/143。
+  - 3因子の合格確認済み組合せ: 63/63。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 48/48。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 185/185。
+  - 3因子の合格確認済み組合せ: 76/76。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=32, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 298/298。
+  - 3因子の合格確認済み組合せ: 92/92。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=56, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 76/76。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=32, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 144/144。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 63/63。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 186/186。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 220/220。
+  - 3因子の合格確認済み組合せ: 82/82。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 204/204。
+  - 3因子の合格確認済み組合せ: 56/56。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 148/148。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 285/285。
+  - 3因子の合格確認済み組合せ: 108/108。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 178/182。
+  - 3因子の合格確認済み組合せ: 62/68。
+  - 必須ケース: 2/4。
+  - ケース状態: pass=34, fail=2, known=0, unsupported=0, stale=0, not_run=0。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 302/302。
+  - 3因子の合格確認済み組合せ: 174/174。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=100, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 261/261。
+  - 3因子の合格確認済み組合せ: 162/162。
+  - 必須ケース: 8/8。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 253/253。
+  - 3因子の合格確認済み組合せ: 106/106。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=44, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 258/258。
+  - 3因子の合格確認済み組合せ: 120/120。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 257/257。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- division_context:
+  - 2因子の合格確認済み組合せ: 283/283。
+  - 3因子の合格確認済み組合せ: 98/98。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 219/219。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=38, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 265/265。
+  - 3因子の合格確認済み組合せ: 126/126。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 218/218。
+  - 3因子の合格確認済み組合せ: 142/142。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=70, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 236/236。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=92, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 260/260。
+  - 3因子の合格確認済み組合せ: 152/152。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=64, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 104/104。
+  - 3因子の合格確認済み組合せ: 59/59。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=27, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=18, stale=0, not_run=0。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 308/308。
+  - 3因子の合格確認済み組合せ: 90/90。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 302/305。
+  - 3因子の合格確認済み組合せ: 164/174。
+  - 必須ケース: 4/5。
+  - ケース状態: pass=44, fail=2, known=0, unsupported=0, stale=0, not_run=0。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 252/303。
+  - 3因子の合格確認済み組合せ: 117/178。
+  - 必須ケース: 4/6。
+  - ケース状態: pass=30, fail=0, known=0, unsupported=16, stale=0, not_run=0。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 314/315。
+  - 3因子の合格確認済み組合せ: 149/154。
+  - 必須ケース: 6/7。
+  - ケース状態: pass=33, fail=1, known=0, unsupported=0, stale=0, not_run=0。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 165/165。
+  - 3因子の合格確認済み組合せ: 72/72。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 225/225。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 88/88。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 202/202。
+  - 3因子の合格確認済み組合せ: 99/99。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 161/161。
+  - 3因子の合格確認済み組合せ: 120/120。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 246/246。
+  - 3因子の合格確認済み組合せ: 111/111。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 242/242。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 148/148。
+  - 3因子の合格確認済み組合せ: 68/68。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 159/159。
+  - 3因子の合格確認済み組合せ: 128/128。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 109/109。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=13, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 141/141。
+  - 3因子の合格確認済み組合せ: 129/129。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=63, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 158/158。
+  - 3因子の合格確認済み組合せ: 141/141。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=39, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 248/248。
+  - 3因子の合格確認済み組合せ: 82/82。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 109/109。
+  - 3因子の合格確認済み組合せ: 38/38。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 156/156。
+  - 3因子の合格確認済み組合せ: 72/72。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 165/165。
+  - 3因子の合格確認済み組合せ: 74/74。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 183/183。
+  - 3因子の合格確認済み組合せ: 84/84。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 77/213。
+  - 3因子の合格確認済み組合せ: 23/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=11, fail=30, known=0, unsupported=0, stale=0, not_run=0。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=25, known=0, unsupported=0, stale=0, not_run=0。
+- generated_udp_state:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=36, stale=0, not_run=0。
+- interface_header_import:
+  - 2因子の合格確認済み組合せ: 183/183。
+  - 3因子の合格確認済み組合せ: 78/78。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- mailbox_class_alias:
+  - 2因子の合格確認済み組合せ: 245/245。
+  - 3因子の合格確認済み組合せ: 92/92。
+  - 必須ケース: 9/9。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- distribution_expression_binding:
+  - 2因子の合格確認済み組合せ: 154/154。
+  - 3因子の合格確認済み組合せ: 81/81。
+  - 必須ケース: 8/8。
+  - ケース状態: pass=31, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generate_default_disable:
+  - 2因子の合格確認済み組合せ: 93/93。
+  - 3因子の合格確認済み組合せ: 60/60。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- array_reduction_constraint:
+  - 2因子の合格確認済み組合せ: 96/96。
+  - 3因子の合格確認済み組合せ: 40/40。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=13, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- associative_array_queries:
+  - 2因子の合格確認済み組合せ: 77/93。
+  - 3因子の合格確認済み組合せ: 32/54。
+  - 必須ケース: 3/4。
+  - ケース状態: pass=8, fail=10, known=0, unsupported=0, stale=0, not_run=0。
+- clocking_event_iff:
+  - 2因子の合格確認済み組合せ: 109/109。
+  - 3因子の合格確認済み組合せ: 44/44。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=12, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- class_virtual_interface:
+  - 2因子の合格確認済み組合せ: 76/96。
+  - 3因子の合格確認済み組合せ: 25/48。
+  - 必須ケース: 2/4。
+  - ケース状態: pass=7, fail=0, known=0, unsupported=6, stale=0, not_run=0。
+- resolved_strength_format:
+  - 2因子の合格確認済み組合せ: 0/87。
+  - 3因子の合格確認済み組合せ: 0/78。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=31, stale=0, not_run=0。
+- class_array_shallow_copy:
+  - 2因子の合格確認済み組合せ: 83/108。
+  - 3因子の合格確認済み組合せ: 32/60。
+  - 必須ケース: 1/4。
+  - ケース状態: pass=9, fail=0, known=0, unsupported=9, stale=0, not_run=0。
+- dpi_openarray_shape:
+  - 2因子の合格確認済み組合せ: 0/100。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=24, known=0, unsupported=6, stale=0, not_run=0。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=18, known=0, unsupported=0, stale=0, not_run=0。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 70/70。
+  - 3因子の合格確認済み組合せ: 40/40。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=13, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- dpi_nba_capture:
+  - 2因子の合格確認済み組合せ: 81/81。
+  - 3因子の合格確認済み組合せ: 48/48。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- aggregate_event_lifetime:
+  - 2因子の合格確認済み組合せ: 123/123。
+  - 3因子の合格確認済み組合せ: 54/54。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- sv_dpi_array_queries:
+  - 2因子の合格確認済み組合せ: 151/177。
+  - 3因子の合格確認済み組合せ: 42/66。
+  - 必須ケース: 5/7。
+  - ケース状態: pass=10, fail=9, known=0, unsupported=0, stale=0, not_run=0。
+- sdf_conditional_paths:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/46。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=18, stale=0, not_run=0。
+- checker_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/174。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=27, stale=0, not_run=0。
+- program_assertion_attempts:
+  - 2因子の合格確認済み組合せ: 138/138。
+  - 3因子の合格確認済み組合せ: 75/75。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=27, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- container_coverage_sampling:
+  - 2因子の合格確認済み組合せ: 172/172。
+  - 3因子の合格確認済み組合せ: 79/79。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=33, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- deferred_disable_reports:
+  - 2因子の合格確認済み組合せ: 151/151。
+  - 3因子の合格確認済み組合せ: 92/92。
+  - 必須ケース: 10/10。
+  - ケース状態: pass=31, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- event_rebinding:
+  - 2因子の合格確認済み組合せ: 138/138。
+  - 3因子の合格確認済み組合せ: 69/69。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=27, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- clocking_named_event:
+  - 2因子の合格確認済み組合せ: 100/100。
+  - 3因子の合格確認済み組合せ: 40/40。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=24, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- deferred_argument_capture:
+  - 2因子の合格確認済み組合せ: 145/145。
+  - 3因子の合格確認済み組合せ: 71/71。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=29, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_enum_navigation:
+  - 2因子の合格確認済み組合せ: 181/181。
+  - 3因子の合格確認済み組合せ: 110/110。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- package_nba_capture:
+  - 2因子の合格確認済み組合せ: 183/183。
+  - 3因子の合格確認済み組合せ: 126/126。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- package_change_observers:
+  - 2因子の合格確認済み組合せ: 225/225。
+  - 3因子の合格確認済み組合せ: 122/122。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- class_method_package_lookup:
+  - 2因子の合格確認済み組合せ: 244/244。
+  - 3因子の合格確認済み組合せ: 110/110。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=34, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_subroutine_binding:
+  - 2因子の合格確認済み組合せ: 228/228。
+  - 3因子の合格確認済み組合せ: 112/112。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- class_conditional_return:
+  - 2因子の合格確認済み組合せ: 183/183。
+  - 3因子の合格確認済み組合せ: 135/135。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_process_loop_transfer:
+  - 2因子の合格確認済み組合せ: 293/293。
+  - 3因子の合格確認済み組合せ: 160/160。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- interface_array_query_walk:
+  - 2因子の合格確認済み組合せ: 274/274。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_constant_expression_shape:
+  - 2因子の合格確認済み組合せ: 297/297。
+  - 3因子の合格確認済み組合せ: 132/132。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- formatted_scan_partial_write:
+  - 2因子の合格確認済み組合せ: 292/292。
+  - 3因子の合格確認済み組合せ: 142/142。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_task_frame_lifetime:
+  - 2因子の合格確認済み組合せ: 249/249。
+  - 3因子の合格確認済み組合せ: 100/100。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- package_array_query_scope:
+  - 2因子の合格確認済み組合せ: 249/249。
+  - 3因子の合格確認済み組合せ: 118/118。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- named_event_loop_transfer:
+  - 2因子の合格確認済み組合せ: 223/223。
+  - 3因子の合格確認済み組合せ: 140/140。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- time_scope_delay:
+  - 2因子の合格確認済み組合せ: 287/291。
+  - 3因子の合格確認済み組合せ: 126/136。
+  - 必須ケース: 5/6。
+  - ケース状態: pass=45, fail=3, known=0, unsupported=0, stale=0, not_run=0。
+- literal_context_extension:
+  - 2因子の合格確認済み組合せ: 298/303。
+  - 3因子の合格確認済み組合せ: 140/148。
+  - 必須ケース: 5/8。
+  - ケース状態: pass=63, fail=3, known=0, unsupported=0, stale=0, not_run=0。
+- gate_array_connection:
+  - 2因子の合格確認済み組合せ: 0/278。
+  - 3因子の合格確認済み組合せ: 0/135。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=51, known=0, unsupported=0, stale=0, not_run=0。
+- macro_expansion_context:
+  - 2因子の合格確認済み組合せ: 463/463。
+  - 必須ケース: 9/9。
+  - ケース状態: pass=114, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- force_release_visibility:
+  - 2因子の合格確認済み組合せ: 202/228。
+  - 3因子の合格確認済み組合せ: 64/72。
+  - 必須ケース: 6/8。
+  - ケース状態: pass=64, fail=0, known=0, unsupported=8, stale=0, not_run=0。
+- implicit_sensitivity_update:
+  - 2因子の合格確認済み組合せ: 177/177。
+  - 必須ケース: 25/25。
+  - ケース状態: pass=61, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- interface_member_expression:
+  - 2因子の合格確認済み組合せ: 264/264。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=49, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- loop_control_scheduling:
+  - 2因子の合格確認済み組合せ: 70/82。
+  - 3因子の合格確認済み組合せ: 50/55。
+  - 必須ケース: 4/6。
+  - ケース状態: pass=50, fail=0, known=0, unsupported=5, stale=0, not_run=0。
+- literal_format_display:
+  - 2因子の合格確認済み組合せ: 299/301。
+  - 必須ケース: 9/9。
+  - ケース状態: pass=90, fail=1, known=0, unsupported=0, stale=0, not_run=0。
+- parameter_override_type:
+  - 2因子の合格確認済み組合せ: 110/120。
+  - 必須ケース: 6/8。
+  - ケース状態: pass=40, fail=4, known=0, unsupported=0, stale=0, not_run=0。
+- assertion_vector_query:
+  - 2因子の合格確認済み組合せ: 138/138。
+  - 3因子の合格確認済み組合せ: 15/15。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=30, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- literal_argument_conversion:
+  - 2因子の合格確認済み組合せ: 169/169。
+  - 必須ケース: 8/8。
+  - ケース状態: pass=62, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- hierarchical_process_control:
+  - 2因子の合格確認済み組合せ: 113/113。
+  - 3因子の合格確認済み組合せ: 36/36。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=42, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- hierarchical_name_display:
+  - 2因子の合格確認済み組合せ: 143/143。
+  - 3因子の合格確認済み組合せ: 27/27。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=65, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- array_query_loop:
+  - 2因子の合格確認済み組合せ: 151/151。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- delay_value_form:
+  - 2因子の合格確認済み組合せ: 126/126。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- package_name_lookup:
+  - 2因子の合格確認済み組合せ: 88/88。
+  - 3因子の合格確認済み組合せ: 37/37。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=37, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- escaped_name_binding:
+  - 2因子の合格確認済み組合せ: 100/100。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=29, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- scoped_class_declaration:
+  - 2因子の合格確認済み組合せ: 100/100。
+  - 3因子の合格確認済み組合せ: 48/48。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- case_literal_wildcard:
+  - 2因子の合格確認済み組合せ: 112/112。
+  - 3因子の合格確認済み組合せ: 24/24。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=24, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- aggregate_literal_key:
+  - 2因子の合格確認済み組合せ: 92/104。
+  - 必須ケース: 6/7。
+  - ケース状態: pass=42, fail=6, known=0, unsupported=0, stale=0, not_run=0。
+
 ### results/verilator.json
 
-- 環境: Verilator 5.055 devel rev v5.054-158-g448e1ab6。
-- 実行日時: 2026-11-09T03:22:56.654769+00:00。
+- 環境: Verilator 5.055 devel rev v5.054-182-g4ab62c3a。
+- 実行日時: 2026-11-10T03:47:40.394696+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
