@@ -161,3 +161,4 @@ Code, identifiers, raw execution evidence and license terms retain their origina
 | Review of spec-only tests (2026-11-09) | [English](spec-only-review-20261109.en.md) | [日本語](spec-only-review-20261109.md) |
 | Clauses 33 and 40: what the standard fixes, what it leaves to tools, what can be tested (2026-11-09) | [English](clauses-33-40-testability-20261109.en.md) | [日本語](clauses-33-40-testability-20261109.md) |
 | Handoff 2026-11-10 | [English](claude-code-handoff-20261110.en.md) | [日本語](claude-code-handoff-20261110.md) |
+| Ghost triage of the 2026-11-11 run | [English](ghost-triage-20261111.en.md) | [日本語](ghost-triage-20261111.md) |

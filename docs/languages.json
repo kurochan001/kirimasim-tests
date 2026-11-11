@@ -1169,6 +1169,17 @@
         "en": "be06fc2f147e878439134e06b9b55cfd104cb73db2b2bf1432af50dccf8bc6e6",
         "ja": "f6e1b6700968ff4ab58c3603a9085db1a67a8b84bacee620d360d5b23fff8e3e"
       }
+    },
+    {
+      "en": "docs/ghost-triage-20261111.en.md",
+      "ja": "docs/ghost-triage-20261111.md",
+      "source": "docs/ghost-triage-20261111.en.md",
+      "source_language": "en",
+      "generated": false,
+      "sha256": {
+        "en": "4126d7ade47f45aaac1ab6d5effdd6e4bdd80ceb51b9a76d2b0cd337baf98eb6",
+        "ja": "177e1f83dd9af42dd80a87d07cf4e638b11a6b4c592650414c9b93f7d302649e"
+      }
     }
   ]
 }
