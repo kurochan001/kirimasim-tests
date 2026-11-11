@@ -22,7 +22,7 @@ When a new test finds such a place, add it here, and say it in the comment of th
 | --- | --- | --- |
 | 11.4.10, 6.11.2 | For six selected compound shifts into packed bit storage with an X/Z count, the original vector remains. The shift result must be unknown, then convert to zero on storage into bit. | the six compound-shift cases with bit destinations and X/Z counts in [cross26-icarus-13.json](../coverage/interaction-results/cross26-icarus-13.json), including [the 129-bit scalar case](../tests/gen/ch11/test_gen_cross_compound_shift_w129_b_u_scalar_shl_z_c8_known.sv) |
 | 11.4.1, 11.4.10 | Arithmetic right shift by 65 of a signed 65-bit logic array element with a Z sign bit gives zero instead of repeating Z. This extends the earlier indexed-int compound-assignment observation below. | [test_gen_cross_compound_shift_w65_l_s_element_ashr_width_c65_z](../tests/gen/ch11/test_gen_cross_compound_shift_w65_l_s_element_ashr_width_c65_z.sv) |
-| 20.9 | `$countones` of concatenation/replication arguments whose width is not a multiple of 32 bits differs across reruns or hosts: nine selected cases vary in six local runs, and twelve more differ on Ubuntu 24.04 (argument widths 2, 33 and 34). None of these 21 receives an Icarus oracle. See the [qualification evidence](../coverage/interaction-qualification/README.en.md). | the 21 `gen/ch20/test_gen_cross_query_*` cases identified by `icarus_unstable` in `generators/interaction_query.py` |
+| 20.9 | `$countones` of concatenation/replication arguments whose width is not a multiple of 32 bits differs across reruns or hosts: nine selected cases vary in six local runs, and twelve more differ on Ubuntu 24.04 (argument widths 2, 33 and 34). None of these 21 receives an Icarus oracle. On 2026-11-12, 2,250 runs on Icarus Verilog 13.0 on macOS arm64 showed no varying output: 20 runs of each of the 60 cases, and 50 more of each of the 21 cases with a varied environment size and output file name. The earlier saved log from Ubuntu shows the `ones=` value differing. See the [qualification evidence](../coverage/interaction-qualification/README.en.md). | the 21 `gen/ch20/test_gen_cross_query_*` cases identified by `icarus_unstable` in `generators/interaction_query.py` |
 | 23.3.3.8, 10.7 | With the suite runner's `-ginterconnect` option, it zero-pads a signed parent value connected to a wider input port. The source must sign-extend. The same cases match without `-ginterconnect`. | `gen/ch23/test_gen_cross_port_w32_i_s_w_k_l_n_a`, `gen/ch23/test_gen_cross_port_w33_i_s_w_x_b_p_n` |
 | 11.4.11 | With an x or z condition, `?:` gives z where both operands have z in the same bit; Table 11-20 gives x. | `gen/ch11/test_gen_xz_cond_07`, `_08`; `gen/ch11/test_gen_cross_cond_w129_ss_x_same_xz_w_l`, `gen/ch11/test_gen_cross_cond_w65_uu_z_same_xz_n_l` |
 | 28.12.1, 28.12.4 | On wand, wor, triand and trior nets it ignores the strengths of the drivers: it combines their values with the logic function and gives the result strong strength. The stronger driver has to win, and only drivers of equal strength are combined, at that strength. | the 29 `gen/ch28/test_gen_strength_{wand,wor,triand,trior}_*` tests with `:oracle: spec` |
@@ -1164,3 +1164,59 @@ Seeds 1 and 73 give the same results. See the saved runs of the [chapter tests](
 
 Not listed: the two illegal designs with map() in chapter 7 stop with an error only when the C++ code that Verilator generates is compiled, with no message on the line of the test, and the fatal error for a null virtual interface in chapter 25 is printed on standard output.
 Both report an error, and the standard does not set the place or the form of the report.
+
+<a id="observations-20261112"></a>
+
+## Observations of 2026-11-12 that are not differences of a release
+
+The items of this section are not places where a release differs from the standard.
+Every test named here lists `iverilog@13.0` in `:oracle:`, and its expected output is right for that release.
+The test names are in code blocks, which `tools/differences_status.py` does not read. Named in the text, the report of the listed differences would count them as tests that show a difference of a release, or as items that may be out of date.
+
+<a id="icarus-development-version-20261112"></a>
+
+### Development version: tests that match on the release and fail on master
+
+The Nightly runs the latest `master` of Icarus Verilog. In the [Nightly of 2026-11-11](https://github.com/kurochan001/kirimasim-tests/actions/runs/42928672063), with `s20260301-948-gbd5af291`, seven tests fail that match on the 13.0 release.
+These are observations of nightly runs. They were not reproduced locally, and none was reported.
+
+One test stopped matching in that run:
+
+```
+ch23/test_vpi_ansi_port_inheritance
+```
+
+VPI reports the port `input var logic [3:0] p` as a net: the output line is `u4.p: input logic net, 4 bits`.
+23.2.2.3 makes a port declared with `var` a variable.
+The 13.0 release reports a variable, in 20 of 20 local runs. Master did so in the six nightly runs before, up to `s20260301-918`.
+
+Six other tests fail only on master. They failed in the Nightly of 2026-11-10 as well. They were not analysed.
+
+```
+ch23/test_defparam_block_task_function_parameters     no output
+ch27/test_generate_instances_param                    no output
+ch9/test_disable_automatic_task_all_executions        compile failure
+ch6/test_illegal_cast_to_unnamed_packed_array_type    illegal design accepted
+ch6/test_illegal_drive_strength_without_assignment    illegal design accepted
+ch23/test_illegal_ansi_output_net_port_initialized    error on another line
+```
+
+<a id="icarus-13-crash-after-error-20261112"></a>
+
+### The 13.0 release: the compiler crashes after the right error
+
+For eight illegal tests the 13.0 compiler reports the right error at the marked line, and then its back end process crashes.
+In the six UDP table tests it ends with a segmentation fault. In the other two it stops on a failed internal assertion.
+The `iverilog` driver itself is not ended by a signal: it exits with status 139 or 134. So the runner sees a rejection, and the tests match.
+The tokens stay, because the message at the line is right. Each test ran again on the release on 2026-11-12 (macOS arm64) with the options of the runner.
+
+```
+ch29/test_illegal_udp_b_symbol_output                             segmentation fault
+ch29/test_illegal_udp_question_mark_output                        segmentation fault
+ch29/test_illegal_udp_sequential_entry_without_state              segmentation fault
+ch29/test_illegal_udp_table_entry_without_semicolon               segmentation fault
+ch29/test_illegal_udp_z_in_state_field                            segmentation fault
+ch29/test_illegal_udp_z_in_table                                  segmentation fault
+ch13/test_illegal_constant_function_calls_nonconstant_function    failed assertion
+ch30/test_illegal_specify_path_to_input                           failed assertion
+```

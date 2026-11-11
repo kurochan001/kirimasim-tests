@@ -22,7 +22,7 @@
 | --- | --- | --- |
 | 11.4.10, 6.11.2 |packed bit ストレージへの6つの選択された複合シフトに対して，X／Zカウントで，元のベクトルは保持される。bit に保存するとき，シフト結果は未知でなければならず，ゼロに変換する。|[cross26-icarus-13.json](../coverage/interaction-results/cross26-icarus-13.json)内の、bitを代入先としX／Zをシフト量とする6件の複合シフトケース。[129 - bit スカラーの場合](../tests/gen/ch11/test_gen_cross_compound_shift_w129_b_u_scalar_shl_z_c8_known.sv)を含む。|
 | 11.4.1, 11.4.10 |符号bitがZである符号付き65-bit logic配列要素を65だけ算術右シフトすると、Zを複製せずゼロとなる。これは、以下の添字付きintへの複合代入で先に観測した内容を拡張する。| [test_gen_cross_compound_shift_w65_l_s_element_ashr_width_c65_z](../tests/gen/ch11/test_gen_cross_compound_shift_w65_l_s_element_ashr_width_c65_z.sv) |
-| 20.9 |32ビットの倍数でない連結／複製引数の`$countones`は再実行やホスト間で異なる：9つの選択例は6つのローカル実行で異なり，12個はUbunto24.04で異なる（引数幅2 , 33と34）。これらの21はどれもIcarusオラクルを受け取らない。[補助証跡](../coverage/interaction-qualification/README.md) を参照。|21 `gen/ch20/test_gen_cross_query_*`のケースは `icarus_unstable`が`generators/interaction_query.py`で同定した|
+| 20.9 |32ビットの倍数でない連結／複製引数の`$countones`は再実行やホスト間で異なる：9つの選択例は6つのローカル実行で異なり，12個はUbunto24.04で異なる（引数幅2 , 33と34）。これらの21はどれもIcarusオラクルを受け取らない。2026-11-12に、macOS arm64のIcarus Verilog 13.0で2,250回実行したが、出力は変動しなかった。60ケースを各20回、21ケースをさらに各50回（環境変数の大きさと出力ファイル名を変えて）実行した。以前に保存したUbuntuのログでは、`ones=`の値が異なっている。[補助証跡](../coverage/interaction-qualification/README.md) を参照。|21 `gen/ch20/test_gen_cross_query_*`のケースは `icarus_unstable`が`generators/interaction_query.py`で同定した|
 | 23.3.3.8, 10.7 |`-ginterconnect`オプションを使うと、より広い入力ポートに接続された符号付き親値をゼロパッドする。変換元を符号拡張しなければならない。同じケースは`-ginterconnect`がない場合も一致する。| `gen/ch23/test_gen_cross_port_w32_i_s_w_k_l_n_a`, `gen/ch23/test_gen_cross_port_w33_i_s_w_x_b_p_n` |
 | 11.4.11 |条件がxまたはzの場合、`?:`は両オペランドの同じbitがzの位置でzを返す。11-20 表は x を返します。| `gen/ch11/test_gen_xz_cond_07`, `_08`; `gen/ch11/test_gen_cross_cond_w129_ss_x_same_xz_w_l`, `gen/ch11/test_gen_cross_cond_w65_uu_z_same_xz_n_l` |
 | 28.12.1, 28.12.4 |ワンド，ワー，トリアンド，トリオネットについては，ドライバの強さを無視し，その値をlogic関数と組み合わせて強い強さを与える。強いドライバが勝つ必要があり，同じ強さのドライバのみがその強さで組み合わされる。|`:oracle: spec`を伴う29 `gen/ch28/test_gen_strength_{wand,wor,triand,trior}_*`のテスト|
@@ -1163,3 +1163,59 @@ slangと、それを使うkirimasim・Lyraは、`#`のある形だけを受理�
 
 挙げないもの：7章のmap()を使った違法なデザイン2件は、Verilatorが生成したC++のコードのコンパイルで初めてエラーになり、テストの行を示すメッセージはありません。25章のnullの仮想インタフェースの致命的エラーは標準出力に出ます。
 どちらもエラーを報告しており、規格は報告する場所も形も定めていません。
+
+<a id="observations-20261112"></a>
+
+## 2026-11-12の観察（リリースの差異ではないもの）
+
+この節の項目は、リリースが規格と異なる箇所ではありません。
+ここに挙げるテストはすべて`:oracle:`に`iverilog@13.0`を持ち、期待出力はそのリリースで正しいものです。
+テスト名はコードブロックに書いています。`tools/differences_status.py`はコードブロックを読みません。本文に名前を書くと、差異一覧のレポートが、リリースの差異を示すテストか、古くなった可能性のある項目として数えてしまいます。
+
+<a id="icarus-development-version-20261112"></a>
+
+### 開発版：リリースで一致し、masterで失敗するテスト
+
+NightlyはIcarus Verilogの最新の`master`を実行します。[2026-11-11のNightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/42928672063)（`s20260301-948-gbd5af291`）では、13.0のリリースで一致するテストのうち7本が失敗しました。
+これらはNightlyの実行の観察です。ローカルでは再現しておらず、報告もしていません。
+
+次の1本は、この実行で一致しなくなりました。
+
+```
+ch23/test_vpi_ansi_port_inheritance
+```
+
+VPIは、ポート`input var logic [3:0] p`をネットとして報告します。出力の行は`u4.p: input logic net, 4 bits`です。
+23.2.2.3では、`var`を付けて宣言したポートは変数です。
+13.0のリリースは変数と報告します（ローカルの20回の実行すべて）。masterも、`s20260301-918`までの6回のNightlyでは変数と報告していました。
+
+ほかの6本は、masterでだけ失敗します。2026-11-10のNightlyでも失敗していました。原因は調べていません。
+
+```
+ch23/test_defparam_block_task_function_parameters     出力なし
+ch27/test_generate_instances_param                    出力なし
+ch9/test_disable_automatic_task_all_executions        コンパイル失敗
+ch6/test_illegal_cast_to_unnamed_packed_array_type    違法な設計を受理
+ch6/test_illegal_drive_strength_without_assignment    違法な設計を受理
+ch23/test_illegal_ansi_output_net_port_initialized    別の行でエラー
+```
+
+<a id="icarus-13-crash-after-error-20261112"></a>
+
+### 13.0のリリース：正しいエラーのあとでコンパイラがクラッシュする
+
+違法テスト8本では、13.0のコンパイラが指定行で正しいエラーを報告し、そのあとでバックエンドのプロセスがクラッシュします。
+UDPテーブルのテスト6本では、セグメンテーション違反で終わります。ほかの2本では、内部アサーションの失敗で止まります。
+`iverilog`ドライバ自体はシグナルで終わらず、終了ステータス139または134で終わります。そのためランナーは拒否と判定し、テストは一致します。
+指定行のメッセージが正しいので、トークンは残します。2026-11-12に、各テストをランナーと同じオプションでこのリリース（macOS arm64）で再実行して確かめました。
+
+```
+ch29/test_illegal_udp_b_symbol_output                             セグメンテーション違反
+ch29/test_illegal_udp_question_mark_output                        セグメンテーション違反
+ch29/test_illegal_udp_sequential_entry_without_state              セグメンテーション違反
+ch29/test_illegal_udp_table_entry_without_semicolon               セグメンテーション違反
+ch29/test_illegal_udp_z_in_state_field                            セグメンテーション違反
+ch29/test_illegal_udp_z_in_table                                  セグメンテーション違反
+ch13/test_illegal_constant_function_calls_nonconstant_function    アサーション失敗
+ch30/test_illegal_specify_path_to_input                           アサーション失敗
+```
