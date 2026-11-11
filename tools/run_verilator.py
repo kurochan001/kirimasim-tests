@@ -36,6 +36,12 @@ model, and the exit code and messages of the model are checked against `:expecte
 messages of the severity tasks are removed from the output before it is
 compared.
 
+A run that a signal ends fails even when it printed the expected output, and
+a compiler that a signal ends did not reject an illegal design;
+a step that takes longer than its time limit fails as "timed out". An
+error of this script fails only the test it happened in. A reason names no
+directory of the machine (see neutral()).
+
 With --all, or when a test is named, a test whose `:oracle:` does not list
 verilator@5.052 is reported as a known difference when it does not match,
 and does not make the run fail. With --json, the result of every test is also
@@ -44,7 +50,11 @@ written to FILE in the form that tools/suite_results.py describes.
 
 import argparse
 import concurrent.futures
+import functools
+import os
 import re
+import shutil
+import signal
 import subprocess
 import sys
 import tempfile
@@ -65,6 +75,13 @@ BANNER = re.compile(r"^(?:- (?:\S+:\d+: Verilog \$finish|S i m u l a t i o n|Ver
 # Verilator stops the run at the first $error unless told to allow more; the
 # standard has $error report the error and the run go on (20.10).
 ERROR_LIMIT = 1000000
+# The seconds that building a model (verilator --binary, which also compiles
+# the C++) and running it may take for one test. A build normally takes well
+# under a minute, also when many run at once, so a much longer one hangs.
+BUILD_TIMEOUT = 900
+RUN_TIMEOUT = 60
+# The shortest beginning of a directory that neutral() takes for a cut path.
+CUT = 8
 
 
 def header_field(test: Path, name: str) -> str | None:
@@ -93,7 +110,79 @@ def c_source(test: Path, name: str) -> Path | None:
     return (test.parent / value.removeprefix("@")).resolve()
 
 
-def run(test: Path, verilator: str, seed: int) -> tuple[bool, str]:
+def neutral(text: str, tmp: str | None = None, prefix: Path | None = None) -> str:
+    """A reason without the directories of this machine, so that the results
+    can be published and compared between machines: a path under the
+    repository becomes relative to it, and the temporary directory of the
+    test and the directory for temporary files become <tmp>, the directory
+    Verilator is installed in <verilator> and the home directory <home>.
+    The longest directory is replaced first, as one may lie in another. A
+    simulator may cut a long file name short in a message; what is left of a
+    directory then, CUT characters or more before a space, a quote, "..." or
+    the end of a line, becomes <path>."""
+    places = [(str(ROOT) + os.sep, ""), (str(ROOT), ".")]
+    for path, name in ((tmp, "<tmp>"), (tempfile.gettempdir(), "<tmp>"),
+                       (prefix, "<verilator>"), (Path.home(), "<home>")):
+        if path is not None:
+            places += [(p, name) for p in {str(path), os.path.realpath(path)} if len(p) > 1]
+    places.sort(key=lambda place: -len(place[0]))
+    for path, name in places:
+        text = text.replace(path, name)
+    for path, _ in places:
+        if len(path) > CUT and path[:CUT] in text:
+            text = cut_path(path).sub("<path>", text)
+    return text
+
+
+@functools.lru_cache(maxsize=None)
+def cut_path(path: str) -> re.Pattern:
+    """Matches the longest beginning of the path, of CUT characters or more,
+    that a space, a quote, "..." or the end of a line follows."""
+    rest = path[CUT:]
+    return re.compile(re.escape(path[:CUT]) + "".join("(?:" + re.escape(c) for c in rest)
+                      + ")?" * len(rest) + r"""(?=\s|$|\.\.\.|['"])""", re.MULTILINE)
+
+
+def execute(command: list[str], timeout: int, cwd: str | None = None):
+    """Runs a build step and returns its exit code and output. A step that
+    takes longer than `timeout` seconds is ended together with the processes
+    it started, and subprocess.TimeoutExpired is raised."""
+    with subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True,
+                          errors="replace", cwd=cwd, start_new_session=True) as process:
+        try:
+            stdout, stderr = process.communicate(timeout=timeout)
+        except subprocess.TimeoutExpired:
+            try:
+                os.killpg(process.pid, signal.SIGKILL)
+            except ProcessLookupError:
+                pass
+            process.kill()
+            process.wait()
+            raise
+    return subprocess.CompletedProcess(command, process.returncode, stdout, stderr)
+
+
+def install_prefix(verilator: str) -> Path | None:
+    """The directory Verilator is installed in: the one above the directory
+    of the executable, which its messages name for its own files."""
+    exe = shutil.which(verilator)
+    return Path(exe).resolve().parent.parent if exe else None
+
+
+def run(test: Path, verilator: str, seed: int, prefix: Path | None = None) -> tuple[bool, str]:
+    """Whether the test matches, and the reason if it does not. Whatever goes
+    wrong with one test, a build that hangs or an error of this script, is a
+    failure of that test and does not end the run of the others."""
+    with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp:
+        try:
+            ok, why = judge(test, verilator, seed, tmp, prefix)
+        except Exception as error:   # one test must not end the run
+            ok, why = False, f"runner error: {type(error).__name__}: {error}"
+        return ok, neutral(why, tmp, prefix)
+
+
+def judge(test: Path, verilator: str, seed: int, tmp: str,
+          prefix: Path | None = None) -> tuple[bool, str]:
     extra = []
     dpi, vpi = c_source(test, "dpi_c"), c_source(test, "vpi_c")
     if dpi is not None:
@@ -102,28 +191,35 @@ def run(test: Path, verilator: str, seed: int) -> tuple[bool, str]:
         extra += ["--vpi", "--public-flat-rw", str(vpi)]
     sources, include_dirs = suite_results.files(test)
     top = suite_results.top_module(test)
-    with tempfile.TemporaryDirectory() as tmp:
-        obj = Path(tmp) / "obj"
-        b = subprocess.run([verilator, "--binary", "--timing", "--coverage-user", "-Wno-fatal",
-                            "-Wno-lint", "-Wno-style", "--x-assign", "unique", "--x-initial", "unique",
-                            *[f"-I{d}" for d in include_dirs],
-                            *[f"-D{d}" for d in suite_results.defines(test)],
-                            *(["--top-module", top] if top else []), "-Mdir", str(obj),
-                            "--prefix", "Vt", *map(str, sources), str(test), *extra],
-                           capture_output=True, text=True, errors="replace")
-        if header_field(test, "should_fail_because") is not None:
-            return suite_results.judge_illegal(test, b.returncode == 0, b.stdout + b.stderr)
-        if b.returncode != 0:
-            err = [l for l in b.stderr.splitlines() if l.startswith("%Error")]
-            return False, "build failed: " + (err[0] if err else "")
-        try:
-            r = subprocess.run([str(obj / "Vt"), "+verilator+rand+reset+2",
-                                f"+verilator+seed+{seed}", f"+verilator+error+limit+{ERROR_LIMIT}",
-                                *suite_results.run_args(test)],
-                               capture_output=True, text=True, errors="replace", cwd=tmp,
-                               timeout=60)
-        except subprocess.TimeoutExpired:
-            return False, "timed out"
+    obj = Path(tmp) / "obj"
+    try:
+        b = execute([verilator, "--binary", "--timing", "--coverage-user", "-Wno-fatal",
+                     "-Wno-lint", "-Wno-style", "--x-assign", "unique", "--x-initial", "unique",
+                     *[f"-I{d}" for d in include_dirs],
+                     *[f"-D{d}" for d in suite_results.defines(test)],
+                     *(["--top-module", top] if top else []), "-Mdir", str(obj),
+                     "--prefix", "Vt", *map(str, sources), str(test), *extra], BUILD_TIMEOUT)
+    except subprocess.TimeoutExpired:
+        return False, "timed out (build)"
+    # A compiler that a signal ended did not reject the design: it crashed.
+    if b.returncode < 0:
+        return False, f"build crashed (signal {-b.returncode})"
+    if header_field(test, "should_fail_because") is not None:
+        return suite_results.judge_illegal(test, b.returncode == 0, b.stdout + b.stderr)
+    if b.returncode != 0:
+        err = [l for l in b.stderr.splitlines() if l.startswith("%Error")]
+        return False, "build failed: " + (err[0] if err else "")
+    try:
+        r = subprocess.run([str(obj / "Vt"), "+verilator+rand+reset+2",
+                            f"+verilator+seed+{seed}", f"+verilator+error+limit+{ERROR_LIMIT}",
+                            *suite_results.run_args(test)],
+                           capture_output=True, text=True, errors="replace", cwd=tmp,
+                           timeout=RUN_TIMEOUT)
+    except subprocess.TimeoutExpired:
+        return False, "timed out"
+    # A run that a signal ended is a failure whatever it printed before.
+    if r.returncode < 0:
+        return False, f"crashed (signal {-r.returncode})"
     raw = "".join(l + "\n" for l in r.stdout.splitlines() if not BANNER.match(l))
     norm = subprocess.run([sys.executable, str(NORMALIZE)], input=raw,
                           capture_output=True, text=True).stdout
@@ -131,7 +227,10 @@ def run(test: Path, verilator: str, seed: int) -> tuple[bool, str]:
     if want is None:
         return False, "no :expected_stdout:"
     if norm != want:
-        return False, "output differs: " + suite_results.first_difference(norm, want)
+        # The directories are replaced before the lines are compared and cut
+        # short, so that no part of one stays in the reason.
+        return False, "output differs: " + suite_results.first_difference(
+            neutral(norm, tmp, prefix), neutral(want, tmp, prefix))
     why = suite_results.judge_run(test, r.returncode, r.stdout + r.stderr)
     return not why, why
 
@@ -151,12 +250,13 @@ def main() -> int:
     if not args.tests and not args.all:
         tests = [t for t in tests
                  if "verilator@5.052" in (header_field(t, "oracle") or "").split()]
+    prefix = install_prefix(args.verilator)
     failed = known = 0
     inputs = suite_results.fingerprints(tests) if args.json else None
     runner_hash = suite_results.runner_digest("verilator") if args.json else None
     statuses = {}
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.jobs) as pool:
-        results = pool.map(lambda t: run(t, args.verilator, args.seed), tests)
+        results = pool.map(lambda t: run(t, args.verilator, args.seed, prefix), tests)
         for t, (ok, why) in zip(tests, results):
             name = t.relative_to(ROOT) if t.is_absolute() else t
             verilator_oracle = "verilator@5.052" in (header_field(t, "oracle") or "").split()

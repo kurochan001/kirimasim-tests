@@ -6,10 +6,10 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 90.14%, execution without Ghost 51.12%, execution with Ghost 78.00%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 90.14%, execution without Ghost 51.29%, execution with Ghost 78.68%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 90.14%. Requirement execution-confirmation rate: 51.12% without Ghost, 78.00% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 90.14%. Requirement execution-confirmation rate: 51.29% without Ghost, 78.68% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
@@ -17,7 +17,7 @@ Requirement coverage (test design): 90.14%. Requirement execution-confirmation r
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
 - The requirement coverage (test design) for registered behaviors is 11086/12298 ( 90.14% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9592/12298 ( 78.00% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9676/12298 ( 78.68% ).
 - Registered but not tested: 1212.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
@@ -32,94 +32,19 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 
 `check_groups` distributes a single request across multiple tests, and is successful only if all tests in the group are successful in the same runtime and run. The unspecified response is an independent alternative proof.
 
-- `additions2023-20261109-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-08T23:28:10.924284+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
-- `additions2023-20261109-kirimasim-33cee3fa.json`: `kirimasim 0.0.0 (commit 33cee3fa2f0d), built with AppleClang 21.0.0.21000401` / `2026-11-08T23:28:29.258156+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
-- `additions2023-20261109-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-08T23:28:20.610160+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
-- `additions2023-20261109-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-08T23:28:28.917518+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
-- `block-namespace-20261107-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-06T16:22:35.529949+00:00` / 1/12298 execution checked; 1 entries refer to older inputs.
-- `block-namespace-20261107-kirimasim-1e840ea3.json`: `kirimasim 0.0.0 (commit 1e840ea322cc), built with AppleClang 21.0.0.21000334` / `2026-11-06T16:22:35.395353+00:00` / 1/12298 execution checked; 1 entries refer to older inputs.
-- `block-namespace-20261107-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-06T16:22:41.394923+00:00` / 1/12298 execution checked; 1 entries refer to older inputs.
-- `block-namespace-20261107-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-06T16:22:47.095107+00:00` / 1/12298 execution checked; 1 entries refer to older inputs.
-- `ch16-edge-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T15:43:04.210115+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
-- `ch16-edge-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T15:43:15.726452+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
-- `ch16-sim-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T15:42:14.965527+00:00` / 0/12298 execution checked; 12 entries refer to older inputs.
-- `ch16-sim-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T15:43:04.031900+00:00` / 0/12298 execution checked; 12 entries refer to older inputs.
-- `ch19-extra-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T21:20:25.211852+00:00` / 0/12298 execution checked; 7 entries refer to older inputs.
-- `ch19-extra-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T21:20:35.736196+00:00` / 1/12298 execution checked; 7 entries refer to older inputs.
-- `ch19-rest-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T22:55:13.337642+00:00` / 0/12298 execution checked; 1 entries refer to older inputs.
-- `ch19-rest-reuse-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T22:51:40.361212+00:00` / 0/12298 execution checked; 1 entries refer to older inputs.
-- `ch21-extra-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T16:30:07.226181+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
-- `ch21-extra-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T16:30:10.339072+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
-- `ch22-extra-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T18:08:32.360779+00:00` / 13/12298 execution checked; 1 entries refer to older inputs.
-- `ch22-extra-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T18:08:36.769544+00:00` / 14/12298 execution checked; 1 entries refer to older inputs.
-- `ch22-rehash-20261109-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-09T00:42:36.088320+00:00` / 6/12298 execution checked; 0 entries refer to older inputs.
-- `ch22-rehash-20261109-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-09T00:43:03.296408+00:00` / 4/12298 execution checked; 0 entries refer to older inputs.
-- `ch22-rehash-20261109-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-09T00:43:29.042050+00:00` / 4/12298 execution checked; 0 entries refer to older inputs.
-- `ch23-extra-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T18:10:02.321608+00:00` / 5/12298 execution checked; 0 entries refer to older inputs.
-- `ch23-extra-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T18:10:14.224099+00:00` / 10/12298 execution checked; 0 entries refer to older inputs.
-- `ch31-extra-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T18:05:22.468557+00:00` / 10/12298 execution checked; 0 entries refer to older inputs.
-- `ch31-extra-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T18:05:39.429957+00:00` / 7/12298 execution checked; 0 entries refer to older inputs.
-- `ch34-extra-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T23:01:55.389805+00:00` / 3/12298 execution checked; 0 entries refer to older inputs.
-- `ch34-extra-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T23:02:01.862164+00:00` / 5/12298 execution checked; 0 entries refer to older inputs.
-- `ch35-rest-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T22:51:49.121474+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
-- `ch36-extra-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T21:59:06.732473+00:00` / 55/12298 execution checked; 0 entries refer to older inputs.
-- `ch36-extra-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T21:59:09.623661+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
-- `ch37-extra-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T17:11:52.776966+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
-- `ch38-extra-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T17:20:48.267440+00:00` / 2/12298 execution checked; 1 entries refer to older inputs.
-- `ch38-reuse-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T17:00:25.077411+00:00` / 40/12298 execution checked; 0 entries refer to older inputs.
-- `ch6-extra-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T16:33:35.549914+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
-- `ch6-extra-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T16:33:40.336655+00:00` / 3/12298 execution checked; 0 entries refer to older inputs.
-- `ch6-union-note-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T01:09:01.904537+00:00` / 0/12298 execution checked; 3 entries refer to older inputs.
-- `ch9-extra-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T16:32:44.231306+00:00` / 6/12298 execution checked; 0 entries refer to older inputs.
-- `ch9-extra-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T16:32:53.445594+00:00` / 6/12298 execution checked; 0 entries refer to older inputs.
-- `chA-extra-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T22:16:15.354614+00:00` / 22/12298 execution checked; 3 entries refer to older inputs.
-- `chA-extra-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T22:16:45.126049+00:00` / 42/12298 execution checked; 3 entries refer to older inputs.
-- `chH-extra-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T22:00:40.482405+00:00` / 181/12298 execution checked; 7 entries refer to older inputs.
-- `compilation-unit-20261111-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T13:15:34.098945+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
-- `compilation-unit-20261111-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T13:15:45.259282+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
-- `compilation-unit-20261111-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T13:15:56.260028+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
-- `coverage-tests-20261029-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T22:47:59.529525+00:00` / 1/12298 execution checked; 2 entries refer to older inputs.
-- `coverage-tests-20261029-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T22:46:15.799172+00:00` / 1/12298 execution checked; 1 entries refer to older inputs.
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12298 execution checked; 0 entries refer to older inputs.
+- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3226/12298 execution checked; 0 entries refer to older inputs.
+- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2992/12298 execution checked; 0 entries refer to older inputs.
+- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3890/12298 execution checked; 0 entries refer to older inputs.
+- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3602/12298 execution checked; 0 entries refer to older inputs.
 - `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7915/12298 execution checked; 152 entries refer to older inputs.
 - `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7995/12298 execution checked; 88 entries refer to older inputs.
 - `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7898/12298 execution checked; 152 entries refer to older inputs.
-- `issues-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T13:33:20.979624+00:00` / 1/12298 execution checked; 30 entries refer to older inputs.
-- `issues-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T13:45:50.335531+00:00` / 3798/12298 execution checked; 358 entries refer to older inputs.
-- `issues-20261031-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-30T20:31:55.476769+00:00` / 13/12298 execution checked; 19 entries refer to older inputs.
-- `issues-20261031-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-30T20:31:59.218896+00:00` / 42/12298 execution checked; 19 entries refer to older inputs.
-- `issues-20261031-verilator-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-30T20:32:01.484680+00:00` / 42/12298 execution checked; 19 entries refer to older inputs.
-- `issues-24-27-28-20261107-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-06T20:30:05.355039+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
-- `issues-24-27-28-20261107-kirimasim-1e840ea3.json`: `kirimasim 0.0.0 (commit 1e840ea322cc), built with AppleClang 21.0.0.21000334` / `2026-11-06T20:30:04.957845+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
-- `issues-24-27-28-20261107-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-06T20:30:39.532545+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
-- `issues-24-27-28-20261107-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-06T20:31:04.344863+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
-- `issues-40-44-20261031-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-30T21:21:15.292779+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
-- `issues-40-44-20261031-kirimasim-83e89bf5.json`: `kirimasim 0.0.0 (commit 83e89bf5e833), built with AppleClang 21.0.0.21000334` / `2026-10-30T21:21:54.084687+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
-- `issues-40-44-20261031-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-30T21:21:16.188504+00:00` / 3/12298 execution checked; 0 entries refer to older inputs.
-- `issues-40-44-20261031-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-30T21:21:16.245370+00:00` / 3/12298 execution checked; 0 entries refer to older inputs.
-- `issues-45-47-20261107-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-06T15:47:52.171237+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
-- `issues-45-47-20261107-kirimasim-1e840ea3.json`: `kirimasim 0.0.0 (commit 1e840ea322cc), built with AppleClang 21.0.0.21000334` / `2026-11-06T15:47:52.084505+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
-- `issues-45-47-20261107-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-06T15:47:55.538904+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
-- `issues-45-47-20261107-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-06T15:47:58.713949+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
-- `issues-48-57-20261107-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-07T05:02:50.753452+00:00` / 5/12298 execution checked; 0 entries refer to older inputs.
-- `issues-48-57-20261107-kirimasim-60c26d7c.json`: `kirimasim 0.0.0 (commit 60c26d7c8113), built with AppleClang 21.0.0.21000401` / `2026-11-07T05:02:50.566184+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
-- `issues-48-57-20261107-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-07T05:02:55.425886+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
-- `issues-48-57-20261107-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-07T05:02:59.962760+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
-- `quality-persim-20261027-icarus14.json`: `Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)` / `2026-10-27T13:37:34.824763+00:00` / 21/12298 execution checked; 2 entries refer to older inputs.
-- `quality-persim-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T13:37:34.897897+00:00` / 19/12298 execution checked; 2 entries refer to older inputs.
-- `quality-persim-20261027-verilator-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T13:37:34.973472+00:00` / 19/12298 execution checked; 2 entries refer to older inputs.
-- `refresh-20261027-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T14:45:42.063155+00:00` / 3121/12298 execution checked; 565 entries refer to older inputs.
-- `refresh-20261027-verilator-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T14:43:38.130423+00:00` / 2639/12298 execution checked; 496 entries refer to older inputs.
 - `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 73/12298 execution checked; 1 entries refer to older inputs.
-- `test-fixes-20261031-icarus-include.json`: `Icarus Verilog version 13.0 (stable) (v13_0-25-g07dd50d37)` / `2026-10-31T12:25:03.867848+00:00` / 0/12298 execution checked; 1 entries refer to older inputs.
-- `test-fixes-20261031-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-25-g07dd50d37)` / `2026-10-31T12:23:47.414500+00:00` / 4/12298 execution checked; 1 entries refer to older inputs.
-- `test-fixes-20261031-verilator-include.json`: `Verilator 5.050 2026-07-01 rev v5.050-60-g3d2421f3b` / `2026-10-31T12:25:05.281874+00:00` / 0/12298 execution checked; 1 entries refer to older inputs.
-- `test-fixes-20261031-verilator-seed1.json`: `Verilator 5.050 2026-07-01 rev v5.050-60-g3d2421f3b` / `2026-10-31T12:23:57.441797+00:00` / 17/12298 execution checked; 1 entries refer to older inputs.
-- `test-fixes-20261031-verilator-seed73.json`: `Verilator 5.050 2026-07-01 rev v5.050-60-g3d2421f3b` / `2026-10-31T12:24:09.320850+00:00` / 17/12298 execution checked; 1 entries refer to older inputs.
-- `weak-chapters-20261109-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-08T23:40:21.171226+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
-- `weak-chapters-20261109-kirimasim-33cee3fa.json`: `kirimasim 0.0.0 (commit 33cee3fa2f0d), built with AppleClang 21.0.0.21000401` / `2026-11-08T23:40:58.259537+00:00` / 4/12298 execution checked; 0 entries refer to older inputs.
-- `weak-chapters-20261109-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-08T23:40:39.386829+00:00` / 8/12298 execution checked; 0 entries refer to older inputs.
-- `weak-chapters-20261109-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-08T23:40:57.954861+00:00` / 8/12298 execution checked; 0 entries refer to older inputs.
+- Not used: additions2023-20261109-icarus13.json : legacy, unknown, or stale runner provenance.
+- Not used: additions2023-20261109-kirimasim-33cee3fa.json : legacy, unknown, or stale runner provenance.
+- Not used: additions2023-20261109-verilator5.052-seed1.json : legacy, unknown, or stale runner provenance.
+- Not used: additions2023-20261109-verilator5.052-seed73.json : legacy, unknown, or stale runner provenance.
 - Not used: associative-count-refinement-20261023-icarus13.json : legacy, unknown, or stale runner provenance.
 - Not used: associative-count-refinement-20261023-verilator-seed1.json : legacy, unknown, or stale runner provenance.
 - Not used: associative-count-refinement-20261023-verilator-seed73.json : legacy, unknown, or stale runner provenance.
@@ -135,26 +60,70 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - Not used: audit-oracle-20261026-icarus13.json : legacy, unknown, or stale runner provenance.
 - Not used: audit-spec-20261026-verilator-seed1.json : legacy, unknown, or stale runner provenance.
 - Not used: audit-spec-20261026-verilator-seed73.json : legacy, unknown, or stale runner provenance.
+- Not used: block-namespace-20261107-icarus13.json : legacy, unknown, or stale runner provenance.
+- Not used: block-namespace-20261107-kirimasim-1e840ea3.json : legacy, unknown, or stale runner provenance.
+- Not used: block-namespace-20261107-verilator5.052-seed1.json : legacy, unknown, or stale runner provenance.
+- Not used: block-namespace-20261107-verilator5.052-seed73.json : legacy, unknown, or stale runner provenance.
+- Not used: ch16-edge-20261028-icarus13.json : legacy, unknown, or stale runner provenance.
+- Not used: ch16-edge-20261028-verilator.json : legacy, unknown, or stale runner provenance.
+- Not used: ch16-sim-20261028-icarus13.json : legacy, unknown, or stale runner provenance.
+- Not used: ch16-sim-20261028-verilator.json : legacy, unknown, or stale runner provenance.
 - Not used: ch19-depth-20261026-icarus13.json : legacy, unknown, or stale runner provenance.
 - Not used: ch19-depth-20261026-verilator-seed1.json : legacy, unknown, or stale runner provenance.
 - Not used: ch19-depth-20261026-verilator-seed73.json : legacy, unknown, or stale runner provenance.
+- Not used: ch19-extra-20261028-icarus13.json : legacy, unknown, or stale runner provenance.
+- Not used: ch19-extra-20261028-verilator.json : legacy, unknown, or stale runner provenance.
+- Not used: ch19-rest-20261028-verilator.json : legacy, unknown, or stale runner provenance.
+- Not used: ch19-rest-reuse-20261028-verilator.json : legacy, unknown, or stale runner provenance.
+- Not used: ch21-extra-20261028-icarus13.json : legacy, unknown, or stale runner provenance.
+- Not used: ch21-extra-20261028-verilator.json : legacy, unknown, or stale runner provenance.
+- Not used: ch22-extra-20261028-icarus13.json : legacy, unknown, or stale runner provenance.
+- Not used: ch22-extra-20261028-verilator.json : legacy, unknown, or stale runner provenance.
 - Not used: ch22-rehash-20261026-icarus13.json : legacy, unknown, or stale runner provenance.
 - Not used: ch22-rehash-20261026-verilator-seed1.json : legacy, unknown, or stale runner provenance.
 - Not used: ch22-rehash-20261026-verilator-seed73.json : legacy, unknown, or stale runner provenance.
 - Not used: ch22-rehash-20261026b-icarus13.json : legacy, unknown, or stale runner provenance.
 - Not used: ch22-rehash-20261026b-verilator-seed1.json : legacy, unknown, or stale runner provenance.
 - Not used: ch22-rehash-20261026b-verilator-seed73.json : legacy, unknown, or stale runner provenance.
+- Not used: ch22-rehash-20261109-icarus13.json : legacy, unknown, or stale runner provenance.
+- Not used: ch22-rehash-20261109-verilator5.052-seed1.json : legacy, unknown, or stale runner provenance.
+- Not used: ch22-rehash-20261109-verilator5.052-seed73.json : legacy, unknown, or stale runner provenance.
+- Not used: ch23-extra-20261028-icarus13.json : legacy, unknown, or stale runner provenance.
+- Not used: ch23-extra-20261028-verilator.json : legacy, unknown, or stale runner provenance.
+- Not used: ch31-extra-20261028-icarus13.json : legacy, unknown, or stale runner provenance.
+- Not used: ch31-extra-20261028-verilator.json : legacy, unknown, or stale runner provenance.
+- Not used: ch34-extra-20261028-icarus13.json : legacy, unknown, or stale runner provenance.
+- Not used: ch34-extra-20261028-verilator.json : legacy, unknown, or stale runner provenance.
+- Not used: ch35-rest-20261028-verilator.json : legacy, unknown, or stale runner provenance.
+- Not used: ch36-extra-20261028-icarus13.json : legacy, unknown, or stale runner provenance.
+- Not used: ch36-extra-20261028-verilator.json : legacy, unknown, or stale runner provenance.
 - Not used: ch37-depth-20261026-icarus13.json : legacy, unknown, or stale runner provenance.
 - Not used: ch37-depth-20261026-verilator-seed1.json : legacy, unknown, or stale runner provenance.
 - Not used: ch37-depth-20261026-verilator-seed73.json : legacy, unknown, or stale runner provenance.
+- Not used: ch37-extra-20261028-icarus13.json : legacy, unknown, or stale runner provenance.
+- Not used: ch38-extra-20261028-icarus13.json : legacy, unknown, or stale runner provenance.
+- Not used: ch38-reuse-20261028-icarus13.json : legacy, unknown, or stale runner provenance.
 - Not used: ch5-rehash-20261026-icarus13.json : legacy, unknown, or stale runner provenance.
 - Not used: ch5-rehash-20261026-verilator-seed1.json : legacy, unknown, or stale runner provenance.
 - Not used: ch5-rehash-20261026-verilator-seed73.json : legacy, unknown, or stale runner provenance.
 - Not used: ch5-rehash-20261027-icarus13.json : legacy, unknown, or stale runner provenance.
 - Not used: ch5-rehash-20261027-verilator-seed1.json : legacy, unknown, or stale runner provenance.
 - Not used: ch5-rehash-20261027-verilator-seed73.json : legacy, unknown, or stale runner provenance.
+- Not used: ch6-extra-20261028-icarus13.json : legacy, unknown, or stale runner provenance.
+- Not used: ch6-extra-20261028-verilator.json : legacy, unknown, or stale runner provenance.
+- Not used: ch6-union-note-20261028-verilator.json : legacy, unknown, or stale runner provenance.
+- Not used: ch9-extra-20261028-icarus13.json : legacy, unknown, or stale runner provenance.
+- Not used: ch9-extra-20261028-verilator.json : legacy, unknown, or stale runner provenance.
+- Not used: chA-extra-20261028-icarus13.json : legacy, unknown, or stale runner provenance.
+- Not used: chA-extra-20261028-verilator.json : legacy, unknown, or stale runner provenance.
+- Not used: chH-extra-20261028-verilator.json : legacy, unknown, or stale runner provenance.
 - Not used: citation-refinement-icarus.json : legacy, unknown, or stale runner provenance.
 - Not used: citation-refinement-verilator.json : legacy, unknown, or stale runner provenance.
+- Not used: compilation-unit-20261111-icarus13.json : legacy, unknown, or stale runner provenance.
+- Not used: compilation-unit-20261111-verilator5.052-seed1.json : legacy, unknown, or stale runner provenance.
+- Not used: compilation-unit-20261111-verilator5.052-seed73.json : legacy, unknown, or stale runner provenance.
+- Not used: coverage-tests-20261029-icarus13.json : legacy, unknown, or stale runner provenance.
+- Not used: coverage-tests-20261029-verilator.json : legacy, unknown, or stale runner provenance.
 - Not used: depthfix-20261026-icarus13.json : legacy, unknown, or stale runner provenance.
 - Not used: depthfix-20261026-verilator-seed1.json : legacy, unknown, or stale runner provenance.
 - Not used: depthfix-20261026-verilator-seed73.json : legacy, unknown, or stale runner provenance.
@@ -205,6 +174,27 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - Not used: header-vpi-tests-20261023-verilator-seed1.json : legacy, unknown, or stale runner provenance.
 - Not used: header-vpi-tests-20261023-verilator-seed73.json : legacy, unknown, or stale runner provenance.
 - Not used: icarus.json : legacy, unknown, or stale runner provenance.
+- Not used: issues-20261028-icarus13.json : legacy, unknown, or stale runner provenance.
+- Not used: issues-20261028-verilator.json : legacy, unknown, or stale runner provenance.
+- Not used: issues-20261031-icarus13.json : legacy, unknown, or stale runner provenance.
+- Not used: issues-20261031-verilator-seed1.json : legacy, unknown, or stale runner provenance.
+- Not used: issues-20261031-verilator-seed73.json : legacy, unknown, or stale runner provenance.
+- Not used: issues-24-27-28-20261107-icarus13.json : legacy, unknown, or stale runner provenance.
+- Not used: issues-24-27-28-20261107-kirimasim-1e840ea3.json : legacy, unknown, or stale runner provenance.
+- Not used: issues-24-27-28-20261107-verilator5.052-seed1.json : legacy, unknown, or stale runner provenance.
+- Not used: issues-24-27-28-20261107-verilator5.052-seed73.json : legacy, unknown, or stale runner provenance.
+- Not used: issues-40-44-20261031-icarus13.json : legacy, unknown, or stale runner provenance.
+- Not used: issues-40-44-20261031-kirimasim-83e89bf5.json : legacy, unknown, or stale runner provenance.
+- Not used: issues-40-44-20261031-verilator5.052-seed1.json : legacy, unknown, or stale runner provenance.
+- Not used: issues-40-44-20261031-verilator5.052-seed73.json : legacy, unknown, or stale runner provenance.
+- Not used: issues-45-47-20261107-icarus13.json : legacy, unknown, or stale runner provenance.
+- Not used: issues-45-47-20261107-kirimasim-1e840ea3.json : legacy, unknown, or stale runner provenance.
+- Not used: issues-45-47-20261107-verilator5.052-seed1.json : legacy, unknown, or stale runner provenance.
+- Not used: issues-45-47-20261107-verilator5.052-seed73.json : legacy, unknown, or stale runner provenance.
+- Not used: issues-48-57-20261107-icarus13.json : legacy, unknown, or stale runner provenance.
+- Not used: issues-48-57-20261107-kirimasim-60c26d7c.json : legacy, unknown, or stale runner provenance.
+- Not used: issues-48-57-20261107-verilator5.052-seed1.json : legacy, unknown, or stale runner provenance.
+- Not used: issues-48-57-20261107-verilator5.052-seed73.json : legacy, unknown, or stale runner provenance.
 - Not used: keyword-tests-20261024-icarus13.json : legacy, unknown, or stale runner provenance.
 - Not used: keyword-tests-20261024-verilator-seed1.json : legacy, unknown, or stale runner provenance.
 - Not used: keyword-tests-20261024-verilator-seed73.json : legacy, unknown, or stale runner provenance.
@@ -220,8 +210,13 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - Not used: p10-refinement-20261026-verilator-seed73.json : legacy, unknown, or stale runner provenance.
 - Not used: quality-20261027-verilator-seed1.json : legacy, unknown, or stale runner provenance.
 - Not used: quality-20261027-verilator-seed73.json : legacy, unknown, or stale runner provenance.
+- Not used: quality-persim-20261027-icarus14.json : legacy, unknown, or stale runner provenance.
+- Not used: quality-persim-20261027-verilator-seed1.json : legacy, unknown, or stale runner provenance.
+- Not used: quality-persim-20261027-verilator-seed73.json : legacy, unknown, or stale runner provenance.
 - Not used: quality-vpi-20261027-verilator-seed1.json : legacy, unknown, or stale runner provenance.
 - Not used: quality-vpi-20261027-verilator-seed73.json : legacy, unknown, or stale runner provenance.
+- Not used: refresh-20261027-icarus13.json : legacy, unknown, or stale runner provenance.
+- Not used: refresh-20261027-verilator-seed1.json : legacy, unknown, or stale runner provenance.
 - Not used: regex-refinement-20261025-icarus13.json : legacy, unknown, or stale runner provenance.
 - Not used: regex-refinement-20261025-verilator-seed1.json : legacy, unknown, or stale runner provenance.
 - Not used: regex-refinement-20261025-verilator-seed73.json : legacy, unknown, or stale runner provenance.
@@ -232,6 +227,11 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - Not used: sva-m3-corrections-20261026-icarus13.json : legacy, unknown, or stale runner provenance.
 - Not used: sva-m3-corrections-20261026-verilator-seed1.json : legacy, unknown, or stale runner provenance.
 - Not used: sva-m3-corrections-20261026-verilator-seed73.json : legacy, unknown, or stale runner provenance.
+- Not used: test-fixes-20261031-icarus-include.json : legacy, unknown, or stale runner provenance.
+- Not used: test-fixes-20261031-icarus13.json : legacy, unknown, or stale runner provenance.
+- Not used: test-fixes-20261031-verilator-include.json : legacy, unknown, or stale runner provenance.
+- Not used: test-fixes-20261031-verilator-seed1.json : legacy, unknown, or stale runner provenance.
+- Not used: test-fixes-20261031-verilator-seed73.json : legacy, unknown, or stale runner provenance.
 - Not used: verilator.json : legacy, unknown, or stale runner provenance.
 - Not used: wave2-20261026-icarus13.json : legacy, unknown, or stale runner provenance.
 - Not used: wave2-20261026-verilator-seed1.json : legacy, unknown, or stale runner provenance.
@@ -257,6 +257,10 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - Not used: wave8-20261027-icarus13.json : legacy, unknown, or stale runner provenance.
 - Not used: wave8-20261027-verilator-seed1.json : legacy, unknown, or stale runner provenance.
 - Not used: wave8-20261027-verilator-seed73.json : legacy, unknown, or stale runner provenance.
+- Not used: weak-chapters-20261109-icarus13.json : legacy, unknown, or stale runner provenance.
+- Not used: weak-chapters-20261109-kirimasim-33cee3fa.json : legacy, unknown, or stale runner provenance.
+- Not used: weak-chapters-20261109-verilator5.052-seed1.json : legacy, unknown, or stale runner provenance.
+- Not used: weak-chapters-20261109-verilator5.052-seed73.json : legacy, unknown, or stale runner provenance.
 
 <a id="章附属書別の調査状態"></a>
 
@@ -7469,7 +7473,7 @@ Normative role: `definition`。
 
 ### SV2023-6.7-EXTRACT-BUILTIN-NET-DECLARATION-FORM
 
-`6.7` / `normal` / Test mapped; execution unconfirmed
+`6.7` / `normal` / Execution confirmed
 
 A built-in net declaration uses its net-type keyword, permitted strength/vector-access qualifiers, a data/implicit type, optional delay and a comma-separated net declaration list.
 
@@ -22500,7 +22504,7 @@ Normative role: `mandatory`。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-0-0
 
-`9.4.2` / `boundary` / Test mapped; execution unconfirmed
+`9.4.2` / `boundary` / Execution confirmed
 
 A scalar 0-to-0 transition produces no posedge/negedge event.
 
@@ -22525,7 +22529,7 @@ Normative role: `mandatory`。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-0-X
 
-`9.4.2` / `boundary` / Test mapped; execution unconfirmed
+`9.4.2` / `boundary` / Execution confirmed
 
 A scalar 0-to-x transition produces a posedge event.
 
@@ -22537,7 +22541,7 @@ Normative role: `mandatory`。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-0-Z
 
-`9.4.2` / `boundary` / Test mapped; execution unconfirmed
+`9.4.2` / `boundary` / Execution confirmed
 
 A scalar 0-to-z transition produces a posedge event.
 
@@ -22561,7 +22565,7 @@ Normative role: `mandatory`。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-1-1
 
-`9.4.2` / `boundary` / Test mapped; execution unconfirmed
+`9.4.2` / `boundary` / Execution confirmed
 
 A scalar 1-to-1 transition produces no posedge/negedge event.
 
@@ -22573,7 +22577,7 @@ Normative role: `mandatory`。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-1-X
 
-`9.4.2` / `boundary` / Test mapped; execution unconfirmed
+`9.4.2` / `boundary` / Execution confirmed
 
 A scalar 1-to-x transition produces a negedge event.
 
@@ -22585,7 +22589,7 @@ Normative role: `mandatory`。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-1-Z
 
-`9.4.2` / `boundary` / Test mapped; execution unconfirmed
+`9.4.2` / `boundary` / Execution confirmed
 
 A scalar 1-to-z transition produces a negedge event.
 
@@ -22597,7 +22601,7 @@ Normative role: `mandatory`。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-DIRECTIONS
 
-`9.4.2` / `normal` / Test mapped; execution unconfirmed
+`9.4.2` / `normal` / Execution confirmed
 
 posedge detects 0 to 1/x/z and x/z to 1; negedge detects 1 to 0/x/z and x/z to 0.
 
@@ -22609,7 +22613,7 @@ Normative role: `mandatory`。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-LSB-ONLY
 
-`9.4.2` / `normal` / Test mapped; execution unconfirmed
+`9.4.2` / `normal` / Execution confirmed
 
 An edge expression event is determined only by its least significant bit.
 
@@ -22621,7 +22625,7 @@ Normative role: `mandatory`。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-X-0
 
-`9.4.2` / `boundary` / Test mapped; execution unconfirmed
+`9.4.2` / `boundary` / Execution confirmed
 
 A scalar x-to-0 transition produces a negedge event.
 
@@ -22633,7 +22637,7 @@ Normative role: `mandatory`。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-X-1
 
-`9.4.2` / `boundary` / Test mapped; execution unconfirmed
+`9.4.2` / `boundary` / Execution confirmed
 
 A scalar x-to-1 transition produces a posedge event.
 
@@ -22645,7 +22649,7 @@ Normative role: `mandatory`。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-X-X
 
-`9.4.2` / `boundary` / Test mapped; execution unconfirmed
+`9.4.2` / `boundary` / Execution confirmed
 
 A scalar x-to-x transition produces no posedge/negedge event.
 
@@ -22657,7 +22661,7 @@ Normative role: `mandatory`。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-X-Z
 
-`9.4.2` / `boundary` / Test mapped; execution unconfirmed
+`9.4.2` / `boundary` / Execution confirmed
 
 A scalar x-to-z transition produces no posedge/negedge event.
 
@@ -22669,7 +22673,7 @@ Normative role: `mandatory`。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-Z-0
 
-`9.4.2` / `boundary` / Test mapped; execution unconfirmed
+`9.4.2` / `boundary` / Execution confirmed
 
 A scalar z-to-0 transition produces a negedge event.
 
@@ -22681,7 +22685,7 @@ Normative role: `mandatory`。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-Z-1
 
-`9.4.2` / `boundary` / Test mapped; execution unconfirmed
+`9.4.2` / `boundary` / Execution confirmed
 
 A scalar z-to-1 transition produces a posedge event.
 
@@ -22693,7 +22697,7 @@ Normative role: `mandatory`。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-Z-X
 
-`9.4.2` / `boundary` / Test mapped; execution unconfirmed
+`9.4.2` / `boundary` / Execution confirmed
 
 A scalar z-to-x transition produces no posedge/negedge event.
 
@@ -22717,7 +22721,7 @@ Normative role: `mandatory`。
 
 ### SV2023-9.4.2-EXTRACT-EITHER-EDGE
 
-`9.4.2` / `normal` / Test mapped; execution unconfirmed
+`9.4.2` / `normal` / Execution confirmed
 
 edge triggers whenever posedge or negedge would trigger.
 
@@ -24675,7 +24679,7 @@ Normative role: `mandatory`。
 
 ### SV2023-10.6.2-EXTRACT-FORCE-TARGETS
 
-`10.6.2` / `normal` / Test mapped; execution unconfirmed
+`10.6.2` / `normal` / Execution confirmed
 
 force/release permit whole singular variables/nets, constant bit/part selections of eligible vector nets and concatenations of these.
 
@@ -24687,7 +24691,7 @@ Normative role: `definition`。
 
 ### SV2023-10.6.2-EXTRACT-FORCE-VARIABLE-OVERRIDE
 
-`10.6.2` / `normal` / Test mapped; execution unconfirmed
+`10.6.2` / `normal` / Execution confirmed
 
 A variable force overrides procedural, continuous and procedural-assign drivers until release.
 
@@ -30527,7 +30531,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.5.1-EXTRACT-BIT-INDEX-SELF
 
-`11.5.1` / `normal` / Test mapped; execution unconfirmed
+`11.5.1` / `normal` / Execution confirmed
 
 A bit-select index of an eligible vector/packed object/parameter/concatenation is evaluated in a self-determined context.
 
@@ -30551,7 +30555,7 @@ Normative role: `definition`。
 
 ### SV2023-11.5.1-EXTRACT-DECLARED-INDEX-LABELS
 
-`11.5.1` / `normal` / Test mapped; execution unconfirmed
+`11.5.1` / `normal` / Execution confirmed
 
 A selected numeric index identifies the bit according to the object declared bounds, not an implicit always-zero-based label.
 
@@ -30563,7 +30567,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.5.1-EXTRACT-INDEXED-DIRECTION
 
-`11.5.1` / `normal` / Test mapped; execution unconfirmed
+`11.5.1` / `normal` / Execution confirmed
 
 An indexed +: selection ascends numeric indices from its base and -: descends, with significance determined by the selected object declaration direction.
 
@@ -30588,7 +30592,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.5.1-EXTRACT-INVALID-BIT-READ
 
-`11.5.1` / `boundary` / Test mapped; execution unconfirmed
+`11.5.1` / `boundary` / Execution confirmed
 
 Out-of-bounds or x/z bit indices read x for four-state sources and zero for two-state sources.
 
@@ -30600,7 +30604,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.5.1-EXTRACT-INVALID-PART-NO-WRITE
 
-`11.5.1` / `normal` / Test mapped; execution unconfirmed
+`11.5.1` / `normal` / Execution confirmed
 
 A wholly invalid or x/z part-select reads unknown and performs no write, subject to its resulting state-type conversion.
 
@@ -34933,7 +34937,7 @@ Normative role: `permission`。
 
 ### SV2023-14.7-EXTRACT-CLOCKING-ALLOWED-SCOPES
 
-`14.7` / `error` / Test mapped; execution unconfirmed
+`14.7` / `error` / Execution confirmed
 
 Clocking blocks can be declared only in modules/interfaces/checkers/programs, cannot nest and cannot be declared in subroutines/packages/compilation-unit outer scope.
 
@@ -35070,7 +35074,7 @@ Normative role: `mandatory`。
 
 ### SV2023-14.11-EXTRACT-NO-CYCLE-IN-ORDINARY-INTRA
 
-`14.11` / `error` / Test mapped; execution unconfirmed
+`14.11` / `error` / Execution confirmed
 
 Cycle controls cannot be intra-assignment timing on ordinary blocking/nonblocking assignments.
 
@@ -35399,7 +35403,7 @@ Normative role: `mandatory`。
 
 ### SV2023-14.16-EXTRACT-DRIVE-CYCLE-ONLY-INTRA
 
-`14.16` / `error` / Test mapped; execution unconfirmed
+`14.16` / `error` / Execution confirmed
 
 No ordinary delay/event intra-assignment timing syntax is allowed on a synchronous drive.
 
@@ -35519,7 +35523,7 @@ Normative role: `mandatory`。
 
 ### SV2023-14.16-EXTRACT-ONLY-SYNCHRONOUS-WRITE
 
-`14.16` / `error` / Test mapped; execution unconfirmed
+`14.16` / `error` / Execution confirmed
 
 Clockvars can be written only by synchronous drive syntax; continuous and procedural assign/force writes are illegal.
 
@@ -36990,7 +36994,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.4-EXTRACT-CAPTURE-INPUTS
 
-`16.4` / `normal` / Test mapped; execution unconfirmed
+`16.4` / `normal` / Execution confirmed
 
 By-value action argument expressions, including called functions and their side effects, are fully evaluated at assertion evaluation time, even if the report is subsequently flushed.
 
@@ -37014,7 +37018,7 @@ Normative role: `definition`。
 
 ### SV2023-16.4-EXTRACT-EVALUATE-NOW
 
-`16.4` / `normal` / Test mapped; execution unconfirmed
+`16.4` / `normal` / Execution confirmed
 
 The deferred assertion expression is evaluated when the statement executes; only its reporting/action is deferred.
 
@@ -37038,7 +37042,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.4-EXTRACT-FINAL-REF
 
-`16.4` / `normal` / Test mapped; execution unconfirmed
+`16.4` / `normal` / Execution confirmed
 
 A final deferred action executes in Postponed and ref/const-ref arguments observe their values at that execution time.
 
@@ -37063,7 +37067,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.4-EXTRACT-OBSERVED-REF
 
-`16.4` / `normal` / Test mapped; execution unconfirmed
+`16.4` / `normal` / Execution confirmed
 
 An observed deferred action executes in Reactive and ref/const-ref arguments observe their values at that execution time.
 
@@ -37147,7 +37151,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.4.1-EXTRACT-PENDING-QUEUE
 
-`16.4.1` / `normal` / Test mapped; execution unconfirmed
+`16.4.1` / `normal` / Execution confirmed
 
 Evaluation queues the applicable pass/fail call or default $error, together with captured input values, in the executing process pending-report queue.
 
@@ -37172,7 +37176,7 @@ Normative role: `definition`。
 
 ### SV2023-16.4.2-EXTRACT-COMB-LATCH-FLUSH
 
-`16.4.2` / `normal` / Test mapped; execution unconfirmed
+`16.4.2` / `normal` / Execution confirmed
 
 Resumption of always_comb or always_latch due to a sensitivity change is a deferred assertion flush point.
 
@@ -37184,7 +37188,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.4.2-EXTRACT-EVENT-WAIT-FLUSH
 
-`16.4.2` / `normal` / Test mapped; execution unconfirmed
+`16.4.2` / `normal` / Execution confirmed
 
 A process resuming from an event control or wait is a deferred assertion flush point.
 
@@ -37232,7 +37236,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.4.4-EXTRACT-DISABLE-OUTERMOST
 
-`16.4.4` / `normal` / Test mapped; execution unconfirmed
+`16.4.4` / `normal` / Execution confirmed
 
 Disabling the outermost scope of a procedure flushes the entire process pending-report queue in addition to ordinary disable behavior.
 
@@ -52075,7 +52079,7 @@ Normative role: `definition`。
 
 ### SV2023-20.5-EXTRACT-CONSTANT-CONVERSIONS
 
-`20.5` / `normal` / Test mapped; execution unconfirmed
+`20.5` / `normal` / Execution confirmed
 
 These conversions may occur in constant expressions subject to 11.2.1.
 
@@ -56738,7 +56742,7 @@ Normative role: `mandatory`。
 
 ### SV2023-21.3.4.2-EXTRACT-FGETS-RESULT
 
-`21.3.4.2` / `normal` / Test mapped; execution unconfirmed
+`21.3.4.2` / `normal` / Execution confirmed
 
 fgets returns 0 on error and the number of characters read otherwise, with ferror available to query the error cause.
 
@@ -56750,7 +56754,7 @@ Normative role: `mandatory`。
 
 ### SV2023-21.3.4.2-EXTRACT-FGETS-TERMINATION
 
-`21.3.4.2` / `normal` / Test mapped; execution unconfirmed
+`21.3.4.2` / `normal` / Execution confirmed
 
 fgets reads until the destination fills, a newline is read and included, or EOF; a most-significant partial byte does not count toward destination capacity.
 
@@ -58183,7 +58187,7 @@ Normative role: `mandatory`。
 
 ### SV2023-21.7.1.5-EXTRACT-DUMP-BYTE-LIMIT
 
-`21.7.1.5` / `boundary` / Test mapped; execution unconfirmed
+`21.7.1.5` / `boundary` / Execution confirmed
 
 dumplimit specifies the maximum VCD byte size; reaching it stops dumping and inserts a limit-reached comment.
 
@@ -59903,7 +59907,7 @@ Normative role: `mandatory`。
 
 ### SV2023-22.4-EXTRACT-INCLUDE-ABSOLUTE
 
-`22.4` / `error` / Test mapped; execution unconfirmed
+`22.4` / `error` / Execution confirmed
 
 An absolute include path uses only the quoted form and selects only that filename.
 
@@ -59995,7 +59999,7 @@ Normative role: `mandatory`。
 
 ### SV2023-22.5-EXTRACT-MACRO-NO-RESET
 
-`22.5` / `normal` / Test mapped; execution unconfirmed
+`22.5` / `normal` / Execution confirmed
 
 resetall does not affect text macros.
 
@@ -65527,7 +65531,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-1
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal wire/tri and external wand/triand, Table 23-1 selects the external net type.
 
@@ -65539,7 +65543,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-2
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal wire/tri and external wor/trior, Table 23-1 selects the external net type.
 
@@ -65563,7 +65567,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-4
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal wire/tri and external tri0, Table 23-1 selects the external net type.
 
@@ -65575,7 +65579,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-5
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal wire/tri and external tri1, Table 23-1 selects the external net type.
 
@@ -65599,7 +65603,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-7
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal wire/tri and external supply0, Table 23-1 selects the external net type.
 
@@ -65611,7 +65615,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-8
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal wire/tri and external supply1, Table 23-1 selects the external net type.
 
@@ -65623,7 +65627,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-0
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal wand/triand and external wire/tri, Table 23-1 selects the internal net type.
 
@@ -65647,7 +65651,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-2
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal wand/triand and external wor/trior, Table 23-1 selects the external net type. A warning shall be issued.
 
@@ -65671,7 +65675,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-4
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal wand/triand and external tri0, Table 23-1 selects the external net type. A warning shall be issued.
 
@@ -65683,7 +65687,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-5
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal wand/triand and external tri1, Table 23-1 selects the external net type. A warning shall be issued.
 
@@ -65707,7 +65711,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-7
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal wand/triand and external supply0, Table 23-1 selects the external net type.
 
@@ -65719,7 +65723,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-8
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal wand/triand and external supply1, Table 23-1 selects the external net type.
 
@@ -65731,7 +65735,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-0
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal wor/trior and external wire/tri, Table 23-1 selects the internal net type.
 
@@ -65743,7 +65747,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-1
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal wor/trior and external wand/triand, Table 23-1 selects the external net type. A warning shall be issued.
 
@@ -65779,7 +65783,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-4
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal wor/trior and external tri0, Table 23-1 selects the external net type. A warning shall be issued.
 
@@ -65791,7 +65795,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-5
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal wor/trior and external tri1, Table 23-1 selects the external net type. A warning shall be issued.
 
@@ -65815,7 +65819,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-7
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal wor/trior and external supply0, Table 23-1 selects the external net type.
 
@@ -65827,7 +65831,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-8
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal wor/trior and external supply1, Table 23-1 selects the external net type.
 
@@ -65947,7 +65951,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-0
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal tri0 and external wire/tri, Table 23-1 selects the internal net type.
 
@@ -65959,7 +65963,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-1
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal tri0 and external wand/triand, Table 23-1 selects the external net type. A warning shall be issued.
 
@@ -65971,7 +65975,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-2
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal tri0 and external wor/trior, Table 23-1 selects the external net type. A warning shall be issued.
 
@@ -66007,7 +66011,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-5
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal tri0 and external tri1, Table 23-1 selects the external net type. A warning shall be issued.
 
@@ -66067,7 +66071,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-5-1
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal tri1 and external wand/triand, Table 23-1 selects the external net type. A warning shall be issued.
 
@@ -66079,7 +66083,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-5-2
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal tri1 and external wor/trior, Table 23-1 selects the external net type. A warning shall be issued.
 
@@ -66103,7 +66107,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-5-4
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal tri1 and external tri0, Table 23-1 selects the external net type. A warning shall be issued.
 
@@ -66367,7 +66371,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-7-8
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal supply0 and external supply1, Table 23-1 selects the external net type. A warning shall be issued.
 
@@ -66463,7 +66467,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-8-7
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal supply1 and external supply0, Table 23-1 selects the external net type. A warning shall be issued.
 
@@ -66513,7 +66517,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-EXTERNAL-FALLBACK
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 A merged dissimilar-type connection uses an applicable dominating type or external type; without a dominating type it shall use the external type.
 
@@ -67503,7 +67507,7 @@ Normative role: `definition`。
 
 ### SV2023-24.3-EXTRACT-PROGRAM-CONTENTS-RESTRICTIONS
 
-`24.3` / `error` / Test mapped; execution unconfirmed
+`24.3` / `error` / Execution confirmed
 
 Programs may contain data/classes/subroutines/object instances and initial/final procedures, but cannot contain always, primitives/UDPs, or module/interface/program declarations or instances.
 
@@ -67661,7 +67665,7 @@ Normative role: `recommendation`。
 
 ### SV2023-24.3.1-EXTRACT-PROGRAM-ASSERTION-SCHEDULING
 
-`24.3.1` / `normal` / Test mapped; execution unconfirmed
+`24.3.1` / `normal` / Execution confirmed
 
 Program concurrent assertions retain Preponed sampling and Observed evaluation; a program-object clock causes an outer scheduling-loop iteration to Observed.
 
@@ -68129,7 +68133,7 @@ Normative role: `mandatory`。
 
 ### SV2023-25.5.4-EXTRACT-MODPORT-EXPRESSION
 
-`25.5.4` / `normal` / Test mapped; execution unconfirmed
+`25.5.4` / `normal` / Execution confirmed
 
 A modport may explicitly name interface array/structure elements, concatenations or assignment patterns; the external name is visible only through that modport connection.
 
@@ -72984,7 +72988,7 @@ Normative role: `mandatory`。
 
 ### SV2023-28.9-EXTRACT-CMOS-EQUIVALENCE
 
-`28.9` / `normal` / Test mapped; execution unconfirmed
+`28.9` / `normal` / Execution confirmed
 
 Cmos equals parallel pmos/nmos and rcmos parallel rpmos/rnmos sharing input/output but with separate control inputs.
 
@@ -72997,7 +73001,7 @@ Normative role: `mandatory`。
 
 ### SV2023-28.9-EXTRACT-CMOS-KEYWORDS
 
-`28.9` / `normal` / Test mapped; execution unconfirmed
+`28.9` / `normal` / Execution confirmed
 
 CMOS switch types are cmos and rcmos.
 
@@ -80836,7 +80840,7 @@ Normative role: `mandatory`。
 
 ### SV2023-33.4.1-EXTRACT-CONFIG-GRAMMAR
 
-`33.4.1` / `normal` / Test mapped; execution unconfirmed
+`33.4.1` / `normal` / Execution confirmed
 
 Config syntax has a name, localparams, one design statement, default/instance/cell selection with liblist/use clauses and endconfig optional label; use permits cell binding and named parameter assignments with optional config suffix.
 
@@ -116297,7 +116301,7 @@ Normative role: `definition`。
 
 ### SV2023-A.1.5-EXTRACT-CONFIG-SOURCE-GRAMMAR
 
-`A.1.5` / `normal` / Test mapped; execution unconfirmed
+`A.1.5` / `normal` / Execution confirmed
 
 Configuration source has config/name, localparams, design statement, selection/expansion rules and endconfig optional name; instances use top-rooted dot paths.
 
@@ -121438,7 +121442,7 @@ Normative role: `definition`。
 
 ### SV2023-A.6.10-EXTRACT-DEFERRED-ASSERT-FINAL
 
-`A.6.10` / `normal` / Test mapped; execution unconfirmed
+`A.6.10` / `normal` / Execution confirmed
 
 Deferred immediate assert has final before parenthesized expression then action block.
 
@@ -121450,7 +121454,7 @@ Normative role: `definition`。
 
 ### SV2023-A.6.10-EXTRACT-DEFERRED-ASSERT-ZERO
 
-`A.6.10` / `normal` / Test mapped; execution unconfirmed
+`A.6.10` / `normal` / Execution confirmed
 
 Deferred immediate assert has #0 before parenthesized expression then action block.
 
@@ -121462,7 +121466,7 @@ Normative role: `definition`。
 
 ### SV2023-A.6.10-EXTRACT-DEFERRED-ASSUME-FINAL
 
-`A.6.10` / `normal` / Test mapped; execution unconfirmed
+`A.6.10` / `normal` / Execution confirmed
 
 Deferred immediate assume has final before parenthesized expression then action block.
 
@@ -121474,7 +121478,7 @@ Normative role: `definition`。
 
 ### SV2023-A.6.10-EXTRACT-DEFERRED-ASSUME-ZERO
 
-`A.6.10` / `normal` / Test mapped; execution unconfirmed
+`A.6.10` / `normal` / Execution confirmed
 
 Deferred immediate assume has #0 before parenthesized expression then action block.
 
@@ -121486,7 +121490,7 @@ Normative role: `definition`。
 
 ### SV2023-A.6.10-EXTRACT-DEFERRED-COVER-FINAL
 
-`A.6.10` / `normal` / Test mapped; execution unconfirmed
+`A.6.10` / `normal` / Execution confirmed
 
 Deferred immediate cover has final before parenthesized expression then statement/null.
 
@@ -121498,7 +121502,7 @@ Normative role: `definition`。
 
 ### SV2023-A.6.10-EXTRACT-DEFERRED-COVER-ZERO
 
-`A.6.10` / `normal` / Test mapped; execution unconfirmed
+`A.6.10` / `normal` / Execution confirmed
 
 Deferred immediate cover has #0 before parenthesized expression then statement/null.
 
@@ -124495,7 +124499,7 @@ Normative role: `mandatory`。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-35
 
-`A.10` / `normal` / Test mapped; execution unconfirmed
+`A.10` / `normal` / Execution confirmed
 
 Generate items in interfaces must be interface/generate items; in modules outside interfaces they must be module/generate items; in checkers they must be checker/generate items.
 

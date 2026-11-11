@@ -7,15 +7,15 @@
   "runs": [
     {
       "simulator": "icarus",
-      "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
-      "generated_at": "2026-10-30T00:40:13.297515+00:00",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "generated_at": "2026-11-11T16:54:09.890891+00:00",
       "provenance_problem": "",
       "statuses": {
         "pass": 11,
         "fail": 0,
-        "known": 76,
+        "known": 77,
         "unsupported": 0,
-        "stale": 1,
+        "stale": 0,
         "not_run": 0
       },
       "groups": {
@@ -240,19 +240,19 @@
           "complete": false
         }
       },
-      "source": "coverage/combination-results/issue21-icarus-13.json"
+      "source": "coverage/combination-results/issue21-20261112-icarus13.json"
     },
     {
       "simulator": "kirimasim",
-      "version": "kirimasim 0.0.0 (commit 1ca363e2c922), built with AppleClang 21.0.0.21000334",
-      "generated_at": "2026-10-30T00:41:13.175003+00:00",
+      "version": "kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401",
+      "generated_at": "2026-11-11T16:54:09.343030+00:00",
       "provenance_problem": "",
       "statuses": {
-        "pass": 26,
-        "fail": 2,
+        "pass": 68,
+        "fail": 1,
         "known": 0,
-        "unsupported": 59,
-        "stale": 1,
+        "unsupported": 19,
+        "stale": 0,
         "not_run": 0
       },
       "groups": {
@@ -280,14 +280,14 @@
         },
         "E03": {
           "statuses": {
-            "pass": 0,
+            "pass": 1,
             "fail": 0,
             "known": 0,
-            "unsupported": 1,
+            "unsupported": 0,
             "stale": 0,
             "not_run": 0
           },
-          "complete": false
+          "complete": true
         },
         "E04": {
           "statuses": {
@@ -313,120 +313,120 @@
         },
         "E06": {
           "statuses": {
-            "pass": 0,
+            "pass": 2,
             "fail": 0,
             "known": 0,
-            "unsupported": 2,
+            "unsupported": 0,
             "stale": 0,
             "not_run": 0
           },
-          "complete": false
+          "complete": true
         },
         "N01": {
           "statuses": {
-            "pass": 0,
+            "pass": 2,
             "fail": 0,
             "known": 0,
-            "unsupported": 2,
+            "unsupported": 0,
             "stale": 0,
             "not_run": 0
           },
-          "complete": false
+          "complete": true
         },
         "N02": {
           "statuses": {
-            "pass": 0,
+            "pass": 4,
             "fail": 0,
             "known": 0,
-            "unsupported": 4,
+            "unsupported": 0,
             "stale": 0,
             "not_run": 0
           },
-          "complete": false
+          "complete": true
         },
         "N03": {
           "statuses": {
-            "pass": 0,
+            "pass": 4,
             "fail": 0,
             "known": 0,
-            "unsupported": 4,
+            "unsupported": 0,
             "stale": 0,
             "not_run": 0
           },
-          "complete": false
+          "complete": true
         },
         "N04": {
           "statuses": {
-            "pass": 0,
+            "pass": 2,
             "fail": 0,
             "known": 0,
-            "unsupported": 2,
+            "unsupported": 0,
             "stale": 0,
             "not_run": 0
           },
-          "complete": false
+          "complete": true
         },
         "A01": {
           "statuses": {
-            "pass": 0,
+            "pass": 1,
             "fail": 0,
             "known": 0,
-            "unsupported": 1,
+            "unsupported": 0,
             "stale": 0,
             "not_run": 0
           },
-          "complete": false
+          "complete": true
         },
         "A02": {
           "statuses": {
-            "pass": 0,
+            "pass": 3,
             "fail": 0,
             "known": 0,
-            "unsupported": 3,
+            "unsupported": 0,
             "stale": 0,
             "not_run": 0
           },
-          "complete": false
+          "complete": true
         },
         "A03": {
           "statuses": {
-            "pass": 0,
+            "pass": 1,
             "fail": 0,
             "known": 0,
-            "unsupported": 1,
+            "unsupported": 0,
             "stale": 0,
             "not_run": 0
           },
-          "complete": false
+          "complete": true
         },
         "A04": {
           "statuses": {
-            "pass": 0,
+            "pass": 4,
             "fail": 0,
             "known": 0,
-            "unsupported": 4,
+            "unsupported": 0,
             "stale": 0,
             "not_run": 0
           },
-          "complete": false
+          "complete": true
         },
         "S01": {
           "statuses": {
-            "pass": 0,
+            "pass": 8,
             "fail": 0,
             "known": 0,
-            "unsupported": 8,
+            "unsupported": 0,
             "stale": 0,
             "not_run": 0
           },
-          "complete": false
+          "complete": true
         },
         "S02": {
           "statuses": {
-            "pass": 0,
+            "pass": 4,
             "fail": 0,
             "known": 0,
-            "unsupported": 7,
+            "unsupported": 3,
             "stale": 0,
             "not_run": 0
           },
@@ -445,21 +445,21 @@
         },
         "F02": {
           "statuses": {
-            "pass": 0,
-            "fail": 2,
+            "pass": 2,
+            "fail": 0,
             "known": 0,
             "unsupported": 0,
             "stale": 0,
             "not_run": 0
           },
-          "complete": false
+          "complete": true
         },
         "H01": {
           "statuses": {
-            "pass": 0,
+            "pass": 4,
             "fail": 0,
             "known": 0,
-            "unsupported": 8,
+            "unsupported": 4,
             "stale": 0,
             "not_run": 0
           },
@@ -477,20 +477,20 @@
           "complete": true
         }
       },
-      "source": "coverage/combination-results/issue21-kirimasim-latest.json"
+      "source": "coverage/combination-results/issue21-20261112-kirimasim-7de185f7.json"
     },
     {
       "simulator": "verilator",
       "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
-      "generated_at": "2026-10-30T00:40:20.650747+00:00",
+      "generated_at": "2026-11-11T16:54:16.474122+00:00",
       "provenance_problem": "",
       "statuses": {
         "pass": 27,
         "fail": 0,
-        "known": 49,
+        "known": 61,
         "unsupported": 0,
-        "stale": 1,
-        "not_run": 11
+        "stale": 0,
+        "not_run": 0
       },
       "groups": {
         "E01": {
@@ -563,10 +563,10 @@
           "statuses": {
             "pass": 0,
             "fail": 0,
-            "known": 1,
+            "known": 2,
             "unsupported": 0,
             "stale": 0,
-            "not_run": 1
+            "not_run": 0
           },
           "complete": false
         },
@@ -574,10 +574,10 @@
           "statuses": {
             "pass": 0,
             "fail": 0,
-            "known": 2,
+            "known": 4,
             "unsupported": 0,
             "stale": 0,
-            "not_run": 2
+            "not_run": 0
           },
           "complete": false
         },
@@ -585,10 +585,10 @@
           "statuses": {
             "pass": 0,
             "fail": 0,
-            "known": 3,
+            "known": 4,
             "unsupported": 0,
             "stale": 0,
-            "not_run": 1
+            "not_run": 0
           },
           "complete": false
         },
@@ -651,10 +651,10 @@
           "statuses": {
             "pass": 0,
             "fail": 0,
-            "known": 4,
+            "known": 8,
             "unsupported": 0,
             "stale": 0,
-            "not_run": 4
+            "not_run": 0
           },
           "complete": false
         },
@@ -662,10 +662,10 @@
           "statuses": {
             "pass": 4,
             "fail": 0,
-            "known": 2,
+            "known": 3,
             "unsupported": 0,
             "stale": 0,
-            "not_run": 1
+            "not_run": 0
           },
           "complete": false
         },
@@ -714,20 +714,20 @@
           "complete": false
         }
       },
-      "source": "coverage/combination-results/issue21-verilator-5.052-seed1.json"
+      "source": "coverage/combination-results/issue21-20261112-verilator5.052-seed1.json"
     },
     {
       "simulator": "verilator",
       "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
-      "generated_at": "2026-10-30T00:40:24.278982+00:00",
+      "generated_at": "2026-11-11T16:54:22.620520+00:00",
       "provenance_problem": "",
       "statuses": {
         "pass": 27,
         "fail": 0,
-        "known": 49,
+        "known": 61,
         "unsupported": 0,
-        "stale": 1,
-        "not_run": 11
+        "stale": 0,
+        "not_run": 0
       },
       "groups": {
         "E01": {
@@ -800,10 +800,10 @@
           "statuses": {
             "pass": 0,
             "fail": 0,
-            "known": 1,
+            "known": 2,
             "unsupported": 0,
             "stale": 0,
-            "not_run": 1
+            "not_run": 0
           },
           "complete": false
         },
@@ -811,10 +811,10 @@
           "statuses": {
             "pass": 0,
             "fail": 0,
-            "known": 2,
+            "known": 4,
             "unsupported": 0,
             "stale": 0,
-            "not_run": 2
+            "not_run": 0
           },
           "complete": false
         },
@@ -822,10 +822,10 @@
           "statuses": {
             "pass": 0,
             "fail": 0,
-            "known": 3,
+            "known": 4,
             "unsupported": 0,
             "stale": 0,
-            "not_run": 1
+            "not_run": 0
           },
           "complete": false
         },
@@ -888,10 +888,10 @@
           "statuses": {
             "pass": 0,
             "fail": 0,
-            "known": 4,
+            "known": 8,
             "unsupported": 0,
             "stale": 0,
-            "not_run": 4
+            "not_run": 0
           },
           "complete": false
         },
@@ -899,10 +899,10 @@
           "statuses": {
             "pass": 4,
             "fail": 0,
-            "known": 2,
+            "known": 3,
             "unsupported": 0,
             "stale": 0,
-            "not_run": 1
+            "not_run": 0
           },
           "complete": false
         },
@@ -946,6 +946,954 @@
             "known": 18,
             "unsupported": 0,
             "stale": 0,
+            "not_run": 0
+          },
+          "complete": false
+        }
+      },
+      "source": "coverage/combination-results/issue21-20261112-verilator5.052-seed73.json"
+    },
+    {
+      "simulator": "icarus",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+      "generated_at": "2026-10-30T00:40:13.297515+00:00",
+      "provenance_problem": "runner fingerprint differs",
+      "statuses": {
+        "pass": 0,
+        "fail": 0,
+        "known": 0,
+        "unsupported": 0,
+        "stale": 88,
+        "not_run": 0
+      },
+      "groups": {
+        "E01": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "E02": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "E03": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 1,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "E04": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "E05": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "E06": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "N01": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "N02": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 4,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "N03": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 4,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "N04": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "A01": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 1,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "A02": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 3,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "A03": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 1,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "A04": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 4,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "S01": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 8,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "S02": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 7,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "F01": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 3,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "F02": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "H01": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 8,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "U01": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 18,
+            "not_run": 0
+          },
+          "complete": false
+        }
+      },
+      "source": "coverage/combination-results/issue21-icarus-13.json"
+    },
+    {
+      "simulator": "kirimasim",
+      "version": "kirimasim 0.0.0 (commit 1ca363e2c922), built with AppleClang 21.0.0.21000334",
+      "generated_at": "2026-10-30T00:41:13.175003+00:00",
+      "provenance_problem": "runner fingerprint differs",
+      "statuses": {
+        "pass": 0,
+        "fail": 0,
+        "known": 0,
+        "unsupported": 0,
+        "stale": 88,
+        "not_run": 0
+      },
+      "groups": {
+        "E01": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "E02": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "E03": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 1,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "E04": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "E05": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "E06": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "N01": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "N02": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 4,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "N03": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 4,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "N04": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "A01": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 1,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "A02": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 3,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "A03": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 1,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "A04": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 4,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "S01": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 8,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "S02": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 7,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "F01": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 3,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "F02": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "H01": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 8,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "U01": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 18,
+            "not_run": 0
+          },
+          "complete": false
+        }
+      },
+      "source": "coverage/combination-results/issue21-kirimasim-latest.json"
+    },
+    {
+      "simulator": "verilator",
+      "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+      "generated_at": "2026-10-30T00:40:20.650747+00:00",
+      "provenance_problem": "runner fingerprint differs",
+      "statuses": {
+        "pass": 0,
+        "fail": 0,
+        "known": 0,
+        "unsupported": 0,
+        "stale": 77,
+        "not_run": 11
+      },
+      "groups": {
+        "E01": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "E02": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "E03": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 1,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "E04": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "E05": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "E06": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "N01": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 1,
+            "not_run": 1
+          },
+          "complete": false
+        },
+        "N02": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 2
+          },
+          "complete": false
+        },
+        "N03": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 3,
+            "not_run": 1
+          },
+          "complete": false
+        },
+        "N04": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "A01": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 1,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "A02": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 3,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "A03": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 1,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "A04": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 4,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "S01": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 4,
+            "not_run": 4
+          },
+          "complete": false
+        },
+        "S02": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 6,
+            "not_run": 1
+          },
+          "complete": false
+        },
+        "F01": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 3,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "F02": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "H01": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 8,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "U01": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 18,
+            "not_run": 0
+          },
+          "complete": false
+        }
+      },
+      "source": "coverage/combination-results/issue21-verilator-5.052-seed1.json"
+    },
+    {
+      "simulator": "verilator",
+      "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+      "generated_at": "2026-10-30T00:40:24.278982+00:00",
+      "provenance_problem": "runner fingerprint differs",
+      "statuses": {
+        "pass": 0,
+        "fail": 0,
+        "known": 0,
+        "unsupported": 0,
+        "stale": 77,
+        "not_run": 11
+      },
+      "groups": {
+        "E01": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "E02": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "E03": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 1,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "E04": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "E05": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "E06": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "N01": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 1,
+            "not_run": 1
+          },
+          "complete": false
+        },
+        "N02": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 2
+          },
+          "complete": false
+        },
+        "N03": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 3,
+            "not_run": 1
+          },
+          "complete": false
+        },
+        "N04": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "A01": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 1,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "A02": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 3,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "A03": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 1,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "A04": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 4,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "S01": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 4,
+            "not_run": 4
+          },
+          "complete": false
+        },
+        "S02": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 6,
+            "not_run": 1
+          },
+          "complete": false
+        },
+        "F01": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 3,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "F02": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 2,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "H01": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 8,
+            "not_run": 0
+          },
+          "complete": false
+        },
+        "U01": {
+          "statuses": {
+            "pass": 0,
+            "fail": 0,
+            "known": 0,
+            "unsupported": 0,
+            "stale": 18,
             "not_run": 0
           },
           "complete": false

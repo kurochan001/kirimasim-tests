@@ -9,7 +9,7 @@
   },
   "ch6/test_ch6_extra_cast_task_runtime_error": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp3ykyz...', expected 'before=1'",
+   "reason": "output differs: line 1 is '<tmp>...', expected 'before=1'",
    "inputs_sha256": "1d5d2ac225f7557e45b1bc9e33748df521a80f3ef645af426b3fd5a4a621c3a8"
   },
   "ch6/test_ch6_extra_class_body_parameter_local": {

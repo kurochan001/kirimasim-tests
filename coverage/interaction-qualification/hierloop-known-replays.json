@@ -76,7 +76,7 @@
         {
           "tool": "iverilog",
           "returncode": 134,
-          "stderr": "tests/gen/ch20/test_gen_cross_arrayloop_dynamic_elem_repeat_size.sv:28: Sorry: Dynamic array of type `11netuarray_t` is not yet supported.\ntests/gen/ch20/test_gen_cross_arrayloop_dynamic_elem_repeat_size.sv:31: error: The new array constructor may only be used in an assignment to a dynamic array.\ntests/gen/ch20/test_gen_cross_arrayloop_dynamic_elem_repeat_size.sv:32: assert: elab_lval.cc:722: failed assertion name_tail.index.size() == 1\nsh: line 1: 49092 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg2312d598e\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg312d598e\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli312d598e\"\n     49093 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlh312d598e\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+          "stderr": "tests/gen/ch20/test_gen_cross_arrayloop_dynamic_elem_repeat_size.sv:28: Sorry: Dynamic array of type `11netuarray_t` is not yet supported.\ntests/gen/ch20/test_gen_cross_arrayloop_dynamic_elem_repeat_size.sv:31: error: The new array constructor may only be used in an assignment to a dynamic array.\ntests/gen/ch20/test_gen_cross_arrayloop_dynamic_elem_repeat_size.sv:32: assert: elab_lval.cc:722: failed assertion name_tail.index.size() == 1\nsh: line 1: 49092 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>//ivrlg2312d598e\" -f\"<tmp>//ivrlg312d598e\" -p\"<tmp>//ivrli312d598e\"\n     49093 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>//ivrlh312d598e\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
         }
       ]
     },
@@ -158,7 +158,7 @@
         {
           "tool": "iverilog",
           "returncode": 139,
-          "stderr": "tests/gen/ch20/test_gen_cross_arrayloop_empty_elem_do_highlow.sv:28: Sorry: Dynamic array of type `11netuarray_t` is not yet supported.\nsh: line 1: 52925 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg2350456fd\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg350456fd\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli350456fd\"\n     52926 Segmentation fault: 11  | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlh350456fd\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+          "stderr": "tests/gen/ch20/test_gen_cross_arrayloop_empty_elem_do_highlow.sv:28: Sorry: Dynamic array of type `11netuarray_t` is not yet supported.\nsh: line 1: 52925 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>//ivrlg2350456fd\" -f\"<tmp>//ivrlg350456fd\" -p\"<tmp>//ivrli350456fd\"\n     52926 Segmentation fault: 11  | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>//ivrlh350456fd\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
         }
       ]
     },
@@ -285,12 +285,12 @@
     {
       "test": "tests/gen/ch20/test_gen_cross_arrayloop_packed_elem_do_leftright.sv",
       "input_sha256": "082fe48c14821be18d4206518da01e42e3c66cb55c8abc3f33789239e21b0d3c",
-      "reason": "compile failed: sh: line 1: 97341 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg26182822f\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg6182822f\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli6182822f\"",
+      "reason": "compile failed: sh: line 1: 97341 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>//ivrlg26182822f\" -f\"<tmp>//ivrlg6182822f\" -p\"<tmp>//ivrli6182822f\"",
       "executions": [
         {
           "tool": "iverilog",
           "returncode": 139,
-          "stderr": "sh: line 1: 52991 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg235150264\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg35150264\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli35150264\"\n     52992 Segmentation fault: 11  | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlh35150264\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+          "stderr": "sh: line 1: 52991 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>//ivrlg235150264\" -f\"<tmp>//ivrlg35150264\" -p\"<tmp>//ivrli35150264\"\n     52992 Segmentation fault: 11  | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>//ivrlh35150264\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
         }
       ]
     },
@@ -314,7 +314,7 @@
         {
           "tool": "iverilog",
           "returncode": 139,
-          "stderr": "tests/gen/ch20/test_gen_cross_arrayloop_queue_elem_foreach_leftright.sv:28: Sorry: Queue of type `11netuarray_t` is not yet supported.\nsh: line 1: 53003 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg235181638\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg35181638\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli35181638\"\n     53004 Segmentation fault: 11  | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlh35181638\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+          "stderr": "tests/gen/ch20/test_gen_cross_arrayloop_queue_elem_foreach_leftright.sv:28: Sorry: Queue of type `11netuarray_t` is not yet supported.\nsh: line 1: 53003 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>//ivrlg235181638\" -f\"<tmp>//ivrlg35181638\" -p\"<tmp>//ivrli35181638\"\n     53004 Segmentation fault: 11  | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>//ivrlh35181638\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
         }
       ]
     },

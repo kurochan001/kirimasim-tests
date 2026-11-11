@@ -467,7 +467,7 @@
   },
   "ch20/test_assertion_default_error_failoff_failon": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmppm952...', expected 'default: pass statements 0, else clauses 1'",
+   "reason": "output differs: line 1 is '<tmp>...', expected 'default: pass statements 0, else clauses 1'",
    "inputs_sha256": "6fe6452c1d20c36e7c61b4fde782a6e13463f7d30daf52734e88ac484627ec9f"
   },
   "ch20/test_bit_vector_functions_constant_expressions": {

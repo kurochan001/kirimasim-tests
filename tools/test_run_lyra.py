@@ -1,6 +1,9 @@
 """Pass the chosen C++ compiler to Lyra, and name the compiler's first error
-when what Lyra generated does not compile."""
+when what Lyra generated does not compile. A run or a check that a signal
+ends is a failure whatever it printed, a run that hangs times out, and no
+reason names a directory of the machine."""
 
+import os
 import subprocess
 import tempfile
 import unittest
@@ -34,7 +37,8 @@ class LyraRunnerTests(unittest.TestCase):
         self.test.write_text("/*\n" + fields + "\n*/\nmodule m; endmodule\n")
 
     def run_result(self, stdout="TEST PASSED\n", stderr="", code=0, cxx=None):
-        """The status and reason, and the command that ran Lyra."""
+        """The status and reason, and the command that ran Lyra. Without a
+        code, Lyra takes longer than the runner allows."""
         result = subprocess.CompletedProcess([], code, stdout, stderr)
         real_run = subprocess.run
         commands = []
@@ -42,6 +46,8 @@ class LyraRunnerTests(unittest.TestCase):
         def execute(command, **kwargs):
             if command[0] == LYRA:
                 commands.append(command)
+                if code is None:
+                    raise subprocess.TimeoutExpired(command, kwargs["timeout"])
                 return result
             return real_run(command, **kwargs)
 
@@ -81,6 +87,44 @@ class LyraRunnerTests(unittest.TestCase):
                                          "simulate\nt.sv:4:5: error: another\n", 1)
         self.assertEqual(verdict, ("fail", "compile failed: error: this expression has no "
                                            "behaviour to simulate"))
+
+    def test_a_crash_after_the_expected_output_is_a_failure(self):
+        verdict, _ = self.run_result("TEST PASSED\n", "", -11)
+        self.assertEqual(verdict, ("fail", "crashed (signal 11)"))
+
+    def test_a_check_that_crashes_does_not_reject_an_illegal_design(self):
+        self.write(":should_fail_because: bad declaration\n:expected_stderr_regex: bad declaration")
+        verdict, _ = self.run_result("", "t.sv:1:1: error: bad declaration", -6)
+        self.assertEqual(verdict, ("fail", "crashed (signal 6)"))
+
+    def test_a_failure_without_a_message_is_a_failure(self):
+        verdict, _ = self.run_result("", "", 1)
+        self.assertEqual(verdict, ("fail", "output differs (exit 1): line 1 is missing, "
+                                           "expected 'TEST PASSED'"))
+
+    def test_a_run_that_hangs_times_out(self):
+        with mock.patch.object(run_lyra, "RUN_TIMEOUT", 7):
+            verdict, _ = self.run_result(code=None)
+        self.assertEqual(verdict, ("fail", "timed out"))
+
+    def test_a_reason_names_no_directory_of_the_machine(self):
+        temp = tempfile.gettempdir()
+        verdict, _ = self.run_result("", f"{self.test}:3:5: error: cannot open "
+                                         f"{Path.home()}/a.svh from {temp}/b\n", 1)
+        self.assertEqual(verdict, ("fail", "compile failed: error: cannot open "
+                                           "<home>/a.svh from <tmp>/b"))
+        for directory in (str(Path.home()), temp, os.path.realpath(temp)):
+            self.assertNotIn(directory, verdict[1])
+
+    def test_a_path_in_the_output_is_replaced_before_the_line_is_cut(self):
+        verdict, _ = self.run_result(f"{Path.home()}/" + "d/" * 40 + "a.sv\n")
+        self.assertEqual(verdict, ("fail", "output differs: line 1 is '<home>/" + "d/" * 25
+                                           + "...', expected 'TEST PASSED'"))
+
+    def test_an_error_of_the_runner_fails_only_that_test(self):
+        with mock.patch.object(run_lyra, "judge", side_effect=IndexError("list index")):
+            verdict = run_lyra.run(self.test, LYRA, Path(self.temp.name))
+        self.assertEqual(verdict, ("fail", "runner error: IndexError: list index"))
 
 
 if __name__ == "__main__":

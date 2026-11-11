@@ -306,11 +306,11 @@ Monitor registration of a queue/dynamic array of static lifetime from a 9 type d
 
 ## Execution trace corresponding to current input
 
-### coverage/combination-results/issue21-icarus-13.json
+### coverage/combination-results/issue21-20261112-icarus13.json
 
-- Edition: Icarus Verilog version 13.0 (stable) (v13_0-dirty)。
-- Execution timestamp: 2026-10-30T00:40:13.297515+00:00.
-- All objects: pass = 11 , fail = 0 , known = 76 , unsupported = 0 , stale = 1 , not_run = 0.
+- Edition: Icarus Verilog version 13.0 (stable) (v13_0)。
+- Execution timestamp: 2026-11-11T16:54:09.890891+00:00.
+- All objects: pass = 11 , fail = 0 , known = 77 , unsupported = 0 , stale = 0 , not_run = 0.
 - E01: The main observation was not achieved. known = 2 。
 - E02: The main observation was not achieved. known = 2 。
 - E03: All main observations passed. pass = 1 。
@@ -332,83 +332,191 @@ Monitor registration of a queue/dynamic array of static lifetime from a 9 type d
 - H01: The main observation was not achieved. known = 8 。
 - U01: The main observation was not achieved. known = 18 。
 
+### coverage/combination-results/issue21-20261112-kirimasim-7de185f7.json
+
+- Edition: kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401。
+- Execution timestamp: 2026-11-11T16:54:09.343030+00:00.
+- All objects: pass = 68 , fail = 1 , known = 0 , unsupported = 19 , stale = 0 , not_run = 0.
+- E01: The main observation was not achieved. unsupported = 2 。
+- E02: The main observation was not achieved. unsupported = 2 。
+- E03: All main observations passed. pass = 1 。
+- E04: The main observation was not achieved. unsupported = 2 。
+- E05: The main observation was not achieved. unsupported = 2 。
+- E06: All main observations passed. pass = 2 。
+- N01: All main observations passed. pass = 2 。
+- N02: All main observations passed. pass = 4 。
+- N03: All main observations passed. pass = 4 。
+- N04: All main observations passed. pass = 2 。
+- A01: All main observations passed. pass = 1 。
+- A02: All main observations passed. pass = 3 。
+- A03: All main observations passed. pass = 1 。
+- A04: All main observations passed. pass = 4 。
+- S01: All main observations passed. pass = 8 。
+- S02: The main observation was not achieved. pass = 4 , unsupported = 3 。
+- F01: The main observation was not achieved. unsupported = 3 。
+- F02: All main observations passed. pass = 2 。
+- H01: The main observation was not achieved. pass = 4 , unsupported = 4 。
+- U01: All main observations passed. pass = 18 。
+
+### coverage/combination-results/issue21-20261112-verilator5.052-seed1.json
+
+- Edition: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905。
+- Execution timestamp: 2026-11-11T16:54:16.474122+00:00.
+- All objects: pass = 27 , fail = 0 , known = 61 , unsupported = 0 , stale = 0 , not_run = 0.
+- E01: The main observation was not achieved. known = 2 。
+- E02: The main observation was not achieved. known = 2 。
+- E03: All main observations passed. pass = 1 。
+- E04: The main observation was not achieved. known = 2 。
+- E05: The main observation was not achieved. known = 2 。
+- E06: All main observations passed. pass = 2 。
+- N01: The main observation was not achieved. known = 2 。
+- N02: The main observation was not achieved. known = 4 。
+- N03: The main observation was not achieved. known = 4 。
+- N04: The main observation was not achieved. known = 2 。
+- A01: All main observations passed. pass = 1 。
+- A02: All main observations passed. pass = 3 。
+- A03: All main observations passed. pass = 1 。
+- A04: All main observations passed. pass = 4 。
+- S01: The main observation was not achieved. known = 8 。
+- S02: The main observation was not achieved. pass = 4 , known = 3 。
+- F01: The main observation was not achieved. known = 3 。
+- F02: The main observation was not achieved. known = 2 。
+- H01: All main observations passed. pass = 8 。
+- U01: The main observation was not achieved. known = 18 。
+
+### coverage/combination-results/issue21-20261112-verilator5.052-seed73.json
+
+- Edition: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905。
+- Execution timestamp: 2026-11-11T16:54:22.620520+00:00.
+- All objects: pass = 27 , fail = 0 , known = 61 , unsupported = 0 , stale = 0 , not_run = 0.
+- E01: The main observation was not achieved. known = 2 。
+- E02: The main observation was not achieved. known = 2 。
+- E03: All main observations passed. pass = 1 。
+- E04: The main observation was not achieved. known = 2 。
+- E05: The main observation was not achieved. known = 2 。
+- E06: All main observations passed. pass = 2 。
+- N01: The main observation was not achieved. known = 2 。
+- N02: The main observation was not achieved. known = 4 。
+- N03: The main observation was not achieved. known = 4 。
+- N04: The main observation was not achieved. known = 2 。
+- A01: All main observations passed. pass = 1 。
+- A02: All main observations passed. pass = 3 。
+- A03: All main observations passed. pass = 1 。
+- A04: All main observations passed. pass = 4 。
+- S01: The main observation was not achieved. known = 8 。
+- S02: The main observation was not achieved. pass = 4 , known = 3 。
+- F01: The main observation was not achieved. known = 3 。
+- F02: The main observation was not achieved. known = 2 。
+- H01: All main observations passed. pass = 8 。
+- U01: The main observation was not achieved. known = 18 。
+
+### coverage/combination-results/issue21-icarus-13.json
+
+- Edition: Icarus Verilog version 13.0 (stable) (v13_0-dirty)。
+- Execution timestamp: 2026-10-30T00:40:13.297515+00:00.
+- All objects: pass = 0 , fail = 0 , known = 0 , unsupported = 0 , stale = 88 , not_run = 0.
+- Evidence problem: runner fingerprint differs.
+- E01: The main observation was not achieved. stale = 2 。
+- E02: The main observation was not achieved. stale = 2 。
+- E03: The main observation was not achieved. stale = 1 。
+- E04: The main observation was not achieved. stale = 2 。
+- E05: The main observation was not achieved. stale = 2 。
+- E06: The main observation was not achieved. stale = 2 。
+- N01: The main observation was not achieved. stale = 2 。
+- N02: The main observation was not achieved. stale = 4 。
+- N03: The main observation was not achieved. stale = 4 。
+- N04: The main observation was not achieved. stale = 2 。
+- A01: The main observation was not achieved. stale = 1 。
+- A02: The main observation was not achieved. stale = 3 。
+- A03: The main observation was not achieved. stale = 1 。
+- A04: The main observation was not achieved. stale = 4 。
+- S01: The main observation was not achieved. stale = 8 。
+- S02: The main observation was not achieved. stale = 7 。
+- F01: The main observation was not achieved. stale = 3 。
+- F02: The main observation was not achieved. stale = 2 。
+- H01: The main observation was not achieved. stale = 8 。
+- U01: The main observation was not achieved. stale = 18 。
+
 ### coverage/combination-results/issue21-kirimasim-latest.json
 
 - Edition: kirimasim 0.0.0 (commit 1ca363e2c922), built with AppleClang 21.0.0.21000334。
 - Execution timestamp: 2026-10-30T00:41:13.175003+00:00.
-- All objects: pass = 26 , fail = 2 , known = 0 , unsupported = 59 , stale = 1 , not_run = 0.
-- E01: The main observation was not achieved. unsupported = 2 。
-- E02: The main observation was not achieved. unsupported = 2 。
-- E03: The main observation was not achieved. unsupported = 1 。
-- E04: The main observation was not achieved. unsupported = 2 。
-- E05: The main observation was not achieved. unsupported = 2 。
-- E06: The main observation was not achieved. unsupported = 2 。
-- N01: The main observation was not achieved. unsupported = 2 。
-- N02: The main observation was not achieved. unsupported = 4 。
-- N03: The main observation was not achieved. unsupported = 4 。
-- N04: The main observation was not achieved. unsupported = 2 。
-- A01: The main observation was not achieved. unsupported = 1 。
-- A02: The main observation was not achieved. unsupported = 3 。
-- A03: The main observation was not achieved. unsupported = 1 。
-- A04: The main observation was not achieved. unsupported = 4 。
-- S01: The main observation was not achieved. unsupported = 8 。
-- S02: The main observation was not achieved. unsupported = 7 。
-- F01: The main observation was not achieved. unsupported = 3 。
-- F02: The main observation was not achieved. fail = 2 。
-- H01: The main observation was not achieved. unsupported = 8 。
-- U01: All main observations passed. pass = 18 。
+- All objects: pass = 0 , fail = 0 , known = 0 , unsupported = 0 , stale = 88 , not_run = 0.
+- Evidence problem: runner fingerprint differs.
+- E01: The main observation was not achieved. stale = 2 。
+- E02: The main observation was not achieved. stale = 2 。
+- E03: The main observation was not achieved. stale = 1 。
+- E04: The main observation was not achieved. stale = 2 。
+- E05: The main observation was not achieved. stale = 2 。
+- E06: The main observation was not achieved. stale = 2 。
+- N01: The main observation was not achieved. stale = 2 。
+- N02: The main observation was not achieved. stale = 4 。
+- N03: The main observation was not achieved. stale = 4 。
+- N04: The main observation was not achieved. stale = 2 。
+- A01: The main observation was not achieved. stale = 1 。
+- A02: The main observation was not achieved. stale = 3 。
+- A03: The main observation was not achieved. stale = 1 。
+- A04: The main observation was not achieved. stale = 4 。
+- S01: The main observation was not achieved. stale = 8 。
+- S02: The main observation was not achieved. stale = 7 。
+- F01: The main observation was not achieved. stale = 3 。
+- F02: The main observation was not achieved. stale = 2 。
+- H01: The main observation was not achieved. stale = 8 。
+- U01: The main observation was not achieved. stale = 18 。
 
 ### coverage/combination-results/issue21-verilator-5.052-seed1.json
 
 - Edition: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905。
 - Execution timestamp: 2026-10-30T00:40:20.650747+00:00.
-- All objects: pass = 27 , fail = 0 , known = 49 , unsupported = 0 , stale = 1 , not_run = 11.
-- E01: The main observation was not achieved. known = 2 。
-- E02: The main observation was not achieved. known = 2 。
-- E03: All main observations passed. pass = 1 。
-- E04: The main observation was not achieved. known = 2 。
-- E05: The main observation was not achieved. known = 2 。
-- E06: All main observations passed. pass = 2 。
-- N01: The main observation was not achieved. known = 1 , not_run = 1 。
-- N02: The main observation was not achieved. known = 2 , not_run = 2 。
-- N03: The main observation was not achieved. known = 3 , not_run = 1 。
-- N04: The main observation was not achieved. known = 2 。
-- A01: All main observations passed. pass = 1 。
-- A02: All main observations passed. pass = 3 。
-- A03: All main observations passed. pass = 1 。
-- A04: All main observations passed. pass = 4 。
-- S01: The main observation was not achieved. known = 4 , not_run = 4 。
-- S02: The main observation was not achieved. pass = 4 , known = 2 , not_run = 1 。
-- F01: The main observation was not achieved. known = 3 。
-- F02: The main observation was not achieved. known = 2 。
-- H01: All main observations passed. pass = 8 。
-- U01: The main observation was not achieved. known = 18 。
+- All objects: pass = 0 , fail = 0 , known = 0 , unsupported = 0 , stale = 77 , not_run = 11.
+- Evidence problem: runner fingerprint differs.
+- E01: The main observation was not achieved. stale = 2 。
+- E02: The main observation was not achieved. stale = 2 。
+- E03: The main observation was not achieved. stale = 1 。
+- E04: The main observation was not achieved. stale = 2 。
+- E05: The main observation was not achieved. stale = 2 。
+- E06: The main observation was not achieved. stale = 2 。
+- N01: The main observation was not achieved. stale = 1 , not_run = 1 。
+- N02: The main observation was not achieved. stale = 2 , not_run = 2 。
+- N03: The main observation was not achieved. stale = 3 , not_run = 1 。
+- N04: The main observation was not achieved. stale = 2 。
+- A01: The main observation was not achieved. stale = 1 。
+- A02: The main observation was not achieved. stale = 3 。
+- A03: The main observation was not achieved. stale = 1 。
+- A04: The main observation was not achieved. stale = 4 。
+- S01: The main observation was not achieved. stale = 4 , not_run = 4 。
+- S02: The main observation was not achieved. stale = 6 , not_run = 1 。
+- F01: The main observation was not achieved. stale = 3 。
+- F02: The main observation was not achieved. stale = 2 。
+- H01: The main observation was not achieved. stale = 8 。
+- U01: The main observation was not achieved. stale = 18 。
 
 ### coverage/combination-results/issue21-verilator-5.052-seed73.json
 
 - Edition: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905。
 - Execution timestamp: 2026-10-30T00:40:24.278982+00:00.
-- All objects: pass = 27 , fail = 0 , known = 49 , unsupported = 0 , stale = 1 , not_run = 11.
-- E01: The main observation was not achieved. known = 2 。
-- E02: The main observation was not achieved. known = 2 。
-- E03: All main observations passed. pass = 1 。
-- E04: The main observation was not achieved. known = 2 。
-- E05: The main observation was not achieved. known = 2 。
-- E06: All main observations passed. pass = 2 。
-- N01: The main observation was not achieved. known = 1 , not_run = 1 。
-- N02: The main observation was not achieved. known = 2 , not_run = 2 。
-- N03: The main observation was not achieved. known = 3 , not_run = 1 。
-- N04: The main observation was not achieved. known = 2 。
-- A01: All main observations passed. pass = 1 。
-- A02: All main observations passed. pass = 3 。
-- A03: All main observations passed. pass = 1 。
-- A04: All main observations passed. pass = 4 。
-- S01: The main observation was not achieved. known = 4 , not_run = 4 。
-- S02: The main observation was not achieved. pass = 4 , known = 2 , not_run = 1 。
-- F01: The main observation was not achieved. known = 3 。
-- F02: The main observation was not achieved. known = 2 。
-- H01: All main observations passed. pass = 8 。
-- U01: The main observation was not achieved. known = 18 。
+- All objects: pass = 0 , fail = 0 , known = 0 , unsupported = 0 , stale = 77 , not_run = 11.
+- Evidence problem: runner fingerprint differs.
+- E01: The main observation was not achieved. stale = 2 。
+- E02: The main observation was not achieved. stale = 2 。
+- E03: The main observation was not achieved. stale = 1 。
+- E04: The main observation was not achieved. stale = 2 。
+- E05: The main observation was not achieved. stale = 2 。
+- E06: The main observation was not achieved. stale = 2 。
+- N01: The main observation was not achieved. stale = 1 , not_run = 1 。
+- N02: The main observation was not achieved. stale = 2 , not_run = 2 。
+- N03: The main observation was not achieved. stale = 3 , not_run = 1 。
+- N04: The main observation was not achieved. stale = 2 。
+- A01: The main observation was not achieved. stale = 1 。
+- A02: The main observation was not achieved. stale = 3 。
+- A03: The main observation was not achieved. stale = 1 。
+- A04: The main observation was not achieved. stale = 4 。
+- S01: The main observation was not achieved. stale = 4 , not_run = 4 。
+- S02: The main observation was not achieved. stale = 6 , not_run = 1 。
+- F01: The main observation was not achieved. stale = 3 。
+- F02: The main observation was not achieved. stale = 2 。
+- H01: The main observation was not achieved. stale = 8 。
+- U01: The main observation was not achieved. stale = 18 。
 
 <a id="再実行と更新"></a>
 

@@ -49,12 +49,20 @@ A test with `:should_fail_because:` is an illegal design, which matches when
 names (see tools/suite_results.py). The exit code and messages of a run are
 checked against `:expected_exit:` and `:expected_stderr_regex:`.
 
+A run that a signal ends fails even when it printed the expected output, and
+such a check did not reject an illegal design;
+a step that takes longer than its time limit fails as "timed out". An
+error of this script fails only the test it happened in. A reason names no
+directory of the machine (see neutral()).
+
 With --json, the result of every test is also written to FILE in the form
 that tools/suite_results.py describes.
 """
 
 import argparse
 import concurrent.futures
+import functools
+import os
 import re
 import shutil
 import subprocess
@@ -76,6 +84,10 @@ MESSAGE = re.compile(r"^(?:\S+:\d+:\d+: |note: in '[^']*' at time \S+$)")
 # Lyra's message when the C++ compiler rejects a file that Lyra generated; the
 # compiler's own messages follow it.
 GENERATED = re.compile(r"\berror: compiling '[^']*' failed")
+# The seconds that Lyra may take to build and run one test.
+RUN_TIMEOUT = 300
+# The shortest beginning of a directory that neutral() takes for a cut path.
+CUT = 8
 
 
 def header_field(test: Path, name: str) -> str | None:
@@ -120,8 +132,61 @@ def compiler_error(lines: list[str], error: str) -> str:
     return ": " + re.sub(r"^\S*/", "", first.strip()) if first else ""
 
 
-def run(test: Path, lyra: str, cache: Path, cxx: str | None = None) -> tuple[str, str]:
-    """The status of the test (pass, fail or unsupported) and the reason."""
+def neutral(text: str, tmp: str | None = None, prefix: Path | None = None) -> str:
+    """A reason without the directories of this machine, so that the results
+    can be published and compared between machines: a path under the
+    repository becomes relative to it, and the temporary directory of the
+    test and the directory for temporary files become <tmp>, the directory
+    Lyra is installed in <lyra> and the home directory <home>.
+    The longest directory is replaced first, as one may lie in another. A
+    simulator may cut a long file name short in a message; what is left of a
+    directory then, CUT characters or more before a space, a quote, "..." or
+    the end of a line, becomes <path>."""
+    places = [(str(ROOT) + os.sep, ""), (str(ROOT), ".")]
+    for path, name in ((tmp, "<tmp>"), (tempfile.gettempdir(), "<tmp>"),
+                       (prefix, "<lyra>"), (Path.home(), "<home>")):
+        if path is not None:
+            places += [(p, name) for p in {str(path), os.path.realpath(path)} if len(p) > 1]
+    places.sort(key=lambda place: -len(place[0]))
+    for path, name in places:
+        text = text.replace(path, name)
+    for path, _ in places:
+        if len(path) > CUT and path[:CUT] in text:
+            text = cut_path(path).sub("<path>", text)
+    return text
+
+
+@functools.lru_cache(maxsize=None)
+def cut_path(path: str) -> re.Pattern:
+    """Matches the longest beginning of the path, of CUT characters or more,
+    that a space, a quote, "..." or the end of a line follows."""
+    rest = path[CUT:]
+    return re.compile(re.escape(path[:CUT]) + "".join("(?:" + re.escape(c) for c in rest)
+                      + ")?" * len(rest) + r"""(?=\s|$|\.\.\.|['"])""", re.MULTILINE)
+
+
+def install_prefix(lyra: str) -> Path | None:
+    """The directory Lyra is installed in: the one above the directory of the
+    executable."""
+    exe = shutil.which(lyra)
+    return Path(exe).resolve().parent.parent if exe else None
+
+
+def run(test: Path, lyra: str, cache: Path, cxx: str | None = None,
+        prefix: Path | None = None) -> tuple[str, str]:
+    """The status of the test (pass, fail or unsupported) and the reason.
+    Whatever goes wrong with one test, such as an error of this script, is a
+    failure of that test and does not end the run of the others."""
+    with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp:
+        try:
+            status, why = judge(test, lyra, cache, cxx, tmp, prefix)
+        except Exception as error:   # one test must not end the run
+            status, why = "fail", f"runner error: {type(error).__name__}: {error}"
+        return status, neutral(why, tmp, prefix)
+
+
+def judge(test: Path, lyra: str, cache: Path, cxx: str | None, tmp: str,
+          prefix: Path | None = None) -> tuple[str, str]:
     if header_field(test, "vpi_c") is not None:
         return "unsupported", "Lyra has no VPI"
     sources, include_dirs = suite_results.files(test)
@@ -138,12 +203,11 @@ def run(test: Path, lyra: str, cache: Path, cxx: str | None = None) -> tuple[str
                    *(["--cxx", cxx] if cxx else []),
                    *(["--dpi-link", str(dpi)] if dpi else []), *design,
                    "--", *suite_results.run_args(test)]
-    with tempfile.TemporaryDirectory() as tmp:
-        try:
-            r = subprocess.run(command, capture_output=True, text=True, errors="replace",
-                               cwd=tmp, timeout=300)
-        except subprocess.TimeoutExpired:
-            return "fail", "timed out"
+    try:
+        r = subprocess.run(command, capture_output=True, text=True, errors="replace",
+                           cwd=tmp, timeout=RUN_TIMEOUT)
+    except subprocess.TimeoutExpired:
+        return "fail", "timed out"
     lines = r.stderr.splitlines()
     unsupported = next((l for l in lines if UNSUPPORTED.search(l)), "")
     if illegal:
@@ -159,7 +223,8 @@ def run(test: Path, lyra: str, cache: Path, cxx: str | None = None) -> tuple[str
     want = expected_output(test)
     if want is None:
         return "fail", "no :expected_stdout:"
-    if norm == want:
+    # A run that a signal ended is a failure whatever it printed before.
+    if norm == want and r.returncode >= 0:
         why = suite_results.judge_run(test, r.returncode, r.stdout + r.stderr)
         return ("fail" if why else "pass"), why
     if unsupported:
@@ -172,9 +237,12 @@ def run(test: Path, lyra: str, cache: Path, cxx: str | None = None) -> tuple[str
     error = next((l for l in lines if re.search(r"\berror: ", l)), "")
     if r.returncode != 0 and error and not r.stdout:
         return "fail", "compile failed: " + message(error) + compiler_error(lines, error)
+    # The directories are replaced before the lines are compared and cut
+    # short, so that no part of one stays in the reason.
     return "fail", "output differs" + (f" (exit {r.returncode})" if r.returncode else "") + (
         f": {message(error)}" if error and r.returncode
-        else ": " + suite_results.first_difference(norm, want))
+        else ": " + suite_results.first_difference(neutral(norm, tmp, prefix),
+                                                   neutral(want, tmp, prefix)))
 
 
 def main() -> int:
@@ -199,12 +267,13 @@ def main() -> int:
     tests = simulation_tests(args.tests or suite_results.find_tests())
     inputs = suite_results.fingerprints(tests) if args.json else None
     runner_hash = suite_results.runner_digest("lyra") if args.json else None
+    prefix = install_prefix(exe)
     failed = unsupported = 0
     statuses = {}
     with tempfile.TemporaryDirectory() as tmp:
         cache = args.cache_dir.resolve() if args.cache_dir else Path(tmp)
         with concurrent.futures.ThreadPoolExecutor(max_workers=args.jobs) as pool:
-            results = pool.map(lambda t: run(t, exe, cache, args.cxx), tests)
+            results = pool.map(lambda t: run(t, exe, cache, args.cxx, prefix), tests)
             for t, (status, why) in zip(tests, results):
                 name = t.relative_to(ROOT) if t.is_absolute() else t
                 if status == "unsupported":

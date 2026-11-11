@@ -23,9 +23,9 @@
       "stdout": "target phase=0 impossible=0 ok=1 size=2\nvalues=1111,0011\nnatural=2 wide=18 natural_bits=4 wide_bits=64\nguard phase=0 impossible=0 ok=1 size=2\nvalues=1111,0011\nnatural=2 wide=18 natural_bits=4 wide_bits=64\ntarget phase=1 impossible=1 ok=0 size=2\nvalues=1111,0011\nnatural=2 wide=18 natural_bits=4 wide_bits=64\nguard phase=1 impossible=0 ok=1 size=2\nvalues=1111,0011\nnatural=2 wide=18 natural_bits=4 wide_bits=64\ntarget phase=2 impossible=0 ok=1 size=2\nvalues=1111,0011\nnatural=2 wide=18 natural_bits=4 wide_bits=64\nguard phase=2 impossible=0 ok=1 size=2\nvalues=1111,0011\nnatural=2 wide=18 natural_bits=4 wide_bits=64\n",
       "reason": "",
       "constraint_diagnostics": [
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/unsigned_element_control.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/unsigned_element_control.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/unsigned_element_control.sv:41: Unsatisfied constraint: 'data.sum() =='"
+        "%Warning-UNSATCONSTR: <tmp>/unsigned_element_control.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/unsigned_element_control.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/unsigned_element_control.sv:41: Unsatisfied constraint: 'data.sum() =='"
       ]
     },
     "signed_element_control": {
@@ -34,10 +34,10 @@
       "stdout": "target phase=0 impossible=1 ok=0 size=3\nvalues=00000010,00000010,00000010\nnatural=8 wide=8 natural_bits=8 wide_bits=64\nguard phase=0 impossible=0 ok=1 size=3\nvalues=10000000,11111101,11111101\nnatural=-128 wide=-1152 natural_bits=8 wide_bits=64\ntarget phase=1 impossible=0 ok=1 size=3\nvalues=10000000,11111101,11111101\nnatural=-128 wide=-1152 natural_bits=8 wide_bits=64\nguard phase=1 impossible=0 ok=1 size=3\nvalues=10000000,11111101,11111101\nnatural=-128 wide=-1152 natural_bits=8 wide_bits=64\ntarget phase=2 impossible=1 ok=0 size=3\nvalues=10000000,11111101,11111101\nnatural=-128 wide=-1152 natural_bits=8 wide_bits=64\nguard phase=2 impossible=0 ok=1 size=3\nvalues=10000000,11111101,11111101\nnatural=-128 wide=-1152 natural_bits=8 wide_bits=64\n",
       "reason": "",
       "constraint_diagnostics": [
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/signed_element_control.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 8'sh80 : 8'shfd);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/signed_element_control.sv:41: Unsatisfied constraint: 'data.product() =='",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/signed_element_control.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 8'sh80 : 8'shfd);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/signed_element_control.sv:41: Unsatisfied constraint: 'data.product() =='"
+        "%Warning-UNSATCONSTR: <tmp>/signed_element_control.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 8'sh80 : 8'shfd);'",
+        "%Warning-UNSATCONSTR: <tmp>/signed_element_control.sv:41: Unsatisfied constraint: 'data.product() =='",
+        "%Warning-UNSATCONSTR: <tmp>/signed_element_control.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 8'sh80 : 8'shfd);'",
+        "%Warning-UNSATCONSTR: <tmp>/signed_element_control.sv:41: Unsatisfied constraint: 'data.product() =='"
       ]
     },
     "signed_wide_control": {
@@ -46,10 +46,10 @@
       "stdout": "target phase=0 impossible=1 ok=0 size=2\nvalues=0010,0010\nnatural=4 wide=4 natural_bits=4 wide_bits=64\nguard phase=0 impossible=0 ok=1 size=2\nvalues=1000,1101\nnatural=-8 wide=24 natural_bits=4 wide_bits=64\ntarget phase=1 impossible=0 ok=1 size=2\nvalues=1000,1101\nnatural=-8 wide=24 natural_bits=4 wide_bits=64\nguard phase=1 impossible=0 ok=1 size=2\nvalues=1000,1101\nnatural=-8 wide=24 natural_bits=4 wide_bits=64\ntarget phase=2 impossible=1 ok=0 size=2\nvalues=1000,1101\nnatural=-8 wide=24 natural_bits=4 wide_bits=64\nguard phase=2 impossible=0 ok=1 size=2\nvalues=1000,1101\nnatural=-8 wide=24 natural_bits=4 wide_bits=64\n",
       "reason": "",
       "constraint_diagnostics": [
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/signed_wide_control.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'sh8 : 4'shd);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/signed_wide_control.sv:41: Unsatisfied constraint: 'data.product() with (longint'(item)) =='",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/signed_wide_control.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'sh8 : 4'shd);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/signed_wide_control.sv:41: Unsatisfied constraint: 'data.product() with (longint'(item)) =='"
+        "%Warning-UNSATCONSTR: <tmp>/signed_wide_control.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'sh8 : 4'shd);'",
+        "%Warning-UNSATCONSTR: <tmp>/signed_wide_control.sv:41: Unsatisfied constraint: 'data.product() with (longint'(item)) =='",
+        "%Warning-UNSATCONSTR: <tmp>/signed_wide_control.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'sh8 : 4'shd);'",
+        "%Warning-UNSATCONSTR: <tmp>/signed_wide_control.sv:41: Unsatisfied constraint: 'data.product() with (longint'(item)) =='"
       ]
     },
     "wide_word_control": {
@@ -58,9 +58,9 @@
       "stdout": "target phase=0 impossible=0 ok=1 size=2\nvalues=111111111111111111111111111111111,000000000000000000000000000000011\nnatural=2 wide=8589934594 natural_bits=33 wide_bits=64\nguard phase=0 impossible=0 ok=1 size=2\nvalues=111111111111111111111111111111111,000000000000000000000000000000011\nnatural=2 wide=8589934594 natural_bits=33 wide_bits=64\ntarget phase=1 impossible=1 ok=0 size=2\nvalues=111111111111111111111111111111111,000000000000000000000000000000011\nnatural=2 wide=8589934594 natural_bits=33 wide_bits=64\nguard phase=1 impossible=0 ok=1 size=2\nvalues=111111111111111111111111111111111,000000000000000000000000000000011\nnatural=2 wide=8589934594 natural_bits=33 wide_bits=64\ntarget phase=2 impossible=0 ok=1 size=2\nvalues=111111111111111111111111111111111,000000000000000000000000000000011\nnatural=2 wide=8589934594 natural_bits=33 wide_bits=64\nguard phase=2 impossible=0 ok=1 size=2\nvalues=111111111111111111111111111111111,000000000000000000000000000000011\nnatural=2 wide=8589934594 natural_bits=33 wide_bits=64\n",
       "reason": "",
       "constraint_diagnostics": [
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/wide_word_control.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 33'h1ffffffff : 33'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/wide_word_control.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 33'h1ffffffff : 33'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/wide_word_control.sv:41: Unsatisfied constraint: 'data.sum() =='"
+        "%Warning-UNSATCONSTR: <tmp>/wide_word_control.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 33'h1ffffffff : 33'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/wide_word_control.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 33'h1ffffffff : 33'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/wide_word_control.sv:41: Unsatisfied constraint: 'data.sum() =='"
       ]
     },
     "drop_reduction_constraint": {
@@ -76,24 +76,24 @@
       "stdout": "target phase=0 impossible=0 ok=0 size=2\nvalues=0010,0010\nnatural=4 wide=4 natural_bits=4 wide_bits=64\nguard phase=0 impossible=0 ok=0 size=2\nvalues=0010,0010\nnatural=4 wide=4 natural_bits=4 wide_bits=64\ntarget phase=1 impossible=1 ok=0 size=2\nvalues=0010,0010\nnatural=4 wide=4 natural_bits=4 wide_bits=64\nguard phase=1 impossible=0 ok=0 size=2\nvalues=0010,0010\nnatural=4 wide=4 natural_bits=4 wide_bits=64\ntarget phase=2 impossible=0 ok=0 size=2\nvalues=0010,0010\nnatural=4 wide=4 natural_bits=4 wide_bits=64\nguard phase=2 impossible=0 ok=0 size=2\nvalues=0010,0010\nnatural=4 wide=4 natural_bits=4 wide_bits=64\n",
       "reason": "output differs: line 1 is 'target phase=0 impossible=0 ok=0 size=2', expected 'target phase=0 impossible=0 ok=1 size=2'",
       "constraint_diagnostics": [
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/widen_element_reduction.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/widen_element_reduction.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/widen_element_reduction.sv:41: Unsatisfied constraint: 'data.sum() with (longint'(item)) =='",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/widen_element_reduction.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/widen_element_reduction.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/widen_element_reduction.sv:41: Unsatisfied constraint: 'data.sum() with (longint'(item)) =='",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/widen_element_reduction.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/widen_element_reduction.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/widen_element_reduction.sv:41: Unsatisfied constraint: 'data.sum() with (longint'(item)) =='",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/widen_element_reduction.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/widen_element_reduction.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/widen_element_reduction.sv:41: Unsatisfied constraint: 'data.sum() with (longint'(item)) =='",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/widen_element_reduction.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/widen_element_reduction.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/widen_element_reduction.sv:41: Unsatisfied constraint: 'data.sum() with (longint'(item)) =='",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/widen_element_reduction.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/widen_element_reduction.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/widen_element_reduction.sv:41: Unsatisfied constraint: 'data.sum() with (longint'(item)) =='"
+        "%Warning-UNSATCONSTR: <tmp>/widen_element_reduction.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/widen_element_reduction.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/widen_element_reduction.sv:41: Unsatisfied constraint: 'data.sum() with (longint'(item)) =='",
+        "%Warning-UNSATCONSTR: <tmp>/widen_element_reduction.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/widen_element_reduction.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/widen_element_reduction.sv:41: Unsatisfied constraint: 'data.sum() with (longint'(item)) =='",
+        "%Warning-UNSATCONSTR: <tmp>/widen_element_reduction.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/widen_element_reduction.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/widen_element_reduction.sv:41: Unsatisfied constraint: 'data.sum() with (longint'(item)) =='",
+        "%Warning-UNSATCONSTR: <tmp>/widen_element_reduction.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/widen_element_reduction.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/widen_element_reduction.sv:41: Unsatisfied constraint: 'data.sum() with (longint'(item)) =='",
+        "%Warning-UNSATCONSTR: <tmp>/widen_element_reduction.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/widen_element_reduction.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/widen_element_reduction.sv:41: Unsatisfied constraint: 'data.sum() with (longint'(item)) =='",
+        "%Warning-UNSATCONSTR: <tmp>/widen_element_reduction.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/widen_element_reduction.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/widen_element_reduction.sv:41: Unsatisfied constraint: 'data.sum() with (longint'(item)) =='"
       ]
     },
     "cast_after_reduction": {
@@ -102,12 +102,12 @@
       "stdout": "target phase=0 impossible=1 ok=0 size=2\nvalues=0010,0010\nnatural=4 wide=4 natural_bits=4 wide_bits=64\nguard phase=0 impossible=0 ok=0 size=2\nvalues=0010,0010\nnatural=4 wide=4 natural_bits=4 wide_bits=64\ntarget phase=1 impossible=0 ok=0 size=2\nvalues=0010,0010\nnatural=4 wide=4 natural_bits=4 wide_bits=64\nguard phase=1 impossible=0 ok=0 size=2\nvalues=0010,0010\nnatural=4 wide=4 natural_bits=4 wide_bits=64\ntarget phase=2 impossible=1 ok=0 size=2\nvalues=0010,0010\nnatural=4 wide=4 natural_bits=4 wide_bits=64\nguard phase=2 impossible=0 ok=0 size=2\nvalues=0010,0010\nnatural=4 wide=4 natural_bits=4 wide_bits=64\n",
       "reason": "output differs: line 4 is 'guard phase=0 impossible=0 ok=0 size=2', expected 'guard phase=0 impossible=0 ok=1 size=2'",
       "constraint_diagnostics": [
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/cast_after_reduction.sv:41: Unsatisfied constraint: 'longint'(4'(data.product())) =='",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/cast_after_reduction.sv:41: Unsatisfied constraint: 'longint'(4'(data.product())) =='",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/cast_after_reduction.sv:41: Unsatisfied constraint: 'longint'(4'(data.product())) =='",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/cast_after_reduction.sv:41: Unsatisfied constraint: 'longint'(4'(data.product())) =='",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/cast_after_reduction.sv:41: Unsatisfied constraint: 'longint'(4'(data.product())) =='",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/cast_after_reduction.sv:41: Unsatisfied constraint: 'longint'(4'(data.product())) =='"
+        "%Warning-UNSATCONSTR: <tmp>/cast_after_reduction.sv:41: Unsatisfied constraint: 'longint'(4'(data.product())) =='",
+        "%Warning-UNSATCONSTR: <tmp>/cast_after_reduction.sv:41: Unsatisfied constraint: 'longint'(4'(data.product())) =='",
+        "%Warning-UNSATCONSTR: <tmp>/cast_after_reduction.sv:41: Unsatisfied constraint: 'longint'(4'(data.product())) =='",
+        "%Warning-UNSATCONSTR: <tmp>/cast_after_reduction.sv:41: Unsatisfied constraint: 'longint'(4'(data.product())) =='",
+        "%Warning-UNSATCONSTR: <tmp>/cast_after_reduction.sv:41: Unsatisfied constraint: 'longint'(4'(data.product())) =='",
+        "%Warning-UNSATCONSTR: <tmp>/cast_after_reduction.sv:41: Unsatisfied constraint: 'longint'(4'(data.product())) =='"
       ]
     },
     "zero_extend_signed_items": {
@@ -116,22 +116,22 @@
       "stdout": "target phase=0 impossible=1 ok=0 size=2\nvalues=0010,0010\nnatural=4 wide=4 natural_bits=4 wide_bits=64\nguard phase=0 impossible=0 ok=0 size=2\nvalues=0010,0010\nnatural=4 wide=4 natural_bits=4 wide_bits=64\ntarget phase=1 impossible=0 ok=0 size=2\nvalues=0010,0010\nnatural=4 wide=4 natural_bits=4 wide_bits=64\nguard phase=1 impossible=0 ok=0 size=2\nvalues=0010,0010\nnatural=4 wide=4 natural_bits=4 wide_bits=64\ntarget phase=2 impossible=1 ok=0 size=2\nvalues=0010,0010\nnatural=4 wide=4 natural_bits=4 wide_bits=64\nguard phase=2 impossible=0 ok=0 size=2\nvalues=0010,0010\nnatural=4 wide=4 natural_bits=4 wide_bits=64\n",
       "reason": "output differs: line 4 is 'guard phase=0 impossible=0 ok=0 size=2', expected 'guard phase=0 impossible=0 ok=1 size=2'",
       "constraint_diagnostics": [
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/zero_extend_signed_items.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'sh8 : 4'shd);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/zero_extend_signed_items.sv:41: Unsatisfied constraint: 'data.product() with (longint'($unsigned(item))) =='",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/zero_extend_signed_items.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'sh8 : 4'shd);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/zero_extend_signed_items.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'sh8 : 4'shd);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/zero_extend_signed_items.sv:41: Unsatisfied constraint: 'data.product() with (longint'($unsigned(item))) =='",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/zero_extend_signed_items.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'sh8 : 4'shd);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/zero_extend_signed_items.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'sh8 : 4'shd);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/zero_extend_signed_items.sv:41: Unsatisfied constraint: 'data.product() with (longint'($unsigned(item))) =='",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/zero_extend_signed_items.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'sh8 : 4'shd);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/zero_extend_signed_items.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'sh8 : 4'shd);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/zero_extend_signed_items.sv:41: Unsatisfied constraint: 'data.product() with (longint'($unsigned(item))) =='",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/zero_extend_signed_items.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'sh8 : 4'shd);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/zero_extend_signed_items.sv:41: Unsatisfied constraint: 'data.product() with (longint'($unsigned(item))) =='",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/zero_extend_signed_items.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'sh8 : 4'shd);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/zero_extend_signed_items.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'sh8 : 4'shd);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/zero_extend_signed_items.sv:41: Unsatisfied constraint: 'data.product() with (longint'($unsigned(item))) =='"
+        "%Warning-UNSATCONSTR: <tmp>/zero_extend_signed_items.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'sh8 : 4'shd);'",
+        "%Warning-UNSATCONSTR: <tmp>/zero_extend_signed_items.sv:41: Unsatisfied constraint: 'data.product() with (longint'($unsigned(item))) =='",
+        "%Warning-UNSATCONSTR: <tmp>/zero_extend_signed_items.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'sh8 : 4'shd);'",
+        "%Warning-UNSATCONSTR: <tmp>/zero_extend_signed_items.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'sh8 : 4'shd);'",
+        "%Warning-UNSATCONSTR: <tmp>/zero_extend_signed_items.sv:41: Unsatisfied constraint: 'data.product() with (longint'($unsigned(item))) =='",
+        "%Warning-UNSATCONSTR: <tmp>/zero_extend_signed_items.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'sh8 : 4'shd);'",
+        "%Warning-UNSATCONSTR: <tmp>/zero_extend_signed_items.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'sh8 : 4'shd);'",
+        "%Warning-UNSATCONSTR: <tmp>/zero_extend_signed_items.sv:41: Unsatisfied constraint: 'data.product() with (longint'($unsigned(item))) =='",
+        "%Warning-UNSATCONSTR: <tmp>/zero_extend_signed_items.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'sh8 : 4'shd);'",
+        "%Warning-UNSATCONSTR: <tmp>/zero_extend_signed_items.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'sh8 : 4'shd);'",
+        "%Warning-UNSATCONSTR: <tmp>/zero_extend_signed_items.sv:41: Unsatisfied constraint: 'data.product() with (longint'($unsigned(item))) =='",
+        "%Warning-UNSATCONSTR: <tmp>/zero_extend_signed_items.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'sh8 : 4'shd);'",
+        "%Warning-UNSATCONSTR: <tmp>/zero_extend_signed_items.sv:41: Unsatisfied constraint: 'data.product() with (longint'($unsigned(item))) =='",
+        "%Warning-UNSATCONSTR: <tmp>/zero_extend_signed_items.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'sh8 : 4'shd);'",
+        "%Warning-UNSATCONSTR: <tmp>/zero_extend_signed_items.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'sh8 : 4'shd);'",
+        "%Warning-UNSATCONSTR: <tmp>/zero_extend_signed_items.sv:41: Unsatisfied constraint: 'data.product() with (longint'($unsigned(item))) =='"
       ]
     },
     "failure_clobbers_value": {
@@ -140,10 +140,10 @@
       "stdout": "target phase=0 impossible=1 ok=0 size=3\nvalues=00000000,00000010,00000010\nnatural=0 wide=0 natural_bits=8 wide_bits=64\nguard phase=0 impossible=0 ok=1 size=3\nvalues=10000000,11111101,11111101\nnatural=-128 wide=-1152 natural_bits=8 wide_bits=64\ntarget phase=1 impossible=0 ok=1 size=3\nvalues=10000000,11111101,11111101\nnatural=-128 wide=-1152 natural_bits=8 wide_bits=64\nguard phase=1 impossible=0 ok=1 size=3\nvalues=10000000,11111101,11111101\nnatural=-128 wide=-1152 natural_bits=8 wide_bits=64\ntarget phase=2 impossible=1 ok=0 size=3\nvalues=00000000,11111101,11111101\nnatural=0 wide=0 natural_bits=8 wide_bits=64\nguard phase=2 impossible=0 ok=1 size=3\nvalues=10000000,11111101,11111101\nnatural=-128 wide=-1152 natural_bits=8 wide_bits=64\n",
       "reason": "output differs: line 2 is 'values=00000000,00000010,00000010', expected 'values=00000010,00000010,00000010'",
       "constraint_diagnostics": [
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/failure_clobbers_value.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 8'sh80 : 8'shfd);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/failure_clobbers_value.sv:41: Unsatisfied constraint: 'data.product() =='",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/failure_clobbers_value.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 8'sh80 : 8'shfd);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/failure_clobbers_value.sv:41: Unsatisfied constraint: 'data.product() =='"
+        "%Warning-UNSATCONSTR: <tmp>/failure_clobbers_value.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 8'sh80 : 8'shfd);'",
+        "%Warning-UNSATCONSTR: <tmp>/failure_clobbers_value.sv:41: Unsatisfied constraint: 'data.product() =='",
+        "%Warning-UNSATCONSTR: <tmp>/failure_clobbers_value.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 8'sh80 : 8'shfd);'",
+        "%Warning-UNSATCONSTR: <tmp>/failure_clobbers_value.sv:41: Unsatisfied constraint: 'data.product() =='"
       ]
     },
     "aliased_guard_object": {
@@ -152,12 +152,12 @@
       "stdout": "target phase=0 impossible=0 ok=1 size=2\nvalues=1111,0011\nnatural=2 wide=18 natural_bits=4 wide_bits=64\nguard phase=0 impossible=0 ok=1 size=2\nvalues=1111,0011\nnatural=2 wide=18 natural_bits=4 wide_bits=64\ntarget phase=1 impossible=1 ok=0 size=2\nvalues=1111,0011\nnatural=2 wide=18 natural_bits=4 wide_bits=64\nguard phase=1 impossible=1 ok=0 size=2\nvalues=1111,0011\nnatural=2 wide=18 natural_bits=4 wide_bits=64\ntarget phase=2 impossible=0 ok=1 size=2\nvalues=1111,0011\nnatural=2 wide=18 natural_bits=4 wide_bits=64\nguard phase=2 impossible=0 ok=1 size=2\nvalues=1111,0011\nnatural=2 wide=18 natural_bits=4 wide_bits=64\n",
       "reason": "output differs: line 10 is 'guard phase=1 impossible=1 ok=0 size=2', expected 'guard phase=1 impossible=0 ok=1 size=2'",
       "constraint_diagnostics": [
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/aliased_guard_object.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/aliased_guard_object.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/aliased_guard_object.sv:41: Unsatisfied constraint: 'data.sum() =='",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/aliased_guard_object.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/aliased_guard_object.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/aliased_guard_object.sv:41: Unsatisfied constraint: 'data.sum() =='"
+        "%Warning-UNSATCONSTR: <tmp>/aliased_guard_object.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/aliased_guard_object.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/aliased_guard_object.sv:41: Unsatisfied constraint: 'data.sum() =='",
+        "%Warning-UNSATCONSTR: <tmp>/aliased_guard_object.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/aliased_guard_object.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/aliased_guard_object.sv:41: Unsatisfied constraint: 'data.sum() =='"
       ]
     },
     "wrong_reduction_method": {
@@ -166,24 +166,24 @@
       "stdout": "target phase=0 impossible=0 ok=0 size=2\nvalues=0010,0010\nnatural=4 wide=4 natural_bits=4 wide_bits=64\nguard phase=0 impossible=0 ok=0 size=2\nvalues=0010,0010\nnatural=4 wide=4 natural_bits=4 wide_bits=64\ntarget phase=1 impossible=1 ok=0 size=2\nvalues=0010,0010\nnatural=4 wide=4 natural_bits=4 wide_bits=64\nguard phase=1 impossible=0 ok=0 size=2\nvalues=0010,0010\nnatural=4 wide=4 natural_bits=4 wide_bits=64\ntarget phase=2 impossible=0 ok=0 size=2\nvalues=0010,0010\nnatural=4 wide=4 natural_bits=4 wide_bits=64\nguard phase=2 impossible=0 ok=0 size=2\nvalues=0010,0010\nnatural=4 wide=4 natural_bits=4 wide_bits=64\n",
       "reason": "output differs: line 1 is 'target phase=0 impossible=0 ok=0 size=2', expected 'target phase=0 impossible=0 ok=1 size=2'",
       "constraint_diagnostics": [
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/wrong_reduction_method.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/wrong_reduction_method.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/wrong_reduction_method.sv:41: Unsatisfied constraint: 'data.product() =='",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/wrong_reduction_method.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/wrong_reduction_method.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/wrong_reduction_method.sv:41: Unsatisfied constraint: 'data.product() =='",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/wrong_reduction_method.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/wrong_reduction_method.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/wrong_reduction_method.sv:41: Unsatisfied constraint: 'data.product() =='",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/wrong_reduction_method.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/wrong_reduction_method.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/wrong_reduction_method.sv:41: Unsatisfied constraint: 'data.product() =='",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/wrong_reduction_method.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/wrong_reduction_method.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/wrong_reduction_method.sv:41: Unsatisfied constraint: 'data.product() =='",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/wrong_reduction_method.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/wrong_reduction_method.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpztojbwbt/wrong_reduction_method.sv:41: Unsatisfied constraint: 'data.product() =='"
+        "%Warning-UNSATCONSTR: <tmp>/wrong_reduction_method.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_reduction_method.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_reduction_method.sv:41: Unsatisfied constraint: 'data.product() =='",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_reduction_method.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_reduction_method.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_reduction_method.sv:41: Unsatisfied constraint: 'data.product() =='",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_reduction_method.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_reduction_method.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_reduction_method.sv:41: Unsatisfied constraint: 'data.product() =='",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_reduction_method.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_reduction_method.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_reduction_method.sv:41: Unsatisfied constraint: 'data.product() =='",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_reduction_method.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_reduction_method.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_reduction_method.sv:41: Unsatisfied constraint: 'data.product() =='",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_reduction_method.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_reduction_method.sv:38: Unsatisfied constraint: 'foreach (data[i]) data[i] == ((i == 0) ? 4'hf : 4'h3);'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_reduction_method.sv:41: Unsatisfied constraint: 'data.product() =='"
       ]
     }
   },

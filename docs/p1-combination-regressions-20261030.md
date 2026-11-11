@@ -306,11 +306,11 @@ queue/動的配列とalways_comb、always @*、連続代入、always_latchを交
 
 ## 現在の入力に対応する実行証跡
 
-### coverage/combination-results/issue21-icarus-13.json
+### coverage/combination-results/issue21-20261112-icarus13.json
 
-- 版: Icarus Verilog バージョン 13.0 (安定版) (v13_0 -dirty)。
-- 実行日時: 2026-10-30T00:40:13.297515+00:00。
-- 対象全件: pass=11, fail=0, known=76, unsupported=0, stale=1, not_run=0。
+- 版: Icarus Verilog バージョン 13.0 (安定版) (v13_0)。
+- 実行日時: 2026-11-11T16:54:09.890891+00:00。
+- 対象全件: pass=11, fail=0, known=77, unsupported=0, stale=0, not_run=0。
 - E01: 主観測に未達あり。known=2。
 - E02: 主観測に未達あり。known=2。
 - E03: 主観測すべて合格。pass=1。
@@ -332,83 +332,191 @@ queue/動的配列とalways_comb、always @*、連続代入、always_latchを交
 - H01: 主観測に未達あり。known=8。
 - U01: 主観測に未達あり。known=18。
 
+### coverage/combination-results/issue21-20261112-kirimasim-7de185f7.json
+
+- 版: kirimasim 0.0.0（コミット7de185f776a1）、AppleClang21.0.0.21000401で構築した。
+- 実行日時: 2026-11-11T16:54:09.343030+00:00。
+- 対象全件: pass=68, fail=1, known=0, unsupported=19, stale=0, not_run=0。
+- E01: 主観測に未達あり。unsupported=2。
+- E02: 主観測に未達あり。unsupported=2。
+- E03: 主観測すべて合格。pass=1。
+- E04: 主観測に未達あり。unsupported=2。
+- E05: 主観測に未達あり。unsupported=2。
+- E06: 主観測すべて合格。pass=2。
+- N01: 主観測すべて合格。pass=2。
+- N02: 主観測すべて合格。pass=4。
+- N03: 主観測すべて合格。pass=4。
+- N04: 主観測すべて合格。pass=2。
+- A01: 主観測すべて合格。pass=1。
+- A02: 主観測すべて合格。pass=3。
+- A03: 主観測すべて合格。pass=1。
+- A04: 主観測すべて合格。pass=4。
+- S01: 主観測すべて合格。pass=8。
+- S02: 主観測に未達あり。pass=4, unsupported=3。
+- F01: 主観測に未達あり。unsupported=3。
+- F02: 主観測すべて合格。pass=2。
+- H01: 主観測に未達あり。pass=4, unsupported=4。
+- U01: 主観測すべて合格。pass=18。
+
+### coverage/combination-results/issue21-20261112-verilator5.052-seed1.json
+
+- 版: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905。
+- 実行日時: 2026-11-11T16:54:16.474122+00:00。
+- 対象全件: pass=27, fail=0, known=61, unsupported=0, stale=0, not_run=0。
+- E01: 主観測に未達あり。known=2。
+- E02: 主観測に未達あり。known=2。
+- E03: 主観測すべて合格。pass=1。
+- E04: 主観測に未達あり。known=2。
+- E05: 主観測に未達あり。known=2。
+- E06: 主観測すべて合格。pass=2。
+- N01: 主観測に未達あり。known=2。
+- N02: 主観測に未達あり。known=4。
+- N03: 主観測に未達あり。known=4。
+- N04: 主観測に未達あり。known=2。
+- A01: 主観測すべて合格。pass=1。
+- A02: 主観測すべて合格。pass=3。
+- A03: 主観測すべて合格。pass=1。
+- A04: 主観測すべて合格。pass=4。
+- S01: 主観測に未達あり。known=8。
+- S02: 主観測に未達あり。pass=4, known=3。
+- F01: 主観測に未達あり。known=3。
+- F02: 主観測に未達あり。known=2。
+- H01: 主観測すべて合格。pass=8。
+- U01: 主観測に未達あり。known=18。
+
+### coverage/combination-results/issue21-20261112-verilator5.052-seed73.json
+
+- 版: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905。
+- 実行日時: 2026-11-11T16:54:22.620520+00:00。
+- 対象全件: pass=27, fail=0, known=61, unsupported=0, stale=0, not_run=0。
+- E01: 主観測に未達あり。known=2。
+- E02: 主観測に未達あり。known=2。
+- E03: 主観測すべて合格。pass=1。
+- E04: 主観測に未達あり。known=2。
+- E05: 主観測に未達あり。known=2。
+- E06: 主観測すべて合格。pass=2。
+- N01: 主観測に未達あり。known=2。
+- N02: 主観測に未達あり。known=4。
+- N03: 主観測に未達あり。known=4。
+- N04: 主観測に未達あり。known=2。
+- A01: 主観測すべて合格。pass=1。
+- A02: 主観測すべて合格。pass=3。
+- A03: 主観測すべて合格。pass=1。
+- A04: 主観測すべて合格。pass=4。
+- S01: 主観測に未達あり。known=8。
+- S02: 主観測に未達あり。pass=4, known=3。
+- F01: 主観測に未達あり。known=3。
+- F02: 主観測に未達あり。known=2。
+- H01: 主観測すべて合格。pass=8。
+- U01: 主観測に未達あり。known=18。
+
+### coverage/combination-results/issue21-icarus-13.json
+
+- 版: Icarus Verilog バージョン 13.0 (安定版) (v13_0 -dirty)。
+- 実行日時: 2026-10-30T00:40:13.297515+00:00。
+- 対象全件: pass=0, fail=0, known=0, unsupported=0, stale=88, not_run=0。
+- 証跡の問題: ランナーの指紋が一致しません。
+- E01: 主観測に未達あり。stale=2。
+- E02: 主観測に未達あり。stale=2。
+- E03: 主観測に未達あり。stale=1。
+- E04: 主観測に未達あり。stale=2。
+- E05: 主観測に未達あり。stale=2。
+- E06: 主観測に未達あり。stale=2。
+- N01: 主観測に未達あり。stale=2。
+- N02: 主観測に未達あり。stale=4。
+- N03: 主観測に未達あり。stale=4。
+- N04: 主観測に未達あり。stale=2。
+- A01: 主観測に未達あり。stale=1。
+- A02: 主観測に未達あり。stale=3。
+- A03: 主観測に未達あり。stale=1。
+- A04: 主観測に未達あり。stale=4。
+- S01: 主観測に未達あり。stale=8。
+- S02: 主観測に未達あり。stale=7。
+- F01: 主観測に未達あり。stale=3。
+- F02: 主観測に未達あり。stale=2。
+- H01: 主観測に未達あり。stale=8。
+- U01: 主観測に未達あり。stale=18。
+
 ### coverage/combination-results/issue21-kirimasim-latest.json
 
 - 版: kirimasim 0.0.0（コミット1ca363e2c922）、AppleClang21.0.0.21000334で構築した。
 - 実行日時: 2026-10-30T00:41:13.175003+00:00。
-- 対象全件: pass=26, fail=2, known=0, unsupported=59, stale=1, not_run=0。
-- E01: 主観測に未達あり。unsupported=2。
-- E02: 主観測に未達あり。unsupported=2。
-- E03: 主観測に未達あり。unsupported=1。
-- E04: 主観測に未達あり。unsupported=2。
-- E05: 主観測に未達あり。unsupported=2。
-- E06: 主観測に未達あり。unsupported=2。
-- N01: 主観測に未達あり。unsupported=2。
-- N02: 主観測に未達あり。unsupported=4。
-- N03: 主観測に未達あり。unsupported=4。
-- N04: 主観測に未達あり。unsupported=2。
-- A01: 主観測に未達あり。unsupported=1。
-- A02: 主観測に未達あり。unsupported=3。
-- A03: 主観測に未達あり。unsupported=1。
-- A04: 主観測に未達あり。unsupported=4。
-- S01: 主観測に未達あり。unsupported=8。
-- S02: 主観測に未達あり。unsupported=7。
-- F01: 主観測に未達あり。unsupported=3。
-- F02: 主観測に未達あり。fail=2。
-- H01: 主観測に未達あり。unsupported=8。
-- U01: 主観測すべて合格。pass=18。
+- 対象全件: pass=0, fail=0, known=0, unsupported=0, stale=88, not_run=0。
+- 証跡の問題: ランナーの指紋が一致しません。
+- E01: 主観測に未達あり。stale=2。
+- E02: 主観測に未達あり。stale=2。
+- E03: 主観測に未達あり。stale=1。
+- E04: 主観測に未達あり。stale=2。
+- E05: 主観測に未達あり。stale=2。
+- E06: 主観測に未達あり。stale=2。
+- N01: 主観測に未達あり。stale=2。
+- N02: 主観測に未達あり。stale=4。
+- N03: 主観測に未達あり。stale=4。
+- N04: 主観測に未達あり。stale=2。
+- A01: 主観測に未達あり。stale=1。
+- A02: 主観測に未達あり。stale=3。
+- A03: 主観測に未達あり。stale=1。
+- A04: 主観測に未達あり。stale=4。
+- S01: 主観測に未達あり。stale=8。
+- S02: 主観測に未達あり。stale=7。
+- F01: 主観測に未達あり。stale=3。
+- F02: 主観測に未達あり。stale=2。
+- H01: 主観測に未達あり。stale=8。
+- U01: 主観測に未達あり。stale=18。
 
 ### coverage/combination-results/issue21-verilator-5.052-seed1.json
 
 - 版: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905。
 - 実行日時: 2026-10-30T00:40:20.650747+00:00。
-- 対象全件: pass=27, fail=0, known=49, unsupported=0, stale=1, not_run=11。
-- E01: 主観測に未達あり。known=2。
-- E02: 主観測に未達あり。known=2。
-- E03: 主観測すべて合格。pass=1。
-- E04: 主観測に未達あり。known=2。
-- E05: 主観測に未達あり。known=2。
-- E06: 主観測すべて合格。pass=2。
-- N01: 主観測に未達あり。known=1, not_run=1。
-- N02: 主観測に未達あり。known=2, not_run=2。
-- N03: 主観測に未達あり。known=3, not_run=1。
-- N04: 主観測に未達あり。known=2。
-- A01: 主観測すべて合格。pass=1。
-- A02: 主観測すべて合格。pass=3。
-- A03: 主観測すべて合格。pass=1。
-- A04: 主観測すべて合格。pass=4。
-- S01: 主観測に未達あり。known=4, not_run=4。
-- S02: 主観測に未達あり。pass=4, known=2, not_run=1。
-- F01: 主観測に未達あり。known=3。
-- F02: 主観測に未達あり。known=2。
-- H01: 主観測すべて合格。pass=8。
-- U01: 主観測に未達あり。known=18。
+- 対象全件: pass=0, fail=0, known=0, unsupported=0, stale=77, not_run=11。
+- 証跡の問題: ランナーの指紋が一致しません。
+- E01: 主観測に未達あり。stale=2。
+- E02: 主観測に未達あり。stale=2。
+- E03: 主観測に未達あり。stale=1。
+- E04: 主観測に未達あり。stale=2。
+- E05: 主観測に未達あり。stale=2。
+- E06: 主観測に未達あり。stale=2。
+- N01: 主観測に未達あり。stale=1, not_run=1。
+- N02: 主観測に未達あり。stale=2, not_run=2。
+- N03: 主観測に未達あり。stale=3, not_run=1。
+- N04: 主観測に未達あり。stale=2。
+- A01: 主観測に未達あり。stale=1。
+- A02: 主観測に未達あり。stale=3。
+- A03: 主観測に未達あり。stale=1。
+- A04: 主観測に未達あり。stale=4。
+- S01: 主観測に未達あり。stale=4, not_run=4。
+- S02: 主観測に未達あり。stale=6, not_run=1。
+- F01: 主観測に未達あり。stale=3。
+- F02: 主観測に未達あり。stale=2。
+- H01: 主観測に未達あり。stale=8。
+- U01: 主観測に未達あり。stale=18。
 
 ### coverage/combination-results/issue21-verilator-5.052-seed73.json
 
 - 版: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905。
 - 実行日時: 2026-10-30T00:40:24.278982+00:00。
-- 対象全件: pass=27, fail=0, known=49, unsupported=0, stale=1, not_run=11。
-- E01: 主観測に未達あり。known=2。
-- E02: 主観測に未達あり。known=2。
-- E03: 主観測すべて合格。pass=1。
-- E04: 主観測に未達あり。known=2。
-- E05: 主観測に未達あり。known=2。
-- E06: 主観測すべて合格。pass=2。
-- N01: 主観測に未達あり。known=1, not_run=1。
-- N02: 主観測に未達あり。known=2, not_run=2。
-- N03: 主観測に未達あり。known=3, not_run=1。
-- N04: 主観測に未達あり。known=2。
-- A01: 主観測すべて合格。pass=1。
-- A02: 主観測すべて合格。pass=3。
-- A03: 主観測すべて合格。pass=1。
-- A04: 主観測すべて合格。pass=4。
-- S01: 主観測に未達あり。known=4, not_run=4。
-- S02: 主観測に未達あり。pass=4, known=2, not_run=1。
-- F01: 主観測に未達あり。known=3。
-- F02: 主観測に未達あり。known=2。
-- H01: 主観測すべて合格。pass=8。
-- U01: 主観測に未達あり。known=18。
+- 対象全件: pass=0, fail=0, known=0, unsupported=0, stale=77, not_run=11。
+- 証跡の問題: ランナーの指紋が一致しません。
+- E01: 主観測に未達あり。stale=2。
+- E02: 主観測に未達あり。stale=2。
+- E03: 主観測に未達あり。stale=1。
+- E04: 主観測に未達あり。stale=2。
+- E05: 主観測に未達あり。stale=2。
+- E06: 主観測に未達あり。stale=2。
+- N01: 主観測に未達あり。stale=1, not_run=1。
+- N02: 主観測に未達あり。stale=2, not_run=2。
+- N03: 主観測に未達あり。stale=3, not_run=1。
+- N04: 主観測に未達あり。stale=2。
+- A01: 主観測に未達あり。stale=1。
+- A02: 主観測に未達あり。stale=3。
+- A03: 主観測に未達あり。stale=1。
+- A04: 主観測に未達あり。stale=4。
+- S01: 主観測に未達あり。stale=4, not_run=4。
+- S02: 主観測に未達あり。stale=6, not_run=1。
+- F01: 主観測に未達あり。stale=3。
+- F02: 主観測に未達あり。stale=2。
+- H01: 主観測に未達あり。stale=8。
+- U01: 主観測に未達あり。stale=18。
 
 <a id="rerun-and-refresh"></a>
 

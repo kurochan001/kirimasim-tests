@@ -5,7 +5,7 @@
  "tests": {
   "ch11/test_precedence_relational_equality_levels": {
    "status": "known",
-   "reason": "compile failed: /Users/mitsuyuki/Projects/kirimasim-tests/tests/ch11/test_precedence_relational_equality_levels.sv:88: sorry: \"inside\" expressions not supported yet.",
+   "reason": "compile failed: tests/ch11/test_precedence_relational_equality_levels.sv:88: sorry: \"inside\" expressions not supported yet.",
    "inputs_sha256": "6e475db3a439911b6b39b5e8dc8e7ee49efe76ff9dd910cf7f270b1e3742fba1"
   },
   "ch11/test_relational_equality_wildcard_one_bit_results_extension": {
@@ -18,7 +18,7 @@
   },
   "ch13/test_function_array_formals_inherit_type": {
    "status": "known",
-   "reason": "compile failed: /Users/mitsuyuki/Projects/kirimasim-tests/tests/ch13/test_function_array_formals_inherit_type.sv:32: sorry: Subroutine ports with unpacked dimensions are not yet supported.",
+   "reason": "compile failed: tests/ch13/test_function_array_formals_inherit_type.sv:32: sorry: Subroutine ports with unpacked dimensions are not yet supported.",
    "inputs_sha256": "a6f9c0bb8beac45a6c677bdd5830d3dd6c3686d5728d4c4a17bf705a4132441b"
   },
   "ch23/test_hierarchical_identifier_forms_through_instances": {
@@ -27,12 +27,12 @@
   },
   "ch23/test_top_level_instances": {
    "status": "known",
-   "reason": "compile failed: /Users/mitsuyuki/Projects/kirimasim-tests/tests/ch23/test_top_level_instances.sv:33: syntax error",
+   "reason": "compile failed: tests/ch23/test_top_level_instances.sv:33: syntax error",
    "inputs_sha256": "3f5eb2c568b2c6d58c4cf4eeba7c3ba2c1c25bc85b4bbc09f834eb2fbf950936"
   },
   "ch30/test_distributed_gate_and_net_delays_add": {
    "status": "known",
-   "reason": "compile failed: /Users/mitsuyuki/Projects/kirimasim-tests/tests/ch30/test_distributed_gate_and_net_delays_add.sv:25: sorry: net delays not supported.",
+   "reason": "compile failed: tests/ch30/test_distributed_gate_and_net_delays_add.sv:25: sorry: net delays not supported.",
    "inputs_sha256": "4a18b01746313e6291976ab2c193a6594ccb24a20a514ed9f49be1daf4e24339"
   },
   "ch30/test_module_path_delay_input_inout_ports": {
@@ -50,7 +50,7 @@
   },
   "ch6/test_automatic_data_declarations_in_static_procedural_scopes": {
    "status": "known",
-   "reason": "compile failed: /Users/mitsuyuki/Projects/kirimasim-tests/tests/ch6/test_automatic_data_declarations_in_static_procedural_scopes.sv:36: sorry: Overriding the default variable lifetime is not yet supported.",
+   "reason": "compile failed: tests/ch6/test_automatic_data_declarations_in_static_procedural_scopes.sv:36: sorry: Overriding the default variable lifetime is not yet supported.",
    "inputs_sha256": "4f4ddcd0d260d7ae25c84d490ae84cdd0e8588e1d6742a104c12e49ae431b7b6"
   },
   "ch6/test_net_declaration_delay_forms": {
@@ -63,7 +63,7 @@
   },
   "ch6/test_net_declaration_lists_and_reg_keyword": {
    "status": "known",
-   "reason": "compile failed: /Users/mitsuyuki/Projects/kirimasim-tests/tests/ch6/test_net_declaration_lists_and_reg_keyword.sv:36: syntax error",
+   "reason": "compile failed: tests/ch6/test_net_declaration_lists_and_reg_keyword.sv:36: syntax error",
    "inputs_sha256": "daf28457ef513f09f3fb78019f1eca360a93a37602f5b4d7185f819e00d90582"
   },
   "ch6/test_net_four_state_data_types": {
@@ -72,7 +72,7 @@
   },
   "ch6/test_net_unpacked_struct_union_data_types": {
    "status": "known",
-   "reason": "compile failed: /Users/mitsuyuki/Projects/kirimasim-tests/tests/ch6/test_net_unpacked_struct_union_data_types.sv:22: sorry: Unpacked structs not supported.",
+   "reason": "compile failed: tests/ch6/test_net_unpacked_struct_union_data_types.sv:22: sorry: Unpacked structs not supported.",
    "inputs_sha256": "d16b8201c140c765bc768884dbf128dc20e0574fdae379cea2cf524604cbfbb9"
   },
   "ch6/test_var_keyword_without_data_type_is_logic": {
@@ -85,7 +85,7 @@
   },
   "ch9/test_syntax_timing_control_and_event_expressions": {
    "status": "known",
-   "reason": "compile failed: /Users/mitsuyuki/Projects/kirimasim-tests/tests/ch9/test_syntax_timing_control_and_event_expressions.sv:61: syntax error",
+   "reason": "compile failed: tests/ch9/test_syntax_timing_control_and_event_expressions.sv:61: syntax error",
    "inputs_sha256": "083d70f9ef9cea4b7a8780f33a4862e7cf49296777289c953c0402c430deedda"
   }
  },

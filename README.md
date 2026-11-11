@@ -295,8 +295,8 @@ approved it. The reviewer was an AI, not an independent human.
 Design coverage is **90.14% (11,086/12,298)**;
 execution coverage from the saved `coverage/results/` evidence of the tools
 anyone can reproduce (Icarus Verilog, Verilator and SymbiYosys) is
-**51.12% (6,287/12,298)**.
-With the results of Ghost, an unreleased simulator, added, it is 78.00% (9,592/12,298).
+**51.29% (6,308/12,298)**.
+With the results of Ghost, an unreleased simulator, and of kirimasim added, it is 78.68% (9,676/12,298).
 Clauses 1 to 40 alone are at 88.47% (8,374/9,465) design coverage.
 See the [generated behavior summary](docs/behavior-coverage-summary.en.md) for the
 measurement inputs and denominator.
@@ -584,6 +584,19 @@ it with an error at the place that `:expected_stderr_regex:` names, and fails
 when the simulator accepts it or reports its error somewhere else. For
 kirimasim, an error saying that the design uses a construct it does not
 support yet makes the test unsupported, as for other tests.
+
+A run that a signal ends (a crash) fails, even when it printed the expected
+output first. A compiler that a signal ends fails as well: it did not reject
+an illegal design. Every step has a time limit: with Icarus Verilog, 300
+seconds for the compilation and for the VPI build and 60 seconds for the run;
+with Verilator, 900 seconds for the build and 60 seconds for the run; with
+kirimasim, 120 seconds; with Lyra, 300 seconds. A step that takes longer
+fails as "timed out". An error of a runner fails only the test it happened
+in. The reasons that the runners record name no directory of the machine: a
+file of the repository is named relative to it, and the temporary directory,
+the directory of the simulator and the home directory appear as `<tmp>`,
+`<icarus>` (or `<verilator>`, `<kirimasim>`, `<lyra>`) and `<home>`. A
+directory name that a simulator cut short in a message appears as `<path>`.
 
 A test whose output depends on the time unit or precision (a nonzero time
 printed with `%t`, `$timeformat`, `$printtimescale`, fractional delays or

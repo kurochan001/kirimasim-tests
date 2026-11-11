@@ -637,7 +637,7 @@
   },
   "ch3/test_declaration_across_file_boundary": {
    "status": "known",
-   "reason": "build failed: %Error: /Users/mitsuyuki/Projects/kirimasim-tests/tests/ch3/declaration_across_file_boundary_head.sv:5:15: syntax error, unexpected $end",
+   "reason": "build failed: %Error: tests/ch3/declaration_across_file_boundary_head.sv:5:15: syntax error, unexpected $end",
    "inputs_sha256": "4fca913a368f79d57f366053d1f01bb5aa60f7dd95ab49f3c6ffa77dac4d0161"
   },
   "ch3/test_delay_rounded_to_element_precision": {

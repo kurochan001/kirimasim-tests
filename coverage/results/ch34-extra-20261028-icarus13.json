@@ -14,7 +14,7 @@
   },
   "ch34/test_34_extra_include_envelope": {
    "status": "known",
-   "reason": "compile failed: /Users/mitsuyuki/Projects/kirimasim-tests/tests/ch34/ch34_include/lexical_env.svh:7: syntax error",
+   "reason": "compile failed: tests/ch34/ch34_include/lexical_env.svh:7: syntax error",
    "inputs_sha256": "1fa3a0383604fd2dfca39b04236aa51489199d44e053593729c4286af5770782"
   },
   "ch34/test_34_extra_nested_envelopes": {

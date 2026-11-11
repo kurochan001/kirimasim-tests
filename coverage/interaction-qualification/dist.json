@@ -66,7 +66,7 @@
       "stderr": "",
       "reason": "",
       "constraint_diagnostics": [
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/auxiliary_failure_control.sv:34: Unsatisfied constraint: 'constraint c_aux_fail { if (impossible) x != x; }'"
+        "%Warning-UNSATCONSTR: <tmp>/auxiliary_failure_control.sv:34: Unsatisfied constraint: 'constraint c_aux_fail { if (impossible) x != x; }'"
       ]
     },
     "wrong_shift_grouping": {
@@ -78,18 +78,18 @@
       "stderr": "",
       "reason": "output differs: line 1 is 'target phase=0 impossible=0 ok=0 x=-1 bits=1111 expr=32 e...', expected 'target phase=0 impossible=0 ok=1 x=-3 bits=1101 expr=-4 e...'",
       "constraint_diagnostics": [
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_shift_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {4'shc, 4'shd, 4'shf}; }'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_shift_grouping.sv:35: Unsatisfied constraint: 'x + (4'sh1 << 4'sh1) dist {'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_shift_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {4'shc, 4'shd, 4'shf}; }'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_shift_grouping.sv:35: Unsatisfied constraint: 'x + (4'sh1 << 4'sh1) dist {'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_shift_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {4'shc, 4'shd, 4'shf}; }'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_shift_grouping.sv:35: Unsatisfied constraint: 'x + (4'sh1 << 4'sh1) dist {'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_shift_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {4'shc, 4'shd, 4'shf}; }'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_shift_grouping.sv:35: Unsatisfied constraint: 'x + (4'sh1 << 4'sh1) dist {'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_shift_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {4'shc, 4'shd, 4'shf}; }'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_shift_grouping.sv:35: Unsatisfied constraint: 'x + (4'sh1 << 4'sh1) dist {'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_shift_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {4'shc, 4'shd, 4'shf}; }'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_shift_grouping.sv:35: Unsatisfied constraint: 'x + (4'sh1 << 4'sh1) dist {'"
+        "%Warning-UNSATCONSTR: <tmp>/wrong_shift_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {4'shc, 4'shd, 4'shf}; }'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_shift_grouping.sv:35: Unsatisfied constraint: 'x + (4'sh1 << 4'sh1) dist {'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_shift_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {4'shc, 4'shd, 4'shf}; }'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_shift_grouping.sv:35: Unsatisfied constraint: 'x + (4'sh1 << 4'sh1) dist {'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_shift_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {4'shc, 4'shd, 4'shf}; }'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_shift_grouping.sv:35: Unsatisfied constraint: 'x + (4'sh1 << 4'sh1) dist {'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_shift_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {4'shc, 4'shd, 4'shf}; }'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_shift_grouping.sv:35: Unsatisfied constraint: 'x + (4'sh1 << 4'sh1) dist {'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_shift_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {4'shc, 4'shd, 4'shf}; }'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_shift_grouping.sv:35: Unsatisfied constraint: 'x + (4'sh1 << 4'sh1) dist {'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_shift_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {4'shc, 4'shd, 4'shf}; }'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_shift_grouping.sv:35: Unsatisfied constraint: 'x + (4'sh1 << 4'sh1) dist {'"
       ]
     },
     "wrong_multiply_grouping": {
@@ -101,12 +101,12 @@
       "stderr": "",
       "reason": "output differs: line 1 is 'target phase=0 impossible=0 ok=0 x=8589934591 bits=111111...', expected 'target phase=0 impossible=0 ok=1 x=4294967297 bits=100000...'",
       "constraint_diagnostics": [
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_multiply_grouping.sv:35: Unsatisfied constraint: '(x + 33'h1) * 33'h2 dist {'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_multiply_grouping.sv:35: Unsatisfied constraint: '(x + 33'h1) * 33'h2 dist {'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_multiply_grouping.sv:35: Unsatisfied constraint: '(x + 33'h1) * 33'h2 dist {'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_multiply_grouping.sv:35: Unsatisfied constraint: '(x + 33'h1) * 33'h2 dist {'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_multiply_grouping.sv:35: Unsatisfied constraint: '(x + 33'h1) * 33'h2 dist {'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_multiply_grouping.sv:35: Unsatisfied constraint: '(x + 33'h1) * 33'h2 dist {'"
+        "%Warning-UNSATCONSTR: <tmp>/wrong_multiply_grouping.sv:35: Unsatisfied constraint: '(x + 33'h1) * 33'h2 dist {'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_multiply_grouping.sv:35: Unsatisfied constraint: '(x + 33'h1) * 33'h2 dist {'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_multiply_grouping.sv:35: Unsatisfied constraint: '(x + 33'h1) * 33'h2 dist {'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_multiply_grouping.sv:35: Unsatisfied constraint: '(x + 33'h1) * 33'h2 dist {'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_multiply_grouping.sv:35: Unsatisfied constraint: '(x + 33'h1) * 33'h2 dist {'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_multiply_grouping.sv:35: Unsatisfied constraint: '(x + 33'h1) * 33'h2 dist {'"
       ]
     },
     "wrong_relation_grouping": {
@@ -118,18 +118,18 @@
       "stderr": "",
       "reason": "output differs: line 1 is 'target phase=0 impossible=0 ok=0 x=-1 bits=11111111 expr=...', expected 'target phase=0 impossible=0 ok=1 x=-63 bits=11000001 expr...'",
       "constraint_diagnostics": [
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_relation_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {8'shc0, 8'shc1}; }'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_relation_grouping.sv:35: Unsatisfied constraint: 'x + (8'sh1 < 8'shc2) dist {'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_relation_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {8'shc0, 8'shc1}; }'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_relation_grouping.sv:35: Unsatisfied constraint: 'x + (8'sh1 < 8'shc2) dist {'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_relation_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {8'shc0, 8'shc1}; }'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_relation_grouping.sv:35: Unsatisfied constraint: 'x + (8'sh1 < 8'shc2) dist {'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_relation_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {8'shc0, 8'shc1}; }'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_relation_grouping.sv:35: Unsatisfied constraint: 'x + (8'sh1 < 8'shc2) dist {'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_relation_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {8'shc0, 8'shc1}; }'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_relation_grouping.sv:35: Unsatisfied constraint: 'x + (8'sh1 < 8'shc2) dist {'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_relation_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {8'shc0, 8'shc1}; }'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/wrong_relation_grouping.sv:35: Unsatisfied constraint: 'x + (8'sh1 < 8'shc2) dist {'"
+        "%Warning-UNSATCONSTR: <tmp>/wrong_relation_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {8'shc0, 8'shc1}; }'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_relation_grouping.sv:35: Unsatisfied constraint: 'x + (8'sh1 < 8'shc2) dist {'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_relation_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {8'shc0, 8'shc1}; }'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_relation_grouping.sv:35: Unsatisfied constraint: 'x + (8'sh1 < 8'shc2) dist {'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_relation_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {8'shc0, 8'shc1}; }'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_relation_grouping.sv:35: Unsatisfied constraint: 'x + (8'sh1 < 8'shc2) dist {'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_relation_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {8'shc0, 8'shc1}; }'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_relation_grouping.sv:35: Unsatisfied constraint: 'x + (8'sh1 < 8'shc2) dist {'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_relation_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {8'shc0, 8'shc1}; }'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_relation_grouping.sv:35: Unsatisfied constraint: 'x + (8'sh1 < 8'shc2) dist {'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_relation_grouping.sv:33: Unsatisfied constraint: 'constraint c_domain { x inside {8'shc0, 8'shc1}; }'",
+        "%Warning-UNSATCONSTR: <tmp>/wrong_relation_grouping.sv:35: Unsatisfied constraint: 'x + (8'sh1 < 8'shc2) dist {'"
       ]
     },
     "swap_positive_support": {
@@ -161,7 +161,7 @@
       "stderr": "",
       "reason": "output differs: line 3 is 'target phase=1 impossible=1 ok=0 x=0 bits=000000000000000...', expected 'target phase=1 impossible=1 ok=0 x=4294967297 bits=100000...'",
       "constraint_diagnostics": [
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/clobber_failed_value.sv:34: Unsatisfied constraint: 'constraint c_aux_fail { if (impossible) x != x; }'"
+        "%Warning-UNSATCONSTR: <tmp>/clobber_failed_value.sv:34: Unsatisfied constraint: 'constraint c_aux_fail { if (impossible) x != x; }'"
       ]
     },
     "alias_guard": {
@@ -173,8 +173,8 @@
       "stderr": "",
       "reason": "output differs: line 4 is 'guard phase=1 impossible=1 ok=0 x=4294967297 bits=1000000...', expected 'guard phase=1 impossible=0 ok=1 x=4294967297 bits=1000000...'",
       "constraint_diagnostics": [
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/alias_guard.sv:34: Unsatisfied constraint: 'constraint c_aux_fail { if (impossible) x != x; }'",
-        "%Warning-UNSATCONSTR: /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpe71ibfdo/alias_guard.sv:34: Unsatisfied constraint: 'constraint c_aux_fail { if (impossible) x != x; }'"
+        "%Warning-UNSATCONSTR: <tmp>/alias_guard.sv:34: Unsatisfied constraint: 'constraint c_aux_fail { if (impossible) x != x; }'",
+        "%Warning-UNSATCONSTR: <tmp>/alias_guard.sv:34: Unsatisfied constraint: 'constraint c_aux_fail { if (impossible) x != x; }'"
       ]
     }
   }

@@ -443,7 +443,7 @@
   },
   "ch20/test_exit_waits_for_programs": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp9m9fg...', expected '4: module tick'",
+   "reason": "output differs: line 1 is '<tmp>...', expected '4: module tick'",
    "inputs_sha256": "ea28f5df5ac969652cca26faea0001bcf19547a2ca6ae269da13255b189a5270"
   },
   "ch20/test_finish_ends_simulation": {
@@ -456,7 +456,7 @@
   },
   "ch20/test_timeunit_exponent_table": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp8algg...', expected '100s: 2'",
+   "reason": "output differs: line 1 is '<tmp>...', expected '100s: 2'",
    "inputs_sha256": "62869eef0c650f26670ad023ca11b78ae9a075ba2e2932d1d5d3863393cabb62"
   },
   "ch24/test_illegal_program_generate_for_module_instance": {
@@ -2302,7 +2302,7 @@
   },
   "ch6/test_string_substr_types_negative_start": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpw8o_r...', expected 'type: string'",
+   "reason": "output differs: line 1 is '<tmp>...', expected 'type: string'",
    "inputs_sha256": "5a7275192bbe032ef51efec33e640dfa84e0ec4ebfb54bf94b7efed913142e7d"
   },
   "ch6/test_tri0_tri1_resolution_tables": {
@@ -2575,7 +2575,7 @@
   },
   "ch8/test_class_cast_task_failure_reports_error": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpmryuh...', expected 'casting a base_c object to der_c with the task form'",
+   "reason": "output differs: line 1 is '<tmp>...', expected 'casting a base_c object to der_c with the task form'",
    "inputs_sha256": "49356c8324378bd6d61eacfccb88f852bf54c21c17f1d5f447b51139dc942127"
   },
   "ch8/test_class_const_global_and_instance_properties": {

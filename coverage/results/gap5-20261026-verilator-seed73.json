@@ -490,7 +490,7 @@
   },
   "ch21/test_sscanf_sources_and_string_targets": {
    "status": "known",
-   "reason": "build failed: %Error: 'make -C /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp207x7isw/obj -f Vt.mk -j 1' exited with 2",
+   "reason": "build failed: %Error: 'make -C <tmp>/obj -f Vt.mk -j 1' exited with 2",
    "inputs_sha256": "a09345b48deea42b673b3e9b1cc1919834b1baa9254693979b9c4da46f147bc1"
   },
   "ch21/test_sscanf_t_uses_timeformat": {
@@ -520,7 +520,7 @@
   },
   "ch21/test_swrite_unpacked_byte_array_order": {
    "status": "known",
-   "reason": "build failed: %Error: 'make -C /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp25s3i1rs/obj -f Vt.mk -j 1' exited with 2",
+   "reason": "build failed: %Error: 'make -C <tmp>/obj -f Vt.mk -j 1' exited with 2",
    "inputs_sha256": "d36ea02faf54149a8072a90c52a45adb8b05248c41a2c138f1efbe48ef2d09b9"
   },
   "ch21/test_ungetc_pushback_and_failed_descriptor": {

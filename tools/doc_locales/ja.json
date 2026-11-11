@@ -24695,6 +24695,8 @@
     "the elements of the result of map() have the type of the with expression, so a result of ZXQPH0QXZ elements cannot be assigned to a queue of strings": "map() の結果の要素は with 式の型を持つので、 ZXQPH0QXZ 要素の結果は文字列のキューに代入できない",
     "the function form of ZXQPH0QXZ returns a string from inside a function, a class method, a process spawned by fork- ZXQPH1QXZ and a final procedure, and its calls print nothing": "関数形式の ZXQPH0QXZ は、関数、クラスメソッド、fork-ZXQPH1QXZ で生成したプロセス、final 手続きの中から文字列を返し、その呼び出しは何も表示しない",
     "the values follow from the constraints": "値は制約から決まる",
-    "When use model a) of ZXQPH0QXZ is chosen, all files of one command line form one compilation unit, so a variable and a function declared in one file are visible in another file": "ZXQPH0QXZのa)の使い方を選んだとき、1つのコマンドラインの全ファイルが1つのコンパイル単位になるので、あるファイルで宣言した変数と関数がほかのファイルから見える"
+    "When use model a) of ZXQPH0QXZ is chosen, all files of one command line form one compilation unit, so a variable and a function declared in one file are visible in another file": "ZXQPH0QXZのa)の使い方を選んだとき、1つのコマンドラインの全ファイルが1つのコンパイル単位になるので、あるファイルで宣言した変数と関数がほかのファイルから見える",
+    "証跡の問題: runner fingerprint differs。": "証跡の問題: ランナーの指紋が一致しません。",
+    "ZXQPH0QXZ version ZXQPH1QXZ (stable) ( ZXQPH2QXZ )。": "ZXQPH0QXZ バージョン ZXQPH1QXZ (安定版) (ZXQPH2QXZ)。"
   }
 }

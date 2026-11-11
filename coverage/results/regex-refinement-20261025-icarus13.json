@@ -10,7 +10,7 @@
   },
   "ch16/test_immediate_assertion_default_error": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp0egba...', expected 'after a_fail'",
+   "reason": "output differs: line 1 is '<tmp>...', expected 'after a_fail'",
    "inputs_sha256": "4318dc070282b62aac143cc1b8758684a95e99b06f4bfa0eb1e02daf868a71ab"
   }
  },

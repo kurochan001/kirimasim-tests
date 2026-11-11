@@ -195,7 +195,7 @@
   },
   "ch10/test_unpacked_concat_bounded_queue_overflow": {
    "status": "known",
-   "reason": "build failed: %Error: 'make -C /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpchtexp7n/obj -f Vt.mk -j 1' exited with 2",
+   "reason": "build failed: %Error: 'make -C <tmp>/obj -f Vt.mk -j 1' exited with 2",
    "inputs_sha256": "a9f9781917a08e1ee84eea5d5a5cc3677ce5db31076b0c42401d07113e1c4abb"
   },
   "ch10/test_unpacked_concat_typed_array_and_string_item": {
@@ -322,7 +322,7 @@
   },
   "ch11/test_inside_nested_unpacked_arrays": {
    "status": "known",
-   "reason": "build failed: %Error: 'make -C /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpge_8hw3y/obj -f Vt.mk -j 1' exited with 2",
+   "reason": "build failed: %Error: 'make -C <tmp>/obj -f Vt.mk -j 1' exited with 2",
    "inputs_sha256": "5c24e589000873fdd479a28f2a56947ed50671aef90d05cd5ea2d542cb5bf32d"
   },
   "ch11/test_inside_ranges_tolerance_unknown_and_types": {
@@ -377,7 +377,7 @@
   },
   "ch11/test_stream_unpack_consumes_left_converts_state_keeps_objects": {
    "status": "known",
-   "reason": "build failed: %Error: 'make -C /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpp6zr0amw/obj -f Vt.mk -j 1' exited with 2",
+   "reason": "build failed: %Error: 'make -C <tmp>/obj -f Vt.mk -j 1' exited with 2",
    "inputs_sha256": "8c31e79c04129dcc5447ef3fe1889079cac110074cd300b9f95125d92378de2f"
   },
   "ch11/test_stream_with_range_extent_timing_and_partial": {
@@ -3082,7 +3082,7 @@
   },
   "ch21/test_sscanf_sources_and_string_targets": {
    "status": "known",
-   "reason": "build failed: %Error: 'make -C /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmphvrlm6k3/obj -f Vt.mk -j 1' exited with 2",
+   "reason": "build failed: %Error: 'make -C <tmp>/obj -f Vt.mk -j 1' exited with 2",
    "inputs_sha256": "a09345b48deea42b673b3e9b1cc1919834b1baa9254693979b9c4da46f147bc1"
   },
   "ch21/test_sscanf_unknown_bits_return_eof": {
@@ -3097,7 +3097,7 @@
   },
   "ch21/test_swrite_unpacked_byte_array_order": {
    "status": "known",
-   "reason": "build failed: %Error: 'make -C /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp7fp1k3c5/obj -f Vt.mk -j 1' exited with 2",
+   "reason": "build failed: %Error: 'make -C <tmp>/obj -f Vt.mk -j 1' exited with 2",
    "inputs_sha256": "d36ea02faf54149a8072a90c52a45adb8b05248c41a2c138f1efbe48ef2d09b9"
   },
   "ch21/test_value_plusargs_illegal_characters": {
@@ -5060,7 +5060,7 @@
   },
   "ch37/test_vpi_attribute_parents": {
    "status": "known",
-   "reason": "build failed: %Error: 'make -C /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpvsaf34mi/obj -f Vt.mk -j 1' exited with 2",
+   "reason": "build failed: %Error: 'make -C <tmp>/obj -f Vt.mk -j 1' exited with 2",
    "inputs_sha256": "06a09bfe87c88e8214527ca76169f03fba5cc78d3b9376411a7157d9fd06f25b"
   },
   "ch37/test_vpi_attribute_ports_params": {
@@ -5650,7 +5650,7 @@
   },
   "ch37/test_vpi_simple_expr_uses": {
    "status": "known",
-   "reason": "build failed: %Error: 'make -C /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpn0gb6w2c/obj -f Vt.mk -j 1' exited with 2",
+   "reason": "build failed: %Error: 'make -C <tmp>/obj -f Vt.mk -j 1' exited with 2",
    "inputs_sha256": "e8cb454e984f6eadda9c6bec5f4f65b7c8ba5a695c228ad498ba51a5a6c7a9b3"
   },
   "ch37/test_vpi_statement_control_kinds": {
@@ -7010,7 +7010,7 @@
   },
   "ch7/test_array_invalid_index_read_handles_real_string": {
    "status": "known",
-   "reason": "build failed: %Error: 'make -C /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmptwkb221c/obj -f Vt.mk -j 1' exited with 2",
+   "reason": "build failed: %Error: 'make -C <tmp>/obj -f Vt.mk -j 1' exited with 2",
    "inputs_sha256": "d31782f4e18b56cea73d5022255eeaf691137ab3c9c59b4d56f9ae5cca0c1cb6"
   },
   "ch7/test_array_locator_first_last_by_range_and_min_tie": {
@@ -7660,7 +7660,7 @@
   },
   "ch8/test_param_class_package_vs_module_instance_specializations": {
    "status": "known",
-   "reason": "build failed: %Error: 'make -C /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp9pv47wm6/obj -f Vt.mk -j 1' exited with 2",
+   "reason": "build failed: %Error: 'make -C <tmp>/obj -f Vt.mk -j 1' exited with 2",
    "inputs_sha256": "75ae8d2bb563a5344d842523da9bbdfd3affa693f02b1d318692ff0dfd95aa61"
   },
   "ch8/test_super_new_default": {

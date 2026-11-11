@@ -2517,7 +2517,7 @@
   },
   "ch11/test_signed_system_cast_shape_and_value": {
    "status": "known",
-   "reason": "compile failed: sh: line 1: 29379 Done                    /private/tmp/claude-501/-Users-mitsuyuki-Projects-kirimasim-tests/9812dd38-47b3-4703-b05f-04194082f6b9/scratchpad/iverilog13/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg21d6bcfaf\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg1d6bcfaf\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli1d6bcfaf\"",
+   "reason": "compile failed: sh: line 1: 29379 Done                    <scratch>/iverilog13/lib/ivl/ivlpp -L -F\"<tmp>//ivrlg21d6bcfaf\" -f\"<tmp>//ivrlg1d6bcfaf\" -p\"<tmp>//ivrli1d6bcfaf\"",
    "inputs_sha256": "c54ddd445c8bee795b6ef1b4556f4f0c68bdf73892b7e5d625589512811d2bf4"
   },
   "ch11/test_signed_unknown_extension_and_unsigned_padding": {
@@ -5256,7 +5256,7 @@
   },
   "ch16/test_comb_stable_multiinstance": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmppaob0...', expected 'stable_multiinstance: pass=14 fail=0'",
+   "reason": "output differs: line 1 is '<tmp>...', expected 'stable_multiinstance: pass=14 fail=0'",
    "inputs_sha256": "335232095afe34db9bbcc755d58b2e0b7f6de7039e3409e3f0af1bb21dd2c73d"
   },
   "ch16/test_concurrent_assert_actions": {
@@ -6041,7 +6041,7 @@
   },
   "ch16/test_immediate_assertion_default_error": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpwdbvi...', expected 'after a_fail'",
+   "reason": "output differs: line 1 is '<tmp>...', expected 'after a_fail'",
    "inputs_sha256": "4318dc070282b62aac143cc1b8758684a95e99b06f4bfa0eb1e02daf868a71ab"
   },
   "ch16/test_immediate_assertion_label_scope": {
@@ -6051,7 +6051,7 @@
   },
   "ch16/test_immediate_assertion_statement_places": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp3cpss...', expected '0: if branch'",
+   "reason": "output differs: line 1 is '<tmp>...', expected '0: if branch'",
    "inputs_sha256": "80e6413b3335db87eb0a6c7f40bdcdbb42cad7a7195c38bb02e39bcb47937cca"
   },
   "ch16/test_immediate_assertion_truth_and_actions": {
@@ -6186,7 +6186,7 @@
   },
   "ch16/test_past_gating_expression": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpz4w24...', expected 'tick 1: past1 0, gated past1 0, gated past2 0'",
+   "reason": "output differs: line 1 is '<tmp>...', expected 'tick 1: past1 0, gated past1 0, gated past2 0'",
    "inputs_sha256": "869ddfc6ca6898aebf9e29305aa24806a974719935e96be0658e4568d1196e0b"
   },
   "ch16/test_procedural_assertion_clock_inference": {
@@ -6346,7 +6346,7 @@
   },
   "ch16/test_rose_fell_lsb_four_state": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp2qp4_...', expected 'tick 1: v=00 rose=0 fell=0'",
+   "reason": "output differs: line 1 is '<tmp>...', expected 'tick 1: v=00 rose=0 fell=0'",
    "inputs_sha256": "cc18cd9d4ce0dc0d276eca97d6a3b2ad0b8828a8c3d61e132565f73f4eed3372"
   },
   "ch16/test_sampled_automatic_const_current": {
@@ -6356,7 +6356,7 @@
   },
   "ch16/test_sampled_function": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp2slbv...', expected 'OK: Test 1 - $sampled(data)=00 as expected'",
+   "reason": "output differs: line 1 is '<tmp>...', expected 'OK: Test 1 - $sampled(data)=00 as expected'",
    "inputs_sha256": "3b81a1606f397634c9256820bc89c2cd313af2dc78a884ba397d80e9a23619db"
   },
   "ch16/test_sampled_function_arguments": {
@@ -6586,7 +6586,7 @@
   },
   "ch16/test_system_sampled": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpy_cg5...', expected 'PASS: $sampled initial value = 0x00'",
+   "reason": "output differs: line 1 is '<tmp>...', expected 'PASS: $sampled initial value = 0x00'",
    "inputs_sha256": "0951762378b74cc97aa173e4bbcc376743b0cccb6ccd466ef6d0b65e8906249b"
   },
   "ch16/test_triggered_local_variable_threads": {
@@ -6606,12 +6606,12 @@
   },
   "ch16/test_value_change_first_tick": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpdgl_w...', expected 'tick 1: u rose 1 fell 0 stable 0 changed 1 past x'",
+   "reason": "output differs: line 1 is '<tmp>...', expected 'tick 1: u rose 1 fell 0 stable 0 changed 1 past x'",
    "inputs_sha256": "33b04a3695ff0fb3759635d484ce03f97c2ad1e35051c720cdd262fe2b3c9af4"
   },
   "ch16/test_value_change_functions_on_vectors": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpcp5f_...', expected 't=5 v=0000: rose=0 fell=0 rose(v[3:2])=0 changed=0 stable...'",
+   "reason": "output differs: line 1 is '<tmp>...', expected 't=5 v=0000: rose=0 fell=0 rose(v[3:2])=0 changed=0 stable...'",
    "inputs_sha256": "7646341e9428e029593fd53e6ff5ebb5fadc963007bcfd65568bd7ec8a831884"
   },
   "ch17/test_checker_always_comb_output": {
@@ -8080,7 +8080,7 @@
   },
   "ch20/test_assertion_default_error_failoff_failon": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpgpmtu...', expected 'default: pass statements 0, else clauses 1'",
+   "reason": "output differs: line 1 is '<tmp>...', expected 'default: pass statements 0, else clauses 1'",
    "inputs_sha256": "6fe6452c1d20c36e7c61b4fde782a6e13463f7d30daf52734e88ac484627ec9f"
   },
   "ch20/test_associative_array_query_functions": {
@@ -8356,7 +8356,7 @@
   },
   "ch20/test_exit_waits_for_programs": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmppm_ys...', expected '4: module tick'",
+   "reason": "output differs: line 1 is '<tmp>...', expected '4: module tick'",
    "inputs_sha256": "ea28f5df5ac969652cca26faea0001bcf19547a2ca6ae269da13255b189a5270"
   },
   "ch20/test_exp_basic": {
@@ -8877,12 +8877,12 @@
   },
   "ch20/test_system_call_null_command": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpk3x6h...', expected 'command processor found: 1'",
+   "reason": "output differs: line 1 is '<tmp>...', expected 'command processor found: 1'",
    "inputs_sha256": "d97bf5f295ee346d812432e73cd4ceea18a5f6b595e6e57805b6d6410824e713"
   },
   "ch20/test_system_call_status": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpp9u4c...', expected 'success gives 0: 1, failure nonzero: 1'",
+   "reason": "output differs: line 1 is '<tmp>...', expected 'success gives 0: 1, failure nonzero: 1'",
    "inputs_sha256": "c92352e50ece7533a6837a953f06c76be8d7ce8013d918bd76d7c902ecdd3d47"
   },
   "ch20/test_system_countones": {
@@ -8980,12 +8980,12 @@
   },
   "ch20/test_timeunit_exponent_table": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp411_n...', expected '100s: 2'",
+   "reason": "output differs: line 1 is '<tmp>...', expected '100s: 2'",
    "inputs_sha256": "62869eef0c650f26670ad023ca11b78ae9a075ba2e2932d1d5d3863393cabb62"
   },
   "ch20/test_timeunit_timeprecision_functions": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpyftjt...', expected 'own: -6 -8'",
+   "reason": "output differs: line 1 is '<tmp>...', expected 'own: -6 -8'",
    "inputs_sha256": "8feb3912962ebb85ad70abf9b8b7850b8563aa5f924d20e1ca93864cfdcde42e"
   },
   "ch20/test_timeunit_unit_root": {
@@ -11075,7 +11075,7 @@
   },
   "ch24/test_exit_outside_program_ignored": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpuw8bc...', expected 'module goes on at 1'",
+   "reason": "output differs: line 1 is '<tmp>...', expected 'module goes on at 1'",
    "inputs_sha256": "f01b4085855e0e42ba42b0cfdb873751bc510f718246071819ef1344ffcccc8e"
   },
   "ch24/test_illegal_anonymous_program_hierarchical_reference": {
@@ -11170,17 +11170,17 @@
   },
   "ch24/test_program_exit": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp0a8ct...', expected '5: p_exit calls $exit'",
+   "reason": "output differs: line 1 is '<tmp>...', expected '5: p_exit calls $exit'",
    "inputs_sha256": "1da37a6f0c17b19447bca710fe4c3ce6bdf24cf97b80e13e643a27b2c08fa47c"
   },
   "ch24/test_program_exit_from_fork": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpok3ne...', expected '3: forked thread calls $exit'",
+   "reason": "output differs: line 1 is '<tmp>...', expected '3: forked thread calls $exit'",
    "inputs_sha256": "3a17cde640c9c0d7949bdfb7c3dca659f18c36c77a48fe562de693e47bf2412e"
   },
   "ch24/test_program_exit_in_task": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpakt1d...', expected '2: task calls $exit'",
+   "reason": "output differs: line 1 is '<tmp>...', expected '2: task calls $exit'",
    "inputs_sha256": "6cab0888a248f6584252d59cfda1dd8ce5760b6d5edf2a208f20a87704a46567"
   },
   "ch24/test_program_final_after_initial_ends": {
@@ -17878,7 +17878,7 @@
   },
   "ch6/test_cast_corner": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp_ddg2...', expected '=== Cast Expressions Corner Cases Test ==='",
+   "reason": "output differs: line 1 is '<tmp>...', expected '=== Cast Expressions Corner Cases Test ==='",
    "inputs_sha256": "82574a66f5cca898a21b1c211f65fe11b3f7e3e4b0df4ad98a2255ebfadd10ed"
   },
   "ch6/test_cast_dynamic_array": {
@@ -17908,7 +17908,7 @@
   },
   "ch6/test_cast_function": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp1jfyd...', expected '=== $cast System Function Test ==='",
+   "reason": "output differs: line 1 is '<tmp>...', expected '=== $cast System Function Test ==='",
    "inputs_sha256": "5937178c610d47ac92c49501c12fb3be8fd7a3cd4d316b20a925eac7f67b3b9c"
   },
   "ch6/test_cast_logic": {
@@ -18086,7 +18086,7 @@
   },
   "ch6/test_enum_cast_outside_set_static_and_dynamic": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpfg8pg...', expected 'static outside: 3'",
+   "reason": "output differs: line 1 is '<tmp>...', expected 'static outside: 3'",
    "inputs_sha256": "2211f7110fbf8f13a6656c49e295bd979966c08fcc3912258f044aeb5b8290af"
   },
   "ch6/test_enum_casts_and_values": {
@@ -18126,7 +18126,7 @@
   },
   "ch6/test_enum_explicit_cast_and_failed_dynamic_cast": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp2s5h7...', expected 'failed=0 retained=8'",
+   "reason": "output differs: line 1 is '<tmp>...', expected 'failed=0 retained=8'",
    "inputs_sha256": "21f4c25d485c589aa856e6706fad119d95404b55f8112a2875f4f7671042b5c9"
   },
   "ch6/test_enum_expression_uses_base_type": {
@@ -19544,7 +19544,7 @@
   },
   "ch6/test_size_cast_intermediate_context": {
    "status": "known",
-   "reason": "compile failed: sh: line 1: 59338 Done                    /private/tmp/claude-501/-Users-mitsuyuki-Projects-kirimasim-tests/9812dd38-47b3-4703-b05f-04194082f6b9/scratchpad/iverilog13/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg23b6eee40\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg3b6eee40\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli3b6eee40\"",
+   "reason": "compile failed: sh: line 1: 59338 Done                    <scratch>/iverilog13/lib/ivl/ivlpp -L -F\"<tmp>//ivrlg23b6eee40\" -f\"<tmp>//ivrlg3b6eee40\" -p\"<tmp>//ivrli3b6eee40\"",
    "inputs_sha256": "7de26aef35f6240e19c08d7f37fe3bd503d3816a413b035d42beea4c45733f01"
   },
   "ch6/test_specify_specparam_delays": {
@@ -19885,7 +19885,7 @@
   },
   "ch6/test_string_substr_types_negative_start": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpkrxaf...', expected 'type: string'",
+   "reason": "output differs: line 1 is '<tmp>...', expected 'type: string'",
    "inputs_sha256": "5a7275192bbe032ef51efec33e640dfa84e0ec4ebfb54bf94b7efed913142e7d"
   },
   "ch6/test_string_tolower": {
@@ -21595,7 +21595,7 @@
   },
   "ch7/test_member_access_2": {
    "status": "known",
-   "reason": "compile failed: sh: line 1: 61651 Done                    /private/tmp/claude-501/-Users-mitsuyuki-Projects-kirimasim-tests/9812dd38-47b3-4703-b05f-04194082f6b9/scratchpad/iverilog13/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg23dbf98d1\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg3dbf98d1\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli3dbf98d1\"",
+   "reason": "compile failed: sh: line 1: 61651 Done                    <scratch>/iverilog13/lib/ivl/ivlpp -L -F\"<tmp>//ivrlg23dbf98d1\" -f\"<tmp>//ivrlg3dbf98d1\" -p\"<tmp>//ivrli3dbf98d1\"",
    "inputs_sha256": "9b123fc13b6a3f271f0de3bd75d2156764e7bbae49d10ca7cb2e13ffabb2355a"
   },
   "ch7/test_member_access_3": {
@@ -22325,7 +22325,7 @@
   },
   "ch8/test_cast_class": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpuh8rs...', expected 'Cast class tests: 5/5 passed'",
+   "reason": "output differs: line 1 is '<tmp>...', expected 'Cast class tests: 5/5 passed'",
    "inputs_sha256": "62b4472b26b69b2dc35123302ce69f2eaba12162483d73b82b4b4859205864ff"
   },
   "ch8/test_cast_complex_patterns": {
@@ -22371,7 +22371,7 @@
   },
   "ch8/test_class_cast": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmph37gl...', expected 'PASS: Test 1 - Downcast Animal to Dog succeeds'",
+   "reason": "output differs: line 1 is '<tmp>...', expected 'PASS: Test 1 - Downcast Animal to Dog succeeds'",
    "inputs_sha256": "d4d6e3216979564c88d2bad5885e7e67d2b635c0c46ab2d8daa880c0a78b055a"
   },
   "ch8/test_class_cast_edge_cases": {
@@ -22386,7 +22386,7 @@
   },
   "ch8/test_class_cast_task_failure_reports_error": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpxpcat...', expected 'casting a base_c object to der_c with the task form'",
+   "reason": "output differs: line 1 is '<tmp>...', expected 'casting a base_c object to der_c with the task form'",
    "inputs_sha256": "49356c8324378bd6d61eacfccb88f852bf54c21c17f1d5f447b51139dc942127"
   },
   "ch8/test_class_compare": {
@@ -22572,7 +22572,7 @@
   },
   "ch8/test_class_methods_2": {
    "status": "known",
-   "reason": "compile failed: sh: line 1: 63006 Done                    /private/tmp/claude-501/-Users-mitsuyuki-Projects-kirimasim-tests/9812dd38-47b3-4703-b05f-04194082f6b9/scratchpad/iverilog13/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg23f1ce34f\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg3f1ce34f\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli3f1ce34f\"",
+   "reason": "compile failed: sh: line 1: 63006 Done                    <scratch>/iverilog13/lib/ivl/ivlpp -L -F\"<tmp>//ivrlg23f1ce34f\" -f\"<tmp>//ivrlg3f1ce34f\" -p\"<tmp>//ivrli3f1ce34f\"",
    "inputs_sha256": "1792d9e34c7b20364c10852de775ea096e753e287212c30540b570a6d31c2e09"
   },
   "ch8/test_class_multilevel_inheritance": {
@@ -22581,7 +22581,7 @@
   },
   "ch8/test_class_new": {
    "status": "known",
-   "reason": "compile failed: sh: line 1: 63030 Done                    /private/tmp/claude-501/-Users-mitsuyuki-Projects-kirimasim-tests/9812dd38-47b3-4703-b05f-04194082f6b9/scratchpad/iverilog13/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg23f2287a9\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg3f2287a9\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli3f2287a9\"",
+   "reason": "compile failed: sh: line 1: 63030 Done                    <scratch>/iverilog13/lib/ivl/ivlpp -L -F\"<tmp>//ivrlg23f2287a9\" -f\"<tmp>//ivrlg3f2287a9\" -p\"<tmp>//ivrli3f2287a9\"",
    "inputs_sha256": "20bc4d939a76c2397c5a9a6cdb08053931b90e232e3d2a7dd04c6566ee21f079"
   },
   "ch8/test_class_new_args": {
@@ -22807,7 +22807,7 @@
   },
   "ch8/test_dynamic_cast": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp59kc5...', expected '  Downcast correctly failed for pure base object'",
+   "reason": "output differs: line 1 is '<tmp>...', expected '  Downcast correctly failed for pure base object'",
    "inputs_sha256": "a3387e534b4357507ad49076dd3c23db565304d19bff856bf6c4360f2f0d202b"
   },
   "ch8/test_edge_case_classes": {
@@ -23591,7 +23591,7 @@
   },
   "ch8/test_type_check": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpkzemo...', expected '=== IEEE 1800-2023 Type Checking Tests ==='",
+   "reason": "output differs: line 1 is '<tmp>...', expected '=== IEEE 1800-2023 Type Checking Tests ==='",
    "inputs_sha256": "e0809248580d0f69f23a683f4520d327e92f012cf7b10dabcdfdcee6006b5362"
   },
   "ch8/test_type_this": {

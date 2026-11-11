@@ -73,12 +73,12 @@
   },
   "gen/ch21/test_gen_cross_scansel_32_bit_z_bin_bad_second_minus_word_low_literal": {
    "status": "known",
-   "reason": "build failed: %Error: 'make -C /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmprnnrmccd/obj -f Vt.mk -j 1' exited with 2",
+   "reason": "build failed: %Error: 'make -C <tmp>/obj -f Vt.mk -j 1' exited with 2",
    "inputs_sha256": "03fcc8c2298ffe29da451cd4b38a055f96d5fa7a901b754b0fb3accb54dce91c"
   },
   "gen/ch21/test_gen_cross_scansel_32_logic_known_hex_long_first_plus_word_low_literal": {
    "status": "known",
-   "reason": "build failed: %Error: 'make -C /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpvorgq8oz/obj -f Vt.mk -j 1' exited with 2",
+   "reason": "build failed: %Error: 'make -C <tmp>/obj -f Vt.mk -j 1' exited with 2",
    "inputs_sha256": "07010b44e7c8febb829a0cc858891e8dd5b0dcbb76982c0e6e94ee44444b0e06"
   },
   "gen/ch21/test_gen_cross_scansel_32_logic_x_bin_all_whole_word_low_literal": {
@@ -108,7 +108,7 @@
   },
   "gen/ch21/test_gen_cross_scansel_33_logic_known_bin_empty_minus_target_high_literal": {
    "status": "known",
-   "reason": "build failed: %Error: 'make -C /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpz3ch6cqj/obj -f Vt.mk -j 1' exited with 2",
+   "reason": "build failed: %Error: 'make -C <tmp>/obj -f Vt.mk -j 1' exited with 2",
    "inputs_sha256": "29a40adb55f88c1c3120ab0b34977cb0c5df148ad8fd10e7cecec18972c03a0f"
   },
   "gen/ch21/test_gen_cross_scansel_33_logic_x_bin_bad_second_whole_word_low_literal": {
@@ -128,17 +128,17 @@
   },
   "gen/ch21/test_gen_cross_scansel_64_bit_x_bin_long_first_minus_target_low_literal": {
    "status": "known",
-   "reason": "build failed: %Error: 'make -C /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpqaf0zvz2/obj -f Vt.mk -j 1' exited with 2",
+   "reason": "build failed: %Error: 'make -C <tmp>/obj -f Vt.mk -j 1' exited with 2",
    "inputs_sha256": "8e1f1f8ef63881a57b4df7a000ccbebefb59e5fd6fb78cdd11241a506eca657c"
   },
   "gen/ch21/test_gen_cross_scansel_64_bit_z_bin_all_plus_word_low_literal": {
    "status": "known",
-   "reason": "build failed: %Error: 'make -C /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpzpvn2w3x/obj -f Vt.mk -j 1' exited with 2",
+   "reason": "build failed: %Error: 'make -C <tmp>/obj -f Vt.mk -j 1' exited with 2",
    "inputs_sha256": "97c9fa2685068d0bcaad840450d79aec1b0abb523c3c371c0fd7691634c0090a"
   },
   "gen/ch21/test_gen_cross_scansel_64_logic_known_bin_all_minus_word_low_literal": {
    "status": "known",
-   "reason": "build failed: %Error: 'make -C /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp11z8mx_5/obj -f Vt.mk -j 1' exited with 2",
+   "reason": "build failed: %Error: 'make -C <tmp>/obj -f Vt.mk -j 1' exited with 2",
    "inputs_sha256": "47b9a7f77f192c526c69831415ca6274817d3183c01af7eed4b771fa96432d67"
   },
   "gen/ch21/test_gen_cross_scansel_64_logic_x_hex_empty_whole_word_low_literal": {
@@ -148,7 +148,7 @@
   },
   "gen/ch21/test_gen_cross_scansel_64_logic_z_hex_all_plus_target_high_literal": {
    "status": "known",
-   "reason": "build failed: %Error: 'make -C /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp67n8s79e/obj -f Vt.mk -j 1' exited with 2",
+   "reason": "build failed: %Error: 'make -C <tmp>/obj -f Vt.mk -j 1' exited with 2",
    "inputs_sha256": "828677a43c4aa9846b2705741f1adaa9ded01291a5c8be51dadc8ae422c0e6f3"
   },
   "gen/ch21/test_gen_cross_scansel_65_bit_known_hex_all_minus_word_low_literal": {

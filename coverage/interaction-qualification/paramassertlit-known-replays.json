@@ -16,7 +16,7 @@
         {
           "tool": "iverilog",
           "returncode": 134,
-          "stderr": "Assertion failed: (ivl_expr_value(expr) == IVL_VT_BOOL || ivl_expr_value(expr) == IVL_VT_VECTOR), function draw_eval_vec4, file eval_vec4.c, line 1360.\nsh: line 1: 18864 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg212e53e82\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg12e53e82\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli12e53e82\"\n     18865 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlh12e53e82\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+          "stderr": "Assertion failed: (ivl_expr_value(expr) == IVL_VT_BOOL || ivl_expr_value(expr) == IVL_VT_VECTOR), function draw_eval_vec4, file eval_vec4.c, line 1360.\nsh: line 1: 18864 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>//ivrlg212e53e82\" -f\"<tmp>//ivrlg12e53e82\" -p\"<tmp>//ivrli12e53e82\"\n     18865 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>//ivrlh12e53e82\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
         }
       ]
     },
@@ -64,7 +64,7 @@
         {
           "tool": "iverilog",
           "returncode": 134,
-          "stderr": "Assertion failed: (ivl_expr_value(expr) == IVL_VT_BOOL || ivl_expr_value(expr) == IVL_VT_VECTOR), function draw_eval_vec4, file eval_vec4.c, line 1360.\nsh: line 1: 18882 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg212e99a99\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg12e99a99\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli12e99a99\"\n     18883 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlh12e99a99\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+          "stderr": "Assertion failed: (ivl_expr_value(expr) == IVL_VT_BOOL || ivl_expr_value(expr) == IVL_VT_VECTOR), function draw_eval_vec4, file eval_vec4.c, line 1360.\nsh: line 1: 18882 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>//ivrlg212e99a99\" -f\"<tmp>//ivrlg12e99a99\" -p\"<tmp>//ivrli12e99a99\"\n     18883 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>//ivrlh12e99a99\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
         }
       ]
     },
@@ -76,7 +76,7 @@
         {
           "tool": "iverilog",
           "returncode": 134,
-          "stderr": "Assertion failed: (ivl_expr_value(expr) == IVL_VT_BOOL || ivl_expr_value(expr) == IVL_VT_VECTOR), function draw_eval_vec4, file eval_vec4.c, line 1360.\nsh: line 1: 18887 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg212eb2483\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg12eb2483\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli12eb2483\"\n     18888 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlh12eb2483\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+          "stderr": "Assertion failed: (ivl_expr_value(expr) == IVL_VT_BOOL || ivl_expr_value(expr) == IVL_VT_VECTOR), function draw_eval_vec4, file eval_vec4.c, line 1360.\nsh: line 1: 18887 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>//ivrlg212eb2483\" -f\"<tmp>//ivrlg12eb2483\" -p\"<tmp>//ivrli12eb2483\"\n     18888 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>//ivrlh12eb2483\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
         }
       ]
     },
@@ -250,7 +250,7 @@
         {
           "tool": "iverilog",
           "returncode": 134,
-          "stderr": "tests/gen/ch23/test_gen_cross_paramtype_struct_concat_both.sv:30: error: Parameter name P can't have member names (hi).\nAssertion failed: (0), function get_parameter_line_info, file net_scope.cc, line 449.\nsh: line 1: 18954 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg212fc5338\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg12fc5338\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli12fc5338\"\n     18955 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlh12fc5338\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+          "stderr": "tests/gen/ch23/test_gen_cross_paramtype_struct_concat_both.sv:30: error: Parameter name P can't have member names (hi).\nAssertion failed: (0), function get_parameter_line_info, file net_scope.cc, line 449.\nsh: line 1: 18954 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>//ivrlg212fc5338\" -f\"<tmp>//ivrlg12fc5338\" -p\"<tmp>//ivrli12fc5338\"\n     18955 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>//ivrlh12fc5338\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
         }
       ]
     },
@@ -262,7 +262,7 @@
         {
           "tool": "iverilog",
           "returncode": 134,
-          "stderr": "tests/gen/ch23/test_gen_cross_paramtype_struct_narrow_ordered.sv:30: error: Parameter name P can't have member names (hi).\nAssertion failed: (0), function get_parameter_line_info, file net_scope.cc, line 449.\nsh: line 1: 18961 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg212fddd22\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg12fddd22\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli12fddd22\"\n     18962 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlh12fddd22\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+          "stderr": "tests/gen/ch23/test_gen_cross_paramtype_struct_narrow_ordered.sv:30: error: Parameter name P can't have member names (hi).\nAssertion failed: (0), function get_parameter_line_info, file net_scope.cc, line 449.\nsh: line 1: 18961 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>//ivrlg212fddd22\" -f\"<tmp>//ivrlg12fddd22\" -p\"<tmp>//ivrli12fddd22\"\n     18962 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>//ivrlh12fddd22\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
         }
       ]
     },
@@ -274,7 +274,7 @@
         {
           "tool": "iverilog",
           "returncode": 134,
-          "stderr": "tests/gen/ch23/test_gen_cross_paramtype_struct_sized_defparam.sv:30: error: Parameter name P can't have member names (hi).\nAssertion failed: (0), function get_parameter_line_info, file net_scope.cc, line 449.\nsh: line 1: 18967 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg212ffa8b3\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg12ffa8b3\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli12ffa8b3\"\n     18968 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlh12ffa8b3\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+          "stderr": "tests/gen/ch23/test_gen_cross_paramtype_struct_sized_defparam.sv:30: error: Parameter name P can't have member names (hi).\nAssertion failed: (0), function get_parameter_line_info, file net_scope.cc, line 449.\nsh: line 1: 18967 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>//ivrlg212ffa8b3\" -f\"<tmp>//ivrlg12ffa8b3\" -p\"<tmp>//ivrli12ffa8b3\"\n     18968 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>//ivrlh12ffa8b3\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
         }
       ]
     },
@@ -286,7 +286,7 @@
         {
           "tool": "iverilog",
           "returncode": 134,
-          "stderr": "tests/gen/ch23/test_gen_cross_paramtype_struct_ssized_local.sv:30: error: Parameter name P can't have member names (hi).\nAssertion failed: (0), function get_parameter_line_info, file net_scope.cc, line 449.\nsh: line 1: 18973 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg21300f0f6\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg1300f0f6\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli1300f0f6\"\n     18974 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlh1300f0f6\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+          "stderr": "tests/gen/ch23/test_gen_cross_paramtype_struct_ssized_local.sv:30: error: Parameter name P can't have member names (hi).\nAssertion failed: (0), function get_parameter_line_info, file net_scope.cc, line 449.\nsh: line 1: 18973 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>//ivrlg21300f0f6\" -f\"<tmp>//ivrlg1300f0f6\" -p\"<tmp>//ivrli1300f0f6\"\n     18974 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>//ivrlh1300f0f6\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
         }
       ]
     },
@@ -298,7 +298,7 @@
         {
           "tool": "iverilog",
           "returncode": 134,
-          "stderr": "tests/gen/ch23/test_gen_cross_paramtype_struct_sum_default.sv:30: error: Parameter name P can't have member names (hi).\nAssertion failed: (0), function get_parameter_line_info, file net_scope.cc, line 449.\nsh: line 1: 18979 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg21302bc87\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg1302bc87\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli1302bc87\"\n     18980 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlh1302bc87\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+          "stderr": "tests/gen/ch23/test_gen_cross_paramtype_struct_sum_default.sv:30: error: Parameter name P can't have member names (hi).\nAssertion failed: (0), function get_parameter_line_info, file net_scope.cc, line 449.\nsh: line 1: 18979 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>//ivrlg21302bc87\" -f\"<tmp>//ivrlg1302bc87\" -p\"<tmp>//ivrli1302bc87\"\n     18980 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>//ivrlh1302bc87\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
         }
       ]
     },
@@ -310,7 +310,7 @@
         {
           "tool": "iverilog",
           "returncode": 134,
-          "stderr": "tests/gen/ch23/test_gen_cross_paramtype_struct_wide_named.sv:30: error: Parameter name P can't have member names (hi).\nAssertion failed: (0), function get_parameter_line_info, file net_scope.cc, line 449.\nsh: line 1: 18986 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg213048818\" -f\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlg13048818\" -p\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrli13048818\"\n     18987 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T//ivrlh13048818\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
+          "stderr": "tests/gen/ch23/test_gen_cross_paramtype_struct_wide_named.sv:30: error: Parameter name P can't have member names (hi).\nAssertion failed: (0), function get_parameter_line_info, file net_scope.cc, line 449.\nsh: line 1: 18986 Done                    /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivlpp -L -F\"<tmp>//ivrlg213048818\" -f\"<tmp>//ivrlg13048818\" -p\"<tmp>//ivrli13048818\"\n     18987 Abort trap: 6           | /opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/ivl -C\"<tmp>//ivrlh13048818\" -C\"/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vvp.conf\" -- -\n"
         }
       ]
     },

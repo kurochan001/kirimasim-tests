@@ -167,7 +167,7 @@
   },
   "ch40/test_coverage_get_status_and_relations": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp9gfb8...', expected 'maximum is not an error: 1'",
+   "reason": "output differs: line 1 is '<tmp>...', expected 'maximum is not an error: 1'",
    "inputs_sha256": "470fdd254da636e86ffea26f0ec597020e976ac61cf035a77739cd07dfeaec87"
   },
   "ch6/test_aggregate_whole_copy_and_subroutine": {
@@ -177,7 +177,7 @@
   },
   "ch6/test_cast_function_and_static_enum_coercion": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmphafuz...', expected 'fn_ok=1 e=1'",
+   "reason": "output differs: line 1 is '<tmp>...', expected 'fn_ok=1 e=1'",
    "inputs_sha256": "daadc519cfdf3e63c14745f39b922426454a986cb3c997621664ccc800a43a38"
   },
   "ch6/test_class_cast_compatibility_dynamic": {

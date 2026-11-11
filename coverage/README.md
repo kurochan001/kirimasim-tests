@@ -33,7 +33,7 @@ python3 tools/interaction_coverage.py --model membership_container \
 
 ## mainの集計とNightlyの集計
 
-`main`の`docs/behavior-coverage-summary.md`は、`coverage/results/`に保存した証跡を使います。 固定バージョンIcarus 13.0／Verilator 5.052の全件実行と、その後の部分再実行を含みます。 Ghostのローカル全件実行も保存しています。 各実行回を分けて保持し、現在の入力ハッシュと一致する成功だけを採用します。
+`main`の`docs/behavior-coverage-summary.md`は、`coverage/results/`に保存した証跡を使います。 現在の集計は、2026-11-12の固定バージョンIcarus 13.0／Verilator 5.052の全件実行（`full-20261112-*.json`）を使います。 それより前の全件実行と部分再実行も残していますが、ランナーのハッシュが違うので集計には使いません。 Ghostのローカル全件実行も保存しています。 各実行回を分けて保持し、現在の入力ハッシュと一致する成功だけを採用します。
 
 Nightlyは各シミュレータの開発版で実行し、`publish`が**その回の結果だけ**を使って `results`ブランチ直下の`behavior-coverage-summary.md`と関連JSON・履歴へ記録します。 この処理を含むNightlyが初めて公開されるまでは、出力先が存在しない場合があります。 Nightlyの`Match`割合はテスト出力の一致率であり、要求台帳に対する要求カバレッジ（テスト設計）・実行確認率とは別です。 対象コミット・版・実行範囲を確認してから結果を比較してください。
 
@@ -108,6 +108,8 @@ Nightlyの開始予定は毎日04:23 JSTです。公開は全ジョブ終了後�
 - `results/oracle-refinement-20261025-*.json`: `:oracle:`に誤って`iverilog@13.0`とあった取り込みテスト3本（`tests/imported/`）を`spec`に直した後の再実行。 Icarus 13.0とVerilator 5.052（seed 1/73）とも3 knownです。
 - `results/sva-m3-corrections-20261026-*.json`: 独立SVA参照評価器で見つかった期待値・説明の誤り2本を、ユーザー承認後に修正した再実行。 Icarus 13.0とVerilator 5.052のseed 1/73とも2 knownです。参照評価器との一致は実行確認率に含めません。
 - `results/nightly-suite-corrections-20261027-*.json` : Nightly の診断不一致等から修正した 28 本と既存の packed union負例 1 本の再実行。Icarus 13.0 は 9 pass・ 20 known、 Verilator 5.052 は seed 1/73 とも 8 pass・ 21 known です。ローカル kirimasim は 27 pass・ 1 unsupported・ 1 failで、規格違反テストの固定バージョンoracleとして認定していません。[修正根拠・11本のoracle取り消し・残件](../docs/nightly-suite-corrections-20261027.md) を参照してください。
+- `results/full-20261112-*.json`: 2026-11-12にランナーを修正した後の全件実行。ランナーのハッシュが変わったので、それまでのIcarus Verilog・Verilator・kirimasimの結果ファイルは集計に使いません（ファイルは残します）。対象は形式検証を除く11,998本です。Icarus Verilog 13.0は6,955 pass・5,043 known、Verilator 5.052のseed 1（`--all`）は6,574 pass・5,424 known、seed 73（Verilatorで期待出力を記録した3,055本）は3,055 pass、kirimasim `7de185f776a1`は9,475 pass・2,394 unsupported・129 failです。GhostとSymbiYosysの結果は、ランナーが変わっていないのでそのまま使います。[履歴](../docs/history.ja.md)の2026-11-12の項を参照してください。
+- `interaction-results/full-20261112-*.json`と`combination-results/issue21-20261112-*.json`: 同じランナーでの再実行。kirimasim `7de185f776a1`は選択した4,416ケースを1回で実行し、3,915 pass・487 unsupported・14 failです。Icarus Verilog 13.0とVerilator 5.052（seed 1/73）は、モデルの利用できる4,690ケースを実行しました。Icarusは2,768 pass・1,922 known、Verilatorはseed 1が2,102 pass・2,588 known、seed 73が2,097 pass・2,593 knownです。Issue #21の88本は、Icarusが11 pass・77 known、Verilatorがseed 1/73とも27 pass・61 known、kirimasimが68 pass・19 unsupported・1 failです。それまでのファイルは残しますが、ランナーのハッシュが違うので証跡には数えません。
 - `slang/`: 固定版slangによる[参考判定](../docs/slang-reference.md)の日付付きの記録。`tools/run_slang.py`が書きます。 どの集計にも数えず、カバレッジのツールは読みません。[レビュー候補](../docs/review-candidates.md)は`tools/review_candidates.py`がNightlyの結果から作り、`results`ブランチに置きます。
 - `behavior-summary.json`: 現在の暫定値・確定値、章別の割合、分母SHA-256、 シミュレータごとの失敗・既知不一致・未対応・未実行・古い証跡などの内訳。 `--update`で概要Markdownとともに再生成し、`--check`で両方の整合性を検査します。
 - `behavior-history.json`: 計測履歴。分母と計測規則の版を添えて保存します。 分母が変わった前後の割合は、そのまま改善・悪化として比較しません。

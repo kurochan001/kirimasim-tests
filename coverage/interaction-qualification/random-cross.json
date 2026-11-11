@@ -35,7 +35,7 @@
         "source_changes": true
       },
       "build": {
-        "executable": "/private/tmp/kirimasim-cross56-build/src/driver/kirimasim",
+        "executable": "<tmp>/kirimasim-cross56-build/src/driver/kirimasim",
         "version": "kirimasim 0.0.0 (commit 866abf4d86d1), built with AppleClang 21.0.0.21000401",
         "commit": "866abf4d86d11130a9946b79ea5fd19e2913b19c",
         "binary_sha256": "c2617ce26eb1373aefd1e8afa2a4527e18c698ccec73d53dd2c89b034ae17c29"
@@ -929,7 +929,7 @@
         "source_changes": true
       },
       "build": {
-        "executable": "/private/tmp/kirimasim-cross56-build/src/driver/kirimasim",
+        "executable": "<tmp>/kirimasim-cross56-build/src/driver/kirimasim",
         "version": "kirimasim 0.0.0 (commit 866abf4d86d1), built with AppleClang 21.0.0.21000401",
         "commit": "866abf4d86d11130a9946b79ea5fd19e2913b19c",
         "binary_sha256": "c2617ce26eb1373aefd1e8afa2a4527e18c698ccec73d53dd2c89b034ae17c29"
@@ -1823,7 +1823,7 @@
         "source_changes": true
       },
       "build": {
-        "executable": "/private/tmp/kirimasim-cross56-build/src/driver/kirimasim",
+        "executable": "<tmp>/kirimasim-cross56-build/src/driver/kirimasim",
         "version": "kirimasim 0.0.0 (commit 866abf4d86d1), built with AppleClang 21.0.0.21000401",
         "commit": "866abf4d86d11130a9946b79ea5fd19e2913b19c",
         "binary_sha256": "c2617ce26eb1373aefd1e8afa2a4527e18c698ccec73d53dd2c89b034ae17c29"
@@ -4157,7 +4157,7 @@
         "source_changes": true
       },
       "build": {
-        "executable": "/private/tmp/kirimasim-cross56-build/src/driver/kirimasim",
+        "executable": "<tmp>/kirimasim-cross56-build/src/driver/kirimasim",
         "version": "kirimasim 0.0.0 (commit 866abf4d86d1), built with AppleClang 21.0.0.21000401",
         "commit": "866abf4d86d11130a9946b79ea5fd19e2913b19c",
         "binary_sha256": "c2617ce26eb1373aefd1e8afa2a4527e18c698ccec73d53dd2c89b034ae17c29"
@@ -4186,7 +4186,7 @@
     "scope": "Intentional SV operator change; not a normal execution pass.",
     "mutation": "result = a + b; -> result = a - b;",
     "build": {
-      "executable": "/private/tmp/kirimasim-cross56-build/src/driver/kirimasim",
+      "executable": "<tmp>/kirimasim-cross56-build/src/driver/kirimasim",
       "version": "kirimasim 0.0.0 (commit 866abf4d86d1), built with AppleClang 21.0.0.21000401",
       "commit": "866abf4d86d11130a9946b79ea5fd19e2913b19c",
       "binary_sha256": "c2617ce26eb1373aefd1e8afa2a4527e18c698ccec73d53dd2c89b034ae17c29"

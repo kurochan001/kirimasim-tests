@@ -10,7 +10,7 @@
   },
   "ch6/test_enum_explicit_cast_and_failed_dynamic_cast": {
    "status": "known",
-   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpjtwds...', expected 'failed=0 retained=8'",
+   "reason": "output differs: line 1 is '<tmp>...', expected 'failed=0 retained=8'",
    "inputs_sha256": "21f4c25d485c589aa856e6706fad119d95404b55f8112a2875f4f7671042b5c9"
   },
   "ch6/test_enum_method_edge": {

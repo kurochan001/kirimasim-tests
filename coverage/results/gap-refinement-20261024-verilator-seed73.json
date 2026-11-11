@@ -15,7 +15,7 @@
   },
   "ch8/test_param_class_package_vs_module_instance_specializations": {
    "status": "known",
-   "reason": "build failed: %Error: 'make -C /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp1s6bh7g1/obj -f Vt.mk -j 1' exited with 2",
+   "reason": "build failed: %Error: 'make -C <tmp>/obj -f Vt.mk -j 1' exited with 2",
    "inputs_sha256": "75ae8d2bb563a5344d842523da9bbdfd3affa693f02b1d318692ff0dfd95aa61"
   }
  },

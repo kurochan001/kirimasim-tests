@@ -21852,6 +21852,7 @@
     "null の仮想インタフェースの参照を致命的エラーにしない実装は後続の行を出すか、エラーのメッセージがなく失敗する。": "An implementation that does not make a reference through a null virtual interface a fatal error prints the later lines, or fails for lack of an error message.",
     "ZXQPH0QXZ : ZXQPH1QXZ の use model a)（ ZXQPH2QXZ つのコマンドラインの全ファイルが ZXQPH3QXZ つの compilation unit になる）を選んだとき、一方のファイルで宣言した ZXQPH4QXZ と ZXQPH5QXZ が他方のファイルの module から見えて ZXQPH6QXZ = ZXQPH7QXZ になることを確認する。": "ZXQPH0QXZ: checks that, when use model a) of ZXQPH1QXZ is chosen (all files of ZXQPH2QXZ command line form ZXQPH3QXZ compilation unit), ZXQPH4QXZ and ZXQPH5QXZ declared in one file are visible from the module of the other file, which gives ZXQPH6QXZ = ZXQPH7QXZ.",
     "テストはメタデータ ZXQPH0QXZ の値 single で、この use model が必要であることを示す。": "The test says with the value single of the metadata ZXQPH0QXZ that it needs this use model.",
-    "規格要求の実行確認率: ZXQPH0QXZ を除いて ZXQPH1QXZ 、 ZXQPH2QXZ を含めて ZXQPH3QXZ 。": "Requirement execution-confirmation rate: ZXQPH1QXZ without ZXQPH0QXZ, ZXQPH3QXZ with ZXQPH2QXZ."
+    "規格要求の実行確認率: ZXQPH0QXZ を除いて ZXQPH1QXZ 、 ZXQPH2QXZ を含めて ZXQPH3QXZ 。": "Requirement execution-confirmation rate: ZXQPH1QXZ without ZXQPH0QXZ, ZXQPH3QXZ with ZXQPH2QXZ.",
+    "証跡の問題: runner fingerprint differs。": "Evidence problem: runner fingerprint differs."
   }
 }
