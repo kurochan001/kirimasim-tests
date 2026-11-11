@@ -2278,8 +2278,8 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
 
 ### results/ghost.json
 
-- 環境: private build edda91f4108d。
-- 実行日時: 2026-11-10T04:08:06.233930+00:00。
+- 環境: private build 8d5097472bdb。
+- 実行日時: 2026-11-11T02:21:19.547429+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -2561,10 +2561,10 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 4/4。
   - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - array_reduction_constraint:
-  - 2因子の合格確認済み組合せ: 90/96。
-  - 3因子の合格確認済み組合せ: 33/40。
+  - 2因子の合格確認済み組合せ: 87/96。
+  - 3因子の合格確認済み組合せ: 30/40。
   - 必須ケース: 3/4。
-  - ケース状態: pass=11, fail=2, known=0, unsupported=0, stale=0, not_run=0。
+  - ケース状態: pass=10, fail=3, known=0, unsupported=0, stale=0, not_run=0。
 - associative_array_queries:
   - 2因子の合格確認済み組合せ: 93/93。
   - 3因子の合格確認済み組合せ: 54/54。
@@ -2823,8 +2823,8 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
 
 ### results/icarus.json
 
-- 環境: Icarus Verilog version 14.0 (devel) (s20260301-918-g3e2189b3)。
-- 実行日時: 2026-11-10T03:50:15.606941+00:00。
+- 環境: Icarus Verilog version 14.0 (devel) (s20260301-948-gbd5af291)。
+- 実行日時: 2026-11-11T01:54:24.229688+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -3369,7 +3369,7 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
 ### results/kirimasim.json
 
 - 環境: kirimasim 0.0.0 (commit 7de185f776a1), built with GNU 13.3.0。
-- 実行日時: 2026-11-10T02:33:06.410048+00:00。
+- 実行日時: 2026-11-11T01:50:57.291443+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -3914,7 +3914,7 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
 ### results/lyra.json
 
 - 環境: Lyra (commit eaaea03805b3)。
-- 実行日時: 2026-11-10T11:08:35.647817+00:00。
+- 実行日時: 2026-11-11T07:31:55.175140+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 111/126。
@@ -4458,8 +4458,8 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
 
 ### results/verilator.json
 
-- 環境: Verilator 5.055 devel rev v5.054-182-g4ab62c3a。
-- 実行日時: 2026-11-10T03:47:40.394696+00:00。
+- 環境: Verilator 5.055 devel rev v5.054-200-g18c16505。
+- 実行日時: 2026-11-11T03:42:05.211278+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。

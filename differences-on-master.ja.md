@@ -6,20 +6,21 @@
 
 | シミュレータ | 実行した版 | 実行（UTC） | スイート | 挙げられたテスト | まだ異なる | 一致した | 未実行 |
 | --- | --- | --- | --- | ---: | ---: | ---: | ---: |
-| Icarus Verilog | Icarus Verilog version 14.0 (devel) (s20260301-918-g3e2189b3) | 2026-11-10 11:08 | [`a155aec`](https://github.com/kurochan001/kirimasim-tests/commit/a155aec8d7a87178f5abfa352286105aa5afbb58) | 235 | 203 | 32 | 0 |
-| Verilator | Verilator 5.055 devel rev v5.054-182-g4ab62c3a | 2026-11-10 11:08 | [`a155aec`](https://github.com/kurochan001/kirimasim-tests/commit/a155aec8d7a87178f5abfa352286105aa5afbb58) | 486 | 426 | 60 | 0 |
+| Icarus Verilog | Icarus Verilog version 14.0 (devel) (s20260301-948-gbd5af291) | 2026-11-11 07:32 | [`a155aec`](https://github.com/kurochan001/kirimasim-tests/commit/a155aec8d7a87178f5abfa352286105aa5afbb58) | 235 | 202 | 33 | 0 |
+| Verilator | Verilator 5.055 devel rev v5.054-200-g18c16505 | 2026-11-11 07:32 | [`a155aec`](https://github.com/kurochan001/kirimasim-tests/commit/a155aec8d7a87178f5abfa352286105aa5afbb58) | 486 | 426 | 60 | 0 |
 
 挙げられたテストは、シミュレータごとに各テストを1回数えます。パターンと「一覧で確かめること」の項目は、この数に含みません。
 
 ## Icarus Verilog
 
-### 一致した (32)
+### 一致した (33)
 
 | テスト | 一覧の項目 |
 | --- | --- |
 | [`ch11/test_compound_assignment_index_evaluated_once`](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/tests/ch11/test_compound_assignment_index_evaluated_once.sv) | [2026-10-24 ギャップテストによって追加されたケース › Icarus Verilog 13.0: 結果](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/docs/simulator-differences.ja.md#icarus-verilog-130-結果) |
 | [`ch11/test_logical_operands_evaluated_once_and_unknown_left`](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/tests/ch11/test_logical_operands_evaluated_once_and_unknown_left.sv) | [2026-10-24 ギャップテストによって追加されたケース › Icarus Verilog 13.0: 結果](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/docs/simulator-differences.ja.md#icarus-verilog-130-結果) |
 | [`ch11/test_short_circuit_suppresses_fatal_operand`](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/tests/ch11/test_short_circuit_suppresses_fatal_operand.sv) | [2026-10-23の式レビュー後に追加したケース](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/docs/simulator-differences.ja.md#2026-10-23の式レビュー後に追加したケース) |
+| [`ch13/test_illegal_output_argument_not_lvalue`](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/tests/ch13/test_illegal_output_argument_not_lvalue.sv) | [2026-10-24ギャップテストによる追加事例，第2回 › 両方のリリース：受理される規格違反の設計（2回目）](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/docs/simulator-differences.ja.md#両方のリリース受理される規格違反の設計2回目) |
 | [`ch23/test_illegal_named_parameter_assigned_twice`](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/tests/ch23/test_illegal_named_parameter_assigned_twice.sv) | [2026-10-24ギャップテストによる追加事例，第2回 › Icarus Verilog 13.0：受理する違法デザイン（2回目）](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/docs/simulator-differences.ja.md#icarus-verilog-130受理する違法デザイン2回目) |
 | [`ch23/test_illegal_wildcard_port_connection_twice`](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/tests/ch23/test_illegal_wildcard_port_connection_twice.sv) | [2026-10-24ギャップテストによる追加事例，第2回 › Icarus Verilog 13.0：受理する違法デザイン（2回目）](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/docs/simulator-differences.ja.md#icarus-verilog-130受理する違法デザイン2回目) |
 | [`ch26/test_package_local_visibility`](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/tests/ch26/test_package_local_visibility.sv) | [2026-10-24 ギャップテストによって追加されたケース › 両リリースとも結果](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/docs/simulator-differences.ja.md#両リリースとも結果) |
@@ -64,7 +65,7 @@
 | `gen/ch5/test_gen_kw_2023_*` | [2026-10-24キーワードテストによって追加された事例](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/docs/simulator-differences.ja.md#2026-10-24キーワードテストによって追加された事例) | 248 | 248 | 0 | 0 |
 | `gen/ch7/test_gen_wide_select_*_2state` | [Icarus Verilog 13.0 › 結果](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/docs/simulator-differences.ja.md#結果) | 7 | 0 | 7 | 0 |
 
-### まだ異なる (203)
+### まだ異なる (202)
 
 <details>
 <summary>テストの一覧</summary>
@@ -88,7 +89,6 @@
 | [`ch13/test_illegal_constant_function_parameter_after_call`](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/tests/ch13/test_illegal_constant_function_parameter_after_call.sv) | [2026-10-24ギャップテストによる追加事例，第2回 › 両方のリリース：受理される規格違反の設計（2回目）](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/docs/simulator-differences.ja.md#両方のリリース受理される規格違反の設計2回目) |
 | [`ch13/test_illegal_function_fork_join`](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/tests/ch13/test_illegal_function_fork_join.sv) | [Icarus Verilog 13.0 › 受け入れる違法デザイン](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/docs/simulator-differences.ja.md#受け入れる違法デザイン) |
 | [`ch13/test_illegal_function_fork_join_any`](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/tests/ch13/test_illegal_function_fork_join_any.sv) | [Icarus Verilog 13.0 › 受け入れる違法デザイン](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/docs/simulator-differences.ja.md#受け入れる違法デザイン) |
-| [`ch13/test_illegal_output_argument_not_lvalue`](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/tests/ch13/test_illegal_output_argument_not_lvalue.sv) | [2026-10-24ギャップテストによる追加事例，第2回 › 両方のリリース：受理される規格違反の設計（2回目）](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/docs/simulator-differences.ja.md#両方のリリース受理される規格違反の設計2回目) |
 | [`ch16/test_assert_immed_2`](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/tests/ch16/test_assert_immed_2.sv) | [Icarus Verilog 13.0 › 結果](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/docs/simulator-differences.ja.md#結果) |
 | [`ch16/test_immediate_cover_pass_statement`](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/tests/ch16/test_immediate_cover_pass_statement.sv) | [2026-10-24ギャップテストによる追加事例，第2回 › Icarus Verilog 13.0: 結果 (2回目の実行)](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/docs/simulator-differences.ja.md#icarus-verilog-130-結果-2回目の実行) |
 | [`ch16/test_property_implication_operator_forms`](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/tests/ch16/test_property_implication_operator_forms.sv) | [Icarus 2026-10-26の刺激抽出観察を行った。](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/docs/simulator-differences.ja.md#icarus-2026-10-26の刺激抽出観察を行った) |

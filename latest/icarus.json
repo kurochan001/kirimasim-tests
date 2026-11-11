@@ -1,7 +1,7 @@
 {
  "name": "Icarus Verilog",
- "version": "Icarus Verilog version 14.0 (devel) (s20260301-918-g3e2189b3)",
- "time": "2026-11-10T11:08:58Z",
+ "version": "Icarus Verilog version 14.0 (devel) (s20260301-948-gbd5af291)",
+ "time": "2026-11-11T07:32:19Z",
  "suite_commit": "a155aec8d7a87178f5abfa352286105aa5afbb58",
  "tests": {
   "ch10/test_a6_7_1_assignment_pattern_keys": "known",
@@ -1020,7 +1020,7 @@
   "ch13/test_illegal_net_passed_by_ref": "pass",
   "ch13/test_illegal_net_select_passed_by_ref": "pass",
   "ch13/test_illegal_nonvoid_function_call_without_parentheses": "pass",
-  "ch13/test_illegal_output_argument_not_lvalue": "known",
+  "ch13/test_illegal_output_argument_not_lvalue": "pass",
   "ch13/test_illegal_recursive_class_function_call_without_parentheses": "known",
   "ch13/test_illegal_ref_actual_cast": "pass",
   "ch13/test_illegal_ref_actual_expression": "pass",
@@ -2951,7 +2951,7 @@
   "ch23/test_type_parameter_override_dependent_value": "pass",
   "ch23/test_upward_name_resolution_order": "pass",
   "ch23/test_upward_name_search_after_partial_match": "known",
-  "ch23/test_vpi_ansi_port_inheritance": "pass",
+  "ch23/test_vpi_ansi_port_inheritance": "fail",
   "ch23/test_vpi_port_kind_defaults": "known",
   "ch23/test_wildcard_port_connection_defaults": "pass",
   "ch23/test_wildcard_port_connection_once_any_position": "pass",

@@ -6,10 +6,10 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/docs/requirement-extraction.en.md) / [Management procedures](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/coverage/README.en.md) / [Number of citations per paragraph](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/docs/coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/docs/faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 90.14%, execution without Ghost 42.21%, execution with Ghost 73.97%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/docs/faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 90.14%, execution without Ghost 42.18%, execution with Ghost 73.96%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 90.14%. Requirement execution-confirmation rate: 73.97%. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 90.14%. Requirement execution-confirmation rate: 73.96%. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
@@ -17,7 +17,7 @@ Requirement coverage (test design): 90.14%. Requirement execution-confirmation r
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
 - The requirement coverage (test design) for registered behaviors is 11086/12298 ( 90.14% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9097/12298 ( 73.97% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9096/12298 ( 73.96% ).
 - Registered but not tested: 1212.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
@@ -32,11 +32,11 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 
 `check_groups` distributes a single request across multiple tests, and is successful only if all tests in the group are successful in the same runtime and run. The unspecified response is an independent alternative proof.
 
-- `ghost.json`: `private build edda91f4108d` / `2026-11-10T04:08:06.233930+00:00` / 9030/12298 execution checked; 0 entries refer to older inputs.
-- `icarus.json`: `Icarus Verilog version 14.0 (devel) (s20260301-918-g3e2189b3)` / `2026-11-10T03:50:15.606941+00:00` / 2546/12298 execution checked; 0 entries refer to older inputs.
-- `kirimasim.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with GNU 13.3.0` / `2026-11-10T02:33:06.410048+00:00` / 2992/12298 execution checked; 0 entries refer to older inputs.
-- `lyra.json`: `Lyra (commit eaaea03805b3)` / `2026-11-10T11:08:35.647817+00:00` / 3488/12298 execution checked; 0 entries refer to older inputs.
-- `verilator.json`: `Verilator 5.055 devel rev v5.054-182-g4ab62c3a` / `2026-11-10T03:47:40.394696+00:00` / 3723/12298 execution checked; 0 entries refer to older inputs.
+- `ghost.json`: `private build 8d5097472bdb` / `2026-11-11T02:21:19.547429+00:00` / 9023/12298 execution checked; 0 entries refer to older inputs.
+- `icarus.json`: `Icarus Verilog version 14.0 (devel) (s20260301-948-gbd5af291)` / `2026-11-11T01:54:24.229688+00:00` / 2542/12298 execution checked; 0 entries refer to older inputs.
+- `kirimasim.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with GNU 13.3.0` / `2026-11-11T01:50:57.291443+00:00` / 2992/12298 execution checked; 0 entries refer to older inputs.
+- `lyra.json`: `Lyra (commit eaaea03805b3)` / `2026-11-11T07:31:55.175140+00:00` / 3488/12298 execution checked; 0 entries refer to older inputs.
+- `verilator.json`: `Verilator 5.055 devel rev v5.054-200-g18c16505` / `2026-11-11T03:42:05.211278+00:00` / 3723/12298 execution checked; 0 entries refer to older inputs.
 
 <a id="章附属書別の調査状態"></a>
 
@@ -37287,7 +37287,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.5.2-EXTRACT-COMPLEX-CLOCK
 
-`16.5.2` / `normal` / Execution confirmed
+`16.5.2` / `normal` / Test mapped; execution unconfirmed
 
 Complex and iff-gated clock expressions are permitted; users should ensure glitch-free clocks with no more than one transition per simulation time.
 
@@ -37299,7 +37299,7 @@ Normative role: `recommendation`。
 
 ### SV2023-16.5.2-EXTRACT-GLOBAL-CLOCK
 
-`16.5.2` / `normal` / Execution confirmed
+`16.5.2` / `normal` / Test mapped; execution unconfirmed
 
 A $global_clock reference denotes the clocking_event of the global clocking declaration and behaves as an ordinary clocking event; formal verification also treats it as the primary system clock.
 
@@ -111573,7 +111573,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.36.1.3-EXTRACT-MODULE-STATEMENT-CALLBACK
 
-`38.36.1.3` / `normal` / Test mapped; execution unconfirmed
+`38.36.1.3` / `normal` / Execution confirmed
 
 Registering with a module instance handle places callbacks on every eligible statement in that instance.
 

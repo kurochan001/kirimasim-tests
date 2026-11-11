@@ -1,28 +1,28 @@
 {
  "inputs": {
   "icarus": {
-   "version": "Icarus Verilog version 14.0 (devel) (s20260301-918-g3e2189b3)",
-   "time": "2026-11-10T11:08:58Z",
+   "version": "Icarus Verilog version 14.0 (devel) (s20260301-948-gbd5af291)",
+   "time": "2026-11-11T07:32:19Z",
    "suite_commit": "a155aec8d7a87178f5abfa352286105aa5afbb58"
   },
   "verilator": {
-   "version": "Verilator 5.055 devel rev v5.054-182-g4ab62c3a",
-   "time": "2026-11-10T11:08:58Z",
+   "version": "Verilator 5.055 devel rev v5.054-200-g18c16505",
+   "time": "2026-11-11T07:32:19Z",
    "suite_commit": "a155aec8d7a87178f5abfa352286105aa5afbb58"
   },
   "kirimasim": {
    "version": "kirimasim 0.0.0 (commit 7de185f776a1), built with GNU 13.3.0",
-   "time": "2026-11-10T11:08:58Z",
+   "time": "2026-11-11T07:32:19Z",
    "suite_commit": "a155aec8d7a87178f5abfa352286105aa5afbb58"
   },
   "lyra": {
    "version": "Lyra (commit eaaea03805b3)",
-   "time": "2026-11-10T11:08:58Z",
+   "time": "2026-11-11T07:32:19Z",
    "suite_commit": "a155aec8d7a87178f5abfa352286105aa5afbb58"
   },
   "ghost": {
-   "version": "private build edda91f4108d",
-   "time": "2026-11-10T11:08:58Z",
+   "version": "private build 8d5097472bdb",
+   "time": "2026-11-11T07:32:19Z",
    "suite_commit": "a155aec8d7a87178f5abfa352286105aa5afbb58"
   }
  },
@@ -64,6 +64,7 @@
   ],
   "spec_no_pass": [
    "ch10/test_illegal_user_nettype_assignment_two_delays",
+   "ch16/test_assertion_clock_expressions_global_clock",
    "ch16/test_assertion_dist_as_inside",
    "ch16/test_ch16_sim_checker_inference",
    "ch16/test_ch16_sim_multiclock_init",
@@ -132,7 +133,6 @@
    "ch37/test_vpi_udp_table_primitive",
    "ch38/test_vpi_handle_by_multi_index",
    "ch38/test_vpi_put_value_udp_array_errors",
-   "ch38/test_vpi_stmt_callback_module_wide",
    "ch38/test_vpi_systf_function_result_kinds",
    "ch4/test_pli_slot_entry_regions_run_once",
    "ch40/test_vpi_coverage_cover_sequence",

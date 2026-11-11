@@ -2278,8 +2278,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/ghost.json
 
-- Environment: private build edda91f4108d.
-- Execution timestamp: 2026-11-10T04:08:06.233930+00:00.
+- Environment: private build 8d5097472bdb.
+- Execution timestamp: 2026-11-11T02:21:19.547429+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -2561,10 +2561,10 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 4/4.
   - Case statuses: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - array_reduction_constraint:
-  - The confirmed combination of the 2 factor: 90/96.
-  - The confirmed combination of the 3 factor: 33/40.
+  - The confirmed combination of the 2 factor: 87/96.
+  - The confirmed combination of the 3 factor: 30/40.
   - Mandatory case: 3/4.
-  - Case statuses: pass=11, fail=2, known=0, unsupported=0, stale=0, not_run=0.
+  - Case statuses: pass=10, fail=3, known=0, unsupported=0, stale=0, not_run=0.
 - associative_array_queries:
   - The confirmed combination of the 2 factor: 93/93.
   - The confirmed combination of the 3 factor: 54/54.
@@ -2823,8 +2823,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/icarus.json
 
-- Environment: Icarus Verilog version 14.0 (devel) (s20260301-918-g3e2189b3).
-- Execution timestamp: 2026-11-10T03:50:15.606941+00:00.
+- Environment: Icarus Verilog version 14.0 (devel) (s20260301-948-gbd5af291).
+- Execution timestamp: 2026-11-11T01:54:24.229688+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -3369,7 +3369,7 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 ### results/kirimasim.json
 
 - Environment: kirimasim 0.0.0 (commit 7de185f776a1), built with GNU 13.3.0.
-- Execution timestamp: 2026-11-10T02:33:06.410048+00:00.
+- Execution timestamp: 2026-11-11T01:50:57.291443+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -3914,7 +3914,7 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 ### results/lyra.json
 
 - Environment: Lyra (commit eaaea03805b3).
-- Execution timestamp: 2026-11-10T11:08:35.647817+00:00.
+- Execution timestamp: 2026-11-11T07:31:55.175140+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 111/126.
@@ -4458,8 +4458,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/verilator.json
 
-- Environment: Verilator 5.055 devel rev v5.054-182-g4ab62c3a.
-- Execution timestamp: 2026-11-10T03:47:40.394696+00:00.
+- Environment: Verilator 5.055 devel rev v5.054-200-g18c16505.
+- Execution timestamp: 2026-11-11T03:42:05.211278+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.

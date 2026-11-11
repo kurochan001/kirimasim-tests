@@ -8,11 +8,11 @@
 
 | シミュレータ | 版 | 時刻 | スイートのコミット |
 | --- | --- | --- | --- |
-| Icarus Verilog | `Icarus Verilog version 14.0 (devel) (s20260301-918-g3e2189b3)` | 2026-11-10T11:08:58Z | `a155aec8` |
-| Verilator | `Verilator 5.055 devel rev v5.054-182-g4ab62c3a` | 2026-11-10T11:08:58Z | `a155aec8` |
-| kirimasim | `kirimasim 0.0.0 (commit 7de185f776a1), built with GNU 13.3.0` | 2026-11-10T11:08:58Z | `a155aec8` |
-| Lyra | `Lyra (commit eaaea03805b3)` | 2026-11-10T11:08:58Z | `a155aec8` |
-| Ghost | `private build edda91f4108d` | 2026-11-10T11:08:58Z | `a155aec8` |
+| Icarus Verilog | `Icarus Verilog version 14.0 (devel) (s20260301-948-gbd5af291)` | 2026-11-11T07:32:19Z | `a155aec8` |
+| Verilator | `Verilator 5.055 devel rev v5.054-200-g18c16505` | 2026-11-11T07:32:19Z | `a155aec8` |
+| kirimasim | `kirimasim 0.0.0 (commit 7de185f776a1), built with GNU 13.3.0` | 2026-11-11T07:32:19Z | `a155aec8` |
+| Lyra | `Lyra (commit eaaea03805b3)` | 2026-11-11T07:32:19Z | `a155aec8` |
+| Ghost | `private build 8d5097472bdb` | 2026-11-11T07:32:19Z | `a155aec8` |
 
 ## 件数
 
@@ -72,6 +72,7 @@
 | テスト | 結果 |
 | --- | --- |
 | [`ch10/test_illegal_user_nettype_assignment_two_delays`](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/tests/ch10/test_illegal_user_nettype_assignment_two_delays.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch16/test_assertion_clock_expressions_global_clock`](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/tests/ch16/test_assertion_clock_expressions_global_clock.sv) | `Ik Vk Ku Lu Gf` |
 | [`ch16/test_assertion_dist_as_inside`](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/tests/ch16/test_assertion_dist_as_inside.sv) | `Ik Vk Ku Lu Gf` |
 | [`ch16/test_ch16_sim_checker_inference`](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/tests/ch16/test_ch16_sim_checker_inference.sv) | `Ik Vk Ku Lu Gf` |
 | [`ch16/test_ch16_sim_multiclock_init`](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/tests/ch16/test_ch16_sim_multiclock_init.sv) | `Ik Vk Ku Lu Gf` |
@@ -140,7 +141,6 @@
 | [`ch37/test_vpi_udp_table_primitive`](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/tests/ch37/test_vpi_udp_table_primitive.sv) | `Ik Vk Ku Lu Gf` |
 | [`ch38/test_vpi_handle_by_multi_index`](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/tests/ch38/test_vpi_handle_by_multi_index.sv) | `Ik Vk Ku Lu Gf` |
 | [`ch38/test_vpi_put_value_udp_array_errors`](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/tests/ch38/test_vpi_put_value_udp_array_errors.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch38/test_vpi_stmt_callback_module_wide`](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/tests/ch38/test_vpi_stmt_callback_module_wide.sv) | `Ik Vk Ku Lu Gf` |
 | [`ch38/test_vpi_systf_function_result_kinds`](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/tests/ch38/test_vpi_systf_function_result_kinds.sv) | `Ik Vk Ku Lu Gf` |
 | [`ch4/test_pli_slot_entry_regions_run_once`](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/tests/ch4/test_pli_slot_entry_regions_run_once.sv) | `Ik Vk Ku Lu Gf` |
 | [`ch40/test_vpi_coverage_cover_sequence`](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/tests/ch40/test_vpi_coverage_cover_sequence.sv) | `Ik Vk Ku Lu Gf` |
