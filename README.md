@@ -1003,11 +1003,13 @@ as additional gates. It has seven jobs:
   built with Bazel, including LLVM. The executable and its runfiles are copied out of Bazel's tree
   without its location-dependent manifest and saved in the cache.
 - **lyra** restores that build, sets `LYRA_COMMIT` to the SHA and runs every non-formal test.
-  With the build in a job of its own, the tests have the whole 6-hour limit of this job.
+  With the build in a job of its own, the tests have the 6-hour limit of this job, less
+  15 minutes: the test step stops after 345 minutes and fails, so that the partial log is
+  still uploaded (a job that reaches its own limit is cancelled and uploads nothing).
   Historical timings are in the [archived Lyra notes](docs/readme-records-20261101.md#lyra-runtime-records).
 - **ghost** privately builds the unreleased guest and runs every non-formal test. Its
   checkout locations and runtime profile come from secrets. Only the public
-  alias, build hash and test verdicts are uploaded; source and build output
+  alias, build hash and test verdicts are uploaded; source, checkout and build output
   stay on the runner.
 - **publish** collects the `--json` results of the jobs that finished, adds
   them to the history on the `results` branch with
@@ -1026,6 +1028,8 @@ as additional gates. It has seven jobs:
 
 A simulator whose nightly job fails before it has results is left out of
 that night's entry, and its next run is compared with its last results.
+A test that does not match does not fail a simulator's job; a runner that
+stops without writing its results does, so that the missing entry is visible.
 
 <a id="変更への参加"></a>
 

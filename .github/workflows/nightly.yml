@@ -14,6 +14,12 @@ name: Nightly
 # A failed apt-get update only warns: it can fail for a source that the runner
 # image adds (packages.microsoft.com has answered 403), while the packages
 # installed here come from Ubuntu's own archive.
+#
+# A test that does not match is not an error of a simulator's job: its runner
+# then ends with status 1 and has written its results. A runner that ends with
+# a higher status (wrong arguments, a signal) or without its JSON file fails
+# the job, after which the log is still uploaded; publish leaves that
+# simulator out of the night's entry.
 
 on:
   schedule:
@@ -38,8 +44,13 @@ jobs:
       - name: Find the latest commit of Icarus Verilog
         id: head
         run: |
-          sha=$(git ls-remote https://github.com/steveicarus/iverilog.git refs/heads/master |
+          set -euo pipefail
+          sha=$(git ls-remote --exit-code https://github.com/steveicarus/iverilog.git refs/heads/master |
             cut -f1)
+          if [[ ! "$sha" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::Could not resolve the latest Icarus Verilog master commit."
+            exit 1
+          fi
           echo "sha=$sha" >> "$GITHUB_OUTPUT"
 
       - name: Restore Icarus Verilog
@@ -77,10 +88,15 @@ jobs:
       - name: Run the suite
         run: |
           mkdir -p results
+          status=0
           python3 tools/run_icarus.py --iverilog-bin "$HOME/icarus/bin" -j "$(nproc)" \
-            --json results/icarus.json > results/icarus.log || true
+            --json results/icarus.json > results/icarus.log || status=$?
           cat results/icarus.log
           tail -n 1 results/icarus.log >> "$GITHUB_STEP_SUMMARY"
+          if [ "$status" -gt 1 ] || [ ! -f results/icarus.json ]; then
+            echo "::error::The runner of Icarus Verilog ended with status $status and no valid results."
+            exit 1
+          fi
 
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: ${{ !cancelled() }}
@@ -101,8 +117,13 @@ jobs:
       - name: Find the latest commit of Verilator
         id: head
         run: |
-          sha=$(git ls-remote https://github.com/verilator/verilator.git refs/heads/master |
+          set -euo pipefail
+          sha=$(git ls-remote --exit-code https://github.com/verilator/verilator.git refs/heads/master |
             cut -f1)
+          if [[ ! "$sha" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::Could not resolve the latest Verilator master commit."
+            exit 1
+          fi
           echo "sha=$sha" >> "$GITHUB_OUTPUT"
 
       - name: Restore Verilator
@@ -171,11 +192,16 @@ jobs:
           mkdir -p results
           ccache -z
           ulimit -v 6291456
+          status=0
           python3 tools/run_verilator.py --verilator "$HOME/verilator/bin/verilator" --all \
-            -j "$(nproc)" --json results/verilator.json > results/verilator.log || true
+            -j "$(nproc)" --json results/verilator.json > results/verilator.log || status=$?
           cat results/verilator.log
           tail -n 1 results/verilator.log >> "$GITHUB_STEP_SUMMARY"
           ccache -s
+          if [ "$status" -gt 1 ] || [ ! -f results/verilator.json ]; then
+            echo "::error::The runner of Verilator ended with status $status and no valid results."
+            exit 1
+          fi
 
       - name: Save the compiler cache
         if: ${{ !cancelled() }}
@@ -219,7 +245,7 @@ jobs:
       # bzip2 development files (the FST build preparation of its README).
       - name: Install the libraries of the FST build
         run: |
-          sudo apt-get update
+          sudo apt-get update || echo "::warning::apt-get update failed for some sources"
           sudo apt-get install -y --no-install-recommends zlib1g-dev libbz2-dev
 
       - name: Build kirimasim
@@ -231,15 +257,19 @@ jobs:
           git checkout -q --detach "$build_commit"
           cmake --preset release
           cmake --build --preset release
-          echo "KIRIMASIM_COMMIT=$build_commit" >> "$GITHUB_ENV"
 
       - name: Run the suite
         run: |
           mkdir -p results
+          status=0
           python3 tools/run_kirimasim.py --kirimasim kirimasim/build/release/src/driver/kirimasim \
-            -j "$(nproc)" --json results/kirimasim.json > results/kirimasim.log || true
+            -j "$(nproc)" --json results/kirimasim.json > results/kirimasim.log || status=$?
           cat results/kirimasim.log
           tail -n 1 results/kirimasim.log >> "$GITHUB_STEP_SUMMARY"
+          if [ "$status" -gt 1 ] || [ ! -f results/kirimasim.json ]; then
+            echo "::error::The runner of kirimasim ended with status $status and no valid results."
+            exit 1
+          fi
 
       - name: Run bounded random cross comparisons
         timeout-minutes: 15
@@ -412,22 +442,36 @@ jobs:
       # As in the Verilator job, every process of the run gets at most 6 GB of
       # address space: on 2026-10-26 a test took all the memory of the runner
       # in Lyra's run, which stopped the job. The log is shown as the run
-      # goes, so a run that stops still shows how far it got; the exit status
-      # of the step is that of tee, as a test that does not match is not an
-      # error of the job. Lyra builds each design with a C++ compiler, by
+      # goes, so a run that stops still shows how far it got; the status of
+      # the runner is read from PIPESTATUS, as tee would hide it. A test that
+      # does not match is not an error of the job (status 1); a higher status
+      # or a missing JSON file is. Lyra builds each design with a C++ compiler, by
       # default the first clang++ on PATH, which on this runner is clang 18.
       # Since Lyra 4872d420 its runtime uses std::expected, which clang 18
       # does not see in libstdc++ 13, so every test failed to compile and the
       # run reached the time limit (2026-11-07 and 2026-11-08). The runner's
       # GCC 13.3 (c++) builds it; on the 200 tests of chapter 10 it gave the
       # same results as clang 20, the release that Lyra's own CI installs.
+      #
+      # The step stops 15 minutes before the 360-minute limit of the job. A
+      # job that reaches its own limit is cancelled, which skips the upload
+      # below, and the log was lost (2026-11-09). A step that reaches its
+      # limit fails instead, so the upload still runs and keeps the partial
+      # log; tools/run_lyra.py writes the JSON file only at the end, so such
+      # a night has the log but no results of Lyra.
       - name: Run the suite
+        timeout-minutes: 345
         run: |
           mkdir -p results
           ulimit -v 6291456
           python3 tools/run_lyra.py --lyra "$HOME/lyra/lyra" --commit "$LYRA_COMMIT" \
             --cxx c++ -j "$(nproc)" --json results/lyra.json | tee results/lyra.log
+          status=${PIPESTATUS[0]}
           tail -n 1 results/lyra.log >> "$GITHUB_STEP_SUMMARY"
+          if [ "$status" -gt 1 ] || [ ! -f results/lyra.json ]; then
+            echo "::error::The runner of Lyra ended with status $status and no valid results."
+            exit 1
+          fi
 
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: ${{ !cancelled() }}
@@ -446,21 +490,63 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
+      # Both private checkouts are git commands whose whole output goes to a
+      # file on the runner that is never uploaded. The checkout action masks
+      # the secret values, but it printed what it derived from them to the
+      # public log: the commit that it checked out, the default branch and the
+      # number of files. Authentication is what the action used: the deploy
+      # key over SSH here, with GitHub's host key fixed (the ssh-ed25519 key
+      # of https://api.github.com/meta; the step fails if GitHub replaces it),
+      # and the token of the job over HTTPS for the parser. Neither is kept
+      # after its step (persist-credentials: false of the action).
       - name: Check out the private simulator
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          repository: ${{ secrets.GHOST_REPOSITORY }}
-          path: simulator
-          ssh-key: ${{ secrets.GHOST_DEPLOY_KEY }}
-          persist-credentials: false
+        env:
+          PRIVATE_REPOSITORY: ${{ secrets.GHOST_REPOSITORY }}
+          PRIVATE_KEY: ${{ secrets.GHOST_DEPLOY_KEY }}
+        run: |
+          key="$RUNNER_TEMP/ghost-deploy-key"
+          hosts="$RUNNER_TEMP/ghost-known-hosts"
+          (umask 077; printf '%s\n' "$PRIVATE_KEY" > "$key")
+          echo "github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl" > "$hosts"
+          export GIT_SSH_COMMAND="ssh -i '$key' -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o CheckHostIP=no -o UserKnownHostsFile='$hosts'"
+          status=0
+          git clone -q --depth 1 "git@github.com:$PRIVATE_REPOSITORY.git" simulator \
+            > "$RUNNER_TEMP/ghost-checkout.log" 2>&1 || status=$?
+          rm -f "$key"
+          if [ "$status" -ne 0 ]; then
+            echo "::error::The private simulator was not checked out; the log of the checkout stays private."
+            exit 1
+          fi
 
+      # The ref may be a branch, a tag or a commit; without one, the default
+      # branch. As with the action, the path is inside the workspace and what
+      # was there before is replaced.
       - name: Check out its parser
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          repository: ${{ secrets.GHOST_PARSER_REPOSITORY }}
-          ref: ${{ secrets.GHOST_PARSER_REF }}
-          path: ${{ secrets.GHOST_PARSER_PATH }}
-          persist-credentials: false
+        env:
+          PARSER_REPOSITORY: ${{ secrets.GHOST_PARSER_REPOSITORY }}
+          PARSER_REF: ${{ secrets.GHOST_PARSER_REF }}
+          PARSER_PATH: ${{ secrets.GHOST_PARSER_PATH }}
+          TOKEN: ${{ github.token }}
+        run: |
+          case "$PARSER_PATH" in
+            "" | . | /* | .. | ../* | */.. | */../*)
+              echo "::error::The private path of the parser is not a directory inside the workspace."
+              exit 1 ;;
+          esac
+          export GIT_CONFIG_COUNT=1
+          export GIT_CONFIG_KEY_0="http.https://github.com/.extraheader"
+          GIT_CONFIG_VALUE_0="AUTHORIZATION: basic $(printf 'x-access-token:%s' "$TOKEN" | base64 -w 0)"
+          export GIT_CONFIG_VALUE_0
+          if ! (
+            rm -rf -- "$PARSER_PATH" &&
+            git init -q "$PARSER_PATH" &&
+            git -C "$PARSER_PATH" fetch -q --no-tags --depth 1 \
+              "https://github.com/$PARSER_REPOSITORY.git" "${PARSER_REF:-HEAD}" &&
+            git -C "$PARSER_PATH" checkout -q --detach FETCH_HEAD
+          ) >> "$RUNNER_TEMP/ghost-checkout.log" 2>&1; then
+            echo "::error::The parser was not checked out; the log of the checkout stays private."
+            exit 1
+          fi
 
       - name: Install build dependencies
         run: |
