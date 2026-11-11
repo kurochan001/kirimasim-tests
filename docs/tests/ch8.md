@@ -4,7 +4,7 @@
 
 [English](ch8.md) / [日本語](ch8.ja.md)
 
-[All chapters](README.md). 459 tests, 138 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 458 tests, 138 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -325,7 +325,6 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_object_strongly_reachable`](../../tests/ch8/test_object_strongly_reachable.sv) | An object stays strongly reachable, so its weak references are not cleared, while a handle in an active scope refers to it or a nonblocking assignment to one of its members is pending | 8.29 8.30.3 | standard only ||
 | [`test_weak_reference_std_scope_and_strong_reachability`](../../tests/ch8/test_weak_reference_std_scope_and_strong_reachability.sv) | std declares weak_reference and another scope may declare its own class of that name, and a handle in an active scope keeps its referent strongly reachable | 8.29 8.30.1 | standard only ||
 | [`test_weak_reference_prototypes`](../../tests/ch8/test_weak_reference_prototypes.sv) | std::weak_reference has a class type parameter T, a constructor taking a T referent, get() returning T with the referent until clear() sets it to null, clear() returning nothing, and a static get_id(T) whose longint result is 0 for null, nonzero for an object and the same at every call for one object | 8.30 G.7 | standard only ||
-| [`test_illegal_weak_reference_non_class`](../../tests/ch8/test_illegal_weak_reference_non_class.sv) | The parameter of weak_reference has to be a class type | 8.30.1 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_weak_reference_scalar_type`](../../tests/ch8/test_illegal_weak_reference_scalar_type.sv) | weak_reference requires a class type parameter | 8.30.1 | standard only | illegal design |
 | [`test_weak_reference_id_alias_after_clear`](../../tests/ch8/test_weak_reference_id_alias_after_clear.sv) | Clearing one weak wrapper leaves another wrapper and the ownerly held object identity unchanged | 8.30.1 8.30.2 8.30.5 8.29 | standard only ||
 | [`test_weak_reference_get_clear`](../../tests/ch8/test_weak_reference_get_clear.sv) | A weak_reference returns its referent from get() until clear() is called on it, after which get() returns null; two weak references to one object are different objects with the same referent | 8.30.3 8.30.2 8.30.4 26.7 | standard only ||

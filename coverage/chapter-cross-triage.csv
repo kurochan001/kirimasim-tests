@@ -1116,7 +1116,7 @@ tests/gen/ch3/test_gen_cross_timescope_directive_package_1us_same_argument_down_
 21,入出力用システムタスク・関数,27,generate構文,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,57,"tests/gen/ch21/test_gen_cross_hiername_loopgen_auto_up_initial.sv
 tests/gen/ch21/test_gen_cross_hiername_loopgen_block_own_initial.sv
 tests/gen/ch21/test_gen_cross_hiername_loopgen_fork_own_initial.sv",既存モデルの計画・実行証跡を維持する,,
-21,入出力用システムタスク・関数,28,ゲートレベル・スイッチレベルのモデリング,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,274,"tests/ch21/test_display_strength_format.sv
+21,入出力用システムタスク・関数,28,ゲートレベル・スイッチレベルのモデリング,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,273,"tests/ch21/test_display_strength_format.sv
 tests/ch28/test_ambiguous_strength_ranges_and_levels.sv
 tests/ch28/test_ambiguous_strengths.sv",既存モデルの計画・実行証跡を維持する,,
 21,入出力用システムタスク・関数,29,ユーザー定義プリミティブ,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch29/test_udp_instance_strength_and_array_range.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,

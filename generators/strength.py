@@ -186,11 +186,18 @@ def net_cases(rng: random.Random) -> list[Case]:
 
 def bufif_cases(rng: random.Random) -> list[Case]:
     cases = []
+    seen = set()
     for i in range(16):
         gate = "bufif1" if i % 2 == 0 else "bufif0"
         active = gate[-1]
         g = rng.choice([(6, 6), (5, 5), (6, 5), (3, 6), (7, 5)])
         q = rng.choice([(5, 5), (3, 3), (6, 3), (3, 6), (5, 3)])
+        # The draws can repeat a gate with the same two strengths. Such a case
+        # would differ from the earlier one in its name only, so it is left
+        # out; the numbers of the other cases stay as they are.
+        if (gate, g, q) in seen:
+            continue
+        seen.add((gate, g, q))
         lines, out = [], []
         for data in "01x":
             for control in "01x":

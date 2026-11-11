@@ -2,9 +2,9 @@
   "schema": 1,
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
-  "test_files": 12268,
+  "test_files": 12265,
   "linked_test_files": 5400,
-  "unlinked_test_files": 6868,
+  "unlinked_test_files": 6865,
   "chapters": [
     {
       "chapter": "ch3",
@@ -38,9 +38,9 @@
     },
     {
       "chapter": "ch8",
-      "test_files": 459,
+      "test_files": 458,
       "linked_test_files": 222,
-      "unlinked_test_files": 237
+      "unlinked_test_files": 236
     },
     {
       "chapter": "ch9",
@@ -86,9 +86,9 @@
     },
     {
       "chapter": "ch16",
-      "test_files": 794,
+      "test_files": 793,
       "linked_test_files": 608,
-      "unlinked_test_files": 186
+      "unlinked_test_files": 185
     },
     {
       "chapter": "ch17",
@@ -158,9 +158,9 @@
     },
     {
       "chapter": "ch28",
-      "test_files": 297,
+      "test_files": 296,
       "linked_test_files": 200,
-      "unlinked_test_files": 97
+      "unlinked_test_files": 96
     },
     {
       "chapter": "ch29",
@@ -77747,37 +77747,6 @@
         "SV2023-16.9.3-EXTRACT-PAST-CLOCK",
         "SV2023-16.9.3-EXTRACT-PAST-COUNT"
       ],
-      "broader_citations": []
-    },
-    {
-      "test": "tests/ch16/test_formal_fusion.sv",
-      "inputs_sha256": "b968b5978cbd0d89a5185ae8bb30322cb78d5adbde655da3769ce04ddf459868",
-      "cited_clauses": [
-        "16.9.1",
-        "F.5.2"
-      ],
-      "negative_test": false,
-      "registered_requirement_ids": [],
-      "collective_requirement_ids": [],
-      "unapproved_candidate_ids": [
-        "SV2023-16.9.1-EXTRACT-PRECEDENCE-AND",
-        "SV2023-16.9.1-EXTRACT-PRECEDENCE-CONCAT",
-        "SV2023-16.9.1-EXTRACT-PRECEDENCE-INTERSECT",
-        "SV2023-16.9.1-EXTRACT-PRECEDENCE-OR",
-        "SV2023-16.9.1-EXTRACT-PRECEDENCE-REPETITION",
-        "SV2023-16.9.1-EXTRACT-PRECEDENCE-THROUGHOUT",
-        "SV2023-16.9.1-EXTRACT-PRECEDENCE-WITHIN",
-        "SV2023-F.5.2-EXTRACT-BOOLEAN",
-        "SV2023-F.5.2-EXTRACT-CHOICE",
-        "SV2023-F.5.2-EXTRACT-CLOCKED",
-        "SV2023-F.5.2-EXTRACT-CONCAT",
-        "SV2023-F.5.2-EXTRACT-FIRST",
-        "SV2023-F.5.2-EXTRACT-NONDEGENERATE",
-        "SV2023-F.5.2-EXTRACT-NULL",
-        "SV2023-F.5.2-EXTRACT-REPEAT"
-      ],
-      "interpretation_pending_ids": [],
-      "different_case_kind_ids": [],
       "broader_citations": []
     },
     {
@@ -383714,51 +383683,6 @@
         "SV2023-8.20-EXTRACT-VIRTUAL-PROTOTYPE"
       ],
       "broader_citations": []
-    },
-    {
-      "test": "tests/ch8/test_illegal_weak_reference_non_class.sv",
-      "inputs_sha256": "6e24c4514bef82fd9bd50bc666db8a2f4f42b4b18ce0dda4f575923e7b4ea925",
-      "cited_clauses": [
-        "8.30.1"
-      ],
-      "negative_test": true,
-      "registered_requirement_ids": [],
-      "collective_requirement_ids": [],
-      "unapproved_candidate_ids": [
-        "SV2023-8.30.1-EXTRACT-WEAK-CLASS-TYPE"
-      ],
-      "interpretation_pending_ids": [],
-      "different_case_kind_ids": [
-        "SV2023-8.30.1-EXTRACT-ATOMIC-WEAK-CLEAR",
-        "SV2023-8.30.1-EXTRACT-STD-WEAK-REFERENCE",
-        "SV2023-8.30.1-EXTRACT-WEAK-REFERENCE-NONRETAINING",
-        "SV2023-8.30.1-EXTRACT-WEAK-WRAPPER-GC"
-      ],
-      "broader_citations": [],
-      "scoped_review": {
-        "test": "tests/ch8/test_illegal_weak_reference_non_class.sv",
-        "inputs_sha256": "6e24c4514bef82fd9bd50bc666db8a2f4f42b4b18ce0dda4f575923e7b4ea925",
-        "reviewed_on": "2026-10-26",
-        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-        "decisions": [
-          {
-            "requirement_ids": [
-              "SV2023-8.30.1-EXTRACT-WEAK-CLASS-TYPE"
-            ],
-            "disposition": "oracle_issue",
-            "explanation": "Icarus/Verilator の期待行一致は weak_reference を知らないことによる診断で、T が class でないことの違反を照合していない (test 自身の注記)。",
-            "reviewed_on": "2026-10-26",
-            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-            "evidence": [
-              {
-                "file": "tests/ch8/test_illegal_weak_reference_non_class.sv",
-                "contains": ":oracle: spec iverilog@13.0"
-              }
-            ]
-          }
-        ]
-      }
     },
     {
       "test": "tests/ch8/test_illegal_weak_reference_scalar_type.sv",
@@ -731955,123 +731879,6 @@
       "broader_citations": []
     },
     {
-      "test": "tests/gen/ch28/test_gen_strength_bufif0_05.sv",
-      "inputs_sha256": "7535ee3c8f3dfc1f78de919f2bad14483a1e962310d038574ebf2ab54ca4aed4",
-      "cited_clauses": [
-        "28.12.2",
-        "28.6",
-        "28.12.3",
-        "21.2.1.4"
-      ],
-      "negative_test": false,
-      "registered_requirement_ids": [],
-      "collective_requirement_ids": [],
-      "unapproved_candidate_ids": [
-        "SV2023-21.2.1.4-EXTRACT-HIGHZ-ONLY",
-        "SV2023-21.2.1.4-EXTRACT-KNOWN-STRENGTH-RANGE",
-        "SV2023-21.2.1.4-EXTRACT-LH-MNEMONIC",
-        "SV2023-21.2.1.4-EXTRACT-STRENGTH-LEVEL-0",
-        "SV2023-21.2.1.4-EXTRACT-STRENGTH-LEVEL-1",
-        "SV2023-21.2.1.4-EXTRACT-STRENGTH-LEVEL-2",
-        "SV2023-21.2.1.4-EXTRACT-STRENGTH-LEVEL-3",
-        "SV2023-21.2.1.4-EXTRACT-STRENGTH-LEVEL-4",
-        "SV2023-21.2.1.4-EXTRACT-STRENGTH-LEVEL-5",
-        "SV2023-21.2.1.4-EXTRACT-STRENGTH-LEVEL-6",
-        "SV2023-21.2.1.4-EXTRACT-STRENGTH-LEVEL-7",
-        "SV2023-21.2.1.4-EXTRACT-STRENGTH-PREFIX",
-        "SV2023-21.2.1.4-EXTRACT-STRENGTH-SOURCES",
-        "SV2023-21.2.1.4-EXTRACT-STRENGTH-VALUE-0",
-        "SV2023-21.2.1.4-EXTRACT-STRENGTH-VALUE-1",
-        "SV2023-21.2.1.4-EXTRACT-STRENGTH-VALUE-H",
-        "SV2023-21.2.1.4-EXTRACT-STRENGTH-VALUE-L",
-        "SV2023-21.2.1.4-EXTRACT-STRENGTH-VALUE-X",
-        "SV2023-21.2.1.4-EXTRACT-STRENGTH-VALUE-Z",
-        "SV2023-21.2.1.4-EXTRACT-UNKNOWN-STRENGTH-PAIR",
-        "SV2023-28.12.2-EXTRACT-AMBIGUOUS-CLASSES",
-        "SV2023-28.12.2-EXTRACT-AMBIGUOUS-UNION-TEXT",
-        "SV2023-28.12.2-EXTRACT-EQUAL-OPPOSITE-UNKNOWN",
-        "SV2023-28.12.2-EXTRACT-HIGHZ-GATE-UNKNOWN",
-        "SV2023-28.12.2-EXTRACT-KNOWN-RANGES-COMBINATION",
-        "SV2023-28.12.2-EXTRACT-UNKNOWN-RANGE-NOTATION",
-        "SV2023-28.12.3-EXTRACT-AMBIGUOUS-GAP-FILL",
-        "SV2023-28.12.3-EXTRACT-AMBIGUOUS-STRONG-REMAINS",
-        "SV2023-28.12.3-EXTRACT-AMBIGUOUS-WEAK-ELIMINATION",
-        "SV2023-28.6-EXTRACT-THREE-STATE-AMBIGUITY",
-        "SV2023-28.6-EXTRACT-THREE-STATE-DELAYS",
-        "SV2023-28.6-EXTRACT-THREE-STATE-KEYWORDS",
-        "SV2023-28.6-EXTRACT-THREE-STATE-TERMINALS",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-0-0",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-0-1",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-0-X",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-0-Z",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-1-0",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-1-1",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-1-X",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-1-Z",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-X-0",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-X-1",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-X-X",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-X-Z",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-Z-0",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-Z-1",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-Z-X",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-Z-Z",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-0-0",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-0-1",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-0-X",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-0-Z",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-1-0",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-1-1",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-1-X",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-1-Z",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-X-0",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-X-1",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-X-X",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-X-Z",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-Z-0",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-Z-1",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-Z-X",
-        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-Z-Z",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-0-0",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-0-1",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-0-X",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-0-Z",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-1-0",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-1-1",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-1-X",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-1-Z",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-X-0",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-X-1",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-X-X",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-X-Z",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-Z-0",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-Z-1",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-Z-X",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-Z-Z",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-0-0",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-0-1",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-0-X",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-0-Z",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-1-0",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-1-1",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-1-X",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-1-Z",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-X-0",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-X-1",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-X-X",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-X-Z",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-Z-0",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-Z-1",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-Z-X",
-        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-Z-Z"
-      ],
-      "interpretation_pending_ids": [],
-      "different_case_kind_ids": [
-        "SV2023-21.2.1.4-EXTRACT-STRENGTH-SCALAR"
-      ],
-      "broader_citations": []
-    },
-    {
       "test": "tests/gen/ch28/test_gen_strength_bufif0_06.sv",
       "inputs_sha256": "917af8b3bb2e1df860428bc10cbd1a30395312689e780e8ee3bc43ac8ddde227",
       "cited_clauses": [
@@ -943341,14 +943148,14 @@
       }
     }
   ],
-  "scoped_review_test_files": 1356,
+  "scoped_review_test_files": 1355,
   "review_disposition_counts": {
     "citation_refinement": 196,
     "compound_requirement": 176,
-    "oracle_issue": 244,
+    "oracle_issue": 243,
     "partial_observation": 2136
   },
   "registry_sha256": "75297f74b0c9c9519b7471588373a3afaad2dc8110f095d93cfd20ade120490c",
   "inventory_sha256": "7f708bec45a4f398aa534c8f94565cb0bcd1a4fbfdf0a0e21997df20add41768",
-  "review_ledger_sha256": "bb1e5da7fdc85208171a0b00a79f06c1de0ac5516049cc5943b7b7e7a033a38a"
+  "review_ledger_sha256": "c7528e2da6fb01ab58fc53ff6c43157d3258f579e20f95fcf822a4ee2c58265b"
 }

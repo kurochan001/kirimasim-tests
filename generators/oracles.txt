@@ -2254,7 +2254,6 @@ test_gen_strength_bufif0_01 spec iverilog@13.0
 test_gen_strength_bufif0_02 spec iverilog@13.0
 test_gen_strength_bufif0_03 spec iverilog@13.0
 test_gen_strength_bufif0_04 spec iverilog@13.0
-test_gen_strength_bufif0_05 spec iverilog@13.0
 test_gen_strength_bufif0_06 spec iverilog@13.0
 test_gen_strength_bufif0_07 spec iverilog@13.0
 test_gen_strength_bufif0_08 spec iverilog@13.0

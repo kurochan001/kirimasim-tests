@@ -4,7 +4,7 @@
 
 [English](ch8.md) / [日本語](ch8.ja.md)
 
-[すべての章](README.ja.md) .459 138 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
+[すべての章](README.ja.md) .458 138 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -325,7 +325,6 @@
 | [`test_object_strongly_reachable`](../../tests/ch8/test_object_strongly_reachable.sv) |アクティブスコープのハンドルがオブジェクトを参照するか、またはそのメンバーに非ブロック代入が待ち受けている間、オブジェクトは強く到達可能に保たれ、弱い参照はクリアされません。| 8.29 8.30.3 |標準のみ||
 | [`test_weak_reference_std_scope_and_strong_reachability`](../../tests/ch8/test_weak_reference_std_scope_and_strong_reachability.sv) |これは、stdがweak_referenceを宣言し、他のスコープが同じ名前のクラスを宣言する場合に、アクティブスコープのハンドルがその参照者を強く到達可能に保つことを意味します。| 8.29 8.30.1 |標準のみ||
 | [`test_weak_reference_prototypes`](../../tests/ch8/test_weak_reference_prototypes.sv) |std::weak_referenceは、クラス型パラメータT、T型の参照対象を受け取るコンストラクタ、clear()で参照対象がnullにされるまでT型でその参照対象を返すget()、戻り値のないclear()、およびstaticのget_id(T)を持ちます。このstaticメソッドのlongint型の結果は、nullに対して0、オブジェクトに対して0以外であり、同じオブジェクトなら呼び出しのたびに同じ値となります。| 8.30 G.7 |標準のみ||
-| [`test_illegal_weak_reference_non_class`](../../tests/ch8/test_illegal_weak_reference_non_class.sv) |weak_reference のパラメータはクラスタイプでなければなりません。| 8.30.1 | Icarus Verilog 13.0 |違法なデザインだ|
 | [`test_illegal_weak_reference_scalar_type`](../../tests/ch8/test_illegal_weak_reference_scalar_type.sv) |weak_reference にはクラスタイプパラメータが必要です| 8.30.1 |標準のみ|違法なデザインだ|
 | [`test_weak_reference_id_alias_after_clear`](../../tests/ch8/test_weak_reference_id_alias_after_clear.sv) |弱い包装をクリアすると、他の包装が残り、所有者が保持するオブジェクトのアイデンティティは変わりません。| 8.30.1 8.30.2 8.30.5 8.29 |標準のみ||
 | [`test_weak_reference_get_clear`](../../tests/ch8/test_weak_reference_get_clear.sv) |weak_reference は get() からその参照を返しますが、 clear() が呼び出されるまでは返しません。その後 get() は null を返します。1つの物体に対する2つの弱い参照は 同じ参照を持つ異なる物体であり| 8.30.3 8.30.2 8.30.4 26.7 |標準のみ||

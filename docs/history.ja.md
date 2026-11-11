@@ -493,3 +493,12 @@
 - ランナーが1より大きい終了コードで終わるか、結果のファイルを書かずに終わると、そのシミュレータのジョブが失敗します。これまでは`|| true`がこれを隠し、publishジョブがそのシミュレータを黙って外していました。テストの不一致では、今までどおりジョブは失敗しません。
 - kirimasimのジョブは、ほかのジョブと同じく`apt-get update`の失敗を警告として扱います。Icarus VerilogとVerilatorのジョブは、取得したコミットを検査します。使っていない変数を削除しました。
 - Ghostの取得とステップの制限は、ワークフローの外では試せません。この変更の後の最初のNightlyで、動くかどうかが分かります。
+
+### 2026-11-11（重複したテスト）
+
+- レビューで、別のテストと名前とヘッダだけが違うテストが見つかりました。そのうち3本を削除しました。suiteは12,265本（これまで12,268本）、うち生成は5,728本（5,729本）です。削除したテストはどれも要求に対応付けていなかったので、設計カバレッジは90.14%（11,086/12,298）、実行確認率はGhostを除いて51.12%、Ghostを含めて78.00%のままです。
+- `tests/ch8/test_illegal_weak_reference_non_class.sv`を削除し、`test_illegal_weak_reference_scalar_type.sv`を残しました。残したテストは8.30.1の要求に対応付けてあり、`:oracle:`は`spec`です。削除したテストはIcarus Verilog 13.0を挙げていましたが、自身のコメントは、このリリースのエラーは根拠にならないと述べていました。この理由で対応付けを保留した`coverage/test-matching-reviews.json`の記録も、一緒に削除しました。
+- `tests/ch16/test_formal_fusion.sv`を削除し、`test_formal_f5_fusion.sv`を残しました。どちらも形式検証のケース`fusion`を実行していました。残したテストはF.5.2の要求に対応付けてあります。
+- 生成器`strength`は、同じbufif0ゲートを同じ二つの強度で2回引いていたので、`test_gen_strength_bufif0_05`が`test_gen_strength_bufif0_03`と同じ内容でした。生成器は、繰り返した組を出さなくなりました。なくなったのはこのテストだけで、ほかの生成テストの名前と内容は変わっていません。
+- 生成したクロスのテストの6組は残しました。モデル`edge_event_expression`では、幅1のとき式`lsb`と`msb`が同じビットを選びます（5組）。`sv_dpi_array_queries`では、3次元で各次元が1要素のとき、範囲の向き`down`と`mixed`が同じ範囲になります（1組）。12本はすべて選択ケースです。1本を削除するにはモデルの変更が必要で、それにより選択が変わり（edgeのモデルでは64件のうち17件）、選択全体をkirimasimで実行し直す必要があります。
+- `tests/ch6/test_illegal_variable_referenced_before_declaration.sv`と`test_illegal_variable_used_before_declaration.sv`はコードが同じですが、引用する節と期待するメッセージが違うので、両方を残しました。

@@ -32582,30 +32582,6 @@
       ]
     },
     {
-      "test": "tests/ch8/test_illegal_weak_reference_non_class.sv",
-      "inputs_sha256": "6e24c4514bef82fd9bd50bc666db8a2f4f42b4b18ce0dda4f575923e7b4ea925",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-8.30.1-EXTRACT-WEAK-CLASS-TYPE"
-          ],
-          "disposition": "oracle_issue",
-          "explanation": "Icarus/Verilator の期待行一致は weak_reference を知らないことによる診断で、T が class でないことの違反を照合していない (test 自身の注記)。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch8/test_illegal_weak_reference_non_class.sv",
-              "contains": ":oracle: spec iverilog@13.0"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "test": "tests/ch9/test_syntax_structured_procedure_forms.sv",
       "inputs_sha256": "a6a71b9f7249ad16b26fd28211a8698de678715679c16ae165f66efea91f4f33",
       "reviewed_on": "2026-10-26",
