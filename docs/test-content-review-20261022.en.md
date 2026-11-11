@@ -28,7 +28,7 @@ In this review, the test body, expected value, and metadata are not changed.
 - In addition to sites with diagnostics, manual comparison against the standard focused on tests using only the standard as an oracle, scheduling, 4-state values, types/widths/signedness, assertions, checkers, timing checks, SDF, DPI / VPI, and coverage.
 - Diagnostics were not automatically treated as defects. The findings below are supported by the standard text, derivation from stimulus or small reproductions. The standard compliance of all cases is not formally proven.
 
-The primary sources are the designated [IEEE Std 1800-2023 PDF](../../IEEE_1800-2023_SystemVerilog/IEEE_Std_1800-2023_SystemVerilog.pdf) and [Extracted text from the same PDF](../../IEEE_1800-2023_SystemVerilog/out/lrm_pdftotext_layout.txt), both in the materials directory outside the repository. The following clause numbers apply to this edition. Page numbers shown alongside citations are printed page numbers.
+The primary sources are the designated IEEE Std 1800-2023 PDF (`IEEE_Std_1800-2023_SystemVerilog.pdf`) and the text extracted from the same PDF (`out/lrm_pdftotext_layout.txt`), both in the materials directory outside the repository. The following clause numbers apply to this edition. Page numbers shown alongside citations are printed page numbers.
 
 <a id="指摘"></a>
 

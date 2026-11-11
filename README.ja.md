@@ -12,10 +12,9 @@ IEEE 1800-2023 SystemVerilogのシミュレーションの意味論を確認す�
 期待値、結果の分類、Nightly、網羅率、SVA・フォーマル検証について説明しています。
 このREADMEには現時点の情報だけを載せます。以前の作業の記録や測定は[履歴](docs/history.ja.md)にあります。
 [資料一覧](docs/README.ja.md)から、ガイド・生成レポート・過去の記録の日英両版を辿れます。
-2026-11-06（日本時間）に確認した[最新の検証状況](docs/nightly-results.md#latest-verified-checkpoint)では、
-`67321079`の[Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584)と、
-`67321079`の[Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265)が成功しています。
-開発を引き継ぐ場合は、現行ガイドと、当時の状態を記録した[2026-11-06の引き継ぎ資料](docs/codex-handoff-20261106.md)を参照してください。
+Nightlyは毎晩`main`で7つのジョブをすべて実行します。最新の結果は
+[`results`ブランチのレポート](https://github.com/kurochan001/kirimasim-tests/tree/results#readme)にあり、読み方は[Nightlyの説明](docs/nightly-results.md)にあります。
+開発を引き継ぐ場合は、現行ガイドと最新の[引き継ぎ資料](docs/claude-code-handoff-20261110.md)を参照してください。
 
 各シミュレーションテストは、期待結果を持つ小さな独立した設計です。規格上正しいコードは、正規化した標準出力が
 期待出力に一致し、指定された終了コード・診断の検査にも通れば合格です。
@@ -169,12 +168,12 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 [最新の全クロス保存実行](coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json)は、
 **3,915 pass・487 unsupported・14 fail**です。moduleとgenerateブロックのクラス・case項目のリテラル・構造体リテラルの追加120件のうち106件がPASSです。
 前のビルドでの[前回の全実行](coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json)と比べて、従来4,296件の状態と入力は不変です。
-[基点67321079のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584)は成功し、追加前の88モデルを含む固定版比較・静的検査を確認しました。
-[同じ基点のNightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265)もworkflowと全ジョブが成功しましたが、個別artifactは未照合です。その後の追加は両実行の対象外です。
+この保存実行はcross110で、110モデル・選択4,416件です。
+CheckとNightlyは、生成したクロステストを固定スイートのほかのテストと一緒に実行します。Nightlyの最新の結果は[`results`ブランチのレポート](https://github.com/kurochan001/kirimasim-tests/tree/results#readme)にあります。
 入力と元の期待値を保持し、failのうち4件は固定版slangへ
 切り分けたconfigのパラメータリセット、4件は[`defparam`の型と範囲](docs/interaction-verification.md#parameter-override-type)の不一致、6件は[生成ブロックのクラス](docs/interaction-verification.md#scoped-class-declaration)でのkirimasimの内部エラーです。11→9→4の履歴、全出力の再現、未対応19機構の内訳、
 章対の精査は[不一致対応と次の優先順位](docs/cross-verification-followup.md)に記録しています。
-章間CSVの出典は単一の全クロスローカル実行cross89とし、正式実行による確認は別に記録しています。
+章間CSVの出典は単一の全クロスローカル実行cross110とし、正式実行による確認は別に記録しています。
 
 名前付きイベントとループ制御（第12章×第15章）は、代表化後の合法2,016通りから36件を選びます。
 同じタイムスロットでの待機開始、blocking/NBA発火、break/continueによる受信・保持・終了を照合します。
@@ -245,7 +244,7 @@ clocking入力と名前付きイベントの待機（第14×15章）は192通り
 
 章間表の数字をテスト本数として合計できない理由は[Q32](docs/faq.md#q32-can-i-sum-matrix-cells-to-get-the-cross-test-total)、合格モデル数とcompleteの違いは[Q34](docs/faq.md#q34-are-complete-and-all-selected-tests-pass-the-same-judgment)を参照してください。
 
-[モデルに基づくランダムクロス比較](docs/random-cross-verification.md)も導入しています。Nightlyで算術式・除算／剰余・添字付き書込み列・条件演算子・package変更通知・シフト・キャスト・ストリーミング・連結代入・比較・リダクション・配列リダクション・配列コピー列の13プロファイルを合計96ケース比較し、seedと実際の刺激を専用artifactへ保存します。最新の確認済みNightlyは`50a897dee62a`・seed `41941310616`で**96件すべて有効なPASS**です。固定回帰の本数やカバレッジとは別集計です。
+[モデルに基づくランダムクロス比較](docs/random-cross-verification.md)も導入しています。Nightlyで算術式・除算／剰余・添字付き書込み列・条件演算子・package変更通知・シフト・キャスト・ストリーミング・連結代入・比較・リダクション・配列リダクション・配列コピー列の13プロファイルを合計96ケース比較し、seedと実際の刺激を専用artifactへ保存します。kirimasimジョブは、全ケースが有効なPASSでなければ失敗します。固定回帰の本数やカバレッジとは別集計です。
 [目的と役割分担](docs/random-cross-verification.md#purpose-and-roles)と[検証の流れ](docs/random-cross-verification.md#verification-process)に、固定ケースを補う探索の狙い、入力生成・モデル比較・保存再現・固定回帰化をまとめています。
 現在は13プロファイルで追加を区切り、[重点探索と独立検算](docs/random-cross-verification.md#thirteen-profile-stabilization)を優先します。既定のNightly予算を保ち、追加探索の結果は別に記録します。
 同資料に、任意の追加探索の投入管理、参照変更を明示する保存刺激の再実行、同じ刺激でのIcarus／Verilator確認、レビュー済み失敗からの固定回帰候補の作成手順を記載しています。固定回帰・正式Nightly・明示的なreplayは毎回実行します。
@@ -386,6 +385,8 @@ generators/<generator>.py       テスト生成器と参照モデル
 generators/generate.py          tests/gen/の生成、--checkによる検査
 generators/oracles.txt          各生成テストの期待出力を再現したリリース
 docs/simulator-differences.ja.md   Icarus Verilog 13.0・Verilator 5.052と規格との差
+docs/slang-reference.md         固定版slangによる参考判定の実行方法と判定の意味
+docs/review-candidates.md       見直す期待結果の一覧の作り方と読み方
 docs/history.ja.md              以前の作業の記録・測定・確認結果
 docs/README.ja.md               日英の全資料への入口
 docs/generators.ja.md           全生成器の件数と観測対象
@@ -402,16 +403,19 @@ coverage/combination-gaps.json   Issue #21の候補と回帰テストの確認�
 docs/requirements-to-tests-method.md 規格PDFから要求・テスト・網羅率に至る方法
 coverage/behavior-summary.json  現在の要求カバレッジの集計結果と分母の識別情報
 coverage/behavior-history.json  分母の識別情報を含む測定履歴
+coverage/slang/                 slangによる参考判定の日付付きの記録（どこにも数えない）
 tools/run_icarus.py             Icarus Verilogでの実行
 tools/run_verilator.py          Verilatorでの実行
 tools/run_kirimasim.py          kirimasimでの実行
 tools/run_lyra.py               Lyraでの実行
 tools/run_ghost.py              公開前のゲストを仮名で実行
+tools/run_slang.py              固定版slangでの参考判定（どこにも数えない）
 tools/normalize_output.py       比較前の出力正規化
 tools/suite_results.py          実行結果のJSON形式（--json）
 tools/results_history.py        Nightlyの履歴とグラフ生成
 tools/results_ratchet.py        前回一致して今回不一致のテストの一覧
 tools/differences_status.py     差異一覧のテストの最新masterでの結果
+tools/review_candidates.py      人が見直す期待結果のテストと条項の一覧
 tools/suite_stats.py            テスト集計と両言語のREADMEの表の更新
 tools/suite_catalog.py          docs/tests/のカタログ生成
 tools/coverage_depth.py         docs/coverage-depth.mdの生成
@@ -430,11 +434,13 @@ tools/matching_kit/             要求とテストの対応の提案・検査・
 `latest/<simulator>.json`（各シミュレータの最新の保存実行のテスト別結果）、`charts/*.svg`、
 レポートの`README.md`（英語）と`README.ja.md`（日本語）があります。
 グラフにも`.ja.svg`の日本語版を生成します。グラフとレポートには`tools/`に実行スクリプトがある
-シミュレータだけを表示します。実行スクリプトがなくなったものも履歴には残しますが、描画しません。
+シミュレータだけを表示します。実行スクリプトがないシミュレータのうち、履歴に以前の結果を残すのは
+`tools/results_history.py`の`RETIRED`に挙げたものだけで、これは描画しません。ほかのものの結果は履歴から除きます。
 publishジョブは、その実行の要求カバレッジとして`behavior-coverage-summary.md`、
 `behavior-coverage.md`、`behavior-summary.json`、`behavior-coverage.json`、`behavior-history.json`も
 書き出します。機能間クロスのシミュレータ別の実行確認は`interaction-coverage.md`と
-`interaction-coverage.json`に書き出します。3種類のカバレッジMarkdownは日本語の`.md`に
+`interaction-coverage.json`に書き出します。レビュー候補の`review-candidates.md`（英語）、
+`review-candidates.ja.md`（日本語）、`review-candidates.json`も書き出します。3種類のカバレッジMarkdownは日本語の`.md`に
 英語の`.en.md`を併設し、相互リンクで切り替えます。両言語は同じ実行データを使います。
 `main`の保存済み証跡との違いは
 [Nightlyの説明](docs/nightly-results.md)を参照してください。
@@ -479,6 +485,8 @@ publishジョブは、その実行の要求カバレッジとして`behavior-cov
 | `:generator:` | `<generator>@<version>`。`generators/<generator>.py`が生成したテスト |
 | `:interaction_model:` | `<model>@<version>`。生成したクロステストが属するモデル |
 | `:interaction_values:` | モデルの`因子=値`の組。集計時は生成器と実行結果の入力ハッシュも検査する |
+| `:issue:` | 生成テストを求めた、このリポジトリのIssue。番号またはURL。Issue #21の組合せ回帰テストに付く |
+| `:combination_gap:` | 生成テストが対象とするIssue #21の候補。`coverage/combination-gaps.json`での識別子（例：`U01`）。識別子またはテストが台帳に未登録だと`tools/combination_gaps.py --check`が失敗する |
 | `:files:` | 隣の追加ソース（`.sv`、`.v`。指定順にテストより先にコンパイル）とインクルードファイル（そのディレクトリを検索先に追加）。名前は`test_`で始めない。コンパイル単位が一つか複数かはツールに委ね、`:compilation_unit:`のあるテストを除き、テストは依存しない（3.12.1） |
 | `:compilation_unit:` | `single`：テストは3.12.1のa)の使い方（1つのコマンドラインの全ファイルが1つのコンパイル単位）を必要とする。ツールはこの使い方と、各ファイルが1単位になるb)の使い方の両方を用意する必要があり、既定はどちらでもよい。ほかの値は使えない。このフィールドのないテストは、その選択に依存しない |
 | `:defines:` | 最初のソースより前に定義するマクロ。空白区切りの`NAME`または`NAME=VALUE`。ツールの`-D`や`+define+`を使い、`` `ifdef ``やマクロ参照から`` `define ``と同様に見えるようにする（22.5.1）。オプション自体は規格の範囲外 |
@@ -785,7 +793,8 @@ python3 tools/results_history.py update --history my-results --source local out/
 実行例の保存先`my-results/`はGitの管理対象外です。
 既定では実行日時に現在時刻、スイートのコミットに`HEAD`を使います。過去の結果を取り込む場合は、
 `--time`、`--suite-commit`、`--run-url`で実際の実行日時・コミット・結果の参照先を指定します。
-`tools/`から実行スクリプトがなくなったシミュレータも履歴には残しますが、描画しません。
+`tools/`に実行スクリプトがないシミュレータの結果は履歴から除きます。
+`tools/results_history.py`の`RETIRED`に挙げたものだけは結果を残しますが、描画しません。
 `python3 tools/results_history.py render --history my-results`で履歴だけから再生成できます。
 
 <a id="workflows"></a>
@@ -818,7 +827,7 @@ Actionsタブから手動実行もできます（`workflow_dispatch`）。スイ
 [`main`を指定して新しい実行を起動](docs/nightly-results.md#最新のmainで手動実行する)します。
 GitHubが混雑していると数時間遅れることがあります。実行は重複せず、実行中に始まったものは待機し、
 さらに新しいものが来ると待機中の古いものを置き換えます。固定スイートの結果報告に加え、kirimasimのratchetと件数制限付きランダム比較を成功条件にします。
-次の6ジョブがあります。
+次の7ジョブがあります。
 
 - **icarus**：最新の`master`をビルドし、コミット別にキャッシュしてformal以外の全件を実行します。
 - **verilator**：最新の`master`をビルドしてコミット別にキャッシュし、`z3`とccacheを使って
@@ -843,7 +852,9 @@ GitHubが混雑していると数時間遅れることがあります。実行�
 - **publish**：完了したジョブの`--json`結果を集め、`tools/results_history.py update`で
   `results`ブランチの履歴に追加し、その実行の結果ファイルだけで要求カバレッジを測定し、
   [差異一覧](docs/simulator-differences.ja.md)が挙げる各テストの最新`master`での結果を
-  `differences-on-master.ja.md`に書いて（`tools/differences_status.py`）、pushします。
+  `differences-on-master.ja.md`に書き（`tools/differences_status.py`）、[レビュー候補](docs/review-candidates.md)を
+  `review-candidates.md`・`review-candidates.ja.md`・`review-candidates.json`に書いて
+  （`tools/review_candidates.py`）、pushします。
   実行の要約には、各シミュレータの件数、結果が変わったテスト、要求カバレッジを載せます。
   失敗したものも含めて5シミュレータすべての完了を待ち、publish成功時にグラフとレポートが更新されます。
   公開するのは`main`の実行だけです。別ブランチでの手動実行は、シミュレータを動かして結果を
@@ -919,7 +930,8 @@ python3 tools/lint_metadata.py
 現在の状態はREADMEに記載し、日付付きの作業・測定記録は[履歴](docs/history.ja.md)に残します。
 
 `tools/lint_metadata.py`は、上のルールのうちスクリプトで確認できるものを報告します。
-フィールドと値、`:lrm:`とディレクトリ、`:fourstate: no`でのx/zリテラル、期待出力、
+フィールドと値、値のないフィールド、ほかのテストと重複する`:name:`、コンパイルできない`:expected_stderr_regex:`、
+`:lrm:`とディレクトリ、`:fourstate: no`でのx/zリテラル、期待出力、
 不正な設計のフィールド、指定ファイル、行長、`Verilator`で始まるコメント、
 時刻を出力する場合の`` `timescale ``、ひな型のTODO残りなどです。ルールの一覧はdocstringにあります。
 

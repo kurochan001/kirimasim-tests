@@ -108,6 +108,7 @@ Nightlyの開始予定は毎日04:23 JSTです。公開は全ジョブ終了後�
 - `results/oracle-refinement-20261025-*.json`: `:oracle:`に誤って`iverilog@13.0`とあった取り込みテスト3本（`tests/imported/`）を`spec`に直した後の再実行。 Icarus 13.0とVerilator 5.052（seed 1/73）とも3 knownです。
 - `results/sva-m3-corrections-20261026-*.json`: 独立SVA参照評価器で見つかった期待値・説明の誤り2本を、ユーザー承認後に修正した再実行。 Icarus 13.0とVerilator 5.052のseed 1/73とも2 knownです。参照評価器との一致は実行確認率に含めません。
 - `results/nightly-suite-corrections-20261027-*.json` : Nightly の診断不一致等から修正した 28 本と既存の packed union負例 1 本の再実行。Icarus 13.0 は 9 pass・ 20 known、 Verilator 5.052 は seed 1/73 とも 8 pass・ 21 known です。ローカル kirimasim は 27 pass・ 1 unsupported・ 1 failで、規格違反テストの固定バージョンoracleとして認定していません。[修正根拠・11本のoracle取り消し・残件](../docs/nightly-suite-corrections-20261027.md) を参照してください。
+- `slang/`: 固定版slangによる[参考判定](../docs/slang-reference.md)の日付付きの記録。`tools/run_slang.py`が書きます。 どの集計にも数えず、カバレッジのツールは読みません。[レビュー候補](../docs/review-candidates.md)は`tools/review_candidates.py`がNightlyの結果から作り、`results`ブランチに置きます。
 - `behavior-summary.json`: 現在の暫定値・確定値、章別の割合、分母SHA-256、 シミュレータごとの失敗・既知不一致・未対応・未実行・古い証跡などの内訳。 `--update`で概要Markdownとともに再生成し、`--check`で両方の整合性を検査します。
 - `behavior-history.json`: 計測履歴。分母と計測規則の版を添えて保存します。 分母が変わった前後の割合は、そのまま改善・悪化として比較しません。
 

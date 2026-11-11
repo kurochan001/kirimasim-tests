@@ -16111,7 +16111,7 @@
     "全 ZXQPH0QXZ 個の ZXQPH1QXZ 因子組合せや全ての構文を網羅しません。": "Does not include all ZXQPH0QXZ ZXQPH1QXZ factor combinations or all syntax.",
     "全 ZXQPH0QXZ 出力の順序も照合する。": "The order of all ZXQPH0QXZ outputs is also compared.",
     "全 ZXQPH0QXZ 因子組合せや登録済みt-wayモデルの網羅率は主張しません。": "The coverage of all ZXQPH0QXZ factor combinations and registered t-way models is not claimed.",
-    "全 ZXQPH0QXZ 本のうち、要求との対応を登録済みのテストは ZXQPH1QXZ 本。": "ZXQPH0QXZ of ZXQPH1QXZ tests have registered the correspondance with the requirements.",
+    "全 ZXQPH0QXZ 本のうち、要求との対応を登録済みのテストは ZXQPH1QXZ 本。": "ZXQPH1QXZ of ZXQPH0QXZ tests have a registered correspondence with the requirements.",
     "全 ZXQPH0QXZ 本を対象に、引用節から照合候補を列挙しました。": "The reference candidates are listed from the citation section for all ZXQPH0QXZ tests.",
     "全 ZXQPH0QXZ 組の戻り値とseedが期待出力と一致。": "The return value and seed of all ZXQPH0QXZ pairs match the expected output.",
     "全 ZXQPH0QXZ 行が合法。": "All ZXQPH0QXZ lines are valid.",
@@ -21851,6 +21851,7 @@
     "実行時のメッセージに fatal または error を照合する。": "The run-time message is matched against fatal or error.",
     "null の仮想インタフェースの参照を致命的エラーにしない実装は後続の行を出すか、エラーのメッセージがなく失敗する。": "An implementation that does not make a reference through a null virtual interface a fatal error prints the later lines, or fails for lack of an error message.",
     "ZXQPH0QXZ : ZXQPH1QXZ の use model a)（ ZXQPH2QXZ つのコマンドラインの全ファイルが ZXQPH3QXZ つの compilation unit になる）を選んだとき、一方のファイルで宣言した ZXQPH4QXZ と ZXQPH5QXZ が他方のファイルの module から見えて ZXQPH6QXZ = ZXQPH7QXZ になることを確認する。": "ZXQPH0QXZ: checks that, when use model a) of ZXQPH1QXZ is chosen (all files of ZXQPH2QXZ command line form ZXQPH3QXZ compilation unit), ZXQPH4QXZ and ZXQPH5QXZ declared in one file are visible from the module of the other file, which gives ZXQPH6QXZ = ZXQPH7QXZ.",
-    "テストはメタデータ ZXQPH0QXZ の値 single で、この use model が必要であることを示す。": "The test says with the value single of the metadata ZXQPH0QXZ that it needs this use model."
+    "テストはメタデータ ZXQPH0QXZ の値 single で、この use model が必要であることを示す。": "The test says with the value single of the metadata ZXQPH0QXZ that it needs this use model.",
+    "規格要求の実行確認率: ZXQPH0QXZ を除いて ZXQPH1QXZ 、 ZXQPH2QXZ を含めて ZXQPH3QXZ 。": "Requirement execution-confirmation rate: ZXQPH1QXZ without ZXQPH0QXZ, ZXQPH3QXZ with ZXQPH2QXZ."
   }
 }

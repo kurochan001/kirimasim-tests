@@ -13,6 +13,11 @@ without ".sv". The rules:
                         :tags:, :type:, :lrm:, :oracle:, :spec_check:,
                         :fourstate:, :nondeterministic:
     name                :name: is not the file name
+    duplicate-name      :name: is also the :name: of another test of the suite
+    empty-field         a field has no value (the next line would be read as
+                        its value)
+    stderr-regex        :expected_stderr_regex: is not a regular expression
+                        that Python compiles
     value               a field has a value outside its allowed set (:type:,
                         :oracle:, :spec_check:, :fourstate:,
                         :nondeterministic:, :expected_exit:, :generator:,
@@ -76,6 +81,9 @@ XZ_LITERAL = re.compile(r"\d*'[sS]?(?:[bB][01_xXzZ?]*[xXzZ?]|[hH][0-9a-fA-F_xXzZ
 TIME_OUTPUT = re.compile(r"%-?\d*t|\$timeformat\b|\$printtimescale\b"
                          r"|#\s*\d+\.\d+|#\s*\(?\s*\d+(?:\.\d+)?(?:s|ms|us|ns|ps|fs)\b")
 TIME_UNIT = re.compile(r"^\s*`timescale\b|\btimeunit\b|\btimeprecision\b", re.MULTILINE)
+# A field with nothing after it on its line. suite_results.header reads the
+# next line as its value, so this is found in the text of the comment.
+EMPTY_FIELD = re.compile(r"^:(\w+):[ \t]*$", re.MULTILINE)
 
 
 def split(test: Path) -> tuple[str, list[str]]:
@@ -123,6 +131,15 @@ def check(test: Path) -> list[tuple[str, str]]:
             bad("missing-field", f":{f}:")
     if fields.get("name", test.stem) != test.stem:
         bad("name", f":name: {fields['name']}")
+    empty = EMPTY_FIELD.findall(header)
+    for f in empty:
+        bad("empty-field", f":{f}: has no value")
+    regex = fields.get("expected_stderr_regex")
+    if regex is not None and "expected_stderr_regex" not in empty:
+        try:
+            re.compile(regex)
+        except re.error as error:
+            bad("stderr-regex", f":expected_stderr_regex: {regex} does not compile: {error}")
 
     allowed = {"type": ("simulation", "elaboration", "formal"), "spec_check": ("ai", "human"),
                "fourstate": ("yes", "no"), "nondeterministic": ("yes", "no"),
@@ -220,6 +237,27 @@ def check(test: Path) -> list[tuple[str, str]]:
     return problems
 
 
+def names_of(tests: list[Path]) -> dict[str, list[str]]:
+    """The tests that have each :name:, by their ids."""
+    names: dict[str, list[str]] = {}
+    for t in tests:
+        name = suite_results.header(t).get("name")
+        if name:
+            names.setdefault(name, []).append(suite_results.test_id(t))
+    return names
+
+
+def duplicate_names(names: dict[str, list[str]]) -> dict[str, str]:
+    """For each test whose :name: another test has too, the detail of the
+    problem. :name: is unique in the suite, whatever the chapter."""
+    problems = {}
+    for name, tests in names.items():
+        for test in tests if len(tests) > 1 else ():
+            problems[test] = f":name: {name} is also in " + ", ".join(
+                sorted(t for t in tests if t != test))
+    return problems
+
+
 def read_baseline() -> set[str]:
     if not BASELINE.exists():
         return set()
@@ -239,6 +277,14 @@ def main() -> int:
     for t in tests:
         for rule, detail in check(t):
             found.setdefault(f"{suite_results.test_id(t)} {rule}", []).append(detail)
+    # A name is compared with those of the whole suite, also when only some
+    # tests are checked; only the checked tests are reported.
+    everything = sorted(set(suite_results.find_tests()) | set(tests))
+    duplicates = duplicate_names(names_of(everything))
+    for t in tests:
+        detail = duplicates.get(suite_results.test_id(t))
+        if detail:
+            found.setdefault(f"{suite_results.test_id(t)} duplicate-name", []).append(detail)
     if args.update_baseline:
         BASELINE.write_text(
             "# Problems of existing tests that tools/lint_metadata.py reports as known.\n"

@@ -173,6 +173,21 @@ class Report(unittest.TestCase):
         self.assertIn("[2026-11-03：日付の追加](https://example.org/r/blob/abc/docs/simulator-differences.ja.md"
                       "#2026-11-03日付の追加)", japanese)
 
+    def test_a_runner_json_file_gives_its_time_as_generated_at(self):
+        # results_history.py writes "time" to latest/; suite_results.py writes
+        # "generated_at" to a runner's --json file, which has no "time".
+        for run, shown in (({"generated_at": "2026-11-09T01:02:03.456789+00:00"}, "| v | 2026-11-09 01:02 |"),
+                           ({"time": "2026-11-07T06:16:14Z", "generated_at": "2026-11-09T01:02:03+00:00"},
+                            "| v | 2026-11-07 06:16 |"),
+                           ({}, "| v |  |")):
+            (self.root / "icarus.json").write_text(json.dumps(
+                {"name": "icarus", "version": "v", "tests": ICARUS, **run}), encoding="utf-8")
+            done = subprocess.run([sys.executable, str(Path(status.__file__)), "--icarus",
+                                   str(self.root / "icarus.json"), "--output", str(self.root / "out"),
+                                   "--root", str(self.root)], capture_output=True, text=True)
+            self.assertEqual(done.returncode, 0, done.stderr)
+            self.assertIn(shown, (self.root / "out" / status.REPORT).read_text(encoding="utf-8"))
+
     def test_a_missing_results_file_leaves_the_simulator_out(self):
         (self.root / "icarus.json").write_text(json.dumps(
             {"name": "icarus", "version": "v", "time": "2026-11-07T06:16:14Z", "tests": ICARUS}), encoding="utf-8")

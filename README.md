@@ -15,10 +15,9 @@ statuses, Nightly, coverage and the SVA/formal checks used by this suite.
 This README describes the suite as it is now; records of earlier work and
 measurements are in the [history](docs/history.md).
 The [document index](docs/README.md) links every guide, generated report and historical record in both languages.
-The [latest verified checkpoint](docs/nightly-results.en.md#latest-verified-checkpoint), checked on 2026-11-06 JST,
-records successful [Check on `67321079`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584)
-and [Nightly on `67321079`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265).
-For resuming development, use the current guides with the dated [2026-11-06 handoff](docs/codex-handoff-20261106.en.md).
+The Nightly runs on `main` every night with all seven jobs. Its latest results are in the
+[report on the `results` branch](https://github.com/kurochan001/kirimasim-tests/tree/results#readme), and the [Nightly guide](docs/nightly-results.en.md) explains how to read them.
+For resuming development, use the current guides with the newest [handoff](docs/claude-code-handoff-20261110.en.md).
 
 Each simulation test is a small, self-contained design with an expected result.
 A legal design passes when its normalized standard output matches and any specified
@@ -191,12 +190,12 @@ The [latest complete local cross run](coverage/interaction-results/cross110-kiri
 on kirimasim **`f029ddd0eee1`**, built from the latest main, records
 **3,915 pass, 487 unsupported and 14 fail**. Of the 120 additions for scoped classes, case item literals and structure literals, 106 pass.
 Compared with the [previous complete run](coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json) on the earlier build, no status or input of the preceding 4,296 cases changed.
-[Check on baseline 67321079](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584) passed pinned comparisons/static checks on the preceding 88-model suite.
-[Nightly on the same baseline](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265) and all its jobs succeeded; individual artifacts remain uninspected. Later additions are outside both runs.
+The snapshot is cross110, with 110 models and 4,416 selected cases.
+The Check and the Nightly run the generated cross tests with the rest of the fixed suite; the [report on the `results` branch](https://github.com/kurochan001/kirimasim-tests/tree/results#readme) has the latest Nightly results.
 All inputs retain their original expectations; four failures are config parameter resets localized to pinned slang, four are the [`defparam` type and range](docs/interaction-verification.en.md#parameter-override-type) mismatch, and six are a kirimasim internal error on [a class in a generate block](docs/interaction-verification.en.md#scoped-class-declaration). The
 [follow-up record](docs/cross-verification-followup.en.md) retains the earlier 11→9→4 history,
 complete-output replays, the 19-mechanism unsupported inventory and reviewed chapter pairs.
-The chapter CSVs use the single complete local cross89 run; formal confirmation is recorded separately.
+The chapter CSVs use the single complete local cross110 run; formal confirmation is recorded separately.
 
 Named events and loop transfers (Chapters 12×15) select 36 of 2,016 legal representative combinations.
 Check same-slot registration, blocking/NBA triggers and break/continue through received words, retention and loop completion.
@@ -272,7 +271,7 @@ Clocking inputs and named-event waiters (Chapters 14×15) select 24 of 192 combi
 
 See [Q32](docs/faq.en.md#q32-can-i-sum-matrix-cells-to-get-the-cross-test-total) for why matrix counts cannot be summed as test counts, and [Q34](docs/faq.en.md#q34-are-complete-and-all-selected-tests-pass-the-same-judgment) for passing models versus complete.
 
-[Model-based random cross comparisons](docs/random-cross-verification.en.md) also run in Nightly: a default 96 cases cover thirteen profiles, saving seeds and actual stimuli in a dedicated artifact. The latest verified Nightly records **96 valid passes** on `50a897dee62a`, with seed `41941310616`. These samples remain separate from fixed-suite counts and coverage.
+[Model-based random cross comparisons](docs/random-cross-verification.en.md) also run in Nightly: a default 96 cases cover thirteen profiles, saving seeds and actual stimuli in a dedicated artifact. The kirimasim job fails unless every case is a valid pass. These samples remain separate from fixed-suite counts and coverage.
 The [purpose and roles](docs/random-cross-verification.en.md#purpose-and-roles) and [verification process](docs/random-cross-verification.en.md#verification-process) explain how exploration supplements fixed cases through generation, model comparison, saved replay and fixed regression follow-up.
 The thirteen profiles cover arithmetic, division/remainder, indexed writes, conditional context/X/Z merging, package change observers, shifts, cast pipelines, streaming, concatenated-assignment sequences, comparisons, packed reductions, array reductions and array copy sequences within the same default total of 96 cases.
 Profile additions are paused at thirteen while [targeted exploration and independent checks](docs/random-cross-verification.en.md#thirteen-profile-stabilization) deepen validation within unchanged default Nightly limits.
@@ -441,6 +440,8 @@ generators/<generator>.py       a generator of tests and its reference model
 generators/generate.py          writes tests/gen/, or checks it with --check
 generators/oracles.txt          which releases produce each generated test's output
 docs/simulator-differences.md   where Icarus Verilog 13.0 and Verilator 5.052 differ from the standard
+docs/slang-reference.en.md      how the pinned slang is run as a reference, and what its verdicts mean
+docs/review-candidates.en.md    how the list of expected results to review is made and read
 docs/history.md                 records of earlier work, measurements and checks
 docs/README.md                  bilingual document index
 docs/generators.md              complete generated-test inventory and observation scopes
@@ -457,16 +458,19 @@ coverage/combination-gaps.json   reviewed links from Issue #21 candidates to reg
 docs/requirements-to-tests-method.en.md the method from the standard's PDF to requirements, tests and coverage
 coverage/behavior-summary.json  the current behavior measurements and denominator identity
 coverage/behavior-history.json  saved measurement history with denominator identities
+coverage/slang/                 dated records of the slang reference, which are not counted
 tools/run_icarus.py             runs the suite with Icarus Verilog
 tools/run_verilator.py          runs the suite with Verilator
 tools/run_kirimasim.py          runs the suite with kirimasim
 tools/run_lyra.py               runs the suite with Lyra
 tools/run_ghost.py              runs the unreleased guest under its public alias
+tools/run_slang.py              runs the pinned slang as a reference that is not counted
 tools/normalize_output.py       normalizes a simulator's output before it is compared
 tools/suite_results.py          the JSON form of a runner's results (--json)
 tools/results_history.py        keeps the nightly history and draws its charts
 tools/results_ratchet.py        lists the tests that matched in the previous run and differ now
 tools/differences_status.py     reports the tests of docs/simulator-differences.md on the latest master
+tools/review_candidates.py      lists the tests and clauses whose expected results a person should review
 tools/suite_stats.py            counts the tests and keeps both README language versions' tables
 tools/suite_catalog.py          writes the catalog of the tests, docs/tests/
 tools/coverage_depth.py         writes docs/coverage-depth.md, the depth report
@@ -486,12 +490,15 @@ The `results` branch holds
 results from each simulator's latest saved run), `charts/*.svg` and the report,
 `README.md` (English) and `README.ja.md` (Japanese). Charts have matching
 Japanese `.ja.svg` versions. The charts and the report show only the simulators that `tools/`
-has a runner for; the history keeps the runs of a simulator whose runner was
-removed, but they are not drawn. The publish job also writes `behavior-coverage-summary.md`,
+has a runner for. The history keeps the earlier results only of a simulator that
+`RETIRED` in `tools/results_history.py` lists, without drawing them, and drops the
+results of any other simulator without a runner. The publish job also writes `behavior-coverage-summary.md`,
 `behavior-coverage.md`, `behavior-summary.json`, `behavior-coverage.json`
 and `behavior-history.json` for behavioral coverage of that run, plus
 `interaction-coverage.md` and `interaction-coverage.json` for each simulator's
-feature-interaction coverage. These three coverage Markdown reports retain
+feature-interaction coverage. It also writes the review candidates,
+`review-candidates.md` (English), `review-candidates.ja.md` (Japanese) and
+`review-candidates.json`. These three coverage Markdown reports retain
 Japanese `.md` filenames and have English `.en.md` counterparts, linked in both
 directions. Both languages use the same execution data. The
 [Nightly guide](docs/nightly-results.en.md) explains how these differ from the
@@ -541,6 +548,8 @@ it does not know.
 | `:generator:` | `<generator>@<version>`: the test was written by `generators/<generator>.py` (see "Generated tests") |
 | `:interaction_model:` | `<model>@<version>`: the registered interaction model for a generated cross test |
 | `:interaction_values:` | `factor=value` assignments for that model; coverage also verifies the generator and execution fingerprints |
+| `:issue:` | The issue of this repository that asked for a generated test: its number or its URL. The combination regression tests of Issue #21 have it |
+| `:combination_gap:` | The candidate of Issue #21 that a generated test was written for: its identifier in `coverage/combination-gaps.json`, such as `U01`. `tools/combination_gaps.py --check` fails when the identifier or the test is not registered there |
 | `:files:` | Other files next to the test, separated by spaces: sources (`.sv`, `.v`), compiled before the test in the order written, and files that the design includes with `` `include ``, whose directory becomes an include directory. Their names do not start with `test_`. Whether the files form one compilation unit or several is left to the tool (3.12.1), and the tests do not depend on it, except the tests with `:compilation_unit:` |
 | `:compilation_unit:` | `single`: the test needs use model a) of 3.12.1, in which all files of one command line form one compilation unit. A tool has to provide this use model and use model b), in which each file is its own unit, and it may take either by default. No other value is allowed. A test without the field does not depend on the choice |
 | `:defines:` | Macros that the simulator defines before the first source file, separated by spaces: `NAME` or `NAME=VALUE` (the `-D` or `+define+` option of a tool). The standard leaves such options to the tool; the tests use them only to set macros that `` `ifdef `` and macro uses then see as if `` `define `` had set them (22.5.1) |
@@ -919,7 +928,8 @@ python3 tools/results_history.py update --history my-results --source local out/
 adds the run to `my-results/history.json`, and draws English/Japanese charts
 and `my-results/README.md` / `my-results/README.ja.md`. The example directory
 `my-results/` is ignored by Git. A simulator that `tools/` no longer has a runner
-for stays in the history but is not drawn. `python3 tools/results_history.py render
+for is dropped from the history, unless `RETIRED` in `tools/results_history.py`
+lists it; then its results stay but are not drawn. `python3 tools/results_history.py render
 --history my-results` draws them again from the history alone.
 The defaults use the current time and suite `HEAD`. When importing earlier
 results, pass `--time`, `--suite-commit` and `--run-url` with the actual
@@ -968,7 +978,7 @@ started by hand as well. For a fresh run of the latest suite and settings,
 GitHub can start a scheduled run hours late when it is busy. Runs do not overlap: one that starts while another is running waits
 for it, and a newer one replaces a run that is still waiting. Its results are
 reported for the fixed suite, with the kirimasim ratchet and bounded random comparisons
-as additional gates. It has six jobs:
+as additional gates. It has seven jobs:
 
 - **icarus** builds the latest `master` of Icarus Verilog (kept in the cache
   by its commit) and runs every non-formal test.
@@ -1005,7 +1015,9 @@ as additional gates. It has six jobs:
   that run's result files, writes `differences-on-master.md`, the result on
   the latest `master` of each test that
   [docs/simulator-differences.md](docs/simulator-differences.md) names
-  (`tools/differences_status.py`), and pushes the branch. The summary of the run
+  (`tools/differences_status.py`), writes the [review candidates](docs/review-candidates.en.md),
+  `review-candidates.md`, `review-candidates.ja.md` and `review-candidates.json`
+  (`tools/review_candidates.py`), and pushes the branch. The summary of the run
   lists each simulator's counts, tests whose result changed and behavioral
   coverage. Publishing waits for all five simulator jobs to finish, including
   failed jobs; a successful publish is what updates the chart and report.
@@ -1100,7 +1112,8 @@ Update both language versions of handwritten documents, then run
 Keep current status here; put dated work and measurements in the [history](docs/history.md).
 
 `tools/lint_metadata.py` reports what a script can check of the rules above:
-the fields and their values, `:lrm:` and the directory, x or z literals in a
+the fields and their values, a field without a value, a `:name:` that another
+test has, an `:expected_stderr_regex:` that does not compile, `:lrm:` and the directory, x or z literals in a
 test with `:fourstate: no`, the expected output, the fields of an illegal
 design, the files that the metadata names, the line lengths, comment lines
 that start with the word Verilator, a `` `timescale `` when a time is printed,

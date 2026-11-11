@@ -478,3 +478,10 @@
 - `:compilation_unit:`は新しい任意のメタデータです。`tools/lint_metadata.py`は`single`だけを受け付けます。Icarus VerilogとVerilatorは既定でa)の使い方をとります。`tools/run_slang.py`は、このメタデータのあるテストでslangに`--single-unit`を渡します。kirimasim・Lyra・Ghostのランナーは変えておらず、そのためのオプションを渡しません。
 - この変更で、このテストの保存済みの結果が古くなります。`tests/ch3`のファイルを入力に含む`ch3/test_include_text_joins_compilation_unit`の結果も古くなります。2本をIcarus Verilog 13.0とVerilator 5.052（シード1と73）で再実行し、どちらもpassしました。結果は`coverage/results/compilation-unit-20261111-*.json`です。kirimasim・Ghost・slangは再実行していません。
 - 値は変わりません。要求カバレッジ（テスト設計）は90.14%（11,086/12,298）、実行確認率は51.12%（6,287/12,298）、Ghostを含めると78.00%（9,592/12,298）です。
+
+### 2026-11-11（リポジトリのレビュー：文書と報告のツール）
+
+- リポジトリのレビューで、その後の変更によって事実と合わなくなった記述が見つかり、日英とも直しました。Nightlyのジョブは7つです。結果の履歴に残すのは、`tools/results_history.py`の`RETIRED`に挙げたものだけです。READMEに`tools/run_slang.py`、`tools/review_candidates.py`、その文書、`coverage/slang/`、メタデータの`:issue:`と`:combination_gap:`を載せました。章間のCSVの出典はcross89ではなくcross110の実行です。
+- READMEとNightlyの結果のページの冒頭には現在の情報だけを書くので、日付付きの記述を外しました。外した内容は次のとおりです。2026-11-06に確認した検証状況は`67321079`の[Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584)と[Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265)で、追加前の88モデルが対象でした。その確認記録`coverage/interaction-qualification/handoff-ci-67321079-20261106.json`は、workflowとジョブの結論だけを扱います。ランダム比較の最新の確認済みNightlyは、kirimasim `50a897dee62a`・seed `41941310616`で96件すべて有効なPASSでした。
+- 生成する要求カバレッジ集計の確定値の1か所が、Ghostを含む値だけでした。Ghostを除く51.12%を先に、Ghostを含む78.00%を並べて示すようにしました。英語の1文で二つの数が入れ替わっていた（「12268 of 5400 tests」）のも直しました。
+- ツール：`tools/differences_status.py`は、`time`ではなく`generated_at`を持つランナーの`--json`ファイルを読めるようになりました。テスト数のグラフの上限はデータに従います（12,268本に対して12,000で固定でした）。二つの生成器が同じテスト名を出すと、生成が失敗します。`tools/lint_metadata.py`は、空の項目、コンパイルできない`:expected_stderr_regex:`、二度使われた`:name:`を報告します。今ある同名の7組は既知として記録しました。テストが一度もなかった期待出力`tests/ch17/test_checker_declaration_scopes.expected`を削除しました。リポジトリの外を指していたリンク2本は、普通の文字にしました。

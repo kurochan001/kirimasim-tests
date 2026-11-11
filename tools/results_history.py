@@ -42,7 +42,6 @@ REPOSITORY = os.environ.get("GITHUB_REPOSITORY", "kurochan001/kirimasim-tests")
 SERVER = os.environ.get("GITHUB_SERVER_URL", "https://github.com")
 MAX_LISTED = 100       # tests listed per change in history.json
 RECENT_RUNS = 30       # rows of the table of recent runs in the report
-TEST_COUNT_Y_MAX = 12000  # upper limit of the test-count charts
 
 # Simulators in the order they are shown, with their colors in the light and
 # the dark color scheme. Others follow in the order of their ids.
@@ -319,6 +318,15 @@ def text(x: float, y: float, content: str, cls: str = "", anchor: str = "start",
             f"{html.escape(content)}</text>")
 
 
+def test_count_y_max(runs: list[dict]) -> int:
+    """The upper limit of the test-count charts: the next 1,000 above the most
+    tests of a run, in the suite or in the results of one simulator, so that
+    the charts follow the suite as it grows."""
+    most = max([r.get("tests", 0) for r in runs]
+               + [ran(info) for r in runs for info in r["simulators"].values()], default=0)
+    return (int(most) // 1000 + 1) * 1000
+
+
 def nice_ceiling(value: float) -> float:
     if value <= 0:
         return 1
@@ -481,7 +489,7 @@ def stacked_chart(title: str, subtitle: str, runs: list[dict], sim: str,
     times = [parse_time(r["time"]) for r in runs]
     axis = TimeAxis(times, 64 + 16, width - 40)   # room for half a column at each end
     infos = [r["simulators"].get(sim) for r in runs]
-    y_max = TEST_COUNT_Y_MAX
+    y_max = test_count_y_max(runs)
     body = [text(20, 28, title, "title"), text(20, 48, subtitle, "muted")]
     used = [s for s in STATUS_LABELS if any(i and i["counts"][s] for i in infos)]
     labels = STATUS_LABELS_JA if language == "ja" else STATUS_LABELS
@@ -595,7 +603,7 @@ def render(directory: Path, runs: list[dict]) -> None:
             localized(language,
                 "Recorded runs of the suite; local imports are identified in the report",
                 "スイートの実行記録（ローカル取り込みはレポートに明記）"),
-            runs, counts + [total], colors, y_max=TEST_COUNT_Y_MAX, shown=lambda v: f"{v:.0f}",
+            runs, counts + [total], colors, y_max=test_count_y_max(runs), shown=lambda v: f"{v:.0f}",
             language=language),
             encoding="utf-8")
         (charts / f"rate{suffix}.svg").write_text(line_chart(

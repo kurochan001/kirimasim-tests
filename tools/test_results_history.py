@@ -151,10 +151,20 @@ class ResultsHistoryTests(unittest.TestCase):
         status = (self.directory / "charts/status-ghost.ja.svg").read_text()
         self.assertIn("一致 (pass)", status)
         self.assertIn("不一致 (fail)", status)
-        self.assertEqual(history.TEST_COUNT_Y_MAX, 12000)
+        self.assertEqual(history.test_count_y_max(history.load_history(self.directory)), 1000)
         for name in ("overview.svg", "overview.ja.svg", "status-ghost.svg", "status-ghost.ja.svg"):
             root = ET.fromstring((self.directory / "charts" / name).read_text())
-            self.assertIn("12000", [node.text for node in root.iter("{http://www.w3.org/2000/svg}text")])
+            self.assertIn("1000", [node.text for node in root.iter("{http://www.w3.org/2000/svg}text")])
+
+    def test_the_test_count_charts_end_at_the_next_thousand_above_the_most_tests(self):
+        info = lambda **counts: {"counts": {"pass": 0, "fail": 0, **counts}}
+        run = lambda tests, **sims: {"tests": tests, "simulators": sims}
+        self.assertEqual(history.test_count_y_max([]), 1000)
+        self.assertEqual(history.test_count_y_max([run(999)]), 1000)
+        self.assertEqual(history.test_count_y_max([run(12000)]), 13000)
+        self.assertEqual(history.test_count_y_max([run(10510), run(12268)]), 13000)
+        self.assertEqual(history.test_count_y_max(
+            [run(12268, icarus=info(**{"pass": 9000, "fail": 5001}))]), 15000)
 
     def test_japanese_changes_and_summaries_keep_raw_reasons_statuses_and_counts(self):
         reasons = ["value x != 0; 42.0ns", 'raw | <value> "日本語"', "feature_not_supported"]

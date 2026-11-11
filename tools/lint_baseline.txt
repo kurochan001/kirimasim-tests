@@ -12,6 +12,7 @@ ch10/test_contassign_system_function_operand width
 ch10/test_continuous_assign_function width
 ch10/test_ct_assignment_complex width
 ch10/test_force_deep_generate_scope width
+ch10/test_illegal_interconnect_declaration_assignment duplicate-name
 ch10/test_nba width
 ch10/test_nba_complex_lhs width
 ch10/test_nba_complex_lhs_extended width
@@ -91,6 +92,7 @@ ch13/test_function_corner width
 ch13/test_function_side_effects width
 ch13/test_function_task_edge_cases width
 ch13/test_functions_tasks_edge_cases width
+ch13/test_illegal_function_event_control duplicate-name
 ch13/test_lrm_tasks_functions_advanced width
 ch13/test_output_param_complex width
 ch13/test_param_pass_edge_cases width
@@ -104,6 +106,7 @@ ch16/test_comb_stable_multiinstance width
 ch16/test_immediate_assert_pass_action width
 ch16/test_property_always_ranges width
 ch17/test_checker_default_arg_function width
+ch18/test_illegal_pure_constraint_final duplicate-name
 ch18/test_rand_mode_constraint_mode width
 ch18/test_randcase_zero_weight width
 ch18/test_static_constraint_mode width
@@ -159,6 +162,7 @@ ch22/test_ieee_ch22_directives_edge width
 ch23/test_bind_assertion_basic width
 ch23/test_deep_hierarchy_ref width
 ch23/test_generate_block_select_expr width
+ch23/test_generic_interface_port duplicate-name
 ch23/test_hier_ref_child_variable width
 ch23/test_hierarchical_names width
 ch23/test_mod_params width
@@ -168,12 +172,14 @@ ch23/test_module_parameter_corner width
 ch23/test_parameter_override_instances width
 ch23/test_scope_resolution_edge_cases_2 width
 ch24/test_program_reactive width
+ch25/test_generic_interface_port duplicate-name
 ch25/test_interface_assign width
 ch25/test_interface_functions_instances width
 ch25/test_interface_hier width
 ch25/test_modport_edge_cases_2 width
 ch25/test_modport_import_tasks width
 ch25/test_sv_virtual_if width
+ch25/test_virtual_interface_type_forms duplicate-name
 ch25/test_virtual_intf_edge_cases width
 ch26/test_package_edge_cases width
 ch26/test_scope_resolution_2 width
@@ -189,6 +195,7 @@ ch27/test_ieee1800_2023_generate_corner width
 ch27/test_nested_gen_func width
 ch28/test_resistive_switch_supply_reduction width
 ch29/test_udp_level_edge_mix width
+ch3/test_illegal_function_event_control duplicate-name
 ch3/test_scope_package_import_collision width
 ch3/test_unit_root_name_collision width
 ch30/test_specify_edge_sensitive_path width
@@ -204,6 +211,8 @@ ch35/test_dpi_packed_canonical chapter
 ch36/test_vpi_systf_argument_on_demand chapter
 ch37/test_vpi_active_time_format timescale
 ch37/test_vpi_case_loop_force_stmts fourstate
+ch37/test_vpi_handle_by_multi_index duplicate-name
+ch38/test_vpi_handle_by_multi_index duplicate-name
 ch38/test_vpi_put_value_delay_modes width
 ch4/test_event_delta_cycles width
 ch4/test_nba_cross_module width
@@ -233,6 +242,7 @@ ch6/test_enum_values_methods width
 ch6/test_enum_xz_member_methods width
 ch6/test_enums_edge_cases width
 ch6/test_ieee_compliance_dimensions_twostate width
+ch6/test_illegal_interconnect_declaration_assignment duplicate-name
 ch6/test_implicit_conversion width
 ch6/test_implicit_net_declarations width
 ch6/test_int_types_edge_cases width
@@ -266,6 +276,7 @@ ch6/test_string_realtoa width
 ch6/test_supply_edge_cases width
 ch6/test_type_casting_edge_cases width
 ch6/test_typedef_edge_cases width
+ch6/test_virtual_interface_type_forms duplicate-name
 ch6/test_x_value_bitwise width
 ch7/test_array_and width
 ch7/test_array_args_by_value_ref width
@@ -360,6 +371,8 @@ ch8/test_class_this_super width
 ch8/test_class_typedef width
 ch8/test_class_virtual_2 width
 ch8/test_foreach_static_members width
+ch8/test_illegal_override_specifier_in_interface_class duplicate-name
+ch8/test_illegal_pure_constraint_final duplicate-name
 ch8/test_lrm_class_inheritance_8 width
 ch8/test_nested_member_access width
 ch8/test_null_check width
@@ -374,6 +387,7 @@ ch9/test_clocked_value_timing width
 ch9/test_event_chain_propagation width
 ch9/test_event_control_posedge width
 ch9/test_gray_edge_cases width
+ch9/test_illegal_override_specifier_in_interface_class duplicate-name
 ch9/test_multi_sensitivity_list width
 ch9/test_named_block_hier_write width
 ch9/test_process_suspend_resume_await width

@@ -258,7 +258,8 @@ def render(language: str, found: dict, runs: dict, headings: list[tuple[str, str
             lines.append(f"| {name} | {tr('no results', '結果なし')} | | | | | | |")
             continue
         sim = found["simulators"][key]
-        when = run["time"].replace("T", " ")[:16]
+        # results_history.py writes "time"; a runner's --json file has "generated_at".
+        when = (run.get("time") or run.get("generated_at", "")).replace("T", " ")[:16]
         suite = run.get("suite_commit", "")
         suite_link = f"[`{suite[:7]}`]({repository}/commit/{suite})" if suite else ""
         counts = [len(sim[s]) for s in ("match", "differ", "missing")]

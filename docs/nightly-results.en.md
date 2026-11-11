@@ -15,11 +15,11 @@
 
 <a id="latest-verified-checkpoint"></a>
 
-## Latest verified checkpoint (2026-11-06 JST)
+## Latest verified checkpoint
 
-[Check on baseline 67321079](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584) passed pinned comparisons/static checks on the preceding 88-model suite.
-[Nightly on the same baseline](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265) and all its jobs succeeded; individual artifacts remain uninspected. These new 36 cases are outside both runs.
-[The record](../coverage/interaction-qualification/handoff-ci-67321079-20261106.json) covers workflow/job conclusions only. Per-test inputs, simulator versions and fixed/random artifact hashes remain to be checked.
+The Nightly runs on `main` every night with all seven jobs: icarus, verilator, kirimasim, lyra-build, lyra, ghost and publish.
+The results of the latest run are in the [report on the `results` branch](https://github.com/kurochan001/kirimasim-tests/tree/results#readme).
+For resuming development, see the newest [handoff](claude-code-handoff-20261110.en.md). The records below in this section are from earlier checkpoints.
 
 ### Earlier artifact-reviewed details
 

@@ -391,6 +391,9 @@ def compact_report(snapshot: dict, source_url: str | None = None,
     scope = snapshot["denominator"]
     test_mapping = snapshot["test_mapping"]
     confirmed = snapshot["whole_standard_status"] == "confirmed"
+    # The whole-standard figure without Ghost exists only with the one with Ghost.
+    whole_reproducible = (None if snapshot["whole_standard_executed_percent"] is None
+                          else 100 * snapshot["executed_reproducible"] / total)
     lines = ["# IEEE 1800-2023 要求カバレッジ集計", "",
              f"[全項目の詳細]({detailed_report}) / "
              f"[管理手順]({link('coverage/README.md')}) / "
@@ -419,7 +422,9 @@ def compact_report(snapshot: dict, source_url: str | None = None,
              "各グループの全テストが同じ実行回で成功した場合だけ、要求全体の実行成功に数えます。", "",
              "## 確定値", "",
              f"- 要求カバレッジ（テスト設計）: {percent(snapshot['whole_standard_percent'])}。",
-             f"- 規格要求の実行確認率: {percent(snapshot['whole_standard_executed_percent'])}。",
+             "- 規格要求の実行確認率: " + ("未確定。" if whole_reproducible is None else
+                                   f"Ghostを除いて {percent(whole_reproducible)}、"
+                                   f"Ghostを含めて {percent(snapshot['whole_standard_executed_percent'])}。"),
              f"- 分母の承認: {'承認済み' if scope['reviewed'] else '未承認'}。"
              f"計測状態: `{snapshot['whole_standard_status']}`。",
              "- 資料確認、保留解釈の解決、要求単位の重複整理、分母のレビューを経て確定しました。"
@@ -542,7 +547,9 @@ def report(inventory: dict, sections: dict, rows: list, runs: dict, ignored: lis
              f"[節の引用数]({link('docs/coverage-depth.md')})", "",
              f"要求行の対応とPASSの証拠を数えています。[設計と実行の違い]({link('docs/faq.md')}#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。", "",
              f"**要求カバレッジ（テスト設計）: {pending if whole is None else f'{whole:.2f}%'}。**",
-             f"規格要求の実行確認率: {'未確定' if executed_whole is None else f'{executed_whole:.2f}%'}。",
+             "規格要求の実行確認率: " + ("未確定。" if executed_whole is None else
+                                 f"Ghostを除いて {100 * stats['executed_reproducible'] / total:.2f}%、"
+                                 f"Ghostを含めて {executed_whole:.2f}%。"),
              "節の引用やテスト本数を、全動作の網羅率に換算しません。", "",
              f"- 規格棚卸し: 本文1–41章と附属書A–Q、計 {stats['sections']} 見出し。",
              f"- 規定部分の解釈保留なし: {stats['audited_sections']}/{stats['normative_sections']} 見出し "

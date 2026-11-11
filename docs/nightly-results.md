@@ -17,11 +17,11 @@
 
 <a id="latest-verified-checkpoint"></a>
 
-## 最新の確認状況（2026-11-06 日本時間）
+## 最新の確認状況
 
-[基点67321079のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584)は成功し、追加前の88モデルを含む固定版比較・静的検査を確認しました。
-[同じ基点のNightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265)もworkflowと全ジョブが成功しましたが、個別artifactは未照合です。今回の36件は両実行の対象外です。
-[確認記録](../coverage/interaction-qualification/handoff-ci-67321079-20261106.json)はworkflow・ジョブの結論のみです。個別の入力・シミュレータ版・固定/ランダム結果のハッシュ照合は次の確認事項です。
+Nightlyは毎晩`main`で、icarus・verilator・kirimasim・lyra-build・lyra・ghost・publishの7ジョブをすべて実行します。
+最新の実行の結果は[`results`ブランチのレポート](https://github.com/kurochan001/kirimasim-tests/tree/results#readme)にあります。
+開発を引き継ぐときは、最新の[引き継ぎ資料](claude-code-handoff-20261110.md)を参照してください。この節の以下の記録は、以前の確認時点のものです。
 
 ### 個別artifactまで照合した以前の状態
 

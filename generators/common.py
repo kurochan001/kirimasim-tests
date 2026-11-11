@@ -94,11 +94,13 @@ def outputs(generators) -> dict[Path, str]:
     """Every file the generators write, by path."""
     oracles = read_oracles()
     files = {}
+    names = {}   # every name so far, with its generator: :name: is unique in the suite
     for g in generators:
-        names = set()
         for case in g.cases():
-            assert case.name not in names, case.name
-            names.add(case.name)
+            if case.name in names:
+                raise ValueError(f"duplicate test name {case.name}: generators "
+                                 f"{names[case.name]} and {g.NAME}")
+            names[case.name] = g.NAME
             chapter = case.chapter or g.CHAPTER
             directory = GEN / f"ch{chapter}"
             text, expected = render(case, g.NAME, g.VERSION, chapter,

@@ -9,7 +9,7 @@
 This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 90.14%, execution without Ghost 51.12%, execution with Ghost 78.00%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 90.14%. Requirement execution-confirmation rate: 78.00%. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 90.14%. Requirement execution-confirmation rate: 51.12% without Ghost, 78.00% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
