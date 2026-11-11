@@ -4,7 +4,7 @@
 :tags: ch17
 :type: elaboration
 :lrm: 1800-2023 17.2
-:oracle: spec verilator@5.052
+:oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
@@ -28,3 +28,6 @@ module test_illegal_checker_module_instance;
   test_illegal_checker_module_instance_chk c(a, clk);
   initial #1 clk = 1;
 endmodule
+
+// Oracle check: Verilator 5.052 reports a syntax error on line 22, as it does
+// for a legal checker instance inside a checker, so its error does not count.

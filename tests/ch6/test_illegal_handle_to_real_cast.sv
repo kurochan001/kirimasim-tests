@@ -4,7 +4,7 @@
 :tags: ch6
 :type: elaboration
 :lrm: 1800-2023 6.22.5
-:oracle: spec iverilog@13.0 verilator@5.052
+:oracle: spec iverilog@13.0
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
@@ -20,3 +20,6 @@ module test_illegal_handle_to_real_cast;
   real value;
   initial value = real'(obj); // illegal
 endmodule
+
+// Oracle check: Verilator 5.052 reports the cast on line 21 as unsupported
+// (a static cast to real from a class), which does not count.

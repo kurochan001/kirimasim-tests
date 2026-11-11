@@ -9,8 +9,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "62a7f88cbe758a1bb56f951c2bba1a740611a07efa6804dc0e0d591dc69c7752",
-        "ja": "776c19b34793fe8eb696b12a9b93ab18d3fb4ff8a54727c476c7adf92eefef0d"
+        "en": "50d7648e5af1d3cfd817203ad4aa2887e93bc0088cc655f83ef477eb29af3bb1",
+        "ja": "0e0c1f4fd3c4c657a1128fe5bb682b0cc5f1d947accda2a9c48ce91f58d3b304"
       }
     },
     {
@@ -20,8 +20,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "aec89e7694883fd94ac2e6fb8fc50ff3765f3e9ea8f078390577a132590b2998",
-        "ja": "97b65bd8b69e7f3571c7a8cf568096e968e66c3367896f7fb4bdd37fc4e573b0"
+        "en": "af0da4d2eeae8f037d45f2ce154fc0972d54271fc4ee0ee61ed54a3f4af114b4",
+        "ja": "9751a725f4e0d0b4eb1a19b8f4988315db88f572ebb4b7a38288fd59d80b2318"
       }
     },
     {
@@ -425,8 +425,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "a98b5d79da82dff9895d5bcbde77463189ef5300b2dc61910fa6e23ef3d851bc",
-        "ja": "900ae1c93dd2a60ee5aec9c6bd3675515bc1bfb4a4512441c582f90a79d3771d"
+        "en": "d4db22a5d38b5d714e91561ec2042de75e7bbaa9bf743c359c43df271d22e03f",
+        "ja": "d4bf6486bd3650d562e18a3d9dd14ee52c05ef589ae7b7fcea31aadc4d364454"
       }
     },
     {
@@ -1179,6 +1179,17 @@
       "sha256": {
         "en": "4126d7ade47f45aaac1ab6d5effdd6e4bdd80ceb51b9a76d2b0cd337baf98eb6",
         "ja": "177e1f83dd9af42dd80a87d07cf4e638b11a6b4c592650414c9b93f7d302649e"
+      }
+    },
+    {
+      "en": "docs/oracle-token-review-20261112.en.md",
+      "ja": "docs/oracle-token-review-20261112.md",
+      "source": "docs/oracle-token-review-20261112.en.md",
+      "source_language": "en",
+      "generated": false,
+      "sha256": {
+        "en": "dfe1d2aa797267062847d65fe716ded3e76d9d77fe75c5c7bb0437f0ecb5cfb3",
+        "ja": "83d5736d5892cb6785e6da19c14f07407273ad2d5db0a4f5c4f2b1bc661f477f"
       }
     }
   ]

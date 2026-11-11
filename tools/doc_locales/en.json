@@ -21853,6 +21853,7 @@
     "ZXQPH0QXZ : ZXQPH1QXZ の use model a)（ ZXQPH2QXZ つのコマンドラインの全ファイルが ZXQPH3QXZ つの compilation unit になる）を選んだとき、一方のファイルで宣言した ZXQPH4QXZ と ZXQPH5QXZ が他方のファイルの module から見えて ZXQPH6QXZ = ZXQPH7QXZ になることを確認する。": "ZXQPH0QXZ: checks that, when use model a) of ZXQPH1QXZ is chosen (all files of ZXQPH2QXZ command line form ZXQPH3QXZ compilation unit), ZXQPH4QXZ and ZXQPH5QXZ declared in one file are visible from the module of the other file, which gives ZXQPH6QXZ = ZXQPH7QXZ.",
     "テストはメタデータ ZXQPH0QXZ の値 single で、この use model が必要であることを示す。": "The test says with the value single of the metadata ZXQPH0QXZ that it needs this use model.",
     "規格要求の実行確認率: ZXQPH0QXZ を除いて ZXQPH1QXZ 、 ZXQPH2QXZ を含めて ZXQPH3QXZ 。": "Requirement execution-confirmation rate: ZXQPH1QXZ without ZXQPH0QXZ, ZXQPH3QXZ with ZXQPH2QXZ.",
-    "証跡の問題: runner fingerprint differs。": "Evidence problem: runner fingerprint differs."
+    "証跡の問題: runner fingerprint differs。": "Evidence problem: runner fingerprint differs.",
+    "ZXQPH0QXZ ZXQPH1QXZ は ZXQPH2QXZ 行目を構文エラーとするが、checker の生成ブロックにある規格で認められる checker インスタンスにも同じ構文エラーを出すので、その一致は数えない。": "ZXQPH0QXZ ZXQPH1QXZ reports a syntax error on line ZXQPH2QXZ, but it reports the same syntax error for a legal checker instance in a generate block of a checker, so that match is not counted."
   }
 }

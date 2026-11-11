@@ -4,7 +4,7 @@
 :tags: ch17
 :type: elaboration
 :lrm: 1800-2023 17.3 16.14
-:oracle: spec verilator@5.052
+:oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no

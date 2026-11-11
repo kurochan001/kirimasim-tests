@@ -16,13 +16,13 @@
 | [`test_edge_struct_member_access`](../../tests/ch7/test_edge_struct_member_access.sv) |構造| 7.2 7.2.2 | Verilator 5.052 ||
 | [`test_expr_struct`](../../tests/ch7/test_expr_struct.sv) |構造表現テスト| 7.2 7.2.1 10.9.2 | Verilator 5.052 ||
 | [`test_ieee1800_2023_struct_union_corner`](../../tests/ch7/test_ieee1800_2023_struct_union_corner.sv) |構造/ユニオンコーナーケース| 7.2 7.2.1 7.3 7.3.1 10.9.2 | Verilator 5.052 ||
-| [`test_illegal_rand_member_in_packed_struct`](../../tests/ch7/test_illegal_rand_member_in_packed_struct.sv) |packed構造のメンバーは rand 限定符を持つことができません。 unpacked構造のメンバだけが持つことができる限定符です。| 7.2 | Icarus Verilog 13.0 |違法なデザインだ|
-| [`test_illegal_rand_member_in_union`](../../tests/ch7/test_illegal_rand_member_in_union.sv) |組合のメンバーは rand を持つことができません unpacked 構造のメンバーだけが持つことができる| 7.2 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_rand_member_in_packed_struct`](../../tests/ch7/test_illegal_rand_member_in_packed_struct.sv) |packed構造のメンバーは rand 限定符を持つことができません。 unpacked構造のメンバだけが持つことができる限定符です。| 7.2 |標準のみ|違法なデザインだ|
+| [`test_illegal_rand_member_in_union`](../../tests/ch7/test_illegal_rand_member_in_union.sv) |組合のメンバーは rand を持つことができません unpacked 構造のメンバーだけが持つことができる| 7.2 |標準のみ|違法なデザインだ|
 | [`test_illegal_struct_c_style_tag`](../../tests/ch7/test_illegal_struct_c_style_tag.sv) |構造宣言は開括弧の前に C スタイルの構造タグを持たない| 7.2 | Icarus Verilog 13.0 |違法なデザインだ|
 | [`test_illegal_union_packed_dimension_without_qualifier`](../../tests/ch7/test_illegal_union_packed_dimension_without_qualifier.sv) |次元が packed のユニオンは packed またはソフトを宣言しなければなりません| 7.2 6.8 |標準のみ|違法なデザインだ|
 | [`test_illegal_unpacked_struct_packed_dimension`](../../tests/ch7/test_illegal_unpacked_struct_packed_dimension.sv) |次元が packed の構造は packed で宣言される必要があります| 7.2 6.8 |標準のみ|違法なデザインだ|
-| [`test_illegal_void_member_in_struct`](../../tests/ch7/test_illegal_void_member_in_struct.sv) |構造メンバーは タイプボイドを持つことができない。 これは タグ付けされた組合のメンバーにのみ合法なのだ。| 7.2 | Icarus Verilog 13.0 |違法なデザインだ|
-| [`test_illegal_void_member_in_untagged_union`](../../tests/ch7/test_illegal_void_member_in_untagged_union.sv) |タイプヴォイドの組合員は タグ付けされた組合のみで合法です| 7.2 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_void_member_in_struct`](../../tests/ch7/test_illegal_void_member_in_struct.sv) |構造メンバーは タイプボイドを持つことができない。 これは タグ付けされた組合のメンバーにのみ合法なのだ。| 7.2 |標準のみ|違法なデザインだ|
+| [`test_illegal_void_member_in_untagged_union`](../../tests/ch7/test_illegal_void_member_in_untagged_union.sv) |タイプヴォイドの組合員は タグ付けされた組合のみで合法です| 7.2 |標準のみ|違法なデザインだ|
 | [`test_member_access`](../../tests/ch7/test_member_access.sv) |メンバーアクセスのテスト| 7.2 7.4 | Icarus Verilog 13.0 ||
 | [`test_member_access_2`](../../tests/ch7/test_member_access_2.sv) |クラスと構造のメンバーアクセスパターン| 7.2 8.5 8.13 | Verilator 5.052 ||
 | [`test_member_access_3`](../../tests/ch7/test_member_access_3.sv) |テスト: 構造/クラスメンバーアクセス| 7.2 8.4 8.5 | Verilator 5.052 ||
@@ -88,7 +88,7 @@
 | [`test_union_ops`](../../tests/ch7/test_union_ops.sv) |単語と半分の構造のpacked 結合| 7.3.1 | Icarus Verilog 13.0 ||
 | [`test_union_types`](../../tests/ch7/test_union_types.sv) |テストユニオン| 7.3.1 | Icarus Verilog 13.0 ||
 | [`test_union_types_edge_cases`](../../tests/ch7/test_union_types_edge_cases.sv) |試験：ユニオン型エッジケース| 7.3.1 | Icarus Verilog 13.0 ||
-| [`test_illegal_packed_tagged_union_real_member`](../../tests/ch7/test_illegal_packed_tagged_union_real_member.sv) |packed packed タグ付けされたユニオンのメンバーは、大きさは異なるものの、必ずしも タイプが同じでなければなりません。実在のメンバーはエラーだ| 7.3.2 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_packed_tagged_union_real_member`](../../tests/ch7/test_illegal_packed_tagged_union_real_member.sv) |packed packed タグ付けされたユニオンのメンバーは、大きさは異なるものの、必ずしも タイプが同じでなければなりません。実在のメンバーはエラーだ| 7.3.2 |標準のみ|違法なデザインだ|
 | [`test_tagged_union_dynamic_and_chandle_members`](../../tests/ch7/test_tagged_union_dynamic_and_chandle_members.sv) |unpacked タグ付けされたユニオンは、動的タイプのメンバー (文字列、キュー、動的および連想配列、クラスハンドル) と、チャンドルタイプのメンバーを持ち、それらの値を保持します。| 7.3.2 11.9 |標準のみ||
 | [`test_tagged_union_packed`](../../tests/ch7/test_tagged_union_packed.sv) |packed タグ付けのユニオンは、最も有意な端に最小の数のタグビットを持ち、各メンバーは右に並べられています。タグ付けの ユニオン表現は、タグとメンバーを一緒にセットし、現在のタグのメンバーはドット記法で読み書きできます。| 7.3.2 11.9 20.6.2 |標準のみ||
 | [`test_tagged_union_packed_tag_width_layout`](../../tests/ch7/test_tagged_union_packed_tag_width_layout.sv) |packed タグ付けされたユニオンの幅は、そのメンバー名をコードする最小のタグビットと、最も幅の広いメンバーの幅と同じです。タグは上のビットにあり、各メンバーは下のビットにあります。そして、ネストされたタグ付けユニオンの内部のレイアウトは同じです。| 7.3.2 11.9 20.6.2 |標準のみ||
@@ -159,7 +159,7 @@
 | [`test_array_invalid_index_read_handles_real_string`](../../tests/ch7/test_array_invalid_index_read_handles_real_string.sv) |real、shortreal、string、class、interface class、event、仮想interfaceを要素とするunpacked配列を、範囲外またはxのbitを含む添字で読むと、0.0、空文字列、またはnullを返す| 7.4.5 |標準のみ| x/z |
 | [`test_contassign_packed_element_of_unpacked`](../../tests/ch7/test_contassign_packed_element_of_unpacked.sv) |unpacked 配列の要素のpacked 要素に連続的に代入る| 7.4.5 6.5 10.3.2 | Icarus Verilog 13.0 ||
 | [`test_illegal_part_select_variable_width`](../../tests/ch7/test_illegal_part_select_variable_width.sv) |選択した部分の幅は一定である必要があり 位置は可変です| 7.4.5 | Icarus Verilog 13.0 |違法なデザインだ|
-| [`test_illegal_slice_of_two_dimensions`](../../tests/ch7/test_illegal_slice_of_two_dimensions.sv) |1つのスライスは配列の1次元にしか適用できません 他の次元は単一のインデックスを持つことができます| 7.4.5 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_slice_of_two_dimensions`](../../tests/ch7/test_illegal_slice_of_two_dimensions.sv) |1つのスライスは配列の1次元にしか適用できません 他の次元は単一のインデックスを持つことができます| 7.4.5 |標準のみ|違法なデザインだ|
 | [`test_illegal_slice_variable_width`](../../tests/ch7/test_illegal_slice_variable_width.sv) |unpacked 配列のスライスのサイズは一定でなければなりません| 7.4.5 | Verilator 5.052 |違法なデザインだ|
 | [`test_multi_dim_assign`](../../tests/ch7/test_multi_dim_assign.sv) |テスト：多次元配列代入| 7.4.5 7.4.2 | Verilator 5.052 ||
 | [`test_mux8_edge_cases`](../../tests/ch7/test_mux8_edge_cases.sv) |8 - to-1 マルチプレクサエッジケース| 7.4.5 10.3.2 | Icarus Verilog 13.0 ||
@@ -211,7 +211,7 @@
 | [`test_illegal_fixed_array_from_associative_array`](../../tests/ch7/test_illegal_fixed_array_from_associative_array.sv) |連想配列は 連想配列とのみ 代入が互換性があります固定サイズの配列に割り当てられない| 7.6 | Verilator 5.052 |違法なデザインだ|
 | [`test_illegal_queue_element_type_not_equivalent`](../../tests/ch7/test_illegal_queue_element_type_not_equivalent.sv) |要素のタイプが等価であれば、キューは他の配列との代入が互換性があります。shortint 要素は int キューに移動できません| 7.6 | Icarus Verilog 13.0 |違法なデザインだ|
 | [`test_illegal_slice_assignment_element_count`](../../tests/ch7/test_illegal_slice_assignment_element_count.sv) |unpacked 配列のスライスに代入るには、スライスと同じ要素数のソースが必要です。| 7.6 7.4.5 | Verilator 5.052 |違法なデザインだ|
-| [`test_illegal_slice_element_type_not_equivalent`](../../tests/ch7/test_illegal_slice_element_type_not_equivalent.sv) |固定サイズの配列のスライスは 元素タイプが等しいときにのみ 他の配列と代入が互換性があります| 7.6 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_slice_element_type_not_equivalent`](../../tests/ch7/test_illegal_slice_element_type_not_equivalent.sv) |固定サイズの配列のスライスは 元素タイプが等しいときにのみ 他の配列と代入が互換性があります| 7.6 |標準のみ|違法なデザインだ|
 | [`test_illegal_unpacked_array_from_packed_array`](../../tests/ch7/test_illegal_unpacked_array_from_packed_array.sv) |明示的なキャストなしに packed 配列を直接 unpacked 配列に割り当てることはできません| 7.6 | Icarus Verilog 13.0 |違法なデザインだ|
 | [`test_array_args_by_value_ref`](../../tests/ch7/test_array_args_by_value_ref.sv) |値で渡された配列はコピーされます。動的配列、キュー、連想配列も同様です。ref 引数は呼び出し者の配列です。| 7.7 7.9.10 13.5.2 13.5.1 | Verilator 5.052 ||
 | [`test_array_argument_fixed_dynamic_queue_compatibility`](../../tests/ch7/test_array_argument_fixed_dynamic_queue_compatibility.sv) |配列の実引数は配列代入の規則に従う。固定サイズの仮引数は、範囲が異なる固定配列や同サイズの動的配列／キューを受け取る。サイズ未指定の動的配列／キューの仮引数は、任意サイズの固定配列・動的配列・キューを受け取り、要素を左から右へ対応付ける| 7.7 7.6 |標準のみ||
@@ -237,8 +237,8 @@
 | [`test_associative_array`](../../tests/ch7/test_associative_array.sv) |7.8 の関連付け行列| 7.8 7.9 | Verilator 5.052 ||
 | [`test_associative_array_copy_order_and_delete`](../../tests/ch7/test_associative_array_copy_order_and_delete.sv) |関連性配列は全体をコピーして比較し、 符号 int の順序でインデックスをエナミーし、 欠けているエントリに対して Table 7-1 値を返し、 1 つまたは全てのエントリを削除します。| 7.8 7.8.5 7.9.2 |標準のみ| x/z |
 | [`test_associative_array_corner`](../../tests/ch7/test_associative_array_corner.sv) |種々のインデックスタイプでの連想配列演算をテスト| 7.8 7.9 7.8.1 7.8.3 | Verilator 5.052 ||
-| [`test_illegal_assoc_index_declares_enum`](../../tests/ch7/test_illegal_assoc_index_declares_enum.sv) |関連型配列のインデックスタイプは、自身で型を宣言できません。例えば、エナメル型は、| 7.8 | Icarus Verilog 13.0 |違法なデザインだ|
-| [`test_illegal_assoc_index_declares_struct`](../../tests/ch7/test_illegal_assoc_index_declares_struct.sv) |関連型配列のインデックスタイプは、自分でタイプを宣言できません。例えば、packed構造タイプは、| 7.8 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_assoc_index_declares_enum`](../../tests/ch7/test_illegal_assoc_index_declares_enum.sv) |関連型配列のインデックスタイプは、自身で型を宣言できません。例えば、エナメル型は、| 7.8 |標準のみ|違法なデザインだ|
+| [`test_illegal_assoc_index_declares_struct`](../../tests/ch7/test_illegal_assoc_index_declares_struct.sv) |関連型配列のインデックスタイプは、自分でタイプを宣言できません。例えば、packed構造タイプは、| 7.8 |標準のみ|違法なデザインだ|
 | [`test_sv_assoc_array`](../../tests/ch7/test_sv_assoc_array.sv) |テスト: 連想配列: int map \[ string \], exists(), first(), next(), delete(), num()| 7.8 7.9 | Verilator 5.052 ||
 | [`test_value_assoc`](../../tests/ch7/test_value_assoc.sv) |連想配列値演算のテスト| 7.8 7.9 | Verilator 5.052 ||
 | [`test_assoc_wildcard_string_literal_bits`](../../tests/ch7/test_assoc_wildcard_string_literal_bits.sv) |文字列リテラルワイルドカードキーエリアス 等幅 packed 整数値| 7.8.1 | Verilator 5.052 |出口コード|
@@ -251,7 +251,7 @@
 | [`test_illegal_string_index_with_int`](../../tests/ch7/test_illegal_string_index_with_int.sv) |文字列インデックスを持つ連想配列は 文字列と文字列リテラルをインデックスとして受け入れますint のインデックスは タイプチェックエラーです| 7.8.2 |標準のみ|違法なデザインだ|
 | [`test_assoc_class_key_order_is_stable`](../../tests/ch7/test_assoc_class_key_order_is_stable.sv) |固定の集合に対して、アドレス順序を指定せずにクラスキートラヴァースを繰り返す| 7.8.3 | Verilator 5.052 |出口コード|
 | [`test_assoc_class_null_and_alias_keys`](../../tests/ch7/test_assoc_class_null_and_alias_keys.sv) |クラスインデックス付き連想配列は null を受け入れ、エイリアスは同じオブジェクトキーを識別します。| 7.8.3 | Verilator 5.052 ||
-| [`test_illegal_class_index_with_other_class`](../../tests/ch7/test_illegal_class_index_with_other_class.sv) |クラスインデックスを持つ関連付け配列は、そのクラスまたは派生クラスのオブジェクトをインデックスとして取得します。関連のないクラスのオブジェクトが タイプチェックエラーです| 7.8.3 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_class_index_with_other_class`](../../tests/ch7/test_illegal_class_index_with_other_class.sv) |クラスインデックスを持つ関連付け配列は、そのクラスまたは派生クラスのオブジェクトをインデックスとして取得します。関連のないクラスのオブジェクトが タイプチェックエラーです| 7.8.3 |標準のみ|違法なデザインだ|
 | [`test_assoc_integral_index_cast_context`](../../tests/ch7/test_assoc_integral_index_cast_context.sv) |型付けされた索引は算術的な切り離しの前にキャスト幅と符号コンテキストを適用します| 7.8.4 |標準のみ|出口コード|
 | [`test_assoc_signed_and_unsigned_key_order`](../../tests/ch7/test_assoc_signed_and_unsigned_key_order.sv) |同じ高 bit キーパターンは異なる符号付きと無符号のトラヴァース順序を持つ| 7.8.4 |標準のみ|出口コード|
 | [`test_assoc_signed_boundary_order`](../../tests/ch7/test_assoc_signed_boundary_order.sv) |符号付き整数連想鍵はゼロを通って符号付き数値順序で反復する| 7.8.4 |標準のみ||
@@ -289,31 +289,31 @@
 | [`test_assoc_first`](../../tests/ch7/test_assoc_first.sv) |連想配列を先にテスト| 7.9.4 | Verilator 5.052 ||
 | [`test_assoc_first_2`](../../tests/ch7/test_assoc_first_2.sv) |テスト: 連想配列第一法| 7.9.4 | Verilator 5.052 ||
 | [`test_assoc_next`](../../tests/ch7/test_assoc_next.sv) |次の連想配列をテスト| 7.9.4 7.9.6 | Verilator 5.052 ||
-| [`test_illegal_assoc_first_argument_type`](../../tests/ch7/test_illegal_assoc_first_argument_type.sv) |関連性配列トラヴァースメソッド first() の引数は配列のインデックスタイプと相容れなければなりません。文字列のインデックスの実変数はエラーです| 7.9.4 7.9.8 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_assoc_first_argument_type`](../../tests/ch7/test_illegal_assoc_first_argument_type.sv) |関連性配列トラヴァースメソッド first() の引数は配列のインデックスタイプと相容れなければなりません。文字列のインデックスの実変数はエラーです| 7.9.4 7.9.8 |標準のみ|違法なデザインだ|
 | [`test_illegal_wildcard_array_first`](../../tests/ch7/test_illegal_wildcard_array_first.sv) |ワードカードインデックス型の連想配列に対しては first() のトラヴァースメソッドは許可されていません| 7.9.4 | Verilator 5.052 |違法なデザインだ|
 | [`test_assoc_last`](../../tests/ch7/test_assoc_last.sv) |結合配列をテスト| 7.9.5 | Verilator 5.052 ||
 | [`test_assoc_last_2`](../../tests/ch7/test_assoc_last_2.sv) |テスト: 連想配列最後のメソッド| 7.9.5 | Verilator 5.052 ||
 | [`test_assoc_prev`](../../tests/ch7/test_assoc_prev.sv) |テスト連想配列 prev| 7.9.5 7.9.7 | Verilator 5.052 ||
-| [`test_illegal_assoc_last_argument_type`](../../tests/ch7/test_illegal_assoc_last_argument_type.sv) |関連性配列トラヴァースメソッド last() の引数は配列のインデックスタイプと相容れなければなりません。文字列のインデックスの実変数はエラーです| 7.9.5 7.9.8 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_assoc_last_argument_type`](../../tests/ch7/test_illegal_assoc_last_argument_type.sv) |関連性配列トラヴァースメソッド last() の引数は配列のインデックスタイプと相容れなければなりません。文字列のインデックスの実変数はエラーです| 7.9.5 7.9.8 |標準のみ|違法なデザインだ|
 | [`test_illegal_wildcard_array_last`](../../tests/ch7/test_illegal_wildcard_array_last.sv) |ワイルドカード添字型の連想配列では、走査メソッドlast()を使用できない| 7.9.5 | Verilator 5.052 |違法なデザインだ|
 | [`test_assoc_array_iter_minimal`](../../tests/ch7/test_assoc_array_iter_minimal.sv) |連想配列 minimal: first/next/last/num/size| 7.9.6 7.9.4 7.9.5 | Verilator 5.052 ||
 | [`test_assoc_next_2`](../../tests/ch7/test_assoc_next_2.sv) |テスト: 連想配列次のメソッド| 7.9.6 7.9.4 | Verilator 5.052 ||
 | [`test_assoc_traversal_gaps_and_preserved_keys`](../../tests/ch7/test_assoc_traversal_gaps_and_preserved_keys.sv) |トラバーサルは欠けている入力キーを受け入れ、失敗時に引数を保持します。| 7.9.6 7.9.7 |標準のみ|出口コード|
-| [`test_illegal_assoc_next_argument_type`](../../tests/ch7/test_illegal_assoc_next_argument_type.sv) |次の関連性配列トラヴァースメソッドの引数は配列のインデックスタイプと相容れます。文字列のインデックスの実変数はエラーです| 7.9.6 7.9.8 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_assoc_next_argument_type`](../../tests/ch7/test_illegal_assoc_next_argument_type.sv) |次の関連性配列トラヴァースメソッドの引数は配列のインデックスタイプと相容れます。文字列のインデックスの実変数はエラーです| 7.9.6 7.9.8 |標準のみ|違法なデザインだ|
 | [`test_illegal_wildcard_array_next`](../../tests/ch7/test_illegal_wildcard_array_next.sv) |ワードカードインデックス型の連想配列に対しては、次の()のトラヴァースメソッドは許可されていません。| 7.9.6 | Verilator 5.052 |違法なデザインだ|
 | [`test_assoc_prev_2`](../../tests/ch7/test_assoc_prev_2.sv) |テスト: 連想配列 prev メソッド| 7.9.7 7.9.5 | Verilator 5.052 ||
-| [`test_illegal_assoc_prev_argument_type`](../../tests/ch7/test_illegal_assoc_prev_argument_type.sv) |関連性配列トラヴァースメソッド prev() の引数は配列のインデックスタイプと相容れなければなりません。文字列のインデックスの実変数はエラーです| 7.9.7 7.9.8 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_assoc_prev_argument_type`](../../tests/ch7/test_illegal_assoc_prev_argument_type.sv) |関連性配列トラヴァースメソッド prev() の引数は配列のインデックスタイプと相容れなければなりません。文字列のインデックスの実変数はエラーです| 7.9.7 7.9.8 |標準のみ|違法なデザインだ|
 | [`test_illegal_wildcard_array_prev`](../../tests/ch7/test_illegal_wildcard_array_prev.sv) |ワイルドカード添字型の連想配列では、走査メソッドprev()を使用できない| 7.9.7 | Verilator 5.052 |違法なデザインだ|
 | [`test_assoc_narrow_prev_next_overflow`](../../tests/ch7/test_assoc_narrow_prev_next_overflow.sv) |発見されたキーが狭い出力インデックスに合わないときは次回と前回の報告を切り取りします| 7.9.8 7.9.6 7.9.7 |標準のみ||
 | [`test_assoc_traversal_narrow_index`](../../tests/ch7/test_assoc_traversal_narrow_index.sv) |-1 を返し，キーの低ビットを保持する。| 7.9.8 7.9.4 7.9.5 |標準のみ||
 | [`test_assoc_assignment_clears_and_detaches`](../../tests/ch7/test_assoc_assignment_clears_and_detaches.sv) |連想配列への代入は格納先の古いキーを除去し、値渡しは独立したローカルコピーを生成する| 7.9.9 7.9.10 | Verilator 5.052 ||
 | [`test_assoc_assignment_copies_every_entry`](../../tests/ch7/test_assoc_assignment_copies_every_entry.sv) |全ての代入は古いエントリを削除し、すべてのスカラー値を独立にコピーします| 7.9.9 | Verilator 5.052 |出口コード|
-| [`test_illegal_assoc_assign_different_index_type`](../../tests/ch7/test_illegal_assoc_assign_different_index_type.sv) |関連付け配列は同じインデックスタイプの関連付け配置にのみ割り当てられます。int でインデックスされたターゲットに対する文字列でインデックスされたソースはエラーです| 7.9.9 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_assoc_assign_different_index_type`](../../tests/ch7/test_illegal_assoc_assign_different_index_type.sv) |関連付け配列は同じインデックスタイプの関連付け配置にのみ割り当てられます。int でインデックスされたターゲットに対する文字列でインデックスされたソースはエラーです| 7.9.9 |標準のみ|違法なデザインだ|
 | [`test_illegal_assoc_from_fixed_array`](../../tests/ch7/test_illegal_assoc_from_fixed_array.sv) |固定サイズの配列などの他の配列は 連想配列に割り当てられません| 7.9.9 | Verilator 5.052 |違法なデザインだ|
 | [`test_illegal_dynamic_array_from_assoc`](../../tests/ch7/test_illegal_dynamic_array_from_assoc.sv) |連想配列は 動的配列などの他の配列に割り当てられません| 7.9.9 | Verilator 5.052 |違法なデザインだ|
-| [`test_illegal_assoc_argument_different_index_type`](../../tests/ch7/test_illegal_assoc_argument_different_index_type.sv) |連想配列を渡せるのは、添字型が同じ連想配列の仮引数だけである| 7.9.10 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_assoc_argument_different_index_type`](../../tests/ch7/test_illegal_assoc_argument_different_index_type.sv) |連想配列を渡せるのは、添字型が同じ連想配列の仮引数だけである| 7.9.10 |標準のみ|違法なデザインだ|
 | [`test_illegal_assoc_to_dynamic_array_argument`](../../tests/ch7/test_illegal_assoc_to_dynamic_array_argument.sv) |連想配列は、動的配列など他の種類の配列の仮引数には渡せない| 7.9.10 |標準のみ|違法なデザインだ|
-| [`test_illegal_dynamic_array_to_assoc_argument`](../../tests/ch7/test_illegal_dynamic_array_to_assoc_argument.sv) |動的配列など別の種類の配列は、連想配列の仮引数には渡せない| 7.9.10 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_dynamic_array_to_assoc_argument`](../../tests/ch7/test_illegal_dynamic_array_to_assoc_argument.sv) |動的配列など別の種類の配列は、連想配列の仮引数には渡せない| 7.9.10 |標準のみ|違法なデザインだ|
 | [`test_assoc_array_literal_default`](../../tests/ch7/test_assoc_array_literal_default.sv) |関連性配列リテラルのデフォルト値と全体の関連性配列の代入| 7.9.11 7.9.9 7.9.1 | Verilator 5.052 ||
 | [`test_assign_queue`](../../tests/ch7/test_assign_queue.sv) |キュー代入のテスト| 7.10 7.10.2 | Icarus Verilog 13.0 ||
 | [`test_builtin_methods_mixed`](../../tests/ch7/test_builtin_methods_mixed.sv) |キュー、動的配列、連想配列、文字列の内蔵メソッド| 7.10 7.5 7.9 6.16 | Verilator 5.052 ||
@@ -391,7 +391,7 @@
 | [`test_comb_queue_with_clause`](../../tests/ch7/test_comb_queue_with_clause.sv) |テスト: 'with' 条件を持つキューメソッド| 7.12 7.12.1 7.12.2 7.12.3 | Verilator 5.052 ||
 | [`test_ieee1800_2023_array_method_corner`](../../tests/ch7/test_ieee1800_2023_array_method_corner.sv) |配列操作法| 7.12 7.12.1 7.12.2 7.12.3 7.10.2 7.9 | Verilator 5.052 ||
 | [`test_illegal_array_method_with_braces`](../../tests/ch7/test_illegal_array_method_with_braces.sv) |配列操作のwith条件は 表現を括弧に入れます括弧はrandomize() で使われますが| 7.12 | Verilator 5.052 |違法なデザインだ|
-| [`test_illegal_iterator_argument_without_with`](../../tests/ch7/test_illegal_iterator_argument_without_with.sv) |配列メソッドは with 節なしでは反復子の名前を付けられません。| 7.12 7.12.3 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_iterator_argument_without_with`](../../tests/ch7/test_illegal_iterator_argument_without_with.sv) |配列メソッドは with 節なしでは反復子の名前を付けられません。| 7.12 7.12.3 |標準のみ|違法なデザインだ|
 | [`test_illegal_sort_iterator_without_with`](../../tests/ch7/test_illegal_sort_iterator_without_with.sv) |配列メソッドの反復引数には with 節が必要です| 7.12 | Icarus Verilog 13.0 |違法なデザインだ|
 | [`test_member_access_deep`](../../tests/ch7/test_member_access_deep.sv) |8.5 クラスメンバーアクセス| 7.12 8.5 | Verilator 5.052 ||
 | [`test_array_find`](../../tests/ch7/test_array_find.sv) |7.12.1 の配列位置決めメソッド| 7.12.1 | Verilator 5.052 ||
@@ -424,7 +424,7 @@
 | [`test_illegal_find_last_without_with`](../../tests/ch7/test_illegal_find_last_without_with.sv) |配列位置決めメソッド find_last() の with 項は必須です| 7.12.1 | Verilator 5.052 |違法なデザインだ|
 | [`test_illegal_find_without_with`](../../tests/ch7/test_illegal_find_without_with.sv) |配列位置決めメソッド find() の with 項は必須です| 7.12.1 | Verilator 5.052 |違法なデザインだ|
 | [`test_illegal_max_without_with_struct_elements`](../../tests/ch7/test_illegal_max_without_with_struct_elements.sv) |関係演算子が要素型に定義されている場合にのみ max() の with 条項を省略できます。unpacked構造の配列はそれを必要とします| 7.12.1 |標準のみ|違法なデザインだ|
-| [`test_illegal_min_with_struct_expression`](../../tests/ch7/test_illegal_min_with_struct_expression.sv) |関係演算子は、その表現のタイプに対して定義される必要があります。unpacked 構造表現はエラーです| 7.12.1 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_min_with_struct_expression`](../../tests/ch7/test_illegal_min_with_struct_expression.sv) |関係演算子は、その表現のタイプに対して定義される必要があります。unpacked 構造表現はエラーです| 7.12.1 |標準のみ|違法なデザインだ|
 | [`test_illegal_min_without_with_struct_elements`](../../tests/ch7/test_illegal_min_without_with_struct_elements.sv) |関係演算子が要素型に定義されている場合にのみ min() の with 条項を省略できます。unpacked構造の配列はそれを必要とします| 7.12.1 |標準のみ|違法なデザインだ|
 | [`test_illegal_unique_index_without_with_struct_elements`](../../tests/ch7/test_illegal_unique_index_without_with_struct_elements.sv) |unique_index() の with 条項は、関係演算子が要素タイプに定義されている場合のみ省略できます。unpacked構造の配列はそれを必要とします| 7.12.1 |標準のみ|違法なデザインだ|
 | [`test_illegal_unique_without_with_struct_elements`](../../tests/ch7/test_illegal_unique_without_with_struct_elements.sv) |関係演算子が要素タイプに定義されている場合にのみ unique() の with 条項を省略できます。unpacked構造の配列はそれを必要とします| 7.12.1 |標準のみ|違法なデザインだ|
@@ -446,9 +446,9 @@
 | [`test_illegal_assoc_array_rsort`](../../tests/ch7/test_illegal_assoc_array_rsort.sv) |ソートメソッド rsort() は連想配列に適用できません| 7.12.2 | Verilator 5.052 |違法なデザインだ|
 | [`test_illegal_assoc_array_shuffle`](../../tests/ch7/test_illegal_assoc_array_shuffle.sv) |連想配列に shuffle() を適用できません| 7.12.2 | Verilator 5.052 |違法なデザインだ|
 | [`test_illegal_assoc_array_sort`](../../tests/ch7/test_illegal_assoc_array_sort.sv) |ソートメソッド sort() は連想配列に適用できません| 7.12.2 | Verilator 5.052 |違法なデザインだ|
-| [`test_illegal_rsort_with_struct_expression`](../../tests/ch7/test_illegal_rsort_with_struct_expression.sv) |rsort() は with 条項がないときは要素のタイプに関係演算子を必要とし、あるときは with 表現のタイプに関係 演算子を必 要とします。構造型がunpackedの表現を持つ a はエラーである| 7.12.2 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_rsort_with_struct_expression`](../../tests/ch7/test_illegal_rsort_with_struct_expression.sv) |rsort() は with 条項がないときは要素のタイプに関係演算子を必要とし、あるときは with 表現のタイプに関係 演算子を必 要とします。構造型がunpackedの表現を持つ a はエラーである| 7.12.2 |標準のみ|違法なデザインだ|
 | [`test_illegal_rsort_without_with`](../../tests/ch7/test_illegal_rsort_without_with.sv) |rsort() は with 条項がないときは要素のタイプに関係演算子を必要とし、あるときは with 表現のタイプに関係 演算子を必 要とします。構造要素のタイプが unpacked で with 条件がないと エラーになります| 7.12.2 |標準のみ|違法なデザインだ|
-| [`test_illegal_sort_with_struct_expression`](../../tests/ch7/test_illegal_sort_with_struct_expression.sv) |関係演算子は、with 条項がないときは要素のタイプ、あるときはその with 表現のタイプに関係する。構造型がunpackedの表現を持つ a はエラーである| 7.12.2 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_sort_with_struct_expression`](../../tests/ch7/test_illegal_sort_with_struct_expression.sv) |関係演算子は、with 条項がないときは要素のタイプ、あるときはその with 表現のタイプに関係する。構造型がunpackedの表現を持つ a はエラーである| 7.12.2 |標準のみ|違法なデザインだ|
 | [`test_illegal_sort_without_with`](../../tests/ch7/test_illegal_sort_without_with.sv) |関係演算子は、with 条項がないときは要素のタイプ、あるときはその with 表現のタイプに関係する。構造要素のタイプが unpacked で with 条件がないと エラーになります| 7.12.2 |標準のみ|違法なデザインだ|
 | [`test_real_queue_sort_min_max`](../../tests/ch7/test_real_queue_sort_min_max.sv) |realのキューに対するsort、rsort、min、maxは、要素の実数値を使って順序付ける| 7.12.2 7.12.1 | Verilator 5.052 ||
 | [`test_reverse_order`](../../tests/ch7/test_reverse_order.sv) |逆は固定配列とキューの要素順序を逆にします| 7.12.2 | Verilator 5.052 ||
@@ -472,7 +472,7 @@
 | [`test_array_reduction_xor`](../../tests/ch7/test_array_reduction_xor.sv) |配列縮小メソッド - xor()| 7.12.3 | Verilator 5.052 ||
 | [`test_array_sum`](../../tests/ch7/test_array_sum.sv) |配列和法のテスト| 7.12.3 | Verilator 5.052 ||
 | [`test_array_xor`](../../tests/ch7/test_array_xor.sv) |配列xor減少法のテスト| 7.12.3 | Verilator 5.052 ||
-| [`test_illegal_reduction_and_with_real_expression`](../../tests/ch7/test_illegal_reduction_and_with_real_expression.sv) |とは言え、with の場合は、 with 表現のタイプに対して、その操作を定義する必要があります。| 7.12.3 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_reduction_and_with_real_expression`](../../tests/ch7/test_illegal_reduction_and_with_real_expression.sv) |とは言え、with の場合は、 with 表現のタイプに対して、その操作を定義する必要があります。| 7.12.3 |標準のみ|違法なデザインだ|
 | [`test_illegal_wildcard_index_method`](../../tests/ch7/test_illegal_wildcard_index_method.sv) |反復インデックス法は ワイルドカードインデックス連想配列では使えません| 7.12.4 7.8.1 |標準のみ|違法なデザインだ|
 | [`test_array_map_method`](../../tests/ch7/test_array_map_method.sv) |配列メソッドmap()は、元と同じ範囲またはキーを持つ配列を返します。各要素はitemまたは名前付きイテレータとその添字を使ったwith式の値であり、その式の自己決定型を使用します。| 7.12.5 7.12 |標準のみ||
 | [`test_illegal_map_assoc_result_to_other_index_type`](../../tests/ch7/test_illegal_map_assoc_result_to_other_index_type.sv) |連想配列の map() は同じインデックス型の連想配列を返すので、その結果を別のインデックス型の連想配列に代入できない| 7.12.5 7.9.9 |標準のみ|違法なデザインだ|

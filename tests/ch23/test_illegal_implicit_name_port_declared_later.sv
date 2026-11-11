@@ -19,9 +19,9 @@
 // the instance src (6.10), and cfg is imported by the wildcard import of
 // dl_pkg. The instance u connects data, which the module declares only after
 // it.
-// Oracle checks: Icarus Verilog 13.0 reports the missing data of u, but it also
-// rejects the legal .cfg of ok, a name imported by the wildcard import; the
-// 5.052 release of Verilator accepts the design.
+// Oracle checks: Icarus Verilog 13.0 reports on line 44 that it cannot bind
+// data and points to the declaration after the use, which is the rule; it
+// also rejects the legal .cfg of ok. Verilator 5.052 accepts the design.
 
 package dl_pkg;
   logic [3:0] cfg = 4'd3;

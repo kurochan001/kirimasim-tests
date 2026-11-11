@@ -14,7 +14,7 @@
 | [`test_ch9_extra_initial_always_no_order`](../../tests/ch9/test_ch9_extra_initial_always_no_order.sv) |initialとalwaysのプロセスは それぞれの間に暗黙の順序がない タイムゼロで実行を開始するので 最初のステートメントのどちらの順序でも受け入れられます| 9.2 | Icarus Verilog 13.0 ||
 | [`test_ch9_extra_procedure_count`](../../tests/ch9/test_ch9_extra_procedure_count.sv) |128 initial 128 always プロセスはすべて時間ゼロで始まるため、言語はモジュールプロセスの数に小さな固定された制限を課さない。| 9.2 | Icarus Verilog 13.0 ||
 | [`test_illegal_override_specifier_in_interface_class`](../../tests/ch9/test_illegal_override_specifier_in_interface_class.sv) |動的オーバーライド指定子は、interface classのメソッドには使用できない| 9.2 8.26 8.20 |標準のみ|違法なデザインだ|
-| [`test_illegal_override_specifier_on_module_function`](../../tests/ch9/test_illegal_override_specifier_on_module_function.sv) |動的オバーライド指定子はインターフェースクラスでないクラスのメソッドにのみ許可されます| 9.2 8.20 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_override_specifier_on_module_function`](../../tests/ch9/test_illegal_override_specifier_on_module_function.sv) |動的オバーライド指定子はインターフェースクラスでないクラスのメソッドにのみ許可されます| 9.2 8.20 |標準のみ|違法なデザインだ|
 | [`test_structured_procedure_kinds_each_run`](../../tests/ch9/test_structured_procedure_kinds_each_run.sv) |各種のプロセス 初期、常に、always_comb、always_latch、always_ff、最終、タスク、関数が実行され 結果を返します| 9.2 9.2.2.2 9.2.2.3 9.2.2.4 | Icarus Verilog 13.0 ||
 | [`test_structured_procedures_enable_once_repeat_final`](../../tests/ch9/test_structured_procedures_enable_once_repeat_final.sv) |初期プロセスと常に実行されるプロセスは 時間 0 で始まり、初期プロセスは一度実行され、常に実行され るプロセスは $finish まで繰り返され、最終プロセスは終了時に一度実行されます。タスクと関数は呼び出されたときにのみ実行されます。| 9.2 9.2.1 9.2.2.1 9.2.3 | Icarus Verilog 13.0 ||
 | [`test_syntax_structured_procedure_forms`](../../tests/ch9/test_syntax_structured_procedure_forms.sv) |A.6.2の初期、常に、always_comb , always_latch , always_ff、最終プロセスはそれぞれのボディを取って、それぞれの計算値をもって一度、繰り返し、あるいは最後に実行する。| 9.2 9.2.1 9.2.2.1 9.2.2.2 9.2.2.3 9.2.2.4 9.2.3 A.6.2 | Verilator 5.052 ||
@@ -131,7 +131,7 @@
 | [`test_illegal_statement_label_before_join_none`](../../tests/ch9/test_illegal_statement_label_before_join_none.sv) |join_none の前に文のラベルを置くことはできません。| 9.3.5 | Verilator 5.052 |違法なデザインだ|
 | [`test_statement_labels_name_blocks`](../../tests/ch9/test_statement_labels_name_blocks.sv) |ブロックの名前は、キーワードの後のブロック名と同じように、beginまたはforkの前のラベルで指定されます。 forループのラベルは、宣言された変数を持つループの名前を指定します。 foreachループのラベル は、ループの暗黙のブロックの名前を指 定します。それぞれの名前で参照され 機能を停止できます| 9.3.5 9.3.4 9.6.2 |標準のみ||
 | [`test_a6_5_event_trigger_forms`](../../tests/ch9/test_a6_5_event_trigger_forms.sv) |ブロッキングイベントトリガは即座にイベントを発生させ、遅延付きのノンブロッキングイベントトリガは、指定した時間単位数だけ後に発生させます。そのため、イベントを待つプロセスは、時刻1、5、11を記録します。| 9.4 15.5.2 15.5.3 A.6.5 |標準のみ||
-| [`test_illegal_comma_event_expression_positional_actual`](../../tests/ch9/test_illegal_comma_event_expression_positional_actual.sv) |コンマで区切られた部分を持つイベント表現は 位置関数として渡されるため 括弧が必要です| 9.4 16.8.2 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_comma_event_expression_positional_actual`](../../tests/ch9/test_illegal_comma_event_expression_positional_actual.sv) |コンマで区切られた部分を持つイベント表現は 位置関数として渡されるため 括弧が必要です| 9.4 16.8.2 |標準のみ|違法なデザインだ|
 | [`test_syntax_star_event_controls`](../../tests/ch9/test_syntax_star_event_controls.sv) |"@*"と"@(*)"はそれぞれのシグナルを待ち、そのシグナルが変化したときにそのシグナルを実行します。| 9.4 9.4.2 A.6.5 | Icarus Verilog 13.0 ||
 | [`test_syntax_timing_control_and_event_expressions`](../../tests/ch9/test_syntax_timing_control_and_event_expressions.sv) |遅延、イベント、繰り返しイベント制御は A.6.5 の前に置かれ、イベント表現はエッジ、iff、or、コンマ、括弧、パッケージまたは階層識別子を持つ形式でそれぞれのイベントで起動される。| 9.4 9.4.1 9.4.2 9.4.3 A.6.5 A.6.4 | Verilator 5.052 ||
 | [`test_timing_controls_forms`](../../tests/ch9/test_timing_controls_forms.sv) |遅延、イベント、レベル感度の待ち制御は、繰り返し、エッジ、名前付きイベント、または/コンマ、括弧付きの形で、ステートメントを遅延させ、それぞれの条件が修正された時点で再開します。| 9.4 9.4.2 9.4.3 | Icarus Verilog 13.0 ||
@@ -209,7 +209,7 @@
 | [`test_task_disable_2`](../../tests/ch9/test_task_disable_2.sv) |タスクテストで無効にする| 9.6.2 13.3 | Verilator 5.052 ||
 | [`test_disable_fork_dynamic_vs_named_static`](../../tests/ch9/test_disable_fork_dynamic_vs_named_static.sv) |disable forkは、別プロセスが同じコードを実行していても、呼出しプロセスが生成したプロセスだけを終了します。一方、名前付きブロックのdisableは、生成元にかかわらず、そのブロックを実行中の全プロセスで終了させます。| 9.6.3 9.6.2 | Icarus Verilog 13.0 ||
 | [`test_disable_fork_ends_loops_and_class_tasks`](../../tests/ch9/test_disable_fork_ends_loops_and_class_tasks.sv) |クラスタスクを実行する子プロセスと while 内で待ち受ける子プロセスを終了させます| 9.6.3 9.3.2 | Icarus Verilog 13.0 ||
-| [`test_illegal_class_extends_process`](../../tests/ch9/test_illegal_class_extends_process.sv) |内蔵されたクラスプロセスは拡張できません| 9.7 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_class_extends_process`](../../tests/ch9/test_illegal_class_extends_process.sv) |内蔵されたクラスプロセスは拡張できません| 9.7 |標準のみ|違法なデザインだ|
 | [`test_illegal_new_process_object`](../../tests/ch9/test_illegal_new_process_object.sv) |プロセスオブジェクトは 新しいオブジェクトを作成できません| 9.7 |標準のみ|違法なデザインだ|
 | [`test_process_await_from_fork_child`](../../tests/ch9/test_process_await_from_fork_child.sv) |フォークによって開始されたプロセスで呼び出された await() は、待ち受けるプロセスが終了したとき、または既に終了した場合はすぐに返します。| 9.7 9.3.2 |標準のみ||
 | [`test_process_class_control`](../../tests/ch9/test_process_class_control.sv) |プロセスクラス: self, status, kill| 9.7 | Verilator 5.052 ||

@@ -6,10 +6,10 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 90.14%, execution without Ghost 51.29%, execution with Ghost 78.68%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 90.14%, execution without Ghost 50.27%, execution with Ghost 77.65%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 90.14%. Requirement execution-confirmation rate: 51.29% without Ghost, 78.68% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 90.14%. Requirement execution-confirmation rate: 50.27% without Ghost, 77.65% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
@@ -17,7 +17,7 @@ Requirement coverage (test design): 90.14%. Requirement execution-confirmation r
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
 - The requirement coverage (test design) for registered behaviors is 11086/12298 ( 90.14% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9676/12298 ( 78.68% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9550/12298 ( 77.65% ).
 - Registered but not tested: 1212.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
@@ -33,13 +33,17 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 `check_groups` distributes a single request across multiple tests, and is successful only if all tests in the group are successful in the same runtime and run. The unspecified response is an independent alternative proof.
 
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12298 execution checked; 0 entries refer to older inputs.
-- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3226/12298 execution checked; 0 entries refer to older inputs.
-- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2992/12298 execution checked; 0 entries refer to older inputs.
-- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3890/12298 execution checked; 0 entries refer to older inputs.
-- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3602/12298 execution checked; 0 entries refer to older inputs.
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7915/12298 execution checked; 152 entries refer to older inputs.
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7995/12298 execution checked; 88 entries refer to older inputs.
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7898/12298 execution checked; 152 entries refer to older inputs.
+- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3090/12298 execution checked; 263 entries refer to older inputs.
+- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2989/12298 execution checked; 263 entries refer to older inputs.
+- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3886/12298 execution checked; 263 entries refer to older inputs.
+- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3598/12298 execution checked; 8 entries refer to older inputs.
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7915/12298 execution checked; 398 entries refer to older inputs.
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7995/12298 execution checked; 334 entries refer to older inputs.
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7898/12298 execution checked; 398 entries refer to older inputs.
+- `oracle-tokens-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T19:14:33.552454+00:00` / 11/12298 execution checked; 0 entries refer to older inputs.
+- `oracle-tokens-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T19:14:36.020025+00:00` / 4/12298 execution checked; 0 entries refer to older inputs.
+- `oracle-tokens-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T19:15:04.286693+00:00` / 4/12298 execution checked; 0 entries refer to older inputs.
+- `oracle-tokens-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T19:15:22.924843+00:00` / 4/12298 execution checked; 0 entries refer to older inputs.
 - `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 73/12298 execution checked; 1 entries refer to older inputs.
 - Not used: additions2023-20261109-icarus13.json : legacy, unknown, or stale runner provenance.
 - Not used: additions2023-20261109-kirimasim-33cee3fa.json : legacy, unknown, or stale runner provenance.
@@ -7221,7 +7225,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.6.7-EXTRACT-NETTYPE-OBJECT-KIND
 
-`6.6.7` / `error` / Execution confirmed
+`6.6.7` / `error` / Test mapped; execution unconfirmed
 
 A nettype names a net data type and optional resolver and is used to declare nets rather than variables.
 
@@ -7280,7 +7284,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.6.7-EXTRACT-RESOLVER-NO-INPUT-WRITES
 
-`6.6.7` / `error` / Execution confirmed
+`6.6.7` / `error` / Test mapped; execution unconfirmed
 
 A resolution function must not write any part of its driver-array input argument.
 
@@ -7292,7 +7296,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.6.7-EXTRACT-RESOLVER-NO-RESIZE
 
-`6.6.7` / `error` / Execution confirmed
+`6.6.7` / `error` / Test mapped; execution unconfirmed
 
 A resolution function must not resize its dynamic driver-array argument.
 
@@ -7304,7 +7308,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.6.7-EXTRACT-RESOLVER-NO-SIDE-EFFECTS
 
-`6.6.7` / `error` / Execution confirmed
+`6.6.7` / `error` / Test mapped; execution unconfirmed
 
 A resolution function has no side effects.
 
@@ -7339,7 +7343,7 @@ Normative role: `permission`。
 
 ### SV2023-6.6.7-EXTRACT-RESOLVER-RETURN-TYPE
 
-`6.6.7` / `error` / Execution confirmed
+`6.6.7` / `error` / Test mapped; execution unconfirmed
 
 A user resolver returns the matching nettype data type T.
 
@@ -7351,7 +7355,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.6.7-EXTRACT-RESOLVER-STATIC-METHOD
 
-`6.6.7` / `error` / Execution confirmed
+`6.6.7` / `error` / Test mapped; execution unconfirmed
 
 A class method used as a resolver is class-static, since resolution has no associated class object.
 
@@ -7375,7 +7379,7 @@ Normative role: `permission`。
 
 ### SV2023-6.6.7-EXTRACT-UNRESOLVED-USER-NET-DRIVERS
 
-`6.6.7` / `error` / Execution confirmed
+`6.6.7` / `error` / Test mapped; execution unconfirmed
 
 Without a resolver, a user-defined-nettype net must not have multiple drivers.
 
@@ -9388,7 +9392,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.14-EXTRACT-NO-PORT
 
-`6.14` / `error` / Execution confirmed
+`6.14` / `error` / Test mapped; execution unconfirmed
 
 Chandles cannot be used in port data types.
 
@@ -9400,7 +9404,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.14-EXTRACT-NO-UNTAGGED-UNION
 
-`6.14` / `error` / Execution confirmed
+`6.14` / `error` / Test mapped; execution unconfirmed
 
 Chandles cannot be used in untagged unions.
 
@@ -12460,7 +12464,7 @@ Normative role: `permission`。
 
 ### SV2023-6.20.7-EXTRACT-DOLLAR-CONTEXT-LIMIT
 
-`6.20.7` / `error` / Execution confirmed
+`6.20.7` / `error` / Test mapped; execution unconfirmed
 
 Standalone dollar is allowed only in the explicitly listed queue, range, coverage, temporal-argument/bound and parameter contexts.
 
@@ -12507,7 +12511,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.20.7-EXTRACT-DOLLAR-ENTIRE-EXPRESSION
 
-`6.20.7` / `error` / Execution confirmed
+`6.20.7` / `error` / Test mapped; execution unconfirmed
 
 Dollar must be a complete self-contained expression except that queue select expressions can combine it with operators.
 
@@ -12519,7 +12523,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.20.7-EXTRACT-DOLLAR-PARAMETER-TYPE
 
-`6.20.7` / `error` / Execution confirmed
+`6.20.7` / `error` / Test mapped; execution unconfirmed
 
 A dollar value may be assigned only to a value parameter of a simple bit-vector type.
 
@@ -13190,7 +13194,7 @@ Normative role: `definition`。
 
 ### SV2023-6.23-EXTRACT-NO-DYNAMIC-ELEMENT-OPERAND
 
-`6.23` / `error` / Execution confirmed
+`6.23` / `error` / Test mapped; execution unconfirmed
 
 A type operator expression cannot reference elements of dynamic objects.
 
@@ -13202,7 +13206,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.23-EXTRACT-NO-HIERARCHICAL-OPERAND
 
-`6.23` / `error` / Execution confirmed
+`6.23` / `error` / Test mapped; execution unconfirmed
 
 A type operator expression cannot contain hierarchical references.
 
@@ -13274,7 +13278,7 @@ Normative role: `permission`。
 
 ### SV2023-6.23-EXTRACT-TYPE-NET-PREFIX
 
-`6.23` / `error` / Execution confirmed
+`6.23` / `error` / Test mapped; execution unconfirmed
 
 A net declaration using a type reference must prefix it with a net-type keyword.
 
@@ -13310,7 +13314,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.23-EXTRACT-TYPE-VAR-PREFIX
 
-`6.23` / `error` / Execution confirmed
+`6.23` / `error` / Test mapped; execution unconfirmed
 
 A variable declaration using a type reference must prefix it with var.
 
@@ -13864,7 +13868,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.24.3-EXTRACT-FIXED-SIZE-MISMATCH
 
-`6.24.3` / `error` / Execution confirmed
+`6.24.3` / `error` / Test mapped; execution unconfirmed
 
 Different fixed source/destination sizes are a compile-time error when either type is unpacked.
 
@@ -14009,7 +14013,7 @@ Normative role: `mandatory`。
 
 ### SV2023-7.2-EXTRACT-RANDOM-ONLY-UNPACKED-STRUCT
 
-`7.2` / `error` / Execution confirmed
+`7.2` / `error` / Test mapped; execution unconfirmed
 
 A random qualifier on a struct/union member is permitted only for an unpacked structure.
 
@@ -14082,7 +14086,7 @@ Normative role: `permission`。
 
 ### SV2023-7.2-EXTRACT-VOID-ONLY-TAGGED
 
-`7.2` / `error` / Execution confirmed
+`7.2` / `error` / Test mapped; execution unconfirmed
 
 A void member is permitted only in a tagged union.
 
@@ -14564,7 +14568,7 @@ Normative role: `mandatory`。
 
 ### SV2023-7.3.2-EXTRACT-PACKED-TAGGED-MEMBERS
 
-`7.3.2` / `error` / Execution confirmed
+`7.3.2` / `error` / Test mapped; execution unconfirmed
 
 Packed tagged union members must have packed types, but their sizes may differ.
 
@@ -15261,7 +15265,7 @@ Normative role: `mandatory`。
 
 ### SV2023-7.4.5-EXTRACT-ONE-SLICE-DIMENSION
 
-`7.4.5` / `error` / Execution confirmed
+`7.4.5` / `error` / Test mapped; execution unconfirmed
 
 An expression can slice only one array dimension; other dimensions may have single indices.
 
@@ -15986,7 +15990,7 @@ Normative role: `mandatory`。
 
 ### SV2023-7.8-EXTRACT-ASSOCIATIVE-DECLARATION
 
-`7.8` / `error` / Execution confirmed
+`7.8` / `error` / Test mapped; execution unconfirmed
 
 An associative array declares an element type legal for fixed arrays, an identifier and an existing index type or wildcard *; the bracketed index type cannot itself declare a new type.
 
@@ -16219,7 +16223,7 @@ Normative role: `mandatory`。
 
 ### SV2023-7.8.3-EXTRACT-CLASS-OR-DERIVED
 
-`7.8.3` / `error` / Execution confirmed
+`7.8.3` / `error` / Test mapped; execution unconfirmed
 
 A class-index array accepts handles of its declared class or derived classes; other types cause a type-check error.
 
@@ -16771,7 +16775,7 @@ Normative role: `definition`。
 
 ### SV2023-7.9.7-INDEX-ARGUMENT-TYPE
 
-`7.9.7` / `error` / Execution confirmed
+`7.9.7` / `error` / Test mapped; execution unconfirmed
 
 The prev() reference argument has an index type appropriate to the associative array.
 
@@ -16824,7 +16828,7 @@ Normative role: `mandatory`。
 
 ### SV2023-7.9.8-EXTRACT-TRAVERSAL-ASSIGNMENT-COMPATIBLE
 
-`7.9.8` / `error` / Execution confirmed
+`7.9.8` / `error` / Test mapped; execution unconfirmed
 
 first/last/next/prev require an argument assignment compatible with the associative index type.
 
@@ -18119,7 +18123,7 @@ Normative role: `mandatory`。
 
 ### SV2023-7.12.3-EXTRACT-OPERATOR-DEFINED
 
-`7.12.3` / `error` / Execution confirmed
+`7.12.3` / `error` / Test mapped; execution unconfirmed
 
 Omitting with requires the corresponding operation on element type; supplying with requires it on expression type.
 
@@ -18494,7 +18498,7 @@ Normative role: `definition`。
 
 ### SV2023-8.3-EXTRACT-NO-PURE-FINAL
 
-`8.3` / `error` / Execution confirmed
+`8.3` / `error` / Test mapped; execution unconfirmed
 
 A pure virtual method or pure constraint cannot be declared final.
 
@@ -18520,7 +18524,7 @@ Normative role: `mandatory`。
 
 ### SV2023-8.3-EXTRACT-ONE-CONSTRUCTOR-DEFAULT
 
-`8.3` / `error` / Execution confirmed
+`8.3` / `error` / Test mapped; execution unconfirmed
 
 A constructor argument list may contain the default keyword at most once.
 
@@ -20306,7 +20310,7 @@ Normative role: `definition`。
 
 ### SV2023-8.24-EXTRACT-EXTERN-SAME-NAME-RESOLUTION
 
-`8.24` / `error` / Execution confirmed
+`8.24` / `error` / Test mapped; execution unconfirmed
 
 Each corresponding prototype and external header identifier must resolve to the same declaration, or an error is required.
 
@@ -20797,7 +20801,7 @@ Normative role: `mandatory`。
 
 ### SV2023-8.26.4-EXTRACT-NO-FORWARD-INTERFACE-BASE
 
-`8.26.4` / `error` / Execution confirmed
+`8.26.4` / `error` / Test mapped; execution unconfirmed
 
 An interface must be fully declared before being implemented/extended; a forward typedef does not suffice.
 
@@ -20822,7 +20826,7 @@ Normative role: `mandatory`。
 
 ### SV2023-8.26.4-EXTRACT-NO-INTERFACE-EXTENDS-PARAMETER
 
-`8.26.4` / `error` / Execution confirmed
+`8.26.4` / `error` / Test mapped; execution unconfirmed
 
 An interface class cannot extend a type parameter even if it resolves to an interface class.
 
@@ -20942,7 +20946,7 @@ Normative role: `mandatory`。
 
 ### SV2023-8.26.6.2-EXTRACT-REDECLARE-PARAMETER-TYPE-CONFLICT
 
-`8.26.6.2` / `error` / Execution confirmed
+`8.26.6.2` / `error` / Test mapped; execution unconfirmed
 
 An interface subclass inheriting same-named type/parameter declarations from different interface classes must override every collision with its own declaration.
 
@@ -22385,7 +22389,7 @@ Normative role: `definition`。
 
 ### SV2023-9.4-EXTRACT-COMMA-ACTUAL-PARENTHESES
 
-`9.4` / `error` / Execution confirmed
+`9.4` / `error` / Test mapped; execution unconfirmed
 
 An event expression with comma-separated components used as a positional actual argument must be parenthesized.
 
@@ -23518,7 +23522,7 @@ Normative role: `mandatory`。
 
 ### SV2023-9.7-EXTRACT-NO-PROCESS-EXTENSION
 
-`9.7` / `error` / Execution confirmed
+`9.7` / `error` / Test mapped; execution unconfirmed
 
 Attempting to extend process is a compilation error.
 
@@ -23917,7 +23921,7 @@ Normative role: `definition`。
 
 ### SV2023-10.3.1-EXTRACT-NO-INTERCONNECT-INITIALIZER
 
-`10.3.1` / `error` / Execution confirmed
+`10.3.1` / `error` / Test mapped; execution unconfirmed
 
 An interconnect net cannot have a declaration assignment.
 
@@ -23996,7 +24000,7 @@ Normative role: `mandatory`。
 
 ### SV2023-10.3.2-EXTRACT-VARIABLE-ONE-DRIVER
 
-`10.3.2` / `error` / Execution confirmed
+`10.3.2` / `error` / Test mapped; execution unconfirmed
 
 A variable may have only one continuous/primitive-output/module-output driver and cannot also have a declaration initializer or procedural assignment.
 
@@ -25301,7 +25305,7 @@ Normative role: `permission`。
 
 ### SV2023-10.9.2-EXTRACT-STRUCT-DEFAULT-TYPE
 
-`10.9.2` / `error` / Execution confirmed
+`10.9.2` / `error` / Test mapped; execution unconfirmed
 
 For simple-vector, self-type-matching or nonarray/nonstruct members, default evaluates in each member assignment context and must be castable; invalid type application is an error.
 
@@ -25547,7 +25551,7 @@ Normative role: `mandatory`。
 
 ### SV2023-10.10.3-EXTRACT-CONCAT-IN-NONDEFAULT-PATTERN
 
-`10.10.3` / `error` / Execution confirmed
+`10.10.3` / `error` / Test mapped; execution unconfirmed
 
 A nondefault assignment-pattern item has assignment-like context and may itself contain an unpacked concatenation; default items lack that permission.
 
@@ -25559,7 +25563,7 @@ Normative role: `mandatory`。
 
 ### SV2023-10.10.3-EXTRACT-NO-NESTED-UNTYPED-CONCAT
 
-`10.10.3` / `error` / Execution confirmed
+`10.10.3` / `error` / Test mapped; execution unconfirmed
 
 An unpacked concatenation cannot directly contain another unpacked concatenation because its items require self-determined types; vector/string concatenations may be items.
 
@@ -25607,7 +25611,7 @@ Normative role: `mandatory`。
 
 ### SV2023-10.11-EXTRACT-ALIAS-EQUAL-WIDTH
 
-`10.11` / `error` / Execution confirmed
+`10.11` / `error` / Test mapped; execution unconfirmed
 
 Every alias member must have the same bit count with packed-union-style overlays, independent of the host.
 
@@ -25666,7 +25670,7 @@ Normative role: `permission`。
 
 ### SV2023-10.11-EXTRACT-ALIAS-SAME-NET-TYPE
 
-`10.11` / `error` / Execution confirmed
+`10.11` / `error` / Test mapped; execution unconfirmed
 
 Aliased signals must have the same compatible net type; mismatched wired net types are a fatal error.
 
@@ -25702,7 +25706,7 @@ Normative role: `mandatory`。
 
 ### SV2023-10.11-EXTRACT-NO-DUPLICATE-SELF-ALIAS
 
-`10.11` / `error` / Execution confirmed
+`10.11` / `error` / Test mapped; execution unconfirmed
 
 An individual signal cannot be aliased to itself and a specific alias relation cannot be specified more than once.
 
@@ -26735,7 +26739,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.3.6-EXTRACT-NO-ASSIGNMENT-EVENT-CONTINUOUS
 
-`11.3.6` / `error` / Execution confirmed
+`11.3.6` / `error` / Test mapped; execution unconfirmed
 
 Assignment operators are prohibited in event expressions, procedural-continuous RHS expressions and expressions outside procedural statements.
 
@@ -29556,7 +29560,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.4.11-EXTRACT-OTHER-EQUIVALENT-TYPES
 
-`11.4.11` / `error` / Execution confirmed
+`11.4.11` / `error` / Test mapped; execution unconfirmed
 
 For other conditional operand categories not handled by prior rules, both branch types must be equivalent.
 
@@ -29641,7 +29645,7 @@ Normative role: `definition`。
 
 ### SV2023-11.4.12-EXTRACT-CONCAT-SELECT
 
-`11.4.12` / `error` / Execution confirmed
+`11.4.12` / `error` / Test mapped; execution unconfirmed
 
 Concatenation bits may be read by selecting a packed \[n-1:0\] representation, but such a select cannot be an lvalue or equivalent assignment target.
 
@@ -30377,7 +30381,7 @@ Normative role: `definition`。
 
 ### SV2023-11.4.14.4-EXTRACT-WITH-ARRAY-TYPE
 
-`11.4.14.4` / `error` / Execution confirmed
+`11.4.14.4` / `error` / Test mapped; execution unconfirmed
 
 The receiver before streaming with must be a one-dimensional unpacked array, including a queue.
 
@@ -31370,7 +31374,7 @@ Acceptance criterion: Signed z01 extends to zzzzzz01.
 
 ### SV2023-11.9-EXTRACT-TAGGED-CONTEXT-TYPE
 
-`11.9` / `error` / Execution confirmed
+`11.9` / `error` / Test mapped; execution unconfirmed
 
 A tagged union expression requires its type from context and only permits that type member names and corresponding member-value types.
 
@@ -31975,7 +31979,7 @@ Normative role: `definition`。
 
 ### SV2023-12.4.2-EXTRACT-WHOLE-CHAIN-QUALIFIER
 
-`12.4.2` / `error` / Execution confirmed
+`12.4.2` / `error` / Test mapped; execution unconfirmed
 
 An if qualifier applies to the whole chain and cannot be inserted immediately after else within that chain; nested qualified if needs a separate block.
 
@@ -32505,7 +32509,7 @@ Normative role: `mandatory`。
 
 ### SV2023-12.6-EXTRACT-PATTERN-KNOWN-TYPE
 
-`12.6` / `error` / Execution confirmed
+`12.6` / `error` / Test mapped; execution unconfirmed
 
 Patterns and their nested components have types determined by the matched expression; constant patterns must be integral and all matches are statically type checked.
 
@@ -32518,7 +32522,7 @@ Normative role: `mandatory`。
 
 ### SV2023-12.6-EXTRACT-PATTERN-LOCAL-IDENTIFIERS
 
-`12.6` / `error` / Execution confirmed
+`12.6` / `error` / Test mapped; execution unconfirmed
 
 Each pattern introduces a scope with implicit position-typed variables whose identifiers must be unique within that pattern.
 
@@ -32579,7 +32583,7 @@ Normative role: `mandatory`。
 
 ### SV2023-12.6.1-EXTRACT-MATCHES-CASE-TYPE
 
-`12.6.1` / `error` / Execution confirmed
+`12.6.1` / `error` / Test mapped; execution unconfirmed
 
 The controlling expression has a known type matching every case pattern type and is statically checked.
 
@@ -32674,7 +32678,7 @@ Normative role: `mandatory`。
 
 ### SV2023-12.6.2-EXTRACT-PATTERN-IF-TYPE
 
-`12.6.2` / `error` / Execution confirmed
+`12.6.2` / `error` / Test mapped; execution unconfirmed
 
 Each matches expression and pattern must have the same statically known type.
 
@@ -32734,7 +32738,7 @@ Normative role: `definition`。
 
 ### SV2023-12.7-EXTRACT-TYPE-REFERENCE-PREFIX
 
-`12.7` / `error` / Execution confirmed
+`12.7` / `error` / Test mapped; execution unconfirmed
 
 A type reference used in a net declaration requires a net-type prefix and in a variable declaration requires var.
 
@@ -32759,7 +32763,7 @@ Normative role: `permission`。
 
 ### SV2023-12.7.1-EXTRACT-FOR-ALL-OR-NONE-LOCAL
 
-`12.7.1` / `error` / Execution confirmed
+`12.7.1` / `error` / Test mapped; execution unconfirmed
 
 A for initializer cannot mix locally declared control variables with assignments to previously declared control variables.
 
@@ -32915,7 +32919,7 @@ Normative role: `mandatory`。
 
 ### SV2023-12.7.3-EXTRACT-FOREACH-NO-ARRAY-NAME
 
-`12.7.3` / `error` / Execution confirmed
+`12.7.3` / `error` / Test mapped; execution unconfirmed
 
 No foreach loop variable may have the same identifier as its array.
 
@@ -34418,7 +34422,7 @@ Normative role: `mandatory`。
 
 ### SV2023-13.5.3-EXTRACT-ANSI-DEFAULT-ONLY
 
-`13.5.3` / `error` / Execution confirmed
+`13.5.3` / `error` / Test mapped; execution unconfirmed
 
 Default arguments are permitted only with ANSI formal declarations.
 
@@ -34862,7 +34866,7 @@ Normative role: `mandatory`。
 
 ### SV2023-14.5-EXTRACT-CLOCKING-PORT-COMPATIBILITY
 
-`14.5` / `error` / Execution confirmed
+`14.5` / `error` / Test mapped; execution unconfirmed
 
 Input/inout associated expressions must be legal module input-port actuals; output/inout expressions must be legal module output-port actuals.
 
@@ -37708,7 +37712,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.6-EXTRACT-SIDE-EFFECTS
 
-`16.6` / `error` / Execution confirmed
+`16.6` / `error` / Test mapped; execution unconfirmed
 
 Assertion expression evaluation shall have no side effects except C assignment/increment/decrement in sequence match items with a local-variable lvalue.
 
@@ -37847,7 +37851,7 @@ Normative role: `definition`。
 
 ### SV2023-16.7-EXTRACT-NO-MINTYPMAX
 
-`16.7` / `error` / Execution confirmed
+`16.7` / `error` / Test mapped; execution unconfirmed
 
 A cycle-delay constant_primary shall not contain a constant_mintypmax_expression that is not also a constant_expression.
 
@@ -37931,7 +37935,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.8-EXTRACT-CONSTANT-DELAY-ACTUAL
 
-`16.8` / `error` / Execution confirmed
+`16.8` / `error` / Test mapped; execution unconfirmed
 
 An untyped formal used in a cycle delay or repetition bound requires an elaboration-time constant actual.
 
@@ -37980,7 +37984,7 @@ Normative role: `permission`。
 
 ### SV2023-16.8-EXTRACT-DOLLAR-ACTUAL
 
-`16.8` / `error` / Execution confirmed
+`16.8` / `error` / Test mapped; execution unconfirmed
 
 A $ actual requires an untyped formal whose every use is a delay-range upper bound or another sequence actual.
 
@@ -37993,7 +37997,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.8-EXTRACT-FLATTENED-SEMANTICS
 
-`16.8` / `error` / Execution confirmed
+`16.8` / `error` / Test mapped; execution unconfirmed
 
 A sequence instance has the matching behavior of the flattened F.4.1 rewriting after name resolution; an illegal flattened sequence makes the instance an error.
 
@@ -38017,7 +38021,7 @@ Normative role: `permission`。
 
 ### SV2023-16.8-EXTRACT-FORMAL-TYPES
 
-`16.8` / `error` / Execution confirmed
+`16.8` / `error` / Test mapped; execution unconfirmed
 
 Supported sequence formal data types are assertion-operand types permitted by 16.6 and untyped, with the sequence specialization of 16.8.1.
 
@@ -38127,7 +38131,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.8.1-EXTRACT-EDGE-OPERAND
 
-`16.8.1` / `error` / Execution confirmed
+`16.8.1` / `error` / Test mapped; execution unconfirmed
 
 A formal intended as the operand of an edge_identifier to form an event expression shall not have type event.
 
@@ -38139,7 +38143,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.8.1-EXTRACT-EVENT-FORMAL
 
-`16.8.1` / `error` / Execution confirmed
+`16.8.1` / `error` / Test mapped; execution unconfirmed
 
 An event formal requires an event_expression actual and may be referenced only where an event_expression is legal.
 
@@ -38188,7 +38192,7 @@ Normative role: `definition`。
 
 ### SV2023-16.8.1-EXTRACT-SEQUENCE-FORMAL
 
-`16.8.1` / `error` / Execution confirmed
+`16.8.1` / `error` / Test mapped; execution unconfirmed
 
 A sequence formal requires a sequence_expr actual and may be referenced only where a sequence_expr is legal or as the operand of triggered/matched.
 
@@ -38201,7 +38205,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.8.1-EXTRACT-TYPED-DELAY-BOUND
 
-`16.8.1` / `error` / Execution confirmed
+`16.8.1` / `error` / Test mapped; execution unconfirmed
 
 A typed formal used in cycle-delay or repetition bounds shall have type shortint, int or longint.
 
@@ -38214,7 +38218,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.8.1-EXTRACT-TYPED-DOMAIN
 
-`16.8.1` / `error` / Execution confirmed
+`16.8.1` / `error` / Test mapped; execution unconfirmed
 
 A typed sequence formal shall have type sequence or an assertion operand type permitted by 16.6; its actual restrictions also apply to declared defaults.
 
@@ -38227,7 +38231,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.8.1-EXTRACT-TYPED-MATCH-LVALUE
 
-`16.8.1` / `error` / Execution confirmed
+`16.8.1` / `error` / Test mapped; execution unconfirmed
 
 A typed formal shall not be a sequence-match assignment/increment/decrement lvalue unless it is a local-variable formal.
 
@@ -38240,7 +38244,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.8.2-EXTRACT-ACTUAL-ASSIGNED
 
-`16.8.2` / `error` / Execution confirmed
+`16.8.2` / `error` / Test mapped; execution unconfirmed
 
 An input/inout actual referencing a local variable shall not reference it while unassigned in the instantiation context.
 
@@ -38276,7 +38280,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.8.2-EXTRACT-DIRECTION-LOCAL
 
-`16.8.2` / `error` / Execution confirmed
+`16.8.2` / `error` / Test mapped; execution unconfirmed
 
 A port item specifying input, inout or output shall also specify local.
 
@@ -38314,7 +38318,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.8.2-EXTRACT-LOCAL-DECLARATION
 
-`16.8.2` / `error` / Execution confirmed
+`16.8.2` / `error` / Test mapped; execution unconfirmed
 
 local designates a sequence local-variable formal; its optional direction defaults to input, and its type shall be explicit in that port item and allowed by 16.6.
 
@@ -38331,7 +38335,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.8.2-EXTRACT-LOCAL-DEFAULT
 
-`16.8.2` / `error` / Execution confirmed
+`16.8.2` / `error` / Test mapped; execution unconfirmed
 
 An input local formal may declare a default actual under 16.8; an inout/output local formal shall not have a default.
 
@@ -38368,7 +38372,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.8.2-EXTRACT-METHOD-INPUT-RESTRICTION
 
-`16.8.2` / `error` / Execution confirmed
+`16.8.2` / `error` / Test mapped; execution unconfirmed
 
 triggered or matched shall not be applied to a sequence instance having an input or inout local formal.
 
@@ -38381,7 +38385,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.8.2-EXTRACT-NO-EMPTY-OUTPUT
 
-`16.8.2` / `error` / Execution confirmed
+`16.8.2` / `error` / Test mapped; execution unconfirmed
 
 A sequence instance with inout/output local formals shall not admit an empty match.
 
@@ -38393,7 +38397,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.8.2-EXTRACT-NO-OUTPUT-ALIAS
 
-`16.8.2` / `error` / Execution confirmed
+`16.8.2` / `error` / Test mapped; execution unconfirmed
 
 Two or more inout/output local formals in one instance shall not bind the same actual local variable.
 
@@ -38627,7 +38631,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.2-EXTRACT-OPERAND-RESTRICTIONS
 
-`16.9.2` / `error` / Execution confirmed
+`16.9.2` / `error` / Test mapped; execution unconfirmed
 
 Consecutive repetition permits general sequences; goto and nonconsecutive repetition require Boolean expressions and cannot apply to an expression with an attached sequence match item.
 
@@ -38814,7 +38818,7 @@ Normative role: `permission`。
 
 ### SV2023-16.9.3-EXTRACT-DISABLE-CLOCK-EXPLICIT
 
-`16.9.3` / `error` / Execution confirmed
+`16.9.3` / `error` / Test mapped; execution unconfirmed
 
 A sampled-value function in a disable condition or clock expression shall be explicitly clocked.
 
@@ -38876,7 +38880,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.9.3-EXTRACT-NO-LOCAL-MATCHED
 
-`16.9.3` / `error` / Execution confirmed
+`16.9.3` / `error` / Test mapped; execution unconfirmed
 
 Sampled-value function argument expressions shall not reference assertion local variables or the sequence method matched.
 
@@ -39143,7 +39147,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.4-EXTRACT-FUTURE-MATCH-ITEMS
 
-`16.9.4` / `error` / Execution confirmed
+`16.9.4` / `error` / Test mapped; execution unconfirmed
 
 Future global-clock functions shall not be used in assertions containing sequence match items.
 
@@ -39156,7 +39160,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.9.4-EXTRACT-FUTURE-NESTING
 
-`16.9.4` / `error` / Execution confirmed
+`16.9.4` / `error` / Test mapped; execution unconfirmed
 
 Future global-clock functions shall not be nested.
 
@@ -39506,7 +39510,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.11-EXTRACT-TRIGGERED-CLOCK
 
-`16.9.11` / `error` / Execution confirmed
+`16.9.11` / `error` / Test mapped; execution unconfirmed
 
 In multiclock use, the ending clock of the triggered operand sequence instance shall equal the clock of the method call context.
 
@@ -39542,7 +39546,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.10-EXTRACT-ASSIGN-BEFORE-REFERENCE
 
-`16.10` / `error` / Execution confirmed
+`16.10` / `error` / Test mapped; execution unconfirmed
 
 A local shall be assigned before reference, whether by initializer or match item; increment/decrement and compound assignments also read the prior value.
 
@@ -39642,7 +39646,7 @@ Normative role: `definition`。
 
 ### SV2023-16.10-EXTRACT-LOCAL-EXPRESSIONS
 
-`16.10` / `error` / Execution confirmed
+`16.10` / `error` / Test mapped; execution unconfirmed
 
 Locals may be used in sequence/property expressions like same-typed static variables, including selects/array indices, but shall not occur in clocking event expressions.
 
@@ -39702,7 +39706,7 @@ Normative role: `definition`。
 
 ### SV2023-16.10-EXTRACT-NO-EMPTY-ASSIGNMENT
 
-`16.10` / `error` / Execution confirmed
+`16.10` / `error` / Test mapped; execution unconfirmed
 
 A subsequence with an attached local assignment shall not admit an empty match.
 
@@ -39798,7 +39802,7 @@ Normative role: `permission`。
 
 ### SV2023-16.10-EXTRACT-SIBLING-ISOLATION
 
-`16.10` / `error` / Execution confirmed
+`16.10` / `error` / Test mapped; execution unconfirmed
 
 Assignments in one parallel operand cannot be accessed in a sibling operand.
 
@@ -39821,7 +39825,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.10-EXTRACT-TRIGGERED-LOCAL-ACTUAL
 
-`16.10` / `error` / Execution confirmed
+`16.10` / `error` / Test mapped; execution unconfirmed
 
 Passing a local through triggered requires it to be an entire actual, not a proper subexpression; the bound formal shall be assigned inside the named sequence before being referenced.
 
@@ -39882,7 +39886,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.11-EXTRACT-CALL-ARGUMENTS
 
-`16.11` / `error` / Execution confirmed
+`16.11` / `error` / Test mapped; execution unconfirmed
 
 Attached-call arguments shall be by-value input, ref or const ref; by-value inputs use assertion sampled values and assertion-permitted types.
 
@@ -39906,7 +39910,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.11-EXTRACT-LOCAL-CALL-ARGUMENT
 
-`16.11` / `error` / Execution confirmed
+`16.11` / `error` / Test mapped; execution unconfirmed
 
 A local is usable in an attached-call actual if it flows out of the sequence or is assigned earlier in the match-item list; any argument containing a local shall be passed by value.
 
@@ -39919,7 +39923,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.11-EXTRACT-NO-EMPTY-CALL
 
-`16.11` / `error` / Execution confirmed
+`16.11` / `error` / Test mapped; execution unconfirmed
 
 Attaching a subroutine call or any sequence_match_item to a sequence admitting an empty match is an error.
 
@@ -40006,7 +40010,7 @@ Normative role: `definition`。
 
 ### SV2023-16.12-EXTRACT-DOLLAR-ACTUAL
 
-`16.12` / `error` / Execution confirmed
+`16.12` / `error` / Test mapped; execution unconfirmed
 
 A $ property actual requires an untyped formal whose uses are range upper bounds or actuals in a sequence/property instance.
 
@@ -40311,7 +40315,7 @@ Normative role: `definition`。
 
 ### SV2023-16.12.2-EXTRACT-NO-EMPTY-PROPERTY
 
-`16.12.2` / `error` / Execution confirmed
+`16.12.2` / `error` / Test mapped; execution unconfirmed
 
 A sequential property sequence_expr shall not admit an empty match.
 
@@ -41117,7 +41121,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.12.17-EXTRACT-NO-RECURSIVE-DISABLE
 
-`16.12.17` / `error` / Execution confirmed
+`16.12.17` / `error` / Test mapped; execution unconfirmed
 
 A recursive property declaration shall not contain disable iff.
 
@@ -41129,7 +41133,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.12.17-EXTRACT-POSITIVE-TIME
 
-`16.12.17` / `error` / Execution confirmed
+`16.12.17` / `error` / Test mapped; execution unconfirmed
 
 Every recursive instance in a recursive or mutually recursive property shall occur after a positive advance in time.
 
@@ -41166,7 +41170,7 @@ Normative role: `permission`。
 
 ### SV2023-16.12.17-EXTRACT-RECURSIVE-ACTUALS
 
-`16.12.17` / `error` / Execution confirmed
+`16.12.17` / `error` / Test mapped; execution unconfirmed
 
 For recursive instance q in property p, each actual shall either be exactly a p formal, contain no p formal, or bind a q local-variable formal.
 
@@ -41202,7 +41206,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.12.19-EXTRACT-INPUT-ONLY
 
-`16.12.19` / `error` / Execution confirmed
+`16.12.19` / `error` / Test mapped; execution unconfirmed
 
 Property local formals shall have explicit or inferred direction input; inout/output property local formals are illegal.
 
@@ -41310,7 +41314,7 @@ Normative role: `definition`。
 
 ### SV2023-16.12.22-EXTRACT-NONOVERLAPPED-MATCHABLE
 
-`16.12.22` / `error` / Execution confirmed
+`16.12.22` / `error` / Test mapped; execution unconfirmed
 
 The antecedent of |=\> shall admit at least one match and may admit only empty matches.
 
@@ -41322,7 +41326,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.12.22-EXTRACT-OVERLAPPED-NONDEGENERATE
 
-`16.12.22` / `error` / Execution confirmed
+`16.12.22` / `error` / Test mapped; execution unconfirmed
 
 The antecedent of |-\> shall be nondegenerate.
 
@@ -41335,7 +41339,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.12.22-EXTRACT-PROPERTY-NONDEGENERATE
 
-`16.12.22` / `error` / Execution confirmed
+`16.12.22` / `error` / Test mapped; execution unconfirmed
 
 A sequence used as a property shall be nondegenerate and shall not admit an empty match.
 
@@ -43069,7 +43073,7 @@ Normative role: `definition`。
 
 ### SV2023-16.16-EXTRACT-MULTICLOCK-LEADING
 
-`16.16` / `error` / Execution confirmed
+`16.16` / `error` / Test mapped; execution unconfirmed
 
 A multiclocked sequence/property may inherit a default leading clock, but a maximal concurrent-assertion multiclocked property shall have a unique semantic leading clock.
 
@@ -44610,7 +44614,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.4-EXTRACT-PACKED-STRUCT
 
-`18.4` / `error` / Execution confirmed
+`18.4` / `error` / Test mapped; execution unconfirmed
 
 A packed structure may be rand/randc and is treated as integral; its members shall not carry individual random qualifiers.
 
@@ -44622,7 +44626,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.4-EXTRACT-PACKED-UNTAGGED
 
-`18.4` / `error` / Execution confirmed
+`18.4` / `error` / Test mapped; execution unconfirmed
 
 A packed untagged union may be rand/randc and is treated as integral; its members shall not carry individual random qualifiers.
 
@@ -44986,7 +44990,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.5.1-EXTRACT-EXTERNAL-SCOPE-ORDER
 
-`18.5.1` / `error` / Execution confirmed
+`18.5.1` / `error` / Test mapped; execution unconfirmed
 
 An external constraint block shall appear after its class declaration in the same scope.
 
@@ -45024,7 +45028,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.5.2-EXTRACT-EXTENDS-REQUIRES-OVERRIDE
 
-`18.5.2` / `error` / Execution confirmed
+`18.5.2` / `error` / Test mapped; execution unconfirmed
 
 A constraint specified :extends shall override a base constraint; otherwise it is an error.
 
@@ -45036,7 +45040,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.5.2-EXTRACT-FINAL-CONSTRAINT
 
-`18.5.2` / `error` / Execution confirmed
+`18.5.2` / `error` / Test mapped; execution unconfirmed
 
 A final constraint shall not be replaced by a subclass; final may combine with initial or extends.
 
@@ -45084,7 +45088,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.5.2-EXTRACT-INITIAL-NO-OVERRIDE
 
-`18.5.2` / `error` / Execution confirmed
+`18.5.2` / `error` / Test mapped; execution unconfirmed
 
 A constraint specified :initial shall not override a base constraint; doing so is an error.
 
@@ -45096,7 +45100,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.5.2-EXTRACT-MATCH-PROTOTYPE-SPECIFIERS
 
-`18.5.2` / `error` / Execution confirmed
+`18.5.2` / `error` / Test mapped; execution unconfirmed
 
 initial/extends/final shall appear consistently on both a constraint prototype and its external block, or neither; mismatched use is an error.
 
@@ -45198,7 +45202,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.5.3-EXTRACT-DIST-ITEM-TYPES
 
-`18.5.3` / `error` / Execution confirmed
+`18.5.3` / `error` / Test mapped; execution unconfirmed
 
 Distribution items/ranges may be integral or real; a real range requires an explicit :/ weight.
 
@@ -45223,7 +45227,7 @@ Normative role: `definition`。
 
 ### SV2023-18.5.3-EXTRACT-DIST-RAND-REQUIRED
 
-`18.5.3` / `error` / Execution confirmed
+`18.5.3` / `error` / Test mapped; execution unconfirmed
 
 A dist expression shall contain at least one rand variable.
 
@@ -45727,7 +45731,7 @@ Normative role: `permission`。
 
 ### SV2023-18.5.9-EXTRACT-ORDER-ACYCLIC
 
-`18.5.9` / `error` / Execution confirmed
+`18.5.9` / `error` / Test mapped; execution unconfirmed
 
 Explicit ordering shall have no circular dependencies.
 
@@ -52521,7 +52525,7 @@ Normative role: `definition`。
 
 ### SV2023-20.7-EXTRACT-NO-DYNAMIC-TYPE-QUERY
 
-`20.7` / `error` / Execution confirmed
+`20.7` / `error` / Test mapped; execution unconfirmed
 
 Querying a dynamically sized type identifier directly is an error.
 
@@ -59907,7 +59911,7 @@ Normative role: `mandatory`。
 
 ### SV2023-22.4-EXTRACT-INCLUDE-ABSOLUTE
 
-`22.4` / `error` / Execution confirmed
+`22.4` / `error` / Test mapped; execution unconfirmed
 
 An absolute include path uses only the quoted form and selects only that filename.
 
@@ -60694,7 +60698,7 @@ Normative role: `mandatory`。
 
 ### SV2023-22.8-EXTRACT-NETTYPE-VALUES
 
-`22.8` / `error` / Execution confirmed
+`22.8` / `error` / Test mapped; execution unconfirmed
 
 default_nettype accepts wire, tri, tri0, tri1, wand, triand, wor, trior, trireg, uwire or none.
 
@@ -66566,7 +66570,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7.1-EXTRACT-NO-RESIDUAL-INTERCONNECT
 
-`23.3.3.7.1` / `error` / Execution confirmed
+`23.3.3.7.1` / `error` / Test mapped; execution unconfirmed
 
 At elaboration end, no simulated net may retain interconnect type.
 
@@ -67436,7 +67440,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.11-EXTRACT-INTERFACE-BIND-KINDS
 
-`23.11` / `error` / Execution confirmed
+`23.11` / `error` / Test mapped; execution unconfirmed
 
 Binding into an interface permits only interface or checker instantiations.
 
@@ -67448,7 +67452,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.11-EXTRACT-NO-NESTED-BIND
 
-`23.11` / `error` / Execution confirmed
+`23.11` / `error` / Test mapped; execution unconfirmed
 
 A bind cannot insert an instantiation underneath another bound instantiation scope.
 
@@ -68060,7 +68064,7 @@ Normative role: `mandatory`。
 
 ### SV2023-25.5-EXTRACT-MODPORT-BOTH-MATCH
 
-`25.5` / `error` / Execution confirmed
+`25.5` / `error` / Test mapped; execution unconfirmed
 
 If both header and connection select a modport, the two selected modport names shall be identical.
 
@@ -68217,7 +68221,7 @@ Normative role: `mandatory`。
 
 ### SV2023-25.7-EXTRACT-HIERARCHICAL-METHOD-DECLARATION
 
-`25.7` / `error` / Execution confirmed
+`25.7` / `error` / Test mapped; execution unconfirmed
 
 A module-defined hierarchical interface method must be declared extern in the interface or export in a modport.
 
@@ -68240,7 +68244,7 @@ Normative role: `permission`。
 
 ### SV2023-25.7-EXTRACT-MISSING-MISMATCHED-EXPORT
 
-`25.7` / `error` / Execution confirmed
+`25.7` / `error` / Test mapped; execution unconfirmed
 
 A connected module must define every exported subroutine and exactly match an exported prototype; absence/mismatch is an elaboration error.
 
@@ -68343,7 +68347,7 @@ Normative role: `mandatory`。
 
 ### SV2023-25.7.4-EXTRACT-MULTIPLE-TASK-EXPORT
 
-`25.7.4` / `error` / Execution confirmed
+`25.7.4` / `error` / Test mapped; execution unconfirmed
 
 Multiple modules exporting the same task name is normally an error; extern forkjoin in the interface permits multiple connected definitions.
 
@@ -68355,7 +68359,7 @@ Normative role: `mandatory`。
 
 ### SV2023-25.7.4-EXTRACT-NO-MULTIPLE-FUNCTION-EXPORT
 
-`25.7.4` / `error` / Execution confirmed
+`25.7.4` / `error` / Test mapped; execution unconfirmed
 
 Functions cannot be exported from multiple modules.
 
@@ -68457,7 +68461,7 @@ Normative role: `mandatory`。
 
 ### SV2023-25.9-EXTRACT-VIRTUAL-EXTERNAL-REFERENCES
 
-`25.9` / `error` / Execution confirmed
+`25.9` / `error` / Test mapped; execution unconfirmed
 
 A virtual interface declaration cannot use an interface containing out-of-body hierarchical references or ports referencing other interfaces.
 
@@ -69187,7 +69191,7 @@ Normative role: `mandatory`。
 
 - [test_illegal_generate_interface_block_gate.sv](../tests/ch27/test_illegal_generate_interface_block_gate.sv): Place buf b1 (z, a) in the if(WITH_BUF) generation block of interface gib_if (line 27, // illegal). wire y, z and assign y = a of the same block are valid. Icarus 13.0 reports that the gate cannot be placed on the interface in the 27 line.
 - [test_illegal_generate_module_block_extern_task.sv](../tests/ch27/test_illegal_generate_module_block_extern_task.sv) : If (ON) generated block in module extern task remote(); Declare (27 line, // illegal). The task automatic show() and initial show() of the same block are valid.
-- [test_illegal_generate_checker_block_module_instance.sv](../tests/ch27/test_illegal_generate_checker_block_module_instance.sv): Place gcm_leaf u_leaf () in the generating block of checker gcm_chk (line 28, // illegal). The checker variables logic seen = 1'b0 of the same block are valid. Verilator 5.052 is rejected as a syntax error on the 28 line.
+- [test_illegal_generate_checker_block_module_instance.sv](../tests/ch27/test_illegal_generate_checker_block_module_instance.sv): Place gcm_leaf u_leaf () in the generating block of checker gcm_chk (line 28, // illegal). The checker variables logic seen = 1'b0 of the same block are valid. Verilator 5.052 reports a syntax error on line 28, but it reports the same syntax error for a legal checker instance in a generate block of a checker, so that match is not counted.
 
 ### SV2023-27.3-EXTRACT-GENERATE-FORMS
 
@@ -81105,7 +81109,7 @@ Normative role: `mandatory`。
 
 ### SV2023-33.4.3-EXTRACT-LOCALPARAM-LITERAL
 
-`33.4.3` / `error` / Execution confirmed
+`33.4.3` / `error` / Test mapped; execution unconfirmed
 
 Configuration localparams require an assigned literal value.
 
@@ -81130,7 +81134,7 @@ Normative role: `mandatory`。
 
 ### SV2023-33.4.3-EXTRACT-NO-POSITIONAL
 
-`33.4.3` / `error` / Execution confirmed
+`33.4.3` / `error` / Test mapped; execution unconfirmed
 
 Configuration parameter overrides cannot use positional notation.
 
@@ -81142,7 +81146,7 @@ Normative role: `mandatory`。
 
 ### SV2023-33.4.3-EXTRACT-NO-USER-CONSTANT-FUNCTION
 
-`33.4.3` / `error` / Execution confirmed
+`33.4.3` / `error` / Test mapped; execution unconfirmed
 
 Configuration overrides cannot reference constant functions except built-in constant system functions.
 
@@ -84492,7 +84496,7 @@ Normative role: `mandatory`。
 
 ### SV2023-35.5.4-EXTRACT-NO-REF
 
-`35.5.4` / `error` / Execution confirmed
+`35.5.4` / `error` / Test mapped; execution unconfirmed
 
 Import declarations cannot use ref; actual foreign passing mechanics remain transparent to SV.
 

@@ -327,7 +327,7 @@ class BehaviorCoverageTests(unittest.TestCase):
     def test_a_simulator_cannot_inherit_another_simulators_pass(self):
         _, rows = self.validated()
         other = copy.deepcopy(next(r for r in self.registry["requirements"]
-                                   if r["id"] == "SV2023-6.22.5-NO-HANDLE-REAL"))
+                                   if r["id"] == "SV2023-6.19-EXTRACT-UNIQUE-NAMES"))
         other["mapped"] = True
         with tempfile.TemporaryDirectory() as directory:
             paths = []

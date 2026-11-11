@@ -4,7 +4,7 @@
 :tags: ch18
 :type: elaboration
 :lrm: 1800-2023 18.4
-:oracle: spec iverilog@13.0
+:oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
@@ -14,8 +14,8 @@
 // IEEE 1800-2023 §18.4: a packed structure declared rand is treated as an
 // integral type, so its members cannot be randomized separately and shall not
 // carry rand or randc. The rand on member a of ps_t is illegal. Icarus
-// Verilog 13.0 rejects the member with an error in the struct/union member.
-// The 5.052 release of Verilator accepts the design.
+// Verilog 13.0 reports a syntax error for rand on any structure member, the
+// legal ones included: not counted. Verilator 5.052 accepts the design.
 
 class c_packed_struct_member;
   typedef struct packed {

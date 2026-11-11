@@ -4,7 +4,7 @@
 :tags: ch33
 :type: elaboration
 :lrm: 1800-2023 33.4.3
-:oracle: spec iverilog@13.0
+:oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
@@ -26,3 +26,7 @@ config cfgx4;
   design work.test_illegal_config_positional_parameter;
   instance test_illegal_config_positional_parameter.u use #(8);   // illegal: by position
 endconfig
+
+// Oracle check: Icarus Verilog 13.0 reports a syntax error on line 27, as it
+// does for the legal use #(.W(8)): it parses no parameter override in a
+// config, so its error does not count.

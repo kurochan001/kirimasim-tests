@@ -23,9 +23,9 @@
 // one, and its call in the initial value of a localparam, which requires a
 // constant expression (11.2.1), is then illegal; a tool can report the error at
 // the call or at the line that breaks the constraint.
-// Icarus Verilog 13.0 and Verilator 5.052 also fail on the legal call of h,
-// whose queue methods they cannot evaluate at elaboration time, so their
-// rejections do not count.
+// Icarus Verilog 13.0 reports on line 33 that base is not allowed in a
+// constant function and on line 54 that it cannot evaluate P: the rule. It
+// and Verilator 5.052 also fail on the legal call of h (queue methods).
 
 module test_illegal_constant_function_calls_nonconstant_function;
   int base = 10;

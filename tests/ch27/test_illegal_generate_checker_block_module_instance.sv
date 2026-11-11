@@ -4,7 +4,7 @@
 :tags: ch27
 :type: elaboration
 :lrm: 1800-2023 27.3
-:oracle: spec verilator@5.052
+:oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
@@ -34,3 +34,7 @@ module test_illegal_generate_checker_block_module_instance;
   gcm_chk c (a);
   initial $display("top");
 endmodule
+
+// Oracle check: Verilator 5.052 reports a syntax error on line 28, as it does
+// for a legal checker instance in a generate block of a checker, so its error
+// does not count.

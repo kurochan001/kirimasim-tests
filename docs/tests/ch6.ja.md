@@ -13,7 +13,7 @@
 | [`test_local_var_edge_cases`](../../tests/ch6/test_local_var_edge_cases.sv) |局所可変辺の場合| 6 | Icarus Verilog 13.0 ||
 | [`test_data_type_of_parameter_variable_and_net`](../../tests/ch6/test_data_type_of_parameter_variable_and_net.sv) |同一の 4 - bit データ型のパラメータ、変数、およびネットは、いずれもその型の値を保持するため、範囲外の値はラップし、加算は 4 - bit となる。同じ 8 のビット列を持つ2変数でも、byte は符号付きで bit \[ 7:0 \] は符号付きではないため、読み取り値が異なる。| 6.2 6.18 6.20.2 6.11 | Icarus Verilog 13.0 ||
 | [`test_user_types_built_from_other_types`](../../tests/ch6/test_user_types_built_from_other_types.sv) |ユーザ定義型は他のユーザ定義形式（4 - bit型のpacked配列、両者のpacked構造、構造のunpacked配列）から構築され、サイズと部品が構築型に従うオブジェクトを宣言する。| 6.2 6.18 7.2.1 7.4.1 | Verilator 5.052 ||
-| [`test_ch6_extra_event_not_bit_storage`](../../tests/ch6/test_ch6_extra_event_not_bit_storage.sv) |イベントタイプにはストレージがありません。 4 つの状態 logic の値はイベント変数に割り当てられません。| 6.3.1 6.17 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_ch6_extra_event_not_bit_storage`](../../tests/ch6/test_ch6_extra_event_not_bit_storage.sv) |イベントタイプにはストレージがありません。 4 つの状態 logic の値はイベント変数に割り当てられません。| 6.3.1 6.17 |標準のみ|違法なデザインだ|
 | [`test_four_state_two_state_and_real_storage`](../../tests/ch6/test_four_state_two_state_and_real_storage.sv) |logicベクトルのbitとlogicから構築したタイプはそれぞれ0 , 1，x，zをそれぞれ持つが，2状態bitは0，1のみを持ち，実数は実数を持ち，xとzビットは0に変換される。| 6.3.1 6.11.2 6.12.1 6.8 | Icarus Verilog 13.0 | x/z |
 | [`test_logic_basic`](../../tests/ch6/test_logic_basic.sv) |論理基礎テスト| 6.3.1 6.11 | Icarus Verilog 13.0 ||
 | [`test_logic_value_meanings`](../../tests/ch6/test_logic_value_meanings.sv) |4つの基本値は，偽0，真1，未知x，高インピーダンスzとして振舞い，0と1は互いに補完する。| 6.3.1 12.4 11.4.7 6.6.1 | Icarus Verilog 13.0 | x/z |
@@ -87,13 +87,13 @@
 | [`test_tri0_tri1_resolution_tables`](../../tests/ch6/test_tri0_tri1_resolution_tables.sv) |0 , 1，x，zの16対全てに対して，tri0とtri1の正味分解における2つの強いドライバは，両者がzでない限り強い強さを持ち，単一の弱いドライバまたはプルドライバは，暗黙的なプル値と結合する。| 6.6.5 28.12 21.2.1.4 | Icarus Verilog 13.0 | x/z |
 | [`test_supply_edge_cases`](../../tests/ch6/test_supply_edge_cases.sv) |supply0 supply1 ネット、スカラー、ベクトル| 6.6.6 4.7 | Icarus Verilog 13.0 ||
 | [`test_supply_wire`](../../tests/ch6/test_supply_wire.sv) |テスト電源線| 6.6.6 | Icarus Verilog 13.0 ||
-| [`test_illegal_nettype_declares_variable`](../../tests/ch6/test_illegal_nettype_declares_variable.sv) |ユーザ定義のネットタイプで宣言された変数は拒否されます| 6.6.7 | Icarus Verilog 13.0 |違法なデザインだ|
-| [`test_illegal_nettype_resolver_nonstatic_method`](../../tests/ch6/test_illegal_nettype_resolver_nonstatic_method.sv) |解像度関数が非静的クラスメソッドのネットタイプは拒否されます。| 6.6.7 8.10 | Icarus Verilog 13.0 |違法なデザインだ|
-| [`test_illegal_nettype_resolver_resizes_driver_array`](../../tests/ch6/test_illegal_nettype_resolver_resizes_driver_array.sv) |ドライバ配列のサイズを変更する解像度関数は拒否されます| 6.6.7 | Icarus Verilog 13.0 |違法なデザインだ|
-| [`test_illegal_nettype_resolver_return_type`](../../tests/ch6/test_illegal_nettype_resolver_return_type.sv) |解像度関数がネットタイプのデータタイプ以外のタイプを返すネットタイプは拒否されます| 6.6.7 | Icarus Verilog 13.0 |違法なデザインだ|
-| [`test_illegal_nettype_resolver_side_effect`](../../tests/ch6/test_illegal_nettype_resolver_side_effect.sv) |副作用として，モジュールの変数を書き込む解像度関数を拒否した。| 6.6.7 | Icarus Verilog 13.0 |違法なデザインだ|
-| [`test_illegal_nettype_resolver_writes_driver_array`](../../tests/ch6/test_illegal_nettype_resolver_writes_driver_array.sv) |ドライバ配列の要素を書き込む解像度関数は拒否されます| 6.6.7 | Icarus Verilog 13.0 |違法なデザインだ|
-| [`test_illegal_nettype_unresolved_two_drivers`](../../tests/ch6/test_illegal_nettype_unresolved_two_drivers.sv) |2つの連続ドライバを持つ分解能関数のないネットタイプのネットを拒否する| 6.6.7 10.3 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_nettype_declares_variable`](../../tests/ch6/test_illegal_nettype_declares_variable.sv) |ユーザ定義のネットタイプで宣言された変数は拒否されます| 6.6.7 |標準のみ|違法なデザインだ|
+| [`test_illegal_nettype_resolver_nonstatic_method`](../../tests/ch6/test_illegal_nettype_resolver_nonstatic_method.sv) |解像度関数が非静的クラスメソッドのネットタイプは拒否されます。| 6.6.7 8.10 |標準のみ|違法なデザインだ|
+| [`test_illegal_nettype_resolver_resizes_driver_array`](../../tests/ch6/test_illegal_nettype_resolver_resizes_driver_array.sv) |ドライバ配列のサイズを変更する解像度関数は拒否されます| 6.6.7 |標準のみ|違法なデザインだ|
+| [`test_illegal_nettype_resolver_return_type`](../../tests/ch6/test_illegal_nettype_resolver_return_type.sv) |解像度関数がネットタイプのデータタイプ以外のタイプを返すネットタイプは拒否されます| 6.6.7 |標準のみ|違法なデザインだ|
+| [`test_illegal_nettype_resolver_side_effect`](../../tests/ch6/test_illegal_nettype_resolver_side_effect.sv) |副作用として，モジュールの変数を書き込む解像度関数を拒否した。| 6.6.7 |標準のみ|違法なデザインだ|
+| [`test_illegal_nettype_resolver_writes_driver_array`](../../tests/ch6/test_illegal_nettype_resolver_writes_driver_array.sv) |ドライバ配列の要素を書き込む解像度関数は拒否されます| 6.6.7 |標準のみ|違法なデザインだ|
+| [`test_illegal_nettype_unresolved_two_drivers`](../../tests/ch6/test_illegal_nettype_unresolved_two_drivers.sv) |2つの連続ドライバを持つ分解能関数のないネットタイプのネットを拒否する| 6.6.7 10.3 |標準のみ|違法なデザインだ|
 | [`test_nettype_declarations_and_user_nets`](../../tests/ch6/test_nettype_declarations_and_user_nets.sv) |解決関数なしのネットタイプ宣言、直接、パッケージまたはクラスを通して名前付けられたもの、パッケージの範囲を持つまたは持たないネットタイプの新しい名前、これらのネットタイプのネットを遅延とネット宣言代入のリストを持って宣言し、解決値と変更時間を観察した。| 6.6.7 6.7.2 6.7.3 10.3.3 A.2.1.3 A.2.3 A.2.4 |標準のみ| x/z |
 | [`test_nettype_identifier_and_net`](../../tests/ch6/test_nettype_identifier_and_net.sv) |ネットタイプ宣言はデータタイプと識別子を持つユーザ定義ネットタイプを名付け、その名前で宣言されたネットはそのデータタイプの四状態意味論を持つ駆動値を持つ。| 6.6.7 6.6.1 A.9.3 |標準のみ||
 | [`test_nettype_resolution`](../../tests/ch6/test_nettype_resolution.sv) |ユーザ定義ネットタイプのネットは、出力ポートを含む全ドライバから、その解像度関数が計算した値を、ドライバが変更される度に再び取る。2番目のネットタイプ名は解像度を共有し フォースとリリースは解像度を上書きして復元します| 6.6.7 10.3 10.6.2 23.3.3 |標準のみ||
@@ -116,14 +116,14 @@
 | [`test_net_delay_value_forms`](../../tests/ch6/test_net_delay_value_forms.sv) |net宣言の遅延には、符号なし数値、実数、識別子、時間リテラル、または1stepを使用でき、いずれもモジュールの時間単位でスケーリングする| 6.7 |標準のみ||
 | [`test_wire_init`](../../tests/ch6/test_wire_init.sv) |初期化をテスト wire| 6.7 10.3.1 | Icarus Verilog 13.0 ||
 | [`test_builtin_net_declaration_forms`](../../tests/ch6/test_builtin_net_declaration_forms.sv) |内蔵されたネット宣言は、スケールまたはベクトル化されたドライブ強度または電荷強度、暗黙的または明示的なデータタイプ、遅延、ネット宣言代入のリスト、値、強度、変化時間を通して観測される unpacked次元を持っています。| 6.7.1 6.9.2 10.3.1 10.3.3 10.3.4 6.6.4 A.2.1.3 A.2.3 A.2.4 21.2.1.4 |標準のみ| x/z |
-| [`test_illegal_interconnect_charge_strength`](../../tests/ch6/test_illegal_interconnect_charge_strength.sv) |相互接続ネット宣言は電荷強度を指定できません| 6.7.1 6.6.8 | Icarus Verilog 13.0 |違法なデザインだ|
-| [`test_illegal_interconnect_data_type`](../../tests/ch6/test_illegal_interconnect_data_type.sv) |相互接続ネットはデータタイプで宣言できません| 6.7.1 6.6.8 | Icarus Verilog 13.0 |違法なデザインだ|
-| [`test_illegal_interconnect_declaration_assignment`](../../tests/ch6/test_illegal_interconnect_declaration_assignment.sv) |相互接続ネット宣言には代入表現はありません| 6.7.1 6.6.8 | Icarus Verilog 13.0 |違法なデザインだ|
-| [`test_illegal_interconnect_drive_strength`](../../tests/ch6/test_illegal_interconnect_drive_strength.sv) |インターコネクトネット宣言はドライブ強度を指定できません| 6.7.1 6.6.8 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_interconnect_charge_strength`](../../tests/ch6/test_illegal_interconnect_charge_strength.sv) |相互接続ネット宣言は電荷強度を指定できません| 6.7.1 6.6.8 |標準のみ|違法なデザインだ|
+| [`test_illegal_interconnect_data_type`](../../tests/ch6/test_illegal_interconnect_data_type.sv) |相互接続ネットはデータタイプで宣言できません| 6.7.1 6.6.8 |標準のみ|違法なデザインだ|
+| [`test_illegal_interconnect_declaration_assignment`](../../tests/ch6/test_illegal_interconnect_declaration_assignment.sv) |相互接続ネット宣言には代入表現はありません| 6.7.1 6.6.8 |標準のみ|違法なデザインだ|
+| [`test_illegal_interconnect_drive_strength`](../../tests/ch6/test_illegal_interconnect_drive_strength.sv) |インターコネクトネット宣言はドライブ強度を指定できません| 6.7.1 6.6.8 |標準のみ|違法なデザインだ|
 | [`test_illegal_interconnect_explicit_type`](../../tests/ch6/test_illegal_interconnect_explicit_type.sv) |明示的なデータ型を持つ相互接続宣言は違法です| 6.7.1 6.7 |標準のみ|違法なデザインだ|
 | [`test_illegal_interconnect_initializer`](../../tests/ch6/test_illegal_interconnect_initializer.sv) |代入表現を持つ相互接続宣言は違法です| 6.7.1 |標準のみ|違法なデザインだ|
 | [`test_illegal_interconnect_strength`](../../tests/ch6/test_illegal_interconnect_strength.sv) |ドライブ強度を持つインターコネクト宣言は違法です| 6.7.1 6.7 |標準のみ|違法なデザイン x/z|
-| [`test_illegal_interconnect_two_delays`](../../tests/ch6/test_illegal_interconnect_two_delays.sv) |ネット間接続宣言は遅延値を 1 つ指定できますが 2 つはできません| 6.7.1 6.6.8 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_interconnect_two_delays`](../../tests/ch6/test_illegal_interconnect_two_delays.sv) |ネット間接続宣言は遅延値を 1 つ指定できますが 2 つはできません| 6.7.1 6.6.8 |標準のみ|違法なデザインだ|
 | [`test_illegal_net_type_reg_in_port_declaration`](../../tests/ch6/test_illegal_net_type_reg_in_port_declaration.sv) |ネットタイプキーワード tri の後に直接キーワード reg が続くことはできません。| 6.7.1 23.2.2.3 |標準のみ|違法なデザインだ|
 | [`test_illegal_net_type_then_reg`](../../tests/ch6/test_illegal_net_type_then_reg.sv) |net タイプのキーワードは、宣言の中で直接キーワード reg に続けられません。| 6.7.1 |標準のみ|違法なデザインだ|
 | [`test_net_declaration_data_types`](../../tests/ch6/test_net_declaration_data_types.sv) |ネットは任意の4状態整数データ型，typedefまたはpacked構造を持ち，1つの構造を持たないネットはlogicであり，非駆動ネットはbit個のzを持つ。| 6.7.1 6.11.1 7.2.1 | Icarus Verilog 13.0 | x/z |
@@ -232,9 +232,9 @@
 | [`test_illegal_chandle_equality_with_int`](../../tests/ch6/test_illegal_chandle_equality_with_int.sv) |チャンドル上の等式 operator == は他のチャンドルまたは null とのみ有効であり、 int とは有効ではありません。| 6.14 |標準のみ|違法なデザインだ|
 | [`test_illegal_chandle_event_control`](../../tests/ch6/test_illegal_chandle_event_control.sv) |チャンドルはイベント表現に使えません| 6.14 |標準のみ|違法なデザインだ|
 | [`test_illegal_chandle_in_packed_struct`](../../tests/ch6/test_illegal_chandle_in_packed_struct.sv) |チャンドルは packed 型の構造物のメンバーのような packed 型の構築物では使えません| 6.14 | Verilator 5.052 |違法なデザインだ|
-| [`test_illegal_chandle_in_untagged_union`](../../tests/ch6/test_illegal_chandle_in_untagged_union.sv) |チャンドルはタグ付けされていない組合のメンバーではありません| 6.14 7.3 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_chandle_in_untagged_union`](../../tests/ch6/test_illegal_chandle_in_untagged_union.sv) |チャンドルはタグ付けされていない組合のメンバーではありません| 6.14 7.3 |標準のみ|違法なデザインだ|
 | [`test_illegal_chandle_inequality_with_int`](../../tests/ch6/test_illegal_chandle_inequality_with_int.sv) |チャンドル上の不等式演算子!= は、他のチャンドルや null とのみ有効で、int とは無効です。| 6.14 |標準のみ|違法なデザインだ|
-| [`test_illegal_chandle_port`](../../tests/ch6/test_illegal_chandle_port.sv) |ポートはチャンドルデータタイプを持つことができません| 6.14 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_chandle_port`](../../tests/ch6/test_illegal_chandle_port.sv) |ポートはチャンドルデータタイプを持つことができません| 6.14 |標準のみ|違法なデザインだ|
 | [`test_illegal_chandle_relational_operator`](../../tests/ch6/test_illegal_chandle_relational_operator.sv) |than == &lt;!=, ===,!==以外の演算子のオペランドにはチャンドルは使えません。| 6.14 |標準のみ|違法なデザインだ|
 | [`test_comb_string_compare`](../../tests/ch6/test_comb_string_compare.sv) |テスト: 文字列比較演算子とメソッド| 6.16 | Verilator 5.052 ||
 | [`test_edge_assoc_array_keys`](../../tests/ch6/test_edge_assoc_array_keys.sv) |関連配列に "\0" を含む文字列キー: "\0" は文字列リテラルから削除されます| 6.16 7.8.2 | Verilator 5.052 ||
@@ -243,7 +243,7 @@
 | [`test_illegal_string_assigned_int_without_cast`](../../tests/ch6/test_illegal_string_assigned_int_without_cast.sv) |整数値は 文字列変数に割り当てられるのは| 6.16 |標準のみ|違法なデザインだ|
 | [`test_illegal_string_replication_empty_braces`](../../tests/ch6/test_illegal_string_replication_empty_braces.sv) |文字列の複製には 少なくとも1つのオペランドが必要です| 6.16 | Icarus Verilog 13.0 |違法なデザインだ|
 | [`test_illegal_string_replication_negative_multiplier`](../../tests/ch6/test_illegal_string_replication_negative_multiplier.sv) |文字列複製の反復数は負にできません。| 6.16 | Verilator 5.052 |違法なデザインだ|
-| [`test_illegal_string_replication_real_multiplier`](../../tests/ch6/test_illegal_string_replication_real_multiplier.sv) |文字列の複製の乗数は整数型でなければなりません実際の表現は違法です| 6.16 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_string_replication_real_multiplier`](../../tests/ch6/test_illegal_string_replication_real_multiplier.sv) |文字列の複製の乗数は整数型でなければなりません実際の表現は違法です| 6.16 |標準のみ|違法なデザインだ|
 | [`test_illegal_string_replication_x_multiplier`](../../tests/ch6/test_illegal_string_replication_x_multiplier.sv) |文字列の複製の乗数は xbit を含めない| 6.16 | Verilator 5.052 |違法なデザイン x/z|
 | [`test_illegal_string_replication_z_multiplier`](../../tests/ch6/test_illegal_string_replication_z_multiplier.sv) |文字列の複製の乗数には zbit は含まれません| 6.16 | Verilator 5.052 |違法なデザイン x/z|
 | [`test_string_basic`](../../tests/ch6/test_string_basic.sv) |文字列の基本テスト| 6.16 | Icarus Verilog 13.0 ||
@@ -493,11 +493,11 @@
 | [`test_dollar_cycle_delay_and_actual`](../../tests/ch6/test_dollar_cycle_delay_and_actual.sv) |プロパティに送られたドル実際の引数をサイクル遅延範囲の上限として使用し，その範囲は数サイクル後のイベントを待つ。| 6.20.7 |標準のみ||
 | [`test_dollar_parameter_unbounded`](../../tests/ch6/test_dollar_parameter_unbounded.sv) |$isunbounded は別のパラメータを通して報告するパラメータの値であり、$ は値範囲のオープンエンドとキューの最後の要素を表します。| 6.20.7 20.6.3 11.4.13 7.10.1 | Verilator 5.052 ||
 | [`test_dollar_value_range_membership`](../../tests/ch6/test_dollar_value_range_membership.sv) |下限は他の限界の下にある全ての値を含み 上限は上限の上にある全ての価値を含みます| 6.20.7 | Verilator 5.052 ||
-| [`test_illegal_dollar_assigned_to_real_parameter`](../../tests/ch6/test_illegal_dollar_assigned_to_real_parameter.sv) |値パラメータは単純な bit ベクトルタイプのみに割り当てられます。実際のパラメータは$ の値を持つことはできません| 6.20.7 | Icarus Verilog 13.0 |違法なデザインだ|
-| [`test_illegal_dollar_in_ordinary_expression`](../../tests/ch6/test_illegal_dollar_in_ordinary_expression.sv) |例えば、int に代入る右側のように、$ は普通の表現として使えません。| 6.20.7 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_dollar_assigned_to_real_parameter`](../../tests/ch6/test_illegal_dollar_assigned_to_real_parameter.sv) |値パラメータは単純な bit ベクトルタイプのみに割り当てられます。実際のパラメータは$ の値を持つことはできません| 6.20.7 |標準のみ|違法なデザインだ|
+| [`test_illegal_dollar_in_ordinary_expression`](../../tests/ch6/test_illegal_dollar_in_ordinary_expression.sv) |例えば、int に代入る右側のように、$ は普通の表現として使えません。| 6.20.7 |標準のみ|違法なデザインだ|
 | [`test_illegal_dollar_parameter_in_ordinary_expression`](../../tests/ch6/test_illegal_dollar_parameter_in_ordinary_expression.sv) |値が$のパラメータは$自体が使える場所にのみ使えます。従来の表現のオペランドとしては使えません。| 6.20.7 |標準のみ|違法なデザインだ|
 | [`test_illegal_dollar_parameter_in_queue_select`](../../tests/ch6/test_illegal_dollar_parameter_in_queue_select.sv) |値が$のパラメータは、queue select のようなキューコンテキストでは使えません。| 6.20.7 |標準のみ|違法なデザインだ|
-| [`test_illegal_dollar_with_operator_in_value_range`](../../tests/ch6/test_illegal_dollar_with_operator_in_value_range.sv) |を 使用して、 文字列を 選択する場合は、 文字列の 値を 指定 する必要があります。値範囲内の $ - 1 はエラーです| 6.20.7 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_dollar_with_operator_in_value_range`](../../tests/ch6/test_illegal_dollar_with_operator_in_value_range.sv) |を 使用して、 文字列を 選択する場合は、 文字列の 値を 指定 する必要があります。値範囲内の $ - 1 はエラーです| 6.20.7 |標準のみ|違法なデザインだ|
 | [`test_isunbounded_package_and_hierarchical`](../../tests/ch6/test_isunbounded_package_and_hierarchical.sv) |$isunbounded はパッケージ範囲または階層的パラメータ名を取得し、 bit を返します。これは $ の値のパラメータに対してのみ 1 である。| 6.20.7 20.6.3 20.6.1 | Verilator 5.052 ||
 | [`test_unbounded_queue_tail_after_resize`](../../tests/ch6/test_unbounded_queue_tail_after_resize.sv) |ドルキューインデックスはプッシュとポップの後に新しい最後の要素を追跡します| 6.20.7 | Verilator 5.052 ||
 | [`test_automatic_data_declarations_in_static_procedural_scopes`](../../tests/ch6/test_automatic_data_declarations_in_static_procedural_scopes.sv) |静的タスク、静的関数、ループボディブロック、プロセスをフォークするブロックの内部に自動キーワードを持つデータ宣言は、それらの値を保持する明示的に静的なものに対して、各エントリに初期化された変数を与える。| 6.21 9.3.2 A.2.1.3 A.10 | Verilator 5.052 ||
@@ -506,7 +506,7 @@
 | [`test_ch6_extra_for_loop_automatic`](../../tests/ch6/test_ch6_extra_for_loop_automatic.sv) |forループの変数とクラスメソッド内の変数は既定でautomaticであるため、ループの各反復とメソッドの各呼出しは、それぞれ固有の値を保持する。| 6.21 12.7.1 8.4 | Verilator 5.052 ||
 | [`test_design_element_static_lifetime`](../../tests/ch6/test_design_element_static_lifetime.sv) |設計要素が自動的であっても，モジュール，インタフェース，プログラム，チェッカのタスク，プロセス，関数以外の変数は静的な寿命を持ち，他の設計要素における同じ名前は異なる変数である。| 6.21 | Verilator 5.052 ||
 | [`test_illegal_automatic_variable_nonblocking`](../../tests/ch6/test_illegal_automatic_variable_nonblocking.sv) |自動変数はブロックしない代入で書き込めません| 6.21 10.4.2 | Verilator 5.052 |違法なデザインだ|
-| [`test_illegal_continuous_assign_reads_class_member`](../../tests/ch6/test_illegal_continuous_assign_reads_class_member.sv) |連続代入はクラスオブジェクトのメンバー、動的変数、またはクラスオブジャックのメンバーを参照できません。| 6.21 8.4 10.3 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_continuous_assign_reads_class_member`](../../tests/ch6/test_illegal_continuous_assign_reads_class_member.sv) |連続代入はクラスオブジェクトのメンバー、動的変数、またはクラスオブジャックのメンバーを参照できません。| 6.21 8.4 10.3 |標準のみ|違法なデザインだ|
 | [`test_illegal_continuous_assign_reads_dynamic_element`](../../tests/ch6/test_illegal_continuous_assign_reads_dynamic_element.sv) |連続代入は動的配列の要素を参照できない。| 6.21 7.5 10.3 |標準のみ|違法なデザインだ|
 | [`test_illegal_continuous_assign_to_class_property`](../../tests/ch6/test_illegal_continuous_assign_to_class_property.sv) |非静的なクラスプロパティは連続的な代入で書き込めません。| 6.21 8.4 10.3 | Verilator 5.052 |違法なデザインだ|
 | [`test_illegal_continuous_assign_to_dynamic_element`](../../tests/ch6/test_illegal_continuous_assign_to_dynamic_element.sv) |動的にサイズを変更した配列の要素は連続的な代入で書き込めません| 6.21 7.5 10.3 | Verilator 5.052 |違法なデザインだ|
@@ -550,10 +550,10 @@
 | [`test_illegal_handle_to_real_cast`](../../tests/ch6/test_illegal_handle_to_real_cast.sv) |クラスハンドルは、明示的なキャストでも実数に変換できません。| 6.22.5 | Icarus Verilog 13.0 |違法なデザインだ|
 | [`test_nettype_matches_itself_across_ports`](../../tests/ch6/test_nettype_matches_itself_across_ports.sv) |ネットタイプは自分自身にマッチする それで それを宣言したネットは 異なるモジュールで そのネットタイプのポートを通して 接続し それらのドライバを通して 解決された 1つのネットに合体する| 6.22.6 6.6.7 23.3.3 |標準のみ||
 | [`test_nettype_rename_matches`](../../tests/ch6/test_nettype_rename_matches.sv) |ユーザ定義のネットタイプの新しい名前として宣言されたネットタイプがそれに一致するので、新しい名前のネットが元のネットタイプのポートに接続します。| 6.22.6 6.6.7 23.3.3 |標準のみ||
-| [`test_illegal_type_operator_dynamic_array_element`](../../tests/ch6/test_illegal_type_operator_dynamic_array_element.sv) |型演算子の式から、動的配列などの動的オブジェクトの要素を参照してはならない| 6.23 | Icarus Verilog 13.0 |違法なデザインだ|
-| [`test_illegal_type_operator_hierarchical_reference`](../../tests/ch6/test_illegal_type_operator_hierarchical_reference.sv) |型演算子の表現には階層的な参照は含まれない| 6.23 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_type_operator_dynamic_array_element`](../../tests/ch6/test_illegal_type_operator_dynamic_array_element.sv) |型演算子の式から、動的配列などの動的オブジェクトの要素を参照してはならない| 6.23 |標準のみ|違法なデザインだ|
+| [`test_illegal_type_operator_hierarchical_reference`](../../tests/ch6/test_illegal_type_operator_hierarchical_reference.sv) |型演算子の表現には階層的な参照は含まれない| 6.23 |標準のみ|違法なデザインだ|
 | [`test_illegal_type_reference_compared_with_value`](../../tests/ch6/test_illegal_type_reference_compared_with_value.sv) |等価比較における型参照は 別の型参照とのみ比較されるべきであり 値との比較はできない| 6.23 | Verilator 5.052 |違法なデザインだ|
-| [`test_illegal_type_reference_variable_without_var`](../../tests/ch6/test_illegal_type_reference_variable_without_var.sv) |変数の宣言は var キーワードで始まります| 6.23 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_type_reference_variable_without_var`](../../tests/ch6/test_illegal_type_reference_variable_without_var.sv) |変数の宣言は var キーワードで始まります| 6.23 |標準のみ|違法なデザインだ|
 | [`test_type_operator_matching_types`](../../tests/ch6/test_type_operator_matching_types.sv) |byteとbitの符号が\[ 7:0 \]のような 適合型に対しては タイプ(a) == タイプ(b) が真である| 6.23 6.22.1 |標準のみ||
 | [`test_type_operator_self_determined_and_uses`](../../tests/ch6/test_type_operator_self_determined_and_uses.sv) |type(expression)は、式を評価せずに得られるその式の自己決定型である。型参照は、var宣言、キャスト、ローカル型パラメータ、型パラメータの上書き、および定数式となる比較に使用できる。| 6.23 11.6.1 11.8.1 11.2.1 | Verilator 5.052 ||
 | [`test_type_reference_declare_cast_compare`](../../tests/ch6/test_type_reference_declare_cast_compare.sv) |型参照は、var の後に変数を、net の後に net 型キーワードを、その表現の型とともに宣言し、静的なキャストのキャストタイプであり、型マッチングによって with ==,!=, ===,!== を比較する。| 6.23 6.22.1 6.24.1 11.6.1 A.2.1.3 A.8.4 A.10 |標準のみ||
@@ -588,7 +588,7 @@
 | [`test_cast_string_literal_to_narrower_type`](../../tests/ch6/test_cast_string_literal_to_narrower_type.sv) |文字列リテラルを狭い整数型に変換すると、最右端の文字が保持されます。| 6.24.1 5.9 | Icarus Verilog 13.0 ||
 | [`test_cast_to_enum_truncates`](../../tests/ch6/test_cast_to_enum_truncates.sv) |数列型に変換すると、結果がメンバーでない場合でも、値をベース型の幅に変換します。| 6.24.1 6.19.4 | Verilator 5.052 ||
 | [`test_cast_unpacked_struct_bits_round_trip`](../../tests/ch6/test_cast_unpacked_struct_bits_round_trip.sv) |構造を unpacked にカストすると packed にカストされる 構造は最初のメンバーを最も重要なビット、フィールド、配列要素に順序付け、カストバックすると 4 の状態値を保持するときに復元されます| 6.24.1 6.24.3 |標準のみ| x/z |
-| [`test_illegal_cast_real_array_to_unpacked_array`](../../tests/ch6/test_illegal_cast_real_array_to_unpacked_array.sv) |実数要素の unpacked 配列は、同じサイズの unpacked 配列にしても、他の型に変換できません。なぜなら、 packed 表現に対して real は有効ではないからです。| 6.24.1 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_cast_real_array_to_unpacked_array`](../../tests/ch6/test_illegal_cast_real_array_to_unpacked_array.sv) |実数要素の unpacked 配列は、同じサイズの unpacked 配列にしても、他の型に変換できません。なぜなら、 packed 表現に対して real は有効ではないからです。| 6.24.1 |標準のみ|違法なデザインだ|
 | [`test_illegal_cast_unpacked_struct_with_real_member`](../../tests/ch6/test_illegal_cast_unpacked_struct_with_real_member.sv) |実数部を持つ unpacked 構造は他のタイプに変換できません。 なぜなら、実数は packed 表現に対して有効ではないからです。| 6.24.1 |標準のみ|違法なデザインだ|
 | [`test_illegal_signing_cast_of_real`](../../tests/ch6/test_illegal_signing_cast_of_real.sv) |表現は整数的でなければなりませんreal式をsigned'でキャストすることはできません。| 6.24.1 | Icarus Verilog 13.0 |違法なデザインだ|
 | [`test_illegal_size_cast_negative`](../../tests/ch6/test_illegal_size_cast_negative.sv) |大きさの変換は正の定数でなければなりません負の大きさに変換するのは間違いです| 6.24.1 | Icarus Verilog 13.0 |違法なデザインだ|
@@ -611,7 +611,7 @@
 | [`test_bitstream_cast_source_domain`](../../tests/ch6/test_bitstream_cast_source_domain.sv) |ソース部分が4状態のときは bit ストリームキャストは4状態であり、再帰的な bit ストリームタイプは文字列、クラス、動的、連想、キューデータを含む。| 6.24.3 |標準のみ| x/z |
 | [`test_bitstream_cast_source_orders`](../../tests/ch6/test_bitstream_cast_source_orders.sv) |bitストリームキャストは、連想配列を添字順にパックし、動的配列・キュー・文字列では添字0を最上位側に置く| 6.24.3 |標準のみ||
 | [`test_illegal_bitstream_cast_class_with_local_member`](../../tests/ch6/test_illegal_bitstream_cast_class_with_local_member.sv) |ローカルまたは保護されたメンバーを持つクラスのハンドルは、 bit -ストリームキャストのソースにはなりません。クラス内のハンドルを除いては、| 6.24.3 |標準のみ|違法なデザインだ|
-| [`test_illegal_bitstream_cast_fixed_size_mismatch`](../../tests/ch6/test_illegal_bitstream_cast_fixed_size_mismatch.sv) |固定サイズの型の間に bit -ストリームをキャストすると、そのうちの一つが unpacked となる。| 6.24.3 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_bitstream_cast_fixed_size_mismatch`](../../tests/ch6/test_illegal_bitstream_cast_fixed_size_mismatch.sv) |固定サイズの型の間に bit -ストリームをキャストすると、そのうちの一つが unpacked となる。| 6.24.3 |標準のみ|違法なデザインだ|
 | [`test_illegal_bitstream_cast_to_assoc_array`](../../tests/ch6/test_illegal_bitstream_cast_to_assoc_array.sv) |関連性配列タイプは bit -ストリームキャストの 目的地タイプにはなりません| 6.24.3 |標準のみ|違法なデザインだ|
 | [`test_illegal_bitstream_cast_to_class`](../../tests/ch6/test_illegal_bitstream_cast_to_class.sv) |クラスタイプは bit -ストリームキャストの ターゲットタイプにはなりません| 6.24.3 |標準のみ|違法なデザインだ|
 | [`test_parameterized_data_types`](../../tests/ch6/test_parameterized_data_types.sv) |クラスパラメータを用いた仮想クラスの型定義は，クラスパラメーターによって特化したパラメータ化データ型を与える。| 6.25 8.25 8.23 | Verilator 5.052 ||
