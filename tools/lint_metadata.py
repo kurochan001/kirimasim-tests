@@ -52,9 +52,14 @@ without ".sv". The rules:
                         tools/new_test.py
 
 Some existing tests break a rule; they are listed in tools/lint_baseline.txt
-and reported as known, without being changed. The script exits with 1 when a
-test breaks a rule that the baseline does not list, or when the baseline lists
-a problem that is gone (then update it with --update-baseline). Checking only
+and reported as known, without being changed. Each line of the baseline is a
+test, a rule and the number of problems of that rule in the test ("<test>
+<rule> <count>"; a line without a count stands for one problem). The script
+exits with 1 when a test has more problems of a rule than the baseline lists
+(so a new problem is reported also in a test that has a known one of the same
+rule), or when the baseline lists more than are found (then update it with
+--update-baseline). Only the number is compared: the details of a width
+problem are line numbers, which move when the test is edited. Checking only
 some tests (TEST arguments) does not report the gone problems of others.
 """
 
@@ -258,11 +263,59 @@ def duplicate_names(names: dict[str, list[str]]) -> dict[str, str]:
     return problems
 
 
-def read_baseline() -> set[str]:
+def parse_baseline(text: str) -> dict[str, int]:
+    """The number of known problems for each "<test> <rule>" of the text of a
+    baseline. A line without a number stands for one problem."""
+    baseline: dict[str, int] = {}
+    for n, line in enumerate(text.splitlines(), 1):
+        words = line.split()
+        if not words or line.startswith("#"):
+            continue
+        if len(words) == 2:
+            words.append("1")
+        if len(words) != 3 or not words[2].isdigit() or int(words[2]) < 1:
+            raise ValueError(f"{BASELINE.name}:{n}: not \"<test> <rule> <count>\": {line}")
+        key = f"{words[0]} {words[1]}"
+        if key in baseline:
+            raise ValueError(f"{BASELINE.name}:{n}: {key} is listed twice")
+        baseline[key] = int(words[2])
+    return baseline
+
+
+def read_baseline() -> dict[str, int]:
     if not BASELINE.exists():
-        return set()
-    return {l.strip() for l in BASELINE.read_text(encoding="utf-8").splitlines()
-            if l.strip() and not l.startswith("#")}
+        return {}
+    return parse_baseline(BASELINE.read_text(encoding="utf-8"))
+
+
+def format_baseline(found: dict[str, list[str]]) -> str:
+    return ("# Problems of existing tests that tools/lint_metadata.py reports as known.\n"
+            "# Each line is a test, a rule and the number of problems of that rule in\n"
+            "# the test; the tests are not changed for them.\n"
+            + "".join(f"{k} {len(found[k])}\n" for k in sorted(found) if found[k]))
+
+
+def compare(found: dict[str, list[str]], baseline: dict[str, int],
+            checked: set[str]) -> tuple[list[str], list[str], list[str]]:
+    """The lines to print for the new, the known and the gone problems. found
+    maps "<test> <rule>" to the details of its problems, baseline to their
+    known number; gone problems are reported for the checked tests only."""
+    new, known, gone = [], [], []
+    for k in sorted(found):
+        details, listed = found[k], baseline.get(k, 0)
+        if len(details) > listed:
+            # Which of them are the new ones is not known: all are shown.
+            count = f" ({len(details)} found, {listed} known)" if listed else ""
+            new.append(f"{k}{count}: {'; '.join(details)}")
+        else:
+            known.append(f"KNOWN {k}: {'; '.join(details)}")
+    for k in sorted(baseline):
+        count = len(found.get(k, ()))
+        if count < baseline[k] and k.split()[0] in checked:
+            gone.append(f"GONE {k}: {BASELINE.relative_to(ROOT)} lists {baseline[k]} "
+                        f"but {count} found" if count else
+                        f"GONE {k}: listed in {BASELINE.relative_to(ROOT)} but no longer found")
+    return new, known, gone
 
 
 def main() -> int:
@@ -273,7 +326,7 @@ def main() -> int:
     args = ap.parse_args()
 
     tests = [t.resolve() for t in args.tests] or suite_results.find_tests()
-    found = {}
+    found: dict[str, list[str]] = {}
     for t in tests:
         for rule, detail in check(t):
             found.setdefault(f"{suite_results.test_id(t)} {rule}", []).append(detail)
@@ -286,24 +339,21 @@ def main() -> int:
         if detail:
             found.setdefault(f"{suite_results.test_id(t)} duplicate-name", []).append(detail)
     if args.update_baseline:
-        BASELINE.write_text(
-            "# Problems of existing tests that tools/lint_metadata.py reports as known.\n"
-            "# Each line is a test and a rule; the tests are not changed for them.\n"
-            + "".join(f"{k}\n" for k in sorted(found)), encoding="utf-8")
+        if args.tests:
+            # The baseline of the tests that are not checked would be lost.
+            ap.error("--update-baseline checks every test; give no TEST")
+        BASELINE.write_text(format_baseline(found), encoding="utf-8")
         print(f"wrote {len(found)} known problems to {BASELINE.relative_to(ROOT)}")
         return 0
 
-    baseline = read_baseline()
-    new = sorted(k for k in found if k not in baseline)
-    known = sorted(k for k in found if k in baseline)
-    checked = {suite_results.test_id(t) for t in tests}
-    gone = sorted(k for k in baseline if k not in found and k.split()[0] in checked)
-    for k in new:
-        print(f"{k}: {'; '.join(found[k])}")
-    for k in known:
-        print(f"KNOWN {k}: {'; '.join(found[k])}")
-    for k in gone:
-        print(f"GONE {k}: listed in {BASELINE.relative_to(ROOT)} but no longer found")
+    try:
+        baseline = read_baseline()
+    except ValueError as error:
+        print(f"lint_metadata: {error}", file=sys.stderr)
+        return 2
+    new, known, gone = compare(found, baseline, {suite_results.test_id(t) for t in tests})
+    for line in new + known + gone:
+        print(line)
     print(f"{len(tests)} tests checked: {len(new)} new problems, {len(known)} known, "
           f"{len(gone)} gone")
     return 1 if new or gone else 0

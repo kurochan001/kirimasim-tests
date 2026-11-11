@@ -31,7 +31,7 @@ class GhostRunnerTests(unittest.TestCase):
         self.write(":expected_stdout: TEST PASSED")
 
     def write(self, fields):
-        self.test.write_text("/*\n" + fields + "\n*/\nmodule m; endmodule\n")
+        self.test.write_text("/*\n" + fields + "\n*/\nmodule m; endmodule\n", encoding="utf-8")
 
     def run_result(self, stdout="TEST PASSED\n", stderr="", code=0):
         result = subprocess.CompletedProcess([], code, stdout, stderr)
@@ -112,14 +112,14 @@ class GhostRunnerTests(unittest.TestCase):
         root = self.test.parent
         test = root / "tests/ch6/test_sample.sv"
         test.parent.mkdir(parents=True)
-        test.write_text(self.test.read_text())
+        test.write_text(self.test.read_text(encoding="utf-8"), encoding="utf-8")
         executable = root / "private-brand"
         executable.write_text(f"#!{sys.executable}\n"
                               "import sys\nprint('private-brand secret.cpp:42')\n"
-                              "print('/private/source/secret.cpp:5: error: hidden', file=sys.stderr)\n")
+                              "print('/private/source/secret.cpp:5: error: hidden', file=sys.stderr)\n", encoding="utf-8")
         executable.chmod(0o700)
         profile = root / "private-profile.json"
-        profile.write_text(json.dumps(PROFILE))
+        profile.write_text(json.dumps(PROFILE), encoding="utf-8")
         output = root / "result.json"
         log = io.StringIO()
         with (mock.patch.object(suite_results, "ROOT", root),
@@ -129,11 +129,11 @@ class GhostRunnerTests(unittest.TestCase):
                                              str(test)]),
               contextlib.redirect_stdout(log)):
             self.assertEqual(run_ghost.main(), 1)
-        data = json.loads(output.read_text())
+        data = json.loads(output.read_text(encoding="utf-8"))
         self.assertEqual((data["simulator"], data["name"]), ("ghost", "Ghost"))
         self.assertRegex(data["version"], r"^private build [0-9a-f]{12}$")
         self.assertEqual(data["tests"]["ch6/test_sample"]["status"], "fail")
-        public = log.getvalue() + output.read_text()
+        public = log.getvalue() + output.read_text(encoding="utf-8")
         for private in ("private-brand", "secret.cpp", "/private/source", "PRIVATE_STRICT_MODE"):
             self.assertNotIn(private, public)
 

@@ -27,7 +27,7 @@ class ReviewedBindings(unittest.TestCase):
 :expected_stdout: ok
 */
 module test_gap_fixture; initial $display("ok"); endmodule
-""")
+""", encoding="utf-8")
         self.patch_root = mock.patch.object(suite_results, "ROOT", self.root)
         self.patch_root.start()
         self.addCleanup(self.patch_root.stop)
@@ -52,20 +52,20 @@ module test_gap_fixture; initial $display("ok"); endmodule
             gaps.validate(no_primary, self.root)
 
     def test_changed_inputs_are_not_silently_reapproved(self):
-        self.path.write_text(self.path.read_text().replace('$display("ok")', '$display("wrong")'))
+        self.path.write_text(self.path.read_text(encoding="utf-8").replace('$display("ok")', '$display("wrong")'), encoding="utf-8")
         with self.assertRaisesRegex(ValueError, "stale binding"):
             gaps.validate(self.data, self.root)
 
     def test_referenced_expectation_changes_invalidate_bindings(self):
         expected = self.path.with_suffix(".expected")
-        expected.write_text("ok\n")
-        self.path.write_text(self.path.read_text().replace(
-            ":expected_stdout: ok", ":expected_stdout: @" + expected.name))
+        expected.write_text("ok\n", encoding="utf-8")
+        self.path.write_text(self.path.read_text(encoding="utf-8").replace(
+            ":expected_stdout: ok", ":expected_stdout: @" + expected.name), encoding="utf-8")
         digest = suite_results.input_digest(self.path)
         for item in self.data["items"]:
             item["bindings"][0]["inputs_sha256"] = digest
         gaps.validate(self.data, self.root)
-        expected.write_text("wrong\n")
+        expected.write_text("wrong\n", encoding="utf-8")
         with self.assertRaisesRegex(ValueError, "stale binding"):
             gaps.validate(self.data, self.root)
 
@@ -81,7 +81,7 @@ module test_gap_fixture; initial $display("ok"); endmodule
 
     def test_test_paths_cannot_escape_the_suite(self):
         outside = self.root / "outside.sv"
-        outside.write_text(self.path.read_text())
+        outside.write_text(self.path.read_text(encoding="utf-8"), encoding="utf-8")
         wrong = deepcopy(self.data)
         wrong["items"][0]["bindings"][0]["test"] = "outside.sv"
         with self.assertRaisesRegex(ValueError, "invalid"):
@@ -100,8 +100,8 @@ module test_gap_fixture; initial $display("ok"); endmodule
 
     def tagged_binding(self, identifier):
         path = self.path.with_name("test_gap_tagged.sv")
-        path.write_text(self.path.read_text().replace(
-            ":oracle: spec", ":oracle: spec\n:combination_gap: " + identifier))
+        path.write_text(self.path.read_text(encoding="utf-8").replace(
+            ":oracle: spec", ":oracle: spec\n:combination_gap: " + identifier), encoding="utf-8")
         return {"test": path.relative_to(self.root).as_posix(), "role": "primary",
                 "basis": "new", "observations": ["tagged new observation"],
                 "lrm": ["9.4.2"], "inputs_sha256": suite_results.input_digest(path)}

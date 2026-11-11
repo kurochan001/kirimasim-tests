@@ -29,7 +29,7 @@ def build():
         name=suite_results.header(witness)['generator'].split('@')[0]
         if name in models:raise ValueError('multiple finite models need a combined description: '+name)
         models[name]=plan.witness
-    descriptions=json.loads((ROOT/'tools/doc_locales/generator_scopes.json').read_text())['scopes']
+    descriptions=json.loads((ROOT/'tools/doc_locales/generator_scopes.json').read_text(encoding='utf-8'))['scopes']
     missing=set(counts)-set(models)-set(descriptions)
     if missing:raise ValueError('missing bilingual generator scope: '+', '.join(sorted(missing)))
     outputs={}

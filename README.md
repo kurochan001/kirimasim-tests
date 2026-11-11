@@ -946,6 +946,11 @@ lists it; then its results stay but are not drawn. `python3 tools/results_histor
 The defaults use the current time and suite `HEAD`. When importing earlier
 results, pass `--time`, `--suite-commit` and `--run-url` with the actual
 execution time, suite commit and result location.
+The history is kept in the order of the times, and the latest run and each
+simulator's latest result are those with the newest time. A run with a time
+before a simulator's latest recorded run goes to its place in the history; it
+is not compared with another run, and `latest/<simulator>.json` stays that of
+the newest run. A `--time` without a UTC offset is read as UTC.
 
 <a id="ワークフロー"></a>
 
@@ -1134,6 +1139,9 @@ test with `:fourstate: no`, the expected output, the fields of an illegal
 design, the files that the metadata names, the line lengths, comment lines
 that start with the word Verilator, a `` `timescale `` when a time is printed,
 and TODO left from the skeleton. Its docstring lists the rules.
+`tools/lint_baseline.txt` holds, for each test and rule, the number of known
+problems; a test that has more problems of a rule than that number is
+reported, also when the rule is already listed for it.
 
 Most of the material here was produced with AI assistance (Claude Code,
 Codex and OpenCode); people are responsible for checking the expected results

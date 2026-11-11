@@ -96,7 +96,7 @@ class ChapterMatrix(unittest.TestCase):
                 run["tests"][suite_results.test_id(report.ROOT / case["test"])] = {
                     "status": status, "inputs_sha256": case["inputs_sha256"]}
         run.update(extra)
-        (root / name).write_text(json.dumps(run))
+        (root / name).write_text(json.dumps(run), encoding="utf-8")
         self.summary["runs"].append({"source": name, "simulator": "kirimasim"})
 
     def test_latest_eligible_run_keeps_failures_and_rejects_newer_partial_runs(self):
@@ -125,10 +125,10 @@ class ChapterMatrix(unittest.TestCase):
                 root = Path(directory)
                 self.summary["runs"] = []
                 self.add_run(root, "stale.json", 30, ["pass", "pass"])
-                run = json.loads((root / "stale.json").read_text())
+                run = json.loads((root / "stale.json").read_text(encoding="utf-8"))
                 if problem == "fingerprint":
                     next(iter(run["tests"].values()))["inputs_sha256"] = "old"
-                (root / "stale.json").write_text(json.dumps(run))
+                (root / "stale.json").write_text(json.dumps(run), encoding="utf-8")
                 with mock.patch.object(report.interaction_coverage, "run_problem",
                                        return_value="runner changed" if problem == "runner" else ""):
                     with self.assertRaisesRegex(ValueError, "no current, stable"):

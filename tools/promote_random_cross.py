@@ -22,8 +22,8 @@ def promote(artifact, case_id, output, classification, mechanism, explanation,
         raise ValueError('mechanism must be a short lowercase identifier')
     if classification not in ('simulator', 'reference', 'runner', 'specification') or not explanation.strip():
         raise ValueError('classification and an explanation are required')
-    report = json.loads((artifact/'run.json').read_text())
-    manifest = json.loads((artifact/'manifest.json').read_text())
+    report = json.loads((artifact/'run.json').read_text(encoding='utf-8'))
+    manifest = json.loads((artifact/'manifest.json').read_text(encoding='utf-8'))
     models.validate(manifest)
     if evidence.sha(artifact/'manifest.json') != report['manifest_sha256']:
         raise ValueError('original manifest changed')
@@ -86,20 +86,20 @@ def promote(artifact, case_id, output, classification, mechanism, explanation,
         name = 'test_random_'+mechanism+'_'+models.content_digest(case)[:12]
         target = output/'tests'/chapter/(name+'.sv')
         target.parent.mkdir(parents=True)
-        text = source.read_text()
+        text = source.read_text(encoding='utf-8')
         body = text.split('*/', 1)[1]
         header = ('/*\n:name: '+name+'\n:description: Regression for '+mechanism+'\n'
                   ':tags: '+chapter+'\n:type: simulation\n:lrm: '+lrm+'\n:oracle: spec\n:spec_check: ai\n'
                   ':fourstate: '+('yes' if models.requires_fourstate(case) else 'no')+'\n'
                   ':nondeterministic: no\n:expected_exit: 0\n:expected_stdout: @'+name+'.expected\n*/')
-        target.write_text(header+body)
+        target.write_text(header+body, encoding="utf-8")
         target.with_suffix('.expected').write_bytes(expected.read_bytes())
         triage['regression_draft'] = target.relative_to(output).as_posix()
         # Keep the failure-triggering HDL byte-for-byte, including wide
         # literals. Report formatting work instead of silently rewriting the
         # literal representation and possibly hiding a parser defect.
         triage['lint_problems'] = lint_metadata.check(target)
-    (output/'triage.json').write_text(json.dumps(triage, ensure_ascii=False, indent=2)+'\n')
+    (output/'triage.json').write_text(json.dumps(triage, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
     return triage
 
 

@@ -13,7 +13,7 @@ class NightlyDiagnosticsTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.examples = json.loads((Path(__file__).parent / "fixtures" /
-                                   "nightly_diagnostics_20261027.json").read_text())
+                                   "nightly_diagnostics_20261027.json").read_text(encoding="utf-8"))
 
     def test_reviewed_diagnostics_match(self):
         for row in self.examples:
@@ -55,8 +55,8 @@ class NightlyDiagnosticsTests(unittest.TestCase):
         path = suite_results.ROOT / "tests/ch33/test_illegal_config_design_is_config.sv"
         with tempfile.TemporaryDirectory() as directory:
             copy = Path(directory) / path.name
-            copy.write_text(path.read_text().replace(":top_module: cfgdc",
-                                                     ":top_module: cfgdc_missing"))
+            copy.write_text(path.read_text(encoding="utf-8").replace(":top_module: cfgdc",
+                                                     ":top_module: cfgdc_missing"), encoding="utf-8")
             self.assertIn("top-module", [rule for rule, _ in lint_metadata.check(copy)])
 
 

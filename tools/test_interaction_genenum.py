@@ -109,8 +109,8 @@ class GeneratedEnumNavigation(unittest.TestCase):
             chapter = Path(directory)/'ch6'; chapter.mkdir()
             for row in g.MODEL.select():
                 case = g.make_case(row); sv, want = common.render(case, g.NAME, 1, 6, 'spec')
-                path = chapter/(case.name+'.sv'); path.write_text(sv)
-                path.with_suffix('.expected').write_text(want)
+                path = chapter/(case.name+'.sv'); path.write_text(sv, encoding="utf-8")
+                path.with_suffix('.expected').write_text(want, encoding='utf-8')
                 self.assertEqual(lint_metadata.check(path), [])
 
 

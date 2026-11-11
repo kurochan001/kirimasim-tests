@@ -407,13 +407,13 @@ class DocumentLocalization(unittest.TestCase):
                      mock.patch.object(coverage,'markdown',return_value=source), \
                      mock.patch.object(locale,'translations',return_value={'元の見出し':'Export'}):
                     self.assertEqual(coverage.main(),0)
-                self.assertEqual(raw.read_text(),json.dumps(data,ensure_ascii=False,indent=2)+'\n')
+                self.assertEqual(raw.read_text(encoding='utf-8'),json.dumps(data,ensure_ascii=False,indent=2)+'\n')
                 self.assertEqual(path.with_suffix('.en.md').is_file(),bilingual)
                 if bilingual:
-                    self.assertIn('# Export',path.with_suffix('.en.md').read_text())
+                    self.assertIn('# Export',path.with_suffix('.en.md').read_text(encoding='utf-8'))
                     for output in (path,path.with_suffix('.en.md')):
-                        self.assertIn('```text\npass=27\n```',output.read_text())
-                else:self.assertEqual(path.read_text(),source)
+                        self.assertIn('```text\npass=27\n```',output.read_text(encoding='utf-8'))
+                else:self.assertEqual(path.read_text(encoding='utf-8'),source)
 
     def test_behavior_cli_exports_both_reports_with_unchanged_compact_json(self):
         import behavior_coverage as coverage
@@ -437,13 +437,13 @@ class DocumentLocalization(unittest.TestCase):
                 '元の見出し':'Export','概要':'Summary','詳細':'Details'}))
             stack.enter_context(contextlib.redirect_stdout(io.StringIO()))
             self.assertEqual(coverage.main(),0)
-            self.assertIn('[Summary](short.en.md)',full.with_suffix('.en.md').read_text())
-            self.assertIn('[Details](full.en.md)',short.with_suffix('.en.md').read_text())
-            self.assertIn('[概要](short.md)',full.read_text())
-            self.assertIn('[詳細](full.md)',short.read_text())
+            self.assertIn('[Summary](short.en.md)',full.with_suffix('.en.md').read_text(encoding='utf-8'))
+            self.assertIn('[Details](full.en.md)',short.with_suffix('.en.md').read_text(encoding='utf-8'))
+            self.assertIn('[概要](short.md)',full.read_text(encoding='utf-8'))
+            self.assertIn('[詳細](full.md)',short.read_text(encoding='utf-8'))
             for output in (full,short,full.with_suffix('.en.md'),short.with_suffix('.en.md')):
-                self.assertIn('```text\npass=27\n```',output.read_text())
-            self.assertEqual((folder/'summary.json').read_text(),
+                self.assertIn('```text\npass=27\n```',output.read_text(encoding='utf-8'))
+            self.assertEqual((folder/'summary.json').read_text(encoding='utf-8'),
                              json.dumps(compact,ensure_ascii=False,indent=2)+'\n')
 
     def test_csv_translates_prose_without_changing_raw_expectations_or_status_data(self):
@@ -485,7 +485,7 @@ class DocumentLocalization(unittest.TestCase):
     def test_manifest_detects_missing_language_links_and_unregistered_docs(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);(root/'docs').mkdir()
-            (root/'docs/sample.md').write_text('# 日本語資料\n\nこの資料は日本語で操作手順を説明します。\n')
+            (root/'docs/sample.md').write_text('# 日本語資料\n\nこの資料は日本語で操作手順を説明します。\n', encoding='utf-8')
             record={'en':'docs/sample.en.md','ja':'docs/sample.md','generated':True}
             with mock.patch.object(audit,'inventory',return_value={'docs/sample.md','extra.md'}):
                 problems=audit.validate({'documents':[record]},root)
@@ -495,15 +495,15 @@ class DocumentLocalization(unittest.TestCase):
             # Teaching the generic notation must not be mistaken for an
             # unresolved numeric marker left by translation.
             (root/'docs/sample.md').write_text('# 日本語資料\n\n[English](sample.en.md)\n\n'
-                'この資料は日本語で操作手順と `ZXQPH<n>QXZ` の記法を説明します。\n')
+                'この資料は日本語で操作手順と `ZXQPH<n>QXZ` の記法を説明します。\n', encoding='utf-8')
             english=root/'docs/sample.en.md'
-            english.write_text('# English guide\n\n[日本語](sample.md)\n\nUse `ZXQPH<n>QXZ` notation.\n')
+            english.write_text('# English guide\n\n[日本語](sample.md)\n\nUse `ZXQPH<n>QXZ` notation.\n', encoding='utf-8')
             with mock.patch.object(audit,'inventory',return_value={'docs/sample.md','docs/sample.en.md'}):
                 self.assertEqual(audit.validate({'documents':[record]},root),[])
-                english.write_text(english.read_text()+'\nUnresolved ZXQPH0QXZ\n')
+                english.write_text(english.read_text(encoding='utf-8')+'\nUnresolved ZXQPH0QXZ\n', encoding='utf-8')
                 problems=audit.validate({'documents':[record]},root)
                 self.assertTrue(any('unresolved translation placeholder' in p for p in problems))
-                english.write_text('# English guide\n\n[日本語](sample.md)\n\nこの説明は未翻訳です。\n')
+                english.write_text('# English guide\n\n[日本語](sample.md)\n\nこの説明は未翻訳です。\n', encoding='utf-8')
                 problems=audit.validate({'documents':[record]},root)
                 self.assertTrue(any('untranslated Japanese prose' in p for p in problems))
 

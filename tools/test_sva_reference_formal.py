@@ -73,9 +73,9 @@ class FormalRunnerTests(unittest.TestCase):
             artifact = folder / "case"
             artifact.mkdir()
             if status:
-                (artifact / "status").write_text(status)
+                (artifact / "status").write_text(status, encoding="utf-8")
             if trace:
-                (artifact / "trace.vcd").write_text("test-only fake witness")
+                (artifact / "trace.vcd").write_text("test-only fake witness", encoding="utf-8")
             process = mock.Mock()
             process.wait.return_value = rc
             return process
@@ -104,10 +104,10 @@ class FormalRunnerTests(unittest.TestCase):
     def test_existing_output_and_empty_selection_are_rejected_without_tools(self):
         with tempfile.TemporaryDirectory() as directory:
             file = Path(directory) / "keep"
-            file.write_text("existing result")
+            file.write_text("existing result", encoding="utf-8")
             with self.assertRaisesRegex(ValueError, "never overwritten"):
                 formal.run(directory, "unused-sby", selected=["fusion"])
-            self.assertEqual(file.read_text(), "existing result")
+            self.assertEqual(file.read_text(encoding="utf-8"), "existing result")
             with self.assertRaisesRegex(ValueError, "at least one"):
                 formal.run(directory, "unused-sby", selected=[])
 

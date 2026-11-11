@@ -40,16 +40,16 @@ class PerSimulatorExpectedTests(unittest.TestCase):
               icarus: str | None = None, verilator: str | None = None):
         fields = [":lrm: 1800-2023 6.16.1", ":oracle: spec"]
         if generic is not None:
-            self.files["generic"].write_text(generic)
+            self.files["generic"].write_text(generic, encoding="utf-8")
             fields.append(":expected_stdout: @sample.generic.expected")
         if icarus is not None:
-            self.files["icarus"].write_text(icarus)
+            self.files["icarus"].write_text(icarus, encoding="utf-8")
             fields.append(":expected_stdout_icarus: @sample.icarus.expected")
         if verilator is not None:
-            self.files["verilator"].write_text(verilator)
+            self.files["verilator"].write_text(verilator, encoding="utf-8")
             fields.append(":expected_stdout_verilator: @sample.verilator.expected")
         self.test.write_text("/*\n" + "\n".join([metadata, *fields]) + "\n*/\n"
-                             "module test_sample; endmodule\n")
+                             "module test_sample; endmodule\n", encoding="utf-8")
 
     def test_simulator_field_wins_over_generic_fallback(self):
         self.write(":name: test_sample", "generic\n",
@@ -80,7 +80,7 @@ class PerSimulatorExpectedTests(unittest.TestCase):
     def test_inline_values_work_and_keep_the_priority(self):
         self.test.write_text("/*\n:name: test_sample\n:expected_stdout: generic\n"
                              ":expected_stdout_icarus: icarus value\n*/\n"
-                             "module test_sample; endmodule\n")
+                             "module test_sample; endmodule\n", encoding="utf-8")
         self.assertEqual(suite_results.expected_output(self.test, "icarus"), "icarus value\n")
         self.assertEqual(suite_results.expected_output(self.test, "verilator"), "generic\n")
 
@@ -92,16 +92,16 @@ class PerSimulatorExpectedTests(unittest.TestCase):
             with self.subTest(changed=name):
                 # Only a change to the selected file or the fallback may alter
                 # a verdict; all of them must invalidate the fingerprint.
-                self.files[name].write_text("changed\n")
+                self.files[name].write_text("changed\n", encoding="utf-8")
                 self.assertNotEqual(suite_results.input_digest(self.test), before)
                 self.files[name].write_text(
                     "generic\n" if name == "generic"
-                    else "from icarus\n" if name == "icarus" else "from verilator\n")
+                    else "from icarus\n" if name == "icarus" else "from verilator\n", encoding="utf-8")
 
     def test_digest_includes_unselected_generic_file(self):
         self.write(":name: test_sample", "generic\n", icarus="from icarus\n")
         selected = suite_results.input_digest(self.test)
-        self.files["generic"].write_text("generic changed\n")
+        self.files["generic"].write_text("generic changed\n", encoding="utf-8")
         self.assertNotEqual(suite_results.input_digest(self.test), selected)
 
     def test_input_files_lists_every_referenced_expectation(self):
@@ -112,17 +112,17 @@ class PerSimulatorExpectedTests(unittest.TestCase):
                          "sample.verilator.expected"} <= names)
 
     def test_lint_accepts_a_simulator_only_expectation(self):
-        self.files["icarus"].write_text("from icarus\n")
+        self.files["icarus"].write_text("from icarus\n", encoding="utf-8")
         self.test.write_text("/*\n:name: test_sample\n:lrm: 1800-2023 6.16.1\n"
                              ":oracle: spec\n:expected_stdout_icarus: @sample.icarus.expected\n*/\n"
-                             "module test_sample; endmodule\n")
+                             "module test_sample; endmodule\n", encoding="utf-8")
         problems = lint_metadata.check(self.test)
         self.assertEqual([p for p in problems if p[0] in ("expected", "expected-key")], [])
 
     def test_lint_rejects_unknown_simulator_field(self):
         self.write(":name: test_sample", "generic\n")
-        self.test.write_text(self.test.read_text().replace(
-            ":oracle: spec\n", ":oracle: spec\n:expected_stdout_ghdl: @sample.generic.expected\n"))
+        self.test.write_text(self.test.read_text(encoding="utf-8").replace(
+            ":oracle: spec\n", ":oracle: spec\n:expected_stdout_ghdl: @sample.generic.expected\n"), encoding="utf-8")
         problems = lint_metadata.check(self.test)
         self.assertIn("expected-key", [rule for rule, _ in problems])
 

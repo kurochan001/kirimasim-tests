@@ -117,7 +117,7 @@ class PackageNbaCapture(unittest.TestCase):
             chapter=Path(directory)/'ch26';chapter.mkdir()
             for row in g.MODEL.select():
                 case=g.make_case(row);sv,want=common.render(case,g.NAME,1,26,'spec')
-                path=chapter/(case.name+'.sv');path.write_text(sv);path.with_suffix('.expected').write_text(want)
+                path=chapter/(case.name+'.sv');path.write_text(sv, encoding="utf-8");path.with_suffix('.expected').write_text(want, encoding='utf-8')
                 self.assertEqual(lint_metadata.check(path),[])
                 self.assertEqual(case.fourstate,row[2]!='known')
 

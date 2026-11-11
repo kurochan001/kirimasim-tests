@@ -113,11 +113,11 @@ def snapshot(data: dict, run: dict, digests: dict[str, str]) -> dict:
 
 
 def build() -> tuple[dict, dict]:
-    data = json.loads(REGISTRY.read_text())
+    data = json.loads(REGISTRY.read_text(encoding="utf-8"))
     digests = validate(data)
     runs = []
     for path in sorted(RESULTS.glob("*.json")):
-        run = snapshot(data, json.loads(path.read_text()), digests)
+        run = snapshot(data, json.loads(path.read_text(encoding="utf-8")), digests)
         run["source"] = path.relative_to(ROOT).as_posix()
         runs.append(run)
     summary = {"schema": 1, "registry_sha256": hashlib.sha256(REGISTRY.read_bytes()).hexdigest(),
@@ -191,7 +191,7 @@ def main() -> int:
     args = ap.parse_args()
     try:
         if args.list_tests:
-            data = json.loads(REGISTRY.read_text())
+            data = json.loads(REGISTRY.read_text(encoding="utf-8"))
             for name in sorted(validate(data)):
                 print(name)
             return 0
@@ -201,9 +201,9 @@ def main() -> int:
         outputs = doc_localization.expand({SUMMARY: encoded, REPORT: text})
         if args.update:
             for path, content in outputs.items():
-                path.write_text(content)
+                path.write_text(content, encoding="utf-8")
         elif args.check:
-            require(all(path.is_file() and path.read_text() == content for path, content in outputs.items()),
+            require(all(path.is_file() and path.read_text(encoding="utf-8") == content for path, content in outputs.items()),
                     "combination gap reports are stale; run --update")
             print("Combination gap bindings and execution evidence are current.")
         else:

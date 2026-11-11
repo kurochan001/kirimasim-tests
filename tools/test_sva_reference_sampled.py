@@ -179,7 +179,7 @@ class M4IntegrationTests(unittest.TestCase):
     def test_source_and_default_provenance_invalidate_cached_inputs(self):
         from sva_reference import m4
         test="tests/ch16/test_past_gating_expression.sv"
-        case=json.loads(m4.MANIFEST.read_text())[test]
+        case=json.loads(m4.MANIFEST.read_text(encoding="utf-8"))[test]
         source=(m4.ROOT/test).read_bytes()
         module=parse_module(source.decode())
         changed=parse_module(source.decode().replace("int a = 0;","int a = 7;"))
@@ -194,8 +194,8 @@ class M4IntegrationTests(unittest.TestCase):
         from sva_reference import m3,m4
         from sva_reference.source import tokens
         from sva_reference.parser import SAMPLED
-        for test in json.loads(m4.MANIFEST.read_text()):
-            module=parse_module((m4.ROOT/test).read_text())
+        for test in json.loads(m4.MANIFEST.read_text(encoding="utf-8")):
+            module=parse_module((m4.ROOT/test).read_text(encoding="utf-8"))
             words={token.text for token in tokens(m3.project(module,{}))}
             self.assertFalse(words&SAMPLED)
             self.assertFalse(words&{"assert","assume","cover","$display"})

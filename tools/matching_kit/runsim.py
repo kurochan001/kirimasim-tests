@@ -48,7 +48,7 @@ def main() -> int:
                                   stderr=subprocess.DEVNULL) for c in commands]
         for p in procs:
             p.wait()
-        results = {name: json.loads(Path(d, file).read_text()) for name, file in RUNS}
+        results = {name: json.loads(Path(d, file).read_text(encoding="utf-8")) for name, file in RUNS}
     for t in args.tests:
         tid = (ROOT / t).resolve().relative_to(ROOT / "tests").with_suffix("").as_posix()
         print(f"== {t}")

@@ -32,7 +32,7 @@ def source_sections(directory: Path, inventory: dict) -> dict:
     pdf = directory / source["pdf"]
     if hashlib.sha256(pdf.read_bytes()).hexdigest() != source["pdf_sha256"]:
         raise ValueError("the PDF differs from the inventoried edition")
-    pages = (directory / "out/lrm_pdftotext_layout.txt").read_text().split("\f")
+    pages = (directory / "out/lrm_pdftotext_layout.txt").read_text(encoding="utf-8").split("\f")
     lines, offsets = [], {}
     for page_number, page in enumerate(pages, 1):
         offsets[page_number] = len(lines)
@@ -104,12 +104,12 @@ def main() -> int:
     ap.add_argument("--index", type=Path, help="write source locations/hashes, without source text")
     ap.add_argument("--cache", type=Path, help="local-only full text cache; never commit it")
     args = ap.parse_args()
-    inventory = json.loads((coverage.DATA / "standard-sections.json").read_text())
+    inventory = json.loads((coverage.DATA / "standard-sections.json").read_text(encoding="utf-8"))
     sections = source_sections(args.source, inventory)
     if args.cache:
         if args.cache.resolve().is_relative_to(coverage.ROOT):
             ap.error("full standard text cache must stay outside the repository")
-        args.cache.write_text(json.dumps(sections, ensure_ascii=False, indent=2) + "\n")
+        args.cache.write_text(json.dumps(sections, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     if args.index:
         index = {"schema": 1, "pdf_sha256": inventory["source"]["pdf_sha256"],
                  "text_sha256": hashlib.sha256((args.source / "out/lrm_pdftotext_layout.txt").read_bytes()).hexdigest(),
@@ -117,7 +117,7 @@ def main() -> int:
                                    "blocks": [{k: v for k, v in b.items() if k != "text"}
                                               for b in s["blocks"]]}
                               for n, s in sections.items()}}
-        args.index.write_text(json.dumps(index, ensure_ascii=False, indent=2) + "\n")
+        args.index.write_text(json.dumps(index, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     if args.show:
         for number in args.show:
             s = sections[number]

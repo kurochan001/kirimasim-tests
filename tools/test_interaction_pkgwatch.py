@@ -52,7 +52,7 @@ class PackageChangeObservers(unittest.TestCase):
     def test_saved_metadata_and_comments_do_not_become_package_declarations(self):
         row=g.MODEL.anchors[0]
         path=Path(__file__).resolve().parent.parent/'tests/gen/ch26'/(g.case_name(row)+'.sv')
-        source=path.read_text()
+        source=path.read_text(encoding='utf-8')
         self.assertEqual(q.interpret(source),g.reference(row))
         mutant=source.replace('return payload_pkg::target;', 'return control_pkg::target;', 1)
         self.assertNotEqual(q.interpret(mutant),g.reference(row))
@@ -142,7 +142,7 @@ class PackageChangeObservers(unittest.TestCase):
             chapter=Path(folder)/'ch26';chapter.mkdir()
             for row in g.MODEL.select():
                 c=g.make_case(row);sv,want=common.render(c,g.NAME,1,26,'spec')
-                p=chapter/(c.name+'.sv');p.write_text(sv);p.with_suffix('.expected').write_text(want)
+                p=chapter/(c.name+'.sv');p.write_text(sv, encoding="utf-8");p.with_suffix('.expected').write_text(want, encoding='utf-8')
                 self.assertEqual(lint_metadata.check(p),[])
                 self.assertEqual(c.fourstate,row[2]!='known')
 

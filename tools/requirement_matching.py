@@ -209,10 +209,10 @@ def main() -> int:
                                              REPORT: report(data)})
         for path, text in artifacts.items():
             if args.check:
-                coverage.require(path.is_file() and path.read_text() == text,
+                coverage.require(path.is_file() and path.read_text(encoding="utf-8") == text,
                                  f"stale test matching: {path}; run --update")
             else:
-                path.write_text(text)
+                path.write_text(text, encoding="utf-8")
         print(f"{data['test_files']} tests inventoried; {data['linked_test_files']} have reviewed links; "
               "semantic review remains incomplete")
         return 0

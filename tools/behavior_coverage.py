@@ -275,6 +275,13 @@ def execution(rows: list, result_paths: list[Path]) -> tuple[dict, list]:
                         by_test[c["test"]] = "unreviewed_oracle"
                         continue
                 by_test[c["test"]] = "pass"
+            # Alternatives: a requirement is executed when ONE group passes
+            # whole (OR of groups, AND of the members of a group, in this one
+            # result file). Several check_groups are alternative collective
+            # witnesses, and checks without groups are each a group of one
+            # (coverage/README "check_groups", FAQ Q19). The outcome of a
+            # requirement without a passing group is the first of
+            # OUTCOME_PRIORITY among its groups.
             groups = ([g["tests"] for g in r["check_groups"]] if r.get("check_groups")
                       else [[c["test"]] for c in r["checks"]])
             observed = set()
@@ -484,13 +491,13 @@ def append_history(path: Path, entry: dict) -> None:
     are dropped from the earlier runs, as tools/results_history.py drops its
     results, and the run records how many were dropped; its counts are left as
     they were measured."""
-    data = json.loads(path.read_text()) if path.is_file() else {"schema": 1, "runs": []}
+    data = json.loads(path.read_text(encoding="utf-8")) if path.is_file() else {"schema": 1, "runs": []}
     require(data.get("schema") == 1 and isinstance(data.get("runs"), list),
             "unknown behavior history format")
     drop_unknown_snapshots(data)
     data["runs"].append(entry)
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
 def summary_data(snapshot: dict, keep_timestamp: bool = False) -> dict:
@@ -679,8 +686,8 @@ def main() -> int:
         print(suite_results.input_digest(args.test_digest))
         return 0
     try:
-        inventory = json.loads((DATA / "standard-sections.json").read_text())
-        registry = json.loads((DATA / "behaviors.json").read_text())
+        inventory = json.loads((DATA / "standard-sections.json").read_text(encoding="utf-8"))
+        registry = json.loads((DATA / "behaviors.json").read_text(encoding="utf-8"))
         sections, rows = validate(inventory, registry)
         import requirement_audit
         audit_stats = requirement_audit.load_and_validate(DATA, inventory, registry)
@@ -695,21 +702,21 @@ def main() -> int:
         current = baseline(sections, rows, inventory["source"])
         current["source_index_sha256"] = audit_stats["source_index_sha256"]
         current["source_reviewed_sections"] = sorted(
-            json.loads((DATA / "requirement-audit.json").read_text())["sections"], key=section_key)
+            json.loads((DATA / "requirement-audit.json").read_text(encoding="utf-8"))["sections"], key=section_key)
         if args.write_baseline:
             require(bool(args.reason and args.reason.strip()), "--write-baseline requires --reason")
             current["reason"] = args.reason
             (DATA / "behavior-baseline.json").write_text(
-                json.dumps(current, ensure_ascii=False, indent=2) + "\n")
+                json.dumps(current, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         else:
-            previous = json.loads((DATA / "behavior-baseline.json").read_text())
+            previous = json.loads((DATA / "behavior-baseline.json").read_text(encoding="utf-8"))
             check_baseline(previous, current)
             growth = any(previous.get(k) != value for k, value in current.items())
             if growth and args.update:
                 (DATA / "behavior-baseline.json").write_text(json.dumps(
                     {**current, "reason": "Monotonic additions of requirements, mappings or "
                      "completed investigations, recorded by --update"},
-                    ensure_ascii=False, indent=2) + "\n")
+                    ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
             if args.check:
                 require(not growth, "baseline does not yet lock new coverage; run --update")
         if args.verify_source:
@@ -717,7 +724,7 @@ def main() -> int:
             pdf = args.verify_source / source["pdf"]
             require(hashlib.sha256(pdf.read_bytes()).hexdigest() == source["pdf_sha256"],
                     "the PDF differs from the inventoried standard")
-            source_index = json.loads((DATA / "requirement-source-index.json").read_text())
+            source_index = json.loads((DATA / "requirement-source-index.json").read_text(encoding="utf-8"))
             layout = args.verify_source / "out/lrm_pdftotext_layout.txt"
             require(hashlib.sha256(layout.read_bytes()).hexdigest() == source_index["text_sha256"],
                     "the extracted text differs from the audited standard")
@@ -745,16 +752,16 @@ def main() -> int:
                                                                "executed": r["id"] in executed_ids,
                                                                "status": requirement_status(r, executed_ids)}
                                                               for r in rows]},
-                                            ensure_ascii=False, indent=2) + "\n")
+                                            ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         if args.check:
-            require(all(path.is_file() and path.read_text() == content
+            require(all(path.is_file() and path.read_text(encoding="utf-8") == content
                         for path, content in markdown_versions(args.output, text, REPORT).items()),
                     f"stale report: run python3 tools/behavior_coverage.py --update")
         elif args.update or args.output != REPORT:
             args.output.parent.mkdir(parents=True, exist_ok=True)
             for path, content in markdown_versions(args.output, text, REPORT).items():
                 path.parent.mkdir(parents=True, exist_ok=True)
-                path.write_text(content)
+                path.write_text(content, encoding="utf-8")
             print(f"wrote {args.output}")
         else:
             print(text, end="")
@@ -774,11 +781,11 @@ def main() -> int:
             if path is None:
                 continue
             if args.check:
-                require(path.is_file() and path.read_text() == content,
+                require(path.is_file() and path.read_text(encoding="utf-8") == content,
                         f"stale coverage summary: {path}; run --update")
             elif args.update or args.output != REPORT:
                 path.parent.mkdir(parents=True, exist_ok=True)
-                path.write_text(content)
+                path.write_text(content, encoding="utf-8")
         if args.require_complete:
             require(stats["whole_standard_percent"] == stats["whole_standard_executed_percent"] == 100,
                     "whole-standard denominator is incomplete or behaviors lack tests/fresh passes")

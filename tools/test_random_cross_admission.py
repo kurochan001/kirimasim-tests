@@ -50,19 +50,19 @@ class AdmissionTests(Fixture):
     def test_version_and_binary_digest_cannot_describe_different_builds(self):
         self.binary.chmod(0o755)
         def change(*args, **kwargs):
-            self.binary.write_text('changed during --version')
+            self.binary.write_text('changed during --version', encoding='utf-8')
             return subprocess.CompletedProcess([], 0, 'kirimasim 0.0.0 (commit '+('a'*12)+')', '')
         with patch.object(runner.subprocess, 'run', side_effect=change), self.assertRaisesRegex(ValueError, 'changed'):
             runner.verify_binary(self.binary, 'a'*40)
 
     def test_external_dispatch_backend_is_hashed_and_checked_for_updates(self):
         driver, backend = self.root/'verilator', self.root/'verilator_bin'
-        driver.write_text('public dispatcher'); driver.chmod(0o755); backend.write_text('actual backend')
+        driver.write_text('public dispatcher', encoding='utf-8'); driver.chmod(0o755); backend.write_text('actual backend', encoding='utf-8')
         with patch.object(identity, 'command_version', return_value='Verilator fixture'):
             build = identity.external_build('verilator', driver)
         self.assertEqual(build['companions'][str(backend.resolve())], evidence.sha(backend))
         inventory = {'files': build['companions']}
-        backend.write_text('updated backend')
+        backend.write_text('updated backend', encoding='utf-8')
         self.assertFalse(identity.unchanged(inventory))
 
     def test_admission_detects_a_binary_update_racing_duplicate_decision(self):
@@ -70,7 +70,7 @@ class AdmissionTests(Fixture):
         admit = history.History.admit
         def update(store, *args):
             result = admit(store, *args)
-            self.binary.write_text('updated after identity snapshot')
+            self.binary.write_text('updated after identity snapshot', encoding='utf-8')
             return result
         with patch.object(history.History, 'admit', update):
             report, count = self.run_job('racing')
@@ -103,7 +103,7 @@ class AdmissionTests(Fixture):
                 patch.object(identity, 'dependencies', return_value=self.inventory), \
                 patch.object(runner, 'execute', side_effect=KeyboardInterrupt), self.assertRaises(KeyboardInterrupt):
             runner.run(self.manifest, output, 'fixture', 'a'*40, explore=True, history=self.db)
-        report = json.loads((output/'run.json').read_text())
+        report = json.loads((output/'run.json').read_text(encoding='utf-8'))
         self.assertTrue(report['interrupted']); self.assertFalse(evidence.all_pass(report))
         self.assertEqual(report['counts']['pass'], 0)
         self.assertEqual(report['counts']['not_run'], 3)
@@ -145,7 +145,7 @@ class AdmissionTests(Fixture):
 
     def test_tampered_or_missing_evidence_is_never_reused(self):
         self.run_job('first')
-        (self.root/'first/cases/case_0000.expected').write_text('tampered')
+        (self.root/'first/cases/case_0000.expected').write_text('tampered', encoding='utf-8')
         _, count = self.run_job('second'); self.assertEqual(count, 3)
         (self.root/'second/run.json').unlink()
         _, count = self.run_job('third'); self.assertEqual(count, 3)
@@ -248,8 +248,8 @@ class AdmissionTests(Fixture):
                 output = self.root/kind
                 def execute(record, *_):
                     if kind == 'environment': os.environ['RANDOM_CROSS_TEST_ONLY'] = 'changed'
-                    if kind == 'dependency': self.binary.write_text('changed')
-                    if kind == 'source': (output/record['source']).write_text('changed')
+                    if kind == 'dependency': self.binary.write_text('changed', encoding='utf-8')
+                    if kind == 'source': (output/record['source']).write_text('changed', encoding='utf-8')
                     return {'status': 'pass', 'returncode': 0, 'reason': ''}
                 self.binary.write_bytes(b'build one')
                 with patch.object(runner, 'verify_binary', return_value=self.build), \
@@ -275,7 +275,7 @@ class ReplayAndPromotionTests(Fixture):
         record = runner.prepare(self.manifest, output)['case_0000']
         vvp = self.root/'vvp'
         for index, message in enumerate(('ERROR: runtime failure\n', '[0] %Error: runtime failure\n')):
-            vvp.write_text('#!'+sys.executable+'\nimport sys; sys.stdout.write('+repr(message)+')\n')
+            vvp.write_text('#!'+sys.executable+'\nimport sys; sys.stdout.write('+repr(message)+')\n', encoding='utf-8')
             vvp.chmod(0o755)
             directory = self.root/str(index); directory.mkdir()
             def normalized_match(*args):
@@ -283,13 +283,13 @@ class ReplayAndPromotionTests(Fixture):
                 return True, ''  # Existing runner removed the severity line.
             with patch.object(run_icarus, 'run', side_effect=normalized_match):
                 compare.worker('icarus', output/record['source'], output/record['expected'], str(vvp), 1, directory)
-            result = json.loads((directory/'worker.json').read_text())
+            result = json.loads((directory/'worker.json').read_text(encoding='utf-8'))
             self.assertEqual(result['returncode'], 0)
             self.assertEqual(result['status'], 'known')
             self.assertIn('diagnostic', result['reason'])
 
     def test_manifest_only_replay_does_not_claim_knowledge_of_old_code_or_bytes(self):
-        manifest = self.root/'manifest.json'; manifest.write_text(json.dumps(self.manifest))
+        manifest = self.root/'manifest.json'; manifest.write_text(json.dumps(self.manifest), encoding="utf-8")
         with patch.object(models.random, 'Random', side_effect=AssertionError('redrawn')):
             report = runner.run(self.manifest, self.root/'replay', generate_only=True, replay=manifest)
         self.assertEqual(report['replay']['baseline'], 'manifest_only')
@@ -318,7 +318,7 @@ class ReplayAndPromotionTests(Fixture):
 
     def test_replay_rejects_changed_original_evidence(self):
         self.run_job('first')
-        (self.root/'first/cases/case_0000.expected').write_text('tampered')
+        (self.root/'first/cases/case_0000.expected').write_text('tampered', encoding='utf-8')
         with self.assertRaisesRegex(ValueError, 'fingerprints'):
             self.run_job('replay', replay=self.root/'first/manifest.json')
 
@@ -343,13 +343,13 @@ class ReplayAndPromotionTests(Fixture):
         output = self.root/'adapter'
         record = runner.prepare(self.manifest, output)['case_0000']
         source = output/record['source']
-        source.write_text(source.read_text().replace('*/', ':expected_stdout_icarus: own\n:expected_stdout_lyra: other\n*/', 1))
+        source.write_text(source.read_text(encoding='utf-8').replace('*/', ':expected_stdout_icarus: own\n:expected_stdout_lyra: other\n*/', 1), encoding='utf-8')
         target, directory = compare.stage(record, output, 'icarus')
         self.assertEqual(source, target)
         self.assertEqual(source.read_bytes(), target.read_bytes())
         self.assertEqual(compare.expectation(target, 'icarus', output/record['expected']), 'own\n')
         self.assertEqual(compare.expectation(target, 'verilator', output/record['expected']),
-                         (output/record['expected']).read_text())
+                         (output/record['expected']).read_text(encoding='utf-8'))
 
     def test_confirmed_failure_produces_mechanism_draft_without_editing_origin(self):
         report, _ = self.run_job('failure', status='fail')
@@ -358,8 +358,8 @@ class ReplayAndPromotionTests(Fixture):
                                    'context_width', 'Fixture: reviewed standard-derived model',
                                    confirmed=True, chapter='ch11', lrm='1800-2023 11.8.2')
         target = self.root/'draft'/triage['regression_draft']
-        self.assertEqual(target.read_text().split('*/', 1)[1],
-                         (self.root/'failure/cases/case_0000.sv').read_text().split('*/', 1)[1])
+        self.assertEqual(target.read_text(encoding='utf-8').split('*/', 1)[1],
+                         (self.root/'failure/cases/case_0000.sv').read_text(encoding='utf-8').split('*/', 1)[1])
         self.assertEqual(target.with_suffix('.expected').read_bytes(),
                          (self.root/'failure/cases/case_0000.expected').read_bytes())
         self.assertEqual(suite_results.header(target)['oracle'], 'spec')

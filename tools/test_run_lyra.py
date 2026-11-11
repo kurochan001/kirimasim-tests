@@ -34,7 +34,7 @@ class LyraRunnerTests(unittest.TestCase):
         self.write(":expected_stdout: TEST PASSED")
 
     def write(self, fields):
-        self.test.write_text("/*\n" + fields + "\n*/\nmodule m; endmodule\n")
+        self.test.write_text("/*\n" + fields + "\n*/\nmodule m; endmodule\n", encoding="utf-8")
 
     def run_result(self, stdout="TEST PASSED\n", stderr="", code=0, cxx=None):
         """The status and reason, and the command that ran Lyra. Without a

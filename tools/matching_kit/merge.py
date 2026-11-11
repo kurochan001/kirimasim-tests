@@ -58,9 +58,9 @@ def main() -> int:
         ap.error("--date must be YYYY-MM-DD")
 
     state = State()   # the ledgers before this merge, for every check
-    data = json.loads((ROOT / "coverage/behaviors.json").read_text())
+    data = json.loads((ROOT / "coverage/behaviors.json").read_text(encoding="utf-8"))
     rows = {r["id"]: r for r in data["requirements"]}
-    reviews_doc = json.loads((ROOT / "coverage/test-matching-reviews.json").read_text())
+    reviews_doc = json.loads((ROOT / "coverage/test-matching-reviews.json").read_text(encoding="utf-8"))
     reviews = {rv["test"]: rv for rv in reviews_doc["reviews"]}
     digests = {}
 
@@ -141,7 +141,7 @@ def main() -> int:
                      "tests": [c["test"]], "reviewed_on": args.date, "reviewer": args.reviewer,
                      "observation": "This reviewed check alone satisfies the requirement."})
 
-    behavior_coverage.validate(json.loads((ROOT / "coverage/standard-sections.json").read_text()),
+    behavior_coverage.validate(json.loads((ROOT / "coverage/standard-sections.json").read_text(encoding="utf-8")),
                                data)
     mapped = sum(bool(r["checks"]) for r in data["requirements"])
     print(f"accepted={len(accepted)} applied={len(log)} skipped={len(skipped)} mapped_now={mapped}")
@@ -149,12 +149,12 @@ def main() -> int:
         print(f"SKIP {key}: {why[:200]}")
     if args.dry_run:
         return 0
-    (ROOT / "coverage/behaviors.json").write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
+    (ROOT / "coverage/behaviors.json").write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (ROOT / "coverage/test-matching-reviews.json").write_text(
-        json.dumps(reviews_doc, ensure_ascii=False, indent=2) + "\n")
+        json.dumps(reviews_doc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     log_file = args.proposals / "merged-log.json"
-    prior = json.loads(log_file.read_text()) if log_file.exists() else []
-    log_file.write_text(json.dumps(prior + log, ensure_ascii=False, indent=2) + "\n")
+    prior = json.loads(log_file.read_text(encoding="utf-8")) if log_file.exists() else []
+    log_file.write_text(json.dumps(prior + log, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return 0
 
 

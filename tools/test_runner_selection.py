@@ -37,7 +37,7 @@ def fake_tool(path, stdout="", stderr="", code=0, signal=None, sleep=0, before="
                     "places = dict(test=sys.argv[-1], home=Path.home(), cwd=os.getcwd())\n"
                     f"sys.stdout.write({stdout!r}.format(**places))\n"
                     f"sys.stderr.write({stderr!r}.format(**places))\n"
-                    f"sys.stdout.flush()\nsys.stderr.flush()\n{end}\n")
+                    f"sys.stdout.flush()\nsys.stderr.flush()\n{end}\n", encoding="utf-8")
     path.chmod(0o755)
     return str(path)
 
@@ -57,7 +57,7 @@ class SimulationSelectionTests(unittest.TestCase):
     def make_test(self, name, fields):
         path = self.root / "tests/ch6" / f"{name}.sv"
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text("/*\n" + fields + "\n*/\nmodule test_sample; endmodule\n")
+        path.write_text("/*\n" + fields + "\n*/\nmodule test_sample; endmodule\n", encoding="utf-8")
         return path
 
     def test_every_simulation_runner_skips_formal_tests(self):
@@ -86,7 +86,7 @@ class OtherSimulatorExpectationTests(unittest.TestCase):
     def make_test(self, name, fields):
         path = self.root / "tests/ch6" / f"{name}.sv"
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text("/*\n" + fields + "\n*/\nmodule test_sample; endmodule\n")
+        path.write_text("/*\n" + fields + "\n*/\nmodule test_sample; endmodule\n", encoding="utf-8")
         return path
 
     def test_other_simulator_expectation_is_named(self):
@@ -118,7 +118,7 @@ class KirimasimClassificationTests(unittest.TestCase):
         path = self.root / "tests/ch6" / f"{name}.sv"
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text("/*\n:type: simulation\n" + fields + "\n*/\n"
-                        "module test_sample; endmodule\n")
+                        "module test_sample; endmodule\n", encoding="utf-8")
         return path
 
     def simulator(self, **result):
@@ -205,7 +205,7 @@ class IcarusJudgingTests(unittest.TestCase):
         path = self.root / "tests/ch6" / f"{name}.sv"
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text("/*\n:type: simulation\n" + fields + "\n*/\n"
-                        "module test_sample; endmodule\n")
+                        "module test_sample; endmodule\n", encoding="utf-8")
         return path
 
     def run_test(self, test, compiler=None, simulation=None):
@@ -298,7 +298,7 @@ class VerilatorJudgingTests(unittest.TestCase):
         path = self.root / "tests/ch6" / f"{name}.sv"
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text("/*\n:type: simulation\n" + fields + "\n*/\n"
-                        "module test_sample; endmodule\n")
+                        "module test_sample; endmodule\n", encoding="utf-8")
         return path
 
     def run_test(self, test, build=None, model=None):

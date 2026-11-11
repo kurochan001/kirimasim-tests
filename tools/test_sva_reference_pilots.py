@@ -143,11 +143,11 @@ class PilotIntegrationTests(unittest.TestCase):
         self.assertTrue(all(result["status"] == "generated" for result in results))
 
     def test_every_sample_matches_the_external_pilot_stimulus_inputs(self):
-        evidence = json.loads((pilots.FIXTURES / "stimulus_inputs.json").read_text())
+        evidence = json.loads((pilots.FIXTURES / "stimulus_inputs.json").read_text(encoding="utf-8"))
         self.assertEqual(set(evidence["models"]), set(pilots.PILOTS))
         for name, pilot in pilots.PILOTS.items():
             with self.subTest(name=name):
-                cache = json.loads((pilots.FIXTURES / (name + ".json")).read_text())
+                cache = json.loads((pilots.FIXTURES / (name + ".json")).read_text(encoding="utf-8"))
                 model = evidence["models"][name]
                 self.assertEqual(model["signals"], list(pilot.signals))
                 values = ["".join(tick["sampled"][f"{name}.{signal}"] for signal in pilot.signals)
@@ -180,7 +180,7 @@ class PilotIntegrationTests(unittest.TestCase):
         self.assertEqual(len(twins), 2)
         removed = list(generated.events)
         removed.remove(twins[0])
-        source = (pilots.ROOT / "tests/ch16" / (name + ".sv")).read_text()
+        source = (pilots.ROOT / "tests/ch16" / (name + ".sv")).read_text(encoding="utf-8")
         module = parse_module(source)
         projected = project_stimulus(module, remove_functions=("times",))
         trace = bridge.load_projected(pilots.FIXTURES / (name + ".json"), source.encode(), projected, module, pilots.PILOTS[name].signals)
@@ -190,7 +190,7 @@ class PilotIntegrationTests(unittest.TestCase):
 
     def test_counter_adapter_applies_phase_resets_at_report_boundaries(self):
         name = "test_property_until_strong_forms"
-        source = (pilots.ROOT / "tests/ch16" / (name + ".sv")).read_text()
+        source = (pilots.ROOT / "tests/ch16" / (name + ".sv")).read_text(encoding="utf-8")
         module = parse_module(source)
         projected = project_stimulus(module)
         trace = bridge.load_projected(pilots.FIXTURES / (name + ".json"), source.encode(), projected, module, pilots.PILOTS[name].signals)
@@ -207,7 +207,7 @@ class PilotIntegrationTests(unittest.TestCase):
             pilots.audit_source("test_sequence_first_match", b"changed")
         name = "test_sequence_first_match"
         generated = pilots.generate(name)
-        source = (pilots.ROOT / "tests/ch16" / (name + ".sv")).read_text()
+        source = (pilots.ROOT / "tests/ch16" / (name + ".sv")).read_text(encoding="utf-8")
         module = parse_module(source)
         projected = project_stimulus(module, remove_functions=("times",))
         trace = bridge.load_projected(pilots.FIXTURES / (name + ".json"), source.encode(), projected, module, pilots.PILOTS[name].signals)
@@ -220,8 +220,8 @@ class PilotIntegrationTests(unittest.TestCase):
             name = "test_sequence_first_match"
             check.run([name], emit_only=True, output_dir=directory)
             root = Path(directory)
-            self.assertEqual((root / (name + ".actual")).read_text(), pilots.generate(name).output)
-            events = json.loads((root / (name + ".events.json")).read_text())
+            self.assertEqual((root / (name + ".actual")).read_text(encoding="utf-8"), pilots.generate(name).output)
+            events = json.loads((root / (name + ".events.json")).read_text(encoding="utf-8"))
             self.assertEqual(len(events["events"]), 15)
             self.assertEqual(events["attempts"]["c_tie"]["matches"], 4)
 

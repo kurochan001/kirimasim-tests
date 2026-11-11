@@ -22,7 +22,7 @@ import behavior_coverage as coverage
 def build(directory: Path) -> dict:
     pdf = directory / "IEEE_Std_1800-2023_SystemVerilog.pdf"
     index = directory / "clause_headings.json"
-    pages = (directory / "out/lrm_pdftotext_layout.txt").read_text().split("\f")
+    pages = (directory / "out/lrm_pdftotext_layout.txt").read_text(encoding="utf-8").split("\f")
     toc = "\n".join(pages[9:26])
     toc_rows = {}
     for line in toc.splitlines():
@@ -41,7 +41,7 @@ def build(directory: Path) -> dict:
             letter, kind, title = m.groups()
             roots[letter] = {"title": title, "pdf_page": n, "kind": kind}
     assert set(roots) == {str(n) for n in range(1, 42)} | set("ABCDEFGHIJKLMNOPQ")
-    headings = json.loads(index.read_text())["clauses"]
+    headings = json.loads(index.read_text(encoding="utf-8"))["clauses"]
     sections, rejected = dict(roots), []
     for number, row in headings.items():
         if not re.fullmatch(r"(?:[1-9]|[1-3][0-9]|4[01]|[A-Q])(?:\.[1-9][0-9]*)+", number):
@@ -84,7 +84,7 @@ def main() -> int:
     data = build(args.directory)
     target = coverage.DATA / "standard-sections.json"
     if target.is_file():
-        old = json.loads(target.read_text())
+        old = json.loads(target.read_text(encoding="utf-8"))
         annotations = {s["id"]: {k: v for k, v in s.items()
                                   if k not in ("id", "title", "pdf_page", "kind")}
                        for s in old["sections"]}
@@ -92,9 +92,9 @@ def main() -> int:
             section.update(annotations.get(section["id"], {}))
     text = json.dumps(data, ensure_ascii=False, indent=2) + "\n"
     if args.check:
-        return 0 if target.is_file() and target.read_text() == text else 1
+        return 0 if target.is_file() and target.read_text(encoding="utf-8") == text else 1
     target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(text)
+    target.write_text(text, encoding="utf-8")
     print(f"wrote {target}: {len(data['sections'])} investigation units")
     return 0
 

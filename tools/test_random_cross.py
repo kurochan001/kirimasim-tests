@@ -121,7 +121,7 @@ class RandomRunnerTests(unittest.TestCase):
         self.manifest = models.generate(17, 3, 2)
         self.commit = '8'*40
         self.binary = self.root/'kirimasim'
-        self.binary.write_text('binary fixture')
+        self.binary.write_text('binary fixture', encoding='utf-8')
         self.build = {'executable': str(self.binary), 'version': 'kirimasim 0.0.0 (commit '+'8'*12+')',
                       'commit': self.commit, 'binary_sha256': runner.sha(self.binary)}
 
@@ -131,7 +131,7 @@ class RandomRunnerTests(unittest.TestCase):
         self.assertFalse(report['completed'])
         self.assertEqual(report['counts']['pass'], 0)
         self.assertEqual(report['counts']['not_run'], 3)
-        self.assertEqual(json.loads((self.output/'manifest.json').read_text()), self.manifest)
+        self.assertEqual(json.loads((self.output/'manifest.json').read_text(encoding='utf-8')), self.manifest)
         self.assertTrue((self.output/'report.ja.md').is_file())
 
     def test_existing_evidence_cannot_be_overwritten(self):
@@ -153,7 +153,7 @@ class RandomRunnerTests(unittest.TestCase):
     def execute_result(self, code, stdout, stderr=''):
         records = runner.prepare(self.manifest, self.output)
         record = records['case_0000']
-        want = (self.output/record['expected']).read_text()
+        want = (self.output/record['expected']).read_text(encoding='utf-8')
         result = subprocess.CompletedProcess(['kirimasim'], code, want if stdout is None else stdout, stderr)
         with patch.object(runner.subprocess, 'run', return_value=result):
             return runner.execute(record, self.output, 'fixture', 1, time.monotonic()+10)
@@ -185,7 +185,7 @@ class RandomRunnerTests(unittest.TestCase):
         with patch.object(runner.subprocess, 'run', side_effect=error):
             result = runner.execute(records['case_0000'], self.output, 'fixture', 1, time.monotonic()+10)
         self.assertEqual(result['reason'], 'timed out')
-        self.assertEqual((self.output/result['stdout']).read_text(), 'partial\n')
+        self.assertEqual((self.output/result['stdout']).read_text(encoding='utf-8'), 'partial\n')
 
     def test_exhausted_budget_does_not_start_a_process(self):
         records = runner.prepare(self.manifest, self.output)
@@ -195,18 +195,18 @@ class RandomRunnerTests(unittest.TestCase):
 
     def test_changed_expectations_invalidate_observed_success(self):
         def change(record, output, *_):
-            (output/record['expected']).write_text('changed\n')
+            (output/record['expected']).write_text('changed\n', encoding='utf-8')
             return {'status': 'pass', 'reason': '', 'returncode': 0}
         with patch.object(runner, 'verify_binary', return_value=self.build), patch.object(runner, 'execute', side_effect=change):
             report = runner.run(self.manifest, self.output, 'fixture', self.commit)
         self.assertFalse(report['valid'])
         self.assertEqual(report['counts']['stale'], 3)
         self.assertEqual(report['counts']['pass'], 0)
-        self.assertTrue((self.output/'events.jsonl').read_text())
+        self.assertTrue((self.output/'events.jsonl').read_text(encoding='utf-8'))
 
     def test_changed_binary_invalidates_all_results(self):
         def change(*_):
-            self.binary.write_text('changed executable')
+            self.binary.write_text('changed executable', encoding='utf-8')
             return {'status': 'pass', 'reason': '', 'returncode': 0}
         with patch.object(runner, 'verify_binary', return_value=self.build), patch.object(runner, 'execute', side_effect=change):
             report = runner.run(self.manifest, self.output, 'fixture', self.commit, jobs=1)
@@ -233,7 +233,7 @@ class RandomRunnerTests(unittest.TestCase):
 
     def test_cli_replay_refuses_generation_overrides(self):
         manifest = self.root/'manifest.json'
-        manifest.write_text(json.dumps(self.manifest))
+        manifest.write_text(json.dumps(self.manifest), encoding="utf-8")
         args = ['run_random_cross.py', '--output', str(self.output), '--generate-only',
                 '--replay', str(manifest), '--seed', '2']
         with patch('sys.argv', args), redirect_stderr(io.StringIO()), self.assertRaises(SystemExit) as error:
@@ -242,12 +242,12 @@ class RandomRunnerTests(unittest.TestCase):
 
     def test_cli_replays_one_case_without_rng(self):
         manifest = self.root/'manifest.json'
-        manifest.write_text(json.dumps(self.manifest))
+        manifest.write_text(json.dumps(self.manifest), encoding="utf-8")
         args = ['run_random_cross.py', '--output', str(self.output), '--generate-only',
                 '--replay', str(manifest), '--case', 'case_0001']
         with patch('sys.argv', args), patch.object(models.random, 'Random', side_effect=AssertionError('RNG used')), redirect_stdout(io.StringIO()):
             self.assertEqual(runner.main(), 0)
-        saved = json.loads((self.output/'manifest.json').read_text())
+        saved = json.loads((self.output/'manifest.json').read_text(encoding='utf-8'))
         self.assertEqual(saved['seed'], 17)
         self.assertEqual(saved['cases'], [self.manifest['cases'][1]])
 
@@ -255,7 +255,7 @@ class RandomRunnerTests(unittest.TestCase):
 class RandomWorkflowTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        workflow = (models.ROOT/'.github/workflows/nightly.yml').read_text()
+        workflow = (models.ROOT/'.github/workflows/nightly.yml').read_text(encoding='utf-8')
         cls.job = workflow.split('\n  kirimasim:\n', 1)[1].split('\n  lyra:\n', 1)[0]
         cls.random_step = cls.job.split('      - name: Run bounded random cross comparisons\n', 1)[1].split('\n      - ', 1)[0]
 
@@ -279,7 +279,7 @@ class RandomWorkflowTests(unittest.TestCase):
         self.assertIn('Compare with the previous night\n        if: ${{ !cancelled() }}', self.job)
 
     def test_check_only_generates_and_replays_the_corpus(self):
-        check = (models.ROOT/'.github/workflows/check.yml').read_text()
+        check = (models.ROOT/'.github/workflows/check.yml').read_text(encoding='utf-8')
         step = check.split('      - name: Check deterministic random corpus generation\n', 1)[1].split('\n      - ', 1)[0]
         self.assertIn('--generate-only --seed 1', step)
         self.assertIn('--replay', step)

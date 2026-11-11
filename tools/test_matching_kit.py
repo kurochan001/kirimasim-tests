@@ -66,7 +66,7 @@ class ProposeChecks(unittest.TestCase):
             propose.hold_record(self.state, p)
 
     def test_withdrawn_links_are_known(self):
-        withdrawn = json.loads(propose.WITHDRAWN.read_text())
+        withdrawn = json.loads(propose.WITHDRAWN.read_text(encoding="utf-8"))
         self.assertTrue(withdrawn)
         self.assertTrue({(c["test"], rid) for rid, c in withdrawn} <= self.state.withdrawn)
 

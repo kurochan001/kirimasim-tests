@@ -28,7 +28,7 @@ def boolean(text, values=None):
 class NormativeExampleTests(unittest.TestCase):
     def test_chapter_16_figures_with_explicit_match_ticks(self):
         path = Path(__file__).with_name("sva_reference") / "fixtures/lrm_examples.json"
-        data = json.loads(path.read_text())
+        data = json.loads(path.read_text(encoding="utf-8"))
         for example in data["examples"]:
             with self.subTest(clause=example["clause"], figure=example["figure"]):
                 samples = [{name: str(int(tick in ones)) for name, ones in example["ones"].items()}

@@ -36,7 +36,7 @@ class ReviewCandidatesTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             for name in ("ghost", "other"):
                 Path(directory, name + ".json").write_text(json.dumps(
-                    {"version": name, "time": "t", "suite_commit": "c", "tests": {"x": "pass"}}))
+                    {"version": name, "time": "t", "suite_commit": "c", "tests": {"x": "pass"}}), encoding="utf-8")
             runs = rc.load(Path(directory))
         self.assertEqual(list(runs), ["ghost"])
 

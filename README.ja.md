@@ -803,6 +803,10 @@ python3 tools/results_history.py update --history my-results --source local out/
 実行例の保存先`my-results/`はGitの管理対象外です。
 既定では実行日時に現在時刻、スイートのコミットに`HEAD`を使います。過去の結果を取り込む場合は、
 `--time`、`--suite-commit`、`--run-url`で実際の実行日時・コミット・結果の参照先を指定します。
+履歴は実行日時の順に保持し、最新の実行と各シミュレータの最新結果は、日時が最も新しいものです。
+あるシミュレータの記録済みの最新実行より前の日時の実行は、履歴の日時順の位置に入ります。
+その実行はほかの実行と比較せず、`latest/<simulator>.json`は最も新しい実行のままです。
+UTCオフセットのない`--time`はUTCとして扱います。
 `tools/`に実行スクリプトがないシミュレータの結果は履歴から除きます。
 `tools/results_history.py`の`RETIRED`に挙げたものだけは結果を残しますが、描画しません。
 `python3 tools/results_history.py render --history my-results`で履歴だけから再生成できます。
@@ -948,6 +952,8 @@ python3 tools/lint_metadata.py
 `:lrm:`とディレクトリ、`:fourstate: no`でのx/zリテラル、期待出力、
 不正な設計のフィールド、指定ファイル、行長、`Verilator`で始まるコメント、
 時刻を出力する場合の`` `timescale ``、ひな型のTODO残りなどです。ルールの一覧はdocstringにあります。
+`tools/lint_baseline.txt`には、テストとルールの組ごとに既知の問題の件数を記録します。
+あるルールの問題がその件数より多いテストは、そのルールが既に記録されていても報告します。
 
 このリポジトリの資料の多くはAI（Claude Code、Codex、OpenCode）の支援で作りました。
 期待結果を規格と照合する責任は人にあります。

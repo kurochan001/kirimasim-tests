@@ -48,7 +48,7 @@ class ResultsHistoryTests(unittest.TestCase):
             history.save_json(self.directory / "latest" / f"{sim}.json", {"tests": {}})
         runs = history.prune(self.directory)
         self.assertEqual(list(runs[0]["simulators"]), ["icarus", "nvc"])
-        saved = json.loads((self.directory / "history.json").read_text())
+        saved = json.loads((self.directory / "history.json").read_text(encoding="utf-8"))
         self.assertNotIn("other", json.dumps(saved))
         self.assertEqual(sorted(p.stem for p in (self.directory / "latest").glob("*.json")),
                          ["icarus", "nvc"])
@@ -70,10 +70,74 @@ class ResultsHistoryTests(unittest.TestCase):
         self.assertEqual(runs[0], before)
         self.assertEqual(imported["source"], "local")
         self.assertEqual(set(imported["simulators"]), {"ghost"})
-        latest = json.loads((self.directory / "latest/ghost.json").read_text())
+        latest = json.loads((self.directory / "latest/ghost.json").read_text(encoding="utf-8"))
         self.assertEqual(latest["source"], "local")
         self.assertEqual(latest["suite_commit"], "b" * 40)
         self.assertEqual(latest["tests"], {"ch6/test_one": "pass", "ch9/test_two": "fail"})
+
+    def add(self, time, tests, simulator="icarus", name="Icarus Verilog"):
+        source = self.directory / f"{simulator}.json"
+        history.save_json(source, result(simulator, name, tests))
+        with mock.patch.object(history.suite_stats, "collect", return_value={
+                "totals": {"tests": len(tests)}, "chapters": {6: {"tests": len(tests)}}}), \
+                mock.patch("sys.stderr", io.StringIO()):
+            return history.update(self.directory, [source], "c" * 40, "", time, source="local")
+
+    def test_a_run_with_an_earlier_time_goes_to_its_place_and_is_not_the_latest(self):
+        self.add("2026-10-27T00:00:00Z", {"ch6/test_one": "pass", "ch6/test_two": "pass"})
+        newest = json.loads((self.directory / "latest/icarus.json").read_text(encoding="utf-8"))
+        earlier = self.add("2026-10-25T00:00:00Z", {"ch6/test_one": "fail"})
+        self.add("2026-10-26T00:00:00Z", {"ch6/test_one": "pass"}, "ghost", "Ghost")
+        runs = history.load_history(self.directory)
+        self.assertEqual([r["time"] for r in runs], [
+            "2026-10-25T00:00:00Z", "2026-10-26T00:00:00Z", "2026-10-27T00:00:00Z"])
+        self.assertEqual(json.loads((self.directory / "history.json").read_text(
+            encoding="utf-8"))["runs"], runs)
+        # The earlier run is compared with none and leaves latest/ alone.
+        self.assertIsNone(earlier["simulators"]["icarus"]["changes"])
+        self.assertTrue(earlier["simulators"]["icarus"]["earlier_than_latest"])
+        self.assertIn("not compared", history.latest_table(earlier))
+        self.assertIn("比較なし", history.latest_table(earlier, "ja"))
+        self.assertEqual(json.loads((self.directory / "latest/icarus.json").read_text(
+            encoding="utf-8")), newest)
+        # The latest of each simulator and of the report is the newest time.
+        latest = history.latest_snapshots(runs)
+        self.assertEqual(latest["icarus"][0]["time"], "2026-10-27T00:00:00Z")
+        self.assertEqual(latest["icarus"][1]["counts"]["pass"], 2)
+        self.assertEqual(latest["ghost"][0]["time"], "2026-10-26T00:00:00Z")
+        report = (self.directory / "README.md").read_text(encoding="utf-8")
+        self.assertIn("Latest run: 2026-10-27 00:00 UTC", report)
+        # The lines of the charts go forward in time.
+        root = ET.fromstring((self.directory / "charts/overview.svg").read_text(encoding="utf-8"))
+        for line in root.iter("{http://www.w3.org/2000/svg}polyline"):
+            xs = [float(point.split(",")[0]) for point in line.get("points").split()]
+            self.assertEqual(xs, sorted(xs))
+
+    def test_a_later_run_is_compared_with_the_newest_and_replaces_it(self):
+        self.add("2026-10-27T00:00:00Z", {"ch6/test_one": "fail"})
+        self.add("2026-10-25T00:00:00Z", {"ch6/test_one": "pass"})
+        later = self.add("2026-10-28T00:00:00Z", {"ch6/test_one": "pass"})
+        self.assertEqual(later["simulators"]["icarus"]["changes"]["passing"], 1)
+        self.assertNotIn("earlier_than_latest", later["simulators"]["icarus"])
+        latest = json.loads((self.directory / "latest/icarus.json").read_text(encoding="utf-8"))
+        self.assertEqual(latest["time"], "2026-10-28T00:00:00Z")
+
+    def test_times_are_ordered_as_times_not_as_text(self):
+        runs = [{"time": "2026-10-27T16:21:03.5+00:00"}, {"time": "2026-10-27T16:21:03Z"},
+                {"time": "2026-10-27T23:00:00+09:00"}, {"time": "2026-10-27T15:00:00"}]
+        self.assertEqual([r["time"] for r in history.in_time_order(runs)], [
+            "2026-10-27T23:00:00+09:00", "2026-10-27T15:00:00", "2026-10-27T16:21:03Z",
+            "2026-10-27T16:21:03.5+00:00"])
+
+    def test_runs_of_the_same_time_keep_their_order(self):
+        runs = [{"time": "2026-10-27T00:00:00Z", "n": n} for n in range(3)]
+        self.assertEqual(history.in_time_order(runs), runs)
+
+    def test_cli_refuses_a_time_that_is_not_one(self):
+        with mock.patch("sys.argv", ["results_history.py", "update", "--history", "x",
+                                     "--time", "yesterday", "fixture.json"]), \
+                mock.patch("sys.stderr", io.StringIO()), self.assertRaises(SystemExit):
+            history.main()
 
     def test_latest_table_keeps_each_actual_source_date_and_test_count(self):
         self.import_local()
@@ -92,7 +156,7 @@ class ResultsHistoryTests(unittest.TestCase):
 
     def test_chapter_image_keeps_older_simulators_with_explicit_provenance(self):
         self.import_local()
-        svg = (self.directory / "charts/chapters.svg").read_text()
+        svg = (self.directory / "charts/chapters.svg").read_text(encoding="utf-8")
         ET.fromstring(svg)
         for text in ("Icarus Verilog", "Ghost", "2026-10-26 00:00 UTC",
                      "2026-10-27 16:21 UTC", "Suite aaaaaaa / nightly", "Suite bbbbbbb / local"):
@@ -105,16 +169,16 @@ class ResultsHistoryTests(unittest.TestCase):
         runs[0]["simulators"]["retired"] = history.summarize(
             result("retired", "Retired Simulator", {"ch6/test_one": "pass"}), None)
         for name in ("status-retired.svg", "status-retired.ja.svg"):
-            (self.directory / "charts" / name).write_text("<svg/>")
+            (self.directory / "charts" / name).write_text("<svg/>", encoding="utf-8")
         history.render(self.directory, runs)
-        report = (self.directory / "README.md").read_text()
+        report = (self.directory / "README.md").read_text(encoding="utf-8")
         self.assertIn("[local result](https://example.test/local-result.json)", report)
         self.assertIn("(local)", report)
         self.assertIn("charts/chapters.svg?v=20261027T162103", report)
         self.assertIn("Icarus Verilog", report)
         self.assertIn("Ghost", report)
         self.assertNotIn("Retired Simulator", report)
-        japanese = (self.directory / "README.ja.md").read_text()
+        japanese = (self.directory / "README.ja.md").read_text(encoding="utf-8")
         self.assertIn("[ローカル実行結果](https://example.test/local-result.json)", japanese)
         self.assertNotIn("Retired Simulator", japanese)
         for name in ("status-retired.svg", "status-retired.ja.svg"):
@@ -131,8 +195,8 @@ class ResultsHistoryTests(unittest.TestCase):
         history.render(self.directory, runs)
         self.assertEqual(runs, before)
         self.assertEqual({path: path.read_bytes() for path in paths}, raw)
-        english = (self.directory / "README.md").read_text()
-        japanese = (self.directory / "README.ja.md").read_text()
+        english = (self.directory / "README.md").read_text(encoding="utf-8")
+        japanese = (self.directory / "README.ja.md").read_text(encoding="utf-8")
         for report in (english, japanese):
             self.assertIn("[English](README.md) / [日本語](README.ja.md)", report)
             self.assertIn("2026-10-26 00:00", report)
@@ -144,16 +208,16 @@ class ResultsHistoryTests(unittest.TestCase):
         for name in ("overview", "rate", "chapters", "status-icarus", "status-ghost"):
             for suffix in ("", ".ja"):
                 self.assertTrue((self.directory / "charts" / f"{name}{suffix}.svg").is_file())
-        chapter = (self.directory / "charts/chapters.ja.svg").read_text()
+        chapter = (self.directory / "charts/chapters.ja.svg").read_text(encoding="utf-8")
         for value in ("章別の一致テスト数", "データ型", "スイート aaaaaaa / nightly",
                       "スイート bbbbbbb / local", "0/1  0%"):
             self.assertIn(value, chapter)
-        status = (self.directory / "charts/status-ghost.ja.svg").read_text()
+        status = (self.directory / "charts/status-ghost.ja.svg").read_text(encoding="utf-8")
         self.assertIn("一致 (pass)", status)
         self.assertIn("不一致 (fail)", status)
         self.assertEqual(history.test_count_y_max(history.load_history(self.directory)), 1000)
         for name in ("overview.svg", "overview.ja.svg", "status-ghost.svg", "status-ghost.ja.svg"):
-            root = ET.fromstring((self.directory / "charts" / name).read_text())
+            root = ET.fromstring((self.directory / "charts" / name).read_text(encoding="utf-8"))
             self.assertIn("1000", [node.text for node in root.iter("{http://www.w3.org/2000/svg}text")])
 
     def test_the_test_count_charts_end_at_the_next_thousand_above_the_most_tests(self):

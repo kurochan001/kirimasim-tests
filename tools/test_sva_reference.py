@@ -36,7 +36,7 @@ class TraceTests(unittest.TestCase):
         self.path = Path(self.tmp.name) / "input.vcd"
 
     def read(self, changes, **kwargs):
-        self.path.write_text(HEADER + changes)
+        self.path.write_text(HEADER + changes, encoding="utf-8")
         return read_vcd(self.path, "top.clk", ["top.data", "top.child.alias"], **kwargs)
 
     def test_sampling_excludes_entire_timestamp_in_any_vcd_order(self):
@@ -64,7 +64,7 @@ class TraceTests(unittest.TestCase):
                 with self.subTest(edge=edge, old=old, new=new):
                     # At time zero the clock is x -> 0/1, so initialize via x
                     # at time 1 and put the pair under test at times 2 and 3.
-                    self.path.write_text(HEADER + f'#0\nx!\nb0 "\n#2\n{old}!\n#3\n{new}!\n')
+                    self.path.write_text(HEADER + f'#0\nx!\nb0 "\n#2\n{old}!\n#3\n{new}!\n', encoding="utf-8")
                     trace = read_vcd(self.path, "top.clk", ["top.data"], edge)
                     self.assertEqual(trace.ticks[-1].time, 3)
 
@@ -82,16 +82,16 @@ class TraceTests(unittest.TestCase):
                                  ('#0\n0!\n#5\n0!\n', "no selected")]:
             with self.subTest(message=message), self.assertRaisesRegex(TraceError, message):
                 self.read(changes)
-        self.path.write_text(HEADER + '#0\n0!\n#5\n1!\n')
+        self.path.write_text(HEADER + '#0\n0!\n#5\n1!\n', encoding='utf-8')
         with self.assertRaisesRegex(TraceError, "exact hierarchical"):
             read_vcd(self.path, "clk", ["top.data"])
-        self.path.write_text(HEADER.replace("reg 1 !", "reg 4 !") + '#0\n0!\n#5\n1!\n')
+        self.path.write_text(HEADER.replace("reg 1 !", "reg 4 !") + '#0\n0!\n#5\n1!\n', encoding="utf-8")
         with self.assertRaisesRegex(TraceError, "clock must be scalar"):
             read_vcd(self.path, "top.clk", ["top.data"])
 
     def test_real_samples_are_rejected_but_unselected_reals_are_ignored(self):
         header = HEADER.replace('$scope module child', '$var real 1 % voltage $end\n$scope module child')
-        self.path.write_text(header + '#0\n0!\nr1.25 %\nb0 "\n#5\n1!\n')
+        self.path.write_text(header + '#0\n0!\nr1.25 %\nb0 "\n#5\n1!\n', encoding="utf-8")
         self.assertEqual(len(read_vcd(self.path, "top.clk", ["top.data"]).ticks), 1)
         with self.assertRaisesRegex(TraceError, "not an integral"):
             read_vcd(self.path, "top.clk", ["top.voltage"])
@@ -108,9 +108,9 @@ class TraceTests(unittest.TestCase):
                      (b"source", "top.clk", signals, "negedge")]:
             with self.subTest(args=args), self.assertRaisesRegex(TraceError, "stale trace"):
                 load_trace(cache, *args)
-        data = json.loads(cache.read_text())
+        data = json.loads(cache.read_text(encoding="utf-8"))
         data["protocol"] = "future"
-        cache.write_text(json.dumps(data))
+        cache.write_text(json.dumps(data), encoding="utf-8")
         with self.assertRaisesRegex(TraceError, "schema/protocol"):
             load_trace(cache, b"source", "top.clk", signals)
 

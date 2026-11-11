@@ -16,6 +16,12 @@ The simulator is run in a temporary directory as
 future kirimasim FST backend can be used directly. The FST file is then read
 with tools/fst_reader.py (libfst) and compared with :fst_expected:.
 
+The exit code of the simulator must be 0, or what :expected_exit: says, and
+its messages must match :expected_stderr_regex: when the test has one, as for
+the simulation runners. --json records the fingerprint of the inputs of each
+test and of this runner, as the other runners do, and the digest of the FST
+reader (tools/fst_reader.py and tools/fst_read.c) in "configuration".
+
 With no TEST arguments, runs every test that has :fst_expected:. FST is not
 an IEEE 1800-2023 format; these tests are tool-format tests and are not part
 of the simulation runners' normal selection.
@@ -23,6 +29,7 @@ of the simulation runners' normal selection.
 
 import argparse
 import concurrent.futures
+import hashlib
 import re
 import shutil
 import subprocess
@@ -89,15 +96,34 @@ def run(test: Path, simulator: str, libfst_src: str | None) -> tuple[str, str]:
             return "unsupported", str(error)
     want_stdout = suite_results.expected_output(test)
     if want_stdout is not None:
-        norm = subprocess.run([sys.executable, str(NORMALIZE)], input=result.stdout,
-                              capture_output=True, text=True).stdout
+        normalized = subprocess.run([sys.executable, str(NORMALIZE)], input=result.stdout,
+                                    capture_output=True, text=True, encoding="utf-8")
+        if normalized.returncode != 0:
+            # Its empty output would match an empty expected output.
+            return "fail", f"normalize_output.py failed (exit code {normalized.returncode})"
+        norm = normalized.stdout
         if norm != want_stdout:
             return "fail", "standard output differs: " + suite_results.first_difference(
                 norm, want_stdout)
     want = expected_fst(test)
     if got != want:
         return "fail", "FST differs: " + suite_results.first_difference(got, want)
-    return "pass", ""
+    # A simulator that ends with an error did not pass, whatever it wrote
+    # before, unless the test expects that exit code.
+    if header_field(test, "expected_exit") is None and result.returncode != 0:
+        return "fail", f"exit code {result.returncode}, expected 0"
+    why = suite_results.judge_run(test, result.returncode, result.stderr)
+    return ("fail" if why else "pass"), why
+
+
+def reader_digest() -> str:
+    """The digest of the FST reader, which judges with this runner but is not
+    in suite_results.runner_digest."""
+    digest = hashlib.sha256()
+    for name in ("fst_reader.py", "fst_read.c"):
+        digest.update(name.encode() + b"\0")
+        digest.update((ROOT / "tools" / name).read_bytes())
+    return digest.hexdigest()
 
 
 def main() -> int:
@@ -117,6 +143,9 @@ def main() -> int:
     tests = fst_tests(args.tests or suite_results.find_tests())
     if not tests:
         ap.error("no tests with :fst_expected:")
+    inputs = suite_results.fingerprints(tests) if args.json else None
+    runner_hash = suite_results.runner_digest("fst") if args.json else None
+    reader_hash = reader_digest() if args.json else None
 
     failed = unsupported = 0
     statuses = {}
@@ -136,7 +165,10 @@ def main() -> int:
           + (f"; {unsupported} unsupported" if unsupported else ""))
     if args.json:
         suite_results.write(args.json, "fst", "FST (libfst)",
-                            f"libfst {args.libfst_src or 'auto'}", statuses)
+                            f"libfst {args.libfst_src or 'auto'}", statuses,
+                            inputs=inputs, runner_sha256=runner_hash,
+                            configuration={"fst_reader_sha256": reader_hash,
+                                           "fst_reader_changed": reader_hash != reader_digest()})
     return 1 if failed or unsupported else 0
 
 

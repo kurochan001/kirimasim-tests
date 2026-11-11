@@ -27,7 +27,7 @@ class QualificationExitStatus(unittest.TestCase):
         def runner(test):
             subprocess.run(["fixture"])
             return (("fail", "output differs: line 1 is 'bad', expected 'ok'")
-                    if "MUTATED" in test.read_text() else ("pass", ""))
+                    if "MUTATED" in test.read_text(encoding="utf-8") else ("pass", ""))
 
         with mock.patch.object(subprocess, "run", return_value=subprocess.CompletedProcess(
                 ["fixture"], returncode)), contextlib.redirect_stdout(io.StringIO()):

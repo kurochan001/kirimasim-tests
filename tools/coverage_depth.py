@@ -217,11 +217,11 @@ def main() -> int:
         print(f"{len(shallow)} clauses have fewer than {args.minimum_tests} direct tests: "
               + clause_list(shallow), file=sys.stderr)
     if args.check:
-        return 0 if not shallow and all(path.is_file() and path.read_text() == content
+        return 0 if not shallow and all(path.is_file() and path.read_text(encoding="utf-8") == content
                                        for path, content in outputs.items()) else 1
     if args.update:
         for path, content in outputs.items():
-            path.write_text(content)
+            path.write_text(content, encoding="utf-8")
             print(f"wrote {path.relative_to(ROOT)}")
     else:
         print(text, end="")

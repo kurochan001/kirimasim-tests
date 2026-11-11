@@ -19,8 +19,8 @@ import suite_results
 class BehaviorCoverageTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.inventory = json.loads((coverage.DATA / "standard-sections.json").read_text())
-        cls.registry = json.loads((coverage.DATA / "behaviors.json").read_text())
+        cls.inventory = json.loads((coverage.DATA / "standard-sections.json").read_text(encoding="utf-8"))
+        cls.registry = json.loads((coverage.DATA / "behaviors.json").read_text(encoding="utf-8"))
 
     def setUp(self):
         self.inv = copy.deepcopy(self.inventory)
@@ -52,7 +52,7 @@ class BehaviorCoverageTests(unittest.TestCase):
     def execute(self, result, rows=None):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "result.json"
-            path.write_text(json.dumps(result))
+            path.write_text(json.dumps(result), encoding="utf-8")
             return coverage.execution(rows or self.validated()[1], [path])
 
     def test_ghost_results_with_fresh_provenance_count(self):
@@ -68,9 +68,9 @@ class BehaviorCoverageTests(unittest.TestCase):
             path = Path(directory) / "behavior-history.json"
             old = {"executed": 3, "execution": {"snapshots": [
                 {"simulator": "icarus"}, {"simulator": "nvc"}, {"simulator": "other"}]}}
-            path.write_text(json.dumps({"schema": 1, "runs": [old]}))
+            path.write_text(json.dumps({"schema": 1, "runs": [old]}), encoding="utf-8")
             coverage.append_history(path, {"executed": 4, "execution": {"snapshots": []}})
-            runs = json.loads(path.read_text())["runs"]
+            runs = json.loads(path.read_text(encoding="utf-8"))["runs"]
         self.assertEqual([s["simulator"] for s in runs[0]["execution"]["snapshots"]],
                          ["icarus", "nvc"])
         self.assertEqual((runs[0]["executed"], runs[0]["dropped_snapshots"]), (3, 1))
@@ -159,7 +159,7 @@ class BehaviorCoverageTests(unittest.TestCase):
         self.assertIsNone(result["provisional_execution_percent"])
 
     def test_compact_report_drops_provisional_wording_once_confirmed(self):
-        snapshot = json.loads((coverage.DATA / "behavior-summary.json").read_text())
+        snapshot = json.loads((coverage.DATA / "behavior-summary.json").read_text(encoding="utf-8"))
         for status, heading in (("confirmed", "## 全規格の要求台帳に対する値"),
                                 ("provisional", "## 全規格の要求台帳に対する暫定値")):
             with self.subTest(status=status):
@@ -179,7 +179,7 @@ class BehaviorCoverageTests(unittest.TestCase):
                 result.update(version=version, generated_at=timestamp)
                 runs, ignored = self.execute(result)
                 original = copy.deepcopy(runs)
-                snapshot = json.loads((coverage.DATA / "behavior-summary.json").read_text())
+                snapshot = json.loads((coverage.DATA / "behavior-summary.json").read_text(encoding="utf-8"))
                 snapshot["execution"] = runs
                 full = coverage.report(self.inv, sections, rows, runs, ignored)
                 # Isolate execution evidence from unrelated fixture-only prose.
@@ -255,7 +255,7 @@ class BehaviorCoverageTests(unittest.TestCase):
                               "evidence": [{"file": other.relative_to(coverage.ROOT).as_posix(),
                                             "contains": "module"},
                                            {"file": expected.relative_to(coverage.ROOT).as_posix(),
-                                            "contains": expected.read_text().strip()}]})
+                                            "contains": expected.read_text(encoding="utf-8").strip()}]})
         row["check_groups"] = [{"id": "joint-observations",
                                 "tests": [c["test"] for c in row["checks"]],
                                 "reviewer": "unit-test fixture", "reviewed_on": "2026-10-22",
@@ -275,6 +275,23 @@ class BehaviorCoverageTests(unittest.TestCase):
                 self.assertEqual(bool(runs["executed"]), state == "pass")
                 self.assertEqual(runs["snapshots"][0]["outcomes"][row["id"]], state or "not_run")
 
+    def test_one_complete_alternative_group_is_sufficient(self):
+        # Several groups are alternatives (FAQ Q19): one group whose members
+        # all pass executes the requirement, whatever the other group did.
+        row = self.grouped_fixture()
+        first, second = (c["test"] for c in row["checks"])
+        group = row["check_groups"][0]
+        row["check_groups"] = [{**group, "id": "alternative-1", "tests": [first]},
+                               {**group, "id": "alternative-2", "tests": [second]}]
+        runs, _ = self.execute(self.result())     # only the first test passed
+        self.assertEqual(runs["executed"], [row["id"]])
+        self.assertEqual(runs["snapshots"][0]["outcomes"][row["id"]], "pass")
+        # No alternative is complete when its only member did not pass.
+        row["check_groups"] = [{**group, "id": "alternative-1", "tests": [first, second]},
+                               {**group, "id": "alternative-2", "tests": [second]}]
+        runs, _ = self.execute(self.result())
+        self.assertEqual(runs["executed"], [])
+
     def test_ungrouped_checks_remain_independent_alternatives(self):
         row = self.grouped_fixture()
         del row["check_groups"]
@@ -290,7 +307,7 @@ class BehaviorCoverageTests(unittest.TestCase):
                 result["tests"] = {suite_results.test_id(test): {
                     "status": "pass", "inputs_sha256": suite_results.input_digest(test)}}
                 path = Path(directory) / f"partial-{index}.json"
-                path.write_text(json.dumps(result))
+                path.write_text(json.dumps(result), encoding="utf-8")
                 paths.append(path)
             runs, _ = coverage.execution(self.validated()[1], paths)
         self.assertEqual(runs["executed"], [])
@@ -337,7 +354,7 @@ class BehaviorCoverageTests(unittest.TestCase):
                 result = self.result(simulator=simulator, row=passing)
                 result["version"] = version
                 path = Path(directory) / (simulator + ".json")
-                path.write_text(json.dumps(result))
+                path.write_text(json.dumps(result), encoding="utf-8")
                 paths.append(path)
             runs, _ = coverage.execution(rows + [other], paths)
         self.assertEqual(len(runs["executed"]), 2)
@@ -358,16 +375,16 @@ class BehaviorCoverageTests(unittest.TestCase):
                     return coverage.main()
             self.assertEqual(run(["--update", "--history", str(folder / "history.json")]), 0)
             self.assertEqual(run(["--check"]), 0)
-            data = json.loads((folder / "short.json").read_text())
-            history = json.loads((folder / "history.json").read_text())["runs"][0]
+            data = json.loads((folder / "short.json").read_text(encoding="utf-8"))
+            history = json.loads((folder / "history.json").read_text(encoding="utf-8"))["runs"][0]
             self.assertNotIn("generated_at", data)
             self.assertIn("generated_at", history)
             self.assertEqual(data["denominator"], history["denominator"])
             self.assertNotIn("outcomes", history["execution"]["snapshots"][0])
-            (folder / "short.md").write_text("stale\n")
+            (folder / "short.md").write_text("stale\n", encoding="utf-8")
             self.assertEqual(run(["--check"]), 1)
             self.assertEqual(run(["--update"]), 0)
-            (folder / "short.json").write_text("{}\n")
+            (folder / "short.json").write_text("{}\n", encoding="utf-8")
             self.assertEqual(run(["--check"]), 1)
 
     def test_parent_introductions_are_not_completed_by_children(self):
@@ -502,7 +519,7 @@ class BehaviorCoverageTests(unittest.TestCase):
             path = Path(directory) / "history.json"
             coverage.append_history(path, {"registered": 10, "registry_sha256": "first"})
             coverage.append_history(path, {"registered": 12, "registry_sha256": "second"})
-            self.assertEqual([r["registered"] for r in json.loads(path.read_text())["runs"]], [10, 12])
+            self.assertEqual([r["registered"] for r in json.loads(path.read_text(encoding="utf-8"))["runs"]], [10, 12])
 
     def test_update_locks_new_requirements_against_later_removal(self):
         for section in self.inv["sections"]:
@@ -517,16 +534,16 @@ class BehaviorCoverageTests(unittest.TestCase):
         self.reg["requirements"].append(extra)
         with tempfile.TemporaryDirectory() as directory:
             folder = Path(directory)
-            (folder / "standard-sections.json").write_text(json.dumps(self.inv))
+            (folder / "standard-sections.json").write_text(json.dumps(self.inv), encoding="utf-8")
             (folder / "requirement-source-index.json").write_bytes(
                 (coverage.DATA / "requirement-source-index.json").read_bytes())
             (folder / "requirement-audit.json").write_text(json.dumps({
                 "schema": 1, "pdf_sha256": self.inv["source"]["pdf_sha256"],
-                "text_sha256": json.loads((coverage.DATA / "requirement-source-index.json").read_text())["text_sha256"],
-                "sections": {}}))
+                "text_sha256": json.loads((coverage.DATA / "requirement-source-index.json").read_text(encoding="utf-8"))["text_sha256"],
+                "sections": {}}), encoding="utf-8")
             registry_path = folder / "behaviors.json"
-            registry_path.write_text(json.dumps(self.reg))
-            (folder / "behavior-baseline.json").write_text(json.dumps(initial))
+            registry_path.write_text(json.dumps(self.reg), encoding="utf-8")
+            (folder / "behavior-baseline.json").write_text(json.dumps(initial), encoding="utf-8")
             def run(mode):
                 with (mock.patch.object(coverage, "DATA", folder),
                       mock.patch.object(sys, "argv", ["coverage", mode, "--output", str(folder / "report.md")]),
@@ -537,7 +554,7 @@ class BehaviorCoverageTests(unittest.TestCase):
             self.assertEqual(run("--update"), 0)
             self.assertEqual(run("--check"), 0)
             self.reg["requirements"].pop()
-            registry_path.write_text(json.dumps(self.reg))
+            registry_path.write_text(json.dumps(self.reg), encoding="utf-8")
             self.assertEqual(run("--check"), 1)
 
 
@@ -550,10 +567,10 @@ class InputFingerprintTests(unittest.TestCase):
             test = folder / "test_case.sv"
             test.write_text('/*\n:expected_stdout: @case.expected\n:vpi_c: @case.c\n'
                             ':dpi_c: bare.c\n:files: missing.dat\n*/\n'
-                            '`include "case.svh"\nmodule m; endmodule\n')
+                            '`include "case.svh"\nmodule m; endmodule\n', encoding="utf-8")
             files = [folder / n for n in ("case.expected", "case.c", "case.svh", "bare.c")]
             for path in files:
-                path.write_text("original\n")
+                path.write_text("original\n", encoding="utf-8")
             with mock.patch.object(suite_results, "ROOT", root):
                 digest = suite_results.input_digest(test)
                 for path in [test, *files]:
@@ -561,7 +578,7 @@ class InputFingerprintTests(unittest.TestCase):
                     path.write_bytes(original + b"changed\n")
                     self.assertNotEqual(suite_results.input_digest(test), digest)
                     path.write_bytes(original)
-                (folder / "missing.dat").write_text("now exists")
+                (folder / "missing.dat").write_text("now exists", encoding="utf-8")
                 self.assertNotEqual(suite_results.input_digest(test), digest)
 
     def test_snapshot_writer_detects_inputs_changed_while_running(self):
@@ -570,16 +587,16 @@ class InputFingerprintTests(unittest.TestCase):
             folder = root / "tests" / "ch1"
             folder.mkdir(parents=True)
             test = folder / "test_case.sv"
-            test.write_text("module m; endmodule\n")
+            test.write_text("module m; endmodule\n", encoding="utf-8")
             with (mock.patch.object(suite_results, "ROOT", root),
                   mock.patch.object(suite_results, "runner_digest", return_value="runner")):
                 before = suite_results.fingerprints([test])
-                test.write_text("module changed; endmodule\n")
+                test.write_text("module changed; endmodule\n", encoding="utf-8")
                 target = root / "result.json"
                 suite_results.write(target, "icarus", "Icarus", "13.0",
                                     {"ch1/test_case": ("pass", "")},
                                     inputs=before, runner_sha256="runner")
-                result = json.loads(target.read_text())["tests"]["ch1/test_case"]
+                result = json.loads(target.read_text(encoding="utf-8"))["tests"]["ch1/test_case"]
                 self.assertTrue(result["inputs_changed"])
                 self.assertNotIn("inputs_sha256", result)
 

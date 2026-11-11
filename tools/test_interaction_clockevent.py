@@ -83,8 +83,8 @@ class ClockingNamedEvent(unittest.TestCase):
             for row in generator.MODEL.select():
                 case = generator.make_case(row)
                 source, expected = common.render(case, generator.NAME, 1, 14, 'spec')
-                path = chapter/(case.name+'.sv'); path.write_text(source)
-                path.with_suffix('.expected').write_text(expected)
+                path = chapter/(case.name+'.sv'); path.write_text(source, encoding="utf-8")
+                path.with_suffix('.expected').write_text(expected, encoding='utf-8')
                 self.assertEqual(lint_metadata.check(path), [])
 
 

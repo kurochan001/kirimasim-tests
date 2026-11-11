@@ -12,7 +12,13 @@ the form that tools/suite_results.py describes), compares each simulator's
 results with those of its previous run, adds the run to DIR/history.json,
 keeps the results as DIR/latest/<simulator>.json, renders, and prints a short
 Markdown summaries of the run (the nightly workflow adds them to the job
-summary). render writes DIR/charts/*.svg and DIR/README.md / DIR/README.ja.md from
+summary). The runs of DIR/history.json are kept in the order of their times,
+so the latest run, and each simulator's latest result, are the ones with the
+newest time, whatever the order they were added in. A run added with a --time
+before a simulator's latest recorded run goes to its place in the history; its
+results for that simulator are not compared with any run and do not replace
+DIR/latest/<simulator>.json, which stays that of the newest run. A --time
+without a UTC offset is read as UTC. render writes DIR/charts/*.svg and DIR/README.md / DIR/README.ja.md from
 DIR/history.json alone. A simulator that the suite no longer has a runner for
 (tools/run_<simulator>.py) stays in the history but is not drawn when it is one
 of RETIRED; update and render drop the results of any other simulator without
@@ -117,8 +123,15 @@ def load_history(directory: Path) -> list[dict]:
     if not path.is_file():
         return []
     runs = json.loads(path.read_text(encoding="utf-8"))["runs"]
-    return [{**r, "simulators": {s: v for s, v in r["simulators"].items() if kept(s)}}
-            for r in runs]
+    return in_time_order([{**r, "simulators": {s: v for s, v in r["simulators"].items()
+                                               if kept(s)}} for r in runs])
+
+
+def in_time_order(runs: list[dict]) -> list[dict]:
+    """The runs by their times; runs of the same time keep their order. The
+    report and the charts take the last run, and each simulator's last
+    result, as the latest."""
+    return sorted(runs, key=lambda r: parse_time(r["time"]))
 
 
 def prune(directory: Path) -> list[dict]:
@@ -210,15 +223,23 @@ def update(directory: Path, results: list[Path], commit: str, run_url: str, time
                   file=sys.stderr)
             continue
         latest = directory / "latest" / f"{sim}.json"
-        before = (json.loads(latest.read_text(encoding="utf-8"))["tests"]
-                  if latest.is_file() else None)
-        run["simulators"][sim] = summarize(result, before)
+        newest = json.loads(latest.read_text(encoding="utf-8")) if latest.is_file() else None
+        if newest and newest.get("time") and parse_time(time) < parse_time(newest["time"]):
+            # An earlier run than the latest recorded one. The results of the
+            # run before it are not kept, so it is compared with none, and
+            # latest/ stays that of the newest run.
+            print(f"results_history: {path.name}: {time} is before the latest recorded run "
+                  f"of {sim} ({newest['time']}); added in the order of time, not compared, "
+                  f"and latest/{sim}.json is kept", file=sys.stderr)
+            run["simulators"][sim] = {**summarize(result, None), "earlier_than_latest": True}
+            continue
+        run["simulators"][sim] = summarize(result, newest["tests"] if newest else None)
         save_json(latest, {"name": result["name"], "version": result["version"], "time": time,
                            "suite_commit": commit,
                            **({"source": source} if source != "nightly" else {}),
                            "tests": {t: r["status"] for t, r in result["tests"].items()}})
     run["simulators"] = dict(sorted(run["simulators"].items(), key=lambda kv: sim_order(kv[0])))
-    runs = prune(directory) + [run]
+    runs = in_time_order(prune(directory) + [run])
     save_json(directory / "history.json", {"runs": runs})
     render(directory, runs)
     return run
@@ -265,7 +286,9 @@ def label(info: dict) -> str:
 
 
 def parse_time(text: str) -> dt.datetime:
-    return dt.datetime.fromisoformat(text.replace("Z", "+00:00"))
+    """The time of a run; one without a UTC offset is in UTC."""
+    time = dt.datetime.fromisoformat(text.replace("Z", "+00:00"))
+    return time if time.tzinfo else time.replace(tzinfo=dt.timezone.utc)
 
 
 def matched(info: dict) -> int:
@@ -637,7 +660,10 @@ def commit_link(commit: str) -> str:
     return f"[`{commit[:7]}`]({SERVER}/{REPOSITORY}/commit/{commit})" if commit else "—"
 
 
-def change_text(changes: dict | None, language: str = "en") -> str:
+def change_text(changes: dict | None, language: str = "en", earlier: bool = False) -> str:
+    if earlier:
+        return localized(language, "not compared (earlier than the latest recorded run)",
+                         "比較なし（記録済みの最新実行より前の実行）")
     if changes is None:
         return localized(language, "first run", "初回実行")
     parts = []
@@ -666,7 +692,8 @@ def latest_table(run: dict, language: str = "en") -> str:
         c = info["counts"]
         lines.append(f"| {info['name']} | {info['version']} | {c['pass']} "
                      f"({percent(c['pass'], ran(info))}) | {c['fail']} | {c['known']} | "
-                     f"{c['unsupported']} | {change_text(info['changes'], language)} |")
+                     f"{c['unsupported']} | "
+                     f"{change_text(info['changes'], language, info.get('earlier_than_latest', False))} |")
     return "\n".join(lines)
 
 
@@ -871,6 +898,15 @@ def report(runs: list[dict], sims: list[str], language: str = "en") -> str:
 # ---------------------------------------------------------------- main
 
 
+def iso_time(text: str) -> str:
+    """The --time argument, refused here when it is not a time."""
+    try:
+        parse_time(text)
+    except ValueError:
+        raise argparse.ArgumentTypeError(f"not an ISO 8601 time: {text}")
+    return text
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     sub = ap.add_subparsers(dest="command", required=True)
@@ -878,7 +914,9 @@ def main() -> int:
     up.add_argument("--history", type=Path, required=True, help="directory of the history")
     up.add_argument("--suite-commit", default=None, help="commit of the suite (default: HEAD)")
     up.add_argument("--run-url", default="", help="URL of the workflow or imported result")
-    up.add_argument("--time", default=None, help="time of the run, ISO 8601 (default: now)")
+    up.add_argument("--time", default=None, type=iso_time,
+                    help="time of the run, ISO 8601, in UTC unless it has an offset "
+                         "(default: now)")
     up.add_argument("--source", choices=("nightly", "local"), default="nightly",
                     help="origin of this run (default: nightly)")
     up.add_argument("results", nargs="+", type=Path, help="--json files of the runners")

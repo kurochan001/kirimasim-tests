@@ -70,9 +70,9 @@ class SourceBindingTests(unittest.TestCase):
         root=Path(directory)
         path=root/"tests/ch16/test_tiny.sv"
         path.parent.mkdir(parents=True)
-        path.write_text(source)
+        path.write_text(source, encoding="utf-8")
         manifest=root/"manifest.json"
-        manifest.write_text("{}")
+        manifest.write_text("{}", encoding="utf-8")
         return root,manifest,path
 
     def test_wrapper_is_bound_once_and_predicates_are_reviewable(self):
@@ -94,7 +94,7 @@ class SourceBindingTests(unittest.TestCase):
             with mock.patch.object(sweep,"ROOT",root),mock.patch.object(sweep.m3,"MANIFEST",manifest),mock.patch.object(sweep,"PILOTS",{"test_tiny":None}):
                 result=sweep.bindings()
                 self.assertEqual(result["directives"][0]["status"],"no_family_match")
-                path.write_text("module m; a: assert property (@(posedge clk) x ##); endmodule")
+                path.write_text("module m; a: assert property (@(posedge clk) x ##); endmodule", encoding="utf-8")
                 with self.assertRaises(ValueError):
                     sweep.bindings()
 
@@ -150,10 +150,10 @@ class EvidenceTests(unittest.TestCase):
 
     def test_existing_outputs_are_not_overwritten(self):
         with tempfile.TemporaryDirectory() as directory:
-            path=Path(directory)/"keep";path.write_text("previous run")
+            path=Path(directory)/"keep";path.write_text("previous run", encoding="utf-8")
             with self.assertRaisesRegex(ValueError,"new or empty"):
                 sweep.run(directory,"unused-sby",emit_only=True)
-            self.assertEqual(path.read_text(),"previous run")
+            self.assertEqual(path.read_text(encoding="utf-8"),"previous run")
 
 
 if __name__=="__main__":

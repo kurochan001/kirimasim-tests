@@ -49,7 +49,7 @@ def write(out_dir: Path, prefix: str, groups: list[list[str]], clause_of: dict) 
         clauses = sorted({clause_of[i] for i in ids}, key=section_key)
         label = f"{prefix}{n:02d}-{clauses[0]}_to_{clauses[-1]}"
         (out_dir / f"{label}.json").write_text(json.dumps(
-            {"label": label, "requirement_ids": ids, "clauses": clauses}, indent=1) + "\n")
+            {"label": label, "requirement_ids": ids, "clauses": clauses}, indent=1) + "\n", encoding="utf-8")
         print(f"{label}\t{len(ids)}")
 
 
@@ -60,9 +60,9 @@ def main() -> int:
     ap.add_argument("--uncovered-target", type=int, default=140)
     ap.add_argument("--skip-roots", default="")
     args = ap.parse_args()
-    rows = json.loads((ROOT / "coverage/behaviors.json").read_text())["requirements"]
-    tests = json.loads((ROOT / "coverage/test-matching.json").read_text())["tests"]
-    reviews = json.loads((ROOT / "coverage/test-matching-reviews.json").read_text())["reviews"]
+    rows = json.loads((ROOT / "coverage/behaviors.json").read_text(encoding="utf-8"))["requirements"]
+    tests = json.loads((ROOT / "coverage/test-matching.json").read_text(encoding="utf-8"))["tests"]
+    reviews = json.loads((ROOT / "coverage/test-matching-reviews.json").read_text(encoding="utf-8"))["reviews"]
     held = {(rv["test"], rid) for rv in reviews for d in rv["decisions"] for rid in d["requirement_ids"]}
     skip = set(args.skip_roots.split())
     clause_of = {r["id"]: r["clause"] for r in rows}

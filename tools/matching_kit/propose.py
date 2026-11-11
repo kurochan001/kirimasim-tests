@@ -58,24 +58,24 @@ def reject(msg: str):
 def read_jsonl(path: Path) -> list[dict]:
     if not path.exists():
         return []
-    return [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
+    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
 
 
 class State:
     """The ledger, the review ledger and the test inventory, read once."""
 
     def __init__(self):
-        data = json.loads((ROOT / "coverage/behaviors.json").read_text())
+        data = json.loads((ROOT / "coverage/behaviors.json").read_text(encoding="utf-8"))
         self.rows = {r["id"]: r for r in data["requirements"]}
-        reviews = json.loads((ROOT / "coverage/test-matching-reviews.json").read_text())["reviews"]
+        reviews = json.loads((ROOT / "coverage/test-matching-reviews.json").read_text(encoding="utf-8"))["reviews"]
         self.holds = defaultdict(list)
         for review in reviews:
             for decision in review["decisions"]:
                 for rid in decision["requirement_ids"]:
                     self.holds[(review["test"], rid)].append(decision)
         self.withdrawn = {(check["test"], rid)
-                          for rid, check in json.loads(WITHDRAWN.read_text())}
-        inventory = json.loads((ROOT / "coverage/test-matching.json").read_text())["tests"]
+                          for rid, check in json.loads(WITHDRAWN.read_text(encoding="utf-8"))}
+        inventory = json.loads((ROOT / "coverage/test-matching.json").read_text(encoding="utf-8"))["tests"]
         self.tests = {t["test"]: t for t in inventory}
         self._add_new_tests()
 
@@ -231,14 +231,14 @@ def append(out: Path, record: dict) -> None:
     if record["key"] in {p["key"] for p in read_jsonl(out)}:
         reject(f"duplicate proposal key {record['key']} in {out}")
     out.parent.mkdir(parents=True, exist_ok=True)
-    with out.open("a") as fh:
+    with out.open("a", encoding="utf-8") as fh:
         fh.write(json.dumps(record, ensure_ascii=False) + "\n")
     print(f"OK {record['key']}")
 
 
 def cmd_scope(args):
     state = State()
-    ids = json.loads(Path(args.assignment).read_text())["requirement_ids"]
+    ids = json.loads(Path(args.assignment).read_text(encoding="utf-8"))["requirement_ids"]
     touched = defaultdict(set)
     for out in args.out or []:
         for p in read_jsonl(Path(out)):
@@ -328,7 +328,7 @@ def cmd_verdict(args):
         reject("give a concrete reason (>= 15 chars)")
     record = {"key": args.key, "verdict": "accept" if args.accept else "reject",
               "reason": args.reason.strip(), "verifier": args.verifier}
-    with out.with_name(out.name + ".verdicts.jsonl").open("a") as fh:
+    with out.with_name(out.name + ".verdicts.jsonl").open("a", encoding="utf-8") as fh:
         fh.write(json.dumps(record, ensure_ascii=False) + "\n")
     print(f"OK {record['verdict']} {args.key}")
 
@@ -340,7 +340,7 @@ def cmd_testverdict(args):
         reject("give a concrete reason (>= 15 chars)")
     record = {"test": args.test, "verdict": "ok" if args.ok else "defective",
               "reason": args.reason.strip(), "verifier": args.verifier}
-    with Path(args.out).open("a") as fh:
+    with Path(args.out).open("a", encoding="utf-8") as fh:
         fh.write(json.dumps(record, ensure_ascii=False) + "\n")
     print(f"OK {record['verdict']} {args.test}")
 

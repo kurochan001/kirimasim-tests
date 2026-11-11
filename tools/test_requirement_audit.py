@@ -156,7 +156,7 @@ class SourceBoundaryTests(unittest.TestCase):
         pages.extend([""] * 1352)
         out = folder / "out"
         out.mkdir()
-        (out / "lrm_pdftotext_layout.txt").write_text("\f".join(pages) + "\f")
+        (out / "lrm_pdftotext_layout.txt").write_text("\f".join(pages) + "\f", encoding="utf-8")
         return {"source": {"pdf": pdf.name, "pdf_sha256": hashlib.sha256(pdf.read_bytes()).hexdigest()},
                 "sections": [{"id": "22.14.8", "title": "Prior keywords", "pdf_page": 1},
                              {"id": "22.14.9", "title": second.split(" ", 1)[1], "pdf_page": 2}]}

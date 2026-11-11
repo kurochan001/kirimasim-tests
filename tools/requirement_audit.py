@@ -76,8 +76,8 @@ def validate(source_index: dict, audit: dict, sections: dict, requirements: list
 
 def load_and_validate(directory: Path, inventory: dict, registry: dict) -> dict:
     sections = {s["id"]: s for s in inventory["sections"]}
-    source = json.loads((directory / "requirement-source-index.json").read_text())
-    audit = json.loads((directory / "requirement-audit.json").read_text())
+    source = json.loads((directory / "requirement-source-index.json").read_text(encoding="utf-8"))
+    audit = json.loads((directory / "requirement-audit.json").read_text(encoding="utf-8"))
     require(source["pdf_sha256"] == inventory["source"]["pdf_sha256"], "source audit edition differs")
     stats = validate(source, audit, sections, registry["requirements"])
     stats.update(progress(source, audit, sections, registry["requirements"]))

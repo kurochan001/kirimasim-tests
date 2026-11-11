@@ -30,8 +30,8 @@ class ChapterTriage(unittest.TestCase):
 :expected_stdout: @test_witness.expected
 */
 module test_witness; initial $display("observed"); endmodule
-''')
-        self.path.with_suffix(".expected").write_text("observed\n")
+''', encoding="utf-8")
+        self.path.with_suffix(".expected").write_text("observed\n", encoding="utf-8")
         self.data = {"schema": 1, "reviewer": "unit fixture", "reviewed_on": "2026-10-31",
                      "excluded_chapters": {"1": "overview", "2": "references", "34": "scope"},
                      "pairs": [{"chapters": [14, 25], "category": "E", "priority": "P1",
@@ -77,35 +77,35 @@ module test_witness; initial $display("observed"); endmodule
 
     def test_expected_output_changes_require_a_fresh_source_review(self):
         self.validate()
-        self.path.with_suffix(".expected").write_text("different\n")
+        self.path.with_suffix(".expected").write_text("different\n", encoding="utf-8")
         with self.assertRaisesRegex(ValueError, "stale reviewed witness"):
             self.validate()
 
     def test_foreign_source_changes_also_invalidate_the_review(self):
-        self.path.write_text(self.path.read_text().replace(
-            ":type: simulation", ":type: simulation\n:dpi_c: @witness.c"))
+        self.path.write_text(self.path.read_text(encoding="utf-8").replace(
+            ":type: simulation", ":type: simulation\n:dpi_c: @witness.c"), encoding="utf-8")
         source = self.path.parent / "witness.c"
-        source.write_text("/* initial C fixture */\n")
+        source.write_text("/* initial C fixture */\n", encoding="utf-8")
         self.data["pairs"][0]["witnesses"][0]["inputs_sha256"] = suite_results.input_digest(self.path)
         self.validate()
-        source.write_text("/* changed C fixture */\n")
+        source.write_text("/* changed C fixture */\n", encoding="utf-8")
         with self.assertRaisesRegex(ValueError, "stale reviewed witness"):
             self.validate()
 
     def test_positive_simulation_and_both_chapter_citations_are_required(self):
-        original = self.path.read_text()
+        original = self.path.read_text(encoding="utf-8")
         for fragment, replacement in [
                 (":type: simulation", ":type: formal"),
                 (":type: simulation", ":type: simulation\n:should_fail_because: illegal"),
                 ("25.5.5 14.16", "25.5.5")]:
             with self.subTest(replacement=replacement):
-                self.path.write_text(original.replace(fragment, replacement))
+                self.path.write_text(original.replace(fragment, replacement), encoding="utf-8")
                 with self.assertRaisesRegex(ValueError, "positive simulation citing both"):
                     self.validate()
 
     def test_cannot_promote_a_witness_without_an_expected_observation(self):
-        self.path.write_text(self.path.read_text().replace(
-            ":expected_stdout: @test_witness.expected\n", ""))
+        self.path.write_text(self.path.read_text(encoding="utf-8").replace(
+            ":expected_stdout: @test_witness.expected\n", ""), encoding="utf-8")
         with self.assertRaisesRegex(ValueError, "no expected observation"):
             self.validate()
 
@@ -143,9 +143,9 @@ module test_witness; initial $display("observed"); endmodule
             self.validate(modeled={(14, 25): 1})
 
     def test_negative_and_formal_citations_are_not_positive_exploration_leads(self):
-        original = self.path.read_text()
+        original = self.path.read_text(encoding="utf-8")
         for fragment in [":type: formal", ":type: simulation\n:should_fail_because: illegal"]:
-            self.path.write_text(original.replace(":type: simulation", fragment))
+            self.path.write_text(original.replace(":type: simulation", fragment), encoding="utf-8")
             self.assertFalse(triage.discover(self.root))
         self.assertEqual(triage.cited_chapters({"lrm": "1800-2023 14.16 25.5.5 H.7.6"}), {14, 25})
 

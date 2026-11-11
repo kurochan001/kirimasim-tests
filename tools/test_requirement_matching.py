@@ -19,7 +19,7 @@ class RequirementMatchingTests(unittest.TestCase):
         self.root = Path(self.temp.name).resolve()
         self.test = self.root / "tests/ch6/test_sample.sv"
         self.test.parent.mkdir(parents=True)
-        self.test.write_text("/*\n:lrm: 1800-2023 6.16.1\n*/\nmodule m; endmodule\n")
+        self.test.write_text("/*\n:lrm: 1800-2023 6.16.1\n*/\nmodule m; endmodule\n", encoding="utf-8")
         patcher = mock.patch.object(matching.coverage, "ROOT", self.root)
         patcher.start()
         self.addCleanup(patcher.stop)
@@ -52,11 +52,11 @@ class RequirementMatchingTests(unittest.TestCase):
 
     def test_changed_expected_output_invalidates_scoped_decision(self):
         expected = self.test.with_suffix(".expected")
-        expected.write_text("first\n")
-        self.test.write_text(self.test.read_text().replace(":lrm:",
-                             ":expected_stdout: @test_sample.expected\n:lrm:"))
+        expected.write_text("first\n", encoding="utf-8")
+        self.test.write_text(self.test.read_text(encoding="utf-8").replace(":lrm:",
+                             ":expected_stdout: @test_sample.expected\n:lrm:"), encoding="utf-8")
         review = self.review()
-        expected.write_text("changed\n")
+        expected.write_text("changed\n", encoding="utf-8")
         with self.assertRaisesRegex(matching.coverage.InvalidCoverage, "stale test review"):
             matching.attach_dispositions(matching.inventory([self.test], [self.row("A")]),
                                          {"schema": 1, "reviews": [review]}, [self.row("A")])
@@ -74,7 +74,7 @@ class RequirementMatchingTests(unittest.TestCase):
                     decision["evidence"][0]["contains"] = "absent text"
                 elif mistake == "outside_input":
                     other = self.root / "unrelated.txt"
-                    other.write_text("module m;")
+                    other.write_text("module m;", encoding="utf-8")
                     decision["evidence"].append({"file": "unrelated.txt", "contains": "module m;"})
                 reviews = [review, review] if mistake == "duplicate" else [review]
                 with self.assertRaises(matching.coverage.InvalidCoverage):
@@ -111,7 +111,7 @@ class RequirementMatchingTests(unittest.TestCase):
 
     def test_changed_stimulus_changes_matching_fingerprint(self):
         before = matching.inventory([self.test], [])
-        self.test.write_text(self.test.read_text() + "// changed input\n")
+        self.test.write_text(self.test.read_text(encoding="utf-8") + "// changed input\n", encoding="utf-8")
         after = matching.inventory([self.test], [])
         self.assertNotEqual(before["tests"][0]["inputs_sha256"],
                             after["tests"][0]["inputs_sha256"])
@@ -127,21 +127,21 @@ class RequirementMatchingTests(unittest.TestCase):
         for changing in ("registry", "test", "review_ledger"):
             with self.subTest(changing=changing):
                 registry_path = self.root / "behaviors.json"
-                registry_path.write_text(json.dumps({"requirements": []}))
-                (self.root / "standard-sections.json").write_text("{}")
-                (self.root / matching.DISPOSITIONS).write_text('{"schema": 1, "reviews": []}')
+                registry_path.write_text(json.dumps({"requirements": []}), encoding="utf-8")
+                (self.root / "standard-sections.json").write_text("{}", encoding="utf-8")
+                (self.root / matching.DISPOSITIONS).write_text('{"schema": 1, "reviews": []}', encoding="utf-8")
                 row = self.row("A", checks=[{"test": "tests/ch6/test_sample.sv",
                                "inputs_sha256": matching.suite_results.input_digest(self.test)}])
                 original = matching.inventory
                 def raced(tests, rows):
                     if changing == "test":
-                        self.test.write_text(self.test.read_text() + "// edited during scan\n")
+                        self.test.write_text(self.test.read_text(encoding="utf-8") + "// edited during scan\n", encoding="utf-8")
                     data = original(tests, rows)
                     if changing == "registry":
-                        registry_path.write_text("{}")
+                        registry_path.write_text("{}", encoding="utf-8")
                     elif changing == "review_ledger":
                         (self.root / matching.DISPOSITIONS).write_text(
-                            '{"schema": 1, "reviews": [], "edited": true}')
+                            '{"schema": 1, "reviews": [], "edited": true}', encoding="utf-8")
                     return data
                 output = self.root / f"{changing}.json"
                 with (mock.patch.object(matching.coverage, "DATA", self.root),

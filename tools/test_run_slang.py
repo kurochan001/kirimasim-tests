@@ -37,7 +37,7 @@ class SlangReferenceTests(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name).resolve()
         self.slang = self.root / "slang"
-        self.slang.write_text(f"#!{sys.executable}\n" + FAKE)
+        self.slang.write_text(f"#!{sys.executable}\n" + FAKE, encoding="utf-8")
         self.slang.chmod(0o700)
         patch = mock.patch.object(suite_results, "ROOT", self.root)
         patch.start()
@@ -46,7 +46,7 @@ class SlangReferenceTests(unittest.TestCase):
     def write(self, name, fields, body=""):
         test = self.root / "tests" / "ch6" / f"{name}.sv"
         test.parent.mkdir(parents=True, exist_ok=True)
-        test.write_text("/*\n" + fields + "\n*/\nmodule m;\n" + body + "endmodule\n")
+        test.write_text("/*\n" + fields + "\n*/\nmodule m;\n" + body + "endmodule\n", encoding="utf-8")
         return test
 
     def illegal(self, body):
@@ -134,7 +134,7 @@ class SlangReferenceTests(unittest.TestCase):
         log = io.StringIO()
         with mock.patch.object(sys, "argv", argv), contextlib.redirect_stdout(log):
             self.assertEqual(run_slang.main(), 0)
-        text = output.read_text()
+        text = output.read_text(encoding="utf-8")
         data = json.loads(text)
         self.assertEqual((data["reference"], data["slang_commit"], data["options"]),
                          ("slang", "0123abc", run_slang.OPTIONS))

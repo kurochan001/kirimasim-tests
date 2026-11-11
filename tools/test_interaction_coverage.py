@@ -235,7 +235,7 @@ class CoveringSets(unittest.TestCase):
 
     def test_fixed_oracle_registration_rejects_inconsistent_qualification_runs(self):
         directory = coverage.ROOT / "coverage/interaction-qualification/20261029-query"
-        snapshots = [json.loads(p.read_text()) for p in sorted(directory.glob("*.json"))]
+        snapshots = [json.loads(p.read_text(encoding="utf-8")) for p in sorted(directory.glob("*.json"))]
         self.assertEqual(len(snapshots), 6)
         oracles = coverage.common.read_oracles()
         unstable = set()
@@ -246,7 +246,7 @@ class CoveringSets(unittest.TestCase):
                 unstable.add(case.name)
                 self.assertNotIn("iverilog@13.0", oracles.get(case.name, "").split())
         self.assertEqual(len(unstable), 9)
-        linux_log = (directory.parent / "20261029-query-linux-check.log").read_text()
+        linux_log = (directory.parent / "20261029-query-linux-check.log").read_text(encoding="utf-8")
         linux_failed = {line.split()[1].removeprefix("tests/gen/ch20/").removesuffix(".sv:")
                         for line in linux_log.splitlines() if line.startswith("FAIL ")}
         self.assertEqual(len(linux_failed), 12)
@@ -585,7 +585,7 @@ class ExecutionEvidence(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             paths = [Path(directory) / f"run{i}.json" for i in range(3)]
             for path, run in zip(paths, runs):
-                path.write_text(json.dumps(run))
+                path.write_text(json.dumps(run), encoding="utf-8")
             with mock.patch.object(coverage, "validate_files"), \
                     mock.patch.object(coverage, "source_digest", return_value="fixture"), \
                     mock.patch.object(suite_results, "input_digest", side_effect=lambda p:

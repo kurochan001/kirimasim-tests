@@ -123,7 +123,7 @@ $enddefinitions $end
 '''
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "in.vcd"
-            path.write_text(vcd)
+            path.write_text(vcd, encoding="utf-8")
             updates = []
             trace = read_vcd(path, "m.clk", ["m.rst"], current_callback=lambda t, v: updates.append((t, v)))
         self.assertEqual([tick.sampled["m.rst"] for tick in trace.ticks], ["0", "0"])
@@ -137,7 +137,7 @@ $enddefinitions $end
                 raise AssertionError("M3 generation opened expected output")
             return original(path, *args, **kwargs)
         with mock.patch.object(Path, "read_text", guard):
-            results = [m3.generate(test) for test in json.loads(m3.MANIFEST.read_text())]
+            results = [m3.generate(test) for test in json.loads(m3.MANIFEST.read_text(encoding="utf-8"))]
         self.assertEqual(len(results), 28)
         self.assertTrue(all(item.output for item in results))
 
@@ -146,7 +146,7 @@ class M3InventoryTests(unittest.TestCase):
     def test_approved_corrections_match_and_preserve_source_bound_judgments(self):
         result = survey.run()
         rows = {row["test"]: row for row in result["tests"]}
-        judgments = json.loads((m3.HERE / "fixtures/m3_judgments.json").read_text())
+        judgments = json.loads((m3.HERE / "fixtures/m3_judgments.json").read_text(encoding="utf-8"))
         self.assertEqual(result["counts"]["match"], 28)
         self.assertNotIn("mismatch", result["counts"])
         self.assertEqual(len(judgments), 2)
@@ -167,13 +167,13 @@ class M3InventoryTests(unittest.TestCase):
             return original(path, *args, **kwargs)
         with mock.patch.object(Path, "read_text", guard):
             result = survey.run(emit_only=True)
-        self.assertEqual(result["counts"]["generated"], len(json.loads(m3.MANIFEST.read_text())))
+        self.assertEqual(result["counts"]["generated"], len(json.loads(m3.MANIFEST.read_text(encoding="utf-8"))))
         self.assertNotIn("mismatch", result["counts"])
     def test_inventory_accounts_for_all_candidates_and_preserves_gaps(self):
         rows = survey.inventory()
         from collections import Counter
         counts = Counter(row["status"] for row in rows)
-        self.assertEqual(counts["v1"], len(json.loads(m3.MANIFEST.read_text())))
+        self.assertEqual(counts["v1"], len(json.loads(m3.MANIFEST.read_text(encoding="utf-8"))))
         self.assertEqual(counts["pilot"], 10)
         self.assertTrue(counts["out_of_scope"] > 0 and counts["excluded_illegal"] > 0)
         self.assertEqual(len({row["test"] for row in rows}), len(rows))
