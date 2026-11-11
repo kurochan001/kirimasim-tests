@@ -4,7 +4,7 @@
 :tags: ch18
 :type: elaboration
 :lrm: 1800-2023 18.5.3
-:oracle: spec verilator@5.052
+:oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
@@ -27,3 +27,7 @@ module test_illegal_dist_default_no_weight;
   ddn_obj o = new;
   initial $display("ok=%0d", o.randomize());
 endmodule
+
+// Oracle check: the 5.052 release of Verilator reports a syntax error on line
+// 22 that expects :/ there, but it reports the legal default :/ 2 of line 23
+// as unsupported, so its error does not count.

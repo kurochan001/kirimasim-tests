@@ -4,7 +4,7 @@
 :tags: ch27
 :type: elaboration
 :lrm: 1800-2023 27.3
-:oracle: spec verilator@5.052
+:oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
@@ -16,8 +16,8 @@
 // only be a module_or_generate_item. An extern task prototype is an
 // extern_tf_declaration, which only an interface_or_generate_item can be.
 // The generate block declares and calls an ordinary task, which is legal.
-// The 5.052 release of Verilator rejects the line as a syntax error, which is
-// right here: the item is not in the grammar of a module generate block.
+// The 5.052 release of Verilator reports a syntax error on that line, as it
+// does in an interface generate block, where it is legal: it does not count.
 
 module test_illegal_generate_module_block_extern_task #(parameter bit ON = 1'b1);
   if (ON) begin : g

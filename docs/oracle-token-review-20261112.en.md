@@ -7,7 +7,8 @@
 This record says which `iverilog@13.0` and `verilator@5.052` tokens were
 removed from the `:oracle:` of illegal tests, and why. A first pass left some
 tokens unchecked; a [second pass](#second-pass) of the same day checked them.
-No test changed its code or its expected result.
+A [third pass](#third-pass) ran a legal counterpart for every Verilator token
+that was left. No test changed its code or its expected result.
 
 <a id="what-was-wrong"></a>
 
@@ -103,8 +104,8 @@ counterpart:
 - `ch33/test_illegal_config_positional_parameter`: the same syntax error for
   the legal `use #(.W(8))`.
 - `ch27/test_illegal_generate_module_block_extern_task`: the same syntax error
-  for an extern task in an interface, where it is legal. The test keeps
-  `verilator@5.052`.
+  for an extern task in an interface, where it is legal. The test kept
+  `verilator@5.052` until the [third pass](#third-pass).
 - `ch6/test_ch6_extra_event_not_bit_storage`: not a syntax error. Icarus
   Verilog reports that it could not find the variable, also for the legal
   `e = f` and `e = null`.
@@ -225,7 +226,9 @@ other 423:
   removed. The other 404 tokens were judged from the text of the message
   alone. Where the message states the rule, the token stays. No legal
   counterpart was run for these 404, so this check is weaker than the one for
-  Icarus Verilog.
+  Icarus Verilog. This was the state after the second pass. The
+  [third pass](#third-pass) ran a legal counterpart for all of these tests,
+  so no token is judged from the message alone any more.
 
 <a id="second-pass-removed"></a>
 
@@ -289,3 +292,111 @@ requirements have check groups, so the baseline was written again with a
 reason. One observation of 35.5.4 now says that the error of Verilator does
 not count. No record of `coverage/test-matching-reviews.json` names these
 tests.
+
+<a id="third-pass"></a>
+
+## Third pass (2026-11-12)
+
+The third pass ran a legal counterpart for every illegal test that still
+listed `verilator@5.052`. It removed 9 more tokens from 9 tests. No test
+changed its code or its expected result.
+
+<a id="third-pass-what-was-checked"></a>
+
+### What was checked
+
+After the second pass, 541 illegal tests listed `verilator@5.052`. Each of
+them ran on Verilator 5.052 (`--lint-only`), and a legal counterpart ran
+beside it:
+
+- For 421 tests the marked line was edited into a legal form of the same
+  construct. The release accepts the legal form, so the tokens stay.
+- For 111 tests the marked line was removed, because a legal form of the
+  construct stays in the file. The release accepts the rest, so the tokens
+  stay. For 36 of these 111 the files were not read one by one. They were
+  kept on the writing pattern of the suite, which puts a legal use beside
+  the illegal line. This part of the check is weaker than the rest.
+- For 9 tests the release also rejects the legal form, or its message is
+  about another rule. Their tokens were removed.
+
+532 tokens stay. The second pass had judged 404 tokens from the text of the
+message alone. That statement described the second pass and is corrected
+here: every one of the 541 tests now has a legal counterpart run.
+
+<a id="third-pass-removed"></a>
+
+### The 9 removed tokens
+
+There are three causes.
+
+The legal form gets the same message:
+
+| Test | What Verilator 5.052 reports |
+| --- | --- |
+| `ch16/test_illegal_property_flattened_delay_variable` | The delay value is not an elaboration-time constant. The same for the legal instance `p_dly(2)`; only a literal `##2` is accepted. |
+| `ch27/test_illegal_generate_repeated_genvar_value` | Unrolling the generate loop took too long. The same for a legal loop of 200000 iterations. The test keeps `iverilog@13.0`. |
+| `ch27/test_illegal_generate_module_block_extern_task` | A syntax error at `extern`. The same for an extern task in a generate block of an interface, where it is legal. |
+
+Every legal form of the construct is reported as unsupported:
+
+| Test | What Verilator 5.052 reports |
+| --- | --- |
+| `ch18/test_illegal_dist_default_colon_equal` | A syntax error that expects `:/`. The legal `default :/ 1` is reported as unsupported. |
+| `ch18/test_illegal_dist_default_no_weight` | A syntax error that expects `:/`. The legal `default :/ 2` of the same test is reported as unsupported. |
+| `ch25/test_illegal_extern_forkjoin_function` | A syntax error that expects `task`. The legal extern forkjoin task alone is reported as unsupported. |
+
+The rejection cannot be told apart, or it is about another rule:
+
+| Test | What Verilator 5.052 reports |
+| --- | --- |
+| `ch16/test_illegal_local_variable_visible_in_instantiating_sequence` | It cannot find `v`. The legal `s_inner` alone, with its local variable, ends in an internal error. |
+| `ch19/test_illegal_cg_transition_sole_range` | A transition requires at least two values. A legal transition with a range, `([1:2] => 3)`, ends in an internal error; `(1 => 2)` is accepted. |
+| `ch29/test_illegal_udp_sequential_entry_without_state` | The output of a combinational UDP must not be `reg`. This is another rule, and the message does not name the missing state field. The test keeps `iverilog@13.0`. |
+
+The first six were clear. The last three were less clear, because the
+message of the first two fits the rule; the owner approved their removal.
+
+Eight tests got a short comment at the end of the file that says what the
+release reports and why it does not count. In
+`ch27/test_illegal_generate_module_block_extern_task` an existing comment
+said that the syntax error of Verilator is right; it was reworded in the
+same lines. No line that `:expected_stderr_regex:` names moved.
+
+<a id="third-pass-figures"></a>
+
+### Effect on the figures
+
+| Figure | Before | After |
+| --- | ---: | ---: |
+| Tests with `iverilog@13.0` | 6,389 | 6,389 |
+| Tests with `verilator@5.052` and no `iverilog@13.0` | 2,241 | 2,234 |
+| Tests with `spec` alone | 3,632 | 3,639 |
+| Illegal tests with `iverilog@13.0` | 910 | 910 |
+| Illegal tests with `verilator@5.052` | 541 | 532 |
+| Design coverage | 90.14% (11,086/12,298) | 90.14% (11,086/12,298) |
+| Execution coverage without Ghost | 50.24% (6,178/12,298) | 50.20% (6,174/12,298) |
+| Execution coverage with Ghost and kirimasim | 77.62% (9,546/12,298) | 77.59% (9,542/12,298) |
+
+Four requirements of the kind error lost their execution evidence, one each
+in 16.10, 16.12, 25.7 and 29.3.4. The requirement of 29.3.4 has a check group
+of two tests, and both have to pass in one result file.
+`ch29/test_illegal_udp_sequential_entry_without_state` still lists
+`iverilog@13.0`, but the other test of the group,
+`ch29/test_illegal_udp_two_transitions_in_entry`, lists only
+`verilator@5.052`. So no single release confirms both tests now. The
+requirement of 27.4 keeps its evidence, because its test still lists
+`iverilog@13.0`. The requirements of 18.5.3 and 27.3 had no execution
+evidence before. The test of chapter 19 is mapped to no requirement.
+
+The input digests of the 9 tests changed. They and 4 tests that share a check
+group with one of them ran again, 13 in all. The results are in
+`coverage/results/oracle-tokens-3-20261112-*.json`. Icarus Verilog 13.0 has
+11 pass and 2 known; Verilator 5.052 has 12 pass and 1 known for both seeds 1
+and 73; kirimasim `7de185f776a1` has 12 pass and 1 unsupported. Every status
+equals the one saved before.
+
+The input digests of 8 checks of 7 requirements and of 2 records in
+`coverage/test-matching-reviews.json` were refreshed. Three of the
+requirements have check groups, so the baseline was written again with a
+reason. Three observations, of 16.10, 25.7 and 27.4, now say that the
+rejection of Verilator does not count.

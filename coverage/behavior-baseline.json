@@ -28397,7 +28397,7 @@
     "SV2023-18.5.2-EXTRACT-MATCH-PROTOTYPE-SPECIFIERS": "31d84e5bc6e30de2fb54a22c684827e1a833ff10540369c4822e6051cec6e2ca",
     "SV2023-18.5.2-EXTRACT-PURE-CONSTRAINT": "063f22677058e5701a69d57df552691229331bbd4966acc94332ac804bddb805",
     "SV2023-18.5.2-EXTRACT-PURE-SAME-CLASS": "82d020da17c0ff3c1ea27da5d806bbe0b93a5775a1398d79c81f95dd2a52edc4",
-    "SV2023-18.5.3-EXTRACT-DEFAULT-DIVIDE-UNIQUE": "c286a1c0fe387947b2c5474d47a71531ae7a601581567b45cb509f64574ad1e9",
+    "SV2023-18.5.3-EXTRACT-DEFAULT-DIVIDE-UNIQUE": "2521e7ede2304c8613b30675fcc8d235d51af417d10ab19182fcc93afca384cf",
     "SV2023-18.5.3-EXTRACT-DIST-ITEM-TYPES": "93753354928ee3221eb04d4c95cc2188b2a0c625f635091a8228671c7a39f557",
     "SV2023-18.5.5-EXTRACT-IMPLICATION-FORM": "a1a7ef86d4d5051c8dfe881c907cde20810ba4ecfa89607bce587d487b5b36ac",
     "SV2023-18.5.6-EXTRACT-IF-FORM": "b99529cc8dcf718215b1059837d72c013c16e511f2ceca9d38705564f0339b6e",
@@ -28567,7 +28567,7 @@
     "SV2023-26.6-EXTRACT-EXPORT-NAMED": "29125653cb2ffc1d07dbd076bd800b0e5cfa1f69c4d953133774b91893fc72c9",
     "SV2023-27.2-EXTRACT-GENERATE-CONTENTS": "67bb2b30d2ac230a9110bb0a02fec58ea4c49101d6e72c93308e8cf2394660d8",
     "SV2023-27.3-EXTRACT-GENERATE-CONSTANT-ELABORATION": "67f47becf066c398d7c7bfc9972e0fce373423bdf502f7279d02e5a027189bd5",
-    "SV2023-27.3-EXTRACT-GENERATE-CONTEXT-ITEMS": "0e1aabb50900b794457556d68a2fc1e93320848c9cdb57a1240129233068f71a",
+    "SV2023-27.3-EXTRACT-GENERATE-CONTEXT-ITEMS": "617a278250fdaeb7bc99f5d54ec42c4fb88ef9378bab04fe7df61e3b1e556994",
     "SV2023-27.3-EXTRACT-GENERATE-HIERARCHY": "773cf69315c679296ed2cc8d256f0efd4a909632a6e3940cad165c4cc8e7847a",
     "SV2023-27.3-EXTRACT-GENERATE-OPTIONAL-REGION": "d3149223480f5be7b7c3aa4320c12e6c81897fcf8b5d7a83ea8bcb4d8ab2c778",
     "SV2023-27.4-EXTRACT-GENERATE-ARRAY-COLLISION": "5adfa09716b4460271c2f4a0a6892331ba33c9cf5b05ed0ecd22424b32c5844c",
@@ -28596,7 +28596,7 @@
     "SV2023-29.3-EXTRACT-UDP-SYMBOL-CASE": "086f33b0f8225c81e6dbab38b692f14ff49eef697edd117afd543a5da28b2c25",
     "SV2023-29.3.1-EXTRACT-UDP-SCALAR-PORTS": "f982d6be2c08bfc4f35a1d4dee78024f369879f4e068d8565ae48696f67f832e",
     "SV2023-29.3.2-EXTRACT-UDP-REG-REQUIREMENT": "c0b7723ef0bae88f651143b8e2deb0abd6299b76bb78c39083d4799d6c4ad456",
-    "SV2023-29.3.4-EXTRACT-SEQUENTIAL-FIELDS": "7bc1a120d2e2d90e0a400ec12461e13a3fa94fdf410a2be5719e9283bdab29bb",
+    "SV2023-29.3.4-EXTRACT-SEQUENTIAL-FIELDS": "5b48fe6534704de6ab0604d818635503149b0567369e0860aa7322f12cb91414",
     "SV2023-29.3.4-EXTRACT-UDP-TABLE-DELIMITERS": "51f28a5658b2bcad1e8da0a9553344d12c2ad2558b4e435a56c3ea7d0649eef5",
     "SV2023-29.8-EXTRACT-UDP-INSTANCE-GRAMMAR": "e8e1fe9d3f5c89986bcdf3d29ec321e0843c48f54cf9ff705d206f1e0c223ef9",
     "SV2023-30.2-EXTRACT-DISTRIBUTED-PATH-DELAY": "ed104abeaf1701478f4e1dd8246014239ae4d92cc0d03a0cd5cf0ccb62b63eee",
@@ -43294,5 +43294,5 @@
     "P",
     "Q"
   ],
-  "reason": "Owner-approved on 2026-11-12 (second pass): 11 more :oracle: tokens (8 iverilog@13.0 and 3 verilator@5.052) were removed from 10 illegal tests after legal counterparts got the same rejections on the pinned releases, so 9 checks of 7 requirements, 2 of them with check groups, carry new input digests. The code and expected results of the tests did not change; one observation of 35.5.4 now says that the Verilator error is not counted."
+  "reason": "Owner-approved on 2026-11-12 (third pass): nine verilator@5.052 tokens were removed from the :oracle: of nine illegal tests after a legal counterpart was run for each of them on the pinned release, so 8 checks of 7 requirements, 3 of them with check groups, carry new input digests. The code and expected results of the tests did not change; three observations (16.10, 25.7 and 27.4) now say that the Verilator rejection is not counted."
 }

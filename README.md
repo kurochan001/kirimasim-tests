@@ -69,8 +69,8 @@ The suite has **12262 tests** in 38 chapters. 5725 of them are generated. The [g
 | Expected result recorded with | Tests |
 | --- | ---: |
 | Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 6389 |
-| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 2241 |
-| The standard only, with no fixed-release simulator oracle recorded | 3632 |
+| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 2234 |
+| The standard only, with no fixed-release simulator oracle recorded | 3639 |
 
 2914 tests depend on x or z values (`:fourstate: yes`). 687 tests come with C code: 186 DPI tests (`:dpi_c:`) and 501 VPI tests (`:vpi_c:`). 1975 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 33 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 54 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
@@ -89,18 +89,18 @@ The suite has **12262 tests** in 38 chapters. 5725 of them are generated. The [g
 | 13 | Tasks and functions (subroutines) | 450 | 276 | 100 | 74 |
 | 14 | Clocking blocks | 170 |  | 101 | 69 |
 | 15 | Interprocess synchronization and communication | 192 | 2 | 58 | 132 |
-| 16 | Assertions | 793 | 38 | 124 | 631 |
+| 16 | Assertions | 793 | 38 | 122 | 633 |
 | 17 | Checkers | 108 |  | 44 | 64 |
-| 18 | Constrained random value generation | 273 | 4 | 127 | 142 |
-| 19 | Functional coverage | 196 |  | 61 | 135 |
+| 18 | Constrained random value generation | 273 | 4 | 125 | 144 |
+| 19 | Functional coverage | 196 |  | 60 | 136 |
 | 20 | Utility system tasks and system functions | 406 | 251 | 57 | 98 |
 | 21 | Input/output system tasks and system functions | 495 | 352 | 37 | 106 |
 | 22 | Compiler directives | 516 | 437 | 38 | 41 |
 | 23 | Modules and hierarchy | 417 | 281 | 57 | 79 |
 | 24 | Programs | 167 | 31 | 24 | 112 |
-| 25 | Interfaces | 262 | 90 | 120 | 52 |
+| 25 | Interfaces | 262 | 90 | 119 | 53 |
 | 26 | Packages | 262 | 90 | 70 | 102 |
-| 27 | Generate constructs | 283 | 231 | 20 | 32 |
+| 27 | Generate constructs | 283 | 231 | 19 | 33 |
 | 28 | Gate-level and switch-level modeling | 296 | 227 | 3 | 66 |
 | 29 | User-defined primitives | 142 | 95 | 11 | 36 |
 | 30 | Specify blocks | 60 | 33 | 1 | 26 |
@@ -294,8 +294,8 @@ approved it. The reviewer was an AI, not an independent human.
 Design coverage is **90.14% (11,086/12,298)**;
 execution coverage from the saved `coverage/results/` evidence of the tools
 anyone can reproduce (Icarus Verilog, Verilator and SymbiYosys) is
-**50.24% (6,178/12,298)**.
-With the results of Ghost, an unreleased simulator, and of kirimasim added, it is 77.62% (9,546/12,298).
+**50.20% (6,174/12,298)**.
+With the results of Ghost, an unreleased simulator, and of kirimasim added, it is 77.59% (9,542/12,298).
 Clauses 1 to 40 alone are at 88.47% (8,374/9,465) design coverage.
 See the [generated behavior summary](docs/behavior-coverage-summary.en.md) for the
 measurement inputs and denominator.

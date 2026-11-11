@@ -6,10 +6,10 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 90.14%, execution without Ghost 50.24%, execution with Ghost 77.62%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 90.14%, execution without Ghost 50.20%, execution with Ghost 77.59%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 90.14%. Requirement execution-confirmation rate: 50.24% without Ghost, 77.62% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 90.14%. Requirement execution-confirmation rate: 50.20% without Ghost, 77.59% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
@@ -17,7 +17,7 @@ Requirement coverage (test design): 90.14%. Requirement execution-confirmation r
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
 - The requirement coverage (test design) for registered behaviors is 11086/12298 ( 90.14% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9546/12298 ( 77.62% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9542/12298 ( 77.59% ).
 - Registered but not tested: 1212.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
@@ -33,21 +33,25 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 `check_groups` distributes a single request across multiple tests, and is successful only if all tests in the group are successful in the same runtime and run. The unspecified response is an independent alternative proof.
 
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12298 execution checked; 0 entries refer to older inputs.
-- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3086/12298 execution checked; 272 entries refer to older inputs.
-- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2989/12298 execution checked; 272 entries refer to older inputs.
-- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3881/12298 execution checked; 272 entries refer to older inputs.
-- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3593/12298 execution checked; 16 entries refer to older inputs.
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7915/12298 execution checked; 407 entries refer to older inputs.
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7995/12298 execution checked; 343 entries refer to older inputs.
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7898/12298 execution checked; 407 entries refer to older inputs.
+- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3085/12298 execution checked; 279 entries refer to older inputs.
+- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2989/12298 execution checked; 279 entries refer to older inputs.
+- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3876/12298 execution checked; 279 entries refer to older inputs.
+- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3588/12298 execution checked; 23 entries refer to older inputs.
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7915/12298 execution checked; 413 entries refer to older inputs.
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7995/12298 execution checked; 349 entries refer to older inputs.
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7898/12298 execution checked; 413 entries refer to older inputs.
 - `oracle-tokens-2-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T22:25:00.780016+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-2-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T22:25:00.894678+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-2-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T22:25:01.564353+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-2-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T22:25:02.208022+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
-- `oracle-tokens-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T19:14:33.552454+00:00` / 11/12298 execution checked; 0 entries refer to older inputs.
-- `oracle-tokens-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T19:14:36.020025+00:00` / 4/12298 execution checked; 0 entries refer to older inputs.
-- `oracle-tokens-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T19:15:04.286693+00:00` / 4/12298 execution checked; 0 entries refer to older inputs.
-- `oracle-tokens-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T19:15:22.924843+00:00` / 4/12298 execution checked; 0 entries refer to older inputs.
+- `oracle-tokens-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T19:14:33.552454+00:00` / 11/12298 execution checked; 3 entries refer to older inputs.
+- `oracle-tokens-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T19:14:36.020025+00:00` / 4/12298 execution checked; 3 entries refer to older inputs.
+- `oracle-tokens-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T19:15:04.286693+00:00` / 4/12298 execution checked; 3 entries refer to older inputs.
+- `oracle-tokens-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T19:15:22.924843+00:00` / 4/12298 execution checked; 3 entries refer to older inputs.
+- `oracle-tokens-3-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T23:13:00.161260+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
+- `oracle-tokens-3-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T23:13:04.014714+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
+- `oracle-tokens-3-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:01.978891+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
+- `oracle-tokens-3-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:03.804411+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
 - `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 73/12298 execution checked; 1 entries refer to older inputs.
 - Not used: additions2023-20261109-icarus13.json : legacy, unknown, or stale runner provenance.
 - Not used: additions2023-20261109-kirimasim-33cee3fa.json : legacy, unknown, or stale runner provenance.
@@ -39662,7 +39666,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.10-EXTRACT-LOCAL-VISIBILITY
 
-`16.10` / `error` / Execution confirmed
+`16.10` / `error` / Test mapped; execution unconfirmed
 
 Locals declared within a sequence/property are not visible in its instantiating context.
 
@@ -39670,7 +39674,7 @@ Acceptance criterion: Locals declared within a sequence/property are not visible
 
 Normative role: `mandatory`。
 
-- [test_illegal_local_variable_visible_in_instantiating_sequence.sv](../tests/ch16/test_illegal_local_variable_visible_in_instantiating_sequence.sv): sequence s_inner declares and uses local v. The only violation is line 29, where s_outer, which instantiates s_inner, refers to v; v is declared in neither s_outer nor the module. s_inner The use of the v itself is lawful. The regex points to the 29 line. Distinguishing observation: The processing system that treats the local variable of the materialized column as something visible from the materializing side accepts and fails. Verilator 5.052 reports that the definition of v is not found on this line. The decision is passed if there is 1 error lines matching the regex, so the decision is not changed even if the row of the contrast is reported incorrectly, but the design violation is made to 1, and the processing system that reports only the row of the contrast without reporting the line of the violation is failed.
+- [test_illegal_local_variable_visible_in_instantiating_sequence.sv](../tests/ch16/test_illegal_local_variable_visible_in_instantiating_sequence.sv): sequence s_inner declares and uses local v. The only violation is line 29, where s_outer, which instantiates s_inner, refers to v; v is declared in neither s_outer nor the module. s_inner The use of the v itself is lawful. The regex points to the 29 line. Distinguishing observation: The processing system that treats the local variable of the materialized column as something visible from the materializing side accepts and fails. Verilator 5.052 reports that the definition of v is not found on this line, but a design with only the legal s_inner and its local variable ends in an internal error, so its rejection does not count. The decision is passed if there is 1 error lines matching the regex, so the decision is not changed even if the row of the contrast is reported incorrectly, but the design violation is made to 1, and the processing system that reports only the row of the contrast without reporting the line of the violation is failed.
 
 ### SV2023-16.10-EXTRACT-LOST-FLOW
 
@@ -40039,7 +40043,7 @@ Normative role: `definition`。
 
 ### SV2023-16.12-EXTRACT-FLATTEN-NONRECURSIVE
 
-`16.12` / `error` / Execution confirmed
+`16.12` / `error` / Test mapped; execution unconfirmed
 
 A nonrecursive property instance follows the F.4.1 flattened property after name resolution and actual substitution; illegal rewriting makes the instance an error.
 
@@ -68213,7 +68217,7 @@ Normative role: `mandatory`。
 
 ### SV2023-25.7-EXTRACT-FORKJOIN-TASK-ONLY
 
-`25.7` / `error` / Execution confirmed
+`25.7` / `error` / Test mapped; execution unconfirmed
 
 Multiple connected module instances may define an interface task through extern forkjoin, but not a function.
 
@@ -68221,7 +68225,7 @@ Acceptance criterion: Multiple connected module instances may define an interfac
 
 Normative role: `mandatory`。
 
-- [test_illegal_extern_forkjoin_function.sv](../tests/ch25/test_illegal_extern_forkjoin_function.sv): Declares the task count in the interface fjf_bus with an extern forkjoin, and both 2 instances t1 / t2 connected to the same bus define count (comparison allowed by the standard). In the same way, the peek function is declared in an extern forkjoin, and both t1 and t2 define b.peek. :expected_stderr_regex: requests an error in the function's extern forkjoin declaration line (or function definition line, the 2th instance line). Distinguishing observation: A incorrect implementation that allows multiple instance definitions by external forkjoin to functions will accept the design and fail because no errors are produced. Conversely, an error that rejects multiple definitions of a task is reported on the count side (row 29 and row 35) and offset by the regular expression row (row 30/38/46). Verilator 5.052 rejects the 30 line as a syntax error that expects task.
+- [test_illegal_extern_forkjoin_function.sv](../tests/ch25/test_illegal_extern_forkjoin_function.sv): Declares the task count in the interface fjf_bus with an extern forkjoin, and both 2 instances t1 / t2 connected to the same bus define count (comparison allowed by the standard). In the same way, the peek function is declared in an extern forkjoin, and both t1 and t2 define b.peek. :expected_stderr_regex: requests an error in the function's extern forkjoin declaration line (or function definition line, the 2th instance line). Distinguishing observation: A incorrect implementation that allows multiple instance definitions by external forkjoin to functions will accept the design and fail because no errors are produced. Conversely, an error that rejects multiple definitions of a task is reported on the count side (row 29 and row 35) and offset by the regular expression row (row 30/38/46). Verilator 5.052 reports line 30 as a syntax error that expects task, but it rejects the legal extern forkjoin of a task as unsupported too, so its rejection does not count.
 
 ### SV2023-25.7-EXTRACT-HIERARCHICAL-METHOD-DECLARATION
 
@@ -69315,7 +69319,7 @@ Acceptance criterion: Repeating a genvar value during a loop generate evaluation
 
 Normative role: `mandatory`。
 
-- [test_illegal_generate_repeated_genvar_value.sv](../tests/ch27/test_illegal_generate_repeated_genvar_value.sv): Repeat the loop ring i = (i + 3 ) % 6 where genvar takes the same value 0 as 0 , 3 , 0 again, and accepts it for i \< 6. Only this 23 line is in violation, and the loop line of contrasts where the values 0 and 3 do not duplicate is valid. Matches the diagnostic on line 23 with :should_fail_because:. Distinguishing observation: genvar Implementations that do not detect value duplicates either overwrite ring \[ 0 \] twice or continue to expand indefinitely, and the negative test fails because it does not issue an error on line 23 (Icarus reports ring \[ 0 \] duplicate, and Verilator reports unfinished expansion on line 23). An implementation that rejects until the non-duplicate counter line has an error line of 20.
+- [test_illegal_generate_repeated_genvar_value.sv](../tests/ch27/test_illegal_generate_repeated_genvar_value.sv): Repeat the loop ring i = (i + 3 ) % 6 where genvar takes the same value 0 as 0 , 3 , 0 again, and accepts it for i \< 6. Only this 23 line is in violation, and the loop line of contrasts where the values 0 and 3 do not duplicate is valid. Matches the diagnostic on line 23 with :should_fail_because:. Distinguishing observation: genvar Implementations that do not detect value duplicates either overwrite ring \[ 0 \] twice or continue to expand indefinitely, and the negative test fails because it does not issue an error on line 23 (Icarus reports ring \[ 0 \] duplicate on line 23, and Verilator 5.052 reports unfinished expansion, but it reports the same for a legal loop with many iterations, so the rejection of Verilator does not count). An implementation that rejects until the non-duplicate counter line has an error line of 20.
 
 ### SV2023-27.4-EXTRACT-GENERATE-UNKNOWN-INDEX
 
@@ -74617,7 +74621,7 @@ Normative role: `mandatory`。
 
 ### SV2023-29.3.4-EXTRACT-SEQUENTIAL-FIELDS
 
-`29.3.4` / `error` / Execution confirmed
+`29.3.4` / `error` / Test mapped; execution unconfirmed
 
 A sequential row inserts current output/state between input and next-output fields, separated by colons, and permits a transition on at most one input.
 

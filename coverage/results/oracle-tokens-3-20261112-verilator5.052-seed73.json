@@ -1,0 +1,66 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch16/test_illegal_local_variable_visible_in_instantiating_sequence": {
+   "status": "pass",
+   "inputs_sha256": "d39d6e899f1c6bf2c2b89bd5a4e3275a6d19b6555c8e918cd8a05d0f0fad7b6a"
+  },
+  "ch16/test_illegal_property_flattened_delay_variable": {
+   "status": "pass",
+   "inputs_sha256": "b5aae18ee0db26f20222db9887a86ef182aa07b6e05e2b9ee93dfbaa0f21dff2"
+  },
+  "ch18/test_illegal_dist_default_colon_equal": {
+   "status": "pass",
+   "inputs_sha256": "e9b83f2666d644aeb151eba4e6d410b74563944c9181c8516edd74bad63b04be"
+  },
+  "ch18/test_illegal_dist_default_no_weight": {
+   "status": "pass",
+   "inputs_sha256": "ffcb0cebe9de5c678f1a243a1a803d7ea86cb6aa6d503822fa1e46be46d00f26"
+  },
+  "ch18/test_illegal_dist_two_defaults": {
+   "status": "pass",
+   "inputs_sha256": "b2f61446c992b982d5b23e50bb1a5df85a71ecb9ffd6091574ca4349456ee700"
+  },
+  "ch19/test_illegal_cg_transition_sole_range": {
+   "status": "pass",
+   "inputs_sha256": "17f19f8b706e054d2d3ba2a853d4ab62bc708c4a15af87adaa1adb9664db429b"
+  },
+  "ch25/test_illegal_extern_forkjoin_function": {
+   "status": "pass",
+   "inputs_sha256": "0adaa655e59cd0a4f615dcea01386ebb4792e28468bc22ac06a0e12aa85d3542"
+  },
+  "ch27/test_illegal_generate_checker_block_module_instance": {
+   "status": "pass",
+   "inputs_sha256": "8c4a6e0327bbb3636f36e7685e7bebf900e9afe8071c084b8a87d2d6a121a40c"
+  },
+  "ch27/test_illegal_generate_interface_block_gate": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "aa29330f65df2b06c828775fe9bb1248d0f725b125bbbd9799fa31a30a51bc35"
+  },
+  "ch27/test_illegal_generate_module_block_extern_task": {
+   "status": "pass",
+   "inputs_sha256": "87f2d6bc4e86daee9174b711466b71e159f0541ebdb1675de4432796c67fdda6"
+  },
+  "ch27/test_illegal_generate_repeated_genvar_value": {
+   "status": "pass",
+   "inputs_sha256": "5f467336c2c5ddbaae5a44b51d1424c94c1fc254d35f30c33b5ba53ad106b83d"
+  },
+  "ch29/test_illegal_udp_sequential_entry_without_state": {
+   "status": "pass",
+   "inputs_sha256": "40306888667e6fe76440290a380324a1ae984fc1f980d082b7fab4cfef2f43cd"
+  },
+  "ch29/test_illegal_udp_two_transitions_in_entry": {
+   "status": "pass",
+   "inputs_sha256": "33f5810d61497075cfacabec3f6143600f7765e04e43729ac5daecefa5428fd1"
+  }
+ },
+ "generated_at": "2026-11-11T23:13:03.804411+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

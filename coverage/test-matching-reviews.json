@@ -41913,7 +41913,7 @@
     },
     {
       "test": "tests/ch19/test_illegal_cg_transition_sole_range.sv",
-      "inputs_sha256": "c9b0b8653965e35de2cb2cb1145256e74ffc021566a3c77d52b953724434bf32",
+      "inputs_sha256": "17f19f8b706e054d2d3ba2a853d4ab62bc708c4a15af87adaa1adb9664db429b",
       "reviewed_on": "2026-10-26",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -47538,7 +47538,7 @@
     },
     {
       "test": "tests/ch25/test_illegal_extern_forkjoin_function.sv",
-      "inputs_sha256": "18469603acb2fc6ec265a65bc4ad3f4d7b3574695ecd5784242739e8228590b6",
+      "inputs_sha256": "0adaa655e59cd0a4f615dcea01386ebb4792e28468bc22ac06a0e12aa85d3542",
       "reviewed_on": "2026-11-07",
       "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",

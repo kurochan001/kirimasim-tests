@@ -4,7 +4,7 @@
 :tags: ch19
 :type: elaboration
 :lrm: 1800-2023 19.5.2
-:oracle: spec verilator@5.052
+:oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
@@ -38,3 +38,8 @@ module test_illegal_cg_transition_sole_range;
     $display("%.2f", inst.get_inst_coverage());
   end
 endmodule
+
+// Oracle check: the 5.052 release of Verilator reports on line 26 that a
+// transition requires at least two values. For a legal transition with a
+// range, ([1:2] => 3), it ends in an internal error, so the rejection cannot
+// be told apart from a failure of the release and does not count.

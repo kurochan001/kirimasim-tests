@@ -4,7 +4,7 @@
 :tags: ch27
 :type: elaboration
 :lrm: 1800-2023 27.4
-:oracle: spec iverilog@13.0 verilator@5.052
+:oracle: spec iverilog@13.0
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
@@ -24,3 +24,7 @@ module test_illegal_generate_repeated_genvar_value;
     int v = i;
   end
 endmodule
+
+// Oracle check: the 5.052 release of Verilator reports on line 23 that
+// unrolling the generate loop took too long. It reports the same for a legal
+// loop of 200000 iterations, so its error does not count.

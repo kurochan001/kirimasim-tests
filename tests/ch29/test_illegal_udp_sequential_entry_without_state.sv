@@ -4,7 +4,7 @@
 :tags: ch29
 :type: elaboration
 :lrm: 1800-2023 29.3.4
-:oracle: spec iverilog@13.0 verilator@5.052
+:oracle: spec iverilog@13.0
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
@@ -34,3 +34,8 @@ module test_illegal_udp_sequential_entry_without_state;
   wire q;
   test_illegal_udp_sequential_entry_without_state_p u(q, en, d);
 endmodule
+
+// Oracle check: the 5.052 release of Verilator reports on line 22 that the
+// output of a combinational UDP must not be reg. That is another rule, and
+// the message does not name the missing state field, so its error does not
+// count.

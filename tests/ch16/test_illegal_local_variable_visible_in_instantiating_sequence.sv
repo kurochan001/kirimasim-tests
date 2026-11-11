@@ -4,7 +4,7 @@
 :tags: ch16
 :type: elaboration
 :lrm: 1800-2023 16.10
-:oracle: spec verilator@5.052
+:oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
@@ -31,3 +31,8 @@ module test_illegal_local_variable_visible_in_instantiating_sequence;
   a_inner: assert property (@(posedge clk) s_inner);
   a_outer: assert property (@(posedge clk) s_outer);
 endmodule
+
+// Oracle check: the 5.052 release of Verilator reports on line 29 that it
+// cannot find v. For the legal s_inner alone, with its local variable, it
+// ends in an internal error, so the rejection cannot be told apart from a
+// failure of the release and does not count.

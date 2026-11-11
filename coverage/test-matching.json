@@ -81478,7 +81478,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_local_variable_visible_in_instantiating_sequence.sv",
-      "inputs_sha256": "fc49dec6958aac589da7acdf1737bf30f8bb8dd0d994f069930d0cd7fc0a0601",
+      "inputs_sha256": "d39d6e899f1c6bf2c2b89bd5a4e3275a6d19b6555c8e918cd8a05d0f0fad7b6a",
       "cited_clauses": [
         "16.10"
       ],
@@ -82495,7 +82495,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_property_flattened_delay_variable.sv",
-      "inputs_sha256": "a0f965e9246437f0a7ee1968485a7ae2e206c89ec8e0d3213e159a5b1c45c534",
+      "inputs_sha256": "b5aae18ee0db26f20222db9887a86ef182aa07b6e05e2b9ee93dfbaa0f21dff2",
       "cited_clauses": [
         "16.12"
       ],
@@ -105224,7 +105224,7 @@
     },
     {
       "test": "tests/ch18/test_illegal_dist_default_colon_equal.sv",
-      "inputs_sha256": "f6284a2e1d5845831e52ae755711fd1bb2f59551cbd89fb7a1e90a71c7fbe886",
+      "inputs_sha256": "e9b83f2666d644aeb151eba4e6d410b74563944c9181c8516edd74bad63b04be",
       "cited_clauses": [
         "18.5.3"
       ],
@@ -105259,7 +105259,7 @@
     },
     {
       "test": "tests/ch18/test_illegal_dist_default_no_weight.sv",
-      "inputs_sha256": "48b6352959201c466d3e8eaee42e4e0b39092f102acd590bf55b34d70875e01c",
+      "inputs_sha256": "ffcb0cebe9de5c678f1a243a1a803d7ea86cb6aa6d503822fa1e46be46d00f26",
       "cited_clauses": [
         "18.5.3"
       ],
@@ -122360,7 +122360,7 @@
     },
     {
       "test": "tests/ch19/test_illegal_cg_transition_sole_range.sv",
-      "inputs_sha256": "c9b0b8653965e35de2cb2cb1145256e74ffc021566a3c77d52b953724434bf32",
+      "inputs_sha256": "17f19f8b706e054d2d3ba2a853d4ab62bc708c4a15af87adaa1adb9664db429b",
       "cited_clauses": [
         "19.5.2"
       ],
@@ -122387,7 +122387,7 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch19/test_illegal_cg_transition_sole_range.sv",
-        "inputs_sha256": "c9b0b8653965e35de2cb2cb1145256e74ffc021566a3c77d52b953724434bf32",
+        "inputs_sha256": "17f19f8b706e054d2d3ba2a853d4ab62bc708c4a15af87adaa1adb9664db429b",
         "reviewed_on": "2026-10-26",
         "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -172908,7 +172908,7 @@
     },
     {
       "test": "tests/ch25/test_illegal_extern_forkjoin_function.sv",
-      "inputs_sha256": "18469603acb2fc6ec265a65bc4ad3f4d7b3574695ecd5784242739e8228590b6",
+      "inputs_sha256": "0adaa655e59cd0a4f615dcea01386ebb4792e28468bc22ac06a0e12aa85d3542",
       "cited_clauses": [
         "25.7",
         "25.7.4"
@@ -172943,7 +172943,7 @@
       ],
       "scoped_review": {
         "test": "tests/ch25/test_illegal_extern_forkjoin_function.sv",
-        "inputs_sha256": "18469603acb2fc6ec265a65bc4ad3f4d7b3574695ecd5784242739e8228590b6",
+        "inputs_sha256": "0adaa655e59cd0a4f615dcea01386ebb4792e28468bc22ac06a0e12aa85d3542",
         "reviewed_on": "2026-11-07",
         "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -185267,7 +185267,7 @@
     },
     {
       "test": "tests/ch27/test_illegal_generate_module_block_extern_task.sv",
-      "inputs_sha256": "a845df69b1eee6d3e174544fac99b97f9a73a134b78853fac0fb26663b16c4bb",
+      "inputs_sha256": "87f2d6bc4e86daee9174b711466b71e159f0541ebdb1675de4432796c67fdda6",
       "cited_clauses": [
         "27.3"
       ],
@@ -185399,7 +185399,7 @@
     },
     {
       "test": "tests/ch27/test_illegal_generate_repeated_genvar_value.sv",
-      "inputs_sha256": "5f6d4536011f8008ba5469d68914bc28e0354af60e9c8f7109e5d7d9ba1da08b",
+      "inputs_sha256": "5f467336c2c5ddbaae5a44b51d1424c94c1fc254d35f30c33b5ba53ad106b83d",
       "cited_clauses": [
         "27.4"
       ],
@@ -194766,7 +194766,7 @@
     },
     {
       "test": "tests/ch29/test_illegal_udp_sequential_entry_without_state.sv",
-      "inputs_sha256": "1780fb9e021b41edc970ea16cae54a83f2e21fcbde2e0ae9a6d6bfe82d072507",
+      "inputs_sha256": "40306888667e6fe76440290a380324a1ae984fc1f980d082b7fab4cfef2f43cd",
       "cited_clauses": [
         "29.3.4"
       ],
@@ -942939,7 +942939,7 @@
     "oracle_issue": 243,
     "partial_observation": 2136
   },
-  "registry_sha256": "923b7f6dcf9455b4ad92af503cd0803d4e471fd46bfd11bee024fc2bf3623d84",
+  "registry_sha256": "109df3f8a0fdb90402e4284ad4e731999e89fee139b81fee53d98540ba5ddb0f",
   "inventory_sha256": "7f708bec45a4f398aa534c8f94565cb0bcd1a4fbfdf0a0e21997df20add41768",
-  "review_ledger_sha256": "867e23b6a0a25ee5a0206190da02e825a036c1afa05c86ddeefa5da9b8023c29"
+  "review_ledger_sha256": "779d3b173c2a9a69ba8b3c2e8319a3bafcc5ab5867ab31e1c4902f9698daad7d"
 }

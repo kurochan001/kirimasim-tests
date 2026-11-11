@@ -6,10 +6,10 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 90.14%、Ghostを除く実行 50.24%、Ghostを含む実行 77.62%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 90.14%、Ghostを除く実行 50.20%、Ghostを含む実行 77.59%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 90.14%。** 規格要求の実行確認率: Ghostを除いて 50.24%、Ghostを含めて 77.62%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 90.14%。** 規格要求の実行確認率: Ghostを除いて 50.20%、Ghostを含めて 77.59%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
@@ -17,7 +17,7 @@
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
 - 登録済み動作に対する要求カバレッジ（テスト設計）: 11086/12298 (90.14%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9546/12298 (77.62%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9542/12298 (77.59%)。
 - 登録済みだがテスト未対応: 1212 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。
@@ -33,21 +33,25 @@
 複数テストで一つの要求を分担する `check_groups` は、同じ実行環境・実行回で グループ内の全テストが成功した場合に限り成功とします。未指定の対応は独立した代替証拠です。
 
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12298 動作確認、古い入力との対応 0 件。
-- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3086/12298 動作確認、古い入力との対応 272 件。
-- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2989/12298 動作確認、古い入力との対応 272 件。
-- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3881/12298 動作確認、古い入力との対応 272 件。
-- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3593/12298 動作確認、古い入力との対応 16 件。
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7915/12298 動作確認、古い入力との対応 407 件。
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7995/12298 動作確認、古い入力との対応 343 件。
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7898/12298 動作確認、古い入力との対応 407 件。
+- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3085/12298 動作確認、古い入力との対応 279 件。
+- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2989/12298 動作確認、古い入力との対応 279 件。
+- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3876/12298 動作確認、古い入力との対応 279 件。
+- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3588/12298 動作確認、古い入力との対応 23 件。
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7915/12298 動作確認、古い入力との対応 413 件。
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7995/12298 動作確認、古い入力との対応 349 件。
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7898/12298 動作確認、古い入力との対応 413 件。
 - `oracle-tokens-2-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T22:25:00.780016+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
 - `oracle-tokens-2-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T22:25:00.894678+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
 - `oracle-tokens-2-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T22:25:01.564353+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
 - `oracle-tokens-2-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T22:25:02.208022+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
-- `oracle-tokens-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T19:14:33.552454+00:00` / 11/12298 動作確認、古い入力との対応 0 件。
-- `oracle-tokens-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T19:14:36.020025+00:00` / 4/12298 動作確認、古い入力との対応 0 件。
-- `oracle-tokens-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T19:15:04.286693+00:00` / 4/12298 動作確認、古い入力との対応 0 件。
-- `oracle-tokens-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T19:15:22.924843+00:00` / 4/12298 動作確認、古い入力との対応 0 件。
+- `oracle-tokens-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T19:14:33.552454+00:00` / 11/12298 動作確認、古い入力との対応 3 件。
+- `oracle-tokens-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T19:14:36.020025+00:00` / 4/12298 動作確認、古い入力との対応 3 件。
+- `oracle-tokens-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T19:15:04.286693+00:00` / 4/12298 動作確認、古い入力との対応 3 件。
+- `oracle-tokens-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T19:15:22.924843+00:00` / 4/12298 動作確認、古い入力との対応 3 件。
+- `oracle-tokens-3-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T23:13:00.161260+00:00` / 1/12298 動作確認、古い入力との対応 0 件。
+- `oracle-tokens-3-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T23:13:04.014714+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
+- `oracle-tokens-3-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:01.978891+00:00` / 1/12298 動作確認、古い入力との対応 0 件。
+- `oracle-tokens-3-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:03.804411+00:00` / 1/12298 動作確認、古い入力との対応 0 件。
 - `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 73/12298 動作確認、古い入力との対応 1 件。
 - 採用しません: additions2023-20261109-icarus13.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: additions2023-20261109-kirimasim-33cee3fa.json: 古い、未知の、または古いランナーの出身。
@@ -39662,7 +39666,7 @@ F.5.4により局所可変流れを静的に決定した。複合完成時にフ
 
 ### SV2023-16.10-EXTRACT-LOCAL-VISIBILITY
 
-`16.10` / `error` / 実行確認あり
+`16.10` / `error` / テスト対応あり・実行未確認
 
 シーケンス／プロパティ内のローカル宣言は、それをインスタンス化する文脈からは見えない。
 
@@ -39670,7 +39674,7 @@ F.5.4により局所可変流れを静的に決定した。複合完成時にフ
 
 規定の性質: `mandatory`。
 
-- [test_illegal_local_variable_visible_in_instantiating_sequence.sv](../tests/ch16/test_illegal_local_variable_visible_in_instantiating_sequence.sv): 列 s_inner が局所変数 v を宣言して使い、s_inner を実体化する s_outer が v を参照する29行目を唯一の違反とする（v は s_outer にもモジュールにも宣言がない）。s_inner 自身の v の使用は合法。regex は29行目を指す。 区別: 実体化された列の局所変数を実体化する側から見えるものとして扱う処理系は受理して失敗する。Verilator 5.052 はこの行で v の定義が見つからないと報告する。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
+- [test_illegal_local_variable_visible_in_instantiating_sequence.sv](../tests/ch16/test_illegal_local_variable_visible_in_instantiating_sequence.sv): 列 s_inner が局所変数 v を宣言して使い、s_inner を実体化する s_outer が v を参照する29行目を唯一の違反とする（v は s_outer にもモジュールにも宣言がない）。s_inner 自身の v の使用は合法。regex は29行目を指す。 区別: 実体化された列の局所変数を実体化する側から見えるものとして扱う処理系は受理して失敗する。Verilator 5.052 はこの行で v の定義が見つからないと報告するが、局所変数を持つ規格で認められる s_inner だけの設計でも内部エラーで終わるので、その拒否は数えない。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-16.10-EXTRACT-LOST-FLOW
 
@@ -40039,7 +40043,7 @@ property_exprの上の iff ( expression_or_dist ) 接頭辞を無効にすると
 
 ### SV2023-16.12-EXTRACT-FLATTEN-NONRECURSIVE
 
-`16.12` / `error` / 実行確認あり
+`16.12` / `error` / テスト対応あり・実行未確認
 
 非再帰的なプロパティインスタンスは、名前解決と実引数の置換後、F.4.1の展開済みプロパティに従う。違法な書き換えは インスタンスをエラーにする
 
@@ -68213,7 +68217,7 @@ modport表現は自己決定的であり，代入のようなものではなく�
 
 ### SV2023-25.7-EXTRACT-FORKJOIN-TASK-ONLY
 
-`25.7` / `error` / 実行確認あり
+`25.7` / `error` / テスト対応あり・実行未確認
 
 複数の接続されたモジュールインスタンスは外部フォークジョインを通してインタフェースタスクを定義できるが，関数は定義できない。
 
@@ -68221,7 +68225,7 @@ modport表現は自己決定的であり，代入のようなものではなく�
 
 規定の性質: `mandatory`。
 
-- [test_illegal_extern_forkjoin_function.sv](../tests/ch25/test_illegal_extern_forkjoin_function.sv): インタフェース fjf_bus でタスク count を extern forkjoin で宣言し、同じバスに接続した2つのインスタンス t1/t2 がどちらも count を定義する（規格で認められる対照）。同じ形で関数 peek も extern forkjoin で宣言し、t1/t2 の両方が b.peek を定義する。:expected_stderr_regex: は関数の extern forkjoin 宣言行（または関数定義行・2つ目のインスタンス行）でのエラーを要求する。 区別: extern forkjoin による複数インスタンス定義を関数にも許す誤実装は設計を受理し、エラーが出ないので不合格になる。逆にタスクの複数定義まで拒否する誤実装は count 側（29行・35行）で報告し、正規表現の行（30/38/46行）とずれる。Verilator 5.052 は30行を task を期待する構文エラーとして拒否する。
+- [test_illegal_extern_forkjoin_function.sv](../tests/ch25/test_illegal_extern_forkjoin_function.sv): インタフェース fjf_bus でタスク count を extern forkjoin で宣言し、同じバスに接続した2つのインスタンス t1/t2 がどちらも count を定義する（規格で認められる対照）。同じ形で関数 peek も extern forkjoin で宣言し、t1/t2 の両方が b.peek を定義する。:expected_stderr_regex: は関数の extern forkjoin 宣言行（または関数定義行・2つ目のインスタンス行）でのエラーを要求する。 区別: extern forkjoin による複数インスタンス定義を関数にも許す誤実装は設計を受理し、エラーが出ないので不合格になる。逆にタスクの複数定義まで拒否する誤実装は count 側（29行・35行）で報告し、正規表現の行（30/38/46行）とずれる。Verilator 5.052 は30行を task を期待する構文エラーとするが、規格で認められるタスクの extern forkjoin も未対応として拒否するので、その拒否は数えない。
 
 ### SV2023-25.7-EXTRACT-HIERARCHICAL-METHOD-DECLARATION
 
@@ -69315,7 +69319,7 @@ genvar 値をループ生成評価中に繰り返すとエラーになる。
 
 規定の性質: `mandatory`。
 
-- [test_illegal_generate_repeated_genvar_value.sv](../tests/ch27/test_illegal_generate_repeated_genvar_value.sv): ループ ring の反復 i = (i + 3) % 6 で genvar が 0, 3, 0 と同じ値 0 を再び取り、条件 i \< 6 もそれを受け付ける。この 23 行目だけが違反で、値 0, 3 が重複しない対照のループ line は適法。:should_fail_because: 付きで 23 行目の診断を照合している。 区別: genvar 値の重複を検出しない実装は ring\[0\] を二度作ろうとして上書きするか無限に展開し続け、23 行目にエラーを出さないので負テストが失敗する（Icarus は ring\[0\] の重複、Verilator は展開が終わらないことを 23 行目で報告する）。値の重複がない対照 line まで拒否する実装はエラー行が 20 行目になる。
+- [test_illegal_generate_repeated_genvar_value.sv](../tests/ch27/test_illegal_generate_repeated_genvar_value.sv): ループ ring の反復 i = (i + 3) % 6 で genvar が 0, 3, 0 と同じ値 0 を再び取り、条件 i \< 6 もそれを受け付ける。この 23 行目だけが違反で、値 0, 3 が重複しない対照のループ line は適法。:should_fail_because: 付きで 23 行目の診断を照合している。 区別: genvar 値の重複を検出しない実装は ring\[0\] を二度作ろうとして上書きするか無限に展開し続け、23 行目にエラーを出さないので負テストが失敗する（Icarus は ring\[0\] の重複を 23 行目で報告し、Verilator 5.052 は展開が終わらないことを報告するが、反復の多い規格で認められるループにも同じ報告を出すので、Verilator の拒否は数えない）。値の重複がない対照 line まで拒否する実装はエラー行が 20 行目になる。
 
 ### SV2023-27.4-EXTRACT-GENERATE-UNKNOWN-INDEX
 
@@ -74617,7 +74621,7 @@ UDP 初期化は，シミュレーション開始時に許容される文字通�
 
 ### SV2023-29.3.4-EXTRACT-SEQUENTIAL-FIELDS
 
-`29.3.4` / `error` / 実行確認あり
+`29.3.4` / `error` / テスト対応あり・実行未確認
 
 順序行は，コロンで区切られた入力と次の出力フィールドの間に，現在の出力／状態を挿入し，多くの場合1入力で遷移を許容する。
 

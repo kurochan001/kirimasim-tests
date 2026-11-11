@@ -4,7 +4,7 @@
 :tags: ch16
 :type: elaboration
 :lrm: 1800-2023 16.12
-:oracle: spec verilator@5.052
+:oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
@@ -31,3 +31,7 @@ module test_illegal_property_flattened_delay_variable;
 
   c_dly: cover property (@(posedge clk) p_dly(k));   // illegal: k is a variable
 endmodule
+
+// Oracle check: the 5.052 release of Verilator reports on line 29 that the
+// delay value is not an elaboration-time constant. It reports the same for
+// the legal instance p_dly(2), so its error does not count.

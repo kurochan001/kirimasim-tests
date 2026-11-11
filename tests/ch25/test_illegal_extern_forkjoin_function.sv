@@ -4,7 +4,7 @@
 :tags: ch25
 :type: elaboration
 :lrm: 1800-2023 25.7 25.7.4
-:oracle: spec verilator@5.052
+:oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
@@ -45,3 +45,6 @@ module test_illegal_extern_forkjoin_function;
   fjf_target t1 (bus);
   fjf_target t2 (bus);   // the error can also be reported here
 endmodule
+
+// The syntax error of the 5.052 release of Verilator on line 30 does not
+// count: the release does not support the legal extern forkjoin task either.
