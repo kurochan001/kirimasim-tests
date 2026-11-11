@@ -262,8 +262,14 @@ class IcarusJudgingTests(unittest.TestCase):
         root = str(run_icarus.ROOT)
         for runner in (run_icarus, run_verilator, run_kirimasim, run_lyra):
             with self.subTest(runner=runner.__name__):
-                self.assertEqual(runner.neutral(f"WARNING: {root[:len(root) - 3]} Invalid value"),
-                                 "WARNING: <path> Invalid value")
+                # The repository may lie in the home directory, as on a CI
+                # runner, where the home directory is replaced first.
+                with mock.patch.object(Path, "home", return_value=Path("/no-such-home")):
+                    self.assertEqual(runner.neutral(f"WARNING: {root[:len(root) - 3]} Invalid value"),
+                                     "WARNING: <path> Invalid value")
+                cut = runner.neutral(f"WARNING: {root[:len(root) - 3]} Invalid value")
+                self.assertNotIn(str(Path.home()), cut)
+                self.assertNotIn(root[:len(root) - 3], cut)
                 self.assertEqual(runner.neutral(f"is '{str(Path.home())[:9]}...', expected"),
                                  "is '<path>...', expected")
                 self.assertEqual(runner.neutral(f"{root}/tests/a.sv {root[:7]} /usr/lib"),
