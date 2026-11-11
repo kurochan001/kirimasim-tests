@@ -497,3 +497,10 @@ clause 37.
 - The record of 2026-11-09 is `coverage/slang/slang-6fbb158f-20261109.json`. slang rejects 1,833 of the 1,976 illegal tests at the marked line and accepts 143. It rejects 53 of the 9,525 legal tests without `:vpi_c:`, and 351 of the 499 with it, mostly at a system task that their C code registers.
 - On the illegal tests, kirimasim `2b05349e` exits with code 3 on two that slang rejects at the line, rejects seven that slang accepts with checks of its own, and accepts 48 that slang accepts.
 - The 53 legal tests were checked against the standard. One test is wrong: `ch3/test_compilation_unit_shared_across_files` takes a tool-specific choice of 3.12.1 as a rule. slang is stricter than the standard for 48, and 4 are unclear. No test was changed.
+
+### 2026-11-11 (use model of the compilation-unit test)
+
+- `ch3/test_compilation_unit_shared_across_files` took "all files of one command line form one compilation unit" as a rule. 3.12.1 leaves the choice to the tool and requires both use models: a) one unit for all files of a command line, b) one unit for each file. The test now says `:compilation_unit: single`: it holds when use model a) is chosen. Its expected output does not change.
+- `:compilation_unit:` is a new optional metadata field; `tools/lint_metadata.py` accepts only `single`. Icarus Verilog and Verilator take use model a) by default. `tools/run_slang.py` gives slang `--single-unit` for such a test. The runners of kirimasim, Lyra and Ghost are not changed and pass no option for it.
+- The change makes the saved results of this test stale, and those of `ch3/test_include_text_joins_compilation_unit`, whose inputs include the files of `tests/ch3`. Both were run again on Icarus Verilog 13.0 and Verilator 5.052 (seeds 1 and 73) and pass; the results are `coverage/results/compilation-unit-20261111-*.json`. kirimasim, Ghost and slang were not run again.
+- The figures do not change: design coverage 90.14% (11,086/12,298), execution coverage 51.12% (6,287/12,298), and 78.00% (9,592/12,298) with Ghost.

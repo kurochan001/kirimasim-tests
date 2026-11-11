@@ -63,7 +63,7 @@ python3 tools/run_slang.py --slang slang-build/bin/slang \
 ```
 
 - Without test arguments it runs every test that is not `:type: formal`, as the other runners do.
-- slang gets `--std=1800-2023 -Wno-error=index-oob -Wno-error=string-int-concat -Wno-error=string-in-constraint --threads 1 -q`. The sources of `:files:` come before the test, the include directories and `:incdirs:` go as `-I`, `:defines:` as `-D` and `:top_module:` as `--top`. `:args:` is not used.
+- slang gets `--std=1800-2023 -Wno-error=index-oob -Wno-error=string-int-concat -Wno-error=string-in-constraint --threads 1 -q`. The sources of `:files:` come before the test, the include directories and `:incdirs:` go as `-I`, `:defines:` as `-D` and `:top_module:` as `--top`. `:args:` is not used. Since 2026-11-11, a test with `:compilation_unit: single` also gets `--single-unit`, as it needs use model a) of 3.12.1; without the option slang takes each file as its own compilation unit.
 - An illegal test is `rejected_at_line`, `rejected_elsewhere` or `accepted`, judged by `suite_results.judge_illegal`. A legal test is `clean` or `rejected`, with slang's first error. A test with `:vpi_c:` has `"vpi": true`.
 - The record has the slang commit, the suite commit, the date, the options, the hash of the tool and, for each test, the verdict, the first error and the input fingerprint. Files are named relative to the repository.
 - Records go to `coverage/slang/`, not `coverage/results/`. The coverage tools read every `coverage/results/*.json` as the results of a simulator, and no tool reads `coverage/slang/`.
@@ -158,6 +158,7 @@ An AI (Claude) did the triage; no test was changed.
 - kirimasim `2b05349e` passes none of the 53. It fails 45 with the same first error as slang, and it does not support the 8 DPI tests, as it cannot load C code.
 - The saved results of the pinned simulators pass 12 of them, the 12 whose `:oracle:` lists Icarus Verilog 13.0 or Verilator 5.052. Icarus passes 8 and Verilator 8, and 4 of these pass on both. The last column of the table names them; it counts only saved results whose inputs are current.
 - The "slang stricter" rows are candidates for reports to slang. None was filed.
+- Note of 2026-11-11: `ch3/test_compilation_unit_shared_across_files` now states its use model with `:compilation_unit: single`, and `tools/run_slang.py` gives slang `--single-unit` for it. The fix that its row names is done, so the test is no longer classed "test wrong". The tables of this section and the record of 2026-11-09 are kept as they were. slang was not run again, so the record still has the test as rejected.
 
 | Tests | Verdict | Clauses | Reason | Pass on pinned |
 | --- | --- | --- | --- | --- |

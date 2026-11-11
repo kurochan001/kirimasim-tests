@@ -3752,11 +3752,15 @@
       "checks": [
         {
           "test": "tests/ch3/test_compilation_unit_shared_across_files.sv",
-          "observation": "2つのソースファイルを同じコマンドラインでコンパイルすると1つの compilation unit になり、一方で宣言した unit_shared と unit_add が他方の module から見えて unit=42 になることを確認する。",
-          "reviewed_on": "2026-10-29",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "134d366e77e9afc8335dcfad9f08b69e31b2808179d2f9c4f008170f5c08f633",
+          "observation": "3.12.1 の use model a)（1つのコマンドラインの全ファイルが1つの compilation unit になる）を選んだとき、一方のファイルで宣言した unit_shared と unit_add が他方のファイルの module から見えて unit=42 になることを確認する。テストはメタデータ compilation_unit の値 single で、この use model が必要であることを示す。",
+          "reviewed_on": "2026-11-11",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "inputs_sha256": "de08a319c24b7e39cacdde7ea9e05a2abf1f129713805de40db825aa297c6eeb",
           "evidence": [
+            {
+              "file": "tests/ch3/test_compilation_unit_shared_across_files.sv",
+              "contains": ":compilation_unit: single"
+            },
             {
               "file": "tests/ch3/test_compilation_unit_shared_across_files.sv",
               "contains": "initial $display(\"unit=%0d\", unit_add(unit_shared));"
@@ -4001,7 +4005,7 @@
           "observation": "どのスコープにも属さない位置で include したファイルが変数 inc_count=3、enum 型 inc_color_t、関数 inc_double を宣言し、取り込む側のコンパイル単位変数 after_include がその変数から 4 に初期化される。モジュールは $unit::inc_count と $unit::after_include を 3 と 4、取り込んだ型の変数 INC_BLUE=2、関数呼出し 42 として表示する。 区別: include したテキストを取り込む側とは別のコンパイル単位とする誤実装では、$unit::inc_count や after_include の初期化、型名と関数名が解決できずコンパイルエラーとなるか、別の値を表示する。",
           "reviewed_on": "2026-11-07",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "d96efdef4262b97e6c788f23c9e718f1cf0ff966903dd922503bad94a096b00a",
+          "inputs_sha256": "7d3c925fe4739af51ad7c3d02caf6b2b9eb44a004ab8b0494ba3a637bfd74bc7",
           "evidence": [
             {
               "file": "tests/ch3/test_include_text_joins_compilation_unit.sv",

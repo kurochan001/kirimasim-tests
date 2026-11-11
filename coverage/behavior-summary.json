@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
-  "registry_sha256": "486d8ddd5892e93577530c884d8a375be3051b39a72e124ae442835945ffb471",
+  "registry_sha256": "75297f74b0c9c9519b7471588373a3afaad2dc8110f095d93cfd20ade120490c",
   "source_url": null,
   "source_audit": {
     "audited": 1740,
@@ -842,17 +842,16 @@
         "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
         "generated_at": "2026-11-06T16:22:35.529949+00:00",
         "executed": [
-          "SV2023-3.12.1-EXTRACT-INCLUDED-SOURCE",
           "SV2023-3.13-EXTRACT-ELEMENT-NAMESPACE"
         ],
-        "stale_links": 0,
+        "stale_links": 1,
         "status_counts": {
-          "pass": 2,
+          "pass": 1,
           "fail": 0,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 0,
-          "stale": 0,
+          "stale": 1,
           "not_run": 11084,
           "unmapped": 1212,
           "interpretation_pending": 0
@@ -864,17 +863,16 @@
         "version": "kirimasim 0.0.0 (commit 1e840ea322cc), built with AppleClang 21.0.0.21000334",
         "generated_at": "2026-11-06T16:22:35.395353+00:00",
         "executed": [
-          "SV2023-3.12.1-EXTRACT-INCLUDED-SOURCE",
           "SV2023-3.13-EXTRACT-ELEMENT-NAMESPACE"
         ],
-        "stale_links": 0,
+        "stale_links": 1,
         "status_counts": {
-          "pass": 2,
+          "pass": 1,
           "fail": 0,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 0,
-          "stale": 0,
+          "stale": 1,
           "not_run": 11084,
           "unmapped": 1212,
           "interpretation_pending": 0
@@ -886,17 +884,16 @@
         "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
         "generated_at": "2026-11-06T16:22:41.394923+00:00",
         "executed": [
-          "SV2023-3.12.1-EXTRACT-INCLUDED-SOURCE",
           "SV2023-3.13-EXTRACT-ELEMENT-NAMESPACE"
         ],
-        "stale_links": 0,
+        "stale_links": 1,
         "status_counts": {
-          "pass": 2,
+          "pass": 1,
           "fail": 0,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 0,
-          "stale": 0,
+          "stale": 1,
           "not_run": 11084,
           "unmapped": 1212,
           "interpretation_pending": 0
@@ -908,17 +905,16 @@
         "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
         "generated_at": "2026-11-06T16:22:47.095107+00:00",
         "executed": [
-          "SV2023-3.12.1-EXTRACT-INCLUDED-SOURCE",
           "SV2023-3.13-EXTRACT-ELEMENT-NAMESPACE"
         ],
-        "stale_links": 0,
+        "stale_links": 1,
         "status_counts": {
-          "pass": 2,
+          "pass": 1,
           "fail": 0,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 0,
-          "stale": 0,
+          "stale": 1,
           "not_run": 11084,
           "unmapped": 1212,
           "interpretation_pending": 0
@@ -2065,22 +2061,87 @@
         }
       },
       {
-        "file": "coverage-tests-20261029-icarus13.json",
+        "file": "compilation-unit-20261111-icarus13.json",
         "simulator": "icarus",
-        "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
-        "generated_at": "2026-10-28T22:47:59.529525+00:00",
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+        "generated_at": "2026-11-11T13:15:34.098945+00:00",
         "executed": [
           "SV2023-3.12.1-EXTRACT-COMBINED-FILE-MODE",
-          "SV2023-3.13-EXTRACT-ATTRIBUTE-NAMESPACE"
+          "SV2023-3.12.1-EXTRACT-INCLUDED-SOURCE"
         ],
-        "stale_links": 1,
+        "stale_links": 0,
         "status_counts": {
           "pass": 2,
           "fail": 0,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 0,
-          "stale": 1,
+          "stale": 0,
+          "not_run": 11084,
+          "unmapped": 1212,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "compilation-unit-20261111-verilator5.052-seed1.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+        "generated_at": "2026-11-11T13:15:45.259282+00:00",
+        "executed": [
+          "SV2023-3.12.1-EXTRACT-COMBINED-FILE-MODE",
+          "SV2023-3.12.1-EXTRACT-INCLUDED-SOURCE"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 2,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11084,
+          "unmapped": 1212,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "compilation-unit-20261111-verilator5.052-seed73.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+        "generated_at": "2026-11-11T13:15:56.260028+00:00",
+        "executed": [
+          "SV2023-3.12.1-EXTRACT-COMBINED-FILE-MODE",
+          "SV2023-3.12.1-EXTRACT-INCLUDED-SOURCE"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 2,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11084,
+          "unmapped": 1212,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "coverage-tests-20261029-icarus13.json",
+        "simulator": "icarus",
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+        "generated_at": "2026-10-28T22:47:59.529525+00:00",
+        "executed": [
+          "SV2023-3.13-EXTRACT-ATTRIBUTE-NAMESPACE"
+        ],
+        "stale_links": 2,
+        "status_counts": {
+          "pass": 1,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 2,
           "not_run": 11083,
           "unmapped": 1212,
           "interpretation_pending": 0
@@ -2092,17 +2153,16 @@
         "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
         "generated_at": "2026-10-28T22:46:15.799172+00:00",
         "executed": [
-          "SV2023-3.12.1-EXTRACT-COMBINED-FILE-MODE",
           "SV2023-3.13-EXTRACT-ATTRIBUTE-NAMESPACE"
         ],
-        "stale_links": 0,
+        "stale_links": 1,
         "status_counts": {
-          "pass": 2,
+          "pass": 1,
           "fail": 0,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 0,
-          "stale": 0,
+          "stale": 1,
           "not_run": 11084,
           "unmapped": 1212,
           "interpretation_pending": 0
@@ -10340,14 +10400,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 151,
+        "stale_links": 152,
         "status_counts": {
           "pass": 7915,
-          "fail": 1427,
+          "fail": 1426,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 1288,
-          "stale": 119,
+          "stale": 120,
           "not_run": 337,
           "unmapped": 1212,
           "interpretation_pending": 0
@@ -18355,14 +18415,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 87,
+        "stale_links": 88,
         "status_counts": {
           "pass": 7995,
-          "fail": 1407,
+          "fail": 1406,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 1288,
-          "stale": 59,
+          "stale": 60,
           "not_run": 337,
           "unmapped": 1212,
           "interpretation_pending": 0
@@ -26273,14 +26333,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 151,
+        "stale_links": 152,
         "status_counts": {
           "pass": 7898,
-          "fail": 1525,
+          "fail": 1524,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 1207,
-          "stale": 119,
+          "stale": 120,
           "not_run": 337,
           "unmapped": 1212,
           "interpretation_pending": 0

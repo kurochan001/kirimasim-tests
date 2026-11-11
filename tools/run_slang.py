@@ -13,7 +13,10 @@ slang or after it, and points at tests to review.
 slang gets the options that kirimasim's front end gives it (OPTIONS), the
 directories of the include files and of `:incdirs:` as -I, the macros of
 `:defines:` as -D, the module of `:top_module:` as --top, and the sources of
-`:files:` before the test. Each test runs in its own temporary directory.
+`:files:` before the test. A test with `:compilation_unit: single` needs use
+model a) of 3.12.1, so slang gets --single-unit for it; without the option
+slang takes each file as its own compilation unit. Each test runs in its own
+temporary directory.
 
 A test with `:should_fail_because:` is rejected at the line when slang has an
 error at the place `:expected_stderr_regex:` names (the rule of the other
@@ -79,7 +82,9 @@ def run(test: Path, slang: str) -> dict:
     verdict = {"kind": "illegal" if illegal else "legal"}
     if "vpi_c" in fields:
         verdict["vpi"] = True
-    command = [slang, *OPTIONS, *[f"-I{d}" for d in include_dirs],
+    single = fields.get("compilation_unit") == "single"
+    command = [slang, *OPTIONS, *(["--single-unit"] if single else []),
+               *[f"-I{d}" for d in include_dirs],
                *[f"-D{d}" for d in suite_results.defines(test)],
                *(["--top", top] if top else []), *map(str, sources), str(test.resolve())]
     with tempfile.TemporaryDirectory() as tmp:

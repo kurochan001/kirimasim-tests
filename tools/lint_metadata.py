@@ -15,7 +15,8 @@ without ".sv". The rules:
     name                :name: is not the file name
     value               a field has a value outside its allowed set (:type:,
                         :oracle:, :spec_check:, :fourstate:,
-                        :nondeterministic:, :expected_exit:, :generator:)
+                        :nondeterministic:, :expected_exit:, :generator:,
+                        :compilation_unit:)
     lrm                 :lrm: is not "1800-2023" followed by clause numbers
     chapter             the first clause of :lrm: is not of the chapter of the
                         directory (chNN)
@@ -124,7 +125,8 @@ def check(test: Path) -> list[tuple[str, str]]:
         bad("name", f":name: {fields['name']}")
 
     allowed = {"type": ("simulation", "elaboration", "formal"), "spec_check": ("ai", "human"),
-               "fourstate": ("yes", "no"), "nondeterministic": ("yes", "no")}
+               "fourstate": ("yes", "no"), "nondeterministic": ("yes", "no"),
+               "compilation_unit": ("single",)}
     for f, values in allowed.items():
         if f in fields and fields[f] not in values:
             bad("value", f":{f}: {fields[f]}")

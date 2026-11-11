@@ -36,10 +36,10 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `additions2023-20261109-kirimasim-33cee3fa.json`: `kirimasim 0.0.0 (commit 33cee3fa2f0d), built with AppleClang 21.0.0.21000401` / `2026-11-08T23:28:29.258156+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
 - `additions2023-20261109-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-08T23:28:20.610160+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
 - `additions2023-20261109-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-08T23:28:28.917518+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
-- `block-namespace-20261107-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-06T16:22:35.529949+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
-- `block-namespace-20261107-kirimasim-1e840ea3.json`: `kirimasim 0.0.0 (commit 1e840ea322cc), built with AppleClang 21.0.0.21000334` / `2026-11-06T16:22:35.395353+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
-- `block-namespace-20261107-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-06T16:22:41.394923+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
-- `block-namespace-20261107-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-06T16:22:47.095107+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
+- `block-namespace-20261107-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-06T16:22:35.529949+00:00` / 1/12298 execution checked; 1 entries refer to older inputs.
+- `block-namespace-20261107-kirimasim-1e840ea3.json`: `kirimasim 0.0.0 (commit 1e840ea322cc), built with AppleClang 21.0.0.21000334` / `2026-11-06T16:22:35.395353+00:00` / 1/12298 execution checked; 1 entries refer to older inputs.
+- `block-namespace-20261107-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-06T16:22:41.394923+00:00` / 1/12298 execution checked; 1 entries refer to older inputs.
+- `block-namespace-20261107-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-06T16:22:47.095107+00:00` / 1/12298 execution checked; 1 entries refer to older inputs.
 - `ch16-edge-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T15:43:04.210115+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
 - `ch16-edge-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T15:43:15.726452+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
 - `ch16-sim-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T15:42:14.965527+00:00` / 0/12298 execution checked; 12 entries refer to older inputs.
@@ -75,12 +75,15 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `chA-extra-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T22:16:15.354614+00:00` / 22/12298 execution checked; 3 entries refer to older inputs.
 - `chA-extra-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T22:16:45.126049+00:00` / 42/12298 execution checked; 3 entries refer to older inputs.
 - `chH-extra-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T22:00:40.482405+00:00` / 181/12298 execution checked; 7 entries refer to older inputs.
-- `coverage-tests-20261029-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T22:47:59.529525+00:00` / 2/12298 execution checked; 1 entries refer to older inputs.
-- `coverage-tests-20261029-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T22:46:15.799172+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
+- `compilation-unit-20261111-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T13:15:34.098945+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
+- `compilation-unit-20261111-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T13:15:45.259282+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
+- `compilation-unit-20261111-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T13:15:56.260028+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
+- `coverage-tests-20261029-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T22:47:59.529525+00:00` / 1/12298 execution checked; 2 entries refer to older inputs.
+- `coverage-tests-20261029-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T22:46:15.799172+00:00` / 1/12298 execution checked; 1 entries refer to older inputs.
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12298 execution checked; 0 entries refer to older inputs.
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7915/12298 execution checked; 151 entries refer to older inputs.
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7995/12298 execution checked; 87 entries refer to older inputs.
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7898/12298 execution checked; 151 entries refer to older inputs.
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7915/12298 execution checked; 152 entries refer to older inputs.
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7995/12298 execution checked; 88 entries refer to older inputs.
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7898/12298 execution checked; 152 entries refer to older inputs.
 - `issues-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T13:33:20.979624+00:00` / 1/12298 execution checked; 30 entries refer to older inputs.
 - `issues-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T13:45:50.335531+00:00` / 3798/12298 execution checked; 358 entries refer to older inputs.
 - `issues-20261031-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-30T20:31:55.476769+00:00` / 13/12298 execution checked; 19 entries refer to older inputs.
@@ -1387,7 +1390,7 @@ Acceptance criterion: Declarations across those files obey normal visibility wit
 
 Normative role: `mandatory`。
 
-- [test_compilation_unit_shared_across_files.sv](../tests/ch3/test_compilation_unit_shared_across_files.sv): Compile 2 source files on the same command line to make 1 compilation units, and make sure that the declared unit_shared and unit_add are visible from the other module as unit = 42.
+- [test_compilation_unit_shared_across_files.sv](../tests/ch3/test_compilation_unit_shared_across_files.sv): checks that, when use model a) of 3.12.1 is chosen (all files of 1 command line form 1 compilation unit), unit_shared and unit_add declared in one file are visible from the module of the other file, which gives unit = 42. The test says with the value single of the metadata compilation_unit that it needs this use model.
 
 ### SV2023-3.12.1-EXTRACT-COMPILATION-UNIT
 

@@ -36,10 +36,10 @@
 - `additions2023-20261109-kirimasim-33cee3fa.json`: `kirimasim 0.0.0 (commit 33cee3fa2f0d), built with AppleClang 21.0.0.21000401` / `2026-11-08T23:28:29.258156+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
 - `additions2023-20261109-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-08T23:28:20.610160+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
 - `additions2023-20261109-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-08T23:28:28.917518+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
-- `block-namespace-20261107-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-06T16:22:35.529949+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
-- `block-namespace-20261107-kirimasim-1e840ea3.json`: `kirimasim 0.0.0 (commit 1e840ea322cc), built with AppleClang 21.0.0.21000334` / `2026-11-06T16:22:35.395353+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
-- `block-namespace-20261107-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-06T16:22:41.394923+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
-- `block-namespace-20261107-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-06T16:22:47.095107+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
+- `block-namespace-20261107-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-06T16:22:35.529949+00:00` / 1/12298 動作確認、古い入力との対応 1 件。
+- `block-namespace-20261107-kirimasim-1e840ea3.json`: `kirimasim 0.0.0 (commit 1e840ea322cc), built with AppleClang 21.0.0.21000334` / `2026-11-06T16:22:35.395353+00:00` / 1/12298 動作確認、古い入力との対応 1 件。
+- `block-namespace-20261107-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-06T16:22:41.394923+00:00` / 1/12298 動作確認、古い入力との対応 1 件。
+- `block-namespace-20261107-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-06T16:22:47.095107+00:00` / 1/12298 動作確認、古い入力との対応 1 件。
 - `ch16-edge-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T15:43:04.210115+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
 - `ch16-edge-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T15:43:15.726452+00:00` / 1/12298 動作確認、古い入力との対応 0 件。
 - `ch16-sim-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T15:42:14.965527+00:00` / 0/12298 動作確認、古い入力との対応 12 件。
@@ -75,12 +75,15 @@
 - `chA-extra-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-10-27T22:16:15.354614+00:00` / 22/12298 動作確認、古い入力との対応 3 件。
 - `chA-extra-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T22:16:45.126049+00:00` / 42/12298 動作確認、古い入力との対応 3 件。
 - `chH-extra-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-27T22:00:40.482405+00:00` / 181/12298 動作確認、古い入力との対応 7 件。
-- `coverage-tests-20261029-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T22:47:59.529525+00:00` / 2/12298 動作確認、古い入力との対応 1 件。
-- `coverage-tests-20261029-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T22:46:15.799172+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
+- `compilation-unit-20261111-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T13:15:34.098945+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
+- `compilation-unit-20261111-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T13:15:45.259282+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
+- `compilation-unit-20261111-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T13:15:56.260028+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
+- `coverage-tests-20261029-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T22:47:59.529525+00:00` / 1/12298 動作確認、古い入力との対応 2 件。
+- `coverage-tests-20261029-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T22:46:15.799172+00:00` / 1/12298 動作確認、古い入力との対応 1 件。
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12298 動作確認、古い入力との対応 0 件。
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7915/12298 動作確認、古い入力との対応 151 件。
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7995/12298 動作確認、古い入力との対応 87 件。
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7898/12298 動作確認、古い入力との対応 151 件。
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7915/12298 動作確認、古い入力との対応 152 件。
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7995/12298 動作確認、古い入力との対応 88 件。
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7898/12298 動作確認、古い入力との対応 152 件。
 - `issues-20261028-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-28T13:33:20.979624+00:00` / 1/12298 動作確認、古い入力との対応 30 件。
 - `issues-20261028-verilator.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-10-28T13:45:50.335531+00:00` / 3798/12298 動作確認、古い入力との対応 358 件。
 - `issues-20261031-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0-dirty)` / `2026-10-30T20:31:55.476769+00:00` / 13/12298 動作確認、古い入力との対応 19 件。
@@ -1387,7 +1390,7 @@ SystemVerilog ソース定義にモジュールインスタンスがどのよう
 
 規定の性質: `mandatory`。
 
-- [test_compilation_unit_shared_across_files.sv](../tests/ch3/test_compilation_unit_shared_across_files.sv): 2つのソースファイルを同じコマンドラインでコンパイルすると1つの compilation unit になり、一方で宣言した unit_shared と unit_add が他方の module から見えて unit=42 になることを確認する。
+- [test_compilation_unit_shared_across_files.sv](../tests/ch3/test_compilation_unit_shared_across_files.sv): 3.12.1 の use model a)（1つのコマンドラインの全ファイルが1つの compilation unit になる）を選んだとき、一方のファイルで宣言した unit_shared と unit_add が他方のファイルの module から見えて unit=42 になることを確認する。テストはメタデータ compilation_unit の値 single で、この use model が必要であることを示す。
 
 ### SV2023-3.12.1-EXTRACT-COMPILATION-UNIT
 

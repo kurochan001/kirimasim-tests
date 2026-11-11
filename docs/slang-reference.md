@@ -63,7 +63,7 @@ python3 tools/run_slang.py --slang slang-build/bin/slang \
 ```
 
 - テストを指定しなければ、ほかのランナーと同じく`:type: formal`以外のすべてのテストを実行します。
-- slangには`--std=1800-2023 -Wno-error=index-oob -Wno-error=string-int-concat -Wno-error=string-in-constraint --threads 1 -q`を渡します。`:files:`のソースはテストの前に、includeのディレクトリと`:incdirs:`は`-I`、`:defines:`は`-D`、`:top_module:`は`--top`で渡します。`:args:`は使いません。
+- slangには`--std=1800-2023 -Wno-error=index-oob -Wno-error=string-int-concat -Wno-error=string-in-constraint --threads 1 -q`を渡します。`:files:`のソースはテストの前に、includeのディレクトリと`:incdirs:`は`-I`、`:defines:`は`-D`、`:top_module:`は`--top`で渡します。`:args:`は使いません。2026-11-11からは、`:compilation_unit: single`のあるテストに`--single-unit`も渡します。このテストは3.12.1のa)の使い方を必要とするためです。このオプションがなければ、slangは各ファイルを1つのコンパイル単位にします。
 - 規格違反のテストは`suite_results.judge_illegal`で判定し、`rejected_at_line`、`rejected_elsewhere`、`accepted`のどれかになります。規格に合うテストは`clean`か`rejected`で、slangの最初のエラーを残します。`:vpi_c:`のあるテストには`"vpi": true`を付けます。
 - 記録には、slangのコミット、スイートのコミット、日時、オプション、ツールのハッシュ、テストごとの判定・最初のエラー・入力の指紋が入ります。ファイル名はリポジトリからの相対です。
 - 記録は`coverage/results/`ではなく`coverage/slang/`に置きます。カバレッジのツールは`coverage/results/*.json`をすべてシミュレータの結果として読み、`coverage/slang/`を読むツールはありません。
@@ -158,6 +158,7 @@ slangが拒否する`:vpi_c:`なしの規格に合うテスト53本を、IEEE 18
 - kirimasim `2b05349e`は53本のどれもpassしません。45本はslangと同じ最初のエラーでfailし、DPIの8本はCコードを読み込めないのでunsupportedです。
 - 固定版シミュレータの保存済みの結果では、12本がpassします。`:oracle:`にIcarus Verilog 13.0かVerilator 5.052がある12本です。Icarusが8本、Verilatorが8本をpassし、そのうち4本は両方でpassします。表の最後の列にそれを示します。数えるのは、入力が今と同じ保存済みの結果だけです。
 - 「slangが規格より厳しい」の行は、slangへの報告の候補です。報告はしていません。
+- 2026-11-11の注記：`ch3/test_compilation_unit_shared_across_files`は、`:compilation_unit: single`で使い方を示すようになり、`tools/run_slang.py`はこのテストでslangに`--single-unit`を渡します。行に書いた直し方を実施したので、このテストはもう「テストの誤り」ではありません。この節の表と2026-11-09の記録はそのまま残します。slangは再実行していないので、記録ではこのテストは拒否のままです。
 
 | テスト | 判定 | 根拠 | 理由 | 固定版でpass |
 | --- | --- | --- | --- | --- |

@@ -21849,6 +21849,8 @@
     "ZXQPH0QXZ : ZXQPH1QXZ = ZXQPH2QXZ に代入していない vn が null であることと、bus を指す vok を通じた ZXQPH3QXZ = ZXQPH4QXZ を出し、 ZXQPH5QXZ = ZXQPH6QXZ に ZXQPH7QXZ を読む。": "ZXQPH0QXZ: at ZXQPH1QXZ = ZXQPH2QXZ, prints that vn, never assigned, is null, and ZXQPH3QXZ = ZXQPH4QXZ through vok, which refers to bus; at ZXQPH5QXZ = ZXQPH6QXZ, reads ZXQPH7QXZ.",
     "期待出力はその直前の 行までで、読み出しの後の行と ZXQPH0QXZ = ZXQPH1QXZ の別プロセスの行は出ない。": "The expected output ends with the line just before it; the line after the read and the line of another process at ZXQPH0QXZ = ZXQPH1QXZ do not appear.",
     "実行時のメッセージに fatal または error を照合する。": "The run-time message is matched against fatal or error.",
-    "null の仮想インタフェースの参照を致命的エラーにしない実装は後続の行を出すか、エラーのメッセージがなく失敗する。": "An implementation that does not make a reference through a null virtual interface a fatal error prints the later lines, or fails for lack of an error message."
+    "null の仮想インタフェースの参照を致命的エラーにしない実装は後続の行を出すか、エラーのメッセージがなく失敗する。": "An implementation that does not make a reference through a null virtual interface a fatal error prints the later lines, or fails for lack of an error message.",
+    "ZXQPH0QXZ : ZXQPH1QXZ の use model a)（ ZXQPH2QXZ つのコマンドラインの全ファイルが ZXQPH3QXZ つの compilation unit になる）を選んだとき、一方のファイルで宣言した ZXQPH4QXZ と ZXQPH5QXZ が他方のファイルの module から見えて ZXQPH6QXZ = ZXQPH7QXZ になることを確認する。": "ZXQPH0QXZ: checks that, when use model a) of ZXQPH1QXZ is chosen (all files of ZXQPH2QXZ command line form ZXQPH3QXZ compilation unit), ZXQPH4QXZ and ZXQPH5QXZ declared in one file are visible from the module of the other file, which gives ZXQPH6QXZ = ZXQPH7QXZ.",
+    "テストはメタデータ ZXQPH0QXZ の値 single で、この use model が必要であることを示す。": "The test says with the value single of the metadata ZXQPH0QXZ that it needs this use model."
   }
 }

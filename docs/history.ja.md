@@ -471,3 +471,10 @@
 - 2026-11-09の記録は`coverage/slang/slang-6fbb158f-20261109.json`です。slangは規格違反のテスト1,976本のうち1,833本を指定行で拒否し、143本を受理します。規格に合うテストでは、`:vpi_c:`なしの9,525本のうち53本、`:vpi_c:`ありの499本のうち351本を拒否します。後者の多くは、Cコードが登録するシステムタスクで止まります。
 - 規格違反のテストでは、kirimasim `2b05349e`は、slangが指定行で拒否する2本で終了コード3になり、slangが受理する7本を独自の検査で拒否し、slangが受理する48本を受理します。
 - 規格に合う53本を規格と照らしました。テストの誤りは1本で、`ch3/test_compilation_unit_shared_across_files`が3.12.1でツールに任された選択を規則として扱っています。slangが規格より厳しいものが48本、不明が4本です。テストは変えていません。
+
+### 2026-11-11（コンパイル単位のテストの使い方）
+
+- `ch3/test_compilation_unit_shared_across_files`は、「1つのコマンドラインの全ファイルが1つのコンパイル単位になる」ことを規則として扱っていました。3.12.1はこの選択をツールに任せ、両方の使い方を求めます。a)はコマンドラインの全ファイルで1単位、b)はファイルごとに1単位です。テストに`:compilation_unit: single`を書き、a)の使い方を選んだときに成り立つテストにしました。期待出力は変えていません。
+- `:compilation_unit:`は新しい任意のメタデータです。`tools/lint_metadata.py`は`single`だけを受け付けます。Icarus VerilogとVerilatorは既定でa)の使い方をとります。`tools/run_slang.py`は、このメタデータのあるテストでslangに`--single-unit`を渡します。kirimasim・Lyra・Ghostのランナーは変えておらず、そのためのオプションを渡しません。
+- この変更で、このテストの保存済みの結果が古くなります。`tests/ch3`のファイルを入力に含む`ch3/test_include_text_joins_compilation_unit`の結果も古くなります。2本をIcarus Verilog 13.0とVerilator 5.052（シード1と73）で再実行し、どちらもpassしました。結果は`coverage/results/compilation-unit-20261111-*.json`です。kirimasim・Ghost・slangは再実行していません。
+- 値は変わりません。要求カバレッジ（テスト設計）は90.14%（11,086/12,298）、実行確認率は51.12%（6,287/12,298）、Ghostを含めると78.00%（9,592/12,298）です。

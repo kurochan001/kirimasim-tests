@@ -541,7 +541,8 @@ it does not know.
 | `:generator:` | `<generator>@<version>`: the test was written by `generators/<generator>.py` (see "Generated tests") |
 | `:interaction_model:` | `<model>@<version>`: the registered interaction model for a generated cross test |
 | `:interaction_values:` | `factor=value` assignments for that model; coverage also verifies the generator and execution fingerprints |
-| `:files:` | Other files next to the test, separated by spaces: sources (`.sv`, `.v`), compiled before the test in the order written, and files that the design includes with `` `include ``, whose directory becomes an include directory. Their names do not start with `test_`. Whether the files form one compilation unit or several is left to the tool (3.12.1), and the tests do not depend on it |
+| `:files:` | Other files next to the test, separated by spaces: sources (`.sv`, `.v`), compiled before the test in the order written, and files that the design includes with `` `include ``, whose directory becomes an include directory. Their names do not start with `test_`. Whether the files form one compilation unit or several is left to the tool (3.12.1), and the tests do not depend on it, except the tests with `:compilation_unit:` |
+| `:compilation_unit:` | `single`: the test needs use model a) of 3.12.1, in which all files of one command line form one compilation unit. A tool has to provide this use model and use model b), in which each file is its own unit, and it may take either by default. No other value is allowed. A test without the field does not depend on the choice |
 | `:defines:` | Macros that the simulator defines before the first source file, separated by spaces: `NAME` or `NAME=VALUE` (the `-D` or `+define+` option of a tool). The standard leaves such options to the tool; the tests use them only to set macros that `` `ifdef `` and macro uses then see as if `` `define `` had set them (22.5.1) |
 | `:incdirs:` | Include directories, relative to the directory of the test, separated by spaces, where `` `include "<file>" `` looks after the current working directory (22.4); a runner gives them to the simulator after the directories of the include files in `:files:` |
 | `:top_module:` | The top-level module or configuration to elaborate. Without it, every module that nothing instantiates is a top-level module (23.3.1). A module selects it and its hierarchy; a configuration selects the design and binding rules it declares (33.4, 33.5.3) |
@@ -715,7 +716,12 @@ form the simulator takes:
 | `:files:` (include files) and `:incdirs:` | `-I` | `-I` | `+incdir+` | `-I` |
 | `:defines:` | `-D` | `-D` | `+define+` | `-D` |
 | `:top_module:` | `-s` | `--top-module` | `--top=` | `--top` |
+| `:compilation_unit: single` | the default | the default | not selected | not selected |
 | `:args:` | to `vvp` | to the model | after the test | after `--` |
+
+Icarus Verilog and Verilator take use model a) of 3.12.1 by default, so their
+runners honour `:compilation_unit: single` without an option. The runners of
+kirimasim, Lyra and Ghost pass no option for it yet.
 
 A runner prints one line for each test that does not match (`FAIL`, or
 `KNOWN` for a known difference, `UNSUPPORTED` for kirimasim and Lyra), and

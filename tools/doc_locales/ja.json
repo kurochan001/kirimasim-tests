@@ -24694,6 +24694,7 @@
     "restricted type parameters in the parameter port lists of a class and an interface, without the parameter keyword and without a default, and a restricted local type parameter in a class body, take conforming types by default and by specialization or override": "クラスとインタフェースのパラメータポートリストにある parameter キーワードも既定値もない制限付き型パラメータと、クラス本体の制限付きローカル型パラメータは、既定値、特殊化、上書きによって適合する型を受け取る",
     "the elements of the result of map() have the type of the with expression, so a result of ZXQPH0QXZ elements cannot be assigned to a queue of strings": "map() の結果の要素は with 式の型を持つので、 ZXQPH0QXZ 要素の結果は文字列のキューに代入できない",
     "the function form of ZXQPH0QXZ returns a string from inside a function, a class method, a process spawned by fork- ZXQPH1QXZ and a final procedure, and its calls print nothing": "関数形式の ZXQPH0QXZ は、関数、クラスメソッド、fork-ZXQPH1QXZ で生成したプロセス、final 手続きの中から文字列を返し、その呼び出しは何も表示しない",
-    "the values follow from the constraints": "値は制約から決まる"
+    "the values follow from the constraints": "値は制約から決まる",
+    "When use model a) of ZXQPH0QXZ is chosen, all files of one command line form one compilation unit, so a variable and a function declared in one file are visible in another file": "ZXQPH0QXZのa)の使い方を選んだとき、1つのコマンドラインの全ファイルが1つのコンパイル単位になるので、あるファイルで宣言した変数と関数がほかのファイルから見える"
   }
 }

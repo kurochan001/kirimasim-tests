@@ -109,6 +109,19 @@ class SlangReferenceTests(unittest.TestCase):
         self.assertEqual(command[-2:], [str(test.parent / "helper.sv"), str(test)])
         self.assertNotIn("+v=1", command)
 
+    def test_one_compilation_unit_is_selected_only_when_the_test_needs_it(self):
+        def command(fields):
+            test = self.write("test_x", ":expected_stdout: x\n:files: helper.sv" + fields)
+            with mock.patch.object(run_slang.subprocess, "run", return_value=
+                                   subprocess.CompletedProcess([], 0, "", "")) as execute:
+                run_slang.run(test, "/opt/slang")
+            return execute.call_args.args[0]
+        single = command("\n:compilation_unit: single")
+        self.assertEqual(single.count("--single-unit"), 1)
+        self.assertLess(single.index("--single-unit"), single.index(single[-2]))
+        self.assertNotIn("--single-unit", command(""))
+        self.assertNotIn("--single-unit", command("\n:compilation_unit: separate"))
+
     def test_the_record_names_the_commit_and_no_directory_of_the_machine(self):
         self.write("test_illegal_x", ":should_fail_because: bad\n"
                    ":expected_stderr_regex: test_illegal_x\\.sv:5:", "// fake: error 5\n")

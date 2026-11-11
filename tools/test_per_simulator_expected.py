@@ -131,6 +131,16 @@ class PerSimulatorExpectedTests(unittest.TestCase):
         problems = lint_metadata.check(self.test)
         self.assertEqual([p for p in problems if p[0] in ("expected", "expected-key")], [])
 
+    def test_lint_accepts_only_single_as_compilation_unit(self):
+        def problems(field):
+            self.write(":name: test_sample" + field, "generic\n")
+            return [p for p in lint_metadata.check(self.test) if "compilation_unit" in p[1]]
+        self.assertEqual(problems(""), [])
+        self.assertEqual(problems("\n:compilation_unit: single"), [])
+        for value in ("separate", "Single", "single unit"):
+            self.assertEqual(problems(f"\n:compilation_unit: {value}"),
+                             [("value", f":compilation_unit: {value}")])
+
     def test_lint_validates_every_expectation_file(self):
         self.write(":name: test_sample", "generic\n", icarus="from icarus\n")
         self.files["icarus"].unlink()
