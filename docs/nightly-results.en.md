@@ -35,6 +35,7 @@ The [Nightly record](../coverage/interaction-qualification/formal-ci-19cd790a-20
 ### Latest local addition
 
 The newest local addition is 120 cases for [classes declared in modules and generate blocks](interaction-verification.en.md#scoped-class-declaration), [case item literal digits](interaction-verification.en.md#case-literal-wildcard) and [structure literal keys](interaction-verification.en.md#aggregate-literal-key), totaling 110 models / 4,416 cases.
+Since the revision of two models on 2026-11-12 the selection has 110 models / 4,413 cases; the [single run](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-edgedpiquery.json) on `7de185f776a1` records 3,915 pass / 484 unsupported / 14 fail.
 The [single run](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json) on `f029ddd0eee1`, built from the latest main, records 3,915 pass / 487 unsupported / 14 fail. 106 of the 120 additions pass, six fail and eight are unsupported; preceding 4,296 inputs and statuses are unchanged. These 120 cases passed the pinned comparisons in [Check on `a9c8a8eb`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42461618429) and have not run in Nightly.
 
 The addition before it is 126 cases for [delay values](interaction-verification.en.md#delay-value-form), [package name lookup](interaction-verification.en.md#package-name-lookup) and [escaped identifiers](interaction-verification.en.md#escaped-name-binding), totaling 107 models / 4,296 cases.

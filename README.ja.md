@@ -54,15 +54,15 @@ Icarus Verilog、Verilator、kirimasim、
 以下は収録本数と確認元の内訳で、現在のシミュレータのPASS数ではありません。[`:lrm:`と`:oracle:`が記録すること](docs/faq.md#q4-are-expected-outputs-copied-from-a-simulator)を参照してください。
 
 <!-- suite-stats:begin -->
-スイートには38章にわたり**12265本のテスト**があります。 うち5728本は自動生成です。生成器ごとの本数と対象は[生成器カタログ](docs/generators.ja.md)で確認できます。
+スイートには38章にわたり**12262本のテスト**があります。 うち5725本は自動生成です。生成器ごとの本数と対象は[生成器カタログ](docs/generators.ja.md)で確認できます。
 
 | 期待結果の確認元 | テスト数 |
 | --- | ---: |
 | Icarus Verilog 13.0（`:oracle:`に`iverilog@13.0`） | 6397 |
-| Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | 2243 |
-| 規格のみ（固定リリースのシミュレータのoracle登録なし） | 3625 |
+| Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | 2238 |
+| 規格のみ（固定リリースのシミュレータのoracle登録なし） | 3627 |
 
-2914本はx/z値に依存します（`:fourstate: yes`）。690本にはCコードがあり、内訳はDPIが189本（`:dpi_c:`）、VPIが501本（`:vpi_c:`）です。1975本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。33本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル23本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定54本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
+2914本はx/z値に依存します（`:fourstate: yes`）。687本にはCコードがあり、内訳はDPIが186本（`:dpi_c:`）、VPIが501本（`:vpi_c:`）です。1975本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。33本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル23本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定54本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
 
 | 章 | 題名 | テスト数 | Icarus | Verilator | 規格のみ |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -83,7 +83,7 @@ Icarus Verilog、Verilator、kirimasim、
 | 17 | チェッカー | 108 |  | 44 | 64 |
 | 18 | 制約付き乱数値の生成 | 273 | 4 | 127 | 142 |
 | 19 | 機能カバレッジ | 196 |  | 61 | 135 |
-| 20 | ユーティリティ用システムタスク・関数 | 409 | 252 | 62 | 95 |
+| 20 | ユーティリティ用システムタスク・関数 | 406 | 252 | 57 | 97 |
 | 21 | 入出力用システムタスク・関数 | 495 | 353 | 37 | 105 |
 | 22 | コンパイラ指令 | 516 | 437 | 38 | 41 |
 | 23 | モジュールと階層 | 417 | 281 | 58 | 78 |
@@ -160,20 +160,19 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 
 [機能間クロス検証](docs/interaction-verification.md)は、制約付きの2因子網羅を基本に、
 重点的に確認する高次因子群と必須の境界ケースを併用します。短時間実行用の選択は
-**110モデル・4,416件**です。値・型の変換、スケジューリング、引数・参照の結合先、
+**110モデル・4,413件**です。値・型の変換、スケジューリング、引数・参照の結合先、
 スコープ・階層、状態保持、I/Oなどの相互作用を扱います。通常の全件実行では既存テストを
 すべて保持し、規格要求の分母は変更しません。
 
-最新のmainをビルドした**kirimasim `f029ddd0eee1`**による
-[最新の全クロス保存実行](coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json)は、
-**3,915 pass・487 unsupported・14 fail**です。moduleとgenerateブロックのクラス・case項目のリテラル・構造体リテラルの追加120件のうち106件がPASSです。
-前のビルドでの[前回の全実行](coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json)と比べて、従来4,296件の状態と入力は不変です。
-この保存実行はcross110で、110モデル・選択4,416件です。
+**kirimasim `7de185f776a1`**による
+[最新の全クロス保存実行](coverage/interaction-results/full-20261112-kirimasim-7de185f7-edgedpiquery.json)は、
+**3,915 pass・484 unsupported・14 fail**です。
+この保存実行は110モデル・選択4,413件です。
 CheckとNightlyは、生成したクロステストを固定スイートのほかのテストと一緒に実行します。Nightlyの最新の結果は[`results`ブランチのレポート](https://github.com/kurochan001/kirimasim-tests/tree/results#readme)にあります。
 入力と元の期待値を保持し、failのうち4件は固定版slangへ
 切り分けたconfigのパラメータリセット、4件は[`defparam`の型と範囲](docs/interaction-verification.md#parameter-override-type)の不一致、6件は[生成ブロックのクラス](docs/interaction-verification.md#scoped-class-declaration)でのkirimasimの内部エラーです。11→9→4の履歴、全出力の再現、未対応19機構の内訳、
 章対の精査は[不一致対応と次の優先順位](docs/cross-verification-followup.md)に記録しています。
-章間CSVの出典は単一の全クロスローカル実行cross110とし、正式実行による確認は別に記録しています。
+章間CSVの出典はこの単一の全クロスローカル実行とし、正式実行による確認は別に記録しています。
 
 名前付きイベントとループ制御（第12章×第15章）は、代表化後の合法2,016通りから36件を選びます。
 同じタイムスロットでの待機開始、blocking/NBA発火、break/continueによる受信・保持・終了を照合します。

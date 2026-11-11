@@ -22,6 +22,9 @@ Preceding 4,296 inputs and statuses are unchanged. 83 models pass their entire s
 See [classes declared in a module or a generate block](#scoped-class-declaration), [case item literal digits](#case-literal-wildcard) and [structure literal keys](#aggregate-literal-key) for the independent checks and pinned comparisons.
 The 120 additions passed the pinned comparisons in [Check on `a9c8a8eb`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42461618429); they have not run in Nightly.
 
+On 2026-11-12 the models [`edge_event_expression`](#event-expression-edge-classification-xz-transitions-and-update-timing) and [`sv_dpi_array_queries`](#sv-dpi-array-queries) were revised so that they select no equal cases. The totals are now **110 models / 4,413 cases / 189 chapter pairs**.
+The [single run](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-edgedpiquery.json) on kirimasim `7de185f776a1` records **3,915 pass / 484 unsupported / 14 fail**, with the same 14 failures. 83 models pass their entire selection.
+
 The 2026-11-08 delay-value, package-lookup and escaped-name additions bring totals to **107 models / 4,296 cases / 185 chapter pairs**.
 The [single run](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json) on kirimasim `28c6c1a1cb83` records
 **3,809 pass / 479 unsupported / eight fail**: the four existing config failures and the four where `defparam` gets the type and range wrong, as before.
@@ -526,13 +529,17 @@ In rows containing unknowns, observe both pairs short-circuited by known 0/1 and
 
 ### Event-expression edge classification, X/Z transitions, and update timing
 
-`edge_event_expression` crosses width (1, 32, 33, 64, 65, 129), bit/logic, event expression (whole vector, LSB, MSB, OR reduction), change position (low, middle, high), before/after 0/1/X/Z, and blocking/NBA. Select 64 cases from 4,096 possibilities after excluding coincident positions at width 1. Cover all 260 factor pairs plus 64 combinations of expression × before change × after change, 32 combinations of state type × before change × after change, 32 combinations of width × position × state type, 24 combinations of expression × position × update method.
+`edge_event_expression` crosses width (1, 32, 33, 64, 65, 129), bit/logic, event expression (whole vector, LSB, MSB, OR reduction), change position (low, middle, high), before/after 0/1/X/Z, and blocking/NBA. Select 64 cases from 4,032 legal possibilities. Width 1 keeps only the low position. Since model version 2 (2026-11-12) width 1 also keeps only the LSB of the two bit-select expressions, because the LSB and the MSB are then the same bit, `source[0]`. Cover all 259 factor pairs plus 64 combinations of expression × before change × after change, 32 combinations of state type × before change × after change, 32 combinations of width × position × state type, 24 combinations of expression × position × update method.
 
 Use both 0/1 backgrounds on each row; observe `posedge`, `negedge`, and value-change events without an edge qualifier using separate counters. Under 9.4.2, posedge comprises 0→1/X/Z and X/Z→1, while negedge comprises 1→0/X/Z and X/Z→0. In X↔Z, neither `posedge` nor `negedge` occurs, and only the edge-unspecified event control is triggered. Vector-expression edge detection examines only LSB, while event controls without an edge qualifier examine changes to all bits. For OR reduction, verify that a background 1 keeps the expression result unchanged when the selected bit changes, so no event occurs. If the input is bit, evaluate the value after converting X/Z to 0.
 
 Wait `#1` after initialization and clear counters, wait another `#1` before updating the target, then observe values and 3 counters `#1` afterward. Immediately after updating, observe only original signal values to check blocking versus NBA behavior. Do not read counters immediately afterward when that would race event processing. Each line also observes the known 0 → 1 transition, using it to distinguish cases where bit conversion turns the specified transition into no change.
 
 Mandatory cases include high-position X→Z at 129 bits, X→1 for 65-bit MSB, Z→1 and NBA for 33-bit bit, 0→Z at 1 bits, and background 1 suppressing changes in the OR expression. Event OR, iff, multiple updates within one time step, glitches, and multiple clocks are out of scope.
+
+Model version 1 had 4,096 legal possibilities and selected five pairs of equal tests at width 1. Version 2 replaces 17 of the 64 selected cases. The expectations of the remaining rows did not change.
+Every one of the 4,032 legal rows ran once on kirimasim `7de185f776a1` and on pinned Icarus Verilog 13.0, and all rows match on both ([record](../coverage/interaction-qualification/edgedpiquery-all-rows.json)).
+The 64 selected cases pass on [kirimasim](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-edgedpiquery.json) and on [pinned Icarus Verilog 13.0](../coverage/interaction-results/edgedpiquery-20261112-icarus13.json). Pinned Verilator 5.052 records 16 pass and 48 known for [seed 1](../coverage/interaction-results/edgedpiquery-20261112-verilator5052-seed1.json) and for [seed 73](../coverage/interaction-results/edgedpiquery-20261112-verilator5052-seed73.json).
 
 <a id="キュー動的配列のファイル監視と登録元の記述位置"></a>
 
@@ -2296,7 +2303,7 @@ python3 tools/qualify_eventlife.py \
 
 ### SV and DPI-C array queries
 
-`sv_dpi_array_queries@1` selects 19 cases for the Chapter 20×35 interaction.
+`sv_dpi_array_queries@2` selects 16 cases for the Chapter 20×35 interaction.
 The generator is [`interaction_dpiquery.py`](../generators/interaction_dpiquery.py);
 the C probe is [`cross_dpiquery.c`](../tests/ch35/cross_dpiquery.c).
 SV queries follow 20.7; open-array matching and ranges follow 35.5.6.1/35.6.1.1/H.7.5/H.7.6/H.12.1;
@@ -2309,7 +2316,13 @@ C queries follow H.12.2.
 Combine 1/2/3 unpacked dimensions, ascending/descending/mixed directions, negative/positive index offsets,
 singleton/distinct dimension sizes, packed widths 4/33, sized/open packed formals,
 normalized/offset packed actual ranges, the same/different actual on the second call and literal/variable dimension queries.
-The selection retains all 177 factor pairs, 66 targeted triples and seven anchors from 1,152 legal combinations in 19 cases.
+The selection retains all 176 factor pairs, 63 targeted triples and seven anchors from 832 legal combinations in 16 cases.
+
+Since model version 2 (2026-11-12) a row is legal only when no other direction value declares the same ranges.
+A one-element range has no direction, and a normalized packed range is always `[width-1:0]`.
+Rows with one-element dimensions keep only the descending value when the packed range is normalized, and the ascending and descending values when it has an offset.
+Rows with one unpacked dimension and a normalized packed range keep the ascending and descending values.
+This leaves 832 of the 1,152 combinations. Version 1 took all 1,152 as legal and selected one pair of equal tests.
 
 For the same actual, display SV `$dimensions`/`$unpacked_dimensions` and
 `$left/$right/$low/$high/$increment/$size` on every dimension, then call the same import for C queries.
@@ -2329,20 +2342,26 @@ C callbacks and retained C handles are outside scope. Element access and copybac
 #### Independent checks and actual fault injection
 
 [`qualify_dpiquery.py`](../tools/qualify_dpiquery.py) reads emitted SV declarations, query expressions and actual-argument call order.
-It uses separate index enumeration and dimension tables without reusing generator shape/query calculations; all 1,152 rows match.
-The actual C probe is also checked over 2,304 calls through a test-owned DPI ABI stub.
+It uses separate index enumeration and dimension tables without reusing generator shape/query calculations; all 832 rows of version 2 match (1,152 rows in version 1).
+The actual C probe is also checked over 1,664 calls through a test-owned DPI ABI stub (2,304 calls in version 1).
 The stub supplies synthetic shapes and does not qualify simulator DPI marshalling.
 
 Three original sized/normalized-packed anchors cover 1/2/3 unpacked dimensions as successful runtime controls.
 Six injected faults swap C endpoints, negate increment, use the wrong packed dimension, omit the last dimension,
 use the wrong SV packed dimension or query the old SV shape on the second call.
 All nine executions exit zero; detection is through output differences, not unsupported input or build rejection.
-The [check/runtime record](../coverage/interaction-qualification/dpiquery.json) retains source fingerprints, output and exit codes.
+The [check/runtime record](../coverage/interaction-qualification/dpiquery-v2.json) of version 2 retains source fingerprints, output and exit codes; the [record of version 1](../coverage/interaction-qualification/dpiquery.json) stays.
 These controls do not qualify offset-packed normalization or execution of open packed formals.
 
 <a id="保存実行と未確認の範囲"></a>
 
 #### Saved runs and unconfirmed scope
+
+For version 2, pinned Verilator 5.052 [seed 1](../coverage/interaction-results/edgedpiquery-20261112-verilator5052-seed1.json) and [seed 73](../coverage/interaction-results/edgedpiquery-20261112-verilator5052-seed73.json) each record six pass and ten known results.
+The six sized/normalized-packed cases have oracle entries. Four offset-packed cases differ at C dimension zero, and six open-packed cases are rejected during build parsing.
+[Pinned Icarus Verilog 13.0](../coverage/interaction-results/edgedpiquery-20261112-icarus13.json) rejects all 16 builds. The kirimasim `7de185f776a1` runner classifies all 16 as unsupported in the [complete 4,413-case run](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-edgedpiquery.json).
+One [run of all 832 legal rows](../coverage/interaction-qualification/edgedpiquery-all-rows.json) shows the same on every row: Verilator seed 1 matches the 176 sized/normalized-packed rows, differs at C dimension zero on the 240 sized/offset-packed rows and rejects the 416 open-packed rows. kirimasim and Icarus Verilog execute no row of this model.
+The paragraphs below describe the runs of version 1 with its 19 cases.
 
 Fixed Verilator 5.052 [seed 1](../coverage/interaction-results/cross69-dpiquery-verilator5052-seed1.json) and
 [seed 73](../coverage/interaction-results/cross69-dpiquery-verilator5052-seed73.json) each record 11 pass and eight known results.

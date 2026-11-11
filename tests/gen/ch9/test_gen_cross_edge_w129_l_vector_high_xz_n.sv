@@ -8,8 +8,8 @@
 :spec_check: ai
 :fourstate: yes
 :nondeterministic: no
-:generator: interaction_edge@1
-:interaction_model: edge_event_expression@1
+:generator: interaction_edge@2
+:interaction_model: edge_event_expression@2
 :interaction_values: width=129 state=logic expression=vector position=high before=x after=z update=nba
 :expected_stdout: @test_gen_cross_edge_w129_l_vector_high_xz_n.expected
 */

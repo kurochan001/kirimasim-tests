@@ -1,11 +1,34 @@
-"""SV and DPI-C shape queries on the same actual, including per-call ranges."""
+"""SV and DPI-C shape queries on the same actual, including per-call ranges.
+
+Model version 2: a row is legal only when no other value of "bounds" declares
+the same ranges. A one-element range has no direction, and a normalized packed
+range is always [width-1:0]. So with one-element dimensions and a normalized
+packed range only "down" is legal; with one-element dimensions and an offset
+packed range "mixed" equals "up" or "down"; and with one unpacked dimension
+and a normalized packed range "mixed" equals "up". Version 1 took all 1,152
+rows as legal and selected one such pair of equal tests.
+"""
 
 from common import Case
 from interaction_cover import Model, Row
 
 NAME = 'interaction_dpiquery'
-VERSION = 1
+VERSION = 2
 CHAPTER = 20
+
+
+def legal(row: Row) -> bool:
+    """False for a row whose declared ranges another value of bounds also gives."""
+    rank, bounds, _, extent, _, _, packed, _, _ = row
+    if extent == 'one':
+        # A one-element range [n:n] is the same for every direction; only an
+        # offset packed range still shows one.
+        return bounds == 'down' if packed == 'normal' else bounds != 'mixed'
+    # "mixed" alternates from an ascending first dimension, so with a single
+    # unpacked dimension it differs from "up" only in the packed range.
+    return not (rank == '1' and packed == 'normal' and bounds == 'mixed')
+
+
 MODEL = Model(
     'sv_dpi_array_queries',
     (('rank', ('1', '2', '3')), ('bounds', ('up', 'down', 'mixed')),
@@ -13,7 +36,7 @@ MODEL = Model(
      ('width', ('4', '33')), ('formal', ('sized', 'open')),
      ('packed', ('normal', 'offset')),
      ('calls', ('same', 'switch')), ('query', ('literal', 'variable'))),
-    lambda row: True,
+    legal,
     groups=(('rank', 'bounds', 'extent'), ('width', 'formal', 'calls'),
             ('rank', 'formal', 'query'), ('origin', 'bounds', 'calls'),
             ('formal', 'packed', 'query'), ('width', 'packed', 'calls')),
@@ -21,10 +44,13 @@ MODEL = Model(
              ('3', 'mixed', 'pos', 'varied', '4', 'sized', 'normal', 'switch', 'variable'),
              ('2', 'down', 'neg', 'one', '33', 'sized', 'normal', 'same', 'literal'),
              ('3', 'down', 'neg', 'varied', '33', 'open', 'offset', 'switch', 'variable'),
-             ('1', 'mixed', 'pos', 'one', '4', 'open', 'normal', 'same', 'literal'),
+             ('1', 'down', 'pos', 'one', '4', 'open', 'normal', 'same', 'literal'),
              ('2', 'up', 'pos', 'varied', '4', 'open', 'offset', 'switch', 'variable'),
              ('3', 'mixed', 'neg', 'varied', '33', 'sized', 'offset', 'same', 'literal')),
-    constraints=('全1152行が合法。固定配列の1/2/3次元とbitのpacked次元を使い、'
+    version=2,
+    constraints=('1152行のうち832行が合法。boundsの値を変えても宣言する範囲が同じになる行は一つに統一する。'
+                 '全次元が1要素でpackedが正規化済みならdownだけ、全次元が1要素でpackedがオフセット付きならupとdownだけ、'
+                 '1次元でpackedが正規化済みならupとdownだけが合法。固定配列の1/2/3次元とbitのpacked次元を使い、'
                  '同じ実引数をSVの配列問い合わせとDPI-Cの問い合わせで観測する。'
                  'packed実引数は正規化済み範囲とオフセット付き範囲を区別する。'
                  'Cの次元0は正規化したpacked範囲で、正の次元は実引数のunpacked範囲を保持する。'

@@ -6,7 +6,9 @@ Updated on 2026-11-06 JST, retaining the repair records from 2026-11-03. Preserv
 and selected models while addressing known failures, inventorying unsupported mechanisms
 and reviewing unexamined chapter pairs, in that order.
 
-The current [complete local selection](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json) has 110 models and 4,416 cases, run on kirimasim `f029ddd0eee1`, built from the latest main:
+The current [complete local selection](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-edgedpiquery.json) has 110 models and 4,413 cases, run on kirimasim `7de185f776a1`: 3,915 pass, 484 unsupported and the same 14 failures. Two models were revised on 2026-11-12 so that they select no equal cases; see the [last section](#cross-models-without-duplicate-cases).
+
+The preceding [complete local selection](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json) had 110 models and 4,416 cases, run on kirimasim `f029ddd0eee1`, built from the main of that day:
 3,915 pass, 487 unsupported and 14 failures: the four config failures, the four `defparam` failures and six where kirimasim stops with an internal error on a class in a generate block. Against the [previous complete run](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json), preceding 4,296 inputs and statuses are unchanged.
 The previous 126 cases passed the pinned comparisons in [Check on `c229a05f`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42435564931) and have not run in Nightly; these 120 cases passed the pinned comparisons in [Check on `a9c8a8eb`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42461618429) and have not run in Nightly either.
 
@@ -327,3 +329,14 @@ endmodule
 - kirimasim has no difference on all 312 case item literal rows.
 - `f029ddd0eee1` includes a slang update, but preceding 4,296 inputs and statuses do not change. The four `defparam` cases still fail.
 - Cycle delays with synchronous drives, and clocking inputs bound to expressions, are not implemented in kirimasim, so they were added to the [candidates waiting for kirimasim](#models-waiting-for-kirimasim). The other four still report `not implemented yet` on `f029ddd0eee1`.
+
+<a id="cross-models-without-duplicate-cases"></a>
+
+## Cross models without duplicate cases (2026-11-12)
+
+- The models `edge_event_expression` and `sv_dpi_array_queries` took rows as different that give the same design, and selected six pairs of equal tests. Both are now version 2.
+- At width 1 the edge model allows only the LSB of the two bit-select expressions. It has 4,032 legal rows (4,096 before) and still selects 64 cases; 17 of them are new.
+- The array-query model allows a direction value only when no other value declares the same ranges. It has 832 legal rows (1,152 before) and selects 16 cases (19 before).
+- One complete 4,413-case run on kirimasim `7de185f776a1` records 3,915 pass, 484 unsupported and 14 failures. Totals: 110 models, 189 chapter pairs, 83 full-selection-pass models. The statuses of the 4,333 cases of the other models do not change.
+- Every legal row of both models ran once. kirimasim and pinned Icarus Verilog 13.0 match all 4,032 rows of the edge model. No expectation changed.
+- See the sections on [event-expression edges](interaction-verification.en.md#event-expression-edge-classification-xz-transitions-and-update-timing) and [array queries](interaction-verification.en.md#sv-dpi-array-queries).

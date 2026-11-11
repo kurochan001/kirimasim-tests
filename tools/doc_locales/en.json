@@ -21854,6 +21854,10 @@
     "テストはメタデータ ZXQPH0QXZ の値 single で、この use model が必要であることを示す。": "The test says with the value single of the metadata ZXQPH0QXZ that it needs this use model.",
     "規格要求の実行確認率: ZXQPH0QXZ を除いて ZXQPH1QXZ 、 ZXQPH2QXZ を含めて ZXQPH3QXZ 。": "Requirement execution-confirmation rate: ZXQPH1QXZ without ZXQPH0QXZ, ZXQPH3QXZ with ZXQPH2QXZ.",
     "証跡の問題: runner fingerprint differs。": "Evidence problem: runner fingerprint differs.",
-    "ZXQPH0QXZ ZXQPH1QXZ は ZXQPH2QXZ 行目を構文エラーとするが、checker の生成ブロックにある規格で認められる checker インスタンスにも同じ構文エラーを出すので、その一致は数えない。": "ZXQPH0QXZ ZXQPH1QXZ reports a syntax error on line ZXQPH2QXZ, but it reports the same syntax error for a legal checker instance in a generate block of a checker, so that match is not counted."
+    "ZXQPH0QXZ ZXQPH1QXZ は ZXQPH2QXZ 行目を構文エラーとするが、checker の生成ブロックにある規格で認められる checker インスタンスにも同じ構文エラーを出すので、その一致は数えない。": "ZXQPH0QXZ ZXQPH1QXZ reports a syntax error on line ZXQPH2QXZ, but it reports the same syntax error for a legal checker instance in a generate block of a checker, so that match is not counted.",
+    "幅 ZXQPH0QXZ では ZXQPH1QXZ と ZXQPH2QXZ が同じビットなので、幅 ZXQPH3QXZ のビット選択式はlsbに統一。": "At width ZXQPH0QXZ the ZXQPH1QXZ and the ZXQPH2QXZ are the same bit, so the bit-select expression at width ZXQPH3QXZ is unified to lsb.",
+    "ZXQPH0QXZ 行のうち ZXQPH1QXZ 行が合法。": "ZXQPH1QXZ of the ZXQPH0QXZ rows are legal.",
+    "boundsの値を変えても宣言する範囲が同じになる行は一つに統一する。": "Rows that declare the same ranges under different values of bounds are unified into one.",
+    "全次元が ZXQPH0QXZ 要素で ZXQPH1QXZ が正規化済みならdownだけ、全次元が ZXQPH2QXZ 要素で ZXQPH3QXZ がオフセット付きならupとdownだけ、 ZXQPH4QXZ 次元で ZXQPH5QXZ が正規化済みならupとdownだけが合法。": "Only down is legal when every dimension has ZXQPH0QXZ element and ZXQPH1QXZ is normalized; only up and down when every dimension has ZXQPH2QXZ element and ZXQPH3QXZ has an offset; only up and down for ZXQPH4QXZ dimension with a normalized ZXQPH5QXZ range."
   }
 }

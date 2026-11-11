@@ -37,6 +37,7 @@ suite `19cd790a5f639348ad67fd63959dce9811d3ab56`の[Nightly](https://github.com/
 ### 直近のローカル追加
 
 最新のローカル追加は[moduleとgenerateブロックで宣言したクラス](interaction-verification.md#scoped-class-declaration)・[case項目のリテラルの桁](interaction-verification.md#case-literal-wildcard)・[構造体リテラルのキー](interaction-verification.md#aggregate-literal-key)の120件で、110モデル・4,416件です。
+2026-11-12に二つのモデルを改訂した後の選択は110モデル・4,413件で、`7de185f776a1`による[単一実行](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-edgedpiquery.json)は3,915 pass・484 unsupported・14 failです。
 最新のmainをビルドした`f029ddd0eee1`による[単一実行](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json)は3,915 pass・487 unsupported・14 failです。追加120件のうち106件がPASSで、6件がfail、8件がunsupportedです。従来4,296件の入力と状態は不変です。今回の120件は[`a9c8a8eb`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42461618429)で固定版比較が成功し、Nightlyでは未実行です。
 
 その前のローカル追加は[遅延の値の書き方](interaction-verification.md#delay-value-form)・[packageの名前の探索](interaction-verification.md#package-name-lookup)・[エスケープした識別子](interaction-verification.md#escaped-name-binding)の126件で、107モデル・4,296件です。

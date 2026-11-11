@@ -282,6 +282,8 @@ kirimasimの実行はイベント値操作が未対応です。[設計と限界]
 [`dpiquery.json`](dpiquery.json)は、生成宣言・問い合わせ式による全1,152行の独立検算と、実際のCプローブをテスト専用ABIスタブで2,304回呼び出した照合を記録します。
 合成した形状のスタブは、シミュレータのマーシャリングの確認ではありません。元の正規化済みpackedの対照3件と、SV/Cの6故障は全て実行し、終了コード0で出力差を検出しました。
 オフセット付きpackedとopen packedの実行確認はこの対照の範囲外です。通常の固定Verilator実行は11 pass・8 knownです。
+[`dpiquery-v2.json`](dpiquery-v2.json)は、model version 2（2026-11-12）の同じ検算です。全832行、1,664呼出し、対照3件、故障6件の検出を記録します。16件の通常の固定Verilator実行は6 pass・10 knownです。
+[全行の記録](edgedpiquery-all-rows.json)は、`edge_event_expression`のversion 2の全4,032行と、このモデルの全832行の一度きりの実行で、固定suiteや要求カバレッジへ加算しません。エッジの行は、kirimasimとIcarusがすべて一致します。このモデルの行を実行するのはVerilatorだけで、176行が一致し、240行が異なり、416行を拒否します。
 [`dpiquery-build.json`](dpiquery-build.json)は最新上流と照合したビルド版・バイナリ指紋・19件の解析成功・全クロス実行先を記録します。
 kirimasimランナーはCコード付きテストを実行前に未対応へ分類するため、DPI実行は未確認です。
 [設計と限界](../../docs/interaction-verification.md#sv-dpi-array-queries)を参照してください。

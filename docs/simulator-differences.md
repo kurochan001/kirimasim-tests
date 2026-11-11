@@ -796,6 +796,7 @@ Both fixed Verilator 5.052 seeds record 11 pass and eight known results for `sv_
 The 11 sized/normalized-packed cases match. Two offset-packed cases report C dimension zero differently from the normalized range.
 For an actual `[4:7]`, reported endpoints/direction differ from expected `[3:0]`. The internal cause is unconfirmed.
 Six open-packed cases and all 19 fixed Icarus 13.0 cases are build rejections. Expectations are retained; only the 11 matching cases receive oracle entries.
+Version 2 of the model (2026-11-12) selects 16 cases. Both seeds record six pass and ten known results: four offset-packed cases differ at C dimension zero and six open-packed cases are build rejections. Pinned Icarus Verilog 13.0 rejects all 16 builds. Only the six matching cases have oracle entries.
 kirimasim `50f1f77b8c94` parses every input, but its runner classifies C-backed tests as unsupported before execution.
 See [design, controls and raw evidence](interaction-verification.en.md#sv-dpi-array-queries).
 

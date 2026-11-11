@@ -1,0 +1,391 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch20/test_gen_cross_dpiquery_1_down_pos_one_4_open_normal_same_literal": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch20/test_gen_cross_dpiquery_1_down_pos_one_4_open_normal_same_literal.sv:34:16: syntax error, unexpected ']', expecting IDENTIFIER-for-type",
+   "inputs_sha256": "6a52e3a2ae94645a702287d1c6adfbdbb9b0f616cf50586161aaadc7e8bd8933"
+  },
+  "gen/ch20/test_gen_cross_dpiquery_1_down_pos_varied_4_open_normal_switch_variable": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch20/test_gen_cross_dpiquery_1_down_pos_varied_4_open_normal_switch_variable.sv:34:16: syntax error, unexpected ']', expecting IDENTIFIER-for-type",
+   "inputs_sha256": "224b088cb44c827215d838b1b35b8b26f855d776080b0a3a29f2e12e4fed4ff3"
+  },
+  "gen/ch20/test_gen_cross_dpiquery_1_mixed_neg_varied_4_sized_offset_switch_literal": {
+   "status": "known",
+   "reason": "output differs: line 5 is 'c dim=0 left=7 right=4 low=4 high=7 increment=1 size=4', expected 'c dim=0 left=3 right=0 low=0 high=3 increment=1 size=4'",
+   "inputs_sha256": "d1343f63a6b262509b3ff6acfd803549908f9936e778080d96d62b2262fde638"
+  },
+  "gen/ch20/test_gen_cross_dpiquery_1_up_neg_one_4_sized_offset_same_variable": {
+   "status": "known",
+   "reason": "output differs: line 5 is 'c dim=0 left=4 right=7 low=4 high=7 increment=-1 size=4', expected 'c dim=0 left=3 right=0 low=0 high=3 increment=1 size=4'",
+   "inputs_sha256": "1bc1fb7022c9911207f208662043617346285ff5ccdc62a1c8c2c1f962606b86"
+  },
+  "gen/ch20/test_gen_cross_dpiquery_1_up_neg_varied_33_sized_normal_switch_literal": {
+   "status": "pass",
+   "inputs_sha256": "4bacfb332f5f3546b79cee0b31ccefb95107575cc4c16c8227ede6d82c85ac45"
+  },
+  "gen/ch20/test_gen_cross_dpiquery_2_down_neg_one_33_sized_normal_same_literal": {
+   "status": "pass",
+   "inputs_sha256": "dabb6d42b9b4e7c4ba50cb077ac417f050a87c453600df7279263d735b386c6f"
+  },
+  "gen/ch20/test_gen_cross_dpiquery_2_down_neg_varied_4_sized_normal_same_literal": {
+   "status": "pass",
+   "inputs_sha256": "0fe0db2a2106f3b754a1430611b8f52ea4932f6d4a57f8ca4264c38ab7992f9b"
+  },
+  "gen/ch20/test_gen_cross_dpiquery_2_mixed_pos_varied_33_open_offset_same_literal": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch20/test_gen_cross_dpiquery_2_mixed_pos_varied_33_open_offset_same_literal.sv:34:16: syntax error, unexpected ']', expecting IDENTIFIER-for-type",
+   "inputs_sha256": "84671d8a1d3d16cb7204a85d0dfabb6574782625159b3aa9fb6abf109fd6e7fb"
+  },
+  "gen/ch20/test_gen_cross_dpiquery_2_up_pos_one_4_sized_offset_same_variable": {
+   "status": "known",
+   "reason": "output differs: line 6 is 'c dim=0 left=4 right=7 low=4 high=7 increment=-1 size=4', expected 'c dim=0 left=3 right=0 low=0 high=3 increment=1 size=4'",
+   "inputs_sha256": "f02f2440970fe5a7aa375a36d438feab9e6059258ff182f18024d48e5e883966"
+  },
+  "gen/ch20/test_gen_cross_dpiquery_2_up_pos_varied_4_open_offset_switch_variable": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch20/test_gen_cross_dpiquery_2_up_pos_varied_4_open_offset_switch_variable.sv:34:16: syntax error, unexpected ']', expecting IDENTIFIER-for-type",
+   "inputs_sha256": "0f8cfb3a8f36cb1446c2cb8bce2de0422ee7dcbf11bc31ed7490d772ad1372e6"
+  },
+  "gen/ch20/test_gen_cross_dpiquery_3_down_neg_one_4_sized_normal_same_literal": {
+   "status": "pass",
+   "inputs_sha256": "3f21765cf722a0c3b34005e7c20f012516fc7569b9317873f26d9a63f59581e7"
+  },
+  "gen/ch20/test_gen_cross_dpiquery_3_down_neg_varied_33_open_offset_switch_variable": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch20/test_gen_cross_dpiquery_3_down_neg_varied_33_open_offset_switch_variable.sv:34:16: syntax error, unexpected ']', expecting IDENTIFIER-for-type",
+   "inputs_sha256": "b35c3f1ca08ac13398c6797376340ea54112dd443e9583e07e861f90405b15d2"
+  },
+  "gen/ch20/test_gen_cross_dpiquery_3_mixed_neg_varied_33_sized_offset_same_literal": {
+   "status": "known",
+   "reason": "output differs: line 7 is 'c dim=0 left=36 right=4 low=4 high=36 increment=1 size=33', expected 'c dim=0 left=32 right=0 low=0 high=32 increment=1 size=33'",
+   "inputs_sha256": "866b11a9baffe90d9af18d5ad460820716ecf22511f1c75ccba6c1d645437a03"
+  },
+  "gen/ch20/test_gen_cross_dpiquery_3_mixed_pos_varied_4_sized_normal_switch_variable": {
+   "status": "pass",
+   "inputs_sha256": "e0c8f1faf3c97ba71cca10241d323c83caa17b4e887389d1ff1b8518df551070"
+  },
+  "gen/ch20/test_gen_cross_dpiquery_3_up_neg_one_4_open_offset_switch_literal": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/gen/ch20/test_gen_cross_dpiquery_3_up_neg_one_4_open_offset_switch_literal.sv:34:16: syntax error, unexpected ']', expecting IDENTIFIER-for-type",
+   "inputs_sha256": "1e7ae7b35aa93597e5545b79eaff6c8d8cd89f5490bacf56fab89eb220bf11cc"
+  },
+  "gen/ch20/test_gen_cross_dpiquery_3_up_neg_varied_4_sized_normal_same_literal": {
+   "status": "pass",
+   "inputs_sha256": "d464ba3d2b62fd13bf4c4b3d1f6ebe6e417dcdc140e2abc8dd2e26b751fd5d1d"
+  },
+  "gen/ch9/test_gen_cross_edge_w129_b_lsb_middle_0x_b": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=0000000000000000000000000000000000000000000000...', expected 'b0_p_input=0000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "86755ba9e8c6ced81bf4e35f894071009d3b7d6467b3014a739f43334b6a6684"
+  },
+  "gen/ch9/test_gen_cross_edge_w129_b_reduce_or_low_x1_b": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=0000000000000000000000000000000000000000000000...', expected 'b0_p_input=0000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "f486ea83bc2c5918bb852d57a7d422b555d844fd75a569ee674898bf96213fdb"
+  },
+  "gen/ch9/test_gen_cross_edge_w129_b_vector_high_0x_b": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=0000000000000000000000000000000000000000000000...', expected 'b0_p_input=0000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "bc4c712ac43a7264c9e219b4c0fa94bdae4c0b53ccc8d8fd6a8559a6926e98fc"
+  },
+  "gen/ch9/test_gen_cross_edge_w129_l_msb_middle_z0_b": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'b0_k_input=0000000000000000000000000000000000000000000000...', expected 'b0_k_input=0000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "955671127bb34da0a9978413bad50bf5dd31d14d2d414c1b3ac14f93b9f282ab"
+  },
+  "gen/ch9/test_gen_cross_edge_w129_l_vector_high_xz_n": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=1000000000000000000000000000000000000000000000...', expected 'b0_p_input=x000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "faa02b3124ec828db3a1a685867e810d1e305418933da4801e821948209e6c4e"
+  },
+  "gen/ch9/test_gen_cross_edge_w129_l_vector_low_11_b": {
+   "status": "pass",
+   "inputs_sha256": "dc0a3bc9299c36605174a268bdacb2c37bb2dd675a2d693c3a6f5673231894d1"
+  },
+  "gen/ch9/test_gen_cross_edge_w1_b_lsb_low_00_b": {
+   "status": "pass",
+   "inputs_sha256": "41e7f56705890161d56a903cdeea48e02c26970b8d0ca0092880963faec9d96e"
+  },
+  "gen/ch9/test_gen_cross_edge_w1_b_lsb_low_01_b": {
+   "status": "pass",
+   "inputs_sha256": "043a92f9ee0bc51558804285308ea7564b0f888e37a2df6d4a6f8c0dc2a80a46"
+  },
+  "gen/ch9/test_gen_cross_edge_w1_b_lsb_low_0z_b": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=0 0 source=0 expr=0', expected 'b0_p_input=0 z source=0 expr=0'",
+   "inputs_sha256": "39020f516301f38fb0a1c667018d16e7fb7eba4227a02543a7092f362d8482be"
+  },
+  "gen/ch9/test_gen_cross_edge_w1_b_lsb_low_11_b": {
+   "status": "pass",
+   "inputs_sha256": "cd299be83ce4636b9e57882f4ff9566796ed87f9b2f0a3196cba5dd2d0629cb0"
+  },
+  "gen/ch9/test_gen_cross_edge_w1_b_lsb_low_1z_b": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=1 0 source=1 expr=1', expected 'b0_p_input=1 z source=1 expr=1'",
+   "inputs_sha256": "4f8d27e5455af19914ff122cb9947e26e20161dc86f6f6e743256301f54b1a8a"
+  },
+  "gen/ch9/test_gen_cross_edge_w1_b_lsb_low_x0_b": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=0 0 source=0 expr=0', expected 'b0_p_input=x 0 source=0 expr=0'",
+   "inputs_sha256": "f078210ced7c7b7d8af4a7995a593399234d0e7ef6b42b10250ae2976b70bf17"
+  },
+  "gen/ch9/test_gen_cross_edge_w1_b_lsb_low_x1_b": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=1 1 source=1 expr=1', expected 'b0_p_input=x 1 source=0 expr=0'",
+   "inputs_sha256": "2db5f72f911121196a981c446b2cb61c4d0e0976ada6aa0e8eab73533cbe925f"
+  },
+  "gen/ch9/test_gen_cross_edge_w1_b_lsb_low_xx_b": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=1 1 source=1 expr=1', expected 'b0_p_input=x x source=0 expr=0'",
+   "inputs_sha256": "4796f3db50132dc9f8d1d3e76be256d4279f283ac9f6ccac9d936ef977ac1cd3"
+  },
+  "gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_0z_b": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=0 0 source=0 expr=0', expected 'b0_p_input=0 z source=0 expr=0'",
+   "inputs_sha256": "c11488680b68f9dc585bde989b1039d8699d5327d6caac3881119196cfe43b0b"
+  },
+  "gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_10_b": {
+   "status": "pass",
+   "inputs_sha256": "1772576404955465b99272516f3fdf388d3dd2eda4fdb40f814d0806f560e52d"
+  },
+  "gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_11_b": {
+   "status": "pass",
+   "inputs_sha256": "ac7969282d2825ac9738e7288517bf2b0a0c2ddd99a4641ecc7c3c3ef0b4034e"
+  },
+  "gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_1x_b": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=1 0 source=1 expr=1', expected 'b0_p_input=1 x source=1 expr=1'",
+   "inputs_sha256": "abbdc2c9ce1e5810c52463ecba23e56b22fe555dac1a27f73e951ab88c68b6d4"
+  },
+  "gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_xz_b": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=1 0 source=1 expr=1', expected 'b0_p_input=x z source=0 expr=0'",
+   "inputs_sha256": "ad6aaf971e72c58b70c0b437d2cb291038c23f178c39c85d9fc5ee270e10c9d7"
+  },
+  "gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_z0_b": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'b0_k_input=0 1 source=1 expr=1', expected 'b0_k_input=0 1 source=0 expr=0'",
+   "inputs_sha256": "1720dd2f5c5c2ea7bdaa43b7af392729d228b8ebfe914479d7b99b9fbbac7ba2"
+  },
+  "gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_z1_b": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'b0_k_input=0 1 source=1 expr=1', expected 'b0_k_input=0 1 source=0 expr=0'",
+   "inputs_sha256": "a78bb22cdca00f3bd981f2bb2a3a2b953e2a595093c2dfaeac68bb319721af6f"
+  },
+  "gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_zx_b": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'b0_k_input=0 1 source=1 expr=1', expected 'b0_k_input=0 1 source=0 expr=0'",
+   "inputs_sha256": "a359c4d903431ef0a50ce56af384553e525fd14ee70c96e690c2bfcb9caa276a"
+  },
+  "gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_zz_b": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=0 0 source=0 expr=0', expected 'b0_p_input=z z source=0 expr=0'",
+   "inputs_sha256": "2fc631dc5e274458e760038f07210951027fd73e9f0ad948a45db4b44a47ddc2"
+  },
+  "gen/ch9/test_gen_cross_edge_w1_b_vector_low_1x_b": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=1 0 source=1 expr=1', expected 'b0_p_input=1 x source=1 expr=1'",
+   "inputs_sha256": "4544d9964554b94c2d9d94eedf6b2c974352b8c8e8c44f4ee6942e4cb479287b"
+  },
+  "gen/ch9/test_gen_cross_edge_w1_b_vector_low_x1_b": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=0 1 source=0 expr=0', expected 'b0_p_input=x 1 source=0 expr=0'",
+   "inputs_sha256": "afc8e7f2695d6aba144e61d9513241497362d3140d272979830dff940223f0c5"
+  },
+  "gen/ch9/test_gen_cross_edge_w1_b_vector_low_z0_b": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'b0_k_input=0 1 source=1 expr=1', expected 'b0_k_input=0 1 source=0 expr=0'",
+   "inputs_sha256": "8c217d287eb5552c3feeea66e3dbf45680fa3138ab2258426d364ec804c03a5d"
+  },
+  "gen/ch9/test_gen_cross_edge_w1_b_vector_low_z1_b": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=0 1 source=0 expr=0', expected 'b0_p_input=z 1 source=0 expr=0'",
+   "inputs_sha256": "3ae130e9282b448b87403c17a6c599a368b7c3f2c903a84dcdc7f27675f861b3"
+  },
+  "gen/ch9/test_gen_cross_edge_w1_b_vector_low_zx_b": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=0 1 source=0 expr=0', expected 'b0_p_input=z x source=0 expr=0'",
+   "inputs_sha256": "8344f0a5f876f3deba0b0afba960d7172190864ac72e12123695ab3d37cc6dfc"
+  },
+  "gen/ch9/test_gen_cross_edge_w1_l_vector_low_0z_n": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=0 0 source=0 expr=0', expected 'b0_p_input=0 z source=0 expr=0'",
+   "inputs_sha256": "a2eba7f4b6c3aac1870775e446c6b013fde2cc1401f3021d660a11dfe00b6873"
+  },
+  "gen/ch9/test_gen_cross_edge_w1_l_vector_low_x0_b": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=1 0 source=1 expr=1', expected 'b0_p_input=x 0 source=x expr=x'",
+   "inputs_sha256": "4efaca105791d70e84aa4f60871abd0bf68ac374377fd3fc31c2df94c3bf5143"
+  },
+  "gen/ch9/test_gen_cross_edge_w32_b_msb_high_0z_n": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=00000000000000000000000000000000 0000000000000...', expected 'b0_p_input=00000000000000000000000000000000 z000000000000...'",
+   "inputs_sha256": "0422fe6e46968620bca9411c7c3324f1642b25104c46a16a75f736d706edf5f3"
+  },
+  "gen/ch9/test_gen_cross_edge_w32_b_msb_low_01_b": {
+   "status": "pass",
+   "inputs_sha256": "0a0a7a1890fc76efe4e8d7800eeba96a87bac06bd8db8a0a5cf2ac3b525996c9"
+  },
+  "gen/ch9/test_gen_cross_edge_w32_b_msb_low_0x_b": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=00000000000000000000000000000000 0000000000000...', expected 'b0_p_input=00000000000000000000000000000000 0000000000000...'",
+   "inputs_sha256": "a60b5bf27215fbf924c74a87d2f33f3e8e01bdfecf8abbde2dbcba623e02c1f2"
+  },
+  "gen/ch9/test_gen_cross_edge_w32_b_msb_low_10_b": {
+   "status": "pass",
+   "inputs_sha256": "d9ad47d80b2d4432bb9c69c9ecf8dc2f9a1423964a54ae0fbc5f7163019a543e"
+  },
+  "gen/ch9/test_gen_cross_edge_w32_b_msb_low_11_b": {
+   "status": "pass",
+   "inputs_sha256": "3c8ad940cee74f52077c864a849719fc729038cd5159dc4fc98a4eea20fa6272"
+  },
+  "gen/ch9/test_gen_cross_edge_w32_b_msb_low_1z_b": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=00000000000000000000000000000001 0000000000000...', expected 'b0_p_input=00000000000000000000000000000001 0000000000000...'",
+   "inputs_sha256": "b9b9c41f2c2c7fa82c3e719c5a142d85b7b8ec90f9a1bb4f5d89772f920b9587"
+  },
+  "gen/ch9/test_gen_cross_edge_w32_b_msb_low_x0_b": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=00000000000000000000000000000001 0000000000000...', expected 'b0_p_input=0000000000000000000000000000000x 0000000000000...'",
+   "inputs_sha256": "6c11658710c6a93ab19ab0d1d757ce33d28b955ddbb7f42921f942f4ac23443d"
+  },
+  "gen/ch9/test_gen_cross_edge_w32_b_msb_low_xx_b": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=00000000000000000000000000000000 0000000000000...', expected 'b0_p_input=0000000000000000000000000000000x 0000000000000...'",
+   "inputs_sha256": "7d2a23941dc9e807e34b6839672d5a52a29e09e26eea4784839ea94923618b84"
+  },
+  "gen/ch9/test_gen_cross_edge_w32_b_msb_low_xz_b": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=00000000000000000000000000000001 0000000000000...', expected 'b0_p_input=0000000000000000000000000000000x 0000000000000...'",
+   "inputs_sha256": "f81f902692b509a42a47ed9e87ebe701cd91df49b77df5e2077c68916fa2a81c"
+  },
+  "gen/ch9/test_gen_cross_edge_w32_b_msb_low_zx_b": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'b0_k_input=00000000000000000000000000000000 0000000000000...', expected 'b0_k_input=00000000000000000000000000000000 0000000000000...'",
+   "inputs_sha256": "8b626c6994df056259490c9be675addb9b35e9072b9f2e8a152c786d8b153141"
+  },
+  "gen/ch9/test_gen_cross_edge_w32_b_msb_low_zz_b": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'b0_k_input=00000000000000000000000000000000 0000000000000...', expected 'b0_k_input=00000000000000000000000000000000 0000000000000...'",
+   "inputs_sha256": "b1641ee3a13839c84bce5b091a3f5bd3e8006d25b781dda1fc562ec318e6a318"
+  },
+  "gen/ch9/test_gen_cross_edge_w32_b_reduce_or_low_xx_b": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=00000000000000000000000000000001 0000000000000...', expected 'b0_p_input=0000000000000000000000000000000x 0000000000000...'",
+   "inputs_sha256": "398b03d1f44ac5a4afaefd4f4ea7b3437c9582438a6c581b7f653a1aea163c9e"
+  },
+  "gen/ch9/test_gen_cross_edge_w32_b_vector_middle_10_b": {
+   "status": "pass",
+   "inputs_sha256": "e36f1253ddedef57c6431d855683c3aff1f84051656d48b07f261472925e9e9f"
+  },
+  "gen/ch9/test_gen_cross_edge_w32_l_lsb_high_zx_b": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'b0_k_input=00000000000000000000000000000000 1000000000000...', expected 'b0_k_input=00000000000000000000000000000000 1000000000000...'",
+   "inputs_sha256": "4018191ebd0ed992b4db5db3953ebbcba7d763ac977373a1833dd1badc26efa3"
+  },
+  "gen/ch9/test_gen_cross_edge_w32_l_msb_low_z1_b": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'b0_k_input=00000000000000000000000000000000 0000000000000...', expected 'b0_k_input=00000000000000000000000000000000 0000000000000...'",
+   "inputs_sha256": "08b97f9e5e60f1cb009028e1b3f3f51eeb5f841052405d7107793c66ea993938"
+  },
+  "gen/ch9/test_gen_cross_edge_w32_l_reduce_or_middle_0x_n": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=00000000000000000000000000000000 0000000000000...', expected 'b0_p_input=00000000000000000000000000000000 0000000000000...'",
+   "inputs_sha256": "7ed4b9ee14118b882057ddcc3561051852ae68ee5f24bb4f85b15b22b73e56a2"
+  },
+  "gen/ch9/test_gen_cross_edge_w33_b_lsb_low_z1_n": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'b0_k_input=000000000000000000000000000000000 000000000000...', expected 'b0_k_input=000000000000000000000000000000000 000000000000...'",
+   "inputs_sha256": "00480b49e8575c50b86d97ccacb3179fb0eb5a7d5889586f2c2ab681ce11a7fb"
+  },
+  "gen/ch9/test_gen_cross_edge_w33_b_reduce_or_high_1z_b": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=100000000000000000000000000000000 000000000000...', expected 'b0_p_input=100000000000000000000000000000000 z00000000000...'",
+   "inputs_sha256": "0a37a291a6dcf9ed8e89f5d024294033a03fecdc484f5ed1945199271c443c89"
+  },
+  "gen/ch9/test_gen_cross_edge_w33_b_vector_middle_01_b": {
+   "status": "pass",
+   "inputs_sha256": "98ee046b24a0b334b0bd94dae7515720304673f77cd806ec72308f199449a6ff"
+  },
+  "gen/ch9/test_gen_cross_edge_w33_l_lsb_low_10_b": {
+   "status": "pass",
+   "inputs_sha256": "e0b37ab1bc5724a1837cba687d14dea0722e7c595f3f25e6e6a70378e2c96aa9"
+  },
+  "gen/ch9/test_gen_cross_edge_w33_l_msb_middle_00_n": {
+   "status": "pass",
+   "inputs_sha256": "4af8313fc1e22361ed28dc3c8b5d6098f769b584bb582994b29d86cdb5efdf5e"
+  },
+  "gen/ch9/test_gen_cross_edge_w33_l_vector_high_xx_b": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=100000000000000000000000000000000 100000000000...', expected 'b0_p_input=x00000000000000000000000000000000 x00000000000...'",
+   "inputs_sha256": "e419824dee3e6961205be89747cf97d3240194da87b3bf256ed625a16d8e853a"
+  },
+  "gen/ch9/test_gen_cross_edge_w64_b_lsb_high_z0_n": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'b0_k_input=0000000000000000000000000000000000000000000000...', expected 'b0_k_input=0000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "e058a0ee20136b4e22d27bd514d5b8798a25387cf4ef37a5fcdef4553ebce526"
+  },
+  "gen/ch9/test_gen_cross_edge_w64_b_lsb_middle_xz_n": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=0000000000000000000000000000000000000000000000...', expected 'b0_p_input=0000000000000000000000000000000x00000000000000...'",
+   "inputs_sha256": "35a34fbad29326f819d5c6c3e28c46c871d5f1de0a6e4c25caea3f2cefa1f071"
+  },
+  "gen/ch9/test_gen_cross_edge_w64_b_msb_low_1x_n": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=0000000000000000000000000000000000000000000000...', expected 'b0_p_input=0000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "49c93633e7c625bdbbf837dd98b9f84ac47cf50bf37ab32854d19597aacdfaf1"
+  },
+  "gen/ch9/test_gen_cross_edge_w64_l_lsb_high_zz_b": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'b0_k_input=0000000000000000000000000000000000000000000000...', expected 'b0_k_input=0000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "8364f82d7bdc1826dbe0515df49eed973450bcb5d1d3402b6327b2e4ff6e5dda"
+  },
+  "gen/ch9/test_gen_cross_edge_w64_l_reduce_or_middle_01_b": {
+   "status": "pass",
+   "inputs_sha256": "2ee415f3e1c61a19599532c7d17034469f878eb23edcd2a1f9e9f871194d7cc0"
+  },
+  "gen/ch9/test_gen_cross_edge_w64_l_vector_low_1z_b": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=0000000000000000000000000000000000000000000000...', expected 'b0_p_input=0000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "ce30487e7f415bffeb9dab941dc3cfc7715862f327dc1123c3b473d716e8e75d"
+  },
+  "gen/ch9/test_gen_cross_edge_w65_b_reduce_or_high_00_n": {
+   "status": "pass",
+   "inputs_sha256": "cf53782b242253a366ec5a2b4255f2952acfbfb300a838b696d33a067a09ffd9"
+  },
+  "gen/ch9/test_gen_cross_edge_w65_b_reduce_or_low_x0_n": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=0000000000000000000000000000000000000000000000...', expected 'b0_p_input=0000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "a08c17eae742719c2e1dc20f73ae7e0b5a7d975e1494314275244582a55d91d7"
+  },
+  "gen/ch9/test_gen_cross_edge_w65_b_vector_middle_zz_n": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'b0_k_input=0000000000000000000000000000000000000000000000...', expected 'b0_k_input=0000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "86d2421bf29a5df26d896fc66e092794281c3d33578568b3c039aa106df67957"
+  },
+  "gen/ch9/test_gen_cross_edge_w65_l_lsb_low_1x_b": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=0000000000000000000000000000000000000000000000...', expected 'b0_p_input=0000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "65a12325e7387eaffb8734d46403b504b218cd7884d99ea0519a5cd4f22e5bae"
+  },
+  "gen/ch9/test_gen_cross_edge_w65_l_msb_high_x1_b": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'b0_p_input=1000000000000000000000000000000000000000000000...', expected 'b0_p_input=x000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "2d7f55cefd92acb0459600a3f5ac461522c8fefbb9c06136fad5fb5dd7e449ab"
+  },
+  "gen/ch9/test_gen_cross_edge_w65_l_vector_middle_00_b": {
+   "status": "pass",
+   "inputs_sha256": "c2b55a50c320b75f9f5cdb2de8bdf15bb2588d250aea4217d966f174c2199736"
+  }
+ },
+ "generated_at": "2026-11-11T21:38:16.419798+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

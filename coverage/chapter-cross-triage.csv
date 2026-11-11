@@ -1082,9 +1082,9 @@ tests/ch24/test_program_attributed_and_generate_items.sv",既存モデルの計�
 20,ユーティリティ用システムタスク・関数,32,標準遅延形式によるバックアノテーション,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 20,ユーティリティ用システムタスク・関数,33,設計内容の構成指定,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 20,ユーティリティ用システムタスク・関数,34,保護エンベロープ,N,対象外,対象外,0,第34章: 保護エンベロープは本スイートの動作検証の対象範囲外。対応方針が変わるときに再確認する。,本計画の動作クロスの対象外,,該当なし,0,,0,,対象範囲が変わるときに方針を再確認する,2026-11-05,"Codex (GPT-6), AI review"
-20,ユーティリティ用システムタスク・関数,35,直接プログラミングインターフェース（DPI）,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,51,"tests/ch35/test_dpi_open_array_query_functions.sv
+20,ユーティリティ用システムタスク・関数,35,直接プログラミングインターフェース（DPI）,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,48,"tests/ch35/test_dpi_open_array_query_functions.sv
 tests/ch6/test_real_ieee754_double_and_realtime.sv
-tests/gen/ch20/test_gen_cross_dpiquery_1_down_neg_varied_4_sized_normal_same_literal.sv",既存モデルの計画・実行証跡を維持する,,
+tests/gen/ch20/test_gen_cross_dpiquery_1_down_pos_one_4_open_normal_same_literal.sv",既存モデルの計画・実行証跡を維持する,,
 20,ユーティリティ用システムタスク・関数,36,プログラミング言語インターフェース（PLI/VPI）の概要,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,6,"tests/ch36/test_36_extra_builtin_systf_names.sv
 tests/ch36/test_vpi_end_of_simulation_after_final.sv
 tests/ch36/test_vpi_routines_misc_utilities.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,

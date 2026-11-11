@@ -8,9 +8,9 @@
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
-:generator: interaction_dpiquery@1
+:generator: interaction_dpiquery@2
 :dpi_c: @../../ch35/cross_dpiquery.c
-:interaction_model: sv_dpi_array_queries@1
+:interaction_model: sv_dpi_array_queries@2
 :interaction_values: rank=3 bounds=mixed origin=pos extent=varied width=4 formal=sized packed=normal calls=switch query=variable
 :expected_stdout: @test_gen_cross_dpiquery_3_mixed_pos_varied_4_sized_normal_switch_variable.expected
 */

@@ -68,10 +68,11 @@ IEEE 1800-2023のどの章とどの章を組み合わせて検証しているか
 2026-11-08の更新では110モデル・4,416選択ケースを、対角線以外の189組の章対に対応付けています。
 CSVに使用した結果は[kirimasim f029ddd0eee1の全110モデルのローカル保存実行](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json)で、
 3,915 pass・487 unsupported・14 fail、全選択ケースPASSは83モデルです。
+2026-11-12に、同じ内容のケースを選ばないように二つのモデルを改訂しました。対応付けは110モデル・4,413選択ケースになり、章対は同じ189組です。[kirimasim 7de185f776a1の全モデルのローカル保存実行](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-edgedpiquery.json)は3,915 pass・484 unsupported・14 failで、全選択ケースPASSは83モデルです。
 
 [基点67321079のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584)は成功し、追加前の88モデルを含む固定版比較・静的検査を確認しました。
 [同じ基点のNightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265)もworkflowと全ジョブが成功しましたが、個別artifactは未照合です。その後の追加は両実行の対象外です。
-CSVの出典は全4,416件の単一ローカル実行cross110とし、別の実行の部分成功を合成しません。
+CSVの出典は2026-11-12の全4,413件の単一ローカル実行とし、別の実行の部分成功を合成しません。
 13プロファイルのランダム比較や、そのNightlyの96 PASSも章間表へ加算しません。
 
 第12章×第15章にskip/stopの24件を対応付け、登録1モデル・全選択ケースPASS 1モデルを追加します。モデルの成功にはallの対照12件も含め、同じ保存実行で全36件の成功が必要です。[設計と独立証跡](interaction-verification.md#named-event-loop-transfer)を参照してください。

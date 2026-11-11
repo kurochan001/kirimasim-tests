@@ -1,0 +1,18 @@
+sv phase=0 dims=3 unpacked=2
+sv dim=1 left=-6 right=-7 low=-7 high=-6 increment=1 size=2
+sv dim=2 left=-8 right=-10 low=-10 high=-8 increment=1 size=3
+sv dim=3 left=3 right=0 low=0 high=3 increment=1 size=4
+c phase=0 dims=2
+c dim=0 left=3 right=0 low=0 high=3 increment=1 size=4
+c dim=1 left=-6 right=-7 low=-7 high=-6 increment=1 size=2
+c dim=2 left=-8 right=-10 low=-10 high=-8 increment=1 size=3
+returned=-1343
+sv phase=1 dims=3 unpacked=2
+sv dim=1 left=-6 right=-7 low=-7 high=-6 increment=1 size=2
+sv dim=2 left=-8 right=-10 low=-10 high=-8 increment=1 size=3
+sv dim=3 left=3 right=0 low=0 high=3 increment=1 size=4
+c phase=1 dims=2
+c dim=0 left=3 right=0 low=0 high=3 increment=1 size=4
+c dim=1 left=-6 right=-7 low=-7 high=-6 increment=1 size=2
+c dim=2 left=-8 right=-10 low=-10 high=-8 increment=1 size=3
+returned=-1343

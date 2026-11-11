@@ -4,7 +4,7 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の119生成器から5,728件のテストを生成しています。
+現在の119生成器から5,725件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
@@ -52,7 +52,7 @@
 | [`interaction_divide`](../generators/interaction_divide.py) | 11 | 72 | 両オペランドと演算結果を観測し、演算前の幅・符号の統一、商の0方向への丸め、剰余の符号、ゼロ除算とX/Zの伝播、最終的な2状態変換を確認する。 |
 | [`interaction_dpi_array`](../generators/interaction_dpi_array.py) | 35 | 30 | 固定/動的配列/キューをopen arrayとしてDPIへ渡し、各呼出しの範囲・全要素・復帰後の書戻しを照合する。入力方向・数値順の走査方向・符号パターン・繰返し前の拡大/縮小を交差し、別のguard配列の保持も確認する。 |
 | [`interaction_dpi_nba`](../generators/interaction_dpi_nba.py) | 35 | 18 | DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組み合わせる。幅・符号・bit/logicからintへの変換、復帰直後の書戻し、予約後の添字・値の変更、Postponedと次時刻の全要素を照合し、NBAの値と代入先の確定を確認する。 |
-| [`interaction_dpiquery`](../generators/interaction_dpiquery.py) | 20 | 19 | 同じ実引数のSV/DPI-C問い合わせを、次元番号の対応・packed範囲の正規化・各次元の範囲とincrement・呼出しごとの形状更新で照合する。 |
+| [`interaction_dpiquery`](../generators/interaction_dpiquery.py) | 20 | 16 | 同じ実引数のSV/DPI-C問い合わせを、次元番号の対応・packed範囲の正規化・各次元の範囲とincrement・呼出しごとの形状更新で照合する。 |
 | [`interaction_edge`](../generators/interaction_edge.py) | 9 | 64 | 両背景で初期イベントを除外し、更新直後の値と次時刻の3カウンタを観測して、X/Z遷移、式の変化、ベクタのLSB規則、状態変換、NBAの更新時点を確認する。 |
 | [`interaction_escname`](../generators/interaction_escname.py) | 5 | 29 | モジュール・インスタンス・ポート・パラメータ・変数・task・生成ブロックの名前をエスケープし、平易な形との入れ替え、+を含む名前、エスケープしたキーワード、空白・タブ・改行での終わりで結合を確かめる。 |
 | [`interaction_event_rebind`](../generators/interaction_event_rebind.py) | 15 | 27 | 静的イベントをタスク呼出し前・待機登録前・登録後に再結合し、inputのコピーとref/直接参照、登録済み待機の保持、複数待機者、後着待機者、別名の独立性とActive/NBAの観測値を照合する。 |

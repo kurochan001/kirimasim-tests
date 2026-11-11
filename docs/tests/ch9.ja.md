@@ -328,8 +328,8 @@
 |テスト|チェックするもの|条項|予期した出力を記録|ノート|
 | --- | --- | --- | --- | --- |
 | [`test_gen_cross_edge_w129_b_lsb_middle_0x_b`](../../tests/gen/ch9/test_gen_cross_edge_w129_b_lsb_middle_0x_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 | x/z |
-| [`test_gen_cross_edge_w129_b_reduce_or_low_0x_b`](../../tests/gen/ch9/test_gen_cross_edge_w129_b_reduce_or_low_0x_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.4.9 | Icarus Verilog 13.0 | x/z |
-| [`test_gen_cross_edge_w129_b_vector_high_1x_b`](../../tests/gen/ch9/test_gen_cross_edge_w129_b_vector_high_1x_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_edge_w129_b_reduce_or_low_x1_b`](../../tests/gen/ch9/test_gen_cross_edge_w129_b_reduce_or_low_x1_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.4.9 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_edge_w129_b_vector_high_0x_b`](../../tests/gen/ch9/test_gen_cross_edge_w129_b_vector_high_0x_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_edge_w129_l_msb_middle_z0_b`](../../tests/gen/ch9/test_gen_cross_edge_w129_l_msb_middle_z0_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_edge_w129_l_vector_high_xz_n`](../../tests/gen/ch9/test_gen_cross_edge_w129_l_vector_high_xz_n.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.2 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_edge_w129_l_vector_low_11_b`](../../tests/gen/ch9/test_gen_cross_edge_w129_l_vector_low_11_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 | Icarus Verilog 13.0 ||
@@ -341,26 +341,16 @@
 | [`test_gen_cross_edge_w1_b_lsb_low_x0_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_b_lsb_low_x0_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_edge_w1_b_lsb_low_x1_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_b_lsb_low_x1_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_edge_w1_b_lsb_low_xx_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_b_lsb_low_xx_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 | x/z |
-| [`test_gen_cross_edge_w1_b_msb_low_01_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_b_msb_low_01_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 ||
-| [`test_gen_cross_edge_w1_b_msb_low_0x_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_b_msb_low_0x_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 | x/z |
-| [`test_gen_cross_edge_w1_b_msb_low_10_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_b_msb_low_10_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 ||
-| [`test_gen_cross_edge_w1_b_msb_low_11_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_b_msb_low_11_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 ||
-| [`test_gen_cross_edge_w1_b_msb_low_1z_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_b_msb_low_1z_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 | x/z |
-| [`test_gen_cross_edge_w1_b_msb_low_x0_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_b_msb_low_x0_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 | x/z |
-| [`test_gen_cross_edge_w1_b_msb_low_xx_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_b_msb_low_xx_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 | x/z |
-| [`test_gen_cross_edge_w1_b_msb_low_xz_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_b_msb_low_xz_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 | x/z |
-| [`test_gen_cross_edge_w1_b_msb_low_z1_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_b_msb_low_z1_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 | x/z |
-| [`test_gen_cross_edge_w1_b_msb_low_zx_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_b_msb_low_zx_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 | x/z |
-| [`test_gen_cross_edge_w1_b_msb_low_zz_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_b_msb_low_zz_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_edge_w1_b_reduce_or_low_0z_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_0z_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.4.9 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_edge_w1_b_reduce_or_low_10_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_10_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.4.9 | Icarus Verilog 13.0 ||
 | [`test_gen_cross_edge_w1_b_reduce_or_low_11_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_11_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.4.9 | Icarus Verilog 13.0 ||
 | [`test_gen_cross_edge_w1_b_reduce_or_low_1x_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_1x_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.4.9 | Icarus Verilog 13.0 | x/z |
-| [`test_gen_cross_edge_w1_b_reduce_or_low_x1_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_x1_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.4.9 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_edge_w1_b_reduce_or_low_xz_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_xz_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.4.9 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_edge_w1_b_reduce_or_low_z0_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_z0_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.4.9 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_edge_w1_b_reduce_or_low_z1_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_z1_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.4.9 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_edge_w1_b_reduce_or_low_zx_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_zx_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.4.9 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_edge_w1_b_reduce_or_low_zz_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_zz_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.4.9 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_edge_w1_b_vector_low_1x_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_b_vector_low_1x_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_edge_w1_b_vector_low_x1_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_b_vector_low_x1_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_edge_w1_b_vector_low_z0_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_b_vector_low_z0_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_edge_w1_b_vector_low_z1_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_b_vector_low_z1_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 | Icarus Verilog 13.0 | x/z |
@@ -368,11 +358,21 @@
 | [`test_gen_cross_edge_w1_l_vector_low_0z_n`](../../tests/gen/ch9/test_gen_cross_edge_w1_l_vector_low_0z_n.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.2 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_edge_w1_l_vector_low_x0_b`](../../tests/gen/ch9/test_gen_cross_edge_w1_l_vector_low_x0_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_edge_w32_b_msb_high_0z_n`](../../tests/gen/ch9/test_gen_cross_edge_w32_b_msb_high_0z_n.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.2 11.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_edge_w32_b_msb_low_01_b`](../../tests/gen/ch9/test_gen_cross_edge_w32_b_msb_low_01_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_edge_w32_b_msb_low_0x_b`](../../tests/gen/ch9/test_gen_cross_edge_w32_b_msb_low_0x_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_edge_w32_b_msb_low_10_b`](../../tests/gen/ch9/test_gen_cross_edge_w32_b_msb_low_10_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_edge_w32_b_msb_low_11_b`](../../tests/gen/ch9/test_gen_cross_edge_w32_b_msb_low_11_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_cross_edge_w32_b_msb_low_1z_b`](../../tests/gen/ch9/test_gen_cross_edge_w32_b_msb_low_1z_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_edge_w32_b_msb_low_x0_b`](../../tests/gen/ch9/test_gen_cross_edge_w32_b_msb_low_x0_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_edge_w32_b_msb_low_xx_b`](../../tests/gen/ch9/test_gen_cross_edge_w32_b_msb_low_xx_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_edge_w32_b_msb_low_xz_b`](../../tests/gen/ch9/test_gen_cross_edge_w32_b_msb_low_xz_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_edge_w32_b_msb_low_zx_b`](../../tests/gen/ch9/test_gen_cross_edge_w32_b_msb_low_zx_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_edge_w32_b_msb_low_zz_b`](../../tests/gen/ch9/test_gen_cross_edge_w32_b_msb_low_zz_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_edge_w32_b_reduce_or_low_xx_b`](../../tests/gen/ch9/test_gen_cross_edge_w32_b_reduce_or_low_xx_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.4.9 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_edge_w32_b_vector_middle_10_b`](../../tests/gen/ch9/test_gen_cross_edge_w32_b_vector_middle_10_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 | Icarus Verilog 13.0 ||
 | [`test_gen_cross_edge_w32_l_lsb_high_zx_b`](../../tests/gen/ch9/test_gen_cross_edge_w32_l_lsb_high_zx_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 | x/z |
-| [`test_gen_cross_edge_w32_l_reduce_or_middle_z1_n`](../../tests/gen/ch9/test_gen_cross_edge_w32_l_reduce_or_middle_z1_n.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.2 11.4.9 | Icarus Verilog 13.0 | x/z |
-| [`test_gen_cross_edge_w32_l_vector_low_1z_b`](../../tests/gen/ch9/test_gen_cross_edge_w32_l_vector_low_1z_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_edge_w32_l_msb_low_z1_b`](../../tests/gen/ch9/test_gen_cross_edge_w32_l_msb_low_z1_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_edge_w32_l_reduce_or_middle_0x_n`](../../tests/gen/ch9/test_gen_cross_edge_w32_l_reduce_or_middle_0x_n.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.2 11.4.9 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_edge_w33_b_lsb_low_z1_n`](../../tests/gen/ch9/test_gen_cross_edge_w33_b_lsb_low_z1_n.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.2 11.5.1 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_edge_w33_b_reduce_or_high_1z_b`](../../tests/gen/ch9/test_gen_cross_edge_w33_b_reduce_or_high_1z_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.4.9 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_edge_w33_b_vector_middle_01_b`](../../tests/gen/ch9/test_gen_cross_edge_w33_b_vector_middle_01_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 | Icarus Verilog 13.0 ||
@@ -384,7 +384,7 @@
 | [`test_gen_cross_edge_w64_b_msb_low_1x_n`](../../tests/gen/ch9/test_gen_cross_edge_w64_b_msb_low_1x_n.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.2 11.5.1 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_edge_w64_l_lsb_high_zz_b`](../../tests/gen/ch9/test_gen_cross_edge_w64_l_lsb_high_zz_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.5.1 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_edge_w64_l_reduce_or_middle_01_b`](../../tests/gen/ch9/test_gen_cross_edge_w64_l_reduce_or_middle_01_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 11.4.9 | Icarus Verilog 13.0 ||
-| [`test_gen_cross_edge_w64_l_vector_low_0x_b`](../../tests/gen/ch9/test_gen_cross_edge_w64_l_vector_low_0x_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_cross_edge_w64_l_vector_low_1z_b`](../../tests/gen/ch9/test_gen_cross_edge_w64_l_vector_low_1z_b.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.1 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_edge_w65_b_reduce_or_high_00_n`](../../tests/gen/ch9/test_gen_cross_edge_w65_b_reduce_or_high_00_n.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.2 11.4.9 | Icarus Verilog 13.0 ||
 | [`test_gen_cross_edge_w65_b_reduce_or_low_x0_n`](../../tests/gen/ch9/test_gen_cross_edge_w65_b_reduce_or_low_x0_n.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.2 11.4.9 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_edge_w65_b_vector_middle_zz_n`](../../tests/gen/ch9/test_gen_cross_edge_w65_b_vector_middle_zz_n.sv) |イベント制御はタイプ化されたX／Z遷移を分類し，表現変化のみを観察する。| 9.4.2 6.11.2 10.4.2 | Icarus Verilog 13.0 | x/z |

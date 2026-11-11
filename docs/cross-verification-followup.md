@@ -5,7 +5,9 @@
 2026-11-06（日本時間）の更新です。2026-11-03の対応記録を保持し、固定回帰・正式Nightly・既存期待値・選択モデルを維持し、
 既知の不一致の修正、未対応の整理、要精査の章対の確認の順に進めています。
 
-現在の[全クロスのローカル選択](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json)は110モデル・4,416件で、最新のmainをビルドしたkirimasim `f029ddd0eee1`で実行しました。
+現在の[全クロスのローカル選択](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-edgedpiquery.json)は110モデル・4,413件で、kirimasim `7de185f776a1`で実行しました。3,915 pass・484 unsupported・14 failで、failは同じ14件です。2026-11-12に、同じ内容のケースを選ばないように二つのモデルを改訂しました。[最後の節](#cross-models-without-duplicate-cases)を参照してください。
+
+その前の[全クロスのローカル選択](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json)は110モデル・4,416件で、当日のmainをビルドしたkirimasim `f029ddd0eee1`で実行しました。
 3,915 pass・487 unsupported・14 failです。failはconfigの4件、`defparam`の4件と、生成ブロックのクラスでkirimasimが内部エラーになる6件です。[前回の全実行](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json)と比べて従来4,296件の入力と状態は不変です。
 前回の126件は[`c229a05f`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42435564931)で固定版比較が成功し、Nightlyでは未実行です。今回の120件も[`a9c8a8eb`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42461618429)で固定版比較が成功し、Nightlyでは未実行です。
 
@@ -322,3 +324,14 @@ endmodule
 - case項目のリテラルの全312行で、kirimasimの差は0件です。
 - `f029ddd0eee1`はslangの更新を含みますが、従来4,296件の入力と状態は変わりません。`defparam`の4件もまだfailです。
 - サイクル遅延と同期駆動、式に結び付けたclockingの入力は、kirimasimが未実装なので[実装を待つ候補](#models-waiting-for-kirimasim)に加えました。ほかの4件も`f029ddd0eee1`でまだ`not implemented yet`です。
+
+<a id="cross-models-without-duplicate-cases"></a>
+
+## 同じ内容のケースを選ばないクロスモデル（2026-11-12）
+
+- モデル`edge_event_expression`と`sv_dpi_array_queries`は、同じ設計になる行を別の行として扱い、同じ内容のテストを6組選んでいました。どちらもversion 2にしました。
+- エッジのモデルは、幅1では二つのビット選択式のうちLSBだけを合法にしました。合法な行は4,032行（これまで4,096行）で、選択は64件のままです。そのうち17件が新しいケースです。
+- 配列問い合わせのモデルは、範囲の向きの値のうち、ほかの値と同じ範囲を宣言しないものだけを合法にしました。合法な行は832行（これまで1,152行）で、選択は16件（これまで19件）です。
+- kirimasim `7de185f776a1`の単一の全4,413件は3,915 pass・484 unsupported・14 failです。110モデル・189章対・全選択ケースPASSは83モデルです。ほかのモデルの4,333件の状態は変わっていません。
+- 二つのモデルの合法な行をすべて1回実行しました。エッジのモデルの4,032行は、kirimasimと固定Icarus Verilog 13.0がすべて一致します。期待値は変えていません。
+- [イベント式のエッジ](interaction-verification.md#event-expression-edge-classification-xz-transitions-and-update-timing)と[配列問い合わせ](interaction-verification.md#sv-dpi-array-queries)の節を参照してください。

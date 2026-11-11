@@ -8,8 +8,8 @@
 :spec_check: ai
 :fourstate: yes
 :nondeterministic: no
-:generator: interaction_edge@1
-:interaction_model: edge_event_expression@1
+:generator: interaction_edge@2
+:interaction_model: edge_event_expression@2
 :interaction_values: width=129 state=logic expression=msb position=middle before=z after=0 update=blocking
 :expected_stdout: @test_gen_cross_edge_w129_l_msb_middle_z0_b.expected
 */

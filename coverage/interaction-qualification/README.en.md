@@ -282,6 +282,8 @@ kirimasim execution lacks event-value operations. See [design and limits](../../
 [`dpiquery.json`](dpiquery.json) records independent declaration/query checks for all 1,152 rows and 2,304 calls to the actual C probe through a test-owned ABI stub.
 Synthetic shapes do not qualify simulator marshalling. Three original normalized-packed controls and six SV/C mutants all execute with exit zero; faults are detected through output differences.
 These controls do not qualify offset-packed or open-packed execution. Normal fixed Verilator runs record 11 pass and eight known results.
+[`dpiquery-v2.json`](dpiquery-v2.json) is the same check for model version 2 (2026-11-12): all 832 rows, 1,664 calls, three controls and six detected faults. Normal fixed Verilator runs record six pass and ten known results for its 16 cases.
+The [all-row record](edgedpiquery-all-rows.json) is one run of all 4,032 rows of `edge_event_expression` version 2 and all 832 rows of this model, and enters neither the fixed suite nor requirement coverage. kirimasim and Icarus match every edge row. Only Verilator executes rows of this model: 176 match, 240 differ and 416 are rejected.
 [`dpiquery-build.json`](dpiquery-build.json) records the build checked against latest upstream, binary fingerprint, 19 successful parses and full cross-run location.
 The kirimasim runner classifies C-backed tests as unsupported before execution, leaving DPI execution unconfirmed.
 See [design and limits](../../docs/interaction-verification.en.md#sv-dpi-array-queries).

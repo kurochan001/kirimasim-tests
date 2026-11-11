@@ -22,6 +22,9 @@
 [moduleとgenerateブロックで宣言したクラス](#scoped-class-declaration)、[case項目のリテラルの桁](#case-literal-wildcard)、[構造体リテラルのキー](#aggregate-literal-key)に独立検算と固定版比較を記録します。
 追加120件は[`a9c8a8eb`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42461618429)で固定版比較が成功しました。Nightlyでは未実行です。
 
+2026-11-12に、モデル[`edge_event_expression`](#event-expression-edge-classification-xz-transitions-and-update-timing)と[`sv_dpi_array_queries`](#sv-dpi-array-queries)を、同じ内容のケースを選ばないように改訂しました。現在は**110モデル・4,413件・189章対**です。
+kirimasim `7de185f776a1`の[単一実行](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-edgedpiquery.json)は**3,915 pass・484 unsupported・14 fail**で、failは同じ14件です。全選択ケースPASSは83モデルです。
+
 2026-11-08の遅延の値の書き方・packageの名前の探索・エスケープした識別子の追加で、**107モデル・4,296件・185章対**になりました。
 kirimasim `28c6c1a1cb83`の[単一実行](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json)は、
 **3,809 pass・479 unsupported・8 fail**です。failは既存configの4件と、`defparam`の型と範囲を取り違える4件で、前回と同じです。
@@ -531,13 +534,17 @@ NBAをスケジュールした直後に元の値と添字を変更します。�
 
 ### イベント式のエッジ判定・X/Z遷移・更新時点
 
-`edge_event_expression`は、幅（1・32・33・64・65・129）、bit/logic、イベント式 （ベクタ全体・LSB・MSB・ORリダクション）、変更位置（下位・中央・上位）、 変更前後それぞれの0/1/X/Z、ブロッキング/NBAをクロスします。幅1の位置重複を除いた 4,096通りから64件を選びます。全因子対260組と、「式×変更前×変更後」の64組、 「状態型×変更前×変更後」の32組、「幅×位置×状態型」の32組、 「式×位置×更新方法」の24組を網羅します。
+`edge_event_expression`は、幅（1・32・33・64・65・129）、bit/logic、イベント式 （ベクタ全体・LSB・MSB・ORリダクション）、変更位置（下位・中央・上位）、 変更前後それぞれの0/1/X/Z、ブロッキング/NBAをクロスします。合法な4,032通りから64件を選びます。幅1では変更位置を下位だけにします。model version 2（2026-11-12）からは、幅1のビット選択式もLSBだけにします。幅1ではLSBとMSBが同じビット`source[0]`だからです。全因子対259組と、「式×変更前×変更後」の64組、 「状態型×変更前×変更後」の32組、「幅×位置×状態型」の32組、 「式×位置×更新方法」の24組を網羅します。
 
 各行で背景0/1の両方を使い、`posedge`、`negedge`、エッジ指定のない値変化イベントを別カウンタで観測します。 9.4.2に従い、posedgeは0→1/X/ZとX/Z→1、negedgeは1→0/X/ZとX/Z→0です。 X↔Zでは`posedge`も`negedge`も発生せず、エッジ指定のないイベント制御だけが起動します。 ベクタ式のエッジ判定はLSBだけを見ますが、エッジ指定のないイベント制御は全ビットの変化を見ます。ORリダクションでは、背景の1があれば 注目ビットが変わっても式の結果が変わらず、イベントが起きないことを確認します。 入力がbitならX/Zを0へ変換した後の値で判定します。
 
 初期設定から`#1`待ってカウンタをクリアし、さらに`#1`待って対象の更新を行い、 その`#1`後に値と3カウンタを観測します。更新直後には元の信号値だけを観測し、 ブロッキングとNBAの違いを確認します。イベント処理と競合する直後のカウンタは読みません。 各行で既知0→1も観測し、bit変換で指定遷移が無変化になる場合も識別に使います。
 
 129ビット上位のX→Z、65ビットMSBのX→1、33ビットbit型のZ→1とNBA、 1ビットの0→Z、背景1によるOR式の変化抑制を必須ケースにします。 イベントOR、iff、同一時間ステップ内の複数更新、グリッチ、複数クロックは対象外です。
+
+model version 1は合法4,096通りで、幅1で同じ内容のテストを5組選んでいました。version 2では、選択64件のうち17件が入れ替わりました。残った行の期待値は変えていません。
+合法な4,032行すべてを、kirimasim `7de185f776a1`と固定Icarus Verilog 13.0で1回実行しました。どちらも全行が一致します（[記録](../coverage/interaction-qualification/edgedpiquery-all-rows.json)）。
+選択64件は[kirimasim](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-edgedpiquery.json)と[固定Icarus Verilog 13.0](../coverage/interaction-results/edgedpiquery-20261112-icarus13.json)で全件PASSです。固定Verilator 5.052は[seed 1](../coverage/interaction-results/edgedpiquery-20261112-verilator5052-seed1.json)と[seed 73](../coverage/interaction-results/edgedpiquery-20261112-verilator5052-seed73.json)のどちらも16 pass・48 knownです。
 
 <a id="file-monitoring-of-queuesdynamic-arrays-and-placement-of-registration-code"></a>
 
@@ -2292,7 +2299,7 @@ python3 tools/qualify_eventlife.py \
 
 ### SVとDPI-Cの配列問い合わせ
 
-`sv_dpi_array_queries@1`は、第20章×第35章の相互作用を確認する19件の選択です。
+`sv_dpi_array_queries@2`は、第20章×第35章の相互作用を確認する16件の選択です。
 生成器は[`interaction_dpiquery.py`](../generators/interaction_dpiquery.py)、
 C側は[`cross_dpiquery.c`](../tests/ch35/cross_dpiquery.c)です。
 SVの問い合わせは20.7、open arrayの照合と範囲は35.5.6.1・35.6.1.1・H.7.5・H.7.6・H.12.1、
@@ -2305,7 +2312,13 @@ C側の問い合わせはH.12.2に基づきます。
 unpacked次元数1/2/3、昇順／降順／混在、負／正の添字オフセット、全次元1要素／次元ごとに異なる要素数、
 packed幅4/33、packed仮引数のサイズ固定／open、実引数のpacked範囲の正規化済み／オフセット付き、
 同一実引数の再使用／別形状への切替え、定数次元指定／変数次元指定を組み合わせます。
-合法1,152通りから19件を選び、全因子対177組・重点3因子66組・必須7件を保持します。
+合法832通りから16件を選び、全因子対176組・重点3因子63組・必須7件を保持します。
+
+model version 2（2026-11-12）からは、範囲の向きの値のうち、ほかの値と同じ範囲を宣言しないものだけを合法にします。
+1要素の範囲には向きがなく、正規化済みのpacked範囲は常に`[幅-1:0]`です。
+全次元が1要素の行は、packed範囲が正規化済みなら降順の値だけ、オフセット付きなら昇順と降順の値だけを残します。
+unpacked次元が一つでpacked範囲が正規化済みの行は、昇順と降順の値だけを残します。
+これで1,152通りのうち832通りが残ります。version 1は1,152通りすべてを合法とし、同じ内容のテストを1組選んでいました。
 
 同じ実引数について、SVの`$dimensions`・`$unpacked_dimensions`と、各次元の
 `$left/$right/$low/$high/$increment/$size`を表示した後、同じimportでCの問い合わせを行います。
@@ -2325,20 +2338,26 @@ Cハンドルの持越しは対象外です。要素値のアクセスや書戻�
 #### 独立検算と実際の故障注入
 
 [`qualify_dpiquery.py`](../tools/qualify_dpiquery.py)は、生成SVの宣言・問い合わせ式・実引数の呼出し列を読み取ります。
-別の添字列挙と次元表を使い、生成器の形状計算・問い合わせ計算を再利用せず全1,152行を照合しました。
-テスト専用のDPI ABIスタブでも、実際のCプローブを全2,304呼出しで照合しました。
+別の添字列挙と次元表を使い、生成器の形状計算・問い合わせ計算を再利用せず、version 2の全832行を照合しました（version 1では1,152行）。
+テスト専用のDPI ABIスタブでも、実際のCプローブを全1,664呼出しで照合しました（version 1では2,304呼出し）。
 このスタブは合成した形状を与えるもので、シミュレータのDPIマーシャリングを確認するものではありません。
 
 必須ケースの1/2/3次元から、サイズ固定・正規化済みpackedの正常対照3件を実行しました。
 Cの左右端点の入替え、incrementの反転、packed次元の取り違え、最終次元の欠落、
 SVのpacked次元指定の取り違え、二度目に古いSV形状を問い合わせる誤りの6故障を検出しました。
 全9実行は終了コード0で、未対応やビルド拒否による検出ではありません。
-[検算と実行記録](../coverage/interaction-qualification/dpiquery.json)にソース指紋・出力・終了コードを保存しています。
+version 2の[検算と実行記録](../coverage/interaction-qualification/dpiquery-v2.json)にソース指紋・出力・終了コードを保存しています。[version 1の記録](../coverage/interaction-qualification/dpiquery.json)も残しています。
 この実行対照は、オフセット付きpacked範囲の正規化やopen packedの実行を認定するものではありません。
 
 <a id="saved-runs-and-unconfirmed-scope"></a>
 
 #### 保存実行と未確認の範囲
+
+version 2では、固定Verilator 5.052の[seed 1](../coverage/interaction-results/edgedpiquery-20261112-verilator5052-seed1.json)と[seed 73](../coverage/interaction-results/edgedpiquery-20261112-verilator5052-seed73.json)は、各6 pass・10 knownです。
+サイズ固定・正規化済みpackedの6件にoracleがあります。オフセット付きpackedの4件はCの次元0が異なり、open packedの6件は構文解析時のビルド拒否です。
+[固定Icarus Verilog 13.0](../coverage/interaction-results/edgedpiquery-20261112-icarus13.json)は全16件をビルド時に拒否しました。kirimasim `7de185f776a1`のランナーは、[全4,413件の実行](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-edgedpiquery.json)で全16件をunsupportedに分類します。
+[合法な全832行の実行](../coverage/interaction-qualification/edgedpiquery-all-rows.json)でも、どの行も同じ結果です。Verilatorのseed 1は、サイズ固定・正規化済みpackedの176行が一致し、サイズ固定・オフセット付きpackedの240行はCの次元0が異なり、open packedの416行を拒否します。kirimasimとIcarus Verilogは、このモデルの行を1行も実行しません。
+以下の段落は、19件だったversion 1の実行の説明です。
 
 固定Verilator 5.052の[seed 1](../coverage/interaction-results/cross69-dpiquery-verilator5052-seed1.json)と
 [seed 73](../coverage/interaction-results/cross69-dpiquery-verilator5052-seed73.json)は、各11 pass・8 knownです。

@@ -4,6 +4,10 @@
 bit, while a non-edge event detects any change of its complete value.
 Both constant backgrounds run inside every case. Setup changes settle
 before counters clear; only next-time counts are observed, without races.
+
+Model version 2: at width 1 the most significant bit is the least significant
+bit, so source[0] would be written for both lsb and msb. Only lsb is legal
+there; version 1 selected five such pairs of equal tests.
 """
 
 from common import Case
@@ -12,7 +16,7 @@ from interaction_cond import literal
 from interaction_cover import Model, Row
 
 NAME = "interaction_edge"
-VERSION = 1
+VERSION = 2
 CHAPTER = 9
 
 MODEL = Model(
@@ -23,7 +27,7 @@ MODEL = Model(
      ("position", ("low", "middle", "high")),
      ("before", ("0", "1", "x", "z")), ("after", ("0", "1", "x", "z")),
      ("update", ("blocking", "nba"))),
-    lambda r: r[0] != "1" or r[3] == "low",
+    lambda r: r[0] != "1" or (r[3] == "low" and r[2] != "msb"),
     groups=(("expression", "before", "after"), ("state", "before", "after"),
             ("width", "position", "state"), ("expression", "position", "update")),
     anchors=(("129", "logic", "vector", "high", "x", "z", "nba"),
@@ -31,7 +35,8 @@ MODEL = Model(
              ("33", "bit", "lsb", "low", "z", "1", "nba"),
              ("1", "logic", "vector", "low", "0", "z", "nba"),
              ("64", "logic", "reduce_or", "middle", "0", "1", "blocking")),
-    constraints=("幅1の注目位置はlowに統一。各行で背景0/1、既知0→1と指定遷移を観測。"
+    version=2,
+    constraints=("幅1の注目位置はlowに統一。幅1ではMSBとLSBが同じビットなので、幅1のビット選択式はlsbに統一。各行で背景0/1、既知0→1と指定遷移を観測。"
                  "全体／LSB／MSB／OR式を対象に、posedge・negedge・非エッジの変化を同時に測る。"
                  "初期設定を収束させてカウンタをクリアし、更新の次時刻に計数。"
                  "イベントOR・iff・複数更新・グリッチ・複数クロックは対象外",),

@@ -8,8 +8,8 @@
 :spec_check: ai
 :fourstate: yes
 :nondeterministic: no
-:generator: interaction_edge@1
-:interaction_model: edge_event_expression@1
+:generator: interaction_edge@2
+:interaction_model: edge_event_expression@2
 :interaction_values: width=33 state=bit expression=reduce_or position=high before=1 after=z update=blocking
 :expected_stdout: @test_gen_cross_edge_w33_b_reduce_or_high_1z_b.expected
 */

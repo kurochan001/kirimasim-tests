@@ -197,7 +197,7 @@ def main():
         assert result.stdout == ''.join(expected_c),suite_results.first_difference(result.stdout,''.join(expected_c))
         faults,controls = runtime_faults(directory,args.verilator)
     sources = ('generators/interaction_dpiquery.py','tests/ch35/cross_dpiquery.c','tools/qualify_dpiquery.py')
-    report = {'model':generator.MODEL.name,'version':1,
+    report = {'model':generator.MODEL.name,'version':generator.MODEL.version,
               'generated_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),
               'scope':'Independent emitted-declaration/query interpretation; actual C probe on test-owned ABI shapes (not simulator marshalling); three original normalized/sized-packed SV controls and six actual SV/C mutants. No runtime qualification of offset packed normalization or open packed formals.',
               'independent_rows':len(generator.MODEL.rows()),'c_stub_calls':2*len(generator.MODEL.rows()),
