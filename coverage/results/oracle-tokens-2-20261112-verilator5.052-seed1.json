@@ -1,0 +1,59 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch10/test_illegal_assignment_pattern_in_port_expression": {
+   "status": "pass",
+   "inputs_sha256": "3f89ba195a508aebbe5ae046332078b512f94326aa699d3902c5851ff24a1896"
+  },
+  "ch13/test_illegal_nonvoid_function_call_without_parentheses": {
+   "status": "pass",
+   "inputs_sha256": "eda455360a4b7c4c2d937286298598758dfb718111f8e127cfe7f25f459c9022"
+  },
+  "ch13/test_illegal_recursive_class_function_call_without_parentheses": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "03e48cbafc70bf0e60faddc67bcd833005ac2e6b8947f353983edf8d1ea30b93"
+  },
+  "ch13/test_illegal_ref_combined_with_inout": {
+   "status": "pass",
+   "inputs_sha256": "6a9b90b600428f58368506d12c57f857ecbcb4a9ac00f49941c102538085f1c4"
+  },
+  "ch13/test_illegal_ref_combined_with_input": {
+   "status": "pass",
+   "inputs_sha256": "e5c23e2b356cc89159b5c05ada6dfb6fc82db5b3acb6e0a579ba250ccad64f9c"
+  },
+  "ch13/test_illegal_ref_combined_with_output": {
+   "status": "pass",
+   "inputs_sha256": "f0d7ffa396b9a0ba373fa110cf3f1f392df3c7f59897a1d554dbbd03f6739ff0"
+  },
+  "ch20/test_illegal_typename_hierarchical_constant": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "1744600c0f2e31597f816e87713a60b6b49bc032d84bcecceb3f7e72882290e3"
+  },
+  "ch21/test_illegal_readmem_higher_range": {
+   "status": "pass",
+   "inputs_sha256": "3fdb739bb2f2d612fe7a2d39bc1a2f4e92f5203d5732e33b40a1c21b605559df"
+  },
+  "ch23/test_23_extra_bound_param_constant": {
+   "status": "pass",
+   "inputs_sha256": "2e144e5ca61585fdd60e04ef100014a7f758df9c64c329e9fb2544684e88c50f"
+  },
+  "ch35/test_35_rest_dpi_class_formal": {
+   "status": "pass",
+   "inputs_sha256": "0a0377d217a02e82e2a37bffe572b90fd3c6af1953c3d9b29bc61880e91e5234"
+  },
+  "ch7/test_illegal_sort_iterator_without_with": {
+   "status": "pass",
+   "inputs_sha256": "556bb32b255a79e87c8f9e39578184bb5d3b5d2fc9a88325321a6d2143aec6ee"
+  }
+ },
+ "generated_at": "2026-11-11T22:25:01.564353+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

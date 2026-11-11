@@ -4,7 +4,7 @@
 :tags: ch21
 :type: elaboration
 :lrm: 1800-2023 21.4
-:oracle: spec iverilog@13.0 verilator@5.052
+:oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
@@ -21,3 +21,7 @@ module test_illegal_readmem_higher_range;
     $readmemh("words.txt", m[0:1]);   // illegal: range on highest dim
   end
 endmodule
+
+// Oracle checks: Icarus Verilog 13.0 reports that m needs 2 indices, and the
+// 5.052 release of Verilator reports loading a non-variable. Both report the
+// same for the legal load target m[1], so neither error counts.

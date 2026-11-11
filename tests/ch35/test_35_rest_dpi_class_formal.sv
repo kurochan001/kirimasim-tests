@@ -4,7 +4,7 @@
 :tags: ch35
 :type: elaboration
 :lrm: 1800-2023 35.5.4 35.5.6
-:oracle: spec verilator@5.052
+:oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
@@ -16,10 +16,10 @@
 // permitted formal types, and a class type is not among them.
 //
 // The import below declares c_take with a formal of class type c_payload.
-// The tool Verilator 5.052 rejects the declaration at elaboration with an
-// error that names the class type, so the class-type prohibition is observed
-// without a call. The declaration is never called, because the design is
-// rejected.
+// The 5.052 release of Verilator reports the class type as an unsupported
+// DPI argument. It reports the same for a legal unpacked structure formal,
+// so its error does not count. The declaration is never called, because the
+// design is rejected.
 
 module test_35_rest_dpi_class_formal;
   class c_payload;

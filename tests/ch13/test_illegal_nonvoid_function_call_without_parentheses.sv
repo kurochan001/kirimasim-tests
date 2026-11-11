@@ -4,7 +4,7 @@
 :tags: ch13
 :type: elaboration
 :lrm: 1800-2023 13.5
-:oracle: spec iverilog@13.0 verilator@5.052
+:oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
@@ -35,3 +35,7 @@ module test_illegal_nonvoid_function_call_without_parentheses;
     y = get_k;   // illegal
   end
 endmodule
+
+// Oracle check: Icarus Verilog 13.0 reports on line 35 that it cannot bind
+// get_k. It rejects a legal call of a class function method without
+// parentheses as well (no such property), so its error does not count.

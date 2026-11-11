@@ -6,10 +6,10 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 90.14%, execution without Ghost 50.27%, execution with Ghost 77.65%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 90.14%, execution without Ghost 50.24%, execution with Ghost 77.62%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 90.14%. Requirement execution-confirmation rate: 50.27% without Ghost, 77.65% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 90.14%. Requirement execution-confirmation rate: 50.24% without Ghost, 77.62% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
@@ -17,7 +17,7 @@ Requirement coverage (test design): 90.14%. Requirement execution-confirmation r
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
 - The requirement coverage (test design) for registered behaviors is 11086/12298 ( 90.14% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9550/12298 ( 77.65% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9546/12298 ( 77.62% ).
 - Registered but not tested: 1212.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
@@ -33,13 +33,17 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 `check_groups` distributes a single request across multiple tests, and is successful only if all tests in the group are successful in the same runtime and run. The unspecified response is an independent alternative proof.
 
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12298 execution checked; 0 entries refer to older inputs.
-- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3090/12298 execution checked; 263 entries refer to older inputs.
-- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2989/12298 execution checked; 263 entries refer to older inputs.
-- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3886/12298 execution checked; 263 entries refer to older inputs.
-- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3598/12298 execution checked; 8 entries refer to older inputs.
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7915/12298 execution checked; 398 entries refer to older inputs.
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7995/12298 execution checked; 334 entries refer to older inputs.
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7898/12298 execution checked; 398 entries refer to older inputs.
+- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3086/12298 execution checked; 272 entries refer to older inputs.
+- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2989/12298 execution checked; 272 entries refer to older inputs.
+- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3881/12298 execution checked; 272 entries refer to older inputs.
+- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3593/12298 execution checked; 16 entries refer to older inputs.
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7915/12298 execution checked; 407 entries refer to older inputs.
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7995/12298 execution checked; 343 entries refer to older inputs.
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7898/12298 execution checked; 407 entries refer to older inputs.
+- `oracle-tokens-2-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T22:25:00.780016+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
+- `oracle-tokens-2-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T22:25:00.894678+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
+- `oracle-tokens-2-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T22:25:01.564353+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
+- `oracle-tokens-2-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T22:25:02.208022+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T19:14:33.552454+00:00` / 11/12298 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T19:14:36.020025+00:00` / 4/12298 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T19:15:04.286693+00:00` / 4/12298 execution checked; 0 entries refer to older inputs.
@@ -24995,7 +24999,7 @@ Normative role: `mandatory`。
 
 ### SV2023-10.9-EXTRACT-NO-PATTERN-PORT-EXPRESSION
 
-`10.9` / `error` / Execution confirmed
+`10.9` / `error` / Test mapped; execution unconfirmed
 
 An assignment pattern expression cannot be used in a module/interface/program declaration port expression.
 
@@ -57494,7 +57498,7 @@ Normative role: `mandatory`。
 
 ### SV2023-21.4-EXTRACT-MEMORY-ARRAY-ARGUMENT
 
-`21.4` / `error` / Execution confirmed
+`21.4` / `error` / Test mapped; execution unconfirmed
 
 The load target may be an unpacked array or partially indexed multidimensional unpacked array; higher selected dimensions require indices rather than ranges, and only the lowest selected dimension may use a slice.
 
@@ -67404,7 +67408,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.11-EXTRACT-BOUND-CONSTANT-REFERENCE
 
-`23.11` / `error` / Execution confirmed
+`23.11` / `error` / Test mapped; execution unconfirmed
 
 Outside a bound instantiation, its parameters cannot be referenced hierarchically in constant-expression contexts.
 
@@ -84508,7 +84512,7 @@ Normative role: `mandatory`。
 
 ### SV2023-35.5.4-EXTRACT-PROTOTYPE-RESTRICTIONS
 
-`35.5.4` / `error` / Execution confirmed
+`35.5.4` / `error` / Test mapped; execution unconfirmed
 
 Prototype dynamic_override_specifiers are legal only for methods in a non-interface class; function results obey 35.5.5, and DPI formals cannot use ref or class types.
 
@@ -84516,7 +84520,7 @@ Acceptance criterion: Prototype dynamic_override_specifiers are legal only for m
 
 Normative role: `mandatory`。
 
-- [test_35_rest_dpi_class_formal.sv](../tests/ch35/test_35_rest_dpi_class_formal.sv): 35.5.4 - EXTRACT-PROTOTYPE-RESTRICTIONS are observed by rejecting the design of the non-conformity test. The import declaration gives its formal argument the class type c_payload . Verilator 5.052 rejects the declaration at elaboration with "Unsupported: DPI argument of type CLASSREFDTYPE" , so the rule that class types cannot be passed as DPI formals is observed w Distinguishing observation: The condition of the requirement is stimulated in the new test and compared with the expected value derived from the standard.
+- [test_35_rest_dpi_class_formal.sv](../tests/ch35/test_35_rest_dpi_class_formal.sv): 35.5.4 - EXTRACT-PROTOTYPE-RESTRICTIONS are observed by rejecting the design of the non-conformity test. The import declaration gives its formal argument the class type c_payload . Verilator 5.052 reports "Unsupported: DPI argument of type CLASSREFDTYPE" , and the same for a legal unpacked structure formal, so its rejection does not count. Distinguishing observation: The condition of the requirement is stimulated in the new test and compared with the expected value derived from the standard.
 
 ### SV2023-35.5.5-EXTRACT-EXPLICIT-RESULT
 

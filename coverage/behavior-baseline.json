@@ -28284,11 +28284,11 @@
     "SV2023-13.4-EXTRACT-FUNCTION-TYPE-DEFAULT": "1b6cd41f2ebc3593ad6fff78cc7709668888da62dff4bec79aa64d6642affcfc",
     "SV2023-13.4.2-EXTRACT-FUNCTION-AUTOMATIC-DEFAULT": "6c07e8d1b510ddf9159c13742e7e1d7245dc267ba9d4cf827ce7ab21926ecce1",
     "SV2023-13.4.2-EXTRACT-FUNCTION-LOCAL-LIFETIME-OVERRIDE": "a6a6d2478d6a761ffe8f9f712aaf2226c6634d4088dbcd6534619738cb71e605",
-    "SV2023-13.5-EXTRACT-CALL-PARENTHESES-RESTRICTIONS": "f24dcc990220a48a9f0de38f22fd91e20c513428c959baad71289b03e6932f0c",
+    "SV2023-13.5-EXTRACT-CALL-PARENTHESES-RESTRICTIONS": "867a03b3110d7d57975b5adfb1fac9d838538e3df24048069d041a5fceedceb9",
     "SV2023-13.5-EXTRACT-OUTPUT-INOUT-LVALUE": "e1409274ba2ee70e7410fb8a7293737e4bb5cbd18fb00113f15a965377fd05b5",
     "SV2023-13.5.2-EXTRACT-NO-NET-REF": "bf23fd8eff1ca5377ac37e7630f65a79b151d953b708e0009a6f5a00ad96d2fe",
     "SV2023-13.5.2-EXTRACT-REF-ACTUAL-CATEGORIES": "f215675f36cab951443673b043e27a4011491b98c6a1a6adc5f5ac0e87fcb04d",
-    "SV2023-13.5.2-EXTRACT-REF-DIRECTION-EXCLUSIVE": "7522a912081f78a5e4adbb053e2b6507ab9c4a3f307ef6326c2f3f73761614b3",
+    "SV2023-13.5.2-EXTRACT-REF-DIRECTION-EXCLUSIVE": "48023bf2c7359f5d6568127cbc38e4dc8f413889e0c31d484949c019bc7db084",
     "SV2023-13.5.2-EXTRACT-REF-EQUIVALENT-NO-CAST": "541b950e9f48afd3bce25503159320370c142153d74977101929e307b0b61436",
     "SV2023-13.5.3-EXTRACT-OMITTED-DEFAULT-INSERTED": "9a86b0a43b2bcee81b21707dd365f966b2bc4c2f8e676e8724f8ba6c55294b66",
     "SV2023-13.5.4-EXTRACT-NAMED-BINDING": "7c6a77b6c3f1594c5f07672e53a3ecb27ae78301425c1a1f3dde43fe4a7bbeed",
@@ -43294,5 +43294,5 @@
     "P",
     "Q"
   ],
-  "reason": "Owner-approved on 2026-11-12: the :oracle: tokens of 259 illegal tests (254 iverilog@13.0 and 6 verilator@5.052) were removed after every one of them was run again on the pinned releases, and the comments of 12 tests were reworded. The input digests of 273 tests changed (the 259, 3 tests whose comment alone changed and 11 tests in tests/ch22 that hash the same directory), so the checks of 99 requirements with check groups carry new digests. The code and expected results of the tests and the contents of the checks did not change, except one observation of 27.3, which now says that the Verilator error on that line is not counted."
+  "reason": "Owner-approved on 2026-11-12 (second pass): 11 more :oracle: tokens (8 iverilog@13.0 and 3 verilator@5.052) were removed from 10 illegal tests after legal counterparts got the same rejections on the pinned releases, so 9 checks of 7 requirements, 2 of them with check groups, carry new input digests. The code and expected results of the tests did not change; one observation of 35.5.4 now says that the Verilator error is not counted."
 }

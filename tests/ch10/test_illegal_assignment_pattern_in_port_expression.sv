@@ -4,7 +4,7 @@
 :tags: ch10
 :type: elaboration
 :lrm: 1800-2023 10.9
-:oracle: spec iverilog@13.0
+:oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
@@ -36,3 +36,6 @@ module test_illegal_assignment_pattern_in_port_expression;
   sub_ok_m u_ok (.p(v));
   initial #1 $display("%b", u_ok.a);
 endmodule
+
+// Oracle check: Icarus Verilog 13.0 reports a syntax error on line 30, as it
+// does for ab_t'{a, b} in a legal assignment, so its error does not count.

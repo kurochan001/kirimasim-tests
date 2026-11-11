@@ -5,8 +5,9 @@
 [English](oracle-token-review-20261112.en.md) / [日本語](oracle-token-review-20261112.md)
 
 This record says which `iverilog@13.0` and `verilator@5.052` tokens were
-removed from the `:oracle:` of illegal tests, why, and what is not checked
-yet. No test changed its code or its expected result.
+removed from the `:oracle:` of illegal tests, and why. A first pass left some
+tokens unchecked; a [second pass](#second-pass) of the same day checked them.
+No test changed its code or its expected result.
 
 <a id="what-was-wrong"></a>
 
@@ -123,12 +124,15 @@ line and 3 an error marked as unsupported. Six tokens were removed:
 
 <a id="not-yet-checked"></a>
 
-## What is not checked yet
+## What the first pass did not check
 
-- 296 illegal tests list `iverilog@13.0` and the error on their marked line is
-  not a syntax error. Their messages are recorded, but they were not compared
-  with the rule one by one.
-- Four tokens are doubtful and stay. Three tests of chapter 33 state rules of
+The [second pass](#second-pass) checked both items of this section. They are
+kept here as the first pass left them.
+
+- 296 illegal tests listed `iverilog@13.0` and the error on their marked line
+  was not a syntax error. Their messages were recorded, but they were not
+  compared with the rule one by one.
+- Four tokens were doubtful and stayed. Three tests of chapter 33 state rules of
   the grammar of a config (`test_illegal_config_default_use`,
   `test_illegal_config_design_after_rule`,
   `test_illegal_config_two_design_statements`), but Icarus Verilog 13.0 only
@@ -136,8 +140,8 @@ line and 3 an error marked as unsupported. Six tokens were removed:
   lists Verilator 5.052, which words its error as unsupported, although the
   standard forbids the construct.
 
-After this change, 1,975 tests are illegal designs; 918 of them list
-`iverilog@13.0` and 544 list `verilator@5.052`.
+After the first pass, 1,975 tests were illegal designs; 918 of them listed
+`iverilog@13.0` and 544 listed `verilator@5.052`.
 
 <a id="effect-on-the-figures"></a>
 
@@ -177,3 +181,111 @@ The ledger keeps the mappings. The input digests of 263 checks of 188
 requirements and of 31 records in `coverage/test-matching-reviews.json` were
 refreshed. 99 of the requirements have check groups, so the baseline was
 written again with a reason.
+
+<a id="second-pass"></a>
+
+## Second pass (2026-11-12)
+
+The second pass checked the tokens that the first pass had left. It removed
+11 more tokens from 10 tests: 8 `iverilog@13.0` and 3 `verilator@5.052`.
+No test changed its code or its expected result.
+
+<a id="second-pass-what-was-checked"></a>
+
+### What was checked
+
+All 918 illegal tests with `iverilog@13.0` are checked now:
+
+- 299 tests whose error on the marked line is not a syntax error. Each message
+  was read with the line of the test. For 14 of them a legal counterpart was
+  run as well. 295 tokens stay and 4 were removed. The first pass counted 296
+  such tests; the grouping of this pass gives 299.
+- 120 hand-written tests with a syntax error on the marked line. Each ran with
+  a legal counterpart of the same construct. 116 tokens stay and 4 were
+  removed.
+- All 496 generated keyword tests of `tests/gen/ch22`. Each uses a reserved
+  word as an identifier and gets a syntax error. With the identifier renamed,
+  every one of them compiles, so all 496 tokens stay.
+- The three config tests of chapter 33 that the first pass called doubtful.
+  Their tokens are right. Icarus Verilog 13.0 parses the legal forms of the
+  same statements and then skips the config with a "sorry" message, and it
+  reports a syntax error only for the illegal forms. This is the rule of the
+  grammar, as in `ch10/test_illegal_charge_strength_on_wire`.
+
+Nothing remains unchecked on the side of Icarus Verilog.
+
+Of the 544 illegal tests with `verilator@5.052`, the first pass had checked
+those with a syntax error on the marked line. The second pass covered the
+other 423:
+
+- `ch35/test_35_rest_dpi_class_formal`, the doubtful token of the first pass.
+  It was removed.
+- 422 tests whose error is neither a syntax error nor marked as unsupported.
+  For 18 of them a legal counterpart was run: 16 tokens stay and 2 were
+  removed. The other 404 tokens were judged from the text of the message
+  alone. Where the message states the rule, the token stays. No legal
+  counterpart was run for these 404, so this check is weaker than the one for
+  Icarus Verilog.
+
+<a id="second-pass-removed"></a>
+
+### The 11 removed tokens
+
+| Test | Token | What the release reports, and for which legal use it reports the same |
+| --- | --- | --- |
+| `ch21/test_illegal_readmem_higher_range` | `iverilog@13.0` | The array needs 2 indices. The same for the legal load target `m[1]`. |
+| `ch21/test_illegal_readmem_higher_range` | `verilator@5.052` | "`$readmemh` loading non-variable". The same for the legal `m[1]`. |
+| `ch7/test_illegal_sort_iterator_without_with` | `iverilog@13.0` | An unknown task `a.sort`. The same for the legal `a.sort()`. |
+| `ch13/test_illegal_nonvoid_function_call_without_parentheses` | `iverilog@13.0` | It cannot bind `get_k`. It rejects a legal call of a class function method without parentheses as well, with the message that the class has no such property. |
+| `ch10/test_illegal_assignment_pattern_in_port_expression` | `iverilog@13.0` | A syntax error. The same for `ab_t'{a, b}` in a legal assignment. |
+| `ch20/test_illegal_typename_hierarchical_constant` | `iverilog@13.0` | A hierarchical reference is not allowed in a constant expression. It rejects the legal `$typename(sig)` of a local variable in a localparam too, and no constant `$typename` form was accepted. |
+| `ch13/test_illegal_ref_combined_with_inout`, `_input`, `_output` | `iverilog@13.0` | A syntax error. The same for the legal `const ref`, and the legal `ref` formal of the same test is reported as not supported. |
+| `ch35/test_35_rest_dpi_class_formal` | `verilator@5.052` | The class type is an unsupported DPI argument. The same for a legal unpacked structure formal. |
+| `ch23/test_23_extra_bound_param_constant` | `verilator@5.052` | It cannot find the bound instance `b`. The same for a legal reference to `u.b.P` in procedural code. |
+
+The four tokens of `ch20/test_illegal_typename_hierarchical_constant` and of
+the three `ref` tests were less clear than the others, because the message or
+the syntax error fits the rule. The owner approved their removal: the release
+rejects the legal use as well.
+
+Eight tests got a short comment at the end of the file that says what the
+release reports and why it does not count. In
+`ch35/test_35_rest_dpi_class_formal` and
+`ch23/test_23_extra_bound_param_constant` an existing comment said that
+Verilator observes the rule; it was reworded in the same lines. No line that
+`:expected_stderr_regex:` names moved.
+
+<a id="second-pass-figures"></a>
+
+### Effect on the figures
+
+| Figure | Before | After |
+| --- | ---: | ---: |
+| Tests with `iverilog@13.0` | 6,397 | 6,389 |
+| Tests with `verilator@5.052` and no `iverilog@13.0` | 2,238 | 2,241 |
+| Tests with `spec` alone | 3,627 | 3,632 |
+| Illegal tests with `iverilog@13.0` | 918 | 910 |
+| Illegal tests with `verilator@5.052` | 544 | 541 |
+| Design coverage | 90.14% (11,086/12,298) | 90.14% (11,086/12,298) |
+| Execution coverage without Ghost | 50.27% (6,182/12,298) | 50.24% (6,178/12,298) |
+| Execution coverage with Ghost and kirimasim | 77.65% (9,550/12,298) | 77.62% (9,546/12,298) |
+
+Four requirements of the kind error lost their execution evidence, one each
+in 10.9, 21.4, 23.11 and 35.5.4. The requirements of 7.12 and 13.5.2 keep
+theirs, because their tests still list `verilator@5.052`. The requirement of
+13.5 had no execution evidence before. The test of chapter 20 is mapped to no
+requirement.
+
+The input digests of the 10 tests changed. They and
+`ch13/test_illegal_recursive_class_function_call_without_parentheses`, which
+shares a check group with one of them, ran again. The results are in
+`coverage/results/oracle-tokens-2-20261112-*.json`. Icarus Verilog 13.0 has 9
+pass and 2 known; Verilator 5.052 has 9 pass and 2 known for both seeds 1 and
+73; kirimasim `7de185f776a1` has 10 pass and 1 unsupported. Every status
+equals the one saved before.
+
+The input digests of 9 checks of 7 requirements were refreshed. Two of the
+requirements have check groups, so the baseline was written again with a
+reason. One observation of 35.5.4 now says that the error of Verilator does
+not count. No record of `coverage/test-matching-reviews.json` names these
+tests.

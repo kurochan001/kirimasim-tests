@@ -392,7 +392,7 @@
 | [`test_ieee1800_2023_array_method_corner`](../../tests/ch7/test_ieee1800_2023_array_method_corner.sv) |配列操作法| 7.12 7.12.1 7.12.2 7.12.3 7.10.2 7.9 | Verilator 5.052 ||
 | [`test_illegal_array_method_with_braces`](../../tests/ch7/test_illegal_array_method_with_braces.sv) |配列操作のwith条件は 表現を括弧に入れます括弧はrandomize() で使われますが| 7.12 | Verilator 5.052 |違法なデザインだ|
 | [`test_illegal_iterator_argument_without_with`](../../tests/ch7/test_illegal_iterator_argument_without_with.sv) |配列メソッドは with 節なしでは反復子の名前を付けられません。| 7.12 7.12.3 |標準のみ|違法なデザインだ|
-| [`test_illegal_sort_iterator_without_with`](../../tests/ch7/test_illegal_sort_iterator_without_with.sv) |配列メソッドの反復引数には with 節が必要です| 7.12 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_illegal_sort_iterator_without_with`](../../tests/ch7/test_illegal_sort_iterator_without_with.sv) |配列メソッドの反復引数には with 節が必要です| 7.12 | Verilator 5.052 |違法なデザインだ|
 | [`test_member_access_deep`](../../tests/ch7/test_member_access_deep.sv) |8.5 クラスメンバーアクセス| 7.12 8.5 | Verilator 5.052 ||
 | [`test_array_find`](../../tests/ch7/test_array_find.sv) |7.12.1 の配列位置決めメソッド| 7.12.1 | Verilator 5.052 ||
 | [`test_array_find_2`](../../tests/ch7/test_array_find_2.sv) |テスト: 配列検索法| 7.12.1 | Verilator 5.052 ||

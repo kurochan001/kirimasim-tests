@@ -4736,7 +4736,7 @@
     },
     {
       "test": "tests/ch10/test_illegal_assignment_pattern_in_port_expression.sv",
-      "inputs_sha256": "1949f0ce19ec2843923fa3e55ad857a988c6447f11f02e063b0aac249a4bdab9",
+      "inputs_sha256": "3f89ba195a508aebbe5ae046332078b512f94326aa699d3902c5851ff24a1896",
       "cited_clauses": [
         "10.9"
       ],
@@ -47221,7 +47221,7 @@
     },
     {
       "test": "tests/ch13/test_illegal_nonvoid_function_call_without_parentheses.sv",
-      "inputs_sha256": "e39b4ca87dd505124ce3d5cdb9b44ce2f2661f323d56371f119b79ceb92249b8",
+      "inputs_sha256": "eda455360a4b7c4c2d937286298598758dfb718111f8e127cfe7f25f459c9022",
       "cited_clauses": [
         "13.5"
       ],
@@ -47532,7 +47532,7 @@
     },
     {
       "test": "tests/ch13/test_illegal_ref_combined_with_inout.sv",
-      "inputs_sha256": "5028ce8f9a37e35f2881e00e9a2bd28b5ed504e8a3075cb389d9662bf2d156d7",
+      "inputs_sha256": "6a9b90b600428f58368506d12c57f857ecbcb4a9ac00f49941c102538085f1c4",
       "cited_clauses": [
         "13.5.2"
       ],
@@ -47568,7 +47568,7 @@
     },
     {
       "test": "tests/ch13/test_illegal_ref_combined_with_input.sv",
-      "inputs_sha256": "5d8eb1635043587ea8b13c561c68becd1becb70161a35d6d13fd381922f0cd08",
+      "inputs_sha256": "e5c23e2b356cc89159b5c05ada6dfb6fc82db5b3acb6e0a579ba250ccad64f9c",
       "cited_clauses": [
         "13.5.2"
       ],
@@ -47604,7 +47604,7 @@
     },
     {
       "test": "tests/ch13/test_illegal_ref_combined_with_output.sv",
-      "inputs_sha256": "c0a81c7f6a03063d2ad3048a52245f850f9c87e6ddc8095893e14b8fd5db99e8",
+      "inputs_sha256": "f0d7ffa396b9a0ba373fa110cf3f1f392df3c7f59897a1d554dbbd03f6739ff0",
       "cited_clauses": [
         "13.5.2"
       ],
@@ -130345,7 +130345,7 @@
     },
     {
       "test": "tests/ch20/test_illegal_typename_hierarchical_constant.sv",
-      "inputs_sha256": "08a4efcb4ab66658cbd03c03879a2394a270c3711cb7c2d2248734badaec621d",
+      "inputs_sha256": "1744600c0f2e31597f816e87713a60b6b49bc032d84bcecceb3f7e72882290e3",
       "cited_clauses": [
         "20.6.1"
       ],
@@ -141742,7 +141742,7 @@
     },
     {
       "test": "tests/ch21/test_illegal_readmem_higher_range.sv",
-      "inputs_sha256": "7a28d61b3fc19f9517587b933400d9c117f083a8e9a4528a9e82bf76c0130713",
+      "inputs_sha256": "3fdb739bb2f2d612fe7a2d39bc1a2f4e92f5203d5732e33b40a1c21b605559df",
       "cited_clauses": [
         "21.4"
       ],
@@ -154833,7 +154833,7 @@
     },
     {
       "test": "tests/ch23/test_23_extra_bound_param_constant.sv",
-      "inputs_sha256": "13b3d4f35d606106e3054b16f914911f198fdde7e65c4777ff127abc67665a5a",
+      "inputs_sha256": "2e144e5ca61585fdd60e04ef100014a7f758df9c64c329e9fb2544684e88c50f",
       "cited_clauses": [
         "23.11"
       ],
@@ -215026,7 +215026,7 @@
     },
     {
       "test": "tests/ch35/test_35_rest_dpi_class_formal.sv",
-      "inputs_sha256": "da7c8a2b12a79d4f2e57de72067c69b82c9a4e230f02ab614157183a2920b5fd",
+      "inputs_sha256": "0a0377d217a02e82e2a37bffe572b90fd3c6af1953c3d9b29bc61880e91e5234",
       "cited_clauses": [
         "35.5.4",
         "35.5.6"
@@ -364014,7 +364014,7 @@
     },
     {
       "test": "tests/ch7/test_illegal_sort_iterator_without_with.sv",
-      "inputs_sha256": "7e2b164b5ddf5325d4589d301a01c20b624b602099db0e41b0dce84b805eac36",
+      "inputs_sha256": "556bb32b255a79e87c8f9e39578184bb5d3b5d2fc9a88325321a6d2143aec6ee",
       "cited_clauses": [
         "7.12"
       ],
@@ -942939,7 +942939,7 @@
     "oracle_issue": 243,
     "partial_observation": 2136
   },
-  "registry_sha256": "5fa2b87304c5df93005e010ee1eea2d5932f9d7f2a4f68536be6aa3330097715",
+  "registry_sha256": "923b7f6dcf9455b4ad92af503cd0803d4e471fd46bfd11bee024fc2bf3623d84",
   "inventory_sha256": "7f708bec45a4f398aa534c8f94565cb0bcd1a4fbfdf0a0e21997df20add41768",
   "review_ledger_sha256": "867e23b6a0a25ee5a0206190da02e825a036c1afa05c86ddeefa5da9b8023c29"
 }

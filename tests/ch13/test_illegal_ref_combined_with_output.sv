@@ -4,7 +4,7 @@
 :tags: ch13
 :type: elaboration
 :lrm: 1800-2023 13.5.2
-:oracle: spec iverilog@13.0 verilator@5.052
+:oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
@@ -34,3 +34,7 @@ module test_illegal_ref_combined_with_output;
     $display("%0d", x);
   end
 endmodule
+
+// Oracle check: Icarus Verilog 13.0 reports a syntax error on line 26. It
+// reports the same for the legal const ref and does not support the legal
+// ref of line 22, so its error does not count.

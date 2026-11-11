@@ -392,7 +392,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_ieee1800_2023_array_method_corner`](../../tests/ch7/test_ieee1800_2023_array_method_corner.sv) | Array Manipulation Methods Corner Cases | 7.12 7.12.1 7.12.2 7.12.3 7.10.2 7.9 | Verilator 5.052 ||
 | [`test_illegal_array_method_with_braces`](../../tests/ch7/test_illegal_array_method_with_braces.sv) | the with clause of an array manipulation method encloses its expression in parentheses; braces, as used by randomize() with, are illegal there | 7.12 | Verilator 5.052 | illegal design |
 | [`test_illegal_iterator_argument_without_with`](../../tests/ch7/test_illegal_iterator_argument_without_with.sv) | An array method cannot name its iterator without a with clause | 7.12 7.12.3 | standard only | illegal design |
-| [`test_illegal_sort_iterator_without_with`](../../tests/ch7/test_illegal_sort_iterator_without_with.sv) | an array method iterator argument requires a with clause | 7.12 | Icarus Verilog 13.0 | illegal design |
+| [`test_illegal_sort_iterator_without_with`](../../tests/ch7/test_illegal_sort_iterator_without_with.sv) | an array method iterator argument requires a with clause | 7.12 | Verilator 5.052 | illegal design |
 | [`test_member_access_deep`](../../tests/ch7/test_member_access_deep.sv) | array methods, §8.5 class member access | 7.12 8.5 | Verilator 5.052 ||
 | [`test_array_find`](../../tests/ch7/test_array_find.sv) | Array Locator Methods (§7.12.1) | 7.12.1 | Verilator 5.052 ||
 | [`test_array_find_2`](../../tests/ch7/test_array_find_2.sv) | Test: Array find method | 7.12.1 | Verilator 5.052 ||

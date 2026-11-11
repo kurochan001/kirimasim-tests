@@ -6,10 +6,10 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 90.14%、Ghostを除く実行 50.27%、Ghostを含む実行 77.65%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 90.14%、Ghostを除く実行 50.24%、Ghostを含む実行 77.62%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 90.14%。** 規格要求の実行確認率: Ghostを除いて 50.27%、Ghostを含めて 77.65%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 90.14%。** 規格要求の実行確認率: Ghostを除いて 50.24%、Ghostを含めて 77.62%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
@@ -17,7 +17,7 @@
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
 - 登録済み動作に対する要求カバレッジ（テスト設計）: 11086/12298 (90.14%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9550/12298 (77.65%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9546/12298 (77.62%)。
 - 登録済みだがテスト未対応: 1212 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。
@@ -33,13 +33,17 @@
 複数テストで一つの要求を分担する `check_groups` は、同じ実行環境・実行回で グループ内の全テストが成功した場合に限り成功とします。未指定の対応は独立した代替証拠です。
 
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12298 動作確認、古い入力との対応 0 件。
-- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3090/12298 動作確認、古い入力との対応 263 件。
-- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2989/12298 動作確認、古い入力との対応 263 件。
-- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3886/12298 動作確認、古い入力との対応 263 件。
-- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3598/12298 動作確認、古い入力との対応 8 件。
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7915/12298 動作確認、古い入力との対応 398 件。
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7995/12298 動作確認、古い入力との対応 334 件。
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7898/12298 動作確認、古い入力との対応 398 件。
+- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3086/12298 動作確認、古い入力との対応 272 件。
+- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2989/12298 動作確認、古い入力との対応 272 件。
+- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3881/12298 動作確認、古い入力との対応 272 件。
+- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3593/12298 動作確認、古い入力との対応 16 件。
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7915/12298 動作確認、古い入力との対応 407 件。
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7995/12298 動作確認、古い入力との対応 343 件。
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7898/12298 動作確認、古い入力との対応 407 件。
+- `oracle-tokens-2-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T22:25:00.780016+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
+- `oracle-tokens-2-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T22:25:00.894678+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
+- `oracle-tokens-2-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T22:25:01.564353+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
+- `oracle-tokens-2-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T22:25:02.208022+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
 - `oracle-tokens-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T19:14:33.552454+00:00` / 11/12298 動作確認、古い入力との対応 0 件。
 - `oracle-tokens-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T19:14:36.020025+00:00` / 4/12298 動作確認、古い入力との対応 0 件。
 - `oracle-tokens-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T19:15:04.286693+00:00` / 4/12298 動作確認、古い入力との対応 0 件。
@@ -24995,7 +24999,7 @@ LHS 上の代入パターンは位置的でなければならない。各メン�
 
 ### SV2023-10.9-EXTRACT-NO-PATTERN-PORT-EXPRESSION
 
-`10.9` / `error` / 実行確認あり
+`10.9` / `error` / テスト対応あり・実行未確認
 
 任意のモジュール／インタフェース／プログラム宣言ポート表現は，任意の代入パターン表現を使用できない。
 
@@ -57494,7 +57498,7 @@ feof(fd) は、前回の読み取りが EOF を検出した場合はゼロでな
 
 ### SV2023-21.4-EXTRACT-MEMORY-ARRAY-ARGUMENT
 
-`21.4` / `error` / 実行確認あり
+`21.4` / `error` / テスト対応あり・実行未確認
 
 負荷ターゲットはunpacked配列または部分的にインデックスされた多次元unpacked配列である。選択した次元の高い方は範囲よりもインデックスを必要とし、最低の選択した次元だけがスライスを使用する。
 
@@ -67404,7 +67408,7 @@ defparam 階層名は完全な精製の前に解決され，完全な精製の�
 
 ### SV2023-23.11-EXTRACT-BOUND-CONSTANT-REFERENCE
 
-`23.11` / `error` / 実行確認あり
+`23.11` / `error` / テスト対応あり・実行未確認
 
 束縛されたインスタンスの外側では，そのパラメータは定数表現の文脈で階層的に参照できない。
 
@@ -84508,7 +84512,7 @@ import宣言は、import、DPI-Cまたは非推奨のDPI文字列、省略可能
 
 ### SV2023-35.5.4-EXTRACT-PROTOTYPE-RESTRICTIONS
 
-`35.5.4` / `error` / 実行確認あり
+`35.5.4` / `error` / テスト対応あり・実行未確認
 
 dynamic_override_specifiers は非インタフェースクラスのメソッドに対してのみ有効である。関数の結果は 35.5.5 に従い、DPI フォーマルは ref やクラスタイプを使用できません。
 
@@ -84516,7 +84520,7 @@ dynamic_override_specifiers は非インタフェースクラスのメソッド�
 
 規定の性質: `mandatory`。
 
-- [test_35_rest_dpi_class_formal.sv](../tests/ch35/test_35_rest_dpi_class_formal.sv) : 規格違反テストの設計を拒否で 35.5.4 - EXTRACT-PROTOTYPE-RESTRICTIONS を観測する。import宣言は、仮引数にクラス型c_payloadを指定する。Verilator 5.052は"Unsupported: DPI argument of type CLASSREFDTYPE"との詳細化において宣言を拒否するので，DPIフォーマルとしてクラスタイプを通過できないというルールが遵守される。
+- [test_35_rest_dpi_class_formal.sv](../tests/ch35/test_35_rest_dpi_class_formal.sv) : 規格違反テストの設計を拒否で 35.5.4 - EXTRACT-PROTOTYPE-RESTRICTIONS を観測する。import宣言は、仮引数にクラス型c_payloadを指定する。Verilator 5.052は"Unsupported: DPI argument of type CLASSREFDTYPE"を報告し、合法なunpacked構造体の仮引数にも同じ報告を出すので、その拒否は数えない。 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
 
 ### SV2023-35.5.5-EXTRACT-EXPLICIT-RESULT
 

@@ -26,10 +26,10 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 
 | Oracle | Tests |
 | --- | ---: |
-| both releases | 806 |
-| Icarus Verilog 13.0 only | 5591 |
-| Verilator 5.052 only | 2238 |
-| standard only | 3627 |
+| both releases | 800 |
+| Icarus Verilog 13.0 only | 5589 |
+| Verilator 5.052 only | 2241 |
+| standard only | 3632 |
 
 <a id="章別"></a>
 
@@ -44,7 +44,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | 7 | Aggregate data types | 776 | 49 | 15.8 | 0 | 227 |
 | 8 | Classes | 458 | 43 | 10.7 | 0 | 128 |
 | 9 | Processes | 444 | 25 | 17.8 | 0 | 60 |
-| 10 | Assignment statements | 425 | 18 | 23.6 | 0 | 62 |
+| 10 | Assignment statements | 425 | 18 | 23.6 | 0 | 63 |
 | 11 | Operators and expressions | 1647 | 42 | 39.2 | 0 | 263 |
 | 12 | Procedural programming statements | 306 | 19 | 16.1 | 0 | 60 |
 | 13 | Tasks and functions (subroutines) | 450 | 15 | 30.0 | 0 | 74 |
@@ -54,10 +54,10 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | 17 | Checkers | 108 | 10 | 10.8 | 0 | 64 |
 | 18 | Constrained random value generation | 273 | 44 | 6.2 | 0 | 142 |
 | 19 | Functional coverage | 196 | 24 | 8.2 | 0 | 135 |
-| 20 | Utility system tasks and system functions | 406 | 31 | 13.1 | 0 | 97 |
-| 21 | Input/output system tasks and system functions | 495 | 47 | 10.5 | 0 | 105 |
+| 20 | Utility system tasks and system functions | 406 | 31 | 13.1 | 0 | 98 |
+| 21 | Input/output system tasks and system functions | 495 | 47 | 10.5 | 0 | 106 |
 | 22 | Compiler directives | 516 | 21 | 24.6 | 0 | 41 |
-| 23 | Modules and hierarchy | 417 | 33 | 12.6 | 0 | 78 |
+| 23 | Modules and hierarchy | 417 | 33 | 12.6 | 0 | 79 |
 | 24 | Programs | 167 | 7 | 23.9 | 0 | 112 |
 | 25 | Interfaces | 262 | 12 | 21.8 | 0 | 52 |
 | 26 | Packages | 262 | 6 | 43.7 | 0 | 102 |
@@ -69,7 +69,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | 32 | Backannotation using the standard delay format | 68 | 11 | 6.2 | 0 | 49 |
 | 33 | Configuring the contents of a design | 88 | 13 | 6.8 | 0 | 75 |
 | 34 | Protected envelopes | 4 | 8 | 0.5 | 0 | 0 |
-| 35 | Direct programming interface | 177 | 21 | 8.4 | 0 | 63 |
+| 35 | Direct programming interface | 177 | 21 | 8.4 | 0 | 64 |
 | 36 | Programming language interface (PLI/VPI) overview | 89 | 19 | 4.7 | 0 | 36 |
 | 37 | VPI object model diagrams | 227 | 94 | 2.4 | 0 | 208 |
 | 38 | VPI routine definitions | 109 | 46 | 2.4 | 0 | 44 |

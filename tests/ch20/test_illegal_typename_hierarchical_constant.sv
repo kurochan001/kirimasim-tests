@@ -4,7 +4,7 @@
 :tags: ch20
 :type: elaboration
 :lrm: 1800-2023 20.6.1
-:oracle: spec iverilog@13.0
+:oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
@@ -23,3 +23,8 @@ module test_illegal_typename_hierarchical_constant;
   localparam string T = $typename(u.sig);   // illegal: hierarchical
   initial $display(T);
 endmodule
+
+// Oracle check: Icarus Verilog 13.0 reports on line 23 that a hierarchical
+// reference is not allowed in a constant expression. It rejects the legal
+// $typename(sig) of a local variable in a localparam too, so its error does
+// not count.

@@ -4,7 +4,7 @@
 :tags: ch23
 :type: elaboration
 :lrm: 1800-2023 23.11
-:oracle: spec verilator@5.052
+:oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
@@ -19,9 +19,9 @@
 // elaborating the enclosing module, which the clause forbids, so the design
 // is illegal. The bound instance itself and the use of P inside its own
 // hierarchy are legal; only the outside reference is not.
-// The 5.052 release of Verilator reports the unresolved reference at this
-// line; Icarus Verilog 13.0 has no bind directive, so the expected
-// rejection is recorded with Verilator alone.
+// The 5.052 release of Verilator reports at this line that it cannot find
+// b, as it does for a legal reference to u.b.P in procedural code, so its
+// error does not count; Icarus Verilog 13.0 has no bind directive.
 
 module bpc_mod #(parameter int P = 5) ();
 endmodule

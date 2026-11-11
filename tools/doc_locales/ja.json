@@ -24697,6 +24697,7 @@
     "the values follow from the constraints": "値は制約から決まる",
     "When use model a) of ZXQPH0QXZ is chosen, all files of one command line form one compilation unit, so a variable and a function declared in one file are visible in another file": "ZXQPH0QXZのa)の使い方を選んだとき、1つのコマンドラインの全ファイルが1つのコンパイル単位になるので、あるファイルで宣言した変数と関数がほかのファイルから見える",
     "証跡の問題: runner fingerprint differs。": "証跡の問題: ランナーの指紋が一致しません。",
-    "ZXQPH0QXZ version ZXQPH1QXZ (stable) ( ZXQPH2QXZ )。": "ZXQPH0QXZ バージョン ZXQPH1QXZ (安定版) (ZXQPH2QXZ)。"
+    "ZXQPH0QXZ version ZXQPH1QXZ (stable) ( ZXQPH2QXZ )。": "ZXQPH0QXZ バージョン ZXQPH1QXZ (安定版) (ZXQPH2QXZ)。",
+    "ZXQPH0QXZ ZXQPH1QXZ reports ZXQPH2QXZ , and the same for a legal ZXQPH3QXZ structure formal, so its rejection does not count.": "ZXQPH0QXZ ZXQPH1QXZはZXQPH2QXZを報告し、合法なZXQPH3QXZ構造体の仮引数にも同じ報告を出すので、その拒否は数えない。"
   }
 }

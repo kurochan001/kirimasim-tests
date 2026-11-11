@@ -68,9 +68,9 @@ The suite has **12262 tests** in 38 chapters. 5725 of them are generated. The [g
 
 | Expected result recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 6397 |
-| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 2238 |
-| The standard only, with no fixed-release simulator oracle recorded | 3627 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 6389 |
+| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 2241 |
+| The standard only, with no fixed-release simulator oracle recorded | 3632 |
 
 2914 tests depend on x or z values (`:fourstate: yes`). 687 tests come with C code: 186 DPI tests (`:dpi_c:`) and 501 VPI tests (`:vpi_c:`). 1975 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 33 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 54 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
@@ -80,23 +80,23 @@ The suite has **12262 tests** in 38 chapters. 5725 of them are generated. The [g
 | 4 | Scheduling semantics | 478 | 443 | 7 | 28 |
 | 5 | Lexical conventions | 513 | 438 | 29 | 46 |
 | 6 | Data types | 685 | 371 | 166 | 148 |
-| 7 | Aggregate data types | 776 | 268 | 281 | 227 |
+| 7 | Aggregate data types | 776 | 267 | 282 | 227 |
 | 8 | Classes | 458 | 73 | 257 | 128 |
 | 9 | Processes | 444 | 336 | 48 | 60 |
-| 10 | Assignment statements | 425 | 299 | 64 | 62 |
+| 10 | Assignment statements | 425 | 298 | 64 | 63 |
 | 11 | Operators and expressions | 1647 | 1251 | 133 | 263 |
 | 12 | Procedural programming statements | 306 | 213 | 33 | 60 |
-| 13 | Tasks and functions (subroutines) | 450 | 280 | 96 | 74 |
+| 13 | Tasks and functions (subroutines) | 450 | 276 | 100 | 74 |
 | 14 | Clocking blocks | 170 |  | 101 | 69 |
 | 15 | Interprocess synchronization and communication | 192 | 2 | 58 | 132 |
 | 16 | Assertions | 793 | 38 | 124 | 631 |
 | 17 | Checkers | 108 |  | 44 | 64 |
 | 18 | Constrained random value generation | 273 | 4 | 127 | 142 |
 | 19 | Functional coverage | 196 |  | 61 | 135 |
-| 20 | Utility system tasks and system functions | 406 | 252 | 57 | 97 |
-| 21 | Input/output system tasks and system functions | 495 | 353 | 37 | 105 |
+| 20 | Utility system tasks and system functions | 406 | 251 | 57 | 98 |
+| 21 | Input/output system tasks and system functions | 495 | 352 | 37 | 106 |
 | 22 | Compiler directives | 516 | 437 | 38 | 41 |
-| 23 | Modules and hierarchy | 417 | 281 | 58 | 78 |
+| 23 | Modules and hierarchy | 417 | 281 | 57 | 79 |
 | 24 | Programs | 167 | 31 | 24 | 112 |
 | 25 | Interfaces | 262 | 90 | 120 | 52 |
 | 26 | Packages | 262 | 90 | 70 | 102 |
@@ -108,7 +108,7 @@ The suite has **12262 tests** in 38 chapters. 5725 of them are generated. The [g
 | 32 | Backannotation using the standard delay format | 68 | 19 |  | 49 |
 | 33 | Configuring the contents of a design | 88 | 4 | 9 | 75 |
 | 34 | Protected envelopes | 4 | 2 | 2 |  |
-| 35 | Direct programming interface | 177 |  | 114 | 63 |
+| 35 | Direct programming interface | 177 |  | 113 | 64 |
 | 36 | Programming language interface (PLI/VPI) overview | 89 | 34 | 19 | 36 |
 | 37 | VPI object model diagrams | 227 | 18 | 1 | 208 |
 | 38 | VPI routine definitions | 109 | 56 | 9 | 44 |
@@ -294,8 +294,8 @@ approved it. The reviewer was an AI, not an independent human.
 Design coverage is **90.14% (11,086/12,298)**;
 execution coverage from the saved `coverage/results/` evidence of the tools
 anyone can reproduce (Icarus Verilog, Verilator and SymbiYosys) is
-**50.27% (6,182/12,298)**.
-With the results of Ghost, an unreleased simulator, and of kirimasim added, it is 77.65% (9,550/12,298).
+**50.24% (6,178/12,298)**.
+With the results of Ghost, an unreleased simulator, and of kirimasim added, it is 77.62% (9,546/12,298).
 Clauses 1 to 40 alone are at 88.47% (8,374/9,465) design coverage.
 See the [generated behavior summary](docs/behavior-coverage-summary.en.md) for the
 measurement inputs and denominator.
