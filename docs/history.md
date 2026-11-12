@@ -653,3 +653,10 @@ clause 37.
 - The four wrong tests expect the type `vpiBitSelect` for a bit of a net or of a variable. By 37.16 and 37.17 these are a net bit and a var bit.
 - The gap in the standard: the header of Annex M has no constant for the tag `vpiNetTypedef` that 37.10 and 37.85 show.
 - No test was changed. The 30 wrong or flawed tests will be corrected when Ghost's results are saved again. The coverage figures are unchanged.
+
+### 2026-11-13 (review of the tests that only Ghost passes: Clause 16)
+
+- The 90 tests of Clause 16 that match their expectation on Ghost alone were compared with the standard by two reviews, independent of each other, with the method used for Clause 37. The record is the [review of the tests that only Ghost passes: Clause 16](ghost-only-review-ch16-20261113.en.md).
+- The verdicts: 85 expectations are right and 5 rest on a contested reading. None is wrong or flawed.
+- Three of the five ask whether a sequence without a match can be written in a `cover sequence` (16.12.22 and 16.14.3). One is about the number of calls written inside `first_match` (16.9.8 and 16.11), and one about writing back an assignment to a `local input` formal (16.8.1 and 16.8.2).
+- No test was changed. The coverage figures are unchanged.

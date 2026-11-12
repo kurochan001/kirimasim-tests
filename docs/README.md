@@ -166,3 +166,4 @@ Code, identifiers, raw execution evidence and license terms retain their origina
 | Review of the tests that no simulator passes (2026-11-12) | [English](pass-nowhere-review-20261112.en.md) | [日本語](pass-nowhere-review-20261112.md) |
 | Handoff 2026-11-12 | [English](claude-code-handoff-20261112.en.md) | [日本語](claude-code-handoff-20261112.md) |
 | Review of the tests that only Ghost passes: Clause 37 (2026-11-13) | [English](ghost-only-review-ch37-20261113.en.md) | [日本語](ghost-only-review-ch37-20261113.md) |
+| Review of the tests that only Ghost passes: Clause 16 (2026-11-13) | [English](ghost-only-review-ch16-20261113.en.md) | [日本語](ghost-only-review-ch16-20261113.md) |
