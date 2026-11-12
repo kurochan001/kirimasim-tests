@@ -1,0 +1,16 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401",
+ "tests": {
+  "ch31/test_31_extra_fullskew_active_flag": {
+   "status": "unsupported",
+   "reason": "specify pulse control or timing check (not implemented yet)",
+   "inputs_sha256": "b9a93e0e9330969a5c81ee624b636ff296895d5a026a56647d69ae576d6303d9"
+  }
+ },
+ "generated_at": "2026-11-12T21:43:29.567975+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

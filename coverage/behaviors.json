@@ -298738,10 +298738,10 @@
       "checks": [
         {
           "test": "tests/ch31/test_31_extra_fullskew_active_flag.sv",
-          "observation": "シミュレーションで31.4.3-EXTRACT-ACTIVE-FLAGを観測する。Two $fullskew checks give the remain_active_flag after the notifier and event_based_flag as the constant 0 and as the specparam raf = 1. The design builds and runs, and the expected line t=20 n=00 shows the notifiers unchanged, so the flag accepts a constant e 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
-          "reviewed_on": "2026-10-28",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "df3b9786c1b2f8a430a721cf48cdcb0aa44829da12346d2c423ed478abae43fe",
+          "observation": "シミュレーションで31.4.3-EXTRACT-ACTIVE-FLAGを観測する。Two $fullskew checks give the remain_active_flag after the notifier and event_based_flag as the constant 0 and as the specparam raf = 1. The design builds and runs. Each check reports a violation at 7 and at 13, so each notifier changes twice and the expected line is t=20 n=00. 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+          "reviewed_on": "2026-11-13",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "inputs_sha256": "b9a93e0e9330969a5c81ee624b636ff296895d5a026a56647d69ae576d6303d9",
           "evidence": [
             {
               "file": "tests/ch31/test_31_extra_fullskew_active_flag.sv",

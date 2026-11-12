@@ -24726,6 +24726,8 @@
     "A ZXQPH0QXZ -stream cast of a dynamic array to ZXQPH1QXZ is legal while the array holds ZXQPH2QXZ bits and is an error, reported at run time, once the array has ZXQPH3QXZ bits": "動的配列から ZXQPH1QXZ への ZXQPH0QXZ ストリームキャストは、配列が ZXQPH2QXZ ビットの間は合法で、配列が ZXQPH3QXZ ビットになると、実行時に報告されるエラーになる",
     "new ZXQPH0QXZ ZXQPH1QXZ with a size operand whose value is negative at run time is an error": "サイズのオペランドの値が実行時に負になる new ZXQPH0QXZ ZXQPH1QXZ はエラーである",
     "Assigning a dynamic array to a fixed-size array with a different number of elements gives a run-time error and performs no operation": "要素数の異なる固定長配列に動的配列を代入すると、実行時エラーになり、何の操作も行われない",
-    "Assigning a queue to a fixed-size array with a different number of elements gives a run-time error and performs no operation": "要素数の異なる固定長配列にキューを代入すると、実行時エラーになり、何の操作も行われない"
+    "Assigning a queue to a fixed-size array with a different number of elements gives a run-time error and performs no operation": "要素数の異なる固定長配列にキューを代入すると、実行時エラーになり、何の操作も行われない",
+    "The design builds and runs.": "設計はビルドでき、実行できます。",
+    "Each check reports a violation at ZXQPH0QXZ and at ZXQPH1QXZ , so each notifier changes twice and the expected line is ZXQPH2QXZ = ZXQPH3QXZ ZXQPH4QXZ = ZXQPH5QXZ . 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。": "各チェックはZXQPH0QXZとZXQPH1QXZで違反を報告するので、各ノーティファイアは二度変化し、期待行はZXQPH2QXZ=ZXQPH3QXZ ZXQPH4QXZ=ZXQPH5QXZです。区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。"
   }
 }
