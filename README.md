@@ -116,7 +116,7 @@ The suite has **12272 tests** in 38 chapters. 5725 of them are generated. The [g
 | 40 | Code coverage control and API | 39 | 1 | 2 | 36 |
 <!-- suite-stats:end -->
 
-The total includes 268 `:type: formal` tests. They are checked with SymbiYosys
+The total includes 267 `:type: formal` tests. They are checked with SymbiYosys
 through `:formal_case:` rather than by comparing simulator standard output;
 see [running formal tests](#symbiyosys).
 
@@ -894,7 +894,7 @@ will remain saved, following the same rules as other retired participants.
 
 Check [bounded, proof and cover PASS versus expected FAIL](docs/faq.en.md#q21-do-bmc-and-pdr-pass-mean-the-same-thing) before selecting a model and verification scope.
 
-The suite includes 268 tests with `:type: formal`. They name a `:formal_case:`
+The suite includes 267 tests with `:type: formal`. They name a `:formal_case:`
 and are run by `tools/run_sby.py`, which compares the reference evaluator with
 an independent RTL model. The Icarus, Verilator, kirimasim, Lyra and Ghost
 runners exclude them.

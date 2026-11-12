@@ -106,7 +106,7 @@ Icarus Verilog、Verilator、kirimasim、
 | 40 | コードカバレッジの制御とAPI | 39 | 1 | 2 | 36 |
 <!-- suite-stats:end -->
 
-総数には`:type: formal`の268本を含みます。これらはシミュレータの標準出力を比較せず、
+総数には`:type: formal`の267本を含みます。これらはシミュレータの標準出力を比較せず、
 `:formal_case:`を使ってSymbiYosysで検査します。[実行方法](#symbiyosys)を参照してください。
 
 SVAやformalのPASSは、通常のシミュレーションと確認範囲が異なります。[BMC・PDR・cover・反例の実レポートの読み方](docs/faq.md#q21-do-bmc-and-pdr-pass-mean-the-same-thing)を参照してください。
@@ -762,7 +762,7 @@ NightlyはリポジトリのSecretsから`GHOST_REPOSITORY`、`GHOST_DEPLOY_KEY`
 
 [BMC・証明・coverのPASSと予定したFAILの違い](docs/faq.md#q21-do-bmc-and-pdr-pass-mean-the-same-thing)を確認してから、モデル名と検証範囲を選んでください。
 
-スイートには`:type: formal`のテストが268本あります。`:formal_case:`に検証ケース名を
+スイートには`:type: formal`のテストが267本あります。`:formal_case:`に検証ケース名を
 指定し、`tools/run_sby.py`が参照評価器と独立したRTLモデルを比較します。
 Icarus・Verilator・kirimasim・Lyra・Ghostのランナーはこれらを除外します。
 
