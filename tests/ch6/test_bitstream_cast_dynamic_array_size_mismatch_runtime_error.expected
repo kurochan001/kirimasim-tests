@@ -1,0 +1,2 @@
+4 bytes: 01020304
+casting a dynamic array of 5 bytes to int

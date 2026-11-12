@@ -1,0 +1,3 @@
+valid cast of 2: e=2
+calling $cast(e, 9)
+after the invalid cast: e=2

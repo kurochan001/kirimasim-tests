@@ -1180,6 +1180,31 @@ slangと、それを使うkirimasim・Lyraは、`#`のある形だけを受理�
 18.5.11は、変数の暗黙の順序による循環依存をエラーとします。`ch18/test_constraint_function_cycle_runtime_error`では、制約`x <= f(y)`が`y`を`x`より先に、制約`y <= f(x)`が`x`を`y`より先に順序付けます。
 Verilator 5.052は、2回目の`randomize()`の前の2行を表示し、エラーを報告しません。このテストは以前は不正な設計のテストで、このリリースはそれも受け入れていました。
 
+<a id="negative-new-size-20261112"></a>
+
+## Verilator 5.052：負のサイズの`new[n]`をエラーにしない（2026-11-12）
+
+7.5.1は、`new[]`のサイズのオペランドが負の値であることをエラーとします。`ch7/test_dynamic_array_new_negative_size_runtime_error`では、オペランドは変数`n`で、1回目の呼び出しでは3、2回目では-1です。
+Verilator 5.052は、2回目の呼び出しの前の2行を表示し、終了ステータス0で実行を終えます。seed 1でもseed 73でも、エラーを報告しません。
+kirimasim `7de185f776a1`は呼び出しの行でエラーを報告し、テストは一致します。
+
+<a id="icarus-negative-new-size-20261112"></a>
+
+## Icarus Verilog 13.0：負のサイズの`new[n]`で実行が異常終了する（2026-11-12）
+
+同じテスト`ch7/test_dynamic_array_new_negative_size_runtime_error`で、Icarus Verilog 13.0は2回目の呼び出しの前の2行を表示し、そのあと実行がシグナルで終わります（macOS arm64ではシグナル6）。
+シミュレータ自身は、負のサイズについてエラーメッセージを出しません。出るのは、捕捉されなかった例外についてのC++ランタイムライブラリのメッセージだけです。
+ランナーは、シグナルで終わった実行を、表示した内容にかかわらず失敗と数えます。
+
+<a id="icarus-bitstream-size-stop-20261112"></a>
+
+## Icarus Verilog 13.0：ビットストリームキャストの大きさの不一致のあとで実行が止まる（2026-11-12）
+
+6.24.3は、動的な大きさの型を含むビットストリームキャストで大きさが違うことを、コンパイル時または実行時のエラーとします。`ch6/test_bitstream_cast_dynamic_array_size_mismatch_runtime_error`では、5バイトの動的配列を`int`にキャストします。
+Icarus Verilog 13.0は、期待する2行を表示し、エラーを報告します。メッセージは`VVP error: size mismatch when casting dynamic array to vector.`です。
+このエラーは規格が求めるものです。しかし実行は、そのあと`$stop`のときと同じように止まって入力を待ち、終わりません。ランナーでは60秒の制限時間が実行を終わらせ、結果は「timed out」になります。
+標準入力を閉じるか、`vvp`のオプション`-n`を付けると、実行はメッセージのあと終了ステータス0で終わります。ランナーはどちらも使わないので、このテストにIcarusのoracleはありません。
+
 <a id="observations-20261112"></a>
 
 ## 2026-11-12の観察（リリースの差異ではないもの）

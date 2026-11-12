@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 90.14%、Ghostを除く実行 50.20%、Ghostを含む実行 77.57%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 90.21%、Ghostを除く実行 50.21%、Ghostを含む実行 77.59%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 90.14%。** 規格要求の実行確認率: Ghostを除いて 50.20%、Ghostを含めて 77.57%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 90.21%。** 規格要求の実行確認率: Ghostを除いて 50.21%、Ghostを含めて 77.59%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対する要求カバレッジ（テスト設計）: 11086/12298 (90.14%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9540/12298 (77.57%)。
-- 登録済みだがテスト未対応: 1212 動作。
+- 登録済み動作に対する要求カバレッジ（テスト設計）: 11094/12298 (90.21%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9542/12298 (77.59%)。
+- 登録済みだがテスト未対応: 1204 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。
 
@@ -52,6 +52,10 @@
 - `oracle-tokens-3-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T23:13:04.014714+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
 - `oracle-tokens-3-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:01.978891+00:00` / 1/12298 動作確認、古い入力との対応 0 件。
 - `oracle-tokens-3-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:03.804411+00:00` / 1/12298 動作確認、古い入力との対応 0 件。
+- `runtime-errors-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-12T01:03:42.109814+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
+- `runtime-errors-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-12T01:03:42.439195+00:00` / 1/12298 動作確認、古い入力との対応 0 件。
+- `runtime-errors-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T01:03:46.712402+00:00` / 1/12298 動作確認、古い入力との対応 0 件。
+- `runtime-errors-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T01:03:50.809958+00:00` / 1/12298 動作確認、古い入力との対応 0 件。
 - `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 73/12298 動作確認、古い入力との対応 1 件。
 - `test-fixes-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T23:50:40.175858+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
 - `test-fixes-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T23:50:40.334300+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
@@ -289,16 +293,16 @@
 - 3 Design and verification building blocks: 解釈保留なし 22/22、登録 146、テスト対応 118。
 - 4 Scheduling semantics: 解釈保留なし 40/40、登録 107、テスト対応 88。
 - 5 Lexical conventions: 解釈保留なし 21/21、登録 154、テスト対応 136。
-- 6 Data types: 解釈保留なし 92/92、登録 719、テスト対応 679。
-- 7 Aggregate data types: 解釈保留なし 61/61、登録 345、テスト対応 320。
+- 6 Data types: 解釈保留なし 92/92、登録 719、テスト対応 681。
+- 7 Aggregate data types: 解釈保留なし 61/61、登録 345、テスト対応 322。
 - 8 Classes: 解釈保留なし 49/49、登録 252、テスト対応 221。
 - 9 Processes: 解釈保留なし 34/34、登録 189、テスト対応 166。
 - 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 130。
-- 11 Operators and expressions: 解釈保留なし 55/55、登録 459、テスト対応 433。
+- 11 Operators and expressions: 解釈保留なし 55/55、登録 459、テスト対応 434。
 - 12 Procedural programming statements: 解釈保留なし 28/28、登録 115、テスト対応 89。
 - 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 119、テスト対応 92。
 - 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 84。
-- 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 71。
+- 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 74。
 - 16 Assertions: 解釈保留なし 82/82、登録 555、テスト対応 539。
 - 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 59。
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 300。
@@ -13742,7 +13746,7 @@ enum 静的キャストは、ランタイムメンバーシップ検証または
 
 ### SV2023-6.24.2-EXTRACT-TASK-FAILURE
 
-`6.24.2` / `error` / テスト未対応
+`6.24.2` / `normal` / 実行確認あり
 
 不正な$castタスクは、実行時エラーを報告し、格納先を変更しない。コンパイル時のタイプ拒否によって有効性はチェックされません。
 
@@ -13750,6 +13754,7 @@ enum 静的キャストは、ランタイムメンバーシップ検証または
 
 規定の性質: `mandatory`。
 
+- [test_cast_task_enum_value_runtime_error.sv](../tests/ch6/test_cast_task_enum_value_runtime_error.sv): enum {A = 1, B = 2} の変数 e に、実行時に計算した v = 2 を $cast のタスク形式で代入して e=2 を表示した後、v = 9（どのメンバーの値でもない）で $cast(e, v) を呼び、呼び出しの後に e を表示する。期待出力は e が 2 のままであることを示し、実行時のメッセージに error を照合する。 区別: 無効なキャストで 9 を書き込む実装は after the invalid cast: e=9 を出し、エラーを報告しない実装はメッセージの照合で失敗し、コンパイル時に型で拒否する実装は 1 行も出さない。
 
 ### SV2023-6.24.2-EXTRACT-TASK-SUCCESS
 
@@ -13857,7 +13862,7 @@ unpacked配列にビットストリームをキャストすると，要素は左
 
 ### SV2023-6.24.3-EXTRACT-DYNAMIC-SIZE-MISMATCH
 
-`6.24.3` / `error` / テスト未対応
+`6.24.3` / `normal` / テスト対応あり・実行未確認
 
 動的型を含むサイズ不一致は，コンパイルまたはランタイムで決定できる早い段階で報告されるエラーである。
 
@@ -13865,6 +13870,7 @@ unpacked配列にビットストリームをキャストすると，要素は左
 
 規定の性質: `mandatory`。
 
+- [test_bitstream_cast_dynamic_array_size_mismatch_runtime_error.sv](../tests/ch6/test_bitstream_cast_dynamic_array_size_mismatch_runtime_error.sv): byte の動的配列 d を実行時に計算した n = 4 で作り、int'(d) が 01020304（添字 0 が最上位）になることを表示した後、new\[n\](d) で 5 要素（40 ビット）にして同じ int'(d) を評価する。期待出力はキャストの直前の行までで、実行時のメッセージに error を照合する。 区別: 40 ビットを切り詰めるか詰めて int にする実装はメッセージの照合で失敗し、動的配列から int へのキャストをすべて拒否する実装は 4 bytes: 01020304 の行を出さない。
 
 ### SV2023-6.24.3-EXTRACT-DYNAMIC-SOURCE-INCLUDED
 
@@ -15593,7 +15599,7 @@ unpacked 変数配列は，構成や配列代入によってランタイムで�
 
 ### SV2023-7.5.1-EXTRACT-NO-NEGATIVE-SIZE
 
-`7.5.1` / `error` / テスト未対応
+`7.5.1` / `normal` / 実行確認あり
 
 負の動的配列割当サイズは誤りである。
 
@@ -15601,6 +15607,7 @@ unpacked 変数配列は，構成や配列代入によってランタイムで�
 
 規定の性質: `mandatory`。
 
+- [test_dynamic_array_new_negative_size_runtime_error.sv](../tests/ch7/test_dynamic_array_new_negative_size_runtime_error.sv): int の動的配列 d を実行時に計算した n = 3 で new\[n\] して size=3 を表示した後、n = -1 にして同じ new\[n\] を呼ぶ。期待出力は呼び出しの直前の行までで、実行時のメッセージに error を照合する。 区別: 負のサイズを 0 や大きな符号なしの数として扱いエラーにしない実装はメッセージの照合で失敗する。
 
 ### SV2023-7.5.1-EXTRACT-OPTIONAL-ARRAY-INITIALIZER
 
@@ -15783,7 +15790,7 @@ unpacked 配列連結を含む表現は，適合配列代入源となる。
 
 ### SV2023-7.6-EXTRACT-DYNAMIC-FIXED-MISMATCH
 
-`7.6` / `error` / テスト未対応
+`7.6` / `normal` / テスト対応あり・実行未確認
 
 ランタイムサイズの動的配列またはキューを他のサイズの固定配列にコピーすると、ランタイムエラーが発生し、操作は行われません。
 
@@ -15791,6 +15798,8 @@ unpacked 配列連結を含む表現は，適合配列代入源となる。
 
 規定の性質: `mandatory`。
 
+- [test_dynamic_to_fixed_array_size_mismatch_runtime_error.sv](../tests/ch7/test_dynamic_to_fixed_array_size_mismatch_runtime_error.sv): int f\[3\] に、実行時に計算した n = 3 の大きさの動的配列 d（4 5 6）を代入して f = 4 5 6 を表示した後、d を 2 要素（7 8）に作り直して f = d を行い、代入の後に f を表示する。期待出力は f が 4 5 6 のままであることを示し、実行時のメッセージに error を照合する。 区別: 要素数の違う動的配列を写す実装は after the assignment の行の値が変わり、エラーを報告しない実装はメッセージの照合で失敗する。
+- [test_queue_to_fixed_array_size_mismatch_runtime_error.sv](../tests/ch7/test_queue_to_fixed_array_size_mismatch_runtime_error.sv): int f\[3\] に、実行時に計算した n = 3 回の push_back で作った queue d（4 5 6）を代入して f = 4 5 6 を表示した後、pop_back で 2 要素にして 7 8 を書き、f = d を行い、代入の後に f を表示する。期待出力は f が 4 5 6 のままであることを示し、実行時のメッセージに error を照合する。 区別: 要素数の違う queue を写す実装は after the assignment の行の値が変わり、エラーを報告しない実装はメッセージの照合で失敗する。
 
 ### SV2023-7.6-EXTRACT-FIXED-TARGET-COUNT
 
@@ -31411,7 +31420,7 @@ bitは幅を拡張すると複製される。
 
 ### SV2023-11.9-EXTRACT-TAGGED-DOT-READ-WRITE
 
-`11.9` / `error` / テスト未対応
+`11.9` / `normal` / テスト対応あり・実行未確認
 
 これは、タグを付けたメンバーは、現在のタグと一致するドット記法を使ってのみ読み書きできることを意味します。読み書きが不一致すると ランタイムエラーが発生します
 
@@ -31419,6 +31428,8 @@ bitは幅を拡張すると複製される。
 
 規定の性質: `mandatory`。
 
+- [test_tagged_union_read_wrong_tag_runtime_error.sv](../tests/ch11/test_tagged_union_read_wrong_tag_runtime_error.sv): int の Int と bit \[7:0\] の Byte をメンバーに持つ tagged union の t を tagged Int 5 にして t.Int を読み、実行時に決まる条件で tagged Byte 8'hA5 にして t.Byte を読んだ後、タグが Byte のまま x = t.Int を読む。期待出力は読み出しの直前の行までで、実行時のメッセージに error を照合する。 区別: 現在のタグと違うメンバーの読み出しを検査せず Byte のビットを Int として返す実装はメッセージの照合で失敗する。
+- [test_tagged_union_write_wrong_tag_runtime_error.sv](../tests/ch11/test_tagged_union_write_wrong_tag_runtime_error.sv): int の Int と bit \[7:0\] の Byte をメンバーに持つ tagged union の t を tagged Int 5 にして t.Int を読み、実行時に決まる条件で tagged Byte 8'hA5 にして t.Byte を読んだ後、タグが Byte のまま t.Int = 7 を代入する。期待出力は代入の直前の行までで、実行時のメッセージに error を照合する。 区別: 現在のタグと違うメンバーへの代入でタグや値を黙って変える実装はメッセージの照合で失敗する。
 
 ### SV2023-11.9-EXTRACT-TAGGED-EXPRESSION
 
@@ -36083,7 +36094,7 @@ try_put はメッセージを追加せずにゼロを返します。無制限の
 
 ### SV2023-15.4.5-EXTRACT-GET-TYPE-ERROR
 
-`15.4.5` / `error` / テスト未対応
+`15.4.5` / `normal` / テスト対応あり・実行未確認
 
 目的地とキューのメッセージタイプが等価でない場合、get はランタイムエラーを生成します。
 
@@ -36091,6 +36102,7 @@ try_put はメッセージを追加せずにゼロを返します。無制限の
 
 規定の性質: `mandatory`。
 
+- [test_mailbox_typeless_get_type_mismatch_runtime_error.sv](../tests/ch15/test_mailbox_typeless_get_type_mismatch_runtime_error.sv): 型パラメータなしの mailbox に int のメッセージを入れて get(i) が 7 を取り出すことを表示した後、実行時に決まる条件で string のメッセージを入れ、int の変数で get(i) を呼ぶ。mailbox は空でないので呼び出しは待たない。期待出力は呼び出しの直前の行までで、実行時のメッセージに error を照合する。 区別: string のメッセージを int の変数へ変換して渡すなど型の不一致をエラーにしない実装はメッセージの照合で失敗する。
 
 ### SV2023-15.4.5-EXTRACT-MAILBOX-WAITER-FIFO
 
@@ -36130,7 +36142,7 @@ try_put はメッセージを追加せずにゼロを返します。無制限の
 
 ### SV2023-15.4.5-EXTRACT-SINGULAR-LVALUE
 
-`15.4.5` / `error` / テスト未対応
+`15.4.5` / `error` / テスト対応あり・実行未確認
 
 メールボックス get destination は有効な単数 lvalue でなければなりません。
 
@@ -36138,6 +36150,7 @@ try_put はメッセージを追加せずにゼロを返します。無制限の
 
 規定の性質: `mandatory`。
 
+- [test_illegal_mailbox_get_unpacked_array.sv](../tests/ch15/test_illegal_mailbox_get_unpacked_array.sv): 型パラメータなしの mailbox で、要素 arr\[1\] を宛先にした get は合法で、unpacked 配列 arr 全体を宛先にした get(arr) の行を誤りとして拒否することを照合する。 このテストが確かめるのは宛先が singular であることだけで、宛先が左辺式として有効であること（例えば get(i + 1) の拒否）は確かめない。 区別: get の宛先が singular であることを検査しない実装は設計を受理する。
 
 ### SV2023-15.4.6-EXTRACT-EMPTY-ZERO
 
@@ -36249,7 +36262,7 @@ peek はキューから削除せずにメッセージをコピーします。
 
 ### SV2023-15.4.7-EXTRACT-PEEK-TYPE-ERROR
 
-`15.4.7` / `error` / テスト未対応
+`15.4.7` / `normal` / テスト対応あり・実行未確認
 
 格納先とメッセージの型が等価でない場合、peekで実行時エラーとなる。
 
@@ -36257,6 +36270,7 @@ peek はキューから削除せずにメッセージをコピーします。
 
 規定の性質: `mandatory`。
 
+- [test_mailbox_typeless_peek_type_mismatch_runtime_error.sv](../tests/ch15/test_mailbox_typeless_peek_type_mismatch_runtime_error.sv): 型パラメータなしの mailbox に int のメッセージを入れて peek(i) が 7 を写し get(i) で取り出すことを表示した後、実行時に決まる条件で string のメッセージを入れ、int の変数で peek(i) を呼ぶ。mailbox は空でないので呼び出しは待たない。期待出力は呼び出しの直前の行までで、実行時のメッセージに error を照合する。 区別: string のメッセージを int の変数へ変換して渡すなど型の不一致をエラーにしない実装はメッセージの照合で失敗する。
 
 ### SV2023-15.4.7-EXTRACT-SIGNATURE
 

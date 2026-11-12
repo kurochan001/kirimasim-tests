@@ -1,0 +1,62 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch11/test_tagged_union_read_wrong_tag_runtime_error": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch11/test_tagged_union_read_wrong_tag_runtime_error.sv:40:9: Unsupported: tagged union",
+   "inputs_sha256": "d59e4d1708863104700aaf5d3b920a1c9279c38d41a41d27dc546ff6fe89a025"
+  },
+  "ch11/test_tagged_union_write_wrong_tag_runtime_error": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch11/test_tagged_union_write_wrong_tag_runtime_error.sv:40:9: Unsupported: tagged union",
+   "inputs_sha256": "31fdd6328834ae90f3618d09c5525d703d11d6c44331bce2027db0b6f499fa93"
+  },
+  "ch15/test_illegal_mailbox_get_unpacked_array": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_mailbox_get_unpacked_array\\\\.sv:30:'; the first is: %Error: tests/ch15/test_illegal_mailbox_get_unpacked_array.sv:23:3: Class parameter type without default value is never given value (IEEE 1800-2023 6.20.1): 'T'",
+   "inputs_sha256": "917d6e266f47287f7290de642683a889c78a100671c649c1ce8f5b9f97393d80"
+  },
+  "ch15/test_mailbox_typeless_get_type_mismatch_runtime_error": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch15/test_mailbox_typeless_get_type_mismatch_runtime_error.sv:32:3: Class parameter type without default value is never given value (IEEE 1800-2023 6.20.1): 'T'",
+   "inputs_sha256": "fa49d77f7432913e1f649d2b251246acecc71416a81824b1d7c31c14421f6b91"
+  },
+  "ch15/test_mailbox_typeless_peek_type_mismatch_runtime_error": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch15/test_mailbox_typeless_peek_type_mismatch_runtime_error.sv:33:3: Class parameter type without default value is never given value (IEEE 1800-2023 6.20.1): 'T'",
+   "inputs_sha256": "ccbdd3744d936beb7053a89281e10e4986a8a7175cfe21dc547aa4dace26e0cf"
+  },
+  "ch6/test_bitstream_cast_dynamic_array_size_mismatch_runtime_error": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch6/test_bitstream_cast_dynamic_array_size_mismatch_runtime_error.sv:40:12: Unsupported: static cast to 'int' from 'byte$[]'",
+   "inputs_sha256": "d6100132df1e998ba2035a5253e84063ec498a541fbc9b3f6ae68074baf29f13"
+  },
+  "ch6/test_cast_task_enum_value_runtime_error": {
+   "status": "pass",
+   "inputs_sha256": "2df99c0c8ffa455848f03c47d67938b12250ca496c916d737878f811d6fbaf12"
+  },
+  "ch7/test_dynamic_array_new_negative_size_runtime_error": {
+   "status": "known",
+   "reason": "no message matches '(?i:\\\\berror\\\\b)'",
+   "inputs_sha256": "258d7f248e5b533b97b5d4e71b8e2e4ef13055aeb26f7f2291ef152ac2265bb0"
+  },
+  "ch7/test_dynamic_to_fixed_array_size_mismatch_runtime_error": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch7/test_dynamic_to_fixed_array_size_mismatch_runtime_error.sv:41:9: VARREF 'test_dynamic_to_fixed_array_size_mismatch_runtime_error.d' is not an unpacked array, but is in an unpacked array context",
+   "inputs_sha256": "c0f6bc2e5012595edd5cea98fab17e72e1a04e9ba298cf5f3b9b70b26159e0b1"
+  },
+  "ch7/test_queue_to_fixed_array_size_mismatch_runtime_error": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch7/test_queue_to_fixed_array_size_mismatch_runtime_error.sv:40:9: VARREF 'test_queue_to_fixed_array_size_mismatch_runtime_error.d' is not an unpacked array, but is in an unpacked array context",
+   "inputs_sha256": "fa345de72a5dd28d8574e333088037bae0fb6a6849aef3e1eda3d02286e837ba"
+  }
+ },
+ "generated_at": "2026-11-12T01:03:50.809958+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

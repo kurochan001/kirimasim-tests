@@ -48499,12 +48499,34 @@
     {
       "id": "SV2023-6.24.2-EXTRACT-TASK-FAILURE",
       "clause": "6.24.2",
-      "kind": "error",
+      "kind": "normal",
       "behavior": "An invalid $cast task reports a runtime error and leaves its destination unchanged; the validity is not checked by compile-time type rejection.",
       "acceptance": "An invalid $cast task reports a runtime error and leaves its destination unchanged; the validity is not checked by compile-time type rejection.",
       "source_note": "IEEE 1800-2023 6.24.2; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_cast_task_enum_value_runtime_error.sv",
+          "observation": "enum {A = 1, B = 2} の変数 e に、実行時に計算した v = 2 を $cast のタスク形式で代入して e=2 を表示した後、v = 9（どのメンバーの値でもない）で $cast(e, v) を呼び、呼び出しの後に e を表示する。期待出力は e が 2 のままであることを示し、実行時のメッセージに error を照合する。 区別: 無効なキャストで 9 を書き込む実装は after the invalid cast: e=9 を出し、エラーを報告しない実装はメッセージの照合で失敗し、コンパイル時に型で拒否する実装は 1 行も出さない。",
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "inputs_sha256": "2df99c0c8ffa455848f03c47d67938b12250ca496c916d737878f811d6fbaf12",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_cast_task_enum_value_runtime_error.sv",
+              "contains": "    v = v + 7;\n    $display(\"calling $cast(e, %0d)\", v);\n    $cast(e, v);\n    $display(\"after the invalid cast: e=%0d\", e);"
+            },
+            {
+              "file": "tests/ch6/test_cast_task_enum_value_runtime_error.sv",
+              "contains": ":expected_stderr_regex: (?i:\\berror\\b)"
+            },
+            {
+              "file": "tests/ch6/test_cast_task_enum_value_runtime_error.expected",
+              "contains": "valid cast of 2: e=2\ncalling $cast(e, 9)\nafter the invalid cast: e=2"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "6.24.2",
@@ -48839,12 +48861,34 @@
     {
       "id": "SV2023-6.24.3-EXTRACT-DYNAMIC-SIZE-MISMATCH",
       "clause": "6.24.3",
-      "kind": "error",
+      "kind": "normal",
       "behavior": "A size mismatch involving dynamic types is an error reported as early as it can be determined, at compilation or runtime.",
       "acceptance": "A size mismatch involving dynamic types is an error reported as early as it can be determined, at compilation or runtime.",
       "source_note": "IEEE 1800-2023 6.24.3; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_bitstream_cast_dynamic_array_size_mismatch_runtime_error.sv",
+          "observation": "byte の動的配列 d を実行時に計算した n = 4 で作り、int'(d) が 01020304（添字 0 が最上位）になることを表示した後、new[n](d) で 5 要素（40 ビット）にして同じ int'(d) を評価する。期待出力はキャストの直前の行までで、実行時のメッセージに error を照合する。 区別: 40 ビットを切り詰めるか詰めて int にする実装はメッセージの照合で失敗し、動的配列から int へのキャストをすべて拒否する実装は 4 bytes: 01020304 の行を出さない。",
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "inputs_sha256": "d6100132df1e998ba2035a5253e84063ec498a541fbc9b3f6ae68074baf29f13",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_bitstream_cast_dynamic_array_size_mismatch_runtime_error.sv",
+              "contains": "    n = n + 1;\n    d = new[n](d);\n    $display(\"casting a dynamic array of %0d bytes to int\", d.size());\n    v = int'(d);"
+            },
+            {
+              "file": "tests/ch6/test_bitstream_cast_dynamic_array_size_mismatch_runtime_error.sv",
+              "contains": ":expected_stderr_regex: (?i:\\berror\\b)"
+            },
+            {
+              "file": "tests/ch6/test_bitstream_cast_dynamic_array_size_mismatch_runtime_error.expected",
+              "contains": "4 bytes: 01020304\ncasting a dynamic array of 5 bytes to int"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "6.24.3",
@@ -55826,12 +55870,34 @@
     {
       "id": "SV2023-7.5.1-EXTRACT-NO-NEGATIVE-SIZE",
       "clause": "7.5.1",
-      "kind": "error",
+      "kind": "normal",
       "behavior": "A negative dynamic array allocation size is an error.",
       "acceptance": "A negative dynamic array allocation size is an error.",
       "source_note": "IEEE 1800-2023 7.5.1; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch7/test_dynamic_array_new_negative_size_runtime_error.sv",
+          "observation": "int の動的配列 d を実行時に計算した n = 3 で new[n] して size=3 を表示した後、n = -1 にして同じ new[n] を呼ぶ。期待出力は呼び出しの直前の行までで、実行時のメッセージに error を照合する。 区別: 負のサイズを 0 や大きな符号なしの数として扱いエラーにしない実装はメッセージの照合で失敗する。",
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "inputs_sha256": "258d7f248e5b533b97b5d4e71b8e2e4ef13055aeb26f7f2291ef152ac2265bb0",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_dynamic_array_new_negative_size_runtime_error.sv",
+              "contains": "    n = n - 4;\n    $display(\"calling new[%0d]\", n);\n    d = new[n];"
+            },
+            {
+              "file": "tests/ch7/test_dynamic_array_new_negative_size_runtime_error.sv",
+              "contains": ":expected_stderr_regex: (?i:\\berror\\b)"
+            },
+            {
+              "file": "tests/ch7/test_dynamic_array_new_negative_size_runtime_error.expected",
+              "contains": "new[3]: size=3\ncalling new[-1]"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "7.5.1",
@@ -56749,18 +56815,81 @@
     {
       "id": "SV2023-7.6-EXTRACT-DYNAMIC-FIXED-MISMATCH",
       "clause": "7.6",
-      "kind": "error",
+      "kind": "normal",
       "behavior": "Copying a runtime-sized dynamic array or queue to a fixed array of another size reports a runtime error and performs no operation.",
       "acceptance": "Copying a runtime-sized dynamic array or queue to a fixed array of another size reports a runtime error and performs no operation.",
       "source_note": "IEEE 1800-2023 7.6; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch7/test_dynamic_to_fixed_array_size_mismatch_runtime_error.sv",
+          "observation": "int f[3] に、実行時に計算した n = 3 の大きさの動的配列 d（4 5 6）を代入して f = 4 5 6 を表示した後、d を 2 要素（7 8）に作り直して f = d を行い、代入の後に f を表示する。期待出力は f が 4 5 6 のままであることを示し、実行時のメッセージに error を照合する。 区別: 要素数の違う動的配列を写す実装は after the assignment の行の値が変わり、エラーを報告しない実装はメッセージの照合で失敗する。",
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "inputs_sha256": "c0f6bc2e5012595edd5cea98fab17e72e1a04e9ba298cf5f3b9b70b26159e0b1",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_dynamic_to_fixed_array_size_mismatch_runtime_error.sv",
+              "contains": "    $display(\"assigning %0d elements to f\", d.size());\n    f = d;\n    $display(\"after the assignment: f = %0d %0d %0d\", f[0], f[1], f[2]);"
+            },
+            {
+              "file": "tests/ch7/test_dynamic_to_fixed_array_size_mismatch_runtime_error.sv",
+              "contains": "    n = n - 1;\n    d = new[n];"
+            },
+            {
+              "file": "tests/ch7/test_dynamic_to_fixed_array_size_mismatch_runtime_error.sv",
+              "contains": ":expected_stderr_regex: (?i:\\berror\\b)"
+            },
+            {
+              "file": "tests/ch7/test_dynamic_to_fixed_array_size_mismatch_runtime_error.expected",
+              "contains": "3 elements: f = 4 5 6\nassigning 2 elements to f\nafter the assignment: f = 4 5 6"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch7/test_queue_to_fixed_array_size_mismatch_runtime_error.sv",
+          "observation": "int f[3] に、実行時に計算した n = 3 回の push_back で作った queue d（4 5 6）を代入して f = 4 5 6 を表示した後、pop_back で 2 要素にして 7 8 を書き、f = d を行い、代入の後に f を表示する。期待出力は f が 4 5 6 のままであることを示し、実行時のメッセージに error を照合する。 区別: 要素数の違う queue を写す実装は after the assignment の行の値が変わり、エラーを報告しない実装はメッセージの照合で失敗する。",
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "inputs_sha256": "fa345de72a5dd28d8574e333088037bae0fb6a6849aef3e1eda3d02286e837ba",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_queue_to_fixed_array_size_mismatch_runtime_error.sv",
+              "contains": "    $display(\"assigning %0d elements to f\", d.size());\n    f = d;\n    $display(\"after the assignment: f = %0d %0d %0d\", f[0], f[1], f[2]);"
+            },
+            {
+              "file": "tests/ch7/test_queue_to_fixed_array_size_mismatch_runtime_error.sv",
+              "contains": "    void'(d.pop_back());"
+            },
+            {
+              "file": "tests/ch7/test_queue_to_fixed_array_size_mismatch_runtime_error.sv",
+              "contains": ":expected_stderr_regex: (?i:\\berror\\b)"
+            },
+            {
+              "file": "tests/ch7/test_queue_to_fixed_array_size_mismatch_runtime_error.expected",
+              "contains": "3 elements: f = 4 5 6\nassigning 2 elements to f\nafter the assignment: f = 4 5 6"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "7.6",
           "blocks": [
             "B011"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "dynamic-queue-to-fixed-mismatch-7.6",
+          "tests": [
+            "tests/ch7/test_dynamic_to_fixed_array_size_mismatch_runtime_error.sv",
+            "tests/ch7/test_queue_to_fixed_array_size_mismatch_runtime_error.sv"
+          ],
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "observation": "要求は代入元として動的配列と queue の両方を挙げるので、代入元の種類ごとに 1 本ずつ、2 本で観測する。どちらのテストも、3 要素の代入が合法で f = 4 5 6 になることを表示した後、2 要素の代入で実行時のメッセージに error を照合し、代入の後も f が 4 5 6 のままであることを示す。 区別: 動的配列と queue の一方だけで要素数を検査する実装は、もう一方のテストでエラーを報告しないか f を書き換えて失敗する。"
         }
       ]
     },
@@ -125138,18 +125267,73 @@
     {
       "id": "SV2023-11.9-EXTRACT-TAGGED-DOT-READ-WRITE",
       "clause": "11.9",
-      "kind": "error",
+      "kind": "normal",
       "behavior": "Tagged members may be read/written using dot notation only consistently with the current tag; a mismatching read/write produces a runtime error.",
       "acceptance": "Tagged members may be read/written using dot notation only consistently with the current tag; a mismatching read/write produces a runtime error.",
       "source_note": "IEEE 1800-2023 11.9; complete own-body source review, blocks B017. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch11/test_tagged_union_read_wrong_tag_runtime_error.sv",
+          "observation": "int の Int と bit [7:0] の Byte をメンバーに持つ tagged union の t を tagged Int 5 にして t.Int を読み、実行時に決まる条件で tagged Byte 8'hA5 にして t.Byte を読んだ後、タグが Byte のまま x = t.Int を読む。期待出力は読み出しの直前の行までで、実行時のメッセージに error を照合する。 区別: 現在のタグと違うメンバーの読み出しを検査せず Byte のビットを Int として返す実装はメッセージの照合で失敗する。",
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "inputs_sha256": "d59e4d1708863104700aaf5d3b920a1c9279c38d41a41d27dc546ff6fe89a025",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_tagged_union_read_wrong_tag_runtime_error.sv",
+              "contains": "    if (k == 2) t = tagged Byte 8'hA5;\n    $display(\"tag Byte: Byte=%h\", t.Byte);\n    $display(\"reading Int while the tag is Byte\");\n    x = t.Int;"
+            },
+            {
+              "file": "tests/ch11/test_tagged_union_read_wrong_tag_runtime_error.sv",
+              "contains": ":expected_stderr_regex: (?i:\\berror\\b)"
+            },
+            {
+              "file": "tests/ch11/test_tagged_union_read_wrong_tag_runtime_error.expected",
+              "contains": "tag Int: Int=5\ntag Byte: Byte=a5\nreading Int while the tag is Byte"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch11/test_tagged_union_write_wrong_tag_runtime_error.sv",
+          "observation": "int の Int と bit [7:0] の Byte をメンバーに持つ tagged union の t を tagged Int 5 にして t.Int を読み、実行時に決まる条件で tagged Byte 8'hA5 にして t.Byte を読んだ後、タグが Byte のまま t.Int = 7 を代入する。期待出力は代入の直前の行までで、実行時のメッセージに error を照合する。 区別: 現在のタグと違うメンバーへの代入でタグや値を黙って変える実装はメッセージの照合で失敗する。",
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "inputs_sha256": "31fdd6328834ae90f3618d09c5525d703d11d6c44331bce2027db0b6f499fa93",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_tagged_union_write_wrong_tag_runtime_error.sv",
+              "contains": "    if (k == 2) t = tagged Byte 8'hA5;\n    $display(\"tag Byte: Byte=%h\", t.Byte);\n    $display(\"assigning Int while the tag is Byte\");\n    t.Int = 7;"
+            },
+            {
+              "file": "tests/ch11/test_tagged_union_write_wrong_tag_runtime_error.sv",
+              "contains": ":expected_stderr_regex: (?i:\\berror\\b)"
+            },
+            {
+              "file": "tests/ch11/test_tagged_union_write_wrong_tag_runtime_error.expected",
+              "contains": "tag Int: Int=5\ntag Byte: Byte=a5\nassigning Int while the tag is Byte"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "11.9",
           "blocks": [
             "B017"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "tagged-dot-read-write-11.9",
+          "tests": [
+            "tests/ch11/test_tagged_union_read_wrong_tag_runtime_error.sv",
+            "tests/ch11/test_tagged_union_write_wrong_tag_runtime_error.sv"
+          ],
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "observation": "要求はドット記法の読み出しと代入の両方を挙げるので、2 本で観測する。どちらのテストも、現在のタグと一致するメンバーの読み出し（Int=5、Byte=a5）が合法であることを表示した後、タグが Byte のまま、一方は Int を読み、もう一方は Int に代入し、実行時のメッセージに error を照合する。 区別: 読み出しと代入の一方だけでタグを検査する実装は、もう一方のテストでエラーを報告せず失敗する。"
         }
       ]
     },
@@ -142445,12 +142629,34 @@
     {
       "id": "SV2023-15.4.5-EXTRACT-GET-TYPE-ERROR",
       "clause": "15.4.5",
-      "kind": "error",
+      "kind": "normal",
       "behavior": "If destination and queued message types are not equivalent, get generates a runtime error.",
       "acceptance": "If destination and queued message types are not equivalent, get generates a runtime error.",
       "source_note": "IEEE 1800-2023 15.4.5; complete own-body source review, blocks B006, B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch15/test_mailbox_typeless_get_type_mismatch_runtime_error.sv",
+          "observation": "型パラメータなしの mailbox に int のメッセージを入れて get(i) が 7 を取り出すことを表示した後、実行時に決まる条件で string のメッセージを入れ、int の変数で get(i) を呼ぶ。mailbox は空でないので呼び出しは待たない。期待出力は呼び出しの直前の行までで、実行時のメッセージに error を照合する。 区別: string のメッセージを int の変数へ変換して渡すなど型の不一致をエラーにしない実装はメッセージの照合で失敗する。",
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "inputs_sha256": "fa49d77f7432913e1f649d2b251246acecc71416a81824b1d7c31c14421f6b91",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_mailbox_typeless_get_type_mismatch_runtime_error.sv",
+              "contains": "    if (k == 2) m.put(word);\n    else m.put(n);\n    $display(\"calling get with an int variable for a string message\");\n    m.get(i);"
+            },
+            {
+              "file": "tests/ch15/test_mailbox_typeless_get_type_mismatch_runtime_error.sv",
+              "contains": ":expected_stderr_regex: (?i:\\berror\\b)"
+            },
+            {
+              "file": "tests/ch15/test_mailbox_typeless_get_type_mismatch_runtime_error.expected",
+              "contains": "int message, int variable: 7, num=0\ncalling get with an int variable for a string message"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "15.4.5",
@@ -142581,7 +142787,25 @@
       "acceptance": "A mailbox get destination must be a valid singular lvalue.",
       "source_note": "IEEE 1800-2023 15.4.5; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch15/test_illegal_mailbox_get_unpacked_array.sv",
+          "observation": "型パラメータなしの mailbox で、要素 arr[1] を宛先にした get は合法で、unpacked 配列 arr 全体を宛先にした get(arr) の行を誤りとして拒否することを照合する。 このテストが確かめるのは宛先が singular であることだけで、宛先が左辺式として有効であること（例えば get(i + 1) の拒否）は確かめない。 区別: get の宛先が singular であることを検査しない実装は設計を受理する。",
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "inputs_sha256": "917d6e266f47287f7290de642683a889c78a100671c649c1ce8f5b9f97393d80",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_illegal_mailbox_get_unpacked_array.sv",
+              "contains": "    m.get(arr[1]);\n    m.get(arr);   // illegal"
+            },
+            {
+              "file": "tests/ch15/test_illegal_mailbox_get_unpacked_array.sv",
+              "contains": ":expected_stderr_regex: test_illegal_mailbox_get_unpacked_array\\.sv:30:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "15.4.5",
@@ -142934,12 +143158,34 @@
     {
       "id": "SV2023-15.4.7-EXTRACT-PEEK-TYPE-ERROR",
       "clause": "15.4.7",
-      "kind": "error",
+      "kind": "normal",
       "behavior": "A nonequivalent destination/message type causes a runtime error in peek.",
       "acceptance": "A nonequivalent destination/message type causes a runtime error in peek.",
       "source_note": "IEEE 1800-2023 15.4.7; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch15/test_mailbox_typeless_peek_type_mismatch_runtime_error.sv",
+          "observation": "型パラメータなしの mailbox に int のメッセージを入れて peek(i) が 7 を写し get(i) で取り出すことを表示した後、実行時に決まる条件で string のメッセージを入れ、int の変数で peek(i) を呼ぶ。mailbox は空でないので呼び出しは待たない。期待出力は呼び出しの直前の行までで、実行時のメッセージに error を照合する。 区別: string のメッセージを int の変数へ変換して渡すなど型の不一致をエラーにしない実装はメッセージの照合で失敗する。",
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "inputs_sha256": "ccbdd3744d936beb7053a89281e10e4986a8a7175cfe21dc547aa4dace26e0cf",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_mailbox_typeless_peek_type_mismatch_runtime_error.sv",
+              "contains": "    if (k == 2) m.put(word);\n    else m.put(n);\n    $display(\"calling peek with an int variable for a string message\");\n    m.peek(i);"
+            },
+            {
+              "file": "tests/ch15/test_mailbox_typeless_peek_type_mismatch_runtime_error.sv",
+              "contains": ":expected_stderr_regex: (?i:\\berror\\b)"
+            },
+            {
+              "file": "tests/ch15/test_mailbox_typeless_peek_type_mismatch_runtime_error.expected",
+              "contains": "int message, int variable: 7, num=0\ncalling peek with an int variable for a string message"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "15.4.7",

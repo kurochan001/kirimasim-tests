@@ -4,7 +4,7 @@
 
 [English](ch7.md) / [日本語](ch7.ja.md)
 
-[すべての章](README.ja.md) .776 304 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
+[すべての章](README.ja.md) .779 304 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -188,6 +188,7 @@
 | [`test_dynamic_array_edge`](../../tests/ch7/test_dynamic_array_edge.sv) |動的配列エッジケース| 7.5.1 7.5.2 7.5.3 7.6 | Icarus Verilog 13.0 ||
 | [`test_dynamic_array_new_discards_data_and_references`](../../tests/ch7/test_dynamic_array_new_discards_data_and_references.sv) |動的配列をnew \[ \]でサイズ変更または再初期化すると、元の配列を初期化式に指定しない限り、データを破棄する。また、どの場合でも要素への参照は古い参照となる| 7.5.1 13.5.2 |標準のみ||
 | [`test_dynamic_array_new_forms_order_and_size`](../../tests/ch7/test_dynamic_array_new_forms_order_and_size.sv) |動的配列を拡大する new \[ \] は、宣言またはブロック代入の動的配列のサイズを変更し、初期化前にそのサイズを評価し、左端の unpacked 次元が動的な識別子のみを動的配列にする。 size() は $size (配列、1 ) に等しい int であり、 delete() は配列を空にします。| 7.5.1 7.5 7.5.2 7.5.3 20.7 | Verilator 5.052 ||
+| [`test_dynamic_array_new_negative_size_runtime_error`](../../tests/ch7/test_dynamic_array_new_negative_size_runtime_error.sv) |サイズのオペランドの値が実行時に負になる new \[ \] はエラーである| 7.5.1 |標準のみ||
 | [`test_dynamic_array_queue_size`](../../tests/ch7/test_dynamic_array_queue_size.sv) |new \[ \]、サイズ変更、push_back、delete後の動的配列とキューのサイズ| 7.5.1 7.5.2 7.5.3 7.10.2 | Icarus Verilog 13.0 ||
 | [`test_dynamic_resize`](../../tests/ch7/test_dynamic_resize.sv) |動的配列の新規作成、サイズ変更、削除操作| 7.5.1 | Icarus Verilog 13.0 ||
 | [`test_edge_dynamic_array_resize`](../../tests/ch7/test_edge_dynamic_array_resize.sv) |動的配列のnew \[ \]とnew \[ \](old)によるサイズ変更。new \[ 0 \]も含む| 7.5.1 7.5.2 | Verilator 5.052 ||
@@ -203,6 +204,7 @@
 | [`test_array_assign_resize_concat_source_slice_overlap`](../../tests/ch7/test_array_assign_resize_concat_source_slice_overlap.sv) |動的配列またはキューに代入ると、ソース要素の数に合わせてサイズを変更します。ソースはスライスとアイテムの unpacked 配列連結であり、スライスへの代入は1つの代入です。つまり、1つの配列内の重複コピーは古い値を移動します。| 7.6 10.10 |標準のみ||
 | [`test_array_copy`](../../tests/ch7/test_array_copy.sv) |配列コピーテスト| 7.6 7.4 | Verilator 5.052 ||
 | [`test_assign_array`](../../tests/ch7/test_assign_array.sv) |配列代入| 7.6 10.4.1 | Verilator 5.052 ||
+| [`test_dynamic_to_fixed_array_size_mismatch_runtime_error`](../../tests/ch7/test_dynamic_to_fixed_array_size_mismatch_runtime_error.sv) |要素数の異なる固定長配列に動的配列を代入すると、実行時エラーになり、何の操作も行われない| 7.6 |標準のみ||
 | [`test_illegal_array_inner_dimension_size_mismatch`](../../tests/ch7/test_illegal_array_inner_dimension_size_mismatch.sv) |配列代入は 最も遅い次元の種類を変えることもできますが 速い次元は等価でなければなりません4 の要素は 3 の要素に移動できません| 7.6 | Verilator 5.052 |違法なデザインだ|
 | [`test_illegal_array_unpacked_dimension_count_mismatch`](../../tests/ch7/test_illegal_array_unpacked_dimension_count_mismatch.sv) |unpacked 次元数が同じならば、配列は代入互換性があります。| 7.6 | Verilator 5.052 |違法なデザインだ|
 | [`test_illegal_associative_array_from_dynamic_array`](../../tests/ch7/test_illegal_associative_array_from_dynamic_array.sv) |連想配列は 連想配列とのみ 代入が互換性がありますその対象へ動的配列を代入することはできない| 7.6 | Verilator 5.052 |違法なデザインだ|
@@ -213,6 +215,7 @@
 | [`test_illegal_slice_assignment_element_count`](../../tests/ch7/test_illegal_slice_assignment_element_count.sv) |unpacked 配列のスライスに代入るには、スライスと同じ要素数のソースが必要です。| 7.6 7.4.5 | Verilator 5.052 |違法なデザインだ|
 | [`test_illegal_slice_element_type_not_equivalent`](../../tests/ch7/test_illegal_slice_element_type_not_equivalent.sv) |固定サイズの配列のスライスは 元素タイプが等しいときにのみ 他の配列と代入が互換性があります| 7.6 |標準のみ|違法なデザインだ|
 | [`test_illegal_unpacked_array_from_packed_array`](../../tests/ch7/test_illegal_unpacked_array_from_packed_array.sv) |明示的なキャストなしに packed 配列を直接 unpacked 配列に割り当てることはできません| 7.6 | Icarus Verilog 13.0 |違法なデザインだ|
+| [`test_queue_to_fixed_array_size_mismatch_runtime_error`](../../tests/ch7/test_queue_to_fixed_array_size_mismatch_runtime_error.sv) |要素数の異なる固定長配列にキューを代入すると、実行時エラーになり、何の操作も行われない| 7.6 |標準のみ||
 | [`test_array_args_by_value_ref`](../../tests/ch7/test_array_args_by_value_ref.sv) |値で渡された配列はコピーされます。動的配列、キュー、連想配列も同様です。ref 引数は呼び出し者の配列です。| 7.7 7.9.10 13.5.2 13.5.1 | Verilator 5.052 ||
 | [`test_array_argument_fixed_dynamic_queue_compatibility`](../../tests/ch7/test_array_argument_fixed_dynamic_queue_compatibility.sv) |配列の実引数は配列代入の規則に従う。固定サイズの仮引数は、範囲が異なる固定配列や同サイズの動的配列／キューを受け取る。サイズ未指定の動的配列／キューの仮引数は、任意サイズの固定配列・動的配列・キューを受け取り、要素を左から右へ対応付ける| 7.7 7.6 |標準のみ||
 | [`test_dpi_open_and_unsized_packed`](../../tests/ch7/test_dpi_open_and_unsized_packed.sv) |オープンなunpacked仮引数は、動的配列をそのサイズと範囲で受け取り、単一のサイズ未指定packed仮引数は、実引数の全幅を受け取る| 7.7 |標準のみ| DPI |

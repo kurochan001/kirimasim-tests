@@ -1181,6 +1181,31 @@ The probe was made while correcting the model `dpi_openarray_shape`. Its expecta
 18.5.11 makes a circular dependency of the implicit variable ordering an error. In `ch18/test_constraint_function_cycle_runtime_error` the constraint `x <= f(y)` orders `y` before `x` and the constraint `y <= f(x)` orders `x` before `y`.
 Verilator 5.052 prints the two lines that come before the second `randomize()` and reports no error. The earlier form of the test was an illegal design, which the release accepted as well.
 
+<a id="negative-new-size-20261112"></a>
+
+## Verilator 5.052: no error for `new[n]` with a negative size (2026-11-12)
+
+7.5.1 makes a negative value of the size operand of `new[]` an error. In `ch7/test_dynamic_array_new_negative_size_runtime_error` the operand is the variable `n`, which is 3 in the first call and -1 in the second.
+Verilator 5.052 prints the two lines that come before the second call and ends the run with status 0. It reports no error, with seed 1 and with seed 73.
+kirimasim `7de185f776a1` reports an error at the line of the call, and the test matches there.
+
+<a id="icarus-negative-new-size-20261112"></a>
+
+## Icarus Verilog 13.0: `new[n]` with a negative size ends the run abnormally (2026-11-12)
+
+For the same test, `ch7/test_dynamic_array_new_negative_size_runtime_error`, Icarus Verilog 13.0 prints the two lines that come before the second call, and then the run is ended by a signal (signal 6 on macOS arm64).
+The simulator gives no error message of its own for the negative size. The only message is the one of the C++ run-time library about an exception that nothing caught.
+The runner counts a run that a signal ended as failed, whatever it printed.
+
+<a id="icarus-bitstream-size-stop-20261112"></a>
+
+## Icarus Verilog 13.0: the run stops after the size mismatch of a bit-stream cast (2026-11-12)
+
+6.24.3 makes a size difference of a bit-stream cast an error when a dynamically sized type is involved, at compile time or at run time. In `ch6/test_bitstream_cast_dynamic_array_size_mismatch_runtime_error` a dynamic array of 5 bytes is cast to `int`.
+Icarus Verilog 13.0 prints the two expected lines and reports the error: `VVP error: size mismatch when casting dynamic array to vector.`
+The error is the one the standard asks for. But the run then stops as it does for `$stop` and waits for input, so it does not end. Under the runner, the time limit of 60 seconds ends it, and the result is "timed out".
+With the standard input closed, or with the option `-n` of `vvp`, the run ends with status 0 after the message. The runner uses neither, so the test has no Icarus oracle.
+
 <a id="observations-20261112"></a>
 
 ## Observations of 2026-11-12 that are not differences of a release

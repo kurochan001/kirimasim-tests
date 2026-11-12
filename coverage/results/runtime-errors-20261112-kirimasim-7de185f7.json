@@ -1,0 +1,60 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401",
+ "tests": {
+  "ch11/test_tagged_union_read_wrong_tag_runtime_error": {
+   "status": "unsupported",
+   "reason": "type 'union tagged{int Int;bit[7:0] Byte;}test_tagged_union_read_wrong_tag_runtime_error.u$1' (not implemented yet)",
+   "inputs_sha256": "d59e4d1708863104700aaf5d3b920a1c9279c38d41a41d27dc546ff6fe89a025"
+  },
+  "ch11/test_tagged_union_write_wrong_tag_runtime_error": {
+   "status": "unsupported",
+   "reason": "type 'union tagged{int Int;bit[7:0] Byte;}test_tagged_union_write_wrong_tag_runtime_error.u$1' (not implemented yet)",
+   "inputs_sha256": "31fdd6328834ae90f3618d09c5525d703d11d6c44331bce2027db0b6f499fa93"
+  },
+  "ch15/test_illegal_mailbox_get_unpacked_array": {
+   "status": "unsupported",
+   "reason": "type 'mailbox#(untyped)' (not implemented yet)",
+   "inputs_sha256": "917d6e266f47287f7290de642683a889c78a100671c649c1ce8f5b9f97393d80"
+  },
+  "ch15/test_mailbox_typeless_get_type_mismatch_runtime_error": {
+   "status": "unsupported",
+   "reason": "type 'mailbox#(untyped)' (not implemented yet)",
+   "inputs_sha256": "fa49d77f7432913e1f649d2b251246acecc71416a81824b1d7c31c14421f6b91"
+  },
+  "ch15/test_mailbox_typeless_peek_type_mismatch_runtime_error": {
+   "status": "unsupported",
+   "reason": "type 'mailbox#(untyped)' (not implemented yet)",
+   "inputs_sha256": "ccbdd3744d936beb7053a89281e10e4986a8a7175cfe21dc547aa4dace26e0cf"
+  },
+  "ch6/test_bitstream_cast_dynamic_array_size_mismatch_runtime_error": {
+   "status": "unsupported",
+   "reason": "conversion from dynarray<!0> to s2<32> (not implemented yet)",
+   "inputs_sha256": "d6100132df1e998ba2035a5253e84063ec498a541fbc9b3f6ae68074baf29f13"
+  },
+  "ch6/test_cast_task_enum_value_runtime_error": {
+   "status": "unsupported",
+   "reason": "system task $cast (not implemented yet)",
+   "inputs_sha256": "2df99c0c8ffa455848f03c47d67938b12250ca496c916d737878f811d6fbaf12"
+  },
+  "ch7/test_dynamic_array_new_negative_size_runtime_error": {
+   "status": "pass",
+   "inputs_sha256": "258d7f248e5b533b97b5d4e71b8e2e4ef13055aeb26f7f2291ef152ac2265bb0"
+  },
+  "ch7/test_dynamic_to_fixed_array_size_mismatch_runtime_error": {
+   "status": "unsupported",
+   "reason": "assignment of this unpacked array value (not implemented yet)",
+   "inputs_sha256": "c0f6bc2e5012595edd5cea98fab17e72e1a04e9ba298cf5f3b9b70b26159e0b1"
+  },
+  "ch7/test_queue_to_fixed_array_size_mismatch_runtime_error": {
+   "status": "unsupported",
+   "reason": "assignment of this unpacked array value (not implemented yet)",
+   "inputs_sha256": "fa345de72a5dd28d8574e333088037bae0fb6a6849aef3e1eda3d02286e837ba"
+  }
+ },
+ "generated_at": "2026-11-12T01:03:42.439195+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

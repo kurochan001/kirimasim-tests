@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[すべての章](README.ja.md) .685 79 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
+[すべての章](README.ja.md) .687 79 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -603,11 +603,13 @@
 | [`test_cast_function`](../../tests/ch6/test_cast_function.sv) |IEEE 1800-2023 § 6.24.2 のテスト：$cast のシステム関数| 6.24.2 8.16 | Verilator 5.052 ||
 | [`test_cast_function_and_static_enum_coercion`](../../tests/ch6/test_cast_function_and_static_enum_coercion.sv) |関数としての$castはintを返し、失敗時に目的地を変更しないでおく。一方、静的なenumはチェックを行わずに強制的にキャストします。| 6.24.2 6.24.1 |標準のみ||
 | [`test_cast_packed_struct_member`](../../tests/ch6/test_cast_packed_struct_member.sv) |7.2 - $cast packed 構造要素アクセスを持つセクション| 6.24.2 7.2.1 | Verilator 5.052 ||
+| [`test_cast_task_enum_value_runtime_error`](../../tests/ch6/test_cast_task_enum_value_runtime_error.sv) |実行時に計算した値が宛先の列挙型のメンバーでないとき、タスクとして呼び出した $cast は実行時エラーになり、宛先を変えない| 6.24.2 6.19.3 | Verilator 5.052 ||
 | [`test_ch6_extra_cast_task_runtime_error`](../../tests/ch6/test_ch6_extra_cast_task_runtime_error.sv) |コンパイル時に無効な $cast タスクコールは拒否されません。実行時エラーを報告し、格納先は変更しない| 6.24.2 6.19.3 | Verilator 5.052 ||
 | [`test_class_cast_compatibility_dynamic`](../../tests/ch6/test_class_cast_compatibility_dynamic.sv) |クラスハンドル間の $cast は、オブジェクトが目的地と代入が互換性のある場合のみ成功します。| 6.24.2 | Verilator 5.052 ||
 | [`test_member_access_cast`](../../tests/ch6/test_member_access_cast.sv) |メンバーアクセス表現で $cast をテスト| 6.24.2 8.16 | Verilator 5.052 ||
 | [`test_bitstream_array_to_packed_order`](../../tests/ch6/test_bitstream_array_to_packed_order.sv) |ビットストリームキャストは最初の unpacked 要素を最も有意な端に置きます。| 6.24.3 |標準のみ||
 | [`test_bitstream_cast_destination_layout`](../../tests/ch6/test_bitstream_cast_destination_layout.sv) |bit -ストリームキャストは、目的地のアイテムを左から右に埋め、残りのビットを最初の無制限動的アイテムに与え、すべての動的ソースアイテムを含む。| 6.24.3 |標準のみ||
+| [`test_bitstream_cast_dynamic_array_size_mismatch_runtime_error`](../../tests/ch6/test_bitstream_cast_dynamic_array_size_mismatch_runtime_error.sv) |動的配列から int への bit ストリームキャストは、配列が 32 ビットの間は合法で、配列が 40 ビットになると、実行時に報告されるエラーになる| 6.24.3 |標準のみ||
 | [`test_bitstream_cast_source_domain`](../../tests/ch6/test_bitstream_cast_source_domain.sv) |ソース部分が4状態のときは bit ストリームキャストは4状態であり、再帰的な bit ストリームタイプは文字列、クラス、動的、連想、キューデータを含む。| 6.24.3 |標準のみ| x/z |
 | [`test_bitstream_cast_source_orders`](../../tests/ch6/test_bitstream_cast_source_orders.sv) |bitストリームキャストは、連想配列を添字順にパックし、動的配列・キュー・文字列では添字0を最上位側に置く| 6.24.3 |標準のみ||
 | [`test_illegal_bitstream_cast_class_with_local_member`](../../tests/ch6/test_illegal_bitstream_cast_class_with_local_member.sv) |ローカルまたは保護されたメンバーを持つクラスのハンドルは、 bit -ストリームキャストのソースにはなりません。クラス内のハンドルを除いては、| 6.24.3 |標準のみ|違法なデザインだ|

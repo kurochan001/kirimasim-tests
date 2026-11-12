@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[All chapters](README.md). 685 tests, 79 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 687 tests, 79 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -603,11 +603,13 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_cast_function`](../../tests/ch6/test_cast_function.sv) | Test for IEEE 1800-2023 §6.24.2: $cast system function | 6.24.2 8.16 | Verilator 5.052 ||
 | [`test_cast_function_and_static_enum_coercion`](../../tests/ch6/test_cast_function_and_static_enum_coercion.sv) | $cast as a function returns int and leaves the destination unchanged on failure, while a static enum cast coerces without checking | 6.24.2 6.24.1 | standard only ||
 | [`test_cast_packed_struct_member`](../../tests/ch6/test_cast_packed_struct_member.sv) | , Section 7.2 - $cast with packed struct member access | 6.24.2 7.2.1 | Verilator 5.052 ||
+| [`test_cast_task_enum_value_runtime_error`](../../tests/ch6/test_cast_task_enum_value_runtime_error.sv) | $cast called as a task with a value computed at run time that is not a member of the destination enumeration gives a run-time error and leaves the destination unchanged | 6.24.2 6.19.3 | Verilator 5.052 ||
 | [`test_ch6_extra_cast_task_runtime_error`](../../tests/ch6/test_ch6_extra_cast_task_runtime_error.sv) | An invalid $cast task call is not rejected at compile time; it reports a runtime error and leaves the destination unchanged | 6.24.2 6.19.3 | Verilator 5.052 ||
 | [`test_class_cast_compatibility_dynamic`](../../tests/ch6/test_class_cast_compatibility_dynamic.sv) | $cast between class handles succeeds only when the object is assignment compatible with the destination | 6.24.2 | Verilator 5.052 ||
 | [`test_member_access_cast`](../../tests/ch6/test_member_access_cast.sv) | Test $cast with member access expressions | 6.24.2 8.16 | Verilator 5.052 ||
 | [`test_bitstream_array_to_packed_order`](../../tests/ch6/test_bitstream_array_to_packed_order.sv) | Bit stream casts place the first unpacked element at the most significant end | 6.24.3 | standard only ||
 | [`test_bitstream_cast_destination_layout`](../../tests/ch6/test_bitstream_cast_destination_layout.sv) | a bit-stream cast fills destination items left to right, gives the remaining bits to the first unbounded dynamic item, and includes all dynamic source items | 6.24.3 | standard only ||
+| [`test_bitstream_cast_dynamic_array_size_mismatch_runtime_error`](../../tests/ch6/test_bitstream_cast_dynamic_array_size_mismatch_runtime_error.sv) | A bit-stream cast of a dynamic array to int is legal while the array holds 32 bits and is an error, reported at run time, once the array has 40 bits | 6.24.3 | standard only ||
 | [`test_bitstream_cast_source_domain`](../../tests/ch6/test_bitstream_cast_source_domain.sv) | a bit-stream cast is four-state when any source part is four-state and the recursive bit-stream types include string, class, dynamic, associative and queue data | 6.24.3 | standard only | x/z |
 | [`test_bitstream_cast_source_orders`](../../tests/ch6/test_bitstream_cast_source_orders.sv) | a bit-stream cast packs an associative array in index order and a dynamic array, queue or string with index zero at the most significant end | 6.24.3 | standard only ||
 | [`test_illegal_bitstream_cast_class_with_local_member`](../../tests/ch6/test_illegal_bitstream_cast_class_with_local_member.sv) | a handle of a class with local or protected members cannot be the source of a bit-stream cast, except the handle this inside the class | 6.24.3 | standard only | illegal design |

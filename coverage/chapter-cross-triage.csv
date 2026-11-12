@@ -332,9 +332,9 @@ tests/ch13/test_func_static.sv",既存モデルの計画・実行証跡を維持
 6,データ型,14,クロッキングブロック,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,50,"tests/ch14/test_clocking_output_net_driver.sv
 tests/ch23/test_module_items_nonport_kinds.sv
 tests/gen/ch14/test_gen_cross_clock_129_bit_known_interface_step_posedge_blocking.sv",既存モデルの計画・実行証跡を維持する,,
-6,データ型,15,プロセス間の同期と通信,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,126,"tests/ch15/test_mailbox_typeless_try_type_check.sv
-tests/ch6/test_event_rebinding_retains_old_wait.sv
-tests/ch6/test_event_triggered_state_lasts_time_step.sv",既存モデルの計画・実行証跡を維持する,,
+6,データ型,15,プロセス間の同期と通信,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,128,"tests/ch15/test_mailbox_typeless_get_type_mismatch_runtime_error.sv
+tests/ch15/test_mailbox_typeless_peek_type_mismatch_runtime_error.sv
+tests/ch15/test_mailbox_typeless_try_type_check.sv",既存モデルの計画・実行証跡を維持する,,
 6,データ型,16,アサーション,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,69,"tests/ch16/test_sva_cast_expression.sv
 tests/ch16/test_value_change_first_tick.sv
 tests/ch23/test_module_items_nonport_kinds.sv",既存モデルの計画・実行証跡を維持する,,
@@ -402,7 +402,7 @@ tests/ch7/test_assignment_forms.sv",既存モデルの計画・実行証跡を�
 7,集合データ型,10,代入文,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,294,"tests/ch10/test_assign_lhs_forms.sv
 tests/ch10/test_assignment_deep.sv
 tests/ch10/test_contassign_pattern_to_net_array.sv",既存モデルの計画・実行証跡を維持する,,
-7,集合データ型,11,演算子と式,M,モデル登録済み,登録済み,10,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,784,"tests/ch10/test_assign_lhs_forms.sv
+7,集合データ型,11,演算子と式,M,モデル登録済み,登録済み,10,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,786,"tests/ch10/test_assign_lhs_forms.sv
 tests/ch10/test_contassign_select_of_struct_member.sv
 tests/ch10/test_lvalue_scopes_selects_and_concatenation_forms.sv",既存モデルの計画・実行証跡を維持する,,
 7,集合データ型,12,手続き型プログラミング文,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,173,"tests/ch11/test_tagged_union_expression_and_matches_precedence.sv

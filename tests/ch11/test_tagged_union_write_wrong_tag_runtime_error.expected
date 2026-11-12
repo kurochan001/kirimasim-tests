@@ -1,0 +1,3 @@
+tag Int: Int=5
+tag Byte: Byte=a5
+assigning Int while the tag is Byte

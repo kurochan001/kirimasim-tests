@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 90.14%, execution without Ghost 50.20%, execution with Ghost 77.57%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 90.21%, execution without Ghost 50.21%, execution with Ghost 77.59%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 90.14%. Requirement execution-confirmation rate: 50.20% without Ghost, 77.57% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 90.21%. Requirement execution-confirmation rate: 50.21% without Ghost, 77.59% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 11086/12298 ( 90.14% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9540/12298 ( 77.57% ).
-- Registered but not tested: 1212.
+- The requirement coverage (test design) for registered behaviors is 11094/12298 ( 90.21% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9542/12298 ( 77.59% ).
+- Registered but not tested: 1204.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -52,6 +52,10 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `oracle-tokens-3-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T23:13:04.014714+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-3-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:01.978891+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-3-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:03.804411+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
+- `runtime-errors-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-12T01:03:42.109814+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
+- `runtime-errors-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-12T01:03:42.439195+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
+- `runtime-errors-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T01:03:46.712402+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
+- `runtime-errors-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T01:03:50.809958+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
 - `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 73/12298 execution checked; 1 entries refer to older inputs.
 - `test-fixes-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T23:50:40.175858+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
 - `test-fixes-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T23:50:40.334300+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
@@ -289,16 +293,16 @@ The number of items is the investigation status of the article by heading. This 
 - 3 Design and verification building blocks: No interpretation reservation 22/22, registration 146, test support 118.
 - 4 Scheduling semantics: no interpretation reservation 40/40, registration 107, test support 88.
 - 5 Lexical conventions: no interpretation reservation 21/21, registration 154, test support 136.
-- 6 Data types: No interpretation reservation 92/92, registration 719, test support 679.
-- 7 Aggregate data types: no interpretation reservation 61/61, registration 345, test support 320.
+- 6 Data types: No interpretation reservation 92/92, registration 719, test support 681.
+- 7 Aggregate data types: no interpretation reservation 61/61, registration 345, test support 322.
 - 8 Classes: No interpretation restrictions 49/49, registration 252, test support 221.
 - 9 Processes: No interpretation reservation 34/34, registration 189, test support 166.
 - 10 Assignment statements: No interpretation reservation 25/25, registration 156, test support 130.
-- 11 Operators and expressions: No interpretation restrictions 55/55, registration 459, test support 433.
+- 11 Operators and expressions: No interpretation restrictions 55/55, registration 459, test support 434.
 - 12 Procedural programming statements: no interpretation reservation 28/28, registration 115, test support 89.
 - 13 Tasks and functions (subroutines): no interpretation reservation 20/20, registration 119, test support 92.
 - 14 Clocking blocks: no interpretation reservation 19/19, registration 87, test support 84.
-- 15 Interprocess synchronization and communication: no interpretation reservation 27/27, registration 88, test support 71.
+- 15 Interprocess synchronization and communication: no interpretation reservation 27/27, registration 88, test support 74.
 - 16 Assertions: No interpretation reservation 82/82, registration 555, test support 539.
 - 17 Checkers: No interpretation reservations 13/13, registration 79, test support 59.
 - 18 Constrained random value generation: 58/58 without pending interpretation issues, 320 registered, 300 mapped to tests.
@@ -13742,7 +13746,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.24.2-EXTRACT-TASK-FAILURE
 
-`6.24.2` / `error` / No mapped test
+`6.24.2` / `normal` / Execution confirmed
 
 An invalid $cast task reports a runtime error and leaves its destination unchanged; the validity is not checked by compile-time type rejection.
 
@@ -13750,6 +13754,7 @@ Acceptance criterion: An invalid $cast task reports a runtime error and leaves i
 
 Normative role: `mandatory`。
 
+- [test_cast_task_enum_value_runtime_error.sv](../tests/ch6/test_cast_task_enum_value_runtime_error.sv): After $cast called as a task assigns v = 2, computed at run time, to the variable e of enum {A = 1, B = 2} and e = 2 is printed, $cast(e, v) is called with v = 9 (the value of no member), and e is printed after the call. The expected output shows that e is still 2, and the run-time message is matched against error. Distinguishing observation: An implementation that stores 9 at the invalid cast prints after the invalid cast: e = 9, one that reports no error fails the message match, and one that rejects the design by type at compile time prints not even 1 line.
 
 ### SV2023-6.24.2-EXTRACT-TASK-SUCCESS
 
@@ -13857,7 +13862,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.24.3-EXTRACT-DYNAMIC-SIZE-MISMATCH
 
-`6.24.3` / `error` / No mapped test
+`6.24.3` / `normal` / Test mapped; execution unconfirmed
 
 A size mismatch involving dynamic types is an error reported as early as it can be determined, at compilation or runtime.
 
@@ -13865,6 +13870,7 @@ Acceptance criterion: A size mismatch involving dynamic types is an error report
 
 Normative role: `mandatory`。
 
+- [test_bitstream_cast_dynamic_array_size_mismatch_runtime_error.sv](../tests/ch6/test_bitstream_cast_dynamic_array_size_mismatch_runtime_error.sv): The dynamic array d of byte is made with n = 4, computed at run time, and the test prints that int'(d) is 01020304 (index 0 is the most significant). Then new\[n\](d) makes it 5 elements (40 bits), and the same int'(d) is evaluated. The expected output ends with the line just before the cast, and the run-time message is matched against error. Distinguishing observation: An implementation that truncates or pads the 40 bits to an int fails the message match, and one that rejects every cast from a dynamic array to int does not print the line 4 bytes: 01020304.
 
 ### SV2023-6.24.3-EXTRACT-DYNAMIC-SOURCE-INCLUDED
 
@@ -15593,7 +15599,7 @@ Normative role: `definition`。
 
 ### SV2023-7.5.1-EXTRACT-NO-NEGATIVE-SIZE
 
-`7.5.1` / `error` / No mapped test
+`7.5.1` / `normal` / Execution confirmed
 
 A negative dynamic array allocation size is an error.
 
@@ -15601,6 +15607,7 @@ Acceptance criterion: A negative dynamic array allocation size is an error.
 
 Normative role: `mandatory`。
 
+- [test_dynamic_array_new_negative_size_runtime_error.sv](../tests/ch7/test_dynamic_array_new_negative_size_runtime_error.sv): The dynamic array d of int is made by new\[n\] with n = 3, computed at run time, and size = 3 is printed. Then n = -1 is set and the same new\[n\] is called. The expected output ends with the line just before the call, and the run-time message is matched against error. Distinguishing observation: An implementation that takes the negative size as 0 or as a large unsigned number and reports no error fails the message match.
 
 ### SV2023-7.5.1-EXTRACT-OPTIONAL-ARRAY-INITIALIZER
 
@@ -15783,7 +15790,7 @@ Normative role: `permission`。
 
 ### SV2023-7.6-EXTRACT-DYNAMIC-FIXED-MISMATCH
 
-`7.6` / `error` / No mapped test
+`7.6` / `normal` / Test mapped; execution unconfirmed
 
 Copying a runtime-sized dynamic array or queue to a fixed array of another size reports a runtime error and performs no operation.
 
@@ -15791,6 +15798,8 @@ Acceptance criterion: Copying a runtime-sized dynamic array or queue to a fixed 
 
 Normative role: `mandatory`。
 
+- [test_dynamic_to_fixed_array_size_mismatch_runtime_error.sv](../tests/ch7/test_dynamic_to_fixed_array_size_mismatch_runtime_error.sv): The dynamic array d (4 5 6), whose size is n = 3 computed at run time, is assigned to int f\[3\], and f = 4 5 6 is printed. Then d is made again with 2 elements (7 8), f = d is executed, and f is printed after the assignment. The expected output shows that f is still 4 5 6, and the run-time message is matched against error. Distinguishing observation: An implementation that copies a dynamic array with a different number of elements changes the values in the line after the assignment, and one that reports no error fails the message match.
+- [test_queue_to_fixed_array_size_mismatch_runtime_error.sv](../tests/ch7/test_queue_to_fixed_array_size_mismatch_runtime_error.sv): The queue d (4 5 6), made by push_back called n = 3 times, a count computed at run time, is assigned to int f\[3\], and f = 4 5 6 is printed. Then pop_back leaves 2 elements, 7 8 are written to them, f = d is executed, and f is printed after the assignment. The expected output shows that f is still 4 5 6, and the run-time message is matched against error. Distinguishing observation: An implementation that copies a queue with a different number of elements changes the values in the line after the assignment, and one that reports no error fails the message match.
 
 ### SV2023-7.6-EXTRACT-FIXED-TARGET-COUNT
 
@@ -31411,7 +31420,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.9-EXTRACT-TAGGED-DOT-READ-WRITE
 
-`11.9` / `error` / No mapped test
+`11.9` / `normal` / Test mapped; execution unconfirmed
 
 Tagged members may be read/written using dot notation only consistently with the current tag; a mismatching read/write produces a runtime error.
 
@@ -31419,6 +31428,8 @@ Acceptance criterion: Tagged members may be read/written using dot notation only
 
 Normative role: `mandatory`。
 
+- [test_tagged_union_read_wrong_tag_runtime_error.sv](../tests/ch11/test_tagged_union_read_wrong_tag_runtime_error.sv): t, a tagged union with the members Int of int and Byte of bit \[7:0\], is set to tagged Int 5 and t.Int is read. Under a condition decided at run time it is set to tagged Byte 8'hA5 and t.Byte is read. Then, with the tag still Byte, x = t.Int is read. The expected output ends with the line just before the read, and the run-time message is matched against error. Distinguishing observation: An implementation that does not check a read of a member other than the one of the current tag and returns the bits of Byte as Int fails the message match.
+- [test_tagged_union_write_wrong_tag_runtime_error.sv](../tests/ch11/test_tagged_union_write_wrong_tag_runtime_error.sv): t, a tagged union with the members Int of int and Byte of bit \[7:0\], is set to tagged Int 5 and t.Int is read. Under a condition decided at run time it is set to tagged Byte 8'hA5 and t.Byte is read. Then, with the tag still Byte, t.Int = 7 is assigned. The expected output ends with the line just before the assignment, and the run-time message is matched against error. Distinguishing observation: An implementation that silently changes the tag or the value on an assignment to a member other than the one of the current tag fails the message match.
 
 ### SV2023-11.9-EXTRACT-TAGGED-EXPRESSION
 
@@ -36083,7 +36094,7 @@ Normative role: `mandatory`。
 
 ### SV2023-15.4.5-EXTRACT-GET-TYPE-ERROR
 
-`15.4.5` / `error` / No mapped test
+`15.4.5` / `normal` / Test mapped; execution unconfirmed
 
 If destination and queued message types are not equivalent, get generates a runtime error.
 
@@ -36091,6 +36102,7 @@ Acceptance criterion: If destination and queued message types are not equivalent
 
 Normative role: `mandatory`。
 
+- [test_mailbox_typeless_get_type_mismatch_runtime_error.sv](../tests/ch15/test_mailbox_typeless_get_type_mismatch_runtime_error.sv): An int message is put into a mailbox without a type parameter, and the test prints that get(i) takes out 7. Then a string message is put under a condition decided at run time, and get(i) is called with an int variable. The mailbox is not empty, so the call does not wait. The expected output ends with the line just before the call, and the run-time message is matched against error. Distinguishing observation: An implementation that does not make the type mismatch an error, for example by converting the string message for the int variable, fails the message match.
 
 ### SV2023-15.4.5-EXTRACT-MAILBOX-WAITER-FIFO
 
@@ -36130,7 +36142,7 @@ Normative role: `definition`。
 
 ### SV2023-15.4.5-EXTRACT-SINGULAR-LVALUE
 
-`15.4.5` / `error` / No mapped test
+`15.4.5` / `error` / Test mapped; execution unconfirmed
 
 A mailbox get destination must be a valid singular lvalue.
 
@@ -36138,6 +36150,7 @@ Acceptance criterion: A mailbox get destination must be a valid singular lvalue.
 
 Normative role: `mandatory`。
 
+- [test_illegal_mailbox_get_unpacked_array.sv](../tests/ch15/test_illegal_mailbox_get_unpacked_array.sv): With a mailbox without a type parameter, get with the element arr\[1\] as its destination is legal, and the test checks that the line of get(arr), whose destination is the whole unpacked array arr, is rejected as an error. This test checks only that the destination is singular. It does not check that the destination is a valid left-hand expression (for example, that get(i + 1) is rejected). Distinguishing observation: An implementation that does not check that the destination of get is singular accepts the design.
 
 ### SV2023-15.4.6-EXTRACT-EMPTY-ZERO
 
@@ -36249,7 +36262,7 @@ Normative role: `mandatory`。
 
 ### SV2023-15.4.7-EXTRACT-PEEK-TYPE-ERROR
 
-`15.4.7` / `error` / No mapped test
+`15.4.7` / `normal` / Test mapped; execution unconfirmed
 
 A nonequivalent destination/message type causes a runtime error in peek.
 
@@ -36257,6 +36270,7 @@ Acceptance criterion: A nonequivalent destination/message type causes a runtime 
 
 Normative role: `mandatory`。
 
+- [test_mailbox_typeless_peek_type_mismatch_runtime_error.sv](../tests/ch15/test_mailbox_typeless_peek_type_mismatch_runtime_error.sv): An int message is put into a mailbox without a type parameter, and the test prints that peek(i) copies 7 and get(i) takes it out. Then a string message is put under a condition decided at run time, and peek(i) is called with an int variable. The mailbox is not empty, so the call does not wait. The expected output ends with the line just before the call, and the run-time message is matched against error. Distinguishing observation: An implementation that does not make the type mismatch an error, for example by converting the string message for the int variable, fails the message match.
 
 ### SV2023-15.4.7-EXTRACT-SIGNATURE
 
