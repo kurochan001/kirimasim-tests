@@ -28428,7 +28428,7 @@
     "SV2023-19.5.1.2-EXTRACT-SET-ARRAY": "7897669259f67f996b233437fa4b13e854927f8206d671a9f8f3601676cdcaea",
     "SV2023-19.5.2-EXTRACT-NO-UNBOUNDED-ARRAY": "2e7ea9a79d474f79432de9dedd88d5d41b22aa347b3398d3b62993e242e3b33b",
     "SV2023-19.5.2-EXTRACT-NO-ZERO-TRANSITION": "4768cd0faa29e4bf8f83092fdd4a593b79bc6eb00f5b93c301ac82c6e0fc9e37",
-    "SV2023-19.5.6-EXTRACT-ILLEGAL-ERROR": "477ec88ae1fd8ac54b2f41708805679080dcef5be4ca662d011987f0c7b9dc89",
+    "SV2023-19.5.6-EXTRACT-ILLEGAL-ERROR": "a9d40490b25b062bb85cc558bfa24db8850809dcb32f2dd50be261c56f240341",
     "SV2023-19.7-EXTRACT-INSTANCE-VERSUS-TYPE": "565e48139a88fb79ed3b6d9cbabc5db58f9d337dbf49ffa0dd053f13f0b41499",
     "SV2023-19.8.1-EXTRACT-SAMPLE-USES": "1bea5c097aa49f46ddb63a146eb24b66507c789dbb75b2c9283e243d94e34201",
     "SV2023-20.2-EXTRACT-CONTROL-SYNTAX": "01e91c7e87f3083ed6281b5c469d58c53fc566c2c73404944aa8af769f77d70b",
@@ -30346,7 +30346,6 @@
     "SV2023-18.5.11-EXTRACT-FUNCTION-DIRECTIONS",
     "SV2023-18.5.11-EXTRACT-FUNCTION-PURE",
     "SV2023-18.5.11-EXTRACT-FUNCTION-STATE-RESULT",
-    "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE",
     "SV2023-18.5.12-EXTRACT-FOUR-GUARD-VALUES",
     "SV2023-18.5.12-EXTRACT-GUARD-AND-0-0",
     "SV2023-18.5.12-EXTRACT-GUARD-AND-0-1",
@@ -43294,5 +43293,5 @@
     "P",
     "Q"
   ],
-  "reason": "Owner-approved on 2026-11-12 (third pass): nine verilator@5.052 tokens were removed from the :oracle: of nine illegal tests after a legal counterpart was run for each of them on the pinned release, so 8 checks of 7 requirements, 3 of them with check groups, carry new input digests. The code and expected results of the tests did not change; three observations (16.10, 25.7 and 27.4) now say that the Verilator rejection is not counted."
+  "reason": "Owner-approved on 2026-11-12: tests that no simulator passes were corrected after two reviews against IEEE 1800-2023 (17 hand-written tests and four generated cases), so the checks of 51 requirements carry new input digests, 15 of them and one check group with rewritten observations, and the mapping of 18.5.11 (kind error) is withdrawn because its test became a run-time test."
 }

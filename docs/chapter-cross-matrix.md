@@ -68,7 +68,7 @@ IEEE 1800-2023のどの章とどの章を組み合わせて検証しているか
 2026-11-08の更新では110モデル・4,416選択ケースを、対角線以外の189組の章対に対応付けています。
 CSVに使用した結果は[kirimasim f029ddd0eee1の全110モデルのローカル保存実行](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json)で、
 3,915 pass・487 unsupported・14 fail、全選択ケースPASSは83モデルです。
-2026-11-12に、同じ内容のケースを選ばないように二つのモデルを改訂しました。対応付けは110モデル・4,413選択ケースになり、章対は同じ189組です。[kirimasim 7de185f776a1の全モデルのローカル保存実行](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-edgedpiquery.json)は3,915 pass・484 unsupported・14 failで、全選択ケースPASSは83モデルです。
+2026-11-12に、同じ内容のケースを選ばないように二つのモデルを改訂しました。対応付けは110モデル・4,413選択ケースになり、章対は同じ189組です。同じ日にモデル`dpi_openarray_shape`の期待値を1か所直した後に保存し直した[kirimasim 7de185f776a1の全モデルのローカル保存実行](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-dpi-array.json)は3,915 pass・484 unsupported・14 failで、全選択ケースPASSは83モデルです。
 
 [基点67321079のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584)は成功し、追加前の88モデルを含む固定版比較・静的検査を確認しました。
 [同じ基点のNightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265)もworkflowと全ジョブが成功しましたが、個別artifactは未照合です。その後の追加は両実行の対象外です。

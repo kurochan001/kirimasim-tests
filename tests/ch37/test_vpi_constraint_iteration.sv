@@ -16,11 +16,15 @@
 // syntactic declaration order, with an extern constraint at the position of
 // its prototype, and the inherited constraints are reached through the
 // extends relation. §37.32 detail 7 and 8: the same holds for a class
-// typespec. §37.34: the NULL design root iterates the constraints of the
-// design (37.34 diagram), and the iteration returns them in syntactic order
-// (detail 4). The design has two constraints in the base class, one normal and
-// one extern constraint in the derived class, and one inline constraint in a
-// randomize with call, which the iterations do not return.
+// typespec, and detail 9: vpiExtends of a class typespec returns the base
+// class typespec, which the application iterates directly. Until 2026-11-12 it
+// asked the result for a vpiClassTypespec relation, which only the extends
+// object of a class definition has (§37.31 detail 6). §37.34: the NULL design
+// root iterates the constraints of the design (37.34 diagram), and the
+// iteration returns them in syntactic order (detail 4). The design has two
+// constraints in the base class, one normal and one extern constraint in the
+// derived class, and one inline constraint in a randomize with call, which the
+// iterations do not return.
 
 `timescale 1ns/1ns
 

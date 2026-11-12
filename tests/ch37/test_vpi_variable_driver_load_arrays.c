@@ -49,12 +49,29 @@ static void side(const char *label, const char *name, PLI_INT32 relation, PLI_IN
     vpi_printf((PLI_BYTE8 *)"\n");
 }
 
+/* The value of the index of a bit: vpiIndex is a relation (Annex K), given
+ * by vpi_handle or as the first object of the iteration (37.17 detail 13). */
+static int index_of(vpiHandle obj)
+{
+    vpiHandle it = vpi_iterate(vpiIndex, obj);
+    vpiHandle ix = it != NULL ? vpi_scan(it) : vpi_handle(vpiIndex, obj);
+    s_vpi_value v;
+
+    if (ix == NULL)
+        return -1;
+    v.format = vpiIntVal;
+    vpi_get_value(ix, &v);
+    if (it != NULL)
+        vpi_free_object(it);
+    return (int)v.value.integer;
+}
+
 static vpiHandle var_bit(vpiHandle var, int index)
 {
     vpiHandle it = var != NULL ? vpi_iterate(vpiBit, var) : NULL, b;
 
     while (it != NULL && (b = vpi_scan(it)) != NULL)
-        if ((int)vpi_get(vpiIndex, b) == index)
+        if (index_of(b) == index)
             return b;
     return NULL;
 }

@@ -3,8 +3,8 @@
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
   "test_files": 12262,
-  "linked_test_files": 5400,
-  "unlinked_test_files": 6862,
+  "linked_test_files": 5399,
+  "unlinked_test_files": 6863,
   "chapters": [
     {
       "chapter": "ch3",
@@ -99,8 +99,8 @@
     {
       "chapter": "ch18",
       "test_files": 273,
-      "linked_test_files": 189,
-      "unlinked_test_files": 84
+      "linked_test_files": 188,
+      "unlinked_test_files": 85
     },
     {
       "chapter": "ch19",
@@ -61041,7 +61041,7 @@
     },
     {
       "test": "tests/ch16/test_ch16_sim_multiclock_init.sv",
-      "inputs_sha256": "a3d06884387170d905797cac0ce36edfa5e4b1557f34e476af93a29160015ca5",
+      "inputs_sha256": "820088a0c042c6d30d8f1d83f6f91d4d097448081820515cf9371cd36c38a569",
       "cited_clauses": [
         "16.13.7",
         "16.16.1"
@@ -61312,7 +61312,7 @@
     },
     {
       "test": "tests/ch16/test_ch16_sim_prop_inherited_eventually.sv",
-      "inputs_sha256": "c58f2887c66a59ea750da7036feacf70d805675ef5e194c510fd7af15cfbea4e",
+      "inputs_sha256": "ab46d20dd6db6dd70df1275b363372cc7e5de45f96226ce19bb766811b1024db",
       "cited_clauses": [
         "16.16.1",
         "16.12.13"
@@ -94648,7 +94648,7 @@
     },
     {
       "test": "tests/ch16/test_sequence_method_empty_matches.sv",
-      "inputs_sha256": "fb22110f40c2eb79a9954654f365e0f58e3f09a367c81ca37d284a7c56f95eb6",
+      "inputs_sha256": "f85770166d7033d036e55be6ba7992c2a4b26df8847378fca9614ffe24463c96",
       "cited_clauses": [
         "16.13.6",
         "16.13.5",
@@ -97432,7 +97432,7 @@
     },
     {
       "test": "tests/ch17/test_checker_assertion_placement.sv",
-      "inputs_sha256": "34c657d9995a7ad1ded65f1e49630033acdc9d88730ac8c6833a8acaa7fa17ae",
+      "inputs_sha256": "7dc4b444bfd7c4d5750c53cfab07708b99d72f61efcf169c3e94a9e1c9e40b1a",
       "cited_clauses": [
         "17.3",
         "17.5",
@@ -97503,7 +97503,7 @@
       ],
       "scoped_review": {
         "test": "tests/ch17/test_checker_assertion_placement.sv",
-        "inputs_sha256": "34c657d9995a7ad1ded65f1e49630033acdc9d88730ac8c6833a8acaa7fa17ae",
+        "inputs_sha256": "7dc4b444bfd7c4d5750c53cfab07708b99d72f61efcf169c3e94a9e1c9e40b1a",
         "reviewed_on": "2026-10-26",
         "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -102315,6 +102315,74 @@
       }
     },
     {
+      "test": "tests/ch18/test_constraint_function_cycle_runtime_error.sv",
+      "inputs_sha256": "30cf9778b9401bb16f027a6950383204a3d015398d665f962d24dfb8a531b3c8",
+      "cited_clauses": [
+        "18.5.11",
+        "18.9"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-18.5.11-EXTRACT-FUNCTION-ARG-PRIORITY",
+        "SV2023-18.5.11-EXTRACT-FUNCTION-STATE-RESULT",
+        "SV2023-18.5.11-EXTRACT-PRIORITY-SPACE",
+        "SV2023-18.5.11-EXTRACT-UNSPECIFIED-FUNCTION-CALLS",
+        "SV2023-18.9-EXTRACT-CONSTRAINT-GETTER",
+        "SV2023-18.9-EXTRACT-CONSTRAINT-MODE",
+        "SV2023-18.9-EXTRACT-CONSTRAINT-MODE-SIGNATURE",
+        "SV2023-18.9-EXTRACT-CONSTRAINT-MODE-TARGET",
+        "SV2023-18.9-EXTRACT-CONSTRAINT-OFF",
+        "SV2023-18.9-EXTRACT-CONSTRAINT-ON"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-18.5.11-EXTRACT-FUNCTION-DIRECTIONS",
+        "SV2023-18.5.11-EXTRACT-FUNCTION-PURE",
+        "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE",
+        "SV2023-18.9-EXTRACT-INVALID-CONSTRAINT-MODE",
+        "SV2023-18.9-EXTRACT-NO-CONSTRAINT-MODE-OVERRIDE"
+      ],
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch18/test_constraint_function_cycle_runtime_error.sv",
+        "inputs_sha256": "30cf9778b9401bb16f027a6950383204a3d015398d665f962d24dfb8a531b3c8",
+        "reviewed_on": "2026-11-12",
+        "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE"
+            ],
+            "disposition": "citation_refinement",
+            "explanation": "The requirement is registered with kind=error, and the matching protocol accepts only an illegal-design test with :should_fail_because: for such a row. Since 2026-11-12 this is a run-time test: the implicit ordering exists only among the constraints that are active when randomize() is called (18.9), so a tool may report the cycle at run time, and with c2 switched off first the design is legal until the second call. The test still observes the requirement (randomize() succeeds with c1 alone and must give an error once c1 and c2 are both active), but the mapping cannot be registered while the row is classified as a rejected design. The kind of the row needs a review for errors that may be reported at run time.",
+            "reviewed_on": "2026-11-12",
+            "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch18/test_constraint_function_cycle_runtime_error.sv",
+                "contains": "  constraint c2 { y <= f(x); }   // x before y: a cycle when both are active"
+              },
+              {
+                "file": "tests/ch18/test_constraint_function_cycle_runtime_error.sv",
+                "contains": "    o.c2.constraint_mode(0);"
+              },
+              {
+                "file": "tests/ch18/test_constraint_function_cycle_runtime_error.sv",
+                "contains": ":expected_stderr_regex: (?i:\\berror\\b)"
+              },
+              {
+                "file": "tests/ch18/test_constraint_function_cycle_runtime_error.expected",
+                "contains": "calling randomize with c1 and c2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
       "test": "tests/ch18/test_constraint_function_order.sv",
       "inputs_sha256": "f85d3431b4b6e264cfa5df3529f1882e1688fb6262c4e4e2328297027d2910d6",
       "cited_clauses": [
@@ -104545,30 +104613,6 @@
         "SV2023-18.5.7.1-EXTRACT-LOOP-SCOPE-TYPE",
         "SV2023-18.5.7.1-EXTRACT-OMITTED-DIMENSIONS",
         "SV2023-18.5.7.1-EXTRACT-SIZE-FIRST"
-      ],
-      "broader_citations": []
-    },
-    {
-      "test": "tests/ch18/test_illegal_constraint_function_cycle.sv",
-      "inputs_sha256": "e62e0a9672fda6cc13981548bf9ab129535b08b4d50ea6e02f9ac18e02b4d24e",
-      "cited_clauses": [
-        "18.5.11"
-      ],
-      "negative_test": true,
-      "registered_requirement_ids": [
-        "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE"
-      ],
-      "collective_requirement_ids": [],
-      "unapproved_candidate_ids": [
-        "SV2023-18.5.11-EXTRACT-FUNCTION-DIRECTIONS",
-        "SV2023-18.5.11-EXTRACT-FUNCTION-PURE"
-      ],
-      "interpretation_pending_ids": [],
-      "different_case_kind_ids": [
-        "SV2023-18.5.11-EXTRACT-FUNCTION-ARG-PRIORITY",
-        "SV2023-18.5.11-EXTRACT-FUNCTION-STATE-RESULT",
-        "SV2023-18.5.11-EXTRACT-PRIORITY-SPACE",
-        "SV2023-18.5.11-EXTRACT-UNSPECIFIED-FUNCTION-CALLS"
       ],
       "broader_citations": []
     },
@@ -116385,7 +116429,7 @@
     },
     {
       "test": "tests/ch19/test_cg_illegal_cross_error.sv",
-      "inputs_sha256": "5ff93189e15ae7f286e94716f40365c9b11b9a903ee7e45c1b2b38ce1149d5bd",
+      "inputs_sha256": "9926533de022c0ca52de508c82320991af67b147119a7bdd90a1c68e1eba38f7",
       "cited_clauses": [
         "19.6.3",
         "19.6.1",
@@ -116433,7 +116477,7 @@
     },
     {
       "test": "tests/ch19/test_cg_illegal_transition_error.sv",
-      "inputs_sha256": "b8df9ae171f1b1f1021838912a846004acc8a6122fe88bc365fc840f0e881cff",
+      "inputs_sha256": "9f23fef9910ea0c5e50904fa976afa4e01f36bc9e4f2264415d8451db5dbc623",
       "cited_clauses": [
         "19.5.6",
         "19.11.1",
@@ -119734,7 +119778,7 @@
     },
     {
       "test": "tests/ch19/test_covergroup_bins_and_range_forms.sv",
-      "inputs_sha256": "2ca5faae44a5e1dcba6d31a71a1bad9789e3560e3794c50298ac9e81a41f3825",
+      "inputs_sha256": "4dac36c3fd19e7b774031710769c5cf2afce33d5736705fe83653f4df7606218",
       "cited_clauses": [
         "19.5.1",
         "19.5.1.1",
@@ -119852,7 +119896,7 @@
       ],
       "scoped_review": {
         "test": "tests/ch19/test_covergroup_bins_and_range_forms.sv",
-        "inputs_sha256": "2ca5faae44a5e1dcba6d31a71a1bad9789e3560e3794c50298ac9e81a41f3825",
+        "inputs_sha256": "4dac36c3fd19e7b774031710769c5cf2afce33d5736705fe83653f4df7606218",
         "reviewed_on": "2026-10-26",
         "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -215081,13 +215125,15 @@
     },
     {
       "test": "tests/ch35/test_a2_5_dpi_open_array_packed_dimension.sv",
-      "inputs_sha256": "83d7dc404fe4cceeb34b7194160090a68e428a351a592dfd65100ab52146f78f",
+      "inputs_sha256": "aaf1c03931b9e7b75f835fa60fbe775f8941d4622634de9e04599bdbfe9b755f",
       "cited_clauses": [
         "35.5.6.1",
         "35.6",
         "H.2",
-        "H.7.3",
+        "H.7.6",
+        "H.7.7",
         "H.12.2",
+        "H.12.4",
         "A.2.5",
         "A.10"
       ],
@@ -215171,6 +215217,10 @@
         "SV2023-H.12.2-EXTRACT-QUERY-RIGHT",
         "SV2023-H.12.2-EXTRACT-QUERY-SIZE",
         "SV2023-H.12.2-EXTRACT-SEMANTICS",
+        "SV2023-H.12.4-EXTRACT-ADDRESS",
+        "SV2023-H.12.4-EXTRACT-ELEMENT-LAYOUT",
+        "SV2023-H.12.4-EXTRACT-ELEMENTS",
+        "SV2023-H.12.4-EXTRACT-LAYOUT",
         "SV2023-H.2-EXTRACT-BINARY",
         "SV2023-H.2-EXTRACT-CANONICAL",
         "SV2023-H.2-EXTRACT-DEPRECATED",
@@ -215180,12 +215230,12 @@
         "SV2023-H.2-EXTRACT-OPEN-ARRAY",
         "SV2023-H.2-EXTRACT-PASSING",
         "SV2023-H.2-EXTRACT-RANGES",
-        "SV2023-H.7.3-EXTRACT-ENUM",
-        "SV2023-H.7.3-EXTRACT-OPEN-ARRAY",
-        "SV2023-H.7.3-EXTRACT-ORDER",
-        "SV2023-H.7.3-EXTRACT-PACKED",
-        "SV2023-H.7.3-EXTRACT-SIZED-ARRAY",
-        "SV2023-H.7.3-EXTRACT-UNPACKED"
+        "SV2023-H.7.6-EXTRACT-BOTH-DIRECTIONS",
+        "SV2023-H.7.6-EXTRACT-DECLARATION",
+        "SV2023-H.7.6-EXTRACT-PACKED",
+        "SV2023-H.7.6-EXTRACT-UNPACKED",
+        "SV2023-H.7.7-EXTRACT-TYPES",
+        "SV2023-H.7.7-EXTRACT-WORDS"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
@@ -252196,7 +252246,7 @@
     },
     {
       "test": "tests/ch37/test_vpi_class_specialization_types.sv",
-      "inputs_sha256": "629fb2e40471d53fd118d774ccc520682a8302d4c970a1460f251e2c8cf92217",
+      "inputs_sha256": "9f38d4a7e5883160006f91fbbcd124239fabf4c64ebdad81e25fc33f85a3a9a0",
       "cited_clauses": [
         "37.32",
         "37.12",
@@ -252368,7 +252418,7 @@
       ],
       "scoped_review": {
         "test": "tests/ch37/test_vpi_class_specialization_types.sv",
-        "inputs_sha256": "629fb2e40471d53fd118d774ccc520682a8302d4c970a1460f251e2c8cf92217",
+        "inputs_sha256": "9f38d4a7e5883160006f91fbbcd124239fabf4c64ebdad81e25fc33f85a3a9a0",
         "reviewed_on": "2026-10-26",
         "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -253591,7 +253641,7 @@
     },
     {
       "test": "tests/ch37/test_vpi_constraint_iteration.sv",
-      "inputs_sha256": "9b0d58aa697998bc65aaf9d3439203dddf0367d0b3a7d601c994d03aa4041ecb",
+      "inputs_sha256": "79f2e5ee95b5cb43567e3a035e44626c39bdf13f9b1433a5a949e88ed59619f5",
       "cited_clauses": [
         "37.31",
         "37.32",
@@ -266936,7 +266986,7 @@
     },
     {
       "test": "tests/ch37/test_vpi_net_bits_constant_select.sv",
-      "inputs_sha256": "879144b26af74c64d39a6f396ab4c1e9fac2dad5a56247f583be0598afad0efa",
+      "inputs_sha256": "56c4e4d0c72049e0c5e37f75e4dca4cebb294a7c06825a177ee2bf8ecdf241ea",
       "cited_clauses": [
         "37.16",
         "11.5.1",
@@ -269559,7 +269609,7 @@
     },
     {
       "test": "tests/ch37/test_vpi_nettype_net_parts.sv",
-      "inputs_sha256": "71d792f181ddd895f57a5e2414ca4555bd9160ab443b0393c5e3582294c3ee66",
+      "inputs_sha256": "55555ae964e06f46cb065a1a0940c26ab0a1c3b3e914f17cbc3b8809182c5861",
       "cited_clauses": [
         "37.16",
         "6.6.7"
@@ -277871,7 +277921,7 @@
     },
     {
       "test": "tests/ch37/test_vpi_struct_and_tagged_patterns.sv",
-      "inputs_sha256": "740b923d0728013fd8f34b5131e2d3a410ec369ab5efc0c6e50d8a9c020d0083",
+      "inputs_sha256": "7afe5ccb6e61a73fb41ed1a2d5ad5130ede0593e6ca08ac3ad73bdd7ef3bb9e9",
       "cited_clauses": [
         "37.72",
         "12.6",
@@ -283241,7 +283291,7 @@
     },
     {
       "test": "tests/ch37/test_vpi_udp_table_primitive.sv",
-      "inputs_sha256": "48599a2f0f299638062e01ea5765444512ad5996af251af7693b6e3e0742e50d",
+      "inputs_sha256": "5a2720345ac81d2de7c1e95c9aa59aa89c5082a1724aaf213235625afbfabbbf",
       "cited_clauses": [
         "37.35",
         "37.36",
@@ -285134,7 +285184,7 @@
     },
     {
       "test": "tests/ch37/test_vpi_variable_driver_load_arrays.sv",
-      "inputs_sha256": "3c8c713e4eea03bf5061d68be2a997ef5a5fa0cb839df4b9e096d0764977f1da",
+      "inputs_sha256": "947c9646690a51a0bc50299e4bfce2cd879128e3a627d58f20c9d4db7ea93a28",
       "cited_clauses": [
         "37.21",
         "37.47",
@@ -295017,7 +295067,7 @@
     },
     {
       "test": "tests/ch38/test_vpi_put_value_udp_array_errors.sv",
-      "inputs_sha256": "e0bd8cd0dd3a0b250ac3cb3c4e0915a146f519aeddd2e2add3787c543f963a42",
+      "inputs_sha256": "26eda33b25f69c50bf33876593389e9de1d8dafb16a3f2099a211b035d6cb073",
       "cited_clauses": [
         "38.34",
         "38.35",
@@ -295189,7 +295239,7 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch38/test_vpi_put_value_udp_array_errors.sv",
-        "inputs_sha256": "e0bd8cd0dd3a0b250ac3cb3c4e0915a146f519aeddd2e2add3787c543f963a42",
+        "inputs_sha256": "26eda33b25f69c50bf33876593389e9de1d8dafb16a3f2099a211b035d6cb073",
         "reviewed_on": "2026-10-26",
         "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -295205,7 +295255,7 @@
             "evidence": [
               {
                 "file": "tests/ch38/test_vpi_put_value_udp_array_errors.sv",
-                "contains": "    #1 $vt_udp_put;"
+                "contains": "    $vt_udp_put;"
               },
               {
                 "file": "tests/ch38/test_vpi_put_value_udp_array_errors.c",
@@ -295217,7 +295267,7 @@
               },
               {
                 "file": "tests/ch38/test_vpi_put_value_udp_array_errors.expected",
-                "contains": "6: q after the vpiNoDelay put: 0"
+                "contains": "17: q after the vpiNoDelay put: 0"
               }
             ]
           },
@@ -760521,7 +760571,7 @@
     },
     {
       "test": "tests/gen/ch35/test_gen_cross_dpi_array_dynamic_inout_1_mixed_descending_resize.sv",
-      "inputs_sha256": "abfb84ee1ec758604991c10040c14dd75f93ae6008da9e572552e4402560e673",
+      "inputs_sha256": "49f4dbfe3bd36f864d54e8c211fbd413e1fd4a68f4bfbc02ffa6321d076193e6",
       "cited_clauses": [
         "35.5.6.1",
         "35.6.1.1",
@@ -760815,7 +760865,7 @@
     },
     {
       "test": "tests/gen/ch35/test_gen_cross_dpi_array_dynamic_input_1_positive_ascending_stable.sv",
-      "inputs_sha256": "3c044e12462c9795a492bc2933fd88f382c710c1b6443560aa82007679aa81bd",
+      "inputs_sha256": "4b623f3402080868b05f22b8671670d54bbd0b77193764df67c3e04eee811d7e",
       "cited_clauses": [
         "35.5.6.1",
         "35.6.1.1",
@@ -761109,7 +761159,7 @@
     },
     {
       "test": "tests/gen/ch35/test_gen_cross_dpi_array_queue_inout_1_positive_descending_resize.sv",
-      "inputs_sha256": "7269b0b47a13f748d664a6238a59a32d31a642fd8cb0b70c1babf2b1845c677b",
+      "inputs_sha256": "0f4119e83a7fdeb04e66bd35337e36de35aac99466c2d6b08cf281c85310f163",
       "cited_clauses": [
         "35.5.6.1",
         "35.6.1.1",
@@ -761403,7 +761453,7 @@
     },
     {
       "test": "tests/gen/ch35/test_gen_cross_dpi_array_queue_input_1_mixed_ascending_stable.sv",
-      "inputs_sha256": "ea2006026a5e83336a188bec9f8b3cff114c99e149ee794c5df9def345fce494",
+      "inputs_sha256": "218e8f73c012d723b9275aa32d63e6797b79a3290be3d6bb0ea91e3784d69367",
       "cited_clauses": [
         "35.5.6.1",
         "35.6.1.1",
@@ -942932,14 +942982,14 @@
       }
     }
   ],
-  "scoped_review_test_files": 1355,
+  "scoped_review_test_files": 1356,
   "review_disposition_counts": {
-    "citation_refinement": 196,
+    "citation_refinement": 197,
     "compound_requirement": 176,
     "oracle_issue": 243,
     "partial_observation": 2136
   },
-  "registry_sha256": "109df3f8a0fdb90402e4284ad4e731999e89fee139b81fee53d98540ba5ddb0f",
+  "registry_sha256": "41038e9c0e5fd667824e083e8be655db623fcf46a1dabf1de9074c8cfe87d5de",
   "inventory_sha256": "7f708bec45a4f398aa534c8f94565cb0bcd1a4fbfdf0a0e21997df20add41768",
-  "review_ledger_sha256": "779d3b173c2a9a69ba8b3c2e8319a3bafcc5ab5867ab31e1c4902f9698daad7d"
+  "review_ledger_sha256": "1712d12b7c3e81fdc031e1dd062e8d9cd602dd28e152238f6035fad2ca078a5e"
 }

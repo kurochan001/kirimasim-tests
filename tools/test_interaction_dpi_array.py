@@ -36,6 +36,21 @@ class DpiArraySemantics(unittest.TestCase):
             self.assertIn('c phase=1 dims=1 left=0 right=1 low=0 high=1 inc=-1 size=2\n', text)
             self.assertIn('c index=1 before=31 after=31\nc index=0 before=24 after=24\nreturned=79\n', text)
 
+    def test_one_element_dynamic_array_and_queue_have_increment_minus_one(self):
+        # IEEE 1800-2023 20.7: -1 for a queue or dynamic array dimension at any
+        # size; a fixed-size dimension of one element has 1 (left >= right).
+        for actual in ('dynamic', 'queue'):
+            text = array.reference((actual, 'input', '1', 'positive', 'ascending', 'stable'))
+            self.assertEqual(text.count('left=0 right=0 low=0 high=0 inc=-1 size=1\n'), 2)
+            text = array.reference((actual, 'inout', '1', 'mixed', 'descending', 'resize'))
+            self.assertIn('c phase=0 dims=1 left=0 right=0 low=0 high=0 inc=-1 size=1\n', text)
+            self.assertIn('c phase=1 dims=1 left=0 right=2 low=0 high=2 inc=-1 size=3\n', text)
+        for actual in ('ascending', 'descending'):
+            text = array.reference((actual, 'input', '1', 'positive', 'ascending', 'stable'))
+            self.assertEqual(text.count(' inc=1 size=1\n'), 2)
+        text = array.reference(('ascending', 'input', '3', 'positive', 'ascending', 'stable'))
+        self.assertEqual(text.count('left=-2 right=0 low=-2 high=0 inc=-1 size=3\n'), 2)
+
     def test_legal_domain_excludes_prohibited_output_and_meaningless_resize(self):
         self.assertEqual(len(array.MODEL.rows()), 168)
         self.assertEqual(len(array.MODEL.select()), 30)

@@ -9,8 +9,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "0b8d0f4f9fe5d4485b0f32e95e7b0bca55e508dc35ea6a690c9a4bbfe48f44a9",
-        "ja": "8dfd3de7407296469a91a3022debf205048f2848d6bd1ad7243c430e026022fa"
+        "en": "732ead9bee5967614af3ee9a2c814823110b9e701345186fb2e0d7e53a4959b9",
+        "ja": "9ecba1ab6ddc942ad87779cc2445c90c9c0eabe795c35982ecbb97f9f479f267"
       }
     },
     {
@@ -20,8 +20,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "bed1af16b4e9e79d1bf038d5cbee0d0af60c21863c9c653cc22b83faa9d6d5e2",
-        "ja": "7fa0eb15bb4ddf241be1e36acb121f1e9afb99b7c5653e077643e6337aa4f555"
+        "en": "af9f63923b027536a8e07940a368519bf84fe6f7e7d6a6caa98db87462914a52",
+        "ja": "ba820288add7778bd67670aa2170a5922a2df4ab15918d9021c56e92617e7229"
       }
     },
     {
@@ -31,8 +31,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "ed93ef2d86760f903347c201a5e86c4ea0ddb67811717bda591a2759cafa9ac5",
-        "ja": "8748b8f20b5c6870bf127a91c1072e4f1d0c0e04ad1159677468bcb792e5633c"
+        "en": "ac153acf703e926e6eabb7c998ca4b945fd6475a330f9f3800a2cc2bce6f7950",
+        "ja": "fa8cd7888fdbe80914c1632bee8f5a5888ca4877fc4ea6f13ac1551ef26b06f1"
       }
     },
     {
@@ -74,8 +74,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "84227cf632ab6bb556645b8d213cbcf74bef99eea73521d30e76333e499bd3a4",
-        "ja": "33f0f614e4f5dcdeebc8d88c231648a6158d620a4ba959d94db787d950cadec1"
+        "en": "9d88e08dcae01abf77ec84c9d47f320a1dfc052da2d6a1f316af5012bec7cd36",
+        "ja": "9f8ed0918d0bb1c1676a41bc1b4bdd0d0cac7dead35ae77a1eb0d36ef1cfd00e"
       }
     },
     {
@@ -176,8 +176,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "ce61973da4a6ff27ceb87e429758fbd05a8d4324b2fbc9697ed70c727054c235",
-        "ja": "269cac9f9764908720643cd2637d4c64ad3031602966f45731669f00c656491a"
+        "en": "382d86e4cafecf26650569dfe35160a78af497fe34dd47b4fa91d309147c14f3",
+        "ja": "f4ebb0d7e65d3ec169a424bf87a8927a34b171f86413cd002e8c351fe1c00b0b"
       }
     },
     {
@@ -425,8 +425,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "bdab3c97f4db73bbcefd4bd83a7a817d22fc7ae48c4fabbe4bff67e78e6bb137",
-        "ja": "ca6f7d73d1f75bfaab6c2fcf5187428d01c7ce882a49c906db8026174580d453"
+        "en": "20bde6332858ae2aa7bc437b3bee3d4183d35a41c9273d9f168732567d2788ce",
+        "ja": "fcf0ba6a7d3d86e023592ca9ec1b2619a47f88e808029f74b6a1baeabe2d632d"
       }
     },
     {
@@ -454,8 +454,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "13bfce3abcc0dff62d1b8b5a419672abe5339424c98078ec4024d37562107a2c",
-        "ja": "1e173c2eacd8ef0e59d5d45e61552182d5d5822294785c5ab389cea0a88e12c4"
+        "en": "ec3cd91681b0ccee49de99a91ac4d8b9ad1a66a3a3a971e5561c4fb73b59802e",
+        "ja": "b5071f3c95fa395e9833b13802e5ee33eb2ac15bf2ffa63d72c1d1043dfbcc24"
       }
     },
     {
@@ -509,8 +509,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "68b3fd1fcb0891e5e7e631957174e2bfdebbf0a106addbefdcc10dc2ed8c6463",
-        "ja": "741482be8c836250ea2cd6ca78f8236f9a25808aeefaa91155ad47052126a1c8"
+        "en": "9c20e616ef7da3c64bea9ee383265f5fd7d00991449f0d440707f50d7492fc0b",
+        "ja": "82df4a4b8dfddcf733986dce21f91829bc5a8e663fc6e09c8d15f5631e34ee6a"
       }
     },
     {
@@ -637,8 +637,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "4fef456ff61c99d32c1e32655b42bb47da9057a6a28d7f7c65198427e2b956a9",
-        "ja": "ba31e33b4bcf3197378582e23b04c2c5ed268a5037ae30520ee1716d908574ad"
+        "en": "6a1446986803ead71f29236085bbba705ac2e72f137bf9c7facab4eb72b64624",
+        "ja": "05ddfe70ae32750288f48d9baf9fdd7e26fe39a6b464f6904d0dd85d7b61d4b7"
       }
     },
     {
@@ -1190,6 +1190,17 @@
       "sha256": {
         "en": "7c5462e7df8aaf74dcbc39f2040eae225c19312400e99cf6c4ba4c8b6879a168",
         "ja": "6d59962a0416c31b0fedbc3b806610d15a009219ba63473e01691f91e194c771"
+      }
+    },
+    {
+      "en": "docs/pass-nowhere-review-20261112.en.md",
+      "ja": "docs/pass-nowhere-review-20261112.md",
+      "source": "docs/pass-nowhere-review-20261112.en.md",
+      "source_language": "en",
+      "generated": false,
+      "sha256": {
+        "en": "c360e13332ff720c12f87b4be2148edd254cfbb213fd4f689d8a840ddc8f53f7",
+        "ja": "54f12e74251e0f45607b9f89175c95934ec348a6a1d20c9d42b6ca464b8d693c"
       }
     }
   ]

@@ -12,9 +12,9 @@ The denominator counts requirement-ledger rows, not test files. See [Design, exe
 
 ## Value for all standards in the required table
 
-- Requirement coverage (test design): 90.14% ( 11086/12298 ).
+- Requirement coverage (test design): 90.14% ( 11085/12298 ).
 - Execution confirmation rate without Ghost: 50.20% ( 6174/12298 ). Union of successes on Icarus Verilog, Verilator and SymbiYosys, which third parties can reproduce.
-- The execution confirmation rate is 77.59% ( 9542/12298 ). Union of successes across environments.
+- The execution confirmation rate is 77.57% ( 9540/12298 ). Union of successes across environments.
 - The denominator includes pending interpretations and items without test mappings. We do not exclude non-implemented and non-supported.
 - The registration unit is the occurrence point, condition, and observation case of the requirement, and the duplication of meaning is integrated by the review of the denominator. This is neither the fraction of all program/input combinations tested nor a single simulator's standard conformance rate.
 
@@ -22,7 +22,7 @@ The denominator counts requirement-ledger rows, not test files. See [Design, exe
 
 ## Aggregation of existing tests
 
-- 5400 of 12262 tests have a registered correspondence with the requirements. 6862 tests remain unregistered.
+- 5399 of 12262 tests have a registered correspondence with the requirements. 6863 tests remain unregistered.
 - The above coverage rate is calculated only for the part which registered the response to the demand by confirming the stimulus and the expected result. Existing tests that are not registered are also useful for verification, but their contribution is not yet reflected in the proportion.
 - The number of registered units is the number of units that correspond to at least one requirement, not the number of completed reviews of the whole test.
 
@@ -33,7 +33,7 @@ The denominator counts requirement-ledger rows, not test files. See [Design, exe
 ## Definite value
 
 - Requirement coverage (test design): 90.14%.
-- Requirement execution-confirmation rate: 50.20% without Ghost, 77.59% with Ghost.
+- Requirement execution-confirmation rate: 50.20% without Ghost, 77.57% with Ghost.
 - Approval of denominator: Approval. The measured state is `confirmed`.
 - The method was confirmed after document verification, resolution of the reservation interpretation, duplication of the requirement unit, and review of the denominator.
 
@@ -41,9 +41,9 @@ The denominator counts requirement-ledger rows, not test files. See [Design, exe
 
 ## Remains
 
-- There is a record of the path result corresponding to the current input: 9542 line.
-- No record of passed/passout results: 1544 line.
-- Test compatibility not confirmed (except for interpretation reservation): 1212 line.
+- There is a record of the path result corresponding to the current input: 9540 line.
+- No record of passed/passout results: 1545 line.
+- Test compatibility not confirmed (except for interpretation reservation): 1213 line.
 - Interpretation reservation: 0 line.
 
 Unsupported behavior does not mean that no existing test is available.
@@ -54,27 +54,31 @@ Unsupported behavior does not mean that no existing test is available.
 
 Each row is a separate saved run. A narrow run can leave many tests unexecuted; check [how to read dates, versions and scope](faq.en.md#q14-why-do-main-results-or-simulator-totals-differ) and the measurement source.
 
-- `sby` / `unknown SBY version` : 290/12298 ( 2.36% )。 Measurement source: `2026-10-27T13:59:10.011684+00:00` / `formal-20261027-sby.json` 。 Failures 0; known mismatches 0; unsupported 0; not run 10796; stale evidence 0; unapproved judgment evidence for illegal-design tests 0 rows.
-- `icarus` / `Icarus Verilog version 13.0 (stable) (v13_0)` : 3085/12298 ( 25.09% )。 Measurement source: `2026-11-11T16:51:00.391888+00:00` / `full-20261112-icarus13.json` 。 Failures 0; known mismatches 7383; unsupported 0; not run 290; stale evidence 148; unapproved judgment evidence for illegal-design tests 180 rows.
-- `kirimasim` / `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` : 2989/12298 ( 24.30% )。 Measurement source: `2026-11-11T16:52:28.478656+00:00` / `full-20261112-kirimasim-7de185f7.json` 。 Failures 173; known mismatches 0; unsupported 6324; not run 290; stale evidence 146; unapproved judgment evidence for illegal-design tests 1164 rows.
-- `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 3876/12298 ( 31.52% )。 Measurement source: `2026-11-11T17:39:23.398627+00:00` / `full-20261112-verilator5.052-seed1.json` 。 Failures 0; known mismatches 6135; unsupported 0; not run 290; stale evidence 169; unapproved judgment evidence for illegal-design tests 616 rows.
-- `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 3588/12298 ( 29.18% )。 Measurement source: `2026-11-11T17:00:30.807783+00:00` / `full-20261112-verilator5.052-seed73.json` 。 Failures 0; known mismatches 0; unsupported 0; not run 7479; stale evidence 19; unapproved judgment evidence for illegal-design tests 0 rows.
-- `ghost` / `private build 7ed5e63eedf9` : 7915/12298 ( 64.36% )。 Measurement source: `2026-10-31T10:33:23.126942+00:00` / `ghost-local-20261031-strict.json` 。 Failures 1407; known mismatches 0; unsupported 0; not run 337; stale evidence 256; unapproved judgment evidence for illegal-design tests 1171 rows.
-- `ghost` / `private build be060962f878` : 7995/12298 ( 65.01% )。 Measurement source: `2026-10-31T13:37:26.206441+00:00` / `ghost-local-20261031-strict2.json` 。 Failures 1387; known mismatches 0; unsupported 0; not run 337; stale evidence 196; unapproved judgment evidence for illegal-design tests 1171 rows.
-- `ghost` / `private build 88d08d9c3441` : 7898/12298 ( 64.22% )。 Measurement source: `2026-10-31T08:07:21.082572+00:00` / `ghost-local-20261031.json` 。 Failures 1490; known mismatches 0; unsupported 0; not run 337; stale evidence 256; unapproved judgment evidence for illegal-design tests 1105 rows.
-- `icarus` / `Icarus Verilog version 13.0 (stable) (v13_0)` : 0/12298 ( 0.00% )。 Measurement source: `2026-11-11T22:25:00.780016+00:00` / `oracle-tokens-2-20261112-icarus13.json` 。 Failures 0; known mismatches 3; unsupported 0; not run 11078; stale evidence 0; unapproved judgment evidence for illegal-design tests 5 rows.
-- `kirimasim` / `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` : 0/12298 ( 0.00% )。 Measurement source: `2026-11-11T22:25:00.894678+00:00` / `oracle-tokens-2-20261112-kirimasim-7de185f7.json` 。 Failures 0; known mismatches 0; unsupported 1; not run 11078; stale evidence 0; unapproved judgment evidence for illegal-design tests 7 rows.
-- `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 2/12298 ( 0.02% )。 Measurement source: `2026-11-11T22:25:01.564353+00:00` / `oracle-tokens-2-20261112-verilator5.052-seed1.json` 。 Failures 0; known mismatches 2; unsupported 0; not run 11078; stale evidence 0; unapproved judgment evidence for illegal-design tests 4 rows.
-- `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 2/12298 ( 0.02% )。 Measurement source: `2026-11-11T22:25:02.208022+00:00` / `oracle-tokens-2-20261112-verilator5.052-seed73.json` 。 Failures 0; known mismatches 2; unsupported 0; not run 11078; stale evidence 0; unapproved judgment evidence for illegal-design tests 4 rows.
-- `icarus` / `Icarus Verilog version 13.0 (stable) (v13_0)` : 11/12298 ( 0.09% )。 Measurement source: `2026-11-11T19:14:33.552454+00:00` / `oracle-tokens-20261112-icarus13.json` 。 Failures 0; known mismatches 31; unsupported 0; not run 10897; stale evidence 0; unapproved judgment evidence for illegal-design tests 147 rows.
-- `kirimasim` / `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` : 4/12298 ( 0.03% )。 Measurement source: `2026-11-11T19:14:36.020025+00:00` / `oracle-tokens-20261112-kirimasim-7de185f7.json` 。 Failures 9; known mismatches 0; unsupported 28; not run 10897; stale evidence 0; unapproved judgment evidence for illegal-design tests 148 rows.
-- `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 4/12298 ( 0.03% )。 Measurement source: `2026-11-11T19:15:04.286693+00:00` / `oracle-tokens-20261112-verilator5.052-seed1.json` 。 Failures 0; known mismatches 113; unsupported 0; not run 10897; stale evidence 0; unapproved judgment evidence for illegal-design tests 72 rows.
-- `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 4/12298 ( 0.03% )。 Measurement source: `2026-11-11T19:15:22.924843+00:00` / `oracle-tokens-20261112-verilator5.052-seed73.json` 。 Failures 0; known mismatches 113; unsupported 0; not run 10897; stale evidence 0; unapproved judgment evidence for illegal-design tests 72 rows.
-- `icarus` / `Icarus Verilog version 13.0 (stable) (v13_0)` : 1/12298 ( 0.01% )。 Measurement source: `2026-11-11T23:13:00.161260+00:00` / `oracle-tokens-3-20261112-icarus13.json` 。 Failures 0; known mismatches 3; unsupported 0; not run 11078; stale evidence 0; unapproved judgment evidence for illegal-design tests 4 rows.
-- `kirimasim` / `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` : 0/12298 ( 0.00% )。 Measurement source: `2026-11-11T23:13:04.014714+00:00` / `oracle-tokens-3-20261112-kirimasim-7de185f7.json` 。 Failures 0; known mismatches 0; unsupported 0; not run 11078; stale evidence 0; unapproved judgment evidence for illegal-design tests 8 rows.
-- `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 1/12298 ( 0.01% )。 Measurement source: `2026-11-11T23:13:01.978891+00:00` / `oracle-tokens-3-20261112-verilator5.052-seed1.json` 。 Failures 0; known mismatches 1; unsupported 0; not run 11078; stale evidence 0; unapproved judgment evidence for illegal-design tests 6 rows.
-- `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 1/12298 ( 0.01% )。 Measurement source: `2026-11-11T23:13:03.804411+00:00` / `oracle-tokens-3-20261112-verilator5.052-seed73.json` 。 Failures 0; known mismatches 1; unsupported 0; not run 11078; stale evidence 0; unapproved judgment evidence for illegal-design tests 6 rows.
-- `ghost` / `private build 9ba2e0575dcb` : 73/12298 ( 0.59% )。 Measurement source: `2026-10-31T12:31:48.317872+00:00` / `test-fixes-20261031-ghost.json` 。 Failures 0; known mismatches 0; unsupported 0; not run 11012; stale evidence 1; unapproved judgment evidence for illegal-design tests 0 rows.
+- `sby` / `unknown SBY version` : 290/12298 ( 2.36% )。 Measurement source: `2026-10-27T13:59:10.011684+00:00` / `formal-20261027-sby.json` 。 Failures 0; known mismatches 0; unsupported 0; not run 10795; stale evidence 0; unapproved judgment evidence for illegal-design tests 0 rows.
+- `icarus` / `Icarus Verilog version 13.0 (stable) (v13_0)` : 3085/12298 ( 25.09% )。 Measurement source: `2026-11-11T16:51:00.391888+00:00` / `full-20261112-icarus13.json` 。 Failures 0; known mismatches 7332; unsupported 0; not run 290; stale evidence 198; unapproved judgment evidence for illegal-design tests 180 rows.
+- `kirimasim` / `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` : 2989/12298 ( 24.30% )。 Measurement source: `2026-11-11T16:52:28.478656+00:00` / `full-20261112-kirimasim-7de185f7.json` 。 Failures 173; known mismatches 0; unsupported 6273; not run 290; stale evidence 196; unapproved judgment evidence for illegal-design tests 1164 rows.
+- `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 3876/12298 ( 31.52% )。 Measurement source: `2026-11-11T17:39:23.398627+00:00` / `full-20261112-verilator5.052-seed1.json` 。 Failures 0; known mismatches 6084; unsupported 0; not run 290; stale evidence 219; unapproved judgment evidence for illegal-design tests 616 rows.
+- `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 3588/12298 ( 29.18% )。 Measurement source: `2026-11-11T17:00:30.807783+00:00` / `full-20261112-verilator5.052-seed73.json` 。 Failures 0; known mismatches 0; unsupported 0; not run 7478; stale evidence 19; unapproved judgment evidence for illegal-design tests 0 rows.
+- `ghost` / `private build 7ed5e63eedf9` : 7913/12298 ( 64.34% )。 Measurement source: `2026-10-31T10:33:23.126942+00:00` / `ghost-local-20261031-strict.json` 。 Failures 1357; known mismatches 0; unsupported 0; not run 337; stale evidence 307; unapproved judgment evidence for illegal-design tests 1171 rows.
+- `ghost` / `private build be060962f878` : 7993/12298 ( 64.99% )。 Measurement source: `2026-10-31T13:37:26.206441+00:00` / `ghost-local-20261031-strict2.json` 。 Failures 1337; known mismatches 0; unsupported 0; not run 337; stale evidence 247; unapproved judgment evidence for illegal-design tests 1171 rows.
+- `ghost` / `private build 88d08d9c3441` : 7896/12298 ( 64.21% )。 Measurement source: `2026-10-31T08:07:21.082572+00:00` / `ghost-local-20261031.json` 。 Failures 1440; known mismatches 0; unsupported 0; not run 337; stale evidence 307; unapproved judgment evidence for illegal-design tests 1105 rows.
+- `icarus` / `Icarus Verilog version 13.0 (stable) (v13_0)` : 0/12298 ( 0.00% )。 Measurement source: `2026-11-11T22:25:00.780016+00:00` / `oracle-tokens-2-20261112-icarus13.json` 。 Failures 0; known mismatches 3; unsupported 0; not run 11077; stale evidence 0; unapproved judgment evidence for illegal-design tests 5 rows.
+- `kirimasim` / `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` : 0/12298 ( 0.00% )。 Measurement source: `2026-11-11T22:25:00.894678+00:00` / `oracle-tokens-2-20261112-kirimasim-7de185f7.json` 。 Failures 0; known mismatches 0; unsupported 1; not run 11077; stale evidence 0; unapproved judgment evidence for illegal-design tests 7 rows.
+- `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 2/12298 ( 0.02% )。 Measurement source: `2026-11-11T22:25:01.564353+00:00` / `oracle-tokens-2-20261112-verilator5.052-seed1.json` 。 Failures 0; known mismatches 2; unsupported 0; not run 11077; stale evidence 0; unapproved judgment evidence for illegal-design tests 4 rows.
+- `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 2/12298 ( 0.02% )。 Measurement source: `2026-11-11T22:25:02.208022+00:00` / `oracle-tokens-2-20261112-verilator5.052-seed73.json` 。 Failures 0; known mismatches 2; unsupported 0; not run 11077; stale evidence 0; unapproved judgment evidence for illegal-design tests 4 rows.
+- `icarus` / `Icarus Verilog version 13.0 (stable) (v13_0)` : 11/12298 ( 0.09% )。 Measurement source: `2026-11-11T19:14:33.552454+00:00` / `oracle-tokens-20261112-icarus13.json` 。 Failures 0; known mismatches 31; unsupported 0; not run 10896; stale evidence 0; unapproved judgment evidence for illegal-design tests 147 rows.
+- `kirimasim` / `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` : 4/12298 ( 0.03% )。 Measurement source: `2026-11-11T19:14:36.020025+00:00` / `oracle-tokens-20261112-kirimasim-7de185f7.json` 。 Failures 9; known mismatches 0; unsupported 28; not run 10896; stale evidence 0; unapproved judgment evidence for illegal-design tests 148 rows.
+- `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 4/12298 ( 0.03% )。 Measurement source: `2026-11-11T19:15:04.286693+00:00` / `oracle-tokens-20261112-verilator5.052-seed1.json` 。 Failures 0; known mismatches 113; unsupported 0; not run 10896; stale evidence 0; unapproved judgment evidence for illegal-design tests 72 rows.
+- `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 4/12298 ( 0.03% )。 Measurement source: `2026-11-11T19:15:22.924843+00:00` / `oracle-tokens-20261112-verilator5.052-seed73.json` 。 Failures 0; known mismatches 113; unsupported 0; not run 10896; stale evidence 0; unapproved judgment evidence for illegal-design tests 72 rows.
+- `icarus` / `Icarus Verilog version 13.0 (stable) (v13_0)` : 1/12298 ( 0.01% )。 Measurement source: `2026-11-11T23:13:00.161260+00:00` / `oracle-tokens-3-20261112-icarus13.json` 。 Failures 0; known mismatches 3; unsupported 0; not run 11077; stale evidence 0; unapproved judgment evidence for illegal-design tests 4 rows.
+- `kirimasim` / `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` : 0/12298 ( 0.00% )。 Measurement source: `2026-11-11T23:13:04.014714+00:00` / `oracle-tokens-3-20261112-kirimasim-7de185f7.json` 。 Failures 0; known mismatches 0; unsupported 0; not run 11077; stale evidence 0; unapproved judgment evidence for illegal-design tests 8 rows.
+- `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 1/12298 ( 0.01% )。 Measurement source: `2026-11-11T23:13:01.978891+00:00` / `oracle-tokens-3-20261112-verilator5.052-seed1.json` 。 Failures 0; known mismatches 1; unsupported 0; not run 11077; stale evidence 0; unapproved judgment evidence for illegal-design tests 6 rows.
+- `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 1/12298 ( 0.01% )。 Measurement source: `2026-11-11T23:13:03.804411+00:00` / `oracle-tokens-3-20261112-verilator5.052-seed73.json` 。 Failures 0; known mismatches 1; unsupported 0; not run 11077; stale evidence 0; unapproved judgment evidence for illegal-design tests 6 rows.
+- `ghost` / `private build 9ba2e0575dcb` : 73/12298 ( 0.59% )。 Measurement source: `2026-10-31T12:31:48.317872+00:00` / `test-fixes-20261031-ghost.json` 。 Failures 0; known mismatches 0; unsupported 0; not run 11011; stale evidence 1; unapproved judgment evidence for illegal-design tests 0 rows.
+- `icarus` / `Icarus Verilog version 13.0 (stable) (v13_0)` : 0/12298 ( 0.00% )。 Measurement source: `2026-11-11T23:50:40.175858+00:00` / `test-fixes-20261112-icarus13.json` 。 Failures 0; known mismatches 51; unsupported 0; not run 11034; stale evidence 0; unapproved judgment evidence for illegal-design tests 0 rows.
+- `kirimasim` / `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` : 0/12298 ( 0.00% )。 Measurement source: `2026-11-11T23:50:40.334300+00:00` / `test-fixes-20261112-kirimasim-7de185f7.json` 。 Failures 0; known mismatches 0; unsupported 51; not run 11034; stale evidence 0; unapproved judgment evidence for illegal-design tests 0 rows.
+- `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 0/12298 ( 0.00% )。 Measurement source: `2026-11-11T23:50:41.819877+00:00` / `test-fixes-20261112-verilator5.052-seed1.json` 。 Failures 0; known mismatches 51; unsupported 0; not run 11034; stale evidence 0; unapproved judgment evidence for illegal-design tests 0 rows.
+- `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 0/12298 ( 0.00% )。 Measurement source: `2026-11-11T23:50:43.072508+00:00` / `test-fixes-20261112-verilator5.052-seed73.json` 。 Failures 0; known mismatches 51; unsupported 0; not run 11034; stale evidence 0; unapproved judgment evidence for illegal-design tests 0 rows.
 - The result file of the rejection: 220.
 
 <a id="章附属書別登録項目に対する割合"></a>
@@ -98,7 +102,7 @@ Each row is a separate saved run. A narrow run can leave many tests unexecuted; 
 - 15 Interprocess synchronization and communication: test mapping 71/88 ( 80.68% ), execution confirmed 63/88 ( 71.59% ), execution confirmed without Ghost 44/88 ( 50.00% ), interpretation pending 0 rows.
 - 16 Assertions: test mapping 539/555 ( 97.12% ), execution confirmed 303/555 ( 54.59% ), execution confirmed without Ghost 107/555 ( 19.28% ), interpretation pending 0 rows.
 - 17 Checkers: test mapping 59/79 ( 74.68% ), execution confirmed 28/79 ( 35.44% ), execution confirmed without Ghost 13/79 ( 16.46% ), interpretation pending 0 rows.
-- 18 Constrained random value generation: test mapping 300/320 ( 93.75% ), execution confirmed 229/320 ( 71.56% ), execution confirmed without Ghost 130/320 ( 40.62% ), interpretation pending 0 rows.
+- 18 Constrained random value generation: test mapping 299/320 ( 93.44% ), execution confirmed 229/320 ( 71.56% ), execution confirmed without Ghost 130/320 ( 40.62% ), interpretation pending 0 rows.
 - 19 Functional coverage: test mapping 232/271 ( 85.61% ), execution confirmed 121/271 ( 44.65% ), execution confirmed without Ghost 20/271 ( 7.38% ), interpretation pending 0 rows.
 - 20 Utility system tasks and system functions: test mapping 285/316 ( 90.19% ), execution confirmed 229/316 ( 72.47% ), execution confirmed without Ghost 126/316 ( 39.87% ), interpretation pending 0 rows.
 - 21 Input/output system tasks and system functions: test mapping 347/383 ( 90.60% ), execution confirmed 333/383 ( 86.95% ), execution confirmed without Ghost 211/383 ( 55.09% ), interpretation pending 0 rows.
@@ -117,7 +121,7 @@ Each row is a separate saved run. A narrow run can leave many tests unexecuted; 
 - 34 Protected envelopes: test mapping 5/214 ( 2.34% ), execution confirmed 5/214 ( 2.34% ), execution confirmed without Ghost 5/214 ( 2.34% ), interpretation pending 0 rows.
 - 35 Direct programming interface: test mapping 114/142 ( 80.28% ), execution confirmed 103/142 ( 72.54% ), execution confirmed without Ghost 75/142 ( 52.82% ), interpretation pending 0 rows.
 - 36 Programming language interface ( PLI / VPI ) overview: test mapping 148/163 ( 90.80% ), execution confirmed 79/163 ( 48.47% ), execution confirmed without Ghost 46/163 ( 28.22% ), interpretation pending 0 rows.
-- 37 VPI object model diagrams: test mapping 1656/1757 ( 94.25% ), execution confirmed 1334/1757 ( 75.92% ), execution confirmed without Ghost 72/1757 ( 4.10% ), interpretation pending 0 rows.
+- 37 VPI object model diagrams: test mapping 1656/1757 ( 94.25% ), execution confirmed 1332/1757 ( 75.81% ), execution confirmed without Ghost 72/1757 ( 4.10% ), interpretation pending 0 rows.
 - 38 VPI routine definitions: test mapping 260/348 ( 74.71% ), execution confirmed 247/348 ( 70.98% ), execution confirmed without Ghost 145/348 ( 41.67% ), interpretation pending 0 rows.
 - 39 Assertion API : test mapping 82/95 ( 86.32% ), execution confirmed 81/95 ( 85.26% ), execution confirmed without Ghost 2/95 ( 2.11% ), interpretation pending 0 rows.
 - 40 Code coverage control and API : test mapping 122/128 ( 95.31% ), execution confirmed 105/128 ( 82.03% ), execution confirmed without Ghost 34/128 ( 26.56% ), interpretation pending 0 rows.

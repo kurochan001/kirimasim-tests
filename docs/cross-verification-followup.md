@@ -5,7 +5,7 @@
 2026-11-06（日本時間）の更新です。2026-11-03の対応記録を保持し、固定回帰・正式Nightly・既存期待値・選択モデルを維持し、
 既知の不一致の修正、未対応の整理、要精査の章対の確認の順に進めています。
 
-現在の[全クロスのローカル選択](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-edgedpiquery.json)は110モデル・4,413件で、kirimasim `7de185f776a1`で実行しました。3,915 pass・484 unsupported・14 failで、failは同じ14件です。2026-11-12に、同じ内容のケースを選ばないように二つのモデルを改訂しました。[最後の節](#cross-models-without-duplicate-cases)を参照してください。
+現在の[全クロスのローカル選択](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-dpi-array.json)は110モデル・4,413件で、kirimasim `7de185f776a1`で実行しました。3,915 pass・484 unsupported・14 failで、failは同じ14件です。2026-11-12に、同じ内容のケースを選ばないように二つのモデルを改訂しました。[その節](#cross-models-without-duplicate-cases)を参照してください。同じ日に、モデル`dpi_openarray_shape`の期待値を1か所直して選択を再実行しました。[最後の節](#dpi-array-increment-20261112)を参照してください。
 
 その前の[全クロスのローカル選択](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json)は110モデル・4,416件で、当日のmainをビルドしたkirimasim `f029ddd0eee1`で実行しました。
 3,915 pass・487 unsupported・14 failです。failはconfigの4件、`defparam`の4件と、生成ブロックのクラスでkirimasimが内部エラーになる6件です。[前回の全実行](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json)と比べて従来4,296件の入力と状態は不変です。
@@ -335,3 +335,13 @@ endmodule
 - kirimasim `7de185f776a1`の単一の全4,413件は3,915 pass・484 unsupported・14 failです。110モデル・189章対・全選択ケースPASSは83モデルです。ほかのモデルの4,333件の状態は変わっていません。
 - 二つのモデルの合法な行をすべて1回実行しました。エッジのモデルの4,032行は、kirimasimと固定Icarus Verilog 13.0がすべて一致します。期待値は変えていません。
 - [イベント式のエッジ](interaction-verification.md#event-expression-edge-classification-xz-transitions-and-update-timing)と[配列問い合わせ](interaction-verification.md#sv-dpi-array-queries)の節を参照してください。
+
+<a id="dpi-array-increment-20261112"></a>
+
+## 1要素の動的配列・キューの`svIncrement`（2026-11-12）
+
+- モデル`dpi_openarray_shape`は、1要素の動的配列・キューの`svIncrement`に1を期待していました。20.7はキューと動的配列の次元を常に-1とし、H.12.2はそれに従います。期待値を-1に直しました。
+- 合法な168行のうち32行、選択済み30件のうち4件の期待出力が変わりました。行、選択、デザインは変わらず、モデルはversion 1のままです。
+- 合法な行をすべて1回実行し、独立検算をやり直しました。Verilator 5.052は固定配列の72行が一致します。動的配列・キューの行を実行できるシミュレータは、三つの中にありません。
+- kirimasim `7de185f776a1`の単一の全4,413件は、これまでと同じ3,915 pass・484 unsupported・14 failです。110モデル・189章対・全選択ケースPASSは83モデルです。
+- [open arrayの形状のモデル](interaction-verification.md#dpi-open-arrayの形状と書戻し)の節を参照してください。

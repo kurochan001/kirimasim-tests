@@ -15,9 +15,15 @@
 // regardless of the delay on the primitive instance, and only vpiNoDelay is
 // allowed there; another delay mode is an error, which vpi_chk_error (38.2)
 // reports. The primitive udp_hold has the delay 10: at time 5 its inputs take
-// the values that set q to 1 at time 15, and at time 6 the application puts 0
-// on the UDP instance, which q has at once. The event the primitive scheduled
-// still sets q at 15, whatever was put.
+// the values that set q to 1 at time 15. At time 16, when the primitive has
+// no pending event, the application puts 0 on the UDP instance, and the test
+// reads q one time unit later; the inputs do not change again, so q stays 0.
+// The put that reports the error also writes 0, because the clause does not
+// say whether a rejected put has an effect.
+// Corrected on 2026-11-12: the put was made at 6, while the output event for
+// 15 was pending, and q was read in the same process right after the call.
+// §38.34 fixes neither what happens to the pending event nor that the caller
+// sees the new value before it suspends.
 // §38.35: vpi_put_value_array has the effect of vpiNoDelay, so the elements
 // have the new values when the call returns; its flags may be vpiPropagateOff
 // or vpiOneValue, and a format that 38.35 does not list is an error. Each
@@ -45,8 +51,9 @@ module test_vpi_put_value_udp_array_errors;
   initial begin
     #5 d = 1'b1;
     en = 1'b1;
-    #1 $vt_udp_put;
-    $display("%0t: q after the vpiNoDelay put: %b", $time, q);
+    #11 $display("%0t: q before the put: %b", $time, q);
+    $vt_udp_put;
+    #1 $display("%0t: q after the vpiNoDelay put: %b", $time, q);
     #1 $vt_udp_error;
     #3;
     $vt_array_ok(0);
@@ -62,6 +69,6 @@ module test_vpi_put_value_udp_array_errors;
     $vt_array_ok(3);
     $display("array after the errors: %0d %0d %0d %0d",
              arr[0], arr[1], arr[2], arr[3]);
-    #10 $display("%0t: q after the primitive delay: %b", $time, q);
+    #10 $display("%0t: q stays as put: %b", $time, q);
   end
 endmodule

@@ -15,10 +15,13 @@
 // admits the empty match at every tick and a nonempty match only where b is
 // true. Under c1's clock b is true only at the tick at 25, so se.triggered is
 // true only there and the cover with the method records only 25. se2 has the
-// same body under c2, whose ticks are 10, 20, 30 and 40; the source has a
-// nonempty match only at 20, so matched is true at the first c1 tick after
-// it, 25, and not at 15 after the empty match at 10, nor at 35 after the
-// empty match at 30.
+// same body under c2, whose ticks are 10, 20, 30, 40 and 50; the source has
+// a nonempty match only at 20, so matched is true at the first c1 tick after
+// it, 25 (§16.13.5), and not at 15 after the empty match at 10, nor at 35
+// after the empty match at 30.
+// Corrected on 2026-11-12: c2 was toggled every 10 time units, so it rose
+// only at 10, 30 and 50, where b is 0, and §16.13.6 gave no matched tick at
+// all. c2 now toggles every 5 time units from 10 and rises every 10.
 
 `timescale 1ns/1ns
 
@@ -27,7 +30,7 @@ module test_sequence_method_empty_matches;
   int t_trig[$], t_match[$];
 
   always #5 c1 = ~c1;    // ticks at 5, 15, 25, 35, 45
-  always #10 c2 = ~c2;   // ticks at 10, 20, 30, 40
+  initial #5 forever #5 c2 = ~c2;   // ticks at 10, 20, 30, 40, 50
 
   initial begin
     #18 b = 1;

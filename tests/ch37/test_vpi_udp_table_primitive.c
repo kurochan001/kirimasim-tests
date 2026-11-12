@@ -32,6 +32,8 @@ static PLI_INT32 udp_calltf(PLI_BYTE8 *user_data)
     PLI_INT32 index[MAX];
     vpiHandle terms[MAX];
     int n = 0, nt = 0, i, j;
+    size_t k;
+    const char *text;
     s_vpi_value v;
 
     (void)user_data;
@@ -43,7 +45,13 @@ static PLI_INT32 udp_calltf(PLI_BYTE8 *user_data)
         v.format = vpiStringVal;
         v.value.str = (PLI_BYTE8 *)"?";
         vpi_get_value(e, &v);
-        snprintf(entries[n++], sizeof entries[0], "%s", v.value.str);
+        /* 37.36 detail 1 gives the row as a decompiled string and fixes no
+           blanks in it, so they and a closing semicolon are left out. */
+        text = v.value.str != NULL ? (const char *)v.value.str : "?";
+        for (k = 0; *text != '\0' && k + 1 < sizeof entries[0]; text++)
+            if (*text != ' ' && *text != '\t' && *text != ';')
+                entries[n][k++] = *text;
+        entries[n++][k] = '\0';
     }
     qsort(entries, (size_t)n, sizeof entries[0], by_text);
     vpi_printf((PLI_BYTE8 *)"entries: %d\n", n);

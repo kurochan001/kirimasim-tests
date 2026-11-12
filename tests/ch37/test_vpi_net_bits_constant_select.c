@@ -37,6 +37,23 @@ static const char *net_decl(const char *name, char *out, size_t len)
     return out;
 }
 
+/* The value of the index of a bit: vpiIndex is a relation (Annex K), given
+ * by vpi_handle or as the first object of the iteration (37.16 detail 10). */
+static int index_of(vpiHandle obj)
+{
+    vpiHandle it = vpi_iterate(vpiIndex, obj);
+    vpiHandle ix = it != NULL ? vpi_scan(it) : vpi_handle(vpiIndex, obj);
+    s_vpi_value v;
+
+    if (ix == NULL)
+        return -1;
+    v.format = vpiIntVal;
+    vpi_get_value(ix, &v);
+    if (it != NULL)
+        vpi_free_object(it);
+    return (int)v.value.integer;
+}
+
 static void bits(const char *name)
 {
     vpiHandle n = find(name), it, b;
@@ -45,7 +62,7 @@ static void bits(const char *name)
 
     it = n != NULL ? vpi_iterate(vpiBit, n) : NULL;
     while (it != NULL && (b = vpi_scan(it)) != NULL && nbits < MAX) {
-        idx[nbits++] = (int)vpi_get(vpiIndex, b);
+        idx[nbits++] = index_of(b);
         if (vpi_get(vpiSize, b) != 1)
             all_one = 0;
         if (vpi_get(vpiExpanded, b) != e)

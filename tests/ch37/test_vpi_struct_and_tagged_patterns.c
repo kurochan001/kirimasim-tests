@@ -13,8 +13,6 @@ extern "C" {
 #define TOP "test_vpi_struct_and_tagged_patterns"
 #define MAX_LINES 16
 #define LINE_SIZE 160
-#define MAX_MEMBERS 8
-#define MEMBER_SIZE 32
 
 static char lines[MAX_LINES][LINE_SIZE];
 static int line_count;
@@ -36,14 +34,6 @@ static void add_line(const char *fmt, ...)
     line_count++;
 }
 
-static void append(char *buf, size_t size, const char *text)
-{
-    size_t len = strlen(buf);
-
-    if (len + 1 < size)
-        snprintf(buf + len, size - len, "%s", text);
-}
-
 static const char *name_or(vpiHandle h, const char *fallback)
 {
     const char *s = h != NULL ? vpi_get_str(vpiName, h) : NULL;
@@ -51,97 +41,33 @@ static const char *name_or(vpiHandle h, const char *fallback)
     return s != NULL ? s : fallback;
 }
 
-static int int_value(vpiHandle h)
-{
-    s_vpi_value v;
-
-    v.format = vpiIntVal;
-    vpi_get_value(h, &v);
-    return (int)v.value.integer;
-}
-
-/* One member pattern: its constant, .name for an any pattern, or the members
-   of a nested struct pattern in braces. */
-static void pattern_text(vpiHandle p, char *buf, size_t size, int depth)
-{
-    char part[MEMBER_SIZE];
-
-    if (p == NULL) {
-        snprintf(buf, size, "no pattern");
-        return;
-    }
-    switch (vpi_get(vpiType, p)) {
-    case vpiConstant:
-        snprintf(buf, size, "%d", int_value(p));
-        break;
-    case vpiAnyPattern:
-        snprintf(buf, size, ".%s", name_or(p, "(no name)"));
-        break;
-    case vpiTaggedPattern:
-        snprintf(buf, size, "tagged %s", name_or(p, "(no name)"));
-        break;
-    case vpiStructPattern: {
-        vpiHandle it = depth < 4 ? vpi_iterate(vpiPattern, p) : NULL, m;
-        int first = 1;
-
-        snprintf(buf, size, "{");
-        while (it != NULL && (m = vpi_scan(it)) != NULL) {
-            pattern_text(m, part, sizeof part, depth + 1);
-            if (!first)
-                append(buf, size, ", ");
-            append(buf, size, part);
-            first = 0;
-        }
-        append(buf, size, "}");
-        break;
-    }
-    default:
-        snprintf(buf, size, "other pattern");
-        break;
-    }
-}
-
-static const char *typespec_name(PLI_INT32 t)
-{
-    return t == vpiIntTypespec ? "vpiIntTypespec"
-           : t == vpiByteTypespec ? "vpiByteTypespec"
-           : t == vpiShortIntTypespec ? "vpiShortIntTypespec"
-           : t == vpiLongIntTypespec ? "vpiLongIntTypespec"
-           : t == vpiIntegerTypespec ? "vpiIntegerTypespec"
-           : t == vpiUnionTypespec ? "vpiUnionTypespec"
-           : "another typespec";
-}
-
-/* One pattern of a case item, with the relation that the diagram gives it. */
+/* One pattern of a case item, with the relations that the diagram gives it.
+   The diagram draws struct pattern to pattern and tagged pattern to pattern
+   and typespec as single arrows and says no more, so the application prints
+   only whether each relation gives an object. For the struct pattern it
+   accepts the member pattern from vpi_handle or from an iteration. */
 static void describe(const char *cond, vpiHandle p)
 {
-    char members[MAX_MEMBERS][MEMBER_SIZE], list[LINE_SIZE];
     vpiHandle it, m, ts, nested;
-    int n = 0, i;
 
     switch (vpi_get(vpiType, p)) {
     case vpiStructPattern:
-        it = vpi_iterate(vpiPattern, p);
-        while (it != NULL && (m = vpi_scan(it)) != NULL)
-            if (n < MAX_MEMBERS)
-                pattern_text(m, members[n++], sizeof members[0], 0);
-        qsort(members, (size_t)n, sizeof members[0], compare);
-        list[0] = '\0';
-        for (i = 0; i < n; i++) {
-            if (i)
-                append(list, sizeof list, ", ");
-            append(list, sizeof list, members[i]);
+        m = vpi_handle(vpiPattern, p);
+        it = m == NULL ? vpi_iterate(vpiPattern, p) : NULL;
+        if (it != NULL) {
+            m = vpi_scan(it);
+            if (m != NULL)
+                vpi_free_object(it);
         }
-        add_line("case on %s: struct pattern with %d member patterns: %s",
-                 cond, n, list);
+        add_line("case on %s: struct pattern, member pattern %d", cond, m != NULL);
         break;
     case vpiTaggedPattern:
         ts = vpi_handle(vpiTypespec, p);
         nested = vpi_handle(vpiPattern, p);
-        add_line("case on %s: tagged pattern %s, member any pattern %s, typespec %s",
+        add_line("case on %s: tagged pattern %s, member any pattern %s, typespec %d",
                  cond, name_or(p, "(no name)"),
                  nested != NULL ? name_or(nested, "(no name)") : "none",
-                 ts != NULL ? typespec_name(vpi_get(vpiType, ts)) : "none");
+                 ts != NULL);
         break;
     default:
         add_line("case on %s: another pattern", cond);

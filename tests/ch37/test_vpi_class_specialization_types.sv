@@ -33,6 +33,11 @@
 // each element of a virtual interface array separately, while vpiVariables
 // returns the declaration as one vpiArrayVar (37.12 detail 7, 37.32
 // detail 11).
+// The application reads the index of each element of the virtual interface
+// array through the vpiIndex relation, with vpi_handle or the first object of
+// vpi_iterate (§37.17 detail 18), and takes its integer value. Until
+// 2026-11-12 it called vpi_get(vpiIndex, ...), but vpiIndex is a relation and
+// not an integer property (Annex K).
 
 interface sps_bus;
   logic req;

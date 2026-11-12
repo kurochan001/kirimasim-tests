@@ -12,6 +12,23 @@ extern "C" {
 #define TOP "test_vpi_class_specialization_types"
 #define MAX 8
 
+/* The value of the index of an array element or bit: vpiIndex is a relation
+ * (Annex K), given by the iteration (37.17 detail 18) or by vpi_handle. */
+static int index_of(vpiHandle obj)
+{
+    vpiHandle it = vpi_iterate(vpiIndex, obj);
+    vpiHandle ix = it != NULL ? vpi_scan(it) : vpi_handle(vpiIndex, obj);
+    s_vpi_value v;
+
+    if (ix == NULL)
+        return -1;
+    v.format = vpiIntVal;
+    vpi_get_value(ix, &v);
+    if (it != NULL)
+        vpi_free_object(it);
+    return (int)v.value.integer;
+}
+
 static const char *sprop(PLI_INT32 property, vpiHandle h)
 {
     PLI_BYTE8 *s = h != NULL ? vpi_get_str(property, h) : NULL;
@@ -141,7 +158,7 @@ static PLI_INT32 spec_calltf(PLI_BYTE8 *user_data)
         vpiHandle e;
         it = base_ts != NULL ? vpi_iterate(vpiVirtualInterfaceVar, base_ts) : NULL;
         while (it != NULL && (e = vpi_scan(it)) != NULL && ne < MAX)
-            idxs[ne++] = (int)vpi_get(vpiIndex, e);
+            idxs[ne++] = index_of(e);
         for (i = 0; i < ne; i++)
             for (j = i + 1; j < ne; j++)
                 if (idxs[i] > idxs[j]) {

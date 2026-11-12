@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 90.14%, execution without Ghost 50.20%, execution with Ghost 77.59%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 90.14%, execution without Ghost 50.20%, execution with Ghost 77.57%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 90.14%. Requirement execution-confirmation rate: 50.20% without Ghost, 77.59% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 90.14%. Requirement execution-confirmation rate: 50.20% without Ghost, 77.57% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 11086/12298 ( 90.14% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9542/12298 ( 77.59% ).
-- Registered but not tested: 1212.
+- The requirement coverage (test design) for registered behaviors is 11085/12298 ( 90.14% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9540/12298 ( 77.57% ).
+- Registered but not tested: 1213.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -33,13 +33,13 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 `check_groups` distributes a single request across multiple tests, and is successful only if all tests in the group are successful in the same runtime and run. The unspecified response is an independent alternative proof.
 
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12298 execution checked; 0 entries refer to older inputs.
-- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3085/12298 execution checked; 279 entries refer to older inputs.
-- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2989/12298 execution checked; 279 entries refer to older inputs.
-- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3876/12298 execution checked; 279 entries refer to older inputs.
+- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3085/12298 execution checked; 330 entries refer to older inputs.
+- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2989/12298 execution checked; 330 entries refer to older inputs.
+- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3876/12298 execution checked; 330 entries refer to older inputs.
 - `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3588/12298 execution checked; 23 entries refer to older inputs.
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7915/12298 execution checked; 413 entries refer to older inputs.
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7995/12298 execution checked; 349 entries refer to older inputs.
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7898/12298 execution checked; 413 entries refer to older inputs.
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7913/12298 execution checked; 464 entries refer to older inputs.
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7993/12298 execution checked; 400 entries refer to older inputs.
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7896/12298 execution checked; 464 entries refer to older inputs.
 - `oracle-tokens-2-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T22:25:00.780016+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-2-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T22:25:00.894678+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-2-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T22:25:01.564353+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
@@ -53,6 +53,10 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `oracle-tokens-3-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:01.978891+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-3-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:03.804411+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
 - `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 73/12298 execution checked; 1 entries refer to older inputs.
+- `test-fixes-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T23:50:40.175858+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
+- `test-fixes-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T23:50:40.334300+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
+- `test-fixes-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:50:41.819877+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
+- `test-fixes-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:50:43.072508+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
 - Not used: additions2023-20261109-icarus13.json : legacy, unknown, or stale runner provenance.
 - Not used: additions2023-20261109-kirimasim-33cee3fa.json : legacy, unknown, or stale runner provenance.
 - Not used: additions2023-20261109-verilator5.052-seed1.json : legacy, unknown, or stale runner provenance.
@@ -297,7 +301,7 @@ The number of items is the investigation status of the article by heading. This 
 - 15 Interprocess synchronization and communication: no interpretation reservation 27/27, registration 88, test support 71.
 - 16 Assertions: No interpretation reservation 82/82, registration 555, test support 539.
 - 17 Checkers: No interpretation reservations 13/13, registration 79, test support 59.
-- 18 Constrained random value generation: 58/58 without pending interpretation issues, 320 registered, 300 mapped to tests.
+- 18 Constrained random value generation: 58/58 without pending interpretation issues, 320 registered, 299 mapped to tests.
 - 19 Functional coverage: no interpretation reservation 34/34, registration 271, test support 232.
 - 20 Utility system tasks and system functions: No interpretation reservation 45/45, registration 316, test support 285.
 - 21 Input/output system tasks and system functions: no interpretation reservation 65/65, registration 383, test support 347.
@@ -41786,7 +41790,7 @@ Acceptance criterion: For an instance with one semantic leading clock, local ini
 
 Normative role: `mandatory`。
 
-- [test_ch16_sim_multiclock_init.sv](../tests/ch16/test_ch16_sim_multiclock_init.sv): 16.13.7 - EXTRACT-MULTICLOCK-INIT are observed in simulation. The attempt of p starts at the sclk tick at 30 , which is not a c1 tick; p has the single semantic leading clock c1 , so v = e is evaluated at the c1 tick at 75 , where e is 1 , and the attempt passes there. A tool that initialized v at the attempt start would tak Distinguishing observation: The condition of the demand is stimulated and compared with the expected value derived from the standard. Execution results: { 'icarus' : 'known' , 'verilator' : 'known' }
+- [test_ch16_sim_multiclock_init.sv](../tests/ch16/test_ch16_sim_multiclock_init.sv): The antecedent go matches at the sclk tick at 10, and the multiclocked |=\> starts p at the nearest later c1 tick, 25 (16.13.2). p has the single semantic leading clock c1, so v = e is evaluated at 25, where e has been 1 since 20, and the attempt passes there. $assertvacuousoff keeps the vacuous successes at the later sclk ticks from printing (20.11). Distinguishing observation: A tool that initialized v when the antecedent matched would take e at 10, where it is 0, and print 'fail at 25' instead of 'pass at 25'.
 
 ### SV2023-16.13.7-EXTRACT-MULTIPLE-LEADING-COPIES
 
@@ -43744,7 +43748,7 @@ Acceptance criterion: Procedural concurrent assertions inside a checker follow o
 
 Normative role: `mandatory`。
 
-- [test_checker_assertion_placement.sv](../tests/ch17/test_checker_assertion_placement.sv): In the always_ff procedure of checker proc_assert, write concurrent assertion p1 under if. As a procedural concurrent assertion of 16.14.6, the procedure enters the queue only when it reaches the statement and is evaluated in the Observed domain at that time. Distinguishing observation: In an implementation that constantly monitors concurrent assertions in a procedure as static assertions, all d = 9 edge 15 , 25 , 45 fails and internal = 3 is achieved. In an implementation that queues only on arrival, only 25 of en = 1 fails and internal = 1 is received.
+- [test_checker_assertion_placement.sv](../tests/ch17/test_checker_assertion_placement.sv): In the always_ff procedure of checker proc_assert, write concurrent assertion p1 under if. As a procedural concurrent assertion of 16.14.6, the procedure enters the queue only when it reaches the statement and is evaluated in the Observed domain at that time. Distinguishing observation: An implementation that monitors a concurrent assertion in a procedure continuously, as a static assertion, fails at both edges 25 and 45 where d = 9, giving internal = 2. In an implementation that queues only on arrival, only 25 of en = 1 fails and internal = 1 is received.
 
 ### SV2023-17.3-EXTRACT-NESTED-STATIC-ASSERTIONS
 
@@ -43828,7 +43832,7 @@ Acceptance criterion: Static concurrent assertions in a static checker begin at 
 
 Normative role: `mandatory`。
 
-- [test_checker_assertion_placement.sv](../tests/ch17/test_checker_assertion_placement.sv): A statically materialized checker static_asserts has concurrent assertion c1 and deferred assertion d1. c1 is the edge of 15 , 25 , 45 and fails because of d = 9, and d1 fails at the point where the equation changes at 6 , 18 , 38 (not the edge). Distinguishing observation: In an implementation that starts a concurrent assertion of a static checker only 1 times with the first clock event, it is concurrent = 1. In an implementation that monitors deferred assertions only on the clock edge, it becomes deferred = 2 (because there is no edge after 38 in 6 , 18 , 38) or 0, and in an implementation that only monitors on the change of the equation, it becomes 3.
+- [test_checker_assertion_placement.sv](../tests/ch17/test_checker_assertion_placement.sv): A statically materialized checker static_asserts has concurrent assertion c1 and deferred assertion d1. d is sampled as 0, 4, 9, 4 and 9 at the edges 5, 15, 25, 35 and 45, so c1 fails at the edges 25 and 45, and d1 fails at 6, 18 and 38, when the expression changes to 9 (these are not edges). Distinguishing observation: In an implementation that starts a concurrent assertion of a static checker only 1 times with the first clock event, it is concurrent = 0. An implementation that monitors a deferred assertion only at clock edges gives deferred = 2 (because the 9 from 6 to 12 meets no edge) or 0, and only an implementation that monitors changes of the expression gives 3.
 
 ### SV2023-17.3-EXTRACT-STATIC-PROCEDURAL
 
@@ -45922,7 +45926,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE
 
-`18.5.11` / `error` / Test mapped; execution unconfirmed
+`18.5.11` / `error` / No mapped test
 
 Circular dependencies from implicit function-argument ordering are errors.
 
@@ -45930,7 +45934,6 @@ Acceptance criterion: Circular dependencies from implicit function-argument orde
 
 Normative role: `mandatory`。
 
-- [test_illegal_constraint_function_cycle.sv](../tests/ch18/test_illegal_constraint_function_cycle.sv) : c1 { x \<= f(y); } where y precedes x, c2 { y \<= f(x); } implicitly orders x before y, and this is an error because it loops. Distinguishing observation: The design is successful in an implementation that does not detect the loop of the implicit order of the function arguments.
 
 ### SV2023-18.5.11-EXTRACT-PRIORITY-SPACE
 
@@ -49401,7 +49404,7 @@ Acceptance criterion: An observed illegal value/transition issues a runtime erro
 Normative role: `mandatory`。
 
 - [test_cg_illegal_value_error.sv](../tests/ch19/test_cg_illegal_value_error.sv):coverpoint bad bin v ={ 2,3 } and illegal_bins b ={ 3 } outputs bad 1/1 after subtracting 3 from v, and samples 3 (g.sample() on line 46) for an execution error. Since the form and location of errors are not specified, stderr only refers to the word error.
-- [test_cg_illegal_transition_error.sv](../tests/ch19/test_cg_illegal_transition_error.sv): coverpoint cp outputs t =(1 =\> 2) and illegal_bins b =(1 =\> 2), which means that cp excluding t is 1/1 with only other, and samples 2 after 1 to cause an error on line 46/47.
+- [test_cg_illegal_transition_error.sv](../tests/ch19/test_cg_illegal_transition_error.sv): With t =(1 =\> 2) and illegal_bins b =(1 =\> 2) in coverpoint cp, the test prints that cp without t is 1/1 with only other, and then samples 2 after 1 to cause a run-time error. The standard does not fix the form of the error, so the messages of the run are checked only for the word error.
 
 ### SV2023-19.5.6-EXTRACT-ILLEGAL-SEQUENCES
 
@@ -49897,7 +49900,7 @@ Acceptance criterion: illegal_bins excludes selected products from coverage and 
 
 Normative role: `mandatory`。
 
-- [test_cg_illegal_cross_error.sv](../tests/ch19/test_cg_illegal_cross_error.sv): In covergroup ex, ignore_bins selects product \< 0,0 \> and illegal_bins selects product \< 0,1 \>. Sampling only the remaining \< 1,0 \> and \< 1,1 \> gives 2/2 100.00. covergroup cg samples \< 0,1 \> (ignored) and \< 1,0 \> (automatic) without error, then samples \< 1,1 \>, which belongs to all of both, ig, and bad, causing a runtime error. Distinguishing observation: Implementations that do not exclude the wrong product from the denominator do not have ex 2/2 100.00, and implementations that do not issue errors when the wrong product is included in another bin or ignore do not issue the 68 line diagnosis.
+- [test_cg_illegal_cross_error.sv](../tests/ch19/test_cg_illegal_cross_error.sv): In covergroup ex, ignore_bins selects product \< 0,0 \> and illegal_bins selects product \< 0,1 \>. Sampling only the remaining \< 1,0 \> and \< 1,1 \> gives 2/2 100.00. covergroup cg samples \< 0,1 \> (ignored) and \< 1,0 \> (automatic) without error, then samples \< 1,1 \>, which belongs to all of both, ig, and bad, causing a runtime error. Distinguishing observation: An implementation that does not remove illegal products from the denominator does not give 2/2 100.00 for ex, and one that reports no error when an illegal product is also in another bin or an ignored bin gives no run-time error at the sample of \< 1,1 \>. The standard does not fix the form of the error, so the messages of the run are checked only for the word error.
 
 ### SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT
 
@@ -93215,7 +93218,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.16-EXTRACT-NET-BITS-EXPANSION
 
-`37.16` / `normal` / Execution confirmed
+`37.16` / `normal` / Test mapped; execution unconfirmed
 
 Logic/bit net bit handles are available regardless of vector expansion.
 
@@ -93227,7 +93230,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.16-EXTRACT-NET-CONSTANT-SELECT
 
-`37.16` / `normal` / Execution confirmed
+`37.16` / `normal` / Test mapped; execution unconfirmed
 
 vpiConstantSelect is true if there is no parent, or every select index is elaboration-constant and each select element is a struct/union net member or statically bounded packed/unpacked array member; otherwise false.
 
@@ -106159,7 +106162,7 @@ Acceptance criterion: The 37.72 VPI model includes struct pattern in the pattern
 
 Normative role: `definition`。
 
-- [test_vpi_struct_and_tagged_patterns.sv](../tests/ch37/test_vpi_struct_and_tagged_patterns.sv): The case matches item '{ 1, 2 } of the case on the struct p gives from vpiExpr a pattern whose vpi_get(vpiType) is vpiStructPattern, and the pattern group relation vpiPattern iterates its two member patterns 1 and 2; the other item '{ 3, 4 } likewise gives a vpiStructPattern whose members are 3 and 4. The application prints the same kind for both struct patterns and counts 4 patterns in the two case statements. Distinguishing observation: A tool that did not put the struct pattern in the pattern group would model '{ 1, 2 } as a constant, an expr or another object, so the application would print another pattern instead of the struct pattern line, and the pattern count would no longer be 4.
+- [test_vpi_struct_and_tagged_patterns.sv](../tests/ch37/test_vpi_struct_and_tagged_patterns.sv): The case matches items '{ 1, 2 } and '{ 3, 4 } of the case on the struct p each give from vpiExpr a pattern whose vpi_get(vpiType) is vpiStructPattern, and vpiPattern leads from it to a member pattern. The application prints the same kind for both struct patterns and counts 4 patterns in the two case statements. Distinguishing observation: A tool that did not put the struct pattern in the pattern group would model '{ 1, 2 } as a constant, an expr or another object, so the application would print another pattern instead of the struct pattern line, and the pattern count would no longer be 4.
 
 ### SV2023-37.72-EXTRACT-DIAGRAM-010
 
@@ -106230,7 +106233,7 @@ Acceptance criterion: 37.72 defines a one-to-one relation from tagged pattern to
 
 Normative role: `definition`。
 
-- [test_vpi_struct_and_tagged_patterns.sv](../tests/ch37/test_vpi_struct_and_tagged_patterns.sv): In the case on the tagged union u, the item tagged Wide .w gives a tagged pattern whose vpi_handle(vpiTypespec) has vpiType vpiIntTypespec, the type of the int member Wide, and the item tagged Narrow .n gives one whose typespec has vpiType vpiByteTypespec, the type of the byte member Narrow; each nested any pattern is named w and n. Distinguishing observation: The union declaration makes the member types int and byte, and 37.25 detail 1 gives the built-in int and byte types the typespec types vpiIntTypespec and vpiByteTypespec with no vpiName. A tool that returned the union typespec (vpiUnionTypespec), the other member's type, or no typespec would print another type name or none for one of the two lines.
+- [test_vpi_struct_and_tagged_patterns.sv](../tests/ch37/test_vpi_struct_and_tagged_patterns.sv): In the case on the tagged union u, the items tagged Wide .w and tagged Narrow .n each give a tagged pattern for which vpi_handle(vpiTypespec) returns a typespec, printed as 'typespec 1', and the nested any patterns are named w and n. The diagram does not say which typespec it is, so its type is not compared. Distinguishing observation: A tool without the one-to-one relation from the tagged pattern to a typespec returns NULL and prints 'typespec 0' in one of the two lines.
 
 ### SV2023-37.72-EXTRACT-DIAGRAM-016
 
@@ -106242,7 +106245,7 @@ Acceptance criterion: 37.72 defines a one-to-many relation from struct pattern t
 
 Normative role: `definition`。
 
-- [test_vpi_struct_and_tagged_patterns.sv](../tests/ch37/test_vpi_struct_and_tagged_patterns.sv): vpi_iterate(vpiPattern, struct_pattern) on the struct pattern '{ 1, 2 } of the case on p yields exactly two member patterns, whose constant values are printed as 1 and 2, and on the struct pattern '{ 3, 4 } it yields two member patterns with the values 3 and 4. The member list of each struct pattern is printed with its count, so both the one-to-many cardinality and the member values are compared. Distinguishing observation: The struct pattern '{1, 2} has two member patterns whose constants are 1 and 2. A tool that returned no member patterns would print 0 member patterns and an empty list; one that returned the whole struct as a single constant, or the members of the other item, would print another count or other values, changing the line.
+- [test_vpi_struct_and_tagged_patterns.sv](../tests/ch37/test_vpi_struct_and_tagged_patterns.sv): The struct patterns '{ 1, 2 } and '{ 3, 4 } of the case on p each lead to a member pattern through vpiPattern: the application takes it from vpi_handle or, when that gives none, as the first object of vpi_iterate, and prints 'member pattern 1'. The figure of 37.72 draws this relation with a single arrow and the clause has no detail about it, so the test fixes neither the access routine, the number of member patterns nor their values. Distinguishing observation: A tool that gave no member pattern through vpiPattern, by either routine, would print 'member pattern 0'.
 
 ### SV2023-37.73-EXTRACT-DIAGRAM-001
 
@@ -118543,7 +118546,7 @@ Acceptance criterion: A packed dimension is bracketed constant range or unsized 
 
 Normative role: `definition`。
 
-- [test_a2_5_dpi_open_array_packed_dimension.sv](../tests/ch35/test_a2_5_dpi_open_array_packed_dimension.sv): The import declares input logic \[\] v, whose sole packed dimension is the unsized dimension, and the two actuals have the packed dimensions \[7:0\] and \[3:0\]\[1:0\]; each call gives an open array of 8 elements, and 8'hA5 arrives as the value a5 and 8'h02 as 02 Distinguishing observation: A tool that did not accept the unsized packed dimension does not compile the design (both releases stop there), and one that made the array another size prints another number of elements.
+- [test_a2_5_dpi_open_array_packed_dimension.sv](../tests/ch35/test_a2_5_dpi_open_array_packed_dimension.sv): The import declares input logic \[\] v, whose sole packed dimension is the unsized dimension, and the two actuals have the packed dimensions \[7:0\] and \[3:0\]\[1:0\]; each call gives one packed value of eight bits, for which svSize, svLeft and svRight of dimension 0 are 8, 7 and 0, and the value read through svGetArrayPtr, when that is not NULL, is the value passed. Distinguishing observation: A tool that did not accept the unsized packed dimension does not compile the design (both releases stop there), and one that gave the packed part another range prints another size or bound.
 
 ### SV2023-A.2.5-EXTRACT-QUEUE
 
@@ -119572,7 +119575,7 @@ Acceptance criterion: A bins/option entry permits bins keyword, identifier with 
 
 Normative role: `definition`。
 
-- [test_covergroup_bins_and_range_forms.sv](../tests/ch19/test_covergroup_bins_and_range_forms.sv) : cg_ign of coverpoint x bins others = default; The default sequence is 1. After the sample of 8, the ignore coverage 100.0 is output. Distinguishing observation: Implementations that do not accept bins entry of = default cannot be compiled and do not reach the line with 100.0, ignore 100.0, transitions 87.5, tolerance 100.0. In an implementation that assigns default bin to a different set of values, the bin configuration of ignore is changed and the values in this row are not retained.
+- [test_covergroup_bins_and_range_forms.sv](../tests/ch19/test_covergroup_bins_and_range_forms.sv) : cg_ign of coverpoint x bins others = default; The default sequence is 1. After the sample of 8, the ignore coverage 100.0 is output. Distinguishing observation: Implementations that do not accept bins entry of = default cannot be compiled and do not reach the line with 100.0, ignore 100.0, transitions 85.7, tolerance 100.0. In an implementation that assigns default bin to a different set of values, the bin configuration of ignore is changed and the values in this row are not retained.
 
 ### SV2023-A.2.11-EXTRACT-BINS-DEFAULT-SEQUENCE
 
@@ -119584,7 +119587,7 @@ Acceptance criterion: A bins/option entry permits bins keyword, identifier = def
 
 Normative role: `definition`。
 
-- [test_covergroup_bins_and_range_forms.sv](../tests/ch19/test_covergroup_bins_and_range_forms.sv): cg_tr declares bins allother = default sequence; the transition 6 =\> 7 matches no explicit transition bin and leaves none pending, so allother is covered and the group prints 87.5. Distinguishing observation: Without the default sequence bin the count would be 6 of 7 bins, and a tool that did not implement it would print a different number.
+- [test_covergroup_bins_and_range_forms.sv](../tests/ch19/test_covergroup_bins_and_range_forms.sv): cg_tr declares bins allother = default sequence; the design compiles with it, and the transition coverage counts only the seven other bins, of which six are covered, so the group prints 85.7 (19.5 leaves default bins out of the calculation). Distinguishing observation: A tool that did not accept the default sequence form would not compile cg_tr, and one that counted the default sequence bin as a bin of the coverpoint would print 87.5.
 
 ### SV2023-A.2.11-EXTRACT-BINS-RANGE
 
@@ -119620,7 +119623,7 @@ Acceptance criterion: A bins/option entry permits optional wildcard, bins keywor
 
 Normative role: `definition`。
 
-- [test_covergroup_bins_and_range_forms.sv](../tests/ch19/test_covergroup_bins_and_range_forms.sv): cg_tr declares five named transition bins and the open array tarr\[\] from two parenthesized transition sets; the printed transition coverage of 87.5 is seven covered bins of eight. Distinguishing observation: A tool that did not parse a transition list with several parenthesized sets or the open array form would change the number of bins and the printed coverage.
+- [test_covergroup_bins_and_range_forms.sv](../tests/ch19/test_covergroup_bins_and_range_forms.sv): cg_tr declares five named transition bins and the open array tarr\[\] from two parenthesized transition sets; the printed transition coverage of 85.7 is six covered bins of seven; the default sequence bin does not count. Distinguishing observation: A tool that did not parse a transition list with several parenthesized sets or the open array form would change the number of bins and the printed coverage.
 
 ### SV2023-A.2.11-EXTRACT-BINS-WITH
 
@@ -119885,7 +119888,7 @@ Acceptance criterion: A transition-range list is range-list item optionally foll
 
 Normative role: `definition`。
 
-- [test_covergroup_bins_and_range_forms.sv](../tests/ch19/test_covergroup_bins_and_range_forms.sv): The transition bins use the consecutive repetition \[* 2\] and \[* 1:2\], the goto repetition \[-\> 1\] and the nonconsecutive repetition \[= 1\]; t5 = (5 =\> 6 \[* 1:2\]) matches 5 =\> 6 and contributes to the printed 87.5. Distinguishing observation: A tool that did not parse a repetition range after a transition would not compile cg_tr, and the transition coverage would be missing.
+- [test_covergroup_bins_and_range_forms.sv](../tests/ch19/test_covergroup_bins_and_range_forms.sv): The transition bins use the consecutive repetition \[* 2\] and \[* 1:2\], the goto repetition \[-\> 1\] and the nonconsecutive repetition \[= 1\]; t5 = (5 =\> 6 \[* 1:2\]) matches 5 =\> 6 and contributes to the printed 85.7. Distinguishing observation: A tool that did not parse a repetition range after a transition would not compile cg_tr, and the transition coverage would be missing.
 
 ### SV2023-A.2.11-EXTRACT-TRANSITIONS
 
@@ -119897,7 +119900,7 @@ Acceptance criterion: A transition list is nonempty comma-separated parenthesize
 
 Normative role: `definition`。
 
-- [test_covergroup_bins_and_range_forms.sv](../tests/ch19/test_covergroup_bins_and_range_forms.sv): cg_tr declares t1 from (1 =\> 2) and tarr\[\] from (2 =\> 3), (3 =\> 4); the samples 1 to 8 make those transitions, and the group prints 87.5 with seven of eight bins covered. Distinguishing observation: A tool that did not treat a parenthesized transition set as a sequence of values would not cover t1 or tarr, and the printed coverage would be lower.
+- [test_covergroup_bins_and_range_forms.sv](../tests/ch19/test_covergroup_bins_and_range_forms.sv): cg_tr declares t1 from (1 =\> 2) and tarr\[\] from (2 =\> 3), (3 =\> 4); the samples 1 to 8 make those transitions, and the group prints 85.7 with six of seven bins covered. Distinguishing observation: A tool that did not treat a parenthesized transition set as a sequence of values would not cover t1 or tarr, and the printed coverage would be lower.
 
 ### SV2023-A.2.12-EXTRACT-LET-DECL
 
@@ -124378,7 +124381,7 @@ Acceptance criterion: An unsized packed dimension is allowed only as the sole pa
 
 Normative role: `mandatory`。
 
-- [test_a2_5_dpi_open_array_packed_dimension.sv](../tests/ch35/test_a2_5_dpi_open_array_packed_dimension.sv): The unsized dimension \[\] of input logic \[\] v is the only packed dimension of the DPI import declaration, and the actuals logic \[7:0\] and logic \[3:0\]\[1:0\] bring the packed dimensions of the argument; both calls see 8 elements and the printed values a5 and 02 Distinguishing observation: A tool that allowed the unsized dimension elsewhere, or that did not let the packed dimensions of the actual match it, would print another size or reject the design.
+- [test_a2_5_dpi_open_array_packed_dimension.sv](../tests/ch35/test_a2_5_dpi_open_array_packed_dimension.sv): The unsized dimension \[\] of input logic \[\] v is the only packed dimension of the DPI import declaration, and the actuals logic \[7:0\] and logic \[3:0\]\[1:0\] bring the packed dimensions of the argument; both calls print size 8 with the normalized range 7 to 0 and 'value ok'. Distinguishing observation: A tool that allowed the unsized dimension elsewhere, or that did not let the packed dimensions of the actual match it, would print another size or reject the design.
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-25
 

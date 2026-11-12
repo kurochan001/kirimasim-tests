@@ -569,3 +569,18 @@
 - `iverilog@13.0`を持つテストは6,389本のままです。`verilator@5.052`を持ち`iverilog@13.0`を持たないテストは2,234本（変更前2,241本）、`spec`だけのテストは3,639本（3,632本）です。
 - この9本と、同じ検査グループに入っている4本を、Icarus Verilog 13.0、Verilator 5.052（seed 1と73）、kirimasim `7de185f776a1`で再実行しました。結果は`coverage/results/oracle-tokens-3-20261112-*.json`です。状態が変わったテストはありません。7件の要求の検査8個のダイジェストを更新しました。このうち3件に検査グループがあるので、ベースラインを書き直しました。
 - 要求カバレッジ（テスト設計）は90.14%（11,086/12,298）のままです。実行確認率は、Ghostを除いて50.20%（6,174/12,298）です。以前は50.24%（6,178）でした。Ghostとkirimasimの結果を加えると77.59%（9,542/12,298）です。以前は77.62%（9,546）でした。種別がerrorの要求4件が実行の証跡を失いました。16.10、16.12、25.7、29.3.4の各1件です。29.3.4のテストは`iverilog@13.0`を書いたままですが、同じ検査グループのもう1本は`verilator@5.052`だけを書いているので、両方を1つのリリースで確認できません。
+
+### 2026-11-12（どのシミュレータでも合格しないテスト）
+
+- どのシミュレータでも合格しない148本を、2回のレビューでIEEE 1800-2023と照合しました。判定、修正ごとの節、判断を待つものは[記録](pass-nowhere-review-20261112.md)にあります。判定は、正しい91本、誤り9本、欠陥10本、解釈が分かれる17本、どこでも実行できない21本です。どちらのレビューもAIによるものです。
+- 21本を変更しました。誤りまたは欠陥の19本のうちの17本と、148本の外で同じ問題を持つ4本です。期待出力が変わったのは、5本（`ch16/test_ch16_sim_multiclock_init`、`ch17/test_checker_assertion_placement`、`ch19/test_covergroup_bins_and_range_forms`、`ch35/test_a2_5_dpi_open_array_packed_dimension`、`ch37/test_vpi_struct_and_tagged_patterns`）と、生成した4件、`ch38/test_vpi_put_value_udp_array_errors`です。ほかは、デザイン、Cコード、メッセージのパターンのどれかを変更し、期待出力は同じです。
+- `ch18/test_illegal_constraint_function_cycle`は、実行時のテスト`ch18/test_constraint_function_cycle_runtime_error`にしました。スイートはこれまでと同じ12,262本で、不正な設計のテストは1,974本（これまで1,975本）です。
+- クロスモデル`dpi_openarray_shape`は、1要素の動的配列・キューの`svIncrement`に1を期待していました。20.7とH.12.2では-1です。生成器と独立検算を直しました。合法な168行のうち32行、選択済み30件のうち4件の期待出力が変わりました。行、選択、デザインは変わらないので、モデルはversion 1のままで、ほかの生成テストは変わっていません。
+- モデルの合法な行をすべて1回実行しました（`coverage/interaction-qualification/dpi-array-all-rows-20261112.json`）。Verilator 5.052は固定配列の72行が一致し、残りの96行をビルドできません。kirimasimとIcarus Verilog 13.0はどの行も実行できません。独立検算をやり直しました（`coverage/interaction-qualification/dpi-array-20261112.json`）。kirimasim `7de185f776a1`は、選択した4,413件すべてを1回で実行しました（`coverage/interaction-results/full-20261112-kirimasim-7de185f7-dpi-array.json`）。これまでと同じ3,915 pass・484 unsupported・14 failです。モデルの30件は、Icarus Verilog 13.0（30 known）とVerilator 5.052のseed 1・73（どちらも18 pass・12 known）で実行し、結果はこれまでと同じです（`coverage/interaction-results/dpi-array-20261112-*.json`）。`generators/oracles.txt`は変わっていません。
+- 21本と、同じ検査グループに入っている1本を、Icarus Verilog 13.0、Verilator 5.052（seed 1と73）、kirimasim `7de185f776a1`で再実行しました。結果は`coverage/results/test-fixes-20261112-*.json`です。状態は変わっていません。固定版はどちらも22 known、kirimasimは22 unsupportedです。21本の`:oracle:`はどれも`spec`だけなので、トークンは変わっていません。`iverilog@13.0`を挙げるテストは6,389本、それを挙げずに`verilator@5.052`を挙げるテストは2,234本、`spec`だけのテストは3,639本です。
+- 台帳では、51件の要求の検査の入力ダイジェストを更新しました。そのうち15件と、検査グループ1件は、観測の文を書き直しました。ベースラインを書き直しました。
+- 要求カバレッジ（テスト設計）は90.14%（11,085/12,298）です。これまでは11,086でした。18.5.11の要求は種別がerrorで、台帳はこの種別の行に不正な設計のテストしか認めません。テストを実行時のテストにしたので、対応付けを取り下げました。理由は`coverage/test-matching-reviews.json`にあります。1〜40章だけでは88.46%（8,373/9,465）で、これまでは88.47%（8,374）でした。
+- Ghostを除く実行確認率は、50.20%（6,174/12,298）のままです。Ghostとkirimasimの結果を加えると77.57%（9,540/12,298）で、これまでは77.59%（9,542）でした。37.16の要求2件が証跡を失いました。その要求のテスト`ch37/test_vpi_net_bits_constant_select`は保存済みのGhostの実行で合格していましたが、Cコードを変更しました。Ghostの保存済みの結果は置き換えていません。
+- 固定版のリリースの差異を二つ、[一覧](simulator-differences.ja.md#icarus-increment-dynamic-20261112)に記録しました。Icarus Verilog 13.0は、1要素の動的配列の`$increment`に0を返します。Verilator 5.052は、18.5.11の循環にエラーを報告しません。
+- 変更せず、判断を待っているもの: `ch4/test_illegal_final_deferred_action_schedules_event`、`ch18/test_illegal_randsequence_negative_weight`、解釈が分かれる17本。
+- READMEは、最新の全クロス保存実行として`full-20261112-kirimasim-7de185f7-edgedpiquery.json`を挙げていました。この項の実行に変えました。

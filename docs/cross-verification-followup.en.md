@@ -6,7 +6,7 @@ Updated on 2026-11-06 JST, retaining the repair records from 2026-11-03. Preserv
 and selected models while addressing known failures, inventorying unsupported mechanisms
 and reviewing unexamined chapter pairs, in that order.
 
-The current [complete local selection](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-edgedpiquery.json) has 110 models and 4,413 cases, run on kirimasim `7de185f776a1`: 3,915 pass, 484 unsupported and the same 14 failures. Two models were revised on 2026-11-12 so that they select no equal cases; see the [last section](#cross-models-without-duplicate-cases).
+The current [complete local selection](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-dpi-array.json) has 110 models and 4,413 cases, run on kirimasim `7de185f776a1`: 3,915 pass, 484 unsupported and the same 14 failures. Two models were revised on 2026-11-12 so that they select no equal cases; see the [section on them](#cross-models-without-duplicate-cases). The same day one expected value of the model `dpi_openarray_shape` was corrected and the selection ran again; see the [last section](#dpi-array-increment-20261112).
 
 The preceding [complete local selection](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json) had 110 models and 4,416 cases, run on kirimasim `f029ddd0eee1`, built from the main of that day:
 3,915 pass, 487 unsupported and 14 failures: the four config failures, the four `defparam` failures and six where kirimasim stops with an internal error on a class in a generate block. Against the [previous complete run](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json), preceding 4,296 inputs and statuses are unchanged.
@@ -340,3 +340,13 @@ endmodule
 - One complete 4,413-case run on kirimasim `7de185f776a1` records 3,915 pass, 484 unsupported and 14 failures. Totals: 110 models, 189 chapter pairs, 83 full-selection-pass models. The statuses of the 4,333 cases of the other models do not change.
 - Every legal row of both models ran once. kirimasim and pinned Icarus Verilog 13.0 match all 4,032 rows of the edge model. No expectation changed.
 - See the sections on [event-expression edges](interaction-verification.en.md#event-expression-edge-classification-xz-transitions-and-update-timing) and [array queries](interaction-verification.en.md#sv-dpi-array-queries).
+
+<a id="dpi-array-increment-20261112"></a>
+
+## `svIncrement` of a one-element dynamic array or queue (2026-11-12)
+
+- The model `dpi_openarray_shape` expected `svIncrement` 1 for a dynamic array or queue of one element. 20.7 gives -1 for every queue or dynamic array dimension, and H.12.2 follows it. The expectation is now -1.
+- 32 of the 168 legal rows and four of the 30 selected cases changed their expected output. The rows, the selection and the designs did not change; the model stays version 1.
+- Every legal row ran once and the independent check was repeated. Verilator 5.052 matches the 72 rows with a fixed-size actual. No simulator of the three executes a row with a dynamic array or queue.
+- One complete 4,413-case run on kirimasim `7de185f776a1` records 3,915 pass, 484 unsupported and 14 failures, as before. Totals: 110 models, 189 chapter pairs, 83 full-selection-pass models.
+- See the section on the [open array shape model](interaction-verification.en.md#dpi-open-array-shape-and-copyback).

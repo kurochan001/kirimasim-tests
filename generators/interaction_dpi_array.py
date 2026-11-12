@@ -1,4 +1,11 @@
-"""Open-array shape, element indexing and copyback across repeated DPI calls."""
+"""Open-array shape, element indexing and copyback across repeated DPI calls.
+
+Expectation corrected on 2026-11-12 (model version unchanged, rows and
+selection unchanged): svIncrement of a dynamic array or queue dimension is
+always -1 (IEEE 1800-2023 20.7, which H.12.2 follows). The rule "1 if left >=
+right" holds for a fixed-size dimension only; it had also been applied to a
+dynamic array or queue of one element, where left and right are both 0.
+"""
 
 from common import Case
 from interaction_cover import Model, Row
@@ -73,8 +80,11 @@ def reference(row: Row) -> str:
         values = {i: before_value(pattern, phase, i - low) for i in declared}
         lines += [f'call phase={phase} size={n}']
         lines += [f'before[{i}]={values[i]}' for i in declared]
+        # 20.7: -1 for a dynamic array or queue dimension whatever its size;
+        # 1 for a fixed-size dimension whose left bound is not below its right.
+        increment = -1 if actual in ('dynamic', 'queue') or left < right else 1
         lines += [f'c phase={phase} dims=1 left={left} right={right} low={low} high={high} '
-                  f'inc={1 if left >= right else -1} size={n}']
+                  f'inc={increment} size={n}']
         indices = list(range(low, high + 1))
         if walk == 'descending':
             indices.reverse()

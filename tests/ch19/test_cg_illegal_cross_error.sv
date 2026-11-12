@@ -9,7 +9,7 @@
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_cg_illegal_cross_error.expected
-:expected_stderr_regex: test_cg_illegal_cross_error\.sv:68:
+:expected_stderr_regex: (?i:\berror\b)
 */
 // IEEE 1800-2023 §19.6.3: all cross products selected by an illegal_bins
 // select expression are excluded from coverage and their occurrence issues a
@@ -20,6 +20,10 @@
 // two remaining products <1,0> and <1,1> are the only bins, so ex is 2/2 and
 // 100.00. Covergroup cg first samples <0,1> (ignored) and <1,0> (automatic)
 // without an error, prints a marker, and then samples <1,1>.
+// The standard does not fix the form of the run-time error, such as a source
+// location in it, so the messages of the run are checked only for an error.
+// Until 2026-11-12 the test required a source line of this file in the
+// message, which §19.6.3 does not give.
 
 module test_cg_illegal_cross_error;
   bit [1:0] a, b;

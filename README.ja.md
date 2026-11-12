@@ -62,7 +62,7 @@ Icarus Verilog、Verilator、kirimasim、
 | Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | 2234 |
 | 規格のみ（固定リリースのシミュレータのoracle登録なし） | 3639 |
 
-2914本はx/z値に依存します（`:fourstate: yes`）。687本にはCコードがあり、内訳はDPIが186本（`:dpi_c:`）、VPIが501本（`:vpi_c:`）です。1975本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。33本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル23本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定54本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
+2914本はx/z値に依存します（`:fourstate: yes`）。687本にはCコードがあり、内訳はDPIが186本（`:dpi_c:`）、VPIが501本（`:vpi_c:`）です。1974本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。33本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル23本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定54本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
 
 | 章 | 題名 | テスト数 | Icarus | Verilator | 規格のみ |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -165,7 +165,7 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 すべて保持し、規格要求の分母は変更しません。
 
 **kirimasim `7de185f776a1`**による
-[最新の全クロス保存実行](coverage/interaction-results/full-20261112-kirimasim-7de185f7-edgedpiquery.json)は、
+[最新の全クロス保存実行](coverage/interaction-results/full-20261112-kirimasim-7de185f7-dpi-array.json)は、
 **3,915 pass・484 unsupported・14 fail**です。
 この保存実行は110モデル・選択4,413件です。
 CheckとNightlyは、生成したクロステストを固定スイートのほかのテストと一緒に実行します。Nightlyの最新の結果は[`results`ブランチのレポート](https://github.com/kurochan001/kirimasim-tests/tree/results#readme)にあります。
@@ -260,11 +260,11 @@ clocking入力と名前付きイベントの待機（第14×15章）は192通り
 要求カバレッジの分母は、重複を統合した**12,298要求**です。
 [分母レビュー](docs/denominator-review-20261028.md)で承認しました。
 レビューしたのはAIで、人による独立したレビュー・承認ではありません。
-現在の要求カバレッジ（テスト設計）は**90.14%（11,086/12,298）**、
+現在の要求カバレッジ（テスト設計）は**90.14%（11,085/12,298）**、
 `coverage/results/`の保存済み証跡による実行確認率は、第三者が再現できる
 Icarus Verilog・Verilator・SymbiYosysの結果で**50.20%（6,174/12,298）**です。
-公開前のシミュレータGhostとkirimasimの結果を加えると77.59%（9,542/12,298）です。
-1〜40章だけの要求カバレッジ（テスト設計）は88.47%（8,374/9,465）です。
+公開前のシミュレータGhostとkirimasimの結果を加えると77.57%（9,540/12,298）です。
+1〜40章だけの要求カバレッジ（テスト設計）は88.46%（8,373/9,465）です。
 測定入力と分母は[生成した要求カバレッジ集計](docs/behavior-coverage-summary.md)を参照してください。
 既存テスト全体の検証内容のレビューはまだ完了していません。
 要求の抽出・照合・テスト追加の各回の報告は[履歴](docs/history.ja.md)から辿れます。

@@ -1165,6 +1165,22 @@ Seeds 1 and 73 give the same results. See the saved runs of the [chapter tests](
 Not listed: the two illegal designs with map() in chapter 7 stop with an error only when the C++ code that Verilator generates is compiled, with no message on the line of the test, and the fatal error for a null virtual interface in chapter 25 is printed on standard output.
 Both report an error, and the standard does not set the place or the form of the report.
 
+<a id="icarus-increment-dynamic-20261112"></a>
+
+## Icarus Verilog 13.0: `$increment` of a dynamic array or queue of one element (2026-11-12)
+
+20.7 gives `$increment` the value -1 for every queue or dynamic array dimension. The rule that compares `$left` with `$right` is for a fixed-size dimension only.
+A probe outside the suite declares `int d[]` and `int q[$]`. With one element Icarus 13.0 prints 0 for `$increment(d)` and for `$increment(q)`, and with three elements it prints 2 for `$increment(d)`. Verilator 5.052 and kirimasim `7de185f776a1` print -1 in each case.
+This is the difference recorded [above](#hier-array-differences) for four elements: `gen/ch20/test_gen_cross_arrayloop_dynamic_var_for_lowhigh` shows it with the value 3. No suite test asks for `$increment` of a one-element dynamic array in SystemVerilog code.
+The probe was made while correcting the model `dpi_openarray_shape`. Its expectation for `svIncrement` of a one-element dynamic array or queue had been 1; H.12.2 follows 20.7, so it is -1. The four selected cases of that kind run on no pinned release.
+
+<a id="verilator-function-cycle-20261112"></a>
+
+## Verilator 5.052: no error for a cycle of function-argument ordering (2026-11-12)
+
+18.5.11 makes a circular dependency of the implicit variable ordering an error. In `ch18/test_constraint_function_cycle_runtime_error` the constraint `x <= f(y)` orders `y` before `x` and the constraint `y <= f(x)` orders `x` before `y`.
+Verilator 5.052 prints the two lines that come before the second `randomize()` and reports no error. The earlier form of the test was an illegal design, which the release accepted as well.
+
 <a id="observations-20261112"></a>
 
 ## Observations of 2026-11-12 that are not differences of a release

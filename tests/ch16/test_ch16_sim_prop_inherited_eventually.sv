@@ -22,6 +22,11 @@
 // second attempt fails when the range is exhausted; the fail action prints
 // no time, because the time at which a strong property reports the exhausted
 // range is not fixed by the definition of the attempt interval.
+// §20.11: by default the pass action also runs on a vacuous success, which
+// go |-> ... has at every tick where go is sampled false (30, 50, 70, 110 and
+// 130). The test calls $assertvacuousoff first, so only the nonvacuous
+// success of the attempt of 10 prints. This call was added on 2026-11-12;
+// without it the expected output lacked the lines of the vacuous successes.
 // Neither simulator can run this test: Icarus Verilog 13.0 has no concurrent
 // assertions and Verilator 5.052 reports "Unsupported: s_eventually[]". The
 // expected output is the behavior §16.16.1 and §16.12.13 define.
@@ -40,6 +45,7 @@ module test_ch16_sim_prop_inherited_eventually;
     else $display("fail");
 
   initial begin
+    $assertvacuousoff;
     go = 1;
     #15 go = 0;
     #30 a = 1;

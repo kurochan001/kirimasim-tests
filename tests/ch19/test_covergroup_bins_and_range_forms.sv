@@ -19,14 +19,18 @@
 // wildcard bins; §19.5.5 and §19.5.6 give ignore_bins and illegal_bins, and a
 // default bin takes the remaining values. §19.5.2 gives transition bins with
 // consecutive, goto and nonconsecutive repetitions, and a default sequence
-// bin. Coverage is the covered bins over all bins of a coverpoint (§19.11.1).
+// bin. Coverage is the covered bins over all bins of a coverpoint (§19.11.1),
+// and §19.5 leaves the default bins out of that calculation.
 //
 // x is 1 to 8 at eight samples and y is 6 and then 3 at two samples. The
 // covergroups have one coverpoint each, so their coverage is that of the
 // coverpoint: ranges 4/4, lists 4/5, the set 1/1, the wildcard pattern 1/1
 // (sample 8 matches 4'b1?0?), the with filters 2/2, ignoring 1 and keeping a
-// default bin 2/2, the transitions 7/8 (all but 1 => 3 [* 2]), and the
-// tolerance ranges 3/3. Icarus Verilog 13.0 has no covergroups. The 5.052
+// default bin 1/1 (only the bin ok counts), the transitions 6/7 (all of the
+// seven transition bins but 1 => 3 [* 2]; the default sequence bin does not
+// count), and the tolerance ranges 3/3. Corrected on 2026-11-12: the expected
+// transition coverage was 87.5, which counted the default sequence bin as an
+// eighth bin against §19.5. Icarus Verilog 13.0 has no covergroups. The 5.052
 // release of Verilator does not support a set expression, a bin built from a
 // coverpoint name with, the tolerance ranges or the goto and nonconsecutive
 // transition repetitions, and it makes four bins of fixed [2] instead of two.

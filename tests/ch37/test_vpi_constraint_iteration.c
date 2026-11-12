@@ -52,7 +52,7 @@ static int by_text(const void *a, const void *b)
 static PLI_INT32 con_calltf(PLI_BYTE8 *user_data)
 {
     vpiHandle base = find_class("ci_base"), der = find_class("ci_der");
-    vpiHandle var, spec, ext, base_spec;
+    vpiHandle var, spec, base_spec;
     vpiHandle it, c;
     const char *names[MAX];
     char storage[MAX][48];
@@ -65,8 +65,9 @@ static PLI_INT32 con_calltf(PLI_BYTE8 *user_data)
     var = vpi_handle_by_name((PLI_BYTE8 *)TOP ".d", NULL);
     spec = var != NULL ? vpi_handle(vpiTypespec, var) : NULL;
     list("constraints of d typespec", spec);
-    ext = spec != NULL ? vpi_handle(vpiExtends, spec) : NULL;
-    base_spec = ext != NULL ? vpi_handle(vpiClassTypespec, ext) : NULL;
+    /* 37.32 detail 9: vpiExtends of a class typespec is the base class
+       typespec itself; only a class defn has an extends object (37.31). */
+    base_spec = spec != NULL ? vpi_handle(vpiExtends, spec) : NULL;
     list("constraints of its base typespec", base_spec);
 
     it = vpi_iterate(vpiConstraint, NULL);

@@ -1,2 +1,2 @@
-static: concurrent=3 deferred=3
+static: concurrent=2 deferred=3
 nested: static=3 procedural=1 internal=1

@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 90.14%、Ghostを除く実行 50.20%、Ghostを含む実行 77.59%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 90.14%、Ghostを除く実行 50.20%、Ghostを含む実行 77.57%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 90.14%。** 規格要求の実行確認率: Ghostを除いて 50.20%、Ghostを含めて 77.59%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 90.14%。** 規格要求の実行確認率: Ghostを除いて 50.20%、Ghostを含めて 77.57%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対する要求カバレッジ（テスト設計）: 11086/12298 (90.14%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9542/12298 (77.59%)。
-- 登録済みだがテスト未対応: 1212 動作。
+- 登録済み動作に対する要求カバレッジ（テスト設計）: 11085/12298 (90.14%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9540/12298 (77.57%)。
+- 登録済みだがテスト未対応: 1213 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。
 
@@ -33,13 +33,13 @@
 複数テストで一つの要求を分担する `check_groups` は、同じ実行環境・実行回で グループ内の全テストが成功した場合に限り成功とします。未指定の対応は独立した代替証拠です。
 
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12298 動作確認、古い入力との対応 0 件。
-- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3085/12298 動作確認、古い入力との対応 279 件。
-- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2989/12298 動作確認、古い入力との対応 279 件。
-- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3876/12298 動作確認、古い入力との対応 279 件。
+- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3085/12298 動作確認、古い入力との対応 330 件。
+- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2989/12298 動作確認、古い入力との対応 330 件。
+- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3876/12298 動作確認、古い入力との対応 330 件。
 - `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3588/12298 動作確認、古い入力との対応 23 件。
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7915/12298 動作確認、古い入力との対応 413 件。
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7995/12298 動作確認、古い入力との対応 349 件。
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7898/12298 動作確認、古い入力との対応 413 件。
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7913/12298 動作確認、古い入力との対応 464 件。
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7993/12298 動作確認、古い入力との対応 400 件。
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7896/12298 動作確認、古い入力との対応 464 件。
 - `oracle-tokens-2-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T22:25:00.780016+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
 - `oracle-tokens-2-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T22:25:00.894678+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
 - `oracle-tokens-2-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T22:25:01.564353+00:00` / 2/12298 動作確認、古い入力との対応 0 件。
@@ -53,6 +53,10 @@
 - `oracle-tokens-3-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:01.978891+00:00` / 1/12298 動作確認、古い入力との対応 0 件。
 - `oracle-tokens-3-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:03.804411+00:00` / 1/12298 動作確認、古い入力との対応 0 件。
 - `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 73/12298 動作確認、古い入力との対応 1 件。
+- `test-fixes-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T23:50:40.175858+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
+- `test-fixes-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T23:50:40.334300+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
+- `test-fixes-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:50:41.819877+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
+- `test-fixes-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:50:43.072508+00:00` / 0/12298 動作確認、古い入力との対応 0 件。
 - 採用しません: additions2023-20261109-icarus13.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: additions2023-20261109-kirimasim-33cee3fa.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: additions2023-20261109-verilator5.052-seed1.json: 古い、未知の、または古いランナーの出身。
@@ -297,7 +301,7 @@
 - 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 71。
 - 16 Assertions: 解釈保留なし 82/82、登録 555、テスト対応 539。
 - 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 59。
-- 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 300。
+- 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 299。
 - 19 Functional coverage: 解釈保留なし 34/34、登録 271、テスト対応 232。
 - 20 Utility system tasks and system functions: 解釈保留なし 45/45、登録 316、テスト対応 285。
 - 21 入出力システムタスクとシステム関数：解釈保留なし65/65、登録383、テスト対応347。
@@ -41786,7 +41790,7 @@ bit true/false を返します。 これはマッチ開始時点に関係なく�
 
 規定の性質: `mandatory`。
 
-- [test_ch16_sim_multiclock_init.sv](../tests/ch16/test_ch16_sim_multiclock_init.sv) : シミュレーションで 16.13.7 - EXTRACT-MULTICLOCK-INIT を観測する。30 c1 のチックではない sclk チックから p の試みが始まります。p は単一の意味的先頭クロック c1 を持つので v = e は 75 の c1 チックで評価されます e は 1 で 試みはそこに通過します試行開始時にvを初期化するツールの場合について述べていますが、その結果を述べる前に原文は「would tak」で途切れています。 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'known'}
+- [test_ch16_sim_multiclock_init.sv](../tests/ch16/test_ch16_sim_multiclock_init.sv): 前件goは10のsclkチックで成立し、マルチクロックの|=\>は、それより後で最も近いc1のチック25からpを始めます（16.13.2）。pの意味的な先頭クロックはc1だけなので、v = eは25で評価されます。eは20から1なので、試行はそこで成功します。$assertvacuousoffにより、後のsclkチックでの空虚な成功は表示されません（20.11）。 区別: 前件が成立した時点でvを初期化するツールは、10でのe（0）を取り、'pass at 25'ではなく'fail at 25'を表示します。
 
 ### SV2023-16.13.7-EXTRACT-MULTIPLE-LEADING-COPIES
 
@@ -43744,7 +43748,7 @@ checkerの仮引数型は、プロパティの仮引数型である。出力は 
 
 規定の性質: `mandatory`。
 
-- [test_checker_assertion_placement.sv](../tests/ch17/test_checker_assertion_placement.sv): checker proc_assert の always_ff 手続きの中で、if (en) の下に concurrent assertion p1 を書く。16.14.6 の procedural concurrent assertion として、手続きがその文に到達したときだけ queue に入り、その時刻の Observed 領域で評価される。 区別: 手続き内の concurrent assertion を静的な assertion として常時監視する実装では、d=9 のエッジ 15, 25, 45 すべてで失敗し internal=3 になる。到着時だけ queue に入れる実装では en=1 の 25 だけが失敗し internal=1 になる。
+- [test_checker_assertion_placement.sv](../tests/ch17/test_checker_assertion_placement.sv): checker proc_assert の always_ff 手続きの中で、if (en) の下に concurrent assertion p1 を書く。16.14.6 の procedural concurrent assertion として、手続きがその文に到達したときだけ queue に入り、その時刻の Observed 領域で評価される。 区別: 手続き内の concurrent assertion を静的な assertion として常時監視する実装では、d=9 のエッジ 25, 45 の両方で失敗し internal=2 になる。到着時だけ queue に入れる実装では en=1 の 25 だけが失敗し internal=1 になる。
 
 ### SV2023-17.3-EXTRACT-NESTED-STATIC-ASSERTIONS
 
@@ -43828,7 +43832,7 @@ checkerの出力は、Reactive領域で実行される、仮引数から実引�
 
 規定の性質: `mandatory`。
 
-- [test_checker_assertion_placement.sv](../tests/ch17/test_checker_assertion_placement.sv): 静的に実体化した checker static_asserts が concurrent assertion c1 と deferred assertion d1 を持つ。c1 は 15, 25, 45 のエッジで d=9 のため失敗し、d1 は式が変化した 6, 18, 38 の時点で失敗する（エッジではない）。 区別: 静的な checker の concurrent assertion を先頭のクロックイベントで 1 回だけ始める実装では concurrent=1 になる。deferred assertion をクロックエッジでだけ監視する実装では deferred=2（6, 18, 38 のうち 38 の後はエッジがないため）や 0 になり、式の変化で監視する実装だけが 3 になる。
+- [test_checker_assertion_placement.sv](../tests/ch17/test_checker_assertion_placement.sv): 静的に実体化した checker static_asserts が concurrent assertion c1 と deferred assertion d1 を持つ。d はエッジ 5, 15, 25, 35, 45 で 0, 4, 9, 4, 9 とサンプルされるので、c1 は 25 と 45 のエッジで失敗し、d1 は式が 9 に変化した 6, 18, 38 の時点で失敗する（エッジではない）。 区別: 静的な checker の concurrent assertion を先頭のクロックイベントで 1 回だけ始める実装では concurrent=0 になる。deferred assertion をクロックエッジでだけ監視する実装では deferred=2（6 から 12 までの 9 はどのエッジにもかからないため）や 0 になり、式の変化で監視する実装だけが 3 になる。
 
 ### SV2023-17.3-EXTRACT-STATIC-PROCEDURAL
 
@@ -45922,7 +45926,7 @@ solve beforeは、コンマで区切った制約一次式の乱数変数リス�
 
 ### SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE
 
-`18.5.11` / `error` / テスト対応あり・実行未確認
+`18.5.11` / `error` / テスト未対応
 
 暗黙の関数‐引数順序からの循環依存は誤りである。
 
@@ -45930,7 +45934,6 @@ solve beforeは、コンマで区切った制約一次式の乱数変数リス�
 
 規定の性質: `mandatory`。
 
-- [test_illegal_constraint_function_cycle.sv](../tests/ch18/test_illegal_constraint_function_cycle.sv): c1 { x \<= f(y); } が y を x より先に、c2 { y \<= f(x); } が x を y より先に暗黙順序付けし、循環するためエラーになる。 区別: 関数引数の暗黙順序の循環を検出しない実装では設計が通る。
 
 ### SV2023-18.5.11-EXTRACT-PRIORITY-SPACE
 
@@ -49401,7 +49404,7 @@ ignore_binsは，ビンに値を配布した後，通常のビンからリスト
 規定の性質: `mandatory`。
 
 - [test_cg_illegal_value_error.sv](../tests/ch19/test_cg_illegal_value_error.sv): coverpoint bad の bin v={2,3} と illegal_bins b={3} で、3 を v から除いた後の bad が 1/1 になることを出力し、3 をサンプルして（46 行目の g.sample()）実行時エラーを起こす。エラーの形式や場所は規格が定めないため、stderr は error の語だけを照合する。
-- [test_cg_illegal_transition_error.sv](../tests/ch19/test_cg_illegal_transition_error.sv): coverpoint cp の t=(1=\>2) と illegal_bins b=(1=\>2) で、t を除いた cp が other だけの 1/1 になることを出力し、1 の次に 2 をサンプルして 46/47 行目の実行時エラーを起こす。
+- [test_cg_illegal_transition_error.sv](../tests/ch19/test_cg_illegal_transition_error.sv): coverpoint cp の t=(1=\>2) と illegal_bins b=(1=\>2) で、t を除いた cp が other だけの 1/1 になることを出力し、1 の次に 2 をサンプルして実行時エラーを起こす。エラーの形式は規格が定めないので、実行のメッセージに error があることだけを照合する。
 
 ### SV2023-19.5.6-EXTRACT-ILLEGAL-SEQUENCES
 
@@ -49897,7 +49900,7 @@ illegal_bins は選択した製品をカバーから除外し，マッチに対�
 
 規定の性質: `mandatory`。
 
-- [test_cg_illegal_cross_error.sv](../tests/ch19/test_cg_illegal_cross_error.sv): covergroup ex では ignore_bins が積 \<0,0\>、illegal_bins が積 \<0,1\> を選び、残る \<1,0\> と \<1,1\> だけをサンプルして 2/2 100.00 になる。covergroup cg では \<0,1\>（ignored）と \<1,0\>（自動）をエラーなくサンプルした後、\<1,1\>（both と ig と bad のすべてに含まれる）をサンプルして実行時エラーを起こす。 区別: 違法積を分母から除かない実装は ex が 2/2 100.00 にならず、違法積が他の bin や ignore に含まれる場合にエラーを出さない実装は 68 行目の診断を出さない。
+- [test_cg_illegal_cross_error.sv](../tests/ch19/test_cg_illegal_cross_error.sv): covergroup ex では ignore_bins が積 \<0,0\>、illegal_bins が積 \<0,1\> を選び、残る \<1,0\> と \<1,1\> だけをサンプルして 2/2 100.00 になる。covergroup cg では \<0,1\>（ignored）と \<1,0\>（自動）をエラーなくサンプルした後、\<1,1\>（both と ig と bad のすべてに含まれる）をサンプルして実行時エラーを起こす。 区別: 違法積を分母から除かない実装は ex が 2/2 100.00 にならず、違法積が他の bin や ignore に含まれる場合にエラーを出さない実装は \<1,1\> のサンプルで実行時エラーを出さない。エラーの形式は規格が定めないので、実行のメッセージに error があることだけを照合する。
 
 ### SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT
 
@@ -93215,7 +93218,7 @@ unpacked の範囲はネットを配列ネットにする。packedの範囲を�
 
 ### SV2023-37.16-EXTRACT-NET-BITS-EXPANSION
 
-`37.16` / `normal` / 実行確認あり
+`37.16` / `normal` / テスト対応あり・実行未確認
 
 bitネットbitハンドルはベクトル展開に関係なく利用可能である。
 
@@ -93227,7 +93230,7 @@ bitネットbitハンドルはベクトル展開に関係なく利用可能で�
 
 ### SV2023-37.16-EXTRACT-NET-CONSTANT-SELECT
 
-`37.16` / `normal` / 実行確認あり
+`37.16` / `normal` / テスト対応あり・実行未確認
 
 vpiConstantSelectは，親がない場合，あるいは各選択インデックスが精密定数であり，各選択要素が構造／ユニオンネットメンバまたは静的に境界付けられたpacked / unpacked配列メンバである場合に成り立つ。それ以外は 偽りだ
 
@@ -106159,7 +106162,7 @@ if-else は vpiQualifier を integer に 暴露し、条件限定詞を表しま
 
 規定の性質: `definition`。
 
-- [test_vpi_struct_and_tagged_patterns.sv](../tests/ch37/test_vpi_struct_and_tagged_patterns.sv): 構造体pに対するcase matchesの項目'{1, 2}は、vpiExprから、vpi_get(vpiType)がvpiStructPatternであるパターンを返します。パターングループのリレーションvpiPatternは、その2つのメンバーパターン1と2を列挙します。もう一方の項目'{3, 4}も同様に、メンバーが3と4であるvpiStructPatternを返します。アプリケーションは、両方の構造体パターンに対して同じ種類を出力し、2つのcase文内のパターンを4個と数えます。区別: 構造体パターンをパターングループに含めないツールでは、'{1, 2}を定数、式、または別のオブジェクトとしてモデル化します。そのため、構造体パターンの行の代わりに別のパターンが出力され、パターン数も4ではなくなります。
+- [test_vpi_struct_and_tagged_patterns.sv](../tests/ch37/test_vpi_struct_and_tagged_patterns.sv): 構造体pに対するcase matchesの項目'{1, 2}と'{3, 4}は、それぞれvpiExprから、vpi_get(vpiType)がvpiStructPatternであるパターンを返し、vpiPatternはそこからメンバーパターンに至ります。アプリケーションは、両方の構造体パターンに対して同じ種類を出力し、2つのcase文内のパターンを4個と数えます。区別: 構造体パターンをパターングループに含めないツールでは、'{1, 2}を定数、式、または別のオブジェクトとしてモデル化します。そのため、構造体パターンの行の代わりに別のパターンが出力され、パターン数も4ではなくなります。
 
 ### SV2023-37.72-EXTRACT-DIAGRAM-010
 
@@ -106230,7 +106233,7 @@ structパターンは vpiName を文字列として 表示し、パターン名�
 
 規定の性質: `definition`。
 
-- [test_vpi_struct_and_tagged_patterns.sv](../tests/ch37/test_vpi_struct_and_tagged_patterns.sv): タグ付き共用体uに対するcaseでは、項目tagged Wide .wがタグ付きパターンを返す。そのvpi_handle(vpiTypespec)は、intメンバーWideの型であるvpiType vpiIntTypespecを持つ。また、項目tagged Narrow .nが返すパターンのtypespecは、byteメンバーNarrowの型であるvpiType vpiByteTypespecを持つ。ユニオン宣言はメンバータイプをintとbyteにし、37.25detail1は内蔵型intとbyteに typespecタイプをvpiIntTypespecとvpiByteTypespecを与え、vpiNameは無効にします。ユニオンタイプスペック（vpiUnionTypespec）、他のメンバーのタイプ、またはタイプスペックがないと返すツールは、2行のうちの1行に対して別のタイプ名またはタイプがないと返します。
+- [test_vpi_struct_and_tagged_patterns.sv](../tests/ch37/test_vpi_struct_and_tagged_patterns.sv): タグ付きunion uに対するcaseでは、項目tagged Wide .wとtagged Narrow .nがそれぞれtagged patternを返します。そのvpi_handle(vpiTypespec)はtypespecを返し、'typespec 1'と表示されます。入れ子のany patternの名前はwとnです。図はどのtypespecかを示さないので、その型は照合しません。 区別: tagged patternからtypespecへの1対1のリレーションを持たないツールはNULLを返し、2行のどちらかに'typespec 0'を表示します。
 
 ### SV2023-37.72-EXTRACT-DIAGRAM-016
 
@@ -106242,7 +106245,7 @@ structパターンは vpiName を文字列として 表示し、パターン名�
 
 規定の性質: `definition`。
 
-- [test_vpi_struct_and_tagged_patterns.sv](../tests/ch37/test_vpi_struct_and_tagged_patterns.sv): pに対するcaseの構造体パターン'{1, 2}にvpi_iterate(vpiPattern, struct_pattern)を適用すると、ちょうど2つのメンバーパターンが得られ、その定数値は1と2と出力されます。構造体パターン'{3, 4}では、値が3と4である2つのメンバーパターンが得られます。各 struct パターンのメンバーリストは個数とともに表示されるため、1対多の多重度とメンバー値の両方が比較される。区別: struct パターン '{ 1 , 2 } にはメンバーパターンが2つあり、その定数は 1 と 2 である。メンバーパターンを返さないツールは、0 のメンバーパターンと空のリストを出力します。構造全体を一つの定数として返すもの あるいは他のアイテムのメンバーを 別の数値や他の値を出力して 行を変更するもの
+- [test_vpi_struct_and_tagged_patterns.sv](../tests/ch37/test_vpi_struct_and_tagged_patterns.sv): pに対するcaseのstruct pattern '{1, 2}と'{3, 4}は、それぞれvpiPatternでメンバーパターンに至ります。アプリケーションはそれをvpi_handleから取り、得られないときはvpi_iterateの最初のオブジェクトとして取り、'member pattern 1'を表示します。37.72の図はこのリレーションを一本の矢印で描き、節にはその説明がないので、テストはアクセスルーチンも、メンバーパターンの数も、その値も固定しません。 区別: どちらのルーチンでもvpiPatternからメンバーパターンが得られないツールは、'member pattern 0'を表示します。
 
 ### SV2023-37.73-EXTRACT-DIAGRAM-001
 
@@ -118543,7 +118546,7 @@ packed次 24次元は，明確化の対象となる，括弧付き一定範囲�
 
 規定の性質: `definition`。
 
-- [test_a2_5_dpi_open_array_packed_dimension.sv](../tests/ch35/test_a2_5_dpi_open_array_packed_dimension.sv)：入力logic \[ \]vを宣言し，その唯一の次元packedは無次元で，2つの実数はpacked次元\[ 7:0 \]と\[ 3:0 \] \[ 1:0 \]を持つ。各コールは8要素のオープン配列を返し、8'hA5は値 a5、8'h02は02として到着します。 区別: packed次元のサイズを変更しないツールは設計をコンパイルしません（両リリースともそこで止まります）、配列のサイズを変更したツールは別の数の要素を印刷します。
+- [test_a2_5_dpi_open_array_packed_dimension.sv](../tests/ch35/test_a2_5_dpi_open_array_packed_dimension.sv)：入力logic \[ \]vを宣言し，その唯一の次元packedは無次元で，2つの実数はpacked次元\[ 7:0 \]と\[ 3:0 \] \[ 1:0 \]を持つ。各呼出しは8ビットの一つのpacked値を渡します。次元0のsvSize、svLeft、svRightは8、7、0で、svGetArrayPtrがNULLでないときにそこから読んだ値は、渡した値です。 区別: サイズ指定のないpacked次元を受け付けないツールはデザインをコンパイルしません（両リリースともそこで止まります）。packed部分に別の範囲を与えるツールは、別のサイズか境界を表示します。
 
 ### SV2023-A.2.5-EXTRACT-QUEUE
 
@@ -119572,7 +119575,7 @@ bins/optionエントリはbinsキーワード、任意のサイズの括弧付�
 
 規定の性質: `definition`。
 
-- [test_covergroup_bins_and_range_forms.sv](../tests/ch19/test_covergroup_bins_and_range_forms.sv):cg_ign の coverpoint x に bins others = デフォルト;と default sequence の bins allother を置き、 1.. を指定します。8 の sample 後に ignore のカバレッジ 100.0 を出す。区別: = default の bins entry を受理しない実装はコンパイルできず、with 100.0 , ignore 100.0 , transitions 87.5 , tolerance 100.0 の行に到達しない。default bin を別の値集合に割り当てる実装でも ignore の bin 構成が変わり、この行の値が保てない。
+- [test_covergroup_bins_and_range_forms.sv](../tests/ch19/test_covergroup_bins_and_range_forms.sv):cg_ign の coverpoint x に bins others = デフォルト;と default sequence の bins allother を置き、 1.. を指定します。8 の sample 後に ignore のカバレッジ 100.0 を出す。区別: = default の bins entry を受理しない実装はコンパイルできず、with 100.0 , ignore 100.0 , transitions 85.7 , tolerance 100.0 の行に到達しない。default bin を別の値集合に割り当てる実装でも ignore の bin 構成が変わり、この行の値が保てない。
 
 ### SV2023-A.2.11-EXTRACT-BINS-DEFAULT-SEQUENCE
 
@@ -119584,7 +119587,7 @@ bins/optionエントリはbinsキーワードを許可します。identifier =�
 
 規定の性質: `definition`。
 
-- 次の例では、[test_covergroup_bins_and_range_forms.sv](../tests/ch19/test_covergroup_bins_and_range_forms.sv):cg_tr は bins を宣言します。allother =デフォルトの順序です。遷移 6 =\> 7 はどの明示的な遷移 bin にもマッチせず、保留中のものも残さないため、allother がカバーされ、グループは 87.5 を表示する。区別: デフォルトのシーケンス bin がなければ、カウントは 7 個の bin のうち 6 個となり、これを実装しないツールは別の数を表示する。
+- 次の例では、[test_covergroup_bins_and_range_forms.sv](../tests/ch19/test_covergroup_bins_and_range_forms.sv):cg_tr は bins を宣言します。allother =デフォルトの順序です。デザインはそれを含んでコンパイルでき、遷移カバレッジは他の7つのbinだけを数えます。そのうち6つがカバーされるので、グループは85.7を表示します（19.5はdefault binを計算から除きます）。 区別: default sequenceの形式を受け付けないツールはcg_trをコンパイルできません。default sequenceのbinをcoverpointのbinとして数えるツールは87.5を表示します。
 
 ### SV2023-A.2.11-EXTRACT-BINS-RANGE
 
@@ -119620,7 +119623,7 @@ bins/optionエントリは、オプションのワイルドカード、binsキ�
 
 規定の性質: `definition`。
 
-- [test_covergroup_bins_and_range_forms.sv](../tests/ch19/test_covergroup_bins_and_range_forms.sv)：cg_trは5つの名前付き遷移ビンと2つの括弧付き遷移集合からのオープン配列tarr\[ \]を宣言する。87.5 の遷移カバレッジの表示は、8つの bin のうち7つがカバーされた状態となる。区別: 複数の括弧付き集合を持つ遷移リスト、または open 配列形式を構文解析できないツールでは、bin の個数と表示されるカバレッジが変わる。
+- [test_covergroup_bins_and_range_forms.sv](../tests/ch19/test_covergroup_bins_and_range_forms.sv)：cg_trは5つの名前付き遷移ビンと2つの括弧付き遷移集合からのオープン配列tarr\[ \]を宣言する。85.7 の遷移カバレッジの表示は、7つの bin のうち6つがカバーされた状態となる。default sequence の bin は数えない。 区別: 複数の括弧付き集合を持つ遷移リスト、または open 配列形式を構文解析できないツールでは、bin の個数と表示されるカバレッジが変わる。
 
 ### SV2023-A.2.11-EXTRACT-BINS-WITH
 
@@ -119885,7 +119888,7 @@ identifier = select 表現を選択し， iff(表現) を選択する。
 
 規定の性質: `definition`。
 
-- [test_covergroup_bins_and_range_forms.sv](../tests/ch19/test_covergroup_bins_and_range_forms.sv): 遷移ビンは、連続繰り返し\[ * 2 \]と\[ * 1:2 \]、goto繰り返し\[ -\> 1 \]、および非連続繰り返し\[ = 1 \]を使います。t5 = (5 =\> 6 \[ * 1:2 \])は、5 =\> 6にマッチし、出力される87.5に寄与する。区別: 遷移後の反復範囲を解析できないツールはcg_trをコンパイルできず、その遷移のカバレッジが欠落する。
+- [test_covergroup_bins_and_range_forms.sv](../tests/ch19/test_covergroup_bins_and_range_forms.sv): 遷移ビンは、連続繰り返し\[ * 2 \]と\[ * 1:2 \]、goto繰り返し\[ -\> 1 \]、および非連続繰り返し\[ = 1 \]を使います。t5 = (5 =\> 6 \[ * 1:2 \])は、5 =\> 6にマッチし、出力される85.7に寄与する。区別: 遷移後の反復範囲を解析できないツールはcg_trをコンパイルできず、その遷移のカバレッジが欠落する。
 
 ### SV2023-A.2.11-EXTRACT-TRANSITIONS
 
@@ -119897,7 +119900,7 @@ identifier = select 表現を選択し， iff(表現) を選択する。
 
 規定の性質: `definition`。
 
-- [test_covergroup_bins_and_range_forms.sv](../tests/ch19/test_covergroup_bins_and_range_forms.sv): cg_trは、(1 =\> 2)からt1を、(2 =\> 3)、(3 =\> 4)からtarr \[ \]を宣言します。1 から 8 までのサンプルがこれらの遷移を起こし、グループは8つの bin のうち7つがカバーされた状態で 87.5 を表示する。区別: 括弧で囲んだ遷移集合を値のシーケンスとして扱わないツールでは、t1 または tarr がカバーされず、表示されるカバレッジは低くなる。
+- [test_covergroup_bins_and_range_forms.sv](../tests/ch19/test_covergroup_bins_and_range_forms.sv): cg_trは、(1 =\> 2)からt1を、(2 =\> 3)、(3 =\> 4)からtarr \[ \]を宣言します。1 から 8 までのサンプルがこれらの遷移を起こし、グループは7つの bin のうち6つがカバーされた状態で 85.7 を表示する。 区別: 括弧で囲んだ遷移集合を値のシーケンスとして扱わないツールでは、t1 または tarr がカバーされず、表示されるカバレッジは低くなる。
 
 ### SV2023-A.2.12-EXTRACT-LET-DECL
 
@@ -124378,7 +124381,7 @@ DPIの輸入申告書においては，packed次元のサイズがないもの�
 
 規定の性質: `mandatory`。
 
-- [test_a2_5_dpi_open_array_packed_dimension.sv](../tests/ch35/test_a2_5_dpi_open_array_packed_dimension.sv)：入力logic \[ \]vの無サイズ次元\[ \]はDPIの輸入申告のpacked次元のみであり，実数logic \[ 7:0 \]とlogic \[ 3:0 \] \[ 1:0 \]は論証のpacked次元をもたらす。両方のコールは 8 要素と印刷値 a5 と 02 を見ます。 区別: 別の場所でサイズが無い寸法を許可したり、実際の寸法の packed を一致させないツールは、別のサイズを印刷したり、デザインを拒否したりします。
+- [test_a2_5_dpi_open_array_packed_dimension.sv](../tests/ch35/test_a2_5_dpi_open_array_packed_dimension.sv)：入力logic \[ \]vの無サイズ次元\[ \]はDPIの輸入申告のpacked次元のみであり，実数logic \[ 7:0 \]とlogic \[ 3:0 \] \[ 1:0 \]は論証のpacked次元をもたらす。どちらの呼出しも、サイズ8、正規化した範囲7から0、そして'value ok'を表示します。 区別: サイズ指定のない次元を他の場所で許すツール、または実引数のpacked次元をそれに対応させないツールは、別のサイズを表示するかデザインを拒否します。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-25
 

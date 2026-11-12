@@ -186,6 +186,8 @@ See [scope and reproduction](../../docs/interaction-verification.en.md#clocking-
 
 [`dpi-array.json`](dpi-array.json) records independent checks of all 168 rows, the real C helper against a test ABI for all rows at two output initialization poisons, one passing control and five output-difference faults.
 The ABI stub uses separated elements and canaries; it does not verify simulator marshalling of dynamic arrays or queues.
+[`dpi-array-20261112.json`](dpi-array-20261112.json) is the same check after the expected `svIncrement` of a dynamic array or queue of one element was corrected to -1 on 2026-11-12 (20.7, H.12.2): all 168 rows, both initialization poisons, the control and the five faults.
+The [all-row record](dpi-array-all-rows-20261112.json) is one run of all 168 rows after the correction. Verilator 5.052 matches the 72 rows with a fixed-size actual and cannot build the other 96; kirimasim and Icarus Verilog 13.0 execute no row. It enters neither the fixed suite nor requirement coverage.
 [`dpi-array-build.json`](dpi-array-build.json) records the latest-upstream-verified kirimasim version, binary fingerprint and all 30 parse outcomes.
 The normal runner stops all 30 before execution for unsupported C loading; separate parsing accepts 24 and rejects 6 legal queue cases during type matching.
 Both fixed Verilator seeds pass 18 static-array cases; 12 dynamic-array/queue cases have known build failures.

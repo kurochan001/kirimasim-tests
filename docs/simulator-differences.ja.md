@@ -1164,6 +1164,22 @@ slangと、それを使うkirimasim・Lyraは、`#`のある形だけを受理�
 挙げないもの：7章のmap()を使った違法なデザイン2件は、Verilatorが生成したC++のコードのコンパイルで初めてエラーになり、テストの行を示すメッセージはありません。25章のnullの仮想インタフェースの致命的エラーは標準出力に出ます。
 どちらもエラーを報告しており、規格は報告する場所も形も定めていません。
 
+<a id="icarus-increment-dynamic-20261112"></a>
+
+## Icarus Verilog 13.0：1要素の動的配列・キューの`$increment`（2026-11-12）
+
+20.7は、キューと動的配列の次元の`$increment`を常に-1とします。`$left`と`$right`を比べる規則は、固定長の次元だけのものです。
+スイート外の確認用デザインで`int d[]`と`int q[$]`を宣言しました。1要素のとき、Icarus 13.0は`$increment(d)`と`$increment(q)`に0を出し、3要素のとき`$increment(d)`に2を出します。Verilator 5.052とkirimasim `7de185f776a1`は、どの場合も-1を出します。
+これは、4要素について[上](#hier-array-differences)に記録した差異と同じものです。`gen/ch20/test_gen_cross_arrayloop_dynamic_var_for_lowhigh`が、値3でこの差異を示します。SystemVerilogのコードで1要素の動的配列の`$increment`を問い合わせるテストは、スイートにありません。
+この確認は、モデル`dpi_openarray_shape`を直したときに行いました。1要素の動的配列・キューに対する`svIncrement`の期待値が1でしたが、H.12.2は20.7に従うので-1です。この種類の選択済み4件は、固定版のどのリリースでも実行できません。
+
+<a id="verilator-function-cycle-20261112"></a>
+
+## Verilator 5.052：関数引数による順序の循環をエラーにしない（2026-11-12）
+
+18.5.11は、変数の暗黙の順序による循環依存をエラーとします。`ch18/test_constraint_function_cycle_runtime_error`では、制約`x <= f(y)`が`y`を`x`より先に、制約`y <= f(x)`が`x`を`y`より先に順序付けます。
+Verilator 5.052は、2回目の`randomize()`の前の2行を表示し、エラーを報告しません。このテストは以前は不正な設計のテストで、このリリースはそれも受け入れていました。
+
 <a id="observations-20261112"></a>
 
 ## 2026-11-12の観察（リリースの差異ではないもの）

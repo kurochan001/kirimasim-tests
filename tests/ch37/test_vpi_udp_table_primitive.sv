@@ -20,6 +20,9 @@
 // vpiCombPrim for a combinational UDP (detail 2), and its table entries; only
 // the string (decompilation) and vector (ASCII) formats are available for a
 // table entry (detail 1), and the test reads the string form of each entry.
+// The clause does not say where the decompiled row has blanks, so the
+// application compares the rows without blanks and without a closing
+// semicolon; until 2026-11-12 it required the rows to have none.
 // The entries are sorted because their iteration order is not fixed, and the
 // terminals are printed by term index, whose order is fixed (37.35 detail 3).
 

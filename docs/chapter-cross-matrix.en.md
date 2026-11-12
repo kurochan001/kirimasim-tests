@@ -39,7 +39,7 @@ Where only some factor levels exercise a pair, `when` restricts the mapping. For
 ## Execution policy
 
 The 2026-11-08 mapping contains 110 models and 4,416 selected cases across 189 unordered off-diagonal pairs. The [complete kirimasim f029ddd0eee1 local run](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json) records 3,915 pass, 487 unsupported and 14 failures; 83 models passed their entire selection.
-On 2026-11-12 two models were revised so that they select no equal cases. The mapping now contains 110 models and 4,413 selected cases across the same 189 pairs. The [complete kirimasim 7de185f776a1 local run](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-edgedpiquery.json) records 3,915 pass, 484 unsupported and 14 failures; 83 models passed their entire selection.
+On 2026-11-12 two models were revised so that they select no equal cases. The mapping now contains 110 models and 4,413 selected cases across the same 189 pairs. The [complete kirimasim 7de185f776a1 local run](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-dpi-array.json), saved again the same day after one expected value of the model `dpi_openarray_shape` was corrected, records 3,915 pass, 484 unsupported and 14 failures; 83 models passed their entire selection.
 
 [Check on baseline 67321079](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584) passed pinned comparisons/static checks on the preceding 88-model suite.
 [Nightly on the same baseline](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265) and all its jobs succeeded; individual artifacts remain uninspected. Later additions are outside both runs.

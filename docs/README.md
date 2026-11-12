@@ -163,3 +163,4 @@ Code, identifiers, raw execution evidence and license terms retain their origina
 | Handoff 2026-11-10 | [English](claude-code-handoff-20261110.en.md) | [日本語](claude-code-handoff-20261110.md) |
 | Ghost triage of the 2026-11-11 run | [English](ghost-triage-20261111.en.md) | [日本語](ghost-triage-20261111.md) |
 | Review of the oracle tokens of illegal tests (2026-11-12) | [English](oracle-token-review-20261112.en.md) | [日本語](oracle-token-review-20261112.md) |
+| Review of the tests that no simulator passes (2026-11-12) | [English](pass-nowhere-review-20261112.en.md) | [日本語](pass-nowhere-review-20261112.md) |

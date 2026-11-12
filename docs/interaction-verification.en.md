@@ -25,6 +25,9 @@ The 120 additions passed the pinned comparisons in [Check on `a9c8a8eb`](https:/
 On 2026-11-12 the models [`edge_event_expression`](#event-expression-edge-classification-xz-transitions-and-update-timing) and [`sv_dpi_array_queries`](#sv-dpi-array-queries) were revised so that they select no equal cases. The totals are now **110 models / 4,413 cases / 189 chapter pairs**.
 The [single run](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-edgedpiquery.json) on kirimasim `7de185f776a1` records **3,915 pass / 484 unsupported / 14 fail**, with the same 14 failures. 83 models pass their entire selection.
 
+On 2026-11-12 one expected value of the model [`dpi_openarray_shape`](#dpi-open-array-shape-and-copyback) was corrected: `svIncrement` of a dynamic array or queue of one element is -1 (20.7, H.12.2). Four selected cases changed their expected output. The rows, the selection and the totals did not change.
+The [single run](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-dpi-array.json) of all 4,413 cases on kirimasim `7de185f776a1` after the correction records **3,915 pass / 484 unsupported / 14 fail**, with the same 14 failures.
+
 The 2026-11-08 delay-value, package-lookup and escaped-name additions bring totals to **107 models / 4,296 cases / 185 chapter pairs**.
 The [single run](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json) on kirimasim `28c6c1a1cb83` records
 **3,809 pass / 479 unsupported / eight fail**: the four existing config failures and the four where `defparam` gets the type and range wrong, as before.
@@ -1826,6 +1829,12 @@ initialization poisons. Separated element slots and canaries check element-wise 
 These auxiliary checks qualify the C helper and expectations, not simulator marshalling or copyback of dynamic arrays and queues.
 On fixed Verilator, one normal control passes and five faults—wrong bounds, reversed traversal, lost SV copyback, lost input sign and
 reusing the first call's phase—are detected by output differences, not build failures.
+
+On 2026-11-12 the expected value of `svIncrement` was corrected. 20.7 gives `$increment` the value -1 for every queue or dynamic array dimension, and H.12.2 gives the C queries the same semantics. The rule that compares the left and right bounds is for a fixed-size dimension.
+The model had applied that rule to a dynamic array or queue of one element and expected 1. The expected text changed for 32 of the 168 rows and for four of the 30 selected cases. The legal rows, the selection and the designs did not change, so the model stays version 1.
+The independent check has the same correction, and its ABI stub now knows whether the actual can change its size. The [new record](../coverage/interaction-qualification/dpi-array-20261112.json) again covers all 168 rows, the control and the five faults. The generator and the check were corrected from the same reading of 20.7, so their agreement does not confirm that reading.
+[Every legal row ran once](../coverage/interaction-qualification/dpi-array-all-rows-20261112.json). Verilator 5.052 matches the 72 rows with a fixed-size actual and cannot build the 96 rows with a dynamic array or queue. kirimasim does not load C code and Icarus Verilog 13.0 has no DPI. So none of the three executes a row whose expectation changed.
+The 30 selected cases ran again on [Icarus Verilog 13.0](../coverage/interaction-results/dpi-array-20261112-icarus13.json) (30 known) and on Verilator 5.052 with [seed 1](../coverage/interaction-results/dpi-array-20261112-verilator5052-seed1.json) and [seed 73](../coverage/interaction-results/dpi-array-20261112-verilator5052-seed73.json) (18 pass and 12 known each), as before. `generators/oracles.txt` did not change.
 
 ```sh
 python3 tools/qualify_dpi_array.py --verilator /path/to/verilator-5.052 \

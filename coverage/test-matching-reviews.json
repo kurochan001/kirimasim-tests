@@ -20003,7 +20003,7 @@
     },
     {
       "test": "tests/ch17/test_checker_assertion_placement.sv",
-      "inputs_sha256": "34c657d9995a7ad1ded65f1e49630033acdc9d88730ac8c6833a8acaa7fa17ae",
+      "inputs_sha256": "7dc4b444bfd7c4d5750c53cfab07708b99d72f61efcf169c3e94a9e1c9e40b1a",
       "reviewed_on": "2026-10-26",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -49798,7 +49798,7 @@
     },
     {
       "test": "tests/ch38/test_vpi_put_value_udp_array_errors.sv",
-      "inputs_sha256": "e0bd8cd0dd3a0b250ac3cb3c4e0915a146f519aeddd2e2add3787c543f963a42",
+      "inputs_sha256": "26eda33b25f69c50bf33876593389e9de1d8dafb16a3f2099a211b035d6cb073",
       "reviewed_on": "2026-10-26",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -49814,7 +49814,7 @@
           "evidence": [
             {
               "file": "tests/ch38/test_vpi_put_value_udp_array_errors.sv",
-              "contains": "    #1 $vt_udp_put;"
+              "contains": "    $vt_udp_put;"
             },
             {
               "file": "tests/ch38/test_vpi_put_value_udp_array_errors.c",
@@ -49826,7 +49826,7 @@
             },
             {
               "file": "tests/ch38/test_vpi_put_value_udp_array_errors.expected",
-              "contains": "6: q after the vpiNoDelay put: 0"
+              "contains": "17: q after the vpiNoDelay put: 0"
             }
           ]
         },
@@ -50964,7 +50964,7 @@
     },
     {
       "test": "tests/ch19/test_covergroup_bins_and_range_forms.sv",
-      "inputs_sha256": "2ca5faae44a5e1dcba6d31a71a1bad9789e3560e3794c50298ac9e81a41f3825",
+      "inputs_sha256": "4dac36c3fd19e7b774031710769c5cf2afce33d5736705fe83653f4df7606218",
       "reviewed_on": "2026-10-26",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -51985,7 +51985,7 @@
     },
     {
       "test": "tests/ch37/test_vpi_class_specialization_types.sv",
-      "inputs_sha256": "629fb2e40471d53fd118d774ccc520682a8302d4c970a1460f251e2c8cf92217",
+      "inputs_sha256": "9f38d4a7e5883160006f91fbbcd124239fabf4c64ebdad81e25fc33f85a3a9a0",
       "reviewed_on": "2026-10-26",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -56209,6 +56209,42 @@
             {
               "file": "tests/ch17/test_checker_instantiation_connection_forms.expected",
               "contains": "position: 7/1, attribute: 7/1, named: 7/1, implicit: 7/1, wildcard: 7/1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch18/test_constraint_function_cycle_runtime_error.sv",
+      "inputs_sha256": "30cf9778b9401bb16f027a6950383204a3d015398d665f962d24dfb8a531b3c8",
+      "reviewed_on": "2026-11-12",
+      "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The requirement is registered with kind=error, and the matching protocol accepts only an illegal-design test with :should_fail_because: for such a row. Since 2026-11-12 this is a run-time test: the implicit ordering exists only among the constraints that are active when randomize() is called (18.9), so a tool may report the cycle at run time, and with c2 switched off first the design is legal until the second call. The test still observes the requirement (randomize() succeeds with c1 alone and must give an error once c1 and c2 are both active), but the mapping cannot be registered while the row is classified as a rejected design. The kind of the row needs a review for errors that may be reported at run time.",
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch18/test_constraint_function_cycle_runtime_error.sv",
+              "contains": "  constraint c2 { y <= f(x); }   // x before y: a cycle when both are active"
+            },
+            {
+              "file": "tests/ch18/test_constraint_function_cycle_runtime_error.sv",
+              "contains": "    o.c2.constraint_mode(0);"
+            },
+            {
+              "file": "tests/ch18/test_constraint_function_cycle_runtime_error.sv",
+              "contains": ":expected_stderr_regex: (?i:\\berror\\b)"
+            },
+            {
+              "file": "tests/ch18/test_constraint_function_cycle_runtime_error.expected",
+              "contains": "calling randomize with c1 and c2"
             }
           ]
         }

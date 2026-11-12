@@ -19,6 +19,10 @@
 // range, its elements are nettype nets and vpiArrayMember is TRUE for each.
 // The additional type property is printed with its integer value and with the
 // constant name that vpi_get_str returns (37.3.2).
+// The application reads the index of a bit of w through the vpiIndex relation,
+// with vpi_handle or the first object of vpi_iterate (§37.16 detail 10), and
+// takes its integer value. Until 2026-11-12 it called vpi_get(vpiIndex, ...),
+// but vpiIndex is a relation and not an integer property (Annex K).
 
 `timescale 1ns/1ns
 

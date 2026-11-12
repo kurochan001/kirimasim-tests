@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
-  "registry_sha256": "109df3f8a0fdb90402e4284ad4e731999e89fee139b81fee53d98540ba5ddb0f",
+  "registry_sha256": "41038e9c0e5fd667824e083e8be655db623fcf46a1dabf1de9074c8cfe87d5de",
   "source_url": null,
   "source_audit": {
     "audited": 1740,
@@ -21,19 +21,19 @@
   "normative_sections": 1703,
   "audited_sections": 1703,
   "registered": 12298,
-  "mapped": 11086,
+  "mapped": 11085,
   "denominator_reviewed": true,
   "extraction_progress_percent": 100.0,
-  "unmapped": 1212,
-  "executed": 9542,
+  "unmapped": 1213,
+  "executed": 9540,
   "executed_reproducible": 6174,
-  "whole_standard_percent": 90.14473898194828,
-  "whole_standard_executed_percent": 77.58985200845666,
-  "registered_percent": 90.14473898194828,
+  "whole_standard_percent": 90.13660757846804,
+  "whole_standard_executed_percent": 77.57358920149618,
+  "registered_percent": 90.13660757846804,
   "metric_policy_version": 3,
   "whole_standard_status": "confirmed",
-  "provisional_design_percent": 90.14473898194828,
-  "provisional_execution_percent": 77.58985200845666,
+  "provisional_design_percent": 90.13660757846804,
+  "provisional_execution_percent": 77.57358920149618,
   "reproducible_simulators": [
     "icarus",
     "verilator",
@@ -50,14 +50,14 @@
   },
   "test_mapping": {
     "suite_test_files": 12262,
-    "linked_test_files": 5400,
-    "unlinked_test_files": 6862
+    "linked_test_files": 5399,
+    "unlinked_test_files": 6863
   },
   "collective_requirement_count": 671,
   "requirement_status_counts": {
-    "pass": 9542,
-    "mapped_without_pass": 1544,
-    "unmapped": 1212,
+    "pass": 9540,
+    "mapped_without_pass": 1545,
+    "unmapped": 1213,
     "interpretation_pending": 0
   },
   "chapters": [
@@ -269,10 +269,10 @@
       "clause": "18",
       "title": "Constrained random value generation",
       "registered": 320,
-      "mapped": 300,
+      "mapped": 299,
       "executed": 229,
       "executed_reproducible": 130,
-      "design_percent": 93.75,
+      "design_percent": 93.4375,
       "execution_percent": 71.5625,
       "execution_reproducible_percent": 40.625,
       "interpretation_pending": 0
@@ -498,10 +498,10 @@
       "title": "VPI object model diagrams",
       "registered": 1757,
       "mapped": 1656,
-      "executed": 1334,
+      "executed": 1332,
       "executed_reproducible": 72,
       "design_percent": 94.25156516789983,
-      "execution_percent": 75.9248719408082,
+      "execution_percent": 75.81104154809334,
       "execution_reproducible_percent": 4.097894137734775,
       "interpretation_pending": 0
     },
@@ -1065,8 +1065,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10796,
-          "unmapped": 1212,
+          "not_run": 10795,
+          "unmapped": 1213,
           "interpretation_pending": 0
         }
       },
@@ -4162,16 +4162,16 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 279,
+        "stale_links": 330,
         "status_counts": {
           "pass": 3085,
           "fail": 0,
-          "known": 7383,
+          "known": 7332,
           "unsupported": 0,
           "unreviewed_oracle": 180,
-          "stale": 148,
+          "stale": 198,
           "not_run": 290,
-          "unmapped": 1212,
+          "unmapped": 1213,
           "interpretation_pending": 0
         }
       },
@@ -7171,16 +7171,16 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 279,
+        "stale_links": 330,
         "status_counts": {
           "pass": 2989,
           "fail": 173,
           "known": 0,
-          "unsupported": 6324,
+          "unsupported": 6273,
           "unreviewed_oracle": 1164,
-          "stale": 146,
+          "stale": 196,
           "not_run": 290,
-          "unmapped": 1212,
+          "unmapped": 1213,
           "interpretation_pending": 0
         }
       },
@@ -11067,16 +11067,16 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 279,
+        "stale_links": 330,
         "status_counts": {
           "pass": 3876,
           "fail": 0,
-          "known": 6135,
+          "known": 6084,
           "unsupported": 0,
           "unreviewed_oracle": 616,
-          "stale": 169,
+          "stale": 219,
           "not_run": 290,
-          "unmapped": 1212,
+          "unmapped": 1213,
           "interpretation_pending": 0
         }
       },
@@ -14683,8 +14683,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 19,
-          "not_run": 7479,
-          "unmapped": 1212,
+          "not_run": 7478,
+          "unmapped": 1213,
           "interpretation_pending": 0
         }
       },
@@ -17973,8 +17973,6 @@
           "SV2023-37.16-EXTRACT-LOCAL-CONNECTIVITY",
           "SV2023-37.16-EXTRACT-NET-ARRAY-KINDS",
           "SV2023-37.16-EXTRACT-NET-ARRAY-MEMBERS",
-          "SV2023-37.16-EXTRACT-NET-BITS-EXPANSION",
-          "SV2023-37.16-EXTRACT-NET-CONSTANT-SELECT",
           "SV2023-37.16-EXTRACT-NET-ELEMENT-DIMENSION",
           "SV2023-37.16-EXTRACT-NET-ELEMENT-INDICES",
           "SV2023-37.16-EXTRACT-NET-NAME-PREFIX",
@@ -22610,16 +22608,16 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 413,
+        "stale_links": 464,
         "status_counts": {
-          "pass": 7915,
-          "fail": 1407,
+          "pass": 7913,
+          "fail": 1357,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 1171,
-          "stale": 256,
+          "stale": 307,
           "not_run": 337,
-          "unmapped": 1212,
+          "unmapped": 1213,
           "interpretation_pending": 0
         }
       },
@@ -25943,8 +25941,6 @@
           "SV2023-37.16-EXTRACT-LOCAL-CONNECTIVITY",
           "SV2023-37.16-EXTRACT-NET-ARRAY-KINDS",
           "SV2023-37.16-EXTRACT-NET-ARRAY-MEMBERS",
-          "SV2023-37.16-EXTRACT-NET-BITS-EXPANSION",
-          "SV2023-37.16-EXTRACT-NET-CONSTANT-SELECT",
           "SV2023-37.16-EXTRACT-NET-ELEMENT-DIMENSION",
           "SV2023-37.16-EXTRACT-NET-ELEMENT-INDICES",
           "SV2023-37.16-EXTRACT-NET-NAME-PREFIX",
@@ -30625,16 +30621,16 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 349,
+        "stale_links": 400,
         "status_counts": {
-          "pass": 7995,
-          "fail": 1387,
+          "pass": 7993,
+          "fail": 1337,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 1171,
-          "stale": 196,
+          "stale": 247,
           "not_run": 337,
-          "unmapped": 1212,
+          "unmapped": 1213,
           "interpretation_pending": 0
         }
       },
@@ -33904,8 +33900,6 @@
           "SV2023-37.16-EXTRACT-LOCAL-CONNECTIVITY",
           "SV2023-37.16-EXTRACT-NET-ARRAY-KINDS",
           "SV2023-37.16-EXTRACT-NET-ARRAY-MEMBERS",
-          "SV2023-37.16-EXTRACT-NET-BITS-EXPANSION",
-          "SV2023-37.16-EXTRACT-NET-CONSTANT-SELECT",
           "SV2023-37.16-EXTRACT-NET-ELEMENT-DIMENSION",
           "SV2023-37.16-EXTRACT-NET-ELEMENT-INDICES",
           "SV2023-37.16-EXTRACT-NET-NAME-PREFIX",
@@ -38543,16 +38537,16 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 413,
+        "stale_links": 464,
         "status_counts": {
-          "pass": 7898,
-          "fail": 1490,
+          "pass": 7896,
+          "fail": 1440,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 1105,
-          "stale": 256,
+          "stale": 307,
           "not_run": 337,
-          "unmapped": 1212,
+          "unmapped": 1213,
           "interpretation_pending": 0
         }
       },
@@ -38570,8 +38564,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 5,
           "stale": 0,
-          "not_run": 11078,
-          "unmapped": 1212,
+          "not_run": 11077,
+          "unmapped": 1213,
           "interpretation_pending": 0
         }
       },
@@ -38589,8 +38583,8 @@
           "unsupported": 1,
           "unreviewed_oracle": 7,
           "stale": 0,
-          "not_run": 11078,
-          "unmapped": 1212,
+          "not_run": 11077,
+          "unmapped": 1213,
           "interpretation_pending": 0
         }
       },
@@ -38611,8 +38605,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 4,
           "stale": 0,
-          "not_run": 11078,
-          "unmapped": 1212,
+          "not_run": 11077,
+          "unmapped": 1213,
           "interpretation_pending": 0
         }
       },
@@ -38633,8 +38627,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 4,
           "stale": 0,
-          "not_run": 11078,
-          "unmapped": 1212,
+          "not_run": 11077,
+          "unmapped": 1213,
           "interpretation_pending": 0
         }
       },
@@ -38664,8 +38658,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 147,
           "stale": 0,
-          "not_run": 10897,
-          "unmapped": 1212,
+          "not_run": 10896,
+          "unmapped": 1213,
           "interpretation_pending": 0
         }
       },
@@ -38688,8 +38682,8 @@
           "unsupported": 28,
           "unreviewed_oracle": 148,
           "stale": 0,
-          "not_run": 10897,
-          "unmapped": 1212,
+          "not_run": 10896,
+          "unmapped": 1213,
           "interpretation_pending": 0
         }
       },
@@ -38712,8 +38706,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 72,
           "stale": 0,
-          "not_run": 10897,
-          "unmapped": 1212,
+          "not_run": 10896,
+          "unmapped": 1213,
           "interpretation_pending": 0
         }
       },
@@ -38736,8 +38730,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 72,
           "stale": 0,
-          "not_run": 10897,
-          "unmapped": 1212,
+          "not_run": 10896,
+          "unmapped": 1213,
           "interpretation_pending": 0
         }
       },
@@ -38757,8 +38751,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 4,
           "stale": 0,
-          "not_run": 11078,
-          "unmapped": 1212,
+          "not_run": 11077,
+          "unmapped": 1213,
           "interpretation_pending": 0
         }
       },
@@ -38776,8 +38770,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 8,
           "stale": 0,
-          "not_run": 11078,
-          "unmapped": 1212,
+          "not_run": 11077,
+          "unmapped": 1213,
           "interpretation_pending": 0
         }
       },
@@ -38797,8 +38791,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 6,
           "stale": 0,
-          "not_run": 11078,
-          "unmapped": 1212,
+          "not_run": 11077,
+          "unmapped": 1213,
           "interpretation_pending": 0
         }
       },
@@ -38818,8 +38812,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 6,
           "stale": 0,
-          "not_run": 11078,
-          "unmapped": 1212,
+          "not_run": 11077,
+          "unmapped": 1213,
           "interpretation_pending": 0
         }
       },
@@ -38911,8 +38905,84 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 1,
-          "not_run": 11012,
-          "unmapped": 1212,
+          "not_run": 11011,
+          "unmapped": 1213,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "test-fixes-20261112-icarus13.json",
+        "simulator": "icarus",
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+        "generated_at": "2026-11-11T23:50:40.175858+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 51,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11034,
+          "unmapped": 1213,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "test-fixes-20261112-kirimasim-7de185f7.json",
+        "simulator": "kirimasim",
+        "version": "kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401",
+        "generated_at": "2026-11-11T23:50:40.334300+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 51,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11034,
+          "unmapped": 1213,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "test-fixes-20261112-verilator5.052-seed1.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+        "generated_at": "2026-11-11T23:50:41.819877+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 51,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11034,
+          "unmapped": 1213,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "test-fixes-20261112-verilator5.052-seed73.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+        "generated_at": "2026-11-11T23:50:43.072508+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 51,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11034,
+          "unmapped": 1213,
           "interpretation_pending": 0
         }
       }

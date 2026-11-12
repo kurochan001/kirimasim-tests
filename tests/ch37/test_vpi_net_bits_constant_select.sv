@@ -22,6 +22,11 @@
 // sides of the continuous assignments (37.47) are the select expressions
 // snet.lo[1] (a struct member and a constant bit index), mda[0][1] (two
 // constant packed indices) and mda[i][0] (a variable index).
+// The application reads the index of each net bit through the vpiIndex
+// relation, with vpi_handle or the first object of vpi_iterate (§37.16 detail
+// 10), and takes its integer value. Until 2026-11-12 it called
+// vpi_get(vpiIndex, ...), but vpiIndex is a relation and not an integer
+// property (Annex K).
 
 `timescale 1ns/1ns
 

@@ -26,7 +26,9 @@ static PLI_INT32 udp_put_calltf(PLI_BYTE8 *user_data)
     return 0;
 }
 
-/* A delay mode other than vpiNoDelay on the UDP instance. */
+/* A delay mode other than vpiNoDelay on the UDP instance. It writes the value
+   the UDP already has, so the result does not depend on whether a put that
+   is an error has an effect. */
 static PLI_INT32 udp_error_calltf(PLI_BYTE8 *user_data)
 {
     vpiHandle udp = by_name(TOP ".g");
@@ -35,7 +37,7 @@ static PLI_INT32 udp_error_calltf(PLI_BYTE8 *user_data)
 
     (void)user_data;
     val.format = vpiScalarVal;
-    val.value.scalar = vpi1;
+    val.value.scalar = vpi0;
     at.type = vpiSimTime;
     at.high = 0;
     at.low = 3;

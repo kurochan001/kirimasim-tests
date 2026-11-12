@@ -19,9 +19,12 @@
 // top-level ancestor is instantiated in procedural code. A concurrent
 // assertion written in a checker procedure is a procedural concurrent
 // assertion (16.14.6): it is queued when the procedure reaches it and matures
-// in the Observed region of that time step. d is 0, 9, 9, 4 and 9 at the
+// in the Observed region of that time step. d is 0, 4, 9, 4 and 9 at the
 // rising clocks at 5, 15, 25, 35 and 45 and changes to 9 at 6, 18 and 38; bad
 // is 1, 0, 1, 0 and 1 at those clocks; en is 1 only at the clock at 25.
+// The static concurrent assertion c1 samples d at each clock (§16.5.1), so it
+// fails at 25 and 45, twice. Corrected on 2026-11-12: the expected count was
+// 3, which took d as 9 at the clock at 15, but d is 4 from 12 to 18.
 // §16.4.1: the action block of a deferred assertion is a single subroutine
 // call, so d1 counts its failure in the void function bump_def.
 

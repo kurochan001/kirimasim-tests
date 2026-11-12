@@ -5,23 +5,24 @@
 extern "C" {
 #endif
 
-static void print_value(const svOpenArrayHandle h)
+/* The formal logic [] has no unpacked dimension: dimension 0 is its packed
+ * part with the normalized range (H.7.6, H.12.2). svGetArrayPtr gives the
+ * whole array, here one packed value in canonical form (H.7.7), or NULL when
+ * the array is not in the C layout (H.12.4); NULL is accepted. */
+static void print_value(const svOpenArrayHandle h, int want)
 {
-    const svLogic *e;
-    unsigned value = 0;
-    int i, n = svSizeOfArray(h);
+    const svLogicVecVal *p = (const svLogicVecVal *)svGetArrayPtr(h);
+    int ok = p == NULL || ((p[0].aval & 0xffu) == (unsigned)want
+                           && (p[0].bval & 0xffu) == 0);
 
-    for (i = 0; i < n; i++) {
-        e = (const svLogic *)svGetArrElemPtr1(h, i);
-        if (e != NULL && (*e & 1)) value |= 1u << i;
-    }
-    printf("size %d value %02x\n", n, value);
+    printf("size %d left %d right %d value %s\n", svSize(h, 0), svLeft(h, 0),
+           svRight(h, 0), ok ? "ok" : "differs");
     fflush(stdout);
 }
 
-void c_packed(const svOpenArrayHandle v)
+void c_packed(const svOpenArrayHandle v, int want)
 {
-    print_value(v);
+    print_value(v, want);
 }
 
 #ifdef __cplusplus

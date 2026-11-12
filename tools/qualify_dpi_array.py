@@ -34,12 +34,15 @@ DRIVER = r'''
 #include <stdio.h>
 #include <stdlib.h>
 #include "svdpi.h"
-struct array { int left, right, slots[12]; };
+struct array { int left, right, dynamic, slots[12]; };
 int svLeft(const svOpenArrayHandle h, int d) { assert(d == 1); return ((struct array *)h)->left; }
 int svRight(const svOpenArrayHandle h, int d) { assert(d == 1); return ((struct array *)h)->right; }
 int svLow(const svOpenArrayHandle h, int d) { int l=svLeft(h,d),r=svRight(h,d); return l<r?l:r; }
 int svHigh(const svOpenArrayHandle h, int d) { int l=svLeft(h,d),r=svRight(h,d); return l>r?l:r; }
-int svIncrement(const svOpenArrayHandle h, int d) { return svLeft(h,d)>=svRight(h,d)?1:-1; }
+/* 20.7: -1 for a dynamic array or queue dimension, whatever its size. */
+int svIncrement(const svOpenArrayHandle h, int d) {
+    return ((struct array *)h)->dynamic || svLeft(h,d)<svRight(h,d) ? -1 : 1;
+}
 int svSize(const svOpenArrayHandle h, int d) { return svHigh(h,d)-svLow(h,d)+1; }
 int svDimensions(const svOpenArrayHandle h) { (void)h; return 1; }
 void *svGetArrElemPtr1(const svOpenArrayHandle h, int i) {
@@ -51,10 +54,10 @@ int cross_dpi_array_output(const svOpenArrayHandle,int,int);
 int cross_dpi_array_inout(const svOpenArrayHandle,int,int);
 int main(int argc, char **argv) {
     const int words[2][5]={{11,18,25,32,39},{24,31,38,45,52}};
-    int l,r,reverse,phase,direction,mixed, poison=argc>1?atoi(argv[1]):123456;
-    while (scanf("%d %d %d %d %d %d",&l,&r,&reverse,&phase,&direction,&mixed)==6) {
+    int l,r,reverse,phase,direction,mixed,dynamic, poison=argc>1?atoi(argv[1]):123456;
+    while (scanf("%d %d %d %d %d %d %d",&l,&r,&reverse,&phase,&direction,&mixed,&dynamic)==7) {
         struct array a; int k,n,lo,step,i,result,values[5];
-        a.left=l; a.right=r; n=svSize(&a,1); lo=svLow(&a,1); step=l<=r?1:-1;
+        a.left=l; a.right=r; a.dynamic=dynamic; n=svSize(&a,1); lo=svLow(&a,1); step=l<=r?1:-1;
         assert(n>=1 && n<=5 && phase>=0 && phase<=1);
         for(k=0;k<12;k++) a.slots[k]=7654321;
         for(k=0;k<n;k++) {
@@ -95,11 +98,14 @@ def independent(row):
         output += [f'call phase={phase} size={n}']
         output += [f'before[{i}]={values[i]}' for i in indices]
         l, r, lo, hi = indices[0], indices[-1], numerical[0], numerical[-1]
+        # IEEE 1800-2023 20.7 (H.12.2 uses the same semantics): a queue or
+        # dynamic array dimension has the increment -1 at every size.
+        resizable = actual in ('dynamic', 'queue')
         output += [f'c phase={phase} dims=1 left={l} right={r} low={lo} high={hi} '
-                   f'inc={-1 if l<r else 1} size={n}']
+                   f'inc={-1 if resizable or l<r else 1} size={n}']
         request = f'{l} {r} {int(walk=="descending")} {phase} '
         requests += [request + f'{("input", "output", "inout").index(direction)} '
-                     f'{int(pattern=="mixed")}']
+                     f'{int(pattern=="mixed")} {int(resizable)}']
         ordered = numerical[::(-1 if walk == 'descending' else 1)]
         checksum = 0
         for ordinal, i in enumerate(ordered, 1):

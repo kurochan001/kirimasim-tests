@@ -1,0 +1,59 @@
+{
+  "model": "dpi_openarray_shape",
+  "version": 1,
+  "generated_at": "2026-11-11T23:49:17.378761+00:00",
+  "independent_rows": 168,
+  "c_stub_rows_per_poison": 168,
+  "output_poison_values": [
+    123456,
+    -987654
+  ],
+  "c_stub_scope": "Test-owned ABI with separated element slots and canaries; not simulator DPI marshalling.",
+  "fault_injection": {
+    "control": "pass",
+    "wrong_bounds": "detected",
+    "reversed_element_walk": "detected",
+    "lost_sv_copyback": "detected",
+    "lost_input_sign": "detected",
+    "stale_call_phase": "detected"
+  },
+  "compiler": "Apple clang version 21.0.0 (clang-2100.4.1.1)",
+  "simulator": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+  "sources_sha256": {
+    "generators/interaction_dpi_array.py": "ccfe56aaea511db7604f9670ac85a0ab8e158f119cabc41310fe380d6f2a0c55",
+    "tests/ch35/cross_dpi_array.c": "143e3451a230c55f41bcbddd7b43d84b88f34b9bae166b2ba48215d549033d93",
+    "tools/qualify_dpi_array.py": "3ed91170f00139c269cd70996d3a5da147af921287158b76f4bd6f179fc3fa15"
+  },
+  "inputs_sha256": {
+    "tests/gen/ch35/test_gen_cross_dpi_array_ascending_output_1_mixed_descending_stable.sv": "0b6c109d250dd107c02d5b3490bc7e7df94e59c4aae0b0bb67f4fc473bafaaf8",
+    "tests/gen/ch35/test_gen_cross_dpi_array_descending_inout_5_mixed_ascending_stable.sv": "8dc1dd775853b83d35c0649923c418e6c5785ca5b3ba5f49b621119e5a8441e1",
+    "tests/gen/ch35/test_gen_cross_dpi_array_dynamic_inout_1_mixed_descending_resize.sv": "49f4dbfe3bd36f864d54e8c211fbd413e1fd4a68f4bfbc02ffa6321d076193e6",
+    "tests/gen/ch35/test_gen_cross_dpi_array_queue_input_5_positive_ascending_resize.sv": "5d163b3566f15a8caf5c35c91ac8fb6e87a4dcef32df1235895d3383b3677f9b",
+    "tests/gen/ch35/test_gen_cross_dpi_array_descending_input_3_positive_descending_stable.sv": "45d820e3535c72fc408041a26404f8cef76963ea42f3b5eaaefcd66ba9e6e93f",
+    "tests/gen/ch35/test_gen_cross_dpi_array_ascending_output_3_positive_ascending_stable.sv": "45552c8a0a5d95bcc2d0d5ccb11999b83995a19b0f38e01cbe1326e06fc3c8f7",
+    "tests/gen/ch35/test_gen_cross_dpi_array_dynamic_input_1_positive_ascending_stable.sv": "4b623f3402080868b05f22b8671670d54bbd0b77193764df67c3e04eee811d7e",
+    "tests/gen/ch35/test_gen_cross_dpi_array_queue_input_3_mixed_descending_stable.sv": "1333350340beb879d34d83b16ce73a12f0bf762546c7ab87899bd4ef6fd95f2b",
+    "tests/gen/ch35/test_gen_cross_dpi_array_dynamic_inout_3_positive_ascending_resize.sv": "8841a150eac0794072e5cade97d6f0de9387cd2940870f215f11cf64524f2a9f",
+    "tests/gen/ch35/test_gen_cross_dpi_array_ascending_output_5_positive_descending_stable.sv": "d36dbfb64f14fb70acec16b808d2c93dec396b9a8c6bf12db672daecf7e84dbb",
+    "tests/gen/ch35/test_gen_cross_dpi_array_queue_inout_1_positive_descending_resize.sv": "0f4119e83a7fdeb04e66bd35337e36de35aac99466c2d6b08cf281c85310f163",
+    "tests/gen/ch35/test_gen_cross_dpi_array_descending_output_1_mixed_ascending_stable.sv": "52194c04e4831b4eb00647c3b48dd145aa76de631a27e4ef93db5e5bb7103e0c",
+    "tests/gen/ch35/test_gen_cross_dpi_array_dynamic_input_5_positive_descending_stable.sv": "29853c38b06b688e3c8fc79320a7ca56aa8953b289e13a0cbc1d6ee43f968d17",
+    "tests/gen/ch35/test_gen_cross_dpi_array_queue_input_1_mixed_ascending_stable.sv": "218e8f73c012d723b9275aa32d63e6797b79a3290be3d6bb0ea91e3784d69367",
+    "tests/gen/ch35/test_gen_cross_dpi_array_ascending_input_1_positive_ascending_stable.sv": "f578900c9a7454d711ab48b329b0b4c2d253c59bd7fdb365e448a18de5727a5d",
+    "tests/gen/ch35/test_gen_cross_dpi_array_ascending_inout_1_positive_ascending_stable.sv": "13434c39bfa99b436a739182f6e244324c0c4832766b0b9b4c46520cc26b7025",
+    "tests/gen/ch35/test_gen_cross_dpi_array_dynamic_input_3_positive_ascending_stable.sv": "c6568f63276930f6ba0b2c5c6b4855949fb8fb3aa038e9e1cde83a1e3a2a458b",
+    "tests/gen/ch35/test_gen_cross_dpi_array_dynamic_inout_5_positive_ascending_resize.sv": "c701f88eb3c53f094ce4fb95126d1229b757099c82b98f525f09599f618c9c54",
+    "tests/gen/ch35/test_gen_cross_dpi_array_queue_inout_3_positive_ascending_resize.sv": "72194c326935ba6326527ed9979c7369f44aaa5a965ee45d8f896073fbab6023",
+    "tests/gen/ch35/test_gen_cross_dpi_array_queue_inout_5_positive_ascending_stable.sv": "d984050a77d6b63246d4eeee49f39284141f3aea3680d21755733f1bb14cbccf",
+    "tests/gen/ch35/test_gen_cross_dpi_array_ascending_input_3_positive_ascending_stable.sv": "baf757974b6444f1b3a1ff0b8b7990b5e168ce3c35168efa7cc4e32ad6e5a88c",
+    "tests/gen/ch35/test_gen_cross_dpi_array_ascending_input_5_positive_ascending_stable.sv": "d623bfe673cf7019ac0b6fbade2b20098c2e1c969efd0ad1c77c70554233daa2",
+    "tests/gen/ch35/test_gen_cross_dpi_array_ascending_inout_3_positive_ascending_stable.sv": "e147ffc025b5a78244507f3cdf90385e692e242e533e8a2451cb35cdc1a41d5b",
+    "tests/gen/ch35/test_gen_cross_dpi_array_ascending_inout_5_positive_ascending_stable.sv": "cb2ce379402e1ab144058b5532f4d3ed499564a1463cba726f2b366a771f2032",
+    "tests/gen/ch35/test_gen_cross_dpi_array_descending_input_1_positive_ascending_stable.sv": "21f400dea3d82b1bbf23360c0f7b820d753bfc0272d8fc0925b3773172694888",
+    "tests/gen/ch35/test_gen_cross_dpi_array_descending_input_5_positive_ascending_stable.sv": "1b70f64d31800ea3081fc0ba84ba6f412bfdea121e49e486c45c10b11d1ce139",
+    "tests/gen/ch35/test_gen_cross_dpi_array_descending_output_3_positive_ascending_stable.sv": "586557d7280386c61c15a9fe9b5def7533012b3601fdc9fb6de1413e71c41173",
+    "tests/gen/ch35/test_gen_cross_dpi_array_descending_output_5_positive_ascending_stable.sv": "4eb8072de25115b71967d610a47a5fd06be96556fc68ae546c35aefcf62872ba",
+    "tests/gen/ch35/test_gen_cross_dpi_array_descending_inout_1_positive_ascending_stable.sv": "f2afb750aed1e02f61278625003b34b2a72157df49c58057541797c419cd8186",
+    "tests/gen/ch35/test_gen_cross_dpi_array_descending_inout_3_positive_ascending_stable.sv": "f85128fbb15aba2f7642698996d40b4a8b0b723cd9ebd6857601e3efa7569c1a"
+  }
+}

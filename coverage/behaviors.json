@@ -163339,7 +163339,7 @@
           "observation": "b[*0:1] admits an empty match at every tick but se.triggered is true only at 25, where b is 1, and se2.matched only at 25 after the one nonempty source match at cb's tick 20; the empty source matches at 10 and 30 add no destination tick. 区別: A tool that let an empty match activate a method would record triggered at 5, 15 and 35 and matched at 15 and 35 as well.",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "fb22110f40c2eb79a9954654f365e0f58e3f09a367c81ca37d284a7c56f95eb6",
+          "inputs_sha256": "f85770166d7033d036e55be6ba7992c2a4b26df8847378fca9614ffe24463c96",
           "evidence": [
             {
               "file": "tests/ch16/test_sequence_method_empty_matches.sv",
@@ -163793,10 +163793,10 @@
       "checks": [
         {
           "test": "tests/ch16/test_ch16_sim_multiclock_init.sv",
-          "observation": "シミュレーションで16.13.7-EXTRACT-MULTICLOCK-INITを観測する。The attempt of p starts at the sclk tick at 30, which is not a c1 tick; p has the single semantic leading clock c1, so v = e is evaluated at the c1 tick at 75, where e is 1, and the attempt passes there. A tool that initialized v at the attempt start would tak 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'known'}",
-          "reviewed_on": "2026-10-28",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "a3d06884387170d905797cac0ce36edfa5e4b1557f34e476af93a29160015ca5",
+          "observation": "The antecedent go matches at the sclk tick at 10, and the multiclocked |=> starts p at the nearest later c1 tick, 25 (16.13.2). p has the single semantic leading clock c1, so v = e is evaluated at 25, where e has been 1 since 20, and the attempt passes there. $assertvacuousoff keeps the vacuous successes at the later sclk ticks from printing (20.11). 区別: A tool that initialized v when the antecedent matched would take e at 10, where it is 0, and print 'fail at 25' instead of 'pass at 25'.",
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "inputs_sha256": "820088a0c042c6d30d8f1d83f6f91d4d097448081820515cf9371cd36c38a569",
           "evidence": [
             {
               "file": "tests/ch16/test_ch16_sim_multiclock_init.sv",
@@ -163804,7 +163804,7 @@
             },
             {
               "file": "tests/ch16/test_ch16_sim_multiclock_init.expected",
-              "contains": "pass at 75"
+              "contains": "pass at 25"
             }
           ]
         }
@@ -168891,7 +168891,7 @@
           "observation": "シミュレーションで16.16.1-EXTRACT-PROP-INHERITED-EVENTUALLYを観測する。s_eventually[0:2] a under the explicit clock c has the leading clock set {inherited}, so its range is counted in c ticks. The first attempt covers 10, 30 and 50; a is true only at 50, so it passes at 50, which counting two time units could not do. The second a 区別: 要求の条件を刺激し、規格から導いた期待値と比較する。実行結果: {'icarus': 'known', 'verilator': 'known'}",
           "reviewed_on": "2026-10-28",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "c58f2887c66a59ea750da7036feacf70d805675ef5e194c510fd7af15cfbea4e",
+          "inputs_sha256": "ab46d20dd6db6dd70df1275b363372cc7e5de45f96226ce19bb766811b1024db",
           "evidence": [
             {
               "file": "tests/ch16/test_ch16_sim_prop_inherited_eventually.sv",
@@ -170630,10 +170630,10 @@
       "checks": [
         {
           "test": "tests/ch17/test_checker_assertion_placement.sv",
-          "observation": "checker proc_assert の always_ff 手続きの中で、if (en) の下に concurrent assertion p1 を書く。16.14.6 の procedural concurrent assertion として、手続きがその文に到達したときだけ queue に入り、その時刻の Observed 領域で評価される。 区別: 手続き内の concurrent assertion を静的な assertion として常時監視する実装では、d=9 のエッジ 15, 25, 45 すべてで失敗し internal=3 になる。到着時だけ queue に入れる実装では en=1 の 25 だけが失敗し internal=1 になる。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "34c657d9995a7ad1ded65f1e49630033acdc9d88730ac8c6833a8acaa7fa17ae",
+          "observation": "checker proc_assert の always_ff 手続きの中で、if (en) の下に concurrent assertion p1 を書く。16.14.6 の procedural concurrent assertion として、手続きがその文に到達したときだけ queue に入り、その時刻の Observed 領域で評価される。 区別: 手続き内の concurrent assertion を静的な assertion として常時監視する実装では、d=9 のエッジ 25, 45 の両方で失敗し internal=2 になる。到着時だけ queue に入れる実装では en=1 の 25 だけが失敗し internal=1 になる。",
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "inputs_sha256": "7dc4b444bfd7c4d5750c53cfab07708b99d72f61efcf169c3e94a9e1c9e40b1a",
           "evidence": [
             {
               "file": "tests/ch17/test_checker_assertion_placement.sv",
@@ -170673,7 +170673,7 @@
           "observation": "outer_chk が inner_chk を静的に実体化し、inner_chk は静的な concurrent assertion i1 を持つ。outer_chk を静的に実体化した u_outer_static と、always 手続きの中で実体化した u_outer_proc を比べる。入れ子の static assertion は親の文脈で扱われ、最上位の実体が手続きで訪問されると procedural になる。 区別: 入れ子の static assertion を常に静的に扱う実装では n_proc が n_static と同じ 3 になる。親の実体化に従う実装では、procedural な親が訪問された 25 のエッジだけを数え n_proc=1 になる。bad は 5, 25, 45 のエッジで 1 なので、n_static=3 との差が入れ子の扱いを示す。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "34c657d9995a7ad1ded65f1e49630033acdc9d88730ac8c6833a8acaa7fa17ae",
+          "inputs_sha256": "7dc4b444bfd7c4d5750c53cfab07708b99d72f61efcf169c3e94a9e1c9e40b1a",
           "evidence": [
             {
               "file": "tests/ch17/test_checker_assertion_placement.sv",
@@ -170902,10 +170902,10 @@
       "checks": [
         {
           "test": "tests/ch17/test_checker_assertion_placement.sv",
-          "observation": "静的に実体化した checker static_asserts が concurrent assertion c1 と deferred assertion d1 を持つ。c1 は 15, 25, 45 のエッジで d=9 のため失敗し、d1 は式が変化した 6, 18, 38 の時点で失敗する（エッジではない）。 区別: 静的な checker の concurrent assertion を先頭のクロックイベントで 1 回だけ始める実装では concurrent=1 になる。deferred assertion をクロックエッジでだけ監視する実装では deferred=2（6, 18, 38 のうち 38 の後はエッジがないため）や 0 になり、式の変化で監視する実装だけが 3 になる。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "34c657d9995a7ad1ded65f1e49630033acdc9d88730ac8c6833a8acaa7fa17ae",
+          "observation": "静的に実体化した checker static_asserts が concurrent assertion c1 と deferred assertion d1 を持つ。d はエッジ 5, 15, 25, 35, 45 で 0, 4, 9, 4, 9 とサンプルされるので、c1 は 25 と 45 のエッジで失敗し、d1 は式が 9 に変化した 6, 18, 38 の時点で失敗する（エッジではない）。 区別: 静的な checker の concurrent assertion を先頭のクロックイベントで 1 回だけ始める実装では concurrent=0 になる。deferred assertion をクロックエッジでだけ監視する実装では deferred=2（6 から 12 までの 9 はどのエッジにもかからないため）や 0 になり、式の変化で監視する実装だけが 3 になる。",
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "inputs_sha256": "7dc4b444bfd7c4d5750c53cfab07708b99d72f61efcf169c3e94a9e1c9e40b1a",
           "evidence": [
             {
               "file": "tests/ch17/test_checker_assertion_placement.sv",
@@ -170921,7 +170921,7 @@
             },
             {
               "file": "tests/ch17/test_checker_assertion_placement.expected",
-              "contains": "static: concurrent=3 deferred=3"
+              "contains": "static: concurrent=2 deferred=3"
             }
           ]
         }
@@ -177998,29 +177998,7 @@
       "acceptance": "Circular dependencies from implicit function-argument ordering are errors.",
       "source_note": "IEEE 1800-2023 18.5.11; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [
-        {
-          "test": "tests/ch18/test_illegal_constraint_function_cycle.sv",
-          "observation": "c1 { x <= f(y); } が y を x より先に、c2 { y <= f(x); } が x を y より先に暗黙順序付けし、循環するためエラーになる。 区別: 関数引数の暗黙順序の循環を検出しない実装では設計が通る。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "e62e0a9672fda6cc13981548bf9ab129535b08b4d50ea6e02f9ac18e02b4d24e",
-          "evidence": [
-            {
-              "file": "tests/ch18/test_illegal_constraint_function_cycle.sv",
-              "contains": "  constraint c1 { x <= f(y); }   // illegal: y before x"
-            },
-            {
-              "file": "tests/ch18/test_illegal_constraint_function_cycle.sv",
-              "contains": "  constraint c2 { y <= f(x); }   // illegal: x before y, a cycle"
-            },
-            {
-              "file": "tests/ch18/test_illegal_constraint_function_cycle.sv",
-              "contains": ":expected_stderr_regex: test_illegal_constraint_function_cycle\\.sv:(25|26):"
-            }
-          ]
-        }
-      ],
+      "checks": [],
       "source_spans": [
         {
           "section": "18.5.11",
@@ -190043,10 +190021,10 @@
         },
         {
           "test": "tests/ch19/test_cg_illegal_transition_error.sv",
-          "observation": "coverpoint cp の t=(1=>2) と illegal_bins b=(1=>2) で、t を除いた cp が other だけの 1/1 になることを出力し、1 の次に 2 をサンプルして 46/47 行目の実行時エラーを起こす。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b8df9ae171f1b1f1021838912a846004acc8a6122fe88bc365fc840f0e881cff",
+          "observation": "coverpoint cp の t=(1=>2) と illegal_bins b=(1=>2) で、t を除いた cp が other だけの 1/1 になることを出力し、1 の次に 2 をサンプルして実行時エラーを起こす。エラーの形式は規格が定めないので、実行のメッセージに error があることだけを照合する。",
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "inputs_sha256": "9f23fef9910ea0c5e50904fa976afa4e01f36bc9e4f2264415d8451db5dbc623",
           "evidence": [
             {
               "file": "tests/ch19/test_cg_illegal_transition_error.sv",
@@ -190058,7 +190036,7 @@
             },
             {
               "file": "tests/ch19/test_cg_illegal_transition_error.sv",
-              "contains": ":expected_stderr_regex: test_cg_illegal_transition_error\\.sv:(46|47):"
+              "contains": ":expected_stderr_regex: (?i:\\berror\\b)"
             }
           ]
         }
@@ -190078,9 +190056,9 @@
             "tests/ch19/test_cg_illegal_value_error.sv",
             "tests/ch19/test_cg_illegal_transition_error.sv"
           ],
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "observation": "19.5.6 の illegal value と illegal transition の両方について、他の bin に含まれる値/遷移を観測したときの実行時エラーと優先を、2 本の負入力で示す。 区別: 違法値の優先を実装しない tool は 44 行目で、違法遷移の優先を実装しない tool は 46/47 行目で診断を出さない。片方だけでは要求全体の証拠にならない。"
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "observation": "19.5.6 の illegal value と illegal transition の両方について、他の bin に含まれる値/遷移を観測したときの実行時エラーと優先を、2 本の負入力で示す。 区別: 違法値の優先を実装しない tool は違法値のサンプルで、違法遷移の優先を実装しない tool は違法遷移のサンプルで実行時エラーを出さない。片方だけでは要求全体の証拠にならない。"
         }
       ]
     },
@@ -191638,10 +191616,10 @@
       "checks": [
         {
           "test": "tests/ch19/test_cg_illegal_cross_error.sv",
-          "observation": "covergroup ex では ignore_bins が積 <0,0>、illegal_bins が積 <0,1> を選び、残る <1,0> と <1,1> だけをサンプルして 2/2 100.00 になる。covergroup cg では <0,1>（ignored）と <1,0>（自動）をエラーなくサンプルした後、<1,1>（both と ig と bad のすべてに含まれる）をサンプルして実行時エラーを起こす。 区別: 違法積を分母から除かない実装は ex が 2/2 100.00 にならず、違法積が他の bin や ignore に含まれる場合にエラーを出さない実装は 68 行目の診断を出さない。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "5ff93189e15ae7f286e94716f40365c9b11b9a903ee7e45c1b2b38ce1149d5bd",
+          "observation": "covergroup ex では ignore_bins が積 <0,0>、illegal_bins が積 <0,1> を選び、残る <1,0> と <1,1> だけをサンプルして 2/2 100.00 になる。covergroup cg では <0,1>（ignored）と <1,0>（自動）をエラーなくサンプルした後、<1,1>（both と ig と bad のすべてに含まれる）をサンプルして実行時エラーを起こす。 区別: 違法積を分母から除かない実装は ex が 2/2 100.00 にならず、違法積が他の bin や ignore に含まれる場合にエラーを出さない実装は <1,1> のサンプルで実行時エラーを出さない。エラーの形式は規格が定めないので、実行のメッセージに error があることだけを照合する。",
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "inputs_sha256": "9926533de022c0ca52de508c82320991af67b147119a7bdd90a1c68e1eba38f7",
           "evidence": [
             {
               "file": "tests/ch19/test_cg_illegal_cross_error.sv",
@@ -191661,7 +191639,7 @@
             },
             {
               "file": "tests/ch19/test_cg_illegal_cross_error.sv",
-              "contains": ":expected_stderr_regex: test_cg_illegal_cross_error\\.sv:68:"
+              "contains": ":expected_stderr_regex: (?i:\\berror\\b)"
             }
           ]
         }
@@ -341365,7 +341343,7 @@
           "observation": "The specialization sp_base#(3) iterates the two elements of vifs[0:1] with vpiVirtualInterfaceVar, vpiVariables gives one vifs array var, and the lexical typespec of m gives no virtual interface var. 区別: Returning the array as one object, missing an element, or supporting the lexical iteration changes the element count, 'one vifs array var 1', or 'virtual interfaces NULL 1'.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "629fb2e40471d53fd118d774ccc520682a8302d4c970a1460f251e2c8cf92217",
+          "inputs_sha256": "9f38d4a7e5883160006f91fbbcd124239fabf4c64ebdad81e25fc33f85a3a9a0",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_class_specialization_types.sv",
@@ -345797,7 +345775,7 @@
           "observation": "The unpacked array wa of nettype nt_word nets gives vpiSize 2, one range 0:1, vpiNetType vpiNettypeNet and elements wa[0]/wa[1] of size 4 with vpiArrayMember 1. 区別: A user-defined nettype array that is not in the net group loses its net type, size, range or array member value, changing 'wa: netType vpiNettypeNet 14, size 2, ranges 0:1'.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "71d792f181ddd895f57a5e2414ca4555bd9160ab443b0393c5e3582294c3ee66",
+          "inputs_sha256": "55555ae964e06f46cb065a1a0940c26ab0a1c3b3e914f17cbc3b8809182c5861",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_nettype_net_parts.sv",
@@ -349552,7 +349530,7 @@
           "observation": "Both the scalared net ws and the vectored net wv give four vpiBit handles whose vpiIndex values are 0,1,2,3 and whose vpiSize is 1: 'ws: bits 0,1,2,3, each size 1 1' and the same for wv. 区別: A net bit iteration that depends on vector expansion gives no bits for one of the two nets, changing that line to 'bits, each size ...'.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "879144b26af74c64d39a6f396ab4c1e9fac2dad5a56247f583be0598afad0efa",
+          "inputs_sha256": "56c4e4d0c72049e0c5e37f75e4dca4cebb294a7c06825a177ee2bf8ecdf241ea",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_net_bits_constant_select.sv",
@@ -349588,7 +349566,7 @@
           "observation": "vpiConstantSelect is 1 for ws without a parent, 1 for the right-hand side snet.lo[1] (a struct member and a constant bit index), 1 for mda[0][1] (two constant indices) and 0 for mda[i][0] (variable index). 区別: Returning FALSE for a constant select or TRUE for the variable index changes the y1, y2 or y3 line.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "879144b26af74c64d39a6f396ab4c1e9fac2dad5a56247f583be0598afad0efa",
+          "inputs_sha256": "56c4e4d0c72049e0c5e37f75e4dca4cebb294a7c06825a177ee2bf8ecdf241ea",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_net_bits_constant_select.sv",
@@ -350397,7 +350375,7 @@
           "observation": "The whole nettype net w is driven by one continuous assignment ('drivers 1'), but its bit w[0] has vpiNetType vpiNettypeNetSelect (15) and both vpiDriver and vpiLocalDriver return NULL for it. 区別: A tool that returns vpiNettypeNet for a part, or that supports driver iteration on the part, changes the w[0] line.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "71d792f181ddd895f57a5e2414ca4555bd9160ab443b0393c5e3582294c3ee66",
+          "inputs_sha256": "55555ae964e06f46cb065a1a0940c26ab0a1c3b3e914f17cbc3b8809182c5861",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_nettype_net_parts.sv",
@@ -357400,7 +357378,7 @@
           "observation": "The array variable av iterates two drivers with left-hand sides av[0] and av[1] and two loads with right-hand sides av[0] and av[1]. 区別: A tool that returns only whole-array drivers prints 0 or one entry instead of the two element drivers and loads.",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "3c8c713e4eea03bf5061d68be2a997ef5a5fa0cb839df4b9e096d0764977f1da",
+          "inputs_sha256": "947c9646690a51a0bc50299e4bfce2cd879128e3a627d58f20c9d4db7ea93a28",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_variable_driver_load_arrays.sv",
@@ -357436,7 +357414,7 @@
           "observation": "The struct variables svw, svm and svb each iterate the force that drives the whole variable (svw), the member svm.x and the bit-select svb.y[0], printed as their left-hand sides. 区別: A tool that reports drivers only for the whole struct prints NULL or no line for svm and svb, so the nested member and bit-select contributions are missing.",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "3c8c713e4eea03bf5061d68be2a997ef5a5fa0cb839df4b9e096d0764977f1da",
+          "inputs_sha256": "947c9646690a51a0bc50299e4bfce2cd879128e3a627d58f20c9d4db7ea93a28",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_variable_driver_load_arrays.sv",
@@ -357713,7 +357691,7 @@
           "observation": "The driver of the variable bit v[2] is one continuous assignment bit, printed as vpiContAssignBit with vpiOffset 2. 区別: A tool that returns the whole continuous assignment or no driver prints another type or offset, and one that reports the bit without its offset prints a different number.",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "3c8c713e4eea03bf5061d68be2a997ef5a5fa0cb839df4b9e096d0764977f1da",
+          "inputs_sha256": "947c9646690a51a0bc50299e4bfce2cd879128e3a627d58f20c9d4db7ea93a28",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_variable_driver_load_arrays.sv",
@@ -357946,7 +357924,7 @@
           "observation": "The load of the variable bit v[2] is one continuous assignment bit of assign ov = v[2], printed as vpiContAssignBit with vpiOffset 0. 区別: A tool that returns the whole continuous assignment or no load prints another type or offset for the load of v[2].",
           "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "3c8c713e4eea03bf5061d68be2a997ef5a5fa0cb839df4b9e096d0764977f1da",
+          "inputs_sha256": "947c9646690a51a0bc50299e4bfce2cd879128e3a627d58f20c9d4db7ea93a28",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_variable_driver_load_arrays.sv",
@@ -366733,7 +366711,7 @@
           "observation": "Class ci_base iterates c_base then c_base2; class ci_der iterates c_mid then c_late, with the extern constraint at the position of its prototype. The inline constraint of the randomize with call is not listed. 区別: A different order, a missing extern constraint, or the inline constraint in the list changes the 'constraints of class ...' lines.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "9b0d58aa697998bc65aaf9d3439203dddf0367d0b3a7d601c994d03aa4041ecb",
+          "inputs_sha256": "79f2e5ee95b5cb43567e3a035e44626c39bdf13f9b1433a5a949e88ed59619f5",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_constraint_iteration.sv",
@@ -368169,7 +368147,7 @@
           "observation": "The typespec of the built-in process variable returns NULL from vpiClassDefn. 区別: Returning a class definition for a built-in class changes 'classDefn NULL 1' to 0.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "629fb2e40471d53fd118d774ccc520682a8302d4c970a1460f251e2c8cf92217",
+          "inputs_sha256": "9f38d4a7e5883160006f91fbbcd124239fabf4c64ebdad81e25fc33f85a3a9a0",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_class_specialization_types.sv",
@@ -368205,7 +368183,7 @@
           "observation": "Lexical class typespecs give the explicit W expression (name W), the declared default 4, and the explicit 5 of sp_nested_t; specializations give the resolved values 8, 2 and 3. 区別: Returning the wrong RHS or value changes 'RHS name W', 'W default 4', 'W 5' or one of the W values 8, 2 and 3.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "629fb2e40471d53fd118d774ccc520682a8302d4c970a1460f251e2c8cf92217",
+          "inputs_sha256": "9f38d4a7e5883160006f91fbbcd124239fabf4c64ebdad81e25fc33f85a3a9a0",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_class_specialization_types.sv",
@@ -368345,7 +368323,7 @@
           "observation": "vpi_iterate(vpiClassTypespec, sp_der) returns its two direct specializations d3 and d4, and each leads back to sp_der. 区別: Returning no specialization, a different count, or a typespec of another class changes 'some 2' or 'all back 1'.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "629fb2e40471d53fd118d774ccc520682a8302d4c970a1460f251e2c8cf92217",
+          "inputs_sha256": "9f38d4a7e5883160006f91fbbcd124239fabf4c64ebdad81e25fc33f85a3a9a0",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_class_specialization_types.sv",
@@ -368484,7 +368462,7 @@
           "observation": "vpiExtends of the specialization d3 (sp_der#(3)) returns the base specialization sp_base#(3), whose class definition is sp_base and whose W is 3. 区別: Returning no base or the wrong base changes 'd3 base: classDefn sp_base 1, W 3'.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "629fb2e40471d53fd118d774ccc520682a8302d4c970a1460f251e2c8cf92217",
+          "inputs_sha256": "9f38d4a7e5883160006f91fbbcd124239fabf4c64ebdad81e25fc33f85a3a9a0",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_class_specialization_types.sv",
@@ -369268,7 +369246,7 @@
           "observation": "vpiClassType is vpiUserDefinedClass for the user class specializations b8, a2 and d3 and vpiProcessClass for the process typespec. 区別: Returning the other class type changes 'classType user 1' or 'classType process 1' to 0.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "629fb2e40471d53fd118d774ccc520682a8302d4c970a1460f251e2c8cf92217",
+          "inputs_sha256": "9f38d4a7e5883160006f91fbbcd124239fabf4c64ebdad81e25fc33f85a3a9a0",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_class_specialization_types.sv",
@@ -369317,7 +369295,7 @@
           "observation": "vpiAutomatic is 1 for the class specializations b8, a2 and d3, the automatic default lifetime of the variables of their methods. 区別: Returning 0 for a class typespec changes 'automatic 1' in the three typespec lines.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "629fb2e40471d53fd118d774ccc520682a8302d4c970a1460f251e2c8cf92217",
+          "inputs_sha256": "9f38d4a7e5883160006f91fbbcd124239fabf4c64ebdad81e25fc33f85a3a9a0",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_class_specialization_types.sv",
@@ -369358,7 +369336,7 @@
           "observation": "The two direct specializations of sp_der (d3 and d4) are returned from the class definition and both lead back to sp_der; no inherited sp_base specialization is included. 区別: Including an inherited specialization changes 'all back 1' to 0; missing one changes 'some 2'.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "629fb2e40471d53fd118d774ccc520682a8302d4c970a1460f251e2c8cf92217",
+          "inputs_sha256": "9f38d4a7e5883160006f91fbbcd124239fabf4c64ebdad81e25fc33f85a3a9a0",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_class_specialization_types.sv",
@@ -369394,7 +369372,7 @@
           "observation": "The extends typespec (RHS W), the class typedef sp_nested_t (W 5) and the class item m (default 4) are all lexical, as their RHS and unsupported relations show. 区別: Treating one of these as a specialization changes its RHS name or default, or its unsupported relation count.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "629fb2e40471d53fd118d774ccc520682a8302d4c970a1460f251e2c8cf92217",
+          "inputs_sha256": "9f38d4a7e5883160006f91fbbcd124239fabf4c64ebdad81e25fc33f85a3a9a0",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_class_specialization_types.sv",
@@ -369438,7 +369416,7 @@
           "observation": "Each of the three lexical class typespecs returns NULL for all seven content iterations, so the output says 'unsupported relations 7'. 区別: Supporting one of the seven relations changes 7 to 6 or less.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "629fb2e40471d53fd118d774ccc520682a8302d4c970a1460f251e2c8cf92217",
+          "inputs_sha256": "9f38d4a7e5883160006f91fbbcd124239fabf4c64ebdad81e25fc33f85a3a9a0",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_class_specialization_types.sv",
@@ -369496,7 +369474,7 @@
           "observation": "The class typespec of d iterates c_mid then c_late; the base typespec obtained through vpiExtends iterates c_base then c_base2, so inherited constraints come from the base specialization. 区別: A wrong order or a missing base iteration changes 'constraints of d typespec' or 'constraints of its base typespec'.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "9b0d58aa697998bc65aaf9d3439203dddf0367d0b3a7d601c994d03aa4041ecb",
+          "inputs_sha256": "79f2e5ee95b5cb43567e3a035e44626c39bdf13f9b1433a5a949e88ed59619f5",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_constraint_iteration.sv",
@@ -369532,7 +369510,7 @@
           "observation": "The base typespec from d3's vpiExtends supports the vpiConstraint iteration (cb), which a lexical typespec does not, so the base is also a specialization. 区別: Returning a lexical base changes 'd3 base constraints: cb' to 'd3 base constraints: none'; returning no base changes the 'd3 base' line.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "629fb2e40471d53fd118d774ccc520682a8302d4c970a1460f251e2c8cf92217",
+          "inputs_sha256": "9f38d4a7e5883160006f91fbbcd124239fabf4c64ebdad81e25fc33f85a3a9a0",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_class_specialization_types.sv",
@@ -369616,7 +369594,7 @@
           "observation": "Each of b8, a2 and d3 has a non-empty vpiName, the valid tool-dependent name of a specialization. 区別: Returning an empty name for a specialization changes 'name non-empty 1' to 0.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "629fb2e40471d53fd118d774ccc520682a8302d4c970a1460f251e2c8cf92217",
+          "inputs_sha256": "9f38d4a7e5883160006f91fbbcd124239fabf4c64ebdad81e25fc33f85a3a9a0",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_class_specialization_types.sv",
@@ -369652,7 +369630,7 @@
           "observation": "Variables outside a class (b8, d3), a typedef use (a2) and the class-definition iteration (d3, d4) all yield class specializations with resolved parameters. 区別: Returning a lexical typespec or an unresolved type changes the W values or the class typespec count.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "629fb2e40471d53fd118d774ccc520682a8302d4c970a1460f251e2c8cf92217",
+          "inputs_sha256": "9f38d4a7e5883160006f91fbbcd124239fabf4c64ebdad81e25fc33f85a3a9a0",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_class_specialization_types.sv",
@@ -370908,7 +370886,7 @@
           "observation": "vpi_iterate(vpiConstraint, NULL) returns four constraints, printed sorted as c_base,c_base2,c_late,c_mid; the inline constraint is not among them. 区別: A missing design-root relation or an extra inline constraint changes the count or the sorted names.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "9b0d58aa697998bc65aaf9d3439203dddf0367d0b3a7d601c994d03aa4041ecb",
+          "inputs_sha256": "79f2e5ee95b5cb43567e3a035e44626c39bdf13f9b1433a5a949e88ed59619f5",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_constraint_iteration.sv",
@@ -372170,7 +372148,7 @@
           "observation": "The primitive instance g gives the delay expression #3 through vpiDelay, whose integer value is 3. 区別: Returning NULL or another delay changes 'prim: size 2, delay 3'.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "48599a2f0f299638062e01ea5765444512ad5996af251af7693b6e3e0742e50d",
+          "inputs_sha256": "5a2720345ac81d2de7c1e95c9aa59aa89c5082a1724aaf213235625afbfabbbf",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_udp_table_primitive.sv",
@@ -372295,7 +372273,7 @@
           "observation": "Each of the three primitive terminals leads back with vpiPrimitive to the primitive g, compared by vpi_compare_objects. 区別: Returning NULL or another primitive changes 'primitive same 1' to 0 on a term line.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "48599a2f0f299638062e01ea5765444512ad5996af251af7693b6e3e0742e50d",
+          "inputs_sha256": "5a2720345ac81d2de7c1e95c9aa59aa89c5082a1724aaf213235625afbfabbbf",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_udp_table_primitive.sv",
@@ -372338,7 +372316,7 @@
           "observation": "Each primitive terminal gives its connected expression o, a and b through vpiExpr, ordered by vpiTermIndex. 区別: Returning another expression or order changes the 'expr o', 'expr a', 'expr b' text or term index.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "48599a2f0f299638062e01ea5765444512ad5996af251af7693b6e3e0742e50d",
+          "inputs_sha256": "5a2720345ac81d2de7c1e95c9aa59aa89c5082a1724aaf213235625afbfabbbf",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_udp_table_primitive.sv",
@@ -373456,7 +373434,7 @@
           "observation": "The UDP definition of upd_and gives vpiProtected 0 for source that is not encrypted. 区別: Returning 1 for unprotected source changes 'udp defn: protected 0, combinational 1' to protected 1.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "48599a2f0f299638062e01ea5765444512ad5996af251af7693b6e3e0742e50d",
+          "inputs_sha256": "5a2720345ac81d2de7c1e95c9aa59aa89c5082a1724aaf213235625afbfabbbf",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_udp_table_primitive.sv",
@@ -397857,10 +397835,10 @@
       "checks": [
         {
           "test": "tests/ch37/test_vpi_struct_and_tagged_patterns.sv",
-          "observation": "The case matches item '{ 1, 2 } of the case on the struct p gives from vpiExpr a pattern whose vpi_get(vpiType) is vpiStructPattern, and the pattern group relation vpiPattern iterates its two member patterns 1 and 2; the other item '{ 3, 4 } likewise gives a vpiStructPattern whose members are 3 and 4. The application prints the same kind for both struct patterns and counts 4 patterns in the two case statements. 区別: A tool that did not put the struct pattern in the pattern group would model '{ 1, 2 } as a constant, an expr or another object, so the application would print another pattern instead of the struct pattern line, and the pattern count would no longer be 4.",
-          "reviewed_on": "2026-10-27",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "740b923d0728013fd8f34b5131e2d3a410ec369ab5efc0c6e50d8a9c020d0083",
+          "observation": "The case matches items '{ 1, 2 } and '{ 3, 4 } of the case on the struct p each give from vpiExpr a pattern whose vpi_get(vpiType) is vpiStructPattern, and vpiPattern leads from it to a member pattern. The application prints the same kind for both struct patterns and counts 4 patterns in the two case statements. 区別: A tool that did not put the struct pattern in the pattern group would model '{ 1, 2 } as a constant, an expr or another object, so the application would print another pattern instead of the struct pattern line, and the pattern count would no longer be 4.",
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "inputs_sha256": "7afe5ccb6e61a73fb41ed1a2d5ad5130ede0593e6ca08ac3ad73bdd7ef3bb9e9",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_struct_and_tagged_patterns.sv",
@@ -397868,7 +397846,7 @@
             },
             {
               "file": "tests/ch37/test_vpi_struct_and_tagged_patterns.expected",
-              "contains": "case on p: struct pattern with 2 member patterns: 1, 2"
+              "contains": "case on p: struct pattern, member pattern 1"
             },
             {
               "file": "tests/ch37/test_vpi_struct_and_tagged_patterns.expected",
@@ -398127,10 +398105,10 @@
       "checks": [
         {
           "test": "tests/ch37/test_vpi_struct_and_tagged_patterns.sv",
-          "observation": "In the case on the tagged union u, the item tagged Wide .w gives a tagged pattern whose vpi_handle(vpiTypespec) has vpiType vpiIntTypespec, the type of the int member Wide, and the item tagged Narrow .n gives one whose typespec has vpiType vpiByteTypespec, the type of the byte member Narrow; each nested any pattern is named w and n. 区別: The union declaration makes the member types int and byte, and 37.25 detail 1 gives the built-in int and byte types the typespec types vpiIntTypespec and vpiByteTypespec with no vpiName. A tool that returned the union typespec (vpiUnionTypespec), the other member's type, or no typespec would print another type name or none for one of the two lines.",
-          "reviewed_on": "2026-10-27",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "740b923d0728013fd8f34b5131e2d3a410ec369ab5efc0c6e50d8a9c020d0083",
+          "observation": "In the case on the tagged union u, the items tagged Wide .w and tagged Narrow .n each give a tagged pattern for which vpi_handle(vpiTypespec) returns a typespec, printed as 'typespec 1', and the nested any patterns are named w and n. The diagram does not say which typespec it is, so its type is not compared. 区別: A tool without the one-to-one relation from the tagged pattern to a typespec returns NULL and prints 'typespec 0' in one of the two lines.",
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "inputs_sha256": "7afe5ccb6e61a73fb41ed1a2d5ad5130ede0593e6ca08ac3ad73bdd7ef3bb9e9",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_struct_and_tagged_patterns.sv",
@@ -398138,11 +398116,11 @@
             },
             {
               "file": "tests/ch37/test_vpi_struct_and_tagged_patterns.expected",
-              "contains": "case on u: tagged pattern Narrow, member any pattern n, typespec vpiByteTypespec"
+              "contains": "case on u: tagged pattern Narrow, member any pattern n, typespec 1"
             },
             {
               "file": "tests/ch37/test_vpi_struct_and_tagged_patterns.expected",
-              "contains": "case on u: tagged pattern Wide, member any pattern w, typespec vpiIntTypespec"
+              "contains": "case on u: tagged pattern Wide, member any pattern w, typespec 1"
             }
           ]
         }
@@ -398173,10 +398151,10 @@
       "checks": [
         {
           "test": "tests/ch37/test_vpi_struct_and_tagged_patterns.sv",
-          "observation": "vpi_iterate(vpiPattern, struct_pattern) on the struct pattern '{ 1, 2 } of the case on p yields exactly two member patterns, whose constant values are printed as 1 and 2, and on the struct pattern '{ 3, 4 } it yields two member patterns with the values 3 and 4. The member list of each struct pattern is printed with its count, so both the one-to-many cardinality and the member values are compared. 区別: The struct pattern '{1, 2} has two member patterns whose constants are 1 and 2. A tool that returned no member patterns would print 0 member patterns and an empty list; one that returned the whole struct as a single constant, or the members of the other item, would print another count or other values, changing the line.",
-          "reviewed_on": "2026-10-27",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "740b923d0728013fd8f34b5131e2d3a410ec369ab5efc0c6e50d8a9c020d0083",
+          "observation": "The struct patterns '{ 1, 2 } and '{ 3, 4 } of the case on p each lead to a member pattern through vpiPattern: the application takes it from vpi_handle or, when that gives none, as the first object of vpi_iterate, and prints 'member pattern 1'. The figure of 37.72 draws this relation with a single arrow and the clause has no detail about it, so the test fixes neither the access routine, the number of member patterns nor their values. 区別: A tool that gave no member pattern through vpiPattern, by either routine, would print 'member pattern 0'.",
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "inputs_sha256": "7afe5ccb6e61a73fb41ed1a2d5ad5130ede0593e6ca08ac3ad73bdd7ef3bb9e9",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_struct_and_tagged_patterns.sv",
@@ -398184,7 +398162,7 @@
             },
             {
               "file": "tests/ch37/test_vpi_struct_and_tagged_patterns.expected",
-              "contains": "case on p: struct pattern with 2 member patterns: 3, 4"
+              "contains": "case on p: struct pattern, member pattern 1"
             }
           ]
         }
@@ -446471,18 +446449,18 @@
       "checks": [
         {
           "test": "tests/ch35/test_a2_5_dpi_open_array_packed_dimension.sv",
-          "observation": "The import declares input logic [] v, whose sole packed dimension is the unsized dimension, and the two actuals have the packed dimensions [7:0] and [3:0][1:0]; each call gives an open array of 8 elements, and 8'hA5 arrives as the value a5 and 8'h02 as 02 区別: A tool that did not accept the unsized packed dimension does not compile the design (both releases stop there), and one that made the array another size prints another number of elements.",
-          "reviewed_on": "2026-10-27",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "83d7dc404fe4cceeb34b7194160090a68e428a351a592dfd65100ab52146f78f",
+          "observation": "The import declares input logic [] v, whose sole packed dimension is the unsized dimension, and the two actuals have the packed dimensions [7:0] and [3:0][1:0]; each call gives one packed value of eight bits, for which svSize, svLeft and svRight of dimension 0 are 8, 7 and 0, and the value read through svGetArrayPtr, when that is not NULL, is the value passed. 区別: A tool that did not accept the unsized packed dimension does not compile the design (both releases stop there), and one that gave the packed part another range prints another size or bound.",
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "inputs_sha256": "aaf1c03931b9e7b75f835fa60fbe775f8941d4622634de9e04599bdbfe9b755f",
           "evidence": [
             {
               "file": "tests/ch35/test_a2_5_dpi_open_array_packed_dimension.sv",
-              "contains": "  import \"DPI-C\" function void c_packed(input logic [] v);"
+              "contains": "  import \"DPI-C\" function void c_packed(input logic [] v, input int want);"
             },
             {
               "file": "tests/ch35/test_a2_5_dpi_open_array_packed_dimension.expected",
-              "contains": "size 8 value a5"
+              "contains": "size 8 left 7 right 0 value ok"
             }
           ]
         }
@@ -450039,7 +450017,7 @@
           "observation": "The bins keywords bins, ignore_bins and illegal_bins all appear in cg_ign; the ignored value 1 is removed, the illegal value 15 is never sampled, and the group prints 100. 区別: A tool that treated ignore_bins as a normal bin would change the total or leave the value covered, and the printed ignore coverage would not be 100.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "2ca5faae44a5e1dcba6d31a71a1bad9789e3560e3794c50298ac9e81a41f3825",
+          "inputs_sha256": "4dac36c3fd19e7b774031710769c5cf2afce33d5736705fe83653f4df7606218",
           "evidence": [
             {
               "file": "tests/ch19/test_covergroup_bins_and_range_forms.sv",
@@ -450047,7 +450025,7 @@
             },
             {
               "file": "tests/ch19/test_covergroup_bins_and_range_forms.expected",
-              "contains": "with 100.0, ignore 100.0, transitions 87.5, tolerance 100.0"
+              "contains": "with 100.0, ignore 100.0, transitions 85.7, tolerance 100.0"
             }
           ]
         }
@@ -450072,10 +450050,10 @@
       "checks": [
         {
           "test": "tests/ch19/test_covergroup_bins_and_range_forms.sv",
-          "observation": "cg_ign の coverpoint x に bins others = default; と default sequence の bins allother を置き、1..8 の sample 後に ignore のカバレッジ 100.0 を出す。 区別: = default の bins entry を受理しない実装はコンパイルできず、with 100.0, ignore 100.0, transitions 87.5, tolerance 100.0 の行に到達しない。default bin を別の値集合に割り当てる実装でも ignore の bin 構成が変わり、この行の値が保てない。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "2ca5faae44a5e1dcba6d31a71a1bad9789e3560e3794c50298ac9e81a41f3825",
+          "observation": "cg_ign の coverpoint x に bins others = default; と default sequence の bins allother を置き、1..8 の sample 後に ignore のカバレッジ 100.0 を出す。 区別: = default の bins entry を受理しない実装はコンパイルできず、with 100.0, ignore 100.0, transitions 85.7, tolerance 100.0 の行に到達しない。default bin を別の値集合に割り当てる実装でも ignore の bin 構成が変わり、この行の値が保てない。",
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "inputs_sha256": "4dac36c3fd19e7b774031710769c5cf2afce33d5736705fe83653f4df7606218",
           "evidence": [
             {
               "file": "tests/ch19/test_covergroup_bins_and_range_forms.sv",
@@ -450087,7 +450065,7 @@
             },
             {
               "file": "tests/ch19/test_covergroup_bins_and_range_forms.expected",
-              "contains": "with 100.0, ignore 100.0, transitions 87.5, tolerance 100.0"
+              "contains": "with 100.0, ignore 100.0, transitions 85.7, tolerance 100.0"
             }
           ]
         }
@@ -450112,10 +450090,10 @@
       "checks": [
         {
           "test": "tests/ch19/test_covergroup_bins_and_range_forms.sv",
-          "observation": "cg_tr declares bins allother = default sequence; the transition 6 => 7 matches no explicit transition bin and leaves none pending, so allother is covered and the group prints 87.5. 区別: Without the default sequence bin the count would be 6 of 7 bins, and a tool that did not implement it would print a different number.",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "2ca5faae44a5e1dcba6d31a71a1bad9789e3560e3794c50298ac9e81a41f3825",
+          "observation": "cg_tr declares bins allother = default sequence; the design compiles with it, and the transition coverage counts only the seven other bins, of which six are covered, so the group prints 85.7 (19.5 leaves default bins out of the calculation). 区別: A tool that did not accept the default sequence form would not compile cg_tr, and one that counted the default sequence bin as a bin of the coverpoint would print 87.5.",
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "inputs_sha256": "4dac36c3fd19e7b774031710769c5cf2afce33d5736705fe83653f4df7606218",
           "evidence": [
             {
               "file": "tests/ch19/test_covergroup_bins_and_range_forms.sv",
@@ -450123,7 +450101,7 @@
             },
             {
               "file": "tests/ch19/test_covergroup_bins_and_range_forms.expected",
-              "contains": "ranges 100.0, lists 80.0, set 100.0, wildcard 100.0"
+              "contains": "with 100.0, ignore 100.0, transitions 85.7, tolerance 100.0"
             }
           ]
         }
@@ -450151,7 +450129,7 @@
           "observation": "cg_ranges declares the value bin low with {[0:2]} and high with {[5:$]}; the samples 1 to 8 cover low, mid, high and single, and the group prints 100. 区別: A tool that did not parse the [low:high] and [low:$] ranges would leave values out and print less than 100.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "2ca5faae44a5e1dcba6d31a71a1bad9789e3560e3794c50298ac9e81a41f3825",
+          "inputs_sha256": "4dac36c3fd19e7b774031710769c5cf2afce33d5736705fe83653f4df7606218",
           "evidence": [
             {
               "file": "tests/ch19/test_covergroup_bins_and_range_forms.sv",
@@ -450187,7 +450165,7 @@
           "observation": "cg_set declares bins fromset = set_vals, where set_vals is the two-element array {2, 3}; the samples 2 and 3 cover the bin and the group prints 100. 区別: A tool that did not evaluate the array as the set of bin values would not cover the bin, and the set coverage would not be 100.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "2ca5faae44a5e1dcba6d31a71a1bad9789e3560e3794c50298ac9e81a41f3825",
+          "inputs_sha256": "4dac36c3fd19e7b774031710769c5cf2afce33d5736705fe83653f4df7606218",
           "evidence": [
             {
               "file": "tests/ch19/test_covergroup_bins_and_range_forms.sv",
@@ -450220,10 +450198,10 @@
       "checks": [
         {
           "test": "tests/ch19/test_covergroup_bins_and_range_forms.sv",
-          "observation": "cg_tr declares five named transition bins and the open array tarr[] from two parenthesized transition sets; the printed transition coverage of 87.5 is seven covered bins of eight. 区別: A tool that did not parse a transition list with several parenthesized sets or the open array form would change the number of bins and the printed coverage.",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "2ca5faae44a5e1dcba6d31a71a1bad9789e3560e3794c50298ac9e81a41f3825",
+          "observation": "cg_tr declares five named transition bins and the open array tarr[] from two parenthesized transition sets; the printed transition coverage of 85.7 is six covered bins of seven; the default sequence bin does not count. 区別: A tool that did not parse a transition list with several parenthesized sets or the open array form would change the number of bins and the printed coverage.",
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "inputs_sha256": "4dac36c3fd19e7b774031710769c5cf2afce33d5736705fe83653f4df7606218",
           "evidence": [
             {
               "file": "tests/ch19/test_covergroup_bins_and_range_forms.sv",
@@ -450231,7 +450209,7 @@
             },
             {
               "file": "tests/ch19/test_covergroup_bins_and_range_forms.expected",
-              "contains": "with 100.0, ignore 100.0, transitions 87.5, tolerance 100.0"
+              "contains": "with 100.0, ignore 100.0, transitions 85.7, tolerance 100.0"
             }
           ]
         }
@@ -450259,7 +450237,7 @@
           "observation": "cg_with の coverpoint x に bins ev = {[0:6]} with (item % 2 == 0); と bins cpw = cp with (item != 3); の with 式付き bins を置き、with のカバレッジ 100.0 を出す。 区別: coverpoint 名 with (式) の bins を受理しない実装はコンパイルできず、with 100.0 の行に到達しない。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "2ca5faae44a5e1dcba6d31a71a1bad9789e3560e3794c50298ac9e81a41f3825",
+          "inputs_sha256": "4dac36c3fd19e7b774031710769c5cf2afce33d5736705fe83653f4df7606218",
           "evidence": [
             {
               "file": "tests/ch19/test_covergroup_bins_and_range_forms.sv",
@@ -450271,7 +450249,7 @@
             },
             {
               "file": "tests/ch19/test_covergroup_bins_and_range_forms.expected",
-              "contains": "with 100.0, ignore 100.0, transitions 87.5, tolerance 100.0"
+              "contains": "with 100.0, ignore 100.0, transitions 85.7, tolerance 100.0"
             }
           ]
         }
@@ -450407,7 +450385,7 @@
           "observation": "The covergroup range lists use [0:2], [5:$], [0:6], [$:15], [6 +/- 1] and [4 +%- 50]; the y samples 6 and 3 cover the absolute, relative and [$:15] ranges, and the group prints 100. 区別: A tool that did not implement the tolerance tokens or the [$:high] form would lose those bins, and the tolerance coverage would not be 100.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "2ca5faae44a5e1dcba6d31a71a1bad9789e3560e3794c50298ac9e81a41f3825",
+          "inputs_sha256": "4dac36c3fd19e7b774031710769c5cf2afce33d5736705fe83653f4df7606218",
           "evidence": [
             {
               "file": "tests/ch19/test_covergroup_bins_and_range_forms.sv",
@@ -450415,7 +450393,7 @@
             },
             {
               "file": "tests/ch19/test_covergroup_bins_and_range_forms.expected",
-              "contains": "with 100.0, ignore 100.0, transitions 87.5, tolerance 100.0"
+              "contains": "with 100.0, ignore 100.0, transitions 85.7, tolerance 100.0"
             }
           ]
         }
@@ -451045,10 +451023,10 @@
       "checks": [
         {
           "test": "tests/ch19/test_covergroup_bins_and_range_forms.sv",
-          "observation": "The transition bins use the consecutive repetition [* 2] and [* 1:2], the goto repetition [-> 1] and the nonconsecutive repetition [= 1]; t5 = (5 => 6 [* 1:2]) matches 5 => 6 and contributes to the printed 87.5. 区別: A tool that did not parse a repetition range after a transition would not compile cg_tr, and the transition coverage would be missing.",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "2ca5faae44a5e1dcba6d31a71a1bad9789e3560e3794c50298ac9e81a41f3825",
+          "observation": "The transition bins use the consecutive repetition [* 2] and [* 1:2], the goto repetition [-> 1] and the nonconsecutive repetition [= 1]; t5 = (5 => 6 [* 1:2]) matches 5 => 6 and contributes to the printed 85.7. 区別: A tool that did not parse a repetition range after a transition would not compile cg_tr, and the transition coverage would be missing.",
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "inputs_sha256": "4dac36c3fd19e7b774031710769c5cf2afce33d5736705fe83653f4df7606218",
           "evidence": [
             {
               "file": "tests/ch19/test_covergroup_bins_and_range_forms.sv",
@@ -451081,10 +451059,10 @@
       "checks": [
         {
           "test": "tests/ch19/test_covergroup_bins_and_range_forms.sv",
-          "observation": "cg_tr declares t1 from (1 => 2) and tarr[] from (2 => 3), (3 => 4); the samples 1 to 8 make those transitions, and the group prints 87.5 with seven of eight bins covered. 区別: A tool that did not treat a parenthesized transition set as a sequence of values would not cover t1 or tarr, and the printed coverage would be lower.",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "2ca5faae44a5e1dcba6d31a71a1bad9789e3560e3794c50298ac9e81a41f3825",
+          "observation": "cg_tr declares t1 from (1 => 2) and tarr[] from (2 => 3), (3 => 4); the samples 1 to 8 make those transitions, and the group prints 85.7 with six of seven bins covered. 区別: A tool that did not treat a parenthesized transition set as a sequence of values would not cover t1 or tarr, and the printed coverage would be lower.",
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "inputs_sha256": "4dac36c3fd19e7b774031710769c5cf2afce33d5736705fe83653f4df7606218",
           "evidence": [
             {
               "file": "tests/ch19/test_covergroup_bins_and_range_forms.sv",
@@ -451092,7 +451070,7 @@
             },
             {
               "file": "tests/ch19/test_covergroup_bins_and_range_forms.expected",
-              "contains": "with 100.0, ignore 100.0, transitions 87.5, tolerance 100.0"
+              "contains": "with 100.0, ignore 100.0, transitions 85.7, tolerance 100.0"
             }
           ]
         }
@@ -466861,10 +466839,10 @@
       "checks": [
         {
           "test": "tests/ch35/test_a2_5_dpi_open_array_packed_dimension.sv",
-          "observation": "The unsized dimension [] of input logic [] v is the only packed dimension of the DPI import declaration, and the actuals logic [7:0] and logic [3:0][1:0] bring the packed dimensions of the argument; both calls see 8 elements and the printed values a5 and 02 区別: A tool that allowed the unsized dimension elsewhere, or that did not let the packed dimensions of the actual match it, would print another size or reject the design.",
-          "reviewed_on": "2026-10-27",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "83d7dc404fe4cceeb34b7194160090a68e428a351a592dfd65100ab52146f78f",
+          "observation": "The unsized dimension [] of input logic [] v is the only packed dimension of the DPI import declaration, and the actuals logic [7:0] and logic [3:0][1:0] bring the packed dimensions of the argument; both calls print size 8 with the normalized range 7 to 0 and 'value ok'. 区別: A tool that allowed the unsized dimension elsewhere, or that did not let the packed dimensions of the actual match it, would print another size or reject the design.",
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "inputs_sha256": "aaf1c03931b9e7b75f835fa60fbe775f8941d4622634de9e04599bdbfe9b755f",
           "evidence": [
             {
               "file": "tests/ch35/test_a2_5_dpi_open_array_packed_dimension.sv",
@@ -466872,7 +466850,7 @@
             },
             {
               "file": "tests/ch35/test_a2_5_dpi_open_array_packed_dimension.expected",
-              "contains": "size 8 value 02"
+              "contains": "size 8 left 7 right 0 value ok"
             }
           ]
         }

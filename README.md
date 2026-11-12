@@ -72,7 +72,7 @@ The suite has **12262 tests** in 38 chapters. 5725 of them are generated. The [g
 | Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 2234 |
 | The standard only, with no fixed-release simulator oracle recorded | 3639 |
 
-2914 tests depend on x or z values (`:fourstate: yes`). 687 tests come with C code: 186 DPI tests (`:dpi_c:`) and 501 VPI tests (`:vpi_c:`). 1975 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 33 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 54 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+2914 tests depend on x or z values (`:fourstate: yes`). 687 tests come with C code: 186 DPI tests (`:dpi_c:`) and 501 VPI tests (`:vpi_c:`). 1974 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 33 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 54 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -186,7 +186,7 @@ run retains all existing tests. Models cover value/type conversion, scheduling,
 argument and reference binding, scope and hierarchy, state retention and I/O.
 The selection plan does not change the whole-standard requirement denominator.
 
-The [latest complete local cross run](coverage/interaction-results/full-20261112-kirimasim-7de185f7-edgedpiquery.json),
+The [latest complete local cross run](coverage/interaction-results/full-20261112-kirimasim-7de185f7-dpi-array.json),
 on kirimasim **`7de185f776a1`**, records
 **3,915 pass, 484 unsupported and 14 fail**.
 The snapshot has 110 models and 4,413 selected cases.
@@ -291,12 +291,12 @@ both, and how the results are merged and measured, with the
 The requirement denominator is **12,298 requirements**, after duplicate rows
 were merged; the [denominator review](docs/denominator-review-20261028.en.md)
 approved it. The reviewer was an AI, not an independent human.
-Design coverage is **90.14% (11,086/12,298)**;
+Design coverage is **90.14% (11,085/12,298)**;
 execution coverage from the saved `coverage/results/` evidence of the tools
 anyone can reproduce (Icarus Verilog, Verilator and SymbiYosys) is
 **50.20% (6,174/12,298)**.
-With the results of Ghost, an unreleased simulator, and of kirimasim added, it is 77.59% (9,542/12,298).
-Clauses 1 to 40 alone are at 88.47% (8,374/9,465) design coverage.
+With the results of Ghost, an unreleased simulator, and of kirimasim added, it is 77.57% (9,540/12,298).
+Clauses 1 to 40 alone are at 88.46% (8,373/9,465) design coverage.
 See the [generated behavior summary](docs/behavior-coverage-summary.en.md) for the
 measurement inputs and denominator.
 The full existing-test semantic review is still incomplete.

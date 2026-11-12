@@ -163,3 +163,4 @@
 | 引き継ぎ 2026-11-10 | [日本語](claude-code-handoff-20261110.md) | [English](claude-code-handoff-20261110.en.md) |
 | Ghost 2026-11-11 実行の仕分け | [日本語](ghost-triage-20261111.md) | [English](ghost-triage-20261111.en.md) |
 | 不正な設計のテストのoracleトークンの見直し（2026-11-12） | [日本語](oracle-token-review-20261112.md) | [English](oracle-token-review-20261112.en.md) |
+| どのシミュレータでも合格しないテストの見直し（2026-11-12） | [日本語](pass-nowhere-review-20261112.md) | [English](pass-nowhere-review-20261112.en.md) |

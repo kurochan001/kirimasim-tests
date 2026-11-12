@@ -25,6 +25,9 @@
 2026-11-12に、モデル[`edge_event_expression`](#event-expression-edge-classification-xz-transitions-and-update-timing)と[`sv_dpi_array_queries`](#sv-dpi-array-queries)を、同じ内容のケースを選ばないように改訂しました。現在は**110モデル・4,413件・189章対**です。
 kirimasim `7de185f776a1`の[単一実行](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-edgedpiquery.json)は**3,915 pass・484 unsupported・14 fail**で、failは同じ14件です。全選択ケースPASSは83モデルです。
 
+2026-11-12に、モデル[`dpi_openarray_shape`](#dpi-open-arrayの形状と書戻し)の期待値を1か所直しました。1要素の動的配列・キューの`svIncrement`は-1です（20.7、H.12.2）。選択済みの4件の期待出力が変わりました。行、選択、合計は変わっていません。
+修正後のkirimasim `7de185f776a1`による全4,413件の[単一実行](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-dpi-array.json)は**3,915 pass・484 unsupported・14 fail**で、failは同じ14件です。
+
 2026-11-08の遅延の値の書き方・packageの名前の探索・エスケープした識別子の追加で、**107モデル・4,296件・185章対**になりました。
 kirimasim `28c6c1a1cb83`の[単一実行](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json)は、
 **3,809 pass・479 unsupported・8 fail**です。failは既存configの4件と、`defparam`の型と範囲を取り違える4件で、前回と同じです。
@@ -1832,6 +1835,12 @@ specの期待値を保持します。ビルド失敗を動作確認や負例の�
 これはCコードと期待値の補助検算で、シミュレータの動的配列・キューの受渡しや書戻しを確認した結果ではありません。
 固定Verilator上では正常対照1件が一致し、範囲の取り違え・走査方向の反転・SV書戻しの欠落・入力符号の欠落・
 2回目の呼出しに古いphaseを使う5故障を、ビルド失敗ではなく出力差で検出しました。
+
+2026-11-12に、`svIncrement`の期待値を直しました。20.7は、キューと動的配列の次元の`$increment`を常に-1とし、H.12.2はCの問い合わせに同じ意味を与えます。左右の境界を比べる規則は、固定長の次元のものです。
+モデルはこの規則を1要素の動的配列・キューにも当てはめ、1を期待していました。期待値の文字列が変わったのは、168行のうち32行、選択済み30件のうち4件です。合法な行、選択、デザインは変わらないので、モデルはversion 1のままです。
+独立検算も同じ点を直し、ABIスタブは実引数の大きさが変わるものかどうかを受け取るようにしました。[新しい記録](../coverage/interaction-qualification/dpi-array-20261112.json)は、全168行、正常対照、5故障を改めて記録します。生成器と検算は20.7の同じ読み方から直したので、両者の一致はその読み方の確認にはなりません。
+[合法な行をすべて1回実行しました](../coverage/interaction-qualification/dpi-array-all-rows-20261112.json)。Verilator 5.052は固定配列の72行が一致し、動的配列・キューの96行をビルドできません。kirimasimはCコードを読み込めず、Icarus Verilog 13.0にはDPIがありません。期待値が変わった行を実行できるシミュレータは、この三つにはありません。
+選択済み30件は、[Icarus Verilog 13.0](../coverage/interaction-results/dpi-array-20261112-icarus13.json)（30 known）と、Verilator 5.052の[seed 1](../coverage/interaction-results/dpi-array-20261112-verilator5052-seed1.json)・[seed 73](../coverage/interaction-results/dpi-array-20261112-verilator5052-seed73.json)（どちらも18 pass・12 known）で再実行しました。結果はこれまでと同じです。`generators/oracles.txt`は変わっていません。
 
 ```sh
 python3 tools/qualify_dpi_array.py --verilator /path/to/verilator-5.052 \

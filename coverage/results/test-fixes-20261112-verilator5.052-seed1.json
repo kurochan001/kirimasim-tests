@@ -1,0 +1,123 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch16/test_ch16_sim_multiclock_init": {
+   "status": "known",
+   "reason": "build failed: %Error: Verilator internal fault, sorry. Suggest trying --debug --gdbbt",
+   "inputs_sha256": "820088a0c042c6d30d8f1d83f6f91d4d097448081820515cf9371cd36c38a569"
+  },
+  "ch16/test_ch16_sim_prop_inherited_eventually": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch16/test_ch16_sim_prop_inherited_eventually.sv:43:46: Unsupported: s_eventually[] (in property expression)",
+   "inputs_sha256": "ab46d20dd6db6dd70df1275b363372cc7e5de45f96226ce19bb766811b1024db"
+  },
+  "ch16/test_sequence_method_empty_matches": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch16/test_sequence_method_empty_matches.sv:48:44: Can't find definition of variable/method: 'triggered'",
+   "inputs_sha256": "f85770166d7033d036e55be6ba7992c2a4b26df8847378fca9614ffe24463c96"
+  },
+  "ch17/test_checker_assertion_placement": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch17/test_checker_assertion_placement.sv:47:3: syntax error, unexpected IDENTIFIER-for-instance, expecting endchecker",
+   "inputs_sha256": "7dc4b444bfd7c4d5750c53cfab07708b99d72f61efcf169c3e94a9e1c9e40b1a"
+  },
+  "ch18/test_constraint_function_cycle_runtime_error": {
+   "status": "known",
+   "reason": "no message matches '(?i:\\\\berror\\\\b)'",
+   "inputs_sha256": "30cf9778b9401bb16f027a6950383204a3d015398d665f962d24dfb8a531b3c8"
+  },
+  "ch19/test_cg_illegal_cross_error": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch19/test_cg_illegal_cross_error.sv:61:13: Member 'X' not found in covergroup 'ex'",
+   "inputs_sha256": "9926533de022c0ca52de508c82320991af67b147119a7bdd90a1c68e1eba38f7"
+  },
+  "ch19/test_cg_illegal_transition_error": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch19/test_cg_illegal_transition_error.sv:45:13: Member 'cp' not found in covergroup 'cg'",
+   "inputs_sha256": "9f23fef9910ea0c5e50904fa976afa4e01f36bc9e4f2264415d8451db5dbc623"
+  },
+  "ch19/test_cg_illegal_value_error": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch19/test_cg_illegal_value_error.sv:42:13: Member 'bad' not found in covergroup 'cg'",
+   "inputs_sha256": "283b9a0286b5077ee26dded5c12a0f2f62737720dc0b6bb922504944f2210547"
+  },
+  "ch19/test_covergroup_bins_and_range_forms": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch19/test_covergroup_bins_and_range_forms.sv:61:47: syntax error, unexpected ';', expecting with-then-(",
+   "inputs_sha256": "4dac36c3fd19e7b774031710769c5cf2afce33d5736705fe83653f4df7606218"
+  },
+  "ch35/test_a2_5_dpi_open_array_packed_dimension": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch35/test_a2_5_dpi_open_array_packed_dimension.sv:41:54: syntax error, unexpected ']', expecting IDENTIFIER-for-type",
+   "inputs_sha256": "aaf1c03931b9e7b75f835fa60fbe775f8941d4622634de9e04599bdbfe9b755f"
+  },
+  "ch37/test_vpi_class_specialization_types": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_class_specialization_types.sv:68:14: Unsupported or unknown PLI call: '$vt_spec'",
+   "inputs_sha256": "9f38d4a7e5883160006f91fbbcd124239fabf4c64ebdad81e25fc33f85a3a9a0"
+  },
+  "ch37/test_vpi_constraint_iteration": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_constraint_iteration.sv:52:8: Unsupported or unknown PLI call: '$vt_con'",
+   "inputs_sha256": "79f2e5ee95b5cb43567e3a035e44626c39bdf13f9b1433a5a949e88ed59619f5"
+  },
+  "ch37/test_vpi_net_bits_constant_select": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_net_bits_constant_select.sv:53:14: Unsupported or unknown PLI call: '$vt_cs'",
+   "inputs_sha256": "56c4e4d0c72049e0c5e37f75e4dca4cebb294a7c06825a177ee2bf8ecdf241ea"
+  },
+  "ch37/test_vpi_nettype_net_parts": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch37/test_vpi_nettype_net_parts.sv:31:3: Unsupported: nettype",
+   "inputs_sha256": "55555ae964e06f46cb065a1a0940c26ab0a1c3b3e914f17cbc3b8809182c5861"
+  },
+  "ch37/test_vpi_struct_and_tagged_patterns": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch37/test_vpi_struct_and_tagged_patterns.sv:57:5: Unsupported: case matches (for tagged union)",
+   "inputs_sha256": "7afe5ccb6e61a73fb41ed1a2d5ad5130ede0593e6ca08ac3ad73bdd7ef3bb9e9"
+  },
+  "ch37/test_vpi_udp_table_primitive": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_udp_table_primitive.sv:45:14: Unsupported or unknown PLI call: '$vt_udp'",
+   "inputs_sha256": "5a2720345ac81d2de7c1e95c9aa59aa89c5082a1724aaf213235625afbfabbbf"
+  },
+  "ch37/test_vpi_variable_driver_load_arrays": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_variable_driver_load_arrays.sv:48:8: Unsupported or unknown PLI call: '$vt_vl'",
+   "inputs_sha256": "947c9646690a51a0bc50299e4bfce2cd879128e3a627d58f20c9d4db7ea93a28"
+  },
+  "ch38/test_vpi_put_value_udp_array_errors": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_put_value_udp_array_errors.sv:55:5: Unsupported or unknown PLI call: '$vt_udp_put'",
+   "inputs_sha256": "26eda33b25f69c50bf33876593389e9de1d8dafb16a3f2099a211b035d6cb073"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_dynamic_inout_1_mixed_descending_resize": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/gen/ch35/test_gen_cross_dpi_array_dynamic_inout_1_mixed_descending_resize.sv:35:15: ../V3Task.cpp:1174: Passing dynamic array or queue as actual argument to DPI open array is not yet supported",
+   "inputs_sha256": "49f4dbfe3bd36f864d54e8c211fbd413e1fd4a68f4bfbc02ffa6321d076193e6"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_dynamic_input_1_positive_ascending_stable": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/gen/ch35/test_gen_cross_dpi_array_dynamic_input_1_positive_ascending_stable.sv:35:15: ../V3Task.cpp:1174: Passing dynamic array or queue as actual argument to DPI open array is not yet supported",
+   "inputs_sha256": "4b623f3402080868b05f22b8671670d54bbd0b77193764df67c3e04eee811d7e"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_queue_inout_1_positive_descending_resize": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/gen/ch35/test_gen_cross_dpi_array_queue_inout_1_positive_descending_resize.sv:35:15: ../V3Task.cpp:1174: Passing dynamic array or queue as actual argument to DPI open array is not yet supported",
+   "inputs_sha256": "0f4119e83a7fdeb04e66bd35337e36de35aac99466c2d6b08cf281c85310f163"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_queue_input_1_mixed_ascending_stable": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/gen/ch35/test_gen_cross_dpi_array_queue_input_1_mixed_ascending_stable.sv:35:15: ../V3Task.cpp:1174: Passing dynamic array or queue as actual argument to DPI open array is not yet supported",
+   "inputs_sha256": "218e8f73c012d723b9275aa32d63e6797b79a3290be3d6bb0ea91e3784d69367"
+  }
+ },
+ "generated_at": "2026-11-11T23:50:41.819877+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

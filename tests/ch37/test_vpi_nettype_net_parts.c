@@ -23,6 +23,23 @@ static vpiHandle find(const char *name)
     return vpi_handle_by_name((PLI_BYTE8 *)full, NULL);
 }
 
+/* The value of the index of a bit: vpiIndex is a relation (Annex K), given
+ * by vpi_handle or as the first object of the iteration (37.16 detail 10). */
+static int index_of(vpiHandle obj)
+{
+    vpiHandle it = vpi_iterate(vpiIndex, obj);
+    vpiHandle ix = it != NULL ? vpi_scan(it) : vpi_handle(vpiIndex, obj);
+    s_vpi_value v;
+
+    if (ix == NULL)
+        return -1;
+    v.format = vpiIntVal;
+    vpi_get_value(ix, &v);
+    if (it != NULL)
+        vpi_free_object(it);
+    return (int)v.value.integer;
+}
+
 static void net_type(const char *label, vpiHandle h)
 {
     vpi_printf((PLI_BYTE8 *)"%s: netType %s %d, size %d", label,
@@ -78,7 +95,7 @@ static PLI_INT32 ntnets_calltf(PLI_BYTE8 *user_data)
     vpi_printf((PLI_BYTE8 *)"\n");
     it = w != NULL ? vpi_iterate(vpiBit, w) : NULL;
     while (it != NULL && (bit = vpi_scan(it)) != NULL)
-        if (vpi_get(vpiIndex, bit) == 0)
+        if (index_of(bit) == 0)
             break;
     net_type("w[0]", bit);
     vpi_printf((PLI_BYTE8 *)", drivers NULL %d, local drivers NULL %d\n",

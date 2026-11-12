@@ -186,6 +186,8 @@ python3 tools/qualify_mailbox.py --verilator verilator --seed 1 \
 
 [`dpi-array.json`](dpi-array.json)は全168行の独立検算、実Cヘルパーとテスト専用ABIの全168行×2初期値の照合、正常対照1件と5故障の出力差による検出を記録します。
 ABIスタブは離れた要素とcanaryを使い、シミュレータの動的配列・キューの受渡しを確認した結果には加えません。
+[`dpi-array-20261112.json`](dpi-array-20261112.json)は、2026-11-12に1要素の動的配列・キューの`svIncrement`の期待値を-1に直した後の同じ検算です（20.7、H.12.2）。全168行、2種類の初期値、正常対照1件と5故障を記録します。
+[全行の記録](dpi-array-all-rows-20261112.json)は、修正後の全168行を1回実行した結果です。Verilator 5.052は固定配列の72行が一致し、残りの96行をビルドできません。kirimasimとIcarus Verilog 13.0はどの行も実行できません。固定スイートにも要求カバレッジにも加えません。
 [`dpi-array-build.json`](dpi-array-build.json)は最新上流と照合したkirimasimの版・バイナリ指紋・全30件の解析結果です。
 通常ランナーはC読込み未対応で全30件を実行前に止めますが、別途の解析は24件が成功し、合法なキュー6件が型照合で拒否されました。
 固定Verilatorは両seedとも固定配列18件がPASS、動的配列・キュー12件は既知のビルド失敗です。

@@ -1,0 +1,145 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "gen/ch35/test_gen_cross_dpi_array_ascending_inout_1_positive_ascending_stable": {
+   "status": "pass",
+   "inputs_sha256": "13434c39bfa99b436a739182f6e244324c0c4832766b0b9b4c46520cc26b7025"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_ascending_inout_3_positive_ascending_stable": {
+   "status": "pass",
+   "inputs_sha256": "e147ffc025b5a78244507f3cdf90385e692e242e533e8a2451cb35cdc1a41d5b"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_ascending_inout_5_positive_ascending_stable": {
+   "status": "pass",
+   "inputs_sha256": "cb2ce379402e1ab144058b5532f4d3ed499564a1463cba726f2b366a771f2032"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_ascending_input_1_positive_ascending_stable": {
+   "status": "pass",
+   "inputs_sha256": "f578900c9a7454d711ab48b329b0b4c2d253c59bd7fdb365e448a18de5727a5d"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_ascending_input_3_positive_ascending_stable": {
+   "status": "pass",
+   "inputs_sha256": "baf757974b6444f1b3a1ff0b8b7990b5e168ce3c35168efa7cc4e32ad6e5a88c"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_ascending_input_5_positive_ascending_stable": {
+   "status": "pass",
+   "inputs_sha256": "d623bfe673cf7019ac0b6fbade2b20098c2e1c969efd0ad1c77c70554233daa2"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_ascending_output_1_mixed_descending_stable": {
+   "status": "pass",
+   "inputs_sha256": "0b6c109d250dd107c02d5b3490bc7e7df94e59c4aae0b0bb67f4fc473bafaaf8"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_ascending_output_3_positive_ascending_stable": {
+   "status": "pass",
+   "inputs_sha256": "45552c8a0a5d95bcc2d0d5ccb11999b83995a19b0f38e01cbe1326e06fc3c8f7"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_ascending_output_5_positive_descending_stable": {
+   "status": "pass",
+   "inputs_sha256": "d36dbfb64f14fb70acec16b808d2c93dec396b9a8c6bf12db672daecf7e84dbb"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_descending_inout_1_positive_ascending_stable": {
+   "status": "pass",
+   "inputs_sha256": "f2afb750aed1e02f61278625003b34b2a72157df49c58057541797c419cd8186"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_descending_inout_3_positive_ascending_stable": {
+   "status": "pass",
+   "inputs_sha256": "f85128fbb15aba2f7642698996d40b4a8b0b723cd9ebd6857601e3efa7569c1a"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_descending_inout_5_mixed_ascending_stable": {
+   "status": "pass",
+   "inputs_sha256": "8dc1dd775853b83d35c0649923c418e6c5785ca5b3ba5f49b621119e5a8441e1"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_descending_input_1_positive_ascending_stable": {
+   "status": "pass",
+   "inputs_sha256": "21f400dea3d82b1bbf23360c0f7b820d753bfc0272d8fc0925b3773172694888"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_descending_input_3_positive_descending_stable": {
+   "status": "pass",
+   "inputs_sha256": "45d820e3535c72fc408041a26404f8cef76963ea42f3b5eaaefcd66ba9e6e93f"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_descending_input_5_positive_ascending_stable": {
+   "status": "pass",
+   "inputs_sha256": "1b70f64d31800ea3081fc0ba84ba6f412bfdea121e49e486c45c10b11d1ce139"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_descending_output_1_mixed_ascending_stable": {
+   "status": "pass",
+   "inputs_sha256": "52194c04e4831b4eb00647c3b48dd145aa76de631a27e4ef93db5e5bb7103e0c"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_descending_output_3_positive_ascending_stable": {
+   "status": "pass",
+   "inputs_sha256": "586557d7280386c61c15a9fe9b5def7533012b3601fdc9fb6de1413e71c41173"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_descending_output_5_positive_ascending_stable": {
+   "status": "pass",
+   "inputs_sha256": "4eb8072de25115b71967d610a47a5fd06be96556fc68ae546c35aefcf62872ba"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_dynamic_inout_1_mixed_descending_resize": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/gen/ch35/test_gen_cross_dpi_array_dynamic_inout_1_mixed_descending_resize.sv:35:15: ../V3Task.cpp:1174: Passing dynamic array or queue as actual argument to DPI open array is not yet supported",
+   "inputs_sha256": "49f4dbfe3bd36f864d54e8c211fbd413e1fd4a68f4bfbc02ffa6321d076193e6"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_dynamic_inout_3_positive_ascending_resize": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/gen/ch35/test_gen_cross_dpi_array_dynamic_inout_3_positive_ascending_resize.sv:35:15: ../V3Task.cpp:1174: Passing dynamic array or queue as actual argument to DPI open array is not yet supported",
+   "inputs_sha256": "8841a150eac0794072e5cade97d6f0de9387cd2940870f215f11cf64524f2a9f"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_dynamic_inout_5_positive_ascending_resize": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/gen/ch35/test_gen_cross_dpi_array_dynamic_inout_5_positive_ascending_resize.sv:35:15: ../V3Task.cpp:1174: Passing dynamic array or queue as actual argument to DPI open array is not yet supported",
+   "inputs_sha256": "c701f88eb3c53f094ce4fb95126d1229b757099c82b98f525f09599f618c9c54"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_dynamic_input_1_positive_ascending_stable": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/gen/ch35/test_gen_cross_dpi_array_dynamic_input_1_positive_ascending_stable.sv:35:15: ../V3Task.cpp:1174: Passing dynamic array or queue as actual argument to DPI open array is not yet supported",
+   "inputs_sha256": "4b623f3402080868b05f22b8671670d54bbd0b77193764df67c3e04eee811d7e"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_dynamic_input_3_positive_ascending_stable": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/gen/ch35/test_gen_cross_dpi_array_dynamic_input_3_positive_ascending_stable.sv:35:15: ../V3Task.cpp:1174: Passing dynamic array or queue as actual argument to DPI open array is not yet supported",
+   "inputs_sha256": "c6568f63276930f6ba0b2c5c6b4855949fb8fb3aa038e9e1cde83a1e3a2a458b"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_dynamic_input_5_positive_descending_stable": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/gen/ch35/test_gen_cross_dpi_array_dynamic_input_5_positive_descending_stable.sv:35:15: ../V3Task.cpp:1174: Passing dynamic array or queue as actual argument to DPI open array is not yet supported",
+   "inputs_sha256": "29853c38b06b688e3c8fc79320a7ca56aa8953b289e13a0cbc1d6ee43f968d17"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_queue_inout_1_positive_descending_resize": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/gen/ch35/test_gen_cross_dpi_array_queue_inout_1_positive_descending_resize.sv:35:15: ../V3Task.cpp:1174: Passing dynamic array or queue as actual argument to DPI open array is not yet supported",
+   "inputs_sha256": "0f4119e83a7fdeb04e66bd35337e36de35aac99466c2d6b08cf281c85310f163"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_queue_inout_3_positive_ascending_resize": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/gen/ch35/test_gen_cross_dpi_array_queue_inout_3_positive_ascending_resize.sv:35:15: ../V3Task.cpp:1174: Passing dynamic array or queue as actual argument to DPI open array is not yet supported",
+   "inputs_sha256": "72194c326935ba6326527ed9979c7369f44aaa5a965ee45d8f896073fbab6023"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_queue_inout_5_positive_ascending_stable": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/gen/ch35/test_gen_cross_dpi_array_queue_inout_5_positive_ascending_stable.sv:35:15: ../V3Task.cpp:1174: Passing dynamic array or queue as actual argument to DPI open array is not yet supported",
+   "inputs_sha256": "d984050a77d6b63246d4eeee49f39284141f3aea3680d21755733f1bb14cbccf"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_queue_input_1_mixed_ascending_stable": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/gen/ch35/test_gen_cross_dpi_array_queue_input_1_mixed_ascending_stable.sv:35:15: ../V3Task.cpp:1174: Passing dynamic array or queue as actual argument to DPI open array is not yet supported",
+   "inputs_sha256": "218e8f73c012d723b9275aa32d63e6797b79a3290be3d6bb0ea91e3784d69367"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_queue_input_3_mixed_descending_stable": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/gen/ch35/test_gen_cross_dpi_array_queue_input_3_mixed_descending_stable.sv:35:15: ../V3Task.cpp:1174: Passing dynamic array or queue as actual argument to DPI open array is not yet supported",
+   "inputs_sha256": "1333350340beb879d34d83b16ce73a12f0bf762546c7ab87899bd4ef6fd95f2b"
+  },
+  "gen/ch35/test_gen_cross_dpi_array_queue_input_5_positive_ascending_resize": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/gen/ch35/test_gen_cross_dpi_array_queue_input_5_positive_ascending_resize.sv:35:15: ../V3Task.cpp:1174: Passing dynamic array or queue as actual argument to DPI open array is not yet supported",
+   "inputs_sha256": "5d163b3566f15a8caf5c35c91ac8fb6e87a4dcef32df1235895d3383b3677f9b"
+  }
+ },
+ "generated_at": "2026-11-11T23:51:37.855674+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

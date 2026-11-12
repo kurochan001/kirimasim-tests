@@ -9,7 +9,7 @@
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_cg_illegal_transition_error.expected
-:expected_stderr_regex: test_cg_illegal_transition_error\.sv:(46|47):
+:expected_stderr_regex: (?i:\berror\b)
 */
 // IEEE 1800-2023 §19.5.6: an illegal transition bin removes the covered
 // sequences that cannot match without it, and the occurrence of an illegal
@@ -18,6 +18,10 @@
 // illegal_bins b, so t is left with no sequence and does not count; the only
 // bin of cp is other = 3=>4. Before the illegal sequence, sampling 3 then 4
 // covers other, so cp is 1/1. The error is caused by 1 then 2.
+// The standard does not fix the form of the run-time error, such as a source
+// location in it, so the messages of the run are checked only for an error.
+// Until 2026-11-12 the test required a source line of this file in the
+// message, which §19.5.6 does not give.
 
 module test_cg_illegal_transition_error;
   bit [2:0] a;

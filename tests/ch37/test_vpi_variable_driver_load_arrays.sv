@@ -22,6 +22,10 @@
 // whole and reads v[2]; the application prints the left-hand side of each
 // driver and the right-hand side of each load, and the type and vpiOffset of
 // the continuous assignment bits that drive and load v[2].
+// The application reads the index of a bit of v through the vpiIndex relation,
+// with vpi_handle or the first object of vpi_iterate (§37.17 detail 13), and
+// takes its integer value. Until 2026-11-12 it called vpi_get(vpiIndex, ...),
+// but vpiIndex is a relation and not an integer property (Annex K).
 
 module test_vpi_variable_driver_load_arrays;
   logic a = 1'b1, b = 1'b0;
