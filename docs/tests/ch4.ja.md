@@ -1,25 +1,25 @@
 <a id="clause-4-scheduling-semantics"></a>
 
-# 条項 4: スケジューリング意味論
+# 第4章：スケジューリングの意味規則
 
 [English](ch4.md) / [日本語](ch4.ja.md)
 
-[すべての章](README.ja.md) .478 386 のテストを生成した。テストのメタデータから `tools/suite_catalog.py` がこのページを書きました。テストを編集しろ このページじゃない
+[すべての章](README.ja.md) .テストは478本で、そのうち386本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
-|テスト|チェックするもの|条項|予期した出力を記録|ノート|
+|テスト|確認する内容|条項|期待出力を記録したリリース|注記|
 | --- | --- | --- | --- | --- |
 | [`test_nba_cross_module`](../../tests/ch4/test_nba_cross_module.sv) |テスト: NBA クロスモジュール可視性| 4.3 10.4.2 4.6 | Icarus Verilog 13.0 ||
 | [`test_nba_cross_module_timing`](../../tests/ch4/test_nba_cross_module_timing.sv) |親モジュールと子モジュールの間の正確な NBA タイミングを追跡| 4.3 | Icarus Verilog 13.0 ||
 | [`test_nba_port_propagation`](../../tests/ch4/test_nba_port_propagation.sv) |NBA 書き込みはポート接続を通して伝播する| 4.3 10.4.2 4.9.6 10.3 | Icarus Verilog 13.0 ||
 | [`test_sched_region_iteration`](../../tests/ch4/test_sched_region_iteration.sv) |タイムスロットはアクティブ、インアクティブ、NBA を繰り返し、反復作業が終わった後に 遅延状態に到達します。遅延状態の次のスロットは| 4.3 4.4 4.4.1 4.4.2 4.4.3.10 | Icarus Verilog 13.0 ||
 | [`test_update_event_wakes_sensitive_processes`](../../tests/ch4/test_update_event_wakes_sensitive_processes.sv) |変数またはネットの値の変更だけが更新イベントであり、更新イベントはそれに感度のあるすべてのプロセスを起動させます。| 4.3 4.5 9.4.2 | Icarus Verilog 13.0 ||
-| [`test_pli_time_slot_region_order`](../../tests/ch4/test_pli_time_slot_region_order.sv) |1 つのタイムスロットの領域は、シミュレーション領域の間に PLI 領域を挟んで、定められた順に来る：Preponed、Pre-Active、Active、Inactive、Pre-NBA、 NBA 、Observed、Reactive、Re-Inactive、Re-NBA、再び active 領域集合、Pre-Postponed、Postponed| 4.4 4.4.2 4.4.3 4.5 4.10 38.36.2 16.13.6 24.3.1 |標準のみ| VPI |
+| [`test_pli_time_slot_region_order`](../../tests/ch4/test_pli_time_slot_region_order.sv) |1 つのタイムスロットの領域は、シミュレーション領域の間に PLI 領域を挟んで、定められた順に来る：Preponed、Pre-Active、Active、Inactive、Pre-NBA、 NBA 、Observed、Reactive、Re-Inactive、Re-NBA、再び active 領域集合、Pre-Postponed、Postponed| 4.4 4.4.2 4.4.3 4.5 4.10 38.36.2 16.13.6 24.3.1 |規格のみ| VPI |
 | [`test_time_slots_advance_in_order`](../../tests/ch4/test_time_slots_advance_in_order.sv) |シミュレーション時間は、現在のスロットのすべてのイベントが処理された後、空でない最初のタイムスロットに移動し、イベントが残っていないスロットがないときにシミュレーションが終了します。| 4.4 4.5 9.2.3 | Icarus Verilog 13.0 ||
-| [`test_simulation_regions_in_one_time_slot`](../../tests/ch4/test_simulation_regions_in_one_time_slot.sv) |1 つのタイムスロットはシミュレーション領域を順に実行する：Preponed 領域で標本化される値、次に Active・Inactive・ NBA 領域、シーケンスの終点が記録される Observed 領域、Reactive・Re-Inactive・Re-NBA 領域、再び active 領域集合、最後に Postponed 領域| 4.4.2 4.4 4.5 4.4.2.1 4.4.2.5 16.13.6 24.3.1 |標準のみ||
+| [`test_simulation_regions_in_one_time_slot`](../../tests/ch4/test_simulation_regions_in_one_time_slot.sv) |1 つのタイムスロットはシミュレーション領域を順に実行する：Preponed 領域で標本化される値、次に Active・Inactive・ NBA 領域、シーケンスの終点が記録される Observed 領域、Reactive・Re-Inactive・Re-NBA 領域、再び active 領域集合、最後に Postponed 領域| 4.4.2 4.4 4.5 4.4.2.1 4.4.2.5 16.13.6 24.3.1 |規格のみ||
 | [`test_one_step_sample_before_time_slot`](../../tests/ch4/test_one_step_sample_before_time_slot.sv) |クロックブロックの #1step 入力は、そのスロットのアクティブまたは NBA 領域に書き込まれた値ではなく、クロックエッジのタイムスロット直前に信号が持っていた値をサンプリングします。| 4.4.2.1 14.4 14.3 | Verilator 5.052 ||
-| [`test_preponed_sample_observed_before_action`](../../tests/ch4/test_preponed_sample_observed_before_action.sv) |コンカレントアサーションションは NBA 更新の前にサンプルを取るが、そのパスアクションは更新されたライブ値を見る| 4.4.2.1 4.4.2.5 16.5.1 |標準のみ||
+| [`test_preponed_sample_observed_before_action`](../../tests/ch4/test_preponed_sample_observed_before_action.sv) |コンカレントアサーションションは NBA 更新の前にサンプルを取るが、そのパスアクションは更新されたライブ値を見る| 4.4.2.1 4.4.2.5 16.5.1 |規格のみ||
 | [`test_preponed_sampling`](../../tests/ch4/test_preponed_sampling.sv) |コンカレントアッセリは、同じ時間ステップでクロックエッジの直前に変化する変数に対しても、その時間ステップの変化の前からの Preponed 領域の値を使用します。| 4.4.2.1 16.5.1 16.9.3 | Verilator 5.052 ||
 | [`test_edge_event_regions`](../../tests/ch4/test_edge_event_regions.sv) |アクティブ、インアクティブ、NBA領域、$strobeから見たブロック、ブロックしない、# 0の更新| 4.4.2.2 4.4.2.3 4.4.2.4 21.2.2 | Icarus Verilog 13.0 ||
 | [`test_sched_disable_fork_ends_grandchildren`](../../tests/ch4/test_sched_disable_fork_ends_grandchildren.sv) |呼び出しプロセスの子プロセスが生成したプロセスも終了します| 4.4.2.2 9.6.3 9.3.2 | Icarus Verilog 13.0 ||
@@ -41,7 +41,7 @@
 | [`test_sched_nba_delays_ordered_by_time`](../../tests/ch4/test_sched_nba_delays_ordered_by_time.sv) |非ブロック割当は割当内遅延を持ち、変数を自分の時間で更新する。遅延が短い方が先に更新される。| 4.4.2.4 10.4.2 9.4.5 | Icarus Verilog 13.0 ||
 | [`test_sched_nba_delays_same_time_keep_order`](../../tests/ch4/test_sched_nba_delays_same_time_keep_order.sv) |遅延が終了すると同時に、非ブロック型の変数への代入は、実行順序に従って更新されます。| 4.4.2.4 10.4.2 9.4.5 | Icarus Verilog 13.0 ||
 | [`test_sched_nba_update_wakes_forked_waiter`](../../tests/ch4/test_sched_nba_update_wakes_forked_waiter.sv) |変数の変更を待つプロセスは、変数を変更し、新しい値を見るブロックしない更新のタイムステップで再開します。| 4.4.2.4 9.4.2 9.3.2 10.4.2 | Icarus Verilog 13.0 ||
-| [`test_sched_nonblocking_event_trigger`](../../tests/ch4/test_sched_nonblocking_event_trigger.sv) |-\>\>でトリガしたイベントは、そのトリガに続くブロッキング書き込みの後、NBA領域で待機中のプロセスを起床させます。| 4.4.2.4 15.5.1 9.4.2 |標準のみ||
+| [`test_sched_nonblocking_event_trigger`](../../tests/ch4/test_sched_nonblocking_event_trigger.sv) |-\>\>でトリガしたイベントは、そのトリガに続くブロッキング書き込みの後、NBA領域で待機中のプロセスを起床させます。| 4.4.2.4 15.5.1 9.4.2 |規格のみ||
 | [`test_sched_nonblocking_loop_last_wins`](../../tests/ch4/test_sched_nonblocking_loop_last_wins.sv) |ループ中に一つの変数にブロックしない代入は、実行された順番で更新されます。最後に実行されたものが勝ちます。| 4.4.2.4 10.4.2 12.7.1 | Icarus Verilog 13.0 ||
 | [`test_sched_nonblocking_overrides_later_blocking`](../../tests/ch4/test_sched_nonblocking_overrides_later_blocking.sv) |ブロックしない代入は、プロセスの後で来るタイムステップのブロック代入の後に変数を更新します。| 4.4.2.4 10.4.2 10.4.1 | Icarus Verilog 13.0 ||
 | [`test_sched_nonblocking_reads_old_values`](../../tests/ch4/test_sched_nonblocking_reads_old_values.sv) |1 つのタイムステップでブロックしない代入は、すべての更新前にその値を読み込みます| 4.4.2.4 10.4.2 | Icarus Verilog 13.0 ||
@@ -51,24 +51,24 @@
 | [`test_sched_wait_counts_nonblocking_steps`](../../tests/ch4/test_sched_wait_counts_nonblocking_steps.sv) |ブロックしない一連の更新が条件を真とする時間ステップで wait ステートメントを再開します。| 4.4.2.4 9.4.3 10.4.2 | Icarus Verilog 13.0 ||
 | [`test_sched_wait_resumes_on_nonblocking_update`](../../tests/ch4/test_sched_wait_resumes_on_nonblocking_update.sv) |ブロックしない更新が真であることを示す条件を満たすキューは、その時間ステップで再開されます。| 4.4.2.4 9.4.3 10.4.2 | Icarus Verilog 13.0 ||
 | [`test_sched_wait_true_does_not_block`](../../tests/ch4/test_sched_wait_true_does_not_block.sv) |条件が既に真であれば、wait ステートメントはブロックされません。プロセスはブロックしない更新が待ち受ける前に続行します。| 4.4.2.4 9.4.3 10.4.2 | Icarus Verilog 13.0 ||
-| [`test_assertion_action_block_in_reactive`](../../tests/ch4/test_assertion_action_block_in_reactive.sv) |NBA 更新後，プログラムプロセスとともに，アクティブ領域セットが再び実行される前に，並行アサーションのパスおよびフェールアクションブロックは，タイムスロットの反応領域で実行される。| 4.4.2.5 4.4.2.6 4.5 16.14.1 24.3.1 |標準のみ||
-| [`test_program_zero_delay_resumes_in_reinactive`](../../tests/ch4/test_program_zero_delay_resumes_in_reinactive.sv) |プログラムプロセスの # 0 は、他の反応イベントがタイムスロットの後に起こり、ブロックされた書き込みが起動したモジュールプロセスが起動する前に、Re-Inactive領域でプロセスを再開します。| 4.4.2.7 4.5 24.3.1 |標準のみ||
+| [`test_assertion_action_block_in_reactive`](../../tests/ch4/test_assertion_action_block_in_reactive.sv) |NBA 更新後，プログラムプロセスとともに，アクティブ領域セットが再び実行される前に，並行アサーションのパスおよびフェールアクションブロックは，タイムスロットの反応領域で実行される。| 4.4.2.5 4.4.2.6 4.5 16.14.1 24.3.1 |規格のみ||
+| [`test_program_zero_delay_resumes_in_reinactive`](../../tests/ch4/test_program_zero_delay_resumes_in_reinactive.sv) |プログラムプロセスの # 0 は、他の反応イベントがタイムスロットの後に起こり、ブロックされた書き込みが起動したモジュールプロセスが起動する前に、Re-Inactive領域でプロセスを再開します。| 4.4.2.7 4.5 24.3.1 |規格のみ||
 | [`test_reactive_region_set_order`](../../tests/ch4/test_reactive_region_set_order.sv) |プログラムの中で、#0 は Re-Inactive 領域のプロセスを Re-NBA 領域が Reactive 領域で作成したブロックしない代入を更新する前に再開し、その更新によって起動されたプログラムプロセスは、それによって起動されたモジュールプロセスよりも先に実行されます。| 4.4.2.7 4.4.2.8 4.5 24.3 | Icarus Verilog 13.0 ||
-| [`test_sched_deferred_action_arguments`](../../tests/ch4/test_sched_deferred_action_arguments.sv) |observed deferred assertionのアクションブロックはReactive領域で実行し、値渡し引数はアサーション評価時の値を使用します。一方、const ref引数は非ブロッキング更新後の値を読み出します。| 4.4.2.7 16.4 4.4.2.4 13.5.2 |標準のみ||
-| [`test_program_nonblocking_update_in_re_nba`](../../tests/ch4/test_program_nonblocking_update_in_re_nba.sv) |プログラムの非ブロック代入は、現在のタイムスロットの Re-NBA 領域で更新をスケジュールします。遅延代入の場合は、後の領域で更新します。つまり、更新はそのスロットの Reactive イベントの後に、アクティブ領域セットが再び実行される前に来ます。| 4.4.2.8 4.5 24.3.1 |標準のみ||
+| [`test_sched_deferred_action_arguments`](../../tests/ch4/test_sched_deferred_action_arguments.sv) |observed deferred assertionのアクションブロックはReactive領域で実行し、値渡し引数はアサーション評価時の値を使用します。一方、const ref引数は非ブロッキング更新後の値を読み出します。| 4.4.2.7 16.4 4.4.2.4 13.5.2 |規格のみ||
+| [`test_program_nonblocking_update_in_re_nba`](../../tests/ch4/test_program_nonblocking_update_in_re_nba.sv) |プログラムの非ブロック代入は、現在のタイムスロットの Re-NBA 領域で更新をスケジュールします。遅延代入の場合は、後の領域で更新します。つまり、更新はそのスロットの Reactive イベントの後に、アクティブ領域セットが再び実行される前に来ます。| 4.4.2.8 4.5 24.3.1 |規格のみ||
 | [`test_program_renba_after_zero_delay`](../../tests/ch4/test_program_renba_after_zero_delay.sv) |プログラム NBA の更新はゼロ遅延後に未着手ですが、時間が経過した後に見えるようになりました| 4.4.2.8 4.4.2.7 24.3.1 | Icarus Verilog 13.0 ||
-| [`test_illegal_final_deferred_action_schedules_event`](../../tests/ch4/test_illegal_final_deferred_action_schedules_event.sv) |最終遅延アサーションのアクションは Postponed 領域で実行されるので、ノンブロッキングのイベントトリガのようにタイムスロットの前の領域にイベントを予約するサブルーチンは呼べないが、表示だけを行うサブルーチンは合法である| 4.4.2.9 16.4 15.5.1 13.4.4 |標準のみ|違法なデザインだ|
+| [`test_illegal_final_deferred_action_schedules_event`](../../tests/ch4/test_illegal_final_deferred_action_schedules_event.sv) |最終遅延アサーションのアクションは Postponed 領域で実行されるので、ノンブロッキングのイベントトリガのようにタイムスロットの前の領域にイベントを予約するサブルーチンは呼べないが、表示だけを行うサブルーチンは合法である| 4.4.2.9 16.4 15.5.1 13.4.4 |規格のみ|規格違反の設計|
 | [`test_postponed_strobe_monitor_after_reactive_writes`](../../tests/ch4/test_postponed_strobe_monitor_after_reactive_writes.sv) |$strobeと$monitorは遅延領域に印刷されます。それは変数がタイムスロットの NBA 、Reactive 、Re-NBA の書き込み後に持つ値を表示します。その間の値ではありません。| 4.4.2.9 4.5 21.2.2 21.2.3 24.3.1 | Icarus Verilog 13.0 ||
 | [`test_sched_monitor_once_per_time_step`](../../tests/ch4/test_sched_monitor_once_per_time_step.sv) |$monitor は、時間ステップごとに最大 1 行を出力し、その終わりに値を表示し、引数が変化しないステップでは何も出力しません。| 4.4.2.9 21.2.3 | Icarus Verilog 13.0 ||
 | [`test_sched_strobe_after_nba`](../../tests/ch4/test_sched_strobe_after_nba.sv) |$strobe は、ブロックしない更新とそれらが起動するプロセスの後、タイムステップの終わりに出力されます。| 4.4.2.9 21.2.2 10.4.2 | Icarus Verilog 13.0 ||
 | [`test_sched_strobe_after_zero_delays_and_nba`](../../tests/ch4/test_sched_strobe_after_zero_delays_and_nba.sv) |$strobe 0 の再開、ブロック書き込み、ブロックしない更新の後、タイムステップの終わりに値を出力します。| 4.4.2.9 21.2.2 4.4.2.3 | Icarus Verilog 13.0 ||
 | [`test_pli_phase_chain_after_nba_and_end_write`](../../tests/ch4/test_pli_phase_chain_after_nba_and_end_write.sv) |PLIコールバックはNBAまでのプレアクティブ書き込みを捕捉し，読み込みのみで終了時の書き込みとそのHDL反応を観察し，NBA以前とその後の読み込み・書き込み同期を固定しない。| 4.4.3.2 4.4.3.9 4.4.3.10 4.10 38.36.2 | Icarus Verilog 13.0 | VPI |
 | [`test_pli_pre_active_write`](../../tests/ch4/test_pli_pre_active_write.sv) |これは、cbAfterDelay のコールバックが Pre-Active 領域で実行されるため、そのタイムステップのデザインイベントの前の値を見て、そのタイムステープのデザインプロセスが実行される時に書き込む値がそこにあることを意味します。| 4.4.3.2 4.10 38.36.2 38.34 | Icarus Verilog 13.0 | VPI |
-| [`test_pli_nba_synch_write_before_nba`](../../tests/ch4/test_pli_nba_synch_write_before_nba.sv) |Pre-NBA領域の cbNBASynch 回帰は、アクティブイベントの後とブロックしない更新の前の値を読み、書き込む値は、更新の前に実行されているデザインプロセスを起動します。| 4.4.3.3 4.10 4.5 38.36.2 38.34 |標準のみ| VPI |
+| [`test_pli_nba_synch_write_before_nba`](../../tests/ch4/test_pli_nba_synch_write_before_nba.sv) |Pre-NBA領域の cbNBASynch 回帰は、アクティブイベントの後とブロックしない更新の前の値を読み、書き込む値は、更新の前に実行されているデザインプロセスを起動します。| 4.4.3.3 4.10 4.5 38.36.2 38.34 |規格のみ| VPI |
 | [`test_pli_read_write_synch_write`](../../tests/ch4/test_pli_read_write_synch_write.sv) |cbReadWriteSynch 回のコールバックは、そのタイムステップのブロック代入の後、Pre-NBA または Post-NBA 領域で実行され、書き込んだ値は、同じタイムステップで設計プロセスを起動します。| 4.4.3.4 4.4.3.3 4.10 38.36.2 | Icarus Verilog 13.0 | VPI |
 | [`test_pli_end_of_time_write`](../../tests/ch4/test_pli_end_of_time_write.sv) |cbAtEndOfSimTime cbReadOnlySynch コールバックは、ブロックしない更新の後、Pre-Postponed領域で実行され、それが書き込んだ値は、時間ステップの別の反復を開始します。| 4.4.3.9 4.4.3.10 4.10 4.5 38.36.2 | Icarus Verilog 13.0 | VPI |
-| [`test_pli_slot_entry_regions_run_once`](../../tests/ch4/test_pli_slot_entry_regions_run_once.sv) |タイムスロットは Preponed 領域と Pre-Active 領域を入口で一度だけ通り、Pre-Postponed 領域で作られた処理によって Active から Pre-Postponed までの領域をもう一度反復するときにも再び通らず、Postponed 領域は最後に一度だけ来る| 4.4.3.10 4.4.1 4.5 4.10 38.36.2 16.5.1 |標準のみ| VPI |
-| [`test_region_set_iteration_order`](../../tests/ch4/test_region_set_iteration_order.sv) |時間ステップは、Active集合の全領域が空になるまで反復してからReactive集合へ進みます。Reactive集合では、Reactive・Re-Inactive・Re-NBAの処理を空にしてから、リアクティブ側が生成したActive処理へ戻ります。| 4.4.3.10 4.5 24.3.1 |標準のみ||
+| [`test_pli_slot_entry_regions_run_once`](../../tests/ch4/test_pli_slot_entry_regions_run_once.sv) |タイムスロットは Preponed 領域と Pre-Active 領域を入口で一度だけ通り、Pre-Postponed 領域で作られた処理によって Active から Pre-Postponed までの領域をもう一度反復するときにも再び通らず、Postponed 領域は最後に一度だけ来る| 4.4.3.10 4.4.1 4.5 4.10 38.36.2 16.5.1 |規格のみ| VPI |
+| [`test_region_set_iteration_order`](../../tests/ch4/test_region_set_iteration_order.sv) |時間ステップは、Active集合の全領域が空になるまで反復してからReactive集合へ進みます。Reactive集合では、Reactive・Re-Inactive・Re-NBAの処理を空にしてから、リアクティブ側が生成したActive処理へ戻ります。| 4.4.3.10 4.5 24.3.1 |規格のみ||
 | [`test_ieee1800_2023_delta_convergence`](../../tests/ch4/test_ieee1800_2023_delta_convergence.sv) |デルタサイクル収束テスト| 4.5 4.4.2.3 10.3 | Icarus Verilog 13.0 ||
 | [`test_sched_inactive_resume_before_nba_wake`](../../tests/ch4/test_sched_inactive_resume_before_nba_wake.sv) |プロセスを同じ時間ステップでブロックしない更新で起動させる前に #0 から再開する| 4.5 4.4.2.3 4.4.2.4 9.4.2 | Icarus Verilog 13.0 ||
 | [`test_sched_initial_values`](../../tests/ch4/test_sched_initial_values.sv) |変数とネットは最初のタイムスロットイベント処理前にデフォルトまたは宣言された初期値を持ち、初期化イベントはタイムゼロスロットにある。| 4.5 | Icarus Verilog 13.0 | x/z |
@@ -80,49 +80,49 @@
 | [`test_range_select_lhs`](../../tests/ch4/test_range_select_lhs.sv) |可変境界を持つ部分選択割当| 4.9 11.5.1 | Icarus Verilog 13.0 ||
 | [`test_port_connection_evaluated_at_time_zero`](../../tests/ch4/test_port_connection_evaluated_at_time_zero.sv) |inputポートの暗黙の継続代入は時刻0で評価します。そのため、定数式または宣言時初期値を保持する変数に接続したポートは、値変化がなくてもその値になります。| 4.9.1 4.9.6 23.3.3 | Icarus Verilog 13.0 ||
 | [`test_sched_contassign_zero_delay`](../../tests/ch4/test_sched_contassign_zero_delay.sv) |連続代入は、時間ゼロで評価され、アクティブ領域で更新されます。# 0 を待つプロセスが再開する前に。| 4.9.1 4.4.2.2 4.4.2.3 10.3.2 | Icarus Verilog 13.0 ||
-| [`test_force_and_assign_follow_expression`](../../tests/ch4/test_force_and_assign_follow_expression.sv) |アクティブフォースまたはプロセスアッセンブリ命令は、その表現に敏感なプロセスであり、表現の変更は、リリースまたはアッセンブリ解除が終了するまで、アクティブ領域のターゲットを更新します。| 4.9.2 10.6.1 10.6.2 |標準のみ||
-| [`test_sched_procedural_assign_deassign`](../../tests/ch4/test_sched_procedural_assign_deassign.sv) |プロセス的連続代入は右側に従い、代入を解除するまでプロセス的代入を上書きします。| 4.9.2 10.6.1 |標準のみ||
+| [`test_force_and_assign_follow_expression`](../../tests/ch4/test_force_and_assign_follow_expression.sv) |アクティブフォースまたはプロセスアッセンブリ命令は、その表現に敏感なプロセスであり、表現の変更は、リリースまたはアッセンブリ解除が終了するまで、アクティブ領域のターゲットを更新します。| 4.9.2 10.6.1 10.6.2 |規格のみ||
+| [`test_sched_procedural_assign_deassign`](../../tests/ch4/test_sched_procedural_assign_deassign.sv) |プロセス的連続代入は右側に従い、代入を解除するまでプロセス的代入を上書きします。| 4.9.2 10.6.1 |規格のみ||
 | [`test_blocking_delayed_target_after_index_change`](../../tests/ch4/test_blocking_delayed_target_after_index_change.sv) |代入内ブロック遅延は RHS を保存するが、再開時にインデックスされた目的地を選択する| 4.9.3 | Icarus Verilog 13.0 ||
 | [`test_blocking_zero_delay_resumes_in_inactive`](../../tests/ch4/test_blocking_zero_delay_resumes_in_inactive.sv) |ブロックアシストは遅延なく次のステートメントの前にターゲットを更新し、アシスト間遅延がゼロのアシストは右側を一度に計算し、NBA 更新前に Inactive 領域で再開し、再開時に選択したターゲットを更 新し、それに感度のあるプロセスを起動します。| 4.9.3 4.5 10.4.1 | Icarus Verilog 13.0 ||
-| [`test_program_blocking_zero_delay_reinactive`](../../tests/ch4/test_program_blocking_zero_delay_reinactive.sv) |programプロセス内で代入内遅延がゼロのブロッキング代入を実行すると、そのプロセスはRe-Inactive領域で再開する。これは、同じタイムステップ内でそのprogramが先に起床させたmoduleプロセスより前となる。| 4.9.3 4.4.2.7 4.5 24.3.1 |標準のみ||
+| [`test_program_blocking_zero_delay_reinactive`](../../tests/ch4/test_program_blocking_zero_delay_reinactive.sv) |programプロセス内で代入内遅延がゼロのブロッキング代入を実行すると、そのプロセスはRe-Inactive領域で再開する。これは、同じタイムステップ内でそのprogramが先に起床させたmoduleプロセスより前となる。| 4.9.3 4.4.2.7 4.5 24.3.1 |規格のみ||
 | [`test_sched_intra_assignment_target`](../../tests/ch4/test_sched_intra_assignment_target.sv) |任務内タイミング制御では，右側が最初に評価される。ブロックアシストは 再開時にターゲットを選択し 非ブロックアシストでは 実行時に| 4.9.3 4.9.4 9.4.5 10.4.1 10.4.2 | Icarus Verilog 13.0 ||
 | [`test_nonblocking_delay_selects_time_slot`](../../tests/ch4/test_nonblocking_delay_selects_time_slot.sv) |遅延なし、または遅延ゼロのノンブロッキング代入は、現在のタイムスロットのNBA領域で更新する。非ゼロの遅延を持つものは、後のタイムスロットのNBA領域で更新する。いずれも、予約時に値と代入先を計算する。| 4.9.4 4.5 10.4.2 21.2.2 | Icarus Verilog 13.0 ||
-| [`test_program_nonblocking_delay_re_nba_slot`](../../tests/ch4/test_program_nonblocking_delay_re_nba_slot.sv) |プログラムの非ブロック代入は、Re-NBA領域で、遅延なしに現在のタイムスロットと、ゼロ以外の遅延を持つ後のスロットを、そのスロットの Reactive イベントの後で、アクティブ領域セットが再び実行される前に更新します。| 4.9.4 4.4.2.8 4.5 24.3.1 |標準のみ||
+| [`test_program_nonblocking_delay_re_nba_slot`](../../tests/ch4/test_program_nonblocking_delay_re_nba_slot.sv) |プログラムの非ブロック代入は、Re-NBA領域で、遅延なしに現在のタイムスロットと、ゼロ以外の遅延を持つ後のスロットを、そのスロットの Reactive イベントの後で、アクティブ領域セットが再び実行される前に更新します。| 4.9.4 4.4.2.8 4.5 24.3.1 |規格のみ||
 | [`test_bidirectional_switch_kinds_and_network`](../../tests/ch4/test_bidirectional_switch_kinds_and_network.sv) |双方向スイッチtran、tranif0、tranif1、rtran、rtranif0、rtranif1は、導通時に両方向へ信号を通します。スイッチ網のノードは、その網のすべてのデバイスを合わせて値が解決されます。| 4.9.5 28.8 28.13 28.14 21.2.1.4 | Icarus Verilog 13.0 | x/z |
 | [`test_switch_unknown_control_same_value_resolution`](../../tests/ch4/test_switch_unknown_control_same_value_resolution.sv) |未知スイッチ制御は一致を保持するが，競合するソース値に対して未知を生成する。| 4.9.5 28.8 | Icarus Verilog 13.0 | x/z |
 | [`test_switch_x_gate_resolution`](../../tests/ch4/test_switch_x_gate_resolution.sv) |ゲートがxの双方向スイッチの遠方のノードは，スイッチがオンとオフの状態で同じ値を与えるときにのみ既知の値をとる。| 4.9.5 28.8 28.12 | Icarus Verilog 13.0 | x/z |
 | [`test_inout_port_keeps_strength`](../../tests/ch4/test_inout_port_keeps_strength.sv) |入出力ポートはモジュール内外のネットを両方向に強度を低下させることなく接続するが，2つのネット間のトランは供給強度を強く低下させる。| 4.9.6 28.13 21.2.1.4 23.3.3 | Icarus Verilog 13.0 | x/z |
-| [`test_primitive_terminal_direct_connections`](../../tests/ch4/test_primitive_terminal_direct_connections.sv) |1 - bitネットbitセレクトに直接接続し，ネットの強度を保持する一方で，他の表現で与えられた入力は暗黙的な連続代入を経て，原始的な出力の変化はアクティブな更新イベントである。| 4.9.6 28.7 28.13 21.2.1.4 |標準のみ| x/z |
+| [`test_primitive_terminal_direct_connections`](../../tests/ch4/test_primitive_terminal_direct_connections.sv) |1 - bitネットbitセレクトに直接接続し，ネットの強度を保持する一方で，他の表現で与えられた入力は暗黙的な連続代入を経て，原始的な出力の変化はアクティブな更新イベントである。| 4.9.6 28.7 28.13 21.2.1.4 |規格のみ| x/z |
 | [`test_sched_subroutine_copy_out`](../../tests/ch4/test_sched_subroutine_copy_out.sv) |出力と入力の引数はタスクが返されるときにコピーされますが、ref引数は一度に書き込まれます。| 4.9.7 13.3 13.5.1 13.5.2 13.5 | Verilator 5.052 ||
 | [`test_subroutine_output_copy_only_at_return`](../../tests/ch4/test_subroutine_output_copy_only_at_return.sv) |タスク出力と入力代入はサブルーティンが戻るまでローカルに残ります。| 4.9.7 13.5.1 | Icarus Verilog 13.0 ||
 | [`test_task_output_copied_out_on_return`](../../tests/ch4/test_task_output_copied_out_on_return.sv) |次の命令が見るブロッキングアシストとして、タスクが返されるときに value で渡された出力引数を呼び出し者の変数にコピーし、その変数を待つプロセスを起動させます。| 4.9.7 13.5.1 4.9.3 | Icarus Verilog 13.0 ||
 | [`test_pli_callback_immediate_and_one_shot`](../../tests/ch4/test_pli_callback_immediate_and_one_shot.sv) |値変化コールバックは対象が変化するたびに、それを書くプロセスの文と文の間で直ちに実行され、一度登録した時刻コールバックは自身の制御点のイベントとして一度だけ実行される| 4.10 38.36.1 38.36.2 | Icarus Verilog 13.0 | VPI |
 | [`test_pli_end_of_time_after_reactive_set`](../../tests/ch4/test_pli_end_of_time_after_reactive_set.sv) |時間ステップのアクティブ領域とレアティブ領域のセットが空になった後、cbAtEndOfSimTime のコールバックは Pre-Postponed 領域で実行され、書き込む値は Postponed 領域の前に両セットの反復を再開します。| 4.10 4.4.3.9 4.4.3.10 4.5 38.36.2 24.3.1 | Icarus Verilog 13.0 | VPI |
-| [`test_pli_nba_synch_callback`](../../tests/ch4/test_pli_nba_synch_callback.sv) |ブロックの代入の後、ブロックしない更新の前に Pre-NBA 領域で cbNBASynch のコールバックが実行されます。| 4.10 4.4.3.3 38.36.2 |標準のみ| VPI |
+| [`test_pli_nba_synch_callback`](../../tests/ch4/test_pli_nba_synch_callback.sv) |ブロックの代入の後、ブロックしない更新の前に Pre-NBA 領域で cbNBASynch のコールバックが実行されます。| 4.10 4.4.3.3 38.36.2 |規格のみ| VPI |
 | [`test_pli_pre_active_next_and_start_time`](../../tests/ch4/test_pli_pre_active_next_and_start_time.sv) |cbNextSimTimeとcbAtStartOfSimTimeのコールバックは Pre-Active 領域で実行され、そのタイムステップのデザインイベントの前に実行され、書き込んだ値はそのステップのデザインプロセスに見られ、それを待っているプロセスを起動させます。| 4.10 4.4.3.2 38.36.2 38.34 | Icarus Verilog 13.0 | VPI |
-| [`test_pli_read_write_synch_before_reactive`](../../tests/ch4/test_pli_read_write_synch_before_reactive.sv) |cbReadWriteSynch 回のコールバックは Pre-NBA または Post-NBA 領域で実行され、そのタイムステップのアクティブとインアクティブイベントの後、Reactive 領域のプログラムプロセスの前に実行され、書き込んだ値は同じタイムステップで処理されます。| 4.10 4.4.3.3 4.4.3.4 38.36.2 24.3.1 |標準のみ| VPI |
+| [`test_pli_read_write_synch_before_reactive`](../../tests/ch4/test_pli_read_write_synch_before_reactive.sv) |cbReadWriteSynch 回のコールバックは Pre-NBA または Post-NBA 領域で実行され、そのタイムステップのアクティブとインアクティブイベントの後、Reactive 領域のプログラムプロセスの前に実行され、書き込んだ値は同じタイムステップで処理されます。| 4.10 4.4.3.3 4.4.3.4 38.36.2 24.3.1 |規格のみ| VPI |
 | [`test_pli_region_callbacks`](../../tests/ch4/test_pli_region_callbacks.sv) |1タイムステップのシミュレーション時刻コールバックは、設計のイベントを挟むPLI領域で実行される。cbAtStartOfSimTimeはActive領域より前、cbAtEndOfSimTimeはNBA領域より後、cbReadOnlySynchは最後となる| 4.10 4.4.3 38.36.2 | Icarus Verilog 13.0 | VPI |
 
 <a id="generated-by-generatorsinteraction_sensepy"></a>
 
-## 生成者: `generators/interaction_sense.py`
+## `generators/interaction_sense.py`が生成
 
-61 テスト;見て "Generated tests" のスイートの README。
+テスト61本。スイートのREADMEの"Generated tests"を参照してください。
 
-|テスト|チェックするもの|条項|予期した出力を記録|ノート|
+|テスト|確認する内容|条項|期待出力を記録したリリース|注記|
 | --- | --- | --- | --- | --- |
 | [`test_gen_cross_sense_assign_concat_same_blocking`](../../tests/gen/ch4/test_gen_cross_sense_assign_concat_same_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.2 11.4.12 | Icarus Verilog 13.0 ||
 | [`test_gen_cross_sense_assign_cond_same_blocking`](../../tests/gen/ch4/test_gen_cross_sense_assign_cond_same_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.2 11.4.11 | Icarus Verilog 13.0 ||
 | [`test_gen_cross_sense_assign_element_unread_nba`](../../tests/gen/ch4/test_gen_cross_sense_assign_element_unread_nba.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.2 7.4 | Icarus Verilog 13.0 ||
 | [`test_gen_cross_sense_assign_fnarg_read_blocking`](../../tests/gen/ch4/test_gen_cross_sense_assign_fnarg_read_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.2 13.4 | Icarus Verilog 13.0 ||
-| [`test_gen_cross_sense_assign_fnglobal_read_task`](../../tests/gen/ch4/test_gen_cross_sense_assign_fnglobal_read_task.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.2 13.4 |標準のみ||
+| [`test_gen_cross_sense_assign_fnglobal_read_task`](../../tests/gen/ch4/test_gen_cross_sense_assign_fnglobal_read_task.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.2 13.4 |規格のみ||
 | [`test_gen_cross_sense_assign_index_index_blocking`](../../tests/gen/ch4/test_gen_cross_sense_assign_index_index_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.2 7.4 | Icarus Verilog 13.0 ||
 | [`test_gen_cross_sense_assign_index_same_blocking`](../../tests/gen/ch4/test_gen_cross_sense_assign_index_same_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.2 7.4 | Icarus Verilog 13.0 ||
 | [`test_gen_cross_sense_assign_member_second_blocking`](../../tests/gen/ch4/test_gen_cross_sense_assign_member_second_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.2 7.2 | Verilator 5.052 ||
 | [`test_gen_cross_sense_assign_packed_same_task`](../../tests/gen/ch4/test_gen_cross_sense_assign_packed_same_task.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.2 7.2.1 | Icarus Verilog 13.0 ||
 | [`test_gen_cross_sense_assign_part_read_blocking`](../../tests/gen/ch4/test_gen_cross_sense_assign_part_read_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.2 11.5.1 | Icarus Verilog 13.0 ||
 | [`test_gen_cross_sense_assign_plain_second_blocking`](../../tests/gen/ch4/test_gen_cross_sense_assign_plain_second_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.2 6.8 | Icarus Verilog 13.0 ||
-| [`test_gen_cross_sense_comb_concat_unread_blocking`](../../tests/gen/ch4/test_gen_cross_sense_comb_concat_unread_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 11.4.12 |標準のみ||
+| [`test_gen_cross_sense_comb_concat_unread_blocking`](../../tests/gen/ch4/test_gen_cross_sense_comb_concat_unread_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 11.4.12 |規格のみ||
 | [`test_gen_cross_sense_comb_cond_unread_blocking`](../../tests/gen/ch4/test_gen_cross_sense_comb_cond_unread_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 11.4.11 | Icarus Verilog 13.0 ||
 | [`test_gen_cross_sense_comb_element_unread_blocking`](../../tests/gen/ch4/test_gen_cross_sense_comb_element_unread_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 7.4 | Icarus Verilog 13.0 ||
 | [`test_gen_cross_sense_comb_fnarg_unread_blocking`](../../tests/gen/ch4/test_gen_cross_sense_comb_fnarg_unread_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 13.4 | Icarus Verilog 13.0 ||
@@ -131,11 +131,11 @@
 | [`test_gen_cross_sense_comb_fnglobal_unread_blocking`](../../tests/gen/ch4/test_gen_cross_sense_comb_fnglobal_unread_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 13.4 | Icarus Verilog 13.0 ||
 | [`test_gen_cross_sense_comb_index_index_task`](../../tests/gen/ch4/test_gen_cross_sense_comb_index_index_task.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 7.4 | Icarus Verilog 13.0 ||
 | [`test_gen_cross_sense_comb_index_unread_blocking`](../../tests/gen/ch4/test_gen_cross_sense_comb_index_unread_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 7.4 | Icarus Verilog 13.0 ||
-| [`test_gen_cross_sense_comb_member_unread_blocking`](../../tests/gen/ch4/test_gen_cross_sense_comb_member_unread_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 7.2 |標準のみ||
-| [`test_gen_cross_sense_comb_packed_unread_blocking`](../../tests/gen/ch4/test_gen_cross_sense_comb_packed_unread_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 7.2.1 |標準のみ||
+| [`test_gen_cross_sense_comb_member_unread_blocking`](../../tests/gen/ch4/test_gen_cross_sense_comb_member_unread_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 7.2 |規格のみ||
+| [`test_gen_cross_sense_comb_packed_unread_blocking`](../../tests/gen/ch4/test_gen_cross_sense_comb_packed_unread_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 7.2.1 |規格のみ||
 | [`test_gen_cross_sense_comb_part_same_nba`](../../tests/gen/ch4/test_gen_cross_sense_comb_part_same_nba.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 11.5.1 | Icarus Verilog 13.0 ||
 | [`test_gen_cross_sense_comb_part_second_task`](../../tests/gen/ch4/test_gen_cross_sense_comb_part_second_task.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 11.5.1 | Icarus Verilog 13.0 ||
-| [`test_gen_cross_sense_comb_part_unread_blocking`](../../tests/gen/ch4/test_gen_cross_sense_comb_part_unread_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 11.5.1 |標準のみ||
+| [`test_gen_cross_sense_comb_part_unread_blocking`](../../tests/gen/ch4/test_gen_cross_sense_comb_part_unread_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 11.5.1 |規格のみ||
 | [`test_gen_cross_sense_comb_plain_read_blocking`](../../tests/gen/ch4/test_gen_cross_sense_comb_plain_read_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 6.8 | Icarus Verilog 13.0 ||
 | [`test_gen_cross_sense_comb_plain_unread_blocking`](../../tests/gen/ch4/test_gen_cross_sense_comb_plain_unread_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.2.1 11.5.3 6.8 | Icarus Verilog 13.0 ||
 | [`test_gen_cross_sense_latch_concat_read_nba`](../../tests/gen/ch4/test_gen_cross_sense_latch_concat_read_nba.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.3 11.5.3 11.4.12 | Icarus Verilog 13.0 ||
@@ -147,8 +147,8 @@
 | [`test_gen_cross_sense_latch_fnglobal_read_nba`](../../tests/gen/ch4/test_gen_cross_sense_latch_fnglobal_read_nba.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.3 11.5.3 13.4 | Icarus Verilog 13.0 ||
 | [`test_gen_cross_sense_latch_index_index_blocking`](../../tests/gen/ch4/test_gen_cross_sense_latch_index_index_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.3 11.5.3 7.4 | Icarus Verilog 13.0 ||
 | [`test_gen_cross_sense_latch_index_read_nba`](../../tests/gen/ch4/test_gen_cross_sense_latch_index_read_nba.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.3 11.5.3 7.4 | Icarus Verilog 13.0 ||
-| [`test_gen_cross_sense_latch_member_read_nba`](../../tests/gen/ch4/test_gen_cross_sense_latch_member_read_nba.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.3 11.5.3 7.2 |標準のみ||
-| [`test_gen_cross_sense_latch_member_unread_task`](../../tests/gen/ch4/test_gen_cross_sense_latch_member_unread_task.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.3 11.5.3 7.2 |標準のみ||
+| [`test_gen_cross_sense_latch_member_read_nba`](../../tests/gen/ch4/test_gen_cross_sense_latch_member_read_nba.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.3 11.5.3 7.2 |規格のみ||
+| [`test_gen_cross_sense_latch_member_unread_task`](../../tests/gen/ch4/test_gen_cross_sense_latch_member_unread_task.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.3 11.5.3 7.2 |規格のみ||
 | [`test_gen_cross_sense_latch_packed_read_nba`](../../tests/gen/ch4/test_gen_cross_sense_latch_packed_read_nba.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.3 11.5.3 7.2.1 | Icarus Verilog 13.0 ||
 | [`test_gen_cross_sense_latch_part_read_nba`](../../tests/gen/ch4/test_gen_cross_sense_latch_part_read_nba.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.3 11.5.3 11.5.1 | Icarus Verilog 13.0 ||
 | [`test_gen_cross_sense_latch_plain_read_nba`](../../tests/gen/ch4/test_gen_cross_sense_latch_plain_read_nba.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.2.2.3 11.5.3 6.8 | Icarus Verilog 13.0 ||
@@ -156,7 +156,7 @@
 | [`test_gen_cross_sense_netdecl_cond_index_blocking`](../../tests/gen/ch4/test_gen_cross_sense_netdecl_cond_index_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.1 11.4.11 | Icarus Verilog 13.0 ||
 | [`test_gen_cross_sense_netdecl_element_second_task`](../../tests/gen/ch4/test_gen_cross_sense_netdecl_element_second_task.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.1 7.4 | Icarus Verilog 13.0 ||
 | [`test_gen_cross_sense_netdecl_fnarg_same_task`](../../tests/gen/ch4/test_gen_cross_sense_netdecl_fnarg_same_task.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.1 13.4 | Icarus Verilog 13.0 ||
-| [`test_gen_cross_sense_netdecl_fnglobal_read_nba`](../../tests/gen/ch4/test_gen_cross_sense_netdecl_fnglobal_read_nba.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.1 13.4 |標準のみ||
+| [`test_gen_cross_sense_netdecl_fnglobal_read_nba`](../../tests/gen/ch4/test_gen_cross_sense_netdecl_fnglobal_read_nba.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.1 13.4 |規格のみ||
 | [`test_gen_cross_sense_netdecl_index_read_blocking`](../../tests/gen/ch4/test_gen_cross_sense_netdecl_index_read_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.1 7.4 | Icarus Verilog 13.0 ||
 | [`test_gen_cross_sense_netdecl_member_read_blocking`](../../tests/gen/ch4/test_gen_cross_sense_netdecl_member_read_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.1 7.2 | Verilator 5.052 ||
 | [`test_gen_cross_sense_netdecl_packed_read_blocking`](../../tests/gen/ch4/test_gen_cross_sense_netdecl_packed_read_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 10.3.1 7.2.1 | Icarus Verilog 13.0 ||
@@ -168,18 +168,18 @@
 | [`test_gen_cross_sense_star_fnarg_second_blocking`](../../tests/gen/ch4/test_gen_cross_sense_star_fnarg_second_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.4.2.2 9.2.2.2.2 13.4 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_sense_star_fnglobal_read_blocking`](../../tests/gen/ch4/test_gen_cross_sense_star_fnglobal_read_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.4.2.2 9.2.2.2.2 13.4 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_sense_star_index_second_nba`](../../tests/gen/ch4/test_gen_cross_sense_star_index_second_nba.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.4.2.2 9.2.2.2.2 7.4 | Icarus Verilog 13.0 | x/z |
-| [`test_gen_cross_sense_star_member_same_blocking`](../../tests/gen/ch4/test_gen_cross_sense_star_member_same_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.4.2.2 9.2.2.2.2 7.2 |標準のみ| x/z |
+| [`test_gen_cross_sense_star_member_same_blocking`](../../tests/gen/ch4/test_gen_cross_sense_star_member_same_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.4.2.2 9.2.2.2.2 7.2 |規格のみ| x/z |
 | [`test_gen_cross_sense_star_packed_second_blocking`](../../tests/gen/ch4/test_gen_cross_sense_star_packed_second_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.4.2.2 9.2.2.2.2 7.2.1 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_sense_star_part_read_blocking`](../../tests/gen/ch4/test_gen_cross_sense_star_part_read_blocking.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.4.2.2 9.2.2.2.2 11.5.1 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_cross_sense_star_plain_same_task`](../../tests/gen/ch4/test_gen_cross_sense_star_plain_same_task.sv) |更新は、各形式の暗黙の感度に従い、変わったビットを読むものだけを起こす| 4.3 9.4.2.2 9.2.2.2.2 6.8 | Icarus Verilog 13.0 | x/z |
 
 <a id="generated-by-generatorsschedulingpy"></a>
 
-## 生成者: `generators/scheduling.py`
+## `generators/scheduling.py`が生成
 
-325 テスト;見て "Generated tests" のスイートの README。
+テスト325本。スイートのREADMEの"Generated tests"を参照してください。
 
-|テスト|チェックするもの|条項|予期した出力を記録|ノート|
+|テスト|確認する内容|条項|期待出力を記録したリリース|注記|
 | --- | --- | --- | --- | --- |
 | [`test_gen_sched_assign_monitor_always_delay0`](../../tests/gen/ch4/test_gen_sched_assign_monitor_always_delay0.sv) |always手続き内で#0後の時刻0にsrcへブロッキング書込みを行い、連続代入がvへコピーした値は、4.4.2の領域順序に従い$monitorで観測される。出力は、引数が変化した各タイムステップの終端に行われる| 4.4.2 10.3.2 21.2.3 9.2.2 4.4.2.3 | Icarus Verilog 13.0 ||
 | [`test_gen_sched_assign_monitor_always_delay1`](../../tests/gen/ch4/test_gen_sched_assign_monitor_always_delay1.sv) |ブロック書き込みによる src への書き込みは、#1 の後に常に手続きで v にコピーされる連続的な代入を $monitor で見て、引数が 4.4.2 の領域の順序で変化したときの各タイムステップの終わりに出力します。| 4.4.2 10.3.2 21.2.3 9.2.2 | Icarus Verilog 13.0 ||

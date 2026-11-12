@@ -1,4 +1,4 @@
-<a id="テストで引用された文"></a>
+<a id="テストが引用する条項"></a>
 
 # Clauses cited by the tests
 
@@ -51,7 +51,7 @@ Of 1010 clauses in scope, 1010 are cited by a test, 0 only through a parent clau
 | 39 | Assertion API | 7 ||| 2 |
 | 40 | Code coverage control and API | 18 ||| 2 |
 
-<a id="未引用"></a>
+<a id="まだ引用されていない条項"></a>
 
 ## Not cited yet
 
@@ -59,7 +59,7 @@ Clauses in scope that no test cites; those marked with * have a parent clause th
 
 None.
 
-<a id="範囲外"></a>
+<a id="対象外"></a>
 
 ## Out of scope
 
@@ -68,7 +68,7 @@ None.
 - `tool`, left to the tool or its setup: 12.5.3.1, 22.11.1, 23.3.3.6, 30.7.3, 31.9.3, 33.2.2, 33.3.2, 33.5.1, 33.5.2, 33.5.3, 33.6.1, 33.6.2, 33.6.3, 33.6.4, 33.6.5, 33.8.1, 33.8.2, 33.8.3, 36.12.2.2, 36.12.3, 37.45, 38.9
 - `dump`, the content of VCD files: 21.7.2.4, 21.7.3.6.1, 21.7.4.4
 
-<a id="引用数がリストに欠けている"></a>
+<a id="一覧にない引用番号"></a>
 
 ## Cited numbers missing from the list
 

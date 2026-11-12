@@ -1,4 +1,4 @@
-<a id="テストのカタログ"></a>
+<a id="テストの一覧"></a>
 
 # Catalog of the tests
 
