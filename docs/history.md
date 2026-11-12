@@ -645,3 +645,11 @@ clause 37.
 - This test ran again on Icarus Verilog 13.0, Verilator 5.052 (seeds 1 and 73) and kirimasim `7de185f776a1`: `coverage/results/test-fix-20261113-*.json`. No status changed. Both pinned releases pass, and kirimasim does not support it. Ghost's saved result for this test is now stale. The saved result was a mismatch. Design coverage and execution coverage are unchanged.
 - `ch37/test_vpi_attribute_ports_params` of #65 is unchanged. Detail 4 of 37.28 says that `vpiLhs` of a param assign is the overridden parameter. But the diagram of 37.83 lists param assign, and not parameter, among the objects that have attributes, and detail 3 of 37.32 speaks of the param assign of a parameter without an explicit value. Whether a parameter that the instance does not override has a param assign can be read both ways.
 - The 15 tests of #71 are unchanged. The rule that an error line must carry `file:line:` stays, as decided for #27. #70 is about the settings used to run Ghost and is not a change to a test.
+
+### 2026-11-13 (review of the tests that only Ghost passes: Clause 37)
+
+- In the Nightly of 2026-11-12, 756 tests match their expectation on Ghost alone. Two reviews, independent of each other, compared the 193 tests of Clause 37 with the standard. Where the verdicts differ, or depend on the arrows of a diagram, the diagrams of the standard decided. The record is the [review of the tests that only Ghost passes: Clause 37](ghost-only-review-ch37-20261113.en.md).
+- The verdicts: 142 expectations are right, 4 are wrong, 26 tests are flawed, 4 depend on a gap in the standard and 17 rest on a contested reading.
+- The four wrong tests expect the type `vpiBitSelect` for a bit of a net or of a variable. By 37.16 and 37.17 these are a net bit and a var bit.
+- The gap in the standard: the header of Annex M has no constant for the tag `vpiNetTypedef` that 37.10 and 37.85 show.
+- No test was changed. The 30 wrong or flawed tests will be corrected when Ghost's results are saved again. The coverage figures are unchanged.

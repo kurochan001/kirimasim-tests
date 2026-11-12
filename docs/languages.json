@@ -425,8 +425,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "e7d2bce42cf44bb021b8a25d07637777bb089a7bf1cf8565826848bf76067222",
-        "ja": "63f3fae3ad7c91b7673cd5ba9b5cc49eb04d20e6d6b87b871be513668dd3bdd8"
+        "en": "451cd29bd97ebc9936cc087c0b46f8ba3843aedde0719ad795fa0df244786084",
+        "ja": "07374ae650b4937a17b4aa762c96db5a31c69432cbdefbf5cbf088ff4a0f1539"
       }
     },
     {
@@ -1212,6 +1212,17 @@
       "sha256": {
         "en": "6c42c2198e92991c95a1e49cd28fef5b10eb13a03ce9fd56251aceba5d67094f",
         "ja": "c9189dd09df8652baa2c82f45d46da683b7daa069b79517d701f2f46feb344b9"
+      }
+    },
+    {
+      "en": "docs/ghost-only-review-ch37-20261113.en.md",
+      "ja": "docs/ghost-only-review-ch37-20261113.md",
+      "source": "docs/ghost-only-review-ch37-20261113.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "ded1221648a9ad8188349020992ea1d575626f99ab5b428505983995f8315eaf",
+        "ja": "67c1e379126965105da503e33642cedebd9cafe4c88e9a70c1b78f43ffd825fa"
       }
     }
   ]

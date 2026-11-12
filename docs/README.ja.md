@@ -165,3 +165,4 @@
 | 不正な設計のテストのoracleトークンの見直し（2026-11-12） | [日本語](oracle-token-review-20261112.md) | [English](oracle-token-review-20261112.en.md) |
 | どのシミュレータでも合格しないテストの見直し（2026-11-12） | [日本語](pass-nowhere-review-20261112.md) | [English](pass-nowhere-review-20261112.en.md) |
 | 引き継ぎ 2026-11-12 | [日本語](claude-code-handoff-20261112.md) | [English](claude-code-handoff-20261112.en.md) |
+| Ghostだけが一致するテストの見直し：37章（2026-11-13） | [日本語](ghost-only-review-ch37-20261113.md) | [English](ghost-only-review-ch37-20261113.en.md) |
