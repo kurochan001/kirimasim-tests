@@ -6,9 +6,9 @@
 
 このレポートは登録した有限モデルだけを対象にします。要求カバレッジや全言語の 組合せ網羅率ではありません。計画上の網羅と、実行結果に基づく合格確認を分けます。 既存テストは削減していません。選択数の削減率は実行時間の削減率ではありません。
 
-生成元・利用手順・適用限界は[導入手順](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/docs/interaction-verification.md)を参照してください。
+生成元・利用手順・適用限界は[導入手順](https://github.com/kurochan001/kirimasim-tests/blob/68f5ecc7507d6157f7944b48aa50c61fcc6fa2e1/docs/interaction-verification.md)を参照してください。
 
-2因子100%で何を判断できるかは[4行の具体例](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/docs/faq.md#q28-why-not-simply-cross-every-feature)、計画と実際のPASSの違いは[実行充足の説明](https://github.com/kurochan001/kirimasim-tests/blob/a155aec8d7a87178f5abfa352286105aa5afbb58/docs/faq.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution)を参照してください。
+2因子100%で何を判断できるかは[4行の具体例](https://github.com/kurochan001/kirimasim-tests/blob/68f5ecc7507d6157f7944b48aa50c61fcc6fa2e1/docs/faq.md#q28-why-not-simply-cross-every-feature)、計画と実際のPASSの違いは[実行充足の説明](https://github.com/kurochan001/kirimasim-tests/blob/68f5ecc7507d6157f7944b48aa50c61fcc6fa2e1/docs/faq.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution)を参照してください。
 
 ## scheduling_visibility / model 1
 
@@ -528,13 +528,13 @@
 
 制約: 幅0の右入力を除外。mixedは最上位X/Zと最下位1なので幅1では除外。stateは左／右のbit/logic。未知値はX/Zを同じ行の別刺激で両方確認。全行で4演算を実行し、左右の副作用は独立。入力はsignedに固定
 
-## edge_event_expression / model 1
+## edge_event_expression / model 2
 
-- 制約を満たす組合せ数: 4096。
+- 制約を満たす組合せ数: 4032。
 - 利用できる既存・新規テスト: 64。
 - 短時間実行の選択: 64。
 - 個別に保持する必須ケース: 5。
-- 2因子の計画上の網羅: 260/260。
+- 2因子の計画上の網羅: 259/259。
 - 3因子の計画上の網羅: 152/152。
 
 両背景で初期イベントを除外し、更新直後の値と次時刻の3カウンタを観測して、X/Z遷移、式の変化、ベクタのLSB規則、状態変換、NBAの更新時点を確認する。
@@ -547,7 +547,7 @@
 - after: 0, 1, x, z。
 - update: blocking, nba。
 
-制約: 幅1の注目位置はlowに統一。各行で背景0/1、既知0→1と指定遷移を観測。全体／LSB／MSB／OR式を対象に、posedge・negedge・非エッジの変化を同時に測る。初期設定を収束させてカウンタをクリアし、更新の次時刻に計数。イベントOR・iff・複数更新・グリッチ・複数クロックは対象外
+制約: 幅1の注目位置はlowに統一。幅1ではMSBとLSBが同じビットなので、幅1のビット選択式はlsbに統一。各行で背景0/1、既知0→1と指定遷移を観測。全体／LSB／MSB／OR式を対象に、posedge・negedge・非エッジの変化を同時に測る。初期設定を収束させてカウンタをクリアし、更新の次時刻に計数。イベントOR・iff・複数更新・グリッチ・複数クロックは対象外
 
 ## event_or_iff / model 1
 
@@ -1403,14 +1403,14 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
 
 制約: 全432行が合法。各automatic taskが新しいイベントとpayloadを持ち、復帰後に子プロセスが2 tick遅れて待機する。scalarを対照とし、struct/入れ子structではメンバ参照と構造体全体のコピーを区別する。コピー後は元のイベントをnoiseへ再結合しpayloadも変更する。呼出し側の別名は待機登録前・登録後・起床後にnullへ解放するが、トリガ用の別名は全起床後まで保持する。待機登録・解放・トリガ・観測は別tickに置く。null待機、triggered、GC実行時期、物理的なメモリ回収、遅延付き非ブロッキングトリガ、ref引数は対象外。未対応による除外なし。
 
-## sv_dpi_array_queries / model 1
+## sv_dpi_array_queries / model 2
 
-- 制約を満たす組合せ数: 1152。
-- 利用できる既存・新規テスト: 19。
-- 短時間実行の選択: 19。
+- 制約を満たす組合せ数: 832。
+- 利用できる既存・新規テスト: 16。
+- 短時間実行の選択: 16。
 - 個別に保持する必須ケース: 7。
-- 2因子の計画上の網羅: 177/177。
-- 3因子の計画上の網羅: 66/66。
+- 2因子の計画上の網羅: 176/176。
+- 3因子の計画上の網羅: 63/63。
 
 同じ実引数のSV/DPI-C問い合わせを、次元番号の対応・packed範囲の正規化・各次元の範囲とincrement・呼出しごとの形状更新で照合する。
 
@@ -1424,7 +1424,7 @@ DPIのinput/output/inoutとNBA予約の前後、同じ/別の配列要素を組�
 - calls: same, switch。
 - query: literal, variable。
 
-制約: 全1152行が合法。固定配列の1/2/3次元とbitのpacked次元を使い、同じ実引数をSVの配列問い合わせとDPI-Cの問い合わせで観測する。packed実引数は正規化済み範囲とオフセット付き範囲を区別する。Cの次元0は正規化したpacked範囲で、正の次元は実引数のunpacked範囲を保持する。switchでは別の実引数へ切り替えて範囲を変更し、open packedだけは幅も4と33の間で変える。sized packedは幅を保持する。singletonのincrementは方向にかかわらず1。動的配列、キュー、空配列、X/Z、要素の値・書戻し、sized unpacked、範囲外の次元、Cからの再入、ハンドルの持越しは対象外。未対応による除外なし。
+制約: 1152行のうち832行が合法。boundsの値を変えても宣言する範囲が同じになる行は一つに統一する。全次元が1要素でpackedが正規化済みならdownだけ、全次元が1要素でpackedがオフセット付きならupとdownだけ、1次元でpackedが正規化済みならupとdownだけが合法。固定配列の1/2/3次元とbitのpacked次元を使い、同じ実引数をSVの配列問い合わせとDPI-Cの問い合わせで観測する。packed実引数は正規化済み範囲とオフセット付き範囲を区別する。Cの次元0は正規化したpacked範囲で、正の次元は実引数のunpacked範囲を保持する。switchでは別の実引数へ切り替えて範囲を変更し、open packedだけは幅も4と33の間で変える。sized packedは幅を保持する。singletonのincrementは方向にかかわらず1。動的配列、キュー、空配列、X/Z、要素の値・書戻し、sized unpacked、範囲外の次元、Cからの再入、ハンドルの持越しは対象外。未対応による除外なし。
 
 ## sdf_conditional_paths / model 1
 
@@ -2278,8 +2278,8 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
 
 ### results/ghost.json
 
-- 環境: private build 8d5097472bdb。
-- 実行日時: 2026-11-11T02:21:19.547429+00:00。
+- 環境: private build 909f828b22b0。
+- 実行日時: 2026-11-12T02:12:22.935923+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -2407,7 +2407,7 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 5/5。
   - ケース状態: pass=92, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - edge_event_expression:
-  - 2因子の合格確認済み組合せ: 260/260。
+  - 2因子の合格確認済み組合せ: 259/259。
   - 3因子の合格確認済み組合せ: 152/152。
   - 必須ケース: 5/5。
   - ケース状態: pass=64, fail=0, known=0, unsupported=0, stale=0, not_run=0。
@@ -2591,10 +2591,10 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 4/4。
   - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - dpi_openarray_shape:
-  - 2因子の合格確認済み組合せ: 93/100。
-  - 3因子の合格確認済み組合せ: 59/72。
-  - 必須ケース: 3/4。
-  - ケース状態: pass=26, fail=4, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 100/100。
+  - 3因子の合格確認済み組合せ: 72/72。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=30, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - clocking_assertion_sampling:
   - 2因子の合格確認済み組合せ: 109/109。
   - 3因子の合格確認済み組合せ: 50/50。
@@ -2616,10 +2616,10 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 6/6。
   - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - sv_dpi_array_queries:
-  - 2因子の合格確認済み組合せ: 177/177。
-  - 3因子の合格確認済み組合せ: 66/66。
+  - 2因子の合格確認済み組合せ: 176/176。
+  - 3因子の合格確認済み組合せ: 63/63。
   - 必須ケース: 7/7。
-  - ケース状態: pass=19, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+  - ケース状態: pass=16, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - sdf_conditional_paths:
   - 2因子の合格確認済み組合せ: 109/109。
   - 3因子の合格確認済み組合せ: 46/46。
@@ -2823,8 +2823,8 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
 
 ### results/icarus.json
 
-- 環境: Icarus Verilog version 14.0 (devel) (s20260301-948-gbd5af291)。
-- 実行日時: 2026-11-11T01:54:24.229688+00:00。
+- 環境: Icarus Verilog version 14.0 (devel) (s20260301-964-g3c970ad8)。
+- 実行日時: 2026-11-12T01:47:31.215096+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -2952,7 +2952,7 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 5/5。
   - ケース状態: pass=92, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - edge_event_expression:
-  - 2因子の合格確認済み組合せ: 260/260。
+  - 2因子の合格確認済み組合せ: 259/259。
   - 3因子の合格確認済み組合せ: 152/152。
   - 必須ケース: 5/5。
   - ケース状態: pass=64, fail=0, known=0, unsupported=0, stale=0, not_run=0。
@@ -3161,10 +3161,10 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=18, unsupported=0, stale=0, not_run=0。
 - sv_dpi_array_queries:
-  - 2因子の合格確認済み組合せ: 0/177。
-  - 3因子の合格確認済み組合せ: 0/66。
+  - 2因子の合格確認済み組合せ: 0/176。
+  - 3因子の合格確認済み組合せ: 0/63。
   - 必須ケース: 0/7。
-  - ケース状態: pass=0, fail=0, known=19, unsupported=0, stale=0, not_run=0。
+  - ケース状態: pass=0, fail=0, known=16, unsupported=0, stale=0, not_run=0。
 - sdf_conditional_paths:
   - 2因子の合格確認済み組合せ: 73/109。
   - 3因子の合格確認済み組合せ: 19/46。
@@ -3368,8 +3368,8 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
 
 ### results/kirimasim.json
 
-- 環境: kirimasim 0.0.0 (commit 7de185f776a1), built with GNU 13.3.0。
-- 実行日時: 2026-11-11T01:50:57.291443+00:00。
+- 環境: kirimasim 0.0.0 (commit cae3134e4c1a), built with GNU 13.3.0。
+- 実行日時: 2026-11-12T02:16:23.675093+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -3497,7 +3497,7 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 5/5。
   - ケース状態: pass=92, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - edge_event_expression:
-  - 2因子の合格確認済み組合せ: 260/260。
+  - 2因子の合格確認済み組合せ: 259/259。
   - 3因子の合格確認済み組合せ: 152/152。
   - 必須ケース: 5/5。
   - ケース状態: pass=64, fail=0, known=0, unsupported=0, stale=0, not_run=0。
@@ -3706,10 +3706,10 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=18, stale=0, not_run=0。
 - sv_dpi_array_queries:
-  - 2因子の合格確認済み組合せ: 0/177。
-  - 3因子の合格確認済み組合せ: 0/66。
+  - 2因子の合格確認済み組合せ: 0/176。
+  - 3因子の合格確認済み組合せ: 0/63。
   - 必須ケース: 0/7。
-  - ケース状態: pass=0, fail=0, known=0, unsupported=19, stale=0, not_run=0。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=16, stale=0, not_run=0。
 - sdf_conditional_paths:
   - 2因子の合格確認済み組合せ: 0/109。
   - 3因子の合格確認済み組合せ: 0/46。
@@ -3913,8 +3913,8 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
 
 ### results/lyra.json
 
-- 環境: Lyra (commit eaaea03805b3)。
-- 実行日時: 2026-11-11T07:31:55.175140+00:00。
+- 環境: Lyra (commit 0d94fc7d2962)。
+- 実行日時: 2026-11-12T08:06:19.081957+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 111/126。
@@ -4042,7 +4042,7 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 5/5。
   - ケース状態: pass=92, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - edge_event_expression:
-  - 2因子の合格確認済み組合せ: 260/260。
+  - 2因子の合格確認済み組合せ: 259/259。
   - 3因子の合格確認済み組合せ: 152/152。
   - 必須ケース: 5/5。
   - ケース状態: pass=64, fail=0, known=0, unsupported=0, stale=0, not_run=0。
@@ -4231,10 +4231,10 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 0/4。
   - ケース状態: pass=0, fail=24, known=0, unsupported=6, stale=0, not_run=0。
 - clocking_assertion_sampling:
-  - 2因子の合格確認済み組合せ: 0/109。
-  - 3因子の合格確認済み組合せ: 0/50。
-  - 必須ケース: 0/4。
-  - ケース状態: pass=0, fail=18, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 73/109。
+  - 3因子の合格確認済み組合せ: 19/50。
+  - 必須ケース: 1/4。
+  - ケース状態: pass=6, fail=12, known=0, unsupported=0, stale=0, not_run=0。
 - constraint_inheritance:
   - 2因子の合格確認済み組合せ: 70/70。
   - 3因子の合格確認済み組合せ: 40/40。
@@ -4251,10 +4251,10 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 6/6。
   - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - sv_dpi_array_queries:
-  - 2因子の合格確認済み組合せ: 151/177。
-  - 3因子の合格確認済み組合せ: 42/66。
+  - 2因子の合格確認済み組合せ: 157/176。
+  - 3因子の合格確認済み組合せ: 46/63。
   - 必須ケース: 5/7。
-  - ケース状態: pass=10, fail=9, known=0, unsupported=0, stale=0, not_run=0。
+  - ケース状態: pass=10, fail=6, known=0, unsupported=0, stale=0, not_run=0。
 - sdf_conditional_paths:
   - 2因子の合格確認済み組合せ: 0/109。
   - 3因子の合格確認済み組合せ: 0/46。
@@ -4361,10 +4361,10 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 6/6。
   - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - time_scope_delay:
-  - 2因子の合格確認済み組合せ: 287/291。
-  - 3因子の合格確認済み組合せ: 126/136。
-  - 必須ケース: 5/6。
-  - ケース状態: pass=45, fail=3, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 291/291。
+  - 3因子の合格確認済み組合せ: 136/136。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - literal_context_extension:
   - 2因子の合格確認済み組合せ: 298/303。
   - 3因子の合格確認済み組合せ: 140/148。
@@ -4458,8 +4458,8 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
 
 ### results/verilator.json
 
-- 環境: Verilator 5.055 devel rev v5.054-200-g18c16505。
-- 実行日時: 2026-11-11T03:42:05.211278+00:00。
+- 環境: Verilator 5.055 devel rev v5.054-219-g12ce8608。
+- 実行日時: 2026-11-12T04:55:37.917404+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -4587,8 +4587,8 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 0/5。
   - ケース状態: pass=32, fail=0, known=60, unsupported=0, stale=0, not_run=0。
 - edge_event_expression:
-  - 2因子の合格確認済み組合せ: 130/260。
-  - 3因子の合格確認済み組合せ: 41/152。
+  - 2因子の合格確認済み組合せ: 133/259。
+  - 3因子の合格確認済み組合せ: 42/152。
   - 必須ケース: 1/5。
   - ケース状態: pass=16, fail=0, known=48, unsupported=0, stale=0, not_run=0。
 - event_or_iff:
@@ -4771,10 +4771,10 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 4/4。
   - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - dpi_openarray_shape:
-  - 2因子の合格確認済み組合せ: 93/100。
-  - 3因子の合格確認済み組合せ: 59/72。
-  - 必須ケース: 3/4。
-  - ケース状態: pass=26, fail=0, known=4, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 100/100。
+  - 3因子の合格確認済み組合せ: 72/72。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=30, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - clocking_assertion_sampling:
   - 2因子の合格確認済み組合せ: 109/109。
   - 3因子の合格確認済み組合せ: 50/50。
@@ -4796,10 +4796,10 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=18, unsupported=0, stale=0, not_run=0。
 - sv_dpi_array_queries:
-  - 2因子の合格確認済み組合せ: 148/177。
-  - 3因子の合格確認済み組合せ: 45/66。
+  - 2因子の合格確認済み組合せ: 132/176。
+  - 3因子の合格確認済み組合せ: 34/63。
   - 必須ケース: 4/7。
-  - ケース状態: pass=14, fail=0, known=5, unsupported=0, stale=0, not_run=0。
+  - ケース状態: pass=8, fail=0, known=8, unsupported=0, stale=0, not_run=0。
 - sdf_conditional_paths:
   - 2因子の合格確認済み組合せ: 0/109。
   - 3因子の合格確認済み組合せ: 0/46。

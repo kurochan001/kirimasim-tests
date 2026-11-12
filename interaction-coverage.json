@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_sha256": "5393b8a813055c70dff84c8e2d69a51c7058b31d22819d73992e57fe6016048e",
+  "source_sha256": "3fcfb862dcb4b878c51dd8da837c191478dd953f7c12bd2197c02676f05413bd",
   "models": [
     {
       "id": "scheduling_visibility",
@@ -18041,7 +18041,7 @@
     },
     {
       "id": "edge_event_expression",
-      "version": 1,
+      "version": 2,
       "factors": {
         "width": [
           "1",
@@ -18084,7 +18084,7 @@
         ]
       },
       "constraints": [
-        "幅1の注目位置はlowに統一。各行で背景0/1、既知0→1と指定遷移を観測。全体／LSB／MSB／OR式を対象に、posedge・negedge・非エッジの変化を同時に測る。初期設定を収束させてカウンタをクリアし、更新の次時刻に計数。イベントOR・iff・複数更新・グリッチ・複数クロックは対象外"
+        "幅1の注目位置はlowに統一。幅1ではMSBとLSBが同じビットなので、幅1のビット選択式はlsbに統一。各行で背景0/1、既知0→1と指定遷移を観測。全体／LSB／MSB／OR式を対象に、posedge・negedge・非エッジの変化を同時に測る。初期設定を収束させてカウンタをクリアし、更新の次時刻に計数。イベントOR・iff・複数更新・グリッチ・複数クロックは対象外"
       ],
       "higher_strength_groups": [
         [
@@ -18109,11 +18109,11 @@
         ]
       ],
       "witness": "両背景で初期イベントを除外し、更新直後の値と次時刻の3カウンタを観測して、X/Z遷移、式の変化、ベクタのLSB規則、状態変換、NBAの更新時点を確認する。",
-      "legal_rows": 4096,
+      "legal_rows": 4032,
       "available_cases": 64,
       "selected_cases": 64,
       "targets_by_strength": {
-        "2": 260,
+        "2": 259,
         "3": 152
       },
       "mandatory_witnesses": [
@@ -18135,7 +18135,7 @@
             "after": "z",
             "update": "nba"
           },
-          "inputs_sha256": "8ddc40e0053730bc630b9768bc4a3f4f73e559bf082ed770ea182676a4dd8b0f"
+          "inputs_sha256": "faa02b3124ec828db3a1a685867e810d1e305418933da4801e821948209e6c4e"
         },
         {
           "test": "tests/gen/ch9/test_gen_cross_edge_w65_l_msb_high_x1_b.sv",
@@ -18148,7 +18148,7 @@
             "after": "1",
             "update": "blocking"
           },
-          "inputs_sha256": "c1bf26ec0b91174873a22a60e839e3e70e2fe2d31b8e8bba398992e18b89d5ec"
+          "inputs_sha256": "2d7f55cefd92acb0459600a3f5ac461522c8fefbb9c06136fad5fb5dd7e449ab"
         },
         {
           "test": "tests/gen/ch9/test_gen_cross_edge_w33_b_lsb_low_z1_n.sv",
@@ -18161,7 +18161,7 @@
             "after": "1",
             "update": "nba"
           },
-          "inputs_sha256": "93061aa6aba1d4e0fe6ab132a7d40eb834173f723894c4d7cabc6bb1b44090db"
+          "inputs_sha256": "00480b49e8575c50b86d97ccacb3179fb0eb5a7d5889586f2c2ab681ce11a7fb"
         },
         {
           "test": "tests/gen/ch9/test_gen_cross_edge_w1_l_vector_low_0z_n.sv",
@@ -18174,7 +18174,7 @@
             "after": "z",
             "update": "nba"
           },
-          "inputs_sha256": "cbef117d6e275af4511aa3409a7772dba1615a325f110ae348f83e2e78688f5f"
+          "inputs_sha256": "a2eba7f4b6c3aac1870775e446c6b013fde2cc1401f3021d660a11dfe00b6873"
         },
         {
           "test": "tests/gen/ch9/test_gen_cross_edge_w64_l_reduce_or_middle_01_b.sv",
@@ -18187,7 +18187,7 @@
             "after": "1",
             "update": "blocking"
           },
-          "inputs_sha256": "017f65943a128e069d916d777a02ef8ed177106d7c04e3bc7be9f87e88bf318d"
+          "inputs_sha256": "2ee415f3e1c61a19599532c7d17034469f878eb23edcd2a1f9e9f871194d7cc0"
         },
         {
           "test": "tests/gen/ch9/test_gen_cross_edge_w32_b_vector_middle_10_b.sv",
@@ -18200,7 +18200,7 @@
             "after": "0",
             "update": "blocking"
           },
-          "inputs_sha256": "c065920d028c42774f82daf7b4117d8772b1a180008038c9ae7d0df00006c716"
+          "inputs_sha256": "e36f1253ddedef57c6431d855683c3aff1f84051656d48b07f261472925e9e9f"
         },
         {
           "test": "tests/gen/ch9/test_gen_cross_edge_w64_b_msb_low_1x_n.sv",
@@ -18213,7 +18213,7 @@
             "after": "x",
             "update": "nba"
           },
-          "inputs_sha256": "781fd743cd3fa4daea1eb359612e8067049388bc3789e18dafeb658f61cc30ad"
+          "inputs_sha256": "49c93633e7c625bdbbf837dd98b9f84ac47cf50bf37ab32854d19597aacdfaf1"
         },
         {
           "test": "tests/gen/ch9/test_gen_cross_edge_w32_l_lsb_high_zx_b.sv",
@@ -18226,7 +18226,7 @@
             "after": "x",
             "update": "blocking"
           },
-          "inputs_sha256": "3ef8e78ff2b3e292baa94f12f98827946d4a0e4e3e48a51a1166a930d4e983a1"
+          "inputs_sha256": "4018191ebd0ed992b4db5db3953ebbcba7d763ac977373a1833dd1badc26efa3"
         },
         {
           "test": "tests/gen/ch9/test_gen_cross_edge_w65_b_reduce_or_low_x0_n.sv",
@@ -18239,7 +18239,7 @@
             "after": "0",
             "update": "nba"
           },
-          "inputs_sha256": "5a9d8932df9dc5f1ebc5c4732eb25d1ef097c61fb15744ff5b24c27fd6c65107"
+          "inputs_sha256": "a08c17eae742719c2e1dc20f73ae7e0b5a7d975e1494314275244582a55d91d7"
         },
         {
           "test": "tests/gen/ch9/test_gen_cross_edge_w33_b_reduce_or_high_1z_b.sv",
@@ -18252,7 +18252,7 @@
             "after": "z",
             "update": "blocking"
           },
-          "inputs_sha256": "bc10e56bdf2c610aa4fea2adb7d70831d18352b9867a96053cc3617702299235"
+          "inputs_sha256": "0a37a291a6dcf9ed8e89f5d024294033a03fecdc484f5ed1945199271c443c89"
         },
         {
           "test": "tests/gen/ch9/test_gen_cross_edge_w33_l_msb_middle_00_n.sv",
@@ -18265,7 +18265,7 @@
             "after": "0",
             "update": "nba"
           },
-          "inputs_sha256": "8884f014ea6f796d6c2a86b2e9b5aa97d77ef8665af42c6f25331c09f831fa0f"
+          "inputs_sha256": "4af8313fc1e22361ed28dc3c8b5d6098f769b584bb582994b29d86cdb5efdf5e"
         },
         {
           "test": "tests/gen/ch9/test_gen_cross_edge_w129_b_lsb_middle_0x_b.sv",
@@ -18278,7 +18278,7 @@
             "after": "x",
             "update": "blocking"
           },
-          "inputs_sha256": "43190be99888a5bc9247d2b864cb226948f932bbe077777a7b9c5420f1386655"
+          "inputs_sha256": "86755ba9e8c6ced81bf4e35f894071009d3b7d6467b3014a739f43334b6a6684"
         },
         {
           "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_lsb_low_11_b.sv",
@@ -18291,7 +18291,7 @@
             "after": "1",
             "update": "blocking"
           },
-          "inputs_sha256": "b11a36bfb97e1ed9947fe6aa7214672fcdc42fb9a87b205f94a9b75d72cc1d96"
+          "inputs_sha256": "cd299be83ce4636b9e57882f4ff9566796ed87f9b2f0a3196cba5dd2d0629cb0"
         },
         {
           "test": "tests/gen/ch9/test_gen_cross_edge_w65_b_vector_middle_zz_n.sv",
@@ -18304,7 +18304,7 @@
             "after": "z",
             "update": "nba"
           },
-          "inputs_sha256": "89ed49766a98a2548b3cc482520601a614d3449de3bc92325d310c352aeb6b7d"
+          "inputs_sha256": "86d2421bf29a5df26d896fc66e092794281c3d33578568b3c039aa106df67957"
         },
         {
           "test": "tests/gen/ch9/test_gen_cross_edge_w64_b_lsb_high_z0_n.sv",
@@ -18317,7 +18317,7 @@
             "after": "0",
             "update": "nba"
           },
-          "inputs_sha256": "88a8a1007f5ed84e8ae1216d7d1b576760fee3f031a0230d4ac995403743fa65"
+          "inputs_sha256": "e058a0ee20136b4e22d27bd514d5b8798a25387cf4ef37a5fcdef4553ebce526"
         },
         {
           "test": "tests/gen/ch9/test_gen_cross_edge_w32_b_msb_high_0z_n.sv",
@@ -18330,7 +18330,7 @@
             "after": "z",
             "update": "nba"
           },
-          "inputs_sha256": "4a5174569c353c060f62678645fe46a9558adbd7f4523cfe8e3bc82fb2efab4b"
+          "inputs_sha256": "0422fe6e46968620bca9411c7c3324f1642b25104c46a16a75f736d706edf5f3"
         },
         {
           "test": "tests/gen/ch9/test_gen_cross_edge_w32_b_reduce_or_low_xx_b.sv",
@@ -18343,7 +18343,7 @@
             "after": "x",
             "update": "blocking"
           },
-          "inputs_sha256": "1a2667b24338ebc2c80e4f66cb1a213d89a23415b5c09012884bacbaaa04bb3e"
+          "inputs_sha256": "398b03d1f44ac5a4afaefd4f4ea7b3437c9582438a6c581b7f653a1aea163c9e"
         },
         {
           "test": "tests/gen/ch9/test_gen_cross_edge_w64_b_lsb_middle_xz_n.sv",
@@ -18356,7 +18356,7 @@
             "after": "z",
             "update": "nba"
           },
-          "inputs_sha256": "049cd560284c59c16a2803004a0cd20b595e4aa84e930d13d9b1e9b029997e39"
+          "inputs_sha256": "35a34fbad29326f819d5c6c3e28c46c871d5f1de0a6e4c25caea3f2cefa1f071"
         },
         {
           "test": "tests/gen/ch9/test_gen_cross_edge_w129_l_vector_low_11_b.sv",
@@ -18369,7 +18369,7 @@
             "after": "1",
             "update": "blocking"
           },
-          "inputs_sha256": "d3a1443cf90cca7426931aa98c14d2cc103610eedb56a2b1e3ab674c440aa590"
+          "inputs_sha256": "dc0a3bc9299c36605174a268bdacb2c37bb2dd675a2d693c3a6f5673231894d1"
         },
         {
           "test": "tests/gen/ch9/test_gen_cross_edge_w33_l_vector_high_xx_b.sv",
@@ -18382,7 +18382,7 @@
             "after": "x",
             "update": "blocking"
           },
-          "inputs_sha256": "3979fa9d4d586265bb04ad9541c3efd34338a8ad1be7fb86813ebee2f0076192"
+          "inputs_sha256": "e419824dee3e6961205be89747cf97d3240194da87b3bf256ed625a16d8e853a"
         },
         {
           "test": "tests/gen/ch9/test_gen_cross_edge_w129_l_msb_middle_z0_b.sv",
@@ -18395,540 +18395,7 @@
             "after": "0",
             "update": "blocking"
           },
-          "inputs_sha256": "1681b48907b58e6dd85498f5a1071e05e62186920aa80cb24604fa32b793a92a"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_msb_low_zx_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "msb",
-            "position": "low",
-            "before": "z",
-            "after": "x",
-            "update": "blocking"
-          },
-          "inputs_sha256": "d52f1b73d0790d39fee94fe5cd92044e847e4cf7b3648b0301176a94d5c32c72"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w32_l_reduce_or_middle_z1_n.sv",
-          "values": {
-            "width": "32",
-            "state": "logic",
-            "expression": "reduce_or",
-            "position": "middle",
-            "before": "z",
-            "after": "1",
-            "update": "nba"
-          },
-          "inputs_sha256": "bc9f54b51ce478dc1e20aa67edd372a1e078d27823d344ef12ee77c02aafd0d2"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w65_l_lsb_low_1x_b.sv",
-          "values": {
-            "width": "65",
-            "state": "logic",
-            "expression": "lsb",
-            "position": "low",
-            "before": "1",
-            "after": "x",
-            "update": "blocking"
-          },
-          "inputs_sha256": "822de74900d7a304f9b15ed5404d906fed3f9b22e3dbcb4c2444322faea8784e"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w65_b_reduce_or_high_00_n.sv",
-          "values": {
-            "width": "65",
-            "state": "bit",
-            "expression": "reduce_or",
-            "position": "high",
-            "before": "0",
-            "after": "0",
-            "update": "nba"
-          },
-          "inputs_sha256": "fb24ae62ed1677c0c6b0a1aa13e539ab5e4e6879c73604102056e443d15d3093"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_x1_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "reduce_or",
-            "position": "low",
-            "before": "x",
-            "after": "1",
-            "update": "blocking"
-          },
-          "inputs_sha256": "3c21dcb24bd74bac773c0537551d81c4c9ae3544614c0aae9bd049dfa6709b9a"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w64_l_vector_low_0x_b.sv",
-          "values": {
-            "width": "64",
-            "state": "logic",
-            "expression": "vector",
-            "position": "low",
-            "before": "0",
-            "after": "x",
-            "update": "blocking"
-          },
-          "inputs_sha256": "02d274b06a57db2bd65e14f592f5a2908c14373e56d7915247da242cfcf4bf6a"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_l_vector_low_x0_b.sv",
-          "values": {
-            "width": "1",
-            "state": "logic",
-            "expression": "vector",
-            "position": "low",
-            "before": "x",
-            "after": "0",
-            "update": "blocking"
-          },
-          "inputs_sha256": "d82728ab942db71e6e705284714ace51f43c0fdcf7d53e4b3f645c9a14ba83ac"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w32_l_vector_low_1z_b.sv",
-          "values": {
-            "width": "32",
-            "state": "logic",
-            "expression": "vector",
-            "position": "low",
-            "before": "1",
-            "after": "z",
-            "update": "blocking"
-          },
-          "inputs_sha256": "8b8b6a52bb7bdbb2a094668259c260b090883dfe29f181256e40ca1e349babc2"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w33_b_vector_middle_01_b.sv",
-          "values": {
-            "width": "33",
-            "state": "bit",
-            "expression": "vector",
-            "position": "middle",
-            "before": "0",
-            "after": "1",
-            "update": "blocking"
-          },
-          "inputs_sha256": "e272522137166d98d321cf25a324da2064ed083026572d1b00a4106e5032fd62"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w33_l_lsb_low_10_b.sv",
-          "values": {
-            "width": "33",
-            "state": "logic",
-            "expression": "lsb",
-            "position": "low",
-            "before": "1",
-            "after": "0",
-            "update": "blocking"
-          },
-          "inputs_sha256": "279e4c79153e11c7887cc933507395e338bbbe1996134ee78d540597b03b537a"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w64_l_lsb_high_zz_b.sv",
-          "values": {
-            "width": "64",
-            "state": "logic",
-            "expression": "lsb",
-            "position": "high",
-            "before": "z",
-            "after": "z",
-            "update": "blocking"
-          },
-          "inputs_sha256": "3a8c5a6901fb22163eaeb7bafbd18e0dd09c4b93ea2199eda199121e4e99534f"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w129_b_reduce_or_low_0x_b.sv",
-          "values": {
-            "width": "129",
-            "state": "bit",
-            "expression": "reduce_or",
-            "position": "low",
-            "before": "0",
-            "after": "x",
-            "update": "blocking"
-          },
-          "inputs_sha256": "4bea496ceba9ca4005118736da70d941b6b438e31ca9ed05f509c1f8fbc87569"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w65_l_vector_middle_00_b.sv",
-          "values": {
-            "width": "65",
-            "state": "logic",
-            "expression": "vector",
-            "position": "middle",
-            "before": "0",
-            "after": "0",
-            "update": "blocking"
-          },
-          "inputs_sha256": "591eaf7d164d7bc698c9a22403d6182397985adcc7f815e75a8f0e053af74574"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w129_b_vector_high_1x_b.sv",
-          "values": {
-            "width": "129",
-            "state": "bit",
-            "expression": "vector",
-            "position": "high",
-            "before": "1",
-            "after": "x",
-            "update": "blocking"
-          },
-          "inputs_sha256": "84eb382453e0677fb7eb0a2b43c83a7d7603eabd37f61ab13f4cf3fd10590270"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_vector_low_x1_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "vector",
-            "position": "low",
-            "before": "x",
-            "after": "1",
-            "update": "blocking"
-          },
-          "inputs_sha256": "148f686e48504ea4ffd681f2b34116438818b38ff6ea094c869b1c00e2b4bb6e"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_vector_low_z0_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "vector",
-            "position": "low",
-            "before": "z",
-            "after": "0",
-            "update": "blocking"
-          },
-          "inputs_sha256": "ff4f1388cecb67b9fa98ec8bc844dd1b88bd97d556c13a0506a00e27aabf9266"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_vector_low_z1_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "vector",
-            "position": "low",
-            "before": "z",
-            "after": "1",
-            "update": "blocking"
-          },
-          "inputs_sha256": "91d93677b0d12ef9b105a161866b060a2a6186f8fce7b26f2b93df35b18678a0"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_vector_low_zx_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "vector",
-            "position": "low",
-            "before": "z",
-            "after": "x",
-            "update": "blocking"
-          },
-          "inputs_sha256": "3f0f1659a6f9af05edbddb86cccdaa852b625383da4b232084f71ee981c09d8b"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_lsb_low_00_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "lsb",
-            "position": "low",
-            "before": "0",
-            "after": "0",
-            "update": "blocking"
-          },
-          "inputs_sha256": "3a803a393380a7200446e7a3d31004df12e53b1a19980742a1c8416d25d40174"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_lsb_low_01_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "lsb",
-            "position": "low",
-            "before": "0",
-            "after": "1",
-            "update": "blocking"
-          },
-          "inputs_sha256": "5f2a412b358febf4476e1ae73413c8fd43765171d89ad9eee70ea8e507b2fa93"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_lsb_low_0z_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "lsb",
-            "position": "low",
-            "before": "0",
-            "after": "z",
-            "update": "blocking"
-          },
-          "inputs_sha256": "355bd1cd3bf77fabe1fea7d585232b051b3f215113e0bc3524aeaa1fd97586d5"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_lsb_low_1z_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "lsb",
-            "position": "low",
-            "before": "1",
-            "after": "z",
-            "update": "blocking"
-          },
-          "inputs_sha256": "2364a8933432b7ee589c6dabcc8d323d803b9b34e35d380e64d86c176299b6b3"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_lsb_low_x0_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "lsb",
-            "position": "low",
-            "before": "x",
-            "after": "0",
-            "update": "blocking"
-          },
-          "inputs_sha256": "51ea08979f0e999676a1d3fe368b1844203b8e4339248666557fbf56efced66e"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_lsb_low_x1_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "lsb",
-            "position": "low",
-            "before": "x",
-            "after": "1",
-            "update": "blocking"
-          },
-          "inputs_sha256": "c9ef6fb1cd56e2e7842dd64992f3092d90fffd25b8074dc12a117756836994ca"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_lsb_low_xx_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "lsb",
-            "position": "low",
-            "before": "x",
-            "after": "x",
-            "update": "blocking"
-          },
-          "inputs_sha256": "4018fde17ebc1176b146db3a9ccc0b35f6a7e53f4e22aea7f1415b040d31644b"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_msb_low_01_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "msb",
-            "position": "low",
-            "before": "0",
-            "after": "1",
-            "update": "blocking"
-          },
-          "inputs_sha256": "504e02a57c5ac3ff95f3fa52a3b82e864fd5c644ecd74a28cc3193a116e41239"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_msb_low_0x_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "msb",
-            "position": "low",
-            "before": "0",
-            "after": "x",
-            "update": "blocking"
-          },
-          "inputs_sha256": "b3bce3f00f8a684d991ae1bdf21ebcd81f110f0a87995af79c01702438972aae"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_msb_low_10_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "msb",
-            "position": "low",
-            "before": "1",
-            "after": "0",
-            "update": "blocking"
-          },
-          "inputs_sha256": "91fe223346bdaa8b253cc5a5dc8abd6a5524144e5996bb4597a11ecbb6c68862"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_msb_low_11_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "msb",
-            "position": "low",
-            "before": "1",
-            "after": "1",
-            "update": "blocking"
-          },
-          "inputs_sha256": "3fa02021264f295102f2f460583674a5bfa7604b97c57f97dd1e2fffb73d39bd"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_msb_low_1z_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "msb",
-            "position": "low",
-            "before": "1",
-            "after": "z",
-            "update": "blocking"
-          },
-          "inputs_sha256": "90e41496998f8d95b1bfa89688267398804f06eefd2ac88ef2a093e486f21ffa"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_msb_low_x0_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "msb",
-            "position": "low",
-            "before": "x",
-            "after": "0",
-            "update": "blocking"
-          },
-          "inputs_sha256": "4b487721cc32c76720c892bc83a7b12bd41280c805188da19ce6ec22e784eb18"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_msb_low_xx_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "msb",
-            "position": "low",
-            "before": "x",
-            "after": "x",
-            "update": "blocking"
-          },
-          "inputs_sha256": "9dc3c43578cdf654e943ad3117f86ca49635e187930e6ae2cbc477fcc4642fae"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_msb_low_xz_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "msb",
-            "position": "low",
-            "before": "x",
-            "after": "z",
-            "update": "blocking"
-          },
-          "inputs_sha256": "cf3aa8d988200e4338cd6b1534514231abc0f1d659581a2edadb9bdb9cf91e24"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_msb_low_z1_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "msb",
-            "position": "low",
-            "before": "z",
-            "after": "1",
-            "update": "blocking"
-          },
-          "inputs_sha256": "4c2bc1780f4b39ebee71c5604b1e87e81accc83ae9b4fd0ccbba477039ee58b0"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_msb_low_zz_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "msb",
-            "position": "low",
-            "before": "z",
-            "after": "z",
-            "update": "blocking"
-          },
-          "inputs_sha256": "1dd2e8e22e3f3643642faf3fa055025d857ae709341be4b6651625242a1184e9"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_0z_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "reduce_or",
-            "position": "low",
-            "before": "0",
-            "after": "z",
-            "update": "blocking"
-          },
-          "inputs_sha256": "7006b67ff9f478c7e0a494e5a86030f220082c436dbc15e6409deb3c779bae3b"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_10_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "reduce_or",
-            "position": "low",
-            "before": "1",
-            "after": "0",
-            "update": "blocking"
-          },
-          "inputs_sha256": "24a1cc1f6611dd7b11edf852694471f6aab464302484055968ac67bc17afab72"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_11_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "reduce_or",
-            "position": "low",
-            "before": "1",
-            "after": "1",
-            "update": "blocking"
-          },
-          "inputs_sha256": "858827fd1d23da939f54a9c24dd7919e7f9c948c75abab31f1429216e976ad55"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_1x_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "reduce_or",
-            "position": "low",
-            "before": "1",
-            "after": "x",
-            "update": "blocking"
-          },
-          "inputs_sha256": "38d91ea1a31e22ab5973243bcdaeb50621c9093143573a5d5cbbc5862017f102"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_xz_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "reduce_or",
-            "position": "low",
-            "before": "x",
-            "after": "z",
-            "update": "blocking"
-          },
-          "inputs_sha256": "2354806796fc98b06c42450563a013d59ad156a9f7b1bc1b49a0acee9e568e5b"
-        },
-        {
-          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_z0_b.sv",
-          "values": {
-            "width": "1",
-            "state": "bit",
-            "expression": "reduce_or",
-            "position": "low",
-            "before": "z",
-            "after": "0",
-            "update": "blocking"
-          },
-          "inputs_sha256": "8bc114f2547e6a1cca0fc4618dfe28e98c9a206bd5f9db3b7913be28a62bafaf"
+          "inputs_sha256": "955671127bb34da0a9978413bad50bf5dd31d14d2d414c1b3ac14f93b9f282ab"
         },
         {
           "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_zx_b.sv",
@@ -18941,7 +18408,410 @@
             "after": "x",
             "update": "blocking"
           },
-          "inputs_sha256": "3f7102a2c4532aa8ad9910bc8f3c8495b3a164cfc0e2660c40061439a67d3aa3"
+          "inputs_sha256": "a359c4d903431ef0a50ce56af384553e525fd14ee70c96e690c2bfcb9caa276a"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w65_l_lsb_low_1x_b.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "expression": "lsb",
+            "position": "low",
+            "before": "1",
+            "after": "x",
+            "update": "blocking"
+          },
+          "inputs_sha256": "65a12325e7387eaffb8734d46403b504b218cd7884d99ea0519a5cd4f22e5bae"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w32_l_msb_low_z1_b.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "expression": "msb",
+            "position": "low",
+            "before": "z",
+            "after": "1",
+            "update": "blocking"
+          },
+          "inputs_sha256": "08b97f9e5e60f1cb009028e1b3f3f51eeb5f841052405d7107793c66ea993938"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w65_b_reduce_or_high_00_n.sv",
+          "values": {
+            "width": "65",
+            "state": "bit",
+            "expression": "reduce_or",
+            "position": "high",
+            "before": "0",
+            "after": "0",
+            "update": "nba"
+          },
+          "inputs_sha256": "cf53782b242253a366ec5a2b4255f2952acfbfb300a838b696d33a067a09ffd9"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w1_l_vector_low_x0_b.sv",
+          "values": {
+            "width": "1",
+            "state": "logic",
+            "expression": "vector",
+            "position": "low",
+            "before": "x",
+            "after": "0",
+            "update": "blocking"
+          },
+          "inputs_sha256": "4efaca105791d70e84aa4f60871abd0bf68ac374377fd3fc31c2df94c3bf5143"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w32_l_reduce_or_middle_0x_n.sv",
+          "values": {
+            "width": "32",
+            "state": "logic",
+            "expression": "reduce_or",
+            "position": "middle",
+            "before": "0",
+            "after": "x",
+            "update": "nba"
+          },
+          "inputs_sha256": "7ed4b9ee14118b882057ddcc3561051852ae68ee5f24bb4f85b15b22b73e56a2"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w64_l_vector_low_1z_b.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "expression": "vector",
+            "position": "low",
+            "before": "1",
+            "after": "z",
+            "update": "blocking"
+          },
+          "inputs_sha256": "ce30487e7f415bffeb9dab941dc3cfc7715862f327dc1123c3b473d716e8e75d"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w129_b_reduce_or_low_x1_b.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "expression": "reduce_or",
+            "position": "low",
+            "before": "x",
+            "after": "1",
+            "update": "blocking"
+          },
+          "inputs_sha256": "f486ea83bc2c5918bb852d57a7d422b555d844fd75a569ee674898bf96213fdb"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w33_b_vector_middle_01_b.sv",
+          "values": {
+            "width": "33",
+            "state": "bit",
+            "expression": "vector",
+            "position": "middle",
+            "before": "0",
+            "after": "1",
+            "update": "blocking"
+          },
+          "inputs_sha256": "98ee046b24a0b334b0bd94dae7515720304673f77cd806ec72308f199449a6ff"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w33_l_lsb_low_10_b.sv",
+          "values": {
+            "width": "33",
+            "state": "logic",
+            "expression": "lsb",
+            "position": "low",
+            "before": "1",
+            "after": "0",
+            "update": "blocking"
+          },
+          "inputs_sha256": "e0b37ab1bc5724a1837cba687d14dea0722e7c595f3f25e6e6a70378e2c96aa9"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w64_l_lsb_high_zz_b.sv",
+          "values": {
+            "width": "64",
+            "state": "logic",
+            "expression": "lsb",
+            "position": "high",
+            "before": "z",
+            "after": "z",
+            "update": "blocking"
+          },
+          "inputs_sha256": "8364f82d7bdc1826dbe0515df49eed973450bcb5d1d3402b6327b2e4ff6e5dda"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w65_l_vector_middle_00_b.sv",
+          "values": {
+            "width": "65",
+            "state": "logic",
+            "expression": "vector",
+            "position": "middle",
+            "before": "0",
+            "after": "0",
+            "update": "blocking"
+          },
+          "inputs_sha256": "c2b55a50c320b75f9f5cdb2de8bdf15bb2588d250aea4217d966f174c2199736"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w129_b_vector_high_0x_b.sv",
+          "values": {
+            "width": "129",
+            "state": "bit",
+            "expression": "vector",
+            "position": "high",
+            "before": "0",
+            "after": "x",
+            "update": "blocking"
+          },
+          "inputs_sha256": "bc4c712ac43a7264c9e219b4c0fa94bdae4c0b53ccc8d8fd6a8559a6926e98fc"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_vector_low_1x_b.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "expression": "vector",
+            "position": "low",
+            "before": "1",
+            "after": "x",
+            "update": "blocking"
+          },
+          "inputs_sha256": "4544d9964554b94c2d9d94eedf6b2c974352b8c8e8c44f4ee6942e4cb479287b"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_vector_low_x1_b.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "expression": "vector",
+            "position": "low",
+            "before": "x",
+            "after": "1",
+            "update": "blocking"
+          },
+          "inputs_sha256": "afc8e7f2695d6aba144e61d9513241497362d3140d272979830dff940223f0c5"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_vector_low_z0_b.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "expression": "vector",
+            "position": "low",
+            "before": "z",
+            "after": "0",
+            "update": "blocking"
+          },
+          "inputs_sha256": "8c217d287eb5552c3feeea66e3dbf45680fa3138ab2258426d364ec804c03a5d"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_vector_low_z1_b.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "expression": "vector",
+            "position": "low",
+            "before": "z",
+            "after": "1",
+            "update": "blocking"
+          },
+          "inputs_sha256": "3ae130e9282b448b87403c17a6c599a368b7c3f2c903a84dcdc7f27675f861b3"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_vector_low_zx_b.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "expression": "vector",
+            "position": "low",
+            "before": "z",
+            "after": "x",
+            "update": "blocking"
+          },
+          "inputs_sha256": "8344f0a5f876f3deba0b0afba960d7172190864ac72e12123695ab3d37cc6dfc"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_lsb_low_00_b.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "expression": "lsb",
+            "position": "low",
+            "before": "0",
+            "after": "0",
+            "update": "blocking"
+          },
+          "inputs_sha256": "41e7f56705890161d56a903cdeea48e02c26970b8d0ca0092880963faec9d96e"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_lsb_low_01_b.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "expression": "lsb",
+            "position": "low",
+            "before": "0",
+            "after": "1",
+            "update": "blocking"
+          },
+          "inputs_sha256": "043a92f9ee0bc51558804285308ea7564b0f888e37a2df6d4a6f8c0dc2a80a46"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_lsb_low_0z_b.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "expression": "lsb",
+            "position": "low",
+            "before": "0",
+            "after": "z",
+            "update": "blocking"
+          },
+          "inputs_sha256": "39020f516301f38fb0a1c667018d16e7fb7eba4227a02543a7092f362d8482be"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_lsb_low_1z_b.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "expression": "lsb",
+            "position": "low",
+            "before": "1",
+            "after": "z",
+            "update": "blocking"
+          },
+          "inputs_sha256": "4f8d27e5455af19914ff122cb9947e26e20161dc86f6f6e743256301f54b1a8a"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_lsb_low_x0_b.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "expression": "lsb",
+            "position": "low",
+            "before": "x",
+            "after": "0",
+            "update": "blocking"
+          },
+          "inputs_sha256": "f078210ced7c7b7d8af4a7995a593399234d0e7ef6b42b10250ae2976b70bf17"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_lsb_low_x1_b.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "expression": "lsb",
+            "position": "low",
+            "before": "x",
+            "after": "1",
+            "update": "blocking"
+          },
+          "inputs_sha256": "2db5f72f911121196a981c446b2cb61c4d0e0976ada6aa0e8eab73533cbe925f"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_lsb_low_xx_b.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "expression": "lsb",
+            "position": "low",
+            "before": "x",
+            "after": "x",
+            "update": "blocking"
+          },
+          "inputs_sha256": "4796f3db50132dc9f8d1d3e76be256d4279f283ac9f6ccac9d936ef977ac1cd3"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_0z_b.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "expression": "reduce_or",
+            "position": "low",
+            "before": "0",
+            "after": "z",
+            "update": "blocking"
+          },
+          "inputs_sha256": "c11488680b68f9dc585bde989b1039d8699d5327d6caac3881119196cfe43b0b"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_10_b.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "expression": "reduce_or",
+            "position": "low",
+            "before": "1",
+            "after": "0",
+            "update": "blocking"
+          },
+          "inputs_sha256": "1772576404955465b99272516f3fdf388d3dd2eda4fdb40f814d0806f560e52d"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_11_b.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "expression": "reduce_or",
+            "position": "low",
+            "before": "1",
+            "after": "1",
+            "update": "blocking"
+          },
+          "inputs_sha256": "ac7969282d2825ac9738e7288517bf2b0a0c2ddd99a4641ecc7c3c3ef0b4034e"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_1x_b.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "expression": "reduce_or",
+            "position": "low",
+            "before": "1",
+            "after": "x",
+            "update": "blocking"
+          },
+          "inputs_sha256": "abbdc2c9ce1e5810c52463ecba23e56b22fe555dac1a27f73e951ab88c68b6d4"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_xz_b.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "expression": "reduce_or",
+            "position": "low",
+            "before": "x",
+            "after": "z",
+            "update": "blocking"
+          },
+          "inputs_sha256": "ad6aaf971e72c58b70c0b437d2cb291038c23f178c39c85d9fc5ee270e10c9d7"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_z0_b.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "expression": "reduce_or",
+            "position": "low",
+            "before": "z",
+            "after": "0",
+            "update": "blocking"
+          },
+          "inputs_sha256": "1720dd2f5c5c2ea7bdaa43b7af392729d228b8ebfe914479d7b99b9fbbac7ba2"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_z1_b.sv",
+          "values": {
+            "width": "1",
+            "state": "bit",
+            "expression": "reduce_or",
+            "position": "low",
+            "before": "z",
+            "after": "1",
+            "update": "blocking"
+          },
+          "inputs_sha256": "a78bb22cdca00f3bd981f2bb2a3a2b953e2a595093c2dfaeac68bb319721af6f"
         },
         {
           "test": "tests/gen/ch9/test_gen_cross_edge_w1_b_reduce_or_low_zz_b.sv",
@@ -18954,7 +18824,137 @@
             "after": "z",
             "update": "blocking"
           },
-          "inputs_sha256": "d1cf73e7a03a5b1dd7eb71152a93fa81e4a235b7248991761d12a55df4b34334"
+          "inputs_sha256": "2fc631dc5e274458e760038f07210951027fd73e9f0ad948a45db4b44a47ddc2"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w32_b_msb_low_01_b.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "expression": "msb",
+            "position": "low",
+            "before": "0",
+            "after": "1",
+            "update": "blocking"
+          },
+          "inputs_sha256": "0a0a7a1890fc76efe4e8d7800eeba96a87bac06bd8db8a0a5cf2ac3b525996c9"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w32_b_msb_low_0x_b.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "expression": "msb",
+            "position": "low",
+            "before": "0",
+            "after": "x",
+            "update": "blocking"
+          },
+          "inputs_sha256": "a60b5bf27215fbf924c74a87d2f33f3e8e01bdfecf8abbde2dbcba623e02c1f2"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w32_b_msb_low_10_b.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "expression": "msb",
+            "position": "low",
+            "before": "1",
+            "after": "0",
+            "update": "blocking"
+          },
+          "inputs_sha256": "d9ad47d80b2d4432bb9c69c9ecf8dc2f9a1423964a54ae0fbc5f7163019a543e"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w32_b_msb_low_11_b.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "expression": "msb",
+            "position": "low",
+            "before": "1",
+            "after": "1",
+            "update": "blocking"
+          },
+          "inputs_sha256": "3c8ad940cee74f52077c864a849719fc729038cd5159dc4fc98a4eea20fa6272"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w32_b_msb_low_1z_b.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "expression": "msb",
+            "position": "low",
+            "before": "1",
+            "after": "z",
+            "update": "blocking"
+          },
+          "inputs_sha256": "b9b9c41f2c2c7fa82c3e719c5a142d85b7b8ec90f9a1bb4f5d89772f920b9587"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w32_b_msb_low_x0_b.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "expression": "msb",
+            "position": "low",
+            "before": "x",
+            "after": "0",
+            "update": "blocking"
+          },
+          "inputs_sha256": "6c11658710c6a93ab19ab0d1d757ce33d28b955ddbb7f42921f942f4ac23443d"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w32_b_msb_low_xx_b.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "expression": "msb",
+            "position": "low",
+            "before": "x",
+            "after": "x",
+            "update": "blocking"
+          },
+          "inputs_sha256": "7d2a23941dc9e807e34b6839672d5a52a29e09e26eea4784839ea94923618b84"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w32_b_msb_low_xz_b.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "expression": "msb",
+            "position": "low",
+            "before": "x",
+            "after": "z",
+            "update": "blocking"
+          },
+          "inputs_sha256": "f81f902692b509a42a47ed9e87ebe701cd91df49b77df5e2077c68916fa2a81c"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w32_b_msb_low_zx_b.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "expression": "msb",
+            "position": "low",
+            "before": "z",
+            "after": "x",
+            "update": "blocking"
+          },
+          "inputs_sha256": "8b626c6994df056259490c9be675addb9b35e9072b9f2e8a152c786d8b153141"
+        },
+        {
+          "test": "tests/gen/ch9/test_gen_cross_edge_w32_b_msb_low_zz_b.sv",
+          "values": {
+            "width": "32",
+            "state": "bit",
+            "expression": "msb",
+            "position": "low",
+            "before": "z",
+            "after": "z",
+            "update": "blocking"
+          },
+          "inputs_sha256": "b1641ee3a13839c84bce5b091a3f5bd3e8006d25b781dda1fc562ec318e6a318"
         }
       ]
     },
@@ -36933,7 +36933,7 @@
             "walk": "descending",
             "calls": "resize"
           },
-          "inputs_sha256": "abfb84ee1ec758604991c10040c14dd75f93ae6008da9e572552e4402560e673"
+          "inputs_sha256": "49f4dbfe3bd36f864d54e8c211fbd413e1fd4a68f4bfbc02ffa6321d076193e6"
         },
         {
           "test": "tests/gen/ch35/test_gen_cross_dpi_array_queue_input_5_positive_ascending_resize.sv",
@@ -36981,7 +36981,7 @@
             "walk": "ascending",
             "calls": "stable"
           },
-          "inputs_sha256": "3c044e12462c9795a492bc2933fd88f382c710c1b6443560aa82007679aa81bd"
+          "inputs_sha256": "4b623f3402080868b05f22b8671670d54bbd0b77193764df67c3e04eee811d7e"
         },
         {
           "test": "tests/gen/ch35/test_gen_cross_dpi_array_queue_input_3_mixed_descending_stable.sv",
@@ -37029,7 +37029,7 @@
             "walk": "descending",
             "calls": "resize"
           },
-          "inputs_sha256": "7269b0b47a13f748d664a6238a59a32d31a642fd8cb0b70c1babf2b1845c677b"
+          "inputs_sha256": "0f4119e83a7fdeb04e66bd35337e36de35aac99466c2d6b08cf281c85310f163"
         },
         {
           "test": "tests/gen/ch35/test_gen_cross_dpi_array_descending_output_1_mixed_ascending_stable.sv",
@@ -37065,7 +37065,7 @@
             "walk": "ascending",
             "calls": "stable"
           },
-          "inputs_sha256": "ea2006026a5e83336a188bec9f8b3cff114c99e149ee794c5df9def345fce494"
+          "inputs_sha256": "218e8f73c012d723b9275aa32d63e6797b79a3290be3d6bb0ea91e3784d69367"
         },
         {
           "test": "tests/gen/ch35/test_gen_cross_dpi_array_ascending_input_1_positive_ascending_stable.sv",
@@ -38400,7 +38400,7 @@
     },
     {
       "id": "sv_dpi_array_queries",
-      "version": 1,
+      "version": 2,
       "factors": {
         "rank": [
           "1",
@@ -38442,7 +38442,7 @@
         ]
       },
       "constraints": [
-        "全1152行が合法。固定配列の1/2/3次元とbitのpacked次元を使い、同じ実引数をSVの配列問い合わせとDPI-Cの問い合わせで観測する。packed実引数は正規化済み範囲とオフセット付き範囲を区別する。Cの次元0は正規化したpacked範囲で、正の次元は実引数のunpacked範囲を保持する。switchでは別の実引数へ切り替えて範囲を変更し、open packedだけは幅も4と33の間で変える。sized packedは幅を保持する。singletonのincrementは方向にかかわらず1。動的配列、キュー、空配列、X/Z、要素の値・書戻し、sized unpacked、範囲外の次元、Cからの再入、ハンドルの持越しは対象外。未対応による除外なし。"
+        "1152行のうち832行が合法。boundsの値を変えても宣言する範囲が同じになる行は一つに統一する。全次元が1要素でpackedが正規化済みならdownだけ、全次元が1要素でpackedがオフセット付きならupとdownだけ、1次元でpackedが正規化済みならupとdownだけが合法。固定配列の1/2/3次元とbitのpacked次元を使い、同じ実引数をSVの配列問い合わせとDPI-Cの問い合わせで観測する。packed実引数は正規化済み範囲とオフセット付き範囲を区別する。Cの次元0は正規化したpacked範囲で、正の次元は実引数のunpacked範囲を保持する。switchでは別の実引数へ切り替えて範囲を変更し、open packedだけは幅も4と33の間で変える。sized packedは幅を保持する。singletonのincrementは方向にかかわらず1。動的配列、キュー、空配列、X/Z、要素の値・書戻し、sized unpacked、範囲外の次元、Cからの再入、ハンドルの持越しは対象外。未対応による除外なし。"
       ],
       "higher_strength_groups": [
         [
@@ -38477,19 +38477,19 @@
         ]
       ],
       "witness": "同じ実引数のSV/DPI-C問い合わせを、次元番号の対応・packed範囲の正規化・各次元の範囲とincrement・呼出しごとの形状更新で照合する。",
-      "legal_rows": 1152,
-      "available_cases": 19,
-      "selected_cases": 19,
+      "legal_rows": 832,
+      "available_cases": 16,
+      "selected_cases": 16,
       "targets_by_strength": {
-        "2": 177,
-        "3": 66
+        "2": 176,
+        "3": 63
       },
       "mandatory_witnesses": [
         "tests/gen/ch20/test_gen_cross_dpiquery_1_up_neg_varied_33_sized_normal_switch_literal.sv",
         "tests/gen/ch20/test_gen_cross_dpiquery_3_mixed_pos_varied_4_sized_normal_switch_variable.sv",
         "tests/gen/ch20/test_gen_cross_dpiquery_2_down_neg_one_33_sized_normal_same_literal.sv",
         "tests/gen/ch20/test_gen_cross_dpiquery_3_down_neg_varied_33_open_offset_switch_variable.sv",
-        "tests/gen/ch20/test_gen_cross_dpiquery_1_mixed_pos_one_4_open_normal_same_literal.sv",
+        "tests/gen/ch20/test_gen_cross_dpiquery_1_down_pos_one_4_open_normal_same_literal.sv",
         "tests/gen/ch20/test_gen_cross_dpiquery_2_up_pos_varied_4_open_offset_switch_variable.sv",
         "tests/gen/ch20/test_gen_cross_dpiquery_3_mixed_neg_varied_33_sized_offset_same_literal.sv"
       ],
@@ -38507,7 +38507,7 @@
             "calls": "switch",
             "query": "literal"
           },
-          "inputs_sha256": "e0d7786f02b5c9d6cfd7e1355e7d09a4928e32a18af0c53109ec65b817c0a7f9"
+          "inputs_sha256": "4bacfb332f5f3546b79cee0b31ccefb95107575cc4c16c8227ede6d82c85ac45"
         },
         {
           "test": "tests/gen/ch20/test_gen_cross_dpiquery_3_mixed_pos_varied_4_sized_normal_switch_variable.sv",
@@ -38522,7 +38522,7 @@
             "calls": "switch",
             "query": "variable"
           },
-          "inputs_sha256": "0992529560a69446aa35af42734abf6f3f9e1547fea45bac82ff6b1c8c626931"
+          "inputs_sha256": "e0c8f1faf3c97ba71cca10241d323c83caa17b4e887389d1ff1b8518df551070"
         },
         {
           "test": "tests/gen/ch20/test_gen_cross_dpiquery_2_down_neg_one_33_sized_normal_same_literal.sv",
@@ -38537,7 +38537,7 @@
             "calls": "same",
             "query": "literal"
           },
-          "inputs_sha256": "af84457cb77fe28914d65ecd9d767ab539ae72a6ce32ccbe51b216f40b876b27"
+          "inputs_sha256": "dabb6d42b9b4e7c4ba50cb077ac417f050a87c453600df7279263d735b386c6f"
         },
         {
           "test": "tests/gen/ch20/test_gen_cross_dpiquery_3_down_neg_varied_33_open_offset_switch_variable.sv",
@@ -38552,13 +38552,13 @@
             "calls": "switch",
             "query": "variable"
           },
-          "inputs_sha256": "a21d27f8e40af0323475473adc25f8cd2e53ee0149731dabbf265280957083c8"
+          "inputs_sha256": "b35c3f1ca08ac13398c6797376340ea54112dd443e9583e07e861f90405b15d2"
         },
         {
-          "test": "tests/gen/ch20/test_gen_cross_dpiquery_1_mixed_pos_one_4_open_normal_same_literal.sv",
+          "test": "tests/gen/ch20/test_gen_cross_dpiquery_1_down_pos_one_4_open_normal_same_literal.sv",
           "values": {
             "rank": "1",
-            "bounds": "mixed",
+            "bounds": "down",
             "origin": "pos",
             "extent": "one",
             "width": "4",
@@ -38567,7 +38567,7 @@
             "calls": "same",
             "query": "literal"
           },
-          "inputs_sha256": "df442412e93e39ecb4892ab4ce9cc0457460c24617146f57a0bbe1d3a0321043"
+          "inputs_sha256": "6a52e3a2ae94645a702287d1c6adfbdbb9b0f616cf50586161aaadc7e8bd8933"
         },
         {
           "test": "tests/gen/ch20/test_gen_cross_dpiquery_2_up_pos_varied_4_open_offset_switch_variable.sv",
@@ -38582,7 +38582,7 @@
             "calls": "switch",
             "query": "variable"
           },
-          "inputs_sha256": "2d042051b026c74e2347d7f16ce5840e7b058b8a8f8b4fe7aab7576baeb76629"
+          "inputs_sha256": "0f8cfb3a8f36cb1446c2cb8bce2de0422ee7dcbf11bc31ed7490d772ad1372e6"
         },
         {
           "test": "tests/gen/ch20/test_gen_cross_dpiquery_3_mixed_neg_varied_33_sized_offset_same_literal.sv",
@@ -38597,7 +38597,7 @@
             "calls": "same",
             "query": "literal"
           },
-          "inputs_sha256": "e8a6bd4903b5b59092e69b4be9b2c00184aefa37acf10748e49c903ce1ca65ed"
+          "inputs_sha256": "866b11a9baffe90d9af18d5ad460820716ecf22511f1c75ccba6c1d645437a03"
         },
         {
           "test": "tests/gen/ch20/test_gen_cross_dpiquery_1_up_neg_one_4_sized_offset_same_variable.sv",
@@ -38612,72 +38612,87 @@
             "calls": "same",
             "query": "variable"
           },
-          "inputs_sha256": "4105e42072373fe381a6b48e9d1d953ab4273f3db5862bd5b918ad728ea7fd36"
+          "inputs_sha256": "1bc1fb7022c9911207f208662043617346285ff5ccdc62a1c8c2c1f962606b86"
         },
         {
-          "test": "tests/gen/ch20/test_gen_cross_dpiquery_1_down_pos_one_4_open_normal_switch_variable.sv",
+          "test": "tests/gen/ch20/test_gen_cross_dpiquery_2_mixed_pos_varied_33_open_offset_same_literal.sv",
           "values": {
-            "rank": "1",
-            "bounds": "down",
+            "rank": "2",
+            "bounds": "mixed",
             "origin": "pos",
-            "extent": "one",
-            "width": "4",
-            "formal": "open",
-            "packed": "normal",
-            "calls": "switch",
-            "query": "variable"
-          },
-          "inputs_sha256": "af50e1e6c8b3673d0ad910f23798b4f732aac7dcc0e34d801d670ebe1289f543"
-        },
-        {
-          "test": "tests/gen/ch20/test_gen_cross_dpiquery_3_up_pos_one_33_open_offset_same_literal.sv",
-          "values": {
-            "rank": "3",
-            "bounds": "up",
-            "origin": "pos",
-            "extent": "one",
+            "extent": "varied",
             "width": "33",
             "formal": "open",
             "packed": "offset",
             "calls": "same",
             "query": "literal"
           },
-          "inputs_sha256": "370e7223aa3a416a99a7d3d0bf8cf89a83e91000bbbc24f94f557cc5036a4b30"
+          "inputs_sha256": "84671d8a1d3d16cb7204a85d0dfabb6574782625159b3aa9fb6abf109fd6e7fb"
         },
         {
-          "test": "tests/gen/ch20/test_gen_cross_dpiquery_2_mixed_neg_one_4_sized_normal_switch_variable.sv",
+          "test": "tests/gen/ch20/test_gen_cross_dpiquery_3_up_neg_one_4_open_offset_switch_literal.sv",
           "values": {
-            "rank": "2",
-            "bounds": "mixed",
+            "rank": "3",
+            "bounds": "up",
             "origin": "neg",
             "extent": "one",
             "width": "4",
-            "formal": "sized",
-            "packed": "normal",
+            "formal": "open",
+            "packed": "offset",
             "calls": "switch",
-            "query": "variable"
+            "query": "literal"
           },
-          "inputs_sha256": "ce055441e422839c3508aba1a5ed8281ffd89dc3fb56a1fc5bf939f888027b45"
+          "inputs_sha256": "1e7ae7b35aa93597e5545b79eaff6c8d8cd89f5490bacf56fab89eb220bf11cc"
         },
         {
-          "test": "tests/gen/ch20/test_gen_cross_dpiquery_2_down_pos_varied_4_open_normal_same_literal.sv",
+          "test": "tests/gen/ch20/test_gen_cross_dpiquery_1_down_pos_varied_4_open_normal_switch_variable.sv",
           "values": {
-            "rank": "2",
+            "rank": "1",
             "bounds": "down",
             "origin": "pos",
             "extent": "varied",
             "width": "4",
             "formal": "open",
             "packed": "normal",
-            "calls": "same",
-            "query": "literal"
+            "calls": "switch",
+            "query": "variable"
           },
-          "inputs_sha256": "9fafcae7ad8254c3ac6d028a011e03b8bef5ec3784c056b618c81bf845c9c7d3"
+          "inputs_sha256": "224b088cb44c827215d838b1b35b8b26f855d776080b0a3a29f2e12e4fed4ff3"
         },
         {
-          "test": "tests/gen/ch20/test_gen_cross_dpiquery_1_down_neg_varied_4_sized_normal_same_literal.sv",
+          "test": "tests/gen/ch20/test_gen_cross_dpiquery_1_mixed_neg_varied_4_sized_offset_switch_literal.sv",
           "values": {
             "rank": "1",
+            "bounds": "mixed",
+            "origin": "neg",
+            "extent": "varied",
+            "width": "4",
+            "formal": "sized",
+            "packed": "offset",
+            "calls": "switch",
+            "query": "literal"
+          },
+          "inputs_sha256": "d1343f63a6b262509b3ff6acfd803549908f9936e778080d96d62b2262fde638"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_dpiquery_2_up_pos_one_4_sized_offset_same_variable.sv",
+          "values": {
+            "rank": "2",
+            "bounds": "up",
+            "origin": "pos",
+            "extent": "one",
+            "width": "4",
+            "formal": "sized",
+            "packed": "offset",
+            "calls": "same",
+            "query": "variable"
+          },
+          "inputs_sha256": "f02f2440970fe5a7aa375a36d438feab9e6059258ff182f18024d48e5e883966"
+        },
+        {
+          "test": "tests/gen/ch20/test_gen_cross_dpiquery_2_down_neg_varied_4_sized_normal_same_literal.sv",
+          "values": {
+            "rank": "2",
             "bounds": "down",
             "origin": "neg",
             "extent": "varied",
@@ -38687,52 +38702,7 @@
             "calls": "same",
             "query": "literal"
           },
-          "inputs_sha256": "7d1a9746a44317d6bf19c72f04193879162c1988af043d3e58237d14d5209bcc"
-        },
-        {
-          "test": "tests/gen/ch20/test_gen_cross_dpiquery_1_mixed_neg_varied_4_sized_normal_same_literal.sv",
-          "values": {
-            "rank": "1",
-            "bounds": "mixed",
-            "origin": "neg",
-            "extent": "varied",
-            "width": "4",
-            "formal": "sized",
-            "packed": "normal",
-            "calls": "same",
-            "query": "literal"
-          },
-          "inputs_sha256": "db64f4a2e65519a75d5481bd66ba78a0931ecc544af96b5420d83f9878ac5087"
-        },
-        {
-          "test": "tests/gen/ch20/test_gen_cross_dpiquery_2_up_neg_one_4_sized_normal_same_literal.sv",
-          "values": {
-            "rank": "2",
-            "bounds": "up",
-            "origin": "neg",
-            "extent": "one",
-            "width": "4",
-            "formal": "sized",
-            "packed": "normal",
-            "calls": "same",
-            "query": "literal"
-          },
-          "inputs_sha256": "616f6e078cc8bcafce9888078d642f12cb6b1b46eb4afa8c414f1f6d9c476cb8"
-        },
-        {
-          "test": "tests/gen/ch20/test_gen_cross_dpiquery_2_mixed_neg_varied_4_sized_normal_same_literal.sv",
-          "values": {
-            "rank": "2",
-            "bounds": "mixed",
-            "origin": "neg",
-            "extent": "varied",
-            "width": "4",
-            "formal": "sized",
-            "packed": "normal",
-            "calls": "same",
-            "query": "literal"
-          },
-          "inputs_sha256": "ef27f4ec5c7995c39d1f390181962094b36750a74f0280d64b2076e9d8c71e15"
+          "inputs_sha256": "0fe0db2a2106f3b754a1430611b8f52ea4932f6d4a57f8ca4264c38ab7992f9b"
         },
         {
           "test": "tests/gen/ch20/test_gen_cross_dpiquery_3_up_neg_varied_4_sized_normal_same_literal.sv",
@@ -38747,7 +38717,7 @@
             "calls": "same",
             "query": "literal"
           },
-          "inputs_sha256": "abf75ec035735a647bcb467e18724d5fc5eb16b3ae1a7c0eba4ca8e7c32d4e5b"
+          "inputs_sha256": "d464ba3d2b62fd13bf4c4b3d1f6ebe6e417dcdc140e2abc8dd2e26b751fd5d1d"
         },
         {
           "test": "tests/gen/ch20/test_gen_cross_dpiquery_3_down_neg_one_4_sized_normal_same_literal.sv",
@@ -38762,22 +38732,7 @@
             "calls": "same",
             "query": "literal"
           },
-          "inputs_sha256": "e0b1c81eb1243692189f450ed79d23071d2626f312064047ef91de8b51afc53d"
-        },
-        {
-          "test": "tests/gen/ch20/test_gen_cross_dpiquery_3_mixed_neg_one_4_sized_normal_same_literal.sv",
-          "values": {
-            "rank": "3",
-            "bounds": "mixed",
-            "origin": "neg",
-            "extent": "one",
-            "width": "4",
-            "formal": "sized",
-            "packed": "normal",
-            "calls": "same",
-            "query": "literal"
-          },
-          "inputs_sha256": "d9ad6fb66bce416cb4c81017d8f10cbdf537317fb0c0ddbfc08ef72160c57f67"
+          "inputs_sha256": "3f21765cf722a0c3b34005e7c20f012516fc7569b9317873f26d9a63f59581e7"
         }
       ]
     },
@@ -63916,8 +63871,8 @@
     {
       "source": "results/ghost.json",
       "simulator": "ghost",
-      "version": "private build 8d5097472bdb",
-      "generated_at": "2026-11-11T02:21:19.547429+00:00",
+      "version": "private build 909f828b22b0",
+      "generated_at": "2026-11-12T02:12:22.935923+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -64680,8 +64635,8 @@
           },
           "coverage": {
             "2": {
-              "passed": 260,
-              "total": 260,
+              "passed": 259,
+              "total": 259,
               "missing": 0
             },
             "3": {
@@ -65832,8 +65787,8 @@
         },
         "dpi_openarray_shape": {
           "case_statuses": {
-            "pass": 26,
-            "fail": 4,
+            "pass": 30,
+            "fail": 0,
             "known": 0,
             "unsupported": 0,
             "stale": 0,
@@ -65841,24 +65796,24 @@
           },
           "coverage": {
             "2": {
-              "passed": 93,
+              "passed": 100,
               "total": 100,
-              "missing": 7
+              "missing": 0
             },
             "3": {
-              "passed": 59,
+              "passed": 72,
               "total": 72,
-              "missing": 13
+              "missing": 0
             }
           },
           "mandatory_witnesses": {
             "tests/gen/ch35/test_gen_cross_dpi_array_ascending_output_1_mixed_descending_stable.sv": "pass",
             "tests/gen/ch35/test_gen_cross_dpi_array_descending_inout_5_mixed_ascending_stable.sv": "pass",
-            "tests/gen/ch35/test_gen_cross_dpi_array_dynamic_inout_1_mixed_descending_resize.sv": "fail",
+            "tests/gen/ch35/test_gen_cross_dpi_array_dynamic_inout_1_mixed_descending_resize.sv": "pass",
             "tests/gen/ch35/test_gen_cross_dpi_array_queue_input_5_positive_ascending_resize.sv": "pass"
           },
           "provenance_problem": "",
-          "complete": false
+          "complete": true
         },
         "clocking_assertion_sampling": {
           "case_statuses": {
@@ -65984,7 +65939,7 @@
         },
         "sv_dpi_array_queries": {
           "case_statuses": {
-            "pass": 19,
+            "pass": 16,
             "fail": 0,
             "known": 0,
             "unsupported": 0,
@@ -65993,13 +65948,13 @@
           },
           "coverage": {
             "2": {
-              "passed": 177,
-              "total": 177,
+              "passed": 176,
+              "total": 176,
               "missing": 0
             },
             "3": {
-              "passed": 66,
-              "total": 66,
+              "passed": 63,
+              "total": 63,
               "missing": 0
             }
           },
@@ -66008,7 +65963,7 @@
             "tests/gen/ch20/test_gen_cross_dpiquery_3_mixed_pos_varied_4_sized_normal_switch_variable.sv": "pass",
             "tests/gen/ch20/test_gen_cross_dpiquery_2_down_neg_one_33_sized_normal_same_literal.sv": "pass",
             "tests/gen/ch20/test_gen_cross_dpiquery_3_down_neg_varied_33_open_offset_switch_variable.sv": "pass",
-            "tests/gen/ch20/test_gen_cross_dpiquery_1_mixed_pos_one_4_open_normal_same_literal.sv": "pass",
+            "tests/gen/ch20/test_gen_cross_dpiquery_1_down_pos_one_4_open_normal_same_literal.sv": "pass",
             "tests/gen/ch20/test_gen_cross_dpiquery_2_up_pos_varied_4_open_offset_switch_variable.sv": "pass",
             "tests/gen/ch20/test_gen_cross_dpiquery_3_mixed_neg_varied_33_sized_offset_same_literal.sv": "pass"
           },
@@ -67363,8 +67318,8 @@
     {
       "source": "results/icarus.json",
       "simulator": "icarus",
-      "version": "Icarus Verilog version 14.0 (devel) (s20260301-948-gbd5af291)",
-      "generated_at": "2026-11-11T01:54:24.229688+00:00",
+      "version": "Icarus Verilog version 14.0 (devel) (s20260301-964-g3c970ad8)",
+      "generated_at": "2026-11-12T01:47:31.215096+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -68127,8 +68082,8 @@
           },
           "coverage": {
             "2": {
-              "passed": 260,
-              "total": 260,
+              "passed": 259,
+              "total": 259,
               "missing": 0
             },
             "3": {
@@ -69433,7 +69388,7 @@
           "case_statuses": {
             "pass": 0,
             "fail": 0,
-            "known": 19,
+            "known": 16,
             "unsupported": 0,
             "stale": 0,
             "not_run": 0
@@ -69441,13 +69396,13 @@
           "coverage": {
             "2": {
               "passed": 0,
-              "total": 177,
-              "missing": 177
+              "total": 176,
+              "missing": 176
             },
             "3": {
               "passed": 0,
-              "total": 66,
-              "missing": 66
+              "total": 63,
+              "missing": 63
             }
           },
           "mandatory_witnesses": {
@@ -69455,7 +69410,7 @@
             "tests/gen/ch20/test_gen_cross_dpiquery_3_mixed_pos_varied_4_sized_normal_switch_variable.sv": "known",
             "tests/gen/ch20/test_gen_cross_dpiquery_2_down_neg_one_33_sized_normal_same_literal.sv": "known",
             "tests/gen/ch20/test_gen_cross_dpiquery_3_down_neg_varied_33_open_offset_switch_variable.sv": "known",
-            "tests/gen/ch20/test_gen_cross_dpiquery_1_mixed_pos_one_4_open_normal_same_literal.sv": "known",
+            "tests/gen/ch20/test_gen_cross_dpiquery_1_down_pos_one_4_open_normal_same_literal.sv": "known",
             "tests/gen/ch20/test_gen_cross_dpiquery_2_up_pos_varied_4_open_offset_switch_variable.sv": "known",
             "tests/gen/ch20/test_gen_cross_dpiquery_3_mixed_neg_varied_33_sized_offset_same_literal.sv": "known"
           },
@@ -70810,8 +70765,8 @@
     {
       "source": "results/kirimasim.json",
       "simulator": "kirimasim",
-      "version": "kirimasim 0.0.0 (commit 7de185f776a1), built with GNU 13.3.0",
-      "generated_at": "2026-11-11T01:50:57.291443+00:00",
+      "version": "kirimasim 0.0.0 (commit cae3134e4c1a), built with GNU 13.3.0",
+      "generated_at": "2026-11-12T02:16:23.675093+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -71574,8 +71529,8 @@
           },
           "coverage": {
             "2": {
-              "passed": 260,
-              "total": 260,
+              "passed": 259,
+              "total": 259,
               "missing": 0
             },
             "3": {
@@ -72881,20 +72836,20 @@
             "pass": 0,
             "fail": 0,
             "known": 0,
-            "unsupported": 19,
+            "unsupported": 16,
             "stale": 0,
             "not_run": 0
           },
           "coverage": {
             "2": {
               "passed": 0,
-              "total": 177,
-              "missing": 177
+              "total": 176,
+              "missing": 176
             },
             "3": {
               "passed": 0,
-              "total": 66,
-              "missing": 66
+              "total": 63,
+              "missing": 63
             }
           },
           "mandatory_witnesses": {
@@ -72902,7 +72857,7 @@
             "tests/gen/ch20/test_gen_cross_dpiquery_3_mixed_pos_varied_4_sized_normal_switch_variable.sv": "unsupported",
             "tests/gen/ch20/test_gen_cross_dpiquery_2_down_neg_one_33_sized_normal_same_literal.sv": "unsupported",
             "tests/gen/ch20/test_gen_cross_dpiquery_3_down_neg_varied_33_open_offset_switch_variable.sv": "unsupported",
-            "tests/gen/ch20/test_gen_cross_dpiquery_1_mixed_pos_one_4_open_normal_same_literal.sv": "unsupported",
+            "tests/gen/ch20/test_gen_cross_dpiquery_1_down_pos_one_4_open_normal_same_literal.sv": "unsupported",
             "tests/gen/ch20/test_gen_cross_dpiquery_2_up_pos_varied_4_open_offset_switch_variable.sv": "unsupported",
             "tests/gen/ch20/test_gen_cross_dpiquery_3_mixed_neg_varied_33_sized_offset_same_literal.sv": "unsupported"
           },
@@ -74257,8 +74212,8 @@
     {
       "source": "results/lyra.json",
       "simulator": "lyra",
-      "version": "Lyra (commit eaaea03805b3)",
-      "generated_at": "2026-11-11T07:31:55.175140+00:00",
+      "version": "Lyra (commit 0d94fc7d2962)",
+      "generated_at": "2026-11-12T08:06:19.081957+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -75021,8 +74976,8 @@
           },
           "coverage": {
             "2": {
-              "passed": 260,
-              "total": 260,
+              "passed": 259,
+              "total": 259,
               "missing": 0
             },
             "3": {
@@ -76203,8 +76158,8 @@
         },
         "clocking_assertion_sampling": {
           "case_statuses": {
-            "pass": 0,
-            "fail": 18,
+            "pass": 6,
+            "fail": 12,
             "known": 0,
             "unsupported": 0,
             "stale": 0,
@@ -76212,20 +76167,20 @@
           },
           "coverage": {
             "2": {
-              "passed": 0,
+              "passed": 73,
               "total": 109,
-              "missing": 109
+              "missing": 36
             },
             "3": {
-              "passed": 0,
+              "passed": 19,
               "total": 50,
-              "missing": 50
+              "missing": 31
             }
           },
           "mandatory_witnesses": {
             "tests/gen/ch16/test_gen_cross_clockassert_1_bit_posedge_negedge_edge_nba_explicit.sv": "fail",
             "tests/gen/ch16/test_gen_cross_clockassert_33_logic_negedge_posedge_between_blocking_default.sv": "fail",
-            "tests/gen/ch16/test_gen_cross_clockassert_8_bit_posedge_posedge_early_nba_default.sv": "fail",
+            "tests/gen/ch16/test_gen_cross_clockassert_8_bit_posedge_posedge_early_nba_default.sv": "pass",
             "tests/gen/ch16/test_gen_cross_clockassert_33_bit_negedge_negedge_edge_blocking_explicit.sv": "fail"
           },
           "provenance_problem": "",
@@ -76326,7 +76281,7 @@
         "sv_dpi_array_queries": {
           "case_statuses": {
             "pass": 10,
-            "fail": 9,
+            "fail": 6,
             "known": 0,
             "unsupported": 0,
             "stale": 0,
@@ -76334,14 +76289,14 @@
           },
           "coverage": {
             "2": {
-              "passed": 151,
-              "total": 177,
-              "missing": 26
+              "passed": 157,
+              "total": 176,
+              "missing": 19
             },
             "3": {
-              "passed": 42,
-              "total": 66,
-              "missing": 24
+              "passed": 46,
+              "total": 63,
+              "missing": 17
             }
           },
           "mandatory_witnesses": {
@@ -76349,7 +76304,7 @@
             "tests/gen/ch20/test_gen_cross_dpiquery_3_mixed_pos_varied_4_sized_normal_switch_variable.sv": "pass",
             "tests/gen/ch20/test_gen_cross_dpiquery_2_down_neg_one_33_sized_normal_same_literal.sv": "fail",
             "tests/gen/ch20/test_gen_cross_dpiquery_3_down_neg_varied_33_open_offset_switch_variable.sv": "pass",
-            "tests/gen/ch20/test_gen_cross_dpiquery_1_mixed_pos_one_4_open_normal_same_literal.sv": "fail",
+            "tests/gen/ch20/test_gen_cross_dpiquery_1_down_pos_one_4_open_normal_same_literal.sv": "fail",
             "tests/gen/ch20/test_gen_cross_dpiquery_2_up_pos_varied_4_open_offset_switch_variable.sv": "pass",
             "tests/gen/ch20/test_gen_cross_dpiquery_3_mixed_neg_varied_33_sized_offset_same_literal.sv": "pass"
           },
@@ -77036,8 +76991,8 @@
         },
         "time_scope_delay": {
           "case_statuses": {
-            "pass": 45,
-            "fail": 3,
+            "pass": 48,
+            "fail": 0,
             "known": 0,
             "unsupported": 0,
             "stale": 0,
@@ -77045,26 +77000,26 @@
           },
           "coverage": {
             "2": {
-              "passed": 287,
+              "passed": 291,
               "total": 291,
-              "missing": 4
+              "missing": 0
             },
             "3": {
-              "passed": 126,
+              "passed": 136,
               "total": 136,
-              "missing": 10
+              "missing": 0
             }
           },
           "mandatory_witnesses": {
             "tests/gen/ch3/test_gen_cross_timescope_keyword_module_10ns_tenth_real_up_finer_statement.sv": "pass",
             "tests/gen/ch3/test_gen_cross_timescope_slash_interface_100ps_milli_fine_tie_coarser_nba.sv": "pass",
             "tests/gen/ch3/test_gen_cross_timescope_directive_package_1us_same_argument_down_finer_statement.sv": "pass",
-            "tests/gen/ch3/test_gen_cross_timescope_unit_scope_package_10ns_milli_suffix_tie_coarser_nba.sv": "fail",
+            "tests/gen/ch3/test_gen_cross_timescope_unit_scope_package_10ns_milli_suffix_tie_coarser_nba.sv": "pass",
             "tests/gen/ch3/test_gen_cross_timescope_nested_module_100ps_tenth_real_exact_coarser_statement.sv": "pass",
             "tests/gen/ch3/test_gen_cross_timescope_nested_interface_1us_same_argument_up_finer_nba.sv": "pass"
           },
           "provenance_problem": "",
-          "complete": false
+          "complete": true
         },
         "literal_context_extension": {
           "case_statuses": {
@@ -77704,8 +77659,8 @@
     {
       "source": "results/verilator.json",
       "simulator": "verilator",
-      "version": "Verilator 5.055 devel rev v5.054-200-g18c16505",
-      "generated_at": "2026-11-11T03:42:05.211278+00:00",
+      "version": "Verilator 5.055 devel rev v5.054-219-g12ce8608",
+      "generated_at": "2026-11-12T04:55:37.917404+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -78468,14 +78423,14 @@
           },
           "coverage": {
             "2": {
-              "passed": 130,
-              "total": 260,
-              "missing": 130
+              "passed": 133,
+              "total": 259,
+              "missing": 126
             },
             "3": {
-              "passed": 41,
+              "passed": 42,
               "total": 152,
-              "missing": 111
+              "missing": 110
             }
           },
           "mandatory_witnesses": {
@@ -79620,33 +79575,33 @@
         },
         "dpi_openarray_shape": {
           "case_statuses": {
-            "pass": 26,
+            "pass": 30,
             "fail": 0,
-            "known": 4,
+            "known": 0,
             "unsupported": 0,
             "stale": 0,
             "not_run": 0
           },
           "coverage": {
             "2": {
-              "passed": 93,
+              "passed": 100,
               "total": 100,
-              "missing": 7
+              "missing": 0
             },
             "3": {
-              "passed": 59,
+              "passed": 72,
               "total": 72,
-              "missing": 13
+              "missing": 0
             }
           },
           "mandatory_witnesses": {
             "tests/gen/ch35/test_gen_cross_dpi_array_ascending_output_1_mixed_descending_stable.sv": "pass",
             "tests/gen/ch35/test_gen_cross_dpi_array_descending_inout_5_mixed_ascending_stable.sv": "pass",
-            "tests/gen/ch35/test_gen_cross_dpi_array_dynamic_inout_1_mixed_descending_resize.sv": "known",
+            "tests/gen/ch35/test_gen_cross_dpi_array_dynamic_inout_1_mixed_descending_resize.sv": "pass",
             "tests/gen/ch35/test_gen_cross_dpi_array_queue_input_5_positive_ascending_resize.sv": "pass"
           },
           "provenance_problem": "",
-          "complete": false
+          "complete": true
         },
         "clocking_assertion_sampling": {
           "case_statuses": {
@@ -79772,23 +79727,23 @@
         },
         "sv_dpi_array_queries": {
           "case_statuses": {
-            "pass": 14,
+            "pass": 8,
             "fail": 0,
-            "known": 5,
+            "known": 8,
             "unsupported": 0,
             "stale": 0,
             "not_run": 0
           },
           "coverage": {
             "2": {
-              "passed": 148,
-              "total": 177,
-              "missing": 29
+              "passed": 132,
+              "total": 176,
+              "missing": 44
             },
             "3": {
-              "passed": 45,
-              "total": 66,
-              "missing": 21
+              "passed": 34,
+              "total": 63,
+              "missing": 29
             }
           },
           "mandatory_witnesses": {
@@ -79796,7 +79751,7 @@
             "tests/gen/ch20/test_gen_cross_dpiquery_3_mixed_pos_varied_4_sized_normal_switch_variable.sv": "pass",
             "tests/gen/ch20/test_gen_cross_dpiquery_2_down_neg_one_33_sized_normal_same_literal.sv": "pass",
             "tests/gen/ch20/test_gen_cross_dpiquery_3_down_neg_varied_33_open_offset_switch_variable.sv": "known",
-            "tests/gen/ch20/test_gen_cross_dpiquery_1_mixed_pos_one_4_open_normal_same_literal.sv": "pass",
+            "tests/gen/ch20/test_gen_cross_dpiquery_1_down_pos_one_4_open_normal_same_literal.sv": "pass",
             "tests/gen/ch20/test_gen_cross_dpiquery_2_up_pos_varied_4_open_offset_switch_variable.sv": "known",
             "tests/gen/ch20/test_gen_cross_dpiquery_3_mixed_neg_varied_33_sized_offset_same_literal.sv": "known"
           },

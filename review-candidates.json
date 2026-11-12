@@ -1,29 +1,29 @@
 {
  "inputs": {
   "icarus": {
-   "version": "Icarus Verilog version 14.0 (devel) (s20260301-948-gbd5af291)",
-   "time": "2026-11-11T07:32:19Z",
-   "suite_commit": "a155aec8d7a87178f5abfa352286105aa5afbb58"
+   "version": "Icarus Verilog version 14.0 (devel) (s20260301-964-g3c970ad8)",
+   "time": "2026-11-12T08:32:30Z",
+   "suite_commit": "68f5ecc7507d6157f7944b48aa50c61fcc6fa2e1"
   },
   "verilator": {
-   "version": "Verilator 5.055 devel rev v5.054-200-g18c16505",
-   "time": "2026-11-11T07:32:19Z",
-   "suite_commit": "a155aec8d7a87178f5abfa352286105aa5afbb58"
+   "version": "Verilator 5.055 devel rev v5.054-219-g12ce8608",
+   "time": "2026-11-12T08:32:30Z",
+   "suite_commit": "68f5ecc7507d6157f7944b48aa50c61fcc6fa2e1"
   },
   "kirimasim": {
-   "version": "kirimasim 0.0.0 (commit 7de185f776a1), built with GNU 13.3.0",
-   "time": "2026-11-11T07:32:19Z",
-   "suite_commit": "a155aec8d7a87178f5abfa352286105aa5afbb58"
+   "version": "kirimasim 0.0.0 (commit cae3134e4c1a), built with GNU 13.3.0",
+   "time": "2026-11-12T08:32:30Z",
+   "suite_commit": "68f5ecc7507d6157f7944b48aa50c61fcc6fa2e1"
   },
   "lyra": {
-   "version": "Lyra (commit eaaea03805b3)",
-   "time": "2026-11-11T07:32:19Z",
-   "suite_commit": "a155aec8d7a87178f5abfa352286105aa5afbb58"
+   "version": "Lyra (commit 0d94fc7d2962)",
+   "time": "2026-11-12T08:32:30Z",
+   "suite_commit": "68f5ecc7507d6157f7944b48aa50c61fcc6fa2e1"
   },
   "ghost": {
-   "version": "private build 8d5097472bdb",
-   "time": "2026-11-11T07:32:19Z",
-   "suite_commit": "a155aec8d7a87178f5abfa352286105aa5afbb58"
+   "version": "private build 909f828b22b0",
+   "time": "2026-11-12T08:32:30Z",
+   "suite_commit": "68f5ecc7507d6157f7944b48aa50c61fcc6fa2e1"
   }
  },
  "candidates": {
@@ -59,7 +59,6 @@
    "ch20/test_illegal_bits_function_dynamic_return",
    "ch20/test_illegal_timeformat_unit_out_of_range",
    "ch23/test_port_collapse_supply_cells",
-   "ch25/test_modport_expression_element_concatenation_pattern",
    "ch4/test_illegal_final_deferred_action_schedules_event"
   ],
   "spec_no_pass": [
@@ -68,26 +67,19 @@
    "ch16/test_assertion_dist_as_inside",
    "ch16/test_ch16_sim_checker_inference",
    "ch16/test_ch16_sim_multiclock_init",
-   "ch16/test_ch16_sim_prop_inherited_eventually",
    "ch16/test_illegal_assertion_clocking_input_not_1step",
    "ch16/test_illegal_assertion_function_keeps_state",
    "ch16/test_illegal_assertion_function_side_effect",
    "ch16/test_illegal_local_variable_implicit_type",
    "ch16/test_illegal_triggered_ending_clock",
-   "ch16/test_sequence_method_empty_matches",
-   "ch17/test_checker_assertion_placement",
    "ch18/test_discarded_soft_distribution",
-   "ch18/test_illegal_constraint_function_cycle",
    "ch18/test_illegal_constraint_function_mode",
    "ch18/test_illegal_constraint_function_state",
    "ch18/test_illegal_randsequence_negative_weight",
    "ch18/test_soft_priority_layers",
    "ch19/test_cg_four_state_literal_wildcard_enum",
-   "ch19/test_cg_illegal_transition_error",
-   "ch19/test_covergroup_bins_and_range_forms",
    "ch20/test_assertcontrol_callbacks_selected",
    "ch20/test_assertcontrol_callbacks_system",
-   "ch20/test_expect_wait_order_default_error_failoff",
    "ch21/test_illegal_value_plusargs_bad_format",
    "ch23/test_interconnect_port_inheritance_typeless",
    "ch23/test_port_collapse_net_delay",
@@ -107,7 +99,6 @@
    "ch31/test_illegal_timing_condition_two_signals",
    "ch33/test_vpi_module_binding_properties",
    "ch33/test_vpi_module_config_name",
-   "ch35/test_a2_5_dpi_open_array_packed_dimension",
    "ch36/test_vpi_compatibility_1800v2017_mode",
    "ch36/test_vpi_compatibility_1800v2023_mode",
    "ch36/test_vpi_interface_decl_class_current_mode",
@@ -134,55 +125,25 @@
    "ch38/test_vpi_handle_by_multi_index",
    "ch38/test_vpi_put_value_udp_array_errors",
    "ch38/test_vpi_systf_function_result_kinds",
+   "ch39/test_vpi_assertion_cover_no_failure",
    "ch4/test_pli_slot_entry_regions_run_once",
    "ch40/test_vpi_coverage_cover_sequence",
    "ch7/test_illegal_string_in_untagged_union",
    "ch7/test_illegal_unique_index_without_with_struct_elements",
-   "ch7/test_illegal_unique_without_with_struct_elements",
-   "gen/ch35/test_gen_cross_dpi_array_dynamic_inout_1_mixed_descending_resize",
-   "gen/ch35/test_gen_cross_dpi_array_dynamic_input_1_positive_ascending_stable",
-   "gen/ch35/test_gen_cross_dpi_array_queue_inout_1_positive_descending_resize",
-   "gen/ch35/test_gen_cross_dpi_array_queue_input_1_mixed_ascending_stable"
+   "ch7/test_illegal_unique_without_with_struct_elements"
   ],
   "oracle_ghost_lyra": [
-   "ch10/test_illegal_lhs_assignment_pattern_member_width",
-   "ch10/test_illegal_typed_lhs_assignment_pattern_member_width",
-   "ch11/test_illegal_stream_with_on_two_dimensional_array",
    "ch11/test_illegal_unsized_constant_in_concatenation",
-   "ch12/test_illegal_for_type_reference_without_var",
-   "ch12/test_illegal_pattern_constant_of_real_type",
-   "ch16/test_illegal_attached_call_chandle_input",
-   "ch16/test_illegal_cycle_delay_mintypmax",
-   "ch16/test_illegal_local_variable_unassigned_compound_assignment",
-   "ch16/test_illegal_sequence_event_formal_as_boolean",
-   "ch16/test_illegal_sequence_formal_chandle_type",
-   "ch16/test_illegal_sequence_formal_goto_operand",
-   "ch16/test_illegal_sequence_property_no_match",
-   "ch16/test_illegal_triggered_ending_clock_differs",
    "ch17/test_illegal_checker_writes_input",
-   "ch18/test_illegal_solve_before_circular",
-   "ch18/test_illegal_solve_before_unpacked_array",
    "ch18/test_rand_enum_solver_finds_solution",
    "ch19/test_illegal_cg_transition_length_zero",
-   "ch19/test_illegal_cg_transition_sole_range",
    "ch22/test_illegal_directive_split_across_lines",
-   "ch22/test_illegal_include_absolute_path_in_angle_brackets",
    "ch22/test_illegal_include_line_trailing_code",
-   "ch23/test_illegal_interconnect_left_after_elaboration",
    "ch23/test_illegal_scope_duplicate_in_unselected_generate",
    "ch23/test_port_collapse_uwire_external_delay",
    "ch26/test_illegal_package_imported_before_compiled",
-   "ch30/test_illegal_edge_parallel_path_part_select_destination",
-   "ch30/test_illegal_specify_edge_path_same_edge_and_condition",
-   "ch33/test_illegal_config_constant_function",
-   "ch33/test_illegal_config_generate_scope_path",
-   "ch6/test_illegal_nettype_resolver_resizes_driver_array",
-   "ch6/test_illegal_nettype_resolver_side_effect",
-   "ch6/test_illegal_nettype_resolver_writes_driver_array",
-   "ch6/test_illegal_type_operator_dynamic_array_element",
    "ch7/test_illegal_dynamic_new_nonblocking_assignment",
    "ch8/test_illegal_instance_constant_assigned_twice",
-   "ch8/test_illegal_interface_typedef_scope_prefix_in_variable_declaration",
    "ch9/test_illegal_automatic_variable_as_sequence_event_argument",
    "gen/ch21/test_gen_cross_litfmt_fill_b_display_param",
    "gen/ch5/test_gen_cross_literal_fill_unsigned_unsized_one_add_signed_logic_65"
@@ -342,6 +303,10 @@
    "tests": 3
   },
   {
+   "clause": "8.30.1",
+   "tests": 3
+  },
+  {
    "clause": "8.30.3",
    "tests": 3
   },
@@ -383,6 +348,10 @@
   },
   {
    "clause": "23.3.3.7.2",
+   "tests": 3
+  },
+  {
+   "clause": "25.6",
    "tests": 3
   },
   {
@@ -475,6 +444,10 @@
   },
   {
    "clause": "6.22.6",
+   "tests": 4
+  },
+  {
+   "clause": "10.10.3",
    "tests": 4
   },
   {
@@ -586,7 +559,19 @@
    "tests": 4
   },
   {
+   "clause": "8.26.4",
+   "tests": 5
+  },
+  {
+   "clause": "8.26.6.2",
+   "tests": 5
+  },
+  {
    "clause": "16.9.10",
+   "tests": 5
+  },
+  {
+   "clause": "16.9.11",
    "tests": 5
   },
   {
@@ -670,7 +655,15 @@
    "tests": 5
   },
   {
+   "clause": "7.9.8",
+   "tests": 6
+  },
+  {
    "clause": "15.5.4",
+   "tests": 6
+  },
+  {
+   "clause": "16.9.1",
    "tests": 6
   },
   {
@@ -691,6 +684,10 @@
   },
   {
    "clause": "24.6",
+   "tests": 6
+  },
+  {
+   "clause": "25.7.4",
    "tests": 6
   },
   {
@@ -746,7 +743,15 @@
    "tests": 6
   },
   {
-   "clause": "16.9.1",
+   "clause": "12.6.2",
+   "tests": 7
+  },
+  {
+   "clause": "16.12.19",
+   "tests": 7
+  },
+  {
+   "clause": "16.12.22",
    "tests": 7
   },
   {
@@ -810,6 +815,10 @@
    "tests": 8
   },
   {
+   "clause": "23.3.3.7.1",
+   "tests": 8
+  },
+  {
    "clause": "32.4.2",
    "tests": 8
   },
@@ -834,6 +843,10 @@
    "tests": 8
   },
   {
+   "clause": "16.9.6",
+   "tests": 9
+  },
+  {
    "clause": "16.13.1",
    "tests": 9
   },
@@ -856,6 +869,14 @@
   {
    "clause": "39.5.1",
    "tests": 9
+  },
+  {
+   "clause": "11.9",
+   "tests": 10
+  },
+  {
+   "clause": "12.6.1",
+   "tests": 10
   },
   {
    "clause": "16.12.13",
@@ -888,6 +909,10 @@
   {
    "clause": "37.59",
    "tests": 11
+  },
+  {
+   "clause": "7.3.2",
+   "tests": 12
   },
   {
    "clause": "16.12.10",
@@ -926,6 +951,10 @@
    "tests": 14
   },
   {
+   "clause": "16.12.17",
+   "tests": 15
+  },
+  {
    "clause": "37.31",
    "tests": 15
   },
@@ -946,12 +975,24 @@
    "tests": 17
   },
   {
+   "clause": "16.11",
+   "tests": 19
+  },
+  {
    "clause": "31.3.1",
    "tests": 20
   },
   {
    "clause": "40.3.2.3",
    "tests": 22
+  },
+  {
+   "clause": "6.6.8",
+   "tests": 24
+  },
+  {
+   "clause": "16.8.2",
+   "tests": 25
   },
   {
    "clause": "40.3.2.1",
