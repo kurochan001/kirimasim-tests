@@ -425,8 +425,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "81edc1386ba78cbfcab047e097b100a294b7b9d3ceaeab17c1e0c6ccc3dc8e76",
-        "ja": "a8323ed3b2fb3876212bd21f338097dd0eb7de31b6e6b5d0c0520d5cc0a76422"
+        "en": "fb4babc07046aaaf506a155f876990a55fd76b5565fb23c740da3bf3e0dd901a",
+        "ja": "4b5819638b147dc6ef234f946d0fe0ed9e37f12b504d085a0d1f05bdac29f2e7"
       }
     },
     {
@@ -1234,6 +1234,17 @@
       "sha256": {
         "en": "576855a0408ba23cf4d8f5dfc356eac28c42f01a4d4e6698c898ff8ff16a0666",
         "ja": "b42716917bf64fc60dc4667cc9e33a2fd66cabc46ed815b47368aff9857f408c"
+      }
+    },
+    {
+      "en": "docs/ghost-only-review-vpi-20261113.en.md",
+      "ja": "docs/ghost-only-review-vpi-20261113.md",
+      "source": "docs/ghost-only-review-vpi-20261113.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "6f16d0f1819191dabcd854a4ecebbc462b3fbaeb4fb3e3ea8d31759d2e4c2a3c",
+        "ja": "902aaf2e640cecea5cb626ef0efb19f3ca316af824664e7d9d825044aba2e8b0"
       }
     }
   ]

@@ -660,3 +660,12 @@ clause 37.
 - The verdicts: 85 expectations are right and 5 rest on a contested reading. None is wrong or flawed.
 - Three of the five ask whether a sequence without a match can be written in a `cover sequence` (16.12.22 and 16.14.3). One is about the number of calls written inside `first_match` (16.9.8 and 16.11), and one about writing back an assignment to a `local input` formal (16.8.1 and 16.8.2).
 - No test was changed. The coverage figures are unchanged.
+
+### 2026-11-13 (review of the tests that only Ghost passes: Clauses 36, 38, 39 and 40)
+
+- The 141 tests of Clauses 36, 38, 39 and 40 that match their expectation on Ghost alone were compared with the standard by the same method. The record is the [review of the tests that only Ghost passes: Clauses 36, 38, 39 and 40](ghost-only-review-vpi-20261113.en.md).
+- The verdicts: 108 expectations are right, 3 are wrong, 19 tests are flawed and 11 rest on a contested reading.
+- One wrong test expects `cbAssertionKill` for `$assertkill` with arguments. Table 20-8 of 20.11 gives `cbAssertionReset` and `cbAssertionDisable`. The other two pass the path of an instance as a string for the coverage scope. By the NOTE of Table 40-2 in 40.3.2.1 a string is a definition name.
+- Ten of the 19 flawed tests use, from the startup routine, a routine or a callback reason that 36.10.2 does not allow.
+- No test was changed. The coverage figures are unchanged.
+- So far 424 of the 756 tests that pass on Ghost alone are reviewed (193 of Clause 37, 90 of Clause 16, 141 of Clauses 36, 38, 39 and 40). Seven are wrong, 45 are flawed, 4 depend on a gap in the standard and 33 rest on a contested reading.
