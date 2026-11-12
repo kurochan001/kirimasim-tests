@@ -610,3 +610,9 @@ clause 37.
 - Two differences of the pinned releases were recorded in the [list](simulator-differences.md#icarus-increment-dynamic-20261112): Icarus Verilog 13.0 gives 0 for `$increment` of a one-element dynamic array, and Verilator 5.052 reports no error for the cycle of 18.5.11.
 - Not changed, waiting for a decision: `ch4/test_illegal_final_deferred_action_schedules_event`, `ch18/test_illegal_randsequence_negative_weight` and the 17 contested tests.
 - The README named the run `full-20261112-kirimasim-7de185f7-edgedpiquery.json` as the latest complete cross run. It now names the run of this entry.
+
+### 2026-11-12 (run-time error requirement of 18.5.11)
+
+- The requirement of 18.5.11 that a circular dependency of the implicit function-argument ordering is an error had the error kind, which maps only to illegal designs with `:should_fail_because:`. The ordering exists among the constraints that are active when `randomize()` is called, so the error may be reported while the design runs. With the owner's approval it is now a normal requirement, like the five run-time error requirements of 2026-11-09, whose errors are tested with `:expected_stderr_regex:`.
+- It is mapped to `ch18/test_constraint_function_cycle_runtime_error`, reviewed on 2026-11-12 by an AI. The record of the withdrawn mapping was removed from `coverage/test-matching-reviews.json`. The baseline of `coverage/behaviors.json` was written again with this reason, as the kind is part of the requirement's contract, so the denominator digest changes; the 12,298 rows do not.
+- Design coverage returns to 90.14% (11,086/12,298), and to 88.47% (8,374/9,465) for clauses 1 to 40. Execution coverage does not change: 50.20% (6,174/12,298) without Ghost and 77.57% (9,540/12,298) with Ghost and kirimasim. No saved run passes the test: both pinned releases have a known mismatch and kirimasim does not support it.

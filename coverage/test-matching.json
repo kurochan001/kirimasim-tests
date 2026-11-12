@@ -3,8 +3,8 @@
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
   "test_files": 12262,
-  "linked_test_files": 5399,
-  "unlinked_test_files": 6863,
+  "linked_test_files": 5400,
+  "unlinked_test_files": 6862,
   "chapters": [
     {
       "chapter": "ch3",
@@ -99,8 +99,8 @@
     {
       "chapter": "ch18",
       "test_files": 273,
-      "linked_test_files": 188,
-      "unlinked_test_files": 85
+      "linked_test_files": 189,
+      "unlinked_test_files": 84
     },
     {
       "chapter": "ch19",
@@ -102322,7 +102322,9 @@
         "18.9"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-18.5.11-EXTRACT-FUNCTION-ARG-PRIORITY",
@@ -102340,47 +102342,10 @@
       "different_case_kind_ids": [
         "SV2023-18.5.11-EXTRACT-FUNCTION-DIRECTIONS",
         "SV2023-18.5.11-EXTRACT-FUNCTION-PURE",
-        "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE",
         "SV2023-18.9-EXTRACT-INVALID-CONSTRAINT-MODE",
         "SV2023-18.9-EXTRACT-NO-CONSTRAINT-MODE-OVERRIDE"
       ],
-      "broader_citations": [],
-      "scoped_review": {
-        "test": "tests/ch18/test_constraint_function_cycle_runtime_error.sv",
-        "inputs_sha256": "30cf9778b9401bb16f027a6950383204a3d015398d665f962d24dfb8a531b3c8",
-        "reviewed_on": "2026-11-12",
-        "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
-        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-        "decisions": [
-          {
-            "requirement_ids": [
-              "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE"
-            ],
-            "disposition": "citation_refinement",
-            "explanation": "The requirement is registered with kind=error, and the matching protocol accepts only an illegal-design test with :should_fail_because: for such a row. Since 2026-11-12 this is a run-time test: the implicit ordering exists only among the constraints that are active when randomize() is called (18.9), so a tool may report the cycle at run time, and with c2 switched off first the design is legal until the second call. The test still observes the requirement (randomize() succeeds with c1 alone and must give an error once c1 and c2 are both active), but the mapping cannot be registered while the row is classified as a rejected design. The kind of the row needs a review for errors that may be reported at run time.",
-            "reviewed_on": "2026-11-12",
-            "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
-            "evidence": [
-              {
-                "file": "tests/ch18/test_constraint_function_cycle_runtime_error.sv",
-                "contains": "  constraint c2 { y <= f(x); }   // x before y: a cycle when both are active"
-              },
-              {
-                "file": "tests/ch18/test_constraint_function_cycle_runtime_error.sv",
-                "contains": "    o.c2.constraint_mode(0);"
-              },
-              {
-                "file": "tests/ch18/test_constraint_function_cycle_runtime_error.sv",
-                "contains": ":expected_stderr_regex: (?i:\\berror\\b)"
-              },
-              {
-                "file": "tests/ch18/test_constraint_function_cycle_runtime_error.expected",
-                "contains": "calling randomize with c1 and c2"
-              }
-            ]
-          }
-        ]
-      }
+      "broader_citations": []
     },
     {
       "test": "tests/ch18/test_constraint_function_order.sv",
@@ -102395,14 +102360,14 @@
       ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
+        "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE",
         "SV2023-18.5.11-EXTRACT-PRIORITY-SPACE",
         "SV2023-18.5.11-EXTRACT-UNSPECIFIED-FUNCTION-CALLS"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-18.5.11-EXTRACT-FUNCTION-DIRECTIONS",
-        "SV2023-18.5.11-EXTRACT-FUNCTION-PURE",
-        "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE"
+        "SV2023-18.5.11-EXTRACT-FUNCTION-PURE"
       ],
       "broader_citations": [],
       "scoped_review": {
@@ -103326,6 +103291,7 @@
         "SV2023-18.5.10-EXTRACT-STATIC-MODE-SHARED",
         "SV2023-18.5.11-EXTRACT-FUNCTION-ARG-PRIORITY",
         "SV2023-18.5.11-EXTRACT-FUNCTION-STATE-RESULT",
+        "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE",
         "SV2023-18.5.11-EXTRACT-PRIORITY-SPACE",
         "SV2023-18.5.11-EXTRACT-UNSPECIFIED-FUNCTION-CALLS",
         "SV2023-18.5.2-EXTRACT-IMPLEMENT-PURE",
@@ -103356,7 +103322,6 @@
         "SV2023-18.5.10-EXTRACT-STATIC-PROTOTYPE-MATCH",
         "SV2023-18.5.11-EXTRACT-FUNCTION-DIRECTIONS",
         "SV2023-18.5.11-EXTRACT-FUNCTION-PURE",
-        "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE",
         "SV2023-18.5.2-EXTRACT-EXTENDS-REQUIRES-OVERRIDE",
         "SV2023-18.5.2-EXTRACT-FINAL-CONSTRAINT",
         "SV2023-18.5.2-EXTRACT-INITIAL-EXTENDS-EXCLUSIVE",
@@ -104140,6 +104105,7 @@
         "SV2023-18.5.1-EXTRACT-IMPLICIT-EMPTY",
         "SV2023-18.5.11-EXTRACT-FUNCTION-ARG-PRIORITY",
         "SV2023-18.5.11-EXTRACT-FUNCTION-STATE-RESULT",
+        "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE",
         "SV2023-18.5.11-EXTRACT-PRIORITY-SPACE",
         "SV2023-18.5.11-EXTRACT-UNSPECIFIED-FUNCTION-CALLS"
       ],
@@ -104149,8 +104115,7 @@
         "SV2023-18.5.1-EXTRACT-EXTERNAL-SCOPE-ORDER",
         "SV2023-18.5.1-EXTRACT-EXTERNAL-UNIQUE",
         "SV2023-18.5.11-EXTRACT-FUNCTION-DIRECTIONS",
-        "SV2023-18.5.11-EXTRACT-FUNCTION-PURE",
-        "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE"
+        "SV2023-18.5.11-EXTRACT-FUNCTION-PURE"
       ],
       "broader_citations": [],
       "scoped_review": {
@@ -104639,8 +104604,7 @@
         "SV2023-18.5-EXTRACT-STATIC-NO-OVERRIDE",
         "SV2023-18.5-EXTRACT-UNIQUE-BLOCK-NAME",
         "SV2023-18.5.11-EXTRACT-FUNCTION-DIRECTIONS",
-        "SV2023-18.5.11-EXTRACT-FUNCTION-PURE",
-        "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE"
+        "SV2023-18.5.11-EXTRACT-FUNCTION-PURE"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
@@ -104648,6 +104612,7 @@
         "SV2023-18.5-EXTRACT-BLOCK-MODE",
         "SV2023-18.5.11-EXTRACT-FUNCTION-ARG-PRIORITY",
         "SV2023-18.5.11-EXTRACT-FUNCTION-STATE-RESULT",
+        "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE",
         "SV2023-18.5.11-EXTRACT-PRIORITY-SPACE",
         "SV2023-18.5.11-EXTRACT-UNSPECIFIED-FUNCTION-CALLS"
       ],
@@ -104672,13 +104637,13 @@
         "SV2023-18.5.11-EXTRACT-FUNCTION-PURE"
       ],
       "unapproved_candidate_ids": [
-        "SV2023-18.5.11-EXTRACT-FUNCTION-DIRECTIONS",
-        "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE"
+        "SV2023-18.5.11-EXTRACT-FUNCTION-DIRECTIONS"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-18.5.11-EXTRACT-FUNCTION-ARG-PRIORITY",
         "SV2023-18.5.11-EXTRACT-FUNCTION-STATE-RESULT",
+        "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE",
         "SV2023-18.5.11-EXTRACT-PRIORITY-SPACE",
         "SV2023-18.5.11-EXTRACT-UNSPECIFIED-FUNCTION-CALLS"
       ],
@@ -104707,8 +104672,7 @@
         "SV2023-18.5-EXTRACT-STATIC-NO-OVERRIDE",
         "SV2023-18.5-EXTRACT-UNIQUE-BLOCK-NAME",
         "SV2023-18.5.11-EXTRACT-FUNCTION-DIRECTIONS",
-        "SV2023-18.5.11-EXTRACT-FUNCTION-PURE",
-        "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE"
+        "SV2023-18.5.11-EXTRACT-FUNCTION-PURE"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
@@ -104716,6 +104680,7 @@
         "SV2023-18.5-EXTRACT-BLOCK-MODE",
         "SV2023-18.5.11-EXTRACT-FUNCTION-ARG-PRIORITY",
         "SV2023-18.5.11-EXTRACT-FUNCTION-STATE-RESULT",
+        "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE",
         "SV2023-18.5.11-EXTRACT-PRIORITY-SPACE",
         "SV2023-18.5.11-EXTRACT-UNSPECIFIED-FUNCTION-CALLS"
       ],
@@ -104738,13 +104703,13 @@
       ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
-        "SV2023-18.5.11-EXTRACT-FUNCTION-PURE",
-        "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE"
+        "SV2023-18.5.11-EXTRACT-FUNCTION-PURE"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-18.5.11-EXTRACT-FUNCTION-ARG-PRIORITY",
         "SV2023-18.5.11-EXTRACT-FUNCTION-STATE-RESULT",
+        "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE",
         "SV2023-18.5.11-EXTRACT-PRIORITY-SPACE",
         "SV2023-18.5.11-EXTRACT-UNSPECIFIED-FUNCTION-CALLS"
       ],
@@ -104773,8 +104738,7 @@
         "SV2023-18.5-EXTRACT-STATIC-NO-OVERRIDE",
         "SV2023-18.5-EXTRACT-UNIQUE-BLOCK-NAME",
         "SV2023-18.5.11-EXTRACT-FUNCTION-DIRECTIONS",
-        "SV2023-18.5.11-EXTRACT-FUNCTION-PURE",
-        "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE"
+        "SV2023-18.5.11-EXTRACT-FUNCTION-PURE"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
@@ -104782,6 +104746,7 @@
         "SV2023-18.5-EXTRACT-BLOCK-MODE",
         "SV2023-18.5.11-EXTRACT-FUNCTION-ARG-PRIORITY",
         "SV2023-18.5.11-EXTRACT-FUNCTION-STATE-RESULT",
+        "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE",
         "SV2023-18.5.11-EXTRACT-PRIORITY-SPACE",
         "SV2023-18.5.11-EXTRACT-UNSPECIFIED-FUNCTION-CALLS"
       ],
@@ -104806,13 +104771,13 @@
         "SV2023-18.5.11-EXTRACT-FUNCTION-PURE"
       ],
       "unapproved_candidate_ids": [
-        "SV2023-18.5.11-EXTRACT-FUNCTION-DIRECTIONS",
-        "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE"
+        "SV2023-18.5.11-EXTRACT-FUNCTION-DIRECTIONS"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-18.5.11-EXTRACT-FUNCTION-ARG-PRIORITY",
         "SV2023-18.5.11-EXTRACT-FUNCTION-STATE-RESULT",
+        "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE",
         "SV2023-18.5.11-EXTRACT-PRIORITY-SPACE",
         "SV2023-18.5.11-EXTRACT-UNSPECIFIED-FUNCTION-CALLS"
       ],
@@ -942982,14 +942947,14 @@
       }
     }
   ],
-  "scoped_review_test_files": 1356,
+  "scoped_review_test_files": 1355,
   "review_disposition_counts": {
-    "citation_refinement": 197,
+    "citation_refinement": 196,
     "compound_requirement": 176,
     "oracle_issue": 243,
     "partial_observation": 2136
   },
-  "registry_sha256": "41038e9c0e5fd667824e083e8be655db623fcf46a1dabf1de9074c8cfe87d5de",
+  "registry_sha256": "9817ba69dc02736c62a331bec9ea90da2a7eeb2aa90e0dacf628f0c4d532f052",
   "inventory_sha256": "7f708bec45a4f398aa534c8f94565cb0bcd1a4fbfdf0a0e21997df20add41768",
-  "review_ledger_sha256": "1712d12b7c3e81fdc031e1dd062e8d9cd602dd28e152238f6035fad2ca078a5e"
+  "review_ledger_sha256": "4be3ffce871515e1a19a07d3a87533001ba9d466f50848aba41e5ccad0e7b4b8"
 }

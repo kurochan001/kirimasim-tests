@@ -16,9 +16,9 @@ Requirement coverage (test design): 90.14%. Requirement execution-confirmation r
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 11085/12298 ( 90.14% ).
+- The requirement coverage (test design) for registered behaviors is 11086/12298 ( 90.14% ).
 - Among the registered behaviors, the one with a record of path results corresponding to the current input: 9540/12298 ( 77.57% ).
-- Registered but not tested: 1213.
+- Registered but not tested: 1212.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -301,7 +301,7 @@ The number of items is the investigation status of the article by heading. This 
 - 15 Interprocess synchronization and communication: no interpretation reservation 27/27, registration 88, test support 71.
 - 16 Assertions: No interpretation reservation 82/82, registration 555, test support 539.
 - 17 Checkers: No interpretation reservations 13/13, registration 79, test support 59.
-- 18 Constrained random value generation: 58/58 without pending interpretation issues, 320 registered, 299 mapped to tests.
+- 18 Constrained random value generation: 58/58 without pending interpretation issues, 320 registered, 300 mapped to tests.
 - 19 Functional coverage: no interpretation reservation 34/34, registration 271, test support 232.
 - 20 Utility system tasks and system functions: No interpretation reservation 45/45, registration 316, test support 285.
 - 21 Input/output system tasks and system functions: no interpretation reservation 65/65, registration 383, test support 347.
@@ -45926,7 +45926,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE
 
-`18.5.11` / `error` / No mapped test
+`18.5.11` / `normal` / Test mapped; execution unconfirmed
 
 Circular dependencies from implicit function-argument ordering are errors.
 
@@ -45934,6 +45934,7 @@ Acceptance criterion: Circular dependencies from implicit function-argument orde
 
 Normative role: `mandatory`。
 
+- [test_constraint_function_cycle_runtime_error.sv](../tests/ch18/test_constraint_function_cycle_runtime_error.sv): x \<= f(y) of the constraint c1 implicitly orders y before x, and y \<= f(x) of the constraint c2 orders x before y. With c2 made inactive by constraint_mode(0), randomize() call 1 succeeds and gives x \<= y; with c2 active again, the ordering is a cycle in randomize() call 2. The expected output ends with the line just before call 2, and the run-time message is matched against error. Distinguishing observation: An implementation that does not make a cycle of the implicit function-argument ordering an error fails the message match, and one that reports a cycle also when c1 is the only active constraint does not print the line c1 alone: solved.
 
 ### SV2023-18.5.11-EXTRACT-PRIORITY-SPACE
 

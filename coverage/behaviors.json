@@ -177993,12 +177993,38 @@
     {
       "id": "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE",
       "clause": "18.5.11",
-      "kind": "error",
+      "kind": "normal",
       "behavior": "Circular dependencies from implicit function-argument ordering are errors.",
       "acceptance": "Circular dependencies from implicit function-argument ordering are errors.",
       "source_note": "IEEE 1800-2023 18.5.11; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch18/test_constraint_function_cycle_runtime_error.sv",
+          "observation": "制約 c1 の x <= f(y) が y を x より先に、制約 c2 の y <= f(x) が x を y より先に暗黙に順序付ける。c2 を constraint_mode(0) で無効にした 1 回目の randomize() は成功して x <= y を満たし、c2 を有効に戻した 2 回目の randomize() は順序が循環する。期待出力は 2 回目の呼び出しの直前の行までで、実行時のメッセージに error を照合する。 区別: 関数引数の暗黙の順序の循環をエラーにしない実装はメッセージの照合で失敗し、有効な制約が c1 だけのときにも循環を報告する実装は c1 alone: solved の行を出さない。",
+          "reviewed_on": "2026-11-12",
+          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
+          "inputs_sha256": "30cf9778b9401bb16f027a6950383204a3d015398d665f962d24dfb8a531b3c8",
+          "evidence": [
+            {
+              "file": "tests/ch18/test_constraint_function_cycle_runtime_error.sv",
+              "contains": "  constraint c1 { x <= f(y); }   // y before x\n  constraint c2 { y <= f(x); }   // x before y: a cycle when both are active"
+            },
+            {
+              "file": "tests/ch18/test_constraint_function_cycle_runtime_error.sv",
+              "contains": "    o.c2.constraint_mode(1);\n    $display(\"calling randomize with c1 and c2\");\n    void'(o.randomize());"
+            },
+            {
+              "file": "tests/ch18/test_constraint_function_cycle_runtime_error.sv",
+              "contains": ":expected_stderr_regex: (?i:\\berror\\b)"
+            },
+            {
+              "file": "tests/ch18/test_constraint_function_cycle_runtime_error.expected",
+              "contains": "c1 alone: solved\ncalling randomize with c1 and c2"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "18.5.11",

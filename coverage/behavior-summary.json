@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
-  "registry_sha256": "41038e9c0e5fd667824e083e8be655db623fcf46a1dabf1de9074c8cfe87d5de",
+  "registry_sha256": "9817ba69dc02736c62a331bec9ea90da2a7eeb2aa90e0dacf628f0c4d532f052",
   "source_url": null,
   "source_audit": {
     "audited": 1740,
@@ -21,18 +21,18 @@
   "normative_sections": 1703,
   "audited_sections": 1703,
   "registered": 12298,
-  "mapped": 11085,
+  "mapped": 11086,
   "denominator_reviewed": true,
   "extraction_progress_percent": 100.0,
-  "unmapped": 1213,
+  "unmapped": 1212,
   "executed": 9540,
   "executed_reproducible": 6174,
-  "whole_standard_percent": 90.13660757846804,
+  "whole_standard_percent": 90.14473898194828,
   "whole_standard_executed_percent": 77.57358920149618,
-  "registered_percent": 90.13660757846804,
+  "registered_percent": 90.14473898194828,
   "metric_policy_version": 3,
   "whole_standard_status": "confirmed",
-  "provisional_design_percent": 90.13660757846804,
+  "provisional_design_percent": 90.14473898194828,
   "provisional_execution_percent": 77.57358920149618,
   "reproducible_simulators": [
     "icarus",
@@ -43,21 +43,21 @@
   "denominator": {
     "count": 12298,
     "unit": "registered_requirement_condition_or_observation",
-    "sha256": "c723d62a3ab5f7550bd4a03393e6530b2740d8f39e072a8cc04dad415789639c",
+    "sha256": "a39de3bea0fab85713f3f51307d5f60a443e23ce975d506d29b60e1d38a65aac",
     "reviewed": true,
     "source_review_complete": true,
     "interpretation_pending": 0
   },
   "test_mapping": {
     "suite_test_files": 12262,
-    "linked_test_files": 5399,
-    "unlinked_test_files": 6863
+    "linked_test_files": 5400,
+    "unlinked_test_files": 6862
   },
   "collective_requirement_count": 671,
   "requirement_status_counts": {
     "pass": 9540,
-    "mapped_without_pass": 1545,
-    "unmapped": 1213,
+    "mapped_without_pass": 1546,
+    "unmapped": 1212,
     "interpretation_pending": 0
   },
   "chapters": [
@@ -269,10 +269,10 @@
       "clause": "18",
       "title": "Constrained random value generation",
       "registered": 320,
-      "mapped": 299,
+      "mapped": 300,
       "executed": 229,
       "executed_reproducible": 130,
-      "design_percent": 93.4375,
+      "design_percent": 93.75,
       "execution_percent": 71.5625,
       "execution_reproducible_percent": 40.625,
       "interpretation_pending": 0
@@ -1065,8 +1065,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10795,
-          "unmapped": 1213,
+          "not_run": 10796,
+          "unmapped": 1212,
           "interpretation_pending": 0
         }
       },
@@ -4170,8 +4170,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 180,
           "stale": 198,
-          "not_run": 290,
-          "unmapped": 1213,
+          "not_run": 291,
+          "unmapped": 1212,
           "interpretation_pending": 0
         }
       },
@@ -7179,8 +7179,8 @@
           "unsupported": 6273,
           "unreviewed_oracle": 1164,
           "stale": 196,
-          "not_run": 290,
-          "unmapped": 1213,
+          "not_run": 291,
+          "unmapped": 1212,
           "interpretation_pending": 0
         }
       },
@@ -11075,8 +11075,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 616,
           "stale": 219,
-          "not_run": 290,
-          "unmapped": 1213,
+          "not_run": 291,
+          "unmapped": 1212,
           "interpretation_pending": 0
         }
       },
@@ -14683,8 +14683,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 19,
-          "not_run": 7478,
-          "unmapped": 1213,
+          "not_run": 7479,
+          "unmapped": 1212,
           "interpretation_pending": 0
         }
       },
@@ -22616,8 +22616,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 1171,
           "stale": 307,
-          "not_run": 337,
-          "unmapped": 1213,
+          "not_run": 338,
+          "unmapped": 1212,
           "interpretation_pending": 0
         }
       },
@@ -30629,8 +30629,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 1171,
           "stale": 247,
-          "not_run": 337,
-          "unmapped": 1213,
+          "not_run": 338,
+          "unmapped": 1212,
           "interpretation_pending": 0
         }
       },
@@ -38545,8 +38545,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 1105,
           "stale": 307,
-          "not_run": 337,
-          "unmapped": 1213,
+          "not_run": 338,
+          "unmapped": 1212,
           "interpretation_pending": 0
         }
       },
@@ -38564,8 +38564,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 5,
           "stale": 0,
-          "not_run": 11077,
-          "unmapped": 1213,
+          "not_run": 11078,
+          "unmapped": 1212,
           "interpretation_pending": 0
         }
       },
@@ -38583,8 +38583,8 @@
           "unsupported": 1,
           "unreviewed_oracle": 7,
           "stale": 0,
-          "not_run": 11077,
-          "unmapped": 1213,
+          "not_run": 11078,
+          "unmapped": 1212,
           "interpretation_pending": 0
         }
       },
@@ -38605,8 +38605,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 4,
           "stale": 0,
-          "not_run": 11077,
-          "unmapped": 1213,
+          "not_run": 11078,
+          "unmapped": 1212,
           "interpretation_pending": 0
         }
       },
@@ -38627,8 +38627,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 4,
           "stale": 0,
-          "not_run": 11077,
-          "unmapped": 1213,
+          "not_run": 11078,
+          "unmapped": 1212,
           "interpretation_pending": 0
         }
       },
@@ -38658,8 +38658,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 147,
           "stale": 0,
-          "not_run": 10896,
-          "unmapped": 1213,
+          "not_run": 10897,
+          "unmapped": 1212,
           "interpretation_pending": 0
         }
       },
@@ -38682,8 +38682,8 @@
           "unsupported": 28,
           "unreviewed_oracle": 148,
           "stale": 0,
-          "not_run": 10896,
-          "unmapped": 1213,
+          "not_run": 10897,
+          "unmapped": 1212,
           "interpretation_pending": 0
         }
       },
@@ -38706,8 +38706,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 72,
           "stale": 0,
-          "not_run": 10896,
-          "unmapped": 1213,
+          "not_run": 10897,
+          "unmapped": 1212,
           "interpretation_pending": 0
         }
       },
@@ -38730,8 +38730,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 72,
           "stale": 0,
-          "not_run": 10896,
-          "unmapped": 1213,
+          "not_run": 10897,
+          "unmapped": 1212,
           "interpretation_pending": 0
         }
       },
@@ -38751,8 +38751,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 4,
           "stale": 0,
-          "not_run": 11077,
-          "unmapped": 1213,
+          "not_run": 11078,
+          "unmapped": 1212,
           "interpretation_pending": 0
         }
       },
@@ -38770,8 +38770,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 8,
           "stale": 0,
-          "not_run": 11077,
-          "unmapped": 1213,
+          "not_run": 11078,
+          "unmapped": 1212,
           "interpretation_pending": 0
         }
       },
@@ -38791,8 +38791,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 6,
           "stale": 0,
-          "not_run": 11077,
-          "unmapped": 1213,
+          "not_run": 11078,
+          "unmapped": 1212,
           "interpretation_pending": 0
         }
       },
@@ -38812,8 +38812,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 6,
           "stale": 0,
-          "not_run": 11077,
-          "unmapped": 1213,
+          "not_run": 11078,
+          "unmapped": 1212,
           "interpretation_pending": 0
         }
       },
@@ -38905,8 +38905,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 1,
-          "not_run": 11011,
-          "unmapped": 1213,
+          "not_run": 11012,
+          "unmapped": 1212,
           "interpretation_pending": 0
         }
       },
@@ -38920,12 +38920,12 @@
         "status_counts": {
           "pass": 0,
           "fail": 0,
-          "known": 51,
+          "known": 52,
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
           "not_run": 11034,
-          "unmapped": 1213,
+          "unmapped": 1212,
           "interpretation_pending": 0
         }
       },
@@ -38940,11 +38940,11 @@
           "pass": 0,
           "fail": 0,
           "known": 0,
-          "unsupported": 51,
+          "unsupported": 52,
           "unreviewed_oracle": 0,
           "stale": 0,
           "not_run": 11034,
-          "unmapped": 1213,
+          "unmapped": 1212,
           "interpretation_pending": 0
         }
       },
@@ -38958,12 +38958,12 @@
         "status_counts": {
           "pass": 0,
           "fail": 0,
-          "known": 51,
+          "known": 52,
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
           "not_run": 11034,
-          "unmapped": 1213,
+          "unmapped": 1212,
           "interpretation_pending": 0
         }
       },
@@ -38977,12 +38977,12 @@
         "status_counts": {
           "pass": 0,
           "fail": 0,
-          "known": 51,
+          "known": 52,
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
           "not_run": 11034,
-          "unmapped": 1213,
+          "unmapped": 1212,
           "interpretation_pending": 0
         }
       }

@@ -584,3 +584,9 @@
 - 固定版のリリースの差異を二つ、[一覧](simulator-differences.ja.md#icarus-increment-dynamic-20261112)に記録しました。Icarus Verilog 13.0は、1要素の動的配列の`$increment`に0を返します。Verilator 5.052は、18.5.11の循環にエラーを報告しません。
 - 変更せず、判断を待っているもの: `ch4/test_illegal_final_deferred_action_schedules_event`、`ch18/test_illegal_randsequence_negative_weight`、解釈が分かれる17本。
 - READMEは、最新の全クロス保存実行として`full-20261112-kirimasim-7de185f7-edgedpiquery.json`を挙げていました。この項の実行に変えました。
+
+### 2026-11-12（18.5.11の実行時エラーの要求）
+
+- 関数引数による暗黙の順序の循環依存をエラーとする18.5.11の要求は「エラー」の種類で、`:should_fail_because:`を持つ規格違反の設計にしか対応付けられませんでした。順序は`randomize()`の時点で有効な制約の間にあるので、エラーは設計の実行中に報告されても構いません。所有者の承認を得て、実行時エラーを`:expected_stderr_regex:`で確かめる2026-11-09の要求5件と同じく、通常の要求にしました。
+- `ch18/test_constraint_function_cycle_runtime_error`に対応付けました。2026-11-12にAIがレビューしました。取り下げた対応付けの記録は`coverage/test-matching-reviews.json`から除きました。種類は要求の契約に含まれるので、`coverage/behaviors.json`の基準をこの理由で書き直し、分母のハッシュが変わります。12,298行は変わりません。
+- 要求カバレッジ（テスト設計）は90.14%（11,086/12,298）に、1〜40章では88.47%（8,374/9,465）に戻ります。実行確認率は変わりません。Ghostを除くと50.20%（6,174/12,298）、Ghostとkirimasimを加えると77.57%（9,540/12,298）です。保存済みの実行でこのテストに合格したものはありません。固定版は2本ともknown、kirimasimはunsupportedです。

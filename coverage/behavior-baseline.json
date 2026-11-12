@@ -19447,7 +19447,7 @@
     "SV2023-18.5.11-EXTRACT-FUNCTION-DIRECTIONS": "042e4969ade930cc171a82f784c3e59eae21c173db46bde63b0d1abcec9515a4",
     "SV2023-18.5.11-EXTRACT-FUNCTION-PURE": "a5cafd2e1484dedb229766a3d59eea0319955c4c2480df3178013ae15d55f77f",
     "SV2023-18.5.11-EXTRACT-FUNCTION-STATE-RESULT": "58edb4c149eb06cab04d4e595bed7a9327102f2996dffef5f7db1f8a8b60dc1c",
-    "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE": "57d20e3c5271fb11c42e6a32fb31bb480e5c069e9d8e6dc6924cfbcaaef01ce2",
+    "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE": "e16d6b0c124d022d5caf2fe299c27648ca42d6179c0c98b5aaa37618e5ef1935",
     "SV2023-18.5.11-EXTRACT-PRIORITY-SPACE": "2efa2dd09ae0b2b4cfa286d8b422bf1a4b2e0d0d8f52a82cd28df9a6b6dc9c96",
     "SV2023-18.5.11-EXTRACT-UNSPECIFIED-FUNCTION-CALLS": "a42bfbeec0fbb3e452bd3cb94e073fa195c2fea9fb894b488a2ef4066154e578",
     "SV2023-18.5.12-EXTRACT-FOUR-GUARD-VALUES": "e6cce81b03dd3def7382e6dfb403b10be9ba4e92b14b0904100b718655173dea",
@@ -30346,6 +30346,7 @@
     "SV2023-18.5.11-EXTRACT-FUNCTION-DIRECTIONS",
     "SV2023-18.5.11-EXTRACT-FUNCTION-PURE",
     "SV2023-18.5.11-EXTRACT-FUNCTION-STATE-RESULT",
+    "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE",
     "SV2023-18.5.12-EXTRACT-FOUR-GUARD-VALUES",
     "SV2023-18.5.12-EXTRACT-GUARD-AND-0-0",
     "SV2023-18.5.12-EXTRACT-GUARD-AND-0-1",
@@ -43293,5 +43294,5 @@
     "P",
     "Q"
   ],
-  "reason": "Owner-approved on 2026-11-12: tests that no simulator passes were corrected after two reviews against IEEE 1800-2023 (17 hand-written tests and four generated cases), so the checks of 51 requirements carry new input digests, 15 of them and one check group with rewritten observations, and the mapping of 18.5.11 (kind error) is withdrawn because its test became a run-time test."
+  "reason": "Owner-approved on 2026-11-12: the requirement of 18.5.11 that a circular dependency of the implicit function-argument ordering is an error changes kind from error to normal, like the five run-time error requirements of 2026-11-09 (15.3.2, 15.3.3, 15.3.4, 25.7.4, 25.9), because the ordering exists among the constraints active at randomize() and the error may be reported while the design runs, which the suite tests with :expected_stderr_regex: rather than :should_fail_because:. It is mapped again to tests/ch18/test_constraint_function_cycle_runtime_error.sv, reviewed on 2026-11-12."
 }

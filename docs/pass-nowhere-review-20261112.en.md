@@ -131,10 +131,12 @@ always true or the pass action belongs to an assertion without an implication.
   before, no simulator passes any of them: 22 known on each pinned release
   and 22 unsupported on kirimasim. All 21 changed tests list `spec` alone in
   `:oracle:`, so no token changed.
-- Design coverage is 90.14% (11,085/12,298); it was 11,086. The requirement
-  of 18.5.11 has the kind error, and the ledger accepts only an illegal-design
+- Design coverage is 90.14% (11,086/12,298), as before. The requirement
+  of 18.5.11 had the kind error, and the ledger accepts only an illegal-design
   test for such a row. Its test is now a run-time test, so the mapping was
-  withdrawn and the reason recorded in `coverage/test-matching-reviews.json`.
+  withdrawn at first (11,085). With the owner's approval the requirement is
+  now a normal requirement, like the five run-time error requirements of
+  2026-11-09, and it is mapped to the run-time test.
 - Execution coverage without Ghost stays at 50.20% (6,174/12,298). With the
   results of Ghost and of kirimasim added it is 77.57% (9,540/12,298); it was
   9,542. Two requirements of 37.16 lost their evidence. Their test,

@@ -56213,42 +56213,6 @@
           ]
         }
       ]
-    },
-    {
-      "test": "tests/ch18/test_constraint_function_cycle_runtime_error.sv",
-      "inputs_sha256": "30cf9778b9401bb16f027a6950383204a3d015398d665f962d24dfb8a531b3c8",
-      "reviewed_on": "2026-11-12",
-      "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE"
-          ],
-          "disposition": "citation_refinement",
-          "explanation": "The requirement is registered with kind=error, and the matching protocol accepts only an illegal-design test with :should_fail_because: for such a row. Since 2026-11-12 this is a run-time test: the implicit ordering exists only among the constraints that are active when randomize() is called (18.9), so a tool may report the cycle at run time, and with c2 switched off first the design is legal until the second call. The test still observes the requirement (randomize() succeeds with c1 alone and must give an error once c1 and c2 are both active), but the mapping cannot be registered while the row is classified as a rejected design. The kind of the row needs a review for errors that may be reported at run time.",
-          "reviewed_on": "2026-11-12",
-          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch18/test_constraint_function_cycle_runtime_error.sv",
-              "contains": "  constraint c2 { y <= f(x); }   // x before y: a cycle when both are active"
-            },
-            {
-              "file": "tests/ch18/test_constraint_function_cycle_runtime_error.sv",
-              "contains": "    o.c2.constraint_mode(0);"
-            },
-            {
-              "file": "tests/ch18/test_constraint_function_cycle_runtime_error.sv",
-              "contains": ":expected_stderr_regex: (?i:\\berror\\b)"
-            },
-            {
-              "file": "tests/ch18/test_constraint_function_cycle_runtime_error.expected",
-              "contains": "calling randomize with c1 and c2"
-            }
-          ]
-        }
-      ]
     }
   ]
 }
