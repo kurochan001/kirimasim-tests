@@ -27,6 +27,8 @@
   "unmapped": 1204,
   "executed": 9542,
   "executed_reproducible": 6175,
+  "executed_simulated": 9252,
+  "executed_reproducible_simulated": 5885,
   "whole_standard_percent": 90.20979020979021,
   "whole_standard_executed_percent": 77.58985200845666,
   "registered_percent": 90.20979020979021,

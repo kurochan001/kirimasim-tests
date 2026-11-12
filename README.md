@@ -295,6 +295,7 @@ Design coverage is **90.21% (11,094/12,298)**;
 execution coverage from the saved `coverage/results/` evidence of the tools
 anyone can reproduce (Icarus Verilog, Verilator and SymbiYosys) is
 **50.21% (6,175/12,298)**.
+Of these rows, 5,885 are confirmed by a simulator and 290 by formal checks alone, which run no simulator.
 With the results of Ghost, an unreleased simulator, and of kirimasim added, it is 77.59% (9,542/12,298).
 Clauses 1 to 40 alone are at 88.56% (8,382/9,465) design coverage.
 See the [generated behavior summary](docs/behavior-coverage-summary.en.md) for the

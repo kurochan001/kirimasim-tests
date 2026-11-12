@@ -39,6 +39,7 @@ SIMULATORS = {"icarus", "verilator", "kirimasim", "lyra", "ghost", "sby"}
 # are the simulators being compared, so the second execution figure leaves
 # them out; the first one is the union over every environment.
 REPRODUCIBLE_SIMULATORS = ("icarus", "verilator", "sby")
+FORMAL_TOOLS = ("sby",)
 # Simulators no longer run whose snapshots stay in the behavior history.
 RETIRED_SIMULATORS = ("nvc",)
 
@@ -302,7 +303,16 @@ def execution(rows: list, result_paths: list[Path]) -> tuple[dict, list]:
             "executed": sorted({rid for s in snapshots for rid in s["executed"]}),
             "executed_reproducible": sorted({rid for s in snapshots
                                              if s["simulator"] in REPRODUCIBLE_SIMULATORS
-                                             for rid in s["executed"]})}, ignored
+                                             for rid in s["executed"]}),
+            # A formal check compares models and runs no simulator, so the
+            # reports give the part confirmed by a simulator separately.
+            "executed_simulated": sorted({rid for s in snapshots
+                                          if s["simulator"] not in FORMAL_TOOLS
+                                          for rid in s["executed"]}),
+            "executed_reproducible_simulated": sorted({rid for s in snapshots
+                                                       if s["simulator"] in REPRODUCIBLE_SIMULATORS
+                                                       and s["simulator"] not in FORMAL_TOOLS
+                                                       for rid in s["executed"]})}, ignored
 
 
 def summarize(sections: dict, rows: list, runs: dict, denominator_reviewed: bool = False) -> dict:
@@ -316,6 +326,8 @@ def summarize(sections: dict, rows: list, runs: dict, denominator_reviewed: bool
             "extraction_progress_percent": 100 * audited / len(normative) if normative else None,
             "unmapped": len(rows) - mapped, "executed": len(runs["executed"]),
             "executed_reproducible": len(runs.get("executed_reproducible", ())),
+            "executed_simulated": len(runs.get("executed_simulated", ())),
+            "executed_reproducible_simulated": len(runs.get("executed_reproducible_simulated", ())),
             "whole_standard_percent": 100 * mapped / len(rows) if total_known else None,
             "whole_standard_executed_percent": 100 * len(runs["executed"]) / len(rows)
             if total_known else None,
@@ -411,9 +423,14 @@ def compact_report(snapshot: dict, source_url: str | None = None,
              f"({snapshot['mapped']}/{total})。",
              f"- Ghostを除く実行確認率: **{percent(snapshot['provisional_execution_reproducible_percent'])}** "
              f"({snapshot['executed_reproducible']}/{total})。"
-             "第三者が再現できるIcarus Verilog・Verilator・SymbiYosysの成功の和集合。",
+             "第三者が再現できるIcarus Verilog・Verilator・SymbiYosysの成功の和集合。"
+             f"うちシミュレータで確認した要求は{snapshot['executed_reproducible_simulated']}行、"
+             f"formalだけで確認した要求は"
+             f"{snapshot['executed_reproducible'] - snapshot['executed_reproducible_simulated']}行です。",
              f"- 実行確認率: **{percent(snapshot['provisional_execution_percent'])}** "
-             f"({snapshot['executed']}/{total})。複数環境の成功の和集合。",
+             f"({snapshot['executed']}/{total})。複数環境の成功の和集合。"
+             f"うちシミュレータで確認した要求は{snapshot['executed_simulated']}行、"
+             f"formalだけで確認した要求は{snapshot['executed'] - snapshot['executed_simulated']}行です。",
              "- 分母には解釈保留と未対応も含みます。未実装・未対応を除外していません。",
              "- 登録単位は要求の出現箇所・条件・観測ケースであり、分母のレビューで意味の重複を統合しています。"
              if confirmed else
