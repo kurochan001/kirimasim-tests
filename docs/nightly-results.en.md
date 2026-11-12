@@ -19,7 +19,7 @@
 
 The Nightly runs on `main` every night with all seven jobs: icarus, verilator, kirimasim, lyra-build, lyra, ghost and publish.
 The results of the latest run are in the [report on the `results` branch](https://github.com/kurochan001/kirimasim-tests/tree/results#readme).
-For resuming development, see the newest [handoff](claude-code-handoff-20261110.en.md). The records below in this section are from earlier checkpoints.
+For resuming development, see the newest [handoff](claude-code-handoff-20261112.en.md). The records below in this section are from earlier checkpoints.
 
 ### Earlier artifact-reviewed details
 

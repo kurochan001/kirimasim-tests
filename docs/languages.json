@@ -9,8 +9,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "e9b94f6186c1d6f153e01abbe76ef9a52f881fd775ab5e2a2d0e0e9c6f2d9421",
-        "ja": "a66f2f373f433d82bd7c0f33acef4678def673eb8aceb29d04cffd9afe7702aa"
+        "en": "32dfbb244581e4eb2b9081c8c08b4501e340550479ea7fcc8321b43fef900a13",
+        "ja": "2a2e84015083548a861986625d0e36ebd1433c167d5550351093258b309dc0cd"
       }
     },
     {
@@ -509,8 +509,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "9c20e616ef7da3c64bea9ee383265f5fd7d00991449f0d440707f50d7492fc0b",
-        "ja": "82df4a4b8dfddcf733986dce21f91829bc5a8e663fc6e09c8d15f5631e34ee6a"
+        "en": "af8606bd6d1aef1de1802f56ad1d6fcd55d88aaeabe24f3f3a5c25ef5235df6a",
+        "ja": "71876c3e0174bff51e759426b8fc43f6e3765f77367ea198d14bcb303d0b2611"
       }
     },
     {
@@ -1201,6 +1201,17 @@
       "sha256": {
         "en": "9d7f845213823b0a997971e2d15426eb9148039631bb9bc84f75dc095b4e4a2e",
         "ja": "346a311db6fa11e11f5eae61f1a3fff3fa2e3aeb80e25f742b917dd2540eb0d0"
+      }
+    },
+    {
+      "en": "docs/claude-code-handoff-20261112.en.md",
+      "ja": "docs/claude-code-handoff-20261112.md",
+      "source": "docs/claude-code-handoff-20261112.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "6c42c2198e92991c95a1e49cd28fef5b10eb13a03ce9fd56251aceba5d67094f",
+        "ja": "c9189dd09df8652baa2c82f45d46da683b7daa069b79517d701f2f46feb344b9"
       }
     }
   ]

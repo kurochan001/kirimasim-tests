@@ -17,7 +17,7 @@ measurements are in the [history](docs/history.md).
 The [document index](docs/README.md) links every guide, generated report and historical record in both languages.
 The Nightly runs on `main` every night with all seven jobs. Its latest results are in the
 [report on the `results` branch](https://github.com/kurochan001/kirimasim-tests/tree/results#readme), and the [Nightly guide](docs/nightly-results.en.md) explains how to read them.
-For resuming development, use the current guides with the newest [handoff](docs/claude-code-handoff-20261110.en.md).
+For resuming development, use the current guides with the newest [handoff](docs/claude-code-handoff-20261112.en.md).
 
 Each simulation test is a small, self-contained design with an expected result.
 A legal design passes when its normalized standard output matches and any specified

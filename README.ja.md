@@ -14,7 +14,7 @@ IEEE 1800-2023 SystemVerilogのシミュレーションの意味論を確認す�
 [資料一覧](docs/README.ja.md)から、ガイド・生成レポート・過去の記録の日英両版を辿れます。
 Nightlyは毎晩`main`で7つのジョブをすべて実行します。最新の結果は
 [`results`ブランチのレポート](https://github.com/kurochan001/kirimasim-tests/tree/results#readme)にあり、読み方は[Nightlyの説明](docs/nightly-results.md)にあります。
-開発を引き継ぐ場合は、現行ガイドと最新の[引き継ぎ資料](docs/claude-code-handoff-20261110.md)を参照してください。
+開発を引き継ぐ場合は、現行ガイドと最新の[引き継ぎ資料](docs/claude-code-handoff-20261112.md)を参照してください。
 
 各シミュレーションテストは、期待結果を持つ小さな独立した設計です。規格上正しいコードは、正規化した標準出力が
 期待出力に一致し、指定された終了コード・診断の検査にも通れば合格です。

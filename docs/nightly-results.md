@@ -21,7 +21,7 @@
 
 Nightlyは毎晩`main`で、icarus・verilator・kirimasim・lyra-build・lyra・ghost・publishの7ジョブをすべて実行します。
 最新の実行の結果は[`results`ブランチのレポート](https://github.com/kurochan001/kirimasim-tests/tree/results#readme)にあります。
-開発を引き継ぐときは、最新の[引き継ぎ資料](claude-code-handoff-20261110.md)を参照してください。この節の以下の記録は、以前の確認時点のものです。
+開発を引き継ぐときは、最新の[引き継ぎ資料](claude-code-handoff-20261112.md)を参照してください。この節の以下の記録は、以前の確認時点のものです。
 
 ### 個別artifactまで照合した以前の状態
 
