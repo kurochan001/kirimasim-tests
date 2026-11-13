@@ -6,9 +6,9 @@
 
 このレポートは登録した有限モデルだけを対象にします。要求カバレッジや全言語の 組合せ網羅率ではありません。計画上の網羅と、実行結果に基づく合格確認を分けます。 既存テストは削減していません。選択数の削減率は実行時間の削減率ではありません。
 
-生成元・利用手順・適用限界は[導入手順](https://github.com/kurochan001/kirimasim-tests/blob/68f5ecc7507d6157f7944b48aa50c61fcc6fa2e1/docs/interaction-verification.md)を参照してください。
+生成元・利用手順・適用限界は[導入手順](https://github.com/kurochan001/kirimasim-tests/blob/67d26cfdbe3799438b00a2117c56689b0be5f446/docs/interaction-verification.md)を参照してください。
 
-2因子100%で何を判断できるかは[4行の具体例](https://github.com/kurochan001/kirimasim-tests/blob/68f5ecc7507d6157f7944b48aa50c61fcc6fa2e1/docs/faq.md#q28-why-not-simply-cross-every-feature)、計画と実際のPASSの違いは[実行充足の説明](https://github.com/kurochan001/kirimasim-tests/blob/68f5ecc7507d6157f7944b48aa50c61fcc6fa2e1/docs/faq.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution)を参照してください。
+2因子100%で何を判断できるかは[4行の具体例](https://github.com/kurochan001/kirimasim-tests/blob/67d26cfdbe3799438b00a2117c56689b0be5f446/docs/faq.md#q28-why-not-simply-cross-every-feature)、計画と実際のPASSの違いは[実行充足の説明](https://github.com/kurochan001/kirimasim-tests/blob/67d26cfdbe3799438b00a2117c56689b0be5f446/docs/faq.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution)を参照してください。
 
 ## scheduling_visibility / model 1
 
@@ -2278,8 +2278,8 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
 
 ### results/ghost.json
 
-- 環境: private build 909f828b22b0。
-- 実行日時: 2026-11-12T02:12:22.935923+00:00。
+- 環境: private build ace38e2ddc53。
+- 実行日時: 2026-11-13T01:38:16.693840+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -2561,10 +2561,10 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 4/4。
   - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - array_reduction_constraint:
-  - 2因子の合格確認済み組合せ: 87/96。
-  - 3因子の合格確認済み組合せ: 30/40。
+  - 2因子の合格確認済み組合せ: 83/96。
+  - 3因子の合格確認済み組合せ: 26/40。
   - 必須ケース: 3/4。
-  - ケース状態: pass=10, fail=3, known=0, unsupported=0, stale=0, not_run=0。
+  - ケース状態: pass=9, fail=4, known=0, unsupported=0, stale=0, not_run=0。
 - associative_array_queries:
   - 2因子の合格確認済み組合せ: 93/93。
   - 3因子の合格確認済み組合せ: 54/54。
@@ -2823,8 +2823,8 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
 
 ### results/icarus.json
 
-- 環境: Icarus Verilog version 14.0 (devel) (s20260301-964-g3c970ad8)。
-- 実行日時: 2026-11-12T01:47:31.215096+00:00。
+- 環境: Icarus Verilog version 14.0 (devel) (s20260301-992-gc489c3a2)。
+- 実行日時: 2026-11-13T00:41:04.069506+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -3368,8 +3368,8 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
 
 ### results/kirimasim.json
 
-- 環境: kirimasim 0.0.0 (commit cae3134e4c1a), built with GNU 13.3.0。
-- 実行日時: 2026-11-12T02:16:23.675093+00:00。
+- 環境: kirimasim 0.0.0 (commit 6143326137f6), built with GNU 13.3.0。
+- 実行日時: 2026-11-13T00:50:46.988661+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -3857,9 +3857,9 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 9/9。
   - ケース状態: pass=91, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - parameter_override_type:
-  - 2因子の合格確認済み組合せ: 110/120。
-  - 必須ケース: 6/8。
-  - ケース状態: pass=40, fail=4, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 120/120。
+  - 必須ケース: 8/8。
+  - ケース状態: pass=44, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - assertion_vector_query:
   - 2因子の合格確認済み組合せ: 138/138。
   - 3因子の合格確認済み組合せ: 15/15。
@@ -3898,9 +3898,9 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - ケース状態: pass=29, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - scoped_class_declaration:
   - 2因子の合格確認済み組合せ: 100/100。
-  - 3因子の合格確認済み組合せ: 42/48。
+  - 3因子の合格確認済み組合せ: 48/48。
   - 必須ケース: 7/7。
-  - ケース状態: pass=42, fail=6, known=0, unsupported=0, stale=0, not_run=0。
+  - ケース状態: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - case_literal_wildcard:
   - 2因子の合格確認済み組合せ: 112/112。
   - 3因子の合格確認済み組合せ: 24/24。
@@ -3914,7 +3914,7 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
 ### results/lyra.json
 
 - 環境: Lyra (commit 0d94fc7d2962)。
-- 実行日時: 2026-11-12T08:06:19.081957+00:00。
+- 実行日時: 2026-11-13T06:48:06.998661+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 111/126。
@@ -4458,8 +4458,8 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
 
 ### results/verilator.json
 
-- 環境: Verilator 5.055 devel rev v5.054-219-g12ce8608。
-- 実行日時: 2026-11-12T04:55:37.917404+00:00。
+- 環境: Verilator 5.055 devel rev v5.054-236-gab558b4c。
+- 実行日時: 2026-11-13T03:16:33.533367+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。

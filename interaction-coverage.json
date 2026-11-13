@@ -63871,8 +63871,8 @@
     {
       "source": "results/ghost.json",
       "simulator": "ghost",
-      "version": "private build 909f828b22b0",
-      "generated_at": "2026-11-12T02:12:22.935923+00:00",
+      "version": "private build ace38e2ddc53",
+      "generated_at": "2026-11-13T01:38:16.693840+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -65607,8 +65607,8 @@
         },
         "array_reduction_constraint": {
           "case_statuses": {
-            "pass": 10,
-            "fail": 3,
+            "pass": 9,
+            "fail": 4,
             "known": 0,
             "unsupported": 0,
             "stale": 0,
@@ -65616,14 +65616,14 @@
           },
           "coverage": {
             "2": {
-              "passed": 87,
+              "passed": 83,
               "total": 96,
-              "missing": 9
+              "missing": 13
             },
             "3": {
-              "passed": 30,
+              "passed": 26,
               "total": 40,
-              "missing": 10
+              "missing": 14
             }
           },
           "mandatory_witnesses": {
@@ -67318,8 +67318,8 @@
     {
       "source": "results/icarus.json",
       "simulator": "icarus",
-      "version": "Icarus Verilog version 14.0 (devel) (s20260301-964-g3c970ad8)",
-      "generated_at": "2026-11-12T01:47:31.215096+00:00",
+      "version": "Icarus Verilog version 14.0 (devel) (s20260301-992-gc489c3a2)",
+      "generated_at": "2026-11-13T00:41:04.069506+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -70765,8 +70765,8 @@
     {
       "source": "results/kirimasim.json",
       "simulator": "kirimasim",
-      "version": "kirimasim 0.0.0 (commit cae3134e4c1a), built with GNU 13.3.0",
-      "generated_at": "2026-11-12T02:16:23.675093+00:00",
+      "version": "kirimasim 0.0.0 (commit 6143326137f6), built with GNU 13.3.0",
+      "generated_at": "2026-11-13T00:50:46.988661+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -73842,8 +73842,8 @@
         },
         "parameter_override_type": {
           "case_statuses": {
-            "pass": 40,
-            "fail": 4,
+            "pass": 44,
+            "fail": 0,
             "known": 0,
             "unsupported": 0,
             "stale": 0,
@@ -73851,14 +73851,14 @@
           },
           "coverage": {
             "2": {
-              "passed": 110,
+              "passed": 120,
               "total": 120,
-              "missing": 10
+              "missing": 0
             }
           },
           "mandatory_witnesses": {
-            "tests/gen/ch23/test_gen_cross_paramtype_untyped_wide_defparam.sv": "fail",
-            "tests/gen/ch23/test_gen_cross_paramtype_signed_concat_both.sv": "fail",
+            "tests/gen/ch23/test_gen_cross_paramtype_untyped_wide_defparam.sv": "pass",
+            "tests/gen/ch23/test_gen_cross_paramtype_signed_concat_both.sv": "pass",
             "tests/gen/ch23/test_gen_cross_paramtype_signed_narrow_default.sv": "pass",
             "tests/gen/ch23/test_gen_cross_paramtype_range_ssized_ordered.sv": "pass",
             "tests/gen/ch23/test_gen_cross_paramtype_int_ssized_named.sv": "pass",
@@ -73867,7 +73867,7 @@
             "tests/gen/ch23/test_gen_cross_paramtype_srange_sized_both.sv": "pass"
           },
           "provenance_problem": "",
-          "complete": false
+          "complete": true
         },
         "assertion_vector_query": {
           "case_statuses": {
@@ -74115,8 +74115,8 @@
         },
         "scoped_class_declaration": {
           "case_statuses": {
-            "pass": 42,
-            "fail": 6,
+            "pass": 48,
+            "fail": 0,
             "known": 0,
             "unsupported": 0,
             "stale": 0,
@@ -74129,9 +74129,9 @@
               "missing": 0
             },
             "3": {
-              "passed": 42,
+              "passed": 48,
               "total": 48,
-              "missing": 6
+              "missing": 0
             }
           },
           "mandatory_witnesses": {
@@ -74144,7 +74144,7 @@
             "tests/gen/ch8/test_gen_cross_scopeclass_gen_for_local_local_derived_property.sv": "pass"
           },
           "provenance_problem": "",
-          "complete": false
+          "complete": true
         },
         "case_literal_wildcard": {
           "case_statuses": {
@@ -74213,7 +74213,7 @@
       "source": "results/lyra.json",
       "simulator": "lyra",
       "version": "Lyra (commit 0d94fc7d2962)",
-      "generated_at": "2026-11-12T08:06:19.081957+00:00",
+      "generated_at": "2026-11-13T06:48:06.998661+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -77659,8 +77659,8 @@
     {
       "source": "results/verilator.json",
       "simulator": "verilator",
-      "version": "Verilator 5.055 devel rev v5.054-219-g12ce8608",
-      "generated_at": "2026-11-12T04:55:37.917404+00:00",
+      "version": "Verilator 5.055 devel rev v5.054-236-gab558b4c",
+      "generated_at": "2026-11-13T03:16:33.533367+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {

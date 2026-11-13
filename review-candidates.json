@@ -1,29 +1,29 @@
 {
  "inputs": {
   "icarus": {
-   "version": "Icarus Verilog version 14.0 (devel) (s20260301-964-g3c970ad8)",
-   "time": "2026-11-12T08:32:30Z",
-   "suite_commit": "68f5ecc7507d6157f7944b48aa50c61fcc6fa2e1"
+   "version": "Icarus Verilog version 14.0 (devel) (s20260301-992-gc489c3a2)",
+   "time": "2026-11-13T06:56:19Z",
+   "suite_commit": "67d26cfdbe3799438b00a2117c56689b0be5f446"
   },
   "verilator": {
-   "version": "Verilator 5.055 devel rev v5.054-219-g12ce8608",
-   "time": "2026-11-12T08:32:30Z",
-   "suite_commit": "68f5ecc7507d6157f7944b48aa50c61fcc6fa2e1"
+   "version": "Verilator 5.055 devel rev v5.054-236-gab558b4c",
+   "time": "2026-11-13T06:56:19Z",
+   "suite_commit": "67d26cfdbe3799438b00a2117c56689b0be5f446"
   },
   "kirimasim": {
-   "version": "kirimasim 0.0.0 (commit cae3134e4c1a), built with GNU 13.3.0",
-   "time": "2026-11-12T08:32:30Z",
-   "suite_commit": "68f5ecc7507d6157f7944b48aa50c61fcc6fa2e1"
+   "version": "kirimasim 0.0.0 (commit 6143326137f6), built with GNU 13.3.0",
+   "time": "2026-11-13T06:56:19Z",
+   "suite_commit": "67d26cfdbe3799438b00a2117c56689b0be5f446"
   },
   "lyra": {
    "version": "Lyra (commit 0d94fc7d2962)",
-   "time": "2026-11-12T08:32:30Z",
-   "suite_commit": "68f5ecc7507d6157f7944b48aa50c61fcc6fa2e1"
+   "time": "2026-11-13T06:56:19Z",
+   "suite_commit": "67d26cfdbe3799438b00a2117c56689b0be5f446"
   },
   "ghost": {
-   "version": "private build 909f828b22b0",
-   "time": "2026-11-12T08:32:30Z",
-   "suite_commit": "68f5ecc7507d6157f7944b48aa50c61fcc6fa2e1"
+   "version": "private build ace38e2ddc53",
+   "time": "2026-11-13T06:56:19Z",
+   "suite_commit": "67d26cfdbe3799438b00a2117c56689b0be5f446"
   }
  },
  "candidates": {
@@ -871,10 +871,6 @@
    "tests": 9
   },
   {
-   "clause": "11.9",
-   "tests": 10
-  },
-  {
    "clause": "12.6.1",
    "tests": 10
   },
@@ -911,7 +907,7 @@
    "tests": 11
   },
   {
-   "clause": "7.3.2",
+   "clause": "11.9",
    "tests": 12
   },
   {
@@ -937,6 +933,10 @@
   {
    "clause": "37.33",
    "tests": 13
+  },
+  {
+   "clause": "7.3.2",
+   "tests": 14
   },
   {
    "clause": "37.32",

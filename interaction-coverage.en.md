@@ -6,9 +6,9 @@
 
 This report is only for registered finite models. The coverage of the requirements and the combination of all languages is not the same. The coverage on the plan and the confirmation of the pass based on the execution result are divided. The existing test is not reduced. A reduction in selected case count is not a measured reduction in runtime.
 
-For the source, use, and limits of application, see [Import procedure](https://github.com/kurochan001/kirimasim-tests/blob/68f5ecc7507d6157f7944b48aa50c61fcc6fa2e1/docs/interaction-verification.en.md).
+For the source, use, and limits of application, see [Import procedure](https://github.com/kurochan001/kirimasim-tests/blob/67d26cfdbe3799438b00a2117c56689b0be5f446/docs/interaction-verification.en.md).
 
-See [a 4-row example](https://github.com/kurochan001/kirimasim-tests/blob/68f5ecc7507d6157f7944b48aa50c61fcc6fa2e1/docs/faq.en.md#q28-why-not-simply-cross-every-feature) for what 100% of 2-factor coverage establishes, and [passing-execution satisfaction](https://github.com/kurochan001/kirimasim-tests/blob/68f5ecc7507d6157f7944b48aa50c61fcc6fa2e1/docs/faq.en.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution) for the difference between the plan and actual PASS.
+See [a 4-row example](https://github.com/kurochan001/kirimasim-tests/blob/67d26cfdbe3799438b00a2117c56689b0be5f446/docs/faq.en.md#q28-why-not-simply-cross-every-feature) for what 100% of 2-factor coverage establishes, and [passing-execution satisfaction](https://github.com/kurochan001/kirimasim-tests/blob/67d26cfdbe3799438b00a2117c56689b0be5f446/docs/faq.en.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution) for the difference between the plan and actual PASS.
 
 ## scheduling_visibility / model 1
 
@@ -2278,8 +2278,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/ghost.json
 
-- Environment: private build 909f828b22b0.
-- Execution timestamp: 2026-11-12T02:12:22.935923+00:00.
+- Environment: private build ace38e2ddc53.
+- Execution timestamp: 2026-11-13T01:38:16.693840+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -2561,10 +2561,10 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 4/4.
   - Case statuses: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - array_reduction_constraint:
-  - The confirmed combination of the 2 factor: 87/96.
-  - The confirmed combination of the 3 factor: 30/40.
+  - The confirmed combination of the 2 factor: 83/96.
+  - The confirmed combination of the 3 factor: 26/40.
   - Mandatory case: 3/4.
-  - Case statuses: pass=10, fail=3, known=0, unsupported=0, stale=0, not_run=0.
+  - Case statuses: pass=9, fail=4, known=0, unsupported=0, stale=0, not_run=0.
 - associative_array_queries:
   - The confirmed combination of the 2 factor: 93/93.
   - The confirmed combination of the 3 factor: 54/54.
@@ -2823,8 +2823,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/icarus.json
 
-- Environment: Icarus Verilog version 14.0 (devel) (s20260301-964-g3c970ad8).
-- Execution timestamp: 2026-11-12T01:47:31.215096+00:00.
+- Environment: Icarus Verilog version 14.0 (devel) (s20260301-992-gc489c3a2).
+- Execution timestamp: 2026-11-13T00:41:04.069506+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -3368,8 +3368,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/kirimasim.json
 
-- Environment: kirimasim 0.0.0 (commit cae3134e4c1a), built with GNU 13.3.0.
-- Execution timestamp: 2026-11-12T02:16:23.675093+00:00.
+- Environment: kirimasim 0.0.0 (commit 6143326137f6), built with GNU 13.3.0.
+- Execution timestamp: 2026-11-13T00:50:46.988661+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -3857,9 +3857,9 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 9/9.
   - Case statuses: pass=91, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - parameter_override_type:
-  - The confirmed combination of the 2 factor: 110/120.
-  - Mandatory case: 6/8.
-  - Case statuses: pass=40, fail=4, known=0, unsupported=0, stale=0, not_run=0.
+  - The confirmed combination of the 2 factor: 120/120.
+  - Mandatory case: 8/8.
+  - Case statuses: pass=44, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - assertion_vector_query:
   - The confirmed combination of the 2 factor: 138/138.
   - The confirmed combination of the 3 factor: 15/15.
@@ -3898,9 +3898,9 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Case statuses: pass=29, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - scoped_class_declaration:
   - The confirmed combination of the 2 factor: 100/100.
-  - The confirmed combination of the 3 factor: 42/48.
+  - The confirmed combination of the 3 factor: 48/48.
   - Mandatory case: 7/7.
-  - Case statuses: pass=42, fail=6, known=0, unsupported=0, stale=0, not_run=0.
+  - Case statuses: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - case_literal_wildcard:
   - The confirmed combination of the 2 factor: 112/112.
   - The confirmed combination of the 3 factor: 24/24.
@@ -3914,7 +3914,7 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 ### results/lyra.json
 
 - Environment: Lyra (commit 0d94fc7d2962).
-- Execution timestamp: 2026-11-12T08:06:19.081957+00:00.
+- Execution timestamp: 2026-11-13T06:48:06.998661+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 111/126.
@@ -4458,8 +4458,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/verilator.json
 
-- Environment: Verilator 5.055 devel rev v5.054-219-g12ce8608.
-- Execution timestamp: 2026-11-12T04:55:37.917404+00:00.
+- Environment: Verilator 5.055 devel rev v5.054-236-gab558b4c.
+- Execution timestamp: 2026-11-13T03:16:33.533367+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
