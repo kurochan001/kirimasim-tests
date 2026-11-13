@@ -1,0 +1,91 @@
+{
+  "generated_at": "2026-11-13T16:57:39.789802+00:00",
+  "scope": "One run of every legal row of simulation_end_sources, outside the selected witnesses, to look for expectations that the model and its independent interpretation share in error. The rows are not fixed-suite tests and do not enter any count. Rows are compiled from the generator in a temporary directory; each run is judged by the suite runner, exit code included.",
+  "kirimasim": {
+    "version": "kirimasim 0.0.0 (commit afc7733c8167), built with AppleClang 21.0.0.21000401",
+    "binary_sha256": "1807d71033c2d264bf06f110aeed09255d7a0b181da18e88282f8006819258e7"
+  },
+  "icarus": {
+    "version": "Icarus Verilog version 13.0 (stable) (v13_0)"
+  },
+  "verilator": {
+    "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+    "seed": 1
+  },
+  "model": {
+    "name": "simulation_end_sources",
+    "legal_rows": 288,
+    "selected": 42,
+    "kirimasim": {
+      "statuses": {
+        "pass": 288
+      },
+      "nonmatching_rows_by_factor": {}
+    },
+    "icarus": {
+      "statuses": {
+        "pass": 252,
+        "differ": 36
+      },
+      "nonmatching_rows_by_factor": {
+        "ender": {
+          "exit": 36
+        },
+        "site": {
+          "initial": 9,
+          "fork": 9,
+          "task": 9,
+          "function": 9
+        },
+        "trigger": {
+          "delay": 12,
+          "event": 12,
+          "change": 12
+        },
+        "scope": {
+          "program": 36
+        },
+        "second": {
+          "none": 12,
+          "finish": 12,
+          "fatal": 12
+        }
+      }
+    },
+    "verilator": {
+      "statuses": {
+        "pass": 90,
+        "differ": 198
+      },
+      "nonmatching_rows_by_factor": {
+        "ender": {
+          "finish": 36,
+          "fatal": 126,
+          "exit": 36
+        },
+        "site": {
+          "initial": 45,
+          "fork": 45,
+          "task": 45,
+          "function": 45,
+          "always": 18
+        },
+        "trigger": {
+          "delay": 66,
+          "event": 66,
+          "change": 66
+        },
+        "scope": {
+          "program": 108,
+          "top": 45,
+          "child": 45
+        },
+        "second": {
+          "none": 66,
+          "finish": 66,
+          "fatal": 66
+        }
+      }
+    }
+  }
+}

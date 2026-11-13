@@ -40,10 +40,11 @@ Where only some factor levels exercise a pair, `when` restricts the mapping. For
 
 The 2026-11-08 mapping contains 110 models and 4,416 selected cases across 189 unordered off-diagonal pairs. The [complete kirimasim f029ddd0eee1 local run](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json) records 3,915 pass, 487 unsupported and 14 failures; 83 models passed their entire selection.
 On 2026-11-12 two models were revised so that they select no equal cases. The mapping now contains 110 models and 4,413 selected cases across the same 189 pairs. The [complete kirimasim 7de185f776a1 local run](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-dpi-array.json), saved again the same day after one expected value of the model `dpi_openarray_shape` was corrected, records 3,915 pass, 484 unsupported and 14 failures; 83 models passed their entire selection.
+On 2026-11-14 a model for where the run is ended and how it ends was added. The mapping now contains 111 models and 4,455 selected cases across 191 pairs. The [complete kirimasim afc7733c8167 local run](../coverage/interaction-results/full-20261114-kirimasim-afc7733c.json) records 3,967 pass, 484 unsupported and 4 failures; 86 models passed their entire selection.
 
 [Check on baseline 67321079](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584) passed pinned comparisons/static checks on the preceding 88-model suite.
 [Nightly on the same baseline](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265) and all its jobs succeeded; individual artifacts remain uninspected. Later additions are outside both runs.
-The CSVs use this complete 4,413-case local run of 2026-11-12; partial successes from different runs are not combined.
+The CSVs use the complete 4,455-case local run of 2026-11-14; partial successes from different runs are not combined.
 The thirteen random profiles and their 96 Nightly passes do not enter these matrices.
 
 - **12×15, event-loop transfers:** map the 24 skip/stop cases, adding one registered and one full-selection-pass model. Full-model success requires all 36, including twelve all-flow controls, in one saved run. See [design and independent evidence](interaction-verification.en.md#named-event-loop-transfer).

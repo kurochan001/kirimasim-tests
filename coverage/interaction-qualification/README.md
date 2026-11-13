@@ -596,3 +596,14 @@ Icarusの差はなく、Verilatorのknownは二値で読むxとzの遅延だけ�
 [全行の記録](scopecaselit-all-rows.json)は全744行の一度きりの実行で、固定suiteや要求カバレッジへ加算しません。
 kirimasimはcase項目の全行で一致し、クラスの30行が内部エラー、構造体のlocalparamの48行がunsupportedです。Verilatorはクラスの全240行で一致します。
 [設計と再実行](../../docs/interaction-verification.md#scoped-class-declaration)を参照してください。
+
+<a id="simulation-end-qualification"></a>
+
+## 終了を呼ぶ場所とシミュレーションの終わり方の独立確認
+
+[`simend.json`](simend.json)は全288行を独立した解釈で照合します。解釈は、プロセスの順序と`$finish`の後の扱いを変えた4通りで同じ出力と終了コードになることを求めます。
+kirimasim `afc7733c8167`で、正常対照6件はすべて一致し、誤ったSV 10件はすべて正常終了後の出力差で検出しました。正常対照は終了コードが0の行から選びました。
+選択した全4,455件は`afc7733c8167`の[単一実行](../interaction-results/full-20261114-kirimasim-afc7733c.json)で3,967 pass・484 unsupported・4 failです。追加42件は全PASSで、従来4,413件の入力は不変です。111モデル・191章対・全選択ケースPASSは86モデルです。
+固定版比較は、[Icarus](../interaction-results/simend-20261114-icarus13.json)が38 pass・4 known、Verilatorは[seed 1](../interaction-results/simend-20261114-verilator5052-seed1.json)・[seed 73](../interaction-results/simend-20261114-verilator5052-seed73.json)とも20 pass・22 knownです。
+[全行の記録](simend-all-rows-20261114.json)は全288行の一度きりの実行で、固定suiteや要求カバレッジへ加算しません。kirimasimは全行、Icarusは`$exit`以外の252行、Verilatorは90行が一致します。
+[設計と再実行](../../docs/interaction-verification.md#simulation-end-sources)を参照してください。

@@ -4,7 +4,7 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の119生成器から5,725件のテストを生成しています。
+現在の120生成器から5,767件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
@@ -115,6 +115,7 @@
 | [`interaction_sense`](../generators/interaction_sense.py) | 4 | 61 | always_comb・always_latch・@*・連続代入で読む式の形を変え、読む部分と読まない部分へ書き込む。再評価の回数と出力の値で、最長静的接頭辞と関数の中の読出しの扱いを確かめる。 |
 | [`interaction_shift`](../generators/interaction_shift.py) | 11 | 56 | シフト前の値・シフト量・結果を表示し、代入先から伝わる幅、符号付きの埋め込み、X/Zの移動、未知のシフト量、最後の2状態変換を確認する。 |
 | [`interaction_shortcircuit`](../generators/interaction_shortcircuit.py) | 11 | 92 | 4演算ごとに左右の関数の呼出し回数・観測値・独立した副作用を表示し、短絡による右辺の評価抑止、未知値の真偽変換、結果と最終格納先の状態変換を確認する。 |
+| [`interaction_simend`](../generators/interaction_simend.py) | 20 | 42 | 時刻5に$finish・$fatal・$exitを、initial・always・forkした子・task・functionから、トップのmodule・子のインスタンス・入れ子のprogramで呼ぶ。final手続きで終了時刻と、それ以前・以後に予定した書込みを、終了コードで後の$fatalが実行されないことを確かめる。 |
 | [`interaction_stream`](../generators/interaction_stream.py) | 11 | 36 | 入力ストリームと結果を比較し、ブロック順、端数ブロック、複数項目の連結、packとunpackの逆変換、2状態の格納先への変換を確認する。 |
 | [`interaction_strengthfmt`](../generators/interaction_strengthfmt.py) | 21 | 31 | 2ドライバの競合・解放とtri0/tri1のpull既定値を、3種類のformat APIで値と強度を分けて照合する。強度差・更新順・極性を交差し、全11観測の上書きと独立したsupply対照を確認する。 |
 | [`interaction_struct`](../generators/interaction_struct.py) | 7 | 36 | 構造体の全ビット・payload・tagと、メンバ／全体の拡張結果を観測し、配置、更新領域、NBAの値の確定、各式の符号属性を確認する。 |

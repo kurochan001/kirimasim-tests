@@ -3105,6 +3105,44 @@
           "reason": "構造体リテラルの位置・メンバー名・複製・default・型キーが、入れ子の構造体と配列の各メンバーをその型で設定することを確かめる。"
         }
       ]
+    },
+    {
+      "id": "simulation_end_sources",
+      "primary_chapter": 20,
+      "pairs": [
+        {
+          "chapters": [
+            9,
+            20
+          ],
+          "reason": "initial・always・join_noneでforkした子から終了を要求し、終了時刻、親と呼出し側の後続の書込みが実行されないこと、final手続きの実行を照合する。"
+        },
+        {
+          "chapters": [
+            13,
+            20
+          ],
+          "when": {
+            "site": [
+              "task",
+              "function"
+            ]
+          },
+          "reason": "automaticのtask・functionの中から終了を要求し、呼出し元の後続とtask内の後続が実行されないことを確かめる。"
+        },
+        {
+          "chapters": [
+            20,
+            24
+          ],
+          "when": {
+            "scope": [
+              "program"
+            ]
+          },
+          "reason": "入れ子のprogramから$finish・$fatal・$exitを要求し、$exitでは唯一のprogramが終わって24.3の暗黙の$finishで終了することを確かめる。"
+        }
+      ]
     }
   ]
 }

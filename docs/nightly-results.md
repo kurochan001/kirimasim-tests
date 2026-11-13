@@ -36,11 +36,14 @@ suite `19cd790a5f639348ad67fd63959dce9811d3ab56`の[Nightly](https://github.com/
 
 ### 直近のローカル追加
 
-最新のローカル追加は[moduleとgenerateブロックで宣言したクラス](interaction-verification.md#scoped-class-declaration)・[case項目のリテラルの桁](interaction-verification.md#case-literal-wildcard)・[構造体リテラルのキー](interaction-verification.md#aggregate-literal-key)の120件で、110モデル・4,416件です。
+最新のローカル追加は[終了を呼ぶ場所とシミュレーションの終わり方](interaction-verification.md#simulation-end-sources)の42件で、111モデル・4,455件です。
+最新のmainをビルドした`afc7733c8167`による[単一実行](../coverage/interaction-results/full-20261114-kirimasim-afc7733c.json)は3,967 pass・484 unsupported・4 failです。追加42件は全PASSで、従来4,413件の入力は不変です。今回の42件は、CheckとNightlyでは未実行です。
+
+その前のローカル追加は[moduleとgenerateブロックで宣言したクラス](interaction-verification.md#scoped-class-declaration)・[case項目のリテラルの桁](interaction-verification.md#case-literal-wildcard)・[構造体リテラルのキー](interaction-verification.md#aggregate-literal-key)の120件で、110モデル・4,416件です。
 2026-11-12に二つのモデルを改訂した後の選択は110モデル・4,413件で、同じ日にモデル`dpi_openarray_shape`の期待値を1か所直した後に保存し直した、`7de185f776a1`による[単一実行](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-dpi-array.json)は3,915 pass・484 unsupported・14 failです。
 最新のmainをビルドした`f029ddd0eee1`による[単一実行](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json)は3,915 pass・487 unsupported・14 failです。追加120件のうち106件がPASSで、6件がfail、8件がunsupportedです。従来4,296件の入力と状態は不変です。今回の120件は[`a9c8a8eb`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42461618429)で固定版比較が成功し、Nightlyでは未実行です。
 
-その前のローカル追加は[遅延の値の書き方](interaction-verification.md#delay-value-form)・[packageの名前の探索](interaction-verification.md#package-name-lookup)・[エスケープした識別子](interaction-verification.md#escaped-name-binding)の126件で、107モデル・4,296件です。
+さらにその前のローカル追加は[遅延の値の書き方](interaction-verification.md#delay-value-form)・[packageの名前の探索](interaction-verification.md#package-name-lookup)・[エスケープした識別子](interaction-verification.md#escaped-name-binding)の126件で、107モデル・4,296件です。
 `28c6c1a1cb83`による[単一実行](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json)は3,809 pass・479 unsupported・8 failです。追加126件は全PASSで、従来4,170件の入力と状態は不変です。この126件は[`c229a05f`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42435564931)で固定版比較が成功し、Nightlyでは未実行です。
 
 以前のローカル追加は[階層名によるプロセスの制御](interaction-verification.md#hierarchical-process-control)・[%mの階層名](interaction-verification.md#hierarchical-name-display)・[配列の問い合わせ関数とループ](interaction-verification.md#array-query-loop)の147件で、104モデル・4,170件です。

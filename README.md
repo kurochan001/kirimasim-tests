@@ -64,15 +64,15 @@ For a first test, [walk through 24 real lines](docs/faq.en.md#q49-read-a-real-te
 These are inventory and expectation-provenance counts, not current simulator passes. See [what `:lrm:` and `:oracle:` record](docs/faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
 <!-- suite-stats:begin -->
-The suite has **12272 tests** in 38 chapters. 5725 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
+The suite has **12314 tests** in 38 chapters. 5767 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 6389 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 6427 |
 | Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 2235 |
-| The standard only, with no fixed-release simulator oracle recorded | 3648 |
+| The standard only, with no fixed-release simulator oracle recorded | 3652 |
 
-2914 tests depend on x or z values (`:fourstate: yes`). 687 tests come with C code: 186 DPI tests (`:dpi_c:`) and 501 VPI tests (`:vpi_c:`). 1975 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 33 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 54 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+2914 tests depend on x or z values (`:fourstate: yes`). 687 tests come with C code: 186 DPI tests (`:dpi_c:`) and 501 VPI tests (`:vpi_c:`). 1975 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 75 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 54 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -93,7 +93,7 @@ The suite has **12272 tests** in 38 chapters. 5725 of them are generated. The [g
 | 17 | Checkers | 108 |  | 44 | 64 |
 | 18 | Constrained random value generation | 273 | 4 | 125 | 144 |
 | 19 | Functional coverage | 196 |  | 60 | 136 |
-| 20 | Utility system tasks and system functions | 406 | 251 | 57 | 98 |
+| 20 | Utility system tasks and system functions | 448 | 289 | 57 | 102 |
 | 21 | Input/output system tasks and system functions | 495 | 352 | 37 | 106 |
 | 22 | Compiler directives | 516 | 437 | 38 | 41 |
 | 23 | Modules and hierarchy | 417 | 281 | 57 | 79 |
@@ -181,17 +181,17 @@ partial successes from separate runs are not combined into a successful requirem
 
 [Feature-interaction verification](docs/interaction-verification.en.md) uses constrained
 pairwise coverage, selected higher-order factor groups and mandatory boundary cases.
-The focused selection contains **4,413 tests across 110 models**; the normal full-suite
+The focused selection contains **4,455 tests across 111 models**; the normal full-suite
 run retains all existing tests. Models cover value/type conversion, scheduling,
 argument and reference binding, scope and hierarchy, state retention and I/O.
 The selection plan does not change the whole-standard requirement denominator.
 
-The [latest complete local cross run](coverage/interaction-results/full-20261112-kirimasim-7de185f7-dpi-array.json),
-on kirimasim **`7de185f776a1`**, records
-**3,915 pass, 484 unsupported and 14 fail**.
-The snapshot has 110 models and 4,413 selected cases.
+The [latest complete local cross run](coverage/interaction-results/full-20261114-kirimasim-afc7733c.json),
+on kirimasim **`afc7733c8167`**, records
+**3,967 pass, 484 unsupported and 4 fail**.
+The snapshot has 111 models and 4,455 selected cases.
 The Check and the Nightly run the generated cross tests with the rest of the fixed suite; the [report on the `results` branch](https://github.com/kurochan001/kirimasim-tests/tree/results#readme) has the latest Nightly results.
-All inputs retain their original expectations; four failures are config parameter resets localized to pinned slang, four are the [`defparam` type and range](docs/interaction-verification.en.md#parameter-override-type) mismatch, and six are a kirimasim internal error on [a class in a generate block](docs/interaction-verification.en.md#scoped-class-declaration). The
+All inputs retain their original expectations; the four failures are config parameter resets localized to pinned slang. The
 [follow-up record](docs/cross-verification-followup.en.md) retains the earlier 11→9→4 history,
 complete-output replays, the 19-mechanism unsupported inventory and reviewed chapter pairs.
 The chapter CSVs use this single complete local run; formal confirmation is recorded separately.

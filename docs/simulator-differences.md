@@ -961,6 +961,15 @@ Latest kirimasim matches standard expectations for all 36. See [model scope](int
 and [all saved Icarus diagnostics and representative Verilator replays](../coverage/interaction-qualification/progframe-known-replays.json).
 Unsupported/known results remain distinct from passes; expectations are unchanged.
 
+<a id="simulation-end-differences"></a>
+
+## Where the run is ended and how it ends (2026-11-14)
+
+The [model for where the run is ended](interaction-verification.en.md#simulation-end-sources) shows only differences already recorded.
+Pinned Icarus 13.0 cannot run the four `$exit` cases, as in the section above, and matches 38. Over all 288 rows, every row without `$exit` matches.
+Pinned Verilator 5.052 rejects a nested program, as in the section above, and [does not run the final procedures when `$fatal` ends the run](#verilator-5052). It matches 20 cases at both seeds.
+kirimasim `afc7733c8167` matches all 42 cases and all 288 rows. The expectations are unchanged.
+
 <a id="package-query-differences"></a>
 
 ## Package-array queries and qualified writes (2026-11-06)

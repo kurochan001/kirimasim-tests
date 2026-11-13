@@ -14,6 +14,12 @@ Before reading model counts, see [a three-way condition missing from 100% pairwi
 
 ## Saved-run summary
 
+The 2026-11-14 addition for where the run is ended and how it ends brings totals to **111 models / 4,455 cases / 191 chapter pairs**.
+The [single run](../coverage/interaction-results/full-20261114-kirimasim-afc7733c.json) on kirimasim `afc7733c8167`, built from the latest main, records
+**3,967 pass / 484 unsupported / 4 fail**: only the four existing config failures.
+All 42 additions pass. The four `defparam` type and range cases and the six class cases in generate blocks, which failed before, now pass. The preceding 4,413 inputs are unchanged. 86 models pass their entire selection.
+See [where the run is ended and how it ends](#simulation-end-sources) for the independent check and the pinned comparisons.
+
 The 2026-11-08 additions for classes declared in modules and generate blocks, case item literal digits and structure literal keys bring totals to **110 models / 4,416 cases / 189 chapter pairs**.
 The [single run](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json) on kirimasim `f029ddd0eee1`, built from the latest main, records
 **3,915 pass / 487 unsupported / 14 fail**: the four existing config failures, the four `defparam` failures and six of the new class cases.
@@ -4695,3 +4701,45 @@ kirimasim has not implemented a localparam of an unpacked structure yet. Over al
 [Pinned Icarus 13.0](../coverage/interaction-results/cross110-scopecaselit-icarus13.json) has not implemented unpacked structures and rejects all 48 cases and all 192 rows.
 [Pinned Verilator 5.052](../coverage/interaction-results/cross110-scopecaselit-verilator5052-seed1.json) (also at [seed 73](../coverage/interaction-results/cross110-scopecaselit-verilator5052-seed73.json)) has 15 pass and 33 known.
 It does not take default down into the nested structure and array, does not accept a typedef name as a type key, and reads `'x` as two-state. Over all 192 rows, 60 match.
+
+<a id="simulation-end-sources"></a>
+
+## Where the run is ended and how it ends (2026-11-14)
+
+[`interaction_simend.py`](../generators/interaction_simend.py) defines `simulation_end_sources@1`.
+Chapters 9×20 map all 42 cases. Chapters 13×20 map the calls from a task or a function, and chapters 20×24 the calls from a program.
+
+### Factors and scope
+
+The model crosses the task that ends the run (`$finish`, `$fatal`, `$exit`), the place of the call (initial, always, a child forked with join_none, an automatic task, an automatic function),
+the wait until time 5 (a delay, a named event, a variable change), the scope of the caller (the top module, a child instance, a nested program)
+and a second end scheduled at time 8 (none, `$finish`, `$fatal`).
+A program holds no always procedure (24.3), so that combination is left out. `$exit` is called only from a program:
+called from a module thread, it is an implicit `$finish` after every program completes by 20.2 and is ignored by 24.7, so the result would depend on the reading.
+42 cases are selected from 288 legal rows. They keep 205 targets, including the three-factor groups task-place-scope, place-wait-scope and task-scope-second end, and 10 mandatory cases.
+
+### What it distinguishes
+
+Each program prints one line with the time, place, scope and task just before the call, and one final procedure prints the end time and these values:
+the write at time 3, the number of rising clock edges at even times, a write one unit after the call in the calling thread, a write 20 units into the parent of a fork, writes by a delay and an event at time 7, and a write just before the second end at time 8.
+`$finish` ends the simulation (20.2), and `$fatal` makes an implicit `$finish` (20.10).
+`$exit` from a thread that begins in an initial procedure of a program ends every initial procedure of that program and their descendants (24.7). When the only program has ended, the implicit `$finish` of 24.3 ends the run.
+Every row ends at time 5, and the final procedure shows only the write at 3 and the clock edge at 2.
+The exit code is nonzero when `$fatal` is called and 0 otherwise, which also shows that [a `$fatal` at time 8 does not run](../tests/gen/ch20/test_gen_cross_simend_finish_function_delay_child_fatal.sv).
+At time 5 only the calling process and the process that releases its wait run. Statements that run after the call in the same time step are not observed, since the standard does not settle them.
+There is one final procedure only, since the order of final procedures is not fixed (9.2.3).
+
+### Independent check and runs
+
+[`qualify_simend.py`](../tools/qualify_simend.py) parses the actual SV and runs it on a small event scheduler.
+It runs every program four times, with the processes in forward and reverse order and with `$finish` ending at once or at the end of the time step, and requires the same output and exit code each time. All 288 programs match their expectation.
+The [auxiliary evidence](../coverage/interaction-qualification/simend.json) keeps six normal controls and ten executable faults on kirimasim `afc7733c8167`. Every fault was detected by a difference in the output of a normal run.
+
+In the [single run of all 4,455 cases](../coverage/interaction-results/full-20261114-kirimasim-afc7733c.json) on kirimasim `afc7733c8167`, all 42 additions pass.
+In the [one run of all 288 rows](../coverage/interaction-qualification/simend-all-rows-20261114.json), every row matches on kirimasim too.
+
+### Pinned-release differences
+
+[Pinned Icarus 13.0](../coverage/interaction-results/simend-20261114-icarus13.json) passes 38 cases. It cannot run the four `$exit` cases. Over all 288 rows, the 252 rows without `$exit` match.
+[Pinned Verilator 5.052](../coverage/interaction-results/simend-20261114-verilator5052-seed1.json) (also at [seed 73](../coverage/interaction-results/simend-20261114-verilator5052-seed73.json)) passes 20 cases.
+It rejects a nested program as unsupported, and does not run the final procedure after `$fatal`. Over all 288 rows, 90 match.

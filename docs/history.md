@@ -686,3 +686,14 @@ clause 37.
 - Sixteen tests call, from a startup routine, a routine or a reason that 36.10.2 does not allow. Ten were recorded and six are new. Three of the new ones also pass on Icarus or Verilator.
 - No test besides the two already recorded prints a different result of a timing check because of a change at time 0.
 - The seven new tests will be corrected together with the other defects when Ghost's results are saved again. No test was changed. The coverage figures are unchanged.
+
+### 2026-11-14 (cross model for where the run is ended and how it ends)
+
+- The cross model `simulation_end_sources` was added for chapters 9 x 20, which were under review ([design and results](interaction-verification.en.md#simulation-end-sources)). It calls `$finish`, `$fatal` and `$exit` from an initial or always procedure, a forked child, a task or a function, in the top module, a child instance or a nested program, and checks the end time, the writes scheduled before and after the end, and the exit code. 42 cases were selected from 288 legal rows, and chapters 20 x 24 moved from R to M as well.
+- `$exit` from a module thread is left out of the model, since 20.2 makes it an implicit `$finish` after every program completes and 24.7 ignores it.
+- The expectations come from 20.2, 20.10, 24.7, 24.3 and 9.2.3. The independent check (`tools/qualify_simend.py`) interprets all 288 rows with four combinations of process order and of the handling after `$finish`, and every row matches its expectation. On kirimasim the six normal controls match and all ten faults are detected.
+- One run of all 4,455 cases on kirimasim `afc7733c8167`, built from the latest main, records 3,967 pass, 484 unsupported and 4 fail. All 42 additions pass, and the preceding 4,413 inputs are unchanged. The four `defparam` type and range cases and the six class cases in generate blocks, which failed on the previous build, now pass, so the only failures are the four existing config cases. Totals: 111 models, 191 chapter pairs, 86 full-selection-pass models.
+- Pinned Icarus 13.0 matches 38 cases and cannot run the four `$exit` cases. Pinned Verilator 5.052 matches 20 cases at both seeds, rejects a nested program and does not run the final procedures after `$fatal`. Both differences were already recorded. The 38 cases get the oracle `iverilog@13.0`; the four `$exit` cases rest on the standard alone.
+- Every one of the 288 legal rows ran once (`coverage/interaction-qualification/simend-all-rows-20261114.json`). kirimasim matches every row, Icarus the 252 rows without `$exit`, and Verilator 90 rows.
+- The six candidates waiting for kirimasim are still not implemented on `afc7733c8167`.
+- The suite now has 12,314 tests, 5,767 of them generated. The coverage percentages are unchanged.

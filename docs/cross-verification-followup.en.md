@@ -6,7 +6,9 @@ Updated on 2026-11-06 JST, retaining the repair records from 2026-11-03. Preserv
 and selected models while addressing known failures, inventorying unsupported mechanisms
 and reviewing unexamined chapter pairs, in that order.
 
-The current [complete local selection](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-dpi-array.json) has 110 models and 4,413 cases, run on kirimasim `7de185f776a1`: 3,915 pass, 484 unsupported and the same 14 failures. Two models were revised on 2026-11-12 so that they select no equal cases; see the [section on them](#cross-models-without-duplicate-cases). The same day one expected value of the model `dpi_openarray_shape` was corrected and the selection ran again; see the [last section](#dpi-array-increment-20261112).
+The current [complete local selection](../coverage/interaction-results/full-20261114-kirimasim-afc7733c.json) has 111 models and 4,455 cases, run on kirimasim `afc7733c8167`: 3,967 pass, 484 unsupported and only the four config failures. A model for where the run is ended was added on 2026-11-14; see the [last section](#simulation-end-sources-20261114).
+
+The selection before it, the [complete local selection](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-dpi-array.json) of 110 models and 4,413 cases, ran on kirimasim `7de185f776a1`: 3,915 pass, 484 unsupported and the same 14 failures. Two models were revised on 2026-11-12 so that they select no equal cases; see the [section on them](#cross-models-without-duplicate-cases). The same day one expected value of the model `dpi_openarray_shape` was corrected and the selection ran again; see [that section](#dpi-array-increment-20261112).
 
 The preceding [complete local selection](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json) had 110 models and 4,416 cases, run on kirimasim `f029ddd0eee1`, built from the main of that day:
 3,915 pass, 487 unsupported and 14 failures: the four config failures, the four `defparam` failures and six where kirimasim stops with an internal error on a class in a generate block. Against the [previous complete run](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json), preceding 4,296 inputs and statuses are unchanged.
@@ -171,7 +173,7 @@ Requirement bindings, thirteen random profiles, existing regressions and core so
 The six items below were left out because kirimasim has not implemented them. They have no tests yet, so no result changes when the feature arrives, and only a check reveals it.
 When a full cross run uses a new kirimasim build, try the programs below. When one no longer reports `not implemented yet`, add the model or observation.
 The 529 existing unsupported cases are not listed: they have tests, and their results change once the feature is implemented.
-Add anything else left out for this reason here, and remove an item once it is added. The status is from kirimasim `33cee3fa2f0d` on 2026-11-08; all six are unchanged since `f029ddd0eee1`.
+Add anything else left out for this reason here, and remove an item once it is added. The status is from kirimasim `33cee3fa2f0d` on 2026-11-08; all six are unchanged since `f029ddd0eee1`, and all six are still not implemented on `afc7733c8167` of 2026-11-14.
 
 Take expectations from the standard, and check them by [running every legal row once](interaction-verification-method.en.md#run-every-legal-row-once).
 
@@ -213,7 +215,7 @@ module top; timeunit 1ns / 1ps; initial begin pk::t; $finish; end endmodule
 
 ### Concurrent assertions (added kind for `assertion_vector_query`)
 
-kirimasim reports `statement 'ConcurrentAssertion'` as not implemented for `assert property`. The 36 existing `cross_assert` cases are unsupported too.
+kirimasim reports `assert property` as not implemented (`concurrent assertion` on `afc7733c8167`, `statement 'ConcurrentAssertion'` before it). The 36 existing `cross_assert` cases are unsupported too.
 Once it is implemented, add concurrent assertions to the assertion kinds of [`interaction_assertquery.py`](../generators/interaction_assertquery.py), raise `VERSION` and refresh the evidence.
 Pinned Icarus 13.0 does not support concurrent assertions, and pinned Verilator 5.052 cannot compare the x and z rows, being two-state.
 
@@ -350,3 +352,13 @@ endmodule
 - Every legal row ran once and the independent check was repeated. Verilator 5.052 matches the 72 rows with a fixed-size actual. No simulator of the three executes a row with a dynamic array or queue.
 - One complete 4,413-case run on kirimasim `7de185f776a1` records 3,915 pass, 484 unsupported and 14 failures, as before. Totals: 110 models, 189 chapter pairs, 83 full-selection-pass models.
 - See the section on the [open array shape model](interaction-verification.en.md#dpi-open-array-shape-and-copyback).
+
+<a id="simulation-end-sources-20261114"></a>
+
+## Where the run is ended and how it ends (2026-11-14)
+
+- Chapters 9 x 20 and 20 x 24, which were under review, moved from R to M with the [model for where the run is ended](interaction-verification.en.md#simulation-end-sources). Chapter 13 x 20 is reinforced.
+- `$finish`, `$fatal` and `$exit` are called from an initial or always procedure, a forked child, a task or a function, in the top module, a child instance or a nested program. 42 cases were selected from 288 legal rows.
+- `$exit` from a module thread is left out of the model, since 20.2 and 24.7 treat it differently.
+- One complete 4,455-case run on kirimasim `afc7733c8167` records 3,967 pass, 484 unsupported and 4 failures. All 42 additions pass, and the 10 cases that failed before now pass. Totals: 111 models, 191 chapter pairs, 86 full-selection-pass models.
+- Every one of the 288 legal rows ran once. kirimasim matches every row. Pinned Icarus 13.0 cannot run the 36 `$exit` rows, and pinned Verilator 5.052 rejects a nested program and does not run the final procedure after `$fatal`.

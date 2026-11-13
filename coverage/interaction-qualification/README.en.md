@@ -597,3 +597,14 @@ The [replay record](scopecaselit-known-replays.json) keeps all 91 Icarus results
 The [all-row record](scopecaselit-all-rows.json) is one run of all 744 rows and enters neither the fixed suite nor requirement coverage.
 kirimasim matches every case item row; 30 class rows stop on an internal error and 48 structure localparam rows are unsupported. Verilator matches all 240 class rows.
 See the [design and rerun](../../docs/interaction-verification.en.md#scoped-class-declaration).
+
+<a id="simulation-end-qualification"></a>
+
+## Independent check of where the run is ended and how it ends
+
+[`simend.json`](simend.json) checks all 288 rows by an independent interpretation, which requires the same output and exit code in four runs with different process orders and different handling of the rest of the time step after `$finish`.
+On kirimasim `afc7733c8167`, all six normal controls match and all ten faulty SV programs are detected by an output difference after a normal exit. The normal controls are rows whose exit code is 0.
+The [single run](../interaction-results/full-20261114-kirimasim-afc7733c.json) of all 4,455 selected cases on `afc7733c8167` records 3,967 pass / 484 unsupported / 4 fail. All 42 additions pass, and the preceding 4,413 inputs are unchanged. Totals: 111 models / 191 chapter pairs / 86 full-selection-pass models.
+Pinned comparisons record [Icarus](../interaction-results/simend-20261114-icarus13.json) 38 pass / 4 known, and Verilator 20 pass / 22 known at both [seed 1](../interaction-results/simend-20261114-verilator5052-seed1.json) and [seed 73](../interaction-results/simend-20261114-verilator5052-seed73.json).
+The [all-row record](simend-all-rows-20261114.json) is one run of all 288 rows and enters neither the fixed suite nor requirement coverage. kirimasim matches every row, Icarus the 252 rows without `$exit`, and Verilator 90 rows.
+See the [design and rerun](../../docs/interaction-verification.en.md#simulation-end-sources).

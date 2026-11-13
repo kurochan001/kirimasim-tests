@@ -1,0 +1,2 @@
+request t=5 site=initial scope=top ender=fatal
+final t=5 early=1 ticks=1 caller_after=0 parent_after=0 late_delay=0 late_event=0 second_seen=0

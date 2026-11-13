@@ -24728,6 +24728,7 @@
     "Assigning a dynamic array to a fixed-size array with a different number of elements gives a run-time error and performs no operation": "要素数の異なる固定長配列に動的配列を代入すると、実行時エラーになり、何の操作も行われない",
     "Assigning a queue to a fixed-size array with a different number of elements gives a run-time error and performs no operation": "要素数の異なる固定長配列にキューを代入すると、実行時エラーになり、何の操作も行われない",
     "The design builds and runs.": "設計はビルドでき、実行できます。",
-    "Each check reports a violation at ZXQPH0QXZ and at ZXQPH1QXZ , so each notifier changes twice and the expected line is ZXQPH2QXZ = ZXQPH3QXZ ZXQPH4QXZ = ZXQPH5QXZ . 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。": "各チェックはZXQPH0QXZとZXQPH1QXZで違反を報告するので、各ノーティファイアは二度変化し、期待行はZXQPH2QXZ=ZXQPH3QXZ ZXQPH4QXZ=ZXQPH5QXZです。区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。"
+    "Each check reports a violation at ZXQPH0QXZ and at ZXQPH1QXZ , so each notifier changes twice and the expected line is ZXQPH2QXZ = ZXQPH3QXZ ZXQPH4QXZ = ZXQPH5QXZ . 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。": "各チェックはZXQPH0QXZとZXQPH1QXZで違反を報告するので、各ノーティファイアは二度変化し、期待行はZXQPH2QXZ=ZXQPH3QXZ ZXQPH4QXZ=ZXQPH5QXZです。区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
+    "A simulation control task ends the run from a process context before later events": "シミュレーション制御タスクが、プロセスの中から、後に予定した事象より前に実行を終える"
   }
 }

@@ -14,6 +14,12 @@
 
 ## 保存実行の概要
 
+2026-11-14の終了を呼ぶ場所とシミュレーションの終わり方の追加で、**111モデル・4,455件・191章対**になりました。
+最新のmainをビルドしたkirimasim `afc7733c8167`の[単一実行](../coverage/interaction-results/full-20261114-kirimasim-afc7733c.json)は、
+**3,967 pass・484 unsupported・4 fail**です。failは既存configの4件だけです。
+追加42件は全PASSです。前回failだった`defparam`の型と範囲の4件と、生成ブロックのクラスの6件がPASSになりました。従来4,413件の入力は不変です。全選択ケースPASSは86モデルです。
+[終了を呼ぶ場所とシミュレーションの終わり方](#simulation-end-sources)に独立検算と固定版比較を記録します。
+
 2026-11-08のmoduleとgenerateブロックで宣言したクラス・case項目のリテラルの桁・構造体リテラルのキーの追加で、**110モデル・4,416件・189章対**になりました。
 最新のmainをビルドしたkirimasim `f029ddd0eee1`の[単一実行](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json)は、
 **3,915 pass・487 unsupported・14 fail**です。failは既存configの4件、`defparam`の4件と、追加のクラスの6件です。
@@ -4671,3 +4677,45 @@ kirimasimは非パックの構造体のlocalparamをまだ実装していませ�
 [固定Icarus 13.0](../coverage/interaction-results/cross110-scopecaselit-icarus13.json)は非パックの構造体を実装しておらず、全48件と全192行を拒否します。
 [固定Verilator 5.052](../coverage/interaction-results/cross110-scopecaselit-verilator5052-seed1.json)（[seed 73](../coverage/interaction-results/cross110-scopecaselit-verilator5052-seed73.json)も）は15件がPASSで、33件がknownです。
 defaultを入れ子の構造体と配列へ降ろさず、typedefの名前の型キーを受け付けず、`'x`を二値で読みます。全192行では60行が一致します。
+
+<a id="simulation-end-sources"></a>
+
+## 終了を呼ぶ場所とシミュレーションの終わり方（2026-11-14）
+
+[`interaction_simend.py`](../generators/interaction_simend.py)は`simulation_end_sources@1`を定義します。
+第9章×第20章は全42件に対応します。第13章×第20章はtaskとfunctionから呼ぶ件、第20章×第24章はprogramから呼ぶ件に対応します。
+
+### 因子・対象範囲
+
+終了のタスク（`$finish`、`$fatal`、`$exit`）、呼ぶ場所（initial、always、join_noneでforkした子、automaticのtask、automaticのfunction）、
+時刻5までの待ち方（遅延、名前付きイベント、変数の変化）、呼ぶ側のスコープ（トップのmodule、子のインスタンス、入れ子のprogram）、
+時刻8に予定した2番目の終了（なし、`$finish`、`$fatal`）を交差します。
+programにはalwaysを置けないので（24.3）、その組を除きます。`$exit`はprogramからだけ呼びます。
+moduleのスレッドから呼んだ`$exit`は、20.2では全programの完了を待つ暗黙の`$finish`、24.7では無視となり、読み方で結果が変わるためです。
+合法288行から42件を選びます。タスク・場所・スコープ、場所・待ち方・スコープ、タスク・スコープ・2番目の終了の3因子群を含む205目標と、必須10件を保持します。
+
+### 何を区別するか
+
+各プログラムは、呼ぶ直前に時刻・場所・スコープ・タスクを1行表示し、一つのfinal手続きで終了時刻と次の値を表示します。
+時刻3の書込み、偶数時刻のクロックの立上りの数、呼んだスレッドで1後の書込み、forkの親で20後の書込み、時刻7の遅延とイベントによる書込み、時刻8の2番目の終了の直前の書込みです。
+`$finish`はシミュレーションを終え（20.2）、`$fatal`は暗黙の`$finish`を呼びます（20.10）。
+`$exit`は、programのinitialから始まったスレッドから呼ぶと、そのprogramのinitialと子孫をすべて終えます（24.7）。唯一のprogramが終わると、24.3の暗黙の`$finish`が実行を終えます。
+どの行も時刻5で終わり、final手続きは時刻3の書込みと時刻2のクロックの立上りだけを示します。
+終了コードは`$fatal`を呼んだときに0以外、それ以外は0で、[時刻8の`$fatal`が実行されないこと](../tests/gen/ch20/test_gen_cross_simend_finish_function_delay_child_fatal.sv)も確かめます。
+時刻5に動くのは、呼ぶプロセスと、その待ちを解くプロセスだけです。終了を呼んだ後、同じ時刻のうちに実行される文は規格が定めないので観測しません。
+final手続きは実行順が定まらないので（9.2.3）、一つだけにします。
+
+### 独立検算と実行結果
+
+[`qualify_simend.py`](../tools/qualify_simend.py)は実際のSVを構文として読み、小さなイベントスケジューラで実行します。
+プロセスの順序を正順と逆順、`$finish`の後を即時に終えるか同じ時刻の終わりまで続けるかの4通りで実行し、すべてが同じ出力と終了コードになることを求めます。全288プログラムが期待値と一致しました。
+[補助証跡](../coverage/interaction-qualification/simend.json)には、kirimasim `afc7733c8167`での正常対照6件と実行可能な誤り10件を保存しました。誤りはすべて正常終了後の出力差で検出しました。
+
+kirimasim `afc7733c8167`の[単一の全4,455件](../coverage/interaction-results/full-20261114-kirimasim-afc7733c.json)で、追加42件は全PASSです。
+[全288行の1回実行](../coverage/interaction-qualification/simend-all-rows-20261114.json)でも、kirimasimは全行が一致しました。
+
+### 固定版の差異
+
+[固定Icarus 13.0](../coverage/interaction-results/simend-20261114-icarus13.json)は38件がPASSです。`$exit`の4件は実行できません。全288行では、`$exit`の36行以外の252行が一致します。
+[固定Verilator 5.052](../coverage/interaction-results/simend-20261114-verilator5052-seed1.json)（[seed 73](../coverage/interaction-results/simend-20261114-verilator5052-seed73.json)も）は20件がPASSです。
+入れ子のprogramを未対応として拒否し、`$fatal`ではfinal手続きを実行しません。全288行では90行が一致します。

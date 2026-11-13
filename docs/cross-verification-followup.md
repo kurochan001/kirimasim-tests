@@ -5,7 +5,9 @@
 2026-11-06（日本時間）の更新です。2026-11-03の対応記録を保持し、固定回帰・正式Nightly・既存期待値・選択モデルを維持し、
 既知の不一致の修正、未対応の整理、要精査の章対の確認の順に進めています。
 
-現在の[全クロスのローカル選択](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-dpi-array.json)は110モデル・4,413件で、kirimasim `7de185f776a1`で実行しました。3,915 pass・484 unsupported・14 failで、failは同じ14件です。2026-11-12に、同じ内容のケースを選ばないように二つのモデルを改訂しました。[その節](#cross-models-without-duplicate-cases)を参照してください。同じ日に、モデル`dpi_openarray_shape`の期待値を1か所直して選択を再実行しました。[最後の節](#dpi-array-increment-20261112)を参照してください。
+現在の[全クロスのローカル選択](../coverage/interaction-results/full-20261114-kirimasim-afc7733c.json)は111モデル・4,455件で、kirimasim `afc7733c8167`で実行しました。3,967 pass・484 unsupported・4 failで、failはconfigの4件だけです。2026-11-14に終了を呼ぶ場所のモデルを加えました。[最後の節](#simulation-end-sources-20261114)を参照してください。
+
+その前の[全クロスのローカル選択](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-dpi-array.json)は110モデル・4,413件で、kirimasim `7de185f776a1`で実行しました。3,915 pass・484 unsupported・14 failで、failは同じ14件です。2026-11-12に、同じ内容のケースを選ばないように二つのモデルを改訂しました。[その節](#cross-models-without-duplicate-cases)を参照してください。同じ日に、モデル`dpi_openarray_shape`の期待値を1か所直して選択を再実行しました。[その節](#dpi-array-increment-20261112)を参照してください。
 
 その前の[全クロスのローカル選択](../coverage/interaction-results/cross110-kirimasim-f029ddd0-scopecaselit.json)は110モデル・4,416件で、当日のmainをビルドしたkirimasim `f029ddd0eee1`で実行しました。
 3,915 pass・487 unsupported・14 failです。failはconfigの4件、`defparam`の4件と、生成ブロックのクラスでkirimasimが内部エラーになる6件です。[前回の全実行](../coverage/interaction-results/cross107-kirimasim-28c6c1a1-delaypkgesc.json)と比べて従来4,296件の入力と状態は不変です。
@@ -166,7 +168,7 @@ Icarusは31入力に一致し、repeat回数1の5件は拒否を保持して、�
 次の6件は、kirimasimが未実装なので見送りました。テストがまだないので、実装されても結果は変わらず、確認しなければ気づけません。
 kirimasimの新しいビルドで全クロスを実行するときに下のプログラムを試し、`not implemented yet`が出なくなったらモデルや観測を追加します。
 既存の未対応529件はテストがあり、実装されれば結果が変わるので、この一覧には入れません。
-同じ理由で見送るものが増えたらここへ足し、追加を終えた項目は消します。状態は2026-11-08のkirimasim `33cee3fa2f0d`のもので、6件とも`f029ddd0eee1`から変わっていません。
+同じ理由で見送るものが増えたらここへ足し、追加を終えた項目は消します。状態は2026-11-08のkirimasim `33cee3fa2f0d`のもので、6件とも`f029ddd0eee1`から変わっていません。2026-11-14の`afc7733c8167`でも、6件ともまだ未実装です。
 
 期待値は規格から求め、[全合法行を一度実行](interaction-verification-method.md#run-every-legal-row-once)して確かめます。
 
@@ -208,7 +210,7 @@ module top; timeunit 1ns / 1ps; initial begin pk::t; $finish; end endmodule
 
 ### 並行アサーション（`assertion_vector_query`への種類の追加）
 
-`assert property`は、kirimasimが`statement 'ConcurrentAssertion'`を未実装とします。既存の`cross_assert`の36件も未対応です。
+`assert property`は、kirimasimが未実装とします（`afc7733c8167`では`concurrent assertion`、それより前は`statement 'ConcurrentAssertion'`と報告します）。既存の`cross_assert`の36件も未対応です。
 実装されたら、[`interaction_assertquery.py`](../generators/interaction_assertquery.py)のアサーションの種類に並行アサーションを加え、`VERSION`を上げて証跡を更新します。
 固定Icarus 13.0は並行アサーションを未対応とし、固定Verilator 5.052は二値なのでxとzの行を比べられません。
 
@@ -345,3 +347,13 @@ endmodule
 - 合法な行をすべて1回実行し、独立検算をやり直しました。Verilator 5.052は固定配列の72行が一致します。動的配列・キューの行を実行できるシミュレータは、三つの中にありません。
 - kirimasim `7de185f776a1`の単一の全4,413件は、これまでと同じ3,915 pass・484 unsupported・14 failです。110モデル・189章対・全選択ケースPASSは83モデルです。
 - [open arrayの形状のモデル](interaction-verification.md#dpi-open-arrayの形状と書戻し)の節を参照してください。
+
+<a id="simulation-end-sources-20261114"></a>
+
+## 終了を呼ぶ場所とシミュレーションの終わり方（2026-11-14）
+
+- 未精査だった第9章×第20章と第20章×第24章を、[終了を呼ぶ場所のモデル](interaction-verification.md#simulation-end-sources)でRからMへ移しました。第13章×第20章も補強しました。
+- `$finish`・`$fatal`・`$exit`を、initial・always・forkした子・task・functionから、トップのmodule・子のインスタンス・入れ子のprogramで呼びます。合法288行から42件を選びました。
+- moduleのスレッドから呼んだ`$exit`は、20.2と24.7で扱いが違うので、モデルから除きました。
+- kirimasim `afc7733c8167`の単一の全4,455件は3,967 pass・484 unsupported・4 failです。追加42件は全PASSで、前回failだった10件もPASSになりました。111モデル・191章対・全選択ケースPASSは86モデルです。
+- 合法な288行をすべて1回実行しました。kirimasimは全行が一致します。固定Icarus 13.0は`$exit`の36行を実行できず、固定Verilator 5.052は入れ子のprogramを拒否し、`$fatal`ではfinal手続きを実行しません。

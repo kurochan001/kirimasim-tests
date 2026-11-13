@@ -960,6 +960,15 @@ Verilator両seedは各3 pass・33 knownで、既知値2件だけにoracleを登�
 [保存済みの全Icarus診断・代表Verilator再現](../coverage/interaction-qualification/progframe-known-replays.json)を参照してください。
 未対応やknownをPASSへ読み替えず、期待値は維持しています。
 
+<a id="simulation-end-differences"></a>
+
+## 終了を呼ぶ場所とシミュレーションの終わり方（2026-11-14）
+
+[終了を呼ぶ場所のモデル](interaction-verification.md#simulation-end-sources)では、記録済みの差異だけが出ました。
+固定Icarus 13.0は、上の節と同じく`$exit`の4件を実行できず、38件が一致します。全288行では`$exit`の36行以外が一致します。
+固定Verilator 5.052は、上の節と同じく入れ子のprogramを拒否し、[`$fatal`でfinal手続きを実行しません](#verilator-5052)。両seedとも20件が一致します。
+kirimasim `afc7733c8167`は全42件と全288行が一致しました。期待値は変えていません。
+
 <a id="package-query-differences"></a>
 
 ## package配列の問い合わせと修飾名付き書込み（2026-11-06）
