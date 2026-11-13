@@ -168,3 +168,4 @@
 | Ghostだけが一致するテストの見直し：37章（2026-11-13） | [日本語](ghost-only-review-ch37-20261113.md) | [English](ghost-only-review-ch37-20261113.en.md) |
 | Ghostだけが一致するテストの見直し：16章（2026-11-13） | [日本語](ghost-only-review-ch16-20261113.md) | [English](ghost-only-review-ch16-20261113.en.md) |
 | Ghostだけが一致するテストの見直し：36・38・39・40章（2026-11-13） | [日本語](ghost-only-review-vpi-20261113.md) | [English](ghost-only-review-vpi-20261113.en.md) |
+| Ghostだけが一致するテストの見直し：残りの章（2026-11-13） | [日本語](ghost-only-review-rest-20261113.md) | [English](ghost-only-review-rest-20261113.en.md) |

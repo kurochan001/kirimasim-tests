@@ -669,3 +669,12 @@ clause 37.
 - Ten of the 19 flawed tests use, from the startup routine, a routine or a callback reason that 36.10.2 does not allow.
 - No test was changed. The coverage figures are unchanged.
 - So far 424 of the 756 tests that pass on Ghost alone are reviewed (193 of Clause 37, 90 of Clause 16, 141 of Clauses 36, 38, 39 and 40). Seven are wrong, 45 are flawed, 4 depend on a gap in the standard and 33 rest on a contested reading.
+
+### 2026-11-13 (review of the tests that only Ghost passes: the remaining clauses)
+
+- The remaining 332 tests that match their expectation on Ghost alone were compared with the standard. To limit the usage, each test was read by one review. For every verdict other than "right", the text, the syntax or the figure of the standard that it rests on was checked again. The record is the [review of the tests that only Ghost passes: the remaining clauses](ghost-only-review-rest-20261113.en.md).
+- The verdicts: 289 expectations are right, 19 tests are flawed and 24 rest on a contested reading. No expectation is wrong.
+- Among the 19 flawed tests, five designs are not legal, three print a different set of lines depending on a change at time 0 or on the order of updates in one time step, two check statistics, and two generated tests use `$fread` in a way the standard does not define.
+- Five of the 24 contested tests come from the conflict about `#( )` in a use clause of a config, which is already recorded.
+- No test was changed. The coverage figures are unchanged.
+- All 756 tests that pass on Ghost alone are now reviewed. 624 expectations are right, 7 are wrong, 64 tests are flawed, 4 depend on a gap in the standard and 57 rest on a contested reading.
