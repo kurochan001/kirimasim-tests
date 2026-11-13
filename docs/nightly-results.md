@@ -37,7 +37,7 @@ suite `19cd790a5f639348ad67fd63959dce9811d3ab56`の[Nightly](https://github.com/
 ### 直近のローカル追加
 
 最新のローカル追加は[終了を呼ぶ場所とシミュレーションの終わり方](interaction-verification.md#simulation-end-sources)の42件で、111モデル・4,455件です。
-最新のmainをビルドした`afc7733c8167`による[単一実行](../coverage/interaction-results/full-20261114-kirimasim-afc7733c.json)は3,967 pass・484 unsupported・4 failです。追加42件は全PASSで、従来4,413件の入力は不変です。今回の42件は、CheckとNightlyでは未実行です。
+最新のmainをビルドした`afc7733c8167`による[単一実行](../coverage/interaction-results/full-20261114-kirimasim-afc7733c.json)は3,967 pass・484 unsupported・4 failです。追加42件は全PASSで、従来4,413件の入力は不変です。今回の42件は[`f9abbdbf`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/43473484110)で固定版比較が成功し、Nightlyでは未実行です。
 
 その前のローカル追加は[moduleとgenerateブロックで宣言したクラス](interaction-verification.md#scoped-class-declaration)・[case項目のリテラルの桁](interaction-verification.md#case-literal-wildcard)・[構造体リテラルのキー](interaction-verification.md#aggregate-literal-key)の120件で、110モデル・4,416件です。
 2026-11-12に二つのモデルを改訂した後の選択は110モデル・4,413件で、同じ日にモデル`dpi_openarray_shape`の期待値を1か所直した後に保存し直した、`7de185f776a1`による[単一実行](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-dpi-array.json)は3,915 pass・484 unsupported・14 failです。

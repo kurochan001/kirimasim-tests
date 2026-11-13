@@ -35,7 +35,7 @@ The [Nightly record](../coverage/interaction-qualification/formal-ci-19cd790a-20
 ### Latest local addition
 
 The newest local addition is 42 cases for [where the run is ended and how it ends](interaction-verification.en.md#simulation-end-sources), totaling 111 models / 4,455 cases.
-The [single run](../coverage/interaction-results/full-20261114-kirimasim-afc7733c.json) on `afc7733c8167`, built from the latest main, records 3,967 pass / 484 unsupported / 4 fail. All 42 additions pass; the preceding 4,413 inputs are unchanged. These 42 cases have not run in Check or Nightly yet.
+The [single run](../coverage/interaction-results/full-20261114-kirimasim-afc7733c.json) on `afc7733c8167`, built from the latest main, records 3,967 pass / 484 unsupported / 4 fail. All 42 additions pass; the preceding 4,413 inputs are unchanged. These 42 cases passed the pinned comparisons in [Check on `f9abbdbf`](https://github.com/kurochan001/kirimasim-tests/actions/runs/43473484110) and have not run in Nightly.
 
 The addition before it is 120 cases for [classes declared in modules and generate blocks](interaction-verification.en.md#scoped-class-declaration), [case item literal digits](interaction-verification.en.md#case-literal-wildcard) and [structure literal keys](interaction-verification.en.md#aggregate-literal-key), totaling 110 models / 4,416 cases.
 Since the revision of two models on 2026-11-12 the selection has 110 models / 4,413 cases; the [single run](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-dpi-array.json) on `7de185f776a1`, saved again after one expected value of the model `dpi_openarray_shape` was corrected the same day, records 3,915 pass / 484 unsupported / 14 fail.
