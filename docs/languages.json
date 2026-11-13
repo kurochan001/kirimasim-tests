@@ -425,8 +425,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "7c596235f32030a066cbab5c9e283328209dcdd20e7465698e45ac78ac085698",
-        "ja": "070dedd936d4c804e3653fc8573405a30633e523f998742eb4a7a89875046ca0"
+        "en": "f887bc82697069a301a04003fc8fcb658a2b99c12752d9179990dca36ceff256",
+        "ja": "d320648e8dc849cf2b6088b7f2891cbde5fc5bcef3af81bf4768741977ca0a1e"
       }
     },
     {
@@ -1256,6 +1256,17 @@
       "sha256": {
         "en": "d48a527f9e1508ba0b19ef704e442c0ad846d1066d8cf5d02a7c36b405e2590a",
         "ja": "91ca8c4c19333bfb56ee097bbbd94c8ee6cf727a9f092d2703b7c82629d3742c"
+      }
+    },
+    {
+      "en": "docs/defect-pattern-scan-20261113.en.md",
+      "ja": "docs/defect-pattern-scan-20261113.md",
+      "source": "docs/defect-pattern-scan-20261113.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "38d2f18b55336a10e4e239cb84a0f7e7df5dc74b28c68e488d0c1201151a6b1b",
+        "ja": "f0dbfa42f42124377144eaabff0015a509f93f2be1acbf88b1d0d1238c2022ad"
       }
     }
   ]

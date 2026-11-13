@@ -678,3 +678,11 @@ clause 37.
 - Five of the 24 contested tests come from the conflict about `#( )` in a use clause of a config, which is already recorded.
 - No test was changed. The coverage figures are unchanged.
 - All 756 tests that pass on Ghost alone are now reviewed. 624 expectations are right, 7 are wrong, 64 tests are flawed, 4 depend on a gap in the standard and 57 rest on a contested reading.
+
+### 2026-11-13 (suite-wide search for the defect patterns found in the review)
+
+- The three kinds of defect found in the review of the tests that only Ghost passes were searched for in the whole suite. The record is the [suite-wide search for the defect patterns found in the review](defect-pattern-scan-20261113.en.md).
+- Six tests use two results of `vpi_get_str` together. Five were recorded in the Clause 37 review, and `ch37/test_vpi_struct_and_tagged_patterns` is new. These six replace the rough figure of "29 C files" in the Clause 37 record.
+- Sixteen tests call, from a startup routine, a routine or a reason that 36.10.2 does not allow. Ten were recorded and six are new. Three of the new ones also pass on Icarus or Verilator.
+- No test besides the two already recorded prints a different result of a timing check because of a change at time 0.
+- The seven new tests will be corrected together with the other defects when Ghost's results are saved again. No test was changed. The coverage figures are unchanged.

@@ -169,3 +169,4 @@
 | Ghostだけが一致するテストの見直し：16章（2026-11-13） | [日本語](ghost-only-review-ch16-20261113.md) | [English](ghost-only-review-ch16-20261113.en.md) |
 | Ghostだけが一致するテストの見直し：36・38・39・40章（2026-11-13） | [日本語](ghost-only-review-vpi-20261113.md) | [English](ghost-only-review-vpi-20261113.en.md) |
 | Ghostだけが一致するテストの見直し：残りの章（2026-11-13） | [日本語](ghost-only-review-rest-20261113.md) | [English](ghost-only-review-rest-20261113.en.md) |
+| 見直しで見つかった欠陥の型の全体検索（2026-11-13） | [日本語](defect-pattern-scan-20261113.md) | [English](defect-pattern-scan-20261113.en.md) |
