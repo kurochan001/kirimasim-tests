@@ -608,3 +608,14 @@ The [single run](../interaction-results/full-20261114-kirimasim-afc7733c.json) o
 Pinned comparisons record [Icarus](../interaction-results/simend-20261114-icarus13.json) 38 pass / 4 known, and Verilator 20 pass / 22 known at both [seed 1](../interaction-results/simend-20261114-verilator5052-seed1.json) and [seed 73](../interaction-results/simend-20261114-verilator5052-seed73.json).
 The [all-row record](simend-all-rows-20261114.json) is one run of all 288 rows and enters neither the fixed suite nor requirement coverage. kirimasim matches every row, Icarus the 252 rows without `$exit`, and Verilator 90 rows.
 See the [design and rerun](../../docs/interaction-verification.en.md#simulation-end-sources).
+
+<a id="program-interface-qualification"></a>
+
+## Independent check of the regions of writes and reactions between a program and an interface
+
+[`progif.json`](progif.json) checks all 480 rows by an independent interpretation, which requires the same output in four runs with different orders of the events of one region and with or without a woken process interrupting at once.
+On kirimasim `77c27531437c`, all six normal controls match and all nine faulty SV programs are detected by an output difference after a normal exit.
+The [single run](../interaction-results/full-20261114-kirimasim-77c27531.json) of all 4,485 selected cases on `77c27531437c` records 3,997 pass / 484 unsupported / 4 fail. All 30 additions pass, and the statuses of the preceding 4,455 cases are unchanged. Totals: 112 models / 192 chapter pairs / 87 full-selection-pass models.
+Pinned comparisons record [Icarus](../interaction-results/progif-20261114-icarus13.json) 6 pass / 24 known, and Verilator 20 pass / 10 known at both [seed 1](../interaction-results/progif-20261114-verilator5052-seed1.json) and [seed 73](../interaction-results/progif-20261114-verilator5052-seed73.json).
+The [all-row record](progif-all-rows-20261114.json) is one run of all 480 rows and enters neither the fixed suite nor requirement coverage. kirimasim matches every row, Icarus 57 rows and Verilator 372 rows.
+See the [design and rerun](../../docs/interaction-verification.en.md#program-interface-regions).

@@ -22,8 +22,8 @@
 21,入出力用システムタスク・関数,N,N,M,M,M,M,M,C2,M,M,M,M,M,R,R,R,R,R,R,M,D,M,M,M,M,M,M,M,R,R,R,R,R,N,R,R,R,R,R,R,R
 22,コンパイラ指令,N,N,M,R,M,M,M,M,M,M,M,M,M,R,R,R,R,R,R,M,M,D,M,R,M,M,M,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 23,モジュールと階層,N,N,M,R,M,M,M,M,M,M,M,R,M,R,M,R,R,R,R,R,M,M,D,R,M,M,M,M,R,R,R,R,M,N,R,R,R,R,R,R,R
-24,プログラム,N,N,R,M,R,M,R,R,M,M,R,M,M,R,M,M,R,R,R,M,M,R,R,D,R,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
-25,インターフェース,N,N,M,M,R,M,M,M,M,M,M,M,M,M,M,M,M,R,R,M,M,M,M,R,D,M,M,R,R,R,R,R,R,N,R,R,R,R,R,R,R
+24,プログラム,N,N,R,M,R,M,R,R,M,M,R,M,M,R,M,M,R,R,R,M,M,R,R,D,M,R,R,R,R,R,R,R,R,N,R,R,R,R,R,R,R
+25,インターフェース,N,N,M,M,R,M,M,M,M,M,M,M,M,M,M,M,M,R,R,M,M,M,M,M,D,M,M,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 26,パッケージ,N,N,M,M,R,M,M,M,M,M,M,M,M,R,M,R,R,R,R,M,M,M,M,R,M,D,M,R,R,R,R,R,R,N,R,R,R,R,R,R,R
 27,generate構文,N,N,R,M,M,M,M,M,M,M,M,M,M,R,R,M,R,R,R,M,M,M,M,R,M,M,D,R,M,R,R,R,M,N,R,R,R,R,R,R,R
 28,ゲートレベル・スイッチレベルのモデリング,N,N,R,M,R,M,M,R,R,M,M,R,R,R,R,R,R,R,R,R,M,R,M,R,R,R,R,D,M,R,R,R,R,N,R,R,R,R,R,R,R

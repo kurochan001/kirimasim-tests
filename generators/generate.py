@@ -108,6 +108,7 @@ import interaction_assertquery
 import interaction_litarg
 import interaction_scopeclass
 import interaction_casedigit
+import interaction_progif
 import interaction_simend
 import interaction_agglit
 import interaction_delayval
@@ -134,7 +135,7 @@ import wide_paths
 import width_sign
 import xz_propagation
 
-GENERATORS = [interaction_simend, interaction_scopeclass, interaction_casedigit, interaction_agglit, interaction_delayval, interaction_pkglookup, interaction_escname, interaction_hierproc, interaction_hiername, interaction_arrayloop, interaction_paramtype, interaction_assertquery, interaction_litarg, interaction_ifexpr, interaction_loopsched, interaction_litfmt, interaction_macro, interaction_force, interaction_sense, interaction_gatearray, interaction_literal, interaction_timescope, interaction_eventflow, interaction_pkgquery, interaction_progframe, interaction_scansel, interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, width_sign, xz_propagation, strength, wide_paths, keywords,
+GENERATORS = [interaction_progif, interaction_simend, interaction_scopeclass, interaction_casedigit, interaction_agglit, interaction_delayval, interaction_pkglookup, interaction_escname, interaction_hierproc, interaction_hiername, interaction_arrayloop, interaction_paramtype, interaction_assertquery, interaction_litarg, interaction_ifexpr, interaction_loopsched, interaction_litfmt, interaction_macro, interaction_force, interaction_sense, interaction_gatearray, interaction_literal, interaction_timescope, interaction_eventflow, interaction_pkgquery, interaction_progframe, interaction_scansel, interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, width_sign, xz_propagation, strength, wide_paths, keywords,
               interaction_nba, interaction_expr, interaction_select, interaction_cond,
               interaction_shift, interaction_cast, interaction_task, interaction_binding,
               interaction_struct, interaction_case, interaction_port,

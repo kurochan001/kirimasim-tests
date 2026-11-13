@@ -5,7 +5,9 @@
 2026-11-06（日本時間）の更新です。2026-11-03の対応記録を保持し、固定回帰・正式Nightly・既存期待値・選択モデルを維持し、
 既知の不一致の修正、未対応の整理、要精査の章対の確認の順に進めています。
 
-現在の[全クロスのローカル選択](../coverage/interaction-results/full-20261114-kirimasim-afc7733c.json)は111モデル・4,455件で、kirimasim `afc7733c8167`で実行しました。3,967 pass・484 unsupported・4 failで、failはconfigの4件だけです。2026-11-14に終了を呼ぶ場所のモデルを加えました。[最後の節](#simulation-end-sources-20261114)を参照してください。
+現在の[全クロスのローカル選択](../coverage/interaction-results/full-20261114-kirimasim-77c27531.json)は112モデル・4,485件で、kirimasim `77c27531437c`で実行しました。3,997 pass・484 unsupported・4 failで、failはconfigの4件だけです。2026-11-14にprogramとinterfaceの間の領域のモデルを加えました。[最後の節](#program-interface-regions-20261114)を参照してください。
+
+その前の[全クロスのローカル選択](../coverage/interaction-results/full-20261114-kirimasim-afc7733c.json)は111モデル・4,455件で、kirimasim `afc7733c8167`で実行しました。3,967 pass・484 unsupported・4 failで、failはconfigの4件だけです。同じ日に終了を呼ぶ場所のモデルを加えました。[その節](#simulation-end-sources-20261114)を参照してください。
 
 その前の[全クロスのローカル選択](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-dpi-array.json)は110モデル・4,413件で、kirimasim `7de185f776a1`で実行しました。3,915 pass・484 unsupported・14 failで、failは同じ14件です。2026-11-12に、同じ内容のケースを選ばないように二つのモデルを改訂しました。[その節](#cross-models-without-duplicate-cases)を参照してください。同じ日に、モデル`dpi_openarray_shape`の期待値を1か所直して選択を再実行しました。[その節](#dpi-array-increment-20261112)を参照してください。
 
@@ -165,10 +167,10 @@ Icarusは31入力に一致し、repeat回数1の5件は拒否を保持して、�
 
 ## kirimasimの実装を待つ候補
 
-次の6件は、kirimasimが未実装なので見送りました。テストがまだないので、実装されても結果は変わらず、確認しなければ気づけません。
+次の7件は、kirimasimが未実装なので見送りました。テストがまだないので、実装されても結果は変わらず、確認しなければ気づけません。
 kirimasimの新しいビルドで全クロスを実行するときに下のプログラムを試し、`not implemented yet`が出なくなったらモデルや観測を追加します。
 既存の未対応529件はテストがあり、実装されれば結果が変わるので、この一覧には入れません。
-同じ理由で見送るものが増えたらここへ足し、追加を終えた項目は消します。状態は2026-11-08のkirimasim `33cee3fa2f0d`のもので、6件とも`f029ddd0eee1`から変わっていません。2026-11-14の`afc7733c8167`でも、6件ともまだ未実装です。
+同じ理由で見送るものが増えたらここへ足し、追加を終えた項目は消します。状態は2026-11-08のkirimasim `33cee3fa2f0d`のもので、6件とも`f029ddd0eee1`から変わっていません。2026-11-14の`afc7733c8167`と`77c27531437c`でも、6件ともまだ未実装です。7件目のvirtual interfaceは、2026-11-14に`77c27531437c`で加えました。
 
 期待値は規格から求め、[全合法行を一度実行](interaction-verification-method.md#run-every-legal-row-once)して確かめます。
 
@@ -271,6 +273,22 @@ module top;
 endmodule
 ```
 
+### virtual interfaceの経路（`program_interface_regions`への経路の追加）
+
+kirimasimは、virtual interfaceの変数の型を`unsupported: type '...'`として未実装とします。既存の`class_virtual_interface`の13件も未対応です。
+25.9では、virtual interfaceの要素は手続き文の中で読み書きでき、書込みは代入された実体の変数を変えます。
+実装されたら、[`interaction_progif.py`](../generators/interaction_progif.py)の経路にvirtual interfaceを戻し、`VERSION`を上げて証跡を更新します。選択ケースの入力が変わるので、全クロスの再実行も必要です。
+固定Icarus 13.0はvirtual interfaceの宣言を受け付けず、固定Verilator 5.052は下のプログラムで`5a`を出します。
+
+```systemverilog
+interface bus_if; logic [7:0] x = 8'h11; endinterface
+module top;
+  bus_if u();
+  virtual bus_if v;
+  initial begin v = u; v.x = 8'h5a; #1 $display("%h", u.x); $finish; end
+endmodule
+```
+
 ## マクロ展開・force/release・暗黙の感度（2026-11-07）
 
 - [マクロ展開](interaction-verification.md#macro-expansion-context)、[force/release](interaction-verification.md#force-release-visibility)、[暗黙の感度](interaction-verification.md#implicit-sensitivity-update)のモデルを追加しました。
@@ -357,3 +375,13 @@ endmodule
 - moduleのスレッドから呼んだ`$exit`は、20.2と24.7で扱いが違うので、モデルから除きました。
 - kirimasim `afc7733c8167`の単一の全4,455件は3,967 pass・484 unsupported・4 failです。追加42件は全PASSで、前回failだった10件もPASSになりました。111モデル・191章対・全選択ケースPASSは86モデルです。
 - 合法な288行をすべて1回実行しました。kirimasimは全行が一致します。固定Icarus 13.0は`$exit`の36行を実行できず、固定Verilator 5.052は入れ子のprogramを拒否し、`$fatal`ではfinal手続きを実行しません。
+
+<a id="program-interface-regions-20261114"></a>
+
+## programとinterfaceの間の書込みと反応の領域（2026-11-14）
+
+- 未精査だった第24章×第25章を、[programとinterfaceの領域のモデル](interaction-verification.md#program-interface-regions)でRからMへ移しました。第4章×第24章・第4章×第25章・第13章×第25章も補強しました。
+- programかmoduleが、直接・interfaceのtask・`#0`の後に書くtask・void function・自身のtaskを経由して、ポート・modport・階層名からinterfaceの変数をblockingかNBAで書きます。合法480行から30件を選びました。
+- virtual interfaceの経路は、kirimasimが未実装なので外し、[実装待ちの一覧](#models-waiting-for-kirimasim)へ加えました。
+- kirimasim `77c27531437c`の単一の全4,485件は3,997 pass・484 unsupported・4 failです。追加30件は全PASSで、従来4,455件の状態は`afc7733c8167`から変わりません。112モデル・192章対・全選択ケースPASSは87モデルです。
+- 合法な480行をすべて1回実行しました。kirimasimは全行が一致します。固定Icarus 13.0はinterfaceのポートとmodportのimportをコンパイルできず、57行が一致します。固定Verilator 5.052はprogramをmoduleと同じ領域で実行し、372行が一致します。どちらも[記録済みの差異](simulator-differences.ja.md#program-interface-differences)です。

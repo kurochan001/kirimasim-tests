@@ -970,6 +970,18 @@ Pinned Icarus 13.0 cannot run the four `$exit` cases, as in the section above, a
 Pinned Verilator 5.052 rejects a nested program, as in the section above, and [does not run the final procedures when `$fatal` ends the run](#verilator-5052). It matches 20 cases at both seeds.
 kirimasim `afc7733c8167` matches all 42 cases and all 288 rows. The expectations are unchanged.
 
+<a id="program-interface-differences"></a>
+
+## Regions of writes and reactions between a program and an interface (2026-11-14)
+
+The [program and interface region model](interaction-verification.en.md#program-interface-regions) shows only differences already recorded and constructs that stop the compile.
+Pinned Icarus 13.0 matches 6 cases, and 57 of all 480 rows. It cannot compile an interface port or a modport import. It also rejects a nonblocking assignment in a function, which 13.4.4 allows.
+In the rows that it compiles, it does not run the blocking assignments of a program in the Reactive region, as in the 24.5 and 24.3.1 rows of [the table above](#icarus-verilog-130).
+Pinned Verilator 5.052 matches 20 cases at both seeds, and 372 of all 480 rows at seed 1.
+It runs a program in the same regions as a module, as in the 24.3.1 row of [the table above](#verilator-5052), and, as in its 9.2.2.2 and 4.4.2.3 rows, an always procedure, always_comb or a continuous assignment sometimes does not react to a blocking write right after `#0`.
+The latter also shows with only `#5; #0; x = 8'h5a;` in a module, without an interface task.
+kirimasim `77c27531437c` matches all 30 cases and all 480 rows. The expectations are unchanged.
+
 <a id="package-query-differences"></a>
 
 ## Package-array queries and qualified writes (2026-11-06)

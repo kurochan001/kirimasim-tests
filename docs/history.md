@@ -697,3 +697,15 @@ clause 37.
 - Every one of the 288 legal rows ran once (`coverage/interaction-qualification/simend-all-rows-20261114.json`). kirimasim matches every row, Icarus the 252 rows without `$exit`, and Verilator 90 rows.
 - The six candidates waiting for kirimasim are still not implemented on `afc7733c8167`.
 - The suite now has 12,314 tests, 5,767 of them generated. The coverage percentages are unchanged.
+
+### 2026-11-14 (cross model for the regions of writes and reactions between a program and an interface)
+
+- The cross model `program_interface_regions` was added for chapters 24 x 25, which were under review ([design and results](interaction-verification.en.md#program-interface-regions)). A program or a module writes an interface variable with a blocking or nonblocking assignment, directly, from an interface task, from a task that writes after `#0`, from a void function or through its own task, reaching it through a port, a modport or a hierarchical name, and the order against an always, always_comb, continuous-assignment or nonblocking reaction in the interface or in a module that takes it is checked. 30 cases were selected from 480 legal rows.
+- The expectations come from 24.3.1, 24.3.2, 24.5, 4.4.2, 4.5 and 4.7. Program code, and the subroutines a program calls, run in the reactive region set, and the design reaction comes after. For a blocking write from a module, a blocking reaction runs before `#0` resumes. The read of y right after a write from a module is not placed, since the interruption of 4.7 leaves its value undetermined.
+- The independent check (`tools/qualify_progif.py`) interprets all 480 rows four ways, with the events of one region in either order and with or without a woken process interrupting at once, and every row matches its expectation. On kirimasim the six normal controls match and all nine faults are detected.
+- The virtual interface route is left out, since kirimasim has not implemented it, and is the seventh of the [candidates waiting for kirimasim](cross-verification-followup.en.md#models-waiting-for-kirimasim).
+- One run of all 4,485 cases on kirimasim `77c27531437c`, built from the latest main, records 3,997 pass, 484 unsupported and 4 fail. All 30 additions pass, and the statuses of the preceding 4,455 cases are unchanged from `afc7733c8167`. Totals: 112 models, 192 chapter pairs, 87 full-selection-pass models.
+- Pinned Icarus 13.0 matches 6 cases, and pinned Verilator 5.052 matches 20 at both seeds. Every difference is either a recorded one or a construct that stops the compile. The oracle is `iverilog@13.0` for 6 cases and `verilator@5.052` for 14; 10 rest on the standard alone.
+- Every one of the 480 legal rows ran once (`coverage/interaction-qualification/progif-all-rows-20261114.json`). kirimasim matches every row, Icarus 57 rows and Verilator 372 rows.
+- The six candidates waiting for kirimasim are still not implemented on `77c27531437c`.
+- The suite now has 12,344 tests, 5,797 of them generated. The coverage percentages are unchanged.

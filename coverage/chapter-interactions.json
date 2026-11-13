@@ -3143,6 +3143,53 @@
           "reason": "入れ子のprogramから$finish・$fatal・$exitを要求し、$exitでは唯一のprogramが終わって24.3の暗黙の$finishで終了することを確かめる。"
         }
       ]
+    },
+    {
+      "id": "program_interface_regions",
+      "primary_chapter": 24,
+      "pairs": [
+        {
+          "chapters": [
+            24,
+            25
+          ],
+          "reason": "programがポート・modport・階層名でinterfaceの変数とtask・functionへ届き、programからの書込みとinterfaceのサブルーチンがReactive領域群で実行され、設計側の反応がその後になることを、同じ書込みをするmoduleと比べて照合する。"
+        },
+        {
+          "chapters": [
+            4,
+            24
+          ],
+          "when": {
+            "caller": [
+              "program"
+            ]
+          },
+          "reason": "programの#0がRe-Inactive、NBAがRe-NBAで再開・更新され、それに反応する設計プロセスがReactive領域群が空になるまで動かないことを、#0の前後の読取りと反応が見た進捗で確かめる。"
+        },
+        {
+          "chapters": [
+            4,
+            25
+          ],
+          "reason": "interface内とinterfaceを受けるmoduleのalways・always_comb・連続代入・NBAの反応が、moduleのblocking書込みでは#0のInactiveより前に、NBAではその後に起きることを照合する。"
+        },
+        {
+          "chapters": [
+            13,
+            25
+          ],
+          "when": {
+            "action": [
+              "task",
+              "delayed",
+              "function",
+              "wrapper"
+            ]
+          },
+          "reason": "interfaceのtask・#0を含むtask・NBAを含むvoid function・呼出し側のtaskから呼ぶinterfaceのtaskが、宣言場所ではなく呼出し側のスレッドの領域群で実行されることを確かめる。"
+        }
+      ]
     }
   ]
 }

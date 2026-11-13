@@ -14,7 +14,13 @@
 
 ## 保存実行の概要
 
-2026-11-14の終了を呼ぶ場所とシミュレーションの終わり方の追加で、**111モデル・4,455件・191章対**になりました。
+2026-11-14のprogramとinterfaceの間の書込みと反応の領域の追加で、**112モデル・4,485件・192章対**になりました。
+最新のmainをビルドしたkirimasim `77c27531437c`の[単一実行](../coverage/interaction-results/full-20261114-kirimasim-77c27531.json)は、
+**3,997 pass・484 unsupported・4 fail**です。failは既存configの4件だけです。
+追加30件は全PASSで、従来4,455件の入力と状態は不変です。全選択ケースPASSは87モデルです。
+[programとinterfaceの間の書込みと反応の領域](#program-interface-regions)に独立検算と固定版比較を記録します。
+
+同じ日の終了を呼ぶ場所とシミュレーションの終わり方の追加で、**111モデル・4,455件・191章対**になりました。
 最新のmainをビルドしたkirimasim `afc7733c8167`の[単一実行](../coverage/interaction-results/full-20261114-kirimasim-afc7733c.json)は、
 **3,967 pass・484 unsupported・4 fail**です。failは既存configの4件だけです。
 追加42件は全PASSです。前回failだった`defparam`の型と範囲の4件と、生成ブロックのクラスの6件がPASSになりました。従来4,413件の入力は不変です。全選択ケースPASSは86モデルです。
@@ -4719,3 +4725,44 @@ kirimasim `afc7733c8167`の[単一の全4,455件](../coverage/interaction-result
 [固定Icarus 13.0](../coverage/interaction-results/simend-20261114-icarus13.json)は38件がPASSです。`$exit`の4件は実行できません。全288行では、`$exit`の36行以外の252行が一致します。
 [固定Verilator 5.052](../coverage/interaction-results/simend-20261114-verilator5052-seed1.json)（[seed 73](../coverage/interaction-results/simend-20261114-verilator5052-seed73.json)も）は20件がPASSです。
 入れ子のprogramを未対応として拒否し、`$fatal`ではfinal手続きを実行しません。全288行では90行が一致します。
+
+<a id="program-interface-regions"></a>
+
+## programとinterfaceの間の書込みと反応の領域（2026-11-14）
+
+[`interaction_progif.py`](../generators/interaction_progif.py)は`program_interface_regions@1`を定義します。
+第24章×第25章は全30件に対応します。第4章×第24章はprogramから書く件、第13章×第25章はinterfaceのtask・functionを通す件に対応し、第4章×第25章も補強します。
+
+### 因子・対象範囲
+
+呼出し側（program、module）、interfaceへの経路（ポート、modport、階層名）、書き方（直接の代入、interfaceのtask、`#0`の後に書くinterfaceのtask、interfaceのvoid function、呼出し側のtaskから呼ぶinterfaceのtask）、
+代入（blocking、NBA）、xへの反応（always、always_comb、連続代入、NBAで書くalways）、反応を置く場所（interfaceの中、interfaceをポートで受けるmodule）を交差します。
+全480行が合法です。functionの中のNBAは13.4.4が、programからinterfaceのサブルーチンを呼ぶことは24.5が認めています。
+virtual interfaceの経路は、kirimasimが未実装なので外し、[実装待ちの一覧](cross-verification-followup.md#models-waiting-for-kirimasim)に載せました。
+合法480行から30件を選びます。呼出し側・代入・反応、呼出し側・書き方・代入、呼出し側・経路・書き方、呼出し側・反応・場所の3因子群を含む213目標と、必須10件を保持します。
+
+### 何を区別するか
+
+呼出し側は時刻5に進捗を1にしてから、interfaceの変数x（初期値`8'h11`）へ`8'h5a`を書きます。書いた直後、`#0`の後（進捗を2にした直後）、その1後に、xと反応が書くy（初期値`8'h12`）を読みます。
+時刻1から待つ観測プロセスは、yが変わるたびに、その時点の進捗・時刻・回数を記録します。
+programのコードと、programから呼んだサブルーチンは、宣言した場所にかかわらずReactive領域群で実行されます（24.3.1、24.5）。programの`#0`はRe-Inactive領域で再開し（4.4.2.7）、NBAはRe-NBA領域で更新されます（24.3.1）。
+programの書込みに反応する設計側のプロセスはActive領域群で起床し（24.3.2）、Reactive領域群が空になるまで動きません（4.5）。そのためprogramは、書いた直後も`#0`の後も古いyを読み、観測プロセスは進捗2を見ます。
+moduleのblocking書込みでは、blockingで書く反応がActive領域で動き、`#0`で再開するInactive領域（4.4.2.3）より先に終わります。そのためmoduleは`#0`の後に新しいyを読み、観測プロセスは進捗1を見ます。
+NBAの書込みや、NBAで書く反応は、`#0`の再開より後のNBA・Re-NBA領域で更新されます。
+moduleが書いた直後のyの読取りは、4.7の割込みで反応が先に動くことがあり値が定まらないので、programの場合だけ置きます。
+
+### 独立検算と実行結果
+
+[`qualify_progif.py`](../tools/qualify_progif.py)は実際のSVを構文として読み、4.5の領域（Active・Inactive・NBA・Reactive・Re-Inactive・Re-NBA）を持つイベントスケジューラで実行します。
+スレッドは開始した手続きの領域群を保ち、modportは列挙した名前だけを通します。同じ領域の事象を正順と逆順で処理し、書込みで起床したプロセスがその場で割り込むかどうかを変えた4通りで実行し、すべてが同じ出力になることを求めます。全480プログラムが期待値と一致しました。
+moduleの書込みの直後にyを読む版は4通りで出力が分かれ、競合として退けられることも、単体テストで確かめています。
+[補助証跡](../coverage/interaction-qualification/progif.json)には、kirimasim `77c27531437c`での正常対照6件と実行可能な誤り9件を保存しました。誤りはすべて正常終了後の出力差で検出しました。
+
+kirimasim `77c27531437c`の[単一の全4,485件](../coverage/interaction-results/full-20261114-kirimasim-77c27531.json)で、追加30件は全PASSです。
+[全480行の1回実行](../coverage/interaction-qualification/progif-all-rows-20261114.json)でも、kirimasimは全行が一致しました。
+
+### 固定版の差異
+
+[固定Icarus 13.0](../coverage/interaction-results/progif-20261114-icarus13.json)は6件がPASSです。interfaceのポート、modportのimport、functionの中のNBAを受け付けず、programのblocking代入をReactive領域で実行しません。全480行では57行が一致します。
+[固定Verilator 5.052](../coverage/interaction-results/progif-20261114-verilator5052-seed1.json)（[seed 73](../coverage/interaction-results/progif-20261114-verilator5052-seed73.json)も）は20件がPASSです。
+programをmoduleと同じ領域で実行し、`#0`の直後のblocking書込みにalways・always_comb・連続代入が反応しないことがあります。全480行では372行が一致します。[固定版の差異一覧](simulator-differences.ja.md#program-interface-differences)も参照してください。

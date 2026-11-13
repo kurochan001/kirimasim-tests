@@ -102,6 +102,7 @@ import interaction_assertquery
 import interaction_litarg
 import interaction_scopeclass
 import interaction_casedigit
+import interaction_progif
 import interaction_simend
 import interaction_agglit
 import interaction_delayval
@@ -120,7 +121,7 @@ import combination_monitors
 import scheduling
 from interaction_cover import Model, Row
 
-GENERATORS = (interaction_simend, interaction_scopeclass, interaction_casedigit, interaction_agglit, interaction_delayval, interaction_pkglookup, interaction_escname, interaction_hierproc, interaction_hiername, interaction_arrayloop, interaction_paramtype, interaction_assertquery, interaction_litarg, interaction_ifexpr, interaction_loopsched, interaction_litfmt, interaction_macro, interaction_force, interaction_sense, interaction_gatearray, interaction_literal, interaction_timescope, interaction_eventflow, interaction_pkgquery, interaction_progframe, interaction_scansel, interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
+GENERATORS = (interaction_progif, interaction_simend, interaction_scopeclass, interaction_casedigit, interaction_agglit, interaction_delayval, interaction_pkglookup, interaction_escname, interaction_hierproc, interaction_hiername, interaction_arrayloop, interaction_paramtype, interaction_assertquery, interaction_litarg, interaction_ifexpr, interaction_loopsched, interaction_litfmt, interaction_macro, interaction_force, interaction_sense, interaction_gatearray, interaction_literal, interaction_timescope, interaction_eventflow, interaction_pkgquery, interaction_progframe, interaction_scansel, interaction_genexpr, interaction_ifquery, interaction_genloop, interaction_class_select, interaction_gensub, interaction_class_import, scheduling, interaction_nba, interaction_expr, interaction_select, interaction_cond,
               interaction_shift, interaction_cast, interaction_task, interaction_binding,
               interaction_struct, interaction_case, interaction_port,
               interaction_array, interaction_query, interaction_stream,
@@ -953,6 +954,15 @@ def registered() -> tuple[SuiteModel, ...]:
             interaction_casedigit.MODEL.select(),
             "?・z・xの桁を持つ二進・八進・十六進・十進のリテラルを、先頭の桁と幅を変えてcaseの項目に書き、"
             "case・casez・casex・case insideで、桁の埋め方と比べ方を確かめる。",
+        ),
+        SuiteModel(
+            interaction_progif.MODEL,
+            lambda row: "tests/gen/ch24/" + interaction_progif.case_name(row) + ".sv",
+            interaction_progif.MODEL.select(),
+            "programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtask・void function・自身のtaskを経由して、"
+            "ポート・modport・階層名からinterfaceの変数をblockingかNBAで書く。書いた直後・#0の後・1後の読取りと、"
+            "interfaceか受け側のmoduleで反応するalways・always_comb・連続代入・NBAが見た進捗から、"
+            "書込みと反応の領域群を確かめる。",
         ),
         SuiteModel(
             interaction_simend.MODEL,

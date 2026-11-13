@@ -607,3 +607,14 @@ kirimasim `afc7733c8167`で、正常対照6件はすべて一致し、誤ったS
 固定版比較は、[Icarus](../interaction-results/simend-20261114-icarus13.json)が38 pass・4 known、Verilatorは[seed 1](../interaction-results/simend-20261114-verilator5052-seed1.json)・[seed 73](../interaction-results/simend-20261114-verilator5052-seed73.json)とも20 pass・22 knownです。
 [全行の記録](simend-all-rows-20261114.json)は全288行の一度きりの実行で、固定suiteや要求カバレッジへ加算しません。kirimasimは全行、Icarusは`$exit`以外の252行、Verilatorは90行が一致します。
 [設計と再実行](../../docs/interaction-verification.md#simulation-end-sources)を参照してください。
+
+<a id="program-interface-qualification"></a>
+
+## programとinterfaceの間の書込みと反応の領域の独立確認
+
+[`progif.json`](progif.json)は全480行を独立した解釈で照合します。解釈は、同じ領域の事象の順序と、書込みで起床したプロセスがその場で割り込むかどうかを変えた4通りで同じ出力になることを求めます。
+kirimasim `77c27531437c`で、正常対照6件はすべて一致し、誤ったSV 9件はすべて正常終了後の出力差で検出しました。
+選択した全4,485件は`77c27531437c`の[単一実行](../interaction-results/full-20261114-kirimasim-77c27531.json)で3,997 pass・484 unsupported・4 failです。追加30件は全PASSで、従来4,455件の状態は不変です。112モデル・192章対・全選択ケースPASSは87モデルです。
+固定版比較は、[Icarus](../interaction-results/progif-20261114-icarus13.json)が6 pass・24 known、Verilatorは[seed 1](../interaction-results/progif-20261114-verilator5052-seed1.json)・[seed 73](../interaction-results/progif-20261114-verilator5052-seed73.json)とも20 pass・10 knownです。
+[全行の記録](progif-all-rows-20261114.json)は全480行の一度きりの実行で、固定suiteや要求カバレッジへ加算しません。kirimasimは全行、Icarusは57行、Verilatorは372行が一致します。
+[設計と再実行](../../docs/interaction-verification.md#program-interface-regions)を参照してください。

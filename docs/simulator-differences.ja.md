@@ -969,6 +969,18 @@ Verilator両seedは各3 pass・33 knownで、既知値2件だけにoracleを登�
 固定Verilator 5.052は、上の節と同じく入れ子のprogramを拒否し、[`$fatal`でfinal手続きを実行しません](#verilator-5052)。両seedとも20件が一致します。
 kirimasim `afc7733c8167`は全42件と全288行が一致しました。期待値は変えていません。
 
+<a id="program-interface-differences"></a>
+
+## programとinterfaceの間の書込みと反応の領域（2026-11-14）
+
+[programとinterfaceの領域のモデル](interaction-verification.md#program-interface-regions)では、記録済みの差異と、コンパイルで止まる未対応だけが出ました。
+固定Icarus 13.0は6件が一致し、全480行では57行が一致します。interfaceのポートとmodportのimportをコンパイルできません。functionの中のNBAも拒否しますが、13.4.4はこれを認めています。
+コンパイルできる行では、[上の表](#icarus-verilog-130)の24.5・24.3.1の行と同じく、programのblocking代入をReactive領域で実行しません。
+固定Verilator 5.052は両seedとも20件が一致し、全480行（seed 1）では372行が一致します。
+[上の表](#verilator-5052)の24.3.1の行と同じくprogramをmoduleと同じ領域で実行し、9.2.2.2・4.4.2.3の行と同じく`#0`の直後のblocking書込みにalways・always_comb・連続代入が反応しないことがあります。
+後者はinterfaceのtaskを使わない、moduleの中の`#5; #0; x = 8'h5a;`だけでも再現しました。
+kirimasim `77c27531437c`は全30件と全480行が一致しました。期待値は変えていません。
+
 <a id="package-query-differences"></a>
 
 ## package配列の問い合わせと修飾名付き書込み（2026-11-06）

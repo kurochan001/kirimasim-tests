@@ -6,7 +6,9 @@ Updated on 2026-11-06 JST, retaining the repair records from 2026-11-03. Preserv
 and selected models while addressing known failures, inventorying unsupported mechanisms
 and reviewing unexamined chapter pairs, in that order.
 
-The current [complete local selection](../coverage/interaction-results/full-20261114-kirimasim-afc7733c.json) has 111 models and 4,455 cases, run on kirimasim `afc7733c8167`: 3,967 pass, 484 unsupported and only the four config failures. A model for where the run is ended was added on 2026-11-14; see the [last section](#simulation-end-sources-20261114).
+The current [complete local selection](../coverage/interaction-results/full-20261114-kirimasim-77c27531.json) has 112 models and 4,485 cases, run on kirimasim `77c27531437c`: 3,997 pass, 484 unsupported and only the four config failures. A model for the regions between a program and an interface was added on 2026-11-14; see the [last section](#program-interface-regions-20261114).
+
+The one before it has 111 models and 4,455 cases ([run](../coverage/interaction-results/full-20261114-kirimasim-afc7733c.json) on kirimasim `afc7733c8167`): 3,967 pass, 484 unsupported and only the four config failures. A model for where the run is ended was added the same day; see [its section](#simulation-end-sources-20261114).
 
 The selection before it, the [complete local selection](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-dpi-array.json) of 110 models and 4,413 cases, ran on kirimasim `7de185f776a1`: 3,915 pass, 484 unsupported and the same 14 failures. Two models were revised on 2026-11-12 so that they select no equal cases; see the [section on them](#cross-models-without-duplicate-cases). The same day one expected value of the model `dpi_openarray_shape` was corrected and the selection ran again; see [that section](#dpi-array-increment-20261112).
 
@@ -170,10 +172,10 @@ Requirement bindings, thirteen random profiles, existing regressions and core so
 
 ## Candidates waiting for kirimasim
 
-The six items below were left out because kirimasim has not implemented them. They have no tests yet, so no result changes when the feature arrives, and only a check reveals it.
+The seven items below were left out because kirimasim has not implemented them. They have no tests yet, so no result changes when the feature arrives, and only a check reveals it.
 When a full cross run uses a new kirimasim build, try the programs below. When one no longer reports `not implemented yet`, add the model or observation.
 The 529 existing unsupported cases are not listed: they have tests, and their results change once the feature is implemented.
-Add anything else left out for this reason here, and remove an item once it is added. The status is from kirimasim `33cee3fa2f0d` on 2026-11-08; all six are unchanged since `f029ddd0eee1`, and all six are still not implemented on `afc7733c8167` of 2026-11-14.
+Add anything else left out for this reason here, and remove an item once it is added. The status is from kirimasim `33cee3fa2f0d` on 2026-11-08; all six are unchanged since `f029ddd0eee1`, and all six are still not implemented on `afc7733c8167` and `77c27531437c` of 2026-11-14. The seventh, the virtual interface, was added on 2026-11-14 with `77c27531437c`.
 
 Take expectations from the standard, and check them by [running every legal row once](interaction-verification-method.en.md#run-every-legal-row-once).
 
@@ -276,6 +278,22 @@ module top;
 endmodule
 ```
 
+### A virtual interface route (a route added to `program_interface_regions`)
+
+kirimasim reports the type of a virtual interface variable as `unsupported: type '...'`, not implemented yet. The 13 existing `class_virtual_interface` cases are unsupported too.
+In 25.9, the components of a virtual interface can be read and written in procedural statements, and a write changes the variable of the instance that was assigned.
+Once it is implemented, put the virtual interface back among the routes of [`interaction_progif.py`](../generators/interaction_progif.py), raise `VERSION` and refresh the evidence. The selected inputs change, so the full cross run is needed too.
+Pinned Icarus 13.0 does not accept a virtual interface declaration, and pinned Verilator 5.052 prints `5a` for the program below.
+
+```systemverilog
+interface bus_if; logic [7:0] x = 8'h11; endinterface
+module top;
+  bus_if u();
+  virtual bus_if v;
+  initial begin v = u; v.x = 8'h5a; #1 $display("%h", u.x); $finish; end
+endmodule
+```
+
 ## Macro expansion, force and release, implicit sensitivity (2026-11-07)
 
 - Added models for [macro expansion](interaction-verification.en.md#macro-expansion-context), [force and release](interaction-verification.en.md#force-release-visibility) and [implicit sensitivity](interaction-verification.en.md#implicit-sensitivity-update).
@@ -362,3 +380,13 @@ endmodule
 - `$exit` from a module thread is left out of the model, since 20.2 and 24.7 treat it differently.
 - One complete 4,455-case run on kirimasim `afc7733c8167` records 3,967 pass, 484 unsupported and 4 failures. All 42 additions pass, and the 10 cases that failed before now pass. Totals: 111 models, 191 chapter pairs, 86 full-selection-pass models.
 - Every one of the 288 legal rows ran once. kirimasim matches every row. Pinned Icarus 13.0 cannot run the 36 `$exit` rows, and pinned Verilator 5.052 rejects a nested program and does not run the final procedure after `$fatal`.
+
+<a id="program-interface-regions-20261114"></a>
+
+## Regions of writes and reactions between a program and an interface (2026-11-14)
+
+- Chapter 24 x 25, which was under review, moved from R to M with the [program and interface region model](interaction-verification.en.md#program-interface-regions). Chapters 4 x 24, 4 x 25 and 13 x 25 are reinforced.
+- A program or a module writes an interface variable with a blocking or nonblocking assignment, directly, from an interface task, from a task that writes after `#0`, from a void function or through its own task, reaching it through a port, a modport or a hierarchical name. 30 cases were selected from 480 legal rows.
+- The virtual interface route is left out, since kirimasim has not implemented it, and is added to the [candidates waiting for kirimasim](#models-waiting-for-kirimasim).
+- One complete 4,485-case run on kirimasim `77c27531437c` records 3,997 pass, 484 unsupported and 4 failures. All 30 additions pass, and the statuses of the preceding 4,455 cases are unchanged from `afc7733c8167`. Totals: 112 models, 192 chapter pairs, 87 full-selection-pass models.
+- Every one of the 480 legal rows ran once. kirimasim matches every row. Pinned Icarus 13.0 cannot compile an interface port or a modport import and matches 57 rows; pinned Verilator 5.052 runs a program in the same regions as a module and matches 372 rows. Both are [recorded differences](simulator-differences.md#program-interface-differences).

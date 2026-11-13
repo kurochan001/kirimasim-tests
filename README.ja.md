@@ -54,13 +54,13 @@ Icarus Verilog、Verilator、kirimasim、
 以下は収録本数と確認元の内訳で、現在のシミュレータのPASS数ではありません。[`:lrm:`と`:oracle:`が記録すること](docs/faq.md#q4-are-expected-outputs-copied-from-a-simulator)を参照してください。
 
 <!-- suite-stats:begin -->
-スイートには38章にわたり**12314本のテスト**があります。 うち5767本は自動生成です。生成器ごとの本数と対象は[生成器カタログ](docs/generators.ja.md)で確認できます。
+スイートには38章にわたり**12344本のテスト**があります。 うち5797本は自動生成です。生成器ごとの本数と対象は[生成器カタログ](docs/generators.ja.md)で確認できます。
 
 | 期待結果の確認元 | テスト数 |
 | --- | ---: |
-| Icarus Verilog 13.0（`:oracle:`に`iverilog@13.0`） | 6427 |
-| Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | 2235 |
-| 規格のみ（固定リリースのシミュレータのoracle登録なし） | 3652 |
+| Icarus Verilog 13.0（`:oracle:`に`iverilog@13.0`） | 6433 |
+| Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | 2249 |
+| 規格のみ（固定リリースのシミュレータのoracle登録なし） | 3662 |
 
 2914本はx/z値に依存します（`:fourstate: yes`）。687本にはCコードがあり、内訳はDPIが186本（`:dpi_c:`）、VPIが501本（`:vpi_c:`）です。1975本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。75本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル23本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定54本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
 
@@ -87,7 +87,7 @@ Icarus Verilog、Verilator、kirimasim、
 | 21 | 入出力用システムタスク・関数 | 495 | 352 | 37 | 106 |
 | 22 | コンパイラ指令 | 516 | 437 | 38 | 41 |
 | 23 | モジュールと階層 | 417 | 281 | 57 | 79 |
-| 24 | プログラム | 167 | 31 | 24 | 112 |
+| 24 | プログラム | 197 | 37 | 38 | 122 |
 | 25 | インターフェース | 262 | 90 | 119 | 53 |
 | 26 | パッケージ | 262 | 90 | 70 | 102 |
 | 27 | generate構文 | 283 | 231 | 19 | 33 |
@@ -160,14 +160,14 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 
 [機能間クロス検証](docs/interaction-verification.md)は、制約付きの2因子網羅を基本に、
 重点的に確認する高次因子群と必須の境界ケースを併用します。短時間実行用の選択は
-**111モデル・4,455件**です。値・型の変換、スケジューリング、引数・参照の結合先、
+**112モデル・4,485件**です。値・型の変換、スケジューリング、引数・参照の結合先、
 スコープ・階層、状態保持、I/Oなどの相互作用を扱います。通常の全件実行では既存テストを
 すべて保持し、規格要求の分母は変更しません。
 
-**kirimasim `afc7733c8167`**による
-[最新の全クロス保存実行](coverage/interaction-results/full-20261114-kirimasim-afc7733c.json)は、
-**3,967 pass・484 unsupported・4 fail**です。
-この保存実行は111モデル・選択4,455件です。
+**kirimasim `77c27531437c`**による
+[最新の全クロス保存実行](coverage/interaction-results/full-20261114-kirimasim-77c27531.json)は、
+**3,997 pass・484 unsupported・4 fail**です。
+この保存実行は112モデル・選択4,485件です。
 CheckとNightlyは、生成したクロステストを固定スイートのほかのテストと一緒に実行します。Nightlyの最新の結果は[`results`ブランチのレポート](https://github.com/kurochan001/kirimasim-tests/tree/results#readme)にあります。
 入力と元の期待値を保持し、failの4件は固定版slangへ
 切り分けたconfigのパラメータリセットです。11→9→4の履歴、全出力の再現、未対応19機構の内訳、

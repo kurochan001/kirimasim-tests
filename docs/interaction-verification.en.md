@@ -14,7 +14,13 @@ Before reading model counts, see [a three-way condition missing from 100% pairwi
 
 ## Saved-run summary
 
-The 2026-11-14 addition for where the run is ended and how it ends brings totals to **111 models / 4,455 cases / 191 chapter pairs**.
+The 2026-11-14 addition for the regions of writes and reactions between a program and an interface brings totals to **112 models / 4,485 cases / 192 chapter pairs**.
+The [single run](../coverage/interaction-results/full-20261114-kirimasim-77c27531.json) on kirimasim `77c27531437c`, built from the latest main, records
+**3,997 pass / 484 unsupported / 4 fail**: only the four existing config failures.
+All 30 additions pass, and the preceding 4,455 inputs and statuses are unchanged. 87 models pass their entire selection.
+See [the regions of writes and reactions between a program and an interface](#program-interface-regions) for the independent check and the pinned comparisons.
+
+The addition on the same day for where the run is ended and how it ends brought totals to **111 models / 4,455 cases / 191 chapter pairs**.
 The [single run](../coverage/interaction-results/full-20261114-kirimasim-afc7733c.json) on kirimasim `afc7733c8167`, built from the latest main, records
 **3,967 pass / 484 unsupported / 4 fail**: only the four existing config failures.
 All 42 additions pass. The four `defparam` type and range cases and the six class cases in generate blocks, which failed before, now pass. The preceding 4,413 inputs are unchanged. 86 models pass their entire selection.
@@ -4743,3 +4749,44 @@ In the [one run of all 288 rows](../coverage/interaction-qualification/simend-al
 [Pinned Icarus 13.0](../coverage/interaction-results/simend-20261114-icarus13.json) passes 38 cases. It cannot run the four `$exit` cases. Over all 288 rows, the 252 rows without `$exit` match.
 [Pinned Verilator 5.052](../coverage/interaction-results/simend-20261114-verilator5052-seed1.json) (also at [seed 73](../coverage/interaction-results/simend-20261114-verilator5052-seed73.json)) passes 20 cases.
 It rejects a nested program as unsupported, and does not run the final procedure after `$fatal`. Over all 288 rows, 90 match.
+
+<a id="program-interface-regions"></a>
+
+## Regions of writes and reactions between a program and an interface (2026-11-14)
+
+[`interaction_progif.py`](../generators/interaction_progif.py) defines `program_interface_regions@1`.
+Chapters 24×25 map all 30 cases. Chapters 4×24 map the writes from a program, chapters 13×25 the writes through an interface task or function, and chapters 4×25 are reinforced.
+
+### Factors and scope
+
+The model crosses the caller (a program, a module), the route to the interface (a port, a modport, a hierarchical name), the way of writing (a direct assignment, an interface task, an interface task that writes after `#0`, an interface void function, an interface task called from a task of the caller),
+the assignment (blocking, nonblocking), the reaction to x (always, always_comb, a continuous assignment, an always procedure that writes with a nonblocking assignment) and the place of the reaction (inside the interface, in a module that takes the interface as a port).
+All 480 rows are legal: 13.4.4 allows a nonblocking assignment in a function, and 24.5 allows a program to call interface subroutines.
+The virtual interface route is left out, because kirimasim has not implemented it, and is listed among the [models waiting for kirimasim](cross-verification-followup.en.md#models-waiting-for-kirimasim).
+30 cases are selected from 480 legal rows. They keep 213 targets, including the three-factor groups caller-assignment-reaction, caller-way-assignment, caller-route-way and caller-reaction-place, and 10 mandatory cases.
+
+### What it distinguishes
+
+At time 5 the caller sets the progress to 1 and writes `8'h5a` to the interface variable x (initially `8'h11`). It reads x and the y written by the reaction (initially `8'h12`) right after the write, after `#0` (right after setting the progress to 2) and one unit later.
+An observer that waits from time 1 records the progress, the time and the count each time y changes.
+Program code, and the subroutines that a program calls wherever they are declared, run in the reactive region set (24.3.1, 24.5). A program's `#0` resumes in the Re-Inactive region (4.4.2.7), and its nonblocking assignment updates in the Re-NBA region (24.3.1).
+A design process that reacts to a program write wakes in the active region set (24.3.2) and does not run until the reactive region set is empty (4.5). So the program reads the old y both right after the write and after `#0`, and the observer sees progress 2.
+For a blocking write from a module, a reaction that writes with a blocking assignment runs in the Active region and ends before the Inactive region where `#0` resumes (4.4.2.3). So the module reads the new y after `#0`, and the observer sees progress 1.
+A nonblocking write, or a reaction that writes with a nonblocking assignment, updates in the NBA or Re-NBA region after `#0` resumes.
+The read of y right after a write from a module is placed only for a program, because the interruption of 4.7 may let the reaction run first and the value is not determined.
+
+### Independent check and runs
+
+[`qualify_progif.py`](../tools/qualify_progif.py) parses the actual SV and runs it on an event scheduler with the regions of 4.5 (Active, Inactive, NBA, Reactive, Re-Inactive, Re-NBA).
+A thread keeps the region set of the procedure it starts in, and a modport lets through only the names it lists. It runs every program four times, with the events of one region in forward and reverse order and with or without a woken process interrupting at once, and requires the same output each time. All 480 programs match their expectation.
+A unit test also checks that a version that reads y right after a write from a module gives different outputs in the four runs and is rejected as a race.
+The [auxiliary evidence](../coverage/interaction-qualification/progif.json) keeps six normal controls and nine executable faults on kirimasim `77c27531437c`. Every fault was detected by a difference in the output of a normal run.
+
+In the [single run of all 4,485 cases](../coverage/interaction-results/full-20261114-kirimasim-77c27531.json) on kirimasim `77c27531437c`, all 30 additions pass.
+In the [one run of all 480 rows](../coverage/interaction-qualification/progif-all-rows-20261114.json), every row matches on kirimasim too.
+
+### Pinned-release differences
+
+[Pinned Icarus 13.0](../coverage/interaction-results/progif-20261114-icarus13.json) passes 6 cases. It does not accept an interface port, a modport import or a nonblocking assignment in a function, and it does not run the blocking assignments of a program in the Reactive region. Over all 480 rows, 57 match.
+[Pinned Verilator 5.052](../coverage/interaction-results/progif-20261114-verilator5052-seed1.json) (also at [seed 73](../coverage/interaction-results/progif-20261114-verilator5052-seed73.json)) passes 20 cases.
+It runs a program in the same regions as a module, and an always procedure, always_comb or a continuous assignment sometimes does not react to a blocking write right after `#0`. Over all 480 rows, 372 match. See also the [pinned-release differences](simulator-differences.md#program-interface-differences).

@@ -1,0 +1,155 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "gen/ch24/test_gen_cross_progif_module_hier_delayed_blocking_comb_module": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch24/test_gen_cross_progif_module_hier_delayed_blocking_comb_module.sv:47: syntax error",
+   "inputs_sha256": "4de2ce50770e2383edaa7b2c8ee54ca2c74258c57e85e828ad88510ea4d46283"
+  },
+  "gen/ch24/test_gen_cross_progif_module_hier_direct_blocking_always_interface": {
+   "status": "pass",
+   "inputs_sha256": "130bdde1e58a9de7a4ed89984718b9e7e11eeb68829d95f0f926fcd4b7a98fcd"
+  },
+  "gen/ch24/test_gen_cross_progif_module_hier_function_blocking_always_interface": {
+   "status": "pass",
+   "inputs_sha256": "839cc6561e77fdfe5ec6f89ed5f02ad0fd8fa239bf5177419fff04874456dd63"
+  },
+  "gen/ch24/test_gen_cross_progif_module_hier_task_nba_assign_interface": {
+   "status": "pass",
+   "inputs_sha256": "660760cdef4bd5f0931ecab34beae24613050635bd50a6ede4a7887e2a948536"
+  },
+  "gen/ch24/test_gen_cross_progif_module_hier_wrapper_blocking_assign_interface": {
+   "status": "pass",
+   "inputs_sha256": "391ee613e8fca0708aaab0d5780dded9be72c6d36da36be58adb2e1ca5c5819d"
+  },
+  "gen/ch24/test_gen_cross_progif_module_modport_delayed_nba_assign_module": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch24/test_gen_cross_progif_module_modport_delayed_nba_assign_module.sv:45: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "e58f51f8a3865d06db544771169f0de66fc70f5efdd598e1f54b3388767a56e0"
+  },
+  "gen/ch24/test_gen_cross_progif_module_modport_direct_nba_always_module": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch24/test_gen_cross_progif_module_modport_direct_nba_always_module.sv:44: syntax error",
+   "inputs_sha256": "21e4243f3d8d46aabe6fdbe5bf2de7228898c4a0c68af581251dcad25ab2937e"
+  },
+  "gen/ch24/test_gen_cross_progif_module_modport_function_blocking_nba_interface": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch24/test_gen_cross_progif_module_modport_function_blocking_nba_interface.sv:44: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "b9880b60d4bba5949fa04c878e871fea81a0b07ec23e18a0a650654d9af14bff"
+  },
+  "gen/ch24/test_gen_cross_progif_module_modport_task_blocking_always_interface": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch24/test_gen_cross_progif_module_modport_task_blocking_always_interface.sv:44: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "ecf553b3ddbfbbef0bf16a5d528202948121d624f1f416e9c44faf826e8b1ca8"
+  },
+  "gen/ch24/test_gen_cross_progif_module_modport_wrapper_blocking_always_interface": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch24/test_gen_cross_progif_module_modport_wrapper_blocking_always_interface.sv:44: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "2c8b9efddd6e7e5571da5b82cbe938b7e076c0b788e86490a83c7879a8a5c98f"
+  },
+  "gen/ch24/test_gen_cross_progif_module_port_delayed_blocking_always_interface": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch24/test_gen_cross_progif_module_port_delayed_blocking_always_interface.sv:57: syntax error",
+   "inputs_sha256": "719f1a26fdc052f0b04893db3d879a989287d7d9b8a3a1a9f22b34f88d71377e"
+  },
+  "gen/ch24/test_gen_cross_progif_module_port_direct_blocking_nba_interface": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch24/test_gen_cross_progif_module_port_direct_blocking_nba_interface.sv:53: syntax error",
+   "inputs_sha256": "1d23a13bee85d9f82060ec7145ae5d769934d0c8dc693e7e6ca2a099475d2196"
+  },
+  "gen/ch24/test_gen_cross_progif_module_port_function_nba_comb_interface": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch24/test_gen_cross_progif_module_port_function_nba_comb_interface.sv:56: syntax error",
+   "inputs_sha256": "f6ca677f7e8ef5953a5d395d5ad182c4448bc15b9a757955bc380354aab2e460"
+  },
+  "gen/ch24/test_gen_cross_progif_module_port_task_blocking_always_interface": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch24/test_gen_cross_progif_module_port_task_blocking_always_interface.sv:56: syntax error",
+   "inputs_sha256": "fd7f6d050a0b2d08b7263a0f870651e411ce3272829777951b787813ef24536a"
+  },
+  "gen/ch24/test_gen_cross_progif_module_port_wrapper_nba_nba_module": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch24/test_gen_cross_progif_module_port_wrapper_nba_nba_module.sv:46: syntax error",
+   "inputs_sha256": "cce23865a21c6a8344d5b85db7a5004ca021abde483961cf2e4ba4383ca38b72"
+  },
+  "gen/ch24/test_gen_cross_progif_program_hier_delayed_nba_nba_module": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch24/test_gen_cross_progif_program_hier_delayed_nba_nba_module.sv:47: syntax error",
+   "inputs_sha256": "b0fefff46c675b7ad1d9e1d15d3141b8bf8025c095912d620d905af2532b8b36"
+  },
+  "gen/ch24/test_gen_cross_progif_program_hier_direct_nba_assign_interface": {
+   "status": "pass",
+   "inputs_sha256": "e3e018519ac17c3697d24b876828a334a3182232a5f6792a7247d70fde895a05"
+  },
+  "gen/ch24/test_gen_cross_progif_program_hier_function_blocking_always_module": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch24/test_gen_cross_progif_program_hier_function_blocking_always_module.sv:46: syntax error",
+   "inputs_sha256": "94a3df16a03296dbba79fb27973f04135b3fcbca3f1a7e458354c1be0f9de3de"
+  },
+  "gen/ch24/test_gen_cross_progif_program_hier_task_blocking_nba_interface": {
+   "status": "pass",
+   "inputs_sha256": "536801c1f78912cc3c296f2a590ecc0ebfbc032f22f2b4eba8ca6ba0661bdd6a"
+  },
+  "gen/ch24/test_gen_cross_progif_program_hier_wrapper_blocking_comb_interface": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'a0=5a b0=12 a1=5a b1=5b a2=5a b2=5b ph=1 wt=5 nw=1', expected 'a0=5a b0=12 a1=5a b1=12 a2=5a b2=5b ph=2 wt=5 nw=1'",
+   "inputs_sha256": "9d35e535b5d1eda64a40c6d1ca83b76dceaca2d61a8f3c121bc16dd013254165"
+  },
+  "gen/ch24/test_gen_cross_progif_program_modport_delayed_blocking_always_interface": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch24/test_gen_cross_progif_program_modport_delayed_blocking_always_interface.sv:45: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "05365e3823d0cab92f8d6e8bd12e115ad329ca281e8a55370ec86c81703c5787"
+  },
+  "gen/ch24/test_gen_cross_progif_program_modport_direct_blocking_always_interface": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch24/test_gen_cross_progif_program_modport_direct_blocking_always_interface.sv:54: syntax error",
+   "inputs_sha256": "503ae022551a4eddf821c424896050b52bb0defd729d980f1fff45bc4007b9ac"
+  },
+  "gen/ch24/test_gen_cross_progif_program_modport_function_blocking_always_interface": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch24/test_gen_cross_progif_program_modport_function_blocking_always_interface.sv:44: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "97f4b2d6b975295c22c6f239c181eac48c09f63e0485ac59119ebc0d346c536b"
+  },
+  "gen/ch24/test_gen_cross_progif_program_modport_task_nba_comb_module": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch24/test_gen_cross_progif_program_modport_task_nba_comb_module.sv:44: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "3f469b95e2d78e029e4d7bd5e63f5645b17559b212a87ae4ea45e624313e0105"
+  },
+  "gen/ch24/test_gen_cross_progif_program_modport_wrapper_blocking_assign_module": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch24/test_gen_cross_progif_program_modport_wrapper_blocking_assign_module.sv:44: sorry: modport task/function ports are not yet supported.",
+   "inputs_sha256": "db73e04bad76824636a8cf195d3ccd2645ea553bbadf53f63dd0bacb44970cf1"
+  },
+  "gen/ch24/test_gen_cross_progif_program_port_delayed_blocking_nba_interface": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch24/test_gen_cross_progif_program_port_delayed_blocking_nba_interface.sv:57: syntax error",
+   "inputs_sha256": "c99fd4b2a11f4132b955b78ad1e91bd3087ad582ee36a7459e76a46b156da86c"
+  },
+  "gen/ch24/test_gen_cross_progif_program_port_direct_blocking_comb_interface": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch24/test_gen_cross_progif_program_port_direct_blocking_comb_interface.sv:53: syntax error",
+   "inputs_sha256": "00b1e338308b83846030f66897f2b15c2be6845321b4158d1031614185576eb6"
+  },
+  "gen/ch24/test_gen_cross_progif_program_port_function_nba_assign_interface": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch24/test_gen_cross_progif_program_port_function_nba_assign_interface.sv:56: syntax error",
+   "inputs_sha256": "ad95d6db8439ac71ae7365f9958a8efac8c4d6eeb44fa405f85905f8c0f3a6d6"
+  },
+  "gen/ch24/test_gen_cross_progif_program_port_task_blocking_always_interface": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch24/test_gen_cross_progif_program_port_task_blocking_always_interface.sv:56: syntax error",
+   "inputs_sha256": "b75a410fee7207a9699e67b3869ee205042c98cd886133b2948c9784f9ea40e7"
+  },
+  "gen/ch24/test_gen_cross_progif_program_port_wrapper_nba_always_interface": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch24/test_gen_cross_progif_program_port_wrapper_nba_always_interface.sv:56: syntax error",
+   "inputs_sha256": "c0a640d1b7a534a3651f0ea7e0d9085c06e0b49a0915209edc0317633a747f18"
+  }
+ },
+ "generated_at": "2026-11-13T22:56:20.895137+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

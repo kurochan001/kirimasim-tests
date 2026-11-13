@@ -671,3 +671,15 @@
 - 合法な288行をすべて1回実行しました（`coverage/interaction-qualification/simend-all-rows-20261114.json`）。kirimasimは全行、Icarusは`$exit`以外の252行、Verilatorは90行が一致します。
 - kirimasimの実装を待つ6件の候補は、`afc7733c8167`でもまだ未実装です。
 - テストは12,314件、生成テストは5,767件になりました。カバレッジの割合は変わりません。
+
+### 2026-11-14（programとinterfaceの間の書込みと反応の領域のクロスモデル）
+
+- 未精査だった第24章×第25章に、クロスモデル`program_interface_regions`を加えました（[設計と結果](interaction-verification.md#program-interface-regions)）。programかmoduleが、直接・interfaceのtask・`#0`の後に書くtask・void function・自身のtaskを経由して、ポート・modport・階層名からinterfaceの変数をblockingかNBAで書き、interfaceか受け側のmoduleで反応するalways・always_comb・連続代入・NBAとの順序を確かめます。合法480行から30件を選びました。
+- 期待値は24.3.1、24.3.2、24.5、4.4.2、4.5、4.7から決めました。programのコードと、programから呼んだサブルーチンはReactive領域群で実行され、設計側の反応はその後になります。moduleのblocking書込みには、blockingの反応が`#0`の再開より先に動きます。moduleの書込みの直後のyの読取りは、4.7の割込みで値が定まらないので置きません。
+- 独立検算（`tools/qualify_progif.py`）は、同じ領域の事象の順序と、起床したプロセスがその場で割り込むかどうかを変えた4通りで全480行を解釈し、すべて期待値と一致しました。kirimasimで正常対照6件が一致し、誤り9件をすべて検出しました。
+- virtual interfaceの経路は、kirimasimが未実装なので外し、[実装待ちの一覧](cross-verification-followup.md#models-waiting-for-kirimasim)の7件目に加えました。
+- 最新のmainをビルドしたkirimasim `77c27531437c`の全4,485件の単一実行は、3,997 pass・484 unsupported・4 failです。追加30件は全PASSで、従来4,455件の状態は`afc7733c8167`から変わりません。112モデル・192章対・全選択ケースPASSは87モデルです。
+- 固定Icarus 13.0は6件、固定Verilator 5.052は両seedとも20件が一致します。違いはどちらも記録済みの差異か、コンパイルで止まる未対応です。oracleは`iverilog@13.0`が6件、`verilator@5.052`が14件、規格だけが10件です。
+- 合法な480行をすべて1回実行しました（`coverage/interaction-qualification/progif-all-rows-20261114.json`）。kirimasimは全行、Icarusは57行、Verilatorは372行が一致します。
+- kirimasimの実装を待つ6件の候補は、`77c27531437c`でもまだ未実装です。
+- テストは12,344件、生成テストは5,797件になりました。カバレッジの割合は変わりません。
