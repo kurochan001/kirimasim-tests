@@ -1,0 +1,4 @@
+in the cover on clk_a: [ 22 52 ]
+in the action block of the assertion on clk_b: [ 25 55 ]
+in a program initial procedure on posedge clk_e: [ 24 54 ]
+in a wait, default clocking on clk_d: [ 28 58 ]

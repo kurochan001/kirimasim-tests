@@ -1,0 +1,10 @@
+task calls: 2
+package scope: 12
+note hi
+hierarchical: 5 5
+attribute: 6
+positional then named: 18
+empty position: 16
+empty named actual: 19
+std::randomize: 1 42
+randomize in void cast: 7

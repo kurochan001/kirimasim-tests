@@ -1,0 +1,4 @@
+disable soft p, p only in the condition: failures 0, q always 5: 1
+disable soft q, q in the soft expression: failures 0, q always 5: 0
+disable soft p, p in the soft expression: failures 0, q always 5: 0
+no disable soft, p in the soft expression: failures 0, q always 5: 1

@@ -1,0 +1,4 @@
+argument solved first: at least 28 of 32 calls fail 1
+no function: failures 0, y other than 0 0
+randc in the lower set: failures 0, r other than y 0
+randc first in its set: failures 0, constraints broken 0, runs of 4 without all of 0 to 3 0

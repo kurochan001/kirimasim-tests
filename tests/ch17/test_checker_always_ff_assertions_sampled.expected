@@ -1,0 +1,9 @@
+immediate assert (b): 0
+immediate assert (clk): 1
+assert #0 (b): 0
+assert final (b): 0
+immediate assert (b): 1
+immediate assert (clk): 1
+assert #0 (b): 1
+assert final (b): 1
+hist=01 clks=2

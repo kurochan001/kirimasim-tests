@@ -1,0 +1,6 @@
+t=20 queue 2 removed job 5
+t=40 queue 1 removed job 1
+t=50 queue 1 length=2
+t=50 queue 1 code 5 longest=8 status=0
+t=50 queue 2 length=2
+t=50 queue 2 code 5 longest=50 status=0

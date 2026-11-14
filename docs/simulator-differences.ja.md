@@ -1344,3 +1344,15 @@ ch30/test_illegal_specify_path_to_input                           アサーシ�
 - Verilator 5.054は、exportしたtaskのCの結果を0か1ではなく不定の値にし、export内のdisableは呼び出し元のブロックを止めず`svIsDisabledState`も設定しない（35.9、H.8.2）。`ch35/test_dpi_export_task_c_result`
 - Verilator 5.054は、voidのimportとinout引数を持つimportの`pure`、`int`のopen arrayへの`shortint`の配列の実引数を受け付ける（35.5.2、35.5.6.1）。`ch35/test_illegal_dpi_pure_void_function`、`ch35/test_illegal_dpi_pure_inout_argument`、`ch35/test_illegal_dpi_open_array_element_type`
 - Verilator 5.054は、`vpiUserAllocFlag`付きの`vpi_get_value_array`で止まり、`vpiForceFlag`付きの`vpi_put_value`をforceできない信号として止め、`vpi_put_value_array`の`vpiTimeVal`と`vpiPropagateOff`を拒否し、配列のメンバーのcallbackでindexと時刻を0にする（38.16、38.34、38.35、38.36.1）。`ch38/test_vpi_get_value_array_user_buffers`、`ch38/test_vpi_force_release_driver_kinds`、`ch38/test_vpi_force_release_net_part_select`、`ch38/test_vpi_put_value_array_every_format`、`ch38/test_vpi_value_change_array_member_index`
+
+2026-11-14に3〜5・8〜13・16〜22・30・31・33章のために追加したテストは、さらに次の差異を示します（未対応の構文は載せません）。
+
+- Icarus Verilog 13.0は、VPIアプリケーションが登録したシステム関数`$size`で、動的配列とキューの組込みメソッド`size()`を置き換えてしまう（5.13）。`ch5/test_builtin_methods_unaffected_by_pli_systf`
+- Icarus Verilog 13.0は、関数の中で関数名と同じ名前の局所変数を宣言することを受け付ける（13.4.1）。`ch13/test_illegal_function_name_redeclared_inside_function`
+- Icarus Verilog 13.0は、モジュールパスの`vpi_get_delays`で`mtm_flag`を無視する（38.10）。`ch30/test_specify_path_delay_mintypmax_vpi`
+- Verilator 5.054は、actionがモジュールの変数に書くfinalの遅延アサーションを受け付ける（4.4.2.9、16.4）。`ch4/test_illegal_final_deferred_action_writes_variable`
+- Verilator 5.054は、手続き的連続代入の`assign`を一度だけの代入として扱い、変数が右辺に従わない（10.6.1）。`ch10/test_equals_token_assignment_contexts`
+- Verilator 5.054は、ネット型と大きさが同じ`wire [3:0]`と`wire signed [3:0]`のaliasを拒否する（10.11）。`ch10/test_alias_names_keep_own_declarations`
+- Verilator 5.054は、モジュールのtaskとインタフェースクラスのメソッドに付けたdynamic override specifierの`:initial`と、明示的にimportした関数と同じ名前の変数の宣言を受け付ける（13.3、13.4.1）。`ch13/test_illegal_dynamic_override_specifier_on_module_task`、`ch13/test_illegal_dynamic_override_specifier_in_interface_class`、`ch13/test_illegal_function_name_redeclared_in_importing_scope`
+- Verilator 5.054は、19.5が許すクラスの定数をbinの値に使うことを拒否する。`ch19/test_illegal_cg_constant_of_other_class`、`ch19/test_illegal_cg_constant_set_after_new`、`ch19/test_illegal_cg_constant_set_with_new_in_loop`、`ch19/test_illegal_cg_constant_set_with_new_in_fork`
+- Verilator 5.054は、表示のタスクの`%z`で21.2.1.1と違うバイトを書き、`$dumpports;`と`$dumpports();`を構文エラーにする（21.7.3.1）。`ch21/test_unformatted_u_z_in_display_and_scan_tasks`、`ch21/test_evcd_dumpports_bare_call_defaults`、`ch21/test_evcd_dumpports_empty_parentheses_defaults`

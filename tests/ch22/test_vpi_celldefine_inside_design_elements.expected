@@ -1,0 +1,3 @@
+test_vpi_celldefine_inside_design_elements: cell instance 0
+test_vpi_celldefine_inside_design_elements.c1: cell instance 1
+test_vpi_celldefine_inside_design_elements.p1: cell instance 0

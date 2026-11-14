@@ -4,7 +4,7 @@
 
 [English](ch4.md) / [日本語](ch4.ja.md)
 
-[すべての章](README.ja.md) .テストは478本で、そのうち386本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは480本で、そのうち386本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -13,6 +13,7 @@
 | [`test_nba_cross_module`](../../tests/ch4/test_nba_cross_module.sv) |テスト: NBA クロスモジュール可視性| 4.3 10.4.2 4.6 | Icarus Verilog 13.0 ||
 | [`test_nba_cross_module_timing`](../../tests/ch4/test_nba_cross_module_timing.sv) |親モジュールと子モジュールの間の正確な NBA タイミングを追跡| 4.3 | Icarus Verilog 13.0 ||
 | [`test_nba_port_propagation`](../../tests/ch4/test_nba_port_propagation.sv) |NBA 書き込みはポート接続を通して伝播する| 4.3 10.4.2 4.9.6 10.3 | Icarus Verilog 13.0 ||
+| [`test_pli_callbacks_are_evaluation_events`](../../tests/ch4/test_pli_callbacks_are_evaluation_events.sv) |登録した PLI コールバックは、予定された時間スロットの評価イベントである: それぞれはそのスロットのイベントの中の自分の制御点で動き、それより前のイベントが残した値を見て、書いた値は同じスロットで設計を起こす更新イベントになる| 4.3 4.10 38.36.2 | Icarus Verilog 13.0 | VPI |
 | [`test_sched_region_iteration`](../../tests/ch4/test_sched_region_iteration.sv) |タイムスロットはアクティブ、インアクティブ、NBA を繰り返し、反復作業が終わった後に 遅延状態に到達します。遅延状態の次のスロットは| 4.3 4.4 4.4.1 4.4.2 4.4.3.10 | Icarus Verilog 13.0 ||
 | [`test_update_event_wakes_sensitive_processes`](../../tests/ch4/test_update_event_wakes_sensitive_processes.sv) |変数またはネットの値の変更だけが更新イベントであり、更新イベントはそれに感度のあるすべてのプロセスを起動させます。| 4.3 4.5 9.4.2 | Icarus Verilog 13.0 ||
 | [`test_pli_time_slot_region_order`](../../tests/ch4/test_pli_time_slot_region_order.sv) |1 つのタイムスロットの領域は、シミュレーション領域の間に PLI 領域を挟んで、定められた順に来る：Preponed、Pre-Active、Active、Inactive、Pre-NBA、 NBA 、Observed、Reactive、Re-Inactive、Re-NBA、再び active 領域集合、Pre-Postponed、Postponed| 4.4 4.4.2 4.4.3 4.5 4.10 38.36.2 16.13.6 24.3.1 |規格のみ| VPI |
@@ -58,6 +59,7 @@
 | [`test_program_nonblocking_update_in_re_nba`](../../tests/ch4/test_program_nonblocking_update_in_re_nba.sv) |プログラムの非ブロック代入は、現在のタイムスロットの Re-NBA 領域で更新をスケジュールします。遅延代入の場合は、後の領域で更新します。つまり、更新はそのスロットの Reactive イベントの後に、アクティブ領域セットが再び実行される前に来ます。| 4.4.2.8 4.5 24.3.1 |規格のみ||
 | [`test_program_renba_after_zero_delay`](../../tests/ch4/test_program_renba_after_zero_delay.sv) |プログラム NBA の更新はゼロ遅延後に未着手ですが、時間が経過した後に見えるようになりました| 4.4.2.8 4.4.2.7 24.3.1 | Icarus Verilog 13.0 ||
 | [`test_illegal_final_deferred_action_schedules_event`](../../tests/ch4/test_illegal_final_deferred_action_schedules_event.sv) |最終遅延アサーションのアクションは Postponed 領域で実行されるので、ノンブロッキングのイベントトリガのようにタイムスロットの前の領域にイベントを予約するサブルーチンは呼べないが、表示だけを行うサブルーチンは合法である| 4.4.2.9 16.4 15.5.1 13.4.4 |規格のみ|規格違反の設計|
+| [`test_illegal_final_deferred_action_writes_variable`](../../tests/ch4/test_illegal_final_deferred_action_writes_variable.sv) |final 遅延アサーションのアクションは、ネットも変数も変わってはならない Postponed 領域で動くので、モジュール変数に書き込むサブルーチンを呼べない。表示するだけのサブルーチンは合法である| 4.4.2.9 16.4 |規格のみ|規格違反の設計|
 | [`test_postponed_strobe_monitor_after_reactive_writes`](../../tests/ch4/test_postponed_strobe_monitor_after_reactive_writes.sv) |$strobeと$monitorは遅延領域に印刷されます。それは変数がタイムスロットの NBA 、Reactive 、Re-NBA の書き込み後に持つ値を表示します。その間の値ではありません。| 4.4.2.9 4.5 21.2.2 21.2.3 24.3.1 | Icarus Verilog 13.0 ||
 | [`test_sched_monitor_once_per_time_step`](../../tests/ch4/test_sched_monitor_once_per_time_step.sv) |$monitor は、時間ステップごとに最大 1 行を出力し、その終わりに値を表示し、引数が変化しないステップでは何も出力しません。| 4.4.2.9 21.2.3 | Icarus Verilog 13.0 ||
 | [`test_sched_strobe_after_nba`](../../tests/ch4/test_sched_strobe_after_nba.sv) |$strobe は、ブロックしない更新とそれらが起動するプロセスの後、タイムステップの終わりに出力されます。| 4.4.2.9 21.2.2 10.4.2 | Icarus Verilog 13.0 ||

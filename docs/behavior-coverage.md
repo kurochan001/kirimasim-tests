@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 91.33%、Ghostを除く実行 50.51%、Ghostを含む実行 77.98%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 91.93%、Ghostを除く実行 50.75%、Ghostを含む実行 78.25%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 91.33%。** 規格要求の実行確認率: Ghostを除いて 50.51%、Ghostを含めて 77.98%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 91.93%。** 規格要求の実行確認率: Ghostを除いて 50.75%、Ghostを含めて 78.25%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対する要求カバレッジ（テスト設計）: 11238/12305 (91.33%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9595/12305 (77.98%)。
-- 登録済みだがテスト未対応: 1067 動作。
+- 登録済み動作に対する要求カバレッジ（テスト設計）: 11312/12305 (91.93%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9629/12305 (78.25%)。
+- 登録済みだがテスト未対応: 993 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。
 
@@ -33,13 +33,13 @@
 複数テストで一つの要求を分担する `check_groups` は、同じ実行環境・実行回で グループ内の全テストが成功した場合に限り成功とします。未指定の対応は独立した代替証拠です。
 
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12305 動作確認、古い入力との対応 0 件。
-- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3086/12305 動作確認、古い入力との対応 337 件。
-- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2989/12305 動作確認、古い入力との対応 337 件。
-- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3877/12305 動作確認、古い入力との対応 337 件。
-- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3589/12305 動作確認、古い入力との対応 25 件。
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7914/12305 動作確認、古い入力との対応 470 件。
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7994/12305 動作確認、古い入力との対応 406 件。
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7897/12305 動作確認、古い入力との対応 470 件。
+- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3085/12305 動作確認、古い入力との対応 338 件。
+- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2989/12305 動作確認、古い入力との対応 338 件。
+- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3878/12305 動作確認、古い入力との対応 338 件。
+- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3590/12305 動作確認、古い入力との対応 25 件。
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7915/12305 動作確認、古い入力との対応 472 件。
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7995/12305 動作確認、古い入力との対応 408 件。
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7898/12305 動作確認、古い入力との対応 472 件。
 - `intcompat-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T10:26:34.150974+00:00` / 1/12305 動作確認、古い入力との対応 0 件。
 - `intcompat-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T10:26:46.168015+00:00` / 1/12305 動作確認、古い入力との対応 0 件。
 - `intcompat-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T10:26:39.847047+00:00` / 0/12305 動作確認、古い入力との対応 0 件。
@@ -48,18 +48,18 @@
 - `oracle-tokens-2-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T22:25:00.894678+00:00` / 0/12305 動作確認、古い入力との対応 0 件。
 - `oracle-tokens-2-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T22:25:01.564353+00:00` / 2/12305 動作確認、古い入力との対応 0 件。
 - `oracle-tokens-2-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T22:25:02.208022+00:00` / 2/12305 動作確認、古い入力との対応 0 件。
-- `oracle-tokens-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T19:14:33.552454+00:00` / 11/12305 動作確認、古い入力との対応 3 件。
-- `oracle-tokens-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T19:14:36.020025+00:00` / 4/12305 動作確認、古い入力との対応 3 件。
-- `oracle-tokens-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T19:15:04.286693+00:00` / 4/12305 動作確認、古い入力との対応 3 件。
-- `oracle-tokens-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T19:15:22.924843+00:00` / 4/12305 動作確認、古い入力との対応 3 件。
+- `oracle-tokens-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T19:14:33.552454+00:00` / 4/12305 動作確認、古い入力との対応 15 件。
+- `oracle-tokens-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T19:14:36.020025+00:00` / 0/12305 動作確認、古い入力との対応 15 件。
+- `oracle-tokens-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T19:15:04.286693+00:00` / 0/12305 動作確認、古い入力との対応 15 件。
+- `oracle-tokens-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T19:15:22.924843+00:00` / 0/12305 動作確認、古い入力との対応 15 件。
 - `oracle-tokens-3-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T23:13:00.161260+00:00` / 1/12305 動作確認、古い入力との対応 0 件。
 - `oracle-tokens-3-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T23:13:04.014714+00:00` / 0/12305 動作確認、古い入力との対応 0 件。
 - `oracle-tokens-3-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:01.978891+00:00` / 1/12305 動作確認、古い入力との対応 0 件。
 - `oracle-tokens-3-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:03.804411+00:00` / 1/12305 動作確認、古い入力との対応 0 件。
-- `reqgap-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T02:14:23.703451+00:00` / 5/12305 動作確認、古い入力との対応 0 件。
-- `reqgap-20261114-kirimasim-77c27531.json`: `kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401` / `2026-11-14T02:15:42.861980+00:00` / 15/12305 動作確認、古い入力との対応 0 件。
-- `reqgap-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:15:04.150898+00:00` / 12/12305 動作確認、古い入力との対応 0 件。
-- `reqgap-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:15:42.524351+00:00` / 12/12305 動作確認、古い入力との対応 0 件。
+- `reqgap-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T02:14:23.703451+00:00` / 4/12305 動作確認、古い入力との対応 1 件。
+- `reqgap-20261114-kirimasim-77c27531.json`: `kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401` / `2026-11-14T02:15:42.861980+00:00` / 14/12305 動作確認、古い入力との対応 1 件。
+- `reqgap-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:15:04.150898+00:00` / 11/12305 動作確認、古い入力との対応 1 件。
+- `reqgap-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:15:42.524351+00:00` / 11/12305 動作確認、古い入力との対応 1 件。
 - `reqgap2-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T05:44:47.296047+00:00` / 5/12305 動作確認、古い入力との対応 0 件。
 - `reqgap2-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T05:45:47.127832+00:00` / 8/12305 動作確認、古い入力との対応 0 件。
 - `reqgap2-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T05:45:18.982868+00:00` / 6/12305 動作確認、古い入力との対応 0 件。
@@ -68,6 +68,10 @@
 - `reqgap3-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T08:10:25.089652+00:00` / 5/12305 動作確認、古い入力との対応 0 件。
 - `reqgap3-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T08:09:50.844161+00:00` / 9/12305 動作確認、古い入力との対応 0 件。
 - `reqgap3-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T08:10:24.715784+00:00` / 9/12305 動作確認、古い入力との対応 0 件。
+- `reqgap5-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T14:45:27.599657+00:00` / 33/12305 動作確認、古い入力との対応 0 件。
+- `reqgap5-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T14:47:44.027905+00:00` / 24/12305 動作確認、古い入力との対応 0 件。
+- `reqgap5-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T14:46:35.374894+00:00` / 16/12305 動作確認、古い入力との対応 0 件。
+- `reqgap5-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T14:47:43.190246+00:00` / 16/12305 動作確認、古い入力との対応 0 件。
 - `runtime-errors-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-12T01:03:42.109814+00:00` / 0/12305 動作確認、古い入力との対応 0 件。
 - `runtime-errors-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-12T01:03:42.439195+00:00` / 1/12305 動作確認、古い入力との対応 0 件。
 - `runtime-errors-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T01:03:46.712402+00:00` / 1/12305 動作確認、古い入力との対応 0 件。
@@ -318,26 +322,26 @@
 
 - 1 Overview: 解釈保留なし 12/12、登録 0、テスト対応 0。
 - 2 Normative references: 解釈保留なし 1/1、登録 2、テスト対応 0。
-- 3 Design and verification building blocks: 解釈保留なし 22/22、登録 146、テスト対応 124。
-- 4 Scheduling semantics: 解釈保留なし 40/40、登録 107、テスト対応 88。
-- 5 Lexical conventions: 解釈保留なし 21/21、登録 154、テスト対応 136。
+- 3 Design and verification building blocks: 解釈保留なし 22/22、登録 146、テスト対応 127。
+- 4 Scheduling semantics: 解釈保留なし 40/40、登録 107、テスト対応 90。
+- 5 Lexical conventions: 解釈保留なし 21/21、登録 154、テスト対応 143。
 - 6 Data types: 解釈保留なし 92/92、登録 720、テスト対応 710。
 - 7 Aggregate data types: 解釈保留なし 61/61、登録 347、テスト対応 337。
 - 8 Classes: 解釈保留なし 49/49、登録 255、テスト対応 238。
 - 9 Processes: 解釈保留なし 34/34、登録 189、テスト対応 172。
-- 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 136。
+- 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 142。
 - 11 Operators and expressions: 解釈保留なし 55/55、登録 459、テスト対応 448。
 - 12 Procedural programming statements: 解釈保留なし 28/28、登録 115、テスト対応 101。
-- 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 120、テスト対応 100。
+- 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 120、テスト対応 104。
 - 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 84。
 - 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 74。
-- 16 Assertions: 解釈保留なし 82/82、登録 555、テスト対応 539。
-- 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 59。
-- 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 300。
-- 19 Functional coverage: 解釈保留なし 34/34、登録 271、テスト対応 232。
-- 20 Utility system tasks and system functions: 解釈保留なし 45/45、登録 316、テスト対応 286。
-- 21 入出力システムタスクとシステム関数：解釈保留なし65/65、登録383、テスト対応347。
-- 22 Compiler directives: 解釈保留なし 28/28、登録 361、テスト対応 345。
+- 16 Assertions: 解釈保留なし 82/82、登録 555、テスト対応 544。
+- 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 63。
+- 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 304。
+- 19 Functional coverage: 解釈保留なし 34/34、登録 271、テスト対応 237。
+- 20 Utility system tasks and system functions: 解釈保留なし 45/45、登録 316、テスト対応 291。
+- 21 入出力システムタスクとシステム関数：解釈保留なし65/65、登録383、テスト対応355。
+- 22 Compiler directives: 解釈保留なし 28/28、登録 361、テスト対応 346。
 - 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 251。
 - 24 Programs: 解釈保留なし 10/10、登録 29、テスト対応 25。
 - 25 Interfaces: 解釈保留なし 25/25、登録 63、テスト対応 55。
@@ -345,10 +349,10 @@
 - 27 Generate constructs: 解釈保留なし 7/7、登録 32、テスト対応 27。
 - 28 Gate-level and switch-level modeling: 解釈保留なし 34/34、登録 384、テスト対応 363。
 - 29 User-defined primitives: 解釈保留なし 17/17、登録 52、テスト対応 49。
-- 30 Specify blocks: 解釈保留なし 31/31、登録 157、テスト対応 131。
-- 31 Timing checks: 解釈保留なし 26/26、登録 180、テスト対応 154。
+- 30 Specify blocks: 解釈保留なし 31/31、登録 157、テスト対応 149。
+- 31 Timing checks: 解釈保留なし 26/26、登録 180、テスト対応 155。
 - 32 Backannotation using the standard delay format: 解釈保留なし 14/14、登録 131、テスト対応 119。
-- 33 Configuring the contents of a design: 解釈保留なし 36/36、登録 63、テスト対応 40。
+- 33 Configuring the contents of a design: 解釈保留なし 36/36、登録 63、テスト対応 41。
 - 34 Protected envelopes: 解釈保留なし 104/104、登録 214、テスト対応 5。
 - 35 Direct programming interface: 解釈保留なし 31/31、登録 142、テスト対応 116。
 - 36 Programming language interface (PLI/VPI) overview: 解釈保留なし 29/29、登録 163、テスト対応 148。
@@ -1201,7 +1205,7 @@ Void関数は返り値がなく，呼び出しは命令である。
 
 ### SV2023-3.10-EXTRACT-CONFIGURATION-BINDING
 
-`3.10` / `normal` / テスト未対応
+`3.10` / `normal` / 実行確認あり
 
 SystemVerilog ソース定義にモジュールインスタンスがどのようにバインドするかをライブラリを通して指定する。
 
@@ -1209,6 +1213,7 @@ SystemVerilog ソース定義にモジュールインスタンスがどのよう
 
 規定の性質: `definition`。
 
+- [test_config_binds_instances_through_library.sv](../tests/ch3/test_config_binds_instances_through_library.sv): config cbl_cfg（:top_module: で elaborate）が、ライブラリ work のセルへのモジュールインスタンスの結び付けを指定する: cell 節が cbl_one の唯一のインスタンス u1 を work.cbl_three に、instance 節が cbl_two と書いた u2 を work.cbl_four に結び付ける（両方の節に選ばれるインスタンスはない）。どちらの節にも選ばれない u3（cbl_two）は default liblist work で自分のセルのまま。u1=3 u2=4 u3=2 を表示する（config がなければ 1 2 2）。 区別: config の結び付けを無視する実装は u1=1 u2=2、cell 節を適用しない実装は u1=1、instance 節を適用しない実装は u2=2、default の library list で u3 を別のセルにする実装は u3 が変わり、期待出力の1行が変わる。
 
 ### SV2023-3.10-EXTRACT-LIBRARY-CELL-CATEGORIES
 
@@ -1423,7 +1428,7 @@ SystemVerilog ソース定義にモジュールインスタンスがどのよう
 
 ### SV2023-3.12-EXTRACT-SINGLE-AND-MULTIFILE
 
-`3.12` / `normal` / テスト未対応
+`3.12` / `normal` / テスト対応あり・実行未確認
 
 コンパイルユニット使用モデルは単一ファイルと多数ファイルのコンパイルをサポートする。
 
@@ -1431,6 +1436,8 @@ SystemVerilog ソース定義にモジュールインスタンスがどのよう
 
 規定の性質: `definition`。
 
+- [test_elaborated_net_joins_drivers_across_hierarchy.sv](../tests/ch3/test_elaborated_net_joins_drivers_across_hierarchy.sv): 1つのソースファイルだけからなる設計をコンパイル・elaborate し、トップの tri ネット bus と2階層下までの inout ポートが1つのネットとして解決される値を時刻 1, 3, 5 などに表示する。
+- [test_definitions_visible_from_other_file.sv](../tests/ch3/test_definitions_visible_from_other_file.sv): テスト本体と :files: の definitions_visible_from_other_file_defs.sv の2ファイルを1回のコンパイルで扱い、別ファイルの package・interface・primitive・module・program を使って K=5 twice=10、y=1、v=10 sum=15、program: v=15 を表示する。
 
 ### SV2023-3.12.1-EXTRACT-COMBINED-FILE-MODE
 
@@ -1495,7 +1502,7 @@ $unit に適用したパッケージ型スコープ分解演算子は，コン�
 
 ### SV2023-3.12.1-EXTRACT-GLOBAL-DEFINITIONS
 
-`3.12.1` / `normal` / テスト未対応
+`3.12.1` / `normal` / 実行確認あり
 
 コンパイルユニット間でモジュール，プリミティブ，プログラム，インタフェース，パッケージの定義が見える。
 
@@ -1503,6 +1510,7 @@ $unit に適用したパッケージ型スコープ分解演算子は，コン�
 
 規定の性質: `definition`。
 
+- [test_definitions_visible_from_other_file.sv](../tests/ch3/test_definitions_visible_from_other_file.sv): :files: の別ファイルで宣言した package dvo_pkg、interface dvo_bus、primitive dvo_inv、module dvo_add、program dvo_report の5種すべてをテスト本体のファイルから名前で使い（import、各インスタンス化）、package の値 K=5・twice=10、UDP の出力 y=1、interface と module を通した v=10・sum=15、program の表示 v=15 を確かめる。2ファイルが1つの compilation unit でも別々でも同じ結果になる。 区別: いずれかの種類の定義が別ファイル（別の compilation unit）から見えない実装は、その名前の解決に失敗してコンパイルできないか、該当する行（package/primitive/interface and module/program）が出力されない。5種それぞれに固有の出力行がある。
 
 ### SV2023-3.12.1-EXTRACT-INCLUDED-SOURCE
 
@@ -2162,7 +2170,7 @@ timeunitとtimeprecisionの宣言はそれぞれ対応するローカル設定�
 
 ### SV2023-4.3-EXTRACT-PLI-EVALUATION
 
-`4.3` / `normal` / テスト未対応
+`4.3` / `normal` / 実行確認あり
 
 PLIコールバックはシミュレーションモデルに評価イベントとして参加し，その特定の制御点で評価される。
 
@@ -2170,6 +2178,7 @@ PLIコールバックはシミュレーションモデルに評価イベント�
 
 規定の性質: `definition`。
 
+- [test_pli_callbacks_are_evaluation_events.sv](../tests/ch4/test_pli_callbacks_are_evaluation_events.sv): 時刻 5 に登録した3つのコールバックがその時間スロットの評価イベントとして各制御点で動くことを観測する: Pre-Active の cbAfterDelay は設計の代入前の v=0 n=0 を読み w=7 を書く、その書き込みが更新イベントとして @(w) を待つプロセスを同じ時刻 5 に起こす（design at 5: woken by w=7）、Active の後の cbReadWriteSynch は v=1、Postponed の cbReadOnlySynch は v=1 n=2 w=7 を読む。 区別: コールバックを時間スロットの外で実行する、制御点の順序を誤る、コールバックの書き込みを更新イベントとして扱わない実装は、読む値（v/n）が変わるか design at 5 の行が出ないか順序が変わる。
 
 ### SV2023-4.3-EXTRACT-REFERENCE-EQUIVALENCE
 
@@ -2559,7 +2568,7 @@ NBA 更新は適用可能な Re-Inactive 作業に従う。
 
 ### SV2023-4.4.2.9-EXTRACT-POSTPONED-NO-WRITES
 
-`4.4.2.9` / `error` / テスト未対応
+`4.4.2.9` / `error` / テスト対応あり・実行未確認
 
 一度延期に到達すると、その時間スロット内でネット/変数値は変化しない。
 
@@ -2567,6 +2576,7 @@ NBA 更新は適用可能な Re-Inactive 作業に従う。
 
 規定の性質: `mandatory`。
 
+- [test_illegal_final_deferred_action_writes_variable.sv](../tests/ch4/test_illegal_final_deferred_action_writes_variable.sv): final 遅延アサーション a1 の action は Postponed 領域で実行される void 関数 count_up の呼び出しで、count_up はモジュール変数 hits に代入する（hits = hits + 1）。同じ形で表示だけする report を呼ぶ a0 は合法で、ほかに違反はない。:expected_stderr_regex: は代入の行（37）か a1 の呼び出しの行（42）で、書き込み/代入と postponed/final を述べるエラーを要求する。 区別: Postponed 領域からの変数への書き込みを禁止しない実装は設計を受理して hits=0 などを出力し（Verilator 5.054 がそう）、テストは不一致になる。未対応構文の拒否は正規表現の否定先読みで除外しており、意図した規則（4.4.2.9 の書き込み禁止、16.4 の Postponed で呼べるサブルーチン）による診断だけが一致する。
 
 ### SV2023-4.4.2.9-EXTRACT-POSTPONED-OUTPUT
 
@@ -3997,7 +4007,7 @@ ASCII 0x 60 を持つ深いアクセント文字はコンパイラ指令を導�
 
 ### SV2023-5.7-EXTRACT-PRIMARY-LITERAL-CATEGORIES
 
-`5.7` / `normal` / テスト未対応
+`5.7` / `normal` / 実行確認あり
 
 一次リテラルには、数値、時間リテラル、基数・サイズなしリテラル、および文字列リテラルがあります。
 
@@ -4005,6 +4015,7 @@ ASCII 0x 60 を持つ深いアクセント文字はコンパイラ指令を導�
 
 規定の性質: `definition`。
 
+- [test_primary_literal_categories_as_operands.sv](../tests/ch5/test_primary_literal_categories_as_operands.sv): 4種の primary literal をそれぞれ演算子のオペランドとして使い、値を表示する: 数値（5.7.1 のサイズ付き16進 4'hA + 3 = 13、5.7.2 の実数 1.5e1 / 2 = 7.50）、時間リテラル 1ns + 500ps = 1.500 と 2ps + 3 = 3.002（時間単位 1ns に換算、5.8）、unbased unsized（5.7.1）の 8'h0F & '1 = 0f、8'hF0 | '0 = f0、~'0 = ff、文字列リテラル（5.9）の "AB" + 0 = 16706 と "AB" == 16'h4142 = 1。 区別: 時間リテラルを primary として受け付けない・換算しない実装は time 行が変わり（例: 501 や構文エラー）、'1/'0 を式の幅に広げない実装は unbased 行が 01 や 0f 以外になり、文字列リテラルを 16 ビットの値として扱わない実装は string 行が変わる。4種それぞれに固有の行がある。
 
 ### SV2023-5.7-EXTRACT-REAL-GRAMMAR
 
@@ -4985,7 +4996,7 @@ bit ASCII符号化に基づく整数／文字列リテラル演算子規則に�
 
 ### SV2023-5.10-EXTRACT-STRUCT-TYPE-DEFAULT-KEY
 
-`5.10` / `normal` / テスト未対応
+`5.10` / `normal` / 実行確認あり
 
 構造リテラルは，構造代入パターン規則に従ってタイプキーとデフォルトキーを使用する。
 
@@ -4993,6 +5004,7 @@ bit ASCII符号化に基づく整数／文字列リテラル演算子規則に�
 
 規定の性質: `permission`。
 
+- [test_gen_cross_agglit_type_default_wide_init.sv](../tests/gen/ch5/test_gen_cross_agglit_type_default_wide_init.sv): 構造体リテラル '{int: 12'h9f5, default: 9} で out_t（nib_t a、構造体 in_t n、int 配列 q）を初期化し、型キー int が入れ子の構造体の int メンバー n.i と int 配列の要素 q\[0\], q\[1\] に 2549 を与え、default が残りのメンバー a、n.l（4 ビット）、n.b（byte）、n.g（integer、int と一致しない型）に 9 を与えることを a=1001 i=2549 l=1001 b=9 g=9 q=2549,2549 で表示する。 区別: 型キーを無視する実装は i と q が 9（または構文エラー）、default を型キーより優先する実装は i/q が 9、integer を int と一致する型とみなす実装は g=2549 になり、期待出力の1行が変わる。
 
 ### SV2023-5.11-EXTRACT-ARRAY-DIMENSION-BRACES
 
@@ -5020,7 +5032,7 @@ bit ASCII符号化に基づく整数／文字列リテラル演算子規則に�
 
 ### SV2023-5.11-EXTRACT-ARRAY-LITERAL-KEYS
 
-`5.11` / `normal` / テスト未対応
+`5.11` / `normal` / 実行確認あり
 
 配列リテラルは，配列代入パターンに指定されたインデックスキー，タイプキー，デフォルトキーを使用できる。
 
@@ -5028,6 +5040,7 @@ bit ASCII符号化に基づく整数／文字列リテラル演算子規則に�
 
 規定の性質: `permission`。
 
+- [test_array_literal_index_type_default_keys.sv](../tests/ch5/test_array_literal_index_type_default_keys.sv): 定数メンバーの配列リテラルで、索引キー+default（q_id: -1 -1 5 -1）、型キー byte+索引キー（q_ti: 1 7 7 7、索引が優先）、default+型キー（q_dt: 4 4 4 4、型キーが優先）、2次元配列で部分配列型 pair_t の型キー+索引キー（g_sub: 6 6 / 8 9 / 6 6）、要素型 shortint の型キーが各部分配列へ再帰的に適用されること（g_elem: 2 2 / 2 2 / 2 2）、キャスト付きリテラル quad_t'{1: 2, byte: 9} の合計 29 を表示する。 区別: 索引・型・default の各キーを個別の値で区別しているので、型キーを索引キーより優先する実装は q_ti\[0\]=7・g_sub\[1\]=6 6、default を型キーより優先する実装は q_dt=3 3 3 3、型キーの再帰適用をしない実装は g_elem がエラーか別の値になり、期待出力の該当行が変わる。
 
 ### SV2023-5.11-EXTRACT-ARRAY-LITERAL-TYPE
 
@@ -5091,7 +5104,7 @@ bit ASCII符号化に基づく整数／文字列リテラル演算子規則に�
 
 ### SV2023-5.12-EXTRACT-ATTRIBUTE-DEFAULT
 
-`5.12` / `normal` / テスト未対応
+`5.12` / `normal` / テスト対応あり・実行未確認
 
 bit 1 の値を持つ属性は，その属性に対して明示的な値を持たない。
 
@@ -5099,6 +5112,7 @@ bit 1 の値を持つ属性は，その属性に対して明示的な値を持�
 
 規定の性質: `definition`。
 
+- [test_vpi_attribute_default_bit_and_last_value.sv](../tests/ch5/test_vpi_attribute_default_bit_and_last_value.sv): 値なしの属性 (* flag *) と値 1 を持つ (* flag = 1 *) を別の変数に付け、VPI で vpiAttribute を反復して vpiObjTypeVal で値を読む。値なしの flag は scalar（bit）の 1、値ありは integer の 1 と表示する。最後の指定が値なしの (* sw = 6, sw *) も scalar 1 になる。 区別: 値なし属性の型を bit にしない実装（例: int 1 とする）は v_flag と v_to_bit の行が "integer 1" になり、値を 1 にしない実装は scalar 0 などになる。値ありの v_one が integer 1 なので、型が式に従う場合との区別もついている。
 
 ### SV2023-5.12-EXTRACT-ATTRIBUTE-DUPLICATE-WARNING
 
@@ -5137,7 +5151,7 @@ bit 1 の値を持つ属性は，その属性に対して明示的な値を持�
 
 ### SV2023-5.12-EXTRACT-ATTRIBUTE-LAST-WINS
 
-`5.12` / `normal` / テスト未対応
+`5.12` / `normal` / テスト対応あり・実行未確認
 
 言語要素が同じ属性名の定義を繰り返すときは，最後の値を使用する。
 
@@ -5145,10 +5159,11 @@ bit 1 の値を持つ属性は，その属性に対して明示的な値を持�
 
 規定の性質: `mandatory`。
 
+- [test_vpi_attribute_default_bit_and_last_value.sv](../tests/ch5/test_vpi_attribute_default_bit_and_last_value.sv): 同じ言語要素に同じ属性名を重ねて付ける4通り（1つの attribute instance 内 (* dup = 3, dup = 5 *)、2つの instance (* dup = 4 *) (* dup = 7 *)、最後が値なし (* sw = 6, sw *)、最初が値なし (* sw, sw = 6 *)）を VPI で読み、それぞれ属性が1つで値が最後の指定（integer 5、integer 7、scalar 1、integer 6）であることを表示する。 区別: 最初の値を残す実装は 3、4、integer 6、scalar 1 になり、重複を別々の属性として残す実装は属性数が 2 になって、該当する行が変わる。
 
 ### SV2023-5.12-EXTRACT-ATTRIBUTE-METADATA
 
-`5.12` / `normal` / テスト未対応
+`5.12` / `normal` / テスト対応あり・実行未確認
 
 属性はツール消費性の属性を付加する。任意の属性名に対する操作意味を標準化していません。
 
@@ -5156,6 +5171,7 @@ bit 1 の値を持つ属性は，その属性に対して明示的な値を持�
 
 規定の性質: `definition`。
 
+- [test_vpi_attribute_default_bit_and_last_value.sv](../tests/ch5/test_vpi_attribute_default_bit_and_last_value.sv): 標準で意味の決まっていない任意の属性名（flag、dup、sw）を変数に付け、ツール側の利用者である VPI アプリケーションが vpiAttribute で各変数の属性を取り出し、名前・型（bit なら scalar、整数式なら integer）・保持された値を読む（v_flag: flag scalar 1、v_one: flag integer 1、v_same: dup integer 5 など）。設計の動作が属性で変わることは仮定せず、設計は属性付きの宣言だけからなる。 区別: 属性を構文として読み捨ててツールから取り出せるように保持しない実装は各変数で 0 attribute(s) になり（Verilator 5.054 がそう）、型や値を保持しない実装は scalar/integer や値の行が変わる。属性名に操作上の意味を与えることは期待出力に含めていない。
 
 ### SV2023-5.12-EXTRACT-ATTRIBUTE-PREFIX-PLACEMENT
 
@@ -5278,7 +5294,7 @@ bit 1 の値を持つ属性は，その属性に対して明示的な値を持�
 
 ### SV2023-5.13-EXTRACT-NO-PLI-METHOD-REDEFINITION
 
-`5.13` / `normal` / テスト未対応
+`5.13` / `normal` / テスト対応あり・実行未確認
 
 PLIシステムタスク定義は内蔵メソッドの規定された動作を再定義できない。
 
@@ -5286,6 +5302,7 @@ PLIシステムタスク定義は内蔵メソッドの規定された動作を�
 
 規定の性質: `mandatory`。
 
+- [test_builtin_methods_unaffected_by_pli_systf.sv](../tests/ch5/test_builtin_methods_unaffected_by_pli_systf.sv): VPI アプリケーションが $size と $len を 99 を返すシステム関数として登録する。組み込みの $size は置き換わり $size(d)=$size(q)=99、$len(s)=99 になる（登録が有効な対照）一方、同名の組み込みメソッド d.size()=3（動的配列3要素）、q.size()=2（キュー2要素）、s.len()=5（"hello"）はそのままであることを表示する。 区別: メソッド呼び出しをシステム関数の表を通して解決し、PLI の登録で組み込みメソッドの結果が置き換わる実装は2行目が 99 99 になる（Icarus Verilog 13.0 がそうなる）。登録が効いていることは1行目の 99 で確かめている。
 
 ### SV2023-6.2-EXTRACT-TYPE-VERSUS-OBJECT
 
@@ -24175,7 +24192,7 @@ delay3のドライブ強度を選択するネットアシストまたはオプ�
 
 ### SV2023-10.3.2-EXTRACT-NET-MULTIPLE-DRIVERS
 
-`10.3.2` / `normal` / テスト未対応
+`10.3.2` / `normal` / 実行確認あり
 
 ネットはネット特有の分解能制約の下で複数の連続，原始出力およびモジュール出力ドライバを組み合わせることができる。
 
@@ -24183,6 +24200,7 @@ delay3のドライブ強度を選択するネットアシストまたはオプ�
 
 規定の性質: `permission`。
 
+- [test_net_driven_by_assign_gate_and_module_output.sv](../tests/ch10/test_net_driven_by_assign_gate_and_module_output.sv): wire w を、連続代入 assign w = en_a ? d_a : 1'bz、bufif1 ゲート g1 の出力、tri_drv のインスタンス u1 の出力ポート y の 3 種のドライバが同時に駆動し、有効にするドライバを変えて 1 時間単位後に表示する: なし z、連続代入だけ 1、ゲートだけ 0、モジュールだけ 1 と 0、ゲート 0 とモジュール 0 で 0、連続代入 1 とモジュール 0 で x、連続代入 1 とゲート 0 で x。wor o は連続代入 x_a、buf ゲート g2、copy_drv のインスタンス u2 の wor 出力ポートの 3 種が常に駆動し、どれか一つが 1 なら 1（全部 0 なら 0）。 区別: 3 種のドライバを一つのネットにまとめず、最後に評価したドライバや一種類のドライバだけを残す誤実装では、他の種類だけを有効にした行（たとえば gate 0: w=0 や wor gate 1: o=1）が z や 0 に変わる。ネット型ごとの解決を誤れば、強さの等しい 0 と 1 の衝突が x でなくなり（assignment 1, module 0: w=x）、wor が OR でなくなる（wor module 1: o=1 が 0 になる）。Icarus 13.0 で一致（Verilator 5.054 は 2 値なので z と x を出せない）。
 
 ### SV2023-10.3.2-EXTRACT-REEVALUATE-OPERAND-CHANGE
 
@@ -24514,7 +24532,7 @@ supply0 / strong0 / pull0 / weak0 / highz0 はゼロ値強度である。
 
 ### SV2023-10.4.1-EXTRACT-BLOCKING-FORMS
 
-`10.4.1` / `normal` / テスト未対応
+`10.4.1` / `normal` / 実行確認あり
 
 ブロッキング代入の構文には、時間制御付き変数代入、動的配列のnew、許可された修飾子を伴うクラスのnew、通常／複合演算子代入、およびインクリメント／デクリメント式が含まれる。
 
@@ -24522,6 +24540,7 @@ supply0 / strong0 / pull0 / weak0 / highz0 はゼロ値強度である。
 
 規定の性質: `definition`。
 
+- [test_syntax_blocking_assignment_new_and_timed_forms.sv](../tests/ch10/test_syntax_blocking_assignment_new_and_timed_forms.sv): Syntax 10-2 の 5 つの形をすべて実行して値を表示する。(1) 時刻付き: a = #2 b は時刻 0 の b=2 を時刻 2 に代入（その間に b は 7）、e = @(ev) c は時刻 2 の c=3 を ev の起きる時刻 3 に代入（c は 9）。(2) 動的配列の new: d = new\[3\] の後 d = new\[5\](d) で size=5、4 5 6 0 0。(3) class new: new（既定引数 1）、new(5)、クラススコープ付きの wide_box_c::new(2)（20）、new h のコピー（h.v=21 の後も 20）、左辺の修飾 this.own、holder_c::shared、select の slots\[1\]、パッケージスコープの bf_pkg::pkg_box、派生クラスの super.own にそれぞれ 11、12、13、15、14。(4) 演算子代入: = と 12 種の複合演算子を順に（204、2、11、22、-32、-4）。(5) 増減: i++ と ++i で 7、i-- と --i 2 回で 4。 区別: どれかの形を受け付けない実装は設計を拒否して何も表示しない。意味を誤れば該当行が変わる: 時刻付きの代入で右辺を代入の時点で評価すれば a=7、e=9 になり、new\[5\](d) で要素を写さなければ 4 5 6 が 0 になり、型付きの wide_box_c::new を左辺の型で作れば 2 になり、new h を参照のコピーにすれば copy が 21 21 になり、左辺の修飾を別のオブジェクトやスコープに結び付ければ this/class scope/select/package scope/super の値が変わり、複合演算子や算術シフトを誤れば 204 から -4 までの値が変わる。Verilator 5.054 の 2 seed で一致（Icarus 13.0 はクラス・パッケージスコープ付きのハンドルを構文エラーにする）。
 
 ### SV2023-10.4.1-EXTRACT-BLOCKING-LVALUE-TIMING
 
@@ -24560,7 +24579,7 @@ LHS RHS 位置評価と表現評価の順序は，タイミング制御なしで
 
 ### SV2023-10.4.1-EXTRACT-EQUALS-CONTEXT
 
-`10.4.1` / `normal` / テスト未対応
+`10.4.1` / `normal` / 実行確認あり
 
 The = トークンは連続的および手続き的な連続代入にも使用される。文脈によって 代入の形が決まります
 
@@ -24568,6 +24587,7 @@ The = トークンは連続的および手続き的な連続代入にも使用�
 
 規定の性質: `definition`。
 
+- [test_equals_token_assignment_contexts.sv](../tests/ch10/test_equals_token_assignment_contexts.sv): 同じ = を三つの文脈で使う: モジュールの assign w = src と assign v_cont = src（連続代入、ネットと変数）、initial の中の assign v_pca = src（手続き連続代入）、v_blk = src（ブロッキング代入）。src を 1 から 2 にすると w、v_cont、v_pca が 2 に従い v_blk は 1 のまま。手続き連続代入の間の v_pca = 9 は効かず v_pca=2。deassign の後 src=3 にしても v_pca は 2 を保ち（w と v_cont は 3）、その後の v_pca = 9 で 9 になる。 区別: = の文脈を区別せずに扱う誤実装では行が変わる。手続きの中の assign をブロッキング代入として扱えば src=2 の行で v_pca=1 になる（Verilator 5.054 がこの誤り）。ブロッキング代入を右辺に追従させれば v_blk が 2、3 になり、手続き連続代入が手続き代入を上書きしなければ during assign の行が 9 になり、deassign 後も追従させれば deassign の行で v_pca=3 になる。Icarus 13.0 で一致。
 
 ### SV2023-10.4.2-EXTRACT-CONCURRENT-NBA-INDETERMINATE
 
@@ -24987,7 +25007,7 @@ release後、有効な連続代入または手続き的assignのドライバを�
 
 ### SV2023-10.7-EXTRACT-DETERMINE-SIZES
 
-`10.7` / `normal` / テスト未対応
+`10.7` / `normal` / 実行確認あり
 
 まず，標準表現のサイズ規則を用いて両オペランド幅を決定する。
 
@@ -24995,6 +25015,7 @@ release後、有効な連続代入または手続き的assignのドライバを�
 
 規定の性質: `mandatory`。
 
+- [test_assignment_size_from_both_sides.sv](../tests/ch10/test_assignment_size_from_both_sides.sv): a=8'hF0、b=8'h30（和 'h120 は 9 ビット）で、左辺と右辺の大きさの両方が評価の幅を決めることを見る。(a + b) \>\> 5 を 4 ビットの n4 と 8 ビットの n8 に代入すると右辺の 8 ビットで評価され和が 'h20 になって 1、9 ビットの n9 では桁上がりが残り 9。左辺の連結 {c, s}（9 ビット）への a + b は c=1、s=20。連結の被演算子は自己決定なので n9 = {a + b} は 020、n9 = a + b は 120。 区別: 左辺の大きさだけで評価する誤実装は n4 の行が 0（a と b を 4 ビットに切ってから足す）になり、右辺の自己決定の大きさだけで評価する誤実装は n9 の行が 1 で連結の左辺の c が 0 になり、幅を制限せずに評価する誤実装は n4 と n8 の行が 9 になる。連結の被演算子を文脈で広げる誤実装は self-determined の行が 120 になる。Icarus 13.0 と Verilator 5.054 の 2 seed で一致。
 
 ### SV2023-10.7-EXTRACT-LHS-CONTEXT
 
@@ -25244,7 +25265,7 @@ APAは表現を構造フィールド／配列要素にマッピングし，自�
 
 ### SV2023-10.9-EXTRACT-PATTERN-GRAMMAR
 
-`10.9` / `normal` / テスト未対応
+`10.9` / `normal` / テスト対応あり・実行未確認
 
 パターン文法は位置，メンバキー，インデックスキー，定数複製形式をサポートする。キーは単純なタイプまたはデフォルトであり、タイプされたパターン表現は、指定された type/type-parameter/integer-atom/type-reference プレフィックスを受け入れます。
 
@@ -25252,6 +25273,8 @@ APAは表現を構造フィールド／配列要素にマッピングし，自�
 
 規定の性質: `definition`。
 
+- [test_syntax_assignment_pattern_forms.sv](../tests/ch10/test_syntax_assignment_pattern_forms.sv): 位置指定・メンバ名キー・default・型名と型パラメータの接頭辞付きの pair_t のパターン、integer atom 型 int'{32{1'b1}}、添字キーと default の int arr\[4\]、複製 '{3{7}}、型参照 type(1)'{32{1'b1}} の値を表示する。
+- [test_gen_cross_agglit_type_default_fill1_typed.sv](../tests/gen/ch5/test_gen_cross_agglit_type_default_fill1_typed.sv): 型付きパターン out_t'{int: '1, default: 9} の simple type キー int が、入れ子の構造体の int メンバ n.i と int 配列 q の要素だけに '1 を与え、logic \[3:0\] の a と l、byte の b、integer の g は default の 9 になる。
 
 ### SV2023-10.9-EXTRACT-POSITIONAL-PATTERN
 
@@ -25907,7 +25930,7 @@ unpacked連結は，その項目が自己決定型を必要とするため，他
 
 ### SV2023-10.11-EXTRACT-ELABORATION-ALIAS
 
-`10.11` / `normal` / テスト未対応
+`10.11` / `normal` / テスト対応あり・実行未確認
 
 また，エリアシングは，処理時に起こり，無効化できず，他の命令の構文挙動を変えない。
 
@@ -25915,6 +25938,7 @@ unpacked連結は，その項目が自己決定型を必要とするため，他
 
 規定の性質: `mandatory`。
 
+- [test_alias_names_keep_own_declarations.sv](../tests/ch10/test_alias_names_keep_own_declarations.sv): wire \[3:0\] a、wire \[0:3\] b、wire signed \[3:0\] s をモジュールの末尾の alias a = b = s で結び、a だけを駆動する。他の文では各名前が自分の宣言どおりに振る舞う: 4'b0001 で a\[0\]=1、b\[3\]=1（b の右端）、b\[0\]=0（左端）、4'b1110 で a=14、b=14、s=-2、s\<0 は 1、a\<0 は 0。s への force 4'b0101 は同じネットなので a=5、b=5、s=5、release で再び 14 14 -2、その後の 4'b1000 でも a=8、b=8、s=-8、b\[0\]=1 と、最初の表示から最後まで共有が続く。 区別: alias で名前を一つに置き換える（他の文での振る舞いを変える）誤実装では、b\[0\] や b\[3\] が a の添字の向きで選ばれて bits の行が変わり、s が a の符号なしの型で読まれて s=14 や s\<0=0 になる。alias をエラボレーションでなく実行中の文として後から結ぶ、または解ける実装では、最初の表示や force・release 後の行で b と s が a と違う値になる。期待値は規格だけによる（Icarus 13.0 は alias を構文エラーにし、Verilator 5.054 は符号の違う alias を拒否する。s を符号なしにした写しでは Verilator 5.054 は他の行をすべて期待どおりに表示した。slang は警告なしで通る）。
 
 ### SV2023-10.11-EXTRACT-NO-ALIAS-VARIABLE-HIERARCHICAL
 
@@ -34020,7 +34044,7 @@ output・inout の仮引数、または const ref でない ref の仮引数を�
 
 ### SV2023-13.4.1-EXTRACT-IMPLICIT-CALL-CATEGORIES
 
-`13.4.1` / `normal` / テスト未対応
+`13.4.1` / `normal` / 実行確認あり
 
 特に制限がない限り、すべての非空のユーザ/内蔵/システム/DPI関数コールは暗黙変数として動作する。
 
@@ -34028,6 +34052,7 @@ output・inout の仮引数、または const ref でない ref の仮引数を�
 
 規定の性質: `permission`。
 
+- [test_implicit_variable_from_each_call_category.sv](../tests/ch13/test_implicit_variable_from_each_call_category.sv): 13.4.1 が挙げる 4 種の非 void の呼び出しの結果を、それぞれ式の中で暗黙の変数として選択する: ユーザー関数 upper(16'hA55A)\[11:8\]（戻り型 bit \[15:8\] の範囲で 5）、組込みメソッド q.max()\[0\]（キューの最大要素 9）と s.substr(1, 3)\[1\]（"bcd" の 1 バイト目 'c' = 99）、システム関数 $realtobits(-2.0)\[63:52\]（符号と指数で c00）、C で書いた DPI import 関数 c_scaled(4)\[7:4\]（16*4+3 = 'h43 の上位 4 ビットで 4）。 区別: どれかの種類の呼び出しを暗黙の変数として選択できない実装は設計を拒否して何も表示しない。選択を呼び出しの戻り型でなく 0 から始まる範囲として扱う誤実装は upper(16'hA55A)\[11:8\] が範囲外になって 5 でなくなり、組込みメソッドが返すキューや文字列を選択できなければ 9 や 99 にならず、システム関数や DPI 関数の戻り値の幅を誤れば c00 や 4 が変わる。Verilator 5.054 の 2 seed で一致（Icarus 13.0 は DPI がなく import 宣言で止まる）。
 
 ### SV2023-13.4.1-EXTRACT-IMPLICIT-CALL-PARENTHESES
 
@@ -34090,7 +34115,7 @@ output・inout の仮引数、または const ref でない ref の仮引数を�
 
 ### SV2023-13.4.1-EXTRACT-NO-DUPLICATE-FUNCTION-NAME
 
-`13.4.1` / `error` / テスト未対応
+`13.4.1` / `error` / テスト対応あり・実行未確認
 
 関数名を再宣言するには、関数名の宣言/明示的インポートスコープまたはそのスコープ内で、他のオブジェクトは関数名を再申告できません。
 
@@ -34098,6 +34123,9 @@ output・inout の仮引数、または const ref でない ref の仮引数を�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_function_name_redeclared_in_declaring_scope.sv](../tests/ch13/test_illegal_function_name_redeclared_in_declaring_scope.sv): モジュールが関数 doubled を宣言した後、同じスコープに int doubled を宣言する 28 行目が違反（25 行目は衝突相手の関数の見出し）。
+- [test_illegal_function_name_redeclared_in_importing_scope.sv](../tests/ch13/test_illegal_function_name_redeclared_in_importing_scope.sv) : import doubled_pkg::doubled ;の後に同じモジュールで int doubled を宣言する 33 行目が違反（ 32 行目は衝突相手の明示的な import）。
+- [test_illegal_function_name_redeclared_inside_function.sv](../tests/ch13/test_illegal_function_name_redeclared_inside_function.sv): 関数 doubled の本体で局所変数 int doubled を宣言する 27 行目が違反（26 行目は関数の見出し）。違反を除けば doubled = 2 * a が暗黙の結果変数に代入して 6 を返す。
 
 ### SV2023-13.4.1-EXTRACT-RETURN-MEMBER-VERSUS-SCOPE
 
@@ -34326,7 +34354,7 @@ defparam に影響される値に直接または間接的に依存する定数�
 
 ### SV2023-13.4.3-EXTRACT-NO-FUTURE-EVENT
 
-`13.4.3` / `error` / テスト未対応
+`13.4.3` / `error` / テスト対応あり・実行未確認
 
 定数関数は，帰還した後に直接イベントをスケジュールできない。
 
@@ -34334,6 +34362,8 @@ defparam に影響される値に直接または間接的に依存する定数�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_constant_function_nonblocking_assignment.sv](../tests/ch13/test_illegal_constant_function_nonblocking_assignment.sv): 静的な関数 f の局所変数 t への非ブロッキング代入 t \<= a を含む f を localparam P の初期値で呼ぶ。同じ関数を initial から呼ぶ r = f(4) と、ブロッキング代入だけの h(2) は合法。
+- [test_illegal_constant_function_nonblocking_event_trigger.sv](../tests/ch13/test_illegal_constant_function_nonblocking_event_trigger.sv): 局所イベント done の非ブロッキングトリガ -\>\> done を含む f を localparam P の初期値で呼ぶ。同じ関数を initial から呼ぶ r = f(4) と、トリガのない h(2) は合法。
 
 ### SV2023-13.4.3-EXTRACT-NO-GENERATE-DECLARATION
 
@@ -34494,7 +34524,7 @@ output/inout実引数は、手続き代入の有効なLHSでなければなら�
 
 ### SV2023-13.5-EXTRACT-SUBROUTINE-CALL-GRAMMAR
 
-`13.5` / `normal` / テスト未対応
+`13.5` / `normal` / テスト対応あり・実行未確認
 
 呼び出しはタスク／関数，システム，メソッド，標準ランダム化形式，オプション属性，位置／名前の実際のリストをサポートする。関数コールの void-cast は 値を明示的に削除します
 
@@ -34502,6 +34532,8 @@ output/inout実引数は、手続き代入の有効なLHSでなければなら�
 
 規定の性質: `definition`。
 
+- [test_subroutine_call_scoped_attributed_and_randomize_forms.sv](../tests/ch13/test_subroutine_call_scoped_attributed_and_randomize_forms.sv): 括弧なし・括弧付きのタスク呼び出し、パッケージスコープと階層名の呼び出し、属性インスタンス付きの呼び出し、位置の後の名前付き実引数、空の位置、式を空にした名前付き実引数 .b()、std::randomize と randomize のインライン制約付き呼び出し（式の被演算子と void キャスト文）の結果を表示する。
+- [test_subroutine_input_expressions_and_call_forms.sv](../tests/ch13/test_subroutine_input_expressions_and_call_forms.sv): システム関数 $clog2 を実引数に含む呼び出し、組込みメソッド s.len()、void'(add(1, 1)) の文、順序を変えた名前付き実引数、空の位置と名前付きの既定値の利用の結果を表示する。
 
 ### SV2023-13.5.1-EXTRACT-DEFAULT-BY-VALUE
 
@@ -41945,7 +41977,7 @@ checkerへ渡したメソッド付きシーケンスの実引数は、仮引数�
 
 ### SV2023-16.13.6-EXTRACT-INFERRED-CLOCK-DEFAULT
 
-`16.13.6` / `normal` / テスト未対応
+`16.13.6` / `normal` / テスト対応あり・実行未確認
 
 $inferred_clockにデフォルト化した省略シーケンス実行は，16.9.3のルールを用いて推論したクロックを結びつける。
 
@@ -41953,6 +41985,7 @@ $inferred_clockにデフォルト化した省略シーケンス実行は，16.9.
 
 規定の性質: `mandatory`。
 
+- [test_sequence_method_inferred_clock_default.sv](../tests/ch16/test_sequence_method_inferred_clock_default.sv): 仮引数 event ck = $inferred_clock を持つ sequence s_inf（@(ck) p ##1 q）を、ck を省いた s_inf(x, y).triggered として 4 か所で使い、triggered が真になった時刻を照合する。周期 10 で位相の違う 4 つのクロック（clk_a は 10k+2、clk_b は 10k+5、clk_e は 10k+4、default clocking の clk_d は 10k+8）に対し x ##1 y はそれぞれ 22・52、25・55、24・54、28・58 で終わる。posedge clk_a の cover property の中（clock flow）では \[ 22 52 \]、posedge clk_b の assertion の pass action（その先頭クロック）では \[ 25 55 \]、program p_inf の initial 手続き（タイミング制御が @(posedge clk_e) だけで、16.14.6 により posedge clk_e が推論される）では \[ 24 54 \]、遅延と wait を含み推論クロックの無いモジュールの initial の wait（default clocking）では \[ 28 58 \] になる。program の手続きは clk_e の立ち上がりの後 Reactive 領域で再開する（24.3.1）ので、同じタイムステップの Observed で設定された triggered を読む。 区別: triggered は終点のタイムステップの間だけ真なので、各使用場所は自分に結び付いたクロックの終点だけを見る。どこでも default clocking を結び付ける誤実装では cover・action・program の行が \[ \] に、assertion の中で clock flow を使わない実装では cover の行が、action block で先頭クロックを使わない実装では action の行が、手続きの推論クロックを使わず default clocking に落とす実装では program の行が \[ \] に変わる。default clocking を使わない実装では wait の行が空になるか設計が通らない。16.9.3 の推論規則のうち、誤りとする規則（disable 条件と clock 式の中）以外の 4 つを、別々の位相のクロックで区別している。
 
 ### SV2023-16.13.6-EXTRACT-MATCHED-CONTEXT
 
@@ -43485,7 +43518,7 @@ accept_on／reject_onは、オペランドのプロパティのsemantic-leading-
 
 ### SV2023-16.16.1-EXTRACT-PROP-IMPLICATION
 
-`16.16.1` / `normal` / テスト未対応
+`16.16.1` / `normal` / テスト対応あり・実行未確認
 
 m|-\>pとm|=\>pは意味的に先導的なクロックセットをmから受け継ぐ。
 
@@ -43493,6 +43526,7 @@ m|-\>pとm|=\>pは意味的に先導的なクロックセットをmから受け�
 
 規定の性質: `definition`。
 
+- [test_property_leading_clock_sets_operators.sv](../tests/ch16/test_property_leading_clock_sets_operators.sv): 外側クロック @(posedge c0)（20, 60, 100）の下で、前件と後件のクロックが異なる含意の試行の刻みを照合する。|-\> の (@(posedge c2) b6) |-\> @(posedge c3) d6 は前件 m の集合 {c2} を持つので c2 の各刻みで試行し、b6 が 1 の c2 刻み 35 の試行が、後件の c3 刻み 38 で d6 = 0 のため失敗して \[ 38 \]。|=\> の b7 |=\> @(posedge c3) d7 は前件 b7 の集合 {inherited} を持つので c0 の刻みで試行し、c0 の 60 にだけ 1 の b7 の試行が次の c3 刻み 78 で失敗して \[ 78 \]。 区別: 含意の集合を後件 p から取る誤実装では、両方とも c3（38, 78）で試行し、b6 も b7 も c3 の刻みでは 0 なので 2 行とも \[ \] になる。前件の明示クロックを無視して {inherited}（c0）にする誤実装では a_ovl が 25・65・105 の c2 刻みでしか b6 を見ず \[ \] に、和集合を取る誤実装では先頭クロックが一つに決まらない。前件に明示クロックがある |-\> と、前件が時計なしの |=\> の両方で、集合が前件から決まることを見ている。
 
 ### SV2023-16.16.1-EXTRACT-PROP-INHERITED-ALWAYS
 
@@ -43580,7 +43614,7 @@ m|-\>pとm|=\>pは意味的に先導的なクロックセットをmから受け�
 
 ### SV2023-16.16.1-EXTRACT-PROP-INSTANCE
 
-`16.16.1` / `normal` / テスト未対応
+`16.16.1` / `normal` / テスト対応あり・実行未確認
 
 プロパティインスタンスのsemantic-leading-clock集合は、実引数を代入して置換した本体の集合である。
 
@@ -43588,10 +43622,11 @@ m|-\>pとm|=\>pは意味的に先導的なクロックセットをmから受け�
 
 規定の性質: `definition`。
 
+- [test_property_leading_clock_sets_operators.sv](../tests/ch16/test_property_leading_clock_sets_operators.sv): 外側クロック @(posedge c0)（20, 60, 100）の下で、property インスタンスの試行の刻みを照合する。本体が @(ck) !x の p_body に実引数 posedge c2 を渡した p_body(b8, posedge c2) は、実引数を入れた本体 @(posedge c2) !b8 の集合 {c2} を持つので c2 の各刻みで試行し、b8 が 1 の c2 刻み 45 で失敗して \[ 45 \]。本体が時計なしの !x の p_plain(b9) は {inherited} なので c0 の刻みで試行し、c0 の 100 にだけ 1 の b9 で失敗して \[ 100 \]。 区別: インスタンスを本体に関係なく {inherited} とする誤実装では p_body の行が 25・65・105 の c2 刻みでしか b8 を見ず \[ \] になる。実引数の時計を入れずに本体を見る実装では p_body の先頭クロックが決まらない。本体が時計なしなら外側の c0 に置き換わることは p_plain の行が示し、c2 などで試行する誤実装では b9 を 95・105 で見て \[ \] になる。
 
 ### SV2023-16.16.1-EXTRACT-PROP-PARENS-NOT
 
-`16.16.1` / `normal` / テスト未対応
+`16.16.1` / `normal` / テスト対応あり・実行未確認
 
 プロパティ括弧を保持し、オペランドの意味論的な先頭クロックセットを保持しない。
 
@@ -43599,6 +43634,7 @@ m|-\>pとm|=\>pは意味的に先導的なクロックセットをmから受け�
 
 規定の性質: `definition`。
 
+- [test_property_leading_clock_sets_operators.sv](../tests/ch16/test_property_leading_clock_sets_operators.sv): 外側クロック @(posedge c0)（立ち上がり 20, 60, 100）の下に、c2（5, 15, …, 105）で刻む q = @(posedge c2) b を置き、括弧なしの not q（a_not）と括弧で囲んだ (not q)（a_par）の失敗時刻を照合する。両方とも集合は {c2} のままなので試行は c2 の各刻みで始まり、b1 が 1 の c2 刻み 15 と b2 が 1 の c2 刻み 75 でそれぞれ失敗し、一覧は \[ 15 \] と \[ 75 \] になる。15 と 75 は c0 の刻みの直後の c2 刻み（25, 65, 105）ではない。 区別: not や括弧が集合を保たず {inherited}（ここでは c0）にする誤実装では試行が c0 の刻みで始まり、q は 25・65・105 の c2 刻みでしか標本化されないため、b1・b2 が 1 になる 15・75 を見ず、2 行とも \[ \] になる。括弧だけを誤って扱う実装では a_par の行だけが \[ \] に変わる。c2 で刻む同じ形の strong/weak の行（\[ 25 75 \]、\[ 35 \]）と、c0 に置き換わる {inherited} の行（\[ 65 \]、\[ 78 \]、\[ 100 \]）が同じテストにあり、刺激が両方の刻み方を区別できることも示す。
 
 ### SV2023-16.16.1-EXTRACT-PROP-PREFIX
 
@@ -43614,7 +43650,7 @@ m|-\>pとm|=\>pは意味的に先導的なクロックセットをmから受け�
 
 ### SV2023-16.16.1-EXTRACT-PROP-STRENGTH
 
-`16.16.1` / `normal` / テスト未対応
+`16.16.1` / `normal` / テスト対応あり・実行未確認
 
 強い（m）と弱い（m）はmの先導クロックを含む単一の意味的先導クロック集合を持つ。
 
@@ -43622,6 +43658,7 @@ m|-\>pとm|=\>pは意味的に先導的なクロックセットをmから受け�
 
 規定の性質: `definition`。
 
+- [test_property_leading_clock_sets_operators.sv](../tests/ch16/test_property_leading_clock_sets_operators.sv): 外側クロック @(posedge c0)（20, 60, 100）の下で、strong(m) と weak(m) の試行がどの刻みで始まるかを照合する。m の先頭クロックが c2（5, 15, …）の strong(@(posedge c2) b3 ##1 d3) は c2 の各刻みで試行し、b3 の 15・65 と d3 の 25・75 から成功 \[ 25 75 \]。同じく weak(@(posedge c2) !b4 ##1 !d4) は b4 が 1 の c2 刻み 35 の試行が失敗して \[ 35 \]。m が時計なしの b5 で始まる strong(b5 ##1 @(posedge c2) d5) は m の先頭クロックが inherited なので c0 の刻みで試行し、c0 の 60 にだけ 1 の b5 と次の c2 刻み 65 の d5 から成功 \[ 65 \]。 区別: strong/weak の集合を m の先頭クロックでなく {inherited}（c0）にする誤実装では、c2 で刻む 2 本が 25・65・105 の c2 刻みでしか標本化されず \[ 75 \] と \[ \] に変わる。逆に m の中の明示クロック c2 を集合にする誤実装では、strong(b5 ##1 @(posedge c2) d5) が c2 の刻みで b5 を標本化し（55・65 では 0）\[ \] になる。strong と weak を両方、先頭クロックが明示の場合と inherited の場合の両方で見ている。
 
 ### SV2023-16.16.1-EXTRACT-SEQ-CLOCK-FREE
 
@@ -43904,7 +43941,7 @@ property_spec action_block はプロパティ構文を受け入れる手続き�
 
 ### SV2023-17.2-EXTRACT-NO-DESIGN-UNITS
 
-`17.2` / `error` / テスト未対応
+`17.2` / `error` / テスト対応あり・実行未確認
 
 チェッカーはモジュール，インタフェース，プログラム，パッケージを宣言しない。ここではモジュール/インタフェース/プログラムはインスタンス化しない。
 
@@ -43912,6 +43949,13 @@ property_spec action_block はプロパティ構文を受け入れる手続き�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_checker_declares_module.sv](../tests/ch17/test_illegal_checker_declares_module.sv): checker の本体に module inner_mod を宣言する（28 行）。それを除けば規格で認められる設計で、違反はこの宣言だけ。regex はその行を指す。
+- [test_illegal_checker_declares_interface.sv](../tests/ch17/test_illegal_checker_declares_interface.sv): checker の本体に interface inner_if を宣言する（28 行）。それを除けば規格で認められる設計で、違反はこの宣言だけ。regex はその行を指す。
+- [test_illegal_checker_declares_program.sv](../tests/ch17/test_illegal_checker_declares_program.sv): checker の本体に program inner_prog を宣言する（28 行）。それを除けば規格で認められる設計で、違反はこの宣言だけ。regex はその行を指す。
+- [test_illegal_checker_declares_package.sv](../tests/ch17/test_illegal_checker_declares_package.sv): checker の本体に package inner_pkg を宣言する（26 行）。違反はこの宣言だけで、regex はその行を指す。
+- [test_illegal_checker_instantiates_module.sv](../tests/ch17/test_illegal_checker_instantiates_module.sv): checker の外で宣言した module leaf_mod を checker の本体でインスタンス化する（32 行）。それを除けば規格で認められる設計で、regex はその行を指す。
+- [test_illegal_checker_instantiates_interface.sv](../tests/ch17/test_illegal_checker_instantiates_interface.sv): checker の外で宣言した interface leaf_if を checker の本体でインスタンス化する（32 行）。それを除けば規格で認められる設計で、regex はその行を指す。
+- [test_illegal_checker_instantiates_program.sv](../tests/ch17/test_illegal_checker_instantiates_program.sv): checker の外で宣言した program leaf_prog を checker の本体でインスタンス化する（32 行）。それを除けば規格で認められる設計で、regex はその行を指す。
 
 ### SV2023-17.2-EXTRACT-PORT-DEFAULTS
 
@@ -43963,7 +44007,7 @@ checkerの仮引数型は、プロパティの仮引数型である。出力は 
 
 ### SV2023-17.3-EXTRACT-CAPTURED-ACTUAL-LIMIT
 
-`17.3` / `error` / テスト未対応
+`17.3` / `error` / テスト対応あり・実行未確認
 
 入力が実際にコンスタントキャストまたは手続き的自動値を含む公式は，チェッカ連続代入や手続きコードに使用されない。
 
@@ -43971,6 +44015,10 @@ checkerの仮引数型は、プロパティの仮引数型である。出力は 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_checker_const_cast_actual_continuous.sv](../tests/ch17/test_illegal_checker_const_cast_actual_continuous.sv): 実引数 const'(v) を受ける仮引数 a を checker が連続代入 assign y = a + 4'd1 で使う（インスタンス u_cast）。同じ checker に v を渡す u_plain は合法で、u_cast を除けば設計は合法。regex は連続代入の行と u_cast の行を指す。
+- [test_illegal_checker_automatic_actual_continuous.sv](../tests/ch17/test_illegal_checker_automatic_actual_continuous.sv): initial 手続きの automatic 変数 av を実引数とする手続き的インスタンス u_auto の仮引数 a を、checker が連続代入で使う。モジュール変数 v を渡す静的インスタンス u_static は合法で、u_auto を除けば設計は合法。regex は連続代入の行と u_auto の行を指す。
+- [test_illegal_checker_const_cast_actual_always_ff.sv](../tests/ch17/test_illegal_checker_const_cast_actual_always_ff.sv): 部分式に const'(w) を含む実引数 v + const'(w) を受ける仮引数 a を、checker の always_ff の非ブロッキング代入 r \<= a で読む（u_cast）。v + w を渡す u_plain は合法で、u_cast を除けば設計は合法。regex は always_ff の行と u_cast の行を指す。
+- [test_illegal_checker_rewritten_automatic.sv](../tests/ch17/test_illegal_checker_rewritten_automatic.sv): initial 手続きの automatic 変数 av を実引数とする手続き的インスタンス u_auto の仮引数 a を、checker が always_comb の手続きで使う。v を渡す静的インスタンスと、仮引数を property でだけ使う u_prop は合法。regex は always_comb の行と u_auto の行を指す。
 
 ### SV2023-17.3-EXTRACT-CONNECTION-MODES
 
@@ -44189,7 +44237,7 @@ always_comb / always_latch 表現は暗黙的にサンプルされず，代入�
 
 ### SV2023-17.5-EXTRACT-FF-SAMPLING
 
-`17.5` / `normal` / テスト未対応
+`17.5` / `normal` / テスト対応あり・実行未確認
 
 always_ff の表現は，即時／遅延アサーション表現を含め，イベント制御に用いられる変数を除いて，サンプル値を使用する。
 
@@ -44197,6 +44245,7 @@ always_ff の表現は，即時／遅延アサーション表現を含め，イ�
 
 規定の性質: `mandatory`。
 
+- [test_checker_always_ff_assertions_sampled.sv](../tests/ch17/test_checker_always_ff_assertions_sampled.sv): checker の always_ff @(posedge clk) に、非ブロッキング代入 hist \<= {hist\[0\], b} と clks \<= clks + clk、即時アサーション assert (b) と assert (clk)、遅延アサーション assert #0 (b) と assert final (b) を置く。モジュールは同じタイムステップで b を変えてから clk を上げる（10 で b を 1 に、20 で 0 に）ので、b の標本値は 10 で 0、20 で 1、現在値はその逆になる。期待出力は各エッジで即時・#0・final の b の行がすべて標本値（10 で 0、20 で 1）を、clk の行が現在値 1 を示し、final 手続きが hist=01 clks=2 を表示する。各エッジの 4 行は Active・Reactive・Postponed の順で決まる。 区別: always_ff の式に現在値を使う誤実装では b の 3 種類のアサーションの行が 10 で 1、20 で 0 に変わり hist=10 になる（5.054 が実際にこうなる）。即時アサーションや遅延アサーションだけを標本化しない実装ではその行だけが入れ替わる。イベント制御の変数 clk まで標本化する誤実装では clk の行が 0 になり clks=0 になる。代入の右辺、即時、observed・final の両方の遅延アサーション、イベント制御の変数を一つの手続きで同じ刺激に対して見ている。
 
 ### SV2023-17.5-EXTRACT-FINAL-CONTENTS
 
@@ -44658,7 +44707,7 @@ checkerのassumeは、ランダム生成／フォーマル解析を制約でき�
 
 ### SV2023-17.8-EXTRACT-FUNCTION-PURITY
 
-`17.8` / `error` / テスト未対応
+`17.8` / `error` / テスト対応あり・実行未確認
 
 チェッカ割当右側の関数は自動的かつ状態を保持せず，副作用をもたらさない。
 
@@ -44666,6 +44715,8 @@ checkerのassumeは、ランダム生成／フォーマル解析を制約でき�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_checker_function_keeps_state.sv](../tests/ch17/test_illegal_checker_function_keeps_state.sv): checker の連続代入 assign yc = fks_pkg::f_count(a) が、static な局所変数 n を呼び出しごとに増やす static 関数 f_count を呼ぶ（48 行）。automatic 関数 f_auto と、状態を持たない static 関数 f_pure を呼ぶ代入は合法で、yc の代入を除けば設計は合法。regex は呼び出しの行を指す。
+- [test_illegal_checker_function_side_effect.sv](../tests/ch17/test_illegal_checker_function_side_effect.sv): checker の連続代入 assign ys = fse_pkg::f_side(a) が、package の変数 hits を増やす automatic 関数 f_side を呼ぶ（43 行）。hits を読むだけの f_read を呼ぶ代入は合法で、ys の代入を除けば設計は合法。regex は呼び出しの行を指す。
 
 ### SV2023-17.8-EXTRACT-NO-FREE-FUNCTION-LOCALS
 
@@ -45905,7 +45956,7 @@ foreach 制約は packed / unpacked 配列とオプションの次元ループ�
 
 ### SV2023-18.5.7.1-EXTRACT-OMITTED-DIMENSIONS
 
-`18.5.7.1` / `normal` / テスト未対応
+`18.5.7.1` / `normal` / 実行確認あり
 
 空のループ変数はその次元における反復を抑制する。後ろに省略された変数/コンマは省略されるかもしれません。
 
@@ -45913,6 +45964,7 @@ foreach 制約は packed / unpacked 配列とオプションの次元ループ�
 
 規定の性質: `mandatory`。
 
+- [test_constraint_foreach_scope_dimensions.sv](../tests/ch18/test_constraint_foreach_scope_dimensions.sv): rand bit \[3:0\] cube\[2\]\[3\]\[4\] に foreach (cube\[p, , r\]) cube\[p\]\[1\]\[r\] == p + r（中央の空のループ変数）、t3\[2\]\[3\]\[2\] に foreach (t3\[q, s\]) t3\[q\]\[s\]\[1\] == q * 3 + s（末尾の変数とカンマの省略で \[q, s, \] と同じ）を置き、50 回の randomize のたびに p が 0..1、r が 0..3、q が 0..1、s が 0..2 のすべての要素が式どおりかを確かめ、「dimensions: failures 0, empty middle 1, trailing omitted 1」を照合する。 区別: 空のループ変数を詰めて r を第 2 次元（0..2）に結び付ける誤実装では cube\[p\]\[1\]\[3\] が制約されず 4 ビットの乱数になり、50 回のどこかで p + 3 と違って empty middle が 0 になる。末尾の省略を \[ , q, s\] のように右に寄せて解釈する実装では t3 の検査が崩れて trailing omitted が 0 になり、どちらかの書き方を拒む実装は設計が通らない。空の変数の次元を内部で繰り返しても、その次元の添字を含まない同じ制約が重なるだけで解は変わらないので、反復しないことの観測できる帰結は残りの変数が自分の次元を保つことで、それを両方の書き方で見ている。
 
 ### SV2023-18.5.7.1-EXTRACT-SIZE-FIRST
 
@@ -46074,7 +46126,7 @@ rand オブジェクトメンバー変数と制約条件は、 含まれるオ�
 
 ### SV2023-18.5.9-EXTRACT-PARTIAL-LATEST
 
-`18.5.9` / `normal` / テスト未対応
+`18.5.9` / `normal` / テスト対応あり・実行未確認
 
 部分秩序変数は，すべての秩序制約条件に適合する最終群で解く。
 
@@ -46082,6 +46134,7 @@ rand オブジェクトメンバー変数と制約条件は、 含まれるオ�
 
 規定の性質: `mandatory`。
 
+- [test_solve_before_partial_latest_set.sv](../tests/ch18/test_solve_before_partial_latest_set.sv): solve x before y と solve y before z で集合 {x}・{y}・{z} を作り、v は x の後かつ z の前（2 つの順序制約）、w は x の後だけに順序付ける。8 ビットの組 (y, v) と (z, w) を y\[0\] -\> v == 0 と v\[7\] -\> y == 0（z と w も同じ形）で結ぶ。同じ集合で解けば規格で認められる組 16640 個のうち y\[0\] = 1 と v\[7\] = 1 はそれぞれ 128 個（1% 未満）なので、200 回の randomize で各ビットが立つ回数は 20（10%）未満になり、期待出力は 4 つの判定がすべて 1、失敗 0。対照の plg_ctl（solve v before y を追加）では v\[7\] が約半分立つので「v\[7\] under 10% 0」。 区別: v を z の後の最後の集合に置く（z の前という制約を無視する）か y より後に解く誤実装では y が先に一様に選ばれ、y\[0\] が約半分立って y の判定が 0 になる。v を x の直後など y より前の集合に置くと v が一様になり v\[7\] の判定が 0 になる。w を最後の集合 z ではなく y の集合に置くと w\[7\] の判定が、z の後に置くと z\[0\] の判定が 0 になる。立つ確率が 1% 未満か 50% かの差で、200 回で境界 20 を越える確率は無視できる。v は両側の制約、w は片側の制約で、すべての順序制約を満たす最も遅い集合を区別している。
 
 ### SV2023-18.5.9-EXTRACT-PARTIAL-ORDER
 
@@ -46989,7 +47042,7 @@ randc 変数に対しては，ソフト制約は指定できない。
 
 ### SV2023-18.5.13.2-EXTRACT-DIRECT-REFERENCE
 
-`18.5.13.2` / `normal` / テスト未対応
+`18.5.13.2` / `normal` / テスト対応あり・実行未確認
 
 これは、 単に条件を包含するだけでなく、 ターゲット変数が直接現れるソフト表現にのみ影響を与える。
 
@@ -46997,6 +47050,7 @@ randc 変数に対しては，ソフト制約は指定できない。
 
 規定の性質: `mandatory`。
 
+- [test_disable_soft_enclosing_condition_kept.sv](../tests/ch18/test_disable_soft_enclosing_condition_kept.sv): どのクラスも hard の p == 1 と 4 ビットの q を持ち、disable soft のブロックを最後（最高優先）に置いて 40 回ずつ randomize し、q が毎回 5 かを表示する。dsk_cond は p -\> soft q == 5 と disable soft p: p は soft 式 q == 5 を囲む条件にしか無いので破棄されず「q always 5: 1」。dsk_target は同じ soft と disable soft q: q が soft 式にあるので破棄され、q が自由になって「0」。dsk_direct は soft !p || q == 5 と disable soft p: p が soft 式に直接あるので破棄されて「0」。対照の dsk_none（disable soft なし）は「1」。4 行とも失敗回数は 0。 区別: disable soft が囲む条件に現れる変数でも soft 制約を捨てる誤実装では 1 行目が 0 に変わる。囲まれた soft を対象変数 q でも捨てない実装（5.054 が実際にこうなる）では 2 行目が 1 に、soft 式に直接現れる p で捨てない実装では 3 行目が 1 に変わる。自由な 4 ビットの q が 40 回すべて 5 になる確率は 16 の -40 乗なので、0 と 1 は乱数に左右されない。直接現れる場合と囲む条件にだけ現れる場合を同じ形の制約で比べている。
 
 ### SV2023-18.5.13.2-EXTRACT-DISABLE-LOWER
 
@@ -48372,7 +48426,7 @@ randsequenceは18-13の構文の下で，順序項目，代替項目，任意の
 
 ### SV2023-18.17.5-EXTRACT-JOIN-DEPTH
 
-`18.17.5` / `normal` / テスト未対応
+`18.17.5` / `normal` / 実行確認あり
 
 1 の深さまでの非終端記号をインタリーブする。
 
@@ -48380,6 +48434,7 @@ randsequenceは18-13の構文の下で，順序項目，代替項目，任意の
 
 規定の性質: `mandatory`。
 
+- [test_rand_join_depth_one_nonterminals.sv](../tests/ch18/test_rand_join_depth_one_nonterminals.sv): top : rand join s1 s2 で s1 : a b、s2 : c d とし、a 自身も非終端 a : x y にする。深さ 1 で織り交ぜられるのは a, b, c, d で、a は選ばれたとき x y をまとめて生成する。200 回の randsequence の出力がすべて xybcd, xycbd, xycdb, cdxyb, cxybd, cxydb のいずれか（x と y が隣り合う）であることと、c か d が a と b の間に入る出力（xycbd, xycdb, cxydb）が少なくとも 1 回あることを照合し、2 行とも 1 になる。 区別: 深さ 2 以上まで織り交ぜる誤実装では x と y の間に c や d が入る出力が出て 1 行目が 0 になる（一様な交互なら 4/10 の確率で起き、200 回で一度も起きない確率は無視できる）。s1 と s2 を丸ごと順に生成し深さ 1 で織り交ぜない実装では a と b の間に c, d が入らず 2 行目が 0 になる（6 通りのうち 3 通りが該当する）。深さ 1 の上限と、深さ 1 では実際に織り交ぜることの両方を見ている。
 
 ### SV2023-18.17.5-EXTRACT-JOIN-LENGTH
 
@@ -48874,7 +48929,7 @@ covergroup はベースインスタンスを置き換えるので，クラス内
 
 ### SV2023-19.5-EXTRACT-CONSTANT-INITIALIZATION
 
-`19.5` / `error` / テスト未対応
+`19.5` / `error` / テスト対応あり・実行未確認
 
 参照された大域/インスタンス定数は，閉じ込めクラスのメンバーである。これは、covergroup構造の前にあるインスタンス定数初期化子であり、ループまたはフォーク-join_noneボディを共有しない。
 
@@ -48882,6 +48937,10 @@ covergroup はベースインスタンスを置き換えるので，クラス内
 
 規定の性質: `mandatory`。
 
+- [test_illegal_cg_constant_of_other_class.sv](../tests/ch19/test_illegal_cg_constant_of_other_class.sv) : holder の covergroup のビン own は holder のグローバル定数 OWN を、ビン top は別のクラス limits の static const TOP を使う。TOP の参照（ 43 行）が唯一の違反で、regex は 43 行を指す。
+- [test_illegal_cg_constant_set_after_new.sv](../tests/ch19/test_illegal_cg_constant_set_after_new.sv): instance constant K を bin k が使い、コンストラクタは cg = new（40 行）の後に K = 3（41 行）を置く。regex は 40 行と 41 行を指す。
+- [test_illegal_cg_constant_set_with_new_in_loop.sv](../tests/ch19/test_illegal_cg_constant_set_with_new_in_loop.sv): コンストラクタの repeat (1) の本体に K = 3（43 行）と cg = new（44 行）をこの順に置く。順序は守られ、K は 1 回だけ代入される。regex は 43 行と 44 行を指す。
+- [test_illegal_cg_constant_set_with_new_in_fork.sv](../tests/ch19/test_illegal_cg_constant_set_with_new_in_fork.sv): コンストラクタの fork-join_none が起こす唯一の begin-end に K = 3（44 行）と cg = new（45 行）をこの順に置く。regex は 44 行と 45 行を指す。
 
 ### SV2023-19.5-EXTRACT-COVERPOINT-DOMAIN
 
@@ -49196,7 +49255,7 @@ covergroupがサンプリングされたとき，カバーポイント表現とi
 
 ### SV2023-19.5.1-EXTRACT-REAL-BIN-NAMES
 
-`19.5.1` / `normal` / テスト未対応
+`19.5.1` / `normal` / テスト対応あり・実行未確認
 
 実数の開区間は、端点を含めるかどうかに応じて、name \[ low:high)またはname \[ low:high \]を使用する。単一の値は name\[ value\] を使用します。
 
@@ -49204,6 +49263,7 @@ covergroupがサンプリングされたとき，カバーポイント表現とi
 
 規定の性質: `definition`。
 
+- [test_cg_real_open_bin_names_merge.sv](../tests/ch19/test_cg_real_open_bin_names_merge.sv): bin 名は報告にしか現れないので、type_option.merge_instances を立てた型カバレッジ（19.11.3: 同じ名前の bin は全インスタンスで 1 つの bin）で名前の同一性を観測する。open array の real bin a\[\] = {\[lo:hi\]} と s\[\] = {v, \[p:q\]} を引数違いの 4 インスタンスに作る。o1 は a\[1.0:2.0) と a\[2.0:3.0\]、o2 は a\[2.0:3.0) と a\[3.0:4.0\]、o3 は a\[1.0:2.0\]（幅が区間と同じなので 1 bin・両端を含む）、o4 は o1 と同じ名前。s\[\] は o1 が s\[2.0\] と s\[5.0:5.5\]、o2 が s\[2.0\] と s\[2.0:2.0\]、o3・o4 が s\[2.5\] と s\[5.0:5.5\]。したがって rg の型 bin は 5、sv は 4。標本ごとに型カバレッジを出し、rg は 20→40→60→80→80→80→80→100、sv は 0→0→0→0→50→75→100→100 になる。 区別: 上端を含むかどうかを名前に入れない誤実装（\[ と ) を区別しない）では o1 の a\[2.0:3.0\] と o2 の a\[2.0:3.0)、o1 の a\[1.0:2.0) と o3 の a\[1.0:2.0\] が同じ bin になり rg の型 bin が 3 になって、1・2 行目が 20.00・40.00 でなく 33.33・33.33、3 行目が 60.00 でなく 66.67 になる。単一値に区間と同じ low:high 形の名前を付ける実装は s\[2.0\] と s\[2.0:2.0\] が重なり sv が 3 bin になって 5 行目が 50.00 でなく 33.33 になる。名前を値や区間から作らずインスタンスごとに別の bin とする実装は rg 7・sv 8 bin になって 1 行目が 14.29 になり、同じ区間 a\[1.0:2.0)（o1 と o4）や同じ値 s\[2.0\]（o1 と o2）が重ならない。
 
 ### SV2023-19.5.1-EXTRACT-REAL-DEFAULT-NO-ARRAY
 
@@ -50105,7 +50165,7 @@ CrossQueueType は CrossValType の無制限キューです。
 
 ### SV2023-19.6.1.3-EXTRACT-CROSS-TYPE-SCOPE
 
-`19.6.1.3` / `normal` / テスト未対応
+`19.6.1.3` / `normal` / テスト対応あり・実行未確認
 
 各クロスは，そのスコープ内でのみアクセスできるCrossValTypeとCrossQueueTypeを暗黙的に定義する。
 
@@ -50113,10 +50173,11 @@ CrossQueueType は CrossValType の無制限キューです。
 
 規定の性質: `mandatory`。
 
+- [test_cg_cross_auto_types_scope_and_fields.sv](../tests/ch19/test_cg_cross_auto_types_scope_and_fields.sv): モジュールが同じ名前の型 CrossValType（bit \[9:0\]、10 ビット）と CrossQueueType（int、32 ビット）を宣言し、covergroup の中に 2 つの cross X1（xy 12 ビット・ca 3 ビット）と X2（ca・cb 2 ビット）を置く。各 cross の関数は自分の CrossValType/CrossQueueType で組を作り、$bits(CrossValType) は X1 で \<15, 0\>、X2 で \<5, 0\> の bin になる（X1 3/3、X2 2/2 に至る）。cross の外では、同じ covergroup の後ろに置いた coverpoint cw の bin {$bits(CrossValType)} と cq の bin {$bits(CrossQueueType)} がモジュールの型の 10 と 32 になり、w=15・w=5 の標本では cw 0/1、w=10・u=32 の標本で cw 1/1・cq 1/1。モジュールの initial も 10 bits・32 bits を出す。 区別: 暗黙の型を cross でなく covergroup の範囲に置く誤実装では、後ろの cw の bin が X1 の 15（または X2 の 5）になり w=15（または w=5）の行で cw が 1/1 になり、cq はキューの $bits で翻訳に失敗する。2 つの cross で型を共有する実装は X2 の関数に cb メンバーが無い、または $bits が 15 になって X2 の \<5, 0\> が覆われず最後の行が 1/2 のままになる。cross の中でモジュールの型が見える実装は CrossQueueType が int になり push_back で翻訳に失敗し、$bits(CrossValType) が 10 になって 3 行目の X1 が 2/3 のままになる。
 
 ### SV2023-19.6.1.3-EXTRACT-CROSS-VAL-TYPE
 
-`19.6.1.3` / `normal` / テスト未対応
+`19.6.1.3` / `normal` / テスト対応あり・実行未確認
 
 これは、CrossValType が各対応する coverpoint 名/タイプのメンバーを持つ構造である。範囲が不明な場合は \[ $bits (point_expression) -1:0 \] にデフォルトで設定されます。
 
@@ -50124,6 +50185,7 @@ CrossQueueType は CrossValType の無制限キューです。
 
 規定の性質: `definition`。
 
+- [test_cg_cross_auto_types_scope_and_fields.sv](../tests/ch19/test_cg_cross_auto_types_scope_and_fields.sv): cross の関数は副作用を持てないので、関数が観測した値で cross bin の値の組を作り、標本で覆われるかで読む。X1 は 12 ビットの連結 {x, y} の coverpoint xy（型の宣言なし）と 3 ビットの ca の cross。x1_ones は名前付きの代入パターン '{xy: '1, ca: '1} を push_back し（メンバー名が coverpoint 名 xy・ca で、幅が 12・3 なら \<4095, 7\>）、x1_bounds は順序どおりの '{$left(v.xy), $right(v.xy)} で \<11, 0\>（範囲 \[11:0\]）、x1_width は '{$bits(CrossValType), 0} で \<15, 0\>。X2（ca と 2 ビットの cb）の x2_ones は '{ca: '1, cb: '1} で \<7, 3\>、x2_width は \<5, 0\>。cross_retain_auto_bins = 0 で各 cross は自分の bin だけを持ち、\<4095,7,b=3\>、\<11,0\>、\<15,0\>、\<a=5,b=0\> の標本で X1 が 1/3→2/3→3/3→3/3、X2 が 1/2→1/2→1/2→2/2 になる。CrossQueueType はキュー（push_back で組を加える戻り値）として使う。 区別: どの誤りでも関数の作る組の値が変わるので、その標本が対応する cross bin を覆わなくなるか（組が coverpoint の bin に入らなければ bin は空になる）、翻訳に失敗し、X1 か X2 の行が変わる。メンバー名が coverpoint 名でない実装（変数名 a など）は x1_ones・x2_ones の名前付きパターンで翻訳に失敗する。連結の範囲を \[0:11\] とする実装は x1_bounds の組が \<0, 3\>（11 は 3 ビットの ca で 3）になり、標本 \<11, 0\> が bin ends を覆わず 2 行目の X1 が 2/3 にならない。メンバーの幅を 12・3 以外にする実装は '1 の組が \<4095, 7\> にならず、$bits(CrossValType) も 15 でなくなるので、1 行目と 3 行目の X1 が増えない。メンバーの順序が逆の実装は x1_bounds の組が変わり 2 行目が変わる。CrossQueueType をキューとしない実装は push_back で翻訳に失敗する。
 
 ### SV2023-19.6.1.3-EXTRACT-IMPLICIT-TYPEDEFS
 
@@ -51546,7 +51608,7 @@ get_coverage は static ::/. アクセスで累積型の貢献を計算します
 
 ### SV2023-19.11.1-EXTRACT-AUTO-DENOMINATOR-TEXT
 
-`19.11.1` / `normal` / テスト未対応
+`19.11.1` / `normal` / テスト対応あり・実行未確認
 
 coverpointの場合，分母は自動生成ビン数であり，enum coverpointの場合，auto_bin_maxに依存しない数列の基数（19.5.3）である。これは、coverpoint, MIN (auto_bin_max, 2 ^M) の他の整数に対して、M が coverpoint を表すために必要な最小ビット数である。関連値や遷移がないビンは分母と分母の両方から除外される。分母がゼロのとき、get_coverage / get_inst_coverage は非ゼロ重みの場合 0.0 を、ゼロ重みのとき 100.0 を返します。
 
@@ -51554,6 +51616,7 @@ coverpointの場合，分母は自動生成ビン数であり，enum coverpoint�
 
 規定の性質: `definition`。
 
+- [test_cg_auto_denominator_enum_and_empty_bins.sv](../tests/ch19/test_cg_auto_denominator_enum_and_empty_bins.sv): 自動 bin の coverpoint で get_inst_coverage(c, t) の分子・分母と百分率を出す。2 ビットの基底型に 3 個の名前を持つ enum の cs（auto_bin_max 既定 64）と cl（auto_bin_max 2）は GREEN の後 1/3 33.33、BLUE の後 2/3 66.67。7 ビットの基底型に 100 個の名前（E\[100\]）を持つ hb は E5・E6 の後 1/100、2/100（名前ごとに 1 bin、auto_bin_max 64 に依らない）。3 ビットの a では、既定の auto_bin_max 64 のままの qd が MIN(64, 2**3) = 8 bin（値ごとに 1 bin）で、4,5,6,2,0 の標本で 1/8 12.50→2/8 25.00→3/8 37.50→4/8 50.00→5/8 62.50。q4（auto_bin_max 4）は \<0,1\>\<2,3\>\<4,5\>\<6,7\> なので 1/4→1/4→2/4→3/4→4/4、q3（auto_bin_max 3）は \<0,1\>\<2,3\>\<4..7\> なので 1/3→1/3→1/3→2/3→3/3。ig は q4 に値 2,3,4 を無視させたもので、\<2,3\> が空になり分母 3（0/3→1/3→2/3→2/3→3/3）。全値を無視した none1（重み 1）は毎回 0/0 0.00、option.weight と type_option.weight を 0 にした none0 は 0/0 100.00、型の get_coverage も none1 0.00・none0 100.00。受入れ条件は auto_bin_max 4 の 3 ビット coverpoint に \<0,1\>,\<2,3\>,\<4,5,6,7\> の配分を書くが、19.5.3 では 8 値を 4 bin に分けると 2 値ずつで、\<4,5,6,7\> を最後に持つのは 3 bin のとき（19.5.3 の例）なので、q4（4 bin、分母 4）と q3（3 bin、余りが最後）の両方で観測する。 区別: MIN(auto_bin_max, 2**M) の 2 つの側をどちらも起こす: qd は 2**M（8）の側、q4・q3 は auto_bin_max の側。MIN を取らず auto_bin_max をそのまま分母にする誤実装は qd が x/64（1.56 など）になり、2**M を常に使う実装は q4・q3 が x/8 になる。enum の分母に MIN(auto_bin_max, 2**M) を使う誤実装では cs が 1/4（25.00）、cl が 1/2、hb が 1/64 になり 1〜2 行目が変わる。enum でも auto_bin_max で切る実装は cl と hb の分母が 2 と 64 になる。2**M 個の値を auto_bin_max 個へ順に分けない実装や余りを最後の bin に入れない実装は、q4 の 5（4 と同じ bin）と 6（別の bin）の行、q3 の 6（4 と同じ最後の bin）と 2 の行が変わる。空になった自動 bin を分母に数える実装は ig が x/4 になり、無視した値を bin を作る前に除く実装は ig の bin の数が変わる。分母 0 のとき重みに関係なく同じ値を返す実装や、2 引数の形で 0 以外を返す実装は none1/none0 の行と最後の type の行が変わる。
 
 ### SV2023-19.11.1-EXTRACT-EMPTY-BIN-EXCLUSION
 
@@ -52330,7 +52393,7 @@ $unit $root は，単位と精度の両方に対するシミュレーション�
 
 ### SV2023-20.4.3-EXTRACT-FORMAT-PRECISION-DOMAIN-TEXT
 
-`20.4.3` / `normal` / テスト未対応
+`20.4.3` / `normal` / 実行確認あり
 
 $timeformat の引数 units_number は、表 20-2 の指数値 (2 から -15 まで) から %t が使用する時間単位を選択します。precision_number は印刷される分数数字の数を選択します。0 5 を渡すと 5 桁の分数が出力されます。
 
@@ -52338,6 +52401,7 @@ $timeformat の引数 units_number は、表 20-2 の指数値 (2 から -15 ま
 
 規定の性質: `definition`。
 
+- [test_timeformat_every_unit_and_precision.sv](../tests/ch20/test_timeformat_every_unit_and_precision.sv) : \`timescale 1fs / 1fs のモジュールで、 10 ns の時刻に規格の例と同じ $timeformat ( -9 , 5 , " ns" , 10 ) を呼び、%t が \[ 10.00000 ns \] を出す（ 5 桁の小数、 11 文字なので幅 10 で埋めない）。続いて units_number を Table 20-2 の 2 （ 100 s）から -15 （ 1 fs）まで 18 個すべて、 precision_number を 0 〜 5 のすべてを使って、fs 単位の 64 ビット値を %t で出す。例: units 2 ・precision 5 の 1234567300000000000 fs は \[ 12.34567 ( 100 s) \] 、units -9 ・precision 4 の 65432123430 fs は \[ 65432.1234 (ns) \] 、units -15 ・precision 0 の 234 fs は \[ 234 (fs) \] 。各値は精度より後ろの桁が無いか 3 が 1 つだけで、丸めと切り捨てのどちらでも同じ数字になる。範囲外の units_number は使わない。区別: units_number を別の単位に対応させる誤実装（指数の符号や 10 倍の取り違え）は、その行の数字の小数点の位置が変わる。precision_number を無視する、または桁数を 1 つずらす実装は小数の桁数が変わり、たとえば example の行が \[ 10 ns \] や \[ 10.0000 ns \] になる。precision 5 を範囲外としてエラーにする実装は example と precision 5 の 4 行を出さない。Icarus 13.0 と 5.054 の Verilator は全行が一致する。
 
 ### SV2023-20.4.3-EXTRACT-FORMAT-UNIT-DOMAIN
 
@@ -52473,7 +52537,7 @@ $typenameはbitベクトル型をユーザ定義幅の形式と区別する。
 
 ### SV2023-20.6.1-EXTRACT-TYPENAME-ANONYMOUS
 
-`20.6.1` / `normal` / テスト未対応
+`20.6.1` / `normal` / 実行確認あり
 
 $typename構造：匿名構造/ユニオン/エンウムはシステム生成名を受け取る。
 
@@ -52481,6 +52545,7 @@ $typename構造：匿名構造/ユニオン/エンウムはシステム生成名
 
 規定の性質: `definition`。
 
+- [test_typename_anonymous_type_names.sv](../tests/ch20/test_typename_anonymous_type_names.sv): 無名 struct（s1, s2 を 1 つの宣言、同じメンバーの s3 を別の宣言）、無名 packed union（u1, u2 と u3）、無名 enum（名前付きブロック first の ea, eb と、同じ定数名 P, Q を持つ second の ec）について $typename の文字列が等しいかだけを出す。期待は、同じ宣言どうし（s1 と s2、u1 と u2、ea と eb）が equal 1、別の宣言どうし（s1 と s3、u1 と u3、ea と ec）が equal 0。生成名の形はツールに任されるので文字列そのものは出さない。 区別: 無名型に名前を作らない誤実装（本体だけを返す）では、同じメンバーの s1 と s3、u1 と u3 の文字列が等しくなり two declarations の 2 行が 1 になる。enum では生成名が無ければ有効範囲の接頭辞を付ける名前も無いので ea と ec が等しくなる。変数ごとに別の名前を作る実装は one declaration の 3 行が 0 になる。6.22.1 c) により同じ宣言の無名型は同じ型、別の宣言は別の型で、20.6.1 は $typename の文字列を型の一致と同様に作るとするので、期待は生成名の形に依らない。
 
 ### SV2023-20.6.1-EXTRACT-TYPENAME-ARRAY-PLACEHOLDER
 
@@ -54609,7 +54674,7 @@ $assertvacuousoff（レベル，リスト）は$assertcontrol（11,31,7，レベ
 
 ### SV2023-20.14-EXTRACT-CROSS-IMPLEMENTATION-ALGORITHM
 
-`20.14` / `normal` / テスト未対応
+`20.14` / `normal` / 実行確認あり
 
 Nアルゴリズムを用いた確率分布生成器は，実装間で繰り返し可能なランダム集合を確保する。
 
@@ -54617,6 +54682,8 @@ Nアルゴリズムを用いた確率分布生成器は，実装間で繰り返�
 
 規定の性質: `mandatory`。
 
+- [test_dist_annex_n_random_uniform_normal_exponential.sv](../tests/ch20/test_dist_annex_n_random_uniform_normal_exponential.sv): $random を seed 0・42・-7 から 3 回ずつ（seed 0 からは 303379748、seed -1844104698 が最初）、$dist_uniform(seed, -1000, 1000) と $dist_uniform(seed, 0, 2147483647)、$dist_normal(seed, -50, 25)、$dist_exponential(seed, 1000) を 3 回ずつ引き、値と seed を出す。
+- [test_dist_annex_n_poisson_chi_square_t_erlang.sv](../tests/ch20/test_dist_annex_n_poisson_chi_square_t_erlang.sv): $dist_poisson(seed, 20) を 3 回、$dist_chi_square を自由度 1 と 4 で 2 回ずつ、$dist_t を自由度 1 と 6 で 2 回ずつ（負の値を含む）、$dist_erlang(seed, 3, 100) を 3 回引き、値と seed を出す。
 
 ### SV2023-20.14.1-EXTRACT-RANDOM-SEED-INITIALIZE
 
@@ -54992,7 +55059,7 @@ q_stat_code 4 は これまでで最も短い待ち時間を要求していま�
 
 ### SV2023-20.15.5-EXTRACT-STAT-5
 
-`20.15.5` / `normal` / テスト未対応
+`20.15.5` / `normal` / 実行確認あり
 
 q_stat_code 5 は、キュー中のジョブの中で最も長い待ち時間を要求します。
 
@@ -55000,6 +55067,7 @@ q_stat_code 5 は、キュー中のジョブの中で最も長い待ち時間を
 
 規定の性質: `definition`。
 
+- [test_queue_longest_wait_of_jobs_in_queue.sv](../tests/ch20/test_queue_longest_wait_of_jobs_in_queue.sv): FIFO（q_type 1）のキュー 1 は 0 ns に job 1 を受け、40 ns の $q_remove で job 1（40 ns 待った）が出て、42 ns と 47 ns に job 2・3 が入る。50 ns の $q_exam(1, 5, ...) は残っている job 2・3 の待ち 8・3 のうち最長の 8 と status 0 を返し、長さ（code 1）は 2。LIFO（q_type 2）のキュー 2 は 0・10 ns に job 4・5 を受け、20 ns の $q_remove で job 5 が出て、30 ns に job 6 が入る。50 ns の code 5 は job 4・6 の待ち 50・20 のうち最長の 50、長さは 2。 区別: キューを出たジョブも含めて最長の待ちを返す誤実装はキュー 1 の行が 8 でなく 40 になる。先頭（次に取り出される）ジョブや最後に入ったジョブの待ちを返す実装は LIFO のキュー 2 で job 6 の 20 になり、最短や平均を返す実装は 3 や 5.5 相当の値になって、どちらかの code 5 の行が変わる。既存の test_queue_statistics_wait_codes は取り出しの無いキューで code 5 を見るので、残っているジョブだけを数えることはこのテストで初めて区別される。Icarus 13.0 は一致する。
 
 ### SV2023-20.15.5-EXTRACT-STAT-6
 
@@ -55385,7 +55453,7 @@ PLAのタイミング／フォーマット形式はすべて，a，o，nand，no
 
 ### SV2023-20.16.3-EXTRACT-ASCENDING-ORDER
 
-`20.16.3` / `error` / テスト未対応
+`20.16.3` / `error` / テスト対応あり・実行未確認
 
 PLA入力項，出力項及び人格記憶を上昇順に指定する。
 
@@ -55393,6 +55461,10 @@ PLA入力項，出力項及び人格記憶を上昇順に指定する。
 
 規定の性質: `mandatory`。
 
+- [test_illegal_pla_descending_memory.sv](../tests/ch20/test_illegal_pla_descending_memory.sv): personality memory の深さ（unpacked の範囲）を \[2:1\] と降順に宣言し、語の範囲 \[1:2\]・入力項 {a1, a2}・出力項 {b1, b2} は昇順。regex は宣言（18 行）と呼び出し（22 行）を指し、順序に触れる診断（ascending/descending）を求め、未対応構文の診断を除く。
+- [test_illegal_pla_descending_input_terms.sv](../tests/ch20/test_illegal_pla_descending_input_terms.sv): 入力項を \[2:1\] と宣言したネット aw にし（入力項はネットでもよい）、memory \[1:2\]\[1:2\] と出力項 logic \[1:2\] br は昇順。regex は aw の宣言（29 行）と呼び出し（34 行）を指す。
+- [test_illegal_pla_descending_output_terms.sv](../tests/ch20/test_illegal_pla_descending_output_terms.sv): 出力項を \[2:1\] と宣言した変数 br にし（出力項は変数である）、memory と入力項 {a1, a2} は昇順。regex は br の宣言（30 行）と呼び出し（32 行）を指す。
+- [test_illegal_pla_descending_memory_word.sv](../tests/ch20/test_illegal_pla_descending_memory_word.sv): personality memory の語（packed の範囲）を \[2:1\] と降順に、深さは \[1:2\] と昇順に宣言し、入力項と出力項は昇順。regex は宣言（30 行）と呼び出し（34 行）を指す。
 
 ### SV2023-20.16.3-EXTRACT-PERSONALITY-LOADING
 
@@ -55875,7 +55947,7 @@ $displayは新しい行を追加するが，$writeは新たな行を追加しな
 
 ### SV2023-21.2.1.1-EXTRACT-PREFER-FWRITE
 
-`21.2.1.1` / `normal` / テスト未対応
+`21.2.1.1` / `normal` / 実行確認あり
 
 フォーマットされていない %u/%z 出力は $fwrite を使う方がよいが、他のディスプレイタスクはそれをサポートします。
 
@@ -55883,6 +55955,7 @@ $displayは新しい行を追加するが，$writeは新たな行を追加しな
 
 規定の性質: `recommendation`。
 
+- [test_unformatted_u_z_in_display_and_scan_tasks.sv](../tests/ch21/test_unformatted_u_z_in_display_and_scan_tasks.sv): u=32'h41424241（どちらのバイト順でも "ABBA"）と、aval 41424241・bval 43444443 の4状態値 q（0/1/x/z を含む）を、$fwrite 以外の表示タスク $display・$write・$displayh・$writeb・$displayo・$strobe で標準出力へ %u/%U/%z/%Z で書き、期待行 ABBA, w\[ABBA\], h ABBA, b ABBACDDC, o ABBACDDC, s ABBA ABBACDDC と比べる。さらに同じファイルへ $fwrite(%u) と $fdisplay(%u)・$fwriteh(%z)・$fdisplayb(%U)・$fstrobe(%Z) で書き、$fgets で読み戻した行 file: ABBAABBA（$fwrite と $fdisplay のバイトが同じ）, file: ABBACDDC|ABBA, file: ABBACDDC と比べる。Icarus 13.0 が一致する。 区別: %u/%z を $fwrite でしか解釈しない実装や、他のタスクで既定の基数表示に戻す実装は、該当行が ABBA ではなく 1094861377 などの数値や別のバイトになり、ファイルの1行目も ABBAABBA にならない。%z の aval と bval の順を誤れば CDDCABBA になる（Verilator 5.054 は %z で別のバイトを出し b 行が崩れる）。「$fwrite が好ましい」という推奨自体は出力差を生まないので、要求の観測できる部分である「他の表示タスクでも同じ形式が使える」ことを、$fwrite が書いたバイトと同じファイル内で並べて確かめている。
 
 ### SV2023-21.2.1.1-EXTRACT-REAL-C-FORMATTING
 
@@ -57017,7 +57090,7 @@ swrite/b/h/oは fwrite のようなフォーマットを使いますが、整数
 
 ### SV2023-21.3.4-EXTRACT-READ-OPEN-MODES-TEXT
 
-`21.3.4` / `normal` / テスト未対応
+`21.3.4` / `normal` / 実行確認あり
 
 21.3.4（$fgetc , $ungetc , $fgets , $fscanf , $fread）の読み込みシステム関数は，rまたはr＋型の値で開かれたファイルディスクリプタにのみ適用できる。これは，w，wb，w＋，w＋b，wb＋，a，ab，a＋，a＋b，ab＋で開いた記述子は，w＋とa＋が更新モードとして記述されていても読み取れないことを意味する。
 
@@ -57025,6 +57098,7 @@ swrite/b/h/oは fwrite のようなフォーマットを使いますが、整数
 
 規定の性質: `definition`。
 
+- [test_file_read_functions_on_r_and_r_plus_descriptors.sv](../tests/ch21/test_file_read_functions_on_r_and_r_plus_descriptors.sv): "w" で "AB\n12 34\nWXYZ" を書いたファイルを "r"・"rb"・"r+"・"r+b"・"rb+" の5通りで開き、それぞれの fd で $fgetc（A）、$ungetc（0）、再度の $fgetc（A）、$fgets（2 文字 "B\n"）、$fscanf("%d %d ")（2 変換、12 と 34）、$fread（4 バイト、5758595a）、最後の $fgetc（EOF -1）を順に行い、各モードの2行（例 r+: open=1 getc=A ungetc=0 getc=A fgets=2:B と r+: fscanf=2:12,34 fread=4:5758595a eof=-1）を比べる。存在しないファイルを "r" で開くと missing file with r: fd=0。各回の前に変数を 0/空に戻すので、前の回の値が残って一致することはない。Icarus 13.0 と Verilator 5.054（seed 1/73）が一致する。 区別: r+ 系や b 付きの型で開いた fd を読み取り不可とする実装、更新型で開くと切り詰める実装、読み出しが位置を進めない実装では、そのモードの行で getc/fgets/fscanf/fread の値や戻り値（0、-1、別の文字や 41420a31 のような先頭バイト）が変わる。存在しないファイルに非 0 を返す実装は最後の行が fd=0 にならない。w+/a+ からの読み出しは受け入れ条件どおり要求していない。
 
 ### SV2023-21.3.4.1-EXTRACT-FGETC
 
@@ -57268,7 +57342,7 @@ EOF は変換を終了します。指令の入力が失敗した場合は、指�
 
 ### SV2023-21.3.4.3-EXTRACT-SCAN-PREFERRED
 
-`21.3.4.3` / `normal` / テスト未対応
+`21.3.4.3` / `normal` / 実行確認あり
 
 フォーマットは他のサポートされた入力タスクにも適用されますが、fscanfはフォーマットされていない %u/%z 入力に対して優先されます。
 
@@ -57276,6 +57350,7 @@ EOF は変換を終了します。指令の入力が失敗した場合は、指�
 
 規定の性質: `recommendation`。
 
+- [test_unformatted_u_z_in_display_and_scan_tasks.sv](../tests/ch21/test_unformatted_u_z_in_display_and_scan_tasks.sv): 好ましいとされる $fscanf だけでなく、もう一つの書式付き入力タスク $sscanf でも %u/%z が使えることを観測する。文字列 s="ABBACDDCABBA" から $sscanf(s, "%z%u") で 8 バイトの aval/bval と 4 バイトを読み、期待行 sscanf %z%u: 2 0x0000zx0x000z100x000z100x0000zx 41424241（x と z を含む q と u が戻る）、$sscanf(s, "%u") で sscanf %u: 1 41424241 と比べる。対照として同じバイトをファイルから $fscanf(%u%u, %z|%u, %z) で読んだ行 fscanf %u%u: 2 41424241 41424241 などとも比べる。どのワードも回文なのでホストのバイト順に依存しない。Icarus 13.0 が一致する。 区別: %u/%z を $fscanf にしか実装しない実装では $sscanf が変換に失敗して戻り値が 0 や -1 になり、値も 41424241 や q のビット列にならない。%z を 2状態で読む実装は x/z が 1/0 に化けた別のビット列を表示し、aval と bval を取り違えると 0x0000zx… の並びが変わる。「$fscanf が好ましい」という推奨は出力差を生まないので、要求の観測できる部分（他の入力タスクでも同じ形式が使える）を、$fscanf で読んだ同じ値と並べて確かめている。
 
 ### SV2023-21.3.4.3-EXTRACT-SCAN-REAL
 
@@ -58774,7 +58849,7 @@ VCDベースのベクトル文字は白文字なしの数字の直前に置か�
 
 ### SV2023-21.7.2.3-EXTRACT-COMMENT-COMMAND
 
-`21.7.2.3` / `normal` / テスト未対応
+`21.7.2.3` / `normal` / 実行確認あり
 
 VCD コメントセクションはコメントを挿入します。
 
@@ -58782,6 +58857,7 @@ VCD コメントセクションはコメントを挿入します。
 
 規定の性質: `mandatory`。
 
+- [test_vcd_comment_section_after_dump_limit.sv](../tests/ch21/test_vcd_comment_section_after_dump_limit.sv): 16 ビットの c を 300 回変化させながら $dumplimit(1000) の下でダンプし、21.7.1.5 によりダンパがコメントを挿入する状況を作る。$dumpflush の後に VCD をトークン単位で読み、少なくとも1つの時刻が出た後の $comment を探して、見つかったか（a $comment section after dumped changes: yes）、本文が1トークン以上あるか（its comment text is not empty: yes）、$end で閉じるか（it ends with $end: yes）を比べる。ツールが宣言部や #0 の前に独自に書くコメントは数えない。コメントの文面と停止位置は出力しない。Icarus 13.0 の VCD は3条件を満たすが、標準出力に独自の警告を出すので一致しない。 区別: 挿入するコメントを $comment 区間として書かない実装（素のテキストや別のキーワードで書く、あるいは書かない）は1行目が no、キーワードだけで本文のない区間は2行目が no、$end で閉じない区間は3行目が no になる。ダンパ自身がコメントを入れるときに、21.7.2.3 の $comment 区間（キーワード・本文・$end）が使われることを観測している。
 
 ### SV2023-21.7.2.3-EXTRACT-DATE-COMMAND
 
@@ -58879,7 +58955,7 @@ VCD 宣言キーワードにはコメントとタイムスケールが含まれ�
 
 ### SV2023-21.7.2.3-EXTRACT-KEYWORD-CLASSES-7
 
-`21.7.2.3` / `normal` / テスト未対応
+`21.7.2.3` / `normal` / 実行確認あり
 
 VCD 宣言キーワードには date と upscope が含まれます。ダンポフはシミュレーションのキーワードです
 
@@ -58887,10 +58963,11 @@ VCD 宣言キーワードには date と upscope が含まれます。ダンポ�
 
 規定の性質: `definition`。
 
+- [test_vcd_keyword_commands_by_section.sv](../tests/ch21/test_vcd_keyword_commands_by_section.sv): 入れ子のインスタンスを含む mid を $dumpvars でダンプし（$upscope が出る）、時刻2で $dumpoff、4で $dumpon、5で $dumpall を呼んで $dumpflush の後に VCD をトークン単位で読む。各キーワードコマンドの位置を記録し、宣言キーワード $date と $upscope の全出現が $enddefinitions より前か（期待行 $date: before $enddefinitions, $upscope: before $enddefinitions）、シミュレーションキーワード $dumpoff の全出現が後か（$dumpoff: after $enddefinitions）を表示する。出現なし・両側に出る場合は別の文言になる。Icarus 13.0 が一致する。 区別: $date や $upscope をヘッダの外（値変化の区間）に書く実装、あるいは $date を書かない実装は after/on both sides/absent の行になり、$dumpoff のチェックポイントを宣言側に書く実装や区間として書かない実装は before/absent になる。表 21-10 の分類（date・upscope は宣言、dumpoff はシミュレーション）を、ファイル上の位置という観測できる形で比べている。宣言どうしの順序・識別子コード・スコープ数は出力しない。
 
 ### SV2023-21.7.2.3-EXTRACT-KEYWORD-CLASSES-8
 
-`21.7.2.3` / `normal` / テスト未対応
+`21.7.2.3` / `normal` / 実行確認あり
 
 これは、VCD 宣言キーワードが enddefinitions と var を含むことを意味します。ダンポンはシミュレーションのキーワードです
 
@@ -58898,6 +58975,7 @@ VCD 宣言キーワードには date と upscope が含まれます。ダンポ�
 
 規定の性質: `definition`。
 
+- [test_vcd_keyword_commands_by_section.sv](../tests/ch21/test_vcd_keyword_commands_by_section.sv): 同じ VCD の読み取りで、宣言キーワード $var の全出現が $enddefinitions より前か（期待行 $var: before $enddefinitions）、$enddefinitions がちょうど1つで、最初の時刻・値変化より前にあるか（$enddefinitions: 1, before the first time or value change: 1）、シミュレーションキーワード $dumpon の全出現が後か（時刻4の $dumpon について $dumpon: after $enddefinitions）を表示する。ベクトル値変化の次のトークンは識別子コードとして読み飛ばすので、$ で始まるコードを命令と誤認しない。Icarus 13.0 が一致する。 区別: $var を値変化の後に書く実装は $var の行が after/on both sides になり、$enddefinitions を欠く・複数書く・時刻 #0 の後に書く実装は 2 行目が 0 や 2 になる。$dumpon の再開時の値をヘッダ側に書く実装や区間にしない実装は $dumpon の行が before/absent になる。表 21-10 の分類（enddefinitions・var は宣言、dumpon はシミュレーション）をファイル上の位置で比べている。
 
 ### SV2023-21.7.2.3-EXTRACT-KEYWORD-CLASSES-9
 
@@ -59042,7 +59120,7 @@ dumpportsは dumpvarsと共存するかもしれません
 
 ### SV2023-21.7.3.1-EXTRACT-PORT-ARGUMENT-DEFAULTS
 
-`21.7.3.1` / `normal` / テスト未対応
+`21.7.3.1` / `normal` / テスト対応あり・実行未確認
 
 両方のダンプポートdumpports() はデフォルトを使いますファイル名の前にコンマを入力する必要があります。
 
@@ -59050,6 +59128,8 @@ dumpportsは dumpvarsと共存するかもしれません
 
 規定の性質: `mandatory`。
 
+- [test_evcd_dumpports_bare_call_defaults.sv](../tests/ch21/test_evcd_dumpports_bare_call_defaults.sv): evcd_bare_a のインスタンス ua が時刻0に $dumpports; を、evcd_bare_b の ub が $dumpports(, "..._b.evcd") を呼ぶ。dumpports.vcd の $var は var port 1 \<0 p と var port 1 \<1 q だけ（ua のポート、ub の r は含まない）、_b.evcd は var port 1 \<0 r だけであることを期待行で比べる。
+- [test_evcd_dumpports_empty_parentheses_defaults.sv](../tests/ch21/test_evcd_dumpports_empty_parentheses_defaults.sv): evcd_paren_c のインスタンス uc が時刻0に $dumpports(); を呼び、ポート u を持つ ud は呼ばない。dumpports.vcd の $var が var port 1 \<0 s と var port 1 \<1 t だけであることを期待行で比べる。
 
 ### SV2023-21.7.3.1-EXTRACT-PORT-CALL-RESTRICTIONS
 
@@ -59371,7 +59451,7 @@ VCD 構造体名と対応する4状態構造体名は，この拡張構文で星
 
 ### SV2023-21.7.4.1-EXTRACT-EXTENDED-GRAMMAR
 
-`21.7.4.1` / `normal` / テスト未対応
+`21.7.4.1` / `normal` / テスト対応あり・実行未確認
 
 拡張 VCD 宣言はシミュレーションコマンドの前に置かれる。宣言ペイロードは $end で終わり、シミュレーションコマンドはポートダンプ制御、コメント、タイムスタンプ、ポート値変更を許可します。
 
@@ -59379,6 +59459,7 @@ VCD 構造体名と対応する4状態構造体名は，この拡張構文で星
 
 規定の性質: `definition`。
 
+- [test_evcd_file_command_structure.sv](../tests/ch21/test_evcd_file_command_structure.sv): dut のポートを $dumpports で拡張 VCD に出し、時刻1の入力変化、2の $dumpportsoff、3の変化、4の $dumpportson、5の $dumpportsall の後に $dumpportsflush してファイル全体をトークン単位で読む。Syntax 21-27 に沿って、宣言キーワード（$date/$enddefinitions/$scope/$timescale/$upscope/$var/$vcdclose/$version）のコマンドがすべて最初のシミュレーションコマンドより前か、すべてのキーワードコマンドが $end で閉じるか、$dumpports/$dumpportsoff/$dumpportson/$dumpportsall の区間が現れるか、時刻が # と10進数で増加するか、値変化が p＋状態文字・0〜7 の強度2つ・宣言済みの \<n コードか、どれにも当たらないトークン数（0）を表示し、期待6行と比べる。$comment は宣言側でもシミュレーション側でも受け入れる（文法上どちらにも置ける）。仕様だけが根拠（Icarus 13.0 は未実装、Verilator 5.054 は --trace なしで無視）。 区別: 宣言（$var や $scope など）を値変化の後に書く実装は1行目が no、$end を欠くコマンドがあれば2行目が no、ポートダンプ制御を区間として書かない実装は sections 行の該当が no、時刻の書式や順序を誤れば4行目、状態文字・強度成分・識別子コードの形を誤るか宣言されていないコードを書けば5行目が no になり、文法外のトークンがあれば最後の行が 0 でなくなる。手作りの正しいファイルと壊したファイルで読み手が区別することも確かめてある。
 
 ### SV2023-21.7.4.1-EXTRACT-EXTENDED-HEADER-GRAMMAR
 
@@ -60309,7 +60390,7 @@ include は引用符または角括弧のファイル名を受け入れ、 行�
 
 ### SV2023-22.5-EXTRACT-MACRO-NO-RESET
 
-`22.5` / `normal` / 実行確認あり
+`22.5` / `normal` / テスト対応あり・実行未確認
 
 再インストールはテキストマクロには影響しません。
 
@@ -61075,7 +61156,7 @@ celldefineとendcelldefineのペアは推奨されるが，必須ではない。
 
 ### SV2023-22.10-EXTRACT-CELL-PLACEMENT
 
-`22.10` / `normal` / テスト未対応
+`22.10` / `normal` / 実行確認あり
 
 細胞タグ指令はどこにでも現れるが，設計要素の外側に置くことを推奨する。
 
@@ -61083,6 +61164,7 @@ celldefineとendcelldefineのペアは推奨されるが，必須ではない。
 
 規定の性質: `recommendation`。
 
+- [test_vpi_celldefine_inside_design_elements.sv](../tests/ch22/test_vpi_celldefine_inside_design_elements.sv) : \`celldefine を cp_host の本体（assign の後、endmodule の前）に、 \`endcelldefine を cp_closer の本体に書き、その間に宣言全体がある cp_cell と、 \`endcelldefine の後に宣言した cp_plain ・最上位モジュールのインスタンスについて、 VPI で vpiCellInstance を名前で読んで表示する。期待行は top: cell instance 0 、 c1 : cell instance 1 、 p1 : cell instance 0 。指示子が宣言の途中にある cp_host ・ cp_closer は、規格がセルかどうかを決めないので表示しない。Icarus 13.0 が一致する。区別: 設計要素の内側の \`celldefine / \`endcelldefine を受け付けない実装はコンパイルに失敗し、受け付けても無視する実装は c1 が cell instance 0 になる。内側の \`endcelldefine を無視する実装は p1 と最上位が 1 になる。「どこにでも置ける」という許可を、設計要素の内側に置いた指示子が外側の場合と同じ効果を持つことで観測している。外側に置くことの推奨そのものは出力差を生まない。
 
 ### SV2023-22.10-EXTRACT-CELL-RESET
 
@@ -75316,7 +75398,7 @@ UDPレベル感度エントリは重なり合うエッジ感度エントリよ�
 
 ### SV2023-30.3-EXTRACT-MODULE-PATH-ENDPOINTS
 
-`30.3` / `normal` / テスト未対応
+`30.3` / `normal` / 実行確認あり
 
 モジュールパスは入出力源とoutput/inout目的地をペア化する。
 
@@ -75324,6 +75406,7 @@ UDPレベル感度エントリは重なり合うエッジ感度エントリよ�
 
 規定の性質: `definition`。
 
+- [test_specify_path_input_inout_sources_shared_destination.sv](../tests/ch30/test_specify_path_input_inout_sources_shared_destination.sv) : セルは input a, c、inout b、output y、inout z を持ち、( a = \> y) = 20 （input→output）、( b = \> y) = 40 （inout→output）、( a = \> z) = 30 （input→inout）、( b = \> z) = 50 （inout→inout）の 4 種の端点の組を全部宣言する。入力を 1 本ずつ 100 おきに変え、 10 の倍数ごとの標本で変化時刻を表示する。期待出力は a による y の変化が 120/320/520 、b による y が 240/640 、a による z が 330/530 、b による z が 250/650 。区別: inout をソースまたはデスティネーションとするパスを無視する実装では、b による y の変化（ 240 , 640 ）や z の変化（ 250 , 330 , 530 , 650 ）が遅延なしの 200/300/500/600 などに変わる。inout→inout の ( b = \> z) を扱わなければ 250 と 650 が 200 と 600 になる。input→output だけを正しく扱う実装も 4 種すべての時刻が揃わなければ一致しない。
 
 ### SV2023-30.3-EXTRACT-SPECIFY-GRAMMAR
 
@@ -75339,7 +75422,7 @@ UDPレベル感度エントリは重なり合うエッジ感度エントリよ�
 
 ### SV2023-30.4-EXTRACT-MULTIPLE-PATH-SOURCES
 
-`30.4` / `normal` / テスト未対応
+`30.4` / `normal` / 実行確認あり
 
 異なるソースパスは目的地を共有し，異なる遅延を指定できる。
 
@@ -75347,10 +75430,11 @@ UDPレベル感度エントリは重なり合うエッジ感度エントリよ�
 
 規定の性質: `permission`。
 
+- [test_specify_path_input_inout_sources_shared_destination.sv](../tests/ch30/test_specify_path_input_inout_sources_shared_destination.sv): デスティネーション y（= a ^ b ^ c）に 3 つのソース a, b, c から異なる遅延 20, 40, 60 のパスを、z（= a & b）に a, b から 30, 50 のパスを宣言する。入力を 1 本ずつ変えるので変化したソースのパスだけが有効になり、期待出力では y の変化が a で 120/320/520（+20）、b で 240/640（+40）、c で 460（+60）、z の変化が a で 330/530（+30）、b で 250/650（+50）になる。 区別: 同じデスティネーションへの複数ソースのパスで遅延を 1 つしか保持しない実装（最後や最初の宣言、最小値を常に使うなど）では、ソースごとに異なる +20/+40/+60 が揃わず、例えば常に 20 なら 240 が 220、460 が 420 になる。ソースごとの遅延が別々に保たれ、変化したソースの遅延が使われるときだけ期待出力のすべての時刻が一致する。
 
 ### SV2023-30.4-EXTRACT-PATH-DECLARATION-FORMS
 
-`30.4` / `normal` / テスト未対応
+`30.4` / `normal` / 実行確認あり
 
 モジュールパスは，特定のブロック内の簡単な，エッジ感度あるいは状態依存的な宣言であり，合法的なスカラー／ベクトル組合せを結びつけることができる。
 
@@ -75358,6 +75442,7 @@ UDPレベル感度エントリは重なり合うエッジ感度エントリよ�
 
 規定の性質: `mandatory`。
 
+- [test_specify_path_forms_scalar_vector_combinations.sv](../tests/ch30/test_specify_path_forms_scalar_vector_combinations.sv) : 1 つの specify ブロックに simple パス 4 本（scalar→scalar ( a = \> y1 )= 20 、vector→scalar (v * \> y2 )= 30 、scalar→vector (a * \> y3 )= 40 、vector→vector ( v = \> y4 )= 50 ）、edge-sensitive パス ( posedge clk = \> (q +: a))= 60 、state-dependent パス if (s) ( a = \> r)= 70 / if (!s) ( a = \> r)= 90 を置く。期待出力は y1 が 120/520 、 y3 が 140/540 、 y2 が 330/630 、 y4 が 350/650 、q が 260/860 、r が s = 1 で 170 、 s = 0 で 590 に変化する。区別: どれかの形式を受け付けない実装はコンパイルに失敗し、形式やスカラー/ベクタの組を無視する実装はその出力が遅延なし（ 100 , 200 , 300 など）で変わる。vector→scalar や scalar→vector の full パスで一部のビットにしかパスを作らない実装は y2 や y3 の時刻が崩れ、state-dependent の条件を無視すると r の 590 が 570 になり、edge-sensitive パスを無視すると q の 260/860 が 200/800 になる。
 
 ### SV2023-30.4.1-EXTRACT-PATH-DESTINATION-TYPE
 
@@ -75398,7 +75483,7 @@ is =\> は並列接続演算子であり，完全接続演算子は *\> であ�
 
 ### SV2023-30.4.2-EXTRACT-SIMPLE-PATH-GRAMMAR
 
-`30.4.2` / `normal` / テスト未対応
+`30.4.2` / `normal` / テスト対応あり・実行未確認
 
 単純なパスは，並列単端子または完全なコンマ分離端子リストに遅延を割り当て，極性で注釈する。ターミナルには input/output/inout/interface メンバーとオプションの定数 select が含まれます。
 
@@ -75406,6 +75491,8 @@ is =\> は並列接続演算子であり，完全接続演算子は *\> であ�
 
 規定の性質: `definition`。
 
+- [test_specify_simple_path_declarations_and_terminals.sv](../tests/ch30/test_specify_simple_path_declarations_and_terminals.sv): (a + =\> y) = (2, 4)、(b, c - *\> y1, y2) = (3, 5)、(d\[3:2\] =\> q\[3:2\]) = 1、(a =\> io) = 3 / (io =\> y) = 4 を宣言し、期待出力は par の y が 13/23/35、full の y1/y2 が 44/54/66/77、sel の q が 83/103/113、io が 125、y が 129 に変化する。
+- [test_specify_interface_signal_path_terminals.sv](../tests/ch30/test_specify_interface_signal_path_terminals.sv): modport で a, b を input、y, z を output にした interface ポート p について (p.a =\> p.y) = 30、(p.b =\> o) = 40、(i =\> p.z) = 50 を宣言し、p.a・p.b・i を 100 おきに変える。期待出力は p.y が 130 と 430、o が 240、p.z が 350 に変化する。
 
 ### SV2023-30.4.3-EXTRACT-DATA-SOURCE-DESCRIPTIVE
 
@@ -75434,7 +75521,7 @@ logic に従う実際のイベント／データ伝搬を制御しないパス�
 
 ### SV2023-30.4.3-EXTRACT-EDGE-PATH-GRAMMAR
 
-`30.4.3` / `normal` / テスト未対応
+`30.4.3` / `normal` / テスト対応あり・実行未確認
 
 エッジセンシティブなパスには、省略可能なエッジ／極性と並列／完全接続を使用する。終点への値の伝達を表す任意のデータソース式も省略可能である。
 
@@ -75442,10 +75529,12 @@ logic に従う実際のイベント／データ伝搬を制御しないパス�
 
 規定の性質: `definition`。
 
+- [test_specify_edge_path_full_polarity_data_source.sv](../tests/ch30/test_specify_edge_path_full_polarity_data_source.sv): pa・ma・mc（parallel、遅延 (20, 50)）、fu（full で 2 出力、(30, 60)、データソース ~d）、fv（full でベクタ出力、データソースなし、(30, 60)）に、clk の立ち上がり 100 と 200 で d の 1 と 0 を取り込ませ、期待出力では q が 120/250、qa が 130/260、qb が 160/230、qv が 130 に 11、160 に 10、230 に 11、260 に 01 となる。
+- [test_specify_edge_path_source_edge_kinds.sv](../tests/ch30/test_specify_edge_path_source_edge_kinds.sv): 両エッジでラッチするセルに、posedge と negedge のパス (20 と 60)、edge のパス (30)、エッジ識別子なしのパス (40) を与え、clk の立ち上がり 100 と立ち下がり 200 で、期待出力は pn が 120/260、ed が 130/230、an が 140/240 に変化する。
 
 ### SV2023-30.4.3-EXTRACT-EDGE-PATH-SOURCE
 
-`30.4.3` / `normal` / テスト未対応
+`30.4.3` / `normal` / テスト対応あり・実行未確認
 
 ソースエッジは posedge / negedge /edge を使うことができます。LSBを用いてベクトルソースエッジ検出を行い，エッジを省略した場合はソース転移を行う。
 
@@ -75453,10 +75542,11 @@ logic に従う実際のイベント／データ伝搬を制御しないパス�
 
 規定の性質: `mandatory`。
 
+- [test_specify_edge_path_source_edge_kinds.sv](../tests/ch30/test_specify_edge_path_source_edge_kinds.sv): 両エッジでラッチするセルに (posedge clk =\> (q : d)) = 20 と (negedge clk =\> (q : d)) = 60（pn）、(edge clk =\> (q : d)) = 30（ed）、エッジ識別子なしの (clk =\> (q : d)) = 40（an）を与え、clk の立ち上がり 100 と立ち下がり 200 で変化時刻を見る。2 ビットのクロック c の変化ごとにラッチするセル lsb には (posedge c *\> (q : d)) = 20 と (negedge c *\> (q : d)) = 60 を与え、c を 00→11→10→01→10 と変える。期待出力は pn が 120/260、ed が 130/230、an が 140/240、lsb が 320/460/520/660。 区別: posedge/negedge を区別しない実装は pn の 260 が 220 などに変わり、edge を片方のエッジだけに当てる実装やエッジ識別子なしのパスを立ち上がりだけに当てる実装（Icarus 13.0 の an の振る舞い）は ed の 230 や an の 240 が遅延なしの 200 になる。ベクタのエッジを MSB で検出する実装は 10→01（LSB 立ち上がり、MSB 立ち下がり）を negedge とみなして 520 が 560 に、01→10 を posedge とみなして 660 が 620 になり、いずれかのビットの立ち上がりを posedge とみなす実装は両パスが有効になって 660 が 620 になる。
 
 ### SV2023-30.4.3-EXTRACT-EDGE-POLARITY-DESCRIPTIVE
 
-`30.4.3` / `normal` / テスト未対応
+`30.4.3` / `normal` / テスト対応あり・実行未確認
 
 任意の経路極性はタイミング解析のための反転を記述するが，シミュレーション結果には影響しない。
 
@@ -75464,10 +75554,11 @@ logic に従う実際のイベント／データ伝搬を制御しないパス�
 
 規定の性質: `mandatory`。
 
+- [test_specify_edge_path_full_polarity_data_source.sv](../tests/ch30/test_specify_edge_path_full_polarity_data_source.sv): 立ち上がりで d をラッチして非反転で出力するセル 3 つに、同じ遅延 (20, 50) で正極性 (posedge clk =\> (q +: d))、負極性 (posedge clk =\> (q -: d))、データソースなしの負極性 (posedge clk -=\> q) を与える。full のセル fu は (posedge clk *\> (qa, qb -: ~d)) = (30, 60) で qa を非反転、qb を反転で出す。期待出力は極性によらず q が立ち上がり 120・立ち下がり 250、qa が 130/260、qb が 160/230 で、どれも出力自身の遷移（rise/fall）の遅延になる。 区別: 極性をシミュレーションに反映する実装（負極性ならソースの立ち上がりに出力の fall 遅延を当てる、出力を反転させるなど）では、ma と mc の q が pa と違って 150 に立ち上がるか値が反転し、負極性の fu では qa の 130 が 160 に変わる。極性を無視して出力の遷移で遅延を選ぶときだけ、pa・ma・mc の 3 列が同じ時刻で揃い、qa と qb がそれぞれ自分の遷移の遅延になる。
 
 ### SV2023-30.4.4-EXTRACT-STATE-PATH-GRAMMAR
 
-`30.4.4` / `normal` / テスト未対応
+`30.4.4` / `normal` / 実行確認あり
 
 状態依存パスは，条件を単純な／端経路と遅延と関連付ける。ifnone は単純なパス形式にのみ適用されます。
 
@@ -75475,6 +75566,7 @@ logic に従う実際のイベント／データ伝搬を制御しないパス�
 
 規定の性質: `definition`。
 
+- [test_specify_state_dependent_edge_and_lone_ifnone.sv](../tests/ch30/test_specify_state_dependent_edge_and_lone_ifnone.sv) : Syntax 30-5 の 3 つの形を全部使う。if + simple パス: if (s) ( a = \> r) = 20 / if (!s) ( a = \> r) = 50 。if + edge-sensitive パス: if (en) ( posedge clk = \> (q : d)) = 30 / if (!en) ... = 70 。ifnone + simple パス: 単独の ifnone ( a = \> n) = 40 と、edge-sensitive な条件付きパス if (en) ( posedge clk = \> ( q2 +: d)) = 60 に対応する ifnone ( clk = \> q2 ) = 20 。期待出力は r が s = 1 で 120 、 s = 0 で 450 、q が en = 1 で 230 、 en = 0 で 570 、n が 140/440 、 q2 が en = 1 で 260 、 en = 0 で 520 。区別: 条件を評価しない実装では両方の条件付きパスが有効になって小さい方の遅延が選ばれ、r の 450 が 420 、q の 570 が 530 に変わる。edge-sensitive な本体を持つ条件付きパスを扱わない実装は q が遅延なしで 200/500 に変わる。ifnone を条件が真のときも有効とみなす実装は q2 の 260 が 220 に、ifnone を無視する実装は q2 の 520 が 500 に、n の 140/440 が 100/400 に変わる。ifnone が simple パスだけを取ること（edge-sensitive パスの ifnone は違法）は error 要求 30.4.4.4 - EXTRACT-IFNONE-SIMPLE として負テストに登録済みで、ここでは ifnone が simple パスとして、edge-sensitive な対応パスとともに働くことを観測する。
 
 ### SV2023-30.4.4.1-EXTRACT-STATE-CONDITION-LSB
 
@@ -75719,7 +75811,7 @@ permit == 状態依存パス条件
 
 ### SV2023-30.4.4.1-EXTRACT-STATE-PATH-OPERANDS
 
-`30.4.4.1` / `error` / テスト未対応
+`30.4.4.1` / `error` / テスト対応あり・実行未確認
 
 bit／part selectを含む条件パスオペランドは，スカラー／ベクトル入出力ポート，ローカルネット／変数，及びスペックパラメータを含むコンパイル時定数である。
 
@@ -75727,6 +75819,7 @@ bit／part selectを含む条件パスオペランドは，スカラー／ベク
 
 規定の性質: `mandatory`。
 
+- [test_illegal_state_path_hierarchical_operand.sv](../tests/ch30/test_illegal_state_path_hierarchical_operand.sv): モジュール t の specify ブロックで、状態依存パス if (u.c) (a =\> b) = 5; の条件式に、子インスタンス u の変数 c への階層参照 u.c を使う。u.c は t の入力・inout ポートでも、t の中で宣言されたネット・変数でも、定数でもない。設計はこの条件式以外は合法（a は input ネット、b は output、モジュール other はインスタンス化されている）で、:expected_stderr_regex: はこの条件式の行 24 を指す。 区別: 30.4.4.1 は条件式のオペランドを、入力/inout ポート（とその bit/part select）、局所的に宣言されたネット・変数（とその select）、コンパイル時定数に限る。オペランドの制限を検査しない実装（Icarus 13.0 と Verilator 5.054 はともに受理する）はこの設計を受理し、テストは「受理された」で不一致になる。別の行で誤ったエラーを出す実装も行 24 と一致しない。許されるオペランドでの正常動作は 30.4.4.2 の正常系テスト群が別に見ており、この error 要求の中心である「列挙以外のオペランドは違反」をこの負テストが直接照合する。
 
 ### SV2023-30.4.4.2-EXTRACT-SIMPLE-STATE-PATH
 
@@ -75742,7 +75835,7 @@ bit／part selectを含む条件パスオペランドは，スカラー／ベク
 
 ### SV2023-30.4.4.3-EXTRACT-EDGE-STATE-PATH
 
-`30.4.4.3` / `normal` / テスト未対応
+`30.4.4.3` / `normal` / 実行確認あり
 
 境界感度の高い体を持つ状態依存パスは境界感度の状態依存パ스である。
 
@@ -75750,6 +75843,7 @@ bit／part selectを含む条件パスオペランドは，スカラー／ベク
 
 規定の性質: `definition`。
 
+- [test_specify_state_dependent_edge_and_lone_ifnone.sv](../tests/ch30/test_specify_state_dependent_edge_and_lone_ifnone.sv): 立ち上がりで d をラッチするセル ep に、edge-sensitive な本体を持つ状態依存パス if (en) (posedge clk =\> (q : d)) = 30 と if (!en) (posedge clk =\> (q : d)) = 70 を与える。en=1 の 200 の立ち上がりで q は 230 に立ち上がり、en=0 にした後の 500 の立ち上がりで 570 に立ち下がる。セル ie でも if (en) (posedge clk =\> (q2 +: d)) = 60 が en=1 の 200 で q2 を 260 に変える。 区別: edge-sensitive 状態依存パスの条件を無視する実装は両方のパスが有効になり 570 が 530 になる。条件付き edge パスを受け付けない・無視する実装では q と q2 が 200/500 に遅延なしで変わる。条件が真のとき、その edge パスの遅延が立ち上がりの変化に使われるときだけ 230/570/260 が揃う。
 
 ### SV2023-30.4.4.3-EXTRACT-EDGE-STATE-UNIQUENESS
 
@@ -75778,7 +75872,7 @@ ifnoneは、対応するすべてのパス条件が偽の場合に遅延を与�
 
 ### SV2023-30.4.4.4-EXTRACT-IFNONE-NO-COUNTERPART
 
-`30.4.4.4` / `boundary` / テスト未対応
+`30.4.4.4` / `boundary` / 実行確認あり
 
 条件付きパスがない場合は，無条件の単純パスとして振舞う。
 
@@ -75786,6 +75880,7 @@ ifnoneは、対応するすべてのパス条件が偽の場合に遅延を与�
 
 規定の性質: `mandatory`。
 
+- [test_specify_state_dependent_edge_and_lone_ifnone.sv](../tests/ch30/test_specify_state_dependent_edge_and_lone_ifnone.sv): セル ln は n = a のバッファで、specify にあるのは ifnone (a =\> n) = 40 だけで、a から n への条件付きパスはない。a の立ち上がり 100 で n は 140、（他のセルの状態 s, en を 0 にした後の）a の立ち下がり 400 で n は 440 に変わり、無条件の simple パス (a =\> n) = 40 と同じ時刻になる。 区別: 対応する条件付きパスがない ifnone を「有効な条件付きパスがない」とみなして無効にする実装や、ifnone を無視する実装では、n が遅延なしの 100/400 に変わる。ifnone を条件付きパスの既定としてしか扱わない実装も同様に崩れる。無条件パスとして扱うときだけ 140 と 440 が揃う。
 
 ### SV2023-30.4.4.4-EXTRACT-IFNONE-SIMPLE
 
@@ -75813,7 +75908,7 @@ ifnoneは、対応するすべてのパス条件が偽の場合に遅延を与�
 
 ### SV2023-30.4.5-EXTRACT-FULL-BIT-CROSS-PRODUCT
 
-`30.4.5` / `normal` / テスト未対応
+`30.4.5` / `normal` / テスト対応あり・実行未確認
 
 完全モジュールパスは、すべての始点bitをすべての終点bitへ接続し、両端の幅が等しい必要はない。
 
@@ -75821,6 +75916,7 @@ ifnoneは、対応するすべてのパス条件が偽の場合に遅延を与�
 
 規定の性質: `mandatory`。
 
+- [test_specify_full_path_unequal_widths_and_mixed_lists.sv](../tests/ch30/test_specify_full_path_unequal_widths_and_mixed_lists.sv): 3 ビットの a から 2 ビットの y への full パス (a *\> y) = (20, 50) で、y\[0\] = ^a、y\[1\] = ~^a なので a のどのビットの変化も y の片方を立ち上げ、もう片方を立ち下げる。a\[2\]（100）、a\[0\]（200）、a\[1\]（300）を順に立ち上げ、期待出力は 120/150、220/250、320/350 で、各ビットが自分の遷移の遅延（rise 20、fall 50）で y の両ビットに届く。 区別: 幅の違う端点の full パスを受け付けない実装はコンパイルに失敗し、ビットを対応づけて一部の組にしかパスを作らない実装では、a\[2\]→y\[*\] や a\[0\]→y\[1\] などのパスがない変化が遅延なしで起こり 120/150 が 100、220 が 200 などに変わる。多ビットのデスティネーションで LSB の遅延を全ビットに使う実装（Icarus 13.0）は y の両ビットが 120 に同時に変わる。
 
 ### SV2023-30.4.5-EXTRACT-FULL-REQUIRED
 
@@ -75851,7 +75947,7 @@ ifnoneは、対応するすべてのパス条件が偽の場合に遅延を与�
 
 ### SV2023-30.4.6-EXTRACT-MULTIPLE-PATH-FULL
 
-`30.4.6` / `normal` / テスト未対応
+`30.4.6` / `normal` / テスト対応あり・実行未確認
 
 多重ソース／目的地宣言は，完全接続で結合したコンマ分離リストを用い，混合スカラー／ベクトル幅を許容し，対応するソース／目的地交差積を定義する。
 
@@ -75859,6 +75955,7 @@ ifnoneは、対応するすべてのパス条件が偽の場合に遅延を与�
 
 規定の性質: `mandatory`。
 
+- [test_specify_full_path_unequal_widths_and_mixed_lists.sv](../tests/ch30/test_specify_full_path_unequal_widths_and_mixed_lists.sv): 1 つの宣言 (s, v *\> p, w) = (30, 60) で、スカラー s と 2 ビットの v をソース、スカラー p と 3 ビットの w をデスティネーションとするリストを *\> で結ぶ。p と w の各ビットは s ^ v\[1\] ^ v\[0\] なので、s（400）、v\[1\]（500）、v\[0\]（600）のどの変化も p と w の全ビットを変える。期待出力は 430 に p=1 w=111、560 に p=0 w=000、630 に p=1 w=111。 区別: リストの 2 番目以降のソースやデスティネーションにパスを作らない実装では、v による変化や w の変化が遅延なしで 500/600 や 400 に起こる。スカラーとベクタの混在を受け付けない実装はコンパイルに失敗する。各ソースから各デスティネーションへ full のパスができるときだけ、3 つのソースの変化がいずれも p と w に 30（rise）/60（fall）後に届く。
 
 ### SV2023-30.4.7-EXTRACT-PATH-POLARITY-METADATA
 
@@ -75910,7 +76007,7 @@ ifnoneは、対応するすべてのパス条件が偽の場合に遅延を与�
 
 ### SV2023-30.4.7.2-EXTRACT-POLARITY-SYNTAX
 
-`30.4.7.2` / `normal` / テスト未対応
+`30.4.7.2` / `normal` / 実行確認あり
 
 これは，パラレルパス演算子の前に＋を付けることで，正極性を選択できる。
 
@@ -75918,10 +76015,11 @@ ifnoneは、対応するすべてのパス条件が偽の場合に遅延を与�
 
 規定の性質: `mandatory`。
 
+- [test_specify_polarity_operators_full_parallel.sv](../tests/ch30/test_specify_polarity_operators_full_parallel.sv): 正極性を =\> の前（バッファ bp: (a +=\> y)）と *\> の前（バッファ bf: (a +*\> y)、インバータ ip: (a +*\> y)）の両方に付け、遅延はすべて (20, 50)。a の立ち上がり 100 で bp と bf は 120 に立ち上がり、ip は 150 に立ち下がり、立ち下がり 200 で ip は 220、bp と bf は 250 に変わる。 区別: +*\> や +=\> を受理しない実装はコンパイルに失敗する。正極性を「出力の遷移はソースと同じ向き」として遅延選択に使う実装では、インバータ ip の立ち下がりにソースの rise 遅延を当てて 150 が 120 に、220 が 250 に変わる。両方の演算子の前の + を受け付け、出力自身の遷移で遅延を選ぶときだけ期待出力に一致する。
 
 ### SV2023-30.4.7.3-EXTRACT-POLARITY-MEANING
 
-`30.4.7.3` / `normal` / テスト未対応
+`30.4.7.3` / `normal` / 実行確認あり
 
 負極性注釈はシミュレーションによって強制されたデータ関数ではなく，メタデータとして反対方向あるいは遷移がないことを記述する。
 
@@ -75929,10 +76027,11 @@ ifnoneは、対応するすべてのパス条件が偽の場合に遅延を与�
 
 規定の性質: `definition`。
 
+- [test_specify_polarity_operators_full_parallel.sv](../tests/ch30/test_specify_polarity_operators_full_parallel.sv): 負極性 (a -=\> y)、(a -*\> y) を非反転のバッファ bn・bm に付ける。負極性は「ソースの立ち上がりは出力の立ち下がりか無変化」を記述するが、a の立ち上がり 100 で bn と bm は 120 に rise 遅延で立ち上がり、立ち下がり 200 で 250 に fall 遅延で立ち下がる。同じ遅延の正極性・負極性のインバータ ip と im も同じ時刻 150/220 で変わる。 区別: 負極性をデータの関数として強制する実装（出力を反転させる、ソースの立ち上がりで出力の立ち上がりを抑える、ソースの遷移の逆向きの遅延を当てる）では、bn と bm の値が反転するか、120/250 が 150/220 に変わるか、変化が消える。負極性が記述だけでシミュレーションに影響しないときだけ、負極性のバッファが通常のバッファと同じ 120/250 で変わる。
 
 ### SV2023-30.4.7.3-EXTRACT-POLARITY-SYNTAX
 
-`30.4.7.3` / `normal` / テスト未対応
+`30.4.7.3` / `normal` / 実行確認あり
 
 前置詞 - 任意のフル/パラレルパス演算子が負極性を選択する前に。
 
@@ -75940,6 +76039,7 @@ ifnoneは、対応するすべてのパス条件が偽の場合に遅延を与�
 
 規定の性質: `mandatory`。
 
+- [test_specify_polarity_operators_full_parallel.sv](../tests/ch30/test_specify_polarity_operators_full_parallel.sv): 負極性を =\> の前（バッファ bn: (a -=\> y)）と *\> の前（バッファ bm: (a -*\> y)、インバータ im: (a -*\> y)）の両方に付け、遅延はすべて (20, 50)。a の立ち上がり 100 で bn と bm は 120 に立ち上がり、im は 150 に立ち下がり、立ち下がり 200 で im は 220、bn と bm は 250 に変わる。 区別: -*\> や -=\> を受理しない実装はコンパイルに失敗する。- を付けたパスを別の極性や遅延の扱いにする実装（例えば負極性ならソースの立ち上がりに fall 遅延を当てる）では、bn と bm の 120 が 150 に、250 が 220 に変わる。両方の演算子の前の - を受け付け、極性が動作を変えないときだけ期待出力に一致する。
 
 ### SV2023-30.5-EXTRACT-PATH-DELAY-GRAMMAR
 
@@ -75979,7 +76079,7 @@ ifnoneは、対応するすべてのパス条件が偽の場合に遅延を与�
 
 ### SV2023-30.5.1-EXTRACT-PATH-DELAY-MINTYPMAX
 
-`30.5.1` / `normal` / テスト未対応
+`30.5.1` / `normal` / テスト対応あり・実行未確認
 
 単一遅延表現は典型的な遅延を表す。コロンの三つ子は最小/典型/最大を表します
 
@@ -75987,6 +76087,7 @@ ifnoneは、対応するすべてのパス条件が偽の場合に遅延を与�
 
 規定の性質: `mandatory`。
 
+- [test_specify_path_delay_mintypmax_vpi.sv](../tests/ch30/test_specify_path_delay_mintypmax_vpi.sv): 3 つのパスに (2:5:9)、(1:3:8, 2:6:7)、単一値 4 の遅延を与え、VPI アプリケーションが mtm_flag を立てた vpi_get_delays（Table 38-2 で遅延ごとに min・typ・max の 3 要素）で読み、1 ns 単位の実数で表示する。期待出力は u1 が "2 5 9"、u2 が rise "1 3 8" と fall "2 6 7"、u3 の typ 要素が 4。どの値で実行するかはツールの選択（11.11）なので、実行時の遅延は見ない。 区別: 3 値を min:typ:max の順に解釈しない実装（例えば逆順や typ を先頭とみなす）では u1 が "9 5 2" や "5 2 9" に、u2 の並びも崩れる。3 値を選択済みの 1 値だけで保持する実装（Icarus 13.0 は "5 0 0" を返す）では min と max の要素が違う値になる。単一値を typical でなく min や max の要素だけに置く実装では u3 の typ が 4 にならない。
 
 ### SV2023-30.5.1-EXTRACT-TRANSITION-01-1
 
@@ -76880,7 +76981,7 @@ z1，z0の遅延を用いて，x遷移遅延を省略した。
 
 ### SV2023-30.7-EXTRACT-PULSE-LIMIT-ORDER
 
-`30.7` / `error` / テスト未対応
+`30.7` / `error` / テスト対応あり・実行未確認
 
 拒絶と誤り限界は，拒絶，xフィルタリングおよび通過パルスを分割する。誤差限界は 少なくとも拒否限界でなければならない。
 
@@ -76888,6 +76989,7 @@ z1，z0の遅延を用いて，x遷移遅延を省略した。
 
 規定の性質: `mandatory`。
 
+- [test_illegal_pathpulse_error_below_reject.sv](../tests/ch30/test_illegal_pathpulse_error_below_reject.sv): 遅延 6 のパス (a =\> b) に specparam PATHPULSE$a$b = (5, 2); を与え、reject limit 5 より小さい error limit 2 を指定する。設計の他の部分は合法で、:expected_stderr_regex: はこの PATHPULSE$ 宣言の行 21 を指す。 区別: 30.7 は error limit が常に reject limit 以上であることを要求する（両者が reject / x / 通過の 3 範囲を区切るため、逆順では範囲が定義できない）。順序を検査しない実装（Icarus 13.0 と Verilator 5.054 はともに受理する）はこの設計を受理し、テストは「受理された」で不一致になる。区切られた 3 範囲そのものの振る舞いは 30.7 の boundary 要求（PULSE-REJECT/ERROR/PASS）として test_specify_pulse_limit_boundaries に登録済みで、この error 要求で残る「error limit \>= reject limit」の違反をこの負テストが行 21 で照合する。
 
 ### SV2023-30.7-EXTRACT-PULSE-LIMIT-SOURCES
 
@@ -78578,7 +78680,7 @@ limit2 はフルスキューに対して非負の定数表現である。
 
 ### SV2023-31.4.4-EXTRACT-WIDTH-COINCIDENT-TEXT
 
-`31.4.4` / `boundary` / テスト未対応
+`31.4.4` / `boundary` / 実行確認あり
 
 $widthは，異なるシミュレーション時間に基準とデータの遷移が起こるパルスに対して，パルス幅を極限に対してチェックする。標準では，参照とデータイベントが同じシミュレーション時間に発生することはないと要求しており，一致する対向エッジはこの要求の外にあり，通過／失敗ルールは与えられない。
 
@@ -78586,6 +78688,7 @@ $widthは，異なるシミュレーション時間に基準とデータの遷�
 
 規定の性質: `mandatory`。
 
+- [test_timing_width_threshold_limit_edges.sv](../tests/ch31/test_timing_width_threshold_limit_edges.sv): c に 10, 20, ..., 60 から幅 1, 2, 3, 4, 5, 6 の high パルスを与え（立ち上がりと立ち下がりは必ず異なる時刻。幅 1 が最小の離れた時刻）、$width(posedge c, 5, 0, nz) と $width(posedge c, 5, 2, nw) の notifier が変化した時刻を記録して最後に表示する。期待出力は threshold 0 で "11 22 33 44"（幅 1〜4 が limit 5 未満で違反、幅 5 と 6 は違反なし）、threshold 2 で "33 44"。 区別: 要求は、reference（立ち上がり）と data（立ち下がり）が異なる時刻のパルスについて $width が幅を limit と比べることである。最小の 1 ns パルスを同時刻の事象のように扱って検査しない実装では threshold 0 の行から 11 が消え、limit と比べない・幅の計算を誤る実装では 22, 33, 44 の有無や 55（幅 5）が変わる。threshold 2 の行は glitch 除外と limit 比較の両方が働くことを示す。同時刻の逆エッジは 31.4.4 が起こらないとする前提の外で、このテストは使わない。
 
 ### SV2023-31.4.4-EXTRACT-WIDTH-EVENT-ROLES
 
@@ -81260,7 +81363,7 @@ liblist は階層的に継承される順序付けされた検索リストです
 
 ### SV2023-33.4.1.6-EXTRACT-CONFIG-USE-BINDING
 
-`33.4.1.6` / `error` / テスト未対応
+`33.4.1.6` / `error` / 実行確認あり
 
 ユースは，選択したインスタンス／セルをライブラリ／セルに明示的に結合し，インスタンスまたはセルセレクタを必要とする。
 
@@ -81268,6 +81371,7 @@ liblist は階層的に継承される順序付けされた検索リストです
 
 規定の性質: `mandatory`。
 
+- [test_illegal_config_use_without_selector.sv](../tests/ch33/test_illegal_config_use_without_selector.sv): config の規則文を use work.test_illegal_config_use_without_selector_b; だけにし、その前に instance 句も cell 句もない。他は規格で認められる config（design 文あり）で、:expected_stderr_regex: はこの use 句の行 40 を指す。同じ規則を instance test_illegal_config_use_without_selector.u use ... と書いた設計は Icarus 13.0 と Verilator 5.054 で受理されることを確かめた。 区別: 33.4.1.6 は use 句を instance または cell の選択句と組にしてだけ使えるとし、Syntax 33-4 の規則文も inst_clause use_clause と cell_clause use_clause しか持たない。選択句なしの use を受け付けて既定の束縛のように扱う実装はこの設計を受理し、テストは不一致になる。Icarus 13.0 と Verilator 5.054 はこの行で構文エラーを出し、Verilator は instance か cell の句を期待すると報告する。default use は 33.4.1.2 の別の負テストが扱い、ここは選択句がまったくない形を照合する。
 
 ### SV2023-33.4.1.6-EXTRACT-USE-CONFIG-SUFFIX
 

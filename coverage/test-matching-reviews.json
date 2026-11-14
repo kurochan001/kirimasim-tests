@@ -2318,6 +2318,29 @@
               "contains": "module test_width_mismatch;"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-10.7-EXTRACT-DETERMINE-SIZES"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "4'hF + 8'h01 = 'h10 や 4'hF * 8'h10 = 'hF0 は被演算子の大きい方の 8 ビットに収まるので、左辺の 16 ビットを評価の幅に入れない実装でも同じ値になる（同じテストの LHS-CONTEXT の保留と同じ理由）。左辺が狭い代入 mid_size = wide（16'hABCD から CD）と連結 wide = {narrow, mid_size}（0ABC）の刺激はあるが、前者は演算のない一つの値の切り捨てなので、右辺を左辺の 8 ビットだけで評価する誤実装でも同じ CD になって区別できない。後者は連結の被演算子を左辺の幅に広げる誤実装なら 00BC になるが、連結の中に演算がないので、自己決定の被演算子の中の演算が文脈で広がらないこと（{a + b} の桁上がりが落ちること）は区別できない。どれも、左辺と右辺の両方の大きさから演算の幅を決めることを誤実装と区別する刺激になっていない。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_width_mismatch.sv",
+              "contains": "wide = narrow + mid_size;"
+            },
+            {
+              "file": "tests/ch10/test_width_mismatch.sv",
+              "contains": "mid_size = wide;  // Truncates to lower 8 bits"
+            },
+            {
+              "file": "tests/ch10/test_width_mismatch.sv",
+              "contains": "wide = {narrow, mid_size};"
+            }
+          ]
         }
       ]
     },
@@ -2400,6 +2423,21 @@
           ],
           "disposition": "partial_observation",
           "explanation": "compound演算の結果は観測するが、LHSが単純変数で、添字式を一度だけ評価する規則を検査しない。複合要求の単一評価部分は副作用のある添字などを使う別テストとの分担が必要。",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_blocking_assignment_forms.sv",
+              "contains": "a += 50;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-10.4.1-EXTRACT-BLOCKING-FORMS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "通常の = と +=、-=、++、-- だけを使い、Syntax 10-2 の時刻付きの代入（= #d、= @e）、動的配列の new、修飾付きの class new を一度も実行しない。形の一部の観測なので、全部の形を実行する tests/ch10/test_syntax_blocking_assignment_new_and_timed_forms.sv に登録した。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
           "evidence": [
             {
               "file": "tests/ch10/test_blocking_assignment_forms.sv",
@@ -9863,7 +9901,7 @@
     },
     {
       "test": "tests/ch22/test_include_nested.sv",
-      "inputs_sha256": "fcfcda21c47675ccd5f0f991ddc7c34a599953fae6eadd2fbd5eb90e44853018",
+      "inputs_sha256": "6db236e31b6058a24ff04f8d56d8f5736a474022a7eb451c9b975bf9d838a79f",
       "reviewed_on": "2026-10-28",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -9911,7 +9949,7 @@
     },
     {
       "test": "tests/ch22/test_include_guard_two_files.sv",
-      "inputs_sha256": "fcfcda21c47675ccd5f0f991ddc7c34a599953fae6eadd2fbd5eb90e44853018",
+      "inputs_sha256": "6db236e31b6058a24ff04f8d56d8f5736a474022a7eb451c9b975bf9d838a79f",
       "reviewed_on": "2026-10-28",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -41472,6 +41510,21 @@
               "contains": "        i % 3 == 0 : seq = {seq, \"A\"};"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-18.16-EXTRACT-RANDCASE-WEIGHTS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "重みの自己決定幅（8 ビットで 0 に回る a + b）、重み 0 の枝、毎回の評価は見るが、枝ごとの選ばれた回数を重みの比と比べる出力が無い（0 でない重みが 2 本ある wt() の randcase は、どちらの枝も同じ other を増やし、評価回数だけを数える）ので、枝の確率が重み/総和であることは出力に現れない。非負の整数値という条件も、負や実数の重みの扱いを規格が定めない（総和の被加数は符号なしとされるだけ）ため、この正常系テストでは区別できない。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch18/test_randcase_weight_precision.sv",
+              "contains": "a + b : wrapped++;"
+            }
+          ]
         }
       ]
     },
@@ -45414,7 +45467,7 @@
     },
     {
       "test": "tests/ch22/test_resetall_restores_defaults_keeps_macros.sv",
-      "inputs_sha256": "fcfcda21c47675ccd5f0f991ddc7c34a599953fae6eadd2fbd5eb90e44853018",
+      "inputs_sha256": "6db236e31b6058a24ff04f8d56d8f5736a474022a7eb451c9b975bf9d838a79f",
       "reviewed_on": "2026-10-28",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -56341,6 +56394,222 @@
             {
               "file": "tests/ch25/test_illegal_virtual_interface_component_in_always_ff.sv",
               "contains": "  always_ff @(posedge v.clk) n <= n + 1;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch10/test_syntax_continuous_assign_forms.sv",
+      "inputs_sha256": "f563247a82d960197d47c5cf1718e69b2545fa630459ae14af6c950548e34d7b",
+      "reviewed_on": "2026-11-14",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-10.3-EXTRACT-NET-DECLARATION-GRAMMAR"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "assign 文の強さ・遅延・複数の代入を見るテストで、ネットは wire n1, n2 と宣言するだけ。net_declaration の強さ・電荷強さ・vectored/scalared・データ型・delay3・宣言代入、ユーザー定義の nettype とその遅延、interconnect の宣言を一つも刺激しない。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_syntax_continuous_assign_forms.sv",
+              "contains": "wire n1, n2;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch18/test_illegal_solve_before_size_associative.sv",
+      "inputs_sha256": "b6b66bc13d2e4a4738b41912f03b681a399e62d218a4a4a627b0adc7dfb6c205",
+      "reviewed_on": "2026-11-14",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-18.4-EXTRACT-ASSOCIATIVE-SIZE-KEYS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "solve aa.size() before x を誤りとすることで連想配列のサイズが乱数変数でないことは照合するが、インデックス値（キー）が乱数化されないことは刺激していない。キーを乱数変数として名指す構文は無く、キーが変わらないことは randomize() の後に値を読む正常系の観測でしか示せないため、kind=error のこの行は違法系テストを足しても全体を対応付けられない。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch18/test_illegal_solve_before_size_associative.sv",
+              "contains": "constraint o2 { solve aa.size() before x; }   // illegal: not randomizable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch18/test_constraint_foreach_scope_dimensions.sv",
+      "inputs_sha256": "2c13ce51a402bf3a086f8957d0335fd3e26d12c6787bcc3948bd90e12bc52af3",
+      "reviewed_on": "2026-11-14",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-18.5.7.1-EXTRACT-INDICES-NOT-FILTERED"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "状態変数の添字 arr[k] と、述語 (m < 4) で守った範囲外の添字 arr[m] は見るが、守らない範囲外の添字を含む制約は刺激していない。規格はそうした制約の結果（randomize() の失敗か、範囲外の読み出しの既定値か）を定めないので、範囲外の添字が自動では除かれないことを固定した期待値で示せず、述語で守った場合は自動で除く実装でも同じ出力になる。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch18/test_constraint_foreach_scope_dimensions.sv",
+              "contains": "constraint c_guard { (m < 4) -> arr[m] == 9; }"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch20/test_illegal_timeformat_unit_out_of_range.sv",
+      "inputs_sha256": "038b5a623bb2a93ffb8cf6f71e07c5c762c5a04b231dd5171bf7ebb74cbae490",
+      "reviewed_on": "2026-11-14",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-20.4.3-EXTRACT-FORMAT-UNIT-DOMAIN"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "要求は単位の指数が -15〜2 の整数であること（違法の側）に加えて、その値が Table 20-2 の時間単位を表すこと（正常系の意味）を含む。違法系のこのテストは -16 の拒否だけを照合し、意味の半分は違法系では観測できない。また 2 を超える側（3 など）も刺激しない。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_illegal_timeformat_unit_out_of_range.sv",
+              "contains": "$timeformat(-16, 2, \"ns\", 10);   // illegal: unit below -15"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch20/test_illegal_random_seed_real.sv",
+      "inputs_sha256": "e602865b465f9d46784ba47accad4e226ed2bab709749be87a65805fe33626b0",
+      "reviewed_on": "2026-11-14",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-20.14.1-EXTRACT-RANDOM-SEED-VARIABLE"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "要求は seed が整数型の変数であること（違法の側）に加えて、seed が生成される乱数列を決めること（正常系の意味）を含む。違法系のこのテストは real 変数の seed の拒否だけを照合し、乱数列を決めることは違法系では観測できない。変数でない式を seed に渡す場合も刺激しない。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_illegal_random_seed_real.sv",
+              "contains": "initial $display(\"%0d\", $random(seed));   // illegal: real seed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch20/test_illegal_typename_hierarchical_constant.sv",
+      "inputs_sha256": "1744600c0f2e31597f816e87713a60b6b49bc032d84bcecceb3f7e72882290e3",
+      "reviewed_on": "2026-11-14",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-20.6.1-EXTRACT-TYPENAME-NO-EVALUATION"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "要求は、式の自己決定型を評価せずに使うこと（正常系）と、elaboration 時の定数として使うときに階層参照も動的オブジェクトの要素への参照も含まないこと（違法の側）を含む。このテストは階層参照 u.sig の拒否だけを照合し、評価しないことと動的オブジェクトの要素の場合は観測しない。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_illegal_typename_hierarchical_constant.sv",
+              "contains": "localparam string T = $typename(u.sig);   // illegal: hierarchical"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch20/test_illegal_countbits_non_bitstream.sv",
+      "inputs_sha256": "726cb21583d5763399d7ebd92926a53fafa857befb7d0e63384c5f9db670cbc7",
+      "reviewed_on": "2026-11-14",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-20.9-EXTRACT-COUNT-BITSTREAM"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "要求は式が bit-stream 型であること（違法の側）に加えて、式を {>>{expression}} と同じ幅のベクトルへ平らにして数えること（正常系の意味）を含む。違法系のこのテストは real メンバーを持つクラスオブジェクトの拒否だけを照合し、平らにする規則は違法系では観測できない。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_illegal_countbits_non_bitstream.sv",
+              "contains": "$display(\"%0d\", $countbits(obj, 1'b1));   // illegal: not bit-stream"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch20/test_illegal_bits_dynamic_type_id.sv",
+      "inputs_sha256": "14b5e61ac6dcff6d8a37d4c9e5ce4278d2356501a91f82f843eed8ca96ee1f73",
+      "reviewed_on": "2026-11-14",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-20.6.2-EXTRACT-BITS-NO-EVAL"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "要求は $bits が被演算子を評価せずに幅を決めること（正常系）と、動的な大きさの型を返す関数や elaboration 時に固定長でない型を違法とすること（違法の側）を含む。違法系のこのテストは 1 つの違法な形の拒否だけを照合し、評価しないことは違法系では観測できない。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_illegal_bits_dynamic_type_id.sv",
+              "contains": "localparam int W = $bits(int[]);   // illegal: dynamic type identifier"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch20/test_illegal_bits_interface_class.sv",
+      "inputs_sha256": "e50af060c671d928e8d1554a52de4a5ea5417e5985258b22140964616af6bb13",
+      "reviewed_on": "2026-11-14",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-20.6.2-EXTRACT-BITS-NO-EVAL"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "要求は $bits が被演算子を評価せずに幅を決めること（正常系）と、動的な大きさの型を返す関数や elaboration 時に固定長でない型を違法とすること（違法の側）を含む。違法系のこのテストは 1 つの違法な形の拒否だけを照合し、評価しないことは違法系では観測できない。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_illegal_bits_interface_class.sv",
+              "contains": "localparam int W = $bits(obj);   // illegal: interface class object"
             }
           ]
         }

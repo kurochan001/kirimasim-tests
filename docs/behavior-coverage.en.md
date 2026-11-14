@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 91.33%, execution without Ghost 50.51%, execution with Ghost 77.98%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 91.93%, execution without Ghost 50.75%, execution with Ghost 78.25%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 91.33%. Requirement execution-confirmation rate: 50.51% without Ghost, 77.98% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 91.93%. Requirement execution-confirmation rate: 50.75% without Ghost, 78.25% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 11238/12305 ( 91.33% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9595/12305 ( 77.98% ).
-- Registered but not tested: 1067.
+- The requirement coverage (test design) for registered behaviors is 11312/12305 ( 91.93% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9629/12305 ( 78.25% ).
+- Registered but not tested: 993.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -33,13 +33,13 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 `check_groups` distributes a single request across multiple tests, and is successful only if all tests in the group are successful in the same runtime and run. The unspecified response is an independent alternative proof.
 
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12305 execution checked; 0 entries refer to older inputs.
-- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3086/12305 execution checked; 337 entries refer to older inputs.
-- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2989/12305 execution checked; 337 entries refer to older inputs.
-- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3877/12305 execution checked; 337 entries refer to older inputs.
-- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3589/12305 execution checked; 25 entries refer to older inputs.
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7914/12305 execution checked; 470 entries refer to older inputs.
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7994/12305 execution checked; 406 entries refer to older inputs.
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7897/12305 execution checked; 470 entries refer to older inputs.
+- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3085/12305 execution checked; 338 entries refer to older inputs.
+- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2989/12305 execution checked; 338 entries refer to older inputs.
+- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3878/12305 execution checked; 338 entries refer to older inputs.
+- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3590/12305 execution checked; 25 entries refer to older inputs.
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7915/12305 execution checked; 472 entries refer to older inputs.
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7995/12305 execution checked; 408 entries refer to older inputs.
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7898/12305 execution checked; 472 entries refer to older inputs.
 - `intcompat-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T10:26:34.150974+00:00` / 1/12305 execution checked; 0 entries refer to older inputs.
 - `intcompat-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T10:26:46.168015+00:00` / 1/12305 execution checked; 0 entries refer to older inputs.
 - `intcompat-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T10:26:39.847047+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
@@ -48,18 +48,18 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `oracle-tokens-2-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T22:25:00.894678+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-2-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T22:25:01.564353+00:00` / 2/12305 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-2-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T22:25:02.208022+00:00` / 2/12305 execution checked; 0 entries refer to older inputs.
-- `oracle-tokens-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T19:14:33.552454+00:00` / 11/12305 execution checked; 3 entries refer to older inputs.
-- `oracle-tokens-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T19:14:36.020025+00:00` / 4/12305 execution checked; 3 entries refer to older inputs.
-- `oracle-tokens-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T19:15:04.286693+00:00` / 4/12305 execution checked; 3 entries refer to older inputs.
-- `oracle-tokens-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T19:15:22.924843+00:00` / 4/12305 execution checked; 3 entries refer to older inputs.
+- `oracle-tokens-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T19:14:33.552454+00:00` / 4/12305 execution checked; 15 entries refer to older inputs.
+- `oracle-tokens-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T19:14:36.020025+00:00` / 0/12305 execution checked; 15 entries refer to older inputs.
+- `oracle-tokens-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T19:15:04.286693+00:00` / 0/12305 execution checked; 15 entries refer to older inputs.
+- `oracle-tokens-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T19:15:22.924843+00:00` / 0/12305 execution checked; 15 entries refer to older inputs.
 - `oracle-tokens-3-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T23:13:00.161260+00:00` / 1/12305 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-3-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T23:13:04.014714+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-3-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:01.978891+00:00` / 1/12305 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-3-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:03.804411+00:00` / 1/12305 execution checked; 0 entries refer to older inputs.
-- `reqgap-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T02:14:23.703451+00:00` / 5/12305 execution checked; 0 entries refer to older inputs.
-- `reqgap-20261114-kirimasim-77c27531.json`: `kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401` / `2026-11-14T02:15:42.861980+00:00` / 15/12305 execution checked; 0 entries refer to older inputs.
-- `reqgap-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:15:04.150898+00:00` / 12/12305 execution checked; 0 entries refer to older inputs.
-- `reqgap-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:15:42.524351+00:00` / 12/12305 execution checked; 0 entries refer to older inputs.
+- `reqgap-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T02:14:23.703451+00:00` / 4/12305 execution checked; 1 entries refer to older inputs.
+- `reqgap-20261114-kirimasim-77c27531.json`: `kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401` / `2026-11-14T02:15:42.861980+00:00` / 14/12305 execution checked; 1 entries refer to older inputs.
+- `reqgap-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:15:04.150898+00:00` / 11/12305 execution checked; 1 entries refer to older inputs.
+- `reqgap-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:15:42.524351+00:00` / 11/12305 execution checked; 1 entries refer to older inputs.
 - `reqgap2-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T05:44:47.296047+00:00` / 5/12305 execution checked; 0 entries refer to older inputs.
 - `reqgap2-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T05:45:47.127832+00:00` / 8/12305 execution checked; 0 entries refer to older inputs.
 - `reqgap2-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T05:45:18.982868+00:00` / 6/12305 execution checked; 0 entries refer to older inputs.
@@ -68,6 +68,10 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `reqgap3-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T08:10:25.089652+00:00` / 5/12305 execution checked; 0 entries refer to older inputs.
 - `reqgap3-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T08:09:50.844161+00:00` / 9/12305 execution checked; 0 entries refer to older inputs.
 - `reqgap3-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T08:10:24.715784+00:00` / 9/12305 execution checked; 0 entries refer to older inputs.
+- `reqgap5-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T14:45:27.599657+00:00` / 33/12305 execution checked; 0 entries refer to older inputs.
+- `reqgap5-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T14:47:44.027905+00:00` / 24/12305 execution checked; 0 entries refer to older inputs.
+- `reqgap5-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T14:46:35.374894+00:00` / 16/12305 execution checked; 0 entries refer to older inputs.
+- `reqgap5-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T14:47:43.190246+00:00` / 16/12305 execution checked; 0 entries refer to older inputs.
 - `runtime-errors-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-12T01:03:42.109814+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
 - `runtime-errors-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-12T01:03:42.439195+00:00` / 1/12305 execution checked; 0 entries refer to older inputs.
 - `runtime-errors-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T01:03:46.712402+00:00` / 1/12305 execution checked; 0 entries refer to older inputs.
@@ -318,26 +322,26 @@ The number of items is the investigation status of the article by heading. This 
 
 - 1 Overview: No interpretation reservation 12/12, registration 0, test support 0.
 - 2 Normative references: No reservation of interpretation 1/1, registration 2, test compatibility 0.
-- 3 Design and verification building blocks: No interpretation reservation 22/22, registration 146, test support 124.
-- 4 Scheduling semantics: no interpretation reservation 40/40, registration 107, test support 88.
-- 5 Lexical conventions: no interpretation reservation 21/21, registration 154, test support 136.
+- 3 Design and verification building blocks: No interpretation reservation 22/22, registration 146, test support 127.
+- 4 Scheduling semantics: no interpretation reservation 40/40, registration 107, test support 90.
+- 5 Lexical conventions: no interpretation reservation 21/21, registration 154, test support 143.
 - 6 Data types: No interpretation reservation 92/92, registration 720, test support 710.
 - 7 Aggregate data types: no interpretation reservation 61/61, registration 347, test support 337.
 - 8 Classes: No interpretation restrictions 49/49, registration 255, test support 238.
 - 9 Processes: No interpretation reservation 34/34, registration 189, test support 172.
-- 10 Assignment statements: No interpretation reservation 25/25, registration 156, test support 136.
+- 10 Assignment statements: No interpretation reservation 25/25, registration 156, test support 142.
 - 11 Operators and expressions: No interpretation restrictions 55/55, registration 459, test support 448.
 - 12 Procedural programming statements: no interpretation reservation 28/28, registration 115, test support 101.
-- 13 Tasks and functions (subroutines): no interpretation reservation 20/20, registration 120, test support 100.
+- 13 Tasks and functions (subroutines): no interpretation reservation 20/20, registration 120, test support 104.
 - 14 Clocking blocks: no interpretation reservation 19/19, registration 87, test support 84.
 - 15 Interprocess synchronization and communication: no interpretation reservation 27/27, registration 88, test support 74.
-- 16 Assertions: No interpretation reservation 82/82, registration 555, test support 539.
-- 17 Checkers: No interpretation reservations 13/13, registration 79, test support 59.
-- 18 Constrained random value generation: 58/58 without pending interpretation issues, 320 registered, 300 mapped to tests.
-- 19 Functional coverage: no interpretation reservation 34/34, registration 271, test support 232.
-- 20 Utility system tasks and system functions: No interpretation reservation 45/45, registration 316, test support 286.
-- 21 Input/output system tasks and system functions: no interpretation reservation 65/65, registration 383, test support 347.
-- 22 Compiler directives: 28/28 without pending interpretation issues, 361 registered, 345 mapped to tests.
+- 16 Assertions: No interpretation reservation 82/82, registration 555, test support 544.
+- 17 Checkers: No interpretation reservations 13/13, registration 79, test support 63.
+- 18 Constrained random value generation: 58/58 without pending interpretation issues, 320 registered, 304 mapped to tests.
+- 19 Functional coverage: no interpretation reservation 34/34, registration 271, test support 237.
+- 20 Utility system tasks and system functions: No interpretation reservation 45/45, registration 316, test support 291.
+- 21 Input/output system tasks and system functions: no interpretation reservation 65/65, registration 383, test support 355.
+- 22 Compiler directives: 28/28 without pending interpretation issues, 361 registered, 346 mapped to tests.
 - 23 Modules and hierarchy: No interpretation reservation 47/47, registration 260, test support 251.
 - 24 Programs: No interpretation restrictions 10/10, registration 29, test support 25.
 - 25 Interfaces: No interpretation reservation 25/25, registration 63, test support 55.
@@ -345,10 +349,10 @@ The number of items is the investigation status of the article by heading. This 
 - 27 Generate constructs: no interpretation reservation 7/7, registration 32, test support 27.
 - 28 Gate-level and switch-level modeling: no interpretation reservation 34/34, registration 384, test support 363.
 - 29 User-defined primitives: no interpretation reservation 17/17, registration 52, test support 49.
-- 30 Specify blocks: no interpretation restrictions 31/31, registration 157, test support 131.
-- 31 Timing checks: no interpretation reservation 26/26, registration 180, test support 154.
+- 30 Specify blocks: no interpretation restrictions 31/31, registration 157, test support 149.
+- 31 Timing checks: no interpretation reservation 26/26, registration 180, test support 155.
 - 32 Backannotation using the standard delay format: no interpretation reservation 14/14, registration 131, test support 119.
-- 33 Configuring the contents of a design: No interpretation reservation 36/36, registration 63, test support 40.
+- 33 Configuring the contents of a design: No interpretation reservation 36/36, registration 63, test support 41.
 - 34 Protected envelopes: No interpretation reservation 104/104, registration 214, test support 5.
 - 35 Direct programming interface: No interpretation reservation 31/31, registration 142, test support 116.
 - 36 Programming language interface ( PLI / VPI ) overview: No interpretation restrictions 29/29, registration 163, test support 148.
@@ -1201,7 +1205,7 @@ Normative role: `permission`。
 
 ### SV2023-3.10-EXTRACT-CONFIGURATION-BINDING
 
-`3.10` / `normal` / No mapped test
+`3.10` / `normal` / Execution confirmed
 
 A configuration specifies how module instances bind to SystemVerilog source definitions through libraries.
 
@@ -1209,6 +1213,7 @@ Acceptance criterion: A configuration specifies how module instances bind to Sys
 
 Normative role: `definition`。
 
+- [test_config_binds_instances_through_library.sv](../tests/ch3/test_config_binds_instances_through_library.sv) : config cbl_cfg (elaborated with : top_module :) specifies how module instances bind to cells in library work: a cell clause binds u1 , the only instance of cbl_one , to work.cbl_three , and an instance clause binds u2 , written as cbl_two , to work.cbl_four (no instance is selected by both clauses). u3 ( cbl_two ), which neither clause selects, stays bound to its own cell through default liblist work. It prints u1 = 3 u2 = 4 u3 = 2 ( 1 2 2 without the config). Distinguishing observation: An implementation that ignores the config bindings prints u1 = 1 u2 = 2 , one that does not apply the cell clause prints u1 = 1 , one that does not apply the instance clause prints u2 = 2 , and one that binds u3 to another cell through the default library list changes u3 ; in each case 1 line of the expected output changes.
 
 ### SV2023-3.10-EXTRACT-LIBRARY-CELL-CATEGORIES
 
@@ -1423,7 +1428,7 @@ Normative role: `mandatory`。
 
 ### SV2023-3.12-EXTRACT-SINGLE-AND-MULTIFILE
 
-`3.12` / `normal` / No mapped test
+`3.12` / `normal` / Test mapped; execution unconfirmed
 
 Compilation-unit use models support single-file and multi-file compilation.
 
@@ -1431,6 +1436,8 @@ Acceptance criterion: Compilation-unit use models support single-file and multi-
 
 Normative role: `definition`。
 
+- [test_elaborated_net_joins_drivers_across_hierarchy.sv](../tests/ch3/test_elaborated_net_joins_drivers_across_hierarchy.sv) : Compiles and elaborates a design made of only 1 source file, and prints at times 1 , 3 , 5 and so on the value to which the top-level tri net bus and the inout ports down to 2 levels below resolve as 1 net.
+- [test_definitions_visible_from_other_file.sv](../tests/ch3/test_definitions_visible_from_other_file.sv) : Handles 2 files, the test body and definitions_visible_from_other_file_defs.sv from :files:, in 1 compilation, and uses the package, interface, primitive, module and program from the other file to print K = 5 twice = 10 , y = 1 , v = 10 sum = 15 , program: v = 15 .
 
 ### SV2023-3.12.1-EXTRACT-COMBINED-FILE-MODE
 
@@ -1495,7 +1502,7 @@ Normative role: `definition`。
 
 ### SV2023-3.12.1-EXTRACT-GLOBAL-DEFINITIONS
 
-`3.12.1` / `normal` / No mapped test
+`3.12.1` / `normal` / Execution confirmed
 
 Module, primitive, program, interface and package definitions are visible across compilation units, subject to their scope rules.
 
@@ -1503,6 +1510,7 @@ Acceptance criterion: Module, primitive, program, interface and package definiti
 
 Normative role: `definition`。
 
+- [test_definitions_visible_from_other_file.sv](../tests/ch3/test_definitions_visible_from_other_file.sv) : The test body file uses by name all 5 kinds declared in the other file from :files: (package dvo_pkg , interface dvo_bus , primitive dvo_inv , module dvo_add and program dvo_report ) through an import and instantiations, and checks the package values K = 5 and twice = 10 , the UDP output y = 1 , v = 10 and sum = 15 through the interface and module, and the program's display v = 15 . The result is the same whether the 2 files form 1 compilation unit or separate ones. Distinguishing observation: An implementation in which a definition of any of these kinds is not visible from another file (another compilation unit) fails to resolve that name and does not compile, or does not print the corresponding line (package/primitive/interface and module/program). Each of the 5 kinds has its own output line.
 
 ### SV2023-3.12.1-EXTRACT-INCLUDED-SOURCE
 
@@ -2162,7 +2170,7 @@ Normative role: `definition`。
 
 ### SV2023-4.3-EXTRACT-PLI-EVALUATION
 
-`4.3` / `normal` / No mapped test
+`4.3` / `normal` / Execution confirmed
 
 Scheduled PLI callbacks participate in the simulation model as evaluation events at their specified control points.
 
@@ -2170,6 +2178,7 @@ Acceptance criterion: Scheduled PLI callbacks participate in the simulation mode
 
 Normative role: `definition`。
 
+- [test_pli_callbacks_are_evaluation_events.sv](../tests/ch4/test_pli_callbacks_are_evaluation_events.sv) : Observes that 3 callbacks registered at time 5 run at their control points as evaluation events of that time slot: cbAfterDelay in Pre-Active reads v = 0 n = 0 before the design's assignments and writes w = 7 , and that write, as an update event, wakes the process waiting on @(w) at the same time 5 (design at 5 : woken by w = 7 ); cbReadWriteSynch after Active reads v = 1 ; and cbReadOnlySynch in Postponed reads v = 1 n = 2 w = 7 . Distinguishing observation: An implementation that runs the callbacks outside the time slot, gets the order of the control points wrong, or does not treat a callback's write as an update event reads different values (v/n), omits the design at 5 line, or changes the order.
 
 ### SV2023-4.3-EXTRACT-REFERENCE-EQUIVALENCE
 
@@ -2559,7 +2568,7 @@ Normative role: `mandatory`。
 
 ### SV2023-4.4.2.9-EXTRACT-POSTPONED-NO-WRITES
 
-`4.4.2.9` / `error` / No mapped test
+`4.4.2.9` / `error` / Test mapped; execution unconfirmed
 
 Once Postponed is reached, no net/variable value may change within that time slot.
 
@@ -2567,6 +2576,7 @@ Acceptance criterion: Disallow current-slot value-writing operations from Postpo
 
 Normative role: `mandatory`。
 
+- [test_illegal_final_deferred_action_writes_variable.sv](../tests/ch4/test_illegal_final_deferred_action_writes_variable.sv) : The action of the final deferred assertion a1 is a call to the void function count_up , executed in the Postponed region, and count_up assigns to the module variable hits ( hits = hits + 1 ). a0 , which has the same form but calls report, which only displays, is legal, and there is no other violation. : expected_stderr_regex : requires an error that mentions write/assignment and postponed/final, on the assignment line ( 37 ) or on the line of the call in a1 ( 42 ). Distinguishing observation: An implementation that does not forbid writing variables from the Postponed region accepts the design and prints hits = 0 and so on ( Verilator 5.054 does this), and the test fails. Rejections of unsupported syntax are excluded by a negative lookahead in the regular expression, so only a diagnostic from the intended rules (the write ban in 4.4.2.9 and the subroutines callable in Postponed in 16.4 ) matches.
 
 ### SV2023-4.4.2.9-EXTRACT-POSTPONED-OUTPUT
 
@@ -3997,7 +4007,7 @@ Normative role: `definition`。
 
 ### SV2023-5.7-EXTRACT-PRIMARY-LITERAL-CATEGORIES
 
-`5.7` / `normal` / No mapped test
+`5.7` / `normal` / Execution confirmed
 
 Primary literals include numbers, time literals, unbased-unsized literals and string literals.
 
@@ -4005,6 +4015,7 @@ Acceptance criterion: Primary literals include numbers, time literals, unbased-u
 
 Normative role: `definition`。
 
+- [test_primary_literal_categories_as_operands.sv](../tests/ch5/test_primary_literal_categories_as_operands.sv) : Uses each of the 4 kinds of primary literal as an operand of an operator and prints the values: numbers (the sized base 16 number 4'hA + 3 = 13 from 5.7.1 and the real 1.5e 1 / 2 = 7.50 from 5.7.2 ), time literals 1ns + 500ps = 1.500 and 2ps + 3 = 3.002 (scaled to the time unit 1ns , 5.8 ), unbased unsized literals ( 5.7.1 ) 8'h0F & '1 = 0f , 8'hF0 | '0 = f0 and ~ '0 = ff, and string literals ( 5.9 ) "AB" + 0 = 16706 and "AB" == 16'h4142 = 1 . Distinguishing observation: An implementation that does not accept time literals as primaries or does not scale them changes the time line (for example 501 or a syntax error), one that does not extend '1 / '0 to the width of the expression gives 01 or another value than 0f on the unbased line, and one that does not treat a string literal as a 16 -bit value changes the string line. Each of the 4 kinds has its own line.
 
 ### SV2023-5.7-EXTRACT-REAL-GRAMMAR
 
@@ -4985,7 +4996,7 @@ Normative role: `mandatory`。
 
 ### SV2023-5.10-EXTRACT-STRUCT-TYPE-DEFAULT-KEY
 
-`5.10` / `normal` / No mapped test
+`5.10` / `normal` / Execution confirmed
 
 Structure literals may use type keys and default keys according to structure assignment-pattern rules.
 
@@ -4993,6 +5004,7 @@ Acceptance criterion: Structure literals may use type keys and default keys acco
 
 Normative role: `permission`。
 
+- [test_gen_cross_agglit_type_default_wide_init.sv](../tests/gen/ch5/test_gen_cross_agglit_type_default_wide_init.sv) : Initializes out_t ( nib_t a, struct in_t n, int array q) with the structure literal ' { int : 12'h9f5 , default: 9 }, and prints a = 1001 i = 2549 l = 1001 b = 9 g = 9 q = 2549,2549 to show that the type key int gives 2549 to the int member n.i of the nested struct and to the elements q \[ 0 \] , q \[ 1 \] of the int array, and that default gives 9 to the remaining members a, n.l ( 4 bits), n.b ( byte ) and n.g ( integer , a type that does not match int ). Distinguishing observation: An implementation that ignores the type key gives 9 for i and q (or a syntax error), one that lets default take precedence over the type key gives 9 for i/q, and one that treats integer as a type matching int gives g = 2549 ; each changes 1 line of the expected output.
 
 ### SV2023-5.11-EXTRACT-ARRAY-DIMENSION-BRACES
 
@@ -5020,7 +5032,7 @@ Normative role: `definition`。
 
 ### SV2023-5.11-EXTRACT-ARRAY-LITERAL-KEYS
 
-`5.11` / `normal` / No mapped test
+`5.11` / `normal` / Execution confirmed
 
 Array literals may use index keys, type keys and a default key as specified for array assignment patterns.
 
@@ -5028,6 +5040,7 @@ Acceptance criterion: Array literals may use index keys, type keys and a default
 
 Normative role: `permission`。
 
+- [test_array_literal_index_type_default_keys.sv](../tests/ch5/test_array_literal_index_type_default_keys.sv) : With array literals for constant members, prints index key + default ( q_id : -1 -1 5 -1 ), type key byte + index key ( q_ti : 1 7 7 7 , the index wins), default + type key ( q_dt : 4 4 4 4 , the type key wins), a type key for the subarray type pair_t + index key in a 2 -dimensional array ( g_sub : 6 6 / 8 9 / 6 6 ), a type key for the element type shortint applied recursively to each subarray ( g_elem : 2 2 / 2 2 / 2 2 ), and the sum 29 of the cast literal quad_t ' { 1 : 2 , byte : 9 }. Distinguishing observation: Because the index, type and default keys are told apart by distinct values, an implementation that gives the type key precedence over the index key prints q_ti \[ 0 \] = 7 and g_sub \[ 1 \] = 6 6 , one that gives default precedence over the type key prints q_dt = 3 3 3 3 , and one that does not apply the type key recursively gives an error or another value for g_elem , so the corresponding line of the expected output changes.
 
 ### SV2023-5.11-EXTRACT-ARRAY-LITERAL-TYPE
 
@@ -5091,7 +5104,7 @@ Normative role: `mandatory`。
 
 ### SV2023-5.12-EXTRACT-ATTRIBUTE-DEFAULT
 
-`5.12` / `normal` / No mapped test
+`5.12` / `normal` / Test mapped; execution unconfirmed
 
 An attribute without an explicit value has type bit and value 1.
 
@@ -5099,6 +5112,7 @@ Acceptance criterion: An attribute without an explicit value has type bit and va
 
 Normative role: `definition`。
 
+- [test_vpi_attribute_default_bit_and_last_value.sv](../tests/ch5/test_vpi_attribute_default_bit_and_last_value.sv) : Attaches the attribute without a value (* flag *) and (* flag = 1 *) with the value 1 to different variables, iterates over vpiAttribute through VPI , and reads the values with vpiObjTypeVal . It prints the flag without a value as scalar ( bit ) 1 and the one with a value as integer 1 . (* sw = 6 , sw *), whose last specification has no value, also gives scalar 1 . Distinguishing observation: An implementation that does not give an attribute without a value the type bit (for example, making it int 1 ) prints "integer 1" on the v_flag and v_to_bit lines, and one that does not make the value 1 prints scalar 0 or similar. Because v_one , which has a value, is integer 1 , the test also tells this apart from the case where the type follows the expression.
 
 ### SV2023-5.12-EXTRACT-ATTRIBUTE-DUPLICATE-WARNING
 
@@ -5137,7 +5151,7 @@ Normative role: `definition`。
 
 ### SV2023-5.12-EXTRACT-ATTRIBUTE-LAST-WINS
 
-`5.12` / `normal` / No mapped test
+`5.12` / `normal` / Test mapped; execution unconfirmed
 
 When one language element has repeated definitions of the same attribute name, the last value is used.
 
@@ -5145,10 +5159,11 @@ Acceptance criterion: When one language element has repeated definitions of the 
 
 Normative role: `mandatory`。
 
+- [test_vpi_attribute_default_bit_and_last_value.sv](../tests/ch5/test_vpi_attribute_default_bit_and_last_value.sv) : Reads through VPI 4 ways of attaching the same attribute name more than once to the same language element (within 1 attribute instance (* dup = 3 , dup = 5 *), in 2 instances (* dup = 4 *) (* dup = 7 *), the last without a value (* sw = 6 , sw *), and the first without a value (* sw, sw = 6 *)), and prints that each has 1 attribute whose value is the last specification ( integer 5 , integer 7 , scalar 1 , integer 6 ). Distinguishing observation: An implementation that keeps the first value gives 3 , 4 , integer 6 and scalar 1 , and one that keeps the duplicates as separate attributes gives an attribute count of 2 , so the corresponding lines change.
 
 ### SV2023-5.12-EXTRACT-ATTRIBUTE-METADATA
 
-`5.12` / `normal` / No mapped test
+`5.12` / `normal` / Test mapped; execution unconfirmed
 
 Attributes attach tool-consumable properties; this syntax clause does not standardize operational meaning for arbitrary attribute names.
 
@@ -5156,6 +5171,7 @@ Acceptance criterion: Validate attribute syntax, typing and retained values with
 
 Normative role: `definition`。
 
+- [test_vpi_attribute_default_bit_and_last_value.sv](../tests/ch5/test_vpi_attribute_default_bit_and_last_value.sv) : Attaches arbitrary attribute names that have no meaning defined by the standard (flag, dup, sw) to variables; a VPI application, a user on the tool side, retrieves each variable's attributes through vpiAttribute and reads the name, the type (scalar for bit , integer for an integer expression) and the stored value ( v_flag : flag scalar 1 , v_one : flag integer 1 , v_same : dup integer 5 and so on). The test does not assume that attributes change the behavior of the design; the design consists only of declarations with attributes. Distinguishing observation: An implementation that parses and discards attributes without keeping them for tools to retrieve gives 0 attribute(s) for each variable ( Verilator 5.054 does this), and one that does not keep the type or value changes the scalar/ integer or value lines. The expected output does not include giving operational meaning to the attribute names.
 
 ### SV2023-5.12-EXTRACT-ATTRIBUTE-PREFIX-PLACEMENT
 
@@ -5278,7 +5294,7 @@ Normative role: `definition`。
 
 ### SV2023-5.13-EXTRACT-NO-PLI-METHOD-REDEFINITION
 
-`5.13` / `normal` / No mapped test
+`5.13` / `normal` / Test mapped; execution unconfirmed
 
 A PLI system-task definition cannot redefine the prescribed operation of a built-in method.
 
@@ -5286,6 +5302,7 @@ Acceptance criterion: Registering a user system routine does not replace built-i
 
 Normative role: `mandatory`。
 
+- [test_builtin_methods_unaffected_by_pli_systf.sv](../tests/ch5/test_builtin_methods_unaffected_by_pli_systf.sv) : A VPI application registers $size and $len as system functions that return 99 . It prints that the built-in $size is replaced, giving $size (d)= $size (q)= 99 and $len (s)= 99 (a control showing that the registration takes effect), while the built-in methods of the same names stay unchanged: d.size ()= 3 (a dynamic array of 3 elements), q.size ()= 2 (a queue of 2 elements) and s.len ()= 5 ( "hello" ). Distinguishing observation: An implementation that resolves method calls through the system function table, so that a PLI registration replaces the results of built-in methods, prints 99 99 on line 2 ( Icarus Verilog 13.0 does this). The 99 on line 1 confirms that the registration takes effect.
 
 ### SV2023-6.2-EXTRACT-TYPE-VERSUS-OBJECT
 
@@ -24175,7 +24192,7 @@ Normative role: `mandatory`。
 
 ### SV2023-10.3.2-EXTRACT-NET-MULTIPLE-DRIVERS
 
-`10.3.2` / `normal` / No mapped test
+`10.3.2` / `normal` / Execution confirmed
 
 A net may combine multiple continuous, primitive-output and module-output drivers under net-specific resolution restrictions.
 
@@ -24183,6 +24200,7 @@ Acceptance criterion: A net may combine multiple continuous, primitive-output an
 
 Normative role: `permission`。
 
+- [test_net_driven_by_assign_gate_and_module_output.sv](../tests/ch10/test_net_driven_by_assign_gate_and_module_output.sv) : wire w is driven at the same time by the continuous assignment assign w = en_a ? d_a : 1'bz , the output of the bufif1 gate g1 and the output port y of the tri_drv instance u1 , 3 kinds of drivers; the test changes which drivers are enabled and prints the value 1 time unit later: none gives z, continuous assignment only 1 , gate only 0 , module only 1 and 0 , gate 0 and module 0 give 0 , continuous assignment 1 and module 0 give x, and continuous assignment 1 and gate 0 give x. wor o is always driven by 3 kinds of drivers, the continuous assignment x_a , the buf gate g2 and the wor output port of the copy_drv instance u2 , and is 1 if any one of them is 1 ( 0 if all are 0 ). Distinguishing observation: A wrong implementation that does not merge the 3 kinds of drivers into one net and keeps only the last evaluated driver or one kind of driver changes the lines that enable only another kind (for example gate 0 : w = 0 or wor gate 1 : o = 1 ) to z or 0 . If the resolution for each net type is wrong, a conflict between 0 and 1 of equal strength no longer gives x (assignment 1 , module 0 : w =x), and wor no longer acts as OR (wor module 1 : o = 1 becomes 0 ). Matches on Icarus 13.0 ( Verilator 5.054 is 2 -state and cannot output z or x).
 
 ### SV2023-10.3.2-EXTRACT-REEVALUATE-OPERAND-CHANGE
 
@@ -24514,7 +24532,7 @@ Normative role: `definition`。
 
 ### SV2023-10.4.1-EXTRACT-BLOCKING-FORMS
 
-`10.4.1` / `normal` / No mapped test
+`10.4.1` / `normal` / Execution confirmed
 
 Blocking syntax includes timed variable assignment, dynamic new, class new with permitted qualifiers, ordinary/compound operator assignment and increment/decrement expressions.
 
@@ -24522,6 +24540,7 @@ Acceptance criterion: Blocking syntax includes timed variable assignment, dynami
 
 Normative role: `definition`。
 
+- [test_syntax_blocking_assignment_new_and_timed_forms.sv](../tests/ch10/test_syntax_blocking_assignment_new_and_timed_forms.sv) : Runs all 5 forms of Syntax 10-2 and prints the values. ( 1 ) With timing control: a = # 2 b assigns b = 2 from time 0 at time 2 (b becomes 7 in between), and e = @(ev) c assigns c = 3 from time 2 at time 3 , when ev occurs (c becomes 9 ). ( 2 ) Dynamic array new: after d = new \[ 3 \] , d = new \[ 5 \] (d) gives size = 5 and 4 5 6 0 0 . ( 3 ) Class new: new (default argument 1 ), new( 5 ), wide_box_c::new ( 2 ) with a class scope ( 20 ), a copy with new h (still 20 after h.v = 21 ), and the left-hand qualifiers this.own , holder_c::shared , the select slots \[ 1 \] , the package-scoped bf_pkg::pkg_box and super.own in the derived class, which get 11 , 12 , 13 , 15 and 14 respectively. ( 4 ) Operator assignment: = and the 12 compound operators in turn ( 204 , 2 , 11 , 22 , -32 , -4 ). ( 5 ) Increment and decrement: i++ and ++i give 7 , and i-- and --i, 2 times, give 4 . Distinguishing observation: An implementation that does not accept one of the forms rejects the design and prints nothing. Getting the meaning wrong changes the corresponding line: evaluating the right-hand side at the time of the assignment in a timed assignment gives a = 7 and e = 9 ; not copying the elements in new \[ 5 \] (d) turns 4 5 6 into 0 ; building the typed wide_box_c::new with the type of the left-hand side gives 2 ; making new h a copy of the reference gives copy 21 21 ; binding a left-hand qualifier to another object or scope changes the this/class scope/select/package scope/super values; and getting a compound operator or the arithmetic shift wrong changes the values from 204 to -4 . Matches on Verilator 5.054 with 2 seeds ( Icarus 13.0 reports a syntax error for handles with a class or package scope).
 
 ### SV2023-10.4.1-EXTRACT-BLOCKING-LVALUE-TIMING
 
@@ -24560,7 +24579,7 @@ Normative role: `mandatory`。
 
 ### SV2023-10.4.1-EXTRACT-EQUALS-CONTEXT
 
-`10.4.1` / `normal` / No mapped test
+`10.4.1` / `normal` / Execution confirmed
 
 The = token is also used by continuous and procedural continuous assignment; its context determines the assignment form.
 
@@ -24568,6 +24587,7 @@ Acceptance criterion: The = token is also used by continuous and procedural cont
 
 Normative role: `definition`。
 
+- [test_equals_token_assignment_contexts.sv](../tests/ch10/test_equals_token_assignment_contexts.sv) : Uses the same = in three contexts: the module's assign w = src and assign v_cont = src (continuous assignments to a net and a variable), assign v_pca = src inside initial (a procedural continuous assignment), and v_blk = src (a blocking assignment). When src changes from 1 to 2 , w, v_cont and v_pca follow to 2 and v_blk stays 1 . v_pca = 9 during the procedural continuous assignment has no effect, and v_pca = 2 . After deassign, v_pca keeps 2 even when src = 3 (w and v_cont are 3 ), and the following v_pca = 9 makes it 9 . Distinguishing observation: A wrong implementation that does not tell the contexts of = apart changes lines. Treating assign inside a procedure as a blocking assignment gives v_pca = 1 on the src = 2 line ( Verilator 5.054 makes this mistake). Making the blocking assignment follow its right-hand side gives v_blk 2 and 3 ; if the procedural continuous assignment does not override the procedural assignment, the during assign line shows 9 ; and continuing to follow after deassign gives v_pca = 3 on the deassign line. Matches on Icarus 13.0 .
 
 ### SV2023-10.4.2-EXTRACT-CONCURRENT-NBA-INDETERMINATE
 
@@ -24987,7 +25007,7 @@ Normative role: `mandatory`。
 
 ### SV2023-10.7-EXTRACT-DETERMINE-SIZES
 
-`10.7` / `normal` / No mapped test
+`10.7` / `normal` / Execution confirmed
 
 Assignment first determines both operand widths using the standard expression sizing rules.
 
@@ -24995,6 +25015,7 @@ Acceptance criterion: Assignment first determines both operand widths using the 
 
 Normative role: `mandatory`。
 
+- [test_assignment_size_from_both_sides.sv](../tests/ch10/test_assignment_size_from_both_sides.sv) : With a = 8'hF0 and b = 8'h30 (the sum 'h120 has 9 bits), checks that the sizes of both the left-hand and the right-hand sides determine the evaluation width. Assigning (a + b) \> \> 5 to the 4 -bit n4 and the 8 -bit n8 evaluates it in the 8 bits of the right-hand side, so the sum becomes 'h20 and the result is 1 ; in the 9 -bit n9 the carry is kept and the result is 9 . a + b into the left-hand concatenation {c, s} ( 9 bits) gives c = 1 and s = 20 . Because the operands of a concatenation are self-determined, n9 = {a + b} gives 020 , while n9 = a + b gives 120 . Distinguishing observation: A wrong implementation that evaluates with the size of the left-hand side alone gives 0 on the n4 line (truncating a and b to 4 bits before adding), one that evaluates with the self-determined size of the right-hand side alone gives 1 on the n9 line and 0 for c in the left-hand concatenation, and one that evaluates without limiting the width gives 9 on the n4 and n8 lines. A wrong implementation that widens the operands of a concatenation by context gives 120 on the self-determined line. Matches on Icarus 13.0 and on Verilator 5.054 with 2 seeds.
 
 ### SV2023-10.7-EXTRACT-LHS-CONTEXT
 
@@ -25244,7 +25265,7 @@ Normative role: `definition`。
 
 ### SV2023-10.9-EXTRACT-PATTERN-GRAMMAR
 
-`10.9` / `normal` / No mapped test
+`10.9` / `normal` / Test mapped; execution unconfirmed
 
 Pattern grammar supports positional, member-keyed, index-keyed and constant-replicated forms; keys may be simple types or default and typed pattern expressions accept the specified type/type-parameter/integer-atom/type-reference prefixes.
 
@@ -25252,6 +25273,8 @@ Acceptance criterion: Pattern grammar supports positional, member-keyed, index-k
 
 Normative role: `definition`。
 
+- [test_syntax_assignment_pattern_forms.sv](../tests/ch10/test_syntax_assignment_pattern_forms.sv) : Prints the values of pair_t patterns that are positional, keyed by member name, with default, and prefixed with a type name and with a type parameter; of the integer atom type int ' { 32 { 1'b1 }}; of int arr \[ 4 \] with index keys and default; of the replication ' { 3 { 7 }}; and of the type reference type( 1 ) ' { 32 { 1'b1 }}.
+- [test_gen_cross_agglit_type_default_fill1_typed.sv](../tests/gen/ch5/test_gen_cross_agglit_type_default_fill1_typed.sv) : The simple type key int of the typed pattern out_t ' { int : '1 , default: 9 } gives '1 only to the int member n.i of the nested struct and to the elements of the int array q, while a and l of type logic \[ 3:0 \] , b of type byte and g of type integer get the default 9 .
 
 ### SV2023-10.9-EXTRACT-POSITIONAL-PATTERN
 
@@ -25907,7 +25930,7 @@ Normative role: `mandatory`。
 
 ### SV2023-10.11-EXTRACT-ELABORATION-ALIAS
 
-`10.11` / `normal` / No mapped test
+`10.11` / `normal` / Test mapped; execution unconfirmed
 
 Aliasing occurs at elaboration, cannot be undone and does not change a net syntactic behavior in other statements.
 
@@ -25915,6 +25938,7 @@ Acceptance criterion: Aliasing occurs at elaboration, cannot be undone and does 
 
 Normative role: `mandatory`。
 
+- [test_alias_names_keep_own_declarations.sv](../tests/ch10/test_alias_names_keep_own_declarations.sv) : Joins wire \[ 3:0 \] a, wire \[ 0:3 \] b and wire signed \[ 3:0 \] s with alias a = b = s at the end of the module, and drives only a. In other statements each name behaves as its own declaration says: with 4'b0001 , a \[ 0 \] = 1 , b \[ 3 \] = 1 (the right end of b) and b \[ 0 \] = 0 (the left end); with 4'b1110 , a = 14 , b = 14 , s = -2 , s \< 0 is 1 and a \< 0 is 0 . Because it is the same net, force 4'b0101 on s gives a = 5 , b = 5 , s = 5 ; release gives 14 14 -2 again; and the later 4'b1000 still gives a = 8 , b = 8 , s = -8 and b \[ 0 \] = 1 , so the sharing lasts from the first display to the last. Distinguishing observation: In a wrong implementation where alias replaces the names with one name (changing their behavior in other statements), b \[ 0 \] and b \[ 3 \] are selected with the index direction of a, so the bits line changes, and s is read with the unsigned type of a, giving s = 14 or s \< 0 = 0 . In an implementation that joins the alias later as a statement at run time rather than at elaboration, or lets it come undone, b and s differ from a in the first display or on the lines after force and release. The expected values come from the standard alone ( Icarus 13.0 reports a syntax error for alias, and Verilator 5.054 rejects an alias whose signedness differs. In a copy with s made unsigned, Verilator 5.054 printed all the other lines as expected. slang accepts it without warnings).
 
 ### SV2023-10.11-EXTRACT-NO-ALIAS-VARIABLE-HIERARCHICAL
 
@@ -34020,7 +34044,7 @@ Normative role: `mandatory`。
 
 ### SV2023-13.4.1-EXTRACT-IMPLICIT-CALL-CATEGORIES
 
-`13.4.1` / `normal` / No mapped test
+`13.4.1` / `normal` / Execution confirmed
 
 Unless specifically restricted, all nonvoid user/built-in/system/DPI function calls may act as implicit variables.
 
@@ -34028,6 +34052,7 @@ Acceptance criterion: Unless specifically restricted, all nonvoid user/built-in/
 
 Normative role: `permission`。
 
+- [test_implicit_variable_from_each_call_category.sv](../tests/ch13/test_implicit_variable_from_each_call_category.sv) : Selects from the result of each of the 4 kinds of non-void call listed in 13.4.1 as an implicit variable inside an expression: the user function upper( 16'hA55A ) \[ 11:8 \] ( 5 within the range of the return type bit \[ 15:8 \] ), the built-in methods q.max () \[ 0 \] (the largest queue element 9 ) and s.substr ( 1 , 3 ) \[ 1 \] (byte 1 of "bcd" , 'c' = 99 ), the system function $realtobits ( -2.0 ) \[ 63:52 \] ( c00 from the sign and exponent), and the DPI import function c_scaled ( 4 ) \[ 7:4 \] written in C ( 4 from the upper 4 bits of 16 * 4 + 3 = 'h43 ). Distinguishing observation: An implementation that cannot select from some kind of call as an implicit variable rejects the design and prints nothing. A wrong implementation that treats the select as a range starting at 0 rather than the return type of the call puts upper( 16'hA55A ) \[ 11:8 \] out of range, so it is no longer 5 ; if the queue or string returned by a built-in method cannot be selected, 9 or 99 does not appear; and getting the width of the return value of the system function or the DPI function wrong changes c00 or 4 . Matches on Verilator 5.054 with 2 seeds ( Icarus 13.0 has no DPI and stops at the import declaration).
 
 ### SV2023-13.4.1-EXTRACT-IMPLICIT-CALL-PARENTHESES
 
@@ -34090,7 +34115,7 @@ Normative role: `mandatory`。
 
 ### SV2023-13.4.1-EXTRACT-NO-DUPLICATE-FUNCTION-NAME
 
-`13.4.1` / `error` / No mapped test
+`13.4.1` / `error` / Test mapped; execution unconfirmed
 
 Another object cannot redeclare a function name in its declaration/explicit-import scope or inside the function scope.
 
@@ -34098,6 +34123,9 @@ Acceptance criterion: Another object cannot redeclare a function name in its dec
 
 Normative role: `mandatory`。
 
+- [test_illegal_function_name_redeclared_in_declaring_scope.sv](../tests/ch13/test_illegal_function_name_redeclared_in_declaring_scope.sv) : After the module declares the function doubled, line 28 , which declares int doubled in the same scope, is the violation (line 25 is the header of the conflicting function).
+- [test_illegal_function_name_redeclared_in_importing_scope.sv](../tests/ch13/test_illegal_function_name_redeclared_in_importing_scope.sv) : import doubled_pkg::doubled ; Line 33 , which declares int doubled after it in the same module, is the violation (line 32 is the conflicting explicit import).
+- [test_illegal_function_name_redeclared_inside_function.sv](../tests/ch13/test_illegal_function_name_redeclared_inside_function.sv) : Line 27 , which declares the local variable int doubled in the body of the function doubled, is the violation (line 26 is the function header). Apart from the violation, doubled = 2 * a assigns to the implicit result variable and returns 6 .
 
 ### SV2023-13.4.1-EXTRACT-RETURN-MEMBER-VERSUS-SCOPE
 
@@ -34326,7 +34354,7 @@ Normative role: `mandatory`。
 
 ### SV2023-13.4.3-EXTRACT-NO-FUTURE-EVENT
 
-`13.4.3` / `error` / No mapped test
+`13.4.3` / `error` / Test mapped; execution unconfirmed
 
 A constant function cannot directly schedule an event after it returns.
 
@@ -34334,6 +34362,8 @@ Acceptance criterion: A constant function cannot directly schedule an event afte
 
 Normative role: `mandatory`。
 
+- [test_illegal_constant_function_nonblocking_assignment.sv](../tests/ch13/test_illegal_constant_function_nonblocking_assignment.sv) : Calls f, which contains the nonblocking assignment t \<= a to the local variable t of the static function f, in the initial value of localparam P. Calling the same function from initial, r = f( 4 ), and h( 2 ), which has only blocking assignments, are legal.
+- [test_illegal_constant_function_nonblocking_event_trigger.sv](../tests/ch13/test_illegal_constant_function_nonblocking_event_trigger.sv) : Calls f, which contains the nonblocking trigger - \> \> done of the local event done, in the initial value of localparam P. Calling the same function from initial, r = f( 4 ), and h( 2 ), which has no trigger, are legal.
 
 ### SV2023-13.4.3-EXTRACT-NO-GENERATE-DECLARATION
 
@@ -34494,7 +34524,7 @@ Normative role: `mandatory`。
 
 ### SV2023-13.5-EXTRACT-SUBROUTINE-CALL-GRAMMAR
 
-`13.5` / `normal` / No mapped test
+`13.5` / `normal` / Test mapped; execution unconfirmed
 
 Calls support task/function, system, method and std randomize forms, optional attributes and positional/named actual lists with permitted placeholders; void-cast function call statements explicitly discard values.
 
@@ -34502,6 +34532,8 @@ Acceptance criterion: Calls support task/function, system, method and std random
 
 Normative role: `definition`。
 
+- [test_subroutine_call_scoped_attributed_and_randomize_forms.sv](../tests/ch13/test_subroutine_call_scoped_attributed_and_randomize_forms.sv) : Prints the results of task calls with and without parentheses, calls with a package scope and with a hierarchical name, a call with an attribute instance, named arguments after positional ones, an empty position, the named argument .b() with an empty expression, and calls to std::randomize and randomize with inline constraints (as an operand of an expression and as a void cast statement).
+- [test_subroutine_input_expressions_and_call_forms.sv](../tests/ch13/test_subroutine_input_expressions_and_call_forms.sv) : Prints the results of a call whose argument contains the system function $clog2 , the built-in method s.len (), the statement void ' (add( 1 , 1 )), named arguments in a different order, and the use of defaults through an empty position and by name.
 
 ### SV2023-13.5.1-EXTRACT-DEFAULT-BY-VALUE
 
@@ -41945,7 +41977,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.13.6-EXTRACT-INFERRED-CLOCK-DEFAULT
 
-`16.13.6` / `normal` / No mapped test
+`16.13.6` / `normal` / Test mapped; execution unconfirmed
 
 An omitted sequence actual defaulting to $inferred_clock binds the clock inferred using 16.9.3 rules when the instance is a method operand.
 
@@ -41953,6 +41985,7 @@ Acceptance criterion: An omitted sequence actual defaulting to $inferred_clock b
 
 Normative role: `mandatory`。
 
+- [test_sequence_method_inferred_clock_default.sv](../tests/ch16/test_sequence_method_inferred_clock_default.sv) : Uses the sequence s_inf (@(ck) p ## 1 q), which has the formal argument event ck = $inferred_clock , in 4 places as s_inf (x, y).triggered with ck omitted, and checks the times at which triggered becomes true. For 4 clocks with period 10 and different phases ( clk_a at 10k + 2 , clk_b at 10k + 5 , clk_e at 10k + 4 , and clk_d of the default clocking at 10k + 8 ), x ## 1 y ends at 22 and 52 , 25 and 55 , 24 and 54 , and 28 and 58 respectively. The result is \[ 22 52 \] inside a cover property on posedge clk_a (clock flow), \[ 25 55 \] in the pass action of an assertion on posedge clk_b (its leading clock), \[ 24 54 \] in the initial procedure of program p_inf (whose only timing control is @( posedge clk_e ), so posedge clk_e is inferred by 16.14.6 ), and \[ 28 58 \] in the wait of a module initial that contains delays and wait and has no inferred clock (default clocking). The program procedure resumes in the Reactive region after the rising edge of clk_e ( 24.3.1 ), so it reads triggered as set in the Observed region of the same time step. Distinguishing observation: Because triggered is true only during the time step of the end point, each place of use sees only the end points of the clock bound to it. A wrong implementation that binds the default clocking everywhere changes the cover, action and program lines to \[ \] ; an implementation that does not use clock flow inside an assertion changes the cover line, one that does not use the leading clock in an action block changes the action line, and one that falls back to the default clocking instead of the inferred clock of the procedure changes the program line, to \[ \] . In an implementation that does not use the default clocking, the wait line becomes empty or the design does not compile. Of the inference rules in 16.9.3 , the 4 other than those that make the use an error (inside a disable condition and inside a clock expression) are told apart with clocks of different phases.
 
 ### SV2023-16.13.6-EXTRACT-MATCHED-CONTEXT
 
@@ -43485,7 +43518,7 @@ Normative role: `definition`。
 
 ### SV2023-16.16.1-EXTRACT-PROP-IMPLICATION
 
-`16.16.1` / `normal` / No mapped test
+`16.16.1` / `normal` / Test mapped; execution unconfirmed
 
 m |-\> p and m |=\> p inherit their semantic-leading-clock set from m.
 
@@ -43493,6 +43526,7 @@ Acceptance criterion: m |-\> p and m |=\> p inherit their semantic-leading-clock
 
 Normative role: `definition`。
 
+- [test_property_leading_clock_sets_operators.sv](../tests/ch16/test_property_leading_clock_sets_operators.sv) : Under the outer clock @( posedge c0 ) ( 20 , 60 , 100 ), checks the ticks at which attempts begin for implications whose antecedent and consequent have different clocks. For |-\> , (@( posedge c2 ) b6 ) |-\> @( posedge c3 ) d6 has the set { c2 } of the antecedent m, so it attempts at each tick of c2 ; the attempt at the c2 tick 35 , where b6 is 1 , fails at the c3 tick 38 of the consequent because d6 = 0 , giving \[ 38 \] . For |=\> , b7 |=\> @( posedge c3 ) d7 has the set {inherited} of the antecedent b7 , so it attempts at the ticks of c0 ; the attempt on b7 , which is 1 only at 60 of c0 , fails at the next c3 tick 78 , giving \[ 78 \] . Distinguishing observation: A wrong implementation that takes the set of the implication from the consequent p attempts both at c3 ( 38 , 78 ), and since both b6 and b7 are 0 at the ticks of c3 , both 2 lines become \[ \] . A wrong implementation that ignores the explicit clock of the antecedent and uses {inherited} ( c0 ) makes a_ovl see b6 only at the c2 ticks 25 , 65 and 105 , giving \[ \] , and one that takes the union has no single leading clock. The test checks that the set is determined by the antecedent both for |-\> with an explicit clock on the antecedent and for |=\> with an unclocked antecedent.
 
 ### SV2023-16.16.1-EXTRACT-PROP-INHERITED-ALWAYS
 
@@ -43580,7 +43614,7 @@ Normative role: `definition`。
 
 ### SV2023-16.16.1-EXTRACT-PROP-INSTANCE
 
-`16.16.1` / `normal` / No mapped test
+`16.16.1` / `normal` / Test mapped; execution unconfirmed
 
 A property instance semantic-leading-clock set is that of its body with actuals substituted.
 
@@ -43588,10 +43622,11 @@ Acceptance criterion: A property instance semantic-leading-clock set is that of 
 
 Normative role: `definition`。
 
+- [test_property_leading_clock_sets_operators.sv](../tests/ch16/test_property_leading_clock_sets_operators.sv) : Under the outer clock @( posedge c0 ) ( 20 , 60 , 100 ), checks the ticks at which attempts of property instances begin. p_body ( b8 , posedge c2 ), which passes the actual argument posedge c2 to p_body whose body is @(ck) !x, has the set of its body with the actual argument substituted, @( posedge c2 ) ! b8 , which is { c2 }, so it attempts at each tick of c2 and fails at the c2 tick 45 where b8 is 1 , giving \[ 45 \] . p_plain ( b9 ), whose body is the unclocked !x, has {inherited}, so it attempts at the ticks of c0 and fails on b9 , which is 1 only at 100 of c0 , giving \[ 100 \] . Distinguishing observation: A wrong implementation that treats an instance as {inherited} regardless of its body sees b8 only at the c2 ticks 25 , 65 and 105 on the p_body line, which becomes \[ \] . An implementation that looks at the body without substituting the clock of the actual argument cannot determine the leading clock of p_body . The p_plain line shows that an unclocked body is replaced by the outer c0 ; a wrong implementation that attempts at c2 or another clock sees b9 at 95 and 105 and gives \[ \] .
 
 ### SV2023-16.16.1-EXTRACT-PROP-PARENS-NOT
 
-`16.16.1` / `normal` / No mapped test
+`16.16.1` / `normal` / Test mapped; execution unconfirmed
 
 Property parentheses and not preserve the operand semantic-leading-clock set.
 
@@ -43599,6 +43634,7 @@ Acceptance criterion: Property parentheses and not preserve the operand semantic
 
 Normative role: `definition`。
 
+- [test_property_leading_clock_sets_operators.sv](../tests/ch16/test_property_leading_clock_sets_operators.sv) : Under the outer clock @( posedge c0 ) (rising edges at 20 , 60 , 100 ), places q = @( posedge c2 ) b, which ticks on c2 ( 5 , 15 , …, 105 ), and checks the failure times of not q without parentheses ( a_not ) and of (not q) in parentheses ( a_par ). In both, the set stays { c2 }, so attempts begin at each tick of c2 ; they fail at the c2 tick 15 where b1 is 1 and at the c2 tick 75 where b2 is 1 respectively, and the lists are \[ 15 \] and \[ 75 \] . 15 and 75 are not the c2 ticks right after the ticks of c0 ( 25 , 65 , 105 ). Distinguishing observation: In a wrong implementation where not or parentheses do not keep the set and make it {inherited} (here c0 ), attempts begin at the ticks of c0 and q is sampled only at the c2 ticks 25 , 65 and 105 , so it misses 15 and 75 , where b1 and b2 are 1 , and both 2 lines become \[ \] . An implementation that mishandles only the parentheses changes only the a_par line to \[ \] . The same test has strong/weak lines of the same form that tick on c2 ( \[ 25 75 \] , \[ 35 \] ) and {inherited} lines replaced by c0 ( \[ 65 \] , \[ 78 \] , \[ 100 \] ), which also shows that the stimulus can tell the two ways of ticking apart.
 
 ### SV2023-16.16.1-EXTRACT-PROP-PREFIX
 
@@ -43614,7 +43650,7 @@ Normative role: `definition`。
 
 ### SV2023-16.16.1-EXTRACT-PROP-STRENGTH
 
-`16.16.1` / `normal` / No mapped test
+`16.16.1` / `normal` / Test mapped; execution unconfirmed
 
 strong(m) and weak(m) have the singleton semantic-leading-clock set containing m leading clock.
 
@@ -43622,6 +43658,7 @@ Acceptance criterion: strong(m) and weak(m) have the singleton semantic-leading-
 
 Normative role: `definition`。
 
+- [test_property_leading_clock_sets_operators.sv](../tests/ch16/test_property_leading_clock_sets_operators.sv) : Under the outer clock @( posedge c0 ) ( 20 , 60 , 100 ), checks at which ticks the attempts of strong(m) and weak(m) begin. strong(@( posedge c2 ) b3 ## 1 d3 ), where the leading clock of m is c2 ( 5 , 15 , …), attempts at each tick of c2 and, from b3 at 15 and 65 and d3 at 25 and 75 , succeeds at \[ 25 75 \] . Likewise, weak(@( posedge c2 ) ! b4 ## 1 ! d4 ) fails in its attempt at the c2 tick 35 , where b4 is 1 , giving \[ 35 \] . strong( b5 ## 1 @( posedge c2 ) d5 ), where m begins with the unclocked b5 , has inherited as the leading clock of m, so it attempts at the ticks of c0 and succeeds at \[ 65 \] from b5 , which is 1 only at 60 of c0 , and d5 at the next c2 tick 65 . Distinguishing observation: In a wrong implementation that makes the set of strong/weak {inherited} ( c0 ) instead of the leading clock of m, the 2 properties that tick on c2 are sampled only at the c2 ticks 25 , 65 and 105 and change to \[ 75 \] and \[ \] . Conversely, in a wrong implementation that makes the explicit clock c2 inside m the set, strong( b5 ## 1 @( posedge c2 ) d5 ) samples b5 at the ticks of c2 ( 0 at 55 and 65 ) and gives \[ \] . The test checks both strong and weak, both with an explicit leading clock and with an inherited one.
 
 ### SV2023-16.16.1-EXTRACT-SEQ-CLOCK-FREE
 
@@ -43904,7 +43941,7 @@ Normative role: `mandatory`。
 
 ### SV2023-17.2-EXTRACT-NO-DESIGN-UNITS
 
-`17.2` / `error` / No mapped test
+`17.2` / `error` / Test mapped; execution unconfirmed
 
 Modules, interfaces, programs and packages shall not be declared in checkers; modules/interfaces/programs shall not be instantiated there.
 
@@ -43912,6 +43949,13 @@ Acceptance criterion: Modules, interfaces, programs and packages shall not be de
 
 Normative role: `mandatory`。
 
+- [test_illegal_checker_declares_module.sv](../tests/ch17/test_illegal_checker_declares_module.sv) : Declares module inner_mod in the body of a checker (line 28 ). Apart from that, the design is allowed by the standard, and this declaration is the only violation. The regex points to that line.
+- [test_illegal_checker_declares_interface.sv](../tests/ch17/test_illegal_checker_declares_interface.sv) : Declares interface inner_if in the body of a checker (line 28 ). Apart from that, the design is allowed by the standard, and this declaration is the only violation. The regex points to that line.
+- [test_illegal_checker_declares_program.sv](../tests/ch17/test_illegal_checker_declares_program.sv) : Declares program inner_prog in the body of a checker (line 28 ). Apart from that, the design is allowed by the standard, and this declaration is the only violation. The regex points to that line.
+- [test_illegal_checker_declares_package.sv](../tests/ch17/test_illegal_checker_declares_package.sv) : Declares package inner_pkg in the body of a checker (line 26 ). This declaration is the only violation, and the regex points to that line.
+- [test_illegal_checker_instantiates_module.sv](../tests/ch17/test_illegal_checker_instantiates_module.sv) : Instantiates module leaf_mod , declared outside the checker, in the body of the checker (line 32 ). Apart from that, the design is allowed by the standard, and the regex points to that line.
+- [test_illegal_checker_instantiates_interface.sv](../tests/ch17/test_illegal_checker_instantiates_interface.sv) : Instantiates interface leaf_if , declared outside the checker, in the body of the checker (line 32 ). Apart from that, the design is allowed by the standard, and the regex points to that line.
+- [test_illegal_checker_instantiates_program.sv](../tests/ch17/test_illegal_checker_instantiates_program.sv) : Instantiates program leaf_prog , declared outside the checker, in the body of the checker (line 32 ). Apart from that, the design is allowed by the standard, and the regex points to that line.
 
 ### SV2023-17.2-EXTRACT-PORT-DEFAULTS
 
@@ -43963,7 +44007,7 @@ Normative role: `mandatory`。
 
 ### SV2023-17.3-EXTRACT-CAPTURED-ACTUAL-LIMIT
 
-`17.3` / `error` / No mapped test
+`17.3` / `error` / Test mapped; execution unconfirmed
 
 A formal whose input actual contains a const cast or procedural automatic value shall not be used in checker continuous assignments or procedural code.
 
@@ -43971,6 +44015,10 @@ Acceptance criterion: A formal whose input actual contains a const cast or proce
 
 Normative role: `mandatory`。
 
+- [test_illegal_checker_const_cast_actual_continuous.sv](../tests/ch17/test_illegal_checker_const_cast_actual_continuous.sv) : The checker uses the formal argument a, which receives the actual argument const ' (v), in the continuous assignment assign y = a + 4'd1 (instance u_cast ). u_plain , which passes v to the same checker, is legal, and apart from u_cast the design is legal. The regex points to the continuous assignment line and the u_cast line.
+- [test_illegal_checker_automatic_actual_continuous.sv](../tests/ch17/test_illegal_checker_automatic_actual_continuous.sv) : The checker uses in a continuous assignment the formal argument a of the procedural instance u_auto , whose actual argument is the automatic variable av of an initial procedure. The static instance u_static , which passes the module variable v, is legal, and apart from u_auto the design is legal. The regex points to the continuous assignment line and the u_auto line.
+- [test_illegal_checker_const_cast_actual_always_ff.sv](../tests/ch17/test_illegal_checker_const_cast_actual_always_ff.sv) : The checker reads the formal argument a, which receives the actual argument v + const ' (w) containing const ' (w) as a subexpression, in the nonblocking assignment r \<= a of its always_ff ( u_cast ). u_plain , which passes v + w, is legal, and apart from u_cast the design is legal. The regex points to the always_ff line and the u_cast line.
+- [test_illegal_checker_rewritten_automatic.sv](../tests/ch17/test_illegal_checker_rewritten_automatic.sv) : The checker uses in an always_comb procedure the formal argument a of the procedural instance u_auto , whose actual argument is the automatic variable av of an initial procedure. The static instance that passes v and u_prop , which uses the formal argument only in a property, are legal. The regex points to the always_comb line and the u_auto line.
 
 ### SV2023-17.3-EXTRACT-CONNECTION-MODES
 
@@ -44189,7 +44237,7 @@ Normative role: `mandatory`。
 
 ### SV2023-17.5-EXTRACT-FF-SAMPLING
 
-`17.5` / `normal` / No mapped test
+`17.5` / `normal` / Test mapped; execution unconfirmed
 
 Expressions in checker always_ff, including immediate/deferred assertion expressions, use sampled values except variables used in the event control, which use current values.
 
@@ -44197,6 +44245,7 @@ Acceptance criterion: Expressions in checker always_ff, including immediate/defe
 
 Normative role: `mandatory`。
 
+- [test_checker_always_ff_assertions_sampled.sv](../tests/ch17/test_checker_always_ff_assertions_sampled.sv) : Places in the always_ff @( posedge clk) of the checker the nonblocking assignments hist \<= {hist \[ 0 \] , b} and clks \<= clks + clk, the immediate assertions assert (b) and assert (clk), and the deferred assertions assert # 0 (b) and assert final (b). The module changes b and then raises clk in the same time step (b to 1 at 10 and to 0 at 20 ), so the sampled value of b is 0 at 10 and 1 at 20 , and the current value is the opposite. In the expected output, at each edge the immediate, # 0 and final lines for b all show the sampled value ( 0 at 10 , 1 at 20 ), the clk line shows the current value 1 , and the final procedure prints hist = 01 clks = 2 . The order of the 4 lines at each edge is fixed by the order Active, Reactive, Postponed. Distinguishing observation: A wrong implementation that uses current values in the expressions of the always_ff changes the lines of the 3 kinds of assertions on b to 1 at 10 and 0 at 20 and gives hist = 10 ( 5.054 actually does this). An implementation that fails to sample only for the immediate assertions or only for the deferred assertions swaps only those lines. A wrong implementation that also samples clk, the variable of the event control, gives 0 on the clk line and clks = 0 . The test checks the right-hand side of an assignment, an immediate assertion, both observed and final deferred assertions, and the variable of the event control in one procedure under the same stimulus.
 
 ### SV2023-17.5-EXTRACT-FINAL-CONTENTS
 
@@ -44658,7 +44707,7 @@ Normative role: `mandatory`。
 
 ### SV2023-17.8-EXTRACT-FUNCTION-PURITY
 
-`17.8` / `error` / No mapped test
+`17.8` / `error` / Test mapped; execution unconfirmed
 
 Functions on checker assignment right sides shall be automatic or preserve no state and shall have no side effects.
 
@@ -44666,6 +44715,8 @@ Acceptance criterion: Functions on checker assignment right sides shall be autom
 
 Normative role: `mandatory`。
 
+- [test_illegal_checker_function_keeps_state.sv](../tests/ch17/test_illegal_checker_function_keeps_state.sv) : The continuous assignment assign yc = fks_pkg::f_count (a) in the checker calls the static function f_count , which increments its static local variable n on each call (line 48 ). Assignments that call the automatic function f_auto and the stateless static function f_pure are legal, and apart from the assignment to yc the design is legal. The regex points to the line of the call.
+- [test_illegal_checker_function_side_effect.sv](../tests/ch17/test_illegal_checker_function_side_effect.sv) : The continuous assignment assign ys = fse_pkg::f_side (a) in the checker calls the automatic function f_side , which increments the package variable hits (line 43 ). The assignment that calls f_read , which only reads hits, is legal, and apart from the assignment to ys the design is legal. The regex points to the line of the call.
 
 ### SV2023-17.8-EXTRACT-NO-FREE-FUNCTION-LOCALS
 
@@ -45905,7 +45956,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.5.7.1-EXTRACT-OMITTED-DIMENSIONS
 
-`18.5.7.1` / `normal` / No mapped test
+`18.5.7.1` / `normal` / Execution confirmed
 
 An empty loop variable suppresses iteration in its dimension; trailing omitted variables/commas may be omitted.
 
@@ -45913,6 +45964,7 @@ Acceptance criterion: An empty loop variable suppresses iteration in its dimensi
 
 Normative role: `mandatory`。
 
+- [test_constraint_foreach_scope_dimensions.sv](../tests/ch18/test_constraint_foreach_scope_dimensions.sv) : Places foreach (cube \[ p, , r \] ) cube \[ p \] \[ 1 \] \[ r \] == p + r (an empty loop variable in the middle) on rand bit \[ 3:0 \] cube \[ 2 \] \[ 3 \] \[ 4 \] and foreach ( t3 \[ q, s \] ) t3 \[ q \] \[ s \] \[ 1 \] == q * 3 + s (the same as \[ q, s, \] by omitting the trailing variable and comma) on t3 \[ 2 \] \[ 3 \] \[ 2 \] , and after each of 50 randomize calls checks that all elements with p in 0 .. 1 , r in 0 .. 3 , q in 0 .. 1 and s in 0 .. 2 follow the expressions, and matches "dimensions: failures 0 , empty middle 1 , trailing omitted 1 ". Distinguishing observation: A wrong implementation that closes up the empty loop variable and binds r to dimension 2 ( 0 .. 2 ) leaves cube \[ p \] \[ 1 \] \[ 3 \] unconstrained as a 4 -bit random value, which differs from p + 3 somewhere in the 50 runs, so empty middle becomes 0 . An implementation that interprets the trailing omission as aligned to the right, like \[ , q, s \] , breaks the t3 check so that trailing omitted becomes 0 , and one that rejects either form does not accept the design. Even if an implementation internally iterates over the dimension of an empty variable, that only repeats the same constraints, which do not contain the index of that dimension, and the solution does not change; so the observable consequence of not iterating is that the remaining variables keep their own dimensions, and the test checks this with both forms.
 
 ### SV2023-18.5.7.1-EXTRACT-SIZE-FIRST
 
@@ -46074,7 +46126,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.5.9-EXTRACT-PARTIAL-LATEST
 
-`18.5.9` / `normal` / No mapped test
+`18.5.9` / `normal` / Test mapped; execution unconfirmed
 
 Partially ordered variables are solved with the latest group compatible with every ordering constraint.
 
@@ -46082,6 +46134,7 @@ Acceptance criterion: Partially ordered variables are solved with the latest gro
 
 Normative role: `mandatory`。
 
+- [test_solve_before_partial_latest_set.sv](../tests/ch18/test_solve_before_partial_latest_set.sv) : solve x before y and solve y before z make the sets {x}, {y} and {z}; v is ordered after x and before z ( 2 ordering constraints), and w only after x. The 8 -bit pairs (y, v) and (z, w) are linked by y \[ 0 \] - \> v == 0 and v \[ 7 \] - \> y == 0 (the same form for z and w). Solved in the same set, only 128 each of the 16640 pairs allowed by the standard have y \[ 0 \] = 1 and v \[ 7 \] = 1 (under 1% ), so in 200 randomize calls each bit is set fewer than 20 ( 10% ) times, and the expected output has all 4 checks at 1 and 0 failures. In the control plg_ctl (with solve v before y added), v \[ 7 \] is set about half the time, giving "v \[ 7 \] under 10% 0 ". Distinguishing observation: A wrong implementation that puts v in the last set after z (ignoring the constraint that it comes before z) or solves it after y picks y uniformly first, so y \[ 0 \] is set about half the time and the y check becomes 0 . Putting v in a set before y, such as right after x, makes v uniform, and the v \[ 7 \] check becomes 0 . Putting w in the set of y instead of the last set z, or after z, makes the w \[ 7 \] check or the z \[ 0 \] check, respectively, 0 . The difference is between a probability of being set below 1% and one of 50% , so the chance of crossing the boundary 20 in 200 runs is negligible. With constraints on both sides for v and on one side for w, the test identifies the latest set that satisfies all ordering constraints.
 
 ### SV2023-18.5.9-EXTRACT-PARTIAL-ORDER
 
@@ -46989,7 +47042,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.5.13.2-EXTRACT-DIRECT-REFERENCE
 
-`18.5.13.2` / `normal` / No mapped test
+`18.5.13.2` / `normal` / Test mapped; execution unconfirmed
 
 disable soft affects only soft expressions in which the target variable directly appears, not merely an enclosing condition.
 
@@ -46997,6 +47050,7 @@ Acceptance criterion: disable soft affects only soft expressions in which the ta
 
 Normative role: `mandatory`。
 
+- [test_disable_soft_enclosing_condition_kept.sv](../tests/ch18/test_disable_soft_enclosing_condition_kept.sv) : Every class has the hard p == 1 and a 4 -bit q, places the disable soft block last (highest priority), randomizes 40 times each, and prints whether q is 5 every time. dsk_cond has p - \> soft q == 5 and disable soft p: p appears only in the condition that encloses the soft expression q == 5 , so the soft constraint is not discarded, giving "q always 5 : 1 ". dsk_target has the same soft and disable soft q: q is in the soft expression, so the soft constraint is discarded and q becomes free, giving " 0 ". dsk_direct has soft !p || q == 5 and disable soft p: p is directly in the soft expression, so the soft constraint is discarded, giving " 0 ". The control dsk_none (no disable soft) gives " 1 ". All 4 lines have 0 failures. Distinguishing observation: A wrong implementation in which disable soft discards soft constraints even for a variable that appears in the enclosing condition changes line 1 to 0 . An implementation that does not discard the enclosed soft even for the target variable q ( 5.054 actually does this) changes line 2 to 1 , and one that does not discard it for p, which appears directly in the soft expression, changes line 3 to 1 . The probability that a free 4 -bit q is 5 in all 40 runs is 16 to the power -40 , so the 0 and 1 results do not depend on the random numbers. The case where the variable appears directly and the case where it appears only in the enclosing condition are compared with constraints of the same form.
 
 ### SV2023-18.5.13.2-EXTRACT-DISABLE-LOWER
 
@@ -48372,7 +48426,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.17.5-EXTRACT-JOIN-DEPTH
 
-`18.17.5` / `normal` / No mapped test
+`18.17.5` / `normal` / Execution confirmed
 
 At each interleaving step the generator interleaves nonterminal symbols to depth 1.
 
@@ -48380,6 +48434,7 @@ Acceptance criterion: At each interleaving step the generator interleaves nonter
 
 Normative role: `mandatory`。
 
+- [test_rand_join_depth_one_nonterminals.sv](../tests/ch18/test_rand_join_depth_one_nonterminals.sv) : With top : rand join s1 s2 , s1 : a b and s2 : c d, a itself is also a nonterminal a : x y. At depth 1 , a, b, c, d are interleaved, and a generates x y together when it is chosen. It checks that all outputs of 200 randsequence runs are one of xybcd, xycbd, xycdb, cdxyb, cxybd, cxydb (x and y adjacent), and that an output with c or d between a and b (xycbd, xycdb, cxydb) appears at least 1 time; both 2 lines are 1 . Distinguishing observation: A wrong implementation that interleaves to depth 2 or deeper produces outputs with c or d between x and y, so line 1 becomes 0 (with uniform interleaving this happens with probability 4/10 , and the chance that it never happens in 200 runs is negligible). An implementation that generates s1 and s2 whole, one after the other, without interleaving at depth 1 never puts c or d between a and b, so line 2 becomes 0 ( 3 of the 6 orders have it). The test checks both the depth 1 limit and that interleaving actually happens at depth 1 .
 
 ### SV2023-18.17.5-EXTRACT-JOIN-LENGTH
 
@@ -48874,7 +48929,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5-EXTRACT-CONSTANT-INITIALIZATION
 
-`19.5` / `error` / No mapped test
+`19.5` / `error` / Test mapped; execution unconfirmed
 
 Referenced global/instance constants shall be enclosing-class members; instance constant initializers precede covergroup construction and shall not share a loop or fork-join_none body with that construction.
 
@@ -48882,6 +48937,10 @@ Acceptance criterion: Referenced global/instance constants shall be enclosing-cl
 
 Normative role: `mandatory`。
 
+- [test_illegal_cg_constant_of_other_class.sv](../tests/ch19/test_illegal_cg_constant_of_other_class.sv) : In the covergroup of holder, bin own uses the global constant OWN of holder, and bin top uses the static const TOP of another class, limits. The reference to TOP (line 43 ) is the only violation, and the regex points to line 43 .
+- [test_illegal_cg_constant_set_after_new.sv](../tests/ch19/test_illegal_cg_constant_set_after_new.sv) : bin k uses the instance constant K, and the constructor places K = 3 (line 41 ) after cg = new (line 40 ). The regex points to lines 40 and 41 .
+- [test_illegal_cg_constant_set_with_new_in_loop.sv](../tests/ch19/test_illegal_cg_constant_set_with_new_in_loop.sv) : Places K = 3 (line 43 ) and cg = new (line 44 ), in this order, in the body of repeat ( 1 ) in the constructor. The order is kept, and K is assigned only 1 time. The regex points to lines 43 and 44 .
+- [test_illegal_cg_constant_set_with_new_in_fork.sv](../tests/ch19/test_illegal_cg_constant_set_with_new_in_fork.sv) : Places K = 3 (line 44 ) and cg = new (line 45 ), in this order, in the only begin-end started by fork- join_none in the constructor. The regex points to lines 44 and 45 .
 
 ### SV2023-19.5-EXTRACT-COVERPOINT-DOMAIN
 
@@ -49196,7 +49255,7 @@ Normative role: `definition`。
 
 ### SV2023-19.5.1-EXTRACT-REAL-BIN-NAMES
 
-`19.5.1` / `normal` / No mapped test
+`19.5.1` / `normal` / Test mapped; execution unconfirmed
 
 Open real intervals use name\[low:high) or name\[low:high\] according to endpoint inclusion; a single value uses name\[value\].
 
@@ -49204,6 +49263,7 @@ Acceptance criterion: Open real intervals use name\[low:high) or name\[low:high\
 
 Normative role: `definition`。
 
+- [test_cg_real_open_bin_names_merge.sv](../tests/ch19/test_cg_real_open_bin_names_merge.sv) : Because bin names appear only in reports, the identity of names is observed through type coverage with type_option.merge_instances set ( 19.11.3 : bins with the same name form 1 bin across all instances). The open-array real bins a \[ \] = { \[ lo:hi \] } and s \[ \] = {v, \[ p:q \] } are created in 4 instances with different arguments. o1 has a \[ 1.0:2.0 ) and a \[ 2.0:3.0 \] , o2 has a \[ 2.0:3.0 ) and a \[ 3.0:4.0 \] , o3 has a \[ 1.0:2.0 \] (the width equals the interval, so 1 bin that includes both ends), and o4 has the same names as o1 . For s \[ \] , o1 has s \[ 2.0 \] and s \[ 5.0:5.5 \] , o2 has s \[ 2.0 \] and s \[ 2.0:2.0 \] , and o3 and o4 have s \[ 2.5 \] and s \[ 5.0:5.5 \] . So rg has 5 type bins and sv has 4 . Type coverage is printed after each sample: rg goes 20 → 40 → 60 → 80 → 80 → 80 → 80 → 100 and sv goes 0 → 0 → 0 → 0 → 50 → 75 → 100 → 100 . Distinguishing observation: In a wrong implementation that leaves out of the name whether the upper end is included (not telling \[ and ) apart), a \[ 2.0:3.0 \] of o1 and a \[ 2.0:3.0 ) of o2 , and a \[ 1.0:2.0 ) of o1 and a \[ 1.0:2.0 \] of o3 , become the same bin, so rg has 3 type bins, lines 1 and 2 show 33.33 and 33.33 instead of 20.00 and 40.00 , and line 3 shows 66.67 instead of 60.00 . In an implementation that names a single value in the same low:high form as an interval, s \[ 2.0 \] and s \[ 2.0:2.0 \] coincide, sv has 3 bins, and line 5 shows 33.33 instead of 50.00 . An implementation that does not build names from the values and intervals and makes separate bins for each instance has rg 7 and sv 8 bins, so line 1 shows 14.29 , and the same interval a \[ 1.0:2.0 ) ( o1 and o4 ) and the same value s \[ 2.0 \] ( o1 and o2 ) do not merge.
 
 ### SV2023-19.5.1-EXTRACT-REAL-DEFAULT-NO-ARRAY
 
@@ -50105,7 +50165,7 @@ Normative role: `definition`。
 
 ### SV2023-19.6.1.3-EXTRACT-CROSS-TYPE-SCOPE
 
-`19.6.1.3` / `normal` / No mapped test
+`19.6.1.3` / `normal` / Test mapped; execution unconfirmed
 
 Each cross implicitly defines CrossValType and CrossQueueType accessible only in its own scope.
 
@@ -50113,10 +50173,11 @@ Acceptance criterion: Each cross implicitly defines CrossValType and CrossQueueT
 
 Normative role: `mandatory`。
 
+- [test_cg_cross_auto_types_scope_and_fields.sv](../tests/ch19/test_cg_cross_auto_types_scope_and_fields.sv) : The module declares types with the same names, CrossValType ( bit \[ 9:0 \] , 10 bits) and CrossQueueType ( int , 32 bits), and the covergroup contains 2 crosses, X1 (xy 12 bits, ca 3 bits) and X2 (ca, cb 2 bits). The function of each cross builds tuples with its own CrossValType/CrossQueueType, and $bits (CrossValType) gives the bin \< 15 , 0 \> in X1 and \< 5 , 0 \> in X2 (reaching X1 3/3 and X2 2/2 ). Outside the crosses, the bin { $bits (CrossValType)} of coverpoint cw and the bin { $bits (CrossQueueType)} of cq, placed later in the same covergroup , become 10 and 32 from the types of the module; the samples with w = 15 and w = 5 give cw 0/1 , and the sample with w = 10 and u = 32 gives cw 1/1 and cq 1/1 . The initial of the module also prints 10 bits and 32 bits. Distinguishing observation: In a wrong implementation that puts the implicit types in the scope of the covergroup rather than the cross, the bin of the later cw becomes 15 from X1 (or 5 from X2 ), cw becomes 1/1 on the w = 15 (or w = 5 ) line, and cq fails to compile because of $bits of a queue. In an implementation where the 2 crosses share the types, the function of X2 has no cb member, or $bits becomes 15 so that \< 5 , 0 \> of X2 is not covered and the last line stays 1/2 . In an implementation where the types of the module are visible inside a cross, CrossQueueType becomes int and compilation fails at push_back , and $bits (CrossValType) becomes 10 so that X1 stays 2/3 on line 3 .
 
 ### SV2023-19.6.1.3-EXTRACT-CROSS-VAL-TYPE
 
-`19.6.1.3` / `normal` / No mapped test
+`19.6.1.3` / `normal` / Test mapped; execution unconfirmed
 
 CrossValType is a struct with a member of each corresponding coverpoint name/type; unclear range bounds default to \[$bits(point_expression)-1:0\].
 
@@ -50124,6 +50185,7 @@ Acceptance criterion: CrossValType is a struct with a member of each correspondi
 
 Normative role: `definition`。
 
+- [test_cg_cross_auto_types_scope_and_fields.sv](../tests/ch19/test_cg_cross_auto_types_scope_and_fields.sv) : Because a cross function cannot have side effects, the function builds cross bin value tuples from the values it observes, and they are read by whether the samples cover them. X1 is the cross of coverpoint xy on the 12 -bit concatenation {x, y} (no type declared) and the 3 -bit ca. x1_ones adds the named assignment pattern ' {xy: '1 , ca: '1 } with push_back ( \< 4095 , 7 \> if the member names are the coverpoint names xy and ca and the widths are 12 and 3 ), x1_bounds gives \< 11 , 0 \> (range \[ 11:0 \] ) with the positional ' { $left ( v.xy ), $right ( v.xy )}, and x1_width gives \< 15 , 0 \> with ' { $bits (CrossValType), 0 }. For X2 (ca and the 2 -bit cb), x2_ones gives \< 7 , 3 \> with ' {ca: '1 , cb: '1 }, and x2_width gives \< 5 , 0 \> . With cross_retain_auto_bins = 0 each cross has only its own bins, and the samples \< 4095,7 , b = 3 \> , \< 11,0 \> , \< 15,0 \> and \< a = 5 , b = 0 \> take X1 through 1/3 → 2/3 → 3/3 → 3/3 and X2 through 1/2 → 1/2 → 1/2 → 2/2 . CrossQueueType is used as a queue (the return value to which tuples are added with push_back ). Distinguishing observation: Any of these errors changes the tuple values the function builds, so either the sample no longer covers the corresponding cross bin (if a tuple does not fall in a coverpoint bin, the bin is empty) or compilation fails, and the X1 or X2 line changes. An implementation whose member names are not the coverpoint names (variable names such as a) fails to compile at the named patterns of x1_ones and x2_ones . An implementation that gives the concatenation the range \[ 0:11 \] makes the x1_bounds tuple \< 0 , 3 \> ( 11 is 3 in the 3 -bit ca), so the sample \< 11 , 0 \> does not cover bin ends and X1 on line 2 does not reach 2/3 . An implementation that gives the members widths other than 12 and 3 does not make the '1 tuple \< 4095 , 7 \> , and $bits (CrossValType) is no longer 15 , so X1 does not increase on lines 1 and 3 . An implementation with the members in reverse order changes the x1_bounds tuple, and line 2 changes. An implementation that does not make CrossQueueType a queue fails to compile at push_back .
 
 ### SV2023-19.6.1.3-EXTRACT-IMPLICIT-TYPEDEFS
 
@@ -51546,7 +51608,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.11.1-EXTRACT-AUTO-DENOMINATOR-TEXT
 
-`19.11.1` / `normal` / No mapped test
+`19.11.1` / `normal` / Test mapped; execution unconfirmed
 
 For an automatically generated coverpoint the denominator is the number of auto-created bins: for an enum coverpoint, the cardinality of the enumeration (19.5.3), independent of auto_bin_max; for any other integral coverpoint, MIN(auto_bin_max, 2^M) with M the minimum number of bits needed to represent the coverpoint. Bins with no associated value or transition are excluded from both numerator and denominator; when the denominator is zero, get_coverage/get_inst_coverage return 0.0 for nonzero weight and 100.0 for zero weight.
 
@@ -51554,6 +51616,7 @@ Acceptance criterion: An enum coverpoint with K enumerators whose base type has 
 
 Normative role: `definition`。
 
+- [test_cg_auto_denominator_enum_and_empty_bins.sv](../tests/ch19/test_cg_auto_denominator_enum_and_empty_bins.sv) : prints the numerator, denominator and percentage from get_inst_coverage (c, t) for each coverpoint with automatic bins. For cs ( auto_bin_max at its default 64 ) and cl ( auto_bin_max 2 ), both on an enum with 3 names over a 2 -bit base type, the result is 1/3 33.33 after GREEN and 2/3 66.67 after BLUE . hb, with 100 names (E \[ 100 \] ) over a 7 -bit base type, gives 1/100 and 2/100 after E5 and E6 ( 1 bin per name, regardless of auto_bin_max 64 ). On the 3 -bit a, qd, which keeps the default auto_bin_max 64 , has MIN ( 64 , 2 ** 3 ) = 8 bins ( 1 bin per value), and the samples 4,5,6,2,0 give 1/8 12.50 → 2/8 25.00 → 3/8 37.50 → 4/8 50.00 → 5/8 62.50 . q4 ( auto_bin_max 4 ) has \< 0,1 \> \< 2,3 \> \< 4,5 \> \< 6,7 \> , so it gives 1/4 → 1/4 → 2/4 → 3/4 → 4/4 ; q3 ( auto_bin_max 3 ) has \< 0,1 \> \< 2,3 \> \< 4 .. 7 \> , so it gives 1/3 → 1/3 → 1/3 → 2/3 → 3/3 . ig is q4 with the values 2,3,4 ignored; \< 2,3 \> becomes empty and the denominator is 3 ( 0/3 → 1/3 → 2/3 → 2/3 → 3/3 ). none1 (weight 1 ), which ignores every value, gives 0/0 0.00 every time; none0 , with option.weight and type_option.weight set to 0 , gives 0/0 100.00 ; the type's get_coverage also gives none1 0.00 and none0 100.00 . The acceptance criterion gives the distribution \< 0,1 \> , \< 2,3 \> , \< 4,5,6,7 \> for a 3 -bit coverpoint with auto_bin_max 4 , but under 19.5.3 splitting 8 values into 4 bins gives 2 values each, and the last bin holds \< 4,5,6,7 \> only with 3 bins (the example in 19.5.3 ), so both q4 ( 4 bins, denominator 4 ) and q3 ( 3 bins, remainder in the last bin) are observed. Distinguishing observation: Both of the 2 sides of MIN ( auto_bin_max , 2 ** M) are exercised: qd takes the 2 ** M ( 8 ) side, and q4 and q3 take the auto_bin_max side. A wrong implementation that uses auto_bin_max directly as the denominator without taking the MIN gives x/ 64 for qd ( 1.56 and so on), and one that always uses 2 ** M gives x/ 8 for q4 and q3 . In a wrong implementation that uses MIN ( auto_bin_max , 2 ** M) as the denominator for an enum , cs becomes 1/4 ( 25.00 ), cl 1/2 and hb 1/64 , and lines 1 to 2 change. An implementation that also caps an enum at auto_bin_max gives cl and hb denominators of 2 and 64 . An implementation that does not split the 2 ** M values in order into auto_bin_max bins, or that does not put the remainder in the last bin, changes the q4 lines for 5 (same bin as 4 ) and 6 (a different bin), and the q3 lines for 6 (the same last bin as 4 ) and 2 . An implementation that counts an emptied automatic bin in the denominator gives x/ 4 for ig, and one that removes the ignored values before making the bins changes the number of ig bins. An implementation that returns the same value regardless of weight when the denominator is 0 , or that returns something other than 0 in the 2 -argument form, changes the none1 / none0 lines and the last type line.
 
 ### SV2023-19.11.1-EXTRACT-EMPTY-BIN-EXCLUSION
 
@@ -52330,7 +52393,7 @@ Normative role: `mandatory`。
 
 ### SV2023-20.4.3-EXTRACT-FORMAT-PRECISION-DOMAIN-TEXT
 
-`20.4.3` / `normal` / No mapped test
+`20.4.3` / `normal` / Execution confirmed
 
 The units_number argument of $timeformat selects the time unit used by %t from the exponent values of Table 20-2 (2 through -15). precision_number selects the number of fractional digits printed; the default is 0 and the example passes 5 to print five fractional digits.
 
@@ -52338,6 +52401,7 @@ Acceptance criterion: $timeformat(-9, 5, " ns", 10) followed by %t output prints
 
 Normative role: `definition`。
 
+- [test_timeformat_every_unit_and_precision.sv](../tests/ch20/test_timeformat_every_unit_and_precision.sv) : in a module with \`timescale 1fs / 1fs , calls $timeformat ( -9 , 5 , " ns" , 10 ), the same call as the example in the standard, at time 10 ns, and %t prints \[ 10.00000 ns \] ( 5 decimal places; at 11 characters it is not padded to width 10 ). It then prints 64 -bit values in fs with %t, using all 18 values of units_number in Table 20-2 from 2 ( 100 s) to -15 ( 1 fs) and every precision_number from 0 to 5 . For example, 1234567300000000000 fs with units 2 and precision 5 is \[ 12.34567 ( 100 s) \] , 65432123430 fs with units -9 and precision 4 is \[ 65432.1234 (ns) \] , and 234 fs with units -15 and precision 0 is \[ 234 (fs) \] . Each value has either no digits beyond the precision or only 1 such digit, a 3 , so rounding and truncation give the same digits. No out-of-range units_number is used. Distinguishing observation: A wrong implementation that maps a units_number to a different unit (a wrong exponent sign or an error by a factor of 10 ) moves the decimal point in the number on that line. An implementation that ignores precision_number or is off by 1 digit changes the number of decimal places; for example, the example line becomes \[ 10 ns \] or \[ 10.0000 ns \] . An implementation that rejects precision 5 as out of range with an error does not print the 4 lines for the example and precision 5 . Icarus 13.0 and Verilator 5.054 match on every line.
 
 ### SV2023-20.4.3-EXTRACT-FORMAT-UNIT-DOMAIN
 
@@ -52473,7 +52537,7 @@ Normative role: `mandatory`。
 
 ### SV2023-20.6.1-EXTRACT-TYPENAME-ANONYMOUS
 
-`20.6.1` / `normal` / No mapped test
+`20.6.1` / `normal` / Execution confirmed
 
 $typename construction: Anonymous structs/unions/enums receive system-generated names.
 
@@ -52481,6 +52545,7 @@ Acceptance criterion: $typename construction: Anonymous structs/unions/enums rec
 
 Normative role: `definition`。
 
+- [test_typename_anonymous_type_names.sv](../tests/ch20/test_typename_anonymous_type_names.sv) : for anonymous structs ( s1 , s2 in 1 declaration, and s3 with the same members in another declaration), anonymous packed unions ( u1 , u2 and u3 ) and anonymous enum types (ea, eb in the named block first, and ec in second, which has the same constant names P, Q), prints only whether the $typename strings are equal. The expected result is equal 1 for pairs from the same declaration ( s1 and s2 , u1 and u2 , ea and eb) and equal 0 for pairs from different declarations ( s1 and s3 , u1 and u3 , ea and ec). The form of the generated name is left to the tool, so the strings themselves are not printed. Distinguishing observation: In a wrong implementation that does not generate a name for an anonymous type (returning only the body), the strings for s1 and s3 , and for u1 and u3 , which have the same members, become equal, and the 2 two declarations lines show 1 . For an enum , without a generated name there is no name to attach the scope prefix to, so ea and ec become equal. An implementation that generates a separate name per variable makes the 3 one declaration lines show 0 . By 6.22.1 c), anonymous types from the same declaration are the same type and those from different declarations are different types, and 20.6.1 says the $typename string is built consistently with type matching, so the expected output does not depend on the form of the generated name.
 
 ### SV2023-20.6.1-EXTRACT-TYPENAME-ARRAY-PLACEHOLDER
 
@@ -54609,7 +54674,7 @@ Normative role: `definition`。
 
 ### SV2023-20.14-EXTRACT-CROSS-IMPLEMENTATION-ALGORITHM
 
-`20.14` / `normal` / No mapped test
+`20.14` / `normal` / Execution confirmed
 
 Probabilistic distribution generators use the standardized Annex N algorithm to ensure repeatable random sets across implementations.
 
@@ -54617,6 +54682,8 @@ Acceptance criterion: Probabilistic distribution generators use the standardized
 
 Normative role: `mandatory`。
 
+- [test_dist_annex_n_random_uniform_normal_exponential.sv](../tests/ch20/test_dist_annex_n_random_uniform_normal_exponential.sv) : draws $random 3 times each from seeds 0 , 42 and -7 (from seed 0 the first draw is 303379748 with seed -1844104698 ), and $dist_uniform (seed, -1000 , 1000 ), $dist_uniform (seed, 0 , 2147483647 ), $dist_normal (seed, -50 , 25 ) and $dist_exponential (seed, 1000 ) 3 times each, and prints the values and seeds.
+- [test_dist_annex_n_poisson_chi_square_t_erlang.sv](../tests/ch20/test_dist_annex_n_poisson_chi_square_t_erlang.sv) : draws $dist_poisson (seed, 20 ) 3 times, $dist_chi_square with 1 and 4 degrees of freedom 2 times each, $dist_t with 1 and 6 degrees of freedom 2 times each (including negative values), and $dist_erlang (seed, 3 , 100 ) 3 times, and prints the values and seeds.
 
 ### SV2023-20.14.1-EXTRACT-RANDOM-SEED-INITIALIZE
 
@@ -54992,7 +55059,7 @@ Normative role: `definition`。
 
 ### SV2023-20.15.5-EXTRACT-STAT-5
 
-`20.15.5` / `normal` / No mapped test
+`20.15.5` / `normal` / Execution confirmed
 
 q_stat_code 5 requests longest wait among jobs still queued.
 
@@ -55000,6 +55067,7 @@ Acceptance criterion: q_stat_code 5 requests longest wait among jobs still queue
 
 Normative role: `definition`。
 
+- [test_queue_longest_wait_of_jobs_in_queue.sv](../tests/ch20/test_queue_longest_wait_of_jobs_in_queue.sv) : the FIFO queue 1 ( q_type 1 ) receives job 1 at 0 ns, $q_remove at 40 ns takes out job 1 (which waited 40 ns), and jobs 2 and 3 enter at 42 ns and 47 ns. $q_exam ( 1 , 5 , ...) at 50 ns returns 8 , the longer of the waits 8 and 3 of the remaining jobs 2 and 3 , with status 0 , and the length (code 1 ) is 2 . The LIFO queue 2 ( q_type 2 ) receives jobs 4 and 5 at 0 and 10 ns, $q_remove at 20 ns takes out job 5 , and job 6 enters at 30 ns. Code 5 at 50 ns gives 50 , the longer of the waits 50 and 20 of jobs 4 and 6 , and the length is 2 . Distinguishing observation: A wrong implementation that returns the longest wait including jobs that have left the queue shows 40 instead of 8 on the queue 1 line. An implementation that returns the wait of the head job (the next to be removed) or of the last job to enter gives 20 , the wait of job 6 , for the LIFO queue 2 , and one that returns the shortest or the average gives a value like 3 or 5.5 , so one of the code 5 lines changes. The existing test_queue_statistics_wait_codes checks code 5 on a queue with no removals, so counting only the remaining jobs is first distinguished by this test. Icarus 13.0 matches.
 
 ### SV2023-20.15.5-EXTRACT-STAT-6
 
@@ -55385,7 +55453,7 @@ Normative role: `definition`。
 
 ### SV2023-20.16.3-EXTRACT-ASCENDING-ORDER
 
-`20.16.3` / `error` / No mapped test
+`20.16.3` / `error` / Test mapped; execution unconfirmed
 
 PLA input terms, output terms and personality memory shall be specified in ascending order.
 
@@ -55393,6 +55461,10 @@ Acceptance criterion: PLA input terms, output terms and personality memory shall
 
 Normative role: `mandatory`。
 
+- [test_illegal_pla_descending_memory.sv](../tests/ch20/test_illegal_pla_descending_memory.sv) : declares the depth of the personality memory (the unpacked range) in descending order as \[ 2:1 \] , while the word range \[ 1:2 \] , the input terms { a1 , a2 } and the output terms { b1 , b2 } are ascending. The regex points to the declaration (line 18 ) and the call (line 22 ), requires a diagnostic that mentions the order (ascending/descending), and excludes diagnostics for unsupported syntax.
+- [test_illegal_pla_descending_input_terms.sv](../tests/ch20/test_illegal_pla_descending_input_terms.sv) : makes the input terms a net aw declared as \[ 2:1 \] (input terms may be nets), while the memory \[ 1:2 \] \[ 1:2 \] and the output terms logic \[ 1:2 \] br are ascending. The regex points to the declaration of aw (line 29 ) and the call (line 34 ).
+- [test_illegal_pla_descending_output_terms.sv](../tests/ch20/test_illegal_pla_descending_output_terms.sv) : makes the output terms a variable br declared as \[ 2:1 \] (output terms are variables), while the memory and the input terms { a1 , a2 } are ascending. The regex points to the declaration of br (line 30 ) and the call (line 32 ).
+- [test_illegal_pla_descending_memory_word.sv](../tests/ch20/test_illegal_pla_descending_memory_word.sv) : declares the word of the personality memory (the packed range) in descending order as \[ 2:1 \] and the depth in ascending order as \[ 1:2 \] ; the input and output terms are ascending. The regex points to the declaration (line 30 ) and the call (line 34 ).
 
 ### SV2023-20.16.3-EXTRACT-PERSONALITY-LOADING
 
@@ -55875,7 +55947,7 @@ Normative role: `mandatory`。
 
 ### SV2023-21.2.1.1-EXTRACT-PREFER-FWRITE
 
-`21.2.1.1` / `normal` / No mapped test
+`21.2.1.1` / `normal` / Execution confirmed
 
 Unformatted %u/%z output should preferably use $fwrite though other display tasks support it.
 
@@ -55883,6 +55955,7 @@ Acceptance criterion: Unformatted %u/%z output should preferably use $fwrite tho
 
 Normative role: `recommendation`。
 
+- [test_unformatted_u_z_in_display_and_scan_tasks.sv](../tests/ch21/test_unformatted_u_z_in_display_and_scan_tasks.sv) : writes u = 32'h41424241 ( "ABBA" in either byte order) and the 4 -state value q with aval 41424241 and bval 43444443 (containing 0/1 /x/z) to standard output with %u/%U/%z/%Z through the display tasks other than $fwrite ( $display , $write , $displayh , $writeb , $displayo and $strobe ), and compares the output with the expected lines ABBA , w \[ ABBA \] , h ABBA , b ABBACDDC , o ABBACDDC , s ABBA ABBACDDC . It also writes to one file with $fwrite (%u), $fdisplay (%u), $fwriteh (%z), $fdisplayb (%U) and $fstrobe (%Z), and compares the lines read back with $fgets with file: ABBAABBA (the bytes from $fwrite and $fdisplay are the same), file: ABBACDDC | ABBA , file: ABBACDDC . Icarus 13.0 matches. Distinguishing observation: An implementation that interprets %u/%z only in $fwrite , or falls back to the default radix display in other tasks, prints a number such as 1094861377 or other bytes instead of ABBA on the affected lines, and line 1 of the file is not ABBAABBA either. Getting the order of aval and bval wrong in %z gives CDDCABBA ( Verilator 5.054 prints different bytes for %z, which breaks the b line). The recommendation that $fwrite is preferred does not itself produce any difference in output, so the test checks the observable part of the requirement, that the same formats can be used with other display tasks, by placing their output in the same file next to the bytes written by $fwrite .
 
 ### SV2023-21.2.1.1-EXTRACT-REAL-C-FORMATTING
 
@@ -57017,7 +57090,7 @@ Normative role: `definition`。
 
 ### SV2023-21.3.4-EXTRACT-READ-OPEN-MODES-TEXT
 
-`21.3.4` / `normal` / No mapped test
+`21.3.4` / `normal` / Execution confirmed
 
 The read system functions of 21.3.4 ($fgetc, $ungetc, $fgets, $fscanf, $fread) may be applied only to a file descriptor opened with the r or r+ type values, including their binary b variants (rb, r+b, rb+). A descriptor opened with w, wb, w+, w+b, wb+, a, ab, a+, a+b, or ab+ is not readable, even though w+ and a+ are described as update modes.
 
@@ -57025,6 +57098,7 @@ Acceptance criterion: $fgetc/$fgets/$fscanf/$fread on an fd from $fopen(name,"r"
 
 Normative role: `definition`。
 
+- [test_file_read_functions_on_r_and_r_plus_descriptors.sv](../tests/ch21/test_file_read_functions_on_r_and_r_plus_descriptors.sv) : opens a file written with "w" as "AB\n12 34\nWXYZ" in 5 ways, "r" , "rb" , "r+" , "r+b" and "rb+" , performs in order on each fd $fgetc (A), $ungetc ( 0 ), $fgetc again (A), $fgets ( 2 characters, "B\n" ), $fscanf ( "%d %d " ) ( 2 conversions, 12 and 34 ), $fread ( 4 bytes, 5758595a ) and a final $fgetc ( EOF -1 ), and compares the 2 lines for each mode (for example r+: open = 1 getc =A ungetc = 0 getc =A fgets = 2 :B and r+: fscanf = 2:12,34 fread = 4 : 5758595a eof = -1 ). Opening a nonexistent file with "r" gives missing file with r: fd = 0 . The variables are reset to 0 /empty before each round, so a value left over from the previous round cannot produce a match. Icarus 13.0 and Verilator 5.054 (seed 1/73 ) match. Distinguishing observation: In an implementation that makes an fd opened with an r+ type or a type with b unreadable, one that truncates the file when it is opened for update, or one whose reads do not advance the position, the values or return values of getc/fgets/fscanf/fread on the lines for that mode change ( 0 , -1 , a different character, or leading bytes such as 41420a31 ). An implementation that returns a value other than 0 for a nonexistent file does not print fd = 0 on the last line. Reading from w+/a+ is not required, as stated in the acceptance criteria.
 
 ### SV2023-21.3.4.1-EXTRACT-FGETC
 
@@ -57268,7 +57342,7 @@ Normative role: `mandatory`。
 
 ### SV2023-21.3.4.3-EXTRACT-SCAN-PREFERRED
 
-`21.3.4.3` / `normal` / No mapped test
+`21.3.4.3` / `normal` / Execution confirmed
 
 fscanf is the preferred task for unformatted %u/%z input though the formats apply to other supported input tasks.
 
@@ -57276,6 +57350,7 @@ Acceptance criterion: fscanf is the preferred task for unformatted %u/%z input t
 
 Normative role: `recommendation`。
 
+- [test_unformatted_u_z_in_display_and_scan_tasks.sv](../tests/ch21/test_unformatted_u_z_in_display_and_scan_tasks.sv) : observes that %u/%z can be used not only with $fscanf , the preferred task, but also with the other formatted input task, $sscanf . From the string s = "ABBACDDCABBA" , $sscanf (s, "%z%u" ) reads 8 bytes of aval/bval and 4 bytes, which is compared with the expected line sscanf %z%u: 2 0x 0000zx0x000z100x000z100x0000zx 41424241 (q with x and z, and u, come back), and $sscanf (s, "%u" ) is compared with sscanf %u: 1 41424241 . As a control, the lines from reading the same bytes from a file with $fscanf (%u%u, %z|%u, %z), such as fscanf %u%u: 2 41424241 41424241 , are also compared. Every word is a palindrome, so the result does not depend on the host byte order. Icarus 13.0 matches. Distinguishing observation: In an implementation that supports %u/%z only in $fscanf , $sscanf fails to convert and returns 0 or -1 , and the values are not 41424241 or the bit pattern of q. An implementation that reads %z as 2 -state prints a different bit pattern in which x/z have turned into 1/0 , and swapping aval and bval changes the 0x 0000zx… sequence. The recommendation that $fscanf is preferred produces no difference in output, so the test checks the observable part of the requirement (the same formats can be used with other input tasks) side by side with the same values read with $fscanf .
 
 ### SV2023-21.3.4.3-EXTRACT-SCAN-REAL
 
@@ -58774,7 +58849,7 @@ Normative role: `mandatory`。
 
 ### SV2023-21.7.2.3-EXTRACT-COMMENT-COMMAND
 
-`21.7.2.3` / `normal` / No mapped test
+`21.7.2.3` / `normal` / Execution confirmed
 
 The VCD comment section inserts a comment.
 
@@ -58782,6 +58857,7 @@ Acceptance criterion: The VCD comment section inserts a comment.
 
 Normative role: `mandatory`。
 
+- [test_vcd_comment_section_after_dump_limit.sv](../tests/ch21/test_vcd_comment_section_after_dump_limit.sv) : dumps the 16 -bit c while changing it 300 times under $dumplimit ( 1000 ), creating the situation in which the dumper inserts a comment under 21.7.1.5 . After $dumpflush it reads the VCD token by token, looks for a $comment after at least 1 time has appeared, and compares whether one was found (a $comment section after dumped changes: yes), whether its text has 1 or more tokens (its comment text is not empty: yes), and whether it is closed by $end (it ends with $end : yes). Comments that a tool writes on its own in the declaration section or before # 0 are not counted. The comment text and the point where dumping stops are not printed. The VCD from Icarus 13.0 meets the 3 conditions, but it does not match because it prints its own warning to standard output. Distinguishing observation: An implementation that does not write the inserted comment as a $comment section (writing it as plain text or with another keyword, or not writing it) gives no on line 1 ; a section with only the keyword and no text gives no on line 2 ; a section not closed by $end gives no on line 3 . This observes that when the dumper itself inserts a comment, the $comment section of 21.7.2.3 (keyword, text, $end ) is used.
 
 ### SV2023-21.7.2.3-EXTRACT-DATE-COMMAND
 
@@ -58879,7 +58955,7 @@ Normative role: `definition`。
 
 ### SV2023-21.7.2.3-EXTRACT-KEYWORD-CLASSES-7
 
-`21.7.2.3` / `normal` / No mapped test
+`21.7.2.3` / `normal` / Execution confirmed
 
 VCD declaration keywords include date and upscope; dumpoff is a simulation keyword.
 
@@ -58887,10 +58963,11 @@ Acceptance criterion: VCD declaration keywords include date and upscope; dumpoff
 
 Normative role: `definition`。
 
+- [test_vcd_keyword_commands_by_section.sv](../tests/ch21/test_vcd_keyword_commands_by_section.sv) : dumps mid, which contains a nested instance, with $dumpvars (so $upscope appears), calls $dumpoff at time 2 , $dumpon at 4 and $dumpall at 5 , and after $dumpflush reads the VCD token by token. It records the position of each keyword command and prints whether every occurrence of the declaration keywords $date and $upscope is before $enddefinitions (expected lines $date : before $enddefinitions , $upscope : before $enddefinitions ) and whether every occurrence of the simulation keyword $dumpoff is after it ( $dumpoff : after $enddefinitions ). If there is no occurrence, or there are occurrences on both sides, a different wording is printed. Icarus 13.0 matches. Distinguishing observation: An implementation that writes $date or $upscope outside the header (in the value change section), or that does not write $date , gives an after/on both sides/absent line, and one that writes the $dumpoff checkpoint on the declaration side or not as a section gives before/absent. The classification in Table 21-10 (date and upscope are declaration keywords, dumpoff is a simulation keyword) is compared in an observable form: the position in the file. The order among declarations, the identifier codes and the number of scopes are not printed.
 
 ### SV2023-21.7.2.3-EXTRACT-KEYWORD-CLASSES-8
 
-`21.7.2.3` / `normal` / No mapped test
+`21.7.2.3` / `normal` / Execution confirmed
 
 VCD declaration keywords include enddefinitions and var; dumpon is a simulation keyword.
 
@@ -58898,6 +58975,7 @@ Acceptance criterion: VCD declaration keywords include enddefinitions and var; d
 
 Normative role: `definition`。
 
+- [test_vcd_keyword_commands_by_section.sv](../tests/ch21/test_vcd_keyword_commands_by_section.sv) : in the same reading of the VCD , prints whether every occurrence of the declaration keyword $var is before $enddefinitions (expected line $var : before $enddefinitions ), whether there is exactly 1 $enddefinitions and it comes before the first time or value change ( $enddefinitions : 1 , before the first time or value change: 1 ), and whether every occurrence of the simulation keyword $dumpon is after it ( $dumpon : after $enddefinitions for the $dumpon at time 4 ). The token after a vector value change is skipped as an identifier code, so a code that starts with $ is not mistaken for a command. Icarus 13.0 matches. Distinguishing observation: An implementation that writes $var after value changes gives after/on both sides on the $var line, and one that omits $enddefinitions , writes it more than once or writes it after time # 0 gives 0 or 2 on line 2 . An implementation that writes the values at the $dumpon resumption on the header side, or does not make them a section, gives before/absent on the $dumpon line. The classification in Table 21-10 (enddefinitions and var are declaration keywords, dumpon is a simulation keyword) is compared by position in the file.
 
 ### SV2023-21.7.2.3-EXTRACT-KEYWORD-CLASSES-9
 
@@ -59042,7 +59120,7 @@ Normative role: `permission`。
 
 ### SV2023-21.7.3.1-EXTRACT-PORT-ARGUMENT-DEFAULTS
 
-`21.7.3.1` / `normal` / No mapped test
+`21.7.3.1` / `normal` / Test mapped; execution unconfirmed
 
 Both dumpports; and dumpports() use defaults; a null first argument requires a comma before a supplied filename.
 
@@ -59050,6 +59128,8 @@ Acceptance criterion: Both dumpports; and dumpports() use defaults; a null first
 
 Normative role: `mandatory`。
 
+- [test_evcd_dumpports_bare_call_defaults.sv](../tests/ch21/test_evcd_dumpports_bare_call_defaults.sv) : at time 0 , the instance ua of evcd_bare_a calls $dumpports ; and ub of evcd_bare_b calls $dumpports (, "..._b.evcd" ). The expected lines check that the $var entries in dumpports.vcd are only var port 1 \< 0 p and var port 1 \< 1 q (the ports of ua, without r of ub), and that _b.evcd has only var port 1 \< 0 r.
+- [test_evcd_dumpports_empty_parentheses_defaults.sv](../tests/ch21/test_evcd_dumpports_empty_parentheses_defaults.sv) : at time 0 , the instance uc of evcd_paren_c calls $dumpports (); and ud, which has port u, makes no call. The expected lines check that the $var entries in dumpports.vcd are only var port 1 \< 0 s and var port 1 \< 1 t.
 
 ### SV2023-21.7.3.1-EXTRACT-PORT-CALL-RESTRICTIONS
 
@@ -59371,7 +59451,7 @@ Normative role: `definition`。
 
 ### SV2023-21.7.4.1-EXTRACT-EXTENDED-GRAMMAR
 
-`21.7.4.1` / `normal` / No mapped test
+`21.7.4.1` / `normal` / Test mapped; execution unconfirmed
 
 Extended VCD declarations precede simulation commands; declaration payloads end with $end and simulation commands allow port-dump controls, comments, timestamps and port value changes.
 
@@ -59379,6 +59459,7 @@ Acceptance criterion: Extended VCD declarations precede simulation commands; dec
 
 Normative role: `definition`。
 
+- [test_evcd_file_command_structure.sv](../tests/ch21/test_evcd_file_command_structure.sv) : dumps the ports of dut to an extended VCD with $dumpports , and after an input change at time 1 , $dumpportsoff at 2 , a change at 3 , $dumpportson at 4 and $dumpportsall at 5 , calls $dumpportsflush and reads the whole file token by token. Following Syntax 21-27 , it prints whether all declaration keyword commands ( $date / $enddefinitions / $scope / $timescale / $upscope / $var / $vcdclose / $version ) come before the first simulation command, whether every keyword command is closed by $end , whether $dumpports / $dumpportsoff / $dumpportson / $dumpportsall sections appear, whether times are written as # and a number in base 10 and increase, whether each value change is p plus a state character, 2 strengths from 0 to 7 and a declared \< n code, and the number of tokens that match none of these ( 0 ), and compares them with the 6 expected lines. $comment is accepted on both the declaration side and the simulation side (the grammar allows it in either). The specification is the only basis ( Icarus 13.0 does not implement it, and Verilator 5.054 ignores it without --trace). Distinguishing observation: An implementation that writes declarations ( $var , $scope and so on) after value changes gives no on line 1 ; a command missing $end gives no on line 2 ; an implementation that does not write the port dump controls as sections gives no for that entry on the sections line; a wrong time format or order gives no on line 4 ; a wrong form of state character, strength component or identifier code, or an undeclared code, gives no on line 5 ; and any token outside the grammar makes the last line something other than 0 . It has also been checked that the reader tells a hand-made correct file from broken ones.
 
 ### SV2023-21.7.4.1-EXTRACT-EXTENDED-HEADER-GRAMMAR
 
@@ -60309,7 +60390,7 @@ Normative role: `mandatory`。
 
 ### SV2023-22.5-EXTRACT-MACRO-NO-RESET
 
-`22.5` / `normal` / Execution confirmed
+`22.5` / `normal` / Test mapped; execution unconfirmed
 
 resetall does not affect text macros.
 
@@ -61075,7 +61156,7 @@ Normative role: `recommendation`。
 
 ### SV2023-22.10-EXTRACT-CELL-PLACEMENT
 
-`22.10` / `normal` / No mapped test
+`22.10` / `normal` / Execution confirmed
 
 Cell tagging directives may appear anywhere, though placement outside design elements is recommended.
 
@@ -61083,6 +61164,7 @@ Acceptance criterion: Cell tagging directives may appear anywhere, though placem
 
 Normative role: `recommendation`。
 
+- [test_vpi_celldefine_inside_design_elements.sv](../tests/ch22/test_vpi_celldefine_inside_design_elements.sv) : writes \`celldefine in the body of cp_host (after assign, before endmodule) and \`endcelldefine in the body of cp_closer , and for the instances of cp_cell , whose whole declaration lies between them, of cp_plain , declared after \`endcelldefine , and of the top-level module, reads vpiCellInstance by name through VPI and prints it. The expected lines are top: cell instance 0 , c1 : cell instance 1 and p1 : cell instance 0 . cp_host and cp_closer , which have a directive in the middle of their declarations, are not printed, because the standard does not decide whether they are cells. Icarus 13.0 matches. Distinguishing observation: An implementation that does not accept \`celldefine / \`endcelldefine inside a design element fails to compile, and one that accepts but ignores them gives cell instance 0 for c1 . An implementation that ignores the inner \`endcelldefine gives 1 for p1 and the top level. The permission to place the directives anywhere is observed through directives placed inside design elements having the same effect as when placed outside. The recommendation to place them outside does not itself produce any difference in output.
 
 ### SV2023-22.10-EXTRACT-CELL-RESET
 
@@ -75316,7 +75398,7 @@ Normative role: `definition`。
 
 ### SV2023-30.3-EXTRACT-MODULE-PATH-ENDPOINTS
 
-`30.3` / `normal` / No mapped test
+`30.3` / `normal` / Execution confirmed
 
 A module path pairs an input/inout source with an output/inout destination.
 
@@ -75324,6 +75406,7 @@ Acceptance criterion: A module path pairs an input/inout source with an output/i
 
 Normative role: `definition`。
 
+- [test_specify_path_input_inout_sources_shared_destination.sv](../tests/ch30/test_specify_path_input_inout_sources_shared_destination.sv) : the cell has input a, c, inout b, output y and inout z, and declares all 4 kinds of terminal pairs: ( a = \> y) = 20 (input→output), ( b = \> y) = 40 (inout→output), ( a = \> z) = 30 (input→inout) and ( b = \> z) = 50 (inout→inout). The inputs are changed 1 at a time every 100 , and the change times are printed from samples at every multiple of 10 . The expected output has y changes caused by a at 120/320/520 , y changes by b at 240/640 , z changes by a at 330/530 and z changes by b at 250/650 . Distinguishing observation: In an implementation that ignores paths with an inout as source or destination, the y changes by b ( 240 , 640 ) and the z changes ( 250 , 330 , 530 , 650 ) move to undelayed times such as 200/300/500/600 . Without handling the inout→inout ( b = \> z), 250 and 650 become 200 and 600 . An implementation that handles only input→output correctly also does not match, since the times for all 4 kinds must be right.
 
 ### SV2023-30.3-EXTRACT-SPECIFY-GRAMMAR
 
@@ -75339,7 +75422,7 @@ Normative role: `definition`。
 
 ### SV2023-30.4-EXTRACT-MULTIPLE-PATH-SOURCES
 
-`30.4` / `normal` / No mapped test
+`30.4` / `normal` / Execution confirmed
 
 Different source paths may share a destination and specify different delays.
 
@@ -75347,10 +75430,11 @@ Acceptance criterion: Different source paths may share a destination and specify
 
 Normative role: `permission`。
 
+- [test_specify_path_input_inout_sources_shared_destination.sv](../tests/ch30/test_specify_path_input_inout_sources_shared_destination.sv) : declares paths to the destination y (= a ^ b ^ c) from 3 sources a, b, c with different delays 20 , 40 , 60 , and paths to z (= a & b) from a, b with 30 , 50 . The inputs change 1 at a time, so only the path from the changed source is active, and in the expected output y changes at 120/320/520 ( +20 ) for a, 240/640 ( +40 ) for b and 460 ( +60 ) for c, and z changes at 330/530 ( +30 ) for a and 250/650 ( +50 ) for b. Distinguishing observation: In an implementation that keeps only 1 delay for paths from several sources to the same destination (always using the last or first declaration, or the minimum, and so on), the per-source +20 / +40 / +60 do not all appear; for example, if 20 is always used, 240 becomes 220 and 460 becomes 420 . All the times in the expected output match only when each source's delay is kept separately and the delay of the changed source is used.
 
 ### SV2023-30.4-EXTRACT-PATH-DECLARATION-FORMS
 
-`30.4` / `normal` / No mapped test
+`30.4` / `normal` / Execution confirmed
 
 Module paths are simple, edge-sensitive or state-dependent declarations inside specify blocks and may connect legal scalar/vector combinations.
 
@@ -75358,6 +75442,7 @@ Acceptance criterion: Module paths are simple, edge-sensitive or state-dependent
 
 Normative role: `mandatory`。
 
+- [test_specify_path_forms_scalar_vector_combinations.sv](../tests/ch30/test_specify_path_forms_scalar_vector_combinations.sv) : places in 1 specify block 4 simple paths (scalar→scalar ( a = \> y1 )= 20 , vector→scalar (v * \> y2 )= 30 , scalar→vector (a * \> y3 )= 40 , vector→vector ( v = \> y4 )= 50 ), an edge-sensitive path ( posedge clk = \> (q +: a))= 60 and state-dependent paths if (s) ( a = \> r)= 70 / if (!s) ( a = \> r)= 90 . In the expected output, y1 changes at 120/520 , y3 at 140/540 , y2 at 330/630 , y4 at 350/650 , q at 260/860 , and r at 170 with s = 1 and at 590 with s = 0 . Distinguishing observation: An implementation that does not accept one of the forms fails to compile, and one that ignores a form or a scalar/vector combination changes that output without delay ( 100 , 200 , 300 and so on). An implementation that creates paths for only some bits in a vector→scalar or scalar→vector full path gets the y2 or y3 times wrong; ignoring the state-dependent condition turns the 590 of r into 570 , and ignoring the edge-sensitive path turns the 260/860 of q into 200/800 .
 
 ### SV2023-30.4.1-EXTRACT-PATH-DESTINATION-TYPE
 
@@ -75398,7 +75483,7 @@ Normative role: `definition`。
 
 ### SV2023-30.4.2-EXTRACT-SIMPLE-PATH-GRAMMAR
 
-`30.4.2` / `normal` / No mapped test
+`30.4.2` / `normal` / Test mapped; execution unconfirmed
 
 Simple paths assign delays to parallel single-terminal or full comma-separated terminal lists, optionally annotated with polarity; terminals include input/output/inout/interface members and optional constant selects.
 
@@ -75406,6 +75491,8 @@ Acceptance criterion: Simple paths assign delays to parallel single-terminal or 
 
 Normative role: `definition`。
 
+- [test_specify_simple_path_declarations_and_terminals.sv](../tests/ch30/test_specify_simple_path_declarations_and_terminals.sv) : declares (a + = \> y) = ( 2 , 4 ), (b, c - * \> y1 , y2 ) = ( 3 , 5 ), (d \[ 3:2 \] = \> q \[ 3:2 \] ) = 1 and ( a = \> io) = 3 / ( io = \> y) = 4 ; in the expected output, y in par changes at 13/23/35 , y1 / y2 in full at 44/54/66/77 , q in sel at 83/103/113 , io at 125 and y at 129 .
+- [test_specify_interface_signal_path_terminals.sv](../tests/ch30/test_specify_interface_signal_path_terminals.sv) : for an interface port p whose modport makes a, b inputs and y, z outputs, declares ( p.a = \> p.y ) = 30 , ( p.b = \> o) = 40 and ( i = \> p.z ) = 50 , and changes p.a , p.b and i every 100 . In the expected output, p.y changes at 130 and 430 , o at 240 and p.z at 350 .
 
 ### SV2023-30.4.3-EXTRACT-DATA-SOURCE-DESCRIPTIVE
 
@@ -75434,7 +75521,7 @@ Normative role: `mandatory`。
 
 ### SV2023-30.4.3-EXTRACT-EDGE-PATH-GRAMMAR
 
-`30.4.3` / `normal` / No mapped test
+`30.4.3` / `normal` / Test mapped; execution unconfirmed
 
 Edge-sensitive paths use optional edge/polarity and parallel/full connections, optionally with an arbitrary data-source expression describing destination flow.
 
@@ -75442,10 +75529,12 @@ Acceptance criterion: Edge-sensitive paths use optional edge/polarity and parall
 
 Normative role: `definition`。
 
+- [test_specify_edge_path_full_polarity_data_source.sv](../tests/ch30/test_specify_edge_path_full_polarity_data_source.sv) : pa, ma and mc (parallel, delay ( 20 , 50 )), fu (full with 2 outputs, ( 30 , 60 ), data source ~d) and fv (full with a vector output, no data source, ( 30 , 60 )) capture the d values 1 and 0 on the clk rising edges at 100 and 200 ; in the expected output q changes at 120/250 , qa at 130/260 and qb at 160/230 , and qv becomes 11 at 130 , 10 at 160 , 11 at 230 and 01 at 260 .
+- [test_specify_edge_path_source_edge_kinds.sv](../tests/ch30/test_specify_edge_path_source_edge_kinds.sv) : cells that latch on both edges are given posedge and negedge paths ( 20 and 60 ), an edge path ( 30 ) and a path without an edge identifier ( 40 ); with the clk rising edge at 100 and falling edge at 200 , the expected output has pn change at 120/260 , ed at 130/230 and an at 140/240 .
 
 ### SV2023-30.4.3-EXTRACT-EDGE-PATH-SOURCE
 
-`30.4.3` / `normal` / No mapped test
+`30.4.3` / `normal` / Test mapped; execution unconfirmed
 
 Path source edges may use posedge/negedge/edge; vector source edge detection uses its LSB, and omitted edge means any source transition.
 
@@ -75453,10 +75542,11 @@ Acceptance criterion: Path source edges may use posedge/negedge/edge; vector sou
 
 Normative role: `mandatory`。
 
+- [test_specify_edge_path_source_edge_kinds.sv](../tests/ch30/test_specify_edge_path_source_edge_kinds.sv) : cells that latch on both edges are given ( posedge clk = \> (q : d)) = 20 and ( negedge clk = \> (q : d)) = 60 (pn), (edge clk = \> (q : d)) = 30 (ed) and ( clk = \> (q : d)) = 40 without an edge identifier (an), and the change times are checked for the clk rising edge at 100 and falling edge at 200 . The cell lsb, which latches on every change of the 2 -bit clock c, gets ( posedge c * \> (q : d)) = 20 and ( negedge c * \> (q : d)) = 60 , and c goes 00 → 11 → 10 → 01 → 10 . The expected output is pn 120/260 , ed 130/230 , an 140/240 and lsb 320/460/520/660 . Distinguishing observation: An implementation that does not distinguish posedge / negedge changes the 260 of pn to 220 or similar, and one that applies edge to only one of the edges, or applies a path without an edge identifier only to rising edges (the behavior of Icarus 13.0 for an), turns the 230 of ed or the 240 of an into the undelayed 200 . An implementation that detects vector edges on the MSB treats 10 → 01 ( LSB rising, MSB falling) as a negedge , turning 520 into 560 , and 01 → 10 as a posedge , turning 660 into 620 ; one that treats a rise on any bit as a posedge makes both paths active, turning 660 into 620 .
 
 ### SV2023-30.4.3-EXTRACT-EDGE-POLARITY-DESCRIPTIVE
 
-`30.4.3` / `normal` / No mapped test
+`30.4.3` / `normal` / Test mapped; execution unconfirmed
 
 Optional path polarity describes inversion for timing analysis but has no effect on simulation results.
 
@@ -75464,10 +75554,11 @@ Acceptance criterion: Optional path polarity describes inversion for timing anal
 
 Normative role: `mandatory`。
 
+- [test_specify_edge_path_full_polarity_data_source.sv](../tests/ch30/test_specify_edge_path_full_polarity_data_source.sv) : 3 cells that latch d on a rising edge and output it non-inverted are given, with the same delay ( 20 , 50 ), a positive-polarity path ( posedge clk = \> (q +: d)), a negative-polarity path ( posedge clk = \> (q -: d)) and a negative-polarity path without a data source ( posedge clk -= \> q). The full cell fu, with ( posedge clk * \> (qa, qb -: ~d)) = ( 30 , 60 ), outputs qa non-inverted and qb inverted. Regardless of polarity, the expected output has q rising at 120 and falling at 250 , qa changing at 130/260 and qb at 160/230 , each with the delay for the output's own transition (rise/fall). Distinguishing observation: In an implementation that reflects polarity in simulation (applying the output's fall delay to a source rise for negative polarity, inverting the output, and so on), q of ma and mc, unlike pa, rises at 150 or has its value inverted, and in fu, which has negative polarity, the 130 of qa changes to 160 . Only when polarity is ignored and the delay is chosen by the output transition do the 3 columns pa, ma and mc line up at the same times, with qa and qb each using the delay of their own transition.
 
 ### SV2023-30.4.4-EXTRACT-STATE-PATH-GRAMMAR
 
-`30.4.4` / `normal` / No mapped test
+`30.4.4` / `normal` / Execution confirmed
 
 State-dependent paths associate a condition with a simple/edge path and delay; ifnone applies only to a simple path form.
 
@@ -75475,6 +75566,7 @@ Acceptance criterion: State-dependent paths associate a condition with a simple/
 
 Normative role: `definition`。
 
+- [test_specify_state_dependent_edge_and_lone_ifnone.sv](../tests/ch30/test_specify_state_dependent_edge_and_lone_ifnone.sv) : uses all 3 forms of Syntax 30-5 . if + simple path: if (s) ( a = \> r) = 20 / if (!s) ( a = \> r) = 50 . if + edge-sensitive path: if (en) ( posedge clk = \> (q : d)) = 30 / if (!en) ... = 70 . ifnone + simple path: a lone ifnone ( a = \> n) = 40 , and ifnone ( clk = \> q2 ) = 20 corresponding to the edge-sensitive conditional path if (en) ( posedge clk = \> ( q2 +: d)) = 60 . The expected output is r at 120 with s = 1 and at 450 with s = 0 , q at 230 with en = 1 and at 570 with en = 0 , n at 140/440 , and q2 at 260 with en = 1 and at 520 with en = 0 . Distinguishing observation: In an implementation that does not evaluate the conditions, both conditional paths are active and the smaller delay is chosen, so the 450 of r becomes 420 and the 570 of q becomes 530 . In an implementation that does not handle conditional paths with an edge-sensitive body, q changes without delay at 200/500 . An implementation that treats ifnone as active even when the condition is true changes the 260 of q2 to 220 , and one that ignores ifnone changes the 520 of q2 to 500 and the 140/440 of n to 100/400 . That ifnone takes only simple paths (an ifnone on an edge-sensitive path is illegal) is already registered with a negative test as error requirement 30.4.4.4 - EXTRACT-IFNONE-SIMPLE ; here the test observes ifnone working as a simple path alongside its edge-sensitive counterpart paths.
 
 ### SV2023-30.4.4.1-EXTRACT-STATE-CONDITION-LSB
 
@@ -75719,7 +75811,7 @@ Normative role: `permission`。
 
 ### SV2023-30.4.4.1-EXTRACT-STATE-PATH-OPERANDS
 
-`30.4.4.1` / `error` / No mapped test
+`30.4.4.1` / `error` / Test mapped; execution unconfirmed
 
 Conditional path operands are scalar/vector input/inout ports, local nets/variables, their bit/part selects, and compile-time constants including specparams.
 
@@ -75727,6 +75819,7 @@ Acceptance criterion: Conditional path operands are scalar/vector input/inout po
 
 Normative role: `mandatory`。
 
+- [test_illegal_state_path_hierarchical_operand.sv](../tests/ch30/test_illegal_state_path_hierarchical_operand.sv) : in the specify block of module t, the condition expression of the state-dependent path if ( u.c ) ( a = \> b) = 5 ; uses u.c , a hierarchical reference to the variable c of the child instance u. u.c is not an input or inout port of t, not a net or variable declared in t, and not a constant. Apart from this condition expression the design is legal (a is an input net, b is an output, and module other is instantiated), and : expected_stderr_regex : points to line 24 , the line of this condition expression. Distinguishing observation: 30.4.4.1 limits the operands of the condition expression to input/inout ports (and their bit /part selects), locally declared nets and variables (and their selects) and compile-time constants. An implementation that does not check the operand restriction ( Icarus 13.0 and Verilator 5.054 both accept the design) accepts this design, and the test reports a mismatch because the design was accepted. An implementation that reports a wrong error on another line also does not match line 24 . Correct behavior with permitted operands is checked separately by the positive tests for 30.4.4.2 , and this negative test directly checks the core of this error requirement: an operand outside the list is a violation.
 
 ### SV2023-30.4.4.2-EXTRACT-SIMPLE-STATE-PATH
 
@@ -75742,7 +75835,7 @@ Normative role: `definition`。
 
 ### SV2023-30.4.4.3-EXTRACT-EDGE-STATE-PATH
 
-`30.4.4.3` / `normal` / No mapped test
+`30.4.4.3` / `normal` / Execution confirmed
 
 A state-dependent path with an edge-sensitive body is an edge-sensitive state-dependent path.
 
@@ -75750,6 +75843,7 @@ Acceptance criterion: A state-dependent path with an edge-sensitive body is an e
 
 Normative role: `definition`。
 
+- [test_specify_state_dependent_edge_and_lone_ifnone.sv](../tests/ch30/test_specify_state_dependent_edge_and_lone_ifnone.sv) : gives the cell ep, which latches d on a rising edge, the state-dependent paths with an edge-sensitive body if (en) ( posedge clk = \> (q : d)) = 30 and if (!en) ( posedge clk = \> (q : d)) = 70 . On the rising edge at 200 with en = 1 , q rises at 230 , and on the rising edge at 500 after en = 0 is set, it falls at 570 . In the cell ie too, if (en) ( posedge clk = \> ( q2 +: d)) = 60 changes q2 at 260 for the edge at 200 with en = 1 . Distinguishing observation: In an implementation that ignores the condition of an edge-sensitive state-dependent path, both paths are active and 570 becomes 530 . In an implementation that does not accept, or ignores, conditional edge paths, q and q2 change without delay at 200/500 . 230/570/260 all appear only when, with the condition true, the delay of that edge path is used for the change on the rising edge.
 
 ### SV2023-30.4.4.3-EXTRACT-EDGE-STATE-UNIQUENESS
 
@@ -75778,7 +75872,7 @@ Normative role: `mandatory`。
 
 ### SV2023-30.4.4.4-EXTRACT-IFNONE-NO-COUNTERPART
 
-`30.4.4.4` / `boundary` / No mapped test
+`30.4.4.4` / `boundary` / Execution confirmed
 
 Ifnone with no corresponding conditional path behaves as an unconditional simple path.
 
@@ -75786,6 +75880,7 @@ Acceptance criterion: Ifnone with no corresponding conditional path behaves as a
 
 Normative role: `mandatory`。
 
+- [test_specify_state_dependent_edge_and_lone_ifnone.sv](../tests/ch30/test_specify_state_dependent_edge_and_lone_ifnone.sv) : the cell ln is a buffer n = a, and its specify block contains only ifnone ( a = \> n) = 40 , with no conditional path from a to n. On the rising edge of a at 100 , n changes at 140 , and on the falling edge of a at 400 (after the states s, en of the other cells are set to 0 ), n changes at 440 , the same times as an unconditional simple path ( a = \> n) = 40 . Distinguishing observation: In an implementation that disables an ifnone that has no corresponding conditional path, treating it as having no valid conditional path, or one that ignores ifnone, n changes at the undelayed 100/400 . An implementation that treats ifnone only as the default for conditional paths fails in the same way. 140 and 440 both appear only when it is treated as an unconditional path.
 
 ### SV2023-30.4.4.4-EXTRACT-IFNONE-SIMPLE
 
@@ -75813,7 +75908,7 @@ Normative role: `mandatory`。
 
 ### SV2023-30.4.5-EXTRACT-FULL-BIT-CROSS-PRODUCT
 
-`30.4.5` / `normal` / No mapped test
+`30.4.5` / `normal` / Test mapped; execution unconfirmed
 
 A full module path connects every source bit to every destination bit and does not require equal endpoint widths.
 
@@ -75821,6 +75916,7 @@ Acceptance criterion: A full module path connects every source bit to every dest
 
 Normative role: `mandatory`。
 
+- [test_specify_full_path_unequal_widths_and_mixed_lists.sv](../tests/ch30/test_specify_full_path_unequal_widths_and_mixed_lists.sv) : with the full path (a * \> y) = ( 20 , 50 ) from the 3 -bit a to the 2 -bit y, where y \[ 0 \] = ^a and y \[ 1 \] = ~^a, a change on any bit of a raises one bit of y and lowers the other. a \[ 2 \] ( 100 ), a \[ 0 \] ( 200 ) and a \[ 1 \] ( 300 ) rise in turn; the expected output is 120/150 , 220/250 , 320/350 , with each bit reaching both bits of y with the delay for each output bit's own transition (rise 20 , fall 50 ). Distinguishing observation: An implementation that does not accept a full path between terminals of different widths fails to compile, and in one that pairs up bits and creates paths for only some pairs, changes with no path, such as a \[ 2 \] →y \[ * \] or a \[ 0 \] →y \[ 1 \] , happen without delay, and 120/150 becomes 100 , 220 becomes 200 , and so on. An implementation that uses the delay of the LSB for all bits of a multi-bit destination ( Icarus 13.0 ) changes both bits of y together at 120 .
 
 ### SV2023-30.4.5-EXTRACT-FULL-REQUIRED
 
@@ -75851,7 +75947,7 @@ Normative role: `mandatory`。
 
 ### SV2023-30.4.6-EXTRACT-MULTIPLE-PATH-FULL
 
-`30.4.6` / `normal` / No mapped test
+`30.4.6` / `normal` / Test mapped; execution unconfirmed
 
 A multi-source/destination declaration uses comma-separated lists joined by full connection, permits mixed scalar/vector widths and defines the corresponding source/destination cross-product.
 
@@ -75859,6 +75955,7 @@ Acceptance criterion: A multi-source/destination declaration uses comma-separate
 
 Normative role: `mandatory`。
 
+- [test_specify_full_path_unequal_widths_and_mixed_lists.sv](../tests/ch30/test_specify_full_path_unequal_widths_and_mixed_lists.sv) : 1 declaration (s, v * \> p, w) = ( 30 , 60 ) connects with * \> a source list of the scalar s and the 2 -bit v and a destination list of the scalar p and the 3 -bit w. Each bit of p and w is s ^ v \[ 1 \] ^ v \[ 0 \] , so any change of s ( 400 ), v \[ 1 \] ( 500 ) or v \[ 0 \] ( 600 ) changes all bits of p and w. The expected output is p = 1 w = 111 at 430 , p = 0 w = 000 at 560 and p = 1 w = 111 at 630 . Distinguishing observation: In an implementation that creates no paths for sources or destinations from position 2 onward in a list, the changes caused by v or the changes of w happen without delay, at 500/600 or 400 . An implementation that does not accept a mix of scalars and vectors fails to compile. Only when a full path is made from each source to each destination do the changes of all 3 sources reach p and w after 30 (rise) / 60 (fall).
 
 ### SV2023-30.4.7-EXTRACT-PATH-POLARITY-METADATA
 
@@ -75910,7 +76007,7 @@ Normative role: `definition`。
 
 ### SV2023-30.4.7.2-EXTRACT-POLARITY-SYNTAX
 
-`30.4.7.2` / `normal` / No mapped test
+`30.4.7.2` / `normal` / Execution confirmed
 
 Prefixing + before either full/parallel path operator selects positive polarity.
 
@@ -75918,10 +76015,11 @@ Acceptance criterion: Prefixing + before either full/parallel path operator sele
 
 Normative role: `mandatory`。
 
+- [test_specify_polarity_operators_full_parallel.sv](../tests/ch30/test_specify_polarity_operators_full_parallel.sv) : puts positive polarity both before = \> (buffer bp: (a += \> y)) and before * \> (buffer bf: (a +* \> y), inverter ip: (a +* \> y)), all with delay ( 20 , 50 ). On the rising edge of a at 100 , bp and bf rise at 120 and ip falls at 150 ; on the falling edge at 200 , ip changes at 220 and bp and bf at 250 . Distinguishing observation: An implementation that does not accept +* \> or += \> fails to compile. An implementation that uses positive polarity in delay selection, as meaning that the output transitions in the same direction as the source, applies the source's rise delay to the fall of the inverter ip, so 150 becomes 120 and 220 becomes 250 . The output matches the expected output only when + is accepted before both operators and the delay is chosen by the output's own transition.
 
 ### SV2023-30.4.7.3-EXTRACT-POLARITY-MEANING
 
-`30.4.7.3` / `normal` / No mapped test
+`30.4.7.3` / `normal` / Execution confirmed
 
 The negative polarity annotation describes opposite-direction or no transition, as metadata rather than a simulation-enforced data function.
 
@@ -75929,10 +76027,11 @@ Acceptance criterion: The negative polarity annotation describes opposite-direct
 
 Normative role: `definition`。
 
+- [test_specify_polarity_operators_full_parallel.sv](../tests/ch30/test_specify_polarity_operators_full_parallel.sv) : puts negative polarity (a -= \> y) and (a -* \> y) on the non-inverting buffers bn and bm. Negative polarity describes that a source rise causes an output fall or no change, but on the rising edge of a at 100 , bn and bm rise at 120 with the rise delay, and on the falling edge at 200 they fall at 250 with the fall delay. The inverters ip and im, with positive and negative polarity and the same delay, also change at the same times 150/220 . Distinguishing observation: In an implementation that enforces negative polarity as a function of the data (inverting the output, suppressing an output rise on a source rise, or applying the delay for the opposite of the source transition), the values of bn and bm are inverted, 120/250 changes to 150/220 , or the changes disappear. Only when negative polarity is purely descriptive and does not affect simulation do the negative-polarity buffers change at 120/250 , the same as ordinary buffers.
 
 ### SV2023-30.4.7.3-EXTRACT-POLARITY-SYNTAX
 
-`30.4.7.3` / `normal` / No mapped test
+`30.4.7.3` / `normal` / Execution confirmed
 
 Prefixing - before either full/parallel path operator selects negative polarity.
 
@@ -75940,6 +76039,7 @@ Acceptance criterion: Prefixing - before either full/parallel path operator sele
 
 Normative role: `mandatory`。
 
+- [test_specify_polarity_operators_full_parallel.sv](../tests/ch30/test_specify_polarity_operators_full_parallel.sv) : puts negative polarity both before = \> (buffer bn: (a -= \> y)) and before * \> (buffer bm: (a -* \> y), inverter im: (a -* \> y)), all with delay ( 20 , 50 ). On the rising edge of a at 100 , bn and bm rise at 120 and im falls at 150 ; on the falling edge at 200 , im changes at 220 and bn and bm at 250 . Distinguishing observation: An implementation that does not accept -* \> or -= \> fails to compile. In an implementation that gives paths marked with - a different polarity or delay treatment (for example, applying the fall delay to a source rise for negative polarity), the 120 of bn and bm becomes 150 and 250 becomes 220 . The output matches the expected output only when - is accepted before both operators and polarity does not change behavior.
 
 ### SV2023-30.5-EXTRACT-PATH-DELAY-GRAMMAR
 
@@ -75979,7 +76079,7 @@ Normative role: `mandatory`。
 
 ### SV2023-30.5.1-EXTRACT-PATH-DELAY-MINTYPMAX
 
-`30.5.1` / `normal` / No mapped test
+`30.5.1` / `normal` / Test mapped; execution unconfirmed
 
 A single delay expression denotes typical delay; a colon triplet denotes minimum/typical/maximum in that order.
 
@@ -75987,6 +76087,7 @@ Acceptance criterion: A single delay expression denotes typical delay; a colon t
 
 Normative role: `mandatory`。
 
+- [test_specify_path_delay_mintypmax_vpi.sv](../tests/ch30/test_specify_path_delay_mintypmax_vpi.sv) : gives 3 paths the delays ( 2:5:9 ), ( 1:3:8 , 2:6:7 ) and the single value 4 ; a VPI application reads them with vpi_get_delays with mtm_flag set ( 3 elements, min, typ and max, per delay, as in Table 38-2 ) and prints them as reals in 1 ns units. The expected output is "2 5 9" for u1 , rise "1 3 8" and fall "2 6 7" for u2 , and 4 for the typ element of u3 . Which value is used at run time is the tool's choice ( 11.11 ), so the run-time delays are not checked. Distinguishing observation: In an implementation that does not interpret the 3 values in min:typ:max order (for example, reversed, or with typ first), u1 becomes "9 5 2" or "5 2 9" , and the order for u2 is also wrong. In an implementation that keeps the 3 values only as the 1 selected value ( Icarus 13.0 returns "5 0 0" ), the min and max elements have different values. In an implementation that puts the single value only in the min or max element instead of typical, the typ of u3 is not 4 .
 
 ### SV2023-30.5.1-EXTRACT-TRANSITION-01-1
 
@@ -76880,7 +76981,7 @@ Normative role: `mandatory`。
 
 ### SV2023-30.7-EXTRACT-PULSE-LIMIT-ORDER
 
-`30.7` / `error` / No mapped test
+`30.7` / `error` / Test mapped; execution unconfirmed
 
 Reject and error limits partition rejected, x-filtered and passed pulses; error limit shall be at least reject limit.
 
@@ -76888,6 +76989,7 @@ Acceptance criterion: Reject and error limits partition rejected, x-filtered and
 
 Normative role: `mandatory`。
 
+- [test_illegal_pathpulse_error_below_reject.sv](../tests/ch30/test_illegal_pathpulse_error_below_reject.sv) : gives the path ( a = \> b) with delay 6 the specparam PATHPULSE $a $b = ( 5 , 2 ); which specifies an error limit 2 smaller than the reject limit 5 . The rest of the design is legal, and : expected_stderr_regex : points to line 21 , the line of this PATHPULSE $ declaration. Distinguishing observation: 30.7 requires the error limit to be always greater than or equal to the reject limit (the two divide the 3 ranges reject / x / pass, so in reverse order the ranges cannot be defined). An implementation that does not check the order ( Icarus 13.0 and Verilator 5.054 both accept the design) accepts this design, and the test reports a mismatch because the design was accepted. The behavior of the 3 ranges themselves is already registered to test_specify_pulse_limit_boundaries as the boundary requirements of 30.7 ( PULSE-REJECT / ERROR / PASS ), and this negative test checks, at line 21 , what remains of this error requirement: a violation of error limit \>= reject limit.
 
 ### SV2023-30.7-EXTRACT-PULSE-LIMIT-SOURCES
 
@@ -78578,7 +78680,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.4.4-EXTRACT-WIDTH-COINCIDENT-TEXT
 
-`31.4.4` / `boundary` / No mapped test
+`31.4.4` / `boundary` / Execution confirmed
 
 For a pulse whose reference and data transitions occur at different simulation times, $width checks the pulse width against the limit. The standard requires that the reference and data events never occur at the same simulation time, so coincident opposite edges are outside this requirement and are not given a pass/fail rule.
 
@@ -78586,6 +78688,7 @@ Acceptance criterion: A pulse with distinct reference and data transition times 
 
 Normative role: `mandatory`。
 
+- [test_timing_width_threshold_limit_edges.sv](../tests/ch31/test_timing_width_threshold_limit_edges.sv) : drives c with high pulses of widths 1 , 2 , 3 , 4 , 5 , 6 starting at 10 , 20 , ..., 60 (the rise and fall are always at different times. Width 1 is the smallest separation between times), records the times at which the notifiers of $width ( posedge c, 5 , 0 , nz) and $width ( posedge c, 5 , 2 , nw) change, and prints them at the end. The expected output is "11 22 33 44" for threshold 0 (widths 1 to 4 are below limit 5 and violate; widths 5 and 6 do not) and "33 44" for threshold 2 . Distinguishing observation: The requirement is that for a pulse whose reference (rise) and data (fall) events are at different times, $width compares the width with the limit. In an implementation that treats the smallest 1 ns pulse like simultaneous events and does not check it, 11 disappears from the threshold 0 line, and in one that does not compare with the limit or computes the width wrongly, the presence of 22 , 33 , 44 or 55 (width 5 ) changes. The threshold 2 line shows that both glitch rejection and the limit comparison are working. Opposite edges at the same time fall outside the assumption in 31.4.4 that they do not occur, and this test does not use them.
 
 ### SV2023-31.4.4-EXTRACT-WIDTH-EVENT-ROLES
 
@@ -81260,7 +81363,7 @@ Normative role: `mandatory`。
 
 ### SV2023-33.4.1.6-EXTRACT-CONFIG-USE-BINDING
 
-`33.4.1.6` / `error` / No mapped test
+`33.4.1.6` / `error` / Execution confirmed
 
 Use explicitly binds a selected instance/cell to a library/cell and requires an instance or cell selector.
 
@@ -81268,6 +81371,7 @@ Acceptance criterion: Use explicitly binds a selected instance/cell to a library
 
 Normative role: `mandatory`。
 
+- [test_illegal_config_use_without_selector.sv](../tests/ch33/test_illegal_config_use_without_selector.sv) : makes the only rule statement of the config use work.test_illegal_config_use_without_selector_b ; with no instance clause or cell clause before it. Otherwise the config is one the standard allows (it has a design statement), and : expected_stderr_regex : points to line 40 , the line of this use clause. A design that writes the same rule as instance test_illegal_config_use_without_selector.u use ... was confirmed to be accepted by Icarus 13.0 and Verilator 5.054 . Distinguishing observation: 33.4.1.6 allows a use clause only when it is paired with an instance or cell selection clause, and the rule statements in Syntax 33-4 also have only inst_clause use_clause and cell_clause use_clause . An implementation that accepts a use without a selection clause and treats it like a default binding accepts this design, and the test does not match. Icarus 13.0 and Verilator 5.054 report a syntax error on this line, and Verilator reports that it expects an instance or cell clause. default use is covered by a separate negative test for 33.4.1.2 ; this one checks the form with no selection clause at all.
 
 ### SV2023-33.4.1.6-EXTRACT-USE-CONFIG-SUFFIX
 

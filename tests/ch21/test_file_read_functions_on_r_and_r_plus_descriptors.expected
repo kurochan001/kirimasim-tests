@@ -1,0 +1,11 @@
+r: open=1 getc=A ungetc=0 getc=A fgets=2:B
+r: fscanf=2:12,34 fread=4:5758595a eof=-1
+rb: open=1 getc=A ungetc=0 getc=A fgets=2:B
+rb: fscanf=2:12,34 fread=4:5758595a eof=-1
+r+: open=1 getc=A ungetc=0 getc=A fgets=2:B
+r+: fscanf=2:12,34 fread=4:5758595a eof=-1
+r+b: open=1 getc=A ungetc=0 getc=A fgets=2:B
+r+b: fscanf=2:12,34 fread=4:5758595a eof=-1
+rb+: open=1 getc=A ungetc=0 getc=A fgets=2:B
+rb+: fscanf=2:12,34 fread=4:5758595a eof=-1
+missing file with r: fd=0

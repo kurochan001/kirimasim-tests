@@ -1,0 +1,5 @@
+start: w=1 v_cont=1 v_pca=1 v_blk=1
+src=2: w=2 v_cont=2 v_pca=2 v_blk=1
+v_pca=9 during assign: v_pca=2
+deassign, src=3: w=3 v_cont=3 v_pca=2 v_blk=1
+v_pca=9 after deassign: v_pca=9

@@ -4,12 +4,13 @@
 
 [English](ch3.md) / [日本語](ch3.ja.md)
 
-[すべての章](README.ja.md) .テストは144本で、そのうち48本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは149本で、そのうち48本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
 |テスト|確認する内容|条項|期待出力を記録したリリース|注記|
 | --- | --- | --- | --- | --- |
+| [`test_design_element_kinds`](../../tests/ch3/test_design_element_kinds.sv) |module、program、interface、checker、package、primitive、config で始まる 7 種の設計要素は、1 つの設計の中でそれぞれの種類として働く: package は import する項目を与え、interface は信号を保持し、primitive は表から計算し、checker のアサーションは成功し、program は Reactive 領域で動き、configuration はインスタンスを別のモジュールに結び付ける| 3.2 3.10 24.3.1 33.4.1.3 |規格のみ|トップモジュール|
 | [`test_module_contains_classes_subroutines_processes`](../../tests/ch3/test_module_contains_classes_subroutines_processes.sv) |モジュールに、class宣言、宣言時・手続き内で生成するクラスオブジェクト、関数、時間を消費するタスク、継続代入、initial・always・always_ff・always_comb・final手続き、およびループ・if・caseのgenerateブロックを記述し、各要素の動作を確認します。| 3.3 8.3 8.7 13.3 13.4 10.3 9.2 27.4 27.5 | Icarus Verilog 13.0 ||
 | [`test_module_contains_declarations`](../../tests/ch3/test_module_contains_declarations.sv) |また，モジュールとエンドモジュールの間のモジュールは，ポートとその宣言，ネット，変数，構造とユニオン，定数，ユーザ定義型，パッケージインポートを保持し，それらはすべて動作する。| 3.3 23.2.2 6.20 6.18 26.3 | Icarus Verilog 13.0 ||
 | [`test_module_contains_specify_block`](../../tests/ch3/test_module_contains_specify_block.sv) |入力ポートから出力ポートへのモジュール経路を指定するブロックは、ライズとファール遅延を分けて、出力をライズで3秒、ファールで5秒遅延させます。| 3.3 30.3 30.4.1 30.5 30.5.1 | Icarus Verilog 13.0 ||
@@ -34,6 +35,7 @@
 | [`test_task_argument_directions_and_blocking`](../../tests/ch3/test_task_argument_directions_and_blocking.sv) |2つの場所から命令として呼び出されたタスクは，入力，出力，入出力，refの引数を受け取り，後で返す。入力はコピーされ 出力と入力は返される時にコピーされる| 3.8 13.3 13.5 13.5.2 | Verilator 5.052 ||
 | [`test_package_shared_space_imported_by_blocks_and_package`](../../tests/ch3/test_package_shared_space_imported_by_blocks_and_package.sv) |2つのモジュールがパッケージをインポートし、その変数を共有し、もう1つのパッケージが最初のパッケージをインポートし、その宣言に基づいてタイプと関数を構築し、宣言はどこでも同じ名前で使用されます。| 3.9 26.2 26.3 | Icarus Verilog 13.0 ||
 | [`test_same_names_in_module_interface_program_checker_scopes`](../../tests/ch3/test_same_names_in_module_interface_program_checker_scopes.sv) |2つのモジュール，インタフェース，プログラム，チェッカ，トップモジュールはそれぞれ変数カウントを宣言し，モジュール，インターフェース，プログラミングはそれぞれ関数getを宣言する。それぞれの宣言はブロックに限定され 独自の値を持ちます| 3.9 23.6 | Verilator 5.052 ||
+| [`test_config_binds_instances_through_library`](../../tests/ch3/test_config_binds_instances_through_library.sv) |configuration は設計のモジュールインスタンスをライブラリのセルに結び付ける: その cell 節は 1 つのモジュールのインスタンスをライブラリ work の別のセルに結び付け、instance 節は 2 つ目のモジュールのインスタンスの 1 つを 4 つ目のセルに結び付け、どの節にも選ばれず default だけが選ぶ 2 つ目のモジュールのもう 1 つのインスタンスは自分のセルのままである| 3.10 33.4.1.2 33.4.1.3 33.4.1.4 33.4.1.5 33.4.1.6 | Verilator 5.054 |トップモジュール|
 | [`test_illegal_udp_contains_gate_instance`](../../tests/ch3/test_illegal_udp_contains_gate_instance.sv) |ゲートのインスタンスを含むユーザ定義のプリミティブは拒否されます。| 3.11 29.3 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_interface_instantiates_interface_program_and_checker`](../../tests/ch3/test_interface_instantiates_interface_program_and_checker.sv) |また，インタフェースはインタフェース，プログラム，2つのチェッカをインスタンス化する。それぞれのインスタンスはインタフェースのインスタンスよりも下の階層レベルであり、 外部インスタンスの2つのインスタンスは それぞれのパスと値を持つ 別々の子を持っています。| 3.11 25.3 17.3 | Verilator 5.052 ||
 | [`test_program_and_checker_instantiate_checkers`](../../tests/ch3/test_program_and_checker_instantiate_checkers.sv) |プログラムは2つのチェッカーをインスタンス化し，そのうちの1つが他のチェッカーを2回インスタンス化する。4つの葉チェッカーのインスタンスは それぞれ自分の入力をチェックし 失敗を報告します| 3.11 3.6 17.3 |規格のみ||
@@ -42,6 +44,7 @@
 | [`test_elaborated_parameters_generate_and_names_at_time_zero`](../../tests/ch3/test_elaborated_parameters_generate_and_names_at_time_zero.sv) |シミュレーション開始前のエラボレーションで、上書き・派生パラメータの値が確定し、パラメータに従う個数へgenerateループを展開し、階層名を対応するインスタンスへ解決します。initial手続きは、それらを時刻0で読み出します。| 3.12 23.10.4.1 27.4 23.6 | Icarus Verilog 13.0 ||
 | [`test_compilation_unit_shared_across_files`](../../tests/ch3/test_compilation_unit_shared_across_files.sv) |3.12.1のa)の使い方を選んだとき、1つのコマンドラインの全ファイルが1つのコンパイル単位になるので、あるファイルで宣言した変数と関数がほかのファイルから見える| 3.12.1 | Icarus Verilog 13.0 |複数のファイル|
 | [`test_declaration_across_file_boundary`](../../tests/ch3/test_declaration_across_file_boundary.sv) |ファイルの終わりに完了しない宣言は次のファイルで続行されます。コンパイルユニットは次のファイルに拡張されます。| 3.12.1 | Icarus Verilog 13.0 |複数のファイル|
+| [`test_definitions_visible_from_other_file`](../../tests/ch3/test_definitions_visible_from_other_file.sv) |別のソースファイルで宣言した package、interface、primitive、module、program は、2 つのファイルが 1 つのコンパイル単位をなす場合も 2 つをなす場合も、すべてテストのファイルから名前で見つかる| 3.12.1 3.12 | Icarus Verilog 13.0 |複数のファイル|
 | [`test_directives_apply_to_later_text_only`](../../tests/ch3/test_directives_apply_to_later_text_only.sv) |コンパイラ指令は、その後のソーステキストに適用され、モジュール境界を越えて、前のテキストには決して適用されません。テキストマクロの後の定義が 先の定義を置き換えて 残りの入力を処理します| 3.12.1 3.13 22.5.1 22.7 | Icarus Verilog 13.0 ||
 | [`test_files_module_in_other_file`](../../tests/ch3/test_files_module_in_other_file.sv) |テストがモジュールをインスタンス化するとき、同じコンパイルの別のソースファイルに宣言されたモジュールを見つけ、そのパラメータを上書きします。| 3.12.1 3.13 23.3 | Icarus Verilog 13.0 |複数のファイル|
 | [`test_illegal_unit_prefix_forward_reference`](../../tests/ch3/test_illegal_unit_prefix_forward_reference.sv) |コンパイルユニットの後で宣言されたコンパイルユニ ット変数への $unit :: 参照は拒否されます。| 3.12.1 |規格のみ|規格違反の設計|
@@ -58,6 +61,7 @@
 | [`test_unit_scope_shadow_minimal`](../../tests/ch3/test_unit_scope_shadow_minimal.sv) |ローカル名は $unit とパッケージ名を隠し、スコープによってアクセス可能に保つ| 3.12.1 26.3 | Icarus Verilog 13.0 ||
 | [`test_unit_scope_shared_state`](../../tests/ch3/test_unit_scope_shared_state.sv) |コンパイルユニットの範囲で宣言された変数とタスクは、各モジュールに対して1つのオブジェクトと1つのサブルーティンである。| 3.12.1 3.13 | Icarus Verilog 13.0 ||
 | [`test_unit_variables`](../../tests/ch3/test_unit_variables.sv) |コンパイルユニットスコープで宣言された変数は静的で、タイム 0 より前の初期化子から始まり、それらを名付けたすべてのモジュールで共有されます。| 3.12.1 6.21 26.3 | Icarus Verilog 13.0 ||
+| [`test_vpi_compilation_unit_iteration`](../../tests/ch3/test_vpi_compilation_unit_iteration.sv) |PLI は設計のコンパイル単位を反復する: NULL ハンドルからインスタンスを反復すると、コンパイル単位が vpiUnit が真の package として得られ、アプリケーションはそこからコンパイル単位のスコープで宣言した変数と関数にたどり着く| 3.12.1 37.10 |規格のみ| VPI |
 | [`test_attribute_namespace`](../../tests/ch3/test_attribute_namespace.sv) |属性名は属性インスタンス分離子の名前空間に属するので、同じ属性名をモジュール、変数、ネットで名前の衝突なしに使用でき、属性の値は変わりません。| 3.13 5.12 | Icarus Verilog 13.0 ||
 | [`test_element_and_block_name_spaces`](../../tests/ch3/test_element_and_block_name_spaces.sv) |各モジュール、インタフェース、パッケージはそれぞれの種類のアイテムに対して独自の名前空間を持ち、名前付けブロック、名前なしブロック、関数、タスクはそれぞれローカルな名前空間を有し、それぞれに同じ名前を宣言できる。| 3.13 |規格のみ||
 | [`test_illegal_definition_name_interface_reused_by_program`](../../tests/ch3/test_illegal_definition_name_interface_reused_by_program.sv) |他のすべての宣言の外で定義した interface と program は、どちらの名前も定義の名前空間にあるので、同じ名前を持つことができない| 3.13 | Icarus Verilog 13.0 |規格違反の設計|
@@ -106,6 +110,7 @@
 | [`test_global_precision_from_timescale`](../../tests/ch3/test_global_precision_from_timescale.sv) |NULL個のオブジェクトに対してvpi_getが与える全体的な時間精度は，サブモジュールの前の\`timescale個の指令の精度だけで設定しても，設計の最も精密な精度である。| 3.14.3 3.14.2.1 3.14.2.2 37.10 38.6 | Icarus Verilog 13.0 | VPI |
 | [`test_global_precision_from_timeunit_slash`](../../tests/ch3/test_global_precision_from_timeunit_slash.sv) |vpi_get NULL オブジェクトに対して与えられる大域的な時間精度は，サブモジュールにおける時間単位宣言の精度引数のみがそれを設定する場合でも，設計の最も精密な精度である。| 3.14.3 3.14.2.1 3.14.2.2 37.10 38.6 | Icarus Verilog 13.0 | VPI |
 | [`test_illegal_timeunit_step`](../../tests/ch3/test_illegal_timeunit_step.sv) |ステップ時間単位を使用する時間単位宣言は拒否されます| 3.14.3 3.14.2.2 | Icarus Verilog 13.0 |規格違反の設計|
+| [`test_step_is_global_time_precision`](../../tests/ch3/test_step_is_global_time_precision.sv) |step の時間単位はグローバルな時間精度である。したがって、時間単位が 1 ns でグローバルな精度が 1 ps のモジュールの # 1step の遅延は 1 ps 続き、自分の精度が 1 ns のモジュールの 1step の入力スキューはクロックエッジの 1 ps 前の変化をサンプルする。 # 1 の入力スキューはその変化を逃す| 3.14.3 14.4 | Verilator 5.054 ||
 
 <a id="generated-by-generatorsinteraction_timescopepy"></a>
 

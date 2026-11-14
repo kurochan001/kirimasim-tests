@@ -1,0 +1,7 @@
+[ ]
+bits: 6 10
+array: 2 5
+tick at 10: past2=0 rose=0
+tick at 20: past2=0 rose=1
+tick at 30: past2=1 rose=0
+tick at 40: past2=2 rose=1

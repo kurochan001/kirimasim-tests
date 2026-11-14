@@ -1,0 +1,6 @@
+120: pa=1 ma=1 mc=1 qa=0 qb=1 qv=01
+130: pa=1 ma=1 mc=1 qa=1 qb=1 qv=11
+160: pa=1 ma=1 mc=1 qa=1 qb=0 qv=10
+230: pa=1 ma=1 mc=1 qa=1 qb=1 qv=11
+250: pa=0 ma=0 mc=0 qa=1 qb=1 qv=11
+260: pa=0 ma=0 mc=0 qa=0 qb=1 qv=01

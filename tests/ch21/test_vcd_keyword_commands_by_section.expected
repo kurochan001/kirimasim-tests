@@ -1,0 +1,8 @@
+$date: before $enddefinitions
+$timescale: before $enddefinitions
+$upscope: before $enddefinitions
+$var: before $enddefinitions
+$enddefinitions: 1, before the first time or value change: 1
+$dumpoff: after $enddefinitions
+$dumpon: after $enddefinitions
+$dumpall: after $enddefinitions

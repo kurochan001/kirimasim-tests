@@ -1,0 +1,2 @@
+system functions: $size(d)=99 $size(q)=99 $len(s)=99
+methods: d.size()=3 q.size()=2 s.len()=5

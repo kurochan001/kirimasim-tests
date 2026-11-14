@@ -1,0 +1,6 @@
+struct, one declaration: equal 1
+struct, two declarations: equal 0
+union, one declaration: equal 1
+union, two declarations: equal 0
+enum, one declaration: equal 1
+enum, two declarations: equal 0

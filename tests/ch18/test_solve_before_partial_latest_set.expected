@@ -1,0 +1,4 @@
+failures 0
+v with the set of y: y[0] under 10% 1, v[7] under 10% 1
+w with the set of z: z[0] under 10% 1, w[7] under 10% 1
+solve v before y added: failures 0, y[0] under 10% 1, v[7] under 10% 0

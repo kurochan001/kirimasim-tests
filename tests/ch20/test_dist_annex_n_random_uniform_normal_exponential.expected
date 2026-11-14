@@ -1,0 +1,21 @@
+random(seed from 0) = 303379748, seed = -1844104698
+random(seed from 0) = -1064739199, seed = 1082744015
+random(seed from 0) = -2071669239, seed = 75814084
+random(seed from 42) = -2144582656, seed = 2900899
+random(seed from 42) = 646214477, seed = -1501269880
+random(seed from 42) = 38602500, seed = -2108881687
+random(seed from -7) = 2147000831, seed = -483482
+random(seed from -7) = -1181363085, seed = 966120111
+random(seed from -7) = 190552854, seed = -1956931292
+uniform(-1000, 1000) = -997, seed = 6837832
+uniform(-1000, 1000) = 924, seed = -164184151
+uniform(-1000, 1000) = 385, seed = -1321463978
+uniform(0, 2147483647) = 4247808, seed = 8495488
+uniform(0, 2147483647) = 1329654430, seed = -1635658879
+uniform(0, 2147483647) = 748320345, seed = 1496640334
+normal(-50, 25) = -93, seed = -1870527948
+normal(-50, 25) = -102, seed = -2085134302
+normal(-50, 25) = -78, seed = 1650401088
+exponential(1000) = 7604, seed = 2141140
+exponential(1000) = 838, seed = 1857510597
+exponential(1000) = 1099, seed = 1431325378

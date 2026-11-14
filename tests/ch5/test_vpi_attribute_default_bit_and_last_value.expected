@@ -1,0 +1,12 @@
+v_flag: flag scalar 1
+v_flag: 1 attribute(s)
+v_one: flag integer 1
+v_one: 1 attribute(s)
+v_same: dup integer 5
+v_same: 1 attribute(s)
+v_two: dup integer 7
+v_two: 1 attribute(s)
+v_to_bit: sw scalar 1
+v_to_bit: 1 attribute(s)
+v_to_int: sw integer 6
+v_to_int: 1 attribute(s)

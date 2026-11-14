@@ -1,0 +1,6 @@
+declarations before the first simulation command: yes
+every keyword command ends with $end: yes
+sections: $dumpports yes, $dumpportsoff yes, $dumpportson yes, $dumpportsall yes
+times are # and a decimal number, increasing: yes
+value changes are p, a state, two strengths and a declared code: yes
+tokens outside the syntax: 0

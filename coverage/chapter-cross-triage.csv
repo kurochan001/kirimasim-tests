@@ -105,7 +105,7 @@ tests/gen/ch9/test_gen_cross_delayval_real_up_repeat_zero_tenth.sv",引用探索
 3,設計と検証の構成要素,13,タスクと関数（サブルーチン）,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,61,"tests/ch3/test_function_kinds_argument_directions_and_fork.sv
 tests/ch3/test_module_contains_classes_subroutines_processes.sv
 tests/ch3/test_task_argument_directions_and_blocking.sv",既存モデルの計画・実行証跡を維持する,,
-3,設計と検証の構成要素,14,クロッキングブロック,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,3,"tests/ch14/test_clocking_input_skew_fractional.sv
+3,設計と検証の構成要素,14,クロッキングブロック,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,4,"tests/ch14/test_clocking_input_skew_fractional.sv
 tests/ch14/test_clocking_input_step_skew.sv
 tests/ch14/test_clocking_skew_time_unit.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 3,設計と検証の構成要素,15,プロセス間の同期と通信,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,2,"tests/ch26/test_std_package_access.sv
@@ -128,7 +128,7 @@ tests/ch3/test_directives_apply_to_later_text_only.sv",既存モデルの計画�
 3,設計と検証の構成要素,23,モジュールと階層,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,29,"tests/ch23/test_extern_module_headers_wildcard_definition.sv
 tests/ch23/test_module_declaration_all_header_elements.sv
 tests/ch23/test_subroutine_name_resolution.sv",既存モデルの計画・実行証跡を維持する,,
-3,設計と検証の構成要素,24,プログラム,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,11,"tests/ch24/test_anonymous_program.sv
+3,設計と検証の構成要素,24,プログラム,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,12,"tests/ch24/test_anonymous_program.sv
 tests/ch24/test_program_declaration_all_header_elements.sv
 tests/ch25/test_extern_interface_program_headers_wildcard.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 3,設計と検証の構成要素,25,インターフェース,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,18,"tests/ch25/test_extern_interface_program_headers_wildcard.sv
@@ -147,13 +147,14 @@ tests/ch3/test_udp_supplements_builtin_gates.sv",引用探索の候補とソー�
 3,設計と検証の構成要素,30,specifyブロック,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch3/test_module_contains_specify_block.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 3,設計と検証の構成要素,31,タイミング検査,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 3,設計と検証の構成要素,32,標準遅延形式によるバックアノテーション,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch32/test_sdf_timescale.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-3,設計と検証の構成要素,33,設計内容の構成指定,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,2,"tests/ch33/test_a1_2_config_declaration_source_description.sv
-tests/ch33/test_config_design_top.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
+3,設計と検証の構成要素,33,設計内容の構成指定,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,4,"tests/ch3/test_config_binds_instances_through_library.sv
+tests/ch3/test_design_element_kinds.sv
+tests/ch33/test_a1_2_config_declaration_source_description.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 3,設計と検証の構成要素,34,保護エンベロープ,N,対象外,対象外,0,第34章: 保護エンベロープは本スイートの動作検証の対象範囲外。対応方針が変わるときに再確認する。,本計画の動作クロスの対象外,,該当なし,0,,0,,対象範囲が変わるときに方針を再確認する,2026-11-05,"Codex (GPT-6), AI review"
 3,設計と検証の構成要素,35,直接プログラミングインターフェース（DPI）,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,2,"tests/ch35/test_dpi_scope_time_unit_precision.sv
 tests/ch35/test_svdpi_h_scope_time.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 3,設計と検証の構成要素,36,プログラミング言語インターフェース（PLI/VPI）の概要,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch36/test_vpi_routines_simulation_time.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-3,設計と検証の構成要素,37,VPIオブジェクトモデル図,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,7,"tests/ch3/test_global_precision_from_timeprecision.sv
+3,設計と検証の構成要素,37,VPIオブジェクトモデル図,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,8,"tests/ch3/test_global_precision_from_timeprecision.sv
 tests/ch3/test_global_precision_from_timescale.sv
 tests/ch3/test_global_precision_from_timeunit_slash.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 3,設計と検証の構成要素,38,VPIルーチンの定義,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,10,"tests/ch3/test_global_precision_from_timeprecision.sv
@@ -233,7 +234,7 @@ tests/gen/ch35/test_gen_cross_dpi_nba_inout_dpi_first_other_8_unsigned_bit.sv
 tests/gen/ch35/test_gen_cross_dpi_nba_inout_dpi_first_same_65_unsigned_bit.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 4,スケジューリングの意味論,36,プログラミング言語インターフェース（PLI/VPI）の概要,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 4,スケジューリングの意味論,37,VPIオブジェクトモデル図,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch37/test_vpi_time_queue_current_and_end.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-4,スケジューリングの意味論,38,VPIルーチンの定義,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,17,"tests/ch37/test_vpi_time_queue_current_and_end.sv
+4,スケジューリングの意味論,38,VPIルーチンの定義,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,18,"tests/ch37/test_vpi_time_queue_current_and_end.sv
 tests/ch38/test_vpi_nba_synch_callback_data.sv
 tests/ch38/test_vpi_time_callbacks.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 4,スケジューリングの意味論,39,アサーションAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
@@ -249,7 +250,7 @@ tests/gen/ch23/test_gen_cross_paramtype_struct_narrow_ordered.sv",既存モデ�
 5,字句規則,9,プロセス,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,104,"tests/ch10/test_assignment_delays_with_time_units.sv
 tests/ch5/test_attribute_latch_generate.sv
 tests/gen/ch3/test_gen_cross_timescope_directive_interface_10ns_tenth_argument_tie_finer_statement.sv",既存モデルの計画・実行証跡を維持する,,
-5,字句規則,10,代入文,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,204,"tests/ch10/test_assignment_delays_with_time_units.sv
+5,字句規則,10,代入文,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,205,"tests/ch10/test_assignment_delays_with_time_units.sv
 tests/ch10/test_assignment_pattern.sv
 tests/ch37/test_vpi_cast_pattern_constants.sv",既存モデルの計画・実行証跡を維持する,,
 5,字句規則,11,演算子と式,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,110,"tests/ch11/test_arithmetic_overflow.sv
@@ -263,14 +264,14 @@ tests/gen/ch13/test_gen_cross_litarg_based_byte_return_escaped.sv
 tests/gen/ch13/test_gen_cross_litarg_based_int_positional_plain.sv",既存モデルの計画・実行証跡を維持する,,
 5,字句規則,14,クロッキングブロック,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 5,字句規則,15,プロセス間の同期と通信,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-5,字句規則,16,アサーション,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
+5,字句規則,16,アサーション,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch5/test_system_call_argument_forms.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 5,字句規則,17,チェッカー,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 5,字句規則,18,制約付き乱数値の生成,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 5,字句規則,19,機能カバレッジ,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-5,字句規則,20,ユーティリティ用システムタスク・関数,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,119,"tests/ch20/test_real_literal_type.sv
+5,字句規則,20,ユーティリティ用システムタスク・関数,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,120,"tests/ch20/test_real_literal_type.sv
 tests/ch3/test_delay_time_unit_suffix.sv
 tests/ch36/test_36_extra_builtin_systf_names.sv",既存モデルの計画・実行証跡を維持する,,
-5,字句規則,21,入出力用システムタスク・関数,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,147,"tests/ch21/test_display_backslash_escapes.sv
+5,字句規則,21,入出力用システムタスク・関数,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,148,"tests/ch21/test_display_backslash_escapes.sv
 tests/ch21/test_format_special.sv
 tests/ch21/test_sformat_assignment_rules.sv",既存モデルの計画・実行証跡を維持する,,
 5,字句規則,22,コンパイラ指令,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,136,"tests/ch22/test_macro_comments_and_string_continuation.sv
@@ -297,9 +298,10 @@ tests/ch5/test_identifier_forms.sv",既存モデルの計画・実行証跡を�
 5,字句規則,33,設計内容の構成指定,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 5,字句規則,34,保護エンベロープ,N,対象外,対象外,0,第34章: 保護エンベロープは本スイートの動作検証の対象範囲外。対応方針が変わるときに再確認する。,本計画の動作クロスの対象外,,該当なし,0,,0,,対象範囲が変わるときに方針を再確認する,2026-11-05,"Codex (GPT-6), AI review"
 5,字句規則,35,直接プログラミングインターフェース（DPI）,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-5,字句規則,36,プログラミング言語インターフェース（PLI/VPI）の概要,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,2,"tests/ch36/test_36_extra_builtin_systf_names.sv
-tests/ch36/test_vpi_systf_names.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-5,字句規則,37,VPIオブジェクトモデル図,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,5,"tests/ch37/test_vpi_attribute_parents.sv
+5,字句規則,36,プログラミング言語インターフェース（PLI/VPI）の概要,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,3,"tests/ch36/test_36_extra_builtin_systf_names.sv
+tests/ch36/test_vpi_systf_names.sv
+tests/ch5/test_builtin_methods_unaffected_by_pli_systf.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
+5,字句規則,37,VPIオブジェクトモデル図,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,6,"tests/ch37/test_vpi_attribute_parents.sv
 tests/ch37/test_vpi_attribute_ports_params.sv
 tests/ch37/test_vpi_attribute_value_types.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 5,字句規則,38,VPIルーチンの定義,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,3,"tests/ch36/test_vpi_systf_names.sv
@@ -603,7 +605,7 @@ tests/ch37/test_vpi_time_queue.sv",引用探索の候補とソースを確認し
 9,プロセス,39,アサーションAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 9,プロセス,40,コードカバレッジの制御とAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 9,プロセス,41,データ読出しAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-10,代入文,11,演算子と式,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,489,"tests/ch10/test_adder_edge_cases.sv
+10,代入文,11,演算子と式,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,490,"tests/ch10/test_adder_edge_cases.sv
 tests/ch10/test_assign_compound.sv
 tests/ch10/test_assign_concat.sv",既存モデルの計画・実行証跡を維持する,,
 10,代入文,12,手続き型プログラミング文,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,108,"tests/ch37/test_vpi_case_loop_force_stmts.sv
@@ -933,11 +935,12 @@ tests/ch16/test_default_clocking_assertion_clocks.sv",既存モデルの計画�
 16,アサーション,18,制約付き乱数値の生成,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,2,"tests/ch16/test_assertion_dist_as_inside.sv
 tests/ch16/test_ch16_sim_bias_no_relaxation.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 16,アサーション,19,機能カバレッジ,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch19/test_cg_sample_from_contexts.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-16,アサーション,20,ユーティリティ用システムタスク・関数,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,92,"tests/ch16/test_assume_property_actions.sv
+16,アサーション,20,ユーティリティ用システムタスク・関数,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,93,"tests/ch16/test_assume_property_actions.sv
 tests/ch16/test_concurrent_assert_actions.sv
 tests/ch16/test_concurrent_assertion_names_and_control.sv",既存モデルの計画・実行証跡を維持する,,
-16,アサーション,21,入出力用システムタスク・関数,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,2,"tests/ch16/test_immediate_assertion_label_scope.sv
-tests/ch21/test_strobe_sampled_value_current_step.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
+16,アサーション,21,入出力用システムタスク・関数,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,3,"tests/ch16/test_immediate_assertion_label_scope.sv
+tests/ch21/test_strobe_sampled_value_current_step.sv
+tests/ch5/test_system_call_argument_forms.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 16,アサーション,22,コンパイラ指令,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch37/test_vpi_module_relations.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 16,アサーション,23,モジュールと階層,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,5,"tests/ch16/test_default_disable_iff_nested_module.sv
 tests/ch23/test_bind_assertion_basic.sv
@@ -1055,7 +1058,7 @@ tests/ch26/test_package_items_anonymous_program_export_timeunit.sv",引用探索
 19,機能カバレッジ,39,アサーションAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 19,機能カバレッジ,40,コードカバレッジの制御とAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 19,機能カバレッジ,41,データ読出しAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-20,ユーティリティ用システムタスク・関数,21,入出力用システムタスク・関数,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,100,"tests/ch20/test_array_query_invalid_dimension_all_x.sv
+20,ユーティリティ用システムタスク・関数,21,入出力用システムタスク・関数,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,101,"tests/ch20/test_array_query_invalid_dimension_all_x.sv
 tests/ch20/test_assertion_control_levels_and_scopes.sv
 tests/ch20/test_comb_sysfunc_edge.sv",既存モデルの計画・実行証跡を維持する,,
 20,ユーティリティ用システムタスク・関数,22,コンパイラ指令,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,130,"tests/ch20/test_printtimescale_other_module.sv
@@ -1223,7 +1226,7 @@ tests/ch37/test_vpi_instance_array_kinds.sv",引用探索の候補とソース�
 24,プログラム,30,specifyブロック,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 24,プログラム,31,タイミング検査,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 24,プログラム,32,標準遅延形式によるバックアノテーション,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-24,プログラム,33,設計内容の構成指定,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
+24,プログラム,33,設計内容の構成指定,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch3/test_design_element_kinds.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 24,プログラム,34,保護エンベロープ,N,対象外,対象外,0,第34章: 保護エンベロープは本スイートの動作検証の対象範囲外。対応方針が変わるときに再確認する。,本計画の動作クロスの対象外,,該当なし,0,,0,,対象範囲が変わるときに方針を再確認する,2026-11-05,"Codex (GPT-6), AI review"
 24,プログラム,35,直接プログラミングインターフェース（DPI）,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,2,"tests/ch35/test_dpi_declaration_scope_kinds.sv
 tests/ch35/test_dpi_import_unit_interface_program.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
@@ -1245,8 +1248,9 @@ tests/ch23/test_module_common_item_kinds.sv
 tests/ch25/test_interface_nonport_item_kinds.sv",既存モデルの計画・実行証跡を維持する,,
 25,インターフェース,28,ゲートレベル・スイッチレベルのモデリング,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch3/test_module_instantiates_each_block_kind.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 25,インターフェース,29,ユーザー定義プリミティブ,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch3/test_module_instantiates_each_block_kind.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-25,インターフェース,30,specifyブロック,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,2,"tests/ch25/test_interface_specify_terminal.sv
-tests/ch25/test_specify_interface_terminal_identifier.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
+25,インターフェース,30,specifyブロック,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,3,"tests/ch25/test_interface_specify_terminal.sv
+tests/ch25/test_specify_interface_terminal_identifier.sv
+tests/ch30/test_specify_interface_signal_path_terminals.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 25,インターフェース,31,タイミング検査,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 25,インターフェース,32,標準遅延形式によるバックアノテーション,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 25,インターフェース,33,設計内容の構成指定,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
@@ -1348,9 +1352,9 @@ tests/ch32/test_sdf_cond_unknown_true.sv",既存モデルの計画・実行証�
 30,specifyブロック,37,VPIオブジェクトモデル図,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,6,"tests/ch36/test_vpi_routines_path_delays.sv
 tests/ch37/test_vpi_mod_path_relations_delays.sv
 tests/ch37/test_vpi_module_paths.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-30,specifyブロック,38,VPIルーチンの定義,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,6,"tests/ch36/test_vpi_routines_path_delays.sv
-tests/ch37/test_vpi_mod_path_relations_delays.sv
-tests/ch37/test_vpi_module_paths.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
+30,specifyブロック,38,VPIルーチンの定義,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,7,"tests/ch30/test_specify_path_delay_mintypmax_vpi.sv
+tests/ch36/test_vpi_routines_path_delays.sv
+tests/ch37/test_vpi_mod_path_relations_delays.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 30,specifyブロック,39,アサーションAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 30,specifyブロック,40,コードカバレッジの制御とAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 30,specifyブロック,41,データ読出しAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,

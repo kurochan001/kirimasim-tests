@@ -1,0 +1,4 @@
+cbAfterDelay at 5: v=0 n=0, writes w=7
+design at 5: woken by w=7
+cbReadWriteSynch at 5: v=1
+cbReadOnlySynch at 5: v=1 n=2 w=7

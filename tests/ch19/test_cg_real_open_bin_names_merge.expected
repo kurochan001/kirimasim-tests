@@ -1,0 +1,8 @@
+o1 samples 2.50: rg 20.00, sv 0.00
+o2 samples 2.50: rg 40.00, sv 0.00
+o3 samples 1.50: rg 60.00, sv 0.00
+o4 samples 1.50: rg 80.00, sv 0.00
+o2 samples 2.00: rg 80.00, sv 50.00
+o3 samples 5.25: rg 80.00, sv 75.00
+o4 samples 2.50: rg 80.00, sv 100.00
+o2 samples 3.50: rg 100.00, sv 100.00

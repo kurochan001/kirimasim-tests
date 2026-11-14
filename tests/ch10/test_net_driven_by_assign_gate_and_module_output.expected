@@ -1,0 +1,13 @@
+none enabled: w=z
+assignment 1: w=1
+gate 0: w=0
+module 1: w=1
+module 0: w=0
+gate 0, module 0: w=0
+assignment 1, module 0: w=x
+assignment 1, gate 0: w=x
+wor all 0: o=0
+wor assignment 1: o=1
+wor gate 1: o=1
+wor module 1: o=1
+wor all 1: o=1

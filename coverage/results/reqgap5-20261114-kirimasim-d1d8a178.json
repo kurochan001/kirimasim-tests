@@ -1,0 +1,424 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401",
+ "tests": {
+  "ch10/test_alias_names_keep_own_declarations": {
+   "status": "unsupported",
+   "reason": "an alias of nets of different types or kinds (not implemented yet)",
+   "inputs_sha256": "cec223a5767aa39c9a83b6e91816dcdb549cb9ff9f49022ba938b6c9547e4a1d"
+  },
+  "ch10/test_assignment_size_from_both_sides": {
+   "status": "pass",
+   "inputs_sha256": "84572c03a7e108e71b97650e11bd7f6af7e6c49c5081111fdce3d10fbce61c47"
+  },
+  "ch10/test_equals_token_assignment_contexts": {
+   "status": "pass",
+   "inputs_sha256": "ea6cf0cf8065f15d4ec6ee74ab9da2fbba86659c50de4ec9187fa03c0ff32580"
+  },
+  "ch10/test_net_driven_by_assign_gate_and_module_output": {
+   "status": "pass",
+   "inputs_sha256": "49367dbd172dc44bfbe7746010f16eab7c589ef3397ebfd3c58b0f634a82aff2"
+  },
+  "ch10/test_syntax_blocking_assignment_new_and_timed_forms": {
+   "status": "pass",
+   "inputs_sha256": "448522d5b57250d3ea223415b5dbdf5fcdf4491cc51558fbab58a694bede2292"
+  },
+  "ch13/test_illegal_constant_function_nonblocking_assignment": {
+   "status": "fail",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "9820efa1590e940d8ef04667c7b829db3a5502390b9d3394152c07eb60489b1b"
+  },
+  "ch13/test_illegal_constant_function_nonblocking_event_trigger": {
+   "status": "pass",
+   "inputs_sha256": "833d1525df06f6dfe1a078f048ec56fabb755fada36fa2c86300b9ba2d0b0693"
+  },
+  "ch13/test_illegal_constant_function_nonconstant_default": {
+   "status": "pass",
+   "inputs_sha256": "3c313df09d8a203dce875dd10652f8fad7f66ce44bdeb1bd804b49c4ce86ea64"
+  },
+  "ch13/test_illegal_dynamic_override_specifier_in_interface_class": {
+   "status": "pass",
+   "inputs_sha256": "ba7794fbb7b5cbc6bee8fece3473418609c72a864993065d233f7c81179157ea"
+  },
+  "ch13/test_illegal_dynamic_override_specifier_on_module_task": {
+   "status": "pass",
+   "inputs_sha256": "a86e1abd9c617283de3f7a6b12875f464a18f3e4d55efc4dc94b97ae6f3d3728"
+  },
+  "ch13/test_illegal_function_name_redeclared_in_declaring_scope": {
+   "status": "pass",
+   "inputs_sha256": "9b65087db84b56e45cb38d1ffab4f58ea4c8024fcaa932dcb665fe8b87d6a7d8"
+  },
+  "ch13/test_illegal_function_name_redeclared_in_importing_scope": {
+   "status": "pass",
+   "inputs_sha256": "d010c05723a8f547bff4e21d318703c9a5db9fa0da912fa47b6ed0600fe10d7c"
+  },
+  "ch13/test_illegal_function_name_redeclared_inside_function": {
+   "status": "pass",
+   "inputs_sha256": "95c288276d0de168c0d776582e568a7e586dd607360d02e835e407e1333c937e"
+  },
+  "ch13/test_implicit_variable_from_each_call_category": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "da975252b18623a495829dc27b04df004322e56f1af97f73898bdc392f58b2d1"
+  },
+  "ch13/test_subroutine_call_scoped_attributed_and_randomize_forms": {
+   "status": "unsupported",
+   "reason": "system function randomize (not implemented yet)",
+   "inputs_sha256": "e9ef92889bd6c94a6eb9c2a30eba7c64e3904a4715ee5509bed32d8757d57742"
+  },
+  "ch16/test_property_leading_clock_sets_operators": {
+   "status": "unsupported",
+   "reason": "variable of type 'string$[string]' (not implemented yet)",
+   "inputs_sha256": "20363bde996db21fc19705813527822f75f5320bff1060bfe6ea0f2c01fc5c3a"
+  },
+  "ch16/test_sequence_method_inferred_clock_default": {
+   "status": "unsupported",
+   "reason": "sequence declaration (not implemented yet)",
+   "inputs_sha256": "ab141bb5fab10edc9ff86b9414ffb131894628855aa1816e0790a242372079ab"
+  },
+  "ch17/test_checker_always_ff_assertions_sampled": {
+   "status": "unsupported",
+   "reason": "checker instance (not implemented yet)",
+   "inputs_sha256": "c103c8f45e972e3f641717ff6dddf65e2a258a15373ebe14cd0c5c181a7ebbb8"
+  },
+  "ch17/test_illegal_checker_automatic_actual_continuous": {
+   "status": "pass",
+   "inputs_sha256": "67f29f49ad51964928e14afd0389753f081f4b4b6f878a520363526e4576a311"
+  },
+  "ch17/test_illegal_checker_const_cast_actual_always_ff": {
+   "status": "pass",
+   "inputs_sha256": "370a00ff3cecaee76e386fe27222e0c7443461e21895a7ca4c3c09b981e5995f"
+  },
+  "ch17/test_illegal_checker_const_cast_actual_continuous": {
+   "status": "pass",
+   "inputs_sha256": "d592efb055c081926139da7ee74db5ff418a78870a4d193c5722093fa3525b67"
+  },
+  "ch17/test_illegal_checker_declares_interface": {
+   "status": "pass",
+   "inputs_sha256": "1375c66574910276fee00e1f3f881f5538bd654cb07bb57da03a54b7bc113a49"
+  },
+  "ch17/test_illegal_checker_declares_module": {
+   "status": "pass",
+   "inputs_sha256": "96ad788e83f039304ffb56bd4e4036ca06ddd391fceb5138a43e92aaf8517f5a"
+  },
+  "ch17/test_illegal_checker_declares_program": {
+   "status": "pass",
+   "inputs_sha256": "eacc76c0ed0ac9e7922490b577f8bf0bdd03442f243c679d62694357ede1b79b"
+  },
+  "ch17/test_illegal_checker_function_keeps_state": {
+   "status": "unsupported",
+   "reason": "checker instance (not implemented yet)",
+   "inputs_sha256": "4a4e6e5f9ae3f010bf04ffb556c263aad69470ad4a75c0dafd54f77a10615dfc"
+  },
+  "ch17/test_illegal_checker_function_side_effect": {
+   "status": "unsupported",
+   "reason": "checker instance (not implemented yet)",
+   "inputs_sha256": "13d046eac61b290fdbcdce5d5b0648fb5af3e42c7105e3d3d1b66d13e73afcb2"
+  },
+  "ch17/test_illegal_checker_instantiates_interface": {
+   "status": "pass",
+   "inputs_sha256": "48f60f549bab368a5418f75a175c4d73bc28c21919b35fe1c2b5535c47213bfa"
+  },
+  "ch17/test_illegal_checker_instantiates_module": {
+   "status": "pass",
+   "inputs_sha256": "bedbbb9ffca09de6fcf890222b17c0dad93cd6dfe9981b2e4f247a99e8929d30"
+  },
+  "ch17/test_illegal_checker_instantiates_program": {
+   "status": "pass",
+   "inputs_sha256": "10903396dc457403996abbcdda88233b1e5bc0441294121908f6fc92f9dd4e13"
+  },
+  "ch18/test_constraint_function_priority_partition": {
+   "status": "unsupported",
+   "reason": "system function randomize (not implemented yet)",
+   "inputs_sha256": "d0e85d5aee11f8fd99a658b9826466880ce5c48bdf348c779bf866a579c4ef29"
+  },
+  "ch18/test_disable_soft_enclosing_condition_kept": {
+   "status": "unsupported",
+   "reason": "system function randomize (not implemented yet)",
+   "inputs_sha256": "35998d0a745ea0faf05c92274712a7dc31b834cd522dd1b0652c5bb1a27ebf96"
+  },
+  "ch18/test_rand_join_depth_one_nonterminals": {
+   "status": "unsupported",
+   "reason": "randsequence statement (not implemented yet)",
+   "inputs_sha256": "fe5d662a4c01e78cb7c7334642c471a3d6ad62d2e627e88a5f988546b7c38bcc"
+  },
+  "ch18/test_solve_before_partial_latest_set": {
+   "status": "unsupported",
+   "reason": "system function randomize (not implemented yet)",
+   "inputs_sha256": "70fc98adc514e6e1657c6d4781838d3a9d2daa610dfa2f767a21b96621045870"
+  },
+  "ch19/test_cg_auto_denominator_enum_and_empty_bins": {
+   "status": "unsupported",
+   "reason": "type 'cg_enum' (not implemented yet)",
+   "inputs_sha256": "893764ef8af6da728b3c8d36e9dabe4871ba46fb10a75e5c8359360c52801d25"
+  },
+  "ch19/test_cg_cross_auto_types_scope_and_fields": {
+   "status": "unsupported",
+   "reason": "type 'cg' (not implemented yet)",
+   "inputs_sha256": "c9f7e4d7c8f2da97283ff3edd62db8726b40515d397d0ca7d9a24d826dd2c41e"
+  },
+  "ch19/test_cg_real_fixed_bin_items_and_names": {
+   "status": "unsupported",
+   "reason": "type 'cg_fixed' (not implemented yet)",
+   "inputs_sha256": "64591b5f3a55e4f527063b9b5c175eb7486d834160ac18de8cc0a2e93de17a29"
+  },
+  "ch19/test_cg_real_open_bin_names_merge": {
+   "status": "unsupported",
+   "reason": "type 'cg' (not implemented yet)",
+   "inputs_sha256": "78e3dd1b5d53bab1c313b67cf55965f3fb652033fa50cd0a480c4c6f182029ef"
+  },
+  "ch19/test_illegal_cg_constant_of_other_class": {
+   "status": "unsupported",
+   "reason": "type '<unnamed covergroup>' (not implemented yet)",
+   "inputs_sha256": "639c0e27e165a7534eb4a5712e009fa741005ddae0375299682f6c5d5b754774"
+  },
+  "ch19/test_illegal_cg_constant_set_after_new": {
+   "status": "unsupported",
+   "reason": "type '<unnamed covergroup>' (not implemented yet)",
+   "inputs_sha256": "a6553f0b32ca64c99d89898b8effbe46245139a76fa3864d117a1ef3943dd771"
+  },
+  "ch19/test_illegal_cg_constant_set_with_new_in_fork": {
+   "status": "unsupported",
+   "reason": "type '<unnamed covergroup>' (not implemented yet)",
+   "inputs_sha256": "799d9636c3eacc1f1c3002a961954b1b152f359aa2b30a33857386577584b00e"
+  },
+  "ch19/test_illegal_cg_constant_set_with_new_in_loop": {
+   "status": "unsupported",
+   "reason": "type '<unnamed covergroup>' (not implemented yet)",
+   "inputs_sha256": "b0c077113a914741c5ccd750118ada79c91fff141a0ca5b05153aeb2f576fea8"
+  },
+  "ch20/test_dist_annex_n_poisson_chi_square_t_erlang": {
+   "status": "pass",
+   "inputs_sha256": "c9fa92f802843d322f257d2fab3d2fbb861933ac2d5b7b7c319c149942342f91"
+  },
+  "ch20/test_dist_annex_n_random_uniform_normal_exponential": {
+   "status": "pass",
+   "inputs_sha256": "e07a731eb7719589bdc62a1a02a82cbec48f912c6e00dc918549cacb3568e2b1"
+  },
+  "ch20/test_illegal_pla_descending_input_terms": {
+   "status": "pass",
+   "inputs_sha256": "ee744eacde52f0922af256b0c690cb711d62dad676a079069e320f549fb0d5e3"
+  },
+  "ch20/test_illegal_pla_descending_memory_word": {
+   "status": "pass",
+   "inputs_sha256": "c00825ee929c863e3efa9df8d247ca40a668bca26853340065e30adff51f6541"
+  },
+  "ch20/test_illegal_pla_descending_output_terms": {
+   "status": "pass",
+   "inputs_sha256": "9e479cd6df9a16284b74ac1ac4e8ea01037c548c2f61edf478e5cd5e25db81d0"
+  },
+  "ch20/test_queue_longest_wait_of_jobs_in_queue": {
+   "status": "unsupported",
+   "reason": "system task $q_initialize (not implemented yet)",
+   "inputs_sha256": "2a3aa9e31935ea9ee35b3e623747bbb71163e93c080332616f5dcb3a8b70b429"
+  },
+  "ch20/test_timeformat_every_unit_and_precision": {
+   "status": "pass",
+   "inputs_sha256": "efb1f69008829442978d7bbb90a38612ec58e1e8b026b14feed381c2e6fc845f"
+  },
+  "ch20/test_typename_anonymous_type_names": {
+   "status": "fail",
+   "reason": "output differs: line 1 is 'struct, one declaration: equal 0', expected 'struct, one declaration: equal 1'",
+   "inputs_sha256": "258f2d93b448984da69e7e2c2d0f466dcc6a6459f0d98ffe36d44a84656a2383"
+  },
+  "ch21/test_evcd_dumpports_bare_call_defaults": {
+   "status": "unsupported",
+   "reason": "system task $dumpports (not implemented yet)",
+   "inputs_sha256": "88a4ff7fa6dc607157e9f7a61ab5ee67f7ef333dc17bbff02511543ccf5260d3"
+  },
+  "ch21/test_evcd_dumpports_empty_parentheses_defaults": {
+   "status": "unsupported",
+   "reason": "system task $dumpports (not implemented yet)",
+   "inputs_sha256": "7cfe66518ec58ca9101fd5fd5fa2b76299a48cb894abd16bb090abd87f28f0a7"
+  },
+  "ch21/test_evcd_file_command_structure": {
+   "status": "unsupported",
+   "reason": "system task $dumpports (not implemented yet)",
+   "inputs_sha256": "e417cfed5b135b1fb2acf814ffcc57f043a6794bd8d9430740f36d7106c4186d"
+  },
+  "ch21/test_file_read_functions_on_r_and_r_plus_descriptors": {
+   "status": "pass",
+   "inputs_sha256": "e88210d227ee161a52bcbdbd7de7fe190d70925e6769141b97345705389c4a3f"
+  },
+  "ch21/test_unformatted_u_z_in_display_and_scan_tasks": {
+   "status": "pass",
+   "inputs_sha256": "18ca3cbe1970e8ed9cbc5d6557aadc46c100636095e27e0e672587f08b2dad32"
+  },
+  "ch21/test_vcd_comment_section_after_dump_limit": {
+   "status": "pass",
+   "inputs_sha256": "76a5062280109c2b82432b7b937ca9d3c57c38693e19ae19de37e52214613614"
+  },
+  "ch21/test_vcd_keyword_commands_by_section": {
+   "status": "pass",
+   "inputs_sha256": "dd72cc8e915b3becacde287f295785409be77ded17c0c91c051384a650767e07"
+  },
+  "ch22/test_22_extra_include_syntax": {
+   "status": "pass",
+   "inputs_sha256": "6db236e31b6058a24ff04f8d56d8f5736a474022a7eb451c9b975bf9d838a79f"
+  },
+  "ch22/test_directive_macro_expansion_not_in_comments_or_strings": {
+   "status": "pass",
+   "inputs_sha256": "6db236e31b6058a24ff04f8d56d8f5736a474022a7eb451c9b975bf9d838a79f"
+  },
+  "ch22/test_directive_scope_across_include_until_superseded": {
+   "status": "pass",
+   "inputs_sha256": "6db236e31b6058a24ff04f8d56d8f5736a474022a7eb451c9b975bf9d838a79f"
+  },
+  "ch22/test_illegal_begin_keywords_spans_include_boundary": {
+   "status": "pass",
+   "inputs_sha256": "6db236e31b6058a24ff04f8d56d8f5736a474022a7eb451c9b975bf9d838a79f"
+  },
+  "ch22/test_illegal_include_absolute_path_not_searched": {
+   "status": "pass",
+   "inputs_sha256": "6db236e31b6058a24ff04f8d56d8f5736a474022a7eb451c9b975bf9d838a79f"
+  },
+  "ch22/test_illegal_include_line_trailing_code": {
+   "status": "fail",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "6db236e31b6058a24ff04f8d56d8f5736a474022a7eb451c9b975bf9d838a79f"
+  },
+  "ch22/test_include_file_declarations": {
+   "status": "pass",
+   "inputs_sha256": "6db236e31b6058a24ff04f8d56d8f5736a474022a7eb451c9b975bf9d838a79f"
+  },
+  "ch22/test_include_guard_twice": {
+   "status": "pass",
+   "inputs_sha256": "6db236e31b6058a24ff04f8d56d8f5736a474022a7eb451c9b975bf9d838a79f"
+  },
+  "ch22/test_include_guard_two_files": {
+   "status": "pass",
+   "inputs_sha256": "6db236e31b6058a24ff04f8d56d8f5736a474022a7eb451c9b975bf9d838a79f"
+  },
+  "ch22/test_include_nested": {
+   "status": "pass",
+   "inputs_sha256": "6db236e31b6058a24ff04f8d56d8f5736a474022a7eb451c9b975bf9d838a79f"
+  },
+  "ch22/test_resetall_restores_defaults_keeps_macros": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "6db236e31b6058a24ff04f8d56d8f5736a474022a7eb451c9b975bf9d838a79f"
+  },
+  "ch22/test_vpi_celldefine_inside_design_elements": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "d69406f48b6c815869098b4096204bdcacc15642ce4fbbc1282c74b85543f528"
+  },
+  "ch3/test_config_binds_instances_through_library": {
+   "status": "pass",
+   "inputs_sha256": "ec570c1552669d367922976b5a460597d70bbb0ceedc2868a665930369c915e3"
+  },
+  "ch3/test_definitions_visible_from_other_file": {
+   "status": "pass",
+   "inputs_sha256": "0d99c14b108c7bcd1fd4084bc84cb31874f770aa5d731a71ecce4f76087dd981"
+  },
+  "ch3/test_design_element_kinds": {
+   "status": "unsupported",
+   "reason": "checker instance (not implemented yet)",
+   "inputs_sha256": "48c8031709f5fe3fc80acd8df2b99ca118bf84226e2352dcabf4dc36fac6a811"
+  },
+  "ch3/test_include_text_joins_compilation_unit": {
+   "status": "pass",
+   "inputs_sha256": "1933f835ce61e04fb5dd04c433f91b8d0b71554cf64aaad837cd13adaea881f8"
+  },
+  "ch3/test_step_is_global_time_precision": {
+   "status": "unsupported",
+   "reason": "timing control (not implemented yet)",
+   "inputs_sha256": "1c148fc7ce134af0bf0d7c42c7af2ed5fbdd825280857dfee700b74800555c6c"
+  },
+  "ch3/test_vpi_compilation_unit_iteration": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "38629336ba63c0a0f7836c352cc487c06a24d777d5b4ebe804498d37e7cdd7d5"
+  },
+  "ch30/test_specify_edge_path_full_polarity_data_source": {
+   "status": "unsupported",
+   "reason": "vector or non-four-state specify terminal (not implemented yet)",
+   "inputs_sha256": "59aa6bb5c554b5d1ddbd4a0af43fd1fe9553558f3da15f5a2e3597983b39b111"
+  },
+  "ch30/test_specify_edge_path_source_edge_kinds": {
+   "status": "unsupported",
+   "reason": "specify path edge qualifier (not implemented yet)",
+   "inputs_sha256": "0aab799c63b27b314a4b749ce8380fd5fb90530c508b0af565b3e55940c299a3"
+  },
+  "ch30/test_specify_full_path_unequal_widths_and_mixed_lists": {
+   "status": "unsupported",
+   "reason": "vector or non-four-state specify terminal (not implemented yet)",
+   "inputs_sha256": "6dd47f11d76fd76618e90d27c403453d1e5234b81b9f49cc186943e826f6e698"
+  },
+  "ch30/test_specify_interface_signal_path_terminals": {
+   "status": "unsupported",
+   "reason": "specify terminal other than a scalar port net (not implemented yet)",
+   "inputs_sha256": "c193b702f1b87951fb41d6d5880adb99ea020c6217e6565c767aed04ce732c4b"
+  },
+  "ch30/test_specify_path_delay_mintypmax_vpi": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "59488c1b381e22a0e73b8e6d8d46141c3baa37e38ac402e0266069d9d6db1aa7"
+  },
+  "ch30/test_specify_path_forms_scalar_vector_combinations": {
+   "status": "unsupported",
+   "reason": "vector or non-four-state specify terminal (not implemented yet)",
+   "inputs_sha256": "916175fe39d7a2815749ca30e2f2d8a464dddbc1c24b5e9fef37200dc6b2a6d0"
+  },
+  "ch30/test_specify_path_input_inout_sources_shared_destination": {
+   "status": "unsupported",
+   "reason": "specify terminal without the required input/output net direction (not implemented yet)",
+   "inputs_sha256": "21aed96ade2113ad4e5e4ce982b4265baa0a0c8a86df310630f5626c5653d45a"
+  },
+  "ch30/test_specify_polarity_operators_full_parallel": {
+   "status": "pass",
+   "inputs_sha256": "f72a004c4b64dc68f87588654afcdbb11f93c884966a4d7a1cc8a1b99c76a517"
+  },
+  "ch30/test_specify_state_dependent_edge_and_lone_ifnone": {
+   "status": "unsupported",
+   "reason": "edge-sensitive state-dependent specify path (not implemented yet)",
+   "inputs_sha256": "e3bf0ac85569b043dae5afedb4d93d371af475728dda2db01ef66cac910f3d9e"
+  },
+  "ch33/test_illegal_config_use_without_selector": {
+   "status": "pass",
+   "inputs_sha256": "85a64ef013c95828282b9800f0be66a1be6d98fad6f01e038e5ea3156bba56b8"
+  },
+  "ch4/test_illegal_final_deferred_action_writes_variable": {
+   "status": "pass",
+   "inputs_sha256": "f72484c293a0b25a0040cc01d70a730820515631340410cfa03b364cad7a991f"
+  },
+  "ch4/test_pli_callbacks_are_evaluation_events": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "1b790c4fbad7aa32d274f5a0ccfcca94f2600c18f38e52dca313dd8856e82aec"
+  },
+  "ch5/test_array_literal_index_type_default_keys": {
+   "status": "pass",
+   "inputs_sha256": "73949d861b43e4c3fc1bdb380c63e663d689e6dddbdbcbe98da3b2ce92ed5897"
+  },
+  "ch5/test_builtin_methods_unaffected_by_pli_systf": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "dcd59c139e62f064e2380e04a64ea786bff20406deb85a1bfed531c634dbb332"
+  },
+  "ch5/test_identifier_1024_characters": {
+   "status": "pass",
+   "inputs_sha256": "ce82da2102b576dd13910e90109aae050a3109b3df3bfcb54b757a9c7e65ba6d"
+  },
+  "ch5/test_primary_literal_categories_as_operands": {
+   "status": "unsupported",
+   "reason": "expression 'TimeLiteral' (not implemented yet)",
+   "inputs_sha256": "21545148d336d96e628d4a929e3b1bb19c191482ff19f418dfee9e3c32d32258"
+  },
+  "ch5/test_system_call_argument_forms": {
+   "status": "unsupported",
+   "reason": "system function $past (not implemented yet)",
+   "inputs_sha256": "3ce050718c0ad53cb15e4fc195a7db32a5c66e6f1b4a40c6d0a621ba99d273af"
+  },
+  "ch5/test_vpi_attribute_default_bit_and_last_value": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "98d1ed0cbafc40962a032e2f5af9d80c203fbcb0ed50ab0da8f6cf160ee87e7c"
+  }
+ },
+ "generated_at": "2026-11-14T14:47:44.027905+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

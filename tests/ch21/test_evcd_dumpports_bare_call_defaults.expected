@@ -1,0 +1,5 @@
+dumpports.vcd:
+var port 1 <0 p
+var port 1 <1 q
+test_evcd_dumpports_bare_call_defaults_b.evcd:
+var port 1 <0 r

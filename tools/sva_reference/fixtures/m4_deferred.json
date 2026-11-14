@@ -588,5 +588,14 @@
       "$sampled",
       "program"
     ]
+  },
+  "tests/ch5/test_system_call_argument_forms.sv": {
+    "source_sha256": "6da60eeb69b310613ef8bcba8456f3c67c9a89613eba93a13b7fa2b0adbeae74",
+    "reason": "Procedural $past and $rose calls with an explicit clocking event argument, used to show system call argument forms (5.6.3), need a scope and input audit of procedural sampled calls outside an assertion",
+    "evidence": [
+      "$past",
+      "$rose",
+      "clocking event argument"
+    ]
   }
 }

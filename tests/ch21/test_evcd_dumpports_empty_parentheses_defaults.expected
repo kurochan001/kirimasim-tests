@@ -1,0 +1,3 @@
+dumpports.vcd:
+var port 1 <0 s
+var port 1 <1 t

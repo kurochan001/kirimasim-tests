@@ -1,0 +1,5 @@
+design: cu_twice(cu_count)=10 cu_nib=10
+unit function $unit::cu_twice
+unit variable $unit::cu_count = 5
+unit variable $unit::cu_nib = 10
+compilation units: 1
