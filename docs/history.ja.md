@@ -700,3 +700,10 @@
 - Verilatorは[移行中の固定版](simulator-differences.ja.md#verilator-5054-interim)の扱いで5.054を使い、`verilator@5.054`を17本、`iverilog@13.0`を7本に付けました。21本は規格だけです。kirimasim `77c27531437c`は31本が一致し、10本が未対応、1本（virtual interfaceを使うテスト）が失敗です。実行結果は`coverage/results/reqgap-20261114-*.json`です。
 - `tests/ch3`にファイルが増えたので、そのディレクトリを入力に含む`ch3/test_include_text_joins_compilation_unit`の入力ハッシュが変わりました。テスト自体は変えておらず、Icarus Verilog 13.0で再実行して対応の記録を更新しました。このテストのGhostの保存済みの一致は、次の保存し直しまで古いままです。
 - Icarus Verilog 13.0の差異2件（エラボレーション時の重大度タスクの定数関数、定義名の再使用の受理）と、Verilator 5.054の差異を[差異一覧](simulator-differences.ja.md)に記録しました。
+
+### 2026-11-14（virtual interfaceの要素を感度リストに置く違反テスト）
+
+- 25.9は、virtual interfaceを通して届く要素を感度リストに使うことを禁じます。連続代入の違反テストしかなかったので、alwaysとalways_ffの先頭のイベント制御に置く違反テストを2本追加しました。独立した検証担当が、どちらも正しいと判定しました。
+- always_combで要素を読むテストも作りましたが、検証で欠陥と判定し、外しました。always_combの暗黙の感度は読まれる式の最長の静的な接頭辞（9.2.2.2.1、11.5.3）で作られ、virtual interfaceを通るメンバーの選択は静的な接頭辞ではないので、感度に入るのは要素ではなく変数だと読めるからです。
+- 要求`SV2023-25.9-EXTRACT-VIRTUAL-SENSITIVITY-TEXT`の受け入れ条件はalways_combの拒否も求めるので、この要求には対応を付けず、2本について保留を記録しました。カバレッジの数字は変わりません。
+- Icarus Verilog 13.0はvirtual interfaceの宣言を受け付けず、Verilator 5.054は2本とも設計を受理し、kirimasim `77c27531437c`は未対応です。`:oracle:`は`spec`だけです。

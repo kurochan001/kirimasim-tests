@@ -1,0 +1,21 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401",
+ "tests": {
+  "ch25/test_illegal_virtual_interface_component_in_always_event_control": {
+   "status": "unsupported",
+   "reason": "type 'vev_if' (not implemented yet)",
+   "inputs_sha256": "455d54fb34fcfd9f8228c5607bfc29e946499ddc1a145af0a574a0136c3b08c9"
+  },
+  "ch25/test_illegal_virtual_interface_component_in_always_ff": {
+   "status": "unsupported",
+   "reason": "type 'vff_if' (not implemented yet)",
+   "inputs_sha256": "424ef18184d722dad6ecc9d14a05a0f43a16f01d94b84fe6748b3d86ab77d39d"
+  }
+ },
+ "generated_at": "2026-11-14T02:58:21.742365+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

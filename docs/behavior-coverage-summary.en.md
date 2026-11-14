@@ -22,7 +22,7 @@ The denominator counts requirement-ledger rows, not test files. See [Design, exe
 
 ## Aggregation of existing tests
 
-- 5452 of 12385 tests have a registered correspondence with the requirements. 6933 tests remain unregistered.
+- 5452 of 12387 tests have a registered correspondence with the requirements. 6935 tests remain unregistered.
 - The above coverage rate is calculated only for the part which registered the response to the demand by confirming the stimulus and the expected result. Existing tests that are not registered are also useful for verification, but their contribution is not yet reflected in the proportion.
 - The number of registered units is the number of units that correspond to at least one requirement, not the number of completed reviews of the whole test.
 
@@ -91,6 +91,10 @@ Each row is a separate saved run. A narrow run can leave many tests unexecuted; 
 - `kirimasim` / `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` : 0/12298 ( 0.00% )。 Measurement source: `2026-11-11T23:50:40.334300+00:00` / `test-fixes-20261112-kirimasim-7de185f7.json` 。 Failures 0; known mismatches 0; unsupported 52; not run 11073; stale evidence 0; unapproved judgment evidence for illegal-design tests 0 rows.
 - `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 0/12298 ( 0.00% )。 Measurement source: `2026-11-11T23:50:41.819877+00:00` / `test-fixes-20261112-verilator5.052-seed1.json` 。 Failures 0; known mismatches 52; unsupported 0; not run 11073; stale evidence 0; unapproved judgment evidence for illegal-design tests 0 rows.
 - `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 0/12298 ( 0.00% )。 Measurement source: `2026-11-11T23:50:43.072508+00:00` / `test-fixes-20261112-verilator5.052-seed73.json` 。 Failures 0; known mismatches 52; unsupported 0; not run 11073; stale evidence 0; unapproved judgment evidence for illegal-design tests 0 rows.
+- `icarus` / `Icarus Verilog version 13.0 (stable) (v13_0)` : 0/12298 ( 0.00% )。 Measurement source: `2026-11-14T02:58:01.691798+00:00` / `vifsense-20261114-icarus13.json` 。 Failures 0; known mismatches 0; unsupported 0; not run 11125; stale evidence 0; unapproved judgment evidence for illegal-design tests 0 rows.
+- `kirimasim` / `kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401` : 0/12298 ( 0.00% )。 Measurement source: `2026-11-14T02:58:21.742365+00:00` / `vifsense-20261114-kirimasim-77c27531.json` 。 Failures 0; known mismatches 0; unsupported 0; not run 11125; stale evidence 0; unapproved judgment evidence for illegal-design tests 0 rows.
+- `verilator` / `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` : 0/12298 ( 0.00% )。 Measurement source: `2026-11-14T02:58:11.624866+00:00` / `vifsense-20261114-verilator5.054-seed1.json` 。 Failures 0; known mismatches 0; unsupported 0; not run 11125; stale evidence 0; unapproved judgment evidence for illegal-design tests 0 rows.
+- `verilator` / `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` : 0/12298 ( 0.00% )。 Measurement source: `2026-11-14T02:58:21.644402+00:00` / `vifsense-20261114-verilator5.054-seed73.json` 。 Failures 0; known mismatches 0; unsupported 0; not run 11125; stale evidence 0; unapproved judgment evidence for illegal-design tests 0 rows.
 - The result file of the rejection: 220.
 
 <a id="章附属書別登録項目に対する割合"></a>

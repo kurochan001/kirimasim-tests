@@ -1,0 +1,21 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch25/test_illegal_virtual_interface_component_in_always_event_control": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_virtual_interface_component_in_always_event_control\\\\.sv:33:'; the first is: tests/ch25/test_illegal_virtual_interface_component_in_always_event_control.sv:30: syntax error",
+   "inputs_sha256": "455d54fb34fcfd9f8228c5607bfc29e946499ddc1a145af0a574a0136c3b08c9"
+  },
+  "ch25/test_illegal_virtual_interface_component_in_always_ff": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_virtual_interface_component_in_always_ff\\\\.sv:34:'; the first is: tests/ch25/test_illegal_virtual_interface_component_in_always_ff.sv:31: syntax error",
+   "inputs_sha256": "424ef18184d722dad6ecc9d14a05a0f43a16f01d94b84fe6748b3d86ab77d39d"
+  }
+ },
+ "generated_at": "2026-11-14T02:58:01.691798+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

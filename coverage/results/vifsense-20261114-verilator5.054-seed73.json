@@ -1,0 +1,23 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch25/test_illegal_virtual_interface_component_in_always_event_control": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "455d54fb34fcfd9f8228c5607bfc29e946499ddc1a145af0a574a0136c3b08c9"
+  },
+  "ch25/test_illegal_virtual_interface_component_in_always_ff": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "424ef18184d722dad6ecc9d14a05a0f43a16f01d94b84fe6748b3d86ab77d39d"
+  }
+ },
+ "generated_at": "2026-11-14T02:58:21.644402+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

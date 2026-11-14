@@ -51,9 +51,9 @@
     "interpretation_pending": 0
   },
   "test_mapping": {
-    "suite_test_files": 12385,
+    "suite_test_files": 12387,
     "linked_test_files": 5452,
-    "unlinked_test_files": 6933
+    "unlinked_test_files": 6935
   },
   "collective_requirement_count": 679,
   "requirement_status_counts": {
@@ -39265,6 +39265,82 @@
           "unreviewed_oracle": 0,
           "stale": 0,
           "not_run": 11073,
+          "unmapped": 1173,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "vifsense-20261114-icarus13.json",
+        "simulator": "icarus",
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+        "generated_at": "2026-11-14T02:58:01.691798+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11125,
+          "unmapped": 1173,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "vifsense-20261114-kirimasim-77c27531.json",
+        "simulator": "kirimasim",
+        "version": "kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401",
+        "generated_at": "2026-11-14T02:58:21.742365+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11125,
+          "unmapped": 1173,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "vifsense-20261114-verilator5.054-seed1.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "generated_at": "2026-11-14T02:58:11.624866+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11125,
+          "unmapped": 1173,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "vifsense-20261114-verilator5.054-seed73.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "generated_at": "2026-11-14T02:58:21.644402+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11125,
           "unmapped": 1173,
           "interpretation_pending": 0
         }

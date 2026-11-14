@@ -726,3 +726,10 @@ clause 37.
 - Verilator ran as 5.054 under [the interim pin](simulator-differences.md#verilator-5054-interim): 17 tests list `verilator@5.054` and 7 `iverilog@13.0`; 21 rest on the standard alone. kirimasim `77c27531437c` matches 31, does not support 10, and fails 1 (a test that uses a virtual interface). The results are `coverage/results/reqgap-20261114-*.json`.
 - New files in `tests/ch3` changed the input digest of `ch3/test_include_text_joins_compilation_unit`, whose inputs include that directory. The test itself is unchanged; it was rerun on Icarus Verilog 13.0 and its mapping refreshed. Its saved Ghost pass stays stale until the next re-save.
 - Two differences of Icarus Verilog 13.0 (a constant function in an elaboration-time severity task, and accepting a reused definition name) and the differences of Verilator 5.054 are recorded in the [differences list](simulator-differences.md).
+
+### 2026-11-14 (illegal tests that put a virtual interface component in a sensitivity list)
+
+- 25.9 forbids using a component reached through a virtual interface in a sensitivity list. Only the illegal test of a continuous assignment existed, so two illegal tests were added that put it in the event control at the head of always and of always_ff. An independent verifier found both right.
+- A test that reads the component in always_comb was written as well, but the verification found it defective and it was left out: the implicit sensitivity of always_comb is made of the longest static prefixes of what it reads (9.2.2.2.1, 11.5.3), and a member select through a virtual interface is not a static prefix, so the list can be read to hold the variable rather than the component.
+- The acceptance of the requirement `SV2023-25.9-EXTRACT-VIRTUAL-SENSITIVITY-TEXT` also asks for always_comb to be rejected, so the requirement stays unmapped, and holds are recorded for the two tests. The coverage figures are unchanged.
+- Icarus Verilog 13.0 does not accept the virtual interface declarations, Verilator 5.054 accepts both designs, and kirimasim `77c27531437c` does not support them. `:oracle:` is `spec` alone.

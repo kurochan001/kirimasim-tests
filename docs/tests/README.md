@@ -34,7 +34,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 22 | [Compiler directives](ch22.md) | 516 | 402 |
 | 23 | [Modules and hierarchy](ch23.md) | 417 | 161 |
 | 24 | [Programs](ch24.md) | 197 | 147 |
-| 25 | [Interfaces](ch25.md) | 262 | 134 |
+| 25 | [Interfaces](ch25.md) | 264 | 134 |
 | 26 | [Packages](ch26.md) | 262 | 179 |
 | 27 | [Generate constructs](ch27.md) | 283 | 180 |
 | 28 | [Gate-level and switch-level modeling](ch28.md) | 296 | 186 |

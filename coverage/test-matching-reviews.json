@@ -56297,6 +56297,54 @@
           ]
         }
       ]
+    },
+    {
+      "test": "tests/ch25/test_illegal_virtual_interface_component_in_always_event_control.sv",
+      "inputs_sha256": "455d54fb34fcfd9f8228c5607bfc29e946499ddc1a145af0a574a0136c3b08c9",
+      "reviewed_on": "2026-11-14",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-25.9-EXTRACT-VIRTUAL-SENSITIVITY-TEXT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "このテストは、virtual interface の要素を always の先頭のイベント制御（感度リスト）に置く違反を 33 行目で照合する。要求の acceptance は、要素を読む always_comb の拒否も求めるが、9.2.2.2.1 は always_comb の暗黙の感度を、読まれる式の最長の静的な接頭辞（11.5.3）で作る。virtual interface を通るメンバーの選択は静的な接頭辞ではないので、感度に入るのは要素ではなく変数 v だと読め、always_comb y = v.a を違反とする規格の文はない。したがって always_comb の条件は負テストで示せず、この要求は、連続代入（既存の test_illegal_virtual_interface_component_in_continuous_assign）・always・always_ff の負テストでも、全体としては対応付けない。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch25/test_illegal_virtual_interface_component_in_always_event_control.sv",
+              "contains": "  always @(posedge v.clk) n++;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch25/test_illegal_virtual_interface_component_in_always_ff.sv",
+      "inputs_sha256": "424ef18184d722dad6ecc9d14a05a0f43a16f01d94b84fe6748b3d86ab77d39d",
+      "reviewed_on": "2026-11-14",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-25.9-EXTRACT-VIRTUAL-SENSITIVITY-TEXT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "このテストは、virtual interface の要素を always_ff の先頭のイベント制御（感度リスト）に置く違反を 34 行目で照合する。要求の acceptance は、要素を読む always_comb の拒否も求めるが、9.2.2.2.1 は always_comb の暗黙の感度を、読まれる式の最長の静的な接頭辞（11.5.3）で作る。virtual interface を通るメンバーの選択は静的な接頭辞ではないので、感度に入るのは要素ではなく変数 v だと読め、always_comb y = v.a を違反とする規格の文はない。したがって always_comb の条件は負テストで示せず、この要求は、連続代入（既存の test_illegal_virtual_interface_component_in_continuous_assign）・always・always_ff の負テストでも、全体としては対応付けない。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch25/test_illegal_virtual_interface_component_in_always_ff.sv",
+              "contains": "  always_ff @(posedge v.clk) n <= n + 1;"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
