@@ -1103,10 +1103,12 @@ tests/ch40/test_vpi_coverage_assertion_counts.sv",引用探索の候補とソー
 21,入出力用システムタスク・関数,22,コンパイラ指令,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,84,"tests/ch4/test_delta_cycles.sv
 tests/gen/ch21/test_gen_cross_litfmt_fill_wh_fdisplay_macro.sv
 tests/gen/ch21/test_gen_cross_litfmt_negate_wh_swrite_macro.sv",既存モデルの計画・実行証跡を維持する,,
-21,入出力用システムタスク・関数,23,モジュールと階層,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,73,"tests/ch23/test_port_collapse_trireg_charge_strength.sv
+21,入出力用システムタスク・関数,23,モジュールと階層,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,97,"tests/ch23/test_port_collapse_trireg_charge_strength.sv
 tests/ch23/test_port_collapse_trireg_external_charge.sv
 tests/ch26/test_scope_resolution.sv",既存モデルの計画・実行証跡を維持する,,
-21,入出力用システムタスク・関数,24,プログラム,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,1,tests/ch4/test_postponed_strobe_monitor_after_reactive_writes.sv,既存モデルの計画・実行証跡を維持する,,
+21,入出力用システムタスク・関数,24,プログラム,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,25,"tests/ch4/test_postponed_strobe_monitor_after_reactive_writes.sv
+tests/gen/ch24/test_gen_cross_progmod_child_inst_one_absolute_default_none_ignored.sv
+tests/gen/ch24/test_gen_cross_progmod_child_inst_one_absolute_default_none_none.sv",既存モデルの計画・実行証跡を維持する,,
 21,入出力用システムタスク・関数,25,インターフェース,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,40,"tests/gen/ch3/test_gen_cross_timescope_directive_interface_10ns_tenth_argument_tie_finer_statement.sv
 tests/gen/ch3/test_gen_cross_timescope_directive_interface_10ns_tenth_real_down_coarser_statement.sv
 tests/gen/ch3/test_gen_cross_timescope_keyword_interface_100ps_same_suffix_down_finer_statement.sv",既存モデルの計画・実行証跡を維持する,,
@@ -1169,9 +1171,9 @@ tests/ch37/test_vpi_file_line.sv",引用探索の候補とソースを確認し�
 22,コンパイラ指令,39,アサーションAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 22,コンパイラ指令,40,コードカバレッジの制御とAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 22,コンパイラ指令,41,データ読出しAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-23,モジュールと階層,24,プログラム,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,17,"tests/ch23/test_bind_instantiation_kinds.sv
+23,モジュールと階層,24,プログラム,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,41,"tests/ch23/test_bind_instantiation_kinds.sv
 tests/ch23/test_defparam_targets_module_interface_program.sv
-tests/ch23/test_module_nested_declaration_kinds.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
+tests/ch23/test_module_nested_declaration_kinds.sv",既存モデルの計画・実行証跡を維持する,,
 23,モジュールと階層,25,インターフェース,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,51,"tests/ch10/test_nba_interface_array_element.sv
 tests/ch23/test_defparam_targets_module_interface_program.sv
 tests/ch23/test_module_common_item_kinds.sv",既存モデルの計画・実行証跡を維持する,,

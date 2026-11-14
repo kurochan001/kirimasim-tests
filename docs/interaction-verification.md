@@ -14,7 +14,13 @@
 
 ## 保存実行の概要
 
-2026-11-14のprogramとinterfaceの間の書込みと反応の領域の追加で、**112モデル・4,485件・192章対**になりました。
+2026-11-14のprogramのインスタンスを階層に置く方法の追加で、**113モデル・4,509件・193章対**になりました。
+最新のmainをビルドしたkirimasim `77c27531437c`の[単一実行](../coverage/interaction-results/full-20261114-kirimasim-77c27531-progmod.json)は、
+**4,017 pass・484 unsupported・8 fail**です。failは既存configの4件と、追加のうち入れ子のprogramの4件です。
+追加24件のうち20件がPASSで、従来4,485件の入力と状態は不変です。全選択ケースPASSは87モデルです。
+[programのインスタンスを階層に置く方法](#program-hierarchy-instances)に独立検算と固定版比較を記録します。
+
+同じ日のprogramとinterfaceの間の書込みと反応の領域の追加で、**112モデル・4,485件・192章対**になりました。
 最新のmainをビルドしたkirimasim `77c27531437c`の[単一実行](../coverage/interaction-results/full-20261114-kirimasim-77c27531.json)は、
 **3,997 pass・484 unsupported・4 fail**です。failは既存configの4件だけです。
 追加30件は全PASSで、従来4,455件の入力と状態は不変です。全選択ケースPASSは87モデルです。
@@ -4766,3 +4772,43 @@ kirimasim `77c27531437c`の[単一の全4,485件](../coverage/interaction-result
 [固定Icarus 13.0](../coverage/interaction-results/progif-20261114-icarus13.json)は6件がPASSです。interfaceのポート、modportのimport、functionの中のNBAを受け付けず、programのblocking代入をReactive領域で実行しません。全480行では57行が一致します。
 [固定Verilator 5.052](../coverage/interaction-results/progif-20261114-verilator5052-seed1.json)（[seed 73](../coverage/interaction-results/progif-20261114-verilator5052-seed73.json)も）は20件がPASSです。
 programをmoduleと同じ領域で実行し、`#0`の直後のblocking書込みにalways・always_comb・連続代入が反応しないことがあります。全480行では372行が一致します。[固定版の差異一覧](simulator-differences.ja.md#program-interface-differences)も参照してください。
+
+<a id="program-hierarchy-instances"></a>
+
+## programのインスタンスを階層に置く方法（2026-11-14）
+
+[`interaction_progmod.py`](../generators/interaction_progmod.py)は`program_hierarchy_instances@1`を定義します。
+第23章×第24章は全24件に対応し、第21章×第24章（%mの階層名）も補強します。
+
+### 因子・対象範囲
+
+programのインスタンスの置き方（トップに入れ子で宣言した、ポートのない暗黙のインスタンス、入れ子で宣言してトップで明示したインスタンス、コンパイル単位で宣言してトップで明示したインスタンス、同じく子のmoduleで明示したインスタンス、明示しないトップレベルのprogramの暗黙のインスタンス）、
+インスタンスの数（1個、2個）、トップの変数への書き方（トップからの階層名、入れ子のprogramから親の名前だけ）、
+パラメータ（既定値、インスタンスでの名前による指定、defparam）、2個目が1個目のprogramの変数を階層名で読むかどうか、ポートを持つ入れ子のprogramを明示しないで置くかどうかを交差します。
+暗黙のインスタンスは1個だけで、ポートとインスタンスのパラメータ指定を持ちません（24.3）。名前だけで親の変数を読めるのは、同じスコープで宣言して置いた入れ子のprogramだけです（23.4）。
+2個で既定のパラメータでは遅延が等しく、同じ時刻の書込みが競合するので除きます。トップレベルの暗黙のインスタンスへのdefparamも除きます。
+ref ポートの経路は、kirimasimが未実装なので外し、[実装待ちの一覧](cross-verification-followup.md#models-waiting-for-kirimasim)に載せました。
+合法66行から24件を選びます。置き方・書き方・パラメータ、置き方・数・相手の読取り、置き方・パラメータ・置くだけのprogramの3因子群を含む142目標と、必須6件を保持します。
+
+### 何を区別するか
+
+各インスタンスは、パラメータDの時刻に、パラメータKと入力ポートbaseの和をトップの変数totalへ足し、%mの階層名と時刻と足した値を表示します。
+2個のときは、2個目が階層名で1個目の局所変数を読み、その値も表示します。programの間をまたぐ階層名は24.3が認めています。
+パラメータは既定値、インスタンスの指定、defparamの順に決まり（23.10）、%mはインスタンスの階層名を出します（21.2.1.5）。
+ポートのない入れ子のprogramは、宣言と同じ名前のインスタンスとして1回だけ置かれ、明示しないトップレベルのprogramはトップレベルのインスタンスになります（24.3）。ポートを持つ入れ子のprogramは、明示しなければ動きません（23.4）。
+すべてのprogramのinitial手続きが終わると、24.3の暗黙の`$finish`が実行を終えるので、時刻50のmoduleの表示は出ず、final手続きは最後のprogramの終了時刻と合計を表示します。
+
+### 独立検算と実行結果
+
+[`qualify_progmod.py`](../tools/qualify_progmod.py)は実際のSVを構文として読み、階層を組み立て（暗黙のインスタンス化、パラメータの決定、名前の探索）、moduleの処理をActive領域、programの処理をReactive領域で実行します。
+同じ領域のプロセスを正順と逆順で実行し、両方が同じ出力になることを求めます。全66プログラムが期待値と一致しました。
+[補助証跡](../coverage/interaction-qualification/progmod.json)には、kirimasim `77c27531437c`での正常対照5件と実行可能な誤り7件を保存しました。誤りはすべて正常終了後の出力差で検出しました。正常対照は、kirimasimが一致する置き方の行から選びました。
+
+kirimasim `77c27531437c`の[単一の全4,509件](../coverage/interaction-results/full-20261114-kirimasim-77c27531-progmod.json)で、追加24件のうち20件がPASSです。
+残る4件は、パラメータを持ちポートのない入れ子のprogramです。kirimasimはこれを暗黙にインスタンス化せず、programが動かないので時刻50の表示が出るか、defparamの対象が見つからずに止まります。パラメータのない入れ子のprogramは正しく動き、パラメータを持つ入れ子のmoduleでも同じことが起きます。期待値は変えていません。
+[全66行の1回実行](../coverage/interaction-qualification/progmod-all-rows-20261114.json)では、kirimasimは58行が一致し、この置き方の8行が一致しません。
+
+### 固定版の差異
+
+[固定Icarus 13.0](../coverage/interaction-results/progmod-20261114-icarus13.json)は24件とも一致しません。入れ子のprogramのインスタンスを作れず、全programの終了後も時刻50のmoduleの表示を実行します。
+Verilator 5.054（[seed 1](../coverage/interaction-results/progmod-20261114-verilator5054-seed1.json)、[seed 73](../coverage/interaction-results/progmod-20261114-verilator5054-seed73.json)）も24件とも一致しません。入れ子のprogramを未対応とし、全programの終了後も実行を続けます。全66行の1回実行（Verilator 5.052）でも、IcarusとVerilatorはどの行も一致しません。[固定版の差異一覧](simulator-differences.ja.md#program-hierarchy-differences)も参照してください。

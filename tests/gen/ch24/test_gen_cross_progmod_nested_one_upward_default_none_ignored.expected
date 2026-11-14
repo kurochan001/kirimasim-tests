@@ -1,0 +1,2 @@
+test_gen_cross_progmod_nested_one_upward_default_none_ignored.prog t=3 got=1
+end t=3 total=1

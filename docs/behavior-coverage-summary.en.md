@@ -22,7 +22,7 @@ The denominator counts requirement-ledger rows, not test files. See [Design, exe
 
 ## Aggregation of existing tests
 
-- 5452 of 12387 tests have a registered correspondence with the requirements. 6935 tests remain unregistered.
+- 5452 of 12411 tests have a registered correspondence with the requirements. 6959 tests remain unregistered.
 - The above coverage rate is calculated only for the part which registered the response to the demand by confirming the stimulus and the expected result. Existing tests that are not registered are also useful for verification, but their contribution is not yet reflected in the proportion.
 - The number of registered units is the number of units that correspond to at least one requirement, not the number of completed reviews of the whole test.
 

@@ -1,0 +1,133 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "gen/ch24/test_gen_cross_progmod_child_inst_one_absolute_default_none_ignored": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progmod_child_inst_one_absolute_default_none_ignored.sv:59:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "795dbff01037d2a6182734796b6f0d522efe7c0f602e86c2694d15c245e1cc50"
+  },
+  "gen/ch24/test_gen_cross_progmod_child_inst_one_absolute_default_none_none": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'sentinel t=50', expected 'end t=3 total=11'",
+   "inputs_sha256": "9e5de41b983ff3dd52a0ccb8f29e93f9e2526975d45107af6772995345ca9c85"
+  },
+  "gen/ch24/test_gen_cross_progmod_child_inst_one_absolute_defparam_none_ignored": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progmod_child_inst_one_absolute_defparam_none_ignored.sv:60:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "b9a0d3122e5344b283c06d8ab9b6486ade04d14a1a1b8bfcf5acc9e2858dff2e"
+  },
+  "gen/ch24/test_gen_cross_progmod_child_inst_one_absolute_override_none_ignored": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progmod_child_inst_one_absolute_override_none_ignored.sv:59:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "8e81b21d11b72b69ebcb99d2ab5dde4ebff49813532cb952c45cc219e4ac4dfc"
+  },
+  "gen/ch24/test_gen_cross_progmod_child_inst_two_absolute_defparam_read_none": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'sentinel t=50', expected 'end t=7 total=39'",
+   "inputs_sha256": "112220c2786cd0074f6dc2185d3500b30cec4d99d6f0093b4a9f284de3a462a1"
+  },
+  "gen/ch24/test_gen_cross_progmod_child_inst_two_absolute_override_none_none": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'sentinel t=50', expected 'end t=6 total=37'",
+   "inputs_sha256": "ba0b3719938868873c49c82379fa5e30a291da5e3551eb9790a390e30b9230b9"
+  },
+  "gen/ch24/test_gen_cross_progmod_implicit_top_one_absolute_default_none_ignored": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progmod_implicit_top_one_absolute_default_none_ignored.sv:54:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "ca45047ea13ca20659f982ad388cdaa496c68feae8e45601a9080a233a2e79b5"
+  },
+  "gen/ch24/test_gen_cross_progmod_implicit_top_one_absolute_default_none_none": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'sentinel t=50', expected 'end t=3 total=1'",
+   "inputs_sha256": "af7a1631e2e3ab57fb77d1ba38ccf67a41a3cd57d374d3165c0e84aecd85ff8e"
+  },
+  "gen/ch24/test_gen_cross_progmod_nested_inst_one_absolute_default_none_ignored": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progmod_nested_inst_one_absolute_default_none_ignored.sv:46:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "969d3eb548a89c9fbacb366a8d5eacf72d45466b93483e127f13ea892c664b6b"
+  },
+  "gen/ch24/test_gen_cross_progmod_nested_inst_one_absolute_override_none_none": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progmod_nested_inst_one_absolute_override_none_none.sv:46:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "ef8e8b4d3e1883fd9bcf5d571a5960d1e2cbcbc89fa853e2e5feb4ff60f3111f"
+  },
+  "gen/ch24/test_gen_cross_progmod_nested_inst_one_upward_default_none_none": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progmod_nested_inst_one_upward_default_none_none.sv:46:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "0f90a030e95d6aedab8c1c4678b91783bcf1901887b3399584068535d57f9ceb"
+  },
+  "gen/ch24/test_gen_cross_progmod_nested_inst_one_upward_defparam_none_ignored": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progmod_nested_inst_one_upward_defparam_none_ignored.sv:46:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "9924e40b4c9285774960580a73bfdc106ef2455a6c44d7150f88d1c0da6b6c7e"
+  },
+  "gen/ch24/test_gen_cross_progmod_nested_inst_two_absolute_defparam_none_none": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progmod_nested_inst_two_absolute_defparam_none_none.sv:46:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "7672daf7cd3834e245b3c755788aae93d0e870d0b17369ab2b2af8bbc4ff6f75"
+  },
+  "gen/ch24/test_gen_cross_progmod_nested_inst_two_upward_override_read_ignored": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progmod_nested_inst_two_upward_override_read_ignored.sv:47:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "3bcbc9528db0965184e60cda713befac80c8096529928274e921fe5fd891b0e8"
+  },
+  "gen/ch24/test_gen_cross_progmod_nested_one_absolute_default_none_none": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progmod_nested_one_absolute_default_none_none.sv:46:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "7ec36bc7f71d234fa765d5e4e7ccc2fdf98dfcf04528e1dff6dba252e62987d7"
+  },
+  "gen/ch24/test_gen_cross_progmod_nested_one_absolute_defparam_none_none": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progmod_nested_one_absolute_defparam_none_none.sv:46:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "1be6318941cb7b07e3908a816349c726b9ea500ab8fbe1b0ea59642d97f3208e"
+  },
+  "gen/ch24/test_gen_cross_progmod_nested_one_upward_default_none_ignored": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progmod_nested_one_upward_default_none_ignored.sv:46:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "205beeaf96e27cc2cc04badf2f45411fc7376cfb96040e4e8c8a51ee973711c8"
+  },
+  "gen/ch24/test_gen_cross_progmod_nested_one_upward_defparam_none_ignored": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progmod_nested_one_upward_defparam_none_ignored.sv:46:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "4a2cbc3ed8dca965d999b54a1b8ad1622d960bf4394963132caaa634a0e14df4"
+  },
+  "gen/ch24/test_gen_cross_progmod_top_inst_one_absolute_default_none_ignored": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progmod_top_inst_one_absolute_default_none_ignored.sv:55:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "97b9ab5afa81521a9039054d6534a18ca63a5c1fedcd449ad80eb939780bad90"
+  },
+  "gen/ch24/test_gen_cross_progmod_top_inst_one_absolute_default_none_none": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'sentinel t=50', expected 'end t=3 total=11'",
+   "inputs_sha256": "ab707bdcb93cba0514fbec4ea49a48a7f55cd49c20c65f904391e2a974622bc1"
+  },
+  "gen/ch24/test_gen_cross_progmod_top_inst_one_absolute_defparam_none_ignored": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progmod_top_inst_one_absolute_defparam_none_ignored.sv:56:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "455c0ef0c50f42bb306135424bbc37cade4b17586a2d8aade8d803741e3605bd"
+  },
+  "gen/ch24/test_gen_cross_progmod_top_inst_one_absolute_override_none_ignored": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch24/test_gen_cross_progmod_top_inst_one_absolute_override_none_ignored.sv:55:3: Unsupported: program decls within module decls",
+   "inputs_sha256": "44b45c86f018e5a9df469ce27ee4b8bc076698fe553d348064c35d4eb5cbd174"
+  },
+  "gen/ch24/test_gen_cross_progmod_top_inst_two_absolute_defparam_none_none": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'sentinel t=50', expected 'end t=7 total=39'",
+   "inputs_sha256": "0db0ed8fb617a29ac3dccd2e45a87231c957260d5b509d638d699965d7fbfeca"
+  },
+  "gen/ch24/test_gen_cross_progmod_top_inst_two_absolute_override_read_none": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'sentinel t=50', expected 'end t=6 total=37'",
+   "inputs_sha256": "46f8312aedb571459e1e6d3892ed004d58b9cc0fb6b55372526a70f755ac9027"
+  }
+ },
+ "generated_at": "2026-11-14T03:12:42.012621+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

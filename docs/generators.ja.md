@@ -4,7 +4,7 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の121生成器から5,797件のテストを生成しています。
+現在の122生成器から5,821件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
@@ -100,6 +100,7 @@
 | [`interaction_progassert`](../generators/interaction_progassert.py) | 24 | 27 | programとmodule参照モデルの各クロック試行を、単周期判定・同サイクル/次サイクル含意で照合する。空虚な成功と未完了の試行を区別し、判定数と完了時のサンプル値総和を出力引数から観測する。 |
 | [`interaction_progframe`](../generators/interaction_progframe.py) | 24 | 36 | 重なるautomatic taskの局所値とoutput/inoutのコピーを、programの終了範囲と復帰方法を変えて照合する。途中終了時のコピー抑止、生存する別program、符号拡張、配列の隣接要素と再呼出しの履歴を観測する。 |
 | [`interaction_progif`](../generators/interaction_progif.py) | 24 | 30 | programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtask・void function・自身のtaskを経由して、ポート・modport・階層名からinterfaceの変数をblockingかNBAで書く。書いた直後・#0の後・1後の読取りと、interfaceか受け側のmoduleで反応するalways・always_comb・連続代入・NBAが見た進捗から、書込みと反応の領域群を確かめる。 |
+| [`interaction_progmod`](../generators/interaction_progmod.py) | 24 | 24 | programのインスタンスを、トップに入れ子で宣言した暗黙のインスタンス・入れ子で宣言してトップで明示したインスタンス・トップか子のmoduleで明示したインスタンス・明示しないトップレベルの暗黙のインスタンスとして1個か2個置き、既定値・インスタンスの指定・defparamのパラメータで、階層名か親の名前からトップの変数へ書く。%mの階層名、相手のprogramの変数の読取り、ポートを持つ入れ子のprogramが動かないこと、最後のprogramの終了による暗黙の$finishを確かめる。 |
 | [`interaction_program`](../generators/interaction_program.py) | 24 | 18 | programの自然終了と直接/タスク内の$exit、複数initial、子/孫プロセスの待機を組み合わせる。終了前の進捗と終了後の書込み取消し、同じ待機条件を持つ別programの起床、最後のprogramによる暗黙終了を観測する。 |
 | [`interaction_query`](../generators/interaction_query.py) | 20 | 60 | 引数の実ビット列・幅と各関数の結果を表示し、式の形、状態変換、X/Zの位置、制御ビットの重複除去、one-hot判定と未知値の有無を確認する。 |
 | [`interaction_queue`](../generators/interaction_queue.py) | 7 | 48 | 2組の入力でサイズと全要素、取り出した値、操作前のコピーを観測し、追加位置と容量による破棄、空の既定値、型変換、値コピーの独立性を確認する。 |

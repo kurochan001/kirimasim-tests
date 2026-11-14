@@ -6,7 +6,9 @@ Updated on 2026-11-06 JST, retaining the repair records from 2026-11-03. Preserv
 and selected models while addressing known failures, inventorying unsupported mechanisms
 and reviewing unexamined chapter pairs, in that order.
 
-The current [complete local selection](../coverage/interaction-results/full-20261114-kirimasim-77c27531.json) has 112 models and 4,485 cases, run on kirimasim `77c27531437c`: 3,997 pass, 484 unsupported and only the four config failures. A model for the regions between a program and an interface was added on 2026-11-14; see the [last section](#program-interface-regions-20261114).
+The current [complete local selection](../coverage/interaction-results/full-20261114-kirimasim-77c27531-progmod.json) has 113 models and 4,509 cases, run on kirimasim `77c27531437c`: 4,017 pass, 484 unsupported and 8 failures, the four config failures and four nested programs with parameters that kirimasim does not instantiate implicitly. A model for the ways of placing program instances in the hierarchy was added on 2026-11-14; see the [last section](#program-hierarchy-instances-20261114).
+
+The one before it has 112 models and 4,485 cases ([run](../coverage/interaction-results/full-20261114-kirimasim-77c27531.json)): 3,997 pass, 484 unsupported and 4 failures. A model for the regions between a program and an interface was added the same day; see [its section](#program-interface-regions-20261114).
 
 The one before it has 111 models and 4,455 cases ([run](../coverage/interaction-results/full-20261114-kirimasim-afc7733c.json) on kirimasim `afc7733c8167`): 3,967 pass, 484 unsupported and only the four config failures. A model for where the run is ended was added the same day; see [its section](#simulation-end-sources-20261114).
 
@@ -172,10 +174,10 @@ Requirement bindings, thirteen random profiles, existing regressions and core so
 
 ## Candidates waiting for kirimasim
 
-The seven items below were left out because kirimasim has not implemented them. They have no tests yet, so no result changes when the feature arrives, and only a check reveals it.
+The eight items below were left out because kirimasim has not implemented them. They have no tests yet, so no result changes when the feature arrives, and only a check reveals it.
 When a full cross run uses a new kirimasim build, try the programs below. When one no longer reports `not implemented yet`, add the model or observation.
 The 529 existing unsupported cases are not listed: they have tests, and their results change once the feature is implemented.
-Add anything else left out for this reason here, and remove an item once it is added. The status is from kirimasim `33cee3fa2f0d` on 2026-11-08; all six are unchanged since `f029ddd0eee1`, and all six are still not implemented on `afc7733c8167` and `77c27531437c` of 2026-11-14. The seventh, the virtual interface, was added on 2026-11-14 with `77c27531437c`.
+Add anything else left out for this reason here, and remove an item once it is added. The status is from kirimasim `33cee3fa2f0d` on 2026-11-08; all six are unchanged since `f029ddd0eee1`, and all six are still not implemented on `afc7733c8167` and `77c27531437c` of 2026-11-14. The seventh, the virtual interface, and the eighth, the ref port, were added on 2026-11-14 with `77c27531437c`.
 
 Take expectations from the standard, and check them by [running every legal row once](interaction-verification-method.en.md#run-every-legal-row-once).
 
@@ -294,6 +296,24 @@ module top;
 endmodule
 ```
 
+### A ref port route (a route added to `program_hierarchy_instances`)
+
+kirimasim reports ref ports of modules and programs as `unsupported: ref port`, not implemented yet.
+In 23.3.3.2, references to a ref port are treated as hierarchical references to the variable connected to it.
+Once it is implemented, put the ref port back among the ways of writing of [`interaction_progmod.py`](../generators/interaction_progmod.py) (the variable of the top passed to a program through a ref port, and passed on through the ref port of a child module), raise `VERSION` and refresh the evidence. The selected inputs change, so the full cross run is needed too.
+Pinned Icarus 13.0 does not support ref ports (sorry), and Verilator 5.054 prints `total=5` for the program below.
+
+```systemverilog
+module sub(ref int t);
+  initial #1 t += 5;
+endmodule
+module top;
+  int total = 0;
+  sub s(.t(total));
+  initial #2 $display("total=%0d", total);
+endmodule
+```
+
 ## Macro expansion, force and release, implicit sensitivity (2026-11-07)
 
 - Added models for [macro expansion](interaction-verification.en.md#macro-expansion-context), [force and release](interaction-verification.en.md#force-release-visibility) and [implicit sensitivity](interaction-verification.en.md#implicit-sensitivity-update).
@@ -390,3 +410,14 @@ endmodule
 - The virtual interface route is left out, since kirimasim has not implemented it, and is added to the [candidates waiting for kirimasim](#models-waiting-for-kirimasim).
 - One complete 4,485-case run on kirimasim `77c27531437c` records 3,997 pass, 484 unsupported and 4 failures. All 30 additions pass, and the statuses of the preceding 4,455 cases are unchanged from `afc7733c8167`. Totals: 112 models, 192 chapter pairs, 87 full-selection-pass models.
 - Every one of the 480 legal rows ran once. kirimasim matches every row. Pinned Icarus 13.0 cannot compile an interface port or a modport import and matches 57 rows; pinned Verilator 5.052 runs a program in the same regions as a module and matches 372 rows. Both are [recorded differences](simulator-differences.md#program-interface-differences).
+
+<a id="program-hierarchy-instances-20261114"></a>
+
+## Ways of placing program instances in the hierarchy (2026-11-14)
+
+- Chapter 23 x 24, which was under review, moved from R to M with the [model for placing program instances in the hierarchy](interaction-verification.en.md#program-hierarchy-instances). Chapter 21 x 24 is reinforced.
+- The implicit instance of a nested program, an instance of a nested program, instances in the top or in a child module, and the implicit instance of a top-level program are crossed with parameter defaults, values given by the instance and defparam, writes through a hierarchical name or the name of the parent, the read of the other program, and a nested program with ports that is left out or not. 24 cases were selected from 66 legal rows.
+- The ref port route is left out, since kirimasim has not implemented it, and is added as the eighth of the [candidates waiting for kirimasim](#models-waiting-for-kirimasim).
+- One complete 4,509-case run on kirimasim `77c27531437c` records 4,017 pass, 484 unsupported and 8 failures. 20 of the 24 additions pass, and the statuses of the preceding 4,485 cases are unchanged. Totals: 113 models, 193 chapter pairs, 87 full-selection-pass models.
+- The other four use a nested program with parameters and without ports. 24.3 instantiates a nested program without ports once, implicitly, but kirimasim does not when it has parameters (a nested module with parameters shows the same). The expectations are unchanged. Whether to file an issue is left to the user.
+- Every one of the 66 legal rows ran once. kirimasim matches 58 rows. Pinned Icarus 13.0 and Verilator (5.052 for all rows, 5.054 for the 24 selected cases) match none: they do not support nested programs and go on running after every program has ended. See the [pinned-release differences](simulator-differences.md#program-hierarchy-differences).

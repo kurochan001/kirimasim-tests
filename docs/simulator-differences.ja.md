@@ -30,6 +30,7 @@
 | 28.14 |rcmosはstrongのドライブをstrongのまま伝える。rtranやrtranifのように pullに縮小させなければなりません| `ch28/test_rcmos_reduction` |
 | 29.7 |逐次UDPインスタンスの遅延が初期値にも適用され、それまではxが見える。| `ch29/test_udp_initial_value_not_delayed` |
 | 24.3 |プログラムの初期処理が終了すると，それらが分岐したスレッドは実行を続ける。それらはprogramとともに終了しなければならない。| `ch24/test_program_end_kills_descendants` |
+| 24.3 |すべてのprogramのinitial手続きが終わった後も、時刻50の表示のようなmoduleの後の事象を実行し続ける。暗黙の`$finish`で終わらなければならない。| `gen/ch24/test_gen_cross_progmod_{top_inst,child_inst,implicit_top}_*`のケース |
 | 24.5, 24.3.1 |プログラムのスレッドと、そこから呼び出されるモジュールのタスクは、Reactive領域ではなく、モジュールのプロセスとともにActive領域で実行されます。そのため、呼び出し時には同じタイムステップのノンブロッキング更新より前の変数が見え、再開するタイムステップでは、モジュール自身のプロセスより前に実行されます。| `ch24/test_program_calls_module_task` |
 | 24.3.1 |programのプロセスには、そのタイムステップのノンブロッキング更新前の値が見える（Verilator 5.052も同様）。| `ch24/test_program_reactive_sees_nba`, `ch24/test_program_stimulus_after_clock_edge` |
 | 10.6.1, 4.9.2 |`assign`（手続き的連続代入）は右辺を1回だけ評価するため、変数は後の変化に追従しない（この点に関する警告が出る）。Verilator 5.052 は同じことをします）。| `ch4/test_sched_procedural_assign_deassign` |
@@ -983,6 +984,14 @@ kirimasim `afc7733c8167`は全42件と全288行が一致しました。期待値
 後者はinterfaceのtaskを使わない、moduleの中の`#5; #0; x = 8'h5a;`だけでも再現しました。
 kirimasim `77c27531437c`は全30件と全480行が一致しました。期待値は変えていません。
 
+<a id="program-hierarchy-differences"></a>
+
+## programのインスタンスを階層に置く方法（2026-11-14）
+
+[programのインスタンスを階層に置く方法のモデル](interaction-verification.md#program-hierarchy-instances)では、固定Icarus 13.0は24件とも一致しません。入れ子のprogramのインスタンスを作れず（未対応）、残りの置き方では、すべてのprogramが終わった後も時刻50のmoduleの表示を実行します（[上の表](#icarus-verilog-130)の24.3の行）。
+Verilator 5.054は両seedとも24件が一致しません。入れ子のprogramを未対応とし、残りの置き方ではIcarusと同じく実行を続けます。全66行の1回実行（Verilator 5.052）でも同じでした。
+kirimasim `77c27531437c`は、パラメータを持ちポートのない入れ子のprogramを暗黙にインスタンス化せず、その4件が一致しません。残りの20件と、全66行のうち58行は一致しました。期待値は変えていません。
+
 <a id="package-query-differences"></a>
 
 ## package配列の問い合わせと修飾名付き書込み（2026-11-06）
@@ -1300,3 +1309,4 @@ ch30/test_illegal_specify_path_to_input                           アサーシ�
 - 13.4（構文13-3の脚注）：functionの中の`var`のない型参照の変数宣言、クラスの外とinterface classのfunctionの上書き指定子、inoutの仮引数を持つfunctionの`force`での呼出し（副作用の警告だけ）を受け付ける。`ch13/test_illegal_function_local_type_reference_without_var`、`ch13/test_illegal_function_override_specifier_outside_class`、`ch13/test_illegal_function_override_specifier_interface_class`、`ch13/test_illegal_function_inout_arg_in_force`
 - 3.13：定義の名前空間とpackageの名前空間の名前の再使用を、警告MODDUPとするだけで設計をビルドする。`ch3/test_illegal_definition_name_interface_reused_by_program`、`ch3/test_illegal_definition_name_module_reused_in_other_file`、`ch3/test_illegal_definition_name_primitive_reused_by_module`、`ch3/test_illegal_definition_name_program_reused_by_primitive`、`ch3/test_illegal_package_name_reused_in_other_file`
 - 25.9：virtual interfaceを通して届く要素を、alwaysとalways_ffの先頭のイベント制御に置いた設計を受け付ける。`ch25/test_illegal_virtual_interface_component_in_always_event_control`、`ch25/test_illegal_virtual_interface_component_in_always_ff`
+- 24.3（同じ日のクロスモデル`program_hierarchy_instances`）：すべてのprogramのinitial手続きが終わった後も、時刻50の表示のようなmoduleの後の事象を実行し続ける。`gen/ch24/test_gen_cross_progmod_{top_inst,child_inst,implicit_top}_*`のケース

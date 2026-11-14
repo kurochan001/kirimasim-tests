@@ -64,13 +64,13 @@ For a first test, [walk through 24 real lines](docs/faq.en.md#q49-read-a-real-te
 These are inventory and expectation-provenance counts, not current simulator passes. See [what `:lrm:` and `:oracle:` record](docs/faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
 <!-- suite-stats:begin -->
-The suite has **12387 tests** in 38 chapters. 5797 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
+The suite has **12411 tests** in 38 chapters. 5821 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
 | Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 6440 |
 | Verilator 5.052 or 5.054, with no Icarus Verilog 13.0 oracle recorded | 2262 |
-| The standard only, with no fixed-release simulator oracle recorded | 3685 |
+| The standard only, with no fixed-release simulator oracle recorded | 3709 |
 
 2918 tests depend on x or z values (`:fourstate: yes`). 687 tests come with C code: 186 DPI tests (`:dpi_c:`) and 501 VPI tests (`:vpi_c:`). 1995 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 75 tests check the exit code of the simulation (`:expected_exit:`). 25 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 54 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
@@ -97,7 +97,7 @@ The suite has **12387 tests** in 38 chapters. 5797 of them are generated. The [g
 | 21 | Input/output system tasks and system functions | 495 | 352 | 37 | 106 |
 | 22 | Compiler directives | 516 | 437 | 38 | 41 |
 | 23 | Modules and hierarchy | 417 | 281 | 57 | 79 |
-| 24 | Programs | 197 | 37 | 38 | 122 |
+| 24 | Programs | 221 | 37 | 38 | 146 |
 | 25 | Interfaces | 264 | 90 | 119 | 55 |
 | 26 | Packages | 262 | 90 | 70 | 102 |
 | 27 | Generate constructs | 283 | 231 | 19 | 33 |
@@ -181,17 +181,17 @@ partial successes from separate runs are not combined into a successful requirem
 
 [Feature-interaction verification](docs/interaction-verification.en.md) uses constrained
 pairwise coverage, selected higher-order factor groups and mandatory boundary cases.
-The focused selection contains **4,485 tests across 112 models**; the normal full-suite
+The focused selection contains **4,509 tests across 113 models**; the normal full-suite
 run retains all existing tests. Models cover value/type conversion, scheduling,
 argument and reference binding, scope and hierarchy, state retention and I/O.
 The selection plan does not change the whole-standard requirement denominator.
 
-The [latest complete local cross run](coverage/interaction-results/full-20261114-kirimasim-77c27531.json),
+The [latest complete local cross run](coverage/interaction-results/full-20261114-kirimasim-77c27531-progmod.json),
 on kirimasim **`77c27531437c`**, records
-**3,997 pass, 484 unsupported and 4 fail**.
-The snapshot has 112 models and 4,485 selected cases.
+**4,017 pass, 484 unsupported and 8 fail**.
+The snapshot has 113 models and 4,509 selected cases.
 The Check and the Nightly run the generated cross tests with the rest of the fixed suite; the [report on the `results` branch](https://github.com/kurochan001/kirimasim-tests/tree/results#readme) has the latest Nightly results.
-All inputs retain their original expectations; the four failures are config parameter resets localized to pinned slang. The
+All inputs retain their original expectations; four failures are config parameter resets localized to pinned slang, and four are [nested programs](docs/interaction-verification.en.md#program-hierarchy-instances) with parameters that kirimasim does not instantiate implicitly. The
 [follow-up record](docs/cross-verification-followup.en.md) retains the earlier 11→9→4 history,
 complete-output replays, the 19-mechanism unsupported inventory and reviewed chapter pairs.
 The chapter CSVs use this single complete local run; formal confirmation is recorded separately.

@@ -1,0 +1,3 @@
+test_gen_cross_progmod_nested_inst_two_upward_override_read_ignored.p1 t=4 got=12 seen=12
+test_gen_cross_progmod_nested_inst_two_upward_override_read_ignored.p2 t=6 got=25 seen=12
+end t=6 total=37

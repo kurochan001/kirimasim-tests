@@ -5,7 +5,9 @@
 2026-11-06（日本時間）の更新です。2026-11-03の対応記録を保持し、固定回帰・正式Nightly・既存期待値・選択モデルを維持し、
 既知の不一致の修正、未対応の整理、要精査の章対の確認の順に進めています。
 
-現在の[全クロスのローカル選択](../coverage/interaction-results/full-20261114-kirimasim-77c27531.json)は112モデル・4,485件で、kirimasim `77c27531437c`で実行しました。3,997 pass・484 unsupported・4 failで、failはconfigの4件だけです。2026-11-14にprogramとinterfaceの間の領域のモデルを加えました。[最後の節](#program-interface-regions-20261114)を参照してください。
+現在の[全クロスのローカル選択](../coverage/interaction-results/full-20261114-kirimasim-77c27531-progmod.json)は113モデル・4,509件で、kirimasim `77c27531437c`で実行しました。4,017 pass・484 unsupported・8 failで、failはconfigの4件と、パラメータを持つ入れ子のprogramをkirimasimが暗黙にインスタンス化しない4件です。2026-11-14にprogramのインスタンスを階層に置く方法のモデルを加えました。[最後の節](#program-hierarchy-instances-20261114)を参照してください。
+
+その前の[全クロスのローカル選択](../coverage/interaction-results/full-20261114-kirimasim-77c27531.json)は112モデル・4,485件で、3,997 pass・484 unsupported・4 failです。同じ日にprogramとinterfaceの間の領域のモデルを加えました。[その節](#program-interface-regions-20261114)を参照してください。
 
 その前の[全クロスのローカル選択](../coverage/interaction-results/full-20261114-kirimasim-afc7733c.json)は111モデル・4,455件で、kirimasim `afc7733c8167`で実行しました。3,967 pass・484 unsupported・4 failで、failはconfigの4件だけです。同じ日に終了を呼ぶ場所のモデルを加えました。[その節](#simulation-end-sources-20261114)を参照してください。
 
@@ -167,10 +169,10 @@ Icarusは31入力に一致し、repeat回数1の5件は拒否を保持して、�
 
 ## kirimasimの実装を待つ候補
 
-次の7件は、kirimasimが未実装なので見送りました。テストがまだないので、実装されても結果は変わらず、確認しなければ気づけません。
+次の8件は、kirimasimが未実装なので見送りました。テストがまだないので、実装されても結果は変わらず、確認しなければ気づけません。
 kirimasimの新しいビルドで全クロスを実行するときに下のプログラムを試し、`not implemented yet`が出なくなったらモデルや観測を追加します。
 既存の未対応529件はテストがあり、実装されれば結果が変わるので、この一覧には入れません。
-同じ理由で見送るものが増えたらここへ足し、追加を終えた項目は消します。状態は2026-11-08のkirimasim `33cee3fa2f0d`のもので、6件とも`f029ddd0eee1`から変わっていません。2026-11-14の`afc7733c8167`と`77c27531437c`でも、6件ともまだ未実装です。7件目のvirtual interfaceは、2026-11-14に`77c27531437c`で加えました。
+同じ理由で見送るものが増えたらここへ足し、追加を終えた項目は消します。状態は2026-11-08のkirimasim `33cee3fa2f0d`のもので、6件とも`f029ddd0eee1`から変わっていません。2026-11-14の`afc7733c8167`と`77c27531437c`でも、6件ともまだ未実装です。7件目のvirtual interfaceと8件目のref ポートは、2026-11-14に`77c27531437c`で加えました。
 
 期待値は規格から求め、[全合法行を一度実行](interaction-verification-method.md#run-every-legal-row-once)して確かめます。
 
@@ -289,6 +291,24 @@ module top;
 endmodule
 ```
 
+### ref ポートの経路（`program_hierarchy_instances`への経路の追加）
+
+kirimasimは、moduleとprogramのref ポートを`unsupported: ref port`として未実装とします。
+23.3.3.2では、ref ポートへの参照は、接続した変数への階層参照として扱います。
+実装されたら、[`interaction_progmod.py`](../generators/interaction_progmod.py)の書き方にref ポート（トップの変数をref ポートでprogramへ渡し、子のmoduleでは自身のref ポートからさらに渡す形）を戻し、`VERSION`を上げて証跡を更新します。選択ケースの入力が変わるので、全クロスの再実行も必要です。
+固定Icarus 13.0はref ポートを未対応（sorry）とし、Verilator 5.054は下のプログラムで`total=5`を出します。
+
+```systemverilog
+module sub(ref int t);
+  initial #1 t += 5;
+endmodule
+module top;
+  int total = 0;
+  sub s(.t(total));
+  initial #2 $display("total=%0d", total);
+endmodule
+```
+
 ## マクロ展開・force/release・暗黙の感度（2026-11-07）
 
 - [マクロ展開](interaction-verification.md#macro-expansion-context)、[force/release](interaction-verification.md#force-release-visibility)、[暗黙の感度](interaction-verification.md#implicit-sensitivity-update)のモデルを追加しました。
@@ -385,3 +405,14 @@ endmodule
 - virtual interfaceの経路は、kirimasimが未実装なので外し、[実装待ちの一覧](#models-waiting-for-kirimasim)へ加えました。
 - kirimasim `77c27531437c`の単一の全4,485件は3,997 pass・484 unsupported・4 failです。追加30件は全PASSで、従来4,455件の状態は`afc7733c8167`から変わりません。112モデル・192章対・全選択ケースPASSは87モデルです。
 - 合法な480行をすべて1回実行しました。kirimasimは全行が一致します。固定Icarus 13.0はinterfaceのポートとmodportのimportをコンパイルできず、57行が一致します。固定Verilator 5.052はprogramをmoduleと同じ領域で実行し、372行が一致します。どちらも[記録済みの差異](simulator-differences.ja.md#program-interface-differences)です。
+
+<a id="program-hierarchy-instances-20261114"></a>
+
+## programのインスタンスを階層に置く方法（2026-11-14）
+
+- 未精査だった第23章×第24章を、[programのインスタンスを階層に置く方法のモデル](interaction-verification.md#program-hierarchy-instances)でRからMへ移しました。第21章×第24章も補強しました。
+- 入れ子の暗黙のインスタンス、入れ子の明示のインスタンス、トップや子のmoduleでの明示のインスタンス、トップレベルの暗黙のインスタンスを、パラメータの既定値・インスタンスの指定・defparam、階層名と親の名前による書込み、相手のprogramの読取り、ポートを持つ入れ子のprogramの有無と交差します。合法66行から24件を選びました。
+- ref ポートの経路は、kirimasimが未実装なので外し、[実装待ちの一覧](#models-waiting-for-kirimasim)へ8件目として加えました。
+- kirimasim `77c27531437c`の単一の全4,509件は4,017 pass・484 unsupported・8 failです。追加24件のうち20件がPASSで、従来4,485件の状態は変わりません。113モデル・193章対・全選択ケースPASSは87モデルです。
+- 残る4件は、パラメータを持ちポートのない入れ子のprogramです。24.3ではポートのない入れ子のprogramは暗黙に1回インスタンス化されますが、kirimasimはパラメータがあるとインスタンス化しません（パラメータを持つ入れ子のmoduleでも同じです）。期待値は変えていません。Issueにするかどうかは、利用者の判断を待ちます。
+- 合法な66行をすべて1回実行しました。kirimasimは58行が一致します。固定Icarus 13.0とVerilator（全行は5.052、選択した24件は5.054）はどの行も一致せず、入れ子のprogramに未対応で、全programの終了後も実行を続けます。[固定版の差異](simulator-differences.ja.md#program-hierarchy-differences)に記録しました。

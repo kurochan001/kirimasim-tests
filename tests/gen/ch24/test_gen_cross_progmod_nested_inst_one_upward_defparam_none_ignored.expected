@@ -1,0 +1,2 @@
+test_gen_cross_progmod_nested_inst_one_upward_defparam_none_ignored.p1 t=5 got=13
+end t=5 total=13

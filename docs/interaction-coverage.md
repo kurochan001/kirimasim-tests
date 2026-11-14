@@ -2254,6 +2254,26 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
 
 制約: 選択式はlogic [7:0]とし、?・z・xのどれか一種類の桁を含む項目一つとdefaultで調べる。項目は二進・八進・十六進・十進のリテラルで、先頭の桁が不定値か既知の値か、幅が選択式より狭いか同じか広いか、無サイズかを変える。先頭が不定値なら、その値でリテラルの幅まで埋まる。その後でcaseが全体を最も広い式の幅へ広げ、上のビットはゼロになる。一つのプログラムで、不定値の位置を既知の値で埋めた値・既知の位置を一つ反転した値・既知の位置をzやxにした値・項目と同じ四値の値を順に比べる。十進はx・z・?を一桁だけ書けるので先頭は不定値だけにする。十六進の二桁は狭い幅に入らないので除外する。
 
+## program_hierarchy_instances / model 1
+
+- 制約を満たす組合せ数: 66。
+- 利用できる既存・新規テスト: 24。
+- 短時間実行の選択: 24。
+- 個別に保持する必須ケース: 6。
+- 2因子の計画上の網羅: 90/90。
+- 3因子の計画上の網羅: 52/52。
+
+programのインスタンスを、トップに入れ子で宣言した暗黙のインスタンス・入れ子で宣言してトップで明示したインスタンス・トップか子のmoduleで明示したインスタンス・明示しないトップレベルの暗黙のインスタンスとして1個か2個置き、既定値・インスタンスの指定・defparamのパラメータで、階層名か親の名前からトップの変数へ書く。%mの階層名、相手のprogramの変数の読取り、ポートを持つ入れ子のprogramが動かないこと、最後のprogramの終了による暗黙の$finishを確かめる。
+
+- form: nested, nested_inst, top_inst, child_inst, implicit_top。
+- count: one, two。
+- access: absolute, upward。
+- param: default, override, defparam。
+- peer: none, read。
+- decoy: none, ignored。
+
+制約: programのインスタンスは、トップに入れ子で宣言した暗黙のインスタンス・入れ子で宣言してトップで明示したインスタンス・コンパイル単位で宣言してトップか子のmoduleで明示したインスタンス・明示しないトップレベルの暗黙のインスタンスのいずれかで、1個か2個置く。暗黙のインスタンスは1個で、ポートとインスタンスのパラメータ代入を持たない。トップレベルの暗黙のインスタンスへのdefparamは除く。名前だけで親の変数を読むのは入れ子のprogramだけ（23.4）。ref ポートはkirimasimが未実装なので、実装後に経路へ加える。2個のときは遅延が等しいと同じ時刻の書込みが競合するので、既定のパラメータの組を除く。相手のprogramの変数を読むのは2個のときだけ。ポートを持つ入れ子のprogramを明示しない（無視される）組と、置かない組を交差する。
+
 ## program_interface_regions / model 1
 
 - 制約を満たす組合せ数: 480。
@@ -2964,6 +2984,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -3629,6 +3655,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -4298,6 +4330,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -4963,6 +5001,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -5632,6 +5676,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -6297,6 +6347,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -6966,6 +7022,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -7631,6 +7693,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -8300,6 +8368,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -8965,6 +9039,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -9634,6 +9714,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -10299,6 +10385,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -10968,6 +11060,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -11633,6 +11731,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -12302,6 +12406,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -12967,6 +13077,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -13636,6 +13752,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -14301,6 +14423,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -14970,6 +15098,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -15635,6 +15769,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -16304,6 +16444,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -16969,6 +17115,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -17638,6 +17790,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -18303,6 +18461,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -18972,6 +19136,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -19637,6 +19807,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -20306,6 +20482,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -20971,6 +21153,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -21640,6 +21828,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -22305,6 +22499,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -22974,6 +23174,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -23639,6 +23845,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -24308,6 +24520,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -24973,6 +25191,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -25642,6 +25866,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -26307,6 +26537,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -26976,6 +27212,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -27641,6 +27883,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -28310,6 +28558,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -28975,6 +29229,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -29644,6 +29904,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -30309,6 +30575,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -30978,6 +31250,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -31643,6 +31921,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -32312,6 +32596,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -32977,6 +33267,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -33646,6 +33942,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -34311,6 +34613,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -34980,6 +35288,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -35645,6 +35959,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -36314,6 +36634,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -36979,6 +37305,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -37648,6 +37980,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -38313,6 +38651,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -38982,6 +39326,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -39647,6 +39997,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -40316,6 +40672,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -40981,6 +41343,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -41650,6 +42018,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -42315,6 +42689,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -42984,6 +43364,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -43649,6 +44035,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -44318,6 +44710,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -44983,6 +45381,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -45652,6 +46056,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -46317,6 +46727,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -46986,6 +47402,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -47651,6 +48073,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -48320,6 +48748,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -48985,6 +49419,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -49654,6 +50094,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -50319,6 +50765,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -50988,6 +51440,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -51654,6 +52112,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=24, not_run=0。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
@@ -52322,6 +52786,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=24, not_run=0。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -52988,6 +53458,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=24, not_run=0。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
@@ -53656,6 +54132,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=24, not_run=0。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -54321,6 +54803,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -54990,6 +55478,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -55655,6 +56149,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -56324,6 +56824,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -56989,6 +57495,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -57658,6 +58170,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -58323,6 +58841,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -58992,6 +59516,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -59657,6 +60187,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -60326,6 +60862,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -60991,6 +61533,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -61660,6 +62208,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -62325,6 +62879,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -62994,6 +63554,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -63659,6 +64225,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -64328,6 +64900,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -64993,6 +65571,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -65662,6 +66246,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -66327,6 +66917,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -66996,6 +67592,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -67661,6 +68263,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -68330,6 +68938,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -68995,6 +69609,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -69664,6 +70284,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -70329,6 +70955,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -70998,6 +71630,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -71663,6 +72301,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -72332,6 +72976,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -72997,6 +73647,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -73666,6 +74322,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -74331,6 +74993,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -75000,6 +75668,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -75665,6 +76339,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -76334,6 +77014,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -76999,6 +77685,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -77668,6 +78360,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -78333,6 +79031,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -79002,6 +79706,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -79667,6 +80377,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -80336,6 +81052,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -81001,6 +81723,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -81670,6 +82398,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -82335,6 +83069,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -83004,6 +83744,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -83669,6 +84415,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -84338,6 +85090,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -85003,6 +85761,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -85672,6 +86436,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -86337,6 +87107,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -87006,6 +87782,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -87671,6 +88453,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -88340,6 +89128,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -89005,6 +89799,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -89674,6 +90474,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -90339,6 +91145,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -91008,6 +91820,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -91673,6 +92491,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -92342,6 +93166,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -93007,6 +93837,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -93676,6 +94512,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -94341,6 +95183,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -95010,6 +95858,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -95675,6 +96529,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -96344,6 +97204,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -97009,6 +97875,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -97678,6 +98550,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -98343,6 +99221,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -99012,6 +99896,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -99677,6 +100567,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -100346,6 +101242,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -101011,6 +101913,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -101680,6 +102588,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -102345,6 +103259,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -103014,6 +103934,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -103679,6 +104605,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -104348,6 +105280,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -105013,6 +105951,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -105682,6 +106626,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -106347,6 +107297,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -107016,6 +107972,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -107681,6 +108643,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -108350,6 +109318,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -109015,6 +109989,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -109684,6 +110664,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -110349,6 +111335,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -111018,6 +112010,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -111683,6 +112681,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -112352,6 +113356,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -113017,6 +114027,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -113686,6 +114702,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -114351,6 +115373,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -115020,6 +116048,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -115685,6 +116719,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -116354,6 +117394,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -117019,6 +118065,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -117688,6 +118740,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -118353,6 +119411,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -119022,6 +120086,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -119687,6 +120757,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -120356,6 +121432,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -121021,6 +122103,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -121690,6 +122778,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -122355,6 +123449,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -123024,6 +124124,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -123689,6 +124795,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -124358,6 +125470,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -125023,6 +126141,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -125692,6 +126816,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -126357,6 +127487,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -127026,6 +128162,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -127691,6 +128833,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -128360,6 +129508,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -129025,6 +130179,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -129694,6 +130854,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -130359,6 +131525,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -131028,6 +132200,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -131693,6 +132871,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -132362,6 +133546,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -133027,6 +134217,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -133696,6 +134892,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -134361,6 +135563,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -135030,6 +136238,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -135695,6 +136909,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -136364,6 +137584,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -137029,6 +138255,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -137698,6 +138930,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -138363,6 +139601,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -139032,6 +140276,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -139697,6 +140947,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -140366,6 +141622,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -141031,6 +142293,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -141700,6 +142968,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -142365,6 +143639,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -143034,6 +144314,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -143699,6 +144985,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -144368,6 +145660,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -145033,6 +146331,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -145702,6 +147006,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -146367,6 +147677,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -147036,6 +148352,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -147701,6 +149023,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -148370,6 +149698,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -149035,6 +150369,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -149704,6 +151044,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -150369,6 +151715,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -151038,6 +152390,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -151703,6 +153061,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -152372,6 +153736,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -153037,6 +154407,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -153706,6 +155082,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -154371,6 +155753,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -155040,6 +156428,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -155705,6 +157099,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -156374,6 +157774,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -157039,6 +158445,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -157708,6 +159120,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -158373,6 +159791,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -159042,6 +160466,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -159707,6 +161137,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -160376,6 +161812,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -161041,6 +162483,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -161710,6 +163158,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -162375,6 +163829,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -163044,6 +164504,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -163709,6 +165175,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -164378,6 +165850,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -165043,6 +166521,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -165712,6 +167196,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -166377,6 +167867,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -167046,6 +168542,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -167711,6 +169213,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -168380,6 +169888,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -169045,6 +170559,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -169714,6 +171234,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -170379,6 +171905,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -171048,6 +172580,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -171713,6 +173251,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -172382,6 +173926,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -173047,6 +174597,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -173716,6 +175272,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -174381,6 +175943,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -175050,6 +176618,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -175715,6 +177289,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -176384,6 +177964,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -177049,6 +178635,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -177718,6 +179310,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -178383,6 +179981,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -179052,6 +180656,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -179717,6 +181327,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -180386,6 +182002,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -181051,6 +182673,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -181720,6 +183348,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -182385,6 +184019,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -183054,6 +184694,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -183719,6 +185365,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -184388,6 +186040,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -185053,6 +186711,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -185722,6 +187386,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -186387,6 +188057,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -187056,6 +188732,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -187614,6 +189296,11 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -188168,6 +189855,11 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
@@ -188724,6 +190416,11 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -189278,6 +190975,11 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
@@ -189834,6 +191536,11 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -190388,6 +192095,11 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
@@ -191051,6 +192763,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -191720,6 +193438,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -192385,6 +194109,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -193054,6 +194784,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -193719,6 +195455,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -194388,6 +196130,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -195053,6 +196801,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -195722,6 +197476,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -196389,6 +198149,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -196947,6 +198713,11 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 3因子の合格確認済み組合せ: 18/24。
   - 必須ケース: 5/7。
   - ケース状態: pass=18, fail=0, known=6, unsupported=0, stale=0, not_run=0。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -197502,6 +199273,11 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 3因子の合格確認済み組合せ: 24/24。
   - 必須ケース: 7/7。
   - ケース状態: pass=24, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -198057,6 +199833,11 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 3因子の合格確認済み組合せ: 24/24。
   - 必須ケース: 7/7。
   - ケース状態: pass=24, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -198612,6 +200393,11 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 3因子の合格確認済み組合せ: 24/24。
   - 必須ケース: 7/7。
   - ケース状態: pass=24, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -199167,6 +200953,11 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=24, unsupported=0, stale=0, not_run=0。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -199722,6 +201513,11 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=24, unsupported=0, stale=0, not_run=0。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -199736,6 +201532,566 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 37/104。
   - 必須ケース: 2/7。
   - ケース状態: pass=15, fail=0, known=33, unsupported=0, stale=0, not_run=0。
+
+### coverage/interaction-results/full-20261114-kirimasim-77c27531-progmod.json
+
+- 環境: kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401。
+- 実行日時: 2026-11-14T03:13:39.456517+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 126/126。
+  - 3因子の合格確認済み組合せ: 51/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=274。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 44/44。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 143/143。
+  - 3因子の合格確認済み組合せ: 63/63。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 48/48。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 185/185。
+  - 3因子の合格確認済み組合せ: 76/76。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=32, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 298/298。
+  - 3因子の合格確認済み組合せ: 92/92。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=56, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 76/76。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=32, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 144/144。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 162/162。
+  - 3因子の合格確認済み組合せ: 63/63。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 186/186。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 220/220。
+  - 3因子の合格確認済み組合せ: 82/82。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 204/204。
+  - 3因子の合格確認済み組合せ: 56/56。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 148/148。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 285/285。
+  - 3因子の合格確認済み組合せ: 108/108。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 182/182。
+  - 3因子の合格確認済み組合せ: 68/68。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 302/302。
+  - 3因子の合格確認済み組合せ: 174/174。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=100, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 261/261。
+  - 3因子の合格確認済み組合せ: 162/162。
+  - 必須ケース: 8/8。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 253/253。
+  - 3因子の合格確認済み組合せ: 106/106。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=44, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 258/258。
+  - 3因子の合格確認済み組合せ: 120/120。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 257/257。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- division_context:
+  - 2因子の合格確認済み組合せ: 283/283。
+  - 3因子の合格確認済み組合せ: 98/98。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 219/219。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=38, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 265/265。
+  - 3因子の合格確認済み組合せ: 126/126。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 218/218。
+  - 3因子の合格確認済み組合せ: 142/142。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=70, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 236/236。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=92, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 259/259。
+  - 3因子の合格確認済み組合せ: 152/152。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=64, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 104/104。
+  - 3因子の合格確認済み組合せ: 59/59。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=27, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 40/40。
+  - 必須ケース: 3/3。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 308/308。
+  - 3因子の合格確認済み組合せ: 90/90。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 305/305。
+  - 3因子の合格確認済み組合せ: 174/174。
+  - 必須ケース: 5/5。
+  - ケース状態: pass=46, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 303/303。
+  - 3因子の合格確認済み組合せ: 178/178。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=46, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 315/315。
+  - 3因子の合格確認済み組合せ: 154/154。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=34, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 118/165。
+  - 3因子の合格確認済み組合せ: 38/72。
+  - 必須ケース: 2/5。
+  - ケース状態: pass=24, fail=0, known=0, unsupported=12, stale=0, not_run=0。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=36, stale=0, not_run=0。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 214/214。
+  - 3因子の合格確認済み組合せ: 88/88。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 135/202。
+  - 3因子の合格確認済み組合せ: 39/99。
+  - 必須ケース: 2/6。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=18, stale=0, not_run=0。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 161/161。
+  - 3因子の合格確認済み組合せ: 120/120。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 246/246。
+  - 3因子の合格確認済み組合せ: 111/111。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 242/242。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 148/148。
+  - 3因子の合格確認済み組合せ: 68/68。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 159/159。
+  - 3因子の合格確認済み組合せ: 128/128。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 109/109。
+  - 3因子の合格確認済み組合せ: 52/52。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=13, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 141/141。
+  - 3因子の合格確認済み組合せ: 129/129。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=63, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 158/158。
+  - 3因子の合格確認済み組合せ: 141/141。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=39, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 248/248。
+  - 3因子の合格確認済み組合せ: 82/82。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 109/109。
+  - 3因子の合格確認済み組合せ: 38/38。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 156/156。
+  - 3因子の合格確認済み組合せ: 72/72。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 165/165。
+  - 3因子の合格確認済み組合せ: 74/74。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 183/183。
+  - 3因子の合格確認済み組合せ: 84/84。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 207/213。
+  - 3因子の合格確認済み組合せ: 72/80。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=37, fail=4, known=0, unsupported=0, stale=0, not_run=0。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 182/182。
+  - 3因子の合格確認済み組合せ: 80/80。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=25, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_udp_state:
+  - 2因子の合格確認済み組合せ: 165/165。
+  - 3因子の合格確認済み組合せ: 68/68。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- interface_header_import:
+  - 2因子の合格確認済み組合せ: 183/183。
+  - 3因子の合格確認済み組合せ: 78/78。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- mailbox_class_alias:
+  - 2因子の合格確認済み組合せ: 0/245。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/9。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=36, stale=0, not_run=0。
+- distribution_expression_binding:
+  - 2因子の合格確認済み組合せ: 0/154。
+  - 3因子の合格確認済み組合せ: 0/81。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=31, stale=0, not_run=0。
+- generate_default_disable:
+  - 2因子の合格確認済み組合せ: 0/93。
+  - 3因子の合格確認済み組合せ: 0/60。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=18, stale=0, not_run=0。
+- array_reduction_constraint:
+  - 2因子の合格確認済み組合せ: 0/96。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=13, stale=0, not_run=0。
+- associative_array_queries:
+  - 2因子の合格確認済み組合せ: 0/93。
+  - 3因子の合格確認済み組合せ: 0/54。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=18, stale=0, not_run=0。
+- clocking_event_iff:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/44。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=12, stale=0, not_run=0。
+- class_virtual_interface:
+  - 2因子の合格確認済み組合せ: 0/96。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=13, stale=0, not_run=0。
+- resolved_strength_format:
+  - 2因子の合格確認済み組合せ: 87/87。
+  - 3因子の合格確認済み組合せ: 78/78。
+  - 必須ケース: 4/4。
+  - ケース状態: pass=31, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- class_array_shallow_copy:
+  - 2因子の合格確認済み組合せ: 67/108。
+  - 3因子の合格確認済み組合せ: 21/60。
+  - 必須ケース: 1/4。
+  - ケース状態: pass=6, fail=0, known=0, unsupported=12, stale=0, not_run=0。
+- dpi_openarray_shape:
+  - 2因子の合格確認済み組合せ: 0/100。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=30, stale=0, not_run=0。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=18, stale=0, not_run=0。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=13, stale=0, not_run=0。
+- dpi_nba_capture:
+  - 2因子の合格確認済み組合せ: 0/81。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=18, stale=0, not_run=0。
+- aggregate_event_lifetime:
+  - 2因子の合格確認済み組合せ: 0/123。
+  - 3因子の合格確認済み組合せ: 0/54。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=18, stale=0, not_run=0。
+- sv_dpi_array_queries:
+  - 2因子の合格確認済み組合せ: 0/176。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=16, stale=0, not_run=0。
+- sdf_conditional_paths:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/46。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=18, stale=0, not_run=0。
+- checker_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/174。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=27, stale=0, not_run=0。
+- program_assertion_attempts:
+  - 2因子の合格確認済み組合せ: 0/138。
+  - 3因子の合格確認済み組合せ: 0/75。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=27, stale=0, not_run=0。
+- container_coverage_sampling:
+  - 2因子の合格確認済み組合せ: 0/172。
+  - 3因子の合格確認済み組合せ: 0/79。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=33, stale=0, not_run=0。
+- deferred_disable_reports:
+  - 2因子の合格確認済み組合せ: 151/151。
+  - 3因子の合格確認済み組合せ: 92/92。
+  - 必須ケース: 10/10。
+  - ケース状態: pass=31, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- event_rebinding:
+  - 2因子の合格確認済み組合せ: 0/138。
+  - 3因子の合格確認済み組合せ: 0/69。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=27, stale=0, not_run=0。
+- clocking_named_event:
+  - 2因子の合格確認済み組合せ: 78/100。
+  - 3因子の合格確認済み組合せ: 22/40。
+  - 必須ケース: 3/6。
+  - ケース状態: pass=12, fail=0, known=0, unsupported=12, stale=0, not_run=0。
+- deferred_argument_capture:
+  - 2因子の合格確認済み組合せ: 145/145。
+  - 3因子の合格確認済み組合せ: 71/71。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=29, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_enum_navigation:
+  - 2因子の合格確認済み組合せ: 181/181。
+  - 3因子の合格確認済み組合せ: 110/110。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- package_nba_capture:
+  - 2因子の合格確認済み組合せ: 183/183。
+  - 3因子の合格確認済み組合せ: 126/126。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- package_change_observers:
+  - 2因子の合格確認済み組合せ: 225/225。
+  - 3因子の合格確認済み組合せ: 122/122。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- class_method_package_lookup:
+  - 2因子の合格確認済み組合せ: 244/244。
+  - 3因子の合格確認済み組合せ: 110/110。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=34, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_subroutine_binding:
+  - 2因子の合格確認済み組合せ: 228/228。
+  - 3因子の合格確認済み組合せ: 112/112。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- class_conditional_return:
+  - 2因子の合格確認済み組合せ: 183/183。
+  - 3因子の合格確認済み組合せ: 135/135。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_process_loop_transfer:
+  - 2因子の合格確認済み組合せ: 293/293。
+  - 3因子の合格確認済み組合せ: 160/160。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- interface_array_query_walk:
+  - 2因子の合格確認済み組合せ: 274/274。
+  - 3因子の合格確認済み組合せ: 96/96。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- generated_constant_expression_shape:
+  - 2因子の合格確認済み組合せ: 297/297。
+  - 3因子の合格確認済み組合せ: 132/132。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- formatted_scan_partial_write:
+  - 2因子の合格確認済み組合せ: 292/292。
+  - 3因子の合格確認済み組合せ: 142/142。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_task_frame_lifetime:
+  - 2因子の合格確認済み組合せ: 249/249。
+  - 3因子の合格確認済み組合せ: 100/100。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- package_array_query_scope:
+  - 2因子の合格確認済み組合せ: 249/249。
+  - 3因子の合格確認済み組合せ: 118/118。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- named_event_loop_transfer:
+  - 2因子の合格確認済み組合せ: 223/223。
+  - 3因子の合格確認済み組合せ: 140/140。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- time_scope_delay:
+  - 2因子の合格確認済み組合せ: 291/291。
+  - 3因子の合格確認済み組合せ: 136/136。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- literal_context_extension:
+  - 2因子の合格確認済み組合せ: 303/303。
+  - 3因子の合格確認済み組合せ: 148/148。
+  - 必須ケース: 8/8。
+  - ケース状態: pass=66, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- gate_array_connection:
+  - 2因子の合格確認済み組合せ: 278/278。
+  - 3因子の合格確認済み組合せ: 135/135。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- macro_expansion_context:
+  - 2因子の合格確認済み組合せ: 463/463。
+  - 必須ケース: 9/9。
+  - ケース状態: pass=114, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- force_release_visibility:
+  - 2因子の合格確認済み組合せ: 228/228。
+  - 3因子の合格確認済み組合せ: 72/72。
+  - 必須ケース: 8/8。
+  - ケース状態: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- implicit_sensitivity_update:
+  - 2因子の合格確認済み組合せ: 177/177。
+  - 必須ケース: 25/25。
+  - ケース状態: pass=61, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- interface_member_expression:
+  - 2因子の合格確認済み組合せ: 264/264。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=49, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- loop_control_scheduling:
+  - 2因子の合格確認済み組合せ: 82/82。
+  - 3因子の合格確認済み組合せ: 55/55。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=55, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- literal_format_display:
+  - 2因子の合格確認済み組合せ: 301/301。
+  - 必須ケース: 9/9。
+  - ケース状態: pass=91, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- parameter_override_type:
+  - 2因子の合格確認済み組合せ: 120/120。
+  - 必須ケース: 8/8。
+  - ケース状態: pass=44, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- assertion_vector_query:
+  - 2因子の合格確認済み組合せ: 138/138。
+  - 3因子の合格確認済み組合せ: 15/15。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=30, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- literal_argument_conversion:
+  - 2因子の合格確認済み組合せ: 169/169。
+  - 必須ケース: 8/8。
+  - ケース状態: pass=62, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- hierarchical_process_control:
+  - 2因子の合格確認済み組合せ: 113/113。
+  - 3因子の合格確認済み組合せ: 36/36。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=42, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- hierarchical_name_display:
+  - 2因子の合格確認済み組合せ: 143/143。
+  - 3因子の合格確認済み組合せ: 27/27。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=65, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- array_query_loop:
+  - 2因子の合格確認済み組合せ: 151/151。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- delay_value_form:
+  - 2因子の合格確認済み組合せ: 126/126。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- package_name_lookup:
+  - 2因子の合格確認済み組合せ: 88/88。
+  - 3因子の合格確認済み組合せ: 37/37。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=37, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- escaped_name_binding:
+  - 2因子の合格確認済み組合せ: 100/100。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=29, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- scoped_class_declaration:
+  - 2因子の合格確認済み組合せ: 100/100。
+  - 3因子の合格確認済み組合せ: 48/48。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- case_literal_wildcard:
+  - 2因子の合格確認済み組合せ: 112/112。
+  - 3因子の合格確認済み組合せ: 24/24。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=24, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 82/90。
+  - 3因子の合格確認済み組合せ: 43/52。
+  - 必須ケース: 5/6。
+  - ケース状態: pass=20, fail=4, known=0, unsupported=0, stale=0, not_run=0。
+- program_interface_regions:
+  - 2因子の合格確認済み組合せ: 131/131。
+  - 3因子の合格確認済み組合せ: 82/82。
+  - 必須ケース: 10/10。
+  - ケース状態: pass=30, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- simulation_end_sources:
+  - 2因子の合格確認済み組合せ: 110/110。
+  - 3因子の合格確認済み組合せ: 95/95。
+  - 必須ケース: 10/10。
+  - ケース状態: pass=42, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- aggregate_literal_key:
+  - 2因子の合格確認済み組合せ: 82/104。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=40, fail=0, known=0, unsupported=8, stale=0, not_run=0。
 
 ### coverage/interaction-results/full-20261114-kirimasim-77c27531.json
 
@@ -200277,6 +202633,11 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 3因子の合格確認済み組合せ: 24/24。
   - 必須ケース: 7/7。
   - ケース状態: pass=24, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 131/131。
   - 3因子の合格確認済み組合せ: 82/82。
@@ -200832,6 +203193,11 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 3因子の合格確認済み組合せ: 24/24。
   - 必須ケース: 7/7。
   - ケース状態: pass=24, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -201494,6 +203860,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -202163,6 +204535,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -202828,6 +205206,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -203497,6 +205881,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -204162,6 +206552,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -204831,6 +207227,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -205496,6 +207898,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -206165,6 +208573,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -206830,6 +209244,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -207499,6 +209919,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -208164,6 +210590,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -208833,6 +211265,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -209498,6 +211936,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -210167,6 +212611,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -210832,6 +213282,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -211501,6 +213957,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -212166,6 +214628,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -212835,6 +215303,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -213500,6 +215974,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -214169,6 +216649,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -214834,6 +217320,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -215503,6 +217995,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -216168,6 +218666,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -216837,6 +219341,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -217504,6 +220014,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -218062,6 +220578,11 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 53/131。
   - 3因子の合格確認済み組合せ: 21/82。
@@ -218616,6 +221137,11 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 123/131。
@@ -219172,11 +221698,1696 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 123/131。
   - 3因子の合格確認済み組合せ: 60/82。
   - 必須ケース: 6/10。
   - ケース状態: pass=20, fail=0, known=10, unsupported=0, stale=0, not_run=0。
+- simulation_end_sources:
+  - 2因子の合格確認済み組合せ: 0/110。
+  - 3因子の合格確認済み組合せ: 0/95。
+  - 必須ケース: 0/10。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=42。
+- aggregate_literal_key:
+  - 2因子の合格確認済み組合せ: 0/104。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+
+### coverage/interaction-results/progmod-20261114-icarus13.json
+
+- 環境: Icarus Verilog version 13.0 (stable) (v13_0)。
+- 実行日時: 2026-11-14T03:12:28.945797+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 0/126。
+  - 3因子の合格確認済み組合せ: 0/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=325。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/44。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 0/143。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 0/185。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 0/298。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=56。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 0/144。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 0/186。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 0/220。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 0/204。
+  - 3因子の合格確認済み組合せ: 0/56。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 0/285。
+  - 3因子の合格確認済み組合せ: 0/108。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 0/302。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=100。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 0/261。
+  - 3因子の合格確認済み組合せ: 0/162。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 0/253。
+  - 3因子の合格確認済み組合せ: 0/106。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 0/258。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 0/257。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- division_context:
+  - 2因子の合格確認済み組合せ: 0/283。
+  - 3因子の合格確認済み組合せ: 0/98。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 0/219。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=38。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 0/265。
+  - 3因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 0/218。
+  - 3因子の合格確認済み組合せ: 0/142。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=70。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/236。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=92。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 0/259。
+  - 3因子の合格確認済み組合せ: 0/152。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=64。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 0/104。
+  - 3因子の合格確認済み組合せ: 0/59。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 0/308。
+  - 3因子の合格確認済み組合せ: 0/90。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 0/305。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 0/303。
+  - 3因子の合格確認済み組合せ: 0/178。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 0/315。
+  - 3因子の合格確認済み組合せ: 0/154。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/88。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 0/161。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 0/246。
+  - 3因子の合格確認済み組合せ: 0/111。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 0/242。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 0/159。
+  - 3因子の合格確認済み組合せ: 0/128。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 0/141。
+  - 3因子の合格確認済み組合せ: 0/129。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=63。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 0/158。
+  - 3因子の合格確認済み組合せ: 0/141。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+- generated_udp_state:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- interface_header_import:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/78。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- mailbox_class_alias:
+  - 2因子の合格確認済み組合せ: 0/245。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/9。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- distribution_expression_binding:
+  - 2因子の合格確認済み組合せ: 0/154。
+  - 3因子の合格確認済み組合せ: 0/81。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=31。
+- generate_default_disable:
+  - 2因子の合格確認済み組合せ: 0/93。
+  - 3因子の合格確認済み組合せ: 0/60。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- array_reduction_constraint:
+  - 2因子の合格確認済み組合せ: 0/96。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- associative_array_queries:
+  - 2因子の合格確認済み組合せ: 0/93。
+  - 3因子の合格確認済み組合せ: 0/54。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- clocking_event_iff:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/44。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=12。
+- class_virtual_interface:
+  - 2因子の合格確認済み組合せ: 0/96。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- resolved_strength_format:
+  - 2因子の合格確認済み組合せ: 0/87。
+  - 3因子の合格確認済み組合せ: 0/78。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=31。
+- class_array_shallow_copy:
+  - 2因子の合格確認済み組合せ: 0/108。
+  - 3因子の合格確認済み組合せ: 0/60。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- dpi_openarray_shape:
+  - 2因子の合格確認済み組合せ: 0/100。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=30。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- dpi_nba_capture:
+  - 2因子の合格確認済み組合せ: 0/81。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- aggregate_event_lifetime:
+  - 2因子の合格確認済み組合せ: 0/123。
+  - 3因子の合格確認済み組合せ: 0/54。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- sv_dpi_array_queries:
+  - 2因子の合格確認済み組合せ: 0/176。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=16。
+- sdf_conditional_paths:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/46。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- checker_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/174。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- program_assertion_attempts:
+  - 2因子の合格確認済み組合せ: 0/138。
+  - 3因子の合格確認済み組合せ: 0/75。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- container_coverage_sampling:
+  - 2因子の合格確認済み組合せ: 0/172。
+  - 3因子の合格確認済み組合せ: 0/79。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=33。
+- deferred_disable_reports:
+  - 2因子の合格確認済み組合せ: 0/151。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/10。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=31。
+- event_rebinding:
+  - 2因子の合格確認済み組合せ: 0/138。
+  - 3因子の合格確認済み組合せ: 0/69。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- clocking_named_event:
+  - 2因子の合格確認済み組合せ: 0/100。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- deferred_argument_capture:
+  - 2因子の合格確認済み組合せ: 0/145。
+  - 3因子の合格確認済み組合せ: 0/71。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=29。
+- generated_enum_navigation:
+  - 2因子の合格確認済み組合せ: 0/181。
+  - 3因子の合格確認済み組合せ: 0/110。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- package_nba_capture:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- package_change_observers:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/122。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_method_package_lookup:
+  - 2因子の合格確認済み組合せ: 0/244。
+  - 3因子の合格確認済み組合せ: 0/110。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34。
+- generated_subroutine_binding:
+  - 2因子の合格確認済み組合せ: 0/228。
+  - 3因子の合格確認済み組合せ: 0/112。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_conditional_return:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/135。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generated_process_loop_transfer:
+  - 2因子の合格確認済み組合せ: 0/293。
+  - 3因子の合格確認済み組合せ: 0/160。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- interface_array_query_walk:
+  - 2因子の合格確認済み組合せ: 0/274。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generated_constant_expression_shape:
+  - 2因子の合格確認済み組合せ: 0/297。
+  - 3因子の合格確認済み組合せ: 0/132。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- formatted_scan_partial_write:
+  - 2因子の合格確認済み組合せ: 0/292。
+  - 3因子の合格確認済み組合せ: 0/142。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_task_frame_lifetime:
+  - 2因子の合格確認済み組合せ: 0/249。
+  - 3因子の合格確認済み組合せ: 0/100。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- package_array_query_scope:
+  - 2因子の合格確認済み組合せ: 0/249。
+  - 3因子の合格確認済み組合せ: 0/118。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- named_event_loop_transfer:
+  - 2因子の合格確認済み組合せ: 0/223。
+  - 3因子の合格確認済み組合せ: 0/140。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- time_scope_delay:
+  - 2因子の合格確認済み組合せ: 0/291。
+  - 3因子の合格確認済み組合せ: 0/136。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- literal_context_extension:
+  - 2因子の合格確認済み組合せ: 0/303。
+  - 3因子の合格確認済み組合せ: 0/148。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66。
+- gate_array_connection:
+  - 2因子の合格確認済み組合せ: 0/278。
+  - 3因子の合格確認済み組合せ: 0/135。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51。
+- macro_expansion_context:
+  - 2因子の合格確認済み組合せ: 0/463。
+  - 必須ケース: 0/9。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=114。
+- force_release_visibility:
+  - 2因子の合格確認済み組合せ: 0/228。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- implicit_sensitivity_update:
+  - 2因子の合格確認済み組合せ: 0/177。
+  - 必須ケース: 0/25。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=61。
+- interface_member_expression:
+  - 2因子の合格確認済み組合せ: 0/264。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=49。
+- loop_control_scheduling:
+  - 2因子の合格確認済み組合せ: 0/82。
+  - 3因子の合格確認済み組合せ: 0/55。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=55。
+- literal_format_display:
+  - 2因子の合格確認済み組合せ: 0/301。
+  - 必須ケース: 0/9。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=91。
+- parameter_override_type:
+  - 2因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44。
+- assertion_vector_query:
+  - 2因子の合格確認済み組合せ: 0/138。
+  - 3因子の合格確認済み組合せ: 0/15。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=30。
+- literal_argument_conversion:
+  - 2因子の合格確認済み組合せ: 0/169。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=62。
+- hierarchical_process_control:
+  - 2因子の合格確認済み組合せ: 0/113。
+  - 3因子の合格確認済み組合せ: 0/36。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=42。
+- hierarchical_name_display:
+  - 2因子の合格確認済み組合せ: 0/143。
+  - 3因子の合格確認済み組合せ: 0/27。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=65。
+- array_query_loop:
+  - 2因子の合格確認済み組合せ: 0/151。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- delay_value_form:
+  - 2因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- package_name_lookup:
+  - 2因子の合格確認済み組合せ: 0/88。
+  - 3因子の合格確認済み組合せ: 0/37。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=37。
+- escaped_name_binding:
+  - 2因子の合格確認済み組合せ: 0/100。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=29。
+- scoped_class_declaration:
+  - 2因子の合格確認済み組合せ: 0/100。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- case_literal_wildcard:
+  - 2因子の合格確認済み組合せ: 0/112。
+  - 3因子の合格確認済み組合せ: 0/24。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=24, unsupported=0, stale=0, not_run=0。
+- program_interface_regions:
+  - 2因子の合格確認済み組合せ: 0/131。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/10。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=30。
+- simulation_end_sources:
+  - 2因子の合格確認済み組合せ: 0/110。
+  - 3因子の合格確認済み組合せ: 0/95。
+  - 必須ケース: 0/10。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=42。
+- aggregate_literal_key:
+  - 2因子の合格確認済み組合せ: 0/104。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+
+### coverage/interaction-results/progmod-20261114-verilator5054-seed1.json
+
+- 環境: Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101。
+- 実行日時: 2026-11-14T03:12:35.441104+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 0/126。
+  - 3因子の合格確認済み組合せ: 0/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=325。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/44。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 0/143。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 0/185。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 0/298。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=56。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 0/144。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 0/186。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 0/220。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 0/204。
+  - 3因子の合格確認済み組合せ: 0/56。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 0/285。
+  - 3因子の合格確認済み組合せ: 0/108。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 0/302。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=100。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 0/261。
+  - 3因子の合格確認済み組合せ: 0/162。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 0/253。
+  - 3因子の合格確認済み組合せ: 0/106。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 0/258。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 0/257。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- division_context:
+  - 2因子の合格確認済み組合せ: 0/283。
+  - 3因子の合格確認済み組合せ: 0/98。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 0/219。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=38。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 0/265。
+  - 3因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 0/218。
+  - 3因子の合格確認済み組合せ: 0/142。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=70。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/236。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=92。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 0/259。
+  - 3因子の合格確認済み組合せ: 0/152。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=64。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 0/104。
+  - 3因子の合格確認済み組合せ: 0/59。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 0/308。
+  - 3因子の合格確認済み組合せ: 0/90。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 0/305。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 0/303。
+  - 3因子の合格確認済み組合せ: 0/178。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 0/315。
+  - 3因子の合格確認済み組合せ: 0/154。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/88。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 0/161。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 0/246。
+  - 3因子の合格確認済み組合せ: 0/111。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 0/242。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 0/159。
+  - 3因子の合格確認済み組合せ: 0/128。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 0/141。
+  - 3因子の合格確認済み組合せ: 0/129。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=63。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 0/158。
+  - 3因子の合格確認済み組合せ: 0/141。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+- generated_udp_state:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- interface_header_import:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/78。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- mailbox_class_alias:
+  - 2因子の合格確認済み組合せ: 0/245。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/9。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- distribution_expression_binding:
+  - 2因子の合格確認済み組合せ: 0/154。
+  - 3因子の合格確認済み組合せ: 0/81。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=31。
+- generate_default_disable:
+  - 2因子の合格確認済み組合せ: 0/93。
+  - 3因子の合格確認済み組合せ: 0/60。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- array_reduction_constraint:
+  - 2因子の合格確認済み組合せ: 0/96。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- associative_array_queries:
+  - 2因子の合格確認済み組合せ: 0/93。
+  - 3因子の合格確認済み組合せ: 0/54。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- clocking_event_iff:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/44。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=12。
+- class_virtual_interface:
+  - 2因子の合格確認済み組合せ: 0/96。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- resolved_strength_format:
+  - 2因子の合格確認済み組合せ: 0/87。
+  - 3因子の合格確認済み組合せ: 0/78。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=31。
+- class_array_shallow_copy:
+  - 2因子の合格確認済み組合せ: 0/108。
+  - 3因子の合格確認済み組合せ: 0/60。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- dpi_openarray_shape:
+  - 2因子の合格確認済み組合せ: 0/100。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=30。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- dpi_nba_capture:
+  - 2因子の合格確認済み組合せ: 0/81。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- aggregate_event_lifetime:
+  - 2因子の合格確認済み組合せ: 0/123。
+  - 3因子の合格確認済み組合せ: 0/54。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- sv_dpi_array_queries:
+  - 2因子の合格確認済み組合せ: 0/176。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=16。
+- sdf_conditional_paths:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/46。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- checker_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/174。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- program_assertion_attempts:
+  - 2因子の合格確認済み組合せ: 0/138。
+  - 3因子の合格確認済み組合せ: 0/75。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- container_coverage_sampling:
+  - 2因子の合格確認済み組合せ: 0/172。
+  - 3因子の合格確認済み組合せ: 0/79。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=33。
+- deferred_disable_reports:
+  - 2因子の合格確認済み組合せ: 0/151。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/10。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=31。
+- event_rebinding:
+  - 2因子の合格確認済み組合せ: 0/138。
+  - 3因子の合格確認済み組合せ: 0/69。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- clocking_named_event:
+  - 2因子の合格確認済み組合せ: 0/100。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- deferred_argument_capture:
+  - 2因子の合格確認済み組合せ: 0/145。
+  - 3因子の合格確認済み組合せ: 0/71。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=29。
+- generated_enum_navigation:
+  - 2因子の合格確認済み組合せ: 0/181。
+  - 3因子の合格確認済み組合せ: 0/110。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- package_nba_capture:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- package_change_observers:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/122。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_method_package_lookup:
+  - 2因子の合格確認済み組合せ: 0/244。
+  - 3因子の合格確認済み組合せ: 0/110。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34。
+- generated_subroutine_binding:
+  - 2因子の合格確認済み組合せ: 0/228。
+  - 3因子の合格確認済み組合せ: 0/112。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_conditional_return:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/135。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generated_process_loop_transfer:
+  - 2因子の合格確認済み組合せ: 0/293。
+  - 3因子の合格確認済み組合せ: 0/160。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- interface_array_query_walk:
+  - 2因子の合格確認済み組合せ: 0/274。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generated_constant_expression_shape:
+  - 2因子の合格確認済み組合せ: 0/297。
+  - 3因子の合格確認済み組合せ: 0/132。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- formatted_scan_partial_write:
+  - 2因子の合格確認済み組合せ: 0/292。
+  - 3因子の合格確認済み組合せ: 0/142。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_task_frame_lifetime:
+  - 2因子の合格確認済み組合せ: 0/249。
+  - 3因子の合格確認済み組合せ: 0/100。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- package_array_query_scope:
+  - 2因子の合格確認済み組合せ: 0/249。
+  - 3因子の合格確認済み組合せ: 0/118。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- named_event_loop_transfer:
+  - 2因子の合格確認済み組合せ: 0/223。
+  - 3因子の合格確認済み組合せ: 0/140。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- time_scope_delay:
+  - 2因子の合格確認済み組合せ: 0/291。
+  - 3因子の合格確認済み組合せ: 0/136。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- literal_context_extension:
+  - 2因子の合格確認済み組合せ: 0/303。
+  - 3因子の合格確認済み組合せ: 0/148。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66。
+- gate_array_connection:
+  - 2因子の合格確認済み組合せ: 0/278。
+  - 3因子の合格確認済み組合せ: 0/135。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51。
+- macro_expansion_context:
+  - 2因子の合格確認済み組合せ: 0/463。
+  - 必須ケース: 0/9。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=114。
+- force_release_visibility:
+  - 2因子の合格確認済み組合せ: 0/228。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- implicit_sensitivity_update:
+  - 2因子の合格確認済み組合せ: 0/177。
+  - 必須ケース: 0/25。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=61。
+- interface_member_expression:
+  - 2因子の合格確認済み組合せ: 0/264。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=49。
+- loop_control_scheduling:
+  - 2因子の合格確認済み組合せ: 0/82。
+  - 3因子の合格確認済み組合せ: 0/55。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=55。
+- literal_format_display:
+  - 2因子の合格確認済み組合せ: 0/301。
+  - 必須ケース: 0/9。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=91。
+- parameter_override_type:
+  - 2因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44。
+- assertion_vector_query:
+  - 2因子の合格確認済み組合せ: 0/138。
+  - 3因子の合格確認済み組合せ: 0/15。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=30。
+- literal_argument_conversion:
+  - 2因子の合格確認済み組合せ: 0/169。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=62。
+- hierarchical_process_control:
+  - 2因子の合格確認済み組合せ: 0/113。
+  - 3因子の合格確認済み組合せ: 0/36。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=42。
+- hierarchical_name_display:
+  - 2因子の合格確認済み組合せ: 0/143。
+  - 3因子の合格確認済み組合せ: 0/27。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=65。
+- array_query_loop:
+  - 2因子の合格確認済み組合せ: 0/151。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- delay_value_form:
+  - 2因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- package_name_lookup:
+  - 2因子の合格確認済み組合せ: 0/88。
+  - 3因子の合格確認済み組合せ: 0/37。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=37。
+- escaped_name_binding:
+  - 2因子の合格確認済み組合せ: 0/100。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=29。
+- scoped_class_declaration:
+  - 2因子の合格確認済み組合せ: 0/100。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- case_literal_wildcard:
+  - 2因子の合格確認済み組合せ: 0/112。
+  - 3因子の合格確認済み組合せ: 0/24。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=24, unsupported=0, stale=0, not_run=0。
+- program_interface_regions:
+  - 2因子の合格確認済み組合せ: 0/131。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/10。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=30。
+- simulation_end_sources:
+  - 2因子の合格確認済み組合せ: 0/110。
+  - 3因子の合格確認済み組合せ: 0/95。
+  - 必須ケース: 0/10。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=42。
+- aggregate_literal_key:
+  - 2因子の合格確認済み組合せ: 0/104。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+
+### coverage/interaction-results/progmod-20261114-verilator5054-seed73.json
+
+- 環境: Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101。
+- 実行日時: 2026-11-14T03:12:42.012621+00:00。
+
+- scheduling_visibility:
+  - 2因子の合格確認済み組合せ: 0/126。
+  - 3因子の合格確認済み組合せ: 0/51。
+  - 個別の必須ケース: 対象なし。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=325。
+- nba_capture:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/44。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- expression_context:
+  - 2因子の合格確認済み組合せ: 0/143。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51。
+- packed_part_select:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- conditional_merge:
+  - 2因子の合格確認済み組合せ: 0/185。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- shift_context:
+  - 2因子の合格確認済み組合せ: 0/298。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=56。
+- cast_pipeline:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/76。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=32。
+- task_argument_visibility:
+  - 2因子の合格確認済み組合せ: 0/144。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- argument_binding_index:
+  - 2因子の合格確認済み組合せ: 0/162。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- packed_structure:
+  - 2因子の合格確認済み組合せ: 0/186。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- case_matching:
+  - 2因子の合格確認済み組合せ: 0/220。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- port_connection:
+  - 2因子の合格確認済み組合せ: 0/204。
+  - 3因子の合格確認済み組合せ: 0/56。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- unpacked_array_copy:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- bit_vector_queries:
+  - 2因子の合格確認済み組合せ: 0/285。
+  - 3因子の合格確認済み組合せ: 0/108。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- streaming_permutation:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- comparison_context:
+  - 2因子の合格確認済み組合せ: 0/302。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=100。
+- array_reduction_pipeline:
+  - 2因子の合格確認済み組合せ: 0/261。
+  - 3因子の合格確認済み組合せ: 0/162。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- variable_bit_index:
+  - 2因子の合格確認済み組合せ: 0/253。
+  - 3因子の合格確認済み組合せ: 0/106。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44。
+- queue_update_capacity:
+  - 2因子の合格確認済み組合せ: 0/258。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- queue_element_reference:
+  - 2因子の合格確認済み組合せ: 0/257。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- division_context:
+  - 2因子の合格確認済み組合せ: 0/283。
+  - 3因子の合格確認済み組合せ: 0/98。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- dynamic_array_resize:
+  - 2因子の合格確認済み組合せ: 0/219。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=38。
+- concatenated_assignment:
+  - 2因子の合格確認済み組合せ: 0/265。
+  - 3因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- packed_logical_reduction:
+  - 2因子の合格確認済み組合せ: 0/218。
+  - 3因子の合格確認済み組合せ: 0/142。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=70。
+- logical_short_circuit:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/236。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=92。
+- edge_event_expression:
+  - 2因子の合格確認済み組合せ: 0/259。
+  - 3因子の合格確認済み組合せ: 0/152。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=64。
+- event_or_iff:
+  - 2因子の合格確認済み組合せ: 0/104。
+  - 3因子の合格確認済み組合せ: 0/59。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- heap_file_monitor_context:
+  - 2因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/3。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- compound_shift_target:
+  - 2因子の合格確認済み組合せ: 0/308。
+  - 3因子の合格確認済み組合せ: 0/90。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- membership_container:
+  - 2因子の合格確認済み組合せ: 0/305。
+  - 3因子の合格確認済み組合せ: 0/174。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- membership_range:
+  - 2因子の合格確認済み組合せ: 0/303。
+  - 3因子の合格確認済み組合せ: 0/178。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=46。
+- case_inside_selection:
+  - 2因子の合格確認済み組合せ: 0/315。
+  - 3因子の合格確認済み組合せ: 0/154。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34。
+- clocking_input_sampling:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/5。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- assertion_sample_visibility:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- container_wait_visibility:
+  - 2因子の合格確認済み組合せ: 0/214。
+  - 3因子の合格確認済み組合せ: 0/88。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_method_reference:
+  - 2因子の合格確認済み組合せ: 0/202。
+  - 3因子の合格確認済み組合せ: 0/99。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- function_loop_return:
+  - 2因子の合格確認済み組合せ: 0/161。
+  - 3因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- loop_assignment_order:
+  - 2因子の合格確認済み組合せ: 0/246。
+  - 3因子の合格確認済み組合せ: 0/111。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- implicit_process_visibility:
+  - 2因子の合格確認済み組合せ: 0/242。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generate_scope_lookup:
+  - 2因子の合格確認済み組合せ: 0/148。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- default_argument_scope:
+  - 2因子の合格確認済み組合せ: 0/159。
+  - 3因子の合格確認済み組合せ: 0/128。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- event_task_scope:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- continuous_delay_inertial:
+  - 2因子の合格確認済み組合せ: 0/141。
+  - 3因子の合格確認済み組合せ: 0/129。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=63。
+- port_import_scope:
+  - 2因子の合格確認済み組合せ: 0/158。
+  - 3因子の合格確認済み組合せ: 0/141。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=39。
+- typed_memory_file:
+  - 2因子の合格確認済み組合せ: 0/248。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_descendant_shutdown:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/38。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- implicit_port_nettype:
+  - 2因子の合格確認済み組合せ: 0/156。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- generated_interface_binding:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/74。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_reactive_handoff:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/84。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- configuration_generated_shape:
+  - 2因子の合格確認済み組合せ: 0/213。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=41。
+- udp_array_strength:
+  - 2因子の合格確認済み組合せ: 0/182。
+  - 3因子の合格確認済み組合せ: 0/80。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=25。
+- generated_udp_state:
+  - 2因子の合格確認済み組合せ: 0/165。
+  - 3因子の合格確認済み組合せ: 0/68。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- interface_header_import:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/78。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- mailbox_class_alias:
+  - 2因子の合格確認済み組合せ: 0/245。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/9。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- distribution_expression_binding:
+  - 2因子の合格確認済み組合せ: 0/154。
+  - 3因子の合格確認済み組合せ: 0/81。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=31。
+- generate_default_disable:
+  - 2因子の合格確認済み組合せ: 0/93。
+  - 3因子の合格確認済み組合せ: 0/60。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- array_reduction_constraint:
+  - 2因子の合格確認済み組合せ: 0/96。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- associative_array_queries:
+  - 2因子の合格確認済み組合せ: 0/93。
+  - 3因子の合格確認済み組合せ: 0/54。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- clocking_event_iff:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/44。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=12。
+- class_virtual_interface:
+  - 2因子の合格確認済み組合せ: 0/96。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- resolved_strength_format:
+  - 2因子の合格確認済み組合せ: 0/87。
+  - 3因子の合格確認済み組合せ: 0/78。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=31。
+- class_array_shallow_copy:
+  - 2因子の合格確認済み組合せ: 0/108。
+  - 3因子の合格確認済み組合せ: 0/60。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- dpi_openarray_shape:
+  - 2因子の合格確認済み組合せ: 0/100。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=30。
+- clocking_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/50。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- constraint_inheritance:
+  - 2因子の合格確認済み組合せ: 0/70。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=13。
+- dpi_nba_capture:
+  - 2因子の合格確認済み組合せ: 0/81。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/4。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- aggregate_event_lifetime:
+  - 2因子の合格確認済み組合せ: 0/123。
+  - 3因子の合格確認済み組合せ: 0/54。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- sv_dpi_array_queries:
+  - 2因子の合格確認済み組合せ: 0/176。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=16。
+- sdf_conditional_paths:
+  - 2因子の合格確認済み組合せ: 0/109。
+  - 3因子の合格確認済み組合せ: 0/46。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=18。
+- checker_assertion_sampling:
+  - 2因子の合格確認済み組合せ: 0/174。
+  - 3因子の合格確認済み組合せ: 0/63。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- program_assertion_attempts:
+  - 2因子の合格確認済み組合せ: 0/138。
+  - 3因子の合格確認済み組合せ: 0/75。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- container_coverage_sampling:
+  - 2因子の合格確認済み組合せ: 0/172。
+  - 3因子の合格確認済み組合せ: 0/79。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=33。
+- deferred_disable_reports:
+  - 2因子の合格確認済み組合せ: 0/151。
+  - 3因子の合格確認済み組合せ: 0/92。
+  - 必須ケース: 0/10。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=31。
+- event_rebinding:
+  - 2因子の合格確認済み組合せ: 0/138。
+  - 3因子の合格確認済み組合せ: 0/69。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=27。
+- clocking_named_event:
+  - 2因子の合格確認済み組合せ: 0/100。
+  - 3因子の合格確認済み組合せ: 0/40。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- deferred_argument_capture:
+  - 2因子の合格確認済み組合せ: 0/145。
+  - 3因子の合格確認済み組合せ: 0/71。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=29。
+- generated_enum_navigation:
+  - 2因子の合格確認済み組合せ: 0/181。
+  - 3因子の合格確認済み組合せ: 0/110。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- package_nba_capture:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- package_change_observers:
+  - 2因子の合格確認済み組合せ: 0/225。
+  - 3因子の合格確認済み組合せ: 0/122。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_method_package_lookup:
+  - 2因子の合格確認済み組合せ: 0/244。
+  - 3因子の合格確認済み組合せ: 0/110。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=34。
+- generated_subroutine_binding:
+  - 2因子の合格確認済み組合せ: 0/228。
+  - 3因子の合格確認済み組合せ: 0/112。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- class_conditional_return:
+  - 2因子の合格確認済み組合せ: 0/183。
+  - 3因子の合格確認済み組合せ: 0/135。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generated_process_loop_transfer:
+  - 2因子の合格確認済み組合せ: 0/293。
+  - 3因子の合格確認済み組合せ: 0/160。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- interface_array_query_walk:
+  - 2因子の合格確認済み組合せ: 0/274。
+  - 3因子の合格確認済み組合せ: 0/96。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- generated_constant_expression_shape:
+  - 2因子の合格確認済み組合せ: 0/297。
+  - 3因子の合格確認済み組合せ: 0/132。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- formatted_scan_partial_write:
+  - 2因子の合格確認済み組合せ: 0/292。
+  - 3因子の合格確認済み組合せ: 0/142。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- program_task_frame_lifetime:
+  - 2因子の合格確認済み組合せ: 0/249。
+  - 3因子の合格確認済み組合せ: 0/100。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- package_array_query_scope:
+  - 2因子の合格確認済み組合せ: 0/249。
+  - 3因子の合格確認済み組合せ: 0/118。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- named_event_loop_transfer:
+  - 2因子の合格確認済み組合せ: 0/223。
+  - 3因子の合格確認済み組合せ: 0/140。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=36。
+- time_scope_delay:
+  - 2因子の合格確認済み組合せ: 0/291。
+  - 3因子の合格確認済み組合せ: 0/136。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- literal_context_extension:
+  - 2因子の合格確認済み組合せ: 0/303。
+  - 3因子の合格確認済み組合せ: 0/148。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=66。
+- gate_array_connection:
+  - 2因子の合格確認済み組合せ: 0/278。
+  - 3因子の合格確認済み組合せ: 0/135。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=51。
+- macro_expansion_context:
+  - 2因子の合格確認済み組合せ: 0/463。
+  - 必須ケース: 0/9。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=114。
+- force_release_visibility:
+  - 2因子の合格確認済み組合せ: 0/228。
+  - 3因子の合格確認済み組合せ: 0/72。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=72。
+- implicit_sensitivity_update:
+  - 2因子の合格確認済み組合せ: 0/177。
+  - 必須ケース: 0/25。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=61。
+- interface_member_expression:
+  - 2因子の合格確認済み組合せ: 0/264。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=49。
+- loop_control_scheduling:
+  - 2因子の合格確認済み組合せ: 0/82。
+  - 3因子の合格確認済み組合せ: 0/55。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=55。
+- literal_format_display:
+  - 2因子の合格確認済み組合せ: 0/301。
+  - 必須ケース: 0/9。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=91。
+- parameter_override_type:
+  - 2因子の合格確認済み組合せ: 0/120。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=44。
+- assertion_vector_query:
+  - 2因子の合格確認済み組合せ: 0/138。
+  - 3因子の合格確認済み組合せ: 0/15。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=30。
+- literal_argument_conversion:
+  - 2因子の合格確認済み組合せ: 0/169。
+  - 必須ケース: 0/8。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=62。
+- hierarchical_process_control:
+  - 2因子の合格確認済み組合せ: 0/113。
+  - 3因子の合格確認済み組合せ: 0/36。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=42。
+- hierarchical_name_display:
+  - 2因子の合格確認済み組合せ: 0/143。
+  - 3因子の合格確認済み組合せ: 0/27。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=65。
+- array_query_loop:
+  - 2因子の合格確認済み組合せ: 0/151。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=40。
+- delay_value_form:
+  - 2因子の合格確認済み組合せ: 0/126。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=60。
+- package_name_lookup:
+  - 2因子の合格確認済み組合せ: 0/88。
+  - 3因子の合格確認済み組合せ: 0/37。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=37。
+- escaped_name_binding:
+  - 2因子の合格確認済み組合せ: 0/100。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=29。
+- scoped_class_declaration:
+  - 2因子の合格確認済み組合せ: 0/100。
+  - 3因子の合格確認済み組合せ: 0/48。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=48。
+- case_literal_wildcard:
+  - 2因子の合格確認済み組合せ: 0/112。
+  - 3因子の合格確認済み組合せ: 0/24。
+  - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=24, unsupported=0, stale=0, not_run=0。
+- program_interface_regions:
+  - 2因子の合格確認済み組合せ: 0/131。
+  - 3因子の合格確認済み組合せ: 0/82。
+  - 必須ケース: 0/10。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=30。
 - simulation_end_sources:
   - 2因子の合格確認済み組合せ: 0/110。
   - 3因子の合格確認済み組合せ: 0/95。
@@ -219834,6 +224045,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -220503,6 +224720,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -221168,6 +225391,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -221837,6 +226066,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -222502,6 +226737,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -223171,6 +227412,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -223836,6 +228083,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -224505,6 +228758,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -225170,6 +229429,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -225839,6 +230104,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -226504,6 +230775,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -227173,6 +231450,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -227838,6 +232121,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -228507,6 +232796,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -229174,6 +233469,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -229732,6 +234033,11 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -230287,6 +234593,11 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -230841,6 +235152,11 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
@@ -231504,6 +235820,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
@@ -232173,6 +236495,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -232840,6 +237168,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:
   - 2因子の合格確認済み組合せ: 0/131。
   - 3因子の合格確認済み組合せ: 0/82。
@@ -233505,6 +237839,12 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 2因子の合格確認済み組合せ: 0/112。
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
+  - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
+  - 証跡の問題: ランナーの指紋が一致しません。
+- program_hierarchy_instances:
+  - 2因子の合格確認済み組合せ: 0/90。
+  - 3因子の合格確認済み組合せ: 0/52。
+  - 必須ケース: 0/6。
   - ケース状態: pass=0, fail=0, known=0, unsupported=0, stale=0, not_run=24。
   - 証跡の問題: ランナーの指紋が一致しません。
 - program_interface_regions:

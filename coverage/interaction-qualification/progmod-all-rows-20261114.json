@@ -1,0 +1,119 @@
+{
+  "generated_at": "2026-11-13T23:28:26.292866+00:00",
+  "scope": "One run of every legal row of program_hierarchy_instances, outside the selected witnesses, to look for expectations that the model and its independent interpretation share in error. The rows are not fixed-suite tests and do not enter any count. Rows are compiled from the generator in a temporary directory; each run is judged by the suite runner.",
+  "kirimasim": {
+    "version": "kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401",
+    "binary_sha256": "705054bbcf8049dd992d00456386f8c7be91187a60280438a51c7ef738f80fae"
+  },
+  "icarus": {
+    "version": "Icarus Verilog version 13.0 (stable) (v13_0)"
+  },
+  "verilator": {
+    "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+    "seed": 1
+  },
+  "model": {
+    "name": "program_hierarchy_instances",
+    "legal_rows": 66,
+    "selected": 24,
+    "kirimasim": {
+      "statuses": {
+        "fail": 8,
+        "pass": 58
+      },
+      "nonmatching_rows_by_factor": {
+        "form": {
+          "nested": 8
+        },
+        "count": {
+          "one": 8
+        },
+        "access": {
+          "absolute": 4,
+          "upward": 4
+        },
+        "param": {
+          "default": 4,
+          "defparam": 4
+        },
+        "peer": {
+          "none": 8
+        },
+        "decoy": {
+          "none": 4,
+          "ignored": 4
+        }
+      }
+    },
+    "icarus": {
+      "statuses": {
+        "differ": 66
+      },
+      "nonmatching_rows_by_factor": {
+        "form": {
+          "nested": 8,
+          "nested_inst": 28,
+          "top_inst": 14,
+          "child_inst": 14,
+          "implicit_top": 2
+        },
+        "count": {
+          "one": 34,
+          "two": 32
+        },
+        "access": {
+          "absolute": 48,
+          "upward": 18
+        },
+        "param": {
+          "default": 14,
+          "defparam": 28,
+          "override": 24
+        },
+        "peer": {
+          "none": 50,
+          "read": 16
+        },
+        "decoy": {
+          "none": 33,
+          "ignored": 33
+        }
+      }
+    },
+    "verilator": {
+      "statuses": {
+        "differ": 66
+      },
+      "nonmatching_rows_by_factor": {
+        "form": {
+          "nested": 8,
+          "nested_inst": 28,
+          "top_inst": 14,
+          "child_inst": 14,
+          "implicit_top": 2
+        },
+        "count": {
+          "one": 34,
+          "two": 32
+        },
+        "access": {
+          "absolute": 48,
+          "upward": 18
+        },
+        "param": {
+          "default": 14,
+          "defparam": 28,
+          "override": 24
+        },
+        "peer": {
+          "none": 50,
+          "read": 16
+        },
+        "decoy": {
+          "none": 33,
+          "ignored": 33
+        }
+      }
+    }
+  }
+}

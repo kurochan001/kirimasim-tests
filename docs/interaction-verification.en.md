@@ -14,7 +14,13 @@ Before reading model counts, see [a three-way condition missing from 100% pairwi
 
 ## Saved-run summary
 
-The 2026-11-14 addition for the regions of writes and reactions between a program and an interface brings totals to **112 models / 4,485 cases / 192 chapter pairs**.
+The 2026-11-14 addition for the ways of placing program instances in the hierarchy brings totals to **113 models / 4,509 cases / 193 chapter pairs**.
+The [single run](../coverage/interaction-results/full-20261114-kirimasim-77c27531-progmod.json) on kirimasim `77c27531437c`, built from the latest main, records
+**4,017 pass / 484 unsupported / 8 fail**: the four existing config failures and four nested-program cases of the addition.
+20 of the 24 additions pass, and the preceding 4,485 inputs and statuses are unchanged. 87 models pass their entire selection.
+See [the ways of placing program instances in the hierarchy](#program-hierarchy-instances) for the independent check and the pinned comparisons.
+
+The addition on the same day for the regions of writes and reactions between a program and an interface brought totals to **112 models / 4,485 cases / 192 chapter pairs**.
 The [single run](../coverage/interaction-results/full-20261114-kirimasim-77c27531.json) on kirimasim `77c27531437c`, built from the latest main, records
 **3,997 pass / 484 unsupported / 4 fail**: only the four existing config failures.
 All 30 additions pass, and the preceding 4,455 inputs and statuses are unchanged. 87 models pass their entire selection.
@@ -4790,3 +4796,43 @@ In the [one run of all 480 rows](../coverage/interaction-qualification/progif-al
 [Pinned Icarus 13.0](../coverage/interaction-results/progif-20261114-icarus13.json) passes 6 cases. It does not accept an interface port, a modport import or a nonblocking assignment in a function, and it does not run the blocking assignments of a program in the Reactive region. Over all 480 rows, 57 match.
 [Pinned Verilator 5.052](../coverage/interaction-results/progif-20261114-verilator5052-seed1.json) (also at [seed 73](../coverage/interaction-results/progif-20261114-verilator5052-seed73.json)) passes 20 cases.
 It runs a program in the same regions as a module, and an always procedure, always_comb or a continuous assignment sometimes does not react to a blocking write right after `#0`. Over all 480 rows, 372 match. See also the [pinned-release differences](simulator-differences.md#program-interface-differences).
+
+<a id="program-hierarchy-instances"></a>
+
+## Ways of placing program instances in the hierarchy (2026-11-14)
+
+[`interaction_progmod.py`](../generators/interaction_progmod.py) defines `program_hierarchy_instances@1`.
+Chapters 23×24 map all 24 cases, and chapters 21×24 (the hierarchical name of %m) are reinforced.
+
+### Factors and scope
+
+The model crosses the way a program instance is placed (the implicit instance of a program without ports nested in the top, an instance of a nested program made in the top, an instance of a program declared in the compilation unit made in the top, one made in a child module, and the implicit instance of a top-level program that is not instantiated),
+the number of instances (one, two), the way they write the variable of the top (a hierarchical name from the top, or the name alone from a nested program),
+the parameters (defaults, named values given by the instance, defparam), whether the second instance reads a variable of the first program through a hierarchical name, and whether a nested program with ports is declared without being instantiated.
+An implicit instance is one alone and has no ports and no parameter values of an instance (24.3). Only a nested program declared and instantiated in the same scope reads a variable of its parent by the name alone (23.4).
+Two instances with default parameters would have equal delays and racing writes at the same time, so they are left out, and so is a defparam to the implicit instance of a top-level program.
+The ref port route is left out, because kirimasim has not implemented it, and is listed among the [models waiting for kirimasim](cross-verification-followup.en.md#models-waiting-for-kirimasim).
+24 cases are selected from 66 legal rows. They keep 142 targets, including the three-factor groups placement-write-parameters, placement-number-peer read and placement-parameters-unused program, and 6 mandatory cases.
+
+### What it distinguishes
+
+At the time of its parameter D, each instance adds its parameter K and its input port base to the variable total of the top, and prints the hierarchical name of %m, the time and the value added.
+With two instances, the second reads the local variable of the first through a hierarchical name and prints it too; 24.3 allows hierarchical names from one program to another.
+A parameter takes its default, then the value of the instance, then a defparam (23.10), and %m prints the hierarchical name of the instance (21.2.1.5).
+A nested program without ports is placed once as an instance with its own name, and a top-level program that is not instantiated becomes a top-level instance (24.3). A nested program with ports does not run unless it is instantiated (23.4).
+When the initial procedures of every program have ended, the implicit `$finish` of 24.3 ends the run, so the display of the module at time 50 does not appear, and the final procedure prints the end time of the last program and the total.
+
+### Independent check and runs
+
+[`qualify_progmod.py`](../tools/qualify_progmod.py) parses the actual SV, builds the hierarchy (implicit instances, parameter values, name lookup), and runs module processes in the Active region and program processes in the Reactive region.
+It runs the processes of one region in forward and in reverse order and requires the same output both times. All 66 programs match their expectation.
+The [auxiliary evidence](../coverage/interaction-qualification/progmod.json) keeps five normal controls and seven executable faults on kirimasim `77c27531437c`. Every fault was detected by a difference in the output of a normal run. The controls are rows of the placements that kirimasim matches.
+
+In the [single run of all 4,509 cases](../coverage/interaction-results/full-20261114-kirimasim-77c27531-progmod.json) on kirimasim `77c27531437c`, 20 of the 24 additions pass.
+The other four use a nested program with parameters and without ports. kirimasim does not instantiate it implicitly, so the program does not run and the display at 50 appears, or the run stops because the target of the defparam is not found. A nested program without parameters runs correctly, and a nested module with parameters shows the same. The expectations are unchanged.
+In the [one run of all 66 rows](../coverage/interaction-qualification/progmod-all-rows-20261114.json), kirimasim matches 58 rows and not the 8 rows of this placement.
+
+### Pinned-release differences
+
+[Pinned Icarus 13.0](../coverage/interaction-results/progmod-20261114-icarus13.json) matches none of the 24 cases. It cannot make an instance of a nested program, and it runs the display of the module at 50 after every program has ended.
+Verilator 5.054 ([seed 1](../coverage/interaction-results/progmod-20261114-verilator5054-seed1.json), [seed 73](../coverage/interaction-results/progmod-20261114-verilator5054-seed73.json)) matches none either. It does not support nested programs and goes on running after every program has ended. In the one run of all 66 rows (Verilator 5.052), neither Icarus nor Verilator matches any row. See also the [pinned-release differences](simulator-differences.md#program-hierarchy-differences).

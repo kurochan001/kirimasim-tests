@@ -618,3 +618,14 @@ kirimasim `77c27531437c`で、正常対照6件はすべて一致し、誤ったS
 固定版比較は、[Icarus](../interaction-results/progif-20261114-icarus13.json)が6 pass・24 known、Verilatorは[seed 1](../interaction-results/progif-20261114-verilator5052-seed1.json)・[seed 73](../interaction-results/progif-20261114-verilator5052-seed73.json)とも20 pass・10 knownです。
 [全行の記録](progif-all-rows-20261114.json)は全480行の一度きりの実行で、固定suiteや要求カバレッジへ加算しません。kirimasimは全行、Icarusは57行、Verilatorは372行が一致します。
 [設計と再実行](../../docs/interaction-verification.md#program-interface-regions)を参照してください。
+
+<a id="program-hierarchy-qualification"></a>
+
+## programのインスタンスを階層に置く方法の独立確認
+
+[`progmod.json`](progmod.json)は全66行を独立した解釈で照合します。解釈は、階層を組み立ててから、同じ領域のプロセスの順序を変えた2通りで同じ出力になることを求めます。
+kirimasim `77c27531437c`で、正常対照5件はすべて一致し、誤ったSV 7件はすべて正常終了後の出力差で検出しました。正常対照は、kirimasimが一致する置き方の行から選びました。
+選択した全4,509件は`77c27531437c`の[単一実行](../interaction-results/full-20261114-kirimasim-77c27531-progmod.json)で4,017 pass・484 unsupported・8 failです。追加24件のうち20件がPASSで、4件は入れ子のprogramをkirimasimが暗黙にインスタンス化しないものです。113モデル・193章対・全選択ケースPASSは87モデルです。
+固定版比較は、[Icarus](../interaction-results/progmod-20261114-icarus13.json)が24 known、Verilator 5.054は[seed 1](../interaction-results/progmod-20261114-verilator5054-seed1.json)・[seed 73](../interaction-results/progmod-20261114-verilator5054-seed73.json)とも24 knownです。
+[全行の記録](progmod-all-rows-20261114.json)は全66行の一度きりの実行（Verilatorは5.052）で、固定suiteや要求カバレッジへ加算しません。kirimasimは58行が一致し、IcarusとVerilatorはどの行も一致しません。
+[設計と再実行](../../docs/interaction-verification.md#program-hierarchy-instances)を参照してください。

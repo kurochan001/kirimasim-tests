@@ -619,3 +619,14 @@ The [single run](../interaction-results/full-20261114-kirimasim-77c27531.json) o
 Pinned comparisons record [Icarus](../interaction-results/progif-20261114-icarus13.json) 6 pass / 24 known, and Verilator 20 pass / 10 known at both [seed 1](../interaction-results/progif-20261114-verilator5052-seed1.json) and [seed 73](../interaction-results/progif-20261114-verilator5052-seed73.json).
 The [all-row record](progif-all-rows-20261114.json) is one run of all 480 rows and enters neither the fixed suite nor requirement coverage. kirimasim matches every row, Icarus 57 rows and Verilator 372 rows.
 See the [design and rerun](../../docs/interaction-verification.en.md#program-interface-regions).
+
+<a id="program-hierarchy-qualification"></a>
+
+## Independent check of the ways of placing program instances in the hierarchy
+
+[`progmod.json`](progmod.json) checks all 66 rows by an independent interpretation, which builds the hierarchy and requires the same output in two runs with the processes of one region in different orders.
+On kirimasim `77c27531437c`, all five normal controls match and all seven faulty SV programs are detected by an output difference after a normal exit. The controls are rows of the placements that kirimasim matches.
+The [single run](../interaction-results/full-20261114-kirimasim-77c27531-progmod.json) of all 4,509 selected cases on `77c27531437c` records 4,017 pass / 484 unsupported / 8 fail. 20 of the 24 additions pass; four are nested programs that kirimasim does not instantiate implicitly. Totals: 113 models / 193 chapter pairs / 87 full-selection-pass models.
+Pinned comparisons record [Icarus](../interaction-results/progmod-20261114-icarus13.json) 24 known, and Verilator 5.054 24 known at both [seed 1](../interaction-results/progmod-20261114-verilator5054-seed1.json) and [seed 73](../interaction-results/progmod-20261114-verilator5054-seed73.json).
+The [all-row record](progmod-all-rows-20261114.json) is one run of all 66 rows (Verilator 5.052) and enters neither the fixed suite nor requirement coverage. kirimasim matches 58 rows, and Icarus and Verilator match none.
+See the [design and rerun](../../docs/interaction-verification.en.md#program-hierarchy-instances).

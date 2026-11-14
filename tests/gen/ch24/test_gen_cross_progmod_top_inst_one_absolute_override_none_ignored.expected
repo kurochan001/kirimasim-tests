@@ -1,0 +1,2 @@
+test_gen_cross_progmod_top_inst_one_absolute_override_none_ignored.p1 t=4 got=12
+end t=4 total=12

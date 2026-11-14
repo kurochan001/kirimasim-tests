@@ -707,3 +707,13 @@
 - always_combで要素を読むテストも作りましたが、検証で欠陥と判定し、外しました。always_combの暗黙の感度は読まれる式の最長の静的な接頭辞（9.2.2.2.1、11.5.3）で作られ、virtual interfaceを通るメンバーの選択は静的な接頭辞ではないので、感度に入るのは要素ではなく変数だと読めるからです。
 - 要求`SV2023-25.9-EXTRACT-VIRTUAL-SENSITIVITY-TEXT`の受け入れ条件はalways_combの拒否も求めるので、この要求には対応を付けず、2本について保留を記録しました。カバレッジの数字は変わりません。
 - Icarus Verilog 13.0はvirtual interfaceの宣言を受け付けず、Verilator 5.054は2本とも設計を受理し、kirimasim `77c27531437c`は未対応です。`:oracle:`は`spec`だけです。
+
+### 2026-11-14（programのインスタンスを階層に置く方法のクロスモデル）
+
+- 未精査だった第23章×第24章に、クロスモデル`program_hierarchy_instances`を加えました（[設計と結果](interaction-verification.md#program-hierarchy-instances)）。programのインスタンスを、入れ子の暗黙のインスタンス・入れ子の明示のインスタンス・トップや子のmoduleでの明示のインスタンス・トップレベルの暗黙のインスタンスとして置き、パラメータの既定値・インスタンスの指定・defparam、階層名と親の名前による書込み、相手のprogramの読取り、ポートを持つ入れ子のprogramが無視されること、最後のprogramの終了による暗黙の`$finish`を確かめます。合法66行から24件を選びました。
+- 期待値は24.3、23.4、23.6、23.9、23.10、21.2.1.5から決めました。独立検算（`tools/qualify_progmod.py`）は階層を組み立ててから全66行を解釈し、すべて期待値と一致しました。kirimasimで正常対照5件が一致し、誤り7件をすべて検出しました。
+- ref ポートの経路は、kirimasimが未実装なので外し、[実装待ちの一覧](cross-verification-followup.md#models-waiting-for-kirimasim)の8件目に加えました。
+- kirimasim `77c27531437c`の全4,509件の単一実行は、4,017 pass・484 unsupported・8 failです。追加24件のうち20件がPASSで、4件は、パラメータを持ちポートのない入れ子のprogramをkirimasimが暗黙にインスタンス化しないものです。従来4,485件の状態は変わりません。113モデル・193章対・全選択ケースPASSは87モデルです。
+- 固定Icarus 13.0とVerilator 5.054は24件とも一致しません。入れ子のprogramに未対応で、全programの終了後も実行を続けます。後者は[差異一覧](simulator-differences.ja.md#program-hierarchy-differences)に記録しました。24件のoracleは規格だけです。
+- 合法な66行をすべて1回実行しました（`coverage/interaction-qualification/progmod-all-rows-20261114.json`、Verilatorは5.052）。kirimasimは58行が一致し、IcarusとVerilatorはどの行も一致しません。
+- テストは12,411件、生成テストは5,821件になりました。

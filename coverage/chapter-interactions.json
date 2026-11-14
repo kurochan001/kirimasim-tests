@@ -3190,6 +3190,26 @@
           "reason": "interfaceのtask・#0を含むtask・NBAを含むvoid function・呼出し側のtaskから呼ぶinterfaceのtaskが、宣言場所ではなく呼出し側のスレッドの領域群で実行されることを確かめる。"
         }
       ]
+    },
+    {
+      "id": "program_hierarchy_instances",
+      "primary_chapter": 24,
+      "pairs": [
+        {
+          "chapters": [
+            23,
+            24
+          ],
+          "reason": "programのインスタンスを入れ子の暗黙のインスタンス・入れ子の明示のインスタンス・トップや子のmoduleでの明示のインスタンス・トップレベルの暗黙のインスタンスとして置き、パラメータの既定値・インスタンスの指定・defparam、階層名と親の名前による参照、ポートを持つ入れ子のprogramが無視されること、最後のprogramの終了による暗黙の$finishを照合する。"
+        },
+        {
+          "chapters": [
+            21,
+            24
+          ],
+          "reason": "各programのインスタンスが%mで出す階層名を、入れ子の暗黙のインスタンス・トップや子のmoduleのインスタンス・トップレベルの暗黙のインスタンスで照合する。"
+        }
+      ]
     }
   ]
 }

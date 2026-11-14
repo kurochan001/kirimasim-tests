@@ -30,6 +30,7 @@ When a new test finds such a place, add it here, and say it in the comment of th
 | 28.14 | rcmos passes a strong drive as strong; it has to reduce it to pull, as rtran and rtranif do. | `ch28/test_rcmos_reduction` |
 | 29.7 | The delay of a sequential UDP instance also delays its initial value, which shows x until then. | `ch29/test_udp_initial_value_not_delayed` |
 | 24.3 | When a program's initial procedures end, the threads they forked go on running; they have to end with the program. | `ch24/test_program_end_kills_descendants` |
+| 24.3 | When the initial procedures of every program have ended, the run goes on to later events of the modules, such as a display at time 50; the implicit `$finish` has to end it. | the `gen/ch24/test_gen_cross_progmod_{top_inst,child_inst,implicit_top}_*` cases |
 | 24.5, 24.3.1 | A program's thread, and a module task it calls, run in the Active region with the module's processes instead of in the Reactive region: the call sees a variable before the nonblocking update of its time step, and runs before the module's own processes of the time step it resumes in. | `ch24/test_program_calls_module_task` |
 | 24.3.1 | A program's process sees the values from before the nonblocking updates of its time step (Verilator 5.052 too). | `ch24/test_program_reactive_sees_nba`, `ch24/test_program_stimulus_after_clock_edge` |
 | 10.6.1, 4.9.2 | `assign` (procedural continuous) evaluates its right-hand side once, so the variable does not follow later changes (it warns about this; Verilator 5.052 does the same). | `ch4/test_sched_procedural_assign_deassign` |
@@ -984,6 +985,14 @@ It runs a program in the same regions as a module, as in the 24.3.1 row of [the 
 The latter also shows with only `#5; #0; x = 8'h5a;` in a module, without an interface task.
 kirimasim `77c27531437c` matches all 30 cases and all 480 rows. The expectations are unchanged.
 
+<a id="program-hierarchy-differences"></a>
+
+## Ways of placing program instances in the hierarchy (2026-11-14)
+
+In the [model for placing program instances in the hierarchy](interaction-verification.en.md#program-hierarchy-instances), pinned Icarus 13.0 matches none of the 24 cases. It cannot make an instance of a nested program (not supported), and for the other placements it runs the display of the module at time 50 after every program has ended (the 24.3 row of [the table above](#icarus-verilog-130)).
+Verilator 5.054 matches none of the 24 cases at either seed. It does not support nested programs and goes on running for the other placements, as Icarus does. The one run of all 66 rows (Verilator 5.052) showed the same.
+kirimasim `77c27531437c` does not instantiate a nested program with parameters and without ports implicitly, so those four cases do not match; the other 20, and 58 of all 66 rows, match. The expectations are unchanged.
+
 <a id="package-query-differences"></a>
 
 ## Package-array queries and qualified writes (2026-11-06)
@@ -1301,3 +1310,4 @@ The tests added on 2026-11-14 for requirements without tests show these differen
 - 13.4 (footnotes of Syntax 13-3): it accepts a type reference variable declared without `var` in a function, an override specifier on a function outside a class and in an interface class, and a function with an inout formal called in `force` (only warning about side effects). `ch13/test_illegal_function_local_type_reference_without_var`, `ch13/test_illegal_function_override_specifier_outside_class`, `ch13/test_illegal_function_override_specifier_interface_class`, `ch13/test_illegal_function_inout_arg_in_force`
 - 3.13: it reports a name of the definition name space or of the package name space that is used again only as the warning MODDUP and builds the design. `ch3/test_illegal_definition_name_interface_reused_by_program`, `ch3/test_illegal_definition_name_module_reused_in_other_file`, `ch3/test_illegal_definition_name_primitive_reused_by_module`, `ch3/test_illegal_definition_name_program_reused_by_primitive`, `ch3/test_illegal_package_name_reused_in_other_file`
 - 25.9: it accepts a component of an interface reached through a virtual interface in the event control of an always or always_ff procedure. `ch25/test_illegal_virtual_interface_component_in_always_event_control`, `ch25/test_illegal_virtual_interface_component_in_always_ff`
+- 24.3 (in the cross model `program_hierarchy_instances` of the same day): when the initial procedures of every program have ended, it goes on running later events of the modules, such as a display at time 50. The `gen/ch24/test_gen_cross_progmod_{top_inst,child_inst,implicit_top}_*` cases
