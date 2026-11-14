@@ -1,0 +1,5 @@
+package type, s2 to s1: cast=1 a=11
+unit type, s2 to s1: cast=1 a=12
+parameter type from top, s2 to s1: cast=1 a=13
+loc_t, s2 to s1: cast=0 a=15
+loc_t, within s1: cast=1 a=15

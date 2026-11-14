@@ -1,0 +1,8 @@
+real: 1.50 0.00
+shortreal: 0.75 0.00
+int and real: 3.00 0.00
+string: "cd" "" len=0
+class: v=1 null=1
+struct: a=2 b=0011 c=1.00 a=9 b=xxxx c=0.00
+dynamic: size=2 size=0
+associative: num=2 num=0

@@ -1,0 +1,5 @@
+expressions: 1 0
+constant pattern: 10 20
+tagged pattern: 13 -1
+left to right: 2 calls=0 1 calls=1
+attribute: 30 40

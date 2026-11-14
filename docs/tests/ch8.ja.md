@@ -4,7 +4,7 @@
 
 [English](ch8.md) / [日本語](ch8.ja.md)
 
-[すべての章](README.ja.md) .テストは458本で、そのうち138本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは462本で、そのうち138本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -327,9 +327,13 @@
 | [`test_weak_reference_prototypes`](../../tests/ch8/test_weak_reference_prototypes.sv) |std::weak_referenceは、クラス型パラメータT、T型の参照対象を受け取るコンストラクタ、clear()で参照対象がnullにされるまでT型でその参照対象を返すget()、戻り値のないclear()、およびstaticのget_id(T)を持ちます。このstaticメソッドのlongint型の結果は、nullに対して0、オブジェクトに対して0以外であり、同じオブジェクトなら呼び出しのたびに同じ値となります。| 8.30 G.7 |規格のみ||
 | [`test_illegal_weak_reference_scalar_type`](../../tests/ch8/test_illegal_weak_reference_scalar_type.sv) |weak_reference にはクラスタイプパラメータが必要です| 8.30.1 |規格のみ|規格違反の設計|
 | [`test_weak_reference_id_alias_after_clear`](../../tests/ch8/test_weak_reference_id_alias_after_clear.sv) |弱い包装をクリアすると、他の包装が残り、所有者が保持するオブジェクトのアイデンティティは変わりません。| 8.30.1 8.30.2 8.30.5 8.29 |規格のみ||
+| [`test_weak_reference_null_referent_no_warning`](../../tests/ch8/test_weak_reference_null_referent_no_warning.sv) |null の参照先（リテラルの null、null を保持するクラスハンドル、get() が返す null）から構築した weak_reference は、get() が null を返す新しいオブジェクトであり、警告は出ない| 8.30.2 8.30.3 |規格のみ|出口コード|
 | [`test_weak_reference_get_clear`](../../tests/ch8/test_weak_reference_get_clear.sv) |weak_reference は get() からその参照を返しますが、 clear() が呼び出されるまでは返しません。その後 get() は null を返します。1つの物体に対する2つの弱い参照は 同じ参照を持つ異なる物体であり| 8.30.3 8.30.2 8.30.4 26.7 |規格のみ||
 | [`test_weak_reference_wait_cleared`](../../tests/ch8/test_weak_reference_wait_cleared.sv) |weak_reference get() が null になるまで待つと、他のプロセスが参照をクリアすると再開します。| 8.30.3 8.30.4 9.4.3 |規格のみ||
+| [`test_weak_reference_clear_void_no_arguments`](../../tests/ch8/test_weak_reference_clear_void_no_arguments.sv) |weak_reference の clear() は引数の無い void 関数である: 空の引数リストで文として（関数の中でも）警告なしに呼ばれ、その参照の get() だけが null を返すようにする| 8.30.4 |規格のみ|出口コード|
 | [`test_weak_reference_get_id`](../../tests/ch8/test_weak_reference_get_id.sv) |weak_reference の static get_id() はオブジェクトの null と非ゼロ値に対して 0 を返します。ハンドルの各クラスタイプを通して、各呼び出しで同じ値を返します。異なるオブジェクトに対しては異なります。| 8.30.5 7.8 |規格のみ||
+| [`test_weak_reference_get_id_static_longint`](../../tests/ch8/test_weak_reference_get_id_static_longint.sv) |weak_reference の get_id () は、パラメータ型 T の引数 obj を 1 つ取り longint を返す static 関数である: weak_reference オブジェクトなしにクラススコープを通して呼ばれ、引数は位置か名前 obj で結合されて派生クラスのハンドルを受け付け、結果は符号付き 64 bit の longint である| 8.30.5 |規格のみ||
+| [`test_weak_reference_get_id_unique_across_types`](../../tests/ch8/test_weak_reference_get_id_unique_across_types.sv) |オブジェクトの get_id () の値は、クラスにかかわらず（ weak_reference オブジェクトを含め）同時に存在する他のどのオブジェクトの値とも異なり、他のオブジェクトを多数作っては捨てる間も変わらない| 8.30.5 |規格のみ||
 
 <a id="generated-by-generatorsinteraction_class_arraypy"></a>
 

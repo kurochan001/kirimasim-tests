@@ -1,0 +1,8 @@
+t=1 runs=1 y=0 z=0 w=0
+t=3 runs=1 y=1 (dly changed)
+t=4 runs=1 (cnt changed)
+t=5 runs=1 (gate changed)
+t=6 runs=1 (gate changed back)
+t=7 runs=1 z=10 (clk rose)
+t=8 runs=1 w=100 (clk fell)
+t=9 runs=2 (a changed)

@@ -1,0 +1,8 @@
+literal null: reference is an object 1, get() is null 1
+handle never assigned: reference is an object 1, get() is null 1
+handle set to null: reference is an object 1, get() is null 1
+null derived handle: reference is an object 1, get() is null 1
+null from get(): reference is an object 1, get() is null 1
+declaration initializer: reference is an object 1, get() is null 1
+control: get() is obj 1, id 5
+equal pairs among the six references: 0

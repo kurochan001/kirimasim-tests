@@ -1,0 +1,8 @@
+literals: 15 2.50 65 1
+parameters: 5a c3 96  selects: a 1 10 9
+net: 3c 3 0  variable: a5 5 1
+structures: 72 1 13  members: 12  selects: 7 0
+unions: 9e 8 42  members: 9 7 40  selects: e 1
+packed array: 11223344  element: 11  slice: 2233  part: 4  bit: 1
+unpacked array: 1  element: 45  part: 6  bit: 1  slice: 23 45
+calls: 27 8 42 2 3 6

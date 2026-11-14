@@ -1,0 +1,3 @@
+next()=C3 next(1)=C3 next(2)=C4 next(-1)=C5
+prev()=C1 prev(1)=C1 prev(2)=C0 prev(-1)=C6
+bits: next=3 prev=3

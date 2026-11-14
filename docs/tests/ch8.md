@@ -4,7 +4,7 @@
 
 [English](ch8.md) / [日本語](ch8.ja.md)
 
-[All chapters](README.md). 458 tests, 138 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 462 tests, 138 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -327,9 +327,13 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_weak_reference_prototypes`](../../tests/ch8/test_weak_reference_prototypes.sv) | std::weak_reference has a class type parameter T, a constructor taking a T referent, get() returning T with the referent until clear() sets it to null, clear() returning nothing, and a static get_id(T) whose longint result is 0 for null, nonzero for an object and the same at every call for one object | 8.30 G.7 | standard only ||
 | [`test_illegal_weak_reference_scalar_type`](../../tests/ch8/test_illegal_weak_reference_scalar_type.sv) | weak_reference requires a class type parameter | 8.30.1 | standard only | illegal design |
 | [`test_weak_reference_id_alias_after_clear`](../../tests/ch8/test_weak_reference_id_alias_after_clear.sv) | Clearing one weak wrapper leaves another wrapper and the ownerly held object identity unchanged | 8.30.1 8.30.2 8.30.5 8.29 | standard only ||
+| [`test_weak_reference_null_referent_no_warning`](../../tests/ch8/test_weak_reference_null_referent_no_warning.sv) | A weak_reference constructed from a null referent, given as the literal null, as a class handle that holds null or as the null that get() returns, is a new object whose get() returns null, and no warning is printed | 8.30.2 8.30.3 | standard only | exit code |
 | [`test_weak_reference_get_clear`](../../tests/ch8/test_weak_reference_get_clear.sv) | A weak_reference returns its referent from get() until clear() is called on it, after which get() returns null; two weak references to one object are different objects with the same referent | 8.30.3 8.30.2 8.30.4 26.7 | standard only ||
 | [`test_weak_reference_wait_cleared`](../../tests/ch8/test_weak_reference_wait_cleared.sv) | A wait on weak_reference get() becoming null resumes when another process clears the reference | 8.30.3 8.30.4 9.4.3 | standard only ||
+| [`test_weak_reference_clear_void_no_arguments`](../../tests/ch8/test_weak_reference_clear_void_no_arguments.sv) | weak_reference clear() is a void function without arguments: it is called with an empty argument list as a statement, also inside a function, with no warning, and it makes get() of that reference alone return null | 8.30.4 | standard only | exit code |
 | [`test_weak_reference_get_id`](../../tests/ch8/test_weak_reference_get_id.sv) | The static get_id() of weak_reference returns 0 for null and a nonzero value for an object, the same at every call and through every class type of the handle, and different for different objects | 8.30.5 7.8 | standard only ||
+| [`test_weak_reference_get_id_static_longint`](../../tests/ch8/test_weak_reference_get_id_static_longint.sv) | weak_reference get_id() is a static function with one argument obj of the parameter type T and a longint result: it is called through the class scope with no weak_reference object, its argument is bound by position or by the name obj and accepts a handle of a derived class, and its result is a signed 64-bit longint | 8.30.5 | standard only ||
+| [`test_weak_reference_get_id_unique_across_types`](../../tests/ch8/test_weak_reference_get_id_unique_across_types.sv) | The get_id() value of an object differs from the value of every other object that exists at the same time, whatever their classes, weak_reference objects included, and stays the same while many other objects are created and dropped | 8.30.5 | standard only ||
 
 <a id="generatorsinteraction_class_arraypyが生成"></a>
 

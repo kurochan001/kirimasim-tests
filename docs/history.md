@@ -743,3 +743,15 @@ clause 37.
 - Pinned Icarus 13.0 and Verilator 5.054 match none of the 24: they do not support nested programs and go on running after every program has ended; the latter is recorded in the [differences list](simulator-differences.md#program-hierarchy-differences). The 24 cases rest on the standard alone.
 - Every one of the 66 legal rows ran once (`coverage/interaction-qualification/progmod-all-rows-20261114.json`, Verilator 5.052). kirimasim matches 58 rows, and Icarus and Verilator match none.
 - The suite now has 12,411 tests, 5,821 of them generated.
+
+### 2026-11-14 (tests for requirements without tests in clauses 6, 7, 8, 9 and 11)
+
+- 140 requirements without tests in clauses 6, 7, 8, 9 and 11 were taken up, with one writing agent and one independent verifying agent for each clause. The expectations come from the clauses, and the verifiers derived every test again from the standard. The session restarted on the way and the work directory was lost; the proposals and verdicts were restored by replaying the commands recorded in the agents' transcripts.
+- 60 tests were added and 41 requirements are now mapped (16 in clause 6, 2 in 7, 3 in 8, 6 in 9 and 14 in 11). Tests found defective were left out, except one clause 11 test whose format was fixed and verified again. The clause 7 test of the context of the size expression of `new[]` was left out, since the standard does not settle one reading.
+- Two clause 6 tests (the equivalence of anonymous types, and the bin tuples of `$`) are not included this time: they are being fixed and will be added after they are verified again.
+- The requirements left out only leave something to the tool, have an undefined or unspecified result, depend on a time the standard does not fix (such as garbage collection), can be shown only by detecting a violation while they are registered as normal requirements, or can be detected only at run time.
+- Design coverage goes from 90.46% (11,125/12,298) to 90.80% (11,166/12,298), reproducible execution coverage from 50.32% (6,188) to 50.39% (6,197), and execution coverage with Ghost and kirimasim from 77.77% (9,564) to 77.86% (9,575).
+- Verilator ran as 5.054 under [the interim pin](simulator-differences.md#verilator-5054-interim). kirimasim `d1d8a1782d0a` matches 36, does not support 20 and fails 4. The four failures are the extent of the sensitivity of always_comb (two tests), rejecting an interconnect declaration written with a type, and treating an always procedure without a timing control as a deadlock error; each is a place where kirimasim (slang) departs from the standard. The results are `coverage/results/reqgap2-20261114-*.json`.
+- The verifiers pointed out that the existing `ch9/test_always_comb_longest_static_prefix_and_locals` and `ch9/test_star_sensitivity_contexts_and_exclusions` also use left-justified formats (`%-9s`, `%-6s`) that the standard does not define. They will be fixed at the next re-save of Ghost's results, so that the saved Ghost results do not go stale.
+- The eight candidates waiting for kirimasim are still not implemented on `d1d8a1782d0a`.
+- The suite now has 12,471 tests.

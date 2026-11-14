@@ -1,0 +1,10 @@
+matching: byte and bit signed [7:0] 1, byte and bit signed [0:7] 0
+equivalent: try_get into bit signed [0:7] positive -3
+assignment compatible: int = color_t gives 2, try_get into int negative 0
+assignment compatible: try_get into color_t positive BLUE
+cast compatible: sb_t'(x) gives 1 2, $cast=0 leaves 0 0
+incompatible: int<-class 0, class<-int 0, int<-chandle 0
+incompatible: chandle<-int 0, int<-interface class 0, chandle<-class 0
+incompatible: unchanged i=7, hb is null 1, ch is null 1
+same kind: derived<-base 1, interface class<-class 1, chandle<-chandle 1
+same kind: d2 is d 1, ifh2 is ifh 1

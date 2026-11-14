@@ -1,0 +1,9 @@
+4-state: 1 0 0 x
+2-state: 1 1
+signed and unsigned: 1 0
+enum: 1 1
+packed struct: 1 0
+class: 1 0 1
+chandle: 1 0
+event: 1 0 1
+unpacked: 1 0 1 1

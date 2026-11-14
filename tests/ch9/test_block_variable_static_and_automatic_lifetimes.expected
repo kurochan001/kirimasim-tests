@@ -1,0 +1,8 @@
+block entry: kept=3 fresh=13
+block entry: kept=6 fresh=13
+block entry: kept=9 fresh=13
+static task: second call 2, third call 3
+automatic task: 102 104, inner block sums 16 16
+automatic recursion: 10
+class method: 2 2
+for-loop variable: 6 steps

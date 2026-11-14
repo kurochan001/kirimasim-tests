@@ -1,0 +1,4 @@
+distinct threads: 18 of 18
+always runs 3, one thread: 1
+always_comb one thread over two runs: 1
+final procedures: non-null 1, one process 1

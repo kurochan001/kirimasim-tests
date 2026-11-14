@@ -1,0 +1,5 @@
+int message: pair_t positive 5, bit signed [0:31] positive 5
+int message: int unsigned negative 0, logic signed [31:0] negative 0, k_t negative K0
+int message taken: positive, num=0
+k_t message: k_t positive K1, l_t negative L0, int negative 0
+unpacked: ua_t to ub_t cast=0 y.a=0, ua_t to ua_t cast=1 z.a=7

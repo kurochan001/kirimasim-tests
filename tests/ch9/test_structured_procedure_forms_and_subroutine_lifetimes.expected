@@ -1,0 +1,13 @@
+function, no lifetime: 2 4
+function static: 3 6
+function automatic: 4 4
+task, no lifetime: 5 10
+task static: 6 12
+task automatic: 7 7
+override specifiers: sides 4, describe 40
+always_comb: 10
+always_comb: 30
+always_latch enabled: 1
+always_latch holds: 1
+always_ff edges: 2
+final: ff_count=2 comb_out=30 latch_q=1

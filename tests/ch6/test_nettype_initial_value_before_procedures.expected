@@ -1,0 +1,4 @@
+initial at 0: p.level=7 p.volt=1.50
+always at 0: p.level=7 p.volt=1.50
+initial at 0: r.level is 7 or 100: 1
+at 1: r.level=100

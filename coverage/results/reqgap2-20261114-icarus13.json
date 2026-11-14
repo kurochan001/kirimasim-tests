@@ -1,0 +1,289 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch11/test_assignment_operator_row_takes_whole_right_operand": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_assignment_operator_row_takes_whole_right_operand.sv:32: syntax error",
+   "inputs_sha256": "757e12df2459bc68042a733c2047be3f721dc42f169699c1c10509e5cf4c807a"
+  },
+  "ch11/test_case_equality_operand_types": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_case_equality_operand_types.sv:42: sorry: Unpacked structs not supported.",
+   "inputs_sha256": "ddf02960d4c23a171878b71559dcbf4c8d10531d4d6736694ee8e916018fa2da"
+  },
+  "ch11/test_conditional_ambiguous_condition_evaluates_both_branches": {
+   "status": "known",
+   "reason": "compile failed: Assertion failed: (ivl_expr_value(expr) == IVL_VT_BOOL || ivl_expr_value(expr) == IVL_VT_VECTOR), function draw_eval_vec4, file eval_vec4.c, line 1360.",
+   "inputs_sha256": "e8374581125194e1c808a3583ecb816d9a62b8f0f24c3e4e80431ad241ffbead"
+  },
+  "ch11/test_conditional_ambiguous_nonintegral_default_values": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_conditional_ambiguous_nonintegral_default_values.sv:37: sorry: Unpacked structs not supported.",
+   "inputs_sha256": "d6bedd7539cdb6d683a134fedf5c5a05e390df7f97e283fea50ea4db9949a6b2"
+  },
+  "ch11/test_conditional_predicate_terms_and_attribute": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_conditional_predicate_terms_and_attribute.sv:32: syntax error",
+   "inputs_sha256": "99db481d94be89a30f82583717e51dea86f938682aa081d145920367454cfd02"
+  },
+  "ch11/test_dist_integral_operand_kinds": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_dist_integral_operand_kinds.sv:40: syntax error",
+   "inputs_sha256": "e397e07517402a7d2de8d796a0298eda6886413af46a5e59425dd15c9700161c"
+  },
+  "ch11/test_illegal_bit_select_of_real_parameter": {
+   "status": "pass",
+   "inputs_sha256": "5343d4f9a68101cf3c19f6d7bb4931df1f3f5f7501e94d130e046d1f8fa351b3"
+  },
+  "ch11/test_illegal_bit_select_of_scalar_net": {
+   "status": "pass",
+   "inputs_sha256": "640bd2506929d87c4e505f2d8a64d92c16e0d9ed06292f2dcdfe89368f12cfa0"
+  },
+  "ch11/test_illegal_let_chandle_typed_formal": {
+   "status": "pass",
+   "inputs_sha256": "7b6b9fcc9a919cbfd7af4ebaeddf29d25783e1310af69690a4642525e0f4b38b"
+  },
+  "ch11/test_illegal_let_default_actual_not_cast_compatible": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_let_default_actual_not_cast_compatible\\\\.sv:(34|38):'",
+   "inputs_sha256": "eb5bc40374bb729fce618934e26589d1d4de9478fe0273fd93fb634ec02059fd"
+  },
+  "ch11/test_illegal_let_event_formal_outside_event_expression": {
+   "status": "pass",
+   "inputs_sha256": "8ea183ba66417f593b5b190a6a3b2886d50f9b131cad3c25ffd63d9d246162aa"
+  },
+  "ch11/test_illegal_let_event_formal_unpacked_array_actual": {
+   "status": "pass",
+   "inputs_sha256": "276d581ccb1707e9f6e609dae224aeefd9ba0bf237c457cea0269b2e9a421d96"
+  },
+  "ch11/test_illegal_part_select_nonconstant_lsb": {
+   "status": "pass",
+   "inputs_sha256": "808dec2c3305de9fcc817d1f950908ad378e37e34c99e3ccdb64104a68a70807"
+  },
+  "ch11/test_illegal_part_select_of_real_parameter": {
+   "status": "pass",
+   "inputs_sha256": "7ed8b8b335789c4f0c810de2bf82e3f60521338f274f5be796106bfdf05ee14a"
+  },
+  "ch11/test_illegal_part_select_of_real_variable": {
+   "status": "pass",
+   "inputs_sha256": "267f02c8b1fe6c4a8a44aa374355e3be9aa3dc04f8824720d72474fa27b25d40"
+  },
+  "ch11/test_illegal_part_select_of_scalar_variable": {
+   "status": "pass",
+   "inputs_sha256": "fa1f334e448d0f1979dcaafeea0fbd1fa16d7a258d29731acda1ce8f1ff61035"
+  },
+  "ch11/test_illegal_part_select_real_bound": {
+   "status": "pass",
+   "inputs_sha256": "834ec6a7c56d19d8e587bc137e3963339ab56b98209178be0f24271e574ea848"
+  },
+  "ch11/test_illegal_part_select_real_second_bound": {
+   "status": "pass",
+   "inputs_sha256": "e6a12d1c062d421ba4fa2518b35b94835da077fcb4906b736186c3c7d706dd64"
+  },
+  "ch11/test_illegal_part_select_reversed_bounds_ascending": {
+   "status": "pass",
+   "inputs_sha256": "290cb3c221b6af5e653571729070d43f0b94b9408410dc4150c24da991fc6f78"
+  },
+  "ch11/test_illegal_part_select_variable_msb_of_net": {
+   "status": "pass",
+   "inputs_sha256": "c82a6b1b98717e691ac290696c43a9bea9378cd7ec64ca129b78edfc8c8557fb"
+  },
+  "ch11/test_illegal_stream_real_item": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_stream_real_item\\\\.sv:32:'",
+   "inputs_sha256": "fb8dcf741e97abfc1388bc0270885c770106f4ba9f68bb1f99e7270bd7178676"
+  },
+  "ch11/test_operand_categories_every_kind": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_operand_categories_every_kind.sv:43: sorry: Unpacked structs not supported.",
+   "inputs_sha256": "0f7afd7a40f844ec7263a0e61e6d9713e41247ea64da5c0cd9fd588b63ae083f"
+  },
+  "ch11/test_operator_associativity_each_row": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_operator_associativity_each_row.sv:43: syntax error",
+   "inputs_sha256": "e23a681b8b7bb9bfba32bb36ebedc34f40202d8adc91bad6f447cf759d2fad8b"
+  },
+  "ch11/test_simple_operand_is_unparenthesized_primary": {
+   "status": "pass",
+   "inputs_sha256": "34dc1a42f52065f482ed3e1bac732fb084213b400b85bcbfcf58d8974d49ced9"
+  },
+  "ch11/test_static_prefix_of_field_selects": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_static_prefix_of_field_selects.sv:35: sorry: Unpacked structs not supported.",
+   "inputs_sha256": "195b29d7fa0d7d44ab4a572fe90582e07468a525589f9e72efd4f22e34936c87"
+  },
+  "ch11/test_stream_four_state_when_any_item_is_four_state": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_stream_four_state_when_any_item_is_four_state.sv:28: sorry: Unpacked structs not supported.",
+   "inputs_sha256": "5e5553c0362cf8b9d4fb6b4901afdc0fbe6861529c7af33f34d07c5bb1f89545"
+  },
+  "ch6/test_enum_next_prev_prototype_types": {
+   "status": "pass",
+   "inputs_sha256": "e900a3db7fafa298546279fa867ff089ae8725dadb897e74eea836697fa075dc"
+  },
+  "ch6/test_illegal_continuous_assign_reads_automatic_variable": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_continuous_assign_reads_automatic_variable\\\\.sv:33:'",
+   "inputs_sha256": "eb51c5b125807bb28fee692baa614673878ac8333dab151ec47480a53a0a3cce"
+  },
+  "ch6/test_illegal_continuous_assign_reads_queue_element": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_continuous_assign_reads_queue_element\\\\.sv:26:'",
+   "inputs_sha256": "d4ccc34d767376d487234fc31d22ff4ad011cf8a38e8ec259f1475e7a1acc499"
+  },
+  "ch6/test_illegal_string_replication_unpacked_array_operand": {
+   "status": "pass",
+   "inputs_sha256": "838fa2b63d3041b8b36c6eebdb4939ee2e3ea53f0bf8e4e28463a511209c2109"
+  },
+  "ch6/test_interconnect_declaration_generic_forms": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_interconnect_declaration_generic_forms.sv:64: syntax error",
+   "inputs_sha256": "9cc1ad252a9bf97e635e1f36b1333409878a1cb64acadb957ceffc7c7676e65c"
+  },
+  "ch6/test_nettype_initial_value_before_procedures": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_nettype_initial_value_before_procedures.sv:36: sorry: Unpacked structs not supported.",
+   "inputs_sha256": "28ed86a8f697ded18ebbeeb9e6422f3514bd99b2bc000ae83099cdd693d399a0"
+  },
+  "ch6/test_nettype_unpacked_union_struct_array_data": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_nettype_unpacked_union_struct_array_data.sv:34: sorry: Unpacked structs not supported.",
+   "inputs_sha256": "5e2c5644b049803bfa7f7dd1c4edeb5d822e0bd6d3a7e8ebe0aad3d25d110019"
+  },
+  "ch6/test_parameter_and_specparam_override_mechanisms": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'SDF ERROR: test_parameter_and_specparam_override_mechanis...', expected 'u1: P=10 Q=2'",
+   "inputs_sha256": "416f0cee234f0ed55adee8076ff0ba021049f99bd74ad40fba2bc23f9c9c8212"
+  },
+  "ch6/test_parameter_keyword_local_contexts_vpi": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_parameter_keyword_local_contexts_vpi.sv:47: syntax error",
+   "inputs_sha256": "ad61e5c0458040f40f16b61fca00b7bbea668b985b2558c0d08f28f5afb859cf"
+  },
+  "ch6/test_parameter_port_list_localparam_extent": {
+   "status": "pass",
+   "inputs_sha256": "e00664cd83b52ecc3ef5219003b66dd1f82c2ec7421cb224bd911e8a637f0f89"
+  },
+  "ch6/test_type_compatibility_five_levels": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_type_compatibility_five_levels.sv:49: syntax error",
+   "inputs_sha256": "5db47db46df625e7f9f0ff99523eb21215b8a7b15b4f1282351b04530ffe6117"
+  },
+  "ch6/test_type_equivalence_only_by_rules": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_type_equivalence_only_by_rules.sv:45: sorry: Unpacked structs not supported.",
+   "inputs_sha256": "7d995718673b37f476bfe91cd7696858e53ca258fb117c4f3e5a61fb4c4c409d"
+  },
+  "ch6/test_type_identity_per_instance_cast": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_type_identity_per_instance_cast.sv:36: sorry: Unpacked structs not supported.",
+   "inputs_sha256": "10d3254f62baafa08adaab21cf9aae79de2cc2c00ad18fe5a03b8917f8a0f5a5"
+  },
+  "ch7/test_dynamic_array_new_size_longint_negative_error": {
+   "status": "known",
+   "reason": "crashed (signal 6)",
+   "inputs_sha256": "9f54c53c3cc97ff3d89d8b791fefe17df31b6cff6ad9d10ae6df6b19e2469583"
+  },
+  "ch7/test_illegal_packed_array_range_inner_single_size": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "ebc11c2b1e719acfb7e07ccc330f3e4aa97662acf9834bd3f240804d710a8632"
+  },
+  "ch7/test_illegal_packed_array_range_real_bound": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "d701d0555d7bec1233c44154b97797cee9776008e504203bf192c77a97632db7"
+  },
+  "ch7/test_illegal_packed_array_range_variable_bound": {
+   "status": "pass",
+   "inputs_sha256": "92517776be1fc1ce190c1684fe6ef3c80320bbf5284032cffda1cd50e4fc95ac"
+  },
+  "ch7/test_illegal_packed_array_range_x_bound": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "8f0532f76f869a0bed8637c8f75371e19aa208d718f2573716240bcb9dc7696a"
+  },
+  "ch7/test_illegal_packed_array_range_z_bound": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "8f88dbb898f63853067f79821d8af08c2e7279077de450eda86a966714d6e770"
+  },
+  "ch7/test_illegal_unpacked_size_negative": {
+   "status": "pass",
+   "inputs_sha256": "c7cf159c2bf416574beb95c49880aabe9d053be0607565f11d670bd9069ffe5a"
+  },
+  "ch7/test_illegal_unpacked_size_real": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "e83baf08718eb9dafea789fbac45aa322c1a9923f1eaf4df67c0269a9548042b"
+  },
+  "ch7/test_illegal_unpacked_size_variable": {
+   "status": "pass",
+   "inputs_sha256": "11e4bb0fa0569361b08b82736f65f16d5c5e045bcb5a326c82c6c97ee47b0114"
+  },
+  "ch7/test_illegal_unpacked_size_zero": {
+   "status": "pass",
+   "inputs_sha256": "bef185cb13ae31b713275cc26077543ef507297241630c9ca2cccd8ad50398dd"
+  },
+  "ch8/test_weak_reference_clear_void_no_arguments": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_weak_reference_clear_void_no_arguments.sv:39: syntax error",
+   "inputs_sha256": "e75e35ece0f99bf38b80271f005f74ca8e9e179037513a2c8721255f0c8187eb"
+  },
+  "ch8/test_weak_reference_get_id_static_longint": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_weak_reference_get_id_static_longint.sv:36: syntax error",
+   "inputs_sha256": "8e0f7066451af11e89acdfbcdaa06d8e2e84c81f2bb55908e5ca1c5f0592340e"
+  },
+  "ch8/test_weak_reference_get_id_unique_across_types": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_weak_reference_get_id_unique_across_types.sv:45: syntax error",
+   "inputs_sha256": "a4a2a5e41089490f5c01bc989a3ada4416b3d71dc6e21bfa3ca77032e9f8bbd0"
+  },
+  "ch8/test_weak_reference_null_referent_no_warning": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_weak_reference_null_referent_no_warning.sv:48: syntax error",
+   "inputs_sha256": "a44cd3e2548d0ffb024d02cad4a1bde1dcd8b7ff9f7eebfca053ee0da1be3179"
+  },
+  "ch9/test_always_comb_timing_control_identifiers_not_sensitive": {
+   "status": "known",
+   "reason": "compile failed: tests/ch9/test_always_comb_timing_control_identifiers_not_sensitive.sv:50: syntax error",
+   "inputs_sha256": "6675650758e0ae133aef93ae21acabb338f06daa619beb44c531d2e47167004d"
+  },
+  "ch9/test_always_without_timing_control_never_advances_time": {
+   "status": "known",
+   "reason": "compile failed: tests/ch9/test_always_without_timing_control_never_advances_time.sv:37: error: always process does not have any delay.",
+   "inputs_sha256": "b45b2c064a7d348958ba060adfeed7ecd822cc220888e969f23b87a77d23cad2"
+  },
+  "ch9/test_block_variable_static_and_automatic_lifetimes": {
+   "status": "known",
+   "reason": "compile failed: tests/ch9/test_block_variable_static_and_automatic_lifetimes.sv:103: sorry: Overriding the default variable lifetime is not yet supported.",
+   "inputs_sha256": "6e288e067ee8bacccf0ab3477d2354a2adaf298931de18e69412496a957484d5"
+  },
+  "ch9/test_process_thread_kinds_and_final_process": {
+   "status": "known",
+   "reason": "compile failed: tests/ch9/test_process_thread_kinds_and_final_process.sv:48: syntax error",
+   "inputs_sha256": "4ee245acc73acb6a1623efdf9e963324be6e57fba8d87d54a7687f8676974d1f"
+  },
+  "ch9/test_structured_procedure_forms_and_subroutine_lifetimes": {
+   "status": "known",
+   "reason": "compile failed: tests/ch9/test_structured_procedure_forms_and_subroutine_lifetimes.sv:97: syntax error",
+   "inputs_sha256": "4688aa53da8e5cbc99c54c88462b620274c25596eaeec9558300ea2ad2fa503c"
+  },
+  "ch9/test_timing_control_delay_event_wait_forms": {
+   "status": "pass",
+   "inputs_sha256": "6bb42539084e870904eef4004f394f7800a03105da4133d7ce3b628539c6d114"
+  },
+  "ch9/test_timing_control_iff_sequence_cycle_wait_order_forms": {
+   "status": "known",
+   "reason": "compile failed: tests/ch9/test_timing_control_iff_sequence_cycle_wait_order_forms.sv:69: syntax error",
+   "inputs_sha256": "efb6d2477f3a20c45769efe5d5df489e2653548692c8cff50a385af19dec3951"
+  }
+ },
+ "generated_at": "2026-11-14T05:44:47.296047+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

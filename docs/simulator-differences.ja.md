@@ -1310,3 +1310,14 @@ ch30/test_illegal_specify_path_to_input                           アサーシ�
 - 3.13：定義の名前空間とpackageの名前空間の名前の再使用を、警告MODDUPとするだけで設計をビルドする。`ch3/test_illegal_definition_name_interface_reused_by_program`、`ch3/test_illegal_definition_name_module_reused_in_other_file`、`ch3/test_illegal_definition_name_primitive_reused_by_module`、`ch3/test_illegal_definition_name_program_reused_by_primitive`、`ch3/test_illegal_package_name_reused_in_other_file`
 - 25.9：virtual interfaceを通して届く要素を、alwaysとalways_ffの先頭のイベント制御に置いた設計を受け付ける。`ch25/test_illegal_virtual_interface_component_in_always_event_control`、`ch25/test_illegal_virtual_interface_component_in_always_ff`
 - 24.3（同じ日のクロスモデル`program_hierarchy_instances`）：すべてのprogramのinitial手続きが終わった後も、時刻50の表示のようなmoduleの後の事象を実行し続ける。`gen/ch24/test_gen_cross_progmod_{top_inst,child_inst,implicit_top}_*`のケース
+
+同じ日の後の6・7・8・9・11章のテストは、さらに次の差異を示します（未対応の構文は載せません）。
+
+- Icarus Verilog 13.0は、パック次元のx・z・realの境界、パック次元の単一サイズ、アンパックのrealのサイズという違法な境界とサイズを受け付ける（7.4.1、7.4.2）。`ch7/test_illegal_packed_array_range_x_bound`、`ch7/test_illegal_packed_array_range_z_bound`、`ch7/test_illegal_packed_array_range_real_bound`、`ch7/test_illegal_packed_array_range_inner_single_size`、`ch7/test_illegal_unpacked_size_real`
+- Icarus Verilog 13.0は、時間制御のないalways手続きをエラボレーションで拒否する。9.2.2.1はデッドロックになると述べるだけで、違法とはしていない。`ch9/test_always_without_timing_control_never_advances_time`
+- Icarus Verilog 13.0は、longintとして負のサイズをnew[]に与えると、7.5.1のエラーではなく、捕まえられないC++の例外で止まる。`ch7/test_dynamic_array_new_size_longint_negative_error`
+- Verilator 5.054は、同じ呼出しをエラーなしで実行する（サイズの下位32ビットを使っているとみられる）。`ch7/test_dynamic_array_new_size_longint_negative_error`
+- Verilator 5.054は、昇順のベクタで第1の境界が下位のビットを指す部分選択を、警告だけで受け付ける（11.5.1）。`ch11/test_illegal_part_select_reversed_bounds_ascending`
+- Verilator 5.054は、automatic変数やキューの要素を読む連続代入を受け付ける（6.21）。`ch6/test_illegal_continuous_assign_reads_automatic_variable`、`ch6/test_illegal_continuous_assign_reads_queue_element`
+- Verilator 5.054は、いくつかの静的なプロセスに同じ`process::self()`のハンドルを返し、always_combには再実行のたびに別のハンドルを返す（9.5）。`ch9/test_process_thread_kinds_and_final_process`
+- Verilator 5.054は、always_combから呼ぶtaskの中身を感度に含めてDIDNOTCONVERGEで止まる（9.2.2.2.1では含めない）。時間制御のないalways手続きの中の`$finish`の後には、final手続きを実行しない。`ch11/test_static_prefix_of_field_selects`、`ch9/test_always_without_timing_control_never_advances_time`

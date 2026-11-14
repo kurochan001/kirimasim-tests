@@ -1,0 +1,11 @@
+**: 64
+* / %: 20 6 2
++ -: 9 3
+shifts: 8 4
+relational: 1 0 1
+equality: 1 1
+conditional: 2
+implication: 1 1 0
+selects: 3 1
+associative: 0000 1111 1101 0 1
+nested: x=12 y=6 z=5 cat=100111

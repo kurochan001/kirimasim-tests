@@ -1,0 +1,5 @@
+type of the result: longint
+width of the result: 64
+result for null minus 1: -1
+bound by name equals bound by position: 1, nonzero: 1
+circle handle as shape: nonzero 1, differs from s 1, same as circle_ref 1

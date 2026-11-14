@@ -4,7 +4,7 @@
 
 [English](ch9.md) / [日本語](ch9.ja.md)
 
-[すべての章](README.ja.md) .テストは444本で、そのうち233本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは451本で、そのうち233本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -15,6 +15,7 @@
 | [`test_ch9_extra_procedure_count`](../../tests/ch9/test_ch9_extra_procedure_count.sv) |128 initial 128 always プロセスはすべて時間ゼロで始まるため、言語はモジュールプロセスの数に小さな固定された制限を課さない。| 9.2 | Icarus Verilog 13.0 ||
 | [`test_illegal_override_specifier_in_interface_class`](../../tests/ch9/test_illegal_override_specifier_in_interface_class.sv) |動的オーバーライド指定子は、interface classのメソッドには使用できない| 9.2 8.26 8.20 |規格のみ|規格違反の設計|
 | [`test_illegal_override_specifier_on_module_function`](../../tests/ch9/test_illegal_override_specifier_on_module_function.sv) |動的オバーライド指定子はインターフェースクラスでないクラスのメソッドにのみ許可されます| 9.2 8.20 |規格のみ|規格違反の設計|
+| [`test_structured_procedure_forms_and_subroutine_lifetimes`](../../tests/ch9/test_structured_procedure_forms_and_subroutine_lifetimes.sv) |initial は null 文を、各 always キーワードは文を、final は関数文を取り、task と function はクラス内で動的上書き指定子を、lifetime なし・static・automatic を ANSI または非 ANSI の本体で取る。lifetime がローカルの値を呼び出し間で保つかどうかを決める| 9.2 9.3.4 13.3.1 13.4.2 | Verilator 5.054 ||
 | [`test_structured_procedure_kinds_each_run`](../../tests/ch9/test_structured_procedure_kinds_each_run.sv) |各種のプロセス 初期、常に、always_comb、always_latch、always_ff、最終、タスク、関数が実行され 結果を返します| 9.2 9.2.2.2 9.2.2.3 9.2.2.4 | Icarus Verilog 13.0 ||
 | [`test_structured_procedures_enable_once_repeat_final`](../../tests/ch9/test_structured_procedures_enable_once_repeat_final.sv) |初期プロセスと常に実行されるプロセスは 時間 0 で始まり、初期プロセスは一度実行され、常に実行され るプロセスは $finish まで繰り返され、最終プロセスは終了時に一度実行されます。タスクと関数は呼び出されたときにのみ実行されます。| 9.2 9.2.1 9.2.2.1 9.2.3 | Icarus Verilog 13.0 ||
 | [`test_syntax_structured_procedure_forms`](../../tests/ch9/test_syntax_structured_procedure_forms.sv) |A.6.2の初期、常に、always_comb , always_latch , always_ff、最終プロセスはそれぞれのボディを取って、それぞれの計算値をもって一度、繰り返し、あるいは最後に実行する。| 9.2 9.2.1 9.2.2.1 9.2.2.2 9.2.2.3 9.2.2.4 9.2.3 A.6.2 | Verilator 5.052 ||
@@ -25,6 +26,7 @@
 | [`test_always_at_signal_before_nonzero_delay`](../../tests/ch9/test_always_at_signal_before_nonzero_delay.sv) |変更が起こったときに起動し、遅延が終了する前に出力を更新する。| 9.2.2 9.4.2 | Icarus Verilog 13.0 ||
 | [`test_always_body_event_control`](../../tests/ch9/test_always_body_event_control.sv) |常にプロセスは、ボディがイベント制御で始まる場合、すべてのイベントを計数します。| 9.2.2 9.4.2 15.5.1 | Icarus Verilog 13.0 ||
 | [`test_always_parallel_block_finish`](../../tests/ch9/test_always_parallel_block_finish.sv) |ネストされた並列ブロックが最も遅いブランチを待つ間、過去の時間を常に繰り返す| 9.2.2.1 9.3.3 9.5 | Icarus Verilog 13.0 ||
+| [`test_always_without_timing_control_never_advances_time`](../../tests/ch9/test_always_without_timing_control_never_advances_time.sv) |タイミング制御の無い always 手続きは、シミュレーション時刻を一度も進めずに文を繰り返すので、遅延したプロセスは決して実行されず、ループ内の $finish が時刻 0 でシミュレーションを終える| 9.2.2.1 |規格のみ||
 | [`test_sequential_logic`](../../tests/ch9/test_sequential_logic.sv) |イベント制御を持つ常にプロセスのカウンタとレジスタ| 9.2.2.1 9.4.2 | Icarus Verilog 13.0 ||
 | [`test_always_blocks`](../../tests/ch9/test_always_blocks.sv) |クロック生成| 9.2.2.2 9.2.2.4 | Icarus Verilog 13.0 ||
 | [`test_always_comb`](../../tests/ch9/test_always_comb.sv) | always_comb | 9.2.2.2 | Icarus Verilog 13.0 ||
@@ -60,6 +62,7 @@
 | [`test_always_comb_qualified_function_calls`](../../tests/ch9/test_always_comb_qualified_function_calls.sv) |パッケージ関数、 :: で呼ばれた静的クラスメソッド、階層的名前で呼ばれた関数が読み込まれるかどうかに always_comb は感度を持ち、他の呼ばれた関数と同様に| 9.2.2.2.1 | Verilator 5.052 ||
 | [`test_always_comb_reads_generate_scope_names`](../../tests/ch9/test_always_comb_reads_generate_scope_names.sv) |always_comb 生成ブロックのプロセスは、他の生成ブロックの階層的な名前を通して読み込んだ変数が変化したときに再実行されます。| 9.2.2.2.1 23.6 27.4 | Icarus Verilog 13.0 ||
 | [`test_always_comb_sensitivity_exceptions`](../../tests/ch9/test_always_comb_sensitivity_exceptions.sv) |always_comb の暗黙感度は，それが書き込む変数，呼び出したタスクの内容，アサーションションアクションブロックの表現を省略するが，タスクの引数と直接アサーションションの表現を含む。| 9.2.2.2.1 9.2.2.2.2 16.3 |規格のみ||
+| [`test_always_comb_timing_control_identifiers_not_sensitive`](../../tests/ch9/test_always_comb_timing_control_identifiers_not_sensitive.sv) |always_comb 内で非ブロッキング代入の intra-assignment の遅延・イベント・iff・repeat の制御にだけ現れる識別子は手続きを起こさず、右辺は起こす| 9.2.2.2.1 |規格のみ||
 | [`test_always_comb_vs_always_star`](../../tests/ch9/test_always_comb_vs_always_star.sv) |always_comb は時間ゼロで実行され、常に@* とは異なり、呼び出された関数に読み込まれた変数に敏感です。| 9.2.2.2.2 9.2.2.2.1 9.4.2.2 | Icarus Verilog 13.0 | x/z |
 | [`test_always_comb_vs_star_assertion_in_function`](../../tests/ch9/test_always_comb_vs_star_assertion_in_function.sv) |always_comb で呼ばれた関数の直接的なアサーションの表現はその感度にあるが、同じ関数を常に@* で呼ぶと、その本体に書かれたアサーションにのみ感度がある。| 9.2.2.2.2 9.2.2.2.1 9.4.2.2 16.3 | Icarus Verilog 13.0 ||
 | [`test_ch9_extra_star_multiple_writers`](../../tests/ch9/test_ch9_extra_star_multiple_writers.sv) |always_comb とは異なり、2つの always @* プロセスは同じ変数を書き込み、共有した入力が変化したときに両方とも実行できます。| 9.2.2.2.2 | Icarus Verilog 13.0 ||
@@ -112,6 +115,7 @@
 | [`test_illegal_return_inside_fork`](../../tests/ch9/test_illegal_return_inside_fork.sv) |フォークジョイントブロック内の return 命令はコンパイルエラーです| 9.3.2 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_join_none_children_start_after_parent_blocks`](../../tests/ch9/test_join_none_children_start_after_parent_blocks.sv) |フォーク-join_none によって生成されたプロセスは、親ブロックがブロックされるまでは起動しません。したがって、その時点で静的ループ変数の値を見ることができます。| 9.3.2 | Icarus Verilog 13.0 ||
 | [`test_ref_static_fork_join_none_after_return`](../../tests/ch9/test_ref_static_fork_join_none_after_return.sv) |fork-join_none で生成したプロセスはタスクが戻った後も ref static 引数を読み書きでき、その時点の呼び出し側の変数に到達するが、通常の ref 引数はそこでは fork ブロックの変数の初期化にしか使えない| 9.3.2 13.5.2 6.21 |規格のみ||
+| [`test_block_variable_static_and_automatic_lifetimes`](../../tests/ch9/test_block_variable_static_and_automatic_lifetimes.sv) |static なブロック・task・function の中の lifetime 修飾の無い変数は入るたびに値を保ち、明示的に automatic の変数、automatic な task・function・ブロックの変数、クラスメソッドの変数、宣言した for ループ変数は入るたびに新しく、起動の間で共有されない| 9.3.4 6.21 | Verilator 5.054 ||
 | [`test_ch9_extra_unnamed_block_scope`](../../tests/ch9/test_ch9_extra_unnamed_block_scope.sv) |順序ブロックの名前なしの範囲に属する変数は階層的な名前でアクセスできません| 9.3.4 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_end_name_differs_from_begin_name`](../../tests/ch9/test_illegal_end_name_differs_from_begin_name.sv) |ブロック名は ブロック名の後に付けられる| 9.3.4 9.3.1 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_generate_block_end_name_differs`](../../tests/ch9/test_illegal_generate_block_end_name_differs.sv) |生成ブロックの終わりの名前は ブロックの名前でなければなりません| 9.3.4 27.3 | Icarus Verilog 13.0 |規格違反の設計|
@@ -134,6 +138,8 @@
 | [`test_illegal_comma_event_expression_positional_actual`](../../tests/ch9/test_illegal_comma_event_expression_positional_actual.sv) |コンマで区切られた部分を持つイベント表現は 位置関数として渡されるため 括弧が必要です| 9.4 16.8.2 |規格のみ|規格違反の設計|
 | [`test_syntax_star_event_controls`](../../tests/ch9/test_syntax_star_event_controls.sv) |"@*"と"@(*)"はそれぞれのシグナルを待ち、そのシグナルが変化したときにそのシグナルを実行します。| 9.4 9.4.2 A.6.5 | Icarus Verilog 13.0 ||
 | [`test_syntax_timing_control_and_event_expressions`](../../tests/ch9/test_syntax_timing_control_and_event_expressions.sv) |遅延、イベント、繰り返しイベント制御は A.6.5 の前に置かれ、イベント表現はエッジ、iff、or、コンマ、括弧、パッケージまたは階層識別子を持つ形式でそれぞれのイベントで起動される。| 9.4 9.4.1 9.4.2 9.4.3 A.6.5 A.6.4 | Verilator 5.052 ||
+| [`test_timing_control_delay_event_wait_forms`](../../tests/ch9/test_timing_control_delay_event_wait_forms.sv) |遅延制御の各形式、識別子・階層識別子・括弧付きの式による @、エッジと値変化の式、or・コンマ・括弧付きのイベント式、@* と @(*)、代入の中の遅延とイベントの制御、文付きと null 文の wait、wait fork は、それぞれ刺激が決める時刻に再開する| 9.4 | Icarus Verilog 13.0 ||
+| [`test_timing_control_iff_sequence_cycle_wait_order_forms`](../../tests/ch9/test_timing_control_iff_sequence_cycle_wait_order_forms.sv) |パッケージスコープの識別子による @、ブロッキングと非ブロッキングの代入の中の repeat イベント制御、エッジの後とシーケンスインスタンスの後の iff、イベントとしてのシーケンスインスタンス、null 文付きと文付きのサイクル遅延、pass 文と fail 文を持つ wait_order は、それぞれ刺激が決める時刻に再開する| 9.4 |規格のみ||
 | [`test_timing_controls_forms`](../../tests/ch9/test_timing_controls_forms.sv) |遅延、イベント、レベル感度の待ち制御は、繰り返し、エッジ、名前付きイベント、または/コンマ、括弧付きの形で、ステートメントを遅延させ、それぞれの条件が修正された時点で再開します。| 9.4 9.4.2 9.4.3 | Icarus Verilog 13.0 ||
 | [`test_assign_delay_edge_cases`](../../tests/ch9/test_assign_delay_edge_cases.sv) |テスト：代入遅延エッジ事例| 9.4.1 9.4.2 9.4.5 | Icarus Verilog 13.0 ||
 | [`test_ch9_extra_specparam_delay`](../../tests/ch9/test_ch9_extra_specparam_delay.sv) |プロセス遅延制御は specparam から値を取って その値で遅延時間を進める| 9.4.1 | Icarus Verilog 13.0 ||
@@ -181,6 +187,7 @@
 | [`test_intra_repeat_count_not_positive_or_unknown`](../../tests/ch9/test_intra_repeat_count_not_positive_or_unknown.sv) |代入内のrepeatイベント制御は、回数がゼロ、負、x、zの場合、イベントを待たずに直ちに代入する。正の回数の場合は、その回数のイベントを待つ。| 9.4.5 |規格のみ| x/z |
 | [`test_syntax_intra_assignment_timing_forms`](../../tests/ch9/test_syntax_intra_assignment_timing_forms.sv) |ブロックアサーションは、アサーション内の#遅延、#(表現)、イベント制御、繰り返しイベント制御および名前付きイベント制御を持ち、ブロックアッセーイは、各種制御を持たず、またはそれらを持たない。| 9.4.5 10.4.1 10.4.2 A.6.2 A.6.4 A.6.5 | Icarus Verilog 13.0 ||
 | [`test_ch9_extra_continuous_thread`](../../tests/ch9/test_ch9_extra_continuous_thread.sv) |それぞれの連続的な代入は 独立して それぞれのソースを追跡し それらの連鎖は 次のタイムステップの前に 決定される 別々の連続的なスレッドがするように| 9.5 | Icarus Verilog 13.0 ||
+| [`test_process_thread_kinds_and_final_process`](../../tests/ch9/test_process_thread_kinds_and_final_process.sv) |initial 手続きのすべてのインスタンス、各 always・ always_comb ・ always_latch ・ always_ff 手続き、fork-join・ join_any ・ join_none の各並列文、各動的プロセスはそれぞれ自分のスレッドで実行され、always 手続きは繰り返しの間 1 つのスレッドを保ち、final 手続きは 1 つのプロセスから実行される| 9.5 9.2.3 |規格のみ||
 | [`test_process_threads_distinct`](../../tests/ch9/test_process_threads_distinct.sv) |各初期、常に、最終手続き、フォークの各並列命令、fork-join_noneによって開始された各プロセスは、それぞれ独自のスレッドとして実行されます。| 9.5 9.7 9.3.2 | Verilator 5.052 ||
 | [`test_process_control_statement_forms`](../../tests/ch9/test_process_control_statement_forms.sv) |プロセス制御の各形式は 構文に従って実行されます 表現とステートメントまたは null ステートメントとともに待ち、 各種アクションブロックとともに フォークを待ち、 wait_order、 タスク、ブロック、フォークを無効にします| 9.6 15.5.4 |規格のみ||
 | [`test_process_control_wait_disable_parentage`](../../tests/ch9/test_process_control_wait_disable_parentage.sv) |wait forkは自身のプロセスの子だけを待ちます。名前付きdisableは、無関係なプロセスやブロックの子からでもそのブロックを終了し、disable forkは自身のプロセスの子だけを終了します。| 9.6 9.6.1 9.6.2 9.6.3 | Icarus Verilog 13.0 ||

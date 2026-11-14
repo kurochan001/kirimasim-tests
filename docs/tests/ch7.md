@@ -4,7 +4,7 @@
 
 [English](ch7.md) / [日本語](ch7.ja.md)
 
-[All chapters](README.md). 779 tests, 304 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 789 tests, 304 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -115,6 +115,11 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_bit_select`](../../tests/ch7/test_bit_select.sv) | Bit-select and part-select | 7.4.1 11.5.1 | Icarus Verilog 13.0 ||
 | [`test_illegal_int_packed_dimension`](../../tests/ch7/test_illegal_int_packed_dimension.sv) | an integer type with a predefined width, here int, cannot be declared with packed array dimensions | 7.4.1 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_packed_array_of_real`](../../tests/ch7/test_illegal_packed_array_of_real.sv) | A packed array cannot have real elements | 7.4.1 6.12 | Icarus Verilog 13.0 | illegal design |
+| [`test_illegal_packed_array_range_inner_single_size`](../../tests/ch7/test_illegal_packed_array_range_inner_single_size.sv) | every packed dimension of a packed array needs a range with two bounds; a single size such as \[4\] as the second packed dimension is illegal | 7.4.1 | Verilator 5.054 | illegal design |
+| [`test_illegal_packed_array_range_real_bound`](../../tests/ch7/test_illegal_packed_array_range_real_bound.sv) | a bound of a packed dimension of a packed array has to be an integer value; a real parameter is illegal | 7.4.1 | standard only | illegal design |
+| [`test_illegal_packed_array_range_variable_bound`](../../tests/ch7/test_illegal_packed_array_range_variable_bound.sv) | a bound of a packed dimension of a packed array has to be a constant expression; a variable is illegal | 7.4.1 | Icarus Verilog 13.0 | illegal design |
+| [`test_illegal_packed_array_range_x_bound`](../../tests/ch7/test_illegal_packed_array_range_x_bound.sv) | a bound of a packed dimension of a packed array cannot contain an x bit | 7.4.1 | standard only | illegal design, x/z |
+| [`test_illegal_packed_array_range_z_bound`](../../tests/ch7/test_illegal_packed_array_range_z_bound.sv) | a bound of a packed dimension of a packed array cannot contain a z bit | 7.4.1 | standard only | illegal design, x/z |
 | [`test_illegal_packed_dimension_single_size`](../../tests/ch7/test_illegal_packed_dimension_single_size.sv) | a packed dimension needs a range with two bounds; a single size such as \[8\] is allowed only for unpacked dimensions | 7.4.1 7.4.2 | Verilator 5.052 | illegal design |
 | [`test_integer_atom_types_match_vector_types`](../../tests/ch7/test_integer_atom_types_match_vector_types.sv) | each integer type with a predefined width n matches the packed vector type with the same state, sign and the single dimension \[n-1:0\], and no vector type that differs in one of them | 7.4.1 6.22.1 6.23 | standard only ||
 | [`test_mixed_packed`](../../tests/ch7/test_mixed_packed.sv) | Mixed packed/unpacked arrays | 7.4.1 7.4.2 7.4.5 | Icarus Verilog 13.0 ||
@@ -140,6 +145,10 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_widths_edge_cases`](../../tests/ch7/test_widths_edge_cases.sv) | Test: Bit widths edge cases | 7.4.1 10.7 | Icarus Verilog 13.0 ||
 | [`test_illegal_unpacked_range_x_bound`](../../tests/ch7/test_illegal_unpacked_range_x_bound.sv) | a bound of a fixed-size unpacked dimension cannot contain an x bit | 7.4.2 | Verilator 5.052 | illegal design, x/z |
 | [`test_illegal_unpacked_range_z_bound`](../../tests/ch7/test_illegal_unpacked_range_z_bound.sv) | a bound of a fixed-size unpacked dimension cannot contain a z bit | 7.4.2 | Verilator 5.052 | illegal design, x/z |
+| [`test_illegal_unpacked_size_negative`](../../tests/ch7/test_illegal_unpacked_size_negative.sv) | the single-number size of a fixed-size unpacked dimension has to be positive; a negative size is illegal | 7.4.2 | Icarus Verilog 13.0 | illegal design |
+| [`test_illegal_unpacked_size_real`](../../tests/ch7/test_illegal_unpacked_size_real.sv) | the single-number size of a fixed-size unpacked dimension has to be an integer; a real parameter is illegal | 7.4.2 | standard only | illegal design |
+| [`test_illegal_unpacked_size_variable`](../../tests/ch7/test_illegal_unpacked_size_variable.sv) | the single-number size of a fixed-size unpacked dimension has to be a constant expression; a variable is illegal | 7.4.2 | Icarus Verilog 13.0 | illegal design |
+| [`test_illegal_unpacked_size_zero`](../../tests/ch7/test_illegal_unpacked_size_zero.sv) | the single-number size of a fixed-size unpacked dimension has to be positive, and \[size\] means \[0:size-1\]; a size computed as zero from the bounds of \[4\] and \[1\] is illegal | 7.4.2 | Icarus Verilog 13.0 | illegal design |
 | [`test_memory_array_access`](../../tests/ch7/test_memory_array_access.sv) | Memory (unpacked array) element access and copy | 7.4.2 7.4.4 | Icarus Verilog 13.0 ||
 | [`test_multidim_unpacked`](../../tests/ch7/test_multidim_unpacked.sv) | Unpacked arrays | 7.4.2 7.4.5 | Icarus Verilog 13.0 ||
 | [`test_net_array_elements_and_whole_array_assign`](../../tests/ch7/test_net_array_elements_and_whole_array_assign.sv) | elements of a net array are used as vector nets in continuous assignments, expressions and port connections, and a whole net array is assigned from a variable array and back, element by element from left to right | 7.4.2 7.6 | Verilator 5.052 ||
@@ -189,6 +198,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_dynamic_array_new_discards_data_and_references`](../../tests/ch7/test_dynamic_array_new_discards_data_and_references.sv) | resizing or reinitializing a dynamic array with new\[\] discards its data unless the old array is given as the initializer, and in every case outdates references to its elements | 7.5.1 13.5.2 | standard only ||
 | [`test_dynamic_array_new_forms_order_and_size`](../../tests/ch7/test_dynamic_array_new_forms_order_and_size.sv) | new\[\] sizes a dynamic array in a declaration or a blocking assignment, evaluates its size before its initializer, makes only an identifier whose leftmost unpacked dimension is dynamic a dynamic array, and size() is an int that equals $size(array, 1) while delete() empties the array | 7.5.1 7.5 7.5.2 7.5.3 20.7 | Verilator 5.052 ||
 | [`test_dynamic_array_new_negative_size_runtime_error`](../../tests/ch7/test_dynamic_array_new_negative_size_runtime_error.sv) | new\[\] with a size operand whose value is negative at run time is an error | 7.5.1 | standard only ||
+| [`test_dynamic_array_new_size_longint_negative_error`](../../tests/ch7/test_dynamic_array_new_size_longint_negative_error.sv) | the size operand of new\[\] has the signed type longint, so a 64-bit value with its top bit set is a negative size and an error, although its low 32 bits are a small positive number | 7.5.1 | standard only ||
 | [`test_dynamic_array_queue_size`](../../tests/ch7/test_dynamic_array_queue_size.sv) | Sizes of a dynamic array and a queue after new\[\], resizing, push_back and delete | 7.5.1 7.5.2 7.5.3 7.10.2 | Icarus Verilog 13.0 ||
 | [`test_dynamic_resize`](../../tests/ch7/test_dynamic_resize.sv) | Dynamic array new, resize, delete operations | 7.5.1 | Icarus Verilog 13.0 ||
 | [`test_edge_dynamic_array_resize`](../../tests/ch7/test_edge_dynamic_array_resize.sv) | Dynamic array resizing with new\[\] and new\[\](old), including new\[0\] | 7.5.1 7.5.2 | Verilator 5.052 ||

@@ -1,0 +1,7 @@
+package-scoped event: 12
+repeat: q=9 at 15; q2=0 at 29, then 9
+posedge clk iff en: 25
+sequence: 45, sequence iff en2: 55
+cycle delays: ##2 15, ##1 25 (flag=1), ##(k + 1) 35
+wait_order in order: pass=1 fail=0 at 64
+wait_order out of order: pass=0 fail=1 at 70

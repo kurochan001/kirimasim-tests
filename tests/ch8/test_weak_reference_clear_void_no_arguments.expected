@@ -1,0 +1,4 @@
+before: first is obj 1, second is obj 1
+first.clear(): first is null 1, second is obj 1
+clear() inside a function: second is null 1, obj.n 3
+clear() again: first is null 1

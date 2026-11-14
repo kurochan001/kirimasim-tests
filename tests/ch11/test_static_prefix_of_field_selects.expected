@@ -1,0 +1,10 @@
+start: runs 1 1 1 1  s.f=1 arr[i].f=10 arr[1].f=20 o.in.f=30
+s.g: runs 1 1 1 1  s.f=1 arr[i].f=10 arr[1].f=20 o.in.f=30
+s.f: runs 2 1 1 1  s.f=4 arr[i].f=10 arr[1].f=20 o.in.f=30
+arr[0].g: runs 2 2 1 1  s.f=4 arr[i].f=10 arr[1].f=20 o.in.f=30
+arr[1].g: runs 2 3 1 1  s.f=4 arr[i].f=10 arr[1].f=20 o.in.f=30
+arr[1].f: runs 2 4 2 1  s.f=4 arr[i].f=10 arr[1].f=23 o.in.f=30
+o.in.g: runs 2 4 2 1  s.f=4 arr[i].f=10 arr[1].f=23 o.in.f=30
+o.h: runs 2 4 2 1  s.f=4 arr[i].f=10 arr[1].f=23 o.in.f=30
+o.in.f: runs 2 4 2 2  s.f=4 arr[i].f=10 arr[1].f=23 o.in.f=35
+i: runs 2 5 2 2  s.f=4 arr[i].f=23 arr[1].f=23 o.in.f=35

@@ -1,0 +1,10 @@
+module with a parameter port list: A local 0 B local 1
+module with an empty parameter port list: E local 1
+module without a parameter port list: N local 0
+generate block: G local 1
+interface with a parameter port list: IA local 0 IB local 1
+program with a parameter port list: PA local 0 PB local 1
+class with a parameter port list: CB local 1 CP local 0
+class without a parameter port list: NB local 1
+package: PKG_P local 1
+compilation unit: test_parameter_keyword_local_contexts_vpi_unit_p local 1

@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[すべての章](README.ja.md) .テストは687本で、そのうち79本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは700本で、そのうち79本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -97,6 +97,7 @@
 | [`test_nettype_declarations_and_user_nets`](../../tests/ch6/test_nettype_declarations_and_user_nets.sv) |解決関数なしのネットタイプ宣言、直接、パッケージまたはクラスを通して名前付けられたもの、パッケージの範囲を持つまたは持たないネットタイプの新しい名前、これらのネットタイプのネットを遅延とネット宣言代入のリストを持って宣言し、解決値と変更時間を観察した。| 6.6.7 6.7.2 6.7.3 10.3.3 A.2.1.3 A.2.3 A.2.4 |規格のみ| x/z |
 | [`test_nettype_identifier_and_net`](../../tests/ch6/test_nettype_identifier_and_net.sv) |ネットタイプ宣言はデータタイプと識別子を持つユーザ定義ネットタイプを名付け、その名前で宣言されたネットはそのデータタイプの四状態意味論を持つ駆動値を持つ。| 6.6.7 6.6.1 A.9.3 |規格のみ||
 | [`test_nettype_resolution`](../../tests/ch6/test_nettype_resolution.sv) |ユーザ定義ネットタイプのネットは、出力ポートを含む全ドライバから、その解像度関数が計算した値を、ドライバが変更される度に再び取る。2番目のネットタイプ名は解像度を共有し フォースとリリースは解像度を上書きして復元します| 6.6.7 10.3 10.6.2 23.3.3 |規格のみ||
+| [`test_nettype_unpacked_union_struct_array_data`](../../tests/ch6/test_nettype_unpacked_union_struct_array_data.sv) |ユーザ定義 nettype は、データ型として real と logic のメンバーを持つ unpacked 共用体、 shortreal と bit のメンバーを持つ unpacked 構造体の固定長配列を持つ unpacked 構造体、そのような共用体の固定長配列を持つことができ、その解決関数はこれらの型のドライバ値を全体として合成する| 6.6.7 |規格のみ||
 | [`test_user_nettype_resolution_forms`](../../tests/ch6/test_user_nettype_resolution_forms.sv) |4状態，2状態，実数，shortrealおよびunpackedデータ型のユーザ定義ネットタイプ，パッケージスコープを通じて直接名付けた解析器またはパラメータ化クラスの静的メソッドとして，パッケージスコープを通じて名前を変更し，遅延を伴って宣言し，配列として，解析器なしで，ネットを全体として解析する。| 6.6.7 6.6 6.7 6.7.2 6.7.3 13.8 |規格のみ| x/z |
 | [`test_x_value_bitwise`](../../tests/ch6/test_x_value_bitwise.sv) |4 -state logic 真理値テーブル| 6.6.7 11.4.8 | Icarus Verilog 13.0 | x/z |
 | [`test_a2_1_3_interconnect_declaration_identifiers`](../../tests/ch6/test_a2_1_3_interconnect_declaration_identifiers.sv) |暗黙のデータ型、ゼロ遅延、および2つの識別子を持ち、2番目の識別子にunpacked次元を指定したinterconnect宣言は、2つのinterconnect netを宣言する。各netは、ポートを介してドライバからリーフへ値を伝える。| 6.6.8 23.3.3.7 A.2.1.3 |規格のみ||
@@ -110,6 +111,7 @@
 | [`test_illegal_charge_strength_in_tri_declaration`](../../tests/ch6/test_illegal_charge_strength_in_tri_declaration.sv) |電荷強度は trireg キーワードでのみ許可されるため tri 宣言には 電荷強度が存在できません| 6.7 | Icarus Verilog 13.0 |違法なデザイン x/z|
 | [`test_illegal_scalared_net_without_packed_dimension`](../../tests/ch6/test_illegal_scalared_net_without_packed_dimension.sv) |少なくとも1つの packed次元を必要とする ベクトルまたはスカラーを使うネット宣言| 6.7 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_vectored_net_without_packed_dimension`](../../tests/ch6/test_illegal_vectored_net_without_packed_dimension.sv) |ベクトルを使うネット宣言には スカラーを使うような少なくとも1つの packed次元が必要です| 6.7 | Icarus Verilog 13.0 |規格違反の設計|
+| [`test_interconnect_declaration_generic_forms`](../../tests/ch6/test_interconnect_declaration_generic_forms.sv) |汎用形の interconnect 宣言（範囲なし、符号と packed 範囲と遅延値 1 つ付き、それぞれ別の unpacked 次元を持つ 2 つの識別子付き）は、ドライバと受け手のポート、配列全体、単一の要素をつなぐネットを宣言する| 6.7 |規格のみ||
 | [`test_net_declaration_delay_forms`](../../tests/ch6/test_net_declaration_delay_forms.sv) |ネット宣言は、1つの遅延値または1つ、2つ、3つの遅延の括弧内リストを代入ることができる。それぞれの値は、min:typ:maxである。1つの値は全てのトランジションに適用され 2つ目は上昇と下降の遅延を与えます zは小さい値で 3つ目は上昇、下降、切り替えを与えます| 6.7 10.3.3 28.16 | Icarus Verilog 13.0 | x/z |
 | [`test_net_declaration_drive_strength_pairs`](../../tests/ch6/test_net_declaration_drive_strength_pairs.sv) |ネット宣言の代入では、supply・strong・pull・weak・highzから選ぶ0側と1側の駆動強度を、どちらの順序でも指定できます。ベクタネットの各bitは、固有の4状態値と強度を持ちます。| 6.7 6.7.1 10.3.4 28.12 21.2.1.4 | Icarus Verilog 13.0 | x/z |
 | [`test_net_declaration_legal_strength_pairs`](../../tests/ch6/test_net_declaration_legal_strength_pairs.sv) |許容される全ての駆動力ペア形式を受け入れ 表示された力をネットに供給します| 6.7 | Icarus Verilog 13.0 | x/z |
@@ -132,6 +134,7 @@
 | [`test_net_unpacked_struct_union_data_types`](../../tests/ch6/test_net_unpacked_struct_union_data_types.sv) |ネットはunpacked構造またはユニオン型を持つか，またはunpacked構造とunpacked配列を含む構造を持つことができる。| 6.7.1 7.2 7.3 10.3 | Verilator 5.052 ||
 | [`test_trireg_default_value_strength`](../../tests/ch6/test_trireg_default_value_strength.sv) |どのドライバも駆動していない間、triregネットはサイズで定める電荷強度（既定はmedium）でxを保持し、他のネットはzを保持します。| 6.7.1 6.3.2.1 21.2.1.4 |規格のみ| x/z |
 | [`test_nettype_alias_resolution_and_empty_drivers`](../../tests/ch6/test_nettype_alias_resolution_and_empty_drivers.sv) |ネットタイプエイリアスの連鎖はポートドライバとドライブなし解決ネットを合わせ、空のドライバセットを評価します。| 6.7.2 6.7.3 6.22.6 |規格のみ||
+| [`test_nettype_initial_value_before_procedures`](../../tests/ch6/test_nettype_initial_value_before_procedures.sv) |ユーザ定義 nettype のネットは、initial と always の手続きの最初の文が時刻 0 に読む時点で、構造体メンバーの初期化子による初期値をすでに持ち、保証された時刻 0 の解決関数呼び出しはその初期化の後に来るので、その結果が残る| 6.7.3 |規格のみ||
 | [`test_nettype_initial_value_resolution`](../../tests/ch6/test_nettype_initial_value_resolution.sv) |ユーザ定義のネットタイプのネットは、データタイプのデフォルト値で始まり、構造メンバー初期化子を含み、logic はzではなくxであり、解決されたネットタイプはドライバなしでも時間ゼロで解決します。| 6.7.3 6.7.2 6.6.7 |規格のみ| x/z |
 | [`test_class_static_init_order`](../../tests/ch6/test_class_static_init_order.sv) |クラスのstaticプロパティとpackage変数の宣言時初期化は、すべてのinitial手続きより前に有効になります。そのため、時刻0の更新は初期値に基づいて行われ、後から初期化で上書きされません。| 6.8 8.9 26.2 | Verilator 5.052 ||
 | [`test_enum_default_and_invalid_index`](../../tests/ch6/test_enum_default_and_invalid_index.sv) |変数 enum はそのベースタイプのデフォルトで始まり、 enum のインデックスが無効な場合も同様です。| 6.8 6.19 7.4.5 8.7 |規格のみ| x/z |
@@ -244,6 +247,7 @@
 | [`test_illegal_string_replication_empty_braces`](../../tests/ch6/test_illegal_string_replication_empty_braces.sv) |文字列の複製には 少なくとも1つのオペランドが必要です| 6.16 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_string_replication_negative_multiplier`](../../tests/ch6/test_illegal_string_replication_negative_multiplier.sv) |文字列複製の反復数は負にできません。| 6.16 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_string_replication_real_multiplier`](../../tests/ch6/test_illegal_string_replication_real_multiplier.sv) |文字列の複製の乗数は整数型でなければなりません実際の表現は違法です| 6.16 |規格のみ|規格違反の設計|
+| [`test_illegal_string_replication_unpacked_array_operand`](../../tests/ch6/test_illegal_string_replication_unpacked_array_operand.sv) |文字列複製の波括弧内の各オペランドは、文字列リテラルか string 型の式でなければならない;string の unpacked 配列はそのどちらでもないので、その複製は違反である| 6.16 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_string_replication_x_multiplier`](../../tests/ch6/test_illegal_string_replication_x_multiplier.sv) |文字列の複製の乗数は xbit を含めない| 6.16 | Verilator 5.052 |違法なデザイン x/z|
 | [`test_illegal_string_replication_z_multiplier`](../../tests/ch6/test_illegal_string_replication_z_multiplier.sv) |文字列の複製の乗数には zbit は含まれません| 6.16 | Verilator 5.052 |違法なデザイン x/z|
 | [`test_string_basic`](../../tests/ch6/test_string_basic.sv) |文字列の基本テスト| 6.16 | Icarus Verilog 13.0 ||
@@ -406,6 +410,7 @@
 | [`test_enum_last_in_declaration_order`](../../tests/ch6/test_enum_last_in_declaration_order.sv) |last() は最後に宣言されたメンバーを返しますが、最大値や最小値ではありません。 first() は最初に宣言されたメンバを返します。| 6.19.5.2 6.19.5.1 | Icarus Verilog 13.0 ||
 | [`test_enum_next_prev`](../../tests/ch6/test_enum_next_prev.sv) |テスト enum 次/前| 6.19.5.3 6.19.5.4 | Icarus Verilog 13.0 ||
 | [`test_enum_next_prev_from_non_member`](../../tests/ch6/test_enum_next_prev_from_non_member.sv) |次の値は、 メンバーではない値に対して、 int 基底の場合は enum , 0 のデフォルトの初期値を返し、 logic 基底の 場合は x を返します。| 6.19.5.3 6.19.5.4 6.8 | Icarus Verilog 13.0 | x/z |
+| [`test_enum_next_prev_prototype_types`](../../tests/ch6/test_enum_next_prev_prototype_types.sv) |enum のメソッド next() と prev() は列挙型そのものの値を返し、既定値 1 の int unsigned の回数を 1 つ取るので、 int の引数 -1 は 4294967295 歩になる| 6.19.5.3 6.19.5.4 | Icarus Verilog 13.0 ||
 | [`test_enum_num_name_result_types`](../../tests/ch6/test_enum_num_name_result_types.sv) |num() は引数を取らずに int を返します。 name() は引 数を取らず 文字列を返します。メンバーでない値は空です。| 6.19.5.5 6.19.5.6 20.6.1 |規格のみ||
 | [`test_enum_name`](../../tests/ch6/test_enum_name.sv) |テスト enum 名前| 6.19.5.6 | Icarus Verilog 13.0 ||
 | [`test_enum_name_2`](../../tests/ch6/test_enum_name_2.sv) |enum name() メソッド| 6.19.5.6 | Icarus Verilog 13.0 ||
@@ -433,6 +438,7 @@
 | [`test_param_declaration_forms_aggregates_selects`](../../tests/ch6/test_param_declaration_forms_aggregates_selects.sv) |parameter宣言とlocalparam宣言では、データ型、または符号指定とpacked次元だけの指定、複数の代入、名前に付けたunpacked次元、および型代入のリストを使用できる。集合パラメータは要素とメンバーで読み、整数パラメータはbitとpart selectで読みます。| 6.20.1 6.20.2 | Verilator 5.052 ||
 | [`test_param_without_default_not_implicit_top`](../../tests/ch6/test_param_without_default_not_implicit_top.sv) |なしで宣言されたパラメータは、その値をオーバーライドからのみ取得し、インスタンス化されないパラメータを持つモジュールはトップレベルインスタンスになりません。| 6.20.1 23.3.1 8.25 |規格のみ||
 | [`test_parameter_declaration_forms`](../../tests/ch6/test_parameter_declaration_forms.sv) |定義するパラメータと localparam の宣言、データタイプ、暗黙型、 enum 制限付きまたは無いタイプパラメータ、値とタイプ代入のリスト、 unpacked 配列パラメータ、およびすべてのインスタンスが上書きするデフォルトのないパラメータ| 6.20.1 6.20.2 6.20.3 6.20.4 A.2.1.1 A.2.3 A.2.4 23.10.2.2 | Verilator 5.052 ||
+| [`test_parameter_keyword_local_contexts_vpi`](../../tests/ch6/test_parameter_keyword_local_contexts_vpi.sv) |パラメータポートリスト（空のものも含む）を持つ module・interface・program の本体、あらゆるクラス本体、generate ブロック、パッケージ、コンパイル単位で宣言したパラメータは局所パラメータで、 vpiLocalParam がそれを報告する。一方、ポートリストのパラメータと、ポートリストを持たないモジュールのパラメータは局所ではない| 6.20.1 37.28 |規格のみ| VPI |
 | [`test_parameter_port_list_without_defaults`](../../tests/ch6/test_parameter_port_list_without_defaults.sv) |また，パラメータポートリストでは，値パラメータとタイプパラメータをデフォルトなしに宣言でき，それぞれのインスタンス化や特化化に値を与える。リストのlocalparamには まだ値表現がある| 6.20.1 6.20.3 8.25 23.10 A.2.1.1 A.10 | Verilator 5.052 ||
 | [`test_specparam_declaration_with_pulse_control`](../../tests/ch6/test_specparam_declaration_with_pulse_control.sv) |specparam packed 次元、mintypmax 代入のリスト、特定のブロック内のパルス制御形式を選択します。| 6.20.1 | Icarus Verilog 13.0 ||
 | [`test_generate_expr`](../../tests/ch6/test_generate_expr.sv) |範囲と生成条件で使用されるパラメータ表現| 6.20.2 27.5 | Icarus Verilog 13.0 ||
@@ -471,6 +477,7 @@
 | [`test_localparam_from_parameters`](../../tests/ch6/test_localparam_from_parameters.sv) |パラメータから計算されたローカルパラメータはインスタンスごとに異なり、階層的に読み込まれます。| 6.20.4 23.10 23.6 | Icarus Verilog 13.0 ||
 | [`test_localparam_ops_edge_cases`](../../tests/ch6/test_localparam_ops_edge_cases.sv) |テスト: 局所パラメータ演算のエッジケース| 6.20.4 | Icarus Verilog 13.0 ||
 | [`test_param_local_2`](../../tests/ch6/test_param_local_2.sv) |テスト: localparam の使用| 6.20.4 6.20.1 | Verilator 5.052 ||
+| [`test_parameter_port_list_localparam_extent`](../../tests/ch6/test_parameter_port_list_localparam_extent.sv) |パラメータポートリストでは、 localparam キーワードから次の parameter キーワードまでの宣言（データ型だけの宣言を含む）が局所であり、その前の宣言と parameter キーワード以降の宣言は非局所で、順序・名前・ defparam による上書きを受ける| 6.20.4 | Icarus Verilog 13.0 ||
 | [`test_ch6_extra_defparam_specparam`](../../tests/ch6/test_ch6_extra_defparam_specparam.sv) |言語パラメータオーバーライド構造である defparam は specparam を修正できません。| 6.20.5 23.10.1 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_parameter_from_specparam`](../../tests/ch6/test_illegal_parameter_from_specparam.sv) |パラメータには指定パラメータを使用する値を与えられません| 6.20.5 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_parameter_in_specify_block`](../../tests/ch6/test_illegal_parameter_in_specify_block.sv) |特定のブロック内でパラメータを宣言することはできません。そこでは specparams のみが宣言されます。| 6.20.5 30.3 | Icarus Verilog 13.0 |規格違反の設計|
@@ -478,6 +485,7 @@
 | [`test_illegal_specparam_in_interface`](../../tests/ch6/test_illegal_specparam_in_interface.sv) |specparam はモジュールボディまたは指定ブロックでのみ宣言できますが、インタフェースでは宣言できません。| 6.20.5 25.3 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_specparam_in_package`](../../tests/ch6/test_illegal_specparam_in_package.sv) |パッケージはモジュールでも指定ブロックでもないので、 specparam は宣言できません。| 6.20.5 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_specparam_used_before_declaration`](../../tests/ch6/test_illegal_specparam_used_before_declaration.sv) |これは、モジュールのボディに宣言された specparam は、その宣言の前に使用できないことを意味します。| 6.20.5 |規格のみ|規格違反の設計|
+| [`test_parameter_and_specparam_override_mechanisms`](../../tests/ch6/test_parameter_and_specparam_override_mechanisms.sv) |パラメータは順序によるパラメータ値リスト、名前によるもの、 defparam 文で上書きされ、 specparam は SDF ファイルの LABEL 節から新しい値を受け、それを使う手続き遅延が追従する| 6.20.5 32.4.3 |規格のみ||
 | [`test_specify_specparam_delays`](../../tests/ch6/test_specify_specparam_delays.sv) |これは，パス遅延を，使用前に指定ブロックまたはモジュールにおいて宣言された指定パラメータで与えることもできる。| 6.20.5 30.3 30.5.1 | Icarus Verilog 13.0 ||
 | [`test_specparam_declaration_forms`](../../tests/ch6/test_specparam_declaration_forms.sv) |これは、specparam を packed 範囲のあるまたはない、代入のリストと min:typ:max 値を持つモジュールのボディと、パス遅延を与える特定のブロックに宣言する。| 6.20.5 A.2.1.1 A.2.3 A.2.4 30.4.1 11.11 | Icarus Verilog 13.0 ||
 | [`test_specparam_declared_and_inferred_range`](../../tests/ch6/test_specparam_declared_and_inferred_range.sv) |範囲を定義した specparam はその範囲を持ち、範囲を定義しないものは最終的に割り当てられた値の幅を取る。| 6.20.5 | Icarus Verilog 13.0 ||
@@ -506,8 +514,10 @@
 | [`test_ch6_extra_for_loop_automatic`](../../tests/ch6/test_ch6_extra_for_loop_automatic.sv) |forループの変数とクラスメソッド内の変数は既定でautomaticであるため、ループの各反復とメソッドの各呼出しは、それぞれ固有の値を保持する。| 6.21 12.7.1 8.4 | Verilator 5.052 ||
 | [`test_design_element_static_lifetime`](../../tests/ch6/test_design_element_static_lifetime.sv) |設計要素が自動的であっても，モジュール，インタフェース，プログラム，チェッカのタスク，プロセス，関数以外の変数は静的な寿命を持ち，他の設計要素における同じ名前は異なる変数である。| 6.21 | Verilator 5.052 ||
 | [`test_illegal_automatic_variable_nonblocking`](../../tests/ch6/test_illegal_automatic_variable_nonblocking.sv) |自動変数はブロックしない代入で書き込めません| 6.21 10.4.2 | Verilator 5.052 |規格違反の設計|
+| [`test_illegal_continuous_assign_reads_automatic_variable`](../../tests/ch6/test_illegal_continuous_assign_reads_automatic_variable.sv) |連続代入は automatic 変数を参照できない。static な initial 手続きの名前付きブロックで宣言したものでも同じで、そのような参照は手続きブロックに限られるからである| 6.21 |規格のみ|規格違反の設計|
 | [`test_illegal_continuous_assign_reads_class_member`](../../tests/ch6/test_illegal_continuous_assign_reads_class_member.sv) |連続代入はクラスオブジェクトのメンバー、動的変数、またはクラスオブジャックのメンバーを参照できません。| 6.21 8.4 10.3 |規格のみ|規格違反の設計|
 | [`test_illegal_continuous_assign_reads_dynamic_element`](../../tests/ch6/test_illegal_continuous_assign_reads_dynamic_element.sv) |連続代入は動的配列の要素を参照できない。| 6.21 7.5 10.3 |規格のみ|規格違反の設計|
+| [`test_illegal_continuous_assign_reads_queue_element`](../../tests/ch6/test_illegal_continuous_assign_reads_queue_element.sv) |連続代入は動的変数であるキューの要素を参照できない。そのような参照は手続きブロックに限られるからである| 6.21 |規格のみ|規格違反の設計|
 | [`test_illegal_continuous_assign_to_class_property`](../../tests/ch6/test_illegal_continuous_assign_to_class_property.sv) |非静的なクラスプロパティは連続的な代入で書き込めません。| 6.21 8.4 10.3 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_continuous_assign_to_dynamic_element`](../../tests/ch6/test_illegal_continuous_assign_to_dynamic_element.sv) |動的にサイズを変更した配列の要素は連続的な代入で書き込めません| 6.21 7.5 10.3 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_declaration_after_statement_in_block`](../../tests/ch6/test_illegal_declaration_after_statement_in_block.sv) |プロセスブロックの変数宣言はそのステートメントの前に来る。言葉の後に言葉がつくのは間違いだ| 6.21 9.3.1 | Icarus Verilog 13.0 |規格違反の設計|
@@ -537,12 +547,15 @@
 | [`test_static_variable_of_block_not_yet_run`](../../tests/ch6/test_static_variable_of_block_not_yet_run.sv) |ブロックの静的変数はブロックが最初に実行される前に存在し、その階層的な名前を通して書き込めます。| 6.21 23.6 9.3.4 | Icarus Verilog 13.0 ||
 | [`test_variables_and_subroutine_calls`](../../tests/ch6/test_variables_and_subroutine_calls.sv) |モジュール変数、ブロック変数、関数とタスクの呼び出し| 6.21 13.3 13.4 | Icarus Verilog 13.0 ||
 | [`test_ch6_extra_instance_type_identity`](../../tests/ch6/test_ch6_extra_instance_type_identity.sv) |ユーザ定義型はインスタンス内で宣言され、その範囲内にインスタンスを含むので、2つのインスタンスで同じ宣言をすると2つの異なるタイプになります。| 6.22 6.19.3 | Icarus Verilog 13.0 |規格違反の設計|
+| [`test_type_compatibility_five_levels`](../../tests/ch6/test_type_compatibility_five_levels.sv) |型の互換性の各段階（一致、等価、代入互換、cast 互換、非互換）にある型の組を、型比較、型無し mailbox の try_get 、代入、cast、 $cast で見分ける;クラスハンドル・インタフェースクラスハンドル・chandle は他の型と非互換で、それぞれの種類の中でだけ変換できる| 6.22 6.22.5 6.22.1 6.22.2 6.22.3 6.22.4 6.24.2 |規格のみ||
+| [`test_type_identity_per_instance_cast`](../../tests/ch6/test_type_identity_per_instance_cast.sv) |モジュール内で宣言した unpacked 構造体型はインスタンスごとに別の型なので、 2 つのインスタンスの変数の間の $cast は失敗し、パッケージ・コンパイル単位・インスタンス化する側のモジュールの型と、同じインスタンス内の型は cast できる| 6.22 6.24.2 |規格のみ||
 | [`test_typedef_package_type_shared`](../../tests/ch6/test_typedef_package_type_shared.sv) |パッケージに宣言された unpacked 構造、 packed 構造、および enum はインスタンス間で一致し、モジュールの 2 つのインスタンスのメンバー間で値を割り当てることができる。| 6.22 | Verilator 5.052 ||
 | [`test_type_matching_rules_by_type_compare`](../../tests/ch6/test_type_matching_rules_by_type_compare.sv) |型参照の比較は、型の合致規則に従う。対象には、別名を付けるtypedefと型パラメータ、同一宣言内の無名型、構造体・列挙型・クラスのtypedef、冗長な符号指定、配列の種別・境界・要素、およびimport先を問わないpackageのtypedefが含まれる。他のペアは一致しません| 6.22.1 6.23 26.3 7.4.2 |規格のみ||
 | [`test_ch6_extra_ref_dynamic_equiv`](../../tests/ch6/test_ch6_extra_ref_dynamic_equiv.sv) |intの動的配列とintの動的配列は等価であるため、ref引数で対応付けられる| 6.22.2 13.5.2 | Verilator 5.052 ||
 | [`test_ch6_extra_ref_dynamic_kind`](../../tests/ch6/test_ch6_extra_ref_dynamic_kind.sv) |動的配列とキューは異なる種類の配列であり，同じ要素タイプであっても等価ではない。ref 引数はペアを作成できません| 6.22.2 13.5.2 | Verilator 5.052 |規格違反の設計|
 | [`test_ch6_extra_ref_equiv_closed`](../../tests/ch6/test_ch6_extra_ref_equiv_closed.sv) |intとlogic \[ 31:0 \]は等価ではなく、ref引数によってペア化できない。| 6.22.2 13.5.2 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_anonymous_struct_not_equivalent`](../../tests/ch6/test_illegal_anonymous_struct_not_equivalent.sv) |異なる宣言からの匿名 unpacked 構造は等価ではなく、一つを他に割り当てることはできません。| 6.22.2 6.22.3 |規格のみ|規格違反の設計|
+| [`test_type_equivalence_only_by_rules`](../../tests/ch6/test_type_equivalence_only_by_rules.sv) |2 つの型は帰納的定義の規則によってだけ等価になる: int は 32 bit の 2 状態の符号付き packed 構造体や bit ベクトルと等価だが、 int を基底とする enum とは等価でなく、同じ中身の 2 つの列挙型や 2 つの unpacked 構造体も等価でない。 try_peek と $cast がそれぞれの場合を示す| 6.22.2 6.24.2 15.4.8 |規格のみ||
 | [`test_type_equivalent_arrays`](../../tests/ch6/test_type_equivalent_arrays.sv) |元素型が等価なパッケージされていない配列（例えば、同じサイズ、状態、符号の packed 型）は、左から順に、それらの範囲に関係なく、互いに割り当てることができる。| 6.22.2 7.6 7.4.2 | Verilator 5.052 ||
 | [`test_type_assignment_cast_compatible`](../../tests/ch6/test_type_assignment_cast_compatible.sv) |任意の型は暗黙的に変換される。enumはintegerに変換され、切り捨てを伴う整数型と丸めを伴う実数の間で変換される。integerはキャストを経てのみenumに変換される| 6.22.3 6.22.4 6.24.1 6.12.1 | Icarus Verilog 13.0 ||
 | [`test_enum_explicit_cast_and_failed_dynamic_cast`](../../tests/ch6/test_enum_explicit_cast_and_failed_dynamic_cast.sv) |明示的な enum のキャストは整数値を許可し、失敗した動的キャストは目的地を変更しない| 6.22.4 6.24.2 | Verilator 5.052 ||

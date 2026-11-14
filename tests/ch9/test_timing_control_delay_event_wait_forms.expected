@@ -1,0 +1,7 @@
+delay: #P 2, #3 3 (x=1), #(D + 1) 4, #6ns 6
+named events: @ev1 5, @(ev1) 5, hierarchical 10
+edges: posedge 20, negedge 25, edge 30, change 35
+or 5 40, comma 5 40, parenthesized 5 40
+@* 2, @(*) 12
+#7 inside: r=9 at 7; @(ev2) inside: s=0 then 9
+wait null 35, wait statement 45 (flag=1), wait fork 17

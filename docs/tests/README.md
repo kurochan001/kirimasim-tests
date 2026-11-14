@@ -15,12 +15,12 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 3 | [Design and verification building blocks](ch3.md) | 144 | 48 |
 | 4 | [Scheduling semantics](ch4.md) | 478 | 386 |
 | 5 | [Lexical conventions](ch5.md) | 513 | 415 |
-| 6 | [Data types](ch6.md) | 687 | 79 |
-| 7 | [Aggregate data types](ch7.md) | 779 | 304 |
-| 8 | [Classes](ch8.md) | 458 | 138 |
-| 9 | [Processes](ch9.md) | 444 | 233 |
+| 6 | [Data types](ch6.md) | 700 | 79 |
+| 7 | [Aggregate data types](ch7.md) | 789 | 304 |
+| 8 | [Classes](ch8.md) | 462 | 138 |
+| 9 | [Processes](ch9.md) | 451 | 233 |
 | 10 | [Assignment statements](ch10.md) | 431 | 221 |
-| 11 | [Operators and expressions](ch11.md) | 1649 | 1122 |
+| 11 | [Operators and expressions](ch11.md) | 1675 | 1122 |
 | 12 | [Procedural programming statements](ch12.md) | 312 | 125 |
 | 13 | [Tasks and functions (subroutines)](ch13.md) | 470 | 256 |
 | 14 | [Clocking blocks](ch14.md) | 170 | 72 |

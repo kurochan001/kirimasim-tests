@@ -4,7 +4,7 @@
 
 [English](ch7.md) / [日本語](ch7.ja.md)
 
-[すべての章](README.ja.md) .テストは779本で、そのうち304本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは789本で、そのうち304本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -115,6 +115,11 @@
 | [`test_bit_select`](../../tests/ch7/test_bit_select.sv) |ビット選択とパート選択| 7.4.1 11.5.1 | Icarus Verilog 13.0 ||
 | [`test_illegal_int_packed_dimension`](../../tests/ch7/test_illegal_int_packed_dimension.sv) |integer 型の予定された幅 ここでは int は packed の配列次元で宣言できません| 7.4.1 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_packed_array_of_real`](../../tests/ch7/test_illegal_packed_array_of_real.sv) |packed 配列には実数要素は含まれません| 7.4.1 6.12 | Icarus Verilog 13.0 |規格違反の設計|
+| [`test_illegal_packed_array_range_inner_single_size`](../../tests/ch7/test_illegal_packed_array_range_inner_single_size.sv) |packed 配列のどの packed 次元も、境界を 2 つ持つ範囲を必要とする;第 2 の packed 次元に \[ 4 \] のような単一サイズを書くのは違反である| 7.4.1 | Verilator 5.054 |規格違反の設計|
+| [`test_illegal_packed_array_range_real_bound`](../../tests/ch7/test_illegal_packed_array_range_real_bound.sv) |packed 配列の packed 次元の境界は integer の値でなければならない;実際のパラメータは違法です| 7.4.1 |規格のみ|規格違反の設計|
+| [`test_illegal_packed_array_range_variable_bound`](../../tests/ch7/test_illegal_packed_array_range_variable_bound.sv) |packed 配列の packed 次元の境界は定数式でなければならない;変数は違法です| 7.4.1 | Icarus Verilog 13.0 |規格違反の設計|
+| [`test_illegal_packed_array_range_x_bound`](../../tests/ch7/test_illegal_packed_array_range_x_bound.sv) |packed 配列の packed 次元の境界は x の bit を含んではならない| 7.4.1 |規格のみ|違法なデザイン x/z|
+| [`test_illegal_packed_array_range_z_bound`](../../tests/ch7/test_illegal_packed_array_range_z_bound.sv) |packed 配列の packed 次元の境界は z の bit を含んではならない| 7.4.1 |規格のみ|違法なデザイン x/z|
 | [`test_illegal_packed_dimension_single_size`](../../tests/ch7/test_illegal_packed_dimension_single_size.sv) |次元 packed には 2つの境界を持つ範囲が必要です次元が unpacked の場合のみ \[ 8 \] のような単一のサイズが許可されます| 7.4.1 7.4.2 | Verilator 5.052 |規格違反の設計|
 | [`test_integer_atom_types_match_vector_types`](../../tests/ch7/test_integer_atom_types_match_vector_types.sv) |すべての integer 型は 予め定義された幅 n で packed 型と同じ状態、符号、単一次元 \[ n-1:0 \] を持ち、どちらかで異なるベクトル型はありません| 7.4.1 6.22.1 6.23 |規格のみ||
 | [`test_mixed_packed`](../../tests/ch7/test_mixed_packed.sv) |混合 packed / unpacked 配列| 7.4.1 7.4.2 7.4.5 | Icarus Verilog 13.0 ||
@@ -140,6 +145,10 @@
 | [`test_widths_edge_cases`](../../tests/ch7/test_widths_edge_cases.sv) |テスト: ビット幅のエッジケース| 7.4.1 10.7 | Icarus Verilog 13.0 ||
 | [`test_illegal_unpacked_range_x_bound`](../../tests/ch7/test_illegal_unpacked_range_x_bound.sv) |固定サイズの次元 unpacked の境界は x bit を含めない| 7.4.2 | Verilator 5.052 |違法なデザイン x/z|
 | [`test_illegal_unpacked_range_z_bound`](../../tests/ch7/test_illegal_unpacked_range_z_bound.sv) |固定サイズの次元 unpacked の境界は z bit を含めない| 7.4.2 | Verilator 5.052 |違法なデザイン x/z|
+| [`test_illegal_unpacked_size_negative`](../../tests/ch7/test_illegal_unpacked_size_negative.sv) |固定長 unpacked 次元の単一の数によるサイズは正でなければならない;負のサイズは違反である| 7.4.2 | Icarus Verilog 13.0 |規格違反の設計|
+| [`test_illegal_unpacked_size_real`](../../tests/ch7/test_illegal_unpacked_size_real.sv) |固定長 unpacked 次元の単一の数によるサイズは integer でなければならない;実際のパラメータは違法です| 7.4.2 |規格のみ|規格違反の設計|
+| [`test_illegal_unpacked_size_variable`](../../tests/ch7/test_illegal_unpacked_size_variable.sv) |固定長 unpacked 次元の単一の数によるサイズは定数式でなければならない;変数は違法です| 7.4.2 | Icarus Verilog 13.0 |規格違反の設計|
+| [`test_illegal_unpacked_size_zero`](../../tests/ch7/test_illegal_unpacked_size_zero.sv) |固定長 unpacked 次元の単一の数によるサイズは正でなければならず、 \[ size \] は \[ 0 : size-1 \] を意味する;\[ 4 \] と \[ 1 \] の境界から 0 と計算したサイズは違反である| 7.4.2 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_memory_array_access`](../../tests/ch7/test_memory_array_access.sv) |メモリ (unpacked 配列) 要素へのアクセスとコピー| 7.4.2 7.4.4 | Icarus Verilog 13.0 ||
 | [`test_multidim_unpacked`](../../tests/ch7/test_multidim_unpacked.sv) |アンパック配列| 7.4.2 7.4.5 | Icarus Verilog 13.0 ||
 | [`test_net_array_elements_and_whole_array_assign`](../../tests/ch7/test_net_array_elements_and_whole_array_assign.sv) |ネット配列の要素をベクトルネットとして連続代入、表現、ポート接続に用い、可変配列から全ネット配列を左から右に要素ごとに代入、逆にする。| 7.4.2 7.6 | Verilator 5.052 ||
@@ -189,6 +198,7 @@
 | [`test_dynamic_array_new_discards_data_and_references`](../../tests/ch7/test_dynamic_array_new_discards_data_and_references.sv) |動的配列をnew \[ \]でサイズ変更または再初期化すると、元の配列を初期化式に指定しない限り、データを破棄する。また、どの場合でも要素への参照は古い参照となる| 7.5.1 13.5.2 |規格のみ||
 | [`test_dynamic_array_new_forms_order_and_size`](../../tests/ch7/test_dynamic_array_new_forms_order_and_size.sv) |動的配列を拡大する new \[ \] は、宣言またはブロック代入の動的配列のサイズを変更し、初期化前にそのサイズを評価し、左端の unpacked 次元が動的な識別子のみを動的配列にする。 size() は $size (配列、1 ) に等しい int であり、 delete() は配列を空にします。| 7.5.1 7.5 7.5.2 7.5.3 20.7 | Verilator 5.052 ||
 | [`test_dynamic_array_new_negative_size_runtime_error`](../../tests/ch7/test_dynamic_array_new_negative_size_runtime_error.sv) |サイズのオペランドの値が実行時に負になる new \[ \] はエラーである| 7.5.1 |規格のみ||
+| [`test_dynamic_array_new_size_longint_negative_error`](../../tests/ch7/test_dynamic_array_new_size_longint_negative_error.sv) |new \[ \] のサイズのオペランドは符号付きの型 longint を持つので、最上位 bit が立った 64 bit の値は、下位 32 ビットが小さい正の数であっても負のサイズでありエラーになる| 7.5.1 |規格のみ||
 | [`test_dynamic_array_queue_size`](../../tests/ch7/test_dynamic_array_queue_size.sv) |new \[ \]、サイズ変更、push_back、delete後の動的配列とキューのサイズ| 7.5.1 7.5.2 7.5.3 7.10.2 | Icarus Verilog 13.0 ||
 | [`test_dynamic_resize`](../../tests/ch7/test_dynamic_resize.sv) |動的配列の新規作成、サイズ変更、削除操作| 7.5.1 | Icarus Verilog 13.0 ||
 | [`test_edge_dynamic_array_resize`](../../tests/ch7/test_edge_dynamic_array_resize.sv) |動的配列のnew \[ \]とnew \[ \](old)によるサイズ変更。new \[ 0 \]も含む| 7.5.1 7.5.2 | Verilator 5.052 ||
