@@ -1,0 +1,14 @@
+port s: low conn ref obj s, actual interface test_vpi_ref_obj_declared_cases.b
+port sm: low conn ref obj sm, actual modport mp
+port r: low conn ref obj r, actual logic var test_vpi_ref_obj_declared_cases.a
+port e: low conn ref obj e, actual named event test_vpi_ref_obj_declared_cases.te
+port ea: low conn ref obj ea, actual named event array test_vpi_ref_obj_declared_cases.tea
+use of r[1]: ref obj, actual var bit test_vpi_ref_obj_declared_cases.a[1], parent ref obj r
+use of ea[1]: ref obj, actual named event test_vpi_ref_obj_declared_cases.tea[1], parent ref obj ea
+use of s.w: ref obj, actual net test_vpi_ref_obj_declared_cases.b.w
+use of s.v: ref obj, actual logic var test_vpi_ref_obj_declared_cases.b.v
+use of s.ev: ref obj, actual named event test_vpi_ref_obj_declared_cases.b.ev
+use of s.eva: ref obj, actual named event array test_vpi_ref_obj_declared_cases.b.eva
+use of sm.w: ref obj, actual net test_vpi_ref_obj_declared_cases.b.w
+use of f: ref obj, actual logic var test_vpi_ref_obj_declared_cases.d.loc4
+use of f[2]: ref obj, actual var bit test_vpi_ref_obj_declared_cases.d.loc4[2], parent ref obj f

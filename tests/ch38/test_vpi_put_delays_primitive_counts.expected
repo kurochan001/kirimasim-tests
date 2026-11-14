@@ -1,0 +1,10 @@
+8: g2 old delays 3 5
+8: g3 old delays 2 4 6
+8: g2 new delays 7 9
+8: g3 new delays 5 8 11
+17: y2 = 1
+18: y3 = 0
+39: y2 = 0
+45: y3 = 1
+58: y3 = 0
+71: y3 = z

@@ -1,0 +1,16 @@
+ia, 3 PLI_INT32: buffer kept 1, values -6 7 8, after it intact 1
+sa, 3 PLI_INT16: buffer kept 1, values -2 300 4, after it intact 1
+la, 3 PLI_INT64: buffer kept 1, values 4294967298 -3 4, after it intact 1
+ra, 3 double: buffer kept 1, values 1.25 -2.5 3.75, after it intact 1
+fa, 3 float: buffer kept 1, values -1.5 2.25 4, after it intact 1
+ta, 3 s_vpi_time: buffer kept 1, values 2:3 0:4 0:5, after it intact 1
+wa, 12 words: buffer kept 1, values 3456789a/00000000 00000012/00000000 00000001/00000000 000000ab/00000000 00000001/00000000 00000000/00000000, after it intact 1
+xa, 12 bytes: buffer kept 1, values bc 0a 00 00 23 01 00 00 ed 0f 00 00, after it intact 1
+ba, 6 bytes: buffer kept 1, values 56 04 89 07 de 0c, after it intact 1
+vpiShortIntVal of int elements, own buffer: value pointer NULL 1
+vpiShortRealVal of int elements, VPI storage: value pointer NULL 1
+vpiStringVal, VPI storage: value pointer NULL 1
+ia, VPI storage given 1
+ra, VPI storage given 1
+copy of ia after the call for ra: -6 7 8
+design done

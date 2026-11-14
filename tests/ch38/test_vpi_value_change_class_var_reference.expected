@@ -1,0 +1,5 @@
+10: value NULL, h refers to the object of a1
+12: value NULL, h refers to the object of a2
+15: value NULL, h refers to nothing
+16: value NULL, h refers to the object of a1
+17: value NULL, h refers to another object

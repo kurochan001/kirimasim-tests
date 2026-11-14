@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 91.07%, execution without Ghost 50.48%, execution with Ghost 77.94%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 91.33%, execution without Ghost 50.51%, execution with Ghost 77.98%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 91.07%. Requirement execution-confirmation rate: 50.48% without Ghost, 77.94% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 91.33%. Requirement execution-confirmation rate: 50.51% without Ghost, 77.98% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 11206/12305 ( 91.07% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9591/12305 ( 77.94% ).
-- Registered but not tested: 1099.
+- The requirement coverage (test design) for registered behaviors is 11238/12305 ( 91.33% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9595/12305 ( 77.98% ).
+- Registered but not tested: 1067.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -37,9 +37,9 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2989/12305 execution checked; 337 entries refer to older inputs.
 - `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3877/12305 execution checked; 337 entries refer to older inputs.
 - `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3589/12305 execution checked; 25 entries refer to older inputs.
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7913/12305 execution checked; 470 entries refer to older inputs.
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7993/12305 execution checked; 406 entries refer to older inputs.
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7896/12305 execution checked; 470 entries refer to older inputs.
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7914/12305 execution checked; 470 entries refer to older inputs.
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7994/12305 execution checked; 406 entries refer to older inputs.
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7897/12305 execution checked; 470 entries refer to older inputs.
 - `intcompat-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T10:26:34.150974+00:00` / 1/12305 execution checked; 0 entries refer to older inputs.
 - `intcompat-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T10:26:46.168015+00:00` / 1/12305 execution checked; 0 entries refer to older inputs.
 - `intcompat-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T10:26:39.847047+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
@@ -85,6 +85,10 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `vifsense-20261114-kirimasim-77c27531.json`: `kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401` / `2026-11-14T02:58:21.742365+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
 - `vifsense-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:58:11.624866+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
 - `vifsense-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:58:21.644402+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
+- `vpidpi-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T13:04:58.367365+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
+- `vpidpi-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T13:06:19.523413+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
+- `vpidpi-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T13:05:38.888744+00:00` / 3/12305 execution checked; 0 entries refer to older inputs.
+- `vpidpi-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T13:06:19.394846+00:00` / 3/12305 execution checked; 0 entries refer to older inputs.
 - Not used: additions2023-20261109-icarus13.json : legacy, unknown, or stale runner provenance.
 - Not used: additions2023-20261109-kirimasim-33cee3fa.json : legacy, unknown, or stale runner provenance.
 - Not used: additions2023-20261109-verilator5.052-seed1.json : legacy, unknown, or stale runner provenance.
@@ -317,7 +321,7 @@ The number of items is the investigation status of the article by heading. This 
 - 3 Design and verification building blocks: No interpretation reservation 22/22, registration 146, test support 124.
 - 4 Scheduling semantics: no interpretation reservation 40/40, registration 107, test support 88.
 - 5 Lexical conventions: no interpretation reservation 21/21, registration 154, test support 136.
-- 6 Data types: No interpretation reservation 92/92, registration 720, test support 708.
+- 6 Data types: No interpretation reservation 92/92, registration 720, test support 710.
 - 7 Aggregate data types: no interpretation reservation 61/61, registration 347, test support 337.
 - 8 Classes: No interpretation restrictions 49/49, registration 255, test support 238.
 - 9 Processes: No interpretation reservation 34/34, registration 189, test support 172.
@@ -346,10 +350,10 @@ The number of items is the investigation status of the article by heading. This 
 - 32 Backannotation using the standard delay format: no interpretation reservation 14/14, registration 131, test support 119.
 - 33 Configuring the contents of a design: No interpretation reservation 36/36, registration 63, test support 40.
 - 34 Protected envelopes: No interpretation reservation 104/104, registration 214, test support 5.
-- 35 Direct programming interface: No interpretation reservation 31/31, registration 142, test support 114.
+- 35 Direct programming interface: No interpretation reservation 31/31, registration 142, test support 116.
 - 36 Programming language interface ( PLI / VPI ) overview: No interpretation restrictions 29/29, registration 163, test support 148.
-- 37 VPI object model diagrams: no interpretation restrictions 101/101, registration 1757, test support 1656.
-- 38 VPI routine definitions: no interpretation reservation 51/51, registration 348, test support 260.
+- 37 VPI object model diagrams: no interpretation restrictions 101/101, registration 1757, test support 1662.
+- 38 VPI routine definitions: no interpretation reservation 51/51, registration 348, test support 280.
 - 39 Assertion API : No interpretation reservation 14/14, registration 95, test support 82.
 - 40 Code coverage control and API : no interpretation reservation 26/26, registration 128, test support 122.
 - 41 Data read API : no interpretation reservation 1/1, registration 0, test support 0.
@@ -360,7 +364,7 @@ The number of items is the investigation status of the article by heading. This 
 - E Optional compiler directives: Reference (not included in the denominator of the standard requirements), registration 0, test support 0.
 - F Formal semantics of concurrent assertions: no interpretation reservation 53/53, registration 253, test support 253.
 - G Std package: no interpretation reserve 8/8, registration 32, test support 25.
-- H DPI C layer: No interpretation reservation 72/72, registration 223, test support 190.
+- H DPI C layer: No interpretation reservation 72/72, registration 223, test support 192.
 - I svdpi.h : No interpretation reservation 4/4, registration 147, test compliant 133.
 - J Inclusion of foreign language code: no interpretation reservation 7/7, registration 16, test compatible 0.
 - K vpi_user.h: no interpretations on hold 3/3; registered 544; test mappings 541.
@@ -12572,7 +12576,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.20.7-EXTRACT-DOLLAR-CROSS-TUPLES
 
-`6.20.7` / `normal` / No mapped test
+`6.20.7` / `normal` / Execution confirmed
 
 In the specified cross-coverage bin selection expression, dollar requires all value tuples to satisfy the expression.
 
@@ -12580,6 +12584,7 @@ Acceptance criterion: In the specified cross-coverage bin selection expression, 
 
 Normative role: `mandatory`。
 
+- [test_dollar_cross_bin_matches_all_tuples.sv](../tests/ch6/test_dollar_cross_bin_matches_all_tuples.sv): Cross x_all of ca and cb (each with bins lo = {0} and hi = {\[1:3\]}, so \<lo,lo\>, \<lo,hi\>, \<hi,lo\>, \<hi,hi\> have 1, 3, 3, 9 value tuples) has bins ne = x_all with (ca != cb) matches $; ca != cb holds for 0/1, 3/3, 3/3 and 6/9 of them. Samples (0,2), (3,0), (2,3), (0,0) hit \<lo,hi\>, \<hi,lo\>, \<hi,hi\>, \<lo,lo\> and print x_all coverage 33.33, 33.33, 66.67, 100.00: three bins (ne plus automatic bins of \<lo,lo\> and \<hi,hi\>), the \<hi,lo\> sample lands in the bin already covered by \<lo,hi\>, and the satisfying sample (2,3) of the partly satisfying \<hi,hi\> covers a separate automatic bin. x_one, the same bin without matches, prints 50.00, 50.00, 50.00, 100.00 (ne includes \<hi,hi\>). Distinguishing observation: The x_all values identify the selected set exactly: denominator 3 means ne holds two of the four products, and the unchanged 33.33 on the second line puts \<hi,lo\> with \<lo,hi\>. If $ also selected bin tuples in which only some value tuples satisfy (the default policy of one, or any fixed count up to 3), x_all would print 50.00 on every line before the last, like x_one; if $ selected no bin tuple (or a count above 6), x_all would have four automatic bins and print 25.00, 50.00, 75.00 (20.00, 40.00, 60.00, 80.00 if the empty user bin counted); a count of 4 to 6 selects \<hi,hi\> alone and prints 25.00, 50.00, 75.00. Since ne is non-empty under the rule, the result does not depend on how 19.11.2 treats an empty user bin, and the bin tuples of different sizes (3 all-satisfying versus 6 of 9) rule out any fixed count standing in for $.
 
 ### SV2023-6.20.7-EXTRACT-DOLLAR-CYCLE-UPPER
 
@@ -13100,7 +13105,7 @@ Normative role: `definition`。
 
 ### SV2023-6.22.2-EXTRACT-ANONYMOUS-EQUIVALENCE
 
-`6.22.2` / `normal` / No mapped test
+`6.22.2` / `normal` / Test mapped; execution unconfirmed
 
 An anonymous enum or unpacked struct/union is equivalent to itself within the same declaration statement, not an independent declaration.
 
@@ -13108,6 +13113,7 @@ Acceptance criterion: An anonymous enum or unpacked struct/union is equivalent t
 
 Normative role: `definition`。
 
+- [test_type_equivalence_anonymous_same_statement.sv](../tests/ch6/test_type_equivalence_anonymous_same_statement.sv): For each anonymous kind, two variables come from one declaration statement and a third from a separate statement whose type is written with exactly the same text. Unpacked struct: $cast(s2, s1) returns 1 and copies 3 4, $cast(s3, s1) returns 0 and s3 stays 0 0. Unpacked union: $cast(u2, u1) returns 1 with u2.i=9, $cast(u3, u1) returns 0 with u3.i=0. Enum: e1 (C2) is put into a typeless mailbox; try_peek into e2 of the same statement is positive and copies C2, try_peek into e3, declared as enum {C0, C1, C2} in the named block other_statement (a separate scope, so the same names are legal), is negative and e3 keeps C0. Distinguishing observation: Both halves of the requirement are compared for enum, unpacked struct and unpacked union. If anonymous types written alike were equivalent (struct/union compared member by member, enum by names, base type and values), the other-statement casts would print cast=1 s3=3 4 and cast=1 u3.i=9 and try_peek into e3 would print positive e3=C2; since e3 has the same text as e1/e2, a structural enum comparison cannot pass. If objects of one statement were not given the same type, the same-statement casts would print cast=0 and try_peek into e2 would be negative with e2=C0. For non-singular arguments $cast checks assignment compatibility, which for two unpacked struct/union types requires equivalence (6.22.3, 6.24.2); try_peek checks equivalence directly (15.4.8).
 
 ### SV2023-6.22.2-EXTRACT-CLOSED-EQUIVALENCE
 
@@ -84101,7 +84107,7 @@ Normative role: `permission`。
 
 ### SV2023-35.2.2-EXTRACT-SV-TYPES-ONLY
 
-`35.2.2` / `error` / No mapped test
+`35.2.2` / `error` / Test mapped; execution unconfirmed
 
 Only SV types cross the DPI boundary; foreign type imports or direct foreign type syntax are not permitted. Formal types and small return values are constrained by the DPI type rules.
 
@@ -84109,6 +84115,9 @@ Acceptance criterion: Only SV types cross the DPI boundary; foreign type imports
 
 Normative role: `mandatory`。
 
+- [test_illegal_dpi_import_c_type_name.sv](../tests/ch35/test_illegal_dpi_import_c_type_name.sv) : import c_upper (input byte c) is legal, and import c_lower (input char c) writes the C type char as a formal, so line 32 is the violation. The regex names line 32 .
+- [test_illegal_dpi_export_struct_result.sv](../tests/ch35/test_illegal_dpi_export_struct_result.sv) : the export of sv_pair (line 39 ), which returns the unpacked struct pair_t , breaks the rule that limits results to small values. The regex names lines 39 and 45 .
+- [test_illegal_dpi_export_class_formal.sv](../tests/ch35/test_illegal_dpi_export_class_formal.sv) : the export of sv_read_box (line 39 ), which has a formal of class c_box , breaks the rule that limits formal types to those of 35.5.6 . The regex names lines 39 and 45 .
 
 ### SV2023-35.2.2.1-EXTRACT-REPRESENTATION
 
@@ -85002,7 +85011,7 @@ Normative role: `mandatory`。
 
 ### SV2023-35.5.6-EXTRACT-EXPORT-DYNAMIC-ERROR
 
-`35.5.6` / `error` / No mapped test
+`35.5.6` / `error` / Test mapped; execution unconfirmed
 
 Exported DPI subroutines must not declare dynamic-array formals.
 
@@ -85010,6 +85019,7 @@ Acceptance criterion: Exported DPI subroutines must not declare dynamic-array fo
 
 Normative role: `mandatory`。
 
+- [test_illegal_dpi_export_dynamic_array_formal.sv](../tests/ch35/test_illegal_dpi_export_dynamic_array_formal.sv) : the SystemVerilog function sv_total has the dynamic array formal input int a \[ \] (line 35 ) and is exported by export "DPI-C" function sv_total at line 33 . The export is the only violation, and without the export line the design is legal (the import c_total with a formal of the same form is legal as an open array). : expected_stderr_regex : accepts an error at line 33 of the export declaration or at line 35 with the formal. Distinguishing observation: A wrong implementation that allows a dynamic array formal in an exported DPI subroutine accepts this design and fails with 'the design was accepted'. The error may be reported at the export declaration or at the formal of the function, so both lines are accepted; an implementation that reports only an unrelated line (such as the open array import at line 32 , which the standard allows) does not match. The 5.054 release of Verilator rejects line 35 , but with the diagnostic 'Unsupported: DPI argument of type', which is about missing support, so it is not counted in :oracle:.
 
 ### SV2023-35.5.6-EXTRACT-FORMAL-BYTE
 
@@ -92288,7 +92298,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.15-EXTRACT-REF-CASES
 
-`37.15` / `normal` / No mapped test
+`37.15` / `normal` / Test mapped; execution unconfirmed
 
 A reference object represents a declared reference to an instantiated actual: ref-port low-connection variable/event/event-array and its subelements, interface/modport local port declarations and their nets/variables/events/event-arrays, or ref task/function formal and subelements.
 
@@ -92296,6 +92306,7 @@ Acceptance criterion: A reference object represents a declared reference to an i
 
 Normative role: `mandatory`。
 
+- [test_vpi_ref_obj_declared_cases.sv](../tests/ch37/test_vpi_ref_obj_declared_cases.sv) : all the cases of 37.15 detail 1 are made in 1 design, and each is checked to be obtained as a vpiRefObj whose vpiActual points at what it is bound to. Low connections of ref ports ( $vt_ports reads vpiLowConn in port order): the variable r → logic var a, the named event e → named event te, the named event array ea → named event array tea. Their parts (uses passed to $vt_ref ): r \[ 1 \] → var bit a \[ 1 \] ( vpiParent is the ref obj r), ea \[ 1 \] → named event tea \[ 1 \] (the parent is ea). Local declarations through ports: the interface port s → interface b, the modport port sm (connected to b.mp ) → modport mp. Uses of nets, variables, events and event arrays through them: s.w → net b.w , s.v → logic var b.v , s.ev → named event b.ev , s.eva → named event array b.eva , sm.w → net b.w . Ref formals and their parts: f of the task tf → logic var d.loc4 , f \[ 2 \] → var bit d.loc4 \[ 2 \] (the parent is the ref obj f). Distinguishing observation: An implementation that makes no ref obj in some case (returning the bound variable, event or interface directly) changes the corresponding line to 'not a ref obj'. The cases include ones that no existing test exercises, such as ref ports of events and event arrays, events, event arrays and nets in an interface, modport ports and parts of ref formals, so an implementation that makes ref objs for only some kinds also changes the output. An implementation that gets vpiActual wrong changes the kind of the actual (net/ logic var/var bit /named event/named event array/interface/modport) or its name, and one that does not make the vpiParent of a part the ref obj gives 'parent NULL ' or 'parent not a ref obj'.
 
 ### SV2023-37.15-EXTRACT-REF-DEFINITION
 
@@ -94250,7 +94261,7 @@ Normative role: `definition`。
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-037
 
-`37.17` / `normal` / No mapped test
+`37.17` / `normal` / Test mapped; execution unconfirmed
 
 37.17 defines a one-to-one relation from variables to path terminal, using the untagged path terminal access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -94258,10 +94269,11 @@ Acceptance criterion: 37.17 defines a one-to-one relation from variables to path
 
 Normative role: `definition`。
 
+- [test_vpi_variable_path_tchk_terms.sv](../tests/ch37/test_vpi_variable_path_tchk_terms.sv) : the variable y (output var logic ), the destination of the module path ( a = \> y), is taken with vpi_handle_by_name , checked to be a vpiLogicVar , and vpi_handle ( vpiPathTerm , y) is applied; 'path term of c.y : path term, direction output, expr y' checks that a path term of type vpiPathTerm with vpiDirection vpiOutput and a vpiExpr named y is returned. It is also checked that the same relation returns NULL for the variables d (a timing check terminal) and z (no terminal), which are not path terminals. Distinguishing observation: An implementation without the one-to-one relation from a variable to a path term, or one that returns it only through vpi_iterate as for nets, makes vpi_handle return NULL and changes the y line to 'path term of c.y : NULL '. An implementation that returns the input terminal or a terminal of another path changes direction or expr. An implementation that returns something also for variables that are not terminals makes the d and z lines other than NULL .
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-038
 
-`37.17` / `normal` / No mapped test
+`37.17` / `normal` / Test mapped; execution unconfirmed
 
 37.17 defines a one-to-one relation from variables to timing-check terminal, using the untagged timing-check terminal access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -94269,6 +94281,7 @@ Acceptance criterion: 37.17 defines a one-to-one relation from variables to timi
 
 Normative role: `definition`。
 
+- [test_vpi_variable_path_tchk_terms.sv](../tests/ch37/test_vpi_variable_path_tchk_terms.sv) : the variable d (input var logic ), the data event of $setup (d, posedge clk, 1 ), is taken with vpi_handle_by_name , checked to be a vpiLogicVar , and vpi_handle ( vpiTchkTerm , d) is applied; 'tchk term of c.d : tchk term, no edge, expr d' checks that a timing check terminal of type vpiTchkTerm with vpiEdge vpiNoEdge and a vpiExpr named d is returned. It is also checked that the same relation returns NULL for the variables y (the path destination) and z, which are not timing check terminals. Distinguishing observation: An implementation without the one-to-one relation from a variable to a tchk term, or one that returns it only through vpi_iterate as for nets, makes vpi_handle return NULL and changes the d line to 'tchk term of c.d : NULL '. An implementation that returns the terminal of the reference event ( posedge clk) gives ' posedge ' and expr clk, and one that returns something also for variables that are not terminals makes the y and z lines other than NULL .
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-039
 
@@ -96611,7 +96624,7 @@ Normative role: `definition`。
 
 ### SV2023-37.25-EXTRACT-DIAGRAM-050
 
-`37.25` / `normal` / No mapped test
+`37.25` / `normal` / Test mapped; execution unconfirmed
 
 37.25 defines a one-to-many relation from packed-array typespec to range, using the untagged range access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -96619,6 +96632,7 @@ Acceptance criterion: 37.25 defines a one-to-many relation from packed-array typ
 
 Normative role: `definition`。
 
+- [test_vpi_packed_array_typespec_ranges.sv](../tests/ch37/test_vpi_packed_array_typespec_ranges.sv) : the typespecs obtained with vpiTypespec from the variables vrow, vcol and vanon are checked to be vpiPackedArrayTypespec , vpi_iterate ( vpiRange ) and vpi_scan are applied to them, and vpiLeftRange and vpiRightRange of the returned ranges are read as integers. For typedef row_t ( \[ 5:2 \] , descending) and typedef col_t ( \[ 0:3 \] , ascending), which put a packed range of only 1 dimension on packed struct elements, and the unnamed pr_s \[ 1:3 \] , it is checked that exactly 1 range is returned, as 'ranges \[ 5:2 \] ', 'ranges \[ 0:3 \] ' and 'ranges \[ 1:3 \] '. Distinguishing observation: An implementation without the one-to-many relation from a packed array typespec to ranges makes vpi_iterate return NULL and changes each line to 'ranges none'. An implementation that swaps the left and right of a range gives \[ 2:5 \] , \[ 3:0 \] and \[ 3:1 \] , and one that does not do as for bit / logic typespecs and returns an extra range, such as the implicit width of the element struct, lists 2 ranges. The same relation is checked for descending and ascending ranges and for typedef names ( vpiName row_t and col_t ) and the unnamed type ( NULL ), so an implementation of only one of them also changes the output.
 
 ### SV2023-37.25-EXTRACT-DIAGRAM-051
 
@@ -102896,7 +102910,7 @@ Normative role: `definition`。
 
 ### SV2023-37.49-EXTRACT-DIAGRAM-015
 
-`37.49` / `normal` / No mapped test
+`37.49` / `normal` / Test mapped; execution unconfirmed
 
 assertion exposes vpiColumn as integer, representing starting column; access it with the appropriate property routine under 37.3.1.
 
@@ -102904,6 +102918,7 @@ Acceptance criterion: assertion exposes vpiColumn as integer, representing start
 
 Normative role: `definition`。
 
+- [test_vpi_assertion_columns.sv](../tests/ch37/test_vpi_assertion_columns.sv) : the named concurrent assertions c1 to c5 are taken with vpi_handle_by_name , and vpi_get ( vpiColumn , h) is read. The standard does not fix where column numbers start, so only the differences between pairs whose texts differ in a known way are printed. c2 has a label of the same length and the same body as c1 , indented 3 columns deeper (start column +3 ); c3 has the same indentation as c1 and 6 more characters before the closing parenthesis (start column +0 ); c5 is written on the same line as c4 , 40 characters after it (start column +40 ). It also prints vpiEndColumn \> vpiColumn ( 1 ) for c1 , which fits on 1 line. The expected output is 'start column +3' , 'start column +0' , 'start column +40' and 'end column after start column 1' . Distinguishing observation: An implementation that does not implement vpiColumn (returning vpiUndefined or 0 ) makes all 3 differences +0 , changing +3 on the c2 line and +40 on the c5 line. An implementation that returns the end column instead of the start column makes the start column difference on the c3 line +6 , and one that returns the line number gives +1 / +2 for c2 and c3 and +0 for c4 and c5 . An implementation that returns the column of the first non-blank character of the line makes the c5 line +0 . Where the count starts, whether the label is included and how the semicolon is handled do not affect the differences, since the labels have the same length and the indentation is only ASCII spaces.
 
 ### SV2023-37.49-EXTRACT-DIAGRAM-016
 
@@ -102919,7 +102934,7 @@ Normative role: `definition`。
 
 ### SV2023-37.49-EXTRACT-DIAGRAM-017
 
-`37.49` / `normal` / No mapped test
+`37.49` / `normal` / Test mapped; execution unconfirmed
 
 assertion exposes vpiEndColumn as integer, representing ending column; access it with the appropriate property routine under 37.3.1.
 
@@ -102927,6 +102942,7 @@ Acceptance criterion: assertion exposes vpiEndColumn as integer, representing en
 
 Normative role: `definition`。
 
+- [test_vpi_assertion_columns.sv](../tests/ch37/test_vpi_assertion_columns.sv) : vpi_get ( vpiEndColumn , h) is read for the same 5 named concurrent assertions, and only differences that do not depend on where the count starts are printed. c2 ( c1 indented 3 columns deeper) has end column +3 , c3 (the indentation of c1 with the 6 characters ' ##1 b' added before the closing parenthesis) has end column +6 , and c5 (as long as c4 , 40 characters after it on the same line) has end column +40 . For c1 , which fits on 1 line, vpiStartLine and vpiEndLine are equal (on one line 1 ) and the end column is after the start column (end column after start column 1 ). The expected output is 'end column +3' , 'end column +6' , 'end column +40' and 'end column after start column 1' . Distinguishing observation: An implementation that does not implement vpiEndColumn makes all differences +0 , changing +6 on the c3 line and others, and gives 0 for 'end column after start column' . An implementation that returns the start column as the end column makes the c3 line +0 , and one that returns the line length or the line number changes the c5 line (on the same line, so the line difference is 0 ) or the c2 line. c3 has a start column difference of +0 and only an end column difference of +6 , so an implementation that swaps start and end is told apart too.
 
 ### SV2023-37.49-EXTRACT-DIAGRAM-018
 
@@ -109023,7 +109039,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.10-EXTRACT-DELAY-LAYOUT-0-1
 
-`38.10` / `normal` / No mapped test
+`38.10` / `normal` / Test mapped; execution unconfirmed
 
 With mtm_flag=False and pulsere_flag=True, allocate 3 times no_of_delays elements; each consecutive delay uses this order: delay, reject limit, error limit.
 
@@ -109031,10 +109047,11 @@ Acceptance criterion: With mtm_flag=False and pulsere_flag=True, allocate 3 time
 
 Normative role: `mandatory`。
 
+- [test_vpi_get_delays_flag_layouts.sv](../tests/ch38/test_vpi_get_delays_flag_layouts.sv) : the path of u1 has the delays ( 6 , 8 ), and PATHPULSE $a $y = ( 2 , 5 ) gives each delay the reject limit 2 and the error limit 5 . It is read with vpi_get_delays with mtm_flag = 0 , pulsere_flag = 1 and no_of_delays = 2 , and the output checks that the first 6 elements of da are "6 2 5 8 2 5" (delay, reject and error for each 1 delay, the delays in source order) and that da \[ 6 \] onward (the 18 elements whose bytes were all set to 0xA 5) are not written, "intact: 1" . Distinguishing observation: An implementation that ignores pulsere_flag and writes only no_of_delays elements (as Icarus 13.0 does) leaves the 0xA 5 values from the 3 rd element on, breaking "6 2 5 8 2 5" . Swapping the reject and error order gives "6 5 2 8 5 2" , not applying PATHPULSE $ gives the default limits (equal to the delays) "6 6 6 8 8 8" , and an implementation that writes 9 elements per delay instead of 3 writes da \[ 6 \] onward and gives "intact: 0" .
 
 ### SV2023-38.10-EXTRACT-DELAY-LAYOUT-1-0
 
-`38.10` / `normal` / No mapped test
+`38.10` / `normal` / Test mapped; execution unconfirmed
 
 With mtm_flag=True and pulsere_flag=False, allocate 3 times no_of_delays elements; each consecutive delay uses this order: min delay, typ delay, max delay.
 
@@ -109042,10 +109059,11 @@ Acceptance criterion: With mtm_flag=True and pulsere_flag=False, allocate 3 time
 
 Normative role: `mandatory`。
 
+- [test_vpi_get_delays_flag_layouts.sv](../tests/ch38/test_vpi_get_delays_flag_layouts.sv) : the path of u2 has the delays ( 10:11:12 , 20:21:22 ), with min, typ and max all different. It is read with vpi_get_delays with mtm_flag = 1 , pulsere_flag = 0 and no_of_delays = 2 , and the output checks that the first 6 elements of da are "10 11 12 20 21 22" (min, typ and max for each 1 delay, the delays in source order) and that da \[ 6 \] onward (the 18 elements filled with 0xA 5) are "intact: 1" . Distinguishing observation: An implementation that ignores mtm_flag and writes only no_of_delays selected typ values (as Icarus 13.0 does) leaves 0xA 5 values after "11 21" . Reversing min and max gives "12 11 10 22 21 20" , swapping the order of the delays gives "20 21 22 10 11 12" , and writing 9 times the elements instead of 3 times gives "intact: 0" .
 
 ### SV2023-38.10-EXTRACT-DELAY-LAYOUT-1-1
 
-`38.10` / `normal` / No mapped test
+`38.10` / `normal` / Test mapped; execution unconfirmed
 
 With mtm_flag=True and pulsere_flag=True, allocate 9 times no_of_delays elements; each consecutive delay uses this order: min delay, typ delay, max delay, min reject, typ reject, max reject, min error, typ error, max error.
 
@@ -109053,6 +109071,7 @@ Acceptance criterion: With mtm_flag=True and pulsere_flag=True, allocate 9 times
 
 Normative role: `mandatory`。
 
+- [test_vpi_get_delays_flag_layouts.sv](../tests/ch38/test_vpi_get_delays_flag_layouts.sv) : the path of u2 has the delays ( 10:11:12 , 20:21:22 ) and PATHPULSE $a $y = ( 1:2:3 , 4:5:6 ) (min:typ:max of reject and error). It is read with vpi_get_delays with mtm_flag = 1 , pulsere_flag = 1 and no_of_delays = 2 , and the output checks that the first 18 elements of da are "10 11 12 1 2 3 4 5 6 20 21 22 1 2 3 4 5 6" (for each 1 delay the 9 elements min, typ and max of the delay, of reject and of error) and that the 6 elements from da \[ 18 \] on keep 0xA 5, "intact: 1" . Distinguishing observation: An implementation that ignores either flag writes only 1 or 3 elements per 1 delay, leaving 0xA 5 values from the 7 th element on ( Icarus 13.0 writes only "11 21" ). Putting min/typ/max outside and delay, reject and error inside within the 9 elements (for example "10 1 4 11 2 5 ..." ) gives another sequence, and swapping reject and error gives "... 4 5 6 1 2 3 ..." . Writing beyond the 18 elements gives "intact: 0" .
 
 ### SV2023-38.10-EXTRACT-DELAY-SOURCE-ORDER
 
@@ -109165,7 +109184,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.10-EXTRACT-TIMING-DELAY-COUNT
 
-`38.10` / `normal` / No mapped test
+`38.10` / `normal` / Test mapped; execution unconfirmed
 
 Timing-check no_of_delays must match its actual number of limits.
 
@@ -109173,6 +109192,7 @@ Acceptance criterion: Timing-check no_of_delays must match its actual number of 
 
 Normative role: `mandatory`。
 
+- [test_vpi_get_delays_tchk_limit_counts.sv](../tests/ch38/test_vpi_get_delays_tchk_limit_counts.sv) : a cell has $setup (d, posedge clk, 3 ) with 1 limit and $setuphold ( posedge clk, d, 4 , 5 ) and $recrem ( negedge rst, posedge clk, 6 , 7 ) with 2 limits; each check is told apart by vpiTchkType (not by the iteration order) and read with vpi_get_delays with no_of_delays equal to its number of limits ( 1 , 2 , 2 ). The output checks "$setup, no_of_delays 1: 3" , "$setuphold, no_of_delays 2: 4 5" and "$recrem, no_of_delays 2: 6 7" , and that the elements after the limits keep 0xA 5 (intact: 1 ). Distinguishing observation: An implementation that does not tie the delay count of a timing check to its number of limits, for example one that always takes 1 , does not return the 2 nd limit of $setuphold and $recrem ( 5 and 7 ), leaving 0xA 5 values, and one that merges the 2 limits into 1 value or reverses their order changes "4 5" to "5 4" or the like. An implementation that writes more than the number of limits gives "intact: 0" .
 
 ### SV2023-38.11-EXTRACT-GET-STRING-SIGNATURE
 
@@ -109632,7 +109652,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.15-EXTRACT-UDP-SYMBOL-STORAGE
 
-`38.15` / `normal` / No mapped test
+`38.15` / `normal` / Test mapped; execution unconfirmed
 
 UDP table-entry vector storage uses ceil(symbol_count/4) s_vpi_vecval elements, two bytes per symbol, with an ASCII zero second byte for a single-character symbol.
 
@@ -109640,6 +109660,7 @@ Acceptance criterion: UDP table-entry vector storage uses ceil(symbol_count/4) s
 
 Normative role: `mandatory`。
 
+- [test_vpi_udp_entry_vector_storage.sv](../tests/ch38/test_vpi_udp_entry_vector_storage.sv) : the 5 -symbol table entry "1 0 ? b : 1" of a combinational UDP and the 9 -symbol table entry "(0x) 1 0 ? b x 1 : ? : -" of a sequential UDP are taken from the instances with vpi_handle ( vpiUdpDefn ) and vpiTableEntry , and read with vpi_get_value in vpiVectorVal . The symbol k is read from the 16 bits of the upper aval, lower aval, upper bval or lower bval half of vector \[ k/ 4 \] and printed with its element number in base 16 . The expected lines are u1 "\[0\]3100 \[0\]3000 \[0\]3f00 \[0\]6200 \[1\]3100" (the 5 th symbol in the 2 nd element) and u2 "\[0\]3078 ... \[1\]3f00 \[2\]2d00" (the 9 th symbol in the 3 rd element; a 1 -character symbol has 00 as its 2 nd byte, and the edge ( 0x ) is 3078 ). Distinguishing observation: An implementation that does not use ceil(symbols/ 4 ) elements (for example one that fits everything in 1 element or does not return the symbols from the 5 th on) changes the values of \[ 1 \] and \[ 2 \] . An implementation that packs 1 symbol into 1 byte turns 3100 into 3130 or the like, one that makes the 2 nd byte of a single-character symbol other than NUL (a space, say) gives 3120 or the like, and one that shortens the 2 characters of the edge ( 0x ) to 1 gives another value than 3078 . It uses the 2 nd and 3 rd elements, which existing tests with 4 symbols or fewer do not show.
 
 ### SV2023-38.15-EXTRACT-VALUE-FORMAT
 
@@ -109727,7 +109748,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.16-EXTRACT-ARRAY-ERROR-POINTER
 
-`38.16` / `normal` / No mapped test
+`38.16` / `normal` / Test mapped; execution unconfirmed
 
 A NULL returned value pointer indicates VPI retrieval error. The application must free its own allocation even if the function overwrites its pointer with NULL, and should retain a separate allocation pointer.
 
@@ -109735,6 +109756,7 @@ Acceptance criterion: A NULL returned value pointer indicates VPI retrieval erro
 
 Normative role: `mandatory`。
 
+- [test_vpi_get_value_array_user_buffers.sv](../tests/ch38/test_vpi_get_value_array_user_buffers.sv) : for the int array ia, vpiShortIntVal , which only shortint / byte elements can use, is requested with vpiUserAllocFlag and a value pointer to an application buffer (also kept in the separate pointer mine); it is checked that the value pointer is overwritten with NULL ( "own buffer: value pointer NULL 1" ), and the buffer is then freed through mine. With VPI storage too, the value member is set to a non- NULL address of the application before vpiShortRealVal (only for shortreal elements) and the unlisted vpiStringVal are requested, and both are checked to give NULL ( "VPI storage: value pointer NULL 1" ). It is contrasted with successful calls, where the value pointer stays (buffer kept 1 ). Distinguishing observation: An implementation that does not overwrite the value pointer on an error leaves the initial value (the user's buffer or a non- NULL dummy) on every line, giving "NULL 0" . An implementation that sets NULL only for user allocation or only for VPI allocation makes one of the lines 0 . The application frees its own allocation through the pointer it kept, which shows a procedure that can free it even after the overwrite.
 
 ### SV2023-38.16-EXTRACT-ARRAY-FORMAT-ERROR
 
@@ -109820,7 +109842,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.16-EXTRACT-ARRAY-USER-STORAGE
 
-`38.16` / `normal` / No mapped test
+`38.16` / `normal` / Test mapped; execution unconfirmed
 
 With vpiUserAllocFlag the application supplies a sufficient result buffer; scalar-value array storage is num times the pointed-to element type size, with raw/vector sizes given by their format formulas.
 
@@ -109828,6 +109850,7 @@ Acceptance criterion: With vpiUserAllocFlag the application supplies a sufficien
 
 Normative role: `mandatory`。
 
+- [test_vpi_get_value_array_user_buffers.sv](../tests/ch38/test_vpi_get_value_array_user_buffers.sv) : from arrays of 9 kinds ( int , shortint , longint , real, shortreal , time, logic \[ 39:0 \] , logic \[ 11:0 \] , bit \[ 11:0 \] , 4 elements each), 3 elements from index 1 are read into buffers that the application allocates with malloc, with vpiUserAllocFlag set. Each buffer has exactly the size of the standard ( 3 × sizeof(pointed type) for vpiIntVal and the like, (( 40 + 31 )/ 32 )* 2 * 3 = 12 words for vpiVectorVal , 2 * 3 * 2 = 12 bytes for vpiRawFourStateVal , 2 * 3 = 6 bytes for vpiRawTwoStateVal ) plus 16 bytes, filled with 0xA 5. Each line checks that the value pointer still points at that buffer (buffer kept 1 ), the values read through the application's own pointer (for example "-6 7 8" , "2:3 0:4 0:5" , "bc 0a 00 00 ..." , "56 04 89 07 de 0c" ), and that the 16 bytes after the standard size keep 0xA 5 (after it intact 1 ). Distinguishing observation: An implementation that ignores vpiUserAllocFlag and writes to VPI storage leaves the application buffer at 0xA 5, so the values break and "buffer kept 0" appears too. An implementation that gets the element size wrong (for example 4 bytes for shortint , 1 pair for 1 vector element, ngroups of raw rounded down from bits/ 8 , or bval bytes added to raw two-state) breaks the order of the values or writes past the standard size, giving "after it intact 0" .
 
 ### SV2023-38.16-EXTRACT-ARRAY-VALUE-STRUCTURE
 
@@ -109843,7 +109866,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.16-EXTRACT-ARRAY-VPI-STORAGE
 
-`38.16` / `normal` / No mapped test
+`38.16` / `normal` / Test mapped; execution unconfirmed
 
 By default VPI allocates read-only result storage that later calls may overwrite; applications copy it to preserve data.
 
@@ -109851,10 +109874,11 @@ Acceptance criterion: By default VPI allocates read-only result storage that lat
 
 Normative role: `mandatory`。
 
+- [test_vpi_get_value_array_user_buffers.sv](../tests/ch38/test_vpi_get_value_array_user_buffers.sv) : a default call with flags 0 and a NULL value member reads 3 elements of ia from index 1 in vpiIntVal ; it is checked that VPI supplies storage and the value pointer is non- NULL ( "ia, VPI storage given 1" ), and the application copies the 3 values into its own array. Next, ra is read with another default call ( "ra, VPI storage given 1" ), and the copy is printed afterwards, checking "copy of ia after the call for ra: -6 7 8" . The VPI storage is only read, never written. Distinguishing observation: What this requirement asks of the tool is that, by default (without vpiUserAllocFlag ), VPI allocates the storage for the result and gives it in the value pointer; overwriting by later calls is permitted, and reading only and copying are steps of the application. An implementation that gives no storage by default (leaving the pointer NULL ) gives "given 0" and the copy "-1 -1 -1" , and one that gives the values of another array changes the copied values. The copy surviving a later call also shows the procedure of the application.
 
 ### SV2023-38.16-EXTRACT-COMMON-ARRAY-FORMATS
 
-`38.16` / `normal` / No mapped test
+`38.16` / `normal` / Test mapped; execution unconfirmed
 
 Bulk vpiIntVal/vpiTimeVal/vpiVectorVal/vpiRealVal use integers/times/vectors/reals array members; vector storage comprises consecutive A/B 32-bit word pairs, requiring ceil(element_bits/32)*2*num words.
 
@@ -109862,6 +109886,7 @@ Acceptance criterion: Bulk vpiIntVal/vpiTimeVal/vpiVectorVal/vpiRealVal use inte
 
 Normative role: `mandatory`。
 
+- [test_vpi_get_value_array_user_buffers.sv](../tests/ch38/test_vpi_get_value_array_user_buffers.sv) : vpiIntVal , vpiTimeVal , vpiVectorVal and vpiRealVal are read with the union members integers, times, vectors and reals pointing at user-allocated buffers, and it is checked that the int array gives "-6 7 8" , the time array gives high:low "2:3 0:4 0:5" , the real array gives "1.25 -2.5 3.75" , and the 40 -bit logic array gives 2 A/B word pairs per element, "3456789a/00000000 00000012/00000000 00000001/00000000 000000ab/00000000 00000001/00000000 00000000/00000000" , with a vector buffer of exactly (( 40 + 31 )/ 32 )* 2 * 3 = 12 words whose following 16 bytes are not written (after it intact 1 ). Distinguishing observation: An implementation that pairs formats and union members wrongly (for example packing time into a 64 -bit integer or writing real as float) breaks the values. An implementation that cuts a vector element to 1 A/B word pair loses the upper word and shifts the order, and one that uses more than ceil(bits/ 32 ) pairs per element writes after the 12 words, giving "intact 0" . Swapping A and B puts values on the bval side.
 
 ### SV2023-38.16-EXTRACT-LONGINT-ARRAY-FORMAT
 
@@ -109937,7 +109962,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.16-EXTRACT-SHORTREAL-ARRAY-FIELD-TEXT
 
-`38.16` / `normal` / No mapped test
+`38.16` / `normal` / Test mapped; execution unconfirmed
 
 vpiShortRealVal retrieves num values as an array of floats through the s_vpi_arrayvalue union member shortreals, the prose name shortrealvals denoting this declared float member; the format is appropriate only for arrays of vpiShortRealVar elements.
 
@@ -109945,6 +109970,7 @@ Acceptance criterion: A VPI test compiled against vpi_user.h retrieves a shortre
 
 Normative role: `mandatory`。
 
+- [test_vpi_get_value_array_user_buffers.sv](../tests/ch38/test_vpi_get_value_array_user_buffers.sv) : C compiled against vpi_user.h reads 3 values from index 1 of the shortreal array fa in vpiShortRealVal , with value.shortreals (float *) pointing at a user-allocated buffer, and checks "fa, 3 float: buffer kept 1, values -1.5 2.25 4, after it intact 1" ( 3 floats, nothing changed after 3 × sizeof(float)). No member named shortrealvals is used. It also checks that requesting vpiShortRealVal for an int array makes the value pointer NULL ( "vpiShortRealVal of int elements, VPI storage: value pointer NULL 1" ), so that this format is only for shortreal elements. Distinguishing observation: An implementation that returns shortreal as double writes after the 3 × 4 -byte buffer, giving "intact 0" , and breaks the values. An implementation that packs another type than float, or writes another union member, also changes the values. An implementation that allows this format for elements other than shortreal gives no NULL and prints "NULL 0" .
 
 ### SV2023-38.17-EXTRACT-VLOG-ARGUMENTS
 
@@ -110362,7 +110388,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.28-EXTRACT-MCD-PRINTF-SIGNATURE
 
-`38.28` / `normal` / No mapped test
+`38.28` / `normal` / Execution confirmed
 
 vpi_mcd_printf(PLI_UINT32 mcd,PLI_BYTE8* format,...) returns PLI_INT32 character count and uses C fprintf formatting.
 
@@ -110370,6 +110396,7 @@ Acceptance criterion: vpi_mcd_printf(PLI_UINT32 mcd,PLI_BYTE8* format,...) retur
 
 Normative role: `mandatory`。
 
+- [test_vpi_mcd_printf_signature_format.sv](../tests/ch38/test_vpi_mcd_printf_signature_format.sv) : the type of & vpi_mcd_printf is compared at compile time with PLI_INT32 (*)( PLI_UINT32 , PLI_BYTE8 *, ...) and the type of a call expression with PLI_INT32 , printing 1 ; then 5 lines using flags, widths, precisions, * widths and %d %u %x %X %o %c %s %% %f %e and an empty format are written to descriptor 1 , and the characters of each line and the return values 23 24 22 26 18 0 are compared. Distinguishing observation: A declaration with other argument types (mcd not PLI_UINT32 , format not PLI_BYTE8 *) or another return type makes 'type of vpi_mcd_printf : 1 ' or 'type of a call: 1 ' become 0 (the const char * declaration of Icarus Verilog 13.0 does give 0 ). Interpreting the formats differently from C fprintf changes lines such as \[ 42 | -42 | 7 | 00031 \] , and returning another value than the character count (counting bytes wrongly, not counting the newline, non- 0 for the empty format) changes the counts line.
 
 ### SV2023-38.29-EXTRACT-MCD-VPRINTF-BEHAVIOR
 
@@ -110620,7 +110647,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.32-EXTRACT-PUT-PRIMITIVE-DELAY-COUNT
 
-`38.32` / `normal` / No mapped test
+`38.32` / `normal` / Test mapped; execution unconfirmed
 
 Primitive no_of_delays must be 2 or 3.
 
@@ -110628,10 +110655,11 @@ Acceptance criterion: Primitive no_of_delays must be 2 or 3.
 
 Normative role: `mandatory`。
 
+- [test_vpi_put_delays_primitive_counts.sv](../tests/ch38/test_vpi_put_delays_primitive_counts.sv) : at time 8 , vpi_put_delays is called for the and gate g2 with no_of_delays = 2 (rise 7 , fall 9 ) and for the bufif1 gate g3 with no_of_delays = 3 (rise 5 , fall 8 , turn-off 11 ), and 7 9 and 5 8 11 read back with the same counts, and the later output change times 17/39 ( g2 ) and 18/45/58/71 ( g3 , z at 71 ), are compared. Distinguishing observation: Both 2 and 3 , which primitives allow, are exercised. An implementation that does not accept the 3 rd delay (turn-off) or writes only 2 leaves 11 at 6 in ' 8 : g3 new delays 5 8 11 ', and the change to z comes at 66 instead of 71 . An implementation that takes a put of 2 as 3 and reads the element after them, or one that swaps the order, changes the new delays of g2 and the times 17 : y2 = 1 and 39 : y2 = 0 . The standard does not fix the result of passing a number other than 2 or 3 , so that case is not exercised.
 
 ### SV2023-38.32-EXTRACT-PUT-TIMING-DELAY-COUNT
 
-`38.32` / `normal` / No mapped test
+`38.32` / `normal` / Test mapped; execution unconfirmed
 
 Timing-check no_of_delays must equal the count of limits in that check.
 
@@ -110639,6 +110667,7 @@ Acceptance criterion: Timing-check no_of_delays must equal the count of limits i
 
 Normative role: `mandatory`。
 
+- [test_vpi_put_delays_tchk_limit_counts.sv](../tests/ch38/test_vpi_put_delays_tchk_limit_counts.sv) : vpi_put_delays writes 8 to $hold , which has 1 limit, with no_of_delays = 1 , and 9,10 and 11,12 to $setuphold and $recrem , which have 2 limits, with no_of_delays = 2 ; each check is chosen by vpiTchkType and the values read before and after with vpi_get_delays with the same count ( 3 → 8 , 4 5 → 9 10 , 6 7 → 11 12 ) are compared. Distinguishing observation: The condition that no_of_delays matches the number of limits of the check is exercised with both 1 limit and 2 limits. An implementation that does not write the 2 nd limit turns ' $setuphold : old 4 5 , new 9 10 ' into new 9 5 and ' $recrem : old 6 7 , new 11 12 ' into new 11 7 , and swapping the order gives new 10 9 or the like. An implementation that asks for a 2 nd value from a check with 1 limit changes the $hold line.
 
 ### SV2023-38.33-EXTRACT-PUT-USERDATA-RESET
 
@@ -110843,7 +110872,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.34-EXTRACT-PUT-VALUE-ALLOCATION
 
-`38.34` / `normal` / No mapped test
+`38.34` / `normal` / Test mapped; execution unconfirmed
 
 The caller allocates s_vpi_value, its referenced value storage and delay s_vpi_time; values follow Table 38-3 formats subject to put-specific exceptions.
 
@@ -110851,6 +110880,8 @@ Acceptance criterion: The caller allocates s_vpi_value, its referenced value sto
 
 Normative role: `mandatory`。
 
+- [test_vpi_put_value_caller_storage.sv](../tests/ch38/test_vpi_put_value_caller_storage.sv) : at time 1 , 1 s_vpi_value , string buffer, vecval and delay structure are reused to write 9 variables with vpiInertialDelay 4 , and then all of them are overwritten. It is compared that nothing has changed at 4 ( b =xxxxxxxx i = 0 r = 0.000 ) and that at 6 the values are b = 10x 0z101 o = 7x 5 d = 201 h = be0f s = 1 i = -12345 r = 6.125 st =wxyz vec = 8x 01234567.
+- [test_vpi_put_value_caller_storage_time_strength.sv](../tests/ch38/test_vpi_put_value_caller_storage_time_strength.sv) : at time 1 , vpiTimeVal (high 3 low 9 ) is written to the time variable tv and vpiStrengthVal ( 1 , weak strength) to the net sn, which has no driver, with vpiInertialDelay 4 , and the time, strength and delay structures are overwritten right after. It compares tv high 0 low 0 and sn vpiZ at 4 , and tv high 3 low 9 and sn vpi1 s1 vpiWeakDrive at 6 .
 
 ### SV2023-38.34-EXTRACT-PUT-VALUE-SIGNATURE
 
@@ -110997,7 +111028,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.35-EXTRACT-PUT-ARRAY-FORMAT
 
-`38.35` / `normal` / No mapped test
+`38.35` / `normal` / Test mapped; execution unconfirmed
 
 Caller format selects layout; supported standard common formats include vpiIntVal,vpiVectorVal,vpiTimeVal and vpiRealVal plus the listed raw/short forms.
 
@@ -111005,6 +111036,7 @@ Acceptance criterion: Caller format selects layout; supported standard common fo
 
 Normative role: `mandatory`。
 
+- [test_vpi_put_value_array_every_format.sv](../tests/ch38/test_vpi_put_value_array_every_format.sv) : at time 1 , 2 elements of 9 static arrays are written with vpi_put_value_array , each in one of the common formats vpiIntVal , vpiVectorVal , vpiTimeVal and vpiRealVal and the additional formats vpiRawFourStateVal , vpiRawTwoStateVal , vpiShortIntVal , vpiLongIntVal and vpiShortRealVal , and the display at time 2 is compared with 123456 -7 , 1289abcdef 00000000xz , 7 4294967301 , 1.50 -2.25 , 0.50 3.75 , abc 0zf , 234 fff, -300 1234 , -5 1099511627776 . Distinguishing observation: Getting the layout of a format wrong ( vpiVectorVal with 2 A/B words per element, vpiRawFourStateVal with 2 bytes of aval and then 2 bytes of bval per element, vpiRawTwoStateVal with aval only, vpiTimeVal with high/low of s_vpi_time ) changes the corresponding line: the 2 nd element of va is no longer 00000000xz , 0zf of r4 becomes another value, or 4294967301 of ta becomes 5 or 7 . An implementation that does not accept a format prints that array as still x or 0 . All 9 formats are exercised in 1 test.
 
 ### SV2023-38.35-EXTRACT-PUT-ARRAY-INDEX-LENGTH
 
@@ -111281,7 +111313,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.36.1-EXTRACT-ARRAY-MEMBER-CALLBACK
 
-`38.36.1` / `normal` / No mapped test
+`38.36.1` / `normal` / Test mapped; execution unconfirmed
 
 For a changed array member, callback value is that member value and index is its rightmost declaration-range index; obtain all indices via vpiIndex iteration.
 
@@ -111289,6 +111321,7 @@ Acceptance criterion: For a changed array member, callback value is that member 
 
 Normative role: `mandatory`。
 
+- [test_vpi_value_change_array_member_index.sv](../tests/ch38/test_vpi_value_change_array_member_index.sv) : cbValueChange with vpiIntVal is placed on the elements m \[ 1 \] \[ 6 \] and m \[ 2 \] \[ 4 \] of the 2 -dimensional array m \[ 0:2 \] \[ 4:7 \] and on the element w \[ 2 \] of the descending 1 -dimensional array w \[ 3:1 \] ; it is compared that the writes at times 10 , 12 and 13 give callbacks with value 66 , 23 and 9 , index 6 , 4 and 2 (the index of the rightmost range), vpiArrayMember 1 , and indices { 1,6 }, { 2,4 } and { 2 } from vpi_iterate ( vpiIndex ), and that a change of m \[ 0 \] \[ 5 \] (time 11 ), which has no callback, gives nothing. Distinguishing observation: An implementation that puts a 0 -based flattened number in index (m \[ 1 \] \[ 6 \] is 6 , m \[ 2 \] \[ 4 \] is 8 , w \[ 2 \] is 1 ) changes the index on the m \[ 2 \] \[ 4 \] and w \[ 2 \] lines, and one that puts the leftmost index changes the index on the m \[ 1 \] \[ 6 \] and m \[ 2 \] \[ 4 \] lines to 1 and 2 . Putting the whole array or another element in value changes 66/23 , and if the vpiIndex iteration returns only part of the indices, the indices are no longer ' 1 6 ' and ' 2 4 '. 37.17 does not fix the order for array elements, so the indices are sorted ascending before the comparison.
 
 ### SV2023-38.36.1-EXTRACT-BITSELECT-CALLBACK-ERROR
 
@@ -111446,7 +111479,7 @@ Normative role: `definition`。
 
 ### SV2023-38.36.1-EXTRACT-CLASS-VARIABLE-CALLBACK
 
-`38.36.1` / `normal` / No mapped test
+`38.36.1` / `normal` / Test mapped; execution unconfirmed
 
 A class-variable cbValueChange fires when the reference changes to another dynamic object or null. Its opaque value is not returned: callback value is NULL; vpiObjId identifies the referred object.
 
@@ -111454,6 +111487,7 @@ Acceptance criterion: A class-variable cbValueChange fires when the reference ch
 
 Normative role: `mandatory`。
 
+- [test_vpi_value_change_class_var_reference.sv](../tests/ch38/test_vpi_value_change_class_var_reference.sv) : cbValueChange is placed on the class variable h, and it is compared that a callback comes each time h refers to the object of a1 ( 10 ), the object of a2 ( 12 ), null ( 15 ), the object of a1 ( 16 ) and a new object ( 17 ), with value NULL , that vpiObjId shows whether h refers to a1 / a2 /nothing ( 0 )/another object, and that changing a property of the object ( 13 ) or assigning the same object again ( 14 ) gives no callback. Distinguishing observation: An implementation that does not fire on a change of the reference lacks the 10/12/15/16/17 lines, and one that also fires on a property change or an assignment of the same reference adds 13 : or 14 : lines. An implementation that puts some value in value turns 'value NULL ' into 'value not NULL '. If vpiObjId does not show the referenced object (staying 0 , giving the same value as another object, and so on), 'h refers to the object of a1 ' and the like become nothing or another object.
 
 ### SV2023-38.36.1-EXTRACT-DISABLE-CALLBACK-OBJECT
 
@@ -111481,7 +111515,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.36.1-EXTRACT-EVENT-CALLBACK-FORMAT
 
-`38.36.1` / `normal` / No mapped test
+`38.36.1` / `normal` / Test mapped; execution unconfirmed
 
 Set value.format to a supported Table 38-5 format or vpiSuppressVal; cbStmt ignores value format because it supplies no value.
 
@@ -111489,6 +111523,8 @@ Acceptance criterion: Set value.format to a supported Table 38-5 format or vpiSu
 
 Normative role: `mandatory`。
 
+- [test_vpi_value_change_callback_every_format.sv](../tests/ch38/test_vpi_value_change_callback_every_format.sv) : at time 1 , 16 cbValueChange callbacks are placed on objects, each with its own format, and from time 10 to 25 1 value changes at a time. It compares the BinStr/OctStr/DecStr/HexStr strings, vpi1 , -7 , 2.75 , "xyz" , the 2 time words high 2 low 3 , the aval/bval of 36 bits, logic and s1 of a net with pull strength, that vpiObjTypeVal becomes vpiIntVal for integer , vpiRealVal for real, vpiTimeVal ( vpiSimTime ) for time and vpiVectorVal for a vector, and that vpiSuppressVal gives no value.
+- [test_vpi_stmt_callback_kinds.sv](../tests/ch38/test_vpi_stmt_callback_kinds.sv) : 24 cbStmt callbacks are registered with an s_vpi_value of format 12345 (no format at all) as value, and 1 line compares that every callback has value NULL , index 0 and the other values of 38.36.1.1 .
 
 ### SV2023-38.36.1-EXTRACT-EVENT-CALLBACK-OBJECT
 
@@ -111641,7 +111677,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.36.1-EXTRACT-EVENT-CBSIZECHANGE
 
-`38.36.1` / `normal` / No mapped test
+`38.36.1` / `normal` / Test mapped; execution unconfirmed
 
 cbSizeChange invokes the registered callback after a dynamic/associative array, queue or string is resized.
 
@@ -111649,6 +111685,7 @@ Acceptance criterion: cbSizeChange invokes the registered callback after a dynam
 
 Normative role: `mandatory`。
 
+- [test_vpi_size_change_callback_resizes.sv](../tests/ch38/test_vpi_size_change_callback_resizes.sv) : cbSizeChange is placed on the dynamic array da, the associative array aa, the queue q and the string s, and it is compared that after each change (da 0 → 3 → 5 , aa 0 → 1 → 2 → 1 by adding, adding and deleting keys, q 0 → 1 → 0 , s 0 → 3 → 5 ) a callback comes with value and vpiSize equal to the new size ( 3,5,1,2,1,1,0,3,5 ), and that writes of elements only at 11 , 14 and 18 give no callback. Distinguishing observation: An implementation that does not report size changes for one of the 4 kinds lacks its lines, and one that does not report shrinking ( aa.delete , pop_front ) lacks the 16 : and 19 : lines. An implementation that also reports writes of elements that do not change the size adds 11 :, 14 : and 18 : lines. An implementation whose callback comes before the size changes gives the old size in vpiSize (for example 3 at 12 :), and putting something other than the new size in value changes the values.
 
 ### SV2023-38.36.1-EXTRACT-EVENT-CBSTARTOFFRAME
 
@@ -111791,7 +111828,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.36.1.2-EXTRACT-ALL-STATEMENT-KINDS
 
-`38.36.1.2` / `normal` / No mapped test
+`38.36.1.2` / `normal` / Execution confirmed
 
 Every stmt-class object is eligible for cbStmt, subject to protection restrictions.
 
@@ -111799,6 +111836,9 @@ Acceptance criterion: Every stmt-class object is eligible for cbStmt, subject to
 
 Normative role: `mandatory`。
 
+- [test_vpi_stmt_callback_kinds.sv](../tests/ch38/test_vpi_stmt_callback_kinds.sv) : cbStmt is placed on an initial block and on each begin, named begin, fork, named fork, if-else, case, assign, deassign, force, release, event trigger, task call, wait, disable, while, repeat, forever, delay control and system task call in it (placed 24 ), and lines with the kind names and lines with the counts of while/repeat/forever compare that a callback comes just before each statement with obj being that statement.
+- [test_vpi_stmt_callback_data.sv](../tests/ch38/test_vpi_stmt_callback_data.sv) : cbStmt is placed on an if statement without else ( vpiIf ), and it is compared that the callback comes before the condition is evaluated, with obj of kind vpiIf and calls = 0 before bump() runs.
+- [test_vpi_stmt_callback_loops.sv](../tests/ch38/test_vpi_stmt_callback_loops.sv) : cbStmt is placed on a for statement ( vpiFor ) and an event control ( vpiEventControl ), and the callbacks are compared: 4 for the for statement, with i = 7 before the initialization and i = 0,1,2 in the iterations, and 1 for the event control, when it is reached at time 2 .
 
 ### SV2023-38.36.1.2-EXTRACT-STMT-DELAY
 
@@ -132535,7 +132575,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.8.2-EXTRACT-TASK-RESULT
 
-`H.8.2` / `normal` / No mapped test
+`H.8.2` / `normal` / Test mapped; execution unconfirmed
 
 Exported task returns C int for disable protocol under 35.9, unlike ordinary function result.
 
@@ -132543,6 +132583,7 @@ Acceptance criterion: Exported task returns C int for disable protocol under 35.
 
 Normative role: `mandatory`。
 
+- [test_dpi_export_task_c_result.sv](../tests/ch35/test_dpi_export_task_c_result.sv) : the context task c_run , called from the block worker, calls from C the export task sv_step and the export function sv_scale , which have the same argument list (input int by value, output int by pointer). sv_step ( 1 , &b) returns normally, sv_scale ( 7 , &b) returns the value 21 , and sv_step ( 2 , &b) disables worker. The C code keeps the C result and the output of each call and prints them at time 1 . The expected output is 'exported task, normal return: C result 0 , output 101 ', 'exported function: C result 21 , output 107 ' and 'exported task, return because of a disable: C result 1 , svIsDisabledState 1 ', and the statements after c_run in worker are not printed. Distinguishing observation: A wrong implementation that treats the C result of an export task as a value like that of a function, or does not return the disable state, makes the C result on line 1 or line 3 other than 0/1 (the 5.054 release of Verilator returns an undefined value and does not pass the disable on either). A wrong implementation that returns 0 even after a disable changes line 3 to 'C result 0 ', and one that returns 1 even on a normal return changes line 1 to 'C result 1 '. The same run compares that the result of the function is the value itself ( 21 ) and that the task and the function both pass the output by pointer ( 101 , 107 ), so the content of H.8.2 , that only the C result of a task is the int for the disable and that everything else is as for a function call, is checked from both sides. The output of a disabled call is undefined by 35.9 , so it is not printed.
 
 ### SV2023-H.8.3-EXTRACT-VALUE
 
@@ -133041,7 +133082,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.9.5-EXTRACT-NO-SYSTF
 
-`H.9.5` / `normal` / No mapped test
+`H.9.5` / `normal` / Execution confirmed
 
 DPI import is not a system task; attempting vpi_handle(vpiSysTfCall,NULL) within it is an error.
 
@@ -133049,6 +133090,7 @@ Acceptance criterion: DPI import is not a system task; attempting vpi_handle(vpi
 
 Normative role: `mandatory`。
 
+- [test_dpi_vpi_systf_handle_in_import.sv](../tests/ch35/test_dpi_vpi_systf_handle_in_import.sv) : inside the context import c_probe , vpi_iterate ( vpiModule , NULL ) first scans the top-level modules, vpi_handle_by_name and vpi_get_value then read the variable marker ( 42 ), and finally vpi_handle ( vpiSysTfCall , NULL ) is called. Right after each step, whether vpi_chk_error is 0 is returned to SV and printed; the expected output is ' 1 top-level module, test_dpi_vpi_systf_handle_in_import , error 0 ', ' 42 , error 0 ' and ' vpi_handle ( vpiSysTfCall , NULL ): error 1 '. The standard does not fix the severity of the error or the handle returned, so they are not printed. Distinguishing observation: A wrong implementation that treats the import like a system task and lets vpi_handle ( vpiSysTfCall , NULL ) succeed makes vpi_chk_error return 0 and changes the last line to 'error 0 '. Conversely, an implementation that makes every VPI call in an import an error (one that does not tie the context to VPI ) gives 'error 1 ' on lines 1 and 2 and changes the module count and the value of marker, so the controls show that the error on the last line is specific to vpiSysTfCall . By 38.2 , vpi_chk_error returns the severity (non- 0 ) on an error and 0 on success. The 5.054 release of Verilator matches the expected output at seeds 1/73 .
 
 ### SV2023-H.9.5-EXTRACT-NO-SYSTF-ACTIVITY
 

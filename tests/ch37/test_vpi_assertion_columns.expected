@@ -1,0 +1,5 @@
+assertions found by name: 5 of 5
+c1: on one line 1, end column after start column 1
+c2 against c1, 3 more spaces before it: start column +3, end column +3
+c3 against c1, 6 more characters inside it: start column +0, end column +6
+c5 against c4, 40 characters later on the same line: start column +40, end column +40

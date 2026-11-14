@@ -1,0 +1,3 @@
+exported task, normal return: C result 0, output 101
+exported function: C result 21, output 107
+exported task, return because of a disable: C result 1, svIsDisabledState 1

@@ -1,0 +1,3 @@
+vrow: packed array typespec row_t, ranges [5:2]
+vcol: packed array typespec col_t, ranges [0:3]
+vanon: packed array typespec NULL, ranges [1:3]

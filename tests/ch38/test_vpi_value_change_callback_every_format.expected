@@ -1,0 +1,16 @@
+10: b4 vpiBinStrVal, got vpiBinStrVal: 1x0z
+11: o6 vpiOctStrVal, got vpiOctStrVal: 57
+12: d8 vpiDecStrVal, got vpiDecStrVal: 200
+13: h12 vpiHexStrVal, got vpiHexStrVal: a5f
+14: s vpiScalarVal, got vpiScalarVal: vpi1
+15: i32 vpiIntVal, got vpiIntVal: -7
+16: r vpiRealVal, got vpiRealVal: 2.75
+17: str vpiStringVal, got vpiStringVal: xyz
+18: t64 vpiTimeVal, got vpiTimeVal: high 2 low 3
+19: v36 vpiVectorVal, got vpiVectorVal: aval 80000001 9 bval 00000000 5
+20: sw vpiStrengthVal, got vpiStrengthVal: logic vpi1, s1 vpiPullDrive
+21: oi vpiObjTypeVal, got vpiIntVal: 12
+22: ro vpiObjTypeVal, got vpiRealVal: -0.50
+23: ot vpiObjTypeVal, got vpiTimeVal: type vpiSimTime high 0 low 9
+24: ov vpiObjTypeVal, got vpiVectorVal: aval a3 bval 30
+25: sp vpiSuppressVal, no value

@@ -1334,3 +1334,13 @@ ch30/test_illegal_specify_path_to_input                           アサーシ�
 - Verilator 5.054は、`super`、クラスのハンドル、インタフェースクラスのハンドルを通して読んだ値パラメータを、packed次元の境界として受け付ける（8.15、8.5、8.26.3）。`ch8/test_illegal_super_parameter_in_packed_dimension`、`ch8/test_illegal_handle_parameter_in_packed_dimension`、`ch8/test_illegal_interface_handle_parameter_in_packed_dimension`
 - Verilator 5.054は、virtualな実装を継承せずvirtualなしで実装したインタフェースクラスのメソッドを受け付ける（8.26）。インタフェースクラスの間の解決されないパラメータ名の衝突も、2つが別の特殊化から来る場合を含めて受け付ける（8.26.6.2、8.26.6.3）。`ch8/test_illegal_interface_method_implemented_without_virtual`、`ch8/test_illegal_interface_class_parameter_conflict`、`ch8/test_illegal_interface_specializations_parameter_conflict`
 - Verilator 5.054は、output仮引数を持つ関数をforceの式で、inout仮引数を持つ関数を連続代入で呼ぶことを受け付ける（13.4）。`ch13/test_illegal_writable_formal_function_in_force`、`ch13/test_illegal_writable_formal_function_in_continuous_assign`
+
+2026-11-14に35・37・38章と附属書Hのために追加したVPIとDPIのテストは、さらに次の差異を示します（ヘッダに無いVPIの定数など、未対応のものは載せません）。
+
+- Icarus Verilog 13.0は、min:typ:maxの値を持つPATHPULSE$を構文エラーにし、`vpi_get_delays`は`mtm_flag`と`pulsere_flag`を無視して`no_of_delays`個の値だけを書く（30.7、38.10）。`ch38/test_vpi_get_delays_flag_layouts`
+- Icarus Verilog 13.0は、UDPの表の記号`b`を拒否する（29.3.6）。`ch38/test_vpi_udp_entry_vector_storage`
+- Icarus Verilog 13.0は、`vpi_mcd_printf`の書式を`PLI_BYTE8 *`ではなく`const char *`で宣言している（38.28）。`ch38/test_vpi_mcd_printf_signature_format`
+- Icarus Verilog 13.0は、`vpiTimeVal`と`vpiStrengthVal`の`cbValueChange`を拒否し、integerとvectorのオブジェクトで`vpiObjTypeVal`を変換せず、その後シグナルで止まる（38.36.1）。`ch38/test_vpi_value_change_callback_every_format`
+- Verilator 5.054は、exportしたtaskのCの結果を0か1ではなく不定の値にし、export内のdisableは呼び出し元のブロックを止めず`svIsDisabledState`も設定しない（35.9、H.8.2）。`ch35/test_dpi_export_task_c_result`
+- Verilator 5.054は、voidのimportとinout引数を持つimportの`pure`、`int`のopen arrayへの`shortint`の配列の実引数を受け付ける（35.5.2、35.5.6.1）。`ch35/test_illegal_dpi_pure_void_function`、`ch35/test_illegal_dpi_pure_inout_argument`、`ch35/test_illegal_dpi_open_array_element_type`
+- Verilator 5.054は、`vpiUserAllocFlag`付きの`vpi_get_value_array`で止まり、`vpiForceFlag`付きの`vpi_put_value`をforceできない信号として止め、`vpi_put_value_array`の`vpiTimeVal`と`vpiPropagateOff`を拒否し、配列のメンバーのcallbackでindexと時刻を0にする（38.16、38.34、38.35、38.36.1）。`ch38/test_vpi_get_value_array_user_buffers`、`ch38/test_vpi_force_release_driver_kinds`、`ch38/test_vpi_force_release_net_part_select`、`ch38/test_vpi_put_value_array_every_format`、`ch38/test_vpi_value_change_array_member_index`

@@ -1,0 +1,161 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch35/test_dpi_export_task_c_result": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'worker went on after c_run, which must not happen', expected 'exported task, normal return: C result 0, output 101'",
+   "inputs_sha256": "5601dc676bcfc4b0a5911ad0c53684a87e09b5b6e63409ce47d53b94cd123f73"
+  },
+  "ch35/test_dpi_vpi_systf_handle_in_import": {
+   "status": "pass",
+   "inputs_sha256": "5d8f8e62a87b61a9a161a8f9147b90d2f2be70fa8026bd15a9ff0f97771831be"
+  },
+  "ch35/test_illegal_dpi_export_class_formal": {
+   "status": "pass",
+   "inputs_sha256": "9fc7f07806281268943b20ca3a78c9fbfbb94e7905dd21c9e96b2f28dad93ace"
+  },
+  "ch35/test_illegal_dpi_export_dynamic_array_formal": {
+   "status": "pass",
+   "inputs_sha256": "8075c02e8bad1a484a47136fa98d3000d6b0c133c6a8e01815016bee6d3ba294"
+  },
+  "ch35/test_illegal_dpi_export_struct_result": {
+   "status": "pass",
+   "inputs_sha256": "e63c6052f84be9fc89bb9f099fd6553bcd4cdf509fe5d0626271ebd55359aa1d"
+  },
+  "ch35/test_illegal_dpi_import_c_type_name": {
+   "status": "pass",
+   "inputs_sha256": "44b449fbf5fc62b336afda730a643a62dc1c1abf9a291146b5c19799d2101f85"
+  },
+  "ch35/test_illegal_dpi_open_array_element_type": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_dpi_open_array_element_type\\\\.sv:38:'; the first is: clang++: error: linker command failed with exit code 1 (use -v to see invocation)",
+   "inputs_sha256": "fba56fddef9cd88781feb5c8079c606fcea1d61185d808d815fe6b38064f8333"
+  },
+  "ch35/test_illegal_dpi_pure_inout_argument": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_dpi_pure_inout_argument\\\\.sv:29:'; the first is: clang++: error: linker command failed with exit code 1 (use -v to see invocation)",
+   "inputs_sha256": "f1ed2fd558a4acf1085dc8e153fd0af6dbc597dafd70d82b704f748759eabbee"
+  },
+  "ch35/test_illegal_dpi_pure_void_function": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_dpi_pure_void_function\\\\.sv:29:'; the first is: clang++: error: linker command failed with exit code 1 (use -v to see invocation)",
+   "inputs_sha256": "87acfdcf548da5a622c628f3805fdb5586c9e888ece5e58c81e637d14d9d2c8a"
+  },
+  "ch37/test_vpi_assertion_columns": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_assertion_columns.sv:49:14: Unsupported or unknown PLI call: '$vt_columns'",
+   "inputs_sha256": "e74b0d8897896933b1d1e57f972835de90748ebf5b5efdeb2bad43996bc9c42a"
+  },
+  "ch37/test_vpi_packed_array_typespec_ranges": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_packed_array_typespec_ranges.sv:37:14: Unsupported or unknown PLI call: '$vt_ranges'",
+   "inputs_sha256": "27422d80b8af26f815783350b036d757be51099f2ef24b4a60632cf602a54b5e"
+  },
+  "ch37/test_vpi_ref_obj_declared_cases": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_ref_obj_declared_cases.sv:44:5: Unsupported or unknown PLI call: '$vt_ref'",
+   "inputs_sha256": "db6d8ae1f17098c0bfd4d8cd144f45fb59b4d772dad2ea3f41c2b63c88aa5b96"
+  },
+  "ch37/test_vpi_variable_path_tchk_terms": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_variable_path_tchk_terms.sv:46:14: Unsupported or unknown PLI call: '$vt_terms'",
+   "inputs_sha256": "0c7b7db4e84be84583da1e52917ab677119e13b1fd711d9a1e16d03c52e0e001"
+  },
+  "ch38/test_vpi_force_release_driver_kinds": {
+   "status": "known",
+   "reason": "output differs: line 1 is '%Error: vpi_put_value used with vpiForceFlag on non-force...', expected '11: v=30 cv=40 pv=50 n=60 g=1 mo=70'",
+   "inputs_sha256": "4c7f4ca9e48da9c9e1ec7fce1f38d5ccb0d87b16ed7c7710fd118b67346ddd44"
+  },
+  "ch38/test_vpi_force_release_net_part_select": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_force_release_net_part_select.sv:38:9: Unsupported or unknown PLI call: '$vt_force'",
+   "inputs_sha256": "774ee37dd3f115d415155cac362c23400ef06725361f24900f887d354c0d7b37"
+  },
+  "ch38/test_vpi_get_delays_flag_layouts": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_get_delays_flag_layouts.sv:67:14: Unsupported or unknown PLI call: '$vt_layouts'",
+   "inputs_sha256": "4662437a56f69a0b6eb09210e88253f72254f90fdd616dc65134849d66b60e68"
+  },
+  "ch38/test_vpi_get_delays_tchk_limit_counts": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_get_delays_tchk_limit_counts.sv:48:14: Unsupported or unknown PLI call: '$vt_limits'",
+   "inputs_sha256": "327a4b374409df8c8d62b4a15c5ab4b00871c9172d37d8ddd1193ea3a56a2050"
+  },
+  "ch38/test_vpi_get_value_array_user_buffers": {
+   "status": "known",
+   "reason": "output differs: line 1 is '%Error: <verilator>/share/verilator/include/verilated_vpi...', expected 'ia, 3 PLI_INT32: buffer kept 1, values -6 7 8, after it i...'",
+   "inputs_sha256": "5af2f11d2aa174afb0cdf4caf503a0aa64480281d2a40610fb1a1eb3e6284a96"
+  },
+  "ch38/test_vpi_mcd_printf_signature_format": {
+   "status": "pass",
+   "inputs_sha256": "c975fcdaea9225019c2443740cdf2b15371323f190849d24e80336ad80f57b0c"
+  },
+  "ch38/test_vpi_put_delays_primitive_counts": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch38/test_vpi_put_delays_primitive_counts.sv:40:21: Unsupported tristate construct (not in propagation graph): BUFIF1",
+   "inputs_sha256": "de2b591604f4f51c6441664f1ed852e8f3c230429d18e56becc18a0c29437ab5"
+  },
+  "ch38/test_vpi_put_delays_tchk_limit_counts": {
+   "status": "known",
+   "reason": "output differs: line 1 is '$hold not found', expected '$hold: old 3, new 8'",
+   "inputs_sha256": "4076e898f02a61b313be367fa3f6364aa98e38a3f86a8222aad042c0df8cedaf"
+  },
+  "ch38/test_vpi_put_value_array_every_format": {
+   "status": "known",
+   "reason": "output differs: line 1 is '%Error: <verilator>/share/verilator/include/verilated_vpi...', expected 'ia: 123456 -7'",
+   "inputs_sha256": "4952e8f87f16297e97c521c908fcf1a5b8d760561182ff1c9530374ee481f616"
+  },
+  "ch38/test_vpi_put_value_caller_storage": {
+   "status": "known",
+   "reason": "output differs: line 1 is '4: b=00101000 i=0 r=0.000', expected '4: b=xxxxxxxx i=0 r=0.000'",
+   "inputs_sha256": "9b267bd1a80fd8dace0b593b881e753d2a11db2cd26fcc1d5d047418e89e6074"
+  },
+  "ch38/test_vpi_put_value_caller_storage_time_strength": {
+   "status": "known",
+   "reason": "output differs: line 1 is '%Error: <verilator>/share/verilator/include/verilated_vpi...', expected '4: tv high 0 low 0, sn logic vpiZ'",
+   "inputs_sha256": "55dce386076d364f3218dfbb4f3e17024bb1303c548a6072c76b13019a0085ca"
+  },
+  "ch38/test_vpi_size_change_callback_resizes": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'da not found', expected '10: da, value 3, vpiSize 3'",
+   "inputs_sha256": "2b5171dec6bdac0f66dac29deaa83cfd0f8358da64e2666dc87dfe51b17e63a7"
+  },
+  "ch38/test_vpi_udp_entry_vector_storage": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_udp_entry_vector_storage.sv:58:14: Unsupported or unknown PLI call: '$vt_entries'",
+   "inputs_sha256": "6bac235ff00d76a927941a6f3562d2d036c8d054d8019b62d38d36b03d3f1f62"
+  },
+  "ch38/test_vpi_value_change_array_member_index": {
+   "status": "known",
+   "reason": "output differs: line 1 is '%Error: <verilator>/share/verilator/include/verilated_vpi...', expected '10: m[1][6] value 66, index 6, vpiArrayMember 1, indices 1 6'",
+   "inputs_sha256": "ab6fa8c606d39525fcfbcdbe1ac15970422c01607b760b9712bf3b2f0df5952f"
+  },
+  "ch38/test_vpi_value_change_callback_every_format": {
+   "status": "known",
+   "reason": "output differs: line 1 is '%Error: <verilator>/share/verilator/include/verilated_vpi...', expected '10: b4 vpiBinStrVal, got vpiBinStrVal: 1x0z'",
+   "inputs_sha256": "005c6e6b170d65d3eaba7ddbb510e3f2e88d19a33df4b3ca8af460edb524a81a"
+  },
+  "ch38/test_vpi_value_change_class_var_reference": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'class variables not found', expected '10: value NULL, h refers to the object of a1'",
+   "inputs_sha256": "e1dc7c116e47b1e54d0d4bc271cc44d02996ee7231af5491c15098651d4415bb"
+  },
+  "ch6/test_dollar_cross_bin_matches_all_tuples": {
+   "status": "pass",
+   "inputs_sha256": "14a8d8236c558dab8f36e921cbbdb707c49ec432fee017fce8d5e5587435bf13"
+  },
+  "ch6/test_type_equivalence_anonymous_same_statement": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch6/test_type_equivalence_anonymous_same_statement.sv:53:3: Class parameter type without default value is never given value (IEEE 1800-2023 6.20.1): 'T'",
+   "inputs_sha256": "484b4994ae3a0b84451cb40946d977dd568f06294fabdd3d1774d52ced2ae65c"
+  }
+ },
+ "generated_at": "2026-11-14T13:06:19.394846+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

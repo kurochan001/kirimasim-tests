@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[すべての章](README.ja.md) .テストは709本で、そのうち79本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは711本で、そのうち79本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -505,6 +505,7 @@
 | [`test_illegal_const_assigned`](../../tests/ch6/test_illegal_const_assigned.sv) |定数変数は宣言後に割り当てられません| 6.20.6 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_static_const_initializer_sources`](../../tests/ch6/test_static_const_initializer_sources.sv) |静的 const 初期化子はリテラル、パラメータ、localparams、genvars、enum 名前、定数関数、その他の定数、階層名を使用できます。| 6.20.6 | Icarus Verilog 13.0 ||
 | [`test_dollar_covergroup_range`](../../tests/ch6/test_dollar_covergroup_range.sv) |値範囲 covergroup は \[ $:expression \] の下のすべての値を含み、 \[ expression:$ \] の上のすべての 値を含み、 0 からタイプの最大値まで。| 6.20.7 | Verilator 5.052 ||
+| [`test_dollar_cross_bin_matches_all_tuples`](../../tests/ch6/test_dollar_cross_bin_matches_all_tuples.sv) |cross のビンの matches 節の integer の covergroup 式として、$ はビンの組のすべての値の組が with 式を満たすことを求める。ビンは 3 つの値の組がすべて満たす 2 つのビンの組を選び、9 個中 6 個が満たす組（既定の 1 なら選ばれる）を外すので、cross のカバレッジには 2 つの積のユーザビン 1 つと自動ビン 2 つが現れる| 6.20.7 19.6.1.2 | Verilator 5.054 ||
 | [`test_dollar_cycle_delay_and_actual`](../../tests/ch6/test_dollar_cycle_delay_and_actual.sv) |プロパティに送られたドル実際の引数をサイクル遅延範囲の上限として使用し，その範囲は数サイクル後のイベントを待つ。| 6.20.7 |規格のみ||
 | [`test_dollar_parameter_unbounded`](../../tests/ch6/test_dollar_parameter_unbounded.sv) |$isunbounded は別のパラメータを通して報告するパラメータの値であり、$ は値範囲のオープンエンドとキューの最後の要素を表します。| 6.20.7 20.6.3 11.4.13 7.10.1 | Verilator 5.052 ||
 | [`test_dollar_value_range_membership`](../../tests/ch6/test_dollar_value_range_membership.sv) |下限は他の限界の下にある全ての値を含み 上限は上限の上にある全ての価値を含みます| 6.20.7 | Verilator 5.052 ||
@@ -562,6 +563,7 @@
 | [`test_ch6_extra_ref_dynamic_kind`](../../tests/ch6/test_ch6_extra_ref_dynamic_kind.sv) |動的配列とキューは異なる種類の配列であり，同じ要素タイプであっても等価ではない。ref 引数はペアを作成できません| 6.22.2 13.5.2 | Verilator 5.052 |規格違反の設計|
 | [`test_ch6_extra_ref_equiv_closed`](../../tests/ch6/test_ch6_extra_ref_equiv_closed.sv) |intとlogic \[ 31:0 \]は等価ではなく、ref引数によってペア化できない。| 6.22.2 13.5.2 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_anonymous_struct_not_equivalent`](../../tests/ch6/test_illegal_anonymous_struct_not_equivalent.sv) |異なる宣言からの匿名 unpacked 構造は等価ではなく、一つを他に割り当てることはできません。| 6.22.2 6.22.3 |規格のみ|規格違反の設計|
+| [`test_type_equivalence_anonymous_same_statement`](../../tests/ch6/test_type_equivalence_anonymous_same_statement.sv) |無名の unpacked 構造体・ unpacked 共用体・ enum の型は、その宣言文の変数どうしでだけ等価である。 unpacked の変数の間の $cast と型の無い mailbox の try_peek は、同じ文の中では成功し、同じ文字で型を書いた別の文の変数では失敗する。 enum では、同じ名前をもう一度宣言できるように、その文を名前付きブロックに置く| 6.22.2 6.24.2 15.4.8 |規格のみ||
 | [`test_type_equivalence_only_by_rules`](../../tests/ch6/test_type_equivalence_only_by_rules.sv) |2 つの型は帰納的定義の規則によってだけ等価になる: int は 32 bit の 2 状態の符号付き packed 構造体や bit ベクトルと等価だが、 int を基底とする enum とは等価でなく、同じ中身の 2 つの列挙型や 2 つの unpacked 構造体も等価でない。 try_peek と $cast がそれぞれの場合を示す| 6.22.2 6.24.2 15.4.8 |規格のみ||
 | [`test_type_equivalent_arrays`](../../tests/ch6/test_type_equivalent_arrays.sv) |元素型が等価なパッケージされていない配列（例えば、同じサイズ、状態、符号の packed 型）は、左から順に、それらの範囲に関係なく、互いに割り当てることができる。| 6.22.2 7.6 7.4.2 | Verilator 5.052 ||
 | [`test_illegal_enum_assigned_base_vector_without_cast`](../../tests/ch6/test_illegal_enum_assigned_base_vector_without_cast.sv) |enum と整数型の間の代入互換性は一方向だけに成り立つので、 enum の値は cast なしでその基底型のベクトルに代入できるが、そのベクトルを cast なしで enum の変数に戻して代入することはできない| 6.22.3 6.19.3 | Icarus Verilog 13.0 |規格違反の設計|

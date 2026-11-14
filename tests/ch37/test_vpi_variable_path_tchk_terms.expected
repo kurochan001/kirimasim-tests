@@ -1,0 +1,6 @@
+path term of c.y: path term, direction output, expr y
+tchk term of c.y: NULL
+path term of c.d: NULL
+tchk term of c.d: tchk term, no edge, expr d
+path term of c.z: NULL
+tchk term of c.z: NULL

@@ -332,7 +332,7 @@ tests/ch13/test_func_static.sv",既存モデルの計画・実行証跡を維持
 6,データ型,14,クロッキングブロック,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,50,"tests/ch14/test_clocking_output_net_driver.sv
 tests/ch23/test_module_items_nonport_kinds.sv
 tests/gen/ch14/test_gen_cross_clock_129_bit_known_interface_step_posedge_blocking.sv",既存モデルの計画・実行証跡を維持する,,
-6,データ型,15,プロセス間の同期と通信,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,129,"tests/ch15/test_mailbox_typeless_get_type_mismatch_runtime_error.sv
+6,データ型,15,プロセス間の同期と通信,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,130,"tests/ch15/test_mailbox_typeless_get_type_mismatch_runtime_error.sv
 tests/ch15/test_mailbox_typeless_peek_type_mismatch_runtime_error.sv
 tests/ch15/test_mailbox_typeless_try_type_check.sv",既存モデルの計画・実行証跡を維持する,,
 6,データ型,16,アサーション,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,69,"tests/ch16/test_sva_cast_expression.sv
@@ -342,7 +342,7 @@ tests/ch23/test_module_items_nonport_kinds.sv",既存モデルの計画・実行
 6,データ型,18,制約付き乱数値の生成,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,15,"tests/ch18/test_rand_real_kinds_and_arrays.sv
 tests/ch37/test_vpi_variable_class_member_props.sv
 tests/gen/ch18/test_gen_cross_randreduce_33_signed_dynamic_sum_wide_2_sat_fail_sat.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-6,データ型,19,機能カバレッジ,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
+6,データ型,19,機能カバレッジ,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch6/test_dollar_cross_bin_matches_all_tuples.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 6,データ型,20,ユーティリティ用システムタスク・関数,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,320,"tests/ch11/test_const_expr.sv
 tests/ch11/test_real_operand_result_types.sv
 tests/ch11/test_shortreal_result_and_condition_types.sv",既存モデルの計画・実行証跡を維持する,,
@@ -666,7 +666,7 @@ tests/ch35/test_dpi_output_value_change_events.sv",既存モデルの計画・�
 10,代入文,37,VPIオブジェクトモデル図,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,13,"tests/ch37/test_vpi_case_loop_force_stmts.sv
 tests/ch37/test_vpi_cast_pattern_constants.sv
 tests/ch37/test_vpi_cont_assign_bits_delays.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-10,代入文,38,VPIルーチンの定義,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,7,"tests/ch36/test_vpi_systf_function_in_continuous_assign.sv
+10,代入文,38,VPIルーチンの定義,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,9,"tests/ch36/test_vpi_systf_function_in_continuous_assign.sv
 tests/ch37/test_vpi_cont_assign_bits_delays.sv
 tests/ch37/test_vpi_cont_assign_drivers.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 10,代入文,39,アサーションAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
@@ -1315,7 +1315,7 @@ tests/ch32/test_sdf_device_primitive_without_paths.sv",引用探索の候補と�
 28,ゲートレベル・スイッチレベルのモデリング,37,VPIオブジェクトモデル図,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,10,"tests/ch37/test_vpi_cont_assign_bits_delays.sv
 tests/ch37/test_vpi_delay_source_and_effective.sv
 tests/ch37/test_vpi_instance_array_kinds.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-28,ゲートレベル・スイッチレベルのモデリング,38,VPIルーチンの定義,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,8,"tests/ch36/test_vpi_routines_logic_strength_values.sv
+28,ゲートレベル・スイッチレベルのモデリング,38,VPIルーチンの定義,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,9,"tests/ch36/test_vpi_routines_logic_strength_values.sv
 tests/ch37/test_vpi_cont_assign_bits_delays.sv
 tests/ch37/test_vpi_delay_source_and_effective.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 28,ゲートレベル・スイッチレベルのモデリング,39,アサーションAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
@@ -1397,7 +1397,8 @@ tests/ch37/test_vpi_timing_checks.sv",引用探索の候補とソースを確認
 35,直接プログラミングインターフェース（DPI）,36,プログラミング言語インターフェース（PLI/VPI）の概要,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 35,直接プログラミングインターフェース（DPI）,37,VPIオブジェクトモデル図,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,2,"tests/ch37/test_vpi_dpi_import_access_props.sv
 tests/ch37/test_vpi_task_function_properties.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-35,直接プログラミングインターフェース（DPI）,38,VPIルーチンの定義,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,2,"tests/ch35/test_dpi_scope_time_unit_precision.sv
+35,直接プログラミングインターフェース（DPI）,38,VPIルーチンの定義,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,3,"tests/ch35/test_dpi_scope_time_unit_precision.sv
+tests/ch35/test_dpi_vpi_systf_handle_in_import.sv
 tests/ch35/test_svdpi_h_scope_time.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 35,直接プログラミングインターフェース（DPI）,39,アサーションAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 35,直接プログラミングインターフェース（DPI）,40,コードカバレッジの制御とAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
@@ -1411,12 +1412,12 @@ tests/ch36/test_sv_vpi_user_h_coverage_constants.sv",引用探索の候補とソ
 36,プログラミング言語インターフェース（PLI/VPI）の概要,39,アサーションAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch39/test_vpi_assertion_attempt_info_structures.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 36,プログラミング言語インターフェース（PLI/VPI）の概要,40,コードカバレッジの制御とAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch40/test_vpi_coverage_extension_constants.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 36,プログラミング言語インターフェース（PLI/VPI）の概要,41,データ読出しAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-37,VPIオブジェクトモデル図,38,VPIルーチンの定義,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,82,"tests/ch3/test_global_precision_from_timeprecision.sv
+37,VPIオブジェクトモデル図,38,VPIルーチンの定義,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,84,"tests/ch3/test_global_precision_from_timeprecision.sv
 tests/ch3/test_global_precision_from_timescale.sv
 tests/ch3/test_global_precision_from_timeunit_slash.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-37,VPIオブジェクトモデル図,39,アサーションAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,6,"tests/ch37/test_vpi_assertion_objects.sv
-tests/ch37/test_vpi_concurrent_assertion_actions.sv
-tests/ch37/test_vpi_instance_assertion_members.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
+37,VPIオブジェクトモデル図,39,アサーションAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,7,"tests/ch37/test_vpi_assertion_columns.sv
+tests/ch37/test_vpi_assertion_objects.sv
+tests/ch37/test_vpi_concurrent_assertion_actions.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 37,VPIオブジェクトモデル図,40,コードカバレッジの制御とAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,2,"tests/ch40/test_vpi_coverage_max_entities.sv
 tests/ch40/test_vpi_coverage_partial_entities.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 37,VPIオブジェクトモデル図,41,データ読出しAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,

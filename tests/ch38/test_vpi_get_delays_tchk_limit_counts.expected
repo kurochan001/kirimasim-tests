@@ -1,0 +1,6 @@
+$setup, no_of_delays 1: 3
+$setup, elements from da[1] intact: 1
+$setuphold, no_of_delays 2: 4 5
+$setuphold, elements from da[2] intact: 1
+$recrem, no_of_delays 2: 6 7
+$recrem, elements from da[2] intact: 1
