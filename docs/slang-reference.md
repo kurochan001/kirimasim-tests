@@ -58,8 +58,8 @@ ninja -C slang-build slang_driver
 
 ```sh
 python3 tools/run_slang.py --slang slang-build/bin/slang \
-  --commit 6fbb158f156436a1cb4d0ce9de5373a416a05d4c -j 12 \
-  --json coverage/slang/slang-6fbb158f-20261109.json
+  --commit 8ffdcdd8ad237823fbfd72d495082d76e92d4015 -j 12 \
+  --json coverage/slang/slang-8ffdcdd8-20261114.json
 ```
 
 - テストを指定しなければ、ほかのランナーと同じく`:type: formal`以外のすべてのテストを実行します。
@@ -69,6 +69,34 @@ python3 tools/run_slang.py --slang slang-build/bin/slang \
 - 記録は`coverage/results/`ではなく`coverage/slang/`に置きます。カバレッジのツールは`coverage/results/*.json`をすべてシミュレータの結果として読み、`coverage/slang/`を読むツールはありません。
 - Nightlyのワークフローはこのツールを実行しません。`tools/results_history.py`は履歴に結果のあるシミュレータだけを描き、slangの結果は履歴にありません。
 - スイート全体で、入力の指紋を含めて`-j 12`で約95秒です。
+
+<a id="results-of-2026-11-14"></a>
+
+## 2026-11-14の結果
+
+slang `8ffdcdd8ad237823fbfd72d495082d76e92d4015`（2026-11-13からのkirimasimの固定版。`d1d8a1782d0a`と`77c27531437c`が使う）を、スイートのコミット`4ac30898`で実行しました。
+記録は[`coverage/slang/slang-8ffdcdd8-20261114.json`](../coverage/slang/slang-8ffdcdd8-20261114.json)です。
+ドライバーは[上記](#build-the-pinned-driver)のとおりkirimasimの`dev`ビルドのソースから作り、`slang --version`は`slang version 12.1.659+8ffdcdd8a`を表示します。
+タイムアウトやクラッシュしたテストはありません。
+
+| テスト | 判定 | 本数 |
+| --- | --- | ---: |
+| 規格違反 | 印の行で拒否／ほかの行で拒否／受理 | 1,915／0／147 |
+| 規格に合う（`:vpi_c:`なし） | エラーなし／拒否 | 9,633／56 |
+| 規格に合う（`:vpi_c:`あり） | エラーなし／拒否 | 148／354 |
+
+2026-11-09の記録と比べると、次のとおりです。
+
+- 入力が変わっていないテストで、判定が変わったものはありません。
+- slangが拒否していた規格に合うテスト2本が、エラーなしになりました。どちらもテストが変わったためです。`ch3/test_compilation_unit_shared_across_files`は2026-11-11から`--single-unit`を受け取り、`ch18/test_inline_local_scope_binding`は2026-11-14から`local::r.r`と比べます。
+- その後に追加した283本のうち、slangは規格違反の5本を受理し、規格に合う8本を拒否します。同じslangを使うkirimasimも、テストとともに記録したとおり同じ結果です。
+  - 受理する規格違反：`ch11/test_illegal_let_chandle_typed_formal`、`ch15/test_illegal_mailbox_get_unpacked_array`、`ch25/test_illegal_virtual_interface_component_in_always_event_control`、`ch25/test_illegal_virtual_interface_component_in_always_ff`、`ch8/test_illegal_super_parameter_in_packed_dimension`
+  - 拒否する規格に合う設計：`ch6/test_interconnect_declaration_generic_forms`（型を付けたinterconnectの宣言）、`ch9/test_always_without_timing_control_never_advances_time`（時間制御のないalways手続きをデッドロックのエラーとする）、`ch13/test_function_return_type_handle_categories`（関数が返すvirtual interfaceを通したメンバーの参照）、`gen/ch24/test_gen_cross_progmod_nested_one_{absolute,upward}_defparam_*`の2件（パラメータを持つ入れ子のprogramが暗黙にインスタンス化されず、パスが解決しない）
+  - 新しいVPIのテスト3本は、これまでの348本と同じく、Cコードが登録するシステムタスクで止まります。
+- 削除した`ch18/test_illegal_constraint_function_cycle`は、受理された143本の1本でした。
+- 受理された規格違反147本のうち、Icarus Verilog 13.0かVerilatorのoracleを持つのは11本、specのみが136本です。2026-11-12にoracleの記号を見直したので、2026-11-09の43本とは比べられません。
+
+下の仕分けは2026-11-09のもので、上の新しい拒否は仕分けし直していません。
 
 <a id="results-of-2026-11-09"></a>
 

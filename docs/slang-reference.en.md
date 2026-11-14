@@ -58,8 +58,8 @@ On a Mac with 18 cores this takes about 3 seconds to configure and 96 seconds to
 
 ```sh
 python3 tools/run_slang.py --slang slang-build/bin/slang \
-  --commit 6fbb158f156436a1cb4d0ce9de5373a416a05d4c -j 12 \
-  --json coverage/slang/slang-6fbb158f-20261109.json
+  --commit 8ffdcdd8ad237823fbfd72d495082d76e92d4015 -j 12 \
+  --json coverage/slang/slang-8ffdcdd8-20261114.json
 ```
 
 - Without test arguments it runs every test that is not `:type: formal`, as the other runners do.
@@ -69,6 +69,34 @@ python3 tools/run_slang.py --slang slang-build/bin/slang \
 - Records go to `coverage/slang/`, not `coverage/results/`. The coverage tools read every `coverage/results/*.json` as the results of a simulator, and no tool reads `coverage/slang/`.
 - The Nightly workflow does not run the tool. `tools/results_history.py` draws only simulators that have results in the history, and slang has none.
 - The whole suite takes about 95 seconds with `-j 12`, including the input fingerprints.
+
+<a id="results-of-2026-11-14"></a>
+
+## Results of 2026-11-14
+
+slang `8ffdcdd8ad237823fbfd72d495082d76e92d4015`, the pin of kirimasim since 2026-11-13 (`d1d8a1782d0a` and `77c27531437c` use it), on suite commit `4ac30898`.
+The record is [`coverage/slang/slang-8ffdcdd8-20261114.json`](../coverage/slang/slang-8ffdcdd8-20261114.json).
+The driver was built from the sources of a kirimasim `dev` build as [above](#build-the-pinned-driver); `slang --version` prints `slang version 12.1.659+8ffdcdd8a`.
+No test timed out or crashed.
+
+| Tests | Verdicts | Count |
+| --- | --- | ---: |
+| Illegal | rejected at the marked line / elsewhere / accepted | 1,915 / 0 / 147 |
+| Legal without `:vpi_c:` | clean / rejected | 9,633 / 56 |
+| Legal with `:vpi_c:` | clean / rejected | 148 / 354 |
+
+Compared with the record of 2026-11-09:
+
+- No test whose inputs are unchanged got another verdict.
+- Two legal tests that slang rejected are now clean, both because the tests changed: `ch3/test_compilation_unit_shared_across_files` gets `--single-unit` since 2026-11-11, and `ch18/test_inline_local_scope_binding` compares with `local::r.r` since 2026-11-14.
+- Of the 283 tests added since, slang accepts 5 illegal ones and rejects 8 legal ones. kirimasim, which uses the same slang, gives the same results on them, as recorded with the tests:
+  - accepted illegal designs: `ch11/test_illegal_let_chandle_typed_formal`, `ch15/test_illegal_mailbox_get_unpacked_array`, `ch25/test_illegal_virtual_interface_component_in_always_event_control`, `ch25/test_illegal_virtual_interface_component_in_always_ff`, `ch8/test_illegal_super_parameter_in_packed_dimension`;
+  - rejected legal designs: `ch6/test_interconnect_declaration_generic_forms` (an interconnect declared with a type), `ch9/test_always_without_timing_control_never_advances_time` (an always procedure without a timing control taken as a deadlock error), `ch13/test_function_return_type_handle_categories` (a member access through a virtual interface returned by a function), and the two cases `gen/ch24/test_gen_cross_progmod_nested_one_{absolute,upward}_defparam_*` (a nested program with parameters is not instantiated implicitly, so its path does not resolve);
+  - the three new VPI tests stop at a system task that their C code registers, like 348 before.
+- The removed `ch18/test_illegal_constraint_function_cycle` was one of the 143 accepted illegal tests.
+- Of the 147 accepted illegal tests, 11 have an Icarus Verilog 13.0 or Verilator oracle and 136 are spec only. The count of 2026-11-09 (43) is not comparable, since the oracle tokens were reviewed on 2026-11-12.
+
+The triage below is that of 2026-11-09; the new rejections above were not triaged again.
 
 <a id="results-of-2026-11-09"></a>
 

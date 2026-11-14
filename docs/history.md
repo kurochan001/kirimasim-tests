@@ -780,3 +780,8 @@ clause 37.
 - `ch6/test_integral_types_assignment_compatible_without_cast` assigns integral types that differ in width, signedness and the number of states to each other without a cast and checks the converted values, derived from 10.7 and 6.11.2. An independent verifier derived every value again, and the row is now mapped.
 - Design coverage is 91.07% (11,206/12,305), reproducible execution coverage 50.48% (6,212), and execution coverage with Ghost and kirimasim 77.94% (9,591). The results are `coverage/results/intcompat-20261114-*.json`.
 - The suite now has 12,520 tests.
+
+### 2026-11-14 (slang reference on the new pin)
+
+- kirimasim moved its slang pin from 6fbb158f to 8ffdcdd8 on 2026-11-13, so the slang driver of that commit was built from the sources of a kirimasim build and run on the whole suite. The record is `coverage/slang/slang-8ffdcdd8-20261114.json`; as before, it is a diagnostic aid and is not counted anywhere.
+- No test with unchanged inputs got another verdict. Two legal tests that slang rejected are now clean because the tests changed. Of the tests added since 2026-11-09, slang accepts 5 illegal designs and rejects 8 legal ones, the same places where kirimasim departs from the standard. [The slang reference](slang-reference.en.md#results-of-2026-11-14) lists them.
