@@ -52,7 +52,7 @@ See [test format](../README.md#test-format), [judgment](../README.md#how-a-test-
 | `:lrm:` | Cited clause numbers. Citation and coverage of every requirement in a clause are separate claims. |
 | Oracle / `:oracle:` | The basis for an expected result / the field recording standard review and fixed simulator releases that confirmed it. |
 | `spec` / standard only | A clause-derived expectation / an oracle containing only `spec`, without recorded fixed-release confirmation. |
-| `iverilog@13.0` / `verilator@5.052` | Confirmation by that fixed release. It does not automatically apply to Nightly development builds or another release. |
+| `iverilog@13.0` / `verilator@5.052` / `verilator@5.054` | Confirmation by that fixed release; `verilator@5.054` marks only tests added while the pin moves to 5.054. It does not automatically apply to Nightly development builds or another release. |
 | `:spec_check:` | Who compared the expectation with the standard: `ai` or `human`. |
 | `:fourstate:` | Whether observations depend on X/Z. Two-state execution does not equivalently confirm a `yes` case. |
 | `:expected_stdout:` / `:should_fail_because:` | Expected stdout / the violation requiring rejection. Illegal designs record diagnostic conditions instead of expected stdout. |

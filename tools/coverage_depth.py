@@ -34,18 +34,19 @@ DEPTH = ROOT / "docs" / "coverage-depth.md"
 ORACLE_LABELS = {
     "both": "both releases",
     "icarus": "Icarus Verilog 13.0 only",
-    "verilator": "Verilator 5.052 only",
+    "verilator": "Verilator 5.052 or 5.054 only",
     "spec": "standard only",
 }
 
 
 def oracle_kind(fields: dict[str, str]) -> str:
     oracles = set(fields.get("oracle", "").split())
-    if "iverilog@13.0" in oracles and "verilator@5.052" in oracles:
+    verilator = any(o in oracles for o in suite_stats.VERILATOR_ORACLES)
+    if "iverilog@13.0" in oracles and verilator:
         return "both"
     if "iverilog@13.0" in oracles:
         return "icarus"
-    if "verilator@5.052" in oracles:
+    if verilator:
         return "verilator"
     return "spec"
 

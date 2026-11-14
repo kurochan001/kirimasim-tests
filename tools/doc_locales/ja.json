@@ -24730,6 +24730,7 @@
     "The design builds and runs.": "設計はビルドでき、実行できます。",
     "Each check reports a violation at ZXQPH0QXZ and at ZXQPH1QXZ , so each notifier changes twice and the expected line is ZXQPH2QXZ = ZXQPH3QXZ ZXQPH4QXZ = ZXQPH5QXZ . 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。": "各チェックはZXQPH0QXZとZXQPH1QXZで違反を報告するので、各ノーティファイアは二度変化し、期待行はZXQPH2QXZ=ZXQPH3QXZ ZXQPH4QXZ=ZXQPH5QXZです。区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
     "A simulation control task ends the run from a process context before later events": "シミュレーション制御タスクが、プロセスの中から、後に予定した事象より前に実行を終える",
-    "A program or module write to an interface variable and the design reaction in their region sets": "programかmoduleによるinterfaceの変数への書込みと、設計側の反応が実行される領域群"
+    "A program or module write to an interface variable and the design reaction in their region sets": "programかmoduleによるinterfaceの変数への書込みと、設計側の反応が実行される領域群",
+    "ZXQPH0QXZ ZXQPH1QXZ or ZXQPH2QXZ only": "ZXQPH0QXZ ZXQPH1QXZかZXQPH2QXZのみ"
   }
 }

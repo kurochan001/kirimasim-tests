@@ -683,3 +683,10 @@
 - 合法な480行をすべて1回実行しました（`coverage/interaction-qualification/progif-all-rows-20261114.json`）。kirimasimは全行、Icarusは57行、Verilatorは372行が一致します。
 - kirimasimの実装を待つ6件の候補は、`77c27531437c`でもまだ未実装です。
 - テストは12,344件、生成テストは5,797件になりました。カバレッジの割合は変わりません。
+
+### 2026-11-14（Verilator 5.054を固定版へ移す間の扱い）
+
+- 手元のVerilatorが5.054になりました。固定版は、次にGhostの結果を保存し直すときに5.052から5.054へ移します。約3,000本の`:oracle:`を書き換えると入力ハッシュが変わり、Ghostの保存済みの一致2,277本が古くなるためです（[移行中の固定版](simulator-differences.ja.md#verilator-5054-interim)）。
+- それまでに追加するテストは5.054で確かめ、`verilator@5.054`を付けます。`tools/lint_metadata.py`、`tools/suite_stats.py`、`tools/coverage_depth.py`、`tools/suite_catalog.py`、`tools/behavior_coverage.py`が両方のリリースを扱い、Checkの新しいジョブ`verilator-5054`が`verilator@5.054`のテストを5.054で実行します。違反テストを実行カバレッジで数えるのは、`:oracle:`に書いたリリースの実行の場合だけです。
+- 実行スクリプト（`tools/run_verilator.py`ほか）は変えていないので、保存済みの実行結果はそのまま有効です。カバレッジの数字は変わりません。
+- 5.054のseed 1で、5.052を記録したテスト（作業中を含む3,060本）を一度実行し、3,047本が一致しました。残る13本は移行のときに条項から判断します。そのうち3本は、7.10.5が要求する有界キューのあふれの警告を5.054が標準出力に出すためで、移行のときに実行スクリプトでVerilatorの実行時の警告行を比較から除きます。

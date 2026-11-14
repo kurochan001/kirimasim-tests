@@ -709,3 +709,10 @@ clause 37.
 - Every one of the 480 legal rows ran once (`coverage/interaction-qualification/progif-all-rows-20261114.json`). kirimasim matches every row, Icarus 57 rows and Verilator 372 rows.
 - The six candidates waiting for kirimasim are still not implemented on `77c27531437c`.
 - The suite now has 12,344 tests, 5,797 of them generated. The coverage percentages are unchanged.
+
+### 2026-11-14 (Verilator 5.054 while the pin moves)
+
+- The local Verilator is now 5.054. The pin moves from 5.052 to 5.054 together with the next saved run of Ghost, because rewriting the `:oracle:` of about 3,000 tests changes their input digests and would make 2,277 saved Ghost passes stale ([the interim pin](simulator-differences.md#verilator-5054-interim)).
+- Until then, tests added are checked with 5.054 and get `verilator@5.054`. `tools/lint_metadata.py`, `tools/suite_stats.py`, `tools/coverage_depth.py`, `tools/suite_catalog.py` and `tools/behavior_coverage.py` handle both releases, and the new Check job `verilator-5054` runs the tests that list `verilator@5.054` with 5.054. An illegal test counts toward the execution coverage only with a run of the release that its `:oracle:` names.
+- The runners (`tools/run_verilator.py` and the others) are unchanged, so the saved results stay valid. The coverage figures are unchanged.
+- One run on 5.054 at seed 1 of the tests recorded with 5.052 (3,060, work in progress included) matched 3,047. The other 13 are decided from their clauses at the migration. Three of them come from the warning for an overflowing bounded queue, which 7.10.5 requires and 5.054 prints on standard output; at the migration the Verilator runner will drop Verilator's run-time warning lines from the comparison.

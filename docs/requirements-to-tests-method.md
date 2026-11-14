@@ -221,7 +221,7 @@ README の「テストフォーマット」「メタデータ」「テストの�
 - 期待値を先に書き、`runsim`で確かめます。一致しなければ、まず自分の期待値を規格で確かめ直します。シミュレータ側の誤りなら、`docs/simulator-differences.md`とテストのコメントに書きます（未対応の構文は記録しない）。
 - `:oracle:`の付け方：
   - Icarus 13.0が一致すれば`iverilog@13.0`を付ける。
-  - Verilatorのseed 1と73の両方が一致すれば`verilator@5.052`を付ける。
+  - Verilatorのseed 1と73の両方が一致すれば`verilator@5.052`を付ける。2026-11-14から固定版を5.054へ移すまでに追加するテストは、5.054で確かめて`verilator@5.054`を付ける（[移行中の固定版](simulator-differences.ja.md#verilator-5054-interim)）。
   - どちらも一致しなければ`spec`だけにする。
   - kirimasimとLyraの結果は`:oracle:`に記録しない。これらは、期待値の裏付けを増やすための比較用です（nightlyで実行）。
   - `:fourstate:`と`` `timescale ``は実態に合わせる。

@@ -196,6 +196,28 @@ class BehaviorCoverageTests(unittest.TestCase):
                         self.assertNotRegex(output, r"ZXQPH\d+QXZ")
                 self.assertEqual(runs, original)
 
+    def test_an_illegal_test_counts_only_with_the_release_it_names(self):
+        # A test recorded with Verilator 5.054 counts with a 5.054 run and not
+        # with a 5.052 run, and one recorded with 5.052 the other way round.
+        row = next(r for r in self.registry["requirements"]
+                   if r["kind"] == "error" and r["checks"] and not r.get("check_groups"))
+        test = coverage.ROOT / row["checks"][0]["test"]
+        tokens = coverage.suite_results.header(test).get("oracle", "").split()
+        for release in ("5.052", "5.054"):
+            for version in ("Verilator 5.052 2026-09-05 rev v5.052", "Verilator 5.054 2026-11-01 rev v5.054"):
+                with self.subTest(release=release, version=version):
+                    self.reg["requirements"] = [copy.deepcopy(row)]
+                    sections, rows = self.validated()
+                    result = self.result(simulator="verilator", row=rows[0])
+                    result["version"] = version
+                    oracle = " ".join(["spec"] + [t for t in tokens if not t.startswith("verilator@")]
+                                      + [f"verilator@{release}"])
+                    with mock.patch.object(coverage.suite_results, "header",
+                                           return_value={"oracle": oracle}):
+                        runs, _ = self.execute(result, rows)
+                    expected = "pass" if version.startswith(f"Verilator {release} ") else "unreviewed_oracle"
+                    self.assertEqual(runs["snapshots"][0]["outcomes"][row["id"]], expected)
+
     def test_bilingual_annex_negative_with_unreviewed_development_oracle(self):
         row = next(r for r in self.registry["requirements"]
                    if r["clause"] == "B" and r["kind"] == "error" and r["checks"])

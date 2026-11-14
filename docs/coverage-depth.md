@@ -28,7 +28,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | --- | ---: |
 | both releases | 798 |
 | Icarus Verilog 13.0 only | 5635 |
-| Verilator 5.052 only | 2249 |
+| Verilator 5.052 or 5.054 only | 2249 |
 | standard only | 3662 |
 
 <a id="章別"></a>

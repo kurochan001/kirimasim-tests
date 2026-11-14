@@ -163,6 +163,88 @@ jobs:
           path: ~/.ccache
           key: ccache-verilator-v5.052-ubuntu-24.04-${{ github.run_id }}-${{ github.run_attempt }}
 
+  # The tests recorded with Verilator 5.054, which are added while the pin
+  # moves from 5.052 to 5.054 (it moves with the next saved run of Ghost).
+  # The runner counts a named test that does not list verilator@5.052 as a
+  # known difference, so the step below requires every one of them to pass.
+  verilator-5054:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Restore Verilator 5.054
+        id: cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/verilator
+          key: verilator-v5.054-ubuntu-24.04
+
+      - name: Build Verilator 5.054
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          sudo apt-get update || echo "::warning::apt-get update failed for some sources"
+          sudo apt-get install -y help2man autoconf flex bison libfl-dev zlib1g-dev
+          git clone -q --depth 1 --branch v5.054 https://github.com/verilator/verilator.git \
+            "$RUNNER_TEMP/verilator"
+          cd "$RUNNER_TEMP/verilator"
+          autoconf
+          ./configure -q --prefix="$HOME/verilator"
+          make -s -j"$(nproc)"
+          make -s install
+
+      - name: Save Verilator 5.054
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/verilator
+          key: verilator-v5.054-ubuntu-24.04
+
+      - name: Install z3 and ccache
+        run: |
+          sudo apt-get update || echo "::warning::apt-get update failed for some sources"
+          sudo apt-get install -y z3 ccache
+          {
+            echo "OBJCACHE=ccache"
+            echo "CCACHE_DIR=$HOME/.ccache"
+            echo "CCACHE_MAXSIZE=200M"
+          } >> "$GITHUB_ENV"
+
+      - name: Restore the compiler cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.ccache
+          key: ccache-verilator-v5.054-ubuntu-24.04-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: ccache-verilator-v5.054-ubuntu-24.04-
+
+      - name: Run the tests recorded with Verilator 5.054
+        run: |
+          mapfile -t tests < <(grep -rlE --include='*.sv' '^:oracle:.* verilator@5\.054( |$)' tests | sort)
+          if [ "${#tests[@]}" -eq 0 ]; then
+            echo "No test lists verilator@5.054." | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          ccache -z
+          python3 tools/run_verilator.py --verilator "$HOME/verilator/bin/verilator" \
+            -j "$(nproc)" --json verilator-5054.json "${tests[@]}" | tee verilator-5054.log
+          ccache -s
+          python3 - <<'EOF' | tee -a "$GITHUB_STEP_SUMMARY"
+          import json, sys
+          tests = json.load(open("verilator-5054.json"))["tests"]
+          bad = sorted(name for name, result in tests.items() if result["status"] != "pass")
+          print(f"{len(tests) - len(bad)}/{len(tests)} tests recorded with Verilator 5.054 match")
+          for name in bad:
+              print(f"- {name}: {tests[name].get('reason', '')}")
+          sys.exit(1 if bad else 0)
+          EOF
+
+      - name: Save the compiler cache
+        if: ${{ !cancelled() }}
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.ccache
+          key: ccache-verilator-v5.054-ubuntu-24.04-${{ github.run_id }}-${{ github.run_attempt }}
+
   readme:
     runs-on: ubuntu-24.04
     timeout-minutes: 45

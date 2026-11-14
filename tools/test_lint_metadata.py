@@ -66,6 +66,17 @@ class Rules(unittest.TestCase):
         self.assertEqual(lint.check(self.write(
             "ch6/test_b", ILLEGAL.format(name="test_b", regex=r"test_b\.sv:14:"))), [])
 
+    def test_one_pinned_verilator_release_at_most(self):
+        # 5.054 records the tests added while the pin moves from 5.052.
+        for oracle, problems in (("spec verilator@5.054", []),
+                                 ("spec iverilog@13.0 verilator@5.054", []),
+                                 ("spec verilator@5.052 verilator@5.054", ["value"]),
+                                 ("spec verilator@5.055", ["value"])):
+            with self.subTest(oracle=oracle):
+                text = LEGAL.format(name="test_v", chapter="ch6", clause="6.1")
+                path = self.write("ch6/test_v", text.replace(":oracle: spec\n", f":oracle: {oracle}\n"))
+                self.assertEqual(self.rules(path), problems)
+
     def test_a_field_without_a_value_is_reported(self):
         # The header parser would read ":tags: ch6" as the description.
         path = self.write("ch6/test_a", LEGAL.format(name="test_a", chapter="ch6", clause="6.1")

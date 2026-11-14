@@ -221,7 +221,7 @@ Follow the sections "Test format", "Metadata", "How a test is judged", "Tests wi
 - Write the expected value first and check with `runsim`. If it does not match, you first check your expectations with the standard. For simulator-side errors, document them in `docs/simulator-differences.md` and test comments (do not record unsupported syntax).
 - How to attach `:oracle:`:
   - If the results match with Icarus 13.0, add `iverilog@13.0`.
-  - If the seeds 1 and 73 of Verilator are both matching, `verilator@5.052` is added.
+  - If the seeds 1 and 73 of Verilator are both matching, `verilator@5.052` is added. Tests added from 2026-11-14 until the pin moves to 5.054 are checked with 5.054 and get `verilator@5.054` ([the interim pin](simulator-differences.md#verilator-5054-interim)).
   - If neither match, only `spec` is used.
   - The results of kirimasim and Lyra are not recorded in `:oracle:`. These are for comparison purposes to increase the proof of expectations (run nightly).
   - The `:fourstate:` and `` `timescale `` are adjusted to the actual state.

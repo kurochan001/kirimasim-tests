@@ -74,7 +74,9 @@ ROOT = Path(__file__).resolve().parent.parent
 BASELINE = ROOT / "tools" / "lint_baseline.txt"
 REQUIRED = ("name", "description", "tags", "type", "lrm", "oracle", "spec_check",
             "fourstate", "nondeterministic")
-ORACLES = ("spec", "iverilog@13.0", "verilator@5.052")
+# verilator@5.054 records tests added while the pin moves from 5.052 to 5.054;
+# a test names one Verilator release at most.
+ORACLES = ("spec", "iverilog@13.0", "verilator@5.052", "verilator@5.054")
 EXPECTED = suite_results.EXPECTED
 EXPECTED_SIMULATORS = suite_results.SIMULATORS
 EXPECTED_FIELDS = suite_results.EXPECTED_FIELDS
@@ -155,7 +157,8 @@ def check(test: Path) -> list[tuple[str, str]]:
     if "oracle" in fields:
         words = fields["oracle"].split()
         if not words or words[0] != "spec" or any(w not in ORACLES for w in words) \
-                or len(set(words)) != len(words):
+                or len(set(words)) != len(words) \
+                or sum(w.startswith("verilator@") for w in words) > 1:
             bad("value", f":oracle: {fields['oracle']}")
     exit_value = fields.get("expected_exit")
     if exit_value is not None and exit_value != "nonzero" and not exit_value.isdigit():

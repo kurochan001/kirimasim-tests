@@ -1281,3 +1281,13 @@ ch29/test_illegal_udp_z_in_table                                  セグメン�
 ch13/test_illegal_constant_function_calls_nonconstant_function    アサーション失敗
 ch30/test_illegal_specify_path_to_input                           アサーション失敗
 ```
+
+<a id="verilator-5054-interim"></a>
+
+## 固定版をVerilator 5.054へ移す間（2026-11-14から）
+
+固定版のVerilatorは、次にGhostの結果を保存し直すときに、5.052から5.054へ移します。約3,000本の`:oracle:`の`verilator@5.052`を書き換えると入力ハッシュが変わり、そのテストのGhostの保存済みの一致が古くなるためです。
+それまで、`verilator@5.052`があるテストはそのままで、Checkもこれまでどおり5.052で実行します。
+2026-11-14から追加するテストは、Verilator 5.054のseed 1と73で実行し、両方が一致してIcarus Verilog 13.0が一致しなければ`verilator@5.054`を付けます。Checkのジョブ`verilator-5054`が5.054で実行し、すべての一致を求めます。
+`tools/lint_metadata.py`は、`:oracle:`にVerilatorのリリースを1つまで認めます。実行カバレッジでは、違反テストをVerilatorの実行で数えるのは、`:oracle:`に書いたリリースの実行の場合だけです。
+5.054のseed 1での最初の実行では、その時点で5.052を記録していた3,060本のうち3,047本が一致しました。残る13本は、移行で全件を5.054で実行し直すときに、条項から判断します。

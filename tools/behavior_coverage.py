@@ -267,12 +267,16 @@ def execution(rows: list, result_paths: list[Path]) -> tuple[dict, list]:
                     continue
                 # Unsupported syntax can accidentally satisfy an illegal-test
                 # line regexp. Only a reviewed, pinned negative oracle counts.
+                # A test recorded with Verilator 5.054 (added while the pin
+                # moves from 5.052) counts only with a 5.054 run, and one
+                # recorded with 5.052 only with a 5.052 run.
                 if r["kind"] == "error":
-                    oracle = {"icarus": ("iverilog@13.0", r"version 13\.0(?:\s|$)"),
-                              "verilator": ("verilator@5.052", r"Verilator 5\.052(?:\s|$)")}
-                    token, version = oracle.get(simulator, ("", r"(?!)"))
-                    if (token not in suite_results.header(test).get("oracle", "").split()
-                            or not re.search(version, data["version"])):
+                    oracle = {"icarus": (("iverilog@13.0", r"version 13\.0(?:\s|$)"),),
+                              "verilator": (("verilator@5.052", r"Verilator 5\.052(?:\s|$)"),
+                                            ("verilator@5.054", r"Verilator 5\.054(?:\s|$)"))}
+                    tokens = suite_results.header(test).get("oracle", "").split()
+                    if not any(token in tokens and re.search(version, data["version"])
+                               for token, version in oracle.get(simulator, ())):
                         by_test[c["test"]] = "unreviewed_oracle"
                         continue
                 by_test[c["test"]] = "pass"

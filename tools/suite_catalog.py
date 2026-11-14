@@ -83,6 +83,15 @@ def notes(fields: dict[str, str]) -> str:
     return ", ".join(out)
 
 
+def oracle_label(fields: dict[str, str]) -> str:
+    """The release the expected output was recorded with; Verilator names the
+    pinned release of the test (5.052, or 5.054 while the pin moves)."""
+    kind = suite_stats.oracle_kind(fields)
+    if kind == "verilator":
+        return f"Verilator {suite_stats.verilator_release(fields)}"
+    return ORACLES[kind]
+
+
 def entry(test: Path) -> dict:
     fields = suite_results.header(test)
     clauses = fields.get("lrm", "").split()[1:]
@@ -90,7 +99,7 @@ def entry(test: Path) -> dict:
             "chapter": int(test.parent.name.removeprefix("ch")),
             "generator": fields.get("generator", "").split("@")[0],
             "clauses": clauses, "key": clause_key(clauses[0]) if clauses else (),
-            "what": description(fields), "oracle": ORACLES[suite_stats.oracle_kind(fields)],
+            "what": description(fields), "oracle": oracle_label(fields),
             "notes": notes(fields)}
 
 

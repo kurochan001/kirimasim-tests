@@ -46,6 +46,13 @@ class BilingualStatsTests(unittest.TestCase):
         self.assertIn('[generator catalog](docs/generators.md)', english)
         self.assertIn("1本は人が規格と照合済み", japanese)
 
+    def test_both_pinned_verilator_releases_count_as_verilator(self):
+        self.assertEqual(suite_stats.verilator_release({"oracle": "spec verilator@5.054"}), "5.054")
+        self.assertEqual(suite_stats.verilator_release({"oracle": "spec verilator@5.052"}), "5.052")
+        self.assertIsNone(suite_stats.verilator_release({"oracle": "spec iverilog@13.0"}))
+        self.assertEqual(suite_stats.oracle_kind({"oracle": "spec verilator@5.054"}), "verilator")
+        self.assertEqual(suite_stats.oracle_kind({"oracle": "spec iverilog@13.0 verilator@5.054"}), "icarus")
+
     def test_japanese_drift_is_rejected_and_update_preserves_both_prose_sections(self):
         readmes = tuple((self.root / name, lang) for name, lang in
                         (("README.md", "en"), ("README.ja.md", "ja")))

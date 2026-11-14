@@ -69,7 +69,7 @@ The suite has **12344 tests** in 38 chapters. 5797 of them are generated. The [g
 | Expected result recorded with | Tests |
 | --- | ---: |
 | Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 6433 |
-| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 2249 |
+| Verilator 5.052 or 5.054, with no Icarus Verilog 13.0 oracle recorded | 2249 |
 | The standard only, with no fixed-release simulator oracle recorded | 3662 |
 
 2914 tests depend on x or z values (`:fourstate: yes`). 687 tests come with C code: 186 DPI tests (`:dpi_c:`) and 501 VPI tests (`:vpi_c:`). 1975 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 75 tests check the exit code of the simulation (`:expected_exit:`). 23 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 54 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
@@ -533,7 +533,7 @@ it does not know.
 | `:type:` | `simulation` for simulation tests, `elaboration` for illegal designs that must be rejected, or `formal` for SymbiYosys model checks |
 | `:formal_case:` | For `:type: formal`, the case in `tools/sva_reference/formal_cases.py` that `tools/run_sby.py` checks; no expected standard output is required |
 | `:lrm:` | IEEE 1800-2023 clauses the test checks, for example `1800-2023 11.4.3` |
-| `:oracle:` | Where the expected output comes from: `spec` (it was checked against the cited clauses of the standard; `:spec_check:` says by whom), `iverilog@13.0` (Icarus Verilog 13.0 produced it), `verilator@5.052` (Verilator 5.052 produced it) |
+| `:oracle:` | Where the expected output comes from: `spec` (it was checked against the cited clauses of the standard; `:spec_check:` says by whom), `iverilog@13.0` (Icarus Verilog 13.0 produced it), `verilator@5.052` (Verilator 5.052 produced it), `verilator@5.054` (Verilator 5.054 produced it; only tests added while the pin moves to 5.054, see [the interim pin](docs/simulator-differences.md#verilator-5054-interim)) |
 | `:spec_check:` | Who checked a `spec` expectation against the standard: `ai` (an AI model read the cited clauses; no person has checked this test yet) or `human` (a person checked it) |
 | `:fourstate:` | Whether the result depends on x or z values (`yes` / `no`): the test has x or z literals, `$isunknown`, `casex`/`casez`, tri-state or strength constructs, or x or z in its expected output |
 | `:nondeterministic:` | Whether the result can depend on an ordering the standard leaves open |
@@ -641,7 +641,10 @@ The test is then run with Icarus Verilog 13.0:
    initial values. If Verilator produces the expected output both times,
    `:oracle:` lists `verilator@5.052`. Verilator is a two-state simulator, so
    such tests have `:fourstate: no`. A test that was also run with the other
-   release lists both when both produce its expected output.
+   release lists both when both produce its expected output. Tests added from
+   2026-11-14 until the pin moves to Verilator 5.054 are run with 5.054 and
+   list `verilator@5.054` instead
+   ([the interim pin](docs/simulator-differences.md#verilator-5054-interim)).
 3. If neither simulator follows the standard, `:oracle:` is `spec` alone, and
    the comment of the test says what the standard requires.
 
@@ -657,7 +660,7 @@ when another simulator uses a different file.
 
 For an illegal design (`:should_fail_because:`), the expected result is that
 the design is rejected with an error at the place the test names, and
-`iverilog@13.0` or `verilator@5.052` in `:oracle:` means that the release
+`iverilog@13.0`, `verilator@5.052` or `verilator@5.054` in `:oracle:` means that the release
 rejects it there. A tool that rejects the design for another reason, such as
 a construct it does not support, does not count. When such an error falls on
 the line the test names, the runner cannot tell the difference: the comment of
@@ -793,7 +796,8 @@ python3 tools/run_verilator.py --seed 7
 python3 tools/run_verilator.py --all -j 8
 ```
 
-By default this runs only the tests whose `:oracle:` lists `verilator@5.052`;
+By default this runs only the tests whose `:oracle:` lists `verilator@5.052`
+(name the tests that list `verilator@5.054` to run them with a 5.054 build, as the Check does);
 `--all` runs every non-formal test, and counts those not recorded with Verilator as
 known differences when they do not match. Each test is built with
 `verilator --binary --timing --coverage-user` and run with random initial
@@ -971,6 +975,10 @@ suite has a problem:
   cache), installs `z3` for `randomize()` and ccache, whose cache it keeps for
   the next run, and runs the tests whose `:oracle:` lists `verilator@5.052`,
   which must all match.
+- **verilator-5054** builds Verilator 5.054 from its `v5.054` tag in the same
+  way and runs the tests whose `:oracle:` lists `verilator@5.054`, which must
+  all match too. It exists only while the pin moves from 5.052 to 5.054
+  ([the interim pin](docs/simulator-differences.md#verilator-5054-interim)).
 - **readme** checks that the tables of both README language versions are up
   to date
   (`tools/suite_stats.py --check`), that the generated tests are what the

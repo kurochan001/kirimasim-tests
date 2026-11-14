@@ -59,7 +59,7 @@ Icarus Verilog、Verilator、kirimasim、
 | 期待結果の確認元 | テスト数 |
 | --- | ---: |
 | Icarus Verilog 13.0（`:oracle:`に`iverilog@13.0`） | 6433 |
-| Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | 2249 |
+| Verilator 5.052か5.054（Icarus Verilog 13.0のoracle登録なし） | 2249 |
 | 規格のみ（固定リリースのシミュレータのoracle登録なし） | 3662 |
 
 2914本はx/z値に依存します（`:fourstate: yes`）。687本にはCコードがあり、内訳はDPIが186本（`:dpi_c:`）、VPIが501本（`:vpi_c:`）です。1975本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。75本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル23本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定54本（`:top_module:`）、実行時引数13本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
@@ -470,7 +470,7 @@ publishジョブは、その実行の要求カバレッジとして`behavior-cov
 | `:type:` | シミュレーションは`simulation`、拒否すべき不正な設計は`elaboration`、SymbiYosysによるモデル検査は`formal` |
 | `:formal_case:` | `:type: formal`の検証対象。`tools/sva_reference/formal_cases.py`のケース名を指定し、`tools/run_sby.py`で検査する。期待する標準出力は不要 |
 | `:lrm:` | 確認対象のIEEE 1800-2023の条項。例：`1800-2023 11.4.3` |
-| `:oracle:` | 期待出力の根拠。`spec`は引用条項と照合済み（担当は`:spec_check:`）、`iverilog@13.0`はIcarus Verilog 13.0で再現、`verilator@5.052`はVerilator 5.052で再現 |
+| `:oracle:` | 期待出力の根拠。`spec`は引用条項と照合済み（担当は`:spec_check:`）、`iverilog@13.0`はIcarus Verilog 13.0で再現、`verilator@5.052`はVerilator 5.052で再現、`verilator@5.054`はVerilator 5.054で再現（固定版を5.054へ移す間に追加したテストだけ。[移行中の固定版](docs/simulator-differences.ja.md#verilator-5054-interim)） |
 | `:spec_check:` | `spec`の期待値を規格と照合した担当。`ai`はAIモデル（人による照合はまだなし）、`human`は人 |
 | `:fourstate:` | x/zに依存するか（`yes` / `no`）。x/zリテラル、`$isunknown`、`casex`/`casez`、三状態・強度構文、期待出力のx/zなど |
 | `:nondeterministic:` | 規格が決めていない実行順に結果が依存し得るか |
@@ -559,6 +559,8 @@ sv-testsの実行スクリプトはこれらのフィールドを知らず、Sys
    2種類変えて実行します。両方で再現すれば`verilator@5.052`を記録します。
    Verilatorは2値シミュレータなので、そのテストは`:fourstate: no`です。
    両リリースで実行し、両方で再現できた場合は両方を記録します。
+   2026-11-14から固定版を5.054へ移すまでに追加したテストは、5.054で実行して`verilator@5.054`を記録します
+   （[移行中の固定版](docs/simulator-differences.ja.md#verilator-5054-interim)）。
 3. どちらも規格どおりに動かない場合は`:oracle: spec`だけとし、規格の要求をコメントに書きます。
 
 1本のテストは、`:expected_stdout_icarus:`・`:expected_stdout_verilator:`・
@@ -570,7 +572,7 @@ sv-testsの実行スクリプトはこれらのフィールドを知らず、Sys
 ファイルを変えた場合も保存済みの実行結果は無効になります。
 
 不正な設計では、指定箇所のエラーで拒否されることが期待結果です。
-`:oracle:`の`iverilog@13.0`や`verilator@5.052`は、そのリリースがそこで拒否したことを表します。
+`:oracle:`の`iverilog@13.0`、`verilator@5.052`、`verilator@5.054`は、そのリリースがそこで拒否したことを表します。
 未対応構文など別の理由で拒否するツールは数えません。そのエラーが指定行に出る場合は
 実行スクリプトでは区別できないので、テストのコメントにその事情を記載します。
 `tools/run_icarus.py`が`NOW MATCHES`と表示しても、`iverilog@13.0`を登録しているとは限りません。
@@ -682,6 +684,7 @@ python3 tools/run_verilator.py --all -j 8
 ```
 
 既定では`:oracle:`に`verilator@5.052`があるテストだけを実行します。
+`verilator@5.054`があるテストは、Checkと同じく5.054のビルドでテストを指定して実行します。
 `--all`はformal以外の全件を実行し、Verilatorが未登録のテストが一致しなければ既知の差異に数えます。
 `verilator --binary --timing --coverage-user`でビルドし、乱数初期値で実行します
 （`--seed`で指定）。`--coverage-user`なしではcover文が動きません。
@@ -824,6 +827,8 @@ Actionsタブから手動実行もできます（`workflow_dispatch`）。スイ
   `:oracle:`に`iverilog@13.0`があるテストはすべて一致する必要があり、残りは既知の差異です。
 - **verilator**：Verilator 5.052を`v5.052`タグからビルドしてキャッシュし、`randomize()`用の`z3`と
   ccacheを導入します。ccacheも次回用に保存します。`verilator@5.052`があるテストを実行し、すべての一致を求めます。
+- **verilator-5054**：Verilator 5.054を`v5.054`タグから同じ方法でビルドし、`verilator@5.054`があるテストを実行して、すべての一致を求めます。
+  固定版を5.052から5.054へ移す間だけのジョブです（[移行中の固定版](docs/simulator-differences.ja.md#verilator-5054-interim)）。
 - **readme**：両言語のREADMEの表（`tools/suite_stats.py --check`）、生成テスト
   （`generators/generate.py --check`）、カタログ（`tools/suite_catalog.py --check`）、
   条項別テスト数レポートと対象の末端条項の直接テスト2本以上

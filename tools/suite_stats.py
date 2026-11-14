@@ -92,13 +92,24 @@ def header(test: Path) -> dict[str, str]:
     return {k: v.strip() for k, v in re.findall(r"^:(\w+):\s*(.*)$", m.group(1), re.MULTILINE)}
 
 
+# The pinned Verilator releases: 5.052, and 5.054 for the tests added while
+# the pin moves to it (docs/simulator-differences.md#verilator-5054-interim).
+VERILATOR_ORACLES = ("verilator@5.052", "verilator@5.054")
+
+
+def verilator_release(fields: dict[str, str]) -> str | None:
+    """5.052 or 5.054: the Verilator release that :oracle: names, if any."""
+    names = [w for w in fields.get("oracle", "").split() if w in VERILATOR_ORACLES]
+    return names[0].split("@")[1] if names else None
+
+
 def oracle_kind(fields: dict[str, str]) -> str:
     """icarus, verilator or spec: the simulator the expected output was
     recorded with, Icarus Verilog first, or spec when neither produces it."""
     oracles = fields.get("oracle", "").split()
     if "iverilog@13.0" in oracles:
         return "icarus"
-    if "verilator@5.052" in oracles:
+    if verilator_release(fields):
         return "verilator"
     return "spec"
 
@@ -174,7 +185,7 @@ def markdown(stats: dict, language: str = "en") -> str:
         "| Expected result recorded with | Tests |",
         "| --- | ---: |",
         f"| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | {t['icarus']} |",
-        f"| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | {t['verilator']} |",
+        f"| Verilator 5.052 or 5.054, with no Icarus Verilog 13.0 oracle recorded | {t['verilator']} |",
         f"| The standard only, with no fixed-release simulator oracle recorded | {t['spec']} |",
         "",
         f"{t['fourstate']} tests depend on x or z values (`:fourstate: yes`). "
@@ -219,7 +230,7 @@ def markdown_ja(stats: dict) -> str:
                      "生成器ごとの本数と対象は[生成器カタログ](docs/generators.ja.md)で確認できます。")
     lines += ["", "| 期待結果の確認元 | テスト数 |", "| --- | ---: |",
               f"| Icarus Verilog 13.0（`:oracle:`に`iverilog@13.0`） | {t['icarus']} |",
-              f"| Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | {t['verilator']} |",
+              f"| Verilator 5.052か5.054（Icarus Verilog 13.0のoracle登録なし） | {t['verilator']} |",
               f"| 規格のみ（固定リリースのシミュレータのoracle登録なし） | {t['spec']} |", "",
               f"{t['fourstate']}本はx/z値に依存します（`:fourstate: yes`）。"
               f"{t['dpi_c'] + t['vpi_c']}本にはCコードがあり、内訳はDPIが{t['dpi_c']}本（`:dpi_c:`）、"
