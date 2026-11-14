@@ -15,6 +15,19 @@ def run(**tests):
 
 
 class ReviewCandidatesTests(unittest.TestCase):
+    def test_both_verilator_tokens_of_the_interim_pin_are_releases(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory).resolve()
+            (root / "tests" / "ch1").mkdir(parents=True)
+            for name, oracle in (("old", "spec verilator@5.052"), ("new", "spec verilator@5.054"),
+                                 ("icarus", "spec iverilog@13.0"), ("spec", "spec")):
+                (root / "tests" / "ch1" / f"test_{name}.sv").write_text(
+                    f"/*\n:name: test_{name}\n:lrm: 1800-2023 1.1\n:oracle: {oracle}\n*/\nmodule m; endmodule\n",
+                    encoding="utf-8")
+            spec_only = {e["id"]: e["spec_only"] for e in rc.tests_of(root)}
+            self.assertEqual(spec_only, {"ch1/test_old": False, "ch1/test_new": False,
+                                         "ch1/test_icarus": False, "ch1/test_spec": True})
+
     def test_categories_follow_the_oracle_and_the_results(self):
         entries = [entry("a"), entry("b"), entry("c"), entry("d", spec_only=False),
                    entry("e", spec_only=False), entry("f"), entry("g", formal=True)]

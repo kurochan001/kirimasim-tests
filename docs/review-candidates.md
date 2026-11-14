@@ -20,7 +20,7 @@
 
 ## 候補の種類
 
-`:type: formal`のテストは除きます。「specのみ」は、`:oracle:`が`iverilog@13.0`も`verilator@5.052`も挙げていないテストです。
+`:type: formal`のテストは除きます。「specのみ」は、`:oracle:`が`iverilog@13.0`・`verilator@5.052`・`verilator@5.054`（[固定版を移す間](simulator-differences.ja.md#verilator-5054-interim)に追加したテストの記号）のどれも挙げていないテストです。
 
 | 種類 | 条件 | 見直す理由 |
 | --- | --- | --- |

@@ -41,13 +41,17 @@ from pathlib import Path
 
 import suite_catalog
 import suite_results
+import suite_stats
 
 ROOT = Path(__file__).resolve().parent.parent
 SOURCE_URL = "https://github.com/kurochan001/kirimasim-tests/blob/main"
 SIMULATORS = ("icarus", "verilator", "kirimasim", "lyra", "ghost")
 NAMES = {"icarus": "Icarus Verilog", "verilator": "Verilator", "kirimasim": "kirimasim",
          "lyra": "Lyra", "ghost": "Ghost"}
-RELEASES = {"iverilog@13.0", "verilator@5.052"}
+# Verilator counts as a release in either token of the interim pin (see
+# suite_stats.VERILATOR_ORACLES): 5.052 for the older tests, 5.054 for the
+# tests added while the pin moves.
+RELEASES = {"iverilog@13.0", *suite_stats.VERILATOR_ORACLES}
 CATEGORIES = ("spec_fail_all", "kirimasim_only", "spec_no_pass", "oracle_ghost_lyra")
 
 

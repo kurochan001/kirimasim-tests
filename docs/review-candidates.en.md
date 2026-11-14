@@ -20,7 +20,7 @@ A candidate is not a finding. A review against the standard decides whether the 
 
 ## Kinds of candidates
 
-Tests with `:type: formal` are left out. "Spec only" means a test whose `:oracle:` names neither `iverilog@13.0` nor `verilator@5.052`.
+Tests with `:type: formal` are left out. "Spec only" means a test whose `:oracle:` names none of `iverilog@13.0`, `verilator@5.052` and `verilator@5.054` (the token of the tests added while [the pin moves](simulator-differences.md#verilator-5054-interim)).
 
 | Kind | Condition | Why it is reviewed |
 | --- | --- | --- |
