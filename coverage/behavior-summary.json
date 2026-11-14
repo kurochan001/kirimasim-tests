@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
-  "registry_sha256": "6389bbcb80804ba1c279b0b6fc24eca35e39bb66f2aec9ca244d0297bc730ccd",
+  "registry_sha256": "80f6a1355b190b4c70bd042dfbe20c5c728b94af7e82f449bd78c5b00a2fc9bc",
   "source_url": null,
   "source_audit": {
     "audited": 1740,
@@ -21,27 +21,27 @@
   "normative_sections": 1703,
   "audited_sections": 1703,
   "registered": 12305,
-  "mapped": 11166,
+  "mapped": 11205,
   "denominator_reviewed": true,
   "extraction_progress_percent": 100.0,
-  "unmapped": 1139,
-  "executed": 9572,
-  "executed_reproducible": 6197,
-  "executed_simulated": 9282,
-  "executed_reproducible_simulated": 5907,
-  "whole_standard_percent": 90.74360016253556,
-  "whole_standard_executed_percent": 77.78951645672491,
-  "registered_percent": 90.74360016253556,
+  "unmapped": 1100,
+  "executed": 9590,
+  "executed_reproducible": 6211,
+  "executed_simulated": 9300,
+  "executed_reproducible_simulated": 5921,
+  "whole_standard_percent": 91.06054449410809,
+  "whole_standard_executed_percent": 77.93579845591223,
+  "registered_percent": 91.06054449410809,
   "metric_policy_version": 3,
   "whole_standard_status": "confirmed",
-  "provisional_design_percent": 90.74360016253556,
-  "provisional_execution_percent": 77.78951645672491,
+  "provisional_design_percent": 91.06054449410809,
+  "provisional_execution_percent": 77.93579845591223,
   "reproducible_simulators": [
     "icarus",
     "verilator",
     "sby"
   ],
-  "provisional_execution_reproducible_percent": 50.361641609101994,
+  "provisional_execution_reproducible_percent": 50.4754164973588,
   "denominator": {
     "count": 12305,
     "unit": "registered_requirement_condition_or_observation",
@@ -51,15 +51,15 @@
     "interpretation_pending": 0
   },
   "test_mapping": {
-    "suite_test_files": 12471,
-    "linked_test_files": 5511,
-    "unlinked_test_files": 6960
+    "suite_test_files": 12519,
+    "linked_test_files": 5564,
+    "unlinked_test_files": 6955
   },
-  "collective_requirement_count": 688,
+  "collective_requirement_count": 701,
   "requirement_status_counts": {
-    "pass": 9572,
-    "mapped_without_pass": 1594,
-    "unmapped": 1139,
+    "pass": 9590,
+    "mapped_without_pass": 1615,
+    "unmapped": 1100,
     "interpretation_pending": 0
   },
   "chapters": [
@@ -127,36 +127,36 @@
       "clause": "6",
       "title": "Data types",
       "registered": 720,
-      "mapped": 697,
-      "executed": 617,
-      "executed_reproducible": 510,
-      "design_percent": 96.80555555555556,
-      "execution_percent": 85.69444444444444,
-      "execution_reproducible_percent": 70.83333333333333,
+      "mapped": 707,
+      "executed": 624,
+      "executed_reproducible": 516,
+      "design_percent": 98.19444444444444,
+      "execution_percent": 86.66666666666667,
+      "execution_reproducible_percent": 71.66666666666667,
       "interpretation_pending": 0
     },
     {
       "clause": "7",
       "title": "Aggregate data types",
       "registered": 347,
-      "mapped": 324,
-      "executed": 282,
-      "executed_reproducible": 179,
-      "design_percent": 93.37175792507205,
-      "execution_percent": 81.26801152737752,
-      "execution_reproducible_percent": 51.585014409221905,
+      "mapped": 337,
+      "executed": 287,
+      "executed_reproducible": 182,
+      "design_percent": 97.11815561959654,
+      "execution_percent": 82.70893371757926,
+      "execution_reproducible_percent": 52.44956772334294,
       "interpretation_pending": 0
     },
     {
       "clause": "8",
       "title": "Classes",
       "registered": 255,
-      "mapped": 224,
-      "executed": 175,
-      "executed_reproducible": 140,
-      "design_percent": 87.84313725490196,
-      "execution_percent": 68.62745098039215,
-      "execution_reproducible_percent": 54.90196078431372,
+      "mapped": 238,
+      "executed": 180,
+      "executed_reproducible": 145,
+      "design_percent": 93.33333333333333,
+      "execution_percent": 70.58823529411765,
+      "execution_reproducible_percent": 56.86274509803921,
       "interpretation_pending": 0
     },
     {
@@ -211,11 +211,11 @@
       "clause": "13",
       "title": "Tasks and functions (subroutines)",
       "registered": 120,
-      "mapped": 98,
-      "executed": 84,
+      "mapped": 100,
+      "executed": 85,
       "executed_reproducible": 75,
-      "design_percent": 81.66666666666667,
-      "execution_percent": 70.0,
+      "design_percent": 83.33333333333333,
+      "execution_percent": 70.83333333333333,
       "execution_reproducible_percent": 62.5,
       "interpretation_pending": 0
     },
@@ -1067,8 +1067,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 10876,
-          "unmapped": 1139,
+          "not_run": 10915,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -3331,11 +3331,13 @@
           "SV2023-6.20.3-EXTRACT-TYPE-VALUE-ONLY",
           "SV2023-6.20.4-EXTRACT-INDIRECT-DEPENDENCY",
           "SV2023-6.20.4-EXTRACT-NO-DIRECT-LOCAL-OVERRIDE",
+          "SV2023-6.20.5-EXTRACT-DISTINCT-DECLARATION-KEYWORDS",
           "SV2023-6.20.5-EXTRACT-FIXED-SPECPARAM-RANGE",
           "SV2023-6.20.5-EXTRACT-INFER-SPECPARAM-RANGE",
           "SV2023-6.20.5-EXTRACT-PARAMETER-USE-RESTRICTION",
           "SV2023-6.20.5-EXTRACT-SPECPARAM-CONSTANT-EXPRESSION",
           "SV2023-6.20.5-EXTRACT-SPECPARAM-DECLARATION-SCOPE",
+          "SV2023-6.20.6-EXTRACT-CONST-HANDLE-NO-WRITE",
           "SV2023-6.20.6-EXTRACT-STATIC-CONST-DEPENDENCIES",
           "SV2023-6.21-EXTRACT-DECLARATION-BEFORE-SIMPLE-REFERENCE",
           "SV2023-6.21-EXTRACT-DECLARATIONS-BEFORE-STATEMENTS",
@@ -3374,6 +3376,7 @@
           "SV2023-6.5-EXTRACT-DECLARATION-NAME-COLLISION",
           "SV2023-6.5-EXTRACT-DECLARED-VARIABLE-INITIALIZER",
           "SV2023-6.5-EXTRACT-FORCE-CLASSIFICATION",
+          "SV2023-6.5-EXTRACT-INITIALIZATION-PROCEDURAL-CLASSIFICATION",
           "SV2023-6.5-EXTRACT-INSTANCE-OUTPUT-VARIABLE-DRIVER",
           "SV2023-6.5-EXTRACT-NET-DRIVERS",
           "SV2023-6.5-EXTRACT-NET-FORCE-RELEASE",
@@ -4162,16 +4165,16 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 336,
+        "stale_links": 337,
         "status_counts": {
-          "pass": 3083,
+          "pass": 3086,
           "fail": 0,
-          "known": 7330,
+          "known": 7334,
           "unsupported": 0,
           "unreviewed_oracle": 180,
-          "stale": 204,
-          "not_run": 369,
-          "unmapped": 1139,
+          "stale": 205,
+          "not_run": 400,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -6242,6 +6245,7 @@
           "SV2023-6.20.5-EXTRACT-SPECPARAM-CONSTANT-EXPRESSION",
           "SV2023-6.20.6-EXTRACT-AUTOMATIC-CONST-EXPRESSION",
           "SV2023-6.20.6-EXTRACT-CONST-CLASS-HANDLE",
+          "SV2023-6.20.6-EXTRACT-CONST-HANDLE-MEMBERS-WRITABLE",
           "SV2023-6.20.6-EXTRACT-CONST-RUNTIME",
           "SV2023-6.20.6-EXTRACT-STATIC-CONST-DEPENDENCIES",
           "SV2023-6.20.7-EXTRACT-DOLLAR-QUEUE-DIMENSION",
@@ -7170,16 +7174,16 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 336,
+        "stale_links": 337,
         "status_counts": {
-          "pass": 2988,
+          "pass": 2989,
           "fail": 170,
           "known": 0,
-          "unsupported": 6272,
-          "unreviewed_oracle": 1167,
-          "stale": 202,
-          "not_run": 367,
-          "unmapped": 1139,
+          "unsupported": 6274,
+          "unreviewed_oracle": 1172,
+          "stale": 203,
+          "not_run": 397,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -8910,6 +8914,8 @@
           "SV2023-6.20.5-EXTRACT-SPECPARAM-USE-SCOPE",
           "SV2023-6.20.6-EXTRACT-AUTOMATIC-CONST-EXPRESSION",
           "SV2023-6.20.6-EXTRACT-CONST-CLASS-HANDLE",
+          "SV2023-6.20.6-EXTRACT-CONST-HANDLE-MEMBERS-WRITABLE",
+          "SV2023-6.20.6-EXTRACT-CONST-HANDLE-NO-WRITE",
           "SV2023-6.20.6-EXTRACT-CONST-RUNTIME",
           "SV2023-6.20.6-EXTRACT-STATIC-CONST-DEPENDENCIES",
           "SV2023-6.20.7-EXTRACT-DOLLAR-COVERGROUP-RANGE",
@@ -8981,6 +8987,7 @@
           "SV2023-6.5-EXTRACT-ASSIGNMENT-OVERRIDE-ORDER",
           "SV2023-6.5-EXTRACT-DECLARED-VARIABLE-INITIALIZER",
           "SV2023-6.5-EXTRACT-FORCE-CLASSIFICATION",
+          "SV2023-6.5-EXTRACT-INITIALIZATION-PROCEDURAL-CLASSIFICATION",
           "SV2023-6.5-EXTRACT-INPUT-VARIABLE-DRIVER",
           "SV2023-6.5-EXTRACT-PROCEDURAL-VARIABLE-WRITES",
           "SV2023-6.5-EXTRACT-REF-VARIABLE-SHARING",
@@ -11064,16 +11071,16 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 336,
+        "stale_links": 337,
         "status_counts": {
-          "pass": 3874,
+          "pass": 3877,
           "fail": 0,
-          "known": 6082,
+          "known": 6085,
           "unsupported": 0,
-          "unreviewed_oracle": 617,
-          "stale": 225,
-          "not_run": 368,
-          "unmapped": 1139,
+          "unreviewed_oracle": 618,
+          "stale": 226,
+          "not_run": 399,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -12573,6 +12580,8 @@
           "SV2023-6.20.5-EXTRACT-SPECPARAM-USE-SCOPE",
           "SV2023-6.20.6-EXTRACT-AUTOMATIC-CONST-EXPRESSION",
           "SV2023-6.20.6-EXTRACT-CONST-CLASS-HANDLE",
+          "SV2023-6.20.6-EXTRACT-CONST-HANDLE-MEMBERS-WRITABLE",
+          "SV2023-6.20.6-EXTRACT-CONST-HANDLE-NO-WRITE",
           "SV2023-6.20.6-EXTRACT-CONST-RUNTIME",
           "SV2023-6.20.6-EXTRACT-STATIC-CONST-DEPENDENCIES",
           "SV2023-6.20.7-EXTRACT-DOLLAR-COVERGROUP-RANGE",
@@ -12635,6 +12644,7 @@
           "SV2023-6.5-EXTRACT-ASSIGNMENT-OVERRIDE-ORDER",
           "SV2023-6.5-EXTRACT-DECLARED-VARIABLE-INITIALIZER",
           "SV2023-6.5-EXTRACT-FORCE-CLASSIFICATION",
+          "SV2023-6.5-EXTRACT-INITIALIZATION-PROCEDURAL-CLASSIFICATION",
           "SV2023-6.5-EXTRACT-INPUT-VARIABLE-DRIVER",
           "SV2023-6.5-EXTRACT-PROCEDURAL-VARIABLE-WRITES",
           "SV2023-6.5-EXTRACT-REF-VARIABLE-SHARING",
@@ -14672,14 +14682,14 @@
         ],
         "stale_links": 25,
         "status_counts": {
-          "pass": 3586,
+          "pass": 3589,
           "fail": 0,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 21,
-          "not_run": 7559,
-          "unmapped": 1139,
+          "not_run": 7595,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -19866,6 +19876,7 @@
           "SV2023-6.20.5-EXTRACT-SPECPARAM-CONSTANT-EXPRESSION",
           "SV2023-6.20.6-EXTRACT-AUTOMATIC-CONST-EXPRESSION",
           "SV2023-6.20.6-EXTRACT-CONST-CLASS-HANDLE",
+          "SV2023-6.20.6-EXTRACT-CONST-HANDLE-MEMBERS-WRITABLE",
           "SV2023-6.20.6-EXTRACT-CONST-RUNTIME",
           "SV2023-6.20.6-EXTRACT-STATIC-CONST-DEPENDENCIES",
           "SV2023-6.20.7-EXTRACT-DOLLAR-ACTUAL-ARGUMENT",
@@ -20207,7 +20218,9 @@
           "SV2023-7.12.1-EXTRACT-MINIMUM",
           "SV2023-7.12.1-EXTRACT-UNIQUE",
           "SV2023-7.12.1-EXTRACT-UNIQUE-INDEX",
+          "SV2023-7.12.2-EXTRACT-REVERSE",
           "SV2023-7.12.2-EXTRACT-RSORT",
+          "SV2023-7.12.2-EXTRACT-SHUFFLE",
           "SV2023-7.12.2-EXTRACT-SORT",
           "SV2023-7.12.3-EXTRACT-AND-REDUCE",
           "SV2023-7.12.3-EXTRACT-OR-REDUCE",
@@ -22600,16 +22613,16 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 469,
+        "stale_links": 470,
         "status_counts": {
-          "pass": 7910,
-          "fail": 1356,
+          "pass": 7913,
+          "fail": 1357,
           "known": 0,
           "unsupported": 0,
-          "unreviewed_oracle": 1174,
-          "stale": 312,
-          "not_run": 414,
-          "unmapped": 1139,
+          "unreviewed_oracle": 1178,
+          "stale": 313,
+          "not_run": 444,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -27831,6 +27844,7 @@
           "SV2023-6.20.5-EXTRACT-SPECPARAM-CONSTANT-EXPRESSION",
           "SV2023-6.20.6-EXTRACT-AUTOMATIC-CONST-EXPRESSION",
           "SV2023-6.20.6-EXTRACT-CONST-CLASS-HANDLE",
+          "SV2023-6.20.6-EXTRACT-CONST-HANDLE-MEMBERS-WRITABLE",
           "SV2023-6.20.6-EXTRACT-CONST-RUNTIME",
           "SV2023-6.20.6-EXTRACT-STATIC-CONST-DEPENDENCIES",
           "SV2023-6.20.7-EXTRACT-DOLLAR-ACTUAL-ARGUMENT",
@@ -28181,7 +28195,9 @@
           "SV2023-7.12.1-EXTRACT-MINIMUM",
           "SV2023-7.12.1-EXTRACT-UNIQUE",
           "SV2023-7.12.1-EXTRACT-UNIQUE-INDEX",
+          "SV2023-7.12.2-EXTRACT-REVERSE",
           "SV2023-7.12.2-EXTRACT-RSORT",
+          "SV2023-7.12.2-EXTRACT-SHUFFLE",
           "SV2023-7.12.2-EXTRACT-SORT",
           "SV2023-7.12.3-EXTRACT-AND-REDUCE",
           "SV2023-7.12.3-EXTRACT-OR-REDUCE",
@@ -30610,16 +30626,16 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 405,
+        "stale_links": 406,
         "status_counts": {
-          "pass": 7990,
-          "fail": 1336,
+          "pass": 7993,
+          "fail": 1337,
           "known": 0,
           "unsupported": 0,
-          "unreviewed_oracle": 1174,
-          "stale": 252,
-          "not_run": 414,
-          "unmapped": 1139,
+          "unreviewed_oracle": 1178,
+          "stale": 253,
+          "not_run": 444,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -35787,6 +35803,7 @@
           "SV2023-6.20.5-EXTRACT-SPECPARAM-CONSTANT-EXPRESSION",
           "SV2023-6.20.6-EXTRACT-AUTOMATIC-CONST-EXPRESSION",
           "SV2023-6.20.6-EXTRACT-CONST-CLASS-HANDLE",
+          "SV2023-6.20.6-EXTRACT-CONST-HANDLE-MEMBERS-WRITABLE",
           "SV2023-6.20.6-EXTRACT-CONST-RUNTIME",
           "SV2023-6.20.6-EXTRACT-STATIC-CONST-DEPENDENCIES",
           "SV2023-6.20.7-EXTRACT-DOLLAR-ACTUAL-ARGUMENT",
@@ -36134,7 +36151,9 @@
           "SV2023-7.12.1-EXTRACT-MINIMUM",
           "SV2023-7.12.1-EXTRACT-UNIQUE",
           "SV2023-7.12.1-EXTRACT-UNIQUE-INDEX",
+          "SV2023-7.12.2-EXTRACT-REVERSE",
           "SV2023-7.12.2-EXTRACT-RSORT",
+          "SV2023-7.12.2-EXTRACT-SHUFFLE",
           "SV2023-7.12.2-EXTRACT-SORT",
           "SV2023-7.12.3-EXTRACT-AND-REDUCE",
           "SV2023-7.12.3-EXTRACT-OR-REDUCE",
@@ -38523,16 +38542,16 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 469,
+        "stale_links": 470,
         "status_counts": {
-          "pass": 7893,
-          "fail": 1440,
+          "pass": 7896,
+          "fail": 1441,
           "known": 0,
           "unsupported": 0,
-          "unreviewed_oracle": 1107,
-          "stale": 312,
-          "not_run": 414,
-          "unmapped": 1139,
+          "unreviewed_oracle": 1111,
+          "stale": 313,
+          "not_run": 444,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -38550,8 +38569,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 5,
           "stale": 0,
-          "not_run": 11158,
-          "unmapped": 1139,
+          "not_run": 11197,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -38569,8 +38588,8 @@
           "unsupported": 1,
           "unreviewed_oracle": 7,
           "stale": 0,
-          "not_run": 11158,
-          "unmapped": 1139,
+          "not_run": 11197,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -38591,8 +38610,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 4,
           "stale": 0,
-          "not_run": 11158,
-          "unmapped": 1139,
+          "not_run": 11197,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -38613,8 +38632,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 4,
           "stale": 0,
-          "not_run": 11158,
-          "unmapped": 1139,
+          "not_run": 11197,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -38642,10 +38661,10 @@
           "fail": 0,
           "known": 31,
           "unsupported": 0,
-          "unreviewed_oracle": 148,
+          "unreviewed_oracle": 149,
           "stale": 0,
-          "not_run": 10976,
-          "unmapped": 1139,
+          "not_run": 11014,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -38666,10 +38685,10 @@
           "fail": 9,
           "known": 0,
           "unsupported": 28,
-          "unreviewed_oracle": 149,
+          "unreviewed_oracle": 150,
           "stale": 0,
-          "not_run": 10976,
-          "unmapped": 1139,
+          "not_run": 11014,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -38688,12 +38707,12 @@
         "status_counts": {
           "pass": 4,
           "fail": 0,
-          "known": 114,
+          "known": 115,
           "unsupported": 0,
           "unreviewed_oracle": 72,
           "stale": 0,
-          "not_run": 10976,
-          "unmapped": 1139,
+          "not_run": 11014,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -38712,12 +38731,12 @@
         "status_counts": {
           "pass": 4,
           "fail": 0,
-          "known": 114,
+          "known": 115,
           "unsupported": 0,
           "unreviewed_oracle": 72,
           "stale": 0,
-          "not_run": 10976,
-          "unmapped": 1139,
+          "not_run": 11014,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -38737,8 +38756,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 4,
           "stale": 0,
-          "not_run": 11158,
-          "unmapped": 1139,
+          "not_run": 11197,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -38756,8 +38775,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 8,
           "stale": 0,
-          "not_run": 11158,
-          "unmapped": 1139,
+          "not_run": 11197,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -38777,8 +38796,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 6,
           "stale": 0,
-          "not_run": 11158,
-          "unmapped": 1139,
+          "not_run": 11197,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -38798,8 +38817,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 6,
           "stale": 0,
-          "not_run": 11158,
-          "unmapped": 1139,
+          "not_run": 11197,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -38823,8 +38842,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 2,
           "stale": 0,
-          "not_run": 11134,
-          "unmapped": 1139,
+          "not_run": 11173,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -38858,8 +38877,8 @@
           "unsupported": 11,
           "unreviewed_oracle": 5,
           "stale": 0,
-          "not_run": 11134,
-          "unmapped": 1139,
+          "not_run": 11173,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -38890,8 +38909,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 1,
           "stale": 0,
-          "not_run": 11134,
-          "unmapped": 1139,
+          "not_run": 11173,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -38922,8 +38941,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 1,
           "stale": 0,
-          "not_run": 11134,
-          "unmapped": 1139,
+          "not_run": 11173,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -38947,8 +38966,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 1,
           "stale": 0,
-          "not_run": 11127,
-          "unmapped": 1139,
+          "not_run": 11166,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -38975,8 +38994,8 @@
           "unsupported": 21,
           "unreviewed_oracle": 8,
           "stale": 0,
-          "not_run": 11125,
-          "unmapped": 1139,
+          "not_run": 11164,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -39001,8 +39020,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 4,
           "stale": 0,
-          "not_run": 11126,
-          "unmapped": 1139,
+          "not_run": 11165,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -39027,8 +39046,115 @@
           "unsupported": 0,
           "unreviewed_oracle": 4,
           "stale": 0,
-          "not_run": 11126,
-          "unmapped": 1139,
+          "not_run": 11165,
+          "unmapped": 1100,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "reqgap3-20261114-icarus13.json",
+        "simulator": "icarus",
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+        "generated_at": "2026-11-14T08:09:22.791456+00:00",
+        "executed": [
+          "SV2023-6.20.1-EXTRACT-NO-IMPLICIT-INSTANTIATION",
+          "SV2023-6.22.3-EXTRACT-DIRECTIONAL-COMPATIBILITY",
+          "SV2023-8.18-EXTRACT-INHERITED-METHOD-USES-LOCAL",
+          "SV2023-8.7-EXTRACT-CONSTRUCTOR-NO-TIMING"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 4,
+          "fail": 0,
+          "known": 16,
+          "unsupported": 0,
+          "unreviewed_oracle": 12,
+          "stale": 0,
+          "not_run": 11173,
+          "unmapped": 1100,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "reqgap3-20261114-kirimasim-d1d8a178.json",
+        "simulator": "kirimasim",
+        "version": "kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401",
+        "generated_at": "2026-11-14T08:10:25.089652+00:00",
+        "executed": [
+          "SV2023-13.4-EXTRACT-CONST-REF-ARG-CONTEXT",
+          "SV2023-6.19-EXTRACT-POST-CAST-ENCODING",
+          "SV2023-6.20.1-EXTRACT-NO-IMPLICIT-INSTANTIATION",
+          "SV2023-8.18-EXTRACT-INHERITED-METHOD-USES-LOCAL",
+          "SV2023-8.18-EXTRACT-PROTECTED-SUBCLASS"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 5,
+          "fail": 1,
+          "known": 0,
+          "unsupported": 3,
+          "unreviewed_oracle": 23,
+          "stale": 0,
+          "not_run": 11173,
+          "unmapped": 1100,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "reqgap3-20261114-verilator5.054-seed1.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "generated_at": "2026-11-14T08:09:50.844161+00:00",
+        "executed": [
+          "SV2023-6.22.3-EXTRACT-DIRECTIONAL-COMPATIBILITY",
+          "SV2023-7.12.2-EXTRACT-REVERSE-NO-WITH",
+          "SV2023-7.12.2-EXTRACT-SHUFFLE-NO-WITH",
+          "SV2023-7.8-EXTRACT-UNPACKED-ELEMENT-EXPRESSION",
+          "SV2023-8.18-EXTRACT-INHERITED-METHOD-USES-LOCAL",
+          "SV2023-8.18-EXTRACT-PROTECTED-NO-OUTSIDE-ACCESS",
+          "SV2023-8.18-EXTRACT-PROTECTED-SUBCLASS",
+          "SV2023-8.5-EXTRACT-VALUE-PARAMETER-HANDLE",
+          "SV2023-8.7-EXTRACT-CONSTRUCTOR-NO-TIMING"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 9,
+          "fail": 0,
+          "known": 19,
+          "unsupported": 0,
+          "unreviewed_oracle": 2,
+          "stale": 0,
+          "not_run": 11175,
+          "unmapped": 1100,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "reqgap3-20261114-verilator5.054-seed73.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "generated_at": "2026-11-14T08:10:24.715784+00:00",
+        "executed": [
+          "SV2023-6.22.3-EXTRACT-DIRECTIONAL-COMPATIBILITY",
+          "SV2023-7.12.2-EXTRACT-REVERSE-NO-WITH",
+          "SV2023-7.12.2-EXTRACT-SHUFFLE-NO-WITH",
+          "SV2023-7.8-EXTRACT-UNPACKED-ELEMENT-EXPRESSION",
+          "SV2023-8.18-EXTRACT-INHERITED-METHOD-USES-LOCAL",
+          "SV2023-8.18-EXTRACT-PROTECTED-NO-OUTSIDE-ACCESS",
+          "SV2023-8.18-EXTRACT-PROTECTED-SUBCLASS",
+          "SV2023-8.5-EXTRACT-VALUE-PARAMETER-HANDLE",
+          "SV2023-8.7-EXTRACT-CONSTRUCTOR-NO-TIMING"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 9,
+          "fail": 0,
+          "known": 19,
+          "unsupported": 0,
+          "unreviewed_oracle": 2,
+          "stale": 0,
+          "not_run": 11175,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -39046,8 +39172,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 11158,
-          "unmapped": 1139,
+          "not_run": 11197,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -39067,8 +39193,8 @@
           "unsupported": 7,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 11158,
-          "unmapped": 1139,
+          "not_run": 11197,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -39088,8 +39214,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 11158,
-          "unmapped": 1139,
+          "not_run": 11197,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -39109,8 +39235,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 11158,
-          "unmapped": 1139,
+          "not_run": 11197,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -39130,8 +39256,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 11165,
-          "unmapped": 1139,
+          "not_run": 11204,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -39149,8 +39275,8 @@
           "unsupported": 1,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 11165,
-          "unmapped": 1139,
+          "not_run": 11204,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -39170,8 +39296,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 11165,
-          "unmapped": 1139,
+          "not_run": 11204,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -39191,8 +39317,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 11165,
-          "unmapped": 1139,
+          "not_run": 11204,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -39284,8 +39410,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 1,
-          "not_run": 11092,
-          "unmapped": 1139,
+          "not_run": 11131,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -39303,8 +39429,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 11114,
-          "unmapped": 1139,
+          "not_run": 11153,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -39322,8 +39448,8 @@
           "unsupported": 52,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 11114,
-          "unmapped": 1139,
+          "not_run": 11153,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -39341,8 +39467,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 11114,
-          "unmapped": 1139,
+          "not_run": 11153,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -39360,8 +39486,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 11114,
-          "unmapped": 1139,
+          "not_run": 11153,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -39379,8 +39505,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 11166,
-          "unmapped": 1139,
+          "not_run": 11205,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -39398,8 +39524,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 11166,
-          "unmapped": 1139,
+          "not_run": 11205,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -39417,8 +39543,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 11166,
-          "unmapped": 1139,
+          "not_run": 11205,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       },
@@ -39436,8 +39562,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 11166,
-          "unmapped": 1139,
+          "not_run": 11205,
+          "unmapped": 1100,
           "interpretation_pending": 0
         }
       }

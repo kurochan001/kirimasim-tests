@@ -4,7 +4,7 @@
 
 [English](ch7.md) / [日本語](ch7.ja.md)
 
-[すべての章](README.ja.md) .テストは789本で、そのうち304本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは809本で、そのうち304本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -69,7 +69,11 @@
 | [`test_illegal_packed_struct_member_default`](../../tests/ch7/test_illegal_packed_struct_member_default.sv) |構造 packed のメンバーには 個々のデフォルトメンバー値が ありませんが、構造 unpacked のメンバーは 個々のデフォールトメンバー値を持ちます。| 7.2.2 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_struct_member_default_not_constant`](../../tests/ch7/test_illegal_struct_member_default_not_constant.sv) |構造要素のデフォルト値は定数表現でなければなりません変数はエラーです| 7.2.2 |規格のみ|規格違反の設計|
 | [`test_illegal_union_holding_struct_member_default`](../../tests/ch7/test_illegal_union_holding_struct_member_default.sv) |ユニオンを含む unpacked 構造のメンバーには 個々のデフォルトメンバー値がありません| 7.2.2 |規格のみ|規格違反の設計|
+| [`test_illegal_randc_member_in_packed_union`](../../tests/ch7/test_illegal_randc_member_in_packed_union.sv) |乱数の修飾子を持てるのは unpacked 構造体のメンバーだけである;packed 共用体の randc メンバーは違反である| 7.3 |規格のみ|規格違反の設計|
 | [`test_illegal_string_in_untagged_union`](../../tests/ch7/test_illegal_string_in_untagged_union.sv) |動的なタイプはタグ付けされたユニオンのみに属するが タグ付けされていないユニオンには属しません| 7.3 |規格のみ|規格違反の設計|
+| [`test_illegal_struct_packed_dimension_needs_packed`](../../tests/ch7/test_illegal_struct_packed_dimension_needs_packed.sv) |構造体の宣言の後の packed 次元には packed キーワードが必要である;packed 次元を付けた unpacked 構造体は違反である| 7.3 | Verilator 5.054 |規格違反の設計|
+| [`test_illegal_union_packed_dimension_needs_soft_or_packed`](../../tests/ch7/test_illegal_union_packed_dimension_needs_soft_or_packed.sv) |共用体の宣言の後の packed 次元には soft か packed のキーワードが必要である;どちらも無い共用体に packed 次元を付けると違反である| 7.3 | Verilator 5.054 |規格違反の設計|
+| [`test_illegal_void_member_outside_tagged_union`](../../tests/ch7/test_illegal_void_member_outside_tagged_union.sv) |void のメンバーを持てるのはタグ付き共用体だけである;タグ付きでない共用体の void メンバーは違反である| 7.3 |規格のみ|規格違反の設計|
 | [`test_tagged_union_keywords_and_members`](../../tests/ch7/test_tagged_union_keywords_and_members.sv) |構造とユニオンのキーワードは，ボイドメンバとそのタグを通してのみ読み取れる値メンバを持つタグ付きユニオン，ソフトユニオン，構造内のpacked個の構造，属性を持つ構造メンバ，ランダム限定子，packed種類とunpacked種類の構造メンバである。| 7.3 7.3.2 7.2 A.2.2.1 |規格のみ||
 | [`test_union_grammar_forms`](../../tests/ch7/test_union_grammar_forms.sv) |ユニオンは構造/ユニオンメンバー文法を使い ソフト、タグ、packed、サイン、packed次元の形をとります| 7.3 |規格のみ||
 | [`test_unpacked_union_default_and_common_initial_sequence`](../../tests/ch7/test_unpacked_union_default_and_common_initial_sequence.sv) |ユニオン unpacked は最初のメンバーのデフォルトを取って 2 つのメンバー構造の共通の初期配列を検査します| 7.3 |規格のみ| x/z |
@@ -210,6 +214,7 @@
 | [`test_dynamic_array_and_queue_operations`](../../tests/ch7/test_dynamic_array_and_queue_operations.sv) |動的配列はnewでサイズを変更し、deleteで空にする。キューは代入するキューのサイズになり、上限付きキューでは上限を超える要素を捨てる| 7.5.2 7.5.3 7.10.1 7.10.2 7.10.2.2 7.10.2.3 7.10.2.6 7.10.2.7 | Icarus Verilog 13.0 ||
 | [`test_dynamic_array_size_edge`](../../tests/ch7/test_dynamic_array_size_edge.sv) |動的配列サイズ() のエッジケースをテスト| 7.5.2 | Verilator 5.052 ||
 | [`test_dyn_array_delete`](../../tests/ch7/test_dyn_array_delete.sv) |テスト動的配列削除| 7.5.3 | Icarus Verilog 13.0 ||
+| [`test_illegal_dynamic_array_delete_result_as_value`](../../tests/ch7/test_illegal_dynamic_array_delete_result_as_value.sv) |動的配列のメソッド delete() は void を返すので、その呼び出しを値として使えない;その結果を代入すると違反である| 7.5.3 |規格のみ|規格違反の設計|
 | [`test_array_assign_2`](../../tests/ch7/test_array_assign_2.sv) |テスト配列代入| 7.6 7.5 10.9.1 | Verilator 5.052 ||
 | [`test_array_assign_resize_concat_source_slice_overlap`](../../tests/ch7/test_array_assign_resize_concat_source_slice_overlap.sv) |動的配列またはキューに代入ると、ソース要素の数に合わせてサイズを変更します。ソースはスライスとアイテムの unpacked 配列連結であり、スライスへの代入は1つの代入です。つまり、1つの配列内の重複コピーは古い値を移動します。| 7.6 10.10 |規格のみ||
 | [`test_array_copy`](../../tests/ch7/test_array_copy.sv) |配列コピーテスト| 7.6 7.4 | Verilator 5.052 ||
@@ -250,6 +255,8 @@
 | [`test_associative_array`](../../tests/ch7/test_associative_array.sv) |7.8 の関連付け行列| 7.8 7.9 | Verilator 5.052 ||
 | [`test_associative_array_copy_order_and_delete`](../../tests/ch7/test_associative_array_copy_order_and_delete.sv) |関連性配列は全体をコピーして比較し、 符号 int の順序でインデックスをエナミーし、 欠けているエントリに対して Table 7-1 値を返し、 1 つまたは全てのエントリを削除します。| 7.8 7.8.5 7.9.2 |規格のみ| x/z |
 | [`test_associative_array_corner`](../../tests/ch7/test_associative_array_corner.sv) |種々のインデックスタイプでの連想配列演算をテスト| 7.8 7.9 7.8.1 7.8.3 | Verilator 5.052 ||
+| [`test_illegal_assoc_array_arithmetic_operand`](../../tests/ch7/test_illegal_assoc_array_arithmetic_operand.sv) |連想配列は、ほとんどの式で使う前に要素を選択しなければならない;連想配列全体を算術演算子 + のオペランドにすると違反である| 7.8 | Verilator 5.054 |規格違反の設計|
+| [`test_illegal_assoc_array_bitwise_operand`](../../tests/ch7/test_illegal_assoc_array_bitwise_operand.sv) |連想配列は、ほとんどの式で使う前に要素を選択しなければならない;連想配列全体をビット演算子 & のオペランドにすると違反である| 7.8 | Verilator 5.054 |規格違反の設計|
 | [`test_illegal_assoc_index_declares_enum`](../../tests/ch7/test_illegal_assoc_index_declares_enum.sv) |関連型配列のインデックスタイプは、自身で型を宣言できません。例えば、エナメル型は、| 7.8 |規格のみ|規格違反の設計|
 | [`test_illegal_assoc_index_declares_struct`](../../tests/ch7/test_illegal_assoc_index_declares_struct.sv) |関連型配列のインデックスタイプは、自分でタイプを宣言できません。例えば、packed構造タイプは、| 7.8 |規格のみ|規格違反の設計|
 | [`test_sv_assoc_array`](../../tests/ch7/test_sv_assoc_array.sv) |テスト: 連想配列: int map \[ string \], exists(), first(), next(), delete(), num()| 7.8 7.9 | Verilator 5.052 ||
@@ -295,6 +302,8 @@
 | [`test_assoc_delete`](../../tests/ch7/test_assoc_delete.sv) |テスト連想配列 delete| 7.9.2 | Verilator 5.052 ||
 | [`test_assoc_delete_2`](../../tests/ch7/test_assoc_delete_2.sv) |テスト: 連想配列削除法| 7.9.2 | Verilator 5.052 ||
 | [`test_assoc_delete_index_argument_forms`](../../tests/ch7/test_assoc_delete_index_argument_forms.sv) |関連性配列メソッド delete は、入力のオプション引数が配列のインデックスタイプを持つボイド関数です。 つまり、文字列、変換整数、クラスハンドルキーを取得し、引数がないとすべてのエントリを削除します。| 7.9.2 | Verilator 5.052 ||
+| [`test_illegal_assoc_delete_all_result_as_value`](../../tests/ch7/test_illegal_assoc_delete_all_result_as_value.sv) |連想配列のメソッド delete() は添字なしで呼んでも void を返すので、その呼び出しを値として使えない;その結果を代入すると違反である| 7.9.2 |規格のみ|規格違反の設計|
+| [`test_illegal_assoc_delete_index_result_as_value`](../../tests/ch7/test_illegal_assoc_delete_index_result_as_value.sv) |連想配列のメソッド delete() は添字を与えても void を返すので、その呼び出しを値として使えない;その結果を代入すると違反である| 7.9.2 |規格のみ|規格違反の設計|
 | [`test_assoc_exists`](../../tests/ch7/test_assoc_exists.sv) |テスト連想配列が存在します| 7.9.3 | Verilator 5.052 ||
 | [`test_assoc_exists_2`](../../tests/ch7/test_assoc_exists_2.sv) |テスト: 連想配列存在法| 7.9.3 | Verilator 5.052 ||
 | [`test_exists_method`](../../tests/ch7/test_exists_method.sv) |exists() は int と文字列キーを持つ連想配列のメソッドです| 7.9.3 | Verilator 5.052 ||
@@ -382,12 +391,17 @@
 | [`test_queue_push_pop_2`](../../tests/ch7/test_queue_push_pop_2.sv) |キュー push_front 、 push_back 、 pop_front 、 pop_back| 7.10.2 | Icarus Verilog 13.0 ||
 | [`test_queue_size_2`](../../tests/ch7/test_queue_size_2.sv) |キューサイズ法| 7.10.2 | Icarus Verilog 13.0 ||
 | [`test_queue_size_method`](../../tests/ch7/test_queue_size_method.sv) |空のキューの場合、size() は 0 であり、プッシュ、インサート、削除、代入パターンの要素に従います。| 7.10.2.1 7.10.2.3 7.10.2.6 7.10 | Icarus Verilog 13.0 ||
+| [`test_illegal_queue_insert_result_as_value`](../../tests/ch7/test_illegal_queue_insert_result_as_value.sv) |キューのメソッド insert() は void を返すので、その呼び出しを値として使えない;その結果を代入すると違反である| 7.10.2.2 |規格のみ|規格違反の設計|
 | [`test_queue_insert_positions`](../../tests/ch7/test_queue_insert_positions.sv) |insert(index, item) はキューの最初、中、最後の位置にアイテムを置き、後の要素をシフトし、サイズに等しいインデックスを付け加えます。 int と文字列のキューの場合は、| 7.10.2.2 7.10.2.1 | Icarus Verilog 13.0 ||
 | [`test_queue_method_edges`](../../tests/ch7/test_queue_method_edges.sv) |空のキューのサイズ、終わりに挿入、負のインデックス、大きすぎるインデックス、未知のインデックス、push_front、pop_front、pop_backを無視して挿入、終わりを削除する、または空のキューで存在しない要素の値を返す。| 7.10.2.2 7.10.2.1 7.10.2.4 7.10.2.5 7.10.2.6 7.4.5 |規格のみ| x/z |
 | [`test_queue_method_prototypes_and_invalid_indices`](../../tests/ch7/test_queue_method_prototypes_and_invalid_indices.sv) |キューメソッドはそのプロトタイプに従う。size() は int を返す。insert() と delete() は integer の添字を取り、負、大きすぎる値、または x ビットを含む添字を無視する。insert()、push_front ()、push_back () は項目を要素型に変換し、pop_front () と pop_back () は要素型を返す。| 7.10.2.2 7.10.2.1 7.10.2.3 7.10.2.4 7.10.2.5 7.10.2.6 7.10.2.7 | Icarus Verilog 13.0 | x/z |
+| [`test_illegal_queue_delete_all_result_as_value`](../../tests/ch7/test_illegal_queue_delete_all_result_as_value.sv) |キューのメソッド delete() は添字なしで呼んでも void を返すので、その呼び出しを値として使えない;その結果を代入すると違反である| 7.10.2.3 |規格のみ|規格違反の設計|
+| [`test_illegal_queue_delete_index_result_as_value`](../../tests/ch7/test_illegal_queue_delete_index_result_as_value.sv) |キューのメソッド delete() は添字を与えても void を返すので、その呼び出しを値として使えない;その結果を代入すると違反である| 7.10.2.3 |規格のみ|規格違反の設計|
 | [`test_queue_delete`](../../tests/ch7/test_queue_delete.sv) |テストキューを削除| 7.10.2.3 7.10.4 | Icarus Verilog 13.0 ||
 | [`test_queue_pop_front_order`](../../tests/ch7/test_queue_pop_front_order.sv) |文字列と int のキューの場合、pop_front () は最初の要素を削除して返し、他の要素をシフトします。キューが空になるときまで。| 7.10.2.4 7.10.2.1 | Icarus Verilog 13.0 ||
 | [`test_queue_pop_back_order`](../../tests/ch7/test_queue_pop_back_order.sv) |文字列と int のキューの場合、pop_back () は最後の要素を削除して返し、他の要素を順番に残します。キューが空になるときまで。| 7.10.2.5 7.10.2.1 | Icarus Verilog 13.0 ||
+| [`test_illegal_queue_push_front_result_as_value`](../../tests/ch7/test_illegal_queue_push_front_result_as_value.sv) |キューのメソッド push_front () は void を返すので、その呼び出しを値として使えない;その結果を代入すると違反である| 7.10.2.6 |規格のみ|規格違反の設計|
+| [`test_illegal_queue_push_back_result_as_value`](../../tests/ch7/test_illegal_queue_push_back_result_as_value.sv) |キューのメソッド push_back () は void を返すので、その呼び出しを値として使えない;その結果を代入すると違反である| 7.10.2.7 |規格のみ|規格違反の設計|
 | [`test_queue_size_wait_after_pop`](../../tests/ch7/test_queue_size_wait_after_pop.sv) |キューサイズの変更は、ポップがキューを空にしたときに待ちを解除します| 7.10.2.7 | Verilator 5.052 ||
 | [`test_queue_ref_survives_unrelated_pop`](../../tests/ch7/test_queue_ref_survives_unrelated_pop.sv) |最後のキュー要素をポップすると、最初の要素へのリファレンスが保存されます。| 7.10.3 13.5.2 | Verilator 5.052 ||
 | [`test_queue_reference_persistence`](../../tests/ch7/test_queue_reference_persistence.sv) |タスクが保持するキュー要素へのリファレンスは、他のメソッドがキューを変更したときにその要素に残り、要素が削除されたり、キュー全体が割り当てられたときに時代遅れになります。| 7.10.3 13.5.2 7.10.2 |規格のみ||
@@ -459,8 +473,14 @@
 | [`test_illegal_assoc_array_rsort`](../../tests/ch7/test_illegal_assoc_array_rsort.sv) |ソートメソッド rsort() は連想配列に適用できません| 7.12.2 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_assoc_array_shuffle`](../../tests/ch7/test_illegal_assoc_array_shuffle.sv) |連想配列に shuffle() を適用できません| 7.12.2 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_assoc_array_sort`](../../tests/ch7/test_illegal_assoc_array_sort.sv) |ソートメソッド sort() は連想配列に適用できません| 7.12.2 | Verilator 5.052 |規格違反の設計|
+| [`test_illegal_reverse_result_as_value`](../../tests/ch7/test_illegal_reverse_result_as_value.sv) |配列の並べ替えメソッド reverse() は void を返すので、その呼び出しを値として使えない;その結果をキューに代入すると違反である| 7.12.2 |規格のみ|規格違反の設計|
+| [`test_illegal_reverse_with_clause`](../../tests/ch7/test_illegal_reverse_with_clause.sv) |配列の並べ替えメソッド reverse() に with 句を付けるとコンパイルエラーであり、同じ with 句を sort() に付けるのは合法である| 7.12.2 | Verilator 5.054 |規格違反の設計|
+| [`test_illegal_rsort_result_as_value`](../../tests/ch7/test_illegal_rsort_result_as_value.sv) |配列の並べ替えメソッド rsort() は void を返すので、その呼び出しを値として使えない;その結果をキューに代入すると違反である| 7.12.2 |規格のみ|規格違反の設計|
 | [`test_illegal_rsort_with_struct_expression`](../../tests/ch7/test_illegal_rsort_with_struct_expression.sv) |rsort() は with 条項がないときは要素のタイプに関係演算子を必要とし、あるときは with 表現のタイプに関係 演算子を必 要とします。構造型がunpackedの表現を持つ a はエラーである| 7.12.2 |規格のみ|規格違反の設計|
 | [`test_illegal_rsort_without_with`](../../tests/ch7/test_illegal_rsort_without_with.sv) |rsort() は with 条項がないときは要素のタイプに関係演算子を必要とし、あるときは with 表現のタイプに関係 演算子を必 要とします。構造要素のタイプが unpacked で with 条件がないと エラーになります| 7.12.2 |規格のみ|規格違反の設計|
+| [`test_illegal_shuffle_result_as_value`](../../tests/ch7/test_illegal_shuffle_result_as_value.sv) |配列の並べ替えメソッド shuffle() は void を返すので、その呼び出しを値として使えない;その結果をキューに代入すると違反である| 7.12.2 |規格のみ|規格違反の設計|
+| [`test_illegal_shuffle_with_clause`](../../tests/ch7/test_illegal_shuffle_with_clause.sv) |配列の並べ替えメソッド shuffle() に with 句を付けるとコンパイルエラーであり、同じ with 句を rsort() に付けるのは合法である| 7.12.2 | Verilator 5.054 |規格違反の設計|
+| [`test_illegal_sort_result_as_value`](../../tests/ch7/test_illegal_sort_result_as_value.sv) |配列の並べ替えメソッド sort() は void を返すので、その呼び出しを値として使えない;その結果をキューに代入すると違反である| 7.12.2 |規格のみ|規格違反の設計|
 | [`test_illegal_sort_with_struct_expression`](../../tests/ch7/test_illegal_sort_with_struct_expression.sv) |関係演算子は、with 条項がないときは要素のタイプ、あるときはその with 表現のタイプに関係する。構造型がunpackedの表現を持つ a はエラーである| 7.12.2 |規格のみ|規格違反の設計|
 | [`test_illegal_sort_without_with`](../../tests/ch7/test_illegal_sort_without_with.sv) |関係演算子は、with 条項がないときは要素のタイプ、あるときはその with 表現のタイプに関係する。構造要素のタイプが unpacked で with 条件がないと エラーになります| 7.12.2 |規格のみ|規格違反の設計|
 | [`test_real_queue_sort_min_max`](../../tests/ch7/test_real_queue_sort_min_max.sv) |realのキューに対するsort、rsort、min、maxは、要素の実数値を使って順序付ける| 7.12.2 7.12.1 | Verilator 5.052 ||

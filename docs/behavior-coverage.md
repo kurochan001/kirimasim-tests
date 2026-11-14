@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 90.74%、Ghostを除く実行 50.36%、Ghostを含む実行 77.79%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 91.06%、Ghostを除く実行 50.48%、Ghostを含む実行 77.94%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 90.74%。** 規格要求の実行確認率: Ghostを除いて 50.36%、Ghostを含めて 77.79%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 91.06%。** 規格要求の実行確認率: Ghostを除いて 50.48%、Ghostを含めて 77.94%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対する要求カバレッジ（テスト設計）: 11166/12305 (90.74%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9572/12305 (77.79%)。
-- 登録済みだがテスト未対応: 1139 動作。
+- 登録済み動作に対する要求カバレッジ（テスト設計）: 11205/12305 (91.06%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9590/12305 (77.94%)。
+- 登録済みだがテスト未対応: 1100 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。
 
@@ -33,13 +33,13 @@
 複数テストで一つの要求を分担する `check_groups` は、同じ実行環境・実行回で グループ内の全テストが成功した場合に限り成功とします。未指定の対応は独立した代替証拠です。
 
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12305 動作確認、古い入力との対応 0 件。
-- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3083/12305 動作確認、古い入力との対応 336 件。
-- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2988/12305 動作確認、古い入力との対応 336 件。
-- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3874/12305 動作確認、古い入力との対応 336 件。
-- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3586/12305 動作確認、古い入力との対応 25 件。
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7910/12305 動作確認、古い入力との対応 469 件。
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7990/12305 動作確認、古い入力との対応 405 件。
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7893/12305 動作確認、古い入力との対応 469 件。
+- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3086/12305 動作確認、古い入力との対応 337 件。
+- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2989/12305 動作確認、古い入力との対応 337 件。
+- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3877/12305 動作確認、古い入力との対応 337 件。
+- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3589/12305 動作確認、古い入力との対応 25 件。
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7913/12305 動作確認、古い入力との対応 470 件。
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7993/12305 動作確認、古い入力との対応 406 件。
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7896/12305 動作確認、古い入力との対応 470 件。
 - `oracle-tokens-2-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T22:25:00.780016+00:00` / 0/12305 動作確認、古い入力との対応 0 件。
 - `oracle-tokens-2-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T22:25:00.894678+00:00` / 0/12305 動作確認、古い入力との対応 0 件。
 - `oracle-tokens-2-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T22:25:01.564353+00:00` / 2/12305 動作確認、古い入力との対応 0 件。
@@ -60,6 +60,10 @@
 - `reqgap2-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T05:45:47.127832+00:00` / 8/12305 動作確認、古い入力との対応 0 件。
 - `reqgap2-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T05:45:18.982868+00:00` / 6/12305 動作確認、古い入力との対応 0 件。
 - `reqgap2-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T05:45:46.782913+00:00` / 6/12305 動作確認、古い入力との対応 0 件。
+- `reqgap3-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T08:09:22.791456+00:00` / 4/12305 動作確認、古い入力との対応 0 件。
+- `reqgap3-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T08:10:25.089652+00:00` / 5/12305 動作確認、古い入力との対応 0 件。
+- `reqgap3-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T08:09:50.844161+00:00` / 9/12305 動作確認、古い入力との対応 0 件。
+- `reqgap3-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T08:10:24.715784+00:00` / 9/12305 動作確認、古い入力との対応 0 件。
 - `runtime-errors-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-12T01:03:42.109814+00:00` / 0/12305 動作確認、古い入力との対応 0 件。
 - `runtime-errors-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-12T01:03:42.439195+00:00` / 1/12305 動作確認、古い入力との対応 0 件。
 - `runtime-errors-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T01:03:46.712402+00:00` / 1/12305 動作確認、古い入力との対応 0 件。
@@ -309,14 +313,14 @@
 - 3 Design and verification building blocks: 解釈保留なし 22/22、登録 146、テスト対応 124。
 - 4 Scheduling semantics: 解釈保留なし 40/40、登録 107、テスト対応 88。
 - 5 Lexical conventions: 解釈保留なし 21/21、登録 154、テスト対応 136。
-- 6 Data types: 解釈保留なし 92/92、登録 720、テスト対応 697。
-- 7 Aggregate data types: 解釈保留なし 61/61、登録 347、テスト対応 324。
-- 8 Classes: 解釈保留なし 49/49、登録 255、テスト対応 224。
+- 6 Data types: 解釈保留なし 92/92、登録 720、テスト対応 707。
+- 7 Aggregate data types: 解釈保留なし 61/61、登録 347、テスト対応 337。
+- 8 Classes: 解釈保留なし 49/49、登録 255、テスト対応 238。
 - 9 Processes: 解釈保留なし 34/34、登録 189、テスト対応 172。
 - 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 136。
 - 11 Operators and expressions: 解釈保留なし 55/55、登録 459、テスト対応 448。
 - 12 Procedural programming statements: 解釈保留なし 28/28、登録 115、テスト対応 101。
-- 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 120、テスト対応 98。
+- 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 120、テスト対応 100。
 - 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 84。
 - 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 74。
 - 16 Assertions: 解釈保留なし 82/82、登録 555、テスト対応 539。
@@ -5676,7 +5680,7 @@ byte 型のインデックス化を許すにもかかわらず，文字列は特
 
 ### SV2023-6.5-EXTRACT-INITIALIZATION-PROCEDURAL-CLASSIFICATION
 
-`6.5` / `error` / テスト未対応
+`6.5` / `error` / 実行確認あり
 
 宣言での変数の初期化と手続きの assign 文は手続き代入として数えるので、そのどちらかを持つ変数に連続代入でも書くと違反である。
 
@@ -5684,6 +5688,8 @@ byte 型のインデックス化を許すにもかかわらず，文字列は特
 
 規定の性質: `definition`。
 
+- [test_ch6_extra_decl_init_mixed_writers.sv](../tests/ch6/test_ch6_extra_decl_init_mixed_writers.sv): 23行目で v を初期化子つきで宣言し、24行目で v を連続代入の対象にする。23行目または24行目での拒否を照合する。
+- [test_ch6_extra_procedural_assign_mixed_writers.sv](../tests/ch6/test_ch6_extra_procedural_assign_mixed_writers.sv): 21行目で initial の中の手続きの assign 文が v に書き、22行目で v を連続代入の対象にする。21行目または22行目での拒否を照合する。
 
 ### SV2023-6.5-EXTRACT-INPUT-VARIABLE-DRIVER
 
@@ -10047,7 +10053,7 @@ putc(i,c) は i が範囲内で c がゼロでないときに i を置き換え�
 
 ### SV2023-6.16.2-EXTRACT-SIGNATURE
 
-`6.16.2` / `error` / テスト未対応
+`6.16.2` / `error` / テスト対応あり・実行未確認
 
 文字列のメソッド putc は void を返すので、その呼び出しを値（式のオペランドや代入の右辺）として使うと違反である。
 
@@ -10055,6 +10061,8 @@ putc(i,c) は i が範囲内で c がゼロでないときに i を置き換え�
 
 規定の性質: `definition`。
 
+- [test_illegal_string_putc_result_assigned.sv](../tests/ch6/test_illegal_string_putc_result_assigned.sv): 30行目で void メソッド putc の呼び出しを int r への代入の右辺に使い、その行での拒否を照合する。29行目の s.putc(0, "x") は文としての規格で認められる呼び出し。
+- [test_illegal_string_putc_result_in_expression.sv](../tests/ch6/test_illegal_string_putc_result_in_expression.sv): 29行目で putc の呼び出しを if 条件の == のオペランドに使い（代入なし）、その行での拒否を照合する。直前の s.putc(0, "x") は文としての規格で認められる呼び出し。
 
 ### SV2023-6.16.2-EXTRACT-ZERO-IGNORED
 
@@ -10661,7 +10669,7 @@ ASCII ASCII 変換の逆の方法として、bintoa はその引数の二進表�
 
 ### SV2023-6.16.15-EXTRACT-SIGNATURE
 
-`6.16.15` / `error` / テスト未対応
+`6.16.15` / `error` / テスト対応あり・実行未確認
 
 文字列のメソッド realtoa は void を返すので、その呼び出しを値（式のオペランドや代入の右辺）として使うと違反である。
 
@@ -10669,6 +10677,8 @@ ASCII ASCII 変換の逆の方法として、bintoa はその引数の二進表�
 
 規定の性質: `definition`。
 
+- [test_illegal_string_realtoa_result_assigned.sv](../tests/ch6/test_illegal_string_realtoa_result_assigned.sv): 29行目で void メソッド realtoa の呼び出しを int r への代入の右辺に使い、その行での拒否を照合する。28行目の s.realtoa(2.5) は文としての規格で認められる呼び出し。
+- [test_illegal_string_realtoa_result_in_expression.sv](../tests/ch6/test_illegal_string_realtoa_result_in_expression.sv): 28行目で realtoa の呼び出しを if 条件の == のオペランドに使い（代入なし）、その行での拒否を照合する。27行目の s.realtoa(2.5) は文としての規格で認められる呼び出し。
 
 ### SV2023-6.16.15-EXTRACT-STORE-TEXT
 
@@ -11144,7 +11154,7 @@ enum 符号化を自動的に増加させることは誤りである。
 
 ### SV2023-6.19-EXTRACT-POST-CAST-ENCODING
 
-`6.19` / `normal` / テスト未対応
+`6.19` / `normal` / 実行確認あり
 
 enum の名前の値は、符号化の式を基底型へ cast した後の値であり、次の暗黙に符号化される名前はその値に 1 を足したものになる。
 
@@ -11152,6 +11162,7 @@ enum の名前の値は、符号化の式を基底型へ cast した後の値で
 
 規定の性質: `mandatory`。
 
+- [test_enum_encoding_value_changed_by_cast.sv](../tests/ch6/test_enum_encoding_value_changed_by_cast.sv): 値の式がパラメータ（サイズつきリテラルではない）で、基底型への cast で値が変わる列挙名を4種類と、変わらない対照1種類を置き、各名前と続く値なしの名前を %0d で表示する。byte の -56 を bit \[7:0\] に → 200, 201, 202（符号の変更）、同じ byte を bit \[11:0\] に → 符号拡張で 4040, 4041、int unsigned の 32'hffff_fff0 を byte に → 落とすビットが符号ビットと等しい切り詰めで -16, -15、int の -3 を int unsigned に → 4294967293, 4294967294、対照として bit \[7:0\] の 8'hc8 を shortint に → ゼロ拡張で 200, 201。 区別: 6.19 B023 は値の式を基底型への cast の文脈で評価し、cast 後の値をその名前の値と次の名前の自動増分に使うとする。6.24.1 により cast の結果は基底型の変数に代入したときの値なので、符号つきの byte は 12 ビットへ符号拡張され、符号なしの式はゼロ拡張される。式の値をそのまま名前の値にする誤実装は1行目を -56 -55 -54、4行目を -3 -2 に、拡張を基底型の符号で決める誤実装は2行目を 200 201、5行目を -56 -55 にし、cast 前の値から数える誤実装は次の名前の範囲検査で 4294967281 や -55 を表現できないとして拒否するので、該当する行が変わるかコンパイルが失敗する。各行の2つ目以降の値は cast 後の値に1ずつ足した値で、自動増分が cast 後の値から始まることを示す。cast の一意性検査は SV2023-6.19-EXTRACT-UNIQUE-ENCODINGS に任されている。Icarus 13.0 は U12_A を負の値、S8_A を大きすぎる値として拒否し、Verilator 5.054 は2行目を 200 201 にする（同じ byte の代入や 12 ビット型への cast では 4040 にする）ので、oracle は spec だけ。
 
 ### SV2023-6.19-EXTRACT-SIGNED-RANGE-CHECK
 
@@ -11891,7 +11902,7 @@ localparam 宣言はパラメータポートリストにおいてもその値/�
 
 ### SV2023-6.20.1-EXTRACT-NO-IMPLICIT-INSTANTIATION
 
-`6.20.1` / `normal` / テスト未対応
+`6.20.1` / `normal` / 実行確認あり
 
 ツールは、既定値の無いパラメータを持つ設計要素を暗黙にインスタンス化しない。
 
@@ -11899,6 +11910,7 @@ localparam 宣言はパラメータポートリストにおいてもその値/�
 
 規定の性質: `mandatory`。
 
+- [test_param_without_default_module_not_top_level.sv](../tests/ch6/test_param_without_default_module_not_top_level.sv): どこからもインスタンス化されない6つのモジュールを置く。既定値の無いパラメータを持つ3つ（値パラメータ Q だけの _no_value、型パラメータ T だけの _no_type、既定値つき A の後に既定値の無い B を持つ _mixed）は時刻0に表示する initial（_no_value は final も）を持つ。対照の3つ（パラメータの無い _plain、値と型のパラメータがどちらも既定値を持つ _defaulted、主モジュール）は時刻1・2・3に表示する。期待出力は対照の3行 plain module: runs / defaulted module: D=4 bits of T=8 / main module: done だけで、既定値の無い3つのモジュールの行は無い。 区別: 6.20.1 B012 は既定値の無いパラメータを持つ設計要素をツールが暗黙にインスタンス化しないとし、23.3.1 はそれ以外のインスタンス化されないモジュールを暗黙のトップレベルインスタンスにする。既定値の無い3つのいずれかをトップレベルとして展開する誤実装は、その initial（または final）の行を出力に加えるか、パラメータに値が無いとして停止するので出力が変わる（Verilator 5.054 は実際に _no_value をトップとして展開し Q に値が無いとして停止する）。最初のパラメータだけを見る誤実装は _mixed の行を出し、値パラメータだけを見る誤実装は _no_type でエラーか行を出す。対照の _plain と _defaulted の行があるので、インスタンス化されないモジュールを1つしかトップにしない、あるいはどれもトップにしない実装との区別もつき、表示が無いことの原因がパラメータの既定値の有無だと分かる。表示時刻はすべて異なり、順序は規格で決まる。
 
 ### SV2023-6.20.1-EXTRACT-OPTIONAL-PARAMETER-KEYWORD
 
@@ -12312,7 +12324,7 @@ localparam defparamとインスタンスパラメータ代入は直接変更で�
 
 ### SV2023-6.20.5-EXTRACT-DISTINCT-DECLARATION-KEYWORDS
 
-`6.20.5` / `error` / テスト未対応
+`6.20.5` / `error` / 実行確認あり
 
 specify パラメータは specparam で、通常のパラメータは parameter で宣言する;specify ブロックの中の parameter 宣言は違反である。
 
@@ -12320,6 +12332,7 @@ specify パラメータは specparam で、通常のパラメータは parameter
 
 規定の性質: `definition`。
 
+- [test_illegal_parameter_in_specify_block.sv](../tests/ch6/test_illegal_parameter_in_specify_block.sv): specify ブロックの中（23行目）に parameter tP = 2 を宣言し、同じブロックの規格で認められるパス遅延 (a =\> y) = 1 は残したまま、23行目での拒否を照合する。 区別: 6.20.5 の表 6-11 は specparam を specparam キーワードで、parameter を parameter キーワードで宣言し、parameter は specify ブロックの外で宣言するとしており、30.3 の specify_item にも parameter 宣言は無い。specify ブロックの中では parameter を specparam と同じに扱う（キーワードを区別しない）誤実装はこの設計を受理してテストが失敗する。違反はこの1行だけで、それを specparam に変えれば規格で認められる設計になる。Icarus 13.0 は23行目を構文エラーとして報告し、Verilator 5.054 は specify ブロックを未対応として無視して受理する（oracle は spec iverilog@13.0）。
 
 ### SV2023-6.20.5-EXTRACT-FIXED-SPECPARAM-RANGE
 
@@ -12383,7 +12396,7 @@ localparam 値表現は specparams を含めません。
 
 ### SV2023-6.20.5-EXTRACT-SDF-ONLY-OVERRIDE
 
-`6.20.5` / `error` / テスト未対応
+`6.20.5` / `error` / テスト対応あり・実行未確認
 
 specparam は言語の中からは変更できないので、 specparam を対象とする defparam 文や、インスタンスの名前によるパラメータ値の指定は違反である。
 
@@ -12391,6 +12404,8 @@ specparam は言語の中からは変更できないので、 specparam を対�
 
 規定の性質: `mandatory`。
 
+- [test_ch6_extra_defparam_specparam.sv](../tests/ch6/test_ch6_extra_defparam_specparam.sv): 子モジュールで specparam tpd = 1 を宣言し、27行目の defparam u.tpd = 2 がそれを対象にする。27行目での拒否を照合する。
+- [test_illegal_named_parameter_value_for_specparam.sv](../tests/ch6/test_illegal_named_parameter_value_for_specparam.sv): セルに parameter int P = 1 と specparam tpd = 1 を宣言し、31行目の u1 は #(.P(2)) で P を名前で変え（合法）、32行目の u2 は #(.tpd(2)) で specparam を名前で指定する。32行目での拒否を照合する。
 
 ### SV2023-6.20.5-EXTRACT-SPECPARAM-BEFORE-REFERENCE
 
@@ -12469,7 +12484,7 @@ specparam はモジュールボディまたは指定ブロックのみで宣言�
 
 ### SV2023-6.20.6-EXTRACT-CONST-HANDLE-MEMBERS-WRITABLE
 
-`6.20.6` / `normal` / テスト未対応
+`6.20.6` / `normal` / 実行確認あり
 
 const のクラスハンドルが指すオブジェクトのメンバーは書き込める。ただし、それ自体が const と宣言されたメンバーは除く。
 
@@ -12477,10 +12492,11 @@ const のクラスハンドルが指すオブジェクトのメンバーは書�
 
 規定の性質: `mandatory`。
 
+- [test_const_runtime_automatic_and_class_handle.sv](../tests/ch6/test_const_runtime_automatic_and_class_handle.sv): const のクラスハンドル obj を new(5) で作り（メンバ n は const でない int で 5）、obj.n = obj.n + 1 と obj.n++ でハンドルを通してメンバを2回書いてから、同じハンドルで読んだ obj.n を表示する。期待出力の obj.n=7 と比べる。 区別: 6.20.6 B008 は const ハンドルが指すオブジェクトのメンバは（const で宣言したもの以外）書けるとする。const をハンドルからメンバへ広げる誤実装は obj.n への書き込みを拒否してコンパイルに失敗し（Icarus 13.0 は実際に Assignment to const signal で拒否する）、書き込みを黙って捨てる誤実装は obj.n=5、どちらか一方だけを反映する誤実装は obj.n=6 を表示するので、最後の行が変わる。初期値 5 と2回の増分の結果 7 は異なるので、後の読み出しでオブジェクトが変わったことが区別できる。const プロパティへの書き込みは 8.19 の行に任されている。
 
 ### SV2023-6.20.6-EXTRACT-CONST-HANDLE-NO-WRITE
 
-`6.20.6` / `error` / テスト未対応
+`6.20.6` / `error` / 実行確認あり
 
 const のクラスハンドルは書き込めない変数のように振る舞うので、宣言の後でそれに代入すると違反である。
 
@@ -12488,6 +12504,7 @@ const のクラスハンドルは書き込めない変数のように振る舞�
 
 規定の性質: `mandatory`。
 
+- [test_ch6_extra_const_handle_write.sv](../tests/ch6/test_ch6_extra_const_handle_write.sv): 29行目で const のクラスハンドル obj を宣言の初期化子 new() で設定し、30行目の initial obj = new() で宣言の後にそのハンドルへ別のオブジェクトを代入する。30行目での拒否を照合する。 区別: 6.20.6 B008 は const で宣言したオブジェクトハンドルを書き込めない変数のように扱う。const をクラスハンドルに対して無視する、またはメンバの書き込みと同じく許す誤実装はこの設計を受理してテストが失敗し、宣言の初期化子まで書き込みとして拒否する誤実装は29行目で報告して行番号が合わない。違反は30行目の1つだけで、その行を除けば規格で認められる設計になる。Icarus 13.0 と Verilator 5.054 はどちらも30行目を const への書き込みとして拒否する（Verilator は CONSTWRITTEN で 6.20.6 を挙げる）。
 
 ### SV2023-6.20.6-EXTRACT-CONST-RUNTIME
 
@@ -13163,7 +13180,7 @@ bitカウント，2／4状態領域および符号性が一致するとき，パ
 
 ### SV2023-6.22.3-EXTRACT-DIRECTIONAL-COMPATIBILITY
 
-`6.22.3` / `error` / テスト未対応
+`6.22.3` / `error` / 実行確認あり
 
 代入互換性は一方向だけに成り立つことがある: enum は cast なしで整数型に変換されるが、整数の値を cast なしで enum に代入すると違反である。
 
@@ -13171,6 +13188,7 @@ bitカウント，2／4状態領域および符号性が一致するとき，パ
 
 規定の性質: `definition`。
 
+- [test_illegal_enum_assigned_base_vector_without_cast.sv](../tests/ch6/test_illegal_enum_assigned_base_vector_without_cast.sv): 基底型 bit \[1:0\] の enum state_t の変数 s と、同じ型 bit \[1:0\] の変数 b について、26行目の b = s（enum から整数型、cast なし）と27行目の s = state_t'(b)（cast あり）は規格で認められる対照、28行目の s = b（整数型から enum、cast なし、値 1 は RUN と一致）が違反。28行目での拒否を照合する。 区別: 6.22.3 B004 は代入互換が一方向だけのことがあり、enum は cast なしで整数型に変換できるが逆はできないとする。整数型どうしと同じく整数から enum への代入も互換とみなす（方向を区別しない）誤実装、整数式の型が基底型と同じなら許す誤実装、値が列挙名に一致すれば許す誤実装はいずれもこの設計を受理してテストが失敗する。逆に enum から整数への代入まで拒否する誤実装は26行目で、cast つきの代入を拒否する誤実装は27行目で報告して行番号が合わない。違反を除いた設計は Icarus 13.0 と Verilator 5.054 で受理され 1 を表示することを確認した。両者とも28行目を明示の cast が必要（Icarus）、bit\[1:0\] から enum への暗黙の変換（Verilator ENUMVALUE）として拒否する。
 
 ### SV2023-6.22.3-EXTRACT-INTEGRAL-COMPATIBILITY
 
@@ -14365,7 +14383,7 @@ packed unpacked 構造の個々の部材のデフォルトは，ユニオンを�
 
 ### SV2023-7.3-EXTRACT-AGGREGATE-FOOTNOTES
 
-`7.3` / `error` / テスト未対応
+`7.3` / `error` / テスト対応あり・実行未確認
 
 packed キーワードの無い struct に packed 次元を付けること、soft も packed も無い union に packed 次元を付けること、タグ付きでない共用体の void メンバー、 unpacked 構造体の外での rand または randc のメンバー修飾は違反である。
 
@@ -14373,6 +14391,10 @@ packed キーワードの無い struct に packed 次元を付けること、sof
 
 規定の性質: `definition`。
 
+- [test_illegal_struct_packed_dimension_needs_packed.sv](../tests/ch7/test_illegal_struct_packed_dimension_needs_packed.sv) : 合法部分は struct packed { bit \[ 1:0 \] hi;bit \[ 1:0 \] lo;} \[ 2:0 \] ok に 12'hd36 を代入して 12 3 2 を表示し、 33 行目で packed のない同じ struct に \[ 2:0 \] を付けた変数 bad を宣言する。: expected_stderr_regex : は 33 行目を指す。
+- [test_illegal_union_packed_dimension_needs_soft_or_packed.sv](../tests/ch7/test_illegal_union_packed_dimension_needs_soft_or_packed.sv): 合法部分は union packed {...} \[2:0\] okp（12 7 1）と union soft {...} \[1:0\] oks（12 44 5）を表示し、40 行目で soft も packed もない union に \[1:0\] を付けた変数 bad を宣言する。:expected_stderr_regex: は 40 行目を指す。
+- [test_illegal_void_member_outside_tagged_union.sv](../tests/ch7/test_illegal_void_member_outside_tagged_union.sv) : 合法部分は void のない untagged union ok の count に 12 を書いて表示し、 33 行目で tagged でない union { int count;void nothing;} bad を宣言する。: expected_stderr_regex : は 33 行目を指す。
+- [test_illegal_randc_member_in_packed_union.sv](../tests/ch7/test_illegal_randc_member_in_packed_union.sv): 合法部分は randc メンバーを持つ unpacked struct ok と修飾子のない packed union okp を使って 6 11 9 を表示し、35 行目で okp と同じ packed union のメンバー a に randc を付けた変数 bad を宣言する。:expected_stderr_regex: は 35 行目を指す。
 
 ### SV2023-7.3-EXTRACT-COMMON-INITIAL-SEQUENCE
 
@@ -15817,7 +15839,7 @@ int を返す引数なしのメソッドである。
 
 ### SV2023-7.5.3-EXTRACT-SIGNATURE
 
-`7.5.3` / `error` / テスト未対応
+`7.5.3` / `error` / テスト対応あり・実行未確認
 
 動的配列のメソッド delete は void を返すので、その呼び出しを値（式のオペランドや代入の右辺）として使うと違反である。
 
@@ -15825,6 +15847,7 @@ int を返す引数なしのメソッドである。
 
 規定の性質: `definition`。
 
+- [test_illegal_dynamic_array_delete_result_as_value.sv](../tests/ch7/test_illegal_dynamic_array_delete_result_as_value.sv): 合法部分で動的配列 d の d.delete() を文として呼び、呼ぶ前と後の大きさ（3 0）を表示する。最後の文 n = d.delete(); で void の delete() の呼び出しを int 変数への代入の右辺（値）に使う。:expected_stderr_regex: はこの 34 行目を指す。違反はこの1つだけで、この行を除いた設計は Icarus 13.0 と Verilator 5.054 で 3 0 を表示して通る。 区別: 動的配列の delete() が値（例えば削除前の大きさ）を返すと実装した、または void メソッドの呼び出しを式で使うことを検査しない誤実装は 34 行目を受理し、エラーが出ないのでテストは不合格になる。delete() を文として呼ぶ合法部分があるので、delete 自体を未対応として拒否する実装とも区別できる。
 
 ### SV2023-7.6-EXTRACT-ASSOCIATIVE-ONLY-ASSOCIATIVE
 
@@ -16152,7 +16175,7 @@ DPI 出力形式に動的配列やキュー実体を渡すことはできない�
 
 ### SV2023-7.8-EXTRACT-UNPACKED-ELEMENT-EXPRESSION
 
-`7.8` / `error` / テスト未対応
+`7.8` / `error` / 実行確認あり
 
 連想配列の要素は unpacked なので、配列全体のコピーと比較を除き、式で使う前に要素を選択しなければならない;連想配列全体を算術演算子やビット演算子のオペランドに使うと違反である。
 
@@ -16160,6 +16183,8 @@ DPI 出力形式に動的配列やキュー実体を渡すことはできない�
 
 規定の性質: `definition`。
 
+- [test_illegal_assoc_array_arithmetic_operand.sv](../tests/ch7/test_illegal_assoc_array_arithmetic_operand.sv): c = m、c == m、m\[7\] + 1 で 2 1 10 を表示した後、38 行目 r = m + 1; で連想配列 m 全体を + のオペランドにする。:expected_stderr_regex: は 38 行目を指す。
+- [test_illegal_assoc_array_bitwise_operand.sv](../tests/ch7/test_illegal_assoc_array_bitwise_operand.sv): c = m、c == m、m\[3\] & 12 で 2 1 4 を表示した後、38 行目 r = m & 12; で連想配列 m 全体を & のオペランドにする。:expected_stderr_regex: は 38 行目を指す。
 
 ### SV2023-7.8-EXTRACT-WILDCARD-ARBITRARY-WIDTH
 
@@ -16644,7 +16669,7 @@ delete(index) は指定されたエントリを削除します。欠けている
 
 ### SV2023-7.9.2-EXTRACT-SIGNATURE
 
-`7.9.2` / `error` / テスト未対応
+`7.9.2` / `error` / テスト対応あり・実行未確認
 
 連想配列のメソッド delete は、添字の有無にかかわらず void を返すので、その呼び出しを値（式のオペランドや代入の右辺）として使うと違反である。
 
@@ -16652,6 +16677,8 @@ delete(index) は指定されたエントリを削除します。欠けている
 
 規定の性質: `definition`。
 
+- [test_illegal_assoc_delete_index_result_as_value.sv](../tests/ch7/test_illegal_assoc_delete_index_result_as_value.sv): m\[1..3\] を書いて m.delete(2) を文として呼び、num()・exists(2)・m\[3\]（2 0 30）を表示した後、38 行目 n = m.delete(1); で添字ありの delete() の呼び出しを値として代入する。:expected_stderr_regex: は 38 行目を指す。
+- [test_illegal_assoc_delete_all_result_as_value.sv](../tests/ch7/test_illegal_assoc_delete_all_result_as_value.sv): m\[1..3\] を書いて m.delete() を文として呼び、前後の num()（3 0）を表示した後、39 行目 n = m.delete(); で添字なしの delete() の呼び出しを値として代入する。:expected_stderr_regex: は 39 行目を指す。
 
 ### SV2023-7.9.3-EXTRACT-EXISTS-RESULT
 
@@ -17372,7 +17399,7 @@ Queue size() は、空の場合を含めて、現在の要素数を返します�
 
 ### SV2023-7.10.2.2-EXTRACT-SIGNATURE
 
-`7.10.2.2` / `error` / テスト未対応
+`7.10.2.2` / `error` / テスト対応あり・実行未確認
 
 キューのメソッド insert は void を返すので、その呼び出しを値（式のオペランドや代入の右辺）として使うと違反である。
 
@@ -17380,6 +17407,7 @@ Queue size() は、空の場合を含めて、現在の要素数を返します�
 
 規定の性質: `definition`。
 
+- [test_illegal_queue_insert_result_as_value.sv](../tests/ch7/test_illegal_queue_insert_result_as_value.sv): 合法部分で q.insert(1, 20) を文として呼んで q の大きさと要素（3 10 20 30）を表示し、最後の文 n = q.insert(0, 5); で void の insert() の呼び出しを int 変数への代入の右辺（値）に使う。:expected_stderr_regex: はこの 33 行目でのエラーを要求する。違反はこの1つだけで、この行を除いた設計は Icarus 13.0 と Verilator 5.054 で 3 10 20 30 を表示して通ることを確かめた。 区別: insert() を値を返す関数（例えば新しい大きさや挿入した要素を返す）として実装した、あるいは void メソッドの呼び出しを式で使うことを検査しない誤実装は 33 行目を受理するので、エラーが出ずテストは不合格になる。insert() を文として呼ぶ合法部分は残すので、insert 自体を未対応として拒否する実装とも区別できる（Icarus 13.0 の『queue のメソッドではない』という診断は存在しない名前と同じ文言なので数えていない）。
 
 ### SV2023-7.10.2.3-EXTRACT-DELETE-ALL
 
@@ -17421,7 +17449,7 @@ Queue size() は、空の場合を含めて、現在の要素数を返します�
 
 ### SV2023-7.10.2.3-EXTRACT-SIGNATURE
 
-`7.10.2.3` / `error` / テスト未対応
+`7.10.2.3` / `error` / テスト対応あり・実行未確認
 
 キューのメソッド delete は、添字の有無にかかわらず void を返すので、その呼び出しを値（式のオペランドや代入の右辺）として使うと違反である。
 
@@ -17429,6 +17457,8 @@ Queue size() は、空の場合を含めて、現在の要素数を返します�
 
 規定の性質: `definition`。
 
+- [test_illegal_queue_delete_index_result_as_value.sv](../tests/ch7/test_illegal_queue_delete_index_result_as_value.sv): q.delete(1) を文として呼んで 2 10 30 を表示した後、34 行目 n = q.delete(0); で添字ありの delete() の呼び出しを値として代入する。:expected_stderr_regex: は 34 行目を指す。
+- [test_illegal_queue_delete_all_result_as_value.sv](../tests/ch7/test_illegal_queue_delete_all_result_as_value.sv): q.delete() を文として呼んで大きさ 3 0 を表示した後、37 行目 n = q.delete(); で添字なしの delete() の呼び出しを値として代入する。:expected_stderr_regex: は 37 行目を指す。
 
 ### SV2023-7.10.2.4-EXTRACT-EMPTY-POP
 
@@ -17516,7 +17546,7 @@ push_front (item) はキューの前にアイテムを挿入する。
 
 ### SV2023-7.10.2.6-EXTRACT-SIGNATURE
 
-`7.10.2.6` / `error` / テスト未対応
+`7.10.2.6` / `error` / テスト対応あり・実行未確認
 
 キューのメソッド push_front は void を返すので、その呼び出しを値（式のオペランドや代入の右辺）として使うと違反である。
 
@@ -17524,6 +17554,7 @@ push_front (item) はキューの前にアイテムを挿入する。
 
 規定の性質: `definition`。
 
+- [test_illegal_queue_push_front_result_as_value.sv](../tests/ch7/test_illegal_queue_push_front_result_as_value.sv): 合法部分で q.push_front(10) を文として呼んで q の大きさと要素（3 10 20 30）を表示し、最後の文 n = q.push_front(5); で void の push_front() の呼び出しを int 変数への代入の右辺（値）に使う。:expected_stderr_regex: はこの 33 行目を指す。違反はこの1つだけで、この行を除いた設計は Icarus 13.0 と Verilator 5.054 で 3 10 20 30 を表示して通る。 区別: push_front() が新しい大きさなどの値を返すと実装した、または void メソッドの呼び出しを式で使うことを検査しない誤実装は 33 行目を受理し、エラーが出ないのでテストは不合格になる。push_front() を文として呼ぶ合法部分があるので、push_front 自体を未対応として拒否する実装とも区別できる。
 
 ### SV2023-7.10.2.7-EXTRACT-PUSH
 
@@ -17539,7 +17570,7 @@ push_back (item) はキューの後ろにアイテムを挿入する。
 
 ### SV2023-7.10.2.7-EXTRACT-SIGNATURE
 
-`7.10.2.7` / `error` / テスト未対応
+`7.10.2.7` / `error` / テスト対応あり・実行未確認
 
 キューのメソッド push_back は void を返すので、その呼び出しを値（式のオペランドや代入の右辺）として使うと違反である。
 
@@ -17547,6 +17578,7 @@ push_back (item) はキューの後ろにアイテムを挿入する。
 
 規定の性質: `definition`。
 
+- [test_illegal_queue_push_back_result_as_value.sv](../tests/ch7/test_illegal_queue_push_back_result_as_value.sv): 合法部分で q.push_back(30) を文として呼んで q の大きさと要素（3 10 20 30）を表示し、最後の文 n = q.push_back(40); で void の push_back() の呼び出しを int 変数への代入の右辺（値）に使う。:expected_stderr_regex: はこの 33 行目を指す。違反はこの1つだけで、この行を除いた設計は Icarus 13.0 と Verilator 5.054 で 3 10 20 30 を表示して通る。 区別: push_back() が新しい大きさなどの値を返すと実装した、または void メソッドの呼び出しを式で使うことを検査しない誤実装は 33 行目を受理し、エラーが出ないのでテストは不合格になる。push_back() を文として呼ぶ合法部分があるので、push_back 自体を未対応として拒否する実装とも区別できる。
 
 ### SV2023-7.10.2.7-SIZE-WAIT-BLOCKED
 
@@ -18104,7 +18136,7 @@ unique_index () は表現値の異なる値ごとに代表的なソースイン�
 
 ### SV2023-7.12.2-EXTRACT-ORDERING-SIGNATURE
 
-`7.12.2` / `error` / テスト未対応
+`7.12.2` / `error` / テスト対応あり・実行未確認
 
 配列の並べ替えメソッド（reverse、sort、rsort、shuffle）はどれも void を返すので、その呼び出しを値（式のオペランドや代入の右辺）として使うと違反である。
 
@@ -18112,10 +18144,14 @@ unique_index () は表現値の異なる値ごとに代表的なソースイン�
 
 規定の性質: `definition`。
 
+- [test_illegal_reverse_result_as_value.sv](../tests/ch7/test_illegal_reverse_result_as_value.sv): q.reverse() を文として呼んで 2 1 3 を表示した後、35 行目 r = q.reverse(); で reverse() の呼び出しをキュー r への代入の値に使う。:expected_stderr_regex: は 35 行目を指す。
+- [test_illegal_sort_result_as_value.sv](../tests/ch7/test_illegal_sort_result_as_value.sv): q.sort() を文として呼んで 1 2 3 を表示した後、35 行目 r = q.sort(); で sort() の呼び出しをキュー r への代入の値に使う。:expected_stderr_regex: は 35 行目を指す。
+- [test_illegal_rsort_result_as_value.sv](../tests/ch7/test_illegal_rsort_result_as_value.sv): q.rsort() を文として呼んで 3 2 1 を表示した後、35 行目 r = q.rsort(); で rsort() の呼び出しをキュー r への代入の値に使う。:expected_stderr_regex: は 35 行目を指す。
+- [test_illegal_shuffle_result_as_value.sv](../tests/ch7/test_illegal_shuffle_result_as_value.sv): q.shuffle() を文として呼び、並びは不定なので sort() してから大きさと要素 3 1 2 3 を表示した後、37 行目 r = q.shuffle(); で shuffle() の呼び出しをキュー r への代入の値に使う。:expected_stderr_regex: は 37 行目を指す。
 
 ### SV2023-7.12.2-EXTRACT-REVERSE
 
-`7.12.2` / `normal` / テスト未対応
+`7.12.2` / `normal` / 実行確認あり
 
 reverse() は配列の要素の順を逆にする。
 
@@ -18123,10 +18159,11 @@ reverse() は配列の要素の順を逆にする。
 
 規定の性質: `mandatory`。
 
+- [test_array_ordering_methods_with_and_iterator.sv](../tests/ch7/test_array_ordering_methods_with_and_iterator.sv): 固定長配列 f \[1:4\] を sort() で 1 3 6 8 にした後 f.reverse() し、f\[1\]〜f\[4\] をすべて表示する（期待 8 6 3 1）。文字列キュー s を長さで並べて fig pear apple にした後 s.reverse し、3要素すべてを表示する（期待 apple pear fig）。直前の行で反転前の並びも表示しているので、偶数個（4）と奇数個（3）の配列で、反転後の各位置が反転前の鏡像の位置の値を持つことを全位置で比べている。 区別: 反転しない、両端だけを入れ替える（f が 8 3 6 1 になる）、1つずらす（回転）、添字の向きを誤る、などの誤実装では f.reverse() または s.reverse の行の値が変わる。s の反転前の並び fig pear apple は値の昇順でも降順でもないので、reverse を sort/rsort と取り違えた実装でも s.reverse の行が apple fig pear または pear fig apple になって一致しない。
 
 ### SV2023-7.12.2-EXTRACT-REVERSE-NO-WITH
 
-`7.12.2` / `error` / テスト未対応
+`7.12.2` / `error` / 実行確認あり
 
 reverse() に with 句を付けるとコンパイルエラーである。
 
@@ -18134,6 +18171,7 @@ reverse() に with 句を付けるとコンパイルエラーである。
 
 規定の性質: `mandatory`。
 
+- [test_illegal_reverse_with_clause.sv](../tests/ch7/test_illegal_reverse_with_clause.sv): キュー q={1,3,2} を q.sort() with (-item) で並べて 3 2 1、with 句のない q.reverse() で 1 2 3 を表示した後、33 行目 q.reverse() with (-item); で sort() が受け付けたのと同じ with 句を reverse() に付ける。:expected_stderr_regex: はこの 33 行目を指す。違反はこの1つだけで、この行を除いた設計は Verilator 5.054 で 3 2 1 / 1 2 3 を表示して通る。Verilator 5.054 は 33 行目を『with はこのメソッドに使えない』として拒否する。 区別: with 句を reverse() でも sort() と同様に受理する（無視する、またはキーとして解釈する）誤実装は 33 行目でエラーを出さず、テストは不合格になる。同じ with 句が sort() では合法に受理され、with のない reverse() も受理されることを合法部分で示しているので、with 句全般や reverse 自体を拒否する実装とは区別される。
 
 ### SV2023-7.12.2-EXTRACT-RSORT
 
@@ -18162,7 +18200,7 @@ rsort() は with 表現または with が正式に省略されている場合の
 
 ### SV2023-7.12.2-EXTRACT-SHUFFLE
 
-`7.12.2` / `normal` / テスト未対応
+`7.12.2` / `normal` / 実行確認あり
 
 shuffle() は配列の要素の順を乱数で並べ替えるので、結果は元の要素の並べ替えである。
 
@@ -18170,10 +18208,11 @@ shuffle() は配列の要素の順を乱数で並べ替えるので、結果は�
 
 規定の性質: `mandatory`。
 
+- [test_array_ordering_methods_with_and_iterator.sv](../tests/ch7/test_array_ordering_methods_with_and_iterator.sv): 動的配列 sh = {1,2,...,8}（8個の異なる値）を sh.shuffle() し、直後に大きさと総和（size=8 sum=36）を表示し、さらに sort() して8要素すべて（1 2 3 4 5 6 7 8）を表示する。乱数で決まる並びそのものは表示しない。並べ直した結果が元の値の列と同じであることで、shuffle 後の配列が元と同じ大きさで同じ値の多重集合を持つ（元の要素の並べ替えである）ことを比べている。 区別: 要素を失う・重複させる・別の値で埋める・大きさを変える誤実装では、size=8 の行か sorted again の行の値が変わる（元の値がすべて異なるので、多重集合が1つでも変われば並べ直した8個の列が 1〜8 と一致しない）。総和だけでなく全要素を比べるので、総和が偶然同じ別の多重集合にも気付く。順序に依存する値は出力しないので、正しい実装なら乱数の結果によらず同じ出力になる。
 
 ### SV2023-7.12.2-EXTRACT-SHUFFLE-NO-WITH
 
-`7.12.2` / `error` / テスト未対応
+`7.12.2` / `error` / 実行確認あり
 
 shuffle() に with 句を付けるとコンパイルエラーである。
 
@@ -18181,6 +18220,7 @@ shuffle() に with 句を付けるとコンパイルエラーである。
 
 規定の性質: `mandatory`。
 
+- [test_illegal_shuffle_with_clause.sv](../tests/ch7/test_illegal_shuffle_with_clause.sv): キュー q={2,3,1} を q.rsort() with (-item) で並べて 1 2 3 を表示し、with 句のない q.shuffle() の後に sort() して大きさと要素 3 1 2 3 を表示した後、36 行目 q.shuffle() with (-item); で rsort() が受け付けたのと同じ with 句を shuffle() に付ける。:expected_stderr_regex: はこの 36 行目を指す。違反はこの1つだけで、この行を除いた設計は Verilator 5.054 で通る。Verilator 5.054 は 36 行目を『with はこのメソッドに使えない』として拒否する。 区別: with 句を shuffle() でも受理する（無視する、または並べ替えのキーとして使う）誤実装は 36 行目でエラーを出さず、テストは不合格になる。同じ with 句が rsort() では受理され、with のない shuffle() も受理されることを合法部分で示しているので、with 句全般や shuffle 自体を拒否する実装とは区別される。乱数の並びは出力しない。
 
 ### SV2023-7.12.2-EXTRACT-SORT
 
@@ -18509,7 +18549,7 @@ output/inout /ref オブジェクト引数の場合、 渡された変数また�
 
 ### SV2023-8.3-EXTRACT-CLASS-BODY-LOCALPARAM
 
-`8.3` / `normal` / テスト未対応
+`8.3` / `normal` / テスト対応あり・実行未確認
 
 クラス項目として宣言されたパラメータはlocalparam である。
 
@@ -18517,6 +18557,7 @@ output/inout /ref オブジェクト引数の場合、 渡された変数また�
 
 規定の性質: `mandatory`。
 
+- [test_class_body_parameters_local_vpi.sv](../tests/ch8/test_class_body_parameters_local_vpi.sv): パラメータポートリストを持つ ported_c の本体で parameter キーワードにより値パラメータ B、一つの宣言の C1 と C2、型パラメータ BT を宣言し、localparam L も宣言する。ポートリストのない plain_c の本体で parameter の N と型の NT を宣言する。VPI アプリケーションが各クラス defn の vpiParameter を名前順に列挙し vpiLocalParam を表示し、本体の B、BT、C1、C2、L、N、NT が local 1、ポートリストの P と PT が local 0 になる。 区別: クラス本体の parameter 宣言を上書き可能なパラメータとして扱う実装は B、BT、C1、C2、N、NT の local を 0 と表示し期待出力と変わる。ポートリストの P、PT（local 0）と明示的な localparam L（local 1）が対照になる。値と型の両方の宣言、ポートリストのあるクラスとないクラスの両方で確かめている。
 
 ### SV2023-8.3-EXTRACT-CLASS-DECLARATION
 
@@ -18851,7 +18892,7 @@ SV クラスのインスタンスはチャンドルではなくオブジェク�
 
 ### SV2023-8.5-EXTRACT-HANDLE-PARAMETER-NONCONSTANT
 
-`8.5` / `error` / テスト未対応
+`8.5` / `error` / テスト対応あり・実行未確認
 
 オブジェクトハンドルを通して値パラメータや局所値パラメータを読む式は定数式ではないので、定数式が必要な場所で使うと違反である。
 
@@ -18859,6 +18900,7 @@ SV クラスのインスタンスはチャンドルではなくオブジェク�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_handle_parameter_in_packed_dimension.sv](../tests/ch8/test_illegal_handle_parameter_in_packed_dimension.sv): モジュールの変数 bad のパックド次元の境界に、ハンドル g（gauge_c#(3)）経由の値パラメータ g.WIDTH を使う（34 行目）。定数式が必要な場所なので 34 行目での拒否を照合する。$display で g.WIDTH と g.TOP を読むことと、ok のパックド次元に gauge_c#(3)::WIDTH を使うことは合法で、違反を除くと 3 7 3 を表示する。 区別: ハンドル経由のパラメータ参照を定数式として扱う実装（クラス型から値が静的に分かるため）は、34 行目を受理して 3 ビットの bad を作り、エラーが出ず照合に失敗する。クラススコープ演算子による定数式 ok は対照として合法である。
 
 ### SV2023-8.5-EXTRACT-NO-HANDLE-TYPE-ACCESS
 
@@ -18888,7 +18930,7 @@ SV クラスのインスタンスはチャンドルではなくオブジェク�
 
 ### SV2023-8.5-EXTRACT-VALUE-PARAMETER-HANDLE
 
-`8.5` / `normal` / テスト未対応
+`8.5` / `normal` / 実行確認あり
 
 クラスの値パラメータや局所値パラメータは、その名前をオブジェクトハンドルで修飾して読める。
 
@@ -18896,6 +18938,7 @@ SV クラスのインスタンスはチャンドルではなくオブジェク�
 
 規定の性質: `mandatory`。
 
+- [test_class_value_parameters_through_handles.sv](../tests/ch8/test_class_value_parameters_through_handles.sv): gauge_c の値パラメータ WIDTH とローカル値パラメータ TOP（= 2^WIDTH - 1）を、3 つの特殊化 gauge_c#(3)、既定の gauge_c、gauge_c#(.WIDTH(6)) のハンドル g3、g4、g6 で修飾して読み、g3: WIDTH=3 TOP=7、g4: WIDTH=4 TOP=15、g6: WIDTH=6 TOP=63 を表示する。さらに g3.TOP + g6.WIDTH * g4.reading をプロパティと混ぜた式で計算し sum=19 を表示する。 区別: ハンドルのクラス（特殊化）ではなく既定値や別の特殊化の値を返す実装は、g3 や g6 の行で 4/15 などを表示し期待出力と変わる。TOP を WIDTH から計算し直さない実装は TOP の値が変わる。ハンドル修飾でパラメータを読めない実装はコンパイルできない。
 
 ### SV2023-8.6-EXTRACT-AUTOMATIC-METHOD-LIFETIME
 
@@ -19000,7 +19043,7 @@ SV クラスのインスタンスはチャンドルではなくオブジェク�
 
 ### SV2023-8.7-EXTRACT-CONSTRUCTOR-NO-TIMING
 
-`8.7` / `error` / テスト未対応
+`8.7` / `error` / 実行確認あり
 
 new は関数でありブロックできないので、コンストラクタの中の遅延制御・イベント制御・wait 文は違反である。
 
@@ -19008,6 +19051,9 @@ new は関数でありブロックできないので、コンストラクタの�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_constructor_delay_control.sv](../tests/ch8/test_illegal_constructor_delay_control.sv): slow_c のコンストラクタ本体の #1 v = x;（36 行目）を遅延制御の違反として 36 行目での拒否を照合する。ready_c の時間制御のないコンストラクタは合法。
+- [test_illegal_constructor_event_control.sv](../tests/ch8/test_illegal_constructor_event_control.sv): gated_c のコンストラクタ本体の @(go) v = x;（38 行目）をイベント制御の違反として 38 行目での拒否を照合する。
+- [test_illegal_constructor_wait_statement.sv](../tests/ch8/test_illegal_constructor_wait_statement.sv): waiting_c のコンストラクタ本体の wait (go) v = x;（38 行目）を wait 文の違反として 38 行目での拒否を照合する。
 
 ### SV2023-8.7-EXTRACT-DEFAULT-CONSTRUCTOR-NO-EXTRA
 
@@ -19549,7 +19595,7 @@ super は直接ベースから宣言された/継承されたメンバーにア�
 
 ### SV2023-8.15-EXTRACT-SUPER-PARAMETER-NONCONSTANT
 
-`8.15` / `error` / テスト未対応
+`8.15` / `error` / テスト対応あり・実行未確認
 
 super を使って基底クラスの値パラメータや局所値パラメータを参照する式は定数式ではないので、定数式が必要な場所で使うと違反である。
 
@@ -19557,6 +19603,7 @@ super を使って基底クラスの値パラメータや局所値パラメー�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_super_parameter_in_packed_dimension.sv](../tests/ch8/test_illegal_super_parameter_in_packed_dimension.sv): narrow_c extends base_c#(3) のメソッド bad_width で、ローカル変数のパックド次元の境界に super.W を使う（41 行目）。定数式が必要な場所なので 41 行目での拒否を照合する。同じクラスで super.W を return 式で読むこと（width_now）と、パックド次元に base_c#(3)::W を使うこと（fixed_width）は合法で、違反を除くと 3 3 を表示する。 区別: super で基底のパラメータを読む式を定数式として扱う実装は、41 行目の宣言を受理して 3 ビットの変数を作るので、エラーが出ず照合に失敗する。対照の fixed_width により、パックド次元の定数式一般を拒否する実装との違いは super 経由かどうかだけになる。
 
 ### SV2023-8.16-EXTRACT-CAST-CHECKED-OBJECT
 
@@ -19866,7 +19913,7 @@ super.new (デフォルト) はサブクラス構造子引数リストにデフ�
 
 ### SV2023-8.18-EXTRACT-INHERITED-METHOD-USES-LOCAL
 
-`8.18` / `normal` / テスト未対応
+`8.18` / `normal` / 実行確認あり
 
 宣言したクラスの local メンバーを使う非 local のメソッドは継承でき、派生クラスのメソッドとして実行されてもそれらを使える。
 
@@ -19874,10 +19921,11 @@ super.new (デフォルト) はサブクラス構造子引数リストにデフ�
 
 規定の性質: `mandatory`。
 
+- [test_class_inherited_method_uses_base_local.sv](../tests/ch8/test_class_inherited_method_uses_base_local.sv) : counter_c の local count を書く set、読み書きする bump、読む get を、派生クラス tally_c （自前の公開プロパティ count を持ち 100 に設定する）のオブジェクト t1 、 t2 で呼ぶ。get: t1 = 7 t2 = 20 、bump t1 = 8 get t1 = 8 tally count t1 = 100 、 counter_c ハンドル経由の bump で bump via counter_c handle = 21 get t2 = 21 tally count t2 = 100 を表示する。区別: 継承したメソッドが派生クラス側で名前を解決し直して tally_c の count を使う実装は 100 や 101 を表示する。オブジェクトごとの local の記憶を分けない実装は t1 と t2 の値が混ざる。継承したメソッドから local に触れられない実装はコンパイルできない。いずれも期待出力と変わる。
 
 ### SV2023-8.18-EXTRACT-LOCAL-CLASS-ONLY
 
-`8.18` / `error` / テスト未対応
+`8.18` / `error` / テスト対応あり・実行未確認
 
 local メンバーは宣言したクラスのメソッドだけが使え、派生クラスからは見えない;派生クラスやクラスの外からそれを参照すると違反である。
 
@@ -19885,6 +19933,8 @@ local メンバーは宣言したクラスのメソッドだけが使え、派�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_local_member_from_subclass.sv](../tests/ch8/test_illegal_local_member_from_subclass.sv): vault_c の local secret を派生クラス box_c のメソッド peek が名前で参照する（42 行目）。42 行目での拒否を照合する。他のスコープに secret はなく、継承した get を呼ぶ via_base は合法で、違反を除くと 6 を表示する。
+- [test_illegal_local_member_outside.sv](../tests/ch8/test_illegal_local_member_outside.sv): モジュールの initial がハンドル v 経由で vault の local secret を読む（25 行目）。25 行目での拒否を照合する。
 
 ### SV2023-8.18-EXTRACT-LOCAL-OTHER-INSTANCE
 
@@ -19936,7 +19986,7 @@ local メンバーは宣言したクラスのメソッドだけが使え、派�
 
 ### SV2023-8.18-EXTRACT-PROTECTED-NO-OUTSIDE-ACCESS
 
-`8.18` / `error` / テスト未対応
+`8.18` / `error` / 実行確認あり
 
 protected メンバーは local メンバーと同じく、そのクラスと派生クラスの外のコードからは隠されているので、そこから参照すると違反である。
 
@@ -19944,10 +19994,11 @@ protected メンバーは local メンバーと同じく、そのクラスと派
 
 規定の性質: `mandatory`。
 
+- [test_illegal_protected_member_outside.sv](../tests/ch8/test_illegal_protected_member_outside.sv): meter_c の protected level を、モジュールの initial が派生クラス dial_c のハンドル d 経由で読む（45 行目）。クラスとその派生クラスの外からの参照なので 45 行目での拒否を照合する。派生クラスのメソッド read が level を返すことは合法で、違反を除くと 4 を表示する。 区別: protected を公開メンバーのように扱う実装は d.level を受理して 4 を表示し、エラーが出ず照合に失敗する。派生クラスのメソッド read からの規格で認められる参照を対照として置き、違反の行を除いた設計がエラーなく通ることを確かめてあるので、照合するエラーは外からの参照の行に限られる。
 
 ### SV2023-8.18-EXTRACT-PROTECTED-SUBCLASS
 
-`8.18` / `normal` / テスト未対応
+`8.18` / `normal` / 実行確認あり
 
 protected のプロパティやメソッドは派生クラスに継承され、派生クラスから見える。
 
@@ -19955,6 +20006,7 @@ protected のプロパティやメソッドは派生クラスに継承され、�
 
 規定の性質: `mandatory`。
 
+- [test_class_protected_members_in_subclasses.sv](../tests/ch8/test_class_protected_members_in_subclasses.sv): tank_c の protected level と protected メソッド scaled を、一段下の pump_c::fill（level += d; scaled(2)）と二段下の big_pump_c::drain（level -= d; scaled(10)）が読み書き・呼び出しする。基底の公開メソッド show で level を読み、pump: fill=14 level=7、big pump: drain=420 level=42、継承した fill で big pump: fill=86 level=43 を表示する。 区別: protected を派生クラスに見せない実装はコンパイルできない。派生クラスに別の level を持たせる実装は show が初期値 3、50 を返し level= の値が変わる。scaled が派生クラスで書いた level を読まない実装は fill= と drain= の値が変わる。
 
 ### SV2023-8.19-EXTRACT-GLOBAL-DECLARATION-ONLY
 
@@ -20030,7 +20082,7 @@ protected のプロパティやメソッドは派生クラスに継承され、�
 
 ### SV2023-8.20-EXTRACT-FINAL-NO-IMPLIED-VIRTUAL
 
-`8.20` / `normal` / テスト未対応
+`8.20` / `normal` / テスト対応あり・実行未確認
 
 メソッドの最終指定子はそれ自体仮想を意味しない。
 
@@ -20038,6 +20090,7 @@ protected のプロパティやメソッドは派生クラスに継承され、�
 
 規定の性質: `mandatory`。
 
+- [test_final_method_not_virtual_vpi.sv](../tests/ch8/test_final_method_not_virtual_vpi.sv): leaf_c で、非 virtual の base_c::plain を上書きする function :final int plain() と、新しい function :final int fresh() を virtual なしで宣言し、対照に virtual function :final int vfinal() と修飾なしの other を置く。VPI アプリケーションが各クラス defn の vpiMethods を名前順に列挙して vpiVirtual を表示し、leaf_c: fresh virtual 0 other virtual 0 plain virtual 0 vfinal virtual 1、base_c: plain virtual 0 vbase virtual 1 になる。最初の行で各メソッドの呼び出し結果と、base_c ハンドルからの plain が base_c::plain（1）であることも表示する。 区別: final を付けたメソッドを virtual にする実装は leaf_c の fresh と plain に virtual 1 を表示し期待出力と変わる。final のメソッドは派生クラスで上書きできないので呼び出し先の違いでは virtual かどうかが観測できず、vpiVirtual で直接観測する。virtual と final を併せた vfinal（1）と base_c の vbase（1）、plain（0）が vpiVirtual の意味の対照になる。基底のメソッドを派生クラスの行に混ぜないよう、vpiFullName がそのクラス defn の名前と :: で始まるメソッドだけを表示する。
 
 ### SV2023-8.20-EXTRACT-FINAL-NO-OVERRIDE
 
@@ -20695,7 +20748,7 @@ typedef/type-parameter name をベースとして使用すると，詳細化後�
 
 ### SV2023-8.26-EXTRACT-EXPLICIT-VIRTUAL-IMPLEMENTATION
 
-`8.26` / `error` / テスト未対応
+`8.26` / `error` / テスト対応あり・実行未確認
 
 インタフェースクラスのメソッドを実装するメソッドは、virtual な実装を継承していない限り、virtual キーワード付きで宣言しなければならない;実装が virtual の無いものしか無い非抽象クラスは違反である。
 
@@ -20703,6 +20756,7 @@ typedef/type-parameter name をベースとして使用すると，詳細化後�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_interface_method_implemented_without_virtual.sv](../tests/ch8/test_illegal_interface_method_implemented_without_virtual.sv): 抽象でなく基底クラスもない bad_c が step_if を implements し、step を virtual なしで宣言する（45 行目がクラス、46 行目がメソッド）。継承した virtual の実装はないので、クラスかメソッドの行（45|46）での拒否を照合する。virtual 付きで実装する good_c と、vbase_c の virtual step を継承する inherit_c は合法で、bad_c::step に virtual を付けると 1 3 2 を表示する。 区別: implements で要求されるメソッドを virtual でない宣言で満たせるとする実装（virtual キーワードを省略してもよいとする誤り）は bad_c を受理して 1 3 2 を表示し、エラーが出ず照合に失敗する。継承による例外（inherit_c）は合法として残しているので、継承した実装まで拒否する誤りとは区別される。
 
 ### SV2023-8.26-EXTRACT-IMPLEMENTS-NO-TYPE-INHERITANCE
 
@@ -20905,7 +20959,7 @@ typedef/type-parameter name をベースとして使用すると，詳細化後�
 
 ### SV2023-8.26.3-EXTRACT-INTERFACE-HANDLE-PARAMETER-RESTRICTIONS
 
-`8.26.3` / `error` / テスト未対応
+`8.26.3` / `error` / テスト対応あり・実行未確認
 
 インタフェースクラスのハンドルを通して読んだパラメータは定数式ではなく、インタフェースクラスのハンドルを通して型を選ぶこともできない;そのどちらかを許されない場所で使うと違反である。
 
@@ -20913,6 +20967,8 @@ typedef/type-parameter name をベースとして使用すると，詳細化後�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_interface_handle_parameter_in_packed_dimension.sv](../tests/ch8/test_illegal_interface_handle_parameter_in_packed_dimension.sv) : logic \[ ih.DEPTH -1:0 \] bad;（ 43 行目）でインタフェースクラスのハンドル経由のパラメータを定数式に使い、 43 行目での拒否を照合する。ih.DEPTH を $display で読むことと depth_if #( 4 ):: DEPTH をパックド次元に使うことは合法で、違反を除くと 4 1 4 を表示する。
+- [test_illegal_interface_handle_type_parameter.sv](../tests/ch8/test_illegal_interface_handle_type_parameter.sv): $bits(sh.T)（47 行目）でインタフェースクラスのハンドル経由で型パラメータを選び、47 行目での拒否を照合する。sh.get() と $bits(slot_if#(byte)::T) は合法で、違反を除くと 5 と 8 を表示する。
 
 ### SV2023-8.26.3-EXTRACT-INTERFACE-STATIC-TYPES
 
@@ -21074,7 +21130,7 @@ Null値のインタフェイスソースハンドルをキャストするには�
 
 ### SV2023-8.26.6.2-EXTRACT-MATCHING-UNUSED-STILL-CONFLICT
 
-`8.26.6.2` / `error` / テスト未対応
+`8.26.6.2` / `error` / テスト対応あり・実行未確認
 
 別々のインタフェースクラスの宣言から継承した同名のパラメータや型は、型と値が一致していても、名前を使っていなくても衝突する;その衝突を解決しないままにすると違反である。
 
@@ -21082,6 +21138,7 @@ Null値のインタフェイスソースハンドルをキャストするには�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_interface_class_parameter_conflict.sv](../tests/ch8/test_illegal_interface_class_parameter_conflict.sv): a_if と b_if はどちらも型 int・既定値 8 のパラメータ W を持ち、c_if は両方を extends するが W を宣言しない（32 行目）。W は c_if でも親でも使われない。型と値が一致し未使用でも衝突は解消されないので、32 行目での拒否を照合する。 区別: 型と値が一致する同名パラメータを一つにまとめる実装、または使われない名前の衝突を見逃す実装は c_if を受理し、エラーが出ず照合に失敗する。二つのパラメータは異なるインタフェースクラスの宣言から来ており、ダイヤモンドの例外には当たらない。
 
 ### SV2023-8.26.6.2-EXTRACT-REDECLARE-PARAMETER-TYPE-CONFLICT
 
@@ -21110,7 +21167,7 @@ Null値のインタフェイスソースハンドルをキャストするには�
 
 ### SV2023-8.26.6.3-EXTRACT-SPECIALIZATIONS-DISTINCT
 
-`8.26.6.3` / `error` / テスト未対応
+`8.26.6.3` / `error` / テスト対応あり・実行未確認
 
 パラメータ付きインタフェースクラスの別々の特殊化は別のインタフェースクラスなので、その 2 つに届いてもダイヤモンドにはならず、同名のメソッド・パラメータ・型は 8.26.6.1 と 8.26.6.2 のとおり衝突する;そのような衝突を解決しないままにすると違反である。
 
@@ -21118,6 +21175,7 @@ Null値のインタフェイスソースハンドルをキャストするには�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_interface_specializations_parameter_conflict.sv](../tests/ch8/test_illegal_interface_specializations_parameter_conflict.sv): reader_if は sized_if#(8)、writer_if は sized_if#(16) を extends し、port_if は両方を extends するが W を宣言しない（47 行目）。異なる特殊化は別のインタフェースクラスなのでダイヤモンドにならず、W の衝突が残るので 47 行目での拒否を照合する。対照として、同じ特殊化 sized_if#(8) を reader_if と peek_if の両方から得る shared_if はダイヤモンドで合法であり、port_if を除くと 16 を表示する。 区別: 特殊化の違いを無視して同じ生成元のダイヤモンドとして W を 1 つにまとめる実装は port_if を受理し、エラーが出ず照合に失敗する。同じ特殊化 sized_if#(8) を二経路で得る shared_if を規格で認められる対照として置き、port_if を除いた設計がエラーなく通ることを確かめた。衝突するのはパラメータ名 W だけで、メソッド名は read と write で重ならないので、照合するエラーは特殊化の違いによるパラメータの衝突に限られる。
 
 ### SV2023-8.26.7-EXTRACT-ABSTRACT-PARTIAL-IMPLEMENTATION
 
@@ -33753,7 +33811,7 @@ staticタスクの変数と仮引数は、呼出し間で値を保持します�
 
 ### SV2023-13.4-EXTRACT-CONST-REF-ARG-CONTEXT
 
-`13.4` / `normal` / テスト未対応
+`13.4` / `normal` / 実行確認あり
 
 ref の仮引数がすべて const ref である関数は、イベント式、手続き的連続代入の中の式、手続き文の中にない式で呼べる。
 
@@ -33761,6 +33819,7 @@ ref の仮引数がすべて const ref である関数は、イベント式、�
 
 規定の性質: `mandatory`。
 
+- [test_function_const_ref_formals_in_restricted_contexts.sv](../tests/ch13/test_function_const_ref_formals_in_restricted_contexts.sv): const ref 仮引数 x、y だけを持ち x * 10 + y を返す weigh を、手続き文の外の連続代入 assign cont_v = weigh(a, b)、手続き的連続代入 force forced_v = weigh(a, b)、イベント制御 @(weigh(a, b)) の 3 か所で呼ぶ。a=2、b=3 で start: continuous=23 forced=23 woke=0、時刻 2 に a=4 として a=4: continuous=43 forced=43 woke=1 event value=43、時刻 3 に b=7 として b=7: continuous=47 forced=47 を表示する。 区別: const ref の例外を認めずどれかの場所で呼び出しを拒否する実装はコンパイルできない。連続代入や force の式を一度だけ評価する実装は 43、47 が 23 のまま、イベント式の値の変化を検出しない実装は woke=0 と event value=-1 のままになり、期待出力と変わる。表示は値が落ち着いた固定の時刻に行い、同時刻の順序には依存しない。
 
 ### SV2023-13.4-EXTRACT-FUNCTION-BODY-SEQUENTIAL
 
@@ -33881,7 +33940,7 @@ ANSI 括弧やボディ方向宣言を用いる関数形式もある。
 
 ### SV2023-13.4-EXTRACT-FUNCTION-WRITABLE-ARG-CONTEXT
 
-`13.4` / `error` / テスト未対応
+`13.4` / `error` / テスト対応あり・実行未確認
 
 output・inout の仮引数、または const ref でない ref の仮引数を持つ関数は、イベント式、手続き的連続代入の中の式、手続き文の中にない式で呼べない;そのような呼び出しは違反である。
 
@@ -33889,6 +33948,9 @@ output・inout の仮引数、または const ref でない ref の仮引数を�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_writable_formal_function_in_event_control.sv](../tests/ch13/test_illegal_writable_formal_function_in_event_control.sv): 非 const の ref 仮引数 x を持つ peek_ref をイベント制御 @(peek_ref(a)) で呼ぶ（43 行目）。関数は x を読むだけだが規則は仮引数の方向で決まる。43 行目での拒否を照合する。input だけの peek_in を @(peek_in(a)) で呼ぶ行は合法。
+- [test_illegal_writable_formal_function_in_force.sv](../tests/ch13/test_illegal_writable_formal_function_in_force.sv): output 仮引数 y を持つ plus_one_copy を force v_bad = plus_one_copy(c, copy) の式で呼ぶ（43 行目）。43 行目での拒否を照合する。input だけの plus_one を force v_ok の式で呼ぶ行は合法。
+- [test_illegal_writable_formal_function_in_continuous_assign.sv](../tests/ch13/test_illegal_writable_formal_function_in_continuous_assign.sv): inout 仮引数 k を持つ twice_and_mark を連続代入 assign w_bad = twice_and_mark(e) の右辺で呼ぶ（43 行目）。e は他から書かれない変数。43 行目での拒否を照合する。input だけの twice を assign w_ok の右辺で呼ぶ行は合法。
 
 ### SV2023-13.4-EXTRACT-IMPLICIT-LOGIC-RETURN
 

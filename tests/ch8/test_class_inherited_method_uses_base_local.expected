@@ -1,0 +1,3 @@
+get: t1=7 t2=20
+bump t1=8 get t1=8 tally count t1=100
+bump via counter_c handle=21 get t2=21 tally count t2=100

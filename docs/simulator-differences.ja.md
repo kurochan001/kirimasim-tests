@@ -1321,3 +1321,16 @@ ch30/test_illegal_specify_path_to_input                           アサーシ�
 - Verilator 5.054は、automatic変数やキューの要素を読む連続代入を受け付ける（6.21）。`ch6/test_illegal_continuous_assign_reads_automatic_variable`、`ch6/test_illegal_continuous_assign_reads_queue_element`
 - Verilator 5.054は、いくつかの静的なプロセスに同じ`process::self()`のハンドルを返し、always_combには再実行のたびに別のハンドルを返す（9.5）。`ch9/test_process_thread_kinds_and_final_process`
 - Verilator 5.054は、always_combから呼ぶtaskの中身を感度に含めてDIDNOTCONVERGEで止まる（9.2.2.2.1では含めない）。時間制御のないalways手続きの中の`$finish`の後には、final手続きを実行しない。`ch11/test_static_prefix_of_field_selects`、`ch9/test_always_without_timing_control_never_advances_time`
+
+2026-11-14の、違反する設計でしか示せなかった台帳の行のテスト（6・7・8・13章）は、さらに次の差異を示します（未対応の構文は載せません）。
+
+- Icarus Verilog 13.0は、基底型へのcastで値が変わっても範囲を外れないenumの名前`U12_A`と`S8_A`を拒否する（6.19）。`ch6/test_enum_encoding_value_changed_by_cast`
+- Icarus Verilog 13.0は、specparamを名指しする名前によるパラメータ値の指定を受け付ける（6.20.5、23.10.2.2）。`ch6/test_illegal_named_parameter_value_for_specparam`
+- Icarus Verilog 13.0は、クラスの外からハンドルを通してprotectedのプロパティを読むことを受け付ける（8.18）。`ch8/test_illegal_protected_member_outside`
+- Verilator 5.054は、enumの基底型が`bit [11:0]`のとき、符号付きの`byte`の値の式をゼロ拡張して4040ではなく200にする。同じ値の代入や12ビット型へのcastでは符号拡張する（6.19、6.24.1）。`ch6/test_enum_encoding_value_changed_by_cast`
+- Verilator 5.054は、どこからもインスタンス化されず既定値の無いパラメータを持つモジュールをトップレベルのインスタンスとして展開し、パラメータに値が無いとして止まる（6.20.1）。`ch6/test_param_without_default_module_not_top_level`
+- Verilator 5.054は、voidのキューのメソッドの呼び出しを値として使う`n = q.delete(0)`を受け付けて実行する（7.10.2.3、13.4.1）。配列のほかのvoidのメソッドの呼び出しを値として使うものは、フロントエンドを通り、生成したC++のコンパイルで初めて失敗する。`ch7/test_illegal_queue_delete_index_result_as_value`、`ch7/test_illegal_queue_delete_all_result_as_value`、`ch7/test_illegal_queue_insert_result_as_value`、`ch7/test_illegal_queue_push_front_result_as_value`、`ch7/test_illegal_queue_push_back_result_as_value`、`ch7/test_illegal_dynamic_array_delete_result_as_value`、`ch7/test_illegal_assoc_delete_index_result_as_value`、`ch7/test_illegal_assoc_delete_all_result_as_value`、`ch7/test_illegal_{reverse,sort,rsort,shuffle}_result_as_value`
+- Verilator 5.054は、packed共用体のrandcメンバーを受け付ける（7.3の脚注20）。`ch7/test_illegal_randc_member_in_packed_union`
+- Verilator 5.054は、`super`、クラスのハンドル、インタフェースクラスのハンドルを通して読んだ値パラメータを、packed次元の境界として受け付ける（8.15、8.5、8.26.3）。`ch8/test_illegal_super_parameter_in_packed_dimension`、`ch8/test_illegal_handle_parameter_in_packed_dimension`、`ch8/test_illegal_interface_handle_parameter_in_packed_dimension`
+- Verilator 5.054は、virtualな実装を継承せずvirtualなしで実装したインタフェースクラスのメソッドを受け付ける（8.26）。インタフェースクラスの間の解決されないパラメータ名の衝突も、2つが別の特殊化から来る場合を含めて受け付ける（8.26.6.2、8.26.6.3）。`ch8/test_illegal_interface_method_implemented_without_virtual`、`ch8/test_illegal_interface_class_parameter_conflict`、`ch8/test_illegal_interface_specializations_parameter_conflict`
+- Verilator 5.054は、output仮引数を持つ関数をforceの式で、inout仮引数を持つ関数を連続代入で呼ぶことを受け付ける（13.4）。`ch13/test_illegal_writable_formal_function_in_force`、`ch13/test_illegal_writable_formal_function_in_continuous_assign`

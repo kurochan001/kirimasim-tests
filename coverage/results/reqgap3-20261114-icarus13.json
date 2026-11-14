@@ -1,0 +1,223 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch13/test_function_const_ref_formals_in_restricted_contexts": {
+   "status": "known",
+   "reason": "compile failed: tests/ch13/test_function_const_ref_formals_in_restricted_contexts.sv:37: syntax error",
+   "inputs_sha256": "2b12bfeb1457cc489e4aee6f1551fd4eead85e27c48b27dd2f67cc594f83f64a"
+  },
+  "ch13/test_illegal_writable_formal_function_in_continuous_assign": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_writable_formal_function_in_continuous_assign\\\\.sv:43:'; the first is: tests/ch13/test_illegal_writable_formal_function_in_continuous_assign.sv:37: error: Function test_illegal_writable_formal_function_in_continuous_assign.twice_and_mark port k is not an input port.",
+   "inputs_sha256": "a969e5fd83ee4c129141aad43afdff9aabb4a0d0f21df81dfeb18b349aab9f50"
+  },
+  "ch13/test_illegal_writable_formal_function_in_event_control": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_writable_formal_function_in_event_control\\\\.sv:43:'; the first is: tests/ch13/test_illegal_writable_formal_function_in_event_control.sv:37: error: Function test_illegal_writable_formal_function_in_event_control.peek_ref port x is not an input port.",
+   "inputs_sha256": "b8ad63675741ba9b628f4a5c442eb1040a93f439c302c6af73af310bc87c8bda"
+  },
+  "ch13/test_illegal_writable_formal_function_in_force": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_writable_formal_function_in_force\\\\.sv:43:'; the first is: tests/ch13/test_illegal_writable_formal_function_in_force.sv:36: error: Function test_illegal_writable_formal_function_in_force.plus_one_copy port y is not an input port.",
+   "inputs_sha256": "b73c79e9173454704c330c30e678adcecb274c407a31c14fad29809534940897"
+  },
+  "ch6/test_enum_encoding_value_changed_by_cast": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_enum_encoding_value_changed_by_cast.sv:45: error: Enumeration name U12_A has a negative value.",
+   "inputs_sha256": "c5d5d838680e43de6a2989497e1bafa2805970bfd124c4419d5a5c05695fcf02"
+  },
+  "ch6/test_illegal_enum_assigned_base_vector_without_cast": {
+   "status": "pass",
+   "inputs_sha256": "e32f5647bdc48fd70a4e1dccdab3a20de6535b1880f1eeb25feb0c05321d13d8"
+  },
+  "ch6/test_illegal_named_parameter_value_for_specparam": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "5a51fd75456a186c18078a2c81f929099a38ccb084fd2e227fa3a400cdb0cfb0"
+  },
+  "ch6/test_illegal_string_putc_result_assigned": {
+   "status": "pass",
+   "inputs_sha256": "4b1e12f932940eb85e155f98240b49a3e4a0c009e1d7c5d0b5c7ad464cae2749"
+  },
+  "ch6/test_illegal_string_putc_result_in_expression": {
+   "status": "pass",
+   "inputs_sha256": "e7b09cf75e5f4d2a6a91bb3189c0c3ffcd8f10d0f1ce8b073b9b7c425c378e3b"
+  },
+  "ch6/test_illegal_string_realtoa_result_assigned": {
+   "status": "pass",
+   "inputs_sha256": "281144f6b7e86fc826f4304443a7a778a038552c234590c1fa72a545414deea6"
+  },
+  "ch6/test_illegal_string_realtoa_result_in_expression": {
+   "status": "pass",
+   "inputs_sha256": "d142f8cf4e21713e6da3b8fb03a3fda5025e211341f0526875cefc77a8f3ca0a"
+  },
+  "ch6/test_param_without_default_module_not_top_level": {
+   "status": "pass",
+   "inputs_sha256": "41dca1ac363a8518a5dbdca9e1e4b0c5e6424dad74b5aabea8039160e479d682"
+  },
+  "ch7/test_illegal_assoc_array_arithmetic_operand": {
+   "status": "pass",
+   "inputs_sha256": "186c13e731b505d89b23a3b55f3229cafaabd976352e061448cdca4f1f3d34b9"
+  },
+  "ch7/test_illegal_assoc_array_bitwise_operand": {
+   "status": "pass",
+   "inputs_sha256": "cfcae6e16cebf8e25b0d460ef50b85a514007fa2afed17f6737f8fef58f6ff35"
+  },
+  "ch7/test_illegal_assoc_delete_all_result_as_value": {
+   "status": "pass",
+   "inputs_sha256": "a2a3926158e79783a68843672459f9eb96d6420c88163b6ea20e154cb5f857c6"
+  },
+  "ch7/test_illegal_assoc_delete_index_result_as_value": {
+   "status": "pass",
+   "inputs_sha256": "dd1e15e64f5a17ac9d9d68fa8973c521bc6ec202c5ee03e22b884d885f3d3743"
+  },
+  "ch7/test_illegal_dynamic_array_delete_result_as_value": {
+   "status": "pass",
+   "inputs_sha256": "de19e95c8a1976b3febe4f95cdf005ebc9c4d5bd86af82efe7b369c2b4b2faa2"
+  },
+  "ch7/test_illegal_queue_delete_all_result_as_value": {
+   "status": "pass",
+   "inputs_sha256": "796301659c484a2921266f8dca7b4ff44fe931a9737648c3a87dc3e29e975757"
+  },
+  "ch7/test_illegal_queue_delete_index_result_as_value": {
+   "status": "pass",
+   "inputs_sha256": "1bedf8d72ee4053215e198d91bad165d9648a7573ab0468864583a04c751135d"
+  },
+  "ch7/test_illegal_queue_insert_result_as_value": {
+   "status": "pass",
+   "inputs_sha256": "11b6c428103da8047eb1d45ce85382e54fd3b2aef60253cacdf810f8896e2acb"
+  },
+  "ch7/test_illegal_queue_push_back_result_as_value": {
+   "status": "pass",
+   "inputs_sha256": "2cd67189f29ede64da486e9799851bc8ace3e5bbdc8adcb5da8ca82f6e15127b"
+  },
+  "ch7/test_illegal_queue_push_front_result_as_value": {
+   "status": "pass",
+   "inputs_sha256": "06d33f2914a5774dc2a1c313855187ba9e233ae3b3f7786fc66d7fbf94f0f839"
+  },
+  "ch7/test_illegal_randc_member_in_packed_union": {
+   "status": "pass",
+   "inputs_sha256": "d582fcd1b65acf803b8d1a98c9ca59a8128e9d6d30ee10e2bde1562635aed1ec"
+  },
+  "ch7/test_illegal_reverse_result_as_value": {
+   "status": "pass",
+   "inputs_sha256": "71f8f0a56dfaffb7f9cf65283e3f5dd38c6350fe5857dfcc961262601bada006"
+  },
+  "ch7/test_illegal_reverse_with_clause": {
+   "status": "pass",
+   "inputs_sha256": "72f499dd96e9c81bdc76ce0e9bba94b6ac25383bde512b2c0c1a714948fd4050"
+  },
+  "ch7/test_illegal_rsort_result_as_value": {
+   "status": "pass",
+   "inputs_sha256": "89aecf3934d1e223b5152f26a92af6d89dd41e86c51396b8146cfd2a236722a8"
+  },
+  "ch7/test_illegal_shuffle_result_as_value": {
+   "status": "pass",
+   "inputs_sha256": "eede167c1e932d3bcbdb68f6f921f3b811b4a263ad9454d1f933d03ea0e830db"
+  },
+  "ch7/test_illegal_shuffle_with_clause": {
+   "status": "pass",
+   "inputs_sha256": "746d001b2deef14dba9a65485488017e60c07e2b6d9fac3bd0cb45925edec723"
+  },
+  "ch7/test_illegal_sort_result_as_value": {
+   "status": "pass",
+   "inputs_sha256": "3d51022bfb5a737d4136932a5023c90143a3c14e68f34360fbc359d76176860c"
+  },
+  "ch7/test_illegal_struct_packed_dimension_needs_packed": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_struct_packed_dimension_needs_packed\\\\.sv:33:'",
+   "inputs_sha256": "a598148198e1b23017de2f831c7f11f7d329997c38ce67255b46d6dadd75521c"
+  },
+  "ch7/test_illegal_union_packed_dimension_needs_soft_or_packed": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_union_packed_dimension_needs_soft_or_packed\\\\.sv:40:'; the first is: tests/ch7/test_illegal_union_packed_dimension_needs_soft_or_packed.sv:33: syntax error",
+   "inputs_sha256": "3c1cc7afb341a685d43794fef1a06d35a85a64e9809d28562dfc443b34fe1c9b"
+  },
+  "ch7/test_illegal_void_member_outside_tagged_union": {
+   "status": "pass",
+   "inputs_sha256": "3df07555f04e0b58dac2ed8017781cb979c75ed7246da76292e936344078dec9"
+  },
+  "ch8/test_class_body_parameters_local_vpi": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_class_body_parameters_local_vpi.sv:34: syntax error",
+   "inputs_sha256": "bb2aa46d06d5fe6d0afae7b3aabcaee3b6ebe58db02d9a337f64c8f92936d246"
+  },
+  "ch8/test_class_inherited_method_uses_base_local": {
+   "status": "pass",
+   "inputs_sha256": "cb7e4ac6fb6f9c8089ddb6abfda300f76df8af314228f16a5c1514fd635235d2"
+  },
+  "ch8/test_class_protected_members_in_subclasses": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_class_protected_members_in_subclasses.sv:58: error: No function named `scaled' found in this context ($unit.big_pump_c.drain).",
+   "inputs_sha256": "e527723bcbf34fb009fb94774ac11eda5477c820f483ca6b63e0281405637b88"
+  },
+  "ch8/test_class_value_parameters_through_handles": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_class_value_parameters_through_handles.sv:25: syntax error",
+   "inputs_sha256": "aebc8451f1042f465415cdbc8adda0bcab84188bb56b93b0a234b2ebdec048a9"
+  },
+  "ch8/test_final_method_not_virtual_vpi": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_final_method_not_virtual_vpi.sv:46: syntax error",
+   "inputs_sha256": "5da77df23ce8afa9be1e9df2412d53de427f3dadd4d2719246d919db99cb3f09"
+  },
+  "ch8/test_illegal_constructor_delay_control": {
+   "status": "pass",
+   "inputs_sha256": "c6327b76c86fd7c0ed8528f86e3aeef84aed0314f433d71c907e25dcd9ca2d35"
+  },
+  "ch8/test_illegal_constructor_event_control": {
+   "status": "pass",
+   "inputs_sha256": "7a35fa4fd4580641fa5c5507979af1bc0437e2ed592eef51ae146c272b88b4c6"
+  },
+  "ch8/test_illegal_constructor_wait_statement": {
+   "status": "pass",
+   "inputs_sha256": "d84365e545bb76192f54a4bac8f65236cb1a67e293343caf5f80108ab5e9c283"
+  },
+  "ch8/test_illegal_handle_parameter_in_packed_dimension": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_handle_parameter_in_packed_dimension\\\\.sv:34:'; the first is: tests/ch8/test_illegal_handle_parameter_in_packed_dimension.sv:26: syntax error",
+   "inputs_sha256": "5a548af104889b5bf7ce6f29d42e2d33976c38e06efae9973192b948392bbb21"
+  },
+  "ch8/test_illegal_interface_handle_parameter_in_packed_dimension": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_interface_handle_parameter_in_packed_dimension\\\\.sv:43:'; the first is: tests/ch8/test_illegal_interface_handle_parameter_in_packed_dimension.sv:29: syntax error",
+   "inputs_sha256": "4259575a596ed21008c791ebd515cc0ee63c11255df61f676fda7b47a901020c"
+  },
+  "ch8/test_illegal_interface_handle_type_parameter": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_interface_handle_type_parameter\\\\.sv:47:'; the first is: tests/ch8/test_illegal_interface_handle_type_parameter.sv:28: syntax error",
+   "inputs_sha256": "7e949ce368276277ded72d73bf930385f8df0998c61da7885e6cb39e6323f349"
+  },
+  "ch8/test_illegal_interface_method_implemented_without_virtual": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_interface_method_implemented_without_virtual\\\\.sv:(45|46):'; the first is: tests/ch8/test_illegal_interface_method_implemented_without_virtual.sv:26: syntax error",
+   "inputs_sha256": "10c395fd5e305591659c4b945f16d443349fe44fcca2e8f07e7359f261a8a3dd"
+  },
+  "ch8/test_illegal_interface_specializations_parameter_conflict": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_interface_specializations_parameter_conflict\\\\.sv:47:'; the first is: tests/ch8/test_illegal_interface_specializations_parameter_conflict.sv:29: syntax error",
+   "inputs_sha256": "0121b72d16403c499b02f6907762b0fb7f62aae6a56cde6921b430378794e5f3"
+  },
+  "ch8/test_illegal_local_member_from_subclass": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_local_member_from_subclass\\\\.sv:42:'; the first is: tests/ch8/test_illegal_local_member_from_subclass.sv:39: error: No function named `get' found in this context ($unit.box_c.via_base).",
+   "inputs_sha256": "64e6acd56dcbc2ac6250db49ec138d787f38a21d57a405c33dcfbb5552d3807d"
+  },
+  "ch8/test_illegal_protected_member_outside": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "61f9da4120992a30cb24db36a8f7ad99eb36a56ea49613e4876d3ea4586264d2"
+  },
+  "ch8/test_illegal_super_parameter_in_packed_dimension": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_super_parameter_in_packed_dimension\\\\.sv:41:'; the first is: tests/ch8/test_illegal_super_parameter_in_packed_dimension.sv:26: syntax error",
+   "inputs_sha256": "da2b1a9ebbf190240e25f2329e0e7fd346cffdf7d0ce6b00e2c9b4b34ea42ba4"
+  }
+ },
+ "generated_at": "2026-11-14T08:09:22.791456+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

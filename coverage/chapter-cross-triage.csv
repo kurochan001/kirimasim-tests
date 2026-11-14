@@ -352,7 +352,7 @@ tests/ch23/test_port_collapse_trireg_charge_strength.sv",既存モデルの計�
 6,データ型,22,コンパイラ指令,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,151,"tests/ch22/test_define_value_in_parameters.sv
 tests/ch22/test_resetall_default_nettype.sv
 tests/ch5/test_literals_macros_specify.sv",既存モデルの計画・実行証跡を維持する,,
-6,データ型,23,モジュールと階層,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,354,"tests/ch10/test_net_delay_port_driver_and_undriven.sv
+6,データ型,23,モジュールと階層,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,355,"tests/ch10/test_net_delay_port_driver_and_undriven.sv
 tests/ch23/test_23_extra_param_expressions.sv
 tests/ch23/test_23_extra_parameter_locations.sv",既存モデルの計画・実行証跡を維持する,,
 6,データ型,24,プログラム,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,76,"tests/ch24/test_program_automatic_lifetime.sv
@@ -524,7 +524,7 @@ tests/gen/ch8/test_gen_cross_scopeclass_gen_case_function_local_derived_outer.sv
 8,クラス,34,保護エンベロープ,N,対象外,対象外,0,第34章: 保護エンベロープは本スイートの動作検証の対象範囲外。対応方針が変わるときに再確認する。,本計画の動作クロスの対象外,,該当なし,0,,0,,対象範囲が変わるときに方針を再確認する,2026-11-05,"Codex (GPT-6), AI review"
 8,クラス,35,直接プログラミングインターフェース（DPI）,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch37/test_vpi_task_function_properties.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 8,クラス,36,プログラミング言語インターフェース（PLI/VPI）の概要,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch36/test_vpi_systf_in_class_method.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-8,クラス,37,VPIオブジェクトモデル図,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,15,"tests/ch37/test_vpi_class_definitions.sv
+8,クラス,37,VPIオブジェクトモデル図,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,17,"tests/ch37/test_vpi_class_definitions.sv
 tests/ch37/test_vpi_class_internal_scopes.sv
 tests/ch37/test_vpi_class_object_members.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 8,クラス,38,VPIルーチンの定義,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,2,"tests/ch37/test_vpi_prefix_kinds_actual.sv

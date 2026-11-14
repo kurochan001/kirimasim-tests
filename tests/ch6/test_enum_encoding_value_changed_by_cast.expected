@@ -1,0 +1,5 @@
+bit [7:0] base: 200 201 202
+bit [11:0] base: 4040 4041
+byte base: -16 -15
+int unsigned base: 4294967293 4294967294
+shortint base: 200 201

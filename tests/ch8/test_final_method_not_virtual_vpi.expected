@@ -1,0 +1,3 @@
+calls: plain=10 fresh=30 vfinal=40 other=50 vbase=2 base_c plain=1
+base_c: plain virtual 0 vbase virtual 1
+leaf_c: fresh virtual 0 other virtual 0 plain virtual 0 vfinal virtual 1

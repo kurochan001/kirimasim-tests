@@ -4,7 +4,7 @@
 
 [English](ch8.md) / [日本語](ch8.ja.md)
 
-[すべての章](README.ja.md) .テストは462本で、そのうち138本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは478本で、そのうち138本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -15,6 +15,7 @@
 | [`test_class_objects_in_array_of_handles`](../../tests/ch8/test_class_objects_in_array_of_handles.sv) |クラス変数は null で始まり、 new でランタイムで作成されたオブジェクトのハンドルを持つ。ハンドルをコピーすると オブジェクトを共有し メソッドはハンドルを通して呼び出されます| 8.2 6.15 | Verilator 5.052 ||
 | [`test_class_array_property_nonzero_range`](../../tests/ch8/test_class_array_property_nonzero_range.sv) |クラスの固定サイズ配列プロパティは、0 から始まらない範囲のすべての要素を保持します。| 8.3 7.4.5 20.7 | Verilator 5.052 ||
 | [`test_class_basics`](../../tests/ch8/test_class_basics.sv) |章8：クラス| 8.3 8.4 8.12 | Icarus Verilog 13.0 ||
+| [`test_class_body_parameters_local_vpi`](../../tests/ch8/test_class_body_parameters_local_vpi.sv) |クラス項目として parameter キーワードで宣言した値パラメータと型パラメータは、パラメータポートリストを持つクラスでも持たないクラスでも局所パラメータであり、クラス定義の vpiLocalParam がそれを報告する。ポートリストのパラメータは局所ではない| 8.3 37.31 |規格のみ| VPI |
 | [`test_class_declaration_grammar_forms`](../../tests/ch8/test_class_declaration_grammar_forms.sv) |クラス構文はパラメータ付き仮想クラスと最終クラス、構造子引数付き拡張、実装リストと終了ラベル、各種クラスの項目とその定義子、クラス内外で宣言された構造子とその前の宣言、メソッドとプロトタイプの:initial、:extends、:finalの指定子を認めます。| 8.3 8.17 8.20 8.24 8.26 | Verilator 5.052 ||
 | [`test_class_item_qualifiers_and_constraints`](../../tests/ch8/test_class_item_qualifiers_and_constraints.sv) |許可される各種修飾子を1つずつ付けた、識別子で参照するクラス項目。local randプロパティとrandcプロパティ、constプロパティ、staticプロパティ、static制約、派生クラスでオーバーライドするvirtualメソッド、および仮想クラスで宣言して派生クラスで定義するpure virtualメソッドを含む。括弧付きの配列組み込みメソッド呼出しを対象とする制約も含めて乱数化します。また、nullは定数一次式です。| 8.3 8.6 8.8 8.21 18.5 18.7 A.9.3 A.8.4 A.10 | Verilator 5.052 ||
 | [`test_illegal_class_method_virtual_twice`](../../tests/ch8/test_illegal_class_method_virtual_twice.sv) |仮想限定符はクラスメソッド宣言に一度しか現れません| 8.3 |規格のみ|規格違反の設計|
@@ -68,6 +69,8 @@
 | [`test_class_prop`](../../tests/ch8/test_class_prop.sv) |クラスのプロパティテスト| 8.5 8.7 | Icarus Verilog 13.0 ||
 | [`test_class_property`](../../tests/ch8/test_class_property.sv) |テストクラスのプロパティ| 8.5 8.18 | Icarus Verilog 13.0 ||
 | [`test_class_scope`](../../tests/ch8/test_class_scope.sv) |テストクラスメソッドの範囲| 8.5 8.9 8.10 8.20 8.23 | Verilator 5.052 ||
+| [`test_class_value_parameters_through_handles`](../../tests/ch8/test_class_value_parameters_through_handles.sv) |クラスの値パラメータと局所値パラメータは、その名前をオブジェクトハンドルで修飾して読め、そのハンドルの特殊化での値を与える| 8.5 | Verilator 5.054 ||
+| [`test_illegal_handle_parameter_in_packed_dimension`](../../tests/ch8/test_illegal_handle_parameter_in_packed_dimension.sv) |オブジェクトハンドルを通して読んだクラスの値パラメータは定数式ではないので、 packed 次元の境界にできない| 8.5 |規格のみ|規格違反の設計|
 | [`test_illegal_type_parameter_through_class_handle`](../../tests/ch8/test_illegal_type_parameter_through_class_handle.sv) |クラスのタイプパラメータはクラスハンドルを通じて アクセスできませんが、値パラメータは| 8.5 8.25 | Verilator 5.052 |規格違反の設計|
 | [`test_nested_member_access`](../../tests/ch8/test_nested_member_access.sv) |テストケース: ネストされたクラスメンバーアクセス| 8.5 8.4 | Verilator 5.052 ||
 | [`test_syntax_class_item_kinds`](../../tests/ch8/test_syntax_class_item_kinds.sv) |属性、メソッド、制約、ネストされたクラス、インタフェースクラス、covergroup の前に属性を持つクラス項目;プロパティは、rand、randc、static、protected、local、const、parameter、localparam で構成されます。両方の形態の制約を外部制約ブロックで完成した制約プロトタイプ| 8.5 8.6 8.18 18.5 18.5.1 A.1.9 | Verilator 5.052 ||
@@ -86,6 +89,9 @@
 | [`test_class_new`](../../tests/ch8/test_class_new.sv) |クラスコンストラクタテスト| 8.7 13.5.3 | Verilator 5.052 ||
 | [`test_class_new_args`](../../tests/ch8/test_class_new_args.sv) |テスト: 様々な引数タイプを持つクラス構造子| 8.7 13.5.3 | Verilator 5.052 ||
 | [`test_class_property_init_after_base_constructor`](../../tests/ch8/test_class_property_init_after_base_constructor.sv) |クラスのプロパティは、ベース構造子が返ってきて、 構造子の残りが実行される前に、 宣言された初期値またはデフォルト値を取得します。| 8.7 8.15 | Icarus Verilog 13.0 | x/z |
+| [`test_illegal_constructor_delay_control`](../../tests/ch8/test_illegal_constructor_delay_control.sv) |new は関数で、ブロックしてはならないので、クラスのコンストラクタは遅延制御を含められない| 8.7 | Icarus Verilog 13.0 |規格違反の設計|
+| [`test_illegal_constructor_event_control`](../../tests/ch8/test_illegal_constructor_event_control.sv) |new は関数で、ブロックしてはならないので、クラスのコンストラクタはイベント制御を含められない| 8.7 | Icarus Verilog 13.0 |規格違反の設計|
+| [`test_illegal_constructor_wait_statement`](../../tests/ch8/test_illegal_constructor_wait_statement.sv) |new は関数で、ブロックしてはならないので、クラスのコンストラクタは wait 文を含められない| 8.7 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_static_constructor`](../../tests/ch8/test_illegal_static_constructor.sv) |コンストラクタは静的に宣言できません| 8.7 8.10 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_virtual_constructor`](../../tests/ch8/test_illegal_virtual_constructor.sv) |コンストラクタは仮想的に宣言できません| 8.7 8.20 | Verilator 5.052 |規格違反の設計|
 | [`test_property_initializer_after_super_new`](../../tests/ch8/test_property_initializer_after_super_new.sv) |派生クラスのプロパティの初期化子は、ベースクラスの構造子の後で、派生クラスの構造者の残りの部分の前で実行されます。| 8.7 8.17 | Icarus Verilog 13.0 ||
@@ -148,6 +154,7 @@
 | [`test_class_super_hidden_members_and_implicit_super_new`](../../tests/ch8/test_class_super_hidden_members_and_implicit_super_new.sv) |すべてのプロパティ、メソッド、値パラメータ、 ローカルパラメータをベースクラスにアクセスします。 派生クラスが隠し、ベースが継承するものも含まれます。 super.new がない構造子は、ベース構造子のデフォルトの引数を使って挿入されます。| 8.15 8.7 | Verilator 5.052 ||
 | [`test_constructor_default_argument`](../../tests/ch8/test_constructor_default_argument.sv) |派生クラス構造子の引数リストにおけるデフォルトキーワードは、スーパークラス構造子における引数の順序、タイプ、デフォルト値を表し、一度だけ出現する。引数のないコールは デフォルトのスーパークラスを取得し 引数のあるコールは その順番で返します| 8.15 8.16 A.10 |規格のみ||
 | [`test_illegal_super_new_not_first`](../../tests/ch8/test_illegal_super_new_not_first.sv) |コンストラクタの最初のステートメントに super.new を呼び出す必要があります。| 8.15 8.17 | Icarus Verilog 13.0 |規格違反の設計|
+| [`test_illegal_super_parameter_in_packed_dimension`](../../tests/ch8/test_illegal_super_parameter_in_packed_dimension.sv) |super で読んだ基底クラスの値パラメータは定数式ではないので、 packed 次元の境界にできない| 8.15 |規格のみ|規格違反の設計|
 | [`test_illegal_super_super_member`](../../tests/ch8/test_illegal_super_super_member.sv) |スーパーはクラス1レベルまでしか 達成できないsuper.super 以上のクラスに到達するのは違法です| 8.15 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_cast_class`](../../tests/ch8/test_cast_class.sv) |クラスのキャストのテスト| 8.16 6.24.2 | Verilator 5.052 ||
 | [`test_cast_complex_patterns`](../../tests/ch8/test_cast_complex_patterns.sv) |複雑なネストパターンを持つ $cast| 8.16 6.24.2 7.5 | Verilator 5.052 ||
@@ -169,9 +176,13 @@
 | [`test_illegal_super_new_default_without_default`](../../tests/ch8/test_illegal_super_new_default_without_default.sv) |super.new (デフォルト) は構成子の引数リストにデフォルトを必要とします。| 8.17 |規格のみ|規格違反の設計|
 | [`test_illegal_super_new_with_extends_arguments`](../../tests/ch8/test_illegal_super_new_with_extends_arguments.sv) |クラスの構成要素は super.new を呼び出す必要がありません| 8.17 | Verilator 5.052 |規格違反の設計|
 | [`test_super_new_default`](../../tests/ch8/test_super_new_default.sv) |構成要素の引数リストのデフォルトは、スーパークラス構成要素の 引数を受け取り、super.new (デフォルト) はそれらを渡し、default と拡張すると、暗黙的な構成要素に同じ引数を与えます。| 8.17 8.15 |規格のみ||
+| [`test_class_inherited_method_uses_base_local`](../../tests/ch8/test_class_inherited_method_uses_base_local.sv) |自分のクラスの local プロパティを使う非 local のメソッドは継承され、派生クラスのオブジェクトで呼ぶと、同名の派生クラスのプロパティではなく、各オブジェクトのその local プロパティを読み書きする| 8.18 | Icarus Verilog 13.0 ||
 | [`test_class_local_protected_access_and_modifier_order`](../../tests/ch8/test_class_local_protected_access_and_modifier_order.sv) |ローカルメンバーはそのクラスのメソッドにより使用されます。 また、他のインスタンスで継承メソッドを通して、プロテクトされたメンバーはサブクラスにより使用されます、 ローカル、プロテクト、静的、コンスト、仮想の修飾子は任意の順序で書くことができます。| 8.18 | Verilator 5.052 ||
+| [`test_class_protected_members_in_subclasses`](../../tests/ch8/test_class_protected_members_in_subclasses.sv) |protected のプロパティと protected のメソッドは派生クラスに継承されて派生クラスから見えるので、1 段下と 2 段下の派生クラスのメソッドはそのプロパティを読み書きし、そのメソッドを呼べる| 8.18 | Verilator 5.054 ||
+| [`test_illegal_local_member_from_subclass`](../../tests/ch8/test_illegal_local_member_from_subclass.sv) |local プロパティは派生クラスの中では見えないので、派生クラスのメソッドはそれを参照できない。継承した非 local のメソッドは引き続き参照できる| 8.18 | Verilator 5.054 |規格違反の設計|
 | [`test_illegal_local_member_outside`](../../tests/ch8/test_illegal_local_member_outside.sv) |ローカルクラスのプロパティはクラスの外からアクセスできません| 8.18 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_local_protected_member`](../../tests/ch8/test_illegal_local_protected_member.sv) |メンバーは 地元と保護を兼ねてはいけません| 8.18 |規格のみ|規格違反の設計|
+| [`test_illegal_protected_member_outside`](../../tests/ch8/test_illegal_protected_member_outside.sv) |protected プロパティは派生クラスからは見えるが、そのクラスと派生クラスの外のコードからは隠されているので、モジュールはハンドルを通してそれを読めない| 8.18 | Verilator 5.054 |規格違反の設計|
 | [`test_class_const_global_and_instance_properties`](../../tests/ch8/test_class_const_global_and_instance_properties.sv) |constクラスプロパティは、宣言時に値を指定すればグローバル定数で、staticにもできる。コンストラクタで1回代入する場合は、各オブジェクトに固有の値を持つインスタンス定数となる| 8.19 | Verilator 5.052 ||
 | [`test_class_const_properties`](../../tests/ch8/test_class_const_properties.sv) |定数は、定義の中で値を取る。| 8.19 8.9 | Verilator 5.052 ||
 | [`test_illegal_const_property_assigned_twice`](../../tests/ch8/test_illegal_const_property_assigned_twice.sv) |初期化子のない const クラスのプロパティは コンストラクタで一度だけ割り当てられます| 8.19 |規格のみ|規格違反の設計|
@@ -191,6 +202,7 @@
 | [`test_class_virtual_edge_cases`](../../tests/ch8/test_class_virtual_edge_cases.sv) |テスト：クラス仮想手法エッジケース| 8.20 | Verilator 5.052 ||
 | [`test_class_virtual_override_of_nonvirtual_and_initial`](../../tests/ch8/test_class_virtual_override_of_nonvirtual_and_initial.sv) |仮想メソッドは非仮想メソッドを上書きし、キーワードなしの後の上書きでも仮想であり、上書きは仮想メソッドのプロトタイプに従い、:initialで宣言されたメソッドはそれによって仮想化されないので、その非仮想上書きはハンドルタイプによって選択されます。| 8.20 | Verilator 5.052 ||
 | [`test_class_virtual_param`](../../tests/ch8/test_class_virtual_param.sv) |仮想メソッドオーバーライドとタイプパラメータを持つパラメータ化クラス| 8.20 8.25 | Verilator 5.052 ||
+| [`test_final_method_not_virtual_vpi`](../../tests/ch8/test_final_method_not_virtual_vpi.sv) |final 指定子はメソッドを virtual にしないので、virtual なしで宣言した final のメソッドでは、新しいものも非 virtual のメソッドを上書きするものも vpiVirtual が FALSE であり、virtual かつ final と宣言したものでは TRUE である| 8.20 37.41 |規格のみ| VPI |
 | [`test_illegal_extends_nonvirtual_method`](../../tests/ch8/test_illegal_extends_nonvirtual_method.sv) |extends とマークされたメソッドはベースクラスの仮想メソッドを上書きしなければなりません| 8.20 |規格のみ|規格違反の設計|
 | [`test_illegal_final_method_overridden`](../../tests/ch8/test_illegal_final_method_overridden.sv) |:final で宣言されたメソッドはサブクラスで上書きできません。| 8.20 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_final_pure_virtual`](../../tests/ch8/test_illegal_final_pure_virtual.sv) |純粋な仮想メソッドは宣言できません:final| 8.20 8.21 |規格のみ|規格違反の設計|
@@ -267,6 +279,7 @@
 | [`test_illegal_interface_class_nested_class`](../../tests/ch8/test_illegal_interface_class_nested_class.sv) |インターフェースクラスはネストされたクラスを含めることができません| 8.26 |規格のみ|規格違反の設計|
 | [`test_illegal_interface_class_nested_in_interface_class`](../../tests/ch8/test_illegal_interface_class_nested_in_interface_class.sv) |インターフェースクラスは他のインターフェースクラスにネストできません| 8.26 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_interface_class_property`](../../tests/ch8/test_illegal_interface_class_property.sv) |インターフェースクラスには プロパティが含まれません| 8.26 | Verilator 5.052 |規格違反の設計|
+| [`test_illegal_interface_method_implemented_without_virtual`](../../tests/ch8/test_illegal_interface_method_implemented_without_virtual.sv) |インタフェースクラスのメソッドを virtual なしで宣言したメソッドで実装し、virtual な実装を継承していない非抽象クラスは違反である| 8.26 |規格のみ|規格違反の設計|
 | [`test_illegal_matching_methods_without_implements`](../../tests/ch8/test_illegal_matching_methods_without_implements.sv) |インターフェースクラスのメソッドを持つが、実装と名付けていないクラスは、実装しません。| 8.26 8.22 | Verilator 5.052 |規格違反の設計|
 | [`test_interface_class`](../../tests/ch8/test_interface_class.sv) |インターフェースクラスは2つのクラスで実装され、インターフェースクラスハンドルを通して呼び出されます。| 8.26 | Verilator 5.052 ||
 | [`test_interface_class_implemented_by_subclass`](../../tests/ch8/test_interface_class_implemented_by_subclass.sv) |$cast はインタフェースクラスのハンドルであり、インタフェースのオブジェクトを指定することで、インタフェースを実装するクラスのサブクラスは、インタフェースオブジェクトを実装します。| 8.26 8.26.5 | Verilator 5.052 ||
@@ -288,6 +301,8 @@
 | [`test_illegal_interface_class_implements_class`](../../tests/ch8/test_illegal_interface_class_implements_class.sv) |インターフェースクラスはクラスや仮想クラスを実装できません| 8.26.2 8.26 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_interface_class_implements_interface`](../../tests/ch8/test_illegal_interface_class_implements_interface.sv) |インターフェースクラスはインターフェースクラスを拡張できますが、実装することはできません。| 8.26.2 8.26 |規格のみ|規格違反の設計|
 | [`test_illegal_interface_class_unqualified_type`](../../tests/ch8/test_illegal_interface_class_unqualified_type.sv) |インターフェースクラスを実装したクラスはその typedefs を継承しません。従って、クラスのスコープなしでは使用できません。| 8.26.3 | Verilator 5.052 |規格違反の設計|
+| [`test_illegal_interface_handle_parameter_in_packed_dimension`](../../tests/ch8/test_illegal_interface_handle_parameter_in_packed_dimension.sv) |インタフェースクラスのハンドルを通して読んだパラメータは定数式ではないので、 packed 次元の境界にできない| 8.26.3 |規格のみ|規格違反の設計|
+| [`test_illegal_interface_handle_type_parameter`](../../tests/ch8/test_illegal_interface_handle_type_parameter.sv) |インタフェースクラスの型パラメータは、インタフェースクラスのハンドルを通しては選べないが、クラススコープ演算子では届く| 8.26.3 | Verilator 5.054 |規格違反の設計|
 | [`test_interface_class_type_access`](../../tests/ch8/test_interface_class_type_access.sv) |クラスのパラメータとタイプ定義は、それを拡張するインタフェースクラスが継承するが、それを実装するクラスは継承しない。実装するクラスがそれらに到達するには、クラスの範囲解決演算子を使う。| 8.26.3 8.26.2 8.23 | Verilator 5.052 ||
 | [`test_illegal_class_implements_type_parameter`](../../tests/ch8/test_illegal_class_implements_type_parameter.sv) |クラスはインタフェースクラスの値を持つタイプパラメータを実装できません。| 8.26.4 |規格のみ|規格違反の設計|
 | [`test_illegal_implements_forward_typedef`](../../tests/ch8/test_illegal_implements_forward_typedef.sv) |クラスは、その点で前方 typedef で宣言されただけのインタフェースクラスを実装できません。| 8.26.4 |規格のみ|規格違反の設計|
@@ -305,6 +320,7 @@
 | [`test_illegal_interface_param_conflict`](../../tests/ch8/test_illegal_interface_param_conflict.sv) |2つの異なるインターフェースクラスから継承されたパラメータは、2つのパラメータが一致しても使用されない場合でも衝突します。| 8.26.6.2 |規格のみ|規格違反の設計|
 | [`test_interface_class_typedef_conflict_resolved`](../../tests/ch8/test_interface_class_typedef_conflict_resolved.sv) |2つのインターフェースクラスから同じ typedef 名前を継承するインターフェースクラ スは、その名前自体を宣言することで衝突を解決します。| 8.26.6.2 8.26.3 8.26.6 |規格のみ||
 | [`test_illegal_interface_specialization_conflict`](../../tests/ch8/test_illegal_interface_specialization_conflict.sv) |1つのパラメータ化されたインターフェースクラスの 2つの特化は異なるタイプであるため、 それらのメソッド名は、一緒に継承されると衝突します| 8.26.6.3 |規格のみ|規格違反の設計|
+| [`test_illegal_interface_specializations_parameter_conflict`](../../tests/ch8/test_illegal_interface_specializations_parameter_conflict.sv) |1 つのパラメータ付きインタフェースクラスの 2 つの別の特殊化は別のインタフェースクラスなので、他の 2 つを通して両方を継承するインタフェースクラスには、解決されないパラメータ名の衝突がある| 8.26.6.3 |規格のみ|規格違反の設計|
 | [`test_interface_diamond_inherited_parameter`](../../tests/ch8/test_interface_diamond_inherited_parameter.sv) |ダイアモンドに沿って継承される同じインタフェースパラメータは単一の宣言である。| 8.26.6.3 | Verilator 5.052 ||
 | [`test_illegal_virtual_class_leaves_interface_method_undeclared`](../../tests/ch8/test_illegal_virtual_class_leaves_interface_method_undeclared.sv) |インターフェースクラスを実装する仮想クラスは それぞれのメソッドを純粋に実装または再宣言しなければなりません| 8.26.7 8.26 |規格のみ|規格違反の設計|
 | [`test_interface_class_partial_virtual`](../../tests/ch8/test_interface_class_partial_virtual.sv) |仮想クラスはインタフェースクラスを部分的に実装し，残りの部分を純粋に宣言し，派生クラスでそれを完了させる。| 8.26.7 8.21 8.26.8 | Verilator 5.052 ||

@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[すべての章](README.ja.md) .テストは700本で、そのうち79本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは708本で、そのうち79本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -284,6 +284,8 @@
 | [`test_string_len_case_compare_types`](../../tests/ch6/test_string_len_case_compare_types.sv) |len()はintを返します。toupper()・tolower()は新しい文字列を返し、元の文字列は変更しません。compare()・icompare()は文字列を受け取り、intを返します。| 6.16.1 6.16.4 6.16.5 6.16.6 6.16.7 20.6.1 | Verilator 5.052 ||
 | [`test_string_octtoa`](../../tests/ch6/test_string_octtoa.sv) |テスト: 文字列オクタメソッド| 6.16.1 6.16.10 | Icarus Verilog 13.0 ||
 | [`test_string_substr`](../../tests/ch6/test_string_substr.sv) |テスト: 文字列の下位メソッド| 6.16.1 6.16.8 | Icarus Verilog 13.0 ||
+| [`test_illegal_string_putc_result_assigned`](../../tests/ch6/test_illegal_string_putc_result_assigned.sv) |文字列のメソッド putc は void を返すので、その呼び出しを代入の右辺にはできない| 6.16.2 13.4.1 |規格のみ|規格違反の設計|
+| [`test_illegal_string_putc_result_in_expression`](../../tests/ch6/test_illegal_string_putc_result_in_expression.sv) |文字列のメソッド putc は void を返すので、その呼び出しを演算子のオペランドにはできない| 6.16.2 13.4.1 |規格のみ|規格違反の設計|
 | [`test_string_putc`](../../tests/ch6/test_string_putc.sv) |テスト文字列 putc| 6.16.2 | Verilator 5.052 ||
 | [`test_string_putc_2`](../../tests/ch6/test_string_putc_2.sv) |テスト: 文字列プット法| 6.16.2 | Verilator 5.052 ||
 | [`test_string_putc_getc`](../../tests/ch6/test_string_putc_getc.sv) |文字列データタイプ| 6.16.2 6.16.3 | Verilator 5.052 ||
@@ -320,6 +322,8 @@
 | [`test_string_hextoa`](../../tests/ch6/test_string_hextoa.sv) |テスト: 文字列 hextoa 法| 6.16.12 | Verilator 5.052 ||
 | [`test_string_binary_octal_round_trip`](../../tests/ch6/test_string_binary_octal_round_trip.sv) |integerは2進および8進変換法により，既存の文字列およびラウンドトリップゼロに置き換えられた。| 6.16.13 6.16.14 | Verilator 5.052 ||
 | [`test_string_octtoa_bintoa_negative_round_trip`](../../tests/ch6/test_string_octtoa_bintoa_negative_round_trip.sv) |次の例では、octoa() と bintoa() は負の整数を受け入れ、受け取る値を置き換えます。atooct() と atobin() は結果を同じ負の値として返します。| 6.16.13 6.16.14 6.16.9 | Verilator 5.052 ||
+| [`test_illegal_string_realtoa_result_assigned`](../../tests/ch6/test_illegal_string_realtoa_result_assigned.sv) |文字列のメソッド realtoa は void を返すので、その呼び出しを代入の右辺にはできない| 6.16.15 13.4.1 |規格のみ|規格違反の設計|
+| [`test_illegal_string_realtoa_result_in_expression`](../../tests/ch6/test_illegal_string_realtoa_result_in_expression.sv) |文字列のメソッド realtoa は void を返すので、その呼び出しを演算子のオペランドにはできない| 6.16.15 13.4.1 |規格のみ|規格違反の設計|
 | [`test_string_realtoa`](../../tests/ch6/test_string_realtoa.sv) |テスト: 文字列実行メソッド| 6.16.15 6.16.10 | Icarus Verilog 13.0 ||
 | [`test_event_rebinding_retains_old_wait`](../../tests/ch6/test_event_rebinding_retains_old_wait.sv) |イベント変数を再バインドすると、既にブロックされているプロセスを旧同期オブジェクトに再ターゲットしません。| 6.17 15.5.5.1 |規格のみ||
 | [`test_event_triggered_state_lasts_time_step`](../../tests/ch6/test_event_triggered_state_lasts_time_step.sv) |トリガー状態は 時間ステップの残りの期間 真であり続けます 次の時間ステップでは 偽になります| 6.17 15.5.3 | Verilator 5.052 ||
@@ -355,6 +359,7 @@
 | [`test_enum_declaration_syntax_forms`](../../tests/ch6/test_enum_declaration_syntax_forms.sv) |enum packed の宣言は、オプションのベースタイプ、1つ以上のコンマで区切られた名前、それぞれのオプションの範囲と値、および括弧の後のオプションの次元を持っています。| 6.19 6.19.2 7.4.1 | Verilator 5.052 ||
 | [`test_enum_edge_cases`](../../tests/ch6/test_enum_edge_cases.sv) |テスト：エヌムエッジケース| 6.19 | Icarus Verilog 13.0 ||
 | [`test_enum_encoding_cast_to_base`](../../tests/ch6/test_enum_encoding_cast_to_base.sv) |enum の名前の値表現はベースタイプにキャストしたように評価されます。 つまり、ベースの幅と符号を取得し、次の名前はキャスト値を増加させます。| 6.19 6.24.1 11.6.1 | Verilator 5.052 ||
+| [`test_enum_encoding_value_changed_by_cast`](../../tests/ch6/test_enum_encoding_value_changed_by_cast.sv) |値の式が基底型への cast で変わる enum の名前は、符号の変更・符号拡張・切り詰めを経た cast 後の値を持ち、値の無い次の名前はその値に 1 を足したものになる| 6.19 6.24.1 |規格のみ||
 | [`test_enum_four_state_base_x_z_values`](../../tests/ch6/test_enum_four_state_base_x_z_values.sv) |明示的な 4 状態ベースタイプを持つ enum は x と z ビットを持つ名前値を与えます。| 6.19 6.19.5.6 | Icarus Verilog 13.0 | x/z |
 | [`test_enum_methods_typed`](../../tests/ch6/test_enum_methods_typed.sv) |数列型| 6.19 6.19.5 | Icarus Verilog 13.0 ||
 | [`test_enum_named_constants`](../../tests/ch6/test_enum_named_constants.sv) |enum は、定数表現やケースアイテムに使える、宣言されたエンコーディングを持つ整数名付け定数を定義します。| 6.19 | Icarus Verilog 13.0 ||
@@ -436,6 +441,7 @@
 | [`test_param_constant_expr`](../../tests/ch6/test_param_constant_expr.sv) |定数表現で定義されたパラメータとローカルパラメータ| 6.20.1 6.20.4 11.2.1 | Verilator 5.052 ||
 | [`test_param_declaration_contexts`](../../tests/ch6/test_param_declaration_contexts.sv) |localparam localparam パラメータはモジュール、インタフェース、プログラム、クラス、パッケージ、それらのパラメータポートリスト、生成ブロック、コンパイルユニットに表示されます。| 6.20.1 6.20.4 6.20 | Verilator 5.052 ||
 | [`test_param_declaration_forms_aggregates_selects`](../../tests/ch6/test_param_declaration_forms_aggregates_selects.sv) |parameter宣言とlocalparam宣言では、データ型、または符号指定とpacked次元だけの指定、複数の代入、名前に付けたunpacked次元、および型代入のリストを使用できる。集合パラメータは要素とメンバーで読み、整数パラメータはbitとpart selectで読みます。| 6.20.1 6.20.2 | Verilator 5.052 ||
+| [`test_param_without_default_module_not_top_level`](../../tests/ch6/test_param_without_default_module_not_top_level.sv) |どこからもインスタンス化されないモジュールのうち、既定値の無い値パラメータや型パラメータを持つものはトップレベルのインスタンスにならず、その手続きは実行されない。パラメータがすべて既定値を持つもの、またはパラメータを持たないものはトップレベルのインスタンスになり、その手続きが実行される| 6.20.1 23.3.1 | Icarus Verilog 13.0 ||
 | [`test_param_without_default_not_implicit_top`](../../tests/ch6/test_param_without_default_not_implicit_top.sv) |なしで宣言されたパラメータは、その値をオーバーライドからのみ取得し、インスタンス化されないパラメータを持つモジュールはトップレベルインスタンスになりません。| 6.20.1 23.3.1 8.25 |規格のみ||
 | [`test_parameter_declaration_forms`](../../tests/ch6/test_parameter_declaration_forms.sv) |定義するパラメータと localparam の宣言、データタイプ、暗黙型、 enum 制限付きまたは無いタイプパラメータ、値とタイプ代入のリスト、 unpacked 配列パラメータ、およびすべてのインスタンスが上書きするデフォルトのないパラメータ| 6.20.1 6.20.2 6.20.3 6.20.4 A.2.1.1 A.2.3 A.2.4 23.10.2.2 | Verilator 5.052 ||
 | [`test_parameter_keyword_local_contexts_vpi`](../../tests/ch6/test_parameter_keyword_local_contexts_vpi.sv) |パラメータポートリスト（空のものも含む）を持つ module・interface・program の本体、あらゆるクラス本体、generate ブロック、パッケージ、コンパイル単位で宣言したパラメータは局所パラメータで、 vpiLocalParam がそれを報告する。一方、ポートリストのパラメータと、ポートリストを持たないモジュールのパラメータは局所ではない| 6.20.1 37.28 |規格のみ| VPI |
@@ -479,6 +485,7 @@
 | [`test_param_local_2`](../../tests/ch6/test_param_local_2.sv) |テスト: localparam の使用| 6.20.4 6.20.1 | Verilator 5.052 ||
 | [`test_parameter_port_list_localparam_extent`](../../tests/ch6/test_parameter_port_list_localparam_extent.sv) |パラメータポートリストでは、 localparam キーワードから次の parameter キーワードまでの宣言（データ型だけの宣言を含む）が局所であり、その前の宣言と parameter キーワード以降の宣言は非局所で、順序・名前・ defparam による上書きを受ける| 6.20.4 | Icarus Verilog 13.0 ||
 | [`test_ch6_extra_defparam_specparam`](../../tests/ch6/test_ch6_extra_defparam_specparam.sv) |言語パラメータオーバーライド構造である defparam は specparam を修正できません。| 6.20.5 23.10.1 | Verilator 5.052 |規格違反の設計|
+| [`test_illegal_named_parameter_value_for_specparam`](../../tests/ch6/test_illegal_named_parameter_value_for_specparam.sv) |インスタンスの名前によるパラメータ値の指定では specparam に新しい値を与えられない。それを変えられるのは SDF 注釈だけである| 6.20.5 23.10.2.2 | Verilator 5.054 |規格違反の設計|
 | [`test_illegal_parameter_from_specparam`](../../tests/ch6/test_illegal_parameter_from_specparam.sv) |パラメータには指定パラメータを使用する値を与えられません| 6.20.5 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_parameter_in_specify_block`](../../tests/ch6/test_illegal_parameter_in_specify_block.sv) |特定のブロック内でパラメータを宣言することはできません。そこでは specparams のみが宣言されます。| 6.20.5 30.3 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_specparam_in_declaration_range`](../../tests/ch6/test_illegal_specparam_in_declaration_range.sv) |宣言の範囲指定の一部に specparam は含まれません| 6.20.5 | Verilator 5.052 |規格違反の設計|
@@ -557,6 +564,7 @@
 | [`test_illegal_anonymous_struct_not_equivalent`](../../tests/ch6/test_illegal_anonymous_struct_not_equivalent.sv) |異なる宣言からの匿名 unpacked 構造は等価ではなく、一つを他に割り当てることはできません。| 6.22.2 6.22.3 |規格のみ|規格違反の設計|
 | [`test_type_equivalence_only_by_rules`](../../tests/ch6/test_type_equivalence_only_by_rules.sv) |2 つの型は帰納的定義の規則によってだけ等価になる: int は 32 bit の 2 状態の符号付き packed 構造体や bit ベクトルと等価だが、 int を基底とする enum とは等価でなく、同じ中身の 2 つの列挙型や 2 つの unpacked 構造体も等価でない。 try_peek と $cast がそれぞれの場合を示す| 6.22.2 6.24.2 15.4.8 |規格のみ||
 | [`test_type_equivalent_arrays`](../../tests/ch6/test_type_equivalent_arrays.sv) |元素型が等価なパッケージされていない配列（例えば、同じサイズ、状態、符号の packed 型）は、左から順に、それらの範囲に関係なく、互いに割り当てることができる。| 6.22.2 7.6 7.4.2 | Verilator 5.052 ||
+| [`test_illegal_enum_assigned_base_vector_without_cast`](../../tests/ch6/test_illegal_enum_assigned_base_vector_without_cast.sv) |enum と整数型の間の代入互換性は一方向だけに成り立つので、 enum の値は cast なしでその基底型のベクトルに代入できるが、そのベクトルを cast なしで enum の変数に戻して代入することはできない| 6.22.3 6.19.3 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_type_assignment_cast_compatible`](../../tests/ch6/test_type_assignment_cast_compatible.sv) |任意の型は暗黙的に変換される。enumはintegerに変換され、切り捨てを伴う整数型と丸めを伴う実数の間で変換される。integerはキャストを経てのみenumに変換される| 6.22.3 6.22.4 6.24.1 6.12.1 | Icarus Verilog 13.0 ||
 | [`test_enum_explicit_cast_and_failed_dynamic_cast`](../../tests/ch6/test_enum_explicit_cast_and_failed_dynamic_cast.sv) |明示的な enum のキャストは整数値を許可し、失敗した動的キャストは目的地を変更しない| 6.22.4 6.24.2 | Verilator 5.052 ||
 | [`test_illegal_class_handle_to_int`](../../tests/ch6/test_illegal_class_handle_to_int.sv) |クラスハンドルは他のすべてのタイプと互換性がなく、int に割り当てることはできません。| 6.22.5 | Icarus Verilog 13.0 |規格違反の設計|

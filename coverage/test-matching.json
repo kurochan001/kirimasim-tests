@@ -2,9 +2,9 @@
   "schema": 1,
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
-  "test_files": 12471,
-  "linked_test_files": 5511,
-  "unlinked_test_files": 6960,
+  "test_files": 12519,
+  "linked_test_files": 5564,
+  "unlinked_test_files": 6955,
   "chapters": [
     {
       "chapter": "ch3",
@@ -26,21 +26,21 @@
     },
     {
       "chapter": "ch6",
-      "test_files": 700,
-      "linked_test_files": 431,
-      "unlinked_test_files": 269
+      "test_files": 708,
+      "linked_test_files": 443,
+      "unlinked_test_files": 265
     },
     {
       "chapter": "ch7",
-      "test_files": 789,
-      "linked_test_files": 311,
+      "test_files": 809,
+      "linked_test_files": 331,
       "unlinked_test_files": 478
     },
     {
       "chapter": "ch8",
-      "test_files": 462,
-      "linked_test_files": 225,
-      "unlinked_test_files": 237
+      "test_files": 478,
+      "linked_test_files": 242,
+      "unlinked_test_files": 236
     },
     {
       "chapter": "ch9",
@@ -68,8 +68,8 @@
     },
     {
       "chapter": "ch13",
-      "test_files": 470,
-      "linked_test_files": 135,
+      "test_files": 474,
+      "linked_test_files": 139,
       "unlinked_test_files": 335
     },
     {
@@ -46489,6 +46489,42 @@
       }
     },
     {
+      "test": "tests/ch13/test_function_const_ref_formals_in_restricted_contexts.sv",
+      "inputs_sha256": "2b12bfeb1457cc489e4aee6f1551fd4eead85e27c48b27dd2f67cc594f83f64a",
+      "cited_clauses": [
+        "13.4"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-13.4-EXTRACT-CONST-REF-ARG-CONTEXT"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-13.4-EXTRACT-FUNCTION-BODY-SEQUENTIAL",
+        "SV2023-13.4-EXTRACT-FUNCTION-DIRECTION-DEFAULT",
+        "SV2023-13.4-EXTRACT-FUNCTION-DIRECTIONS",
+        "SV2023-13.4-EXTRACT-FUNCTION-FORMAL-STYLES",
+        "SV2023-13.4-EXTRACT-FUNCTION-GRAMMAR",
+        "SV2023-13.4-EXTRACT-FUNCTION-PROCESS-CONTROL",
+        "SV2023-13.4-EXTRACT-FUNCTION-RETURN-TYPE-CATEGORIES",
+        "SV2023-13.4-EXTRACT-FUNCTION-TYPE-DEFAULT",
+        "SV2023-13.4-EXTRACT-IMPLICIT-LOGIC-RETURN"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-13.4-EXTRACT-FUNCTION-TYPE-FOOTNOTES",
+        "SV2023-13.4-EXTRACT-FUNCTION-WRITABLE-ARG-CONTEXT",
+        "SV2023-13.4-EXTRACT-NO-FUNCTION-TASK",
+        "SV2023-13.4-EXTRACT-NO-FUNCTION-TIMING"
+      ],
+      "broader_citations": [
+        {
+          "clause": "13.4",
+          "descendant_requirement_count": 34
+        }
+      ]
+    },
+    {
       "test": "tests/ch13/test_function_controls_other_and_own_process.sv",
       "inputs_sha256": "7668480a82fd9301e1b782b25aa495676b6c025e19d71210cb7735b7f3ae44c0",
       "cited_clauses": [
@@ -50464,6 +50500,120 @@
           }
         ]
       }
+    },
+    {
+      "test": "tests/ch13/test_illegal_writable_formal_function_in_continuous_assign.sv",
+      "inputs_sha256": "a969e5fd83ee4c129141aad43afdff9aabb4a0d0f21df81dfeb18b349aab9f50",
+      "cited_clauses": [
+        "13.4"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-13.4-EXTRACT-FUNCTION-WRITABLE-ARG-CONTEXT"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-13.4-EXTRACT-FUNCTION-WRITABLE-ARG-CONTEXT"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-13.4-EXTRACT-FUNCTION-TYPE-FOOTNOTES",
+        "SV2023-13.4-EXTRACT-NO-FUNCTION-TASK",
+        "SV2023-13.4-EXTRACT-NO-FUNCTION-TIMING"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-13.4-EXTRACT-CONST-REF-ARG-CONTEXT",
+        "SV2023-13.4-EXTRACT-FUNCTION-BODY-SEQUENTIAL",
+        "SV2023-13.4-EXTRACT-FUNCTION-DIRECTION-DEFAULT",
+        "SV2023-13.4-EXTRACT-FUNCTION-DIRECTIONS",
+        "SV2023-13.4-EXTRACT-FUNCTION-FORMAL-STYLES",
+        "SV2023-13.4-EXTRACT-FUNCTION-GRAMMAR",
+        "SV2023-13.4-EXTRACT-FUNCTION-PROCESS-CONTROL",
+        "SV2023-13.4-EXTRACT-FUNCTION-RETURN-TYPE-CATEGORIES",
+        "SV2023-13.4-EXTRACT-FUNCTION-TYPE-DEFAULT",
+        "SV2023-13.4-EXTRACT-IMPLICIT-LOGIC-RETURN"
+      ],
+      "broader_citations": [
+        {
+          "clause": "13.4",
+          "descendant_requirement_count": 34
+        }
+      ]
+    },
+    {
+      "test": "tests/ch13/test_illegal_writable_formal_function_in_event_control.sv",
+      "inputs_sha256": "b8ad63675741ba9b628f4a5c442eb1040a93f439c302c6af73af310bc87c8bda",
+      "cited_clauses": [
+        "13.4"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-13.4-EXTRACT-FUNCTION-WRITABLE-ARG-CONTEXT"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-13.4-EXTRACT-FUNCTION-WRITABLE-ARG-CONTEXT"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-13.4-EXTRACT-FUNCTION-TYPE-FOOTNOTES",
+        "SV2023-13.4-EXTRACT-NO-FUNCTION-TASK",
+        "SV2023-13.4-EXTRACT-NO-FUNCTION-TIMING"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-13.4-EXTRACT-CONST-REF-ARG-CONTEXT",
+        "SV2023-13.4-EXTRACT-FUNCTION-BODY-SEQUENTIAL",
+        "SV2023-13.4-EXTRACT-FUNCTION-DIRECTION-DEFAULT",
+        "SV2023-13.4-EXTRACT-FUNCTION-DIRECTIONS",
+        "SV2023-13.4-EXTRACT-FUNCTION-FORMAL-STYLES",
+        "SV2023-13.4-EXTRACT-FUNCTION-GRAMMAR",
+        "SV2023-13.4-EXTRACT-FUNCTION-PROCESS-CONTROL",
+        "SV2023-13.4-EXTRACT-FUNCTION-RETURN-TYPE-CATEGORIES",
+        "SV2023-13.4-EXTRACT-FUNCTION-TYPE-DEFAULT",
+        "SV2023-13.4-EXTRACT-IMPLICIT-LOGIC-RETURN"
+      ],
+      "broader_citations": [
+        {
+          "clause": "13.4",
+          "descendant_requirement_count": 34
+        }
+      ]
+    },
+    {
+      "test": "tests/ch13/test_illegal_writable_formal_function_in_force.sv",
+      "inputs_sha256": "b73c79e9173454704c330c30e678adcecb274c407a31c14fad29809534940897",
+      "cited_clauses": [
+        "13.4"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-13.4-EXTRACT-FUNCTION-WRITABLE-ARG-CONTEXT"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-13.4-EXTRACT-FUNCTION-WRITABLE-ARG-CONTEXT"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-13.4-EXTRACT-FUNCTION-TYPE-FOOTNOTES",
+        "SV2023-13.4-EXTRACT-NO-FUNCTION-TASK",
+        "SV2023-13.4-EXTRACT-NO-FUNCTION-TIMING"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-13.4-EXTRACT-CONST-REF-ARG-CONTEXT",
+        "SV2023-13.4-EXTRACT-FUNCTION-BODY-SEQUENTIAL",
+        "SV2023-13.4-EXTRACT-FUNCTION-DIRECTION-DEFAULT",
+        "SV2023-13.4-EXTRACT-FUNCTION-DIRECTIONS",
+        "SV2023-13.4-EXTRACT-FUNCTION-FORMAL-STYLES",
+        "SV2023-13.4-EXTRACT-FUNCTION-GRAMMAR",
+        "SV2023-13.4-EXTRACT-FUNCTION-PROCESS-CONTROL",
+        "SV2023-13.4-EXTRACT-FUNCTION-RETURN-TYPE-CATEGORIES",
+        "SV2023-13.4-EXTRACT-FUNCTION-TYPE-DEFAULT",
+        "SV2023-13.4-EXTRACT-IMPLICIT-LOGIC-RETURN"
+      ],
+      "broader_citations": [
+        {
+          "clause": "13.4",
+          "descendant_requirement_count": 34
+        }
+      ]
     },
     {
       "test": "tests/ch13/test_inout_arg_edge_cases.sv",
@@ -324567,10 +324717,11 @@
         "8.7"
       ],
       "negative_test": true,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-6.20.6-EXTRACT-CONST-HANDLE-NO-WRITE"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
-        "SV2023-6.20.6-EXTRACT-CONST-HANDLE-NO-WRITE",
         "SV2023-8.7-EXTRACT-CONSTRUCTOR-NO-TIMING",
         "SV2023-8.7-EXTRACT-NO-STATIC-VIRTUAL-CONSTRUCTOR"
       ],
@@ -324601,12 +324752,15 @@
         "11.5.3"
       ],
       "negative_test": true,
-      "registered_requirement_ids": [],
-      "collective_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-6.5-EXTRACT-INITIALIZATION-PROCEDURAL-CLASSIFICATION"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-6.5-EXTRACT-INITIALIZATION-PROCEDURAL-CLASSIFICATION"
+      ],
       "unapproved_candidate_ids": [
         "SV2023-6.5-EXTRACT-DATA-DECLARATION-ORDER",
         "SV2023-6.5-EXTRACT-DECLARATION-NAME-COLLISION",
-        "SV2023-6.5-EXTRACT-INITIALIZATION-PROCEDURAL-CLASSIFICATION",
         "SV2023-6.5-EXTRACT-INPUT-VARIABLE-DRIVER",
         "SV2023-6.5-EXTRACT-INSTANCE-OUTPUT-VARIABLE-DRIVER",
         "SV2023-6.5-EXTRACT-NO-PROCEDURAL-NET-ASSIGNMENT",
@@ -324646,8 +324800,12 @@
         "23.10.1"
       ],
       "negative_test": true,
-      "registered_requirement_ids": [],
-      "collective_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-6.20.5-EXTRACT-SDF-ONLY-OVERRIDE"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-6.20.5-EXTRACT-SDF-ONLY-OVERRIDE"
+      ],
       "unapproved_candidate_ids": [
         "SV2023-23.10.1-EXTRACT-DEFPARAM-LOCAL-HIERARCHY",
         "SV2023-23.10.1-EXTRACT-DEFPARAM-NO-SIBLING",
@@ -324655,7 +324813,6 @@
         "SV2023-6.20.5-EXTRACT-DISTINCT-DECLARATION-KEYWORDS",
         "SV2023-6.20.5-EXTRACT-NO-SPECPARAM-IN-PARAMETER",
         "SV2023-6.20.5-EXTRACT-PARAMETER-USE-RESTRICTION",
-        "SV2023-6.20.5-EXTRACT-SDF-ONLY-OVERRIDE",
         "SV2023-6.20.5-EXTRACT-SPECPARAM-BEFORE-REFERENCE",
         "SV2023-6.20.5-EXTRACT-SPECPARAM-DECLARATION-SCOPE",
         "SV2023-6.20.5-EXTRACT-SPECPARAM-USE-SCOPE"
@@ -324833,13 +324990,16 @@
         "11.5.3"
       ],
       "negative_test": true,
-      "registered_requirement_ids": [],
-      "collective_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-6.5-EXTRACT-INITIALIZATION-PROCEDURAL-CLASSIFICATION"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-6.5-EXTRACT-INITIALIZATION-PROCEDURAL-CLASSIFICATION"
+      ],
       "unapproved_candidate_ids": [
         "SV2023-10.6.1-EXTRACT-ASSIGN-TARGET",
         "SV2023-6.5-EXTRACT-DATA-DECLARATION-ORDER",
         "SV2023-6.5-EXTRACT-DECLARATION-NAME-COLLISION",
-        "SV2023-6.5-EXTRACT-INITIALIZATION-PROCEDURAL-CLASSIFICATION",
         "SV2023-6.5-EXTRACT-INPUT-VARIABLE-DRIVER",
         "SV2023-6.5-EXTRACT-INSTANCE-OUTPUT-VARIABLE-DRIVER",
         "SV2023-6.5-EXTRACT-NO-PROCEDURAL-NET-ASSIGNMENT",
@@ -325569,11 +325729,11 @@
       "registered_requirement_ids": [
         "SV2023-6.20.6-EXTRACT-AUTOMATIC-CONST-EXPRESSION",
         "SV2023-6.20.6-EXTRACT-CONST-CLASS-HANDLE",
+        "SV2023-6.20.6-EXTRACT-CONST-HANDLE-MEMBERS-WRITABLE",
         "SV2023-6.20.6-EXTRACT-CONST-RUNTIME"
       ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
-        "SV2023-6.20.6-EXTRACT-CONST-HANDLE-MEMBERS-WRITABLE",
         "SV2023-6.20.6-EXTRACT-STATIC-CONST-DEPENDENCIES",
         "SV2023-8.7-EXTRACT-BASE-CONSTRUCTOR-FIRST",
         "SV2023-8.7-EXTRACT-CONSTRUCTOR-ACCESS",
@@ -327660,6 +327820,74 @@
           }
         ]
       }
+    },
+    {
+      "test": "tests/ch6/test_enum_encoding_value_changed_by_cast.sv",
+      "inputs_sha256": "c5d5d838680e43de6a2989497e1bafa2805970bfd124c4419d5a5c05695fcf02",
+      "cited_clauses": [
+        "6.19",
+        "6.24.1"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-6.19-EXTRACT-POST-CAST-ENCODING"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-6.19-EXTRACT-AUTO-INCREMENT",
+        "SV2023-6.19-EXTRACT-DEFAULT-INT-BASE",
+        "SV2023-6.19-EXTRACT-ENCODING-CAST-CONTEXT",
+        "SV2023-6.19-EXTRACT-ENUM-BASE-GRAMMAR",
+        "SV2023-6.19-EXTRACT-ENUM-GRAMMAR",
+        "SV2023-6.19-EXTRACT-ENUM-INTEGRAL-CAST",
+        "SV2023-6.19-EXTRACT-FIRST-IMPLICIT-ZERO",
+        "SV2023-6.19-EXTRACT-FOUR-STATE-XZ",
+        "SV2023-6.19-EXTRACT-NAMED-INTEGRAL-CONSTANTS",
+        "SV2023-6.24.1-EXTRACT-AGGREGATE-BIT-PRESERVATION",
+        "SV2023-6.24.1-EXTRACT-ASSIGNMENT-CAST-EQUIVALENCE",
+        "SV2023-6.24.1-EXTRACT-CAST-GRAMMAR",
+        "SV2023-6.24.1-EXTRACT-CONST-CAST",
+        "SV2023-6.24.1-EXTRACT-LOGIC-BIT-SIZE",
+        "SV2023-6.24.1-EXTRACT-NONEQUIVALENT-CAST-DISPATCH",
+        "SV2023-6.24.1-EXTRACT-PACKED-IMPLICIT-CONVERSION",
+        "SV2023-6.24.1-EXTRACT-SHORTREAL-BIT-CONVERSION",
+        "SV2023-6.24.1-EXTRACT-SHORTREAL-NUMERIC-CONVERSION",
+        "SV2023-6.24.1-EXTRACT-SIGN-CAST-PERMITTED",
+        "SV2023-6.24.1-EXTRACT-SIGN-CAST-SIGN",
+        "SV2023-6.24.1-EXTRACT-SIGN-CAST-STATE",
+        "SV2023-6.24.1-EXTRACT-SIGN-CAST-WIDTH",
+        "SV2023-6.24.1-EXTRACT-SIZE-CAST-RESIZE",
+        "SV2023-6.24.1-EXTRACT-SIZE-CAST-SIGN-PRESERVED",
+        "SV2023-6.24.1-EXTRACT-SIZE-CAST-STATE",
+        "SV2023-6.24.1-EXTRACT-SIZE-CAST-VECTOR",
+        "SV2023-6.24.1-EXTRACT-TYPE-CAST-PREFIX",
+        "SV2023-6.24.1-EXTRACT-UNION-BIT-SIZE",
+        "SV2023-6.24.1-EXTRACT-UNPACKED-PACK-ORDER"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-6.19-EXTRACT-EXPLICIT-ENCODING-CONSTANT",
+        "SV2023-6.19-EXTRACT-NO-ENUM-NAME-OVERLOAD",
+        "SV2023-6.19-EXTRACT-NO-HIERARCHICAL-CONST-ENCODING",
+        "SV2023-6.19-EXTRACT-NO-INCREMENT-OVERFLOW",
+        "SV2023-6.19-EXTRACT-NO-INCREMENT-XZ",
+        "SV2023-6.19-EXTRACT-NO-TWO-STATE-XZ",
+        "SV2023-6.19-EXTRACT-SIGNED-RANGE-CHECK",
+        "SV2023-6.19-EXTRACT-SIZED-LITERAL-WIDTH",
+        "SV2023-6.19-EXTRACT-TYPEDEF-BASE-CATEGORY",
+        "SV2023-6.19-EXTRACT-UNIQUE-ENCODINGS",
+        "SV2023-6.19-EXTRACT-UNIQUE-NAMES",
+        "SV2023-6.19-EXTRACT-UNSIGNED-RANGE-CHECK",
+        "SV2023-6.24.1-EXTRACT-PACKABLE-ELEMENTS",
+        "SV2023-6.24.1-EXTRACT-SIZE-CAST-POSITIVE",
+        "SV2023-6.24.1-EXTRACT-SIZE-SIGN-INTEGRAL"
+      ],
+      "broader_citations": [
+        {
+          "clause": "6.19",
+          "descendant_requirement_count": 38
+        }
+      ]
     },
     {
       "test": "tests/ch6/test_enum_explicit_cast_and_failed_dynamic_cast.sv",
@@ -331611,6 +331839,33 @@
       "broader_citations": []
     },
     {
+      "test": "tests/ch6/test_illegal_enum_assigned_base_vector_without_cast.sv",
+      "inputs_sha256": "e32f5647bdc48fd70a4e1dccdab3a20de6535b1880f1eeb25feb0c05321d13d8",
+      "cited_clauses": [
+        "6.22.3",
+        "6.19.3"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-6.22.3-EXTRACT-DIRECTIONAL-COMPATIBILITY"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-6.19.3-EXTRACT-EXPRESSION-TO-ENUM-CAST",
+        "SV2023-6.19.3-EXTRACT-STRONG-ENUM-ASSIGNMENT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-6.19.3-EXTRACT-CAST-FOREIGN-OR-OUTSIDE",
+        "SV2023-6.19.3-EXTRACT-ENUM-CHECK-CONTEXTS",
+        "SV2023-6.19.3-EXTRACT-ENUM-CONSTANT-INTEGRAL-USE",
+        "SV2023-6.19.3-EXTRACT-ENUM-TO-INTEGRAL",
+        "SV2023-6.22.3-EXTRACT-ASSIGNMENT-COMPATIBILITY",
+        "SV2023-6.22.3-EXTRACT-INTEGRAL-COMPATIBILITY"
+      ],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch6/test_illegal_enum_base_atom_typedef_dimension.sv",
       "inputs_sha256": "c9c63998283ab1d0cd2db6d593398906f44988173e9fe26b865e5f4b76163609",
       "cited_clauses": [
@@ -333890,6 +334145,41 @@
       "broader_citations": []
     },
     {
+      "test": "tests/ch6/test_illegal_named_parameter_value_for_specparam.sv",
+      "inputs_sha256": "5a51fd75456a186c18078a2c81f929099a38ccb084fd2e227fa3a400cdb0cfb0",
+      "cited_clauses": [
+        "6.20.5",
+        "23.10.2.2"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-6.20.5-EXTRACT-SDF-ONLY-OVERRIDE"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-6.20.5-EXTRACT-SDF-ONLY-OVERRIDE"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-23.10.2.2-EXTRACT-NAMED-PARAMETER-EMPTY",
+        "SV2023-23.10.2.2-EXTRACT-NO-MIXED-PARAMETER-INSTANCE",
+        "SV2023-6.20.5-EXTRACT-DISTINCT-DECLARATION-KEYWORDS",
+        "SV2023-6.20.5-EXTRACT-NO-SPECPARAM-IN-PARAMETER",
+        "SV2023-6.20.5-EXTRACT-PARAMETER-USE-RESTRICTION",
+        "SV2023-6.20.5-EXTRACT-SPECPARAM-BEFORE-REFERENCE",
+        "SV2023-6.20.5-EXTRACT-SPECPARAM-DECLARATION-SCOPE",
+        "SV2023-6.20.5-EXTRACT-SPECPARAM-USE-SCOPE"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-23.10.2.2-EXTRACT-DIFFERENT-INSTANCE-PARAMETER-STYLES",
+        "SV2023-23.10.2.2-EXTRACT-NAMED-PARAMETERS",
+        "SV2023-6.20.5-EXTRACT-FIXED-SPECPARAM-RANGE",
+        "SV2023-6.20.5-EXTRACT-INFER-SPECPARAM-RANGE",
+        "SV2023-6.20.5-EXTRACT-PARAMETER-OVERRIDE-MECHANISMS",
+        "SV2023-6.20.5-EXTRACT-SPECPARAM-CONSTANT-EXPRESSION"
+      ],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch6/test_illegal_net_type_reg_in_port_declaration.sv",
       "inputs_sha256": "4be3d640d451b2c4e8d2740ad53e64985f29f1d90eb14a5cbb20115d7de4db4a",
       "cited_clauses": [
@@ -334524,6 +334814,7 @@
       ],
       "negative_test": true,
       "registered_requirement_ids": [
+        "SV2023-6.20.5-EXTRACT-DISTINCT-DECLARATION-KEYWORDS",
         "SV2023-6.20.5-EXTRACT-PARAMETER-USE-RESTRICTION",
         "SV2023-6.20.5-EXTRACT-SPECPARAM-DECLARATION-SCOPE"
       ],
@@ -334531,7 +334822,6 @@
         "SV2023-6.20.5-EXTRACT-SPECPARAM-DECLARATION-SCOPE"
       ],
       "unapproved_candidate_ids": [
-        "SV2023-6.20.5-EXTRACT-DISTINCT-DECLARATION-KEYWORDS",
         "SV2023-6.20.5-EXTRACT-NO-SPECPARAM-IN-PARAMETER",
         "SV2023-6.20.5-EXTRACT-SDF-ONLY-OVERRIDE",
         "SV2023-6.20.5-EXTRACT-SPECPARAM-BEFORE-REFERENCE",
@@ -335701,6 +335991,142 @@
           "descendant_requirement_count": 61
         }
       ]
+    },
+    {
+      "test": "tests/ch6/test_illegal_string_putc_result_assigned.sv",
+      "inputs_sha256": "4b1e12f932940eb85e155f98240b49a3e4a0c009e1d7c5d0b5c7ad464cae2749",
+      "cited_clauses": [
+        "6.16.2",
+        "13.4.1"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-6.16.2-EXTRACT-SIGNATURE"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-6.16.2-EXTRACT-SIGNATURE"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-13.4.1-EXTRACT-IMPLICIT-CALL-PARENTHESES",
+        "SV2023-13.4.1-EXTRACT-NO-DUPLICATE-FUNCTION-NAME",
+        "SV2023-13.4.1-EXTRACT-RETURN-OVERRIDES-NAME",
+        "SV2023-13.4.1-EXTRACT-VOID-STATEMENT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-13.4.1-EXTRACT-DISCARDED-RETURN-WARNING",
+        "SV2023-13.4.1-EXTRACT-IMPLICIT-CALL-CATEGORIES",
+        "SV2023-13.4.1-EXTRACT-IMPLICIT-CALL-RESULT",
+        "SV2023-13.4.1-EXTRACT-IMPLICIT-RESULT-INDEX-RANGE",
+        "SV2023-13.4.1-EXTRACT-IMPLICIT-RESULT-VARIABLE",
+        "SV2023-13.4.1-EXTRACT-RETURN-MEMBER-VERSUS-SCOPE",
+        "SV2023-6.16.2-EXTRACT-INDEX-WRITE-EQUIVALENCE",
+        "SV2023-6.16.2-EXTRACT-INVALID-INDEX",
+        "SV2023-6.16.2-EXTRACT-NO-RESIZE",
+        "SV2023-6.16.2-EXTRACT-REPLACE",
+        "SV2023-6.16.2-EXTRACT-ZERO-IGNORED"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch6/test_illegal_string_putc_result_in_expression.sv",
+      "inputs_sha256": "e7b09cf75e5f4d2a6a91bb3189c0c3ffcd8f10d0f1ce8b073b9b7c425c378e3b",
+      "cited_clauses": [
+        "6.16.2",
+        "13.4.1"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-6.16.2-EXTRACT-SIGNATURE"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-6.16.2-EXTRACT-SIGNATURE"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-13.4.1-EXTRACT-IMPLICIT-CALL-PARENTHESES",
+        "SV2023-13.4.1-EXTRACT-NO-DUPLICATE-FUNCTION-NAME",
+        "SV2023-13.4.1-EXTRACT-RETURN-OVERRIDES-NAME",
+        "SV2023-13.4.1-EXTRACT-VOID-STATEMENT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-13.4.1-EXTRACT-DISCARDED-RETURN-WARNING",
+        "SV2023-13.4.1-EXTRACT-IMPLICIT-CALL-CATEGORIES",
+        "SV2023-13.4.1-EXTRACT-IMPLICIT-CALL-RESULT",
+        "SV2023-13.4.1-EXTRACT-IMPLICIT-RESULT-INDEX-RANGE",
+        "SV2023-13.4.1-EXTRACT-IMPLICIT-RESULT-VARIABLE",
+        "SV2023-13.4.1-EXTRACT-RETURN-MEMBER-VERSUS-SCOPE",
+        "SV2023-6.16.2-EXTRACT-INDEX-WRITE-EQUIVALENCE",
+        "SV2023-6.16.2-EXTRACT-INVALID-INDEX",
+        "SV2023-6.16.2-EXTRACT-NO-RESIZE",
+        "SV2023-6.16.2-EXTRACT-REPLACE",
+        "SV2023-6.16.2-EXTRACT-ZERO-IGNORED"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch6/test_illegal_string_realtoa_result_assigned.sv",
+      "inputs_sha256": "281144f6b7e86fc826f4304443a7a778a038552c234590c1fa72a545414deea6",
+      "cited_clauses": [
+        "6.16.15",
+        "13.4.1"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-6.16.15-EXTRACT-SIGNATURE"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-6.16.15-EXTRACT-SIGNATURE"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-13.4.1-EXTRACT-IMPLICIT-CALL-PARENTHESES",
+        "SV2023-13.4.1-EXTRACT-NO-DUPLICATE-FUNCTION-NAME",
+        "SV2023-13.4.1-EXTRACT-RETURN-OVERRIDES-NAME",
+        "SV2023-13.4.1-EXTRACT-VOID-STATEMENT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-13.4.1-EXTRACT-DISCARDED-RETURN-WARNING",
+        "SV2023-13.4.1-EXTRACT-IMPLICIT-CALL-CATEGORIES",
+        "SV2023-13.4.1-EXTRACT-IMPLICIT-CALL-RESULT",
+        "SV2023-13.4.1-EXTRACT-IMPLICIT-RESULT-INDEX-RANGE",
+        "SV2023-13.4.1-EXTRACT-IMPLICIT-RESULT-VARIABLE",
+        "SV2023-13.4.1-EXTRACT-RETURN-MEMBER-VERSUS-SCOPE",
+        "SV2023-6.16.15-EXTRACT-STORE-TEXT"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch6/test_illegal_string_realtoa_result_in_expression.sv",
+      "inputs_sha256": "d142f8cf4e21713e6da3b8fb03a3fda5025e211341f0526875cefc77a8f3ca0a",
+      "cited_clauses": [
+        "6.16.15",
+        "13.4.1"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-6.16.15-EXTRACT-SIGNATURE"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-6.16.15-EXTRACT-SIGNATURE"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-13.4.1-EXTRACT-IMPLICIT-CALL-PARENTHESES",
+        "SV2023-13.4.1-EXTRACT-NO-DUPLICATE-FUNCTION-NAME",
+        "SV2023-13.4.1-EXTRACT-RETURN-OVERRIDES-NAME",
+        "SV2023-13.4.1-EXTRACT-VOID-STATEMENT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-13.4.1-EXTRACT-DISCARDED-RETURN-WARNING",
+        "SV2023-13.4.1-EXTRACT-IMPLICIT-CALL-CATEGORIES",
+        "SV2023-13.4.1-EXTRACT-IMPLICIT-CALL-RESULT",
+        "SV2023-13.4.1-EXTRACT-IMPLICIT-RESULT-INDEX-RANGE",
+        "SV2023-13.4.1-EXTRACT-IMPLICIT-RESULT-VARIABLE",
+        "SV2023-13.4.1-EXTRACT-RETURN-MEMBER-VERSUS-SCOPE",
+        "SV2023-6.16.15-EXTRACT-STORE-TEXT"
+      ],
+      "broader_citations": []
     },
     {
       "test": "tests/ch6/test_illegal_string_replication_empty_braces.sv",
@@ -342157,6 +342583,43 @@
           "descendant_requirement_count": 21
         }
       ]
+    },
+    {
+      "test": "tests/ch6/test_param_without_default_module_not_top_level.sv",
+      "inputs_sha256": "41dca1ac363a8518a5dbdca9e1e4b0c5e6424dad74b5aabea8039160e479d682",
+      "cited_clauses": [
+        "6.20.1",
+        "23.3.1"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-6.20.1-EXTRACT-NO-IMPLICIT-INSTANTIATION"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-23.3.1-EXTRACT-ROOTED-LOOKUP",
+        "SV2023-23.3.1-EXTRACT-TOP-LEVEL-IDENTIFICATION",
+        "SV2023-6.20.1-EXTRACT-BODY-PARAMETER-LOCAL",
+        "SV2023-6.20.1-EXTRACT-CLASS-BODY-LOCAL",
+        "SV2023-6.20.1-EXTRACT-DECLARATION-CONTEXTS",
+        "SV2023-6.20.1-EXTRACT-EARLIER-DEPENDENCIES",
+        "SV2023-6.20.1-EXTRACT-GENERATE-PACKAGE-UNIT-LOCAL",
+        "SV2023-6.20.1-EXTRACT-NO-DEFAULT-MEANS-NONE",
+        "SV2023-6.20.1-EXTRACT-OPTIONAL-PARAMETER-KEYWORD",
+        "SV2023-6.20.1-EXTRACT-PARAMETER-PORT-GRAMMAR",
+        "SV2023-6.20.1-EXTRACT-SPECPARAM-DECLARATION",
+        "SV2023-6.20.1-EXTRACT-TYPE-DECLARATION",
+        "SV2023-6.20.1-EXTRACT-VALUE-DECLARATION"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-23.3.1-EXTRACT-REQUIRE-TOP",
+        "SV2023-6.20.1-EXTRACT-INSTANCE-MUST-OVERRIDE",
+        "SV2023-6.20.1-EXTRACT-LOCALPARAM-DEFAULT-REQUIRED",
+        "SV2023-6.20.1-EXTRACT-MISSING-DEFAULT-CONTEXT",
+        "SV2023-6.20.1-EXTRACT-SPECIALIZATION-MUST-OVERRIDE"
+      ],
+      "broader_citations": []
     },
     {
       "test": "tests/ch6/test_param_without_default_not_implicit_top.sv",
@@ -357354,14 +357817,13 @@
       ],
       "negative_test": false,
       "registered_requirement_ids": [
+        "SV2023-7.12.2-EXTRACT-REVERSE",
         "SV2023-7.12.2-EXTRACT-RSORT",
+        "SV2023-7.12.2-EXTRACT-SHUFFLE",
         "SV2023-7.12.2-EXTRACT-SORT"
       ],
       "collective_requirement_ids": [],
-      "unapproved_candidate_ids": [
-        "SV2023-7.12.2-EXTRACT-REVERSE",
-        "SV2023-7.12.2-EXTRACT-SHUFFLE"
-      ],
+      "unapproved_candidate_ids": [],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-7.12.2-EXTRACT-ORDERING-NO-ASSOCIATIVE",
@@ -365407,6 +365869,68 @@
       "broader_citations": []
     },
     {
+      "test": "tests/ch7/test_illegal_assoc_array_arithmetic_operand.sv",
+      "inputs_sha256": "186c13e731b505d89b23a3b55f3229cafaabd976352e061448cdca4f1f3d34b9",
+      "cited_clauses": [
+        "7.8"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-7.8-EXTRACT-UNPACKED-ELEMENT-EXPRESSION"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-7.8-EXTRACT-UNPACKED-ELEMENT-EXPRESSION"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-7.8-EXTRACT-ASSOCIATIVE-DECLARATION"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-7.8-EXTRACT-ASSIGNMENT-ALLOCATION",
+        "SV2023-7.8-EXTRACT-LOOKUP-KEY-ORDER",
+        "SV2023-7.8-EXTRACT-RETAIN-ENTRIES-AND-ORDER",
+        "SV2023-7.8-EXTRACT-SPARSE-DEFAULT",
+        "SV2023-7.8-EXTRACT-WILDCARD-ARBITRARY-WIDTH"
+      ],
+      "broader_citations": [
+        {
+          "clause": "7.8",
+          "descendant_requirement_count": 33
+        }
+      ]
+    },
+    {
+      "test": "tests/ch7/test_illegal_assoc_array_bitwise_operand.sv",
+      "inputs_sha256": "cfcae6e16cebf8e25b0d460ef50b85a514007fa2afed17f6737f8fef58f6ff35",
+      "cited_clauses": [
+        "7.8"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-7.8-EXTRACT-UNPACKED-ELEMENT-EXPRESSION"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-7.8-EXTRACT-UNPACKED-ELEMENT-EXPRESSION"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-7.8-EXTRACT-ASSOCIATIVE-DECLARATION"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-7.8-EXTRACT-ASSIGNMENT-ALLOCATION",
+        "SV2023-7.8-EXTRACT-LOOKUP-KEY-ORDER",
+        "SV2023-7.8-EXTRACT-RETAIN-ENTRIES-AND-ORDER",
+        "SV2023-7.8-EXTRACT-SPARSE-DEFAULT",
+        "SV2023-7.8-EXTRACT-WILDCARD-ARBITRARY-WIDTH"
+      ],
+      "broader_citations": [
+        {
+          "clause": "7.8",
+          "descendant_requirement_count": 33
+        }
+      ]
+    },
+    {
       "test": "tests/ch7/test_illegal_assoc_array_reverse.sv",
       "inputs_sha256": "1341c87a43f017d1c8d64f687519b1fef00be44914db1410812971ba07c74a1c",
       "cited_clauses": [
@@ -365540,6 +366064,48 @@
       "different_case_kind_ids": [
         "SV2023-7.9.9-EXTRACT-CLEAR-AND-COPY",
         "SV2023-7.9.9-VALUE-COPY"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch7/test_illegal_assoc_delete_all_result_as_value.sv",
+      "inputs_sha256": "a2a3926158e79783a68843672459f9eb96d6420c88163b6ea20e154cb5f857c6",
+      "cited_clauses": [
+        "7.9.2"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-7.9.2-EXTRACT-SIGNATURE"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-7.9.2-EXTRACT-SIGNATURE"
+      ],
+      "unapproved_candidate_ids": [],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-7.9.2-EXTRACT-DELETE-ALL",
+        "SV2023-7.9.2-EXTRACT-DELETE-ENTRY"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch7/test_illegal_assoc_delete_index_result_as_value.sv",
+      "inputs_sha256": "dd1e15e64f5a17ac9d9d68fa8973c521bc6ec202c5ee03e22b884d885f3d3743",
+      "cited_clauses": [
+        "7.9.2"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-7.9.2-EXTRACT-SIGNATURE"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-7.9.2-EXTRACT-SIGNATURE"
+      ],
+      "unapproved_candidate_ids": [],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-7.9.2-EXTRACT-DELETE-ALL",
+        "SV2023-7.9.2-EXTRACT-DELETE-ENTRY"
       ],
       "broader_citations": []
     },
@@ -365961,6 +366527,24 @@
       "different_case_kind_ids": [
         "SV2023-7.8.3-EXTRACT-ARBITRARY-DETERMINISTIC-ORDER",
         "SV2023-7.8.3-EXTRACT-NULL-KEY"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch7/test_illegal_dynamic_array_delete_result_as_value.sv",
+      "inputs_sha256": "de19e95c8a1976b3febe4f95cdf005ebc9c4d5bd86af82efe7b369c2b4b2faa2",
+      "cited_clauses": [
+        "7.5.3"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-7.5.3-EXTRACT-SIGNATURE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-7.5.3-EXTRACT-DELETE-EMPTY"
       ],
       "broader_citations": []
     },
@@ -367591,6 +368175,50 @@
       ]
     },
     {
+      "test": "tests/ch7/test_illegal_queue_delete_all_result_as_value.sv",
+      "inputs_sha256": "796301659c484a2921266f8dca7b4ff44fe931a9737648c3a87dc3e29e975757",
+      "cited_clauses": [
+        "7.10.2.3"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-7.10.2.3-EXTRACT-SIGNATURE"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-7.10.2.3-EXTRACT-SIGNATURE"
+      ],
+      "unapproved_candidate_ids": [],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-7.10.2.3-EXTRACT-DELETE-ALL",
+        "SV2023-7.10.2.3-EXTRACT-DELETE-POSITION",
+        "SV2023-7.10.2.3-EXTRACT-INVALID-DELETE"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch7/test_illegal_queue_delete_index_result_as_value.sv",
+      "inputs_sha256": "1bedf8d72ee4053215e198d91bad165d9648a7573ab0468864583a04c751135d",
+      "cited_clauses": [
+        "7.10.2.3"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-7.10.2.3-EXTRACT-SIGNATURE"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-7.10.2.3-EXTRACT-SIGNATURE"
+      ],
+      "unapproved_candidate_ids": [],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-7.10.2.3-EXTRACT-DELETE-ALL",
+        "SV2023-7.10.2.3-EXTRACT-DELETE-POSITION",
+        "SV2023-7.10.2.3-EXTRACT-INVALID-DELETE"
+      ],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch7/test_illegal_queue_element_type_not_equivalent.sv",
       "inputs_sha256": "2e269b555aff8403584c3834df80e9d1751621967cf07d82771f7582e3a97996",
       "cited_clauses": [
@@ -367618,6 +368246,63 @@
         "SV2023-7.6-EXTRACT-PACKED-VECTOR-ASSIGNMENT",
         "SV2023-7.6-EXTRACT-RESIZE-DYNAMIC-TARGET",
         "SV2023-7.6-EXTRACT-SLICE-SINGLE-ASSIGNMENT"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch7/test_illegal_queue_insert_result_as_value.sv",
+      "inputs_sha256": "11b6c428103da8047eb1d45ce85382e54fd3b2aef60253cacdf810f8896e2acb",
+      "cited_clauses": [
+        "7.10.2.2"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-7.10.2.2-EXTRACT-SIGNATURE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-7.10.2.2-EXTRACT-INSERT-POSITION",
+        "SV2023-7.10.2.2-EXTRACT-INVALID-INSERT"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch7/test_illegal_queue_push_back_result_as_value.sv",
+      "inputs_sha256": "2cd67189f29ede64da486e9799851bc8ace3e5bbdc8adcb5da8ca82f6e15127b",
+      "cited_clauses": [
+        "7.10.2.7"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-7.10.2.7-EXTRACT-SIGNATURE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-7.10.2.7-EXTRACT-PUSH",
+        "SV2023-7.10.2.7-SIZE-WAIT-BLOCKED",
+        "SV2023-7.10.2.7-SIZE-WAIT-WAKES"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch7/test_illegal_queue_push_front_result_as_value.sv",
+      "inputs_sha256": "06d33f2914a5774dc2a1c313855187ba9e233ae3b3f7786fc66d7fbf94f0f839",
+      "cited_clauses": [
+        "7.10.2.6"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-7.10.2.6-EXTRACT-SIGNATURE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-7.10.2.6-EXTRACT-PUSH"
       ],
       "broader_citations": []
     },
@@ -367688,6 +368373,37 @@
       ]
     },
     {
+      "test": "tests/ch7/test_illegal_randc_member_in_packed_union.sv",
+      "inputs_sha256": "d582fcd1b65acf803b8d1a98c9ca59a8128e9d6d30ee10e2bde1562635aed1ec",
+      "cited_clauses": [
+        "7.3"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-7.3-EXTRACT-AGGREGATE-FOOTNOTES"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-7.3-EXTRACT-AGGREGATE-FOOTNOTES"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-7.3-EXTRACT-DYNAMIC-CHANDLE-TAGGED"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-7.3-EXTRACT-COMMON-INITIAL-SEQUENCE",
+        "SV2023-7.3-EXTRACT-DEFAULT-UNPACKED-UNION",
+        "SV2023-7.3-EXTRACT-UNION-GRAMMAR",
+        "SV2023-7.3-EXTRACT-UNION-SHARED-STORAGE",
+        "SV2023-7.3-EXTRACT-UNPACKED-UNION-DEFAULT"
+      ],
+      "broader_citations": [
+        {
+          "clause": "7.3",
+          "descendant_requirement_count": 27
+        }
+      ]
+    },
+    {
       "test": "tests/ch7/test_illegal_reduction_and_with_real_expression.sv",
       "inputs_sha256": "bccb62aeb1b16fed8cdcb29803daf99f0ae884d4f4f145f2ea770f9dd08a7696",
       "cited_clauses": [
@@ -367710,6 +368426,91 @@
         "SV2023-7.12.3-EXTRACT-SUM-REDUCE",
         "SV2023-7.12.3-EXTRACT-WITH-RESULT-WIDTH",
         "SV2023-7.12.3-EXTRACT-XOR-REDUCE"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch7/test_illegal_reverse_result_as_value.sv",
+      "inputs_sha256": "71f8f0a56dfaffb7f9cf65283e3f5dd38c6350fe5857dfcc961262601bada006",
+      "cited_clauses": [
+        "7.12.2"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-7.12.2-EXTRACT-ORDERING-SIGNATURE"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-7.12.2-EXTRACT-ORDERING-SIGNATURE"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-7.12.2-EXTRACT-ORDERING-NO-ASSOCIATIVE",
+        "SV2023-7.12.2-EXTRACT-REVERSE-NO-WITH",
+        "SV2023-7.12.2-EXTRACT-RSORT-RELATIONAL",
+        "SV2023-7.12.2-EXTRACT-SHUFFLE-NO-WITH",
+        "SV2023-7.12.2-EXTRACT-SORT-RELATIONAL"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-7.12.2-EXTRACT-REVERSE",
+        "SV2023-7.12.2-EXTRACT-RSORT",
+        "SV2023-7.12.2-EXTRACT-SHUFFLE",
+        "SV2023-7.12.2-EXTRACT-SORT"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch7/test_illegal_reverse_with_clause.sv",
+      "inputs_sha256": "72f499dd96e9c81bdc76ce0e9bba94b6ac25383bde512b2c0c1a714948fd4050",
+      "cited_clauses": [
+        "7.12.2"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-7.12.2-EXTRACT-REVERSE-NO-WITH"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-7.12.2-EXTRACT-ORDERING-NO-ASSOCIATIVE",
+        "SV2023-7.12.2-EXTRACT-ORDERING-SIGNATURE",
+        "SV2023-7.12.2-EXTRACT-RSORT-RELATIONAL",
+        "SV2023-7.12.2-EXTRACT-SHUFFLE-NO-WITH",
+        "SV2023-7.12.2-EXTRACT-SORT-RELATIONAL"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-7.12.2-EXTRACT-REVERSE",
+        "SV2023-7.12.2-EXTRACT-RSORT",
+        "SV2023-7.12.2-EXTRACT-SHUFFLE",
+        "SV2023-7.12.2-EXTRACT-SORT"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch7/test_illegal_rsort_result_as_value.sv",
+      "inputs_sha256": "89aecf3934d1e223b5152f26a92af6d89dd41e86c51396b8146cfd2a236722a8",
+      "cited_clauses": [
+        "7.12.2"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-7.12.2-EXTRACT-ORDERING-SIGNATURE"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-7.12.2-EXTRACT-ORDERING-SIGNATURE"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-7.12.2-EXTRACT-ORDERING-NO-ASSOCIATIVE",
+        "SV2023-7.12.2-EXTRACT-REVERSE-NO-WITH",
+        "SV2023-7.12.2-EXTRACT-RSORT-RELATIONAL",
+        "SV2023-7.12.2-EXTRACT-SHUFFLE-NO-WITH",
+        "SV2023-7.12.2-EXTRACT-SORT-RELATIONAL"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-7.12.2-EXTRACT-REVERSE",
+        "SV2023-7.12.2-EXTRACT-RSORT",
+        "SV2023-7.12.2-EXTRACT-SHUFFLE",
+        "SV2023-7.12.2-EXTRACT-SORT"
       ],
       "broader_citations": []
     },
@@ -367760,6 +368561,62 @@
         "SV2023-7.12.2-EXTRACT-ORDERING-SIGNATURE",
         "SV2023-7.12.2-EXTRACT-REVERSE-NO-WITH",
         "SV2023-7.12.2-EXTRACT-SHUFFLE-NO-WITH",
+        "SV2023-7.12.2-EXTRACT-SORT-RELATIONAL"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-7.12.2-EXTRACT-REVERSE",
+        "SV2023-7.12.2-EXTRACT-RSORT",
+        "SV2023-7.12.2-EXTRACT-SHUFFLE",
+        "SV2023-7.12.2-EXTRACT-SORT"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch7/test_illegal_shuffle_result_as_value.sv",
+      "inputs_sha256": "eede167c1e932d3bcbdb68f6f921f3b811b4a263ad9454d1f933d03ea0e830db",
+      "cited_clauses": [
+        "7.12.2"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-7.12.2-EXTRACT-ORDERING-SIGNATURE"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-7.12.2-EXTRACT-ORDERING-SIGNATURE"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-7.12.2-EXTRACT-ORDERING-NO-ASSOCIATIVE",
+        "SV2023-7.12.2-EXTRACT-REVERSE-NO-WITH",
+        "SV2023-7.12.2-EXTRACT-RSORT-RELATIONAL",
+        "SV2023-7.12.2-EXTRACT-SHUFFLE-NO-WITH",
+        "SV2023-7.12.2-EXTRACT-SORT-RELATIONAL"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-7.12.2-EXTRACT-REVERSE",
+        "SV2023-7.12.2-EXTRACT-RSORT",
+        "SV2023-7.12.2-EXTRACT-SHUFFLE",
+        "SV2023-7.12.2-EXTRACT-SORT"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch7/test_illegal_shuffle_with_clause.sv",
+      "inputs_sha256": "746d001b2deef14dba9a65485488017e60c07e2b6d9fac3bd0cb45925edec723",
+      "cited_clauses": [
+        "7.12.2"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-7.12.2-EXTRACT-SHUFFLE-NO-WITH"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-7.12.2-EXTRACT-ORDERING-NO-ASSOCIATIVE",
+        "SV2023-7.12.2-EXTRACT-ORDERING-SIGNATURE",
+        "SV2023-7.12.2-EXTRACT-REVERSE-NO-WITH",
+        "SV2023-7.12.2-EXTRACT-RSORT-RELATIONAL",
         "SV2023-7.12.2-EXTRACT-SORT-RELATIONAL"
       ],
       "interpretation_pending_ids": [],
@@ -367974,6 +368831,35 @@
       ]
     },
     {
+      "test": "tests/ch7/test_illegal_sort_result_as_value.sv",
+      "inputs_sha256": "3d51022bfb5a737d4136932a5023c90143a3c14e68f34360fbc359d76176860c",
+      "cited_clauses": [
+        "7.12.2"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-7.12.2-EXTRACT-ORDERING-SIGNATURE"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-7.12.2-EXTRACT-ORDERING-SIGNATURE"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-7.12.2-EXTRACT-ORDERING-NO-ASSOCIATIVE",
+        "SV2023-7.12.2-EXTRACT-REVERSE-NO-WITH",
+        "SV2023-7.12.2-EXTRACT-RSORT-RELATIONAL",
+        "SV2023-7.12.2-EXTRACT-SHUFFLE-NO-WITH",
+        "SV2023-7.12.2-EXTRACT-SORT-RELATIONAL"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-7.12.2-EXTRACT-REVERSE",
+        "SV2023-7.12.2-EXTRACT-RSORT",
+        "SV2023-7.12.2-EXTRACT-SHUFFLE",
+        "SV2023-7.12.2-EXTRACT-SORT"
+      ],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch7/test_illegal_sort_with_struct_expression.sv",
       "inputs_sha256": "e970ef4ae91ca78bbe09572e64f18a121f0d7bb6c47343bc18b770b0d37d49bf",
       "cited_clauses": [
@@ -368136,6 +369022,37 @@
       "broader_citations": []
     },
     {
+      "test": "tests/ch7/test_illegal_struct_packed_dimension_needs_packed.sv",
+      "inputs_sha256": "a598148198e1b23017de2f831c7f11f7d329997c38ce67255b46d6dadd75521c",
+      "cited_clauses": [
+        "7.3"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-7.3-EXTRACT-AGGREGATE-FOOTNOTES"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-7.3-EXTRACT-AGGREGATE-FOOTNOTES"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-7.3-EXTRACT-DYNAMIC-CHANDLE-TAGGED"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-7.3-EXTRACT-COMMON-INITIAL-SEQUENCE",
+        "SV2023-7.3-EXTRACT-DEFAULT-UNPACKED-UNION",
+        "SV2023-7.3-EXTRACT-UNION-GRAMMAR",
+        "SV2023-7.3-EXTRACT-UNION-SHARED-STORAGE",
+        "SV2023-7.3-EXTRACT-UNPACKED-UNION-DEFAULT"
+      ],
+      "broader_citations": [
+        {
+          "clause": "7.3",
+          "descendant_requirement_count": 27
+        }
+      ]
+    },
+    {
       "test": "tests/ch7/test_illegal_union_holding_struct_member_default.sv",
       "inputs_sha256": "07562cc692ce5f6ecdbbb17c023002c5b14fbeeb83e13fec28508677f23ded60",
       "cited_clauses": [
@@ -368159,6 +369076,37 @@
         "SV2023-7.2.2-EXTRACT-WHOLE-SUBROUTINE"
       ],
       "broader_citations": []
+    },
+    {
+      "test": "tests/ch7/test_illegal_union_packed_dimension_needs_soft_or_packed.sv",
+      "inputs_sha256": "3c1cc7afb341a685d43794fef1a06d35a85a64e9809d28562dfc443b34fe1c9b",
+      "cited_clauses": [
+        "7.3"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-7.3-EXTRACT-AGGREGATE-FOOTNOTES"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-7.3-EXTRACT-AGGREGATE-FOOTNOTES"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-7.3-EXTRACT-DYNAMIC-CHANDLE-TAGGED"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-7.3-EXTRACT-COMMON-INITIAL-SEQUENCE",
+        "SV2023-7.3-EXTRACT-DEFAULT-UNPACKED-UNION",
+        "SV2023-7.3-EXTRACT-UNION-GRAMMAR",
+        "SV2023-7.3-EXTRACT-UNION-SHARED-STORAGE",
+        "SV2023-7.3-EXTRACT-UNPACKED-UNION-DEFAULT"
+      ],
+      "broader_citations": [
+        {
+          "clause": "7.3",
+          "descendant_requirement_count": 27
+        }
+      ]
     },
     {
       "test": "tests/ch7/test_illegal_union_packed_dimension_without_qualifier.sv",
@@ -368718,6 +369666,37 @@
         {
           "clause": "7.2",
           "descendant_requirement_count": 16
+        }
+      ]
+    },
+    {
+      "test": "tests/ch7/test_illegal_void_member_outside_tagged_union.sv",
+      "inputs_sha256": "3df07555f04e0b58dac2ed8017781cb979c75ed7246da76292e936344078dec9",
+      "cited_clauses": [
+        "7.3"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-7.3-EXTRACT-AGGREGATE-FOOTNOTES"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-7.3-EXTRACT-AGGREGATE-FOOTNOTES"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-7.3-EXTRACT-DYNAMIC-CHANDLE-TAGGED"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-7.3-EXTRACT-COMMON-INITIAL-SEQUENCE",
+        "SV2023-7.3-EXTRACT-DEFAULT-UNPACKED-UNION",
+        "SV2023-7.3-EXTRACT-UNION-GRAMMAR",
+        "SV2023-7.3-EXTRACT-UNION-SHARED-STORAGE",
+        "SV2023-7.3-EXTRACT-UNPACKED-UNION-DEFAULT"
+      ],
+      "broader_citations": [
+        {
+          "clause": "7.3",
+          "descendant_requirement_count": 27
         }
       ]
     },
@@ -377514,6 +378493,70 @@
       "broader_citations": []
     },
     {
+      "test": "tests/ch8/test_class_body_parameters_local_vpi.sv",
+      "inputs_sha256": "bb2aa46d06d5fe6d0afae7b3aabcaee3b6ebe58db02d9a337f64c8f92936d246",
+      "cited_clauses": [
+        "8.3",
+        "37.31"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-8.3-EXTRACT-CLASS-BODY-LOCALPARAM"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-37.31-EXTRACT-CLASS-CONSTRAINT-ORDER",
+        "SV2023-37.31-EXTRACT-CLASS-DECLARATIONS",
+        "SV2023-37.31-EXTRACT-CLASS-EXTENDS",
+        "SV2023-37.31-EXTRACT-CLASS-PARAMETERS",
+        "SV2023-37.31-EXTRACT-DERIVED-CLASSES",
+        "SV2023-37.31-EXTRACT-DIAGRAM-001",
+        "SV2023-37.31-EXTRACT-DIAGRAM-002",
+        "SV2023-37.31-EXTRACT-DIAGRAM-003",
+        "SV2023-37.31-EXTRACT-DIAGRAM-004",
+        "SV2023-37.31-EXTRACT-DIAGRAM-005",
+        "SV2023-37.31-EXTRACT-DIAGRAM-006",
+        "SV2023-37.31-EXTRACT-DIAGRAM-007",
+        "SV2023-37.31-EXTRACT-DIAGRAM-008",
+        "SV2023-37.31-EXTRACT-DIAGRAM-009",
+        "SV2023-37.31-EXTRACT-DIAGRAM-010",
+        "SV2023-37.31-EXTRACT-DIAGRAM-011",
+        "SV2023-37.31-EXTRACT-DIAGRAM-012",
+        "SV2023-37.31-EXTRACT-DIAGRAM-013",
+        "SV2023-37.31-EXTRACT-DIAGRAM-014",
+        "SV2023-37.31-EXTRACT-DIAGRAM-015",
+        "SV2023-37.31-EXTRACT-DIAGRAM-016",
+        "SV2023-37.31-EXTRACT-DIAGRAM-017",
+        "SV2023-37.31-EXTRACT-DIAGRAM-018",
+        "SV2023-37.31-EXTRACT-DIAGRAM-019",
+        "SV2023-37.31-EXTRACT-DIAGRAM-020",
+        "SV2023-37.31-EXTRACT-DIAGRAM-021",
+        "SV2023-37.31-EXTRACT-DIAGRAM-022",
+        "SV2023-37.31-EXTRACT-DIAGRAM-023",
+        "SV2023-37.31-EXTRACT-DIAGRAM-024",
+        "SV2023-37.31-EXTRACT-DIAGRAM-025",
+        "SV2023-37.31-EXTRACT-DIAGRAM-026",
+        "SV2023-37.31-EXTRACT-DIAGRAM-027",
+        "SV2023-37.31-EXTRACT-DIAGRAM-028",
+        "SV2023-8.3-EXTRACT-CLASS-DECLARATION",
+        "SV2023-8.3-EXTRACT-CLASS-ITEMS",
+        "SV2023-8.3-EXTRACT-CONSTRUCTOR-GRAMMAR",
+        "SV2023-8.3-EXTRACT-DYNAMIC-OVERRIDE-SYNTAX",
+        "SV2023-8.3-EXTRACT-MEMBER-QUALIFIERS"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-37.31-EXTRACT-LEXICAL-NO-VALUES",
+        "SV2023-8.3-EXTRACT-EXCLUSIVE-ACCESS",
+        "SV2023-8.3-EXTRACT-EXCLUSIVE-RANDOM",
+        "SV2023-8.3-EXTRACT-NO-PURE-FINAL",
+        "SV2023-8.3-EXTRACT-NO-REPEATED-STATIC-VIRTUAL",
+        "SV2023-8.3-EXTRACT-ONE-CONSTRUCTOR-DEFAULT",
+        "SV2023-8.3-EXTRACT-OVERRIDE-NONINTERFACE-METHOD"
+      ],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch8/test_class_bounded_fifo.sv",
       "inputs_sha256": "d2c545953a2fe01823b6acf802e0321c52098a486949a84437255516c52f8e0f",
       "cited_clauses": [
@@ -379642,6 +380685,32 @@
       }
     },
     {
+      "test": "tests/ch8/test_class_inherited_method_uses_base_local.sv",
+      "inputs_sha256": "cb7e4ac6fb6f9c8089ddb6abfda300f76df8af314228f16a5c1514fd635235d2",
+      "cited_clauses": [
+        "8.18"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-8.18-EXTRACT-INHERITED-METHOD-USES-LOCAL"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-8.18-EXTRACT-DEFAULT-PUBLIC",
+        "SV2023-8.18-EXTRACT-LOCAL-OTHER-INSTANCE",
+        "SV2023-8.18-EXTRACT-MODIFIER-ORDER",
+        "SV2023-8.18-EXTRACT-PARAMETERS-PUBLIC",
+        "SV2023-8.18-EXTRACT-PROTECTED-SUBCLASS"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-8.18-EXTRACT-LOCAL-CLASS-ONLY",
+        "SV2023-8.18-EXTRACT-MODIFIER-UNIQUENESS",
+        "SV2023-8.18-EXTRACT-PROTECTED-NO-OUTSIDE-ACCESS"
+      ],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch8/test_class_item_qualifiers_and_constraints.sv",
       "inputs_sha256": "d83a9683d9f9a83e11d49d2397fb3e92a2a77fc0df76788cc9614b8c378171d0",
       "cited_clauses": [
@@ -381055,6 +382124,32 @@
       "broader_citations": []
     },
     {
+      "test": "tests/ch8/test_class_protected_members_in_subclasses.sv",
+      "inputs_sha256": "e527723bcbf34fb009fb94774ac11eda5477c820f483ca6b63e0281405637b88",
+      "cited_clauses": [
+        "8.18"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-8.18-EXTRACT-PROTECTED-SUBCLASS"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-8.18-EXTRACT-DEFAULT-PUBLIC",
+        "SV2023-8.18-EXTRACT-INHERITED-METHOD-USES-LOCAL",
+        "SV2023-8.18-EXTRACT-LOCAL-OTHER-INSTANCE",
+        "SV2023-8.18-EXTRACT-MODIFIER-ORDER",
+        "SV2023-8.18-EXTRACT-PARAMETERS-PUBLIC"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-8.18-EXTRACT-LOCAL-CLASS-ONLY",
+        "SV2023-8.18-EXTRACT-MODIFIER-UNIQUENESS",
+        "SV2023-8.18-EXTRACT-PROTECTED-NO-OUTSIDE-ACCESS"
+      ],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch8/test_class_register_block.sv",
       "inputs_sha256": "8cc60b03ed85d1bb6b2abc1d2a312a35a6635662b0fc65cfce5964bc6675a539",
       "cited_clauses": [
@@ -382116,6 +383211,28 @@
       }
     },
     {
+      "test": "tests/ch8/test_class_value_parameters_through_handles.sv",
+      "inputs_sha256": "aebc8451f1042f465415cdbc8adda0bcab84188bb56b93b0a234b2ebdec048a9",
+      "cited_clauses": [
+        "8.5"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-8.5-EXTRACT-VALUE-PARAMETER-HANDLE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-8.5-EXTRACT-ENUM-HANDLE-QUALIFICATION",
+        "SV2023-8.5-EXTRACT-PROPERTY-TYPE-ACCESS"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-8.5-EXTRACT-HANDLE-PARAMETER-NONCONSTANT",
+        "SV2023-8.5-EXTRACT-NO-HANDLE-TYPE-ACCESS"
+      ],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch8/test_class_virtual.sv",
       "inputs_sha256": "df4819a70b8a6a264ab4787bb439ab7840a33fbb4442775cde65cb7cf127ee53",
       "cited_clauses": [
@@ -383092,6 +384209,68 @@
           }
         ]
       }
+    },
+    {
+      "test": "tests/ch8/test_final_method_not_virtual_vpi.sv",
+      "inputs_sha256": "5da77df23ce8afa9be1e9df2412d53de427f3dadd4d2719246d919db99cb3f09",
+      "cited_clauses": [
+        "8.20",
+        "37.41"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-8.20-EXTRACT-FINAL-NO-IMPLIED-VIRTUAL"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-37.41-EXTRACT-DIAGRAM-001",
+        "SV2023-37.41-EXTRACT-DIAGRAM-002",
+        "SV2023-37.41-EXTRACT-DIAGRAM-003",
+        "SV2023-37.41-EXTRACT-DIAGRAM-004",
+        "SV2023-37.41-EXTRACT-DIAGRAM-005",
+        "SV2023-37.41-EXTRACT-DIAGRAM-006",
+        "SV2023-37.41-EXTRACT-DIAGRAM-007",
+        "SV2023-37.41-EXTRACT-DIAGRAM-008",
+        "SV2023-37.41-EXTRACT-DIAGRAM-009",
+        "SV2023-37.41-EXTRACT-DIAGRAM-010",
+        "SV2023-37.41-EXTRACT-DIAGRAM-011",
+        "SV2023-37.41-EXTRACT-DIAGRAM-012",
+        "SV2023-37.41-EXTRACT-DIAGRAM-013",
+        "SV2023-37.41-EXTRACT-DIAGRAM-014",
+        "SV2023-37.41-EXTRACT-DIAGRAM-015",
+        "SV2023-37.41-EXTRACT-DIAGRAM-016",
+        "SV2023-37.41-EXTRACT-DIAGRAM-017",
+        "SV2023-37.41-EXTRACT-DIAGRAM-018",
+        "SV2023-37.41-EXTRACT-DIAGRAM-019",
+        "SV2023-37.41-EXTRACT-DIAGRAM-020",
+        "SV2023-37.41-EXTRACT-DIAGRAM-021",
+        "SV2023-37.41-EXTRACT-DIAGRAM-022",
+        "SV2023-37.41-EXTRACT-DIAGRAM-023",
+        "SV2023-37.41-EXTRACT-DPI-ACCESS",
+        "SV2023-37.41-EXTRACT-DPI-VERSION-NAME",
+        "SV2023-37.41-EXTRACT-FUNCTION-RETURN-OBJECT",
+        "SV2023-37.41-EXTRACT-FUNCTION-SIZE",
+        "SV2023-37.41-EXTRACT-SUBROUTINE-FULLNAME",
+        "SV2023-37.41-EXTRACT-SUBROUTINE-VISIBILITY",
+        "SV2023-8.20-EXTRACT-EXTENDS-IMPLIES-VIRTUAL",
+        "SV2023-8.20-EXTRACT-INITIAL-NO-IMPLIED-VIRTUAL",
+        "SV2023-8.20-EXTRACT-NONVIRTUAL-TO-VIRTUAL",
+        "SV2023-8.20-EXTRACT-VIRTUAL-KEYWORD-OPTIONAL",
+        "SV2023-8.20-EXTRACT-VIRTUAL-LATEST-OVERRIDE",
+        "SV2023-8.20-EXTRACT-VIRTUAL-PROTOTYPE"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-8.20-EXTRACT-EXTENDS-REQUIRES-VIRTUAL-OVERRIDE",
+        "SV2023-8.20-EXTRACT-FINAL-NO-OVERRIDE",
+        "SV2023-8.20-EXTRACT-INITIAL-EXTENDS-EXCLUSIVE",
+        "SV2023-8.20-EXTRACT-INITIAL-NO-VIRTUAL-OVERRIDE",
+        "SV2023-8.20-EXTRACT-OVERRIDE-ARGUMENT-TYPES",
+        "SV2023-8.20-EXTRACT-OVERRIDE-DEFAULT-PRESENCE",
+        "SV2023-8.20-EXTRACT-OVERRIDE-RETURN",
+        "SV2023-8.20-EXTRACT-PURE-NOT-FINAL"
+      ],
+      "broader_citations": []
     },
     {
       "test": "tests/ch8/test_foreach_static_members.sv",
@@ -384310,6 +385489,96 @@
       "broader_citations": []
     },
     {
+      "test": "tests/ch8/test_illegal_constructor_delay_control.sv",
+      "inputs_sha256": "c6327b76c86fd7c0ed8528f86e3aeef84aed0314f433d71c907e25dcd9ca2d35",
+      "cited_clauses": [
+        "8.7"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-8.7-EXTRACT-CONSTRUCTOR-NO-TIMING"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-8.7-EXTRACT-CONSTRUCTOR-NO-TIMING"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-8.7-EXTRACT-NO-STATIC-VIRTUAL-CONSTRUCTOR"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-8.7-EXTRACT-BASE-CONSTRUCTOR-FIRST",
+        "SV2023-8.7-EXTRACT-CONSTRUCTOR-ACCESS",
+        "SV2023-8.7-EXTRACT-CONSTRUCTOR-ARGUMENTS",
+        "SV2023-8.7-EXTRACT-CONSTRUCTOR-INVOKED",
+        "SV2023-8.7-EXTRACT-DEFAULT-CONSTRUCTOR-NO-EXTRA",
+        "SV2023-8.7-EXTRACT-IMPLICIT-CONSTRUCTOR",
+        "SV2023-8.7-EXTRACT-PREINITIALIZATION-UNDEFINED",
+        "SV2023-8.7-EXTRACT-PROPERTY-INITIALIZATION",
+        "SV2023-8.7-EXTRACT-UNTYPED-TARGET-TYPE"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch8/test_illegal_constructor_event_control.sv",
+      "inputs_sha256": "7a35fa4fd4580641fa5c5507979af1bc0437e2ed592eef51ae146c272b88b4c6",
+      "cited_clauses": [
+        "8.7"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-8.7-EXTRACT-CONSTRUCTOR-NO-TIMING"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-8.7-EXTRACT-CONSTRUCTOR-NO-TIMING"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-8.7-EXTRACT-NO-STATIC-VIRTUAL-CONSTRUCTOR"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-8.7-EXTRACT-BASE-CONSTRUCTOR-FIRST",
+        "SV2023-8.7-EXTRACT-CONSTRUCTOR-ACCESS",
+        "SV2023-8.7-EXTRACT-CONSTRUCTOR-ARGUMENTS",
+        "SV2023-8.7-EXTRACT-CONSTRUCTOR-INVOKED",
+        "SV2023-8.7-EXTRACT-DEFAULT-CONSTRUCTOR-NO-EXTRA",
+        "SV2023-8.7-EXTRACT-IMPLICIT-CONSTRUCTOR",
+        "SV2023-8.7-EXTRACT-PREINITIALIZATION-UNDEFINED",
+        "SV2023-8.7-EXTRACT-PROPERTY-INITIALIZATION",
+        "SV2023-8.7-EXTRACT-UNTYPED-TARGET-TYPE"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch8/test_illegal_constructor_wait_statement.sv",
+      "inputs_sha256": "d84365e545bb76192f54a4bac8f65236cb1a67e293343caf5f80108ab5e9c283",
+      "cited_clauses": [
+        "8.7"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-8.7-EXTRACT-CONSTRUCTOR-NO-TIMING"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-8.7-EXTRACT-CONSTRUCTOR-NO-TIMING"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-8.7-EXTRACT-NO-STATIC-VIRTUAL-CONSTRUCTOR"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-8.7-EXTRACT-BASE-CONSTRUCTOR-FIRST",
+        "SV2023-8.7-EXTRACT-CONSTRUCTOR-ACCESS",
+        "SV2023-8.7-EXTRACT-CONSTRUCTOR-ARGUMENTS",
+        "SV2023-8.7-EXTRACT-CONSTRUCTOR-INVOKED",
+        "SV2023-8.7-EXTRACT-DEFAULT-CONSTRUCTOR-NO-EXTRA",
+        "SV2023-8.7-EXTRACT-IMPLICIT-CONSTRUCTOR",
+        "SV2023-8.7-EXTRACT-PREINITIALIZATION-UNDEFINED",
+        "SV2023-8.7-EXTRACT-PROPERTY-INITIALIZATION",
+        "SV2023-8.7-EXTRACT-UNTYPED-TARGET-TYPE"
+      ],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch8/test_illegal_default_depends_on_local_member.sv",
       "inputs_sha256": "55d8a32c5905b880b3de5deaa5d1c11c4c780f5399f803532dfde930b55ea1b0",
       "cited_clauses": [
@@ -385099,6 +386368,28 @@
       "broader_citations": []
     },
     {
+      "test": "tests/ch8/test_illegal_handle_parameter_in_packed_dimension.sv",
+      "inputs_sha256": "5a548af104889b5bf7ce6f29d42e2d33976c38e06efae9973192b948392bbb21",
+      "cited_clauses": [
+        "8.5"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-8.5-EXTRACT-HANDLE-PARAMETER-NONCONSTANT"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-8.5-EXTRACT-NO-HANDLE-TYPE-ACCESS"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-8.5-EXTRACT-ENUM-HANDLE-QUALIFICATION",
+        "SV2023-8.5-EXTRACT-PROPERTY-TYPE-ACCESS",
+        "SV2023-8.5-EXTRACT-VALUE-PARAMETER-HANDLE"
+      ],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch8/test_illegal_implements_forward_typedef.sv",
       "inputs_sha256": "2edb12b44b5bcf6a2428e96ca06b9c6df0ca88b4976e276bf24e59fb3d3630d7",
       "cited_clauses": [
@@ -385733,14 +387024,13 @@
       ],
       "negative_test": true,
       "registered_requirement_ids": [
+        "SV2023-8.26.6.2-EXTRACT-MATCHING-UNUSED-STILL-CONFLICT",
         "SV2023-8.26.6.2-EXTRACT-REDECLARE-PARAMETER-TYPE-CONFLICT"
       ],
       "collective_requirement_ids": [
         "SV2023-8.26.6.2-EXTRACT-REDECLARE-PARAMETER-TYPE-CONFLICT"
       ],
-      "unapproved_candidate_ids": [
-        "SV2023-8.26.6.2-EXTRACT-MATCHING-UNUSED-STILL-CONFLICT"
-      ],
+      "unapproved_candidate_ids": [],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
       "broader_citations": []
@@ -385838,6 +387128,48 @@
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch8/test_illegal_interface_handle_parameter_in_packed_dimension.sv",
+      "inputs_sha256": "4259575a596ed21008c791ebd515cc0ee63c11255df61f676fda7b47a901020c",
+      "cited_clauses": [
+        "8.26.3"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-8.26.3-EXTRACT-INTERFACE-HANDLE-PARAMETER-RESTRICTIONS"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-8.26.3-EXTRACT-INTERFACE-HANDLE-PARAMETER-RESTRICTIONS"
+      ],
+      "unapproved_candidate_ids": [],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-8.26.3-EXTRACT-INTERFACE-STATIC-TYPES",
+        "SV2023-8.26.3-EXTRACT-INTERFACE-TYPE-PARAMETER-INHERITANCE"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch8/test_illegal_interface_handle_type_parameter.sv",
+      "inputs_sha256": "7e949ce368276277ded72d73bf930385f8df0998c61da7885e6cb39e6323f349",
+      "cited_clauses": [
+        "8.26.3"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-8.26.3-EXTRACT-INTERFACE-HANDLE-PARAMETER-RESTRICTIONS"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-8.26.3-EXTRACT-INTERFACE-HANDLE-PARAMETER-RESTRICTIONS"
+      ],
+      "unapproved_candidate_ids": [],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-8.26.3-EXTRACT-INTERFACE-STATIC-TYPES",
+        "SV2023-8.26.3-EXTRACT-INTERFACE-TYPE-PARAMETER-INHERITANCE"
+      ],
       "broader_citations": []
     },
     {
@@ -385964,6 +387296,39 @@
       "broader_citations": []
     },
     {
+      "test": "tests/ch8/test_illegal_interface_method_implemented_without_virtual.sv",
+      "inputs_sha256": "10c395fd5e305591659c4b945f16d443349fe44fcca2e8f07e7359f261a8a3dd",
+      "cited_clauses": [
+        "8.26"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-8.26-EXTRACT-EXPLICIT-VIRTUAL-IMPLEMENTATION"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-8.26-EXTRACT-INTERFACE-MEMBERS-ONLY",
+        "SV2023-8.26-EXTRACT-NO-NESTED-INTERFACE-INTERFACE",
+        "SV2023-8.26-EXTRACT-NO-STRUCTURAL-IMPLEMENTS"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-8.26-EXTRACT-ABSTRACT-INTERFACE-PROTOTYPES",
+        "SV2023-8.26-EXTRACT-CONCRETE-INTERFACE-METHODS",
+        "SV2023-8.26-EXTRACT-IMPLEMENTS-NO-TYPE-INHERITANCE",
+        "SV2023-8.26-EXTRACT-IMPLEMENTS-OVERRIDE-CONTRACT",
+        "SV2023-8.26-EXTRACT-INTERFACE-EXTENDS-INHERIT",
+        "SV2023-8.26-EXTRACT-INTERFACE-HANDLE-VALUE",
+        "SV2023-8.26-EXTRACT-SUBCLASS-IMPLEMENTS"
+      ],
+      "broader_citations": [
+        {
+          "clause": "8.26",
+          "descendant_requirement_count": 35
+        }
+      ]
+    },
+    {
       "test": "tests/ch8/test_illegal_interface_param_conflict.sv",
       "inputs_sha256": "943fbefdccb8a42d2d9c26e68569c4c004396f820caca0ba2192f927dea99484",
       "cited_clauses": [
@@ -386047,6 +387412,24 @@
       }
     },
     {
+      "test": "tests/ch8/test_illegal_interface_specializations_parameter_conflict.sv",
+      "inputs_sha256": "0121b72d16403c499b02f6907762b0fb7f62aae6a56cde6921b430378794e5f3",
+      "cited_clauses": [
+        "8.26.6.3"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-8.26.6.3-EXTRACT-SPECIALIZATIONS-DISTINCT"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-8.26.6.3-EXTRACT-DIAMOND-ONE-SYMBOL"
+      ],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch8/test_illegal_interface_typedef_scope_prefix_in_variable_declaration.sv",
       "inputs_sha256": "da7d28846f2178e245d36ea05a318c8bb1c1ddbb9ad097778ab3c07bdf0dc107",
       "cited_clauses": [
@@ -386094,16 +387477,47 @@
       "broader_citations": []
     },
     {
+      "test": "tests/ch8/test_illegal_local_member_from_subclass.sv",
+      "inputs_sha256": "64e6acd56dcbc2ac6250db49ec138d787f38a21d57a405c33dcfbb5552d3807d",
+      "cited_clauses": [
+        "8.18"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-8.18-EXTRACT-LOCAL-CLASS-ONLY"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-8.18-EXTRACT-LOCAL-CLASS-ONLY"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-8.18-EXTRACT-MODIFIER-UNIQUENESS",
+        "SV2023-8.18-EXTRACT-PROTECTED-NO-OUTSIDE-ACCESS"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-8.18-EXTRACT-DEFAULT-PUBLIC",
+        "SV2023-8.18-EXTRACT-INHERITED-METHOD-USES-LOCAL",
+        "SV2023-8.18-EXTRACT-LOCAL-OTHER-INSTANCE",
+        "SV2023-8.18-EXTRACT-MODIFIER-ORDER",
+        "SV2023-8.18-EXTRACT-PARAMETERS-PUBLIC",
+        "SV2023-8.18-EXTRACT-PROTECTED-SUBCLASS"
+      ],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch8/test_illegal_local_member_outside.sv",
       "inputs_sha256": "b52c95cfee13cd925948efff93b2a803415b569c079e6d95d916bf7ebbc00338",
       "cited_clauses": [
         "8.18"
       ],
       "negative_test": true,
-      "registered_requirement_ids": [],
-      "collective_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-8.18-EXTRACT-LOCAL-CLASS-ONLY"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-8.18-EXTRACT-LOCAL-CLASS-ONLY"
+      ],
       "unapproved_candidate_ids": [
-        "SV2023-8.18-EXTRACT-LOCAL-CLASS-ONLY",
         "SV2023-8.18-EXTRACT-MODIFIER-UNIQUENESS",
         "SV2023-8.18-EXTRACT-PROTECTED-NO-OUTSIDE-ACCESS"
       ],
@@ -386695,6 +388109,32 @@
       ]
     },
     {
+      "test": "tests/ch8/test_illegal_protected_member_outside.sv",
+      "inputs_sha256": "61f9da4120992a30cb24db36a8f7ad99eb36a56ea49613e4876d3ea4586264d2",
+      "cited_clauses": [
+        "8.18"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-8.18-EXTRACT-PROTECTED-NO-OUTSIDE-ACCESS"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-8.18-EXTRACT-LOCAL-CLASS-ONLY",
+        "SV2023-8.18-EXTRACT-MODIFIER-UNIQUENESS"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-8.18-EXTRACT-DEFAULT-PUBLIC",
+        "SV2023-8.18-EXTRACT-INHERITED-METHOD-USES-LOCAL",
+        "SV2023-8.18-EXTRACT-LOCAL-OTHER-INSTANCE",
+        "SV2023-8.18-EXTRACT-MODIFIER-ORDER",
+        "SV2023-8.18-EXTRACT-PARAMETERS-PUBLIC",
+        "SV2023-8.18-EXTRACT-PROTECTED-SUBCLASS"
+      ],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch8/test_illegal_pure_constraint_final.sv",
       "inputs_sha256": "03bdb6ac7fea51f314277fa204b2d1e7735963d9215f212795e8db043f1d0be2",
       "cited_clauses": [
@@ -387251,6 +388691,28 @@
         "SV2023-8.17-EXTRACT-IMPLICIT-DEFAULT-FORWARD",
         "SV2023-8.17-EXTRACT-SUPER-DEFAULT-FORWARD",
         "SV2023-8.17-EXTRACT-SUPER-FIRST-EXECUTABLE"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch8/test_illegal_super_parameter_in_packed_dimension.sv",
+      "inputs_sha256": "da2b1a9ebbf190240e25f2329e0e7fd346cffdf7d0ce6b00e2c9b4b34ea42ba4",
+      "cited_clauses": [
+        "8.15"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-8.15-EXTRACT-SUPER-PARAMETER-NONCONSTANT"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-8.15-EXTRACT-NO-SUPER-SUPER"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-8.15-EXTRACT-IMPLICIT-SUPER-NEW",
+        "SV2023-8.15-EXTRACT-SUPER-BASE",
+        "SV2023-8.15-EXTRACT-SUPER-NEW-FIRST"
       ],
       "broader_citations": []
     },
@@ -953831,7 +955293,7 @@
     "oracle_issue": 243,
     "partial_observation": 2141
   },
-  "registry_sha256": "6389bbcb80804ba1c279b0b6fc24eca35e39bb66f2aec9ca244d0297bc730ccd",
+  "registry_sha256": "80f6a1355b190b4c70bd042dfbe20c5c728b94af7e82f449bd78c5b00a2fc9bc",
   "inventory_sha256": "7f708bec45a4f398aa534c8f94565cb0bcd1a4fbfdf0a0e21997df20add41768",
   "review_ledger_sha256": "e6ec1e816ae39da55f72157db28809a5762c44d6e3efbae71fd837dd18834a60"
 }

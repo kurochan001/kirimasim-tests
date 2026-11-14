@@ -1,0 +1,3 @@
+start: continuous=23 forced=23 woke=0
+a=4: continuous=43 forced=43 woke=1 event value=43
+b=7: continuous=47 forced=47

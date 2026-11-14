@@ -1,0 +1,4 @@
+g3: WIDTH=3 TOP=7
+g4: WIDTH=4 TOP=15
+g6: WIDTH=6 TOP=63
+sum=19

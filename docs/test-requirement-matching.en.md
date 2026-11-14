@@ -6,7 +6,7 @@
 
 [Requirement-coverage aggregation](behavior-coverage-summary.en.md) / [Comparison ledger for all tests](../coverage/test-matching.json) / [Content check errors](existing-test-matching-review-20261022.en.md)
 
-The reference candidates are listed from the citation section for all 12471 tests. The test which has registered the demand response based on stimulus and expected result is 5511 tests, and the test which is not registered is 6960 tests.
+The reference candidates are listed from the citation section for all 12519 tests. The test which has registered the demand response based on stimulus and expected result is 5564 tests, and the test which is not registered is 6955 tests.
 
 The mapping based on the verification content of all tests is not complete. The list of candidates is an automatic process and does not represent approval of the match. The number of registered units is the number of units that correspond to at least one requirement, and not the number of completed verification of each test. Multiple observations of one test and the response of another test verifying the same requirement are recorded in sequence.
 
@@ -42,14 +42,14 @@ Do not treat a requirement without a candidate or an unregistered test as eviden
 - ch3 : All 144 tests, registered 79 tests, unregistered 65 tests.
 - ch4 : All 478 tests, registered 126 tests, unregistered 352 tests.
 - ch5 : All 513 tests, registered 329 tests, unregistered 184 tests.
-- ch6 : All 700 tests, registered 431 tests, unregistered 269 tests.
-- ch7 : All 789 tests, registered 311 tests, unregistered 478 tests.
-- ch8 : All 462 tests, registered 225 tests, unregistered 237 tests.
+- ch6 : All 708 tests, registered 443 tests, unregistered 265 tests.
+- ch7 : All 809 tests, registered 331 tests, unregistered 478 tests.
+- ch8 : All 478 tests, registered 242 tests, unregistered 236 tests.
 - ch9 : All 451 tests, registered 140 tests, unregistered 311 tests.
 - ch10 : All 431 tests, registered 132 tests, unregistered 299 tests.
 - ch11 : All 1675 tests, registered 395 tests, unregistered 1280 tests.
 - ch12 : All 312 tests, registered 110 tests, unregistered 202 tests.
-- ch13 : All 470 tests, registered 135 tests, unregistered 335 tests.
+- ch13 : All 474 tests, registered 139 tests, unregistered 335 tests.
 - ch14 : All 170 tests, registered 75 tests, unregistered 95 tests.
 - ch15 : All 195 tests, registered 42 tests, unregistered 153 tests.
 - ch16 : All 793 tests, registered 608 tests, unregistered 185 tests.
