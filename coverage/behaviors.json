@@ -6,7 +6,7 @@
     "state": "approved",
     "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
     "reviewed_on": "2026-10-28",
-    "scope_note": "All 1703 normative sections reviewed. 21 interpretation rows across 20 sections resolved (20 by normative text or a documented policy choice; 31.4.4 limited to distinct transition times). 25 duplicate candidates reviewed: 21 rows merged into their extracted obligations, 4 candidates kept (kind or source differs). 92 initial rows: 89 assigned block-level source spans, 3 retained with clause-level provenance because no block defines the behavior. The denominator is 12298 registered unique behavioral obligations; it is not a claim of independent human review."
+    "scope_note": "All 1703 normative sections reviewed. 21 interpretation rows across 20 sections resolved (20 by normative text or a documented policy choice; 31.4.4 limited to distinct transition times). 25 duplicate candidates reviewed: 21 rows merged into their extracted obligations, 4 candidates kept (kind or source differs). 92 initial rows: 89 assigned block-level source spans, 3 retained with clause-level provenance because no block defines the behavior. The denominator is 12298 registered unique behavioral obligations; it is not a claim of independent human review. On 2026-11-14, with the owner's approval, rows that could be shown only by a rejected design were made observable: 21 rows changed from normal to error, SV2023-6.20.1-EXTRACT-NO-IMPLICIT-INSTANTIATION changed from error to normal, SV2023-6.19-EXTRACT-POST-CAST-ENCODING was narrowed, and 7 rows that mixed an accepted and a rejected form were split, so the denominator is now 12305 rows (drafted by Claude Opus 5.5, AI; not an independent human review)."
   },
   "requirements": [
     {
@@ -18759,10 +18759,10 @@
     {
       "id": "SV2023-6.5-EXTRACT-INITIALIZATION-PROCEDURAL-CLASSIFICATION",
       "clause": "6.5",
-      "kind": "normal",
-      "behavior": "A declared variable initialization or procedural assign counts as a procedural assignment for the writer-conflict rule.",
-      "acceptance": "A declared variable initialization or procedural assign counts as a procedural assignment for the writer-conflict rule.",
-      "source_note": "IEEE 1800-2023 6.5; complete own-body source review, blocks B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "A declared variable initialization and a procedural assign statement count as procedural assignments, so a variable with either that is also written by a continuous assignment is an error.",
+      "acceptance": "A variable with a declaration initializer that is also the target of a continuous assignment, and a variable written both by a procedural assign statement and by a continuous assignment, are each rejected.",
+      "source_note": "IEEE 1800-2023 6.5; complete own-body source review, blocks B018. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-14 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the classification is observable only through the writer-conflict error of SV2023-6.5-EXTRACT-STATIC-PREFIX-WRITER-CONFLICT; force stays covered by SV2023-6.5-EXTRACT-FORCE-CLASSIFICATION.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -35680,10 +35680,10 @@
     {
       "id": "SV2023-6.16.2-EXTRACT-SIGNATURE",
       "clause": "6.16.2",
-      "kind": "normal",
-      "behavior": "putc is a void string method accepting an int index followed by a byte character.",
-      "acceptance": "putc is a void string method accepting an int index followed by a byte character.",
-      "source_note": "IEEE 1800-2023 6.16.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "The string method putc returns void, so using a call of it as a value (an expression operand or an assignment source) is an error.",
+      "acceptance": "A design that uses the result of a call of putc as a value is rejected at that call.",
+      "source_note": "IEEE 1800-2023 6.16.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-14 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the void return type is observable only as the error for using the call as a value (13.4.1); the argument forms are exercised by SV2023-6.16.2-EXTRACT-REPLACE and the other 6.16.2 rows.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -37841,10 +37841,10 @@
     {
       "id": "SV2023-6.16.15-EXTRACT-SIGNATURE",
       "clause": "6.16.15",
-      "kind": "normal",
-      "behavior": "realtoa is a void string method taking one real argument.",
-      "acceptance": "realtoa is a void string method taking one real argument.",
-      "source_note": "IEEE 1800-2023 6.16.15; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "The string method realtoa returns void, so using a call of it as a value (an expression operand or an assignment source) is an error.",
+      "acceptance": "A design that uses the result of a call of realtoa as a value is rejected at that call.",
+      "source_note": "IEEE 1800-2023 6.16.15; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-14 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the void return type is observable only as the error for using the call as a value (13.4.1); the argument forms are exercised by SV2023-6.16.15-EXTRACT-STORE-TEXT.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -39579,9 +39579,9 @@
       "id": "SV2023-6.19-EXTRACT-POST-CAST-ENCODING",
       "clause": "6.19",
       "kind": "normal",
-      "behavior": "The encoding after its base-type cast is used for name value, uniqueness checking and the next implicit increment.",
-      "acceptance": "The encoding after its base-type cast is used for name value, uniqueness checking and the next implicit increment.",
-      "source_note": "IEEE 1800-2023 6.19; complete own-body source review, blocks B023. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "The value of an enum name is its encoding expression after the cast to the base type, and the next implicitly encoded name increments that value.",
+      "acceptance": "A name whose encoding expression changes value under the cast to the base type has the cast value, and the following implicitly encoded name has the cast value plus one.",
+      "source_note": "IEEE 1800-2023 6.19; complete own-body source review, blocks B023. The rule is paraphrased; conditions and referenced rules remain applicable. Narrowed on 2026-11-14 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the uniqueness check on the cast value is observable only as an error and is covered by SV2023-6.19-EXTRACT-UNIQUE-ENCODINGS.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -42459,10 +42459,10 @@
     {
       "id": "SV2023-6.20.1-EXTRACT-NO-IMPLICIT-INSTANTIATION",
       "clause": "6.20.1",
-      "kind": "error",
-      "behavior": "A tool must not implicitly instantiate a design element that has a parameter without a default.",
-      "acceptance": "A tool must not implicitly instantiate a design element that has a parameter without a default.",
-      "source_note": "IEEE 1800-2023 6.20.1; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "normal",
+      "behavior": "A tool does not implicitly instantiate a design element that has a parameter without a default value.",
+      "acceptance": "A module that is not instantiated anywhere and has a parameter without a default is not elaborated as an implicit top-level instance: its procedures do not run, while those of the other top-level modules do.",
+      "source_note": "IEEE 1800-2023 6.20.1; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-14 from error to normal (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the design is legal, and the rule is observable only as the absence of an implicit top-level instance.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -43945,10 +43945,10 @@
     {
       "id": "SV2023-6.20.5-EXTRACT-DISTINCT-DECLARATION-KEYWORDS",
       "clause": "6.20.5",
-      "kind": "normal",
-      "behavior": "Specify parameters use specparam and ordinary parameters use parameter under their distinct declaration rules.",
-      "acceptance": "Specify parameters use specparam and ordinary parameters use parameter under their distinct declaration rules.",
-      "source_note": "IEEE 1800-2023 6.20.5; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "Specify parameters are declared with specparam and ordinary parameters with parameter; a parameter declaration inside a specify block is an error.",
+      "acceptance": "A parameter declaration inside a specify block is rejected.",
+      "source_note": "IEEE 1800-2023 6.20.5; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-14 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the keyword rule is observable only as an error; it overlaps SV2023-6.20.5-EXTRACT-SPECPARAM-DECLARATION-SCOPE.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -44164,10 +44164,10 @@
     {
       "id": "SV2023-6.20.5-EXTRACT-SDF-ONLY-OVERRIDE",
       "clause": "6.20.5",
-      "kind": "normal",
-      "behavior": "A specparam cannot be modified by language parameter-override constructs; SDF annotation may modify it.",
-      "acceptance": "A specparam cannot be modified by language parameter-override constructs; SDF annotation may modify it.",
-      "source_note": "IEEE 1800-2023 6.20.5; complete own-body source review, blocks B003, B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "A specparam cannot be modified from within the language, so a defparam statement or a named parameter value assignment of an instance that targets a specparam is an error.",
+      "acceptance": "A defparam statement that targets a specparam, and a named parameter value assignment that names a specparam, are each rejected.",
+      "source_note": "IEEE 1800-2023 6.20.5; complete own-body source review, blocks B003, B011. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-14 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the language part is observable only as an error; modification through SDF annotation is covered by SV2023-6.20.5-EXTRACT-PARAMETER-OVERRIDE-MECHANISMS.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -44502,10 +44502,28 @@
     {
       "id": "SV2023-6.20.6-EXTRACT-CONST-HANDLE-NO-WRITE",
       "clause": "6.20.6",
+      "kind": "error",
+      "behavior": "A const class handle acts like a variable that cannot be written, so assigning to it after its declaration is an error.",
+      "acceptance": "An assignment to a const class handle after its declaration is rejected.",
+      "source_note": "IEEE 1800-2023 6.20.6; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-14 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed an accepted and a rejected form; the normal part moved to SV2023-6.20.6-EXTRACT-CONST-HANDLE-MEMBERS-WRITABLE, and this row changed from normal to error.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "6.20.6",
+          "blocks": [
+            "B008"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-6.20.6-EXTRACT-CONST-HANDLE-MEMBERS-WRITABLE",
+      "clause": "6.20.6",
       "kind": "normal",
-      "behavior": "A const class handle cannot subsequently be written, while its referenced object members remain writable unless independently const.",
-      "acceptance": "A const class handle cannot subsequently be written, while its referenced object members remain writable unless independently const.",
-      "source_note": "IEEE 1800-2023 6.20.6; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "The members of an object referred to by a const class handle can be written, except members that are themselves declared const.",
+      "acceptance": "Writing a non-const property through a const class handle changes the object, as a later read shows; writing const properties stays covered by the 8.19 rows.",
+      "source_note": "IEEE 1800-2023 6.20.6; split on 2026-11-14 from SV2023-6.20.6-EXTRACT-CONST-HANDLE-NO-WRITE (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -47008,10 +47026,10 @@
     {
       "id": "SV2023-6.22.3-EXTRACT-DIRECTIONAL-COMPATIBILITY",
       "clause": "6.22.3",
-      "kind": "normal",
-      "behavior": "Assignment compatibility can hold in only one direction, as for enum-to-integral versus integral-to-enum.",
-      "acceptance": "Assignment compatibility can hold in only one direction, as for enum-to-integral versus integral-to-enum.",
-      "source_note": "IEEE 1800-2023 6.22.3; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "Assignment compatibility can hold in one direction only: an enum converts to an integral type without a cast, but assigning an integral value to an enum without a cast is an error.",
+      "acceptance": "Assigning an integral expression to an enum variable without a cast is rejected.",
+      "source_note": "IEEE 1800-2023 6.22.3; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-14 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the one-way rule is observable only as the error for the reverse direction; the enum-to-integral direction is covered by SV2023-6.19.3-EXTRACT-ENUM-TO-INTEGRAL.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -51371,10 +51389,10 @@
     {
       "id": "SV2023-7.3-EXTRACT-AGGREGATE-FOOTNOTES",
       "clause": "7.3",
-      "kind": "normal",
-      "behavior": "The repeated syntax footnotes require packed for structure dimensions, soft/packed for union dimensions, void only for tagged unions and random qualifiers only for unpacked structures.",
-      "acceptance": "The repeated syntax footnotes require packed for structure dimensions, soft/packed for union dimensions, void only for tagged unions and random qualifiers only for unpacked structures.",
-      "source_note": "IEEE 1800-2023 7.3; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "A packed dimension on a struct without the packed keyword, a packed dimension on a union without soft or packed, a void member outside a tagged union, and a rand or randc member qualifier outside an unpacked structure are errors.",
+      "acceptance": "Each of the four forms is rejected at the offending declaration.",
+      "source_note": "IEEE 1800-2023 7.3; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-14 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the footnotes state only legality rules, which are observable only as errors.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -57812,10 +57830,10 @@
     {
       "id": "SV2023-7.5.3-EXTRACT-SIGNATURE",
       "clause": "7.5.3",
-      "kind": "normal",
-      "behavior": "Dynamic-array delete is a void no-argument method.",
-      "acceptance": "Dynamic-array delete is a void no-argument method.",
-      "source_note": "IEEE 1800-2023 7.5.3; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "The dynamic array method delete returns void, so using a call of it as a value (an expression operand or an assignment source) is an error.",
+      "acceptance": "A design that uses the result of a call of delete on a dynamic array as a value is rejected at that call.",
+      "source_note": "IEEE 1800-2023 7.5.3; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-14 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the void return type is observable only as the error for using the call as a value (13.4.1); the argument forms are exercised by SV2023-7.5.3-EXTRACT-DELETE-EMPTY.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -59856,10 +59874,10 @@
     {
       "id": "SV2023-7.8-EXTRACT-UNPACKED-ELEMENT-EXPRESSION",
       "clause": "7.8",
-      "kind": "normal",
-      "behavior": "Associative arrays are unpacked; apart from supported whole-copy/comparison operations, most expressions require selecting an individual element.",
-      "acceptance": "Associative arrays are unpacked; apart from supported whole-copy/comparison operations, most expressions require selecting an individual element.",
-      "source_note": "IEEE 1800-2023 7.8; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "Associative array elements are unpacked, so other than for copying or comparing whole arrays an element has to be selected before the array is used in an expression; using a whole associative array as an operand of an arithmetic or bitwise operator is an error.",
+      "acceptance": "Using a whole associative array as an operand of an arithmetic or bitwise operator is rejected.",
+      "source_note": "IEEE 1800-2023 7.8; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-14 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the rule is observable only as an error; whole-array copying is covered by SV2023-7.9.9-EXTRACT-CLEAR-AND-COPY.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -61696,10 +61714,10 @@
     {
       "id": "SV2023-7.9.2-EXTRACT-SIGNATURE",
       "clause": "7.9.2",
-      "kind": "normal",
-      "behavior": "Associative delete returns void and accepts an optional input index appropriate for its index type.",
-      "acceptance": "Associative delete returns void and accepts an optional input index appropriate for its index type.",
-      "source_note": "IEEE 1800-2023 7.9.2; complete own-body source review, blocks B003, B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "The associative array method delete, with or without an index, returns void, so using a call of it as a value (an expression operand or an assignment source) is an error.",
+      "acceptance": "A design that uses the result of a call of delete on an associative array as a value is rejected at that call.",
+      "source_note": "IEEE 1800-2023 7.9.2; complete own-body source review, blocks B003, B004. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-14 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the void return type is observable only as the error for using the call as a value (13.4.1); the argument forms are exercised by SV2023-7.9.2-EXTRACT-DELETE-ALL and SV2023-7.9.2-EXTRACT-DELETE-ENTRY.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -64670,10 +64688,10 @@
     {
       "id": "SV2023-7.10.2.2-EXTRACT-SIGNATURE",
       "clause": "7.10.2.2",
-      "kind": "normal",
-      "behavior": "Queue insert returns void and accepts an input integer index followed by an input element-typed item.",
-      "acceptance": "Queue insert returns void and accepts an input integer index followed by an input element-typed item.",
-      "source_note": "IEEE 1800-2023 7.10.2.2; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "The queue method insert returns void, so using a call of it as a value (an expression operand or an assignment source) is an error.",
+      "acceptance": "A design that uses the result of a call of insert on a queue as a value is rejected at that call.",
+      "source_note": "IEEE 1800-2023 7.10.2.2; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-14 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the void return type is observable only as the error for using the call as a value (13.4.1); the argument forms are exercised by SV2023-7.10.2.2-EXTRACT-INSERT-POSITION.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -64830,10 +64848,10 @@
     {
       "id": "SV2023-7.10.2.3-EXTRACT-SIGNATURE",
       "clause": "7.10.2.3",
-      "kind": "normal",
-      "behavior": "Queue delete is void and accepts an optional input integer index.",
-      "acceptance": "Queue delete is void and accepts an optional input integer index.",
-      "source_note": "IEEE 1800-2023 7.10.2.3; complete own-body source review, blocks B003, B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "The queue method delete, with or without an index, returns void, so using a call of it as a value (an expression operand or an assignment source) is an error.",
+      "acceptance": "A design that uses the result of a call of delete on a queue as a value is rejected at that call.",
+      "source_note": "IEEE 1800-2023 7.10.2.3; complete own-body source review, blocks B003, B004. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-14 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the void return type is observable only as the error for using the call as a value (13.4.1); the argument forms are exercised by SV2023-7.10.2.3-EXTRACT-DELETE-ALL and SV2023-7.10.2.3-EXTRACT-DELETE-POSITION.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -65101,10 +65119,10 @@
     {
       "id": "SV2023-7.10.2.6-EXTRACT-SIGNATURE",
       "clause": "7.10.2.6",
-      "kind": "normal",
-      "behavior": "Queue push_front returns void and takes one input element-typed item.",
-      "acceptance": "Queue push_front returns void and takes one input element-typed item.",
-      "source_note": "IEEE 1800-2023 7.10.2.6; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "The queue method push_front returns void, so using a call of it as a value (an expression operand or an assignment source) is an error.",
+      "acceptance": "A design that uses the result of a call of push_front as a value is rejected at that call.",
+      "source_note": "IEEE 1800-2023 7.10.2.6; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-14 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the void return type is observable only as the error for using the call as a value (13.4.1); the argument forms are exercised by SV2023-7.10.2.6-EXTRACT-PUSH.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -65159,10 +65177,10 @@
     {
       "id": "SV2023-7.10.2.7-EXTRACT-SIGNATURE",
       "clause": "7.10.2.7",
-      "kind": "normal",
-      "behavior": "Queue push_back returns void and takes one input element-typed item.",
-      "acceptance": "Queue push_back returns void and takes one input element-typed item.",
-      "source_note": "IEEE 1800-2023 7.10.2.7; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "The queue method push_back returns void, so using a call of it as a value (an expression operand or an assignment source) is an error.",
+      "acceptance": "A design that uses the result of a call of push_back as a value is rejected at that call.",
+      "source_note": "IEEE 1800-2023 7.10.2.7; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-14 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the void return type is observable only as the error for using the call as a value (13.4.1); the argument forms are exercised by SV2023-7.10.2.7-EXTRACT-PUSH.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -68016,10 +68034,10 @@
     {
       "id": "SV2023-7.12.2-EXTRACT-ORDERING-SIGNATURE",
       "clause": "7.12.2",
-      "kind": "normal",
-      "behavior": "Ordering methods return void and support the array iterator argument defaulting to item under common with restrictions.",
-      "acceptance": "Ordering methods return void and support the array iterator argument defaulting to item under common with restrictions.",
-      "source_note": "IEEE 1800-2023 7.12.2; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "Each array ordering method (reverse, sort, rsort and shuffle) returns void, so using a call of it as a value (an expression operand or an assignment source) is an error.",
+      "acceptance": "A design that uses the result of a call of an ordering method as a value is rejected at that call.",
+      "source_note": "IEEE 1800-2023 7.12.2; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-14 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the void return type is observable only as the error for using the call as a value (13.4.1); the argument forms are exercised by SV2023-7.12.2-EXTRACT-SORT and SV2023-7.12.2-EXTRACT-RSORT, including the iterator argument that defaults to item.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -68035,9 +68053,27 @@
       "id": "SV2023-7.12.2-EXTRACT-REVERSE",
       "clause": "7.12.2",
       "kind": "normal",
-      "behavior": "reverse() reverses array element order; a with clause is a compilation error.",
-      "acceptance": "reverse() reverses array element order; a with clause is a compilation error.",
-      "source_note": "IEEE 1800-2023 7.12.2; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "reverse() reverses the order of the elements in the array.",
+      "acceptance": "After reverse(), each element holds the value that the element at the mirrored position held before.",
+      "source_note": "IEEE 1800-2023 7.12.2; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-14 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed an accepted and a rejected form; the error part moved to SV2023-7.12.2-EXTRACT-REVERSE-NO-WITH.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "7.12.2",
+          "blocks": [
+            "B005"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-7.12.2-EXTRACT-REVERSE-NO-WITH",
+      "clause": "7.12.2",
+      "kind": "error",
+      "behavior": "Specifying a with clause on reverse() is a compilation error.",
+      "acceptance": "A reverse() call with a with clause is rejected.",
+      "source_note": "IEEE 1800-2023 7.12.2; split on 2026-11-14 from SV2023-7.12.2-EXTRACT-REVERSE (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -68182,9 +68218,27 @@
       "id": "SV2023-7.12.2-EXTRACT-SHUFFLE",
       "clause": "7.12.2",
       "kind": "normal",
-      "behavior": "shuffle() randomizes array element order; specifying a with clause is a compilation error.",
-      "acceptance": "shuffle() randomizes array element order; specifying a with clause is a compilation error.",
-      "source_note": "IEEE 1800-2023 7.12.2; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "shuffle() randomizes the order of the elements in the array, so the result is a permutation of the original elements.",
+      "acceptance": "After shuffle(), the array has the same size and the same multiset of element values as before.",
+      "source_note": "IEEE 1800-2023 7.12.2; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-14 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed an accepted and a rejected form; the error part moved to SV2023-7.12.2-EXTRACT-SHUFFLE-NO-WITH.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "7.12.2",
+          "blocks": [
+            "B005"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-7.12.2-EXTRACT-SHUFFLE-NO-WITH",
+      "clause": "7.12.2",
+      "kind": "error",
+      "behavior": "Specifying a with clause on shuffle() is a compilation error.",
+      "acceptance": "A shuffle() call with a with clause is rejected.",
+      "source_note": "IEEE 1800-2023 7.12.2; split on 2026-11-14 from SV2023-7.12.2-EXTRACT-SHUFFLE (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -71991,9 +72045,27 @@
       "id": "SV2023-8.5-EXTRACT-VALUE-PARAMETER-HANDLE",
       "clause": "8.5",
       "kind": "normal",
-      "behavior": "Class parameters/localparams may be value-accessed through an object handle, but the resulting expression is not a constant expression.",
-      "acceptance": "Class parameters/localparams may be value-accessed through an object handle, but the resulting expression is not a constant expression.",
-      "source_note": "IEEE 1800-2023 8.5; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "A class value parameter or local value parameter can be read by qualifying its name with an object handle.",
+      "acceptance": "Qualifying a value parameter or local value parameter with an object handle gives its value for the class of the handle.",
+      "source_note": "IEEE 1800-2023 8.5; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-14 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed an accepted and a rejected form; the error part moved to SV2023-8.5-EXTRACT-HANDLE-PARAMETER-NONCONSTANT.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "8.5",
+          "blocks": [
+            "B006"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-8.5-EXTRACT-HANDLE-PARAMETER-NONCONSTANT",
+      "clause": "8.5",
+      "kind": "error",
+      "behavior": "An expression that reads a value parameter or local value parameter through an object handle is not a constant expression, so using it where a constant expression is required is an error.",
+      "acceptance": "Using a value parameter read through an object handle where a constant expression is required, such as a packed dimension bound or a parameter value, is rejected.",
+      "source_note": "IEEE 1800-2023 8.5; split on 2026-11-14 from SV2023-8.5-EXTRACT-VALUE-PARAMETER-HANDLE (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -72580,10 +72652,10 @@
     {
       "id": "SV2023-8.7-EXTRACT-CONSTRUCTOR-NO-TIMING",
       "clause": "8.7",
-      "kind": "normal",
-      "behavior": "new is a function without an explicit return type and cannot block or consume simulation time.",
-      "acceptance": "new is a function without an explicit return type and cannot block or consume simulation time.",
-      "source_note": "IEEE 1800-2023 8.7; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "new is a function and cannot block, so a delay control, an event control or a wait statement in a constructor is an error.",
+      "acceptance": "A constructor that contains a delay control, an event control or a wait statement is rejected.",
+      "source_note": "IEEE 1800-2023 8.7; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-14 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the nonblocking rule is observable only as an error; the return type taken from the assignment target is covered by SV2023-8.7-EXTRACT-UNTYPED-TARGET-TYPE.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -74889,10 +74961,10 @@
     {
       "id": "SV2023-8.15-EXTRACT-SUPER-PARAMETER-NONCONSTANT",
       "clause": "8.15",
-      "kind": "normal",
-      "behavior": "Accessing a value parameter/localparam using super does not form a constant expression.",
-      "acceptance": "Accessing a value parameter/localparam using super does not form a constant expression.",
-      "source_note": "IEEE 1800-2023 8.15; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "An expression that uses super to access a value parameter or local value parameter of the base class is not a constant expression, so using it where a constant expression is required is an error.",
+      "acceptance": "Using super with a value parameter or local value parameter where a constant expression is required, such as a packed dimension bound or a parameter value, is rejected.",
+      "source_note": "IEEE 1800-2023 8.15; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-14 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): \"not a constant expression\" is observable only as an error; the access itself is covered by SV2023-8.15-EXTRACT-SUPER-BASE.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -75979,10 +76051,28 @@
     {
       "id": "SV2023-8.18-EXTRACT-LOCAL-CLASS-ONLY",
       "clause": "8.18",
+      "kind": "error",
+      "behavior": "A local member is available only to methods of its declaring class and is not visible within subclasses; referring to it from a subclass or from outside the class is an error.",
+      "acceptance": "A reference to a local property or method from a method of a subclass, and from code outside the class, are each rejected.",
+      "source_note": "IEEE 1800-2023 8.18; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-14 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed an accepted and a rejected form; the normal part moved to SV2023-8.18-EXTRACT-INHERITED-METHOD-USES-LOCAL, and this row changed from normal to error.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "8.18",
+          "blocks": [
+            "B004"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-8.18-EXTRACT-INHERITED-METHOD-USES-LOCAL",
+      "clause": "8.18",
       "kind": "normal",
-      "behavior": "A local member is accessible only to methods of its declaring class and is invisible in subclasses; an inherited nonlocal method still accesses its declaring class local members.",
-      "acceptance": "A local member is accessible only to methods of its declaring class and is invisible in subclasses; an inherited nonlocal method still accesses its declaring class local members.",
-      "source_note": "IEEE 1800-2023 8.18; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "A nonlocal method that accesses local members of its declaring class can be inherited and still accesses them when it runs as a method of the subclass.",
+      "acceptance": "Calling the inherited method on a subclass object reads and writes the local property of the base class.",
+      "source_note": "IEEE 1800-2023 8.18; split on 2026-11-14 from SV2023-8.18-EXTRACT-LOCAL-CLASS-ONLY (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -76166,9 +76256,27 @@
       "id": "SV2023-8.18-EXTRACT-PROTECTED-SUBCLASS",
       "clause": "8.18",
       "kind": "normal",
-      "behavior": "A protected property/method has local-style hiding from unrelated code but remains visible/inheritable by subclasses.",
-      "acceptance": "A protected property/method has local-style hiding from unrelated code but remains visible/inheritable by subclasses.",
-      "source_note": "IEEE 1800-2023 8.18; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "A protected property or method is inherited by subclasses and visible to them.",
+      "acceptance": "A subclass method reads and writes an inherited protected property and calls an inherited protected method.",
+      "source_note": "IEEE 1800-2023 8.18; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-14 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed an accepted and a rejected form; the error part moved to SV2023-8.18-EXTRACT-PROTECTED-NO-OUTSIDE-ACCESS.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "8.18",
+          "blocks": [
+            "B005"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-8.18-EXTRACT-PROTECTED-NO-OUTSIDE-ACCESS",
+      "clause": "8.18",
+      "kind": "error",
+      "behavior": "Like a local member, a protected member is hidden from code outside its class and subclasses, so referring to it from there is an error.",
+      "acceptance": "A reference to a protected property or method through an object handle from code outside the class and its subclasses is rejected.",
+      "source_note": "IEEE 1800-2023 8.18; split on 2026-11-14 from SV2023-8.18-EXTRACT-PROTECTED-SUBCLASS (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -79013,10 +79121,10 @@
     {
       "id": "SV2023-8.26-EXTRACT-EXPLICIT-VIRTUAL-IMPLEMENTATION",
       "clause": "8.26",
-      "kind": "normal",
-      "behavior": "An implementing method must explicitly say virtual unless virtualness is inherited.",
-      "acceptance": "An implementing method must explicitly say virtual unless virtualness is inherited.",
-      "source_note": "IEEE 1800-2023 8.26; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "A method that implements an interface class method has to be declared with the virtual keyword unless its virtual implementation is inherited; a non-abstract class whose only implementation lacks virtual is an error.",
+      "acceptance": "A non-abstract class that implements an interface class with a method implementation declared without virtual, where no inherited virtual implementation exists, is rejected.",
+      "source_note": "IEEE 1800-2023 8.26; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-14 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the keyword rule is observable only as an error.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -79922,10 +80030,10 @@
     {
       "id": "SV2023-8.26.3-EXTRACT-INTERFACE-HANDLE-PARAMETER-RESTRICTIONS",
       "clause": "8.26.3",
-      "kind": "normal",
-      "behavior": "Interface-class handle parameter accesses follow ordinary class-handle restrictions, including nonconstant value-parameter access and no type selection.",
-      "acceptance": "Interface-class handle parameter accesses follow ordinary class-handle restrictions, including nonconstant value-parameter access and no type selection.",
-      "source_note": "IEEE 1800-2023 8.26.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "A parameter read through an interface class handle is not a constant expression, and a type cannot be selected through an interface class handle; using either where it is not allowed is an error.",
+      "acceptance": "Using a parameter read through an interface class handle where a constant expression is required, and selecting a type through an interface class handle, are each rejected.",
+      "source_note": "IEEE 1800-2023 8.26.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-14 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the restrictions of 8.5 are observable only as errors; access with :: is covered by SV2023-8.26.3-EXTRACT-INTERFACE-STATIC-TYPES.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -80515,10 +80623,10 @@
     {
       "id": "SV2023-8.26.6.2-EXTRACT-MATCHING-UNUSED-STILL-CONFLICT",
       "clause": "8.26.6.2",
-      "kind": "normal",
-      "behavior": "Matching parameter types/values or absence of uses does not remove a name collision from distinct originating interface declarations.",
-      "acceptance": "Matching parameter types/values or absence of uses does not remove a name collision from distinct originating interface declarations.",
-      "source_note": "IEEE 1800-2023 8.26.6.2; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "Same-named parameters or types inherited from different interface class declarations conflict even when their types and values match and the name is never used; leaving the conflict unresolved is an error.",
+      "acceptance": "An interface class that extends two interface classes declaring a same-named parameter with the same type and value, without redeclaring it, is rejected even though the name is not used.",
+      "source_note": "IEEE 1800-2023 8.26.6.2; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-14 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the conflict is observable only as an error; the general rule is SV2023-8.26.6.2-EXTRACT-REDECLARE-PARAMETER-TYPE-CONFLICT.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -80634,10 +80742,10 @@
     {
       "id": "SV2023-8.26.6.3-EXTRACT-SPECIALIZATIONS-DISTINCT",
       "clause": "8.26.6.3",
-      "kind": "normal",
-      "behavior": "Different parameter specializations are distinct interface class types; reaching different specializations is not a shared-origin diamond and their method/type/parameter names require conflict resolution.",
-      "acceptance": "Different parameter specializations are distinct interface class types; reaching different specializations is not a shared-origin diamond and their method/type/parameter names require conflict resolution.",
-      "source_note": "IEEE 1800-2023 8.26.6.3; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "Different specializations of a parameterized interface class are distinct interface classes, so reaching two of them is not a diamond and their same-named methods, parameters and types conflict as in 8.26.6.1 and 8.26.6.2; leaving such a conflict unresolved is an error.",
+      "acceptance": "A class or interface class that inherits or implements two different specializations of one parameterized interface class without resolving the resulting parameter or type name conflict is rejected.",
+      "source_note": "IEEE 1800-2023 8.26.6.3; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-14 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the distinctness is observable only as the conflict error; the shared-origin case is covered by SV2023-8.26.6.3-EXTRACT-DIAMOND-ONE-SYMBOL.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -137445,9 +137553,27 @@
       "id": "SV2023-13.4-EXTRACT-FUNCTION-WRITABLE-ARG-CONTEXT",
       "clause": "13.4",
       "kind": "error",
-      "behavior": "A function with output/inout/nonconst-ref formals cannot be called in event/procedural-continuous/nonprocedural expressions; const ref is exempt.",
-      "acceptance": "A function with output/inout/nonconst-ref formals cannot be called in event/procedural-continuous/nonprocedural expressions; const ref is exempt.",
-      "source_note": "IEEE 1800-2023 13.4; complete own-body source review, blocks B019. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "A function with output, inout or non-const ref formal arguments cannot be called in an event expression, in an expression within a procedural continuous assignment, or in an expression that is not within a procedural statement; such a call is an error.",
+      "acceptance": "A call of such a function in each of these contexts is rejected.",
+      "source_note": "IEEE 1800-2023 13.4; complete own-body source review, blocks B019. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-14 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed an accepted and a rejected form; the normal part moved to SV2023-13.4-EXTRACT-CONST-REF-ARG-CONTEXT.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "13.4",
+          "blocks": [
+            "B019"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-13.4-EXTRACT-CONST-REF-ARG-CONTEXT",
+      "clause": "13.4",
+      "kind": "normal",
+      "behavior": "A function whose ref formal arguments are all const ref can be called in an event expression, in an expression within a procedural continuous assignment, and in an expression that is not within a procedural statement.",
+      "acceptance": "Calls of such a function in these contexts are accepted and give the result of the function.",
+      "source_note": "IEEE 1800-2023 13.4; split on 2026-11-14 from SV2023-13.4-EXTRACT-FUNCTION-WRITABLE-ARG-CONTEXT (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B019. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [

@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 90.80%, execution without Ghost 50.39%, execution with Ghost 77.86%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 90.74%, execution without Ghost 50.36%, execution with Ghost 77.81%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 90.80%. Requirement execution-confirmation rate: 50.39% without Ghost, 77.86% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 90.74%. Requirement execution-confirmation rate: 50.36% without Ghost, 77.81% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 11166/12298 ( 90.80% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9575/12298 ( 77.86% ).
-- Registered but not tested: 1132.
+- The requirement coverage (test design) for registered behaviors is 11166/12305 ( 90.74% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9575/12305 ( 77.81% ).
+- Registered but not tested: 1139.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -32,51 +32,51 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 
 `check_groups` distributes a single request across multiple tests, and is successful only if all tests in the group are successful in the same runtime and run. The unspecified response is an independent alternative proof.
 
-- `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12298 execution checked; 0 entries refer to older inputs.
-- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3083/12298 execution checked; 333 entries refer to older inputs.
-- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2988/12298 execution checked; 333 entries refer to older inputs.
-- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3874/12298 execution checked; 333 entries refer to older inputs.
-- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3586/12298 execution checked; 25 entries refer to older inputs.
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7913/12298 execution checked; 466 entries refer to older inputs.
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7993/12298 execution checked; 402 entries refer to older inputs.
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7896/12298 execution checked; 466 entries refer to older inputs.
-- `oracle-tokens-2-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T22:25:00.780016+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
-- `oracle-tokens-2-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T22:25:00.894678+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
-- `oracle-tokens-2-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T22:25:01.564353+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
-- `oracle-tokens-2-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T22:25:02.208022+00:00` / 2/12298 execution checked; 0 entries refer to older inputs.
-- `oracle-tokens-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T19:14:33.552454+00:00` / 11/12298 execution checked; 3 entries refer to older inputs.
-- `oracle-tokens-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T19:14:36.020025+00:00` / 4/12298 execution checked; 3 entries refer to older inputs.
-- `oracle-tokens-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T19:15:04.286693+00:00` / 4/12298 execution checked; 3 entries refer to older inputs.
-- `oracle-tokens-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T19:15:22.924843+00:00` / 4/12298 execution checked; 3 entries refer to older inputs.
-- `oracle-tokens-3-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T23:13:00.161260+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
-- `oracle-tokens-3-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T23:13:04.014714+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
-- `oracle-tokens-3-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:01.978891+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
-- `oracle-tokens-3-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:03.804411+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
-- `reqgap-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T02:14:23.703451+00:00` / 5/12298 execution checked; 0 entries refer to older inputs.
-- `reqgap-20261114-kirimasim-77c27531.json`: `kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401` / `2026-11-14T02:15:42.861980+00:00` / 15/12298 execution checked; 0 entries refer to older inputs.
-- `reqgap-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:15:04.150898+00:00` / 12/12298 execution checked; 0 entries refer to older inputs.
-- `reqgap-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:15:42.524351+00:00` / 12/12298 execution checked; 0 entries refer to older inputs.
-- `reqgap2-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T05:44:47.296047+00:00` / 5/12298 execution checked; 0 entries refer to older inputs.
-- `reqgap2-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T05:45:47.127832+00:00` / 8/12298 execution checked; 0 entries refer to older inputs.
-- `reqgap2-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T05:45:18.982868+00:00` / 6/12298 execution checked; 0 entries refer to older inputs.
-- `reqgap2-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T05:45:46.782913+00:00` / 6/12298 execution checked; 0 entries refer to older inputs.
-- `runtime-errors-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-12T01:03:42.109814+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
-- `runtime-errors-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-12T01:03:42.439195+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
-- `runtime-errors-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T01:03:46.712402+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
-- `runtime-errors-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T01:03:50.809958+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
-- `test-fix-20261113-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-12T21:43:20.959244+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
-- `test-fix-20261113-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-12T21:43:29.567975+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
-- `test-fix-20261113-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T21:43:25.251767+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
-- `test-fix-20261113-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T21:43:29.466399+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
-- `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 73/12298 execution checked; 1 entries refer to older inputs.
-- `test-fixes-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T23:50:40.175858+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
-- `test-fixes-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T23:50:40.334300+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
-- `test-fixes-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:50:41.819877+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
-- `test-fixes-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:50:43.072508+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
-- `vifsense-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T02:58:01.691798+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
-- `vifsense-20261114-kirimasim-77c27531.json`: `kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401` / `2026-11-14T02:58:21.742365+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
-- `vifsense-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:58:11.624866+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
-- `vifsense-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:58:21.644402+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
+- `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12305 execution checked; 0 entries refer to older inputs.
+- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3083/12305 execution checked; 333 entries refer to older inputs.
+- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2988/12305 execution checked; 333 entries refer to older inputs.
+- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3874/12305 execution checked; 333 entries refer to older inputs.
+- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3586/12305 execution checked; 25 entries refer to older inputs.
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7913/12305 execution checked; 466 entries refer to older inputs.
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7993/12305 execution checked; 402 entries refer to older inputs.
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7896/12305 execution checked; 466 entries refer to older inputs.
+- `oracle-tokens-2-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T22:25:00.780016+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
+- `oracle-tokens-2-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T22:25:00.894678+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
+- `oracle-tokens-2-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T22:25:01.564353+00:00` / 2/12305 execution checked; 0 entries refer to older inputs.
+- `oracle-tokens-2-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T22:25:02.208022+00:00` / 2/12305 execution checked; 0 entries refer to older inputs.
+- `oracle-tokens-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T19:14:33.552454+00:00` / 11/12305 execution checked; 3 entries refer to older inputs.
+- `oracle-tokens-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T19:14:36.020025+00:00` / 4/12305 execution checked; 3 entries refer to older inputs.
+- `oracle-tokens-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T19:15:04.286693+00:00` / 4/12305 execution checked; 3 entries refer to older inputs.
+- `oracle-tokens-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T19:15:22.924843+00:00` / 4/12305 execution checked; 3 entries refer to older inputs.
+- `oracle-tokens-3-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T23:13:00.161260+00:00` / 1/12305 execution checked; 0 entries refer to older inputs.
+- `oracle-tokens-3-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T23:13:04.014714+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
+- `oracle-tokens-3-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:01.978891+00:00` / 1/12305 execution checked; 0 entries refer to older inputs.
+- `oracle-tokens-3-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:03.804411+00:00` / 1/12305 execution checked; 0 entries refer to older inputs.
+- `reqgap-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T02:14:23.703451+00:00` / 5/12305 execution checked; 0 entries refer to older inputs.
+- `reqgap-20261114-kirimasim-77c27531.json`: `kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401` / `2026-11-14T02:15:42.861980+00:00` / 15/12305 execution checked; 0 entries refer to older inputs.
+- `reqgap-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:15:04.150898+00:00` / 12/12305 execution checked; 0 entries refer to older inputs.
+- `reqgap-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:15:42.524351+00:00` / 12/12305 execution checked; 0 entries refer to older inputs.
+- `reqgap2-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T05:44:47.296047+00:00` / 5/12305 execution checked; 0 entries refer to older inputs.
+- `reqgap2-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T05:45:47.127832+00:00` / 8/12305 execution checked; 0 entries refer to older inputs.
+- `reqgap2-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T05:45:18.982868+00:00` / 6/12305 execution checked; 0 entries refer to older inputs.
+- `reqgap2-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T05:45:46.782913+00:00` / 6/12305 execution checked; 0 entries refer to older inputs.
+- `runtime-errors-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-12T01:03:42.109814+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
+- `runtime-errors-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-12T01:03:42.439195+00:00` / 1/12305 execution checked; 0 entries refer to older inputs.
+- `runtime-errors-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T01:03:46.712402+00:00` / 1/12305 execution checked; 0 entries refer to older inputs.
+- `runtime-errors-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T01:03:50.809958+00:00` / 1/12305 execution checked; 0 entries refer to older inputs.
+- `test-fix-20261113-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-12T21:43:20.959244+00:00` / 1/12305 execution checked; 0 entries refer to older inputs.
+- `test-fix-20261113-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-12T21:43:29.567975+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
+- `test-fix-20261113-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T21:43:25.251767+00:00` / 1/12305 execution checked; 0 entries refer to older inputs.
+- `test-fix-20261113-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T21:43:29.466399+00:00` / 1/12305 execution checked; 0 entries refer to older inputs.
+- `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 73/12305 execution checked; 1 entries refer to older inputs.
+- `test-fixes-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T23:50:40.175858+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
+- `test-fixes-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T23:50:40.334300+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
+- `test-fixes-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:50:41.819877+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
+- `test-fixes-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:50:43.072508+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
+- `vifsense-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T02:58:01.691798+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
+- `vifsense-20261114-kirimasim-77c27531.json`: `kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401` / `2026-11-14T02:58:21.742365+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
+- `vifsense-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:58:11.624866+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
+- `vifsense-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:58:21.644402+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
 - Not used: additions2023-20261109-icarus13.json : legacy, unknown, or stale runner provenance.
 - Not used: additions2023-20261109-kirimasim-33cee3fa.json : legacy, unknown, or stale runner provenance.
 - Not used: additions2023-20261109-verilator5.052-seed1.json : legacy, unknown, or stale runner provenance.
@@ -309,14 +309,14 @@ The number of items is the investigation status of the article by heading. This 
 - 3 Design and verification building blocks: No interpretation reservation 22/22, registration 146, test support 124.
 - 4 Scheduling semantics: no interpretation reservation 40/40, registration 107, test support 88.
 - 5 Lexical conventions: no interpretation reservation 21/21, registration 154, test support 136.
-- 6 Data types: No interpretation reservation 92/92, registration 719, test support 697.
-- 7 Aggregate data types: no interpretation reservation 61/61, registration 345, test support 324.
-- 8 Classes: No interpretation restrictions 49/49, registration 252, test support 224.
+- 6 Data types: No interpretation reservation 92/92, registration 720, test support 697.
+- 7 Aggregate data types: no interpretation reservation 61/61, registration 347, test support 324.
+- 8 Classes: No interpretation restrictions 49/49, registration 255, test support 224.
 - 9 Processes: No interpretation reservation 34/34, registration 189, test support 172.
 - 10 Assignment statements: No interpretation reservation 25/25, registration 156, test support 136.
 - 11 Operators and expressions: No interpretation restrictions 55/55, registration 459, test support 448.
 - 12 Procedural programming statements: no interpretation reservation 28/28, registration 115, test support 101.
-- 13 Tasks and functions (subroutines): no interpretation reservation 20/20, registration 119, test support 98.
+- 13 Tasks and functions (subroutines): no interpretation reservation 20/20, registration 120, test support 98.
 - 14 Clocking blocks: no interpretation reservation 19/19, registration 87, test support 84.
 - 15 Interprocess synchronization and communication: no interpretation reservation 27/27, registration 88, test support 74.
 - 16 Assertions: No interpretation reservation 82/82, registration 555, test support 539.
@@ -5676,11 +5676,11 @@ Normative role: `definition`。
 
 ### SV2023-6.5-EXTRACT-INITIALIZATION-PROCEDURAL-CLASSIFICATION
 
-`6.5` / `normal` / No mapped test
+`6.5` / `error` / No mapped test
 
-A declared variable initialization or procedural assign counts as a procedural assignment for the writer-conflict rule.
+A declared variable initialization and a procedural assign statement count as procedural assignments, so a variable with either that is also written by a continuous assignment is an error.
 
-Acceptance criterion: A declared variable initialization or procedural assign counts as a procedural assignment for the writer-conflict rule.
+Acceptance criterion: A variable with a declaration initializer that is also the target of a continuous assignment, and a variable written both by a procedural assign statement and by a continuous assignment, are each rejected.
 
 Normative role: `definition`。
 
@@ -10047,11 +10047,11 @@ Normative role: `mandatory`。
 
 ### SV2023-6.16.2-EXTRACT-SIGNATURE
 
-`6.16.2` / `normal` / No mapped test
+`6.16.2` / `error` / No mapped test
 
-putc is a void string method accepting an int index followed by a byte character.
+The string method putc returns void, so using a call of it as a value (an expression operand or an assignment source) is an error.
 
-Acceptance criterion: putc is a void string method accepting an int index followed by a byte character.
+Acceptance criterion: A design that uses the result of a call of putc as a value is rejected at that call.
 
 Normative role: `definition`。
 
@@ -10661,11 +10661,11 @@ Normative role: `mandatory`。
 
 ### SV2023-6.16.15-EXTRACT-SIGNATURE
 
-`6.16.15` / `normal` / No mapped test
+`6.16.15` / `error` / No mapped test
 
-realtoa is a void string method taking one real argument.
+The string method realtoa returns void, so using a call of it as a value (an expression operand or an assignment source) is an error.
 
-Acceptance criterion: realtoa is a void string method taking one real argument.
+Acceptance criterion: A design that uses the result of a call of realtoa as a value is rejected at that call.
 
 Normative role: `definition`。
 
@@ -11146,9 +11146,9 @@ Normative role: `mandatory`。
 
 `6.19` / `normal` / No mapped test
 
-The encoding after its base-type cast is used for name value, uniqueness checking and the next implicit increment.
+The value of an enum name is its encoding expression after the cast to the base type, and the next implicitly encoded name increments that value.
 
-Acceptance criterion: The encoding after its base-type cast is used for name value, uniqueness checking and the next implicit increment.
+Acceptance criterion: A name whose encoding expression changes value under the cast to the base type has the cast value, and the following implicitly encoded name has the cast value plus one.
 
 Normative role: `mandatory`。
 
@@ -11891,11 +11891,11 @@ Normative role: `mandatory`。
 
 ### SV2023-6.20.1-EXTRACT-NO-IMPLICIT-INSTANTIATION
 
-`6.20.1` / `error` / No mapped test
+`6.20.1` / `normal` / No mapped test
 
-A tool must not implicitly instantiate a design element that has a parameter without a default.
+A tool does not implicitly instantiate a design element that has a parameter without a default value.
 
-Acceptance criterion: A tool must not implicitly instantiate a design element that has a parameter without a default.
+Acceptance criterion: A module that is not instantiated anywhere and has a parameter without a default is not elaborated as an implicit top-level instance: its procedures do not run, while those of the other top-level modules do.
 
 Normative role: `mandatory`。
 
@@ -12312,11 +12312,11 @@ Normative role: `permission`。
 
 ### SV2023-6.20.5-EXTRACT-DISTINCT-DECLARATION-KEYWORDS
 
-`6.20.5` / `normal` / No mapped test
+`6.20.5` / `error` / No mapped test
 
-Specify parameters use specparam and ordinary parameters use parameter under their distinct declaration rules.
+Specify parameters are declared with specparam and ordinary parameters with parameter; a parameter declaration inside a specify block is an error.
 
-Acceptance criterion: Specify parameters use specparam and ordinary parameters use parameter under their distinct declaration rules.
+Acceptance criterion: A parameter declaration inside a specify block is rejected.
 
 Normative role: `definition`。
 
@@ -12383,11 +12383,11 @@ Normative role: `mandatory`。
 
 ### SV2023-6.20.5-EXTRACT-SDF-ONLY-OVERRIDE
 
-`6.20.5` / `normal` / No mapped test
+`6.20.5` / `error` / No mapped test
 
-A specparam cannot be modified by language parameter-override constructs; SDF annotation may modify it.
+A specparam cannot be modified from within the language, so a defparam statement or a named parameter value assignment of an instance that targets a specparam is an error.
 
-Acceptance criterion: A specparam cannot be modified by language parameter-override constructs; SDF annotation may modify it.
+Acceptance criterion: A defparam statement that targets a specparam, and a named parameter value assignment that names a specparam, are each rejected.
 
 Normative role: `mandatory`。
 
@@ -12467,13 +12467,24 @@ Normative role: `permission`。
 
 - [test_const_runtime_automatic_and_class_handle.sv](../tests/ch6/test_const_runtime_automatic_and_class_handle.sv): Declares the class handle as const counter_c obj = new(5 ), and compares rewriting the object member obj.n with obj.n = obj.n + 1 and obj.n++ to become 7 (the handle itself is not rewritten). Distinguishing observation: Mis-implementations that do not accept the class handle's const declaration fail to compile. The incorrect implementation (Icarus 13.0) that applies const to the entire object and refuses to write to the member also fails to compile, and the incorrect implementation that ignores writing fails to compile (obj.n = 5).
 
-### SV2023-6.20.6-EXTRACT-CONST-HANDLE-NO-WRITE
+### SV2023-6.20.6-EXTRACT-CONST-HANDLE-MEMBERS-WRITABLE
 
 `6.20.6` / `normal` / No mapped test
 
-A const class handle cannot subsequently be written, while its referenced object members remain writable unless independently const.
+The members of an object referred to by a const class handle can be written, except members that are themselves declared const.
 
-Acceptance criterion: A const class handle cannot subsequently be written, while its referenced object members remain writable unless independently const.
+Acceptance criterion: Writing a non-const property through a const class handle changes the object, as a later read shows; writing const properties stays covered by the 8.19 rows.
+
+Normative role: `mandatory`。
+
+
+### SV2023-6.20.6-EXTRACT-CONST-HANDLE-NO-WRITE
+
+`6.20.6` / `error` / No mapped test
+
+A const class handle acts like a variable that cannot be written, so assigning to it after its declaration is an error.
+
+Acceptance criterion: An assignment to a const class handle after its declaration is rejected.
 
 Normative role: `mandatory`。
 
@@ -13152,11 +13163,11 @@ Normative role: `definition`。
 
 ### SV2023-6.22.3-EXTRACT-DIRECTIONAL-COMPATIBILITY
 
-`6.22.3` / `normal` / No mapped test
+`6.22.3` / `error` / No mapped test
 
-Assignment compatibility can hold in only one direction, as for enum-to-integral versus integral-to-enum.
+Assignment compatibility can hold in one direction only: an enum converts to an integral type without a cast, but assigning an integral value to an enum without a cast is an error.
 
-Acceptance criterion: Assignment compatibility can hold in only one direction, as for enum-to-integral versus integral-to-enum.
+Acceptance criterion: Assigning an integral expression to an enum variable without a cast is rejected.
 
 Normative role: `definition`。
 
@@ -14354,11 +14365,11 @@ Normative role: `permission`。
 
 ### SV2023-7.3-EXTRACT-AGGREGATE-FOOTNOTES
 
-`7.3` / `normal` / No mapped test
+`7.3` / `error` / No mapped test
 
-The repeated syntax footnotes require packed for structure dimensions, soft/packed for union dimensions, void only for tagged unions and random qualifiers only for unpacked structures.
+A packed dimension on a struct without the packed keyword, a packed dimension on a union without soft or packed, a void member outside a tagged union, and a rand or randc member qualifier outside an unpacked structure are errors.
 
-Acceptance criterion: The repeated syntax footnotes require packed for structure dimensions, soft/packed for union dimensions, void only for tagged unions and random qualifiers only for unpacked structures.
+Acceptance criterion: Each of the four forms is rejected at the offending declaration.
 
 Normative role: `definition`。
 
@@ -15806,11 +15817,11 @@ Normative role: `mandatory`。
 
 ### SV2023-7.5.3-EXTRACT-SIGNATURE
 
-`7.5.3` / `normal` / No mapped test
+`7.5.3` / `error` / No mapped test
 
-Dynamic-array delete is a void no-argument method.
+The dynamic array method delete returns void, so using a call of it as a value (an expression operand or an assignment source) is an error.
 
-Acceptance criterion: Dynamic-array delete is a void no-argument method.
+Acceptance criterion: A design that uses the result of a call of delete on a dynamic array as a value is rejected at that call.
 
 Normative role: `definition`。
 
@@ -16141,11 +16152,11 @@ Normative role: `definition`。
 
 ### SV2023-7.8-EXTRACT-UNPACKED-ELEMENT-EXPRESSION
 
-`7.8` / `normal` / No mapped test
+`7.8` / `error` / No mapped test
 
-Associative arrays are unpacked; apart from supported whole-copy/comparison operations, most expressions require selecting an individual element.
+Associative array elements are unpacked, so other than for copying or comparing whole arrays an element has to be selected before the array is used in an expression; using a whole associative array as an operand of an arithmetic or bitwise operator is an error.
 
-Acceptance criterion: Associative arrays are unpacked; apart from supported whole-copy/comparison operations, most expressions require selecting an individual element.
+Acceptance criterion: Using a whole associative array as an operand of an arithmetic or bitwise operator is rejected.
 
 Normative role: `definition`。
 
@@ -16633,11 +16644,11 @@ Normative role: `mandatory`。
 
 ### SV2023-7.9.2-EXTRACT-SIGNATURE
 
-`7.9.2` / `normal` / No mapped test
+`7.9.2` / `error` / No mapped test
 
-Associative delete returns void and accepts an optional input index appropriate for its index type.
+The associative array method delete, with or without an index, returns void, so using a call of it as a value (an expression operand or an assignment source) is an error.
 
-Acceptance criterion: Associative delete returns void and accepts an optional input index appropriate for its index type.
+Acceptance criterion: A design that uses the result of a call of delete on an associative array as a value is rejected at that call.
 
 Normative role: `definition`。
 
@@ -17361,11 +17372,11 @@ Normative role: `mandatory`。
 
 ### SV2023-7.10.2.2-EXTRACT-SIGNATURE
 
-`7.10.2.2` / `normal` / No mapped test
+`7.10.2.2` / `error` / No mapped test
 
-Queue insert returns void and accepts an input integer index followed by an input element-typed item.
+The queue method insert returns void, so using a call of it as a value (an expression operand or an assignment source) is an error.
 
-Acceptance criterion: Queue insert returns void and accepts an input integer index followed by an input element-typed item.
+Acceptance criterion: A design that uses the result of a call of insert on a queue as a value is rejected at that call.
 
 Normative role: `definition`。
 
@@ -17410,11 +17421,11 @@ Normative role: `mandatory`。
 
 ### SV2023-7.10.2.3-EXTRACT-SIGNATURE
 
-`7.10.2.3` / `normal` / No mapped test
+`7.10.2.3` / `error` / No mapped test
 
-Queue delete is void and accepts an optional input integer index.
+The queue method delete, with or without an index, returns void, so using a call of it as a value (an expression operand or an assignment source) is an error.
 
-Acceptance criterion: Queue delete is void and accepts an optional input integer index.
+Acceptance criterion: A design that uses the result of a call of delete on a queue as a value is rejected at that call.
 
 Normative role: `definition`。
 
@@ -17505,11 +17516,11 @@ Normative role: `mandatory`。
 
 ### SV2023-7.10.2.6-EXTRACT-SIGNATURE
 
-`7.10.2.6` / `normal` / No mapped test
+`7.10.2.6` / `error` / No mapped test
 
-Queue push_front returns void and takes one input element-typed item.
+The queue method push_front returns void, so using a call of it as a value (an expression operand or an assignment source) is an error.
 
-Acceptance criterion: Queue push_front returns void and takes one input element-typed item.
+Acceptance criterion: A design that uses the result of a call of push_front as a value is rejected at that call.
 
 Normative role: `definition`。
 
@@ -17528,11 +17539,11 @@ Normative role: `mandatory`。
 
 ### SV2023-7.10.2.7-EXTRACT-SIGNATURE
 
-`7.10.2.7` / `normal` / No mapped test
+`7.10.2.7` / `error` / No mapped test
 
-Queue push_back returns void and takes one input element-typed item.
+The queue method push_back returns void, so using a call of it as a value (an expression operand or an assignment source) is an error.
 
-Acceptance criterion: Queue push_back returns void and takes one input element-typed item.
+Acceptance criterion: A design that uses the result of a call of push_back as a value is rejected at that call.
 
 Normative role: `definition`。
 
@@ -18093,11 +18104,11 @@ Normative role: `mandatory`。
 
 ### SV2023-7.12.2-EXTRACT-ORDERING-SIGNATURE
 
-`7.12.2` / `normal` / No mapped test
+`7.12.2` / `error` / No mapped test
 
-Ordering methods return void and support the array iterator argument defaulting to item under common with restrictions.
+Each array ordering method (reverse, sort, rsort and shuffle) returns void, so using a call of it as a value (an expression operand or an assignment source) is an error.
 
-Acceptance criterion: Ordering methods return void and support the array iterator argument defaulting to item under common with restrictions.
+Acceptance criterion: A design that uses the result of a call of an ordering method as a value is rejected at that call.
 
 Normative role: `definition`。
 
@@ -18106,9 +18117,20 @@ Normative role: `definition`。
 
 `7.12.2` / `normal` / No mapped test
 
-reverse() reverses array element order; a with clause is a compilation error.
+reverse() reverses the order of the elements in the array.
 
-Acceptance criterion: reverse() reverses array element order; a with clause is a compilation error.
+Acceptance criterion: After reverse(), each element holds the value that the element at the mirrored position held before.
+
+Normative role: `mandatory`。
+
+
+### SV2023-7.12.2-EXTRACT-REVERSE-NO-WITH
+
+`7.12.2` / `error` / No mapped test
+
+Specifying a with clause on reverse() is a compilation error.
+
+Acceptance criterion: A reverse() call with a with clause is rejected.
 
 Normative role: `mandatory`。
 
@@ -18142,9 +18164,20 @@ Normative role: `mandatory`。
 
 `7.12.2` / `normal` / No mapped test
 
-shuffle() randomizes array element order; specifying a with clause is a compilation error.
+shuffle() randomizes the order of the elements in the array, so the result is a permutation of the original elements.
 
-Acceptance criterion: shuffle() randomizes array element order; specifying a with clause is a compilation error.
+Acceptance criterion: After shuffle(), the array has the same size and the same multiset of element values as before.
+
+Normative role: `mandatory`。
+
+
+### SV2023-7.12.2-EXTRACT-SHUFFLE-NO-WITH
+
+`7.12.2` / `error` / No mapped test
+
+Specifying a with clause on shuffle() is a compilation error.
+
+Acceptance criterion: A shuffle() call with a with clause is rejected.
 
 Normative role: `mandatory`。
 
@@ -18816,6 +18849,17 @@ Normative role: `permission`。
 
 - [test_class_enum_and_parameters_via_handle_and_scope.sv](../tests/ch8/test_class_enum_and_parameters_via_handle_and_scope.sv): reference in-class enum names RED / GREEN both through object handles s4.RED, s4.GREEN and through class scopes shape_c #(4)::RED, shape_c #()::GREEN; display 2 5, 2 5, and s4.c == s4.GREEN = 1. Distinguishing observation: Implementations that do not allow modification of the enum name by the handle cannot accept s4.RED, and the incorrect implementation that returns another value (e.g. the value of member c or 0 ) through the handle changes 'enum via handle: s4.RED=2 s4.GREEN=5 c==s4.GREEN=1'.
 
+### SV2023-8.5-EXTRACT-HANDLE-PARAMETER-NONCONSTANT
+
+`8.5` / `error` / No mapped test
+
+An expression that reads a value parameter or local value parameter through an object handle is not a constant expression, so using it where a constant expression is required is an error.
+
+Acceptance criterion: Using a value parameter read through an object handle where a constant expression is required, such as a packed dimension bound or a parameter value, is rejected.
+
+Normative role: `mandatory`。
+
+
 ### SV2023-8.5-EXTRACT-NO-HANDLE-TYPE-ACCESS
 
 `8.5` / `error` / Execution confirmed
@@ -18846,9 +18890,9 @@ Normative role: `permission`。
 
 `8.5` / `normal` / No mapped test
 
-Class parameters/localparams may be value-accessed through an object handle, but the resulting expression is not a constant expression.
+A class value parameter or local value parameter can be read by qualifying its name with an object handle.
 
-Acceptance criterion: Class parameters/localparams may be value-accessed through an object handle, but the resulting expression is not a constant expression.
+Acceptance criterion: Qualifying a value parameter or local value parameter with an object handle gives its value for the class of the handle.
 
 Normative role: `mandatory`。
 
@@ -18956,11 +19000,11 @@ Normative role: `mandatory`。
 
 ### SV2023-8.7-EXTRACT-CONSTRUCTOR-NO-TIMING
 
-`8.7` / `normal` / No mapped test
+`8.7` / `error` / No mapped test
 
-new is a function without an explicit return type and cannot block or consume simulation time.
+new is a function and cannot block, so a delay control, an event control or a wait statement in a constructor is an error.
 
-Acceptance criterion: new is a function without an explicit return type and cannot block or consume simulation time.
+Acceptance criterion: A constructor that contains a delay control, an event control or a wait statement is rejected.
 
 Normative role: `mandatory`。
 
@@ -19505,11 +19549,11 @@ Normative role: `mandatory`。
 
 ### SV2023-8.15-EXTRACT-SUPER-PARAMETER-NONCONSTANT
 
-`8.15` / `normal` / No mapped test
+`8.15` / `error` / No mapped test
 
-Accessing a value parameter/localparam using super does not form a constant expression.
+An expression that uses super to access a value parameter or local value parameter of the base class is not a constant expression, so using it where a constant expression is required is an error.
 
-Acceptance criterion: Accessing a value parameter/localparam using super does not form a constant expression.
+Acceptance criterion: Using super with a value parameter or local value parameter where a constant expression is required, such as a packed dimension bound or a parameter value, is rejected.
 
 Normative role: `mandatory`。
 
@@ -19820,13 +19864,24 @@ Normative role: `definition`。
 
 - [test_class_property.sv](../tests/ch8/test_class_property.sv): Calls the unmodified pub_val property and get_priv / set_priv methods from outside the class, and compares the actual 20 → 30 of the public accessor for public10 and local.
 
-### SV2023-8.18-EXTRACT-LOCAL-CLASS-ONLY
+### SV2023-8.18-EXTRACT-INHERITED-METHOD-USES-LOCAL
 
 `8.18` / `normal` / No mapped test
 
-A local member is accessible only to methods of its declaring class and is invisible in subclasses; an inherited nonlocal method still accesses its declaring class local members.
+A nonlocal method that accesses local members of its declaring class can be inherited and still accesses them when it runs as a method of the subclass.
 
-Acceptance criterion: A local member is accessible only to methods of its declaring class and is invisible in subclasses; an inherited nonlocal method still accesses its declaring class local members.
+Acceptance criterion: Calling the inherited method on a subclass object reads and writes the local property of the base class.
+
+Normative role: `mandatory`。
+
+
+### SV2023-8.18-EXTRACT-LOCAL-CLASS-ONLY
+
+`8.18` / `error` / No mapped test
+
+A local member is available only to methods of its declaring class and is not visible within subclasses; referring to it from a subclass or from outside the class is an error.
+
+Acceptance criterion: A reference to a local property or method from a method of a subclass, and from code outside the class, are each rejected.
 
 Normative role: `mandatory`。
 
@@ -19879,13 +19934,24 @@ Normative role: `definition`。
 
 - [test_class_enum_and_parameters_via_handle_and_scope.sv](../tests/ch8/test_class_enum_and_parameters_via_handle_and_scope.sv): Reads the value parameters SIDES and localparam DOUBLE from modules outside the class via handle(s4.SIDES = 4 s4.DOUBLE = 8 s3.SIDES = 3 s3.DOUBLE = 6) and classscope(shape_c #(4)::DOUBLE, shape_c #(5)::SIDES). Distinguishing observation: A incorrect implementation that treats the parameter/ localparam of a class as non-public (local equivalent) rejects these references from outside the class, and an implementation that mis-values the values for each specialization changes 'via handle: s4.SIDES=4 s4.DOUBLE=8 s3.SIDES=3 s3.DOUBLE=6' or 'constants: L=8 bits(vec)=5'.
 
+### SV2023-8.18-EXTRACT-PROTECTED-NO-OUTSIDE-ACCESS
+
+`8.18` / `error` / No mapped test
+
+Like a local member, a protected member is hidden from code outside its class and subclasses, so referring to it from there is an error.
+
+Acceptance criterion: A reference to a protected property or method through an object handle from code outside the class and its subclasses is rejected.
+
+Normative role: `mandatory`。
+
+
 ### SV2023-8.18-EXTRACT-PROTECTED-SUBCLASS
 
 `8.18` / `normal` / No mapped test
 
-A protected property/method has local-style hiding from unrelated code but remains visible/inheritable by subclasses.
+A protected property or method is inherited by subclasses and visible to them.
 
-Acceptance criterion: A protected property/method has local-style hiding from unrelated code but remains visible/inheritable by subclasses.
+Acceptance criterion: A subclass method reads and writes an inherited protected property and calls an inherited protected method.
 
 Normative role: `mandatory`。
 
@@ -20629,11 +20695,11 @@ Normative role: `mandatory`。
 
 ### SV2023-8.26-EXTRACT-EXPLICIT-VIRTUAL-IMPLEMENTATION
 
-`8.26` / `normal` / No mapped test
+`8.26` / `error` / No mapped test
 
-An implementing method must explicitly say virtual unless virtualness is inherited.
+A method that implements an interface class method has to be declared with the virtual keyword unless its virtual implementation is inherited; a non-abstract class whose only implementation lacks virtual is an error.
 
-Acceptance criterion: An implementing method must explicitly say virtual unless virtualness is inherited.
+Acceptance criterion: A non-abstract class that implements an interface class with a method implementation declared without virtual, where no inherited virtual implementation exists, is rejected.
 
 Normative role: `mandatory`。
 
@@ -20839,11 +20905,11 @@ Normative role: `mandatory`。
 
 ### SV2023-8.26.3-EXTRACT-INTERFACE-HANDLE-PARAMETER-RESTRICTIONS
 
-`8.26.3` / `normal` / No mapped test
+`8.26.3` / `error` / No mapped test
 
-Interface-class handle parameter accesses follow ordinary class-handle restrictions, including nonconstant value-parameter access and no type selection.
+A parameter read through an interface class handle is not a constant expression, and a type cannot be selected through an interface class handle; using either where it is not allowed is an error.
 
-Acceptance criterion: Interface-class handle parameter accesses follow ordinary class-handle restrictions, including nonconstant value-parameter access and no type selection.
+Acceptance criterion: Using a parameter read through an interface class handle where a constant expression is required, and selecting a type through an interface class handle, are each rejected.
 
 Normative role: `mandatory`。
 
@@ -21008,11 +21074,11 @@ Normative role: `mandatory`。
 
 ### SV2023-8.26.6.2-EXTRACT-MATCHING-UNUSED-STILL-CONFLICT
 
-`8.26.6.2` / `normal` / No mapped test
+`8.26.6.2` / `error` / No mapped test
 
-Matching parameter types/values or absence of uses does not remove a name collision from distinct originating interface declarations.
+Same-named parameters or types inherited from different interface class declarations conflict even when their types and values match and the name is never used; leaving the conflict unresolved is an error.
 
-Acceptance criterion: Matching parameter types/values or absence of uses does not remove a name collision from distinct originating interface declarations.
+Acceptance criterion: An interface class that extends two interface classes declaring a same-named parameter with the same type and value, without redeclaring it, is rejected even though the name is not used.
 
 Normative role: `mandatory`。
 
@@ -21044,11 +21110,11 @@ Normative role: `mandatory`。
 
 ### SV2023-8.26.6.3-EXTRACT-SPECIALIZATIONS-DISTINCT
 
-`8.26.6.3` / `normal` / No mapped test
+`8.26.6.3` / `error` / No mapped test
 
-Different parameter specializations are distinct interface class types; reaching different specializations is not a shared-origin diamond and their method/type/parameter names require conflict resolution.
+Different specializations of a parameterized interface class are distinct interface classes, so reaching two of them is not a diamond and their same-named methods, parameters and types conflict as in 8.26.6.1 and 8.26.6.2; leaving such a conflict unresolved is an error.
 
-Acceptance criterion: Different parameter specializations are distinct interface class types; reaching different specializations is not a shared-origin diamond and their method/type/parameter names require conflict resolution.
+Acceptance criterion: A class or interface class that inherits or implements two different specializations of one parameterized interface class without resolving the resulting parameter or type name conflict is rejected.
 
 Normative role: `mandatory`。
 
@@ -33685,6 +33751,17 @@ Normative role: `mandatory`。
 - [test_task_static_and_automatic_retention.sv](../tests/ch13/test_task_static_and_automatic_retention.sv): Uninitialized int locals begin0: a static local counter retains state across calls1/2, an automatic local initializes fresh1/1. Grouped with output-formal and copy-in initialization observations.
 - [test_static_task_shared_activation.sv](../tests/ch13/test_static_task_shared_activation.sv): A default-static local counter advances1/2/3; this is an additional local-storage member, grouped with output-formal retention rather than treated as a standalone full-row witness.
 
+### SV2023-13.4-EXTRACT-CONST-REF-ARG-CONTEXT
+
+`13.4` / `normal` / No mapped test
+
+A function whose ref formal arguments are all const ref can be called in an event expression, in an expression within a procedural continuous assignment, and in an expression that is not within a procedural statement.
+
+Acceptance criterion: Calls of such a function in these contexts are accepted and give the result of the function.
+
+Normative role: `mandatory`。
+
+
 ### SV2023-13.4-EXTRACT-FUNCTION-BODY-SEQUENTIAL
 
 `13.4` / `normal` / Execution confirmed
@@ -33806,9 +33883,9 @@ Normative role: `mandatory`。
 
 `13.4` / `error` / No mapped test
 
-A function with output/inout/nonconst-ref formals cannot be called in event/procedural-continuous/nonprocedural expressions; const ref is exempt.
+A function with output, inout or non-const ref formal arguments cannot be called in an event expression, in an expression within a procedural continuous assignment, or in an expression that is not within a procedural statement; such a call is an error.
 
-Acceptance criterion: A function with output/inout/nonconst-ref formals cannot be called in event/procedural-continuous/nonprocedural expressions; const ref is exempt.
+Acceptance criterion: A call of such a function in each of these contexts is rejected.
 
 Normative role: `mandatory`。
 

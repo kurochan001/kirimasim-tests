@@ -185,7 +185,7 @@ They satisfy a direct-citation count. A clause can contain many conditions, bran
 
 Finishing source review does not approve a denominator. Interpretation holds, duplicate meanings and requirement units must be reconciled and approved. Provisional 100% concerns registered units, not all programs and input combinations. Inspect denominator status, unmapped/held requirements, stale evidence and detection scope. See [measurement rules](../coverage/README.en.md#計測の意味).
 
-The current 12,298-requirement denominator was approved by AI review on 2026-10-28. Zero interpretation holds does not mean independent human approval or complete semantic review of every test. The [denominator review](denominator-review-20261028.en.md) records the basis and limitations.
+The current denominator is 12,305 requirements. AI review approved 12,298 on 2026-10-28, and on 2026-11-14, with the owner's approval, 7 rows that mixed an accepted and a rejected form were split. Zero interpretation holds does not mean independent human approval or complete semantic review of every test. The [denominator review](denominator-review-20261028.en.md) records the basis and limitations.
 
 <a id="q19-複数シミュレータの成功を集めてand集合を合格にできますか"></a>
 

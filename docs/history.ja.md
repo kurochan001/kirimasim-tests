@@ -729,3 +729,12 @@
 - 検証担当は、既存の`ch9/test_always_comb_longest_static_prefix_and_locals`と`ch9/test_star_sensitivity_contexts_and_exclusions`も、規格が決めない左寄せの書式（`%-9s`、`%-6s`）を使っていると指摘しました。Ghostの保存結果を古くしないよう、次の保存し直しのときに直します。
 - kirimasimの実装を待つ8件の候補は、`d1d8a1782d0a`でもまだ未実装です。
 - テストは12,471件になりました。
+
+### 2026-11-14（拒否される設計でしか示せなかった要求）
+
+- 所有者の承認を得て、2026-11-14の2回のテスト追加で種別が合わずに外した台帳の行を、[段階Cの規則](requirements-to-tests-method.md#51-transformation-to-observable-form)に従って観測できる形にしました。要求IDと出典の範囲は変えず、`kind`・`behavior`・`acceptance`を書き直し、`source_note`に日付と理由を書き足しました。基準値もその理由を付けて書き直しました。
+- 規格が違反としてしか示さない21行を、normalからerrorに変えました。9つのメソッド（realtoa、putc、キューのinsert・delete・push_front・push_back、動的配列と連想配列のdelete、並べ替えメソッド）の戻り値がvoidであること、7.3の脚注、宣言の初期化子や手続きのassignと連続代入の衝突、コンストラクタの中のタイミング制御、superやインタフェースクラスのハンドルを通したパラメータが定数でないこと、インタフェースのメソッドを実装するときのvirtual、インタフェースクラスの名前の衝突2件、6.20.5のspecparamの規則2件、連想配列全体を式に使うこと、enumの一方向の互換性です。同じ節の別の行がすでに扱う部分はその行に任せ、`source_note`にその行を書きました。
+- 受理される形と拒否される形が混ざった7行を、2行ずつに分けました。reverse()とshuffle()とそのwith句、constのクラスハンドルとそれが指すメンバー、オブジェクトハンドルを通した値パラメータとその定数としての使用、localとprotectedのメンバーと外からの参照、書込み可能な引数を持つ関数の呼び出し場所とconst refの例外です。分母は12,298から12,305になりました。
+- `SV2023-6.20.1-EXTRACT-NO-IMPLICIT-INSTANTIATION`はerrorからnormalに変えました。設計は合法で、規則は暗黙のトップレベルのインスタンスが無いことでしか示せないためです。`SV2023-6.19-EXTRACT-POST-CAST-ENCODING`は名前の値と次の増分に絞り、一意性の検査は`SV2023-6.19-EXTRACT-UNIQUE-ENCODINGS`に任せました。
+- 3行はそのままにしました。6.18の`INCOMPLETE-BEFORE-DEFINITION`と6.3.1の`EVENT-NO-VALUE-STORAGE`は結果を規格が決めておらず、8.20の`VIRTUAL-PROTOTYPE`は引数と戻り値の型を扱う8.20のerrorの行と重なるためです。
+- テストと対応付けは変えていません。要求カバレッジ（テスト設計）は90.74%（11,166/12,305）、再現できる実行確認率は50.36%（6,197）、Ghostとkirimasimを含む実行確認率は77.81%（9,575）です。変えた行のテストは次に追加します。

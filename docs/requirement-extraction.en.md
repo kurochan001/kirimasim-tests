@@ -13,7 +13,7 @@
 - The chapter 1–41 of this paper and the appendix A–Q: 1,740/1,740 section ( 100% ) are included.
 - Normative part: 1,703/1,703 clauses (100%). The 37 informative clauses have also been reviewed.
 - Source block: 15,846/15,846 ( 100% ). The requirements, headings, explanations, examples, and references to other sections are classified.
-- Registration: 12,298 row (accepted denominator). The extraction was done with the 12,319 row, which added the 12,214 row to the initial 105 row, and merged the duplicate 21 row in the denominator review.
+- Registration: 12,305 rows (accepted denominator). The extraction was done with 12,319 rows, the 12,214 added rows and the initial 105 rows; the denominator review merged 21 duplicate rows, giving 12,298. On 2026-11-14, 7 rows that mixed an accepted and a rejected form were split.
 - Pending interpretations: 0. Of the initial 46 issues, 42 clauses, and 49 rows, resolved 27 issues at 2026-10-24 and the remaining 19 issues, 20 clauses, and 21 rows at 2026-10-28. [Interpretation and Re-examination Record](requirement-extraction-notes.en.md) 。
 - Normative clauses without pending interpretations: 1,703/1,703 clauses (100%).
 - Denominator acceptance: `approved` ( 2026-10-28, AI ) Review. This is not an independent review or approval by a person). [Approval grounds and limits](denominator-review-20261028.en.md) 。
@@ -45,7 +45,7 @@ The interpretation of the remaining 19 argument and 21 line is resolved based on
 
 The 100% above is the percentage of the document that has been checked and classified in each section and block. This is not a representation of the test coverage of all specification operations 100%.
 
-The registration line contains the occurrences of the same requirement in separate sections, the verification items by condition, and the specific observation cases of the initial phase. The 12,319 row at the time of extraction was a provisional number of registrations. The validated denominator is the 12,298 row after the duplication is sorted. The 12,214 rows in the additional extraction are all bidirectional to the source block. Of the initial 105 rows, 92 had only clause-level supporting sources; these were reviewed in the denominator review above.
+The registration line contains the occurrences of the same requirement in separate sections, the verification items by condition, and the specific observation cases of the initial phase. The 12,319 row at the time of extraction was a provisional number of registrations. The validated denominator is 12,305 rows: the 12,298 rows left after duplicates were merged, plus the 7 rows from the split of 2026-11-14. The 12,214 rows in the additional extraction are all bidirectional to the source block. Of the initial 105 rows, 92 had only clause-level supporting sources; these were reviewed in the denominator review above.
 
 `coverage/behaviors.json`'s `denominator_review.state` is `approved`. Merely reading every clause does not automatically approve the behavioral-coverage denominator for the entire standard. If a new interpretation issue arises, suspend mapping approval for that row and return the affected clause to `in_progress`. Display material review, denominator approval, test mappings, and verified execution separately.
 

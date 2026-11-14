@@ -9103,6 +9103,7 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
+            "SV2023-6.20.6-EXTRACT-CONST-HANDLE-MEMBERS-WRITABLE",
             "SV2023-6.20.6-EXTRACT-CONST-HANDLE-NO-WRITE"
           ]
         }
@@ -13515,11 +13516,13 @@
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
             "SV2023-7.12.2-EXTRACT-REVERSE",
-            "SV2023-7.12.2-EXTRACT-SORT",
-            "SV2023-7.12.2-EXTRACT-SORT-RELATIONAL",
+            "SV2023-7.12.2-EXTRACT-REVERSE-NO-WITH",
             "SV2023-7.12.2-EXTRACT-RSORT",
             "SV2023-7.12.2-EXTRACT-RSORT-RELATIONAL",
-            "SV2023-7.12.2-EXTRACT-SHUFFLE"
+            "SV2023-7.12.2-EXTRACT-SHUFFLE",
+            "SV2023-7.12.2-EXTRACT-SHUFFLE-NO-WITH",
+            "SV2023-7.12.2-EXTRACT-SORT",
+            "SV2023-7.12.2-EXTRACT-SORT-RELATIONAL"
           ]
         },
         "B006": {
@@ -14047,8 +14050,9 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-8.5-EXTRACT-VALUE-PARAMETER-HANDLE",
-            "SV2023-8.5-EXTRACT-NO-HANDLE-TYPE-ACCESS"
+            "SV2023-8.5-EXTRACT-HANDLE-PARAMETER-NONCONSTANT",
+            "SV2023-8.5-EXTRACT-NO-HANDLE-TYPE-ACCESS",
+            "SV2023-8.5-EXTRACT-VALUE-PARAMETER-HANDLE"
           ]
         },
         "B007": {
@@ -15001,6 +15005,7 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
+            "SV2023-8.18-EXTRACT-INHERITED-METHOD-USES-LOCAL",
             "SV2023-8.18-EXTRACT-LOCAL-CLASS-ONLY"
           ]
         },
@@ -15008,6 +15013,7 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
+            "SV2023-8.18-EXTRACT-PROTECTED-NO-OUTSIDE-ACCESS",
             "SV2023-8.18-EXTRACT-PROTECTED-SUBCLASS"
           ]
         },
@@ -27286,6 +27292,7 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
+            "SV2023-13.4-EXTRACT-CONST-REF-ARG-CONTEXT",
             "SV2023-13.4-EXTRACT-FUNCTION-WRITABLE-ARG-CONTEXT"
           ]
         },

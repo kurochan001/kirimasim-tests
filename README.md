@@ -288,16 +288,19 @@ tests are matched to them and new tests written, how an independent reviewer che
 both, and how the results are merged and measured, with the
 [matching kit](tools/matching_kit/README.md) that the steps use.
 
-The requirement denominator is **12,298 requirements**, after duplicate rows
-were merged; the [denominator review](docs/denominator-review-20261028.en.md)
-approved it. The reviewer was an AI, not an independent human.
-Design coverage is **90.80% (11,166/12,298)**;
+The requirement denominator is **12,305 requirements**. The
+[denominator review](docs/denominator-review-20261028.en.md) approved 12,298
+after duplicate rows were merged; on 2026-11-14, with the owner's approval,
+7 rows that mixed an accepted and a rejected form were split, and 23 rows that
+could be shown only by a rejected design got the kind or wording their
+observation needs. The reviewer was an AI, not an independent human.
+Design coverage is **90.74% (11,166/12,305)**;
 execution coverage from the saved `coverage/results/` evidence of the tools
 anyone can reproduce (Icarus Verilog, Verilator and SymbiYosys) is
-**50.39% (6,197/12,298)**.
+**50.36% (6,197/12,305)**.
 Of these rows, 5,907 are confirmed by a simulator and 290 by formal checks alone, which run no simulator.
-With the results of Ghost, an unreleased simulator, and of kirimasim added, it is 77.86% (9,575/12,298).
-Clauses 1 to 40 alone are at 89.32% (8,454/9,465) design coverage.
+With the results of Ghost, an unreleased simulator, and of kirimasim added, it is 77.81% (9,575/12,305).
+Clauses 1 to 40 alone are at 89.25% (8,454/9,472) design coverage.
 See the [generated behavior summary](docs/behavior-coverage-summary.en.md) for the
 measurement inputs and denominator.
 The full existing-test semantic review is still incomplete.

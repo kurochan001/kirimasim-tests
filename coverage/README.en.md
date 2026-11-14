@@ -224,4 +224,4 @@ The history stores aggregates; the detailed JSON for each run stores the status 
 
 Nightly measures the suite commit used for that run. Changes on `main` appear in results only after a run using that commit has completed and its results have been published.
 
-The finalized denominator is 12,298 requirements. See [Aggregated Summary](../docs/behavior-coverage-summary.en.md) for current design and verified-execution rates and their evidence, and [Denominator review](../docs/denominator-review-20261028.en.md) for the approval rationale.
+The finalized denominator is 12,305 requirements (the 12,298 approved on 2026-10-28, with 7 rows split on 2026-11-14). See [Aggregated Summary](../docs/behavior-coverage-summary.en.md) for current design and verified-execution rates and their evidence, and [Denominator review](../docs/denominator-review-20261028.en.md) for the approval rationale.
