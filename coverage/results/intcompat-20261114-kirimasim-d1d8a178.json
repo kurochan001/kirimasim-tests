@@ -1,0 +1,15 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401",
+ "tests": {
+  "ch6/test_integral_types_assignment_compatible_without_cast": {
+   "status": "pass",
+   "inputs_sha256": "31ebb47ac3919bcc9a1f45e7bf0e4e25726b9e44a0b4807aab234e04016e7655"
+  }
+ },
+ "generated_at": "2026-11-14T10:26:46.168015+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

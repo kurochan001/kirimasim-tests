@@ -747,3 +747,10 @@
 - 要求カバレッジ（テスト設計）は90.74%（11,166/12,305）から91.06%（11,205/12,305）、再現できる実行確認率は50.36%（6,197）から50.48%（6,211）、Ghostとkirimasimを含む実行確認率は77.81%（9,575）から77.94%（9,590）になりました。同じ日の`ch18/test_inline_local_scope_binding`の変更で、その3件の要求は次の実行まで未確認です。
 - Verilatorは[移行中の固定版](simulator-differences.ja.md#verilator-5054-interim)により5.054で実行しました。Icarus Verilog 13.0とVerilator 5.054の差異を記録しました。kirimasim `d1d8a1782d0a`は44本が一致、3本が未対応、1本が不一致です。不一致は、superを通して読んだ値パラメータをpacked次元の境界として受け付けるもので（8.15）、kirimasim（slang）が規格と異なる箇所です。結果は`coverage/results/reqgap3-20261114-*.json`です。
 - テストは12,519件になりました。
+
+### 2026-11-14（整数型の代入互換性の行）
+
+- 所有者の承認を得て、`SV2023-6.22.3-EXTRACT-INTEGRAL-COMPATIBILITY`を受理される部分に絞りました。すべての整数型は互いに代入互換で、変換では切り詰めが起こりうるという内容です。enumを宛先とする制約は、errorの行`SV2023-6.22.3-EXTRACT-DIRECTIONAL-COMPATIBILITY`に任せました。基準値もその理由を付けて書き直しました。
+- `ch6/test_integral_types_assignment_compatible_without_cast`は、幅・符号・状態数の違う整数型どうしをcastなしで代入し、10.7と6.11.2から導いた変換後の値を確かめます。独立した検証担当が全値を導き直し、この行に対応を登録しました。
+- 要求カバレッジ（テスト設計）は91.07%（11,206/12,305）、再現できる実行確認率は50.48%（6,212）、Ghostとkirimasimを含む実行確認率は77.94%（9,591）です。結果は`coverage/results/intcompat-20261114-*.json`です。
+- テストは12,520件になりました。

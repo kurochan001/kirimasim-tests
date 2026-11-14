@@ -1,0 +1,18 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch6/test_integral_types_assignment_compatible_without_cast": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'states: 1110 00001010 4091', expected 'states: 1000 00001010 4091'",
+   "inputs_sha256": "31ebb47ac3919bcc9a1f45e7bf0e4e25726b9e44a0b4807aab234e04016e7655"
+  }
+ },
+ "generated_at": "2026-11-14T10:26:46.053076+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

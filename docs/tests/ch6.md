@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[All chapters](README.md). 708 tests, 79 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 709 tests, 79 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -565,6 +565,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_type_equivalence_only_by_rules`](../../tests/ch6/test_type_equivalence_only_by_rules.sv) | Two types are equivalent only when a rule of the inductive definition makes them so: int is equivalent to a 32-bit 2-state signed packed structure or bit vector, but not to an enum based on int, two enums or two unpacked structures with the same contents are not equivalent, and try_peek and $cast show each case | 6.22.2 6.24.2 15.4.8 | standard only ||
 | [`test_type_equivalent_arrays`](../../tests/ch6/test_type_equivalent_arrays.sv) | Unpacked arrays whose element types are equivalent, such as packed types of the same size, state and signedness, can be assigned to each other whatever their ranges, element by element from the left | 6.22.2 7.6 7.4.2 | Verilator 5.052 ||
 | [`test_illegal_enum_assigned_base_vector_without_cast`](../../tests/ch6/test_illegal_enum_assigned_base_vector_without_cast.sv) | assignment compatibility between an enum and an integral type holds in one direction only, so an enum value is assigned to a vector of its base type without a cast but the vector is not assigned back to the enum variable without one | 6.22.3 6.19.3 | Icarus Verilog 13.0 | illegal design |
+| [`test_integral_types_assignment_compatible_without_cast`](../../tests/ch6/test_integral_types_assignment_compatible_without_cast.sv) | Integral types of different widths, signedness and numbers of states are assigned to each other without a cast, and each assignment gives the converted value, truncated, zero- or sign-extended, or with unknown bits made zero | 6.22.3 6.11.2 10.7 | Icarus Verilog 13.0 | x/z |
 | [`test_type_assignment_cast_compatible`](../../tests/ch6/test_type_assignment_cast_compatible.sv) | Assignment-compatible types convert implicitly, an enum to an integer and between integral types with truncation or a real with rounding, while an integer becomes an enum only through a cast | 6.22.3 6.22.4 6.24.1 6.12.1 | Icarus Verilog 13.0 ||
 | [`test_enum_explicit_cast_and_failed_dynamic_cast`](../../tests/ch6/test_enum_explicit_cast_and_failed_dynamic_cast.sv) | An explicit enum cast permits an integral value and a failed dynamic cast leaves the destination unchanged | 6.22.4 6.24.2 | Verilator 5.052 ||
 | [`test_illegal_class_handle_to_int`](../../tests/ch6/test_illegal_class_handle_to_int.sv) | A class handle is type incompatible with every other type and cannot be assigned to an int | 6.22.5 | Icarus Verilog 13.0 | illegal design |

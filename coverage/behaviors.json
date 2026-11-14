@@ -47401,11 +47401,37 @@
       "id": "SV2023-6.22.3-EXTRACT-INTEGRAL-COMPATIBILITY",
       "clause": "6.22.3",
       "kind": "normal",
-      "behavior": "Integral types have the stated assignment-compatibility rules subject to the more specific enum destination restrictions.",
-      "acceptance": "Integral types have the stated assignment-compatibility rules subject to the more specific enum destination restrictions.",
-      "source_note": "IEEE 1800-2023 6.22.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "All integral types are assignment compatible with each other: a value of one integral type can be assigned to a variable of another without a cast, and the conversion can lose data by truncation.",
+      "acceptance": "Assignments between integral types that differ in width, signedness or the number of states are accepted without a cast and give the values that the conversion rules give, including a truncated value.",
+      "source_note": "IEEE 1800-2023 6.22.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable. Narrowed on 2026-11-14 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the restriction on enum destinations is observable only as an error and is covered by SV2023-6.22.3-EXTRACT-DIRECTIONAL-COMPATIBILITY.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_integral_types_assignment_compatible_without_cast.sv",
+          "observation": "幅（int→byte の 300 と -200、longint→int、integer→shortint）、符号（byte -3→int と bit [15:0]、bit [7:0] 8'hf0→byte、shortint -1→int unsigned）、状態数（logic 4'b1x0z→bit [3:0]、bit 4'b1010→logic [7:0]、logic signed -5→bit [11:0]）の違う整数型どうしを cast なしで代入し、44 56 5 4464 / -3 65533 -16 4294967295 / 1000 00001010 4091 を表示する。 区別: 6.22.3 はすべての整数型を互いに代入互換とし、変換で切り詰めによりデータが失われうるとする。値は 10.7（右辺の符号で拡張、上位ビットの切り詰め）と 6.11.2（4 状態から 2 状態で x と z を 0）から導いた。どれかの組で cast を要求する誤実装は設計を拒否し、元の型の値を保つ・左辺の符号で拡張を選ぶ・2 状態の変数に x や z を残す誤実装は、それぞれ width 行の 44 56 4464、signedness 行の 65533 と 4294967295、states 行の 1000 と 4091 を変える。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "31ebb47ac3919bcc9a1f45e7bf0e4e25726b9e44a0b4807aab234e04016e7655",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_integral_types_assignment_compatible_without_cast.sv",
+              "contains": "    u16 = bm3;"
+            },
+            {
+              "file": "tests/ch6/test_integral_types_assignment_compatible_without_cast.sv",
+              "contains": "    t4 = l4;"
+            },
+            {
+              "file": "tests/ch6/test_integral_types_assignment_compatible_without_cast.expected",
+              "contains": "signedness: -3 65533 -16 4294967295"
+            },
+            {
+              "file": "tests/ch6/test_integral_types_assignment_compatible_without_cast.expected",
+              "contains": "states: 1000 00001010 4091"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "6.22.3",

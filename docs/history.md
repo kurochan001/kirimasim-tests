@@ -773,3 +773,10 @@ clause 37.
 - Design coverage goes from 90.74% (11,166/12,305) to 91.06% (11,205/12,305), reproducible execution coverage from 50.36% (6,197) to 50.48% (6,211), and execution coverage with Ghost and kirimasim from 77.81% (9,575) to 77.94% (9,590); the change of `ch18/test_inline_local_scope_binding` made the same day leaves three of its requirements unconfirmed until the next run.
 - Verilator ran as 5.054 under [the interim pin](simulator-differences.md#verilator-5054-interim). The differences of Icarus Verilog 13.0 and Verilator 5.054 are recorded. kirimasim `d1d8a1782d0a` matches 44, does not support 3 and fails 1: it accepts a value parameter read through super as a bound of a packed dimension (8.15), a place where kirimasim (slang) departs from the standard. The results are `coverage/results/reqgap3-20261114-*.json`.
 - The suite now has 12,519 tests.
+
+### 2026-11-14 (the row on integral assignment compatibility)
+
+- With the owner's approval, `SV2023-6.22.3-EXTRACT-INTEGRAL-COMPATIBILITY` was narrowed to its accepted part: all integral types are assignment compatible with each other, and the conversion can truncate. The restriction on enum destinations is left to the error row `SV2023-6.22.3-EXTRACT-DIRECTIONAL-COMPATIBILITY`. The baseline was rewritten with that reason.
+- `ch6/test_integral_types_assignment_compatible_without_cast` assigns integral types that differ in width, signedness and the number of states to each other without a cast and checks the converted values, derived from 10.7 and 6.11.2. An independent verifier derived every value again, and the row is now mapped.
+- Design coverage is 91.07% (11,206/12,305), reproducible execution coverage 50.48% (6,212), and execution coverage with Ghost and kirimasim 77.94% (9,591). The results are `coverage/results/intcompat-20261114-*.json`.
+- The suite now has 12,520 tests.

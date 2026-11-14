@@ -25004,6 +25004,9 @@
     "A non-abstract class that implements an interface class method with a method declared without virtual, and inherits no virtual implementation, is an error": "インタフェースクラスのメソッドを virtual なしで宣言したメソッドで実装し、virtual な実装を継承していない非抽象クラスは違反である",
     "A parameter read through an interface class handle is not a constant expression, so it cannot bound a ZXQPH0QXZ dimension": "インタフェースクラスのハンドルを通して読んだパラメータは定数式ではないので、 ZXQPH0QXZ 次元の境界にできない",
     "A type parameter of an interface class cannot be selected through an interface class handle, while the class scope operator reaches it": "インタフェースクラスの型パラメータは、インタフェースクラスのハンドルを通しては選べないが、クラススコープ演算子では届く",
-    "Two different specializations of one parameterized interface class are distinct interface classes, so an interface class that inherits both through two others has an unresolved parameter name conflict": "1 つのパラメータ付きインタフェースクラスの 2 つの別の特殊化は別のインタフェースクラスなので、他の 2 つを通して両方を継承するインタフェースクラスには、解決されないパラメータ名の衝突がある"
+    "Two different specializations of one parameterized interface class are distinct interface classes, so an interface class that inherits both through two others has an unresolved parameter name conflict": "1 つのパラメータ付きインタフェースクラスの 2 つの別の特殊化は別のインタフェースクラスなので、他の 2 つを通して両方を継承するインタフェースクラスには、解決されないパラメータ名の衝突がある",
+    "All integral types are assignment compatible with each other: a value of one integral type can be assigned to a variable of another without a cast, and the conversion can lose data by truncation.": "整数型はすべて互いに代入互換である。ある整数型の値は cast なしで別の整数型の変数に代入でき、変換では切り詰めによりデータが失われうる。",
+    "Assignments between integral types that differ in width, signedness or the number of states are accepted without a cast and give the values that the conversion rules give, including a truncated value.": "幅・符号・状態数の違う整数型どうしの代入は cast なしで受け付けられ、切り詰めた値を含め、変換規則どおりの値を与える。",
+    "Integral types of different widths, signedness and numbers of states are assigned to each other without a cast, and each assignment gives the converted value, truncated, zero- or sign-extended, or with unknown bits made zero": "幅・符号・状態数の違う整数型どうしを cast なしで代入し、各代入が切り詰め・ゼロ拡張・符号拡張・不明なビットの 0 への変換を経た値を与える"
   }
 }

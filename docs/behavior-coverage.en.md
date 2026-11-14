@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 91.06%, execution without Ghost 50.48%, execution with Ghost 77.94%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 91.07%, execution without Ghost 50.48%, execution with Ghost 77.94%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 91.06%. Requirement execution-confirmation rate: 50.48% without Ghost, 77.94% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 91.07%. Requirement execution-confirmation rate: 50.48% without Ghost, 77.94% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 11205/12305 ( 91.06% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9590/12305 ( 77.94% ).
-- Registered but not tested: 1100.
+- The requirement coverage (test design) for registered behaviors is 11206/12305 ( 91.07% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9591/12305 ( 77.94% ).
+- Registered but not tested: 1099.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -40,6 +40,10 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7913/12305 execution checked; 470 entries refer to older inputs.
 - `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7993/12305 execution checked; 406 entries refer to older inputs.
 - `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7896/12305 execution checked; 470 entries refer to older inputs.
+- `intcompat-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T10:26:34.150974+00:00` / 1/12305 execution checked; 0 entries refer to older inputs.
+- `intcompat-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T10:26:46.168015+00:00` / 1/12305 execution checked; 0 entries refer to older inputs.
+- `intcompat-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T10:26:39.847047+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
+- `intcompat-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T10:26:46.053076+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-2-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T22:25:00.780016+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-2-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T22:25:00.894678+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-2-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T22:25:01.564353+00:00` / 2/12305 execution checked; 0 entries refer to older inputs.
@@ -313,7 +317,7 @@ The number of items is the investigation status of the article by heading. This 
 - 3 Design and verification building blocks: No interpretation reservation 22/22, registration 146, test support 124.
 - 4 Scheduling semantics: no interpretation reservation 40/40, registration 107, test support 88.
 - 5 Lexical conventions: no interpretation reservation 21/21, registration 154, test support 136.
-- 6 Data types: No interpretation reservation 92/92, registration 720, test support 707.
+- 6 Data types: No interpretation reservation 92/92, registration 720, test support 708.
 - 7 Aggregate data types: no interpretation reservation 61/61, registration 347, test support 337.
 - 8 Classes: No interpretation restrictions 49/49, registration 255, test support 238.
 - 9 Processes: No interpretation reservation 34/34, registration 189, test support 172.
@@ -13192,14 +13196,15 @@ Normative role: `definition`。
 
 ### SV2023-6.22.3-EXTRACT-INTEGRAL-COMPATIBILITY
 
-`6.22.3` / `normal` / No mapped test
+`6.22.3` / `normal` / Execution confirmed
 
-Integral types have the stated assignment-compatibility rules subject to the more specific enum destination restrictions.
+All integral types are assignment compatible with each other: a value of one integral type can be assigned to a variable of another without a cast, and the conversion can lose data by truncation.
 
-Acceptance criterion: Integral types have the stated assignment-compatibility rules subject to the more specific enum destination restrictions.
+Acceptance criterion: Assignments between integral types that differ in width, signedness or the number of states are accepted without a cast and give the values that the conversion rules give, including a truncated value.
 
 Normative role: `definition`。
 
+- [test_integral_types_assignment_compatible_without_cast.sv](../tests/ch6/test_integral_types_assignment_compatible_without_cast.sv) : integral types that differ in width ( int → byte with 300 and -200 , longint → int , integer → shortint ), in signedness ( byte -3 → int and bit \[ 15:0 \] , bit \[ 7:0 \] 8'hf0 → byte , shortint -1 → int unsigned) and in the number of states ( logic 4'b1x0z → bit \[ 3:0 \] , bit 4'b1010 → logic \[ 7:0 \] , logic signed -5 → bit \[ 11:0 \] ) are assigned to each other without a cast, and 44 56 5 4464 / -3 65533 -16 4294967295 / 1000 00001010 4091 are printed. Distinguishing observation: 6.22.3 makes all integral types assignment compatible with each other and says that the conversion can lose data by truncation. The values were derived from 10.7 (extension by the signedness of the right-hand side, truncation of the upper bits) and 6.11.2 (x and z become 0 from 4 -state to 2 -state). A wrong implementation that requires a cast for one of the pairs rejects the design, and one that keeps the value of the source type, chooses the extension by the signedness of the left-hand side or keeps x or z in a 2 -state variable changes 44 56 4464 on the width line, 65533 and 4294967295 on the signedness line, or 1000 and 4091 on the states line.
 
 ### SV2023-6.22.4-ENUM-CAST-FAIL
 

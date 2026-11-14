@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[すべての章](README.ja.md) .テストは708本で、そのうち79本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは709本で、そのうち79本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -565,6 +565,7 @@
 | [`test_type_equivalence_only_by_rules`](../../tests/ch6/test_type_equivalence_only_by_rules.sv) |2 つの型は帰納的定義の規則によってだけ等価になる: int は 32 bit の 2 状態の符号付き packed 構造体や bit ベクトルと等価だが、 int を基底とする enum とは等価でなく、同じ中身の 2 つの列挙型や 2 つの unpacked 構造体も等価でない。 try_peek と $cast がそれぞれの場合を示す| 6.22.2 6.24.2 15.4.8 |規格のみ||
 | [`test_type_equivalent_arrays`](../../tests/ch6/test_type_equivalent_arrays.sv) |元素型が等価なパッケージされていない配列（例えば、同じサイズ、状態、符号の packed 型）は、左から順に、それらの範囲に関係なく、互いに割り当てることができる。| 6.22.2 7.6 7.4.2 | Verilator 5.052 ||
 | [`test_illegal_enum_assigned_base_vector_without_cast`](../../tests/ch6/test_illegal_enum_assigned_base_vector_without_cast.sv) |enum と整数型の間の代入互換性は一方向だけに成り立つので、 enum の値は cast なしでその基底型のベクトルに代入できるが、そのベクトルを cast なしで enum の変数に戻して代入することはできない| 6.22.3 6.19.3 | Icarus Verilog 13.0 |規格違反の設計|
+| [`test_integral_types_assignment_compatible_without_cast`](../../tests/ch6/test_integral_types_assignment_compatible_without_cast.sv) |幅・符号・状態数の違う整数型どうしを cast なしで代入し、各代入が切り詰め・ゼロ拡張・符号拡張・不明なビットの 0 への変換を経た値を与える| 6.22.3 6.11.2 10.7 | Icarus Verilog 13.0 | x/z |
 | [`test_type_assignment_cast_compatible`](../../tests/ch6/test_type_assignment_cast_compatible.sv) |任意の型は暗黙的に変換される。enumはintegerに変換され、切り捨てを伴う整数型と丸めを伴う実数の間で変換される。integerはキャストを経てのみenumに変換される| 6.22.3 6.22.4 6.24.1 6.12.1 | Icarus Verilog 13.0 ||
 | [`test_enum_explicit_cast_and_failed_dynamic_cast`](../../tests/ch6/test_enum_explicit_cast_and_failed_dynamic_cast.sv) |明示的な enum のキャストは整数値を許可し、失敗した動的キャストは目的地を変更しない| 6.22.4 6.24.2 | Verilator 5.052 ||
 | [`test_illegal_class_handle_to_int`](../../tests/ch6/test_illegal_class_handle_to_int.sv) |クラスハンドルは他のすべてのタイプと互換性がなく、int に割り当てることはできません。| 6.22.5 | Icarus Verilog 13.0 |規格違反の設計|

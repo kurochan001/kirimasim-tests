@@ -2,8 +2,8 @@
   "schema": 1,
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
-  "test_files": 12519,
-  "linked_test_files": 5564,
+  "test_files": 12520,
+  "linked_test_files": 5565,
   "unlinked_test_files": 6955,
   "chapters": [
     {
@@ -26,8 +26,8 @@
     },
     {
       "chapter": "ch6",
-      "test_files": 708,
-      "linked_test_files": 443,
+      "test_files": 709,
+      "linked_test_files": 444,
       "unlinked_test_files": 265
     },
     {
@@ -337933,6 +337933,40 @@
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch6/test_integral_types_assignment_compatible_without_cast.sv",
+      "inputs_sha256": "31ebb47ac3919bcc9a1f45e7bf0e4e25726b9e44a0b4807aab234e04016e7655",
+      "cited_clauses": [
+        "6.22.3",
+        "6.11.2",
+        "10.7"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-6.22.3-EXTRACT-INTEGRAL-COMPATIBILITY"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-10.7-EXTRACT-DETERMINE-SIZES",
+        "SV2023-10.7-EXTRACT-LHS-CONTEXT",
+        "SV2023-10.7-EXTRACT-SIGNED-EXTENSION",
+        "SV2023-10.7-EXTRACT-SIZE-DIAGNOSTIC-OPTIONAL",
+        "SV2023-10.7-EXTRACT-TRUNCATE-HIGH",
+        "SV2023-10.7-EXTRACT-UNSIGNED-PADDING",
+        "SV2023-6.11.2-EXTRACT-FOUR-STATE-INTEGER-CATEGORIES",
+        "SV2023-6.11.2-EXTRACT-FOUR-TO-TWO-STATE",
+        "SV2023-6.11.2-EXTRACT-LOGIC-REG-TYPE-IDENTITY",
+        "SV2023-6.11.2-EXTRACT-NARROW-MSB-TRUNCATION",
+        "SV2023-6.11.2-EXTRACT-SIGNED-WIDEN",
+        "SV2023-6.11.2-EXTRACT-UNSIGNED-WIDEN",
+        "SV2023-6.22.3-EXTRACT-ASSIGNMENT-COMPATIBILITY"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-6.22.3-EXTRACT-DIRECTIONAL-COMPATIBILITY"
+      ],
       "broader_citations": []
     },
     {
@@ -955293,7 +955327,7 @@
     "oracle_issue": 243,
     "partial_observation": 2141
   },
-  "registry_sha256": "80f6a1355b190b4c70bd042dfbe20c5c728b94af7e82f449bd78c5b00a2fc9bc",
+  "registry_sha256": "1746938cdaeb81be6a455231826873a31194adc6837c4ee6ba07304d3884e2d2",
   "inventory_sha256": "7f708bec45a4f398aa534c8f94565cb0bcd1a4fbfdf0a0e21997df20add41768",
   "review_ledger_sha256": "e6ec1e816ae39da55f72157db28809a5762c44d6e3efbae71fd837dd18834a60"
 }
