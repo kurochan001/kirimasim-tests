@@ -24,10 +24,12 @@
 // loc_scope with sv 9, and its variable r is the receiver object. Thus an
 // unqualified lim is the member 8, local::lim is the package 4, local::loc_int
 // is the local typedef even though the class has a member of that name, and
-// local::lr_scope::sv is the local class scope. local::r is the static member
-// of the receiver class (11), not the module variable that holds the object.
-// A tool that does not let local:: bypass the receiver class fails the call
-// or finds another value at each of the four checks.
+// local::lr_scope::sv is the local class scope. local::r names the object of
+// the call, whose class is the receiver class, so local::r.r is that class's
+// static member (11). A tool that does not let local:: bypass the receiver
+// class fails the call or finds another value at each of the first three
+// checks, and a tool that took local::r for the static member itself, an
+// int, rejects the member select of the fourth.
 // Icarus Verilog 13.0 does not support constraints, and Verilator 5.052 does
 // not support local:: type and class-scope names or local:: on the receiver
 // name, so the expected values come from the cited clause.
@@ -70,7 +72,7 @@ module test_inline_local_scope_binding;
     a_type = r.a;
     ok_scope = r.randomize() with { a == local::lr_scope::sv; };
     a_scope = r.a;
-    ok_receiver = r.randomize() with { a == local::r; };
+    ok_receiver = r.randomize() with { a == local::r.r; };
     a_receiver = r.a;
     $display("member lim %0d a=%0d, package local::lim %0d a=%0d",
              ok_member, a_member, ok_import, a_import);

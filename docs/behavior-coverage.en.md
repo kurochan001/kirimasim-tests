@@ -6,10 +6,10 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 90.74%, execution without Ghost 50.36%, execution with Ghost 77.81%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 90.74%, execution without Ghost 50.36%, execution with Ghost 77.79%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 90.74%. Requirement execution-confirmation rate: 50.36% without Ghost, 77.81% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 90.74%. Requirement execution-confirmation rate: 50.36% without Ghost, 77.79% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
@@ -17,7 +17,7 @@ Requirement coverage (test design): 90.74%. Requirement execution-confirmation r
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
 - The requirement coverage (test design) for registered behaviors is 11166/12305 ( 90.74% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9575/12305 ( 77.81% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9572/12305 ( 77.79% ).
 - Registered but not tested: 1139.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
@@ -33,13 +33,13 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 `check_groups` distributes a single request across multiple tests, and is successful only if all tests in the group are successful in the same runtime and run. The unspecified response is an independent alternative proof.
 
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12305 execution checked; 0 entries refer to older inputs.
-- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3083/12305 execution checked; 333 entries refer to older inputs.
-- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2988/12305 execution checked; 333 entries refer to older inputs.
-- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3874/12305 execution checked; 333 entries refer to older inputs.
+- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3083/12305 execution checked; 336 entries refer to older inputs.
+- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2988/12305 execution checked; 336 entries refer to older inputs.
+- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3874/12305 execution checked; 336 entries refer to older inputs.
 - `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3586/12305 execution checked; 25 entries refer to older inputs.
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7913/12305 execution checked; 466 entries refer to older inputs.
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7993/12305 execution checked; 402 entries refer to older inputs.
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7896/12305 execution checked; 466 entries refer to older inputs.
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7910/12305 execution checked; 469 entries refer to older inputs.
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7990/12305 execution checked; 405 entries refer to older inputs.
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7893/12305 execution checked; 469 entries refer to older inputs.
 - `oracle-tokens-2-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T22:25:00.780016+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-2-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T22:25:00.894678+00:00` / 0/12305 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-2-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T22:25:01.564353+00:00` / 2/12305 execution checked; 0 entries refer to older inputs.
@@ -47254,7 +47254,7 @@ Normative role: `definition`。
 
 ### SV2023-18.7.1-EXTRACT-LOCAL-IMPORT
 
-`18.7.1` / `normal` / Execution confirmed
+`18.7.1` / `normal` / Test mapped; execution unconfirmed
 
 For wildcard package imports, local::a has the same semantics as an unqualified a in the local scope.
 
@@ -47278,7 +47278,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.7.1-EXTRACT-LOCAL-RECEIVER-SPECIAL
 
-`18.7.1` / `normal` / Execution confirmed
+`18.7.1` / `normal` / Test mapped; execution unconfirmed
 
 For obj.randomize with, the explicit rule in 18.7.1 binds local::obj to the scope of the randomize receiver class.
 
@@ -47286,7 +47286,7 @@ Acceptance criterion: For obj.randomize with, the explicit rule in 18.7.1 binds 
 
 Normative role: `mandatory`。
 
-- [test_inline_local_scope_binding.sv](../tests/ch18/test_inline_local_scope_binding.sv): the receiver lr_recv has a member lim constrained to 8, members loc_int and lr_scope, and a static r = 11; the module imports lp::* with lim = 4 and defines the typedef loc_int and the class loc_scope; in r.randomize() with, local::r binds to the scope of the receiver class and finds its static member r = 11, not the module variable that holds the object Distinguishing observation: a tool that bound local::r to the module scope would compare a with an object handle and fail the call
+- [test_inline_local_scope_binding.sv](../tests/ch18/test_inline_local_scope_binding.sv): the receiver lr_recv has a member lim constrained to 8, members loc_int and lr_scope, and a static r = 11; the module imports lp::* with lim = 4 and defines the typedef loc_int and the class loc_scope; in r.randomize() with, local::r names the object of the call, whose class is the receiver class, so local::r.r finds the static member r = 11 of that class Distinguishing observation: a tool that took local::r for the static member itself would apply a member select to an int and fail the call
 
 ### SV2023-18.7.1-EXTRACT-LOCAL-THIS-SUPER
 
@@ -47302,7 +47302,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.7.1-EXTRACT-LOCAL-TYPES
 
-`18.7.1` / `normal` / Execution confirmed
+`18.7.1` / `normal` / Test mapped; execution unconfirmed
 
 local:: may qualify class scopes and type names.
 

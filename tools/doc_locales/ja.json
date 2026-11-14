@@ -24945,6 +24945,7 @@
     "Calls of such a function in these contexts are accepted and give the result of the function.": "それらの場所でのその関数の呼び出しは受け付けられ、関数の結果を与える。",
     "A function with output, inout or non- ZXQPH0QXZ formal arguments cannot be called in an event expression, in an expression within a procedural continuous assignment, or in an expression that is not within a procedural statement;": "output・inout の仮引数、または ZXQPH0QXZ でない ref の仮引数を持つ関数は、イベント式、手続き的連続代入の中の式、手続き文の中にない式で呼べない;",
     "such a call is an error.": "そのような呼び出しは違反である。",
-    "A call of such a function in each of these contexts is rejected.": "それぞれの場所でのそのような関数の呼び出しは拒否される。"
+    "A call of such a function in each of these contexts is rejected.": "それぞれの場所でのそのような関数の呼び出しは拒否される。",
+    "in ZXQPH0QXZ () with, ZXQPH1QXZ names the object of the call, whose class is the receiver class, so ZXQPH2QXZ finds the static member ZXQPH3QXZ = ZXQPH4QXZ of that class 区別: a tool that took ZXQPH5QXZ for the static member itself would apply a member select to an ZXQPH6QXZ and fail the call": "ZXQPH0QXZ() withでは、ZXQPH1QXZは呼出しのオブジェクトを指し、そのクラスは呼出し対象クラスなので、ZXQPH2QXZはそのクラスのstaticメンバーZXQPH3QXZ = ZXQPH4QXZを見つける。区別: ZXQPH5QXZをstaticメンバーそのものと取るツールは、ZXQPH6QXZにメンバー選択を適用することになり、呼出しに失敗する。"
   }
 }

@@ -186226,9 +186226,9 @@
         {
           "test": "tests/ch18/test_inline_local_scope_binding.sv",
           "observation": "the receiver lr_recv has a member lim constrained to 8, members loc_int and lr_scope, and a static r = 11; the module imports lp::* with lim = 4 and defines the typedef loc_int and the class loc_scope; with the wildcard import, an unqualified lim in the inline constraint is the receiver member 8 and local::lim is the package value 4 区別: a tool that resolved local::lim in the receiver class would give 8; a tool that ignored the import would fail the call",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "5aa27116cf08e39dc923ebaedfc6722da2dd6ced3e64cab57d55f7fd050291eb",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "ce70787f9b13eec70abbacac75b22ebd5045242ae1b3e03a9e6ebb4a79df3e21",
           "evidence": [
             {
               "file": "tests/ch18/test_inline_local_scope_binding.sv",
@@ -186298,10 +186298,10 @@
       "checks": [
         {
           "test": "tests/ch18/test_inline_local_scope_binding.sv",
-          "observation": "the receiver lr_recv has a member lim constrained to 8, members loc_int and lr_scope, and a static r = 11; the module imports lp::* with lim = 4 and defines the typedef loc_int and the class loc_scope; in r.randomize() with, local::r binds to the scope of the receiver class and finds its static member r = 11, not the module variable that holds the object 区別: a tool that bound local::r to the module scope would compare a with an object handle and fail the call",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "5aa27116cf08e39dc923ebaedfc6722da2dd6ced3e64cab57d55f7fd050291eb",
+          "observation": "the receiver lr_recv has a member lim constrained to 8, members loc_int and lr_scope, and a static r = 11; the module imports lp::* with lim = 4 and defines the typedef loc_int and the class loc_scope; in r.randomize() with, local::r names the object of the call, whose class is the receiver class, so local::r.r finds the static member r = 11 of that class 区別: a tool that took local::r for the static member itself would apply a member select to an int and fail the call",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "ce70787f9b13eec70abbacac75b22ebd5045242ae1b3e03a9e6ebb4a79df3e21",
           "evidence": [
             {
               "file": "tests/ch18/test_inline_local_scope_binding.sv",
@@ -186379,9 +186379,9 @@
         {
           "test": "tests/ch18/test_inline_local_scope_binding.sv",
           "observation": "the receiver lr_recv has a member lim constrained to 8, members loc_int and lr_scope, and a static r = 11; the module imports lp::* with lim = 4 and defines the typedef loc_int and the class loc_scope; local:: may qualify a type name and a class scope: local::loc_int'(7) uses the module typedef even though the receiver has a member loc_int, and local::lr_scope::sv is the module class scope 9 区別: a tool that ignored local:: would use the receiver member as a type and fail, or use another value",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "5aa27116cf08e39dc923ebaedfc6722da2dd6ced3e64cab57d55f7fd050291eb",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "ce70787f9b13eec70abbacac75b22ebd5045242ae1b3e03a9e6ebb4a79df3e21",
           "evidence": [
             {
               "file": "tests/ch18/test_inline_local_scope_binding.sv",

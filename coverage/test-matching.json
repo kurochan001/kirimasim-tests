@@ -110609,7 +110609,7 @@
     },
     {
       "test": "tests/ch18/test_inline_local_scope_binding.sv",
-      "inputs_sha256": "5aa27116cf08e39dc923ebaedfc6722da2dd6ced3e64cab57d55f7fd050291eb",
+      "inputs_sha256": "ce70787f9b13eec70abbacac75b22ebd5045242ae1b3e03a9e6ebb4a79df3e21",
       "cited_clauses": [
         "18.7.1"
       ],
@@ -953831,7 +953831,7 @@
     "oracle_issue": 243,
     "partial_observation": 2141
   },
-  "registry_sha256": "baf79cde2d6bf47a375f45ee65a094b76fdc62feb4914846f06bc8922b3b08c1",
+  "registry_sha256": "6389bbcb80804ba1c279b0b6fc24eca35e39bb66f2aec9ca244d0297bc730ccd",
   "inventory_sha256": "7f708bec45a4f398aa534c8f94565cb0bcd1a4fbfdf0a0e21997df20add41768",
   "review_ledger_sha256": "e6ec1e816ae39da55f72157db28809a5762c44d6e3efbae71fd837dd18834a60"
 }
