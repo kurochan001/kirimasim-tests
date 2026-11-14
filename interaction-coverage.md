@@ -6,9 +6,9 @@
 
 このレポートは登録した有限モデルだけを対象にします。要求カバレッジや全言語の 組合せ網羅率ではありません。計画上の網羅と、実行結果に基づく合格確認を分けます。 既存テストは削減していません。選択数の削減率は実行時間の削減率ではありません。
 
-生成元・利用手順・適用限界は[導入手順](https://github.com/kurochan001/kirimasim-tests/blob/67d26cfdbe3799438b00a2117c56689b0be5f446/docs/interaction-verification.md)を参照してください。
+生成元・利用手順・適用限界は[導入手順](https://github.com/kurochan001/kirimasim-tests/blob/aef04b93c6ebe776c598f3a40474eeea1e88dfec/docs/interaction-verification.md)を参照してください。
 
-2因子100%で何を判断できるかは[4行の具体例](https://github.com/kurochan001/kirimasim-tests/blob/67d26cfdbe3799438b00a2117c56689b0be5f446/docs/faq.md#q28-why-not-simply-cross-every-feature)、計画と実際のPASSの違いは[実行充足の説明](https://github.com/kurochan001/kirimasim-tests/blob/67d26cfdbe3799438b00a2117c56689b0be5f446/docs/faq.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution)を参照してください。
+2因子100%で何を判断できるかは[4行の具体例](https://github.com/kurochan001/kirimasim-tests/blob/aef04b93c6ebe776c598f3a40474eeea1e88dfec/docs/faq.md#q28-why-not-simply-cross-every-feature)、計画と実際のPASSの違いは[実行充足の説明](https://github.com/kurochan001/kirimasim-tests/blob/aef04b93c6ebe776c598f3a40474eeea1e88dfec/docs/faq.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution)を参照してください。
 
 ## scheduling_visibility / model 1
 
@@ -2254,6 +2254,45 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
 
 制約: 選択式はlogic [7:0]とし、?・z・xのどれか一種類の桁を含む項目一つとdefaultで調べる。項目は二進・八進・十六進・十進のリテラルで、先頭の桁が不定値か既知の値か、幅が選択式より狭いか同じか広いか、無サイズかを変える。先頭が不定値なら、その値でリテラルの幅まで埋まる。その後でcaseが全体を最も広い式の幅へ広げ、上のビットはゼロになる。一つのプログラムで、不定値の位置を既知の値で埋めた値・既知の位置を一つ反転した値・既知の位置をzやxにした値・項目と同じ四値の値を順に比べる。十進はx・z・?を一桁だけ書けるので先頭は不定値だけにする。十六進の二桁は狭い幅に入らないので除外する。
 
+## program_interface_regions / model 1
+
+- 制約を満たす組合せ数: 480。
+- 利用できる既存・新規テスト: 30。
+- 短時間実行の選択: 30。
+- 個別に保持する必須ケース: 10。
+- 2因子の計画上の網羅: 131/131。
+- 3因子の計画上の網羅: 82/82。
+
+programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtask・void function・自身のtaskを経由して、ポート・modport・階層名からinterfaceの変数をblockingかNBAで書く。書いた直後・#0の後・1後の読取りと、interfaceか受け側のmoduleで反応するalways・always_comb・連続代入・NBAが見た進捗から、書込みと反応の領域群を確かめる。
+
+- caller: program, module。
+- route: port, modport, hier。
+- action: direct, task, delayed, function, wrapper。
+- write: blocking, nba。
+- reactor: always, comb, assign, nba。
+- place: interface, module。
+
+制約: 呼出し側はprogramかmoduleで、時刻5にinterfaceの変数xへ書く。書き方は直接の代入・interfaceのtask・#0の後に書くtask・void function・呼出し側のtaskを経由するinterfaceのtaskで、それぞれblockingかNBAで書く。interfaceへはポート・modport・階層名で届く。virtual interfaceはkirimasimが未実装なので、実装後に経路へ加える。xへ反応する設計側はalways・always_comb・連続代入・NBAのalwaysで、interfaceの中か、interfaceを受けるmoduleに置く。反応はyを書き、時刻1から待つ観測プロセスがyの変化を数え、その時点の進捗を記録する。進捗は書込みの前に1、#0の後に2とするので、moduleからblockingで書いた場合に限り、#0より先に動く反応が1を見る。moduleからの書込みの直後にyを読むと、4.7の割込みで値が定まらないので、その読取りはprogramの場合だけ置く。
+
+## simulation_end_sources / model 1
+
+- 制約を満たす組合せ数: 288。
+- 利用できる既存・新規テスト: 42。
+- 短時間実行の選択: 42。
+- 個別に保持する必須ケース: 10。
+- 2因子の計画上の網羅: 110/110。
+- 3因子の計画上の網羅: 95/95。
+
+時刻5に$finish・$fatal・$exitを、initial・always・forkした子・task・functionから、トップのmodule・子のインスタンス・入れ子のprogramで呼ぶ。final手続きで終了時刻と、それ以前・以後に予定した書込みを、終了コードで後の$fatalが実行されないことを確かめる。
+
+- ender: finish, fatal, exit。
+- site: initial, always, fork, task, function。
+- trigger: delay, event, change。
+- scope: top, child, program。
+- second: none, finish, fatal。
+
+制約: 終了は時刻5に、$finish・$fatal・$exitのどれかで要求する。呼ぶ場所はinitial・always・join_noneでforkした子・task・functionで、時刻5まで遅延・イベント・変数の変化で待つ。呼ぶ側はトップのmodule・子のインスタンス・入れ子のprogramに置く。programにはalwaysを置けないので(24.3)、その組は除く。$exitはprogramからだけ呼ぶ。moduleのスレッドからの$exitは、20.2では全programの完了を待つ暗黙の$finish、24.7では無視となり、読み方で結果が変わるためである。時刻3の書込み・偶数時刻のクロック・時刻7の遅延とイベント・時刻8の2番目の終了・呼んだスレッドの1後と親の20後の書込みを置き、時刻5と同じ時刻には他のプロセスを動かさない。終了を呼んだ後、同じ時刻のうちに実行される文は規格が定めないので観測しない。final手続きは実行順が定まらないので一つだけにする。
+
 ## aggregate_literal_key / model 1
 
 - 制約を満たす組合せ数: 192。
@@ -2278,8 +2317,8 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
 
 ### results/ghost.json
 
-- 環境: private build ace38e2ddc53。
-- 実行日時: 2026-11-13T01:38:16.693840+00:00。
+- 環境: private build 17224fd34b2f。
+- 実行日時: 2026-11-14T01:14:27.940685+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -2561,10 +2600,10 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 4/4。
   - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - array_reduction_constraint:
-  - 2因子の合格確認済み組合せ: 83/96。
-  - 3因子の合格確認済み組合せ: 26/40。
+  - 2因子の合格確認済み組合せ: 86/96。
+  - 3因子の合格確認済み組合せ: 29/40。
   - 必須ケース: 3/4。
-  - ケース状態: pass=9, fail=4, known=0, unsupported=0, stale=0, not_run=0。
+  - ケース状態: pass=10, fail=3, known=0, unsupported=0, stale=0, not_run=0。
 - associative_array_queries:
   - 2因子の合格確認済み組合せ: 93/93。
   - 3因子の合格確認済み組合せ: 54/54。
@@ -2641,10 +2680,10 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 6/6。
   - ケース状態: pass=33, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - deferred_disable_reports:
-  - 2因子の合格確認済み組合せ: 137/151。
-  - 3因子の合格確認済み組合せ: 76/92。
-  - 必須ケース: 8/10。
-  - ケース状態: pass=25, fail=6, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 151/151。
+  - 3因子の合格確認済み組合せ: 92/92。
+  - 必須ケース: 10/10。
+  - ケース状態: pass=31, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - event_rebinding:
   - 2因子の合格確認済み組合せ: 138/138。
   - 3因子の合格確認済み組合せ: 69/69。
@@ -2731,10 +2770,10 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 6/6。
   - ケース状態: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - literal_context_extension:
-  - 2因子の合格確認済み組合せ: 299/303。
-  - 3因子の合格確認済み組合せ: 145/148。
-  - 必須ケース: 7/8。
-  - ケース状態: pass=65, fail=1, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 303/303。
+  - 3因子の合格確認済み組合せ: 148/148。
+  - 必須ケース: 8/8。
+  - ケース状態: pass=66, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - gate_array_connection:
   - 2因子の合格確認済み組合せ: 278/278。
   - 3因子の合格確認済み組合せ: 135/135。
@@ -2763,18 +2802,18 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 6/6。
   - ケース状態: pass=55, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - literal_format_display:
-  - 2因子の合格確認済み組合せ: 299/301。
+  - 2因子の合格確認済み組合せ: 301/301。
   - 必須ケース: 9/9。
-  - ケース状態: pass=90, fail=1, known=0, unsupported=0, stale=0, not_run=0。
+  - ケース状態: pass=91, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - parameter_override_type:
   - 2因子の合格確認済み組合せ: 120/120。
   - 必須ケース: 8/8。
   - ケース状態: pass=44, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - assertion_vector_query:
-  - 2因子の合格確認済み組合せ: 130/138。
-  - 3因子の合格確認済み組合せ: 13/15。
-  - 必須ケース: 5/6。
-  - ケース状態: pass=28, fail=2, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 138/138。
+  - 3因子の合格確認済み組合せ: 15/15。
+  - 必須ケース: 6/6。
+  - ケース状態: pass=30, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - literal_argument_conversion:
   - 2因子の合格確認済み組合せ: 169/169。
   - 必須ケース: 8/8。
@@ -2807,15 +2846,25 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 必須ケース: 7/7。
   - ケース状態: pass=29, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - scoped_class_declaration:
-  - 2因子の合格確認済み組合せ: 95/100。
-  - 3因子の合格確認済み組合せ: 46/48。
-  - 必須ケース: 6/7。
-  - ケース状態: pass=46, fail=2, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 100/100。
+  - 3因子の合格確認済み組合せ: 48/48。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - case_literal_wildcard:
   - 2因子の合格確認済み組合せ: 112/112。
   - 3因子の合格確認済み組合せ: 24/24。
   - 必須ケース: 7/7。
   - ケース状態: pass=24, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_interface_regions:
+  - 2因子の合格確認済み組合せ: 76/131。
+  - 3因子の合格確認済み組合せ: 27/82。
+  - 必須ケース: 3/10。
+  - ケース状態: pass=8, fail=22, known=0, unsupported=0, stale=0, not_run=0。
+- simulation_end_sources:
+  - 2因子の合格確認済み組合せ: 110/110。
+  - 3因子の合格確認済み組合せ: 95/95。
+  - 必須ケース: 10/10。
+  - ケース状態: pass=42, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - aggregate_literal_key:
   - 2因子の合格確認済み組合せ: 104/104。
   - 必須ケース: 7/7。
@@ -2823,8 +2872,8 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
 
 ### results/icarus.json
 
-- 環境: Icarus Verilog version 14.0 (devel) (s20260301-992-gc489c3a2)。
-- 実行日時: 2026-11-13T00:41:04.069506+00:00。
+- 環境: Icarus Verilog version 14.0 (devel) (s20260301-995-g27a70c82)。
+- 実行日時: 2026-11-14T00:33:49.971437+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -3361,6 +3410,16 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 3因子の合格確認済み組合せ: 18/24。
   - 必須ケース: 5/7。
   - ケース状態: pass=18, fail=0, known=6, unsupported=0, stale=0, not_run=0。
+- program_interface_regions:
+  - 2因子の合格確認済み組合せ: 103/131。
+  - 3因子の合格確認済み組合せ: 49/82。
+  - 必須ケース: 5/10。
+  - ケース状態: pass=15, fail=0, known=15, unsupported=0, stale=0, not_run=0。
+- simulation_end_sources:
+  - 2因子の合格確認済み組合せ: 98/110。
+  - 3因子の合格確認済み組合せ: 84/95。
+  - 必須ケース: 7/10。
+  - ケース状態: pass=38, fail=0, known=4, unsupported=0, stale=0, not_run=0。
 - aggregate_literal_key:
   - 2因子の合格確認済み組合せ: 0/104。
   - 必須ケース: 0/7。
@@ -3368,8 +3427,8 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
 
 ### results/kirimasim.json
 
-- 環境: kirimasim 0.0.0 (commit 6143326137f6), built with GNU 13.3.0。
-- 実行日時: 2026-11-13T00:50:46.988661+00:00。
+- 環境: kirimasim 0.0.0 (commit c093a2a971ec), built with GNU 13.3.0。
+- 実行日時: 2026-11-14T03:22:14.538080+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -3906,6 +3965,16 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 3因子の合格確認済み組合せ: 24/24。
   - 必須ケース: 7/7。
   - ケース状態: pass=24, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_interface_regions:
+  - 2因子の合格確認済み組合せ: 131/131。
+  - 3因子の合格確認済み組合せ: 82/82。
+  - 必須ケース: 10/10。
+  - ケース状態: pass=30, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- simulation_end_sources:
+  - 2因子の合格確認済み組合せ: 110/110。
+  - 3因子の合格確認済み組合せ: 95/95。
+  - 必須ケース: 10/10。
+  - ケース状態: pass=42, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - aggregate_literal_key:
   - 2因子の合格確認済み組合せ: 82/104。
   - 必須ケース: 7/7。
@@ -3913,8 +3982,8 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
 
 ### results/lyra.json
 
-- 環境: Lyra (commit 0d94fc7d2962)。
-- 実行日時: 2026-11-13T06:48:06.998661+00:00。
+- 環境: Lyra (commit 2f842a92f99c)。
+- 実行日時: 2026-11-14T07:31:34.118443+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 111/126。
@@ -4451,6 +4520,16 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 3因子の合格確認済み組合せ: 24/24。
   - 必須ケース: 7/7。
   - ケース状態: pass=24, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- program_interface_regions:
+  - 2因子の合格確認済み組合せ: 131/131。
+  - 3因子の合格確認済み組合せ: 82/82。
+  - 必須ケース: 10/10。
+  - ケース状態: pass=30, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+- simulation_end_sources:
+  - 2因子の合格確認済み組合せ: 110/110。
+  - 3因子の合格確認済み組合せ: 95/95。
+  - 必須ケース: 10/10。
+  - ケース状態: pass=42, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - aggregate_literal_key:
   - 2因子の合格確認済み組合せ: 92/104。
   - 必須ケース: 6/7。
@@ -4458,8 +4537,8 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
 
 ### results/verilator.json
 
-- 環境: Verilator 5.055 devel rev v5.054-236-gab558b4c。
-- 実行日時: 2026-11-13T03:16:33.533367+00:00。
+- 環境: Verilator 5.055 devel rev v5.054-256-gafacb7a6。
+- 実行日時: 2026-11-14T01:25:15.988108+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -4996,6 +5075,16 @@ packageの変数と関数を、モジュールとブロックのwildcard import�
   - 3因子の合格確認済み組合せ: 0/24。
   - 必須ケース: 0/7。
   - ケース状態: pass=0, fail=0, known=24, unsupported=0, stale=0, not_run=0。
+- program_interface_regions:
+  - 2因子の合格確認済み組合せ: 123/131。
+  - 3因子の合格確認済み組合せ: 60/82。
+  - 必須ケース: 6/10。
+  - ケース状態: pass=20, fail=0, known=10, unsupported=0, stale=0, not_run=0。
+- simulation_end_sources:
+  - 2因子の合格確認済み組合せ: 62/110。
+  - 3因子の合格確認済み組合せ: 36/95。
+  - 必須ケース: 4/10。
+  - ケース状態: pass=20, fail=0, known=22, unsupported=0, stale=0, not_run=0。
 - aggregate_literal_key:
   - 2因子の合格確認済み組合せ: 46/104。
   - 必須ケース: 3/7。

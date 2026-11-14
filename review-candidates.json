@@ -1,46 +1,39 @@
 {
  "inputs": {
   "icarus": {
-   "version": "Icarus Verilog version 14.0 (devel) (s20260301-992-gc489c3a2)",
-   "time": "2026-11-13T06:56:19Z",
-   "suite_commit": "67d26cfdbe3799438b00a2117c56689b0be5f446"
+   "version": "Icarus Verilog version 14.0 (devel) (s20260301-995-g27a70c82)",
+   "time": "2026-11-14T07:31:53Z",
+   "suite_commit": "aef04b93c6ebe776c598f3a40474eeea1e88dfec"
   },
   "verilator": {
-   "version": "Verilator 5.055 devel rev v5.054-236-gab558b4c",
-   "time": "2026-11-13T06:56:19Z",
-   "suite_commit": "67d26cfdbe3799438b00a2117c56689b0be5f446"
+   "version": "Verilator 5.055 devel rev v5.054-256-gafacb7a6",
+   "time": "2026-11-14T07:31:53Z",
+   "suite_commit": "aef04b93c6ebe776c598f3a40474eeea1e88dfec"
   },
   "kirimasim": {
-   "version": "kirimasim 0.0.0 (commit 6143326137f6), built with GNU 13.3.0",
-   "time": "2026-11-13T06:56:19Z",
-   "suite_commit": "67d26cfdbe3799438b00a2117c56689b0be5f446"
+   "version": "kirimasim 0.0.0 (commit c093a2a971ec), built with GNU 13.3.0",
+   "time": "2026-11-14T07:31:53Z",
+   "suite_commit": "aef04b93c6ebe776c598f3a40474eeea1e88dfec"
   },
   "lyra": {
-   "version": "Lyra (commit 0d94fc7d2962)",
-   "time": "2026-11-13T06:56:19Z",
-   "suite_commit": "67d26cfdbe3799438b00a2117c56689b0be5f446"
+   "version": "Lyra (commit 2f842a92f99c)",
+   "time": "2026-11-14T07:31:53Z",
+   "suite_commit": "aef04b93c6ebe776c598f3a40474eeea1e88dfec"
   },
   "ghost": {
-   "version": "private build ace38e2ddc53",
-   "time": "2026-11-13T06:56:19Z",
-   "suite_commit": "67d26cfdbe3799438b00a2117c56689b0be5f446"
+   "version": "private build 17224fd34b2f",
+   "time": "2026-11-14T07:31:53Z",
+   "suite_commit": "aef04b93c6ebe776c598f3a40474eeea1e88dfec"
   }
  },
  "candidates": {
   "spec_fail_all": [
    "ch10/test_illegal_force_mixed_driven_variable",
-   "ch11/test_stream_unpack_consumes_left_converts_state_keeps_objects",
    "ch13/test_illegal_constant_function_call_in_constant_context",
-   "ch13/test_ref_static_accepted_actuals",
    "ch20/test_array_query_types_and_invalid",
    "ch20/test_illegal_isunbounded_variable",
    "ch22/test_illegal_begin_keywords_without_end",
    "ch22/test_illegal_line_directive_trailing_comment",
-   "ch23/test_23_extra_uwire_dominates",
-   "ch23/test_23_extra_uwire_warn",
-   "ch23/test_port_collapse_trireg_and_uwire_cells",
-   "ch23/test_port_collapse_wand_uwire_warning",
-   "ch23/test_port_collapse_wor_uwire_warning",
    "ch25/test_illegal_modport_import_default_argument_without_prototype",
    "ch25/test_illegal_modport_import_named_binding_without_prototype",
    "ch25/test_illegal_modport_prototype_unnamed_named_binding",
@@ -58,14 +51,10 @@
    "ch16/test_illegal_final_deferred_postponed_call",
    "ch20/test_illegal_bits_function_dynamic_return",
    "ch20/test_illegal_timeformat_unit_out_of_range",
-   "ch23/test_port_collapse_supply_cells",
    "ch4/test_illegal_final_deferred_action_schedules_event"
   ],
   "spec_no_pass": [
    "ch10/test_illegal_user_nettype_assignment_two_delays",
-   "ch16/test_assertion_clock_expressions_global_clock",
-   "ch16/test_assertion_dist_as_inside",
-   "ch16/test_ch16_sim_checker_inference",
    "ch16/test_ch16_sim_multiclock_init",
    "ch16/test_illegal_assertion_clocking_input_not_1step",
    "ch16/test_illegal_assertion_function_keeps_state",
@@ -76,14 +65,8 @@
    "ch18/test_illegal_constraint_function_mode",
    "ch18/test_illegal_constraint_function_state",
    "ch18/test_illegal_randsequence_negative_weight",
-   "ch18/test_soft_priority_layers",
    "ch19/test_cg_four_state_literal_wildcard_enum",
-   "ch20/test_assertcontrol_callbacks_selected",
-   "ch20/test_assertcontrol_callbacks_system",
    "ch21/test_illegal_value_plusargs_bad_format",
-   "ch23/test_interconnect_port_inheritance_typeless",
-   "ch23/test_port_collapse_net_delay",
-   "ch23/test_port_collapse_trireg",
    "ch30/test_illegal_edge_parallel_path_vector_destination",
    "ch30/test_illegal_pathpulse_error_below_reject",
    "ch30/test_illegal_pulsestyle_ondetect_after_path",
@@ -97,56 +80,28 @@
    "ch31/test_illegal_setup_limit_negative",
    "ch31/test_illegal_setuphold_negative_sum",
    "ch31/test_illegal_timing_condition_two_signals",
-   "ch33/test_vpi_module_binding_properties",
-   "ch33/test_vpi_module_config_name",
-   "ch36/test_vpi_compatibility_1800v2017_mode",
-   "ch36/test_vpi_compatibility_1800v2023_mode",
-   "ch36/test_vpi_interface_decl_class_current_mode",
-   "ch36/test_vpi_systf_argument_on_demand",
-   "ch36/test_vpi_systf_function_types",
-   "ch36/test_vpi_systf_override_signed_width",
-   "ch36/test_vpi_variable_arrays_1800v2005_mode",
-   "ch36/test_vpi_variable_arrays_1800v2009_mode",
    "ch37/test_vpi_attribute_ports_params",
-   "ch37/test_vpi_class_object_members",
-   "ch37/test_vpi_class_relations_scope_typespec",
-   "ch37/test_vpi_class_specialization_members",
-   "ch37/test_vpi_class_specialization_types",
-   "ch37/test_vpi_constraint_iteration",
-   "ch37/test_vpi_constraint_orderings_dists",
-   "ch37/test_vpi_named_event_waiters_lifetime",
    "ch37/test_vpi_program_interface_relations",
    "ch37/test_vpi_struct_and_tagged_patterns",
-   "ch37/test_vpi_struct_union_flags_members",
-   "ch37/test_vpi_sys_func_call_value_info",
-   "ch37/test_vpi_type_constants_more",
-   "ch37/test_vpi_udp_defn_entries",
-   "ch37/test_vpi_udp_table_primitive",
-   "ch38/test_vpi_handle_by_multi_index",
-   "ch38/test_vpi_put_value_udp_array_errors",
-   "ch38/test_vpi_systf_function_result_kinds",
    "ch39/test_vpi_assertion_cover_no_failure",
-   "ch4/test_pli_slot_entry_regions_run_once",
-   "ch40/test_vpi_coverage_cover_sequence",
+   "ch39/test_vpi_assertion_system_task_control",
    "ch7/test_illegal_string_in_untagged_union",
    "ch7/test_illegal_unique_index_without_with_struct_elements",
    "ch7/test_illegal_unique_without_with_struct_elements"
   ],
   "oracle_ghost_lyra": [
    "ch11/test_illegal_unsized_constant_in_concatenation",
+   "ch15/test_ipc_classes_extended_shadowed_and_created",
    "ch17/test_illegal_checker_writes_input",
    "ch18/test_rand_enum_solver_finds_solution",
    "ch19/test_illegal_cg_transition_length_zero",
    "ch22/test_illegal_directive_split_across_lines",
    "ch22/test_illegal_include_line_trailing_code",
    "ch23/test_illegal_scope_duplicate_in_unselected_generate",
-   "ch23/test_port_collapse_uwire_external_delay",
    "ch26/test_illegal_package_imported_before_compiled",
    "ch7/test_illegal_dynamic_new_nonblocking_assignment",
    "ch8/test_illegal_instance_constant_assigned_twice",
-   "ch9/test_illegal_automatic_variable_as_sequence_event_argument",
-   "gen/ch21/test_gen_cross_litfmt_fill_b_display_param",
-   "gen/ch5/test_gen_cross_literal_fill_unsigned_unsized_one_add_signed_logic_65"
+   "ch9/test_illegal_automatic_variable_as_sequence_event_argument"
   ]
  },
  "spec_only_clauses": [
@@ -997,10 +952,6 @@
   {
    "clause": "40.3.2.1",
    "tests": 32
-  },
-  {
-   "clause": "24.3.2",
-   "tests": 39
   },
   {
    "clause": "15.5.5.2",

@@ -6,9 +6,9 @@
 
 This report is only for registered finite models. The coverage of the requirements and the combination of all languages is not the same. The coverage on the plan and the confirmation of the pass based on the execution result are divided. The existing test is not reduced. A reduction in selected case count is not a measured reduction in runtime.
 
-For the source, use, and limits of application, see [Import procedure](https://github.com/kurochan001/kirimasim-tests/blob/67d26cfdbe3799438b00a2117c56689b0be5f446/docs/interaction-verification.en.md).
+For the source, use, and limits of application, see [Import procedure](https://github.com/kurochan001/kirimasim-tests/blob/aef04b93c6ebe776c598f3a40474eeea1e88dfec/docs/interaction-verification.en.md).
 
-See [a 4-row example](https://github.com/kurochan001/kirimasim-tests/blob/67d26cfdbe3799438b00a2117c56689b0be5f446/docs/faq.en.md#q28-why-not-simply-cross-every-feature) for what 100% of 2-factor coverage establishes, and [passing-execution satisfaction](https://github.com/kurochan001/kirimasim-tests/blob/67d26cfdbe3799438b00a2117c56689b0be5f446/docs/faq.en.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution) for the difference between the plan and actual PASS.
+See [a 4-row example](https://github.com/kurochan001/kirimasim-tests/blob/aef04b93c6ebe776c598f3a40474eeea1e88dfec/docs/faq.en.md#q28-why-not-simply-cross-every-feature) for what 100% of 2-factor coverage establishes, and [passing-execution satisfaction](https://github.com/kurochan001/kirimasim-tests/blob/aef04b93c6ebe776c598f3a40474eeea1e88dfec/docs/faq.en.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution) for the difference between the plan and actual PASS.
 
 ## scheduling_visibility / model 1
 
@@ -2254,6 +2254,45 @@ Write binary, octal, hexadecimal and decimal literals with ?, z or x digits as c
 
 Constraints: The selector is logic [ 7:0 ], checked against one item with one kind of ?, z or x digit and a default. The item is a binary, octal, hexadecimal or decimal literal, led by the wildcard digit or a known digit, narrower than, as wide as or wider than the selector, or unsized. A literal led by the wildcard digit is padded with that value to its size. The case then extends everything to the widest expression, and the upper bits are zero. One program compares in turn a value with the wildcard positions filled with known bits, one with a known bit flipped, ones with a known bit made z or x, and the four-state bits of the item itself. A decimal number may hold only one x, z or ? digit, so it is always led by the wildcard. Two hexadecimal digits do not fit the narrow width, so those rows are left out.
 
+## program_interface_regions / model 1
+
+- The number of combinations satisfying the constraint is 480.
+- Existing and new tests available: 30.
+- Selected cases for focused execution: 30.
+- Mandatory cases retained individually: 10.
+- Planned 2-factor coverage: 131/131.
+- Planned 3-factor coverage: 82/82.
+
+At time 5 a program or a module writes a variable of an interface with a blocking or NBA assignment, directly, from an interface task, from a task that writes after # 0, from a void function or through its own task, reaching it through a port, a modport or a hierarchical name. The reads right after the write, after # 0 and 1 later, and the progress seen by an always, always_comb, continuous assignment or NBA reaction in the interface or in a module that takes it, show the region sets of the write and of the reaction.
+
+- caller: program, module。
+- route: port, modport, hier。
+- action: direct, task, delayed, function, wrapper。
+- write: blocking, nba。
+- reactor: always, comb, assign, nba。
+- place: interface, module。
+
+Constraints: The caller is a program or a module, and it writes the interface variable x at time 5. It writes directly, from an interface task, from an interface task that writes after # 0, from a void function, or from an interface task called through a task of the caller, each with a blocking or NBA assignment. The interface is reached through a port, a modport or a hierarchical name. A virtual interface is left out of the routes because kirimasim has not implemented it, and is added once it is implemented. The design side that reacts to x is an always, always_comb, continuous assignment or NBA always procedure, in the interface or in a module that takes the interface. The reaction writes y, and an observer that waits from time 1 counts the changes of y and records the progress at that moment. The progress is 1 before the write and 2 after # 0, so only for a blocking write from a module does the reaction, which runs before # 0, see 1. Reading y right after a write from a module would give an undetermined value because of the interruption of 4.7, so that read is placed only for a program.
+
+## simulation_end_sources / model 1
+
+- The number of combinations satisfying the constraint is 288.
+- Existing and new tests available: 42.
+- Selected cases for focused execution: 42.
+- Mandatory cases retained individually: 10.
+- Planned 2-factor coverage: 110/110.
+- Planned 3-factor coverage: 95/95.
+
+At time 5, $finish, $fatal or $exit is called from an initial or always procedure, a forked child, a task or a function, in the top module, a child instance or a nested program. The final procedure shows the end time and the writes scheduled before and after it, and the exit code shows that a later $fatal does not run.
+
+- ender: finish, fatal, exit。
+- site: initial, always, fork, task, function。
+- trigger: delay, event, change。
+- scope: top, child, program。
+- second: none, finish, fatal。
+
+Constraints: The end is requested at time 5 by $finish, $fatal or $exit. The call is made from an initial or always procedure, a child forked with join_none, a task or a function, which waits until time 5 on a delay, an event or a variable change. The caller is in the top module, in a child instance or in a nested program. A program holds no always procedure (24.3), so that combination is left out. $exit is called only from a program. A $exit from a module thread is an implicit $finish after every program completes by 20.2, and is ignored by 24.7, so the result would depend on the reading. The design has a write at time 3, a clock on even times, a delay and an event at time 7, end number 2 at time 8, and writes 1 unit after the call in the calling thread and 20 units into the parent; no other process runs at time 5. Statements that run after the call in the same time step are not observed, since the standard does not settle them. There is one final procedure only, since the order of final procedures is not fixed.
+
 ## aggregate_literal_key / model 1
 
 - The number of combinations satisfying the constraint is 192.
@@ -2278,8 +2317,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/ghost.json
 
-- Environment: private build ace38e2ddc53.
-- Execution timestamp: 2026-11-13T01:38:16.693840+00:00.
+- Environment: private build 17224fd34b2f.
+- Execution timestamp: 2026-11-14T01:14:27.940685+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -2561,10 +2600,10 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 4/4.
   - Case statuses: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - array_reduction_constraint:
-  - The confirmed combination of the 2 factor: 83/96.
-  - The confirmed combination of the 3 factor: 26/40.
+  - The confirmed combination of the 2 factor: 86/96.
+  - The confirmed combination of the 3 factor: 29/40.
   - Mandatory case: 3/4.
-  - Case statuses: pass=9, fail=4, known=0, unsupported=0, stale=0, not_run=0.
+  - Case statuses: pass=10, fail=3, known=0, unsupported=0, stale=0, not_run=0.
 - associative_array_queries:
   - The confirmed combination of the 2 factor: 93/93.
   - The confirmed combination of the 3 factor: 54/54.
@@ -2641,10 +2680,10 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 6/6.
   - Case statuses: pass=33, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - deferred_disable_reports:
-  - The confirmed combination of the 2 factor: 137/151.
-  - The confirmed combination of the 3 factor: 76/92.
-  - Mandatory case: 8/10.
-  - Case statuses: pass=25, fail=6, known=0, unsupported=0, stale=0, not_run=0.
+  - The confirmed combination of the 2 factor: 151/151.
+  - The confirmed combination of the 3 factor: 92/92.
+  - Mandatory case: 10/10.
+  - Case statuses: pass=31, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - event_rebinding:
   - The confirmed combination of the 2 factor: 138/138.
   - The confirmed combination of the 3 factor: 69/69.
@@ -2731,10 +2770,10 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 6/6.
   - Case statuses: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - literal_context_extension:
-  - The confirmed combination of the 2 factor: 299/303.
-  - The confirmed combination of the 3 factor: 145/148.
-  - Mandatory case: 7/8.
-  - Case statuses: pass=65, fail=1, known=0, unsupported=0, stale=0, not_run=0.
+  - The confirmed combination of the 2 factor: 303/303.
+  - The confirmed combination of the 3 factor: 148/148.
+  - Mandatory case: 8/8.
+  - Case statuses: pass=66, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - gate_array_connection:
   - The confirmed combination of the 2 factor: 278/278.
   - The confirmed combination of the 3 factor: 135/135.
@@ -2763,18 +2802,18 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 6/6.
   - Case statuses: pass=55, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - literal_format_display:
-  - The confirmed combination of the 2 factor: 299/301.
+  - The confirmed combination of the 2 factor: 301/301.
   - Mandatory case: 9/9.
-  - Case statuses: pass=90, fail=1, known=0, unsupported=0, stale=0, not_run=0.
+  - Case statuses: pass=91, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - parameter_override_type:
   - The confirmed combination of the 2 factor: 120/120.
   - Mandatory case: 8/8.
   - Case statuses: pass=44, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - assertion_vector_query:
-  - The confirmed combination of the 2 factor: 130/138.
-  - The confirmed combination of the 3 factor: 13/15.
-  - Mandatory case: 5/6.
-  - Case statuses: pass=28, fail=2, known=0, unsupported=0, stale=0, not_run=0.
+  - The confirmed combination of the 2 factor: 138/138.
+  - The confirmed combination of the 3 factor: 15/15.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=30, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - literal_argument_conversion:
   - The confirmed combination of the 2 factor: 169/169.
   - Mandatory case: 8/8.
@@ -2807,15 +2846,25 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 7/7.
   - Case statuses: pass=29, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - scoped_class_declaration:
-  - The confirmed combination of the 2 factor: 95/100.
-  - The confirmed combination of the 3 factor: 46/48.
-  - Mandatory case: 6/7.
-  - Case statuses: pass=46, fail=2, known=0, unsupported=0, stale=0, not_run=0.
+  - The confirmed combination of the 2 factor: 100/100.
+  - The confirmed combination of the 3 factor: 48/48.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - case_literal_wildcard:
   - The confirmed combination of the 2 factor: 112/112.
   - The confirmed combination of the 3 factor: 24/24.
   - Mandatory case: 7/7.
   - Case statuses: pass=24, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- program_interface_regions:
+  - The confirmed combination of the 2 factor: 76/131.
+  - The confirmed combination of the 3 factor: 27/82.
+  - Mandatory case: 3/10.
+  - Case statuses: pass=8, fail=22, known=0, unsupported=0, stale=0, not_run=0.
+- simulation_end_sources:
+  - The confirmed combination of the 2 factor: 110/110.
+  - The confirmed combination of the 3 factor: 95/95.
+  - Mandatory case: 10/10.
+  - Case statuses: pass=42, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - aggregate_literal_key:
   - The confirmed combination of the 2 factor: 104/104.
   - Mandatory case: 7/7.
@@ -2823,8 +2872,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/icarus.json
 
-- Environment: Icarus Verilog version 14.0 (devel) (s20260301-992-gc489c3a2).
-- Execution timestamp: 2026-11-13T00:41:04.069506+00:00.
+- Environment: Icarus Verilog version 14.0 (devel) (s20260301-995-g27a70c82).
+- Execution timestamp: 2026-11-14T00:33:49.971437+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -3361,6 +3410,16 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 18/24.
   - Mandatory case: 5/7.
   - Case statuses: pass=18, fail=0, known=6, unsupported=0, stale=0, not_run=0.
+- program_interface_regions:
+  - The confirmed combination of the 2 factor: 103/131.
+  - The confirmed combination of the 3 factor: 49/82.
+  - Mandatory case: 5/10.
+  - Case statuses: pass=15, fail=0, known=15, unsupported=0, stale=0, not_run=0.
+- simulation_end_sources:
+  - The confirmed combination of the 2 factor: 98/110.
+  - The confirmed combination of the 3 factor: 84/95.
+  - Mandatory case: 7/10.
+  - Case statuses: pass=38, fail=0, known=4, unsupported=0, stale=0, not_run=0.
 - aggregate_literal_key:
   - The confirmed combination of the 2 factor: 0/104.
   - Mandatory case: 0/7.
@@ -3368,8 +3427,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/kirimasim.json
 
-- Environment: kirimasim 0.0.0 (commit 6143326137f6), built with GNU 13.3.0.
-- Execution timestamp: 2026-11-13T00:50:46.988661+00:00.
+- Environment: kirimasim 0.0.0 (commit c093a2a971ec), built with GNU 13.3.0.
+- Execution timestamp: 2026-11-14T03:22:14.538080+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -3906,6 +3965,16 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 24/24.
   - Mandatory case: 7/7.
   - Case statuses: pass=24, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- program_interface_regions:
+  - The confirmed combination of the 2 factor: 131/131.
+  - The confirmed combination of the 3 factor: 82/82.
+  - Mandatory case: 10/10.
+  - Case statuses: pass=30, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- simulation_end_sources:
+  - The confirmed combination of the 2 factor: 110/110.
+  - The confirmed combination of the 3 factor: 95/95.
+  - Mandatory case: 10/10.
+  - Case statuses: pass=42, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - aggregate_literal_key:
   - The confirmed combination of the 2 factor: 82/104.
   - Mandatory case: 7/7.
@@ -3913,8 +3982,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/lyra.json
 
-- Environment: Lyra (commit 0d94fc7d2962).
-- Execution timestamp: 2026-11-13T06:48:06.998661+00:00.
+- Environment: Lyra (commit 2f842a92f99c).
+- Execution timestamp: 2026-11-14T07:31:34.118443+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 111/126.
@@ -4451,6 +4520,16 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 24/24.
   - Mandatory case: 7/7.
   - Case statuses: pass=24, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- program_interface_regions:
+  - The confirmed combination of the 2 factor: 131/131.
+  - The confirmed combination of the 3 factor: 82/82.
+  - Mandatory case: 10/10.
+  - Case statuses: pass=30, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- simulation_end_sources:
+  - The confirmed combination of the 2 factor: 110/110.
+  - The confirmed combination of the 3 factor: 95/95.
+  - Mandatory case: 10/10.
+  - Case statuses: pass=42, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - aggregate_literal_key:
   - The confirmed combination of the 2 factor: 92/104.
   - Mandatory case: 6/7.
@@ -4458,8 +4537,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/verilator.json
 
-- Environment: Verilator 5.055 devel rev v5.054-236-gab558b4c.
-- Execution timestamp: 2026-11-13T03:16:33.533367+00:00.
+- Environment: Verilator 5.055 devel rev v5.054-256-gafacb7a6.
+- Execution timestamp: 2026-11-14T01:25:15.988108+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -4996,6 +5075,16 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - The confirmed combination of the 3 factor: 0/24.
   - Mandatory case: 0/7.
   - Case statuses: pass=0, fail=0, known=24, unsupported=0, stale=0, not_run=0.
+- program_interface_regions:
+  - The confirmed combination of the 2 factor: 123/131.
+  - The confirmed combination of the 3 factor: 60/82.
+  - Mandatory case: 6/10.
+  - Case statuses: pass=20, fail=0, known=10, unsupported=0, stale=0, not_run=0.
+- simulation_end_sources:
+  - The confirmed combination of the 2 factor: 62/110.
+  - The confirmed combination of the 3 factor: 36/95.
+  - Mandatory case: 4/10.
+  - Case statuses: pass=20, fail=0, known=22, unsupported=0, stale=0, not_run=0.
 - aggregate_literal_key:
   - The confirmed combination of the 2 factor: 46/104.
   - Mandatory case: 3/7.
