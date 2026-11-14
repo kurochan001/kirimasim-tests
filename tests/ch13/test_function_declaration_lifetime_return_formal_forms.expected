@@ -1,0 +1,7 @@
+static lifetime: 1 2
+automatic lifetime: 1 1
+implicit signed [3:0]: -4 bits=4
+implicit scalar: 1 bits=1
+void: last_note=9
+body formals: 34
+ansi formals: 5

@@ -1,0 +1,9 @@
+module inside: a=10 b=11 r=5
+module outside: q=11 b=5a r=105
+interface inside: a=20 b=22 r=6
+interface outside: q=22 b=6b r=206
+program inside: a=30 b=33 r=7
+program outside: q=33 b=7c r=307
+primitive: y=1
+primitive: y=0
+top's own: a=200 q=201 b=202 r=900

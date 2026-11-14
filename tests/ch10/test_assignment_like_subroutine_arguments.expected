@@ -1,0 +1,6 @@
+input pattern: 304
+input braces: 313
+output pattern: h1=4 l1=3
+output array pattern: e0=51 e1=52
+inout pattern: h2=21 l2=40
+inout array pattern: r0=30 r1=40 r2=120

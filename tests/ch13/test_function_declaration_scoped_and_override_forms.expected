@@ -1,0 +1,4 @@
+interface port function: 15
+class scope: area=16
+:extends: kind=2
+:initial :final: extra=30

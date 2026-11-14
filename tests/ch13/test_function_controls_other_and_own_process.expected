@@ -1,0 +1,4 @@
+t=1 pk=KILLED ps=SUSPENDED
+t=6 pm=KILLED fn_after=0 caller_after=0
+t=6 k_done=0 s_time=-1 ps=SUSPENDED
+t=7 s_time=6 ps=FINISHED

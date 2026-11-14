@@ -4,7 +4,7 @@
 
 [English](ch3.md) / [日本語](ch3.ja.md)
 
-[すべての章](README.ja.md) .テストは136本で、そのうち48本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは144本で、そのうち48本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -60,8 +60,16 @@
 | [`test_unit_variables`](../../tests/ch3/test_unit_variables.sv) |コンパイルユニットスコープで宣言された変数は静的で、タイム 0 より前の初期化子から始まり、それらを名付けたすべてのモジュールで共有されます。| 3.12.1 6.21 26.3 | Icarus Verilog 13.0 ||
 | [`test_attribute_namespace`](../../tests/ch3/test_attribute_namespace.sv) |属性名は属性インスタンス分離子の名前空間に属するので、同じ属性名をモジュール、変数、ネットで名前の衝突なしに使用でき、属性の値は変わりません。| 3.13 5.12 | Icarus Verilog 13.0 ||
 | [`test_element_and_block_name_spaces`](../../tests/ch3/test_element_and_block_name_spaces.sv) |各モジュール、インタフェース、パッケージはそれぞれの種類のアイテムに対して独自の名前空間を持ち、名前付けブロック、名前なしブロック、関数、タスクはそれぞれローカルな名前空間を有し、それぞれに同じ名前を宣言できる。| 3.13 |規格のみ||
+| [`test_illegal_definition_name_interface_reused_by_program`](../../tests/ch3/test_illegal_definition_name_interface_reused_by_program.sv) |他のすべての宣言の外で定義した interface と program は、どちらの名前も定義の名前空間にあるので、同じ名前を持つことができない| 3.13 | Icarus Verilog 13.0 |規格違反の設計|
+| [`test_illegal_definition_name_module_reused_in_other_file`](../../tests/ch3/test_illegal_definition_name_module_reused_in_other_file.sv) |あるソースファイルで定義した module と、別のソースファイルで他のすべての宣言の外に定義した interface は、compilation unit の分け方にかかわらず、どちらの名前も設計に1つしかない定義の名前空間にあるので、同じ名前を持つことができない| 3.13 | Icarus Verilog 13.0 |違法な設計 複数のファイル|
+| [`test_illegal_definition_name_primitive_reused_by_module`](../../tests/ch3/test_illegal_definition_name_primitive_reused_by_module.sv) |他のすべての宣言の外で定義した primitive と module は、どちらの名前も定義の名前空間にあるので、同じ名前を持つことができない| 3.13 |規格のみ|規格違反の設計|
+| [`test_illegal_definition_name_program_reused_by_primitive`](../../tests/ch3/test_illegal_definition_name_program_reused_by_primitive.sv) |他のすべての宣言の外で定義した program と primitive は、どちらの名前も定義の名前空間にあるので、同じ名前を持つことができない| 3.13 |規格のみ|規格違反の設計|
+| [`test_illegal_package_name_reused_in_other_file`](../../tests/ch3/test_illegal_package_name_reused_in_other_file.sv) |package 名はすべての compilation unit に共通の1つの package 名前空間にあるので、2つの package は別々のソースファイルで定義しても同じ名前を持つことができない| 3.13 |規格のみ|違法な設計 複数のファイル|
 | [`test_name_spaces`](../../tests/ch3/test_name_spaces.sv) |同じ識別子はモジュール、パッケージ、テキストマクロ、モジュールの変数、ブロックの変数の名前を付けることができます。| 3.13 26.3 22.5.1 23.6 |規格のみ||
+| [`test_port_kinds_connect_two_name_spaces`](../../tests/ch3/test_port_kinds_connect_two_name_spaces.sv) |module・interface・program・primitive のポートは、両側がどんな名前を使っていても、インスタンス化する側のスコープの物体をインスタンスのポートに結ぶ。input・output ポートは値を一方向に、inout・ref ポートは双方向に運び、primitive は output・input ポートを持つ| 3.13 23.3.3 |規格のみ| x/z |
+| [`test_port_redeclared_as_net_or_variable`](../../tests/ch3/test_port_redeclared_as_net_or_variable.sv) |module・interface・program・primitive では、ネット・変数の型を持たない宣言のポートを同名のネット・変数として宣言し直すことができ、その宣言がポートの種類と符号の有無を決める| 3.13 23.2.2.1 | Icarus Verilog 13.0 ||
 | [`test_same_class_name_in_two_scopes`](../../tests/ch3/test_same_class_name_in_two_scopes.sv) |2 つのモジュールまたはパッケージで同じ名前を宣言したクラスは異なるクラスです。| 3.13 26.3 8.9 | Verilator 5.052 ||
+| [`test_unit_scope_name_space_item_kinds`](../../tests/ch3/test_unit_scope_name_space_item_kinds.sv) |すべての設計要素の外で宣言した function・task・checker・parameter・named event・ネット・変数・ユーザ定義型は compilation-unit の名前空間に属するので、モジュールはそれぞれを単純名で使って1つの物体を共有し、モジュール自身の同名の宣言は別の物体になる| 3.13 3.12.1 | Verilator 5.054 ||
 | [`test_delay_scaled_by_unit_rounded_by_precision`](../../tests/ch3/test_delay_scaled_by_unit_rounded_by_precision.sv) |同じ遅延リテラルは異なる時間単位を持つモジュールで異なる時間を待ち、遅延はそのモジュールの時間精度に丸められます。#1.26は1ns、12.6nsまたは13nsであり、#0.0237と#0.0251は10nsの精度で20nsと30nsです。| 3.14 3.14.1 3.14.2.2 | Icarus Verilog 13.0 ||
 | [`test_illegal_timeprecision_coarser_than_timeunit`](../../tests/ch3/test_illegal_timeprecision_coarser_than_timeunit.sv) |時間精度宣言が時間単位宣言より粗いモジュールは拒否されます。| 3.14 3.14.2.2 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_time_unit_strings_scale_by_1000`](../../tests/ch3/test_time_unit_strings_scale_by_1000.sv) |18モジュール、1 , 10または100秒、ms、us、ns、psまたはfsの各時間単位に対して1つ、待機#1;ユニット 1fs のモジュールは 各待ち時間が終わったときに フェムト秒数に合った数の ユニット文字列 1000 を次の小さいものに乗じて| 3.14 3.14.2.2 | Icarus Verilog 13.0 ||

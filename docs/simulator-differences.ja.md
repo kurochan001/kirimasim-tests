@@ -56,6 +56,7 @@
 | 29.3.2 |出力をregと宣言した組合せUDPでは、エラーを報告せず、内部アサーションで停止する。| `ch29/test_illegal_udp_combinational_reg` |
 | 6.21, 7.5 |ダイナミック配列の要素に対する連続的な代入は，エラーを報告する代わりに内部のアサーションで停止させる。| `ch6/test_illegal_dynamic_array_element_continuous` |
 | 13.4.4 |join_none のフォークが遅延を伴うプロセスを生成する関数は、その関数が遅延を持っているかのように拒否されます。起動したプロセスには、タスクで許される任意の文を含められる。| `ch4/test_sched_fork_join_none_in_function` |
+| 20.10.1 |エラボレーション時の重大度タスクの引数にある定数関数の呼出しを、定数でないとして拒否する。テストが示す変数の引数も拒否するので、テストには`iverilog@13.0`を付けている。| `ch20/test_illegal_elaboration_severity_nonconstant_argument` |
 | 9.6.3 |タスク内のdisable forkは、呼出し元プロセスが呼出し前に起動したプロセスを終了させない。| `ch4/test_sched_disable_fork_in_called_task` |
 | 21.2.1.3 |関数呼出しなどの式に対する`%h`は、最上位の桁が4ビット未満で、そのビットがすべてxの場合、xではなくXを出力する。同じ値の変数は x を出力します| `gen/ch13/test_gen_wide_subroutine_w65_4state` |
 | 7.4.5, 11.5.1 |`m[i][7:0] = v`のように、可変添字で指定したpacked配列の要素の部分選択への書き込みを拒否し（"Array index expressions must be constant here"）、内部アサーションで停止します。|7 `gen/ch7/test_gen_wide_select_*_2state` テストを|
@@ -89,6 +90,7 @@
 | 23.10.4.2 |generateブロックのエラボレーション後に、階層名が別のパラメータへ解決されるdefparam| `ch23/test_illegal_defparam_early_resolution` |
 | 30.7.4.2 |モジュールパスの後に置き、そのパスの出力を指定するshowcancelled宣言| `ch30/test_illegal_showcancelled_after_path` |
 | 24.3, 24.5 |プログラムの変数を読み込むモジュールと、プログラムのタスクを呼び出すモジュール| `ch24/test_illegal_program_signal_from_module`, `ch24/test_illegal_module_calls_program_task` |
+| 3.13 |programと同じ名前のprimitive、primitiveと同じ名前のmodule| `ch3/test_illegal_definition_name_program_reused_by_primitive`, `ch3/test_illegal_definition_name_primitive_reused_by_module` |
 | 12.8 |fork-joinブロック内から、そのブロックを囲むループを終了するbreak| `ch12/test_illegal_break_in_fork_to_outer_loop` |
 | 29.3.4, 29.6 |同じ入力に対して異なる出力を与える二つのエントリと、二つの入力に転移を与えるエントリを含むUDPテーブル| `ch29/test_illegal_udp_conflicting_entries`, `ch29/test_illegal_udp_two_transitions_in_entry` |
 | 31.4.4, 31.4.5, 31.4.6 |基準イベントにエッジがない`$width`と`$period`、およびエッジ制御指定子を持つ`$nochange`（タイミングチェックをスキップする）| `ch31/test_illegal_width_reference_not_edge`, `ch31/test_illegal_period_reference_not_edge`, `ch31/test_illegal_nochange_edge_control` |
@@ -1291,3 +1293,9 @@ ch30/test_illegal_specify_path_to_input                           アサーシ�
 2026-11-14から追加するテストは、Verilator 5.054のseed 1と73で実行し、両方が一致してIcarus Verilog 13.0が一致しなければ`verilator@5.054`を付けます。Checkのジョブ`verilator-5054`が5.054で実行し、すべての一致を求めます。
 `tools/lint_metadata.py`は、`:oracle:`にVerilatorのリリースを1つまで認めます。実行カバレッジでは、違反テストをVerilatorの実行で数えるのは、`:oracle:`に書いたリリースの実行の場合だけです。
 5.054のseed 1での最初の実行では、その時点で5.052を記録していた3,060本のうち3,047本が一致しました。残る13本は、移行で全件を5.054で実行し直すときに、条項から判断します。
+
+2026-11-14にテストのない要求のために追加したテストは、Verilator 5.054が規格と次の点で異なることを示します（未対応の構文は、この一覧のほかの節と同じく載せません）。
+
+- 12.4.2.1：unique・unique0・priorityのifの違反を、Observed領域で確定させずに文の実行時に報告するので、flush点で捨てるべき違反も報告する。一致のないpriority ifを報告せず、条件が重なるunique ifではどの分岐も実行しない。`ch12/test_unique_if_report_flush_on_event_or_wait_resume`、`ch12/test_unique_if_report_flush_on_comb_latch_retrigger`
+- 13.4（構文13-3の脚注）：functionの中の`var`のない型参照の変数宣言、クラスの外とinterface classのfunctionの上書き指定子、inoutの仮引数を持つfunctionの`force`での呼出し（副作用の警告だけ）を受け付ける。`ch13/test_illegal_function_local_type_reference_without_var`、`ch13/test_illegal_function_override_specifier_outside_class`、`ch13/test_illegal_function_override_specifier_interface_class`、`ch13/test_illegal_function_inout_arg_in_force`
+- 3.13：定義の名前空間とpackageの名前空間の名前の再使用を、警告MODDUPとするだけで設計をビルドする。`ch3/test_illegal_definition_name_interface_reused_by_program`、`ch3/test_illegal_definition_name_module_reused_in_other_file`、`ch3/test_illegal_definition_name_primitive_reused_by_module`、`ch3/test_illegal_definition_name_program_reused_by_primitive`、`ch3/test_illegal_package_name_reused_in_other_file`

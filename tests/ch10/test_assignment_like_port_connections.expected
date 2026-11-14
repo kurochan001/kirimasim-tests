@@ -1,0 +1,5 @@
+module inputs: hi=3 lo=4, in_a=10 20 30
+interface inputs: hi=4 lo=3, in_a=40 50 60
+program inputs: hi=6 lo=8, in_a=70 80 90
+outputs: module 24 23, interface 53 54, program 88 86
+array outputs: module 30 10, interface 60 40, program 90 70

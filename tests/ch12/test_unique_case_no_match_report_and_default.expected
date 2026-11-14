@@ -1,0 +1,4 @@
+no match:     unique 0 priority 0 unique0 0
+default:      unique 9 priority 9 unique0 9
+match:        unique 2
+wildcard:     priority casez 0 unique casex 0 unique0 casez 0

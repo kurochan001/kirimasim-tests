@@ -1,0 +1,4 @@
+p_ev resumed at 1: r1=1 r2=1 r3=0 r4=0
+p_wait resumed at 1: rw1=1 rw2=0
+p_delay resumed at 1: rd=1
+p_none: rn=1

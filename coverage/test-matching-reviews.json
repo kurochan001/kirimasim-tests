@@ -56213,6 +56213,90 @@
           ]
         }
       ]
+    },
+    {
+      "test": "tests/ch13/test_illegal_function_output_arg_in_event_expression.sv",
+      "inputs_sha256": "4ed38c47783d5182f5d4a9b904a8b341e6c4934f0c49bd03c832ad86aca891ff",
+      "reviewed_on": "2026-11-14",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-13.4-EXTRACT-FUNCTION-WRITABLE-ARG-CONTEXT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "output 仮引数を持つ関数をイベント式で呼ぶ違反（40行目）は照合するが、要求の一部である const ref の例外は観測できない。runner の judge_illegal は正規表現に合うエラー行が1つあれば合格にするので、同じテストの合法な @(value_only(a))（const ref）を誤って拒否するツールも通る。違法系は error の要求にしか結び付けられず、例外を合法系で観測するには normal の要求が必要になる。現在 const ref 関数の合法な呼出しが観測されているのは連続代入の文脈だけ（tests/ch13/test_function_formal_direction_default_and_inheritance.sv の assign y = g_const_ref(m_a, m_b)）で、イベント式の文脈では観測されていない。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_illegal_function_output_arg_in_event_expression.sv",
+              "contains": "initial @(value_only(a)) hits = hits + 1;"
+            },
+            {
+              "file": "tests/ch13/test_illegal_function_output_arg_in_event_expression.sv",
+              "contains": "initial @(value_and_copy(a, copy)) hits = hits + 1;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch13/test_illegal_function_inout_arg_in_force.sv",
+      "inputs_sha256": "f89a73182fca8654fe6a5b9a3264e3dd652018cb4cb0b2235bbf33df7a2c5607",
+      "reviewed_on": "2026-11-14",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-13.4-EXTRACT-FUNCTION-WRITABLE-ARG-CONTEXT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "inout 仮引数を持つ関数を force（手続き的連続代入）の右辺で呼ぶ違反（39行目）は照合するが、要求の一部である const ref の例外は観測できない。runner の judge_illegal は正規表現に合うエラー行が1つあれば合格にするので、同じテストの合法な force v_ok = look(c)（const ref）を誤って拒否するツールも通る。違法系は error の要求にしか結び付けられず、例外を合法系で観測するには normal の要求が必要になる。現在 const ref 関数の合法な呼出しが観測されているのは連続代入の文脈だけ（tests/ch13/test_function_formal_direction_default_and_inheritance.sv の assign y = g_const_ref(m_a, m_b)）で、手続き的連続代入の文脈では観測されていない。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_illegal_function_inout_arg_in_force.sv",
+              "contains": "force v_ok = look(c);"
+            },
+            {
+              "file": "tests/ch13/test_illegal_function_inout_arg_in_force.sv",
+              "contains": "force v_bad = bump(c);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch13/test_illegal_function_ref_arg_in_continuous_assign.sv",
+      "inputs_sha256": "c20354be91863543324163e204bd3379bd51238e9dd525e706e6e807a47ba285",
+      "reviewed_on": "2026-11-14",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-13.4-EXTRACT-FUNCTION-WRITABLE-ARG-CONTEXT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "非 const の ref 仮引数を持つ関数を連続代入（手続き文の外の式）で呼ぶ違反（39行目）は照合するが、要求の一部である const ref の例外は観測できない。runner の judge_illegal は正規表現に合うエラー行が1つあれば合格にするので、同じテストの合法な assign w_ok = twice_cref(src)（const ref）を誤って拒否するツールも通る。違法系は error の要求にしか結び付けられず、例外を合法系で観測するには normal の要求が必要になる。現在 const ref 関数の合法な呼出しが観測されているのはこの連続代入の文脈だけで、それも合法系の tests/ch13/test_function_formal_direction_default_and_inheritance.sv（assign y = g_const_ref(m_a, m_b)、y=34/38）によるもの。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_illegal_function_ref_arg_in_continuous_assign.sv",
+              "contains": "assign w_ok = twice_cref(src);"
+            },
+            {
+              "file": "tests/ch13/test_illegal_function_ref_arg_in_continuous_assign.sv",
+              "contains": "assign w_bad = twice_ref(src);"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

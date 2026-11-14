@@ -1,0 +1,6 @@
+chandle: is_null=1 type=chandle
+virtual interface: sig=77
+virtual interface: after write u_if.sig=5
+class: 42 7
+covergroup: before=0.00
+covergroup: after=50.00

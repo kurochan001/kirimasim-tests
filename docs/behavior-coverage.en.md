@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 90.21%, execution without Ghost 50.21%, execution with Ghost 77.59%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 90.46%, execution without Ghost 50.32%, execution with Ghost 77.77%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 90.21%. Requirement execution-confirmation rate: 50.21% without Ghost, 77.59% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 90.46%. Requirement execution-confirmation rate: 50.32% without Ghost, 77.77% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 11094/12298 ( 90.21% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9542/12298 ( 77.59% ).
-- Registered but not tested: 1204.
+- The requirement coverage (test design) for registered behaviors is 11125/12298 ( 90.46% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9564/12298 ( 77.77% ).
+- Registered but not tested: 1173.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -33,10 +33,10 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 `check_groups` distributes a single request across multiple tests, and is successful only if all tests in the group are successful in the same runtime and run. The unspecified response is an independent alternative proof.
 
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12298 execution checked; 0 entries refer to older inputs.
-- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3084/12298 execution checked; 331 entries refer to older inputs.
-- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2989/12298 execution checked; 331 entries refer to older inputs.
-- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3875/12298 execution checked; 331 entries refer to older inputs.
-- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3587/12298 execution checked; 24 entries refer to older inputs.
+- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3083/12298 execution checked; 332 entries refer to older inputs.
+- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2988/12298 execution checked; 332 entries refer to older inputs.
+- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3874/12298 execution checked; 332 entries refer to older inputs.
+- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3586/12298 execution checked; 25 entries refer to older inputs.
 - `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7913/12298 execution checked; 465 entries refer to older inputs.
 - `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7993/12298 execution checked; 401 entries refer to older inputs.
 - `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7896/12298 execution checked; 465 entries refer to older inputs.
@@ -52,6 +52,10 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `oracle-tokens-3-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T23:13:04.014714+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-3-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:01.978891+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-3-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:03.804411+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
+- `reqgap-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T02:14:23.703451+00:00` / 5/12298 execution checked; 0 entries refer to older inputs.
+- `reqgap-20261114-kirimasim-77c27531.json`: `kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401` / `2026-11-14T02:15:42.861980+00:00` / 15/12298 execution checked; 0 entries refer to older inputs.
+- `reqgap-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:15:04.150898+00:00` / 12/12298 execution checked; 0 entries refer to older inputs.
+- `reqgap-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:15:42.524351+00:00` / 12/12298 execution checked; 0 entries refer to older inputs.
 - `runtime-errors-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-12T01:03:42.109814+00:00` / 0/12298 execution checked; 0 entries refer to older inputs.
 - `runtime-errors-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-12T01:03:42.439195+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
 - `runtime-errors-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T01:03:46.712402+00:00` / 1/12298 execution checked; 0 entries refer to older inputs.
@@ -294,24 +298,24 @@ The number of items is the investigation status of the article by heading. This 
 
 - 1 Overview: No interpretation reservation 12/12, registration 0, test support 0.
 - 2 Normative references: No reservation of interpretation 1/1, registration 2, test compatibility 0.
-- 3 Design and verification building blocks: No interpretation reservation 22/22, registration 146, test support 118.
+- 3 Design and verification building blocks: No interpretation reservation 22/22, registration 146, test support 124.
 - 4 Scheduling semantics: no interpretation reservation 40/40, registration 107, test support 88.
 - 5 Lexical conventions: no interpretation reservation 21/21, registration 154, test support 136.
 - 6 Data types: No interpretation reservation 92/92, registration 719, test support 681.
 - 7 Aggregate data types: no interpretation reservation 61/61, registration 345, test support 322.
 - 8 Classes: No interpretation restrictions 49/49, registration 252, test support 221.
 - 9 Processes: No interpretation reservation 34/34, registration 189, test support 166.
-- 10 Assignment statements: No interpretation reservation 25/25, registration 156, test support 130.
+- 10 Assignment statements: No interpretation reservation 25/25, registration 156, test support 136.
 - 11 Operators and expressions: No interpretation restrictions 55/55, registration 459, test support 434.
-- 12 Procedural programming statements: no interpretation reservation 28/28, registration 115, test support 89.
-- 13 Tasks and functions (subroutines): no interpretation reservation 20/20, registration 119, test support 92.
+- 12 Procedural programming statements: no interpretation reservation 28/28, registration 115, test support 101.
+- 13 Tasks and functions (subroutines): no interpretation reservation 20/20, registration 119, test support 98.
 - 14 Clocking blocks: no interpretation reservation 19/19, registration 87, test support 84.
 - 15 Interprocess synchronization and communication: no interpretation reservation 27/27, registration 88, test support 74.
 - 16 Assertions: No interpretation reservation 82/82, registration 555, test support 539.
 - 17 Checkers: No interpretation reservations 13/13, registration 79, test support 59.
 - 18 Constrained random value generation: 58/58 without pending interpretation issues, 320 registered, 300 mapped to tests.
 - 19 Functional coverage: no interpretation reservation 34/34, registration 271, test support 232.
-- 20 Utility system tasks and system functions: No interpretation reservation 45/45, registration 316, test support 285.
+- 20 Utility system tasks and system functions: No interpretation reservation 45/45, registration 316, test support 286.
 - 21 Input/output system tasks and system functions: no interpretation reservation 65/65, registration 383, test support 347.
 - 22 Compiler directives: 28/28 without pending interpretation issues, 361 registered, 345 mapped to tests.
 - 23 Modules and hierarchy: No interpretation reservation 47/47, registration 260, test support 251.
@@ -1681,7 +1685,7 @@ Normative role: `definition`。
 
 ### SV2023-3.13-EXTRACT-DEFINITION-NAMES
 
-`3.13` / `error` / No mapped test
+`3.13` / `error` / Test mapped; execution unconfirmed
 
 Non-nested module, primitive, program and interface names share a design-wide definition namespace.
 
@@ -1689,6 +1693,10 @@ Acceptance criterion: Reject reusing a top-level definition name for any of thos
 
 Normative role: `mandatory`。
 
+- [test_illegal_definition_name_module_reused_in_other_file.sv](../tests/ch3/test_illegal_definition_name_module_reused_in_other_file.sv): The interface dn_file_name at the top level of the test file reuses the name of the module dn_file_name in definition_name_module_first.sv, which is compiled first. Matches the error on line 30 (or on line 4 of the other definition).
+- [test_illegal_definition_name_interface_reused_by_program.sv](../tests/ch3/test_illegal_definition_name_interface_reused_by_program.sv): Defines program dn_ip_name after interface dn_ip_name at the top level of the same file. Matches the error on line 30 (or line 26).
+- [test_illegal_definition_name_program_reused_by_primitive.sv](../tests/ch3/test_illegal_definition_name_program_reused_by_primitive.sv): Defines the buffer UDP primitive dn_pp_name after program dn_pp_name at the top level of the same file. Matches the error on line 32 (or line 28).
+- [test_illegal_definition_name_primitive_reused_by_module.sv](../tests/ch3/test_illegal_definition_name_primitive_reused_by_module.sv): Defines module dn_pm_name after the inverter UDP primitive dn_pm_name at the top level of the same file. Matches the error on line 36 (or line 28).
 
 ### SV2023-3.13-EXTRACT-ELEMENT-NAMESPACE
 
@@ -1740,7 +1748,7 @@ Normative role: `mandatory`。
 
 ### SV2023-3.13-EXTRACT-PACKAGE-NAMES
 
-`3.13` / `error` / No mapped test
+`3.13` / `error` / Test mapped; execution unconfirmed
 
 Package names occupy a separate design-wide namespace.
 
@@ -1748,10 +1756,11 @@ Acceptance criterion: Reject declaring two packages with the same name across an
 
 Normative role: `mandatory`。
 
+- [test_illegal_package_name_reused_in_other_file.sv](../tests/ch3/test_illegal_package_name_reused_in_other_file.sv): The :files: file package_name_first.sv (compiled first) defines package pn_file_pkg, and the test file defines a package of the same name, pn_file_pkg, again. Whether the 2 files form 1 compilation unit or 2 is left to the tool, but either way it is a violation. :expected_stderr_regex: matches the error on the line of definition 2 (line 31) or on the line of definition 1 (line 4 of package_name_first.sv). Distinguishing observation: An implementation that does not put package names in 1 name space shared by all compilation units (one that gives each file or compilation unit its own name space, or lets the later definition override the earlier one) accepts the design, so this test fails. Verilator 5.052 accepts it with only the warning MODDUP.
 
 ### SV2023-3.13-EXTRACT-PORT-DIRECTIONS
 
-`3.13` / `normal` / No mapped test
+`3.13` / `normal` / Execution confirmed
 
 Port declarations use input, output, inout or ref connection categories where the construct-specific rules allow them.
 
@@ -1759,10 +1768,11 @@ Acceptance criterion: Port declarations use input, output, inout or ref connecti
 
 Normative role: `definition`。
 
+- [test_port_kinds_connect_two_name_spaces.sv](../tests/ch3/test_port_kinds_connect_two_name_spaces.sv): Uses the 4 kinds of ports of a module, an interface and a program (input a, output q = a + k, inout net b, ref int r) and the output q / input a, b of a primitive. In each window B (0, 10, 20), at B+ 1 the top writes 5/6/7 to the variable on the ref port; at B+ 2 the inside displays a (the top's value), b (the top's drive 11/22/33) and r; at B+ 3 the top stops driving b, the inside drives 5a / 6b / 7c and adds 100/200/300 to r; and at B+ 4 the top displays its variables for q, b and r. The primitive displays y = 1 with its inputs at 1,1, and y = 0 with en2 = 0. Distinguishing observation: If input does not carry the value inward, "module inside: a = 10" and the like change; if output does not carry it outward, "module outside: q = 11" and the like change. An incorrect implementation that makes inout one-way either does not show b = 11/22/33 inside or does not show b = 5a / 6b / 7c at the top. An incorrect implementation that makes ref a one-way connection like input does not return the values added inside to the top, so "r = 105", "r = 206" and "r = 307" stay 5/6/7; an incorrect implementation that makes it a connection like output cannot read inside the values the top wrote, so "r = 5", "r = 6" and "r = 7" change. If the output and input of the primitive do not work, "primitive: y = 1" and "primitive: y = 0" change.
 
 ### SV2023-3.13-EXTRACT-PORT-NAMESPACE
 
-`3.13` / `normal` / No mapped test
+`3.13` / `normal` / Execution confirmed
 
 Module, interface, primitive and program ports introduce a port namespace describing connections between scopes.
 
@@ -1770,10 +1780,11 @@ Acceptance criterion: Module, interface, primitive and program ports introduce a
 
 Normative role: `definition`。
 
+- [test_port_kinds_connect_two_name_spaces.sv](../tests/ch3/test_port_kinds_connect_two_name_spaces.sv): To the instances of module pk_mod, interface pk_if and program pk_prog (ports a, q, b, r) and primitive pk_and (ports q, a, b), the top connects, by name and by position, objects with other names (m_in / m_out / m_bus / m_ref and so on, y/ en1 / en2), and the top has variables with the same names as the ports, a = 200, q = 201, b = 202, r = 900. Displays the values seen through the port names inside each instance (a = 10/20/30, b = 11/22/33, r = 5/6/7), the values that appear on the connected objects in the top, the output y of the primitive, and finally that the top's variables of the same names have not changed. Distinguishing observation: In an incorrect implementation that does not treat ports as a port name space linking objects of 2 scopes and resolves them by name (a port name inside refers to the top's variable of the same name, or a connection changes the top's variable of the same name), "module inside: a = 10 b = 11 r = 5" becomes a = 200 and so on, "top's own: a = 200 q = 201 b = 202 r = 900" changes, and if the primitive uses the top's a, b (200, 202, least significant bit 0), "primitive: y = 1" becomes y = 0. If the connections are not made, the values on the top side such as "module outside: q = 11 b = 5a r = 105" change.
 
 ### SV2023-3.13-EXTRACT-PORT-REINTRODUCTION
 
-`3.13` / `normal` / No mapped test
+`3.13` / `normal` / Execution confirmed
 
 A port name can be reintroduced by a net or variable declaration in the enclosing element namespace when port declaration rules permit it.
 
@@ -1781,10 +1792,11 @@ Acceptance criterion: A port name can be reintroduced by a net or variable decla
 
 Normative role: `permission`。
 
+- [test_port_redeclared_as_net_or_variable.sv](../tests/ch3/test_port_redeclared_as_net_or_variable.sv): In non- ANSI style, a net or variable of the same name is declared after a port declaration that has no net or variable type: module rd_mod declares wire signed \[ 7:0 \] a after input \[ 7:0 \] a, and logic \[ 7:0 \] q after output \[ 7:0 \] q; interface rd_if and program rd_prog declare an input of 4 bits again as a signed net and an output of 8 bits again as a variable, and assign the output variables in procedures. Primitive rd_latch declares reg q after output q, which makes it a sequential circuit. Displays the signed value of a = 8'hf0 and a \> \> \> 1, the sign extension of the outputs, and the latch holding its value. Distinguishing observation: An implementation that cannot introduce a port name again with a net or variable declaration rejects the design. An incorrect implementation that ignores signed on the redeclared net changes "module: a = -16 negative = 1" to a = 240 negative = 0, turns the arithmetic shift and the sign extension into a logical shift and a zero extension, and changes "outputs: module q = f8 interface v =fa program v = f9" to 78/0a / 09. Without the redeclaration as a variable, the procedural assignment is not possible and the design is rejected. If the reg q of the primitive is ignored, it holds no state and "latch closed: q = 1" changes.
 
 ### SV2023-3.13-EXTRACT-UNIT-DECLARATION-NAMES
 
-`3.13` / `normal` / No mapped test
+`3.13` / `normal` / Execution confirmed
 
 Compilation-unit scope unifies its functions, tasks, checkers, parameters, named events, nets, variables and user-defined type names.
 
@@ -1792,6 +1804,7 @@ Acceptance criterion: Compilation-unit scope unifies its functions, tasks, check
 
 Normative role: `definition`。
 
+- [test_unit_scope_name_space_item_kinds.sv](../tests/ch3/test_unit_scope_name_space_item_kinds.sv): Declares parameter UNIT_P, typedef unit_word_t, variable unit_var, net unit_net, named event unit_ev, function unit_f, task unit_task and checker unit_chk outside all modules. Module unit_user_a drives unit_net, adds 1 to unit_var and triggers unit_ev. The top module has its own variable of the same name, unit_var = 99; it waits for unit_ev and displays $ unit::unit_var (8), its own unit_var, the result of unit_task (the compilation-unit unit_var + 100), unit_f ( 3 ), UNIT_P, $bits ( unit_word_t ) and unit_net, and the pass action of the assertion of unit_chk, connected to unit_net, displays the value. Distinguishing observation: An implementation that does not put these declarations in the compilation-unit name space cannot resolve the references and rejects the design. If the variable, the net and the event are separate objects for each module, "event: $ unit::unit_var = 8 ..." becomes 7 or the wait for the event never ends, and "net: 42" changes. If the module's declaration of the same name is not kept apart from the compilation-unit name space, "own unit_var = 99" changes, and an incorrect implementation that resolves unit_var in the task in the caller's name space makes "task: 108" 199. "function: 15 parameter: 5", "type: bits = 12 value = 4095" and "unit_chk: v = 42" show that the function, the parameter, the type and the checker can be used as compilation-unit declarations.
 
 ### SV2023-3.14-EXTRACT-PRECISION-NOT-COARSER
 
@@ -24883,7 +24896,7 @@ Normative role: `mandatory`。
 
 ### SV2023-10.8-EXTRACT-ASSIGNMENT-CONTEXT
 
-`10.8` / `normal` / No mapped test
+`10.8` / `normal` / Execution confirmed
 
 Continuous/procedural assignment is an assignment-like context.
 
@@ -24891,6 +24904,7 @@ Acceptance criterion: Continuous/procedural assignment is an assignment-like con
 
 Normative role: `definition`。
 
+- [test_assignment_like_continuous_and_procedural.sv](../tests/ch10/test_assignment_like_continuous_and_procedural.sv): Continuous assignments assign the untyped assignment patterns ' {three, four} and ' {four + 1 , three + 3 } to net net_pair and variable var_pair (packed struct pair_t), and the braces { 8'd7 , 8'd8 , 8'd9 } to the fixed-size unpacked array cont_arr. In procedural assignments, blocking assignments assign a pattern to blk and braces to the queue q and the dynamic array dyn, and nonblocking assignments assign a pattern to nba and braces to the fixed-size array fixed. At time 1 it displays the value of each member and the numbers of elements and, as a control, also the value 010203 obtained by assigning the same braces of 3 bytes to the vector vec of 24 bits. Distinguishing observation: In an implementation that does not treat continuous assignments or procedural assignments (blocking and nonblocking) as assignment-like contexts, the untyped pattern has no type, so the design is rejected, or the vector concatenation of 2 int values (64 bits) is truncated to 16 bits, giving hi = 0, and "continuous net: hi = 3 lo = 4", "continuous variable: hi = 5 lo = 6", "blocking: hi = 10 lo = 11" and "nonblocking: hi = 12 lo = 16" change. If the braces are not made an unpacked array concatenation, the numbers of elements and the values in "continuous array: 7 8 9", "queue: size = 3 1 2 3", "dynamic array: size = 2 4 5" and "nonblocking array: 10 11 12" change, and an incorrect implementation that makes an unpacked concatenation even when the target is a vector changes "vector: 010203".
 
 ### SV2023-10.8-EXTRACT-CLOSED-CONTEXT-LIST
 
@@ -24906,7 +24920,7 @@ Normative role: `mandatory`。
 
 ### SV2023-10.8-EXTRACT-INPUT-OUTPUT-PORT-CONTEXT
 
-`10.8` / `normal` / No mapped test
+`10.8` / `normal` / Execution confirmed
 
 Module/interface/program input or output port connection is an assignment-like context.
 
@@ -24914,6 +24928,7 @@ Acceptance criterion: Module/interface/program input or output port connection i
 
 Normative role: `definition`。
 
+- [test_assignment_like_port_connections.sv](../tests/ch10/test_assignment_like_port_connections.sv): In instances of a module, an interface and a program with the same ports (input pair_t in_p, an input unpacked array of 3 bytes in_a, output pair_t out_p, an output unpacked array of 2 bytes out_a), connects an untyped pattern of int values to in_p, braces to in_a, a pattern of variables such as ' {mh, ml} to out_p, and a pattern of variables such as ' {ma, mb} to out_a (the module and the interface are connected by name, the program by position). Each instance displays the inputs it received, and at time 4 the top displays the variables driven by the outputs (out_p is in_p with its members swapped plus in_a \[ 1 \], and out_a is in_a \[ 2 \] and in_a \[ 0 \]). Distinguishing observation: An implementation that does not make input port connections assignment-like contexts either rejects the patterns, which have no type, or makes them vector concatenations giving hi = 0, so "module inputs: hi = 3 lo = 4 , ...", "interface inputs: hi = 4 lo = 3 , ..." and "program inputs: hi = 6 lo = 8 , ..." change, and if the braces are not made unpacked arrays, in_a = 10 20 30 and the like change. An implementation that does not make output port connections such a context, if it reads ' {ma, mb} and the like connected to the unpacked array out_a as a vector concatenation of 16 bits, cannot assign them (by 7.6 a vector and an unpacked array are not assignment compatible) and rejects the design; if it gets the correspondence of the element positions wrong, "array outputs: module 30 10 , interface 60 40 , program 90 70" changes. The line for the packed out_p, "outputs: module 24 23 , ...", has the same bits as a concatenation, so it is the lines of the unpacked arrays that distinguish the context on the output side.
 
 ### SV2023-10.8-EXTRACT-PATTERN-NONDEFAULT-CONTEXT
 
@@ -24929,7 +24944,7 @@ Normative role: `definition`。
 
 ### SV2023-10.8-EXTRACT-PROPAGATED-CONTEXT
 
-`10.8` / `normal` / No mapped test
+`10.8` / `normal` / Execution confirmed
 
 Within a RHS assignment-like context, assignment context propagates through parentheses, mintypmax alternatives and conditional second/third operands.
 
@@ -24937,6 +24952,7 @@ Acceptance criterion: Within a RHS assignment-like context, assignment context p
 
 Normative role: `mandatory`。
 
+- [test_assignment_like_parens_mintypmax_conditional.sv](../tests/ch10/test_assignment_like_parens_mintypmax_conditional.sv): On the right-hand side of assignment-like contexts, evaluates untyped patterns inside 1 and 3 pairs of parentheses, untyped patterns placed in all 3 expressions of a min:typ:max (if every expression gets the type, hi = 3 lo = 4) and braces (every expression has 2 elements 1 , 2 ), and patterns and braces of different lengths in operands 2 and 3 of the conditional operator. The conditional operator is evaluated with both sel = 1 and sel = 0 in 3 contexts, a blocking assignment, a continuous assignment to the pair_t net w and an input argument of function code, and the values and number of elements of the selected operand are displayed. A conditional operator nested inside the parentheses of operand 3 is also evaluated. Distinguishing observation: An implementation that does not pass the context into parentheses either rejects the pattern, which has no type, or treats it as a vector concatenation giving hi = 0, so "parentheses: hi = 3 lo = 4" and "nested parentheses: hi = 4 lo = 3" change. In an implementation that does not pass it to the expressions of a min:typ:max, the selected expression has no type, so "min:typ:max patterns: hi = 3 lo = 4" and "min:typ:max braces: size = 2 1 2" change (all 3 have the same value, so which one is selected does not affect the result). An implementation that passes it only to operand 2 changes the sel = 0 lines ("sel = 0 : assignment hi = 4 lo = 3 , braces size = 3 first = 7 last = 9", "sel = 0 : continuous hi = 4 lo = 3 , argument 404") and "nested conditional: hi = 5 lo = 6", and an implementation that passes it only to operand 3 changes the sel = 1 lines ("sel = 1 : assignment hi = 3 lo = 4 , braces size = 2 first = 5 last = 6", "sel = 1 : continuous hi = 3 lo = 4 , argument 303").
 
 ### SV2023-10.8-EXTRACT-RETURN-CONTEXT
 
@@ -24964,7 +24980,7 @@ Normative role: `definition`。
 
 ### SV2023-10.8-EXTRACT-TAGGED-CONTEXT
 
-`10.8` / `normal` / No mapped test
+`10.8` / `normal` / Test mapped; execution unconfirmed
 
 Tagged union expression is an assignment-like context.
 
@@ -24972,10 +24988,11 @@ Acceptance criterion: Tagged union expression is an assignment-like context.
 
 Normative role: `definition`。
 
+- [test_assignment_like_tagged_union_member.sv](../tests/ch10/test_assignment_like_tagged_union_member.sv): In tagged expressions of the tagged union item_t (a packed struct member Pair, a fixed-size unpacked array member Trio, a queue member List and a int member Num), places as member values the untyped pattern tagged Pair ' {three, four} and the braces tagged Trio { 8'd5 , 8'd6 , 8'd7 } and tagged List { 8'd8 , 8'd9 }, assigns them to a variable of item_t, and then reads the member of the tag that was set and displays the values and the number of elements. The tagged List { 8'd10 , 8'd20 , 8'd30 , 8'd40 } passed to a function input argument returns number of elements * 1000 + sum = 4100. Distinguishing observation: In an implementation that does not make the member value of a tagged expression an assignment-like context, ' {three, four} has no type, so it is rejected or becomes a vector concatenation giving hi = 0, and "Pair: hi = 3 lo = 4" changes. The braces become vector concatenations (24, 16 and 32 bits) that do not match the member types and are rejected, or the numbers of elements and the values in "Trio: 5 6 7", "List: size = 2 8 9" and "argument: 4100" change.
 
 ### SV2023-10.8-EXTRACT-TYPED-PARAMETER-CONTEXT
 
-`10.8` / `normal` / No mapped test
+`10.8` / `normal` / Execution confirmed
 
 Explicitly typed parameter assignment or override, including class specialization through :: is an assignment-like context.
 
@@ -24983,10 +25000,11 @@ Acceptance criterion: Explicitly typed parameter assignment or override, includi
 
 Normative role: `definition`。
 
+- [test_assignment_like_typed_parameters.sv](../tests/ch10/test_assignment_like_typed_parameters.sv): Uses untyped patterns and braces for the values of parameters with an explicit type: pair_t P, the unpacked array A and localparam L of module tp_mod, pair_t P of interface tp_if and program tp_prog, and pair_t P of class tp_cls. The overrides are made in the instances of the module (by name and by position, A with braces), the interface and the program, in the class specialization tp_cls #(.P( ' { 31 , 32 })) and on the left of :: in tp_cls #( ' { 21 , 22 })::code(). Each instance displays %m and its values at its own time, and the class displays code()=hi* 100 +lo for the default, through ::, and through an object. Distinguishing observation: An implementation that does not make the assignment of the value in a declaration a context changes the default-value lines ("u_def : P = 1,2 A = 3,4 L = 2,1", "i_def : P = 5,6", "p_def : P = 7,8", "class: default 910"), an implementation that does not make the overrides of instances a context changes "u_named : P = 11,12 A = 13,14 L = 12,11", "u_pos : P = 15,16 A = 17,18 L = 16,15", "i_ovr : P = 25,26" and "p_ovr : P = 27,28", and an implementation that does not make the overrides in the class specialization and on the left of :: a context changes "scope resolution 2122" and "object 3132" (it rejects the untyped pattern, gives hi = 0 with a vector concatenation, or does not make the braces an array of 2 elements).
 
 ### SV2023-10.8-EXTRACT-VALUE-ARGUMENT-CONTEXT
 
-`10.8` / `normal` / No mapped test
+`10.8` / `normal` / Execution confirmed
 
 Subroutine input/output/inout value argument is an assignment-like context.
 
@@ -24994,6 +25012,7 @@ Acceptance criterion: Subroutine input/output/inout value argument is an assignm
 
 Normative role: `definition`。
 
+- [test_assignment_like_subroutine_arguments.sv](../tests/ch10/test_assignment_like_subroutine_arguments.sv): Passes to input arguments the untyped pattern weigh( ' {three, four}) (hi* 100 +lo) and the braces count_all ({ 8'd1 , 8'd2 , 8'd3 }) (a queue; number of elements * 100 + first * 10 + last). As output actual arguments, writes ' { h1 , l1 } (a packed pair_t) for task swap_out and ' { e0 , e1 } (for a formal that is an unpacked array of 2 elements) for function split. As inout actual arguments, writes ' { h2 , l2 } (pair_t; 20 , 30 come back changed by +1 , +10 ) for function bump and ' { r0 , r1 , r2 } (for a formal that is an unpacked array of 3 elements) for task rotate. rotate receives 20 , 30 , 40 , turns them into 30 , 40 , 120 and returns them by position to r0 , r1 , r2 . Displays the values of the variables that came back. Distinguishing observation: An implementation that does not make input arguments assignment-like contexts either rejects the pattern, which has no type, or makes it a vector concatenation giving hi = 0, so "input pattern: 304" changes, and if the braces are not made a queue, "input braces: 313" changes. An implementation that does not make output arguments such a context, if it reads ' { e0 , e1 } as a vector concatenation (16 bits), cannot assign to it from the unpacked array formal and rejects the design; if it gets the correspondence of the positions wrong, "output array pattern: e0 = 51 e1 = 52" changes. An implementation that does not make inout arguments such a context, if it reads ' { r0 , r1 , r2 } as a vector concatenation of 24 bits, can neither copy in to nor copy out from the unpacked array formal (by 7.6 a vector and an unpacked array are not assignment compatible) and rejects the design; if it gets the positions of the copy-in or the copy-out wrong, "inout array pattern: r0 = 30 r1 = 40 r2 = 120" changes. The lines for the packed pair_t ("output pattern: h1 = 4 l1 = 3", "inout pattern: h2 = 21 l2 = 40") have the same bits as a concatenation, so it is the lines of the unpacked arrays that distinguish the context.
 
 ### SV2023-10.9-EXTRACT-CONSTANT-PATTERN-MEMBERS
 
@@ -32020,7 +32039,7 @@ Normative role: `mandatory`。
 
 ### SV2023-12.4.2.1-EXTRACT-COMB-LATCH-FLUSH-POINT
 
-`12.4.2.1` / `normal` / No mapped test
+`12.4.2.1` / `normal` / Execution confirmed
 
 Retriggering an always_comb/always_latch due to a sensitivity change is a violation report flush point.
 
@@ -32028,10 +32047,11 @@ Acceptance criterion: Retriggering an always_comb/always_latch due to a sensitiv
 
 Normative role: `mandatory`。
 
+- [test_unique_if_report_flush_on_comb_latch_retrigger.sv](../tests/ch12/test_unique_if_report_flush_on_comb_latch_retrigger.sv): na follows changes of a through NBA, and nb follows changes of b after # 0. At t = 1, when a = 1, always_comb c_nba (unique if overlap, line 60), c_prio (priority if no match, line 64) and always_latch l_nba (unique0 if overlap, line 69) execute with a = na = 1 still in place and violate; when na changes in NBA, the change of a signal they depend on restarts them, and they run again without a violation. At t = 2, c_inact (line 74) is restarted by the Inactive update of nb. The regex rejects reports naming lines 60, 64, 69 and 74, and requires reports naming c_stay (line 78), which is not restarted, and c_again (line 82), which still violates after it is restarted. stdout shows the branches taken after the reruns: z1 = 1 z2 = 1 z3 = 1 z4 = 1 z5 = 1 z6 = 1. Distinguishing observation: An implementation that does not treat a restart of always_comb / always_latch by a signal it depends on as a flush point reports lines 60, 64, 69 and 74 and fails, and an implementation that leaves out only always_latch fails on line 69. An implementation that on a restart also discards the reports made after the rerun loses line 82, and an implementation that discards the reports of all processes loses line 78. In an implementation that does not rerun, the z values stay 2. The standard leaves the format of the reports to the tool (the tool-specific mechanism of 12.4.2.1 B006), but, as in the other violation-report tests of the suite (the registered tests of 12.4.2.2/12.5.3.2/20.11), the regex assumes that each report names the file and line of its statement, requires reports naming the lines that should be reported, and rejects reports naming the lines that must not be reported.
 
 ### SV2023-12.4.2.1-EXTRACT-DEFERRED-OBSERVED-REPORT
 
-`12.4.2.1` / `normal` / No mapped test
+`12.4.2.1` / `normal` / Test mapped; execution unconfirmed
 
 Checks evaluate at statement execution but reports defer to Observed in the current time step and can be controlled by assertion control tasks.
 
@@ -32039,10 +32059,11 @@ Acceptance criterion: Checks evaluate at statement execution but reports defer t
 
 Normative role: `mandatory`。
 
+- [test_unique_if_report_deferred_and_matured_in_observed.sv](../tests/ch12/test_unique_if_report_deferred_and_matured_in_observed.sv): t = 1: A (line 64) violates when it executes with pa = qa = 1, and right after that qa = 0; B (line 67) passes when it executes with qb = 0, and right after that qb = 1. t = 2: After C (line 70, unique overlap) and D (line 71, priority no match) violate, $assertcontrol ( 5 , 32 ) (Kill, unique type) and $assertcontrol ( 3 , 32 ) (On) are executed at the same time, and then E (line 74) violates. t = 3: F (line 82) resumes before Observed through @ on go, which changes in NBA, and G (line 89) resumes at the same time after Observed through @ on react, which a nested program triggers from the Reactive region. The regex requires reports naming A, D, E and G and rejects reports naming B, C and F. stdout shows the branch results and the resumption times s_nba 3 and s_react 3. Distinguishing observation: An implementation that checks with the values at the Observed point does not report A and reports B. An implementation that reports at once instead of keeping the reports pending reports C before the Kill and F before the flush. An implementation that keeps the reports pending past Observed (for example until the end of the time step) loses G through the flush of s_react, which resumes after Observed at the same time. An implementation in which assertion control has no effect on the reports reports C, an implementation that does not restrict Kill by type loses D, and an implementation in which On has no effect loses E. The standard leaves the format of the reports to the tool (the tool-specific mechanism of 12.4.2.1 B006), but, as in the other violation-report tests of the suite (the registered tests of 12.4.2.2/12.5.3.2/20.11), the regex assumes that each report names the file and line of its statement, requires reports naming the lines that should be reported, and rejects reports naming the lines that must not be reported.
 
 ### SV2023-12.4.2.1-EXTRACT-EVENT-WAIT-FLUSH-POINT
 
-`12.4.2.1` / `normal` / No mapped test
+`12.4.2.1` / `normal` / Execution confirmed
 
 Resuming a procedure previously suspended at an event control or wait is a violation report flush point.
 
@@ -32050,10 +32071,11 @@ Acceptance criterion: Resuming a procedure previously suspended at an event cont
 
 Normative role: `mandatory`。
 
+- [test_unique_if_report_flush_on_event_or_wait_resume.sv](../tests/ch12/test_unique_if_report_flush_on_event_or_wait_resume.sv): At t = 1, p_ev suspends at @(go) after 4 violations, unique if overlap (line 62), unique0 if overlap (line 63), unique if no match (line 64) and priority if no match (line 65), and p_wait suspends at wait (go) after a unique if overlap (line 72). go changes 0 → 1 in the NBA region of t = 1 (before Observed), and both resume at the same time ("resumed at 1" on stdout). The regex rejects reports naming lines 62 to 65 and line 72 and, as controls, requires reports naming p_delay (line 80), which suspends and resumes on # 0, p_none (line 87), which does not suspend, and the priority if no match after p_wait resumes (line 75). stdout shows the values from executing only the first true branch: r1 = 1 r2 = 1 r3 = 0 r4 = 0, rw1 = 1 rw2 = 0, rd = 1, rn = 1. Distinguishing observation: An implementation that does not treat the resumption from an event control (@) or a wait as a flush point reports lines 62 to 65 and line 72, against the negative lookahead of the regex. An implementation that treats only wait, or only @, as a flush point also fails on one of these lines. An implementation that also flushes on the resumption from the delay control # 0, which is not a flush point, loses the report of line 80, and an implementation that reports at once (the behavior of Verilator 5.052) reports lines 62 to 64 and 72. The standard leaves the format of the reports to the tool (the tool-specific mechanism of 12.4.2.1 B006), but, as in the other violation-report tests of the suite (the registered tests of 12.4.2.2/12.5.3.2/20.11), the regex assumes that each report names the file and line of its statement, requires reports naming the lines that should be reported, and rejects reports naming the lines that must not be reported.
 
 ### SV2023-12.4.2.1-EXTRACT-FLUSH-DISCARDS
 
-`12.4.2.1` / `normal` / No mapped test
+`12.4.2.1` / `normal` / Execution confirmed
 
 A process flush point clears its queue and discards all its pending unmatured reports.
 
@@ -32061,10 +32083,11 @@ Acceptance criterion: A process flush point clears its queue and discards all it
 
 Normative role: `mandatory`。
 
+- [test_unique_if_report_flush_on_event_or_wait_resume.sv](../tests/ch12/test_unique_if_report_flush_on_event_or_wait_resume.sv): At t = 1, 4 pending reports of different kinds (unique if overlap, line 62; unique0 if overlap, line 63; unique if no match, line 64; priority if no match, line 65) pile up in the queue of p_ev, and the resumption from @(go) (at the same time, before Observed) reaches a flush point. p_wait is flushed at wait (go) after the pending report of line 72, and after it resumes it gives a new violation, the priority if no match of line 75. The regex rejects reports naming lines 62 to 65 and 72, and requires reports naming line 75 and lines 80 and 87 of the other processes. "p_ev resumed at 1" and "p_wait resumed at 1" on stdout show that the resumptions happen at the same time. Distinguishing observation: An implementation that discards only part of the queue at a flush point (for example only the last 1 report or only the unique type) reports one of lines 62 to 65 and fails. An implementation that keeps the reports instead of discarding them reports all of them. An implementation that stops the reports for that time instead of emptying the queue loses the report of line 75 after the flush, and an implementation that discards the queues of all processes loses lines 80 and 87. None of them matches the regex. The standard leaves the format of the reports to the tool (the tool-specific mechanism of 12.4.2.1 B006), but, as in the other violation-report tests of the suite (the registered tests of 12.4.2.2/12.5.3.2/20.11), the regex assumes that each report names the file and line of its statement, requires reports naming the lines that should be reported, and rejects reports naming the lines that must not be reported.
 
 ### SV2023-12.4.2.1-EXTRACT-GLITCH-IMMUNITY
 
-`12.4.2.1` / `normal` / No mapped test
+`12.4.2.1` / `normal` / Execution confirmed
 
 If qualifier violation checks must avoid false reports caused by active-region-set zero-delay glitches.
 
@@ -32072,10 +32095,11 @@ Acceptance criterion: If qualifier violation checks must avoid false reports cau
 
 Normative role: `mandatory`。
 
+- [test_unique_if_report_flush_on_comb_latch_retrigger.sv](../tests/ch12/test_unique_if_report_flush_on_comb_latch_retrigger.sv): Creates 2 kinds of zero-delay glitches within the active region set: a = na = 1 at t = 1 through the NBA region (na \<= !a), and b = nb = 1 at t = 2 through the Inactive region (# 0 nb = 0). Meanwhile unique if (lines 60 and 74), priority if (line 64) and unique0 if inside always_latch (line 69) execute and violate, but after the updates they run again and the violations go away. The regex rejects reports naming these 4 lines (false violation reports) and requires reports naming the real violations that remain until the end of the time step (c_stay line 78, c_again line 82). stdout shows the final values z1 to z6 = 1. Distinguishing observation: An implementation that reports violations during a glitch at once (the behavior of Verilator 5.052), or one that does not discard pending reports on a restart, reports lines 60, 64, 69 and 74 and does not match the regex. An implementation that suppresses the reports themselves loses the real violations on lines 78 and 82. An implementation that tolerates only the NBA glitch, or only the Inactive glitch, also fails on the other line. The standard leaves the format of the reports to the tool (the tool-specific mechanism of 12.4.2.1 B006), but, as in the other violation-report tests of the suite (the registered tests of 12.4.2.2/12.5.3.2/20.11), the regex assumes that each report names the file and line of its statement, requires reports naming the lines that should be reported, and rejects reports naming the lines that must not be reported.
 
 ### SV2023-12.4.2.1-EXTRACT-MATURE-REPORT
 
-`12.4.2.1` / `normal` / No mapped test
+`12.4.2.1` / `normal` / Test mapped; execution unconfirmed
 
 In Observed, each remaining report matures, becomes immune to later flushing, is reported by the tool mechanism and is removed from that process queue.
 
@@ -32083,10 +32107,11 @@ Acceptance criterion: In Observed, each remaining report matures, becomes immune
 
 Normative role: `mandatory`。
 
+- [test_unique_if_report_deferred_and_matured_in_observed.sv](../tests/ch12/test_unique_if_report_deferred_and_matured_in_observed.sv): At t = 3, s_nba (line 82), s_react (line 89) and s_late (line 96) each violate in a unique if and wait on an event control. s_nba resumes in NBA (before Observed) and is flushed, s_react resumes after Observed at the same time through a trigger from the Reactive region of the program, and s_late resumes at t = 4 (stdout "s_nba at 3 , s_react at 3 , s_late at 4"). The regex rejects line 82 and requires line 89, and line 96 exactly 1 time(s). Also, A (line 64) of s_exec, which has no flush point, matures at t = 1 and then spans the Observed regions from t = 2 on, but the regex requires it exactly 1 time(s). It also requires the report of D (line 71), which remains after the other type is killed. Distinguishing observation: An implementation that does not mature the reports in Observed but keeps them pending until the end of the time step loses line 89 through the flush of s_react after Observed. An implementation that also discards matured reports at a later flush loses line 89, or loses line 96 through the resumption at t = 4. An implementation that does not remove a report from the queue once it has matured and been reported reports line 64 or line 96 again in a later Observed region, against the negative lookahead for "exactly 1 time(s)". A flush before Observed does take effect (no line 82), so the test also tells that the boundary is at Observed. The standard leaves the format of the reports to the tool (the tool-specific mechanism of 12.4.2.1 B006), but, as in the other violation-report tests of the suite (the registered tests of 12.4.2.2/12.5.3.2/20.11), the regex assumes that each report names the file and line of its statement, requires reports naming the lines that should be reported, and rejects reports naming the lines that must not be reported.
 
 ### SV2023-12.4.2.1-EXTRACT-PER-PROCESS-QUEUE
 
-`12.4.2.1` / `normal` / No mapped test
+`12.4.2.1` / `normal` / Execution confirmed
 
 A detected violation schedules a pending Observed report on the current process violation queue.
 
@@ -32094,6 +32119,7 @@ Acceptance criterion: A detected violation schedules a pending Observed report o
 
 Normative role: `mandatory`。
 
+- [test_unique_if_report_flush_on_event_or_wait_resume.sv](../tests/ch12/test_unique_if_report_flush_on_event_or_wait_resume.sv): At t = 1, 4 processes each give violations: p_ev (lines 62 to 65) and p_wait (line 72) resume from @(go)/wait (go) after NBA at the same time and reach a flush point, while p_delay (line 80, suspended by # 0) and p_none (line 87, not suspended) do not reach a flush point. The regex rejects reports naming the pending reports of p_ev and p_wait, and requires reports naming p_delay and p_none. That the reports of the processes that reached a flush point actually disappear shows that the pending reports remain until Observed. stdout shows branch results such as rd = 1, rn = 1 and the resumption time 1. Distinguishing observation: In an implementation that puts violation reports in a common queue instead of the queue of the process executing at that time, the flush on the resumption of p_ev or p_wait also discards the reports of p_delay and p_none, so lines 80 and 87 are no longer named and the regex does not match. An implementation that reports at once instead of keeping the reports pending also reports lines 62 to 65 and 72 and fails. The standard leaves the format of the reports to the tool (the tool-specific mechanism of 12.4.2.1 B006), but, as in the other violation-report tests of the suite (the registered tests of 12.4.2.2/12.5.3.2/20.11), the regex assumes that each report names the file and line of its statement, requires reports naming the lines that should be reported, and rejects reports naming the lines that must not be reported.
 
 ### SV2023-12.4.2.2-EXTRACT-CALLER-PROCESS-INDEPENDENCE
 
@@ -32315,7 +32341,7 @@ Normative role: `permission`。
 
 ### SV2023-12.5.3-EXTRACT-CASE-MISSING-REPORT
 
-`12.5.3` / `normal` / No mapped test
+`12.5.3` / `normal` / Execution confirmed
 
 priority/unique report missing matches unless a default item supplies the case; reporting may happen at compilation if determinable there, otherwise at runtime.
 
@@ -32323,6 +32349,7 @@ Acceptance criterion: priority/unique report missing matches unless a default it
 
 Normative role: `mandatory`。
 
+- [test_unique_case_no_match_report_and_default.sv](../tests/ch12/test_unique_case_no_match_report_and_default.sv): For s = 5, the items are variables (k0 = 0, k1 = 1, kz = 3'b0zz, kx = 3'b0xx), and none of them matches. For the unique case (line 59), priority case (line 60), priority casez (line 66) and unique casex (line 67) without a default, the regex requires reports naming them, and stdout shows 0, as nothing is executed. The unique case (line 62) and priority case (line 63) with a default execute the default (9), and the regex rejects reports naming them. The unique case with a matching item (line 65, k5) outputs 2, and reports naming it are rejected. Distinguishing observation: An implementation that does not report a no-match does not name lines 59, 60, 66 and 67 and does not match the regex. An implementation that reports a no-match even when there is a default reports lines 62 and 63 and fails. An implementation that executes one of the item statements when nothing matches changes 0, and an implementation that does not execute the default changes 9. The naming requirement is met whether the report is given at compile time or at run time (as 12.5.3 B005 allows). The standard leaves the format of the reports to the tool (the tool-specific mechanism of 12.4.2.1 B006), but, as in the other violation-report tests of the suite (the registered tests of 12.4.2.2/12.5.3.2/20.11), the regex assumes that each report names the file and line of its statement, requires reports naming the lines that should be reported, and rejects reports naming the lines that must not be reported.
 
 ### SV2023-12.5.3-EXTRACT-CASE-OVERLAP-STOP
 
@@ -32337,7 +32364,7 @@ Normative role: `permission`。
 
 ### SV2023-12.5.3-EXTRACT-QUALIFIED-CASE-FORMS
 
-`12.5.3` / `normal` / No mapped test
+`12.5.3` / `normal` / Execution confirmed
 
 case/casez/casex may use unique/unique0/priority checks; priority acts on first match and unique forms assert nonoverlapping items.
 
@@ -32345,10 +32372,11 @@ Acceptance criterion: case/casez/casex may use unique/unique0/priority checks; p
 
 Normative role: `definition`。
 
+- [test_unique_case_qualifier_forms_overlap_first_item.sv](../tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv): Executes the 9 forms of case/casez/casex, each with unique, unique0 and priority (lines 60 to 68), with an input for which item 1 does not match and items 2 and 3 match by the matching rules of that case kind (casez uses the variable item iz with z bits, casex the variable item ix with x bits). Each item adds 1/10/100 to w \[ n \]. stdout shows 10 for all 9 forms (only the first matching item). The regex requires reports naming the 6 lines of unique and unique0 and rejects reports naming the 3 lines of priority. As controls, the regex rejects reports naming the 6 lines of unique and unique0 (lines 70 to 75) in which, for each case kind, only 1 item matches by the matching rules, and stdout shows 10. Distinguishing observation: An implementation that does not make priority execute only the first match makes the priority lines 100 or 110. An implementation in which unique/ unique0 does not check that the items do not overlap gives no reports for lines 60, 61, 63, 64, 66 and 67, and an implementation that treats priority like unique reports lines 62, 65 and 68. An implementation that does not apply the casez/casex wildcards in the overlap check, or applies them to the wrong kind, either loses the reports of the overlapping lines or reports the single-match lines (lines 70 to 75). The standard leaves the format of the reports to the tool (the tool-specific mechanism of 12.4.2.1 B006), but, as in the other violation-report tests of the suite (the registered tests of 12.4.2.2/12.5.3.2/20.11), the regex assumes that each report names the file and line of its statement, requires reports naming the lines that should be reported, and rejects reports naming the lines that must not be reported.
 
 ### SV2023-12.5.3-EXTRACT-SAME-ITEM-NOT-OVERLAP
 
-`12.5.3` / `normal` / No mapped test
+`12.5.3` / `normal` / Execution confirmed
 
 Several matching expressions within a single item do not violate uniqueness; remaining expressions in that item need not be evaluated after one matches.
 
@@ -32356,6 +32384,7 @@ Acceptance criterion: Several matching expressions within a single item do not v
 
 Normative role: `mandatory`。
 
+- [test_unique_case_matching_expressions_in_one_item.sv](../tests/ch12/test_unique_case_matching_expressions_in_one_item.sv) : s = 6 、 a = b = 6 、 c = 1 、 za = 4'b01zz 、 zb = 4'bz11z 。 For the unique case (line 56, a, b), the unique0 case (line 57) and the unique casez (line 58, za, zb), in which 1 item contains 2 matching expressions, the regex rejects reports naming them, and stdout shows 10 (the statement of that item runs only 1 time(s)). For the unique case that splits the same matches over separate items (line 59: c, a / b; line 60: c / a / b), the unique0 case (line 61) and the unique casez (line 62), the regex requires reports naming them, and stdout shows 1 and 10, from the first matching item only. The item expressions have no side effects, so whether the remaining expressions are evaluated or not (both are allowed by the standard) does not change the result. Distinguishing observation: An implementation that counts the matching expressions and treats them as an overlap reports lines 56 to 58 and does not match the regex. An implementation that executes the item statement once for each matching expression outputs 20. An implementation that does not detect overlaps between items loses the naming of lines 59 to 62. Line 59 shows that the criterion is "matching items", not "matching expressions": even when an item contains a match, an overlap with another item is a violation. The standard leaves the format of the reports to the tool (the tool-specific mechanism of 12.4.2.1 B006), but, as in the other violation-report tests of the suite (the registered tests of 12.4.2.2/12.5.3.2/20.11), the regex assumes that each report names the file and line of its statement, requires reports naming the lines that should be reported, and rejects reports naming the lines that must not be reported.
 
 ### SV2023-12.5.3-EXTRACT-UNIQUE-CASE-ONCE
 
@@ -32371,7 +32400,7 @@ Normative role: `mandatory`。
 
 ### SV2023-12.5.3-EXTRACT-UNIQUE-CASE-OVERLAP
 
-`12.5.3` / `normal` / No mapped test
+`12.5.3` / `normal` / Execution confirmed
 
 Multiple matching case items generate a violation report; only the textually first matching item statement executes.
 
@@ -32379,6 +32408,7 @@ Acceptance criterion: Multiple matching case items generate a violation report; 
 
 Normative role: `mandatory`。
 
+- [test_unique_case_qualifier_forms_overlap_first_item.sv](../tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv): In the case, casez and casex of unique/ unique0 (lines 60, 61, 63, 64, 66 and 67), items 2 and 3, after the non-matching item 1, both match. Each item adds 1/10/100 to w \[ n \], and stdout shows 10 (only the statement of item 2, the textually first match, runs, 1 time(s)). The regex requires reports naming the violations of these 6 lines and rejects reports naming the control lines (lines 70 to 75), which have the same item structure but in which only 1 item matches. Distinguishing observation: An implementation that does not report a violation for multiple matches does not name the 6 lines and does not match the regex. An implementation that executes the last matching item outputs 100, and an implementation that executes all matching items outputs 110, so stdout changes. An implementation that reports even when only 1 item matches reports lines 70 to 75 and fails. The standard leaves the format of the reports to the tool (the tool-specific mechanism of 12.4.2.1 B006), but, as in the other violation-report tests of the suite (the registered tests of 12.4.2.2/12.5.3.2/20.11), the regex assumes that each report names the file and line of its statement, requires reports naming the lines that should be reported, and rejects reports naming the lines that must not be reported.
 
 ### SV2023-12.5.3-EXTRACT-UNIQUE-CASE-SEARCH
 
@@ -32394,7 +32424,7 @@ Normative role: `mandatory`。
 
 ### SV2023-12.5.3-EXTRACT-UNIQUE0-CASE-MISS
 
-`12.5.3` / `normal` / No mapped test
+`12.5.3` / `normal` / Execution confirmed
 
 unique0-case does not report a no-match violation.
 
@@ -32402,6 +32432,7 @@ Acceptance criterion: unique0-case does not report a no-match violation.
 
 Normative role: `mandatory`。
 
+- [test_unique_case_no_match_report_and_default.sv](../tests/ch12/test_unique_case_no_match_report_and_default.sv): unique0 case (line 61) and unique0 casez (line 68) are under the conditions in which unique case (line 59) and priority casez (line 66) report a violation, with the same s = 5 and the same non-matching items, and no item matches. The regex rejects reports naming lines 61 and 68 (and line 64 of unique0 with a default), and requires reports naming the control lines 59 and 66. stdout shows unique0 0, unique0 casez 0 (nothing is executed). Distinguishing observation: An implementation that also reports a no-match in unique0 as a violation (treating it the same as unique) reports lines 61 and 68, against the negative lookahead of the regex. Because of the control lines 59 and 66, the test tells this apart from an implementation whose reporting does not work at all. An implementation that executes an item statement in unique0 when nothing matches changes 0. The standard leaves the format of the reports to the tool (the tool-specific mechanism of 12.4.2.1 B006), but, as in the other violation-report tests of the suite (the registered tests of 12.4.2.2/12.5.3.2/20.11), the regex assumes that each report names the file and line of its statement, requires reports naming the lines that should be reported, and rejects reports naming the lines that must not be reported.
 
 ### SV2023-12.5.3.1-EXTRACT-CASE-GLITCH-IMMUNITY
 
@@ -33596,7 +33627,7 @@ Normative role: `mandatory`。
 
 ### SV2023-13.4-EXTRACT-FUNCTION-DIRECTION-DEFAULT
 
-`13.4` / `normal` / No mapped test
+`13.4` / `normal` / Execution confirmed
 
 Function formals initially default to input then inherit the preceding explicit direction including const/static ref qualifiers.
 
@@ -33604,6 +33635,8 @@ Acceptance criterion: Function formals initially default to input then inherit t
 
 Normative role: `mandatory`。
 
+- [test_function_formal_direction_default_and_inheritance.sv](../tests/ch13/test_function_formal_direction_default_and_inheritance.sv): In f_in_out ( int a, b, output int u, v), writes to a and b do not return to the caller's i1 = 1 i2 = 2 (input by default), and v, written without a direction, is an output like u and returns o2 = 202. In f_inout (inout int c, d), d is both read and written, giving c2 = 15. In f_ref (ref int p, q), q is a reference to m_r, and m_r, which the function reads right after q =q+ 1, is 21. In f_const_ref ( const ref int p, q), after the function sets m_q = 9, q reads 9 (a copy would give 30). g_const_ref, with the same form of formals, is called in a continuous assignment, giving y = 34, and after m_b = 8, y = 38 (with a ref that is not const this context would be illegal).
+- [test_function_formal_ref_static_direction_inherited.sv](../tests/ch13/test_function_formal_ref_static_direction_inherited.sv): In set_next (ref static int p, q), q is written without a direction and so is ref static, and the nonblocking assignment q \<= p + 1 (a context allowed only for ref static, 13.5.2) updates the actual argument m_s. Right after the call m_s = 40 still holds, and 1 time unit(s) later m_s = 6.
 
 ### SV2023-13.4-EXTRACT-FUNCTION-DIRECTIONS
 
@@ -33631,7 +33664,7 @@ Normative role: `permission`。
 
 ### SV2023-13.4-EXTRACT-FUNCTION-GRAMMAR
 
-`13.4` / `normal` / No mapped test
+`13.4` / `normal` / Execution confirmed
 
 Function declarations support lifetime/method specifiers, interface/class qualification, explicit/implicit/void return type, ANSI/body formals, declarations/function statements and optional closing name.
 
@@ -33639,10 +33672,12 @@ Acceptance criterion: Function declarations support lifetime/method specifiers, 
 
 Normative role: `definition`。
 
+- [test_function_declaration_lifetime_return_formal_forms.sv](../tests/ch13/test_function_declaration_lifetime_return_formal_forms.sv): In count_static, declared function static, the local int n persists across calls, giving 1 2; in count_auto, declared function automatic, it is new every time, giving 1 1. narrow( 4'b1100 ), with the implicit return type signed \[ 3:0 \], gives -4 with $bits = 4, and is_odd ( 7 ), whose return type is omitted, gives 1 with $bits = 1 (a logic scalar). The void note( 9 ) is called as a statement, giving last_note = 9. body_style ( 3,4 )= 34, which declares its inputs and a local t in the body, and ansi_style ( 9,4 )= 5, which has a local t in ANSI style. Some declarations have the closing name endfunction : name and some do not.
+- [test_function_declaration_scoped_and_override_forms.sv](../tests/ch13/test_function_declaration_scoped_and_override_forms.sv): Module fdecl_provider defines function int p.scaled, qualified with the interface port name (exported by modport prov), and through the import of modport usr it returns u.scaled ( 5 )= 15. The extern function area of class shape is defined in the module as function int shape::area (), and for a side of 4, area = 16. In the derived class, virtual function :extends int kind() overrides the virtual function of the base class, and through a base class handle kind = 2. The new virtual function :initial :final int extra() returns 30.
 
 ### SV2023-13.4-EXTRACT-FUNCTION-PROCESS-CONTROL
 
-`13.4` / `normal` / No mapped test
+`13.4` / `normal` / Test mapped; execution unconfirmed
 
 A function may kill/suspend/resume another process or kill its current process under 9.7 restrictions.
 
@@ -33650,10 +33685,11 @@ Acceptance criterion: A function may kill/suspend/resume another process or kill
 
 Normative role: `permission`。
 
+- [test_function_controls_other_and_own_process.sv](../tests/ch13/test_function_controls_other_and_own_process.sv): Of the 3 processes forked from initial, function kill_other kills pk, which waits on # 5, and function suspend_other suspends ps, which waits on # 3; right after the calls (time 1, with no time elapsed) pk = KILLED ps = SUSPENDED is displayed. At time 2, function kill_me, called by pm, kills its own process with process::self (), so neither the next statement in the function (fn_after = 1) nor the next statement in the caller (caller_after = 1) is executed, and pm = KILLED. At time 6, function resume_other resumes ps; its delay already expired at time 3, so it resumes at the same time 6, giving s_time = 6 and ps = FINISHED. All 4 conditions, kill, suspend and resume of another process and kill of the own process, are caused from inside functions, and all targets are processes created by fork from initial (within the restrictions of 9.7). Distinguishing observation: In an implementation that forbids or delays process control from inside a function, kill/suspend inside the function is either treated as a task and rejected, or output line 1 after the calls becomes pk = WAITING or ps = WAITING. In an implementation in which a kill of the own process inside a function returns to the caller (the measured behavior of Verilator 5.052), output line 2 changes to pm = FINISHED fn_after = 1 caller_after = 1. If a resume from a function has no effect, output line 4 stays s_time = -1 ps = SUSPENDED.
 
 ### SV2023-13.4-EXTRACT-FUNCTION-RETURN-TYPE-CATEGORIES
 
-`13.4` / `normal` / No mapped test
+`13.4` / `normal` / Test mapped; execution unconfirmed
 
 Return type grammar includes integer/real/struct/union/enum/string/chandle/virtual-interface/scoped-user/class/event/covergroup/type-reference forms under their type rules.
 
@@ -33661,6 +33697,9 @@ Acceptance criterion: Return type grammar includes integer/real/struct/union/enu
 
 Normative role: `definition`。
 
+- [test_function_return_type_value_categories.sv](../tests/ch13/test_function_return_type_value_categories.sv): logic signed \[ 7:0 \] gives -128 bits = 8, byte unsigned gives 240 bits = 8, shortint gives -2 bits = 16, then real 2.75 and shortreal 0.50; for the struct packed written in the return type the members of the call result are hi = 10 lo = 5 bits = 8; for the union packed, u = 254 s = -2; the function with enum logic \[ 1:0 \] { IN_LOW = 2'd1 , IN_HIGH = 2'd3 } written in the return type returns IN_HIGH, and the result gives name()= IN_HIGH, value 3, prev().name()= IN_LOW, num()= 2 and $bits = 2 (the enumerator names are used only inside the function, and outside the values are read with the methods of enum); the package-scope enum gives name()= GREEN value 2, string gives len = 4, the class-scope holder::pair_t gives the members -3 and 300, and type(proto) (shortint) gives -5 bits = 16.
+- [test_function_return_type_handle_categories.sv](../tests/ch13/test_function_return_type_handle_categories.sv): The result of f_ch, which returns a chandle, is equal to null, and $typename is chandle. From the result of f_vif, which returns a virtual interface, sig = 77 is read, and a write through the handle that the result was assigned to gives u_if.sig = 5. f_obj ( 42 )/ f_obj ( 7 ), which return class holder, give separate objects, 42 7. Sampling with the result of f_cg, which returns the covergroup type cg_t, changes get_inst_coverage of cg_inst from 0.00 to 50.00.
+- [test_function_return_type_event.sv](../tests/ch13/test_function_return_type_event.sv): When the result of f_ev, which returns an event, is assigned to got, got ==ev is 1, got ==other is 0, and $typename is event. A forked process waits on @(got) and wakes up on - \> ev at time 2, at the same time 2 (woke = 2).
 
 ### SV2023-13.4-EXTRACT-FUNCTION-TYPE-DEFAULT
 
@@ -33677,7 +33716,7 @@ Normative role: `mandatory`。
 
 ### SV2023-13.4-EXTRACT-FUNCTION-TYPE-FOOTNOTES
 
-`13.4` / `error` / No mapped test
+`13.4` / `error` / Test mapped; execution unconfirmed
 
 The shown inline packed structure/union dimensions require packed; type-reference declarations require their net-type/var prefixes; dynamic override specifiers are noninterface-class-method-only.
 
@@ -33685,6 +33724,11 @@ Acceptance criterion: The shown inline packed structure/union dimensions require
 
 Normative role: `mandatory`。
 
+- [test_illegal_function_return_struct_dimension_without_packed.sv](../tests/ch13/test_illegal_function_return_struct_dimension_without_packed.sv): Matches, on line 27, the line that declares bad_pair with the return type struct { ... } \[ 1:0 \] (without packed). good_pair, of the same form with packed, is legal.
+- [test_illegal_function_return_union_dimension_without_packed.sv](../tests/ch13/test_illegal_function_return_union_dimension_without_packed.sv): Matches, on line 27, the line that declares bad_word with the return type union { ... } \[ 3:0 \] (without packed). good_word, of the same form with packed, is legal.
+- [test_illegal_function_local_type_reference_without_var.sv](../tests/ch13/test_illegal_function_local_type_reference_without_var.sv): Matches the line that declares a local variable of function plus_one as type(a) bad; without var (line 27). The preceding var type(a) good; It is legal.
+- [test_illegal_function_override_specifier_outside_class.sv](../tests/ch13/test_illegal_function_override_specifier_outside_class.sv): Matches the module function function :initial int twice on line 34. The method function :initial int next of class counter in the same design is legal.
+- [test_illegal_function_override_specifier_interface_class.sv](../tests/ch13/test_illegal_function_override_specifier_interface_class.sv): Matches pure virtual function :initial int size of the interface class on line 26. function :initial int volume in the implementing class is legal.
 
 ### SV2023-13.4-EXTRACT-FUNCTION-WRITABLE-ARG-CONTEXT
 
@@ -33723,7 +33767,7 @@ Normative role: `mandatory`。
 
 ### SV2023-13.4-EXTRACT-NO-FUNCTION-TIMING
 
-`13.4` / `error` / No mapped test
+`13.4` / `error` / Test mapped; execution unconfirmed
 
 Outside 13.4.4 background children, a function cannot contain #/##/@, join/join_any, wait/wait-fork/wait-order or expect timing controls.
 
@@ -33731,6 +33775,15 @@ Acceptance criterion: Outside 13.4.4 background children, a function cannot cont
 
 Normative role: `mandatory`。
 
+- [test_illegal_function_delay_control.sv](../tests/ch3/test_illegal_function_delay_control.sv): Matches, inside function store_later, # 1 last = v; (a delay control #) on line 25.
+- [test_illegal_function_cycle_delay.sv](../tests/ch13/test_illegal_function_cycle_delay.sv): In a module with default clocking cb, matches, inside function step, ## 1 ; (a cycle delay ##) on line 33. The same ## 1 is legal inside initial.
+- [test_illegal_function_event_control.sv](../tests/ch13/test_illegal_function_event_control.sv): Matches, inside function f, @(e); (an event control @) on line 20.
+- [test_illegal_function_fork_join.sv](../tests/ch13/test_illegal_function_fork_join.sv): Matches fork ... join inside function f on the fork line (22) or the join line (25).
+- [test_illegal_function_fork_join_any.sv](../tests/ch13/test_illegal_function_fork_join_any.sv): Inside function set_both, matches fork ... join_any on the fork line (22) or the join_any line (25).
+- [test_illegal_function_wait.sv](../tests/ch13/test_illegal_function_wait.sv): Matches, inside function when_ready, wait (ready); (a wait statement) on line 21.
+- [test_illegal_function_wait_fork.sv](../tests/ch13/test_illegal_function_wait_fork.sv): Matches, right after function start_and_wait starts processes with fork- join_none (legal by 13.4.4), wait fork; on line 28.
+- [test_illegal_function_wait_order.sv](../tests/ch13/test_illegal_function_wait_order.sv): Matches, inside function check_order, wait_order (first, second); on line 26.
+- [test_illegal_function_expect.sv](../tests/ch13/test_illegal_function_expect.sv): Matches, inside function check_handshake, expect (@( posedge clk) req ## 1 ack); on line 29.
 
 ### SV2023-13.4.1-EXTRACT-DISCARDED-RETURN-WARNING
 
@@ -53132,7 +53185,7 @@ Normative role: `mandatory`。
 
 ### SV2023-20.10.1-EXTRACT-ELABORATION-ARGS
 
-`20.10.1` / `error` / No mapped test
+`20.10.1` / `error` / Execution confirmed
 
 Elaboration severity arguments shall be formatting strings and constant expressions, including constant functions.
 
@@ -53140,6 +53193,7 @@ Acceptance criterion: Elaboration severity arguments shall be formatting strings
 
 Normative role: `mandatory`。
 
+- [test_illegal_elaboration_severity_nonconstant_argument.sv](../tests/ch20/test_illegal_elaboration_severity_nonconstant_argument.sv): Of the 2 $info calls among the module items (both are elaboration severity tasks), call 1 takes a format string, localparam LIMIT and the constant function call twice( LIMIT ) as arguments, a call that the standard allows, and call 2 takes the variable count as an argument. :expected_stderr_regex: matches the error on the line of call 2 (line 37). $info itself does not stop elaboration, so the arguments are the only reason for the rejection. Distinguishing observation: An implementation that does not restrict the arguments of elaboration severity tasks to constant expressions (formatting the value of the variable as it is, or treating the task like the run-time task inside a procedure) accepts the design, so this test fails. An implementation that merely rejects the constant function call by mistake does not give the error on line 37, so it does not match.
 
 ### SV2023-20.10.1-EXTRACT-ELABORATION-CONTEXT
 

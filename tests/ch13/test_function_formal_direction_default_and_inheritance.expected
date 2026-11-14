@@ -1,0 +1,7 @@
+input default: i1=1 i2=2 r=303
+output inherited: o1=101 o2=202
+inout inherited: c1=6 c2=15
+ref inherited: r=21 m_r=21
+const ref inherited: r=9
+const ref call in continuous assignment: y=34
+after m_b=8: y=38

@@ -1,0 +1,8 @@
+test_assignment_like_typed_parameters.u_def: P=1,2 A=3,4 L=2,1
+test_assignment_like_typed_parameters.u_named: P=11,12 A=13,14 L=12,11
+test_assignment_like_typed_parameters.u_pos: P=15,16 A=17,18 L=16,15
+test_assignment_like_typed_parameters.i_def: P=5,6
+test_assignment_like_typed_parameters.i_ovr: P=25,26
+class: default 910, scope resolution 2122, object 3132
+test_assignment_like_typed_parameters.p_def: P=7,8
+test_assignment_like_typed_parameters.p_ovr: P=27,28

@@ -1,0 +1,9 @@
+continuous net: hi=3 lo=4
+continuous variable: hi=5 lo=6
+continuous array: 7 8 9
+blocking: hi=10 lo=11
+nonblocking: hi=12 lo=16
+queue: size=3 1 2 3
+dynamic array: size=2 4 5
+nonblocking array: 10 11 12
+vector: 010203

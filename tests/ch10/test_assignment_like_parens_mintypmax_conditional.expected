@@ -1,0 +1,9 @@
+parentheses: hi=3 lo=4
+nested parentheses: hi=4 lo=3
+min:typ:max patterns: hi=3 lo=4
+min:typ:max braces: size=2 1 2
+sel=1: assignment hi=3 lo=4, braces size=2 first=5 last=6
+sel=1: continuous hi=3 lo=4, argument 303
+sel=0: assignment hi=4 lo=3, braces size=3 first=7 last=9
+sel=0: continuous hi=4 lo=3, argument 404
+nested conditional: hi=5 lo=6

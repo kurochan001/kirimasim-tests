@@ -1,0 +1,6 @@
+event: $unit::unit_var=8 own unit_var=99
+task: 108
+function: 15 parameter: 5
+type: bits=12 value=4095
+net: 42
+unit_chk: v=42

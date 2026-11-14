@@ -4005,7 +4005,7 @@
           "observation": "どのスコープにも属さない位置で include したファイルが変数 inc_count=3、enum 型 inc_color_t、関数 inc_double を宣言し、取り込む側のコンパイル単位変数 after_include がその変数から 4 に初期化される。モジュールは $unit::inc_count と $unit::after_include を 3 と 4、取り込んだ型の変数 INC_BLUE=2、関数呼出し 42 として表示する。 区別: include したテキストを取り込む側とは別のコンパイル単位とする誤実装では、$unit::inc_count や after_include の初期化、型名と関数名が解決できずコンパイルエラーとなるか、別の値を表示する。",
           "reviewed_on": "2026-11-07",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "7d3c925fe4739af51ad7c3d02caf6b2b9eb44a004ab8b0494ba3a637bfd74bc7",
+          "inputs_sha256": "ef141975ca1600087b2b244402070c981c7c96d08daa18ef1cedc77034591710",
           "evidence": [
             {
               "file": "tests/ch3/test_include_text_joins_compilation_unit.sv",
@@ -4561,13 +4561,112 @@
       "acceptance": "Reject reusing a top-level definition name for any of those four definition categories in any compilation unit.",
       "source_note": "IEEE 1800-2023 3.13; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch3/test_illegal_definition_name_module_reused_in_other_file.sv",
+          "observation": "先にコンパイルする definition_name_module_first.sv の module dn_file_name の名前を、テストのファイルの最上位の interface dn_file_name が再使用する。30行目（または相手の4行目）のエラーを照合する。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "fb99ee59b5a326ece8b3dea15a94fdaa2355ee7c08b3add4b04d7df15ce5be12",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_illegal_definition_name_module_reused_in_other_file.sv",
+              "contains": "interface dn_file_name;  // illegal: the name of a module in the other file"
+            },
+            {
+              "file": "tests/ch3/test_illegal_definition_name_module_reused_in_other_file.sv",
+              "contains": ":expected_stderr_regex: (test_illegal_definition_name_module_reused_in_other_file\\.sv:30:|definition_name_module_first\\.sv:4:)"
+            },
+            {
+              "file": "tests/ch3/definition_name_module_first.sv",
+              "contains": "module dn_file_name;"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch3/test_illegal_definition_name_interface_reused_by_program.sv",
+          "observation": "同じファイルの最上位で interface dn_ip_name の後に program dn_ip_name を定義する。30行目（または26行目）のエラーを照合する。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "b749732bc4f9414cb3b63068a96da152c6ec8521d429eb81feec97c30ef30450",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_illegal_definition_name_interface_reused_by_program.sv",
+              "contains": "interface dn_ip_name;"
+            },
+            {
+              "file": "tests/ch3/test_illegal_definition_name_interface_reused_by_program.sv",
+              "contains": "program dn_ip_name;  // illegal: the name of the interface above"
+            },
+            {
+              "file": "tests/ch3/test_illegal_definition_name_interface_reused_by_program.sv",
+              "contains": ":expected_stderr_regex: test_illegal_definition_name_interface_reused_by_program\\.sv:30:|test_illegal_definition_name_interface_reused_by_program\\.sv:26:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch3/test_illegal_definition_name_program_reused_by_primitive.sv",
+          "observation": "同じファイルの最上位で program dn_pp_name の後にバッファの UDP primitive dn_pp_name を定義する。32行目（または28行目）のエラーを照合する。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "3dd79e8fd53956f8e3cf866c291cd68b973f31f73fd6396cbdd82db8b6111e4d",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_illegal_definition_name_program_reused_by_primitive.sv",
+              "contains": "program dn_pp_name;"
+            },
+            {
+              "file": "tests/ch3/test_illegal_definition_name_program_reused_by_primitive.sv",
+              "contains": "primitive dn_pp_name(output q, input a);  // illegal: the name of the program above"
+            },
+            {
+              "file": "tests/ch3/test_illegal_definition_name_program_reused_by_primitive.sv",
+              "contains": ":expected_stderr_regex: test_illegal_definition_name_program_reused_by_primitive\\.sv:32:|test_illegal_definition_name_program_reused_by_primitive\\.sv:28:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch3/test_illegal_definition_name_primitive_reused_by_module.sv",
+          "observation": "同じファイルの最上位でインバータの UDP primitive dn_pm_name の後に module dn_pm_name を定義する。36行目（または28行目）のエラーを照合する。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "64e0d3e5f7f1045829c426a33989da347c69d6d055700096f4b23d0cfc76b352",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_illegal_definition_name_primitive_reused_by_module.sv",
+              "contains": "primitive dn_pm_name(output q, input a);"
+            },
+            {
+              "file": "tests/ch3/test_illegal_definition_name_primitive_reused_by_module.sv",
+              "contains": "module dn_pm_name;  // illegal: the name of the primitive above"
+            },
+            {
+              "file": "tests/ch3/test_illegal_definition_name_primitive_reused_by_module.sv",
+              "contains": ":expected_stderr_regex: test_illegal_definition_name_primitive_reused_by_module\\.sv:36:|test_illegal_definition_name_primitive_reused_by_module\\.sv:28:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "3.13",
           "blocks": [
             "B002"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "definition-name-space-four-kinds",
+          "tests": [
+            "tests/ch3/test_illegal_definition_name_module_reused_in_other_file.sv",
+            "tests/ch3/test_illegal_definition_name_interface_reused_by_program.sv",
+            "tests/ch3/test_illegal_definition_name_program_reused_by_primitive.sv",
+            "tests/ch3/test_illegal_definition_name_primitive_reused_by_module.sv"
+          ],
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "observation": "定義名前空間の4種類（module・interface・program・primitive）が1つの名前空間を共有することを、4本の負テストで刺激する: module を別ファイル（別の compilation unit でもよい）の interface が再使用、interface を program が再使用、program を primitive が再使用、primitive を module が再使用。4種類それぞれが先の定義と再使用の両方に現れ、ファイルをまたぐ場合を含む。各テストはエラーを1つだけ持ち、2つ目の定義の行（または1つ目の定義の行）のエラーを照合する。 区別: 種類ごとに別の名前空間を持つ誤実装は該当する組の設計を受理し、compilation unit やファイルごとに名前空間を持つ誤実装は別ファイルの組を受理するので、対応するテストが失敗する。Icarus Verilog 13.0 は program と primitive、primitive と module の組を受理し、Verilator 5.052 は4本とも警告 MODDUP だけで受理する。"
         }
       ]
     },
@@ -4749,7 +4848,29 @@
       "acceptance": "Reject declaring two packages with the same name across any compilation units.",
       "source_note": "IEEE 1800-2023 3.13; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch3/test_illegal_package_name_reused_in_other_file.sv",
+          "observation": ":files: のファイル package_name_first.sv（先にコンパイル）で package pn_file_pkg を定義し、テストのファイルで同名の package pn_file_pkg をもう一度定義する。2つのファイルが1つの compilation unit か2つかはツールに委ねられるが、どちらでも違反になる。:expected_stderr_regex: は2つ目の定義の行（31行目）か1つ目の定義の行（package_name_first.sv の4行目）のエラーを照合する。 区別: package 名をすべての compilation unit に共通の1つの名前空間に置かない実装（ファイルや compilation unit ごとに別の名前空間にする、後の定義で上書きする）は設計を受理するので、このテストは失敗する。Verilator 5.052 は警告 MODDUP だけで受理する。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "060938ddad0898a5f67e26ac4770ee9c31c3ce4f09bd8f77f9b9f0f97c202201",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_illegal_package_name_reused_in_other_file.sv",
+              "contains": "package pn_file_pkg;  // illegal: the name of a package in the other file"
+            },
+            {
+              "file": "tests/ch3/test_illegal_package_name_reused_in_other_file.sv",
+              "contains": ":expected_stderr_regex: (test_illegal_package_name_reused_in_other_file\\.sv:31:|package_name_first\\.sv:4:)"
+            },
+            {
+              "file": "tests/ch3/package_name_first.sv",
+              "contains": "package pn_file_pkg;"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "3.13",
@@ -4767,7 +4888,77 @@
       "acceptance": "Port declarations use input, output, inout or ref connection categories where the construct-specific rules allow them.",
       "source_note": "IEEE 1800-2023 3.13; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch3/test_port_kinds_connect_two_name_spaces.sv",
+          "observation": "module・interface・program の4種類のポート（input a、output q = a + k、inout ネット b、ref int r）と primitive の output q / input a, b を使う。各窓 B（0, 10, 20）で、B+1 に上位が ref の変数へ 5/6/7 を書き、B+2 に内側が a（上位の値）、b（上位の駆動 11/22/33）、r を表示し、B+3 に上位が b の駆動をやめて内側が 5a/6b/7c を駆動し r に 100/200/300 を足し、B+4 に上位が q、b、r の変数を表示する。primitive は入力を 1,1 にして y=1、en2=0 で y=0 を表示する。 区別: input が値を内側へ運ばなければ「module inside: a=10」等が、output が外へ運ばなければ「module outside: q=11」等が変わる。inout を片方向にする誤実装は内側で b=11/22/33 が見えないか、上位で b=5a/6b/7c が見えない。ref を input のような一方向の接続にする誤実装は内側で足した値が上位へ戻らず「r=105」「r=206」「r=307」が 5/6/7 のままになり、output のような接続にする誤実装は上位が書いた値を内側で読めず「r=5」「r=6」「r=7」が変わる。primitive の output・input が働かなければ「primitive: y=1」「primitive: y=0」が変わる。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "df4da6e9267ebe02f443a0cebf8091fe570f6d9d49a524b86144ada6809bd838",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.sv",
+              "contains": "module pk_mod(input logic [7:0] a, output logic [7:0] q, inout wire [7:0] b, ref int r);"
+            },
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.sv",
+              "contains": "interface pk_if(input logic [7:0] a, output logic [7:0] q, inout wire [7:0] b, ref int r);"
+            },
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.sv",
+              "contains": "program pk_prog(input logic [7:0] a, output logic [7:0] q, inout wire [7:0] b, ref int r);"
+            },
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.sv",
+              "contains": "primitive pk_and(output q, input a, input b);"
+            },
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.sv",
+              "contains": "#1 m_ref = 5;"
+            },
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.sv",
+              "contains": "r = r + 100;"
+            },
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.sv",
+              "contains": "assign b = drive ? 8'h5a : 8'hzz;"
+            },
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.expected",
+              "contains": "module inside: a=10 b=11 r=5"
+            },
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.expected",
+              "contains": "module outside: q=11 b=5a r=105"
+            },
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.expected",
+              "contains": "interface inside: a=20 b=22 r=6"
+            },
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.expected",
+              "contains": "interface outside: q=22 b=6b r=206"
+            },
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.expected",
+              "contains": "program inside: a=30 b=33 r=7"
+            },
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.expected",
+              "contains": "program outside: q=33 b=7c r=307"
+            },
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.expected",
+              "contains": "primitive: y=1"
+            },
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.expected",
+              "contains": "primitive: y=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "3.13",
@@ -4785,7 +4976,73 @@
       "acceptance": "Module, interface, primitive and program ports introduce a port namespace describing connections between scopes.",
       "source_note": "IEEE 1800-2023 3.13; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch3/test_port_kinds_connect_two_name_spaces.sv",
+          "observation": "module pk_mod・interface pk_if・program pk_prog（ポート a, q, b, r）と primitive pk_and（ポート q, a, b）のインスタンスに、上位では別名の物体（m_in/m_out/m_bus/m_ref など、y/en1/en2）を名前・位置で接続し、上位にはポートと同名の変数 a=200, q=201, b=202, r=900 を置く。各インスタンスの内側でポート名から見える値（a=10/20/30、b=11/22/33、r=5/6/7）と、上位の接続先に現れる値、primitive の出力 y、最後に上位の同名変数が変わらないことを表示する。 区別: ポートを2つのスコープの物体を結ぶポート名前空間として扱わず名前で解決する誤実装（内側のポート名が上位の同名変数を指す、または接続が上位の同名変数を変える）では「module inside: a=10 b=11 r=5」が a=200 などになり、「top's own: a=200 q=201 b=202 r=900」が変わり、primitive が上位の a, b（200, 202、最下位ビット 0）を使えば「primitive: y=1」が y=0 になる。接続が成り立たなければ「module outside: q=11 b=5a r=105」などの上位側の値が変わる。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "df4da6e9267ebe02f443a0cebf8091fe570f6d9d49a524b86144ada6809bd838",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.sv",
+              "contains": "logic [7:0] a = 8'd200, q = 8'd201, b = 8'd202;"
+            },
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.sv",
+              "contains": "pk_mod u_mod(.a(m_in), .q(m_out), .b(m_bus), .r(m_ref));"
+            },
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.sv",
+              "contains": "pk_if u_if(i_in, i_out, i_bus, i_ref);"
+            },
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.sv",
+              "contains": "pk_prog u_prog(.r(p_ref), .b(p_bus), .q(p_out), .a(p_in));"
+            },
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.sv",
+              "contains": "pk_and u_and(y, en1, en2);"
+            },
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.expected",
+              "contains": "module inside: a=10 b=11 r=5"
+            },
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.expected",
+              "contains": "module outside: q=11 b=5a r=105"
+            },
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.expected",
+              "contains": "interface inside: a=20 b=22 r=6"
+            },
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.expected",
+              "contains": "interface outside: q=22 b=6b r=206"
+            },
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.expected",
+              "contains": "program inside: a=30 b=33 r=7"
+            },
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.expected",
+              "contains": "program outside: q=33 b=7c r=307"
+            },
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.expected",
+              "contains": "primitive: y=1"
+            },
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.expected",
+              "contains": "primitive: y=0"
+            },
+            {
+              "file": "tests/ch3/test_port_kinds_connect_two_name_spaces.expected",
+              "contains": "top's own: a=200 q=201 b=202 r=900"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "3.13",
@@ -4803,7 +5060,73 @@
       "acceptance": "A port name can be reintroduced by a net or variable declaration in the enclosing element namespace when port declaration rules permit it.",
       "source_note": "IEEE 1800-2023 3.13; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch3/test_port_redeclared_as_net_or_variable.sv",
+          "observation": "非 ANSI 形式で、ネット・変数の型を持たないポート宣言の後に同名のネット・変数を宣言する: module rd_mod は input [7:0] a の後に wire signed [7:0] a、output [7:0] q の後に logic [7:0] q、interface rd_if と program rd_prog は4ビットの input を signed のネット、8ビットの output を変数として宣言し直し、手続きで出力変数に代入する。primitive rd_latch は output q の後に reg q を宣言して順序回路にする。a=8'hf0 の符号付きの値と a>>>1、出力の符号拡張、ラッチの保持を表示する。 区別: ポート名をネット・変数の宣言で導入し直せない実装は設計を拒否する。宣言し直したネットの signed を無視する誤実装は「module: a=-16 negative=1」が a=240 negative=0 に、算術シフトと符号拡張が論理シフト・ゼロ拡張になり「outputs: module q=f8 interface v=fa program v=f9」が 78/0a/09 に変わる。変数として宣言し直さなければ手続き代入ができず拒否される。primitive の reg q を無視すれば状態を持たず「latch closed: q=1」が変わる。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "236620bec2a96575cb93629f0253928fdaa1084b758d594e459da33cae719419",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_port_redeclared_as_net_or_variable.sv",
+              "contains": "input [7:0] a;"
+            },
+            {
+              "file": "tests/ch3/test_port_redeclared_as_net_or_variable.sv",
+              "contains": "wire signed [7:0] a;"
+            },
+            {
+              "file": "tests/ch3/test_port_redeclared_as_net_or_variable.sv",
+              "contains": "output [7:0] q;"
+            },
+            {
+              "file": "tests/ch3/test_port_redeclared_as_net_or_variable.sv",
+              "contains": "logic [7:0] q;"
+            },
+            {
+              "file": "tests/ch3/test_port_redeclared_as_net_or_variable.sv",
+              "contains": "wire signed [3:0] n;"
+            },
+            {
+              "file": "tests/ch3/test_port_redeclared_as_net_or_variable.sv",
+              "contains": "logic [7:0] v;"
+            },
+            {
+              "file": "tests/ch3/test_port_redeclared_as_net_or_variable.sv",
+              "contains": "wire signed [3:0] pn;"
+            },
+            {
+              "file": "tests/ch3/test_port_redeclared_as_net_or_variable.sv",
+              "contains": "logic [7:0] pv;"
+            },
+            {
+              "file": "tests/ch3/test_port_redeclared_as_net_or_variable.sv",
+              "contains": "reg q;"
+            },
+            {
+              "file": "tests/ch3/test_port_redeclared_as_net_or_variable.expected",
+              "contains": "module: a=-16 negative=1"
+            },
+            {
+              "file": "tests/ch3/test_port_redeclared_as_net_or_variable.expected",
+              "contains": "outputs: module q=f8 interface v=fa program v=f9"
+            },
+            {
+              "file": "tests/ch3/test_port_redeclared_as_net_or_variable.expected",
+              "contains": "latch open: q=1"
+            },
+            {
+              "file": "tests/ch3/test_port_redeclared_as_net_or_variable.expected",
+              "contains": "latch closed: q=1"
+            },
+            {
+              "file": "tests/ch3/test_port_redeclared_as_net_or_variable.expected",
+              "contains": "latch open again: q=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "3.13",
@@ -4821,7 +5144,85 @@
       "acceptance": "Compilation-unit scope unifies its functions, tasks, checkers, parameters, named events, nets, variables and user-defined type names.",
       "source_note": "IEEE 1800-2023 3.13; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch3/test_unit_scope_name_space_item_kinds.sv",
+          "observation": "どのモジュールの外にも parameter UNIT_P、typedef unit_word_t、変数 unit_var、ネット unit_net、named event unit_ev、function unit_f、task unit_task、checker unit_chk を宣言する。モジュール unit_user_a が unit_net を駆動し、unit_var に1を足して unit_ev を起こす。上位モジュールは自分の同名変数 unit_var=99 を持ち、unit_ev を待って $unit::unit_var（8）と自分の unit_var、unit_task の結果（compilation-unit の unit_var+100）、unit_f(3)、UNIT_P、$bits(unit_word_t)、unit_net を表示し、unit_net に接続した unit_chk の表明の成功時の動作が値を表示する。 区別: compilation-unit の名前空間にこれらの宣言を置かない実装は参照を解決できず拒否する。変数・ネット・event がモジュールごとの別物なら「event: $unit::unit_var=8 ...」が 7 になるか event を待ち続け、「net: 42」が変わる。モジュールの同名宣言を compilation-unit の名前空間と区別しなければ「own unit_var=99」が変わり、task の unit_var を呼び出し側の名前空間で解決する誤実装は「task: 108」を 199 にする。「function: 15 parameter: 5」「type: bits=12 value=4095」「unit_chk: v=42」は関数・parameter・型・checker が compilation-unit の宣言として使えることを示す。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "3e6c83d1f572d4a2ab31afc5bdb2aac607719926c2037828f6f93f0ac5b5d0ce",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_unit_scope_name_space_item_kinds.sv",
+              "contains": "parameter int UNIT_P = 5;"
+            },
+            {
+              "file": "tests/ch3/test_unit_scope_name_space_item_kinds.sv",
+              "contains": "typedef logic [11:0] unit_word_t;"
+            },
+            {
+              "file": "tests/ch3/test_unit_scope_name_space_item_kinds.sv",
+              "contains": "int unit_var = 7;"
+            },
+            {
+              "file": "tests/ch3/test_unit_scope_name_space_item_kinds.sv",
+              "contains": "wire [7:0] unit_net;"
+            },
+            {
+              "file": "tests/ch3/test_unit_scope_name_space_item_kinds.sv",
+              "contains": "event unit_ev;"
+            },
+            {
+              "file": "tests/ch3/test_unit_scope_name_space_item_kinds.sv",
+              "contains": "function automatic int unit_f(int x);"
+            },
+            {
+              "file": "tests/ch3/test_unit_scope_name_space_item_kinds.sv",
+              "contains": "task automatic unit_task(output int o);"
+            },
+            {
+              "file": "tests/ch3/test_unit_scope_name_space_item_kinds.sv",
+              "contains": "checker unit_chk(input logic clk, input logic [7:0] v);"
+            },
+            {
+              "file": "tests/ch3/test_unit_scope_name_space_item_kinds.sv",
+              "contains": "assign unit_net = 8'd42;"
+            },
+            {
+              "file": "tests/ch3/test_unit_scope_name_space_item_kinds.sv",
+              "contains": "int unit_var = 99;"
+            },
+            {
+              "file": "tests/ch3/test_unit_scope_name_space_item_kinds.sv",
+              "contains": "unit_chk u_chk(clk, unit_net);"
+            },
+            {
+              "file": "tests/ch3/test_unit_scope_name_space_item_kinds.expected",
+              "contains": "event: $unit::unit_var=8 own unit_var=99"
+            },
+            {
+              "file": "tests/ch3/test_unit_scope_name_space_item_kinds.expected",
+              "contains": "task: 108"
+            },
+            {
+              "file": "tests/ch3/test_unit_scope_name_space_item_kinds.expected",
+              "contains": "function: 15 parameter: 5"
+            },
+            {
+              "file": "tests/ch3/test_unit_scope_name_space_item_kinds.expected",
+              "contains": "type: bits=12 value=4095"
+            },
+            {
+              "file": "tests/ch3/test_unit_scope_name_space_item_kinds.expected",
+              "contains": "net: 42"
+            },
+            {
+              "file": "tests/ch3/test_unit_scope_name_space_item_kinds.expected",
+              "contains": "unit_chk: v=42"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "3.13",
@@ -94455,7 +94856,89 @@
       "acceptance": "Continuous/procedural assignment is an assignment-like context.",
       "source_note": "IEEE 1800-2023 10.8; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch10/test_assignment_like_continuous_and_procedural.sv",
+          "observation": "連続代入でネット net_pair と変数 var_pair（packed struct pair_t）へ型なしの代入パターン '{three, four} と '{four + 1, three + 3} を、固定長アンパック配列 cont_arr へ波括弧 {8'd7, 8'd8, 8'd9} を代入する。手続き代入ではブロッキング代入で blk へパターン、キュー q と動的配列 dyn へ波括弧を、ノンブロッキング代入で nba へパターン、固定長配列 fixed へ波括弧を代入する。時刻1に各メンバの値と要素数を表示し、対照として同じ3バイトの波括弧を 24ビットのベクタ vec へ代入した値 010203 も表示する。 区別: 連続代入または手続き代入（ブロッキング・ノンブロッキング）を代入に準じる文脈として扱わない実装では、型なしパターンに型が無いので設計を拒否するか、int 2つのベクタ連結（64ビット）を16ビットへ切り詰めて hi=0 となり「continuous net: hi=3 lo=4」「continuous variable: hi=5 lo=6」「blocking: hi=10 lo=11」「nonblocking: hi=12 lo=16」が変わる。波括弧をアンパック配列連結にしなければ「continuous array: 7 8 9」「queue: size=3 1 2 3」「dynamic array: size=2 4 5」「nonblocking array: 10 11 12」の要素数・値が変わり、ベクタが対象でもアンパック連結にする誤実装は「vector: 010203」を変える。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "770c5c4633019d8c7b8afd41f4d73199f690dc6edfc31d970516080c4b44f32d",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_assignment_like_continuous_and_procedural.sv",
+              "contains": "assign net_pair = '{three, four};"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_continuous_and_procedural.sv",
+              "contains": "assign var_pair = '{four + 1, three + 3};"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_continuous_and_procedural.sv",
+              "contains": "assign cont_arr = {8'd7, 8'd8, 8'd9};"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_continuous_and_procedural.sv",
+              "contains": "blk = '{three + 7, four + 7};"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_continuous_and_procedural.sv",
+              "contains": "nba <= '{three * 4, four * 4};"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_continuous_and_procedural.sv",
+              "contains": "q = {8'd1, 8'd2, 8'd3};"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_continuous_and_procedural.sv",
+              "contains": "dyn = {8'd4, 8'd5};"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_continuous_and_procedural.sv",
+              "contains": "fixed <= {8'd10, 8'd11, 8'd12};"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_continuous_and_procedural.sv",
+              "contains": "vec = {8'd1, 8'd2, 8'd3};"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_continuous_and_procedural.expected",
+              "contains": "continuous net: hi=3 lo=4"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_continuous_and_procedural.expected",
+              "contains": "continuous variable: hi=5 lo=6"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_continuous_and_procedural.expected",
+              "contains": "continuous array: 7 8 9"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_continuous_and_procedural.expected",
+              "contains": "blocking: hi=10 lo=11"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_continuous_and_procedural.expected",
+              "contains": "nonblocking: hi=12 lo=16"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_continuous_and_procedural.expected",
+              "contains": "queue: size=3 1 2 3"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_continuous_and_procedural.expected",
+              "contains": "dynamic array: size=2 4 5"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_continuous_and_procedural.expected",
+              "contains": "nonblocking array: 10 11 12"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_continuous_and_procedural.expected",
+              "contains": "vector: 010203"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "10.8",
@@ -94509,7 +94992,65 @@
       "acceptance": "Module/interface/program input or output port connection is an assignment-like context.",
       "source_note": "IEEE 1800-2023 10.8; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch10/test_assignment_like_port_connections.sv",
+          "observation": "同じポート（input pair_t in_p、input の3バイトのアンパック配列 in_a、output pair_t out_p、output の2バイトのアンパック配列 out_a）を持つ module・interface・program のインスタンスで、in_p に int の型なしパターン、in_a に波括弧、out_p に変数のパターン '{mh, ml} など、out_a に変数のパターン '{ma, mb} などを接続する（module と interface は名前、program は位置で接続）。各インスタンスは受け取った入力を表示し、時刻4に上位が出力で駆動された変数を表示する（out_p は in_p を入れ替えて in_a[1] を足した値、out_a は in_a[2] と in_a[0]）。 区別: input ポート接続を代入に準じる文脈にしない実装はパターンに型が無く拒否するかベクタ連結で hi=0 とし「module inputs: hi=3 lo=4, ...」「interface inputs: hi=4 lo=3, ...」「program inputs: hi=6 lo=8, ...」が、波括弧をアンパック配列にしなければ in_a=10 20 30 などが変わる。output ポート接続を文脈にしない実装は、アンパック配列の out_a に接続した '{ma, mb} などを16ビットのベクタ連結と読むと代入できず（7.6 でベクタとアンパック配列は代入互換でない）設計を拒否し、要素の位置の対応を誤れば「array outputs: module 30 10, interface 60 40, program 90 70」が変わる。packed の out_p の行「outputs: module 24 23, ...」は連結と同じビットになるので、output 側の文脈の判別はアンパック配列の行が担う。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "84f19c5b15ea1896caf7b3fe1086ee4ffa5a992738057b5b7bf1f656d54b6626",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_assignment_like_port_connections.sv",
+              "contains": "alp_mod u_mod(.in_p('{three, four}), .in_a({8'd10, 8'd20, 8'd30}), .out_p('{mh, ml}),"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_port_connections.sv",
+              "contains": ".out_a('{ma, mb}));"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_port_connections.sv",
+              "contains": "alp_if u_if(.in_p('{four, three}), .in_a({8'd40, 8'd50, 8'd60}), .out_p('{ih, il}),"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_port_connections.sv",
+              "contains": ".out_a('{ia, ib}));"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_port_connections.sv",
+              "contains": "alp_prog u_prog('{three * 2, four * 2}, {8'd70, 8'd80, 8'd90}, '{ph, pl}, '{pa, pb});"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_port_connections.sv",
+              "contains": "output logic [7:0] out_a [2]);"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_port_connections.sv",
+              "contains": "assign out_a = '{in_a[2], in_a[0]};"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_port_connections.expected",
+              "contains": "module inputs: hi=3 lo=4, in_a=10 20 30"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_port_connections.expected",
+              "contains": "interface inputs: hi=4 lo=3, in_a=40 50 60"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_port_connections.expected",
+              "contains": "program inputs: hi=6 lo=8, in_a=70 80 90"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_port_connections.expected",
+              "contains": "outputs: module 24 23, interface 53 54, program 88 86"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_port_connections.expected",
+              "contains": "array outputs: module 30 10, interface 60 40, program 90 70"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "10.8",
@@ -94563,7 +95104,89 @@
       "acceptance": "Within a RHS assignment-like context, assignment context propagates through parentheses, mintypmax alternatives and conditional second/third operands.",
       "source_note": "IEEE 1800-2023 10.8; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch10/test_assignment_like_parens_mintypmax_conditional.sv",
+          "observation": "代入に準じる文脈の右辺で、1重と3重の括弧の中の型なしパターン、min:typ:max の3つの式すべてに置いた型なしパターン（どの式も型が付けば hi=3 lo=4）と波括弧（どの式も2要素 1, 2）、条件演算子の第2・第3オペランドのパターンと長さの違う波括弧を評価する。条件演算子は sel=1 と sel=0 の両方で、ブロッキング代入、pair_t のネット w への連続代入、関数 code の input 引数の3つの文脈で評価し、選ばれたオペランドの値・要素数を表示する。第3オペランドの括弧内に入れ子にした条件演算子も評価する。 区別: 括弧の中へ文脈を伝えない実装はパターンに型が無く拒否するかベクタ連結として hi=0 とし「parentheses: hi=3 lo=4」「nested parentheses: hi=4 lo=3」が変わる。min:typ:max の式へ伝えない実装は、選んだ式が型を持たず「min:typ:max patterns: hi=3 lo=4」「min:typ:max braces: size=2 1 2」が変わる（3つとも同じ値なので、どれを選ぶかは結果に影響しない）。第2オペランドにだけ伝える実装は sel=0 の行（「sel=0: assignment hi=4 lo=3, braces size=3 first=7 last=9」「sel=0: continuous hi=4 lo=3, argument 404」）と「nested conditional: hi=5 lo=6」を、第3オペランドにだけ伝える実装は sel=1 の行（「sel=1: assignment hi=3 lo=4, braces size=2 first=5 last=6」「sel=1: continuous hi=3 lo=4, argument 303」）を変える。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "7c18cf03c1f36bde2d6712b0206475bd0ca6319570a60149e7cc785c132b1ad6",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_assignment_like_parens_mintypmax_conditional.sv",
+              "contains": "p = ('{three, four});"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_parens_mintypmax_conditional.sv",
+              "contains": "p = ((('{four, three})));"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_parens_mintypmax_conditional.sv",
+              "contains": "p = ('{three, four} : '{four - 1, three + 1} : '{three * 1, four * 1});"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_parens_mintypmax_conditional.sv",
+              "contains": "q = ({8'd1, 8'd2} : {8'd1, 8'd2} : {8'd1, 8'd2});"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_parens_mintypmax_conditional.sv",
+              "contains": "p = sel ? '{three, four} : '{four, three};"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_parens_mintypmax_conditional.sv",
+              "contains": "q = sel ? {8'd5, 8'd6} : {8'd7, 8'd8, 8'd9};"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_parens_mintypmax_conditional.sv",
+              "contains": "assign w = sel ? ('{three, four}) : '{four, three};"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_parens_mintypmax_conditional.sv",
+              "contains": "code(sel ? '{three, three} : ('{four, four})));"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_parens_mintypmax_conditional.sv",
+              "contains": "p = sel ? '{1, 2} : (sel ? '{3, 4} : '{5, 6});"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_parens_mintypmax_conditional.expected",
+              "contains": "parentheses: hi=3 lo=4"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_parens_mintypmax_conditional.expected",
+              "contains": "nested parentheses: hi=4 lo=3"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_parens_mintypmax_conditional.expected",
+              "contains": "min:typ:max patterns: hi=3 lo=4"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_parens_mintypmax_conditional.expected",
+              "contains": "min:typ:max braces: size=2 1 2"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_parens_mintypmax_conditional.expected",
+              "contains": "sel=1: assignment hi=3 lo=4, braces size=2 first=5 last=6"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_parens_mintypmax_conditional.expected",
+              "contains": "sel=1: continuous hi=3 lo=4, argument 303"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_parens_mintypmax_conditional.expected",
+              "contains": "sel=0: assignment hi=4 lo=3, braces size=3 first=7 last=9"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_parens_mintypmax_conditional.expected",
+              "contains": "sel=0: continuous hi=4 lo=3, argument 404"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_parens_mintypmax_conditional.expected",
+              "contains": "nested conditional: hi=5 lo=6"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "10.8",
@@ -94653,7 +95276,49 @@
       "acceptance": "Tagged union expression is an assignment-like context.",
       "source_note": "IEEE 1800-2023 10.8; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch10/test_assignment_like_tagged_union_member.sv",
+          "observation": "tagged union item_t（packed struct メンバ Pair、固定長アンパック配列メンバ Trio、キューメンバ List、int メンバ Num）の tagged 式で、メンバ値に型なしパターン tagged Pair '{three, four}、波括弧 tagged Trio {8'd5, 8'd6, 8'd7}・tagged List {8'd8, 8'd9} を置き、item_t の変数へ代入した後に設定したタグのメンバを読んで値と要素数を表示する。関数 input 引数へ渡した tagged List {8'd10, 8'd20, 8'd30, 8'd40} は要素数*1000+合計 = 4100 を返す。 区別: tagged 式のメンバ値を代入に準じる文脈にしない実装では、'{three, four} に型が無く拒否するかベクタ連結として hi=0 となり「Pair: hi=3 lo=4」が変わる。波括弧はベクタ連結（24・16・32ビット）になってメンバの型と一致せず拒否されるか、「Trio: 5 6 7」「List: size=2 8 9」「argument: 4100」の要素数・値が変わる。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "8532b45a25b3f64ee5dd819fc4195c4d4d755fc2ba1656263433561a191a6c35",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_assignment_like_tagged_union_member.sv",
+              "contains": "item = tagged Pair '{three, four};"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_tagged_union_member.sv",
+              "contains": "item = tagged Trio {8'd5, 8'd6, 8'd7};"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_tagged_union_member.sv",
+              "contains": "item = tagged List {8'd8, 8'd9};"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_tagged_union_member.sv",
+              "contains": "list_sum(tagged List {8'd10, 8'd20, 8'd30, 8'd40})"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_tagged_union_member.expected",
+              "contains": "Pair: hi=3 lo=4"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_tagged_union_member.expected",
+              "contains": "Trio: 5 6 7"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_tagged_union_member.expected",
+              "contains": "List: size=2 8 9"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_tagged_union_member.expected",
+              "contains": "argument: 4100"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "10.8",
@@ -94671,7 +95336,93 @@
       "acceptance": "Explicitly typed parameter assignment or override, including class specialization through :: is an assignment-like context.",
       "source_note": "IEEE 1800-2023 10.8; complete own-body source review, blocks B002, B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch10/test_assignment_like_typed_parameters.sv",
+          "observation": "明示した型を持つ parameter の値に型なしパターンと波括弧を使う: module tp_mod の pair_t P とアンパック配列 A と localparam L、interface tp_if・program tp_prog の pair_t P、class tp_cls の pair_t P。上書きは module（名前・位置、A は波括弧）、interface、program のインスタンス、class の特殊化 tp_cls #(.P('{31, 32})) と :: の左辺 tp_cls#('{21, 22})::code() で行う。各インスタンスは自分の時刻に %m と値を表示し、class は既定・:: 経由・オブジェクト経由の code()=hi*100+lo を表示する。 区別: 宣言の値の代入を文脈にしない実装は既定値の行（「u_def: P=1,2 A=3,4 L=2,1」「i_def: P=5,6」「p_def: P=7,8」「class: default 910」）を、インスタンスの上書きを文脈にしない実装は「u_named: P=11,12 A=13,14 L=12,11」「u_pos: P=15,16 A=17,18 L=16,15」「i_ovr: P=25,26」「p_ovr: P=27,28」を、class の特殊化と :: の左辺の上書きを文脈にしない実装は「scope resolution 2122」「object 3132」を変える（型なしパターンを拒否するか、ベクタ連結で hi=0 にする、または波括弧を2要素の配列にしない）。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "9a6c52b5343993bb8e41cbf9320c843d59b636a358530c6a84437cd49483092c",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_assignment_like_typed_parameters.sv",
+              "contains": "module tp_mod #(parameter pair_t P = '{1, 2}, parameter logic [7:0] A [2] = {8'd3, 8'd4},"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_typed_parameters.sv",
+              "contains": "localparam pair_t L = '{P.lo, P.hi};"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_typed_parameters.sv",
+              "contains": "interface tp_if #(parameter pair_t P = '{5, 6}, parameter int T = 0) ();"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_typed_parameters.sv",
+              "contains": "program tp_prog #(parameter pair_t P = '{7, 8}, parameter int T = 0) ();"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_typed_parameters.sv",
+              "contains": "class tp_cls #(parameter pair_t P = '{9, 10});"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_typed_parameters.sv",
+              "contains": "tp_cls #(.P('{31, 32})) h;"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_typed_parameters.sv",
+              "contains": "tp_mod #(.P('{11, 12}), .A({8'd13, 8'd14}), .T(2)) u_named();"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_typed_parameters.sv",
+              "contains": "tp_mod #('{15, 16}, {8'd17, 8'd18}, 3) u_pos();"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_typed_parameters.sv",
+              "contains": "tp_if #(.P('{25, 26}), .T(5)) i_ovr();"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_typed_parameters.sv",
+              "contains": "tp_prog #('{27, 28}, 8) p_ovr();"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_typed_parameters.sv",
+              "contains": "tp_cls#('{21, 22})::code()"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_typed_parameters.expected",
+              "contains": "test_assignment_like_typed_parameters.u_def: P=1,2 A=3,4 L=2,1"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_typed_parameters.expected",
+              "contains": "test_assignment_like_typed_parameters.u_named: P=11,12 A=13,14 L=12,11"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_typed_parameters.expected",
+              "contains": "test_assignment_like_typed_parameters.u_pos: P=15,16 A=17,18 L=16,15"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_typed_parameters.expected",
+              "contains": "test_assignment_like_typed_parameters.i_def: P=5,6"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_typed_parameters.expected",
+              "contains": "test_assignment_like_typed_parameters.i_ovr: P=25,26"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_typed_parameters.expected",
+              "contains": "class: default 910, scope resolution 2122, object 3132"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_typed_parameters.expected",
+              "contains": "test_assignment_like_typed_parameters.p_def: P=7,8"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_typed_parameters.expected",
+              "contains": "test_assignment_like_typed_parameters.p_ovr: P=27,28"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "10.8",
@@ -94690,7 +95441,73 @@
       "acceptance": "Subroutine input/output/inout value argument is an assignment-like context.",
       "source_note": "IEEE 1800-2023 10.8; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch10/test_assignment_like_subroutine_arguments.sv",
+          "observation": "input 引数に型なしパターン weigh('{three, four})（hi*100+lo）と波括弧 count_all({8'd1, 8'd2, 8'd3})（キュー、要素数*100+先頭*10+末尾）を渡す。output 実引数には task swap_out へ '{h1, l1}（packed の pair_t）、関数 split へ '{e0, e1}（2要素のアンパック配列の仮引数）を書く。inout 実引数には関数 bump へ '{h2, l2}（pair_t、20, 30 が +1, +10 されて戻る）、task rotate へ '{r0, r1, r2}（3要素のアンパック配列の仮引数）を書く。rotate は 20, 30, 40 を受け取って 30, 40, 120 にし、位置どおりに r0, r1, r2 へ戻す。戻った変数の値を表示する。 区別: input 引数を代入に準じる文脈にしない実装はパターンに型が無く拒否するかベクタ連結で hi=0 とし「input pattern: 304」が、波括弧をキューにしなければ「input braces: 313」が変わる。output 引数を文脈にしない実装は、アンパック配列の仮引数から '{e0, e1} をベクタ連結（16ビット）と読むと代入できず拒否し、位置の対応を誤れば「output array pattern: e0=51 e1=52」が変わる。inout 引数を文脈にしない実装は、'{r0, r1, r2} を24ビットのベクタ連結と読むとアンパック配列の仮引数へのコピーインもコピーアウトもできず（7.6 でベクタとアンパック配列は代入互換でない）拒否し、コピーインまたはコピーアウトの位置を誤れば「inout array pattern: r0=30 r1=40 r2=120」が変わる。packed の pair_t の行（「output pattern: h1=4 l1=3」「inout pattern: h2=21 l2=40」）は連結と同じビットになるので、文脈の判別はアンパック配列の行が担う。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "4216316a2b6e63cc225fc102881f3b3c310587acbae77a2806dfd16ef550dfe1",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_assignment_like_subroutine_arguments.sv",
+              "contains": "weigh('{three, four})"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_subroutine_arguments.sv",
+              "contains": "count_all({8'd1, 8'd2, 8'd3})"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_subroutine_arguments.sv",
+              "contains": "function automatic void split(input int base, output logic [7:0] parts [2]);"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_subroutine_arguments.sv",
+              "contains": "split(50, '{e0, e1});"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_subroutine_arguments.sv",
+              "contains": "task automatic rotate(inout logic [7:0] items [3]);"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_subroutine_arguments.sv",
+              "contains": "items = '{old[1], old[2], old[0] + 8'd100};"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_subroutine_arguments.sv",
+              "contains": "rotate('{r0, r1, r2});"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_subroutine_arguments.sv",
+              "contains": "bump('{h2, l2});"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_subroutine_arguments.expected",
+              "contains": "input pattern: 304"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_subroutine_arguments.expected",
+              "contains": "input braces: 313"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_subroutine_arguments.expected",
+              "contains": "output pattern: h1=4 l1=3"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_subroutine_arguments.expected",
+              "contains": "output array pattern: e0=51 e1=52"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_subroutine_arguments.expected",
+              "contains": "inout pattern: h2=21 l2=40"
+            },
+            {
+              "file": "tests/ch10/test_assignment_like_subroutine_arguments.expected",
+              "contains": "inout array pattern: r0=30 r1=40 r2=120"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "10.8",
@@ -127482,7 +128299,57 @@
       "acceptance": "Retriggering an always_comb/always_latch due to a sensitivity change is a violation report flush point.",
       "source_note": "IEEE 1800-2023 12.4.2.1; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch12/test_unique_if_report_flush_on_comb_latch_retrigger.sv",
+          "observation": "na は a の変化を NBA で追い、nb は b の変化を #0 後に追う。t=1 に a=1 となると always_comb c_nba（unique if 重複、60行）、c_prio（priority if 不一致、64行）、always_latch l_nba（unique0 if 重複、69行）が a=na=1 のまま実行されて違反し、NBA で na が変わると依存信号の変化で再起動されて違反なしで再実行する。t=2 の c_inact（74行）は nb の Inactive 更新で再起動される。regex は 60・64・69・74 行の名指しを拒否し、再起動されない c_stay（78行）と、再起動後も違反する c_again（82行）の名指しを要求する。stdout は再実行後の分岐 z1=1 z2=1 z3=1 z4=1 z5=1 z6=1。 区別: always_comb/always_latch の依存信号による再起動を flush 点としない実装は 60・64・69・74 行を報告して失敗し、always_latch だけを除外する実装は 69 行で失敗する。再起動で再実行後の報告まで捨てる実装は 82 行を失い、全プロセスの報告を捨てる実装は 78 行を失う。再実行しない実装は z 値が 2 のままになる。報告の書式は規格がツールに任せる（12.4.2.1 B006 の tool-specific mechanism）が、スイートの他の違反報告テスト（12.4.2.2/12.5.3.2/20.11 の登録済みテスト）と同じく、各報告がその文のファイルと行を名指すことを前提に、regex は報告されるべき行の名指しを要求し、報告されてはならない行の名指しを拒否する。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "88682d43d73c8e8d7eb86d0d80225ada7d983ef39c3a2da00a221e2e24a6a681",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_comb_latch_retrigger.sv",
+              "contains": ":expected_stderr_regex: \\A(?![\\s\\S]*test_unique_if_report_flush_on_comb_latch_retrigger\\.sv:60\\b)(?![\\s\\S]*test_unique_if_report_flush_on_comb_latch_retrigger\\.sv:64\\b)(?![\\s\\S]*test_unique_if_report_flush_on_comb_latch_retrigger\\.sv:69\\b)(?![\\s\\S]*test_unique_if_report_flush_on_comb_latch_retrigger\\.sv:74\\b)(?=[\\s\\S]*test_unique_if_report_flush_on_comb_latch_retrigger\\.sv:78\\b)(?=[\\s\\S]*test_unique_if_report_flush_on_comb_latch_retrigger\\.sv:82\\b)"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_comb_latch_retrigger.sv",
+              "contains": "  always @(a) na <= !a;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_comb_latch_retrigger.sv",
+              "contains": "    unique if (a) z1 = 1; else if (na) z1 = 2;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_comb_latch_retrigger.sv",
+              "contains": "    priority if (a && !na) z2 = 1; else if (!a && na) z2 = 2;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_comb_latch_retrigger.sv",
+              "contains": "  always_latch begin : l_nba\n    if (en) begin\n      unique0 if (a) z3 = 1; else if (na) z3 = 2;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_comb_latch_retrigger.sv",
+              "contains": "    unique if (b) z4 = 1; else if (nb) z4 = 2;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_comb_latch_retrigger.sv",
+              "contains": "    unique if (a) z5 = 1; else if (k) z5 = 2;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_comb_latch_retrigger.sv",
+              "contains": "    unique if (a) z6 = 1; else if (na || k) z6 = 2;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_comb_latch_retrigger.sv",
+              "contains": "    #1 a = 1;\n    #1 b = 1;\n    #0 nb = 0;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_comb_latch_retrigger.expected",
+              "contains": "z1=1 z2=1 z3=1 z4=1 z5=1 z6=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "12.4.2.1",
@@ -127500,7 +128367,53 @@
       "acceptance": "Checks evaluate at statement execution but reports defer to Observed in the current time step and can be controlled by assertion control tasks.",
       "source_note": "IEEE 1800-2023 12.4.2.1; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch12/test_unique_if_report_deferred_and_matured_in_observed.sv",
+          "observation": "t=1: A（64行）は pa=qa=1 で実行時に違反し直後に qa=0、B（67行）は qb=0 で実行時に合格し直後に qb=1。t=2: C（70行、unique 重複）と D（71行、priority 不一致）が違反した後、同じ時刻に $assertcontrol(5, 32)（Kill、unique 型）と $assertcontrol(3, 32)（On）を実行し、その後 E（74行）が違反する。t=3: F（82行）は NBA で変わる go の @ で Observed 前に再開し、G（89行）はネストした program が Reactive 領域から起動する react の @ で Observed 後の同じ時刻に再開する。regex は A・D・E・G の名指しを要求し、B・C・F の名指しを拒否する。stdout は分岐結果と再開時刻 s_nba 3・s_react 3。 区別: 検査を Observed 時点の値で行う実装は A を報告せず B を報告する。報告を保留せず即時に出す実装は Kill 前の C と flush 前の F を報告する。保留を Observed より後（時間ステップ末など）まで延ばす実装は、同じ時刻の Observed 後に再開した s_react の flush で G を失う。アサーション制御が報告に効かない実装は C を報告し、Kill を型で絞らない実装は D を失い、On が効かない実装は E を失う。報告の書式は規格がツールに任せる（12.4.2.1 B006 の tool-specific mechanism）が、スイートの他の違反報告テスト（12.4.2.2/12.5.3.2/20.11 の登録済みテスト）と同じく、各報告がその文のファイルと行を名指すことを前提に、regex は報告されるべき行の名指しを要求し、報告されてはならない行の名指しを拒否する。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "45f7a684a2eda3575114cbf62091d3d0b6c523d01b33a717bdbaa97d18518d75",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_unique_if_report_deferred_and_matured_in_observed.sv",
+              "contains": ":expected_stderr_regex: \\A(?=[\\s\\S]*test_unique_if_report_deferred_and_matured_in_observed\\.sv:64\\b)(?![\\s\\S]*test_unique_if_report_deferred_and_matured_in_observed\\.sv:64\\b[\\s\\S]*test_unique_if_report_deferred_and_matured_in_observed\\.sv:64\\b)(?![\\s\\S]*test_unique_if_report_deferred_and_matured_in_observed\\.sv:67\\b)(?![\\s\\S]*test_unique_if_report_deferred_and_matured_in_observed\\.sv:70\\b)(?=[\\s\\S]*test_unique_if_report_deferred_and_matured_in_observed\\.sv:71\\b)(?=[\\s\\S]*test_unique_if_report_deferred_and_matured_in_observed\\.sv:74\\b)(?![\\s\\S]*test_unique_if_report_deferred_and_matured_in_observed\\.sv:82\\b)(?=[\\s\\S]*test_unique_if_report_deferred_and_matured_in_observed\\.sv:89\\b)(?=[\\s\\S]*test_unique_if_report_deferred_and_matured_in_observed\\.sv:96\\b)(?![\\s\\S]*test_unique_if_report_deferred_and_matured_in_observed\\.sv:96\\b[\\s\\S]*test_unique_if_report_deferred_and_matured_in_observed\\.sv:96\\b)"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_deferred_and_matured_in_observed.sv",
+              "contains": "    pa = 1; qa = 1;\n    unique if (pa) r[1] = 1; else if (qa) r[1] = 2;\n    qa = 0;\n    pb = 1; qb = 0;\n    unique if (pb) r[2] = 1; else if (qb) r[2] = 2;\n    qb = 1;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_deferred_and_matured_in_observed.sv",
+              "contains": "    unique if (pa) r[3] = 1; else if (pb) r[3] = 2;\n    priority if (qa) r[4] = 1; else if (n) r[4] = 2;\n    $assertcontrol(5, 32);\n    $assertcontrol(3, 32);\n    unique if (pa) r[5] = 1; else if (pb) r[5] = 2;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_deferred_and_matured_in_observed.sv",
+              "contains": "    unique if (pa) r[6] = 1; else if (qb) r[6] = 2;\n    @(go);"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_deferred_and_matured_in_observed.sv",
+              "contains": "    unique if (pa) r[7] = 1; else if (pb) r[7] = 2;\n    @(react);"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_deferred_and_matured_in_observed.sv",
+              "contains": "    unique if (pb) r[8] = 1; else if (qb) r[8] = 2;\n    @(late);"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_deferred_and_matured_in_observed.sv",
+              "contains": "      #3 -> react;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_deferred_and_matured_in_observed.sv",
+              "contains": "  initial #3 go <= 1;\n  initial #4 -> late;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_deferred_and_matured_in_observed.expected",
+              "contains": "t=1: r1=1 r2=1\nt=2: r3=1 r4=0 r5=1\nt=3: r6=1 r7=1 r8=1\nresumed: s_nba at 3, s_react at 3, s_late at 4"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "12.4.2.1",
@@ -127518,7 +128431,45 @@
       "acceptance": "Resuming a procedure previously suspended at an event control or wait is a violation report flush point.",
       "source_note": "IEEE 1800-2023 12.4.2.1; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch12/test_unique_if_report_flush_on_event_or_wait_resume.sv",
+          "observation": "t=1 に p_ev は unique if 重複（62行）・unique0 if 重複（63行）・unique if 不一致（64行）・priority if 不一致（65行）の4違反の後 @(go) で中断し、p_wait は unique if 重複（72行）の後 wait (go) で中断する。go は t=1 の NBA 領域（Observed より前）で 0→1 になり、両者は同じ時刻に再開する（stdout の「resumed at 1」）。regex は 62〜65 行と 72 行の名指しを拒否し、対照として #0 で中断・再開する p_delay（80行）と中断しない p_none（87行）、p_wait の再開後の priority if 不一致（75行）の名指しを要求する。stdout は最初に真の分岐だけが実行された値 r1=1 r2=1 r3=0 r4=0、rw1=1 rw2=0、rd=1、rn=1。 区別: イベント制御（@）や wait からの再開を flush 点としない実装は 62〜65 行と 72 行を報告し regex の否定先読みに反する。wait だけ、または @ だけを flush 点とする実装もどちらかの行で失敗する。flush 点でない遅延制御 #0 の再開でも flush する実装は 80 行の報告を失い、報告を即時に出す実装（Verilator 5.052 の挙動）は 62〜64・72 行を報告する。報告の書式は規格がツールに任せる（12.4.2.1 B006 の tool-specific mechanism）が、スイートの他の違反報告テスト（12.4.2.2/12.5.3.2/20.11 の登録済みテスト）と同じく、各報告がその文のファイルと行を名指すことを前提に、regex は報告されるべき行の名指しを要求し、報告されてはならない行の名指しを拒否する。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "b719c213f3024531937e004459db7ab85cf522782af2f881cfa4f76a0ef93ecd",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_event_or_wait_resume.sv",
+              "contains": ":expected_stderr_regex: \\A(?![\\s\\S]*test_unique_if_report_flush_on_event_or_wait_resume\\.sv:62\\b)(?![\\s\\S]*test_unique_if_report_flush_on_event_or_wait_resume\\.sv:63\\b)(?![\\s\\S]*test_unique_if_report_flush_on_event_or_wait_resume\\.sv:64\\b)(?![\\s\\S]*test_unique_if_report_flush_on_event_or_wait_resume\\.sv:65\\b)(?![\\s\\S]*test_unique_if_report_flush_on_event_or_wait_resume\\.sv:72\\b)(?=[\\s\\S]*test_unique_if_report_flush_on_event_or_wait_resume\\.sv:75\\b)(?=[\\s\\S]*test_unique_if_report_flush_on_event_or_wait_resume\\.sv:80\\b)(?=[\\s\\S]*test_unique_if_report_flush_on_event_or_wait_resume\\.sv:87\\b)"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_event_or_wait_resume.sv",
+              "contains": "    unique if (u) r1 = 1; else if (v) r1 = 2;\n    unique0 if (u) r2 = 1; else if (v) r2 = 2;\n    unique if (n) r3 = 1; else if (m) r3 = 2;\n    priority if (n) r4 = 1; else if (m) r4 = 2;\n    @(go);"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_event_or_wait_resume.sv",
+              "contains": "    unique if (u) rw1 = 1; else if (v) rw1 = 2;\n    wait (go);\n    t_wt = $time;\n    priority if (n) rw2 = 1; else if (m) rw2 = 2;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_event_or_wait_resume.sv",
+              "contains": "    unique if (u) rd = 1; else if (v) rd = 2;\n    #0;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_event_or_wait_resume.sv",
+              "contains": "    unique0 if (u) rn = 1; else if (v) rn = 2;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_event_or_wait_resume.sv",
+              "contains": "  initial #1 go <= 1;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_event_or_wait_resume.expected",
+              "contains": "p_ev resumed at 1: r1=1 r2=1 r3=0 r4=0\np_wait resumed at 1: rw1=1 rw2=0\np_delay resumed at 1: rd=1\np_none: rn=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "12.4.2.1",
@@ -127536,7 +128487,45 @@
       "acceptance": "A process flush point clears its queue and discards all its pending unmatured reports.",
       "source_note": "IEEE 1800-2023 12.4.2.1; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch12/test_unique_if_report_flush_on_event_or_wait_resume.sv",
+          "observation": "p_ev のキューには t=1 に種類の異なる4件の保留報告（unique if 重複 62行、unique0 if 重複 63行、unique if 不一致 64行、priority if 不一致 65行）が積まれ、@(go) の再開（同時刻、Observed 前）で flush 点に達する。p_wait は 72 行の保留報告の後 wait (go) で flush され、再開後に 75 行の priority if 不一致で新しい違反を出す。regex は 62〜65・72 行の名指しを拒否し、75 行と他プロセスの 80・87 行の名指しを要求する。stdout の「p_ev resumed at 1」「p_wait resumed at 1」で再開が同じ時刻であることを示す。 区別: flush 点でキューの一部（例えば最後の1件や unique 型だけ）しか捨てない実装は 62〜65 行のどれかを報告して失敗する。捨てずに残す実装は全部を報告する。キューを空にするのではなくその時刻の報告を止めてしまう実装は flush 後の 75 行の報告を失い、全プロセスのキューを捨てる実装は 80・87 行を失う。いずれも regex に一致しない。報告の書式は規格がツールに任せる（12.4.2.1 B006 の tool-specific mechanism）が、スイートの他の違反報告テスト（12.4.2.2/12.5.3.2/20.11 の登録済みテスト）と同じく、各報告がその文のファイルと行を名指すことを前提に、regex は報告されるべき行の名指しを要求し、報告されてはならない行の名指しを拒否する。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "b719c213f3024531937e004459db7ab85cf522782af2f881cfa4f76a0ef93ecd",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_event_or_wait_resume.sv",
+              "contains": ":expected_stderr_regex: \\A(?![\\s\\S]*test_unique_if_report_flush_on_event_or_wait_resume\\.sv:62\\b)(?![\\s\\S]*test_unique_if_report_flush_on_event_or_wait_resume\\.sv:63\\b)(?![\\s\\S]*test_unique_if_report_flush_on_event_or_wait_resume\\.sv:64\\b)(?![\\s\\S]*test_unique_if_report_flush_on_event_or_wait_resume\\.sv:65\\b)(?![\\s\\S]*test_unique_if_report_flush_on_event_or_wait_resume\\.sv:72\\b)(?=[\\s\\S]*test_unique_if_report_flush_on_event_or_wait_resume\\.sv:75\\b)(?=[\\s\\S]*test_unique_if_report_flush_on_event_or_wait_resume\\.sv:80\\b)(?=[\\s\\S]*test_unique_if_report_flush_on_event_or_wait_resume\\.sv:87\\b)"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_event_or_wait_resume.sv",
+              "contains": "    unique if (u) r1 = 1; else if (v) r1 = 2;\n    unique0 if (u) r2 = 1; else if (v) r2 = 2;\n    unique if (n) r3 = 1; else if (m) r3 = 2;\n    priority if (n) r4 = 1; else if (m) r4 = 2;\n    @(go);"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_event_or_wait_resume.sv",
+              "contains": "    unique if (u) rw1 = 1; else if (v) rw1 = 2;\n    wait (go);\n    t_wt = $time;\n    priority if (n) rw2 = 1; else if (m) rw2 = 2;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_event_or_wait_resume.sv",
+              "contains": "    unique if (u) rd = 1; else if (v) rd = 2;\n    #0;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_event_or_wait_resume.sv",
+              "contains": "    unique0 if (u) rn = 1; else if (v) rn = 2;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_event_or_wait_resume.sv",
+              "contains": "  initial #1 go <= 1;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_event_or_wait_resume.expected",
+              "contains": "p_ev resumed at 1: r1=1 r2=1 r3=0 r4=0\np_wait resumed at 1: rw1=1 rw2=0\np_delay resumed at 1: rd=1\np_none: rn=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "12.4.2.1",
@@ -127554,7 +128543,57 @@
       "acceptance": "If qualifier violation checks must avoid false reports caused by active-region-set zero-delay glitches.",
       "source_note": "IEEE 1800-2023 12.4.2.1; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch12/test_unique_if_report_flush_on_comb_latch_retrigger.sv",
+          "observation": "active region set 内のゼロ遅延グリッチを2種類作る: NBA 領域（na <= !a）による t=1 の a=na=1 と、Inactive 領域（#0 nb = 0）による t=2 の b=nb=1。その間に unique if（60・74行）・priority if（64行）・always_latch 内の unique0 if（69行）が実行されて違反するが、更新後に再実行されて違反は解消する。regex はこれら4行の名指し（偽の違反報告）を拒否し、時間ステップの終わりまで残る本物の違反（c_stay 78行、c_again 82行）の名指しを要求する。stdout は最終値 z1〜z6=1。 区別: グリッチ中の違反を即時に報告する実装（Verilator 5.052 の挙動）や、再起動で保留報告を捨てない実装は 60・64・69・74 行を報告して regex に一致しない。報告そのものを抑える実装は 78・82 行の本物の違反を失う。NBA のグリッチだけ、または Inactive のグリッチだけに耐える実装も、もう一方の行で失敗する。報告の書式は規格がツールに任せる（12.4.2.1 B006 の tool-specific mechanism）が、スイートの他の違反報告テスト（12.4.2.2/12.5.3.2/20.11 の登録済みテスト）と同じく、各報告がその文のファイルと行を名指すことを前提に、regex は報告されるべき行の名指しを要求し、報告されてはならない行の名指しを拒否する。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "88682d43d73c8e8d7eb86d0d80225ada7d983ef39c3a2da00a221e2e24a6a681",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_comb_latch_retrigger.sv",
+              "contains": ":expected_stderr_regex: \\A(?![\\s\\S]*test_unique_if_report_flush_on_comb_latch_retrigger\\.sv:60\\b)(?![\\s\\S]*test_unique_if_report_flush_on_comb_latch_retrigger\\.sv:64\\b)(?![\\s\\S]*test_unique_if_report_flush_on_comb_latch_retrigger\\.sv:69\\b)(?![\\s\\S]*test_unique_if_report_flush_on_comb_latch_retrigger\\.sv:74\\b)(?=[\\s\\S]*test_unique_if_report_flush_on_comb_latch_retrigger\\.sv:78\\b)(?=[\\s\\S]*test_unique_if_report_flush_on_comb_latch_retrigger\\.sv:82\\b)"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_comb_latch_retrigger.sv",
+              "contains": "  always @(a) na <= !a;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_comb_latch_retrigger.sv",
+              "contains": "    unique if (a) z1 = 1; else if (na) z1 = 2;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_comb_latch_retrigger.sv",
+              "contains": "    priority if (a && !na) z2 = 1; else if (!a && na) z2 = 2;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_comb_latch_retrigger.sv",
+              "contains": "  always_latch begin : l_nba\n    if (en) begin\n      unique0 if (a) z3 = 1; else if (na) z3 = 2;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_comb_latch_retrigger.sv",
+              "contains": "    unique if (b) z4 = 1; else if (nb) z4 = 2;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_comb_latch_retrigger.sv",
+              "contains": "    unique if (a) z5 = 1; else if (k) z5 = 2;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_comb_latch_retrigger.sv",
+              "contains": "    unique if (a) z6 = 1; else if (na || k) z6 = 2;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_comb_latch_retrigger.sv",
+              "contains": "    #1 a = 1;\n    #1 b = 1;\n    #0 nb = 0;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_comb_latch_retrigger.expected",
+              "contains": "z1=1 z2=1 z3=1 z4=1 z5=1 z6=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "12.4.2.1",
@@ -127572,7 +128611,53 @@
       "acceptance": "In Observed, each remaining report matures, becomes immune to later flushing, is reported by the tool mechanism and is removed from that process queue.",
       "source_note": "IEEE 1800-2023 12.4.2.1; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch12/test_unique_if_report_deferred_and_matured_in_observed.sv",
+          "observation": "t=3 に s_nba（82行）・s_react（89行）・s_late（96行）がそれぞれ unique if で違反してイベント制御で待つ。s_nba は NBA（Observed 前）で再開して flush、s_react は program の Reactive 領域からの起動で同じ時刻の Observed 後に再開、s_late は t=4 に再開する（stdout「s_nba at 3, s_react at 3, s_late at 4」）。regex は 82 行を拒否し、89 行と、96 行をちょうど1回要求する。また flush 点のない s_exec の A（64行）は t=1 に成熟した後 t=2 以降の Observed をまたぐが、ちょうど1回を要求する。別型を Kill した後に残った D（71行）の報告も要求する。 区別: Observed で成熟させず時間ステップ末まで保留する実装は s_react の Observed 後の flush で 89 行を失う。成熟した報告も後の flush で捨てる実装は 89 行または t=4 の再開で 96 行を失う。成熟・報告後にキューから除かない実装は以後の Observed で 64 行や 96 行を再び報告して「ちょうど1回」の否定先読みに反する。Observed 前の flush は効く（82 行なし）ので境界が Observed にあることも区別される。報告の書式は規格がツールに任せる（12.4.2.1 B006 の tool-specific mechanism）が、スイートの他の違反報告テスト（12.4.2.2/12.5.3.2/20.11 の登録済みテスト）と同じく、各報告がその文のファイルと行を名指すことを前提に、regex は報告されるべき行の名指しを要求し、報告されてはならない行の名指しを拒否する。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "45f7a684a2eda3575114cbf62091d3d0b6c523d01b33a717bdbaa97d18518d75",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_unique_if_report_deferred_and_matured_in_observed.sv",
+              "contains": ":expected_stderr_regex: \\A(?=[\\s\\S]*test_unique_if_report_deferred_and_matured_in_observed\\.sv:64\\b)(?![\\s\\S]*test_unique_if_report_deferred_and_matured_in_observed\\.sv:64\\b[\\s\\S]*test_unique_if_report_deferred_and_matured_in_observed\\.sv:64\\b)(?![\\s\\S]*test_unique_if_report_deferred_and_matured_in_observed\\.sv:67\\b)(?![\\s\\S]*test_unique_if_report_deferred_and_matured_in_observed\\.sv:70\\b)(?=[\\s\\S]*test_unique_if_report_deferred_and_matured_in_observed\\.sv:71\\b)(?=[\\s\\S]*test_unique_if_report_deferred_and_matured_in_observed\\.sv:74\\b)(?![\\s\\S]*test_unique_if_report_deferred_and_matured_in_observed\\.sv:82\\b)(?=[\\s\\S]*test_unique_if_report_deferred_and_matured_in_observed\\.sv:89\\b)(?=[\\s\\S]*test_unique_if_report_deferred_and_matured_in_observed\\.sv:96\\b)(?![\\s\\S]*test_unique_if_report_deferred_and_matured_in_observed\\.sv:96\\b[\\s\\S]*test_unique_if_report_deferred_and_matured_in_observed\\.sv:96\\b)"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_deferred_and_matured_in_observed.sv",
+              "contains": "    pa = 1; qa = 1;\n    unique if (pa) r[1] = 1; else if (qa) r[1] = 2;\n    qa = 0;\n    pb = 1; qb = 0;\n    unique if (pb) r[2] = 1; else if (qb) r[2] = 2;\n    qb = 1;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_deferred_and_matured_in_observed.sv",
+              "contains": "    unique if (pa) r[3] = 1; else if (pb) r[3] = 2;\n    priority if (qa) r[4] = 1; else if (n) r[4] = 2;\n    $assertcontrol(5, 32);\n    $assertcontrol(3, 32);\n    unique if (pa) r[5] = 1; else if (pb) r[5] = 2;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_deferred_and_matured_in_observed.sv",
+              "contains": "    unique if (pa) r[6] = 1; else if (qb) r[6] = 2;\n    @(go);"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_deferred_and_matured_in_observed.sv",
+              "contains": "    unique if (pa) r[7] = 1; else if (pb) r[7] = 2;\n    @(react);"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_deferred_and_matured_in_observed.sv",
+              "contains": "    unique if (pb) r[8] = 1; else if (qb) r[8] = 2;\n    @(late);"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_deferred_and_matured_in_observed.sv",
+              "contains": "      #3 -> react;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_deferred_and_matured_in_observed.sv",
+              "contains": "  initial #3 go <= 1;\n  initial #4 -> late;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_deferred_and_matured_in_observed.expected",
+              "contains": "t=1: r1=1 r2=1\nt=2: r3=1 r4=0 r5=1\nt=3: r6=1 r7=1 r8=1\nresumed: s_nba at 3, s_react at 3, s_late at 4"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "12.4.2.1",
@@ -127590,7 +128675,45 @@
       "acceptance": "A detected violation schedules a pending Observed report on the current process violation queue.",
       "source_note": "IEEE 1800-2023 12.4.2.1; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch12/test_unique_if_report_flush_on_event_or_wait_resume.sv",
+          "observation": "t=1 に4つのプロセスがそれぞれ違反を出す: p_ev（62〜65行）と p_wait（72行）は同じ時刻の NBA 後に @(go)/wait (go) から再開して flush 点に達し、p_delay（80行、#0 で中断）と p_none（87行、中断なし）は flush 点に達しない。regex は p_ev・p_wait の保留報告の名指しを拒否し、p_delay・p_none の名指しを要求する。保留報告が Observed まで残ることは、flush 点に達したプロセスの報告が実際に消えることで示される。stdout は rd=1、rn=1 などの分岐結果と再開時刻 1。 区別: 違反報告をその時実行中のプロセスのキューではなく共通のキューに積む実装では、p_ev か p_wait の再開時の flush で p_delay と p_none の報告も捨てられ、80・87 行の名指しがなくなって regex に一致しない。報告を保留せず即時に出す実装は 62〜65・72 行も報告して失敗する。報告の書式は規格がツールに任せる（12.4.2.1 B006 の tool-specific mechanism）が、スイートの他の違反報告テスト（12.4.2.2/12.5.3.2/20.11 の登録済みテスト）と同じく、各報告がその文のファイルと行を名指すことを前提に、regex は報告されるべき行の名指しを要求し、報告されてはならない行の名指しを拒否する。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "b719c213f3024531937e004459db7ab85cf522782af2f881cfa4f76a0ef93ecd",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_event_or_wait_resume.sv",
+              "contains": ":expected_stderr_regex: \\A(?![\\s\\S]*test_unique_if_report_flush_on_event_or_wait_resume\\.sv:62\\b)(?![\\s\\S]*test_unique_if_report_flush_on_event_or_wait_resume\\.sv:63\\b)(?![\\s\\S]*test_unique_if_report_flush_on_event_or_wait_resume\\.sv:64\\b)(?![\\s\\S]*test_unique_if_report_flush_on_event_or_wait_resume\\.sv:65\\b)(?![\\s\\S]*test_unique_if_report_flush_on_event_or_wait_resume\\.sv:72\\b)(?=[\\s\\S]*test_unique_if_report_flush_on_event_or_wait_resume\\.sv:75\\b)(?=[\\s\\S]*test_unique_if_report_flush_on_event_or_wait_resume\\.sv:80\\b)(?=[\\s\\S]*test_unique_if_report_flush_on_event_or_wait_resume\\.sv:87\\b)"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_event_or_wait_resume.sv",
+              "contains": "    unique if (u) r1 = 1; else if (v) r1 = 2;\n    unique0 if (u) r2 = 1; else if (v) r2 = 2;\n    unique if (n) r3 = 1; else if (m) r3 = 2;\n    priority if (n) r4 = 1; else if (m) r4 = 2;\n    @(go);"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_event_or_wait_resume.sv",
+              "contains": "    unique if (u) rw1 = 1; else if (v) rw1 = 2;\n    wait (go);\n    t_wt = $time;\n    priority if (n) rw2 = 1; else if (m) rw2 = 2;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_event_or_wait_resume.sv",
+              "contains": "    unique if (u) rd = 1; else if (v) rd = 2;\n    #0;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_event_or_wait_resume.sv",
+              "contains": "    unique0 if (u) rn = 1; else if (v) rn = 2;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_event_or_wait_resume.sv",
+              "contains": "  initial #1 go <= 1;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_report_flush_on_event_or_wait_resume.expected",
+              "contains": "p_ev resumed at 1: r1=1 r2=1 r3=0 r4=0\np_wait resumed at 1: rw1=1 rw2=0\np_delay resumed at 1: rd=1\np_none: rn=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "12.4.2.1",
@@ -128648,7 +129771,69 @@
       "acceptance": "priority/unique report missing matches unless a default item supplies the case; reporting may happen at compilation if determinable there, otherwise at runtime.",
       "source_note": "IEEE 1800-2023 12.5.3; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch12/test_unique_case_no_match_report_and_default.sv",
+          "observation": "s=5 に対し項目は変数（k0=0, k1=1, kz=3'b0zz, kx=3'b0xx）で、どれも一致しない。default なしの unique case（59行）・priority case（60行）・priority casez（66行）・unique casex（67行）は regex が名指しを要求し、stdout は何も実行されない 0。default 付きの unique case（62行）・priority case（63行）は default が実行され（9）、regex は名指しを拒否する。一致する項目がある unique case（65行、k5）は 2 を出力し名指しを拒否する。 区別: 一致なしを報告しない実装は 59・60・66・67 行の名指しがなく regex に一致しない。default があっても一致なしとして報告する実装は 62・63 行を報告して失敗する。一致なしでどれかの項目文を実行する実装は 0 が変わり、default を実行しない実装は 9 が変わる。報告がコンパイル時でも実行時でも名指しの要求は満たされる（12.5.3 B005 の許容）。報告の書式は規格がツールに任せる（12.4.2.1 B006 の tool-specific mechanism）が、スイートの他の違反報告テスト（12.4.2.2/12.5.3.2/20.11 の登録済みテスト）と同じく、各報告がその文のファイルと行を名指すことを前提に、regex は報告されるべき行の名指しを要求し、報告されてはならない行の名指しを拒否する。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "dfbfad0f9e4de02e6feaf2396ee5ac9e4452c4e8b76b8e67f313400e84b9e4fd",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_unique_case_no_match_report_and_default.sv",
+              "contains": ":expected_stderr_regex: \\A(?=[\\s\\S]*test_unique_case_no_match_report_and_default\\.sv:59\\b)(?=[\\s\\S]*test_unique_case_no_match_report_and_default\\.sv:60\\b)(?![\\s\\S]*test_unique_case_no_match_report_and_default\\.sv:61\\b)(?![\\s\\S]*test_unique_case_no_match_report_and_default\\.sv:62\\b)(?![\\s\\S]*test_unique_case_no_match_report_and_default\\.sv:63\\b)(?![\\s\\S]*test_unique_case_no_match_report_and_default\\.sv:64\\b)(?![\\s\\S]*test_unique_case_no_match_report_and_default\\.sv:65\\b)(?=[\\s\\S]*test_unique_case_no_match_report_and_default\\.sv:66\\b)(?=[\\s\\S]*test_unique_case_no_match_report_and_default\\.sv:67\\b)(?![\\s\\S]*test_unique_case_no_match_report_and_default\\.sv:68\\b)"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_no_match_report_and_default.sv",
+              "contains": "    unique case (s) k0: w[1] = 1; k1: w[1] = 2; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_no_match_report_and_default.sv",
+              "contains": "    priority case (s) k0: w[2] = 1; k1: w[2] = 2; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_no_match_report_and_default.sv",
+              "contains": "    unique0 case (s) k0: w[3] = 1; k1: w[3] = 2; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_no_match_report_and_default.sv",
+              "contains": "    unique case (s) k0: w[4] = 1; k1: w[4] = 2; default: w[4] = 9; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_no_match_report_and_default.sv",
+              "contains": "    priority case (s) k0: w[5] = 1; k1: w[5] = 2; default: w[5] = 9; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_no_match_report_and_default.sv",
+              "contains": "    unique0 case (s) k0: w[6] = 1; k1: w[6] = 2; default: w[6] = 9; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_no_match_report_and_default.sv",
+              "contains": "    unique case (s) k0: w[7] = 1; k5: w[7] = 2; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_no_match_report_and_default.sv",
+              "contains": "    priority casez (s) k0: w[8] = 1; kz: w[8] = 2; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_no_match_report_and_default.sv",
+              "contains": "    unique casex (s) k1: w[9] = 1; kx: w[9] = 2; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_no_match_report_and_default.sv",
+              "contains": "    unique0 casez (s) k1: w[10] = 1; kz: w[10] = 2; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_no_match_report_and_default.sv",
+              "contains": "    s = 3'd5;"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_no_match_report_and_default.expected",
+              "contains": "no match:     unique 0 priority 0 unique0 0\ndefault:      unique 9 priority 9 unique0 9\nmatch:        unique 2\nwildcard:     priority casez 0 unique casex 0 unique0 casez 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "12.5.3",
@@ -128684,7 +129869,89 @@
       "acceptance": "case/casez/casex may use unique/unique0/priority checks; priority acts on first match and unique forms assert nonoverlapping items.",
       "source_note": "IEEE 1800-2023 12.5.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+          "observation": "case/casez/casex それぞれに unique・unique0・priority を付けた9形式（60〜68行）を、1項目目が不一致・2項目目と3項目目がその case 種別の照合規則で一致する入力で実行する（casez は z ビット、casex は x ビットの変数項目 iz/ix を使う）。各項目は w[n] に 1/10/100 を加える。stdout は9形式とも 10（最初の一致項目だけ）。regex は unique・unique0 の6行の名指しを要求し、priority の3行の名指しを拒否する。対照として unique・unique0 の各 case 種別で照合規則上1項目だけ一致する6行（70〜75行）は名指しを拒否し、stdout は 10。 区別: priority に最初の一致だけを実行させない実装は priority 行が 100 や 110 になる。unique/unique0 が項目の非重複を検査しない実装は 60・61・63・64・66・67 行の報告がなく、priority を unique と同様に扱う実装は 62・65・68 行を報告する。casez/casex のワイルドカードを重複検査に適用しない、または誤った種別に適用する実装は、重複行の報告を失うか単一一致行（70〜75行）を報告する。報告の書式は規格がツールに任せる（12.4.2.1 B006 の tool-specific mechanism）が、スイートの他の違反報告テスト（12.4.2.2/12.5.3.2/20.11 の登録済みテスト）と同じく、各報告がその文のファイルと行を名指すことを前提に、regex は報告されるべき行の名指しを要求し、報告されてはならない行の名指しを拒否する。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "9825dcd6801142f5bfb388c105d43de5bfb96ef925de0b76ee5581577a9990f3",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": ":expected_stderr_regex: \\A(?=[\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:60\\b)(?=[\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:61\\b)(?![\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:62\\b)(?=[\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:63\\b)(?=[\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:64\\b)(?![\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:65\\b)(?=[\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:66\\b)(?=[\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:67\\b)(?![\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:68\\b)(?![\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:70\\b)(?![\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:71\\b)(?![\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:72\\b)(?![\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:73\\b)(?![\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:74\\b)(?![\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:75\\b)"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    unique case (s) i0: w[1] += 1; ia: w[1] += 10; id: w[1] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    unique0 case (s) i0: w[2] += 1; ia: w[2] += 10; id: w[2] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    priority case (s) i0: w[3] += 1; ia: w[3] += 10; id: w[3] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    unique casez (s) i0: w[4] += 1; iz: w[4] += 10; ia: w[4] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    unique0 casez (s) i0: w[5] += 1; iz: w[5] += 10; ia: w[5] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    priority casez (s) i0: w[6] += 1; iz: w[6] += 10; ia: w[6] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    unique casex (s) i0: w[7] += 1; ix: w[7] += 10; iz: w[7] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    unique0 casex (s) i0: w[8] += 1; ix: w[8] += 10; iz: w[8] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    priority casex (s) i0: w[9] += 1; ix: w[9] += 10; iz: w[9] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    unique case (s) i0: w[10] += 1; ia: w[10] += 10; iz: w[10] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    unique0 case (s) i0: w[11] += 1; ia: w[11] += 10; iz: w[11] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    unique casez (s) i0: w[12] += 1; iz: w[12] += 10; ix: w[12] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    unique0 casez (s) i0: w[13] += 1; iz: w[13] += 10; ix: w[13] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    unique casex (s) i0: w[14] += 1; ix: w[14] += 10; ie: w[14] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    unique0 casex (s) i0: w[15] += 1; ix: w[15] += 10; ie: w[15] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    iz = 4'b0z1z;\n    ix = 4'b0x1x;"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.expected",
+              "contains": "overlap case:  unique 10 unique0 10 priority 10\noverlap casez: unique 10 unique0 10 priority 10\noverlap casex: unique 10 unique0 10 priority 10\nsingle case:  unique 10 unique0 10\nsingle casez: unique 10 unique0 10\nsingle casex: unique 10 unique0 10"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "12.5.3",
@@ -128702,7 +129969,57 @@
       "acceptance": "Several matching expressions within a single item do not violate uniqueness; remaining expressions in that item need not be evaluated after one matches.",
       "source_note": "IEEE 1800-2023 12.5.3; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch12/test_unique_case_matching_expressions_in_one_item.sv",
+          "observation": "s=6、a=b=6、c=1、za=4'b01zz、zb=4'bz11z。1項目の中に一致する式が2つある unique case（56行、a, b）・unique0 case（57行）・unique casez（58行、za, zb）は regex が名指しを拒否し、stdout は 10（その項目の文が1回だけ実行）。同じ一致を別々の項目に分けた unique case（59行: c, a / b、60行: c / a / b）・unique0 case（61行）・unique casez（62行）は名指しを要求し、stdout は最初の一致項目だけの 1 と 10。項目式に副作用はないので、残りの式を評価するかしないか（規格の許容）で結果は変わらない。 区別: 一致する式の数を数えて重複とみなす実装は 56〜58 行を報告して regex に一致しない。一致した式ごとに項目文を実行する実装は 20 を出力する。項目単位の重複を検出しない実装は 59〜62 行の名指しを失う。59 行は「一致した式」ではなく「一致した項目」が基準であることを示し、項目内に一致があっても別項目との重複は違反になる。報告の書式は規格がツールに任せる（12.4.2.1 B006 の tool-specific mechanism）が、スイートの他の違反報告テスト（12.4.2.2/12.5.3.2/20.11 の登録済みテスト）と同じく、各報告がその文のファイルと行を名指すことを前提に、regex は報告されるべき行の名指しを要求し、報告されてはならない行の名指しを拒否する。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "e27a5e67fb8d23e565bc1e11b16d50d79414ae0ec13f462f602b5c6f9fb0f717",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_unique_case_matching_expressions_in_one_item.sv",
+              "contains": ":expected_stderr_regex: \\A(?![\\s\\S]*test_unique_case_matching_expressions_in_one_item\\.sv:56\\b)(?![\\s\\S]*test_unique_case_matching_expressions_in_one_item\\.sv:57\\b)(?![\\s\\S]*test_unique_case_matching_expressions_in_one_item\\.sv:58\\b)(?=[\\s\\S]*test_unique_case_matching_expressions_in_one_item\\.sv:59\\b)(?=[\\s\\S]*test_unique_case_matching_expressions_in_one_item\\.sv:60\\b)(?=[\\s\\S]*test_unique_case_matching_expressions_in_one_item\\.sv:61\\b)(?=[\\s\\S]*test_unique_case_matching_expressions_in_one_item\\.sv:62\\b)"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_matching_expressions_in_one_item.sv",
+              "contains": "    unique case (s) c: w[1] += 1; a, b: w[1] += 10; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_matching_expressions_in_one_item.sv",
+              "contains": "    unique0 case (s) c: w[2] += 1; a, b: w[2] += 10; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_matching_expressions_in_one_item.sv",
+              "contains": "    unique casez (s) c: w[3] += 1; za, zb: w[3] += 10; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_matching_expressions_in_one_item.sv",
+              "contains": "    unique case (s) c, a: w[4] += 1; b: w[4] += 10; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_matching_expressions_in_one_item.sv",
+              "contains": "    unique case (s) c: w[5] += 1; a: w[5] += 10; b: w[5] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_matching_expressions_in_one_item.sv",
+              "contains": "    unique0 case (s) c: w[6] += 1; a: w[6] += 10; b: w[6] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_matching_expressions_in_one_item.sv",
+              "contains": "    unique casez (s) c: w[7] += 1; za: w[7] += 10; zb: w[7] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_matching_expressions_in_one_item.sv",
+              "contains": "    za = 4'b01zz;\n    zb = 4'bz11z;"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_matching_expressions_in_one_item.expected",
+              "contains": "one item:  unique 10 unique0 10 unique casez 10\ntwo items: unique 1 10 unique0 10 unique casez 10"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "12.5.3",
@@ -128772,7 +130089,89 @@
       "acceptance": "Multiple matching case items generate a violation report; only the textually first matching item statement executes.",
       "source_note": "IEEE 1800-2023 12.5.3; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+          "observation": "unique/unique0 の case・casez・casex（60・61・63・64・66・67行）で、不一致の1項目目の後の2項目目と3項目目が両方一致する。各項目は w[n] に 1/10/100 を加え、stdout は 10（テキスト上最初に一致した2項目目の文だけが1回実行）。regex はこれら6行の違反報告の名指しを要求し、同じ項目構成で1項目だけ一致する対照行（70〜75行）の名指しを拒否する。 区別: 複数一致で違反を報告しない実装は6行の名指しがなく regex に一致しない。最後に一致した項目を実行する実装は 100、一致した項目をすべて実行する実装は 110 を出力し stdout が変わる。一致が1つでも報告する実装は 70〜75 行を報告して失敗する。報告の書式は規格がツールに任せる（12.4.2.1 B006 の tool-specific mechanism）が、スイートの他の違反報告テスト（12.4.2.2/12.5.3.2/20.11 の登録済みテスト）と同じく、各報告がその文のファイルと行を名指すことを前提に、regex は報告されるべき行の名指しを要求し、報告されてはならない行の名指しを拒否する。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "9825dcd6801142f5bfb388c105d43de5bfb96ef925de0b76ee5581577a9990f3",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": ":expected_stderr_regex: \\A(?=[\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:60\\b)(?=[\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:61\\b)(?![\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:62\\b)(?=[\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:63\\b)(?=[\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:64\\b)(?![\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:65\\b)(?=[\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:66\\b)(?=[\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:67\\b)(?![\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:68\\b)(?![\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:70\\b)(?![\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:71\\b)(?![\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:72\\b)(?![\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:73\\b)(?![\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:74\\b)(?![\\s\\S]*test_unique_case_qualifier_forms_overlap_first_item\\.sv:75\\b)"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    unique case (s) i0: w[1] += 1; ia: w[1] += 10; id: w[1] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    unique0 case (s) i0: w[2] += 1; ia: w[2] += 10; id: w[2] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    priority case (s) i0: w[3] += 1; ia: w[3] += 10; id: w[3] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    unique casez (s) i0: w[4] += 1; iz: w[4] += 10; ia: w[4] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    unique0 casez (s) i0: w[5] += 1; iz: w[5] += 10; ia: w[5] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    priority casez (s) i0: w[6] += 1; iz: w[6] += 10; ia: w[6] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    unique casex (s) i0: w[7] += 1; ix: w[7] += 10; iz: w[7] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    unique0 casex (s) i0: w[8] += 1; ix: w[8] += 10; iz: w[8] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    priority casex (s) i0: w[9] += 1; ix: w[9] += 10; iz: w[9] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    unique case (s) i0: w[10] += 1; ia: w[10] += 10; iz: w[10] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    unique0 case (s) i0: w[11] += 1; ia: w[11] += 10; iz: w[11] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    unique casez (s) i0: w[12] += 1; iz: w[12] += 10; ix: w[12] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    unique0 casez (s) i0: w[13] += 1; iz: w[13] += 10; ix: w[13] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    unique casex (s) i0: w[14] += 1; ix: w[14] += 10; ie: w[14] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    unique0 casex (s) i0: w[15] += 1; ix: w[15] += 10; ie: w[15] += 100; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.sv",
+              "contains": "    iz = 4'b0z1z;\n    ix = 4'b0x1x;"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_qualifier_forms_overlap_first_item.expected",
+              "contains": "overlap case:  unique 10 unique0 10 priority 10\noverlap casez: unique 10 unique0 10 priority 10\noverlap casex: unique 10 unique0 10 priority 10\nsingle case:  unique 10 unique0 10\nsingle casez: unique 10 unique0 10\nsingle casex: unique 10 unique0 10"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "12.5.3",
@@ -128838,7 +130237,69 @@
       "acceptance": "unique0-case does not report a no-match violation.",
       "source_note": "IEEE 1800-2023 12.5.3; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch12/test_unique_case_no_match_report_and_default.sv",
+          "observation": "unique0 case（61行）と unique0 casez（68行）は、同じ s=5 と同じ不一致の項目で unique case（59行）・priority casez（66行）が違反を報告する条件にあり、どの項目も一致しない。regex は 61・68 行（および default 付き unique0 の 64 行）の名指しを拒否し、対照の 59・66 行の名指しを要求する。stdout は unique0 0、unique0 casez 0（何も実行されない）。 区別: unique0 でも一致なしを違反として報告する（unique と同じに扱う）実装は 61・68 行を報告して regex の否定先読みに反する。対照の 59・66 行があるので、報告機構が動いていない実装とは区別される。unique0 で一致なしの時に項目文を実行する実装は 0 が変わる。報告の書式は規格がツールに任せる（12.4.2.1 B006 の tool-specific mechanism）が、スイートの他の違反報告テスト（12.4.2.2/12.5.3.2/20.11 の登録済みテスト）と同じく、各報告がその文のファイルと行を名指すことを前提に、regex は報告されるべき行の名指しを要求し、報告されてはならない行の名指しを拒否する。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "dfbfad0f9e4de02e6feaf2396ee5ac9e4452c4e8b76b8e67f313400e84b9e4fd",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_unique_case_no_match_report_and_default.sv",
+              "contains": ":expected_stderr_regex: \\A(?=[\\s\\S]*test_unique_case_no_match_report_and_default\\.sv:59\\b)(?=[\\s\\S]*test_unique_case_no_match_report_and_default\\.sv:60\\b)(?![\\s\\S]*test_unique_case_no_match_report_and_default\\.sv:61\\b)(?![\\s\\S]*test_unique_case_no_match_report_and_default\\.sv:62\\b)(?![\\s\\S]*test_unique_case_no_match_report_and_default\\.sv:63\\b)(?![\\s\\S]*test_unique_case_no_match_report_and_default\\.sv:64\\b)(?![\\s\\S]*test_unique_case_no_match_report_and_default\\.sv:65\\b)(?=[\\s\\S]*test_unique_case_no_match_report_and_default\\.sv:66\\b)(?=[\\s\\S]*test_unique_case_no_match_report_and_default\\.sv:67\\b)(?![\\s\\S]*test_unique_case_no_match_report_and_default\\.sv:68\\b)"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_no_match_report_and_default.sv",
+              "contains": "    unique case (s) k0: w[1] = 1; k1: w[1] = 2; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_no_match_report_and_default.sv",
+              "contains": "    priority case (s) k0: w[2] = 1; k1: w[2] = 2; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_no_match_report_and_default.sv",
+              "contains": "    unique0 case (s) k0: w[3] = 1; k1: w[3] = 2; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_no_match_report_and_default.sv",
+              "contains": "    unique case (s) k0: w[4] = 1; k1: w[4] = 2; default: w[4] = 9; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_no_match_report_and_default.sv",
+              "contains": "    priority case (s) k0: w[5] = 1; k1: w[5] = 2; default: w[5] = 9; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_no_match_report_and_default.sv",
+              "contains": "    unique0 case (s) k0: w[6] = 1; k1: w[6] = 2; default: w[6] = 9; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_no_match_report_and_default.sv",
+              "contains": "    unique case (s) k0: w[7] = 1; k5: w[7] = 2; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_no_match_report_and_default.sv",
+              "contains": "    priority casez (s) k0: w[8] = 1; kz: w[8] = 2; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_no_match_report_and_default.sv",
+              "contains": "    unique casex (s) k1: w[9] = 1; kx: w[9] = 2; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_no_match_report_and_default.sv",
+              "contains": "    unique0 casez (s) k1: w[10] = 1; kz: w[10] = 2; endcase"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_no_match_report_and_default.sv",
+              "contains": "    s = 3'd5;"
+            },
+            {
+              "file": "tests/ch12/test_unique_case_no_match_report_and_default.expected",
+              "contains": "no match:     unique 0 priority 0 unique0 0\ndefault:      unique 9 priority 9 unique0 9\nmatch:        unique 2\nwildcard:     priority casez 0 unique casex 0 unique0 casez 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "12.5.3",
@@ -133387,13 +134848,100 @@
       "acceptance": "Function formals initially default to input then inherit the preceding explicit direction including const/static ref qualifiers.",
       "source_note": "IEEE 1800-2023 13.4; complete own-body source review, blocks B015. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch13/test_function_formal_direction_default_and_inheritance.sv",
+          "observation": "f_in_out(int a, b, output int u, v) で a・b への書込みが呼出し元 i1=1 i2=2 に戻らず（input 既定）、方向を書かない v が u と同じく出力として o2=202 を返す。f_inout(inout int c, d) の d は読み書き両方で c2=15。f_ref(ref int p, q) の q は m_r の参照で、q=q+1 直後に関数が読む m_r が 21。f_const_ref(const ref int p, q) では関数が m_q=9 にした後 q が 9 を読む（コピーなら30）。同じ仮引数形の g_const_ref を連続代入で呼び y=34、m_b=8 後に y=38（非 const の ref ならこの文脈は違法）。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "2474c2e67e62d85717de47b50f850c84fdf041414c43d260f2e51fb93ff608b2",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_function_formal_direction_default_and_inheritance.sv",
+              "contains": "function automatic int f_in_out(int a, b, output int u, v);"
+            },
+            {
+              "file": "tests/ch13/test_function_formal_direction_default_and_inheritance.sv",
+              "contains": "function automatic void f_inout(inout int c, d);"
+            },
+            {
+              "file": "tests/ch13/test_function_formal_direction_default_and_inheritance.sv",
+              "contains": "function automatic int f_ref(ref int p, q);"
+            },
+            {
+              "file": "tests/ch13/test_function_formal_direction_default_and_inheritance.sv",
+              "contains": "function automatic int f_const_ref(const ref int p, q);"
+            },
+            {
+              "file": "tests/ch13/test_function_formal_direction_default_and_inheritance.sv",
+              "contains": "assign y = g_const_ref(m_a, m_b);"
+            },
+            {
+              "file": "tests/ch13/test_function_formal_direction_default_and_inheritance.expected",
+              "contains": "input default: i1=1 i2=2 r=303"
+            },
+            {
+              "file": "tests/ch13/test_function_formal_direction_default_and_inheritance.expected",
+              "contains": "output inherited: o1=101 o2=202"
+            },
+            {
+              "file": "tests/ch13/test_function_formal_direction_default_and_inheritance.expected",
+              "contains": "inout inherited: c1=6 c2=15"
+            },
+            {
+              "file": "tests/ch13/test_function_formal_direction_default_and_inheritance.expected",
+              "contains": "ref inherited: r=21 m_r=21"
+            },
+            {
+              "file": "tests/ch13/test_function_formal_direction_default_and_inheritance.expected",
+              "contains": "const ref inherited: r=9"
+            },
+            {
+              "file": "tests/ch13/test_function_formal_direction_default_and_inheritance.expected",
+              "contains": "after m_b=8: y=38"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch13/test_function_formal_ref_static_direction_inherited.sv",
+          "observation": "set_next(ref static int p, q) の q は方向を書かないので ref static となり、q <= p + 1 の非ブロッキング代入（ref static だけに許される文脈、13.5.2）が実引数 m_s を更新する。呼出し直後は m_s=40 のままで、1時間単位後に m_s=6 になる。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "59abca6d3ae068d44f55999bdb9e8dc11ea406eaad598af649104b469bc0af9b",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_function_formal_ref_static_direction_inherited.sv",
+              "contains": "function automatic void set_next(ref static int p, q);\n    q <= p + 1;"
+            },
+            {
+              "file": "tests/ch13/test_function_formal_ref_static_direction_inherited.expected",
+              "contains": "right after the call: m_s=40"
+            },
+            {
+              "file": "tests/ch13/test_function_formal_ref_static_direction_inherited.expected",
+              "contains": "after the nonblocking update: m_s=6"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "13.4",
           "blocks": [
             "B015"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "g02-direction-default",
+          "tests": [
+            "tests/ch13/test_function_formal_direction_default_and_inheritance.sv",
+            "tests/ch13/test_function_formal_ref_static_direction_inherited.sv"
+          ],
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "observation": "2本で、方向を書かない仮引数が先頭では input になること、方向を明示した仮引数の後では output・inout・ref・const ref・ref static の各方向（const と static の修飾を含む）をそのまま継承することを、すべて値の変化で観測する。1本目が input 既定と output/inout/ref/const ref の継承、2本目が ref static の継承を受け持つ。 区別: 方向の既定を input に固定して継承しない実装では、o2=66・c2=5・r=20 m_r=20・r=30 となり、1本目の2〜5行目が変わる。const を継承しない（q が非 const の ref になる）実装は連続代入での g_const_ref 呼出しを 13.4 の規則で拒否し、1本目が実行できない。static を継承しない実装は ref の q への非ブロッキング代入を拒否するか、q を input 扱いにして m_s が 40 のまま残り、2本目の2行目が m_s=40 になる。先頭仮引数を input 以外にする実装は i1/i2 が 101/202 に変わる。"
         }
       ]
     },
@@ -133485,7 +135033,110 @@
       "acceptance": "Function declarations support lifetime/method specifiers, interface/class qualification, explicit/implicit/void return type, ANSI/body formals, declarations/function statements and optional closing name.",
       "source_note": "IEEE 1800-2023 13.4; complete own-body source review, blocks B005, B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch13/test_function_declaration_lifetime_return_formal_forms.sv",
+          "observation": "function static の count_static は局所 int n が呼出し間で残り 1 2、function automatic の count_auto は毎回新しく 1 1。暗黙戻り型 signed [3:0] の narrow(4'b1100) は -4 で $bits=4、戻り型を省いた is_odd(7) は 1 で $bits=1（logic スカラー）。void の note(9) を文として呼び last_note=9。本体内で input と局所 t を宣言する body_style(3,4)=34、ANSI 形式で局所 t を持つ ansi_style(9,4)=5。閉じ名 endfunction : name を付けた宣言と付けない宣言がある。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "492a268e9a35f38085923da721e4f6b3a26a3bb92da3b57f4a134ca27ca74f3b",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_function_declaration_lifetime_return_formal_forms.sv",
+              "contains": "function static int count_static();"
+            },
+            {
+              "file": "tests/ch13/test_function_declaration_lifetime_return_formal_forms.sv",
+              "contains": "function automatic int count_auto();"
+            },
+            {
+              "file": "tests/ch13/test_function_declaration_lifetime_return_formal_forms.sv",
+              "contains": "function signed [3:0] narrow(input [3:0] x);"
+            },
+            {
+              "file": "tests/ch13/test_function_declaration_lifetime_return_formal_forms.sv",
+              "contains": "function is_odd(input int v);"
+            },
+            {
+              "file": "tests/ch13/test_function_declaration_lifetime_return_formal_forms.sv",
+              "contains": "  function int body_style;\n    input int a;\n    input int b;\n    int t;"
+            },
+            {
+              "file": "tests/ch13/test_function_declaration_lifetime_return_formal_forms.sv",
+              "contains": "endfunction : body_style"
+            },
+            {
+              "file": "tests/ch13/test_function_declaration_lifetime_return_formal_forms.expected",
+              "contains": "static lifetime: 1 2"
+            },
+            {
+              "file": "tests/ch13/test_function_declaration_lifetime_return_formal_forms.expected",
+              "contains": "automatic lifetime: 1 1"
+            },
+            {
+              "file": "tests/ch13/test_function_declaration_lifetime_return_formal_forms.expected",
+              "contains": "implicit signed [3:0]: -4 bits=4"
+            },
+            {
+              "file": "tests/ch13/test_function_declaration_lifetime_return_formal_forms.expected",
+              "contains": "implicit scalar: 1 bits=1"
+            },
+            {
+              "file": "tests/ch13/test_function_declaration_lifetime_return_formal_forms.expected",
+              "contains": "void: last_note=9"
+            },
+            {
+              "file": "tests/ch13/test_function_declaration_lifetime_return_formal_forms.expected",
+              "contains": "body formals: 34"
+            },
+            {
+              "file": "tests/ch13/test_function_declaration_lifetime_return_formal_forms.expected",
+              "contains": "ansi formals: 5"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch13/test_function_declaration_scoped_and_override_forms.sv",
+          "observation": "モジュール fdecl_provider がインターフェースポート名で修飾した function int p.scaled を定義し（modport prov が export）、modport usr の import 経由で u.scaled(5)=15 を返す。クラス shape の extern 関数 area をモジュールで function int shape::area() と定義し、辺4の area=16。派生クラスで virtual function :extends int kind() が基底の仮想関数を上書きし、基底ハンドル経由で kind=2。新規の virtual function :initial :final int extra() が 30 を返す。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "e7effd45a23a36c1ac0573f63715cc0b05e6cc2a17b6181069846f3c18f6ad4a",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_function_declaration_scoped_and_override_forms.sv",
+              "contains": "function int p.scaled(int v);"
+            },
+            {
+              "file": "tests/ch13/test_function_declaration_scoped_and_override_forms.sv",
+              "contains": "function int shape::area();"
+            },
+            {
+              "file": "tests/ch13/test_function_declaration_scoped_and_override_forms.sv",
+              "contains": "virtual function :extends int kind();"
+            },
+            {
+              "file": "tests/ch13/test_function_declaration_scoped_and_override_forms.sv",
+              "contains": "virtual function :initial :final int extra();"
+            },
+            {
+              "file": "tests/ch13/test_function_declaration_scoped_and_override_forms.expected",
+              "contains": "interface port function: 15"
+            },
+            {
+              "file": "tests/ch13/test_function_declaration_scoped_and_override_forms.expected",
+              "contains": "class scope: area=16"
+            },
+            {
+              "file": "tests/ch13/test_function_declaration_scoped_and_override_forms.expected",
+              "contains": ":extends: kind=2"
+            },
+            {
+              "file": "tests/ch13/test_function_declaration_scoped_and_override_forms.expected",
+              "contains": ":initial :final: extra=30"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "13.4",
@@ -133493,6 +135144,18 @@
             "B005",
             "B006"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "g02-function-grammar",
+          "tests": [
+            "tests/ch13/test_function_declaration_lifetime_return_formal_forms.sv",
+            "tests/ch13/test_function_declaration_scoped_and_override_forms.sv"
+          ],
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "observation": "2本で Syntax 13-2 の関数宣言の各要素を宣言し、呼び出して結果を表示する。1本目が lifetime の static/automatic、明示・暗黙（signing+範囲／完全省略）・void の戻り型、括弧内の ANSI 仮引数と本体内の方向宣言（tf_item_declaration）、局所宣言と文の並び、閉じ名の有無を、2本目がインターフェースポート名による修飾（interface_identifier .）、クラススコープ修飾（class_scope、extern メソッドの外部定義）、動的上書き指定子 :extends と :initial :final を受け持つ。 区別: lifetime を無視する実装では static の 2回目が 1 か automatic の 2回目が 2 になる。暗黙戻り型を誤れば -4 bits=4 や 1 bits=1 が変わる。本体内宣言の仮引数を取り違えれば 34 が変わる。インターフェース修飾の関数定義を modport の export に結び付けない実装は 15 を表示できず、class_scope の外部定義を結び付けない実装は area=16 を表示できない。:extends 付きの kind が上書きにならなければ基底ハンドル経由で kind=1 になる。"
         }
       ]
     },
@@ -133504,7 +135167,41 @@
       "acceptance": "A function may kill/suspend/resume another process or kill its current process under 9.7 restrictions.",
       "source_note": "IEEE 1800-2023 13.4; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch13/test_function_controls_other_and_own_process.sv",
+          "observation": "initial から fork した3プロセスに対し、関数 kill_other が #5 待ちの pk を kill、関数 suspend_other が #3 待ちの ps を suspend し、呼出し直後（時刻1、時間経過なし）に pk=KILLED ps=SUSPENDED を表示する。時刻2に pm が呼ぶ関数 kill_me は process::self() で自プロセスを kill し、関数内の後続文（fn_after=1）と呼出し側の後続文（caller_after=1）は実行されず pm=KILLED。時刻6に関数 resume_other が ps を resume し、遅延は時刻3に満了済みなので同じ時刻6に再開して s_time=6、ps=FINISHED となる。kill・suspend・resume の他プロセス対象と、自プロセスの kill の4条件をすべて関数内から起こし、対象はすべて initial からの fork で作られたプロセス（9.7 の制約内）。 区別: 関数内からのプロセス制御を禁止・遅延する実装では、関数の中で kill/suspend をタスク扱いにして拒否するか、呼出し後の1行目が pk=WAITING または ps=WAITING になる。関数内の自プロセス kill が呼出し元に戻る実装（Verilator 5.052 の実測挙動）では2行目が pm=FINISHED fn_after=1 caller_after=1 に変わる。関数からの resume が効かなければ4行目が s_time=-1 ps=SUSPENDED のままになる。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "7668480a82fd9301e1b782b25aa495676b6c025e19d71210cb7735b7f3ae44c0",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_function_controls_other_and_own_process.sv",
+              "contains": "    kill_other(pk);\n    suspend_other(ps);"
+            },
+            {
+              "file": "tests/ch13/test_function_controls_other_and_own_process.sv",
+              "contains": "    me = process::self();\n    me.kill();\n    fn_after = 1;"
+            },
+            {
+              "file": "tests/ch13/test_function_controls_other_and_own_process.sv",
+              "contains": "    resume_other(ps);"
+            },
+            {
+              "file": "tests/ch13/test_function_controls_other_and_own_process.expected",
+              "contains": "t=1 pk=KILLED ps=SUSPENDED"
+            },
+            {
+              "file": "tests/ch13/test_function_controls_other_and_own_process.expected",
+              "contains": "t=6 pm=KILLED fn_after=0 caller_after=0"
+            },
+            {
+              "file": "tests/ch13/test_function_controls_other_and_own_process.expected",
+              "contains": "t=7 s_time=6 ps=FINISHED"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "13.4",
@@ -133522,13 +135219,170 @@
       "acceptance": "Return type grammar includes integer/real/struct/union/enum/string/chandle/virtual-interface/scoped-user/class/event/covergroup/type-reference forms under their type rules.",
       "source_note": "IEEE 1800-2023 13.4; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch13/test_function_return_type_value_categories.sv",
+          "observation": "logic signed [7:0] が -128 bits=8、byte unsigned が 240 bits=8、shortint が -2 bits=16、real 2.75 と shortreal 0.50、戻り型に書いた struct packed の呼出し結果メンバ hi=10 lo=5 bits=8、union packed の u=254 s=-2、戻り型に書いた enum logic [1:0] {IN_LOW = 2'd1, IN_HIGH = 2'd3} の関数が IN_HIGH を返し、結果の name()=IN_HIGH、値3、prev().name()=IN_LOW、num()=2、$bits=2（列挙子名は関数内だけで使い、外では enum のメソッドで読む）、パッケージスコープの enum で name()=GREEN 値2、string で len=4、クラススコープ holder::pair_t でメンバ -3 と 300、type(proto)（shortint）で -5 bits=16。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "6c3b1054f321887b5c8674bf72b2e960e7429e59bd034a938d267318d2b04473",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_function_return_type_value_categories.sv",
+              "contains": "function logic signed [7:0] f_vec();"
+            },
+            {
+              "file": "tests/ch13/test_function_return_type_value_categories.sv",
+              "contains": "function struct packed { logic [3:0] hi; logic [3:0] lo; } f_sp();"
+            },
+            {
+              "file": "tests/ch13/test_function_return_type_value_categories.sv",
+              "contains": "function union packed { logic [7:0] u; logic signed [7:0] s; } f_up();"
+            },
+            {
+              "file": "tests/ch13/test_function_return_type_value_categories.sv",
+              "contains": "  function enum logic [1:0] {IN_LOW = 2'd1, IN_HIGH = 2'd3} f_inline_enum();\n    return IN_HIGH;"
+            },
+            {
+              "file": "tests/ch13/test_function_return_type_value_categories.sv",
+              "contains": "$display(\"inline enum: %s %0d prev=%s num=%0d bits=%0d\", f_inline_enum().name(),"
+            },
+            {
+              "file": "tests/ch13/test_function_return_type_value_categories.sv",
+              "contains": "function holder::pair_t f_cs();"
+            },
+            {
+              "file": "tests/ch13/test_function_return_type_value_categories.sv",
+              "contains": "function type(proto) f_tr();"
+            },
+            {
+              "file": "tests/ch13/test_function_return_type_value_categories.expected",
+              "contains": "logic signed [7:0]: -128 bits=8"
+            },
+            {
+              "file": "tests/ch13/test_function_return_type_value_categories.expected",
+              "contains": "byte unsigned: 240 bits=8"
+            },
+            {
+              "file": "tests/ch13/test_function_return_type_value_categories.expected",
+              "contains": "real: 2.75 shortreal: 0.50"
+            },
+            {
+              "file": "tests/ch13/test_function_return_type_value_categories.expected",
+              "contains": "struct packed: hi=10 lo=5 bits=8"
+            },
+            {
+              "file": "tests/ch13/test_function_return_type_value_categories.expected",
+              "contains": "union packed: u=254 s=-2"
+            },
+            {
+              "file": "tests/ch13/test_function_return_type_value_categories.expected",
+              "contains": "inline enum: IN_HIGH 3 prev=IN_LOW num=2 bits=2"
+            },
+            {
+              "file": "tests/ch13/test_function_return_type_value_categories.expected",
+              "contains": "package enum: GREEN 2"
+            },
+            {
+              "file": "tests/ch13/test_function_return_type_value_categories.expected",
+              "contains": "string: abcd len=4"
+            },
+            {
+              "file": "tests/ch13/test_function_return_type_value_categories.expected",
+              "contains": "class scope type: a=-3 b=300"
+            },
+            {
+              "file": "tests/ch13/test_function_return_type_value_categories.expected",
+              "contains": "type reference: -5 bits=16"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch13/test_function_return_type_handle_categories.sv",
+          "observation": "chandle を返す f_ch の結果は null と等しく $typename が chandle。仮想インターフェースを返す f_vif の結果から sig=77 を読み、結果を代入したハンドル経由の書込みで u_if.sig=5。クラス holder を返す f_obj(42)/f_obj(7) が別オブジェクトで 42 7。covergroup 型 cg_t を返す f_cg の結果で sample すると cg_inst の get_inst_coverage が 0.00 から 50.00 になる。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "e67ddfa653740036d98f42722e3003aa5ed951f608a01e59ee3897140104e7d3",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_function_return_type_handle_categories.sv",
+              "contains": "function chandle f_ch();"
+            },
+            {
+              "file": "tests/ch13/test_function_return_type_handle_categories.sv",
+              "contains": "function virtual test_function_return_type_handle_categories_if f_vif();"
+            },
+            {
+              "file": "tests/ch13/test_function_return_type_handle_categories.sv",
+              "contains": "function holder f_obj(int v);"
+            },
+            {
+              "file": "tests/ch13/test_function_return_type_handle_categories.sv",
+              "contains": "function cg_t f_cg();"
+            },
+            {
+              "file": "tests/ch13/test_function_return_type_handle_categories.expected",
+              "contains": "chandle: is_null=1 type=chandle"
+            },
+            {
+              "file": "tests/ch13/test_function_return_type_handle_categories.expected",
+              "contains": "virtual interface: after write u_if.sig=5"
+            },
+            {
+              "file": "tests/ch13/test_function_return_type_handle_categories.expected",
+              "contains": "class: 42 7"
+            },
+            {
+              "file": "tests/ch13/test_function_return_type_handle_categories.expected",
+              "contains": "covergroup: after=50.00"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch13/test_function_return_type_event.sv",
+          "observation": "event を返す f_ev の結果を got に代入すると got==ev が1、got==other が0、$typename が event。fork したプロセスが @(got) で待ち、時刻2の -> ev で同じ時刻2に起きる（woke=2）。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "e18655342677c62523bf229248ae1fb0380c07ff446e418fbb13bfbbe252f22f",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_function_return_type_event.sv",
+              "contains": "function event f_ev();"
+            },
+            {
+              "file": "tests/ch13/test_function_return_type_event.sv",
+              "contains": "got = f_ev();"
+            },
+            {
+              "file": "tests/ch13/test_function_return_type_event.expected",
+              "contains": "same=1 other=0 type=event"
+            },
+            {
+              "file": "tests/ch13/test_function_return_type_event.expected",
+              "contains": "woke=2"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "13.4",
           "blocks": [
             "B005"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "g02-return-type-categories-v2",
+          "tests": [
+            "tests/ch13/test_function_return_type_value_categories.sv",
+            "tests/ch13/test_function_return_type_handle_categories.sv",
+            "tests/ch13/test_function_return_type_event.sv"
+          ],
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "observation": "3本で、Syntax 13-2 の data_type の各カテゴリを戻り型とする関数を実際に呼び、型に固有の値・幅・符号・メンバ・列挙子名・メソッド・参照先を表示する。1本目が整数ベクタ型（signing と packed 次元付き）、整数アトム型（signing 付き）、real/shortreal、戻り型にその場で書いた packed struct・packed union・enum [base] {...}、パッケージスコープの enum、string、クラススコープの型名、type 参照、2本目が chandle、仮想インターフェース、クラス、covergroup、3本目が event を受け持つ。enum は戻り型にその場で書く形（enum logic [1:0] {IN_LOW = 2'd1, IN_HIGH = 2'd3}）と、パッケージの typedef 名の形の両方を呼ぶ。 区別: 戻り型の符号・幅を誤る実装では -128/240/-2 と bits=8/8/16 が変わり、real を整数にすれば 2.75 が 3.00 になる。戻り型にその場で書いた enum を扱えない実装はコンパイルできないか、基底型 logic [1:0] を無視すれば bits=2 が 32 に、enum でない型にすれば name()/prev()/num() が使えず IN_HIGH 3 prev=IN_LOW num=2 の行が出ない。struct/union のメンバ、typedef の enum の name()、string の len() は型が違えば値が変わるかコンパイルできない。type(proto) を shortint に解決しなければ bits=16 が変わる。chandle なら $typename が chandle、仮想インターフェースは書込みが u_if に届き 5、クラスは別オブジェクトで 42 7、covergroup は返したハンドルでの sample が cg_inst に反映され 50.00、event は同じ同期オブジェクトで same=1・woke=2 となり、コピーや別型を返す実装ではこれらが変わる。"
         }
       ]
     },
@@ -133613,13 +135467,114 @@
       "acceptance": "The shown inline packed structure/union dimensions require packed; type-reference declarations require their net-type/var prefixes; dynamic override specifiers are noninterface-class-method-only.",
       "source_note": "IEEE 1800-2023 13.4; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch13/test_illegal_function_return_struct_dimension_without_packed.sv",
+          "observation": "戻り型 struct { ... } [1:0]（packed なし）の bad_pair を宣言する行を27行目で照合する。同じ形で packed 付きの good_pair は合法。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "cbabb942c2700a8a22f408c904235db61c307bc2d27b60a5760591a79e6615d3",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_illegal_function_return_struct_dimension_without_packed.sv",
+              "contains": "function struct { logic [3:0] hi; logic [3:0] lo; } [1:0] bad_pair();"
+            },
+            {
+              "file": "tests/ch13/test_illegal_function_return_struct_dimension_without_packed.sv",
+              "contains": ":expected_stderr_regex: test_illegal_function_return_struct_dimension_without_packed\\.sv:27:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch13/test_illegal_function_return_union_dimension_without_packed.sv",
+          "observation": "戻り型 union { ... } [3:0]（packed なし）の bad_word を宣言する行を27行目で照合する。同じ形で packed 付きの good_word は合法。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "77e2ed5dfde2aae079b9d7c2b41a827316f332d86c03507045e4b34b2704f0cd",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_illegal_function_return_union_dimension_without_packed.sv",
+              "contains": "function union { logic [7:0] u; logic signed [7:0] s; } [3:0] bad_word();"
+            },
+            {
+              "file": "tests/ch13/test_illegal_function_return_union_dimension_without_packed.sv",
+              "contains": ":expected_stderr_regex: test_illegal_function_return_union_dimension_without_packed\\.sv:27:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch13/test_illegal_function_local_type_reference_without_var.sv",
+          "observation": "関数 plus_one の局所変数を type(a) bad; と var なしで宣言する27行目を照合する。直前の var type(a) good; は合法。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "ef296f4c97db35a7fe42f089e98139bbd22e62d6ebefbd14be844382cf74f7fc",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_illegal_function_local_type_reference_without_var.sv",
+              "contains": "    var type(a) good;\n    type(a) bad;"
+            },
+            {
+              "file": "tests/ch13/test_illegal_function_local_type_reference_without_var.sv",
+              "contains": ":expected_stderr_regex: test_illegal_function_local_type_reference_without_var\\.sv:27:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch13/test_illegal_function_override_specifier_outside_class.sv",
+          "observation": "モジュールの関数 function :initial int twice を34行目で照合する。同じ設計のクラス counter のメソッド function :initial int next は合法。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "db98f566e751652953280105620669007ee8aa532094bb0b9a6a3591b2f9fc81",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_illegal_function_override_specifier_outside_class.sv",
+              "contains": "function :initial int twice(int v);"
+            },
+            {
+              "file": "tests/ch13/test_illegal_function_override_specifier_outside_class.sv",
+              "contains": ":expected_stderr_regex: test_illegal_function_override_specifier_outside_class\\.sv:34:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch13/test_illegal_function_override_specifier_interface_class.sv",
+          "observation": "インターフェースクラスの pure virtual function :initial int size を26行目で照合する。実装クラス側の function :initial int volume は合法。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "0825678adab3e0cd5e6d117045d62b637ad6cf30c41acf17c9f44a59aba8e603",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_illegal_function_override_specifier_interface_class.sv",
+              "contains": "pure virtual function :initial int size();"
+            },
+            {
+              "file": "tests/ch13/test_illegal_function_override_specifier_interface_class.sv",
+              "contains": ":expected_stderr_regex: test_illegal_function_override_specifier_interface_class\\.sv:26:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "13.4",
           "blocks": [
             "B007"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "g02-type-footnotes",
+          "tests": [
+            "tests/ch13/test_illegal_function_return_struct_dimension_without_packed.sv",
+            "tests/ch13/test_illegal_function_return_union_dimension_without_packed.sv",
+            "tests/ch13/test_illegal_function_local_type_reference_without_var.sv",
+            "tests/ch13/test_illegal_function_override_specifier_outside_class.sv",
+            "tests/ch13/test_illegal_function_override_specifier_interface_class.sv"
+          ],
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "observation": "5本の違法系テストで Syntax 13-2 の脚注 17・18・25 の各違反を1つずつ起こし、違反行の file:line でエラーを照合する。脚注17は関数戻り型に書いた struct と union それぞれに packed なしで packed 次元を付ける2本、脚注18は関数内の局所変数を var なしの type 参照で宣言する1本（type 参照で始まる宣言はネット型キーワードも var もないので、ネット宣言側とも両立しない唯一の違反形）、脚注25はモジュールの関数（クラス外）とインターフェースクラスのメソッドに動的上書き指定子 :initial を付ける2本。各テストは同じ形の合法な宣言（packed 付き、var 付き、非インターフェースクラスの :initial）を並べ、違反を除いた設計がエラーなく通ることを確認済み。 区別: 脚注17を検査しない実装は struct/union の packed なし次元を受理し、該当テストで違反行のエラーが出ない（Verilator 5.052 は両方とも受理）。脚注18を検査しない実装は type(a) bad; を受理する。脚注25を検査しない実装はモジュール関数やインターフェースクラスのメソッドの :initial を受理する（Verilator 5.052 は両方受理）。どの違反も別々のテストなので、一部の規則だけ検査する実装は該当するテストだけが失敗する。"
         }
       ]
     },
@@ -133733,13 +135688,186 @@
       "acceptance": "Outside 13.4.4 background children, a function cannot contain #/##/@, join/join_any, wait/wait-fork/wait-order or expect timing controls.",
       "source_note": "IEEE 1800-2023 13.4; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch3/test_illegal_function_delay_control.sv",
+          "observation": "関数 store_later 内の #1 last = v;（遅延制御 #）を25行目で照合する。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "35fe5b8e02726c2456a70cd7ab81fadcc6fcdf0dbad225602bb7035819fa1f92",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_illegal_function_delay_control.sv",
+              "contains": "#1 last = v;"
+            },
+            {
+              "file": "tests/ch3/test_illegal_function_delay_control.sv",
+              "contains": ":expected_stderr_regex: test_illegal_function_delay_control\\.sv:25:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch13/test_illegal_function_cycle_delay.sv",
+          "observation": "default clocking cb のあるモジュールで、関数 step 内の ##1;（サイクル遅延 ##）を33行目で照合する。同じ ##1 は initial 内では合法。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "12b15940d8447639201191986248a1e912239256b4f49ee728ef37c5d773e008",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_illegal_function_cycle_delay.sv",
+              "contains": "    ##1;   // illegal: a cycle delay in a function"
+            },
+            {
+              "file": "tests/ch13/test_illegal_function_cycle_delay.sv",
+              "contains": ":expected_stderr_regex: test_illegal_function_cycle_delay\\.sv:33:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch13/test_illegal_function_event_control.sv",
+          "observation": "関数 f 内の @(e);（イベント制御 @）を20行目で照合する。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "b2c4eafc7b7a898b14d10ca616ee2f501146aa7793b8e6553d03520ac1e226ec",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_illegal_function_event_control.sv",
+              "contains": "@(e);"
+            },
+            {
+              "file": "tests/ch13/test_illegal_function_event_control.sv",
+              "contains": ":expected_stderr_regex: test_illegal_function_event_control\\.sv:20:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch13/test_illegal_function_fork_join.sv",
+          "observation": "関数 f 内の fork ... join を fork 行（22）か join 行（25）で照合する。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "818f2d5c129f23f191c6d102323ca9aafe8ef3136f057fd667154d8b37905cb1",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_illegal_function_fork_join.sv",
+              "contains": "fork               // illegal: fork-join in a function"
+            },
+            {
+              "file": "tests/ch13/test_illegal_function_fork_join.sv",
+              "contains": ":expected_stderr_regex: test_illegal_function_fork_join\\.sv:(22|25):"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch13/test_illegal_function_fork_join_any.sv",
+          "observation": "関数 set_both 内の fork ... join_any を fork 行（22）か join_any 行（25）で照合する。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "3d15c70743083b2d74938158e2efc212c71875f0f0ce3dce57c05eead4bee085",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_illegal_function_fork_join_any.sv",
+              "contains": "fork   // illegal: fork-join_any in a function"
+            },
+            {
+              "file": "tests/ch13/test_illegal_function_fork_join_any.sv",
+              "contains": ":expected_stderr_regex: test_illegal_function_fork_join_any\\.sv:(22|25):"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch13/test_illegal_function_wait.sv",
+          "observation": "関数 when_ready 内の wait (ready);（wait 文）を21行目で照合する。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "acdcffea49aefcb160723cdc86d41b10a927c980c55be0ac8b590bf80bad6f10",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_illegal_function_wait.sv",
+              "contains": "wait (ready);"
+            },
+            {
+              "file": "tests/ch13/test_illegal_function_wait.sv",
+              "contains": ":expected_stderr_regex: test_illegal_function_wait\\.sv:21:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch13/test_illegal_function_wait_fork.sv",
+          "observation": "関数 start_and_wait が fork-join_none（13.4.4 で合法）でプロセスを起こした直後の wait fork; を28行目で照合する。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "3b85f78d6afbb47f41aa4be6b447092c15d8ed023785070062fdce49cd5cffa1",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_illegal_function_wait_fork.sv",
+              "contains": "    join_none\n    wait fork;"
+            },
+            {
+              "file": "tests/ch13/test_illegal_function_wait_fork.sv",
+              "contains": ":expected_stderr_regex: test_illegal_function_wait_fork\\.sv:28:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch13/test_illegal_function_wait_order.sv",
+          "observation": "関数 check_order 内の wait_order (first, second); を26行目で照合する。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "2684d1c7182dcc9ba79906a846d537bfda32f8eb08ae59c5e74c304d23dffb42",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_illegal_function_wait_order.sv",
+              "contains": "wait_order (first, second);"
+            },
+            {
+              "file": "tests/ch13/test_illegal_function_wait_order.sv",
+              "contains": ":expected_stderr_regex: test_illegal_function_wait_order\\.sv:26:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch13/test_illegal_function_expect.sv",
+          "observation": "関数 check_handshake 内の expect (@(posedge clk) req ##1 ack); を29行目で照合する。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "beb5a7d9858f48067d9db96f66d2ad5d456b6638294807472fbbe639c75295f6",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_illegal_function_expect.sv",
+              "contains": "expect (@(posedge clk) req ##1 ack);"
+            },
+            {
+              "file": "tests/ch13/test_illegal_function_expect.sv",
+              "contains": ":expected_stderr_regex: test_illegal_function_expect\\.sv:29:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "13.4",
           "blocks": [
             "B003"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "g02-no-function-timing",
+          "tests": [
+            "tests/ch3/test_illegal_function_delay_control.sv",
+            "tests/ch13/test_illegal_function_cycle_delay.sv",
+            "tests/ch13/test_illegal_function_event_control.sv",
+            "tests/ch13/test_illegal_function_fork_join.sv",
+            "tests/ch13/test_illegal_function_fork_join_any.sv",
+            "tests/ch13/test_illegal_function_wait.sv",
+            "tests/ch13/test_illegal_function_wait_fork.sv",
+            "tests/ch13/test_illegal_function_wait_order.sv",
+            "tests/ch13/test_illegal_function_expect.sv"
+          ],
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "observation": "9本の違法系テストで、13.4 a) が列挙する時間制御文 #・##・@・fork-join・fork-join_any・wait・wait fork・wait_order・expect をそれぞれ1つだけ関数本体に置き、その文の行の file:line でエラーを照合する。既存5本が #（ch3）・@・fork-join・fork-join_any・wait、新規4本が ##（default clocking があり initial 内では合法な形）・wait fork（13.4.4 で許される fork-join_none の直後）・wait_order・expect を受け持つ。どのテストも関数は initial から呼ばれ、13.4.4 の背景プロセス（fork-join_none の子）の中ではなく関数本体そのものに時間制御がある。違反行を除いた新規4本の設計は Verilator 5.052 でエラーなく実行できる。 区別: 時間制御の一部だけを関数内で検査する実装（例えば # と @ だけ）は、## や wait fork・wait_order・expect のテストで違反行にエラーを出さず、そのテストだけ失敗する。fork-join/fork-join_any を fork-join_none と区別しない実装は該当2本で失敗する。各テストの違反は1つで、照合する行は違反の文そのもの（fork-join 系は fork 行か join 行のどちらか）。"
         }
       ]
     },
@@ -202575,7 +204703,29 @@
       "acceptance": "Elaboration severity arguments shall be formatting strings and constant expressions, including constant functions.",
       "source_note": "IEEE 1800-2023 20.10.1; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_illegal_elaboration_severity_nonconstant_argument.sv",
+          "observation": "モジュール項目の2つの $info（どちらもエラボレーション時の重大度タスク）のうち、1つ目は書式文字列と localparam LIMIT と定数関数呼び出し twice(LIMIT) を引数にする合法な呼び出し、2つ目は変数 count を引数にする。:expected_stderr_regex: は2つ目の行（37行目）のエラーを照合する。$info 自体はエラボレーションを止めないので、拒否の理由は引数だけである。 区別: エラボレーション時の重大度タスクの引数を定数式に制限しない実装（変数の値をそのまま書式化する、手続きの中の実行時タスクと同じに扱う）は設計を受理するので、このテストは失敗する。定数関数呼び出しを誤って拒否するだけの実装は37行目のエラーを出さないので照合しない。",
+          "reviewed_on": "2026-11-14",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "b44e9ee7861452cfba9109adc3cc514591587f7bb2d256ecd7992640f4797748",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_illegal_elaboration_severity_nonconstant_argument.sv",
+              "contains": "$info(\"count %0d\", count);  // illegal: count is a variable"
+            },
+            {
+              "file": "tests/ch20/test_illegal_elaboration_severity_nonconstant_argument.sv",
+              "contains": "$info(\"limit %0d, twice the limit %0d\", LIMIT, twice(LIMIT));"
+            },
+            {
+              "file": "tests/ch20/test_illegal_elaboration_severity_nonconstant_argument.sv",
+              "contains": ":expected_stderr_regex: test_illegal_elaboration_severity_nonconstant_argument\\.sv:37:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.10.1",

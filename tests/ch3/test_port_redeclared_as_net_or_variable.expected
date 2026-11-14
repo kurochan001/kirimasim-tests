@@ -1,0 +1,5 @@
+module: a=-16 negative=1
+outputs: module q=f8 interface v=fa program v=f9
+latch open: q=1
+latch closed: q=1
+latch open again: q=0

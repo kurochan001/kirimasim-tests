@@ -1,0 +1,11 @@
+logic signed [7:0]: -128 bits=8
+byte unsigned: 240 bits=8
+shortint: -2 bits=16
+real: 2.75 shortreal: 0.50
+struct packed: hi=10 lo=5 bits=8
+union packed: u=254 s=-2
+package enum: GREEN 2
+inline enum: IN_HIGH 3 prev=IN_LOW num=2 bits=2
+string: abcd len=4
+class scope type: a=-3 b=300
+type reference: -5 bits=16
