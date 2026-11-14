@@ -6,7 +6,7 @@
     "state": "approved",
     "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
     "reviewed_on": "2026-10-28",
-    "scope_note": "All 1703 normative sections reviewed. 21 interpretation rows across 20 sections resolved (20 by normative text or a documented policy choice; 31.4.4 limited to distinct transition times). 25 duplicate candidates reviewed: 21 rows merged into their extracted obligations, 4 candidates kept (kind or source differs). 92 initial rows: 89 assigned block-level source spans, 3 retained with clause-level provenance because no block defines the behavior. The denominator is 12298 registered unique behavioral obligations; it is not a claim of independent human review. On 2026-11-14, with the owner's approval, rows that could be shown only by a rejected design were made observable: 21 rows changed from normal to error, SV2023-6.20.1-EXTRACT-NO-IMPLICIT-INSTANTIATION changed from error to normal, SV2023-6.19-EXTRACT-POST-CAST-ENCODING was narrowed, and 7 rows that mixed an accepted and a rejected form were split, so the denominator is now 12305 rows (drafted by Claude Opus 5.5, AI; not an independent human review)."
+    "scope_note": "All 1703 normative sections reviewed. 21 interpretation rows across 20 sections resolved (20 by normative text or a documented policy choice; 31.4.4 limited to distinct transition times). 25 duplicate candidates reviewed: 21 rows merged into their extracted obligations, 4 candidates kept (kind or source differs). 92 initial rows: 89 assigned block-level source spans, 3 retained with clause-level provenance because no block defines the behavior. The denominator is 12298 registered unique behavioral obligations; it is not a claim of independent human review. On 2026-11-14, with the owner's approval, rows that could be shown only by a rejected design were made observable: 21 rows changed from normal to error, SV2023-6.20.1-EXTRACT-NO-IMPLICIT-INSTANTIATION changed from error to normal, SV2023-6.19-EXTRACT-POST-CAST-ENCODING was narrowed, and 7 rows that mixed an accepted and a rejected form were split, so the denominator is now 12305 rows (drafted by Claude Opus 5.5, AI; not an independent human review). On 2026-11-15, with the owner's approval, the rows that the gap rounds of 2026-11-14 had left out because their kind did not fit their observation were made observable: 27 rows changed kind, 26 rows were narrowed to the part they can show, with the other part left to an existing row, and 27 rows that mixed an accepted and a rejected form were split, so the denominator is now 12332 rows (drafted by Claude Opus 5.5, AI; not an independent human review)."
   },
   "requirements": [
     {
@@ -3672,10 +3672,10 @@
     {
       "id": "SV2023-3.12-EXTRACT-PACKAGE-PRECEDENCE",
       "clause": "3.12",
-      "kind": "normal",
-      "behavior": "Package compilation must precede references to package items as specified by package visibility rules.",
-      "acceptance": "Package compilation must precede references to package items as specified by package visibility rules.",
-      "source_note": "IEEE 1800-2023 3.12; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "The compilation of a package has to precede references to its items, so a reference to a package item, by an import or by a package-scoped name, that comes before the package in the compilation is an error.",
+      "acceptance": "A module that imports an item of a package that appears only after the module, and a module that refers to such an item as pkg::name, are each rejected at the reference.",
+      "source_note": "IEEE 1800-2023 3.12; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the order rule is observable only as the error for a reference that comes before the package; the import form is also stated by SV2023-26.3-EXTRACT-PACKAGE-COMPILE-ORDER.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -5463,9 +5463,9 @@
       "id": "SV2023-3.14-EXTRACT-TIME-UNIT-ENCODING",
       "clause": "3.14",
       "kind": "normal",
-      "behavior": "Time unit and precision literals use multipliers 1, 10 or 100 with s, ms, us, ns, ps or fs.",
-      "acceptance": "Recognize the permitted multiplier/unit combinations and reject invalid literal unit spellings or multipliers.",
-      "source_note": "IEEE 1800-2023 3.14; complete own-body source review, blocks B004, B005, B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "A time unit or time precision is written as one of the strings s, ms, us, ns, ps and fs with a magnitude of 1, 10 or 100, which gives 18 values from 100 s down to 1 fs.",
+      "acceptance": "Each of the 18 magnitude and unit combinations is accepted as a time unit, and a delay of 1 under it lasts that magnitude times that unit, as times printed in femtoseconds show.",
+      "source_note": "IEEE 1800-2023 3.14; complete own-body source review, blocks B004, B005, B006. The rule is paraphrased; conditions and referenced rules remain applicable. Narrowed on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row also asked for the rejection of other magnitudes and unit strings, which 3.14 describes but does not state as an error; for the `timescale directive that rejection is covered by SV2023-22.7-EXTRACT-TIMESCALE-VALUES, and the meaning of each unit string by SV2023-3.14-EXTRACT-TIME-UNIT-SCALING.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -6010,9 +6010,9 @@
       "id": "SV2023-3.14.2.2-EXTRACT-MATCHING-REPETITION",
       "clause": "3.14.2.2",
       "kind": "normal",
-      "behavior": "A timeunit or timeprecision declaration may recur later in the same time scope only if it matches the earlier declaration.",
-      "acceptance": "Accept matching later declarations and reject a conflicting repeated setting.",
-      "source_note": "IEEE 1800-2023 3.14.2.2; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "A timeunit or timeprecision declaration may be repeated as a later item of the same time scope when it gives the same value as the earlier one.",
+      "acceptance": "A module that repeats its timeunit and timeprecision declarations later with the same values is accepted, and its delays keep the unit and the rounding of the first declarations.",
+      "source_note": "IEEE 1800-2023 3.14.2.2; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable. Narrowed on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): a repetition with another value is the conflict that SV2023-3.14.2.2-EXTRACT-TIME-SCOPE-SETTINGS states as an error, so the rejection is removed from this row.",
       "modality": "permission",
       "checks": [],
       "source_spans": [
@@ -6027,10 +6027,10 @@
     {
       "id": "SV2023-3.14.2.2-EXTRACT-TIME-SCOPE-SETTINGS",
       "clause": "3.14.2.2",
-      "kind": "normal",
-      "behavior": "A module, program, package, interface or compilation-unit time scope has at most one effective unit value and one effective precision value.",
-      "acceptance": "Reject conflicting effective declarations within one time scope; matching repeated declarations are handled by the explicit repetition rule.",
-      "source_note": "IEEE 1800-2023 3.14.2.2; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "A module, program, package, interface or compilation-unit scope is a time scope with at most one time unit and one time precision, so a later timeunit or timeprecision declaration in the same time scope that gives a different value is an error.",
+      "acceptance": "A module whose later timeunit declaration gives a different unit, and one whose later timeprecision declaration gives a different precision, are each rejected at the later declaration.",
+      "source_note": "IEEE 1800-2023 3.14.2.2; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the limit of one unit and one precision per time scope is observable only as the error for a conflicting later declaration; the accepted repetition with the same value is covered by SV2023-3.14.2.2-EXTRACT-MATCHING-REPETITION.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -12713,9 +12713,9 @@
       "id": "SV2023-5.6.3-EXTRACT-SYSTEM-CALL-ARGUMENT-FORMS",
       "clause": "5.6.3",
       "kind": "normal",
-      "behavior": "System calls use the prescribed optional ordinary argument list, data-type argument form, or expression/optional clocking-event argument form.",
-      "acceptance": "Accept only the call form assigned to the particular system routine, including specified omitted argument positions.",
-      "source_note": "IEEE 1800-2023 5.6.3; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "A system task or function call takes one of three argument forms: an optional argument list, a data type optionally followed by an expression, or expressions with omitted positions and an optional trailing clocking event.",
+      "acceptance": "A call in each form, as its routine defines it, is accepted and gives the result of the routine: an argument list with an empty argument, a data type with and without a following expression, and expressions with an omitted position and a clocking event.",
+      "source_note": "IEEE 1800-2023 5.6.3; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable. Narrowed on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): which form each routine accepts is defined with that routine (for example SV2023-16.9.3-EXTRACT-SIGNATURES, SV2023-20.6.2-EXTRACT-BITS-RESULT and SV2023-20.7-EXTRACT-ARRAY-QUERY-SYNTAX), and 5.6.3 states no error for another form, so the rejection is removed from this row.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -14293,9 +14293,27 @@
       "id": "SV2023-5.7.1-EXTRACT-SIZE-EXACT-BITS",
       "clause": "5.7.1",
       "kind": "normal",
-      "behavior": "A literal size is a nonzero unsigned decimal integer denoting the exact bit count.",
-      "acceptance": "Reject a zero/invalid size and enforce the declared result width.",
-      "source_note": "IEEE 1800-2023 5.7.1; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "The size constant of a based literal gives the exact number of bits of the literal.",
+      "acceptance": "The width of a sized literal, as $bits shows, equals its size constant, also when its value digits alone would need fewer bits.",
+      "source_note": "IEEE 1800-2023 5.7.1; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed an accepted and a rejected form; the error part, a size of zero, moved to SV2023-5.7.1-EXTRACT-NONZERO-SIZE.",
+      "modality": "definition",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "5.7.1",
+          "blocks": [
+            "B004"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-5.7.1-EXTRACT-NONZERO-SIZE",
+      "clause": "5.7.1",
+      "kind": "error",
+      "behavior": "The size constant of a based literal shall be a nonzero unsigned decimal number, so a size of zero is an error.",
+      "acceptance": "A based literal with the size 0, such as 0'd1, is rejected.",
+      "source_note": "IEEE 1800-2023 5.7.1; split on 2026-11-15 from SV2023-5.7.1-EXTRACT-SIZE-EXACT-BITS (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -78305,9 +78323,9 @@
       "id": "SV2023-8.20-EXTRACT-INITIAL-EXTENDS-EXCLUSIVE",
       "clause": "8.20",
       "kind": "error",
-      "behavior": "A method cannot specify both initial and extends; final may accompany either.",
-      "acceptance": "A method cannot specify both initial and extends; final may accompany either.",
-      "source_note": "IEEE 1800-2023 8.20; complete own-body source review, blocks B024. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "initial and extends are mutually exclusive, so a method declaration that specifies both is an error.",
+      "acceptance": "A method declared with both :initial and :extends is rejected at that declaration.",
+      "source_note": "IEEE 1800-2023 8.20; complete own-body source review, blocks B024. The rule is paraphrased; conditions and referenced rules remain applicable. Narrowed on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): that final may be combined with initial or with extends is an accepted form of the specifier grammar, covered by SV2023-A.2.7-EXTRACT-OVERRIDES, so it is removed from this row.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -81302,10 +81320,10 @@
     {
       "id": "SV2023-8.26.1-EXTRACT-INTERFACE-BODY-LOCALPARAM",
       "clause": "8.26.1",
-      "kind": "normal",
-      "behavior": "A parameter declaration as an interface-class body item treats parameter as localparam.",
-      "acceptance": "A parameter declaration as an interface-class body item treats parameter as localparam.",
-      "source_note": "IEEE 1800-2023 8.26.1; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "In an interface class body the parameter keyword declares a local parameter, so a specialization of the interface class cannot give it a value; a parameter value assignment that names it is an error.",
+      "acceptance": "A specialization of an interface class, for example in an implements list, whose parameter value assignment names a parameter declared with the parameter keyword in the interface class body is rejected at that assignment.",
+      "source_note": "IEEE 1800-2023 8.26.1; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the localparam classification is observable only as the error for an override: clauses 36 to 41 do not say how an interface class appears through VPI (the method used for SV2023-8.3-EXTRACT-CLASS-BODY-LOCALPARAM), and an interface class has no objects; the general rule is SV2023-6.20.4-EXTRACT-NO-DIRECT-LOCAL-OVERRIDE.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -84880,9 +84898,27 @@
       "id": "SV2023-9.2.2.2-EXTRACT-SINGLE-PROCESS-WRITER",
       "clause": "9.2.2.2",
       "kind": "error",
-      "behavior": "An always_comb assignment target, including writes in called functions but excluding called task contents, cannot be written by another process when longest static prefixes overlap.",
-      "acceptance": "An always_comb assignment target, including writes in called functions but excluding called task contents, cannot be written by another process when longest static prefixes overlap.",
-      "source_note": "IEEE 1800-2023 9.2.2.2; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "A variable written by an always_comb procedure, directly or in a function it calls, cannot be written by any other process where the longest static prefixes of the writes overlap; such a design is an error.",
+      "acceptance": "A design in which an initial procedure writes a variable that an always_comb writes directly, and one in which an initial procedure writes a variable that a function called by the always_comb writes, are each rejected.",
+      "source_note": "IEEE 1800-2023 9.2.2.2; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed an accepted and a rejected form; the accepted exclusion of writes inside called tasks moved to SV2023-9.2.2.2-EXTRACT-TASK-WRITES-EXCLUDED, and writes to independent elements with nonoverlapping longest static prefixes are covered by SV2023-9.2.2.2-EXTRACT-INDEPENDENT-ELEMENT-WRITERS.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "9.2.2.2",
+          "blocks": [
+            "B005"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-9.2.2.2-EXTRACT-TASK-WRITES-EXCLUDED",
+      "clause": "9.2.2.2",
+      "kind": "normal",
+      "behavior": "Writes made inside a task called by an always_comb procedure are not subject to the single-writer restriction, so another process may also write that variable.",
+      "acceptance": "A design in which an always_comb calls a task without timing controls that writes a variable, and an initial procedure writes the same variable at another time, is accepted, and the variable shows each write in turn.",
+      "source_note": "IEEE 1800-2023 9.2.2.2; split on 2026-11-15 from SV2023-9.2.2.2-EXTRACT-SINGLE-PROCESS-WRITER (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -85617,9 +85653,27 @@
       "id": "SV2023-9.2.2.3-EXTRACT-LATCH-COMB-RULES",
       "clause": "9.2.2.3",
       "kind": "normal",
-      "behavior": "All always_comb requirements apply to always_latch except the intended logic-shape diagnostic.",
-      "acceptance": "All always_comb requirements apply to always_latch except the intended logic-shape diagnostic.",
-      "source_note": "IEEE 1800-2023 9.2.2.3; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "The always_comb rules of 9.2.2.2 apply to always_latch: it runs once at time zero after all initial and always procedures have started, it is sensitive to the variables read in it and in the functions it calls, and other processes may write independent elements of a variable it writes when the longest static prefixes do not overlap.",
+      "acceptance": "An always_latch whose enable is already 1 at time zero sets its output without any input change; it updates when a variable read only inside a function it calls changes; and an element it writes and an element written by a continuous assignment each follow their own source.",
+      "source_note": "IEEE 1800-2023 9.2.2.3; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed accepted behavior and rejected forms; the error part moved to SV2023-9.2.2.3-EXTRACT-LATCH-COMB-RESTRICTIONS. The logic-shape warning stays with SV2023-9.2.2.3-EXTRACT-LATCH-CHECK.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "9.2.2.3",
+          "blocks": [
+            "B004"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-9.2.2.3-EXTRACT-LATCH-COMB-RESTRICTIONS",
+      "clause": "9.2.2.3",
+      "kind": "error",
+      "behavior": "The always_comb restrictions apply to always_latch: no other process can write a variable it writes, including through the functions it calls, and it cannot contain statements that block, blocking timing or event controls, or fork-join statements; a design that breaks them is an error.",
+      "acceptance": "An always_latch whose target is also written by an initial procedure, one that contains a delay control, one that contains an event control, and one that contains a fork-join are each rejected.",
+      "source_note": "IEEE 1800-2023 9.2.2.3; split on 2026-11-15 from SV2023-9.2.2.3-EXTRACT-LATCH-COMB-RULES (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -85718,9 +85772,27 @@
       "id": "SV2023-9.2.2.4-EXTRACT-FF-WRITER-EXCLUSIVITY",
       "clause": "9.2.2.4",
       "kind": "error",
-      "behavior": "always_ff assignment targets, including writes within called functions, follow the always_comb exclusive/nonoverlapping longest-static-prefix writer restrictions.",
-      "acceptance": "always_ff assignment targets, including writes within called functions, follow the always_comb exclusive/nonoverlapping longest-static-prefix writer restrictions.",
-      "source_note": "IEEE 1800-2023 9.2.2.4; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "A variable written by an always_ff procedure, directly or in a function it calls, cannot be written by any other process where the longest static prefixes of the writes overlap, as for always_comb; such a design is an error.",
+      "acceptance": "A design in which an initial procedure writes a variable that an always_ff writes directly, and one in which an initial procedure writes a variable that a function called by the always_ff writes, are each rejected.",
+      "source_note": "IEEE 1800-2023 9.2.2.4; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed an accepted and a rejected form; the accepted writes to independent elements moved to SV2023-9.2.2.4-EXTRACT-FF-INDEPENDENT-ELEMENT-WRITERS.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "9.2.2.4",
+          "blocks": [
+            "B005"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-9.2.2.4-EXTRACT-FF-INDEPENDENT-ELEMENT-WRITERS",
+      "clause": "9.2.2.4",
+      "kind": "normal",
+      "behavior": "As for always_comb, independent elements of a variable may be written by an always_ff procedure and by other processes when the longest static prefixes of the writes do not overlap.",
+      "acceptance": "A design in which an always_ff writes one element of an unpacked array and a continuous assignment writes another element is accepted, and each element follows its own writer.",
+      "source_note": "IEEE 1800-2023 9.2.2.4; split on 2026-11-15 from SV2023-9.2.2.4-EXTRACT-FF-WRITER-EXCLUSIVITY (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -85866,9 +85938,9 @@
       "id": "SV2023-9.2.3-EXTRACT-FINAL-FUNCTION-STATEMENTS",
       "clause": "9.2.3",
       "kind": "error",
-      "behavior": "Only function-legal statements are allowed in final; final blocks execute sequentially from one process rather than as independent concurrent processes.",
-      "acceptance": "Only function-legal statements are allowed in final; final blocks execute sequentially from one process rather than as independent concurrent processes.",
-      "source_note": "IEEE 1800-2023 9.2.3; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "Only statements permitted in a function are allowed in a final procedure, so a time-controlling statement or a task enable in a final procedure is an error.",
+      "acceptance": "A final procedure that contains a delay control, one that contains an event control, and one that enables a task are each rejected.",
+      "source_note": "IEEE 1800-2023 9.2.3; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable. Narrowed on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): that final procedures run one after another as function calls from a single process is covered by SV2023-9.2.3-EXTRACT-FINAL-ORDER and by the final-procedure observation of tests/ch9/test_process_thread_kinds_and_final_process.sv under SV2023-9.5-EXTRACT-EXECUTION-THREAD-KINDS.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -87249,9 +87321,9 @@
       "id": "SV2023-9.3.4-EXTRACT-UNNAMED-DECLARATION-SCOPE",
       "clause": "9.3.4",
       "kind": "normal",
-      "behavior": "An unnamed block creates an unnamed hierarchy scope only when directly containing a block item declaration; its declarations cannot be hierarchically named.",
-      "acceptance": "An unnamed block creates an unnamed hierarchy scope only when directly containing a block item declaration; its declarations cannot be hierarchically named.",
-      "source_note": "IEEE 1800-2023 9.3.4; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "An unnamed block creates a new hierarchy scope, which has no name, only when it directly contains a block item declaration such as a variable or type declaration.",
+      "acceptance": "Through VPI, an unnamed begin or fork that directly declares a variable is the scope of a system task call inside it and gives that variable through vpiVariables, while one that declares nothing is skipped in the vpiScope chain from a call inside it.",
+      "source_note": "IEEE 1800-2023 9.3.4; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable. Narrowed on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): that items declared in an unnamed block cannot be referenced hierarchically is covered by SV2023-6.21-EXTRACT-UNNAMED-LOCAL; the scope itself has no name and is observable only through VPI, as SV2023-37.12-EXTRACT-BLOCK-SCOPE also states.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -88982,9 +89054,9 @@
       "id": "SV2023-9.4.2-EXTRACT-HANDLE-CHANGE-EVENT",
       "clause": "9.4.2",
       "kind": "normal",
-      "behavior": "A procedural event control whose event expression is a bare reference to a simple object handle or chandle variable creates an event whenever a write changes that variable's value. This bare-reference form is the only chandle use permitted in an event expression; every other use of a chandle in a sensitivity list or event expression remains illegal (6.14).",
-      "acceptance": "@h, with h a class handle or a chandle, blocks until h is written a value different from its current value and does not unblock when the same value (including null written over null) is written again. A chandle inside any other event expression or sensitivity list, for example @(c1 == c2), is not a permitted use and is rejected.",
-      "source_note": "IEEE 1800-2023 9.4.2 (B016), p.234; complete own-body source review, block B016. Quote: \"If the event expression is a reference to a simple object handle or chandle variable, an event is created when a write to that variable is not equal to its previous value.\" 6.14 (p.112 L39) still says chandles shall not be used \"In sensitivity lists or event expressions\"; B016 is the narrower, specific permission and is read as the only exception.",
+      "behavior": "When the event expression of an event control is a reference to a simple class handle or chandle variable, an event occurs when a write gives the variable a value different from its previous one.",
+      "acceptance": "@h, with h a class handle variable and with h a chandle variable, resumes after h is written a different value and not after h is written its current value again, including null written over null.",
+      "source_note": "IEEE 1800-2023 9.4.2 (B016), p.234; complete own-body source review, block B016. Quote: \"If the event expression is a reference to a simple object handle or chandle variable, an event is created when a write to that variable is not equal to its previous value.\" 6.14 (p.112 L39) still says chandles shall not be used \"In sensitivity lists or event expressions\"; B016 is the narrower, specific permission and is read as the only exception. Narrowed on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the rejection of every other chandle use in an event expression or sensitivity list is the 6.14 rule SV2023-6.14-EXTRACT-NO-EVENT; under the interpretation chosen on 2026-10-28 the bare reference to a chandle variable is the only exception to it.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -91921,10 +91993,10 @@
     {
       "id": "SV2023-9.7-EXTRACT-KILL-SIGNATURE",
       "clause": "9.7",
-      "kind": "normal",
-      "behavior": "The process API declares function void kill().",
-      "acceptance": "The process API declares function void kill().",
-      "source_note": "IEEE 1800-2023 9.7; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "The process method kill returns void, so using a call of it as a value (an expression operand or an assignment source) is an error.",
+      "acceptance": "A design that uses the result of a call of kill on a process handle as a value is rejected at that call.",
+      "source_note": "IEEE 1800-2023 9.7; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the void return type is observable only as the error for using the call as a value (13.4.1); the no-argument call and its effect are exercised by SV2023-9.7-EXTRACT-KILL-TREE and SV2023-9.7-EXTRACT-KILLED-STATE.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -92135,9 +92207,9 @@
       "id": "SV2023-9.7-EXTRACT-PROCESS-FINAL",
       "clause": "9.7",
       "kind": "normal",
-      "behavior": "process is a final class with state enum FINISHED/RUNNING/WAITING/SUSPENDED/KILLED.",
-      "acceptance": "process is a final class with state enum FINISHED/RUNNING/WAITING/SUSPENDED/KILLED.",
-      "source_note": "IEEE 1800-2023 9.7; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "The process class declares the enumeration type state with the names FINISHED, RUNNING, WAITING, SUSPENDED and KILLED, in that order.",
+      "acceptance": "A variable of type process::state stepped from first() with next() gives FINISHED, RUNNING, WAITING, SUSPENDED and KILLED by name(), with the values 0 to 4.",
+      "source_note": "IEEE 1800-2023 9.7; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable. Narrowed on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): that process is a final class is observable only as the error for extending it, which SV2023-9.7-EXTRACT-NO-PROCESS-EXTENSION covers.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -93549,9 +93621,9 @@
       "id": "SV2023-10.3.1-EXTRACT-ONE-NET-DECLARATION",
       "clause": "10.3.1",
       "kind": "normal",
-      "behavior": "A net can have only one declaration assignment because it can be declared only once; additional standalone continuous drivers are permitted subject to net resolution rules.",
-      "acceptance": "A net can have only one declaration assignment because it can be declared only once; additional standalone continuous drivers are permitted subject to net resolution rules.",
-      "source_note": "IEEE 1800-2023 10.3.1; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "Besides its single net declaration assignment, a net can be driven by any number of continuous assignment statements, and all of them drive the net together.",
+      "acceptance": "A net with a declaration assignment and one or more continuous assignment statements to it is accepted, and its value is the resolution of all the drivers, as the printed values for equal and for different strengths show.",
+      "source_note": "IEEE 1800-2023 10.3.1; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable. Narrowed on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): that a net has only one declaration assignment follows from the rule that a name is declared once, whose error is covered by SV2023-3.13-EXTRACT-NO-REDECLARATION and SV2023-6.5-EXTRACT-DECLARATION-NAME-COLLISION; 10.3.1 states no separate error.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -95011,10 +95083,10 @@
     {
       "id": "SV2023-10.4-EXTRACT-VARIABLE-ONLY-PROCEDURAL",
       "clause": "10.4",
-      "kind": "error",
-      "behavior": "A procedural assignment target must be a legal singular/aggregate variable or packed/unpacked selection/slice, and its type constrains legal RHS values.",
-      "acceptance": "A procedural assignment target must be a legal singular/aggregate variable or packed/unpacked selection/slice, and its type constrains legal RHS values.",
-      "source_note": "IEEE 1800-2023 10.4; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "normal",
+      "behavior": "The left-hand side of a procedural assignment can be a singular variable, an aggregate variable, a bit-select, part-select or slice of a packed array, or a slice of an unpacked array.",
+      "acceptance": "Procedural assignments to a whole variable, a whole unpacked array, a bit-select, a part-select, a slice of a packed array and a slice of an unpacked array write exactly the selected bits or elements, as reads afterwards show.",
+      "source_note": "IEEE 1800-2023 10.4; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable. Narrowed and reclassified on 2026-11-15 from error to normal (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): that the left-hand side has to be a variable is covered by SV2023-6.5-EXTRACT-NO-PROCEDURAL-NET-ASSIGNMENT, and the restriction of the right-hand side by the target type is the assignment-compatibility rule of 6.22.3 (SV2023-6.22.3-EXTRACT-INTEGRAL-COMPATIBILITY and SV2023-6.22.3-EXTRACT-DIRECTIONAL-COMPATIBILITY); the remaining list of forms is legal behavior, so the row changed from error to normal.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -137484,9 +137556,27 @@
       "id": "SV2023-13.3-EXTRACT-DIRECTION-INHERITANCE",
       "clause": "13.3",
       "kind": "normal",
-      "behavior": "Task formals default to input initially, then inherit the last specified direction including const/static qualifiers on ref.",
-      "acceptance": "Task formals default to input initially, then inherit the last specified direction including const/static qualifiers on ref.",
-      "source_note": "IEEE 1800-2023 13.3; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "A task formal without a direction is an input when no direction has been given before it, and otherwise has the direction of the formal before it, including the static qualifier of ref static.",
+      "acceptance": "In a task whose first formals have no direction, writes to them in the task do not reach the actuals; formals without a direction after output, inout and ref behave as output, inout and ref; and a formal without a direction after ref static can be the target of a nonblocking assignment that updates its actual.",
+      "source_note": "IEEE 1800-2023 13.3; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed an accepted and a rejected form; the const part, observable for a task only as the error for writing the inherited const ref formal, moved to SV2023-13.3-EXTRACT-CONST-REF-DIRECTION-INHERITED.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "13.3",
+          "blocks": [
+            "B012"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-13.3-EXTRACT-CONST-REF-DIRECTION-INHERITED",
+      "clause": "13.3",
+      "kind": "error",
+      "behavior": "The const qualifier of const ref is part of the inherited direction, so a task formal without a direction after a const ref formal is const ref too, and writing it in the task is an error.",
+      "acceptance": "A task with the formals (const ref int a, b) whose body assigns b is rejected at that assignment.",
+      "source_note": "IEEE 1800-2023 13.3; split on 2026-11-15 from SV2023-13.3-EXTRACT-DIRECTION-INHERITANCE (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -137502,9 +137592,9 @@
       "id": "SV2023-13.3-EXTRACT-FORMAL-NAME-REQUIRED",
       "clause": "13.3",
       "kind": "error",
-      "behavior": "A tf port item must name its port except in a function/task prototype.",
-      "acceptance": "A tf port item must name its port except in a function/task prototype.",
-      "source_note": "IEEE 1800-2023 13.3; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "Outside a function or task prototype a tf_port_item has to name its port, so a formal given only by its direction and type in a task or function declaration with a body is an error.",
+      "acceptance": "A task declaration and a function declaration with bodies, each with one formal given only by a keyword type such as int, are each rejected at that formal.",
+      "source_note": "IEEE 1800-2023 13.3; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable. Narrowed on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): that a prototype may leave the port name out is the accepted form covered by SV2023-A.10-EXTRACT-FOOTNOTE-28 (observed through DPI import declarations), so it is removed from this row.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -137706,9 +137796,9 @@
       "id": "SV2023-13.3-EXTRACT-OVERRIDE-METHOD-ONLY",
       "clause": "13.3",
       "kind": "error",
-      "behavior": "Dynamic override specifiers are legal only for methods in noninterface class scope.",
-      "acceptance": "Dynamic override specifiers are legal only for methods in noninterface class scope.",
-      "source_note": "IEEE 1800-2023 13.3; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "Dynamic override specifiers on a task declaration are legal only for a method of a non-interface class, so a task outside a class, or a task prototype of an interface class, with such a specifier is an error.",
+      "acceptance": "A module task declared with :initial, and a pure virtual task of an interface class declared with :initial, are each rejected at that declaration.",
+      "source_note": "IEEE 1800-2023 13.3; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable. Narrowed on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): that the specifiers are accepted on methods of a non-interface class is covered by SV2023-A.10-EXTRACT-FOOTNOTE-25, and the same restriction for function declarations by SV2023-13.4-EXTRACT-FUNCTION-TYPE-FOOTNOTES and SV2023-8.3-EXTRACT-OVERRIDE-NONINTERFACE-METHOD, so this row keeps the rejection for task declarations (Syntax 13-1).",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -140569,10 +140659,10 @@
     {
       "id": "SV2023-13.4.1-EXTRACT-RETURN-OVERRIDES-NAME",
       "clause": "13.4.1",
-      "kind": "error",
-      "behavior": "A return expression overrides a previously assigned function-name result, and a nonvoid return must include an expression.",
-      "acceptance": "A return expression overrides a previously assigned function-name result, and a nonvoid return must include an expression.",
-      "source_note": "IEEE 1800-2023 13.4.1; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "normal",
+      "behavior": "A return statement with an expression overrides any value assigned earlier to the function name, so the function returns the value of the return expression.",
+      "acceptance": "A function that assigns a value to its name and then executes a return statement with a different expression returns the value of the return expression.",
+      "source_note": "IEEE 1800-2023 13.4.1; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable. Narrowed and reclassified on 2026-11-15 from error to normal (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): that a return in a nonvoid function needs an expression is covered by SV2023-12.8-EXTRACT-RETURN-SUBROUTINE-ONLY (tests/ch12/test_illegal_return_without_value_in_int_function.sv); the remaining rule is legal behavior, so the row changed from error to normal.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -140628,9 +140718,9 @@
       "id": "SV2023-13.4.2-EXTRACT-AUTOMATIC-REENTRANT",
       "clause": "13.4.2",
       "kind": "normal",
-      "behavior": "Automatic functions allocate per-call storage and are reentrant; their local automatic items cannot be hierarchically selected but the function may be called hierarchically.",
-      "acceptance": "Automatic functions allocate per-call storage and are reentrant; their local automatic items cannot be hierarchically selected but the function may be called hierarchically.",
-      "source_note": "IEEE 1800-2023 13.4.2; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "An automatic function is reentrant: each call, including a recursive or concurrent one, has its own copy of the function declarations, and the function can be called through its hierarchical name.",
+      "acceptance": "A recursive automatic function returns results that need each call to keep its own argument and locals, such as a factorial, and a call of an automatic function through its hierarchical name from another module returns the same result as a local call.",
+      "source_note": "IEEE 1800-2023 13.4.2; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable. Narrowed on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): that items of an automatic function cannot be referenced hierarchically is covered by SV2023-23.6-EXTRACT-HIERARCHICAL-EXCLUSIONS, which states it for automatic task and function objects.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -140980,9 +141070,27 @@
       "id": "SV2023-13.4.3-EXTRACT-CONSTANT-DEFAULTS",
       "clause": "13.4.3",
       "kind": "error",
-      "behavior": "Defaults are permitted on constant-function arguments only when those defaults are constant expressions.",
-      "acceptance": "Defaults are permitted on constant-function arguments only when those defaults are constant expressions.",
-      "source_note": "IEEE 1800-2023 13.4.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "A default argument value of a constant function shall be a constant expression, so a constant function call that uses a default that is not a constant expression is an error.",
+      "acceptance": "A call, in a constant expression, of a function whose omitted argument has a default that refers to a module variable is rejected.",
+      "source_note": "IEEE 1800-2023 13.4.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed an accepted and a rejected form; the accepted constant default moved to SV2023-13.4.3-EXTRACT-CONSTANT-DEFAULT-ARGUMENT.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "13.4.3",
+          "blocks": [
+            "B002"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-13.4.3-EXTRACT-CONSTANT-DEFAULT-ARGUMENT",
+      "clause": "13.4.3",
+      "kind": "normal",
+      "behavior": "A constant function may have default argument values; a constant function call that omits such an argument uses its constant default.",
+      "acceptance": "A constant function call in a localparam value that omits an argument whose default is a constant expression gives the value computed with that default.",
+      "source_note": "IEEE 1800-2023 13.4.3; split on 2026-11-15 from SV2023-13.4.3-EXTRACT-CONSTANT-DEFAULTS (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -142538,10 +142646,28 @@
     {
       "id": "SV2023-13.5.2-EXTRACT-REF-AUTOMATIC-RESTRICTIONS",
       "clause": "13.5.2",
+      "kind": "error",
+      "behavior": "Because a variable passed by reference may be automatic, a ref formal without static cannot be used in any context forbidden for automatic variables, such as the target of a nonblocking assignment or of a procedural continuous assignment; such a use is an error.",
+      "acceptance": "A nonblocking assignment to a ref formal without static, and a force of such a formal, are each rejected at that statement.",
+      "source_note": "IEEE 1800-2023 13.5.2; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed an accepted and a rejected form; the ref static part moved to SV2023-13.5.2-EXTRACT-REF-STATIC-AUTOMATIC-CONTEXTS, and this row changed from normal to error. The fork-join_any and fork-join_none case is covered by SV2023-9.3.2-EXTRACT-JOIN-ANY-NONE-REF, and the actuals a ref static formal accepts by SV2023-13.5.2-EXTRACT-REF-STATIC-ACTUALS.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "13.5.2",
+          "blocks": [
+            "B012"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-13.5.2-EXTRACT-REF-STATIC-AUTOMATIC-CONTEXTS",
+      "clause": "13.5.2",
       "kind": "normal",
-      "behavior": "An ordinary ref formal inherits automatic-variable context prohibitions; ref static is exempt only under its actual lifetime restrictions.",
-      "acceptance": "An ordinary ref formal inherits automatic-variable context prohibitions; ref static is exempt only under its actual lifetime restrictions.",
-      "source_note": "IEEE 1800-2023 13.5.2; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "A ref static formal can be used in the contexts that are forbidden for automatic variables.",
+      "acceptance": "A ref static formal that is the target of a nonblocking assignment, and one that is forced and released, act on the static actual variable, as reads after the calls show.",
+      "source_note": "IEEE 1800-2023 13.5.2; split on 2026-11-15 from SV2023-13.5.2-EXTRACT-REF-AUTOMATIC-RESTRICTIONS (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -142777,9 +142903,27 @@
       "id": "SV2023-13.5.2-EXTRACT-REF-STATIC-ACTUALS",
       "clause": "13.5.2",
       "kind": "error",
-      "behavior": "ref static accepts only statically lived variables/properties/members/elements or another ref static; automatic/dynamic-element/nonstatic-property/plain-ref actuals are forbidden.",
-      "acceptance": "ref static accepts only statically lived variables/properties/members/elements or another ref static; automatic/dynamic-element/nonstatic-property/plain-ref actuals are forbidden.",
-      "source_note": "IEEE 1800-2023 13.5.2; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "A ref static formal shall not be passed an automatic variable, an element of a dynamically sized array variable, a non-static class property or a ref formal without static; such a call is an error.",
+      "acceptance": "A call that passes an automatic variable, one that passes an element of a dynamic array, one that passes a non-static class property, and one that passes a ref formal without static to a ref static formal are each rejected at that call.",
+      "source_note": "IEEE 1800-2023 13.5.2; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed an accepted and a rejected form; the accepted actuals moved to SV2023-13.5.2-EXTRACT-REF-STATIC-ACCEPTED-ACTUALS.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "13.5.2",
+          "blocks": [
+            "B012"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-13.5.2-EXTRACT-REF-STATIC-ACCEPTED-ACTUALS",
+      "clause": "13.5.2",
+      "kind": "normal",
+      "behavior": "A ref static formal can be passed a variable, class property, structure member or array element with static lifetime, or another ref static formal.",
+      "acceptance": "Calls that pass a module variable, a package variable, a static class property, a member of a static unpacked structure, an element of a static fixed-size array and another ref static formal are accepted, and writes through the formal reach each actual.",
+      "source_note": "IEEE 1800-2023 13.5.2; split on 2026-11-15 from SV2023-13.5.2-EXTRACT-REF-STATIC-ACTUALS (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -163345,9 +163489,27 @@
       "id": "SV2023-16.10-EXTRACT-TRIGGERED-FLOW",
       "clause": "16.10",
       "kind": "normal",
-      "behavior": "A passed local flows out of triggered only if it flows out of the sequence instance and triggered is a maximal Boolean expression with no negation or other expression operator applied.",
-      "acceptance": "A passed local flows out of triggered only if it flows out of the sequence instance and triggered is a maximal Boolean expression with no negation or other expression operator applied.",
-      "source_note": "IEEE 1800-2023 16.10; complete own-body source review, blocks B053. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "A local variable passed as an entire actual argument to a named sequence instance to which triggered is applied flows out of that application when it flows out of the end of the instance and the application of triggered is a maximal Boolean expression; after it, the variable holds the value assigned within the named sequence.",
+      "acceptance": "A sequence that applies triggered, with no operator applied to it, to an instance that assigns the passed local variable, and reads the variable afterwards, sees the value assigned within the named sequence.",
+      "source_note": "IEEE 1800-2023 16.10; complete own-body source review, blocks B053. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed an accepted and a rejected form; the error part, a reference to the local variable after a triggered application with negation or another operator applied (the variable is then unassigned, B027), moved to SV2023-16.10-EXTRACT-TRIGGERED-OPERATOR-NO-FLOW.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "16.10",
+          "blocks": [
+            "B053"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-16.10-EXTRACT-TRIGGERED-OPERATOR-NO-FLOW",
+      "clause": "16.10",
+      "kind": "error",
+      "behavior": "When negation or another expression operator is applied to the application of triggered, the local variable passed to the instance does not flow out of it and is unassigned afterwards, so referencing the variable before it is assigned again is an error.",
+      "acceptance": "A sequence that applies ! to sub(v).triggered, and one that combines sub(v).triggered with another operand by &&, each followed by a reference to v without a new assignment, are each rejected at the reference.",
+      "source_note": "IEEE 1800-2023 16.10; split on 2026-11-15 from SV2023-16.10-EXTRACT-TRIGGERED-FLOW (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B053. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -175394,9 +175556,27 @@
       "id": "SV2023-16.16.1-EXTRACT-CLOCK-IDENTITY",
       "clause": "16.16.1",
       "kind": "normal",
-      "behavior": "A multiclocked property has a unique semantic leading clock when all its leading clocks are identical; merely value-equal signals do not establish clock identity.",
-      "acceptance": "A multiclocked property has a unique semantic leading clock when all its leading clocks are identical; merely value-equal signals do not establish clock identity.",
-      "source_note": "IEEE 1800-2023 16.16.1; complete own-body source review, blocks B016. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "A multiclocked property whose leading clocks are all identical clocking events has a unique semantic leading clock.",
+      "acceptance": "An assertion or cover of a property such as @(posedge clk) a and @(posedge clk) b is accepted, and its attempts start at each posedge clk as for a singly clocked property.",
+      "source_note": "IEEE 1800-2023 16.16.1; complete own-body source review, blocks B016. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed an accepted and a rejected form; the error part, leading clocks on different signals with equal values, moved to SV2023-16.16.1-EXTRACT-VALUE-EQUAL-CLOCKS-DISTINCT; the general rule that a maximal property needs a unique semantic leading clock stays with SV2023-16.16-EXTRACT-MULTICLOCK-LEADING.",
+      "modality": "definition",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "16.16.1",
+          "blocks": [
+            "B016"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-16.16.1-EXTRACT-VALUE-EQUAL-CLOCKS-DISTINCT",
+      "clause": "16.16.1",
+      "kind": "error",
+      "behavior": "Clocking events on different signals are not identical even when the signals always have equal values, so a maximal property whose leading clocks are such events has no unique semantic leading clock and is illegal in a concurrent assertion.",
+      "acceptance": "With clk2 continuously assigned from clk1, an assertion of @(posedge clk1) a and @(posedge clk2) b, and an assertion of a and @(posedge clk2) b in an always procedure whose inferred clock is posedge clk1, are each rejected.",
+      "source_note": "IEEE 1800-2023 16.16.1; split on 2026-11-15 from SV2023-16.16.1-EXTRACT-CLOCK-IDENTITY (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B016. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -177686,9 +177866,27 @@
       "id": "SV2023-17.3-EXTRACT-DOLLAR-ACTUAL",
       "clause": "17.3",
       "kind": "error",
-      "behavior": "A $ input actual requires an untyped formal used only as a range upper bound or an actual in sequence/property/checker instances or a nested-checker default.",
-      "acceptance": "A $ input actual requires an untyped formal used only as a range upper bound or an actual in sequence/property/checker instances or a nested-checker default.",
-      "source_note": "IEEE 1800-2023 17.3; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "If $ is an actual input argument of a checker instance, the corresponding formal shall be untyped, and each reference to it shall be the upper bound of a cycle delay range, an actual argument of a sequence, property or checker instance, or a default argument of a nested checker; any other case is an error.",
+      "acceptance": "An instance that passes $ to a typed formal, and an instance that passes $ to an untyped formal that the checker uses in another way, such as an operand of a comparison, are each rejected.",
+      "source_note": "IEEE 1800-2023 17.3; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed an accepted and a rejected form; the normal part, the permitted uses of an untyped formal bound to $, moved to SV2023-17.3-EXTRACT-DOLLAR-ACTUAL-USES.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "17.3",
+          "blocks": [
+            "B009"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-17.3-EXTRACT-DOLLAR-ACTUAL-USES",
+      "clause": "17.3",
+      "kind": "normal",
+      "behavior": "The terminal $ can be an actual input argument of a checker instance, passed in the argument list of the instance or given as a default actual argument, and an untyped formal bound to it can serve as the upper bound of a cycle delay range or be passed on to a sequence, property or checker instance.",
+      "acceptance": "A checker whose untyped formal receives $, once from the instance and once from its default, and uses it as the upper bound of a ##[1:n] range, directly and through a property instance, reports matches at delays beyond any finite bound in the design, as with ##[1:$].",
+      "source_note": "IEEE 1800-2023 17.3; split on 2026-11-15 from SV2023-17.3-EXTRACT-DOLLAR-ACTUAL (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -177822,9 +178020,9 @@
       "id": "SV2023-17.3-EXTRACT-INSTANCE-PLACEMENT",
       "clause": "17.3",
       "kind": "error",
-      "behavior": "Checkers may be instantiated wherever concurrent assertions are allowed except fork-join variants and procedures within another checker.",
-      "acceptance": "Checkers may be instantiated wherever concurrent assertions are allowed except fork-join variants and procedures within another checker.",
-      "source_note": "IEEE 1800-2023 17.3; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "Instantiating a checker in a fork-join, fork-join_any or fork-join_none block, or in a procedure of another checker, is illegal.",
+      "acceptance": "A checker instance in each of the three fork-join forms, and one in an always_ff procedure of another checker, are each rejected at the instance.",
+      "source_note": "IEEE 1800-2023 17.3; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable. Narrowed on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the permission to instantiate a checker wherever a concurrent assertion may appear is covered by SV2023-17.3-EXTRACT-INSTANCE-GRAMMAR, SV2023-17.3-EXTRACT-STATIC-PROCEDURAL and SV2023-17.3-EXTRACT-NESTED-STATIC-ASSERTIONS, whose tests instantiate checkers in a module, in an always procedure and in another checker; the row keeps the two exceptions, which are observable only as errors.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -179832,9 +180030,27 @@
       "id": "SV2023-17.8-EXTRACT-NO-FREE-FUNCTION-LOCALS",
       "clause": "17.8",
       "kind": "error",
-      "behavior": "Function formals/internal variables used in checkers shall not be free variables; free variables may be passed as actuals.",
-      "acceptance": "Function formals/internal variables used in checkers shall not be free variables; free variables may be passed as actuals.",
-      "source_note": "IEEE 1800-2023 17.8; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "The formal arguments and internal variables of a function used in a checker shall not be declared as free variables, so declaring one with rand is an error.",
+      "acceptance": "A function declared in a checker whose formal argument is declared with rand, and one whose internal variable is declared with rand, are each rejected at that declaration.",
+      "source_note": "IEEE 1800-2023 17.8; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed a rejected form and an accepted one; the normal part, passing a free variable as an actual argument, moved to SV2023-17.8-EXTRACT-FREE-VARIABLE-ACTUAL.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "17.8",
+          "blocks": [
+            "B002"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-17.8-EXTRACT-FREE-VARIABLE-ACTUAL",
+      "clause": "17.8",
+      "kind": "normal",
+      "behavior": "A free checker variable can be passed as an actual argument to a function called in a checker.",
+      "acceptance": "A checker passes a const rand variable with an explicit initializer as the actual argument of an automatic function on the right-hand side of a checker variable assignment, and the assigned variable holds the function result for the initializer value.",
+      "source_note": "IEEE 1800-2023 17.8; split on 2026-11-15 from SV2023-17.8-EXTRACT-NO-FREE-FUNCTION-LOCALS (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -180392,10 +180608,10 @@
     {
       "id": "SV2023-18.4-EXTRACT-ASSOCIATIVE-SIZE-KEYS",
       "clause": "18.4",
-      "kind": "error",
-      "behavior": "Associative-array size and index values are not randomizable.",
-      "acceptance": "Associative-array size and index values are not randomizable.",
-      "source_note": "IEEE 1800-2023 18.4; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "normal",
+      "behavior": "The size and the index values of an associative array are not randomizable: randomize() of a rand associative array randomizes the values of its existing elements, but adds or removes no entry and changes no index.",
+      "acceptance": "After randomize() of an object whose rand associative array holds entries at chosen indices, the array has the same number of entries at the same indices, and the element values satisfy the element constraints.",
+      "source_note": "IEEE 1800-2023 18.4; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from error to normal (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the rule is observable as the unchanged entries after randomization; 18.4 uses no error wording, and the rejection of an associative-array size in solve...before follows from the rule that ordering allows only random variables, covered by SV2023-18.5.9-EXTRACT-ORDER-VARIABLE-TYPES.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -189665,9 +189881,27 @@
       "id": "SV2023-18.8-EXTRACT-MODE-GETTER",
       "clause": "18.8",
       "kind": "normal",
-      "behavior": "The no-argument getter returns 1 for active, 0 for inactive, and accepts only singular variables, requiring one element for unpacked arrays.",
-      "acceptance": "The no-argument getter returns 1 for active, 0 for inactive, and accepts only singular variables, requiring one element for unpacked arrays.",
-      "source_note": "IEEE 1800-2023 18.8; complete own-body source review, blocks B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "Called without an argument on a random variable, rand_mode() returns 1 when the variable is active and 0 when it is inactive.",
+      "acceptance": "After rand_mode(0) or rand_mode(1) on a random variable, or on one element of a rand unpacked array, the getter form on that variable or element returns 0 or 1 accordingly.",
+      "source_note": "IEEE 1800-2023 18.8; complete own-body source review, blocks B018. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed an accepted and a rejected form; the error part, the getter form applied to a whole unpacked array, moved to SV2023-18.8-EXTRACT-GETTER-SINGULAR-ONLY.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "18.8",
+          "blocks": [
+            "B018"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-18.8-EXTRACT-GETTER-SINGULAR-ONLY",
+      "clause": "18.8",
+      "kind": "error",
+      "behavior": "The getter form of rand_mode() accepts only a singular variable, so applying it to a whole rand unpacked array without selecting one element by its index is an error.",
+      "acceptance": "A call of rand_mode() without an argument on a rand unpacked array, with no index, is rejected at the call.",
+      "source_note": "IEEE 1800-2023 18.8; split on 2026-11-15 from SV2023-18.8-EXTRACT-MODE-GETTER (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -190089,9 +190323,27 @@
       "id": "SV2023-18.9-EXTRACT-CONSTRAINT-MODE-TARGET",
       "clause": "18.9",
       "kind": "normal",
-      "behavior": "Any constraint in the class hierarchy may be named; omission of a name is allowed only for the setter and affects all object constraints.",
-      "acceptance": "Any constraint in the class hierarchy may be named; omission of a name is allowed only for the setter and affects all object constraints.",
-      "source_note": "IEEE 1800-2023 18.9; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "The constraint name in a constraint_mode() call can be that of any constraint block in the class hierarchy of the object, and a setter call without a constraint name applies to all the constraints of the object.",
+      "acceptance": "Through a handle of a derived class, constraint_mode(0) on a constraint block declared in the base class turns that block off, and constraint_mode(0) or constraint_mode(1) on the object without a name turns every constraint block of the object off or on, as later randomize() results and getter values show.",
+      "source_note": "IEEE 1800-2023 18.9; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed an accepted and a rejected form; the error part, the getter form without a constraint name, moved to SV2023-18.9-EXTRACT-GETTER-NAME-REQUIRED.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "18.9",
+          "blocks": [
+            "B007"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-18.9-EXTRACT-GETTER-NAME-REQUIRED",
+      "clause": "18.9",
+      "kind": "error",
+      "behavior": "Omitting the constraint name is allowed only when constraint_mode() is called as a void function, so a call without an argument that names no constraint block is an error.",
+      "acceptance": "A call of constraint_mode() without an argument on an object handle, with no constraint name, is rejected at the call.",
+      "source_note": "IEEE 1800-2023 18.9; split on 2026-11-15 from SV2023-18.9-EXTRACT-CONSTRAINT-MODE-TARGET (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -192046,9 +192298,9 @@
       "id": "SV2023-18.16-EXTRACT-RANDCASE-WEIGHTS",
       "clause": "18.16",
       "kind": "normal",
-      "behavior": "randcase randomly selects a branch from expression:statement items; weights shall be nonnegative integral values and branch probability is weight divided by total.",
-      "acceptance": "randcase randomly selects a branch from expression:statement items; weights shall be nonnegative integral values and branch probability is weight divided by total.",
-      "source_note": "IEEE 1800-2023 18.16; complete own-body source review, blocks B002, B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "A randcase statement randomly selects one of its expression : statement items, and the probability of taking an item is its weight divided by the sum of all the weights.",
+      "acceptance": "Over many executions of a randcase with constant weights, each branch is taken in proportion to its weight over the sum, within a stated tolerance.",
+      "source_note": "IEEE 1800-2023 18.16; complete own-body source review, blocks B002, B004. The rule is paraphrased; conditions and referenced rules remain applicable. Narrowed on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): B004 describes the weights as non-negative integral values but does not make another weight an error; B011 treats each summand as unsigned, which SV2023-18.16-EXTRACT-WEIGHT-PRECISION covers, and the standard does not say what a real-valued weight does, so the row keeps the selection and its probability.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -192216,10 +192468,28 @@
     {
       "id": "SV2023-18.17-EXTRACT-AUTOMATIC-SCOPES",
       "clause": "18.17",
+      "kind": "normal",
+      "behavior": "A randsequence statement creates an automatic scope in which its production identifiers are local, and each code block in it creates an anonymous automatic scope, so a variable declared in a code block is created and initialized again on each execution of the block unless it is declared with the static prefix, which makes it keep its value between executions.",
+      "acceptance": "A code block generated several times that increments a variable declared in it without static logs the same value each time, while one declared there with static counts up; two randsequence statements in one procedure that use the same production names are accepted and each generates its own productions.",
+      "source_note": "IEEE 1800-2023 18.17; complete own-body source review, blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed accepted forms and a rejected one; the error part, a hierarchical reference to a variable declared in a code block, moved to SV2023-18.17-EXTRACT-NO-HIERARCHICAL-CODE-VARIABLE, and this row changed from error to normal.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "18.17",
+          "blocks": [
+            "B013"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-18.17-EXTRACT-NO-HIERARCHICAL-CODE-VARIABLE",
+      "clause": "18.17",
       "kind": "error",
-      "behavior": "randsequence and each anonymous code block create automatic scopes; production identifiers are local, hierarchical code-local variable references are prohibited, and static variables require static.",
-      "acceptance": "randsequence and each anonymous code block create automatic scopes; production identifiers are local, hierarchical code-local variable references are prohibited, and static variables require static.",
-      "source_note": "IEEE 1800-2023 18.17; complete own-body source review, blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "Hierarchical references to variables declared within randsequence code blocks are not allowed.",
+      "acceptance": "A hierarchical name written outside a randsequence code block that refers to a variable declared in that code block, such as one through the named block that contains the randsequence statement, is rejected at that reference.",
+      "source_note": "IEEE 1800-2023 18.17; split on 2026-11-15 from SV2023-18.17-EXTRACT-AUTOMATIC-SCOPES (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -192831,10 +193101,10 @@
     {
       "id": "SV2023-18.17.4-EXTRACT-REPEAT-PRODUCTION",
       "clause": "18.17.4",
-      "kind": "error",
-      "behavior": "repeat(expression) production requires a nonnegative integral count and generates that production the specified number of times.",
-      "acceptance": "repeat(expression) production requires a nonnegative integral count and generates that production the specified number of times.",
-      "source_note": "IEEE 1800-2023 18.17.4; complete own-body source review, blocks B003, B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "normal",
+      "behavior": "repeat (expression) generates its production item the number of times given by the value of the expression.",
+      "acceptance": "Productions generated under repeat with constant counts, including 0, and with a count computed from a variable are generated exactly that many times, as their code-block logs show.",
+      "source_note": "IEEE 1800-2023 18.17.4; complete own-body source review, blocks B003, B005. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from error to normal (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the condition that the count evaluate to a non-negative integral value concerns the run-time value of the expression, which may be a random call as in the example, and 18.17.4 does not say what another value does, so it has no compile-time error form; the generation count is observable in normal tests.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -193180,10 +193450,10 @@
     {
       "id": "SV2023-18.17.7-EXTRACT-DEFAULT-VOID",
       "clause": "18.17.7",
-      "kind": "normal",
-      "behavior": "A production with no return type has void return type.",
-      "acceptance": "A production with no return type has void return type.",
-      "source_note": "IEEE 1800-2023 18.17.7; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "A production that does not specify a return type has the void return type, so no result variable is implicitly declared for it in the rules that generate it, and reading its name as a value in a code block of such a rule is an error.",
+      "acceptance": "A code block that reads, as a value, the name of a production declared without a return type that appears earlier in the same rule is rejected at that read.",
+      "source_note": "IEEE 1800-2023 18.17.7; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the void return type is observable only as the error for reading the result of such a production, because a result variable is implicitly declared only for a production that returns a value (B008); the variables of value-returning productions are covered by SV2023-18.17.7-EXTRACT-IMPLICIT-RESULT-VARIABLE.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -194931,9 +195201,27 @@
       "id": "SV2023-19.5-EXTRACT-GROUP-FUNCTION-ARGS",
       "clause": "19.5",
       "kind": "error",
-      "behavior": "Functions in covergroup_expression shall not have output/inout/ref arguments; const ref is allowed.",
-      "acceptance": "Functions in covergroup_expression shall not have output/inout/ref arguments; const ref is allowed.",
-      "source_note": "IEEE 1800-2023 19.5; complete own-body source review, blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "A function called in a covergroup_expression shall not have output, inout or non-const ref formal arguments; such a call is an error.",
+      "acceptance": "A covergroup_expression, such as a bin range bound, that calls a function with an output, an inout or a ref formal argument is rejected at that call, for each of the three directions.",
+      "source_note": "IEEE 1800-2023 19.5; complete own-body source review, blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed the rejection of functions with output, inout or ref formals with the permission for const ref formals; the normal part moved to SV2023-19.5-EXTRACT-GROUP-FUNCTION-CONST-REF.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "19.5",
+          "blocks": [
+            "B013"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-19.5-EXTRACT-GROUP-FUNCTION-CONST-REF",
+      "clause": "19.5",
+      "kind": "normal",
+      "behavior": "A function whose ref formal arguments are all const ref can be called in a covergroup_expression.",
+      "acceptance": "A covergroup whose bin range bound calls an automatic function with a const ref formal argument is accepted, and its bins follow the value that the function returns.",
+      "source_note": "IEEE 1800-2023 19.5; split on 2026-11-15 from SV2023-19.5-EXTRACT-GROUP-FUNCTION-ARGS (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -195652,9 +195940,9 @@
       "id": "SV2023-19.5.1-EXTRACT-FIXED-REAL-DISTRIBUTION",
       "clause": "19.5.1",
       "kind": "normal",
-      "behavior": "Fixed real bin names are zero-based; count each range interval and individual value as an item, distribute in listed groups max(1,floor(items/bins)), put remainders in the last bin, and retain duplicates.",
-      "acceptance": "Fixed real bin names are zero-based; count each range interval and individual value as an item, distribute in listed groups max(1,floor(items/bins)), put remainders in the last bin, and retain duplicates.",
-      "source_note": "IEEE 1800-2023 19.5.1; complete own-body source review, blocks B024, B025. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "Fixed real bins binname[N] are named binname[0] through binname[N-1]; each range interval and each individual value counts as an item, the items are distributed in the listed order in groups of max(1, floor(items/N)), the last bin takes the remainder, and duplicates are retained.",
+      "acceptance": "The coverage counts of fixed real bins follow that item count and distribution, including a repeated item in two bins and the remainder in the last bin; under merge_instances the bins at the same index in two instances are one type bin, which is the observable form of the index names.",
+      "source_note": "IEEE 1800-2023 19.5.1; complete own-body source review, blocks B024, B025. The rule is paraphrased; conditions and referenced rules remain applicable. Narrowed on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the zero-based origin of the bin names appears only in coverage reports, so the acceptance keeps the index-based identity of the names, as SV2023-19.5.1-EXTRACT-INTEGRAL-BIN-NAMES does for fixed integral bins.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -198257,10 +198545,10 @@
     {
       "id": "SV2023-19.6-EXTRACT-CROSS-EXPRESSIONS",
       "clause": "19.6",
-      "kind": "normal",
-      "behavior": "Cross identifiers/functions obey coverpoint expression restrictions; functions declared in a cross are not visible outside its scope.",
-      "acceptance": "Cross identifiers/functions obey coverpoint expression restrictions; functions declared in a cross are not visible outside its scope.",
-      "source_note": "IEEE 1800-2023 19.6; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "Identifiers and function calls in a cross are restricted in the same way as in a coverpoint (19.5), and a function declared in a cross is not visible outside the cross; breaking either rule is an error.",
+      "acceptance": "A cross bin expression that uses a ref formal argument of the covergroup, one that calls a function with an output argument, and a call of a function declared in one cross from another cross of the same covergroup are each rejected.",
+      "source_note": "IEEE 1800-2023 19.6; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): both sentences state restrictions, observable only as errors; declaring and calling a function within a cross is covered by SV2023-19.6-EXTRACT-CROSS-GRAMMAR.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -198484,10 +198772,28 @@
     {
       "id": "SV2023-19.6-EXTRACT-MATCHES-PRECEDENCE",
       "clause": "19.6",
+      "kind": "normal",
+      "behavior": "In a cross bin select_expression the matches operator has higher precedence than && and ||, so the operand of matches is the with clause or cross set expression that it follows, not a && or || combination around it.",
+      "acceptance": "A cross bin written as binsof(P.b) || X with (e) matches N without parentheses selects the bin tuples of binsof(P.b) together with those that the with clause selects under matches N, so the cross has a different number of bins than with (binsof(P.b) || X) with (e) matches N.",
+      "source_note": "IEEE 1800-2023 19.6; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row joined two footnotes of Syntax 19-4: footnote 30 (precedence) is a rule on the meaning of a legal bin, and footnote 31 (the integral result of a with expression) is observable only as an error; the error part moved to SV2023-19.6-EXTRACT-WITH-INTEGRAL-RESULT, and this row changed from error to normal.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "19.6",
+          "blocks": [
+            "B006"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-19.6-EXTRACT-WITH-INTEGRAL-RESULT",
+      "clause": "19.6",
       "kind": "error",
-      "behavior": "Cross matches has higher precedence than && and ||; its with expression result shall be assignment-compatible with an integral type.",
-      "acceptance": "Cross matches has higher precedence than && and ||; its with expression result shall be assignment-compatible with an integral type.",
-      "source_note": "IEEE 1800-2023 19.6; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "The result of the with_covergroup_expression of a cross bin shall be assignment compatible with an integral type; a with clause whose expression has another type is an error.",
+      "acceptance": "A cross bin whose with clause expression is of an unpacked structure type, such as a covergroup argument of that type, is rejected at that with clause.",
+      "source_note": "IEEE 1800-2023 19.6; split on 2026-11-15 from SV2023-19.6-EXTRACT-MATCHES-PRECEDENCE (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -198928,10 +199234,28 @@
     {
       "id": "SV2023-19.6.1.2-EXTRACT-MATCHES-POLICY",
       "clause": "19.6.1.2",
+      "kind": "normal",
+      "behavior": "The matches clause sets the selection policy of a cross bin with clause: a bin tuple is selected when at least N of its value tuples satisfy the expression, all of them for $, and at least one when matches is omitted.",
+      "acceptance": "Cross bins with no matches, with matches $ and with matches N select, and count as covered, exactly the bin tuples that have at least one, all, or at least N value tuples satisfying the with expression.",
+      "source_note": "IEEE 1800-2023 19.6.1.2; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed the selection policy with the rule that the value shall be a positive integer or $, which is observable only as an error; the error part moved to SV2023-19.6.1.2-EXTRACT-MATCHES-POSITIVE, and this row changed from error to normal.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "19.6.1.2",
+          "blocks": [
+            "B005"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-19.6.1.2-EXTRACT-MATCHES-POSITIVE",
+      "clause": "19.6.1.2",
       "kind": "error",
-      "behavior": "matches requires a positive integer minimum satisfying value-tuple count, or $ requiring all tuples; omission defaults to one.",
-      "acceptance": "matches requires a positive integer minimum satisfying value-tuple count, or $ requiring all tuples; omission defaults to one.",
-      "source_note": "IEEE 1800-2023 19.6.1.2; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "The integer_covergroup_expression of a matches clause shall evaluate to a positive integer or $; a constant value of zero or less is an error.",
+      "acceptance": "A matches clause whose expression is a constant zero or a negative constant is rejected at that clause.",
+      "source_note": "IEEE 1800-2023 19.6.1.2; split on 2026-11-15 from SV2023-19.6.1.2-EXTRACT-MATCHES-POLICY (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -199207,9 +199531,9 @@
       "id": "SV2023-19.6.1.4-EXTRACT-CROSS-SET-EXPRESSION",
       "clause": "19.6.1.4",
       "kind": "normal",
-      "behavior": "Any expression yielding CrossQueueType may define a cross set; the bin supplies array-literal type context and incompatible types require a cast.",
-      "acceptance": "Any expression yielding CrossQueueType may define a cross set; the bin supplies array-literal type context and incompatible types require a cast.",
-      "source_note": "IEEE 1800-2023 19.6.1.4; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "Any expression that evaluates to the CrossQueueType of the cross can define a cross bin, and for an array literal the cross bin provides the type context.",
+      "acceptance": "A cross bin defined by an array literal of value tuples, and one defined by a call of a function that returns CrossQueueType, select exactly the bin tuples that contain the listed value tuples.",
+      "source_note": "IEEE 1800-2023 19.6.1.4; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable. Narrowed on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the need for a cast with an assignment-incompatible type is observable only as an error and is covered by SV2023-19.6.1.4-EXTRACT-CROSS-SET-TYPE; this row keeps the accepted forms.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -199400,8 +199724,8 @@
       "clause": "19.7",
       "kind": "normal",
       "behavior": "cross_retain_auto_bins is a definition-only instance option: it can be set only by an option assignment in the covergroup definition, either at the covergroup level (as the default for its crosses) or within a cross, and not within a coverpoint or by procedural assignment after the covergroup is instantiated.",
-      "acceptance": "option.cross_retain_auto_bins assigned in a covergroup body, as the default for its crosses, or in a cross body is accepted and takes effect on the cross bins of instances created afterwards; setting it within a coverpoint or by procedural assignment after construction is the error requirement SV2023-19.7-EXTRACT-DEFINITION-ONLY-OPTIONS.",
-      "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B025, B038. The rule is paraphrased; conditions and referenced rules remain applicable. Interpretation issue CROSS-RETAIN-OPTION-SCOPE resolved on 2026-10-24: All 11 instance option rows/defaults and 33 level cells reviewed. cross_retain_auto_bins is read as a definition-only option set at the covergroup or cross level, because Table 19-2 (B038) and the 19.10 option structures place it in covergroup/cross options and not in the coverpoint option, so B025's coverpoint wording applies only to auto_bin_max and detect_overlap.",
+      "acceptance": "option.cross_retain_auto_bins assigned in a covergroup body, as the default for its crosses, or in a cross body is accepted and takes effect on the cross bins of instances created afterwards; setting it within a coverpoint is the error requirement SV2023-19.7-EXTRACT-LEVEL-CROSS-RETAIN-AUTO-BINS-COVERPOINT, and setting it by procedural assignment after construction the error requirement SV2023-19.7-EXTRACT-DEFINITION-ONLY-OPTIONS.",
+      "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B025, B038. The rule is paraphrased; conditions and referenced rules remain applicable. Interpretation issue CROSS-RETAIN-OPTION-SCOPE resolved on 2026-10-24: All 11 instance option rows/defaults and 33 level cells reviewed. cross_retain_auto_bins is read as a definition-only option set at the covergroup or cross level, because Table 19-2 (B038) and the 19.10 option structures place it in covergroup/cross options and not in the coverpoint option, so B025's coverpoint wording applies only to auto_bin_max and detect_overlap. Reference updated on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the coverpoint-level error moved to SV2023-19.7-EXTRACT-LEVEL-CROSS-RETAIN-AUTO-BINS-COVERPOINT; the content is unchanged.",
       "modality": "definition",
       "checks": [
         {
@@ -199436,9 +199760,27 @@
       "id": "SV2023-19.7-EXTRACT-DEFINITION-ONLY-OPTIONS",
       "clause": "19.7",
       "kind": "error",
-      "behavior": "per_instance/get_inst_coverage may be set only in the group definition; auto_bin_max/detect_overlap are definition-only group/point options; other instance options can be assigned procedurally; cross_retain_auto_bins is a definition-only covergroup/cross option (Table 19-2), so setting it within a coverpoint or by procedural assignment after construction is rejected.",
-      "acceptance": "per_instance/get_inst_coverage may be set only in the group definition; auto_bin_max/detect_overlap are definition-only group/point options; other instance options can be assigned procedurally; cross_retain_auto_bins is a definition-only covergroup/cross option (Table 19-2), so setting it within a coverpoint or by procedural assignment after construction is rejected.",
-      "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B025. The rule is paraphrased; conditions and referenced rules remain applicable. Updated on 2026-10-24 with the resolved CROSS-RETAIN-OPTION-SCOPE reading.",
+      "behavior": "per_instance, get_inst_coverage, auto_bin_max, detect_overlap and cross_retain_auto_bins can be set only by option assignments in the covergroup definition, so a procedural assignment to any of them after the covergroup is instantiated is an error.",
+      "acceptance": "A procedural assignment to each of these five options through a covergroup instance after its construction, such as obj.cg.option.per_instance = 1, is rejected at that assignment.",
+      "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B025. The rule is paraphrased; conditions and referenced rules remain applicable. Updated on 2026-10-24 with the resolved CROSS-RETAIN-OPTION-SCOPE reading. Split on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed the error for assigning a definition-only option after construction with the permission to assign the other instance options procedurally; the normal part moved to SV2023-19.7-EXTRACT-PROCEDURAL-INSTANCE-OPTIONS, and the syntactic levels at which each option may appear, including cross_retain_auto_bins within a coverpoint, are left to the Table 19-2 rows (SV2023-19.7-EXTRACT-LEVEL-*), as the 2026-10-24 CROSS-RETAIN-OPTION-SCOPE resolution reads B025 as a rule on timing and Table 19-2 as the rule on levels.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "19.7",
+          "blocks": [
+            "B025"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-19.7-EXTRACT-PROCEDURAL-INSTANCE-OPTIONS",
+      "clause": "19.7",
+      "kind": "normal",
+      "behavior": "Instance options other than per_instance, get_inst_coverage, auto_bin_max, detect_overlap and cross_retain_auto_bins can be assigned procedurally after the covergroup is instantiated, through the instance and through its coverpoints and crosses.",
+      "acceptance": "After construction, procedural assignments to such options, for example the comment of the instance, the weight of a coverpoint and the cross_num_print_missing of a cross, are accepted, and later reads of those members give the assigned values.",
+      "source_note": "IEEE 1800-2023 19.7; split on 2026-11-15 from SV2023-19.7-EXTRACT-DEFINITION-ONLY-OPTIONS (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B025. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -199779,10 +200121,10 @@
     {
       "id": "SV2023-19.7-EXTRACT-LEVEL-AUTO-BIN-MAX-CROSS",
       "clause": "19.7",
-      "kind": "normal",
-      "behavior": "Table 19-2 prohibits option.auto_bin_max at the cross syntactic level.",
-      "acceptance": "Table 19-2 prohibits option.auto_bin_max at the cross syntactic level.",
-      "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B036. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "Table 19-2 does not allow option.auto_bin_max at the cross syntactic level, and the cross option structure of 19.10 has no auto_bin_max member, so an assignment to option.auto_bin_max within a cross is an error.",
+      "acceptance": "A cross body that assigns option.auto_bin_max is rejected at that assignment.",
+      "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B036. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-2 (B036) marks a level at which the option is not allowed, and the cross option structure of 19.10 declares no auto_bin_max member, so the rule is observable only as the rejection of an assignment within a cross; the levels that allow the option are covered by SV2023-19.7-EXTRACT-LEVEL-AUTO-BIN-MAX-COVERGROUP and SV2023-19.7-EXTRACT-LEVEL-AUTO-BIN-MAX-COVERPOINT.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -199953,10 +200295,10 @@
     {
       "id": "SV2023-19.7-EXTRACT-LEVEL-CROSS-NUM-PRINT-MISSING-COVERPOINT",
       "clause": "19.7",
-      "kind": "normal",
-      "behavior": "Table 19-2 prohibits option.cross_num_print_missing at the coverpoint syntactic level.",
-      "acceptance": "Table 19-2 prohibits option.cross_num_print_missing at the coverpoint syntactic level.",
-      "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B037. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "Table 19-2 does not allow option.cross_num_print_missing at the coverpoint syntactic level, and the coverpoint option structure of 19.10 has no cross_num_print_missing member, so an assignment to option.cross_num_print_missing within a coverpoint is an error.",
+      "acceptance": "A coverpoint body that assigns option.cross_num_print_missing is rejected at that assignment.",
+      "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B037. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-2 (B037) marks a level at which the option is not allowed, and the coverpoint option structure of 19.10 declares no cross_num_print_missing member, so the rule is observable only as the rejection of an assignment within a coverpoint; the levels that allow the option are covered by SV2023-19.7-EXTRACT-LEVEL-CROSS-NUM-PRINT-MISSING-COVERGROUP and SV2023-19.7-EXTRACT-LEVEL-CROSS-NUM-PRINT-MISSING-CROSS.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -200051,10 +200393,10 @@
     {
       "id": "SV2023-19.7-EXTRACT-LEVEL-CROSS-RETAIN-AUTO-BINS-COVERPOINT",
       "clause": "19.7",
-      "kind": "normal",
-      "behavior": "Table 19-2 prohibits option.cross_retain_auto_bins at the coverpoint syntactic level.",
-      "acceptance": "Table 19-2 prohibits option.cross_retain_auto_bins at the coverpoint syntactic level.",
-      "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B038. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "Table 19-2 does not allow option.cross_retain_auto_bins at the coverpoint syntactic level, and the coverpoint option structure of 19.10 has no cross_retain_auto_bins member, so an assignment to option.cross_retain_auto_bins within a coverpoint is an error.",
+      "acceptance": "A coverpoint body that assigns option.cross_retain_auto_bins is rejected at that assignment.",
+      "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B038. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-2 (B038) marks a level at which the option is not allowed, and the coverpoint option structure of 19.10 declares no cross_retain_auto_bins member, so the rule is observable only as the rejection of an assignment within a coverpoint; the levels that allow the option are covered by SV2023-19.7-EXTRACT-LEVEL-CROSS-RETAIN-AUTO-BINS-COVERGROUP and SV2023-19.7-EXTRACT-LEVEL-CROSS-RETAIN-AUTO-BINS-CROSS.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -200181,10 +200523,10 @@
     {
       "id": "SV2023-19.7-EXTRACT-LEVEL-DETECT-OVERLAP-CROSS",
       "clause": "19.7",
-      "kind": "normal",
-      "behavior": "Table 19-2 prohibits option.detect_overlap at the cross syntactic level.",
-      "acceptance": "Table 19-2 prohibits option.detect_overlap at the cross syntactic level.",
-      "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B039. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "Table 19-2 does not allow option.detect_overlap at the cross syntactic level, and the cross option structure of 19.10 has no detect_overlap member, so an assignment to option.detect_overlap within a cross is an error.",
+      "acceptance": "A cross body that assigns option.detect_overlap is rejected at that assignment.",
+      "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B039. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-2 (B039) marks a level at which the option is not allowed, and the cross option structure of 19.10 declares no detect_overlap member, so the rule is observable only as the rejection of an assignment within a cross; the levels that allow the option are covered by SV2023-19.7-EXTRACT-LEVEL-DETECT-OVERLAP-COVERGROUP and SV2023-19.7-EXTRACT-LEVEL-DETECT-OVERLAP-COVERPOINT.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -200235,10 +200577,10 @@
     {
       "id": "SV2023-19.7-EXTRACT-LEVEL-GET-INST-COVERAGE-COVERPOINT",
       "clause": "19.7",
-      "kind": "normal",
-      "behavior": "Table 19-2 prohibits option.get_inst_coverage at the coverpoint syntactic level.",
-      "acceptance": "Table 19-2 prohibits option.get_inst_coverage at the coverpoint syntactic level.",
-      "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B041. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "Table 19-2 does not allow option.get_inst_coverage at the coverpoint syntactic level, and the coverpoint option structure of 19.10 has no get_inst_coverage member, so an assignment to option.get_inst_coverage within a coverpoint is an error.",
+      "acceptance": "A coverpoint body that assigns option.get_inst_coverage is rejected at that assignment.",
+      "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B041. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-2 (B041) marks a level at which the option is not allowed, and the coverpoint option structure of 19.10 declares no get_inst_coverage member, so the rule is observable only as the rejection of an assignment within a coverpoint; the levels that allow the option are covered by SV2023-19.7-EXTRACT-LEVEL-GET-INST-COVERAGE-COVERGROUP.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -200253,10 +200595,10 @@
     {
       "id": "SV2023-19.7-EXTRACT-LEVEL-GET-INST-COVERAGE-CROSS",
       "clause": "19.7",
-      "kind": "normal",
-      "behavior": "Table 19-2 prohibits option.get_inst_coverage at the cross syntactic level.",
-      "acceptance": "Table 19-2 prohibits option.get_inst_coverage at the cross syntactic level.",
-      "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B041. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "Table 19-2 does not allow option.get_inst_coverage at the cross syntactic level, and the cross option structure of 19.10 has no get_inst_coverage member, so an assignment to option.get_inst_coverage within a cross is an error.",
+      "acceptance": "A cross body that assigns option.get_inst_coverage is rejected at that assignment.",
+      "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B041. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-2 (B041) marks a level at which the option is not allowed, and the cross option structure of 19.10 declares no get_inst_coverage member, so the rule is observable only as the rejection of an assignment within a cross; the levels that allow the option are covered by SV2023-19.7-EXTRACT-LEVEL-GET-INST-COVERAGE-COVERGROUP.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -200431,10 +200773,10 @@
     {
       "id": "SV2023-19.7-EXTRACT-LEVEL-NAME-COVERPOINT",
       "clause": "19.7",
-      "kind": "normal",
-      "behavior": "Table 19-2 prohibits option.name at the coverpoint syntactic level.",
-      "acceptance": "Table 19-2 prohibits option.name at the coverpoint syntactic level.",
-      "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B031. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "Table 19-2 does not allow option.name at the coverpoint syntactic level, and the coverpoint option structure of 19.10 has no name member, so an assignment to option.name within a coverpoint is an error.",
+      "acceptance": "A coverpoint body that assigns option.name is rejected at that assignment.",
+      "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B031. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-2 (B031) marks a level at which the option is not allowed, and the coverpoint option structure of 19.10 declares no name member, so the rule is observable only as the rejection of an assignment within a coverpoint; the levels that allow the option are covered by SV2023-19.7-EXTRACT-LEVEL-NAME-COVERGROUP.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -200449,10 +200791,10 @@
     {
       "id": "SV2023-19.7-EXTRACT-LEVEL-NAME-CROSS",
       "clause": "19.7",
-      "kind": "normal",
-      "behavior": "Table 19-2 prohibits option.name at the cross syntactic level.",
-      "acceptance": "Table 19-2 prohibits option.name at the cross syntactic level.",
-      "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B031. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "Table 19-2 does not allow option.name at the cross syntactic level, and the cross option structure of 19.10 has no name member, so an assignment to option.name within a cross is an error.",
+      "acceptance": "A cross body that assigns option.name is rejected at that assignment.",
+      "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B031. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-2 (B031) marks a level at which the option is not allowed, and the cross option structure of 19.10 declares no name member, so the rule is observable only as the rejection of an assignment within a cross; the levels that allow the option are covered by SV2023-19.7-EXTRACT-LEVEL-NAME-COVERGROUP.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -200503,10 +200845,10 @@
     {
       "id": "SV2023-19.7-EXTRACT-LEVEL-PER-INSTANCE-COVERPOINT",
       "clause": "19.7",
-      "kind": "normal",
-      "behavior": "Table 19-2 prohibits option.per_instance at the coverpoint syntactic level.",
-      "acceptance": "Table 19-2 prohibits option.per_instance at the coverpoint syntactic level.",
-      "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B040. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "Table 19-2 does not allow option.per_instance at the coverpoint syntactic level, and the coverpoint option structure of 19.10 has no per_instance member, so an assignment to option.per_instance within a coverpoint is an error.",
+      "acceptance": "A coverpoint body that assigns option.per_instance is rejected at that assignment.",
+      "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B040. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-2 (B040) marks a level at which the option is not allowed, and the coverpoint option structure of 19.10 declares no per_instance member, so the rule is observable only as the rejection of an assignment within a coverpoint; the levels that allow the option are covered by SV2023-19.7-EXTRACT-LEVEL-PER-INSTANCE-COVERGROUP.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -200521,10 +200863,10 @@
     {
       "id": "SV2023-19.7-EXTRACT-LEVEL-PER-INSTANCE-CROSS",
       "clause": "19.7",
-      "kind": "normal",
-      "behavior": "Table 19-2 prohibits option.per_instance at the cross syntactic level.",
-      "acceptance": "Table 19-2 prohibits option.per_instance at the cross syntactic level.",
-      "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B040. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "Table 19-2 does not allow option.per_instance at the cross syntactic level, and the cross option structure of 19.10 has no per_instance member, so an assignment to option.per_instance within a cross is an error.",
+      "acceptance": "A cross body that assigns option.per_instance is rejected at that assignment.",
+      "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B040. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-2 (B040) marks a level at which the option is not allowed, and the cross option structure of 19.10 declares no per_instance member, so the rule is observable only as the rejection of an assignment within a cross; the levels that allow the option are covered by SV2023-19.7-EXTRACT-LEVEL-PER-INSTANCE-COVERGROUP.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -201389,10 +201731,10 @@
     {
       "id": "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-DISTRIBUTE-FIRST-COVERPOINT",
       "clause": "19.7.1",
-      "kind": "normal",
-      "behavior": "Table 19-4 prohibits type_option.distribute_first at the coverpoint syntactic level.",
-      "acceptance": "Table 19-4 prohibits type_option.distribute_first at the coverpoint syntactic level.",
-      "source_note": "IEEE 1800-2023 19.7.1; complete own-body source review, blocks B038. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "Table 19-4 does not allow type_option.distribute_first at the coverpoint syntactic level, and the coverpoint type_option structure of 19.10 has no distribute_first member, so an assignment to type_option.distribute_first within a coverpoint is an error.",
+      "acceptance": "A coverpoint body that assigns type_option.distribute_first is rejected at that assignment.",
+      "source_note": "IEEE 1800-2023 19.7.1; complete own-body source review, blocks B038. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-4 (B038) marks a level at which the option is not allowed, and the coverpoint type_option structure of 19.10 declares no distribute_first member, so the rule is observable only as the rejection of an assignment within a coverpoint; the levels that allow the option are covered by SV2023-19.7.1-EXTRACT-TYPE-LEVEL-DISTRIBUTE-FIRST-COVERGROUP.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -201407,10 +201749,10 @@
     {
       "id": "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-DISTRIBUTE-FIRST-CROSS",
       "clause": "19.7.1",
-      "kind": "normal",
-      "behavior": "Table 19-4 prohibits type_option.distribute_first at the cross syntactic level.",
-      "acceptance": "Table 19-4 prohibits type_option.distribute_first at the cross syntactic level.",
-      "source_note": "IEEE 1800-2023 19.7.1; complete own-body source review, blocks B038. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "Table 19-4 does not allow type_option.distribute_first at the cross syntactic level, and the cross type_option structure of 19.10 has no distribute_first member, so an assignment to type_option.distribute_first within a cross is an error.",
+      "acceptance": "A cross body that assigns type_option.distribute_first is rejected at that assignment.",
+      "source_note": "IEEE 1800-2023 19.7.1; complete own-body source review, blocks B038. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-4 (B038) marks a level at which the option is not allowed, and the cross type_option structure of 19.10 declares no distribute_first member, so the rule is observable only as the rejection of an assignment within a cross; the levels that allow the option are covered by SV2023-19.7.1-EXTRACT-TYPE-LEVEL-DISTRIBUTE-FIRST-COVERGROUP.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -201581,10 +201923,10 @@
     {
       "id": "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-MERGE-INSTANCES-COVERPOINT",
       "clause": "19.7.1",
-      "kind": "normal",
-      "behavior": "Table 19-4 prohibits type_option.merge_instances at the coverpoint syntactic level.",
-      "acceptance": "Table 19-4 prohibits type_option.merge_instances at the coverpoint syntactic level.",
-      "source_note": "IEEE 1800-2023 19.7.1; complete own-body source review, blocks B037. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "Table 19-4 does not allow type_option.merge_instances at the coverpoint syntactic level, and the coverpoint type_option structure of 19.10 has no merge_instances member, so an assignment to type_option.merge_instances within a coverpoint is an error.",
+      "acceptance": "A coverpoint body that assigns type_option.merge_instances is rejected at that assignment.",
+      "source_note": "IEEE 1800-2023 19.7.1; complete own-body source review, blocks B037. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-4 (B037) marks a level at which the option is not allowed, and the coverpoint type_option structure of 19.10 declares no merge_instances member, so the rule is observable only as the rejection of an assignment within a coverpoint; the levels that allow the option are covered by SV2023-19.7.1-EXTRACT-TYPE-LEVEL-MERGE-INSTANCES-COVERGROUP.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -201599,10 +201941,10 @@
     {
       "id": "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-MERGE-INSTANCES-CROSS",
       "clause": "19.7.1",
-      "kind": "normal",
-      "behavior": "Table 19-4 prohibits type_option.merge_instances at the cross syntactic level.",
-      "acceptance": "Table 19-4 prohibits type_option.merge_instances at the cross syntactic level.",
-      "source_note": "IEEE 1800-2023 19.7.1; complete own-body source review, blocks B037. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "Table 19-4 does not allow type_option.merge_instances at the cross syntactic level, and the cross type_option structure of 19.10 has no merge_instances member, so an assignment to type_option.merge_instances within a cross is an error.",
+      "acceptance": "A cross body that assigns type_option.merge_instances is rejected at that assignment.",
+      "source_note": "IEEE 1800-2023 19.7.1; complete own-body source review, blocks B037. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-4 (B037) marks a level at which the option is not allowed, and the cross type_option structure of 19.10 declares no merge_instances member, so the rule is observable only as the rejection of an assignment within a cross; the levels that allow the option are covered by SV2023-19.7.1-EXTRACT-TYPE-LEVEL-MERGE-INSTANCES-COVERGROUP.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -201693,10 +202035,10 @@
     {
       "id": "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-REAL-INTERVAL-CROSS",
       "clause": "19.7.1",
-      "kind": "normal",
-      "behavior": "Table 19-4 prohibits type_option.real_interval at the cross syntactic level.",
-      "acceptance": "Table 19-4 prohibits type_option.real_interval at the cross syntactic level.",
-      "source_note": "IEEE 1800-2023 19.7.1; complete own-body source review, blocks B039. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "Table 19-4 does not allow type_option.real_interval at the cross syntactic level, and the cross type_option structure of 19.10 has no real_interval member, so an assignment to type_option.real_interval within a cross is an error.",
+      "acceptance": "A cross body that assigns type_option.real_interval is rejected at that assignment.",
+      "source_note": "IEEE 1800-2023 19.7.1; complete own-body source review, blocks B039. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-4 (B039) marks a level at which the option is not allowed, and the cross type_option structure of 19.10 declares no real_interval member, so the rule is observable only as the rejection of an assignment within a cross; the levels that allow the option are covered by SV2023-19.7.1-EXTRACT-TYPE-LEVEL-REAL-INTERVAL-COVERGROUP and SV2023-19.7.1-EXTRACT-TYPE-LEVEL-REAL-INTERVAL-COVERPOINT.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -201751,10 +202093,10 @@
     {
       "id": "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-STROBE-COVERPOINT",
       "clause": "19.7.1",
-      "kind": "normal",
-      "behavior": "Table 19-4 prohibits type_option.strobe at the coverpoint syntactic level.",
-      "acceptance": "Table 19-4 prohibits type_option.strobe at the coverpoint syntactic level.",
-      "source_note": "IEEE 1800-2023 19.7.1; complete own-body source review, blocks B036. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "Table 19-4 does not allow type_option.strobe at the coverpoint syntactic level, and the coverpoint type_option structure of 19.10 has no strobe member, so an assignment to type_option.strobe within a coverpoint is an error.",
+      "acceptance": "A coverpoint body that assigns type_option.strobe is rejected at that assignment.",
+      "source_note": "IEEE 1800-2023 19.7.1; complete own-body source review, blocks B036. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-4 (B036) marks a level at which the option is not allowed, and the coverpoint type_option structure of 19.10 declares no strobe member, so the rule is observable only as the rejection of an assignment within a coverpoint; the levels that allow the option are covered by SV2023-19.7.1-EXTRACT-TYPE-LEVEL-STROBE-COVERGROUP.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -201769,10 +202111,10 @@
     {
       "id": "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-STROBE-CROSS",
       "clause": "19.7.1",
-      "kind": "normal",
-      "behavior": "Table 19-4 prohibits type_option.strobe at the cross syntactic level.",
-      "acceptance": "Table 19-4 prohibits type_option.strobe at the cross syntactic level.",
-      "source_note": "IEEE 1800-2023 19.7.1; complete own-body source review, blocks B036. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "Table 19-4 does not allow type_option.strobe at the cross syntactic level, and the cross type_option structure of 19.10 has no strobe member, so an assignment to type_option.strobe within a cross is an error.",
+      "acceptance": "A cross body that assigns type_option.strobe is rejected at that assignment.",
+      "source_note": "IEEE 1800-2023 19.7.1; complete own-body source review, blocks B036. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-4 (B036) marks a level at which the option is not allowed, and the cross type_option structure of 19.10 declares no strobe member, so the rule is observable only as the rejection of an assignment within a cross; the levels that allow the option are covered by SV2023-19.7.1-EXTRACT-TYPE-LEVEL-STROBE-COVERGROUP.",
       "modality": "definition",
       "checks": [],
       "source_spans": [
@@ -202381,9 +202723,27 @@
       "id": "SV2023-19.8-EXTRACT-INSTANCE-NAME",
       "clause": "19.8",
       "kind": "normal",
-      "behavior": "void set_inst_name(string) sets a group instance name and is unavailable on points/crosses.",
-      "acceptance": "void set_inst_name(string) sets a group instance name and is unavailable on points/crosses.",
-      "source_note": "IEEE 1800-2023 19.8; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "void set_inst_name(string) sets the name of the covergroup instance on which it is called to the given string.",
+      "acceptance": "After set_inst_name(\"n1\") on one instance of a covergroup, the option.name of that instance reads \"n1\", while another instance of the same covergroup keeps its own name.",
+      "source_note": "IEEE 1800-2023 19.8; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed the effect of set_inst_name with the rule of Table 19-5 that it cannot be called on a coverpoint or a cross, which is observable only as an error; the error part moved to SV2023-19.8-EXTRACT-INSTANCE-NAME-GROUP-ONLY.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "19.8",
+          "blocks": [
+            "B008"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-19.8-EXTRACT-INSTANCE-NAME-GROUP-ONLY",
+      "clause": "19.8",
+      "kind": "error",
+      "behavior": "Table 19-5 provides set_inst_name for a covergroup and not for a coverpoint or a cross, so calling it on a coverpoint or a cross is an error.",
+      "acceptance": "A call of set_inst_name on a coverpoint of a covergroup instance, and one on a cross of it, are each rejected at that call.",
+      "source_note": "IEEE 1800-2023 19.8; split on 2026-11-15 from SV2023-19.8-EXTRACT-INSTANCE-NAME (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -206262,9 +206622,9 @@
       "id": "SV2023-20.4.3-EXTRACT-FORMAT-UNIT-DOMAIN",
       "clause": "20.4.3",
       "kind": "error",
-      "behavior": "The $timeformat unit exponent is an integer from -15 through 2 representing Table 20-2 time units.",
-      "acceptance": "The $timeformat unit exponent is an integer from -15 through 2 representing Table 20-2 time units.",
-      "source_note": "IEEE 1800-2023 20.4.3; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "The units_number argument of $timeformat shall be an integer from -15 through 2; a value outside that range is an error.",
+      "acceptance": "A $timeformat call whose units_number is a constant outside -15 through 2, such as -16 or 3, is rejected at that call.",
+      "source_note": "IEEE 1800-2023 20.4.3; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable. Narrowed on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the meaning of the exponent, the Table 20-2 time unit that %t uses, is covered by SV2023-20.4.3-EXTRACT-FORMAT-PRECISION-DOMAIN-TEXT; this row keeps only the range error.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -207012,10 +207372,28 @@
     {
       "id": "SV2023-20.6.1-EXTRACT-TYPENAME-NO-EVALUATION",
       "clause": "20.6.1",
+      "kind": "normal",
+      "behavior": "For an expression argument, $typename returns the string for the self-determined type of the expression, which is determined during elaboration; the expression is never evaluated.",
+      "acceptance": "$typename of an expression that contains a call of a function with a side effect, or a member select through a null class handle, returns the string of the expression type, the side effect does not happen and no null-handle error occurs.",
+      "source_note": "IEEE 1800-2023 20.6.1; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed the non-evaluation of the argument with the rule on elaboration-time constant use, which is observable only as an error; the error part moved to SV2023-20.6.1-EXTRACT-TYPENAME-CONSTANT-REFERENCES, and this row changed from error to normal.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "20.6.1",
+          "blocks": [
+            "B007"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-20.6.1-EXTRACT-TYPENAME-CONSTANT-REFERENCES",
+      "clause": "20.6.1",
       "kind": "error",
-      "behavior": "For an expression, $typename uses its self-determined type established at elaboration without evaluating it; elaboration-time constant use shall contain no hierarchy or dynamic-object-element references.",
-      "acceptance": "For an expression, $typename uses its self-determined type established at elaboration without evaluating it; elaboration-time constant use shall contain no hierarchy or dynamic-object-element references.",
-      "source_note": "IEEE 1800-2023 20.6.1; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "When $typename is used as an elaboration-time constant, its expression shall not contain a hierarchical reference or a reference to an element of a dynamic object.",
+      "acceptance": "Using $typename as an elaboration-time constant, such as a localparam value, with an expression that contains a hierarchical reference, and with one that refers to an element of a dynamic array or queue, are each rejected.",
+      "source_note": "IEEE 1800-2023 20.6.1; split on 2026-11-15 from SV2023-20.6.1-EXTRACT-TYPENAME-NO-EVALUATION (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -207491,10 +207869,28 @@
     {
       "id": "SV2023-20.6.2-EXTRACT-BITS-NO-EVAL",
       "clause": "20.6.2",
+      "kind": "normal",
+      "behavior": "The value returned by $bits is determined without evaluating the expression it encloses.",
+      "acceptance": "$bits of an expression that would fail if evaluated, such as a member selected through a null class handle, gives the width of the member type without a null-handle error.",
+      "source_note": "IEEE 1800-2023 20.6.2; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed the non-evaluation of the operand with two rules observable only as errors; the error part moved to SV2023-20.6.2-EXTRACT-BITS-DYNAMIC-RESTRICTIONS, and this row changed from error to normal.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "20.6.2",
+          "blocks": [
+            "B012"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-20.6.2-EXTRACT-BITS-DYNAMIC-RESTRICTIONS",
+      "clause": "20.6.2",
       "kind": "error",
-      "behavior": "$bits determines width without evaluating its operand; a function returning a dynamically sized type is illegal, and elaboration validity requires fixed-size types.",
-      "acceptance": "$bits determines width without evaluating its operand; a function returning a dynamically sized type is illegal, and elaboration validity requires fixed-size types.",
-      "source_note": "IEEE 1800-2023 20.6.2; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "It is an error for $bits to enclose a call of a function that returns a dynamically sized type, and $bits of an expression that contains a dynamically sized type is not valid at elaboration, so using it where an elaboration-time constant is required is an error.",
+      "acceptance": "A $bits call that encloses a call of a function returning a dynamic array is rejected, and $bits of a dynamic array variable used as a localparam value is rejected.",
+      "source_note": "IEEE 1800-2023 20.6.2; split on 2026-11-15 from SV2023-20.6.2-EXTRACT-BITS-NO-EVAL (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -207592,9 +207988,9 @@
       "id": "SV2023-20.6.3-EXTRACT-ISUNBOUNDED",
       "clause": "20.6.3",
       "kind": "error",
-      "behavior": "$isunbounded requires a parameter name, optionally package/hierarchy qualified, and returns one-bit true exactly when its value is $, false otherwise.",
-      "acceptance": "$isunbounded requires a parameter name, optionally package/hierarchy qualified, and returns one-bit true exactly when its value is $, false otherwise.",
-      "source_note": "IEEE 1800-2023 20.6.3; complete own-body source review, blocks B002, B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "The argument of $isunbounded shall be a parameter name, optionally qualified by a package or a hierarchical path; any other argument is an error.",
+      "acceptance": "A $isunbounded call whose argument is not a parameter name, such as a variable, is rejected at that call.",
+      "source_note": "IEEE 1800-2023 20.6.3; complete own-body source review, blocks B002, B003. The rule is paraphrased; conditions and referenced rules remain applicable. Narrowed on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the result (1 for a parameter whose value is $, 0 otherwise) and the qualified forms are covered by SV2023-6.20.7-EXTRACT-ISUNBOUNDED-RESULT and SV2023-6.20.7-EXTRACT-ISUNBOUNDED-SIGNATURE; this row keeps only the error for an argument that is not a parameter name.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -209510,9 +209906,27 @@
       "id": "SV2023-20.9-EXTRACT-COUNT-BITSTREAM",
       "clause": "20.9",
       "kind": "error",
-      "behavior": "The expression shall be bit-stream typed and is flattened as an equal-width vector assigned from {>>{expression}}.",
-      "acceptance": "The expression shall be bit-stream typed and is flattened as an equal-width vector assigned from {>>{expression}}.",
-      "source_note": "IEEE 1800-2023 20.9; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "The expression argument of $countbits shall be of a bit-stream type; an argument of another type is an error.",
+      "acceptance": "A $countbits call whose expression argument is not of a bit-stream type, such as an object of a class with a real property, is rejected at that call.",
+      "source_note": "IEEE 1800-2023 20.9; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed the type rule with how the argument is counted; the normal part moved to SV2023-20.9-EXTRACT-COUNT-STREAM-VECTOR.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "20.9",
+          "blocks": [
+            "B007"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-20.9-EXTRACT-COUNT-STREAM-VECTOR",
+      "clause": "20.9",
+      "kind": "normal",
+      "behavior": "For counting, the expression argument of $countbits is treated as a vector of equal size assigned from {>>{expression}}, so an unpacked array, structure or queue is counted over the bits of all its elements.",
+      "acceptance": "$countbits of an unpacked array, an unpacked structure and a queue counts the bits that match the control bits over all their elements.",
+      "source_note": "IEEE 1800-2023 20.9; split on 2026-11-15 from SV2023-20.9-EXTRACT-COUNT-BITSTREAM (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -214910,9 +215324,9 @@
       "id": "SV2023-20.14.1-EXTRACT-RANDOM-SEED-VARIABLE",
       "clause": "20.14.1",
       "kind": "error",
-      "behavior": "The optional $random seed shall be an integral variable controlling its generated stream.",
-      "acceptance": "The optional $random seed shall be an integral variable controlling its generated stream.",
-      "source_note": "IEEE 1800-2023 20.14.1; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "The seed argument of $random shall be an integral variable; a seed of another type, or one that is not a variable, is an error.",
+      "acceptance": "A $random call whose seed is a real variable, and one whose seed is not a variable, such as a literal, are each rejected at that call.",
+      "source_note": "IEEE 1800-2023 20.14.1; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable. Narrowed on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): that the seed determines the returned stream is covered by SV2023-N.1-EXTRACT-RANDOM, which makes $random(seed) the rtl_dist_uniform of the seed; this row keeps only the error.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -216860,9 +217274,27 @@
       "id": "SV2023-20.16-EXTRACT-PLA-OUTPUT-VARIABLE",
       "clause": "20.16",
       "kind": "error",
-      "behavior": "PLA inputs may be nets or variables; output terms shall be variable lvalues.",
-      "acceptance": "PLA inputs may be nets or variables; output terms shall be variable lvalues.",
-      "source_note": "IEEE 1800-2023 20.16; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "The output terms of a PLA modeling system task shall be variables; output terms that are nets are an error.",
+      "acceptance": "A PLA modeling system task call whose output terms are nets is rejected at that call.",
+      "source_note": "IEEE 1800-2023 20.16; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed the rule on output terms with the permission that input terms can be nets or variables; the normal part moved to SV2023-20.16-EXTRACT-PLA-INPUT-TERMS.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "20.16",
+          "blocks": [
+            "B006"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-20.16-EXTRACT-PLA-INPUT-TERMS",
+      "clause": "20.16",
+      "kind": "normal",
+      "behavior": "The input terms of a PLA modeling system task can be nets or variables.",
+      "acceptance": "A PLA system task whose input terms are nets, and one whose input terms are variables, evaluate the same personality on those inputs and give the same output values for the same input values.",
+      "source_note": "IEEE 1800-2023 20.16; split on 2026-11-15 from SV2023-20.16-EXTRACT-PLA-OUTPUT-VARIABLE (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -218983,9 +219415,9 @@
       "id": "SV2023-21.2.1.1-EXTRACT-FORMAT-VALIDITY",
       "clause": "21.2.1.1",
       "kind": "error",
-      "behavior": "Literal format sequences replace themselves with following expression values except %m/%l/%%; an undefined format specifier is an error.",
-      "acceptance": "Literal format sequences replace themselves with following expression values except %m/%l/%%; an undefined format specifier is an error.",
-      "source_note": "IEEE 1800-2023 21.2.1.1; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "An undefined format specifier in a string literal argument of a display or write task is an error.",
+      "acceptance": "A display task whose string literal contains a format specifier that Table 21-1 and Table 21-2 do not define, such as %y, is rejected at that call.",
+      "source_note": "IEEE 1800-2023 21.2.1.1; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable. Narrowed on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): that each format specification other than %m, %l and %% takes the next argument is covered by SV2023-21.2.1-EXTRACT-FORMAT-ARGUMENT, %% and %m taking none by SV2023-21.2.1-EXTRACT-LITERAL-PERCENT and SV2023-21.2.1.5-EXTRACT-HIERARCHY-NO-ARG, and the replacement by the value by the rows of each specifier; this row keeps only the error for an undefined specifier.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -219683,10 +220115,10 @@
     {
       "id": "SV2023-21.2.1.2-EXTRACT-FIELD-WIDTH",
       "clause": "21.2.1.2",
-      "kind": "error",
-      "behavior": "A nonnegative decimal integer constant field width may override automatic sizing; width 0 uses minimum width without leading spaces/zeros.",
-      "acceptance": "A nonnegative decimal integer constant field width may override automatic sizing; width 0 uses minimum width without leading spaces/zeros.",
-      "source_note": "IEEE 1800-2023 21.2.1.2; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "normal",
+      "behavior": "A field width written between % and the radix letter overrides the automatic sizing of the displayed value, and a field width of 0 displays the value in the minimum width with no leading spaces or zeros.",
+      "acceptance": "Values displayed with an explicit field width take that width instead of the automatic one, and values displayed with width 0 take the minimum width without leading zeros or spaces.",
+      "source_note": "IEEE 1800-2023 21.2.1.2; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from error to normal (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): a field width is written as characters of the string literal, so the only way to break the \"non-negative decimal integer constant\" form is a character that leaves the specification undefined, which SV2023-21.2.1.1-EXTRACT-FORMAT-VALIDITY covers; the observable content is the effect of the width.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -220693,9 +221125,9 @@
       "id": "SV2023-21.2.1.4-EXTRACT-STRENGTH-SCALAR",
       "clause": "21.2.1.4",
       "kind": "error",
-      "behavior": "%v takes a corresponding scalar net reference and prints three characters: two strength characters followed by one logic-value character.",
-      "acceptance": "%v takes a corresponding scalar net reference and prints three characters: two strength characters followed by one logic-value character.",
-      "source_note": "IEEE 1800-2023 21.2.1.4; complete own-body source review, blocks B002, B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "Each %v format specification shall have a corresponding scalar reference in the argument list; a vector net as the argument of %v is an error.",
+      "acceptance": "A display task that passes a vector net as the argument of %v is rejected at that call.",
+      "source_note": "IEEE 1800-2023 21.2.1.4; complete own-body source review, blocks B002, B003. The rule is paraphrased; conditions and referenced rules remain applicable. Narrowed on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the three-character form (two strength characters and one value character) is covered by SV2023-21.2.1.4-EXTRACT-STRENGTH-PREFIX and the SV2023-21.2.1.4-EXTRACT-STRENGTH-VALUE-* rows; this row keeps only the error for an argument that is not a scalar reference.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -237005,9 +237437,27 @@
       "id": "SV2023-22.5.1-EXTRACT-MACRO-RECURSION",
       "clause": "22.5.1",
       "kind": "error",
-      "behavior": "Direct/indirect self-expansion in replacement text is an error; a self-use inside an actual or default is permitted.",
-      "acceptance": "Direct/indirect self-expansion in replacement text is an error; a self-use inside an actual or default is permitted.",
-      "source_note": "IEEE 1800-2023 22.5.1; complete own-body source review, blocks B068. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "It is an error for a macro to expand, directly or through other macros, to text that contains another use of itself.",
+      "acceptance": "A use of a macro whose text contains a use of itself, and a use of one of two macros whose texts use each other, are each rejected.",
+      "source_note": "IEEE 1800-2023 22.5.1; complete own-body source review, blocks B068. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed the recursion error with the permission for a use of the macro inside an actual argument or a default; the normal part moved to SV2023-22.5.1-EXTRACT-MACRO-SELF-USE-IN-ARGUMENT.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "22.5.1",
+          "blocks": [
+            "B068"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-22.5.1-EXTRACT-MACRO-SELF-USE-IN-ARGUMENT",
+      "clause": "22.5.1",
+      "kind": "normal",
+      "behavior": "An actual argument or a default of a macro may contain a use of the same macro; this is not recursion and expands normally.",
+      "acceptance": "A macro use whose actual arguments contain uses of the same macro, and a macro whose default contains a use of itself, are accepted and expand to the values that the nested uses give.",
+      "source_note": "IEEE 1800-2023 22.5.1; split on 2026-11-15 from SV2023-22.5.1-EXTRACT-MACRO-RECURSION (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B068. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -238611,9 +239061,27 @@
       "id": "SV2023-22.8-EXTRACT-NETTYPE-DEFAULT-NONE",
       "clause": "22.8",
       "kind": "error",
-      "behavior": "Without default_nettype or after resetall implicit nets are wire; none requires explicit declarations and an undeclared net is an error.",
-      "acceptance": "Without default_nettype or after resetall implicit nets are wire; none requires explicit declarations and an undeclared net is an error.",
-      "source_note": "IEEE 1800-2023 22.8; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "When `default_nettype is set to none, all nets shall be declared explicitly; an identifier that would otherwise create an implicit net is an error.",
+      "acceptance": "Under `default_nettype none, an undeclared identifier as a continuous assignment target, as a primitive terminal and in a port connection is each rejected.",
+      "source_note": "IEEE 1800-2023 22.8; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed the error under none with the default net type wire, a legal behavior; the normal part moved to SV2023-22.8-EXTRACT-NETTYPE-DEFAULT-WIRE.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "22.8",
+          "blocks": [
+            "B005"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-22.8-EXTRACT-NETTYPE-DEFAULT-WIRE",
+      "clause": "22.8",
+      "kind": "normal",
+      "behavior": "When no `default_nettype directive is in effect, or after `resetall, implicit nets are of type wire.",
+      "acceptance": "An implicit net created with no `default_nettype directive in the source, and one created after a `resetall that follows `default_nettype tri0, resolve as wire nets: driven only by z they read z, and driven by both 0 and 1 they read x.",
+      "source_note": "IEEE 1800-2023 22.8; split on 2026-11-15 from SV2023-22.8-EXTRACT-NETTYPE-DEFAULT-NONE (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -298932,10 +299400,10 @@
     {
       "id": "SV2023-30.4.5-EXTRACT-PARALLEL-EQUAL-WIDTH",
       "clause": "30.4.5",
-      "kind": "error",
-      "behavior": "A parallel module path connects corresponding bits of one equal-width source/destination; two scalars may use either full or parallel.",
-      "acceptance": "A parallel module path connects corresponding bits of one equal-width source/destination; two scalars may use either full or parallel.",
-      "source_note": "IEEE 1800-2023 30.4.5; complete own-body source review, blocks B004, B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "normal",
+      "behavior": "A parallel connection connects each bit of the source to the one corresponding bit of an equal-width destination, and between two scalars either => or *> sets up the same bit-to-bit connection.",
+      "acceptance": "With a 2-bit parallel path (a => y) of delay d1 and a separate path (a[0] => y[1]) of a larger delay d2, a change of a[0] that the module logic carries to y[0] and y[1] reaches y[0] after d1 and y[1] after d2, showing that the parallel path does not connect a[0] to y[1]; paths between two scalars declared with => and with *> delay their destinations alike.",
+      "source_note": "IEEE 1800-2023 30.4.5; complete own-body source review, blocks B004, B005. The rule is paraphrased; conditions and referenced rules remain applicable. Narrowed and reclassified on 2026-11-15 from error to normal (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the equal-width condition is observable only as the rejection of a parallel path between endpoints of different widths, which SV2023-30.4.5-EXTRACT-FULL-REQUIRED covers; the bit-to-bit connection and the choice of operator between two scalars are observable only in normal tests, so this row changed from error to normal.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -324153,9 +324621,9 @@
       "id": "SV2023-35.5.2-EXTRACT-PURE-SIGNATURE",
       "clause": "35.5.2",
       "kind": "error",
-      "behavior": "A pure import must be a nonvoid function with no output or inout arguments, no side effects and a result determined only by its input values.",
-      "acceptance": "A pure import must be a nonvoid function with no output or inout arguments, no side effects and a result determined only by its input values.",
-      "source_note": "IEEE 1800-2023 35.5.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "Only a nonvoid function with no output or inout formal arguments can be specified as pure; pure on a void imported function, or on one with an output or inout argument, is an error.",
+      "acceptance": "An import declaration that specifies pure for a void function, one for a function with an output argument, and one for a function with an inout argument are each rejected at that declaration.",
+      "source_note": "IEEE 1800-2023 35.5.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable. Narrowed on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the obligation that a pure function have no side effects and depend only on its inputs is a duty of the foreign code, elaborated in the items covered by SV2023-35.5.2-EXTRACT-PURE-NO-FILES, SV2023-35.5.2-EXTRACT-PURE-NO-EXTERNAL-IO and SV2023-35.5.2-EXTRACT-PURE-NO-PERSISTENT, and its breach leads only to unexpected behavior after optimization (B005); the row keeps the signature conditions, which are observable as errors.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -324684,10 +325152,10 @@
     {
       "id": "SV2023-35.5.4-EXTRACT-ARRAY-FORMAL-NAME",
       "clause": "35.5.4",
-      "kind": "normal",
-      "behavior": "A formal name is required to separate packed from unpacked dimensions.",
-      "acceptance": "A formal name is required to separate packed from unpacked dimensions.",
-      "source_note": "IEEE 1800-2023 35.5.4; complete own-body source review, blocks B014. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "kind": "error",
+      "behavior": "In an import declaration, a formal argument name is required to separate the packed and the unpacked dimensions of an array formal, so an unnamed formal with an unpacked dimension after its data type is an error.",
+      "acceptance": "An import declaration whose unnamed formal has a legal packed type followed by an unpacked dimension, such as bit [7:0] [3], is rejected at that declaration.",
+      "source_note": "IEEE 1800-2023 35.5.4; complete own-body source review, blocks B014. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the rule restricts how a formal is written and is observable only as the error for an unnamed formal with an unpacked dimension; a named formal shows only the ordinary meaning of dimensions before and after a name.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -326552,9 +327020,9 @@
       "id": "SV2023-35.5.6.1-EXTRACT-OPEN-IMPORT-ONLY",
       "clause": "35.5.6.1",
       "kind": "error",
-      "behavior": "Imported functions may use [] open dimensions; exported SV functions cannot. Matching ignores each corresponding open range but retains the remaining type requirements.",
-      "acceptance": "Imported functions may use [] open dimensions; exported SV functions cannot. Matching ignores each corresponding open range but retains the remaining type requirements.",
-      "source_note": "IEEE 1800-2023 35.5.6.1; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "An exported SystemVerilog function cannot have a formal argument specified as an open array, and an open dimension relaxes only the matching of its range, so an actual argument that differs from an open array formal in another way, such as its element type, is an error.",
+      "acceptance": "Exporting a function with an open array formal is rejected, and passing to an open array formal of an import an actual array whose element type differs from that of the formal is rejected at the call.",
+      "source_note": "IEEE 1800-2023 35.5.6.1; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable. Narrowed on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the permission for imported functions to use open arrays and the matching of any size for an open dimension are covered by SV2023-35.5.6.1-EXTRACT-OPEN-DEFINITION and SV2023-35.5.6.1-EXTRACT-OPEN-MATCH; the row keeps the two conditions that are observable only as errors.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [
@@ -327348,9 +327816,27 @@
       "id": "SV2023-35.7-EXTRACT-EXPORT-TYPES",
       "clause": "35.7",
       "kind": "error",
-      "behavior": "Exported function argument/result types must satisfy import restrictions; exporting an incompatible function is an error. Exporting otherwise leaves SV function semantics unchanged.",
-      "acceptance": "Exported function argument/result types must satisfy import restrictions; exporting an incompatible function is an error. Exporting otherwise leaves SV function semantics unchanged.",
-      "source_note": "IEEE 1800-2023 35.7; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
+      "behavior": "An exported function shall satisfy the restrictions on argument types and results that apply to imported functions, and exporting a function that does not is an error.",
+      "acceptance": "Exporting a function whose result type, or one of whose formal argument types, is not allowed for an imported function is rejected.",
+      "source_note": "IEEE 1800-2023 35.7; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed a rejected form and an accepted one; the normal part, that exporting leaves the SystemVerilog semantics of the function unchanged, moved to SV2023-35.7-EXTRACT-EXPORT-SEMANTICS-UNCHANGED.",
+      "modality": "mandatory",
+      "checks": [],
+      "source_spans": [
+        {
+          "section": "35.7",
+          "blocks": [
+            "B002"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-35.7-EXTRACT-EXPORT-SEMANTICS-UNCHANGED",
+      "clause": "35.7",
+      "kind": "normal",
+      "behavior": "Declaring a function exported does not change its semantics or behavior from the SystemVerilog side; it only makes the function callable from foreign code in a DPI call chain.",
+      "acceptance": "An exported function called from SystemVerilog returns its usual result and has its usual side effects, also after calls of it from foreign code.",
+      "source_note": "IEEE 1800-2023 35.7; split on 2026-11-15 from SV2023-35.7-EXTRACT-EXPORT-TYPES (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
       "checks": [],
       "source_spans": [

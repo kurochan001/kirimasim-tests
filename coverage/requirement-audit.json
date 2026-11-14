@@ -3520,7 +3520,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-5.7.1-EXTRACT-SIZE-EXACT-BITS"
+            "SV2023-5.7.1-EXTRACT-SIZE-EXACT-BITS",
+            "SV2023-5.7.1-EXTRACT-NONZERO-SIZE"
           ]
         },
         "B005": {
@@ -17251,6 +17252,7 @@
           "requirements": [
             "SV2023-9.2.2.2-EXTRACT-INFERRED-SENSITIVITY",
             "SV2023-9.2.2.2-EXTRACT-SINGLE-PROCESS-WRITER",
+            "SV2023-9.2.2.2-EXTRACT-TASK-WRITES-EXCLUDED",
             "SV2023-9.2.2.2-EXTRACT-INDEPENDENT-ELEMENT-WRITERS",
             "SV2023-9.2.2.2-EXTRACT-TIME-ZERO-EXECUTION"
           ]
@@ -17372,6 +17374,7 @@
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
             "SV2023-9.2.2.3-EXTRACT-LATCH-COMB-RULES",
+            "SV2023-9.2.2.3-EXTRACT-LATCH-COMB-RESTRICTIONS",
             "SV2023-9.2.2.3-EXTRACT-LATCH-CHECK"
           ]
         }
@@ -17406,7 +17409,8 @@
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
             "SV2023-9.2.2.4-EXTRACT-EXACTLY-ONE-EVENT",
-            "SV2023-9.2.2.4-EXTRACT-FF-WRITER-EXCLUSIVITY"
+            "SV2023-9.2.2.4-EXTRACT-FF-WRITER-EXCLUSIVITY",
+            "SV2023-9.2.2.4-EXTRACT-FF-INDEPENDENT-ELEMENT-WRITERS"
           ]
         },
         "B006": {
@@ -26957,7 +26961,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-13.3-EXTRACT-DIRECTION-INHERITANCE"
+            "SV2023-13.3-EXTRACT-DIRECTION-INHERITANCE",
+            "SV2023-13.3-EXTRACT-CONST-REF-DIRECTION-INHERITED"
           ]
         },
         "B013": {
@@ -27572,7 +27577,8 @@
             "SV2023-13.4.3-EXTRACT-LOCAL-IDENTIFIERS",
             "SV2023-13.4.3-EXTRACT-NO-GENERATE-DECLARATION",
             "SV2023-13.4.3-EXTRACT-NO-NESTED-CONSTANT-CONTEXT",
-            "SV2023-13.4.3-EXTRACT-CONSTANT-DEFAULTS"
+            "SV2023-13.4.3-EXTRACT-CONSTANT-DEFAULTS",
+            "SV2023-13.4.3-EXTRACT-CONSTANT-DEFAULT-ARGUMENT"
           ]
         },
         "B003": {
@@ -27864,7 +27870,9 @@
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
             "SV2023-13.5.2-EXTRACT-REF-AUTOMATIC-RESTRICTIONS",
-            "SV2023-13.5.2-EXTRACT-REF-STATIC-ACTUALS"
+            "SV2023-13.5.2-EXTRACT-REF-STATIC-AUTOMATIC-CONTEXTS",
+            "SV2023-13.5.2-EXTRACT-REF-STATIC-ACTUALS",
+            "SV2023-13.5.2-EXTRACT-REF-STATIC-ACCEPTED-ACTUALS"
           ]
         },
         "B013": {
@@ -34633,7 +34641,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-16.10-EXTRACT-TRIGGERED-FLOW"
+            "SV2023-16.10-EXTRACT-TRIGGERED-FLOW",
+            "SV2023-16.10-EXTRACT-TRIGGERED-OPERATOR-NO-FLOW"
           ]
         },
         "B058": {
@@ -39109,7 +39118,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-16.16.1-EXTRACT-CLOCK-IDENTITY"
+            "SV2023-16.16.1-EXTRACT-CLOCK-IDENTITY",
+            "SV2023-16.16.1-EXTRACT-VALUE-EQUAL-CLOCKS-DISTINCT"
           ]
         }
       }
@@ -39551,6 +39561,7 @@
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
             "SV2023-17.3-EXTRACT-DOLLAR-ACTUAL",
+            "SV2023-17.3-EXTRACT-DOLLAR-ACTUAL-USES",
             "SV2023-17.3-EXTRACT-CAPTURED-ACTUAL-LIMIT"
           ]
         },
@@ -40215,7 +40226,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-17.8-EXTRACT-NO-FREE-FUNCTION-LOCALS"
+            "SV2023-17.8-EXTRACT-NO-FREE-FUNCTION-LOCALS",
+            "SV2023-17.8-EXTRACT-FREE-VARIABLE-ACTUAL"
           ]
         },
         "B003": {
@@ -43020,7 +43032,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-18.8-EXTRACT-MODE-GETTER"
+            "SV2023-18.8-EXTRACT-MODE-GETTER",
+            "SV2023-18.8-EXTRACT-GETTER-SINGULAR-ONLY"
           ]
         },
         "B025": {
@@ -43115,7 +43128,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-18.9-EXTRACT-CONSTRAINT-MODE-TARGET"
+            "SV2023-18.9-EXTRACT-CONSTRAINT-MODE-TARGET",
+            "SV2023-18.9-EXTRACT-GETTER-NAME-REQUIRED"
           ]
         },
         "B008": {
@@ -44038,6 +44052,7 @@
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
             "SV2023-18.17-EXTRACT-AUTOMATIC-SCOPES",
+            "SV2023-18.17-EXTRACT-NO-HIERARCHICAL-CODE-VARIABLE",
             "SV2023-18.17-EXTRACT-TOP-PRODUCTION"
           ]
         }
@@ -45154,6 +45169,7 @@
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
             "SV2023-19.5-EXTRACT-GROUP-FUNCTION-ARGS",
+            "SV2023-19.5-EXTRACT-GROUP-FUNCTION-CONST-REF",
             "SV2023-19.5-EXTRACT-GROUP-FUNCTION-PURITY",
             "SV2023-19.5-EXTRACT-GROUP-SYSTEM-FUNCTIONS"
           ]
@@ -46230,7 +46246,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-19.6-EXTRACT-MATCHES-PRECEDENCE"
+            "SV2023-19.6-EXTRACT-MATCHES-PRECEDENCE",
+            "SV2023-19.6-EXTRACT-WITH-INTEGRAL-RESULT"
           ]
         },
         "B008": {
@@ -46515,7 +46532,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-19.6.1.2-EXTRACT-MATCHES-POLICY"
+            "SV2023-19.6.1.2-EXTRACT-MATCHES-POLICY",
+            "SV2023-19.6.1.2-EXTRACT-MATCHES-POSITIVE"
           ]
         },
         "B013": {
@@ -46912,6 +46930,7 @@
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
             "SV2023-19.7-EXTRACT-DEFINITION-ONLY-OPTIONS",
+            "SV2023-19.7-EXTRACT-PROCEDURAL-INSTANCE-OPTIONS",
             "SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT"
           ]
         },
@@ -47326,7 +47345,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-19.8-EXTRACT-INSTANCE-NAME"
+            "SV2023-19.8-EXTRACT-INSTANCE-NAME",
+            "SV2023-19.8-EXTRACT-INSTANCE-NAME-GROUP-ONLY"
           ]
         },
         "B009": {
@@ -48759,7 +48779,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-20.6.1-EXTRACT-TYPENAME-NO-EVALUATION"
+            "SV2023-20.6.1-EXTRACT-TYPENAME-NO-EVALUATION",
+            "SV2023-20.6.1-EXTRACT-TYPENAME-CONSTANT-REFERENCES"
           ]
         }
       }
@@ -48829,7 +48850,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-20.6.2-EXTRACT-BITS-NO-EVAL"
+            "SV2023-20.6.2-EXTRACT-BITS-NO-EVAL",
+            "SV2023-20.6.2-EXTRACT-BITS-DYNAMIC-RESTRICTIONS"
           ]
         },
         "B013": {
@@ -49349,7 +49371,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-20.9-EXTRACT-COUNT-BITSTREAM"
+            "SV2023-20.9-EXTRACT-COUNT-BITSTREAM",
+            "SV2023-20.9-EXTRACT-COUNT-STREAM-VECTOR"
           ]
         },
         "B008": {
@@ -50652,7 +50675,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-20.16-EXTRACT-PLA-OUTPUT-VARIABLE"
+            "SV2023-20.16-EXTRACT-PLA-OUTPUT-VARIABLE",
+            "SV2023-20.16-EXTRACT-PLA-INPUT-TERMS"
           ]
         },
         "B009": {
@@ -56351,7 +56375,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-22.5.1-EXTRACT-MACRO-RECURSION"
+            "SV2023-22.5.1-EXTRACT-MACRO-RECURSION",
+            "SV2023-22.5.1-EXTRACT-MACRO-SELF-USE-IN-ARGUMENT"
           ]
         },
         "B069": {
@@ -56825,7 +56850,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-22.8-EXTRACT-NETTYPE-DEFAULT-NONE"
+            "SV2023-22.8-EXTRACT-NETTYPE-DEFAULT-NONE",
+            "SV2023-22.8-EXTRACT-NETTYPE-DEFAULT-WIRE"
           ]
         }
       }
@@ -80143,7 +80169,8 @@
           "disposition": "requirements",
           "rationale": "All normative definitions, constraints and conditions in this block are recorded by the linked obligations.",
           "requirements": [
-            "SV2023-35.7-EXTRACT-EXPORT-TYPES"
+            "SV2023-35.7-EXTRACT-EXPORT-TYPES",
+            "SV2023-35.7-EXTRACT-EXPORT-SEMANTICS-UNCHANGED"
           ]
         },
         "B003": {

@@ -289,19 +289,20 @@ tests are matched to them and new tests written, how an independent reviewer che
 both, and how the results are merged and measured, with the
 [matching kit](tools/matching_kit/README.md) that the steps use.
 
-The requirement denominator is **12,305 requirements**. The
+The requirement denominator is **12,332 requirements**. The
 [denominator review](docs/denominator-review-20261028.en.md) approved 12,298
-after duplicate rows were merged; on 2026-11-14, with the owner's approval,
-7 rows that mixed an accepted and a rejected form were split, and 23 rows that
-could be shown only by a rejected design got the kind or wording their
-observation needs. The reviewer was an AI, not an independent human.
-Design coverage is **91.93% (11,312/12,305)**;
+after duplicate rows were merged. With the owner's approval, 34 rows that mixed
+an accepted and a rejected form were then split (7 on 2026-11-14 and 27 on
+2026-11-15), and 76 rows got the kind or wording their observation needs
+(23 and 53): rows that could be shown only by a rejected design, and error rows
+that also stated a legal behavior. The reviewer was an AI, not an independent human.
+Design coverage is **91.73% (11,312/12,332)**;
 execution coverage from the saved `coverage/results/` evidence of the tools
 anyone can reproduce (Icarus Verilog, Verilator and SymbiYosys) is
-**50.75% (6,245/12,305)**.
+**50.64% (6,245/12,332)**.
 Of these rows, 5,955 are confirmed by a simulator and 290 by formal checks alone, which run no simulator.
-With the results of Ghost, an unreleased simulator, and of kirimasim added, it is 78.25% (9,629/12,305).
-Clauses 1 to 40 alone are at 90.77% (8,598/9,472) design coverage.
+With the results of Ghost, an unreleased simulator, and of kirimasim added, it is 78.08% (9,629/12,332).
+Clauses 1 to 40 alone are at 90.51% (8,598/9,499) design coverage.
 See the [generated behavior summary](docs/behavior-coverage-summary.en.md) for the
 measurement inputs and denominator.
 The full existing-test semantic review is still incomplete.
