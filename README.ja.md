@@ -37,7 +37,8 @@ Icarus Verilog、Verilator、kirimasim、
   条項番号を記録し、テスト冒頭のコメントで何を確かめるかを自分たちの言葉で説明します。
 - **期待出力の根拠を記録します。** `:oracle:`には、規格との照合と、どのシミュレータで
   再現できたかを記録します。可能な場合はIcarus Verilog 13.0で確認し、コンパイルできない、
-  または規格と異なる場合はVerilator 5.052で確認します。どちらも規格どおりに動かない場合は、
+  または規格と異なる場合はVerilator 5.052で確認します（固定版を5.052から5.054へ移す間に
+  追加したテストはVerilator 5.054で確認します）。どちらも規格どおりに動かない場合は、
   規格から期待出力を決めます。
 - **規格が定める結果だけを出力します。** 規格が決めていないイベント順、乱数そのもの、
   既定の時間単位、シミュレータの診断文の正確な言い回しには依存しません。
@@ -232,8 +233,8 @@ clocking入力と名前付きイベントの待機（第14×15章）は192通り
 
 - [クロス検証レポート](docs/interaction-coverage.md)：計画上の網羅と、入力・ランナーのハッシュが
   一致した保存実行の合格を分けて集計します。
-- [章間クロス検証マトリクス](docs/chapter-cross-matrix.md)：重複を除く**131章対**を対応付けています。
-  登録モデル数、全選択ケースPASSのモデル数（上記の実行では**61モデル**）、
+- [章間クロス検証マトリクス](docs/chapter-cross-matrix.md)：重複を除く**193章対**を対応付けています。
+  登録モデル数、全選択ケースPASSのモデル数（上記の実行では**87モデル**）、
   テスト・実行の明細を41章×41章のCSVから確認できます。
 - [0セルの仕分けと優先候補](docs/chapter-cross-triage.md)：既存検証あり・追加検証候補・対象外・
   要精査を区別し、根拠と次の観測目標を記録しています。0は既存テストがないという意味ではありません。
@@ -359,7 +360,7 @@ Nightlyの固定スイートは結果を報告し、不一致だけでは原則�
 kirimasimでは、前夜に一致した固定テストが今回は不一致になったときにratchetで失敗させます。
 新規・未対応の固定テストはその条件だけでは失敗にしません。別途のランダム比較は全ケースのPASSを要求し、
 不一致・未対応・時間切れ・証跡の変化などで失敗します。[判定と再現手順](docs/random-cross-verification.md)を参照してください。
-Icarus Verilog 13.0とVerilator 5.052で記録した期待結果は、テストやツールの変更時に
+Icarus Verilog 13.0とVerilator 5.052で記録した期待結果と、固定版を移す間にVerilator 5.054で記録したテストの期待結果は、テストやツールの変更時に
 [別のワークフロー](.github/workflows/check.yml)で同じリリースを使って確認します。
 
 表の区分から個別の原因を確認する手順は[Q9](docs/faq.md#q9-what-do-match-differ-known-difference-and-unsupported-mean)、緑のCheck/Nightlyが保証する範囲は[Q11](docs/faq.md#q11-why-can-nightly-be-green-with-differ-results)を参照してください。
@@ -386,7 +387,7 @@ tests/gen/chNN/<name>.sv        自動生成テスト（直接編集しない）
 generators/<generator>.py       テスト生成器と参照モデル
 generators/generate.py          tests/gen/の生成、--checkによる検査
 generators/oracles.txt          各生成テストの期待出力を再現したリリース
-docs/simulator-differences.ja.md   Icarus Verilog 13.0・Verilator 5.052と規格との差
+docs/simulator-differences.ja.md   Icarus Verilog 13.0・Verilator 5.052（と5.054）と規格との差
 docs/slang-reference.md         固定版slangによる参考判定の実行方法と判定の意味
 docs/review-candidates.md       見直す期待結果の一覧の作り方と読み方
 docs/history.ja.md              以前の作業の記録・測定・確認結果
@@ -580,7 +581,7 @@ sv-testsの実行スクリプトはこれらのフィールドを知らず、Sys
 `tools/run_icarus.py`が`NOW MATCHES`と表示しても、`iverilog@13.0`を登録しているとは限りません。
 
 シミュレータと期待出力が異なる場合に、出力をコピーして解決することはしません。判断基準は条項です。
-見つかったIcarus Verilog 13.0・Verilator 5.052と規格との差は
+見つかったIcarus Verilog 13.0・Verilator 5.052と規格との差と、固定版を移す間に追加したテストで見つかったVerilator 5.054と規格との差は
 [差異一覧](docs/simulator-differences.ja.md)に記録しています。
 
 <a id="independent-sva-checks-and-formal-models"></a>
@@ -674,7 +675,8 @@ Icarus Verilogはユーザー定義システム関数の戻り値の型をコン
 
 13.0が規格に従わない箇所でも期待出力は規格に従い、`:oracle:`に`iverilog@13.0`を付けません。
 そのテストは既知の差異として報告し、失敗に数えません（一致すれば`NOW MATCHES`）。
-コンパイルできないテストも同様で、Verilator 5.052で確認できたものは`verilator@5.052`、
+コンパイルできないテストも同様で、Verilator 5.052で確認できたものは`verilator@5.052`
+（固定版を移す間に追加したテストは`verilator@5.054`）、
 どちらの固定リリースも未登録なら`spec`だけを記録します。
 
 ### Verilator
@@ -925,7 +927,8 @@ python3 tools/new_test.py ch9 test_illegal_always_comb_delay --lrm "9.2.2.2" --i
 - 不正な設計は`:should_fail_because:`に理由、`:expected_stderr_regex:`にエラーのファイルと行を
   指定します。妥当な報告位置が複数あればすべてを許容し、他の誤りを含めません。
   リリースが未対応の構文だけを理由にその行で拒否する場合は、コメントに明記します。
-- 「期待出力の決め方」に従って規格から期待値を決め、可能ならIcarus Verilog 13.0かVerilator 5.052で
+- 「期待出力の決め方」に従って規格から期待値を決め、可能ならIcarus Verilog 13.0かVerilator
+  （固定版を5.052から移すまでは5.054。[移行中の固定版](docs/simulator-differences.ja.md#verilator-5054-interim)）で
   確認します。規格と異なる箇所は[差異一覧](docs/simulator-differences.ja.md)とテストのコメントに記録します。
 
 新しくレビューした要求ごとに、境界値・不正ケースも含め、要求と観測を

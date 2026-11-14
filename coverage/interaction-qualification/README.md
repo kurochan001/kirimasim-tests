@@ -10,7 +10,7 @@
 
 ## 最新証跡の確認（2026-11-06 日本時間）
 
-現行は110モデル・4,416件で、[moduleとgenerateブロックのクラス・case項目のリテラル・構造体リテラルの独立確認](#scope-case-literal-qualification)を参照してください。
+現行は113モデル・4,509件で、最後に加えたモデルは[programのインスタンスを階層に置く方法の独立確認](#program-hierarchy-qualification)を参照してください。
 [`handoff-ci-67321079-20261106.json`](handoff-ci-67321079-20261106.json)は、基点67321079のCheck/Nightlyと全ジョブの成功を記録します。個別artifactは未照合です。以下の旧基点は詳細照合の範囲を区別して保持します。
 [`check-9c39d865-20261106.json`](check-9c39d865-20261106.json)は前回までの86モデルの固定版比較・静的検査のCheck成功を確認します。
 [`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json)は82モデルを対象にした正式Nightly・publish・ランダム96 PASSの記録であり、実行を混同しません。

@@ -56,7 +56,7 @@ These are expected failures that validate the checking pipeline; they are not ne
 
 ## Run the current catalogue and inspect results
 
-The default command below now runs the current catalogue, not the historical 40-model set. On 2026-10-29 it selects 267 cases and 583 jobs: 267 BMC checks, 44 PDR proofs, 267 covers and five deliberate-error jobs. There are 268 formal suite files because more than one test can reference the same case.
+The default command below now runs the current catalogue, not the historical 40-model set. On 2026-10-29 it selects 267 cases and 583 jobs: 267 BMC checks, 44 PDR proofs, 267 covers and five deliberate-error jobs. There are 267 formal suite files, one for each case; more than one test may reference the same case, but none does now.
 
 ```sh
 # Run the current catalogue's BMC, streaming PDR, covers and negative controls.

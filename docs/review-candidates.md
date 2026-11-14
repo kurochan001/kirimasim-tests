@@ -54,3 +54,4 @@ kirimasimとLyraはフロントエンドにslangを共有しているので、�
 記録した見直し：
 
 - [2026-11-09](spec-only-review-20261109.md)
+- [2026-11-12：どのシミュレータでも合格しないテスト](pass-nowhere-review-20261112.md)

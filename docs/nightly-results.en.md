@@ -19,6 +19,7 @@
 
 The Nightly runs on `main` every night with all seven jobs: icarus, verilator, kirimasim, lyra-build, lyra, ghost and publish.
 The results of the latest run are in the [report on the `results` branch](https://github.com/kurochan001/kirimasim-tests/tree/results#readme).
+The last successful Nightly is the [run](https://github.com/kurochan001/kirimasim-tests/actions/runs/43533749064) of 2026-11-14, on suite `aef04b93`.
 For resuming development, see the newest [handoff](claude-code-handoff-20261112.en.md). The records below in this section are from earlier checkpoints.
 
 ### Earlier artifact-reviewed details
@@ -35,7 +36,8 @@ The [Nightly record](../coverage/interaction-qualification/formal-ci-19cd790a-20
 ### Latest local addition
 
 The newest local addition is 24 cases for [the ways of placing program instances in the hierarchy](interaction-verification.en.md#program-hierarchy-instances), totaling 113 models / 4,509 cases.
-The [single run](../coverage/interaction-results/full-20261114-kirimasim-77c27531-progmod.json) on `77c27531437c`, built from the latest main, records 4,017 pass / 484 unsupported / 8 fail. 20 of the 24 additions pass; the other four are nested programs that kirimasim does not instantiate implicitly. The preceding 4,485 inputs and statuses are unchanged. These 24 cases have not run in Check or Nightly.
+The [single run](../coverage/interaction-results/full-20261114-kirimasim-77c27531-progmod.json) on `77c27531437c`, built from the latest main, records 4,017 pass / 484 unsupported / 8 fail. 20 of the 24 additions pass; the other four are nested programs that kirimasim does not instantiate implicitly. The preceding 4,485 inputs and statuses are unchanged. These 24 cases ran in the successful [Check of `5871523d`](https://github.com/kurochan001/kirimasim-tests/actions/runs/43555973796) (they rest on the standard alone, so no case has to match a pinned release) and have not run in Nightly.
+The 30 and 42 cases below ran in the Nightly of 2026-11-14 (suite `aef04b93`).
 
 The addition before it is 30 cases for [the regions of writes and reactions between a program and an interface](interaction-verification.en.md#program-interface-regions), totaling 112 models / 4,485 cases.
 The [single run](../coverage/interaction-results/full-20261114-kirimasim-77c27531.json) on `77c27531437c` records 3,997 pass / 484 unsupported / 4 fail. All 30 additions pass; the preceding 4,455 inputs are unchanged. These 30 cases passed the pinned comparisons in [Check on `aef04b93`](https://github.com/kurochan001/kirimasim-tests/actions/runs/43525301976) and have not run in Nightly.
@@ -269,10 +271,10 @@ The Match percentage counts matching tests for that simulator. It is not coverag
 
 ## Where to find requirement coverage
 
-- [Main summary](behavior-coverage-summary.en.md) aggregates saved `coverage/results/` evidence. Read its generated values, denominator and test scope; matching current inputs and recorded versions is separate from Nightly match rates. Historical progress: after the [second gap-test batch](gap-tests-2-20261024.en.md) on October 24, design coverage was 59.59% (7,341 requirements); merging p01/p05/p07/p12 on October 25 brought it to 63.21% (7,787, 6,294 tests). On October 26, the remaining p09/p10/p13/p15, annex/gap and Annex A grammar ranges and tests were merged; 277 standard-only tests gained Icarus 13.0 oracle tokens and existing-test review added 341 requirements. On October 28, interpretation holds were resolved and 21 duplicate rows merged into the approved 12,298-requirement denominator. Confirmed design and execution figures now use that denominator. Approval was AI review, not independent human approval.
+- [Main summary](behavior-coverage-summary.en.md) aggregates saved `coverage/results/` evidence. Read its generated values, denominator and test scope; matching current inputs and recorded versions is separate from Nightly match rates. Historical progress: after the [second gap-test batch](gap-tests-2-20261024.en.md) on October 24, design coverage was 59.59% (7,341 requirements); merging p01/p05/p07/p12 on October 25 brought it to 63.21% (7,787, 6,294 tests). On October 26, the remaining p09/p10/p13/p15, annex/gap and Annex A grammar ranges and tests were merged; 277 standard-only tests gained Icarus 13.0 oracle tokens and existing-test review added 341 requirements. On October 28, interpretation holds were resolved and 21 duplicate rows merged into the approved 12,298-requirement denominator. That approval was AI review, not independent human approval. On November 14, with the owner's approval, seven rows were split in two, making the denominator 12,305 requirements. Confirmed design and execution figures now use that denominator.
 - Nightly's publish job generates a summary using only that run's results, at `behavior-coverage-summary.md` in [results](https://github.com/kurochan001/kirimasim-tests/tree/results). Lyra joined this aggregation on October 24. Requirements involving illegal-design detection count only Icarus/Verilator results with fixed-release oracle tokens.
 - [Registry procedure](../coverage/README.en.md) defines denominators, provisional/confirmed values, fingerprints and collective witnesses.
-- The [mapping inventory](test-requirement-matching.en.md) and [gap review](coverage-gap-recommendations-20261029.en.md) identify mapping progress and candidate additions.
+- The [mapping inventory](test-requirement-matching.en.md) and [gap review](coverage-gap-recommendations-20261029.en.md) identify mapping progress and the candidate additions as of 2026-10-29.
 
 For feature interactions, publish separately writes `interaction-coverage.md` and `interaction-coverage.json` to results. It checks pairs, selected triples and anchors per simulator, excluding unsupported, known and unrun cases from success and never merging partial successes across runs. See [saved main results](interaction-coverage.en.md) and the [guide](interaction-verification.en.md).
 

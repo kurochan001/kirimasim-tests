@@ -353,7 +353,7 @@ Generating actual values and operation sequences in [bounded random comparisons]
 
 ### Q40. How does a latest-commit run differ from checking saved results?
 
-Before executing development versions such as kirimasim or Lyra, fetch and verify upstream and match the build to that commit; record the version. Fixed Icarus 13.0 and Verilator 5.052 remain fixed oracle releases. Reading saved JSON neither reruns a simulator nor confirms future revisions. Preserve old evidence and write each execution to a new destination.
+Before executing development versions such as kirimasim or Lyra, fetch and verify upstream and match the build to that commit; record the version. Fixed Icarus 13.0 and Verilator 5.052 remain fixed oracle releases (tests added while the pin moves to 5.054 use the fixed Verilator 5.054). Reading saved JSON neither reruns a simulator nor confirms future revisions. Preserve old evidence and write each execution to a new destination.
 
 GitHub Actions Re-run also uses the original suite commit. For current main, start a new workflow targeting main and verify its suite commit and simulator versions. See [manual execution](nightly-results.en.md#最新のmainで手動実行する).
 

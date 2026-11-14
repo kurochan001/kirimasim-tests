@@ -661,7 +661,7 @@ Evaluation counts of multiple expressions within items, side-effect order, combi
 
 ## Short runs and pass/fail checks
 
-The combined short run for 29 models targets 1,426 cases. Added 46 range cases and 34 case inside cases. The 2 short-circuit/event-control models have 156 cases selected from 6,184 constraint-satisfying possibilities. The following example passes selected paths as arguments to the existing runner. Specify a simulator prepared in advance.
+The combined short run for 113 models targets 4,509 cases. The 2 short-circuit/event-control models have 156 cases selected from 6,120 constraint-satisfying possibilities. The following example passes selected paths as arguments to the existing runner. Specify a simulator prepared in advance.
 
 ```sh
 python3 tools/interaction_coverage.py --list-tests
@@ -735,7 +735,7 @@ Do not combine partial successes from runs with different versions or seeds. Eac
 
 ## CI and update procedure
 
-Check checks generated results, selection plans, aggregates from saved execution evidence, and unit tests. Register oracles for cases matching expected values on fixed release Icarus Verilog 13.0. Keep cases differing from standard-derived expected values as `spec`; do not count them as execution-verified. Distinguish fixed-release verification from Nightly measurements using the latest development commit. Nightly generates `interaction-coverage.md` and `interaction-coverage.json` for branch `results` from that run's simulator-specific JSON.
+Check checks generated results, selection plans, aggregates from saved execution evidence, and unit tests. Register oracles for cases matching expected values on fixed release Icarus Verilog 13.0, or on Verilator 5.052 at both seeds. Keep cases differing from standard-derived expected values as `spec`; do not count them as execution-verified. Distinguish fixed-release verification from Nightly measurements using the latest development commit. Nightly generates `interaction-coverage.md` and `interaction-coverage.json` for branch `results` from that run's simulator-specific JSON.
 
 <a id="issue-21の境界条件の回帰テスト"></a>
 

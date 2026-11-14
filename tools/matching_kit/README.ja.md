@@ -11,7 +11,7 @@
 | `partition.py OUT_DIR` |未対応の要求を担当割当てファイルに分割する。`p..`は、引用するテストがあるもの。先に対応付ける）、`g..`、`a..`、`h..`（候補なし。既存のテストをさらに検証し 必要なテストを追加する)|
 | `propose.py` |`scope` `req` `test` を読み込む;提案用の`add`、`group`、`hold`（`behavior_coverage.validate()`の条件で直ちに検査する）。検証担当用の`show`、`verdict`、`testverdict`|
 | `merge.py DIR --reviewer TEXT --date YYYY-MM-DD` |再検査した後、最新判定が`accept`の提案を適用する。冪等。`--dry-run`|
-| `runsim.py tests/...` |Icarus Verilog 13.0とVerilator 5.052（シード1と73）でテストを実行し、どれが一致するかを報告して`:oracle:`を決定する。|
+| `runsim.py tests/...` |Icarus Verilog 13.0とVerilator 5.052（シード1と73）でテストを実行し、どれが一致するかを報告して`:oracle:`を決定する。固定版を5.054へ移す間は、新しいテストに`--verilator`で5.054のビルドを渡す（[移行中の固定版](../../docs/simulator-differences.ja.md#verilator-5054-interim)）。|
 | `withdrawn-20261023.json` |20% の最終オーディットでリンクが削除され、`propose.py` はこれを拒否した|
 | `workflows/match.js` |Claude Code ワークフロー: 1 つのマッチャーと 1 つの検証者をパーティションごとに|
 | `workflows/gap.js` |Claude CodeのWorkflow：区分ごとに作成担当1名と検証担当1名。作成担当は新規テストを作成し、`combined`モードでは先に対応付けを行う。|

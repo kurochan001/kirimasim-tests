@@ -666,7 +666,7 @@ priority・uniqueは、一致がないときの違反報告と`default`の関係
 
 ## 短時間実行と合否の確認
 
-29モデルを合わせた短時間実行の対象は1,426件です。範囲指定の46件と、case insideの34件が加わりました。 短絡評価とイベント制御の2モデルは、制約を満たす6,184通りから選んだ156件です。 次の例は選択したパスを引数として 既存ランナーへ渡します。シミュレータは事前に用意したものを指定してください。
+113モデルを合わせた短時間実行の対象は4,509件です。 短絡評価とイベント制御の2モデルは、制約を満たす6,120通りから選んだ156件です。 次の例は選択したパスを引数として 既存ランナーへ渡します。シミュレータは事前に用意したものを指定してください。
 
 ```sh
 python3 tools/interaction_coverage.py --list-tests
@@ -740,7 +740,7 @@ python3 tools/interaction_coverage.py --model nba_capture \
 
 ## CI・更新手順
 
-Checkは生成結果、選択計画、保存済み実行証跡からの集計、単体テストを検査します。 固定リリースのIcarus Verilog 13.0で期待値と一致したケースにoracleを登録しています。 規格ベースの期待値と異なるケースは`spec`のまま保持し、実行確認済みとは数えません。 固定リリースによる確認と、開発版の最新コミットによるNightly測定を区別します。 Nightlyはその回のシミュレータ別JSONから`results`ブランチの `interaction-coverage.md`と`interaction-coverage.json`を生成します。
+Checkは生成結果、選択計画、保存済み実行証跡からの集計、単体テストを検査します。 固定リリースのIcarus Verilog 13.0、またはVerilator 5.052の両seedで期待値と一致したケースにoracleを登録しています。 規格ベースの期待値と異なるケースは`spec`のまま保持し、実行確認済みとは数えません。 固定リリースによる確認と、開発版の最新コミットによるNightly測定を区別します。 Nightlyはその回のシミュレータ別JSONから`results`ブランチの `interaction-coverage.md`と`interaction-coverage.json`を生成します。
 
 <a id="regression-test-of-boundary-conditions-for-issue-21"></a>
 

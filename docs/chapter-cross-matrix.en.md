@@ -12,7 +12,7 @@ The CSV matrices show which IEEE 1800-2023 chapters are crossed. Both axes cover
 
 See [zero-cell triage](chapter-cross-triage.en.md) for reasons and next candidates. A separate 41×41 CSV shows classification codes, with rationales, priorities, factor proposals and observations. Unreviewed cells remain awaiting review rather than being declared out of scope or low risk.
 
-For example, chapter 7 (aggregate data types) × 13 (tasks and functions) has four models covering array-element argument passing, binding after index changes, queue-element references and generated-scope array defaults. Chapters 11 (operators/expressions) × 12 (procedural statements) have two models for ordinary case matching and case-inside selection; one of these two models passed its full selection.
+For example, chapter 7 (aggregate data types) × 13 (tasks and functions) has four models covering array-element argument passing, binding after index changes, queue-element references and generated-scope array defaults. Chapters 11 (operators/expressions) × 12 (procedural statements) have two models for ordinary case matching and case-inside selection; both of these models passed their full selection.
 
 <a id="数字の読み方"></a>
 

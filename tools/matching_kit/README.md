@@ -11,7 +11,7 @@ Tools to link IEEE 1800-2023 requirements (`coverage/behaviors.json`) to tests b
 | `partition.py OUT_DIR` | Splits the open requirements into assignment files: `p..` (some test cites them; match first), `g..`, `a..`, `h..` (no candidate; inspect existing tests further and add tests where needed) |
 | `propose.py` | `scope`, `req`, `test` to read; `add`, `group`, `hold` to propose (checked at once with the conditions of `behavior_coverage.validate()`); `show`, `verdict`, `testverdict` for the verifier |
 | `merge.py DIR --reviewer TEXT --date YYYY-MM-DD` | Applies the proposals whose latest verdict is `accept`, after checking them again; idempotent; `--dry-run` |
-| `runsim.py tests/...` | Runs tests with Icarus Verilog 13.0 and Verilator 5.052 (seeds 1 and 73) and says which match, to decide `:oracle:` |
+| `runsim.py tests/...` | Runs tests with Icarus Verilog 13.0 and Verilator 5.052 (seeds 1 and 73) and says which match, to decide `:oracle:`. While the pin moves to 5.054, give a 5.054 build with `--verilator` for new tests ([the interim pin](../../docs/simulator-differences.md#verilator-5054-interim)) |
 | `withdrawn-20261023.json` | Links withdrawn by the final audit of the 20% matching, which `propose.py` refuses |
 | `workflows/match.js` | Claude Code Workflow: one matcher and one verifier per partition |
 | `workflows/gap.js` | Claude Code Workflow: one writer (new tests, or matching first in `combined` mode) and one verifier per partition |

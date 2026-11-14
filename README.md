@@ -45,7 +45,8 @@ What sets the suite apart:
   whether the expected output was checked against the standard, and which
   simulators produce it. Where possible it was cross-checked with Icarus
   Verilog 13.0, or with Verilator 5.052 where Icarus Verilog cannot run the
-  test or does not follow the standard. Where neither follows the standard,
+  test or does not follow the standard (with Verilator 5.054 for tests added
+  while the pin moves from 5.052 to 5.054). Where neither follows the standard,
   the expected output follows the standard.
 - **Tests print only what the standard fixes.** They do not depend on the
   order of events that the standard leaves open, on random values, on the
@@ -257,9 +258,9 @@ Clocking inputs and named-event waiters (Chapters 14×15) select 24 of 192 combi
 
 - The [interaction report](docs/interaction-coverage.en.md) separates the selection plan
   from fingerprint-qualified passes in each saved execution.
-- The [chapter interaction matrices](docs/chapter-cross-matrix.en.md) map **131 distinct
+- The [chapter interaction matrices](docs/chapter-cross-matrix.en.md) map **193 distinct
   chapter pairs**, with separate CSVs for registered models, models whose full selection
-  passed (**61 models** in this run), and detailed test/run evidence.
+  passed (**87 models** in this run), and detailed test/run evidence.
 - The [zero-cell triage](docs/chapter-cross-triage.en.md) records reviewed existing tests,
   proposed additions, scope exclusions and pairs awaiting review. A zero is not a claim
   that no tests exist for that chapter pair.
@@ -414,7 +415,8 @@ The kirimasim ratchet fails when a previously matching fixed test differs; new o
 fixed tests do not trigger it by themselves. Separate bounded random comparisons require
 every case to pass: differences, unsupported features, timeouts or changed evidence fail
 that step. See [verdicts and replay](docs/random-cross-verification.en.md). The expected outputs recorded with Icarus Verilog
-13.0 and Verilator 5.052 are checked with those releases by a
+13.0 and Verilator 5.052, and those of the tests recorded with Verilator 5.054
+while the pin moves, are checked with those releases by a
 [second workflow](.github/workflows/check.yml) whenever the tests or the
 tools change (see "Workflows").
 
@@ -442,7 +444,7 @@ tests/gen/chNN/<name>.sv        a generated test (do not edit; see "Generated te
 generators/<generator>.py       a generator of tests and its reference model
 generators/generate.py          writes tests/gen/, or checks it with --check
 generators/oracles.txt          which releases produce each generated test's output
-docs/simulator-differences.md   where Icarus Verilog 13.0 and Verilator 5.052 differ from the standard
+docs/simulator-differences.md   where Icarus Verilog 13.0 and Verilator 5.052 (and 5.054) differ from the standard
 docs/slang-reference.en.md      how the pinned slang is run as a reference, and what its verdicts mean
 docs/review-candidates.en.md    how the list of expected results to review is made and read
 docs/history.md                 records of earlier work, measurements and checks
@@ -672,7 +674,8 @@ without its `:oracle:` listing `iverilog@13.0`.
 
 A disagreement between a simulator and the expected output is never resolved
 by copying the simulator's output: the clause decides. The places found so
-far where Icarus Verilog 13.0 or Verilator 5.052 differs from the standard are
+far where Icarus Verilog 13.0 or Verilator 5.052 differs from the standard,
+and those found with Verilator 5.054 in the tests added while the pin moves, are
 listed in [docs/simulator-differences.md](docs/simulator-differences.md).
 
 <a id="svaの独立確認とフォーマルモデル"></a>
@@ -788,7 +791,8 @@ follows the standard and `:oracle:` does not list `iverilog@13.0`.
 `tools/run_icarus.py` reports such a test as a known difference and does not
 count it as a failure (or as `NOW MATCHES` if it matches). The same applies to
 tests that Icarus Verilog 13.0 cannot compile; their `:oracle:` lists
-`verilator@5.052` when that release was confirmed, or remains `spec` alone
+`verilator@5.052` (`verilator@5.054` for a test added while the pin moves)
+when that release was confirmed, or remains `spec` alone
 when neither fixed-release oracle is recorded.
 
 ### Verilator
@@ -1109,7 +1113,9 @@ A new test should:
   error. When a release rejects the design on that line only because it does
   not support a construct there, the comment of the test says so;
 - have its expected output decided from the standard and, where possible,
-  confirmed with Icarus Verilog 13.0 or Verilator 5.052 as described in
+  confirmed with Icarus Verilog 13.0 or with Verilator (5.054 until the pin
+  moves from 5.052, see [the interim pin](docs/simulator-differences.md#verilator-5054-interim))
+  as described in
   "Where the expected outputs come from"; where either release does not follow
   the standard, the place goes into
   [docs/simulator-differences.md](docs/simulator-differences.md) and the

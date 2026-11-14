@@ -11,6 +11,7 @@ Checkの固定クロス検証に加え、Nightlyで件数制限付きのラン�
 
 2026-11-05（日本時間）に確認した[`19cd790a`のCheck・Nightly](nightly-results.md#latest-verified-checkpoint)は、ともに成功しました。
 Nightlyの13プロファイルはkirimasim `50a897dee62a`・seed `41941310616`で**96件すべて有効なPASS**です。
+最後に成功した[2026-11-14のNightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/43533749064)（suite `aef04b93`）でも、ランダム比較のステップは成功しました。この回の個別artifactは照合していません。
 プロファイル追加はいったん13個で区切り、[重点探索と独立検算](#thirteen-profile-stabilization)で検証を深めます。
 
 <a id="purpose-and-roles"></a>

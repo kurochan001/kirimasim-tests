@@ -21,6 +21,7 @@
 
 Nightlyは毎晩`main`で、icarus・verilator・kirimasim・lyra-build・lyra・ghost・publishの7ジョブをすべて実行します。
 最新の実行の結果は[`results`ブランチのレポート](https://github.com/kurochan001/kirimasim-tests/tree/results#readme)にあります。
+最後に成功したNightlyは2026-11-14の[実行](https://github.com/kurochan001/kirimasim-tests/actions/runs/43533749064)で、suite `aef04b93`を対象にしました。
 開発を引き継ぐときは、最新の[引き継ぎ資料](claude-code-handoff-20261112.md)を参照してください。この節の以下の記録は、以前の確認時点のものです。
 
 ### 個別artifactまで照合した以前の状態
@@ -37,7 +38,8 @@ suite `19cd790a5f639348ad67fd63959dce9811d3ab56`の[Nightly](https://github.com/
 ### 直近のローカル追加
 
 最新のローカル追加は[programのインスタンスを階層に置く方法](interaction-verification.md#program-hierarchy-instances)の24件で、113モデル・4,509件です。
-最新のmainをビルドした`77c27531437c`による[単一実行](../coverage/interaction-results/full-20261114-kirimasim-77c27531-progmod.json)は4,017 pass・484 unsupported・8 failです。追加24件のうち20件がPASSで、4件は入れ子のprogramをkirimasimが暗黙にインスタンス化しないものです。従来4,485件の入力と状態は不変です。今回の24件は、CheckとNightlyでは未実行です。
+最新のmainをビルドした`77c27531437c`による[単一実行](../coverage/interaction-results/full-20261114-kirimasim-77c27531-progmod.json)は4,017 pass・484 unsupported・8 failです。追加24件のうち20件がPASSで、4件は入れ子のprogramをkirimasimが暗黙にインスタンス化しないものです。従来4,485件の入力と状態は不変です。今回の24件は[`5871523d`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/43555973796)に含まれ、Checkは成功しました（24件は規格だけを根拠にし、固定版の一致を求めるケースはありません）。Nightlyでは未実行です。
+下の30件と42件は、2026-11-14のNightly（suite `aef04b93`）で実行しました。
 
 その前のローカル追加は[programとinterfaceの間の書込みと反応の領域](interaction-verification.md#program-interface-regions)の30件で、112モデル・4,485件です。
 `77c27531437c`による[単一実行](../coverage/interaction-results/full-20261114-kirimasim-77c27531.json)は3,997 pass・484 unsupported・4 failです。追加30件は全PASSで、従来4,455件の入力は不変です。この30件は[`aef04b93`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/43525301976)で固定版比較が成功し、Nightlyでは未実行です。
@@ -311,13 +313,14 @@ IEEE 1800-2023の全動作に対する網羅率とは別の指標です。
   固定した版と現在の入力に対応するパス結果の記録を使い、Nightlyの一致率とは分けて集計します。
   経過：10月24日の[未対応要求への新規テストの2回目](gap-tests-2-20261024.md)の後は59.59%（7,341）、10月25日に保留中の照合案4区間（p01・p05・p07・p12）を取り込んで63.21%（7,787、テスト6,294本）でした。
   10月26日に残りの区間（p09・p10・p13・p15、附属書とgapの範囲、附属書Aの構文テスト）と追加のテストを取り込み、Icarus 13.0で再現できた規格のみのテスト277本に`:oracle:`を記録し、既存テストの照合で341要求を追加しました。
-  2026年10月28日に解釈保留を解決し、重複21行を統合した12,298要求の分母を承認しました。
-  現在は設計・実行とも確定値を表示します。承認はAIレビューで、人による独立したレビュー・承認ではありません。
+  2026年10月28日に解釈保留を解決し、重複21行を統合した12,298要求の分母を承認しました。この承認はAIレビューで、人による独立したレビュー・承認ではありません。
+  2026年11月14日に所有者の承認を得て7行を2行ずつに分け、分母は12,305要求になりました。
+  現在は設計・実行とも、この分母による確定値を表示します。
 - Nightlyの集計概要：現行の`publish`ジョブが、その回の実行結果だけで生成します。
   出力先は`results`ブランチ直下の`behavior-coverage-summary.md`で、[resultsブランチ](https://github.com/kurochan001/kirimasim-tests/tree/results)から参照できます。
   2026年10月24日からは、Lyraの結果も集計の対象です（規格違反の検出を求める要求は、`:oracle:`に固定バージョンのトークンがあるIcarusとVerilatorの結果だけを数えます）。
 - [管理手順](../coverage/README.md)：分母、暫定値と確定値、入力ハッシュ、複数テストの集合証拠の扱い。
-- [照合一覧](test-requirement-matching.md)と[ギャップ調査](coverage-gap-recommendations-20261029.md)：現在の照合状況と追加テスト候補。
+- [照合一覧](test-requirement-matching.md)と[ギャップ調査](coverage-gap-recommendations-20261029.md)：現在の照合状況と、2026-10-29時点の追加テスト候補。
 
 機能間クロスは要求カバレッジとは別に、`publish`がその回の実行結果から
 `interaction-coverage.md`と`interaction-coverage.json`を`results`ブランチへ書き出します。

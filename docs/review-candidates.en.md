@@ -54,3 +54,4 @@ Within a section, the order is that of the test paths.
 Recorded reviews:
 
 - [2026-11-09](spec-only-review-20261109.en.md)
+- [2026-11-12: tests that no simulator passes](pass-nowhere-review-20261112.en.md)

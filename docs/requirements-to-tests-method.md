@@ -55,7 +55,7 @@ PDF ─┬─> A. 出典索引・節台帳（位置とハッシュだけ）
 | シミュレータ | 版 | 用途 |
 | --- | --- | --- |
 | Icarus Verilog | 13.0（`Icarus Verilog version 13.0 (stable) (v13_0-dirty)`） | 第一の確認先。`iverilog@13.0` |
-| Verilator | 5.052 | Icarusが規格に従わない、またはコンパイルできない場合。seed 1と73の両方で一致したら`verilator@5.052` |
+| Verilator | 5.052（2026-11-14から固定版を移すまでに追加するテストは5.054） | Icarusが規格に従わない、またはコンパイルできない場合。seed 1と73の両方で一致したら`verilator@5.052`（5.054で確かめたテストは`verilator@5.054`。[移行中の固定版](simulator-differences.ja.md#verilator-5054-interim)） |
 
 Icarus 13.0は、`v13_0`タグからビルドします。macOSでは、次の2点が必要です。
 
@@ -93,7 +93,7 @@ Icarus 13.0は、`v13_0`タグからビルドします。macOSでは、次の2�
 | `partition.py` | 未対応の要求を、節を分けずに担当範囲のファイルへ区切る。引用テストのある要求は`p..`（先に照合）、候補のない要求は`g..`／`a..`／`h..`（既存テストの追加調査、必要なら新規作成）。候補がないことだけでは、既存テストがないとは判断しない。 |
 | `propose.py` | `req`（要求・出典・候補テスト・既存の保留）、`test`（テストのヘッダ・入力ファイル・リンク）、`scope`（担当範囲の進捗）、`add`／`group`／`hold`（照合案の追記）、`verdict`／`testverdict`（レビュー担当者の判定）。追記の時点で`behavior_coverage.validate()`と同じ条件を検査する。条件は、節の引用、正常系テストと規格違反テストの一致、anchorの実在、入力ファイル、既存の保留、取り下げ済みの組（`withdrawn-20261023.json`）、利用禁止のテスト。 |
 | `merge.py` | 最新の判定が`accept`の案だけを、統合直前の台帳に対して再検査してから`behaviors.json`と`test-matching-reviews.json`へ統合する。入力digestは統合の時点で計算する。統合済みの案は飛ばす。担当者名と日付は引数で渡す。 |
-| `runsim.py` | Icarus 13.0とVerilator 5.052（seed 1/73）で実行し、どれが一致するかを表示する。 |
+| `runsim.py` | Icarus 13.0とVerilator 5.052（seed 1/73）で実行し、どれが一致するかを表示する。固定版を5.054へ移す間は、新しいテストに`--verilator`で5.054のビルドを渡す。 |
 | `workflows/*.js` | Claude CodeのWorkflowで、区間ごとに作成担当とレビュー担当を流すスクリプト（10章）。指示文に判断基準が入っている。 |
 
 `tools/test_matching_kit.py`が、検査の主な条件をCIで確かめます。

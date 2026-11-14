@@ -4,7 +4,7 @@
 
 [English](simulator-differences.md) / [日本語](simulator-differences.ja.md)
 
-The expected outputs of the suite follow IEEE 1800-2023 and are checked with Icarus Verilog 13.0 and Verilator 5.052 (see "Where the expected outputs come from" in the README). This file lists the places found so far where one of these releases gives another result than the cited clauses require, or accepts a design that the standard makes illegal, with the tests that show it.
+The expected outputs of the suite follow IEEE 1800-2023 and are checked with Icarus Verilog 13.0 and Verilator 5.052 (see "Where the expected outputs come from" in the README). Tests added from 2026-11-14 until the pin moves are checked with Verilator 5.054 instead, and the differences of 5.054 that they show are in [the last section](#verilator-5054-interim). This file lists the places found so far where one of these releases gives another result than the cited clauses require, or accepts a design that the standard makes illegal, with the tests that show it.
 
 Constructs that a release does not support at all, where it stops with an error, a "sorry" or "unsupported" message, are not listed: they show as known differences that do not compile. Verilator's lack of x, z and strengths, as a two-state simulator, is not listed either. Nor is an illegal design that a release rejects only because it does not support a construct in it: when that error falls on the line the test names, the runner counts it, and the comment of the test says why `:oracle:` does not list the release.
 

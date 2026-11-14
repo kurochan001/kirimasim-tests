@@ -327,7 +327,7 @@ For `SBY_BIN`, specify the suite's `sby` executable; for `FORMAL_RUN_DIR`, speci
 
 ### Run the current catalog
 
-If `--case` is omitted, the entire current catalog is executed. As of 2026-10-29, there are 267 cases and 583 jobs (BMC 267, PDR 44, cover 267, intentional errors 5). The scope of the above 40 model and 71 job is different. The number of tests and cases do not match because the formal test of the suite 268 also refers to the same case.
+If `--case` is omitted, the entire current catalog is executed. As of 2026-10-29, there are 267 cases and 583 jobs (BMC 267, PDR 44, cover 267, intentional errors 5). The scope of the above 40 model and 71 job is different. The suite has 267 formal tests, each naming a different case (the duplicate test that also named the case `fusion` was removed on 2026-11-11).
 
 ```sh
 python3 tools/sva_reference/formal.py --sby "$SBY_BIN" \
@@ -413,7 +413,7 @@ The basic set detects changes in the Python source of `tools/sva_reference/`. In
 
 The basic set and boundary value extension of 2026-10-26 above do not change the value of `:oracle:`. Do not automatically count matches with reference evaluators to the simulator's success.
 
-Subsequently, registered 268 tests with `:type: formal` and `:formal_case:` in the suite, and used the saved SymbiYosys results from `tools/run_sby.py` as verified execution in the requirement ledger. This is a separate evidence from the simulator output matching. The Icarus, Verilator, kirimasim, and Lyra runners exclude formal tests even when explicitly requested. See [Execution procedure](../README.md#symbiyosys) and [Selection rules](runner-selection-20261028.en.md). There is no dedicated formal CI job; Check runs unit tests and ledger consistency checks without launching an external solver.
+Subsequently, registered tests with `:type: formal` and `:formal_case:` in the suite (267 now), and used the saved SymbiYosys results from `tools/run_sby.py` as verified execution in the requirement ledger. This is a separate evidence from the simulator output matching. The Icarus, Verilator, kirimasim, and Lyra runners exclude formal tests even when explicitly requested. See [Execution procedure](../README.md#symbiyosys) and [Selection rules](runner-selection-20261028.en.md). There is no dedicated formal CI job; Check runs unit tests and ledger consistency checks without launching an external solver.
 
 In addition to the 10 case of the basic set, we have added a regression check of the 12 case to verify the extension of the boundary value and the correspondence to the actual test. These are not executed by external formal tools, and they verify the generation processing, the degree of freedom of input, the negative example, the result judgment, and the consistency of evidence, etc. At the 2026-10-26 expansion, all 205 unit tests, concrete output comparisons for 45 existing tests, evidence checks for both sets, and existing consistency checks passed.
 

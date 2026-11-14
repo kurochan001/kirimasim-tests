@@ -4,9 +4,9 @@
 
 [English](README.en.md) / [日本語](README.md)
 
-[現在の集計概要](../docs/behavior-coverage-summary.md)と[全項目の詳細](../docs/behavior-coverage.md)は、 節の引用数とは独立した指標です。全規格の要求台帳に対する**暫定値と確定値を併記**します。 IEEE 1800-2023 の本文1–41章と附属書A–Q、1,740見出しを調査台帳に登録しています。 **全1,740節の資料確認・要求抽出は完了し、2026-10-28に12,298要求の分母を承認しました。** 解釈保留は0件です。[抽出結果](../docs/requirement-extraction.md)と [分母レビュー](../docs/denominator-review-20261028.md)に整理の根拠を記録しています。 承認はAIレビューによるもので、人による独立したレビュー・承認ではありません。 初期登録の105件は規格全動作の分母ではありません。全テストについて 動作との対応確認を終えたという意味でもありません。
+[現在の集計概要](../docs/behavior-coverage-summary.md)と[全項目の詳細](../docs/behavior-coverage.md)は、 節の引用数とは独立した指標です。全規格の要求台帳に対する**暫定値と確定値を併記**します。 IEEE 1800-2023 の本文1–41章と附属書A–Q、1,740見出しを調査台帳に登録しています。 **全1,740節の資料確認・要求抽出は完了し、2026-10-28に12,298要求の分母を承認しました。** 2026-11-14に所有者の承認を得て7行を2行ずつに分け、現在の分母は12,305要求です。 解釈保留は0件です。[抽出結果](../docs/requirement-extraction.md)と [分母レビュー](../docs/denominator-review-20261028.md)に整理の根拠を記録しています。 承認はAIレビューによるもので、人による独立したレビュー・承認ではありません。 初期登録の105件は規格全動作の分母ではありません。全テストについて 動作との対応確認を終えたという意味でもありません。
 
-最新の対応追加と残件は[カバレッジギャップ調査](../docs/coverage-gap-recommendations-20261029.md)、 章別の照合状況は[照合一覧](../docs/test-requirement-matching.md)を参照してください。
+2026-10-29時点の対応追加と残件は[カバレッジギャップ調査](../docs/coverage-gap-recommendations-20261029.md)、それ以降の対応追加は[履歴](../docs/history.ja.md)、 章別の照合状況は[照合一覧](../docs/test-requirement-matching.md)を参照してください。
 
 Issue #21の組合せ境界は[回帰取り込みレポート](../docs/p1-combination-regressions-20261030.md)と `combination-gaps.json`で管理します。候補ID、既存・新規テスト、規格根拠、観測点、 入力指紋を対応付け、`combination-results/`に実行ごとの結果を保存します。 `combination-qualification/`はビルド版と検査器の故障注入の証跡です。 この台帳への登録は、要求対応の承認や要求カバレッジへの加算ではありません。 `python3 tools/combination_gaps.py --check`は台帳と生成レポートの整合性を検査し、 未対応・不一致を合格へ読み替えません。
 
@@ -33,9 +33,9 @@ python3 tools/interaction_coverage.py --model membership_container \
 
 ## mainの集計とNightlyの集計
 
-`main`の`docs/behavior-coverage-summary.md`は、`coverage/results/`に保存した証跡を使います。 現在の集計は、2026-11-12の固定バージョンIcarus 13.0／Verilator 5.052の全件実行（`full-20261112-*.json`）と、同じ日にoracleトークンを見直した後の再実行（`oracle-tokens-20261112-*.json`、`oracle-tokens-2-20261112-*.json`、`oracle-tokens-3-20261112-*.json`）、同じ日にテストを直した後の再実行（`test-fixes-20261112-*.json`）、同じ日に追加した実行時エラーのテストの実行（`runtime-errors-20261112-*.json`）を使います。 それより前の全件実行と部分再実行も残していますが、ランナーのハッシュが違うので集計には使いません。 Ghostのローカル全件実行も保存しています。 各実行回を分けて保持し、現在の入力ハッシュと一致する成功だけを採用します。
+`main`の`docs/behavior-coverage-summary.md`は、`coverage/results/`に保存した証跡を使います。 現在の集計は、2026-11-12の固定バージョンIcarus 13.0／Verilator 5.052の全件実行（`full-20261112-*.json`）と、同じ日にoracleトークンを見直した後の再実行（`oracle-tokens-20261112-*.json`、`oracle-tokens-2-20261112-*.json`、`oracle-tokens-3-20261112-*.json`）、同じ日にテストを直した後の再実行（`test-fixes-20261112-*.json`）、同じ日に追加した実行時エラーのテストの実行（`runtime-errors-20261112-*.json`）、2026-11-13にテストを直した後の再実行（`test-fix-20261113-*.json`）、2026-11-14に追加したテストの実行（`reqgap-20261114-*.json`、`vifsense-20261114-*.json`、`reqgap2-20261114-*.json`、`reqgap3-20261114-*.json`。Verilatorは5.054）を使います。 それより前の全件実行と部分再実行も残していますが、ランナーのハッシュが違うので集計には使いません。 Ghostのローカル全件実行も保存しています。 各実行回を分けて保持し、現在の入力ハッシュと一致する成功だけを採用します。
 
-Nightlyは各シミュレータの開発版で実行し、`publish`が**その回の結果だけ**を使って `results`ブランチ直下の`behavior-coverage-summary.md`と関連JSON・履歴へ記録します。 この処理を含むNightlyが初めて公開されるまでは、出力先が存在しない場合があります。 Nightlyの`Match`割合はテスト出力の一致率であり、要求台帳に対する要求カバレッジ（テスト設計）・実行確認率とは別です。 対象コミット・版・実行範囲を確認してから結果を比較してください。
+Nightlyは各シミュレータの開発版で実行し、`publish`が**その回の結果だけ**を使って `results`ブランチ直下の`behavior-coverage-summary.md`と関連JSON・履歴へ記録します。 Nightlyの`Match`割合はテスト出力の一致率であり、要求台帳に対する要求カバレッジ（テスト設計）・実行確認率とは別です。 対象コミット・版・実行範囲を確認してから結果を比較してください。
 
 Nightlyの開始予定は毎日04:23 JSTです。公開は全ジョブ終了後で、結果レポートの時刻はUTCです。 [日本時間への換算と更新状況の確認方法](../docs/nightly-results.md)を参照してください。
 
@@ -116,7 +116,8 @@ Nightlyの開始予定は毎日04:23 JSTです。公開は全ジョブ終了後�
 - `results/oracle-tokens-3-20261112-*.json`: 同じ日の3回目の見直しで、不正な設計のテスト9本の`:oracle:`から、`verilator@5.052`を9個取り除いた後の再実行。対象は、入力のダイジェストが変わった9本と、同じ検査グループに入っている4本の、合わせて13本です。Icarus Verilog 13.0は11 pass・2 known、Verilator 5.052（`--all`）はseed 1と73のどちらも12 pass・1 known、kirimasim `7de185f776a1`は12 pass・1 unsupportedです。どの状態も、それまでに保存した結果と同じです。[記録](../docs/oracle-token-review-20261112.md#third-pass)を参照してください。
 - `results/test-fixes-20261112-*.json`: 2026-11-12に、どのシミュレータでも合格しないテストを見直してテスト21本を直した後の再実行。対象は、入力のダイジェストが変わった21本と、同じ検査グループに入っている1本の、合わせて22本です。Icarus Verilog 13.0は22 known、Verilator 5.052（`--all`）はseed 1と73のどちらも22 known、kirimasim `7de185f776a1`は22 unsupportedです。どの状態も、それまでに保存した結果と同じです。[記録](../docs/pass-nowhere-review-20261112.md)を参照してください。
 - `results/runtime-errors-20261112-*.json`: 2026-11-12に追加した、実行時エラーの要求7件と15.4.5の宛先の要求1件のテスト10本の実行。Icarus Verilog 13.0は10 known、Verilator 5.052（`--all`）はseed 1と73のどちらも1 pass・9 known、kirimasim `7de185f776a1`は1 pass・9 unsupportedです。Verilatorで合格するのは`ch6/test_cast_task_enum_value_runtime_error`、kirimasimで合格するのは`ch7/test_dynamic_array_new_negative_size_runtime_error`です。[履歴](../docs/history.ja.md)の2026-11-12の項を参照してください。
-- `interaction-results/full-20261112-kirimasim-7de185f7-dpi-array.json`と`interaction-results/dpi-array-20261112-*.json`: 同じ日に、クロスモデル`dpi_openarray_shape`の`svIncrement`の期待値を直した後の実行。kirimasim `7de185f776a1`は選択した4,413ケースを1回で実行し、3,915 pass・484 unsupported・14 failです。Icarus Verilog 13.0とVerilator 5.052（seed 1/73）は、このモデルの30ケースを実行しました。Icarusは30 known、Verilatorはseed 1/73とも18 pass・12 knownです。章間CSVはこのkirimasimの実行を使います。
+- `interaction-results/full-20261112-kirimasim-7de185f7-dpi-array.json`と`interaction-results/dpi-array-20261112-*.json`: 同じ日に、クロスモデル`dpi_openarray_shape`の`svIncrement`の期待値を直した後の実行。kirimasim `7de185f776a1`は選択した4,413ケースを1回で実行し、3,915 pass・484 unsupported・14 failです。Icarus Verilog 13.0とVerilator 5.052（seed 1/73）は、このモデルの30ケースを実行しました。Icarusは30 known、Verilatorはseed 1/73とも18 pass・12 knownです。章間CSVは、現在は後の実行`interaction-results/full-20261114-kirimasim-77c27531-progmod.json`を使います（[章間マトリクス](../docs/chapter-cross-matrix.md)を参照）。
+- `results/test-fix-20261113-*.json`: 2026-11-13に#60の`ch31/test_31_extra_fullskew_active_flag`を直した後の再実行。Icarus Verilog 13.0とVerilator 5.052（seed 1と73）は1 pass、kirimasim `7de185f776a1`は1 unsupportedで、どの状態も変わっていません。[履歴](../docs/history.ja.md)の2026-11-13の項を参照してください。
 - `results/reqgap-20261114-*.json`: 2026-11-14に、テストのない要求のために追加したテスト41本と、`tests/ch3`にファイルが増えて入力ハッシュが変わった既存の1本（`ch3/test_include_text_joins_compilation_unit`）の実行。Icarus Verilog 13.0は15 pass・27 known、Verilator 5.054はseed 1と73のどちらも22 pass・20 known、kirimasim `77c27531437c`は31 pass・10 unsupported・1 failです。Verilatorは、固定版を5.054へ移す間の扱い（[移行中の固定版](../docs/simulator-differences.ja.md#verilator-5054-interim)）により5.054で実行しました。既存の1本は`verilator@5.052`のままで、5.052での確認はCheckで行います。
 - `results/vifsense-20261114-*.json`: 2026-11-14に追加した、virtual interfaceの要素をalwaysとalways_ffの感度リストに置く違反テスト2本の実行。Icarus Verilog 13.0は宣言の構文エラーで2 known、Verilator 5.054はseed 1と73のどちらも設計を受理して2 known、kirimasim `77c27531437c`は2 unsupportedです。
 - `results/reqgap2-20261114-*.json`: 2026-11-14に、6・7・8・9・11章のテストのない要求のために追加したテスト60本の実行。Icarus Verilog 13.0は22 pass・38 known、Verilator 5.054はseed 1と73のどちらも31 pass・29 known、kirimasim `d1d8a1782d0a`は36 pass・20 unsupported・4 failです。Verilatorは[移行中の固定版](../docs/simulator-differences.ja.md#verilator-5054-interim)により5.054で実行しました。
@@ -127,7 +128,7 @@ Nightlyの開始予定は毎日04:23 JSTです。公開は全ジョブ終了後�
 
 入力ハッシュにはテスト本体、期待値、`:files:`、DPI/VPIのCソース、文字列で指定した includeとinclude検索ディレクトリ内のファイルを含めます。マクロで選ぶincludeや外部データは 必ず `:files:` に宣言してください。コンパイラのインストール全体やOSの再現性を証明する ハッシュではありません。include検索ディレクトリは保守的に全ファイルを対象にします。
 
-`pass` だけを実行成功に数えます。`known`、`unsupported`、`fail`、古いランナー、変更前の 入力、来歴のない従来形式の結果は成功に数えません。規格違反のコードは未対応構文のエラーと誤認し得る ため、メタデータでレビュー済みの固定バージョンIcarus 13.0／Verilator 5.052の結果に限ります。 それでも診断の意味とエラー位置のレビューは必要です。単なる構文未対応を成功扱いしません。
+`pass` だけを実行成功に数えます。`known`、`unsupported`、`fail`、古いランナー、変更前の 入力、来歴のない従来形式の結果は成功に数えません。規格違反のコードは未対応構文のエラーと誤認し得る ため、メタデータでレビュー済みの固定バージョンIcarus 13.0／Verilator 5.052の結果に限ります（`:oracle:`が`verilator@5.054`のテストは、5.054の結果に限ります）。 それでも診断の意味とエラー位置のレビューは必要です。単なる構文未対応を成功扱いしません。
 
 対応付けと要求抽出はAIによるレビューです。独立した人の確認済みとは扱いません。 全資料の確認後、解釈保留を解決し、重複21行を統合して分母を承認しました。 登録単位は要求・条件・観測ケースです。全入力の組み合わせを網羅したという意味ではありません。 採用した解釈と、節単位の出典だけを持つ3行などの限界は [分母レビュー](../docs/denominator-review-20261028.md)と [解釈・再検討記録](../docs/requirement-extraction-notes.md)を参照してください。
 

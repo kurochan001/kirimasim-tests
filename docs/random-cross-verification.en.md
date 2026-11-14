@@ -11,6 +11,7 @@ fixed-suite test counts, chapter-matrix pass counts or requirement coverage.
 
 As verified on 2026-11-05 JST, [Check and Nightly on `19cd790a`](nightly-results.en.md#latest-verified-checkpoint)
 both succeeded. Nightly's thirteen profiles recorded **96 valid passes** on kirimasim `50a897dee62a`, seed `41941310616`.
+The random comparison step also succeeded in the last successful [Nightly of 2026-11-14](https://github.com/kurochan001/kirimasim-tests/actions/runs/43533749064) (suite `aef04b93`); its artifacts were not reviewed.
 Profile additions are paused at thirteen; [targeted exploration and independent checks](#thirteen-profile-stabilization) supply further depth.
 
 <a id="purpose-and-roles"></a>

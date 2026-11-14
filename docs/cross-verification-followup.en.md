@@ -2,7 +2,7 @@
 
 [English](cross-verification-followup.en.md) / [日本語](cross-verification-followup.md)
 
-Updated on 2026-11-06 JST, retaining the repair records from 2026-11-03. Preserve fixed regressions, formal Nightly, existing expectations
+Updated on 2026-11-14 JST, retaining the repair records from 2026-11-03. Preserve fixed regressions, formal Nightly, existing expectations
 and selected models while addressing known failures, inventorying unsupported mechanisms
 and reviewing unexamined chapter pairs, in that order.
 
@@ -107,7 +107,7 @@ At the initial review, two R pairs were reviewed and 590 remained unassessed.
   independent factors. First establish legal expressions and positive dimensions and repair the
   known config reset difference.
 
-The current triage is M189, E3, C2, N117 and R509. See the
+The current triage is M193, E3, C2, N117 and R505. See the
 [pair rationales and fingerprints](chapter-cross-triage.en.md). Reuse existing regression matrices
 and extend confirmed mechanisms with boundaries, operation sequences and fault controls.
 No parallel-purpose runner or addition of random outcomes to fixed requirement coverage was introduced.
@@ -176,8 +176,8 @@ Requirement bindings, thirteen random profiles, existing regressions and core so
 
 The eight items below were left out because kirimasim has not implemented them. They have no tests yet, so no result changes when the feature arrives, and only a check reveals it.
 When a full cross run uses a new kirimasim build, try the programs below. When one no longer reports `not implemented yet`, add the model or observation.
-The 529 existing unsupported cases are not listed: they have tests, and their results change once the feature is implemented.
-Add anything else left out for this reason here, and remove an item once it is added. The status is from kirimasim `33cee3fa2f0d` on 2026-11-08; all six are unchanged since `f029ddd0eee1`, and all six are still not implemented on `afc7733c8167` and `77c27531437c` of 2026-11-14. The seventh, the virtual interface, and the eighth, the ref port, were added on 2026-11-14 with `77c27531437c`.
+The 484 existing unsupported cases (in the full run of 2026-11-14) are not listed: they have tests, and their results change once the feature is implemented.
+Add anything else left out for this reason here, and remove an item once it is added. The status is from kirimasim `33cee3fa2f0d` on 2026-11-08; all six are unchanged since `f029ddd0eee1`, and all six are still not implemented on `afc7733c8167` and `77c27531437c` of 2026-11-14. The seventh, the virtual interface, and the eighth, the ref port, were added on 2026-11-14 with `77c27531437c`. All eight are still not implemented on `d1d8a1782d0a` of the same day.
 
 Take expectations from the standard, and check them by [running every legal row once](interaction-verification-method.en.md#run-every-legal-row-once).
 

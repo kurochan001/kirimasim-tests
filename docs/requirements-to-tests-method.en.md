@@ -55,7 +55,7 @@ Use the same version as the saved execution trace. The result of a different ver
 |Simulator|Version|Purpose|
 | --- | --- | --- |
 | Icarus Verilog | 13.0（`Icarus Verilog version 13.0 (stable) (v13_0-dirty)`） |First confirmation point. `iverilog@13.0`|
-| Verilator | 5.052 |If Icarus does not comply with the specification or cannot be compiled. If the results match for both seed 1 and seed 73, `verilator@5.052`|
+| Verilator | 5.052 (5.054 for tests added from 2026-11-14 until the pin moves) |If Icarus does not comply with the specification or cannot be compiled. If the results match for both seed 1 and seed 73, `verilator@5.052` (`verilator@5.054` for a test checked with 5.054; see [the interim pin](simulator-differences.md#verilator-5054-interim))|
 
 Icarus 13.0 is built from the `v13_0` tag. macOS require 2 points.
 
@@ -93,7 +93,7 @@ Auxiliary scripts automate receiving comparison proposals, recording reviewers' 
 | `partition.py` |Distribute unmapped requirements into files for each assigned range without splitting clauses. Requirements with cited tests: `p..` (compare first); requirements without candidates: `g..` / `a..` / `h..` (investigate existing tests further and create new tests if necessary). The absence of a candidate does not mean that there is no existing test.|
 | `propose.py` |`req` (requirements, sources, candidate tests, existing pending items); `test` (test headers, input files, links); `scope` (assigned-scope progress); `add` / `group` / `hold` (appending proposed mappings); `verdict` / `testverdict` (reviewer assessments). The same conditions as `behavior_coverage.validate()` are examined at the time of the addition. Conditions include clause citations, matching positive/standard-violation kinds, existing anchors, input files, existing holds, withdrawn pairs (`withdrawn-20261023.json`), and prohibited tests.|
 | `merge.py` |Recheck only proposals whose latest judgment is `accept` against the ledger immediately before integration, then integrate them into `behaviors.json` and `test-matching-reviews.json`. The input digest is calculated at the time of integration. Skip proposals already integrated. The name of the person responsible and the date are passed as arguments.|
-| `runsim.py` |Runs on Icarus 13.0 and Verilator 5.052 (seed 1/73) and shows which ones match.|
+| `runsim.py` |Runs on Icarus 13.0 and Verilator 5.052 (seed 1/73) and shows which ones match. While the pin moves to 5.054, give a 5.054 build with `--verilator` for new tests.|
 | `workflows/*.js` |In the Claude Code workflow, scripts that run author and reviewer for each section (10 chapter). The instruction text contains the criteria for judgment.|
 
 `tools/test_matching_kit.py` checks the main conditions of the test with CI.
