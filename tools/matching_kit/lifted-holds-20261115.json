@@ -1,0 +1,261 @@
+{
+ "note": "Scoped holds lifted on 2026-11-15 because the owner-approved ledger change of that day (proposal C2) removed from the requirement, or moved to another row, the part each hold says the test does not observe. Lifting a hold adds no link; a link is registered only after an independent verifier accepts it. Classified by an AI agent and checked by Claude Opus 5.5 (AI); not an independent human review.",
+ "lifted": [
+  {
+   "test": "tests/ch13/test_automatic_edge_cases.sv",
+   "requirement": "SV2023-13.4.2-EXTRACT-AUTOMATIC-REENTRANT",
+   "disposition": "compound_requirement",
+   "reviewed_on": "2026-10-23",
+   "explanation": "再帰計算には検証価値があるが、要求行にはautomatic localへの階層アクセス禁止も含まれる。この違法条件を正常系だけで満たしたと扱わず、要求単位の整理・違法系との対応が残件。",
+   "lifted_because": "The unobserved illegal condition (no hierarchical access to automatic locals) was removed from the row and handed to SV2023-23.6-EXTRACT-HIERARCHICAL-EXCLUSIONS."
+  },
+  {
+   "test": "tests/ch13/test_func_automatic.sv",
+   "requirement": "SV2023-13.4.2-EXTRACT-AUTOMATIC-REENTRANT",
+   "disposition": "compound_requirement",
+   "reviewed_on": "2026-10-23",
+   "explanation": "再帰計算には検証価値があるが、要求行にはautomatic localへの階層アクセス禁止も含まれる。この違法条件を正常系だけで満たしたと扱わず、要求単位の整理・違法系との対応が残件。",
+   "lifted_because": "The unobserved illegal condition (no hierarchical access to automatic locals) was removed from the row and handed to SV2023-23.6-EXTRACT-HIERARCHICAL-EXCLUSIONS."
+  },
+  {
+   "test": "tests/ch22/test_illegal_default_nettype_none_assign.sv",
+   "requirement": "SV2023-22.8-EXTRACT-NETTYPE-DEFAULT-NONE",
+   "disposition": "compound_requirement",
+   "reviewed_on": "2026-10-23",
+   "explanation": "M56/M03: noneでのundeclared net拒否を検査する有効な違法系だが、同じ要求行の既定wire/resetやdirective配置・上書き条件は観測しない。normal/errorを混在させた台帳単位を変えず、全体への対応は保留。",
+   "lifted_because": "The unobserved default wire and `resetall part moved to SV2023-22.8-EXTRACT-NETTYPE-DEFAULT-WIRE; the directive placement and override conditions belong to the other requirement in the decision (NETTYPE-SCOPE), not to this row."
+  },
+  {
+   "test": "tests/ch22/test_illegal_default_nettype_none_gate_terminal.sv",
+   "requirement": "SV2023-22.8-EXTRACT-NETTYPE-DEFAULT-NONE",
+   "disposition": "compound_requirement",
+   "reviewed_on": "2026-10-23",
+   "explanation": "M56/M03: noneでのundeclared net拒否を検査する有効な違法系だが、同じ要求行の既定wire/resetやdirective配置・上書き条件は観測しない。normal/errorを混在させた台帳単位を変えず、全体への対応は保留。",
+   "lifted_because": "The unobserved default wire and `resetall part moved to SV2023-22.8-EXTRACT-NETTYPE-DEFAULT-WIRE; the directive placement and override conditions belong to the other requirement in the decision (NETTYPE-SCOPE), not to this row."
+  },
+  {
+   "test": "tests/ch22/test_illegal_default_nettype_none_port.sv",
+   "requirement": "SV2023-22.8-EXTRACT-NETTYPE-DEFAULT-NONE",
+   "disposition": "compound_requirement",
+   "reviewed_on": "2026-10-23",
+   "explanation": "M56/M03: noneでのundeclared net拒否を検査する有効な違法系だが、同じ要求行の既定wire/resetやdirective配置・上書き条件は観測しない。normal/errorを混在させた台帳単位を変えず、全体への対応は保留。",
+   "lifted_because": "The unobserved default wire and `resetall part moved to SV2023-22.8-EXTRACT-NETTYPE-DEFAULT-WIRE; the directive placement and override conditions belong to the other requirement in the decision (NETTYPE-SCOPE), not to this row."
+  },
+  {
+   "test": "tests/ch3/test_time_unit_strings_scale_by_1000.sv",
+   "requirement": "SV2023-3.14-EXTRACT-TIME-UNIT-ENCODING",
+   "disposition": "partial_observation",
+   "reviewed_on": "2026-10-26",
+   "explanation": "1/10/100 と s/ms/us/ns/ps/fs の18通りの正しい組み合わせをすべて宣言し、#1 が 1fs 単位で 1 から 10^17 まで各単位の倍率どおりになることを観測する。一方、認められない倍率や単位綴り（例: 1xs、1000ns）を拒否することは、負の刺激も診断もないため観測しない。",
+   "lifted_because": "The unobserved rejection of other magnitudes and unit strings was removed from the row; the 18 accepted combinations, which the hold says are observed, remain."
+  },
+  {
+   "test": "tests/ch3/test_timeunit_repeated_matching.sv",
+   "requirement": "SV2023-3.14.2.2-EXTRACT-MATCHING-REPETITION",
+   "disposition": "partial_observation",
+   "reviewed_on": "2026-10-26",
+   "explanation": "モジュール先頭の timeunit 1ns/timeprecision 100ps を後方で同じ値で繰り返し、丸めが 1.30 のままであることを観測する。一致する繰り返しの受理と、繰り返しが設定を変えないことは観測できるが、一致しない繰り返し（例: 後方で timeunit 10ns）を拒否すること、1つの time scope が有効な単位・精度を1組だけ持つことの衝突検査は刺激していない。",
+   "lifted_because": "The unobserved rejection of a mismatched repetition was removed and handed to SV2023-3.14.2.2-EXTRACT-TIME-SCOPE-SETTINGS."
+  },
+  {
+   "test": "tests/ch5/test_number_grammar_every_base_digit_and_real_form.sv",
+   "requirement": "SV2023-5.7.1-EXTRACT-SIZE-EXACT-BITS",
+   "disposition": "partial_observation",
+   "reviewed_on": "2026-10-26",
+   "explanation": "$bits(5 'D 3)=5、$bits(12'o7_x2z)=12、$bits('h1_0)=32、$bits('b1_01)=32 など、指定したサイズが正確なビット数になることは観測し、12 ビット変数への 'dx の全ビット展開も見る。しかしサイズ 0 や不正なサイズ（例: 0'd0）を拒否することは、負の刺激も診断もないため観測しない。",
+   "lifted_because": "The only unobserved part, the rejection of a size of zero, moved to SV2023-5.7.1-EXTRACT-NONZERO-SIZE; the exact bit count is observed by the hold's own account."
+  },
+  {
+   "test": "tests/ch9/test_always_latch.sv",
+   "requirement": "SV2023-9.2.2.3-EXTRACT-LATCH-COMB-RULES",
+   "disposition": "partial_observation",
+   "reviewed_on": "2026-10-26",
+   "explanation": "all always_comb requirements apply to always_latch except the intended logic-shape diagnostic. The legal latched behavior is observed, but the writer exclusivity, the blocking-control prohibition and the fork-join prohibition are error cases, and an always_latch test that obeys them cannot show that a violating design is rejected.",
+   "lifted_because": "The writer exclusivity, blocking-control and fork-join prohibitions named in the hold all moved to SV2023-9.2.2.3-EXTRACT-LATCH-COMB-RESTRICTIONS."
+  },
+  {
+   "test": "tests/ch9/test_illegal_always_ff_written_via_function.sv",
+   "requirement": "SV2023-9.2.2.4-EXTRACT-FF-WRITER-EXCLUSIVITY",
+   "disposition": "partial_observation",
+   "reviewed_on": "2026-10-26",
+   "explanation": "always_ff が呼んだ関数内の書き込みを書き込み先に含めることは診断するが、独立要素への非重複書き込みが許される longest static prefix の条件を同じ刺激で観測していない。",
+   "lifted_because": "The unobserved exception for nonoverlapping writes to independent elements moved to SV2023-9.2.2.4-EXTRACT-FF-INDEPENDENT-ELEMENT-WRITERS."
+  },
+  {
+   "test": "tests/ch9/test_illegal_final_procedure_delay.sv",
+   "requirement": "SV2023-9.2.3-EXTRACT-FINAL-FUNCTION-STATEMENTS",
+   "disposition": "partial_observation",
+   "reviewed_on": "2026-10-26",
+   "explanation": "final 内で関数可の文（for、関数呼び出し、$display）と不可の遅延を対比して文法制約は診断するが、final が独立プロセスでなく単一プロセスから逐次実行される条件は負のテストの診断だけでは観測できない。",
+   "lifted_because": "The unobserved single-process sequential execution of final procedures was removed and handed to SV2023-9.2.3-EXTRACT-FINAL-ORDER and the 9.5 row."
+  },
+  {
+   "test": "tests/ch9/test_illegal_final_procedure_delay.sv",
+   "requirement": "SV2023-9.2.3-EXTRACT-FINAL-FUNCTION-STATEMENTS",
+   "disposition": "partial_observation",
+   "reviewed_on": "2026-10-26",
+   "explanation": "only function-legal statements are allowed in final, and final blocks execute sequentially from one process. The existing test rejects a delay in final, which shows the statement restriction, but the single-process sequential execution is a scheduling rule: the order of several final blocks is not specified, so a test cannot print one observable order that distinguishes concurrent from sequential execution.",
+   "lifted_because": "The single-process sequential execution that the hold says cannot be observed was removed and handed to SV2023-9.2.3-EXTRACT-FINAL-ORDER and the 9.5 row."
+  },
+  {
+   "test": "tests/ch9/test_process_self_suspend_and_noop_controls.sv",
+   "requirement": "SV2023-9.7-EXTRACT-PROCESS-FINAL",
+   "disposition": "partial_observation",
+   "reviewed_on": "2026-10-26",
+   "explanation": "process::state の RUNNING/SUSPENDED/FINISHED/KILLED/WAITING と status() は観測するが、process が final class であること（拡張不可）を正常系テストで観測していない。",
+   "lifted_because": "The only unobserved part, that process is a final class, was removed and handed to SV2023-9.7-EXTRACT-NO-PROCESS-EXTENSION."
+  },
+  {
+   "test": "tests/ch9/test_process_self_suspend_and_noop_controls.sv",
+   "requirement": "SV2023-9.7-EXTRACT-PROCESS-FINAL",
+   "disposition": "partial_observation",
+   "reviewed_on": "2026-10-26",
+   "explanation": "the process API declares kill, resume and suspend as no-argument void functions, and process is a final class with the five-state enum. The effects of the controls and the states are observed, but a void return cannot be shown from a statement call, and the final-class restriction is only visible when an extension is rejected, an error outside a normal-kind test.",
+   "lifted_because": "For this row the hold names only the final-class restriction, which moved to SV2023-9.7-EXTRACT-NO-PROCESS-EXTENSION; the void-return part concerns the SIGNATURE requirements of the decision."
+  },
+  {
+   "test": "tests/ch10/test_net_decl_assign_resolution.sv",
+   "requirement": "SV2023-10.3.1-EXTRACT-ONE-NET-DECLARATION",
+   "disposition": "partial_observation",
+   "reviewed_on": "2026-10-26",
+   "explanation": "net 宣言代入が 1 つのドライバとして追加の assign と解決されることは観測するが、同じ net を 2 回宣言して宣言代入を 2 つ持つことが error である条件を刺激していない。",
+   "lifted_because": "The unstimulated error for a second declaration assignment was removed and handed to SV2023-3.13-EXTRACT-NO-REDECLARATION and SV2023-6.5-EXTRACT-DECLARATION-NAME-COLLISION."
+  },
+  {
+   "test": "tests/ch13/test_func_recursive.sv",
+   "requirement": "SV2023-13.4.2-EXTRACT-AUTOMATIC-REENTRANT",
+   "disposition": "partial_observation",
+   "reviewed_on": "2026-10-26",
+   "explanation": "factorial/fibonacci/gcd の再帰で自動変数が呼び出しごとに確保されることは観測するが、automatic ローカルを階層名で選択できないという違法条件を負の刺激で確認していない。",
+   "lifted_because": "The unobserved ban on selecting automatic locals by hierarchical name was removed and handed to SV2023-23.6-EXTRACT-HIERARCHICAL-EXCLUSIONS."
+  },
+  {
+   "test": "tests/ch16/test_triggered_local_variable_threads.sv",
+   "requirement": "SV2023-16.10-EXTRACT-TRIGGERED-FLOW",
+   "disposition": "partial_observation",
+   "reviewed_on": "2026-10-26",
+   "explanation": "maximal Boolean 式としての triggered で local が flow out することは観測するが、negation や他の演算子を適用した triggered では flow out しないことを刺激していない。",
+   "lifted_because": "The unobserved no-flow case for negated or operator-combined triggered moved to SV2023-16.10-EXTRACT-TRIGGERED-OPERATOR-NO-FLOW."
+  },
+  {
+   "test": "tests/ch16/test_multiclock_leading_clock.sv",
+   "requirement": "SV2023-16.16.1-EXTRACT-CLOCK-IDENTITY",
+   "disposition": "partial_observation",
+   "reviewed_on": "2026-10-26",
+   "explanation": "and の両辺が同じ clk1 なので35で1回マッチし、同一クロックなら unique leading clock になることは見るが、値が常に等しい別信号を2つのクロックとして使う刺激がなく、値の一致がクロック同一性を作らないことを観測していない。",
+   "lifted_because": "The unobserved case of distinct value-equal clocks moved to SV2023-16.16.1-EXTRACT-VALUE-EQUAL-CLOCKS-DISTINCT."
+  },
+  {
+   "test": "tests/ch16/test_local_variable_init_two_leading_clocks.sv",
+   "requirement": "SV2023-16.16.1-EXTRACT-CLOCK-IDENTITY",
+   "disposition": "partial_observation",
+   "reviewed_on": "2026-10-26",
+   "explanation": "the test has one property on one clock and shows unique leading clocks, but two distinct clock expressions that are value-equal tick together, so their identity and the difference from a single clock cannot appear in the action times without making the value-equal case an illegal design",
+   "lifted_because": "The value-equal clock case that the hold says cannot be shown legally moved to SV2023-16.16.1-EXTRACT-VALUE-EQUAL-CLOCKS-DISTINCT."
+  },
+  {
+   "test": "tests/ch17/test_illegal_checker_dollar_actual.sv",
+   "requirement": "SV2023-17.3-EXTRACT-DOLLAR-ACTUAL",
+   "disposition": "partial_observation",
+   "reviewed_on": "2026-10-26",
+   "explanation": "型付き仮引数 n に $ を渡す不正例だけで、untyped 仮引数が range 上限や他インスタンスの実引数として $ を受ける合法側を刺激していない。",
+   "lifted_because": "The unstimulated legal side (an untyped formal bound to $ used as a range bound or an actual) moved to SV2023-17.3-EXTRACT-DOLLAR-ACTUAL-USES."
+  },
+  {
+   "test": "tests/ch18/test_rand_mode_array_element.sv",
+   "requirement": "SV2023-18.8-EXTRACT-MODE-GETTER",
+   "disposition": "partial_observation",
+   "reviewed_on": "2026-10-26",
+   "explanation": "要素ごとのgetterが1/0を返すことは見るが、引数なしgetterが単一変数のみを受け付け、unpacked配列全体を渡すと拒否されることを負の入力で観測しない。",
+   "lifted_because": "The unobserved rejection of the getter on a whole unpacked array moved to SV2023-18.8-EXTRACT-GETTER-SINGULAR-ONLY."
+  },
+  {
+   "test": "tests/ch18/test_constraint_mode_hierarchy.sv",
+   "requirement": "SV2023-18.9-EXTRACT-CONSTRAINT-MODE-TARGET",
+   "disposition": "partial_observation",
+   "reviewed_on": "2026-10-26",
+   "explanation": "基底・派生・外部ブロックを名前で指定できることは見るが、名前の省略がsetterに限られることを、名前なしgetterの不正呼び出しで観測しない。",
+   "lifted_because": "The unobserved rejection of a getter without a constraint name moved to SV2023-18.9-EXTRACT-GETTER-NAME-REQUIRED."
+  },
+  {
+   "test": "tests/ch19/test_cg_cross_set_expression.sv",
+   "requirement": "SV2023-19.6.1.4-EXTRACT-CROSS-SET-EXPRESSION",
+   "disposition": "compound_requirement",
+   "reviewed_on": "2026-10-26",
+   "explanation": "配列リテラルがbinの型文脈を得ることと関数戻り値のCrossQueueTypeを使うことは別テストで見るが、非互換型にcastを要する条件を負の入力で観測せず、1本の要求全体の証拠にならない。",
+   "lifted_because": "The unobserved need for a cast with an incompatible type was removed and handed to SV2023-19.6.1.4-EXTRACT-CROSS-SET-TYPE; the accepted forms remain."
+  },
+  {
+   "test": "tests/ch21/test_illegal_display_undefined_format_specifier.sv",
+   "requirement": "SV2023-21.2.1.1-EXTRACT-FORMAT-VALIDITY",
+   "disposition": "partial_observation",
+   "reviewed_on": "2026-10-26",
+   "explanation": "未定義の %y を 30 行目で診断させるが、設計が拒否されるため %m/%l/%% の例外や literal 書式が後続の値に置き換わる実行結果を比較せず、置換規則を観測しない。",
+   "lifted_because": "The unobserved replacement rule and the %m/%l/%% exceptions were removed and handed to the 21.2.1 and 21.2.1.5 rows; the row keeps only the undefined-specifier error the test diagnoses."
+  },
+  {
+   "test": "tests/ch21/test_illegal_display_strength_vector_net.sv",
+   "requirement": "SV2023-21.2.1.4-EXTRACT-STRENGTH-SCALAR",
+   "disposition": "partial_observation",
+   "reviewed_on": "2026-10-26",
+   "explanation": "2 ビットのベクトル net を %v に渡す不正だけを診断し、スカラ net の合法な %v 表示（強度 2 文字 + 論理値 1 文字）は設計が拒否されるため実行・比較されない。",
+   "lifted_because": "The unexecuted three-character display of a scalar net was removed and handed to SV2023-21.2.1.4-EXTRACT-STRENGTH-PREFIX and the STRENGTH-VALUE-* rows."
+  },
+  {
+   "test": "tests/ch22/test_illegal_default_nettype_latest_none_governs.sv",
+   "requirement": "SV2023-22.8-EXTRACT-NETTYPE-DEFAULT-NONE",
+   "disposition": "compound_requirement",
+   "reviewed_on": "2026-10-26",
+   "explanation": "最新の none の下で未宣言ネットがエラーになることは観測するが、default_nettype がない場合や resetall 後に暗黙ネットが wire になることを同じテストで観測していない。",
+   "lifted_because": "The unobserved default wire after no directive or after `resetall moved to SV2023-22.8-EXTRACT-NETTYPE-DEFAULT-WIRE."
+  },
+  {
+   "test": "tests/ch18/test_randcase_selection.sv",
+   "requirement": "SV2023-18.16-EXTRACT-RANDCASE-WEIGHTS",
+   "disposition": "partial_observation",
+   "reviewed_on": "2026-10-26",
+   "explanation": "the test observes the probability weight over the sum and the zero-weight branch; it does not observe that a negative or non-integral weight is rejected, because that needs an illegal design, which the normal-kind requirement cannot use",
+   "lifted_because": "The only unobserved part, rejection of a negative or non-integral weight, was removed from the row; the probability weight/sum, which the hold says is observed, remains."
+  },
+  {
+   "test": "tests/ch18/test_mode_method_signatures.sv",
+   "requirement": "SV2023-18.8-EXTRACT-MODE-GETTER",
+   "disposition": "partial_observation",
+   "reviewed_on": "2026-10-26",
+   "explanation": "the test calls the no-argument getters on single variables and on constraint blocks and checks their int results, but it never passes a whole unpacked array to a getter, so the rule that the getter accepts only a singular variable, or one element of an unpacked array, is not observed",
+   "lifted_because": "The unobserved rejection of the getter on a whole unpacked array moved to SV2023-18.8-EXTRACT-GETTER-SINGULAR-ONLY."
+  },
+  {
+   "test": "tests/ch21/test_format_explicit_field_width.sv",
+   "requirement": "SV2023-21.2.1.2-EXTRACT-FIELD-WIDTH",
+   "disposition": "citation_refinement",
+   "reviewed_on": "2026-10-27",
+   "explanation": "The existing test observes the field widths that the clause defines, including width 0, but the registry row is the error kind for a width that is not a non-negative decimal integer constant. Such a width is an undefined format specification, whose rejection is already covered by the FORMAT-VALIDITY row; a separate positive witness for this row does not exist.",
+   "lifted_because": "The hold was that the row was error kind while the test is a positive witness of field widths; the row is now normal and states the widths' effect."
+  },
+  {
+   "test": "tests/ch21/test_format_explicit_field_width.sv",
+   "requirement": "SV2023-21.2.1.2-EXTRACT-FIELD-WIDTH",
+   "disposition": "citation_refinement",
+   "reviewed_on": "2026-10-27",
+   "explanation": "The row is registered as an error requirement, but its content is the format of a field width: a nonnegative decimal constant may override the automatic size and a width of 0 gives the minimum width without leading spaces or zeros. A field width is written as digits, so no design can violate the rule and no illegal design can be rejected at its line; the existing test exercises the widths 3, 1, 4 and 0.",
+   "lifted_because": "The hold was that no design can violate the width format and the row was error kind; the row is now normal with the width effects that the test exercises (3, 1, 4 and 0)."
+  },
+  {
+   "test": "tests/ch19/test_illegal_cg_per_instance_procedural.sv",
+   "requirement": "SV2023-19.7-EXTRACT-DEFINITION-ONLY-OPTIONS",
+   "disposition": "compound_requirement",
+   "reviewed_on": "2026-10-27",
+   "explanation": "The test rejects a procedural assignment of option.per_instance after construction. The row also covers get_inst_coverage, auto_bin_max, detect_overlap and cross_retain_auto_bins at the levels of Table 19-2, and no test writes each of those options at a level that forbids it.",
+   "lifted_because": "The hold names the other four options at the Table 19-2 levels that forbid them, and the level rules were handed to the SV2023-19.7-EXTRACT-LEVEL-* rows."
+  },
+  {
+   "test": "tests/ch20/test_illegal_countbits_non_bitstream.sv",
+   "requirement": "SV2023-20.9-EXTRACT-COUNT-BITSTREAM",
+   "disposition": "compound_requirement",
+   "reviewed_on": "2026-11-14",
+   "explanation": "要求は式が bit-stream 型であること（違法の側）に加えて、式を {>>{expression}} と同じ幅のベクトルへ平らにして数えること（正常系の意味）を含む。違法系のこのテストは real メンバーを持つクラスオブジェクトの拒否だけを照合し、平らにする規則は違法系では観測できない。",
+   "lifted_because": "The unobservable flattening to an equal-width vector moved to SV2023-20.9-EXTRACT-COUNT-STREAM-VECTOR; the row keeps the type error the test diagnoses."
+  }
+ ]
+}

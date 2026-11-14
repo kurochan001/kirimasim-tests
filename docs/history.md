@@ -815,3 +815,9 @@ clause 37.
 - Two rows stay as they are: 3.12 `PRE-SIMULATION-ERROR`, a rule on every compile-time error that no single illegal test shows, and 8.20 `VIRTUAL-PROTOTYPE`, which overlaps the error rows of 8.20 on argument and return types.
 - The acceptance of `SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT` now names the new error row for the coverpoint level; its content is unchanged.
 - No test or mapping changed. Design coverage is now 91.73% (11,312/12,332), reproducible execution coverage 50.64% (6,245), and execution coverage with Ghost and kirimasim 78.08% (9,629). Tests for the changed rows will be added next.
+
+### 2026-11-15 (holds made obsolete by the ledger change)
+
+- 32 scoped holds on existing tests were lifted, with the owner's approval. Each said that the test did not observe a part of the requirement that the ledger change of the same day removed from the row or moved to another row, such as the rejection side of a row now narrowed to its accepted forms. The 112 holds on the changed rows were classified by an AI agent and checked by Claude Opus 5.5 (AI); this is not an independent human review.
+- 80 holds stay: their reason still applies to the rewritten row, the test no longer fits the kind of the row, or the hold is about the expected output or the oracle. One hold on `SV2023-9.2.2.3-EXTRACT-LATCH-COMB-RULES` stays because the part it names was dropped from the row without a row to take it over.
+- The lifted holds, with their old explanation and the reason, are recorded in `tools/matching_kit/lifted-holds-20261115.json`. Lifting a hold adds no link; the tests are linked only after an independent verifier accepts them.

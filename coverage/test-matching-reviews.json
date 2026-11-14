@@ -3304,50 +3304,6 @@
       ]
     },
     {
-      "test": "tests/ch13/test_automatic_edge_cases.sv",
-      "inputs_sha256": "e062d1ab6dc30bb6555ac39555d4556c09ebe65392fdc63e82aa311d04431862",
-      "reviewed_on": "2026-10-23",
-      "reviewer": "Codex (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-13.4.2-EXTRACT-AUTOMATIC-REENTRANT"
-          ],
-          "disposition": "compound_requirement",
-          "explanation": "再帰計算には検証価値があるが、要求行にはautomatic localへの階層アクセス禁止も含まれる。この違法条件を正常系だけで満たしたと扱わず、要求単位の整理・違法系との対応が残件。",
-          "evidence": [
-            {
-              "file": "tests/ch13/test_automatic_edge_cases.sv",
-              "contains": "function automatic int factorial(int n);"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "test": "tests/ch13/test_func_automatic.sv",
-      "inputs_sha256": "85e1c5c2f71cb36e290d5677413f037c2a344780451db8ecb75d1711ab9f495f",
-      "reviewed_on": "2026-10-23",
-      "reviewer": "Codex (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-13.4.2-EXTRACT-AUTOMATIC-REENTRANT"
-          ],
-          "disposition": "compound_requirement",
-          "explanation": "再帰計算には検証価値があるが、要求行にはautomatic localへの階層アクセス禁止も含まれる。この違法条件を正常系だけで満たしたと扱わず、要求単位の整理・違法系との対応が残件。",
-          "evidence": [
-            {
-              "file": "tests/ch13/test_func_automatic.sv",
-              "contains": "function automatic int factorial(int n);"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "test": "tests/ch13/test_func_return_2.sv",
       "inputs_sha256": "d1731fe21148e6b44b12d279931b5c1450de28e29369b92715a07940a3b3c185",
       "reviewed_on": "2026-10-23",
@@ -10004,7 +9960,6 @@
       "decisions": [
         {
           "requirement_ids": [
-            "SV2023-22.8-EXTRACT-NETTYPE-DEFAULT-NONE",
             "SV2023-22.8-EXTRACT-NETTYPE-SCOPE"
           ],
           "disposition": "compound_requirement",
@@ -10029,7 +9984,6 @@
       "decisions": [
         {
           "requirement_ids": [
-            "SV2023-22.8-EXTRACT-NETTYPE-DEFAULT-NONE",
             "SV2023-22.8-EXTRACT-NETTYPE-SCOPE"
           ],
           "disposition": "compound_requirement",
@@ -10054,7 +10008,6 @@
       "decisions": [
         {
           "requirement_ids": [
-            "SV2023-22.8-EXTRACT-NETTYPE-DEFAULT-NONE",
             "SV2023-22.8-EXTRACT-NETTYPE-SCOPE"
           ],
           "disposition": "compound_requirement",
@@ -27515,34 +27468,6 @@
       ]
     },
     {
-      "test": "tests/ch3/test_time_unit_strings_scale_by_1000.sv",
-      "inputs_sha256": "ba25402cc94ef46cdefd8a12523fd1b9bd67cb2aecc2dca261fa631b2742af8c",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-3.14-EXTRACT-TIME-UNIT-ENCODING"
-          ],
-          "disposition": "partial_observation",
-          "explanation": "1/10/100 と s/ms/us/ns/ps/fs の18通りの正しい組み合わせをすべて宣言し、#1 が 1fs 単位で 1 から 10^17 まで各単位の倍率どおりになることを観測する。一方、認められない倍率や単位綴り（例: 1xs、1000ns）を拒否することは、負の刺激も診断もないため観測しない。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch3/test_time_unit_strings_scale_by_1000.sv",
-              "contains": "module tu_100fs;\n  timeunit 100fs;"
-            },
-            {
-              "file": "tests/ch3/test_time_unit_strings_scale_by_1000.sv",
-              "contains": "module tu_1s;"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "test": "tests/ch3/test_timeunit_repeated_matching.sv",
       "inputs_sha256": "ef45eb356e0e1f6e6acf334ec42a3ba00aebbe9d1e66aefd9e9103ff87a446f2",
       "reviewed_on": "2026-10-26",
@@ -27551,7 +27476,6 @@
       "decisions": [
         {
           "requirement_ids": [
-            "SV2023-3.14.2.2-EXTRACT-MATCHING-REPETITION",
             "SV2023-3.14.2.2-EXTRACT-TIME-SCOPE-SETTINGS"
           ],
           "disposition": "partial_observation",
@@ -27980,30 +27904,6 @@
             {
               "file": "tests/ch5/test_ieee1800_2023_literal_edge.expected",
               "contains": "PASS: Test 16 - Escape sequences in string"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "test": "tests/ch5/test_number_grammar_every_base_digit_and_real_form.sv",
-      "inputs_sha256": "c7e2b9d374609f60d3328bcb65264c226d874f74843e7fa6c8af4fb4d8b23556",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-5.7.1-EXTRACT-SIZE-EXACT-BITS"
-          ],
-          "disposition": "partial_observation",
-          "explanation": "$bits(5 'D 3)=5、$bits(12'o7_x2z)=12、$bits('h1_0)=32、$bits('b1_01)=32 など、指定したサイズが正確なビット数になることは観測し、12 ビット変数への 'dx の全ビット展開も見る。しかしサイズ 0 や不正なサイズ（例: 0'd0）を拒否することは、負の刺激も診断もないため観測しない。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch5/test_number_grammar_every_base_digit_and_real_form.sv",
-              "contains": "    $display(\"bits %0d %0d %0d %0d %0d %0d\", $bits(5 'D 3), $bits('d255), $bits(1_000),"
             }
           ]
         }
@@ -32907,21 +32807,6 @@
               "contains": "module test_always_latch;"
             }
           ]
-        },
-        {
-          "requirement_ids": [
-            "SV2023-9.2.2.3-EXTRACT-LATCH-COMB-RULES"
-          ],
-          "disposition": "partial_observation",
-          "explanation": "all always_comb requirements apply to always_latch except the intended logic-shape diagnostic. The legal latched behavior is observed, but the writer exclusivity, the blocking-control prohibition and the fork-join prohibition are error cases, and an always_latch test that obeys them cannot show that a violating design is rejected.",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch9/test_always_latch.sv",
-              "contains": "module "
-            }
-          ]
         }
       ]
     },
@@ -32944,30 +32829,6 @@
             {
               "file": "tests/ch9/test_always_latch_comb_in_interface.sv",
               "contains": "interface latch_if (input logic en, input logic [3:0] d);"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "test": "tests/ch9/test_illegal_always_ff_written_via_function.sv",
-      "inputs_sha256": "cbdda0f1b996079797e22d50ee20f4a283f675659225a925c6a0674192451732",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-9.2.2.4-EXTRACT-FF-WRITER-EXCLUSIVITY"
-          ],
-          "disposition": "partial_observation",
-          "explanation": "always_ff が呼んだ関数内の書き込みを書き込み先に含めることは診断するが、独立要素への非重複書き込みが許される longest static prefix の条件を同じ刺激で観測していない。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch9/test_illegal_always_ff_written_via_function.sv",
-              "contains": "module test_illegal_always_ff_written_via_function;"
             }
           ]
         }
@@ -33006,45 +32867,6 @@
           "evidence": [
             {
               "file": "tests/ch9/test_always_ff_simple.sv",
-              "contains": "module "
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "test": "tests/ch9/test_illegal_final_procedure_delay.sv",
-      "inputs_sha256": "0da91f779b620d96a0c91b3efafd0a5ecab7a233822269569ae55d64baac0aac",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-9.2.3-EXTRACT-FINAL-FUNCTION-STATEMENTS"
-          ],
-          "disposition": "partial_observation",
-          "explanation": "final 内で関数可の文（for、関数呼び出し、$display）と不可の遅延を対比して文法制約は診断するが、final が独立プロセスでなく単一プロセスから逐次実行される条件は負のテストの診断だけでは観測できない。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch9/test_illegal_final_procedure_delay.sv",
-              "contains": "module test_illegal_final_procedure_delay;"
-            }
-          ]
-        },
-        {
-          "requirement_ids": [
-            "SV2023-9.2.3-EXTRACT-FINAL-FUNCTION-STATEMENTS"
-          ],
-          "disposition": "partial_observation",
-          "explanation": "only function-legal statements are allowed in final, and final blocks execute sequentially from one process. The existing test rejects a delay in final, which shows the statement restriction, but the single-process sequential execution is a scheduling rule: the order of several final blocks is not specified, so a test cannot print one observable order that distinguishes concurrent from sequential execution.",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch9/test_illegal_final_procedure_delay.sv",
               "contains": "module "
             }
           ]
@@ -33652,21 +33474,6 @@
         },
         {
           "requirement_ids": [
-            "SV2023-9.7-EXTRACT-PROCESS-FINAL"
-          ],
-          "disposition": "partial_observation",
-          "explanation": "process::state の RUNNING/SUSPENDED/FINISHED/KILLED/WAITING と status() は観測するが、process が final class であること（拡張不可）を正常系テストで観測していない。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch9/test_process_self_suspend_and_noop_controls.sv",
-              "contains": "module test_process_self_suspend_and_noop_controls;"
-            }
-          ]
-        },
-        {
-          "requirement_ids": [
             "SV2023-9.7-EXTRACT-RESUME-SIGNATURE"
           ],
           "disposition": "partial_observation",
@@ -33714,8 +33521,7 @@
           "requirement_ids": [
             "SV2023-9.7-EXTRACT-KILL-SIGNATURE",
             "SV2023-9.7-EXTRACT-RESUME-SIGNATURE",
-            "SV2023-9.7-EXTRACT-SUSPEND-SIGNATURE",
-            "SV2023-9.7-EXTRACT-PROCESS-FINAL"
+            "SV2023-9.7-EXTRACT-SUSPEND-SIGNATURE"
           ],
           "disposition": "partial_observation",
           "explanation": "the process API declares kill, resume and suspend as no-argument void functions, and process is a final class with the five-state enum. The effects of the controls and the states are observed, but a void return cannot be shown from a statement call, and the final-class restriction is only visible when an extension is rejected, an error outside a normal-kind test.",
@@ -33725,30 +33531,6 @@
             {
               "file": "tests/ch9/test_process_self_suspend_and_noop_controls.sv",
               "contains": "module "
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "test": "tests/ch10/test_net_decl_assign_resolution.sv",
-      "inputs_sha256": "a04ff55b4c010c6132460bb2d77e7f26574e2ccf32f508700881ca84cb962dc8",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-10.3.1-EXTRACT-ONE-NET-DECLARATION"
-          ],
-          "disposition": "partial_observation",
-          "explanation": "net 宣言代入が 1 つのドライバとして追加の assign と解決されることは観測するが、同じ net を 2 回宣言して宣言代入を 2 つ持つことが error である条件を刺激していない。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch10/test_net_decl_assign_resolution.sv",
-              "contains": "module test_net_decl_assign_resolution;"
             }
           ]
         }
@@ -36096,34 +35878,6 @@
       ]
     },
     {
-      "test": "tests/ch13/test_func_recursive.sv",
-      "inputs_sha256": "6481ba73827bd749008d851001747031a52a25bea9d2733a3ddc425482427b7a",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-13.4.2-EXTRACT-AUTOMATIC-REENTRANT"
-          ],
-          "disposition": "partial_observation",
-          "explanation": "factorial/fibonacci/gcd の再帰で自動変数が呼び出しごとに確保されることは観測するが、automatic ローカルを階層名で選択できないという違法条件を負の刺激で確認していない。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch13/test_func_recursive.sv",
-              "contains": "      return n * factorial(n - 1);"
-            },
-            {
-              "file": "tests/ch13/test_func_recursive.sv",
-              "contains": "      return fibonacci(n - 1) + fibonacci(n - 2);"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "test": "tests/ch13/test_illegal_constant_function_calls_time.sv",
       "inputs_sha256": "a40051d9b84ff60884c32d313a35b071b118b5ea2b76f3564bb223d4c375e15f",
       "reviewed_on": "2026-10-26",
@@ -38040,21 +37794,6 @@
               "contains": "(a, lv = d) ##[1:2] b;"
             }
           ]
-        },
-        {
-          "requirement_ids": [
-            "SV2023-16.10-EXTRACT-TRIGGERED-FLOW"
-          ],
-          "disposition": "partial_observation",
-          "explanation": "maximal Boolean 式としての triggered で local が flow out することは観測するが、negation や他の演算子を適用した triggered では flow out しないことを刺激していない。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch16/test_triggered_local_variable_threads.sv",
-              "contains": "c ##0 sub(v).triggered ##1 (1'b1, rec_all(v));"
-            }
-          ]
         }
       ]
     },
@@ -39133,21 +38872,6 @@
         },
         {
           "requirement_ids": [
-            "SV2023-16.16.1-EXTRACT-CLOCK-IDENTITY"
-          ],
-          "disposition": "partial_observation",
-          "explanation": "and の両辺が同じ clk1 なので35で1回マッチし、同一クロックなら unique leading clock になることは見るが、値が常に等しい別信号を2つのクロックとして使う刺激がなく、値の一致がクロック同一性を作らないことを観測していない。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch16/test_multiclock_leading_clock.sv",
-              "contains": "  c_same: cover property (@(posedge clk1) a and @(posedge clk1) b)"
-            }
-          ]
-        },
-        {
-          "requirement_ids": [
             "SV2023-16.16.1-EXTRACT-INHERITED"
           ],
           "disposition": "partial_observation",
@@ -39469,21 +39193,6 @@
               "contains": "  property snapshot;"
             }
           ]
-        },
-        {
-          "requirement_ids": [
-            "SV2023-16.16.1-EXTRACT-CLOCK-IDENTITY"
-          ],
-          "disposition": "partial_observation",
-          "explanation": "the test has one property on one clock and shows unique leading clocks, but two distinct clock expressions that are value-equal tick together, so their identity and the difference from a single clock cannot appear in the action times without making the value-equal case an illegal design",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch16/test_local_variable_init_two_leading_clocks.sv",
-              "contains": "property snapshot;"
-            }
-          ]
         }
       ]
     },
@@ -39625,30 +39334,6 @@
             {
               "file": "tests/ch17/test_illegal_checker_captured_actual.sv",
               "contains": "  captured_use u(.a(const'(v)), .y(y));   // the actual contains a const cast"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "test": "tests/ch17/test_illegal_checker_dollar_actual.sv",
-      "inputs_sha256": "612dffe349bd61a85d4fe19da513e012b6ac716cd90dc2267efb794dae011441",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-17.3-EXTRACT-DOLLAR-ACTUAL"
-          ],
-          "disposition": "partial_observation",
-          "explanation": "型付き仮引数 n に $ を渡す不正例だけで、untyped 仮引数が range 上限や他インスタンスの実引数として $ を受ける合法側を刺激していない。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch17/test_illegal_checker_dollar_actual.sv",
-              "contains": "  typed_arg u(.n($), .y(y));   // illegal: $ for the typed formal n"
             }
           ]
         }
@@ -41108,54 +40793,6 @@
       ]
     },
     {
-      "test": "tests/ch18/test_rand_mode_array_element.sv",
-      "inputs_sha256": "282e204d68c6d4e4ba16100ebaaa26ad44064cc351032161bb4d3761c37dd9fb",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-18.8-EXTRACT-MODE-GETTER"
-          ],
-          "disposition": "partial_observation",
-          "explanation": "要素ごとのgetterが1/0を返すことは見るが、引数なしgetterが単一変数のみを受け付け、unpacked配列全体を渡すと拒否されることを負の入力で観測しない。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch18/test_rand_mode_array_element.sv",
-              "contains": "    $display(\"modes=%0d%0d%0d\", p.a[0].rand_mode(), p.a[1].rand_mode(), p.a[2].rand_mode());"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "test": "tests/ch18/test_constraint_mode_hierarchy.sv",
-      "inputs_sha256": "77482e8acd7cbbc6345e098a172ca7c8d8a230209dbac4e55c79e73d0b0da98f",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-18.9-EXTRACT-CONSTRAINT-MODE-TARGET"
-          ],
-          "disposition": "partial_observation",
-          "explanation": "基底・派生・外部ブロックを名前で指定できることは見るが、名前の省略がsetterに限られることを、名前なしgetterの不正呼び出しで観測しない。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch18/test_constraint_mode_hierarchy.sv",
-              "contains": "    d.constraint_mode(1);"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "test": "tests/ch18/test_randomize_argument_list.sv",
       "inputs_sha256": "8d5866e1b9ae7836c3ec6fc9890d521d08aa7fadccb78b264da08d2c933a6887",
       "reviewed_on": "2026-10-26",
@@ -42355,30 +41992,6 @@
             {
               "file": "tests/ch19/test_cg_cross_set_function_matches.sv",
               "contains": "          t.ca = i;"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "test": "tests/ch19/test_cg_cross_set_expression.sv",
-      "inputs_sha256": "00dd12dd42c11bde016cf4653fff5957f818a7b3686dfb22ad17b84dd3f01edd",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-19.6.1.4-EXTRACT-CROSS-SET-EXPRESSION"
-          ],
-          "disposition": "compound_requirement",
-          "explanation": "配列リテラルがbinの型文脈を得ることと関数戻り値のCrossQueueTypeを使うことは別テストで見るが、非互換型にcastを要する条件を負の入力で観測せず、1本の要求全体の証拠にならない。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch19/test_cg_cross_set_expression.sv",
-              "contains": "      bins pairs = '{ '{0, 3}, '{3, 0} };"
             }
           ]
         }
@@ -43945,30 +43558,6 @@
       ]
     },
     {
-      "test": "tests/ch21/test_illegal_display_undefined_format_specifier.sv",
-      "inputs_sha256": "44feef24636d58bec65225714d362dfeee1235e2465342650a4c48862b55e715",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-21.2.1.1-EXTRACT-FORMAT-VALIDITY"
-          ],
-          "disposition": "partial_observation",
-          "explanation": "未定義の %y を 30 行目で診断させるが、設計が拒否されるため %m/%l/%% の例外や literal 書式が後続の値に置き換わる実行結果を比較せず、置換規則を観測しない。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch21/test_illegal_display_undefined_format_specifier.sv",
-              "contains": "    $display(\"%m %l %%\");"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "test": "tests/ch21/test_format_unformatted_u_z_word_order.sv",
       "inputs_sha256": "3d0f985e313f5d7a5ad460b1f371049e7a0c8f345807e58d36ce42af7399f02f",
       "reviewed_on": "2026-10-26",
@@ -44041,30 +43630,6 @@
             {
               "file": "tests/ch21/test_fscanf_unformatted_u_z.sv",
               "contains": "    n = $fscanf(fd, \"%u\", u32);"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "test": "tests/ch21/test_illegal_display_strength_vector_net.sv",
-      "inputs_sha256": "ef942e37db335852982006f3501c52fb5545ad989a60ed85026c3a438dd3be01",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-21.2.1.4-EXTRACT-STRENGTH-SCALAR"
-          ],
-          "disposition": "partial_observation",
-          "explanation": "2 ビットのベクトル net を %v に渡す不正だけを診断し、スカラ net の合法な %v 表示（強度 2 文字 + 論理値 1 文字）は設計が拒否されるため実行・比較されない。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch21/test_illegal_display_strength_vector_net.sv",
-              "contains": "    #1 $display(\"%v\", s);"
             }
           ]
         }
@@ -45436,30 +45001,6 @@
             {
               "file": "tests/ch20/test_printtimescale_other_module.sv",
               "contains": "`timescale 10ns/1ns"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "test": "tests/ch22/test_illegal_default_nettype_latest_none_governs.sv",
-      "inputs_sha256": "db4a481e82098b5c8b33e236fbcdae73bb7eee3aca9d9e1ac30e7568e30ca7a0",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-22.8-EXTRACT-NETTYPE-DEFAULT-NONE"
-          ],
-          "disposition": "compound_requirement",
-          "explanation": "最新の none の下で未宣言ネットがエラーになることは観測するが、default_nettype がない場合や resetall 後に暗黙ネットが wire になることを同じテストで観測していない。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch22/test_illegal_default_nettype_latest_none_governs.sv",
-              "contains": "`default_nettype none"
             }
           ]
         }
@@ -53092,30 +52633,6 @@
       ]
     },
     {
-      "test": "tests/ch18/test_randcase_selection.sv",
-      "inputs_sha256": "25cc660c06e0338331988b790ad99ebd7ff2ff3db64b7c18ac73732cc75f3fca",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-18.16-EXTRACT-RANDCASE-WEIGHTS"
-          ],
-          "disposition": "partial_observation",
-          "explanation": "the test observes the probability weight over the sum and the zero-weight branch; it does not observe that a negative or non-integral weight is rejected, because that needs an illegal design, which the normal-kind requirement cannot use",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch18/test_randcase_selection.sv",
-              "contains": "randcase"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "test": "tests/ch16/test_concurrent_boolean_truth_array_samples.sv",
       "inputs_sha256": "33e9e7be50d3091c52d17fceba0f8abfbf85584d1c6f7badf697d32a0859493d",
       "reviewed_on": "2026-10-26",
@@ -53392,21 +52909,6 @@
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-18.8-EXTRACT-MODE-GETTER"
-          ],
-          "disposition": "partial_observation",
-          "explanation": "the test calls the no-argument getters on single variables and on constraint blocks and checks their int results, but it never passes a whole unpacked array to a getter, so the rule that the getter accepts only a singular variable, or one element of an unpacked array, is not observed",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch18/test_mode_method_signatures.sv",
-              "contains": "h.x.rand_mode(), h.y.rand_mode()"
-            }
-          ]
-        },
         {
           "requirement_ids": [
             "SV2023-18.9-EXTRACT-CONSTRAINT-MODE-TARGET"
@@ -55751,45 +55253,6 @@
       ]
     },
     {
-      "test": "tests/ch21/test_format_explicit_field_width.sv",
-      "inputs_sha256": "fb7541c9f5b5735861376227ad94f1b8d603a9b69be4c1661fbf265576238a5c",
-      "reviewed_on": "2026-10-27",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-21.2.1.2-EXTRACT-FIELD-WIDTH"
-          ],
-          "disposition": "citation_refinement",
-          "explanation": "The existing test observes the field widths that the clause defines, including width 0, but the registry row is the error kind for a width that is not a non-negative decimal integer constant. Such a width is an undefined format specification, whose rejection is already covered by the FORMAT-VALIDITY row; a separate positive witness for this row does not exist.",
-          "reviewed_on": "2026-10-27",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch21/test_format_explicit_field_width.sv",
-              "contains": "$display(\"[%3h]"
-            }
-          ]
-        },
-        {
-          "requirement_ids": [
-            "SV2023-21.2.1.2-EXTRACT-FIELD-WIDTH"
-          ],
-          "disposition": "citation_refinement",
-          "explanation": "The row is registered as an error requirement, but its content is the format of a field width: a nonnegative decimal constant may override the automatic size and a width of 0 gives the minimum width without leading spaces or zeros. A field width is written as digits, so no design can violate the rule and no illegal design can be rejected at its line; the existing test exercises the widths 3, 1, 4 and 0.",
-          "reviewed_on": "2026-10-27",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch21/test_format_explicit_field_width.sv",
-              "contains": "\"[%3h] [%3h] [%1h] [%4h] [%3b] [%3d] [%0h]\""
-            }
-          ]
-        }
-      ]
-    },
-    {
       "test": "tests/ch21/test_fopen_update_modes.sv",
       "inputs_sha256": "eeea9f8c23afe76ffaf789cf9a473da203ee0720665ffbe1abb743fc64708633",
       "reviewed_on": "2026-10-27",
@@ -56114,30 +55577,6 @@
             {
               "file": "tests/ch19/test_illegal_cg_matches_zero.sv",
               "contains": "bins s = cr with (1) matches 0;"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "test": "tests/ch19/test_illegal_cg_per_instance_procedural.sv",
-      "inputs_sha256": "70f58d7d3a8c0dfc6a1bbe7103154aa7a7b91d022fd0fa9140fef375e2f95780",
-      "reviewed_on": "2026-10-27",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-19.7-EXTRACT-DEFINITION-ONLY-OPTIONS"
-          ],
-          "disposition": "compound_requirement",
-          "explanation": "The test rejects a procedural assignment of option.per_instance after construction. The row also covers get_inst_coverage, auto_bin_max, detect_overlap and cross_retain_auto_bins at the levels of Table 19-2, and no test writes each of those options at a level that forbids it.",
-          "reviewed_on": "2026-10-27",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch19/test_illegal_cg_per_instance_procedural.sv",
-              "contains": "obj.cg.option.per_instance = 1;"
             }
           ]
         }
@@ -56538,30 +55977,6 @@
             {
               "file": "tests/ch20/test_illegal_typename_hierarchical_constant.sv",
               "contains": "localparam string T = $typename(u.sig);   // illegal: hierarchical"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "test": "tests/ch20/test_illegal_countbits_non_bitstream.sv",
-      "inputs_sha256": "726cb21583d5763399d7ebd92926a53fafa857befb7d0e63384c5f9db670cbc7",
-      "reviewed_on": "2026-11-14",
-      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-20.9-EXTRACT-COUNT-BITSTREAM"
-          ],
-          "disposition": "compound_requirement",
-          "explanation": "要求は式が bit-stream 型であること（違法の側）に加えて、式を {>>{expression}} と同じ幅のベクトルへ平らにして数えること（正常系の意味）を含む。違法系のこのテストは real メンバーを持つクラスオブジェクトの拒否だけを照合し、平らにする規則は違法系では観測できない。",
-          "reviewed_on": "2026-11-14",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch20/test_illegal_countbits_non_bitstream.sv",
-              "contains": "$display(\"%0d\", $countbits(obj, 1'b1));   // illegal: not bit-stream"
             }
           ]
         }

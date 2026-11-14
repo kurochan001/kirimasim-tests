@@ -13,6 +13,7 @@
 | `merge.py DIR --reviewer TEXT --date YYYY-MM-DD` |再検査した後、最新判定が`accept`の提案を適用する。冪等。`--dry-run`|
 | `runsim.py tests/...` |Icarus Verilog 13.0とVerilator 5.052（シード1と73）でテストを実行し、どれが一致するかを報告して`:oracle:`を決定する。固定版を5.054へ移す間は、新しいテストに`--verilator`で5.054のビルドを渡す（[移行中の固定版](../../docs/simulator-differences.ja.md#verilator-5054-interim)）。|
 | `withdrawn-20261023.json` |20% の最終オーディットでリンクが削除され、`propose.py` はこれを拒否した|
+| `lifted-holds-20261115.json` |2026-11-15に外した保留32件の記録。同じ日の台帳の変更で、保留の理由に挙げた「テストが観測していない部分」が要求から外れたもの（ツールは読まない）|
 | `workflows/match.js` |Claude Code ワークフロー: 1 つのマッチャーと 1 つの検証者をパーティションごとに|
 | `workflows/gap.js` |Claude CodeのWorkflow：区分ごとに作成担当1名と検証担当1名。作成担当は新規テストを作成し、`combined`モードでは先に対応付けを行う。|
 | `workflows/interpretation-review.js` |Claude CodeのWorkflow：分析担当が解釈保留事項の解決案を提案し、検証担当が反証を試みる|

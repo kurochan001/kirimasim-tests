@@ -28,12 +28,12 @@ Do not treat a requirement without a candidate or an unregistered test as eviden
 
 ## Reasons for retention of response
 
-1369 The range and judgment of the present paper were recorded in [Review judgement table](../coverage/test-matching-reviews.json). This is a record of the scope-limited judgments, not the number of completed reviews of the whole test. This information is not used as information for the corresponding registration or to increase the operation coverage rate. Checks the input hash, the string base, and the request ID, preventing the reuse of the decision after the change.
+1350 The range and judgment of the present paper were recorded in [Review judgement table](../coverage/test-matching-reviews.json). This is a record of the scope-limited judgments, not the number of completed reviews of the whole test. This information is not used as information for the corresponding registration or to increase the operation coverage rate. Checks the input hash, the string base, and the request ID, preventing the reuse of the decision after the change.
 
-- `citation_refinement` : 196 item.
-- `compound_requirement` : 182 item.
+- `citation_refinement` : 194 item.
+- `compound_requirement` : 176 item.
 - `oracle_issue` : 243 item.
-- `partial_observation` : 2147 item.
+- `partial_observation` : 2128 item.
 
 <a id="章別の登録状況"></a>
 

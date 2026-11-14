@@ -13,6 +13,7 @@ Tools to link IEEE 1800-2023 requirements (`coverage/behaviors.json`) to tests b
 | `merge.py DIR --reviewer TEXT --date YYYY-MM-DD` | Applies the proposals whose latest verdict is `accept`, after checking them again; idempotent; `--dry-run` |
 | `runsim.py tests/...` | Runs tests with Icarus Verilog 13.0 and Verilator 5.052 (seeds 1 and 73) and says which match, to decide `:oracle:`. While the pin moves to 5.054, give a 5.054 build with `--verilator` for new tests ([the interim pin](../../docs/simulator-differences.md#verilator-5054-interim)) |
 | `withdrawn-20261023.json` | Links withdrawn by the final audit of the 20% matching, which `propose.py` refuses |
+| `lifted-holds-20261115.json` | Record of the 32 scoped holds lifted on 2026-11-15, after the ledger change of that day removed the part each hold said the test did not observe (not read by the tools) |
 | `workflows/match.js` | Claude Code Workflow: one matcher and one verifier per partition |
 | `workflows/gap.js` | Claude Code Workflow: one writer (new tests, or matching first in `combined` mode) and one verifier per partition |
 | `workflows/interpretation-review.js` | Claude Code Workflow: analysts propose resolutions of interpretation issues, verifiers challenge them |
