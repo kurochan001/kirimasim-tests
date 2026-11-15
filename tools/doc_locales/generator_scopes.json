@@ -68,6 +68,10 @@
     "function_formal_contexts": {
       "en": "Thirty runtime output/inout/ref dataflow cases and thirty module/package/static-class constant calls, with literal/parameter actuals, five widths and both signing modes",
       "ja": "runtimeのoutput・inout・ref受渡し30本と、実引数をリテラル・パラメータに限定したmodule・package・static classの定数呼出し30本。5幅と符号の有無を確認"
+    },
+    "array_element_refs": {
+      "en": "Dynamic and associative array element references across allocation, same-value whole-array assignment and deletion; 1/8/32/33/65-bit signed and unsigned values; immediate alias writes, outdated-reference retention, preserved-reference controls and complete container observations at separated times.",
+      "ja": "動的配列・連想配列の要素参照を、再確保・同値の全体代入・削除の前後で観測。幅1/8/32/33/65と符号の有無、即時の書込み共有・古い参照の存続・参照を保つ対照を含み、時間を分けて全要素を確認。"
     }
   }
 }

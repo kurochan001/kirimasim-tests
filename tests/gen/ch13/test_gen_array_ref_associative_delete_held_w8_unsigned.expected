@@ -1,0 +1,18 @@
+entry held=00000000
+prewrite held=01010101 decimal=85
+live size=3
+live item[-7]=11111111
+live item[4]=01010101
+live item[19]=01010101
+erased exists=0 size=2
+retained held=01010101
+write held=10101010 decimal=170
+inside size=3
+inside item[-7]=11111111
+inside item[4]=01010101
+inside item[19]=01010101
+return retained=01010101 written=10101010
+returned size=3
+returned item[-7]=11111111
+returned item[4]=01010101
+returned item[19]=01010101

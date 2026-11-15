@@ -1,0 +1,18 @@
+entry held=0
+prewrite held=1 decimal=-1
+live size=3
+live item[-7]=1
+live item[4]=1
+live item[19]=1
+erased size=0
+retained held=1
+write held=0 decimal=0
+inside size=3
+inside item[-7]=1
+inside item[4]=1
+inside item[19]=1
+return retained=1 written=0
+returned size=3
+returned item[-7]=1
+returned item[4]=1
+returned item[19]=1

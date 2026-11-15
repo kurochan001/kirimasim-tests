@@ -399,7 +399,7 @@ tests/ch38/test_38_extra_scalar_val.sv",引用探索の候補とソースを確�
 7,集合データ型,8,クラス,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,51,"tests/ch10/test_assignment_deep.sv
 tests/ch37/test_vpi_typespec_kinds_more.sv
 tests/ch37/test_vpi_variable_kinds_flags_sizes.sv",既存モデルの計画・実行証跡を維持する,,
-7,集合データ型,9,プロセス,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,369,"tests/ch12/test_foreach_block_scope.sv
+7,集合データ型,9,プロセス,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,449,"tests/ch12/test_foreach_block_scope.sv
 tests/ch7/test_array_access.sv
 tests/ch7/test_assignment_forms.sv",既存モデルの計画・実行証跡を維持する,,
 7,集合データ型,10,代入文,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,294,"tests/ch10/test_assign_lhs_forms.sv
@@ -411,7 +411,7 @@ tests/ch10/test_lvalue_scopes_selects_and_concatenation_forms.sv",既存モデ�
 7,集合データ型,12,手続き型プログラミング文,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,173,"tests/ch11/test_tagged_union_expression_and_matches_precedence.sv
 tests/ch12/test_foreach_block_scope.sv
 tests/ch12/test_pattern_matching.sv",既存モデルの計画・実行証跡を維持する,,
-7,集合データ型,13,タスクと関数（サブルーチン）,M,モデル登録済み,登録済み,4,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,435,"tests/ch13/test_task_fifo.sv
+7,集合データ型,13,タスクと関数（サブルーチン）,M,モデル登録済み,登録済み,4,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,515,"tests/ch13/test_task_fifo.sv
 tests/ch37/test_vpi_tf_call_kinds_relations.sv
 tests/ch6/test_simple_bit_vector_types_and_packed_equivalents.sv",既存モデルの計画・実行証跡を維持する,,
 7,集合データ型,14,クロッキングブロック,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
@@ -543,7 +543,7 @@ tests/ch11/test_part_select_variable_base.sv",既存モデルの計画・実行�
 9,プロセス,12,手続き型プログラミング文,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,241,"tests/ch12/test_for_declared_variables_local_automatic.sv
 tests/ch12/test_for_loop_bitsel_accumulate.sv
 tests/ch12/test_foreach_block_scope.sv",既存モデルの計画・実行証跡を維持する,,
-9,プロセス,13,タスクと関数（サブルーチン）,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,440,"tests/ch13/test_function_controls_other_and_own_process.sv
+9,プロセス,13,タスクと関数（サブルーチン）,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,520,"tests/ch13/test_function_controls_other_and_own_process.sv
 tests/ch13/test_function_in_always_comb.sv
 tests/ch13/test_function_nonblocking_statements_no_delay.sv",既存モデルの計画・実行証跡を維持する,,
 9,プロセス,14,クロッキングブロック,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,16,"tests/ch13/test_function_nonblocking_statements_no_delay.sv

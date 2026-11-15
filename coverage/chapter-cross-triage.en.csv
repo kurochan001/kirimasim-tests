@@ -399,7 +399,7 @@ tests/ch38/test_38_extra_scalar_val.sv","The candidates and sources of the citat
 7,Aggregate data types,8,Classes,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,51,"tests/ch10/test_assignment_deep.sv
 tests/ch37/test_vpi_typespec_kinds_more.sv
 tests/ch37/test_vpi_variable_kinds_flags_sizes.sv",Maintaining the planning and execution evidence of existing models.,,
-7,Aggregate data types,9,Processes,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,369,"tests/ch12/test_foreach_block_scope.sv
+7,Aggregate data types,9,Processes,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,449,"tests/ch12/test_foreach_block_scope.sv
 tests/ch7/test_array_access.sv
 tests/ch7/test_assignment_forms.sv",Maintaining the planning and execution evidence of existing models.,,
 7,Aggregate data types,10,Assignment statements,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,294,"tests/ch10/test_assign_lhs_forms.sv
@@ -411,7 +411,7 @@ tests/ch10/test_lvalue_scopes_selects_and_concatenation_forms.sv",Maintaining th
 7,Aggregate data types,12,Procedural programming statements,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,173,"tests/ch11/test_tagged_union_expression_and_matches_precedence.sv
 tests/ch12/test_foreach_block_scope.sv
 tests/ch12/test_pattern_matching.sv",Maintaining the planning and execution evidence of existing models.,,
-7,Aggregate data types,13,Tasks and functions (subroutines),M,Modeling licensed,登録済み,4,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,435,"tests/ch13/test_task_fifo.sv
+7,Aggregate data types,13,Tasks and functions (subroutines),M,Modeling licensed,登録済み,4,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,515,"tests/ch13/test_task_fifo.sv
 tests/ch37/test_vpi_tf_call_kinds_relations.sv
 tests/ch6/test_simple_bit_vector_types_and_packed_equivalents.sv",Maintaining the planning and execution evidence of existing models.,,
 7,Aggregate data types,14,Clocking blocks,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,0,,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
@@ -543,7 +543,7 @@ tests/ch11/test_part_select_variable_base.sv",Maintaining the planning and execu
 9,Processes,12,Procedural programming statements,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,241,"tests/ch12/test_for_declared_variables_local_automatic.sv
 tests/ch12/test_for_loop_bitsel_accumulate.sv
 tests/ch12/test_foreach_block_scope.sv",Maintaining the planning and execution evidence of existing models.,,
-9,Processes,13,Tasks and functions (subroutines),M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,440,"tests/ch13/test_function_controls_other_and_own_process.sv
+9,Processes,13,Tasks and functions (subroutines),M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,520,"tests/ch13/test_function_controls_other_and_own_process.sv
 tests/ch13/test_function_in_always_comb.sv
 tests/ch13/test_function_nonblocking_statements_no_delay.sv",Maintaining the planning and execution evidence of existing models.,,
 9,Processes,14,Clocking blocks,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,16,"tests/ch13/test_function_nonblocking_statements_no_delay.sv

@@ -36,6 +36,10 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `arrayfunc-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T05:50:46.736634+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `arrayfunc-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T05:50:40.662343+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `arrayfunc-20261115-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T05:50:46.247835+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `arrayrefs-20261115-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-15T11:47:32.730294+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `arrayrefs-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T11:48:10.984505+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `arrayrefs-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T11:47:57.157440+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `arrayrefs-20261115-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T11:48:07.884883+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `c2tests-20261115-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T23:56:33.360931+00:00` / 17/12332 execution checked; 0 entries refer to older inputs.
 - `c2tests-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T23:59:09.029234+00:00` / 19/12332 execution checked; 0 entries refer to older inputs.
 - `c2tests-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T23:57:51.528183+00:00` / 28/12332 execution checked; 0 entries refer to older inputs.

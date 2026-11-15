@@ -4,7 +4,7 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の130生成器から6,827件のテストを生成しています。
+現在の131生成器から6,907件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
@@ -12,6 +12,7 @@
 | 生成器 | 章 | テスト数 | 確認する動作 |
 | --- | --- | ---: | --- |
 | [`ambiguous_strength_union`](../generators/ambiguous_strength_union.py) | 28 | 20 | H/Lの強度16組と、既知値のまま複数の強度を持つ範囲4組の合成。X/Z制御と、単一強度strong0・supply0の対照を含む |
+| [`array_element_refs`](../generators/array_element_refs.py) | 13 | 80 | 動的配列・連想配列の要素参照を、再確保・同値の全体代入・削除の前後で観測。幅1/8/32/33/65と符号の有無、即時の書込み共有・古い参照の存続・参照を保つ対照を含み、時間を分けて全要素を確認。 |
 | [`cg_option_levels`](../generators/cg_option_levels.py) | 19 | 17 | 表19-2・19-4でNoとされるcoverpoint・crossの本体でのoption・type_option代入を違法系として生成し、19.10の暗黙の構造体と照合 |
 | [`combination_aggregates`](../generators/combination_aggregates.py) | 6, 11, 13 | 18 | 境界条件18件。アンパック構造体の参照渡しと寿命、配列のinputコピー、ネストしたパック選択、文字列やネストした代入先へのストリーミングを確認 |
 | [`combination_events`](../generators/combination_events.py) | 6, 9, 15 | 9 | 境界条件9件。自動変数のeventの寿命、戻り値・条件式で選択したevent、計算したイベント制御、`iff`、遅延トリガ、名前付きforkの終了処理を確認 |

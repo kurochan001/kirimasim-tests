@@ -1389,3 +1389,8 @@ ch30/test_illegal_specify_path_to_input                           アサーシ�
 2026-11-15に追加したゲート配列の出力幅20本では、Verilator 5.054のseed 1と73の両方で次の差異を再現しました。
 
 - `and`・`xnor`・`not`・`bufif1`・`nmos`の4要素配列に、2ビットまたは5ビットの出力を接続することを、負の添字の両方向で受理します。ランナーの`-Wno-fatal`設定では幅の警告を出して続行します。IEEE 1800-2023 28.3.6は、単一端子の幅（1ビット）でも全要素を満たす幅（4ビット）でもない接続をエラーとします。対象は`gen/ch28/test_gen_primarray_bad_{gate}_y_w{2,5}_negative_{up,down}`です。Verilatorのoracleは登録しません。入力・制御端子の同様の幅不一致は拒否します。
+
+2026-11-15に追加した配列要素の参照では、Verilator 5.054のseed 1と73の両方で次の差異を再現しました。
+
+- 動的配列の65 bitの符号付き・符号なし要素について、タスク内の最初の参照経由の書込みが、呼出し側の`live`表示に反映されません。IEEE 1800-2023の13.5.2は即時の反映を要求します。別要素を更新する対照を含め、動的配列の5操作の計10本で発生します。例：`gen/ch13/test_gen_array_ref_dynamic_write_other_w65_signed`、`gen/ch13/test_gen_array_ref_dynamic_write_other_w65_unsigned`。
+- 幅1/8/32/33について、拡張コピー・縮小コピー・同値の全体代入で古くなった参照への後続の書込みが、新しい配列を変更します。IEEE 1800-2023の13.5.2は、取り除かれた要素を呼出し先のために存続させ、その後の書込みを呼出し側の新しい格納先へ反映しないよう要求します。これら24本は、上記の動的配列の差異を拡充するものです。例：`gen/ch13/test_gen_array_ref_dynamic_grow_copy_w8_unsigned`、`gen/ch13/test_gen_array_ref_dynamic_shrink_copy_w32_unsigned`、`gen/ch13/test_gen_array_ref_dynamic_equal_assignment_w33_signed`。

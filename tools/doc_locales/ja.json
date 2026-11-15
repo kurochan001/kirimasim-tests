@@ -25507,6 +25507,22 @@
     "a ZXQPH0QXZ array exposes its declared ZXQPH1QXZ ZXQPH2QXZ ZXQPH3QXZ indices, element identity and terminal values": "ZXQPH0QXZの配列は、宣言した添字ZXQPH1QXZ ZXQPH2QXZ ZXQPH3QXZ、要素の同一性、端子値をVPIへ提供する",
     "a ZXQPH0QXZ array exposes its declared ZXQPH1QXZ ZXQPH2QXZ : ZXQPH3QXZ ZXQPH4QXZ indices, element identity and terminal values": "ZXQPH0QXZの配列は、宣言した添字ZXQPH1QXZ ZXQPH2QXZ : ZXQPH3QXZ ZXQPH4QXZ、要素の同一性、端子値をVPIへ提供する",
     "ZXQPH0QXZ constant functions use only constant actuals with ZXQPH1QXZ ZXQPH2QXZ ZXQPH3QXZ - ZXQPH4QXZ ZXQPH5QXZ inputs": "ZXQPH0QXZの定数関数は、ZXQPH1QXZ ZXQPH2QXZ ZXQPH3QXZ ZXQPH4QXZ幅・ZXQPH5QXZの入力に定数の実引数だけを使う",
-    "runtime ZXQPH0QXZ calls update ZXQPH1QXZ ZXQPH2QXZ ZXQPH3QXZ - ZXQPH4QXZ ZXQPH5QXZ actuals while input calls retain them": "runtimeのZXQPH0QXZ呼出しは、ZXQPH1QXZ ZXQPH2QXZ ZXQPH3QXZ ZXQPH4QXZ幅・ZXQPH5QXZの実引数を更新し、input呼出しは元の値を保つ"
+    "runtime ZXQPH0QXZ calls update ZXQPH1QXZ ZXQPH2QXZ ZXQPH3QXZ - ZXQPH4QXZ ZXQPH5QXZ actuals while input calls retain them": "runtimeのZXQPH0QXZ呼出しは、ZXQPH1QXZ ZXQPH2QXZ ZXQPH3QXZ ZXQPH4QXZ幅・ZXQPH5QXZの実引数を更新し、input呼出しは元の値を保つ",
+    "ZXQPH0QXZ - ZXQPH1QXZ signed element ref identity across delete all in a associative array": "ZXQPH0QXZ - ZXQPH1QXZの符号付き要素参照：連想配列の全削除と再挿入前後の同一性",
+    "ZXQPH0QXZ - ZXQPH1QXZ unsigned element ref identity across delete all in a associative array": "ZXQPH0QXZ - ZXQPH1QXZの符号なし要素参照：連想配列の全削除と再挿入前後の同一性",
+    "ZXQPH0QXZ - ZXQPH1QXZ signed element ref identity across delete held in a associative array": "ZXQPH0QXZ - ZXQPH1QXZの符号付き要素参照：連想配列の参照先の削除と再挿入前後の同一性",
+    "ZXQPH0QXZ - ZXQPH1QXZ unsigned element ref identity across delete held in a associative array": "ZXQPH0QXZ - ZXQPH1QXZの符号なし要素参照：連想配列の参照先の削除と再挿入前後の同一性",
+    "ZXQPH0QXZ - ZXQPH1QXZ signed element ref identity across delete other in a associative array": "ZXQPH0QXZ - ZXQPH1QXZの符号付き要素参照：連想配列の別キーの削除前後の同一性",
+    "ZXQPH0QXZ - ZXQPH1QXZ unsigned element ref identity across delete other in a associative array": "ZXQPH0QXZ - ZXQPH1QXZの符号なし要素参照：連想配列の別キーの削除前後の同一性",
+    "ZXQPH0QXZ - ZXQPH1QXZ signed element ref identity across delete recreate in a dynamic array": "ZXQPH0QXZ - ZXQPH1QXZの符号付き要素参照：動的配列の削除と再確保前後の同一性",
+    "ZXQPH0QXZ - ZXQPH1QXZ unsigned element ref identity across delete recreate in a dynamic array": "ZXQPH0QXZ - ZXQPH1QXZの符号なし要素参照：動的配列の削除と再確保前後の同一性",
+    "ZXQPH0QXZ - ZXQPH1QXZ signed element ref identity across equal assignment in a dynamic array": "ZXQPH0QXZ - ZXQPH1QXZの符号付き要素参照：動的配列の同値の配列全体代入前後の同一性",
+    "ZXQPH0QXZ - ZXQPH1QXZ unsigned element ref identity across equal assignment in a dynamic array": "ZXQPH0QXZ - ZXQPH1QXZの符号なし要素参照：動的配列の同値の配列全体代入前後の同一性",
+    "ZXQPH0QXZ - ZXQPH1QXZ signed element ref identity across grow copy in a dynamic array": "ZXQPH0QXZ - ZXQPH1QXZの符号付き要素参照：動的配列の拡張と初期値コピー前後の同一性",
+    "ZXQPH0QXZ - ZXQPH1QXZ unsigned element ref identity across grow copy in a dynamic array": "ZXQPH0QXZ - ZXQPH1QXZの符号なし要素参照：動的配列の拡張と初期値コピー前後の同一性",
+    "ZXQPH0QXZ - ZXQPH1QXZ signed element ref identity across shrink copy in a dynamic array": "ZXQPH0QXZ - ZXQPH1QXZの符号付き要素参照：動的配列の縮小と初期値コピー前後の同一性",
+    "ZXQPH0QXZ - ZXQPH1QXZ unsigned element ref identity across shrink copy in a dynamic array": "ZXQPH0QXZ - ZXQPH1QXZの符号なし要素参照：動的配列の縮小と初期値コピー前後の同一性",
+    "ZXQPH0QXZ - ZXQPH1QXZ signed element ref identity across write other in a dynamic array": "ZXQPH0QXZ - ZXQPH1QXZの符号付き要素参照：動的配列の別要素の更新前後の同一性",
+    "ZXQPH0QXZ - ZXQPH1QXZ unsigned element ref identity across write other in a dynamic array": "ZXQPH0QXZ - ZXQPH1QXZの符号なし要素参照：動的配列の別要素の更新前後の同一性"
   }
 }
