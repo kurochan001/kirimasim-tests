@@ -22,12 +22,14 @@
 Nightlyは毎晩`main`で、icarus・verilator・kirimasim・lyra-build・lyra・ghost・publishの7ジョブをすべて実行します。
 最新の実行の結果は[`results`ブランチのレポート](https://github.com/kurochan001/kirimasim-tests/tree/results#readme)にあります。
 最後に成功したNightlyは2026-11-14の[実行](https://github.com/kurochan001/kirimasim-tests/actions/runs/43533749064)で、suite `aef04b93`を対象にしました。
-2026-11-15の[実行](https://github.com/kurochan001/kirimasim-tests/actions/runs/43651437455)はsuite `ed5ded9a`が対象で、Ghostのパーサ取得中に失敗し、ビルド・テストには進みませんでした。kirimasimのランダム照合とpublishを含む、ほかの6ジョブは成功しました。取得処理は前夜の成功時と同じです。生の診断は非公開に保つため、今回の記録では通信・アクセス権・参照先のどれが原因かを区別できません。パーサのfetchを最大3回、5秒・10秒の間隔で試し、固定の失敗分類だけを報告するようにしました。再試行を使い切るとジョブは失敗します。故障を注入して回復と出力の秘匿を確認しましたが、対策後のNightlyではまだ確認していません。
+2026-11-15の[実行](https://github.com/kurochan001/kirimasim-tests/actions/runs/43651437455)はsuite `ed5ded9a`が対象で、Ghostのパーサ取得中に失敗し、ビルド・テストには進みませんでした。kirimasimのランダム照合とpublishを含む、ほかの6ジョブは成功しました。元の実行にはGitの直接の診断が残っていません。その後の取得専用の診断でアクセス失敗を再現し、CIの取得先設定が現在の依存先設定と食い違っていることを確認しました。
 開発を引き継ぐときは、最新の[引き継ぎ資料](claude-code-handoff-20261112.md)を参照してください。この節の以下の記録は、以前の確認時点のものです。
 
-手動の[Parser checkout diagnostic](https://github.com/kurochan001/kirimasim-tests/actions/workflows/parser-checkout.yml)は、Nightlyから直接取り出した2つの取得スクリプトを、同じリポジトリのシークレットと読取り専用のジョブ権限で実行します。次のNightly全体を待たず、現在の取得処理を確認できます。既定の`normal`はNightlyの認証を維持し、`clean-token`はジョブのトークンを引き継いだGit設定から隔離し、`anonymous`は認証ヘッダも無効にします。シミュレータのビルド・実行、生ログのアップロード、結果の公開は行いません。診断の成功で確認できるのはその時点で取得できることまでで、過去の失敗原因やNightlyの残りの処理を検証したことにはなりません。
+手動の[Parser checkout diagnostic](https://github.com/kurochan001/kirimasim-tests/actions/workflows/parser-checkout.yml)は、Nightlyから直接取り出した2つの取得スクリプトを、同じリポジトリのシークレットとrunnerイメージで実行します。パーサには専用の読み取り専用deploy keyでアクセスします。任意の`check_identity`入力は、失敗後に鍵の認証と取得先への適合を調べ、固定ラベルだけを出します。シミュレータのビルド・実行、生ログのアップロード、結果の公開は行いません。Nightlyの残りの処理とは分けて取得を確認する診断です。
 
-2026-11-15の[通常の診断](https://github.com/kurochan001/kirimasim-tests/actions/runs/43701395419)、[トークンを隔離した診断](https://github.com/kurochan001/kirimasim-tests/actions/runs/43702092207)、[匿名の診断](https://github.com/kurochan001/kirimasim-tests/actions/runs/43702094330)はいずれも、パーサのfetchを3回試して「認証またはリポジトリへのアクセス」の分類で失敗しました。再試行では取得が回復していません。現在のパーサ取得先の設定とアクセスを引き続き調べる必要があり、元の失敗を起こしたアクセス上の問題の詳細までは特定していません。
+修正前の[通常のHTTPS診断](https://github.com/kurochan001/kirimasim-tests/actions/runs/43701395419)、[トークンを隔離した診断](https://github.com/kurochan001/kirimasim-tests/actions/runs/43702092207)、[匿名の診断](https://github.com/kurochan001/kirimasim-tests/actions/runs/43702094330)はいずれも、パーサのfetchを3回試して「認証またはリポジトリへのアクセス」の分類で失敗しました。依存先専用のSSH鍵を追加した後の[鍵の照合](https://github.com/kurochan001/kirimasim-tests/actions/runs/43705154602)で、CIの取得先が鍵の読める依存先と異なることを確認しました。この履歴にあるHTTPSの比較モードは削除済みです。
+
+CIの取得先を依存先の設定に合わせ、パーサの認証をジョブのトークンから専用の読み取り専用deploy keyへ変更しました。ジョブのトークンでは別の非公開リポジトリを読めないことは、[checkoutの説明](https://github.com/actions/checkout/blob/main/README.md#checkout-multiple-repos-private)に記載されています。パーサの参照先と取得先ディレクトリの指定は維持しました。`20114a39`による[修正後の1回目](https://github.com/kurochan001/kirimasim-tests/actions/runs/43705412434)と[2回目](https://github.com/kurochan001/kirimasim-tests/actions/runs/43705457958)の診断は成功しました。取得の回復は確認済みで、修正後のNightly全体はまだ実行していません。
 
 ### 個別artifactまで照合した以前の状態
 
