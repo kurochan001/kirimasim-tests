@@ -1381,3 +1381,7 @@ ch30/test_illegal_specify_path_to_input                           アサーシ�
 
 - nand・or・xnor・xorの非対称な`(weak0, pull1)`と`(supply1, pull0)`の指定が、指定した強度ではなくstrongとして表示されます（28.3.2）。`gen/ch28/test_gen_gate_strength_{nand,or,xnor,xor}_asymmetric`
 - `%v`の`St0`などの略号の後ろに余分な空白が出ます。21.2.1.4は3文字の形式を定めています。既定強度のテストは、strongの略号自体が正しい通常ゲートでもこの差を検出します。`gen/ch28/test_gen_gate_default_strengths_all_types`
+
+2026-11-15に追加した継承予約語のテストでは、Verilator 5.054のseed 1と73の両方で次の差異を再現しました。
+
+- `` `begin_keywords "1800-2012" ``の下で`reg global;`を受理します。22.14.8は22.14.7からこの予約語を継承し、5.6はエスケープなしの識別子としての使用を禁止しています。新規テストは`gen/ch22/test_gen_kw_inherited_1800_2012_global`です。同じ保存実行で既存の`gen/ch22/test_gen_kw_1800_2009_global`の受理も再現しました。どちらにもVerilator 5.054のoracleは登録しません。

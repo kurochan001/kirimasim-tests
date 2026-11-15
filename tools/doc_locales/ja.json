@@ -25495,6 +25495,8 @@
     "nand applies both components of two asymmetric drive-strength pairs for every binary input pair": "nandが、全ての二値入力の組合せで2つの非対称な駆動強度対の両成分を適用する",
     "or applies both components of two asymmetric drive-strength pairs for every binary input pair": "orが、全ての二値入力の組合せで2つの非対称な駆動強度対の両成分を適用する",
     "xnor applies both components of two asymmetric drive-strength pairs for every binary input pair": "xnorが、全ての二値入力の組合せで2つの非対称な駆動強度対の両成分を適用する",
-    "xor applies both components of two asymmetric drive-strength pairs for every binary input pair": "xorが、全ての二値入力の組合せで2つの非対称な駆動強度対の両成分を適用する"
+    "xor applies both components of two asymmetric drive-strength pairs for every binary input pair": "xorが、全ての二値入力の組合せで2つの非対称な駆動強度対の両成分を適用する",
+    "ZXQPH0QXZ remains reserved in the cumulative ZXQPH1QXZ keyword set and cannot name a ZXQPH2QXZ": "ZXQPH0QXZは累積予約語集合ZXQPH1QXZでも予約されており、ZXQPH2QXZの名前には使えない",
+    "ZXQPH0QXZ remains reserved in the cumulative ZXQPH1QXZ -noconfig keyword set and cannot name a ZXQPH2QXZ": "ZXQPH0QXZは累積予約語集合ZXQPH1QXZ -noconfigでも予約されており、ZXQPH2QXZの名前には使えない"
   }
 }

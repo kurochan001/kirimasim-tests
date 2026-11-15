@@ -1382,3 +1382,7 @@ The gate-strength tests added on 2026-11-15 reproduce these differences at both 
 
 - On nand, or, xnor and xor, asymmetric `(weak0, pull1)` and `(supply1, pull0)` specifications are displayed as strong outputs instead of the specified strengths (28.3.2). `gen/ch28/test_gen_gate_strength_{nand,or,xnor,xor}_asymmetric`
 - The `%v` output contains an extra trailing blank after a mnemonic such as `St0`, although 21.2.1.4 specifies a three-character format. The default-strength test exposes it even on ordinary gates that correctly display the strong mnemonic. `gen/ch28/test_gen_gate_default_strengths_all_types`
+
+On 2026-11-15, the inherited-keyword additions reproduce the following difference with Verilator 5.054 at both seeds 1 and 73:
+
+- Under `` `begin_keywords "1800-2012" ``, it accepts `reg global;`, although 22.14.8 inherits the reserved word from 22.14.7 (5.6 prohibits its use as an unescaped identifier). The new test is `gen/ch22/test_gen_kw_inherited_1800_2012_global`. The same saved run also reproduces acceptance in the existing `gen/ch22/test_gen_kw_1800_2009_global`. Neither is registered with a Verilator 5.054 oracle.

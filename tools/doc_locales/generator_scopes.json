@@ -44,6 +44,10 @@
     "gate_strength_truth": {
       "en": "Asymmetric drive strengths of nand, or, xnor and xor, and default strengths of all gate types in Table 28-2, including the pull-source exception",
       "ja": "nand・or・xnor・xorの非対称な駆動強度と、pull源の例外を含む表28-2の全ゲート種別の既定強度"
+    },
+    "keywords_inherited": {
+      "en": "Inherited reserved words of five begin_keywords modes, including the complete 1364-2001-noconfig set; together with existing addition tests they check every word of each cumulative set",
+      "ja": "5種類のbegin_keywordsで継承される予約語と、1364-2001-noconfigの全予約語。既存の追加語テストと合わせ、各版の累積集合の全語を確認"
     }
   }
 }
