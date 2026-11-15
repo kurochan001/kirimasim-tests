@@ -376,6 +376,17 @@ The large scale comparison and test creation was done in parallel, by dividing t
 - The decisions are made by the following elements: JSONL of the comparison proposal and the decision, the identifier of the reviewer, the date, the department, and the instructions used (workflow script).
 - Generated tests: generator `VERSION` and `oracles.txt`.
 
+Each snapshot's `executed` list is stored in full only at its first occurrence
+in the history. Later occurrences use `{"same_as_sha256": "<SHA-256>"}`.
+The digest is computed from the UTF-8 bytes of the list serialized as JSON with
+`ensure_ascii=False` and separators `(",", ":")`.
+`expand_history_lists(data)` in `tools/behavior_coverage.py` restores an
+independent list in each snapshot. An unknown reference is an error and leaves
+the history file untouched. This format applies to main and to the results
+history when Nightly runs a commit containing this change. A format conversion
+must round-trip to the complete original content, without changing counts,
+percentages or the denominator. Earlier git commits are not rewritten.
+
 <a id="12-既知の限界と未完了"></a>
 
 ## 12. Known limits and incompleteness.

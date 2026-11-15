@@ -76,6 +76,43 @@ class BehaviorCoverageTests(unittest.TestCase):
         self.assertEqual((runs[0]["executed"], runs[0]["dropped_snapshots"]), (3, 1))
         self.assertEqual(len(runs), 2)
 
+    def test_history_keeps_a_repeated_executed_list_once(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "behavior-history.json"
+            same, changed = ["SV2023-A", "SV2023-B"], ["SV2023-A"]
+            for executed in (same, same, changed):
+                coverage.append_history(path, {"execution": {"snapshots": [
+                    {"simulator": "icarus", "executed": list(executed)}]}})
+            data = json.loads(path.read_text(encoding="utf-8"))
+            lists = [run["execution"]["snapshots"][0]["executed"] for run in data["runs"]]
+            self.assertEqual(lists, [same, {"same_as_sha256": coverage.executed_digest(same)}, changed])
+            coverage.expand_history_lists(data)
+            self.assertEqual([run["execution"]["snapshots"][0]["executed"] for run in data["runs"]],
+                             [same, same, changed])
+
+    def test_history_keeps_a_list_whose_first_copy_is_dropped(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "behavior-history.json"
+            listed = ["SV2023-A"]
+            reference = {"same_as_sha256": coverage.executed_digest(listed)}
+            old = {"execution": {"snapshots": [{"simulator": "other", "executed": list(listed)},
+                                               {"simulator": "icarus", "executed": reference}]}}
+            path.write_text(json.dumps({"schema": 1, "runs": [old]}), encoding="utf-8")
+            coverage.append_history(path, {"execution": {"snapshots": []}})
+            runs = json.loads(path.read_text(encoding="utf-8"))["runs"]
+        self.assertEqual(runs[0]["execution"]["snapshots"], [{"simulator": "icarus", "executed": listed}])
+
+    def test_history_rejects_an_unknown_list_reference_without_overwriting(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "behavior-history.json"
+            data = {"schema": 1, "runs": [{"execution": {"snapshots": [
+                {"simulator": "icarus", "executed": {"same_as_sha256": "0" * 64}}]}}]}
+            original = json.dumps(data).encode("utf-8")
+            path.write_bytes(original)
+            with self.assertRaisesRegex(coverage.InvalidCoverage, "unknown executed list"):
+                coverage.append_history(path, {"execution": {"snapshots": []}})
+            self.assertEqual(path.read_bytes(), original)
+
     def test_reproducible_execution_leaves_out_ghost_kirimasim_and_lyra(self):
         rid = self.reg["requirements"][0]["id"]
         for simulator, counted in (("icarus", True), ("verilator", True), ("sby", True),

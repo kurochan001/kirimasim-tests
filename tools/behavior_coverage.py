@@ -505,18 +505,61 @@ def drop_unknown_snapshots(data: dict) -> None:
             run["dropped_snapshots"] = run.get("dropped_snapshots", 0) + len(snapshots) - len(kept)
 
 
+def executed_digest(executed: list) -> str:
+    """The SHA-256 of a snapshot's executed list, over its compact JSON text."""
+    text = json.dumps(executed, ensure_ascii=False, separators=(",", ":"))
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def expand_history_lists(data: dict) -> None:
+    """Replaces each {"same_as_sha256": digest} in a behavior history by the
+    executed list that an earlier snapshot holds in full, so every snapshot
+    holds its own list again."""
+    full = {}
+    for run in data["runs"]:
+        for snapshot in run.get("execution", {}).get("snapshots", []):
+            executed = snapshot.get("executed")
+            if isinstance(executed, dict):
+                digest = executed.get("same_as_sha256")
+                require(digest in full, f"behavior history refers to an unknown executed list {digest}")
+                snapshot["executed"] = list(full[digest])
+            elif isinstance(executed, list):
+                full.setdefault(executed_digest(executed), executed)
+
+
+def compact_history_lists(data: dict) -> None:
+    """Keeps each executed list in full only in the first snapshot that holds
+    it; a later snapshot with the same list holds {"same_as_sha256": digest}
+    instead, where digest is executed_digest of the list. Nothing is lost:
+    expand_history_lists restores every list."""
+    seen = set()
+    for run in data["runs"]:
+        for snapshot in run.get("execution", {}).get("snapshots", []):
+            executed = snapshot.get("executed")
+            if isinstance(executed, list):
+                digest = executed_digest(executed)
+                if digest in seen:
+                    snapshot["executed"] = {"same_as_sha256": digest}
+                else:
+                    seen.add(digest)
+
+
 def append_history(path: Path, entry: dict) -> None:
     """Keep the denominator identity beside counts so scope changes stay visible.
 
     Execution snapshots of a simulator outside SIMULATORS and RETIRED_SIMULATORS
     are dropped from the earlier runs, as tools/results_history.py drops its
     results, and the run records how many were dropped; its counts are left as
-    they were measured."""
+    they were measured. An executed list that an earlier snapshot already
+    holds is written as a reference to it (compact_history_lists), so the
+    history grows only by the lists that changed."""
     data = json.loads(path.read_text(encoding="utf-8")) if path.is_file() else {"schema": 1, "runs": []}
     require(data.get("schema") == 1 and isinstance(data.get("runs"), list),
             "unknown behavior history format")
+    expand_history_lists(data)
     drop_unknown_snapshots(data)
     data["runs"].append(entry)
+    compact_history_lists(data)
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 

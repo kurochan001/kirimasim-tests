@@ -129,7 +129,7 @@ Nightlyの開始予定は毎日04:23 JSTです。公開は全ジョブ終了後�
 - `results/ch19-tables-20261115-*.json`: 2026-11-15に表19-2・19-4と19.8のために追加した20本の実行。Icarus Verilog 13.0は17 pass・3 knownですが、17本の拒否はcovergroup未対応によるもので、規格違反の実行確認には数えません。Verilator 5.054はseed 1と73のどちらも2 pass・18 knownで、coverpoint・crossでの`set_inst_name`の拒否を確認します。kirimasim `d1d8a1782d0a`は19 pass・1 unsupportedです。生成した17本のoracleはspecのみで、kirimasimの拒否も実行確認には数えません。
 - `slang/`: 固定版slangによる[参考判定](../docs/slang-reference.md)の日付付きの記録。`tools/run_slang.py`が書きます。 どの集計にも数えず、カバレッジのツールは読みません。[レビュー候補](../docs/review-candidates.md)は`tools/review_candidates.py`がNightlyの結果から作り、`results`ブランチに置きます。
 - `behavior-summary.json`: 現在の暫定値・確定値、章別の割合、分母SHA-256、 シミュレータごとの失敗・既知不一致・未対応・未実行・古い証跡などの内訳。 `--update`で概要Markdownとともに再生成し、`--check`で両方の整合性を検査します。
-- `behavior-history.json`: 計測履歴。分母と計測規則の版を添えて保存します。 分母が変わった前後の割合は、そのまま改善・悪化として比較しません。
+- `behavior-history.json`: 計測履歴。分母と計測規則の版を添えて保存します。 分母が変わった前後の割合は、そのまま改善・悪化として比較しません。 各スナップショットの`executed`一覧は最初の出現時だけ保存し、重複は`same_as_sha256`参照にします。復元方法は[方法書](../docs/requirements-to-tests-method.md#11-fixed-for-reproducibility)を参照してください。この変更を含むコミットで実行したNightlyはresults側の履歴にも同じ形式を使います。
 
 入力ハッシュにはテスト本体、期待値、`:files:`、DPI/VPIのCソース、文字列で指定した includeとinclude検索ディレクトリ内のファイルを含めます。マクロで選ぶincludeや外部データは 必ず `:files:` に宣言してください。コンパイラのインストール全体やOSの再現性を証明する ハッシュではありません。include検索ディレクトリは保守的に全ファイルを対象にします。
 
