@@ -1,0 +1,4 @@
+p0 range=12:5 size=8 ends=00 whole=00000000 value=0 part=000
+p1 range=12:5 size=8 ends=11 whole=11111111 value=255 part=111
+p2 range=12:5 size=8 ends=10 whole=10000000 value=128 part=000
+p3 range=12:5 size=8 ends=01 whole=01010101 value=85 part=101

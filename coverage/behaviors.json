@@ -296504,13 +296504,594 @@
       "acceptance": "A primitive instance range uses constant left/right indices in square brackets separated by colon and creates abs(left-right)+1 instances; either direction and nonzero/equal endpoints are allowed.",
       "source_note": "IEEE 1800-2023 28.3.5; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/gen/ch28/test_gen_prim_identity_gate_ascending.sv",
+          "observation": "宣言`buf g[0:3](y, a);`に対し、VPIで範囲と実個数を`p0 kind=gate range=0:3 size=4`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=3 parent=1 lookup=1 terms=2 t0=0 t1=0`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "2bc2dc17586b42c00f794c3f17a1ad5de7db8b0eb3ec1f73276d8a8319a296bf",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_gate_ascending.sv",
+              "contains": "buf g[0:3](y, a);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "iterator = vpi_iterate(vpiPrimitive, array);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle parent = vpi_handle(vpiPrimitiveArray, entries[i].handle);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle indexed = vpi_handle_by_index(array, entries[i].index);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_gate_ascending.expected",
+              "contains": "p0 kind=gate range=0:3 size=4"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_gate_ascending.expected",
+              "contains": "index=3 parent=1 lookup=1 terms=2 t0=0 t1=0"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_gate_ascending.expected",
+              "contains": "scalar present=1 index_null=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_prim_identity_gate_descending.sv",
+          "observation": "宣言`buf g[3:0](y, a);`に対し、VPIで範囲と実個数を`p0 kind=gate range=3:0 size=4`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=3 parent=1 lookup=1 terms=2 t0=1 t1=1`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "fbacf6d4ccdb37d1b16dfea2e803ff8b66574f1c1872544f59fb9bf1b56c1f91",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_gate_descending.sv",
+              "contains": "buf g[3:0](y, a);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "iterator = vpi_iterate(vpiPrimitive, array);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle parent = vpi_handle(vpiPrimitiveArray, entries[i].handle);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle indexed = vpi_handle_by_index(array, entries[i].index);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_gate_descending.expected",
+              "contains": "p0 kind=gate range=3:0 size=4"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_gate_descending.expected",
+              "contains": "index=3 parent=1 lookup=1 terms=2 t0=1 t1=1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_gate_descending.expected",
+              "contains": "scalar present=1 index_null=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_prim_identity_gate_negative_down.sv",
+          "observation": "宣言`buf g[-1:-4](y, a);`に対し、VPIで範囲と実個数を`p0 kind=gate range=-1:-4 size=4`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=-1 parent=1 lookup=1 terms=2 t0=1 t1=1`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "eb3b50bc22a2cd305183c46e5226b57778302baa55dd02760cf237e4e536c8a9",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_gate_negative_down.sv",
+              "contains": "buf g[-1:-4](y, a);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "iterator = vpi_iterate(vpiPrimitive, array);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle parent = vpi_handle(vpiPrimitiveArray, entries[i].handle);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle indexed = vpi_handle_by_index(array, entries[i].index);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_gate_negative_down.expected",
+              "contains": "p0 kind=gate range=-1:-4 size=4"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_gate_negative_down.expected",
+              "contains": "index=-1 parent=1 lookup=1 terms=2 t0=1 t1=1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_gate_negative_down.expected",
+              "contains": "scalar present=1 index_null=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_prim_identity_gate_negative_up.sv",
+          "observation": "宣言`buf g[-4:-1](y, a);`に対し、VPIで範囲と実個数を`p0 kind=gate range=-4:-1 size=4`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=-1 parent=1 lookup=1 terms=2 t0=0 t1=0`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "f0ae06b1e69bcd4e2705a84d292827d1b8be5a1f044649feb022e4ab138a9f52",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_gate_negative_up.sv",
+              "contains": "buf g[-4:-1](y, a);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "iterator = vpi_iterate(vpiPrimitive, array);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle parent = vpi_handle(vpiPrimitiveArray, entries[i].handle);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle indexed = vpi_handle_by_index(array, entries[i].index);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_gate_negative_up.expected",
+              "contains": "p0 kind=gate range=-4:-1 size=4"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_gate_negative_up.expected",
+              "contains": "index=-1 parent=1 lookup=1 terms=2 t0=0 t1=0"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_gate_negative_up.expected",
+              "contains": "scalar present=1 index_null=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_prim_identity_gate_singleton.sv",
+          "observation": "宣言`buf g[7:7](y, a);`に対し、VPIで範囲と実個数を`p0 kind=gate range=7:7 size=1`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=7 parent=1 lookup=1 terms=2 t0=1 t1=1`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "da1d225bdd48c06d230422b3e6c5f49e75332225e590791c3e9dbb991b1c9218",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_gate_singleton.sv",
+              "contains": "buf g[7:7](y, a);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "iterator = vpi_iterate(vpiPrimitive, array);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle parent = vpi_handle(vpiPrimitiveArray, entries[i].handle);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle indexed = vpi_handle_by_index(array, entries[i].index);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_gate_singleton.expected",
+              "contains": "p0 kind=gate range=7:7 size=1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_gate_singleton.expected",
+              "contains": "index=7 parent=1 lookup=1 terms=2 t0=1 t1=1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_gate_singleton.expected",
+              "contains": "scalar present=1 index_null=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_prim_identity_switch_ascending.sv",
+          "observation": "宣言`nmos g[0:3](y, a, 1'b1);`に対し、VPIで範囲と実個数を`p0 kind=switch range=0:3 size=4`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=3 parent=1 lookup=1 terms=3 t0=0 t1=0 t2=1`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "2503829f3e3ac2a5f268752aca789df224d12accd4514980c84d9f81bc62d99a",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_switch_ascending.sv",
+              "contains": "nmos g[0:3](y, a, 1'b1);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "iterator = vpi_iterate(vpiPrimitive, array);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle parent = vpi_handle(vpiPrimitiveArray, entries[i].handle);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle indexed = vpi_handle_by_index(array, entries[i].index);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_switch_ascending.expected",
+              "contains": "p0 kind=switch range=0:3 size=4"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_switch_ascending.expected",
+              "contains": "index=3 parent=1 lookup=1 terms=3 t0=0 t1=0 t2=1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_switch_ascending.expected",
+              "contains": "scalar present=1 index_null=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_prim_identity_switch_descending.sv",
+          "observation": "宣言`nmos g[3:0](y, a, 1'b1);`に対し、VPIで範囲と実個数を`p0 kind=switch range=3:0 size=4`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=3 parent=1 lookup=1 terms=3 t0=1 t1=1 t2=1`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "5740ce0a363fcb9a368ee28cae6903cf79cb1ef1eae1d38f43b082e830c9cd06",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_switch_descending.sv",
+              "contains": "nmos g[3:0](y, a, 1'b1);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "iterator = vpi_iterate(vpiPrimitive, array);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle parent = vpi_handle(vpiPrimitiveArray, entries[i].handle);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle indexed = vpi_handle_by_index(array, entries[i].index);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_switch_descending.expected",
+              "contains": "p0 kind=switch range=3:0 size=4"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_switch_descending.expected",
+              "contains": "index=3 parent=1 lookup=1 terms=3 t0=1 t1=1 t2=1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_switch_descending.expected",
+              "contains": "scalar present=1 index_null=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_prim_identity_switch_negative_down.sv",
+          "observation": "宣言`nmos g[-1:-4](y, a, 1'b1);`に対し、VPIで範囲と実個数を`p0 kind=switch range=-1:-4 size=4`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=-1 parent=1 lookup=1 terms=3 t0=1 t1=1 t2=1`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "0b794bf6c13ca9ba68a9d88131c866e466483246da723991b76bceee6dfef030",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_switch_negative_down.sv",
+              "contains": "nmos g[-1:-4](y, a, 1'b1);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "iterator = vpi_iterate(vpiPrimitive, array);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle parent = vpi_handle(vpiPrimitiveArray, entries[i].handle);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle indexed = vpi_handle_by_index(array, entries[i].index);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_switch_negative_down.expected",
+              "contains": "p0 kind=switch range=-1:-4 size=4"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_switch_negative_down.expected",
+              "contains": "index=-1 parent=1 lookup=1 terms=3 t0=1 t1=1 t2=1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_switch_negative_down.expected",
+              "contains": "scalar present=1 index_null=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_prim_identity_switch_negative_up.sv",
+          "observation": "宣言`nmos g[-4:-1](y, a, 1'b1);`に対し、VPIで範囲と実個数を`p0 kind=switch range=-4:-1 size=4`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=-1 parent=1 lookup=1 terms=3 t0=0 t1=0 t2=1`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "87cedcbeae262093733d35f7718eca3f7dcd27e5b535cc04846fe2b15bb7bf15",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_switch_negative_up.sv",
+              "contains": "nmos g[-4:-1](y, a, 1'b1);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "iterator = vpi_iterate(vpiPrimitive, array);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle parent = vpi_handle(vpiPrimitiveArray, entries[i].handle);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle indexed = vpi_handle_by_index(array, entries[i].index);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_switch_negative_up.expected",
+              "contains": "p0 kind=switch range=-4:-1 size=4"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_switch_negative_up.expected",
+              "contains": "index=-1 parent=1 lookup=1 terms=3 t0=0 t1=0 t2=1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_switch_negative_up.expected",
+              "contains": "scalar present=1 index_null=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_prim_identity_switch_singleton.sv",
+          "observation": "宣言`nmos g[7:7](y, a, 1'b1);`に対し、VPIで範囲と実個数を`p0 kind=switch range=7:7 size=1`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=7 parent=1 lookup=1 terms=3 t0=1 t1=1 t2=1`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "3418dd6b83096fe445e09c327ef1da3e9025e4ec1acf3de7bff685b019f600eb",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_switch_singleton.sv",
+              "contains": "nmos g[7:7](y, a, 1'b1);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "iterator = vpi_iterate(vpiPrimitive, array);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle parent = vpi_handle(vpiPrimitiveArray, entries[i].handle);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle indexed = vpi_handle_by_index(array, entries[i].index);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_switch_singleton.expected",
+              "contains": "p0 kind=switch range=7:7 size=1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_switch_singleton.expected",
+              "contains": "index=7 parent=1 lookup=1 terms=3 t0=1 t1=1 t2=1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_switch_singleton.expected",
+              "contains": "scalar present=1 index_null=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_prim_identity_udp_ascending.sv",
+          "observation": "宣言`identity_udp g[0:3](y, a);`に対し、VPIで範囲と実個数を`p0 kind=udp range=0:3 size=4`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=3 parent=1 lookup=1 terms=2 t0=0 t1=0`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "fc3256b909e4d73ecd2a0a4906bbd3ea5a4f83c9c6a7ab165f6fa7255e5fd920",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_udp_ascending.sv",
+              "contains": "identity_udp g[0:3](y, a);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "iterator = vpi_iterate(vpiPrimitive, array);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle parent = vpi_handle(vpiPrimitiveArray, entries[i].handle);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle indexed = vpi_handle_by_index(array, entries[i].index);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_udp_ascending.expected",
+              "contains": "p0 kind=udp range=0:3 size=4"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_udp_ascending.expected",
+              "contains": "index=3 parent=1 lookup=1 terms=2 t0=0 t1=0"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_udp_ascending.expected",
+              "contains": "scalar present=1 index_null=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_prim_identity_udp_descending.sv",
+          "observation": "宣言`identity_udp g[3:0](y, a);`に対し、VPIで範囲と実個数を`p0 kind=udp range=3:0 size=4`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=3 parent=1 lookup=1 terms=2 t0=1 t1=1`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "3f211279d7b3d3be21662ea1e459522e68d41fd1c4193f3673ee8e536464a78a",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_udp_descending.sv",
+              "contains": "identity_udp g[3:0](y, a);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "iterator = vpi_iterate(vpiPrimitive, array);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle parent = vpi_handle(vpiPrimitiveArray, entries[i].handle);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle indexed = vpi_handle_by_index(array, entries[i].index);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_udp_descending.expected",
+              "contains": "p0 kind=udp range=3:0 size=4"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_udp_descending.expected",
+              "contains": "index=3 parent=1 lookup=1 terms=2 t0=1 t1=1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_udp_descending.expected",
+              "contains": "scalar present=1 index_null=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_prim_identity_udp_negative_down.sv",
+          "observation": "宣言`identity_udp g[-1:-4](y, a);`に対し、VPIで範囲と実個数を`p0 kind=udp range=-1:-4 size=4`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=-1 parent=1 lookup=1 terms=2 t0=1 t1=1`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "fceaa57349a84afd58ad8b29343e054c06f9c958e86814f77eec7040df616e00",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_udp_negative_down.sv",
+              "contains": "identity_udp g[-1:-4](y, a);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "iterator = vpi_iterate(vpiPrimitive, array);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle parent = vpi_handle(vpiPrimitiveArray, entries[i].handle);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle indexed = vpi_handle_by_index(array, entries[i].index);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_udp_negative_down.expected",
+              "contains": "p0 kind=udp range=-1:-4 size=4"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_udp_negative_down.expected",
+              "contains": "index=-1 parent=1 lookup=1 terms=2 t0=1 t1=1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_udp_negative_down.expected",
+              "contains": "scalar present=1 index_null=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_prim_identity_udp_negative_up.sv",
+          "observation": "宣言`identity_udp g[-4:-1](y, a);`に対し、VPIで範囲と実個数を`p0 kind=udp range=-4:-1 size=4`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=-1 parent=1 lookup=1 terms=2 t0=0 t1=0`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "870bfec715b6f241955290180928b96917664e2f672c89e454b2305fba180fe9",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_udp_negative_up.sv",
+              "contains": "identity_udp g[-4:-1](y, a);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "iterator = vpi_iterate(vpiPrimitive, array);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle parent = vpi_handle(vpiPrimitiveArray, entries[i].handle);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle indexed = vpi_handle_by_index(array, entries[i].index);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_udp_negative_up.expected",
+              "contains": "p0 kind=udp range=-4:-1 size=4"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_udp_negative_up.expected",
+              "contains": "index=-1 parent=1 lookup=1 terms=2 t0=0 t1=0"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_udp_negative_up.expected",
+              "contains": "scalar present=1 index_null=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_prim_identity_udp_singleton.sv",
+          "observation": "宣言`identity_udp g[7:7](y, a);`に対し、VPIで範囲と実個数を`p0 kind=udp range=7:7 size=1`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=7 parent=1 lookup=1 terms=2 t0=1 t1=1`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "50352ccb8fbc3097dc411bf3ed5ce5041ff9fa3b117b9c6d6667afad5069528f",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_udp_singleton.sv",
+              "contains": "identity_udp g[7:7](y, a);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "iterator = vpi_iterate(vpiPrimitive, array);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle parent = vpi_handle(vpiPrimitiveArray, entries[i].handle);"
+            },
+            {
+              "file": "tests/ch28/primitive_array_identity.c",
+              "contains": "vpiHandle indexed = vpi_handle_by_index(array, entries[i].index);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_udp_singleton.expected",
+              "contains": "p0 kind=udp range=7:7 size=1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_udp_singleton.expected",
+              "contains": "index=7 parent=1 lookup=1 terms=2 t0=1 t1=1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_prim_identity_udp_singleton.expected",
+              "contains": "scalar present=1 index_null=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "28.3.5",
           "blocks": [
             "B003"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "primitive-array-observed-index-ranges",
+          "tests": [
+            "tests/gen/ch28/test_gen_prim_identity_gate_ascending.sv",
+            "tests/gen/ch28/test_gen_prim_identity_gate_descending.sv",
+            "tests/gen/ch28/test_gen_prim_identity_gate_negative_down.sv",
+            "tests/gen/ch28/test_gen_prim_identity_gate_negative_up.sv",
+            "tests/gen/ch28/test_gen_prim_identity_gate_singleton.sv",
+            "tests/gen/ch28/test_gen_prim_identity_switch_ascending.sv",
+            "tests/gen/ch28/test_gen_prim_identity_switch_descending.sv",
+            "tests/gen/ch28/test_gen_prim_identity_switch_negative_down.sv",
+            "tests/gen/ch28/test_gen_prim_identity_switch_negative_up.sv",
+            "tests/gen/ch28/test_gen_prim_identity_switch_singleton.sv",
+            "tests/gen/ch28/test_gen_prim_identity_udp_ascending.sv",
+            "tests/gen/ch28/test_gen_prim_identity_udp_descending.sv",
+            "tests/gen/ch28/test_gen_prim_identity_udp_negative_down.sv",
+            "tests/gen/ch28/test_gen_prim_identity_udp_negative_up.sv",
+            "tests/gen/ch28/test_gen_prim_identity_udp_singleton.sv"
+          ],
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "observation": "gate・switch・UDPそれぞれについて、正の昇順・降順、負の昇順・降順、非ゼロの単一要素範囲をVPIで直接観測する。個数と両端だけでなく全実添字、同一性、各添字へ接続される入出力値を確認し、全15本が単一の保存実行で合格することを求める。 区別: ベクタの出力一致だけでは見えなかった実要素数と添字対応を、反復したprimitiveのvpiIndexと、親配列・by-index lookupの同一性で確認する。配列範囲の右端が接続のLSBを受ける規則に従い、反転しても同じにならない入力を含めて各要素の端子値を観測する。要素名やVPI反復順序は規定されないため固定せず、実添字を数値整列する。独立mockの成功は実シミュレータの実行確認へ数えない。"
         }
       ]
     },

@@ -1,0 +1,12 @@
+p0 kind=gate range=7:7 size=1
+elements=1 duplicate=0
+index=7 parent=1 lookup=1 terms=2 t0=1 t1=1
+scalar present=1 index_null=1
+p1 kind=gate range=7:7 size=1
+elements=1 duplicate=0
+index=7 parent=1 lookup=1 terms=2 t0=0 t1=0
+scalar present=1 index_null=1
+p2 kind=gate range=7:7 size=1
+elements=1 duplicate=0
+index=7 parent=1 lookup=1 terms=2 t0=1 t1=1
+scalar present=1 index_null=1

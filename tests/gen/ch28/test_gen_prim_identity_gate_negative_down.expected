@@ -1,0 +1,21 @@
+p0 kind=gate range=-1:-4 size=4
+elements=4 duplicate=0
+index=-4 parent=1 lookup=1 terms=2 t0=1 t1=1
+index=-3 parent=1 lookup=1 terms=2 t0=0 t1=0
+index=-2 parent=1 lookup=1 terms=2 t0=0 t1=0
+index=-1 parent=1 lookup=1 terms=2 t0=1 t1=1
+scalar present=1 index_null=1
+p1 kind=gate range=-1:-4 size=4
+elements=4 duplicate=0
+index=-4 parent=1 lookup=1 terms=2 t0=0 t1=0
+index=-3 parent=1 lookup=1 terms=2 t0=1 t1=1
+index=-2 parent=1 lookup=1 terms=2 t0=1 t1=1
+index=-1 parent=1 lookup=1 terms=2 t0=0 t1=0
+scalar present=1 index_null=1
+p2 kind=gate range=-1:-4 size=4
+elements=4 duplicate=0
+index=-4 parent=1 lookup=1 terms=2 t0=0 t1=0
+index=-3 parent=1 lookup=1 terms=2 t0=0 t1=0
+index=-2 parent=1 lookup=1 terms=2 t0=1 t1=1
+index=-1 parent=1 lookup=1 terms=2 t0=1 t1=1
+scalar present=1 index_null=1

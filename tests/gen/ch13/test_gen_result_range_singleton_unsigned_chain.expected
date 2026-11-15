@@ -1,0 +1,4 @@
+p0 range=7:7 size=1 ends=00 whole=0 value=0 part=000
+p1 range=7:7 size=1 ends=11 whole=1 value=1 part=001
+p2 range=7:7 size=1 ends=11 whole=1 value=1 part=001
+p3 range=7:7 size=1 ends=11 whole=1 value=1 part=001

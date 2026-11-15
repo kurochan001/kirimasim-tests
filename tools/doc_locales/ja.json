@@ -25501,6 +25501,10 @@
     "bounded known-one ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ and known-zero ZXQPH3QXZ ZXQPH4QXZ ZXQPH5QXZ ranges retain both extremes when combined": "既知1の範囲ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZと既知0の範囲ZXQPH3QXZ ZXQPH4QXZ ZXQPH5QXZは、合成時に両方の極値を保つ",
     "ambiguous ZXQPH0QXZ L and ZXQPH1QXZ H drivers combine over both strength ranges": "曖昧なZXQPH0QXZのLとZXQPH1QXZのHは、両方の強度範囲を含めて合成される",
     "a ZXQPH0QXZ array rejects a ZXQPH1QXZ ZXQPH2QXZ ZXQPH3QXZ - ZXQPH4QXZ ZXQPH5QXZ terminal for four instances": "ZXQPH0QXZの4要素配列は、ZXQPH1QXZ ZXQPH2QXZ ZXQPH3QXZ ZXQPH4QXZ幅のZXQPH5QXZ端子を拒否する",
-    "ZXQPH0QXZ arrays allow negative, descending, nonzero and equal range endpoints with scalar broadcasts": "ZXQPH0QXZの配列は負・降順・非ゼロ・同値の範囲端点とスカラ共有を許す"
+    "ZXQPH0QXZ arrays allow negative, descending, nonzero and equal range endpoints with scalar broadcasts": "ZXQPH0QXZの配列は負・降順・非ゼロ・同値の範囲端点とスカラ共有を許す",
+    "ZXQPH0QXZ function-call results preserve the ZXQPH1QXZ ZXQPH2QXZ : ZXQPH3QXZ ZXQPH4QXZ range through ZXQPH5QXZ selections": "ZXQPH0QXZの関数呼出し結果は、ZXQPH5QXZでの直接選択でも宣言範囲ZXQPH1QXZ ZXQPH2QXZ : ZXQPH3QXZ ZXQPH4QXZを保つ",
+    "ZXQPH0QXZ function-call results preserve the ZXQPH1QXZ ZXQPH2QXZ ZXQPH3QXZ range through ZXQPH4QXZ selections": "ZXQPH0QXZの関数呼出し結果は、ZXQPH4QXZでの直接選択でも宣言範囲ZXQPH1QXZ ZXQPH2QXZ ZXQPH3QXZを保つ",
+    "a ZXQPH0QXZ array exposes its declared ZXQPH1QXZ ZXQPH2QXZ ZXQPH3QXZ indices, element identity and terminal values": "ZXQPH0QXZの配列は、宣言した添字ZXQPH1QXZ ZXQPH2QXZ ZXQPH3QXZ、要素の同一性、端子値をVPIへ提供する",
+    "a ZXQPH0QXZ array exposes its declared ZXQPH1QXZ ZXQPH2QXZ : ZXQPH3QXZ ZXQPH4QXZ indices, element identity and terminal values": "ZXQPH0QXZの配列は、宣言した添字ZXQPH1QXZ ZXQPH2QXZ : ZXQPH3QXZ ZXQPH4QXZ、要素の同一性、端子値をVPIへ提供する"
   }
 }

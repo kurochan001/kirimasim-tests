@@ -1,0 +1,206 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "gen/ch13/test_gen_result_range_negative_down_signed_chain": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch13/test_gen_result_range_negative_down_signed_chain.sv:51: syntax error",
+   "inputs_sha256": "053bef9d45d630ecb726ca0d294f01150c52d83e31b5307f39c7334c4b49ab20"
+  },
+  "gen/ch13/test_gen_result_range_negative_down_signed_package": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch13/test_gen_result_range_negative_down_signed_package.sv:42: syntax error",
+   "inputs_sha256": "7e3c62d29397dc5e4dc485e24bcbc216991e63b0971452e46b2436ba70737585"
+  },
+  "gen/ch13/test_gen_result_range_negative_down_unsigned_chain": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch13/test_gen_result_range_negative_down_unsigned_chain.sv:51: syntax error",
+   "inputs_sha256": "4dc574e7cc12cbf8ecbb32950236091bceeca21ff56e1d412aee212fa8362a2c"
+  },
+  "gen/ch13/test_gen_result_range_negative_down_unsigned_package": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch13/test_gen_result_range_negative_down_unsigned_package.sv:42: syntax error",
+   "inputs_sha256": "2b172a25b84104586f981bfe8cf73a8a2ddb3324e86b5f1c8aca5e88507847ea"
+  },
+  "gen/ch13/test_gen_result_range_negative_up_signed_chain": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch13/test_gen_result_range_negative_up_signed_chain.sv:51: syntax error",
+   "inputs_sha256": "69586005a53be62c7bfb616cfcb5f9bff042f9761fbb5eb27a7bd74aa3289f5a"
+  },
+  "gen/ch13/test_gen_result_range_negative_up_signed_package": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch13/test_gen_result_range_negative_up_signed_package.sv:42: syntax error",
+   "inputs_sha256": "3db20fb7145e3a1d6e007941bd522fc4d4ee147984e55fbb6244fbdc1f4f3ad8"
+  },
+  "gen/ch13/test_gen_result_range_negative_up_unsigned_chain": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch13/test_gen_result_range_negative_up_unsigned_chain.sv:51: syntax error",
+   "inputs_sha256": "c3747b0067ee9d3a4031b0e0a5f355d9eb0ab60f0cd8b40c76e13b583fdc7c6e"
+  },
+  "gen/ch13/test_gen_result_range_negative_up_unsigned_package": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch13/test_gen_result_range_negative_up_unsigned_package.sv:42: syntax error",
+   "inputs_sha256": "a8d3e51a5e512dc9279a3f88b776bc6537003013a8691a853e1798c9fe8119f7"
+  },
+  "gen/ch13/test_gen_result_range_positive_down_signed_chain": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch13/test_gen_result_range_positive_down_signed_chain.sv:51: syntax error",
+   "inputs_sha256": "de11423baf81ef96369788f70b843d76c066e842e862ec2e359a7df8d940defa"
+  },
+  "gen/ch13/test_gen_result_range_positive_down_signed_package": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch13/test_gen_result_range_positive_down_signed_package.sv:42: syntax error",
+   "inputs_sha256": "186f7ac0fbd5bbfe4b4ec488850571e83a88be7a1325d9527b59b835e384e06f"
+  },
+  "gen/ch13/test_gen_result_range_positive_down_unsigned_chain": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch13/test_gen_result_range_positive_down_unsigned_chain.sv:51: syntax error",
+   "inputs_sha256": "ee59ccbfb2250ec2806a49ad41c12c66854b55f16e5b0f806913f425bfaa0e4a"
+  },
+  "gen/ch13/test_gen_result_range_positive_down_unsigned_package": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch13/test_gen_result_range_positive_down_unsigned_package.sv:42: syntax error",
+   "inputs_sha256": "47d5f82732b7ceec7a0edbe5bb697cab0bf0843ad5beb3df5104f13213374821"
+  },
+  "gen/ch13/test_gen_result_range_positive_up_signed_chain": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch13/test_gen_result_range_positive_up_signed_chain.sv:51: syntax error",
+   "inputs_sha256": "57092cf059da4c1c6d5cbf2b70b1c138ab00cf3b6e1bd705ef4e931b6e36443a"
+  },
+  "gen/ch13/test_gen_result_range_positive_up_signed_package": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch13/test_gen_result_range_positive_up_signed_package.sv:42: syntax error",
+   "inputs_sha256": "db98e85dbeab68bd23ee950efd67fedffcff07c9736ae343449ba80f1e263a11"
+  },
+  "gen/ch13/test_gen_result_range_positive_up_unsigned_chain": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch13/test_gen_result_range_positive_up_unsigned_chain.sv:51: syntax error",
+   "inputs_sha256": "bad9da9aebca8f9bf5474fd490f3e61ec0281d0de382a8c335b5a9a1eddff3d0"
+  },
+  "gen/ch13/test_gen_result_range_positive_up_unsigned_package": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch13/test_gen_result_range_positive_up_unsigned_package.sv:42: syntax error",
+   "inputs_sha256": "cd2e310ea010d42284535aef06a52ec7c8d1f439f7bde328cf760f2e5be79172"
+  },
+  "gen/ch13/test_gen_result_range_singleton_signed_chain": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch13/test_gen_result_range_singleton_signed_chain.sv:51: syntax error",
+   "inputs_sha256": "c3280564ebe1bd859d042b8fd66be470dd30489b7afeb35904a25d687c03f01a"
+  },
+  "gen/ch13/test_gen_result_range_singleton_signed_package": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch13/test_gen_result_range_singleton_signed_package.sv:42: syntax error",
+   "inputs_sha256": "9fc30d478817775002937470b1c3caa7ad171e06eaaca71db2fcbbb0beb25a0d"
+  },
+  "gen/ch13/test_gen_result_range_singleton_unsigned_chain": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch13/test_gen_result_range_singleton_unsigned_chain.sv:51: syntax error",
+   "inputs_sha256": "b6746809eefcc9470df5cea1bf4aa5b89470d37955307695d99a132e76345c1f"
+  },
+  "gen/ch13/test_gen_result_range_singleton_unsigned_package": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch13/test_gen_result_range_singleton_unsigned_package.sv:42: syntax error",
+   "inputs_sha256": "e225a9a1db632d2c0f6bcf608cbb8266360e30642586bebee6673a58de6c2d29"
+  },
+  "gen/ch13/test_gen_result_range_wide_offset_signed_chain": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch13/test_gen_result_range_wide_offset_signed_chain.sv:51: syntax error",
+   "inputs_sha256": "35ead0621444afa1aa62b4fab4e2de54313f2786eff05768997ce2be0fbbc0f4"
+  },
+  "gen/ch13/test_gen_result_range_wide_offset_signed_package": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch13/test_gen_result_range_wide_offset_signed_package.sv:42: syntax error",
+   "inputs_sha256": "e4cce32e42a3014d632fe71b2355e582f1eafbc394a32d1d077c7aace4c74870"
+  },
+  "gen/ch13/test_gen_result_range_wide_offset_unsigned_chain": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch13/test_gen_result_range_wide_offset_unsigned_chain.sv:51: syntax error",
+   "inputs_sha256": "dac1a7367639bd6fd7f4d78edeb1e345098cc554e9d18857b9e35db8db9bf0ce"
+  },
+  "gen/ch13/test_gen_result_range_wide_offset_unsigned_package": {
+   "status": "known",
+   "reason": "compile failed: tests/gen/ch13/test_gen_result_range_wide_offset_unsigned_package.sv:42: syntax error",
+   "inputs_sha256": "f8dddaa5f0faa7ee5413cdc086f8b78bdfc30c7aaebe935f4ec16a49a0edb01f"
+  },
+  "gen/ch28/test_gen_prim_identity_gate_ascending": {
+   "status": "known",
+   "reason": "VPI build failed: 7 errors generated.",
+   "inputs_sha256": "2bc2dc17586b42c00f794c3f17a1ad5de7db8b0eb3ec1f73276d8a8319a296bf"
+  },
+  "gen/ch28/test_gen_prim_identity_gate_descending": {
+   "status": "known",
+   "reason": "VPI build failed: 7 errors generated.",
+   "inputs_sha256": "fbacf6d4ccdb37d1b16dfea2e803ff8b66574f1c1872544f59fb9bf1b56c1f91"
+  },
+  "gen/ch28/test_gen_prim_identity_gate_negative_down": {
+   "status": "known",
+   "reason": "VPI build failed: 7 errors generated.",
+   "inputs_sha256": "eb3b50bc22a2cd305183c46e5226b57778302baa55dd02760cf237e4e536c8a9"
+  },
+  "gen/ch28/test_gen_prim_identity_gate_negative_up": {
+   "status": "known",
+   "reason": "VPI build failed: 7 errors generated.",
+   "inputs_sha256": "f0ae06b1e69bcd4e2705a84d292827d1b8be5a1f044649feb022e4ab138a9f52"
+  },
+  "gen/ch28/test_gen_prim_identity_gate_singleton": {
+   "status": "known",
+   "reason": "VPI build failed: 7 errors generated.",
+   "inputs_sha256": "da1d225bdd48c06d230422b3e6c5f49e75332225e590791c3e9dbb991b1c9218"
+  },
+  "gen/ch28/test_gen_prim_identity_switch_ascending": {
+   "status": "known",
+   "reason": "VPI build failed: 7 errors generated.",
+   "inputs_sha256": "2503829f3e3ac2a5f268752aca789df224d12accd4514980c84d9f81bc62d99a"
+  },
+  "gen/ch28/test_gen_prim_identity_switch_descending": {
+   "status": "known",
+   "reason": "VPI build failed: 7 errors generated.",
+   "inputs_sha256": "5740ce0a363fcb9a368ee28cae6903cf79cb1ef1eae1d38f43b082e830c9cd06"
+  },
+  "gen/ch28/test_gen_prim_identity_switch_negative_down": {
+   "status": "known",
+   "reason": "VPI build failed: 7 errors generated.",
+   "inputs_sha256": "0b794bf6c13ca9ba68a9d88131c866e466483246da723991b76bceee6dfef030"
+  },
+  "gen/ch28/test_gen_prim_identity_switch_negative_up": {
+   "status": "known",
+   "reason": "VPI build failed: 7 errors generated.",
+   "inputs_sha256": "87cedcbeae262093733d35f7718eca3f7dcd27e5b535cc04846fe2b15bb7bf15"
+  },
+  "gen/ch28/test_gen_prim_identity_switch_singleton": {
+   "status": "known",
+   "reason": "VPI build failed: 7 errors generated.",
+   "inputs_sha256": "3418dd6b83096fe445e09c327ef1da3e9025e4ec1acf3de7bff685b019f600eb"
+  },
+  "gen/ch28/test_gen_prim_identity_udp_ascending": {
+   "status": "known",
+   "reason": "VPI build failed: 7 errors generated.",
+   "inputs_sha256": "fc3256b909e4d73ecd2a0a4906bbd3ea5a4f83c9c6a7ab165f6fa7255e5fd920"
+  },
+  "gen/ch28/test_gen_prim_identity_udp_descending": {
+   "status": "known",
+   "reason": "VPI build failed: 7 errors generated.",
+   "inputs_sha256": "3f211279d7b3d3be21662ea1e459522e68d41fd1c4193f3673ee8e536464a78a"
+  },
+  "gen/ch28/test_gen_prim_identity_udp_negative_down": {
+   "status": "known",
+   "reason": "VPI build failed: 7 errors generated.",
+   "inputs_sha256": "fceaa57349a84afd58ad8b29343e054c06f9c958e86814f77eec7040df616e00"
+  },
+  "gen/ch28/test_gen_prim_identity_udp_negative_up": {
+   "status": "known",
+   "reason": "VPI build failed: 7 errors generated.",
+   "inputs_sha256": "870bfec715b6f241955290180928b96917664e2f672c89e454b2305fba180fe9"
+  },
+  "gen/ch28/test_gen_prim_identity_udp_singleton": {
+   "status": "known",
+   "reason": "VPI build failed: 7 errors generated.",
+   "inputs_sha256": "50352ccb8fbc3097dc411bf3ed5ce5041ff9fa3b117b9c6d6667afad5069528f"
+  }
+ },
+ "generated_at": "2026-11-15T05:50:28.045416+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

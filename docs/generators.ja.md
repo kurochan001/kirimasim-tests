@@ -4,7 +4,7 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の127生成器から6,728件のテストを生成しています。
+現在の129生成器から6,767件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
@@ -18,6 +18,7 @@
 | [`combination_io`](../generators/combination_io.py) | 9, 10, 21 | 13 | 境界条件13件。`$fread`の格納先とバイト順、キュー・動的配列の暗黙感度、SV内で読み戻したVCDの内容を確認 |
 | [`combination_monitors`](../generators/combination_monitors.py) | 21 | 18 | 9種類の登録場所と2種類のコンテナ・記述子を組み合わせ、ファイルを読み戻して、Postponedの最終値、非選択要素、選択・置換、monitoroff、閉鎖後の出力抑止を確認する。 |
 | [`combination_nba`](../generators/combination_nba.py) | 10, 13 | 16 | 境界条件16件。`ref static`経由の遅延・イベント制御付きNBA、値と添字の確定、文字列の文字要素、配列スライスのコピーアウトを確認 |
+| [`function_result_ranges`](../generators/function_result_ranges.py) | 13 | 24 | 関数呼出し結果を直接選択する24本。非ゼロ・負・単一要素・広幅の6範囲、符号の有無、パッケージ呼出しと非nullのクラス参照の連鎖 |
 | [`gate_strength_truth`](../generators/gate_strength_truth.py) | 28 | 5 | nand・or・xnor・xorの非対称な駆動強度と、pull源の例外を含む表28-2の全ゲート種別の既定強度 |
 | [`interaction_agglit`](../generators/interaction_agglit.py) | 5 | 48 | 入れ子の構造体と配列を持つ構造体へ、位置・メンバー名・複製・default・型キーで値を与える。各メンバーの型への変換と、キーの優先順位を、初期値・代入・型付きの式・localparamで確かめる。 |
 | [`interaction_array`](../generators/interaction_array.py) | 7 | 36 | 2組の入力を配列全体／スライスへコピーし、宣言順の対応、非選択要素の保持、コピー元変更後の独立性と、読み出した要素の符号拡張を確認する。 |
@@ -133,6 +134,7 @@
 | [`keywords`](../generators/keywords.py) | 5, 22 | 496 | 不正な設計。附属書Bの各予約語を``begin_keywords "1800-2023"``の下で変数名として宣言し、22.14で各版が追加する予約語もその版の``begin_keywords``の下で宣言する。ツールは拒否する必要がある |
 | [`keywords_inherited`](../generators/keywords_inherited.py) | 22 | 804 | 5種類のbegin_keywordsで継承される予約語と、1364-2001-noconfigの全予約語。既存の追加語テストと合わせ、各版の累積集合の全語を確認 |
 | [`primitive_array_bounds`](../generators/primitive_array_bounds.py) | 28 | 61 | ゲート配列の端子幅が不正な56本と、負・降順・非ゼロ・単一要素の範囲およびスカラ共有を確認する合法5本 |
+| [`primitive_array_identity`](../generators/primitive_array_identity.py) | 28 | 15 | gate・switch・UDP配列をVPIで直接観測する15本。宣言範囲、実要素数と添字、親配列・添字検索の同一性、端子値、単独primitiveの対照 |
 | [`scheduling`](../generators/scheduling.py) | 4 | 325 | 既存の8ビットの書き込みを、書き込み元・待機中の別プロセス・strobe・monitorから指定の時刻とイベント領域で観測する。既存の生成テストと期待値は変更しない。 |
 | [`strength`](../generators/strength.py) | 28 | 135 | 異なる強度と値を持つ二つのドライバ。wire・tri・wand・triand・wor・trior・tri0・tri1とbufifゲートを通し、`%v`で表示 |
 | [`wide_paths`](../generators/wide_paths.py) | 6, 7, 11, 13 | 49 | 63・64・65・127・128・129・200ビット、2値・4値、64ビットより上のx/z、符号の有無。広い・狭い・2値の代入先、パック配列の部分選択・スライスと書き込み、連結・反復連結、幅を超えるシフト、比較、x条件の`?:`、`$bits`、関数結果、タスク入力、output・ref引数。`%h`・`%b`・`%0d`で表示 |

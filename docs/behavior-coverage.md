@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 92.66%、Ghostを除く実行 51.06%、Ghostを含む実行 78.54%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 92.67%、Ghostを除く実行 51.06%、Ghostを含む実行 78.54%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 92.66%。** 規格要求の実行確認率: Ghostを除いて 51.06%、Ghostを含めて 78.54%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 92.67%。** 規格要求の実行確認率: Ghostを除いて 51.06%、Ghostを含めて 78.54%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対する要求カバレッジ（テスト設計）: 11427/12332 (92.66%)。
+- 登録済み動作に対する要求カバレッジ（テスト設計）: 11428/12332 (92.67%)。
 - 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9686/12332 (78.54%)。
-- 登録済みだがテスト未対応: 905 動作。
+- 登録済みだがテスト未対応: 904 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。
 
@@ -32,6 +32,10 @@
 
 複数テストで一つの要求を分担する `check_groups` は、同じ実行環境・実行回で グループ内の全テストが成功した場合に限り成功とします。未指定の対応は独立した代替証拠です。
 
+- `arrayfunc-20261115-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-15T05:50:28.045416+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `arrayfunc-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T05:50:46.736634+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `arrayfunc-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T05:50:40.662343+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `arrayfunc-20261115-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T05:50:46.247835+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `c2tests-20261115-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T23:56:33.360931+00:00` / 17/12332 動作確認、古い入力との対応 0 件。
 - `c2tests-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T23:59:09.029234+00:00` / 19/12332 動作確認、古い入力との対応 0 件。
 - `c2tests-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T23:57:51.528183+00:00` / 28/12332 動作確認、古い入力との対応 0 件。
@@ -367,7 +371,7 @@
 - 25 Interfaces: 解釈保留なし 25/25、登録 63、テスト対応 55。
 - 26 Packages: 解釈保留なし 8/8、登録 44、テスト対応 39。
 - 27 Generate constructs: 解釈保留なし 7/7、登録 32、テスト対応 27。
-- 28 Gate-level and switch-level modeling: 解釈保留なし 34/34、登録 384、テスト対応 369。
+- 28 Gate-level and switch-level modeling: 解釈保留なし 34/34、登録 384、テスト対応 370。
 - 29 User-defined primitives: 解釈保留なし 17/17、登録 52、テスト対応 49。
 - 30 Specify blocks: 解釈保留なし 31/31、登録 157、テスト対応 150。
 - 31 Timing checks: 解釈保留なし 26/26、登録 180、テスト対応 155。
@@ -71982,7 +71986,7 @@ xorプリミティブは駆動力の仕様を許容する。
 
 ### SV2023-28.3.5-EXTRACT-INSTANCE-RANGE
 
-`28.3.5` / `normal` / テスト未対応
+`28.3.5` / `normal` / テスト対応あり・実行未確認
 
 +1 インスタンスを生成するために，左右のインデックスをコロンで区切った括弧内に入れる。どちらの方向も 非ゼロ/等しい終点は許可されます
 
@@ -71990,6 +71994,21 @@ xorプリミティブは駆動力の仕様を許容する。
 
 規定の性質: `mandatory`。
 
+- [test_gen_prim_identity_gate_ascending.sv](../tests/gen/ch28/test_gen_prim_identity_gate_ascending.sv): 宣言`buf g[0:3](y, a);`に対し、VPIで範囲と実個数を`p0 kind=gate range=0:3 size=4`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=3 parent=1 lookup=1 terms=2 t0=0 t1=0`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。
+- [test_gen_prim_identity_gate_descending.sv](../tests/gen/ch28/test_gen_prim_identity_gate_descending.sv): 宣言`buf g[3:0](y, a);`に対し、VPIで範囲と実個数を`p0 kind=gate range=3:0 size=4`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=3 parent=1 lookup=1 terms=2 t0=1 t1=1`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。
+- [test_gen_prim_identity_gate_negative_down.sv](../tests/gen/ch28/test_gen_prim_identity_gate_negative_down.sv): 宣言`buf g[-1:-4](y, a);`に対し、VPIで範囲と実個数を`p0 kind=gate range=-1:-4 size=4`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=-1 parent=1 lookup=1 terms=2 t0=1 t1=1`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。
+- [test_gen_prim_identity_gate_negative_up.sv](../tests/gen/ch28/test_gen_prim_identity_gate_negative_up.sv): 宣言`buf g[-4:-1](y, a);`に対し、VPIで範囲と実個数を`p0 kind=gate range=-4:-1 size=4`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=-1 parent=1 lookup=1 terms=2 t0=0 t1=0`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。
+- [test_gen_prim_identity_gate_singleton.sv](../tests/gen/ch28/test_gen_prim_identity_gate_singleton.sv): 宣言`buf g[7:7](y, a);`に対し、VPIで範囲と実個数を`p0 kind=gate range=7:7 size=1`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=7 parent=1 lookup=1 terms=2 t0=1 t1=1`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。
+- [test_gen_prim_identity_switch_ascending.sv](../tests/gen/ch28/test_gen_prim_identity_switch_ascending.sv): 宣言`nmos g[0:3](y, a, 1'b1);`に対し、VPIで範囲と実個数を`p0 kind=switch range=0:3 size=4`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=3 parent=1 lookup=1 terms=3 t0=0 t1=0 t2=1`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。
+- [test_gen_prim_identity_switch_descending.sv](../tests/gen/ch28/test_gen_prim_identity_switch_descending.sv): 宣言`nmos g[3:0](y, a, 1'b1);`に対し、VPIで範囲と実個数を`p0 kind=switch range=3:0 size=4`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=3 parent=1 lookup=1 terms=3 t0=1 t1=1 t2=1`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。
+- [test_gen_prim_identity_switch_negative_down.sv](../tests/gen/ch28/test_gen_prim_identity_switch_negative_down.sv): 宣言`nmos g[-1:-4](y, a, 1'b1);`に対し、VPIで範囲と実個数を`p0 kind=switch range=-1:-4 size=4`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=-1 parent=1 lookup=1 terms=3 t0=1 t1=1 t2=1`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。
+- [test_gen_prim_identity_switch_negative_up.sv](../tests/gen/ch28/test_gen_prim_identity_switch_negative_up.sv): 宣言`nmos g[-4:-1](y, a, 1'b1);`に対し、VPIで範囲と実個数を`p0 kind=switch range=-4:-1 size=4`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=-1 parent=1 lookup=1 terms=3 t0=0 t1=0 t2=1`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。
+- [test_gen_prim_identity_switch_singleton.sv](../tests/gen/ch28/test_gen_prim_identity_switch_singleton.sv): 宣言`nmos g[7:7](y, a, 1'b1);`に対し、VPIで範囲と実個数を`p0 kind=switch range=7:7 size=1`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=7 parent=1 lookup=1 terms=3 t0=1 t1=1 t2=1`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。
+- [test_gen_prim_identity_udp_ascending.sv](../tests/gen/ch28/test_gen_prim_identity_udp_ascending.sv): 宣言`identity_udp g[0:3](y, a);`に対し、VPIで範囲と実個数を`p0 kind=udp range=0:3 size=4`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=3 parent=1 lookup=1 terms=2 t0=0 t1=0`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。
+- [test_gen_prim_identity_udp_descending.sv](../tests/gen/ch28/test_gen_prim_identity_udp_descending.sv): 宣言`identity_udp g[3:0](y, a);`に対し、VPIで範囲と実個数を`p0 kind=udp range=3:0 size=4`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=3 parent=1 lookup=1 terms=2 t0=1 t1=1`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。
+- [test_gen_prim_identity_udp_negative_down.sv](../tests/gen/ch28/test_gen_prim_identity_udp_negative_down.sv): 宣言`identity_udp g[-1:-4](y, a);`に対し、VPIで範囲と実個数を`p0 kind=udp range=-1:-4 size=4`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=-1 parent=1 lookup=1 terms=2 t0=1 t1=1`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。
+- [test_gen_prim_identity_udp_negative_up.sv](../tests/gen/ch28/test_gen_prim_identity_udp_negative_up.sv): 宣言`identity_udp g[-4:-1](y, a);`に対し、VPIで範囲と実個数を`p0 kind=udp range=-4:-1 size=4`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=-1 parent=1 lookup=1 terms=2 t0=0 t1=0`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。
+- [test_gen_prim_identity_udp_singleton.sv](../tests/gen/ch28/test_gen_prim_identity_udp_singleton.sv): 宣言`identity_udp g[7:7](y, a);`に対し、VPIで範囲と実個数を`p0 kind=udp range=7:7 size=1`として読み出す。実vpiIndexで整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を3種類の入力で照合する。末尾の観測`index=7 parent=1 lookup=1 terms=2 t0=1 t1=1`と、単独primitiveの`scalar present=1 index_null=1`も確認し、値だけが一致する誤った個数・添字対応を区別する。
 
 ### SV2023-28.3.5-EXTRACT-INSTANCE-RANGE-CONTIGUOUS
 

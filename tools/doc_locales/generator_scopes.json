@@ -56,6 +56,14 @@
     "ambiguous_strength_union": {
       "en": "Sixteen H/L strength pairs and four bounded known-value range combinations, with X/Z controls and unambiguous strong0/supply0 contrasts",
       "ja": "H/Lの強度16組と、既知値のまま複数の強度を持つ範囲4組の合成。X/Z制御と、単一強度strong0・supply0の対照を含む"
+    },
+    "function_result_ranges": {
+      "en": "Twenty-four direct function-result selection cases: six nonzero/negative/singleton/wide ranges, signed or unsigned, through package calls or nonnull class-handle chains",
+      "ja": "関数呼出し結果を直接選択する24本。非ゼロ・負・単一要素・広幅の6範囲、符号の有無、パッケージ呼出しと非nullのクラス参照の連鎖"
+    },
+    "primitive_array_identity": {
+      "en": "Fifteen VPI observations of gate, switch and UDP arrays: declared bounds, actual element counts and indices, parent/index-lookup identity and terminal values, plus a scalar control",
+      "ja": "gate・switch・UDP配列をVPIで直接観測する15本。宣言範囲、実要素数と添字、親配列・添字検索の同一性、端子値、単独primitiveの対照"
     }
   }
 }
