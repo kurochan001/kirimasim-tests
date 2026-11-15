@@ -25,7 +25,8 @@ class PrivateParserCheckoutTests(unittest.TestCase):
         cls.script = textwrap.dedent(step.split("        run: |\n", 1)[1])
 
     def run_checkout(self, *, failures=0, error="unclassified", init_failure=False,
-                     checkout_failure=False, path=CANARIES[2], ref=CANARIES[1], script=None):
+                     checkout_failure=False, path=CANARIES[2], ref=CANARIES[1], script=None,
+                     auth_mode="normal"):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             executable = root / "bin"
@@ -64,6 +65,11 @@ class PrivateParserCheckoutTests(unittest.TestCase):
                     counter = state / "fetches"
                     count = int(counter.read_text()) + 1 if counter.exists() else 1
                     counter.write_text(str(count))
+                    if os.environ.get("CHECKOUT_AUTH_MODE") == "anonymous":
+                        assert os.environ.get("GIT_CONFIG_GLOBAL") == os.devnull
+                        assert os.environ.get("GIT_CONFIG_NOSYSTEM") == "1"
+                        assert os.environ.get("GIT_CONFIG_VALUE_0") == ""
+                        sys.exit(0)
                     if count <= int(os.environ["FIXTURE_FAILURES"]):
                         print(os.environ["FIXTURE_ERROR"], file=sys.stderr)
                         sys.exit(128)
@@ -82,6 +88,7 @@ class PrivateParserCheckoutTests(unittest.TestCase):
                                RUNNER_TEMP=str(runner_temp), PARSER_REPOSITORY=CANARIES[0],
                                PARSER_REF=ref, PARSER_PATH=path, TOKEN=CANARIES[3],
                                PRIVATE_REPOSITORY=CANARIES[5], PRIVATE_KEY=CANARIES[6],
+                               CHECKOUT_AUTH_MODE=auth_mode,
                                FIXTURE_STATE=str(root), FIXTURE_FAILURES=str(failures),
                                FIXTURE_ERROR=error, FIXTURE_INIT_FAILURE=str(int(init_failure)),
                                FIXTURE_CHECKOUT_FAILURE=str(int(checkout_failure)))
@@ -178,6 +185,16 @@ class PrivateParserCheckoutTests(unittest.TestCase):
                 self.assertEqual(any("checkout" in call for call in calls), failures == 2)
                 self.assertEqual(sleeps, ["5", "10"])
                 self.assertEqual("::error::" in output, failures == 9)
+
+    def test_auth_comparison_disables_inherited_configuration_and_anonymous_header(self):
+        workflow = (ROOT / ".github/workflows/parser-checkout.yml").read_text(encoding="utf-8")
+        script = textwrap.dedent(workflow.split("        run: |\n", 1)[1])
+        for mode, expected_status in (("normal", 1), ("clean-token", 1), ("anonymous", 0)):
+            with self.subTest(mode=mode):
+                code, _, calls, _ = self.run_checkout(script=script, failures=9,
+                                                      error="Authentication failed", auth_mode=mode)
+                self.assertEqual(code, expected_status)
+                self.assertEqual(any("checkout" in call for call in calls), mode == "anonymous")
 
 
 if __name__ == "__main__":

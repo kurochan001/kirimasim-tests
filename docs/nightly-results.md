@@ -25,7 +25,7 @@ Nightlyは毎晩`main`で、icarus・verilator・kirimasim・lyra-build・lyra�
 2026-11-15の[実行](https://github.com/kurochan001/kirimasim-tests/actions/runs/43651437455)はsuite `ed5ded9a`が対象で、Ghostのパーサ取得中に失敗し、ビルド・テストには進みませんでした。kirimasimのランダム照合とpublishを含む、ほかの6ジョブは成功しました。取得処理は前夜の成功時と同じです。生の診断は非公開に保つため、今回の記録では通信・アクセス権・参照先のどれが原因かを区別できません。パーサのfetchを最大3回、5秒・10秒の間隔で試し、固定の失敗分類だけを報告するようにしました。再試行を使い切るとジョブは失敗します。故障を注入して回復と出力の秘匿を確認しましたが、対策後のNightlyではまだ確認していません。
 開発を引き継ぐときは、最新の[引き継ぎ資料](claude-code-handoff-20261112.md)を参照してください。この節の以下の記録は、以前の確認時点のものです。
 
-手動の[Parser checkout diagnostic](https://github.com/kurochan001/kirimasim-tests/actions/workflows/parser-checkout.yml)は、Nightlyから直接取り出した2つの取得スクリプトを、同じリポジトリのシークレットと読取り専用のジョブ権限で実行します。次のNightly全体を待たず、現在の取得処理を確認できます。シミュレータのビルド・実行、生ログのアップロード、結果の公開は行いません。診断の成功で確認できるのはその時点で取得できることまでで、過去の失敗原因やNightlyの残りの処理を検証したことにはなりません。
+手動の[Parser checkout diagnostic](https://github.com/kurochan001/kirimasim-tests/actions/workflows/parser-checkout.yml)は、Nightlyから直接取り出した2つの取得スクリプトを、同じリポジトリのシークレットと読取り専用のジョブ権限で実行します。次のNightly全体を待たず、現在の取得処理を確認できます。既定の`normal`はNightlyの認証を維持し、`clean-token`はジョブのトークンを引き継いだGit設定から隔離し、`anonymous`は認証ヘッダも無効にします。シミュレータのビルド・実行、生ログのアップロード、結果の公開は行いません。診断の成功で確認できるのはその時点で取得できることまでで、過去の失敗原因やNightlyの残りの処理を検証したことにはなりません。
 
 ### 個別artifactまで照合した以前の状態
 

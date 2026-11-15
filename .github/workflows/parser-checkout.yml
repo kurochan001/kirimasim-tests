@@ -4,6 +4,15 @@ name: Parser checkout diagnostic
 # No simulator is built or run, and raw checkout logs are never uploaded.
 on:
   workflow_dispatch:
+    inputs:
+      auth_mode:
+        description: Parser authentication comparison
+        type: choice
+        default: normal
+        options:
+          - normal
+          - clean-token
+          - anonymous
 
 permissions:
   contents: read
@@ -24,9 +33,11 @@ jobs:
           PARSER_REF: ${{ secrets.GHOST_PARSER_REF }}
           PARSER_PATH: ${{ secrets.GHOST_PARSER_PATH }}
           TOKEN: ${{ github.token }}
+          CHECKOUT_AUTH_MODE: ${{ inputs.auth_mode }}
         run: |
           python3 - <<'PY'
           from pathlib import Path
+          import os
           import subprocess
           import sys
           import textwrap
@@ -35,7 +46,15 @@ jobs:
           for name in ('Check out the private simulator', 'Check out its parser'):
               step = workflow.split('      - name: ' + name + '\n', 1)[1].split('\n      - ', 1)[0]
               script = textwrap.dedent(step.split('        run: |\n', 1)[1])
-              status = subprocess.call(['bash', '--noprofile', '--norc', '-eo', 'pipefail', '-c', script])
+              environment = os.environ.copy()
+              mode = environment.get('CHECKOUT_AUTH_MODE', 'normal')
+              if name == 'Check out its parser' and mode != 'normal':
+                  environment.update(GIT_CONFIG_GLOBAL=os.devnull, GIT_CONFIG_NOSYSTEM='1',
+                                     GIT_ASKPASS='/bin/false', GIT_TERMINAL_PROMPT='0')
+                  if mode == 'anonymous':
+                      script = script.replace('export GIT_CONFIG_VALUE_0\n', 'export GIT_CONFIG_VALUE_0=""\n')
+              status = subprocess.call(['bash', '--noprofile', '--norc', '-eo', 'pipefail', '-c', script],
+                                       env=environment)
               if status:
                   sys.exit(status)
           PY
