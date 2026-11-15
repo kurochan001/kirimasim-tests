@@ -26,7 +26,7 @@ class PrivateParserCheckoutTests(unittest.TestCase):
 
     def run_checkout(self, *, failures=0, error="unclassified", init_failure=False,
                      checkout_failure=False, path=CANARIES[2], ref=CANARIES[1], script=None,
-                     parser_key=CANARIES[3]):
+                     parser_key=CANARIES[3], check_identity=False, identity_matches=True):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             executable = root / "bin"
@@ -88,10 +88,23 @@ class PrivateParserCheckoutTests(unittest.TestCase):
             fake_sleep.write_text('#!/bin/sh\nprintf "%s\\n" "$1" >> "$FIXTURE_STATE/sleeps"\n',
                                   encoding="utf-8")
             fake_sleep.chmod(0o755)
+            fake_ssh = executable / "ssh"
+            fake_ssh.write_text(textwrap.dedent('''\
+                #!/usr/bin/env python3
+                import os
+                import sys
+                print(os.environ["PARSER_KEY"], file=sys.stderr)
+                print("Hi " + os.environ["FIXTURE_KEY_REPOSITORY"] +
+                      "! You've successfully authenticated, but no shell is provided.", file=sys.stderr)
+                sys.exit(1)
+                '''), encoding="utf-8")
+            fake_ssh.chmod(0o755)
             environment = dict(os.environ, PATH=str(executable) + os.pathsep + os.environ["PATH"],
                                RUNNER_TEMP=str(runner_temp), PARSER_REPOSITORY=CANARIES[0],
                                PARSER_REF=ref, PARSER_PATH=path, PARSER_KEY=parser_key,
                                PRIVATE_REPOSITORY=CANARIES[5], PRIVATE_KEY=CANARIES[6],
+                               CHECK_PARSER_IDENTITY=str(check_identity).lower(),
+                               FIXTURE_KEY_REPOSITORY=CANARIES[0] if identity_matches else CANARIES[5],
                                FIXTURE_STATE=str(root), FIXTURE_FAILURES=str(failures),
                                FIXTURE_ERROR=error, FIXTURE_INIT_FAILURE=str(int(init_failure)),
                                FIXTURE_CHECKOUT_FAILURE=str(int(checkout_failure)))
@@ -196,6 +209,18 @@ class PrivateParserCheckoutTests(unittest.TestCase):
         self.assertIn("parser read-only deploy key is not configured", output)
         self.assertEqual(calls, [])
         self.assertEqual(sleeps, [])
+
+    def test_identity_probe_reports_only_whether_the_key_matches(self):
+        workflow = (ROOT / ".github/workflows/parser-checkout.yml").read_text(encoding="utf-8")
+        script = textwrap.dedent(workflow.split("        run: |\n", 1)[1])
+        for matches in (True, False):
+            with self.subTest(matches=matches):
+                code, output, _, _ = self.run_checkout(
+                    script=script, failures=9, error="Permission denied", check_identity=True,
+                    identity_matches=matches)
+                self.assertEqual(code, 1)
+                self.assertIn("matches the configured repository" if matches else
+                              "authenticates to a different repository than configured", output)
 
 
 if __name__ == "__main__":

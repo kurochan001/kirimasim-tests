@@ -4,6 +4,11 @@ name: Parser checkout diagnostic
 # No simulator is built or run, and raw checkout logs are never uploaded.
 on:
   workflow_dispatch:
+    inputs:
+      check_identity:
+        description: Check SSH key scope after a failed parser fetch
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -24,11 +29,15 @@ jobs:
           PARSER_REF: ${{ secrets.GHOST_PARSER_REF }}
           PARSER_PATH: ${{ secrets.GHOST_PARSER_PATH }}
           PARSER_KEY: ${{ secrets.GHOST_PARSER_DEPLOY_KEY }}
+          CHECK_PARSER_IDENTITY: ${{ inputs.check_identity }}
         run: |
           python3 - <<'PY'
           from pathlib import Path
+          import os
+          import re
           import subprocess
           import sys
+          import tempfile
           import textwrap
 
           workflow = Path('.github/workflows/nightly.yml').read_text(encoding='utf-8')
@@ -37,5 +46,25 @@ jobs:
               script = textwrap.dedent(step.split('        run: |\n', 1)[1])
               status = subprocess.call(['bash', '--noprofile', '--norc', '-eo', 'pipefail', '-c', script])
               if status:
+                  if name == 'Check out its parser' and os.environ.get('CHECK_PARSER_IDENTITY') == 'true':
+                      with tempfile.NamedTemporaryFile(mode='w', dir=os.environ['RUNNER_TEMP']) as key:
+                          key.write(os.environ['PARSER_KEY'] + '\n')
+                          key.flush()
+                          hosts = str(Path(os.environ['RUNNER_TEMP']) / 'ghost-parser-known-hosts')
+                          try:
+                              result = subprocess.run(['ssh', '-T', '-i', key.name, '-o', 'BatchMode=yes',
+                                  '-o', 'IdentitiesOnly=yes', '-o', 'StrictHostKeyChecking=yes',
+                                  '-o', 'CheckHostIP=no', '-o', 'UserKnownHostsFile=' + hosts,
+                                  'git@github.com'], capture_output=True, text=True, timeout=20)
+                              authenticated = re.search(r"Hi ([^!\r\n]+)! You've successfully authenticated",
+                                                        result.stdout + result.stderr)
+                              if not authenticated:
+                                  print('::notice::The parser SSH key did not authenticate to GitHub.', flush=True)
+                              elif authenticated[1].lower().removesuffix('.git') == os.environ['PARSER_REPOSITORY'].lower().removesuffix('.git'):
+                                  print('::notice::The parser SSH key matches the configured repository.', flush=True)
+                              else:
+                                  print('::notice::The parser SSH key authenticates to a different repository than configured.', flush=True)
+                          except subprocess.TimeoutExpired:
+                              print('::notice::The parser SSH authentication probe timed out.', flush=True)
                   sys.exit(status)
           PY
