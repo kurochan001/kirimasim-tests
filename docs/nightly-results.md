@@ -27,6 +27,8 @@ Nightlyは毎晩`main`で、icarus・verilator・kirimasim・lyra-build・lyra�
 
 手動の[Parser checkout diagnostic](https://github.com/kurochan001/kirimasim-tests/actions/workflows/parser-checkout.yml)は、Nightlyから直接取り出した2つの取得スクリプトを、同じリポジトリのシークレットと読取り専用のジョブ権限で実行します。次のNightly全体を待たず、現在の取得処理を確認できます。既定の`normal`はNightlyの認証を維持し、`clean-token`はジョブのトークンを引き継いだGit設定から隔離し、`anonymous`は認証ヘッダも無効にします。シミュレータのビルド・実行、生ログのアップロード、結果の公開は行いません。診断の成功で確認できるのはその時点で取得できることまでで、過去の失敗原因やNightlyの残りの処理を検証したことにはなりません。
 
+2026-11-15の[通常の診断](https://github.com/kurochan001/kirimasim-tests/actions/runs/43701395419)、[トークンを隔離した診断](https://github.com/kurochan001/kirimasim-tests/actions/runs/43702092207)、[匿名の診断](https://github.com/kurochan001/kirimasim-tests/actions/runs/43702094330)はいずれも、パーサのfetchを3回試して「認証またはリポジトリへのアクセス」の分類で失敗しました。再試行では取得が回復していません。現在のパーサ取得先の設定とアクセスを引き続き調べる必要があり、元の失敗を起こしたアクセス上の問題の詳細までは特定していません。
+
 ### 個別artifactまで照合した以前の状態
 
 suite `9c39d865`の[Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/42051092628)は、固定Icarus・Verilator・readmeの全ジョブが成功しました。

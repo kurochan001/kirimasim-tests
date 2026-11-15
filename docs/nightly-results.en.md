@@ -25,6 +25,8 @@ For resuming development, see the newest [handoff](claude-code-handoff-20261112.
 
 The manual [Parser checkout diagnostic](https://github.com/kurochan001/kirimasim-tests/actions/workflows/parser-checkout.yml) runs the two checkout scripts taken directly from Nightly, with the same repository secrets and read-only job permissions. It checks the current checkout path without waiting for another full Nightly. The default `normal` mode preserves Nightly authentication; `clean-token` isolates the job token from inherited Git configuration, and `anonymous` also disables its authentication header. It neither builds nor runs a simulator, uploads raw logs, nor publishes results. A successful diagnostic confirms that checkout works at that time; it does not identify the cause of a past failure or validate the rest of Nightly.
 
+On 2026-11-15 the [normal diagnostic](https://github.com/kurochan001/kirimasim-tests/actions/runs/43701395419), [isolated-token diagnostic](https://github.com/kurochan001/kirimasim-tests/actions/runs/43702092207), and [anonymous diagnostic](https://github.com/kurochan001/kirimasim-tests/actions/runs/43702094330) all exhausted three parser fetch attempts with the fixed category “authentication or repository access.” Retries have therefore not restored checkout. The current parser repository configuration and access still require investigation; these diagnostics do not establish which underlying access problem caused the original failure.
+
 ### Earlier artifact-reviewed details
 
 [Check on suite `9c39d865`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42051092628) passed all pinned Icarus, Verilator and readme jobs.
