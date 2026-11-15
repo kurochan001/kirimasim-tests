@@ -6,7 +6,7 @@
 
 [Requirement-coverage aggregation](behavior-coverage-summary.en.md) / [Comparison ledger for all tests](../coverage/test-matching.json) / [Content check errors](existing-test-matching-review-20261022.en.md)
 
-The reference candidates are listed from the citation section for all 12630 tests. The test which has registered the demand response based on stimulus and expected result is 5667 tests, and the test which is not registered is 6963 tests.
+The reference candidates are listed from the citation section for all 12710 tests. The test which has registered the demand response based on stimulus and expected result is 5779 tests, and the test which is not registered is 6931 tests.
 
 The mapping based on the verification content of all tests is not complete. The list of candidates is an automatic process and does not represent approval of the match. The number of registered units is the number of units that correspond to at least one requirement, and not the number of completed verification of each test. Multiple observations of one test and the response of another test verifying the same requirement are recorded in sequence.
 
@@ -28,37 +28,37 @@ Do not treat a requirement without a candidate or an unregistered test as eviden
 
 ## Reasons for retention of response
 
-1350 The range and judgment of the present paper were recorded in [Review judgement table](../coverage/test-matching-reviews.json). This is a record of the scope-limited judgments, not the number of completed reviews of the whole test. This information is not used as information for the corresponding registration or to increase the operation coverage rate. Checks the input hash, the string base, and the request ID, preventing the reuse of the decision after the change.
+1351 The range and judgment of the present paper were recorded in [Review judgement table](../coverage/test-matching-reviews.json). This is a record of the scope-limited judgments, not the number of completed reviews of the whole test. This information is not used as information for the corresponding registration or to increase the operation coverage rate. Checks the input hash, the string base, and the request ID, preventing the reuse of the decision after the change.
 
 - `citation_refinement` : 194 item.
 - `compound_requirement` : 176 item.
-- `oracle_issue` : 243 item.
+- `oracle_issue` : 245 item.
 - `partial_observation` : 2128 item.
 
 <a id="章別の登録状況"></a>
 
 ## Registration status by chapter
 
-- ch3 : All 149 tests, registered 81 tests, unregistered 68 tests.
+- ch3 : All 152 tests, registered 86 tests, unregistered 66 tests.
 - ch4 : All 480 tests, registered 128 tests, unregistered 352 tests.
-- ch5 : All 518 tests, registered 335 tests, unregistered 183 tests.
+- ch5 : All 520 tests, registered 338 tests, unregistered 182 tests.
 - ch6 : All 711 tests, registered 446 tests, unregistered 265 tests.
 - ch7 : All 809 tests, registered 331 tests, unregistered 478 tests.
-- ch8 : All 478 tests, registered 242 tests, unregistered 236 tests.
-- ch9 : All 451 tests, registered 140 tests, unregistered 311 tests.
-- ch10 : All 436 tests, registered 137 tests, unregistered 299 tests.
+- ch8 : All 479 tests, registered 243 tests, unregistered 236 tests.
+- ch9 : All 464 tests, registered 158 tests, unregistered 306 tests.
+- ch10 : All 437 tests, registered 138 tests, unregistered 299 tests.
 - ch11 : All 1675 tests, registered 395 tests, unregistered 1280 tests.
 - ch12 : All 312 tests, registered 110 tests, unregistered 202 tests.
-- ch13 : All 484 tests, registered 146 tests, unregistered 338 tests.
+- ch13 : All 493 tests, registered 164 tests, unregistered 329 tests.
 - ch14 : All 170 tests, registered 75 tests, unregistered 95 tests.
 - ch15 : All 195 tests, registered 42 tests, unregistered 153 tests.
-- ch16 : All 795 tests, registered 610 tests, unregistered 185 tests.
-- ch17 : All 120 tests, registered 65 tests, unregistered 55 tests.
-- ch18 : All 277 tests, registered 192 tests, unregistered 85 tests.
-- ch19 : All 204 tests, registered 138 tests, unregistered 66 tests.
-- ch20 : All 457 tests, registered 112 tests, unregistered 345 tests.
-- ch21 : All 502 tests, registered 157 tests, unregistered 345 tests.
-- ch22 : All 517 tests, registered 342 tests, unregistered 175 tests.
+- ch16 : All 799 tests, registered 614 tests, unregistered 185 tests.
+- ch17 : All 128 tests, registered 75 tests, unregistered 53 tests.
+- ch18 : All 282 tests, registered 197 tests, unregistered 85 tests.
+- ch19 : All 222 tests, registered 158 tests, unregistered 64 tests.
+- ch20 : All 465 tests, registered 123 tests, unregistered 342 tests.
+- ch21 : All 503 tests, registered 160 tests, unregistered 343 tests.
+- ch22 : All 522 tests, registered 350 tests, unregistered 172 tests.
 - ch23 : All 417 tests, registered 191 tests, unregistered 226 tests.
 - ch24 : All 221 tests, registered 40 tests, unregistered 181 tests.
 - ch25 : All 264 tests, registered 84 tests, unregistered 180 tests.
@@ -66,12 +66,12 @@ Do not treat a requirement without a candidate or an unregistered test as eviden
 - ch27 : All 283 tests, registered 39 tests, unregistered 244 tests.
 - ch28 : All 296 tests, registered 200 tests, unregistered 96 tests.
 - ch29 : All 142 tests, registered 54 tests, unregistered 88 tests.
-- ch30 : All 69 tests, registered 67 tests, unregistered 2 tests.
+- ch30 : All 70 tests, registered 68 tests, unregistered 2 tests.
 - ch31 : All 66 tests, registered 60 tests, unregistered 6 tests.
 - ch32 : All 68 tests, registered 37 tests, unregistered 31 tests.
 - ch33 : All 89 tests, registered 39 tests, unregistered 50 tests.
 - ch34 : All 4 tests, registered 4 tests, unregistered 0 tests.
-- ch35 : All 186 tests, registered 127 tests, unregistered 59 tests.
+- ch35 : All 187 tests, registered 131 tests, unregistered 56 tests.
 - ch36 : All 89 tests, registered 75 tests, unregistered 14 tests.
 - ch37 : All 231 tests, registered 222 tests, unregistered 9 tests.
 - ch38 : All 125 tests, registered 96 tests, unregistered 29 tests.

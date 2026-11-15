@@ -1,0 +1,6 @@
+t=20 @h resumed, h is 1
+t=25 @c resumed, c is slot 1
+t=40 @h resumed, h is 2
+t=45 @c resumed, c is slot 2
+t=50 @h resumed, h is 0
+t=55 @c resumed, c is slot 0

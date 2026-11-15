@@ -596,7 +596,7 @@ tests/ch35/test_dpi_import_task_reentrant_wait.sv",引用探索の候補とソ�
 9,プロセス,36,プログラミング言語インターフェース（PLI/VPI）の概要,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,4,"tests/ch36/test_vpi_end_of_simulation_after_final.sv
 tests/ch36/test_vpi_systf_in_always.sv
 tests/ch36/test_vpi_systf_in_fork.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-9,プロセス,37,VPIオブジェクトモデル図,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,11,"tests/ch37/test_vpi_atomic_statement_labels.sv
+9,プロセス,37,VPIオブジェクトモデル図,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,12,"tests/ch37/test_vpi_atomic_statement_labels.sv
 tests/ch37/test_vpi_block_scope_chain.sv
 tests/ch37/test_vpi_fork_join_type_stmts.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 9,プロセス,38,VPIルーチンの定義,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,4,"tests/ch36/test_vpi_end_of_simulation_after_final.sv

@@ -1,0 +1,3 @@
+local: fact(5)=120 fib(10)=55
+hierarchical: fact(5)=120 fib(10)=55
+hierarchical: fact(1)=1 fact(7)=5040

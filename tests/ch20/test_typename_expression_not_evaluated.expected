@@ -1,0 +1,4 @@
+call: shortint
+calls = 0
+null handle: real string
+h == null: 1

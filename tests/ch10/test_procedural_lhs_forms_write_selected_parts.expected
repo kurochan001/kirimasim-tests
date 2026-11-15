@@ -1,0 +1,6 @@
+whole v=1234 ua=10,11,12,13
+bit v=1235
+part v=a235
+indexed v=a935
+packed slice pa=0bc0
+unpacked slice ua=10,22,23,13

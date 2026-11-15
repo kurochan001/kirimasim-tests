@@ -1,0 +1,50 @@
+/*
+:name: test_illegal_cg_bin_function_inout_arg
+:description: the with clause of a coverpoint bin calls a function with an inout formal argument (IEEE 1800-2023 Section 19.5)
+:tags: ch19
+:type: elaboration
+:lrm: 1800-2023 19.5
+:oracle: spec verilator@5.054
+:spec_check: ai
+:fourstate: no
+:nondeterministic: no
+:should_fail_because: the with clause of the bins hi calls same, whose formal n is an inout argument
+:expected_stderr_regex: test_illegal_cg_bin_function_inout_arg\.sv:43:
+*/
+// IEEE 1800-2023 §19.5: a function called in a covergroup_expression, which
+// the with clause of a bin is (Syntax 19-2), shall have no output, inout or
+// ref formal. keep and same are both automatic and return their formal
+// without changing it, and the covergroup argument k that they are given is
+// a non-ref argument, which a covergroup_expression may use as a variable.
+// keep takes k as an input, so the bins lo are legal; same takes it as an
+// inout, whose value it leaves as it is, so its call in the with clause of
+// the bins hi is the one error. With input in place of inout the design is
+// legal.
+//
+// Oracle check: the 5.054 release of Verilator reports on the named line
+// that same has an output, inout or non-const ref argument, the rule of
+// 19.5, and accepts the design once n is an input. Icarus Verilog 13.0 does
+// not implement covergroups; its syntax errors are no evidence for the rule.
+
+module test_illegal_cg_bin_function_inout_arg;
+  bit [3:0] v;
+
+  function automatic int keep(input int n);
+    return n;
+  endfunction
+
+  function automatic int same(inout int n);
+    return n;
+  endfunction
+
+  covergroup cg (input int k);
+    cp: coverpoint v {
+      bins lo[] = {[0:15]} with (item <= keep(k));
+      bins hi[] = {[0:15]} with (item > same(k));   // illegal: inout formal
+    }
+  endgroup
+
+  cg g = new(3);
+
+  initial $display("not reached");
+endmodule

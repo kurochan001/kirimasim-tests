@@ -65,38 +65,38 @@ For a first test, [walk through 24 real lines](docs/faq.en.md#q49-read-a-real-te
 These are inventory and expectation-provenance counts, not current simulator passes. See [what `:lrm:` and `:oracle:` record](docs/faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
 <!-- suite-stats:begin -->
-The suite has **12630 tests** in 38 chapters. 5821 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
+The suite has **12710 tests** in 38 chapters. 5821 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 6491 |
-| Verilator 5.052 or 5.054, with no Icarus Verilog 13.0 oracle recorded | 2296 |
-| The standard only, with no fixed-release simulator oracle recorded | 3843 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 6507 |
+| Verilator 5.052 or 5.054, with no Icarus Verilog 13.0 oracle recorded | 2322 |
+| The standard only, with no fixed-release simulator oracle recorded | 3881 |
 
-2932 tests depend on x or z values (`:fourstate: yes`). 720 tests come with C code: 189 DPI tests (`:dpi_c:`) and 531 VPI tests (`:vpi_c:`). 2097 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 77 tests check the exit code of the simulation (`:expected_exit:`). 26 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 56 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+2934 tests depend on x or z values (`:fourstate: yes`). 722 tests come with C code: 190 DPI tests (`:dpi_c:`) and 532 VPI tests (`:vpi_c:`). 2149 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 77 tests check the exit code of the simulation (`:expected_exit:`). 26 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 56 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
-| 3 | Design and verification building blocks | 149 | 114 | 15 | 20 |
+| 3 | Design and verification building blocks | 152 | 117 | 15 | 20 |
 | 4 | Scheduling semantics | 480 | 444 | 7 | 29 |
-| 5 | Lexical conventions | 518 | 439 | 29 | 50 |
+| 5 | Lexical conventions | 520 | 441 | 29 | 50 |
 | 6 | Data types | 711 | 377 | 169 | 165 |
 | 7 | Aggregate data types | 809 | 271 | 289 | 249 |
-| 8 | Classes | 478 | 77 | 262 | 139 |
-| 9 | Processes | 451 | 337 | 50 | 64 |
-| 10 | Assignment statements | 436 | 301 | 70 | 65 |
+| 8 | Classes | 479 | 77 | 263 | 139 |
+| 9 | Processes | 464 | 344 | 53 | 67 |
+| 10 | Assignment statements | 437 | 301 | 71 | 65 |
 | 11 | Operators and expressions | 1675 | 1262 | 137 | 276 |
 | 12 | Procedural programming statements | 312 | 214 | 33 | 65 |
-| 13 | Tasks and functions (subroutines) | 484 | 281 | 109 | 94 |
+| 13 | Tasks and functions (subroutines) | 493 | 283 | 111 | 99 |
 | 14 | Clocking blocks | 170 |  | 101 | 69 |
 | 15 | Interprocess synchronization and communication | 195 | 2 | 58 | 135 |
-| 16 | Assertions | 795 | 38 | 122 | 635 |
-| 17 | Checkers | 120 |  | 47 | 73 |
-| 18 | Constrained random value generation | 277 | 4 | 126 | 147 |
-| 19 | Functional coverage | 204 |  | 60 | 144 |
-| 20 | Utility system tasks and system functions | 457 | 294 | 58 | 105 |
-| 21 | Input/output system tasks and system functions | 502 | 355 | 37 | 110 |
-| 22 | Compiler directives | 517 | 438 | 38 | 41 |
+| 16 | Assertions | 799 | 38 | 122 | 639 |
+| 17 | Checkers | 128 |  | 49 | 79 |
+| 18 | Constrained random value generation | 282 | 4 | 128 | 150 |
+| 19 | Functional coverage | 222 |  | 69 | 153 |
+| 20 | Utility system tasks and system functions | 465 | 294 | 59 | 112 |
+| 21 | Input/output system tasks and system functions | 503 | 355 | 38 | 110 |
+| 22 | Compiler directives | 522 | 440 | 41 | 41 |
 | 23 | Modules and hierarchy | 417 | 281 | 57 | 79 |
 | 24 | Programs | 221 | 37 | 38 | 146 |
 | 25 | Interfaces | 264 | 90 | 119 | 55 |
@@ -104,12 +104,12 @@ The suite has **12630 tests** in 38 chapters. 5821 of them are generated. The [g
 | 27 | Generate constructs | 283 | 231 | 19 | 33 |
 | 28 | Gate-level and switch-level modeling | 296 | 227 | 3 | 66 |
 | 29 | User-defined primitives | 142 | 95 | 11 | 36 |
-| 30 | Specify blocks | 69 | 37 | 1 | 31 |
+| 30 | Specify blocks | 70 | 37 | 1 | 32 |
 | 31 | Timing checks | 66 | 17 | 1 | 48 |
 | 32 | Backannotation using the standard delay format | 68 | 19 |  | 49 |
 | 33 | Configuring the contents of a design | 89 | 5 | 9 | 75 |
 | 34 | Protected envelopes | 4 | 2 | 2 |  |
-| 35 | Direct programming interface | 186 |  | 116 | 70 |
+| 35 | Direct programming interface | 187 |  | 117 | 70 |
 | 36 | Programming language interface (PLI/VPI) overview | 89 | 34 | 19 | 36 |
 | 37 | VPI object model diagrams | 231 | 18 | 1 | 212 |
 | 38 | VPI routine definitions | 125 | 59 | 10 | 56 |
@@ -296,13 +296,13 @@ an accepted and a rejected form were then split (7 on 2026-11-14 and 27 on
 2026-11-15), and 76 rows got the kind or wording their observation needs
 (23 and 53): rows that could be shown only by a rejected design, and error rows
 that also stated a legal behavior. The reviewer was an AI, not an independent human.
-Design coverage is **91.73% (11,312/12,332)**;
+Design coverage is **92.41% (11,396/12,332)**;
 execution coverage from the saved `coverage/results/` evidence of the tools
 anyone can reproduce (Icarus Verilog, Verilator and SymbiYosys) is
-**50.64% (6,245/12,332)**.
-Of these rows, 5,955 are confirmed by a simulator and 290 by formal checks alone, which run no simulator.
-With the results of Ghost, an unreleased simulator, and of kirimasim added, it is 78.08% (9,629/12,332).
-Clauses 1 to 40 alone are at 90.51% (8,598/9,499) design coverage.
+**50.96% (6,284/12,332)**.
+Of these rows, 5,994 are confirmed by a simulator and 290 by formal checks alone, which run no simulator.
+With the results of Ghost, an unreleased simulator, and of kirimasim added, it is 78.44% (9,673/12,332).
+Clauses 1 to 40 alone are at 91.40% (8,682/9,499) design coverage.
 See the [generated behavior summary](docs/behavior-coverage-summary.en.md) for the
 measurement inputs and denominator.
 The full existing-test semantic review is still incomplete.

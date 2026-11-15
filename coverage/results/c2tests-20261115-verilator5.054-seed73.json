@@ -1,0 +1,429 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch10/test_procedural_lhs_forms_write_selected_parts": {
+   "status": "pass",
+   "inputs_sha256": "1def4719e3c0786e391ccb6e3b4d5393cb527811d62e4f67a1858030e86b527a"
+  },
+  "ch13/test_automatic_function_reentrant_hierarchical_call": {
+   "status": "pass",
+   "inputs_sha256": "43977a01bdb16fa7aa1f6a9848ebed4627a2f5113ee8afe35d8dfabda1666c4c"
+  },
+  "ch13/test_illegal_const_ref_inherited_formal_written": {
+   "status": "pass",
+   "inputs_sha256": "ebe9c9a082ed095be24de3370066bff83231d236b25098082e6f5e184990ffb0"
+  },
+  "ch13/test_illegal_function_formal_without_name": {
+   "status": "pass",
+   "inputs_sha256": "3233b76e0925912627cff6e379dd9096a41c54b15ac0aed467b75f8fb492132d"
+  },
+  "ch13/test_illegal_ref_formal_force_target": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "976358a1b2a1d150ea83d6f20609968356e03a7cc18d6bb1505c9f9df01820eb"
+  },
+  "ch13/test_illegal_ref_formal_nonblocking_target": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "e4314f4b097665e77fabf4e70c1db88717412f585331554cea52f8b4d2fd4d75"
+  },
+  "ch13/test_illegal_task_formal_without_name": {
+   "status": "pass",
+   "inputs_sha256": "b1510365c2fdaf44690d11475ce2f8c0ef4497c2ca6e4c9119888d692811029f"
+  },
+  "ch13/test_return_overrides_function_name_value": {
+   "status": "pass",
+   "inputs_sha256": "d37e96002474d0d1c8fd87a268b4d4428d5c5fe8510be863021c7cf9686f07be"
+  },
+  "ch13/test_task_formal_direction_default_and_inherited": {
+   "status": "pass",
+   "inputs_sha256": "7b09279f603910b4a8038a897de44b52cb292fe94b84a91cd1794ee88201f1de"
+  },
+  "ch13/test_task_formal_inherits_ref_static_nonblocking": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch13/test_task_formal_inherits_ref_static_nonblocking.sv:32:22: Unsupported: 'ref static' ports",
+   "inputs_sha256": "5e0cfba8fd5fe44a1ada45a504bb5643c7556ec6bd8eb7510bcfa66bffd0203b"
+  },
+  "ch16/test_illegal_multiclock_inferred_value_equal_clock": {
+   "status": "pass",
+   "inputs_sha256": "c9e145464e9ed063d1609a75262efb9a0fbf0745405fd8eaf22527c38ee66575"
+  },
+  "ch16/test_illegal_multiclock_value_equal_clocks": {
+   "status": "pass",
+   "inputs_sha256": "896dbd5544eed93dfb38dd816aded803b2f58988b89cda24d83eb0536fd85128"
+  },
+  "ch16/test_illegal_triggered_and_operand_local_variable_no_flow": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_triggered_and_operand_local_variable_no_flow\\\\.sv:(50|54):'; the first is: %Error: tests/ch16/test_illegal_triggered_and_operand_local_variable_no_flow.sv:41:5: syntax error, unexpected '@', expecting IDENTIFIER-for-type",
+   "inputs_sha256": "8497e0fece55f578ad104b247307e0e9cac5d559f0ef44bd090192bd4363d44c"
+  },
+  "ch16/test_illegal_triggered_negated_local_variable_no_flow": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_triggered_negated_local_variable_no_flow\\\\.sv:(49|53):'; the first is: %Error: tests/ch16/test_illegal_triggered_negated_local_variable_no_flow.sv:40:5: syntax error, unexpected '@', expecting IDENTIFIER-for-type",
+   "inputs_sha256": "d7080d2a37281d0aafa506498ee6ebaa56209a6b29004e9647a56eced7801e95"
+  },
+  "ch17/test_checker_dollar_actual_unbounded_range": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch17/test_checker_dollar_actual_unbounded_range.sv:38:27: Unsupported: checker port variable default value",
+   "inputs_sha256": "c6bd82ccd27328306e4980da249de66573470113cd1de59f0937797dd9fe8e0f"
+  },
+  "ch17/test_checker_free_variable_function_actual": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch17/test_checker_free_variable_function_actual.sv:31:3: Unsupported: checker rand",
+   "inputs_sha256": "ad7882ef9a9602d052640d437e597d076adb582f2326bd5b47a117698a70a9c0"
+  },
+  "ch17/test_illegal_checker_dollar_typed_formal": {
+   "status": "pass",
+   "inputs_sha256": "32adf3d96d3c54aa9c6670584d93bc0e38704996afac3ce6f1dcd4603e09df08"
+  },
+  "ch17/test_illegal_checker_dollar_untyped_comparison": {
+   "status": "pass",
+   "inputs_sha256": "67a7140bfbf035cd60f4fb1f371aa5d549a05ec6cbf5375b3d08968076a2853e"
+  },
+  "ch17/test_illegal_checker_function_rand_argument": {
+   "status": "pass",
+   "inputs_sha256": "976145900204c178ab9626d0042598b11d890e0abdc65655fee4a86dae1ae012"
+  },
+  "ch17/test_illegal_checker_function_rand_variable": {
+   "status": "pass",
+   "inputs_sha256": "52f7cec52c4ccde3e08b4717814c6797f4e0688e636db9840aba7ad13318e238"
+  },
+  "ch17/test_illegal_checker_in_fork_join_any": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_checker_in_fork_join_any\\\\.sv:35:'; the first is: %Error: tests/ch17/test_illegal_checker_in_fork_join_any.sv:33:5: syntax error, unexpected IDENTIFIER-for-instance",
+   "inputs_sha256": "2367af644bcb25045536022ce624d562056e7a8a59616c03846298cebe4e5759"
+  },
+  "ch17/test_illegal_checker_in_fork_join_block": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_checker_in_fork_join_block\\\\.sv:35:'; the first is: %Error: tests/ch17/test_illegal_checker_in_fork_join_block.sv:33:5: syntax error, unexpected IDENTIFIER-for-instance",
+   "inputs_sha256": "4ab445d258f17573070c436c020f49cd5f9b797038ec51a2cc68c1f18d220ad7"
+  },
+  "ch18/test_illegal_constraint_mode_getter_without_name": {
+   "status": "pass",
+   "inputs_sha256": "f562733a055d537e09a34107f9449d7a04508a61b369a497b06de31a7776094e"
+  },
+  "ch18/test_illegal_rand_mode_getter_whole_array": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_rand_mode_getter_whole_array\\\\.sv:39:'; the first is: %Error-UNSUPPORTED: tests/ch18/test_illegal_rand_mode_getter_whole_array.sv:37:16: Unsupported: 'rand_mode()' on unpacked array element",
+   "inputs_sha256": "8624cfb5cc538fb3ac9f4e0ed178cbdc885a9b524717ea25650122478d3b0d3d"
+  },
+  "ch18/test_illegal_randsequence_code_block_hierarchical_reference": {
+   "status": "pass",
+   "inputs_sha256": "8fd144facf2496046e73d54c68f13f506200bffc333fde20c07370fda4f1f10b"
+  },
+  "ch18/test_illegal_randsequence_void_production_value": {
+   "status": "pass",
+   "inputs_sha256": "10b3b693492550d9fc3d093f5a21f6c984a8f4bb6448db5e36ec027c18667515"
+  },
+  "ch18/test_randsequence_code_block_scopes": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/ch18/test_randsequence_code_block_scopes.sv:36:20: ../V3LinkParse.cpp:588: Variable with initializer in unexpected position",
+   "inputs_sha256": "14b82f568bac128026481afbb467dc679bcead4dad3902730564763ca9870cdd"
+  },
+  "ch19/test_cg_bin_function_const_ref_arg": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch19/test_cg_bin_function_const_ref_arg.sv:51:35: Unsupported: arguments of 'get_inst_coverage' of coverpoint or cross 'cp'",
+   "inputs_sha256": "685f287b93c134f44b71d1d5365905219ff1264bd78d485e7ff8e4c6d9fb24f4"
+  },
+  "ch19/test_cg_cross_matches_binds_before_or": {
+   "status": "pass",
+   "inputs_sha256": "7d04f811e92d2f56eb2f919fb97ef103c70d430bfc74e2a6be0380878368faa1"
+  },
+  "ch19/test_cg_cross_matches_minimum_count": {
+   "status": "pass",
+   "inputs_sha256": "c845aabd182c00eb66ee717c1b73b4b2ed554f4ea3ceeb3f012adbd2c83f6a5b"
+  },
+  "ch19/test_cg_cross_set_array_literal_tuples": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch19/test_cg_cross_set_array_literal_tuples.sv:41:20: syntax error, unexpected \"'{\"",
+   "inputs_sha256": "43493327e4259bc99593aa62e47e839754e03b8e2308534621d399afb9da24db"
+  },
+  "ch19/test_cg_real_fixed_bins_listed_order": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch19/test_cg_real_fixed_bins_listed_order.sv:45:34: Unsupported: arguments of 'get_inst_coverage' of coverpoint or cross 'rx'",
+   "inputs_sha256": "88fa55e8f86dde9ab963e878f51cd4be7807c54b9724eac07617b79d152b9347"
+  },
+  "ch19/test_illegal_cg_auto_bin_max_procedural": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "b5e332a99ffd57767c9538303b8a468513d46b1659bc5c915257fd03fdd0f1eb"
+  },
+  "ch19/test_illegal_cg_bin_function_inout_arg": {
+   "status": "pass",
+   "inputs_sha256": "2f13db3a5841d2a137cb5a817784af464b4a663178cd520daa94b10f679ac2de"
+  },
+  "ch19/test_illegal_cg_bin_function_output_arg": {
+   "status": "pass",
+   "inputs_sha256": "8b257469ce26b8bddec6b6cbb8d4fd2d5c57f68c137f162c7675a662effe6ac6"
+  },
+  "ch19/test_illegal_cg_bin_function_ref_arg": {
+   "status": "pass",
+   "inputs_sha256": "a946633fd6f8342ca83ba7972d38e12ade315d4faec01cbddd7e01c84abcf27c"
+  },
+  "ch19/test_illegal_cg_cross_bin_function_output_arg": {
+   "status": "pass",
+   "inputs_sha256": "1bb36577e0a3c4fa83cee6435379e95134ac30ae228d7571d0c1b80ce2617816"
+  },
+  "ch19/test_illegal_cg_cross_bin_ref_formal": {
+   "status": "pass",
+   "inputs_sha256": "9de47fc4a3c6be63f9ea1684b20afb1ccee80857c07c256620e13585aa1fd8c7"
+  },
+  "ch19/test_illegal_cg_cross_function_other_cross": {
+   "status": "pass",
+   "inputs_sha256": "033c8c067a76c27f1c1fbc5eefcbf4b0eb82c5d823d5191652946f4ba2c95679"
+  },
+  "ch19/test_illegal_cg_cross_retain_auto_bins_procedural": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "cc748c933e0272e9df71ac1794267d2047e42abf91ca38ea9a539dc4fa8c2ec4"
+  },
+  "ch19/test_illegal_cg_cross_with_struct_result": {
+   "status": "pass",
+   "inputs_sha256": "123a5e62f23edd57bc31394a27fa8b6818c2d561ea9355a011aeef46fad05e2c"
+  },
+  "ch19/test_illegal_cg_detect_overlap_procedural": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "19a051c29136037b5e18c22d73edfc81abdbcf5209c8036a8e3f4704bb42ae58"
+  },
+  "ch19/test_illegal_cg_get_inst_coverage_procedural": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "c4224d5fda872eb2a1d58ccb6ccb28a4fae03cfe3103c1b83ee5d44a24c7cf4b"
+  },
+  "ch19/test_illegal_cg_matches_negative": {
+   "status": "pass",
+   "inputs_sha256": "7e075b327a6e618a4250de1e68b59dde026c50be8fe5df3181f2a4ab74793f2b"
+  },
+  "ch19/test_illegal_cg_per_instance_after_new": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "8d3e4b80aa3c279c10111f38a8d88585be7f2e54d647ffea0e12b5181e821889"
+  },
+  "ch20/test_countbits_unpacked_aggregates": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch20/test_countbits_unpacked_aggregates.sv:43:54: Operator COUNTBITS expects a numeric LHS operand, but it has data type 'byte$[0:2]' (IEEE 1800-2023 11.3)",
+   "inputs_sha256": "26bb31265604669a43ef6e8ea0bab7c21e0d7dfae0afd1085abf999af9eb7653"
+  },
+  "ch20/test_illegal_random_seed_literal": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "dac078b17318fd6cdfbb19e4a53d72462f87168848429ffdc3d350ca84baaad5"
+  },
+  "ch20/test_illegal_random_seed_real_variable": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "3a0ff31e0f823e935b89419cf816db00ea1230deb7da20857b79d942f97e0bb3"
+  },
+  "ch20/test_illegal_timeformat_unit_above_range": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "46239cb53b94b79d1cb100f46bd4eee45dff1e45405ff8fa0e6a434ec60f3655"
+  },
+  "ch20/test_illegal_timeformat_unit_below_range": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "75227cee72d223271ad68f7c3502d813f99faa979a687aa51ed4da558e1729ab"
+  },
+  "ch20/test_illegal_typename_dynamic_element_constant": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "b6913203f8cecacbd845c59fafe86253a6142fb6f8ee3a5a5bcdfac5b7cf3dd7"
+  },
+  "ch20/test_pla_input_terms_nets_and_variables": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch20/test_pla_input_terms_nets_and_variables.sv:49:5: Unsupported or unknown PLI call: '$async$and$array'",
+   "inputs_sha256": "56de9c13b9eb92d30321dae1f295f44499d09d83526ec5c8b2335072264429c7"
+  },
+  "ch20/test_typename_expression_not_evaluated": {
+   "status": "pass",
+   "inputs_sha256": "906d7e6e62627467492bc2a488b029238e605356d15c4e2b0e5146bba4f7b6f0"
+  },
+  "ch21/test_format_field_width_override_and_zero": {
+   "status": "pass",
+   "inputs_sha256": "05d1ea7966ff505d564c85cc24062ca6709db9313e592f3ebeecc964c7b5731b"
+  },
+  "ch22/test_22_extra_include_syntax": {
+   "status": "pass",
+   "inputs_sha256": "1366a4d000810275c1bb40f6290048c9cb6773604c1cc9e03483f2455c555b21"
+  },
+  "ch22/test_default_nettype_absent_implicit_wire": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'only a z driver: 0, drivers of 0 and 1: 0', expected 'only a z driver: z, drivers of 0 and 1: x'",
+   "inputs_sha256": "017297a5af7b6d759fba4c04ea5c34ab49560c9dd73ede650c53c8c5c9495ae3"
+  },
+  "ch22/test_directive_macro_expansion_not_in_comments_or_strings": {
+   "status": "pass",
+   "inputs_sha256": "1366a4d000810275c1bb40f6290048c9cb6773604c1cc9e03483f2455c555b21"
+  },
+  "ch22/test_directive_scope_across_include_until_superseded": {
+   "status": "pass",
+   "inputs_sha256": "1366a4d000810275c1bb40f6290048c9cb6773604c1cc9e03483f2455c555b21"
+  },
+  "ch22/test_illegal_begin_keywords_spans_include_boundary": {
+   "status": "pass",
+   "inputs_sha256": "1366a4d000810275c1bb40f6290048c9cb6773604c1cc9e03483f2455c555b21"
+  },
+  "ch22/test_illegal_include_absolute_path_not_searched": {
+   "status": "pass",
+   "inputs_sha256": "1366a4d000810275c1bb40f6290048c9cb6773604c1cc9e03483f2455c555b21"
+  },
+  "ch22/test_illegal_include_line_trailing_code": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "1366a4d000810275c1bb40f6290048c9cb6773604c1cc9e03483f2455c555b21"
+  },
+  "ch22/test_illegal_macro_recursion_direct": {
+   "status": "pass",
+   "inputs_sha256": "4618636a64670189425dd80d015369154a2a0bb6dfee3380ad0238abe86ac6c2"
+  },
+  "ch22/test_illegal_macro_recursion_indirect": {
+   "status": "pass",
+   "inputs_sha256": "0a3a628274458c6e8c244b48e0a5a03be198e79e5c48e549f8fa2715ddf3854b"
+  },
+  "ch22/test_include_file_declarations": {
+   "status": "pass",
+   "inputs_sha256": "1366a4d000810275c1bb40f6290048c9cb6773604c1cc9e03483f2455c555b21"
+  },
+  "ch22/test_include_guard_twice": {
+   "status": "pass",
+   "inputs_sha256": "1366a4d000810275c1bb40f6290048c9cb6773604c1cc9e03483f2455c555b21"
+  },
+  "ch22/test_include_guard_two_files": {
+   "status": "pass",
+   "inputs_sha256": "1366a4d000810275c1bb40f6290048c9cb6773604c1cc9e03483f2455c555b21"
+  },
+  "ch22/test_include_nested": {
+   "status": "pass",
+   "inputs_sha256": "1366a4d000810275c1bb40f6290048c9cb6773604c1cc9e03483f2455c555b21"
+  },
+  "ch22/test_macro_self_use_in_actual_and_default": {
+   "status": "pass",
+   "inputs_sha256": "95585c2c1189132acc38e0039913d0ddc2eafce61a07790cba083df248ee59ea"
+  },
+  "ch22/test_resetall_after_tri0_implicit_wire": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch22/test_resetall_after_tri0_implicit_wire.sv:25:1: Unsupported: `default_nettype of other than none or wire: '`default_nettype tri0'",
+   "inputs_sha256": "ee2ebba838df30c67c9d4ac7b9dbec5b14bf580e580a39b76207d1cb8c534716"
+  },
+  "ch22/test_resetall_restores_defaults_keeps_macros": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch22/test_resetall_restores_defaults_keeps_macros.sv:37:1: Unsupported: `default_nettype of other than none or wire: '`default_nettype tri0'",
+   "inputs_sha256": "1366a4d000810275c1bb40f6290048c9cb6773604c1cc9e03483f2455c555b21"
+  },
+  "ch3/test_illegal_package_import_precedes_package": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "92c55081938db3e0da8067326fb899a44aef1a03d95e76f0168ca059f3f5916f"
+  },
+  "ch3/test_illegal_package_scoped_name_precedes_package": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "c65085ca4e688f42b3ad588e0555e72579840780cd62d85806833e0811b3c9a8"
+  },
+  "ch3/test_illegal_timeprecision_mismatch": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "c91156fa478c7164569a3e0e7a4b500ef24fe1428694f33515b680ddbf7f03d4"
+  },
+  "ch3/test_include_text_joins_compilation_unit": {
+   "status": "pass",
+   "inputs_sha256": "f0ab25dc0def33db49a4f42f86b8d0e10bd6574a6d90b61ada55df2e7aa0c8a1"
+  },
+  "ch30/test_specify_parallel_path_bit_to_bit": {
+   "status": "known",
+   "reason": "output differs: line 1 is '100: y=11 sp=1 sf=1', expected '110: y=01 sp=0 sf=0'",
+   "inputs_sha256": "455fd644448f5d1b497e6d5e1fa2417759b8c83b971e6970200d6033bdf15713"
+  },
+  "ch35/test_illegal_dpi_import_unnamed_formal_unpacked_dimension": {
+   "status": "pass",
+   "inputs_sha256": "f386e2eeba452fb710b4148f4c8cea85123ff7bf2150e8daf86d8c6e8d09be71"
+  },
+  "ch5/test_based_literal_size_is_exact_width": {
+   "status": "pass",
+   "inputs_sha256": "bfda60e44c17f69ce9892703bdda9a60b1f00179d6f79be5bdbf49e65d98fa99"
+  },
+  "ch5/test_identifier_1024_characters": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'path length=67 last=J', expected 'path length=1056 last=z'",
+   "inputs_sha256": "4afc7b47db1566444c5460e6b9db55663ff0f78be82e7e7b9f8ab658dfe276c9"
+  },
+  "ch5/test_illegal_based_literal_zero_size": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "c84c92b2f1c725cd3717c3ed8d1dbf4832a2f335c43db57ba8d73accb9ac9f63"
+  },
+  "ch8/test_illegal_interface_class_body_parameter_override": {
+   "status": "pass",
+   "inputs_sha256": "77a07ecb87aa6d3edcbe3f3da9074793f0fecace1d6990f53ba758f0ee584281"
+  },
+  "ch9/test_always_comb_task_target_also_written_elsewhere": {
+   "status": "known",
+   "reason": "output differs: line 2 is 't2 t=11', expected 't2 t=99'",
+   "inputs_sha256": "a83c1f3c889c832c8ca445bd1e64ecf4873752bb9518509159160832e607f283"
+  },
+  "ch9/test_always_ff_independent_element_writers": {
+   "status": "pass",
+   "inputs_sha256": "f7a57067c5f1bd850b3f10e2366f20c1bfae0e41b87b7e2db18cceac06bfab06"
+  },
+  "ch9/test_always_latch_comb_rules_apply": {
+   "status": "pass",
+   "inputs_sha256": "24b848d011e311b23292697a4bdc99c39d5ebf9b2f9acef6e63db0e1c358cb6f"
+  },
+  "ch9/test_event_control_handle_change_only": {
+   "status": "pass",
+   "inputs_sha256": "9dd486ec40de3ea302d03125e42a0e2896ccce6e962d25e29ab8bf246d117a0a"
+  },
+  "ch9/test_illegal_always_comb_function_target_written_by_initial": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "25e7d9d9ba466d40f088939e628bce763cc820773d4f00a08ff1fb9879c54059"
+  },
+  "ch9/test_illegal_always_comb_target_written_by_initial": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "06c224897709fb652cb4ebf4d70f8d9ddead19c37daa894a532e63d80dffedd3"
+  },
+  "ch9/test_illegal_always_latch_event_control": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "7ecc28793190a02ec1fc09fe22cd5c5a61842999f574dbb6f7615feef780641e"
+  },
+  "ch9/test_illegal_always_latch_fork_join": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "90b4d3420e0bc2c21c8e0d5dc711b801ab8081981397fa7f3639b124af6d6ee3"
+  },
+  "ch9/test_illegal_final_procedure_event_control": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_final_procedure_event_control\\\\.sv:37:'; the first is: ./Vt___024root__0.cpp:62:64: error: invalid operands to binary expression ('::VlEvent' and '::VlEvent')",
+   "inputs_sha256": "ddd6e81f32509e12992f1f77550ebb079074ed7fde636d59805130aa0de2a122"
+  },
+  "ch9/test_illegal_final_procedure_task_enable": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "f2a9ab96940369ba7963d4a5064ee84190b65cd0663e3b83105097efa0c94b31"
+  },
+  "ch9/test_illegal_process_kill_result_used_as_value": {
+   "status": "pass",
+   "inputs_sha256": "8d98e15398cbcf19fab0dbd3e5ec4491a733bd918b41a96c4938c7f509a649cb"
+  },
+  "ch9/test_process_state_enum_names_and_order": {
+   "status": "pass",
+   "inputs_sha256": "9d52b84231d9d38e0782b98ab3bb230ca5c225f0ab0dc43af82974a86a09d463"
+  },
+  "ch9/test_unnamed_block_scope_needs_declaration_vpi": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch9/test_unnamed_block_scope_needs_declaration_vpi.sv:47:8: Unsupported or unknown PLI call: '$vt_where'",
+   "inputs_sha256": "a5564bb86601fc3d659a1fba1a4f8c3fa002e21f29c84dcb1177d6d42c01e61a"
+  }
+ },
+ "generated_at": "2026-11-14T23:59:08.170486+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

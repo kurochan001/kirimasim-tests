@@ -4,7 +4,7 @@
 
 [English](ch8.md) / [日本語](ch8.ja.md)
 
-[All chapters](README.md). 478 tests, 138 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 479 tests, 138 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -291,6 +291,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_interface_impl`](../../tests/ch8/test_interface_impl.sv) | Test: Interface class implementation | 8.26 8.26.2 | Verilator 5.052 ||
 | [`test_interface_simple_2`](../../tests/ch8/test_interface_simple_2.sv) | Simplified interface class test - IEEE 1800-2023 Ch.8.26 | 8.26 | Verilator 5.052 ||
 | [`test_virtual_class_interface_prototype_forms`](../../tests/ch8/test_virtual_class_interface_prototype_forms.sv) | a virtual class that implements an interface class meets each interface method by defining a virtual method, by redeclaring the pure prototype, by inheriting a virtual method or by inheriting a pure virtual prototype, and its non-abstract subclasses supply the bodies it left out | 8.26 8.26.2 8.26.7 8.21 | standard only ||
+| [`test_illegal_interface_class_body_parameter_override`](../../tests/ch8/test_illegal_interface_class_body_parameter_override.sv) | In the body of an interface class the parameter keyword declares a local parameter, so a specialization in an implements list that assigns it a value by name is an error | 8.26.1 6.20.4 | Verilator 5.054 | illegal design |
 | [`test_interface_class_shared_method_implementation`](../../tests/ch8/test_interface_class_shared_method_implementation.sv) | One implementation satisfies matching pure virtual methods from two interface classes | 8.26.1 8.26.6.1 | Verilator 5.052 ||
 | [`test_class_extends_inherits_implements_does_not`](../../tests/ch8/test_class_extends_inherits_implements_does_not.sv) | a class that extends a class and implements an interface class inherits the properties and methods of the class it extends but nothing of the interface class, whose methods it has to implement and whose typedef and parameter it reaches only with the class scope operator | 8.26.2 8.26 | Verilator 5.052 ||
 | [`test_illegal_class_extends_interface_class`](../../tests/ch8/test_illegal_class_extends_interface_class.sv) | a class cannot extend an interface class; it has to implement it | 8.26.2 8.26 | Verilator 5.052 | illegal design |

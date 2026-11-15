@@ -1,0 +1,4 @@
+in = 110: nets 10, variables 10
+in = 011: nets 01, variables 01
+in = 111: nets 11, variables 11
+in = 100: nets 00, variables 00

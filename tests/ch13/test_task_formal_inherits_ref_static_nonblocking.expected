@@ -1,0 +1,2 @@
+after call: m1=0 m2=0 m3=0
+one step later: m1=5 m2=6 m3=0

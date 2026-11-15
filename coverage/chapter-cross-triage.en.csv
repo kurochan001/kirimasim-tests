@@ -596,7 +596,7 @@ tests/ch35/test_dpi_import_task_reentrant_wait.sv","The candidates and sources o
 9,Processes,36,Programming language interface (PLI/VPI) overview,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,4,"tests/ch36/test_vpi_end_of_simulation_after_final.sv
 tests/ch36/test_vpi_systf_in_always.sv
 tests/ch36/test_vpi_systf_in_fork.sv","The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
-9,Processes,37,VPI object model diagrams,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,11,"tests/ch37/test_vpi_atomic_statement_labels.sv
+9,Processes,37,VPI object model diagrams,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,12,"tests/ch37/test_vpi_atomic_statement_labels.sv
 tests/ch37/test_vpi_block_scope_chain.sv
 tests/ch37/test_vpi_fork_join_type_stmts.sv","The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
 9,Processes,38,VPI routine definitions,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,4,"tests/ch36/test_vpi_end_of_simulation_after_final.sv

@@ -1,0 +1,5 @@
+A: begin < module test_unnamed_block_scope_needs_declaration_vpi | variables: ka
+B: named begin nb < module test_unnamed_block_scope_needs_declaration_vpi | variables: none
+C: fork < module test_unnamed_block_scope_needs_declaration_vpi | variables: kf
+D: module test_unnamed_block_scope_needs_declaration_vpi | variables: none
+E: begin < module test_unnamed_block_scope_needs_declaration_vpi | variables: ki

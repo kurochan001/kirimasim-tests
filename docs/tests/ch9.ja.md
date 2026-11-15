@@ -4,7 +4,7 @@
 
 [English](ch9.md) / [日本語](ch9.ja.md)
 
-[すべての章](README.ja.md) .テストは451本で、そのうち233本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは464本で、そのうち233本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -44,6 +44,7 @@
 | [`test_always_comb_perf`](../../tests/ch9/test_always_comb_perf.sv) |always_comb性能最適化テスト| 9.2.2.2 | Icarus Verilog 13.0 ||
 | [`test_always_comb_reads_writes`](../../tests/ch9/test_always_comb_reads_writes.sv) |条件付き演算子を含む複数の読み書きを持つ always_comb| 9.2.2.2 | Icarus Verilog 13.0 ||
 | [`test_always_comb_sens`](../../tests/ch9/test_always_comb_sens.sv) |always_comb感度| 9.2.2.2 | Icarus Verilog 13.0 ||
+| [`test_always_comb_task_target_also_written_elsewhere`](../../tests/ch9/test_always_comb_task_target_also_written_elsewhere.sv) |always_comb 手続きが呼ぶタスクの中で代入する変数は、その always_comb だけに限られた代入先ではないので、initial 手続きからも書き込むことができ、変数には書き込みが順に現れる| 9.2.2.2 | Icarus Verilog 13.0 ||
 | [`test_always_comb_time_zero`](../../tests/ch9/test_always_comb_time_zero.sv) |always_comb は、すべての initial と always プロセスが開始された後、 time 0 で一度実行されます。always @* は変更を待ちます。| 9.2.2.2 9.2.2.2.2 | Icarus Verilog 13.0 ||
 | [`test_barrel_shifter_edge_cases`](../../tests/ch9/test_barrel_shifter_edge_cases.sv) |バレルシフターエッジケース| 9.2.2.2 11.4.10 11.7 | Icarus Verilog 13.0 ||
 | [`test_bcd_edge_cases`](../../tests/ch9/test_bcd_edge_cases.sv) |BCDエッジケース| 9.2.2.2 11.4.3 | Icarus Verilog 13.0 ||
@@ -53,7 +54,9 @@
 | [`test_dependency_chain`](../../tests/ch9/test_dependency_chain.sv) |always_combブロックの連鎖は、入力変更後に順番に更新される| 9.2.2.2 | Icarus Verilog 13.0 ||
 | [`test_encoder_edge_cases`](../../tests/ch9/test_encoder_edge_cases.sv) |エンコーダエッジケース| 9.2.2.2 12.4 | Icarus Verilog 13.0 ||
 | [`test_gray_edge_cases`](../../tests/ch9/test_gray_edge_cases.sv) |バイナリからグレイコードへと戻り、単一の bit プロパティを変更| 9.2.2.2 11.4.10 | Icarus Verilog 13.0 ||
+| [`test_illegal_always_comb_function_target_written_by_initial`](../../tests/ch9/test_illegal_always_comb_function_target_written_by_initial.sv) |always_comb 手続きが呼ぶ関数の中で代入する変数はその always_comb の代入先なので、initial 手続きから書き込むことはできない| 9.2.2.2 |規格のみ|規格違反の設計|
 | [`test_illegal_always_comb_other_writer`](../../tests/ch9/test_illegal_always_comb_other_writer.sv) |always_comb プロセスで割り当てられた変数は他のプロセスで書き込めません| 9.2.2.2 |規格のみ|規格違反の設計|
+| [`test_illegal_always_comb_target_written_by_initial`](../../tests/ch9/test_illegal_always_comb_target_written_by_initial.sv) |always_comb 手続きが直接代入する変数には、initial 手続きから書き込むことはできない| 9.2.2.2 |規格のみ|規格違反の設計|
 | [`test_mux4_edge_cases`](../../tests/ch9/test_mux4_edge_cases.sv) |4 - to-1 マルチプレクサエッジケース| 9.2.2.2 12.5 | Icarus Verilog 13.0 ||
 | [`test_sensitivity_edge_cases`](../../tests/ch9/test_sensitivity_edge_cases.sv) |テスト: 感度リストエッジケース| 9.2.2.2 9.2.2.4 9.4.2 | Icarus Verilog 13.0 ||
 | [`test_always_comb_class_object_args_only`](../../tests/ch9/test_always_comb_class_object_args_only.sv) |クラスオブジェクトのメソッドを呼び出し、そのメンバーを読み込む always_comb は、メンバーやハンドルに感度がなく、メソッドに渡された引数だけを感受的に読み込む。| 9.2.2.2.1 |規格のみ||
@@ -74,13 +77,17 @@
 | [`test_always_latch`](../../tests/ch9/test_always_latch.sv) |Always_latch テスト| 9.2.2.3 | Icarus Verilog 13.0 ||
 | [`test_always_latch_2`](../../tests/ch9/test_always_latch_2.sv) |always_latchは条件が false のときは出力を保持します| 9.2.2.3 | Icarus Verilog 13.0 ||
 | [`test_always_latch_comb_in_interface`](../../tests/ch9/test_always_latch_comb_in_interface.sv) |always_latchとalways_combプロセスはモジュール内で実行されます。| 9.2.2.3 9.2.2.2 25.3 | Icarus Verilog 13.0 ||
+| [`test_always_latch_comb_rules_apply`](../../tests/ch9/test_always_latch_comb_rules_apply.sv) |always_comb の規則は always_latch にも当てはまる。時刻ゼロで一度実行されるので、イネーブルがすでに 1 なら入力が変わらなくても出力が設定される。呼び出す関数の中だけで読む変数にも反応する。また、それが書き込む要素と、連続代入が書き込む別の要素は、それぞれ自分の代入元に従う| 9.2.2.3 | Icarus Verilog 13.0 ||
 | [`test_always_latch_edge_cases`](../../tests/ch9/test_always_latch_edge_cases.sv) |Always_latchエッジケース| 9.2.2.3 | Icarus Verilog 13.0 | x/z |
 | [`test_illegal_always_latch_delay`](../../tests/ch9/test_illegal_always_latch_delay.sv) |always_latch プロセスには遅延は含まれません| 9.2.2.3 9.2.2.2.2 | Icarus Verilog 13.0 |規格違反の設計|
+| [`test_illegal_always_latch_event_control`](../../tests/ch9/test_illegal_always_latch_event_control.sv) |always_comb の制限は always_latch にも当てはまるので、 always_latch 手続きはイベント制御を含むことができない| 9.2.2.3 9.2.2.2.2 | Icarus Verilog 13.0 |規格違反の設計|
+| [`test_illegal_always_latch_fork_join`](../../tests/ch9/test_illegal_always_latch_fork_join.sv) |always_comb の制限は always_latch にも当てはまるので、 always_latch 手続きは fork-join 文を含むことができない| 9.2.2.3 9.2.2.2.2 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_always_latch_other_writer`](../../tests/ch9/test_illegal_always_latch_other_writer.sv) |always_latch プロセスで割り当てられた変数は他のプロセスで書き込めません| 9.2.2.3 9.2.2.2 |規格のみ|規格違反の設計|
 | [`test_latch_edge_cases`](../../tests/ch9/test_latch_edge_cases.sv) |Dラッチでalways_latch : パスとホールド| 9.2.2.3 | Icarus Verilog 13.0 ||
 | [`test_always_ff_async`](../../tests/ch9/test_always_ff_async.sv) |always_ff 非同期リセット| 9.2.2.4 4.7 | Icarus Verilog 13.0 ||
 | [`test_always_ff_corner`](../../tests/ch9/test_always_ff_corner.sv) |always_ff 非同期と同期リセット、エンバート、カウンタ、シフトレジスタ| 9.2.2.4 4.7 | Icarus Verilog 13.0 | x/z |
 | [`test_always_ff_edge_cases`](../../tests/ch9/test_always_ff_edge_cases.sv) |Always_ffエッジケース| 9.2.2.4 | Icarus Verilog 13.0 ||
+| [`test_always_ff_independent_element_writers`](../../tests/ch9/test_always_ff_independent_element_writers.sv) |書き込みの最長静的接頭辞が重ならないので、 unpacked 配列の一つの要素を always_ff 手続きが書き込み、別の要素を連続代入が書き込んでもよく、各要素はそれぞれの書き込み元に従う| 9.2.2.4 | Icarus Verilog 13.0 ||
 | [`test_always_ff_simple`](../../tests/ch9/test_always_ff_simple.sv) |常に FF 単純テスト| 9.2.2.4 10.4.2 | Icarus Verilog 13.0 ||
 | [`test_illegal_always_ff_delay`](../../tests/ch9/test_illegal_always_ff_delay.sv) |always_ff プロセスは遅延制御を含められません| 9.2.2.4 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_always_ff_no_event_control`](../../tests/ch9/test_illegal_always_ff_no_event_control.sv) |always_ffプロセスはイベント制御を含む必要がある。1つもないのは違法です| 9.2.2.4 | Icarus Verilog 13.0 |規格違反の設計|
@@ -94,6 +101,8 @@
 | [`test_final_finish_inside_final_ends_at_once`](../../tests/ch9/test_final_finish_inside_final_ends_at_once.sv) |終了手順の中で呼び出された $finish はシミュレーションを一旦終了させ、その終了手順の残りは実行されず、最終手順は二度と実行されません。| 9.2.3 | Icarus Verilog 13.0 ||
 | [`test_final_vpi_control_finish_inside_final`](../../tests/ch9/test_final_vpi_control_finish_inside_final.sv) |vpi_control（vpiFinish , 0）は最終手続きの中のシステムタスクから呼び出されると一旦シミュレーションを終了し、残りの最終手続きは実行されず、再び実行されない。| 9.2.3 38.4 | Icarus Verilog 13.0 | VPI |
 | [`test_illegal_final_procedure_delay`](../../tests/ch9/test_illegal_final_procedure_delay.sv) |終了手続きは 関数に許可された ステートメントしか含められません| 9.2.3 | Icarus Verilog 13.0 |規格違反の設計|
+| [`test_illegal_final_procedure_event_control`](../../tests/ch9/test_illegal_final_procedure_event_control.sv) |final 手続きは関数で許される文しか含められないので、イベント制御を含むことはできない| 9.2.3 | Icarus Verilog 13.0 |規格違反の設計|
+| [`test_illegal_final_procedure_task_enable`](../../tests/ch9/test_illegal_final_procedure_task_enable.sv) |final 手続きは関数で許される文しか含められないので、時間制御文を持たないタスクであっても、タスクを起動することはできない| 9.2.3 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_a6_4_statement_label_attributes_null`](../../tests/ch9/test_a6_4_statement_label_attributes_null.sv) |命令はブロック識別子プレフィックスと属性インスタンスを持つことができ、 null 命令は属性とセミコロンであり、命名された命令を無効にすると、その後の命令は停止します。| 9.3 9.6.2 A.6.4 | Verilator 5.052 ||
 | [`test_block_statements_sequential_order_parallel_children`](../../tests/ch9/test_block_statements_sequential_order_parallel_children.sv) |始まり終わりブロックは 順番に それぞれのステートメントを実行し if と repeat の下で 1つのステートメントとして動作します ジョイン join_any または join_none を持つフォークブロックは それぞれの ステートメントを一緒に開始します| 9.3 9.3.1 9.3.2 | Icarus Verilog 13.0 ||
 | [`test_syntax_sequential_and_parallel_block_forms`](../../tests/ch9/test_syntax_sequential_and_parallel_block_forms.sv) |宣言とヌルステートメントを持つ名前付きと名前なしの順序ブロック、および join、join_anyまたはjoin_noneで終わり、ラベルを持つ並列ブロックは、それらのステートメントを A.6.3のように順序付けます。| 9.3 9.3.1 9.3.2 9.3.3 A.6.3 A.6.4 | Icarus Verilog 13.0 ||
@@ -125,6 +134,7 @@
 | [`test_named_block_hier_write`](../../tests/ch9/test_named_block_hier_write.sv) |階層的に名前付けブロックの変数に書き込み、そしてその変数に対する強制| 9.3.4 23.6 10.4.2 10.6.2 | Icarus Verilog 13.0 ||
 | [`test_named_block_scope_hierarchical`](../../tests/ch9/test_named_block_scope_hierarchical.sv) |名前付きブロック範囲階層的アクセス| 9.3.4 23.6 6.21 | Icarus Verilog 13.0 | x/z |
 | [`test_named_blocks_scope_items_and_disable`](../../tests/ch9/test_named_blocks_scope_items_and_disable.sv) |名前付きbeginブロックと名前付きforkブロックは、それぞれスコープを作る。その変数、ローカルパラメータ、名前付きイベントには、別のプロセスからブロック名を介してアクセスでき、名前付きforkブロックは名前を指定してdisableできる。| 9.3.4 9.6.2 | Icarus Verilog 13.0 ||
+| [`test_unnamed_block_scope_needs_declaration_vpi`](../../tests/ch9/test_unnamed_block_scope_needs_declaration_vpi.sv) |名前のない begin や fork は、直接何かを宣言するときだけ階層スコープになる。 VPI から見ると、そのようなブロックは中にあるシステムタスク呼び出しのスコープであり、 vpiVariables でその変数を返すが、宣言のない名前なしブロックは vpiScope の連鎖で飛ばされる| 9.3.4 37.12 |規格のみ| VPI |
 | [`test_assertion_label`](../../tests/ch9/test_assertion_label.sv) |前のラベルを持つ並行アサーションは デザインの隣に 詳細に行われます| 9.3.5 | Verilator 5.052 ||
 | [`test_generate_block_label_before_begin`](../../tests/ch9/test_generate_block_label_before_begin.sv) |ブロックの名前は ブロックの開始前に書かれたラベルで決められます ブロックの中で宣言されたアイテムは その名前を通して アクセスされます| 9.3.5 27.3 | Verilator 5.052 ||
 | [`test_illegal_statement_label_and_block_name`](../../tests/ch9/test_illegal_statement_label_and_block_name.sv) |begin ブロックには 前にステートメントラベルと 後にブロック名が同時に存在できません| 9.3.5 9.3.4 | Verilator 5.052 |規格違反の設計|
@@ -155,6 +165,7 @@
 | [`test_edge_matrix`](../../tests/imported/ch9/test_edge_matrix.sv) |posedge , negedge，エッジと変数の変化，0 , 1，xとzの間のすべての遷移，bit，ベクトルの最小有意値，上位ビットのみ，bit‐select，ネット，常に待ち，初期，自動タスク，フォーク| 9.4.2 9.4.2.3 |規格のみ|上部モジュール x/z|
 | [`test_edge_table_all_scalar_transitions`](../../tests/ch9/test_edge_table_all_scalar_transitions.sv) |0 , 1, x, z の間の 16 のスカラー遷移は それぞれ posedge , negedge を起こし 端イベントは 表9-2のように 制御されます| 9.4.2 | Icarus Verilog 13.0 | x/z |
 | [`test_event_chain_propagation`](../../tests/ch9/test_event_chain_propagation.sv) |常に@（信号）ブロックの連鎖が一つのタイムスロットに定着する| 9.4.2 4.4.2.2 | Icarus Verilog 13.0 ||
+| [`test_event_control_handle_change_only`](../../tests/ch9/test_event_control_handle_change_only.sv) |クラスハンドル変数に対するイベント制御と chandle 変数に対するイベント制御は、書き込みで変数が前と異なる値になったときに再開し、null に null を書く場合を含め、書き込みが現在の値をもう一度与えたときには再開しない| 9.4.2 | Verilator 5.054 | DPI |
 | [`test_event_control_on_expression`](../../tests/ch9/test_event_control_on_expression.sv) |演算子表現のイベント制御は、表現の値の変化を待ち、演算子の変化を待たない| 9.4.2 | Icarus Verilog 13.0 ||
 | [`test_event_control_posedge`](../../tests/ch9/test_event_control_posedge.sv) |初期ブロックで @(posedge clk) を待つ| 9.4.2 | Icarus Verilog 13.0 ||
 | [`test_event_ctrl`](../../tests/ch9/test_event_ctrl.sv) |イベント制御| 9.4.2 | Icarus Verilog 13.0 ||
@@ -218,6 +229,7 @@
 | [`test_disable_fork_ends_loops_and_class_tasks`](../../tests/ch9/test_disable_fork_ends_loops_and_class_tasks.sv) |クラスタスクを実行する子プロセスと while 内で待ち受ける子プロセスを終了させます| 9.6.3 9.3.2 | Icarus Verilog 13.0 ||
 | [`test_illegal_class_extends_process`](../../tests/ch9/test_illegal_class_extends_process.sv) |内蔵されたクラスプロセスは拡張できません| 9.7 |規格のみ|規格違反の設計|
 | [`test_illegal_new_process_object`](../../tests/ch9/test_illegal_new_process_object.sv) |プロセスオブジェクトは 新しいオブジェクトを作成できません| 9.7 |規格のみ|規格違反の設計|
+| [`test_illegal_process_kill_result_used_as_value`](../../tests/ch9/test_illegal_process_kill_result_used_as_value.sv) |process のメソッド kill() は void 関数なので、その呼び出しの結果を変数に代入するとエラーになる| 9.7 | Verilator 5.054 |規格違反の設計|
 | [`test_process_await_from_fork_child`](../../tests/ch9/test_process_await_from_fork_child.sv) |フォークによって開始されたプロセスで呼び出された await() は、待ち受けるプロセスが終了したとき、または既に終了した場合はすぐに返します。| 9.7 9.3.2 |規格のみ||
 | [`test_process_class_control`](../../tests/ch9/test_process_class_control.sv) |プロセスクラス: self, status, kill| 9.7 | Verilator 5.052 ||
 | [`test_process_kill_self`](../../tests/ch9/test_process_kill_self.sv) |プロセス自体が kill() を呼び出すと、他のプロセスによって 殺された場合と同様に、すぐに KILLED の状態で終了します。| 9.7 |規格のみ||
@@ -227,6 +239,7 @@
 | [`test_process_resume_waiting_resensitizes`](../../tests/ch9/test_process_resume_waiting_resensitizes.sv) |プロセスを停止する場合は、 返す前に SUSPENDED にするために、 待ち条件と遅延を設定します。条件が既に真であれば、または遅延が過ぎた場合、一度に続けます。そうでなければ、次のイベントまたは遅延の元の終了時に続けます。| 9.7 |規格のみ||
 | [`test_process_self_status_kill`](../../tests/ch9/test_process_self_status_kill.sv) |プロセスの状態を表示するには、std::process::self() は実行中のプロセスを返します。status() はプロセスの寿命に関して RUNNING , WAITING , FINISHED と KILLED を返します。state enumeration は G.6 が与える値 0 から 4 の順に5つの名前を持っています。kill() はプロ セスとその子プロセスを返す前に終了します。| 9.7 G.6 | Verilator 5.052 ||
 | [`test_process_self_suspend_and_noop_controls`](../../tests/ch9/test_process_self_suspend_and_noop_controls.sv) |実行中のプロセスが RUNNING を報告し、自分自身をサスペンドすることができます。続けるには、resume() を使います。プロセスの停止、終了、または殺害の場合は suspend() 、停止されていない場合は resume() を使っても変更はありません。| 9.7 |規格のみ||
+| [`test_process_state_enum_names_and_order`](../../tests/ch9/test_process_state_enum_names_and_order.sv) |組み込みクラス process の列挙型 state は名前 FINISHED 、 RUNNING 、 WAITING 、 SUSPENDED 、 KILLED をこの順に持つので、 process::state 型の変数を first() から next() で進めると、それらが値 0 〜 4 とともに得られる| 9.7 | Verilator 5.054 ||
 | [`test_process_suspend_resume_await`](../../tests/ch9/test_process_suspend_resume_await.sv) |プロセスクラス: await は他のプロセスが終了するのを待ち、遅延中に一時停止されたプロセスは再開後にのみ続行されます。| 9.7 |規格のみ||
 
 <a id="generated-by-generatorscombination_eventspy"></a>

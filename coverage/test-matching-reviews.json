@@ -9857,7 +9857,7 @@
     },
     {
       "test": "tests/ch22/test_include_nested.sv",
-      "inputs_sha256": "6db236e31b6058a24ff04f8d56d8f5736a474022a7eb451c9b975bf9d838a79f",
+      "inputs_sha256": "1366a4d000810275c1bb40f6290048c9cb6773604c1cc9e03483f2455c555b21",
       "reviewed_on": "2026-10-28",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -9905,7 +9905,7 @@
     },
     {
       "test": "tests/ch22/test_include_guard_two_files.sv",
-      "inputs_sha256": "6db236e31b6058a24ff04f8d56d8f5736a474022a7eb451c9b975bf9d838a79f",
+      "inputs_sha256": "1366a4d000810275c1bb40f6290048c9cb6773604c1cc9e03483f2455c555b21",
       "reviewed_on": "2026-10-28",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -45008,7 +45008,7 @@
     },
     {
       "test": "tests/ch22/test_resetall_restores_defaults_keeps_macros.sv",
-      "inputs_sha256": "6db236e31b6058a24ff04f8d56d8f5736a474022a7eb451c9b975bf9d838a79f",
+      "inputs_sha256": "1366a4d000810275c1bb40f6290048c9cb6773604c1cc9e03483f2455c555b21",
       "reviewed_on": "2026-10-28",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -52056,6 +52056,21 @@
               "contains": "localparam int W = $bits(f());"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-20.6.2-EXTRACT-BITS-DYNAMIC-RESTRICTIONS"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "2026-10-27 の保留（BITS-NO-EVAL 宛て、oracle_issue）の理由がこの行にもそのまま当たる: localparam int W = $bits(f())（f は int[] を返す）を、Icarus Verilog 13.0 も Verilator 5.054 も受け入れ、規則を診断するリリースがない（2026-11-15 に runsim で再確認）。また 1 行で「動的型を返す関数を囲む」と「elaboration 定数での動的型」の2文の両方に違反するので、関数の文だけの証拠にもならない。手続き文の中の $bits(f()) と localparam の $bits(dyn) に分けた新規テストも、前者は両リリースが受け入れ（同じ理由に当たる）、後者は Verilator 5.054 が未対応として拒否するだけなので作らなかった。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_illegal_bits_function_dynamic_return.sv",
+              "contains": "localparam int W = $bits(f());"
+            }
+          ]
         }
       ]
     },
@@ -56025,6 +56040,38 @@
             {
               "file": "tests/ch20/test_illegal_bits_interface_class.sv",
               "contains": "localparam int W = $bits(obj);   // illegal: interface class object"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch8/test_illegal_method_initial_with_extends_specifier.sv",
+      "inputs_sha256": "2024dd6d5da9c10285c8c552ed2c8c8824d8592a77a0df94a962daa23a2811bb",
+      "reviewed_on": "2026-11-15",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-8.20-EXTRACT-INITIAL-EXTENDS-EXCLUSIVE"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "38 行目の function :initial :extends int h() は base_c の virtual function int h()（26 行目）を上書きするので、:initial と :extends の併用（8.20 B024）とは別に、仮想メソッドの上書きに :initial を付ける違反（8.20 B020）が同じ行に重なる。B024 を実装せず B020 だけを検査する実装も 38 行目で拒否して一致するため、このテストの期待結果は併用禁止の規則に依存しない。基底に h がない、または非仮想にすると今度は :extends が仮想メソッドを上書きしない違反（B022）が重なるので、:initial と :extends を両方書いた宣言は必ず B020 か B022 にも違反し、違反を 1 つにしたテストは作れない。さらに A.2.7 の文法 dynamic_override_specifiers ::= [ initial_or_extends_specifier ] [ final_specifier ] がこの並びを構文として許さないので、構文エラーも同じ行に出る。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_illegal_method_initial_with_extends_specifier.sv",
+              "contains": "  virtual function int h();\n    return 3;"
+            },
+            {
+              "file": "tests/ch8/test_illegal_method_initial_with_extends_specifier.sv",
+              "contains": "  function :initial :extends int h();   // illegal: :initial together with :extends"
+            },
+            {
+              "file": "tests/ch8/test_illegal_method_initial_with_extends_specifier.sv",
+              "contains": ":expected_stderr_regex: test_illegal_method_initial_with_extends_specifier\\.sv:38:"
             }
           ]
         }

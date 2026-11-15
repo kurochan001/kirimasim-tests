@@ -1,0 +1,2 @@
+before resetall, only a z driver: 0
+after resetall, only a z driver: z, drivers of 0 and 1: x

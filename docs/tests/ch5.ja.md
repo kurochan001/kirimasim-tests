@@ -4,7 +4,7 @@
 
 [English](ch5.md) / [日本語](ch5.ja.md)
 
-[すべての章](README.ja.md) .テストは518本で、そのうち415本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは520本で、そのうち415本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -51,11 +51,13 @@
 | [`test_primary_literal_categories_as_operands`](../../tests/ch5/test_primary_literal_categories_as_operands.sv) |4 種の primary のリテラル、すなわち数値、時間リテラル、unbased unsized リテラル、文字列リテラルは、それぞれ式のオペランドになり、そこで自分の値を与える| 5.7 5.7.1 5.7.2 5.8 5.9 | Icarus Verilog 13.0 ||
 | [`test_real_literal_syntax_forms`](../../tests/ch5/test_real_literal_syntax_forms.sv) |実数リテラルは、固定小数点形式、または小数部の有無を選べる十進仮数にe／Eと省略可能な符号付き指数を続けた形式で記述し、どちらもreal値となる| 5.7 5.7.2 | Icarus Verilog 13.0 ||
 | [`test_based_literal_letters_and_tokens`](../../tests/ch5/test_based_literal_letters_and_tokens.sv) |基底文字、s 指定子、基底リテラルの十六進数数字は大小を区別しない。値の前に空白を入れ、サイズの後に空白を入れることができる。3 つのトークンはマクロから来ることができ、各基底はそれぞれ独自の数字を取る。| 5.7.1 5.7 | Icarus Verilog 13.0 | x/z |
+| [`test_based_literal_size_is_exact_width`](../../tests/ch5/test_based_literal_size_is_exact_width.sv) |基数付きリテラルのサイズ定数は、値の桁がより少ないビットで表せる場合でもそのまま正確な幅になることを、 $bits 、ゼロ詰めの %b と %h の表示、サイズ付きリテラルの連結が示す| 5.7.1 | Icarus Verilog 13.0 ||
 | [`test_boundary_values`](../../tests/ch5/test_boundary_values.sv) |角の場合 - 境界値| 5.7.1 6.11 11.4.3 11.4.10 | Icarus Verilog 13.0 ||
 | [`test_format_hex`](../../tests/ch5/test_format_hex.sv) |フォーマット Hex テスト| 5.7.1 11.5.1 | Icarus Verilog 13.0 ||
 | [`test_illegal_based_literal_apostrophe_space`](../../tests/ch5/test_illegal_based_literal_apostrophe_space.sv) |基底リテラルのアポストロフと基底文字の間の空白は無視されます| 5.7.1 5.7 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_based_literal_sign_after_base`](../../tests/ch5/test_illegal_based_literal_sign_after_base.sv) |基礎形式と基礎リテラルの値の間のマイナス記号は拒否されます| 5.7.1 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_based_literal_signed_base_space`](../../tests/ch5/test_illegal_based_literal_signed_base_space.sv) |符号付き基底指定子の s と基底文字の間の空白は無視されます| 5.7.1 5.7 | Icarus Verilog 13.0 |規格違反の設計|
+| [`test_illegal_based_literal_zero_size`](../../tests/ch5/test_illegal_based_literal_zero_size.sv) |基数付きリテラルのサイズ定数はゼロでない符号なしの十進数でなければならないので、リテラル 0'd1 はエラーになる| 5.7.1 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_decimal_literal_digit_and_x`](../../tests/ch5/test_illegal_decimal_literal_digit_and_x.sv) |普通の数字と x の数字を混ぜた小数点リテラルは拒否されます| 5.7.1 | Icarus Verilog 13.0 |違法なデザイン x/z|
 | [`test_illegal_decimal_literal_two_unknown_digits`](../../tests/ch5/test_illegal_decimal_literal_two_unknown_digits.sv) |未知の2桁の小数点リテラルを拒否| 5.7.1 | Icarus Verilog 13.0 |違法なデザイン x/z|
 | [`test_int_literal_edge_cases`](../../tests/ch5/test_int_literal_edge_cases.sv) |テスト: 整数リテラルの端の場合| 5.7.1 | Icarus Verilog 13.0 ||

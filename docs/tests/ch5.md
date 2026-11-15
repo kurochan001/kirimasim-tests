@@ -4,7 +4,7 @@
 
 [English](ch5.md) / [日本語](ch5.ja.md)
 
-[All chapters](README.md). 518 tests, 415 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 520 tests, 415 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -51,11 +51,13 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_primary_literal_categories_as_operands`](../../tests/ch5/test_primary_literal_categories_as_operands.sv) | Each of the four kinds of primary literal, a number, a time literal, an unbased unsized literal and a string literal, is an operand of an expression and gives its own value there | 5.7 5.7.1 5.7.2 5.8 5.9 | Icarus Verilog 13.0 ||
 | [`test_real_literal_syntax_forms`](../../tests/ch5/test_real_literal_syntax_forms.sv) | A real literal is written in fixed-point form or as a decimal significand, with or without a fraction, followed by e or E and an exponent with an optional sign, and both forms are real values | 5.7 5.7.2 | Icarus Verilog 13.0 ||
 | [`test_based_literal_letters_and_tokens`](../../tests/ch5/test_based_literal_letters_and_tokens.sv) | The base letters, the s designator and the hexadecimal digits of a based literal are case insensitive, white space may precede the value and follow the size, the three tokens can come from macros, and each base takes its own digits | 5.7.1 5.7 | Icarus Verilog 13.0 | x/z |
+| [`test_based_literal_size_is_exact_width`](../../tests/ch5/test_based_literal_size_is_exact_width.sv) | The size constant of a based literal is its exact width, also when the value digits need fewer bits, as $bits, the zero-padded %b and %h forms and a concatenation of sized literals show | 5.7.1 | Icarus Verilog 13.0 ||
 | [`test_boundary_values`](../../tests/ch5/test_boundary_values.sv) | Corner Cases - Boundary Values | 5.7.1 6.11 11.4.3 11.4.10 | Icarus Verilog 13.0 ||
 | [`test_format_hex`](../../tests/ch5/test_format_hex.sv) | Format Hex Tests | 5.7.1 11.5.1 | Icarus Verilog 13.0 ||
 | [`test_illegal_based_literal_apostrophe_space`](../../tests/ch5/test_illegal_based_literal_apostrophe_space.sv) | White space between the apostrophe and the base letter of a based literal is rejected | 5.7.1 5.7 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_based_literal_sign_after_base`](../../tests/ch5/test_illegal_based_literal_sign_after_base.sv) | A minus sign between the base format and the value of a based literal is rejected | 5.7.1 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_based_literal_signed_base_space`](../../tests/ch5/test_illegal_based_literal_signed_base_space.sv) | White space between the s and the base letter of a signed base designator is rejected | 5.7.1 5.7 | Icarus Verilog 13.0 | illegal design |
+| [`test_illegal_based_literal_zero_size`](../../tests/ch5/test_illegal_based_literal_zero_size.sv) | The size constant of a based literal has to be a nonzero unsigned decimal number, so the literal 0'd1 is an error | 5.7.1 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_decimal_literal_digit_and_x`](../../tests/ch5/test_illegal_decimal_literal_digit_and_x.sv) | A decimal based literal that mixes an ordinary digit with an x digit is rejected | 5.7.1 | Icarus Verilog 13.0 | illegal design, x/z |
 | [`test_illegal_decimal_literal_two_unknown_digits`](../../tests/ch5/test_illegal_decimal_literal_two_unknown_digits.sv) | A decimal based literal with two unknown digits is rejected | 5.7.1 | Icarus Verilog 13.0 | illegal design, x/z |
 | [`test_int_literal_edge_cases`](../../tests/ch5/test_int_literal_edge_cases.sv) | Test: Integer literal edge cases | 5.7.1 | Icarus Verilog 13.0 ||

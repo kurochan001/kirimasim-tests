@@ -1,0 +1,3 @@
+array: ones 7, zeros 17, both 24
+struct: ones 7, zeros 11, both 18
+queue: ones 15, zeros 17, both 32

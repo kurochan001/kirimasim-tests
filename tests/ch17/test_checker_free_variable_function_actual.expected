@@ -1,0 +1,2 @@
+before the clock: r_ff=0 r_cont=50
+after the clock: r_ff=50 r_cont=50

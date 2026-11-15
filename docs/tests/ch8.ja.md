@@ -4,7 +4,7 @@
 
 [English](ch8.md) / [日本語](ch8.ja.md)
 
-[すべての章](README.ja.md) .テストは478本で、そのうち138本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは479本で、そのうち138本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -291,6 +291,7 @@
 | [`test_interface_impl`](../../tests/ch8/test_interface_impl.sv) |テスト: インターフェースクラスの実装| 8.26 8.26.2 | Verilator 5.052 ||
 | [`test_interface_simple_2`](../../tests/ch8/test_interface_simple_2.sv) |IEEE 1800-2023チャンネルの簡単なインタフェースクラステストを行った。8.26| 8.26 | Verilator 5.052 ||
 | [`test_virtual_class_interface_prototype_forms`](../../tests/ch8/test_virtual_class_interface_prototype_forms.sv) |仮想クラスはインタフェースクラスを実装し、仮想メソッドを定義することで、純粋なプロトタイプを再宣言することで、仮想メソードを継承することで、または純粋な仮想プロトタイプを継承することで各インタフェースメソッドを満たし、その非抽象的サブクラスは、それが欠けているボディを提供します。| 8.26 8.26.2 8.26.7 8.21 |規格のみ||
+| [`test_illegal_interface_class_body_parameter_override`](../../tests/ch8/test_illegal_interface_class_body_parameter_override.sv) |インタフェースクラスの本体ではキーワード parameter がローカルパラメータを宣言するので、implements リストの特殊化で名前を指定してそれに値を与えるとエラーになる| 8.26.1 6.20.4 | Verilator 5.054 |規格違反の設計|
 | [`test_interface_class_shared_method_implementation`](../../tests/ch8/test_interface_class_shared_method_implementation.sv) |2つのインタフェイスクラスからの純粋仮想手法のマッチングを満足する実装を示した。| 8.26.1 8.26.6.1 | Verilator 5.052 ||
 | [`test_class_extends_inherits_implements_does_not`](../../tests/ch8/test_class_extends_inherits_implements_does_not.sv) |クラスをextendsし、interface classをimplementsするクラスは、extendsしたクラスのプロパティとメソッドを継承するが、interface classからは何も継承しない。interface classのメソッドは実装する必要があり、そのtypedefとパラメータにはクラススコープ演算子を使う場合だけアクセスできる。| 8.26.2 8.26 | Verilator 5.052 ||
 | [`test_illegal_class_extends_interface_class`](../../tests/ch8/test_illegal_class_extends_interface_class.sv) |クラスはインターフェースクラスを拡張できません実行しなければなりません| 8.26.2 8.26 | Verilator 5.052 |規格違反の設計|

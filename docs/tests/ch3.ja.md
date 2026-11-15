@@ -4,7 +4,7 @@
 
 [English](ch3.md) / [日本語](ch3.ja.md)
 
-[すべての章](README.ja.md) .テストは149本で、そのうち48本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは152本で、そのうち48本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -42,6 +42,8 @@
 | [`test_uninstantiated_modules_and_program_are_tops`](../../tests/ch3/test_uninstantiated_modules_and_program_are_tops.sv) |2つのモジュールと何もインスタンス化しないプログラムはそれぞれトップレベルブロックとなり，それぞれの名前で一度インスタンス化される。プログラムの最初の手順は テストベンチの入力点として実行されます| 3.11 3.4 23.3.1 24.3 | Icarus Verilog 13.0 ||
 | [`test_elaborated_net_joins_drivers_across_hierarchy`](../../tests/ch3/test_elaborated_net_joins_drivers_across_hierarchy.sv) |また，各モジュールのドライバが一緒に解決し，各ポート名が解決した値を読み取るように，トップレベルネットとそれに接続された入出力ポートを二つの階層レベルで一つのネットに結合する。wire AND ポートに接続されたワンドネットは インスタンス内のドライバの| 3.12 23.3.3.7 6.6.1 | Icarus Verilog 13.0 | x/z |
 | [`test_elaborated_parameters_generate_and_names_at_time_zero`](../../tests/ch3/test_elaborated_parameters_generate_and_names_at_time_zero.sv) |シミュレーション開始前のエラボレーションで、上書き・派生パラメータの値が確定し、パラメータに従う個数へgenerateループを展開し、階層名を対応するインスタンスへ解決します。initial手続きは、それらを時刻0で読み出します。| 3.12 23.10.4.1 27.4 23.6 | Icarus Verilog 13.0 ||
+| [`test_illegal_package_import_precedes_package`](../../tests/ch3/test_illegal_package_import_precedes_package.sv) |パッケージのコンパイルはその項目の参照より前でなければならないので、モジュールより後にしか書かれていないパッケージの関数をインポートするモジュールはエラーになる| 3.12 26.3 | Icarus Verilog 13.0 |規格違反の設計|
+| [`test_illegal_package_scoped_name_precedes_package`](../../tests/ch3/test_illegal_package_scoped_name_precedes_package.sv) |パッケージのコンパイルはその項目の参照より前でなければならないので、パッケージより前に書かれたモジュールの中のパッケージスコープ名 pkg::item はエラーになる| 3.12 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_compilation_unit_shared_across_files`](../../tests/ch3/test_compilation_unit_shared_across_files.sv) |3.12.1のa)の使い方を選んだとき、1つのコマンドラインの全ファイルが1つのコンパイル単位になるので、あるファイルで宣言した変数と関数がほかのファイルから見える| 3.12.1 | Icarus Verilog 13.0 |複数のファイル|
 | [`test_declaration_across_file_boundary`](../../tests/ch3/test_declaration_across_file_boundary.sv) |ファイルの終わりに完了しない宣言は次のファイルで続行されます。コンパイルユニットは次のファイルに拡張されます。| 3.12.1 | Icarus Verilog 13.0 |複数のファイル|
 | [`test_definitions_visible_from_other_file`](../../tests/ch3/test_definitions_visible_from_other_file.sv) |別のソースファイルで宣言した package、interface、primitive、module、program は、2 つのファイルが 1 つのコンパイル単位をなす場合も 2 つをなす場合も、すべてテストのファイルから名前で見つかる| 3.12.1 3.12 | Icarus Verilog 13.0 |複数のファイル|
@@ -87,6 +89,7 @@
 | [`test_time_unit_from_directive_or_keywords`](../../tests/ch3/test_time_unit_from_directive_or_keywords.sv) |\`timescale 指令の前にあるモジュールの時間単位と精度は，モジュールの内部にある時間単位と時間精度の宣言によって与えられ，モジュールの宣言は，実際には指令を上回る。| 3.14.2 3.14.2.1 3.14.2.2 3.14.2.3 3.14.1 | Icarus Verilog 13.0 ||
 | [`test_illegal_timescale_precision_coarse`](../../tests/ch3/test_illegal_timescale_precision_coarse.sv) |時間精度が時間単位よりも粗い\`timescaleは違法です| 3.14.2.1 3.14.1 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_timescale_replaced_by_next`](../../tests/ch3/test_timescale_replaced_by_next.sv) |次の \`timescale 指令が置き換わるまで、\`timescale 指示はその後のデザイン要素に適用されます。| 3.14.2.1 22.7 20.3.1 | Icarus Verilog 13.0 ||
+| [`test_illegal_timeprecision_mismatch`](../../tests/ch3/test_illegal_timeprecision_mismatch.sv) |モジュールの後の項目として繰り返した timeprecision 宣言は最初のものと一致しなければならないので、 100 ps の後に置いた 10 ps の timeprecision はエラーになる| 3.14.2.2 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_timeunit_after_item`](../../tests/ch3/test_illegal_timeunit_after_item.sv) |時間単位の宣言は、そのモジュールの他の項目の前に来なければなりません。| 3.14.2.2 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_timeunit_mismatch`](../../tests/ch3/test_illegal_timeunit_mismatch.sv) |繰り返しの時間単位宣言は、そのモジュールの最初のものと一致する必要があります。| 3.14.2.2 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_timeunit_precision_order`](../../tests/ch3/test_timeunit_precision_order.sv) |timeprecisionはコンパイルユニットの範囲で timeunit の前に来る事があります| 3.14.2.2 3.14.2.3 3.14.1 | Icarus Verilog 13.0 ||
