@@ -427,7 +427,7 @@ Use [Q9](docs/faq.en.md#q9-what-do-match-differ-known-difference-and-unsupported
 
 ## Simulation speed
 
-This suite checks simulation results. Dated speed measurements are in the
+The [2026-11-16 Mac comparison of kirimasim 0.1.0 and Icarus 14.0 devel](docs/simulation-speed-20261116.md) records timings, spread, method and raw samples. Linux/WSL2 measurements are requested. Earlier measurements remain in the
 [measurement archive](docs/readme-records-20261101.md#simulation-speed).
 The simulator repository maintains the [benchmark code and commands](https://github.com/kurochan001/kirimasim/tree/main/bench).
 

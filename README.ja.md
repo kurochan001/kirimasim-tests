@@ -369,7 +369,7 @@ Icarus Verilog 13.0とVerilator 5.052で記録した期待結果と、固定版�
 
 ## シミュレーション速度
 
-このスイートはシミュレーション結果を検査します。過去の速度測定は
+[2026-11-16 の Mac での kirimasim 0.1.0 と Icarus 14.0 devel の比較](docs/simulation-speed-20261116.ja.md)に、時間・ばらつき・方法・全サンプルを記録しています。Linux/WSL2 側は測定を依頼済みです。過去の速度測定は
 [測定記録](docs/readme-records-20261101.ja.md#シミュレーション速度)へまとめています。
 実行コードと手順は[シミュレータのベンチマーク](https://github.com/kurochan001/kirimasim/tree/main/bench)を参照してください。
 

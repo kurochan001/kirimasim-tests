@@ -9,8 +9,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "f84f397dd999c67c0aae887d9103fc82ca903e56ed037c927b680be356e0c6e1",
-        "ja": "dd504cc11745f8101dcb3d2396ff30daa394b66711c194726ad1bdbe0ce17637"
+        "en": "9e07822810bd12a721bd4a8615188180b18d77773a8d771629ac3b2b579cb144",
+        "ja": "573c889d76061c00419c59d3880ac1b4fbdac728fefd0fb3e9a9ebdd4080154d"
       }
     },
     {
@@ -425,8 +425,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "6a727806189ccdf4df222559a3904ffb8922b4bd195117aa786a68fc15bddc4a",
-        "ja": "6a617e35521b4e1f7667fdc7169d56be80032d89c917dfd84fa28bf39dfd39cc"
+        "en": "e2cf18fbd768fc76b67217b1cb4ee9d2ca4a52f1695a0a2a3e7181eb55d48a52",
+        "ja": "c6f0b6b6c95317c39147dd55dcc0afbe594be34706ef76fdabfc350e56a0f98f"
       }
     },
     {
@@ -1267,6 +1267,17 @@
       "sha256": {
         "en": "38d2f18b55336a10e4e239cb84a0f7e7df5dc74b28c68e488d0c1201151a6b1b",
         "ja": "f0dbfa42f42124377144eaabff0015a509f93f2be1acbf88b1d0d1238c2022ad"
+      }
+    },
+    {
+      "en": "docs/simulation-speed-20261116.md",
+      "ja": "docs/simulation-speed-20261116.ja.md",
+      "source": "docs/simulation-speed-20261116.md",
+      "source_language": "en",
+      "generated": false,
+      "sha256": {
+        "en": "5f5c1c96cfe57c1cd6658ce773d59c3f1abab61ad8826b8c6c7a0d9466f58bca",
+        "ja": "a85531863818407f45b0bffa69e9599452a8eb917477784643a982e5774ca0f0"
       }
     }
   ]

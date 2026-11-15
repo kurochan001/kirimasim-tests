@@ -1,0 +1,125 @@
+{
+  "schema": 1,
+  "compiler": "Apple clang version 21.0.0 (clang-2100.4.1.1)",
+  "compiler_target": "arm64-apple-darwin27.2.0",
+  "macos_build": "26B131",
+  "kirimasim_build": {
+    "preset": "release",
+    "parallel": 6,
+    "compiler": "AppleClang 21.0.0.21000401",
+    "compiler_launcher": "ccache",
+    "optimization": "-O3 -DNDEBUG -ffp-contract=off; no fast-math",
+    "release_flag_check": "passed: python3 tools/check_release_flags.py",
+    "steps": [
+      {
+        "command": [
+          "cmake",
+          "--preset",
+          "release",
+          "-DCMAKE_C_COMPILER=/usr/bin/clang",
+          "-DCMAKE_CXX_COMPILER=/usr/bin/clang++",
+          "-DCMAKE_CXX_COMPILER_LAUNCHER=ccache"
+        ],
+        "seconds": 15.657587791999958,
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "cmake",
+          "--build",
+          "--preset",
+          "release",
+          "--target",
+          "kirimasim",
+          "--parallel",
+          "6"
+        ],
+        "seconds": 62.17703445899997,
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "python3",
+          "tools/check_release_flags.py"
+        ],
+        "seconds": 0.08064770800001497,
+        "exit_code": 0
+      }
+    ]
+  },
+  "icarus_build": {
+    "parallel": 6,
+    "configure": "--prefix=${ICARUS_INSTALL}",
+    "cc": "clang -std=gnu23",
+    "cxx": "clang++ -std=c++11",
+    "cflags": "-Wall -Wextra -Wshadow -Wstrict-prototypes -g -O2",
+    "cxxflags": "-Wall -Wextra -Wshadow -g -O2 -std=c++11",
+    "vvp_extra_flags": "-fPIC",
+    "ldflags": "-Wl,-all_load; vvp also -fPIC",
+    "environment": "CFLAGS/CXXFLAGS/CPPFLAGS/LDFLAGS/MAKEFLAGS cleared before configure",
+    "steps": [
+      {
+        "command": [
+          "sh",
+          "autoconf.sh"
+        ],
+        "seconds": 0.40804562499988606,
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "./configure",
+          "--prefix=${ICARUS_INSTALL}"
+        ],
+        "seconds": 6.07300116600004,
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "make",
+          "-j6"
+        ],
+        "seconds": 26.705078916000048,
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "make",
+          "install"
+        ],
+        "seconds": 1.488692791999938,
+        "exit_code": 0
+      }
+    ]
+  },
+  "measurement_environment": {
+    "parallel_simulations": 1,
+    "other_campaign_builds_or_test_suites": false,
+    "affinity_or_frequency_pinning_applied": false,
+    "background_activity": "OS indexing and editor activity remained; no idle-system claim",
+    "power_source": "AC Power",
+    "pmset_powermode": {
+      "AC": 0,
+      "battery": 0
+    }
+  },
+  "additional_benchmark_review": {
+    "spec_check": "ai",
+    "clauses": [
+      "11.4.5",
+      "11.4.8",
+      "20.9"
+    ],
+    "basis": "IEEE 1800-2023; binary AND/XOR PDF truth tables checked",
+    "verification": "separate per-bit four-state mask model and phase-count derivation",
+    "limitation": "verifier had read the scalar reference before deriving the separate model; not reference-blind",
+    "n1": "fourstate_mix n=1 checksum=00008abc unknowns=0 x_hits=0 z_hits=0",
+    "n1000000": "fourstate_mix n=1000000 checksum=a0ea5e58 unknowns=250000 x_hits=250000 z_hits=500000",
+    "reference_sha256": "586fb643e9ef9df9e304df83e04e711aa1b875e6cb4393e6e3c98cd1707b70e1"
+  },
+  "wsl2": {
+    "status": "requested; no Linux measurements received",
+    "private_relay_request": "p1-speed-0.1.0-2026-11-16",
+    "private_relay_response": "from-wsl/p1-speed-0.1.0-2026-11-16"
+  }
+}
