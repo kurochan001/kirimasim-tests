@@ -202932,7 +202932,25 @@
       "acceptance": "A cross body that assigns option.auto_bin_max is rejected at that assignment.",
       "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B036. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-2 (B036) marks a level at which the option is not allowed, and the cross option structure of 19.10 declares no auto_bin_max member, so the rule is observable only as the rejection of an assignment within a cross; the levels that allow the option are covered by SV2023-19.7-EXTRACT-LEVEL-AUTO-BIN-MAX-COVERGROUP and SV2023-19.7-EXTRACT-LEVEL-AUTO-BIN-MAX-COVERPOINT.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/gen/ch19/test_gen_cglevel_option_auto_bin_max_cross.sv",
+          "observation": "covergroup cg（coverpoint cp・cq と cross x）の cross x の本体で option.auto_bin_max = 2; を代入する（35 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-2 は option.auto_bin_max を covergroup・coverpoint の階層にだけ許し、19.10 の cross の option 構造体に auto_bin_max のメンバーがない。:expected_stderr_regex: は 35 行の代入を指す。 区別: 表 19-2 の cross の欄（No）を無視して cross の option.auto_bin_max を受け付ける実装（代入を黙って無視する、警告だけにする、covergroup の option へ書き込む）はこの設計を受理し、35 行のエラーが出ないのでテストが失敗する。代入の行でなく cross の宣言など別の行で報告する実装も :expected_stderr_regex: に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "6f03b7d791268b5f684f4f69494c7f8e3c8c60bedb3542fbe389e19c285fbe97",
+          "evidence": [
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_option_auto_bin_max_cross.sv",
+              "contains": "option.auto_bin_max = 2;  // illegal"
+            },
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_option_auto_bin_max_cross.sv",
+              "contains": ":expected_stderr_regex: test_gen_cglevel_option_auto_bin_max_cross\\.sv:35:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7",
@@ -203106,7 +203124,25 @@
       "acceptance": "A coverpoint body that assigns option.cross_num_print_missing is rejected at that assignment.",
       "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B037. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-2 (B037) marks a level at which the option is not allowed, and the coverpoint option structure of 19.10 declares no cross_num_print_missing member, so the rule is observable only as the rejection of an assignment within a coverpoint; the levels that allow the option are covered by SV2023-19.7-EXTRACT-LEVEL-CROSS-NUM-PRINT-MISSING-COVERGROUP and SV2023-19.7-EXTRACT-LEVEL-CROSS-NUM-PRINT-MISSING-CROSS.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/gen/ch19/test_gen_cglevel_option_cross_num_print_missing_coverpoint.sv",
+          "observation": "covergroup cg（coverpoint cp・cq と cross x）の coverpoint cp の本体で option.cross_num_print_missing = 2; を代入する（33 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-2 は option.cross_num_print_missing を covergroup・cross の階層にだけ許し、19.10 の coverpoint の option 構造体に cross_num_print_missing のメンバーがない。:expected_stderr_regex: は 33 行の代入を指す。 区別: 表 19-2 の coverpoint の欄（No）を無視して coverpoint の option.cross_num_print_missing を受け付ける実装（代入を黙って無視する、警告だけにする、covergroup の option へ書き込む）はこの設計を受理し、33 行のエラーが出ないのでテストが失敗する。代入の行でなく coverpoint の宣言など別の行で報告する実装も :expected_stderr_regex: に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "b8d08ac48d4c393aa268cba911f8138a2a3b4feab00f0b0c1dcf01916f1a5831",
+          "evidence": [
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_option_cross_num_print_missing_coverpoint.sv",
+              "contains": "option.cross_num_print_missing = 2;  // illegal"
+            },
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_option_cross_num_print_missing_coverpoint.sv",
+              "contains": ":expected_stderr_regex: test_gen_cglevel_option_cross_num_print_missing_coverpoint\\.sv:33:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7",
@@ -203204,7 +203240,25 @@
       "acceptance": "A coverpoint body that assigns option.cross_retain_auto_bins is rejected at that assignment.",
       "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B038. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-2 (B038) marks a level at which the option is not allowed, and the coverpoint option structure of 19.10 declares no cross_retain_auto_bins member, so the rule is observable only as the rejection of an assignment within a coverpoint; the levels that allow the option are covered by SV2023-19.7-EXTRACT-LEVEL-CROSS-RETAIN-AUTO-BINS-COVERGROUP and SV2023-19.7-EXTRACT-LEVEL-CROSS-RETAIN-AUTO-BINS-CROSS.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/gen/ch19/test_gen_cglevel_option_cross_retain_auto_bins_coverpoint.sv",
+          "observation": "covergroup cg（coverpoint cp・cq と cross x）の coverpoint cp の本体で option.cross_retain_auto_bins = 1; を代入する（40 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-2 は option.cross_retain_auto_bins を covergroup・cross の階層にだけ許し、19.10 の coverpoint の option 構造体に cross_retain_auto_bins のメンバーがない。:expected_stderr_regex: は 40 行の代入を指す。 区別: 表 19-2 の coverpoint の欄（No）を無視して coverpoint の option.cross_retain_auto_bins を受け付ける実装（代入を黙って無視する、警告だけにする、covergroup の option へ書き込む）はこの設計を受理し、40 行のエラーが出ないのでテストが失敗する。代入の行でなく coverpoint の宣言など別の行で報告する実装も :expected_stderr_regex: に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "f55988a46f82b01853c5550b0ffbc3a88a1f54b769622618dd8329892107147e",
+          "evidence": [
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_option_cross_retain_auto_bins_coverpoint.sv",
+              "contains": "option.cross_retain_auto_bins = 1;  // illegal"
+            },
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_option_cross_retain_auto_bins_coverpoint.sv",
+              "contains": ":expected_stderr_regex: test_gen_cglevel_option_cross_retain_auto_bins_coverpoint\\.sv:40:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7",
@@ -203334,7 +203388,25 @@
       "acceptance": "A cross body that assigns option.detect_overlap is rejected at that assignment.",
       "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B039. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-2 (B039) marks a level at which the option is not allowed, and the cross option structure of 19.10 declares no detect_overlap member, so the rule is observable only as the rejection of an assignment within a cross; the levels that allow the option are covered by SV2023-19.7-EXTRACT-LEVEL-DETECT-OVERLAP-COVERGROUP and SV2023-19.7-EXTRACT-LEVEL-DETECT-OVERLAP-COVERPOINT.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/gen/ch19/test_gen_cglevel_option_detect_overlap_cross.sv",
+          "observation": "covergroup cg（coverpoint cp・cq と cross x）の cross x の本体で option.detect_overlap = 1; を代入する（35 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-2 は option.detect_overlap を covergroup・coverpoint の階層にだけ許し、19.10 の cross の option 構造体に detect_overlap のメンバーがない。:expected_stderr_regex: は 35 行の代入を指す。 区別: 表 19-2 の cross の欄（No）を無視して cross の option.detect_overlap を受け付ける実装（代入を黙って無視する、警告だけにする、covergroup の option へ書き込む）はこの設計を受理し、35 行のエラーが出ないのでテストが失敗する。代入の行でなく cross の宣言など別の行で報告する実装も :expected_stderr_regex: に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "bbe59ab956dc35dbdc3dcf17ed8bbedba560a677d5a1bb08669790cfe761925a",
+          "evidence": [
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_option_detect_overlap_cross.sv",
+              "contains": "option.detect_overlap = 1;  // illegal"
+            },
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_option_detect_overlap_cross.sv",
+              "contains": ":expected_stderr_regex: test_gen_cglevel_option_detect_overlap_cross\\.sv:35:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7",
@@ -203388,7 +203460,25 @@
       "acceptance": "A coverpoint body that assigns option.get_inst_coverage is rejected at that assignment.",
       "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B041. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-2 (B041) marks a level at which the option is not allowed, and the coverpoint option structure of 19.10 declares no get_inst_coverage member, so the rule is observable only as the rejection of an assignment within a coverpoint; the levels that allow the option are covered by SV2023-19.7-EXTRACT-LEVEL-GET-INST-COVERAGE-COVERGROUP.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/gen/ch19/test_gen_cglevel_option_get_inst_coverage_coverpoint.sv",
+          "observation": "covergroup cg（coverpoint cp・cq と cross x）の coverpoint cp の本体で option.get_inst_coverage = 1; を代入する（33 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-2 は option.get_inst_coverage を covergroup の階層にだけ許し、19.10 の coverpoint の option 構造体に get_inst_coverage のメンバーがない。:expected_stderr_regex: は 33 行の代入を指す。 区別: 表 19-2 の coverpoint の欄（No）を無視して coverpoint の option.get_inst_coverage を受け付ける実装（代入を黙って無視する、警告だけにする、covergroup の option へ書き込む）はこの設計を受理し、33 行のエラーが出ないのでテストが失敗する。代入の行でなく coverpoint の宣言など別の行で報告する実装も :expected_stderr_regex: に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "af4aa7876b4506368bbe9dce0f597b37691c45fa8d1dbcb74b3b290367b80310",
+          "evidence": [
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_option_get_inst_coverage_coverpoint.sv",
+              "contains": "option.get_inst_coverage = 1;  // illegal"
+            },
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_option_get_inst_coverage_coverpoint.sv",
+              "contains": ":expected_stderr_regex: test_gen_cglevel_option_get_inst_coverage_coverpoint\\.sv:33:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7",
@@ -203406,7 +203496,25 @@
       "acceptance": "A cross body that assigns option.get_inst_coverage is rejected at that assignment.",
       "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B041. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-2 (B041) marks a level at which the option is not allowed, and the cross option structure of 19.10 declares no get_inst_coverage member, so the rule is observable only as the rejection of an assignment within a cross; the levels that allow the option are covered by SV2023-19.7-EXTRACT-LEVEL-GET-INST-COVERAGE-COVERGROUP.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/gen/ch19/test_gen_cglevel_option_get_inst_coverage_cross.sv",
+          "observation": "covergroup cg（coverpoint cp・cq と cross x）の cross x の本体で option.get_inst_coverage = 1; を代入する（35 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-2 は option.get_inst_coverage を covergroup の階層にだけ許し、19.10 の cross の option 構造体に get_inst_coverage のメンバーがない。:expected_stderr_regex: は 35 行の代入を指す。 区別: 表 19-2 の cross の欄（No）を無視して cross の option.get_inst_coverage を受け付ける実装（代入を黙って無視する、警告だけにする、covergroup の option へ書き込む）はこの設計を受理し、35 行のエラーが出ないのでテストが失敗する。代入の行でなく cross の宣言など別の行で報告する実装も :expected_stderr_regex: に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "9f8b351216142870d9c437996ce095229bd00d14dfa0cd57210b88b0e31ac231",
+          "evidence": [
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_option_get_inst_coverage_cross.sv",
+              "contains": "option.get_inst_coverage = 1;  // illegal"
+            },
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_option_get_inst_coverage_cross.sv",
+              "contains": ":expected_stderr_regex: test_gen_cglevel_option_get_inst_coverage_cross\\.sv:35:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7",
@@ -203584,7 +203692,25 @@
       "acceptance": "A coverpoint body that assigns option.name is rejected at that assignment.",
       "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B031. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-2 (B031) marks a level at which the option is not allowed, and the coverpoint option structure of 19.10 declares no name member, so the rule is observable only as the rejection of an assignment within a coverpoint; the levels that allow the option are covered by SV2023-19.7-EXTRACT-LEVEL-NAME-COVERGROUP.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/gen/ch19/test_gen_cglevel_option_name_coverpoint.sv",
+          "observation": "covergroup cg（coverpoint cp・cq と cross x）の coverpoint cp の本体で option.name = \"p\"; を代入する（32 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-2 は option.name を covergroup の階層にだけ許し、19.10 の coverpoint の option 構造体に name のメンバーがない。:expected_stderr_regex: は 32 行の代入を指す。 区別: 表 19-2 の coverpoint の欄（No）を無視して coverpoint の option.name を受け付ける実装（代入を黙って無視する、警告だけにする、covergroup の option へ書き込む）はこの設計を受理し、32 行のエラーが出ないのでテストが失敗する。代入の行でなく coverpoint の宣言など別の行で報告する実装も :expected_stderr_regex: に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "8cda0d83de35f6bc3af0a41089162441a3aa1f516679257c97ab8b1a30b45b3e",
+          "evidence": [
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_option_name_coverpoint.sv",
+              "contains": "option.name = \"p\";  // illegal"
+            },
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_option_name_coverpoint.sv",
+              "contains": ":expected_stderr_regex: test_gen_cglevel_option_name_coverpoint\\.sv:32:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7",
@@ -203602,7 +203728,25 @@
       "acceptance": "A cross body that assigns option.name is rejected at that assignment.",
       "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B031. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-2 (B031) marks a level at which the option is not allowed, and the cross option structure of 19.10 declares no name member, so the rule is observable only as the rejection of an assignment within a cross; the levels that allow the option are covered by SV2023-19.7-EXTRACT-LEVEL-NAME-COVERGROUP.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/gen/ch19/test_gen_cglevel_option_name_cross.sv",
+          "observation": "covergroup cg（coverpoint cp・cq と cross x）の cross x の本体で option.name = \"p\"; を代入する（34 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-2 は option.name を covergroup の階層にだけ許し、19.10 の cross の option 構造体に name のメンバーがない。:expected_stderr_regex: は 34 行の代入を指す。 区別: 表 19-2 の cross の欄（No）を無視して cross の option.name を受け付ける実装（代入を黙って無視する、警告だけにする、covergroup の option へ書き込む）はこの設計を受理し、34 行のエラーが出ないのでテストが失敗する。代入の行でなく cross の宣言など別の行で報告する実装も :expected_stderr_regex: に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "35c01340071cbc1ca72005f8eca600a75e2e96f61a8c444c1df8bc53bc7fed05",
+          "evidence": [
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_option_name_cross.sv",
+              "contains": "option.name = \"p\";  // illegal"
+            },
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_option_name_cross.sv",
+              "contains": ":expected_stderr_regex: test_gen_cglevel_option_name_cross\\.sv:34:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7",
@@ -203656,7 +203800,25 @@
       "acceptance": "A coverpoint body that assigns option.per_instance is rejected at that assignment.",
       "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B040. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-2 (B040) marks a level at which the option is not allowed, and the coverpoint option structure of 19.10 declares no per_instance member, so the rule is observable only as the rejection of an assignment within a coverpoint; the levels that allow the option are covered by SV2023-19.7-EXTRACT-LEVEL-PER-INSTANCE-COVERGROUP.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/gen/ch19/test_gen_cglevel_option_per_instance_coverpoint.sv",
+          "observation": "covergroup cg（coverpoint cp・cq と cross x）の coverpoint cp の本体で option.per_instance = 1; を代入する（33 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-2 は option.per_instance を covergroup の階層にだけ許し、19.10 の coverpoint の option 構造体に per_instance のメンバーがない。:expected_stderr_regex: は 33 行の代入を指す。 区別: 表 19-2 の coverpoint の欄（No）を無視して coverpoint の option.per_instance を受け付ける実装（代入を黙って無視する、警告だけにする、covergroup の option へ書き込む）はこの設計を受理し、33 行のエラーが出ないのでテストが失敗する。代入の行でなく coverpoint の宣言など別の行で報告する実装も :expected_stderr_regex: に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "c42352b3636ce576f9809aa61e25e8a07de87f50a9ea35c3544a689cf5da15ca",
+          "evidence": [
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_option_per_instance_coverpoint.sv",
+              "contains": "option.per_instance = 1;  // illegal"
+            },
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_option_per_instance_coverpoint.sv",
+              "contains": ":expected_stderr_regex: test_gen_cglevel_option_per_instance_coverpoint\\.sv:33:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7",
@@ -203674,7 +203836,25 @@
       "acceptance": "A cross body that assigns option.per_instance is rejected at that assignment.",
       "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B040. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-2 (B040) marks a level at which the option is not allowed, and the cross option structure of 19.10 declares no per_instance member, so the rule is observable only as the rejection of an assignment within a cross; the levels that allow the option are covered by SV2023-19.7-EXTRACT-LEVEL-PER-INSTANCE-COVERGROUP.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/gen/ch19/test_gen_cglevel_option_per_instance_cross.sv",
+          "observation": "covergroup cg（coverpoint cp・cq と cross x）の cross x の本体で option.per_instance = 1; を代入する（35 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-2 は option.per_instance を covergroup の階層にだけ許し、19.10 の cross の option 構造体に per_instance のメンバーがない。:expected_stderr_regex: は 35 行の代入を指す。 区別: 表 19-2 の cross の欄（No）を無視して cross の option.per_instance を受け付ける実装（代入を黙って無視する、警告だけにする、covergroup の option へ書き込む）はこの設計を受理し、35 行のエラーが出ないのでテストが失敗する。代入の行でなく cross の宣言など別の行で報告する実装も :expected_stderr_regex: に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "6720ecddf24162e55f04e341dc8cce3fef91ef7f54b06516c0cbf9537b1ffc98",
+          "evidence": [
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_option_per_instance_cross.sv",
+              "contains": "option.per_instance = 1;  // illegal"
+            },
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_option_per_instance_cross.sv",
+              "contains": ":expected_stderr_regex: test_gen_cglevel_option_per_instance_cross\\.sv:35:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7",
@@ -204542,7 +204722,25 @@
       "acceptance": "A coverpoint body that assigns type_option.distribute_first is rejected at that assignment.",
       "source_note": "IEEE 1800-2023 19.7.1; complete own-body source review, blocks B038. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-4 (B038) marks a level at which the option is not allowed, and the coverpoint type_option structure of 19.10 declares no distribute_first member, so the rule is observable only as the rejection of an assignment within a coverpoint; the levels that allow the option are covered by SV2023-19.7.1-EXTRACT-TYPE-LEVEL-DISTRIBUTE-FIRST-COVERGROUP.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/gen/ch19/test_gen_cglevel_type_option_distribute_first_coverpoint.sv",
+          "observation": "covergroup cg（coverpoint cp・cq と cross x）の coverpoint cp の本体で type_option.distribute_first = 1; を代入する（33 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-4 は type_option.distribute_first を covergroup の階層にだけ許し、19.10 の coverpoint の type_option 構造体に distribute_first のメンバーがない。:expected_stderr_regex: は 33 行の代入を指す。 区別: 表 19-4 の coverpoint の欄（No）を無視して coverpoint の type_option.distribute_first を受け付ける実装（代入を黙って無視する、警告だけにする、covergroup の type_option へ書き込む）はこの設計を受理し、33 行のエラーが出ないのでテストが失敗する。代入の行でなく coverpoint の宣言など別の行で報告する実装も :expected_stderr_regex: に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "6aa4ab80c83f017d0fc1d750b88bd4601f2419a4d2ee38af296d14a85a2646a9",
+          "evidence": [
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_type_option_distribute_first_coverpoint.sv",
+              "contains": "type_option.distribute_first = 1;  // illegal"
+            },
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_type_option_distribute_first_coverpoint.sv",
+              "contains": ":expected_stderr_regex: test_gen_cglevel_type_option_distribute_first_coverpoint\\.sv:33:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7.1",
@@ -204560,7 +204758,25 @@
       "acceptance": "A cross body that assigns type_option.distribute_first is rejected at that assignment.",
       "source_note": "IEEE 1800-2023 19.7.1; complete own-body source review, blocks B038. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-4 (B038) marks a level at which the option is not allowed, and the cross type_option structure of 19.10 declares no distribute_first member, so the rule is observable only as the rejection of an assignment within a cross; the levels that allow the option are covered by SV2023-19.7.1-EXTRACT-TYPE-LEVEL-DISTRIBUTE-FIRST-COVERGROUP.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/gen/ch19/test_gen_cglevel_type_option_distribute_first_cross.sv",
+          "observation": "covergroup cg（coverpoint cp・cq と cross x）の cross x の本体で type_option.distribute_first = 1; を代入する（35 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-4 は type_option.distribute_first を covergroup の階層にだけ許し、19.10 の cross の type_option 構造体に distribute_first のメンバーがない。:expected_stderr_regex: は 35 行の代入を指す。 区別: 表 19-4 の cross の欄（No）を無視して cross の type_option.distribute_first を受け付ける実装（代入を黙って無視する、警告だけにする、covergroup の type_option へ書き込む）はこの設計を受理し、35 行のエラーが出ないのでテストが失敗する。代入の行でなく cross の宣言など別の行で報告する実装も :expected_stderr_regex: に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "798ab3db58e7c92bfbd69ac6023b0fd1ab1fa06160bda5dce83c8259860d132c",
+          "evidence": [
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_type_option_distribute_first_cross.sv",
+              "contains": "type_option.distribute_first = 1;  // illegal"
+            },
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_type_option_distribute_first_cross.sv",
+              "contains": ":expected_stderr_regex: test_gen_cglevel_type_option_distribute_first_cross\\.sv:35:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7.1",
@@ -204734,7 +204950,25 @@
       "acceptance": "A coverpoint body that assigns type_option.merge_instances is rejected at that assignment.",
       "source_note": "IEEE 1800-2023 19.7.1; complete own-body source review, blocks B037. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-4 (B037) marks a level at which the option is not allowed, and the coverpoint type_option structure of 19.10 declares no merge_instances member, so the rule is observable only as the rejection of an assignment within a coverpoint; the levels that allow the option are covered by SV2023-19.7.1-EXTRACT-TYPE-LEVEL-MERGE-INSTANCES-COVERGROUP.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/gen/ch19/test_gen_cglevel_type_option_merge_instances_coverpoint.sv",
+          "observation": "covergroup cg（coverpoint cp・cq と cross x）の coverpoint cp の本体で type_option.merge_instances = 1; を代入する（33 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-4 は type_option.merge_instances を covergroup の階層にだけ許し、19.10 の coverpoint の type_option 構造体に merge_instances のメンバーがない。:expected_stderr_regex: は 33 行の代入を指す。 区別: 表 19-4 の coverpoint の欄（No）を無視して coverpoint の type_option.merge_instances を受け付ける実装（代入を黙って無視する、警告だけにする、covergroup の type_option へ書き込む）はこの設計を受理し、33 行のエラーが出ないのでテストが失敗する。代入の行でなく coverpoint の宣言など別の行で報告する実装も :expected_stderr_regex: に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "508ac2a3abc39016e330f1c0bf45571970d187890953b798178e835f6f5bd3b9",
+          "evidence": [
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_type_option_merge_instances_coverpoint.sv",
+              "contains": "type_option.merge_instances = 1;  // illegal"
+            },
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_type_option_merge_instances_coverpoint.sv",
+              "contains": ":expected_stderr_regex: test_gen_cglevel_type_option_merge_instances_coverpoint\\.sv:33:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7.1",
@@ -204752,7 +204986,25 @@
       "acceptance": "A cross body that assigns type_option.merge_instances is rejected at that assignment.",
       "source_note": "IEEE 1800-2023 19.7.1; complete own-body source review, blocks B037. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-4 (B037) marks a level at which the option is not allowed, and the cross type_option structure of 19.10 declares no merge_instances member, so the rule is observable only as the rejection of an assignment within a cross; the levels that allow the option are covered by SV2023-19.7.1-EXTRACT-TYPE-LEVEL-MERGE-INSTANCES-COVERGROUP.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/gen/ch19/test_gen_cglevel_type_option_merge_instances_cross.sv",
+          "observation": "covergroup cg（coverpoint cp・cq と cross x）の cross x の本体で type_option.merge_instances = 1; を代入する（35 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-4 は type_option.merge_instances を covergroup の階層にだけ許し、19.10 の cross の type_option 構造体に merge_instances のメンバーがない。:expected_stderr_regex: は 35 行の代入を指す。 区別: 表 19-4 の cross の欄（No）を無視して cross の type_option.merge_instances を受け付ける実装（代入を黙って無視する、警告だけにする、covergroup の type_option へ書き込む）はこの設計を受理し、35 行のエラーが出ないのでテストが失敗する。代入の行でなく cross の宣言など別の行で報告する実装も :expected_stderr_regex: に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "0ffdca018d7142cfea14bf048257cc1549fdea6effca5d518ffdee6d9caf286a",
+          "evidence": [
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_type_option_merge_instances_cross.sv",
+              "contains": "type_option.merge_instances = 1;  // illegal"
+            },
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_type_option_merge_instances_cross.sv",
+              "contains": ":expected_stderr_regex: test_gen_cglevel_type_option_merge_instances_cross\\.sv:35:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7.1",
@@ -204846,7 +205098,25 @@
       "acceptance": "A cross body that assigns type_option.real_interval is rejected at that assignment.",
       "source_note": "IEEE 1800-2023 19.7.1; complete own-body source review, blocks B039. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-4 (B039) marks a level at which the option is not allowed, and the cross type_option structure of 19.10 declares no real_interval member, so the rule is observable only as the rejection of an assignment within a cross; the levels that allow the option are covered by SV2023-19.7.1-EXTRACT-TYPE-LEVEL-REAL-INTERVAL-COVERGROUP and SV2023-19.7.1-EXTRACT-TYPE-LEVEL-REAL-INTERVAL-COVERPOINT.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/gen/ch19/test_gen_cglevel_type_option_real_interval_cross.sv",
+          "observation": "covergroup cg（coverpoint cp・cq と cross x）の cross x の本体で type_option.real_interval = 0.5; を代入する（35 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-4 は type_option.real_interval を covergroup・coverpoint の階層にだけ許し、19.10 の cross の type_option 構造体に real_interval のメンバーがない。:expected_stderr_regex: は 35 行の代入を指す。 区別: 表 19-4 の cross の欄（No）を無視して cross の type_option.real_interval を受け付ける実装（代入を黙って無視する、警告だけにする、covergroup の type_option へ書き込む）はこの設計を受理し、35 行のエラーが出ないのでテストが失敗する。代入の行でなく cross の宣言など別の行で報告する実装も :expected_stderr_regex: に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "3df23c7664853cee411bdd67b3ee9cb461869015a06c33745e61c24a03bd5888",
+          "evidence": [
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_type_option_real_interval_cross.sv",
+              "contains": "type_option.real_interval = 0.5;  // illegal"
+            },
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_type_option_real_interval_cross.sv",
+              "contains": ":expected_stderr_regex: test_gen_cglevel_type_option_real_interval_cross\\.sv:35:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7.1",
@@ -204904,7 +205174,25 @@
       "acceptance": "A coverpoint body that assigns type_option.strobe is rejected at that assignment.",
       "source_note": "IEEE 1800-2023 19.7.1; complete own-body source review, blocks B036. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-4 (B036) marks a level at which the option is not allowed, and the coverpoint type_option structure of 19.10 declares no strobe member, so the rule is observable only as the rejection of an assignment within a coverpoint; the levels that allow the option are covered by SV2023-19.7.1-EXTRACT-TYPE-LEVEL-STROBE-COVERGROUP.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/gen/ch19/test_gen_cglevel_type_option_strobe_coverpoint.sv",
+          "observation": "covergroup cg（coverpoint cp・cq と cross x）の coverpoint cp の本体で type_option.strobe = 1; を代入する（33 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-4 は type_option.strobe を covergroup の階層にだけ許し、19.10 の coverpoint の type_option 構造体に strobe のメンバーがない。:expected_stderr_regex: は 33 行の代入を指す。 区別: 表 19-4 の coverpoint の欄（No）を無視して coverpoint の type_option.strobe を受け付ける実装（代入を黙って無視する、警告だけにする、covergroup の type_option へ書き込む）はこの設計を受理し、33 行のエラーが出ないのでテストが失敗する。代入の行でなく coverpoint の宣言など別の行で報告する実装も :expected_stderr_regex: に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "7e369853215aed78f830466759863ef1eaeb1dc7e15998a9b5f0200980649356",
+          "evidence": [
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_type_option_strobe_coverpoint.sv",
+              "contains": "type_option.strobe = 1;  // illegal"
+            },
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_type_option_strobe_coverpoint.sv",
+              "contains": ":expected_stderr_regex: test_gen_cglevel_type_option_strobe_coverpoint\\.sv:33:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7.1",
@@ -204922,7 +205210,25 @@
       "acceptance": "A cross body that assigns type_option.strobe is rejected at that assignment.",
       "source_note": "IEEE 1800-2023 19.7.1; complete own-body source review, blocks B036. The rule is paraphrased; conditions and referenced rules remain applicable. Reclassified on 2026-11-15 from normal to error (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the \"No\" cell of Table 19-4 (B036) marks a level at which the option is not allowed, and the cross type_option structure of 19.10 declares no strobe member, so the rule is observable only as the rejection of an assignment within a cross; the levels that allow the option are covered by SV2023-19.7.1-EXTRACT-TYPE-LEVEL-STROBE-COVERGROUP.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/gen/ch19/test_gen_cglevel_type_option_strobe_cross.sv",
+          "observation": "covergroup cg（coverpoint cp・cq と cross x）の cross x の本体で type_option.strobe = 1; を代入する（35 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-4 は type_option.strobe を covergroup の階層にだけ許し、19.10 の cross の type_option 構造体に strobe のメンバーがない。:expected_stderr_regex: は 35 行の代入を指す。 区別: 表 19-4 の cross の欄（No）を無視して cross の type_option.strobe を受け付ける実装（代入を黙って無視する、警告だけにする、covergroup の type_option へ書き込む）はこの設計を受理し、35 行のエラーが出ないのでテストが失敗する。代入の行でなく cross の宣言など別の行で報告する実装も :expected_stderr_regex: に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "c64769898e812cab02dc98f7b590bf867f385355775916f52b4b3a82f14ada96",
+          "evidence": [
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_type_option_strobe_cross.sv",
+              "contains": "type_option.strobe = 1;  // illegal"
+            },
+            {
+              "file": "tests/gen/ch19/test_gen_cglevel_type_option_strobe_cross.sv",
+              "contains": ":expected_stderr_regex: test_gen_cglevel_type_option_strobe_cross\\.sv:35:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7.1",
@@ -205533,7 +205839,33 @@
       "acceptance": "After set_inst_name(\"n1\") on one instance of a covergroup, the option.name of that instance reads \"n1\", while another instance of the same covergroup keeps its own name.",
       "source_note": "IEEE 1800-2023 19.8; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable. Split on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): the row mixed the effect of set_inst_name with the rule of Table 19-5 that it cannot be called on a coverpoint or a cross, which is observable only as an error; the error part moved to SV2023-19.8-EXTRACT-INSTANCE-NAME-GROUP-ONLY.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_cg_set_inst_name_option_name.sv",
+          "observation": "covergroup cg (string n) は定義で option.name = n とし、g1 = new(\"first\") と g2 = new(\"second\") を作る。1 行目は呼ぶ前の g1 \"first\"・g2 \"second\"。g1.set_inst_name(\"n1\") の後の 2 行目は g1 \"n1\"・g2 \"second\"、続く g2.set_inst_name(\"n2\") の後の 3 行目は g1 \"n1\"・g2 \"n2\"。名前オプションのない covergroup cu では、u2 の名前を控えてから u1.set_inst_name(\"m1\") を呼び、4 行目で u1 \"m1\" と u2 の名前が呼ぶ前と等しいこと（unchanged 1）を見る。 区別: set_inst_name が option.name を書き換えない実装では 2 行目の g1 が \"first\" のまま（4 行目の u1 も \"m1\" にならない）。名前を covergroup の型の全インスタンスに設定する実装では 2 行目の g2 が \"n1\" になり、4 行目が unchanged 0 になる。呼んだのと別のインスタンスを変える実装では 2・3 行目の g1／g2 の組が変わる。定義で名前を与えたインスタンスと与えないインスタンスの両方で、呼んだインスタンスの option.name が指定の文字列になり他のインスタンスの名前が保たれることを比べる。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "1d4ac5dace0b1ef4dba1ed3c4523b09405c2bf80c5216ee06d9167ecdf19b0bb",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_set_inst_name_option_name.sv",
+              "contains": "g1.set_inst_name(\"n1\");"
+            },
+            {
+              "file": "tests/ch19/test_cg_set_inst_name_option_name.sv",
+              "contains": "u1.set_inst_name(\"m1\");"
+            },
+            {
+              "file": "tests/ch19/test_cg_set_inst_name_option_name.expected",
+              "contains": "g1 \"n1\" g2 \"second\""
+            },
+            {
+              "file": "tests/ch19/test_cg_set_inst_name_option_name.expected",
+              "contains": "u1 \"m1\" u2 unchanged 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.8",
@@ -205551,13 +205883,60 @@
       "acceptance": "A call of set_inst_name on a coverpoint of a covergroup instance, and one on a cross of it, are each rejected at that call.",
       "source_note": "IEEE 1800-2023 19.8; split on 2026-11-15 from SV2023-19.8-EXTRACT-INSTANCE-NAME (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_illegal_cg_set_inst_name_coverpoint.sv",
+          "observation": "coverpoint cp に対する g.cp.set_inst_name(\"point\") の呼び出し（43 行）だけが違反で、:expected_stderr_regex: が 43 行を指す。直前の g.set_inst_name(\"whole\") と r = g.cp.get_inst_coverage() は合法な対照。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "5a11de30b3bf08c50b8e37b4b36d89ee5ddb425ab1ca2b15f986973ec46b600c",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_set_inst_name_coverpoint.sv",
+              "contains": "g.cp.set_inst_name(\"point\");  // illegal"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_set_inst_name_coverpoint.sv",
+              "contains": ":expected_stderr_regex: test_illegal_cg_set_inst_name_coverpoint\\.sv:43:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch19/test_illegal_cg_set_inst_name_cross.sv",
+          "observation": "cross x に対する g.x.set_inst_name(\"product\") の呼び出し（43 行）だけが違反で、:expected_stderr_regex: が 43 行を指す。直前の g.set_inst_name(\"whole\") と r = g.x.get_inst_coverage() は合法な対照。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "2f250121eb39dae7ebac6f98242cfd37ade43116774bd004e296a7aaa620f6bf",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_set_inst_name_cross.sv",
+              "contains": "g.x.set_inst_name(\"product\");  // illegal"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_set_inst_name_cross.sv",
+              "contains": ":expected_stderr_regex: test_illegal_cg_set_inst_name_cross\\.sv:43:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.8",
           "blocks": [
             "B008"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "set-inst-name-coverpoint-and-cross",
+          "tests": [
+            "tests/ch19/test_illegal_cg_set_inst_name_coverpoint.sv",
+            "tests/ch19/test_illegal_cg_set_inst_name_cross.sv"
+          ],
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex (AI); not an independent human review",
+          "observation": "要求の 2 つの形を 1 本に違反 1 つの違法系テストで分担する。test_illegal_cg_set_inst_name_coverpoint は covergroup のインスタンス g の coverpoint cp で g.cp.set_inst_name(\"point\") を呼び（43 行）、test_illegal_cg_set_inst_name_cross は cross x で g.x.set_inst_name(\"product\") を呼ぶ（43 行）。どちらも :expected_stderr_regex: がその呼び出しの 43 行を指し、同じテストの合法な g.set_inst_name(\"whole\") と get_inst_coverage の呼び出しが対照になる。 区別: 表 19-5 の coverpoint・cross の欄（No）を無視して set_inst_name を受け付ける実装（covergroup のメソッドへ委譲する、呼び出しを無視する）は該当するテストの設計を受理し、43 行のエラーが出ないので失敗する。coverpoint か cross の片方だけを拒否する実装も、もう一方のテストで検出される。意図した違反を報告せず、合法な g.set_inst_name や項目の get_inst_coverage だけを理由に拒否する実装は、41・42 行の報告だけでは :expected_stderr_regex: に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。"
         }
       ]
     },

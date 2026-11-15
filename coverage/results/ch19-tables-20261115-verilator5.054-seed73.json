@@ -1,0 +1,111 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch19/test_cg_set_inst_name_option_name": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'g1 \"\" g2 \"\"', expected 'g1 \"first\" g2 \"second\"'",
+   "inputs_sha256": "1d4ac5dace0b1ef4dba1ed3c4523b09405c2bf80c5216ee06d9167ecdf19b0bb"
+  },
+  "ch19/test_illegal_cg_set_inst_name_coverpoint": {
+   "status": "pass",
+   "inputs_sha256": "5a11de30b3bf08c50b8e37b4b36d89ee5ddb425ab1ca2b15f986973ec46b600c"
+  },
+  "ch19/test_illegal_cg_set_inst_name_cross": {
+   "status": "pass",
+   "inputs_sha256": "2f250121eb39dae7ebac6f98242cfd37ade43116774bd004e296a7aaa620f6bf"
+  },
+  "gen/ch19/test_gen_cglevel_option_auto_bin_max_cross": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "6f03b7d791268b5f684f4f69494c7f8e3c8c60bedb3542fbe389e19c285fbe97"
+  },
+  "gen/ch19/test_gen_cglevel_option_cross_num_print_missing_coverpoint": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "b8d08ac48d4c393aa268cba911f8138a2a3b4feab00f0b0c1dcf01916f1a5831"
+  },
+  "gen/ch19/test_gen_cglevel_option_cross_retain_auto_bins_coverpoint": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "f55988a46f82b01853c5550b0ffbc3a88a1f54b769622618dd8329892107147e"
+  },
+  "gen/ch19/test_gen_cglevel_option_detect_overlap_cross": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "bbe59ab956dc35dbdc3dcf17ed8bbedba560a677d5a1bb08669790cfe761925a"
+  },
+  "gen/ch19/test_gen_cglevel_option_get_inst_coverage_coverpoint": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "af4aa7876b4506368bbe9dce0f597b37691c45fa8d1dbcb74b3b290367b80310"
+  },
+  "gen/ch19/test_gen_cglevel_option_get_inst_coverage_cross": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "9f8b351216142870d9c437996ce095229bd00d14dfa0cd57210b88b0e31ac231"
+  },
+  "gen/ch19/test_gen_cglevel_option_name_coverpoint": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "8cda0d83de35f6bc3af0a41089162441a3aa1f516679257c97ab8b1a30b45b3e"
+  },
+  "gen/ch19/test_gen_cglevel_option_name_cross": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "35c01340071cbc1ca72005f8eca600a75e2e96f61a8c444c1df8bc53bc7fed05"
+  },
+  "gen/ch19/test_gen_cglevel_option_per_instance_coverpoint": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "c42352b3636ce576f9809aa61e25e8a07de87f50a9ea35c3544a689cf5da15ca"
+  },
+  "gen/ch19/test_gen_cglevel_option_per_instance_cross": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "6720ecddf24162e55f04e341dc8cce3fef91ef7f54b06516c0cbf9537b1ffc98"
+  },
+  "gen/ch19/test_gen_cglevel_type_option_distribute_first_coverpoint": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "6aa4ab80c83f017d0fc1d750b88bd4601f2419a4d2ee38af296d14a85a2646a9"
+  },
+  "gen/ch19/test_gen_cglevel_type_option_distribute_first_cross": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "798ab3db58e7c92bfbd69ac6023b0fd1ab1fa06160bda5dce83c8259860d132c"
+  },
+  "gen/ch19/test_gen_cglevel_type_option_merge_instances_coverpoint": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "508ac2a3abc39016e330f1c0bf45571970d187890953b798178e835f6f5bd3b9"
+  },
+  "gen/ch19/test_gen_cglevel_type_option_merge_instances_cross": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "0ffdca018d7142cfea14bf048257cc1549fdea6effca5d518ffdee6d9caf286a"
+  },
+  "gen/ch19/test_gen_cglevel_type_option_real_interval_cross": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "3df23c7664853cee411bdd67b3ee9cb461869015a06c33745e61c24a03bd5888"
+  },
+  "gen/ch19/test_gen_cglevel_type_option_strobe_coverpoint": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "7e369853215aed78f830466759863ef1eaeb1dc7e15998a9b5f0200980649356"
+  },
+  "gen/ch19/test_gen_cglevel_type_option_strobe_cross": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "c64769898e812cab02dc98f7b590bf867f385355775916f52b4b3a82f14ada96"
+  }
+ },
+ "generated_at": "2026-11-15T00:40:59.498597+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

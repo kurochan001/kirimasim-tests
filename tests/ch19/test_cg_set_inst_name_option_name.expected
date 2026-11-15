@@ -1,0 +1,4 @@
+g1 "first" g2 "second"
+g1 "n1" g2 "second"
+g1 "n1" g2 "n2"
+u1 "m1" u2 unchanged 1

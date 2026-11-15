@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 92.41%, execution without Ghost 50.96%, execution with Ghost 78.44%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 92.56%, execution without Ghost 50.96%, execution with Ghost 78.45%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 92.41%. Requirement execution-confirmation rate: 50.96% without Ghost, 78.44% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 92.56%. Requirement execution-confirmation rate: 50.96% without Ghost, 78.45% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 11396/12332 ( 92.41% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9673/12332 ( 78.44% ).
-- Registered but not tested: 936.
+- The requirement coverage (test design) for registered behaviors is 11415/12332 ( 92.56% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9674/12332 ( 78.45% ).
+- Registered but not tested: 917.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -36,6 +36,10 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `c2tests-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T23:59:09.029234+00:00` / 19/12332 execution checked; 0 entries refer to older inputs.
 - `c2tests-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T23:57:51.528183+00:00` / 28/12332 execution checked; 0 entries refer to older inputs.
 - `c2tests-20261115-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T23:59:08.170486+00:00` / 28/12332 execution checked; 0 entries refer to older inputs.
+- `ch19-tables-20261115-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-15T00:39:28.918241+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `ch19-tables-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T00:40:59.725559+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `ch19-tables-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T00:40:18.641708+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `ch19-tables-20261115-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T00:40:59.498597+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12332 execution checked; 0 entries refer to older inputs.
 - `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3089/12332 execution checked; 340 entries refer to older inputs.
 - `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2994/12332 execution checked; 340 entries refer to older inputs.
@@ -342,7 +346,7 @@ The number of items is the investigation status of the article by heading. This 
 - 16 Assertions: No interpretation reservation 82/82, registration 557, test support 548.
 - 17 Checkers: No interpretation reservations 13/13, registration 81, test support 68.
 - 18 Constrained random value generation: 58/58 without pending interpretation issues, 323 registered, 314 mapped to tests.
-- 19 Functional coverage: no interpretation reservation 34/34, registration 276, test support 248.
+- 19 Functional coverage: no interpretation reservation 34/34, registration 276, test support 267.
 - 20 Utility system tasks and system functions: No interpretation reservation 45/45, registration 320, test support 299.
 - 21 Input/output system tasks and system functions: no interpretation reservation 65/65, registration 383, test support 358.
 - 22 Compiler directives: 28/28 without pending interpretation issues, 363 registered, 350 mapped to tests.
@@ -50668,7 +50672,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7-EXTRACT-LEVEL-AUTO-BIN-MAX-CROSS
 
-`19.7` / `error` / No mapped test
+`19.7` / `error` / Test mapped; execution unconfirmed
 
 Table 19-2 does not allow option.auto_bin_max at the cross syntactic level, and the cross option structure of 19.10 has no auto_bin_max member, so an assignment to option.auto_bin_max within a cross is an error.
 
@@ -50676,6 +50680,7 @@ Acceptance criterion: A cross body that assigns option.auto_bin_max is rejected 
 
 Normative role: `definition`。
 
+- [test_gen_cglevel_option_auto_bin_max_cross.sv](../tests/gen/ch19/test_gen_cglevel_option_auto_bin_max_cross.sv): In the cross x body of covergroup cg (coverpoint cp and cq, and cross x), the assignment is option.auto_bin_max = 2; The assignment is on line 35; it is the only 1 violation, and the rest of the design is legal. Table 19-2 allows option.auto_bin_max only at the covergroup and coverpoint levels; the cross option structure in 19.10 has no member auto_bin_max. :expected_stderr_regex: identifies the assignment on line 35. Distinguishing observation: An implementation that ignores the No in the cross column of Table 19-2 and accepts option.auto_bin_max on a cross (silently ignoring the assignment, only warning, or writing the option of the covergroup) accepts this design without the required error on line 35, so the test fails. An implementation that reports another line, such as the cross declaration, rather than the assignment also fails to match :expected_stderr_regex:. The design with the offending line removed passes Verilator 5.054 lint.
 
 ### SV2023-19.7-EXTRACT-LEVEL-COMMENT-COVERGROUP
 
@@ -50727,7 +50732,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7-EXTRACT-LEVEL-CROSS-NUM-PRINT-MISSING-COVERPOINT
 
-`19.7` / `error` / No mapped test
+`19.7` / `error` / Test mapped; execution unconfirmed
 
 Table 19-2 does not allow option.cross_num_print_missing at the coverpoint syntactic level, and the coverpoint option structure of 19.10 has no cross_num_print_missing member, so an assignment to option.cross_num_print_missing within a coverpoint is an error.
 
@@ -50735,6 +50740,7 @@ Acceptance criterion: A coverpoint body that assigns option.cross_num_print_miss
 
 Normative role: `definition`。
 
+- [test_gen_cglevel_option_cross_num_print_missing_coverpoint.sv](../tests/gen/ch19/test_gen_cglevel_option_cross_num_print_missing_coverpoint.sv): In the coverpoint cp body of covergroup cg (coverpoint cp and cq, and cross x), the assignment is option.cross_num_print_missing = 2; The assignment is on line 33; it is the only 1 violation, and the rest of the design is legal. Table 19-2 allows option.cross_num_print_missing only at the covergroup and cross levels; the coverpoint option structure in 19.10 has no member cross_num_print_missing. :expected_stderr_regex: identifies the assignment on line 33. Distinguishing observation: An implementation that ignores the No in the coverpoint column of Table 19-2 and accepts option.cross_num_print_missing on a coverpoint (silently ignoring the assignment, only warning, or writing the option of the covergroup) accepts this design without the required error on line 33, so the test fails. An implementation that reports another line, such as the coverpoint declaration, rather than the assignment also fails to match :expected_stderr_regex:. The design with the offending line removed passes Verilator 5.054 lint.
 
 ### SV2023-19.7-EXTRACT-LEVEL-CROSS-NUM-PRINT-MISSING-CROSS
 
@@ -50762,7 +50768,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7-EXTRACT-LEVEL-CROSS-RETAIN-AUTO-BINS-COVERPOINT
 
-`19.7` / `error` / No mapped test
+`19.7` / `error` / Test mapped; execution unconfirmed
 
 Table 19-2 does not allow option.cross_retain_auto_bins at the coverpoint syntactic level, and the coverpoint option structure of 19.10 has no cross_retain_auto_bins member, so an assignment to option.cross_retain_auto_bins within a coverpoint is an error.
 
@@ -50770,6 +50776,7 @@ Acceptance criterion: A coverpoint body that assigns option.cross_retain_auto_bi
 
 Normative role: `definition`。
 
+- [test_gen_cglevel_option_cross_retain_auto_bins_coverpoint.sv](../tests/gen/ch19/test_gen_cglevel_option_cross_retain_auto_bins_coverpoint.sv): In the coverpoint cp body of covergroup cg (coverpoint cp and cq, and cross x), the assignment is option.cross_retain_auto_bins = 1; The assignment is on line 40; it is the only 1 violation, and the rest of the design is legal. Table 19-2 allows option.cross_retain_auto_bins only at the covergroup and cross levels; the coverpoint option structure in 19.10 has no member cross_retain_auto_bins. :expected_stderr_regex: identifies the assignment on line 40. Distinguishing observation: An implementation that ignores the No in the coverpoint column of Table 19-2 and accepts option.cross_retain_auto_bins on a coverpoint (silently ignoring the assignment, only warning, or writing the option of the covergroup) accepts this design without the required error on line 40, so the test fails. An implementation that reports another line, such as the coverpoint declaration, rather than the assignment also fails to match :expected_stderr_regex:. The design with the offending line removed passes Verilator 5.054 lint.
 
 ### SV2023-19.7-EXTRACT-LEVEL-CROSS-RETAIN-AUTO-BINS-CROSS
 
@@ -50809,7 +50816,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7-EXTRACT-LEVEL-DETECT-OVERLAP-CROSS
 
-`19.7` / `error` / No mapped test
+`19.7` / `error` / Test mapped; execution unconfirmed
 
 Table 19-2 does not allow option.detect_overlap at the cross syntactic level, and the cross option structure of 19.10 has no detect_overlap member, so an assignment to option.detect_overlap within a cross is an error.
 
@@ -50817,6 +50824,7 @@ Acceptance criterion: A cross body that assigns option.detect_overlap is rejecte
 
 Normative role: `definition`。
 
+- [test_gen_cglevel_option_detect_overlap_cross.sv](../tests/gen/ch19/test_gen_cglevel_option_detect_overlap_cross.sv): In the cross x body of covergroup cg (coverpoint cp and cq, and cross x), the assignment is option.detect_overlap = 1; The assignment is on line 35; it is the only 1 violation, and the rest of the design is legal. Table 19-2 allows option.detect_overlap only at the covergroup and coverpoint levels; the cross option structure in 19.10 has no member detect_overlap. :expected_stderr_regex: identifies the assignment on line 35. Distinguishing observation: An implementation that ignores the No in the cross column of Table 19-2 and accepts option.detect_overlap on a cross (silently ignoring the assignment, only warning, or writing the option of the covergroup) accepts this design without the required error on line 35, so the test fails. An implementation that reports another line, such as the cross declaration, rather than the assignment also fails to match :expected_stderr_regex:. The design with the offending line removed passes Verilator 5.054 lint.
 
 ### SV2023-19.7-EXTRACT-LEVEL-GET-INST-COVERAGE-COVERGROUP
 
@@ -50832,7 +50840,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7-EXTRACT-LEVEL-GET-INST-COVERAGE-COVERPOINT
 
-`19.7` / `error` / No mapped test
+`19.7` / `error` / Test mapped; execution unconfirmed
 
 Table 19-2 does not allow option.get_inst_coverage at the coverpoint syntactic level, and the coverpoint option structure of 19.10 has no get_inst_coverage member, so an assignment to option.get_inst_coverage within a coverpoint is an error.
 
@@ -50840,10 +50848,11 @@ Acceptance criterion: A coverpoint body that assigns option.get_inst_coverage is
 
 Normative role: `definition`。
 
+- [test_gen_cglevel_option_get_inst_coverage_coverpoint.sv](../tests/gen/ch19/test_gen_cglevel_option_get_inst_coverage_coverpoint.sv): In the coverpoint cp body of covergroup cg (coverpoint cp and cq, and cross x), the assignment is option.get_inst_coverage = 1; The assignment is on line 33; it is the only 1 violation, and the rest of the design is legal. Table 19-2 allows option.get_inst_coverage only at the covergroup level; the coverpoint option structure in 19.10 has no member get_inst_coverage. :expected_stderr_regex: identifies the assignment on line 33. Distinguishing observation: An implementation that ignores the No in the coverpoint column of Table 19-2 and accepts option.get_inst_coverage on a coverpoint (silently ignoring the assignment, only warning, or writing the option of the covergroup) accepts this design without the required error on line 33, so the test fails. An implementation that reports another line, such as the coverpoint declaration, rather than the assignment also fails to match :expected_stderr_regex:. The design with the offending line removed passes Verilator 5.054 lint.
 
 ### SV2023-19.7-EXTRACT-LEVEL-GET-INST-COVERAGE-CROSS
 
-`19.7` / `error` / No mapped test
+`19.7` / `error` / Test mapped; execution unconfirmed
 
 Table 19-2 does not allow option.get_inst_coverage at the cross syntactic level, and the cross option structure of 19.10 has no get_inst_coverage member, so an assignment to option.get_inst_coverage within a cross is an error.
 
@@ -50851,6 +50860,7 @@ Acceptance criterion: A cross body that assigns option.get_inst_coverage is reje
 
 Normative role: `definition`。
 
+- [test_gen_cglevel_option_get_inst_coverage_cross.sv](../tests/gen/ch19/test_gen_cglevel_option_get_inst_coverage_cross.sv): In the cross x body of covergroup cg (coverpoint cp and cq, and cross x), the assignment is option.get_inst_coverage = 1; The assignment is on line 35; it is the only 1 violation, and the rest of the design is legal. Table 19-2 allows option.get_inst_coverage only at the covergroup level; the cross option structure in 19.10 has no member get_inst_coverage. :expected_stderr_regex: identifies the assignment on line 35. Distinguishing observation: An implementation that ignores the No in the cross column of Table 19-2 and accepts option.get_inst_coverage on a cross (silently ignoring the assignment, only warning, or writing the option of the covergroup) accepts this design without the required error on line 35, so the test fails. An implementation that reports another line, such as the cross declaration, rather than the assignment also fails to match :expected_stderr_regex:. The design with the offending line removed passes Verilator 5.054 lint.
 
 ### SV2023-19.7-EXTRACT-LEVEL-GOAL-COVERGROUP
 
@@ -50902,7 +50912,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7-EXTRACT-LEVEL-NAME-COVERPOINT
 
-`19.7` / `error` / No mapped test
+`19.7` / `error` / Test mapped; execution unconfirmed
 
 Table 19-2 does not allow option.name at the coverpoint syntactic level, and the coverpoint option structure of 19.10 has no name member, so an assignment to option.name within a coverpoint is an error.
 
@@ -50910,10 +50920,11 @@ Acceptance criterion: A coverpoint body that assigns option.name is rejected at 
 
 Normative role: `definition`。
 
+- [test_gen_cglevel_option_name_coverpoint.sv](../tests/gen/ch19/test_gen_cglevel_option_name_coverpoint.sv): In the coverpoint cp body of covergroup cg (coverpoint cp and cq, and cross x), the assignment is option.name = "p"; The assignment is on line 32; it is the only 1 violation, and the rest of the design is legal. Table 19-2 allows option.name only at the covergroup level; the coverpoint option structure in 19.10 has no name member. :expected_stderr_regex: identifies the assignment on line 32. Distinguishing observation: An implementation that ignores the No in the coverpoint column of Table 19-2 and accepts option.name on a coverpoint (silently ignoring the assignment, only warning, or writing the option of the covergroup) accepts this design without the required error on line 32, so the test fails. An implementation that reports another line, such as the coverpoint declaration, rather than the assignment also fails to match :expected_stderr_regex:. The design with the offending line removed passes Verilator 5.054 lint.
 
 ### SV2023-19.7-EXTRACT-LEVEL-NAME-CROSS
 
-`19.7` / `error` / No mapped test
+`19.7` / `error` / Test mapped; execution unconfirmed
 
 Table 19-2 does not allow option.name at the cross syntactic level, and the cross option structure of 19.10 has no name member, so an assignment to option.name within a cross is an error.
 
@@ -50921,6 +50932,7 @@ Acceptance criterion: A cross body that assigns option.name is rejected at that 
 
 Normative role: `definition`。
 
+- [test_gen_cglevel_option_name_cross.sv](../tests/gen/ch19/test_gen_cglevel_option_name_cross.sv): In the cross x body of covergroup cg (coverpoint cp and cq, and cross x), the assignment is option.name = "p"; The assignment is on line 34; it is the only 1 violation, and the rest of the design is legal. Table 19-2 allows option.name only at the covergroup level; the cross option structure in 19.10 has no name member. :expected_stderr_regex: identifies the assignment on line 34. Distinguishing observation: An implementation that ignores the No in the cross column of Table 19-2 and accepts option.name on a cross (silently ignoring the assignment, only warning, or writing the option of the covergroup) accepts this design without the required error on line 34, so the test fails. An implementation that reports another line, such as the cross declaration, rather than the assignment also fails to match :expected_stderr_regex:. The design with the offending line removed passes Verilator 5.054 lint.
 
 ### SV2023-19.7-EXTRACT-LEVEL-PER-INSTANCE-COVERGROUP
 
@@ -50936,7 +50948,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7-EXTRACT-LEVEL-PER-INSTANCE-COVERPOINT
 
-`19.7` / `error` / No mapped test
+`19.7` / `error` / Test mapped; execution unconfirmed
 
 Table 19-2 does not allow option.per_instance at the coverpoint syntactic level, and the coverpoint option structure of 19.10 has no per_instance member, so an assignment to option.per_instance within a coverpoint is an error.
 
@@ -50944,10 +50956,11 @@ Acceptance criterion: A coverpoint body that assigns option.per_instance is reje
 
 Normative role: `definition`。
 
+- [test_gen_cglevel_option_per_instance_coverpoint.sv](../tests/gen/ch19/test_gen_cglevel_option_per_instance_coverpoint.sv): In the coverpoint cp body of covergroup cg (coverpoint cp and cq, and cross x), the assignment is option.per_instance = 1; The assignment is on line 33; it is the only 1 violation, and the rest of the design is legal. Table 19-2 allows option.per_instance only at the covergroup level; the coverpoint option structure in 19.10 has no member per_instance. :expected_stderr_regex: identifies the assignment on line 33. Distinguishing observation: An implementation that ignores the No in the coverpoint column of Table 19-2 and accepts option.per_instance on a coverpoint (silently ignoring the assignment, only warning, or writing the option of the covergroup) accepts this design without the required error on line 33, so the test fails. An implementation that reports another line, such as the coverpoint declaration, rather than the assignment also fails to match :expected_stderr_regex:. The design with the offending line removed passes Verilator 5.054 lint.
 
 ### SV2023-19.7-EXTRACT-LEVEL-PER-INSTANCE-CROSS
 
-`19.7` / `error` / No mapped test
+`19.7` / `error` / Test mapped; execution unconfirmed
 
 Table 19-2 does not allow option.per_instance at the cross syntactic level, and the cross option structure of 19.10 has no per_instance member, so an assignment to option.per_instance within a cross is an error.
 
@@ -50955,6 +50968,7 @@ Acceptance criterion: A cross body that assigns option.per_instance is rejected 
 
 Normative role: `definition`。
 
+- [test_gen_cglevel_option_per_instance_cross.sv](../tests/gen/ch19/test_gen_cglevel_option_per_instance_cross.sv): In the cross x body of covergroup cg (coverpoint cp and cq, and cross x), the assignment is option.per_instance = 1; The assignment is on line 35; it is the only 1 violation, and the rest of the design is legal. Table 19-2 allows option.per_instance only at the covergroup level; the cross option structure in 19.10 has no member per_instance. :expected_stderr_regex: identifies the assignment on line 35. Distinguishing observation: An implementation that ignores the No in the cross column of Table 19-2 and accepts option.per_instance on a cross (silently ignoring the assignment, only warning, or writing the option of the covergroup) accepts this design without the required error on line 35, so the test fails. An implementation that reports another line, such as the cross declaration, rather than the assignment also fails to match :expected_stderr_regex:. The design with the offending line removed passes Verilator 5.054 lint.
 
 ### SV2023-19.7-EXTRACT-LEVEL-WEIGHT-COVERGROUP
 
@@ -51234,7 +51248,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-DISTRIBUTE-FIRST-COVERPOINT
 
-`19.7.1` / `error` / No mapped test
+`19.7.1` / `error` / Test mapped; execution unconfirmed
 
 Table 19-4 does not allow type_option.distribute_first at the coverpoint syntactic level, and the coverpoint type_option structure of 19.10 has no distribute_first member, so an assignment to type_option.distribute_first within a coverpoint is an error.
 
@@ -51242,10 +51256,11 @@ Acceptance criterion: A coverpoint body that assigns type_option.distribute_firs
 
 Normative role: `definition`。
 
+- [test_gen_cglevel_type_option_distribute_first_coverpoint.sv](../tests/gen/ch19/test_gen_cglevel_type_option_distribute_first_coverpoint.sv): In the coverpoint cp body of covergroup cg (coverpoint cp and cq, and cross x), the assignment is type_option.distribute_first = 1; The assignment is on line 33; it is the only 1 violation, and the rest of the design is legal. Table 19-4 allows type_option.distribute_first only at the covergroup level; the coverpoint type_option structure in 19.10 has no member distribute_first. :expected_stderr_regex: identifies the assignment on line 33. Distinguishing observation: An implementation that ignores the No in the coverpoint column of Table 19-4 and accepts type_option.distribute_first on a coverpoint (silently ignoring the assignment, only warning, or writing the type_option of the covergroup) accepts this design without the required error on line 33, so the test fails. An implementation that reports another line, such as the coverpoint declaration, rather than the assignment also fails to match :expected_stderr_regex:. The design with the offending line removed passes Verilator 5.054 lint.
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-DISTRIBUTE-FIRST-CROSS
 
-`19.7.1` / `error` / No mapped test
+`19.7.1` / `error` / Test mapped; execution unconfirmed
 
 Table 19-4 does not allow type_option.distribute_first at the cross syntactic level, and the cross type_option structure of 19.10 has no distribute_first member, so an assignment to type_option.distribute_first within a cross is an error.
 
@@ -51253,6 +51268,7 @@ Acceptance criterion: A cross body that assigns type_option.distribute_first is 
 
 Normative role: `definition`。
 
+- [test_gen_cglevel_type_option_distribute_first_cross.sv](../tests/gen/ch19/test_gen_cglevel_type_option_distribute_first_cross.sv): In the cross x body of covergroup cg (coverpoint cp and cq, and cross x), the assignment is type_option.distribute_first = 1; The assignment is on line 35; it is the only 1 violation, and the rest of the design is legal. Table 19-4 allows type_option.distribute_first only at the covergroup level; the cross type_option structure in 19.10 has no member distribute_first. :expected_stderr_regex: identifies the assignment on line 35. Distinguishing observation: An implementation that ignores the No in the cross column of Table 19-4 and accepts type_option.distribute_first on a cross (silently ignoring the assignment, only warning, or writing the type_option of the covergroup) accepts this design without the required error on line 35, so the test fails. An implementation that reports another line, such as the cross declaration, rather than the assignment also fails to match :expected_stderr_regex:. The design with the offending line removed passes Verilator 5.054 lint.
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-GOAL-COVERGROUP
 
@@ -51304,7 +51320,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-MERGE-INSTANCES-COVERPOINT
 
-`19.7.1` / `error` / No mapped test
+`19.7.1` / `error` / Test mapped; execution unconfirmed
 
 Table 19-4 does not allow type_option.merge_instances at the coverpoint syntactic level, and the coverpoint type_option structure of 19.10 has no merge_instances member, so an assignment to type_option.merge_instances within a coverpoint is an error.
 
@@ -51312,10 +51328,11 @@ Acceptance criterion: A coverpoint body that assigns type_option.merge_instances
 
 Normative role: `definition`。
 
+- [test_gen_cglevel_type_option_merge_instances_coverpoint.sv](../tests/gen/ch19/test_gen_cglevel_type_option_merge_instances_coverpoint.sv): In the coverpoint cp body of covergroup cg (coverpoint cp and cq, and cross x), the assignment is type_option.merge_instances = 1; The assignment is on line 33; it is the only 1 violation, and the rest of the design is legal. Table 19-4 allows type_option.merge_instances only at the covergroup level; the coverpoint type_option structure in 19.10 has no member merge_instances. :expected_stderr_regex: identifies the assignment on line 33. Distinguishing observation: An implementation that ignores the No in the coverpoint column of Table 19-4 and accepts type_option.merge_instances on a coverpoint (silently ignoring the assignment, only warning, or writing the type_option of the covergroup) accepts this design without the required error on line 33, so the test fails. An implementation that reports another line, such as the coverpoint declaration, rather than the assignment also fails to match :expected_stderr_regex:. The design with the offending line removed passes Verilator 5.054 lint.
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-MERGE-INSTANCES-CROSS
 
-`19.7.1` / `error` / No mapped test
+`19.7.1` / `error` / Test mapped; execution unconfirmed
 
 Table 19-4 does not allow type_option.merge_instances at the cross syntactic level, and the cross type_option structure of 19.10 has no merge_instances member, so an assignment to type_option.merge_instances within a cross is an error.
 
@@ -51323,6 +51340,7 @@ Acceptance criterion: A cross body that assigns type_option.merge_instances is r
 
 Normative role: `definition`。
 
+- [test_gen_cglevel_type_option_merge_instances_cross.sv](../tests/gen/ch19/test_gen_cglevel_type_option_merge_instances_cross.sv): In the cross x body of covergroup cg (coverpoint cp and cq, and cross x), the assignment is type_option.merge_instances = 1; The assignment is on line 35; it is the only 1 violation, and the rest of the design is legal. Table 19-4 allows type_option.merge_instances only at the covergroup level; the cross type_option structure in 19.10 has no member merge_instances. :expected_stderr_regex: identifies the assignment on line 35. Distinguishing observation: An implementation that ignores the No in the cross column of Table 19-4 and accepts type_option.merge_instances on a cross (silently ignoring the assignment, only warning, or writing the type_option of the covergroup) accepts this design without the required error on line 35, so the test fails. An implementation that reports another line, such as the cross declaration, rather than the assignment also fails to match :expected_stderr_regex:. The design with the offending line removed passes Verilator 5.054 lint.
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-REAL-INTERVAL-COVERGROUP
 
@@ -51350,7 +51368,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-REAL-INTERVAL-CROSS
 
-`19.7.1` / `error` / No mapped test
+`19.7.1` / `error` / Test mapped; execution unconfirmed
 
 Table 19-4 does not allow type_option.real_interval at the cross syntactic level, and the cross type_option structure of 19.10 has no real_interval member, so an assignment to type_option.real_interval within a cross is an error.
 
@@ -51358,6 +51376,7 @@ Acceptance criterion: A cross body that assigns type_option.real_interval is rej
 
 Normative role: `definition`。
 
+- [test_gen_cglevel_type_option_real_interval_cross.sv](../tests/gen/ch19/test_gen_cglevel_type_option_real_interval_cross.sv): In the cross x body of covergroup cg (coverpoint cp and cq, and cross x), the assignment is type_option.real_interval = 0.5; The assignment is on line 35; it is the only 1 violation, and the rest of the design is legal. Table 19-4 allows type_option.real_interval only at the covergroup and coverpoint levels; the cross type_option structure in 19.10 has no member real_interval. :expected_stderr_regex: identifies the assignment on line 35. Distinguishing observation: An implementation that ignores the No in the cross column of Table 19-4 and accepts type_option.real_interval on a cross (silently ignoring the assignment, only warning, or writing the type_option of the covergroup) accepts this design without the required error on line 35, so the test fails. An implementation that reports another line, such as the cross declaration, rather than the assignment also fails to match :expected_stderr_regex:. The design with the offending line removed passes Verilator 5.054 lint.
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-STROBE-COVERGROUP
 
@@ -51373,7 +51392,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-STROBE-COVERPOINT
 
-`19.7.1` / `error` / No mapped test
+`19.7.1` / `error` / Test mapped; execution unconfirmed
 
 Table 19-4 does not allow type_option.strobe at the coverpoint syntactic level, and the coverpoint type_option structure of 19.10 has no strobe member, so an assignment to type_option.strobe within a coverpoint is an error.
 
@@ -51381,10 +51400,11 @@ Acceptance criterion: A coverpoint body that assigns type_option.strobe is rejec
 
 Normative role: `definition`。
 
+- [test_gen_cglevel_type_option_strobe_coverpoint.sv](../tests/gen/ch19/test_gen_cglevel_type_option_strobe_coverpoint.sv): In the coverpoint cp body of covergroup cg (coverpoint cp and cq, and cross x), the assignment is type_option.strobe = 1; The assignment is on line 33; it is the only 1 violation, and the rest of the design is legal. Table 19-4 allows type_option.strobe only at the covergroup level; the coverpoint type_option structure in 19.10 has no strobe member. :expected_stderr_regex: identifies the assignment on line 33. Distinguishing observation: An implementation that ignores the No in the coverpoint column of Table 19-4 and accepts type_option.strobe on a coverpoint (silently ignoring the assignment, only warning, or writing the type_option of the covergroup) accepts this design without the required error on line 33, so the test fails. An implementation that reports another line, such as the coverpoint declaration, rather than the assignment also fails to match :expected_stderr_regex:. The design with the offending line removed passes Verilator 5.054 lint.
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-STROBE-CROSS
 
-`19.7.1` / `error` / No mapped test
+`19.7.1` / `error` / Test mapped; execution unconfirmed
 
 Table 19-4 does not allow type_option.strobe at the cross syntactic level, and the cross type_option structure of 19.10 has no strobe member, so an assignment to type_option.strobe within a cross is an error.
 
@@ -51392,6 +51412,7 @@ Acceptance criterion: A cross body that assigns type_option.strobe is rejected a
 
 Normative role: `definition`。
 
+- [test_gen_cglevel_type_option_strobe_cross.sv](../tests/gen/ch19/test_gen_cglevel_type_option_strobe_cross.sv): In the cross x body of covergroup cg (coverpoint cp and cq, and cross x), the assignment is type_option.strobe = 1; The assignment is on line 35; it is the only 1 violation, and the rest of the design is legal. Table 19-4 allows type_option.strobe only at the covergroup level; the cross type_option structure in 19.10 has no strobe member. :expected_stderr_regex: identifies the assignment on line 35. Distinguishing observation: An implementation that ignores the No in the cross column of Table 19-4 and accepts type_option.strobe on a cross (silently ignoring the assignment, only warning, or writing the type_option of the covergroup) accepts this design without the required error on line 35, so the test fails. An implementation that reports another line, such as the cross declaration, rather than the assignment also fails to match :expected_stderr_regex:. The design with the offending line removed passes Verilator 5.054 lint.
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-WEIGHT-COVERGROUP
 
@@ -51574,7 +51595,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.8-EXTRACT-INSTANCE-NAME
 
-`19.8` / `normal` / No mapped test
+`19.8` / `normal` / Test mapped; execution unconfirmed
 
 void set_inst_name(string) sets the name of the covergroup instance on which it is called to the given string.
 
@@ -51582,10 +51603,11 @@ Acceptance criterion: After set_inst_name("n1") on one instance of a covergroup,
 
 Normative role: `mandatory`。
 
+- [test_cg_set_inst_name_option_name.sv](../tests/ch19/test_cg_set_inst_name_option_name.sv): covergroup cg (string n) sets option.name = n in its definition and creates g1 = new("first") and g2 = new("second"). Line 1 shows g1 "first" and g2 "second" before the call. After g1.set_inst_name("n1"), line 2 shows g1 "n1" and g2 "second"; after the subsequent g2.set_inst_name("n2"), line 3 shows g1 "n1" and g2 "n2". For covergroup cu, which has no name option in its definition, the test saves the name of u2 before calling u1.set_inst_name("m1"). Line 4 then shows u1 "m1" and checks that the name of u2 equals its value before the call (unchanged 1). Distinguishing observation: If set_inst_name does not change option.name, g1 on line 2 remains "first" (and u1 on line 4 does not become "m1"). If the name is set for every instance of the covergroup type, g2 on line 2 becomes "n1", and line 4 reports unchanged 0. If a call changes a different instance, the g1/g2 pairs on lines 2 and 3 change. For instances with and without a name specified in the definition, the test checks that option.name of the called instance becomes the given string while the other instances keep their names.
 
 ### SV2023-19.8-EXTRACT-INSTANCE-NAME-GROUP-ONLY
 
-`19.8` / `error` / No mapped test
+`19.8` / `error` / Execution confirmed
 
 Table 19-5 provides set_inst_name for a covergroup and not for a coverpoint or a cross, so calling it on a coverpoint or a cross is an error.
 
@@ -51593,6 +51615,8 @@ Acceptance criterion: A call of set_inst_name on a coverpoint of a covergroup in
 
 Normative role: `mandatory`。
 
+- [test_illegal_cg_set_inst_name_coverpoint.sv](../tests/ch19/test_illegal_cg_set_inst_name_coverpoint.sv): The call g.cp.set_inst_name("point") on coverpoint cp (line 43) is the only violation; :expected_stderr_regex: identifies line 43. The preceding g.set_inst_name("whole") and r = g.cp.get_inst_coverage() are legal controls.
+- [test_illegal_cg_set_inst_name_cross.sv](../tests/ch19/test_illegal_cg_set_inst_name_cross.sv): The call g.x.set_inst_name("product") on cross x (line 43) is the only violation; :expected_stderr_regex: identifies line 43. The preceding g.set_inst_name("whole") and r = g.x.get_inst_coverage() are legal controls.
 
 ### SV2023-19.8-EXTRACT-ITEM-TYPE-COUNTS
 

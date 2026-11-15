@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 92.41%、Ghostを除く実行 50.96%、Ghostを含む実行 78.44%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 92.56%、Ghostを除く実行 50.96%、Ghostを含む実行 78.45%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 92.41%。** 規格要求の実行確認率: Ghostを除いて 50.96%、Ghostを含めて 78.44%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 92.56%。** 規格要求の実行確認率: Ghostを除いて 50.96%、Ghostを含めて 78.45%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対する要求カバレッジ（テスト設計）: 11396/12332 (92.41%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9673/12332 (78.44%)。
-- 登録済みだがテスト未対応: 936 動作。
+- 登録済み動作に対する要求カバレッジ（テスト設計）: 11415/12332 (92.56%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9674/12332 (78.45%)。
+- 登録済みだがテスト未対応: 917 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。
 
@@ -36,6 +36,10 @@
 - `c2tests-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T23:59:09.029234+00:00` / 19/12332 動作確認、古い入力との対応 0 件。
 - `c2tests-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T23:57:51.528183+00:00` / 28/12332 動作確認、古い入力との対応 0 件。
 - `c2tests-20261115-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T23:59:08.170486+00:00` / 28/12332 動作確認、古い入力との対応 0 件。
+- `ch19-tables-20261115-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-15T00:39:28.918241+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `ch19-tables-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T00:40:59.725559+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `ch19-tables-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T00:40:18.641708+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
+- `ch19-tables-20261115-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T00:40:59.498597+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12332 動作確認、古い入力との対応 0 件。
 - `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3089/12332 動作確認、古い入力との対応 340 件。
 - `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2994/12332 動作確認、古い入力との対応 340 件。
@@ -342,7 +346,7 @@
 - 16 Assertions: 解釈保留なし 82/82、登録 557、テスト対応 548。
 - 17 Checkers: 解釈保留なし 13/13、登録 81、テスト対応 68。
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 323、テスト対応 314。
-- 19 Functional coverage: 解釈保留なし 34/34、登録 276、テスト対応 248。
+- 19 Functional coverage: 解釈保留なし 34/34、登録 276、テスト対応 267。
 - 20 Utility system tasks and system functions: 解釈保留なし 45/45、登録 320、テスト対応 299。
 - 21 入出力システムタスクとシステム関数：解釈保留なし65/65、登録383、テスト対応358。
 - 22 Compiler directives: 解釈保留なし 28/28、登録 363、テスト対応 350。
@@ -50668,7 +50672,7 @@ per_instance は下位レベルをデフォルトでは指定しません。19-2
 
 ### SV2023-19.7-EXTRACT-LEVEL-AUTO-BIN-MAX-CROSS
 
-`19.7` / `error` / テスト未対応
+`19.7` / `error` / テスト対応あり・実行未確認
 
 表 19-2 はクロスの構文レベルで option.auto_bin_max を許さず、 19.10 のクロスのオプション構造体には auto_bin_max メンバーが無いので、クロスの中での option.auto_bin_max への代入はエラーである。
 
@@ -50676,6 +50680,7 @@ per_instance は下位レベルをデフォルトでは指定しません。19-2
 
 規定の性質: `definition`。
 
+- [test_gen_cglevel_option_auto_bin_max_cross.sv](../tests/gen/ch19/test_gen_cglevel_option_auto_bin_max_cross.sv)：covergroup cg（coverpoint cp・cqとcross x）のcross xの本体でoption.auto_bin_max = 2 ;を代入する（ 35 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-2 は option.auto_bin_max を covergroup ・ coverpoint の階層にだけ許し、 19.10 の cross の option 構造体に auto_bin_max のメンバーがない。: expected_stderr_regex : は 35 行の代入を指す。区別: 表 19-2 の cross の欄（No）を無視して cross の option.auto_bin_max を受け付ける実装（代入を黙って無視する、警告だけにする、 covergroup の option へ書き込む）はこの設計を受理し、 35 行のエラーが出ないのでテストが失敗する。代入の行でなく cross の宣言など別の行で報告する実装も : expected_stderr_regex : に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。
 
 ### SV2023-19.7-EXTRACT-LEVEL-COMMENT-COVERGROUP
 
@@ -50727,7 +50732,7 @@ per_instance は下位レベルをデフォルトでは指定しません。19-2
 
 ### SV2023-19.7-EXTRACT-LEVEL-CROSS-NUM-PRINT-MISSING-COVERPOINT
 
-`19.7` / `error` / テスト未対応
+`19.7` / `error` / テスト対応あり・実行未確認
 
 表 19-2 は coverpoint の構文レベルで option.cross_num_print_missing を許さず、 19.10 の coverpoint のオプション構造体には cross_num_print_missing メンバーが無いので、 coverpoint の中での option.cross_num_print_missing への代入はエラーである。
 
@@ -50735,6 +50740,7 @@ per_instance は下位レベルをデフォルトでは指定しません。19-2
 
 規定の性質: `definition`。
 
+- [test_gen_cglevel_option_cross_num_print_missing_coverpoint.sv](../tests/gen/ch19/test_gen_cglevel_option_cross_num_print_missing_coverpoint.sv)：covergroup cg（coverpoint cp・cqとcross x）のcoverpoint cpの本体でoption.cross_num_print_missing = 2 ;を代入する（ 33 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-2 は option.cross_num_print_missing を covergroup ・cross の階層にだけ許し、 19.10 の coverpoint の option 構造体に cross_num_print_missing のメンバーがない。: expected_stderr_regex : は 33 行の代入を指す。区別: 表 19-2 の coverpoint の欄（No）を無視して coverpoint の option.cross_num_print_missing を受け付ける実装（代入を黙って無視する、警告だけにする、 covergroup の option へ書き込む）はこの設計を受理し、 33 行のエラーが出ないのでテストが失敗する。代入の行でなく coverpoint の宣言など別の行で報告する実装も : expected_stderr_regex : に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。
 
 ### SV2023-19.7-EXTRACT-LEVEL-CROSS-NUM-PRINT-MISSING-CROSS
 
@@ -50762,7 +50768,7 @@ per_instance は下位レベルをデフォルトでは指定しません。19-2
 
 ### SV2023-19.7-EXTRACT-LEVEL-CROSS-RETAIN-AUTO-BINS-COVERPOINT
 
-`19.7` / `error` / テスト未対応
+`19.7` / `error` / テスト対応あり・実行未確認
 
 表 19-2 は coverpoint の構文レベルで option.cross_retain_auto_bins を許さず、 19.10 の coverpoint のオプション構造体には cross_retain_auto_bins メンバーが無いので、 coverpoint の中での option.cross_retain_auto_bins への代入はエラーである。
 
@@ -50770,6 +50776,7 @@ per_instance は下位レベルをデフォルトでは指定しません。19-2
 
 規定の性質: `definition`。
 
+- [test_gen_cglevel_option_cross_retain_auto_bins_coverpoint.sv](../tests/gen/ch19/test_gen_cglevel_option_cross_retain_auto_bins_coverpoint.sv)：covergroup cg（coverpoint cp・cqとcross x）のcoverpoint cpの本体でoption.cross_retain_auto_bins = 1 ;を代入する（ 40 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-2 は option.cross_retain_auto_bins を covergroup ・cross の階層にだけ許し、 19.10 の coverpoint の option 構造体に cross_retain_auto_bins のメンバーがない。: expected_stderr_regex : は 40 行の代入を指す。区別: 表 19-2 の coverpoint の欄（No）を無視して coverpoint の option.cross_retain_auto_bins を受け付ける実装（代入を黙って無視する、警告だけにする、 covergroup の option へ書き込む）はこの設計を受理し、 40 行のエラーが出ないのでテストが失敗する。代入の行でなく coverpoint の宣言など別の行で報告する実装も : expected_stderr_regex : に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。
 
 ### SV2023-19.7-EXTRACT-LEVEL-CROSS-RETAIN-AUTO-BINS-CROSS
 
@@ -50809,7 +50816,7 @@ per_instance は下位レベルをデフォルトでは指定しません。19-2
 
 ### SV2023-19.7-EXTRACT-LEVEL-DETECT-OVERLAP-CROSS
 
-`19.7` / `error` / テスト未対応
+`19.7` / `error` / テスト対応あり・実行未確認
 
 表 19-2 はクロスの構文レベルで option.detect_overlap を許さず、 19.10 のクロスのオプション構造体には detect_overlap メンバーが無いので、クロスの中での option.detect_overlap への代入はエラーである。
 
@@ -50817,6 +50824,7 @@ per_instance は下位レベルをデフォルトでは指定しません。19-2
 
 規定の性質: `definition`。
 
+- [test_gen_cglevel_option_detect_overlap_cross.sv](../tests/gen/ch19/test_gen_cglevel_option_detect_overlap_cross.sv)：covergroup cg（coverpoint cp・cqとcross x）のcross xの本体でoption.detect_overlap = 1 ;を代入する（ 35 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-2 は option.detect_overlap を covergroup ・ coverpoint の階層にだけ許し、 19.10 の cross の option 構造体に detect_overlap のメンバーがない。: expected_stderr_regex : は 35 行の代入を指す。区別: 表 19-2 の cross の欄（No）を無視して cross の option.detect_overlap を受け付ける実装（代入を黙って無視する、警告だけにする、 covergroup の option へ書き込む）はこの設計を受理し、 35 行のエラーが出ないのでテストが失敗する。代入の行でなく cross の宣言など別の行で報告する実装も : expected_stderr_regex : に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。
 
 ### SV2023-19.7-EXTRACT-LEVEL-GET-INST-COVERAGE-COVERGROUP
 
@@ -50832,7 +50840,7 @@ per_instance は下位レベルをデフォルトでは指定しません。19-2
 
 ### SV2023-19.7-EXTRACT-LEVEL-GET-INST-COVERAGE-COVERPOINT
 
-`19.7` / `error` / テスト未対応
+`19.7` / `error` / テスト対応あり・実行未確認
 
 表 19-2 は coverpoint の構文レベルで option.get_inst_coverage を許さず、 19.10 の coverpoint のオプション構造体には get_inst_coverage メンバーが無いので、 coverpoint の中での option.get_inst_coverage への代入はエラーである。
 
@@ -50840,10 +50848,11 @@ per_instance は下位レベルをデフォルトでは指定しません。19-2
 
 規定の性質: `definition`。
 
+- [test_gen_cglevel_option_get_inst_coverage_coverpoint.sv](../tests/gen/ch19/test_gen_cglevel_option_get_inst_coverage_coverpoint.sv)：covergroup cg（coverpoint cp・cqとcross x）のcoverpoint cpの本体でoption.get_inst_coverage = 1 ;を代入する（ 33 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-2 は option.get_inst_coverage を covergroup の階層にだけ許し、 19.10 の coverpoint の option 構造体に get_inst_coverage のメンバーがない。: expected_stderr_regex : は 33 行の代入を指す。区別: 表 19-2 の coverpoint の欄（No）を無視して coverpoint の option.get_inst_coverage を受け付ける実装（代入を黙って無視する、警告だけにする、 covergroup の option へ書き込む）はこの設計を受理し、 33 行のエラーが出ないのでテストが失敗する。代入の行でなく coverpoint の宣言など別の行で報告する実装も : expected_stderr_regex : に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。
 
 ### SV2023-19.7-EXTRACT-LEVEL-GET-INST-COVERAGE-CROSS
 
-`19.7` / `error` / テスト未対応
+`19.7` / `error` / テスト対応あり・実行未確認
 
 表 19-2 はクロスの構文レベルで option.get_inst_coverage を許さず、 19.10 のクロスのオプション構造体には get_inst_coverage メンバーが無いので、クロスの中での option.get_inst_coverage への代入はエラーである。
 
@@ -50851,6 +50860,7 @@ per_instance は下位レベルをデフォルトでは指定しません。19-2
 
 規定の性質: `definition`。
 
+- [test_gen_cglevel_option_get_inst_coverage_cross.sv](../tests/gen/ch19/test_gen_cglevel_option_get_inst_coverage_cross.sv)：covergroup cg（coverpoint cp・cqとcross x）のcross xの本体でoption.get_inst_coverage = 1 ;を代入する（ 35 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-2 は option.get_inst_coverage を covergroup の階層にだけ許し、 19.10 の cross の option 構造体に get_inst_coverage のメンバーがない。: expected_stderr_regex : は 35 行の代入を指す。区別: 表 19-2 の cross の欄（No）を無視して cross の option.get_inst_coverage を受け付ける実装（代入を黙って無視する、警告だけにする、 covergroup の option へ書き込む）はこの設計を受理し、 35 行のエラーが出ないのでテストが失敗する。代入の行でなく cross の宣言など別の行で報告する実装も : expected_stderr_regex : に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。
 
 ### SV2023-19.7-EXTRACT-LEVEL-GOAL-COVERGROUP
 
@@ -50902,7 +50912,7 @@ per_instance は下位レベルをデフォルトでは指定しません。19-2
 
 ### SV2023-19.7-EXTRACT-LEVEL-NAME-COVERPOINT
 
-`19.7` / `error` / テスト未対応
+`19.7` / `error` / テスト対応あり・実行未確認
 
 表 19-2 は coverpoint の構文レベルで option.name を許さず、 19.10 の coverpoint のオプション構造体には name メンバーが無いので、 coverpoint の中での option.name への代入はエラーである。
 
@@ -50910,10 +50920,11 @@ per_instance は下位レベルをデフォルトでは指定しません。19-2
 
 規定の性質: `definition`。
 
+- [test_gen_cglevel_option_name_coverpoint.sv](../tests/gen/ch19/test_gen_cglevel_option_name_coverpoint.sv)：covergroup cg（coverpoint cp・cqとcross x）のcoverpoint cpの本体でoption.name = "p" ;を代入する（ 32 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-2 は option.name を covergroup の階層にだけ許し、 19.10 の coverpoint の option 構造体に name のメンバーがない。: expected_stderr_regex : は 32 行の代入を指す。区別: 表 19-2 の coverpoint の欄（No）を無視して coverpoint の option.name を受け付ける実装（代入を黙って無視する、警告だけにする、 covergroup の option へ書き込む）はこの設計を受理し、 32 行のエラーが出ないのでテストが失敗する。代入の行でなく coverpoint の宣言など別の行で報告する実装も : expected_stderr_regex : に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。
 
 ### SV2023-19.7-EXTRACT-LEVEL-NAME-CROSS
 
-`19.7` / `error` / テスト未対応
+`19.7` / `error` / テスト対応あり・実行未確認
 
 表 19-2 はクロスの構文レベルで option.name を許さず、 19.10 のクロスのオプション構造体には name メンバーが無いので、クロスの中での option.name への代入はエラーである。
 
@@ -50921,6 +50932,7 @@ per_instance は下位レベルをデフォルトでは指定しません。19-2
 
 規定の性質: `definition`。
 
+- [test_gen_cglevel_option_name_cross.sv](../tests/gen/ch19/test_gen_cglevel_option_name_cross.sv)：covergroup cg（coverpoint cp・cqとcross x）のcross xの本体でoption.name = "p" ;を代入する（ 34 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-2 は option.name を covergroup の階層にだけ許し、 19.10 の cross の option 構造体に name のメンバーがない。: expected_stderr_regex : は 34 行の代入を指す。区別: 表 19-2 の cross の欄（No）を無視して cross の option.name を受け付ける実装（代入を黙って無視する、警告だけにする、 covergroup の option へ書き込む）はこの設計を受理し、 34 行のエラーが出ないのでテストが失敗する。代入の行でなく cross の宣言など別の行で報告する実装も : expected_stderr_regex : に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。
 
 ### SV2023-19.7-EXTRACT-LEVEL-PER-INSTANCE-COVERGROUP
 
@@ -50936,7 +50948,7 @@ per_instance は下位レベルをデフォルトでは指定しません。19-2
 
 ### SV2023-19.7-EXTRACT-LEVEL-PER-INSTANCE-COVERPOINT
 
-`19.7` / `error` / テスト未対応
+`19.7` / `error` / テスト対応あり・実行未確認
 
 表 19-2 は coverpoint の構文レベルで option.per_instance を許さず、 19.10 の coverpoint のオプション構造体には per_instance メンバーが無いので、 coverpoint の中での option.per_instance への代入はエラーである。
 
@@ -50944,10 +50956,11 @@ per_instance は下位レベルをデフォルトでは指定しません。19-2
 
 規定の性質: `definition`。
 
+- [test_gen_cglevel_option_per_instance_coverpoint.sv](../tests/gen/ch19/test_gen_cglevel_option_per_instance_coverpoint.sv)：covergroup cg（coverpoint cp・cqとcross x）のcoverpoint cpの本体でoption.per_instance = 1 ;を代入する（ 33 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-2 は option.per_instance を covergroup の階層にだけ許し、 19.10 の coverpoint の option 構造体に per_instance のメンバーがない。: expected_stderr_regex : は 33 行の代入を指す。区別: 表 19-2 の coverpoint の欄（No）を無視して coverpoint の option.per_instance を受け付ける実装（代入を黙って無視する、警告だけにする、 covergroup の option へ書き込む）はこの設計を受理し、 33 行のエラーが出ないのでテストが失敗する。代入の行でなく coverpoint の宣言など別の行で報告する実装も : expected_stderr_regex : に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。
 
 ### SV2023-19.7-EXTRACT-LEVEL-PER-INSTANCE-CROSS
 
-`19.7` / `error` / テスト未対応
+`19.7` / `error` / テスト対応あり・実行未確認
 
 表 19-2 はクロスの構文レベルで option.per_instance を許さず、 19.10 のクロスのオプション構造体には per_instance メンバーが無いので、クロスの中での option.per_instance への代入はエラーである。
 
@@ -50955,6 +50968,7 @@ per_instance は下位レベルをデフォルトでは指定しません。19-2
 
 規定の性質: `definition`。
 
+- [test_gen_cglevel_option_per_instance_cross.sv](../tests/gen/ch19/test_gen_cglevel_option_per_instance_cross.sv)：covergroup cg（coverpoint cp・cqとcross x）のcross xの本体でoption.per_instance = 1 ;を代入する（ 35 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-2 は option.per_instance を covergroup の階層にだけ許し、 19.10 の cross の option 構造体に per_instance のメンバーがない。: expected_stderr_regex : は 35 行の代入を指す。区別: 表 19-2 の cross の欄（No）を無視して cross の option.per_instance を受け付ける実装（代入を黙って無視する、警告だけにする、 covergroup の option へ書き込む）はこの設計を受理し、 35 行のエラーが出ないのでテストが失敗する。代入の行でなく cross の宣言など別の行で報告する実装も : expected_stderr_regex : に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。
 
 ### SV2023-19.7-EXTRACT-LEVEL-WEIGHT-COVERGROUP
 
@@ -51234,7 +51248,7 @@ per_instance 、 get_inst_coverage 、 auto_bin_max 、 detect_overlap 、 cross
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-DISTRIBUTE-FIRST-COVERPOINT
 
-`19.7.1` / `error` / テスト未対応
+`19.7.1` / `error` / テスト対応あり・実行未確認
 
 表 19-4 は coverpoint の構文レベルで type_option.distribute_first を許さず、 19.10 の coverpoint の type_option 構造体には distribute_first メンバーが無いので、 coverpoint の中での type_option.distribute_first への代入はエラーである。
 
@@ -51242,10 +51256,11 @@ per_instance 、 get_inst_coverage 、 auto_bin_max 、 detect_overlap 、 cross
 
 規定の性質: `definition`。
 
+- [test_gen_cglevel_type_option_distribute_first_coverpoint.sv](../tests/gen/ch19/test_gen_cglevel_type_option_distribute_first_coverpoint.sv)：covergroup cg（coverpoint cp・cqとcross x）のcoverpoint cpの本体でtype_option.distribute_first = 1 ;を代入する（ 33 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-4 は type_option.distribute_first を covergroup の階層にだけ許し、 19.10 の coverpoint の type_option 構造体に distribute_first のメンバーがない。: expected_stderr_regex : は 33 行の代入を指す。区別: 表 19-4 の coverpoint の欄（No）を無視して coverpoint の type_option.distribute_first を受け付ける実装（代入を黙って無視する、警告だけにする、 covergroup の type_option へ書き込む）はこの設計を受理し、 33 行のエラーが出ないのでテストが失敗する。代入の行でなく coverpoint の宣言など別の行で報告する実装も : expected_stderr_regex : に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-DISTRIBUTE-FIRST-CROSS
 
-`19.7.1` / `error` / テスト未対応
+`19.7.1` / `error` / テスト対応あり・実行未確認
 
 表 19-4 はクロスの構文レベルで type_option.distribute_first を許さず、 19.10 のクロスの type_option 構造体には distribute_first メンバーが無いので、クロスの中での type_option.distribute_first への代入はエラーである。
 
@@ -51253,6 +51268,7 @@ per_instance 、 get_inst_coverage 、 auto_bin_max 、 detect_overlap 、 cross
 
 規定の性質: `definition`。
 
+- [test_gen_cglevel_type_option_distribute_first_cross.sv](../tests/gen/ch19/test_gen_cglevel_type_option_distribute_first_cross.sv)：covergroup cg（coverpoint cp・cqとcross x）のcross xの本体でtype_option.distribute_first = 1 ;を代入する（ 35 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-4 は type_option.distribute_first を covergroup の階層にだけ許し、 19.10 の cross の type_option 構造体に distribute_first のメンバーがない。: expected_stderr_regex : は 35 行の代入を指す。区別: 表 19-4 の cross の欄（No）を無視して cross の type_option.distribute_first を受け付ける実装（代入を黙って無視する、警告だけにする、 covergroup の type_option へ書き込む）はこの設計を受理し、 35 行のエラーが出ないのでテストが失敗する。代入の行でなく cross の宣言など別の行で報告する実装も : expected_stderr_regex : に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-GOAL-COVERGROUP
 
@@ -51304,7 +51320,7 @@ per_instance 、 get_inst_coverage 、 auto_bin_max 、 detect_overlap 、 cross
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-MERGE-INSTANCES-COVERPOINT
 
-`19.7.1` / `error` / テスト未対応
+`19.7.1` / `error` / テスト対応あり・実行未確認
 
 表 19-4 は coverpoint の構文レベルで type_option.merge_instances を許さず、 19.10 の coverpoint の type_option 構造体には merge_instances メンバーが無いので、 coverpoint の中での type_option.merge_instances への代入はエラーである。
 
@@ -51312,10 +51328,11 @@ per_instance 、 get_inst_coverage 、 auto_bin_max 、 detect_overlap 、 cross
 
 規定の性質: `definition`。
 
+- [test_gen_cglevel_type_option_merge_instances_coverpoint.sv](../tests/gen/ch19/test_gen_cglevel_type_option_merge_instances_coverpoint.sv)：covergroup cg（coverpoint cp・cqとcross x）のcoverpoint cpの本体でtype_option.merge_instances = 1 ;を代入する（ 33 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-4 は type_option.merge_instances を covergroup の階層にだけ許し、 19.10 の coverpoint の type_option 構造体に merge_instances のメンバーがない。: expected_stderr_regex : は 33 行の代入を指す。区別: 表 19-4 の coverpoint の欄（No）を無視して coverpoint の type_option.merge_instances を受け付ける実装（代入を黙って無視する、警告だけにする、 covergroup の type_option へ書き込む）はこの設計を受理し、 33 行のエラーが出ないのでテストが失敗する。代入の行でなく coverpoint の宣言など別の行で報告する実装も : expected_stderr_regex : に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-MERGE-INSTANCES-CROSS
 
-`19.7.1` / `error` / テスト未対応
+`19.7.1` / `error` / テスト対応あり・実行未確認
 
 表 19-4 はクロスの構文レベルで type_option.merge_instances を許さず、 19.10 のクロスの type_option 構造体には merge_instances メンバーが無いので、クロスの中での type_option.merge_instances への代入はエラーである。
 
@@ -51323,6 +51340,7 @@ per_instance 、 get_inst_coverage 、 auto_bin_max 、 detect_overlap 、 cross
 
 規定の性質: `definition`。
 
+- [test_gen_cglevel_type_option_merge_instances_cross.sv](../tests/gen/ch19/test_gen_cglevel_type_option_merge_instances_cross.sv)：covergroup cg（coverpoint cp・cqとcross x）のcross xの本体でtype_option.merge_instances = 1 ;を代入する（ 35 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-4 は type_option.merge_instances を covergroup の階層にだけ許し、 19.10 の cross の type_option 構造体に merge_instances のメンバーがない。: expected_stderr_regex : は 35 行の代入を指す。区別: 表 19-4 の cross の欄（No）を無視して cross の type_option.merge_instances を受け付ける実装（代入を黙って無視する、警告だけにする、 covergroup の type_option へ書き込む）はこの設計を受理し、 35 行のエラーが出ないのでテストが失敗する。代入の行でなく cross の宣言など別の行で報告する実装も : expected_stderr_regex : に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-REAL-INTERVAL-COVERGROUP
 
@@ -51350,7 +51368,7 @@ per_instance 、 get_inst_coverage 、 auto_bin_max 、 detect_overlap 、 cross
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-REAL-INTERVAL-CROSS
 
-`19.7.1` / `error` / テスト未対応
+`19.7.1` / `error` / テスト対応あり・実行未確認
 
 表 19-4 はクロスの構文レベルで type_option.real_interval を許さず、 19.10 のクロスの type_option 構造体には real_interval メンバーが無いので、クロスの中での type_option.real_interval への代入はエラーである。
 
@@ -51358,6 +51376,7 @@ per_instance 、 get_inst_coverage 、 auto_bin_max 、 detect_overlap 、 cross
 
 規定の性質: `definition`。
 
+- [test_gen_cglevel_type_option_real_interval_cross.sv](../tests/gen/ch19/test_gen_cglevel_type_option_real_interval_cross.sv)：covergroup cg（coverpoint cp・cqとcross x）のcross xの本体でtype_option.real_interval = 0.5 ;を代入する（ 35 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-4 は type_option.real_interval を covergroup ・ coverpoint の階層にだけ許し、 19.10 の cross の type_option 構造体に real_interval のメンバーがない。: expected_stderr_regex : は 35 行の代入を指す。区別: 表 19-4 の cross の欄（No）を無視して cross の type_option.real_interval を受け付ける実装（代入を黙って無視する、警告だけにする、 covergroup の type_option へ書き込む）はこの設計を受理し、 35 行のエラーが出ないのでテストが失敗する。代入の行でなく cross の宣言など別の行で報告する実装も : expected_stderr_regex : に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-STROBE-COVERGROUP
 
@@ -51373,7 +51392,7 @@ per_instance 、 get_inst_coverage 、 auto_bin_max 、 detect_overlap 、 cross
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-STROBE-COVERPOINT
 
-`19.7.1` / `error` / テスト未対応
+`19.7.1` / `error` / テスト対応あり・実行未確認
 
 表 19-4 は coverpoint の構文レベルで type_option.strobe を許さず、 19.10 の coverpoint の type_option 構造体には strobe メンバーが無いので、 coverpoint の中での type_option.strobe への代入はエラーである。
 
@@ -51381,10 +51400,11 @@ per_instance 、 get_inst_coverage 、 auto_bin_max 、 detect_overlap 、 cross
 
 規定の性質: `definition`。
 
+- [test_gen_cglevel_type_option_strobe_coverpoint.sv](../tests/gen/ch19/test_gen_cglevel_type_option_strobe_coverpoint.sv)：covergroup cg（coverpoint cp・cqとcross x）のcoverpoint cpの本体でtype_option.strobe = 1 ;を代入する（ 33 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-4 は type_option.strobe を covergroup の階層にだけ許し、 19.10 の coverpoint の type_option 構造体に strobe のメンバーがない。: expected_stderr_regex : は 33 行の代入を指す。区別: 表 19-4 の coverpoint の欄（No）を無視して coverpoint の type_option.strobe を受け付ける実装（代入を黙って無視する、警告だけにする、 covergroup の type_option へ書き込む）はこの設計を受理し、 33 行のエラーが出ないのでテストが失敗する。代入の行でなく coverpoint の宣言など別の行で報告する実装も : expected_stderr_regex : に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-STROBE-CROSS
 
-`19.7.1` / `error` / テスト未対応
+`19.7.1` / `error` / テスト対応あり・実行未確認
 
 表 19-4 はクロスの構文レベルで type_option.strobe を許さず、 19.10 のクロスの type_option 構造体には strobe メンバーが無いので、クロスの中での type_option.strobe への代入はエラーである。
 
@@ -51392,6 +51412,7 @@ per_instance 、 get_inst_coverage 、 auto_bin_max 、 detect_overlap 、 cross
 
 規定の性質: `definition`。
 
+- [test_gen_cglevel_type_option_strobe_cross.sv](../tests/gen/ch19/test_gen_cglevel_type_option_strobe_cross.sv)：covergroup cg（coverpoint cp・cqとcross x）のcross xの本体でtype_option.strobe = 1 ;を代入する（ 35 行、違反はこの 1 つだけで、ほかの部分は合法）。表 19-4 は type_option.strobe を covergroup の階層にだけ許し、 19.10 の cross の type_option 構造体に strobe のメンバーがない。: expected_stderr_regex : は 35 行の代入を指す。区別: 表 19-4 の cross の欄（No）を無視して cross の type_option.strobe を受け付ける実装（代入を黙って無視する、警告だけにする、 covergroup の type_option へ書き込む）はこの設計を受理し、 35 行のエラーが出ないのでテストが失敗する。代入の行でなく cross の宣言など別の行で報告する実装も : expected_stderr_regex : に一致しない。違反の行を除いた設計は Verilator 5.054 の lint を通る。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-WEIGHT-COVERGROUP
 
@@ -51574,7 +51595,7 @@ realのget_coverage/get_inst_coverageは、引数なし、または2つのref-in
 
 ### SV2023-19.8-EXTRACT-INSTANCE-NAME
 
-`19.8` / `normal` / テスト未対応
+`19.8` / `normal` / テスト対応あり・実行未確認
 
 void set_inst_name (string) は、それを呼び出した covergroup インスタンスの名前を、与えた文字列にする。
 
@@ -51582,10 +51603,11 @@ void set_inst_name (string) は、それを呼び出した covergroup インス�
 
 規定の性質: `mandatory`。
 
+- [test_cg_set_inst_name_option_name.sv](../tests/ch19/test_cg_set_inst_name_option_name.sv): covergroup cg (string n) は定義で option.name = n とし、g1 = new("first") と g2 = new("second") を作る。1 行目は呼ぶ前の g1 "first"・g2 "second"。g1.set_inst_name("n1") の後の 2 行目は g1 "n1"・g2 "second"、続く g2.set_inst_name("n2") の後の 3 行目は g1 "n1"・g2 "n2"。名前オプションのない covergroup cu では、u2 の名前を控えてから u1.set_inst_name("m1") を呼び、4 行目で u1 "m1" と u2 の名前が呼ぶ前と等しいこと（unchanged 1）を見る。 区別: set_inst_name が option.name を書き換えない実装では 2 行目の g1 が "first" のまま（4 行目の u1 も "m1" にならない）。名前を covergroup の型の全インスタンスに設定する実装では 2 行目の g2 が "n1" になり、4 行目が unchanged 0 になる。呼んだのと別のインスタンスを変える実装では 2・3 行目の g1／g2 の組が変わる。定義で名前を与えたインスタンスと与えないインスタンスの両方で、呼んだインスタンスの option.name が指定の文字列になり他のインスタンスの名前が保たれることを比べる。
 
 ### SV2023-19.8-EXTRACT-INSTANCE-NAME-GROUP-ONLY
 
-`19.8` / `error` / テスト未対応
+`19.8` / `error` / 実行確認あり
 
 表 19-5 は set_inst_name を covergroup には用意しているが coverpoint やクロスには用意していないので、 coverpoint やクロスに対してそれを呼び出すことはエラーである。
 
@@ -51593,6 +51615,8 @@ void set_inst_name (string) は、それを呼び出した covergroup インス�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_cg_set_inst_name_coverpoint.sv](../tests/ch19/test_illegal_cg_set_inst_name_coverpoint.sv): coverpoint cp に対する g.cp.set_inst_name("point") の呼び出し（43 行）だけが違反で、:expected_stderr_regex: が 43 行を指す。直前の g.set_inst_name("whole") と r = g.cp.get_inst_coverage() は規格で認められる対照。
+- [test_illegal_cg_set_inst_name_cross.sv](../tests/ch19/test_illegal_cg_set_inst_name_cross.sv): cross x に対する g.x.set_inst_name("product") の呼び出し（43 行）だけが違反で、:expected_stderr_regex: が 43 行を指す。直前の g.set_inst_name("whole") と r = g.x.get_inst_coverage() は規格で認められる対照。
 
 ### SV2023-19.8-EXTRACT-ITEM-TYPE-COUNTS
 

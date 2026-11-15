@@ -6,7 +6,7 @@
 
 [Requirement-coverage aggregation](behavior-coverage-summary.en.md) / [Comparison ledger for all tests](../coverage/test-matching.json) / [Content check errors](existing-test-matching-review-20261022.en.md)
 
-The reference candidates are listed from the citation section for all 12710 tests. The test which has registered the demand response based on stimulus and expected result is 5779 tests, and the test which is not registered is 6931 tests.
+The reference candidates are listed from the citation section for all 12730 tests. The test which has registered the demand response based on stimulus and expected result is 5799 tests, and the test which is not registered is 6931 tests.
 
 The mapping based on the verification content of all tests is not complete. The list of candidates is an automatic process and does not represent approval of the match. The number of registered units is the number of units that correspond to at least one requirement, and not the number of completed verification of each test. Multiple observations of one test and the response of another test verifying the same requirement are recorded in sequence.
 
@@ -55,7 +55,7 @@ Do not treat a requirement without a candidate or an unregistered test as eviden
 - ch16 : All 799 tests, registered 614 tests, unregistered 185 tests.
 - ch17 : All 128 tests, registered 75 tests, unregistered 53 tests.
 - ch18 : All 282 tests, registered 197 tests, unregistered 85 tests.
-- ch19 : All 222 tests, registered 158 tests, unregistered 64 tests.
+- ch19 : All 242 tests, registered 178 tests, unregistered 64 tests.
 - ch20 : All 465 tests, registered 123 tests, unregistered 342 tests.
 - ch21 : All 503 tests, registered 160 tests, unregistered 343 tests.
 - ch22 : All 522 tests, registered 350 tests, unregistered 172 tests.

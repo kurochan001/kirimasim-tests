@@ -4,13 +4,14 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の122生成器から5,821件のテストを生成しています。
+現在の123生成器から5,838件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
 
 | 生成器 | 章 | テスト数 | 確認する動作 |
 | --- | --- | ---: | --- |
+| [`cg_option_levels`](../generators/cg_option_levels.py) | 19 | 17 | 表19-2・19-4でNoとされるcoverpoint・crossの本体でのoption・type_option代入を違法系として生成し、19.10の暗黙の構造体と照合 |
 | [`combination_aggregates`](../generators/combination_aggregates.py) | 6, 11, 13 | 18 | 境界条件18件。アンパック構造体の参照渡しと寿命、配列のinputコピー、ネストしたパック選択、文字列やネストした代入先へのストリーミングを確認 |
 | [`combination_events`](../generators/combination_events.py) | 6, 9, 15 | 9 | 境界条件9件。自動変数のeventの寿命、戻り値・条件式で選択したevent、計算したイベント制御、`iff`、遅延トリガ、名前付きforkの終了処理を確認 |
 | [`combination_io`](../generators/combination_io.py) | 9, 10, 21 | 13 | 境界条件13件。`$fread`の格納先とバイト順、キュー・動的配列の暗黙感度、SV内で読み戻したVCDの内容を確認 |

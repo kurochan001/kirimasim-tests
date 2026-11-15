@@ -36,6 +36,10 @@
     "keywords": {
       "en": "Illegal designs: each reserved keyword of IEEE 1800-2023 (Annex B) declared as a variable name under ``begin_keywords \"1800-2023\"``, and each keyword that a version of 22.14 adds declared so under ``begin_keywords`` of that version; a tool has to reject the declaration",
       "ja": "不正な設計。附属書Bの各予約語を``begin_keywords \"1800-2023\"``の下で変数名として宣言し、22.14で各版が追加する予約語もその版の``begin_keywords``の下で宣言する。ツールは拒否する必要がある"
+    },
+    "cg_option_levels": {
+      "en": "Illegal option and type_option assignments in coverpoint and cross bodies at the levels marked No in Tables 19-2 and 19-4, checked against the implicit structures of 19.10",
+      "ja": "表19-2・19-4でNoとされるcoverpoint・crossの本体でのoption・type_option代入を違法系として生成し、19.10の暗黙の構造体と照合"
     }
   }
 }

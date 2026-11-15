@@ -1371,3 +1371,8 @@ ch30/test_illegal_specify_path_to_input                           アサーシ�
 - Verilator 5.054は、randsequenceのコードブロックで初期値付きで宣言した変数で内部エラーになって止まる（18.17）。`ch18/test_randsequence_code_block_scopes`
 - Verilator 5.054は、19.7がcovergroupの定義の中でしか許さないoption（`per_instance`、`get_inst_coverage`、`auto_bin_max`、`detect_overlap`、`cross_retain_auto_bins`）への、生成後の手続きの代入を受け付ける。`ch19/test_illegal_cg_per_instance_after_new`、`ch19/test_illegal_cg_get_inst_coverage_procedural`、`ch19/test_illegal_cg_auto_bin_max_procedural`、`ch19/test_illegal_cg_detect_overlap_procedural`、`ch19/test_illegal_cg_cross_retain_auto_bins_procedural`
 - Verilator 5.054は、アンパック配列・アンパック構造体・キューの`$countbits`を拒否し（20.9）、動的配列の要素の`$typename`をエラボレーション時の定数として受け付ける（20.6.1）。`ch20/test_countbits_unpacked_aggregates`、`ch20/test_illegal_typename_dynamic_element_constant`
+
+2026-11-15に追加したカバレッジオプションとインスタンス名の20本では、Verilator 5.054のseed 1と73の両方で次の差異を確認しました。
+
+- 定義で名前を指定したインスタンスの`option.name`を空文字列として読み、`set_inst_name`を呼んだ後も空のままです（19.7の表19-1、19.8の表19-5）。`ch19/test_cg_set_inst_name_option_name`
+- 表19-2・19-4がその階層で許さず、19.10の暗黙の構造体にも存在しない17個のoption・type_optionメンバーへの代入を、coverpoint・crossの本体で受理します。合法なオプションにも使うCOVERIGN警告を出しますが、意図した違反を拒否した証拠ではありません。テストのoracleは`spec`のみとしています。`gen/ch19/test_gen_cglevel_*`
