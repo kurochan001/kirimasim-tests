@@ -1,0 +1,11 @@
+{
+  "status": "received and arithmetic/output/hash checks passed; performance provisional due to concurrent external load",
+  "commit": "f88c63e5557cd1b28f52715f0546fedbd8418ec2",
+  "invocations": 286,
+  "designs": 13,
+  "geometric_mean_recomputed": 1.1934952200215967,
+  "legacy_geometric_mean": 1.2108495478829644,
+  "same_mac_source_adapter_driver_hashes": true,
+  "background_activity_reported": "External ctest and UVM activity from another process appeared after the measured start and raised the end load. The driver's inputs and binaries stayed unchanged and every output check passed; the start and end load are recorded for interpretation.",
+  "rerun_requested": true
+}

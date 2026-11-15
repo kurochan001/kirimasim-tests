@@ -9,8 +9,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "9e07822810bd12a721bd4a8615188180b18d77773a8d771629ac3b2b579cb144",
-        "ja": "573c889d76061c00419c59d3880ac1b4fbdac728fefd0fb3e9a9ebdd4080154d"
+        "en": "1e719003c5d0b4289f347321fbbcc6e627ac9f19241e14b006cdbf9e410d934a",
+        "ja": "04d1faeeeb528764928eeaf43ccd39b91b822f25e7184f4fa3c60579ffc29a91"
       }
     },
     {
@@ -425,8 +425,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "e2cf18fbd768fc76b67217b1cb4ee9d2ca4a52f1695a0a2a3e7181eb55d48a52",
-        "ja": "c6f0b6b6c95317c39147dd55dcc0afbe594be34706ef76fdabfc350e56a0f98f"
+        "en": "7cec8bd80c9cd82202d1cf04ae0105215af53e27ba0d54d43778e9ccb3a5b35e",
+        "ja": "8f3284ed84f8e5e2e44cd9f95cbb184be4942acfcd9713ae6ea09a12fb466fbb"
       }
     },
     {
@@ -1276,8 +1276,41 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "5f5c1c96cfe57c1cd6658ce773d59c3f1abab61ad8826b8c6c7a0d9466f58bca",
-        "ja": "a85531863818407f45b0bffa69e9599452a8eb917477784643a982e5774ca0f0"
+        "en": "cf94a4fe977b01ff9236b33f77ecb2eaffd799222faffcffcfd2a82d9eb3ae94",
+        "ja": "bb38af26779d39b67bac3168f66deb475c688587e9865729f375f8ad0453457b"
+      }
+    },
+    {
+      "en": "docs/simulation-speed-analysis-20261116.md",
+      "ja": "docs/simulation-speed-analysis-20261116.ja.md",
+      "source": "docs/simulation-speed-analysis-20261116.md",
+      "source_language": "en",
+      "generated": false,
+      "sha256": {
+        "en": "1c5b87b23bf99db83adcf5a9d6e52864f817d0407e2537040a7a7c798ecd27de",
+        "ja": "c8befbf9693b31d4c3b2fb282d45146d73438354759a7799d37ef56a08a510c5"
+      }
+    },
+    {
+      "en": "docs/simulation-speed-mac-20261116.md",
+      "ja": "docs/simulation-speed-mac-20261116.ja.md",
+      "source": "docs/simulation-speed-mac-20261116.md",
+      "source_language": "en",
+      "generated": false,
+      "sha256": {
+        "en": "a58f9718811526ccb785aacd05b8532e9ff5df467e1b277e17d7d61fc8f71e35",
+        "ja": "49cf9b572754c70f3aff4e57073bfd80e5f38a6c832ad7c6370f548f269d70d8"
+      }
+    },
+    {
+      "en": "docs/simulation-speed-wsl2-20261116.md",
+      "ja": "docs/simulation-speed-wsl2-20261116.ja.md",
+      "source": "docs/simulation-speed-wsl2-20261116.md",
+      "source_language": "en",
+      "generated": false,
+      "sha256": {
+        "en": "b233cd230316424db3ef3519283ef11951088498eb370af8cfeb23e8cfa84790",
+        "ja": "042740830cc661541113dd94c168116f10dead696d88fb985f67101ee692553c"
       }
     }
   ]

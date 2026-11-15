@@ -1,0 +1,39 @@
+diff --git a/src/vm/vm.cpp b/src/vm/vm.cpp
+index effd1e37..63ca78db 100644
+--- a/src/vm/vm.cpp
++++ b/src/vm/vm.cpp
+@@ -212,6 +212,7 @@ struct InstrInfo {
+     /// with a result or an operand of more than one chunk. The types do
+     /// not change while the design runs, so this is decided once.
+     bool wide = false;
++    sir::Type firstType = sir::voidType();
+ };
+ 
+ /// The kind of net a resolve instruction names (SIR_SPEC.md 3.5).
+@@ -586,6 +587,8 @@ public:
+                 for (std::size_t k = 0; k < blocks[b].instrs.size(); ++k) {
+                     const sir::Instr& in = blocks[b].instrs[k];
+                     info_[p][b][k].wide = wideHandles(in.op) && isWide(BodyId{p}, in);
++                    if (!in.operands.empty())
++                        info_[p][b][k].firstType = typeIn(BodyId{p}, in.operands[0]);
+                     if (in.op == Op::Call || in.op == Op::CallTask) bodyCollects_[p] = true;
+                 }
+             }
+@@ -5564,7 +5567,7 @@ private:
+         const auto& ops = in.operands;
+         const sir::Type rt = in.type;
+         const unsigned w = rt.width;
+-        const auto t = [&](std::size_t i) { return typeOf(ops[i]); };
++        const auto t = [&](std::size_t i) { return i == 0 ? info.firstType : typeOf(ops[i]); };
+         const auto get = [&](std::size_t i) { return chunks(ops[i]); };
+         std::vector<W4> r(chunksOf(rt));
+         const auto set1 = [&](W4 x) { temp(in.result) = x; };
+@@ -6383,7 +6386,7 @@ private:
+         const sir::Type rt = in.type;
+         const unsigned w = rt.width;
+         const auto v = [&](std::size_t i) { return value(ops[i]); };
+-        const auto t = [&](std::size_t i) { return typeOf(ops[i]); };
++        const auto t = [&](std::size_t i) { return i == 0 ? info.firstType : typeOf(ops[i]); };
+         const auto set = [&](W4 r) {
+             // A two-state result has no x or z (VALUE_SEMANTICS.md 1.2).
+             if (sir::isIntegral(rt) && !sir::isFourState(rt)) r = kernel::to2(r);

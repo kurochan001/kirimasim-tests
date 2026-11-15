@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "machine": {
+    "cpu": "AMD Ryzen 9 7950X 16-Core Processor",
+    "logical_cores": 32,
+    "memory_gib": 110,
+    "os": "Ubuntu 24.04.4 LTS",
+    "kernel": "6.18.58.1-microsoft-standard-WSL2",
+    "platform": "WSL2",
+    "windows": "10.0.26300.9974",
+    "wsl": "3.0.5.0"
+  },
+  "compiler": {
+    "cc": "Ubuntu clang version 20.1.8 (++20250804090239+87f0227cb601-1~exp1~20250804210352.139)",
+    "cxx": "Ubuntu clang version 20.1.8 (++20250804090239+87f0227cb601-1~exp1~20250804210352.139)",
+    "cmake": "4.2.1",
+    "ninja": "1.13.0.git.kitware.jobserver-pipe-1"
+  },
+  "kirimasim_build": {
+    "commit": "cfa2ccd75989c1ebb9ed63303271183377364cf0",
+    "preset": "release",
+    "compiler": "clang 20.1.8",
+    "optimization": "-O3 -DNDEBUG -ffp-contract=off; no fast-math",
+    "release_flag_check": "passed: check_release_flags: 211 unit(s) built with -O2/-O3 and -ffp-contract=off",
+    "binary": "379de45cbe88a83993fa567dd3888f92b79253629cfbf41137b1f221bd572e84",
+    "version": "kirimasim 0.1.0 (commit cfa2ccd75989), built with Clang 20.1.8",
+    "commands": [
+      "cmake --preset release -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++",
+      "cmake --build --preset release --target kirimasim --parallel 6",
+      "python3 tools/check_release_flags.py"
+    ]
+  },
+  "icarus_build": {
+    "commit": "1eba3690d8314d79927df8690a7d97642dd93ce0",
+    "compiler": "clang 20.1.8 / clang++ 20.1.8",
+    "configure": "--prefix=${ICARUS_INSTALL}",
+    "cflags": "-Wall -Wextra -Wshadow -Wstrict-prototypes -g -O2",
+    "cxxflags": "-Wall -Wextra -Wshadow -g -O2 -std=c++11",
+    "environment": "CFLAGS/CXXFLAGS/CPPFLAGS/LDFLAGS/MAKEFLAGS cleared before configure",
+    "binary": "95355dc9d7d8c559848be0c3f54368defb3a143a7ce74220186a8bdcb4fa4abc",
+    "vvp_binary": "5ecd0179c5daecc1000f39ce4aaa306c6c27b5e42c82ad5fbed22cdafb33360b",
+    "version": "Icarus Verilog version 14.0 (devel) (s20260301-1076-g1eba3690d)",
+    "vvp_version": "Icarus Verilog runtime version 14.0 (devel) (s20260301-1076-g1eba3690d)",
+    "commands": [
+      "sh autoconf.sh",
+      "CC=clang CXX=clang++ ./configure --prefix=${ICARUS_INSTALL}",
+      "make -j6",
+      "make install"
+    ]
+  },
+  "measurement": {
+    "started_at": "2026-11-15T22:14:19.180376+00:00",
+    "completed_at": "2026-11-15T22:30:01.830101+00:00",
+    "runs": 5,
+    "warmups": 1,
+    "execution": "serial; tool order alternates per case/round; count order alternates per round",
+    "metric": "median large elapsed minus median n=1 elapsed; no extrapolation",
+    "cases": 13,
+    "comparable_cases": 13,
+    "geometric_mean_ratio_all_13": 1.1934952200215967,
+    "load_start": [
+      1.05,
+      3.8,
+      6.35
+    ],
+    "load_end": [
+      7.88,
+      5.41,
+      4.9
+    ],
+    "background": "External ctest and UVM activity from another process appeared after the measured start and raised the end load. The driver's inputs and binaries stayed unchanged and every output check passed; the start and end load are recorded for interpretation."
+  },
+  "inputs": {
+    "driver_sha256": "7c050e4f59d5b83db391b14bd7cd68b5e8b1aa1b858b00a1d3661c667de8dadb",
+    "adapter_sha256": "4811f9d50d4a09d8794710296d644350468c49a9579a794f27af42ac9fb6b5bc",
+    "benchmark_commit": "cfa2ccd75989c1ebb9ed63303271183377364cf0",
+    "inputs_unchanged": true
+  }
+}

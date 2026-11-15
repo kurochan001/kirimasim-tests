@@ -1,0 +1,2568 @@
+{
+  "schema": 1,
+  "source_commit": "cfa2ccd75989c1ebb9ed63303271183377364cf0",
+  "profiles": [
+    {
+      "name": "wide_arith",
+      "worker_samples": 4285,
+      "sampling_duration_seconds": 5,
+      "sampling_interval_ms": 1,
+      "raw_profile_sha256": "ca61c1a8fb5f2220368f9b788ded967aa3b5e4d36bb1d837fe86a09c935be4ff",
+      "method": "worker-thread stack observations; blocked parent join excluded; collapsed leaf entries below 5 omitted",
+      "leaf_functions": [
+        {
+          "function": "kirimasim::kernel::wide::ashr(kirimasim::kernel::W4*, kirimasim::kernel::W4 const*, unsigned int, kirimasim::kernel::W4 const*, unsigned int, bool)",
+          "image": "kirimasim",
+          "samples": 735,
+          "worker_percent": 17.152858809801632
+        },
+        {
+          "function": "kirimasim::kernel::wide::shl(kirimasim::kernel::W4*, kirimasim::kernel::W4 const*, unsigned int, kirimasim::kernel::W4 const*, unsigned int)",
+          "image": "kirimasim",
+          "samples": 704,
+          "worker_percent": 16.429404900816802
+        },
+        {
+          "function": "kirimasim::kernel::wide::put(kirimasim::kernel::W4*, unsigned int, kirimasim::kernel::W4 const*, unsigned int)",
+          "image": "kirimasim",
+          "samples": 669,
+          "worker_percent": 15.612602100350058
+        },
+        {
+          "function": "kirimasim::kernel::wide::bits(kirimasim::kernel::W4*, unsigned int, kirimasim::kernel::W4 const*, unsigned int, long long)",
+          "image": "kirimasim",
+          "samples": 600,
+          "worker_percent": 14.002333722287048
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::runBody(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Id<kirimasim::sir::BlockTag>, unsigned long long&, kirimasim::kernel::W4&, kirimasim::kernel::ManagedEventPin*, kirimasim::kernel::ObjectPin*)",
+          "image": "kirimasim",
+          "samples": 189,
+          "worker_percent": 4.41073512252042
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)",
+          "image": "kirimasim",
+          "samples": 172,
+          "worker_percent": 4.014002333722287
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::executeWide(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&, unsigned long long)",
+          "image": "kirimasim",
+          "samples": 160,
+          "worker_percent": 3.733955659276546
+        },
+        {
+          "function": "operator new(unsigned long)",
+          "image": "kirimasim",
+          "samples": 144,
+          "worker_percent": 3.3605600933488913
+        },
+        {
+          "function": "mi_free",
+          "image": "kirimasim",
+          "samples": 105,
+          "worker_percent": 2.4504084014002334
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::typeOf(kirimasim::sir::Operand const&) const",
+          "image": "kirimasim",
+          "samples": 96,
+          "worker_percent": 2.2403733955659275
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::readSlotWide(kirimasim::sir::Id<kirimasim::sir::SlotTag>, unsigned int, unsigned int, unsigned int, kirimasim::kernel::W4*) const",
+          "image": "kirimasim",
+          "samples": 84,
+          "worker_percent": 1.9603267211201867
+        },
+        {
+          "function": "_platform_memset",
+          "image": "libsystem_platform.dylib",
+          "samples": 82,
+          "worker_percent": 1.9136522753792298
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::readOperand(kirimasim::sir::Operand const&, kirimasim::kernel::W4*, unsigned int) const",
+          "image": "kirimasim",
+          "samples": 75,
+          "worker_percent": 1.750291715285881
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::chunks(kirimasim::sir::Operand const&) const",
+          "image": "kirimasim",
+          "samples": 66,
+          "worker_percent": 1.5402567094515753
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::setWide(kirimasim::sir::Instr const&, std::vector<kirimasim::kernel::W4> const&)",
+          "image": "kirimasim",
+          "samples": 50,
+          "worker_percent": 1.1668611435239207
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::writeRaw(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, unsigned int, unsigned int, unsigned int, unsigned long long const*)",
+          "image": "kirimasim",
+          "samples": 35,
+          "worker_percent": 0.8168028004667445
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::executeWide(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&, unsigned long long)::'lambda'(auto)::operator()<void (*)(kirimasim::kernel::W4*, kirimasim::kernel::W4 const*, kirimasim::kernel::W4 const*, unsigned int)>(auto) const",
+          "image": "kirimasim",
+          "samples": 35,
+          "worker_percent": 0.8168028004667445
+        },
+        {
+          "function": "kirimasim::kernel::wide::bitXor(kirimasim::kernel::W4*, kirimasim::kernel::W4 const*, kirimasim::kernel::W4 const*, unsigned int)",
+          "image": "kirimasim",
+          "samples": 30,
+          "worker_percent": 0.7001166861143524
+        },
+        {
+          "function": "kirimasim::kernel::wide::add(kirimasim::kernel::W4*, kirimasim::kernel::W4 const*, kirimasim::kernel::W4 const*, unsigned int)",
+          "image": "kirimasim",
+          "samples": 24,
+          "worker_percent": 0.5600933488914819
+        },
+        {
+          "function": "__bzero",
+          "image": "libsystem_platform.dylib",
+          "samples": 22,
+          "worker_percent": 0.5134189031505251
+        },
+        {
+          "function": "DYLD-STUB$$bzero",
+          "image": "kirimasim",
+          "samples": 19,
+          "worker_percent": 0.44340723453908987
+        },
+        {
+          "function": "kirimasim::sir::isObjectOp(kirimasim::sir::Op)",
+          "image": "kirimasim",
+          "samples": 15,
+          "worker_percent": 0.3500583430571762
+        },
+        {
+          "function": "kirimasim::kernel::wide::mul(kirimasim::kernel::W4*, kirimasim::kernel::W4 const*, kirimasim::kernel::W4 const*, unsigned int)",
+          "image": "kirimasim",
+          "samples": 13,
+          "worker_percent": 0.3033838973162194
+        },
+        {
+          "function": "kirimasim::kernel::wide::sub(kirimasim::kernel::W4*, kirimasim::kernel::W4 const*, kirimasim::kernel::W4 const*, unsigned int)",
+          "image": "kirimasim",
+          "samples": 13,
+          "worker_percent": 0.3033838973162194
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::writeSlotWide(kirimasim::sir::Id<kirimasim::sir::SlotTag>, unsigned int, unsigned int, unsigned int, kirimasim::kernel::W4 const*)",
+          "image": "kirimasim",
+          "samples": 12,
+          "worker_percent": 0.28004667444574094
+        },
+        {
+          "function": "kirimasim::kernel::wide::resize(kirimasim::kernel::W4*, unsigned int, kirimasim::kernel::W4 const*, unsigned int, bool)",
+          "image": "kirimasim",
+          "samples": 10,
+          "worker_percent": 0.23337222870478413
+        },
+        {
+          "function": "kirimasim::sir::isContainerOp(kirimasim::sir::Op)",
+          "image": "kirimasim",
+          "samples": 10,
+          "worker_percent": 0.23337222870478413
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::takeBranch(std::vector<kirimasim::sir::Operand> const&, unsigned long)",
+          "image": "kirimasim",
+          "samples": 10,
+          "worker_percent": 0.23337222870478413
+        },
+        {
+          "function": "_platform_memmove",
+          "image": "libsystem_platform.dylib",
+          "samples": 9,
+          "worker_percent": 0.2100350058343057
+        },
+        {
+          "function": "kirimasim::kernel::wide::(anonymous namespace)::relational(kirimasim::kernel::W4 const*, kirimasim::kernel::W4 const*, unsigned int, bool, int, int)",
+          "image": "kirimasim",
+          "samples": 9,
+          "worker_percent": 0.2100350058343057
+        },
+        {
+          "function": "kirimasim::sir::isContainerMutation(kirimasim::sir::Op)",
+          "image": "kirimasim",
+          "samples": 8,
+          "worker_percent": 0.1866977829638273
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::framePlace(kirimasim::sir::Id<kirimasim::vm::(anonymous namespace)::BodyTag>, kirimasim::sir::Id<kirimasim::vm::(anonymous namespace)::VarsTag>, kirimasim::sir::Id<kirimasim::sir::FrameVarTag>, unsigned long long, bool) const",
+          "image": "kirimasim",
+          "samples": 7,
+          "worker_percent": 0.1633605600933489
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::begin()",
+          "image": "kirimasim",
+          "samples": 6,
+          "worker_percent": 0.14002333722287047
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(kirimasim::kernel::W4)::operator()(kirimasim::kernel::W4) const",
+          "image": "kirimasim",
+          "samples": 6,
+          "worker_percent": 0.14002333722287047
+        },
+        {
+          "function": "kirimasim::vm::detail::FrameValue::read(std::span<kirimasim::kernel::W4, 18446744073709551615ul>, unsigned int, unsigned int) const",
+          "image": "kirimasim",
+          "samples": 6,
+          "worker_percent": 0.14002333722287047
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::hasClocking(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>) const",
+          "image": "kirimasim",
+          "samples": 5,
+          "worker_percent": 0.11668611435239207
+        },
+        {
+          "function": "kirimasim::kernel::wide::(anonymous namespace)::mulWords(std::vector<unsigned long long> const&, std::vector<unsigned long long> const&, unsigned int)",
+          "image": "kirimasim",
+          "samples": 5,
+          "worker_percent": 0.11668611435239207
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::frameElem(kirimasim::sir::Id<kirimasim::sir::FrameVarTag>, unsigned long long) const",
+          "image": "kirimasim",
+          "samples": 5,
+          "worker_percent": 0.11668611435239207
+        }
+      ],
+      "stats": {
+        "sir.slots": 5,
+        "sir.processes": 1,
+        "sir.subroutines": 0,
+        "sir.blocks": 13,
+        "sir.instrs": 75,
+        "sched.time_slots": 1,
+        "sched.time_advances": 0,
+        "sched.active_loops": 1,
+        "sched.reactive_loops": 0,
+        "sched.events.preponed": 0,
+        "sched.events.pre_active": 0,
+        "sched.events.active": 1,
+        "sched.events.inactive": 0,
+        "sched.events.pre_nba": 0,
+        "sched.events.nba": 0,
+        "sched.events.post_nba": 0,
+        "sched.events.pre_observed": 0,
+        "sched.events.observed": 0,
+        "sched.events.post_observed": 0,
+        "sched.events.reactive": 0,
+        "sched.events.re_inactive": 0,
+        "sched.events.pre_re_nba": 0,
+        "sched.events.re_nba": 0,
+        "sched.events.post_re_nba": 0,
+        "sched.events.pre_postponed": 0,
+        "sched.events.postponed": 0,
+        "proc.wakeups": 1,
+        "proc.created": 1,
+        "proc.finished": 0,
+        "proc.kept_peak": 1,
+        "slot.writes": 6000004,
+        "slot.changes": 6000004,
+        "nba.scheduled": 0,
+        "nba.slot_peak": 0,
+        "wait.subscriptions": 0,
+        "wait.monitor_evals": 0,
+        "sim.end_time": 0,
+        "sim.end_reason": "finish",
+        "vm.instrs": 67500024
+      },
+      "expected_matched": true,
+      "variant": "release"
+    },
+    {
+      "name": "gate_udp",
+      "worker_samples": 3463,
+      "sampling_duration_seconds": 4,
+      "sampling_interval_ms": 1,
+      "raw_profile_sha256": "5958850863c82acb81d81bad578f23241b9bf28d9580c9f7521f525e701d86f7",
+      "method": "worker-thread stack observations; blocked parent join excluded; collapsed leaf entries below 5 omitted",
+      "leaf_functions": [
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)",
+          "image": "kirimasim",
+          "samples": 839,
+          "worker_percent": 24.227548368466646
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::runBody(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Id<kirimasim::sir::BlockTag>, unsigned long long&, kirimasim::kernel::W4&, kirimasim::kernel::ManagedEventPin*, kirimasim::kernel::ObjectPin*)",
+          "image": "kirimasim",
+          "samples": 522,
+          "worker_percent": 15.073635576090096
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::typeOf(kirimasim::sir::Operand const&) const",
+          "image": "kirimasim",
+          "samples": 353,
+          "worker_percent": 10.193473866589661
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::writeRaw(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, unsigned int, unsigned int, unsigned int, unsigned long long const*)",
+          "image": "kirimasim",
+          "samples": 218,
+          "worker_percent": 6.2951198382905
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::waitTriggers(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&)",
+          "image": "kirimasim",
+          "samples": 179,
+          "worker_percent": 5.168928674559631
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(unsigned long)::operator()(unsigned long) const",
+          "image": "kirimasim",
+          "samples": 176,
+          "worker_percent": 5.082298585041872
+        },
+        {
+          "function": "kirimasim::kernel::udpOutput(kirimasim::kernel::UdpTable const&, unsigned char const*)",
+          "image": "kirimasim",
+          "samples": 113,
+          "worker_percent": 3.263066705168929
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(kirimasim::kernel::W4)::operator()(kirimasim::kernel::W4) const",
+          "image": "kirimasim",
+          "samples": 113,
+          "worker_percent": 3.263066705168929
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::registerWait(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, std::span<kirimasim::kernel::WaitItem const, 18446744073709551615ul>, std::span<kirimasim::kernel::MonitorSpec const, 18446744073709551615ul>, std::span<kirimasim::kernel::NamedWaitItem const, 18446744073709551615ul>, unsigned long long*)",
+          "image": "kirimasim",
+          "samples": 111,
+          "worker_percent": 3.2053133121570894
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::indexOf(kirimasim::sir::Operand const&) const",
+          "image": "kirimasim",
+          "samples": 82,
+          "worker_percent": 2.3678891134854174
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::readSlot(kirimasim::sir::Id<kirimasim::sir::SlotTag>, unsigned int, unsigned int, unsigned int) const",
+          "image": "kirimasim",
+          "samples": 80,
+          "worker_percent": 2.310135720473578
+        },
+        {
+          "function": "kirimasim::sir::isObjectOp(kirimasim::sir::Op)",
+          "image": "kirimasim",
+          "samples": 55,
+          "worker_percent": 1.5882183078255847
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::runProcess(kirimasim::vm::(anonymous namespace)::Frame&, unsigned long long&)",
+          "image": "kirimasim",
+          "samples": 46,
+          "worker_percent": 1.3283280392723071
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::flushHeapChanges()",
+          "image": "kirimasim",
+          "samples": 42,
+          "worker_percent": 1.2128212532486284
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::ensureSlotTables()",
+          "image": "kirimasim",
+          "samples": 38,
+          "worker_percent": 1.0973144672249495
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::execute(kirimasim::kernel::Scheduler::Event const&)",
+          "image": "kirimasim",
+          "samples": 36,
+          "worker_percent": 1.03956107421311
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::wake(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, bool)",
+          "image": "kirimasim",
+          "samples": 35,
+          "worker_percent": 1.0106843777071903
+        },
+        {
+          "function": "kirimasim::kernel::bits4(kirimasim::kernel::W4, unsigned int, long long, unsigned int)",
+          "image": "kirimasim",
+          "samples": 35,
+          "worker_percent": 1.0106843777071903
+        },
+        {
+          "function": "kirimasim::sir::isContainerMutation(kirimasim::sir::Op)",
+          "image": "kirimasim",
+          "samples": 35,
+          "worker_percent": 1.0106843777071903
+        },
+        {
+          "function": "kirimasim::sir::isContainerOp(kirimasim::sir::Op)",
+          "image": "kirimasim",
+          "samples": 35,
+          "worker_percent": 1.0106843777071903
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::slotEventMatches(kirimasim::kernel::WaitItem const&, kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, kirimasim::kernel::SlotLayout const&, unsigned int, unsigned int, unsigned int, unsigned long long const*, unsigned long long const*)",
+          "image": "kirimasim",
+          "samples": 31,
+          "worker_percent": 0.8951775916835114
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::notify(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, unsigned int, unsigned int, unsigned int, unsigned long long const*, unsigned long long const*)",
+          "image": "kirimasim",
+          "samples": 25,
+          "worker_percent": 0.721917412647993
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::waitAny(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, std::span<kirimasim::kernel::WaitItem const, 18446744073709551615ul>, std::span<kirimasim::kernel::MonitorSpec const, 18446744073709551615ul>, std::span<kirimasim::kernel::NamedWaitItem const, 18446744073709551615ul>)",
+          "image": "kirimasim",
+          "samples": 25,
+          "worker_percent": 0.721917412647993
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::endWalk()",
+          "image": "kirimasim",
+          "samples": 24,
+          "worker_percent": 0.6930407161420733
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::begin()",
+          "image": "kirimasim",
+          "samples": 22,
+          "worker_percent": 0.635287323130234
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::reportHeapMonitorLimit(kirimasim::sir::Id<kirimasim::sir::InstanceTag>, kirimasim::sir::SourceLoc)",
+          "image": "kirimasim",
+          "samples": 21,
+          "worker_percent": 0.6064106266243142
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::sweep()",
+          "image": "kirimasim",
+          "samples": 20,
+          "worker_percent": 0.5775339301183945
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::runRegion(kirimasim::kernel::Region)",
+          "image": "kirimasim",
+          "samples": 19,
+          "worker_percent": 0.5486572336124748
+        },
+        {
+          "function": "kirimasim::kernel::(anonymous namespace)::sameBits(kirimasim::kernel::Domain, unsigned long long const*, unsigned long long const*, unsigned long long, unsigned long long)",
+          "image": "kirimasim",
+          "samples": 17,
+          "worker_percent": 0.4909038406006353
+        },
+        {
+          "function": "std::vector<kirimasim::kernel::MonitorSpec>::__base_destruct_at_end[abi:nqe220106](kirimasim::kernel::MonitorSpec*)",
+          "image": "kirimasim",
+          "samples": 17,
+          "worker_percent": 0.4909038406006353
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::takeEndedProgramProcess(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>&)",
+          "image": "kirimasim",
+          "samples": 14,
+          "worker_percent": 0.4042737510828761
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::notifyContainerBinding(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>)",
+          "image": "kirimasim",
+          "samples": 12,
+          "worker_percent": 0.34652035807103665
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::hasClocking(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>) const",
+          "image": "kirimasim",
+          "samples": 11,
+          "worker_percent": 0.317643661565117
+        },
+        {
+          "function": "kirimasim::kernel::ManagedEventPin::~ManagedEventPin()",
+          "image": "kirimasim",
+          "samples": 10,
+          "worker_percent": 0.28876696505919724
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::flushReports(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>)",
+          "image": "kirimasim",
+          "samples": 10,
+          "worker_percent": 0.28876696505919724
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::write(kirimasim::kernel::SlotBits, unsigned long long const*)",
+          "image": "kirimasim",
+          "samples": 10,
+          "worker_percent": 0.28876696505919724
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::resume(kirima_context*, void*)",
+          "image": "kirimasim",
+          "samples": 7,
+          "worker_percent": 0.20213687554143805
+        }
+      ],
+      "stats": {
+        "sir.slots": 5,
+        "sir.processes": 65,
+        "sir.subroutines": 0,
+        "sir.blocks": 75,
+        "sir.instrs": 588,
+        "sched.time_slots": 400001,
+        "sched.time_advances": 400000,
+        "sched.active_loops": 400001,
+        "sched.reactive_loops": 0,
+        "sched.events.preponed": 0,
+        "sched.events.pre_active": 0,
+        "sched.events.active": 26000096,
+        "sched.events.inactive": 0,
+        "sched.events.pre_nba": 0,
+        "sched.events.nba": 0,
+        "sched.events.post_nba": 0,
+        "sched.events.pre_observed": 0,
+        "sched.events.observed": 0,
+        "sched.events.post_observed": 0,
+        "sched.events.reactive": 0,
+        "sched.events.re_inactive": 0,
+        "sched.events.pre_re_nba": 0,
+        "sched.events.re_nba": 0,
+        "sched.events.post_re_nba": 0,
+        "sched.events.pre_postponed": 0,
+        "sched.events.postponed": 0,
+        "proc.wakeups": 26000096,
+        "proc.created": 65,
+        "proc.finished": 0,
+        "proc.kept_peak": 65,
+        "slot.writes": 26400098,
+        "slot.changes": 13386868,
+        "nba.scheduled": 0,
+        "nba.slot_peak": 0,
+        "wait.subscriptions": 38400158,
+        "wait.monitor_evals": 0,
+        "sim.end_time": 400000,
+        "sim.end_reason": "finish",
+        "vm.instrs": 227200844
+      },
+      "expected_matched": true,
+      "variant": "release"
+    },
+    {
+      "name": "mem_rw",
+      "worker_samples": 2595,
+      "sampling_duration_seconds": 3,
+      "sampling_interval_ms": 1,
+      "raw_profile_sha256": "da36402ca061cd327c777772c32c743f32742baa9e50b51b1e19ded67e867db5",
+      "method": "worker-thread stack observations; blocked parent join excluded; collapsed leaf entries below 5 omitted",
+      "leaf_functions": [
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)",
+          "image": "kirimasim",
+          "samples": 713,
+          "worker_percent": 27.47591522157996
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::runBody(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Id<kirimasim::sir::BlockTag>, unsigned long long&, kirimasim::kernel::W4&, kirimasim::kernel::ManagedEventPin*, kirimasim::kernel::ObjectPin*)",
+          "image": "kirimasim",
+          "samples": 417,
+          "worker_percent": 16.069364161849713
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::typeOf(kirimasim::sir::Operand const&) const",
+          "image": "kirimasim",
+          "samples": 256,
+          "worker_percent": 9.865125240847783
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::writeRaw(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, unsigned int, unsigned int, unsigned int, unsigned long long const*)",
+          "image": "kirimasim",
+          "samples": 112,
+          "worker_percent": 4.315992292870906
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::runRegion(kirimasim::kernel::Region)",
+          "image": "kirimasim",
+          "samples": 81,
+          "worker_percent": 3.121387283236994
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(unsigned long)::operator()(unsigned long) const",
+          "image": "kirimasim",
+          "samples": 80,
+          "worker_percent": 3.0828516377649327
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(kirimasim::kernel::W4)::operator()(kirimasim::kernel::W4) const",
+          "image": "kirimasim",
+          "samples": 78,
+          "worker_percent": 3.005780346820809
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::readSlot(kirimasim::sir::Id<kirimasim::sir::SlotTag>, unsigned int, unsigned int, unsigned int) const",
+          "image": "kirimasim",
+          "samples": 75,
+          "worker_percent": 2.8901734104046244
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::execute(kirimasim::kernel::Scheduler::Event const&)",
+          "image": "kirimasim",
+          "samples": 62,
+          "worker_percent": 2.3892100192678227
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::scheduleNba(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, kirimasim::kernel::SlotBits, unsigned long long const*, unsigned long long)",
+          "image": "kirimasim",
+          "samples": 55,
+          "worker_percent": 2.1194605009633913
+        },
+        {
+          "function": "<deduplicated_symbol>",
+          "image": "kirimasim",
+          "samples": 49,
+          "worker_percent": 1.8882466281310213
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::slotEventMatches(kirimasim::kernel::WaitItem const&, kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, kirimasim::kernel::SlotLayout const&, unsigned int, unsigned int, unsigned int, unsigned long long const*, unsigned long long const*)",
+          "image": "kirimasim",
+          "samples": 46,
+          "worker_percent": 1.7726396917148362
+        },
+        {
+          "function": "kirimasim::sir::isContainerOp(kirimasim::sir::Op)",
+          "image": "kirimasim",
+          "samples": 36,
+          "worker_percent": 1.3872832369942196
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::begin()",
+          "image": "kirimasim",
+          "samples": 34,
+          "worker_percent": 1.3102119460500963
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::runSlot()",
+          "image": "kirimasim",
+          "samples": 30,
+          "worker_percent": 1.1560693641618498
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::indexOf(kirimasim::sir::Operand const&) const",
+          "image": "kirimasim",
+          "samples": 27,
+          "worker_percent": 1.0404624277456647
+        },
+        {
+          "function": "kirimasim::sir::isContainerMutation(kirimasim::sir::Op)",
+          "image": "kirimasim",
+          "samples": 26,
+          "worker_percent": 1.001926782273603
+        },
+        {
+          "function": "kirimasim::sir::isObjectOp(kirimasim::sir::Op)",
+          "image": "kirimasim",
+          "samples": 26,
+          "worker_percent": 1.001926782273603
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::registerWait(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, std::span<kirimasim::kernel::WaitItem const, 18446744073709551615ul>, std::span<kirimasim::kernel::MonitorSpec const, 18446744073709551615ul>, std::span<kirimasim::kernel::NamedWaitItem const, 18446744073709551615ul>, unsigned long long*)",
+          "image": "kirimasim",
+          "samples": 24,
+          "worker_percent": 0.9248554913294798
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::enqueueNba(kirimasim::kernel::Region, kirimasim::kernel::Scheduler::Event, unsigned long long)",
+          "image": "kirimasim",
+          "samples": 22,
+          "worker_percent": 0.8477842003853564
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::moveFirst(kirimasim::kernel::Region, kirimasim::kernel::Region, kirimasim::kernel::Region)",
+          "image": "kirimasim",
+          "samples": 21,
+          "worker_percent": 0.8092485549132948
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::notify(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, unsigned int, unsigned int, unsigned int, unsigned long long const*, unsigned long long const*)",
+          "image": "kirimasim",
+          "samples": 20,
+          "worker_percent": 0.7707129094412332
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::waitTriggers(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&)",
+          "image": "kirimasim",
+          "samples": 18,
+          "worker_percent": 0.6936416184971098
+        },
+        {
+          "function": "std::deque<kirimasim::kernel::Scheduler::Event>::__insert_bidirectional[abi:nqe220106]<std::__deque_iterator<kirimasim::kernel::Scheduler::Event, kirimasim::kernel::Scheduler::Event*, kirimasim::kernel::Scheduler::Event&, kirimasim::kernel::Scheduler::Event**, long, 256l>>(std::__deque_iterator<kirimasim::kernel::Scheduler::Event, kirimasim::kernel::Scheduler::Event const*, kirimasim::kernel::Scheduler::Event const&, kirimasim::kernel::Scheduler::Event const* const*, long, 256l>, std::__deque_iterator<kirimasim::kernel::Scheduler::Event, kirimasim::kernel::Scheduler::Event*, kirimasim::kernel::Scheduler::Event&, kirimasim::kernel::Scheduler::Event**, long, 256l>, std::__deque_iterator<kirimasim::kernel::Scheduler::Event, kirimasim::kernel::Scheduler::Event*, kirimasim::kernel::Scheduler::Event&, kirimasim::kernel::Scheduler::Event**, long, 256l>, unsigned long)",
+          "image": "kirimasim",
+          "samples": 18,
+          "worker_percent": 0.6936416184971098
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::write(kirimasim::kernel::SlotBits, unsigned long long const*)",
+          "image": "kirimasim",
+          "samples": 17,
+          "worker_percent": 0.6551059730250481
+        },
+        {
+          "function": "kirimasim::kernel::(anonymous namespace)::sameBits(kirimasim::kernel::Domain, unsigned long long const*, unsigned long long const*, unsigned long long, unsigned long long)",
+          "image": "kirimasim",
+          "samples": 16,
+          "worker_percent": 0.6165703275529865
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::notifyContainerBinding(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>)",
+          "image": "kirimasim",
+          "samples": 14,
+          "worker_percent": 0.5394990366088632
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::endWalk()",
+          "image": "kirimasim",
+          "samples": 13,
+          "worker_percent": 0.5009633911368016
+        },
+        {
+          "function": "_platform_memmove",
+          "image": "libsystem_platform.dylib",
+          "samples": 11,
+          "worker_percent": 0.4238921001926782
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::advance()",
+          "image": "kirimasim",
+          "samples": 11,
+          "worker_percent": 0.4238921001926782
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::wake(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, bool)",
+          "image": "kirimasim",
+          "samples": 11,
+          "worker_percent": 0.4238921001926782
+        },
+        {
+          "function": "kirimasim::kernel::bits4(kirimasim::kernel::W4, unsigned int, long long, unsigned int)",
+          "image": "kirimasim",
+          "samples": 11,
+          "worker_percent": 0.4238921001926782
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::runProcess(kirimasim::vm::(anonymous namespace)::Frame&, unsigned long long&)",
+          "image": "kirimasim",
+          "samples": 11,
+          "worker_percent": 0.4238921001926782
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::ensureSlotTables()",
+          "image": "kirimasim",
+          "samples": 9,
+          "worker_percent": 0.3468208092485549
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::run()",
+          "image": "kirimasim",
+          "samples": 8,
+          "worker_percent": 0.30828516377649323
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::resume(kirima_context*, void*)",
+          "image": "kirimasim",
+          "samples": 8,
+          "worker_percent": 0.30828516377649323
+        },
+        {
+          "function": "kirimasim::kernel::ManagedEventPin::~ManagedEventPin()",
+          "image": "kirimasim",
+          "samples": 7,
+          "worker_percent": 0.2697495183044316
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::flushReports(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>)",
+          "image": "kirimasim",
+          "samples": 7,
+          "worker_percent": 0.2697495183044316
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::sampleClocking()",
+          "image": "kirimasim",
+          "samples": 7,
+          "worker_percent": 0.2697495183044316
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::flushHeapChanges()",
+          "image": "kirimasim",
+          "samples": 6,
+          "worker_percent": 0.23121387283236994
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::pushFuture(kirimasim::kernel::Scheduler::Future const&)",
+          "image": "kirimasim",
+          "samples": 6,
+          "worker_percent": 0.23121387283236994
+        },
+        {
+          "function": "kirimasim::kernel::Vpi::changed(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, unsigned int, unsigned long long const*)",
+          "image": "kirimasim",
+          "samples": 6,
+          "worker_percent": 0.23121387283236994
+        },
+        {
+          "function": "kirimasim::kernel::Vpi::watches(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>) const",
+          "image": "kirimasim",
+          "samples": 6,
+          "worker_percent": 0.23121387283236994
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::elementOf(std::vector<kirimasim::sir::ArrayDim> const&, std::span<kirimasim::sir::Operand const, 18446744073709551615ul>, unsigned long) const",
+          "image": "kirimasim",
+          "samples": 6,
+          "worker_percent": 0.23121387283236994
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::sweep()",
+          "image": "kirimasim",
+          "samples": 6,
+          "worker_percent": 0.23121387283236994
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::waitAny(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, std::span<kirimasim::kernel::WaitItem const, 18446744073709551615ul>, std::span<kirimasim::kernel::MonitorSpec const, 18446744073709551615ul>, std::span<kirimasim::kernel::NamedWaitItem const, 18446744073709551615ul>)",
+          "image": "kirimasim",
+          "samples": 5,
+          "worker_percent": 0.1926782273603083
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::takeBranch(std::vector<kirimasim::sir::Operand> const&, unsigned long)",
+          "image": "kirimasim",
+          "samples": 5,
+          "worker_percent": 0.1926782273603083
+        },
+        {
+          "function": "operator new(unsigned long)",
+          "image": "kirimasim",
+          "samples": 5,
+          "worker_percent": 0.1926782273603083
+        },
+        {
+          "function": "std::__introsort<std::_ClassicAlgPolicy, kirimasim::kernel::Scheduler::advance()::$_1&, kirimasim::kernel::Scheduler::Future*, false>(kirimasim::kernel::Scheduler::Future*, kirimasim::kernel::Scheduler::Future*, kirimasim::kernel::Scheduler::advance()::$_1&, std::iterator_traits<kirimasim::kernel::Scheduler::Future*>::difference_type, bool)",
+          "image": "kirimasim",
+          "samples": 5,
+          "worker_percent": 0.1926782273603083
+        },
+        {
+          "function": "std::vector<kirimasim::kernel::MonitorSpec>::__base_destruct_at_end[abi:nqe220106](kirimasim::kernel::MonitorSpec*)",
+          "image": "kirimasim",
+          "samples": 5,
+          "worker_percent": 0.1926782273603083
+        }
+      ],
+      "stats": {
+        "sir.slots": 8,
+        "sir.processes": 5,
+        "sir.subroutines": 0,
+        "sir.blocks": 17,
+        "sir.instrs": 89,
+        "sched.time_slots": 8000001,
+        "sched.time_advances": 8000000,
+        "sched.active_loops": 12000001,
+        "sched.reactive_loops": 0,
+        "sched.events.preponed": 0,
+        "sched.events.pre_active": 0,
+        "sched.events.active": 16000002,
+        "sched.events.inactive": 0,
+        "sched.events.pre_nba": 0,
+        "sched.events.nba": 24000000,
+        "sched.events.post_nba": 0,
+        "sched.events.pre_observed": 0,
+        "sched.events.observed": 0,
+        "sched.events.post_observed": 0,
+        "sched.events.reactive": 0,
+        "sched.events.re_inactive": 0,
+        "sched.events.pre_re_nba": 0,
+        "sched.events.re_nba": 0,
+        "sched.events.post_re_nba": 0,
+        "sched.events.pre_postponed": 0,
+        "sched.events.postponed": 0,
+        "proc.wakeups": 16000002,
+        "proc.created": 5,
+        "proc.finished": 1,
+        "proc.kept_peak": 4,
+        "slot.writes": 32001030,
+        "slot.changes": 32001030,
+        "nba.scheduled": 24000000,
+        "nba.slot_peak": 6,
+        "wait.subscriptions": 8000002,
+        "wait.monitor_evals": 0,
+        "sim.end_time": 8000000,
+        "sim.end_reason": "finish",
+        "vm.instrs": 192014364
+      },
+      "expected_matched": true,
+      "variant": "release"
+    },
+    {
+      "name": "nba_shift",
+      "worker_samples": 4303,
+      "sampling_duration_seconds": 5,
+      "sampling_interval_ms": 1,
+      "raw_profile_sha256": "e86d865434328b84cfc833b6248a810e3ccddbb170617dfc9c192013635e67ab",
+      "method": "worker-thread stack observations; blocked parent join excluded; collapsed leaf entries below 5 omitted",
+      "leaf_functions": [
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)",
+          "image": "kirimasim",
+          "samples": 1365,
+          "worker_percent": 31.72205438066465
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::typeOf(kirimasim::sir::Operand const&) const",
+          "image": "kirimasim",
+          "samples": 619,
+          "worker_percent": 14.38531257262375
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::runBody(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Id<kirimasim::sir::BlockTag>, unsigned long long&, kirimasim::kernel::W4&, kirimasim::kernel::ManagedEventPin*, kirimasim::kernel::ObjectPin*)",
+          "image": "kirimasim",
+          "samples": 553,
+          "worker_percent": 12.851498954217988
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::framePlace(kirimasim::sir::Id<kirimasim::vm::(anonymous namespace)::BodyTag>, kirimasim::sir::Id<kirimasim::vm::(anonymous namespace)::VarsTag>, kirimasim::sir::Id<kirimasim::sir::FrameVarTag>, unsigned long long, bool) const",
+          "image": "kirimasim",
+          "samples": 179,
+          "worker_percent": 4.159888449918661
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(unsigned long)::operator()(unsigned long) const",
+          "image": "kirimasim",
+          "samples": 158,
+          "worker_percent": 3.6718568440622823
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(kirimasim::kernel::W4)::operator()(kirimasim::kernel::W4) const",
+          "image": "kirimasim",
+          "samples": 154,
+          "worker_percent": 3.578898442946781
+        },
+        {
+          "function": "kirimasim::vm::detail::FrameValue::read(std::span<kirimasim::kernel::W4, 18446744073709551615ul>, unsigned int, unsigned int) const",
+          "image": "kirimasim",
+          "samples": 107,
+          "worker_percent": 2.486637229839647
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::writeRaw(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, unsigned int, unsigned int, unsigned int, unsigned long long const*)",
+          "image": "kirimasim",
+          "samples": 86,
+          "worker_percent": 1.9986056239832675
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::frameElem(kirimasim::sir::Id<kirimasim::sir::FrameVarTag>, unsigned long long) const",
+          "image": "kirimasim",
+          "samples": 85,
+          "worker_percent": 1.9753660237043922
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::takeBranch(std::vector<kirimasim::sir::Operand> const&, unsigned long)",
+          "image": "kirimasim",
+          "samples": 85,
+          "worker_percent": 1.9753660237043922
+        },
+        {
+          "function": "_platform_memmove",
+          "image": "libsystem_platform.dylib",
+          "samples": 79,
+          "worker_percent": 1.8359284220311411
+        },
+        {
+          "function": "kirimasim::sir::isObjectOp(kirimasim::sir::Op)",
+          "image": "kirimasim",
+          "samples": 78,
+          "worker_percent": 1.8126888217522659
+        },
+        {
+          "function": "kirimasim::sir::isContainerMutation(kirimasim::sir::Op)",
+          "image": "kirimasim",
+          "samples": 61,
+          "worker_percent": 1.4176156170113874
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::indexOf(kirimasim::sir::Operand const&) const",
+          "image": "kirimasim",
+          "samples": 60,
+          "worker_percent": 1.394376016732512
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::execute(kirimasim::kernel::Scheduler::Event const&)",
+          "image": "kirimasim",
+          "samples": 58,
+          "worker_percent": 1.3478968161747618
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::scheduleNba(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, kirimasim::kernel::SlotBits, unsigned long long const*, unsigned long long)",
+          "image": "kirimasim",
+          "samples": 56,
+          "worker_percent": 1.3014176156170114
+        },
+        {
+          "function": "kirimasim::sir::isContainerOp(kirimasim::sir::Op)",
+          "image": "kirimasim",
+          "samples": 54,
+          "worker_percent": 1.254938415059261
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::frameStatus(kirimasim::kernel::ActivationError) const",
+          "image": "kirimasim",
+          "samples": 49,
+          "worker_percent": 1.1387404136648849
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::elementOf(std::vector<kirimasim::sir::ArrayDim> const&, std::span<kirimasim::sir::Operand const, 18446744073709551615ul>, unsigned long) const",
+          "image": "kirimasim",
+          "samples": 45,
+          "worker_percent": 1.0457820125493842
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::readSlot(kirimasim::sir::Id<kirimasim::sir::SlotTag>, unsigned int, unsigned int, unsigned int) const",
+          "image": "kirimasim",
+          "samples": 44,
+          "worker_percent": 1.022542412270509
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::begin()",
+          "image": "kirimasim",
+          "samples": 30,
+          "worker_percent": 0.697188008366256
+        },
+        {
+          "function": "<deduplicated_symbol>",
+          "image": "kirimasim",
+          "samples": 25,
+          "worker_percent": 0.5809900069718801
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::enqueueNba(kirimasim::kernel::Region, kirimasim::kernel::Scheduler::Event, unsigned long long)",
+          "image": "kirimasim",
+          "samples": 21,
+          "worker_percent": 0.4880316058563793
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::waitTriggers(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&)",
+          "image": "kirimasim",
+          "samples": 21,
+          "worker_percent": 0.4880316058563793
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::writeFrame(kirimasim::sir::Id<kirimasim::sir::FrameVarTag>, unsigned long long, std::span<kirimasim::kernel::W4 const, 18446744073709551615ul>)",
+          "image": "kirimasim",
+          "samples": 20,
+          "worker_percent": 0.46479200557750405
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::ensureSlotTables()",
+          "image": "kirimasim",
+          "samples": 16,
+          "worker_percent": 0.37183360446200325
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::runRegion(kirimasim::kernel::Region)",
+          "image": "kirimasim",
+          "samples": 16,
+          "worker_percent": 0.37183360446200325
+        },
+        {
+          "function": "DYLD-STUB$$memmove",
+          "image": "kirimasim",
+          "samples": 15,
+          "worker_percent": 0.348594004183128
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::registerWait(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, std::span<kirimasim::kernel::WaitItem const, 18446744073709551615ul>, std::span<kirimasim::kernel::MonitorSpec const, 18446744073709551615ul>, std::span<kirimasim::kernel::NamedWaitItem const, 18446744073709551615ul>, unsigned long long*)",
+          "image": "kirimasim",
+          "samples": 15,
+          "worker_percent": 0.348594004183128
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::write(kirimasim::kernel::SlotBits, unsigned long long const*)",
+          "image": "kirimasim",
+          "samples": 15,
+          "worker_percent": 0.348594004183128
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::notify(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, unsigned int, unsigned int, unsigned int, unsigned long long const*, unsigned long long const*)",
+          "image": "kirimasim",
+          "samples": 12,
+          "worker_percent": 0.27887520334650245
+        },
+        {
+          "function": "kirimasim::kernel::(anonymous namespace)::sameBits(kirimasim::kernel::Domain, unsigned long long const*, unsigned long long const*, unsigned long long, unsigned long long)",
+          "image": "kirimasim",
+          "samples": 10,
+          "worker_percent": 0.23239600278875203
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::slotEventMatches(kirimasim::kernel::WaitItem const&, kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, kirimasim::kernel::SlotLayout const&, unsigned int, unsigned int, unsigned int, unsigned long long const*, unsigned long long const*)",
+          "image": "kirimasim",
+          "samples": 10,
+          "worker_percent": 0.23239600278875203
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::runProcess(kirimasim::vm::(anonymous namespace)::Frame&, unsigned long long&)",
+          "image": "kirimasim",
+          "samples": 10,
+          "worker_percent": 0.23239600278875203
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::notifyContainerBinding(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>)",
+          "image": "kirimasim",
+          "samples": 9,
+          "worker_percent": 0.20915640250987683
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::sweep()",
+          "image": "kirimasim",
+          "samples": 8,
+          "worker_percent": 0.18591680223100163
+        },
+        {
+          "function": "kirimasim::kernel::Vpi::watches(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>) const",
+          "image": "kirimasim",
+          "samples": 7,
+          "worker_percent": 0.16267720195212643
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::endWalk()",
+          "image": "kirimasim",
+          "samples": 6,
+          "worker_percent": 0.13943760167325123
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::hasClocking(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>) const",
+          "image": "kirimasim",
+          "samples": 6,
+          "worker_percent": 0.13943760167325123
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::wake(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, bool)",
+          "image": "kirimasim",
+          "samples": 6,
+          "worker_percent": 0.13943760167325123
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::flushHeapChanges()",
+          "image": "kirimasim",
+          "samples": 5,
+          "worker_percent": 0.11619800139437601
+        },
+        {
+          "function": "std::deque<kirimasim::kernel::Scheduler::Event>::__insert_bidirectional[abi:nqe220106]<std::__deque_iterator<kirimasim::kernel::Scheduler::Event, kirimasim::kernel::Scheduler::Event*, kirimasim::kernel::Scheduler::Event&, kirimasim::kernel::Scheduler::Event**, long, 256l>>(std::__deque_iterator<kirimasim::kernel::Scheduler::Event, kirimasim::kernel::Scheduler::Event const*, kirimasim::kernel::Scheduler::Event const&, kirimasim::kernel::Scheduler::Event const* const*, long, 256l>, std::__deque_iterator<kirimasim::kernel::Scheduler::Event, kirimasim::kernel::Scheduler::Event*, kirimasim::kernel::Scheduler::Event&, kirimasim::kernel::Scheduler::Event**, long, 256l>, std::__deque_iterator<kirimasim::kernel::Scheduler::Event, kirimasim::kernel::Scheduler::Event*, kirimasim::kernel::Scheduler::Event&, kirimasim::kernel::Scheduler::Event**, long, 256l>, unsigned long)",
+          "image": "kirimasim",
+          "samples": 5,
+          "worker_percent": 0.11619800139437601
+        }
+      ],
+      "stats": {
+        "sir.slots": 7,
+        "sir.processes": 21,
+        "sir.subroutines": 0,
+        "sir.blocks": 93,
+        "sir.instrs": 282,
+        "sched.time_slots": 2000001,
+        "sched.time_advances": 2000000,
+        "sched.active_loops": 3000001,
+        "sched.reactive_loops": 0,
+        "sched.events.preponed": 0,
+        "sched.events.pre_active": 0,
+        "sched.events.active": 19000004,
+        "sched.events.inactive": 0,
+        "sched.events.pre_nba": 0,
+        "sched.events.nba": 81000000,
+        "sched.events.post_nba": 0,
+        "sched.events.pre_observed": 0,
+        "sched.events.observed": 0,
+        "sched.events.post_observed": 0,
+        "sched.events.reactive": 0,
+        "sched.events.re_inactive": 0,
+        "sched.events.pre_re_nba": 0,
+        "sched.events.re_nba": 0,
+        "sched.events.post_re_nba": 0,
+        "sched.events.pre_postponed": 0,
+        "sched.events.postponed": 0,
+        "proc.wakeups": 19000004,
+        "proc.created": 21,
+        "proc.finished": 2,
+        "proc.kept_peak": 20,
+        "slot.writes": 83000020,
+        "slot.changes": 82999761,
+        "nba.scheduled": 81000000,
+        "nba.slot_peak": 81,
+        "wait.subscriptions": 17000017,
+        "wait.monitor_evals": 0,
+        "sim.end_time": 10000000,
+        "sim.end_reason": "finish",
+        "vm.instrs": 1313999693
+      },
+      "expected_matched": true,
+      "variant": "release"
+    },
+    {
+      "name": "proc_wait",
+      "worker_samples": 3453,
+      "sampling_duration_seconds": 4,
+      "sampling_interval_ms": 1,
+      "raw_profile_sha256": "c7546828d4ab555fc5aed4b1cea1eae0ac5d2c2c51e921c2568054ba88fc10d2",
+      "method": "worker-thread stack observations; blocked parent join excluded; collapsed leaf entries below 5 omitted",
+      "leaf_functions": [
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::runBody(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Id<kirimasim::sir::BlockTag>, unsigned long long&, kirimasim::kernel::W4&, kirimasim::kernel::ManagedEventPin*, kirimasim::kernel::ObjectPin*)",
+          "image": "kirimasim",
+          "samples": 777,
+          "worker_percent": 22.502172024326672
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)",
+          "image": "kirimasim",
+          "samples": 767,
+          "worker_percent": 22.212568780770344
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::typeOf(kirimasim::sir::Operand const&) const",
+          "image": "kirimasim",
+          "samples": 301,
+          "worker_percent": 8.717057631045467
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::writeRaw(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, unsigned int, unsigned int, unsigned int, unsigned long long const*)",
+          "image": "kirimasim",
+          "samples": 105,
+          "worker_percent": 3.040834057341442
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::elementOf(std::vector<kirimasim::sir::ArrayDim> const&, std::span<kirimasim::sir::Operand const, 18446744073709551615ul>, unsigned long) const",
+          "image": "kirimasim",
+          "samples": 102,
+          "worker_percent": 2.953953084274544
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(unsigned long)::operator()(unsigned long) const",
+          "image": "kirimasim",
+          "samples": 98,
+          "worker_percent": 2.838111786852013
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(kirimasim::kernel::W4)::operator()(kirimasim::kernel::W4) const",
+          "image": "kirimasim",
+          "samples": 86,
+          "worker_percent": 2.4905878945844195
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::indexOf(kirimasim::sir::Operand const&) const",
+          "image": "kirimasim",
+          "samples": 80,
+          "worker_percent": 2.3168259484506226
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::waitAnyValues(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, std::span<kirimasim::kernel::WaitItem const, 18446744073709551615ul>, std::span<kirimasim::kernel::MonitorSpec const, 18446744073709551615ul>, std::span<kirimasim::kernel::NamedValueWaitItem const, 18446744073709551615ul>)",
+          "image": "kirimasim",
+          "samples": 79,
+          "worker_percent": 2.28786562409499
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::runProcess(kirimasim::vm::(anonymous namespace)::Frame&, unsigned long long&)",
+          "image": "kirimasim",
+          "samples": 77,
+          "worker_percent": 2.229944975383724
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::registerWait(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, std::span<kirimasim::kernel::WaitItem const, 18446744073709551615ul>, std::span<kirimasim::kernel::MonitorSpec const, 18446744073709551615ul>, std::span<kirimasim::kernel::NamedWaitItem const, 18446744073709551615ul>, unsigned long long*)",
+          "image": "kirimasim",
+          "samples": 70,
+          "worker_percent": 2.027222704894295
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::execute(kirimasim::kernel::Scheduler::Event const&)",
+          "image": "kirimasim",
+          "samples": 67,
+          "worker_percent": 1.9403417318273966
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::flushHeapChanges()",
+          "image": "kirimasim",
+          "samples": 60,
+          "worker_percent": 1.737619461337967
+        },
+        {
+          "function": "kirimasim::sir::isObjectOp(kirimasim::sir::Op)",
+          "image": "kirimasim",
+          "samples": 49,
+          "worker_percent": 1.4190558934260065
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::advance()",
+          "image": "kirimasim",
+          "samples": 47,
+          "worker_percent": 1.361135244714741
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::runRegion(kirimasim::kernel::Region)",
+          "image": "kirimasim",
+          "samples": 45,
+          "worker_percent": 1.3032145960034753
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::takeBranch(std::vector<kirimasim::sir::Operand> const&, unsigned long)",
+          "image": "kirimasim",
+          "samples": 44,
+          "worker_percent": 1.2742542716478424
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::readSlot(kirimasim::sir::Id<kirimasim::sir::SlotTag>, unsigned int, unsigned int, unsigned int) const",
+          "image": "kirimasim",
+          "samples": 42,
+          "worker_percent": 1.2163336229365769
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::ensureSlotTables()",
+          "image": "kirimasim",
+          "samples": 35,
+          "worker_percent": 1.0136113524471475
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::begin()",
+          "image": "kirimasim",
+          "samples": 33,
+          "worker_percent": 0.9556907037358818
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::resume(kirima_context*, void*)",
+          "image": "kirimasim",
+          "samples": 31,
+          "worker_percent": 0.8977700550246163
+        },
+        {
+          "function": "_platform_memmove",
+          "image": "libsystem_platform.dylib",
+          "samples": 29,
+          "worker_percent": 0.8398494063133507
+        },
+        {
+          "function": "kirimasim::sir::isContainerOp(kirimasim::sir::Op)",
+          "image": "kirimasim",
+          "samples": 29,
+          "worker_percent": 0.8398494063133507
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::notifyContainerBinding(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>)",
+          "image": "kirimasim",
+          "samples": 27,
+          "worker_percent": 0.7819287576020851
+        },
+        {
+          "function": "kirimasim::sir::isContainerMutation(kirimasim::sir::Op)",
+          "image": "kirimasim",
+          "samples": 27,
+          "worker_percent": 0.7819287576020851
+        },
+        {
+          "function": "kirimasim::kernel::ManagedEventPin::~ManagedEventPin()",
+          "image": "kirimasim",
+          "samples": 26,
+          "worker_percent": 0.7529684332464524
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::wake(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, bool)",
+          "image": "kirimasim",
+          "samples": 26,
+          "worker_percent": 0.7529684332464524
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::takeEndedProgramProcess(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>&)",
+          "image": "kirimasim",
+          "samples": 25,
+          "worker_percent": 0.7240081088908196
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::ticksOf(kirimasim::sir::Operand const&) const",
+          "image": "kirimasim",
+          "samples": 22,
+          "worker_percent": 0.6371271358239212
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::bindEventValue(kirimasim::kernel::EventValue)",
+          "image": "kirimasim",
+          "samples": 18,
+          "worker_percent": 0.5212858384013901
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::write(kirimasim::kernel::SlotBits, unsigned long long const*)",
+          "image": "kirimasim",
+          "samples": 18,
+          "worker_percent": 0.5212858384013901
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::sweep()",
+          "image": "kirimasim",
+          "samples": 18,
+          "worker_percent": 0.5212858384013901
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::schedule(kirimasim::kernel::Region, kirimasim::kernel::Scheduler::Event, unsigned long long)",
+          "image": "kirimasim",
+          "samples": 17,
+          "worker_percent": 0.4923255140457573
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::pushFuture(kirimasim::kernel::Scheduler::Future const&)",
+          "image": "kirimasim",
+          "samples": 16,
+          "worker_percent": 0.4633651896901245
+        },
+        {
+          "function": "operator new(unsigned long)",
+          "image": "kirimasim",
+          "samples": 16,
+          "worker_percent": 0.4633651896901245
+        },
+        {
+          "function": "mi_free",
+          "image": "kirimasim",
+          "samples": 15,
+          "worker_percent": 0.43440486533449174
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::eventStatus(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Instr const&, kirimasim::kernel::ManagedEventError)",
+          "image": "kirimasim",
+          "samples": 13,
+          "worker_percent": 0.3764842166232262
+        },
+        {
+          "function": "<deduplicated_symbol>",
+          "image": "kirimasim",
+          "samples": 12,
+          "worker_percent": 0.3475238922675934
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::endWalk()",
+          "image": "kirimasim",
+          "samples": 10,
+          "worker_percent": 0.2896032435563278
+        },
+        {
+          "function": "std::vector<kirimasim::kernel::ManagedEventPin, std::pmr::polymorphic_allocator<kirimasim::kernel::ManagedEventPin>>::reserve(unsigned long)",
+          "image": "kirimasim",
+          "samples": 10,
+          "worker_percent": 0.2896032435563278
+        },
+        {
+          "function": "kirimasim::kernel::Vpi::watches(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>) const",
+          "image": "kirimasim",
+          "samples": 9,
+          "worker_percent": 0.26064291920069504
+        },
+        {
+          "function": "std::__introsort<std::_ClassicAlgPolicy, kirimasim::kernel::Scheduler::advance()::$_1&, kirimasim::kernel::Scheduler::Future*, false>(kirimasim::kernel::Scheduler::Future*, kirimasim::kernel::Scheduler::Future*, kirimasim::kernel::Scheduler::advance()::$_1&, std::iterator_traits<kirimasim::kernel::Scheduler::Future*>::difference_type, bool)",
+          "image": "kirimasim",
+          "samples": 9,
+          "worker_percent": 0.26064291920069504
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::hasClocking(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>) const",
+          "image": "kirimasim",
+          "samples": 8,
+          "worker_percent": 0.23168259484506226
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::waitNamedValue(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, kirimasim::kernel::EventValue, bool)",
+          "image": "kirimasim",
+          "samples": 8,
+          "worker_percent": 0.23168259484506226
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::flushReports(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>)",
+          "image": "kirimasim",
+          "samples": 7,
+          "worker_percent": 0.20272227048942948
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::trigger(kirimasim::kernel::Id<kirimasim::kernel::EventTag>)",
+          "image": "kirimasim",
+          "samples": 7,
+          "worker_percent": 0.20272227048942948
+        },
+        {
+          "function": "_mi_malloc_generic(mi_theap_s*, unsigned long, unsigned long, mi_page_s**)",
+          "image": "kirimasim",
+          "samples": 6,
+          "worker_percent": 0.1737619461337967
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::waitDelay(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, unsigned long long)",
+          "image": "kirimasim",
+          "samples": 6,
+          "worker_percent": 0.1737619461337967
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::runSlot()",
+          "image": "kirimasim",
+          "samples": 5,
+          "worker_percent": 0.1448016217781639
+        },
+        {
+          "function": "std::__insertion_sort_incomplete[abi:nqe220106]<std::_ClassicAlgPolicy, kirimasim::kernel::Scheduler::advance()::$_1&, kirimasim::kernel::Scheduler::Future*>(kirimasim::kernel::Scheduler::Future*, kirimasim::kernel::Scheduler::Future*, kirimasim::kernel::Scheduler::advance()::$_1&)",
+          "image": "kirimasim",
+          "samples": 5,
+          "worker_percent": 0.1448016217781639
+        }
+      ],
+      "stats": {
+        "sir.slots": 5,
+        "sir.processes": 130,
+        "sir.subroutines": 0,
+        "sir.blocks": 398,
+        "sir.instrs": 1011,
+        "sched.time_slots": 1000002,
+        "sched.time_advances": 1000001,
+        "sched.active_loops": 1000002,
+        "sched.reactive_loops": 0,
+        "sched.events.preponed": 0,
+        "sched.events.pre_active": 0,
+        "sched.events.active": 46002480,
+        "sched.events.inactive": 0,
+        "sched.events.pre_nba": 0,
+        "sched.events.nba": 0,
+        "sched.events.post_nba": 0,
+        "sched.events.pre_observed": 0,
+        "sched.events.observed": 0,
+        "sched.events.post_observed": 0,
+        "sched.events.reactive": 0,
+        "sched.events.re_inactive": 0,
+        "sched.events.pre_re_nba": 0,
+        "sched.events.re_nba": 0,
+        "sched.events.post_re_nba": 0,
+        "sched.events.pre_postponed": 0,
+        "sched.events.postponed": 0,
+        "proc.wakeups": 46002480,
+        "proc.created": 130,
+        "proc.finished": 0,
+        "proc.kept_peak": 130,
+        "slot.writes": 45669082,
+        "slot.changes": 45669081,
+        "nba.scheduled": 0,
+        "nba.slot_peak": 0,
+        "wait.subscriptions": 0,
+        "wait.monitor_evals": 0,
+        "sim.end_time": 2000001,
+        "sim.end_reason": "finish",
+        "vm.instrs": 302353882
+      },
+      "expected_matched": true,
+      "variant": "release"
+    },
+    {
+      "name": "dyn_queue",
+      "worker_samples": 1713,
+      "sampling_duration_seconds": 2,
+      "sampling_interval_ms": 1,
+      "raw_profile_sha256": "76fe507410c16bef2accdf4f5af9f0ae443ba217b45926f41da59f87017f6808",
+      "method": "worker-thread stack observations; blocked parent join excluded; collapsed leaf entries below 5 omitted",
+      "leaf_functions": [
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)",
+          "image": "kirimasim",
+          "samples": 468,
+          "worker_percent": 27.320490367775832
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::runBody(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Id<kirimasim::sir::BlockTag>, unsigned long long&, kirimasim::kernel::W4&, kirimasim::kernel::ManagedEventPin*, kirimasim::kernel::ObjectPin*)",
+          "image": "kirimasim",
+          "samples": 239,
+          "worker_percent": 13.952130764740222
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::typeOf(kirimasim::sir::Operand const&) const",
+          "image": "kirimasim",
+          "samples": 181,
+          "worker_percent": 10.566258026853474
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(unsigned long)::operator()(unsigned long) const",
+          "image": "kirimasim",
+          "samples": 77,
+          "worker_percent": 4.495037945125511
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(kirimasim::kernel::W4)::operator()(kirimasim::kernel::W4) const",
+          "image": "kirimasim",
+          "samples": 61,
+          "worker_percent": 3.561004086398132
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::executeContainer(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Instr const&)",
+          "image": "kirimasim",
+          "samples": 56,
+          "worker_percent": 3.269118505545826
+        },
+        {
+          "function": "_platform_memmove",
+          "image": "libsystem_platform.dylib",
+          "samples": 36,
+          "worker_percent": 2.1015761821366024
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::writeRaw(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, unsigned int, unsigned int, unsigned int, unsigned long long const*)",
+          "image": "kirimasim",
+          "samples": 32,
+          "worker_percent": 1.8680677174547577
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::framePlace(kirimasim::sir::Id<kirimasim::vm::(anonymous namespace)::BodyTag>, kirimasim::sir::Id<kirimasim::vm::(anonymous namespace)::VarsTag>, kirimasim::sir::Id<kirimasim::sir::FrameVarTag>, unsigned long long, bool) const",
+          "image": "kirimasim",
+          "samples": 31,
+          "worker_percent": 1.8096906012842966
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::heapStatus(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Instr const&, kirimasim::kernel::HeapStatus)",
+          "image": "kirimasim",
+          "samples": 27,
+          "worker_percent": 1.5761821366024518
+        },
+        {
+          "function": "kirimasim::sir::isContainerMutation(kirimasim::sir::Op)",
+          "image": "kirimasim",
+          "samples": 26,
+          "worker_percent": 1.5178050204319906
+        },
+        {
+          "function": "kirimasim::vm::detail::FrameValue::read(std::span<kirimasim::kernel::W4, 18446744073709551615ul>, unsigned int, unsigned int) const",
+          "image": "kirimasim",
+          "samples": 26,
+          "worker_percent": 1.5178050204319906
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::prepareHeap(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Instr const&)",
+          "image": "kirimasim",
+          "samples": 24,
+          "worker_percent": 1.4010507880910683
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::readSlot(kirimasim::sir::Id<kirimasim::sir::SlotTag>, unsigned int, unsigned int, unsigned int) const",
+          "image": "kirimasim",
+          "samples": 24,
+          "worker_percent": 1.4010507880910683
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::takeBranch(std::vector<kirimasim::sir::Operand> const&, unsigned long)",
+          "image": "kirimasim",
+          "samples": 23,
+          "worker_percent": 1.3426736719206072
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::frameElem(kirimasim::sir::Id<kirimasim::sir::FrameVarTag>, unsigned long long) const",
+          "image": "kirimasim",
+          "samples": 22,
+          "worker_percent": 1.284296555750146
+        },
+        {
+          "function": "kirimasim::sir::isContainerOp(kirimasim::sir::Op)",
+          "image": "kirimasim",
+          "samples": 19,
+          "worker_percent": 1.1091652072387623
+        },
+        {
+          "function": "kirimasim::sir::isObjectOp(kirimasim::sir::Op)",
+          "image": "kirimasim",
+          "samples": 18,
+          "worker_percent": 1.0507880910683012
+        },
+        {
+          "function": "kirimasim::kernel::Heap::checkData(kirimasim::kernel::Id<kirimasim::kernel::HeapLayoutTag>, std::span<kirimasim::kernel::W4 const, 18446744073709551615ul>) const",
+          "image": "kirimasim",
+          "samples": 17,
+          "worker_percent": 0.99241097489784
+        },
+        {
+          "function": "kirimasim::kernel::Heap::cloneWordValues(kirimasim::kernel::Heap::Transaction&, std::span<kirimasim::kernel::HeapWord const, 18446744073709551615ul>, std::span<kirimasim::kernel::W4 const, 18446744073709551615ul>)",
+          "image": "kirimasim",
+          "samples": 16,
+          "worker_percent": 0.9340338587273789
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::indexOf(kirimasim::sir::Operand const&) const",
+          "image": "kirimasim",
+          "samples": 15,
+          "worker_percent": 0.8756567425569177
+        },
+        {
+          "function": "operator new(unsigned long)",
+          "image": "kirimasim",
+          "samples": 15,
+          "worker_percent": 0.8756567425569177
+        },
+        {
+          "function": "kirimasim::kernel::Heap::Transaction::~Transaction()",
+          "image": "kirimasim",
+          "samples": 14,
+          "worker_percent": 0.8172796263864565
+        },
+        {
+          "function": "kirimasim::kernel::Heap::read(kirimasim::kernel::Id<kirimasim::kernel::HeapTypeTag>, kirimasim::kernel::HeapToken<kirimasim::kernel::ContainerTokenTag>, std::optional<long long>, std::span<kirimasim::kernel::W4, 18446744073709551615ul>) const",
+          "image": "kirimasim",
+          "samples": 14,
+          "worker_percent": 0.8172796263864565
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::collectAtInstruction(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Instr const&)",
+          "image": "kirimasim",
+          "samples": 14,
+          "worker_percent": 0.8172796263864565
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(bool)::operator()(bool) const",
+          "image": "kirimasim",
+          "samples": 14,
+          "worker_percent": 0.8172796263864565
+        },
+        {
+          "function": "kirimasim::kernel::Heap::pop(kirimasim::kernel::Id<kirimasim::kernel::HeapTypeTag>, kirimasim::kernel::HeapToken<kirimasim::kernel::ContainerTokenTag>&, bool, std::span<kirimasim::kernel::W4, 18446744073709551615ul>)",
+          "image": "kirimasim",
+          "samples": 10,
+          "worker_percent": 0.5837711617046117
+        },
+        {
+          "function": "kirimasim::kernel::Heap::readCell(kirimasim::kernel::Id<kirimasim::kernel::HeapLayoutTag>, kirimasim::kernel::HeapToken<kirimasim::kernel::CellTokenTag>, std::span<kirimasim::kernel::W4, 18446744073709551615ul>) const",
+          "image": "kirimasim",
+          "samples": 10,
+          "worker_percent": 0.5837711617046117
+        },
+        {
+          "function": "kirimasim::kernel::Heap::write(kirimasim::kernel::Id<kirimasim::kernel::HeapTypeTag>, kirimasim::kernel::HeapToken<kirimasim::kernel::ContainerTokenTag>&, std::optional<long long>, std::span<kirimasim::kernel::W4 const, 18446744073709551615ul>)",
+          "image": "kirimasim",
+          "samples": 10,
+          "worker_percent": 0.5837711617046117
+        },
+        {
+          "function": "kirimasim::kernel::Heap::writeCell(kirimasim::kernel::Id<kirimasim::kernel::HeapLayoutTag>, kirimasim::kernel::HeapToken<kirimasim::kernel::CellTokenTag>, std::span<kirimasim::kernel::W4 const, 18446744073709551615ul>)",
+          "image": "kirimasim",
+          "samples": 10,
+          "worker_percent": 0.5837711617046117
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::flushHeapChanges()",
+          "image": "kirimasim",
+          "samples": 10,
+          "worker_percent": 0.5837711617046117
+        },
+        {
+          "function": "DYLD-STUB$$memmove",
+          "image": "kirimasim",
+          "samples": 8,
+          "worker_percent": 0.46701692936368944
+        },
+        {
+          "function": "kirimasim::kernel::Heap::insert(kirimasim::kernel::Id<kirimasim::kernel::HeapTypeTag>, kirimasim::kernel::HeapToken<kirimasim::kernel::ContainerTokenTag>&, std::optional<long long>, std::span<kirimasim::kernel::W4 const, 18446744073709551615ul>)",
+          "image": "kirimasim",
+          "samples": 8,
+          "worker_percent": 0.46701692936368944
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::begin()",
+          "image": "kirimasim",
+          "samples": 8,
+          "worker_percent": 0.46701692936368944
+        },
+        {
+          "function": "kirimasim::kernel::mod4(kirimasim::kernel::W4, kirimasim::kernel::W4, unsigned int, bool)",
+          "image": "kirimasim",
+          "samples": 8,
+          "worker_percent": 0.46701692936368944
+        },
+        {
+          "function": "kirimasim::kernel::Heap::Pool<kirimasim::kernel::Heap::Cell>::add(kirimasim::kernel::Heap::Cell, std::vector<unsigned int, std::pmr::polymorphic_allocator<unsigned int>>&)",
+          "image": "kirimasim",
+          "samples": 7,
+          "worker_percent": 0.40863981319322823
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::frameStatus(kirimasim::kernel::ActivationError) const",
+          "image": "kirimasim",
+          "samples": 7,
+          "worker_percent": 0.40863981319322823
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::typedRef(kirimasim::kernel::W4, kirimasim::sir::Type) const",
+          "image": "kirimasim",
+          "samples": 7,
+          "worker_percent": 0.40863981319322823
+        },
+        {
+          "function": "_platform_memset",
+          "image": "libsystem_platform.dylib",
+          "samples": 6,
+          "worker_percent": 0.3502626970227671
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::reportHeapMonitorLimit(kirimasim::sir::Id<kirimasim::sir::InstanceTag>, kirimasim::sir::SourceLoc)",
+          "image": "kirimasim",
+          "samples": 6,
+          "worker_percent": 0.3502626970227671
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::storeReceiver(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Instr const&, kirimasim::kernel::W4, kirimasim::kernel::HeapToken<kirimasim::kernel::ContainerTokenTag>)",
+          "image": "kirimasim",
+          "samples": 6,
+          "worker_percent": 0.3502626970227671
+        },
+        {
+          "function": "kirimasim::kernel::Heap::actualType(kirimasim::kernel::HeapToken<kirimasim::kernel::ContainerTokenTag>) const",
+          "image": "kirimasim",
+          "samples": 5,
+          "worker_percent": 0.29188558085230587
+        },
+        {
+          "function": "kirimasim::kernel::Heap::collect(std::span<kirimasim::kernel::HeapRoot const, 18446744073709551615ul>, kirimasim::kernel::HeapStringRoots)",
+          "image": "kirimasim",
+          "samples": 5,
+          "worker_percent": 0.29188558085230587
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::objectWords(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Instr const&, kirimasim::sir::Type, std::span<kirimasim::kernel::W4, 18446744073709551615ul>, bool)",
+          "image": "kirimasim",
+          "samples": 5,
+          "worker_percent": 0.29188558085230587
+        }
+      ],
+      "stats": {
+        "sir.slots": 4,
+        "sir.processes": 1,
+        "sir.subroutines": 0,
+        "sir.blocks": 20,
+        "sir.instrs": 106,
+        "sched.time_slots": 1,
+        "sched.time_advances": 0,
+        "sched.active_loops": 1,
+        "sched.reactive_loops": 0,
+        "sched.events.preponed": 0,
+        "sched.events.pre_active": 0,
+        "sched.events.active": 1,
+        "sched.events.inactive": 0,
+        "sched.events.pre_nba": 0,
+        "sched.events.nba": 0,
+        "sched.events.post_nba": 0,
+        "sched.events.pre_observed": 0,
+        "sched.events.observed": 0,
+        "sched.events.post_observed": 0,
+        "sched.events.reactive": 0,
+        "sched.events.re_inactive": 0,
+        "sched.events.pre_re_nba": 0,
+        "sched.events.re_nba": 0,
+        "sched.events.post_re_nba": 0,
+        "sched.events.pre_postponed": 0,
+        "sched.events.postponed": 0,
+        "proc.wakeups": 1,
+        "proc.created": 1,
+        "proc.finished": 0,
+        "proc.kept_peak": 1,
+        "slot.writes": 16000067,
+        "slot.changes": 4000003,
+        "nba.scheduled": 0,
+        "nba.slot_peak": 0,
+        "wait.subscriptions": 0,
+        "wait.monitor_evals": 0,
+        "sim.end_time": 0,
+        "sim.end_reason": "finish",
+        "vm.instrs": 188001257
+      },
+      "expected_matched": true,
+      "variant": "release"
+    },
+    {
+      "name": "wide_arith",
+      "variant": "word_and_type",
+      "worker_samples": 767,
+      "sampling_duration_seconds": 1,
+      "sampling_interval_ms": 1,
+      "leaf_functions": [
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 106,
+          "worker_percent": 13.820078226857888
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::executeWide(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&, unsigned long long)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 98,
+          "worker_percent": 12.777053455019557
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::runBody(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Id<kirimasim::sir::BlockTag>, unsigned long long&, kirimasim::kernel::W4&, kirimasim::kernel::ManagedEventPin*, kirimasim::kernel::ObjectPin*)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 79,
+          "worker_percent": 10.29986962190352
+        },
+        {
+          "function": "operator new(unsigned long)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 61,
+          "worker_percent": 7.953063885267275
+        },
+        {
+          "function": "mi_free",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 49,
+          "worker_percent": 6.388526727509778
+        },
+        {
+          "function": "_platform_memset",
+          "image": "libsystem_platform.dylib",
+          "samples": 48,
+          "worker_percent": 6.258148631029987
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::readSlotWide(kirimasim::sir::Id<kirimasim::sir::SlotTag>, unsigned int, unsigned int, unsigned int, kirimasim::kernel::W4*) const",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 33,
+          "worker_percent": 4.302477183833116
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::readOperand(kirimasim::sir::Operand const&, kirimasim::kernel::W4*, unsigned int) const",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 29,
+          "worker_percent": 3.7809647979139505
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::writeRaw(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, unsigned int, unsigned int, unsigned int, unsigned long long const*)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 27,
+          "worker_percent": 3.5202086049543677
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::chunks(kirimasim::sir::Operand const&) const",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 24,
+          "worker_percent": 3.1290743155149934
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::executeWide(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&, unsigned long long)::'lambda'(auto)::operator()<void (*)(kirimasim::kernel::W4*, kirimasim::kernel::W4 const*, kirimasim::kernel::W4 const*, unsigned int)>(auto) const",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 23,
+          "worker_percent": 2.9986962190352022
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::setWide(kirimasim::sir::Instr const&, std::vector<kirimasim::kernel::W4> const&)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 17,
+          "worker_percent": 2.2164276401564535
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::typeOf(kirimasim::sir::Operand const&) const",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 17,
+          "worker_percent": 2.2164276401564535
+        },
+        {
+          "function": "DYLD-STUB$$bzero",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 13,
+          "worker_percent": 1.694915254237288
+        },
+        {
+          "function": "kirimasim::kernel::wide::add(kirimasim::kernel::W4*, kirimasim::kernel::W4 const*, kirimasim::kernel::W4 const*, unsigned int)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 13,
+          "worker_percent": 1.694915254237288
+        },
+        {
+          "function": "kirimasim::sir::isContainerMutation(kirimasim::sir::Op)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 12,
+          "worker_percent": 1.5645371577574967
+        },
+        {
+          "function": "__bzero",
+          "image": "libsystem_platform.dylib",
+          "samples": 10,
+          "worker_percent": 1.303780964797914
+        },
+        {
+          "function": "kirimasim::kernel::wide::resize(kirimasim::kernel::W4*, unsigned int, kirimasim::kernel::W4 const*, unsigned int, bool)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 10,
+          "worker_percent": 1.303780964797914
+        },
+        {
+          "function": "kirimasim::kernel::wide::sub(kirimasim::kernel::W4*, kirimasim::kernel::W4 const*, kirimasim::kernel::W4 const*, unsigned int)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 9,
+          "worker_percent": 1.1734028683181226
+        },
+        {
+          "function": "kirimasim::kernel::wide::ashr(kirimasim::kernel::W4*, kirimasim::kernel::W4 const*, unsigned int, kirimasim::kernel::W4 const*, unsigned int, bool)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 8,
+          "worker_percent": 1.0430247718383312
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::takeBranch(std::vector<kirimasim::sir::Operand> const&, unsigned long)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 8,
+          "worker_percent": 1.0430247718383312
+        },
+        {
+          "function": "kirimasim::kernel::wide::shl(kirimasim::kernel::W4*, kirimasim::kernel::W4 const*, unsigned int, kirimasim::kernel::W4 const*, unsigned int)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 7,
+          "worker_percent": 0.9126466753585397
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::writeSlotWide(kirimasim::sir::Id<kirimasim::sir::SlotTag>, unsigned int, unsigned int, unsigned int, kirimasim::kernel::W4 const*)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 7,
+          "worker_percent": 0.9126466753585397
+        },
+        {
+          "function": "kirimasim::sir::isContainerOp(kirimasim::sir::Op)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 6,
+          "worker_percent": 0.7822685788787483
+        },
+        {
+          "function": "kirimasim::sir::isObjectOp(kirimasim::sir::Op)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 5,
+          "worker_percent": 0.651890482398957
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(kirimasim::kernel::W4)::operator()(kirimasim::kernel::W4) const",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 5,
+          "worker_percent": 0.651890482398957
+        }
+      ],
+      "expected_matched": true
+    },
+    {
+      "name": "gate_udp",
+      "variant": "word_and_type",
+      "worker_samples": 2347,
+      "sampling_duration_seconds": 3,
+      "sampling_interval_ms": 1,
+      "leaf_functions": [
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 530,
+          "worker_percent": 22.58201959948871
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::runBody(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Id<kirimasim::sir::BlockTag>, unsigned long long&, kirimasim::kernel::W4&, kirimasim::kernel::ManagedEventPin*, kirimasim::kernel::ObjectPin*)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 458,
+          "worker_percent": 19.514273540690244
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::writeRaw(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, unsigned int, unsigned int, unsigned int, unsigned long long const*)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 186,
+          "worker_percent": 7.925010651896038
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::waitTriggers(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 149,
+          "worker_percent": 6.3485300383468255
+        },
+        {
+          "function": "kirimasim::kernel::udpOutput(kirimasim::kernel::UdpTable const&, unsigned char const*)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 100,
+          "worker_percent": 4.26075841499787
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::registerWait(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, std::span<kirimasim::kernel::WaitItem const, 18446744073709551615ul>, std::span<kirimasim::kernel::MonitorSpec const, 18446744073709551615ul>, std::span<kirimasim::kernel::NamedWaitItem const, 18446744073709551615ul>, unsigned long long*)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 90,
+          "worker_percent": 3.8346825734980827
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(kirimasim::kernel::W4)::operator()(kirimasim::kernel::W4) const",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 90,
+          "worker_percent": 3.8346825734980827
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(unsigned long)::operator()(unsigned long) const",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 89,
+          "worker_percent": 3.792074989348104
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::readSlot(kirimasim::sir::Id<kirimasim::sir::SlotTag>, unsigned int, unsigned int, unsigned int) const",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 70,
+          "worker_percent": 2.982530890498509
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::indexOf(kirimasim::sir::Operand const&) const",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 48,
+          "worker_percent": 2.0451640391989776
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::runProcess(kirimasim::vm::(anonymous namespace)::Frame&, unsigned long long&)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 47,
+          "worker_percent": 2.0025564550489987
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::flushHeapChanges()",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 36,
+          "worker_percent": 1.533873029399233
+        },
+        {
+          "function": "kirimasim::sir::isObjectOp(kirimasim::sir::Op)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 35,
+          "worker_percent": 1.4912654452492544
+        },
+        {
+          "function": "kirimasim::sir::isContainerMutation(kirimasim::sir::Op)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 32,
+          "worker_percent": 1.3634426927993182
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::execute(kirimasim::kernel::Scheduler::Event const&)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 29,
+          "worker_percent": 1.2356199403493822
+        },
+        {
+          "function": "kirimasim::kernel::bits4(kirimasim::kernel::W4, unsigned int, long long, unsigned int)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 25,
+          "worker_percent": 1.0651896037494675
+        },
+        {
+          "function": "kirimasim::sir::isContainerOp(kirimasim::sir::Op)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 25,
+          "worker_percent": 1.0651896037494675
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::ensureSlotTables()",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 24,
+          "worker_percent": 1.0225820195994888
+        },
+        {
+          "function": "kirimasim::kernel::(anonymous namespace)::sameBits(kirimasim::kernel::Domain, unsigned long long const*, unsigned long long const*, unsigned long long, unsigned long long)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 23,
+          "worker_percent": 0.97997443544951
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::typeOf(kirimasim::sir::Operand const&) const",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 23,
+          "worker_percent": 0.97997443544951
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::slotEventMatches(kirimasim::kernel::WaitItem const&, kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, kirimasim::kernel::SlotLayout const&, unsigned int, unsigned int, unsigned int, unsigned long long const*, unsigned long long const*)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 21,
+          "worker_percent": 0.8947592671495527
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::notify(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, unsigned int, unsigned int, unsigned int, unsigned long long const*, unsigned long long const*)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 20,
+          "worker_percent": 0.8521516829995739
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::reportHeapMonitorLimit(kirimasim::sir::Id<kirimasim::sir::InstanceTag>, kirimasim::sir::SourceLoc)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 20,
+          "worker_percent": 0.8521516829995739
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::wake(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, bool)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 19,
+          "worker_percent": 0.8095440988495952
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::begin()",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 16,
+          "worker_percent": 0.6817213463996591
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::waitAny(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, std::span<kirimasim::kernel::WaitItem const, 18446744073709551615ul>, std::span<kirimasim::kernel::MonitorSpec const, 18446744073709551615ul>, std::span<kirimasim::kernel::NamedWaitItem const, 18446744073709551615ul>)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 16,
+          "worker_percent": 0.6817213463996591
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::endWalk()",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 14,
+          "worker_percent": 0.5965061780997017
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::write(kirimasim::kernel::SlotBits, unsigned long long const*)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 13,
+          "worker_percent": 0.5538985939497231
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::resume(kirima_context*, void*)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 13,
+          "worker_percent": 0.5538985939497231
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::sweep()",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 13,
+          "worker_percent": 0.5538985939497231
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::runRegion(kirimasim::kernel::Region)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 11,
+          "worker_percent": 0.4686834256497657
+        },
+        {
+          "function": "std::vector<kirimasim::kernel::MonitorSpec>::__base_destruct_at_end[abi:nqe220106](kirimasim::kernel::MonitorSpec*)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 10,
+          "worker_percent": 0.42607584149978694
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::flushReports(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 9,
+          "worker_percent": 0.3834682573498083
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::notifyContainerBinding(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 8,
+          "worker_percent": 0.34086067319982954
+        },
+        {
+          "function": "_platform_memmove",
+          "image": "libsystem_platform.dylib",
+          "samples": 5,
+          "worker_percent": 0.21303792074989347
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::advance()",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 5,
+          "worker_percent": 0.21303792074989347
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::takeEndedProgramProcess(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>&)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 5,
+          "worker_percent": 0.21303792074989347
+        }
+      ],
+      "expected_matched": true
+    },
+    {
+      "name": "mem_rw",
+      "variant": "word_and_type",
+      "worker_samples": 1564,
+      "sampling_duration_seconds": 2,
+      "sampling_interval_ms": 1,
+      "leaf_functions": [
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 402,
+          "worker_percent": 25.703324808184142
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::runBody(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Id<kirimasim::sir::BlockTag>, unsigned long long&, kirimasim::kernel::W4&, kirimasim::kernel::ManagedEventPin*, kirimasim::kernel::ObjectPin*)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 237,
+          "worker_percent": 15.153452685421994
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::writeRaw(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, unsigned int, unsigned int, unsigned int, unsigned long long const*)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 75,
+          "worker_percent": 4.79539641943734
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::runRegion(kirimasim::kernel::Region)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 68,
+          "worker_percent": 4.3478260869565215
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(kirimasim::kernel::W4)::operator()(kirimasim::kernel::W4) const",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 63,
+          "worker_percent": 4.028132992327365
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::execute(kirimasim::kernel::Scheduler::Event const&)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 57,
+          "worker_percent": 3.6445012787723785
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::readSlot(kirimasim::sir::Id<kirimasim::sir::SlotTag>, unsigned int, unsigned int, unsigned int) const",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 57,
+          "worker_percent": 3.6445012787723785
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(unsigned long)::operator()(unsigned long) const",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 44,
+          "worker_percent": 2.813299232736573
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::scheduleNba(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, kirimasim::kernel::SlotBits, unsigned long long const*, unsigned long long)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 38,
+          "worker_percent": 2.4296675191815855
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::slotEventMatches(kirimasim::kernel::WaitItem const&, kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, kirimasim::kernel::SlotLayout const&, unsigned int, unsigned int, unsigned int, unsigned long long const*, unsigned long long const*)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 36,
+          "worker_percent": 2.3017902813299234
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::runSlot()",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 25,
+          "worker_percent": 1.5984654731457801
+        },
+        {
+          "function": "<deduplicated_symbol>",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 24,
+          "worker_percent": 1.5345268542199488
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::registerWait(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, std::span<kirimasim::kernel::WaitItem const, 18446744073709551615ul>, std::span<kirimasim::kernel::MonitorSpec const, 18446744073709551615ul>, std::span<kirimasim::kernel::NamedWaitItem const, 18446744073709551615ul>, unsigned long long*)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 24,
+          "worker_percent": 1.5345268542199488
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::begin()",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 22,
+          "worker_percent": 1.4066496163682864
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::indexOf(kirimasim::sir::Operand const&) const",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 22,
+          "worker_percent": 1.4066496163682864
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::moveFirst(kirimasim::kernel::Region, kirimasim::kernel::Region, kirimasim::kernel::Region)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 18,
+          "worker_percent": 1.1508951406649617
+        },
+        {
+          "function": "kirimasim::sir::isObjectOp(kirimasim::sir::Op)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 18,
+          "worker_percent": 1.1508951406649617
+        },
+        {
+          "function": "kirimasim::sir::isContainerMutation(kirimasim::sir::Op)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 17,
+          "worker_percent": 1.0869565217391304
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::typeOf(kirimasim::sir::Operand const&) const",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 17,
+          "worker_percent": 1.0869565217391304
+        },
+        {
+          "function": "kirimasim::kernel::(anonymous namespace)::sameBits(kirimasim::kernel::Domain, unsigned long long const*, unsigned long long const*, unsigned long long, unsigned long long)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 16,
+          "worker_percent": 1.0230179028132993
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::notify(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, unsigned int, unsigned int, unsigned int, unsigned long long const*, unsigned long long const*)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 16,
+          "worker_percent": 1.0230179028132993
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::notifyContainerBinding(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 16,
+          "worker_percent": 1.0230179028132993
+        },
+        {
+          "function": "kirimasim::sir::isContainerOp(kirimasim::sir::Op)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 16,
+          "worker_percent": 1.0230179028132993
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::runProcess(kirimasim::vm::(anonymous namespace)::Frame&, unsigned long long&)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 15,
+          "worker_percent": 0.959079283887468
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::waitTriggers(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 14,
+          "worker_percent": 0.8951406649616368
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::ensureSlotTables()",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 12,
+          "worker_percent": 0.7672634271099744
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::advance()",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 11,
+          "worker_percent": 0.7033248081841432
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::enqueueNba(kirimasim::kernel::Region, kirimasim::kernel::Scheduler::Event, unsigned long long)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 11,
+          "worker_percent": 0.7033248081841432
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::write(kirimasim::kernel::SlotBits, unsigned long long const*)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 10,
+          "worker_percent": 0.639386189258312
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::pushFuture(kirimasim::kernel::Scheduler::Future const&)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 9,
+          "worker_percent": 0.5754475703324808
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::flushHeapChanges()",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 8,
+          "worker_percent": 0.5115089514066496
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::notifyNbaSlot(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, unsigned int, unsigned int, unsigned int, unsigned long long const*, unsigned long long const*)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 8,
+          "worker_percent": 0.5115089514066496
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::run()",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 8,
+          "worker_percent": 0.5115089514066496
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::takeEndedProgramProcess(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>&)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 8,
+          "worker_percent": 0.5115089514066496
+        },
+        {
+          "function": "kirimasim::kernel::bits4(kirimasim::kernel::W4, unsigned int, long long, unsigned int)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 8,
+          "worker_percent": 0.5115089514066496
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::takeBranch(std::vector<kirimasim::sir::Operand> const&, unsigned long)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 8,
+          "worker_percent": 0.5115089514066496
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::hasClocking(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>) const",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 7,
+          "worker_percent": 0.4475703324808184
+        },
+        {
+          "function": "_platform_memmove",
+          "image": "libsystem_platform.dylib",
+          "samples": 6,
+          "worker_percent": 0.3836317135549872
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::schedule(kirimasim::kernel::Region, kirimasim::kernel::Scheduler::Event, unsigned long long)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 6,
+          "worker_percent": 0.3836317135549872
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::waitDelay(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, unsigned long long)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 6,
+          "worker_percent": 0.3836317135549872
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::wake(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, bool)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 6,
+          "worker_percent": 0.3836317135549872
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::ticksOf(kirimasim::sir::Operand const&) const",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 6,
+          "worker_percent": 0.3836317135549872
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::confirmFinals()",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 5,
+          "worker_percent": 0.319693094629156
+        },
+        {
+          "function": "std::__introsort<std::_ClassicAlgPolicy, kirimasim::kernel::Scheduler::advance()::$_1&, kirimasim::kernel::Scheduler::Future*, false>(kirimasim::kernel::Scheduler::Future*, kirimasim::kernel::Scheduler::Future*, kirimasim::kernel::Scheduler::advance()::$_1&, std::iterator_traits<kirimasim::kernel::Scheduler::Future*>::difference_type, bool)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 5,
+          "worker_percent": 0.319693094629156
+        },
+        {
+          "function": "std::deque<kirimasim::kernel::Scheduler::Event>::__insert_bidirectional[abi:nqe220106]<std::__deque_iterator<kirimasim::kernel::Scheduler::Event, kirimasim::kernel::Scheduler::Event*, kirimasim::kernel::Scheduler::Event&, kirimasim::kernel::Scheduler::Event**, long, 256l>>(std::__deque_iterator<kirimasim::kernel::Scheduler::Event, kirimasim::kernel::Scheduler::Event const*, kirimasim::kernel::Scheduler::Event const&, kirimasim::kernel::Scheduler::Event const* const*, long, 256l>, std::__deque_iterator<kirimasim::kernel::Scheduler::Event, kirimasim::kernel::Scheduler::Event*, kirimasim::kernel::Scheduler::Event&, kirimasim::kernel::Scheduler::Event**, long, 256l>, std::__deque_iterator<kirimasim::kernel::Scheduler::Event, kirimasim::kernel::Scheduler::Event*, kirimasim::kernel::Scheduler::Event&, kirimasim::kernel::Scheduler::Event**, long, 256l>, unsigned long)",
+          "image": "kirimasim-word-and-type-cache",
+          "samples": 5,
+          "worker_percent": 0.319693094629156
+        }
+      ],
+      "expected_matched": true
+    }
+  ]
+}

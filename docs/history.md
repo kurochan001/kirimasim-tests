@@ -903,4 +903,6 @@ clause 37.
 
 ## 2026-11-16
 
-- [Mac speed comparison](simulation-speed-20261116.md): kirimasim 0.1.0 versus the Icarus 14.0 devel snapshot retrieved at campaign start, using twelve unchanged release benchmarks plus one standard-derived X/Z design. All thirteen passed the output checks over five repetitions. The geometric mean incremental-time ratio is 1.065 (kirimasim/Icarus), with per-design ratios and raw samples retained. Matching WSL2 measurements were requested through the private Git relay and have not been received.
+- [Mac speed comparison](simulation-speed-20261116.md): kirimasim 0.1.0 versus the Icarus 14.0 devel snapshot retrieved at campaign start, using twelve unchanged release benchmarks plus one standard-derived X/Z design. All thirteen passed the output checks over five repetitions. The geometric mean incremental-time ratio is 1.065 (kirimasim/Icarus), with per-design ratios and raw samples retained. The later [WSL2 result](simulation-speed-wsl2-20261116.md) was received and retained as provisional evidence under concurrent load.
+
+- [Performance investigation](simulation-speed-analysis-20261116.md) identifies bit-at-a-time wide operations and repeated VM type lookup. Separate prototypes reduce wide time by about 74%, gates/UDP by 19% and memory by 15%; they remain adoption proposals, with full simulator CI and WSL2 validation pending.

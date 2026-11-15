@@ -1,0 +1,3747 @@
+{
+  "schema": 1,
+  "started_at": "2026-11-15T22:14:19.180376+00:00",
+  "machine_start": {
+    "os": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "cores": 32,
+    "load_average": [
+      1.05,
+      3.8,
+      6.35
+    ],
+    "cpu": "AMD Ryzen 9 7950X 16-Core Processor",
+    "memory_gib": 110,
+    "distribution": "Ubuntu 24.04.4 LTS"
+  },
+  "runs": 5,
+  "warmups": 1,
+  "execution": "serial; tool order alternates per case/round; count order alternates per round",
+  "metric": "median large elapsed minus median n=1 elapsed; no extrapolation",
+  "pinned_commits": {
+    "kirimasim": "cfa2ccd75989c1ebb9ed63303271183377364cf0",
+    "icarus": "1eba3690d8314d79927df8690a7d97642dd93ce0"
+  },
+  "benchmark_commit": "cfa2ccd75989c1ebb9ed63303271183377364cf0",
+  "versions": {
+    "kirimasim": "kirimasim 0.1.0 (commit cfa2ccd75989), built with Clang 20.1.8",
+    "icarus": "Icarus Verilog version 14.0 (devel) (s20260301-1076-g1eba3690d)",
+    "vvp": "Icarus Verilog runtime version 14.0 (devel) (s20260301-1076-g1eba3690d)"
+  },
+  "binary_sha256": {
+    "kirimasim": "379de45cbe88a83993fa567dd3888f92b79253629cfbf41137b1f221bd572e84",
+    "icarus": "95355dc9d7d8c559848be0c3f54368defb3a143a7ce74220186a8bdcb4fa4abc",
+    "vvp": "5ecd0179c5daecc1000f39ce4aaa306c6c27b5e42c82ad5fbed22cdafb33360b"
+  },
+  "adapter_sha256": "4811f9d50d4a09d8794710296d644350468c49a9579a794f27af42ac9fb6b5bc",
+  "driver_sha256": "7c050e4f59d5b83db391b14bd7cd68b5e8b1aa1b858b00a1d3661c667de8dadb",
+  "cases": [
+    {
+      "name": "casez_struct",
+      "count": 5000000,
+      "expected": "casez_struct n=5000000 r0=001937a3 r7=ba163ebf r15=04cd903d",
+      "expected_small": null,
+      "source": "kirimasim/bench/casez_struct.sv",
+      "sha256": "2ebc587a689537d4f25bfe1790197388b41c721595e1e115791efb3abd804d29",
+      "tools": {
+        "kirimasim": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.005655474999912258,
+            "max_rss_mib": 1.04296875,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "casez_struct n=1 r0=00000000 r7=00000077 r15=000000ff"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.004499985999245837,
+                "max_rss_mib": 0.80078125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "casez_struct n=1 r0=00000000 r7=00000077 r15=000000ff",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.004741726999782259,
+                "max_rss_mib": 0.70703125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "casez_struct n=1 r0=00000000 r7=00000077 r15=000000ff",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.0036289879999458208,
+                "max_rss_mib": 0.77734375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "casez_struct n=1 r0=00000000 r7=00000077 r15=000000ff",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.004691799999818613,
+                "max_rss_mib": 0.76953125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "casez_struct n=1 r0=00000000 r7=00000077 r15=000000ff",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.0037068310002723592,
+                "max_rss_mib": 0.52734375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "casez_struct n=1 r0=00000000 r7=00000077 r15=000000ff",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 4.6788322639995386,
+                "max_rss_mib": 25.61328125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "casez_struct n=5000000 r0=001937a3 r7=ba163ebf r15=04cd903d",
+                "repetition": 0
+              },
+              {
+                "seconds": 4.588593545999174,
+                "max_rss_mib": 25.70703125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "casez_struct n=5000000 r0=001937a3 r7=ba163ebf r15=04cd903d",
+                "repetition": 1
+              },
+              {
+                "seconds": 4.68534514699968,
+                "max_rss_mib": 25.43359375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "casez_struct n=5000000 r0=001937a3 r7=ba163ebf r15=04cd903d",
+                "repetition": 2
+              },
+              {
+                "seconds": 4.546782393000285,
+                "max_rss_mib": 25.45703125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "casez_struct n=5000000 r0=001937a3 r7=ba163ebf r15=04cd903d",
+                "repetition": 3
+              },
+              {
+                "seconds": 4.653088011999898,
+                "max_rss_mib": 25.57421875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "casez_struct n=5000000 r0=001937a3 r7=ba163ebf r15=04cd903d",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${KIRIMASIM}",
+            "${BENCHMARK_ROOT}/bench/casez_struct.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.004499985999245837,
+            "minimum": 0.0036289879999458208,
+            "maximum": 0.004741726999782259,
+            "mad": 0.00024174100053642178
+          },
+          "large_seconds": {
+            "median": 4.653088011999898,
+            "minimum": 4.546782393000285,
+            "maximum": 4.68534514699968,
+            "mad": 0.032257134999781556
+          },
+          "incremental_seconds": 4.6485880260006525,
+          "median_peak_rss_mib": 25.57421875
+        },
+        "icarus": {
+          "build": {
+            "seconds": 0.005484745999638108,
+            "steps": [
+              {
+                "command": [
+                  "iverilog",
+                  "-g2012",
+                  "-o",
+                  "${WORK}/bench.vvp",
+                  "${PROJECT_ROOT}/bench/casez_struct.sv"
+                ],
+                "seconds": 0.005484745999638108,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.0026908830004686024,
+            "max_rss_mib": 1.0078125,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "casez_struct n=1 r0=00000000 r7=00000077 r15=000000ff"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.0034105459999409504,
+                "max_rss_mib": 0.9921875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "casez_struct n=1 r0=00000000 r7=00000077 r15=000000ff",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.003247714000281121,
+                "max_rss_mib": 0.76953125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "casez_struct n=1 r0=00000000 r7=00000077 r15=000000ff",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.003387978999853658,
+                "max_rss_mib": 1.0078125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "casez_struct n=1 r0=00000000 r7=00000077 r15=000000ff",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.0033394070005670073,
+                "max_rss_mib": 0.76171875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "casez_struct n=1 r0=00000000 r7=00000077 r15=000000ff",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.003373076000571018,
+                "max_rss_mib": 0.98828125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "casez_struct n=1 r0=00000000 r7=00000077 r15=000000ff",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 3.866204540000581,
+                "max_rss_mib": 7.59375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "casez_struct n=5000000 r0=001937a3 r7=ba163ebf r15=04cd903d",
+                "repetition": 0
+              },
+              {
+                "seconds": 3.8591369129999293,
+                "max_rss_mib": 7.6015625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "casez_struct n=5000000 r0=001937a3 r7=ba163ebf r15=04cd903d",
+                "repetition": 1
+              },
+              {
+                "seconds": 4.178953019999426,
+                "max_rss_mib": 7.65625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "casez_struct n=5000000 r0=001937a3 r7=ba163ebf r15=04cd903d",
+                "repetition": 2
+              },
+              {
+                "seconds": 3.79027864300042,
+                "max_rss_mib": 7.58984375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "casez_struct n=5000000 r0=001937a3 r7=ba163ebf r15=04cd903d",
+                "repetition": 3
+              },
+              {
+                "seconds": 3.9110023379998893,
+                "max_rss_mib": 7.58203125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "casez_struct n=5000000 r0=001937a3 r7=ba163ebf r15=04cd903d",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${VVP}",
+            "-n",
+            "${WORK}/bench.vvp",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.003373076000571018,
+            "minimum": 0.003247714000281121,
+            "maximum": 0.0034105459999409504,
+            "mad": 3.366900000401074e-05
+          },
+          "large_seconds": {
+            "median": 3.866204540000581,
+            "minimum": 3.79027864300042,
+            "maximum": 4.178953019999426,
+            "mad": 0.044797797999308386
+          },
+          "incremental_seconds": 3.86283146400001,
+          "median_peak_rss_mib": 7.59375
+        }
+      },
+      "comparison": {
+        "status": "comparable",
+        "ratio": 1.2034146633948617,
+        "ratio_definition": "kirimasim / Icarus median incremental elapsed time"
+      }
+    },
+    {
+      "name": "comb_chain",
+      "count": 3000000,
+      "expected": "comb_chain n=3000000 sum=d3369c10",
+      "expected_small": null,
+      "source": "kirimasim/bench/comb_chain.sv",
+      "sha256": "2d652bdbef9f3871a706bfb105fcfa55643dcfb95772bb8783299bf75d194a1d",
+      "tools": {
+        "kirimasim": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.00826949699967372,
+            "max_rss_mib": 0.703125,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "comb_chain n=1 sum=0b114273"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.008217006999984733,
+                "max_rss_mib": 0.80078125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "comb_chain n=1 sum=0b114273",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.00534023900036118,
+                "max_rss_mib": 0.78515625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "comb_chain n=1 sum=0b114273",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.00816750299964042,
+                "max_rss_mib": 0.796875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "comb_chain n=1 sum=0b114273",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.004576326999995217,
+                "max_rss_mib": 0.984375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "comb_chain n=1 sum=0b114273",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.008020004999707453,
+                "max_rss_mib": 0.76953125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "comb_chain n=1 sum=0b114273",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 11.338660097999309,
+                "max_rss_mib": 25.55078125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "comb_chain n=3000000 sum=d3369c10",
+                "repetition": 0
+              },
+              {
+                "seconds": 11.128568190999431,
+                "max_rss_mib": 25.19921875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "comb_chain n=3000000 sum=d3369c10",
+                "repetition": 1
+              },
+              {
+                "seconds": 11.409331531000134,
+                "max_rss_mib": 24.9921875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "comb_chain n=3000000 sum=d3369c10",
+                "repetition": 2
+              },
+              {
+                "seconds": 11.285100168999634,
+                "max_rss_mib": 24.8671875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "comb_chain n=3000000 sum=d3369c10",
+                "repetition": 3
+              },
+              {
+                "seconds": 11.302265985000304,
+                "max_rss_mib": 25.08203125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "comb_chain n=3000000 sum=d3369c10",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${KIRIMASIM}",
+            "${BENCHMARK_ROOT}/bench/comb_chain.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.008020004999707453,
+            "minimum": 0.004576326999995217,
+            "maximum": 0.008217006999984733,
+            "mad": 0.00019700200027727988
+          },
+          "large_seconds": {
+            "median": 11.302265985000304,
+            "minimum": 11.128568190999431,
+            "maximum": 11.409331531000134,
+            "mad": 0.0363941129990053
+          },
+          "incremental_seconds": 11.294245980000596,
+          "median_peak_rss_mib": 25.08203125
+        },
+        "icarus": {
+          "build": {
+            "seconds": 0.005709820999982185,
+            "steps": [
+              {
+                "command": [
+                  "iverilog",
+                  "-g2012",
+                  "-o",
+                  "${WORK}/bench.vvp",
+                  "${PROJECT_ROOT}/bench/comb_chain.sv"
+                ],
+                "seconds": 0.005709820999982185,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.003024202999768022,
+            "max_rss_mib": 0.8125,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "comb_chain n=1 sum=0b114273"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.0028194490005262196,
+                "max_rss_mib": 1.0078125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "comb_chain n=1 sum=0b114273",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.0035767080007644836,
+                "max_rss_mib": 1.05078125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "comb_chain n=1 sum=0b114273",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.0031474530005652923,
+                "max_rss_mib": 0.78125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "comb_chain n=1 sum=0b114273",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.0033208330005436437,
+                "max_rss_mib": 0.79296875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "comb_chain n=1 sum=0b114273",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.0028814769993914524,
+                "max_rss_mib": 0.8125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "comb_chain n=1 sum=0b114273",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 9.75631611999961,
+                "max_rss_mib": 7.67578125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "comb_chain n=3000000 sum=d3369c10",
+                "repetition": 0
+              },
+              {
+                "seconds": 9.641993502999867,
+                "max_rss_mib": 7.68359375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "comb_chain n=3000000 sum=d3369c10",
+                "repetition": 1
+              },
+              {
+                "seconds": 9.51602412900047,
+                "max_rss_mib": 7.71484375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "comb_chain n=3000000 sum=d3369c10",
+                "repetition": 2
+              },
+              {
+                "seconds": 9.593814521999775,
+                "max_rss_mib": 7.64453125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "comb_chain n=3000000 sum=d3369c10",
+                "repetition": 3
+              },
+              {
+                "seconds": 9.502010935999351,
+                "max_rss_mib": 7.7109375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "comb_chain n=3000000 sum=d3369c10",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${VVP}",
+            "-n",
+            "${WORK}/bench.vvp",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.0031474530005652923,
+            "minimum": 0.0028194490005262196,
+            "maximum": 0.0035767080007644836,
+            "mad": 0.0002659760011738399
+          },
+          "large_seconds": {
+            "median": 9.593814521999775,
+            "minimum": 9.502010935999351,
+            "maximum": 9.75631611999961,
+            "mad": 0.07779039299930446
+          },
+          "incremental_seconds": 9.59066706899921,
+          "median_peak_rss_mib": 7.68359375
+        }
+      },
+      "comparison": {
+        "status": "comparable",
+        "ratio": 1.1776288238080979,
+        "ratio_definition": "kirimasim / Icarus median incremental elapsed time"
+      }
+    },
+    {
+      "name": "dyn_queue",
+      "count": 4000000,
+      "expected": "dyn_queue n=4000000 sum=3888724928",
+      "expected_small": null,
+      "source": "kirimasim/bench/dyn_queue.sv",
+      "sha256": "14d0a0999fed5a890e5f090568f2cdebbc818d1819e05b20376dbf7a53fc67b3",
+      "tools": {
+        "kirimasim": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.0056368960003965185,
+            "max_rss_mib": 0.68359375,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "dyn_queue n=1 sum=1"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.005445386999781476,
+                "max_rss_mib": 0.7578125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "dyn_queue n=1 sum=1",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.005518660999769054,
+                "max_rss_mib": 0.79296875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "dyn_queue n=1 sum=1",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.004218942999614228,
+                "max_rss_mib": 0.7578125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "dyn_queue n=1 sum=1",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.004832218999581528,
+                "max_rss_mib": 0.78515625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "dyn_queue n=1 sum=1",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.004761954000059632,
+                "max_rss_mib": 1.06640625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "dyn_queue n=1 sum=1",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 4.947273476999726,
+                "max_rss_mib": 25.3203125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "dyn_queue n=4000000 sum=3888724928",
+                "repetition": 0
+              },
+              {
+                "seconds": 4.774931700999332,
+                "max_rss_mib": 25.2109375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "dyn_queue n=4000000 sum=3888724928",
+                "repetition": 1
+              },
+              {
+                "seconds": 4.8222492759996385,
+                "max_rss_mib": 25.265625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "dyn_queue n=4000000 sum=3888724928",
+                "repetition": 2
+              },
+              {
+                "seconds": 4.746123768999496,
+                "max_rss_mib": 25.21484375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "dyn_queue n=4000000 sum=3888724928",
+                "repetition": 3
+              },
+              {
+                "seconds": 4.8142448290000175,
+                "max_rss_mib": 25.2109375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "dyn_queue n=4000000 sum=3888724928",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${KIRIMASIM}",
+            "${BENCHMARK_ROOT}/bench/dyn_queue.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.004832218999581528,
+            "minimum": 0.004218942999614228,
+            "maximum": 0.005518660999769054,
+            "mad": 0.0006131680001999484
+          },
+          "large_seconds": {
+            "median": 4.8142448290000175,
+            "minimum": 4.746123768999496,
+            "maximum": 4.947273476999726,
+            "mad": 0.03931312800068554
+          },
+          "incremental_seconds": 4.809412610000436,
+          "median_peak_rss_mib": 25.21484375
+        },
+        "icarus": {
+          "build": {
+            "seconds": 0.014698756000143476,
+            "steps": [
+              {
+                "command": [
+                  "iverilog",
+                  "-g2012",
+                  "-o",
+                  "${WORK}/bench.vvp",
+                  "${PROJECT_ROOT}/bench/dyn_queue.sv"
+                ],
+                "seconds": 0.014698756000143476,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.0030917840003894526,
+            "max_rss_mib": 0.80859375,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "dyn_queue n=1 sum=1"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.003283586000179639,
+                "max_rss_mib": 0.765625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "dyn_queue n=1 sum=1",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.0033273380004175124,
+                "max_rss_mib": 1.046875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "dyn_queue n=1 sum=1",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.0032837849994393764,
+                "max_rss_mib": 0.75,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "dyn_queue n=1 sum=1",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.003093583000008948,
+                "max_rss_mib": 0.82421875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "dyn_queue n=1 sum=1",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.0032917879998421995,
+                "max_rss_mib": 0.71484375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "dyn_queue n=1 sum=1",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 6.746257621000041,
+                "max_rss_mib": 7.7734375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "dyn_queue n=4000000 sum=3888724928",
+                "repetition": 0
+              },
+              {
+                "seconds": 6.558447456999602,
+                "max_rss_mib": 7.80859375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "dyn_queue n=4000000 sum=3888724928",
+                "repetition": 1
+              },
+              {
+                "seconds": 6.914721490999909,
+                "max_rss_mib": 7.80078125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "dyn_queue n=4000000 sum=3888724928",
+                "repetition": 2
+              },
+              {
+                "seconds": 6.636065927000345,
+                "max_rss_mib": 7.77734375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "dyn_queue n=4000000 sum=3888724928",
+                "repetition": 3
+              },
+              {
+                "seconds": 6.6826327890003085,
+                "max_rss_mib": 7.765625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "dyn_queue n=4000000 sum=3888724928",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${VVP}",
+            "-n",
+            "${WORK}/bench.vvp",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.0032837849994393764,
+            "minimum": 0.003093583000008948,
+            "maximum": 0.0033273380004175124,
+            "mad": 8.00300040282309e-06
+          },
+          "large_seconds": {
+            "median": 6.6826327890003085,
+            "minimum": 6.558447456999602,
+            "maximum": 6.914721490999909,
+            "mad": 0.06362483199973212
+          },
+          "incremental_seconds": 6.679349004000869,
+          "median_peak_rss_mib": 7.77734375
+        }
+      },
+      "comparison": {
+        "status": "comparable",
+        "ratio": 0.7200421189429751,
+        "ratio_definition": "kirimasim / Icarus median incremental elapsed time"
+      }
+    },
+    {
+      "name": "fork_join",
+      "count": 4000000,
+      "expected": "fork_join n=4000000 a=4000000 b=8000002000000 c=84764928 d=13057792",
+      "expected_small": null,
+      "source": "kirimasim/bench/fork_join.sv",
+      "sha256": "de86490b32e3a10d2a1d4f1f9e9ac906f8adf2d57e8a708fd74f09fe3fd3c20e",
+      "tools": {
+        "kirimasim": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.00642845199945441,
+            "max_rss_mib": 0.97265625,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "fork_join n=1 a=1 b=1 c=1 d=0"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.008310653000080492,
+                "max_rss_mib": 0.703125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fork_join n=1 a=1 b=1 c=1 d=0",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.004733251999823551,
+                "max_rss_mib": 0.76171875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fork_join n=1 a=1 b=1 c=1 d=0",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.005999467999572516,
+                "max_rss_mib": 0.8203125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fork_join n=1 a=1 b=1 c=1 d=0",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.005255254000076093,
+                "max_rss_mib": 0.796875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fork_join n=1 a=1 b=1 c=1 d=0",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.007559783000033349,
+                "max_rss_mib": 0.76953125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fork_join n=1 a=1 b=1 c=1 d=0",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 6.3680136880002465,
+                "max_rss_mib": 25.00390625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fork_join n=4000000 a=4000000 b=8000002000000 c=84764928 d=13057792",
+                "repetition": 0
+              },
+              {
+                "seconds": 6.259001234000607,
+                "max_rss_mib": 25.69140625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fork_join n=4000000 a=4000000 b=8000002000000 c=84764928 d=13057792",
+                "repetition": 1
+              },
+              {
+                "seconds": 6.201454973000182,
+                "max_rss_mib": 25.37109375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fork_join n=4000000 a=4000000 b=8000002000000 c=84764928 d=13057792",
+                "repetition": 2
+              },
+              {
+                "seconds": 6.584168516999853,
+                "max_rss_mib": 25.72265625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fork_join n=4000000 a=4000000 b=8000002000000 c=84764928 d=13057792",
+                "repetition": 3
+              },
+              {
+                "seconds": 6.493233395000061,
+                "max_rss_mib": 25.1015625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fork_join n=4000000 a=4000000 b=8000002000000 c=84764928 d=13057792",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${KIRIMASIM}",
+            "${BENCHMARK_ROOT}/bench/fork_join.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.005999467999572516,
+            "minimum": 0.004733251999823551,
+            "maximum": 0.008310653000080492,
+            "mad": 0.0012662159997489653
+          },
+          "large_seconds": {
+            "median": 6.3680136880002465,
+            "minimum": 6.201454973000182,
+            "maximum": 6.584168516999853,
+            "mad": 0.12521970699981466
+          },
+          "incremental_seconds": 6.362014220000674,
+          "median_peak_rss_mib": 25.37109375
+        },
+        "icarus": {
+          "build": {
+            "seconds": 0.005510994999895047,
+            "steps": [
+              {
+                "command": [
+                  "iverilog",
+                  "-g2012",
+                  "-o",
+                  "${WORK}/bench.vvp",
+                  "${PROJECT_ROOT}/bench/fork_join.sv"
+                ],
+                "seconds": 0.005510994999895047,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.0028899199996885727,
+            "max_rss_mib": 0.83203125,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "fork_join n=1 a=1 b=1 c=1 d=0"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.0026831650002350216,
+                "max_rss_mib": 1.48046875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fork_join n=1 a=1 b=1 c=1 d=0",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.003289966999545868,
+                "max_rss_mib": 1.03125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fork_join n=1 a=1 b=1 c=1 d=0",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.002904097999817168,
+                "max_rss_mib": 0.796875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fork_join n=1 a=1 b=1 c=1 d=0",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.0033726589999787393,
+                "max_rss_mib": 1.0078125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fork_join n=1 a=1 b=1 c=1 d=0",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.0029219409998404444,
+                "max_rss_mib": 0.796875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fork_join n=1 a=1 b=1 c=1 d=0",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 4.454046013999687,
+                "max_rss_mib": 7.625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fork_join n=4000000 a=4000000 b=8000002000000 c=84764928 d=13057792",
+                "repetition": 0
+              },
+              {
+                "seconds": 4.340991987999587,
+                "max_rss_mib": 7.63671875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fork_join n=4000000 a=4000000 b=8000002000000 c=84764928 d=13057792",
+                "repetition": 1
+              },
+              {
+                "seconds": 4.300026079999952,
+                "max_rss_mib": 7.63671875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fork_join n=4000000 a=4000000 b=8000002000000 c=84764928 d=13057792",
+                "repetition": 2
+              },
+              {
+                "seconds": 4.93579192299967,
+                "max_rss_mib": 7.6328125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fork_join n=4000000 a=4000000 b=8000002000000 c=84764928 d=13057792",
+                "repetition": 3
+              },
+              {
+                "seconds": 4.369468647999383,
+                "max_rss_mib": 7.6171875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fork_join n=4000000 a=4000000 b=8000002000000 c=84764928 d=13057792",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${VVP}",
+            "-n",
+            "${WORK}/bench.vvp",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.0029219409998404444,
+            "minimum": 0.0026831650002350216,
+            "maximum": 0.0033726589999787393,
+            "mad": 0.00023877599960542284
+          },
+          "large_seconds": {
+            "median": 4.369468647999383,
+            "minimum": 4.300026079999952,
+            "maximum": 4.93579192299967,
+            "mad": 0.06944256799943105
+          },
+          "incremental_seconds": 4.366546706999543,
+          "median_peak_rss_mib": 7.6328125
+        }
+      },
+      "comparison": {
+        "status": "comparable",
+        "ratio": 1.456989847332312,
+        "ratio_definition": "kirimasim / Icarus median incremental elapsed time"
+      }
+    },
+    {
+      "name": "func_call",
+      "count": 1500000,
+      "expected": "func_call n=1500000 s=46234688 sum=-983312896",
+      "expected_small": null,
+      "source": "kirimasim/bench/func_call.sv",
+      "sha256": "f7031f608bdb6bab89c04bd2cd30ffa139d8fc5a2a044db14e681e2582aecb0a",
+      "tools": {
+        "kirimasim": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.004941136000525148,
+            "max_rss_mib": 0.53125,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "func_call n=1 s=2 sum=1683697"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.004444533999958367,
+                "max_rss_mib": 0.8046875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "func_call n=1 s=2 sum=1683697",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.005081807999886223,
+                "max_rss_mib": 0.97265625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "func_call n=1 s=2 sum=1683697",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.004367764000562602,
+                "max_rss_mib": 0.890625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "func_call n=1 s=2 sum=1683697",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.005085985000732762,
+                "max_rss_mib": 0.80078125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "func_call n=1 s=2 sum=1683697",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.004430369000147039,
+                "max_rss_mib": 0.828125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "func_call n=1 s=2 sum=1683697",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 6.005549673000132,
+                "max_rss_mib": 25.3984375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "func_call n=1500000 s=46234688 sum=-983312896",
+                "repetition": 0
+              },
+              {
+                "seconds": 6.130294341000081,
+                "max_rss_mib": 25.39453125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "func_call n=1500000 s=46234688 sum=-983312896",
+                "repetition": 1
+              },
+              {
+                "seconds": 6.02242821299933,
+                "max_rss_mib": 25.70703125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "func_call n=1500000 s=46234688 sum=-983312896",
+                "repetition": 2
+              },
+              {
+                "seconds": 6.035420211999735,
+                "max_rss_mib": 24.90234375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "func_call n=1500000 s=46234688 sum=-983312896",
+                "repetition": 3
+              },
+              {
+                "seconds": 5.942979772000399,
+                "max_rss_mib": 25.2265625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "func_call n=1500000 s=46234688 sum=-983312896",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${KIRIMASIM}",
+            "${BENCHMARK_ROOT}/bench/func_call.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.004444533999958367,
+            "minimum": 0.004367764000562602,
+            "maximum": 0.005085985000732762,
+            "mad": 7.67699993957649e-05
+          },
+          "large_seconds": {
+            "median": 6.02242821299933,
+            "minimum": 5.942979772000399,
+            "maximum": 6.130294341000081,
+            "mad": 0.016878539999197528
+          },
+          "incremental_seconds": 6.0179836789993715,
+          "median_peak_rss_mib": 25.39453125
+        },
+        "icarus": {
+          "build": {
+            "seconds": 0.014283806000094046,
+            "steps": [
+              {
+                "command": [
+                  "iverilog",
+                  "-g2012",
+                  "-o",
+                  "${WORK}/bench.vvp",
+                  "${PROJECT_ROOT}/bench/func_call.sv"
+                ],
+                "seconds": 0.014283806000094046,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.003227860999686527,
+            "max_rss_mib": 1.03515625,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "func_call n=1 s=2 sum=1683697"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.0035013779997825623,
+                "max_rss_mib": 0.7421875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "func_call n=1 s=2 sum=1683697",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.0035531109997464227,
+                "max_rss_mib": 0.828125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "func_call n=1 s=2 sum=1683697",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.003376161999767646,
+                "max_rss_mib": 1.015625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "func_call n=1 s=2 sum=1683697",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.0033436339999752818,
+                "max_rss_mib": 0.796875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "func_call n=1 s=2 sum=1683697",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.003103102999375551,
+                "max_rss_mib": 0.75,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "func_call n=1 s=2 sum=1683697",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 7.546645403000184,
+                "max_rss_mib": 7.6640625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "func_call n=1500000 s=46234688 sum=-983312896",
+                "repetition": 0
+              },
+              {
+                "seconds": 7.75483046699992,
+                "max_rss_mib": 7.62890625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "func_call n=1500000 s=46234688 sum=-983312896",
+                "repetition": 1
+              },
+              {
+                "seconds": 7.449942372000805,
+                "max_rss_mib": 7.5703125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "func_call n=1500000 s=46234688 sum=-983312896",
+                "repetition": 2
+              },
+              {
+                "seconds": 7.789582749000147,
+                "max_rss_mib": 7.6484375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "func_call n=1500000 s=46234688 sum=-983312896",
+                "repetition": 3
+              },
+              {
+                "seconds": 7.313160243999846,
+                "max_rss_mib": 7.59765625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "func_call n=1500000 s=46234688 sum=-983312896",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${VVP}",
+            "-n",
+            "${WORK}/bench.vvp",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.003376161999767646,
+            "minimum": 0.003103102999375551,
+            "maximum": 0.0035531109997464227,
+            "mad": 0.00012521600001491606
+          },
+          "large_seconds": {
+            "median": 7.546645403000184,
+            "minimum": 7.313160243999846,
+            "maximum": 7.789582749000147,
+            "mad": 0.20818506399973558
+          },
+          "incremental_seconds": 7.5432692410004165,
+          "median_peak_rss_mib": 7.62890625
+        }
+      },
+      "comparison": {
+        "status": "comparable",
+        "ratio": 0.797795158402863,
+        "ratio_definition": "kirimasim / Icarus median incremental elapsed time"
+      }
+    },
+    {
+      "name": "gate_udp",
+      "count": 400000,
+      "expected": "gate_udp n=400000 acc=8bcfd518",
+      "expected_small": null,
+      "source": "kirimasim/bench/gate_udp.sv",
+      "sha256": "6cda61e63bfa60e158b4f833ee450dc4004e93b3330cad5d8873ff858de1d4db",
+      "tools": {
+        "kirimasim": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.008118117000776692,
+            "max_rss_mib": 0.703125,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "gate_udp n=1 acc=610673f5"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.008195460999559145,
+                "max_rss_mib": 1.82421875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.0050107270008084015,
+                "max_rss_mib": 0.9140625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.009973471000193967,
+                "max_rss_mib": 0.76953125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.005447290999654797,
+                "max_rss_mib": 0.9921875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.009285187999921618,
+                "max_rss_mib": 0.76171875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 6.349024578000353,
+                "max_rss_mib": 25.63671875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 0
+              },
+              {
+                "seconds": 6.460456894999879,
+                "max_rss_mib": 25.28125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 1
+              },
+              {
+                "seconds": 6.24775881900041,
+                "max_rss_mib": 25.3515625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 2
+              },
+              {
+                "seconds": 6.3592346719997295,
+                "max_rss_mib": 25.32421875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 3
+              },
+              {
+                "seconds": 6.348907870999938,
+                "max_rss_mib": 25.13671875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${KIRIMASIM}",
+            "${BENCHMARK_ROOT}/bench/gate_udp.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.008195460999559145,
+            "minimum": 0.0050107270008084015,
+            "maximum": 0.009973471000193967,
+            "mad": 0.001778010000634822
+          },
+          "large_seconds": {
+            "median": 6.349024578000353,
+            "minimum": 6.24775881900041,
+            "maximum": 6.460456894999879,
+            "mad": 0.010210093999376113
+          },
+          "incremental_seconds": 6.340829117000794,
+          "median_peak_rss_mib": 25.32421875
+        },
+        "icarus": {
+          "build": {
+            "seconds": 0.010883867999837094,
+            "steps": [
+              {
+                "command": [
+                  "iverilog",
+                  "-g2012",
+                  "-o",
+                  "${WORK}/bench.vvp",
+                  "${PROJECT_ROOT}/bench/gate_udp.sv"
+                ],
+                "seconds": 0.010883867999837094,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.0037626630000886507,
+            "max_rss_mib": 0.8359375,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "gate_udp n=1 acc=610673f5"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.0033972869996432564,
+                "max_rss_mib": 1.03125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.00438363500052219,
+                "max_rss_mib": 1.015625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.0037427659999593743,
+                "max_rss_mib": 0.79296875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.004073914000400691,
+                "max_rss_mib": 0.76171875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.0035712389999389416,
+                "max_rss_mib": 0.8046875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 3.6606535549999535,
+                "max_rss_mib": 7.86328125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 0
+              },
+              {
+                "seconds": 3.708895448000476,
+                "max_rss_mib": 7.86328125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 1
+              },
+              {
+                "seconds": 3.7001906140003484,
+                "max_rss_mib": 7.77734375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 2
+              },
+              {
+                "seconds": 3.654308506000234,
+                "max_rss_mib": 7.79296875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 3
+              },
+              {
+                "seconds": 3.8152620519995253,
+                "max_rss_mib": 7.8359375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${VVP}",
+            "-n",
+            "${WORK}/bench.vvp",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.0037427659999593743,
+            "minimum": 0.0033972869996432564,
+            "maximum": 0.00438363500052219,
+            "mad": 0.000331148000441317
+          },
+          "large_seconds": {
+            "median": 3.7001906140003484,
+            "minimum": 3.654308506000234,
+            "maximum": 3.8152620519995253,
+            "mad": 0.03953705900039495
+          },
+          "incremental_seconds": 3.696447848000389,
+          "median_peak_rss_mib": 7.8359375
+        }
+      },
+      "comparison": {
+        "status": "comparable",
+        "ratio": 1.7153844387202422,
+        "ratio_definition": "kirimasim / Icarus median incremental elapsed time"
+      }
+    },
+    {
+      "name": "mem_rw",
+      "count": 4000000,
+      "expected": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+      "expected_small": null,
+      "source": "kirimasim/bench/mem_rw.sv",
+      "sha256": "586c4474d7872540e33c82984c9c33580a3dfa9a957a588ae4a1aa36601cf21e",
+      "tools": {
+        "kirimasim": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.005356989999199868,
+            "max_rss_mib": 0.828125,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.004965996999999334,
+                "max_rss_mib": 0.7734375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.0052367690004757605,
+                "max_rss_mib": 0.703125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.005872961999557447,
+                "max_rss_mib": 0.78515625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.005603982000138785,
+                "max_rss_mib": 0.79296875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.007743351000499388,
+                "max_rss_mib": 0.796875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 5.610046447000059,
+                "max_rss_mib": 25.03125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 0
+              },
+              {
+                "seconds": 6.159458060000361,
+                "max_rss_mib": 25.37890625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 1
+              },
+              {
+                "seconds": 6.075909144999969,
+                "max_rss_mib": 25.10546875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 2
+              },
+              {
+                "seconds": 5.626238985000782,
+                "max_rss_mib": 25.37890625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 3
+              },
+              {
+                "seconds": 5.771416909000436,
+                "max_rss_mib": 25.359375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${KIRIMASIM}",
+            "${BENCHMARK_ROOT}/bench/mem_rw.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.005603982000138785,
+            "minimum": 0.004965996999999334,
+            "maximum": 0.007743351000499388,
+            "mad": 0.0003672129996630247
+          },
+          "large_seconds": {
+            "median": 5.771416909000436,
+            "minimum": 5.610046447000059,
+            "maximum": 6.159458060000361,
+            "mad": 0.1613704620003773
+          },
+          "incremental_seconds": 5.765812927000297,
+          "median_peak_rss_mib": 25.359375
+        },
+        "icarus": {
+          "build": {
+            "seconds": 0.005182716000490473,
+            "steps": [
+              {
+                "command": [
+                  "iverilog",
+                  "-g2012",
+                  "-o",
+                  "${WORK}/bench.vvp",
+                  "${PROJECT_ROOT}/bench/mem_rw.sv"
+                ],
+                "seconds": 0.005182716000490473,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.0030883300005370984,
+            "max_rss_mib": 0.9921875,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.003448114000093483,
+                "max_rss_mib": 1.0234375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.0034638479992281646,
+                "max_rss_mib": 0.8046875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.0037793620003867545,
+                "max_rss_mib": 0.8203125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.003567730000213487,
+                "max_rss_mib": 0.8359375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.003669235000415938,
+                "max_rss_mib": 0.734375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 3.3351119979997748,
+                "max_rss_mib": 7.68359375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 0
+              },
+              {
+                "seconds": 3.420824184999219,
+                "max_rss_mib": 7.74609375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 1
+              },
+              {
+                "seconds": 3.440123735999805,
+                "max_rss_mib": 7.68359375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 2
+              },
+              {
+                "seconds": 3.4185923599998205,
+                "max_rss_mib": 7.74609375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 3
+              },
+              {
+                "seconds": 3.370560557000317,
+                "max_rss_mib": 7.69921875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${VVP}",
+            "-n",
+            "${WORK}/bench.vvp",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.003567730000213487,
+            "minimum": 0.003448114000093483,
+            "maximum": 0.0037793620003867545,
+            "mad": 0.00010388200098532252
+          },
+          "large_seconds": {
+            "median": 3.4185923599998205,
+            "minimum": 3.3351119979997748,
+            "maximum": 3.440123735999805,
+            "mad": 0.021531375999984448
+          },
+          "incremental_seconds": 3.415024629999607,
+          "median_peak_rss_mib": 7.69921875
+        }
+      },
+      "comparison": {
+        "status": "comparable",
+        "ratio": 1.6883664253399429,
+        "ratio_definition": "kirimasim / Icarus median incremental elapsed time"
+      }
+    },
+    {
+      "name": "nba_burst",
+      "count": 500000,
+      "expected": "nba_burst n=500000 last=499999",
+      "expected_small": null,
+      "source": "kirimasim/bench/nba_burst.sv",
+      "sha256": "f11b74c35b41e2dd108e286b09538260fb6a457420766d383a3ac7d42b451918",
+      "tools": {
+        "kirimasim": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.0038509720006913994,
+            "max_rss_mib": 0.70703125,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "nba_burst n=1 last=0"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.006215400000655791,
+                "max_rss_mib": 0.85546875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_burst n=1 last=0",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.004051529999742343,
+                "max_rss_mib": 1.00390625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_burst n=1 last=0",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.004221707999931823,
+                "max_rss_mib": 0.78125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_burst n=1 last=0",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.003855689999909373,
+                "max_rss_mib": 1.00390625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_burst n=1 last=0",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.003994941999735602,
+                "max_rss_mib": 1.05078125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_burst n=1 last=0",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 0.1573486529996444,
+                "max_rss_mib": 121.640625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_burst n=500000 last=499999",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.1320866770001885,
+                "max_rss_mib": 121.55078125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_burst n=500000 last=499999",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.1275396629998795,
+                "max_rss_mib": 121.3203125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_burst n=500000 last=499999",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.1284721729998637,
+                "max_rss_mib": 119.58984375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_burst n=500000 last=499999",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.1323019049996219,
+                "max_rss_mib": 121.6015625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_burst n=500000 last=499999",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${KIRIMASIM}",
+            "${BENCHMARK_ROOT}/bench/nba_burst.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.004051529999742343,
+            "minimum": 0.003855689999909373,
+            "maximum": 0.006215400000655791,
+            "mad": 0.00017017800018948037
+          },
+          "large_seconds": {
+            "median": 0.1320866770001885,
+            "minimum": 0.1275396629998795,
+            "maximum": 0.1573486529996444,
+            "mad": 0.003614504000324814
+          },
+          "incremental_seconds": 0.12803514700044616,
+          "median_peak_rss_mib": 121.55078125
+        },
+        "icarus": {
+          "build": {
+            "seconds": 0.016029467999942426,
+            "steps": [
+              {
+                "command": [
+                  "iverilog",
+                  "-g2012",
+                  "-o",
+                  "${WORK}/bench.vvp",
+                  "${PROJECT_ROOT}/bench/nba_burst.sv"
+                ],
+                "seconds": 0.016029467999942426,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.003288902999884158,
+            "max_rss_mib": 0.98828125,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "nba_burst n=1 last=0"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.002925419999883161,
+                "max_rss_mib": 0.76171875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_burst n=1 last=0",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.0032641059997331467,
+                "max_rss_mib": 1.04296875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_burst n=1 last=0",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.0031004689999463153,
+                "max_rss_mib": 0.7109375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_burst n=1 last=0",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.0031400790003317525,
+                "max_rss_mib": 0.75390625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_burst n=1 last=0",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.0029134120004528086,
+                "max_rss_mib": 1.87890625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_burst n=1 last=0",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 0.11843633100033912,
+                "max_rss_mib": 34.15234375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_burst n=500000 last=499999",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.12523049499941408,
+                "max_rss_mib": 33.0703125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_burst n=500000 last=499999",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.12314504199912335,
+                "max_rss_mib": 33.5625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_burst n=500000 last=499999",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.1232368150003822,
+                "max_rss_mib": 33.578125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_burst n=500000 last=499999",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.12116917700041085,
+                "max_rss_mib": 34.08203125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_burst n=500000 last=499999",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${VVP}",
+            "-n",
+            "${WORK}/bench.vvp",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.0031004689999463153,
+            "minimum": 0.0029134120004528086,
+            "maximum": 0.0032641059997331467,
+            "mad": 0.00016363699978683144
+          },
+          "large_seconds": {
+            "median": 0.12314504199912335,
+            "minimum": 0.11843633100033912,
+            "maximum": 0.12523049499941408,
+            "mad": 0.0019758649987124954
+          },
+          "incremental_seconds": 0.12004457299917703,
+          "median_peak_rss_mib": 33.578125
+        }
+      },
+      "comparison": {
+        "status": "comparable",
+        "ratio": 1.066563392260339,
+        "ratio_definition": "kirimasim / Icarus median incremental elapsed time"
+      }
+    },
+    {
+      "name": "nba_shift",
+      "count": 1000000,
+      "expected": "nba_shift n=1000000 sum=1b0c71c3",
+      "expected_small": null,
+      "source": "kirimasim/bench/nba_shift.sv",
+      "sha256": "5fbf012900e62be74a8382a43103bd8283c652f55a5e640769affae623a4b3c4",
+      "tools": {
+        "kirimasim": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.004556023000077403,
+            "max_rss_mib": 0.74609375,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "nba_shift n=1 sum=00000000"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.004916631999549281,
+                "max_rss_mib": 0.7890625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1 sum=00000000",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.005759507999755442,
+                "max_rss_mib": 1.0078125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1 sum=00000000",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.004336910000347416,
+                "max_rss_mib": 0.796875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1 sum=00000000",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.0062130159994922,
+                "max_rss_mib": 1.30859375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1 sum=00000000",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.004975637999450555,
+                "max_rss_mib": 2.3671875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1 sum=00000000",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 30.695533303999582,
+                "max_rss_mib": 25.12109375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1000000 sum=1b0c71c3",
+                "repetition": 0
+              },
+              {
+                "seconds": 31.059515244000067,
+                "max_rss_mib": 25.75390625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1000000 sum=1b0c71c3",
+                "repetition": 1
+              },
+              {
+                "seconds": 30.30006418100038,
+                "max_rss_mib": 25.6171875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1000000 sum=1b0c71c3",
+                "repetition": 2
+              },
+              {
+                "seconds": 31.4953624259997,
+                "max_rss_mib": 25.67578125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1000000 sum=1b0c71c3",
+                "repetition": 3
+              },
+              {
+                "seconds": 33.9760072880008,
+                "max_rss_mib": 25.01953125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1000000 sum=1b0c71c3",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${KIRIMASIM}",
+            "${BENCHMARK_ROOT}/bench/nba_shift.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.004975637999450555,
+            "minimum": 0.004336910000347416,
+            "maximum": 0.0062130159994922,
+            "mad": 0.0006387279991031392
+          },
+          "large_seconds": {
+            "median": 31.059515244000067,
+            "minimum": 30.30006418100038,
+            "maximum": 33.9760072880008,
+            "mad": 0.4358471819996339
+          },
+          "incremental_seconds": 31.054539606000617,
+          "median_peak_rss_mib": 25.6171875
+        },
+        "icarus": {
+          "build": {
+            "seconds": 0.00601727400044183,
+            "steps": [
+              {
+                "command": [
+                  "iverilog",
+                  "-g2012",
+                  "-o",
+                  "${WORK}/bench.vvp",
+                  "${PROJECT_ROOT}/bench/nba_shift.sv"
+                ],
+                "seconds": 0.00601727400044183,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.0032033850002335384,
+            "max_rss_mib": 1.05859375,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "nba_shift n=1 sum=00000000"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.00391979799951514,
+                "max_rss_mib": 0.75,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1 sum=00000000",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.003418106000026455,
+                "max_rss_mib": 1.96875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1 sum=00000000",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.0037328480002543074,
+                "max_rss_mib": 1.015625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1 sum=00000000",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.00361596200036729,
+                "max_rss_mib": 0.796875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1 sum=00000000",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.0033711280002535204,
+                "max_rss_mib": 1.0546875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1 sum=00000000",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 22.750890418999916,
+                "max_rss_mib": 7.76953125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1000000 sum=1b0c71c3",
+                "repetition": 0
+              },
+              {
+                "seconds": 23.07541447099993,
+                "max_rss_mib": 7.875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1000000 sum=1b0c71c3",
+                "repetition": 1
+              },
+              {
+                "seconds": 23.271796463999635,
+                "max_rss_mib": 7.77734375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1000000 sum=1b0c71c3",
+                "repetition": 2
+              },
+              {
+                "seconds": 22.61800506599957,
+                "max_rss_mib": 7.83203125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1000000 sum=1b0c71c3",
+                "repetition": 3
+              },
+              {
+                "seconds": 22.94664365100016,
+                "max_rss_mib": 7.81640625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1000000 sum=1b0c71c3",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${VVP}",
+            "-n",
+            "${WORK}/bench.vvp",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.00361596200036729,
+            "minimum": 0.0033711280002535204,
+            "maximum": 0.00391979799951514,
+            "mad": 0.00019785600034083473
+          },
+          "large_seconds": {
+            "median": 22.94664365100016,
+            "minimum": 22.61800506599957,
+            "maximum": 23.271796463999635,
+            "mad": 0.19575323200024286
+          },
+          "incremental_seconds": 22.94302768899979,
+          "median_peak_rss_mib": 7.81640625
+        }
+      },
+      "comparison": {
+        "status": "comparable",
+        "ratio": 1.353550195159724,
+        "ratio_definition": "kirimasim / Icarus median incremental elapsed time"
+      }
+    },
+    {
+      "name": "proc_wait",
+      "count": 1000000,
+      "expected": "proc_wait n=1000000 sum=35376317874",
+      "expected_small": null,
+      "source": "kirimasim/bench/proc_wait.sv",
+      "sha256": "88be699fa02c0485fdb9bd15120b21f2af2c6192816252aea19667144ad9dfed",
+      "tools": {
+        "kirimasim": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.009676874999968277,
+            "max_rss_mib": 0.80859375,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "proc_wait n=1 sum=15255"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.007813793999957852,
+                "max_rss_mib": 0.796875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.006434718000491557,
+                "max_rss_mib": 0.74609375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.009883411999908276,
+                "max_rss_mib": 0.7109375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.00534877000063716,
+                "max_rss_mib": 0.78125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.00867905100039934,
+                "max_rss_mib": 0.51953125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 8.449405176000255,
+                "max_rss_mib": 26.984375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 0
+              },
+              {
+                "seconds": 8.344225481000649,
+                "max_rss_mib": 27.58984375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 1
+              },
+              {
+                "seconds": 8.504262363000635,
+                "max_rss_mib": 27.265625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 2
+              },
+              {
+                "seconds": 8.394307388000016,
+                "max_rss_mib": 27.05078125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 3
+              },
+              {
+                "seconds": 8.318779840999923,
+                "max_rss_mib": 26.984375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${KIRIMASIM}",
+            "${BENCHMARK_ROOT}/bench/proc_wait.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.007813793999957852,
+            "minimum": 0.00534877000063716,
+            "maximum": 0.009883411999908276,
+            "mad": 0.0013790759994662949
+          },
+          "large_seconds": {
+            "median": 8.394307388000016,
+            "minimum": 8.318779840999923,
+            "maximum": 8.504262363000635,
+            "mad": 0.055097788000239234
+          },
+          "incremental_seconds": 8.386493594000058,
+          "median_peak_rss_mib": 27.05078125
+        },
+        "icarus": {
+          "build": {
+            "seconds": 0.006536337000397907,
+            "steps": [
+              {
+                "command": [
+                  "iverilog",
+                  "-g2012",
+                  "-o",
+                  "${WORK}/bench.vvp",
+                  "${PROJECT_ROOT}/bench/proc_wait.sv"
+                ],
+                "seconds": 0.006536337000397907,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.0039361620001727715,
+            "max_rss_mib": 1.05859375,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "proc_wait n=1 sum=15255"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.003914173999874038,
+                "max_rss_mib": 0.83203125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.004211858999951801,
+                "max_rss_mib": 0.7734375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.0038878049999766517,
+                "max_rss_mib": 0.953125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.00415729900032602,
+                "max_rss_mib": 1.00390625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.003823143999397871,
+                "max_rss_mib": 0.84765625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 5.611302172999785,
+                "max_rss_mib": 8.23046875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 0
+              },
+              {
+                "seconds": 5.6986379990003115,
+                "max_rss_mib": 8.2421875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 1
+              },
+              {
+                "seconds": 5.697685263000494,
+                "max_rss_mib": 8.23828125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 2
+              },
+              {
+                "seconds": 5.659120996999263,
+                "max_rss_mib": 8.24609375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 3
+              },
+              {
+                "seconds": 5.703112766999766,
+                "max_rss_mib": 8.23046875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${VVP}",
+            "-n",
+            "${WORK}/bench.vvp",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.003914173999874038,
+            "minimum": 0.003823143999397871,
+            "maximum": 0.004211858999951801,
+            "mad": 9.10300004761666e-05
+          },
+          "large_seconds": {
+            "median": 5.697685263000494,
+            "minimum": 5.611302172999785,
+            "maximum": 5.703112766999766,
+            "mad": 0.005427503999271721
+          },
+          "incremental_seconds": 5.69377108900062,
+          "median_peak_rss_mib": 8.23828125
+        }
+      },
+      "comparison": {
+        "status": "comparable",
+        "ratio": 1.4729242645882465,
+        "ratio_definition": "kirimasim / Icarus median incremental elapsed time"
+      }
+    },
+    {
+      "name": "string_fmt",
+      "count": 500000,
+      "expected": "string_fmt n=500000 h=127126b0",
+      "expected_small": null,
+      "source": "kirimasim/bench/string_fmt.sv",
+      "sha256": "cf79f868a04bbdbfa10414859e7b5fc10dd79613c8e85b852310efeab623596d",
+      "tools": {
+        "kirimasim": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.004809566999938397,
+            "max_rss_mib": 0.73046875,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "string_fmt n=1 h=dcc025c8"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.00765166700057307,
+                "max_rss_mib": 0.78515625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "string_fmt n=1 h=dcc025c8",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.00554345100044884,
+                "max_rss_mib": 0.796875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "string_fmt n=1 h=dcc025c8",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.004183200999250403,
+                "max_rss_mib": 0.76171875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "string_fmt n=1 h=dcc025c8",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.006504015999780677,
+                "max_rss_mib": 1.63671875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "string_fmt n=1 h=dcc025c8",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.006478837999566167,
+                "max_rss_mib": 1.94921875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "string_fmt n=1 h=dcc025c8",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 5.775514695999846,
+                "max_rss_mib": 25.25390625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "string_fmt n=500000 h=127126b0",
+                "repetition": 0
+              },
+              {
+                "seconds": 6.094473027999811,
+                "max_rss_mib": 25.75390625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "string_fmt n=500000 h=127126b0",
+                "repetition": 1
+              },
+              {
+                "seconds": 6.213597146999746,
+                "max_rss_mib": 25.63671875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "string_fmt n=500000 h=127126b0",
+                "repetition": 2
+              },
+              {
+                "seconds": 9.26711940899986,
+                "max_rss_mib": 25.2109375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "string_fmt n=500000 h=127126b0",
+                "repetition": 3
+              },
+              {
+                "seconds": 9.033371076000549,
+                "max_rss_mib": 25.12890625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "string_fmt n=500000 h=127126b0",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${KIRIMASIM}",
+            "${BENCHMARK_ROOT}/bench/string_fmt.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.006478837999566167,
+            "minimum": 0.004183200999250403,
+            "maximum": 0.00765166700057307,
+            "mad": 0.0009353869991173269
+          },
+          "large_seconds": {
+            "median": 6.213597146999746,
+            "minimum": 5.775514695999846,
+            "maximum": 9.26711940899986,
+            "mad": 0.4380824509999002
+          },
+          "incremental_seconds": 6.20711830900018,
+          "median_peak_rss_mib": 25.25390625
+        },
+        "icarus": {
+          "build": {
+            "seconds": 0.005465670000376122,
+            "steps": [
+              {
+                "command": [
+                  "iverilog",
+                  "-g2012",
+                  "-o",
+                  "${WORK}/bench.vvp",
+                  "${PROJECT_ROOT}/bench/string_fmt.sv"
+                ],
+                "seconds": 0.005465670000376122,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.002865919999749167,
+            "max_rss_mib": 0.79296875,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "string_fmt n=1 h=dcc025c8"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.0032109400008266675,
+                "max_rss_mib": 1.2734375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "string_fmt n=1 h=dcc025c8",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.0032039170000643935,
+                "max_rss_mib": 0.87109375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "string_fmt n=1 h=dcc025c8",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.0036799689996769303,
+                "max_rss_mib": 1.24609375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "string_fmt n=1 h=dcc025c8",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.0035926230002587545,
+                "max_rss_mib": 1.0078125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "string_fmt n=1 h=dcc025c8",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.003679528000247956,
+                "max_rss_mib": 0.8671875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "string_fmt n=1 h=dcc025c8",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 8.392530930000248,
+                "max_rss_mib": 7.6484375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "string_fmt n=500000 h=127126b0",
+                "repetition": 0
+              },
+              {
+                "seconds": 8.502114136999808,
+                "max_rss_mib": 7.6328125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "string_fmt n=500000 h=127126b0",
+                "repetition": 1
+              },
+              {
+                "seconds": 12.41118951000044,
+                "max_rss_mib": 7.6171875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "string_fmt n=500000 h=127126b0",
+                "repetition": 2
+              },
+              {
+                "seconds": 11.618241401999512,
+                "max_rss_mib": 7.62109375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "string_fmt n=500000 h=127126b0",
+                "repetition": 3
+              },
+              {
+                "seconds": 11.026008193000052,
+                "max_rss_mib": 7.6484375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "string_fmt n=500000 h=127126b0",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${VVP}",
+            "-n",
+            "${WORK}/bench.vvp",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.0035926230002587545,
+            "minimum": 0.0032039170000643935,
+            "maximum": 0.0036799689996769303,
+            "mad": 8.734599941817578e-05
+          },
+          "large_seconds": {
+            "median": 11.026008193000052,
+            "minimum": 8.392530930000248,
+            "maximum": 12.41118951000044,
+            "mad": 1.385181317000388
+          },
+          "incremental_seconds": 11.022415569999794,
+          "median_peak_rss_mib": 7.6328125
+        }
+      },
+      "comparison": {
+        "status": "comparable",
+        "ratio": 0.5631359360006688,
+        "ratio_definition": "kirimasim / Icarus median incremental elapsed time"
+      }
+    },
+    {
+      "name": "wide_arith",
+      "count": 1500000,
+      "expected": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+      "expected_small": null,
+      "source": "kirimasim/bench/wide_arith.sv",
+      "sha256": "6b3ec7499d88412fd57d45cffd78f199ada3f360f8930ef59332e25ae5432c21",
+      "tools": {
+        "kirimasim": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.008670114999404177,
+            "max_rss_mib": 0.98828125,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.0077537150000352995,
+                "max_rss_mib": 1.2421875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.00862835099997028,
+                "max_rss_mib": 1.07421875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.00995924400012882,
+                "max_rss_mib": 0.7734375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.00471074300003238,
+                "max_rss_mib": 0.78515625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.005389482999817119,
+                "max_rss_mib": 0.765625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 6.380215525000494,
+                "max_rss_mib": 25.1953125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 0
+              },
+              {
+                "seconds": 5.665991154000039,
+                "max_rss_mib": 25.10546875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 1
+              },
+              {
+                "seconds": 5.55711699999938,
+                "max_rss_mib": 25.51953125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 2
+              },
+              {
+                "seconds": 5.276628868999978,
+                "max_rss_mib": 25.60546875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 3
+              },
+              {
+                "seconds": 5.473185177000232,
+                "max_rss_mib": 25.14453125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${KIRIMASIM}",
+            "${BENCHMARK_ROOT}/bench/wide_arith.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.0077537150000352995,
+            "minimum": 0.00471074300003238,
+            "maximum": 0.00995924400012882,
+            "mad": 0.00220552900009352
+          },
+          "large_seconds": {
+            "median": 5.55711699999938,
+            "minimum": 5.276628868999978,
+            "maximum": 6.380215525000494,
+            "mad": 0.10887415400065947
+          },
+          "incremental_seconds": 5.549363284999345,
+          "median_peak_rss_mib": 25.1953125
+        },
+        "icarus": {
+          "build": {
+            "seconds": 0.005718080999940867,
+            "steps": [
+              {
+                "command": [
+                  "iverilog",
+                  "-g2012",
+                  "-o",
+                  "${WORK}/bench.vvp",
+                  "${PROJECT_ROOT}/bench/wide_arith.sv"
+                ],
+                "seconds": 0.005718080999940867,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.0030277240002760664,
+            "max_rss_mib": 1.49609375,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.003315930000098888,
+                "max_rss_mib": 0.72265625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.004078104000655003,
+                "max_rss_mib": 0.73828125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.0038987970001471695,
+                "max_rss_mib": 0.99609375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.0033285279996562167,
+                "max_rss_mib": 0.75390625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.0029661190001206705,
+                "max_rss_mib": 1.40625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 2.30145205899953,
+                "max_rss_mib": 7.62890625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 0
+              },
+              {
+                "seconds": 2.3842567319998125,
+                "max_rss_mib": 7.57421875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 1
+              },
+              {
+                "seconds": 2.966041222000058,
+                "max_rss_mib": 7.57421875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 2
+              },
+              {
+                "seconds": 2.0095077519999904,
+                "max_rss_mib": 7.609375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 3
+              },
+              {
+                "seconds": 2.069628984000701,
+                "max_rss_mib": 7.55859375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${VVP}",
+            "-n",
+            "${WORK}/bench.vvp",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.0033285279996562167,
+            "minimum": 0.0029661190001206705,
+            "maximum": 0.004078104000655003,
+            "mad": 0.00036240899953554617
+          },
+          "large_seconds": {
+            "median": 2.30145205899953,
+            "minimum": 2.0095077519999904,
+            "maximum": 2.966041222000058,
+            "mad": 0.23182307499882882
+          },
+          "incremental_seconds": 2.2981235309998738,
+          "median_peak_rss_mib": 7.57421875
+        }
+      },
+      "comparison": {
+        "status": "comparable",
+        "ratio": 2.4147367233061283,
+        "ratio_definition": "kirimasim / Icarus median incremental elapsed time"
+      }
+    },
+    {
+      "name": "fourstate_mix",
+      "count": 1000000,
+      "expected": "fourstate_mix n=1000000 checksum=a0ea5e58 unknowns=250000 x_hits=250000 z_hits=500000",
+      "expected_small": "fourstate_mix n=1 checksum=00008abc unknowns=0 x_hits=0 z_hits=0",
+      "source": "additional/fourstate_mix.sv",
+      "sha256": "5bc715de2dd270531b8883bfd7e46ac3edac047b368fb8c76d33c84691208234",
+      "tools": {
+        "kirimasim": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.004805417000170564,
+            "max_rss_mib": 0.79296875,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "fourstate_mix n=1 checksum=00008abc unknowns=0 x_hits=0 z_hits=0"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.0058979890000046,
+                "max_rss_mib": 0.98046875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fourstate_mix n=1 checksum=00008abc unknowns=0 x_hits=0 z_hits=0",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.005542480999793042,
+                "max_rss_mib": 0.80078125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fourstate_mix n=1 checksum=00008abc unknowns=0 x_hits=0 z_hits=0",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.0032939709999482147,
+                "max_rss_mib": 0.7890625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fourstate_mix n=1 checksum=00008abc unknowns=0 x_hits=0 z_hits=0",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.004903572999864991,
+                "max_rss_mib": 0.7734375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fourstate_mix n=1 checksum=00008abc unknowns=0 x_hits=0 z_hits=0",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.003639317999841296,
+                "max_rss_mib": 0.8046875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fourstate_mix n=1 checksum=00008abc unknowns=0 x_hits=0 z_hits=0",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 1.6380353439999453,
+                "max_rss_mib": 25.45703125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fourstate_mix n=1000000 checksum=a0ea5e58 unknowns=250000 x_hits=250000 z_hits=500000",
+                "repetition": 0
+              },
+              {
+                "seconds": 1.6102751449998323,
+                "max_rss_mib": 25.47265625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fourstate_mix n=1000000 checksum=a0ea5e58 unknowns=250000 x_hits=250000 z_hits=500000",
+                "repetition": 1
+              },
+              {
+                "seconds": 1.6623600439997972,
+                "max_rss_mib": 25.6953125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fourstate_mix n=1000000 checksum=a0ea5e58 unknowns=250000 x_hits=250000 z_hits=500000",
+                "repetition": 2
+              },
+              {
+                "seconds": 1.6276327180003136,
+                "max_rss_mib": 25.515625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fourstate_mix n=1000000 checksum=a0ea5e58 unknowns=250000 x_hits=250000 z_hits=500000",
+                "repetition": 3
+              },
+              {
+                "seconds": 1.619342527000299,
+                "max_rss_mib": 25.80859375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fourstate_mix n=1000000 checksum=a0ea5e58 unknowns=250000 x_hits=250000 z_hits=500000",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${KIRIMASIM}",
+            "${ADDITIONAL_BENCH}/fourstate_mix.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.004903572999864991,
+            "minimum": 0.0032939709999482147,
+            "maximum": 0.0058979890000046,
+            "mad": 0.0009944160001396085
+          },
+          "large_seconds": {
+            "median": 1.6276327180003136,
+            "minimum": 1.6102751449998323,
+            "maximum": 1.6623600439997972,
+            "mad": 0.01040262599963171
+          },
+          "incremental_seconds": 1.6227291450004486,
+          "median_peak_rss_mib": 25.515625
+        },
+        "icarus": {
+          "build": {
+            "seconds": 0.005623693999950774,
+            "steps": [
+              {
+                "command": [
+                  "iverilog",
+                  "-g2012",
+                  "-o",
+                  "${WORK}/bench.vvp",
+                  "${ADDITIONAL_BENCH}/fourstate_mix.sv"
+                ],
+                "seconds": 0.005623693999950774,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.0028609609998966334,
+            "max_rss_mib": 0.87890625,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "fourstate_mix n=1 checksum=00008abc unknowns=0 x_hits=0 z_hits=0"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.0034060600000884733,
+                "max_rss_mib": 1.01953125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fourstate_mix n=1 checksum=00008abc unknowns=0 x_hits=0 z_hits=0",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.0033912669996425393,
+                "max_rss_mib": 0.78515625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fourstate_mix n=1 checksum=00008abc unknowns=0 x_hits=0 z_hits=0",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.0034293039998374297,
+                "max_rss_mib": 0.73828125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fourstate_mix n=1 checksum=00008abc unknowns=0 x_hits=0 z_hits=0",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.0032779989996924996,
+                "max_rss_mib": 0.984375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fourstate_mix n=1 checksum=00008abc unknowns=0 x_hits=0 z_hits=0",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.0035649879991979105,
+                "max_rss_mib": 0.76953125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fourstate_mix n=1 checksum=00008abc unknowns=0 x_hits=0 z_hits=0",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 1.706872034999833,
+                "max_rss_mib": 7.70703125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fourstate_mix n=1000000 checksum=a0ea5e58 unknowns=250000 x_hits=250000 z_hits=500000",
+                "repetition": 0
+              },
+              {
+                "seconds": 1.5905563450005502,
+                "max_rss_mib": 7.66015625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fourstate_mix n=1000000 checksum=a0ea5e58 unknowns=250000 x_hits=250000 z_hits=500000",
+                "repetition": 1
+              },
+              {
+                "seconds": 1.6202174200006993,
+                "max_rss_mib": 7.6796875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fourstate_mix n=1000000 checksum=a0ea5e58 unknowns=250000 x_hits=250000 z_hits=500000",
+                "repetition": 2
+              },
+              {
+                "seconds": 1.5934555320000072,
+                "max_rss_mib": 7.6484375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fourstate_mix n=1000000 checksum=a0ea5e58 unknowns=250000 x_hits=250000 z_hits=500000",
+                "repetition": 3
+              },
+              {
+                "seconds": 1.6502750649997324,
+                "max_rss_mib": 7.60546875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "fourstate_mix n=1000000 checksum=a0ea5e58 unknowns=250000 x_hits=250000 z_hits=500000",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${VVP}",
+            "-n",
+            "${WORK}/bench.vvp",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.0034060600000884733,
+            "minimum": 0.0032779989996924996,
+            "maximum": 0.0035649879991979105,
+            "mad": 2.3243999748956412e-05
+          },
+          "large_seconds": {
+            "median": 1.6202174200006993,
+            "minimum": 1.5905563450005502,
+            "maximum": 1.706872034999833,
+            "mad": 0.02966107500014914
+          },
+          "incremental_seconds": 1.6168113600006109,
+          "median_peak_rss_mib": 7.66015625
+        }
+      },
+      "comparison": {
+        "status": "comparable",
+        "ratio": 1.003660157978996,
+        "ratio_definition": "kirimasim / Icarus median incremental elapsed time"
+      }
+    }
+  ],
+  "inputs_unchanged": true,
+  "completed_at": "2026-11-15T22:30:01.830101+00:00",
+  "machine_end": {
+    "os": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "cores": 32,
+    "load_average": [
+      7.88,
+      5.41,
+      4.9
+    ],
+    "cpu": "AMD Ryzen 9 7950X 16-Core Processor",
+    "memory_gib": 110,
+    "distribution": "Ubuntu 24.04.4 LTS"
+  },
+  "comparable_cases": 13,
+  "geometric_mean_ratio": 1.1934952200215967
+}

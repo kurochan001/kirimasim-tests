@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "status": "experimental proposals; not applied to the simulator main branch",
+  "base_commit": "cfa2ccd75989c1ebb9ed63303271183377364cf0",
+  "local_simulator_main": "c152d237ac8dbd1b81349e7d578c25504d4ae8d5",
+  "vm_kernel_diff_between_base_and_local_main": "none",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.4.1.1)",
+  "flags": "release -O3 -DNDEBUG -ffp-contract=off; no fast-math; release flag checker passed",
+  "patch_sha256": {
+    "word-ops.patch": "4c6babbbe524e42b3efbc7e45de3b7de265c65ae5d60f68751befb73478aae11",
+    "type-cache.patch": "3c770782856bc3fd126cec1266182d33a70c1ccf4887871167c5fe96ea94d968"
+  },
+  "binary_sha256": {
+    "release": "c4193effbf55a810b34f22ef919f2a855a34ae3f5817be4f5816718d457913aa",
+    "word_ops": "b6f003a2d007a9df5095a3a9c79e2a4ad640b56b349c8517773fa82aa487e8f3",
+    "word_and_type": "c9b3ed927128894cdcb7d6a67595dd7847bd0b8010c55092823ba7dc78251650",
+    "icarus": "1c7867742292fd7db3a83be02ff2f703da0504afaa3a3a3738e81ee2a47db8bf",
+    "vvp": "246a4622208b73ec428cddd6bff87e9f5f78aad54311a6ad66c15e22dc18dc40",
+    "type_only": "9e71f34364f01a0e1ce5a08d17a27933c39cab25213c4c0932e39cb54dcce273"
+  },
+  "kernel_reference_tests": {
+    "existing_tests": 7,
+    "passed": 7,
+    "additional_comparisons": 122184,
+    "coverage": "widths through 512, signedness, X/Z planes, shift boundaries, selected ranges and in-place operations",
+    "oracle": "unchanged valsem reference at the base commit; private experimental checks, not conformance-ledger additions",
+    "boundary_source_sha256": "ac53545a156ff954a6e367adeabcd8185c39add79cfd3da6579d22ac6c58a9d2"
+  },
+  "simulation_checks": {
+    "full_count_designs": 13,
+    "expected_lines_matched": 13,
+    "baseline_counter_comparisons": 6,
+    "all_counter_comparisons_matched": true
+  },
+  "primary_comparison": {
+    "repetitions_per_count": 5,
+    "counts": "n=1 and declared full N",
+    "warmups_per_tool": 1,
+    "cases": 5,
+    "invocations_including_warmups": 176,
+    "word_only_measured_on": "wide_arith",
+    "all_outputs_matched": true,
+    "no_other_campaign_builds_or_test_suites_during_sampling": true
+  },
+  "type_only_control": {
+    "repetitions_per_count": 3,
+    "cases": [
+      "gate_udp",
+      "mem_rw"
+    ],
+    "all_outputs_matched": true
+  },
+  "not_yet_run": [
+    "full simulator local_ci.py",
+    "sanitizer configurations",
+    "large-design startup/RSS assessment",
+    "WSL2 comparison"
+  ],
+  "public_source_unchanged": true
+}
