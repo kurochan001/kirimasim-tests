@@ -1,0 +1,5 @@
+xx h=PuH l=PuL joined=PuX
+10 h=Pu1 l=HiZ joined=Pu1
+01 h=HiZ l=Pu0 joined=Pu0
+00 h=HiZ l=HiZ joined=HiZ
+zz h=PuH l=PuL joined=PuX

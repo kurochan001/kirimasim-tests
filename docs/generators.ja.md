@@ -4,13 +4,14 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の125生成器から6,647件のテストを生成しています。
+現在の127生成器から6,728件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
 
 | 生成器 | 章 | テスト数 | 確認する動作 |
 | --- | --- | ---: | --- |
+| [`ambiguous_strength_union`](../generators/ambiguous_strength_union.py) | 28 | 20 | H/Lの強度16組と、既知値のまま複数の強度を持つ範囲4組の合成。X/Z制御と、単一強度strong0・supply0の対照を含む |
 | [`cg_option_levels`](../generators/cg_option_levels.py) | 19 | 17 | 表19-2・19-4でNoとされるcoverpoint・crossの本体でのoption・type_option代入を違法系として生成し、19.10の暗黙の構造体と照合 |
 | [`combination_aggregates`](../generators/combination_aggregates.py) | 6, 11, 13 | 18 | 境界条件18件。アンパック構造体の参照渡しと寿命、配列のinputコピー、ネストしたパック選択、文字列やネストした代入先へのストリーミングを確認 |
 | [`combination_events`](../generators/combination_events.py) | 6, 9, 15 | 9 | 境界条件9件。自動変数のeventの寿命、戻り値・条件式で選択したevent、計算したイベント制御、`iff`、遅延トリガ、名前付きforkの終了処理を確認 |
@@ -131,6 +132,7 @@
 | [`interaction_wait`](../generators/interaction_wait.py) | 9 | 36 | サイズ・先頭要素・両条件を待ち、動的配列とキューの作成・拡大・縮小・削除・同サイズ置換の前後で起床時刻・回数と全要素を観測する。無関係なコンテナ変更での早期起床を区別し、既に真の場合と、型変換後のX/Zをcase等価で待つ場合も確認する。 |
 | [`keywords`](../generators/keywords.py) | 5, 22 | 496 | 不正な設計。附属書Bの各予約語を``begin_keywords "1800-2023"``の下で変数名として宣言し、22.14で各版が追加する予約語もその版の``begin_keywords``の下で宣言する。ツールは拒否する必要がある |
 | [`keywords_inherited`](../generators/keywords_inherited.py) | 22 | 804 | 5種類のbegin_keywordsで継承される予約語と、1364-2001-noconfigの全予約語。既存の追加語テストと合わせ、各版の累積集合の全語を確認 |
+| [`primitive_array_bounds`](../generators/primitive_array_bounds.py) | 28 | 61 | ゲート配列の端子幅が不正な56本と、負・降順・非ゼロ・単一要素の範囲およびスカラ共有を確認する合法5本 |
 | [`scheduling`](../generators/scheduling.py) | 4 | 325 | 既存の8ビットの書き込みを、書き込み元・待機中の別プロセス・strobe・monitorから指定の時刻とイベント領域で観測する。既存の生成テストと期待値は変更しない。 |
 | [`strength`](../generators/strength.py) | 28 | 135 | 異なる強度と値を持つ二つのドライバ。wire・tri・wand・triand・wor・trior・tri0・tri1とbufifゲートを通し、`%v`で表示 |
 | [`wide_paths`](../generators/wide_paths.py) | 6, 7, 11, 13 | 49 | 63・64・65・127・128・129・200ビット、2値・4値、64ビットより上のx/z、符号の有無。広い・狭い・2値の代入先、パック配列の部分選択・スライスと書き込み、連結・反復連結、幅を超えるシフト、比較、x条件の`?:`、`$bits`、関数結果、タスク入力、output・ref引数。`%h`・`%b`・`%0d`で表示 |

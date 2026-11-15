@@ -23685,6 +23685,11 @@
     "ZXQPH0QXZ : xnorを( ZXQPH1QXZ , ZXQPH2QXZ )と( ZXQPH3QXZ , ZXQPH4QXZ )の ZXQPH5QXZ 種類の強度で別々のscalar netへ接続し、入力 ZXQPH6QXZ ・ ZXQPH7QXZ ・ ZXQPH8QXZ ・ ZXQPH9QXZ の全組合せで%vを読む。": "ZXQPH0QXZ: xnor gates drive separate scalar nets with ZXQPH5QXZ strength pairs, (ZXQPH1QXZ, ZXQPH2QXZ) and (ZXQPH3QXZ, ZXQPH4QXZ); %v reads all input combinations ZXQPH6QXZ, ZXQPH7QXZ, ZXQPH8QXZ and ZXQPH9QXZ.",
     "ZXQPH0QXZ : xorを( ZXQPH1QXZ , ZXQPH2QXZ )と( ZXQPH3QXZ , ZXQPH4QXZ )の ZXQPH5QXZ 種類の強度で別々のscalar netへ接続し、入力 ZXQPH6QXZ ・ ZXQPH7QXZ ・ ZXQPH8QXZ ・ ZXQPH9QXZ の全組合せで%vを読む。": "ZXQPH0QXZ: xor gates drive separate scalar nets with ZXQPH5QXZ strength pairs, (ZXQPH1QXZ, ZXQPH2QXZ) and (ZXQPH3QXZ, ZXQPH4QXZ); %v reads all input combinations ZXQPH6QXZ, ZXQPH7QXZ, ZXQPH8QXZ and ZXQPH9QXZ.",
     "ZXQPH0QXZ : モード ZXQPH1QXZ を明示し、予約語 ZXQPH2QXZ を ZXQPH3QXZ の変数名に使う。": "ZXQPH0QXZ: Explicitly select mode ZXQPH1QXZ and use the reserved word ZXQPH2QXZ as the variable name in ZXQPH3QXZ.",
-    "唯一の違反は ZXQPH0QXZ 行の宣言で、 ZXQPH1QXZ が ZXQPH2QXZ の診断を要求する。": "The only violation is the declaration on line ZXQPH0QXZ, and ZXQPH1QXZ requires a diagnostic at ZXQPH2QXZ."
+    "唯一の違反は ZXQPH0QXZ 行の宣言で、 ZXQPH1QXZ が ZXQPH2QXZ の診断を要求する。": "The only violation is the declaration on line ZXQPH0QXZ, and ZXQPH1QXZ requires a diagnostic at ZXQPH2QXZ.",
+    "ZXQPH0QXZ : 既知値のまま複数の強度を持つ ZXQPH1QXZ 源を ZXQPH2QXZ として別々に観測し、その全範囲を合成する。": "ZXQPH0QXZ: Observe the ZXQPH1QXZ sources with known values and multiple strengths separately as ZXQPH2QXZ, then combine their complete ranges.",
+    "別ネットの未曖昧な ZXQPH0QXZ と ZXQPH1QXZ は ZXQPH2QXZ となり、 ZXQPH3QXZ 曖昧源の合成とは区別する。": "On separate nets, unambiguous ZXQPH0QXZ and ZXQPH1QXZ produce ZXQPH2QXZ, distinguishing them from the combination of ZXQPH3QXZ ambiguous sources.",
+    "z制御でも ZXQPH0QXZ を確認する。": "Also check ZXQPH0QXZ with z controls.",
+    "ZXQPH0QXZ : 独立したHとLの強度を読み、未知制御xでの合成を ZXQPH1QXZ 、zでの合成を ZXQPH2QXZ として確認する。": "ZXQPH0QXZ: Read the isolated H and L strengths and check their combination as ZXQPH1QXZ with unknown x controls and ZXQPH2QXZ with z controls.",
+    "片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。": "Display the one-source-enabled and both-disabled controls too, distinguishing an implementation that retains only the stronger source or always returns x."
   }
 }

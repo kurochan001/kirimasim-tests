@@ -48,6 +48,14 @@
     "keywords_inherited": {
       "en": "Inherited reserved words of five begin_keywords modes, including the complete 1364-2001-noconfig set; together with existing addition tests they check every word of each cumulative set",
       "ja": "5種類のbegin_keywordsで継承される予約語と、1364-2001-noconfigの全予約語。既存の追加語テストと合わせ、各版の累積集合の全語を確認"
+    },
+    "primitive_array_bounds": {
+      "en": "Fifty-six illegal primitive-array terminal widths and five legal cases for negative, descending, offset and singleton ranges with scalar broadcasts",
+      "ja": "ゲート配列の端子幅が不正な56本と、負・降順・非ゼロ・単一要素の範囲およびスカラ共有を確認する合法5本"
+    },
+    "ambiguous_strength_union": {
+      "en": "Sixteen H/L strength pairs and four bounded known-value range combinations, with X/Z controls and unambiguous strong0/supply0 contrasts",
+      "ja": "H/Lの強度16組と、既知値のまま複数の強度を持つ範囲4組の合成。X/Z制御と、単一強度strong0・supply0の対照を含む"
     }
   }
 }

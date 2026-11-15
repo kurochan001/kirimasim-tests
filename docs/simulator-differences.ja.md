@@ -1385,3 +1385,7 @@ ch30/test_illegal_specify_path_to_input                           アサーシ�
 2026-11-15に追加した継承予約語のテストでは、Verilator 5.054のseed 1と73の両方で次の差異を再現しました。
 
 - `` `begin_keywords "1800-2012" ``の下で`reg global;`を受理します。22.14.8は22.14.7からこの予約語を継承し、5.6はエスケープなしの識別子としての使用を禁止しています。新規テストは`gen/ch22/test_gen_kw_inherited_1800_2012_global`です。同じ保存実行で既存の`gen/ch22/test_gen_kw_1800_2009_global`の受理も再現しました。どちらにもVerilator 5.054のoracleは登録しません。
+
+2026-11-15に追加したゲート配列の出力幅20本では、Verilator 5.054のseed 1と73の両方で次の差異を再現しました。
+
+- `and`・`xnor`・`not`・`bufif1`・`nmos`の4要素配列に、2ビットまたは5ビットの出力を接続することを、負の添字の両方向で受理します。ランナーの`-Wno-fatal`設定では幅の警告を出して続行します。IEEE 1800-2023 28.3.6は、単一端子の幅（1ビット）でも全要素を満たす幅（4ビット）でもない接続をエラーとします。対象は`gen/ch28/test_gen_primarray_bad_{gate}_y_w{2,5}_negative_{up,down}`です。Verilatorのoracleは登録しません。入力・制御端子の同様の幅不一致は拒否します。

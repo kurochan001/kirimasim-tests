@@ -311702,13 +311702,752 @@
       "acceptance": "Combining a pull H (pull1 range joined with high impedance) with a weak L yields x with a range spanning weak0..pull1 (35X). Combining two ambiguous ranges where one component's 0-side extreme is stronger than the other component's 1-side extreme still yields x with the union range, not the known value of the dominating side. Combining an ambiguous signal with an unambiguous strong 0 is resolved by 28.12.3 rules a)-c), not by this union rule.",
       "source_note": "IEEE 1800-2023 28.12.2 (B024-B036), p.846; complete own-body source review, block B024. Quote: \"The combination of two signals of ambiguous strength shall result in a signal of ambiguous strength. The resulting signal shall have a range of strength levels that includes the strength levels in its component signals.\" 28.12.1 (p.844 L49-L50) is expressly limited: \"each signal has a known value and a single strength level\"; 28.12.3 (p.850 L35-L46) covers ambiguous + unambiguous.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/gen/ch28/test_gen_ambig_union_bounded_h53_l63.sv",
+          "observation": "既知値のまま複数の強度を持つ2源を`ranges h=531 l=630 joined=65X`として別々に観測し、その全範囲を合成する。別ネットの未曖昧なstrong0とsupply0は`unambiguous supply0=Su0 strong0=St0 joined=65X`となり、2曖昧源の合成とは区別する。z制御でも`z controls h=531 l=630 joined=65X`を確認する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "0dc4ddc415e0ae798e4227d741e93f116648e9ad18f79dafe68e4eb0097815e0",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_bounded_h53_l63.sv",
+              "contains": "bufif1 (pull1, pull0) h_high_range(high_range, 1'b1, hi_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_bounded_h53_l63.sv",
+              "contains": "bufif1 (strong0, strong1) l_low_range(low_range, 1'b0, lo_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_bounded_h53_l63.expected",
+              "contains": "ranges h=531 l=630 joined=65X"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_bounded_h53_l63.expected",
+              "contains": "unambiguous supply0=Su0 strong0=St0 joined=65X"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_bounded_h53_l63.expected",
+              "contains": "z controls h=531 l=630 joined=65X"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_ambig_union_bounded_h53_l65.sv",
+          "observation": "既知値のまま複数の強度を持つ2源を`ranges h=531 l=650 joined=65X`として別々に観測し、その全範囲を合成する。別ネットの未曖昧なstrong0とsupply0は`unambiguous supply0=Su0 strong0=St0 joined=65X`となり、2曖昧源の合成とは区別する。z制御でも`z controls h=531 l=650 joined=65X`を確認する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "b4e747ebfd112060a0c03defba791f2a334441f272ca2f2a656b7e54f6adbb38",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_bounded_h53_l65.sv",
+              "contains": "bufif1 (pull1, pull0) h_high_range(high_range, 1'b1, hi_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_bounded_h53_l65.sv",
+              "contains": "bufif1 (strong0, strong1) l_low_range(low_range, 1'b0, lo_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_bounded_h53_l65.expected",
+              "contains": "ranges h=531 l=650 joined=65X"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_bounded_h53_l65.expected",
+              "contains": "unambiguous supply0=Su0 strong0=St0 joined=65X"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_bounded_h53_l65.expected",
+              "contains": "z controls h=531 l=650 joined=65X"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_ambig_union_bounded_h63_l53.sv",
+          "observation": "既知値のまま複数の強度を持つ2源を`ranges h=631 l=530 joined=56X`として別々に観測し、その全範囲を合成する。別ネットの未曖昧なstrong0とsupply0は`unambiguous supply0=Su0 strong0=StX joined=56X`となり、2曖昧源の合成とは区別する。z制御でも`z controls h=631 l=530 joined=56X`を確認する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "c04df1cf5d2a9d1a03ec94b7670914404f3fc51662c9dbe8081b9b8961a63803",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_bounded_h63_l53.sv",
+              "contains": "bufif1 (strong1, strong0) h_high_range(high_range, 1'b1, hi_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_bounded_h63_l53.sv",
+              "contains": "bufif1 (pull0, pull1) l_low_range(low_range, 1'b0, lo_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_bounded_h63_l53.expected",
+              "contains": "ranges h=631 l=530 joined=56X"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_bounded_h63_l53.expected",
+              "contains": "unambiguous supply0=Su0 strong0=StX joined=56X"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_bounded_h63_l53.expected",
+              "contains": "z controls h=631 l=530 joined=56X"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_ambig_union_bounded_h65_l53.sv",
+          "observation": "既知値のまま複数の強度を持つ2源を`ranges h=651 l=530 joined=56X`として別々に観測し、その全範囲を合成する。別ネットの未曖昧なstrong0とsupply0は`unambiguous supply0=Su0 strong0=StX joined=56X`となり、2曖昧源の合成とは区別する。z制御でも`z controls h=651 l=530 joined=56X`を確認する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "6d744a4f35867d4aa862d31fe5d43c5456ebae41b422a41b38ec3cb3bf0f391d",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_bounded_h65_l53.sv",
+              "contains": "bufif1 (strong1, strong0) h_high_range(high_range, 1'b1, hi_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_bounded_h65_l53.sv",
+              "contains": "bufif1 (pull0, pull1) l_low_range(low_range, 1'b0, lo_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_bounded_h65_l53.expected",
+              "contains": "ranges h=651 l=530 joined=56X"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_bounded_h65_l53.expected",
+              "contains": "unambiguous supply0=Su0 strong0=StX joined=56X"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_bounded_h65_l53.expected",
+              "contains": "z controls h=651 l=530 joined=56X"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_pull1.sv",
+          "observation": "独立したHとLの強度を読み、未知制御xでの合成を`xx h=PuH l=PuL joined=PuX`、zでの合成を`zz h=PuH l=PuL joined=PuX`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "68fb3260956a88c85723cd3110cfca31f8111d2dc0c63774922bf108c166a7ae",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_pull1.sv",
+              "contains": "bufif1 (pull1, pull0) h(joined, 1'b1, hi_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_pull1.sv",
+              "contains": "bufif1 (pull0, pull1) l(joined, 1'b0, lo_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_pull1.expected",
+              "contains": "xx h=PuH l=PuL joined=PuX"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_pull1.expected",
+              "contains": "10 h=Pu1 l=HiZ joined=Pu1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_pull1.expected",
+              "contains": "01 h=HiZ l=Pu0 joined=Pu0"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_pull1.expected",
+              "contains": "00 h=HiZ l=HiZ joined=HiZ"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_pull1.expected",
+              "contains": "zz h=PuH l=PuL joined=PuX"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_strong1.sv",
+          "observation": "独立したHとLの強度を読み、未知制御xでの合成を`xx h=StH l=PuL joined=56X`、zでの合成を`zz h=StH l=PuL joined=56X`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "7cbff2f0b147467c2f4979303734f5b478b28e71a8625e2dd294eb2f750e4036",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_strong1.sv",
+              "contains": "bufif1 (strong1, strong0) h(joined, 1'b1, hi_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_strong1.sv",
+              "contains": "bufif1 (pull0, pull1) l(joined, 1'b0, lo_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_strong1.expected",
+              "contains": "xx h=StH l=PuL joined=56X"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_strong1.expected",
+              "contains": "10 h=St1 l=HiZ joined=St1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_strong1.expected",
+              "contains": "01 h=HiZ l=Pu0 joined=Pu0"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_strong1.expected",
+              "contains": "00 h=HiZ l=HiZ joined=HiZ"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_strong1.expected",
+              "contains": "zz h=StH l=PuL joined=56X"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_supply1.sv",
+          "observation": "独立したHとLの強度を読み、未知制御xでの合成を`xx h=SuH l=PuL joined=57X`、zでの合成を`zz h=SuH l=PuL joined=57X`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "451b48c2a0188e130e887450d50cda7b2d03c7f0c4256fb93823344bb46bc0b9",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_supply1.sv",
+              "contains": "bufif1 (supply1, supply0) h(joined, 1'b1, hi_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_supply1.sv",
+              "contains": "bufif1 (pull0, pull1) l(joined, 1'b0, lo_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_supply1.expected",
+              "contains": "xx h=SuH l=PuL joined=57X"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_supply1.expected",
+              "contains": "10 h=Su1 l=HiZ joined=Su1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_supply1.expected",
+              "contains": "01 h=HiZ l=Pu0 joined=Pu0"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_supply1.expected",
+              "contains": "00 h=HiZ l=HiZ joined=HiZ"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_supply1.expected",
+              "contains": "zz h=SuH l=PuL joined=57X"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_weak1.sv",
+          "observation": "独立したHとLの強度を読み、未知制御xでの合成を`xx h=WeH l=PuL joined=53X`、zでの合成を`zz h=WeH l=PuL joined=53X`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "267c642aa846a4eac82648063662ad34220baf468918af77f99daac3113ed21c",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_weak1.sv",
+              "contains": "bufif1 (weak1, weak0) h(joined, 1'b1, hi_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_weak1.sv",
+              "contains": "bufif1 (pull0, pull1) l(joined, 1'b0, lo_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_weak1.expected",
+              "contains": "xx h=WeH l=PuL joined=53X"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_weak1.expected",
+              "contains": "10 h=We1 l=HiZ joined=We1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_weak1.expected",
+              "contains": "01 h=HiZ l=Pu0 joined=Pu0"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_weak1.expected",
+              "contains": "00 h=HiZ l=HiZ joined=HiZ"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_pull0_weak1.expected",
+              "contains": "zz h=WeH l=PuL joined=53X"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_pull1.sv",
+          "observation": "独立したHとLの強度を読み、未知制御xでの合成を`xx h=PuH l=StL joined=65X`、zでの合成を`zz h=PuH l=StL joined=65X`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "2ada500e2323d3ff3ee771887578467e8efa690024b1947de42e3d0688aac5da",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_pull1.sv",
+              "contains": "bufif1 (pull1, pull0) h(joined, 1'b1, hi_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_pull1.sv",
+              "contains": "bufif1 (strong0, strong1) l(joined, 1'b0, lo_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_pull1.expected",
+              "contains": "xx h=PuH l=StL joined=65X"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_pull1.expected",
+              "contains": "10 h=Pu1 l=HiZ joined=Pu1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_pull1.expected",
+              "contains": "01 h=HiZ l=St0 joined=St0"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_pull1.expected",
+              "contains": "00 h=HiZ l=HiZ joined=HiZ"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_pull1.expected",
+              "contains": "zz h=PuH l=StL joined=65X"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_strong1.sv",
+          "observation": "独立したHとLの強度を読み、未知制御xでの合成を`xx h=StH l=StL joined=StX`、zでの合成を`zz h=StH l=StL joined=StX`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "842dd93cd30c953b51d9f507b02253a7b8856a54759ec85fc67b2b6480900a88",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_strong1.sv",
+              "contains": "bufif1 (strong1, strong0) h(joined, 1'b1, hi_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_strong1.sv",
+              "contains": "bufif1 (strong0, strong1) l(joined, 1'b0, lo_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_strong1.expected",
+              "contains": "xx h=StH l=StL joined=StX"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_strong1.expected",
+              "contains": "10 h=St1 l=HiZ joined=St1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_strong1.expected",
+              "contains": "01 h=HiZ l=St0 joined=St0"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_strong1.expected",
+              "contains": "00 h=HiZ l=HiZ joined=HiZ"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_strong1.expected",
+              "contains": "zz h=StH l=StL joined=StX"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_supply1.sv",
+          "observation": "独立したHとLの強度を読み、未知制御xでの合成を`xx h=SuH l=StL joined=67X`、zでの合成を`zz h=SuH l=StL joined=67X`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "ebd64a6eaac95476262fbd9974fbe676b0867dc6bffe62ea4a368596316bcfd4",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_supply1.sv",
+              "contains": "bufif1 (supply1, supply0) h(joined, 1'b1, hi_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_supply1.sv",
+              "contains": "bufif1 (strong0, strong1) l(joined, 1'b0, lo_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_supply1.expected",
+              "contains": "xx h=SuH l=StL joined=67X"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_supply1.expected",
+              "contains": "10 h=Su1 l=HiZ joined=Su1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_supply1.expected",
+              "contains": "01 h=HiZ l=St0 joined=St0"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_supply1.expected",
+              "contains": "00 h=HiZ l=HiZ joined=HiZ"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_supply1.expected",
+              "contains": "zz h=SuH l=StL joined=67X"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_weak1.sv",
+          "observation": "独立したHとLの強度を読み、未知制御xでの合成を`xx h=WeH l=StL joined=63X`、zでの合成を`zz h=WeH l=StL joined=63X`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "ea9b9e244e4e4833bdd727dfd11c977d7dcd2707c4c0bb4206ebf25529a17954",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_weak1.sv",
+              "contains": "bufif1 (weak1, weak0) h(joined, 1'b1, hi_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_weak1.sv",
+              "contains": "bufif1 (strong0, strong1) l(joined, 1'b0, lo_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_weak1.expected",
+              "contains": "xx h=WeH l=StL joined=63X"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_weak1.expected",
+              "contains": "10 h=We1 l=HiZ joined=We1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_weak1.expected",
+              "contains": "01 h=HiZ l=St0 joined=St0"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_weak1.expected",
+              "contains": "00 h=HiZ l=HiZ joined=HiZ"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_strong0_weak1.expected",
+              "contains": "zz h=WeH l=StL joined=63X"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_pull1.sv",
+          "observation": "独立したHとLの強度を読み、未知制御xでの合成を`xx h=PuH l=SuL joined=75X`、zでの合成を`zz h=PuH l=SuL joined=75X`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "7eb01c486d7a2321bcebae42e6e535ccf9648d434b663d4f86ed2b194ed4e10a",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_pull1.sv",
+              "contains": "bufif1 (pull1, pull0) h(joined, 1'b1, hi_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_pull1.sv",
+              "contains": "bufif1 (supply0, supply1) l(joined, 1'b0, lo_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_pull1.expected",
+              "contains": "xx h=PuH l=SuL joined=75X"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_pull1.expected",
+              "contains": "10 h=Pu1 l=HiZ joined=Pu1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_pull1.expected",
+              "contains": "01 h=HiZ l=Su0 joined=Su0"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_pull1.expected",
+              "contains": "00 h=HiZ l=HiZ joined=HiZ"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_pull1.expected",
+              "contains": "zz h=PuH l=SuL joined=75X"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_strong1.sv",
+          "observation": "独立したHとLの強度を読み、未知制御xでの合成を`xx h=StH l=SuL joined=76X`、zでの合成を`zz h=StH l=SuL joined=76X`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "1e54bc968357428f775fd4410d554266616e2c387d180d29dacd371cf1d37ba8",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_strong1.sv",
+              "contains": "bufif1 (strong1, strong0) h(joined, 1'b1, hi_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_strong1.sv",
+              "contains": "bufif1 (supply0, supply1) l(joined, 1'b0, lo_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_strong1.expected",
+              "contains": "xx h=StH l=SuL joined=76X"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_strong1.expected",
+              "contains": "10 h=St1 l=HiZ joined=St1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_strong1.expected",
+              "contains": "01 h=HiZ l=Su0 joined=Su0"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_strong1.expected",
+              "contains": "00 h=HiZ l=HiZ joined=HiZ"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_strong1.expected",
+              "contains": "zz h=StH l=SuL joined=76X"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_supply1.sv",
+          "observation": "独立したHとLの強度を読み、未知制御xでの合成を`xx h=SuH l=SuL joined=SuX`、zでの合成を`zz h=SuH l=SuL joined=SuX`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "5edcf171da30190e538e36244369f8e52638b1f8da481646aea1bbb97c02f424",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_supply1.sv",
+              "contains": "bufif1 (supply1, supply0) h(joined, 1'b1, hi_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_supply1.sv",
+              "contains": "bufif1 (supply0, supply1) l(joined, 1'b0, lo_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_supply1.expected",
+              "contains": "xx h=SuH l=SuL joined=SuX"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_supply1.expected",
+              "contains": "10 h=Su1 l=HiZ joined=Su1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_supply1.expected",
+              "contains": "01 h=HiZ l=Su0 joined=Su0"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_supply1.expected",
+              "contains": "00 h=HiZ l=HiZ joined=HiZ"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_supply1.expected",
+              "contains": "zz h=SuH l=SuL joined=SuX"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_weak1.sv",
+          "observation": "独立したHとLの強度を読み、未知制御xでの合成を`xx h=WeH l=SuL joined=73X`、zでの合成を`zz h=WeH l=SuL joined=73X`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "2e7f4bfd5514904d9923e5e3b566437b8cb79083ec767b6c73299769725e637a",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_weak1.sv",
+              "contains": "bufif1 (weak1, weak0) h(joined, 1'b1, hi_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_weak1.sv",
+              "contains": "bufif1 (supply0, supply1) l(joined, 1'b0, lo_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_weak1.expected",
+              "contains": "xx h=WeH l=SuL joined=73X"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_weak1.expected",
+              "contains": "10 h=We1 l=HiZ joined=We1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_weak1.expected",
+              "contains": "01 h=HiZ l=Su0 joined=Su0"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_weak1.expected",
+              "contains": "00 h=HiZ l=HiZ joined=HiZ"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_supply0_weak1.expected",
+              "contains": "zz h=WeH l=SuL joined=73X"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_pull1.sv",
+          "observation": "独立したHとLの強度を読み、未知制御xでの合成を`xx h=PuH l=WeL joined=35X`、zでの合成を`zz h=PuH l=WeL joined=35X`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "eccd7c5a1ab7fe42336bf13f81c8d157378a05f08f09c7114683bca3ffba7f84",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_pull1.sv",
+              "contains": "bufif1 (pull1, pull0) h(joined, 1'b1, hi_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_pull1.sv",
+              "contains": "bufif1 (weak0, weak1) l(joined, 1'b0, lo_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_pull1.expected",
+              "contains": "xx h=PuH l=WeL joined=35X"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_pull1.expected",
+              "contains": "10 h=Pu1 l=HiZ joined=Pu1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_pull1.expected",
+              "contains": "01 h=HiZ l=We0 joined=We0"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_pull1.expected",
+              "contains": "00 h=HiZ l=HiZ joined=HiZ"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_pull1.expected",
+              "contains": "zz h=PuH l=WeL joined=35X"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_strong1.sv",
+          "observation": "独立したHとLの強度を読み、未知制御xでの合成を`xx h=StH l=WeL joined=36X`、zでの合成を`zz h=StH l=WeL joined=36X`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "f548b44cb6b235009d51f79c21044a3d827bb7e90e7c15c357778c9b0d80f9b4",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_strong1.sv",
+              "contains": "bufif1 (strong1, strong0) h(joined, 1'b1, hi_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_strong1.sv",
+              "contains": "bufif1 (weak0, weak1) l(joined, 1'b0, lo_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_strong1.expected",
+              "contains": "xx h=StH l=WeL joined=36X"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_strong1.expected",
+              "contains": "10 h=St1 l=HiZ joined=St1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_strong1.expected",
+              "contains": "01 h=HiZ l=We0 joined=We0"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_strong1.expected",
+              "contains": "00 h=HiZ l=HiZ joined=HiZ"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_strong1.expected",
+              "contains": "zz h=StH l=WeL joined=36X"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_supply1.sv",
+          "observation": "独立したHとLの強度を読み、未知制御xでの合成を`xx h=SuH l=WeL joined=37X`、zでの合成を`zz h=SuH l=WeL joined=37X`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "28ae9fecdf681d97f0f175bd31d938e61dbc5c1376d9be36c6b361d11adb4577",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_supply1.sv",
+              "contains": "bufif1 (supply1, supply0) h(joined, 1'b1, hi_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_supply1.sv",
+              "contains": "bufif1 (weak0, weak1) l(joined, 1'b0, lo_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_supply1.expected",
+              "contains": "xx h=SuH l=WeL joined=37X"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_supply1.expected",
+              "contains": "10 h=Su1 l=HiZ joined=Su1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_supply1.expected",
+              "contains": "01 h=HiZ l=We0 joined=We0"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_supply1.expected",
+              "contains": "00 h=HiZ l=HiZ joined=HiZ"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_supply1.expected",
+              "contains": "zz h=SuH l=WeL joined=37X"
+            }
+          ]
+        },
+        {
+          "test": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_weak1.sv",
+          "observation": "独立したHとLの強度を読み、未知制御xでの合成を`xx h=WeH l=WeL joined=WeX`、zでの合成を`zz h=WeH l=WeL joined=WeX`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "071df7db30f541d056104f5c62ebf05c51300c32686f5ebbdd11c0683251db3d",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_weak1.sv",
+              "contains": "bufif1 (weak1, weak0) h(joined, 1'b1, hi_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_weak1.sv",
+              "contains": "bufif1 (weak0, weak1) l(joined, 1'b0, lo_en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_weak1.expected",
+              "contains": "xx h=WeH l=WeL joined=WeX"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_weak1.expected",
+              "contains": "10 h=We1 l=HiZ joined=We1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_weak1.expected",
+              "contains": "01 h=HiZ l=We0 joined=We0"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_weak1.expected",
+              "contains": "00 h=HiZ l=HiZ joined=HiZ"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_ambig_union_hl_weak0_weak1.expected",
+              "contains": "zz h=WeH l=WeL joined=WeX"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "28.12.2",
           "blocks": [
             "B024"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "ambiguous-strength-union-boundaries",
+          "tests": [
+            "tests/gen/ch28/test_gen_ambig_union_bounded_h53_l63.sv",
+            "tests/gen/ch28/test_gen_ambig_union_bounded_h53_l65.sv",
+            "tests/gen/ch28/test_gen_ambig_union_bounded_h63_l53.sv",
+            "tests/gen/ch28/test_gen_ambig_union_bounded_h65_l53.sv",
+            "tests/gen/ch28/test_gen_ambig_union_hl_pull0_pull1.sv",
+            "tests/gen/ch28/test_gen_ambig_union_hl_pull0_strong1.sv",
+            "tests/gen/ch28/test_gen_ambig_union_hl_pull0_supply1.sv",
+            "tests/gen/ch28/test_gen_ambig_union_hl_pull0_weak1.sv",
+            "tests/gen/ch28/test_gen_ambig_union_hl_strong0_pull1.sv",
+            "tests/gen/ch28/test_gen_ambig_union_hl_strong0_strong1.sv",
+            "tests/gen/ch28/test_gen_ambig_union_hl_strong0_supply1.sv",
+            "tests/gen/ch28/test_gen_ambig_union_hl_strong0_weak1.sv",
+            "tests/gen/ch28/test_gen_ambig_union_hl_supply0_pull1.sv",
+            "tests/gen/ch28/test_gen_ambig_union_hl_supply0_strong1.sv",
+            "tests/gen/ch28/test_gen_ambig_union_hl_supply0_supply1.sv",
+            "tests/gen/ch28/test_gen_ambig_union_hl_supply0_weak1.sv",
+            "tests/gen/ch28/test_gen_ambig_union_hl_weak0_pull1.sv",
+            "tests/gen/ch28/test_gen_ambig_union_hl_weak0_strong1.sv",
+            "tests/gen/ch28/test_gen_ambig_union_hl_weak0_supply1.sv",
+            "tests/gen/ch28/test_gen_ambig_union_hl_weak0_weak1.sv"
+          ],
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "observation": "H/Lの強度16組と、既知値のまま強度範囲を持つ2源の4組を合わせ、0側と1側の全極値を保持する合成を確認する。xとzの制御、片側または両側の無効化、未曖昧なstrong0とsupply0による別ネットの対照を含む。全20本が同一実行で合格するAND区画である。 区別: HとLの例だけでなく、値が既知でも強度が曖昧な2源の合成を含める。強い極値側の既知値だけを採用する誤りは、異なる極値のXの表示と不一致になる。未曖昧な源の規則を誤って2曖昧源へ適用する実装や、逆に全てへ和集合規則を使う実装も対照で区別する。規格図の範囲と21.2.1.4から期待値を決め、実行出力から導出していない。"
         }
       ]
     },

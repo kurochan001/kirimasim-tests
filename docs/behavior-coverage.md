@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 92.65%、Ghostを除く実行 51.05%、Ghostを含む実行 78.54%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 92.66%、Ghostを除く実行 51.06%、Ghostを含む実行 78.54%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 92.65%。** 規格要求の実行確認率: Ghostを除いて 51.05%、Ghostを含めて 78.54%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 92.66%。** 規格要求の実行確認率: Ghostを除いて 51.06%、Ghostを含めて 78.54%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対する要求カバレッジ（テスト設計）: 11426/12332 (92.65%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9685/12332 (78.54%)。
-- 登録済みだがテスト未対応: 906 動作。
+- 登録済み動作に対する要求カバレッジ（テスト設計）: 11427/12332 (92.66%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9686/12332 (78.54%)。
+- 登録済みだがテスト未対応: 905 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。
 
@@ -68,6 +68,10 @@
 - `oracle-tokens-3-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T23:13:04.014714+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `oracle-tokens-3-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:01.978891+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `oracle-tokens-3-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:03.804411+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
+- `primitives-20261115-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-15T03:51:52.714029+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
+- `primitives-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T03:52:07.416509+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
+- `primitives-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T03:51:59.846146+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `primitives-20261115-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T03:52:06.790486+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `reqgap-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T02:14:23.703451+00:00` / 4/12332 動作確認、古い入力との対応 1 件。
 - `reqgap-20261114-kirimasim-77c27531.json`: `kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401` / `2026-11-14T02:15:42.861980+00:00` / 14/12332 動作確認、古い入力との対応 1 件。
 - `reqgap-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:15:04.150898+00:00` / 11/12332 動作確認、古い入力との対応 1 件。
@@ -363,7 +367,7 @@
 - 25 Interfaces: 解釈保留なし 25/25、登録 63、テスト対応 55。
 - 26 Packages: 解釈保留なし 8/8、登録 44、テスト対応 39。
 - 27 Generate constructs: 解釈保留なし 7/7、登録 32、テスト対応 27。
-- 28 Gate-level and switch-level modeling: 解釈保留なし 34/34、登録 384、テスト対応 368。
+- 28 Gate-level and switch-level modeling: 解釈保留なし 34/34、登録 384、テスト対応 369。
 - 29 User-defined primitives: 解釈保留なし 17/17、登録 52、テスト対応 49。
 - 30 Specify blocks: 解釈保留なし 31/31、登録 157、テスト対応 150。
 - 31 Timing checks: 解釈保留なし 26/26、登録 180、テスト対応 155。
@@ -75382,7 +75386,7 @@ strength0 strength1 部分は，それぞれ供給／強い／引き出す／弱
 
 ### SV2023-28.12.2-EXTRACT-AMBIGUOUS-UNION-TEXT
 
-`28.12.2` / `normal` / テスト未対応
+`28.12.2` / `normal` / 実行確認あり
 
 曖昧な強度を持つ2信号を結合すると、結果も曖昧な強度を持ちます。その強度範囲は、両信号の強度レベルと、両端の間にあるすべてのレベルを含みます。これは、0 側と 1 側の両方のレベルを含むので、値は x である。28.12.1の優勢規則は、不定なオペランドには適用されない。28.12.1は、値が既知で強度が単一レベルの信号に限定され、28.12.3は不定な信号と確定した信号の組合せだけを扱うためである。
 
@@ -75390,6 +75394,26 @@ strength0 strength1 部分は，それぞれ供給／強い／引き出す／弱
 
 規定の性質: `mandatory`。
 
+- [test_gen_ambig_union_bounded_h53_l63.sv](../tests/gen/ch28/test_gen_ambig_union_bounded_h53_l63.sv): 既知値のまま複数の強度を持つ2源を`ranges h=531 l=630 joined=65X`として別々に観測し、その全範囲を合成する。別ネットの未曖昧なstrong0とsupply0は`unambiguous supply0=Su0 strong0=St0 joined=65X`となり、2曖昧源の合成とは区別する。z制御でも`z controls h=531 l=630 joined=65X`を確認する。
+- [test_gen_ambig_union_bounded_h53_l65.sv](../tests/gen/ch28/test_gen_ambig_union_bounded_h53_l65.sv): 既知値のまま複数の強度を持つ2源を`ranges h=531 l=650 joined=65X`として別々に観測し、その全範囲を合成する。別ネットの未曖昧なstrong0とsupply0は`unambiguous supply0=Su0 strong0=St0 joined=65X`となり、2曖昧源の合成とは区別する。z制御でも`z controls h=531 l=650 joined=65X`を確認する。
+- [test_gen_ambig_union_bounded_h63_l53.sv](../tests/gen/ch28/test_gen_ambig_union_bounded_h63_l53.sv): 既知値のまま複数の強度を持つ2源を`ranges h=631 l=530 joined=56X`として別々に観測し、その全範囲を合成する。別ネットの未曖昧なstrong0とsupply0は`unambiguous supply0=Su0 strong0=StX joined=56X`となり、2曖昧源の合成とは区別する。z制御でも`z controls h=631 l=530 joined=56X`を確認する。
+- [test_gen_ambig_union_bounded_h65_l53.sv](../tests/gen/ch28/test_gen_ambig_union_bounded_h65_l53.sv): 既知値のまま複数の強度を持つ2源を`ranges h=651 l=530 joined=56X`として別々に観測し、その全範囲を合成する。別ネットの未曖昧なstrong0とsupply0は`unambiguous supply0=Su0 strong0=StX joined=56X`となり、2曖昧源の合成とは区別する。z制御でも`z controls h=651 l=530 joined=56X`を確認する。
+- [test_gen_ambig_union_hl_pull0_pull1.sv](../tests/gen/ch28/test_gen_ambig_union_hl_pull0_pull1.sv): 独立したHとLの強度を読み、未知制御xでの合成を`xx h=PuH l=PuL joined=PuX`、zでの合成を`zz h=PuH l=PuL joined=PuX`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。
+- [test_gen_ambig_union_hl_pull0_strong1.sv](../tests/gen/ch28/test_gen_ambig_union_hl_pull0_strong1.sv): 独立したHとLの強度を読み、未知制御xでの合成を`xx h=StH l=PuL joined=56X`、zでの合成を`zz h=StH l=PuL joined=56X`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。
+- [test_gen_ambig_union_hl_pull0_supply1.sv](../tests/gen/ch28/test_gen_ambig_union_hl_pull0_supply1.sv): 独立したHとLの強度を読み、未知制御xでの合成を`xx h=SuH l=PuL joined=57X`、zでの合成を`zz h=SuH l=PuL joined=57X`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。
+- [test_gen_ambig_union_hl_pull0_weak1.sv](../tests/gen/ch28/test_gen_ambig_union_hl_pull0_weak1.sv): 独立したHとLの強度を読み、未知制御xでの合成を`xx h=WeH l=PuL joined=53X`、zでの合成を`zz h=WeH l=PuL joined=53X`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。
+- [test_gen_ambig_union_hl_strong0_pull1.sv](../tests/gen/ch28/test_gen_ambig_union_hl_strong0_pull1.sv): 独立したHとLの強度を読み、未知制御xでの合成を`xx h=PuH l=StL joined=65X`、zでの合成を`zz h=PuH l=StL joined=65X`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。
+- [test_gen_ambig_union_hl_strong0_strong1.sv](../tests/gen/ch28/test_gen_ambig_union_hl_strong0_strong1.sv): 独立したHとLの強度を読み、未知制御xでの合成を`xx h=StH l=StL joined=StX`、zでの合成を`zz h=StH l=StL joined=StX`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。
+- [test_gen_ambig_union_hl_strong0_supply1.sv](../tests/gen/ch28/test_gen_ambig_union_hl_strong0_supply1.sv): 独立したHとLの強度を読み、未知制御xでの合成を`xx h=SuH l=StL joined=67X`、zでの合成を`zz h=SuH l=StL joined=67X`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。
+- [test_gen_ambig_union_hl_strong0_weak1.sv](../tests/gen/ch28/test_gen_ambig_union_hl_strong0_weak1.sv): 独立したHとLの強度を読み、未知制御xでの合成を`xx h=WeH l=StL joined=63X`、zでの合成を`zz h=WeH l=StL joined=63X`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。
+- [test_gen_ambig_union_hl_supply0_pull1.sv](../tests/gen/ch28/test_gen_ambig_union_hl_supply0_pull1.sv): 独立したHとLの強度を読み、未知制御xでの合成を`xx h=PuH l=SuL joined=75X`、zでの合成を`zz h=PuH l=SuL joined=75X`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。
+- [test_gen_ambig_union_hl_supply0_strong1.sv](../tests/gen/ch28/test_gen_ambig_union_hl_supply0_strong1.sv): 独立したHとLの強度を読み、未知制御xでの合成を`xx h=StH l=SuL joined=76X`、zでの合成を`zz h=StH l=SuL joined=76X`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。
+- [test_gen_ambig_union_hl_supply0_supply1.sv](../tests/gen/ch28/test_gen_ambig_union_hl_supply0_supply1.sv): 独立したHとLの強度を読み、未知制御xでの合成を`xx h=SuH l=SuL joined=SuX`、zでの合成を`zz h=SuH l=SuL joined=SuX`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。
+- [test_gen_ambig_union_hl_supply0_weak1.sv](../tests/gen/ch28/test_gen_ambig_union_hl_supply0_weak1.sv): 独立したHとLの強度を読み、未知制御xでの合成を`xx h=WeH l=SuL joined=73X`、zでの合成を`zz h=WeH l=SuL joined=73X`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。
+- [test_gen_ambig_union_hl_weak0_pull1.sv](../tests/gen/ch28/test_gen_ambig_union_hl_weak0_pull1.sv): 独立したHとLの強度を読み、未知制御xでの合成を`xx h=PuH l=WeL joined=35X`、zでの合成を`zz h=PuH l=WeL joined=35X`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。
+- [test_gen_ambig_union_hl_weak0_strong1.sv](../tests/gen/ch28/test_gen_ambig_union_hl_weak0_strong1.sv): 独立したHとLの強度を読み、未知制御xでの合成を`xx h=StH l=WeL joined=36X`、zでの合成を`zz h=StH l=WeL joined=36X`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。
+- [test_gen_ambig_union_hl_weak0_supply1.sv](../tests/gen/ch28/test_gen_ambig_union_hl_weak0_supply1.sv): 独立したHとLの強度を読み、未知制御xでの合成を`xx h=SuH l=WeL joined=37X`、zでの合成を`zz h=SuH l=WeL joined=37X`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。
+- [test_gen_ambig_union_hl_weak0_weak1.sv](../tests/gen/ch28/test_gen_ambig_union_hl_weak0_weak1.sv): 独立したHとLの強度を読み、未知制御xでの合成を`xx h=WeH l=WeL joined=WeX`、zでの合成を`zz h=WeH l=WeL joined=WeX`として確認する。片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。
 
 ### SV2023-28.12.2-EXTRACT-EQUAL-OPPOSITE-UNKNOWN
 

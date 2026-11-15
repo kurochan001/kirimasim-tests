@@ -133,6 +133,8 @@ import cg_option_levels
 import gate_strength_truth
 import keywords
 import keywords_inherited
+import primitive_array_bounds
+import ambiguous_strength_union
 import scheduling
 import strength
 import wide_paths
@@ -169,7 +171,8 @@ GENERATORS = [interaction_progmod, interaction_progif, interaction_simend, inter
               interaction_gendisable, interaction_dist, interaction_eventlife, interaction_dpiquery, interaction_sdfpath, interaction_checksample, interaction_progassert, interaction_cgsample, interaction_deferdis, interaction_compound, interaction_inside,
               interaction_range, interaction_case_inside, interaction_clockevent, interaction_deferarg, interaction_genenum, interaction_pkgnba, interaction_pkgwatch,
               combination_events, combination_nba, combination_aggregates, combination_io,
-              combination_monitors, cg_option_levels, gate_strength_truth, keywords_inherited]
+              combination_monitors, cg_option_levels, gate_strength_truth, keywords_inherited,
+              primitive_array_bounds, ambiguous_strength_union]
 
 
 def main() -> int:

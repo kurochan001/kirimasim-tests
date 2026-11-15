@@ -1,0 +1,4 @@
+p0 up=10zz down=10zz offset=10zz broadcast=zzzz single=z
+p1 up=zz01 down=zz01 offset=zz01 broadcast=1111 single=1
+p2 up=0z1z down=0z1z offset=0z1z broadcast=0000 single=0
+p3 up=z0z1 down=z0z1 offset=z0z1 broadcast=zzzz single=z

@@ -1,0 +1,4 @@
+p0 up=1000 down=1000 offset=1000 broadcast=0000 single=0
+p1 up=0001 down=0001 offset=0001 broadcast=1111 single=1
+p2 up=0010 down=0010 offset=0010 broadcast=0000 single=0
+p3 up=0001 down=0001 offset=0001 broadcast=0000 single=0

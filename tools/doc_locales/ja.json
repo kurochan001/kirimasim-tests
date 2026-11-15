@@ -25497,6 +25497,10 @@
     "xnor applies both components of two asymmetric drive-strength pairs for every binary input pair": "xnorが、全ての二値入力の組合せで2つの非対称な駆動強度対の両成分を適用する",
     "xor applies both components of two asymmetric drive-strength pairs for every binary input pair": "xorが、全ての二値入力の組合せで2つの非対称な駆動強度対の両成分を適用する",
     "ZXQPH0QXZ remains reserved in the cumulative ZXQPH1QXZ keyword set and cannot name a ZXQPH2QXZ": "ZXQPH0QXZは累積予約語集合ZXQPH1QXZでも予約されており、ZXQPH2QXZの名前には使えない",
-    "ZXQPH0QXZ remains reserved in the cumulative ZXQPH1QXZ -noconfig keyword set and cannot name a ZXQPH2QXZ": "ZXQPH0QXZは累積予約語集合ZXQPH1QXZ -noconfigでも予約されており、ZXQPH2QXZの名前には使えない"
+    "ZXQPH0QXZ remains reserved in the cumulative ZXQPH1QXZ -noconfig keyword set and cannot name a ZXQPH2QXZ": "ZXQPH0QXZは累積予約語集合ZXQPH1QXZ -noconfigでも予約されており、ZXQPH2QXZの名前には使えない",
+    "bounded known-one ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ and known-zero ZXQPH3QXZ ZXQPH4QXZ ZXQPH5QXZ ranges retain both extremes when combined": "既知1の範囲ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZと既知0の範囲ZXQPH3QXZ ZXQPH4QXZ ZXQPH5QXZは、合成時に両方の極値を保つ",
+    "ambiguous ZXQPH0QXZ L and ZXQPH1QXZ H drivers combine over both strength ranges": "曖昧なZXQPH0QXZのLとZXQPH1QXZのHは、両方の強度範囲を含めて合成される",
+    "a ZXQPH0QXZ array rejects a ZXQPH1QXZ ZXQPH2QXZ ZXQPH3QXZ - ZXQPH4QXZ ZXQPH5QXZ terminal for four instances": "ZXQPH0QXZの4要素配列は、ZXQPH1QXZ ZXQPH2QXZ ZXQPH3QXZ ZXQPH4QXZ幅のZXQPH5QXZ端子を拒否する",
+    "ZXQPH0QXZ arrays allow negative, descending, nonzero and equal range endpoints with scalar broadcasts": "ZXQPH0QXZの配列は負・降順・非ゼロ・同値の範囲端点とスカラ共有を許す"
   }
 }

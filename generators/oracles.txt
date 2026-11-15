@@ -5990,3 +5990,84 @@ test_gen_kw_inherited_1800_2012_within spec iverilog@13.0 verilator@5.054
 test_gen_kw_inherited_1800_2012_wor spec iverilog@13.0 verilator@5.054
 test_gen_kw_inherited_1800_2012_xnor spec iverilog@13.0 verilator@5.054
 test_gen_kw_inherited_1800_2012_xor spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_and_y_w2_negative_up spec iverilog@13.0
+test_gen_primarray_bad_and_y_w2_negative_down spec iverilog@13.0
+test_gen_primarray_bad_and_y_w5_negative_up spec iverilog@13.0
+test_gen_primarray_bad_and_y_w5_negative_down spec iverilog@13.0
+test_gen_primarray_bad_and_a_w2_negative_up spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_and_a_w2_negative_down spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_and_a_w5_negative_up spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_and_a_w5_negative_down spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_and_b_w2_negative_up spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_and_b_w2_negative_down spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_and_b_w5_negative_up spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_and_b_w5_negative_down spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_xnor_y_w2_negative_up spec iverilog@13.0
+test_gen_primarray_bad_xnor_y_w2_negative_down spec iverilog@13.0
+test_gen_primarray_bad_xnor_y_w5_negative_up spec iverilog@13.0
+test_gen_primarray_bad_xnor_y_w5_negative_down spec iverilog@13.0
+test_gen_primarray_bad_xnor_a_w2_negative_up spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_xnor_a_w2_negative_down spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_xnor_a_w5_negative_up spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_xnor_a_w5_negative_down spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_xnor_b_w2_negative_up spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_xnor_b_w2_negative_down spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_xnor_b_w5_negative_up spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_xnor_b_w5_negative_down spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_not_y_w2_negative_up spec iverilog@13.0
+test_gen_primarray_bad_not_y_w2_negative_down spec iverilog@13.0
+test_gen_primarray_bad_not_y_w5_negative_up spec iverilog@13.0
+test_gen_primarray_bad_not_y_w5_negative_down spec iverilog@13.0
+test_gen_primarray_bad_not_a_w2_negative_up spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_not_a_w2_negative_down spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_not_a_w5_negative_up spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_not_a_w5_negative_down spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_bufif1_y_w2_negative_up spec iverilog@13.0
+test_gen_primarray_bad_bufif1_y_w2_negative_down spec iverilog@13.0
+test_gen_primarray_bad_bufif1_y_w5_negative_up spec iverilog@13.0
+test_gen_primarray_bad_bufif1_y_w5_negative_down spec iverilog@13.0
+test_gen_primarray_bad_bufif1_a_w2_negative_up spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_bufif1_a_w2_negative_down spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_bufif1_a_w5_negative_up spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_bufif1_a_w5_negative_down spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_bufif1_b_w2_negative_up spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_bufif1_b_w2_negative_down spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_bufif1_b_w5_negative_up spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_bufif1_b_w5_negative_down spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_nmos_y_w2_negative_up spec iverilog@13.0
+test_gen_primarray_bad_nmos_y_w2_negative_down spec iverilog@13.0
+test_gen_primarray_bad_nmos_y_w5_negative_up spec iverilog@13.0
+test_gen_primarray_bad_nmos_y_w5_negative_down spec iverilog@13.0
+test_gen_primarray_bad_nmos_a_w2_negative_up spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_nmos_a_w2_negative_down spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_nmos_a_w5_negative_up spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_nmos_a_w5_negative_down spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_nmos_b_w2_negative_up spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_nmos_b_w2_negative_down spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_nmos_b_w5_negative_up spec iverilog@13.0 verilator@5.054
+test_gen_primarray_bad_nmos_b_w5_negative_down spec iverilog@13.0 verilator@5.054
+test_gen_primarray_legal_and_range_boundaries spec iverilog@13.0 verilator@5.054
+test_gen_primarray_legal_xnor_range_boundaries spec iverilog@13.0 verilator@5.054
+test_gen_primarray_legal_not_range_boundaries spec iverilog@13.0 verilator@5.054
+test_gen_primarray_legal_bufif1_range_boundaries spec iverilog@13.0
+test_gen_primarray_legal_nmos_range_boundaries spec iverilog@13.0
+test_gen_ambig_union_hl_weak0_weak1 spec iverilog@13.0
+test_gen_ambig_union_hl_weak0_pull1 spec iverilog@13.0
+test_gen_ambig_union_hl_weak0_strong1 spec iverilog@13.0
+test_gen_ambig_union_hl_weak0_supply1 spec iverilog@13.0
+test_gen_ambig_union_hl_pull0_weak1 spec iverilog@13.0
+test_gen_ambig_union_hl_pull0_pull1 spec iverilog@13.0
+test_gen_ambig_union_hl_pull0_strong1 spec iverilog@13.0
+test_gen_ambig_union_hl_pull0_supply1 spec iverilog@13.0
+test_gen_ambig_union_hl_strong0_weak1 spec iverilog@13.0
+test_gen_ambig_union_hl_strong0_pull1 spec iverilog@13.0
+test_gen_ambig_union_hl_strong0_strong1 spec iverilog@13.0
+test_gen_ambig_union_hl_strong0_supply1 spec iverilog@13.0
+test_gen_ambig_union_hl_supply0_weak1 spec iverilog@13.0
+test_gen_ambig_union_hl_supply0_pull1 spec iverilog@13.0
+test_gen_ambig_union_hl_supply0_strong1 spec iverilog@13.0
+test_gen_ambig_union_hl_supply0_supply1 spec iverilog@13.0
+test_gen_ambig_union_bounded_h65_l53 spec iverilog@13.0
+test_gen_ambig_union_bounded_h53_l65 spec iverilog@13.0
+test_gen_ambig_union_bounded_h63_l53 spec iverilog@13.0
+test_gen_ambig_union_bounded_h53_l63 spec iverilog@13.0

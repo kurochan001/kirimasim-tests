@@ -1386,3 +1386,7 @@ The gate-strength tests added on 2026-11-15 reproduce these differences at both 
 On 2026-11-15, the inherited-keyword additions reproduce the following difference with Verilator 5.054 at both seeds 1 and 73:
 
 - Under `` `begin_keywords "1800-2012" ``, it accepts `reg global;`, although 22.14.8 inherits the reserved word from 22.14.7 (5.6 prohibits its use as an unescaped identifier). The new test is `gen/ch22/test_gen_kw_inherited_1800_2012_global`. The same saved run also reproduces acceptance in the existing `gen/ch22/test_gen_kw_1800_2009_global`. Neither is registered with a Verilator 5.054 oracle.
+
+On 2026-11-15, 20 new primitive-array output-width tests reproduce the following difference with Verilator 5.054 at both seeds 1 and 73:
+
+- It accepts two-bit and five-bit output connections on four-instance arrays of `and`, `xnor`, `not`, `bufif1` and `nmos`, in both negative-index range directions. It emits width warnings with the runner's `-Wno-fatal` setting and continues. IEEE 1800-2023 28.3.6 requires an error when a connection has neither the single-terminal width (one bit) nor enough bits for all instances (four bits). The tests are `gen/ch28/test_gen_primarray_bad_{gate}_y_w{2,5}_negative_{up,down}`. No Verilator oracle is registered for them. The corresponding input/control mismatches are rejected.
