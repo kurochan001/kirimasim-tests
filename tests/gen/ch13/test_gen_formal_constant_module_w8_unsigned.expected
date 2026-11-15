@@ -1,0 +1,6 @@
+p0 folded=00101010 runtime=00101010 decimal=42
+p1 folded=11010101 runtime=11010101 decimal=213
+p2 folded=10101010 runtime=10101010 decimal=170
+p3 folded=01111111 runtime=01111111 decimal=127
+leaf zero=00101010 ones=01010101
+leaf decimal zero=42 ones=85

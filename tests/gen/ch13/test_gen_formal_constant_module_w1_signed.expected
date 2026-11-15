@@ -1,0 +1,6 @@
+p0 folded=1 runtime=1 decimal=-1
+p1 folded=0 runtime=0 decimal=0
+p2 folded=0 runtime=0 decimal=0
+p3 folded=0 runtime=0 decimal=0
+leaf zero=1 ones=0
+leaf decimal zero=-1 ones=0

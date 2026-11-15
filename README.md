@@ -65,12 +65,12 @@ For a first test, [walk through 24 real lines](docs/faq.en.md#q49-read-a-real-te
 These are inventory and expectation-provenance counts, not current simulator passes. See [what `:lrm:` and `:oracle:` record](docs/faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
 <!-- suite-stats:begin -->
-The suite has **13660 tests** in 38 chapters. 6767 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
+The suite has **13720 tests** in 38 chapters. 6827 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 7397 |
-| Verilator 5.052 or 5.054, with no Icarus Verilog 13.0 oracle recorded | 2349 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 7417 |
+| Verilator 5.052 or 5.054, with no Icarus Verilog 13.0 oracle recorded | 2389 |
 | The standard only, with no fixed-release simulator oracle recorded | 3914 |
 
 2966 tests depend on x or z values (`:fourstate: yes`). 737 tests come with C code: 190 DPI tests (`:dpi_c:`) and 547 VPI tests (`:vpi_c:`). 3028 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 77 tests check the exit code of the simulation (`:expected_exit:`). 26 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 56 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
@@ -87,7 +87,7 @@ The suite has **13660 tests** in 38 chapters. 6767 of them are generated. The [g
 | 10 | Assignment statements | 437 | 301 | 71 | 65 |
 | 11 | Operators and expressions | 1675 | 1262 | 137 | 276 |
 | 12 | Procedural programming statements | 312 | 214 | 33 | 65 |
-| 13 | Tasks and functions (subroutines) | 517 | 283 | 135 | 99 |
+| 13 | Tasks and functions (subroutines) | 577 | 303 | 175 | 99 |
 | 14 | Clocking blocks | 170 |  | 101 | 69 |
 | 15 | Interprocess synchronization and communication | 196 | 2 | 59 | 135 |
 | 16 | Assertions | 799 | 38 | 122 | 639 |

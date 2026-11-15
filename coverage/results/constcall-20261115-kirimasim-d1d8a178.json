@@ -1,0 +1,251 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401",
+ "tests": {
+  "gen/ch13/test_gen_formal_constant_class_w1_signed": {
+   "status": "pass",
+   "inputs_sha256": "80a9d5e35025e258f31176458071145fa1df311f0f817c940db42e78ba8520cb"
+  },
+  "gen/ch13/test_gen_formal_constant_class_w1_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "4b4f2635b989d7f7b619f005278d7bcb15b9e9666360ce81424119b187cccd34"
+  },
+  "gen/ch13/test_gen_formal_constant_class_w32_signed": {
+   "status": "pass",
+   "inputs_sha256": "6ea528ef3f0d7ae4a107a39c6936c8244d755a89be65a7065fb5bb2a96db2844"
+  },
+  "gen/ch13/test_gen_formal_constant_class_w32_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "0a8aa6fe7f24836be9606211252325bd203091ae9007d21a3217dddbcfb88640"
+  },
+  "gen/ch13/test_gen_formal_constant_class_w33_signed": {
+   "status": "pass",
+   "inputs_sha256": "596ed070b9d65b96fa3a1bb43aa9c1a2bb3fab85b052864f7ed657f5fedc39ce"
+  },
+  "gen/ch13/test_gen_formal_constant_class_w33_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "d124e71a2bcb228e2a35f39f84796865ec17d90dd43b62586d1039cee0658bf1"
+  },
+  "gen/ch13/test_gen_formal_constant_class_w65_signed": {
+   "status": "pass",
+   "inputs_sha256": "981654c8417f4e1bab8c2a78ab2c791f5f8a2ec935b2e10a3daa1ab300e39cc4"
+  },
+  "gen/ch13/test_gen_formal_constant_class_w65_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "58befdc3ca633d8edbce2a0b1723bab57f6ce96e44c00222713e8063639c14aa"
+  },
+  "gen/ch13/test_gen_formal_constant_class_w8_signed": {
+   "status": "pass",
+   "inputs_sha256": "69a87ff90bf0b4c6a67c398758b5b2a543a2d145b7537fbd39f281836b6128fe"
+  },
+  "gen/ch13/test_gen_formal_constant_class_w8_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "9b31589c5da9fb28cc57a1da6da4025ffbc4d8f02a6d24ae081c7a42ed33dcc8"
+  },
+  "gen/ch13/test_gen_formal_constant_module_w1_signed": {
+   "status": "pass",
+   "inputs_sha256": "6054d4c6b9f4019aede3a14503861c1ef71a336becc78b7c4847402a1e69eaad"
+  },
+  "gen/ch13/test_gen_formal_constant_module_w1_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "2ee218fb9bae7dd701e2dcc85b5b7f518c6bdd085d6a56b50ddb7e5974432943"
+  },
+  "gen/ch13/test_gen_formal_constant_module_w32_signed": {
+   "status": "pass",
+   "inputs_sha256": "a3358f835a36ba6b683a2b80474415bff63133fdd7cd90e59c17f81dda62ec07"
+  },
+  "gen/ch13/test_gen_formal_constant_module_w32_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "59ea76cc671c36c5137619a3ebc272daeb3ef1426fc87c7b38371e0c59226d55"
+  },
+  "gen/ch13/test_gen_formal_constant_module_w33_signed": {
+   "status": "pass",
+   "inputs_sha256": "0fc52da64e5f042c36eb1031663bc4f528bcf5a777aea375932c878badea3deb"
+  },
+  "gen/ch13/test_gen_formal_constant_module_w33_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "cddc11fd6092a3d68c608ebf145087a47bf506450fed6fd9c8eae0aebee51090"
+  },
+  "gen/ch13/test_gen_formal_constant_module_w65_signed": {
+   "status": "pass",
+   "inputs_sha256": "da2cd389989598cab22a140cde31a3a5d8d5647548072910497ff486aa30d701"
+  },
+  "gen/ch13/test_gen_formal_constant_module_w65_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "0a566ec8cccebc14e6186b2e1a5545214204cfbe17bc2a4704c55c690e8744c0"
+  },
+  "gen/ch13/test_gen_formal_constant_module_w8_signed": {
+   "status": "pass",
+   "inputs_sha256": "1968c7c632dbcb7ac4308ef8f4da3f5a25b4e5bf627ab5c9f60151c27e335827"
+  },
+  "gen/ch13/test_gen_formal_constant_module_w8_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "a81124ae0c21121b42f5677889fbc929a18ac58cf3e8eeb0d63325d3ea2a6641"
+  },
+  "gen/ch13/test_gen_formal_constant_package_w1_signed": {
+   "status": "pass",
+   "inputs_sha256": "54d6a8bf5a4128cbbc8916ffbd06f4c0a6f49bbf6fee133b9154d6be23cd05c5"
+  },
+  "gen/ch13/test_gen_formal_constant_package_w1_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "92159bbc57808d3dc717e2421ca6d0c1440fb6ebe4c80dc40668708e3e804b3f"
+  },
+  "gen/ch13/test_gen_formal_constant_package_w32_signed": {
+   "status": "pass",
+   "inputs_sha256": "a8fe3c8b37aced8fd16e837527526f502d86996eff5f695cd2bd41089922269d"
+  },
+  "gen/ch13/test_gen_formal_constant_package_w32_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "166ae8d738ee739caf7c4ef68d5baa2e4e0e2e09d9cf1f06d671d1ddc9f1d723"
+  },
+  "gen/ch13/test_gen_formal_constant_package_w33_signed": {
+   "status": "pass",
+   "inputs_sha256": "29af3b92e03c2670502e48d8fa4969f9593391f079d71ea49cfadf27bf6957ec"
+  },
+  "gen/ch13/test_gen_formal_constant_package_w33_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "e3c53d4cfcadb3ca1b6905d65c3e765fbff02718ded54eb3951d65755dd2e885"
+  },
+  "gen/ch13/test_gen_formal_constant_package_w65_signed": {
+   "status": "pass",
+   "inputs_sha256": "8350d7aa18a07fab89686caf93ed81039193ba885cbc4586442ce746f35b71b1"
+  },
+  "gen/ch13/test_gen_formal_constant_package_w65_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "f9a6cc3a9b3b854891d8e7141e5404d93d29dcfee2acae1b914403daa999eaae"
+  },
+  "gen/ch13/test_gen_formal_constant_package_w8_signed": {
+   "status": "pass",
+   "inputs_sha256": "9aab2a1f828afb69f3051a3edbd62587b360e6d5be98d1390b97ee59f6aa8682"
+  },
+  "gen/ch13/test_gen_formal_constant_package_w8_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "435446e1b711c4144846d6b8f6b546d481c236243d222d870ae410f40bf97e14"
+  },
+  "gen/ch13/test_gen_formal_runtime_inout_w1_signed": {
+   "status": "pass",
+   "inputs_sha256": "cb8c352f4c0625c14aa82eb2eee95af703cfbca3bb1370739bf57f297565a84a"
+  },
+  "gen/ch13/test_gen_formal_runtime_inout_w1_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "6e2c4dd63e5f61ea0c6e83f26416d7862b26e74ad348ad5ff1e9db4b65f68cfd"
+  },
+  "gen/ch13/test_gen_formal_runtime_inout_w32_signed": {
+   "status": "pass",
+   "inputs_sha256": "25f1b8b40d56390b26adc790d3801f64cb5d4a82747f628cd71df875f9cb7540"
+  },
+  "gen/ch13/test_gen_formal_runtime_inout_w32_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "9f125546574e238c89bcb81a0a054466391e34177bc55aa77da3eca8885b0d65"
+  },
+  "gen/ch13/test_gen_formal_runtime_inout_w33_signed": {
+   "status": "pass",
+   "inputs_sha256": "f436b8d6863afe06bd8dd508eb39b5f47706eb33fd5386cd854a46cc89d7d59a"
+  },
+  "gen/ch13/test_gen_formal_runtime_inout_w33_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "156102f05d941c505c010f48c012b4778692ddf60711e0957e8ba277dec85b50"
+  },
+  "gen/ch13/test_gen_formal_runtime_inout_w65_signed": {
+   "status": "pass",
+   "inputs_sha256": "05eae12561ce67bbffd9c97a363fec62756a3fa505baeef4c24cfebb39cbe80c"
+  },
+  "gen/ch13/test_gen_formal_runtime_inout_w65_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "e784cbfbdc678fbed527d7ceda5d851e65cc25293f77f0d0806f05f4617861af"
+  },
+  "gen/ch13/test_gen_formal_runtime_inout_w8_signed": {
+   "status": "pass",
+   "inputs_sha256": "43fc057aca76f1e2da0a36179e349758ed6a160215b0023fd6314f27786e80d7"
+  },
+  "gen/ch13/test_gen_formal_runtime_inout_w8_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "d5ccc0c390e8e9e508a71f1de5c8138d549d497f2b0f1082f81c00bf77e5e162"
+  },
+  "gen/ch13/test_gen_formal_runtime_output_w1_signed": {
+   "status": "pass",
+   "inputs_sha256": "8d9e55955ac9b562c784b4d03026e728da1764aa68bede6cbb2dcc10b8ac04a2"
+  },
+  "gen/ch13/test_gen_formal_runtime_output_w1_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "119608a9b239f1aaf18dc3ed5b29dfc044c985dd992e2b63192721ff27e2e262"
+  },
+  "gen/ch13/test_gen_formal_runtime_output_w32_signed": {
+   "status": "pass",
+   "inputs_sha256": "1739caa1be2f540cbe05699411c4c23f777eb30ded8f010c4a257b5a69af4728"
+  },
+  "gen/ch13/test_gen_formal_runtime_output_w32_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "c63999bc4879486651dcab0965eca4c37f519ec3fd0c0dfdbbc9a7f33e42b8bd"
+  },
+  "gen/ch13/test_gen_formal_runtime_output_w33_signed": {
+   "status": "pass",
+   "inputs_sha256": "a24d6a100094b86117f559096a85cc005dafec8d13ce342385b56670ad9f36c4"
+  },
+  "gen/ch13/test_gen_formal_runtime_output_w33_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "e0256c1f8dbea36b03041d816874b2521889561983da2a87bc5d759522504ac9"
+  },
+  "gen/ch13/test_gen_formal_runtime_output_w65_signed": {
+   "status": "pass",
+   "inputs_sha256": "25884e1746b13a09db14c540c60368de3de78e09e2451e1f1defb7f6105a56ff"
+  },
+  "gen/ch13/test_gen_formal_runtime_output_w65_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "529c33fad28c58f3ee236f5a9ec8025a53f4bbda7256f101cd1c1f47dc2d391f"
+  },
+  "gen/ch13/test_gen_formal_runtime_output_w8_signed": {
+   "status": "pass",
+   "inputs_sha256": "aa8885d5af1e31c60b4a5916e1a46bed4b54ed95d45adca10d39064f1d2d16d6"
+  },
+  "gen/ch13/test_gen_formal_runtime_output_w8_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "d895c4ebc00f92449cf73be5f294aa1c7c92f936279d37203221fed9741b1a15"
+  },
+  "gen/ch13/test_gen_formal_runtime_ref_w1_signed": {
+   "status": "pass",
+   "inputs_sha256": "0c4ac10c2ef718995d579c95284836813a49f6baf5ce8062b9cd3886da377794"
+  },
+  "gen/ch13/test_gen_formal_runtime_ref_w1_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "3bedee11d94fcec24300ed35e3748a42e47d47649642a378392aaafc4421c2de"
+  },
+  "gen/ch13/test_gen_formal_runtime_ref_w32_signed": {
+   "status": "pass",
+   "inputs_sha256": "466175597b5b8575aa18a75045016353c345fcfc6e0ac0de45ac83b554c990c3"
+  },
+  "gen/ch13/test_gen_formal_runtime_ref_w32_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "dd639a04a29517da28f521b10f919af49a7cda14597482b6ce401e5d1db6bdc5"
+  },
+  "gen/ch13/test_gen_formal_runtime_ref_w33_signed": {
+   "status": "pass",
+   "inputs_sha256": "7a4f87fc2fd6c1d85ccaf4dbae1c4f758729730c031d56d8332fc014ae7baac7"
+  },
+  "gen/ch13/test_gen_formal_runtime_ref_w33_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "f6c6781cb55e3fb613a1fe846a859e5196ecb44fc7d0dc67a3fda4787f6e29b4"
+  },
+  "gen/ch13/test_gen_formal_runtime_ref_w65_signed": {
+   "status": "pass",
+   "inputs_sha256": "a6fb61021ac2dad81d1617590168dbc35e4e2a80ed23a34d283dfe5695b074c3"
+  },
+  "gen/ch13/test_gen_formal_runtime_ref_w65_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "c59d7d137cacba9d6b0a540b50bee2c9b7c99cdd0d9b66329a80b9f0ab66a72b"
+  },
+  "gen/ch13/test_gen_formal_runtime_ref_w8_signed": {
+   "status": "pass",
+   "inputs_sha256": "ec2368e054f021488ead1d6cffbcaba4e344e5e517fb60048da5550941846276"
+  },
+  "gen/ch13/test_gen_formal_runtime_ref_w8_unsigned": {
+   "status": "pass",
+   "inputs_sha256": "7bbc4b3cd10083fa3a597e3e6e2f0328d56c2d230c09bab4afa9e24b17925635"
+  }
+ },
+ "generated_at": "2026-11-15T07:46:53.963163+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

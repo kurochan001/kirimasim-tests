@@ -6110,3 +6110,63 @@ test_gen_prim_identity_udp_ascending spec
 test_gen_prim_identity_udp_negative_up spec
 test_gen_prim_identity_udp_negative_down spec
 test_gen_prim_identity_udp_singleton spec
+test_gen_formal_runtime_output_w1_unsigned spec verilator@5.054
+test_gen_formal_runtime_output_w1_signed spec verilator@5.054
+test_gen_formal_runtime_output_w8_unsigned spec verilator@5.054
+test_gen_formal_runtime_output_w8_signed spec verilator@5.054
+test_gen_formal_runtime_output_w32_unsigned spec verilator@5.054
+test_gen_formal_runtime_output_w32_signed spec verilator@5.054
+test_gen_formal_runtime_output_w33_unsigned spec verilator@5.054
+test_gen_formal_runtime_output_w33_signed spec verilator@5.054
+test_gen_formal_runtime_output_w65_unsigned spec verilator@5.054
+test_gen_formal_runtime_output_w65_signed spec verilator@5.054
+test_gen_formal_runtime_inout_w1_unsigned spec verilator@5.054
+test_gen_formal_runtime_inout_w1_signed spec verilator@5.054
+test_gen_formal_runtime_inout_w8_unsigned spec verilator@5.054
+test_gen_formal_runtime_inout_w8_signed spec verilator@5.054
+test_gen_formal_runtime_inout_w32_unsigned spec verilator@5.054
+test_gen_formal_runtime_inout_w32_signed spec verilator@5.054
+test_gen_formal_runtime_inout_w33_unsigned spec verilator@5.054
+test_gen_formal_runtime_inout_w33_signed spec verilator@5.054
+test_gen_formal_runtime_inout_w65_unsigned spec verilator@5.054
+test_gen_formal_runtime_inout_w65_signed spec verilator@5.054
+test_gen_formal_runtime_ref_w1_unsigned spec verilator@5.054
+test_gen_formal_runtime_ref_w1_signed spec verilator@5.054
+test_gen_formal_runtime_ref_w8_unsigned spec verilator@5.054
+test_gen_formal_runtime_ref_w8_signed spec verilator@5.054
+test_gen_formal_runtime_ref_w32_unsigned spec verilator@5.054
+test_gen_formal_runtime_ref_w32_signed spec verilator@5.054
+test_gen_formal_runtime_ref_w33_unsigned spec verilator@5.054
+test_gen_formal_runtime_ref_w33_signed spec verilator@5.054
+test_gen_formal_runtime_ref_w65_unsigned spec verilator@5.054
+test_gen_formal_runtime_ref_w65_signed spec verilator@5.054
+test_gen_formal_constant_module_w1_unsigned spec iverilog@13.0 verilator@5.054
+test_gen_formal_constant_module_w1_signed spec iverilog@13.0 verilator@5.054
+test_gen_formal_constant_module_w8_unsigned spec iverilog@13.0 verilator@5.054
+test_gen_formal_constant_module_w8_signed spec iverilog@13.0 verilator@5.054
+test_gen_formal_constant_module_w32_unsigned spec iverilog@13.0 verilator@5.054
+test_gen_formal_constant_module_w32_signed spec iverilog@13.0 verilator@5.054
+test_gen_formal_constant_module_w33_unsigned spec iverilog@13.0 verilator@5.054
+test_gen_formal_constant_module_w33_signed spec iverilog@13.0 verilator@5.054
+test_gen_formal_constant_module_w65_unsigned spec iverilog@13.0 verilator@5.054
+test_gen_formal_constant_module_w65_signed spec iverilog@13.0 verilator@5.054
+test_gen_formal_constant_package_w1_unsigned spec iverilog@13.0 verilator@5.054
+test_gen_formal_constant_package_w1_signed spec iverilog@13.0 verilator@5.054
+test_gen_formal_constant_package_w8_unsigned spec iverilog@13.0 verilator@5.054
+test_gen_formal_constant_package_w8_signed spec iverilog@13.0 verilator@5.054
+test_gen_formal_constant_package_w32_unsigned spec iverilog@13.0 verilator@5.054
+test_gen_formal_constant_package_w32_signed spec iverilog@13.0 verilator@5.054
+test_gen_formal_constant_package_w33_unsigned spec iverilog@13.0 verilator@5.054
+test_gen_formal_constant_package_w33_signed spec iverilog@13.0 verilator@5.054
+test_gen_formal_constant_package_w65_unsigned spec iverilog@13.0 verilator@5.054
+test_gen_formal_constant_package_w65_signed spec iverilog@13.0 verilator@5.054
+test_gen_formal_constant_class_w1_unsigned spec verilator@5.054
+test_gen_formal_constant_class_w1_signed spec verilator@5.054
+test_gen_formal_constant_class_w8_unsigned spec verilator@5.054
+test_gen_formal_constant_class_w8_signed spec verilator@5.054
+test_gen_formal_constant_class_w32_unsigned spec verilator@5.054
+test_gen_formal_constant_class_w32_signed spec verilator@5.054
+test_gen_formal_constant_class_w33_unsigned spec verilator@5.054
+test_gen_formal_constant_class_w33_signed spec verilator@5.054
+test_gen_formal_constant_class_w65_unsigned spec verilator@5.054
+test_gen_formal_constant_class_w65_signed spec verilator@5.054

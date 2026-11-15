@@ -1,0 +1,13 @@
+p0 runtime before=0 after=1 answer=0
+p0 input before=0 after=0 answer=0
+p0 decimal after=-1 answer=0
+p1 runtime before=1 after=1 answer=0
+p1 input before=1 after=1 answer=0
+p1 decimal after=-1 answer=0
+p2 runtime before=1 after=1 answer=0
+p2 input before=1 after=1 answer=0
+p2 decimal after=-1 answer=0
+p3 runtime before=1 after=1 answer=0
+p3 input before=1 after=1 answer=0
+p3 decimal after=-1 answer=0
+constant zero=0 ones=0

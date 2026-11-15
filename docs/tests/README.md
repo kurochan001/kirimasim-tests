@@ -22,7 +22,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 10 | [Assignment statements](ch10.md) | 437 | 221 |
 | 11 | [Operators and expressions](ch11.md) | 1675 | 1122 |
 | 12 | [Procedural programming statements](ch12.md) | 312 | 125 |
-| 13 | [Tasks and functions (subroutines)](ch13.md) | 517 | 280 |
+| 13 | [Tasks and functions (subroutines)](ch13.md) | 577 | 340 |
 | 14 | [Clocking blocks](ch14.md) | 170 | 72 |
 | 15 | [Interprocess synchronization and communication](ch15.md) | 196 | 133 |
 | 16 | [Assertions](ch16.md) | 799 | 133 |
