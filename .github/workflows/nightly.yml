@@ -537,14 +537,41 @@ jobs:
           export GIT_CONFIG_KEY_0="http.https://github.com/.extraheader"
           GIT_CONFIG_VALUE_0="AUTHORIZATION: basic $(printf 'x-access-token:%s' "$TOKEN" | base64 -w 0)"
           export GIT_CONFIG_VALUE_0
+          checkout_log="$RUNNER_TEMP/ghost-parser-checkout.log"
+          (umask 077; : > "$checkout_log")
           if ! (
             rm -rf -- "$PARSER_PATH" &&
-            git init -q "$PARSER_PATH" &&
-            git -C "$PARSER_PATH" fetch -q --no-tags --depth 1 \
-              "https://github.com/$PARSER_REPOSITORY.git" "${PARSER_REF:-HEAD}" &&
-            git -C "$PARSER_PATH" checkout -q --detach FETCH_HEAD
-          ) >> "$RUNNER_TEMP/ghost-checkout.log" 2>&1; then
-            echo "::error::The parser was not checked out; the log of the checkout stays private."
+            git init -q "$PARSER_PATH"
+          ) >> "$checkout_log" 2>&1; then
+            echo "::error::The parser checkout directory could not be prepared; raw output stays private."
+            exit 1
+          fi
+          # Bound fetch retries without exposing the URL, ref, path,
+          # credentials or anything derived from them.
+          for attempt in 1 2 3; do
+            if git -C "$PARSER_PATH" fetch -q --no-tags --depth 1 \
+                "https://github.com/$PARSER_REPOSITORY.git" "${PARSER_REF:-HEAD}" \
+                > "$checkout_log" 2>&1; then
+              break
+            fi
+            if [ "$attempt" -lt 3 ]; then
+              echo "::warning::Parser fetch attempt $attempt failed; retrying with raw output kept private."
+              sleep "$((attempt * 5))"
+              continue
+            fi
+            reason="unclassified failure"
+            if LC_ALL=C grep -Eqi "couldn't find remote ref|not our ref|unadvertised object" "$checkout_log"; then
+              reason="requested revision unavailable"
+            elif LC_ALL=C grep -Eqi 'authentication failed|could not read Username|repository not found|permission denied|error: (401|403|404)' "$checkout_log"; then
+              reason="authentication or repository access"
+            elif LC_ALL=C grep -Eqi 'could not resolve host|failed to connect|connection.*(reset|refused)|timed out|TLS|SSL|RPC failed|error: (429|5[0-9][0-9])' "$checkout_log"; then
+              reason="network or remote service"
+            fi
+            echo "::error::The parser fetch failed after 3 attempts ($reason); raw output stays private."
+            exit 1
+          done
+          if ! git -C "$PARSER_PATH" checkout -q --detach FETCH_HEAD >> "$checkout_log" 2>&1; then
+            echo "::error::The fetched parser could not be checked out; raw output stays private."
             exit 1
           fi
 

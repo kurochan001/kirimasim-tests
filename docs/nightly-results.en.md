@@ -20,6 +20,7 @@
 The Nightly runs on `main` every night with all seven jobs: icarus, verilator, kirimasim, lyra-build, lyra, ghost and publish.
 The results of the latest run are in the [report on the `results` branch](https://github.com/kurochan001/kirimasim-tests/tree/results#readme).
 The last successful Nightly is the [run](https://github.com/kurochan001/kirimasim-tests/actions/runs/43533749064) of 2026-11-14, on suite `aef04b93`.
+The [run of 2026-11-15](https://github.com/kurochan001/kirimasim-tests/actions/runs/43651437455), on suite `ed5ded9a`, failed while checking out Ghost's parser, before its build or tests. The other six jobs, including kirimasim's random comparisons and publish, succeeded. The checkout step is unchanged from the successful preceding run. Its raw diagnostics stay private, so the record does not distinguish a network failure from an access or revision problem. Parser fetches now make at most three attempts, with 5- and 10-second waits, and report only a fixed failure category; exhausted retries still fail the job. Recovery and output privacy were checked with injected failures; this change has not yet been verified in Nightly.
 For resuming development, see the newest [handoff](claude-code-handoff-20261112.en.md). The records below in this section are from earlier checkpoints.
 
 ### Earlier artifact-reviewed details
