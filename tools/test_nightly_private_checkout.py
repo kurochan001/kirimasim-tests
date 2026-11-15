@@ -12,7 +12,8 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 CANARIES = ("fixture-owner/fixture-parser", "fixture-revision", "fixture-parser-dir",
-            "fixture-token", "fixture-derived-commit")
+            "fixture-token", "fixture-derived-commit", "fixture-owner/fixture-simulator",
+            "fixture-deploy-key")
 
 
 class PrivateParserCheckoutTests(unittest.TestCase):
@@ -24,13 +25,17 @@ class PrivateParserCheckoutTests(unittest.TestCase):
         cls.script = textwrap.dedent(step.split("        run: |\n", 1)[1])
 
     def run_checkout(self, *, failures=0, error="unclassified", init_failure=False,
-                     checkout_failure=False, path=CANARIES[2], ref=CANARIES[1]):
+                     checkout_failure=False, path=CANARIES[2], ref=CANARIES[1], script=None):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             executable = root / "bin"
             executable.mkdir()
             runner_temp = root / "runner"
             runner_temp.mkdir()
+            workflow = root / ".github/workflows/nightly.yml"
+            workflow.parent.mkdir(parents=True)
+            workflow.write_text((ROOT / ".github/workflows/nightly.yml").read_text(encoding="utf-8"),
+                                encoding="utf-8")
             fake_git = executable / "git"
             fake_git.write_text(textwrap.dedent('''\
                 #!/usr/bin/env python3
@@ -45,10 +50,13 @@ class PrivateParserCheckoutTests(unittest.TestCase):
                     stream.write(json.dumps(args) + "\\n")
                 operation = args[2] if args[0] == "-C" else args[0]
                 private = " ".join(os.environ[name] for name in
-                                   ("PARSER_REPOSITORY", "PARSER_REF", "PARSER_PATH", "TOKEN"))
+                                   ("PARSER_REPOSITORY", "PARSER_REF", "PARSER_PATH", "TOKEN",
+                                    "PRIVATE_REPOSITORY", "PRIVATE_KEY"))
                 print(private + " fixture-derived-commit")
                 print(private + " fixture-derived-commit", file=sys.stderr)
-                if operation == "init":
+                if operation == "clone":
+                    Path(args[-1]).mkdir(parents=True)
+                elif operation == "init":
                     if os.environ["FIXTURE_INIT_FAILURE"] == "1":
                         sys.exit(128)
                     Path(args[-1]).mkdir(parents=True)
@@ -73,11 +81,12 @@ class PrivateParserCheckoutTests(unittest.TestCase):
             environment = dict(os.environ, PATH=str(executable) + os.pathsep + os.environ["PATH"],
                                RUNNER_TEMP=str(runner_temp), PARSER_REPOSITORY=CANARIES[0],
                                PARSER_REF=ref, PARSER_PATH=path, TOKEN=CANARIES[3],
+                               PRIVATE_REPOSITORY=CANARIES[5], PRIVATE_KEY=CANARIES[6],
                                FIXTURE_STATE=str(root), FIXTURE_FAILURES=str(failures),
                                FIXTURE_ERROR=error, FIXTURE_INIT_FAILURE=str(int(init_failure)),
                                FIXTURE_CHECKOUT_FAILURE=str(int(checkout_failure)))
             process = subprocess.run(["bash", "--noprofile", "--norc", "-eo", "pipefail", "-c",
-                                      self.script], cwd=root, env=environment,
+                                      self.script if script is None else script], cwd=root, env=environment,
                                      capture_output=True, text=True, timeout=10)
             public = process.stdout + process.stderr
             for canary in CANARIES:
@@ -155,6 +164,20 @@ class PrivateParserCheckoutTests(unittest.TestCase):
         code, _, calls, _ = self.run_checkout(ref="")
         self.assertEqual(code, 0)
         self.assertEqual(calls[1][-1], "HEAD")
+
+    def test_diagnostic_executes_the_same_checkouts_and_preserves_fetch_failure(self):
+        workflow = (ROOT / ".github/workflows/parser-checkout.yml").read_text(encoding="utf-8")
+        script = textwrap.dedent(workflow.split("        run: |\n", 1)[1])
+        for failures, expected_status in ((2, 0), (9, 1)):
+            with self.subTest(failures=failures):
+                code, output, calls, sleeps = self.run_checkout(
+                    script=script, failures=failures, error="Connection reset")
+                self.assertEqual(code, expected_status)
+                self.assertEqual(calls[0][0], "clone")
+                self.assertEqual(sum("fetch" in call for call in calls), 3)
+                self.assertEqual(any("checkout" in call for call in calls), failures == 2)
+                self.assertEqual(sleeps, ["5", "10"])
+                self.assertEqual("::error::" in output, failures == 9)
 
 
 if __name__ == "__main__":

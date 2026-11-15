@@ -1,0 +1,41 @@
+name: Parser checkout diagnostic
+
+# Reproduce the two Nightly checkouts with their existing scripts and secrets.
+# No simulator is built or run, and raw checkout logs are never uploaded.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checkout:
+    if: github.repository == 'kurochan001/kirimasim-tests'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Check the Nightly checkouts without building or running
+        env:
+          PRIVATE_REPOSITORY: ${{ secrets.GHOST_REPOSITORY }}
+          PRIVATE_KEY: ${{ secrets.GHOST_DEPLOY_KEY }}
+          PARSER_REPOSITORY: ${{ secrets.GHOST_PARSER_REPOSITORY }}
+          PARSER_REF: ${{ secrets.GHOST_PARSER_REF }}
+          PARSER_PATH: ${{ secrets.GHOST_PARSER_PATH }}
+          TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import subprocess
+          import sys
+          import textwrap
+
+          workflow = Path('.github/workflows/nightly.yml').read_text(encoding='utf-8')
+          for name in ('Check out the private simulator', 'Check out its parser'):
+              step = workflow.split('      - name: ' + name + '\n', 1)[1].split('\n      - ', 1)[0]
+              script = textwrap.dedent(step.split('        run: |\n', 1)[1])
+              status = subprocess.call(['bash', '--noprofile', '--norc', '-eo', 'pipefail', '-c', script])
+              if status:
+                  sys.exit(status)
+          PY
