@@ -12,7 +12,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 CANARIES = ("fixture-owner/fixture-parser", "fixture-revision", "fixture-parser-dir",
-            "fixture-token", "fixture-derived-commit", "fixture-owner/fixture-simulator",
+            "fixture-parser-deploy-key", "fixture-derived-commit", "fixture-owner/fixture-simulator",
             "fixture-deploy-key")
 
 
@@ -26,7 +26,7 @@ class PrivateParserCheckoutTests(unittest.TestCase):
 
     def run_checkout(self, *, failures=0, error="unclassified", init_failure=False,
                      checkout_failure=False, path=CANARIES[2], ref=CANARIES[1], script=None,
-                     auth_mode="normal"):
+                     parser_key=CANARIES[3]):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             executable = root / "bin"
@@ -43,6 +43,8 @@ class PrivateParserCheckoutTests(unittest.TestCase):
                 import json
                 import os
                 from pathlib import Path
+                import shlex
+                import stat
                 import sys
 
                 args = sys.argv[1:]
@@ -51,7 +53,7 @@ class PrivateParserCheckoutTests(unittest.TestCase):
                     stream.write(json.dumps(args) + "\\n")
                 operation = args[2] if args[0] == "-C" else args[0]
                 private = " ".join(os.environ[name] for name in
-                                   ("PARSER_REPOSITORY", "PARSER_REF", "PARSER_PATH", "TOKEN",
+                                   ("PARSER_REPOSITORY", "PARSER_REF", "PARSER_PATH", "PARSER_KEY",
                                     "PRIVATE_REPOSITORY", "PRIVATE_KEY"))
                 print(private + " fixture-derived-commit")
                 print(private + " fixture-derived-commit", file=sys.stderr)
@@ -62,14 +64,16 @@ class PrivateParserCheckoutTests(unittest.TestCase):
                         sys.exit(128)
                     Path(args[-1]).mkdir(parents=True)
                 elif operation == "fetch":
+                    ssh = shlex.split(os.environ["GIT_SSH_COMMAND"])
+                    key = Path(ssh[ssh.index("-i") + 1])
+                    assert key.read_text().strip() == os.environ["PARSER_KEY"]
+                    assert stat.S_IMODE(key.stat().st_mode) == 0o600
+                    for option in ("BatchMode=yes", "IdentitiesOnly=yes", "StrictHostKeyChecking=yes"):
+                        assert option in ssh
+                    assert args[-2] == "git@github.com:" + os.environ["PARSER_REPOSITORY"] + ".git"
                     counter = state / "fetches"
                     count = int(counter.read_text()) + 1 if counter.exists() else 1
                     counter.write_text(str(count))
-                    if os.environ.get("CHECKOUT_AUTH_MODE") == "anonymous":
-                        assert os.environ.get("GIT_CONFIG_GLOBAL") == os.devnull
-                        assert os.environ.get("GIT_CONFIG_NOSYSTEM") == "1"
-                        assert os.environ.get("GIT_CONFIG_VALUE_0") == ""
-                        sys.exit(0)
                     if count <= int(os.environ["FIXTURE_FAILURES"]):
                         print(os.environ["FIXTURE_ERROR"], file=sys.stderr)
                         sys.exit(128)
@@ -86,9 +90,8 @@ class PrivateParserCheckoutTests(unittest.TestCase):
             fake_sleep.chmod(0o755)
             environment = dict(os.environ, PATH=str(executable) + os.pathsep + os.environ["PATH"],
                                RUNNER_TEMP=str(runner_temp), PARSER_REPOSITORY=CANARIES[0],
-                               PARSER_REF=ref, PARSER_PATH=path, TOKEN=CANARIES[3],
+                               PARSER_REF=ref, PARSER_PATH=path, PARSER_KEY=parser_key,
                                PRIVATE_REPOSITORY=CANARIES[5], PRIVATE_KEY=CANARIES[6],
-                               CHECKOUT_AUTH_MODE=auth_mode,
                                FIXTURE_STATE=str(root), FIXTURE_FAILURES=str(failures),
                                FIXTURE_ERROR=error, FIXTURE_INIT_FAILURE=str(int(init_failure)),
                                FIXTURE_CHECKOUT_FAILURE=str(int(checkout_failure)))
@@ -105,6 +108,7 @@ class PrivateParserCheckoutTests(unittest.TestCase):
             sleeps_file = root / "sleeps"
             sleeps = sleeps_file.read_text().splitlines() if sleeps_file.exists() else []
             raw = runner_temp / "ghost-parser-checkout.log"
+            self.assertFalse((runner_temp / "ghost-parser-deploy-key").exists())
             if raw.exists():
                 self.assertEqual(stat.S_IMODE(raw.stat().st_mode), 0o600)
                 self.assertIn(CANARIES[4], raw.read_text())
@@ -186,15 +190,12 @@ class PrivateParserCheckoutTests(unittest.TestCase):
                 self.assertEqual(sleeps, ["5", "10"])
                 self.assertEqual("::error::" in output, failures == 9)
 
-    def test_auth_comparison_disables_inherited_configuration_and_anonymous_header(self):
-        workflow = (ROOT / ".github/workflows/parser-checkout.yml").read_text(encoding="utf-8")
-        script = textwrap.dedent(workflow.split("        run: |\n", 1)[1])
-        for mode, expected_status in (("normal", 1), ("clean-token", 1), ("anonymous", 0)):
-            with self.subTest(mode=mode):
-                code, _, calls, _ = self.run_checkout(script=script, failures=9,
-                                                      error="Authentication failed", auth_mode=mode)
-                self.assertEqual(code, expected_status)
-                self.assertEqual(any("checkout" in call for call in calls), mode == "anonymous")
+    def test_missing_parser_key_stops_before_any_git_operation(self):
+        code, output, calls, sleeps = self.run_checkout(parser_key="")
+        self.assertNotEqual(code, 0)
+        self.assertIn("parser read-only deploy key is not configured", output)
+        self.assertEqual(calls, [])
+        self.assertEqual(sleeps, [])
 
 
 if __name__ == "__main__":

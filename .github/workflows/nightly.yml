@@ -497,7 +497,8 @@ jobs:
       # number of files. Authentication is what the action used: the deploy
       # key over SSH here, with GitHub's host key fixed (the ssh-ed25519 key
       # of https://api.github.com/meta; the step fails if GitHub replaces it),
-      # and the token of the job over HTTPS for the parser. Neither is kept
+      # and a separate read-only deploy key for the parser. The job token
+      # cannot read a private repository other than this one. Neither is kept
       # after its step (persist-credentials: false of the action).
       - name: Check out the private simulator
         env:
@@ -526,17 +527,24 @@ jobs:
           PARSER_REPOSITORY: ${{ secrets.GHOST_PARSER_REPOSITORY }}
           PARSER_REF: ${{ secrets.GHOST_PARSER_REF }}
           PARSER_PATH: ${{ secrets.GHOST_PARSER_PATH }}
-          TOKEN: ${{ github.token }}
+          PARSER_KEY: ${{ secrets.GHOST_PARSER_DEPLOY_KEY }}
         run: |
           case "$PARSER_PATH" in
             "" | . | /* | .. | ../* | */.. | */../*)
               echo "::error::The private path of the parser is not a directory inside the workspace."
               exit 1 ;;
           esac
-          export GIT_CONFIG_COUNT=1
-          export GIT_CONFIG_KEY_0="http.https://github.com/.extraheader"
-          GIT_CONFIG_VALUE_0="AUTHORIZATION: basic $(printf 'x-access-token:%s' "$TOKEN" | base64 -w 0)"
-          export GIT_CONFIG_VALUE_0
+          if [ -z "$PARSER_KEY" ]; then
+            echo "::error::The parser read-only deploy key is not configured."
+            exit 1
+          fi
+          key="$RUNNER_TEMP/ghost-parser-deploy-key"
+          hosts="$RUNNER_TEMP/ghost-parser-known-hosts"
+          trap 'rm -f -- "$key"' EXIT
+          (umask 077; printf '%s\n' "$PARSER_KEY" > "$key")
+          echo "github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl" > "$hosts"
+          export GIT_CONFIG_GLOBAL=/dev/null GIT_CONFIG_NOSYSTEM=1
+          export GIT_SSH_COMMAND="ssh -i '$key' -o BatchMode=yes -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o CheckHostIP=no -o UserKnownHostsFile='$hosts'"
           checkout_log="$RUNNER_TEMP/ghost-parser-checkout.log"
           (umask 077; : > "$checkout_log")
           if ! (
@@ -550,7 +558,7 @@ jobs:
           # credentials or anything derived from them.
           for attempt in 1 2 3; do
             if git -C "$PARSER_PATH" fetch -q --no-tags --depth 1 \
-                "https://github.com/$PARSER_REPOSITORY.git" "${PARSER_REF:-HEAD}" \
+                "git@github.com:$PARSER_REPOSITORY.git" "${PARSER_REF:-HEAD}" \
                 > "$checkout_log" 2>&1; then
               break
             fi
