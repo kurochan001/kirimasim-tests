@@ -40,6 +40,10 @@
     "cg_option_levels": {
       "en": "Illegal option and type_option assignments in coverpoint and cross bodies at the levels marked No in Tables 19-2 and 19-4, checked against the implicit structures of 19.10",
       "ja": "表19-2・19-4でNoとされるcoverpoint・crossの本体でのoption・type_option代入を違法系として生成し、19.10の暗黙の構造体と照合"
+    },
+    "gate_strength_truth": {
+      "en": "Asymmetric drive strengths of nand, or, xnor and xor, and default strengths of all gate types in Table 28-2, including the pull-source exception",
+      "ja": "nand・or・xnor・xorの非対称な駆動強度と、pull源の例外を含む表28-2の全ゲート種別の既定強度"
     }
   }
 }

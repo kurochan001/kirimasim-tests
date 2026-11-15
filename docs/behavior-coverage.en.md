@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 92.56%, execution without Ghost 50.96%, execution with Ghost 78.45%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 92.61%, execution without Ghost 51.01%, execution with Ghost 78.49%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 92.56%. Requirement execution-confirmation rate: 50.96% without Ghost, 78.45% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 92.61%. Requirement execution-confirmation rate: 51.01% without Ghost, 78.49% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 11415/12332 ( 92.56% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9674/12332 ( 78.45% ).
-- Registered but not tested: 917.
+- The requirement coverage (test design) for registered behaviors is 11421/12332 ( 92.61% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9680/12332 ( 78.49% ).
+- Registered but not tested: 911.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -84,6 +84,10 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `runtime-errors-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-12T01:03:42.439195+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `runtime-errors-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T01:03:46.712402+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `runtime-errors-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T01:03:50.809958+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `strength-events-20261115-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-15T01:33:38.989463+00:00` / 5/12332 execution checked; 0 entries refer to older inputs.
+- `strength-events-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T01:33:42.310174+00:00` / 6/12332 execution checked; 0 entries refer to older inputs.
+- `strength-events-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T01:33:41.184186+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `strength-events-20261115-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T01:33:42.187059+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `test-fix-20261113-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-12T21:43:20.959244+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `test-fix-20261113-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-12T21:43:29.567975+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `test-fix-20261113-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T21:43:25.251767+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
@@ -342,7 +346,7 @@ The number of items is the investigation status of the article by heading. This 
 - 12 Procedural programming statements: no interpretation reservation 28/28, registration 115, test support 101.
 - 13 Tasks and functions (subroutines): no interpretation reservation 20/20, registration 124, test support 116.
 - 14 Clocking blocks: no interpretation reservation 19/19, registration 87, test support 84.
-- 15 Interprocess synchronization and communication: no interpretation reservation 27/27, registration 88, test support 74.
+- 15 Interprocess synchronization and communication: no interpretation reservation 27/27, registration 88, test support 75.
 - 16 Assertions: No interpretation reservation 82/82, registration 557, test support 548.
 - 17 Checkers: No interpretation reservations 13/13, registration 81, test support 68.
 - 18 Constrained random value generation: 58/58 without pending interpretation issues, 323 registered, 314 mapped to tests.
@@ -355,7 +359,7 @@ The number of items is the investigation status of the article by heading. This 
 - 25 Interfaces: No interpretation reservation 25/25, registration 63, test support 55.
 - 26 Packages: No interpretation reservation 8/8, registration 44, testing support 39.
 - 27 Generate constructs: no interpretation reservation 7/7, registration 32, test support 27.
-- 28 Gate-level and switch-level modeling: no interpretation reservation 34/34, registration 384, test support 363.
+- 28 Gate-level and switch-level modeling: no interpretation reservation 34/34, registration 384, test support 368.
 - 29 User-defined primitives: no interpretation reservation 17/17, registration 52, test support 49.
 - 30 Specify blocks: no interpretation restrictions 31/31, registration 157, test support 150.
 - 31 Timing checks: no interpretation reservation 26/26, registration 180, test support 155.
@@ -36897,7 +36901,7 @@ Normative role: `mandatory`。
 
 ### SV2023-15.5.1-EXTRACT-ARRAY-INDEX-NOT-TRIGGER
 
-`15.5.1` / `normal` / No mapped test
+`15.5.1` / `normal` / Execution confirmed
 
 Changing an event-array index in a waiting expression does not itself trigger a named event.
 
@@ -36905,6 +36909,7 @@ Acceptance criterion: Changing an event-array index in a waiting expression does
 
 Normative role: `mandatory`。
 
+- [test_event_array_index_changes_do_not_trigger.sv](../tests/ch15/test_event_array_index_changes_do_not_trigger.sv): The process waiting on @(ev\[idx\]) and the control process for ev\[1\] are started first; idx then changes from 0 to 1 and back to 0. After either change, both wake counts remain 0. Subsequent explicit triggers of ev\[0\] and ev\[1\] make the corresponding wake counts become 1 in turn. Distinguishing observation: An implementation that treats an index change as an event trigger reports dynamic as 1 on the index1 or index0 line, so it fails. An implementation whose wait never works still reports a wake count of 0 after the explicit triggers, so it fails. Observations occur at the next simulation time and do not depend on execution order within the same region.
 
 ### SV2023-15.5.1-EXTRACT-EVENT-TRIGGER-GRAMMAR
 
@@ -70745,7 +70750,7 @@ Acceptance criterion: The two buffer instances produce scalar values 1 and 0.
 
 ### SV2023-28.3.2-EXTRACT-DEFAULT-DRIVE-STRENGTH
 
-`28.3.2` / `normal` / No mapped test
+`28.3.2` / `normal` / Execution confirmed
 
 Absent an explicit specification, ordinary gate drive strength is strong0/strong1, subject to the specific pull-source default in 28.10.
 
@@ -70753,6 +70758,7 @@ Acceptance criterion: Absent an explicit specification, ordinary gate drive stre
 
 Normative role: `mandatory`。
 
+- [test_gen_gate_default_strengths_all_types.sv](../tests/gen/ch28/test_gen_gate_default_strengths_all_types.sv): All 14 gate types in Table 28-2 are declared without strengths, and %v reads their scalar nets for all 8 binary data/control combinations. Ordinary gates produce St0 and St1 for 0 and 1; disabled three-state gates produce HiZ, while pullup and pulldown use the exceptions Pu1 and Pu0. Distinguishing observation: An implementation that gives ordinary gates weak or pull strength fails to match St0 and St1 even when the output bits are right. An implementation that gives pull sources default strong strength also fails to match Pu0 and Pu1. Each ordinary gate produces both 0 and 1, and three-state gates are observed both enabled and disabled.
 
 ### SV2023-28.3.2-EXTRACT-DRIVE-STRENGTH-KEYWORDS
 
@@ -70853,7 +70859,7 @@ Normative role: `mandatory`。
 
 ### SV2023-28.3.2-EXTRACT-STRENGTH-NAND
 
-`28.3.2` / `normal` / No mapped test
+`28.3.2` / `normal` / Execution confirmed
 
 The nand primitive permits a drive-strength specification.
 
@@ -70861,6 +70867,7 @@ Acceptance criterion: The nand primitive permits a drive-strength specification.
 
 Normative role: `permission`。
 
+- [test_gen_gate_strength_nand_asymmetric.sv](../tests/gen/ch28/test_gen_gate_strength_nand_asymmetric.sv): nand gates drive separate scalar nets with 2 strength pairs, (weak0, pull1) and (supply1, pull0); %v reads all input combinations 00, 01, 10 and 11. Output 0 produces We0 and Pu0; output 1 produces Pu1 and Su1. Both the 0 and 1 components of each strength pair are observed. Distinguishing observation: An implementation that ignores the strength specification and uses default strong strength, or swaps the strength 0 and strength 1 components, produces incorrect %v strengths even if its Boolean values are right. A wrong Boolean operation is also detected by the output values across all input combinations.
 
 ### SV2023-28.3.2-EXTRACT-STRENGTH-NOR
 
@@ -70912,7 +70919,7 @@ Normative role: `permission`。
 
 ### SV2023-28.3.2-EXTRACT-STRENGTH-OR
 
-`28.3.2` / `normal` / No mapped test
+`28.3.2` / `normal` / Execution confirmed
 
 The or primitive permits a drive-strength specification.
 
@@ -70920,6 +70927,7 @@ Acceptance criterion: The or primitive permits a drive-strength specification.
 
 Normative role: `permission`。
 
+- [test_gen_gate_strength_or_asymmetric.sv](../tests/gen/ch28/test_gen_gate_strength_or_asymmetric.sv): or gates drive separate scalar nets with 2 strength pairs, (weak0, pull1) and (supply1, pull0); %v reads all input combinations 00, 01, 10 and 11. Output 0 produces We0 and Pu0; output 1 produces Pu1 and Su1. Both the 0 and 1 components of each strength pair are observed. Distinguishing observation: An implementation that ignores the strength specification and uses default strong strength, or swaps the strength 0 and strength 1 components, produces incorrect %v strengths even if its Boolean values are right. A wrong Boolean operation is also detected by the output values across all input combinations.
 
 ### SV2023-28.3.2-EXTRACT-STRENGTH-PAIR-SYNTAX
 
@@ -70961,7 +70969,7 @@ Normative role: `permission`。
 
 ### SV2023-28.3.2-EXTRACT-STRENGTH-XNOR
 
-`28.3.2` / `normal` / No mapped test
+`28.3.2` / `normal` / Execution confirmed
 
 The xnor primitive permits a drive-strength specification.
 
@@ -70969,10 +70977,11 @@ Acceptance criterion: The xnor primitive permits a drive-strength specification.
 
 Normative role: `permission`。
 
+- [test_gen_gate_strength_xnor_asymmetric.sv](../tests/gen/ch28/test_gen_gate_strength_xnor_asymmetric.sv): xnor gates drive separate scalar nets with 2 strength pairs, (weak0, pull1) and (supply1, pull0); %v reads all input combinations 00, 01, 10 and 11. Output 0 produces We0 and Pu0; output 1 produces Pu1 and Su1. Both the 0 and 1 components of each strength pair are observed. Distinguishing observation: An implementation that ignores the strength specification and uses default strong strength, or swaps the strength 0 and strength 1 components, produces incorrect %v strengths even if its Boolean values are right. A wrong Boolean operation is also detected by the output values across all input combinations.
 
 ### SV2023-28.3.2-EXTRACT-STRENGTH-XOR
 
-`28.3.2` / `normal` / No mapped test
+`28.3.2` / `normal` / Execution confirmed
 
 The xor primitive permits a drive-strength specification.
 
@@ -70980,6 +70989,7 @@ Acceptance criterion: The xor primitive permits a drive-strength specification.
 
 Normative role: `permission`。
 
+- [test_gen_gate_strength_xor_asymmetric.sv](../tests/gen/ch28/test_gen_gate_strength_xor_asymmetric.sv): xor gates drive separate scalar nets with 2 strength pairs, (weak0, pull1) and (supply1, pull0); %v reads all input combinations 00, 01, 10 and 11. Output 0 produces We0 and Pu0; output 1 produces Pu1 and Su1. Both the 0 and 1 components of each strength pair are observed. Distinguishing observation: An implementation that ignores the strength specification and uses default strong strength, or swaps the strength 0 and strength 1 components, produces incorrect %v strengths even if its Boolean values are right. A wrong Boolean operation is also detected by the output values across all input combinations.
 
 ### SV2023-28.3.2-SCALAR-BROADCAST
 

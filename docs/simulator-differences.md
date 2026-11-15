@@ -1377,3 +1377,8 @@ The 20 coverage-option and instance-name tests added on 2026-11-15 show these di
 
 - It reads an empty `option.name` for instances whose definition sets their names, and still reads an empty name after `set_inst_name` (19.7, Table 19-1; 19.8, Table 19-5). `ch19/test_cg_set_inst_name_option_name`
 - It accepts assignments in coverpoint and cross bodies to the 17 option or type_option members that Tables 19-2 and 19-4 forbid there and that the implicit structures of 19.10 do not contain. It emits a COVERIGN warning also used for legal options, which is not evidence of rejection of the specified violation. The tests retain only `spec` as their oracle. `gen/ch19/test_gen_cglevel_*`
+
+The gate-strength tests added on 2026-11-15 reproduce these differences at both seeds 1 and 73 of Verilator 5.054:
+
+- On nand, or, xnor and xor, asymmetric `(weak0, pull1)` and `(supply1, pull0)` specifications are displayed as strong outputs instead of the specified strengths (28.3.2). `gen/ch28/test_gen_gate_strength_{nand,or,xnor,xor}_asymmetric`
+- The `%v` output contains an extra trailing blank after a mnemonic such as `St0`, although 21.2.1.4 specifies a three-character format. The default-strength test exposes it even on ordinary gates that correctly display the strong mnemonic. `gen/ch28/test_gen_gate_default_strengths_all_types`

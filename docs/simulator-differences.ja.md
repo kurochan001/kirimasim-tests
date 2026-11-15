@@ -1376,3 +1376,8 @@ ch30/test_illegal_specify_path_to_input                           アサーシ�
 
 - 定義で名前を指定したインスタンスの`option.name`を空文字列として読み、`set_inst_name`を呼んだ後も空のままです（19.7の表19-1、19.8の表19-5）。`ch19/test_cg_set_inst_name_option_name`
 - 表19-2・19-4がその階層で許さず、19.10の暗黙の構造体にも存在しない17個のoption・type_optionメンバーへの代入を、coverpoint・crossの本体で受理します。合法なオプションにも使うCOVERIGN警告を出しますが、意図した違反を拒否した証拠ではありません。テストのoracleは`spec`のみとしています。`gen/ch19/test_gen_cglevel_*`
+
+2026-11-15に追加したゲート強度のテストでは、Verilator 5.054のseed 1と73の両方で次の差異を再現しました。
+
+- nand・or・xnor・xorの非対称な`(weak0, pull1)`と`(supply1, pull0)`の指定が、指定した強度ではなくstrongとして表示されます（28.3.2）。`gen/ch28/test_gen_gate_strength_{nand,or,xnor,xor}_asymmetric`
+- `%v`の`St0`などの略号の後ろに余分な空白が出ます。21.2.1.4は3文字の形式を定めています。既定強度のテストは、strongの略号自体が正しい通常ゲートでもこの差を検出します。`gen/ch28/test_gen_gate_default_strengths_all_types`

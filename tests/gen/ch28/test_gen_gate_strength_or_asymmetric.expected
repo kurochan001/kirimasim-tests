@@ -1,0 +1,4 @@
+ab=00 weak0_pull1=We0 supply1_pull0=Pu0
+ab=01 weak0_pull1=Pu1 supply1_pull0=Su1
+ab=10 weak0_pull1=Pu1 supply1_pull0=Su1
+ab=11 weak0_pull1=Pu1 supply1_pull0=Su1

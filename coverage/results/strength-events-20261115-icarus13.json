@@ -1,0 +1,36 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch15/test_event_array_index_changes_do_not_trigger": {
+   "status": "known",
+   "reason": "compile failed: tests/ch15/test_event_array_index_changes_do_not_trigger.sv:28: sorry: event arrays are not supported.",
+   "inputs_sha256": "9a64000a9a2ff156f435774b4a77c5e0a4c46fb08e08d832ee90f26f34cd9ed4"
+  },
+  "gen/ch28/test_gen_gate_default_strengths_all_types": {
+   "status": "pass",
+   "inputs_sha256": "8baac794b5d8e46430ca6fb7905fd29488b2e9ca5d3191a6e0ef0757bfe15369"
+  },
+  "gen/ch28/test_gen_gate_strength_nand_asymmetric": {
+   "status": "pass",
+   "inputs_sha256": "1929b20837ab3b13ff3160498efe1b88a76e6f8c2342db976074ba2167c2b536"
+  },
+  "gen/ch28/test_gen_gate_strength_or_asymmetric": {
+   "status": "pass",
+   "inputs_sha256": "bda8edf024a8c787f20554e676fc1731cc9d4bf70bfc6db5fa41dbe59b15285b"
+  },
+  "gen/ch28/test_gen_gate_strength_xnor_asymmetric": {
+   "status": "pass",
+   "inputs_sha256": "c67213a629cdbb58f958cc9b1c59e296c90e905e0469f808b4a4b642db0d9480"
+  },
+  "gen/ch28/test_gen_gate_strength_xor_asymmetric": {
+   "status": "pass",
+   "inputs_sha256": "1262ac7ff111b5d25de4959dbf8b51a9aa1a329c905c6e6d74a2526d7125c324"
+  }
+ },
+ "generated_at": "2026-11-15T01:33:38.989463+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

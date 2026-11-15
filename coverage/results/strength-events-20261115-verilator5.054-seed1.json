@@ -1,0 +1,42 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch15/test_event_array_index_changes_do_not_trigger": {
+   "status": "pass",
+   "inputs_sha256": "9a64000a9a2ff156f435774b4a77c5e0a4c46fb08e08d832ee90f26f34cd9ed4"
+  },
+  "gen/ch28/test_gen_gate_default_strengths_all_types": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'ab=00 en=0 logic=St0  St1  St0  St1  St0  St1 ', expected 'ab=00 en=0 logic=St0 St1 St0 St1 St0 St1'",
+   "inputs_sha256": "8baac794b5d8e46430ca6fb7905fd29488b2e9ca5d3191a6e0ef0757bfe15369"
+  },
+  "gen/ch28/test_gen_gate_strength_nand_asymmetric": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'ab=00 weak0_pull1=St1  supply1_pull0=St1 ', expected 'ab=00 weak0_pull1=Pu1 supply1_pull0=Su1'",
+   "inputs_sha256": "1929b20837ab3b13ff3160498efe1b88a76e6f8c2342db976074ba2167c2b536"
+  },
+  "gen/ch28/test_gen_gate_strength_or_asymmetric": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'ab=00 weak0_pull1=St0  supply1_pull0=St0 ', expected 'ab=00 weak0_pull1=We0 supply1_pull0=Pu0'",
+   "inputs_sha256": "bda8edf024a8c787f20554e676fc1731cc9d4bf70bfc6db5fa41dbe59b15285b"
+  },
+  "gen/ch28/test_gen_gate_strength_xnor_asymmetric": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'ab=00 weak0_pull1=St1  supply1_pull0=St1 ', expected 'ab=00 weak0_pull1=Pu1 supply1_pull0=Su1'",
+   "inputs_sha256": "c67213a629cdbb58f958cc9b1c59e296c90e905e0469f808b4a4b642db0d9480"
+  },
+  "gen/ch28/test_gen_gate_strength_xor_asymmetric": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'ab=00 weak0_pull1=St0  supply1_pull0=St0 ', expected 'ab=00 weak0_pull1=We0 supply1_pull0=Pu0'",
+   "inputs_sha256": "1262ac7ff111b5d25de4959dbf8b51a9aa1a329c905c6e6d74a2526d7125c324"
+  }
+ },
+ "generated_at": "2026-11-15T01:33:41.184186+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

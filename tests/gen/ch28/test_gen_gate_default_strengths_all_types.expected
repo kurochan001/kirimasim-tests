@@ -1,0 +1,24 @@
+ab=00 en=0 logic=St0 St1 St0 St1 St0 St1
+ab=00 en=0 unary=St0 St1 tristate=St0 HiZ St1 HiZ
+ab=00 en=0 pulls=Pu0 Pu1
+ab=00 en=1 logic=St0 St1 St0 St1 St0 St1
+ab=00 en=1 unary=St0 St1 tristate=HiZ St0 HiZ St1
+ab=00 en=1 pulls=Pu0 Pu1
+ab=01 en=0 logic=St0 St1 St1 St0 St1 St0
+ab=01 en=0 unary=St0 St1 tristate=St0 HiZ St1 HiZ
+ab=01 en=0 pulls=Pu0 Pu1
+ab=01 en=1 logic=St0 St1 St1 St0 St1 St0
+ab=01 en=1 unary=St0 St1 tristate=HiZ St0 HiZ St1
+ab=01 en=1 pulls=Pu0 Pu1
+ab=10 en=0 logic=St0 St1 St1 St0 St1 St0
+ab=10 en=0 unary=St1 St0 tristate=St1 HiZ St0 HiZ
+ab=10 en=0 pulls=Pu0 Pu1
+ab=10 en=1 logic=St0 St1 St1 St0 St1 St0
+ab=10 en=1 unary=St1 St0 tristate=HiZ St1 HiZ St0
+ab=10 en=1 pulls=Pu0 Pu1
+ab=11 en=0 logic=St1 St0 St1 St0 St0 St1
+ab=11 en=0 unary=St1 St0 tristate=St1 HiZ St0 HiZ
+ab=11 en=0 pulls=Pu0 Pu1
+ab=11 en=1 logic=St1 St0 St1 St0 St0 St1
+ab=11 en=1 unary=St1 St0 tristate=HiZ St1 HiZ St0
+ab=11 en=1 pulls=Pu0 Pu1

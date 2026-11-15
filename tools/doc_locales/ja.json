@@ -25488,6 +25488,13 @@
     "ZXQPH0QXZ , which Table ZXQPH1QXZ provides only for a ZXQPH2QXZ , is called on a ZXQPH3QXZ of a ZXQPH4QXZ instance": "表ZXQPH1QXZがZXQPH2QXZだけに提供するZXQPH0QXZを、ZXQPH4QXZインスタンスのZXQPH3QXZに対して呼び出す",
     "ZXQPH0QXZ , which Table ZXQPH1QXZ provides only for a ZXQPH2QXZ , is called on a cross of a ZXQPH3QXZ instance": "表ZXQPH1QXZがZXQPH2QXZだけに提供するZXQPH0QXZを、ZXQPH3QXZインスタンスのcrossに対して呼び出す",
     "ZXQPH0QXZ , which Table ZXQPH1QXZ does not allow at the cross level, is assigned in the body of a cross": "表ZXQPH1QXZがcrossの階層で許さないZXQPH0QXZを、crossの本体で代入する",
-    "ZXQPH0QXZ , which Table ZXQPH1QXZ does not allow at the ZXQPH2QXZ level, is assigned in the body of a ZXQPH3QXZ": "表ZXQPH1QXZがZXQPH2QXZの階層で許さないZXQPH0QXZを、ZXQPH3QXZの本体で代入する"
+    "ZXQPH0QXZ , which Table ZXQPH1QXZ does not allow at the ZXQPH2QXZ level, is assigned in the body of a ZXQPH3QXZ": "表ZXQPH1QXZがZXQPH2QXZの階層で許さないZXQPH0QXZを、ZXQPH3QXZの本体で代入する",
+    "changing the index of an event array in an event control does not wake the waiting process;": "イベント制御内のイベント配列の添字を変えても、待機中のプロセスは起床しない;",
+    "explicit event triggers still wake the selected and control waiters": "明示的なイベントのトリガでは、選択された待機と対照の待機が起床する",
+    "every ordinary gate uses ZXQPH0QXZ / ZXQPH1QXZ by default, while pullup and pulldown use pull strength": "通常の各ゲートの既定強度はZXQPH0QXZ／ZXQPH1QXZで、pullupとpulldownはpull強度となる",
+    "nand applies both components of two asymmetric drive-strength pairs for every binary input pair": "nandが、全ての二値入力の組合せで2つの非対称な駆動強度対の両成分を適用する",
+    "or applies both components of two asymmetric drive-strength pairs for every binary input pair": "orが、全ての二値入力の組合せで2つの非対称な駆動強度対の両成分を適用する",
+    "xnor applies both components of two asymmetric drive-strength pairs for every binary input pair": "xnorが、全ての二値入力の組合せで2つの非対称な駆動強度対の両成分を適用する",
+    "xor applies both components of two asymmetric drive-strength pairs for every binary input pair": "xorが、全ての二値入力の組合せで2つの非対称な駆動強度対の両成分を適用する"
   }
 }

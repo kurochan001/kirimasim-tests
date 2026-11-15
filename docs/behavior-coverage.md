@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 92.56%、Ghostを除く実行 50.96%、Ghostを含む実行 78.45%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 92.61%、Ghostを除く実行 51.01%、Ghostを含む実行 78.49%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 92.56%。** 規格要求の実行確認率: Ghostを除いて 50.96%、Ghostを含めて 78.45%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 92.61%。** 規格要求の実行確認率: Ghostを除いて 51.01%、Ghostを含めて 78.49%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対する要求カバレッジ（テスト設計）: 11415/12332 (92.56%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9674/12332 (78.45%)。
-- 登録済みだがテスト未対応: 917 動作。
+- 登録済み動作に対する要求カバレッジ（テスト設計）: 11421/12332 (92.61%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9680/12332 (78.49%)。
+- 登録済みだがテスト未対応: 911 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。
 
@@ -84,6 +84,10 @@
 - `runtime-errors-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-12T01:03:42.439195+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `runtime-errors-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T01:03:46.712402+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `runtime-errors-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T01:03:50.809958+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
+- `strength-events-20261115-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-15T01:33:38.989463+00:00` / 5/12332 動作確認、古い入力との対応 0 件。
+- `strength-events-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T01:33:42.310174+00:00` / 6/12332 動作確認、古い入力との対応 0 件。
+- `strength-events-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T01:33:41.184186+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
+- `strength-events-20261115-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T01:33:42.187059+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `test-fix-20261113-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-12T21:43:20.959244+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `test-fix-20261113-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-12T21:43:29.567975+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `test-fix-20261113-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T21:43:25.251767+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
@@ -342,7 +346,7 @@
 - 12 Procedural programming statements: 解釈保留なし 28/28、登録 115、テスト対応 101。
 - 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 124、テスト対応 116。
 - 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 84。
-- 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 74。
+- 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 75。
 - 16 Assertions: 解釈保留なし 82/82、登録 557、テスト対応 548。
 - 17 Checkers: 解釈保留なし 13/13、登録 81、テスト対応 68。
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 323、テスト対応 314。
@@ -355,7 +359,7 @@
 - 25 Interfaces: 解釈保留なし 25/25、登録 63、テスト対応 55。
 - 26 Packages: 解釈保留なし 8/8、登録 44、テスト対応 39。
 - 27 Generate constructs: 解釈保留なし 7/7、登録 32、テスト対応 27。
-- 28 Gate-level and switch-level modeling: 解釈保留なし 34/34、登録 384、テスト対応 363。
+- 28 Gate-level and switch-level modeling: 解釈保留なし 34/34、登録 384、テスト対応 368。
 - 29 User-defined primitives: 解釈保留なし 17/17、登録 52、テスト対応 49。
 - 30 Specify blocks: 解釈保留なし 31/31、登録 157、テスト対応 150。
 - 31 Timing checks: 解釈保留なし 26/26、登録 180、テスト対応 155。
@@ -36897,7 +36901,7 @@ try_peekはブロックせずにコピーを試みる。
 
 ### SV2023-15.5.1-EXTRACT-ARRAY-INDEX-NOT-TRIGGER
 
-`15.5.1` / `normal` / テスト未対応
+`15.5.1` / `normal` / 実行確認あり
 
 キューのイベント配列インデックスを変更すると、それ自体が名前付けられたイベントをトリガーしません。
 
@@ -36905,6 +36909,7 @@ try_peekはブロックせずにコピーを試みる。
 
 規定の性質: `mandatory`。
 
+- [test_event_array_index_changes_do_not_trigger.sv](../tests/ch15/test_event_array_index_changes_do_not_trigger.sv): @(ev\[idx\])で待つプロセスとev\[1\]の対照プロセスを先に開始し、idxを0から1、再び0へ変える。どちらの変更の後も両方の起床数が0である。その後のev\[0\]・ev\[1\]の明示的なトリガでは、対応する起床数が順に1になる。 区別: 添字の変化自体をイベントの発生として扱う実装は、index1またはindex0の行でdynamicが1になって失敗する。単に待機が働いていない実装は、後の明示的なトリガでも起床数が0のままで失敗する。観測は次の時刻に行うので同じ領域の実行順に依存しない。
 
 ### SV2023-15.5.1-EXTRACT-EVENT-TRIGGER-GRAMMAR
 
@@ -70745,7 +70750,7 @@ tranif1 は双方向スイッチカテゴリに属する。
 
 ### SV2023-28.3.2-EXTRACT-DEFAULT-DRIVE-STRENGTH
 
-`28.3.2` / `normal` / テスト未対応
+`28.3.2` / `normal` / 実行確認あり
 
 明示的な仕様がない場合，通常のゲート駆動強度はstrong0 / strong1で，28.10の特定のプルソースデフォルトに従う。
 
@@ -70753,6 +70758,7 @@ tranif1 は双方向スイッチカテゴリに属する。
 
 規定の性質: `mandatory`。
 
+- [test_gen_gate_default_strengths_all_types.sv](../tests/gen/ch28/test_gen_gate_default_strengths_all_types.sv): 表28-2の14種類のゲートを強度なしで宣言し、全8組の入力・制御値でscalar netの%vを読む。通常ゲートの0と1はSt0・St1、無効な三状態ゲートはHiZ、pullupとpulldownは例外のPu1・Pu0となる。 区別: 通常ゲートをweakやpullにする誤実装は、出力ビットが正しくてもSt0・St1の期待値に合わない。pull源を既定strongにしてしまう誤実装もPu0・Pu1に合わない。通常ゲート各種で0と1の両方を発生させ、三状態の有効・無効も分けて観測する。
 
 ### SV2023-28.3.2-EXTRACT-DRIVE-STRENGTH-KEYWORDS
 
@@ -70853,7 +70859,7 @@ bufif1 プリミティブは駆動強度の仕様を許容する。
 
 ### SV2023-28.3.2-EXTRACT-STRENGTH-NAND
 
-`28.3.2` / `normal` / テスト未対応
+`28.3.2` / `normal` / 実行確認あり
 
 nandプリミティブは駆動力の仕様を許容する。
 
@@ -70861,6 +70867,7 @@ nandプリミティブは駆動力の仕様を許容する。
 
 規定の性質: `permission`。
 
+- [test_gen_gate_strength_nand_asymmetric.sv](../tests/gen/ch28/test_gen_gate_strength_nand_asymmetric.sv): nandを(weak0,pull1)と(supply1,pull0)の2種類の強度で別々のscalar netへ接続し、入力00・01・10・11の全組合せで%vを読む。出力0はWe0とPu0、出力1はPu1とSu1となる。どちらの強度対も0側と1側を観測する。 区別: 強度指定を無視して既定のstrongにする実装、強度0と強度1を取り違える実装は、論理値が正しくても%vの強度が期待値と違う。論理演算を取り違える場合も、全入力組合せの出力値で検出する。
 
 ### SV2023-28.3.2-EXTRACT-STRENGTH-NOR
 
@@ -70912,7 +70919,7 @@ notif1 プリミティブは駆動強度の仕様を許容する。
 
 ### SV2023-28.3.2-EXTRACT-STRENGTH-OR
 
-`28.3.2` / `normal` / テスト未対応
+`28.3.2` / `normal` / 実行確認あり
 
 また，またはの原理は駆動力の仕様を許容する。
 
@@ -70920,6 +70927,7 @@ notif1 プリミティブは駆動強度の仕様を許容する。
 
 規定の性質: `permission`。
 
+- [test_gen_gate_strength_or_asymmetric.sv](../tests/gen/ch28/test_gen_gate_strength_or_asymmetric.sv): orを(weak0,pull1)と(supply1,pull0)の2種類の強度で別々のscalar netへ接続し、入力00・01・10・11の全組合せで%vを読む。出力0はWe0とPu0、出力1はPu1とSu1となる。どちらの強度対も0側と1側を観測する。 区別: 強度指定を無視して既定のstrongにする実装、強度0と強度1を取り違える実装は、論理値が正しくても%vの強度が期待値と違う。論理演算を取り違える場合も、全入力組合せの出力値で検出する。
 
 ### SV2023-28.3.2-EXTRACT-STRENGTH-PAIR-SYNTAX
 
@@ -70961,7 +70969,7 @@ strength0 strength1 は，型の後と遅延の前の括弧内にコンマで区
 
 ### SV2023-28.3.2-EXTRACT-STRENGTH-XNOR
 
-`28.3.2` / `normal` / テスト未対応
+`28.3.2` / `normal` / 実行確認あり
 
 xnorプリミティブは駆動力の仕様を許容する。
 
@@ -70969,10 +70977,11 @@ xnorプリミティブは駆動力の仕様を許容する。
 
 規定の性質: `permission`。
 
+- [test_gen_gate_strength_xnor_asymmetric.sv](../tests/gen/ch28/test_gen_gate_strength_xnor_asymmetric.sv): xnorを(weak0,pull1)と(supply1,pull0)の2種類の強度で別々のscalar netへ接続し、入力00・01・10・11の全組合せで%vを読む。出力0はWe0とPu0、出力1はPu1とSu1となる。どちらの強度対も0側と1側を観測する。 区別: 強度指定を無視して既定のstrongにする実装、強度0と強度1を取り違える実装は、論理値が正しくても%vの強度が期待値と違う。論理演算を取り違える場合も、全入力組合せの出力値で検出する。
 
 ### SV2023-28.3.2-EXTRACT-STRENGTH-XOR
 
-`28.3.2` / `normal` / テスト未対応
+`28.3.2` / `normal` / 実行確認あり
 
 xorプリミティブは駆動力の仕様を許容する。
 
@@ -70980,6 +70989,7 @@ xorプリミティブは駆動力の仕様を許容する。
 
 規定の性質: `permission`。
 
+- [test_gen_gate_strength_xor_asymmetric.sv](../tests/gen/ch28/test_gen_gate_strength_xor_asymmetric.sv): xorを(weak0,pull1)と(supply1,pull0)の2種類の強度で別々のscalar netへ接続し、入力00・01・10・11の全組合せで%vを読む。出力0はWe0とPu0、出力1はPu1とSu1となる。どちらの強度対も0側と1側を観測する。 区別: 強度指定を無視して既定のstrongにする実装、強度0と強度1を取り違える実装は、論理値が正しくても%vの強度が期待値と違う。論理演算を取り違える場合も、全入力組合せの出力値で検出する。
 
 ### SV2023-28.3.2-SCALAR-BROADCAST
 

@@ -151814,7 +151814,37 @@
       "acceptance": "Changing an event-array index in a waiting expression does not itself trigger a named event.",
       "source_note": "IEEE 1800-2023 15.5.1; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch15/test_event_array_index_changes_do_not_trigger.sv",
+          "observation": "@(ev[idx])で待つプロセスとev[1]の対照プロセスを先に開始し、idxを0から1、再び0へ変える。どちらの変更の後も両方の起床数が0である。その後のev[0]・ev[1]の明示的なトリガでは、対応する起床数が順に1になる。 区別: 添字の変化自体をイベントの発生として扱う実装は、index1またはindex0の行でdynamicが1になって失敗する。単に待機が働いていない実装は、後の明示的なトリガでも起床数が0のままで失敗する。観測は次の時刻に行うので同じ領域の実行順に依存しない。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "9a64000a9a2ff156f435774b4a77c5e0a4c46fb08e08d832ee90f26f34cd9ed4",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_event_array_index_changes_do_not_trigger.sv",
+              "contains": "@(ev[idx]);"
+            },
+            {
+              "file": "tests/ch15/test_event_array_index_changes_do_not_trigger.sv",
+              "contains": "#1 idx = 1;"
+            },
+            {
+              "file": "tests/ch15/test_event_array_index_changes_do_not_trigger.sv",
+              "contains": "-> ev[0];"
+            },
+            {
+              "file": "tests/ch15/test_event_array_index_changes_do_not_trigger.expected",
+              "contains": "index1 dynamic=0 fixed=0"
+            },
+            {
+              "file": "tests/ch15/test_event_array_index_changes_do_not_trigger.expected",
+              "contains": "event1 dynamic=1 fixed=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "15.5.1",
@@ -278326,7 +278356,37 @@
       "acceptance": "Absent an explicit specification, ordinary gate drive strength is strong0/strong1, subject to the specific pull-source default in 28.10.",
       "source_note": "IEEE 1800-2023 28.3.2; complete own-body source review, blocks B014. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/gen/ch28/test_gen_gate_default_strengths_all_types.sv",
+          "observation": "表28-2の14種類のゲートを強度なしで宣言し、全8組の入力・制御値でscalar netの%vを読む。通常ゲートの0と1はSt0・St1、無効な三状態ゲートはHiZ、pullupとpulldownは例外のPu1・Pu0となる。 区別: 通常ゲートをweakやpullにする誤実装は、出力ビットが正しくてもSt0・St1の期待値に合わない。pull源を既定strongにしてしまう誤実装もPu0・Pu1に合わない。通常ゲート各種で0と1の両方を発生させ、三状態の有効・無効も分けて観測する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "8baac794b5d8e46430ca6fb7905fd29488b2e9ca5d3191a6e0ef0757bfe15369",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_gate_default_strengths_all_types.sv",
+              "contains": "nand g_nand(y_nand, a, b);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_gate_default_strengths_all_types.sv",
+              "contains": "bufif0 g_bufif0(y_bufif0, a, en);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_gate_default_strengths_all_types.sv",
+              "contains": "pullup g_pullup(y_pullup);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_gate_default_strengths_all_types.expected",
+              "contains": "ab=00 en=0 logic=St0 St1 St0 St1 St0 St1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_gate_default_strengths_all_types.expected",
+              "contains": "ab=00 en=0 pulls=Pu0 Pu1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "28.3.2",
@@ -278717,7 +278777,33 @@
       "acceptance": "The nand primitive permits a drive-strength specification.",
       "source_note": "IEEE 1800-2023 28.3.2; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/gen/ch28/test_gen_gate_strength_nand_asymmetric.sv",
+          "observation": "nandを(weak0,pull1)と(supply1,pull0)の2種類の強度で別々のscalar netへ接続し、入力00・01・10・11の全組合せで%vを読む。出力0はWe0とPu0、出力1はPu1とSu1となる。どちらの強度対も0側と1側を観測する。 区別: 強度指定を無視して既定のstrongにする実装、強度0と強度1を取り違える実装は、論理値が正しくても%vの強度が期待値と違う。論理演算を取り違える場合も、全入力組合せの出力値で検出する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "1929b20837ab3b13ff3160498efe1b88a76e6f8c2342db976074ba2167c2b536",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_gate_strength_nand_asymmetric.sv",
+              "contains": "nand (weak0, pull1) first_gate(first, a, b);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_gate_strength_nand_asymmetric.sv",
+              "contains": "nand (supply1, pull0) second_gate(second, a, b);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_gate_strength_nand_asymmetric.expected",
+              "contains": "ab=00 weak0_pull1=Pu1 supply1_pull0=Su1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_gate_strength_nand_asymmetric.expected",
+              "contains": "ab=11 weak0_pull1=We0 supply1_pull0=Pu0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "28.3.2",
@@ -278903,7 +278989,33 @@
       "acceptance": "The or primitive permits a drive-strength specification.",
       "source_note": "IEEE 1800-2023 28.3.2; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/gen/ch28/test_gen_gate_strength_or_asymmetric.sv",
+          "observation": "orを(weak0,pull1)と(supply1,pull0)の2種類の強度で別々のscalar netへ接続し、入力00・01・10・11の全組合せで%vを読む。出力0はWe0とPu0、出力1はPu1とSu1となる。どちらの強度対も0側と1側を観測する。 区別: 強度指定を無視して既定のstrongにする実装、強度0と強度1を取り違える実装は、論理値が正しくても%vの強度が期待値と違う。論理演算を取り違える場合も、全入力組合せの出力値で検出する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "bda8edf024a8c787f20554e676fc1731cc9d4bf70bfc6db5fa41dbe59b15285b",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_gate_strength_or_asymmetric.sv",
+              "contains": "or (weak0, pull1) first_gate(first, a, b);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_gate_strength_or_asymmetric.sv",
+              "contains": "or (supply1, pull0) second_gate(second, a, b);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_gate_strength_or_asymmetric.expected",
+              "contains": "ab=00 weak0_pull1=We0 supply1_pull0=Pu0"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_gate_strength_or_asymmetric.expected",
+              "contains": "ab=11 weak0_pull1=Pu1 supply1_pull0=Su1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "28.3.2",
@@ -279088,7 +279200,37 @@
       "acceptance": "The xnor primitive permits a drive-strength specification.",
       "source_note": "IEEE 1800-2023 28.3.2; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/gen/ch28/test_gen_gate_strength_xnor_asymmetric.sv",
+          "observation": "xnorを(weak0,pull1)と(supply1,pull0)の2種類の強度で別々のscalar netへ接続し、入力00・01・10・11の全組合せで%vを読む。出力0はWe0とPu0、出力1はPu1とSu1となる。どちらの強度対も0側と1側を観測する。 区別: 強度指定を無視して既定のstrongにする実装、強度0と強度1を取り違える実装は、論理値が正しくても%vの強度が期待値と違う。論理演算を取り違える場合も、全入力組合せの出力値で検出する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "c67213a629cdbb58f958cc9b1c59e296c90e905e0469f808b4a4b642db0d9480",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_gate_strength_xnor_asymmetric.sv",
+              "contains": "xnor (weak0, pull1) first_gate(first, a, b);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_gate_strength_xnor_asymmetric.sv",
+              "contains": "xnor (supply1, pull0) second_gate(second, a, b);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_gate_strength_xnor_asymmetric.expected",
+              "contains": "ab=00 weak0_pull1=Pu1 supply1_pull0=Su1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_gate_strength_xnor_asymmetric.expected",
+              "contains": "ab=11 weak0_pull1=Pu1 supply1_pull0=Su1"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_gate_strength_xnor_asymmetric.expected",
+              "contains": "ab=01 weak0_pull1=We0 supply1_pull0=Pu0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "28.3.2",
@@ -279106,7 +279248,37 @@
       "acceptance": "The xor primitive permits a drive-strength specification.",
       "source_note": "IEEE 1800-2023 28.3.2; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/gen/ch28/test_gen_gate_strength_xor_asymmetric.sv",
+          "observation": "xorを(weak0,pull1)と(supply1,pull0)の2種類の強度で別々のscalar netへ接続し、入力00・01・10・11の全組合せで%vを読む。出力0はWe0とPu0、出力1はPu1とSu1となる。どちらの強度対も0側と1側を観測する。 区別: 強度指定を無視して既定のstrongにする実装、強度0と強度1を取り違える実装は、論理値が正しくても%vの強度が期待値と違う。論理演算を取り違える場合も、全入力組合せの出力値で検出する。",
+          "reviewed_on": "2026-11-15",
+          "reviewer": "Codex independent verifier (AI); not an independent human review",
+          "inputs_sha256": "1262ac7ff111b5d25de4959dbf8b51a9aa1a329c905c6e6d74a2526d7125c324",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_gate_strength_xor_asymmetric.sv",
+              "contains": "xor (weak0, pull1) first_gate(first, a, b);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_gate_strength_xor_asymmetric.sv",
+              "contains": "xor (supply1, pull0) second_gate(second, a, b);"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_gate_strength_xor_asymmetric.expected",
+              "contains": "ab=00 weak0_pull1=We0 supply1_pull0=Pu0"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_gate_strength_xor_asymmetric.expected",
+              "contains": "ab=11 weak0_pull1=We0 supply1_pull0=Pu0"
+            },
+            {
+              "file": "tests/gen/ch28/test_gen_gate_strength_xor_asymmetric.expected",
+              "contains": "ab=01 weak0_pull1=Pu1 supply1_pull0=Su1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "28.3.2",

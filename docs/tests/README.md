@@ -24,7 +24,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 12 | [Procedural programming statements](ch12.md) | 312 | 125 |
 | 13 | [Tasks and functions (subroutines)](ch13.md) | 493 | 256 |
 | 14 | [Clocking blocks](ch14.md) | 170 | 72 |
-| 15 | [Interprocess synchronization and communication](ch15.md) | 195 | 133 |
+| 15 | [Interprocess synchronization and communication](ch15.md) | 196 | 133 |
 | 16 | [Assertions](ch16.md) | 799 | 133 |
 | 17 | [Checkers](ch17.md) | 128 | 27 |
 | 18 | [Constrained random value generation](ch18.md) | 282 | 57 |
@@ -37,7 +37,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 25 | [Interfaces](ch25.md) | 264 | 134 |
 | 26 | [Packages](ch26.md) | 262 | 179 |
 | 27 | [Generate constructs](ch27.md) | 283 | 180 |
-| 28 | [Gate-level and switch-level modeling](ch28.md) | 296 | 186 |
+| 28 | [Gate-level and switch-level modeling](ch28.md) | 301 | 191 |
 | 29 | [User-defined primitives](ch29.md) | 142 | 61 |
 | 30 | [Specify blocks](ch30.md) | 70 ||
 | 31 | [Timing checks](ch31.md) | 66 ||
