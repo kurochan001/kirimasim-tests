@@ -174,3 +174,4 @@
 | 遅いベンチの原因と対策の試作（Mac、2026-11-16） | [日本語](simulation-speed-analysis-20261116.ja.md) | [English](simulation-speed-analysis-20261116.md) |
 | kirimasim 0.1.0 と Icarus 14.0 devel の速度比較（Mac、2026-11-16） | [日本語](simulation-speed-mac-20261116.ja.md) | [English](simulation-speed-mac-20261116.md) |
 | WSL2 の速度測定記録（背景負荷あり、2026-11-16） | [日本語](simulation-speed-wsl2-20261116.ja.md) | [English](simulation-speed-wsl2-20261116.md) |
+| WSL2 の再測定と試作検証の受領（2026-11-16） | [日本語](simulation-speed-wsl2-followup-20261116.ja.md) | [English](simulation-speed-wsl2-followup-20261116.md) |

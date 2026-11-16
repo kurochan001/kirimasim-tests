@@ -9,8 +9,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "1e719003c5d0b4289f347321fbbcc6e627ac9f19241e14b006cdbf9e410d934a",
-        "ja": "04d1faeeeb528764928eeaf43ccd39b91b822f25e7184f4fa3c60579ffc29a91"
+        "en": "1c60496792d5b99c88e296c577aa86891e081a8e87d6c9e0ae9fcc702ce5bcfe",
+        "ja": "e4e46e75d0c33c01d64016b10d49fd70573e356f9aaf2985f99058e9c82cbe98"
       }
     },
     {
@@ -425,8 +425,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "7cec8bd80c9cd82202d1cf04ae0105215af53e27ba0d54d43778e9ccb3a5b35e",
-        "ja": "8f3284ed84f8e5e2e44cd9f95cbb184be4942acfcd9713ae6ea09a12fb466fbb"
+        "en": "36bd187972d051a5896acedbc29fb393359b2818fc0fc8e3977e4fae21b4f627",
+        "ja": "a77df7479147eee7d1d2ff5bad98cbf4971e0f111365e639160b73aed1176d60"
       }
     },
     {
@@ -1276,8 +1276,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "cf94a4fe977b01ff9236b33f77ecb2eaffd799222faffcffcfd2a82d9eb3ae94",
-        "ja": "bb38af26779d39b67bac3168f66deb475c688587e9865729f375f8ad0453457b"
+        "en": "8c688dbf203c3eef636f47f7318bb3990f6e416c3d10f1ca657f5cac0a6386f6",
+        "ja": "68f16b906181bbb38ed45bf212bfec62818ca72313da27cfa0db69d4d588a017"
       }
     },
     {
@@ -1287,8 +1287,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "1c5b87b23bf99db83adcf5a9d6e52864f817d0407e2537040a7a7c798ecd27de",
-        "ja": "c8befbf9693b31d4c3b2fb282d45146d73438354759a7799d37ef56a08a510c5"
+        "en": "7b28da2d8b1c37e454374015884033f94b4762478b621d35bef017ab00f54be1",
+        "ja": "94621f245510379cf75d14862f45591c09c37daaebd1c8aa1719bdceef5eabd3"
       }
     },
     {
@@ -1309,8 +1309,19 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "b233cd230316424db3ef3519283ef11951088498eb370af8cfeb23e8cfa84790",
-        "ja": "042740830cc661541113dd94c168116f10dead696d88fb985f67101ee692553c"
+        "en": "dbac26fdf68ea9ccda8643d1593fd3fc53042ea5c9c237b03db31a0d0f5afe31",
+        "ja": "632f9609faa500665732ccf39483de7625a55af29f261f7155c60c5c2b97c8ed"
+      }
+    },
+    {
+      "en": "docs/simulation-speed-wsl2-followup-20261116.md",
+      "ja": "docs/simulation-speed-wsl2-followup-20261116.ja.md",
+      "source": "docs/simulation-speed-wsl2-followup-20261116.md",
+      "source_language": "en",
+      "generated": false,
+      "sha256": {
+        "en": "46d8093fd6225cc0c696277144bf88032a9ddada59740818f6b03775878ba31f",
+        "ja": "8064c0b8d2a16da2dfaa4e3a02f70eba4be12ee3821a4dda16a0b5c06d534b55"
       }
     }
   ]

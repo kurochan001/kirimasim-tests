@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "status": "private prototypes; not applied to simulator main",
+  "base_commit": "cfa2ccd75989c1ebb9ed63303271183377364cf0",
+  "compiler": "Ubuntu clang version 20.1.8",
+  "flags": "release -O3 -DNDEBUG -ffp-contract=off; no fast-math; release flag checker passed",
+  "patch_sha256": {
+    "word-ops.patch": "4c6babbbe524e42b3efbc7e45de3b7de265c65ae5d60f68751befb73478aae11",
+    "type-cache.patch": "3c770782856bc3fd126cec1266182d33a70c1ccf4887871167c5fe96ea94d968"
+  },
+  "binary_sha256": {
+    "release": "379de45cbe88a83993fa567dd3888f92b79253629cfbf41137b1f221bd572e84",
+    "word_ops": "e2fe2db50de0cbca37176732d514bb1418912cccfb20fc9b5c3be77315e84613",
+    "word_and_type": "35984333a0863d66599bfa3b4aefdcad2acfa64989d5123450407f3f29450415",
+    "icarus": "95355dc9d7d8c559848be0c3f54368defb3a143a7ce74220186a8bdcb4fa4abc",
+    "vvp": "5ecd0179c5daecc1000f39ce4aaa306c6c27b5e42c82ad5fbed22cdafb33360b"
+  },
+  "builds": {
+    "word_ops": {
+      "worktree": "scratch v0.1.0 worktree",
+      "patch": "word-ops.patch",
+      "commands": [
+        "git apply word-ops.patch",
+        "cmake --preset release -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++",
+        "cmake --build --preset release --target kirimasim --parallel 6",
+        "python3 tools/check_release_flags.py"
+      ]
+    },
+    "word_and_type": {
+      "worktree": "separate scratch v0.1.0 worktree",
+      "patches": [
+        "word-ops.patch",
+        "type-cache.patch"
+      ],
+      "commands": [
+        "git apply word-ops.patch",
+        "git apply type-cache.patch",
+        "cmake --preset release -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++",
+        "cmake --build --preset release --target kirimasim --parallel 6",
+        "python3 tools/check_release_flags.py"
+      ]
+    }
+  },
+  "unit_tests": {
+    "Wide": "7/7 passed",
+    "Valsem": "15/15 passed",
+    "command": "kirimasim_unit_tests --gtest_filter='Wide.*' and 'Valsem.*'"
+  },
+  "reference_checker": {
+    "source": "boundary_reference.cpp",
+    "checks": 122184,
+    "passed": true,
+    "sources": [
+      "src/kernel/wide.cpp",
+      "src/valsem/value.cpp",
+      "src/valsem/logic.cpp"
+    ]
+  },
+  "benchmark_checks": {
+    "designs": 13,
+    "result_lines_matched": true,
+    "stats_counters_matched": true
+  },
+  "primary_comparison": {
+    "runs": 5,
+    "cases": 5,
+    "load_start": [
+      0.28,
+      1.91,
+      3.47
+    ],
+    "load_end": [
+      1.0,
+      1.81,
+      3.0
+    ],
+    "inputs_unchanged": true
+  },
+  "not_run": [
+    "full simulator local_ci.py",
+    "sanitizer configurations",
+    "large-design startup/RSS",
+    "production adoption"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "source_commit": "ee544e7f233f3913583e04974066ce78b393ab36",
+  "status": "verified receipt; quiet-start rerun remains provisional due to reported external activity",
+  "quiet_rerun_invocations": 286,
+  "quiet_geometric_mean_ratio": 1.2201331492252818,
+  "quiet_legacy_geometric_mean_ratio": 1.2404921087151586,
+  "prototype_invocations": 176,
+  "prototype_reductions": {
+    "wide_arith": {
+      "reduction_percent": 51.35508061142754,
+      "prototype_over_icarus": 1.2229580348999356
+    },
+    "gate_udp": {
+      "reduction_percent": 15.721065399497025,
+      "prototype_over_icarus": 1.4775313221591468
+    },
+    "mem_rw": {
+      "reduction_percent": 14.160231911828458,
+      "prototype_over_icarus": 1.4866084596626743
+    },
+    "nba_shift": {
+      "reduction_percent": 18.569095866561657,
+      "prototype_over_icarus": 1.1015430483249795
+    },
+    "proc_wait": {
+      "reduction_percent": 14.013321883854868,
+      "prototype_over_icarus": 1.2696589495144315
+    }
+  },
+  "all_13_counter_sets_match_release_and_mac": true,
+  "source_driver_adapter_binary_patch_hash_checks": "passed",
+  "portable_driver_matches_requested_relay_blob": true,
+  "test_results_reported_by_wsl": {
+    "Wide": "7/7 passed",
+    "Valsem": "15/15 passed",
+    "command": "kirimasim_unit_tests --gtest_filter='Wide.*' and 'Valsem.*'"
+  },
+  "reference_checks_reported_by_wsl": 122184,
+  "not_verified": "Linux executables and test runs were not rerun on the Mac; complete simulator local CI/sanitizers/large-design checks remain unrun"
+}

@@ -45,7 +45,7 @@ An additional three-round type-cache-only control gives combined/type-only Δ ra
 - Seven existing wide/valsem tests pass, plus 122,184 additional comparisons covering boundaries, signedness, X/Z, outside selections and in-place operations. No expected value was changed.
 - All 176 invocations in the five-case comparison exit successfully. All five full-count repetitions match the expected line and n=1 outputs agree across tools. The additional type-only control also matches.
 - The prototype matches all twelve existing designs plus the X/Z addition. All counters also match on the six designs with baseline profile records. The gains do not come from changed outputs or fewer logical events.
-- Full simulator `local_ci.py`, sanitizer configurations, production-scale startup/RSS and WSL2 gains remain unverified. Full VM regressions, including real/class behavior, are required before adoption. No thirteen-design prototype speed score is claimed.
+- Full simulator `local_ci.py`, sanitizer configurations, production-scale startup/RSS remain unverified. Full VM regressions, including real/class behavior, are required before adoption. No thirteen-design prototype speed score is claimed.
 
 ## Countermeasure priority
 
@@ -60,4 +60,16 @@ Build the baseline in release mode, then apply the [word-operation patch](measur
 
 Retained evidence: [all timings](measurements/2026-11-16/prototype-results.json), [type-only control](measurements/2026-11-16/type-only-control.json), [profile summary](measurements/2026-11-16/profile-summary.json), [thirteen output/counter checks](measurements/2026-11-16/prototype-validation.json), and [build/review provenance](measurements/2026-11-16/prototype-provenance.json). Build the [additional reference checker](measurements/2026-11-16/boundary_reference.cpp) with wide.cpp, valsem/value.cpp and valsem/logic.cpp from the same baseline. Raw sample logs retain machine identifiers and are kept private; the public summary contains functions and worker observations.
 
-[WSL2 release results were also received](simulation-speed-wsl2-20261116.md): ratios of 2.415 for wide arithmetic, 1.715 for gates/UDP and 1.688 for memory show shared weak workloads, under concurrent-load limitations. CPU attribution and prototype gains were measured only on Mac and do not establish Linux gains.
+## WSL2 confirmation
+
+The [rerun and prototype results](simulation-speed-wsl2-followup-20261116.md) arrived at `ee544e7f`. CPU attribution is from Mac, while the same patches now have measured Linux gains too. All thirteen outputs and complete counter sets match release and the Mac prototype.
+
+| Design | Mac time reduction | WSL2 time reduction | WSL2 prototype/Icarus |
+|---|---:|---:|---:|
+| `wide_arith` | 73.87% | 51.36% | 1.223 |
+| `gate_udp` | 18.93% | 15.72% | 1.478 |
+| `mem_rw` | 14.67% | 14.16% | 1.487 |
+| `nba_shift` | 17.09% | 18.57% | 1.102 |
+| `proc_wait` | 7.75% | 14.01% | 1.270 |
+
+Linux wide gains are smaller than Mac, and this five-case prototype still takes longer than Icarus. The results support optimizing kernel work and common VM costs, without establishing causes of between-environment differences.

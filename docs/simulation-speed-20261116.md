@@ -2,7 +2,7 @@
 
 [English](simulation-speed-20261116.md) / [日本語](simulation-speed-20261116.ja.md)
 
-This is the entry point for the 2026-11-16 comparison and investigation. The geometric mean elapsed-time ratios on the same thirteen designs are **Mac 1.065 and WSL2 1.193** (kirimasim/Icarus): about 6.5% and 19.3% more time in these records. **The WSL2 run is provisional because external ctest/UVM activity overlapped**; a quiet rerun is requested. No P1 acceptance threshold is introduced; the per-workload breakdown identifies improvement candidates.
+Geometric mean elapsed-time ratios on the same thirteen designs are **Mac 1.065, initial WSL2 1.193 and WSL2 rerun 1.220** (kirimasim/Icarus). **Both WSL2 release runs are provisional because external ctest/UVM activity overlapped.** Separate Linux prototype measurements reduce time about 51% for wide arithmetic, 16% for gates and 14% for memory, with all thirteen outputs/counter sets checked. The [received follow-up](simulation-speed-wsl2-followup-20261116.md) supplies the breakdown without introducing a P1 threshold.
 
 ## Reading guide and method
 
@@ -10,7 +10,7 @@ This is the entry point for the 2026-11-16 comparison and investigation. The geo
 - [WSL2 details and receipt checks](simulation-speed-wsl2-20261116.md): Ryzen 9 7950X, 32 logical CPUs, 110 GiB, Ubuntu 24.04.4 / WSL2, Clang 20.1.8. Concurrent-load interference and spread are explicit.
 - [Investigation, prototype patches and measured effects](simulation-speed-analysis-20261116.md): Mac profiling and contemporaneous release/prototype/Icarus timings.
 
-kirimasim is fixed at v0.1.0 `cfa2ccd75989c1ebb9ed63303271183377364cf0`, and Icarus at the 14.0 devel snapshot retrieved at campaign start, `1eba3690d8314d79927df8690a7d97642dd93ce0`. The original twelve designs, standard-derived X/Z addition, N values, expectations and source/driver/adapter hashes match across platforms. All 572 invocations passed output and exit checks.
+kirimasim is fixed at v0.1.0 `cfa2ccd75989c1ebb9ed63303271183377364cf0`, and Icarus at the 14.0 devel snapshot retrieved at campaign start, `1eba3690d8314d79927df8690a7d97642dd93ce0`. The original twelve designs, standard-derived X/Z addition, N values, expectations and source/driver/adapter hashes match across platforms. All 858 release invocations across the three records passed output and exit checks.
 
 Each tool has one n=1 warmup and five repetitions each of n=1 and N, serially alternating order. Primary Δ is `median(T(N))−median(T(1))`, and the ratio is `Δkirimasim/ΔIcarus`; below 1 favors kirimasim. Icarus compilation is separate, while kirimasim parsing/elaboration remains in each invocation. Full elapsed times, n=1, min/max and MAD are retained in the detailed records.
 
@@ -18,40 +18,45 @@ These are within-environment ratios on different CPUs, operating systems and com
 
 ## Release comparison
 
-| Metric | Mac | WSL2 (provisional, concurrent load) |
-|---|---:|---:|
-| All thirteen geometric mean KM/I | 1.065 | 1.193 |
-| Original twelve only | 1.080 | 1.211 |
-| Output checks | 13/13 designs, 286 invocations match | 13/13 designs, 286 invocations match |
-
-| Benchmark | N | Mac KM/I | WSL2 KM/I (provisional) |
+| Metric | Mac | Initial WSL2 (provisional) | WSL2 rerun (provisional) |
 |---|---:|---:|---:|
-| `casez_struct` | 5,000,000 | 1.117 | 1.203 |
-| `comb_chain` | 3,000,000 | 1.028 | 1.178 |
-| `dyn_queue` | 4,000,000 | 0.589 | 0.720 |
-| `fork_join` | 4,000,000 | 1.000 | 1.457 |
-| `func_call` | 1,500,000 | 0.594 | 0.798 |
-| `gate_udp` | 400,000 | 1.831 | 1.715 |
-| `mem_rw` | 4,000,000 | 1.423 | 1.688 |
-| `nba_burst` | 500,000 | 1.006 | 1.067 |
-| `nba_shift` | 1,000,000 | 1.180 | 1.354 |
-| `proc_wait` | 1,000,000 | 1.178 | 1.473 |
-| `string_fmt` | 500,000 | 0.520 | 0.563 |
-| `wide_arith` | 1,500,000 | 3.316 | 2.415 |
-| `fourstate_mix` | 1,000,000 | 0.895 | 1.004 |
+| All thirteen geometric mean KM/I | 1.065 | 1.193 | 1.220 |
+| Original twelve only | 1.080 | 1.211 | 1.240 |
 
-Wide arithmetic, gates/UDP and memory read/write have large gaps in both records. WSL2 also shows gaps in fork/join and waiting processes, but this record cannot separate compiler, CPU and concurrent-load effects. Linux CPU attribution and prototype benefits require separate checks.
+| Design | N | Mac KM/I | WSL2 first | WSL2 rerun |
+|---|---:|---:|---:|---:|
+| `casez_struct` | 5,000,000 | 1.117 | 1.203 | 1.196 |
+| `comb_chain` | 3,000,000 | 1.028 | 1.178 | 1.159 |
+| `dyn_queue` | 4,000,000 | 0.589 | 0.720 | 0.724 |
+| `fork_join` | 4,000,000 | 1.000 | 1.457 | 1.413 |
+| `func_call` | 1,500,000 | 0.594 | 0.798 | 0.815 |
+| `gate_udp` | 400,000 | 1.831 | 1.715 | 1.705 |
+| `mem_rw` | 4,000,000 | 1.423 | 1.688 | 1.707 |
+| `nba_burst` | 500,000 | 1.006 | 1.067 | 1.125 |
+| `nba_shift` | 1,000,000 | 1.180 | 1.354 | 1.302 |
+| `proc_wait` | 1,000,000 | 1.178 | 1.473 | 1.575 |
+| `string_fmt` | 500,000 | 0.520 | 0.563 | 0.678 |
+| `wide_arith` | 1,500,000 | 3.316 | 2.415 | 2.526 |
+| `fourstate_mix` | 1,000,000 | 0.895 | 1.004 | 1.000 |
+
+CPU, OS and compiler differ between platforms; these are within-environment ratios. Both original WSL2 records are retained, and the quiet-start rerun is not promoted to an idle baseline.
 
 ## Causes and countermeasure priority
 
-1. **Word operations for wide values.** Bit-at-a-time shifts, selections and concatenation writes account for 63.2% of Mac wide-worker observations. A 64-bit-word prototype reduces Δ from 6.598 s to 1.829 s, or 1.724 s with type caching too. It preserves X/Z while reducing time about 74%; contemporaneous Icarus is 2.012 s.
-2. **Precompute immutable type information.** Caching repeated first-operand type lookups in the VM reduces time about 19% for gates, 15% for memory, 17% for NBA and 8% for waiting processes. A type-cache-only control is retained.
-3. **Remaining VM work and static trigger construction.** The prototype still takes about 1.51 times Icarus for gates/UDP and 1.21 for memory. Typed/operand-location predecoding and reuse of wait information are next candidates. Their additional benefit is unmeasured and must preserve NBA ordering, delta cycles, iff, VPI/force and reference lifetimes.
+Bit-at-a-time wide work and repeated lookup of immutable operand types remain the first optimization candidates. Both patches now have measured effects on both platforms. [Mac CPU attribution](simulation-speed-analysis-20261116.md) and [additional Linux measurements](simulation-speed-wsl2-followup-20261116.md) are recorded separately.
 
-The prototype has five-round timing comparisons on five designs, matching expected outputs on all thirteen designs, identical counters on six designs with baseline records, seven existing wide/valsem tests and 122,184 additional reference comparisons. It is not applied to simulator main. Adoption requires full local CI, sanitizers, type/boundary/alias regressions, large-SIR memory/startup assessment and WSL2 confirmation. The [investigation](simulation-speed-analysis-20261116.md) contains concrete proposed diffs.
+| Design | Mac time reduction | WSL2 time reduction | WSL2 prototype/Icarus |
+|---|---:|---:|---:|
+| `wide_arith` | 73.87% | 51.36% | 1.223 |
+| `gate_udp` | 18.93% | 15.72% | 1.478 |
+| `mem_rw` | 14.67% | 14.16% | 1.487 |
+| `nba_shift` | 17.09% | 18.57% | 1.102 |
+| `proc_wait` | 7.75% | 14.01% | 1.270 |
+
+The Linux prototype still takes longer than Icarus in these five cases; remaining VM dispatch, static trigger construction and temporary buffers are further investigation targets. Both platforms have five repetitions on five timed designs and matching expected output on all thirteen. WSL2 matches all thirteen counter sets against release and Mac, and reports Wide 7/7, Valsem 15/15 and 122,184 additional reference checks. Adoption still requires full local CI, sanitizers, type/boundary/alias regressions and large-SIR memory/startup checks. Simulator main is unchanged.
 
 ## Follow-up and evidence
 
-WSL2 results arrived via private Git relay `from-wsl/p1-speed-0.1.0-2026-11-16` at `f88c63e5`. The loaded run is preserved; a same-condition quiet rerun is requested under `linux/quiet-rerun/`, followed by separate prototype comparisons under `linux/prototypes/`. Those new results have not been received.
+The latest private Git relay reply is `from-wsl/p1-speed-0.1.0-2026-11-16` at `ee544e7f`. The quiet-start rerun and prototype checks are received, verified and retained in the [follow-up](simulation-speed-wsl2-followup-20261116.md). A definitive idle release baseline remains unverified because external work overlapped the rerun.
 
-Raw samples, source/driver/binary hashes, medians and spread are in [measurements/2026-11-16/](measurements/2026-11-16/). Conformance counts, requirements, coverage and the [earlier measurement archive](readme-records-20261101.md#simulation-speed) are unchanged.
+Raw data, hashes, medians and spread are under [measurements/2026-11-16/](measurements/2026-11-16/) and its `wsl2-followup/` subdirectory. Earlier evidence, conformance counts, requirements and coverage remain unchanged.

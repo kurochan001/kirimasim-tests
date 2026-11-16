@@ -174,3 +174,4 @@ Code, identifiers, raw execution evidence and license terms retain their origina
 | Slow-workload causes and optimization prototypes: Mac, 2026-11-16 | [English](simulation-speed-analysis-20261116.md) | [日本語](simulation-speed-analysis-20261116.ja.md) |
 | kirimasim 0.1.0 versus Icarus 14.0 devel: Mac, 2026-11-16 | [English](simulation-speed-mac-20261116.md) | [日本語](simulation-speed-mac-20261116.ja.md) |
 | WSL2 speed measurement with concurrent load: 2026-11-16 | [English](simulation-speed-wsl2-20261116.md) | [日本語](simulation-speed-wsl2-20261116.ja.md) |
+| WSL2 rerun and prototype verification received: 2026-11-16 | [English](simulation-speed-wsl2-followup-20261116.md) | [日本語](simulation-speed-wsl2-followup-20261116.ja.md) |

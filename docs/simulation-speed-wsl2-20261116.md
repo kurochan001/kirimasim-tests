@@ -2,7 +2,7 @@
 
 [English](simulation-speed-wsl2-20261116.md) / [日本語](simulation-speed-wsl2-20261116.ja.md)
 
-**Received as provisional performance evidence.** All thirteen designs and 286 invocations, output checks, statistics and the common source/adapter/driver hashes were verified. The geometric mean KM/Icarus ratio is 1.193495, or 1.210850 for the original twelve. External ctest/UVM activity overlapped, so this is not treated as an idle-machine measurement. The original record is preserved and a quiet rerun under the same conditions has been requested.
+**Received as provisional performance evidence.** All thirteen designs and 286 invocations, output checks, statistics and the common source/adapter/driver hashes were verified. The geometric mean KM/Icarus ratio is 1.193495, or 1.210850 for the original twelve. External ctest/UVM activity overlapped, so this is not treated as an idle-machine measurement. The original record is preserved; the [rerun and prototype results](simulation-speed-wsl2-followup-20261116.md) were subsequently received separately.
 
 ## Receipt and environment
 
@@ -67,7 +67,7 @@ The same original twelve designs plus X/Z addition, N values, expectations and m
 
 `string_fmt`, `wide_arith` and other designs have substantial spread. External ctest and UVM processes were reported by the WSL2 side. Because affected individual samples cannot be identified, the entire record is retained as provisional evidence under concurrent load. Correct outputs and unchanged inputs do not remove timing interference.
 
-The rerun request waits for other jobs to finish, retaining the same two commits, compiler settings, thirteen designs and repetition count, and saves a new `linux/quiet-rerun/` record. It does not instruct stopping existing jobs or overwriting this record. WSL2 prototype comparisons follow separately.
+The rerun started at low load but again overlapped external ctest/UVM work. It remains a second provisional record in the [follow-up](simulation-speed-wsl2-followup-20261116.md), alongside the received prototype checks.
 
 ## Evidence
 

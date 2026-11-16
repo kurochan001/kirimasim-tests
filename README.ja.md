@@ -369,7 +369,7 @@ Icarus Verilog 13.0とVerilator 5.052で記録した期待結果と、固定版�
 
 ## シミュレーション速度
 
-[2026-11-16 の Mac・WSL2 比較と原因・対策の調査](docs/simulation-speed-20261116.ja.md)に、kirimasim 0.1.0 と Icarus 14.0 devel の全サンプル、データ品質、試作の効果をまとめています。WSL2 は負荷つきの結果を受領し、空いた状態の再測定を依頼しています。過去の速度測定は
+[2026-11-16 の Mac・WSL2 比較と原因・対策の調査](docs/simulation-speed-20261116.ja.md)に、kirimasim 0.1.0 と Icarus 14.0 devel の全サンプル、データ品質、試作の効果をまとめています。WSL2 の再測定と試作検証も受領し、背景負荷の制約を分けて記録しています。過去の速度測定は
 [測定記録](docs/readme-records-20261101.ja.md#シミュレーション速度)へまとめています。
 実行コードと手順は[シミュレータのベンチマーク](https://github.com/kurochan001/kirimasim/tree/main/bench)を参照してください。
 

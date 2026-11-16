@@ -1,0 +1,2126 @@
+{
+  "schema": 1,
+  "purpose": "private prototypes, not a released build or a production patch",
+  "started_at": "2026-11-16T01:17:08.330503+00:00",
+  "machine_start": {
+    "os": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "cores": 32,
+    "load_average": [
+      0.28,
+      1.91,
+      3.47
+    ],
+    "cpu": "AMD Ryzen 9 7950X 16-Core Processor",
+    "memory_gib": 110,
+    "distribution": "Ubuntu 24.04.4 LTS"
+  },
+  "runs": 5,
+  "source_commit": "cfa2ccd75989c1ebb9ed63303271183377364cf0",
+  "icarus_commit": "1eba3690d8314d79927df8690a7d97642dd93ce0",
+  "metric": "median T(N) minus median T(1); serial, alternating tool/count order",
+  "binary_sha256": {
+    "release": "379de45cbe88a83993fa567dd3888f92b79253629cfbf41137b1f221bd572e84",
+    "word_ops": "e2fe2db50de0cbca37176732d514bb1418912cccfb20fc9b5c3be77315e84613",
+    "word_and_type": "35984333a0863d66599bfa3b4aefdcad2acfa64989d5123450407f3f29450415",
+    "icarus": "95355dc9d7d8c559848be0c3f54368defb3a143a7ce74220186a8bdcb4fa4abc",
+    "vvp": "5ecd0179c5daecc1000f39ce4aaa306c6c27b5e42c82ad5fbed22cdafb33360b"
+  },
+  "patch_sha256": {
+    "word-ops.patch": "4c6babbbe524e42b3efbc7e45de3b7de265c65ae5d60f68751befb73478aae11",
+    "type-cache.patch": "3c770782856bc3fd126cec1266182d33a70c1ccf4887871167c5fe96ea94d968"
+  },
+  "driver_sha256": "8f3a9636e43cd5f756137caa6e0b7de114334034e2056ac740d9f5a179f9f756",
+  "cases": [
+    {
+      "name": "wide_arith",
+      "n": 1500000,
+      "expected": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+      "source_sha256": "6b3ec7499d88412fd57d45cffd78f199ada3f360f8930ef59332e25ae5432c21",
+      "tools": {
+        "release": {
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.007131775999368983,
+                "max_rss_mib": 0.76953125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.004689561999839498,
+                "max_rss_mib": 0.79296875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.0047476620002271375,
+                "max_rss_mib": 0.76953125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.004443599000296672,
+                "max_rss_mib": 0.94921875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.003296139999292791,
+                "max_rss_mib": 0.796875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 5.044251667999561,
+                "max_rss_mib": 25.2421875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 0
+              },
+              {
+                "seconds": 5.040000622999287,
+                "max_rss_mib": 25.48828125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 1
+              },
+              {
+                "seconds": 5.023129633000281,
+                "max_rss_mib": 25.27734375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 2
+              },
+              {
+                "seconds": 5.072963935001098,
+                "max_rss_mib": 25.38671875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 3
+              },
+              {
+                "seconds": 5.044734401999449,
+                "max_rss_mib": 25.11328125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 4
+              }
+            ]
+          },
+          "build": null,
+          "warmup": {
+            "seconds": 0.007693007999478141,
+            "max_rss_mib": 0.77734375,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e"
+          },
+          "small_seconds": {
+            "median": 0.004689561999839498,
+            "minimum": 0.003296139999292791,
+            "maximum": 0.007131775999368983,
+            "mad": 0.00024596299954282586
+          },
+          "large_seconds": {
+            "median": 5.044251667999561,
+            "minimum": 5.023129633000281,
+            "maximum": 5.072963935001098,
+            "mad": 0.004251045000273734
+          },
+          "incremental_seconds": 5.039562105999721,
+          "median_peak_rss_mib": 25.27734375
+        },
+        "word_ops": {
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.004336231999332085,
+                "max_rss_mib": 1.17578125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.004233126999679371,
+                "max_rss_mib": 0.828125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.003988250000475091,
+                "max_rss_mib": 0.8125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.003698113001519232,
+                "max_rss_mib": 0.85546875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.004340749999755644,
+                "max_rss_mib": 1.94921875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 2.6218864480015327,
+                "max_rss_mib": 25.77734375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 0
+              },
+              {
+                "seconds": 2.5870450900001742,
+                "max_rss_mib": 25.7265625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 1
+              },
+              {
+                "seconds": 2.5665776040004857,
+                "max_rss_mib": 25.72265625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 2
+              },
+              {
+                "seconds": 2.5947712559991487,
+                "max_rss_mib": 25.6171875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 3
+              },
+              {
+                "seconds": 2.845380976999877,
+                "max_rss_mib": 25.65625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 4
+              }
+            ]
+          },
+          "build": null,
+          "warmup": {
+            "seconds": 0.003829113000392681,
+            "max_rss_mib": 0.83984375,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e"
+          },
+          "small_seconds": {
+            "median": 0.004233126999679371,
+            "minimum": 0.003698113001519232,
+            "maximum": 0.004340749999755644,
+            "mad": 0.00010762300007627346
+          },
+          "large_seconds": {
+            "median": 2.5947712559991487,
+            "minimum": 2.5665776040004857,
+            "maximum": 2.845380976999877,
+            "mad": 0.027115192002383992
+          },
+          "incremental_seconds": 2.5905381289994693,
+          "median_peak_rss_mib": 25.72265625
+        },
+        "word_and_type": {
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.0060596889998123515,
+                "max_rss_mib": 0.85546875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.0055914570002641995,
+                "max_rss_mib": 0.8203125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.00472617800005537,
+                "max_rss_mib": 0.828125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.004300228998545208,
+                "max_rss_mib": 0.76171875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.003733928000656306,
+                "max_rss_mib": 0.82421875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 2.4562171020006645,
+                "max_rss_mib": 25.6171875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 0
+              },
+              {
+                "seconds": 2.4459113489992887,
+                "max_rss_mib": 25.30078125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 1
+              },
+              {
+                "seconds": 2.4666818890000286,
+                "max_rss_mib": 25.71484375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 2
+              },
+              {
+                "seconds": 2.5163702580011886,
+                "max_rss_mib": 25.71484375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 3
+              },
+              {
+                "seconds": 2.4247610780003015,
+                "max_rss_mib": 25.6640625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 4
+              }
+            ]
+          },
+          "build": null,
+          "warmup": {
+            "seconds": 0.0031537640006717993,
+            "max_rss_mib": 0.80078125,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e"
+          },
+          "small_seconds": {
+            "median": 0.00472617800005537,
+            "minimum": 0.003733928000656306,
+            "maximum": 0.0060596889998123515,
+            "mad": 0.0008652790002088295
+          },
+          "large_seconds": {
+            "median": 2.4562171020006645,
+            "minimum": 2.4247610780003015,
+            "maximum": 2.5163702580011886,
+            "mad": 0.01046478699936415
+          },
+          "incremental_seconds": 2.451490924000609,
+          "median_peak_rss_mib": 25.6640625
+        },
+        "icarus": {
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.003384726000149385,
+                "max_rss_mib": 0.76171875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.003516485001455294,
+                "max_rss_mib": 0.80078125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.003307765000499785,
+                "max_rss_mib": 0.76171875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.003493357000479591,
+                "max_rss_mib": 0.8203125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.0032767379998404067,
+                "max_rss_mib": 0.72265625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 2.0313653459998022,
+                "max_rss_mib": 7.62109375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 0
+              },
+              {
+                "seconds": 1.9929632450002828,
+                "max_rss_mib": 7.62109375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 1
+              },
+              {
+                "seconds": 2.0079432259990426,
+                "max_rss_mib": 7.5703125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 2
+              },
+              {
+                "seconds": 2.00901854300173,
+                "max_rss_mib": 7.61328125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 3
+              },
+              {
+                "seconds": 1.993121522000365,
+                "max_rss_mib": 7.5390625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+                "repetition": 4
+              }
+            ]
+          },
+          "build": {
+            "seconds": 0.00520507800138148,
+            "steps": [
+              {
+                "command": [
+                  "iverilog",
+                  "-g2012",
+                  "-o",
+                  "${WORK}/bench.vvp",
+                  "${PROJECT_ROOT}/bench/wide_arith.sv"
+                ],
+                "seconds": 0.00520507800138148,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.004708000000391621,
+            "max_rss_mib": 0.65625,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e"
+          },
+          "small_seconds": {
+            "median": 0.003384726000149385,
+            "minimum": 0.0032767379998404067,
+            "maximum": 0.003516485001455294,
+            "mad": 0.00010798800030897837
+          },
+          "large_seconds": {
+            "median": 2.0079432259990426,
+            "minimum": 1.9929632450002828,
+            "maximum": 2.0313653459998022,
+            "mad": 0.014821703998677549
+          },
+          "incremental_seconds": 2.0045584999988932,
+          "median_peak_rss_mib": 7.61328125
+        }
+      },
+      "prototype_over_release": 0.4864491938857246,
+      "release_over_icarus": 2.5140509024817703,
+      "prototype_over_icarus": 1.2229580348999356
+    },
+    {
+      "name": "gate_udp",
+      "n": 400000,
+      "expected": "gate_udp n=400000 acc=8bcfd518",
+      "source_sha256": "6cda61e63bfa60e158b4f833ee450dc4004e93b3330cad5d8873ff858de1d4db",
+      "tools": {
+        "release": {
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.005743724999774713,
+                "max_rss_mib": 0.98828125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.006176725000841543,
+                "max_rss_mib": 0.890625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.0074645460008468945,
+                "max_rss_mib": 1.78125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.00694362799913506,
+                "max_rss_mib": 0.796875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.00547562000065227,
+                "max_rss_mib": 1.49609375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 6.674469957999463,
+                "max_rss_mib": 25.47265625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 0
+              },
+              {
+                "seconds": 8.307767792999584,
+                "max_rss_mib": 25.6953125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 1
+              },
+              {
+                "seconds": 9.790524142999857,
+                "max_rss_mib": 25.66015625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 2
+              },
+              {
+                "seconds": 8.831256371999189,
+                "max_rss_mib": 25.66796875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 3
+              },
+              {
+                "seconds": 6.594180119000157,
+                "max_rss_mib": 25.58203125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 4
+              }
+            ]
+          },
+          "build": null,
+          "warmup": {
+            "seconds": 0.007949015000122017,
+            "max_rss_mib": 1.05078125,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "gate_udp n=1 acc=610673f5"
+          },
+          "small_seconds": {
+            "median": 0.006176725000841543,
+            "minimum": 0.00547562000065227,
+            "maximum": 0.0074645460008468945,
+            "mad": 0.0007011050001892727
+          },
+          "large_seconds": {
+            "median": 8.307767792999584,
+            "minimum": 6.594180119000157,
+            "maximum": 9.790524142999857,
+            "mad": 1.4827563500002725
+          },
+          "incremental_seconds": 8.301591067998743,
+          "median_peak_rss_mib": 25.66015625
+        },
+        "word_and_type": {
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.007851827998820227,
+                "max_rss_mib": 0.86328125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.005670988999554538,
+                "max_rss_mib": 1.734375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.010079927000333555,
+                "max_rss_mib": 0.76953125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.010794601999805309,
+                "max_rss_mib": 1.11328125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.00926631400034239,
+                "max_rss_mib": 1.17578125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 5.206473263999214,
+                "max_rss_mib": 25.48828125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 0
+              },
+              {
+                "seconds": 8.421757714000705,
+                "max_rss_mib": 25.765625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 1
+              },
+              {
+                "seconds": 8.343654974998572,
+                "max_rss_mib": 25.56640625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 2
+              },
+              {
+                "seconds": 6.841411301000335,
+                "max_rss_mib": 25.41015625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 3
+              },
+              {
+                "seconds": 7.0057588210001995,
+                "max_rss_mib": 25.515625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 4
+              }
+            ]
+          },
+          "build": null,
+          "warmup": {
+            "seconds": 0.004900203000943293,
+            "max_rss_mib": 0.76171875,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "gate_udp n=1 acc=610673f5"
+          },
+          "small_seconds": {
+            "median": 0.00926631400034239,
+            "minimum": 0.005670988999554538,
+            "maximum": 0.010794601999805309,
+            "mad": 0.0014144860015221639
+          },
+          "large_seconds": {
+            "median": 7.0057588210001995,
+            "minimum": 5.206473263999214,
+            "maximum": 8.421757714000705,
+            "mad": 1.337896153998372
+          },
+          "incremental_seconds": 6.996492506999857,
+          "median_peak_rss_mib": 25.515625
+        },
+        "icarus": {
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.0041302429999632295,
+                "max_rss_mib": 0.80078125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.006143049000456813,
+                "max_rss_mib": 1.02734375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.004355974000645801,
+                "max_rss_mib": 1.3125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.0043748640000558225,
+                "max_rss_mib": 1.60546875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.004452227000001585,
+                "max_rss_mib": 0.71875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 3.736911613999837,
+                "max_rss_mib": 7.91015625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 0
+              },
+              {
+                "seconds": 4.86407986300037,
+                "max_rss_mib": 7.8515625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 1
+              },
+              {
+                "seconds": 5.0164504690001195,
+                "max_rss_mib": 7.80078125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 2
+              },
+              {
+                "seconds": 4.739633197999865,
+                "max_rss_mib": 7.86328125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 3
+              },
+              {
+                "seconds": 4.568887290999555,
+                "max_rss_mib": 7.80078125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 4
+              }
+            ]
+          },
+          "build": {
+            "seconds": 0.0067046570002275985,
+            "steps": [
+              {
+                "command": [
+                  "iverilog",
+                  "-g2012",
+                  "-o",
+                  "${WORK}/bench.vvp",
+                  "${PROJECT_ROOT}/bench/gate_udp.sv"
+                ],
+                "seconds": 0.0067046570002275985,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.004216291999910027,
+            "max_rss_mib": 0.84765625,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "gate_udp n=1 acc=610673f5"
+          },
+          "small_seconds": {
+            "median": 0.0043748640000558225,
+            "minimum": 0.0041302429999632295,
+            "maximum": 0.006143049000456813,
+            "mad": 7.736299994576257e-05
+          },
+          "large_seconds": {
+            "median": 4.739633197999865,
+            "minimum": 3.736911613999837,
+            "maximum": 5.0164504690001195,
+            "mad": 0.17074590700030967
+          },
+          "incremental_seconds": 4.735258333999809,
+          "median_peak_rss_mib": 7.8515625
+        }
+      },
+      "prototype_over_release": 0.8427893460050297,
+      "release_over_icarus": 1.7531442811455864,
+      "prototype_over_icarus": 1.4775313221591468
+    },
+    {
+      "name": "mem_rw",
+      "n": 4000000,
+      "expected": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+      "source_sha256": "586c4474d7872540e33c82984c9c33580a3dfa9a957a588ae4a1aa36601cf21e",
+      "tools": {
+        "release": {
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.005856127001607092,
+                "max_rss_mib": 0.80078125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.005722115000025951,
+                "max_rss_mib": 0.77734375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.005420073999630404,
+                "max_rss_mib": 0.75390625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.005368320000343374,
+                "max_rss_mib": 0.79296875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.004540116999123711,
+                "max_rss_mib": 0.7734375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 6.3213162570009445,
+                "max_rss_mib": 25.60546875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 0
+              },
+              {
+                "seconds": 6.39925982800014,
+                "max_rss_mib": 25.1875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 1
+              },
+              {
+                "seconds": 5.938670188999822,
+                "max_rss_mib": 25.7734375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 2
+              },
+              {
+                "seconds": 6.180179162998684,
+                "max_rss_mib": 25.4609375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 3
+              },
+              {
+                "seconds": 6.036381806999998,
+                "max_rss_mib": 25.5625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 4
+              }
+            ]
+          },
+          "build": null,
+          "warmup": {
+            "seconds": 0.005492586000400479,
+            "max_rss_mib": 1.57421875,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1"
+          },
+          "small_seconds": {
+            "median": 0.005420073999630404,
+            "minimum": 0.004540116999123711,
+            "maximum": 0.005856127001607092,
+            "mad": 0.0003020410003955476
+          },
+          "large_seconds": {
+            "median": 6.180179162998684,
+            "minimum": 5.938670188999822,
+            "maximum": 6.39925982800014,
+            "mad": 0.14379735599868582
+          },
+          "incremental_seconds": 6.174759088999053,
+          "median_peak_rss_mib": 25.5625
+        },
+        "word_and_type": {
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.005134023998834891,
+                "max_rss_mib": 0.8515625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.005523129000721383,
+                "max_rss_mib": 0.796875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.005403135999586084,
+                "max_rss_mib": 0.76953125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.005753911000283551,
+                "max_rss_mib": 0.85546875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.004663354000513209,
+                "max_rss_mib": 0.84765625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 5.305802017999667,
+                "max_rss_mib": 25.48046875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 0
+              },
+              {
+                "seconds": 5.0511779809985455,
+                "max_rss_mib": 25.48828125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 1
+              },
+              {
+                "seconds": 5.449916415000189,
+                "max_rss_mib": 25.421875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 2
+              },
+              {
+                "seconds": 5.375545012000657,
+                "max_rss_mib": 25.53515625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 3
+              },
+              {
+                "seconds": 5.095101852999505,
+                "max_rss_mib": 25.32421875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 4
+              }
+            ]
+          },
+          "build": null,
+          "warmup": {
+            "seconds": 0.006119241999840597,
+            "max_rss_mib": 0.80078125,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1"
+          },
+          "small_seconds": {
+            "median": 0.005403135999586084,
+            "minimum": 0.004663354000513209,
+            "maximum": 0.005753911000283551,
+            "mad": 0.0002691120007511927
+          },
+          "large_seconds": {
+            "median": 5.305802017999667,
+            "minimum": 5.0511779809985455,
+            "maximum": 5.449916415000189,
+            "mad": 0.14411439700052142
+          },
+          "incremental_seconds": 5.300398882000081,
+          "median_peak_rss_mib": 25.48046875
+        },
+        "icarus": {
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.0037014509998698486,
+                "max_rss_mib": 1.02734375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.0038138229992910055,
+                "max_rss_mib": 0.75,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.004021545999421505,
+                "max_rss_mib": 0.7265625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.0035744269989663735,
+                "max_rss_mib": 0.8671875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.0037847499988856725,
+                "max_rss_mib": 1.3671875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 3.688163294998958,
+                "max_rss_mib": 7.72265625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 0
+              },
+              {
+                "seconds": 3.607938938999723,
+                "max_rss_mib": 7.6640625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 1
+              },
+              {
+                "seconds": 3.50095422800041,
+                "max_rss_mib": 7.74609375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 2
+              },
+              {
+                "seconds": 3.5692150740014768,
+                "max_rss_mib": 7.71875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 3
+              },
+              {
+                "seconds": 3.5587872039996,
+                "max_rss_mib": 7.74609375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 4
+              }
+            ]
+          },
+          "build": {
+            "seconds": 0.005677725999703398,
+            "steps": [
+              {
+                "command": [
+                  "iverilog",
+                  "-g2012",
+                  "-o",
+                  "${WORK}/bench.vvp",
+                  "${PROJECT_ROOT}/bench/mem_rw.sv"
+                ],
+                "seconds": 0.005677725999703398,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.0032434119984827703,
+            "max_rss_mib": 0.921875,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1"
+          },
+          "small_seconds": {
+            "median": 0.0037847499988856725,
+            "minimum": 0.0035744269989663735,
+            "maximum": 0.004021545999421505,
+            "mad": 8.329899901582394e-05
+          },
+          "large_seconds": {
+            "median": 3.5692150740014768,
+            "minimum": 3.50095422800041,
+            "maximum": 3.688163294998958,
+            "mad": 0.03872386499824643
+          },
+          "incremental_seconds": 3.565430324002591,
+          "median_peak_rss_mib": 7.72265625
+        }
+      },
+      "prototype_over_release": 0.8583976808817154,
+      "release_over_icarus": 1.7318411882656568,
+      "prototype_over_icarus": 1.4866084596626743
+    },
+    {
+      "name": "nba_shift",
+      "n": 1000000,
+      "expected": "nba_shift n=1000000 sum=1b0c71c3",
+      "source_sha256": "5fbf012900e62be74a8382a43103bd8283c652f55a5e640769affae623a4b3c4",
+      "tools": {
+        "release": {
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.005568394000874832,
+                "max_rss_mib": 0.7890625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1 sum=00000000",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.005090896998808603,
+                "max_rss_mib": 0.62890625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1 sum=00000000",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.005677028000718565,
+                "max_rss_mib": 0.79296875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1 sum=00000000",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.006087970999942627,
+                "max_rss_mib": 0.7890625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1 sum=00000000",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.005272747999697458,
+                "max_rss_mib": 0.76953125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1 sum=00000000",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 32.253742988999875,
+                "max_rss_mib": 25.3515625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1000000 sum=1b0c71c3",
+                "repetition": 0
+              },
+              {
+                "seconds": 30.838783065000825,
+                "max_rss_mib": 24.9453125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1000000 sum=1b0c71c3",
+                "repetition": 1
+              },
+              {
+                "seconds": 30.053857796001466,
+                "max_rss_mib": 25.68359375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1000000 sum=1b0c71c3",
+                "repetition": 2
+              },
+              {
+                "seconds": 31.11057724300008,
+                "max_rss_mib": 25.6796875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1000000 sum=1b0c71c3",
+                "repetition": 3
+              },
+              {
+                "seconds": 30.089379870998528,
+                "max_rss_mib": 25.6171875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1000000 sum=1b0c71c3",
+                "repetition": 4
+              }
+            ]
+          },
+          "build": null,
+          "warmup": {
+            "seconds": 0.007532528999945498,
+            "max_rss_mib": 0.76953125,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "nba_shift n=1 sum=00000000"
+          },
+          "small_seconds": {
+            "median": 0.005568394000874832,
+            "minimum": 0.005090896998808603,
+            "maximum": 0.006087970999942627,
+            "mad": 0.0002956460011773743
+          },
+          "large_seconds": {
+            "median": 30.838783065000825,
+            "minimum": 30.053857796001466,
+            "maximum": 32.253742988999875,
+            "mad": 0.7494031940022978
+          },
+          "incremental_seconds": 30.83321467099995,
+          "median_peak_rss_mib": 25.6171875
+        },
+        "word_and_type": {
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.00667181199969491,
+                "max_rss_mib": 0.828125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1 sum=00000000",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.005098658999486361,
+                "max_rss_mib": 0.8359375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1 sum=00000000",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.007419733001370332,
+                "max_rss_mib": 0.828125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1 sum=00000000",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.0062673159991391,
+                "max_rss_mib": 0.87109375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1 sum=00000000",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.007764736998069566,
+                "max_rss_mib": 1.04296875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1 sum=00000000",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 25.764451294000537,
+                "max_rss_mib": 25.76953125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1000000 sum=1b0c71c3",
+                "repetition": 0
+              },
+              {
+                "seconds": 25.11443729199891,
+                "max_rss_mib": 25.52734375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1000000 sum=1b0c71c3",
+                "repetition": 1
+              },
+              {
+                "seconds": 24.37621692799985,
+                "max_rss_mib": 25.40625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1000000 sum=1b0c71c3",
+                "repetition": 2
+              },
+              {
+                "seconds": 25.325230393998936,
+                "max_rss_mib": 25.50390625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1000000 sum=1b0c71c3",
+                "repetition": 3
+              },
+              {
+                "seconds": 24.24570315299934,
+                "max_rss_mib": 25.625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1000000 sum=1b0c71c3",
+                "repetition": 4
+              }
+            ]
+          },
+          "build": null,
+          "warmup": {
+            "seconds": 0.0053522719990724,
+            "max_rss_mib": 0.80859375,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "nba_shift n=1 sum=00000000"
+          },
+          "small_seconds": {
+            "median": 0.00667181199969491,
+            "minimum": 0.005098658999486361,
+            "maximum": 0.007764736998069566,
+            "mad": 0.0007479210016754223
+          },
+          "large_seconds": {
+            "median": 25.11443729199891,
+            "minimum": 24.24570315299934,
+            "maximum": 25.764451294000537,
+            "mad": 0.6500140020016261
+          },
+          "incremental_seconds": 25.107765479999216,
+          "median_peak_rss_mib": 25.52734375
+        },
+        "icarus": {
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.003054369999517803,
+                "max_rss_mib": 0.97265625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1 sum=00000000",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.003674567000416573,
+                "max_rss_mib": 1.0390625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1 sum=00000000",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.003499028000078397,
+                "max_rss_mib": 0.76171875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1 sum=00000000",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.003949259997170884,
+                "max_rss_mib": 1.33984375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1 sum=00000000",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.0032796890009194613,
+                "max_rss_mib": 0.84375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1 sum=00000000",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 22.886393282000427,
+                "max_rss_mib": 7.78125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1000000 sum=1b0c71c3",
+                "repetition": 0
+              },
+              {
+                "seconds": 22.907767331000287,
+                "max_rss_mib": 7.76171875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1000000 sum=1b0c71c3",
+                "repetition": 1
+              },
+              {
+                "seconds": 22.79676663399914,
+                "max_rss_mib": 7.7734375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1000000 sum=1b0c71c3",
+                "repetition": 2
+              },
+              {
+                "seconds": 22.264803460999246,
+                "max_rss_mib": 7.75,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1000000 sum=1b0c71c3",
+                "repetition": 3
+              },
+              {
+                "seconds": 22.28757785599737,
+                "max_rss_mib": 7.84375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "nba_shift n=1000000 sum=1b0c71c3",
+                "repetition": 4
+              }
+            ]
+          },
+          "build": {
+            "seconds": 0.006350187000862206,
+            "steps": [
+              {
+                "command": [
+                  "iverilog",
+                  "-g2012",
+                  "-o",
+                  "${WORK}/bench.vvp",
+                  "${PROJECT_ROOT}/bench/nba_shift.sv"
+                ],
+                "seconds": 0.006350187000862206,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.003400579000299331,
+            "max_rss_mib": 0.95703125,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "nba_shift n=1 sum=00000000"
+          },
+          "small_seconds": {
+            "median": 0.003499028000078397,
+            "minimum": 0.003054369999517803,
+            "maximum": 0.003949259997170884,
+            "mad": 0.00021933899915893562
+          },
+          "large_seconds": {
+            "median": 22.79676663399914,
+            "minimum": 22.264803460999246,
+            "maximum": 22.907767331000287,
+            "mad": 0.11100069700114545
+          },
+          "incremental_seconds": 22.793267605999063,
+          "median_peak_rss_mib": 7.7734375
+        }
+      },
+      "prototype_over_release": 0.8143090413343834,
+      "release_over_icarus": 1.3527334125136503,
+      "prototype_over_icarus": 1.1015430483249795
+    },
+    {
+      "name": "proc_wait",
+      "n": 1000000,
+      "expected": "proc_wait n=1000000 sum=35376317874",
+      "source_sha256": "88be699fa02c0485fdb9bd15120b21f2af2c6192816252aea19667144ad9dfed",
+      "tools": {
+        "release": {
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.00606707900078618,
+                "max_rss_mib": 0.78515625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.006500727999082301,
+                "max_rss_mib": 0.9140625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.005743150002672337,
+                "max_rss_mib": 0.76953125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.005165857997781131,
+                "max_rss_mib": 0.79296875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.00550871400264441,
+                "max_rss_mib": 0.828125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 8.268221573001938,
+                "max_rss_mib": 27.29296875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 0
+              },
+              {
+                "seconds": 8.226557263998984,
+                "max_rss_mib": 27.4609375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 1
+              },
+              {
+                "seconds": 8.256151759000204,
+                "max_rss_mib": 27.58984375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 2
+              },
+              {
+                "seconds": 8.312513567001588,
+                "max_rss_mib": 27.3359375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 3
+              },
+              {
+                "seconds": 8.28698928799713,
+                "max_rss_mib": 27.20703125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 4
+              }
+            ]
+          },
+          "build": null,
+          "warmup": {
+            "seconds": 0.006877911000628956,
+            "max_rss_mib": 1.05078125,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "proc_wait n=1 sum=15255"
+          },
+          "small_seconds": {
+            "median": 0.005743150002672337,
+            "minimum": 0.005165857997781131,
+            "maximum": 0.006500727999082301,
+            "mad": 0.0003239289981138427
+          },
+          "large_seconds": {
+            "median": 8.268221573001938,
+            "minimum": 8.226557263998984,
+            "maximum": 8.312513567001588,
+            "mad": 0.018767714995192364
+          },
+          "incremental_seconds": 8.262478422999266,
+          "median_peak_rss_mib": 27.3359375
+        },
+        "word_and_type": {
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.0058425000024726614,
+                "max_rss_mib": 0.94140625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.005576095001742942,
+                "max_rss_mib": 0.828125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.005493515000125626,
+                "max_rss_mib": 0.57421875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.0065191540015803184,
+                "max_rss_mib": 0.84765625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.004976424999767914,
+                "max_rss_mib": 1.0859375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 7.067866552999476,
+                "max_rss_mib": 29.5625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 0
+              },
+              {
+                "seconds": 7.212739785001759,
+                "max_rss_mib": 29.55078125,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 1
+              },
+              {
+                "seconds": 7.110206821002066,
+                "max_rss_mib": 29.84375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 2
+              },
+              {
+                "seconds": 7.097175979000895,
+                "max_rss_mib": 29.87890625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 3
+              },
+              {
+                "seconds": 7.365152784001111,
+                "max_rss_mib": 29.40625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 4
+              }
+            ]
+          },
+          "build": null,
+          "warmup": {
+            "seconds": 0.005772982000053162,
+            "max_rss_mib": 0.80859375,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "proc_wait n=1 sum=15255"
+          },
+          "small_seconds": {
+            "median": 0.005576095001742942,
+            "minimum": 0.004976424999767914,
+            "maximum": 0.0065191540015803184,
+            "mad": 0.0002664050007297192
+          },
+          "large_seconds": {
+            "median": 7.110206821002066,
+            "minimum": 7.067866552999476,
+            "maximum": 7.365152784001111,
+            "mad": 0.042340268002590165
+          },
+          "incremental_seconds": 7.104630726000323,
+          "median_peak_rss_mib": 29.5625
+        },
+        "icarus": {
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.004602802997396793,
+                "max_rss_mib": 0.859375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.004272065001714509,
+                "max_rss_mib": 1.00390625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.004386137999972561,
+                "max_rss_mib": 0.796875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.004441783999936888,
+                "max_rss_mib": 0.80859375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.0048362189991166815,
+                "max_rss_mib": 0.7265625,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 5.5859062089984945,
+                "max_rss_mib": 8.24609375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 0
+              },
+              {
+                "seconds": 5.600141896000423,
+                "max_rss_mib": 8.2421875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 1
+              },
+              {
+                "seconds": 5.612688405999506,
+                "max_rss_mib": 8.24609375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 2
+              },
+              {
+                "seconds": 5.57931190599993,
+                "max_rss_mib": 8.24609375,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 3
+              },
+              {
+                "seconds": 5.707083246001275,
+                "max_rss_mib": 8.23046875,
+                "rss_source": "VmHWM",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 4
+              }
+            ]
+          },
+          "build": {
+            "seconds": 0.006214164997800253,
+            "steps": [
+              {
+                "command": [
+                  "iverilog",
+                  "-g2012",
+                  "-o",
+                  "${WORK}/bench.vvp",
+                  "${PROJECT_ROOT}/bench/proc_wait.sv"
+                ],
+                "seconds": 0.006214164997800253,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.0039279640004679095,
+            "max_rss_mib": 0.83203125,
+            "rss_source": "VmHWM",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "proc_wait n=1 sum=15255"
+          },
+          "small_seconds": {
+            "median": 0.004441783999936888,
+            "minimum": 0.004272065001714509,
+            "maximum": 0.0048362189991166815,
+            "mad": 0.00016101899745990522
+          },
+          "large_seconds": {
+            "median": 5.600141896000423,
+            "minimum": 5.57931190599993,
+            "maximum": 5.707083246001275,
+            "mad": 0.014235687001928454
+          },
+          "incremental_seconds": 5.595700112000486,
+          "median_peak_rss_mib": 8.24609375
+        }
+      },
+      "prototype_over_release": 0.8598667811614513,
+      "release_over_icarus": 1.4765763456979462,
+      "prototype_over_icarus": 1.2696589495144315
+    }
+  ],
+  "versions": {
+    "release": "kirimasim 0.1.0 (commit cfa2ccd75989), built with Clang 20.1.8",
+    "word_ops": "kirimasim 0.1.0 (commit cfa2ccd75989), built with Clang 20.1.8",
+    "word_and_type": "kirimasim 0.1.0 (commit cfa2ccd75989), built with Clang 20.1.8",
+    "icarus": "Icarus Verilog version 14.0 (devel) (s20260301-1076-g1eba3690d)"
+  },
+  "completed_at": "2026-11-16T01:29:40.290249+00:00",
+  "machine_end": {
+    "os": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "cores": 32,
+    "load_average": [
+      1.0,
+      1.81,
+      3.0
+    ],
+    "cpu": "AMD Ryzen 9 7950X 16-Core Processor",
+    "memory_gib": 110,
+    "distribution": "Ubuntu 24.04.4 LTS"
+  },
+  "inputs_unchanged": true
+}

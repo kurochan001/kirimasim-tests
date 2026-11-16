@@ -1,0 +1,21 @@
+{
+  "source_commit": "ee544e7f233f3913583e04974066ce78b393ab36",
+  "branch": "handoff/from-wsl/p1-speed-0.1.0-2026-11-16",
+  "sha256": {
+    "HANDOFF.md": "3f02dedb6ff7d1ab7ab52427dcb10dd298b0573273e8bfefc69b2c15fd7dd8c4",
+    "STATUS.md": "8abe2d1a26abd9185e360f48978457ebd59efc1a3fea218a1ed3cbdb7a6ebf27",
+    "SUMMARY.ja.md": "6d0e7d13cd6edc05a5d35d9824c5547fae5f09217b4c3be98caa7a30cf9aa1f1",
+    "SUMMARY.md": "a36a1fb5136d7105e1d737ab4a0d9c77ff39a98619a128224a1c162e71695c3e",
+    "build-provenance.json": "64576f097b2a15e29a34f0f413aab555454fbae8cd5e2d96c6141eced7622b68",
+    "prototypes/SUMMARY.ja.md": "4e0d9465f4125c4392421227c737d5ec9056908c70882b40457921bf26379122",
+    "prototypes/SUMMARY.md": "46a6f4152f2e8d9cdd73ec13c21a5a75b5051506955c5797b14aadf74d8c8e77",
+    "prototypes/build-provenance.json": "8df87a62c0298a05dc8cdfffa14d4474d5bd2c51dbeb9514374e91f9e1409653",
+    "prototypes/counter-check.json": "7b56f3d11d134e49794e1d55d816f00014c6c19b915a045fc95bf9e483aa045a",
+    "prototypes/prototype-results.json": "523e121af50ad86743789632403669e8cf6e528c83fd01d906e532c10beeec3c",
+    "quiet-rerun/SUMMARY.ja.md": "cacd95a6302edfa8125d552b7ddab03f061a1d7467bd5b465a5ec767b597709c",
+    "quiet-rerun/SUMMARY.md": "15982cae2bc69856d8c1c81fb6b8d3d396d61cf79cc6e8b3b8a604e2d22b73dd",
+    "quiet-rerun/build-provenance.json": "8e142e5cb05a30e6e8bb78414082a08edb4934e38ccebca5da87e048a8278670",
+    "quiet-rerun/results.json": "f35c80cec1354970f0608104ee6ef7e7c949dee2105358e2861d865841cb09bf",
+    "results.json": "a6fb446f6aec094ac141be3d0eb539cebdc638126d66fdf9b4dd9bb1733e4711"
+  }
+}

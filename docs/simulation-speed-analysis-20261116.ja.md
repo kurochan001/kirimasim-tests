@@ -45,7 +45,7 @@ UDPの真理値表関数 `udpOutput` 自体はゲートベンチの約 3.3% で�
 - 広幅の既存valsem照合テスト7件が合格し、境界・符号・X/Z・範囲外選択・in-placeを含む122,184回の追加照合も一致しました。期待値を変更していません。
 - 5ケースの計176実行は全て終了正常で、各5回の本測定は期待行と一致し、n=1もtool間で一致しました。追加の型キャッシュ対照も全出力が一致しました。
 - 試作は既存12本＋X/Zの1本の全13本で期待出力と一致。比較元の記録がある6本では、全カウンタも一致しました。変わった処理結果やイベントの削減による速度差ではありません。
-- simulator全体の `local_ci.py`、sanitizer、実運用の大規模設計の起動時間/RSS、WSL2の効果は未確認です。real/classを含むVM全体の回帰も正式採用前に必要です。全13本の試作の速度スコアを測ったとは扱いません。
+- simulator全体の `local_ci.py`、sanitizer、実運用の大規模設計の起動時間/RSSは未確認です。real/classを含むVM全体の回帰も正式採用前に必要です。全13本の試作の速度スコアを測ったとは扱いません。
 
 ## 対策の優先順位
 
@@ -60,4 +60,16 @@ UDPの真理値表関数 `udpOutput` 自体はゲートベンチの約 3.3% で�
 
 [全タイミング](measurements/2026-11-16/prototype-results.json)、[型キャッシュ単独の対照](measurements/2026-11-16/type-only-control.json)、[profile要約](measurements/2026-11-16/profile-summary.json)、[13本の出力とカウンタ](measurements/2026-11-16/prototype-validation.json)、[ビルド・検証情報](measurements/2026-11-16/prototype-provenance.json)を保存しています。[追加の参照照合コード](measurements/2026-11-16/boundary_reference.cpp)は同じ基準版のwide.cpp・valsem/value.cpp・valsem/logic.cppとビルドして実行します。sampleの生ログはマシンの識別情報を含むため非公開保存し、公開要約には関数とworker観測だけを載せています。
 
-WSL2の正式版結果も[受領しました](simulation-speed-wsl2-20261116.ja.md)。広幅2.415、ゲート／UDP1.715、メモリ1.688の時間比で共通の弱点が見えますが、別ジョブが重なった参考結果です。CPU内訳と試作の改善率はMacだけで測っており、Linuxへの効果を実証したとは扱いません。
+## WSL2 での追加確認
+
+[再測定と試作の結果](simulation-speed-wsl2-followup-20261116.ja.md)を `ee544e7f` で受領しました。CPUの内訳はMacでの観測ですが、同じパッチでLinuxの改善も確認できました。全13本の出力と全カウンタが正式版およびMac試作と一致しています。
+
+| ベンチ | Mac 時間削減 | WSL2 時間削減 | WSL2 試作/Icarus |
+|---|---:|---:|---:|
+| `wide_arith` | 73.87% | 51.36% | 1.223 |
+| `gate_udp` | 18.93% | 15.72% | 1.478 |
+| `mem_rw` | 14.67% | 14.16% | 1.487 |
+| `nba_shift` | 17.09% | 18.57% | 1.102 |
+| `proc_wait` | 7.75% | 14.01% | 1.270 |
+
+Linuxの広幅の改善率はMacより小さく、今回の5ケースでは依然Icarusより長い値です。kernel処理・VMの共通コストの改善方向は支持されますが、環境間の差の原因はこの計測だけでは確定しません。
