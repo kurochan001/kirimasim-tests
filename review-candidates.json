@@ -1,36 +1,35 @@
 {
  "inputs": {
   "icarus": {
-   "version": "Icarus Verilog version 14.0 (devel) (s20260301-1037-g77bb46fb)",
-   "time": "2026-11-15T06:20:10Z",
-   "suite_commit": "ed5ded9a0130470fb1e36fa46a9094a3326b0ad6"
+   "version": "Icarus Verilog version 14.0 (devel) (s20260301-1091-g32d891a8)",
+   "time": "2026-11-16T05:12:16Z",
+   "suite_commit": "9f9121f0a5290dd2f2fdf1def77df5dded32ad9a"
   },
   "verilator": {
-   "version": "Verilator 5.055 devel rev v5.054-276-g9fc843a1",
-   "time": "2026-11-15T06:20:10Z",
-   "suite_commit": "ed5ded9a0130470fb1e36fa46a9094a3326b0ad6"
+   "version": "Verilator 5.055 devel rev v5.054-288-g1e30e73a",
+   "time": "2026-11-16T05:12:16Z",
+   "suite_commit": "9f9121f0a5290dd2f2fdf1def77df5dded32ad9a"
   },
   "kirimasim": {
-   "version": "kirimasim 0.0.0 (commit c3571569b7f9), built with GNU 13.3.0",
-   "time": "2026-11-15T06:20:10Z",
-   "suite_commit": "ed5ded9a0130470fb1e36fa46a9094a3326b0ad6"
+   "version": "kirimasim 0.1.0 (commit c152d237ac8d), built with GNU 13.3.0",
+   "time": "2026-11-16T05:12:16Z",
+   "suite_commit": "9f9121f0a5290dd2f2fdf1def77df5dded32ad9a"
   },
   "lyra": {
-   "version": "Lyra (commit 2f842a92f99c)",
-   "time": "2026-11-15T06:20:10Z",
-   "suite_commit": "ed5ded9a0130470fb1e36fa46a9094a3326b0ad6"
+   "version": "Lyra (commit 05225260af49)",
+   "time": "2026-11-16T05:12:16Z",
+   "suite_commit": "9f9121f0a5290dd2f2fdf1def77df5dded32ad9a"
   },
   "ghost": {
-   "version": "private build 17224fd34b2f",
-   "time": "2026-11-14T07:31:53Z",
-   "suite_commit": "aef04b93c6ebe776c598f3a40474eeea1e88dfec"
+   "version": "private build c82f33747734",
+   "time": "2026-11-16T05:12:16Z",
+   "suite_commit": "9f9121f0a5290dd2f2fdf1def77df5dded32ad9a"
   }
  },
  "candidates": {
   "spec_fail_all": [
    "ch10/test_illegal_force_mixed_driven_variable",
    "ch13/test_illegal_constant_function_call_in_constant_context",
-   "ch20/test_array_query_types_and_invalid",
    "ch20/test_illegal_isunbounded_variable",
    "ch22/test_illegal_begin_keywords_without_end",
    "ch22/test_illegal_line_directive_trailing_comment",
@@ -43,54 +42,43 @@
    "ch6/test_illegal_initial_block_variable_initializer_no_keyword",
    "ch6/test_illegal_static_task_variable_initializer_no_keyword",
    "ch6/test_illegal_type_parameter_scope_prefix_in_variable",
+   "ch6/test_interconnect_declaration_generic_forms",
    "ch7/test_illegal_union_holding_struct_member_default",
    "ch8/test_illegal_interface_method_default_not_constant",
+   "ch8/test_illegal_interface_typedef_scope_prefix_in_variable_declaration",
    "ch8/test_illegal_type_parameter_scope_prefix_in_variable_declaration"
   ],
   "kirimasim_only": [
-   "ch13/test_function_formal_ref_static_direction_inherited",
    "ch16/test_illegal_final_deferred_postponed_call",
    "ch20/test_illegal_bits_function_dynamic_return",
+   "ch20/test_illegal_timeformat_unit_above_range",
+   "ch20/test_illegal_timeformat_unit_below_range",
    "ch20/test_illegal_timeformat_unit_out_of_range",
    "ch4/test_illegal_final_deferred_action_schedules_event",
-   "ch4/test_illegal_final_deferred_action_writes_variable",
-   "gen/ch24/test_gen_cross_progmod_child_inst_one_absolute_defparam_none_ignored",
-   "gen/ch24/test_gen_cross_progmod_child_inst_two_absolute_defparam_read_none",
-   "gen/ch24/test_gen_cross_progmod_nested_inst_one_upward_defparam_none_ignored",
-   "gen/ch24/test_gen_cross_progmod_nested_inst_two_absolute_defparam_none_none",
-   "gen/ch24/test_gen_cross_progmod_top_inst_one_absolute_defparam_none_ignored",
-   "gen/ch24/test_gen_cross_progmod_top_inst_two_absolute_defparam_none_none"
+   "ch4/test_illegal_final_deferred_action_writes_variable"
   ],
   "spec_no_pass": [
    "ch10/test_illegal_user_nettype_assignment_two_delays",
-   "ch11/test_operand_categories_every_kind",
-   "ch13/test_function_controls_other_and_own_process",
-   "ch16/test_ch16_sim_multiclock_init",
    "ch16/test_illegal_assertion_clocking_input_not_1step",
    "ch16/test_illegal_assertion_function_keeps_state",
    "ch16/test_illegal_assertion_function_side_effect",
    "ch16/test_illegal_local_variable_implicit_type",
    "ch16/test_illegal_triggered_ending_clock",
-   "ch16/test_property_leading_clock_sets_operators",
    "ch16/test_sequence_method_inferred_clock_default",
    "ch17/test_checker_always_ff_assertions_sampled",
+   "ch17/test_checker_dollar_actual_unbounded_range",
    "ch17/test_illegal_checker_function_keeps_state",
    "ch17/test_illegal_checker_function_side_effect",
    "ch18/test_constraint_function_priority_partition",
-   "ch18/test_disable_soft_enclosing_condition_kept",
    "ch18/test_discarded_soft_distribution",
    "ch18/test_illegal_constraint_function_mode",
    "ch18/test_illegal_constraint_function_state",
    "ch18/test_illegal_randsequence_negative_weight",
    "ch18/test_solve_before_partial_latest_set",
-   "ch19/test_cg_auto_denominator_enum_and_empty_bins",
-   "ch19/test_cg_cross_auto_types_scope_and_fields",
    "ch19/test_cg_four_state_literal_wildcard_enum",
    "ch21/test_illegal_value_plusargs_bad_format",
    "ch25/test_illegal_virtual_interface_component_in_always_event_control",
    "ch25/test_illegal_virtual_interface_component_in_always_ff",
-   "ch3/test_design_element_kinds",
-   "ch3/test_vpi_compilation_unit_iteration",
    "ch30/test_illegal_edge_parallel_path_vector_destination",
    "ch30/test_illegal_pathpulse_error_below_reject",
    "ch30/test_illegal_pulsestyle_ondetect_after_path",
@@ -98,10 +86,8 @@
    "ch30/test_illegal_showcancelled_after_path",
    "ch30/test_illegal_specify_edge_path_part_and_bit_select",
    "ch30/test_illegal_specify_ifnone_with_unconditional_path",
-   "ch30/test_specify_edge_path_full_polarity_data_source",
-   "ch30/test_specify_edge_path_source_edge_kinds",
-   "ch30/test_specify_full_path_unequal_widths_and_mixed_lists",
    "ch30/test_specify_interface_signal_path_terminals",
+   "ch30/test_specify_parallel_path_bit_to_bit",
    "ch30/test_specify_path_delay_mintypmax_vpi",
    "ch31/test_illegal_hold_limit_negative",
    "ch31/test_illegal_recovery_limit_negative",
@@ -109,59 +95,42 @@
    "ch31/test_illegal_setup_limit_negative",
    "ch31/test_illegal_setuphold_negative_sum",
    "ch31/test_illegal_timing_condition_two_signals",
-   "ch37/test_vpi_assertion_columns",
+   "ch32/test_sdf_backannotates_all_timing_values",
+   "ch32/test_sdf_label_recomputes_delay_expression",
+   "ch32/test_sdf_label_specparam",
    "ch37/test_vpi_attribute_ports_params",
-   "ch37/test_vpi_packed_array_typespec_ranges",
    "ch37/test_vpi_program_interface_relations",
-   "ch37/test_vpi_ref_obj_declared_cases",
    "ch37/test_vpi_struct_and_tagged_patterns",
-   "ch37/test_vpi_variable_path_tchk_terms",
    "ch38/test_vpi_get_delays_flag_layouts",
-   "ch38/test_vpi_get_delays_tchk_limit_counts",
-   "ch38/test_vpi_get_value_array_user_buffers",
-   "ch38/test_vpi_put_delays_primitive_counts",
-   "ch38/test_vpi_put_delays_tchk_limit_counts",
-   "ch38/test_vpi_put_value_array_every_format",
-   "ch38/test_vpi_put_value_caller_storage_time_strength",
    "ch38/test_vpi_size_change_callback_resizes",
-   "ch38/test_vpi_udp_entry_vector_storage",
-   "ch38/test_vpi_value_change_array_member_index",
-   "ch38/test_vpi_value_change_callback_every_format",
-   "ch38/test_vpi_value_change_class_var_reference",
    "ch39/test_vpi_assertion_cover_no_failure",
    "ch39/test_vpi_assertion_system_task_control",
-   "ch5/test_builtin_methods_unaffected_by_pli_systf",
-   "ch5/test_vpi_attribute_default_bit_and_last_value",
-   "ch6/test_interconnect_declaration_generic_forms",
-   "ch6/test_nettype_initial_value_before_procedures",
-   "ch6/test_nettype_unpacked_union_struct_array_data",
    "ch6/test_parameter_and_specparam_override_mechanisms",
-   "ch6/test_parameter_keyword_local_contexts_vpi",
-   "ch6/test_type_compatibility_five_levels",
    "ch7/test_illegal_string_in_untagged_union",
    "ch7/test_illegal_unique_index_without_with_struct_elements",
    "ch7/test_illegal_unique_without_with_struct_elements",
-   "ch8/test_class_body_parameters_local_vpi",
-   "ch8/test_final_method_not_virtual_vpi",
-   "ch8/test_illegal_super_parameter_in_packed_dimension",
-   "ch8/test_weak_reference_get_id_unique_across_types",
-   "ch9/test_always_without_timing_control_never_advances_time",
-   "ch9/test_timing_control_iff_sequence_cycle_wait_order_forms",
-   "gen/ch24/test_gen_cross_progmod_nested_one_absolute_default_none_none",
-   "gen/ch24/test_gen_cross_progmod_nested_one_absolute_defparam_none_none",
-   "gen/ch24/test_gen_cross_progmod_nested_one_upward_default_none_ignored",
-   "gen/ch24/test_gen_cross_progmod_nested_one_upward_defparam_none_ignored"
+   "gen/ch28/test_gen_prim_identity_switch_ascending",
+   "gen/ch28/test_gen_prim_identity_switch_descending",
+   "gen/ch28/test_gen_prim_identity_switch_negative_down",
+   "gen/ch28/test_gen_prim_identity_switch_negative_up",
+   "gen/ch28/test_gen_prim_identity_switch_singleton",
+   "gen/ch28/test_gen_prim_identity_udp_ascending",
+   "gen/ch28/test_gen_prim_identity_udp_descending",
+   "gen/ch28/test_gen_prim_identity_udp_negative_down",
+   "gen/ch28/test_gen_prim_identity_udp_negative_up"
   ],
   "oracle_ghost_lyra": [
    "ch11/test_illegal_unsized_constant_in_concatenation",
-   "ch15/test_ipc_classes_extended_shadowed_and_created",
    "ch17/test_illegal_checker_writes_input",
-   "ch18/test_rand_enum_solver_finds_solution",
+   "ch19/test_illegal_cg_matches_negative",
    "ch19/test_illegal_cg_transition_length_zero",
    "ch22/test_illegal_directive_split_across_lines",
    "ch22/test_illegal_include_line_trailing_code",
    "ch23/test_illegal_scope_duplicate_in_unselected_generate",
    "ch26/test_illegal_package_imported_before_compiled",
+   "ch3/test_illegal_package_import_precedes_package",
+   "ch3/test_illegal_package_scoped_name_precedes_package",
+   "ch6/test_ch6_extra_for_loop_automatic",
    "ch7/test_illegal_dynamic_new_nonblocking_assignment",
    "ch8/test_illegal_instance_constant_assigned_twice",
    "ch9/test_illegal_automatic_variable_as_sequence_event_argument"
@@ -457,10 +426,6 @@
    "tests": 4
   },
   {
-   "clause": "19.6.1.4",
-   "tests": 4
-  },
-  {
    "clause": "19.6.2",
    "tests": 4
   },
@@ -593,7 +558,7 @@
    "tests": 5
   },
   {
-   "clause": "17.8",
+   "clause": "19.6.1.4",
    "tests": 5
   },
   {
@@ -785,10 +750,6 @@
    "tests": 7
   },
   {
-   "clause": "37.11",
-   "tests": 7
-  },
-  {
    "clause": "37.26",
    "tests": 7
   },
@@ -893,10 +854,6 @@
    "tests": 10
   },
   {
-   "clause": "37.35",
-   "tests": 10
-  },
-  {
    "clause": "39.3.1",
    "tests": 10
   },
@@ -993,6 +950,10 @@
    "tests": 20
   },
   {
+   "clause": "37.11",
+   "tests": 22
+  },
+  {
    "clause": "40.3.2.3",
    "tests": 22
   },
@@ -1002,6 +963,10 @@
   },
   {
    "clause": "16.8.2",
+   "tests": 25
+  },
+  {
+   "clause": "37.35",
    "tests": 25
   },
   {
