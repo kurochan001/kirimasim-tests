@@ -2,6 +2,8 @@
 
 [English](simulation-speed-mac-20261116.md) / [日本語](simulation-speed-mac-20261116.ja.md)
 
+> **2026-11-17 update:** This page retains the earlier source, dates and measurements. See the [0.1.1 speed-improvement record](simulation-speed-20261117.md) for adopted changes, the newer thirteen-input comparison and the separate final three-input comparison. The older prototype/adoption statements below describe the earlier checkpoint.
+
 On this Mac, the geometric mean **kirimasim/Icarus elapsed-time ratio was 1.065** across 13/13 comparable designs: kirimasim took about 6.5% more time by this metric. The original twelve alone give 1.080; kirimasim had a smaller baseline-subtracted elapsed time Δ in 5/13 designs including the addition. Ratios below 1 favor kirimasim. The geometric mean weights designs equally and does not model a production workload mix.
 
 Per-design ratios range from 0.520 (`string_fmt`) to 3.316 (`wide_arith`). The aggregate is close to Icarus, but the gaps in wide arithmetic (3.316), gates/UDP (1.831) and memory read/write (1.423) prevent a claim of equivalent performance across these workloads. These are candidates for subsequent profiling; this timing comparison does not establish the causes. This measurement introduces no P1 acceptance threshold and makes no claim about Linux or other designs.

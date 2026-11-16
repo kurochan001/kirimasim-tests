@@ -1,0 +1,905 @@
+{
+  "schema": 1,
+  "started_at": "2026-11-16T20:52:29.557147+00:00",
+  "machine_start": {
+    "os": "macOS-27.2.1-arm64-arm-64bit-Mach-O",
+    "cores": 18,
+    "load_average": [
+      3.2,
+      2.88,
+      4.63
+    ],
+    "cpu": "Apple M5 Max",
+    "memory_gib": 128
+  },
+  "runs": 5,
+  "warmups": 1,
+  "execution": "serial; tool order alternates per case/round; count order alternates per round",
+  "metric": "median large elapsed minus median n=1 elapsed; no extrapolation",
+  "pinned_commits": {
+    "kirimasim": "1745b8fc4e712d2b04fda5416184d3fc060358be",
+    "icarus": "1eba3690d8314d79927df8690a7d97642dd93ce0"
+  },
+  "benchmark_commit": "1745b8fc4e712d2b04fda5416184d3fc060358be",
+  "versions": {
+    "kirimasim": "kirimasim 0.1.0 (commit 1745b8fc4e71), built with AppleClang 21.0.0.21000401",
+    "icarus": "Icarus Verilog version 14.0 (devel) (1eba369)",
+    "vvp": "Icarus Verilog runtime version 14.0 (devel) (1eba369)"
+  },
+  "binary_sha256": {
+    "kirimasim": "430eea8d71b6251edb59b83920639da367261f2a849bc2f90fb7fbe56b5d7518",
+    "icarus": "1c7867742292fd7db3a83be02ff2f703da0504afaa3a3a3738e81ee2a47db8bf",
+    "vvp": "246a4622208b73ec428cddd6bff87e9f5f78aad54311a6ad66c15e22dc18dc40"
+  },
+  "adapter_sha256": "4811f9d50d4a09d8794710296d644350468c49a9579a794f27af42ac9fb6b5bc",
+  "driver_sha256": "7c050e4f59d5b83db391b14bd7cd68b5e8b1aa1b858b00a1d3661c667de8dadb",
+  "cases": [
+    {
+      "name": "gate_udp",
+      "count": 400000,
+      "expected": "gate_udp n=400000 acc=8bcfd518",
+      "expected_small": null,
+      "source": "kirimasim/bench/gate_udp.sv",
+      "sha256": "6cda61e63bfa60e158b4f833ee450dc4004e93b3330cad5d8873ff858de1d4db",
+      "tools": {
+        "kirimasim": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.010679083003196865,
+            "max_rss_mib": 10.828125,
+            "rss_source": "ru_maxrss",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "gate_udp n=1 acc=610673f5"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.008433540991973132,
+                "max_rss_mib": 10.8125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.007788875009282492,
+                "max_rss_mib": 10.796875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.007087625010171905,
+                "max_rss_mib": 10.796875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.00804762500047218,
+                "max_rss_mib": 10.796875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.007191583004896529,
+                "max_rss_mib": 10.796875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 3.8843354580021696,
+                "max_rss_mib": 10.8125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 0
+              },
+              {
+                "seconds": 3.733794040992507,
+                "max_rss_mib": 10.8125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 1
+              },
+              {
+                "seconds": 3.7368591249978635,
+                "max_rss_mib": 10.828125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 2
+              },
+              {
+                "seconds": 3.8519734160072403,
+                "max_rss_mib": 10.796875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 3
+              },
+              {
+                "seconds": 3.823017208997044,
+                "max_rss_mib": 10.796875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${KIRIMASIM}",
+            "${BENCHMARK_ROOT}/bench/gate_udp.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.007788875009282492,
+            "minimum": 0.007087625010171905,
+            "maximum": 0.008433540991973132,
+            "mad": 0.0005972920043859631
+          },
+          "large_seconds": {
+            "median": 3.823017208997044,
+            "minimum": 3.733794040992507,
+            "maximum": 3.8843354580021696,
+            "mad": 0.061318249005125836
+          },
+          "incremental_seconds": 3.8152283339877613,
+          "median_peak_rss_mib": 10.8125
+        },
+        "icarus": {
+          "build": {
+            "seconds": 0.018719917003181763,
+            "steps": [
+              {
+                "command": [
+                  "iverilog",
+                  "-g2012",
+                  "-o",
+                  "${WORK}/bench.vvp",
+                  "${PROJECT_ROOT}/bench/gate_udp.sv"
+                ],
+                "seconds": 0.018719917003181763,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.006982625011005439,
+            "max_rss_mib": 5.515625,
+            "rss_source": "ru_maxrss",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "gate_udp n=1 acc=610673f5"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.006944584005395882,
+                "max_rss_mib": 5.5,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.007647790989722125,
+                "max_rss_mib": 5.546875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.00685845898988191,
+                "max_rss_mib": 5.5625,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.006613290999666788,
+                "max_rss_mib": 5.5625,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.006720958001096733,
+                "max_rss_mib": 5.53125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 2.5662819169956492,
+                "max_rss_mib": 5.5625,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 0
+              },
+              {
+                "seconds": 2.674029999994673,
+                "max_rss_mib": 5.5625,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 1
+              },
+              {
+                "seconds": 2.606853332996252,
+                "max_rss_mib": 5.53125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 2
+              },
+              {
+                "seconds": 2.5813802920019953,
+                "max_rss_mib": 5.515625,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 3
+              },
+              {
+                "seconds": 2.6512776669987943,
+                "max_rss_mib": 5.5625,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${VVP}",
+            "-n",
+            "${WORK}/bench.vvp",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.00685845898988191,
+            "minimum": 0.006613290999666788,
+            "maximum": 0.007647790989722125,
+            "mad": 0.00013750098878517747
+          },
+          "large_seconds": {
+            "median": 2.606853332996252,
+            "minimum": 2.5662819169956492,
+            "maximum": 2.674029999994673,
+            "mad": 0.04057141600060277
+          },
+          "incremental_seconds": 2.59999487400637,
+          "median_peak_rss_mib": 5.5625
+        }
+      },
+      "comparison": {
+        "status": "comparable",
+        "ratio": 1.4673984061010168,
+        "ratio_definition": "kirimasim / Icarus median incremental elapsed time"
+      }
+    },
+    {
+      "name": "mem_rw",
+      "count": 4000000,
+      "expected": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+      "expected_small": null,
+      "source": "kirimasim/bench/mem_rw.sv",
+      "sha256": "586c4474d7872540e33c82984c9c33580a3dfa9a957a588ae4a1aa36601cf21e",
+      "tools": {
+        "kirimasim": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.008846999990055338,
+            "max_rss_mib": 10.4375,
+            "rss_source": "ru_maxrss",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.008429249995970167,
+                "max_rss_mib": 10.453125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.007736208004644141,
+                "max_rss_mib": 10.4375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.008394167001824826,
+                "max_rss_mib": 10.4375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.00826541600690689,
+                "max_rss_mib": 10.453125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.00801341600890737,
+                "max_rss_mib": 10.4375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 3.0408825839986093,
+                "max_rss_mib": 10.46875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 0
+              },
+              {
+                "seconds": 3.0469017080031335,
+                "max_rss_mib": 10.453125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 1
+              },
+              {
+                "seconds": 3.0774733329890296,
+                "max_rss_mib": 10.46875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 2
+              },
+              {
+                "seconds": 3.065108249997138,
+                "max_rss_mib": 10.46875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 3
+              },
+              {
+                "seconds": 3.02290825000091,
+                "max_rss_mib": 10.46875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${KIRIMASIM}",
+            "${BENCHMARK_ROOT}/bench/mem_rw.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.00826541600690689,
+            "minimum": 0.007736208004644141,
+            "maximum": 0.008429249995970167,
+            "mad": 0.00016383398906327784
+          },
+          "large_seconds": {
+            "median": 3.0469017080031335,
+            "minimum": 3.02290825000091,
+            "maximum": 3.0774733329890296,
+            "mad": 0.01820654199400451
+          },
+          "incremental_seconds": 3.0386362919962266,
+          "median_peak_rss_mib": 10.46875
+        },
+        "icarus": {
+          "build": {
+            "seconds": 0.013328582994290628,
+            "steps": [
+              {
+                "command": [
+                  "iverilog",
+                  "-g2012",
+                  "-o",
+                  "${WORK}/bench.vvp",
+                  "${PROJECT_ROOT}/bench/mem_rw.sv"
+                ],
+                "seconds": 0.013328582994290628,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.006162040997878648,
+            "max_rss_mib": 5.375,
+            "rss_source": "ru_maxrss",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.006400458994903602,
+                "max_rss_mib": 5.40625,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.00644554098835215,
+                "max_rss_mib": 5.375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.005816625009174459,
+                "max_rss_mib": 5.375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.006307082992861979,
+                "max_rss_mib": 5.40625,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.005769208000856452,
+                "max_rss_mib": 5.375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 2.8219221250037663,
+                "max_rss_mib": 5.390625,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 0
+              },
+              {
+                "seconds": 2.7642369589884765,
+                "max_rss_mib": 5.40625,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 1
+              },
+              {
+                "seconds": 2.802730999988853,
+                "max_rss_mib": 5.40625,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 2
+              },
+              {
+                "seconds": 2.787477999998373,
+                "max_rss_mib": 5.40625,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 3
+              },
+              {
+                "seconds": 2.7770796249969862,
+                "max_rss_mib": 5.421875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${VVP}",
+            "-n",
+            "${WORK}/bench.vvp",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.006307082992861979,
+            "minimum": 0.005769208000856452,
+            "maximum": 0.00644554098835215,
+            "mad": 0.00013845799549017102
+          },
+          "large_seconds": {
+            "median": 2.787477999998373,
+            "minimum": 2.7642369589884765,
+            "maximum": 2.8219221250037663,
+            "mad": 0.01525299999048002
+          },
+          "incremental_seconds": 2.781170917005511,
+          "median_peak_rss_mib": 5.40625
+        }
+      },
+      "comparison": {
+        "status": "comparable",
+        "ratio": 1.0925744525143852,
+        "ratio_definition": "kirimasim / Icarus median incremental elapsed time"
+      }
+    },
+    {
+      "name": "proc_wait",
+      "count": 1000000,
+      "expected": "proc_wait n=1000000 sum=35376317874",
+      "expected_small": null,
+      "source": "kirimasim/bench/proc_wait.sv",
+      "sha256": "88be699fa02c0485fdb9bd15120b21f2af2c6192816252aea19667144ad9dfed",
+      "tools": {
+        "kirimasim": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.00810145799187012,
+            "max_rss_mib": 11.171875,
+            "rss_source": "ru_maxrss",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "proc_wait n=1 sum=15255"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.007807874993886799,
+                "max_rss_mib": 11.1875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.007839333993615583,
+                "max_rss_mib": 11.203125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.00785850000102073,
+                "max_rss_mib": 11.171875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.00834874999418389,
+                "max_rss_mib": 11.1875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.007168084004661068,
+                "max_rss_mib": 11.203125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 4.971902292003506,
+                "max_rss_mib": 11.609375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 0
+              },
+              {
+                "seconds": 4.972277666995069,
+                "max_rss_mib": 11.609375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 1
+              },
+              {
+                "seconds": 4.982785916989087,
+                "max_rss_mib": 11.59375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 2
+              },
+              {
+                "seconds": 4.985818209010176,
+                "max_rss_mib": 11.5625,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 3
+              },
+              {
+                "seconds": 5.024609875006718,
+                "max_rss_mib": 11.59375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${KIRIMASIM}",
+            "${BENCHMARK_ROOT}/bench/proc_wait.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.007839333993615583,
+            "minimum": 0.007168084004661068,
+            "maximum": 0.00834874999418389,
+            "mad": 3.1458999728783965e-05
+          },
+          "large_seconds": {
+            "median": 4.982785916989087,
+            "minimum": 4.971902292003506,
+            "maximum": 5.024609875006718,
+            "mad": 0.010508249994018115
+          },
+          "incremental_seconds": 4.9749465829954715,
+          "median_peak_rss_mib": 11.59375
+        },
+        "icarus": {
+          "build": {
+            "seconds": 0.01360887500050012,
+            "steps": [
+              {
+                "command": [
+                  "iverilog",
+                  "-g2012",
+                  "-o",
+                  "${WORK}/bench.vvp",
+                  "${PROJECT_ROOT}/bench/proc_wait.sv"
+                ],
+                "seconds": 0.01360887500050012,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.0063862500101095065,
+            "max_rss_mib": 5.9375,
+            "rss_source": "ru_maxrss",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "proc_wait n=1 sum=15255"
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.006593124999199063,
+                "max_rss_mib": 5.875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 0
+              },
+              {
+                "seconds": 0.006710040994221345,
+                "max_rss_mib": 5.9375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 1
+              },
+              {
+                "seconds": 0.007056917005684227,
+                "max_rss_mib": 5.953125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 2
+              },
+              {
+                "seconds": 0.006582916990737431,
+                "max_rss_mib": 5.921875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 3
+              },
+              {
+                "seconds": 0.006638958002440631,
+                "max_rss_mib": 5.9375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 5.111004917009268,
+                "max_rss_mib": 5.921875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 0
+              },
+              {
+                "seconds": 4.84641791699687,
+                "max_rss_mib": 5.9375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 1
+              },
+              {
+                "seconds": 5.099183208003524,
+                "max_rss_mib": 5.890625,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 2
+              },
+              {
+                "seconds": 5.050021749993903,
+                "max_rss_mib": 5.9375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 3
+              },
+              {
+                "seconds": 5.240066084006685,
+                "max_rss_mib": 5.921875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${VVP}",
+            "-n",
+            "${WORK}/bench.vvp",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.006638958002440631,
+            "minimum": 0.006582916990737431,
+            "maximum": 0.007056917005684227,
+            "mad": 5.604101170320064e-05
+          },
+          "large_seconds": {
+            "median": 5.099183208003524,
+            "minimum": 4.84641791699687,
+            "maximum": 5.240066084006685,
+            "mad": 0.04916145800962113
+          },
+          "incremental_seconds": 5.092544250001083,
+          "median_peak_rss_mib": 5.921875
+        }
+      },
+      "comparison": {
+        "status": "comparable",
+        "ratio": 0.9769078752716608,
+        "ratio_definition": "kirimasim / Icarus median incremental elapsed time"
+      }
+    }
+  ],
+  "inputs_unchanged": true,
+  "completed_at": "2026-11-16T20:54:21.543282+00:00",
+  "machine_end": {
+    "os": "macOS-27.2.1-arm64-arm-64bit-Mach-O",
+    "cores": 18,
+    "load_average": [
+      3.23,
+      3.15,
+      4.52
+    ],
+    "cpu": "Apple M5 Max",
+    "memory_gib": 128
+  },
+  "comparable_cases": 3,
+  "geometric_mean_ratio": 1.1613173069204636
+}

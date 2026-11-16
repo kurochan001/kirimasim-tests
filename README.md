@@ -427,6 +427,8 @@ Use [Q9](docs/faq.en.md#q9-what-do-match-differ-known-difference-and-unsupported
 
 ## Simulation speed
 
+The [2026-11-17 speed-improvement record for 0.1.1](docs/simulation-speed-20261117.md) separates the full thirteen-input measurement at 7f5a9134 (ten inputs faster than Icarus) from the final three-input comparison at 1745b8fc. In that direct comparison only proc_wait has a smaller median time than Icarus; gate_udp and mem_rw remain slower. Concurrent-CI limitations and all samples are recorded.
+
 The [2026-11-16 Mac/WSL2 comparison and countermeasure investigation](docs/simulation-speed-20261116.md) records kirimasim 0.1.0 versus Icarus 14.0 devel, raw samples, data quality and measured prototype effects. Both received WSL2 release runs have concurrent-load limitations; Linux prototype checks and timings are now documented. Earlier measurements remain in the
 [measurement archive](docs/readme-records-20261101.md#simulation-speed).
 The simulator repository maintains the [benchmark code and commands](https://github.com/kurochan001/kirimasim/tree/main/bench).

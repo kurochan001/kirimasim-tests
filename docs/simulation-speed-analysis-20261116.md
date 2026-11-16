@@ -2,6 +2,8 @@
 
 [English](simulation-speed-analysis-20261116.md) / [日本語](simulation-speed-analysis-20261116.ja.md)
 
+> **2026-11-17 update:** This page retains the earlier source, dates and measurements. See the [0.1.1 speed-improvement record](simulation-speed-20261117.md) for adopted changes, the newer thirteen-input comparison and the separate final three-input comparison. The older prototype/adoption statements below describe the earlier checkpoint.
+
 The large wide-arithmetic gap is primarily caused by bit-at-a-time shifts, selections and concatenation writes. Gates/UDP, memory, NBA and waiting processes also pay repeated operand-type lookup and generic VM instruction costs. Prototypes using word operations and precomputed immutable type information reduced measured time by about 74% for wide arithmetic, 19% for gates/UDP and 15% for memory.
 
 These are experimental proposals in a separate worktree, not changes to the simulator main branch. The original [0.1.0 comparison](simulation-speed-20261116.md) and its thirteen-design measurements are preserved.

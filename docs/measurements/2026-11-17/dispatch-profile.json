@@ -1,0 +1,641 @@
+{
+  "method": "Self observations are parent count minus direct children; only worker threads containing Interpreter frames; inclusive categories overlap. Two profiles per case. Sampling is not exact CPU time.",
+  "profiles": [
+    {
+      "profile": "gate_udp-1.sample",
+      "worker_observations": 2598,
+      "categories": {
+        "vm_execute_self": 814,
+        "vm_runBody_self": 499,
+        "waitTriggers_inclusive": 358,
+        "udpOutput_inclusive": 93,
+        "typeIn_self": 0,
+        "scheduler_writeRaw_inclusive": 355,
+        "scheduler_wait_inclusive": 175,
+        "scheduler_nba_inclusive": 0
+      },
+      "top_leaf": [
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)",
+          "observations": 622,
+          "percent": 23.941493456505004
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::runBody(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Id<kirimasim::sir::BlockTag>, unsigned long long&, kirimasim::kernel::W4&, kirimasim::kernel::ManagedEventPin*, kirimasim::kernel::ObjectPin*)",
+          "observations": 499,
+          "percent": 19.207082371054657
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::writeRaw(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, unsigned int, unsigned int, unsigned int, unsigned long long const*)",
+          "observations": 183,
+          "percent": 7.043879907621248
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::waitTriggers(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&)",
+          "observations": 165,
+          "percent": 6.351039260969977
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(unsigned long)::operator()(unsigned long) const",
+          "observations": 107,
+          "percent": 4.118552732871439
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::registerWait(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, std::span<kirimasim::kernel::WaitItem const, 18446744073709551615ul>, std::span<kirimasim::kernel::MonitorSpec const, 18446744073709551615ul>, std::span<kirimasim::kernel::NamedWaitItem const, 18446744073709551615ul>, unsigned long long*)",
+          "observations": 106,
+          "percent": 4.080061585835258
+        },
+        {
+          "function": "kirimasim::kernel::udpOutput(kirimasim::kernel::UdpTable const&, unsigned char const*)",
+          "observations": 93,
+          "percent": 3.5796766743648964
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(kirimasim::kernel::W4)::operator()(kirimasim::kernel::W4) const",
+          "observations": 85,
+          "percent": 3.2717474980754426
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::readSlot(kirimasim::sir::Id<kirimasim::sir::SlotTag>, unsigned int, unsigned int, unsigned int) const",
+          "observations": 75,
+          "percent": 2.886836027713626
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::indexOf(kirimasim::sir::Operand const&) const",
+          "observations": 57,
+          "percent": 2.1939953810623556
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::wake(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, bool)",
+          "observations": 44,
+          "percent": 1.6936104695919936
+        },
+        {
+          "function": "kirimasim::sir::isObjectOp(kirimasim::sir::Op)",
+          "observations": 41,
+          "percent": 1.5781370284834488
+        },
+        {
+          "function": "kirimasim::sir::isContainerMutation(kirimasim::sir::Op)",
+          "observations": 39,
+          "percent": 1.5011547344110854
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::runProcess(kirimasim::vm::(anonymous namespace)::Frame&, unsigned long long&)",
+          "observations": 33,
+          "percent": 1.2702078521939952
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::flushHeapChanges()",
+          "observations": 31,
+          "percent": 1.193225558121632
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::ensureSlotTables()",
+          "observations": 30,
+          "percent": 1.1547344110854503
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::endWalk()",
+          "observations": 28,
+          "percent": 1.077752117013087
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::execute(kirimasim::kernel::Scheduler::Event const&)",
+          "observations": 28,
+          "percent": 1.077752117013087
+        }
+      ]
+    },
+    {
+      "profile": "gate_udp-2.sample",
+      "worker_observations": 2608,
+      "categories": {
+        "vm_execute_self": 805,
+        "vm_runBody_self": 489,
+        "waitTriggers_inclusive": 351,
+        "udpOutput_inclusive": 99,
+        "typeIn_self": 0,
+        "scheduler_writeRaw_inclusive": 362,
+        "scheduler_wait_inclusive": 173,
+        "scheduler_nba_inclusive": 0
+      },
+      "top_leaf": [
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)",
+          "observations": 617,
+          "percent": 23.6579754601227
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::runBody(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Id<kirimasim::sir::BlockTag>, unsigned long long&, kirimasim::kernel::W4&, kirimasim::kernel::ManagedEventPin*, kirimasim::kernel::ObjectPin*)",
+          "observations": 489,
+          "percent": 18.75
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::writeRaw(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, unsigned int, unsigned int, unsigned int, unsigned long long const*)",
+          "observations": 191,
+          "percent": 7.32361963190184
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::waitTriggers(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&)",
+          "observations": 147,
+          "percent": 5.636503067484663
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::registerWait(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, std::span<kirimasim::kernel::WaitItem const, 18446744073709551615ul>, std::span<kirimasim::kernel::MonitorSpec const, 18446744073709551615ul>, std::span<kirimasim::kernel::NamedWaitItem const, 18446744073709551615ul>, unsigned long long*)",
+          "observations": 113,
+          "percent": 4.33282208588957
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(unsigned long)::operator()(unsigned long) const",
+          "observations": 104,
+          "percent": 3.9877300613496933
+        },
+        {
+          "function": "kirimasim::kernel::udpOutput(kirimasim::kernel::UdpTable const&, unsigned char const*)",
+          "observations": 99,
+          "percent": 3.7960122699386507
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(kirimasim::kernel::W4)::operator()(kirimasim::kernel::W4) const",
+          "observations": 84,
+          "percent": 3.2208588957055215
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::readSlot(kirimasim::sir::Id<kirimasim::sir::SlotTag>, unsigned int, unsigned int, unsigned int) const",
+          "observations": 63,
+          "percent": 2.415644171779141
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::indexOf(kirimasim::sir::Operand const&) const",
+          "observations": 59,
+          "percent": 2.2622699386503067
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::wake(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, bool)",
+          "observations": 41,
+          "percent": 1.572085889570552
+        },
+        {
+          "function": "kirimasim::sir::isObjectOp(kirimasim::sir::Op)",
+          "observations": 41,
+          "percent": 1.572085889570552
+        },
+        {
+          "function": "kirimasim::sir::isContainerMutation(kirimasim::sir::Op)",
+          "observations": 36,
+          "percent": 1.3803680981595092
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::flushHeapChanges()",
+          "observations": 36,
+          "percent": 1.3803680981595092
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::runProcess(kirimasim::vm::(anonymous namespace)::Frame&, unsigned long long&)",
+          "observations": 36,
+          "percent": 1.3803680981595092
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::notify(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, unsigned int, unsigned int, unsigned int, unsigned long long const*, unsigned long long const*)",
+          "observations": 35,
+          "percent": 1.3420245398773007
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::slotEventMatches(kirimasim::kernel::WaitItem const&, kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, kirimasim::kernel::SlotLayout const&, unsigned int, unsigned int, unsigned int, unsigned long long const*, unsigned long long const*)",
+          "observations": 31,
+          "percent": 1.1886503067484664
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::typeOf(kirimasim::sir::Operand const&) const",
+          "observations": 31,
+          "percent": 1.1886503067484664
+        }
+      ]
+    },
+    {
+      "profile": "mem_rw-1.sample",
+      "worker_observations": 2592,
+      "categories": {
+        "vm_execute_self": 807,
+        "vm_runBody_self": 402,
+        "waitTriggers_inclusive": 70,
+        "udpOutput_inclusive": 0,
+        "typeIn_self": 0,
+        "scheduler_writeRaw_inclusive": 387,
+        "scheduler_wait_inclusive": 44,
+        "scheduler_nba_inclusive": 0
+      },
+      "top_leaf": [
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)",
+          "observations": 619,
+          "percent": 23.881172839506174
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::runBody(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Id<kirimasim::sir::BlockTag>, unsigned long long&, kirimasim::kernel::W4&, kirimasim::kernel::ManagedEventPin*, kirimasim::kernel::ObjectPin*)",
+          "observations": 402,
+          "percent": 15.50925925925926
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::writeRaw(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, unsigned int, unsigned int, unsigned int, unsigned long long const*)",
+          "observations": 134,
+          "percent": 5.169753086419753
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::runRegion(kirimasim::kernel::Region)",
+          "observations": 124,
+          "percent": 4.78395061728395
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::execute(kirimasim::kernel::Scheduler::Event const&)",
+          "observations": 98,
+          "percent": 3.7808641975308643
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(kirimasim::kernel::W4)::operator()(kirimasim::kernel::W4) const",
+          "observations": 95,
+          "percent": 3.665123456790124
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::readSlot(kirimasim::sir::Id<kirimasim::sir::SlotTag>, unsigned int, unsigned int, unsigned int) const",
+          "observations": 92,
+          "percent": 3.5493827160493825
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(unsigned long)::operator()(unsigned long) const",
+          "observations": 92,
+          "percent": 3.5493827160493825
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::slotEventMatches(kirimasim::kernel::WaitItem const&, kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, kirimasim::kernel::SlotLayout const&, unsigned int, unsigned int, unsigned int, unsigned long long const*, unsigned long long const*)",
+          "observations": 67,
+          "percent": 2.5848765432098766
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::scheduleNba(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, kirimasim::kernel::SlotBits, unsigned long long const*, unsigned long long)",
+          "observations": 61,
+          "percent": 2.353395061728395
+        },
+        {
+          "function": "<deduplicated_symbol>",
+          "observations": 53,
+          "percent": 2.044753086419753
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::begin()",
+          "observations": 42,
+          "percent": 1.6203703703703702
+        },
+        {
+          "function": "kirimasim::sir::isContainerMutation(kirimasim::sir::Op)",
+          "observations": 40,
+          "percent": 1.5432098765432098
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::runSlot()",
+          "observations": 37,
+          "percent": 1.4274691358024691
+        },
+        {
+          "function": "kirimasim::sir::isContainerOp(kirimasim::sir::Op)",
+          "observations": 36,
+          "percent": 1.3888888888888888
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::notify(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, unsigned int, unsigned int, unsigned int, unsigned long long const*, unsigned long long const*)",
+          "observations": 34,
+          "percent": 1.3117283950617282
+        },
+        {
+          "function": "kirimasim::sir::isObjectOp(kirimasim::sir::Op)",
+          "observations": 33,
+          "percent": 1.2731481481481481
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::registerWait(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, std::span<kirimasim::kernel::WaitItem const, 18446744073709551615ul>, std::span<kirimasim::kernel::MonitorSpec const, 18446744073709551615ul>, std::span<kirimasim::kernel::NamedWaitItem const, 18446744073709551615ul>, unsigned long long*)",
+          "observations": 28,
+          "percent": 1.0802469135802468
+        }
+      ]
+    },
+    {
+      "profile": "mem_rw-2.sample",
+      "worker_observations": 2595,
+      "categories": {
+        "vm_execute_self": 873,
+        "vm_runBody_self": 351,
+        "waitTriggers_inclusive": 75,
+        "udpOutput_inclusive": 0,
+        "typeIn_self": 0,
+        "scheduler_writeRaw_inclusive": 385,
+        "scheduler_wait_inclusive": 49,
+        "scheduler_nba_inclusive": 0
+      },
+      "top_leaf": [
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)",
+          "observations": 670,
+          "percent": 25.818882466281313
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::runBody(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Id<kirimasim::sir::BlockTag>, unsigned long long&, kirimasim::kernel::W4&, kirimasim::kernel::ManagedEventPin*, kirimasim::kernel::ObjectPin*)",
+          "observations": 351,
+          "percent": 13.52601156069364
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::writeRaw(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, unsigned int, unsigned int, unsigned int, unsigned long long const*)",
+          "observations": 142,
+          "percent": 5.472061657032755
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::runRegion(kirimasim::kernel::Region)",
+          "observations": 119,
+          "percent": 4.585741811175337
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(kirimasim::kernel::W4)::operator()(kirimasim::kernel::W4) const",
+          "observations": 110,
+          "percent": 4.238921001926782
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::execute(kirimasim::kernel::Scheduler::Event const&)",
+          "observations": 94,
+          "percent": 3.6223506743737954
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(unsigned long)::operator()(unsigned long) const",
+          "observations": 91,
+          "percent": 3.5067437379576107
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::readSlot(kirimasim::sir::Id<kirimasim::sir::SlotTag>, unsigned int, unsigned int, unsigned int) const",
+          "observations": 79,
+          "percent": 3.044315992292871
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::slotEventMatches(kirimasim::kernel::WaitItem const&, kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, kirimasim::kernel::SlotLayout const&, unsigned int, unsigned int, unsigned int, unsigned long long const*, unsigned long long const*)",
+          "observations": 63,
+          "percent": 2.4277456647398843
+        },
+        {
+          "function": "<deduplicated_symbol>",
+          "observations": 57,
+          "percent": 2.1965317919075145
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::scheduleNba(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, kirimasim::kernel::SlotBits, unsigned long long const*, unsigned long long)",
+          "observations": 50,
+          "percent": 1.9267822736030826
+        },
+        {
+          "function": "kirimasim::sir::isObjectOp(kirimasim::sir::Op)",
+          "observations": 45,
+          "percent": 1.7341040462427744
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::runSlot()",
+          "observations": 38,
+          "percent": 1.464354527938343
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::begin()",
+          "observations": 36,
+          "percent": 1.3872832369942196
+        },
+        {
+          "function": "kirimasim::sir::isContainerOp(kirimasim::sir::Op)",
+          "observations": 34,
+          "percent": 1.3102119460500963
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::runProcess(kirimasim::vm::(anonymous namespace)::Frame&, unsigned long long&)",
+          "observations": 32,
+          "percent": 1.2331406551059731
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::ensureSlotTables()",
+          "observations": 29,
+          "percent": 1.1175337186897882
+        },
+        {
+          "function": "kirimasim::sir::isContainerMutation(kirimasim::sir::Op)",
+          "observations": 29,
+          "percent": 1.1175337186897882
+        }
+      ]
+    },
+    {
+      "profile": "proc_wait-1.sample",
+      "worker_observations": 3453,
+      "categories": {
+        "vm_execute_self": 976,
+        "vm_runBody_self": 861,
+        "waitTriggers_inclusive": 0,
+        "udpOutput_inclusive": 0,
+        "typeIn_self": 0,
+        "scheduler_writeRaw_inclusive": 248,
+        "scheduler_wait_inclusive": 0,
+        "scheduler_nba_inclusive": 0
+      },
+      "top_leaf": [
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::runBody(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Id<kirimasim::sir::BlockTag>, unsigned long long&, kirimasim::kernel::W4&, kirimasim::kernel::ManagedEventPin*, kirimasim::kernel::ObjectPin*)",
+          "observations": 861,
+          "percent": 24.934839270199827
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)",
+          "observations": 757,
+          "percent": 21.92296553721402
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::writeRaw(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, unsigned int, unsigned int, unsigned int, unsigned long long const*)",
+          "observations": 150,
+          "percent": 4.344048653344918
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(kirimasim::kernel::W4)::operator()(kirimasim::kernel::W4) const",
+          "observations": 130,
+          "percent": 3.7648421662322615
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::elementOf(std::vector<kirimasim::sir::ArrayDim> const&, std::span<kirimasim::sir::Operand const, 18446744073709551615ul>, unsigned long) const",
+          "observations": 104,
+          "percent": 3.0118737329858094
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::indexOf(kirimasim::sir::Operand const&) const",
+          "observations": 100,
+          "percent": 2.8960324355632783
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::waitAnyValues(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, std::span<kirimasim::kernel::WaitItem const, 18446744073709551615ul>, std::span<kirimasim::kernel::MonitorSpec const, 18446744073709551615ul>, std::span<kirimasim::kernel::NamedValueWaitItem const, 18446744073709551615ul>)",
+          "observations": 96,
+          "percent": 2.780191138140747
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(unsigned long)::operator()(unsigned long) const",
+          "observations": 89,
+          "percent": 2.5774688676513176
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::execute(kirimasim::kernel::Scheduler::Event const&)",
+          "observations": 85,
+          "percent": 2.461627570228787
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::runProcess(kirimasim::vm::(anonymous namespace)::Frame&, unsigned long long&)",
+          "observations": 75,
+          "percent": 2.172024326672459
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::registerWait(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, std::span<kirimasim::kernel::WaitItem const, 18446744073709551615ul>, std::span<kirimasim::kernel::MonitorSpec const, 18446744073709551615ul>, std::span<kirimasim::kernel::NamedWaitItem const, 18446744073709551615ul>, unsigned long long*)",
+          "observations": 69,
+          "percent": 1.998262380538662
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::takeBranch(std::vector<kirimasim::sir::Operand> const&, unsigned long)",
+          "observations": 63,
+          "percent": 1.8245004344048652
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::typeOf(kirimasim::sir::Operand const&) const",
+          "observations": 61,
+          "percent": 1.7665797856935999
+        },
+        {
+          "function": "kirimasim::sir::isObjectOp(kirimasim::sir::Op)",
+          "observations": 53,
+          "percent": 1.5348971908485376
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::resume(kirima_context*, void*)",
+          "observations": 43,
+          "percent": 1.2452939472922098
+        },
+        {
+          "function": "kirimasim::sir::isContainerMutation(kirimasim::sir::Op)",
+          "observations": 41,
+          "percent": 1.187373298580944
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::flushHeapChanges()",
+          "observations": 41,
+          "percent": 1.187373298580944
+        },
+        {
+          "function": "kirimasim::sir::isContainerOp(kirimasim::sir::Op)",
+          "observations": 38,
+          "percent": 1.1004923255140457
+        }
+      ]
+    },
+    {
+      "profile": "proc_wait-2.sample",
+      "worker_observations": 3453,
+      "categories": {
+        "vm_execute_self": 966,
+        "vm_runBody_self": 909,
+        "waitTriggers_inclusive": 0,
+        "udpOutput_inclusive": 0,
+        "typeIn_self": 0,
+        "scheduler_writeRaw_inclusive": 237,
+        "scheduler_wait_inclusive": 0,
+        "scheduler_nba_inclusive": 0
+      },
+      "top_leaf": [
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::runBody(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Id<kirimasim::sir::BlockTag>, unsigned long long&, kirimasim::kernel::W4&, kirimasim::kernel::ManagedEventPin*, kirimasim::kernel::ObjectPin*)",
+          "observations": 909,
+          "percent": 26.3249348392702
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)",
+          "observations": 767,
+          "percent": 22.212568780770344
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::writeRaw(kirimasim::kernel::Id<kirimasim::kernel::SlotTag>, unsigned int, unsigned int, unsigned int, unsigned long long const*)",
+          "observations": 146,
+          "percent": 4.228207355922386
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(kirimasim::kernel::W4)::operator()(kirimasim::kernel::W4) const",
+          "observations": 109,
+          "percent": 3.1566753547639737
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::execute(kirimasim::vm::(anonymous namespace)::Frame&, kirimasim::sir::Process const&, kirimasim::sir::Instr const&, kirimasim::vm::(anonymous namespace)::InstrInfo const&)::'lambda'(unsigned long)::operator()(unsigned long) const",
+          "observations": 90,
+          "percent": 2.6064291920069502
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::indexOf(kirimasim::sir::Operand const&) const",
+          "observations": 82,
+          "percent": 2.374746597161888
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::elementOf(std::vector<kirimasim::sir::ArrayDim> const&, std::span<kirimasim::sir::Operand const, 18446744073709551615ul>, unsigned long) const",
+          "observations": 81,
+          "percent": 2.3457862728062553
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::typeOf(kirimasim::sir::Operand const&) const",
+          "observations": 76,
+          "percent": 2.2009846510280915
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::registerWait(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, std::span<kirimasim::kernel::WaitItem const, 18446744073709551615ul>, std::span<kirimasim::kernel::MonitorSpec const, 18446744073709551615ul>, std::span<kirimasim::kernel::NamedWaitItem const, 18446744073709551615ul>, unsigned long long*)",
+          "observations": 76,
+          "percent": 2.2009846510280915
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::takeBranch(std::vector<kirimasim::sir::Operand> const&, unsigned long)",
+          "observations": 76,
+          "percent": 2.2009846510280915
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::waitAnyValues(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, std::span<kirimasim::kernel::WaitItem const, 18446744073709551615ul>, std::span<kirimasim::kernel::MonitorSpec const, 18446744073709551615ul>, std::span<kirimasim::kernel::NamedValueWaitItem const, 18446744073709551615ul>)",
+          "observations": 75,
+          "percent": 2.172024326672459
+        },
+        {
+          "function": "kirimasim::vm::(anonymous namespace)::Interpreter::runProcess(kirimasim::vm::(anonymous namespace)::Frame&, unsigned long long&)",
+          "observations": 72,
+          "percent": 2.0851433536055604
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::execute(kirimasim::kernel::Scheduler::Event const&)",
+          "observations": 72,
+          "percent": 2.0851433536055604
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::flushHeapChanges()",
+          "observations": 54,
+          "percent": 1.5638575152041705
+        },
+        {
+          "function": "kirimasim::sir::isObjectOp(kirimasim::sir::Op)",
+          "observations": 47,
+          "percent": 1.3611352447147407
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::advance()",
+          "observations": 42,
+          "percent": 1.2163336229365769
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::wake(kirimasim::kernel::Id<kirimasim::kernel::ProcessTag>, bool)",
+          "observations": 40,
+          "percent": 1.1584129742253113
+        },
+        {
+          "function": "kirimasim::kernel::Scheduler::begin()",
+          "observations": 38,
+          "percent": 1.1004923255140457
+        }
+      ]
+    }
+  ]
+}

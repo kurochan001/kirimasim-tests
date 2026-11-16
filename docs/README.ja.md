@@ -170,6 +170,7 @@
 | Ghostだけが一致するテストの見直し：36・38・39・40章（2026-11-13） | [日本語](ghost-only-review-vpi-20261113.md) | [English](ghost-only-review-vpi-20261113.en.md) |
 | Ghostだけが一致するテストの見直し：残りの章（2026-11-13） | [日本語](ghost-only-review-rest-20261113.md) | [English](ghost-only-review-rest-20261113.en.md) |
 | 見直しで見つかった欠陥の型の全体検索（2026-11-13） | [日本語](defect-pattern-scan-20261113.md) | [English](defect-pattern-scan-20261113.en.md) |
+| kirimasim 0.1.1 に採用する速度改善：Mac、2026-11-17 | [日本語](simulation-speed-20261117.ja.md) | [English](simulation-speed-20261117.md) |
 | kirimasim 0.1.0 と Icarus 14.0 devel：Mac・WSL2 の比較と対策 | [日本語](simulation-speed-20261116.ja.md) | [English](simulation-speed-20261116.md) |
 | 遅いベンチの原因と対策の試作（Mac、2026-11-16） | [日本語](simulation-speed-analysis-20261116.ja.md) | [English](simulation-speed-analysis-20261116.md) |
 | kirimasim 0.1.0 と Icarus 14.0 devel の速度比較（Mac、2026-11-16） | [日本語](simulation-speed-mac-20261116.ja.md) | [English](simulation-speed-mac-20261116.md) |

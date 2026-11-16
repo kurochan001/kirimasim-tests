@@ -1,0 +1,2830 @@
+{
+  "source_parent": "7f5a9134f227e3d42491397105c745e11a5ed54a",
+  "working_tree_dirty": true,
+  "started_at": "2026-11-16T17:25:22.875115+00:00",
+  "runs": 5,
+  "warmups": 1,
+  "binary_sha256": {
+    "main": "08e9eb7d30948f982b2750414364117ff6bc9cf3ba50dd5a02fd18ed4cc21555",
+    "strict": "24504f61c36019bc57d4e714c7868718b7dcb5c7f07b5b807bf8ebc4077e4b14",
+    "prototype": "a443811ad93af4e3e56bd6eaabab9f7dfd3243e17925b2d4ed757b3a01f10cc2"
+  },
+  "patch_sha256": "2d97c789c61f498b404bf09da150f3b51f000d90d0fe18eaa3cc8bd54d026692",
+  "metric": "median(T(N))-median(T(1)), seconds",
+  "machine_start": {
+    "os": "macOS-27.2.1-arm64-arm-64bit-Mach-O",
+    "cores": 18,
+    "load_average": [
+      23.06,
+      12.4,
+      9.33
+    ],
+    "cpu": "Apple M5 Max",
+    "memory_gib": 128
+  },
+  "status": "private prototype; concurrent local CI; no full sanitizer/local-CI acceptance yet",
+  "counter_reference_commit": "74cd1115ecfcc845dc9105aaa68afd48bdfc126d (same kernel/VM sources as published parent)",
+  "counter_cases": {
+    "casez_struct": {
+      "n": 5000000,
+      "expected": "casez_struct n=5000000 r0=001937a3 r7=ba163ebf r15=04cd903d",
+      "output_matched": true,
+      "all_counters_equal": true,
+      "counters": {
+        "sir.slots": 4,
+        "sir.processes": 1,
+        "sir.subroutines": 0,
+        "sir.blocks": 27,
+        "sir.instrs": 151,
+        "sched.time_slots": 1,
+        "sched.time_advances": 0,
+        "sched.active_loops": 1,
+        "sched.reactive_loops": 0,
+        "sched.events.preponed": 0,
+        "sched.events.pre_active": 0,
+        "sched.events.active": 1,
+        "sched.events.inactive": 0,
+        "sched.events.pre_nba": 0,
+        "sched.events.nba": 0,
+        "sched.events.post_nba": 0,
+        "sched.events.pre_observed": 0,
+        "sched.events.observed": 0,
+        "sched.events.post_observed": 0,
+        "sched.events.reactive": 0,
+        "sched.events.re_inactive": 0,
+        "sched.events.pre_re_nba": 0,
+        "sched.events.re_nba": 0,
+        "sched.events.post_re_nba": 0,
+        "sched.events.pre_postponed": 0,
+        "sched.events.postponed": 0,
+        "proc.wakeups": 1,
+        "proc.created": 1,
+        "proc.finished": 0,
+        "proc.kept_peak": 1,
+        "slot.writes": 15000018,
+        "slot.changes": 14974845,
+        "nba.scheduled": 0,
+        "nba.slot_peak": 0,
+        "wait.subscriptions": 0,
+        "wait.monitor_evals": 0,
+        "sim.end_time": 0,
+        "sim.end_reason": "finish",
+        "vm.instrs": 230625525
+      }
+    },
+    "comb_chain": {
+      "n": 3000000,
+      "expected": "comb_chain n=3000000 sum=d3369c10",
+      "output_matched": true,
+      "all_counters_equal": true,
+      "counters": {
+        "sir.slots": 12,
+        "sir.processes": 9,
+        "sir.subroutines": 0,
+        "sir.blocks": 20,
+        "sir.instrs": 124,
+        "sched.time_slots": 3000002,
+        "sched.time_advances": 3000001,
+        "sched.active_loops": 3000002,
+        "sched.reactive_loops": 0,
+        "sched.events.preponed": 0,
+        "sched.events.pre_active": 0,
+        "sched.events.active": 38928948,
+        "sched.events.inactive": 0,
+        "sched.events.pre_nba": 0,
+        "sched.events.nba": 0,
+        "sched.events.post_nba": 0,
+        "sched.events.pre_observed": 0,
+        "sched.events.observed": 0,
+        "sched.events.post_observed": 0,
+        "sched.events.reactive": 0,
+        "sched.events.re_inactive": 0,
+        "sched.events.pre_re_nba": 0,
+        "sched.events.re_nba": 0,
+        "sched.events.post_re_nba": 0,
+        "sched.events.pre_postponed": 0,
+        "sched.events.postponed": 0,
+        "proc.wakeups": 38928948,
+        "proc.created": 9,
+        "proc.finished": 0,
+        "proc.kept_peak": 9,
+        "slot.writes": 50928951,
+        "slot.changes": 47893332,
+        "nba.scheduled": 0,
+        "nba.slot_peak": 0,
+        "wait.subscriptions": 83893425,
+        "wait.monitor_evals": 0,
+        "sim.end_time": 3000001,
+        "sim.end_reason": "finish",
+        "vm.instrs": 404431597
+      }
+    },
+    "dyn_queue": {
+      "n": 4000000,
+      "expected": "dyn_queue n=4000000 sum=3888724928",
+      "output_matched": true,
+      "all_counters_equal": true,
+      "counters": {
+        "sir.slots": 4,
+        "sir.processes": 1,
+        "sir.subroutines": 0,
+        "sir.blocks": 20,
+        "sir.instrs": 106,
+        "sched.time_slots": 1,
+        "sched.time_advances": 0,
+        "sched.active_loops": 1,
+        "sched.reactive_loops": 0,
+        "sched.events.preponed": 0,
+        "sched.events.pre_active": 0,
+        "sched.events.active": 1,
+        "sched.events.inactive": 0,
+        "sched.events.pre_nba": 0,
+        "sched.events.nba": 0,
+        "sched.events.post_nba": 0,
+        "sched.events.pre_observed": 0,
+        "sched.events.observed": 0,
+        "sched.events.post_observed": 0,
+        "sched.events.reactive": 0,
+        "sched.events.re_inactive": 0,
+        "sched.events.pre_re_nba": 0,
+        "sched.events.re_nba": 0,
+        "sched.events.post_re_nba": 0,
+        "sched.events.pre_postponed": 0,
+        "sched.events.postponed": 0,
+        "proc.wakeups": 1,
+        "proc.created": 1,
+        "proc.finished": 0,
+        "proc.kept_peak": 1,
+        "slot.writes": 16000067,
+        "slot.changes": 4000003,
+        "nba.scheduled": 0,
+        "nba.slot_peak": 0,
+        "wait.subscriptions": 0,
+        "wait.monitor_evals": 0,
+        "sim.end_time": 0,
+        "sim.end_reason": "finish",
+        "vm.instrs": 188001257
+      }
+    },
+    "fork_join": {
+      "n": 4000000,
+      "expected": "fork_join n=4000000 a=4000000 b=8000002000000 c=84764928 d=13057792",
+      "output_matched": true,
+      "all_counters_equal": true,
+      "counters": {
+        "sir.slots": 7,
+        "sir.processes": 5,
+        "sir.subroutines": 0,
+        "sir.blocks": 18,
+        "sir.instrs": 64,
+        "sched.time_slots": 8000001,
+        "sched.time_advances": 8000000,
+        "sched.active_loops": 8000001,
+        "sched.reactive_loops": 0,
+        "sched.events.preponed": 0,
+        "sched.events.pre_active": 0,
+        "sched.events.active": 40000001,
+        "sched.events.inactive": 0,
+        "sched.events.pre_nba": 0,
+        "sched.events.nba": 0,
+        "sched.events.post_nba": 0,
+        "sched.events.pre_observed": 0,
+        "sched.events.observed": 0,
+        "sched.events.post_observed": 0,
+        "sched.events.reactive": 0,
+        "sched.events.re_inactive": 0,
+        "sched.events.pre_re_nba": 0,
+        "sched.events.re_nba": 0,
+        "sched.events.post_re_nba": 0,
+        "sched.events.pre_postponed": 0,
+        "sched.events.postponed": 0,
+        "proc.wakeups": 40000001,
+        "proc.created": 16000001,
+        "proc.finished": 16000000,
+        "proc.kept_peak": 5,
+        "slot.writes": 20000006,
+        "slot.changes": 20000000,
+        "nba.scheduled": 0,
+        "nba.slot_peak": 0,
+        "wait.subscriptions": 0,
+        "wait.monitor_evals": 0,
+        "sim.end_time": 8000000,
+        "sim.end_reason": "finish",
+        "vm.instrs": 156000026
+      }
+    },
+    "func_call": {
+      "n": 1500000,
+      "expected": "func_call n=1500000 s=46234688 sum=-983312896",
+      "output_matched": true,
+      "all_counters_equal": true,
+      "counters": {
+        "sir.slots": 4,
+        "sir.processes": 1,
+        "sir.subroutines": 3,
+        "sir.blocks": 16,
+        "sir.instrs": 69,
+        "sched.time_slots": 1,
+        "sched.time_advances": 0,
+        "sched.active_loops": 1,
+        "sched.reactive_loops": 0,
+        "sched.events.preponed": 0,
+        "sched.events.pre_active": 0,
+        "sched.events.active": 1,
+        "sched.events.inactive": 0,
+        "sched.events.pre_nba": 0,
+        "sched.events.nba": 0,
+        "sched.events.post_nba": 0,
+        "sched.events.pre_observed": 0,
+        "sched.events.observed": 0,
+        "sched.events.post_observed": 0,
+        "sched.events.reactive": 0,
+        "sched.events.re_inactive": 0,
+        "sched.events.pre_re_nba": 0,
+        "sched.events.re_nba": 0,
+        "sched.events.post_re_nba": 0,
+        "sched.events.pre_postponed": 0,
+        "sched.events.postponed": 0,
+        "proc.wakeups": 1,
+        "proc.created": 1,
+        "proc.finished": 0,
+        "proc.kept_peak": 1,
+        "slot.writes": 4500003,
+        "slot.changes": 4499988,
+        "nba.scheduled": 0,
+        "nba.slot_peak": 0,
+        "wait.subscriptions": 0,
+        "wait.monitor_evals": 0,
+        "sim.end_time": 0,
+        "sim.end_reason": "finish",
+        "vm.instrs": 186000022
+      }
+    },
+    "gate_udp": {
+      "n": 400000,
+      "expected": "gate_udp n=400000 acc=8bcfd518",
+      "output_matched": true,
+      "all_counters_equal": true,
+      "counters": {
+        "sir.slots": 5,
+        "sir.processes": 65,
+        "sir.subroutines": 0,
+        "sir.blocks": 75,
+        "sir.instrs": 588,
+        "sched.time_slots": 400001,
+        "sched.time_advances": 400000,
+        "sched.active_loops": 400001,
+        "sched.reactive_loops": 0,
+        "sched.events.preponed": 0,
+        "sched.events.pre_active": 0,
+        "sched.events.active": 26000096,
+        "sched.events.inactive": 0,
+        "sched.events.pre_nba": 0,
+        "sched.events.nba": 0,
+        "sched.events.post_nba": 0,
+        "sched.events.pre_observed": 0,
+        "sched.events.observed": 0,
+        "sched.events.post_observed": 0,
+        "sched.events.reactive": 0,
+        "sched.events.re_inactive": 0,
+        "sched.events.pre_re_nba": 0,
+        "sched.events.re_nba": 0,
+        "sched.events.post_re_nba": 0,
+        "sched.events.pre_postponed": 0,
+        "sched.events.postponed": 0,
+        "proc.wakeups": 26000096,
+        "proc.created": 65,
+        "proc.finished": 0,
+        "proc.kept_peak": 65,
+        "slot.writes": 26400098,
+        "slot.changes": 13386868,
+        "nba.scheduled": 0,
+        "nba.slot_peak": 0,
+        "wait.subscriptions": 38400158,
+        "wait.monitor_evals": 0,
+        "sim.end_time": 400000,
+        "sim.end_reason": "finish",
+        "vm.instrs": 227200844
+      }
+    },
+    "mem_rw": {
+      "n": 4000000,
+      "expected": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+      "output_matched": true,
+      "all_counters_equal": true,
+      "counters": {
+        "sir.slots": 8,
+        "sir.processes": 5,
+        "sir.subroutines": 0,
+        "sir.blocks": 17,
+        "sir.instrs": 89,
+        "sched.time_slots": 8000001,
+        "sched.time_advances": 8000000,
+        "sched.active_loops": 12000001,
+        "sched.reactive_loops": 0,
+        "sched.events.preponed": 0,
+        "sched.events.pre_active": 0,
+        "sched.events.active": 16000002,
+        "sched.events.inactive": 0,
+        "sched.events.pre_nba": 0,
+        "sched.events.nba": 24000000,
+        "sched.events.post_nba": 0,
+        "sched.events.pre_observed": 0,
+        "sched.events.observed": 0,
+        "sched.events.post_observed": 0,
+        "sched.events.reactive": 0,
+        "sched.events.re_inactive": 0,
+        "sched.events.pre_re_nba": 0,
+        "sched.events.re_nba": 0,
+        "sched.events.post_re_nba": 0,
+        "sched.events.pre_postponed": 0,
+        "sched.events.postponed": 0,
+        "proc.wakeups": 16000002,
+        "proc.created": 5,
+        "proc.finished": 1,
+        "proc.kept_peak": 4,
+        "slot.writes": 32001030,
+        "slot.changes": 32001030,
+        "nba.scheduled": 24000000,
+        "nba.slot_peak": 6,
+        "wait.subscriptions": 8000002,
+        "wait.monitor_evals": 0,
+        "sim.end_time": 8000000,
+        "sim.end_reason": "finish",
+        "vm.instrs": 192014364
+      }
+    },
+    "nba_burst": {
+      "n": 500000,
+      "expected": "nba_burst n=500000 last=499999",
+      "output_matched": true,
+      "all_counters_equal": true,
+      "counters": {
+        "sir.slots": 2,
+        "sir.processes": 1,
+        "sir.subroutines": 0,
+        "sir.blocks": 11,
+        "sir.instrs": 30,
+        "sched.time_slots": 2,
+        "sched.time_advances": 1,
+        "sched.active_loops": 3,
+        "sched.reactive_loops": 0,
+        "sched.events.preponed": 0,
+        "sched.events.pre_active": 0,
+        "sched.events.active": 2,
+        "sched.events.inactive": 0,
+        "sched.events.pre_nba": 0,
+        "sched.events.nba": 500000,
+        "sched.events.post_nba": 0,
+        "sched.events.pre_observed": 0,
+        "sched.events.observed": 0,
+        "sched.events.post_observed": 0,
+        "sched.events.reactive": 0,
+        "sched.events.re_inactive": 0,
+        "sched.events.pre_re_nba": 0,
+        "sched.events.re_nba": 0,
+        "sched.events.post_re_nba": 0,
+        "sched.events.pre_postponed": 0,
+        "sched.events.postponed": 0,
+        "proc.wakeups": 2,
+        "proc.created": 1,
+        "proc.finished": 0,
+        "proc.kept_peak": 1,
+        "slot.writes": 500001,
+        "slot.changes": 500000,
+        "nba.scheduled": 500000,
+        "nba.slot_peak": 500000,
+        "wait.subscriptions": 0,
+        "wait.monitor_evals": 0,
+        "sim.end_time": 1,
+        "sim.end_reason": "finish",
+        "vm.instrs": 5500020
+      }
+    },
+    "nba_shift": {
+      "n": 1000000,
+      "expected": "nba_shift n=1000000 sum=1b0c71c3",
+      "output_matched": true,
+      "all_counters_equal": true,
+      "counters": {
+        "sir.slots": 7,
+        "sir.processes": 21,
+        "sir.subroutines": 0,
+        "sir.blocks": 93,
+        "sir.instrs": 282,
+        "sched.time_slots": 2000001,
+        "sched.time_advances": 2000000,
+        "sched.active_loops": 3000001,
+        "sched.reactive_loops": 0,
+        "sched.events.preponed": 0,
+        "sched.events.pre_active": 0,
+        "sched.events.active": 19000004,
+        "sched.events.inactive": 0,
+        "sched.events.pre_nba": 0,
+        "sched.events.nba": 81000000,
+        "sched.events.post_nba": 0,
+        "sched.events.pre_observed": 0,
+        "sched.events.observed": 0,
+        "sched.events.post_observed": 0,
+        "sched.events.reactive": 0,
+        "sched.events.re_inactive": 0,
+        "sched.events.pre_re_nba": 0,
+        "sched.events.re_nba": 0,
+        "sched.events.post_re_nba": 0,
+        "sched.events.pre_postponed": 0,
+        "sched.events.postponed": 0,
+        "proc.wakeups": 19000004,
+        "proc.created": 21,
+        "proc.finished": 2,
+        "proc.kept_peak": 20,
+        "slot.writes": 83000020,
+        "slot.changes": 82999761,
+        "nba.scheduled": 81000000,
+        "nba.slot_peak": 81,
+        "wait.subscriptions": 17000017,
+        "wait.monitor_evals": 0,
+        "sim.end_time": 10000000,
+        "sim.end_reason": "finish",
+        "vm.instrs": 1313999693
+      }
+    },
+    "proc_wait": {
+      "n": 1000000,
+      "expected": "proc_wait n=1000000 sum=35376317874",
+      "output_matched": true,
+      "all_counters_equal": true,
+      "counters": {
+        "sir.slots": 5,
+        "sir.processes": 130,
+        "sir.subroutines": 0,
+        "sir.blocks": 398,
+        "sir.instrs": 1011,
+        "sched.time_slots": 1000002,
+        "sched.time_advances": 1000001,
+        "sched.active_loops": 1000002,
+        "sched.reactive_loops": 0,
+        "sched.events.preponed": 0,
+        "sched.events.pre_active": 0,
+        "sched.events.active": 46002480,
+        "sched.events.inactive": 0,
+        "sched.events.pre_nba": 0,
+        "sched.events.nba": 0,
+        "sched.events.post_nba": 0,
+        "sched.events.pre_observed": 0,
+        "sched.events.observed": 0,
+        "sched.events.post_observed": 0,
+        "sched.events.reactive": 0,
+        "sched.events.re_inactive": 0,
+        "sched.events.pre_re_nba": 0,
+        "sched.events.re_nba": 0,
+        "sched.events.post_re_nba": 0,
+        "sched.events.pre_postponed": 0,
+        "sched.events.postponed": 0,
+        "proc.wakeups": 46002480,
+        "proc.created": 130,
+        "proc.finished": 0,
+        "proc.kept_peak": 130,
+        "slot.writes": 45669082,
+        "slot.changes": 45669081,
+        "nba.scheduled": 0,
+        "nba.slot_peak": 0,
+        "wait.subscriptions": 0,
+        "wait.monitor_evals": 0,
+        "sim.end_time": 2000001,
+        "sim.end_reason": "finish",
+        "vm.instrs": 302353882
+      }
+    },
+    "string_fmt": {
+      "n": 500000,
+      "expected": "string_fmt n=500000 h=127126b0",
+      "output_matched": true,
+      "all_counters_equal": true,
+      "counters": {
+        "sir.slots": 4,
+        "sir.processes": 1,
+        "sir.subroutines": 0,
+        "sir.blocks": 14,
+        "sir.instrs": 62,
+        "sched.time_slots": 1,
+        "sched.time_advances": 0,
+        "sched.active_loops": 1,
+        "sched.reactive_loops": 0,
+        "sched.events.preponed": 0,
+        "sched.events.pre_active": 0,
+        "sched.events.active": 1,
+        "sched.events.inactive": 0,
+        "sched.events.pre_nba": 0,
+        "sched.events.nba": 0,
+        "sched.events.post_nba": 0,
+        "sched.events.pre_observed": 0,
+        "sched.events.observed": 0,
+        "sched.events.post_observed": 0,
+        "sched.events.reactive": 0,
+        "sched.events.re_inactive": 0,
+        "sched.events.pre_re_nba": 0,
+        "sched.events.re_nba": 0,
+        "sched.events.post_re_nba": 0,
+        "sched.events.pre_postponed": 0,
+        "sched.events.postponed": 0,
+        "proc.wakeups": 1,
+        "proc.created": 1,
+        "proc.finished": 0,
+        "proc.kept_peak": 1,
+        "slot.writes": 14388892,
+        "slot.changes": 14388892,
+        "nba.scheduled": 0,
+        "nba.slot_peak": 0,
+        "wait.subscriptions": 0,
+        "wait.monitor_evals": 0,
+        "sim.end_time": 0,
+        "sim.end_reason": "finish",
+        "vm.instrs": 281777820
+      }
+    },
+    "wide_arith": {
+      "n": 1500000,
+      "expected": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+      "output_matched": true,
+      "all_counters_equal": true,
+      "counters": {
+        "sir.slots": 5,
+        "sir.processes": 1,
+        "sir.subroutines": 0,
+        "sir.blocks": 13,
+        "sir.instrs": 75,
+        "sched.time_slots": 1,
+        "sched.time_advances": 0,
+        "sched.active_loops": 1,
+        "sched.reactive_loops": 0,
+        "sched.events.preponed": 0,
+        "sched.events.pre_active": 0,
+        "sched.events.active": 1,
+        "sched.events.inactive": 0,
+        "sched.events.pre_nba": 0,
+        "sched.events.nba": 0,
+        "sched.events.post_nba": 0,
+        "sched.events.pre_observed": 0,
+        "sched.events.observed": 0,
+        "sched.events.post_observed": 0,
+        "sched.events.reactive": 0,
+        "sched.events.re_inactive": 0,
+        "sched.events.pre_re_nba": 0,
+        "sched.events.re_nba": 0,
+        "sched.events.post_re_nba": 0,
+        "sched.events.pre_postponed": 0,
+        "sched.events.postponed": 0,
+        "proc.wakeups": 1,
+        "proc.created": 1,
+        "proc.finished": 0,
+        "proc.kept_peak": 1,
+        "slot.writes": 6000004,
+        "slot.changes": 6000004,
+        "nba.scheduled": 0,
+        "nba.slot_peak": 0,
+        "wait.subscriptions": 0,
+        "wait.monitor_evals": 0,
+        "sim.end_time": 0,
+        "sim.end_reason": "finish",
+        "vm.instrs": 67500024
+      }
+    },
+    "fourstate_mix": {
+      "n": 1000000,
+      "expected": "fourstate_mix n=1000000 checksum=a0ea5e58 unknowns=250000 x_hits=250000 z_hits=500000",
+      "output_matched": true,
+      "all_counters_equal": true,
+      "counters": {
+        "sir.slots": 9,
+        "sir.processes": 2,
+        "sir.subroutines": 0,
+        "sir.blocks": 21,
+        "sir.instrs": 117,
+        "sched.time_slots": 1000001,
+        "sched.time_advances": 1000000,
+        "sched.active_loops": 1000001,
+        "sched.reactive_loops": 0,
+        "sched.events.preponed": 0,
+        "sched.events.pre_active": 0,
+        "sched.events.active": 2000002,
+        "sched.events.inactive": 0,
+        "sched.events.pre_nba": 0,
+        "sched.events.nba": 0,
+        "sched.events.post_nba": 0,
+        "sched.events.pre_observed": 0,
+        "sched.events.observed": 0,
+        "sched.events.post_observed": 0,
+        "sched.events.reactive": 0,
+        "sched.events.re_inactive": 0,
+        "sched.events.pre_re_nba": 0,
+        "sched.events.re_nba": 0,
+        "sched.events.post_re_nba": 0,
+        "sched.events.pre_postponed": 0,
+        "sched.events.postponed": 0,
+        "proc.wakeups": 2000002,
+        "proc.created": 2,
+        "proc.finished": 0,
+        "proc.kept_peak": 2,
+        "slot.writes": 8000007,
+        "slot.changes": 5999974,
+        "nba.scheduled": 0,
+        "nba.slot_peak": 0,
+        "wait.subscriptions": 2000002,
+        "wait.monitor_evals": 0,
+        "sim.end_time": 1000000,
+        "sim.end_reason": "finish",
+        "vm.instrs": 67500033
+      }
+    }
+  },
+  "cases": [
+    {
+      "name": "gate_udp",
+      "count": 400000,
+      "expected": "gate_udp n=400000 acc=8bcfd518",
+      "expected_small": null,
+      "source": "kirimasim/bench/gate_udp.sv",
+      "sha256": "6cda61e63bfa60e158b4f833ee450dc4004e93b3330cad5d8873ff858de1d4db",
+      "tools": {
+        "main": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.3185372089938028,
+            "max_rss_mib": 10.78125,
+            "rss_source": "ru_maxrss",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "gate_udp n=1 acc=610673f5",
+            "load_average_before": [
+              12.04052734375,
+              11.0439453125,
+              9.00146484375
+            ],
+            "load_average_after": [
+              12.04052734375,
+              11.0439453125,
+              9.00146484375
+            ]
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.006898541992995888,
+                "max_rss_mib": 10.765625,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "load_average_before": [
+                  12.04052734375,
+                  11.0439453125,
+                  9.00146484375
+                ],
+                "load_average_after": [
+                  12.04052734375,
+                  11.0439453125,
+                  9.00146484375
+                ],
+                "repetition": 0
+              },
+              {
+                "seconds": 0.00822241700370796,
+                "max_rss_mib": 10.796875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "load_average_before": [
+                  9.04638671875,
+                  10.41455078125,
+                  8.83203125
+                ],
+                "load_average_after": [
+                  9.04638671875,
+                  10.41455078125,
+                  8.83203125
+                ],
+                "repetition": 1
+              },
+              {
+                "seconds": 0.007434250001097098,
+                "max_rss_mib": 10.796875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "load_average_before": [
+                  9.04638671875,
+                  10.41455078125,
+                  8.83203125
+                ],
+                "load_average_after": [
+                  9.04638671875,
+                  10.41455078125,
+                  8.83203125
+                ],
+                "repetition": 2
+              },
+              {
+                "seconds": 0.007818458994734101,
+                "max_rss_mib": 10.796875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "load_average_before": [
+                  7.01171875,
+                  9.81884765625,
+                  8.662109375
+                ],
+                "load_average_after": [
+                  7.01171875,
+                  9.81884765625,
+                  8.662109375
+                ],
+                "repetition": 3
+              },
+              {
+                "seconds": 0.007359750001342036,
+                "max_rss_mib": 10.796875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "load_average_before": [
+                  7.01171875,
+                  9.81884765625,
+                  8.662109375
+                ],
+                "load_average_after": [
+                  7.01171875,
+                  9.81884765625,
+                  8.662109375
+                ],
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 4.073750708004809,
+                "max_rss_mib": 10.765625,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "load_average_before": [
+                  12.04052734375,
+                  11.0439453125,
+                  9.00146484375
+                ],
+                "load_average_after": [
+                  11.31640625,
+                  10.91015625,
+                  8.9658203125
+                ],
+                "repetition": 0
+              },
+              {
+                "seconds": 4.126623042000574,
+                "max_rss_mib": 10.765625,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "load_average_before": [
+                  9.57275390625,
+                  10.5400390625,
+                  8.86669921875
+                ],
+                "load_average_after": [
+                  9.04638671875,
+                  10.41455078125,
+                  8.83203125
+                ],
+                "repetition": 1
+              },
+              {
+                "seconds": 4.061660542007303,
+                "max_rss_mib": 10.78125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "load_average_before": [
+                  9.04638671875,
+                  10.41455078125,
+                  8.83203125
+                ],
+                "load_average_after": [
+                  8.48193359375,
+                  10.2744140625,
+                  8.7919921875
+                ],
+                "repetition": 2
+              },
+              {
+                "seconds": 4.077178875013487,
+                "max_rss_mib": 10.78125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "load_average_before": [
+                  7.18701171875,
+                  9.900390625,
+                  8.68408203125
+                ],
+                "load_average_after": [
+                  7.01171875,
+                  9.81884765625,
+                  8.662109375
+                ],
+                "repetition": 3
+              },
+              {
+                "seconds": 4.0988143750000745,
+                "max_rss_mib": 10.796875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "load_average_before": [
+                  7.01171875,
+                  9.81884765625,
+                  8.662109375
+                ],
+                "load_average_after": [
+                  6.8505859375,
+                  9.73876953125,
+                  8.640625
+                ],
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${MAIN}",
+            "${CURRENT_SOURCE}/bench/gate_udp.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.007434250001097098,
+            "minimum": 0.006898541992995888,
+            "maximum": 0.00822241700370796,
+            "mad": 0.000384208993637003
+          },
+          "large_seconds": {
+            "median": 4.077178875013487,
+            "minimum": 4.061660542007303,
+            "maximum": 4.126623042000574,
+            "mad": 0.015518333006184548
+          },
+          "incremental_seconds": 4.06974462501239,
+          "median_peak_rss_mib": 10.78125
+        },
+        "strict": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.008049875003052875,
+            "max_rss_mib": 10.8125,
+            "rss_source": "ru_maxrss",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "gate_udp n=1 acc=610673f5",
+            "load_average_before": [
+              12.04052734375,
+              11.0439453125,
+              9.00146484375
+            ],
+            "load_average_after": [
+              12.04052734375,
+              11.0439453125,
+              9.00146484375
+            ]
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.008388832997297868,
+                "max_rss_mib": 10.78125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "load_average_before": [
+                  11.31640625,
+                  10.91015625,
+                  8.9658203125
+                ],
+                "load_average_after": [
+                  11.31640625,
+                  10.91015625,
+                  8.9658203125
+                ],
+                "repetition": 0
+              },
+              {
+                "seconds": 0.007630207997863181,
+                "max_rss_mib": 10.8125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "load_average_before": [
+                  9.57275390625,
+                  10.5400390625,
+                  8.86669921875
+                ],
+                "load_average_after": [
+                  9.57275390625,
+                  10.5400390625,
+                  8.86669921875
+                ],
+                "repetition": 1
+              },
+              {
+                "seconds": 0.00830633299483452,
+                "max_rss_mib": 10.8125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "load_average_before": [
+                  8.48193359375,
+                  10.2744140625,
+                  8.7919921875
+                ],
+                "load_average_after": [
+                  8.48193359375,
+                  10.2744140625,
+                  8.7919921875
+                ],
+                "repetition": 2
+              },
+              {
+                "seconds": 0.008602208996308036,
+                "max_rss_mib": 10.8125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "load_average_before": [
+                  7.18701171875,
+                  9.900390625,
+                  8.68408203125
+                ],
+                "load_average_after": [
+                  7.18701171875,
+                  9.900390625,
+                  8.68408203125
+                ],
+                "repetition": 3
+              },
+              {
+                "seconds": 0.00842091700178571,
+                "max_rss_mib": 10.796875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "load_average_before": [
+                  6.8505859375,
+                  9.73876953125,
+                  8.640625
+                ],
+                "load_average_after": [
+                  6.8505859375,
+                  9.73876953125,
+                  8.640625
+                ],
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 3.979381082986947,
+                "max_rss_mib": 10.796875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "load_average_before": [
+                  11.31640625,
+                  10.91015625,
+                  8.9658203125
+                ],
+                "load_average_after": [
+                  10.5703125,
+                  10.76220703125,
+                  8.9248046875
+                ],
+                "repetition": 0
+              },
+              {
+                "seconds": 3.9819389159965795,
+                "max_rss_mib": 10.796875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "load_average_before": [
+                  9.57275390625,
+                  10.5400390625,
+                  8.86669921875
+                ],
+                "load_average_after": [
+                  9.57275390625,
+                  10.5400390625,
+                  8.86669921875
+                ],
+                "repetition": 1
+              },
+              {
+                "seconds": 3.967594541987637,
+                "max_rss_mib": 10.796875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "load_average_before": [
+                  8.48193359375,
+                  10.2744140625,
+                  8.7919921875
+                ],
+                "load_average_after": [
+                  8.04248046875,
+                  10.1533203125,
+                  8.7578125
+                ],
+                "repetition": 2
+              },
+              {
+                "seconds": 3.9741994999931194,
+                "max_rss_mib": 10.796875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "load_average_before": [
+                  7.638671875,
+                  10.0341796875,
+                  8.7236328125
+                ],
+                "load_average_after": [
+                  7.18701171875,
+                  9.900390625,
+                  8.68408203125
+                ],
+                "repetition": 3
+              },
+              {
+                "seconds": 3.996426750003593,
+                "max_rss_mib": 10.8125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "load_average_before": [
+                  6.8505859375,
+                  9.73876953125,
+                  8.640625
+                ],
+                "load_average_after": [
+                  6.5419921875,
+                  9.62646484375,
+                  8.607421875
+                ],
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${STRICT}",
+            "${CURRENT_SOURCE}/bench/gate_udp.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.008388832997297868,
+            "minimum": 0.007630207997863181,
+            "maximum": 0.008602208996308036,
+            "mad": 8.250000246334821e-05
+          },
+          "large_seconds": {
+            "median": 3.979381082986947,
+            "minimum": 3.967594541987637,
+            "maximum": 3.996426750003593,
+            "mad": 0.00518158299382776
+          },
+          "incremental_seconds": 3.9709922499896493,
+          "median_peak_rss_mib": 10.796875
+        },
+        "prototype": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.007492459000786766,
+            "max_rss_mib": 10.8125,
+            "rss_source": "ru_maxrss",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "gate_udp n=1 acc=610673f5",
+            "load_average_before": [
+              12.04052734375,
+              11.0439453125,
+              9.00146484375
+            ],
+            "load_average_after": [
+              12.04052734375,
+              11.0439453125,
+              9.00146484375
+            ]
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.008433000009972602,
+                "max_rss_mib": 10.8125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "load_average_before": [
+                  10.5703125,
+                  10.76220703125,
+                  8.9248046875
+                ],
+                "load_average_after": [
+                  10.5703125,
+                  10.76220703125,
+                  8.9248046875
+                ],
+                "repetition": 0
+              },
+              {
+                "seconds": 0.00765904200670775,
+                "max_rss_mib": 10.796875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "load_average_before": [
+                  9.57275390625,
+                  10.5400390625,
+                  8.86669921875
+                ],
+                "load_average_after": [
+                  9.57275390625,
+                  10.5400390625,
+                  8.86669921875
+                ],
+                "repetition": 1
+              },
+              {
+                "seconds": 0.00883941700158175,
+                "max_rss_mib": 10.8125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "load_average_before": [
+                  8.04248046875,
+                  10.1533203125,
+                  8.7578125
+                ],
+                "load_average_after": [
+                  8.04248046875,
+                  10.1533203125,
+                  8.7578125
+                ],
+                "repetition": 2
+              },
+              {
+                "seconds": 0.00810208400071133,
+                "max_rss_mib": 10.796875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "load_average_before": [
+                  7.638671875,
+                  10.0341796875,
+                  8.7236328125
+                ],
+                "load_average_after": [
+                  7.638671875,
+                  10.0341796875,
+                  8.7236328125
+                ],
+                "repetition": 3
+              },
+              {
+                "seconds": 0.008155582996550947,
+                "max_rss_mib": 10.84375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=1 acc=610673f5",
+                "load_average_before": [
+                  6.5419921875,
+                  9.62646484375,
+                  8.607421875
+                ],
+                "load_average_after": [
+                  6.5419921875,
+                  9.62646484375,
+                  8.607421875
+                ],
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 3.9014988749986514,
+                "max_rss_mib": 10.796875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "load_average_before": [
+                  10.5703125,
+                  10.76220703125,
+                  8.9248046875
+                ],
+                "load_average_after": [
+                  9.8837890625,
+                  10.61669921875,
+                  8.8837890625
+                ],
+                "repetition": 0
+              },
+              {
+                "seconds": 3.9007998329907423,
+                "max_rss_mib": 10.8125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "load_average_before": [
+                  9.8837890625,
+                  10.61669921875,
+                  8.8837890625
+                ],
+                "load_average_after": [
+                  9.57275390625,
+                  10.5400390625,
+                  8.86669921875
+                ],
+                "repetition": 1
+              },
+              {
+                "seconds": 3.907623999999487,
+                "max_rss_mib": 10.8125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "load_average_before": [
+                  8.04248046875,
+                  10.1533203125,
+                  8.7578125
+                ],
+                "load_average_after": [
+                  7.638671875,
+                  10.0341796875,
+                  8.7236328125
+                ],
+                "repetition": 2
+              },
+              {
+                "seconds": 3.9111272919981275,
+                "max_rss_mib": 10.828125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "load_average_before": [
+                  7.638671875,
+                  10.0341796875,
+                  8.7236328125
+                ],
+                "load_average_after": [
+                  7.638671875,
+                  10.0341796875,
+                  8.7236328125
+                ],
+                "repetition": 3
+              },
+              {
+                "seconds": 3.9085068330023205,
+                "max_rss_mib": 10.8125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "gate_udp n=400000 acc=8bcfd518",
+                "load_average_before": [
+                  6.5419921875,
+                  9.62646484375,
+                  8.607421875
+                ],
+                "load_average_after": [
+                  6.5419921875,
+                  9.62646484375,
+                  8.607421875
+                ],
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${PROTOTYPE}",
+            "${CURRENT_SOURCE}/bench/gate_udp.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.008155582996550947,
+            "minimum": 0.00765904200670775,
+            "maximum": 0.00883941700158175,
+            "mad": 0.0002774170134216547
+          },
+          "large_seconds": {
+            "median": 3.907623999999487,
+            "minimum": 3.9007998329907423,
+            "maximum": 3.9111272919981275,
+            "mad": 0.003503291998640634
+          },
+          "incremental_seconds": 3.899468417002936,
+          "median_peak_rss_mib": 10.8125
+        }
+      },
+      "comparison": {
+        "status": "comparable",
+        "ratio": 0.9581604686046029,
+        "time_reduction_percent": 4.1839531395397085,
+        "strict_ratio": 0.9757349946687526,
+        "prototype_over_strict": 0.9819884229220291
+      }
+    },
+    {
+      "name": "mem_rw",
+      "count": 4000000,
+      "expected": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+      "expected_small": null,
+      "source": "kirimasim/bench/mem_rw.sv",
+      "sha256": "586c4474d7872540e33c82984c9c33580a3dfa9a957a588ae4a1aa36601cf21e",
+      "tools": {
+        "strict": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.008798916998784989,
+            "max_rss_mib": 10.4375,
+            "rss_source": "ru_maxrss",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+            "load_average_before": [
+              6.5419921875,
+              9.62646484375,
+              8.607421875
+            ],
+            "load_average_after": [
+              6.5419921875,
+              9.62646484375,
+              8.607421875
+            ]
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.008549499994842336,
+                "max_rss_mib": 10.4375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "load_average_before": [
+                  5.84326171875,
+                  9.375,
+                  8.52978515625
+                ],
+                "load_average_after": [
+                  5.84326171875,
+                  9.375,
+                  8.52978515625
+                ],
+                "repetition": 0
+              },
+              {
+                "seconds": 0.008650291987578385,
+                "max_rss_mib": 10.4375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "load_average_before": [
+                  5.615234375,
+                  9.26904296875,
+                  8.4970703125
+                ],
+                "load_average_after": [
+                  5.615234375,
+                  9.26904296875,
+                  8.4970703125
+                ],
+                "repetition": 1
+              },
+              {
+                "seconds": 0.00860541599104181,
+                "max_rss_mib": 10.453125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "load_average_before": [
+                  5.37451171875,
+                  9.0283203125,
+                  8.423828125
+                ],
+                "load_average_after": [
+                  5.37451171875,
+                  9.0283203125,
+                  8.423828125
+                ],
+                "repetition": 2
+              },
+              {
+                "seconds": 0.008282666996819898,
+                "max_rss_mib": 10.4375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "load_average_before": [
+                  5.10400390625,
+                  8.91162109375,
+                  8.3857421875
+                ],
+                "load_average_after": [
+                  5.10400390625,
+                  8.91162109375,
+                  8.3857421875
+                ],
+                "repetition": 3
+              },
+              {
+                "seconds": 0.008610332995885983,
+                "max_rss_mib": 10.4375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "load_average_before": [
+                  4.71142578125,
+                  8.6376953125,
+                  8.296875
+                ],
+                "load_average_after": [
+                  4.71142578125,
+                  8.6376953125,
+                  8.296875
+                ],
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 3.177451916009886,
+                "max_rss_mib": 10.46875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "load_average_before": [
+                  5.84326171875,
+                  9.375,
+                  8.52978515625
+                ],
+                "load_average_after": [
+                  5.84326171875,
+                  9.375,
+                  8.52978515625
+                ],
+                "repetition": 0
+              },
+              {
+                "seconds": 3.150762165998458,
+                "max_rss_mib": 10.453125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "load_average_before": [
+                  5.84326171875,
+                  9.375,
+                  8.52978515625
+                ],
+                "load_average_after": [
+                  5.615234375,
+                  9.26904296875,
+                  8.4970703125
+                ],
+                "repetition": 1
+              },
+              {
+                "seconds": 3.157971541993902,
+                "max_rss_mib": 10.453125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "load_average_before": [
+                  5.37451171875,
+                  9.0283203125,
+                  8.423828125
+                ],
+                "load_average_after": [
+                  5.37451171875,
+                  9.0283203125,
+                  8.423828125
+                ],
+                "repetition": 2
+              },
+              {
+                "seconds": 3.138448375000735,
+                "max_rss_mib": 10.453125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "load_average_before": [
+                  5.37451171875,
+                  9.0283203125,
+                  8.423828125
+                ],
+                "load_average_after": [
+                  5.10400390625,
+                  8.91162109375,
+                  8.3857421875
+                ],
+                "repetition": 3
+              },
+              {
+                "seconds": 3.174548707989743,
+                "max_rss_mib": 10.46875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "load_average_before": [
+                  4.71142578125,
+                  8.6376953125,
+                  8.296875
+                ],
+                "load_average_after": [
+                  4.71142578125,
+                  8.6376953125,
+                  8.296875
+                ],
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${STRICT}",
+            "${CURRENT_SOURCE}/bench/mem_rw.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.00860541599104181,
+            "minimum": 0.008282666996819898,
+            "maximum": 0.008650291987578385,
+            "mad": 4.487599653657526e-05
+          },
+          "large_seconds": {
+            "median": 3.157971541993902,
+            "minimum": 3.138448375000735,
+            "maximum": 3.177451916009886,
+            "mad": 0.016577165995840915
+          },
+          "incremental_seconds": 3.1493661260028603,
+          "median_peak_rss_mib": 10.453125
+        },
+        "prototype": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.008621374989161268,
+            "max_rss_mib": 10.453125,
+            "rss_source": "ru_maxrss",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+            "load_average_before": [
+              6.5419921875,
+              9.62646484375,
+              8.607421875
+            ],
+            "load_average_after": [
+              6.5419921875,
+              9.62646484375,
+              8.607421875
+            ]
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.008460958008072339,
+                "max_rss_mib": 10.453125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "load_average_before": [
+                  6.17822265625,
+                  9.49951171875,
+                  8.568359375
+                ],
+                "load_average_after": [
+                  6.17822265625,
+                  9.49951171875,
+                  8.568359375
+                ],
+                "repetition": 0
+              },
+              {
+                "seconds": 0.008308791992021725,
+                "max_rss_mib": 10.46875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "load_average_before": [
+                  5.32568359375,
+                  9.14794921875,
+                  8.458984375
+                ],
+                "load_average_after": [
+                  5.32568359375,
+                  9.14794921875,
+                  8.458984375
+                ],
+                "repetition": 1
+              },
+              {
+                "seconds": 0.008961917003034614,
+                "max_rss_mib": 10.46875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "load_average_before": [
+                  5.05908203125,
+                  9.02880859375,
+                  8.4208984375
+                ],
+                "load_average_after": [
+                  5.05908203125,
+                  9.02880859375,
+                  8.4208984375
+                ],
+                "repetition": 2
+              },
+              {
+                "seconds": 0.009265707994927652,
+                "max_rss_mib": 10.453125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "load_average_before": [
+                  5.10400390625,
+                  8.91162109375,
+                  8.3857421875
+                ],
+                "load_average_after": [
+                  5.10400390625,
+                  8.91162109375,
+                  8.3857421875
+                ],
+                "repetition": 3
+              },
+              {
+                "seconds": 0.008342541987076402,
+                "max_rss_mib": 10.46875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "load_average_before": [
+                  4.7734375,
+                  8.71630859375,
+                  8.322265625
+                ],
+                "load_average_after": [
+                  4.7734375,
+                  8.71630859375,
+                  8.322265625
+                ],
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 3.120036207998055,
+                "max_rss_mib": 10.484375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "load_average_before": [
+                  6.17822265625,
+                  9.49951171875,
+                  8.568359375
+                ],
+                "load_average_after": [
+                  5.84326171875,
+                  9.375,
+                  8.52978515625
+                ],
+                "repetition": 0
+              },
+              {
+                "seconds": 3.100420999995549,
+                "max_rss_mib": 10.46875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "load_average_before": [
+                  5.615234375,
+                  9.26904296875,
+                  8.4970703125
+                ],
+                "load_average_after": [
+                  5.32568359375,
+                  9.14794921875,
+                  8.458984375
+                ],
+                "repetition": 1
+              },
+              {
+                "seconds": 3.1134321249992354,
+                "max_rss_mib": 10.484375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "load_average_before": [
+                  5.05908203125,
+                  9.02880859375,
+                  8.4208984375
+                ],
+                "load_average_after": [
+                  5.37451171875,
+                  9.0283203125,
+                  8.423828125
+                ],
+                "repetition": 2
+              },
+              {
+                "seconds": 3.097317624997231,
+                "max_rss_mib": 10.484375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "load_average_before": [
+                  5.10400390625,
+                  8.91162109375,
+                  8.3857421875
+                ],
+                "load_average_after": [
+                  5.10400390625,
+                  8.91162109375,
+                  8.3857421875
+                ],
+                "repetition": 3
+              },
+              {
+                "seconds": 3.116435082993121,
+                "max_rss_mib": 10.46875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "load_average_before": [
+                  4.7734375,
+                  8.71630859375,
+                  8.322265625
+                ],
+                "load_average_after": [
+                  4.71142578125,
+                  8.6376953125,
+                  8.296875
+                ],
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${PROTOTYPE}",
+            "${CURRENT_SOURCE}/bench/mem_rw.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.008460958008072339,
+            "minimum": 0.008308791992021725,
+            "maximum": 0.009265707994927652,
+            "mad": 0.00015216601605061442
+          },
+          "large_seconds": {
+            "median": 3.1134321249992354,
+            "minimum": 3.097317624997231,
+            "maximum": 3.120036207998055,
+            "mad": 0.006604082998819649
+          },
+          "incremental_seconds": 3.104971166991163,
+          "median_peak_rss_mib": 10.484375
+        },
+        "main": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.007552499999292195,
+            "max_rss_mib": 10.421875,
+            "rss_source": "ru_maxrss",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+            "load_average_before": [
+              6.5419921875,
+              9.62646484375,
+              8.607421875
+            ],
+            "load_average_after": [
+              6.5419921875,
+              9.62646484375,
+              8.607421875
+            ]
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.0071482920029666275,
+                "max_rss_mib": 10.421875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "load_average_before": [
+                  6.5419921875,
+                  9.62646484375,
+                  8.607421875
+                ],
+                "load_average_after": [
+                  6.5419921875,
+                  9.62646484375,
+                  8.607421875
+                ],
+                "repetition": 0
+              },
+              {
+                "seconds": 0.007839582991437055,
+                "max_rss_mib": 10.4375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "load_average_before": [
+                  5.32568359375,
+                  9.14794921875,
+                  8.458984375
+                ],
+                "load_average_after": [
+                  5.32568359375,
+                  9.14794921875,
+                  8.458984375
+                ],
+                "repetition": 1
+              },
+              {
+                "seconds": 0.007129791993065737,
+                "max_rss_mib": 10.421875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "load_average_before": [
+                  5.32568359375,
+                  9.14794921875,
+                  8.458984375
+                ],
+                "load_average_after": [
+                  5.32568359375,
+                  9.14794921875,
+                  8.458984375
+                ],
+                "repetition": 2
+              },
+              {
+                "seconds": 0.008498167007928714,
+                "max_rss_mib": 10.421875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "load_average_before": [
+                  5.01513671875,
+                  8.830078125,
+                  8.35986328125
+                ],
+                "load_average_after": [
+                  5.01513671875,
+                  8.830078125,
+                  8.35986328125
+                ],
+                "repetition": 3
+              },
+              {
+                "seconds": 0.008555207998142578,
+                "max_rss_mib": 10.421875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+                "load_average_before": [
+                  5.01513671875,
+                  8.830078125,
+                  8.35986328125
+                ],
+                "load_average_after": [
+                  5.01513671875,
+                  8.830078125,
+                  8.35986328125
+                ],
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 3.4551804160000756,
+                "max_rss_mib": 10.4375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "load_average_before": [
+                  6.5419921875,
+                  9.62646484375,
+                  8.607421875
+                ],
+                "load_average_after": [
+                  6.17822265625,
+                  9.49951171875,
+                  8.568359375
+                ],
+                "repetition": 0
+              },
+              {
+                "seconds": 3.4580489590007346,
+                "max_rss_mib": 10.421875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "load_average_before": [
+                  5.32568359375,
+                  9.14794921875,
+                  8.458984375
+                ],
+                "load_average_after": [
+                  5.32568359375,
+                  9.14794921875,
+                  8.458984375
+                ],
+                "repetition": 1
+              },
+              {
+                "seconds": 3.423747041000752,
+                "max_rss_mib": 10.4375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "load_average_before": [
+                  5.32568359375,
+                  9.14794921875,
+                  8.458984375
+                ],
+                "load_average_after": [
+                  5.05908203125,
+                  9.02880859375,
+                  8.4208984375
+                ],
+                "repetition": 2
+              },
+              {
+                "seconds": 3.4998715830006404,
+                "max_rss_mib": 10.4375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "load_average_before": [
+                  5.10400390625,
+                  8.91162109375,
+                  8.3857421875
+                ],
+                "load_average_after": [
+                  5.01513671875,
+                  8.830078125,
+                  8.35986328125
+                ],
+                "repetition": 3
+              },
+              {
+                "seconds": 3.4958026249951217,
+                "max_rss_mib": 10.4375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+                "load_average_before": [
+                  5.01513671875,
+                  8.830078125,
+                  8.35986328125
+                ],
+                "load_average_after": [
+                  4.7734375,
+                  8.71630859375,
+                  8.322265625
+                ],
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${MAIN}",
+            "${CURRENT_SOURCE}/bench/mem_rw.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.007839582991437055,
+            "minimum": 0.007129791993065737,
+            "maximum": 0.008555207998142578,
+            "mad": 0.0006912909884704277
+          },
+          "large_seconds": {
+            "median": 3.4580489590007346,
+            "minimum": 3.423747041000752,
+            "maximum": 3.4998715830006404,
+            "mad": 0.034301917999982834
+          },
+          "incremental_seconds": 3.4502093760092976,
+          "median_peak_rss_mib": 10.4375
+        }
+      },
+      "comparison": {
+        "status": "comparable",
+        "ratio": 0.8999370265993956,
+        "time_reduction_percent": 10.006297340060444,
+        "strict_ratio": 0.9128043497596632,
+        "prototype_over_strict": 0.9859035255872131
+      }
+    },
+    {
+      "name": "proc_wait",
+      "count": 1000000,
+      "expected": "proc_wait n=1000000 sum=35376317874",
+      "expected_small": null,
+      "source": "kirimasim/bench/proc_wait.sv",
+      "sha256": "88be699fa02c0485fdb9bd15120b21f2af2c6192816252aea19667144ad9dfed",
+      "tools": {
+        "prototype": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.008910958000342362,
+            "max_rss_mib": 11.21875,
+            "rss_source": "ru_maxrss",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "proc_wait n=1 sum=15255",
+            "load_average_before": [
+              4.71142578125,
+              8.6376953125,
+              8.296875
+            ],
+            "load_average_after": [
+              4.71142578125,
+              8.6376953125,
+              8.296875
+            ]
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.008386583998799324,
+                "max_rss_mib": 11.203125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "load_average_before": [
+                  4.71142578125,
+                  8.6376953125,
+                  8.296875
+                ],
+                "load_average_after": [
+                  4.71142578125,
+                  8.6376953125,
+                  8.296875
+                ],
+                "repetition": 0
+              },
+              {
+                "seconds": 0.009159542009001598,
+                "max_rss_mib": 11.1875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "load_average_before": [
+                  3.93017578125,
+                  8.080078125,
+                  8.10595703125
+                ],
+                "load_average_after": [
+                  3.93017578125,
+                  8.080078125,
+                  8.10595703125
+                ],
+                "repetition": 1
+              },
+              {
+                "seconds": 0.00833808300376404,
+                "max_rss_mib": 11.203125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "load_average_before": [
+                  3.93017578125,
+                  8.080078125,
+                  8.10595703125
+                ],
+                "load_average_after": [
+                  3.93017578125,
+                  8.080078125,
+                  8.10595703125
+                ],
+                "repetition": 2
+              },
+              {
+                "seconds": 0.009070584012079053,
+                "max_rss_mib": 11.203125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "load_average_before": [
+                  3.51953125,
+                  7.517578125,
+                  7.8984375
+                ],
+                "load_average_after": [
+                  3.51953125,
+                  7.517578125,
+                  7.8984375
+                ],
+                "repetition": 3
+              },
+              {
+                "seconds": 0.008521958996425383,
+                "max_rss_mib": 11.21875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "load_average_before": [
+                  3.51953125,
+                  7.517578125,
+                  7.8984375
+                ],
+                "load_average_after": [
+                  3.51953125,
+                  7.517578125,
+                  7.8984375
+                ],
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 5.128254374998505,
+                "max_rss_mib": 11.625,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "load_average_before": [
+                  4.71142578125,
+                  8.6376953125,
+                  8.296875
+                ],
+                "load_average_after": [
+                  4.734375,
+                  8.5771484375,
+                  8.27734375
+                ],
+                "repetition": 0
+              },
+              {
+                "seconds": 5.0573790409980575,
+                "max_rss_mib": 11.59375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "load_average_before": [
+                  4.0986328125,
+                  8.18310546875,
+                  8.14208984375
+                ],
+                "load_average_after": [
+                  3.93017578125,
+                  8.080078125,
+                  8.10595703125
+                ],
+                "repetition": 1
+              },
+              {
+                "seconds": 5.115709249992506,
+                "max_rss_mib": 11.609375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "load_average_before": [
+                  3.93017578125,
+                  8.080078125,
+                  8.10595703125
+                ],
+                "load_average_after": [
+                  3.775390625,
+                  7.97900390625,
+                  8.06982421875
+                ],
+                "repetition": 2
+              },
+              {
+                "seconds": 5.1177917910099495,
+                "max_rss_mib": 11.546875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "load_average_before": [
+                  3.65185546875,
+                  7.61083984375,
+                  7.93359375
+                ],
+                "load_average_after": [
+                  3.51953125,
+                  7.517578125,
+                  7.8984375
+                ],
+                "repetition": 3
+              },
+              {
+                "seconds": 5.103449125002953,
+                "max_rss_mib": 11.578125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "load_average_before": [
+                  3.51953125,
+                  7.517578125,
+                  7.8984375
+                ],
+                "load_average_after": [
+                  3.4775390625,
+                  7.4423828125,
+                  7.86962890625
+                ],
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${PROTOTYPE}",
+            "${CURRENT_SOURCE}/bench/proc_wait.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.008521958996425383,
+            "minimum": 0.00833808300376404,
+            "maximum": 0.009159542009001598,
+            "mad": 0.00018387599266134202
+          },
+          "large_seconds": {
+            "median": 5.115709249992506,
+            "minimum": 5.0573790409980575,
+            "maximum": 5.128254374998505,
+            "mad": 0.012260124989552423
+          },
+          "incremental_seconds": 5.10718729099608,
+          "median_peak_rss_mib": 11.59375
+        },
+        "main": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.007971458006068133,
+            "max_rss_mib": 11.1875,
+            "rss_source": "ru_maxrss",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "proc_wait n=1 sum=15255",
+            "load_average_before": [
+              4.71142578125,
+              8.6376953125,
+              8.296875
+            ],
+            "load_average_after": [
+              4.71142578125,
+              8.6376953125,
+              8.296875
+            ]
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.008698083998751827,
+                "max_rss_mib": 11.203125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "load_average_before": [
+                  4.734375,
+                  8.5771484375,
+                  8.27734375
+                ],
+                "load_average_after": [
+                  4.734375,
+                  8.5771484375,
+                  8.27734375
+                ],
+                "repetition": 0
+              },
+              {
+                "seconds": 0.009179124986985698,
+                "max_rss_mib": 11.171875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "load_average_before": [
+                  4.0986328125,
+                  8.18310546875,
+                  8.14208984375
+                ],
+                "load_average_after": [
+                  4.0986328125,
+                  8.18310546875,
+                  8.14208984375
+                ],
+                "repetition": 1
+              },
+              {
+                "seconds": 0.00952054098888766,
+                "max_rss_mib": 11.1875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "load_average_before": [
+                  3.775390625,
+                  7.97900390625,
+                  8.06982421875
+                ],
+                "load_average_after": [
+                  3.775390625,
+                  7.97900390625,
+                  8.06982421875
+                ],
+                "repetition": 2
+              },
+              {
+                "seconds": 0.008259417008957826,
+                "max_rss_mib": 11.171875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "load_average_before": [
+                  3.65185546875,
+                  7.61083984375,
+                  7.93359375
+                ],
+                "load_average_after": [
+                  3.65185546875,
+                  7.61083984375,
+                  7.93359375
+                ],
+                "repetition": 3
+              },
+              {
+                "seconds": 0.008397875004447997,
+                "max_rss_mib": 11.1875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "load_average_before": [
+                  3.4775390625,
+                  7.4423828125,
+                  7.86962890625
+                ],
+                "load_average_after": [
+                  3.4775390625,
+                  7.4423828125,
+                  7.86962890625
+                ],
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 5.475021500009461,
+                "max_rss_mib": 11.546875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "load_average_before": [
+                  4.734375,
+                  8.5771484375,
+                  8.27734375
+                ],
+                "load_average_after": [
+                  4.51513671875,
+                  8.4677734375,
+                  8.240234375
+                ],
+                "repetition": 0
+              },
+              {
+                "seconds": 5.4518567500053905,
+                "max_rss_mib": 11.5625,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "load_average_before": [
+                  4.28173828125,
+                  8.28759765625,
+                  8.1787109375
+                ],
+                "load_average_after": [
+                  4.0986328125,
+                  8.18310546875,
+                  8.14208984375
+                ],
+                "repetition": 1
+              },
+              {
+                "seconds": 5.282216917010373,
+                "max_rss_mib": 11.59375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "load_average_before": [
+                  3.775390625,
+                  7.97900390625,
+                  8.06982421875
+                ],
+                "load_average_after": [
+                  3.822265625,
+                  7.84814453125,
+                  8.02197265625
+                ],
+                "repetition": 2
+              },
+              {
+                "seconds": 5.372311582992552,
+                "max_rss_mib": 11.5625,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "load_average_before": [
+                  3.6220703125,
+                  7.671875,
+                  7.95703125
+                ],
+                "load_average_after": [
+                  3.65185546875,
+                  7.61083984375,
+                  7.93359375
+                ],
+                "repetition": 3
+              },
+              {
+                "seconds": 5.281583750009304,
+                "max_rss_mib": 11.546875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "load_average_before": [
+                  3.4775390625,
+                  7.4423828125,
+                  7.86962890625
+                ],
+                "load_average_after": [
+                  3.51904296875,
+                  7.384765625,
+                  7.8466796875
+                ],
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${MAIN}",
+            "${CURRENT_SOURCE}/bench/proc_wait.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.008698083998751827,
+            "minimum": 0.008259417008957826,
+            "maximum": 0.00952054098888766,
+            "mad": 0.000438666989794001
+          },
+          "large_seconds": {
+            "median": 5.372311582992552,
+            "minimum": 5.281583750009304,
+            "maximum": 5.475021500009461,
+            "mad": 0.09009466598217841
+          },
+          "incremental_seconds": 5.3636134989938,
+          "median_peak_rss_mib": 11.5625
+        },
+        "strict": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.008041499997489154,
+            "max_rss_mib": 11.203125,
+            "rss_source": "ru_maxrss",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "proc_wait n=1 sum=15255",
+            "load_average_before": [
+              4.71142578125,
+              8.6376953125,
+              8.296875
+            ],
+            "load_average_after": [
+              4.71142578125,
+              8.6376953125,
+              8.296875
+            ]
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.009337708004750311,
+                "max_rss_mib": 11.171875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "load_average_before": [
+                  4.51513671875,
+                  8.4677734375,
+                  8.240234375
+                ],
+                "load_average_after": [
+                  4.51513671875,
+                  8.4677734375,
+                  8.240234375
+                ],
+                "repetition": 0
+              },
+              {
+                "seconds": 0.00842262500373181,
+                "max_rss_mib": 11.21875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "load_average_before": [
+                  4.28173828125,
+                  8.28759765625,
+                  8.1787109375
+                ],
+                "load_average_after": [
+                  4.28173828125,
+                  8.28759765625,
+                  8.1787109375
+                ],
+                "repetition": 1
+              },
+              {
+                "seconds": 0.008509291990776546,
+                "max_rss_mib": 11.15625,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "load_average_before": [
+                  3.822265625,
+                  7.84814453125,
+                  8.02197265625
+                ],
+                "load_average_after": [
+                  3.822265625,
+                  7.84814453125,
+                  8.02197265625
+                ],
+                "repetition": 2
+              },
+              {
+                "seconds": 0.008282709008199163,
+                "max_rss_mib": 11.203125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "load_average_before": [
+                  3.6220703125,
+                  7.671875,
+                  7.95703125
+                ],
+                "load_average_after": [
+                  3.6220703125,
+                  7.671875,
+                  7.95703125
+                ],
+                "repetition": 3
+              },
+              {
+                "seconds": 0.008726957996259443,
+                "max_rss_mib": 11.1875,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1 sum=15255",
+                "load_average_before": [
+                  3.51904296875,
+                  7.384765625,
+                  7.8466796875
+                ],
+                "load_average_after": [
+                  3.51904296875,
+                  7.384765625,
+                  7.8466796875
+                ],
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 5.112058166996576,
+                "max_rss_mib": 11.578125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "load_average_before": [
+                  4.51513671875,
+                  8.4677734375,
+                  8.240234375
+                ],
+                "load_average_after": [
+                  4.3935546875,
+                  8.376953125,
+                  8.20947265625
+                ],
+                "repetition": 0
+              },
+              {
+                "seconds": 5.139540083007887,
+                "max_rss_mib": 11.5625,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "load_average_before": [
+                  4.3935546875,
+                  8.376953125,
+                  8.20947265625
+                ],
+                "load_average_after": [
+                  4.28173828125,
+                  8.28759765625,
+                  8.1787109375
+                ],
+                "repetition": 1
+              },
+              {
+                "seconds": 5.167151832996751,
+                "max_rss_mib": 11.59375,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "load_average_before": [
+                  3.822265625,
+                  7.84814453125,
+                  8.02197265625
+                ],
+                "load_average_after": [
+                  3.67626953125,
+                  7.7509765625,
+                  7.986328125
+                ],
+                "repetition": 2
+              },
+              {
+                "seconds": 5.1742156660038745,
+                "max_rss_mib": 11.5625,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "load_average_before": [
+                  3.67626953125,
+                  7.7509765625,
+                  7.986328125
+                ],
+                "load_average_after": [
+                  3.6220703125,
+                  7.671875,
+                  7.95703125
+                ],
+                "repetition": 3
+              },
+              {
+                "seconds": 5.166731332996278,
+                "max_rss_mib": 11.578125,
+                "rss_source": "ru_maxrss",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "proc_wait n=1000000 sum=35376317874",
+                "load_average_before": [
+                  3.51904296875,
+                  7.384765625,
+                  7.8466796875
+                ],
+                "load_average_after": [
+                  3.39697265625,
+                  7.294921875,
+                  7.81201171875
+                ],
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${STRICT}",
+            "${CURRENT_SOURCE}/bench/proc_wait.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.008509291990776546,
+            "minimum": 0.008282709008199163,
+            "maximum": 0.009337708004750311,
+            "mad": 0.00021766600548289716
+          },
+          "large_seconds": {
+            "median": 5.166731332996278,
+            "minimum": 5.112058166996576,
+            "maximum": 5.1742156660038745,
+            "mad": 0.007484333007596433
+          },
+          "incremental_seconds": 5.1582220410055015,
+          "median_peak_rss_mib": 11.578125
+        }
+      },
+      "comparison": {
+        "status": "comparable",
+        "ratio": 0.9521915201298855,
+        "time_reduction_percent": 4.78084798701145,
+        "strict_ratio": 0.9617065140829351,
+        "prototype_over_strict": 0.990106135485499
+      }
+    }
+  ],
+  "completed_at": "2026-11-16T17:29:22.364149+00:00",
+  "machine_end": {
+    "os": "macOS-27.2.1-arm64-arm-64bit-Mach-O",
+    "cores": 18,
+    "load_average": [
+      3.4,
+      7.29,
+      7.81
+    ],
+    "cpu": "Apple M5 Max",
+    "memory_gib": 128
+  },
+  "inputs_unchanged": true
+}

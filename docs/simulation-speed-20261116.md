@@ -2,6 +2,8 @@
 
 [English](simulation-speed-20261116.md) / [日本語](simulation-speed-20261116.ja.md)
 
+> **2026-11-17 update:** This page retains the earlier source, dates and measurements. See the [0.1.1 speed-improvement record](simulation-speed-20261117.md) for adopted changes, the newer thirteen-input comparison and the separate final three-input comparison. The older prototype/adoption statements below describe the earlier checkpoint.
+
 Geometric mean elapsed-time ratios on the same thirteen designs are **Mac 1.065, initial WSL2 1.193 and WSL2 rerun 1.220** (kirimasim/Icarus). **Both WSL2 release runs are provisional because external ctest/UVM activity overlapped.** Separate Linux prototype measurements reduce time about 51% for wide arithmetic, 16% for gates and 14% for memory, with all thirteen outputs/counter sets checked. The [received follow-up](simulation-speed-wsl2-followup-20261116.md) supplies the breakdown without introducing a P1 threshold.
 
 ## Reading guide and method

@@ -170,6 +170,7 @@ Code, identifiers, raw execution evidence and license terms retain their origina
 | Review of the tests that only Ghost passes: Clauses 36, 38, 39 and 40 (2026-11-13) | [English](ghost-only-review-vpi-20261113.en.md) | [日本語](ghost-only-review-vpi-20261113.md) |
 | Review of the tests that only Ghost passes: the remaining clauses (2026-11-13) | [English](ghost-only-review-rest-20261113.en.md) | [日本語](ghost-only-review-rest-20261113.md) |
 | Suite-wide search for the defect patterns found in the review (2026-11-13) | [English](defect-pattern-scan-20261113.en.md) | [日本語](defect-pattern-scan-20261113.md) |
+| Speed improvements adopted for kirimasim 0.1.1: Mac, 2026-11-17 | [English](simulation-speed-20261117.md) | [日本語](simulation-speed-20261117.ja.md) |
 | kirimasim 0.1.0 versus Icarus 14.0 devel: Mac, WSL2 and countermeasures | [English](simulation-speed-20261116.md) | [日本語](simulation-speed-20261116.ja.md) |
 | Slow-workload causes and optimization prototypes: Mac, 2026-11-16 | [English](simulation-speed-analysis-20261116.md) | [日本語](simulation-speed-analysis-20261116.ja.md) |
 | kirimasim 0.1.0 versus Icarus 14.0 devel: Mac, 2026-11-16 | [English](simulation-speed-mac-20261116.md) | [日本語](simulation-speed-mac-20261116.ja.md) |

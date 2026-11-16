@@ -9,8 +9,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "04d96cd11c7959ec93c217db1843e88c7378f91d69f4ecbbf184a8e22a1071d8",
-        "ja": "5d76bad38e769466aefe2d431e93da02cb6e90b8fe21bc37e932d2338f352781"
+        "en": "60b55d5f85e4540f84a4c4caca0183e2b7618c3c112933dba0ae27ff32c56819",
+        "ja": "4092f414d1ac00571e017a49ebd2f5ded51962688e9321f2a8105e368e7d6f0f"
       }
     },
     {
@@ -1270,14 +1270,25 @@
       }
     },
     {
+      "en": "docs/simulation-speed-20261117.md",
+      "ja": "docs/simulation-speed-20261117.ja.md",
+      "source": "docs/simulation-speed-20261117.md",
+      "source_language": "en",
+      "generated": false,
+      "sha256": {
+        "en": "15de9fce6a297f5d33020c15270949ce6db893cc57f95a7e2da6337697035b86",
+        "ja": "c391a855283cd5f99956487f0000f1ec88315d320e8d9315f61708c541b5d3aa"
+      }
+    },
+    {
       "en": "docs/simulation-speed-20261116.md",
       "ja": "docs/simulation-speed-20261116.ja.md",
       "source": "docs/simulation-speed-20261116.md",
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "8c688dbf203c3eef636f47f7318bb3990f6e416c3d10f1ca657f5cac0a6386f6",
-        "ja": "68f16b906181bbb38ed45bf212bfec62818ca72313da27cfa0db69d4d588a017"
+        "en": "b430e27b3ba4eacf129b866e3d5df13e1e08be1f8187a3474ad09c1e8e6031b7",
+        "ja": "658cb7073e8be80a18fe8e5dc5309607135e27eed42a8aa14144fd89514bd4db"
       }
     },
     {
@@ -1287,8 +1298,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "7b28da2d8b1c37e454374015884033f94b4762478b621d35bef017ab00f54be1",
-        "ja": "94621f245510379cf75d14862f45591c09c37daaebd1c8aa1719bdceef5eabd3"
+        "en": "0a595b37fd54518b4684d6e31d4f88698312f3282ecf18c07db088d802be1b76",
+        "ja": "fd0fed3bb00baf7b1f15eb386d37eaa2ca9e1d9655e6da5dffbe194466a5e744"
       }
     },
     {
@@ -1298,8 +1309,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "a58f9718811526ccb785aacd05b8532e9ff5df467e1b277e17d7d61fc8f71e35",
-        "ja": "49cf9b572754c70f3aff4e57073bfd80e5f38a6c832ad7c6370f548f269d70d8"
+        "en": "b99d522b77e86197333711a8b4e113ec357d566a3e3e2c128a35a74ae72dd5e8",
+        "ja": "5a5681a132b3a573bf4b5e4259a4b0b73c4e3651db6cdc7167c33843fe62f927"
       }
     },
     {

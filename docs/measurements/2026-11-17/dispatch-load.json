@@ -1,0 +1,463 @@
+{
+  "description": "same large verified SIR load/empty-run probe; baseline VM source equals published 7f5a9134; 7 alternating repetitions after one warmup per size/variant",
+  "machine_start": {
+    "os": "macOS-27.2.1-arm64-arm-64bit-Mach-O",
+    "cores": 18,
+    "load_average": [
+      2.16,
+      5.09,
+      6.8
+    ],
+    "cpu": "Apple M5 Max",
+    "memory_gib": 128
+  },
+  "sizes": {
+    "1000": {
+      "baseline": [
+        {
+          "measurements": {
+            "functions": 1000,
+            "instructions": 101001,
+            "verify_seconds": 0.00479858,
+            "load_and_empty_run_seconds": 0.00278771
+          },
+          "seconds": 0.014855665998766199,
+          "peak_rss_mib": 36.515625,
+          "load_average": [
+            2.1591796875,
+            5.09375,
+            6.80078125
+          ]
+        },
+        {
+          "measurements": {
+            "functions": 1000,
+            "instructions": 101001,
+            "verify_seconds": 0.00460733,
+            "load_and_empty_run_seconds": 0.002697
+          },
+          "seconds": 0.015024000007542782,
+          "peak_rss_mib": 36.515625,
+          "load_average": [
+            2.1591796875,
+            5.09375,
+            6.80078125
+          ]
+        },
+        {
+          "measurements": {
+            "functions": 1000,
+            "instructions": 101001,
+            "verify_seconds": 0.00448858,
+            "load_and_empty_run_seconds": 0.00271871
+          },
+          "seconds": 0.01497899999958463,
+          "peak_rss_mib": 36.515625,
+          "load_average": [
+            2.1591796875,
+            5.09375,
+            6.80078125
+          ]
+        },
+        {
+          "measurements": {
+            "functions": 1000,
+            "instructions": 101001,
+            "verify_seconds": 0.00473767,
+            "load_and_empty_run_seconds": 0.00273992
+          },
+          "seconds": 0.015006165995146148,
+          "peak_rss_mib": 36.5,
+          "load_average": [
+            2.1591796875,
+            5.09375,
+            6.80078125
+          ]
+        },
+        {
+          "measurements": {
+            "functions": 1000,
+            "instructions": 101001,
+            "verify_seconds": 0.00464683,
+            "load_and_empty_run_seconds": 0.00262862
+          },
+          "seconds": 0.01488220899773296,
+          "peak_rss_mib": 36.515625,
+          "load_average": [
+            2.1591796875,
+            5.09375,
+            6.80078125
+          ]
+        },
+        {
+          "measurements": {
+            "functions": 1000,
+            "instructions": 101001,
+            "verify_seconds": 0.00482717,
+            "load_and_empty_run_seconds": 0.00264292
+          },
+          "seconds": 0.015406582999275997,
+          "peak_rss_mib": 36.515625,
+          "load_average": [
+            2.1591796875,
+            5.09375,
+            6.80078125
+          ]
+        },
+        {
+          "measurements": {
+            "functions": 1000,
+            "instructions": 101001,
+            "verify_seconds": 0.00505783,
+            "load_and_empty_run_seconds": 0.00304042
+          },
+          "seconds": 0.015946499988785945,
+          "peak_rss_mib": 36.515625,
+          "load_average": [
+            2.1591796875,
+            5.09375,
+            6.80078125
+          ]
+        }
+      ],
+      "prototype": [
+        {
+          "measurements": {
+            "functions": 1000,
+            "instructions": 101001,
+            "verify_seconds": 0.00449675,
+            "load_and_empty_run_seconds": 0.00281475
+          },
+          "seconds": 0.015151542000239715,
+          "peak_rss_mib": 36.5,
+          "load_average": [
+            2.1591796875,
+            5.09375,
+            6.80078125
+          ]
+        },
+        {
+          "measurements": {
+            "functions": 1000,
+            "instructions": 101001,
+            "verify_seconds": 0.00439988,
+            "load_and_empty_run_seconds": 0.00262408
+          },
+          "seconds": 0.014382499997736886,
+          "peak_rss_mib": 36.5,
+          "load_average": [
+            2.1591796875,
+            5.09375,
+            6.80078125
+          ]
+        },
+        {
+          "measurements": {
+            "functions": 1000,
+            "instructions": 101001,
+            "verify_seconds": 0.00440221,
+            "load_and_empty_run_seconds": 0.00268283
+          },
+          "seconds": 0.014623084003687836,
+          "peak_rss_mib": 36.5,
+          "load_average": [
+            2.1591796875,
+            5.09375,
+            6.80078125
+          ]
+        },
+        {
+          "measurements": {
+            "functions": 1000,
+            "instructions": 101001,
+            "verify_seconds": 0.00458258,
+            "load_and_empty_run_seconds": 0.00277204
+          },
+          "seconds": 0.014791834008065052,
+          "peak_rss_mib": 36.5,
+          "load_average": [
+            2.1591796875,
+            5.09375,
+            6.80078125
+          ]
+        },
+        {
+          "measurements": {
+            "functions": 1000,
+            "instructions": 101001,
+            "verify_seconds": 0.00447442,
+            "load_and_empty_run_seconds": 0.00255446
+          },
+          "seconds": 0.014609791993279941,
+          "peak_rss_mib": 36.484375,
+          "load_average": [
+            2.1591796875,
+            5.09375,
+            6.80078125
+          ]
+        },
+        {
+          "measurements": {
+            "functions": 1000,
+            "instructions": 101001,
+            "verify_seconds": 0.00474042,
+            "load_and_empty_run_seconds": 0.00276017
+          },
+          "seconds": 0.015013583994004875,
+          "peak_rss_mib": 36.484375,
+          "load_average": [
+            2.1591796875,
+            5.09375,
+            6.80078125
+          ]
+        },
+        {
+          "measurements": {
+            "functions": 1000,
+            "instructions": 101001,
+            "verify_seconds": 0.00474387,
+            "load_and_empty_run_seconds": 0.00275021
+          },
+          "seconds": 0.015371875007986091,
+          "peak_rss_mib": 36.5,
+          "load_average": [
+            2.1591796875,
+            5.09375,
+            6.80078125
+          ]
+        }
+      ]
+    },
+    "4000": {
+      "baseline": [
+        {
+          "measurements": {
+            "functions": 4000,
+            "instructions": 404001,
+            "verify_seconds": 0.0182484,
+            "load_and_empty_run_seconds": 0.0107475
+          },
+          "seconds": 0.044224125012988225,
+          "peak_rss_mib": 134.171875,
+          "load_average": [
+            2.1591796875,
+            5.09375,
+            6.80078125
+          ]
+        },
+        {
+          "measurements": {
+            "functions": 4000,
+            "instructions": 404001,
+            "verify_seconds": 0.0181302,
+            "load_and_empty_run_seconds": 0.0108627
+          },
+          "seconds": 0.04404679199797101,
+          "peak_rss_mib": 134.15625,
+          "load_average": [
+            2.1591796875,
+            5.09375,
+            6.80078125
+          ]
+        },
+        {
+          "measurements": {
+            "functions": 4000,
+            "instructions": 404001,
+            "verify_seconds": 0.0179482,
+            "load_and_empty_run_seconds": 0.0113467
+          },
+          "seconds": 0.044041875007678755,
+          "peak_rss_mib": 134.171875,
+          "load_average": [
+            2.1591796875,
+            5.09375,
+            6.80078125
+          ]
+        },
+        {
+          "measurements": {
+            "functions": 4000,
+            "instructions": 404001,
+            "verify_seconds": 0.0180098,
+            "load_and_empty_run_seconds": 0.0109691
+          },
+          "seconds": 0.044172750000143424,
+          "peak_rss_mib": 134.171875,
+          "load_average": [
+            2.1591796875,
+            5.09375,
+            6.80078125
+          ]
+        },
+        {
+          "measurements": {
+            "functions": 4000,
+            "instructions": 404001,
+            "verify_seconds": 0.0182775,
+            "load_and_empty_run_seconds": 0.01123
+          },
+          "seconds": 0.045161499991081655,
+          "peak_rss_mib": 134.171875,
+          "load_average": [
+            2.1591796875,
+            5.09375,
+            6.80078125
+          ]
+        },
+        {
+          "measurements": {
+            "functions": 4000,
+            "instructions": 404001,
+            "verify_seconds": 0.0179344,
+            "load_and_empty_run_seconds": 0.0109687
+          },
+          "seconds": 0.044139792007626966,
+          "peak_rss_mib": 134.171875,
+          "load_average": [
+            2.1591796875,
+            5.09375,
+            6.80078125
+          ]
+        },
+        {
+          "measurements": {
+            "functions": 4000,
+            "instructions": 404001,
+            "verify_seconds": 0.0189198,
+            "load_and_empty_run_seconds": 0.0109175
+          },
+          "seconds": 0.04468533300678246,
+          "peak_rss_mib": 134.15625,
+          "load_average": [
+            2.1591796875,
+            5.09375,
+            6.80078125
+          ]
+        }
+      ],
+      "prototype": [
+        {
+          "measurements": {
+            "functions": 4000,
+            "instructions": 404001,
+            "verify_seconds": 0.0182873,
+            "load_and_empty_run_seconds": 0.0112058
+          },
+          "seconds": 0.044008084005326964,
+          "peak_rss_mib": 134.15625,
+          "load_average": [
+            2.1591796875,
+            5.09375,
+            6.80078125
+          ]
+        },
+        {
+          "measurements": {
+            "functions": 4000,
+            "instructions": 404001,
+            "verify_seconds": 0.0184555,
+            "load_and_empty_run_seconds": 0.0110443
+          },
+          "seconds": 0.044205041995155625,
+          "peak_rss_mib": 134.15625,
+          "load_average": [
+            2.1591796875,
+            5.09375,
+            6.80078125
+          ]
+        },
+        {
+          "measurements": {
+            "functions": 4000,
+            "instructions": 404001,
+            "verify_seconds": 0.0183353,
+            "load_and_empty_run_seconds": 0.0109574
+          },
+          "seconds": 0.04451387499284465,
+          "peak_rss_mib": 134.140625,
+          "load_average": [
+            2.1591796875,
+            5.09375,
+            6.80078125
+          ]
+        },
+        {
+          "measurements": {
+            "functions": 4000,
+            "instructions": 404001,
+            "verify_seconds": 0.0181129,
+            "load_and_empty_run_seconds": 0.0109164
+          },
+          "seconds": 0.04350329200678971,
+          "peak_rss_mib": 134.15625,
+          "load_average": [
+            2.1591796875,
+            5.09375,
+            6.80078125
+          ]
+        },
+        {
+          "measurements": {
+            "functions": 4000,
+            "instructions": 404001,
+            "verify_seconds": 0.0181225,
+            "load_and_empty_run_seconds": 0.0110751
+          },
+          "seconds": 0.04387020900321659,
+          "peak_rss_mib": 134.15625,
+          "load_average": [
+            2.1591796875,
+            5.09375,
+            6.80078125
+          ]
+        },
+        {
+          "measurements": {
+            "functions": 4000,
+            "instructions": 404001,
+            "verify_seconds": 0.0186858,
+            "load_and_empty_run_seconds": 0.0113118
+          },
+          "seconds": 0.04504387499764562,
+          "peak_rss_mib": 134.15625,
+          "load_average": [
+            2.1591796875,
+            5.09375,
+            6.80078125
+          ]
+        },
+        {
+          "measurements": {
+            "functions": 4000,
+            "instructions": 404001,
+            "verify_seconds": 0.0188598,
+            "load_and_empty_run_seconds": 0.010895
+          },
+          "seconds": 0.04405462500290014,
+          "peak_rss_mib": 134.140625,
+          "load_average": [
+            2.1591796875,
+            5.09375,
+            6.80078125
+          ]
+        }
+      ]
+    }
+  },
+  "binary_sha256": {
+    "baseline": "cfae8e1c6a7e734d84bb80c77ae96e1cb3bd93651ac9bb2581a7d39625476842",
+    "prototype": "1ce024449b1d53f87d9d78f87b0b4b44db24579556bd3c9ffb924eb732ac76b5"
+  },
+  "machine_end": {
+    "os": "macOS-27.2.1-arm64-arm-64bit-Mach-O",
+    "cores": 18,
+    "load_average": [
+      2.16,
+      5.09,
+      6.8
+    ],
+    "cpu": "Apple M5 Max",
+    "memory_gib": 128
+  }
+}

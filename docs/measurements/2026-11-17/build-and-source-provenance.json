@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "release": "0.1.1",
+  "measurement_date": "2026-11-17",
+  "adopted_source": "1745b8fc4e712d2b04fda5416184d3fc060358be",
+  "earlier_optimized_source": "7f5a9134f227e3d42491397105c745e11a5ed54a",
+  "unoptimized_source": "c152d237ac8dbd1b81349e7d578c25504d4ae8d5",
+  "test_repository_source": "0e0c89c95dca3652b9c30e89e3cf0fd4044d01cd",
+  "compiler": "AppleClang 21.0.0.21000401",
+  "kirimasim_flags": [
+    "-O3",
+    "-DNDEBUG",
+    "-ffp-contract=off"
+  ],
+  "measured_before_version_bump": true,
+  "final_thirteen_input_timing_score": null,
+  "latest_direct_comparison_inputs": 3,
+  "latest_direct_comparison_checks": 66,
+  "instruction_metadata_bytes": 88,
+  "source_patch_sha256": "2d97c789c61f498b404bf09da150f3b51f000d90d0fe18eaa3cc8bd54d026692",
+  "vm_source_sha256": "703c623df901af106d8ad8679243f529ad122a9c690a6c6c15a39b2008c7c7ca",
+  "records": {
+    "main-7f5a9134-three-way.json": "605ab9ae5c3194534a551ac85c5e8f9161fe83176ffa512eac0680e7e84180b8",
+    "dispatch-paired.json": "3c98b7e9cad67ba132bd07b85f9d42cdbe26d88ab36c2c962bea618dc5882119",
+    "dispatch-icarus.json": "fda63e485694b9d90a21f9cfd538c93b1abf00d1edc40c2ad35da33a2809b39f",
+    "dispatch-profile.json": "ecd82a4a8b467d47713c73c227c877a512de2a458c22904ef30f9df1c2636dae",
+    "dispatch-load.json": "67aaad132533acaa550aca0f08fd66713c001dbfdf316f6b6a48a00531c724f4"
+  }
+}

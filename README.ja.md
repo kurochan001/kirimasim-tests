@@ -369,6 +369,8 @@ Icarus Verilog 13.0とVerilator 5.052で記録した期待結果と、固定版�
 
 ## シミュレーション速度
 
+[0.1.1の速度改善記録（2026-11-17）](docs/simulation-speed-20261117.ja.md)では、7f5a9134の全13入力測定（Icarusより短いのは10本）と、1745b8fcの最終3入力比較を分けています。直接比較でIcarusより中央値が短いのはproc_waitだけで、gate_udpとmem_rwはまだ遅い結果です。並行CIの制約と全サンプルも保存しています。
+
 [2026-11-16 の Mac・WSL2 比較と原因・対策の調査](docs/simulation-speed-20261116.ja.md)に、kirimasim 0.1.0 と Icarus 14.0 devel の全サンプル、データ品質、試作の効果をまとめています。WSL2 の再測定と試作検証も受領し、背景負荷の制約を分けて記録しています。過去の速度測定は
 [測定記録](docs/readme-records-20261101.ja.md#シミュレーション速度)へまとめています。
 実行コードと手順は[シミュレータのベンチマーク](https://github.com/kurochan001/kirimasim/tree/main/bench)を参照してください。
