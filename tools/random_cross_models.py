@@ -25,6 +25,7 @@ import interaction_concat as concatenation
 import interaction_compare as comparisons
 import interaction_logic as logical
 import interaction_method as array_methods
+import random_cross_packed as packed_profiles
 
 GENERATOR = 'bounded_random_cross@1'
 LEGACY_PROFILES = ('expression_context', 'division_context', 'packed_write_sequence')
@@ -33,6 +34,8 @@ SEVEN_PROFILES = FIVE_PROFILES + ('shift_context', 'cast_pipeline')
 NINE_PROFILES = SEVEN_PROFILES + ('streaming_context', 'concat_assignment_sequence')
 ELEVEN_PROFILES = NINE_PROFILES + ('comparison_context', 'packed_logic_context')
 PROFILES = ELEVEN_PROFILES + ('array_reduction_context', 'unpacked_array_copy_sequence')
+EXTRA_PROFILES = packed_profiles.PROFILES
+SUPPORTED_PROFILES = PROFILES + EXTRA_PROFILES
 MAX_CASES = 256
 MAX_STIMULI = 32
 WIDTHS = (1, 32, 33, 64, 65, 129)
@@ -69,7 +72,7 @@ def generate(seed, count=96, steps=8, profiles=PROFILES):
     integer(seed, 0, (1 << 64)-1, 'seed')
     integer(count, 1, MAX_CASES, 'cases')
     integer(steps, 1, MAX_STIMULI, 'vectors')
-    if not profiles or len(set(profiles)) != len(profiles) or not set(profiles) <= set(PROFILES):
+    if not profiles or len(set(profiles)) != len(profiles) or not set(profiles) <= set(SUPPORTED_PROFILES):
         raise ValueError('choose distinct supported profiles')
     rng = random.Random(seed)
     schedule = [profiles[i % len(profiles)] for i in range(count)]
@@ -108,6 +111,8 @@ def generate(seed, count=96, steps=8, profiles=PROFILES):
             parameters, stimuli = generate_array_reduction(rng, steps)
         elif profile == 'unpacked_array_copy_sequence':
             parameters, stimuli = generate_array_copy(rng, steps)
+        elif profile in EXTRA_PROFILES:
+            parameters, stimuli = packed_profiles.generate(profile, rng, steps, word)
         else:
             width = rng.choice(WIDTHS)
             span = rng.randint(1, width)
@@ -133,7 +138,7 @@ def validate_case(case):
     if not isinstance(case['id'], str) or not re.fullmatch(r'case_\d{4}', case['id']):
         raise ValueError('invalid case id')
     profile, parameters, stimuli = case['profile'], case['parameters'], case['stimuli']
-    if profile not in PROFILES:
+    if profile not in SUPPORTED_PROFILES:
         raise ValueError('unsupported random profile')
     if profile in PROFILES[:2]:
         keys(parameters, ('row',))
@@ -171,6 +176,8 @@ def validate_case(case):
         validate_array_reduction(parameters, stimuli)
     elif profile == 'unpacked_array_copy_sequence':
         validate_array_copy(parameters, stimuli)
+    elif profile in EXTRA_PROFILES:
+        packed_profiles.validate(case)
     else:
         keys(parameters, ('width', 'span', 'direction', 'select', 'state'))
         width = integer(parameters['width'], 1, 129, 'width')
@@ -228,6 +235,8 @@ def content_digest(case):
 
 def requires_fourstate(case):
     validate_case(case)
+    if case['profile'] in EXTRA_PROFILES:
+        return packed_profiles.requires_fourstate(case)
     if case['profile'] == 'array_reduction_context':
         return any(set(''.join(vector['values'])) & set('xz') for vector in case['stimuli'])
     if case['profile'] == 'unpacked_array_copy_sequence':
@@ -286,6 +295,8 @@ def materialize(case):
                 expected += [f'v{index}_raw={divide.reference(row, a, b, natural)} '
                              f'result={divide.reference(row, a, b, wr)} bits={natural}']
         clauses = '11.6.1 11.8.1 11.8.2'+(' 11.4.3' if profile == PROFILES[1] else '')
+    elif profile in EXTRA_PROFILES:
+        lines, expected, clauses = packed_profiles.materialize(case)
     elif profile == 'array_reduction_context':
         lines, expected = materialize_array_reduction(case)
         clauses = '7.12.3 7.5 7.10 6.24.1 11.4.3 11.4.8 11.8.2 6.11.2 20.7'

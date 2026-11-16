@@ -30,7 +30,8 @@ import random_cross_models as models
 import suite_results
 
 ROOT = models.ROOT
-SOURCES = ('tools/run_random_cross.py', 'tools/random_cross_models.py', 'tools/normalize_output.py',
+SOURCES = ('tools/run_random_cross.py', 'tools/random_cross_models.py', 'tools/random_cross_packed.py',
+           'tools/normalize_output.py',
            'tools/random_cross_compare.py', 'tools/random_cross_evidence.py',
            'tools/random_cross_history.py', 'tools/random_cross_identity.py',
            'tools/run_icarus.py', 'tools/run_verilator.py', 'tools/run_kirimasim.py',
@@ -334,7 +335,7 @@ def main():
     parser.add_argument('--seed', type=int)
     parser.add_argument('--cases', type=int)
     parser.add_argument('--vectors', type=int)
-    parser.add_argument('--models', nargs='+', choices=models.PROFILES)
+    parser.add_argument('--models', nargs='+', choices=models.SUPPORTED_PROFILES)
     parser.add_argument('--replay', type=Path)
     parser.add_argument('--case', help='one saved case id; requires --replay')
     parser.add_argument('--generate-only', action='store_true')

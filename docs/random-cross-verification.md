@@ -12,7 +12,7 @@ Checkの固定クロス検証に加え、Nightlyで件数制限付きのラン�
 2026-11-05（日本時間）に確認した[`19cd790a`のCheck・Nightly](nightly-results.md#latest-verified-checkpoint)は、ともに成功しました。
 Nightlyの13プロファイルはkirimasim `50a897dee62a`・seed `41941310616`で**96件すべて有効なPASS**です。
 最後に成功した[2026-11-14のNightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/43533749064)（suite `aef04b93`）でも、ランダム比較のステップは成功しました。この回の個別artifactは照合していません。
-プロファイル追加はいったん13個で区切り、[重点探索と独立検算](#thirteen-profile-stabilization)で検証を深めます。
+既定のNightlyは13プロファイルを維持し、[重点探索と独立検算](#thirteen-profile-stabilization)を継続します。[追加のパック値モデル2種類](#opt-in-packed-profiles)は明示指定の探索で使えます。
 
 <a id="purpose-and-roles"></a>
 
@@ -36,7 +36,7 @@ Nightlyの13プロファイルはkirimasim `50a897dee62a`・seed `41941310616`�
   [本体の検証方針](https://github.com/kurochan001/kirimasim/blob/main/docs/VALIDATION.ja.md)を参照してください。
 
 ランダム比較の成功は、全入力や全操作列の正しさ、全因子の組合せ網羅、未検出不具合がないことの証明にはなりません。
-現在の13プロファイルが扱わない機能も自動的には探索しません。
+選択したプロファイルが扱わない機能も自動的には探索しません。
 生成分布はコードで定義したseed付き抽出です。カバレッジのフィードバックによる分布の自動調整は未実装です。
 参照計算の一部は固定クロスの関数と共用するため、ランダムに繰り返すだけでは参照モデル自体の誤りを排除できません。
 規格との照合、手計算した境界、[参照と実行基盤の回帰テスト](../tools/test_random_cross.py)を併用します。
@@ -75,7 +75,7 @@ Nightlyの13プロファイルはkirimasim `50a897dee62a`・seed `41941310616`�
 
 X/Z、bit/logic、幅・符号の違いが以下の期待値を変える理由は、[小さなSVの表示例](faq.md#q50-sv-values-change-observations)で確認できます。
 
-現在対応しているのは、次の13プロファイルです。既存の有限モデル全体を任意の入力に対応させたものではありません。
+Nightlyで既定の13プロファイルと、後述する明示指定の追加2プロファイルに対応しています。以下は既定の13種類です。既存の有限モデル全体を任意の入力に対応させたものではありません。
 
 - `expression_context`：幅・符号・代入先の幅・加減乗算を組み合わせ、任意の既知の入力ビット列を比較します。
   既存の`generators/interaction_expr.py`の参照関数を使います。
@@ -157,7 +157,7 @@ packageは時刻零に初期化、時刻1に待機を登録し、最初の書込
 続くシフトとキャストの追加時点では7プロファイルで、96件は従来5種類が各14件、新しい2種類が各13件でした。この時点で各既存プロファイルの抽出数は減り、既定の刺激列も5種類の時から変わりました。総件数・反復数・並列数・時間制限は維持しました。
 ストリーミングと連結代入を加えた時点では9プロファイルで、96件は最初の6種類が各11件、残る3種類が各10件でした。総件数・反復数・並列数・時間制限を保って探索対象を増やし、既定の刺激列を変更した記録です。
 比較とリダクションの追加時点では11プロファイルで、96件は最初の8種類が各9件、残る3種類が各8件でした。総件数・反復数・並列数・時間制限を維持して探索対象を広げ、既定の刺激列を変更した記録です。
-配列操作を加えた現在は13プロファイルです。既定96件は上記の最初の5種類が各8件、残る8種類が各7件です。既存プロファイルごとの抽出数は減りますが、総件数・反復数・並列数・時間制限は維持します。既定の同じseedから生成する刺激列は変わります。
+配列操作を加えた既定の構成は13プロファイルです。既定96件は上記の最初の5種類が各8件、残る8種類が各7件です。既存プロファイルごとの抽出数は減りますが、総件数・反復数・並列数・時間制限は維持します。既定の同じseedから生成する刺激列は変わります。
 直前の11種類を再生成する場合は、既存9種類の指定に`comparison_context packed_logic_context`を加えて`--models`へ渡します。この明示指定の乱数列・分布・生成結果は維持しています。
 直前の9種類を再生成する場合は`--models expression_context division_context packed_write_sequence conditional_context package_change_sequence shift_context cast_pipeline streaming_context concat_assignment_sequence`を指定します。この明示指定の乱数列・分布・生成結果は維持しています。
 直前の7種類を再生成する場合は`--models expression_context division_context packed_write_sequence conditional_context package_change_sequence shift_context cast_pipeline`を指定します。この明示指定の乱数列・分布・生成結果は維持しています。
@@ -644,3 +644,34 @@ Nightlyのrun ID・再試行番号と、直前のランダム用buildコミッ�
 同じNightlyでも、その前の固定スイートは以前のkirimasim版の場合があるため、固定結果自身の版を確認します。
 `results_ratchet.py`のゲートは引き続きpass→failだけです。pass→unsupportedなどを黙って追加しません。
 固定境界ケース、指紋付きのクロス実行証拠、固定履歴はそれぞれ維持します。
+
+<a id="opt-in-packed-profiles"></a>
+
+## 明示指定で使うパック値の追加モデル（2026-11-17）
+
+[生成器・参照モデル](../tools/random_cross_packed.py)に2種類を追加しました。`--models`で指定した場合に使用し、既定の13種類・Nightlyの96ケース・操作数・並列数・時間制限は変えていません。全15種類を明示指定して混ぜることもできます。以前の既定13種類はseed 1・731・20261117でmanifest、SV、期待値のhashが追加前と一致します。
+
+- `packed_bounds_sequence`：4状態パックベクタを負・ゼロ・非ゼロの宣言範囲で読み書きします。幅は1〜513ビットの21候補、選択幅は最大65ビット。昇順／降順、`+:`／`-:`、読出し先のbit／logic、32ビット符号付き添字を交差します。範囲内・一部範囲外・全部範囲外・X/Z添字を生成し、各操作の全体値、部分選択、単一ビットを観測します。無効位置への書込みを抑止し、部分的な書込みでは範囲内のビットだけを更新します。既知の入力から範囲外参照によってXを生む場合も4状態検証に分類します。根拠はIEEE 1800-2023 11.5.1、7.4.1、6.11.2です。
+- `packed_field_sequence`：3フィールドのパック構造体で全体代入・フィールド代入・異なる幅のフィールド間コピー・全体シフトを組み合わせます。9〜513ビットの10レイアウト、フィールドごとの符号、構造体全体の符号、bit／logicを交差します。全フィールドは同じ状態型で、bitとlogicの混在は生成しません。毎回の全体値、各フィールド、各フィールドを3ビット拡張した値で、配置・隣接フィールドの保持・コピーの拡張／切詰め・全体の算術右シフトを照合します。根拠は7.2.1、6.11.2、10.7、11.4.10、11.8.1です。
+
+参照値はMSBから並べた文字列で計算します。[回帰検査](../tools/test_random_cross_packed_profiles.py)では、宣言添字をキーにした別計算で3ビット値の読書き14,336組を検算し、構造体は別の整数A/B面のモデルでも照合します。これはAIによる検査で、人の独立レビューではありません。
+
+[検証記録](../coverage/interaction-qualification/random-packed-20261117/qualification.json)ではseed 1・731・20261117の計288ケース、各8操作を、kirimasim `c152d237ac8dbd1b81349e7d578c25504d4ae8d5`（Apple clang 21.0.0のrelease、フラグ検査成功）とIcarus Verilog 13.0で実行し、両方で全件一致しました。実際の構造体ケース144本の期待値も別のA/B面モデルと一致しました。8種類の誤処理を入れた実SVの変異は、元の8本が両方で成功し、変異8本が両方で正常終了の出力差として検出されました。単一プロセス内の順序付き操作列の検証であり、任意の入力や並行処理の正しさを証明するものではありません。
+
+[seed 1のmanifestと保存SV・期待値](../coverage/interaction-qualification/random-packed-20261117/seed-1/manifest.json)を公開し、これを使った96ケースのreplayも両シミュレータで全件一致、参照ドリフトなしでした。別の2つのseedはmanifestとhashの抜粋を公開し、完全なローカル実行資料は非公開の作業フォルダに保持します。公開の検証記録は元のrunのhashを記した抜粋で、実行パスや生の診断ログは含めません。固定スイート13,842本、要求カバレッジ92.67%とは別集計です。
+
+```sh
+# 新しい2種類だけを探索する。直前に取得・ビルドした版を指定する。
+python3 tools/run_random_cross.py \
+  --kirimasim /path/to/latest-build/kirimasim --commit VERIFIED_FULL_COMMIT \
+  --seed 731 --models packed_bounds_sequence packed_field_sequence \
+  --cases 96 --vectors 8 --jobs 3 --timeout 5 --time-budget 120 \
+  --output my-results/random-packed-731
+
+# 公開した保存SVと期待値を使う。再抽選しない。
+python3 tools/run_random_cross.py \
+  --kirimasim /path/to/latest-build/kirimasim --commit VERIFIED_FULL_COMMIT \
+  --replay coverage/interaction-qualification/random-packed-20261117/seed-1/manifest.json \
+  --jobs 3 --timeout 5 --time-budget 120 \
+  --output my-results/random-packed-saved-replay
+```

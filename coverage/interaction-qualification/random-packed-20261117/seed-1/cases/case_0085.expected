@@ -1,0 +1,9 @@
+initial=x
+step=0 kind=write index=11111111111111111111111111111111 whole=0 slice=0 bit=0
+step=1 kind=read index=11111111111111111111111111111111 whole=0 slice=0 bit=0
+step=2 kind=write index=11111111111111111111111111111111 whole=1 slice=1 bit=1
+step=3 kind=write index=111111111111111111111111z1111111 whole=1 slice=0 bit=x
+step=4 kind=write index=11111111111111111111111111111110 whole=1 slice=0 bit=x
+step=5 kind=write index=11111111111111111111111111111111 whole=0 slice=0 bit=0
+step=6 kind=write index=1111111111111111111111111111z111 whole=0 slice=0 bit=x
+step=7 kind=write index=11111111111111111111111111111110 whole=0 slice=0 bit=x
