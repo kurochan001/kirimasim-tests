@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[すべての章](README.ja.md) .テストは711本で、そのうち79本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは717本で、そのうち85本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -755,7 +755,7 @@
 
 ## `generators/wide_paths.py`が生成
 
-テスト7本。スイートのREADMEの"Generated tests"を参照してください。
+テスト13本。スイートのREADMEの"Generated tests"を参照してください。
 
 |テスト|確認する内容|条項|期待出力を記録したリリース|注記|
 | --- | --- | --- | --- | --- |
@@ -763,6 +763,12 @@
 | [`test_gen_wide_values_w128`](../../tests/gen/ch6/test_gen_wide_values_w128.sv) |広い，狭い，2状態のターゲットに128 - bit値を代入る| 6.11.2 10.7 21.2.1.3 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_wide_values_w129`](../../tests/gen/ch6/test_gen_wide_values_w129.sv) |広い，狭い，2状態のターゲットに129 - bit値を代入る| 6.11.2 10.7 21.2.1.3 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_wide_values_w200`](../../tests/gen/ch6/test_gen_wide_values_w200.sv) |広い，狭い，2状態のターゲットに200 - bit値を代入る| 6.11.2 10.7 21.2.1.3 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_wide_values_w255`](../../tests/gen/ch6/test_gen_wide_values_w255.sv) |広い，狭い，2状態のターゲットに255 - bit値を代入る| 6.11.2 10.7 21.2.1.3 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_wide_values_w256`](../../tests/gen/ch6/test_gen_wide_values_w256.sv) |広い，狭い，2状態のターゲットに256 - bit値を代入る| 6.11.2 10.7 21.2.1.3 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_wide_values_w257`](../../tests/gen/ch6/test_gen_wide_values_w257.sv) |広い，狭い，2状態のターゲットに257 - bit値を代入る| 6.11.2 10.7 21.2.1.3 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_wide_values_w511`](../../tests/gen/ch6/test_gen_wide_values_w511.sv) |広い，狭い，2状態のターゲットに511 - bit値を代入る| 6.11.2 10.7 21.2.1.3 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_wide_values_w512`](../../tests/gen/ch6/test_gen_wide_values_w512.sv) |広い，狭い，2状態のターゲットに512 - bit値を代入る| 6.11.2 10.7 21.2.1.3 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_wide_values_w513`](../../tests/gen/ch6/test_gen_wide_values_w513.sv) |広い，狭い，2状態のターゲットに513 - bit値を代入る| 6.11.2 10.7 21.2.1.3 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_wide_values_w63`](../../tests/gen/ch6/test_gen_wide_values_w63.sv) |広い，狭い，2状態のターゲットに63 - bit値を代入る| 6.11.2 10.7 21.2.1.3 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_wide_values_w64`](../../tests/gen/ch6/test_gen_wide_values_w64.sv) |広い，狭い，2状態のターゲットに64 - bit値を代入る| 6.11.2 10.7 21.2.1.3 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_wide_values_w65`](../../tests/gen/ch6/test_gen_wide_values_w65.sv) |広い，狭い，2状態のターゲットに65 - bit値を代入る| 6.11.2 10.7 21.2.1.3 | Icarus Verilog 13.0 | x/z |

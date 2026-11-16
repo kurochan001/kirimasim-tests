@@ -14,7 +14,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 13800 |
+| Tests | 13842 |
 | Clauses in scope | 1011 |
 | Clauses out of scope | 148 |
 | Clauses with a direct test | 1011/1011 |
@@ -26,9 +26,9 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 
 | Oracle | Tests |
 | --- | ---: |
-| both releases | 1692 |
-| Icarus Verilog 13.0 only | 5725 |
-| Verilator 5.052 or 5.054 only | 2405 |
+| both releases | 1698 |
+| Icarus Verilog 13.0 only | 5749 |
+| Verilator 5.052 or 5.054 only | 2417 |
 | standard only | 3978 |
 
 <a id="章別"></a>
@@ -40,14 +40,14 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | 3 | Design and verification building blocks | 152 | 17 | 8.9 | 0 | 20 |
 | 4 | Scheduling semantics | 480 | 27 | 17.8 | 0 | 29 |
 | 5 | Lexical conventions | 520 | 16 | 32.5 | 0 | 50 |
-| 6 | Data types | 711 | 76 | 9.4 | 0 | 165 |
-| 7 | Aggregate data types | 809 | 49 | 16.5 | 0 | 249 |
+| 6 | Data types | 717 | 76 | 9.4 | 0 | 165 |
+| 7 | Aggregate data types | 821 | 49 | 16.8 | 0 | 249 |
 | 8 | Classes | 479 | 43 | 11.1 | 0 | 139 |
 | 9 | Processes | 464 | 25 | 18.6 | 0 | 67 |
 | 10 | Assignment statements | 437 | 18 | 24.3 | 0 | 65 |
-| 11 | Operators and expressions | 1675 | 42 | 39.9 | 0 | 276 |
+| 11 | Operators and expressions | 1687 | 42 | 40.2 | 0 | 276 |
 | 12 | Procedural programming statements | 312 | 19 | 16.4 | 0 | 65 |
-| 13 | Tasks and functions (subroutines) | 657 | 15 | 43.8 | 0 | 163 |
+| 13 | Tasks and functions (subroutines) | 669 | 15 | 44.6 | 0 | 163 |
 | 14 | Clocking blocks | 170 | 15 | 11.3 | 0 | 69 |
 | 15 | Interprocess synchronization and communication | 196 | 21 | 9.3 | 0 | 135 |
 | 16 | Assertions | 799 | 69 | 11.6 | 0 | 639 |

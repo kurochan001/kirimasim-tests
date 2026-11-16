@@ -1,0 +1,597 @@
+{
+  "schema": 1,
+  "method": "42 actual source mutations run with the unmodified kirimasim 0.1.0 binary; original controls executed first in the same directories",
+  "simulator_version": "kirimasim 0.1.0 (commit cfa2ccd75989), built with AppleClang 21.0.0.21000401",
+  "binary_sha256": "c4193effbf55a810b34f22ef919f2a855a34ae3f5817be4f5816718d457913aa",
+  "independent_human_review": false,
+  "rows": [
+    {
+      "test": "tests/gen/ch11/test_gen_wide_ops_w255_2state.sv",
+      "fault": "discard high words after logical left shift",
+      "source_sha256": "cc2c11a4d9fab4ddca185d63843d9edd59d5275e5afbad5cad2eca8dcda7ba7f",
+      "expected_sha256": "1ce5efd00b887005990a612c711843d4ee163e7e67a13ab0d488c26b3e4fa6fc",
+      "mutation": {
+        "from": "    r = a << k;",
+        "to": "    r = 192'(a << k);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 4 is 'a << 1=0000000000000000a4df7b4e1cac3e220c361897ec7e522029...', expected 'a << 1=771c0e545da4db7ba4df7b4e1cac3e220c361897ec7e522029...'"
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_wide_ops_w255_4state.sv",
+      "fault": "discard high words after logical left shift",
+      "source_sha256": "c0ad82be0f00cfec9dd144a4f0f29dc1204948dc30894e8a9f4d7a04ab8b2eea",
+      "expected_sha256": "9574f5a4efc4ca7f3d1ef03ca9f1ecef3307b621331886c74b007cbb95fee668",
+      "mutation": {
+        "from": "    r = a << k;",
+        "to": "    r = 192'(a << k);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 4 is 'a << 1=0000000000000000f4ZZ2737487e7faeXX5b4b43eceb7199a2...', expected 'a << 1=1968f5826b036c66f4ZZ2737487e7faeXX5b4b43eceb7199a2...'"
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_wide_ops_w256_2state.sv",
+      "fault": "discard high words after logical left shift",
+      "source_sha256": "f9328e98f4106211bfdf326e372f52fbb90223e1f03616778918a7f7419f5335",
+      "expected_sha256": "f4e3a60d36671b1583c7e25e4f12f11c9b985f20be7cde8b84eb51bad167aac8",
+      "mutation": {
+        "from": "    r = a << k;",
+        "to": "    r = 192'(a << k);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 4 is 'a << 1=0000000000000000b7b86d2877dfc6dcf9b47102b47dd4e4df...', expected 'a << 1=6a9bbce36760fa21b7b86d2877dfc6dcf9b47102b47dd4e4df...'"
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_wide_ops_w256_4state.sv",
+      "fault": "discard high words after logical left shift",
+      "source_sha256": "0daaebf5fc5f99f4a8414025efdbe67bcbe330deb4b2e7d5eaa4cb1da49801d3",
+      "expected_sha256": "988f09e160da6c7bd15e9af347ab0639dfaff2618718c2ffb1a402c4cee98bc9",
+      "mutation": {
+        "from": "    r = a << k;",
+        "to": "    r = 192'(a << k);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 4 is 'a << 1=00000000000000004deecbb63dd9183eZZe26076f11a6ef5e1...', expected 'a << 1=f4d4e0188XXc06604deecbb63dd9183eZZe26076f11a6ef5e1...'"
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_wide_ops_w257_2state.sv",
+      "fault": "discard high words after logical left shift",
+      "source_sha256": "9ea6a4322bf471c2558ef6ad40aa94278cd6bcbcc87d01f8ace2e37941d4953b",
+      "expected_sha256": "7ff79626b204e509206cf508a28436146e02a11a5d46d91e6825d0081eedd708",
+      "mutation": {
+        "from": "    r = a << k;",
+        "to": "    r = 192'(a << k);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 4 is 'a << 1=000000000000000002e6fa7f510efa1add9cb002ad06d897b5...', expected 'a << 1=1e40f2942c02877d52e6fa7f510efa1add9cb002ad06d897b5...'"
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_wide_ops_w257_4state.sv",
+      "fault": "discard high words after logical left shift",
+      "source_sha256": "09ad26dc856218b4f5e056f508f31ae6ce36ba62157d80856bbfbd60de7e6cc1",
+      "expected_sha256": "97914d9775bf538e9b64c85f44aabfd5248cf7cc037229acf9ff0158d631c00b",
+      "mutation": {
+        "from": "    r = a << k;",
+        "to": "    r = 192'(a << k);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 4 is 'a << 1=0000000000000000006f00bcXXZ9fef719cc0f99d20c82b737...', expected 'a << 1=090430cc2d4a0240d06f00bcXXZ9fef719cc0f99d20c82b737...'"
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_wide_ops_w511_2state.sv",
+      "fault": "discard high words after logical left shift",
+      "source_sha256": "f2fee153a335239899284bb11b6c51f1bd2f7111bd161ce4cea0bf98367b3192",
+      "expected_sha256": "ee44747ff34eaf80061d7bce74b8656c162b34310820e8af3c2b5553d527b8d1",
+      "mutation": {
+        "from": "    r = a << k;",
+        "to": "    r = 192'(a << k);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 4 is 'a << 1=00000000000000000000000000000000000000000000000000...', expected 'a << 1=478a0e583be2bfc888a8f1b2c975cee589b5d720f167adadd1...'"
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_wide_ops_w511_4state.sv",
+      "fault": "discard high words after logical left shift",
+      "source_sha256": "c386d98c6324296b89e94b45669cfd3b97d2e35f109e62ee053a63ee828b9426",
+      "expected_sha256": "58086d5f8cef92579f917c4cd72d2ba21b3eca7f33d26228bbb5639d017bb864",
+      "mutation": {
+        "from": "    r = a << k;",
+        "to": "    r = 192'(a << k);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 4 is 'a << 1=00000000000000000000000000000000000000000000000000...', expected 'a << 1=02c3a75dXXd0ef20c879cae68a068e1b08dcb6e53b814c17d4...'"
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_wide_ops_w512_2state.sv",
+      "fault": "discard high words after logical left shift",
+      "source_sha256": "30722c5081c14b1c52fde09322d2bd90055d93bb4217beb06d2e83e9b954848b",
+      "expected_sha256": "7eb03774ad9b855a922fae46fea6cd0ce2b7bd0c91ca60bae3c197b7e04b1e3d",
+      "mutation": {
+        "from": "    r = a << k;",
+        "to": "    r = 192'(a << k);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 4 is 'a << 1=00000000000000000000000000000000000000000000000000...', expected 'a << 1=b3697f0eb2407c274a514c0e87fa604acdaed41e8253703340...'"
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_wide_ops_w512_4state.sv",
+      "fault": "discard high words after logical left shift",
+      "source_sha256": "f1ed0f3e973746c13aaa591bc27a00bf515cff12b8009129eb87520958eb4be3",
+      "expected_sha256": "5222e31e6ca27f3308482b28d502d3d9c34e53cf626b810b1806bf11caf58bc7",
+      "mutation": {
+        "from": "    r = a << k;",
+        "to": "    r = 192'(a << k);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 4 is 'a << 1=00000000000000000000000000000000000000000000000000...', expected 'a << 1=81e96839cb9bf5901a3894a2893077905be2aa13801a616d01...'"
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_wide_ops_w513_2state.sv",
+      "fault": "discard high words after logical left shift",
+      "source_sha256": "0d7f4c7592c585aceab11129c3c4ea42c1b722440fb423f207c17ab8d3b21834",
+      "expected_sha256": "844c13acb29b622f801fa2436f9c2ad69c826e3d9ae2fa4fd70fcde0875a408a",
+      "mutation": {
+        "from": "    r = a << k;",
+        "to": "    r = 192'(a << k);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 4 is 'a << 1=00000000000000000000000000000000000000000000000000...', expected 'a << 1=16000937262024c2a67557d4bfb11aec8c3f62da2ef80f7c97...'"
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_wide_ops_w513_4state.sv",
+      "fault": "discard high words after logical left shift",
+      "source_sha256": "5911c4f4f7cd24132bc69167bc0b32cc6c5d0fcef2f7379bcb5600b89f9e08eb",
+      "expected_sha256": "e48f5c2ff82c8dcea00cdebe243945803cbfac7bfd1e102d4da57b91098352f9",
+      "mutation": {
+        "from": "    r = a << k;",
+        "to": "    r = 192'(a << k);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 4 is 'a << 1=00000000000000000000000000000000000000000000000000...', expected 'a << 1=0d140b9ebfffb1135af2fb0fb5d6229a1c0bc9dcf19df87e33...'"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_subroutine_w255_2state.sv",
+      "fault": "truncate the high words of a function result",
+      "source_sha256": "fc001c551da55442800b298f80c98b40aa11182f976c414790ad9705b7ac89cb",
+      "expected_sha256": "a3d4940cedd025e67c884a8bf4fbfd2090631328386823e8463a7cd089c181fd",
+      "mutation": {
+        "from": "    return second ? q : p;",
+        "to": "    return 192'(second ? q : p);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 1 is 'pick(0)=0000000000000000c2c5a6cc1e57efa630a21d38764bbb6c8...', expected 'pick(0)=401cc8e1c613cb91c2c5a6cc1e57efa630a21d38764bbb6c8...'"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_subroutine_w255_4state.sv",
+      "fault": "truncate the high words of a function result",
+      "source_sha256": "b72742768902799e755d6051361d52d5dd079c8da4077508d0a8f43ce2a2b0b1",
+      "expected_sha256": "c1b9c2432fc839cc5b0b3163627d044ad283fa4f43c49699cfdcac23330b0f6e",
+      "mutation": {
+        "from": "    return second ? q : p;",
+        "to": "    return 192'(second ? q : p);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 1 is 'pick(0)=0000000000000000f371f7943e865ee07x98a669f4z92ff55...', expected 'pick(0)=2927ed7b5e0a81dbf371f7943e865ee07x98a669f4z92ff55...'"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_subroutine_w256_2state.sv",
+      "fault": "truncate the high words of a function result",
+      "source_sha256": "71bae89e2a1a9a54f5e1cb2858e85573746b30fb6dc38fd68cdc1c4badfb8bb3",
+      "expected_sha256": "8ff9609f1c9138f6763cba84847f6e0d14c75127ec482f1aa75d566235664755",
+      "mutation": {
+        "from": "    return second ? q : p;",
+        "to": "    return 192'(second ? q : p);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 1 is 'pick(0)=0000000000000000f344bcd3d9bc9f7c48ba61ea11ec9ab50...', expected 'pick(0)=ebc1d7281714d4b2f344bcd3d9bc9f7c48ba61ea11ec9ab50...'"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_subroutine_w256_4state.sv",
+      "fault": "truncate the high words of a function result",
+      "source_sha256": "d88e45fd3c302779bd88750ba08feb290c42fecb756cba422a833e61ebc8e2ad",
+      "expected_sha256": "bda4b4f57ff44ca79ffe7dfe67776bd7114817bc23c6905e6d6dbfcf882a6f69",
+      "mutation": {
+        "from": "    return second ? q : p;",
+        "to": "    return 192'(second ? q : p);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 1 is 'pick(0)=000000000000000068a598b163a008c7a165274xcd8e9893e...', expected 'pick(0)=7c38ffe2c9z298b068a598b163a008c7a165274xcd8e9893e...'"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_subroutine_w257_2state.sv",
+      "fault": "truncate the high words of a function result",
+      "source_sha256": "5b7ef4a655e8723ec8fd0567686635eb215427f3736f57d672facc6dc469075e",
+      "expected_sha256": "607321c66e5fbc52b333abcca7357f3bd9830b989b23e6358aabc9581f5a94eb",
+      "mutation": {
+        "from": "    return second ? q : p;",
+        "to": "    return 192'(second ? q : p);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 1 is 'pick(0)=0000000000000000023095b7f4c8f22afc484eb0e29628775...', expected 'pick(0)=1158b21dee8f7288523095b7f4c8f22afc484eb0e29628775...'"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_subroutine_w257_4state.sv",
+      "fault": "truncate the high words of a function result",
+      "source_sha256": "2b21e6c6a2e97d643de252cfcdedbabf499887259a8b925c8f8ac835c2587e1b",
+      "expected_sha256": "2deca558a8d4824b754e49446526417ded1d1446e0e14b1bc530e78994748b8e",
+      "mutation": {
+        "from": "    return second ? q : p;",
+        "to": "    return 192'(second ? q : p);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 1 is 'pick(0)=00000000000000000f235c70b36b07c6ce157e4523812za3d...', expected 'pick(0)=09fbb3914ee6897x4f235c70b36b07c6ce157e4523812za3d...'"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_subroutine_w511_2state.sv",
+      "fault": "truncate the high words of a function result",
+      "source_sha256": "7bb8ca531a841b06890a72a8b01e673378cf68bca440cf6b458fa0358bfd95f1",
+      "expected_sha256": "3daa5fdda8afc3e5ee05dc001fc1e29faca673e6b432d45f2f3b270fd71dacc2",
+      "mutation": {
+        "from": "    return second ? q : p;",
+        "to": "    return 192'(second ? q : p);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 1 is 'pick(0)=0000000000000000000000000000000000000000000000000...', expected 'pick(0)=752d3e2cb3d3c09d9f7ed8570770ee04cbe720f957b87648b...'"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_subroutine_w511_4state.sv",
+      "fault": "truncate the high words of a function result",
+      "source_sha256": "4ddae29f8b9f5a3f1ceed3e760b1cba3ac6a06564a8cf0deca5a75d18e004e0e",
+      "expected_sha256": "33908ccd9b17e5a2dbc77ae0306015613dbdb5942fb4f74b7668355e50e77eb4",
+      "mutation": {
+        "from": "    return second ? q : p;",
+        "to": "    return 192'(second ? q : p);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 1 is 'pick(0)=0000000000000000000000000000000000000000000000000...', expected 'pick(0)=2cb8da953c3d9917e4c5c76666e2047e319b9z0c33abe868a...'"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_subroutine_w512_2state.sv",
+      "fault": "truncate the high words of a function result",
+      "source_sha256": "99f285849eda1f8ae98fdb30d5eeb3c11c5e3e6f64b9f738ed57c5d05db850d2",
+      "expected_sha256": "239d7148a2ce519c69d976c6c99f35b165bf10cc2c411592c2c5a94088fc55f9",
+      "mutation": {
+        "from": "    return second ? q : p;",
+        "to": "    return 192'(second ? q : p);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 1 is 'pick(0)=0000000000000000000000000000000000000000000000000...', expected 'pick(0)=ce835d4c636124cc8ca804a2513a32296cd59b64a49772017...'"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_subroutine_w512_4state.sv",
+      "fault": "truncate the high words of a function result",
+      "source_sha256": "a8d480f44fe3b5b00dc364d0df4ecf5b6917fc28783b5a937e046329e0781d91",
+      "expected_sha256": "1a50509afb847cf409fd4bcdda0117221d3287b2346aefd2fbc303da32394d4d",
+      "mutation": {
+        "from": "    return second ? q : p;",
+        "to": "    return 192'(second ? q : p);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 1 is 'pick(0)=0000000000000000000000000000000000000000000000000...', expected 'pick(0)=6eff77f7fb6e662c1ede7c9bcfb8f2845e093926a6e932300...'"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_subroutine_w513_2state.sv",
+      "fault": "truncate the high words of a function result",
+      "source_sha256": "5c2d88d1661998cfd6ba6521fa3844f68bd71701185b034eccc10a08bb514e5c",
+      "expected_sha256": "d76d0e608d55102c6a474aab27be1046509451757affd5db25c90e926ab5aefd",
+      "mutation": {
+        "from": "    return second ? q : p;",
+        "to": "    return 192'(second ? q : p);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 1 is 'pick(0)=0000000000000000000000000000000000000000000000000...', expected 'pick(0)=10ac5a9dfe3e474e6f10b5cd47c543d5a419ade564237d441...'"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_subroutine_w513_4state.sv",
+      "fault": "truncate the high words of a function result",
+      "source_sha256": "1a773cc4a61b67fa5f35edec2211d4d2c6475e7ec21a05697006f3deda003036",
+      "expected_sha256": "d9296ca915cefcfae7fb906c6d86ad41cf7bc210ef5db2105d15ba807acf7ddf",
+      "mutation": {
+        "from": "    return second ? q : p;",
+        "to": "    return 192'(second ? q : p);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 1 is 'pick(0)=0000000000000000000000000000000000000000000000000...', expected 'pick(0)=1151140531711c0d59ed6485dc40abd2d9801418e6a30374a...'"
+    },
+    {
+      "test": "tests/gen/ch6/test_gen_wide_values_w255.sv",
+      "fault": "zero-extend a negative signed source",
+      "source_sha256": "86112a628417e7a676fd915bba2e654ae91f3de51d9b773cf5a2024bf3f8365c",
+      "expected_sha256": "51849025b4216ca9b2275099f4239fda68f45bf42890ffb0389c7f9a5de43fd6",
+      "mutation": {
+        "from": "    wide_s = s;",
+        "to": "    wide_s = $unsigned(s);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 3 is 'signed extended=00643eebda1cccc6304a999bd41f8aed150785819...', expected 'signed extended=7fe43eebda1cccc6304a999bd41f8aed150785819...'"
+    },
+    {
+      "test": "tests/gen/ch6/test_gen_wide_values_w256.sv",
+      "fault": "zero-extend a negative signed source",
+      "source_sha256": "d6426c52e89970f1269c6d68b2b5cb94207294c9cd53e617a59864e3dcc1461c",
+      "expected_sha256": "f40290225069c6887c2b0b129ec5c9fca3cfdad3b4311b5522b8db86062da9fe",
+      "mutation": {
+        "from": "    wide_s = s;",
+        "to": "    wide_s = $unsigned(s);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 3 is 'signed extended=0090bf6023c910c99e4ccd9080cd7934e0c6a1f92...', expected 'signed extended=ff90bf6023c910c99e4ccd9080cd7934e0c6a1f92...'"
+    },
+    {
+      "test": "tests/gen/ch6/test_gen_wide_values_w257.sv",
+      "fault": "zero-extend a negative signed source",
+      "source_sha256": "b7821f8aeb3a08f003e3f67e896cb297c1ca4616307836885b9b3de385e3696c",
+      "expected_sha256": "05a4296b05408ec09609f04265d73c5941c924f76afccb6440ad057435e76b95",
+      "mutation": {
+        "from": "    wide_s = s;",
+        "to": "    wide_s = $unsigned(s);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 3 is 'signed extended=0018b588de04a2726578307832d36ce3e6a2657d2...', expected 'signed extended=1ff8b588de04a2726578307832d36ce3e6a2657d2...'"
+    },
+    {
+      "test": "tests/gen/ch6/test_gen_wide_values_w511.sv",
+      "fault": "zero-extend a negative signed source",
+      "source_sha256": "74dad957a16ae1021a3ab72c455944f9c9cc897d2ce23e128f7f83f980d0ed5d",
+      "expected_sha256": "1d1fc579d32fc3af5c7eaa1fb5ee8f9da2de6e9aeea7850ca99bff370db941cd",
+      "mutation": {
+        "from": "    wide_s = s;",
+        "to": "    wide_s = $unsigned(s);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 3 is 'signed extended=005981c74f47f4fdd00ece86dfb96fd8853b17596...', expected 'signed extended=7fd981c74f47f4fdd00ece86dfb96fd8853b17596...'"
+    },
+    {
+      "test": "tests/gen/ch6/test_gen_wide_values_w512.sv",
+      "fault": "zero-extend a negative signed source",
+      "source_sha256": "b8ace32c4cca336f71cac13a7f191c775e2777d29eda80c4d56c8f1fcdcc4ecc",
+      "expected_sha256": "e34d5740fbc7953599f7f413ffa1e522e0bbb74255e1058f8338311f583c8695",
+      "mutation": {
+        "from": "    wide_s = s;",
+        "to": "    wide_s = $unsigned(s);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 3 is 'signed extended=00b402805b58b96f90b52c716d1a1963ab98f4dbc...', expected 'signed extended=ffb402805b58b96f90b52c716d1a1963ab98f4dbc...'"
+    },
+    {
+      "test": "tests/gen/ch6/test_gen_wide_values_w513.sv",
+      "fault": "zero-extend a negative signed source",
+      "source_sha256": "d19011fe2ecc5ceee9b7f34c9c86d384aff4ddf1772e5b499eb64e713d99d9fa",
+      "expected_sha256": "727c4d4a376e4765d3fff027d756d17b475ffea95e2e28d4a321293eee0fa008",
+      "mutation": {
+        "from": "    wide_s = s;",
+        "to": "    wide_s = $unsigned(s);",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 3 is 'signed extended=001c554d64392deccca5eba2cd6d9c48cf8b730af...', expected 'signed extended=1ffc554d64392deccca5eba2cd6d9c48cf8b730af...'"
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_wide_select_w255_2state.sv",
+      "fault": "write the wrong low bit of a cross-word part-select",
+      "source_sha256": "b94494fb6bc310af0f0547e35408f424a018008a4477f77a64d5b81293d18e30",
+      "expected_sha256": "a7b66b780d73d002e8ef55be9c00f6d025e280e2d52528d4661ba72e252ecb9b",
+      "mutation": {
+        "from": "    v[58 +: 12] = 12'h50f;",
+        "to": "    v[58 +: 12] = 12'h50f ^ 12'h001;",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 11 is 'after the write v=7276f2cfa87c6e34693d2ec0ef3f4c1e1b052ae...', expected 'after the write v=7276f2cfa87c6e34693d2ec0ef3f4c1e1b052ae...'"
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_wide_select_w255_4state.sv",
+      "fault": "write the wrong low bit of a cross-word part-select",
+      "source_sha256": "25bb19c6ff976eed2051993e820174813734685906e59e0548dcbcc8357d849d",
+      "expected_sha256": "51cb21c52dcc5f1d42c77954cb25bf1e925a87afc846620e1fe58853611ecdb4",
+      "mutation": {
+        "from": "    v[58 +: 12] = 12'ha0a;",
+        "to": "    v[58 +: 12] = 12'ha0a ^ 12'h001;",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 11 is 'after the write v=4820b7a9dc7xeb79f83044d1b2492bc2ce769c3...', expected 'after the write v=4820b7a9dc7xeb79f83044d1b2492bc2ce769c3...'"
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_wide_select_w256_2state.sv",
+      "fault": "write the wrong low bit of a cross-word part-select",
+      "source_sha256": "096435f9727ef9ff6ec24c6b3f548e24c3adeec18078d38bd94ab8cfb1a8eb5e",
+      "expected_sha256": "ab936d1dfeed877d68593b19fa69ff25146c11eddbb3b81ee6f3d54e94e3c7ed",
+      "mutation": {
+        "from": "    v[58 +: 12] = 12'h6d5;",
+        "to": "    v[58 +: 12] = 12'h6d5 ^ 12'h001;",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 11 is 'after the write v=be40af92ada2a39141cce36ce8935d8db0cfebf...', expected 'after the write v=be40af92ada2a39141cce36ce8935d8db0cfebf...'"
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_wide_select_w256_4state.sv",
+      "fault": "write the wrong low bit of a cross-word part-select",
+      "source_sha256": "82eb87ab08e2194eff05584b1357cede07c0b17727794e2bf6a62dfe6ad15617",
+      "expected_sha256": "921c151a9ccd4e182148ffc3e39b3d13bc709ba26d0b6be530a4facc968b0c3c",
+      "mutation": {
+        "from": "    v[58 +: 12] = 12'hce6;",
+        "to": "    v[58 +: 12] = 12'hce6 ^ 12'h001;",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 11 is 'after the write v=a641f67c23553b6xcd1b94ff5dabeaa7b7ez314...', expected 'after the write v=a641f67c23553b6xcd1b94ff5dabeaa7b7ez314...'"
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_wide_select_w257_2state.sv",
+      "fault": "write the wrong low bit of a cross-word part-select",
+      "source_sha256": "892c8f88ca2eb133cf541ef163036f1c677faeb4d1454843267d674f0943578f",
+      "expected_sha256": "1e3e5872562d6cee60c6fc8e4c997ffc2570989854764d6ad712e3bb0b9c7217",
+      "mutation": {
+        "from": "    v[58 +: 12] = 12'hf52;",
+        "to": "    v[58 +: 12] = 12'hf52 ^ 12'h001;",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 11 is 'after the write v=13a421c94c7d2df13ed8309743d0c7361125721...', expected 'after the write v=13a421c94c7d2df13ed8309743d0c7361125721...'"
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_wide_select_w257_4state.sv",
+      "fault": "write the wrong low bit of a cross-word part-select",
+      "source_sha256": "8c5cf2a6ee7455bfcfc917422f196fb852c1b924e5c5c9da4f6975a90aa9d5ce",
+      "expected_sha256": "9f3d0e0631196b8ed4f93879a4a9d942d9e082f1cf480bbee91bc324139df962",
+      "mutation": {
+        "from": "    v[58 +: 12] = 12'h4bb;",
+        "to": "    v[58 +: 12] = 12'h4bb ^ 12'h001;",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 11 is 'after the write v=0f5df69046cf9e56de8792xcb07f4dc1d2445a1...', expected 'after the write v=0f5df69046cf9e56de8792xcb07f4dc1d2445a1...'"
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_wide_select_w511_2state.sv",
+      "fault": "write the wrong low bit of a cross-word part-select",
+      "source_sha256": "991bcc3866dc6f2a2c5acd2a211dcf3f70681968db856d2b22718f78a49f44dc",
+      "expected_sha256": "19e7b021b201e4458de5f829f35102d684e47dc99eaa9d11cc289a888d02b66e",
+      "mutation": {
+        "from": "    v[58 +: 12] = 12'hfae;",
+        "to": "    v[58 +: 12] = 12'hfae ^ 12'h001;",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 11 is 'after the write v=553ecced581419acaa7e286bc10aaabcbcdb56a...', expected 'after the write v=553ecced581419acaa7e286bc10aaabcbcdb56a...'"
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_wide_select_w511_4state.sv",
+      "fault": "write the wrong low bit of a cross-word part-select",
+      "source_sha256": "4c1814636efb6bbf3ca83bfec53fb32bd354613c88ade4753bf606a11554f447",
+      "expected_sha256": "d655c6f63deb97485f1c14b16bd18ea2f594755fcdb897ce7f04a1d0cafac99b",
+      "mutation": {
+        "from": "    v[58 +: 12] = 12'hf95;",
+        "to": "    v[58 +: 12] = 12'hf95 ^ 12'h001;",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 11 is 'after the write v=5c90f5fc8ac3a8aa006f9d21ef532f6f573b6a8...', expected 'after the write v=5c90f5fc8ac3a8aa006f9d21ef532f6f573b6a8...'"
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_wide_select_w512_2state.sv",
+      "fault": "write the wrong low bit of a cross-word part-select",
+      "source_sha256": "71d09590919135b76a13ea85fc5b76c2bfd009e4c1574c6533a9c67c3af0cd47",
+      "expected_sha256": "ce32a4c873317eec80495589a6098ad108cdcc2994eb6e41197afcc978abd59c",
+      "mutation": {
+        "from": "    v[58 +: 12] = 12'h7a8;",
+        "to": "    v[58 +: 12] = 12'h7a8 ^ 12'h001;",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 11 is 'after the write v=a770b271f40e954a771e9b5719d0106ca9b61fd...', expected 'after the write v=a770b271f40e954a771e9b5719d0106ca9b61fd...'"
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_wide_select_w512_4state.sv",
+      "fault": "write the wrong low bit of a cross-word part-select",
+      "source_sha256": "536d89314a814372089b39aff9964f195d00d3e30ff462eb7e0e250cf04f1244",
+      "expected_sha256": "03ef3ee9e83f5809479038beab4b3d10a7f70b3b1b059dce0182faa8c4f48e4a",
+      "mutation": {
+        "from": "    v[58 +: 12] = 12'hcac;",
+        "to": "    v[58 +: 12] = 12'hcac ^ 12'h001;",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 11 is 'after the write v=1917d73f9887722f79541c0303bd895b32734d0...', expected 'after the write v=1917d73f9887722f79541c0303bd895b32734d0...'"
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_wide_select_w513_2state.sv",
+      "fault": "write the wrong low bit of a cross-word part-select",
+      "source_sha256": "6d4bf1b6b67839a87f27d11cbf82a0b32b8713a371e4af33bd01ea97ba4ad5fe",
+      "expected_sha256": "cacf008edb3cc681268c8ac32ae2b8863213bbf416e4a6df908a3bcf1f214c0a",
+      "mutation": {
+        "from": "    v[58 +: 12] = 12'hb67;",
+        "to": "    v[58 +: 12] = 12'hb67 ^ 12'h001;",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 11 is 'after the write v=1868209a0aeec5d8661a277a49e5416bcb437de...', expected 'after the write v=1868209a0aeec5d8661a277a49e5416bcb437de...'"
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_wide_select_w513_4state.sv",
+      "fault": "write the wrong low bit of a cross-word part-select",
+      "source_sha256": "ecf3675619415fe9bb2157e36b31f7bd3655e7403c8e7745888841ac198760c8",
+      "expected_sha256": "9c2874cb75076b1295f8474c6861f5b1a13f6c168ea7436cebe42b24766df0d5",
+      "mutation": {
+        "from": "    v[58 +: 12] = 12'hbc7;",
+        "to": "    v[58 +: 12] = 12'hbc7 ^ 12'h001;",
+        "occurrence": 1
+      },
+      "control_status": "pass",
+      "mutant_status": "fail",
+      "reason": "output differs: line 11 is 'after the write v=08a758558229ca4d35cf4fz1ac72cc791fx5f69...', expected 'after the write v=08a758558229ca4d35cf4fz1ac72cc791fx5f69...'"
+    }
+  ]
+}

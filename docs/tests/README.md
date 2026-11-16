@@ -15,14 +15,14 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 3 | [Design and verification building blocks](ch3.md) | 152 | 48 |
 | 4 | [Scheduling semantics](ch4.md) | 480 | 386 |
 | 5 | [Lexical conventions](ch5.md) | 520 | 415 |
-| 6 | [Data types](ch6.md) | 711 | 79 |
-| 7 | [Aggregate data types](ch7.md) | 809 | 304 |
+| 6 | [Data types](ch6.md) | 717 | 85 |
+| 7 | [Aggregate data types](ch7.md) | 821 | 316 |
 | 8 | [Classes](ch8.md) | 479 | 138 |
 | 9 | [Processes](ch9.md) | 464 | 233 |
 | 10 | [Assignment statements](ch10.md) | 437 | 221 |
-| 11 | [Operators and expressions](ch11.md) | 1675 | 1122 |
+| 11 | [Operators and expressions](ch11.md) | 1687 | 1134 |
 | 12 | [Procedural programming statements](ch12.md) | 312 | 125 |
-| 13 | [Tasks and functions (subroutines)](ch13.md) | 657 | 420 |
+| 13 | [Tasks and functions (subroutines)](ch13.md) | 669 | 432 |
 | 14 | [Clocking blocks](ch14.md) | 170 | 72 |
 | 15 | [Interprocess synchronization and communication](ch15.md) | 196 | 133 |
 | 16 | [Assertions](ch16.md) | 799 | 133 |

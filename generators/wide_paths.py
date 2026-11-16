@@ -2,7 +2,8 @@
 takes through a design: assignments between widths, selects of vectors and
 of packed arrays, concatenation, replication, shifts and comparisons, and
 the arguments and results of subroutines, for the widths 63, 64, 65, 127,
-128, 129 and 200, 2-state and 4-state, signed and unsigned, with x and z in
+128, 129, 200, 255, 256, 257, 511, 512 and 513, 2-state and 4-state,
+signed and unsigned, with x and z in
 the upper chunk (the bits above 64) of the 4-state values.
 
 The reference model holds a value as its width and three masks: the bits
@@ -44,7 +45,7 @@ from common import Case
 NAME = "wide_paths"
 VERSION = 1
 CHAPTER = 11
-WIDTHS = [63, 64, 65, 127, 128, 129, 200]
+WIDTHS = [63, 64, 65, 127, 128, 129, 200, 255, 256, 257, 511, 512, 513]
 
 
 def mask(w: int) -> int:

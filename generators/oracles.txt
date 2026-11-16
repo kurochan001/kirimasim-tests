@@ -6250,3 +6250,45 @@ test_gen_array_ref_dynamic_write_other_w65_signed spec
 test_gen_array_ref_dynamic_write_other_w65_unsigned spec
 test_gen_array_ref_dynamic_write_other_w8_signed spec verilator@5.054
 test_gen_array_ref_dynamic_write_other_w8_unsigned spec verilator@5.054
+test_gen_wide_ops_w255_2state spec iverilog@13.0 verilator@5.054
+test_gen_wide_ops_w255_4state spec iverilog@13.0
+test_gen_wide_ops_w256_2state spec iverilog@13.0 verilator@5.054
+test_gen_wide_ops_w256_4state spec iverilog@13.0
+test_gen_wide_ops_w257_2state spec iverilog@13.0 verilator@5.054
+test_gen_wide_ops_w257_4state spec iverilog@13.0
+test_gen_wide_ops_w511_2state spec iverilog@13.0 verilator@5.054
+test_gen_wide_ops_w511_4state spec iverilog@13.0
+test_gen_wide_ops_w512_2state spec iverilog@13.0 verilator@5.054
+test_gen_wide_ops_w512_4state spec iverilog@13.0
+test_gen_wide_ops_w513_2state spec iverilog@13.0 verilator@5.054
+test_gen_wide_ops_w513_4state spec iverilog@13.0
+test_gen_wide_select_w255_2state spec verilator@5.054
+test_gen_wide_select_w255_4state spec iverilog@13.0
+test_gen_wide_select_w256_2state spec verilator@5.054
+test_gen_wide_select_w256_4state spec iverilog@13.0
+test_gen_wide_select_w257_2state spec verilator@5.054
+test_gen_wide_select_w257_4state spec iverilog@13.0
+test_gen_wide_select_w511_2state spec verilator@5.054
+test_gen_wide_select_w511_4state spec iverilog@13.0
+test_gen_wide_select_w512_2state spec verilator@5.054
+test_gen_wide_select_w512_4state spec iverilog@13.0
+test_gen_wide_select_w513_2state spec verilator@5.054
+test_gen_wide_select_w513_4state spec iverilog@13.0
+test_gen_wide_subroutine_w255_2state spec verilator@5.054
+test_gen_wide_subroutine_w255_4state spec iverilog@13.0
+test_gen_wide_subroutine_w256_2state spec verilator@5.054
+test_gen_wide_subroutine_w256_4state spec iverilog@13.0
+test_gen_wide_subroutine_w257_2state spec verilator@5.054
+test_gen_wide_subroutine_w257_4state spec iverilog@13.0
+test_gen_wide_subroutine_w511_2state spec verilator@5.054
+test_gen_wide_subroutine_w511_4state spec iverilog@13.0
+test_gen_wide_subroutine_w512_2state spec verilator@5.054
+test_gen_wide_subroutine_w512_4state spec iverilog@13.0
+test_gen_wide_subroutine_w513_2state spec verilator@5.054
+test_gen_wide_subroutine_w513_4state spec iverilog@13.0
+test_gen_wide_values_w255 spec iverilog@13.0
+test_gen_wide_values_w256 spec iverilog@13.0
+test_gen_wide_values_w257 spec iverilog@13.0
+test_gen_wide_values_w511 spec iverilog@13.0
+test_gen_wide_values_w512 spec iverilog@13.0
+test_gen_wide_values_w513 spec iverilog@13.0

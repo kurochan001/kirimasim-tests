@@ -4,7 +4,7 @@
 
 [English](ch7.md) / [日本語](ch7.ja.md)
 
-[すべての章](README.ja.md) .テストは809本で、そのうち304本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは821本で、そのうち316本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -864,7 +864,7 @@
 
 ## `generators/wide_paths.py`が生成
 
-テスト14本。スイートのREADMEの"Generated tests"を参照してください。
+テスト26本。スイートのREADMEの"Generated tests"を参照してください。
 
 |テスト|確認する内容|条項|期待出力を記録したリリース|注記|
 | --- | --- | --- | --- | --- |
@@ -876,6 +876,18 @@
 | [`test_gen_wide_select_w129_4state`](../../tests/gen/ch7/test_gen_wide_select_w129_4state.sv) |パート選択と packed 配列は 129 - bit 4 状態値を選択します| 7.4.1 7.4.5 11.5.1 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_wide_select_w200_2state`](../../tests/gen/ch7/test_gen_wide_select_w200_2state.sv) |パート選択と packed 配列は 200 - bit 2 状態値を選択します| 7.4.1 7.4.5 11.5.1 | Verilator 5.052 ||
 | [`test_gen_wide_select_w200_4state`](../../tests/gen/ch7/test_gen_wide_select_w200_4state.sv) |パート選択と packed 配列は 200 - bit 4 状態値を選択します| 7.4.1 7.4.5 11.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_wide_select_w255_2state`](../../tests/gen/ch7/test_gen_wide_select_w255_2state.sv) |パート選択と packed 配列は 255 - bit 2 状態値を選択します| 7.4.1 7.4.5 11.5.1 | Verilator 5.054 ||
+| [`test_gen_wide_select_w255_4state`](../../tests/gen/ch7/test_gen_wide_select_w255_4state.sv) |パート選択と packed 配列は 255 - bit 4 状態値を選択します| 7.4.1 7.4.5 11.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_wide_select_w256_2state`](../../tests/gen/ch7/test_gen_wide_select_w256_2state.sv) |パート選択と packed 配列は 256 - bit 2 状態値を選択します| 7.4.1 7.4.5 11.5.1 | Verilator 5.054 ||
+| [`test_gen_wide_select_w256_4state`](../../tests/gen/ch7/test_gen_wide_select_w256_4state.sv) |パート選択と packed 配列は 256 - bit 4 状態値を選択します| 7.4.1 7.4.5 11.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_wide_select_w257_2state`](../../tests/gen/ch7/test_gen_wide_select_w257_2state.sv) |パート選択と packed 配列は 257 - bit 2 状態値を選択します| 7.4.1 7.4.5 11.5.1 | Verilator 5.054 ||
+| [`test_gen_wide_select_w257_4state`](../../tests/gen/ch7/test_gen_wide_select_w257_4state.sv) |パート選択と packed 配列は 257 - bit 4 状態値を選択します| 7.4.1 7.4.5 11.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_wide_select_w511_2state`](../../tests/gen/ch7/test_gen_wide_select_w511_2state.sv) |パート選択と packed 配列は 511 - bit 2 状態値を選択します| 7.4.1 7.4.5 11.5.1 | Verilator 5.054 ||
+| [`test_gen_wide_select_w511_4state`](../../tests/gen/ch7/test_gen_wide_select_w511_4state.sv) |パート選択と packed 配列は 511 - bit 4 状態値を選択します| 7.4.1 7.4.5 11.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_wide_select_w512_2state`](../../tests/gen/ch7/test_gen_wide_select_w512_2state.sv) |パート選択と packed 配列は 512 - bit 2 状態値を選択します| 7.4.1 7.4.5 11.5.1 | Verilator 5.054 ||
+| [`test_gen_wide_select_w512_4state`](../../tests/gen/ch7/test_gen_wide_select_w512_4state.sv) |パート選択と packed 配列は 512 - bit 4 状態値を選択します| 7.4.1 7.4.5 11.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_wide_select_w513_2state`](../../tests/gen/ch7/test_gen_wide_select_w513_2state.sv) |パート選択と packed 配列は 513 - bit 2 状態値を選択します| 7.4.1 7.4.5 11.5.1 | Verilator 5.054 ||
+| [`test_gen_wide_select_w513_4state`](../../tests/gen/ch7/test_gen_wide_select_w513_4state.sv) |パート選択と packed 配列は 513 - bit 4 状態値を選択します| 7.4.1 7.4.5 11.5.1 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_wide_select_w63_2state`](../../tests/gen/ch7/test_gen_wide_select_w63_2state.sv) |パート選択と packed 配列は 63 - bit 2 状態値を選択します| 7.4.1 7.4.5 11.5.1 | Verilator 5.052 ||
 | [`test_gen_wide_select_w63_4state`](../../tests/gen/ch7/test_gen_wide_select_w63_4state.sv) |パート選択と packed 配列は 63 - bit 4 状態値を選択します| 7.4.1 7.4.5 11.5.1 | Icarus Verilog 13.0 | x/z |
 | [`test_gen_wide_select_w64_2state`](../../tests/gen/ch7/test_gen_wide_select_w64_2state.sv) |パート選択と packed 配列は 64 - bit 2 状態値を選択します| 7.4.1 7.4.5 11.5.1 | Verilator 5.052 ||

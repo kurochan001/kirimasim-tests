@@ -319,7 +319,7 @@ tests/ch37/test_vpi_scope_lifetimes.sv",Maintaining the planning and execution e
 6,Data types,9,Processes,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,470,"tests/ch12/test_foreach_index_shadows_outer.sv
 tests/ch13/test_local_var.sv
 tests/ch6/test_automatic_data_declarations_in_static_procedural_scopes.sv",Maintaining the planning and execution evidence of existing models.,,
-6,Data types,10,Assignment statements,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,860,"tests/ch10/test_alias_undeclared_name_implicit_net.sv
+6,Data types,10,Assignment statements,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,866,"tests/ch10/test_alias_undeclared_name_implicit_net.sv
 tests/ch10/test_array_pattern_index_type_default_keys.sv
 tests/ch10/test_assignment_like_contexts.sv",Maintaining the planning and execution evidence of existing models.,,
 6,Data types,11,Operators and expressions,M,Modeling licensed,登録済み,14,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,1761,"tests/ch11/test_A_extra_specparam_range.sv
@@ -348,7 +348,7 @@ tests/gen/ch18/test_gen_cross_randreduce_33_signed_dynamic_sum_wide_2_sat_fail_s
 6,Data types,20,Utility system tasks and system functions,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,320,"tests/ch11/test_const_expr.sv
 tests/ch11/test_real_operand_result_types.sv
 tests/ch11/test_shortreal_result_and_condition_types.sv",Maintaining the planning and execution evidence of existing models.,,
-6,Data types,21,Input/output system tasks and system functions,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,267,"tests/ch21/test_comb_systask_string_format.sv
+6,Data types,21,Input/output system tasks and system functions,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,273,"tests/ch21/test_comb_systask_string_format.sv
 tests/ch21/test_writemem_two_state_enum.sv
 tests/ch23/test_port_collapse_trireg_charge_strength.sv",Maintaining the planning and execution evidence of existing models.,,
 6,Data types,22,Compiler directives,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,151,"tests/ch22/test_define_value_in_parameters.sv
@@ -405,7 +405,7 @@ tests/ch7/test_assignment_forms.sv",Maintaining the planning and execution evide
 7,Aggregate data types,10,Assignment statements,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,294,"tests/ch10/test_assign_lhs_forms.sv
 tests/ch10/test_assignment_deep.sv
 tests/ch10/test_contassign_pattern_to_net_array.sv",Maintaining the planning and execution evidence of existing models.,,
-7,Aggregate data types,11,Operators and expressions,M,Modeling licensed,登録済み,10,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,810,"tests/ch10/test_assign_lhs_forms.sv
+7,Aggregate data types,11,Operators and expressions,M,Modeling licensed,登録済み,10,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,822,"tests/ch10/test_assign_lhs_forms.sv
 tests/ch10/test_contassign_select_of_struct_member.sv
 tests/ch10/test_lvalue_scopes_selects_and_concatenation_forms.sv",Maintaining the planning and execution evidence of existing models.,,
 7,Aggregate data types,12,Procedural programming statements,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,173,"tests/ch11/test_tagged_union_expression_and_matches_precedence.sv
@@ -605,13 +605,13 @@ tests/ch37/test_vpi_time_queue.sv","The candidates and sources of the citation s
 9,Processes,39,Assertion API,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,0,,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
 9,Processes,40,Code coverage control and API,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,0,,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
 9,Processes,41,Data read API,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,0,,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
-10,Assignment statements,11,Operators and expressions,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,490,"tests/ch10/test_adder_edge_cases.sv
+10,Assignment statements,11,Operators and expressions,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,502,"tests/ch10/test_adder_edge_cases.sv
 tests/ch10/test_assign_compound.sv
 tests/ch10/test_assign_concat.sv",Maintaining the planning and execution evidence of existing models.,,
 10,Assignment statements,12,Procedural programming statements,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,108,"tests/ch37/test_vpi_case_loop_force_stmts.sv
 tests/ch37/test_vpi_statement_kinds.sv
 tests/ch4/test_sched_nonblocking_loop_last_wins.sv",Maintaining the planning and execution evidence of existing models.,,
-10,Assignment statements,13,Tasks and functions (subroutines),M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,342,"tests/ch10/test_assignment_like_contexts.sv
+10,Assignment statements,13,Tasks and functions (subroutines),M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,354,"tests/ch10/test_assignment_like_contexts.sv
 tests/ch13/test_ref_static_accepted_actuals.sv
 tests/ch13/test_ref_static_force_release.sv",Maintaining the planning and execution evidence of existing models.,,
 10,Assignment statements,14,Clocking blocks,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,118,"tests/ch37/test_vpi_module_relations.sv
@@ -631,7 +631,7 @@ tests/gen/ch17/test_gen_cross_checksample_1_interface_wildcard_edge_nba_negedge_
 10,Assignment statements,20,Utility system tasks and system functions,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,119,"tests/ch10/test_contassign_system_function_operand.sv
 tests/ch23/test_module_common_item_kinds.sv
 tests/ch7/test_array_init.sv",Maintaining the planning and execution evidence of existing models.,,
-10,Assignment statements,21,Input/output system tasks and system functions,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,401,"tests/ch10/test_alias_bidirectional_shared_drivers.sv
+10,Assignment statements,21,Input/output system tasks and system functions,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,407,"tests/ch10/test_alias_bidirectional_shared_drivers.sv
 tests/ch21/test_format_p_struct.sv
 tests/ch28/test_drive_strength_components_on_gates_and_assigns.sv",Maintaining the planning and execution evidence of existing models.,,
 10,Assignment statements,22,Compiler directives,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,89,"tests/ch37/test_vpi_module_relations.sv
@@ -677,7 +677,7 @@ tests/ch37/test_vpi_cont_assign_drivers.sv","The candidates and sources of the c
 11,Operators and expressions,12,Procedural programming statements,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,296,"tests/ch11/test_complex_condition_3.sv
 tests/ch11/test_conditional_predicate_terms_and_attribute.sv
 tests/ch11/test_mux_edge_cases.sv",Maintaining the planning and execution evidence of existing models.,,
-11,Operators and expressions,13,Tasks and functions (subroutines),M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,440,"tests/ch11/test_bit_reverse.sv
+11,Operators and expressions,13,Tasks and functions (subroutines),M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,452,"tests/ch11/test_bit_reverse.sv
 tests/ch11/test_ct_eval_side_effects.sv
 tests/ch13/test_abs_func.sv",Maintaining the planning and execution evidence of existing models.,,
 11,Operators and expressions,14,Clocking blocks,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,0,,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
@@ -690,7 +690,7 @@ tests/ch16/test_assertion_dist_as_inside.sv",Maintaining the planning and execut
 tests/ch11/test_dist_integral_operand_kinds.sv
 tests/ch11/test_precedence_dist_takes_whole_expression.sv",Maintaining the planning and execution evidence of existing models.,,
 11,Operators and expressions,19,Functional coverage,E2,Existing verification; chapter pair not registered,P2,0,The tolerance formula of real bin and bin fusion are confirmed by stimulation and observation of the same test. The object level of the factor model is undefined.,The tolerance differential equation of real bin and bin's fusion,Absolute/ Relative Tolerance / Endpoint/ Outside / Bin Array/ Single Bin / Duplicate Range Order,The number of hits for the decisive input column is directly compared with the total number of bins.,1,tests/ch19/test_cg_real_bins_tolerance_and_merge.sv,2,tests/ch19/test_cg_tolerance_bin_arrays_transitions.sv,The test is designed to reuse existing tests and to verify the need for factor modeling and the shortcomings.,2026-11-05,"Codex (GPT-6), AI review"
-11,Operators and expressions,20,Utility system tasks and system functions,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,356,"tests/ch10/test_contassign_system_function_operand.sv
+11,Operators and expressions,20,Utility system tasks and system functions,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,368,"tests/ch10/test_contassign_system_function_operand.sv
 tests/ch11/test_arithmetic_wider_than_64_bits.sv
 tests/ch11/test_bit_manip.sv",Maintaining the planning and execution evidence of existing models.,,
 11,Operators and expressions,21,Input/output system tasks and system functions,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,104,"tests/ch11/test_bit_slicing.sv
