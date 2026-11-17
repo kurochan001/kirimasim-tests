@@ -19,13 +19,19 @@ from benchmark_compare import digest
 ROOT=Path(__file__).resolve().parent.parent
 
 
-def command(args,cwd=None,log=None):
+def command(args,cwd=None,log=None,private_roots=()):
     result=subprocess.run(args,cwd=cwd,text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=3600)
     if log:
-        text=result.stdout.replace(str(Path.home()),'${HOME}')
+        text='$ '+' '.join(args)+'\n'+result.stdout
+        roots={str(Path.home()):'${HOME}',str(Path(log).parent.resolve()):'${BUILD_ROOT}'}
+        for p in private_roots:
+            roots[str(Path(p))]='${PRIVATE_ROOT}'
+            roots[str(Path(p).resolve())]='${PRIVATE_ROOT}'
+        for old,new in sorted(roots.items(),key=lambda item:-len(item[0])):
+            text=text.replace(old,new)
         text=re.sub(r'/(?:private/)?(?:tmp|var/folders)/[^\s]+','${TEMP}',text)
         with Path(log).open('a') as stream:
-            stream.write('$ '+' '.join(Path(a).name if a.startswith('/') else a for a in args)+'\n'+text)
+            stream.write(text)
     if result.returncode:
         raise ValueError('command failed: '+Path(args[0]).name+'; see build artifact')
     return result.stdout.strip()
@@ -58,6 +64,8 @@ def prepare(args,config):
     c_compiler=command([os.environ.get('CC','cc'),'--version']).splitlines()[0]
     flags={'CC':os.environ.get('CC','cc'),'CXX':os.environ.get('CXX','c++'),'CFLAGS':os.environ.get('CFLAGS',''),'CXXFLAGS':os.environ.get('CXXFLAGS',''),
            'preset':'release','cmake':'-O3 -DNDEBUG -ffp-contract=off, no fast-math','make_jobs':args.jobs}
+    def run(arguments,cwd=None,log=None):
+        return command(arguments,cwd,log,private_roots=(args.root,args.install))
     tools={}
     for name,spec in config['tools'].items():
         commit=plan['latest_commit'] if name=='latest' else spec['commit']
@@ -80,18 +88,18 @@ def prepare(args,config):
             checkout(repository,commit,source,log)
             prefix.mkdir(parents=True,exist_ok=True)
             if spec['kind']=='kirimasim':
-                command(['cmake','--preset','release'],source,log)
-                command(['cmake','--build','--preset','release','--target','kirimasim','--parallel',str(args.jobs)],source,log)
-                command(['python3','tools/check_release_flags.py'],source,log)
+                run(['cmake','--preset','release'],source,log)
+                run(['cmake','--build','--preset','release','--target','kirimasim','--parallel',str(args.jobs)],source,log)
+                run(['python3','tools/check_release_flags.py'],source,log)
                 executable.parent.mkdir(parents=True,exist_ok=True)
                 shutil.copy2(source/'build/release/src/driver/kirimasim',executable)
             else:
                 # Build-only black boxes: no source text or upstream tests are read.
-                command(['sh','autoconf.sh'] if name=='icarus' else ['autoconf'],source,log)
+                run(['sh','autoconf.sh'] if name=='icarus' else ['autoconf'],source,log)
                 options=['./configure','--prefix='+str(prefix.resolve())]
-                command(options,source,log)
-                command(['make','-j'+str(args.jobs)],source,log)
-                command(['make','install'],source,log)
+                run(options,source,log)
+                run(['make','-j'+str(args.jobs)],source,log)
+                run(['make','install'],source,log)
             previous={'cache_identity':cache_identity,'commit':commit,'binary_sha256':digest(executable),
                 'build':{'seconds':time.monotonic()-start,'compiler':compiler,'c_compiler':c_compiler,'flags':flags,'finished_at':now()}}
             if name=='icarus':

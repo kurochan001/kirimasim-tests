@@ -26,6 +26,16 @@ class BenchmarkSetupTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 setup.checkout('https://example.invalid/repo.git','a'*40,Path(tmp)/'source',None)
 
+    def test_complete_build_log_scrubs_commands_and_output(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            base=Path(tmp);prefix=base/'private-install';log=base/'build.log'
+            result=SimpleNamespace(returncode=0,stdout='install '+str(prefix)+' and '+str(Path.home()))
+            with patch.object(setup.subprocess,'run',return_value=result):
+                setup.command(['./configure','--prefix='+str(prefix)],log=log,private_roots=(prefix,))
+            text=log.read_text()
+            self.assertNotIn(str(prefix),text);self.assertNotIn(str(Path.home()),text)
+            self.assertIn('--prefix=${PRIVATE_ROOT}',text)
+
     def prepare_twice(self,mutate=None):
         with tempfile.TemporaryDirectory() as tmp:
             base=Path(tmp)
@@ -34,7 +44,7 @@ class BenchmarkSetupTests(unittest.TestCase):
             calls=[]
             def checkout(repository,commit,path,log):
                 path.mkdir(parents=True,exist_ok=True)
-            def command(command,cwd=None,log=None):
+            def command(command,cwd=None,log=None,**kwargs):
                 calls.append(command)
                 if '--version' in command:return 'test compiler 1.0'
                 if command[:2]==['cmake','--build']:
