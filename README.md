@@ -2,6 +2,10 @@
 
 [日本語](README.ja.md)
 
+For terminology and common questions, see the [glossary](docs/glossary.en.md)
+and [FAQ](docs/faq.en.md). They explain test expectations, result
+statuses, Nightly, coverage and the SVA/formal checks used by this suite.
+
 [![Check](https://github.com/kurochan001/kirimasim-tests/actions/workflows/check.yml/badge.svg)](https://github.com/kurochan001/kirimasim-tests/actions/workflows/check.yml)
 [![Nightly](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml/badge.svg)](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml)
 [![Speed benchmarks](https://github.com/kurochan001/kirimasim-tests/actions/workflows/benchmark.yml/badge.svg)](https://github.com/kurochan001/kirimasim-tests/actions/workflows/benchmark.yml)
@@ -12,9 +16,6 @@ Independent **[daily and weekly speed benchmarks](docs/daily-benchmark.md)** run
 A conformance test suite for the simulation semantics of IEEE 1800-2023
 SystemVerilog.
 
-For terminology and common questions, see the [glossary](docs/glossary.en.md)
-and [FAQ](docs/faq.en.md). They explain test expectations, result
-statuses, Nightly, coverage and the SVA/formal checks used by this suite.
 This README describes the suite as it is now; records of earlier work and
 measurements are in the [history](docs/history.md).
 The [document index](docs/README.md) links every guide, generated report and historical record in both languages.

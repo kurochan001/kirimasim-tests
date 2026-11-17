@@ -2,6 +2,9 @@
 
 [English](README.md)
 
+用語やよくある質問は、[用語集](docs/glossary.md)と[FAQ](docs/faq.md)を参照してください。
+期待値、結果の分類、Nightly、網羅率、SVA・フォーマル検証について説明しています。
+
 [![Check](https://github.com/kurochan001/kirimasim-tests/actions/workflows/check.yml/badge.svg)](https://github.com/kurochan001/kirimasim-tests/actions/workflows/check.yml)
 [![Nightly](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml/badge.svg)](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml)
 [![Speed benchmarks](https://github.com/kurochan001/kirimasim-tests/actions/workflows/benchmark.yml/badge.svg)](https://github.com/kurochan001/kirimasim-tests/actions/workflows/benchmark.yml)
@@ -11,8 +14,6 @@
 
 IEEE 1800-2023 SystemVerilogのシミュレーションの意味論を確認する適合性テストスイートです。
 
-用語やよくある質問は、[用語集](docs/glossary.md)と[FAQ](docs/faq.md)を参照してください。
-期待値、結果の分類、Nightly、網羅率、SVA・フォーマル検証について説明しています。
 このREADMEには現時点の情報だけを載せます。以前の作業の記録や測定は[履歴](docs/history.ja.md)にあります。
 [資料一覧](docs/README.ja.md)から、ガイド・生成レポート・過去の記録の日英両版を辿れます。
 Nightlyは毎晩`main`で7つのジョブをすべて実行します。最新の結果は
