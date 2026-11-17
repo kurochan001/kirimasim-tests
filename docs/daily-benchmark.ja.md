@@ -1,18 +1,47 @@
-# 日次シミュレーション速度ベンチマーク
+# 日次・週次シミュレーション速度ベンチマーク
 
 [English](daily-benchmark.md) / [日本語](daily-benchmark.ja.md)
 
-独立した[Daily benchmarkワークフロー](../.github/workflows/benchmark.yml)で実行時間を測ります。機能テストのNightlyは言語の結果を確認します。速くても結果が誤っていれば、速度値には採用しません。既存の`nightly.yml`、機能判定、`results`ブランチ、過去の速度測定記録は維持します。
+独立した[Daily and weekly benchmarksワークフロー](../.github/workflows/benchmark.yml)で実行時間を測ります。機能テストのNightlyは言語の結果を確認します。速くても結果が誤っていれば、速度値には採用しません。既存の`nightly.yml`、機能判定、`results`ブランチ、過去の速度測定記録は維持します。
 
 [最新の測定回と推移](https://github.com/kurochan001/kirimasim-tests/tree/benchmark-results#readme)・[Actionsとログ](https://github.com/kurochan001/kirimasim-tests/actions/workflows/benchmark.yml)。結果ブランチは最初の正式実行の公開時に作られます。失敗した回も表示し、完了した測定として扱いません。
 
 ## 比較対象と固定した定義
 
-[bench/daily.json](../bench/daily.json)は、**従来の13種類すべて**を定義しています。本体v0.1.0の独立した12種類と、このリポジトリの4値ケース1種類です。共通の12種類は`casez_struct`, `comb_chain`, `dyn_queue`, `fork_join`, `func_call`, `gate_udp`, `mem_rw`, `nba_burst`, `nba_shift`, `proc_wait`, `string_fmt`, `wide_arith`です。元のNと完全な期待出力を維持します。本体のソースは元の場所に置いたまま、`cfa2ccd75989c1ebb9ed63303271183377364cf0`に固定し、日々の最新ソースから選び直したり複製したりしません。
+[bench/daily.json](../bench/daily.json)は、共通の設定から**日次25種類・週次の大規模3種類**を選びます。日次は**従来の13種類すべて**を維持します。本体v0.1.0の独立した12種類と、このリポジトリの4値ケース1種類です。共通の12種類は`casez_struct`, `comb_chain`, `dyn_queue`, `fork_join`, `func_call`, `gate_udp`, `mem_rw`, `nba_burst`, `nba_shift`, `proc_wait`, `string_fmt`, `wide_arith`です。元のNと完全な期待出力を維持します。本体のソースは元の場所に置いたまま、`cfa2ccd75989c1ebb9ed63303271183377364cf0`に固定し、日々の最新ソースから選び直したり複製したりしません。
 
-測定定義`daily-v2-thirteen`は全13種類を測ります。旧`daily-v1`は5種類だけで、その保存済み結果は別系列に保全します。旧定義の共通4種類の平均を13種類の結果とは扱いません。レポートには系列ごとの定義名とケース数も表示します。
+測定定義`daily-v3-expanded`は共通22種類・4値3種類、`weekly-v1-scale`は共通3種類です。旧`daily-v1`（5種類）・`daily-v2-thirteen`（13種類）の保存済み結果は、それぞれ別系列で保全します。旧定義の総合値を拡張後の結果とは扱いません。レポートには定義名とケース数を表示します。日次・週次は識別情報、最新結果ファイル、表、グラフを分け、週次の公開で最新の日次結果が置き換わることはありません。
 
-追加ケース`bench/fourstate_mix.sv`は、このリポジトリ内のハッシュで固定し、100万反復します。X/Z、case等価、未知値の検出を観測します。Verilatorはコンパイル前に明示的に対象外とし、2値近似で省かれた処理を同じ仕事として速度比較しません。共通ケースは、選んだ全処理系で意味のそろう確定値を観測します。全SystemVerilog用途の総合性能を表す選定ではありません。
+追加ケース`bench/fourstate_mix.sv`は、このリポジトリ内のハッシュで固定し、100万反復します。X/Z、case等価、未知値の検出を観測します。Verilatorは4値3種類ともコンパイル前に明示的に対象外とし、2値近似で省かれた処理を同じ仕事として速度比較しません。共通ケースは、選んだ全処理系で意味のそろう確定値を観測します。全SystemVerilog用途の総合性能を表す選定ではありません。
+
+## 追加ケースと独立した期待値
+
+日次に追加した12種類は、このリポジトリで作成した独自の設計です。
+
+- `fifo_stream`：64語の同期FIFO。同時の送受信、満杯・空による待ち、データの順序、読み出した件数と残った語数を確認します。
+- `uart_loopback`：別モジュールの送信器・受信器で開始ビット、8データビット、停止ビットを処理します。シミュレーションの1クロックを1ビットとし、データの順序、フレーム数、停止ビットの誤りを確認します。オーバーサンプリングや雑音の試験ではありません。
+- `bus_fabric`：32語ずつのレジスタバンク4個をアドレスで選び、クロックに合わせて書き込み、異なるアドレスから読みます。独自の小さなレジスタバスで、特定のバス規格への適合を主張しません。
+- `hierarchy_fanout`：入力の変化を128個の組合せリーフモジュールへ伝え、全出力をチェックサムに含めます。
+- `event_fanout`：クロックに反応する256プロセスを疎に更新し、全プロセスの最終カウントを観測します。
+- `clock_domains`：周期4・6・10の独立した3クロック。立ち上がり回数から期待値を求めます。クロックドメイン間の受け渡しの正しさを測るものではありません。
+- `word_boundary`：64/65bitの値、回転、語境界をまたぐシフト、可変ビット選択を処理します。
+- `wide_divide`：257bitの符号なし値を、変化する非ゼロの33bit値で割り、商と剰余を観測します。
+- `packed_slice`：511bitの状態に対し、語境界をまたぐ32bitの可変部分選択を読み書きします。
+- `memory_scatter`：32bit×32,768語（論理データ128KiB）。同じアドレスへの読み書きも含む、決定的で不規則なアクセスです。
+- `fourstate_arith`：65bitの既知値・X・Zの演算と算術右シフト。全ビット不定になる件数と、既知の結果のチェックサムを確認します。
+- `resolved_bus`：8bitの三状態バスを4ドライバーで駆動します。無駆動、同じ値、競合を切り替え、既知ビットのチェックサムと実際のX/Zビット数を確認します。
+
+週次の大規模ケースは次の3種類です。
+
+- `large_hierarchy`：5段の4分木で、クロックに反応するリーフ1,024個と内部ノード341個。リーフごとに更新条件を変え、根の集約結果を確認します。
+- `large_memory`：32bit×262,144語（論理データ1MiB）へ、1反復あたり64語のストライド付きバーストアクセスを行い、バーストごとに1時間単位進めます。無時間進行の安全ガードは変更しません。論理データ量とシミュレータのRSSは別です。
+- `stream_pipeline`：8段、32bit×32並列レーンのパイプライン。validの伝搬、停止、最後の排出を含め、データのチェックサムと受け付けた件数を独立に確認します。
+
+個別処理を測るケースに、小さなRTLシステムと大きな構造を加えます。全用途や完全なプロセッサの性能を代表するとは主張しません。クラスを用いた検証、アサーション・カバレッジの負荷、波形I/Oは今回の定義に含みません。
+
+[`bench/reference_expanded.py`](../bench/reference_expanded.py)はシミュレータの出力を読まずに期待値を計算します。取引単位のFIFO、送信バイト列、平坦なメモリ、整数の剰余演算、クロック・イベントの回数の式、平坦なリーフ状態、データ単位のパイプライン変換、1bitずつの4値解決を使います。完全なNとn=1の期待値を設定とソースヘッダへ固定します。NはFIFO・バス・パイプラインではサイクル数、UARTではフレーム数、クロックでは時間の区画数、ほかでは記載した処理の反復数です。大規模ケースではn=1でも初期化やエラボレーションに時間がかかります。参照計算ソースのハッシュも記録し、測定中の変更を検出します。`spec_check: ai`はAIによる照合を表し、人の独立レビューとは区別します。
+
+新しい処理量は正式測定前の正しさ確認で短すぎる実行を減らすよう選び、その後に固定しました。従来13種類の処理量・期待値は変更していません。事前確認を正式な速度の証拠には使いません。処理系ごと・日ごとにNを自動調整せず、短い値・ばらつきに近い値には注意を、ゼロ以下の差分には欠測を表示します。
 
 処理系の識別情報は次の4種類です。
 
@@ -43,7 +72,7 @@ Lyraは初期構成には含めません。手元に実行ファイルや専用�
 
 比率はすべて**最新kirimasimの差分時間÷比較対象の差分時間**です。1未満なら最新kirimasimが速く、1超なら比較対象が速いことを示します。基準版との比較は性能の推移、Icarus・Verilatorとの比較はOSS間の比較です。同じ回に基準版も測ることは環境変動を判断する材料になりますが、その影響を完全に消せるわけではありません。
 
-幾何平均の集合は次の5つに固定します。
+従来の幾何平均5集合は、対象ケースを変えずに残します。
 
 - regression-common：共通12本すべての最新／基準版。
 - regression-fourstate：`fourstate_mix`の最新／基準版。
@@ -53,13 +82,15 @@ Lyraは初期構成には含めません。手元に実行ファイルや専用�
 
 集合の全ケースに有効値が必要です。欠測・失敗・ゼロ以下の差分があれば、その集合の総合値を欠測にします。対象一覧と取得数／必要数を示し、その日に成功したものだけで平均し直しません。SVGグラフも欠測で線を切ります。総合値が欠測でも、個別の結果と失敗理由はJSONに残します。
 
+追加の`expanded-*`の5集合は、日次の共通22本または4値3本を同じ比較相手で集計します。`weekly-*`の3集合は、週次3本すべてを基準版・Icarus・Verilatorと比較します。それぞれ固定集合として別に表示し、週次を日次の平均へ混ぜません。
+
 最新／基準版の総合値が1.15を超えた場合は説明上の注意です。機能テストを失敗させず、統計的有意性も主張しません。状態は`measured`（測定済み）、`unsupported`（宣言した非対応）、`output_mismatch`（出力不一致）、`build_failed`、`run_failed`、`timeout`、`incomparable`（比較不能）を区別します。コンパイラの異常を非対応と推測しません。ウォームアップや本測定の1回でも異常があれば、その処理系・ケースの値を採用しません。失敗した反復だけを捨てて中央値を作ることは禁止です。
 
 系列の識別には、定義・設定・測定ドライバー・集計処理・固定アダプターのハッシュと、CPU・コア数・メモリ・OS・アーキテクチャ・コンパイラ・ランナーイメージ・反復数・設定を使います。異なる条件を同じ線につなぎません。最新の本体コミットは同じ系列内で変わります。標準ランナーは、これらの個人を識別しない情報が同じでも物理的に同一の機材とは限りません。**共有ランナーの参考値**として扱い、小さな日次変動だけで性能が変わったと断定しません。
 
 ## 手動実行とローカル実行
 
-Actionsの**Daily benchmark → Run workflow → formal**から実行できます。自動実行は**20:17 UTC／翌日05:17 JST**で、機能Nightlyの19:23 UTC／04:23 JSTからずらしています。GitHub側で開始が遅れることがあるため、実際の開始・終了時刻も保存します。`smoke`は`wide_arith`と`fourstate_mix`を元のNのまま1反復します。出力・処理回数・終了の検証は残しますが、正式な性能履歴には入れません。
+Actionsの**Daily and weekly benchmarks → Run workflow**で`profile=daily`または`weekly`、`mode=formal`を選びます。日次は**20:17 UTC／翌日05:17 JST**、週次は**日曜23:47 UTC／月曜08:47 JST**です。機能Nightlyは19:23 UTC／04:23 JSTのままです。両プロファイルは同じconcurrencyとローカルロックで排他し、予定時刻をずらすだけには依存しません。GitHub側の遅延もあるため実際の開始・終了時刻を保存します。測定ジョブの上限は準備を含め180分です。`mode=smoke`は日次の`wide_arith`・`fourstate_mix`・`fifo_stream`・`resolved_bus`、週次の`large_memory`を、固定した完全なNで1反復します。出力・処理回数・終了の検証は残し、正式な性能履歴には入れません。
 
 同じCLIをmacOSとLinuxで使えます。Git、Python 3.10以上、本体が対応するC++23コンパイラ、CMake 3.28以上、Ninja、圧縮ライブラリの開発ファイル、OSSのビルドに必要な道具を用意してください。Ubuntuの導入一覧はワークフローにあります。Homebrewでは十分新しいbison・flexをPATHへ追加します。静かなマシンと新しい出力先を使ってください。
 
@@ -69,12 +100,14 @@ mkdir -p "$WORK"
 python3 tools/benchmark_setup.py resolve --out "$WORK/plan.json"
 python3 tools/benchmark_setup.py prepare --plan "$WORK/plan.json" \
   --root "$WORK/build" --install "$WORK/install" --out "$WORK/inventory.json" --jobs 2
-python3 tools/daily_benchmark.py --inventory "$WORK/inventory.json" \
+python3 tools/daily_benchmark.py --profile daily --inventory "$WORK/inventory.json" \
   --environment fixed-local-profile --out "$WORK/run-001"
 python3 tools/benchmark_history.py append --directory "$WORK/report" "$WORK/run-001/results.json"
 ```
 
-スモークでは測定コマンドに`--smoke --only wide_arith fourstate_mix`を追加し、別の出力先を使います。`benchmark_history.py append`はスモークを意図的に拒否します。準備済みの実行ファイルを使う場合はinventoryの代わりに、固定したソースの`--benchmark-root`、解決済み完全SHAの`--latest-commit`と、`--tool latest=... --tool baseline=... --tool icarus=... --tool verilator=...`を指定できます。本体のSHA・版とOSSのリリース表示を確認します。外部から渡されたOSS実行ファイルにはソースからのビルド証明がないため、その制約を結果へ記録します。再現する正式インストールには準備処理の記録を使ってください。
+週次は別の出力先で`--profile weekly`を指定し、準備済みのinventoryを共用できます。各測定回で最新を一度だけ解決します。同じinventoryから日次・週次を続けて実行する場合は、意図的に同じSHAを使います。最新を更新するときはresolve・prepareをやり直してください。
+
+日次スモークでは測定コマンドに`--smoke --only wide_arith fourstate_mix`を追加し、別の出力先を使います。週次スモークは`--profile weekly --smoke --only large_memory`です。`benchmark_history.py append`はスモークを意図的に拒否します。準備済みの実行ファイルを使う場合はinventoryの代わりに、固定したソースの`--benchmark-root`、解決済み完全SHAの`--latest-commit`と、`--tool latest=... --tool baseline=... --tool icarus=... --tool verilator=...`を指定できます。本体のSHA・版とOSSのリリース表示を確認します。外部から渡されたOSS実行ファイルにはソースからのビルド証明がないため、その制約を結果へ記録します。再現する正式インストールには準備処理の記録を使ってください。
 
 同一ホストの準備・測定CLIは、共有の非待機ロックで重複を拒否します。同じ固定マシンを複数ユーザーやコンテナーが使う場合は、同じ`--lock`パスを指定してください。他のプログラムはこのロックを守らないため、運用側でも別のビルドやベンチマークを止める必要があります。ワークフローは準備から公開までconcurrencyで排他し、標準ランナーでは他のワークフローとVMも分かれます。時刻をずらすだけで排他したとは扱いません。
 
@@ -82,7 +115,7 @@ python3 tools/benchmark_history.py append --directory "$WORK/report" "$WORK/run-
 
 `contents: write`は公開ジョブだけに付けます。mainの正式実行だけを**benchmark-results**へ追記し、通常のpushを使います。最初のブランチはmainの内容をコピーせず作ります。`runs/actions-RUN_ID-ATTEMPT.json`は書き換えません。同日の手動実行と再実行も別IDです。同じ内容の再取込みは何も壊さず、同じIDへ違う内容を登録すると拒否します。機能テストの履歴を変えず、日次サンプルをmainへコミットしません。公開ジョブだけを再試行するときは、元の測定のArtifactと測定IDを使います。新しいサンプルを測る場合は測定ジョブまたは全ジョブを再実行してください。
 
-結果ブランチには小さな各回のJSON、索引、最新の測定回、日英READMEとSVGを保存します。パスを伏せた全実行ログ・ビルドログはActions Artifactsで14日保存し、測定回のURLからたどれます。実行ファイルのパスを含むinventory、ソースツリー、ビルドフォルダはアップロードしません。途中で止まった測定や準備失敗は実行基盤の失敗として残し、総合値を欠測にします。取得済みのサンプルも保持します。アップロードや公開自体が失敗した場合は、そのジョブとArtifactsを確認してください。公開成功とは報告しません。
+結果ブランチには小さな各回のJSON、索引、全体の最新回`latest.json`、日次の`latest-daily.json`、週次の`latest-weekly.json`、日英READMEとSVGを保存します。パスを伏せた全実行ログ・ビルドログはActions Artifactsで14日保存し、測定回のURLからたどれます。実行ファイルのパスを含むinventory、ソースツリー、ビルドフォルダはアップロードしません。途中で止まった測定や準備失敗は実行基盤の失敗として残し、総合値を欠測にします。取得済みのサンプルも保持します。アップロードや公開自体が失敗した場合は、そのジョブとArtifactsを確認してください。公開成功とは報告しません。
 
 新しいSecretや未登録の専用ランナーは不要です。Actionsで既存の固定アクションを使用でき、公開ジョブにcontents権限を付けられること、ブランチ規則がbenchmark-resultsへの通常の追記を許すことが必要です。キャッシュのキーにはOS・アーキテクチャ・イメージ・コンパイラ・固定設定・準備処理のハッシュ・最新SHAを含みます。ケース定義だけの変更では、同じプラットフォーム・コンパイラの過去の設置キャッシュも候補にできます。復元後もコミット・コンパイラ・設定・設置先・ビルド処理・インストール全ファイルのハッシュを照合し、一致しない処理系は作り直します。本体ビルドとキャッシュ転送が終わってから測定します。
 
@@ -94,7 +127,8 @@ python3 tools/benchmark_history.py append --directory "$WORK/report" "$WORK/run-
 
 ```sh
 python3 -m unittest discover -s tools -p 'test_daily_benchmark.py'
-python3 -m unittest discover -s tools -p 'test_benchmark_compare.py'
+python3 -m unittest discover -s tools -p 'test_benchmark*.py'
+python3 bench/reference_expanded.py --check
 actionlint .github/workflows/benchmark.yml
 ```
 

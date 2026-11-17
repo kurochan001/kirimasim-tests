@@ -31,6 +31,9 @@ def normalized(value):
         raise ValueError('unsafe group name')
     datetime.fromisoformat(value['started_at'])
     config=value['definition_config']
+    profile=config.get('profile','daily')
+    if profile not in ('daily','weekly') or value['environment'].get('profile',profile)!=profile:
+        raise ValueError('unknown or mismatched benchmark profile')
     if value['environment']['runs']!=5 or config['measurement']['runs']!=5:
         raise ValueError('formal campaigns require five repetitions')
     expected={c['name']:c for c in config['cases']}
@@ -137,9 +140,17 @@ def render(directory):
     runs=sorted([normalized(json.loads(p.read_text())) for p in (directory/'runs').glob('*.json')],key=lambda r:(r['started_at'],r['id']))
     if not runs:
         raise ValueError('no runs')
-    index={'schema':1,'runs':[{'id':r['id'],'started_at':r['started_at'],'completed_at':r.get('completed_at'),'series':r['series'],'status':r['status'],'groups':r['groups']} for r in runs]}
+    index={'schema':1,'runs':[{'id':r['id'],'started_at':r['started_at'],'completed_at':r.get('completed_at'),'series':r['series'],'status':r['status'],'groups':r['groups'],
+                              'profile':r['definition_config'].get('profile','daily')} for r in runs]}
     write_json(directory/'history.json',index)
     write_json(directory/'latest.json',runs[-1])
+    latest_by_profile={}
+    for r in runs:
+        latest_by_profile[r['definition_config'].get('profile','daily')]=r
+    for profile, r in latest_by_profile.items():
+        if profile not in ('daily','weekly'):
+            raise ValueError('unknown history profile')
+        write_json(directory/('latest-'+profile+'.json'),r)
     series={}
     for r in runs:
         series.setdefault(r['series'],[]).append(r)
@@ -152,11 +163,16 @@ def render(directory):
             (chartdir/(group['name']+'.svg')).write_text(svg)
     for ja in (False,True):
         tr=lambda en,jp:jp if ja else en
-        lines=['# '+tr('Daily simulation-speed benchmarks','日次シミュレーション速度ベンチマーク'),'',
+        lines=['# '+tr('Daily and weekly simulation-speed benchmarks','日次・週次シミュレーション速度ベンチマーク'),'',
                '[English](README.md) / [日本語](README.ja.md)','',
                tr('Independent of functional Nightly. GitHub-hosted values are reference measurements; five repetitions do not establish statistical significance.',
                   '機能テストのNightlyとは独立しています。GitHub標準ランナーの値は参考値で、5回の測定から統計的有意性を断言しません。'),'',
-               '## '+tr('Latest attempt','最新の測定回'),'']+report(runs[-1],ja=ja)
+               ]
+        for profile in ('daily','weekly'):
+            if profile not in latest_by_profile:
+                continue
+            label=tr('Latest daily attempt','最新の日次測定') if profile=='daily' else tr('Latest weekly attempt','最新の週次測定')
+            lines += ['## '+label,'',f'[JSON](latest-{profile}.json)','']+report(latest_by_profile[profile],ja=ja)
         lines+=['','## '+tr('Separate environment / definition series','環境・定義別の推移'),'']
         for series_id,items in reversed(list(series.items())):
             lines += [f"### `{series_id[:16]}`",'',f"{len(items)} runs; {items[0]['started_at']} → {items[-1]['started_at']}",'']
@@ -173,7 +189,7 @@ def render(directory):
 
 def failure(args):
     from daily_benchmark import config_at, DEFAULT_CONFIG
-    config=config_at(DEFAULT_CONFIG)
+    config=config_at(DEFAULT_CONFIG,args.profile)
     plan=json.loads(args.plan.read_text()) if args.plan and args.plan.exists() else {}
     result={'schema':1,'id':args.run_id,'mode':'formal','started_at':args.started_at or now(),'completed_at':None,
         'actions':{'url':args.run_url,'run_id':os.environ.get('GITHUB_RUN_ID'),'attempt':os.environ.get('GITHUB_RUN_ATTEMPT')},'environment':{'runs':5,'environment':'github-hosted-ubuntu-24.04'},
@@ -188,6 +204,7 @@ def main():
     a=sub.add_parser('append');a.add_argument('--directory',type=Path,required=True);a.add_argument('result',type=Path)
     r=sub.add_parser('render');r.add_argument('--directory',type=Path,required=True)
     f=sub.add_parser('failure');f.add_argument('--out',type=Path,required=True);f.add_argument('--run-id',required=True)
+    f.add_argument('--profile',choices=['daily','weekly'],default='daily')
     f.add_argument('--plan',type=Path);f.add_argument('--run-url');f.add_argument('--started-at')
     args=p.parse_args()
     if args.command=='append':append(args.directory,json.loads(args.result.read_text()))

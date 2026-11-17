@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """Bad/incomplete measurements must not become favorable speed results."""
 import copy
+import hashlib
 import json
 from pathlib import Path
 import sys
@@ -186,15 +187,20 @@ class DailyBenchmarkTests(unittest.TestCase):
 
     def test_actual_definition_has_fixed_pins_and_comparison_sets(self):
         config=daily.config_at(daily.DEFAULT_CONFIG)
-        self.assertEqual(len(config['cases']),13)
-        self.assertEqual({c['name'] for c in config['cases']}, {
+        self.assertEqual(len(config['cases']),25)
+        # The original 13 source identities, counts and expectations are frozen.
+        self.assertEqual(hashlib.sha256(json.dumps(config['cases'][:13],sort_keys=True).encode()).hexdigest(),
+                         'e89bf50471ece6a22119eb2e62f3ef1b636cd95d41dea08df637b040a43aa9cd')
+        self.assertEqual({c['name'] for c in config['cases'][:13]}, {
             'casez_struct','comb_chain','dyn_queue','fork_join','func_call',
             'gate_udp','mem_rw','nba_burst','nba_shift','proc_wait','string_fmt',
             'wide_arith','fourstate_mix'})
-        self.assertEqual(config['definition'],'daily-v2-thirteen')
-        for group in config['groups']:
+        self.assertEqual(config['definition'],'daily-v3-expanded')
+        for group in config['groups'][:5]:
             self.assertEqual(len(group['cases']),12 if group['name'].endswith('-common') else 1)
-        self.assertEqual(len(config['groups']),5)
+        for group in config['groups'][5:]:
+            self.assertEqual(len(group['cases']),22 if group['name'].endswith('-common') else 3)
+        self.assertEqual(len(config['groups']),10)
         self.assertEqual(config['benchmark_source']['commit'],config['tools']['baseline']['commit'])
         for name in ('baseline','icarus','verilator'):
             self.assertRegex(config['tools'][name]['commit'],r'^[0-9a-f]{40}$')
@@ -202,6 +208,9 @@ class DailyBenchmarkTests(unittest.TestCase):
     def test_workflow_is_separate_single_measurement_job_and_limited_writer(self):
         text=(daily.ROOT/'.github/workflows/benchmark.yml').read_text()
         self.assertIn("cron: '17 20 * * *'",text)
+        self.assertIn("cron: '47 23 * * 0'",text)
+        self.assertIn('options: [daily, weekly]',text)
+        self.assertIn('--profile "$BENCH_PROFILE"',text)
         self.assertIn('group: daily-benchmark',text)
         self.assertEqual(text.count('contents: write'),1)
         self.assertNotIn('pull_request:',text)
@@ -210,6 +219,59 @@ class DailyBenchmarkTests(unittest.TestCase):
         self.assertNotIn('--force',text)
         self.assertIn('always()',text)
         self.assertIn('needs.measure.outputs.artifact',text)
+
+    def test_weekly_selection_is_disjoint_and_has_fixed_full_sets(self):
+        day=daily.config_at(daily.DEFAULT_CONFIG)
+        week=daily.config_at(daily.DEFAULT_CONFIG,'weekly')
+        self.assertEqual(week['profile'],'weekly')
+        self.assertEqual(week['definition'],'weekly-v1-scale')
+        names={c['name'] for c in week['cases']}
+        self.assertEqual(names,{'large_hierarchy','large_memory','stream_pipeline'})
+        self.assertFalse(names & {c['name'] for c in day['cases']})
+        self.assertEqual(len(week['groups']),3)
+        for g in week['groups']:self.assertEqual(set(g['cases']),names)
+        self.assertEqual(week['tools'],day['tools'])
+        self.assertEqual(week['measurement'],day['measurement'])
+
+    def test_invalid_profile_and_cross_profile_group_are_rejected(self):
+        with self.assertRaises(ValueError):daily.config_at(daily.DEFAULT_CONFIG,'unknown')
+        with tempfile.TemporaryDirectory() as tmp:
+            config=json.loads(daily.DEFAULT_CONFIG.read_text())
+            config['profiles']['weekly']['groups']=['regression-common']
+            p=Path(tmp)/'config.json';p.write_text(json.dumps(config))
+            with self.assertRaises(ValueError):daily.config_at(p,'weekly')
+
+    def test_weekly_publication_cannot_replace_latest_daily(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            directory=Path(tmp);day=campaign();history.append(directory,day)
+            week=campaign();week['id']='weekly-1';week['series']='weekly-series'
+            week['started_at']='2026-11-18T00:00:00+00:00'
+            week['definition_config']['profile']='weekly'
+            history.append(directory,week)
+            self.assertEqual(json.loads((directory/'latest-daily.json').read_text())['id'],day['id'])
+            self.assertEqual(json.loads((directory/'latest-weekly.json').read_text())['id'],week['id'])
+            self.assertEqual(json.loads((directory/'latest.json').read_text())['id'],week['id'])
+            text=(directory/'README.ja.md').read_text()
+            self.assertIn('最新の日次測定',text);self.assertIn('最新の週次測定',text)
+
+    def test_profile_identity_mismatch_is_rejected_before_writing(self):
+        for declared,environment in [('weekly','daily'),('unknown','unknown')]:
+            with tempfile.TemporaryDirectory() as tmp:
+                value=campaign();value['definition_config']['profile']=declared
+                value['environment']['profile']=environment
+                with self.assertRaises(ValueError):history.append(Path(tmp),value)
+                self.assertFalse((Path(tmp)/'runs').exists())
+
+    def test_failed_weekly_attempt_preserves_daily_values(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            directory=Path(tmp);day=campaign();history.append(directory,day)
+            failed=campaign();failed['id']='failed-weekly';failed['series']='weekly-series'
+            failed['started_at']='2026-11-18T00:00:00+00:00'
+            failed['definition_config']['profile']='weekly'
+            failed['completed_at']=None
+            history.append(directory,failed)
+            self.assertIsNone(json.loads((directory/'latest-weekly.json').read_text())['groups'][0]['ratio'])
+            self.assertEqual(json.loads((directory/'latest-daily.json').read_text())['groups'][0]['ratio'],1)
 
 
 if __name__=='__main__':unittest.main()

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "definition": "daily-v2-thirteen",
+  "definition": "bench-v3-expanded",
   "benchmark_source": {
     "repository": "https://github.com/kurochan001/kirimasim.git",
     "commit": "cfa2ccd75989c1ebb9ed63303271183377364cf0",
@@ -179,6 +179,162 @@
       "unsupported": {
         "verilator": "X/Z observations require four-state semantics; excluded before execution"
       }
+    },
+    {
+      "name": "fifo_stream",
+      "source": "suite",
+      "path": "bench/fifo_stream.sv",
+      "sha256": "bba15f9677dbf028533187d1c52f6beec40dffb8da4a71fccfc0002e6ffede40",
+      "count": 200000,
+      "expected": "fifo_stream n=200000 checksum=6b5d551f reads=133333 pending=62",
+      "expected_small": "fifo_stream n=1 checksum=00000000 reads=0 pending=1",
+      "class": "common"
+    },
+    {
+      "name": "uart_loopback",
+      "source": "suite",
+      "path": "bench/uart_loopback.sv",
+      "sha256": "894280323e5f3a024858185cd8048069748c21d22e85922420c658dc9cc44bf0",
+      "count": 20000,
+      "expected": "uart_loopback n=20000 checksum=75f45cf0 frames=20000 errors=0",
+      "expected_small": "uart_loopback n=1 checksum=0000005c frames=1 errors=0",
+      "class": "common"
+    },
+    {
+      "name": "bus_fabric",
+      "source": "suite",
+      "path": "bench/bus_fabric.sv",
+      "sha256": "c98f5ddcd943c1a192ba26edf1985edd2e1c91e962da631811a1bbe3ab36a34c",
+      "count": 150000,
+      "expected": "bus_fabric n=150000 checksum=46f7a29b",
+      "expected_small": "bus_fabric n=1 checksum=00000001",
+      "class": "common"
+    },
+    {
+      "name": "hierarchy_fanout",
+      "source": "suite",
+      "path": "bench/hierarchy_fanout.sv",
+      "sha256": "beca9bd4124a6ac75f73fe283fafb92f5b349c2d473886e74a2b7d2f9cbcef14",
+      "count": 100000,
+      "expected": "hierarchy_fanout n=100000 checksum=5e63f760",
+      "expected_small": "hierarchy_fanout n=1 checksum=dfea0208",
+      "class": "common"
+    },
+    {
+      "name": "event_fanout",
+      "source": "suite",
+      "path": "bench/event_fanout.sv",
+      "sha256": "6cd53d026f5333b4dc40631a66fcc5ac94baef73ca959d27d99d5073c881af8e",
+      "count": 50000,
+      "expected": "event_fanout n=50000 checksum=05c4563b",
+      "expected_small": "event_fanout n=1 checksum=000007f8",
+      "class": "common"
+    },
+    {
+      "name": "word_boundary",
+      "source": "suite",
+      "path": "bench/word_boundary.sv",
+      "sha256": "69515a65e773e1b076f9ddcd223a0095578427e9dee580e585ef1922c0d5b82d",
+      "count": 4000000,
+      "expected": "word_boundary n=4000000 checksum=0f74bad8",
+      "expected_small": "word_boundary n=1 checksum=9abcdef0",
+      "class": "common"
+    },
+    {
+      "name": "wide_divide",
+      "source": "suite",
+      "path": "bench/wide_divide.sv",
+      "sha256": "0ebcabd5e6ff6a4dc38fe2fb1bc0ebf5f1120f1e0b560def6e84c6c690b2d68a",
+      "count": 80000,
+      "expected": "wide_divide n=80000 checksum=06154fbc",
+      "expected_small": "wide_divide n=1 checksum=2e9c71e6",
+      "class": "common"
+    },
+    {
+      "name": "packed_slice",
+      "source": "suite",
+      "path": "bench/packed_slice.sv",
+      "sha256": "4b68d62a366b33d6fcab6c7c99d145b872c4ebffad1164fe6c86aef2ccf9e95f",
+      "count": 1500000,
+      "expected": "packed_slice n=1500000 checksum=88ffc174",
+      "expected_small": "packed_slice n=1 checksum=3456789a",
+      "class": "common"
+    },
+    {
+      "name": "memory_scatter",
+      "source": "suite",
+      "path": "bench/memory_scatter.sv",
+      "sha256": "a2ac869b2803a5691b0d80995faf828939d3a7eb0856ea0ba412bd6a5ee6e3e5",
+      "count": 5000000,
+      "expected": "memory_scatter n=5000000 checksum=55ef0184",
+      "expected_small": "memory_scatter n=1 checksum=c4b9aa95",
+      "class": "common"
+    },
+    {
+      "name": "clock_domains",
+      "source": "suite",
+      "path": "bench/clock_domains.sv",
+      "sha256": "5221487ef67645b333020a3e1a6b1ecf8d75554cb39a10a51bf4f11d6529aded",
+      "count": 20000,
+      "expected": "clock_domains n=20000 checksum=00071450",
+      "expected_small": "clock_domains n=1 checksum=00000014",
+      "class": "common"
+    },
+    {
+      "name": "fourstate_arith",
+      "source": "suite",
+      "path": "bench/fourstate_arith.sv",
+      "sha256": "660c1547fb6bde1577f8e01c845310f291124b4b70590b4a770ea9ffc218682c",
+      "count": 100000,
+      "expected": "fourstate_arith n=100000 checksum=0185a828 unknowns=50000",
+      "expected_small": "fourstate_arith n=1 checksum=00000000 unknowns=1",
+      "class": "fourstate",
+      "unsupported": {
+        "verilator": "X/Z observations require four-state semantics; excluded before execution"
+      }
+    },
+    {
+      "name": "resolved_bus",
+      "source": "suite",
+      "path": "bench/resolved_bus.sv",
+      "sha256": "38bdcc87874d0a449605d4f86666daaa23a085b9a75dfea9a7cf3e57fb948c8c",
+      "count": 50000,
+      "expected": "resolved_bus n=50000 checksum=28292930 x_bits=90000 z_bits=80000",
+      "expected_small": "resolved_bus n=1 checksum=00000025 x_bits=0 z_bits=0",
+      "class": "fourstate",
+      "unsupported": {
+        "verilator": "X/Z observations require four-state semantics; excluded before execution"
+      }
+    },
+    {
+      "name": "large_hierarchy",
+      "source": "suite",
+      "path": "bench/large_hierarchy.sv",
+      "sha256": "66320f49a6828f6b02079ff63c882b512f904518f95487472ec462b86ad6b4fd",
+      "count": 20000,
+      "expected": "large_hierarchy n=20000 checksum=83e909b6",
+      "expected_small": "large_hierarchy n=1 checksum=00e30c67",
+      "class": "common"
+    },
+    {
+      "name": "large_memory",
+      "source": "suite",
+      "path": "bench/large_memory.sv",
+      "sha256": "10064164d8d848455fef95ccd31aed7f8532ed39efe616597b734a4586f0ae9b",
+      "count": 500000,
+      "expected": "large_memory n=500000 checksum=267c2644",
+      "expected_small": "large_memory n=1 checksum=0000d2a0",
+      "class": "common"
+    },
+    {
+      "name": "stream_pipeline",
+      "source": "suite",
+      "path": "bench/stream_pipeline.sv",
+      "sha256": "f21fd43d0fe1c1df1294fc2d283004a9971c16791ffd4f3b01631dc154e16324",
+      "count": 250000,
+      "expected": "stream_pipeline n=250000 checksum=741abec0 frames=171428",
+      "expected_small": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+      "class": "common"
     }
   ],
   "groups": [
@@ -249,6 +405,196 @@
         "string_fmt",
         "wide_arith"
       ]
+    },
+    {
+      "name": "expanded-regression-common",
+      "peer": "baseline",
+      "cases": [
+        "casez_struct",
+        "comb_chain",
+        "dyn_queue",
+        "fork_join",
+        "func_call",
+        "gate_udp",
+        "mem_rw",
+        "nba_burst",
+        "nba_shift",
+        "proc_wait",
+        "string_fmt",
+        "wide_arith",
+        "fifo_stream",
+        "uart_loopback",
+        "bus_fabric",
+        "hierarchy_fanout",
+        "event_fanout",
+        "word_boundary",
+        "wide_divide",
+        "packed_slice",
+        "memory_scatter",
+        "clock_domains"
+      ]
+    },
+    {
+      "name": "expanded-regression-fourstate",
+      "peer": "baseline",
+      "cases": [
+        "fourstate_mix",
+        "fourstate_arith",
+        "resolved_bus"
+      ]
+    },
+    {
+      "name": "expanded-icarus-common",
+      "peer": "icarus",
+      "cases": [
+        "casez_struct",
+        "comb_chain",
+        "dyn_queue",
+        "fork_join",
+        "func_call",
+        "gate_udp",
+        "mem_rw",
+        "nba_burst",
+        "nba_shift",
+        "proc_wait",
+        "string_fmt",
+        "wide_arith",
+        "fifo_stream",
+        "uart_loopback",
+        "bus_fabric",
+        "hierarchy_fanout",
+        "event_fanout",
+        "word_boundary",
+        "wide_divide",
+        "packed_slice",
+        "memory_scatter",
+        "clock_domains"
+      ]
+    },
+    {
+      "name": "expanded-icarus-fourstate",
+      "peer": "icarus",
+      "cases": [
+        "fourstate_mix",
+        "fourstate_arith",
+        "resolved_bus"
+      ]
+    },
+    {
+      "name": "expanded-verilator-common",
+      "peer": "verilator",
+      "cases": [
+        "casez_struct",
+        "comb_chain",
+        "dyn_queue",
+        "fork_join",
+        "func_call",
+        "gate_udp",
+        "mem_rw",
+        "nba_burst",
+        "nba_shift",
+        "proc_wait",
+        "string_fmt",
+        "wide_arith",
+        "fifo_stream",
+        "uart_loopback",
+        "bus_fabric",
+        "hierarchy_fanout",
+        "event_fanout",
+        "word_boundary",
+        "wide_divide",
+        "packed_slice",
+        "memory_scatter",
+        "clock_domains"
+      ]
+    },
+    {
+      "name": "weekly-regression",
+      "peer": "baseline",
+      "cases": [
+        "large_hierarchy",
+        "large_memory",
+        "stream_pipeline"
+      ]
+    },
+    {
+      "name": "weekly-icarus",
+      "peer": "icarus",
+      "cases": [
+        "large_hierarchy",
+        "large_memory",
+        "stream_pipeline"
+      ]
+    },
+    {
+      "name": "weekly-verilator",
+      "peer": "verilator",
+      "cases": [
+        "large_hierarchy",
+        "large_memory",
+        "stream_pipeline"
+      ]
     }
-  ]
+  ],
+  "reference_sources": {
+    "bench/reference_expanded.py": "a1196d79efb88425f61cc69ba1d9ec99542f7f5dc41fac2a07ade82090b00f4a",
+    "bench/reference_fourstate_mix.py": "586fb643e9ef9df9e304df83e04e711aa1b875e6cb4393e6e3c98cd1707b70e1"
+  },
+  "profiles": {
+    "daily": {
+      "definition": "daily-v3-expanded",
+      "cases": [
+        "casez_struct",
+        "comb_chain",
+        "dyn_queue",
+        "fork_join",
+        "func_call",
+        "gate_udp",
+        "mem_rw",
+        "nba_burst",
+        "nba_shift",
+        "proc_wait",
+        "string_fmt",
+        "wide_arith",
+        "fourstate_mix",
+        "fifo_stream",
+        "uart_loopback",
+        "bus_fabric",
+        "hierarchy_fanout",
+        "event_fanout",
+        "word_boundary",
+        "wide_divide",
+        "packed_slice",
+        "memory_scatter",
+        "clock_domains",
+        "fourstate_arith",
+        "resolved_bus"
+      ],
+      "groups": [
+        "regression-common",
+        "regression-fourstate",
+        "icarus-common",
+        "icarus-fourstate",
+        "verilator-common",
+        "expanded-regression-common",
+        "expanded-regression-fourstate",
+        "expanded-icarus-common",
+        "expanded-icarus-fourstate",
+        "expanded-verilator-common"
+      ]
+    },
+    "weekly": {
+      "definition": "weekly-v1-scale",
+      "cases": [
+        "large_hierarchy",
+        "large_memory",
+        "stream_pipeline"
+      ],
+      "groups": [
+        "weekly-regression",
+        "weekly-icarus",
+        "weekly-verilator"
+      ]
+    }
+  }
 }

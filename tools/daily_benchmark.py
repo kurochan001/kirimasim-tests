@@ -43,8 +43,26 @@ def write_json(path, value):
     temporary.replace(path)
 
 
-def config_at(path):
+def config_at(path, profile='daily'):
     config = json.loads(Path(path).read_text())
+    profiles = config.pop('profiles', None)
+    if profiles is not None:
+        if profile not in profiles:
+            raise ValueError('unknown benchmark profile')
+        selected = profiles[profile]
+        cases = {c['name']: c for c in config['cases']}
+        groups = {g['name']: g for g in config['groups']}
+        if len(cases) != len(config['cases']) or len(groups) != len(config['groups']):
+            raise ValueError('duplicate manifest entry')
+        if (len(set(selected['cases'])) != len(selected['cases']) or
+            len(set(selected['groups'])) != len(selected['groups']) or
+            not set(selected['cases']) <= cases.keys() or not set(selected['groups']) <= groups.keys()):
+            raise ValueError('invalid profile selection')
+        config.update(definition=selected['definition'], profile=profile,
+                      cases=[cases[name] for name in selected['cases']],
+                      groups=[groups[name] for name in selected['groups']])
+    elif profile != 'daily':
+        raise ValueError('definition has no weekly profile')
     if config['schema'] != 1 or config['measurement']['runs'] != 5:
         raise ValueError('unsupported definition or formal repetition count')
     names = [c['name'] for c in config['cases']]
@@ -222,7 +240,7 @@ def summarize(result, config):
 
 
 def measure(args):
-    config = config_at(args.config)
+    config = config_at(args.config, args.profile)
     args.out.mkdir(parents=True, exist_ok=True)
     if (args.out/'results.json').exists():
         raise ValueError('output already contains a campaign; choose a new directory')
@@ -284,6 +302,11 @@ def measure(args):
             raise ValueError('--only is restricted to smoke and known cases')
         selected = [c for c in selected if c['name'] in args.only]
     cases = []
+    for path, expected in config.get('reference_sources', {}).items():
+        reference = ROOT/path
+        if shared.digest(reference) != expected:
+            raise ValueError('reference source differs from frozen definition')
+        protected[str(reference)] = expected
     for c in selected:
         path = (benchmark_root if c['source']=='kirimasim' else ROOT)/c['path']
         if shared.digest(path) != c['sha256']:
@@ -294,6 +317,7 @@ def measure(args):
     machine['architecture'] = platform.machine()
     compiler = adapter_module.text_of([os.environ.get('CXX','c++'), '--version'])
     conditions = {'machine':{k:v for k,v in machine.items() if k!='load_average'}, 'compiler':compiler,
+                  'profile':config.get('profile', 'daily'),
                   'environment':args.environment,'image_os':os.environ.get('ImageOS'), 'image_version':os.environ.get('ImageVersion'),
                   'settings':config['measurement'], 'mode':'smoke' if args.smoke else 'formal',
                   'runs':1 if args.smoke else config['measurement']['runs'],
@@ -304,7 +328,8 @@ def measure(args):
                   'comparison_sha256':shared.digest(ROOT/'tools/benchmark_compare.py'),
                   'history_sha256':shared.digest(ROOT/'tools/benchmark_history.py'),
                   'setup_sha256':shared.digest(ROOT/'tools/benchmark_setup.py'),
-                  'adapter_sha256':shared.digest(source),'benchmark_commit':config['benchmark_source']['commit']}
+                  'adapter_sha256':shared.digest(source),'benchmark_commit':config['benchmark_source']['commit'],
+                  'reference_sha256':config.get('reference_sources', {})}
     run_id = args.run_id or ('local-'+datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S')+'-'+uuid.uuid4().hex[:12])
     if not re.fullmatch(r'[A-Za-z0-9_-]{1,100}',run_id):
         raise ValueError('invalid run identifier')
@@ -344,6 +369,7 @@ def measure(args):
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--config',type=Path,default=DEFAULT_CONFIG)
+    p.add_argument('--profile',choices=['daily','weekly'],default='daily')
     p.add_argument('--inventory',type=Path)
     p.add_argument('--benchmark-root',type=Path)
     p.add_argument('--tool',action='append',default=[],metavar='NAME=EXECUTABLE')
