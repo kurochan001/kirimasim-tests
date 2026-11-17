@@ -25,7 +25,7 @@ The twelve daily additions are original designs in this repository:
 - `event_fanout`: 256 clock-sensitive workers with sparse updates; the final count of every worker is observed.
 - `clock_domains`: three independent clocks with periods 4/6/10 and independently predictable edge counts. It does not test clock-domain crossing correctness.
 - `word_boundary`: changing 64/65-bit operands, rotation, shifts across the word boundary and variable bit selection.
-- `wide_divide`: 257-bit unsigned division and remainder by changing nonzero 33-bit divisors.
+- `wide_divide`: 257-bit unsigned division and remainder by changing nonzero divisors (1–65,521, stored in a 33-bit operand).
 - `packed_slice`: changing 511-bit state and 32-bit indexed reads/writes across storage-word boundaries.
 - `memory_scatter`: 32,768 32-bit words (128 KiB logical data), deterministic irregular reads/writes, including aliases.
 - `fourstate_arith`: 65-bit known/X/Z arithmetic, arithmetic right shift, fully unknown-result counts and known-result checksums.
@@ -35,11 +35,11 @@ The three weekly scale designs are:
 
 - `large_hierarchy`: a five-level four-way module tree, 1,024 clocked leaves and 341 internal nodes; independently gated leaf updates and a reduced root result.
 - `large_memory`: 262,144 32-bit words (1 MiB logical data) with 64-word strided bursts per iteration and one simulation-time unit between bursts. The zero-time safety guard remains enabled. Logical data size is not simulator RSS.
-- `stream_pipeline`: eight registered stages, 32 parallel 32-bit lanes, valid propagation, stalls and final drain. Payload checksum and accepted frame count are checked independently of pipeline timing.
+- `stream_pipeline`: eight registered stages, 32 parallel 32-bit lanes, valid propagation, global clock-enable stalls and final drain. Payload checksum and accepted frame count are checked independently of pipeline timing.
 
 These supplement focused kernels with original small RTL systems and larger structures; they do not claim to represent every application or a complete processor workload. Class-based verification, assertions/coverage overhead and waveform I/O are not benchmarked by this definition.
 
-[`bench/reference_expanded.py`](../bench/reference_expanded.py) calculates expectations without reading simulator output: a transaction FIFO, transmitted bytes, a flat memory model, modular integers, closed-form clock/event counts, a flat leaf-state model, per-token pipeline transforms and scalar four-state net resolution. Both full-N and n=1 expectations are frozen in the manifest and source headers. N means cycles for the FIFO/bus/pipeline, frames for UART, time blocks for clocks, and the described iterations for other designs. N=1 initialization/elaboration may itself be substantial for large designs. All reference source hashes are recorded and protected throughout measurement. `spec_check: ai` identifies AI checking, not human review.
+[`bench/reference_expanded.py`](../bench/reference_expanded.py) calculates expectations without reading simulator output: a transaction FIFO, transmitted bytes, a flat memory model, modular integers, closed-form clock/event counts, a flat leaf-state model, per-token pipeline transforms and scalar four-state net resolution. Both full-N and n=1 expectations are frozen in the manifest and source headers. N means FIFO cycles, bus write/read pairs (two clock cycles per pair), offered pipeline cycles (followed by eight drain cycles), UART frames, and 30-time-unit clock blocks (observed at time 30N+1). Other designs use the described iterations. N=1 initialization/elaboration may itself be substantial for large designs. All reference source hashes are recorded and protected throughout measurement. `spec_check: ai` identifies AI checking, not human review.
 
 New workload counts were chosen before formal measurement using correctness preflights to reduce obviously short executions, then frozen; the original thirteen counts and expectations were not changed. A preflight is not formal speed evidence. Counts are never adjusted automatically per simulator or day; short/noisy or non-positive differences still carry the usual caution/missing status.
 
