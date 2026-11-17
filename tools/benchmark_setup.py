@@ -66,7 +66,7 @@ def prepare(args,config):
         executable=prefix/('bin/iverilog' if name=='icarus' else 'bin/verilator' if name=='verilator' else 'bin/kirimasim')
         receipt=prefix/'receipt.json'
         cache_identity=identity({'commit':commit,'compiler':compiler,'c_compiler':c_compiler,'flags':flags,
-            'os':platform.platform(),'arch':platform.machine(),'setup_sha256':digest(__file__)})
+            'os':platform.platform(),'arch':platform.machine(),'install_prefix':str(prefix.resolve()),'setup_sha256':digest(__file__)})
         previous=json.loads(receipt.read_text()) if receipt.exists() else None
         cached=bool(previous and previous['cache_identity']==cache_identity and executable.exists() and previous['binary_sha256']==digest(executable))
         if name=='icarus' and cached:

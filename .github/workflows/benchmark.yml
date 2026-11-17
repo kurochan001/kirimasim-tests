@@ -45,7 +45,7 @@ jobs:
           date -u +%Y-%m-%dT%H:%M:%SZ > "$RUNNER_TEMP/benchmark-output/start.txt"
           sha=$(python3 tools/benchmark_setup.py resolve --out "$RUNNER_TEMP/benchmark-build/plan.json")
           echo "sha=$sha" >> "$GITHUB_OUTPUT"
-          conditions=$( { uname -sm; "$CXX" --version; printf '%s' "$ImageVersion"; } | sha256sum | cut -d' ' -f1)
+          conditions=$( { uname -sm; "$CXX" --version; printf '%s' "${ImageVersion:-fixed-runner}"; } | sha256sum | cut -d' ' -f1)
           echo "conditions=$conditions" >> "$GITHUB_OUTPUT"
       - name: Install build prerequisites
         run: |
