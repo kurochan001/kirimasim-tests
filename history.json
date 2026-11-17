@@ -78,6 +78,108 @@
           "reason": null
         }
       ]
+    },
+    {
+      "id": "actions-44103555558-1",
+      "started_at": "2026-11-17T15:00:17.437065+00:00",
+      "completed_at": "2026-11-17T15:46:25.375450+00:00",
+      "series": "962ea28f5124b99939a8ae6dec023cb53d2fa7f3769aecf4e0801a27d99c196d",
+      "status": "complete",
+      "groups": [
+        {
+          "name": "regression-common",
+          "peer": "baseline",
+          "cases": [
+            "casez_struct",
+            "comb_chain",
+            "dyn_queue",
+            "fork_join",
+            "func_call",
+            "gate_udp",
+            "mem_rw",
+            "nba_burst",
+            "nba_shift",
+            "proc_wait",
+            "string_fmt",
+            "wide_arith"
+          ],
+          "expected_count": 12,
+          "available_count": 12,
+          "ratio": 0.7648332289886319,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "regression-fourstate",
+          "peer": "baseline",
+          "cases": [
+            "fourstate_mix"
+          ],
+          "expected_count": 1,
+          "available_count": 1,
+          "ratio": 0.7937140800076441,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "icarus-common",
+          "peer": "icarus",
+          "cases": [
+            "casez_struct",
+            "comb_chain",
+            "dyn_queue",
+            "fork_join",
+            "func_call",
+            "gate_udp",
+            "mem_rw",
+            "nba_burst",
+            "nba_shift",
+            "proc_wait",
+            "string_fmt",
+            "wide_arith"
+          ],
+          "expected_count": 12,
+          "available_count": 12,
+          "ratio": 0.700399645883667,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "icarus-fourstate",
+          "peer": "icarus",
+          "cases": [
+            "fourstate_mix"
+          ],
+          "expected_count": 1,
+          "available_count": 1,
+          "ratio": 0.5106507486449856,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "verilator-common",
+          "peer": "verilator",
+          "cases": [
+            "casez_struct",
+            "comb_chain",
+            "dyn_queue",
+            "fork_join",
+            "func_call",
+            "gate_udp",
+            "mem_rw",
+            "nba_burst",
+            "nba_shift",
+            "proc_wait",
+            "string_fmt",
+            "wide_arith"
+          ],
+          "expected_count": 12,
+          "available_count": 12,
+          "ratio": 44.62553799825444,
+          "warning": false,
+          "reason": null
+        }
+      ]
     }
   ]
 }
