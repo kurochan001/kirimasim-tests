@@ -160,6 +160,9 @@ def render(directory):
         lines+=['','## '+tr('Separate environment / definition series','環境・定義別の推移'),'']
         for series_id,items in reversed(list(series.items())):
             lines += [f"### `{series_id[:16]}`",'',f"{len(items)} runs; {items[0]['started_at']} → {items[-1]['started_at']}",'']
+            definition=items[-1]['definition_config']
+            lines += [tr('Definition','測定定義')+f": `{definition.get('definition','unnamed')}`; "+
+                      tr('case count','ケース数')+f": **{len(definition['cases'])}**", '']
             for g in items[-1]['groups']:
                 lines+=['!['+g['name']+'](charts/'+series_id+'/'+g['name']+'.svg)','']
             lines += [tr('Runs, including failures:','失敗を含む各回：'),'']

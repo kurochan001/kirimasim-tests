@@ -57,7 +57,11 @@ jobs:
         with:
           path: ${{ runner.temp }}/benchmark-install
           key: benchmark-${{ runner.os }}-${{ runner.arch }}-${{ steps.plan.outputs.conditions }}-${{ hashFiles('bench/daily.json', 'tools/benchmark_setup.py') }}-${{ steps.plan.outputs.sha }}
-          restore-keys: benchmark-${{ runner.os }}-${{ runner.arch }}-${{ steps.plan.outputs.conditions }}-${{ hashFiles('bench/daily.json', 'tools/benchmark_setup.py') }}-
+          # A case-only definition update may reuse installed tools. Receipts
+          # still verify commit, compiler, settings, prefix and every file hash.
+          restore-keys: |
+            benchmark-${{ runner.os }}-${{ runner.arch }}-${{ steps.plan.outputs.conditions }}-${{ hashFiles('bench/daily.json', 'tools/benchmark_setup.py') }}-
+            benchmark-${{ runner.os }}-${{ runner.arch }}-${{ steps.plan.outputs.conditions }}-
       - name: Build all simulators serially and check provenance receipts
         run: |
           python3 tools/benchmark_setup.py prepare \

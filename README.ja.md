@@ -7,7 +7,7 @@
 [![Daily benchmark](https://github.com/kurochan001/kirimasim-tests/actions/workflows/benchmark.yml/badge.svg)](https://github.com/kurochan001/kirimasim-tests/actions/workflows/benchmark.yml)
 [![License: Apache-2.0 WITH LLVM-exception](https://img.shields.io/badge/license-Apache--2.0%20WITH%20LLVM--exception-blue)](LICENSE)
 
-独立した**[日次速度ベンチマーク](docs/daily-benchmark.ja.md)**で、最新kirimasimを固定基準版・Icarus・Verilatorと比較します。[最新の測定回と推移グラフ](https://github.com/kurochan001/kirimasim-tests/tree/benchmark-results#readme)では、不一致や欠測も確認できます。機能Nightlyとは別のワークフローと履歴です。
+独立した**[日次速度ベンチマーク](docs/daily-benchmark.ja.md)**で従来の**13種類すべて**を実行し、最新kirimasimを固定基準版・Icarus・Verilatorと比較します。[最新の測定回と推移グラフ](https://github.com/kurochan001/kirimasim-tests/tree/benchmark-results#readme)では、不一致や欠測も確認できます。機能Nightlyとは別のワークフローと履歴です。
 
 IEEE 1800-2023 SystemVerilogのシミュレーションの意味論を確認する適合性テストスイートです。
 

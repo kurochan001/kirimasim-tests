@@ -8,7 +8,9 @@ The independent [Daily benchmark workflow](../.github/workflows/benchmark.yml) m
 
 ## Comparisons and fixed definitions
 
-[bench/daily.json](../bench/daily.json) is the reviewed definition. Initially it selects four common cases from kirimasim v0.1.0: `comb_chain` (3,000,000 steps), `mem_rw` (4,000,000 clocks), `nba_shift` (1,000,000 clocks), and `wide_arith` (1,500,000 iterations). Their source files stay in the kirimasim repository, pinned at `cfa2ccd75989c1ebb9ed63303271183377364cf0`; they are not copied or selected from the daily latest checkout.
+[bench/daily.json](../bench/daily.json) defines **all thirteen original designs**: the twelve standalone designs from kirimasim v0.1.0 plus this repository's four-state case. The common twelve are `casez_struct`, `comb_chain`, `dyn_queue`, `fork_join`, `func_call`, `gate_udp`, `mem_rw`, `nba_burst`, `nba_shift`, `proc_wait`, `string_fmt`, `wide_arith`. Each retains its original N and full expected output. Their source files stay in the kirimasim repository, pinned at `cfa2ccd75989c1ebb9ed63303271183377364cf0`; they are not copied or selected from the daily latest checkout.
+
+Definition `daily-v2-thirteen` measures all thirteen. The earlier `daily-v1` selected five cases; its saved runs remain unchanged in a separate series. Its four-case common mean is not a thirteen-case result. Reports label each series with its definition and case count.
 
 The additional `bench/fourstate_mix.sv` stays here at its recorded content hash, with 1,000,000 iterations. It observes X/Z, case equality and unknown detection. Verilator is explicitly excluded from this case before compilation; a two-state approximation is not compared as if it did equivalent work. The common cases observe deterministic values meaningful to every selected simulator. This selection is not a score for all SystemVerilog workloads.
 
@@ -35,7 +37,7 @@ The main metric is **incremental elapsed time**: `median(T(N)) - median(T(1))`, 
 - Linux RSS reuses the adapter's 10 ms VmHWM observer; a very short process can have no sample, and the observed maximum is not a guaranteed peak. macOS uses wait4 ru_maxrss. RSS is not substituted with zero when unavailable.
 - An incremental time below 0.05 seconds, or near the observed dispersion, carries a noise caution. The program does not increase N automatically. A zero/negative/non-finite difference produces no ratio.
 
-The full-N expected lines are the existing unchanged benchmark headers. Fixed n=1 expectations are independently calculated: `nba_shift` samples the reset cycle (zero sum); `mem_rw` uses the old rdata=0 and raddr=5 with one LFSR update; `wide_arith` performs one modular 256/128-bit update; `comb_chain` sums the initial chain result and its first xorshift-driven result. `reference_fourstate_mix.py` supplies the scalar standard-derived reference for the X/Z case. Expectations are not learned from a faster simulator.
+The full-N expected lines are the existing unchanged benchmark headers. Fixed n=1 expectations are independently calculated: `nba_shift` samples the reset cycle (zero sum); `mem_rw` uses the old rdata=0 and raddr=5 with one LFSR update; `wide_arith` performs one modular 256/128-bit update; `comb_chain` sums the initial chain result and its first xorshift-driven result. `reference_fourstate_mix.py` supplies the scalar standard-derived reference for the X/Z case. Expectations are not learned from a faster simulator. The eight added n=1 references follow the original source rules: the first decoder word changes register 13, leaving the three printed registers at their initial values; one queue push/drain sums to 1; the first fork/join round gives a=1, b=1, c=1, d=0; four recursive mixes give s=2 and sum=1683697; the first LCG/majority update gives 610673f5; one NBA leaves value 0; at time 3 only the delay-2 processes have woken, summing to 15255; and the first formatted string's FNV-1a hash is dcc025c8. The fixed Verilator 5.054 adapter also passed an original active-region versus post-delay NBA probe, so `nba_burst` is included with `--timing` rather than assuming older INITIALDLY behavior.
 
 ## Reading results and trends
 
@@ -43,11 +45,11 @@ For every pair the ratio is **latest kirimasim incremental elapsed / comparison 
 
 Five geometric means have fixed member sets:
 
-- regression-common: latest/baseline on all four common cases;
+- regression-common: latest/baseline on all twelve common cases;
 - regression-fourstate: latest/baseline on `fourstate_mix`;
-- icarus-common: latest/Icarus on all four common cases;
+- icarus-common: latest/Icarus on all twelve common cases;
 - icarus-fourstate: latest/Icarus on `fourstate_mix`;
-- verilator-common: latest/Verilator on all four common cases.
+- verilator-common: latest/Verilator on all twelve common cases.
 
 Every listed member is required. Missing, failed or non-positive measurements make that group's mean missing. The report shows the member list and available/required count; it never silently averages only successful cases. SVG lines break at missing points. Individual case measurements and failure reasons remain available in raw JSON even when the aggregate is missing.
 
@@ -82,7 +84,7 @@ Only the publish job has `contents: write`. It runs only for formal attempts on 
 
 The branch holds small per-run JSON samples, an index, the latest attempt, bilingual README reports and SVG charts. Full sanitized command/build logs are Actions artifacts (14 days), linked through the attempt's run URL. No inventory containing executable paths, source trees or build directories is uploaded. An interrupted campaign or setup failure is recorded as infrastructure failure, with missing group values; partially obtained samples are kept. If upload/publication itself fails, inspect that job and its artifacts; no successful publication is claimed.
 
-No new secret or registered private runner is required. Repository Actions must permit the existing pinned actions and allow the publish job's contents permission; branch rules must allow its normal append to benchmark-results. The setup cache key includes OS/architecture, runner image/compiler, fixed configuration/setup hashes and latest commit. Each restored receipt verifies commit, compiler/options and installed-file hashes. Simulator builds and cache transfers finish before timing begins.
+No new secret or registered private runner is required. Repository Actions must permit the existing pinned actions and allow the publish job's contents permission; branch rules must allow its normal append to benchmark-results. The setup cache key includes OS/architecture, runner image/compiler, fixed configuration/setup hashes and latest commit. A case-only definition change may restore a previous installation cache for the same platform/compiler image. Each restored receipt still verifies commit, compiler/options, installation prefix, recipe and installed-file hashes; an incompatible receipt rebuilds its tool. Simulator builds and cache transfers finish before timing begins.
 
 The workflow prerequisite-install step targets Ubuntu; use an Ubuntu fixed runner, or adapt that step and compiler/PATH settings for another OS (the measurement CLI itself supports macOS and Linux). For a fixed self-hosted machine, first register it and record a stable non-identifying profile, then change only the measurement job's `runs-on` to its actual registered labels and the CLI environment label. Keep the shared workflow/host locks, exclusive machine use and single serial job; do not add PR triggers or grant the measurement job write credentials. Run new reference campaigns in a new series; never pool their times with hosted Ubuntu or another Mac/Linux machine.
 

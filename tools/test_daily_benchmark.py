@@ -142,9 +142,12 @@ class DailyBenchmarkTests(unittest.TestCase):
     def test_conditions_and_definitions_are_separate_series(self):
         self.assertNotEqual(daily.identity({'os':'linux'}),daily.identity({'os':'macOS'}))
         with tempfile.TemporaryDirectory() as tmp:
-            directory=Path(tmp);history.append(directory,campaign())
-            other=campaign();other['series']='different-definition';other['id']='other';history.append(directory,other)
+            directory=Path(tmp);first=campaign();first['definition_config']['definition']='test-v1';history.append(directory,first)
+            other=campaign();other['series']='different-definition';other['id']='other';other['definition_config']['definition']='test-v2';history.append(directory,other)
             self.assertEqual(len(list((directory/'charts').iterdir())),2)
+            report=(directory/'README.ja.md').read_text()
+            self.assertIn('test-v1',report);self.assertIn('test-v2',report)
+            self.assertIn('ケース数: **1**',report)
 
     def test_svg_breaks_at_missing_data_and_reports_failure(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -183,7 +186,14 @@ class DailyBenchmarkTests(unittest.TestCase):
 
     def test_actual_definition_has_fixed_pins_and_comparison_sets(self):
         config=daily.config_at(daily.DEFAULT_CONFIG)
-        self.assertEqual(len(config['cases']),5)
+        self.assertEqual(len(config['cases']),13)
+        self.assertEqual({c['name'] for c in config['cases']}, {
+            'casez_struct','comb_chain','dyn_queue','fork_join','func_call',
+            'gate_udp','mem_rw','nba_burst','nba_shift','proc_wait','string_fmt',
+            'wide_arith','fourstate_mix'})
+        self.assertEqual(config['definition'],'daily-v2-thirteen')
+        for group in config['groups']:
+            self.assertEqual(len(group['cases']),12 if group['name'].endswith('-common') else 1)
         self.assertEqual(len(config['groups']),5)
         self.assertEqual(config['benchmark_source']['commit'],config['tools']['baseline']['commit'])
         for name in ('baseline','icarus','verilator'):

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "definition": "daily-v1",
+  "definition": "daily-v2-thirteen",
   "benchmark_source": {
     "repository": "https://github.com/kurochan001/kirimasim.git",
     "commit": "cfa2ccd75989c1ebb9ed63303271183377364cf0",
@@ -48,6 +48,16 @@
   },
   "cases": [
     {
+      "name": "casez_struct",
+      "source": "kirimasim",
+      "path": "bench/casez_struct.sv",
+      "sha256": "2ebc587a689537d4f25bfe1790197388b41c721595e1e115791efb3abd804d29",
+      "count": 5000000,
+      "expected": "casez_struct n=5000000 r0=001937a3 r7=ba163ebf r15=04cd903d",
+      "expected_small": "casez_struct n=1 r0=00000000 r7=00000077 r15=000000ff",
+      "class": "common"
+    },
+    {
       "name": "comb_chain",
       "source": "kirimasim",
       "path": "bench/comb_chain.sv",
@@ -55,6 +65,46 @@
       "count": 3000000,
       "expected": "comb_chain n=3000000 sum=d3369c10",
       "expected_small": "comb_chain n=1 sum=0b114273",
+      "class": "common"
+    },
+    {
+      "name": "dyn_queue",
+      "source": "kirimasim",
+      "path": "bench/dyn_queue.sv",
+      "sha256": "14d0a0999fed5a890e5f090568f2cdebbc818d1819e05b20376dbf7a53fc67b3",
+      "count": 4000000,
+      "expected": "dyn_queue n=4000000 sum=3888724928",
+      "expected_small": "dyn_queue n=1 sum=1",
+      "class": "common"
+    },
+    {
+      "name": "fork_join",
+      "source": "kirimasim",
+      "path": "bench/fork_join.sv",
+      "sha256": "de86490b32e3a10d2a1d4f1f9e9ac906f8adf2d57e8a708fd74f09fe3fd3c20e",
+      "count": 4000000,
+      "expected": "fork_join n=4000000 a=4000000 b=8000002000000 c=84764928 d=13057792",
+      "expected_small": "fork_join n=1 a=1 b=1 c=1 d=0",
+      "class": "common"
+    },
+    {
+      "name": "func_call",
+      "source": "kirimasim",
+      "path": "bench/func_call.sv",
+      "sha256": "f7031f608bdb6bab89c04bd2cd30ffa139d8fc5a2a044db14e681e2582aecb0a",
+      "count": 1500000,
+      "expected": "func_call n=1500000 s=46234688 sum=-983312896",
+      "expected_small": "func_call n=1 s=2 sum=1683697",
+      "class": "common"
+    },
+    {
+      "name": "gate_udp",
+      "source": "kirimasim",
+      "path": "bench/gate_udp.sv",
+      "sha256": "6cda61e63bfa60e158b4f833ee450dc4004e93b3330cad5d8873ff858de1d4db",
+      "count": 400000,
+      "expected": "gate_udp n=400000 acc=8bcfd518",
+      "expected_small": "gate_udp n=1 acc=610673f5",
       "class": "common"
     },
     {
@@ -68,6 +118,16 @@
       "class": "common"
     },
     {
+      "name": "nba_burst",
+      "source": "kirimasim",
+      "path": "bench/nba_burst.sv",
+      "sha256": "f11b74c35b41e2dd108e286b09538260fb6a457420766d383a3ac7d42b451918",
+      "count": 500000,
+      "expected": "nba_burst n=500000 last=499999",
+      "expected_small": "nba_burst n=1 last=0",
+      "class": "common"
+    },
+    {
       "name": "nba_shift",
       "source": "kirimasim",
       "path": "bench/nba_shift.sv",
@@ -75,6 +135,26 @@
       "count": 1000000,
       "expected": "nba_shift n=1000000 sum=1b0c71c3",
       "expected_small": "nba_shift n=1 sum=00000000",
+      "class": "common"
+    },
+    {
+      "name": "proc_wait",
+      "source": "kirimasim",
+      "path": "bench/proc_wait.sv",
+      "sha256": "88be699fa02c0485fdb9bd15120b21f2af2c6192816252aea19667144ad9dfed",
+      "count": 1000000,
+      "expected": "proc_wait n=1000000 sum=35376317874",
+      "expected_small": "proc_wait n=1 sum=15255",
+      "class": "common"
+    },
+    {
+      "name": "string_fmt",
+      "source": "kirimasim",
+      "path": "bench/string_fmt.sv",
+      "sha256": "cf79f868a04bbdbfa10414859e7b5fc10dd79613c8e85b852310efeab623596d",
+      "count": 500000,
+      "expected": "string_fmt n=500000 h=127126b0",
+      "expected_small": "string_fmt n=1 h=dcc025c8",
       "class": "common"
     },
     {
@@ -106,9 +186,17 @@
       "name": "regression-common",
       "peer": "baseline",
       "cases": [
+        "casez_struct",
         "comb_chain",
+        "dyn_queue",
+        "fork_join",
+        "func_call",
+        "gate_udp",
         "mem_rw",
+        "nba_burst",
         "nba_shift",
+        "proc_wait",
+        "string_fmt",
         "wide_arith"
       ]
     },
@@ -123,9 +211,17 @@
       "name": "icarus-common",
       "peer": "icarus",
       "cases": [
+        "casez_struct",
         "comb_chain",
+        "dyn_queue",
+        "fork_join",
+        "func_call",
+        "gate_udp",
         "mem_rw",
+        "nba_burst",
         "nba_shift",
+        "proc_wait",
+        "string_fmt",
         "wide_arith"
       ]
     },
@@ -140,9 +236,17 @@
       "name": "verilator-common",
       "peer": "verilator",
       "cases": [
+        "casez_struct",
         "comb_chain",
+        "dyn_queue",
+        "fork_join",
+        "func_call",
+        "gate_udp",
         "mem_rw",
+        "nba_burst",
         "nba_shift",
+        "proc_wait",
+        "string_fmt",
         "wide_arith"
       ]
     }
