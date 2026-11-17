@@ -78,7 +78,7 @@ A nonblocking shared lock excludes concurrent setup/measurement commands on one 
 
 ## History, failure and permissions
 
-Only the publish job has `contents: write`. It runs only for formal attempts on main, appends to **benchmark-results**, and uses a normal push. The branch is created without copying main. `runs/actions-RUN_ID-ATTEMPT.json` is immutable; same-day manual executions and reruns have separate IDs. Exact repeated ingestion is idempotent; reuse of an ID with changed data is rejected. Nothing changes functional results history or commits daily samples to main.
+Only the publish job has `contents: write`. It runs only for formal attempts on main, appends to **benchmark-results**, and uses a normal push. The branch is created without copying main. `runs/actions-RUN_ID-ATTEMPT.json` is immutable; same-day manual executions and reruns have separate IDs. Exact repeated ingestion is idempotent; reuse of an ID with changed data is rejected. Nothing changes functional results history or commits daily samples to main. A retry of only the publish job reuses the originating measurement artifact and run identity; rerun the measurement job or all jobs to collect new samples.
 
 The branch holds small per-run JSON samples, an index, the latest attempt, bilingual README reports and SVG charts. Full sanitized command/build logs are Actions artifacts (14 days), linked through the attempt's run URL. No inventory containing executable paths, source trees or build directories is uploaded. An interrupted campaign or setup failure is recorded as infrastructure failure, with missing group values; partially obtained samples are kept. If upload/publication itself fails, inspect that job and its artifacts; no successful publication is claimed.
 

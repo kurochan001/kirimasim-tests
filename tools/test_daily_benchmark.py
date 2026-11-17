@@ -199,6 +199,7 @@ class DailyBenchmarkTests(unittest.TestCase):
         self.assertIn('HEAD:benchmark-results',text)
         self.assertNotIn('--force',text)
         self.assertIn('always()',text)
+        self.assertIn('needs.measure.outputs.artifact',text)
 
 
 if __name__=='__main__':unittest.main()
