@@ -16,7 +16,7 @@ Four tool identities are separate:
 
 - **latest**: kirimasim `main`, resolved once by `benchmark_setup.py resolve` before any builds. All later steps use that exact SHA.
 - **baseline**: kirimasim v0.1.0, peeled commit `cfa2ccd75989c1ebb9ed63303271183377364cf0`.
-- **icarus**: Icarus Verilog v13_0 / 13.0, commit `30a7d1a11b7586aa0fc868e509f04f514effc0ad`.
+- **icarus**: Icarus Verilog v13_0 / 13.0, commit `dfeee909ed9f20b4870dd93423156c0170c0e1ff`.
 - **verilator**: Verilator v5.054, peeled commit `bbb60a403932a9f695cb6ff001ceb73de6ad9234`.
 
 The tags and full commits were resolved from the upstream Git repositories. The setup builds pinned sources as black boxes, without inspecting GPL implementation code. Baseline, Icarus and Verilator pins never automatically follow their main branches. Version strings, binary/companion hashes and build receipts are recorded independently of benchmark/driver hashes.

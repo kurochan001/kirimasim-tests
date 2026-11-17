@@ -21,6 +21,11 @@ class BenchmarkSetupTests(unittest.TestCase):
         with patch.object(setup,'command',return_value='not-a-sha'):
             with self.assertRaises(ValueError):setup.resolve(config_at(DEFAULT_CONFIG))
 
+    def test_checkout_rejects_an_unpeeled_tag_identity(self):
+        with tempfile.TemporaryDirectory() as tmp, patch.object(setup,'command',side_effect=['','','','b'*40]):
+            with self.assertRaises(ValueError):
+                setup.checkout('https://example.invalid/repo.git','a'*40,Path(tmp)/'source',None)
+
     def prepare_twice(self,mutate=None):
         with tempfile.TemporaryDirectory() as tmp:
             base=Path(tmp)

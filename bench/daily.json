@@ -23,8 +23,9 @@
       "kind": "icarus",
       "repository": "https://github.com/steveicarus/iverilog.git",
       "tag": "v13_0",
-      "commit": "30a7d1a11b7586aa0fc868e509f04f514effc0ad",
-      "version_pattern": "version 13\\.0"
+      "commit": "dfeee909ed9f20b4870dd93423156c0170c0e1ff",
+      "version_pattern": "version 13\\.0",
+      "tag_object": "30a7d1a11b7586aa0fc868e509f04f514effc0ad"
     },
     "verilator": {
       "kind": "verilator",

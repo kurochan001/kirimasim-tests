@@ -16,7 +16,7 @@
 
 - **latest**：kirimasimの`main`。ビルド前に`benchmark_setup.py resolve`で一度だけ解決し、以後は同じ完全SHAを使います。
 - **baseline**：kirimasim v0.1.0、タグの参照先は`cfa2ccd75989c1ebb9ed63303271183377364cf0`です。
-- **icarus**：Icarus Verilog v13_0 / 13.0、`30a7d1a11b7586aa0fc868e509f04f514effc0ad`です。
+- **icarus**：Icarus Verilog v13_0 / 13.0、`dfeee909ed9f20b4870dd93423156c0170c0e1ff`です。
 - **verilator**：Verilator v5.054、タグの参照先は`bbb60a403932a9f695cb6ff001ceb73de6ad9234`です。
 
 タグと完全コミットは上流Gitで確認しました。準備処理は固定ソースを取得・ビルドするだけで、GPL実装の内容は読みません。基準版と比較OSSの固定値は自動更新しません。版表示、実行ファイルと付属実行ファイルのハッシュ、ビルド記録を、ケースや測定処理のハッシュとは別に保存します。
