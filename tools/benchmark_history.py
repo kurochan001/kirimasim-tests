@@ -108,7 +108,10 @@ def report(run, prefix='',ja=False):
               'この環境での参考値です。失敗・欠測はゼロ秒ではありません。'),
         '',f"[JSON]({prefix}runs/{run['id']}.json) · [Actions logs / ログ]({run.get('actions',{}).get('url') or METHOD}) · [Method / 測定方法]({METHOD})",'']
     environment=run['environment']
-    lines += [f"{tr('Environment','環境')}: {safe(environment)}",'']
+    machine=environment.get('machine',{})
+    lines += [f"{tr('Environment','環境')}: {safe(environment.get('environment','unknown'))} / {safe(machine.get('cpu','unknown'))} / {safe(machine.get('os','unknown'))}", '',
+              '<details><summary>'+tr('Measurement settings','測定条件')+'</summary>', '', '```json',
+              json.dumps(environment,indent=2,ensure_ascii=False), '```', '', '</details>', '']
     for name,tool in run.get('tools',{}).items():
         lines.append(f"- `{name}`: `{tool['commit']}` — {safe(tool['version'])}")
     lines += ['',f"{tr('Definition and measurement identity','定義・測定処理の識別情報')}: `{run.get('definition',{})}`",'',
@@ -145,7 +148,7 @@ def render(directory):
         for group in items[-1]['groups']:
             values=[next((g['ratio'] for g in r['groups'] if g['name']==group['name']),None) for r in items]
             svg=charts.line_chart(group['name'],'latest / peer incremental elapsed; lower is faster; gaps are missing',
-                [{'time':r['started_at']} for r in items],[('ratio','latest / '+group['peer'],False,'circle',values)],{'ratio':('#0969da','#4493f8')})
+                [{'time':r['started_at']} for r in items],[('ratio','last available latest / '+group['peer'],False,'circle',values)],{'ratio':('#0969da','#4493f8')})
             (chartdir/(group['name']+'.svg')).write_text(svg)
     for ja in (False,True):
         tr=lambda en,jp:jp if ja else en

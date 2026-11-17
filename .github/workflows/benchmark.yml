@@ -96,7 +96,16 @@ jobs:
         run: |
           python3 tools/benchmark_history.py append --directory "$RUNNER_TEMP/benchmark-preview" \
             "$RUNNER_TEMP/benchmark-output/results.json"
-          cat "$RUNNER_TEMP/benchmark-preview/README.md" >> "$GITHUB_STEP_SUMMARY"
+          python3 - <<'PY_SUMMARY'
+          import os
+          from pathlib import Path
+          text=(Path(os.environ['RUNNER_TEMP'])/'benchmark-preview/README.md').read_text()
+          base=os.environ['GITHUB_SERVER_URL']+'/'+os.environ['GITHUB_REPOSITORY']
+          text=text.replace('](runs/', ']('+base+'/blob/benchmark-results/runs/')
+          text=text.replace('](charts/', ']('+base+'/raw/refs/heads/benchmark-results/charts/')
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as stream:
+              stream.write(text)
+          PY_SUMMARY
       - name: Upload samples and sanitized execution logs even on failure
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.1

@@ -308,8 +308,10 @@ def measure(args):
               'execution':'serial; tool order reverses by case/round; count order reverses by round; one n=1 warmup',
               'cases':[],'inputs_unchanged':True}
     adapter = Adapter(adapter_module,config['measurement']['timeout_seconds'],args.out/'logs',clean)
-    write_json(args.out/'results.json',clean(result,args.out))
     with machine_lock(args.lock):
+        if (args.out/'results.json').exists():
+            raise ValueError('output already contains a campaign; choose a new directory')
+        write_json(args.out/'results.json',clean(result,args.out))
         try:
             for index,case in enumerate(cases):
                 print(f"{index+1}/{len(cases)} {case['name']}",flush=True)
