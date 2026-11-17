@@ -57,6 +57,10 @@ def case_description(path, adapter, source):
 
 
 def check_sample(sample, name, count, expected):
+    if not math.isfinite(sample.get("seconds", 0)) or sample.get("seconds", 0) < 0:
+        return "invalid elapsed time"
+    if sample.get("result_line_count", 1) != 1:
+        return "missing or duplicate result lines"
     if sample["timed_out"]:
         return "time limit reached"
     if sample["exit_code"] != 0:
@@ -103,32 +107,49 @@ def diagnostics(result, clean, work):
     return clean({key: result.get(key, "")[-4000:] for key in ("stdout", "stderr")}, work)
 
 
-def collect_case(case, adapter, executables, runs, case_index, clean):
+def collect_case(case, adapter, executables, runs, case_index, clean, *,
+                 tool_kinds=None, unsupported=None, strict=False):
+    names = tuple(tool_kinds) if tool_kinds is not None else TOOLS
+    unsupported = unsupported or {}
     records = {name: {"build": None, "warmup": None,
-                      "samples": {"small": [], "large": []}} for name in TOOLS}
+                      "samples": {"small": [], "large": []}} for name in names}
     with tempfile.TemporaryDirectory(prefix="p1-speed-") as directory:
         base = Path(directory)
         commands = {}
-        for name in TOOLS:
+        for name in names:
             work = base / name
             work.mkdir()
-            build, command = adapter.prepare(name, executables[name], case["path"], work)
             record = records[name]
+            if name in unsupported:
+                record["error"] = {"stage": "unsupported", "reason": unsupported[name]}
+                continue
+            try:
+                build, command = adapter.prepare((tool_kinds or {}).get(name, name),
+                                                 executables[name], case["path"], work)
+            except (OSError, ValueError) as error:
+                record["error"] = {"stage": "build", "reason": clean(str(error), work)}
+                continue
             record["build"] = clean(build, work)
             if build and "error" in build:
                 record["error"] = {"stage": "build", "reason": build["error"]}
                 continue
             commands[name] = (work, command)
             record["command_template"] = clean(command("N"), work)
-            result = adapter.run(command(1), work)
+            try:
+                result = adapter.run(command(1), work)
+            except (OSError, ValueError) as error:
+                record["error"] = {"stage": "warmup", "status": "run_failed", "reason": clean(str(error), work)}
+                continue
             sample = adapter.sample(case["name"], result)
             record["warmup"] = sample
             error = check_sample(sample, case["name"], 1, case["expected_small"])
+            if strict and case["expected_small"] is None:
+                error = "missing fixed n=1 expectation"
             if error:
                 record["error"] = {"stage": "warmup", "reason": error,
                                    "diagnostics": diagnostics(result, clean, work)}
         for repetition in range(runs):
-            tools = TOOLS if (case_index + repetition) % 2 == 0 else tuple(reversed(TOOLS))
+            tools = names if (case_index + repetition) % 2 == 0 else tuple(reversed(names))
             counts = (("small", 1), ("large", case["count"]))
             if repetition % 2:
                 counts = tuple(reversed(counts))
@@ -138,7 +159,11 @@ def collect_case(case, adapter, executables, runs, case_index, clean):
                     continue
                 work, command = commands[name]
                 for kind, count in counts:
-                    result = adapter.run(command(count), work)
+                    try:
+                        result = adapter.run(command(count), work)
+                    except (OSError, ValueError) as error:
+                        record["error"] = {"stage": kind, "status": "run_failed", "reason": clean(str(error), work)}
+                        break
                     sample = adapter.sample(case["name"], result)
                     sample["repetition"] = repetition
                     record["samples"][kind].append(sample)
@@ -158,7 +183,9 @@ def collect_case(case, adapter, executables, runs, case_index, clean):
         for record in records.values():
             aggregate(record, runs)
     public = {key: value for key, value in case.items() if key != "path"}
-    public.update({"tools": records, "comparison": comparison(records)})
+    public.update({"tools": records})
+    if tool_kinds is None:
+        public["comparison"] = comparison(records)
     return public
 
 

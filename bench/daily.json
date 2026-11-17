@@ -1,0 +1,149 @@
+{
+  "schema": 1,
+  "definition": "daily-v1",
+  "benchmark_source": {
+    "repository": "https://github.com/kurochan001/kirimasim.git",
+    "commit": "cfa2ccd75989c1ebb9ed63303271183377364cf0",
+    "adapter_sha256": "4811f9d50d4a09d8794710296d644350468c49a9579a794f27af42ac9fb6b5bc"
+  },
+  "latest_repository": "https://github.com/kurochan001/kirimasim.git",
+  "latest_ref": "refs/heads/main",
+  "tools": {
+    "latest": {
+      "kind": "kirimasim"
+    },
+    "baseline": {
+      "kind": "kirimasim",
+      "repository": "https://github.com/kurochan001/kirimasim.git",
+      "tag": "v0.1.0",
+      "commit": "cfa2ccd75989c1ebb9ed63303271183377364cf0",
+      "version_pattern": "kirimasim 0\\.1\\.0"
+    },
+    "icarus": {
+      "kind": "icarus",
+      "repository": "https://github.com/steveicarus/iverilog.git",
+      "tag": "v13_0",
+      "commit": "30a7d1a11b7586aa0fc868e509f04f514effc0ad",
+      "version_pattern": "version 13\\.0"
+    },
+    "verilator": {
+      "kind": "verilator",
+      "repository": "https://github.com/verilator/verilator.git",
+      "tag": "v5.054",
+      "commit": "bbb60a403932a9f695cb6ff001ceb73de6ad9234",
+      "version_pattern": "Verilator 5\\.054"
+    }
+  },
+  "measurement": {
+    "runs": 5,
+    "warmups": 1,
+    "timeout_seconds": 600,
+    "short_seconds": 0.05,
+    "regression_warning_ratio": 1.15,
+    "simulation_threads": 1,
+    "waveforms": false,
+    "assertions": false,
+    "verilator_build_jobs": 1
+  },
+  "cases": [
+    {
+      "name": "comb_chain",
+      "source": "kirimasim",
+      "path": "bench/comb_chain.sv",
+      "sha256": "2d652bdbef9f3871a706bfb105fcfa55643dcfb95772bb8783299bf75d194a1d",
+      "count": 3000000,
+      "expected": "comb_chain n=3000000 sum=d3369c10",
+      "expected_small": "comb_chain n=1 sum=0b114273",
+      "class": "common"
+    },
+    {
+      "name": "mem_rw",
+      "source": "kirimasim",
+      "path": "bench/mem_rw.sv",
+      "sha256": "586c4474d7872540e33c82984c9c33580a3dfa9a957a588ae4a1aa36601cf21e",
+      "count": 4000000,
+      "expected": "mem_rw n=4000000 acc=b55c516d wdata=4df93a12",
+      "expected_small": "mem_rw n=1 acc=00000005 wdata=2468acf1",
+      "class": "common"
+    },
+    {
+      "name": "nba_shift",
+      "source": "kirimasim",
+      "path": "bench/nba_shift.sv",
+      "sha256": "5fbf012900e62be74a8382a43103bd8283c652f55a5e640769affae623a4b3c4",
+      "count": 1000000,
+      "expected": "nba_shift n=1000000 sum=1b0c71c3",
+      "expected_small": "nba_shift n=1 sum=00000000",
+      "class": "common"
+    },
+    {
+      "name": "wide_arith",
+      "source": "kirimasim",
+      "path": "bench/wide_arith.sv",
+      "sha256": "6b3ec7499d88412fd57d45cffd78f199ada3f360f8930ef59332e25ae5432c21",
+      "count": 1500000,
+      "expected": "wide_arith n=1500000 c=3c456e9041369e70dd23de7f53da97b515a152693c1092d571a77a8f656bab94",
+      "expected_small": "wide_arith n=1 c=6f79ffb97771774ef1c3681d4a7f2c201eb5a3b34d7d2b7f707734177073706e",
+      "class": "common"
+    },
+    {
+      "name": "fourstate_mix",
+      "source": "suite",
+      "path": "bench/fourstate_mix.sv",
+      "sha256": "5bc715de2dd270531b8883bfd7e46ac3edac047b368fb8c76d33c84691208234",
+      "count": 1000000,
+      "expected": "fourstate_mix n=1000000 checksum=a0ea5e58 unknowns=250000 x_hits=250000 z_hits=500000",
+      "expected_small": "fourstate_mix n=1 checksum=00008abc unknowns=0 x_hits=0 z_hits=0",
+      "class": "fourstate",
+      "unsupported": {
+        "verilator": "X/Z observations require four-state semantics; excluded before execution"
+      }
+    }
+  ],
+  "groups": [
+    {
+      "name": "regression-common",
+      "peer": "baseline",
+      "cases": [
+        "comb_chain",
+        "mem_rw",
+        "nba_shift",
+        "wide_arith"
+      ]
+    },
+    {
+      "name": "regression-fourstate",
+      "peer": "baseline",
+      "cases": [
+        "fourstate_mix"
+      ]
+    },
+    {
+      "name": "icarus-common",
+      "peer": "icarus",
+      "cases": [
+        "comb_chain",
+        "mem_rw",
+        "nba_shift",
+        "wide_arith"
+      ]
+    },
+    {
+      "name": "icarus-fourstate",
+      "peer": "icarus",
+      "cases": [
+        "fourstate_mix"
+      ]
+    },
+    {
+      "name": "verilator-common",
+      "peer": "verilator",
+      "cases": [
+        "comb_chain",
+        "mem_rw",
+        "nba_shift",
+        "wide_arith"
+      ]
+    }
+  ]
+}

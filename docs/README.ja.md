@@ -50,6 +50,7 @@
 | SVA参照評価器とフォーマル検査 | [日本語](../tools/sva_reference/README.ja.md) | [English](../tools/sva_reference/README.md) |
 | 期待値のレビュー候補 | [日本語](review-candidates.md) | [English](review-candidates.en.md) |
 | slangによる参考判定 | [日本語](slang-reference.md) | [English](slang-reference.en.md) |
+| 日次シミュレーション速度ベンチマーク | [日本語](daily-benchmark.ja.md) | [English](daily-benchmark.md) |
 
 <a id="generated-reports-and-catalogs"></a>
 

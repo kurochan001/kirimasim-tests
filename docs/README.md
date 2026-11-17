@@ -50,6 +50,7 @@ Code, identifiers, raw execution evidence and license terms retain their origina
 | SVA reference evaluator and formal checks | [English](../tools/sva_reference/README.md) | [日本語](../tools/sva_reference/README.ja.md) |
 | Review candidates for expected results | [English](review-candidates.en.md) | [日本語](review-candidates.md) |
 | slang reference | [English](slang-reference.en.md) | [日本語](slang-reference.md) |
+| Daily simulation-speed benchmarks | [English](daily-benchmark.md) | [日本語](daily-benchmark.ja.md) |
 
 <a id="自動生成レポートカタログ"></a>
 

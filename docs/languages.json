@@ -9,8 +9,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "60b55d5f85e4540f84a4c4caca0183e2b7618c3c112933dba0ae27ff32c56819",
-        "ja": "4092f414d1ac00571e017a49ebd2f5ded51962688e9321f2a8105e368e7d6f0f"
+        "en": "cf47dc1e01d27c5acef0d0dce12fd35b126159dfe818fa10cb9d940593b09b19",
+        "ja": "2fef8977ced11a34bcace67bda9214339c4787c783a246e152cc9edfc47db306"
       }
     },
     {
@@ -1333,6 +1333,16 @@
       "sha256": {
         "en": "46d8093fd6225cc0c696277144bf88032a9ddada59740818f6b03775878ba31f",
         "ja": "8064c0b8d2a16da2dfaa4e3a02f70eba4be12ee3821a4dda16a0b5c06d534b55"
+      }
+    },
+    {
+      "source": "docs/daily-benchmark.md",
+      "en": "docs/daily-benchmark.md",
+      "ja": "docs/daily-benchmark.ja.md",
+      "generated": false,
+      "sha256": {
+        "en": "ae02772a9fb6dbc890908765b359536a812f1ff90293dae23a626fbbaa22d1ed",
+        "ja": "6a48318ed41bf15339ae93f29bb6916a4f09fe66bae070f7da712e740ed2320a"
       }
     }
   ]

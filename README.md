@@ -4,7 +4,10 @@
 
 [![Check](https://github.com/kurochan001/kirimasim-tests/actions/workflows/check.yml/badge.svg)](https://github.com/kurochan001/kirimasim-tests/actions/workflows/check.yml)
 [![Nightly](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml/badge.svg)](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml)
+[![Daily benchmark](https://github.com/kurochan001/kirimasim-tests/actions/workflows/benchmark.yml/badge.svg)](https://github.com/kurochan001/kirimasim-tests/actions/workflows/benchmark.yml)
 [![License: Apache-2.0 WITH LLVM-exception](https://img.shields.io/badge/license-Apache--2.0%20WITH%20LLVM--exception-blue)](LICENSE)
+
+An independent **[daily speed benchmark](docs/daily-benchmark.md)** compares latest kirimasim with a fixed baseline, Icarus and Verilator. See the [latest attempt and trend charts](https://github.com/kurochan001/kirimasim-tests/tree/benchmark-results#readme); correctness failures and missing measurements remain visible. It uses a separate workflow and history from functional Nightly.
 
 A conformance test suite for the simulation semantics of IEEE 1800-2023
 SystemVerilog.
