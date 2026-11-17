@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "runs": [
+    {
+      "id": "actions-44085771320-1",
+      "started_at": "2026-11-17T13:04:45.723115+00:00",
+      "completed_at": "2026-11-17T13:21:24.008983+00:00",
+      "series": "ff134f2dfe29a369d8116a07680e0a4ea53e757ba74a0abb4811823a01606d89",
+      "status": "complete",
+      "groups": [
+        {
+          "name": "regression-common",
+          "peer": "baseline",
+          "cases": [
+            "comb_chain",
+            "mem_rw",
+            "nba_shift",
+            "wide_arith"
+          ],
+          "expected_count": 4,
+          "available_count": 4,
+          "ratio": 0.6959377672333998,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "regression-fourstate",
+          "peer": "baseline",
+          "cases": [
+            "fourstate_mix"
+          ],
+          "expected_count": 1,
+          "available_count": 1,
+          "ratio": 0.8047703651628646,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "icarus-common",
+          "peer": "icarus",
+          "cases": [
+            "comb_chain",
+            "mem_rw",
+            "nba_shift",
+            "wide_arith"
+          ],
+          "expected_count": 4,
+          "available_count": 4,
+          "ratio": 0.5604910271912875,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "icarus-fourstate",
+          "peer": "icarus",
+          "cases": [
+            "fourstate_mix"
+          ],
+          "expected_count": 1,
+          "available_count": 1,
+          "ratio": 0.43707423372765253,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "verilator-common",
+          "peer": "verilator",
+          "cases": [
+            "comb_chain",
+            "mem_rw",
+            "nba_shift",
+            "wide_arith"
+          ],
+          "expected_count": 4,
+          "available_count": 4,
+          "ratio": 27.282154956851986,
+          "warning": false,
+          "reason": null
+        }
+      ]
+    }
+  ]
+}
