@@ -233,9 +233,158 @@ Fixed comparison sets (all members required):
 - **expanded-icarus-common**: 0.72201; 22/22; casez_struct, comb_chain, dyn_queue, fork_join, func_call, gate_udp, mem_rw, nba_burst, nba_shift, proc_wait, string_fmt, wide_arith, fifo_stream, uart_loopback, bus_fabric, hierarchy_fanout, event_fanout, word_boundary, wide_divide, packed_slice, memory_scatter, clock_domains
 - **expanded-icarus-fourstate**: 0.56544; 3/3; fourstate_mix, fourstate_arith, resolved_bus
 - **expanded-verilator-common**: 43.944; 22/22; casez_struct, comb_chain, dyn_queue, fork_join, func_call, gate_udp, mem_rw, nba_burst, nba_shift, proc_wait, string_fmt, wide_arith, fifo_stream, uart_loopback, bus_fabric, hierarchy_fanout, event_fanout, word_boundary, wide_divide, packed_slice, memory_scatter, clock_domains
+## Latest weekly attempt
+
+[JSON](latest-weekly.json)
+
+**Run:** `actions-44186811554-1` — complete
+2026-11-17T22:58:29.331708+00:00 → 2026-11-17T23:35:53.816729+00:00
+
+Ratios = latest kirimasim / peer incremental elapsed; below 1 favors latest.
+
+This is a descriptive reference on this environment. Missing/failed values are not zero.
+
+[JSON](runs/actions-44186811554-1.json) · [Actions logs / ログ](https://github.com/kurochan001/kirimasim-tests/actions/runs/44186811554/attempts/1) · [Method / 測定方法](https://github.com/kurochan001/kirimasim-tests/blob/main/docs/daily-benchmark.md)
+
+Environment: github-hosted-ubuntu-24.04 / AMD EPYC 7763 64-Core Processor / Linux-7.0.0-1017-azure-x86_64-with-glibc2.39
+
+<details><summary>Measurement settings</summary>
+
+```json
+{
+  "machine": {
+    "os": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+    "cores": 4,
+    "cpu": "AMD EPYC 7763 64-Core Processor",
+    "memory_gib": 16,
+    "distribution": "Ubuntu 24.04.5 LTS",
+    "architecture": "x86_64"
+  },
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "profile": "weekly",
+  "environment": "github-hosted-ubuntu-24.04",
+  "image_os": "ubuntu24",
+  "image_version": "20261111.370.1",
+  "settings": {
+    "runs": 5,
+    "warmups": 1,
+    "timeout_seconds": 600,
+    "short_seconds": 0.05,
+    "regression_warning_ratio": 1.15,
+    "simulation_threads": 1,
+    "waveforms": false,
+    "assertions": false,
+    "verilator_build_jobs": 1
+  },
+  "mode": "formal",
+  "runs": 5,
+  "tool_builds": {
+    "latest": {
+      "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+      "c_compiler": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+      "flags": {
+        "CC": "gcc",
+        "CXX": "g++",
+        "CFLAGS": "",
+        "CXXFLAGS": "",
+        "preset": "release",
+        "cmake": "-O3 -DNDEBUG -ffp-contract=off, no fast-math",
+        "make_jobs": 2
+      }
+    },
+    "baseline": {
+      "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+      "c_compiler": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+      "flags": {
+        "CC": "gcc",
+        "CXX": "g++",
+        "CFLAGS": "",
+        "CXXFLAGS": "",
+        "preset": "release",
+        "cmake": "-O3 -DNDEBUG -ffp-contract=off, no fast-math",
+        "make_jobs": 2
+      }
+    },
+    "icarus": {
+      "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+      "c_compiler": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+      "flags": {
+        "CC": "gcc",
+        "CXX": "g++",
+        "CFLAGS": "",
+        "CXXFLAGS": "",
+        "preset": "release",
+        "cmake": "-O3 -DNDEBUG -ffp-contract=off, no fast-math",
+        "make_jobs": 2
+      }
+    },
+    "verilator": {
+      "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+      "c_compiler": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+      "flags": {
+        "CC": "gcc",
+        "CXX": "g++",
+        "CFLAGS": "",
+        "CXXFLAGS": "",
+        "preset": "release",
+        "cmake": "-O3 -DNDEBUG -ffp-contract=off, no fast-math",
+        "make_jobs": 2
+      }
+    }
+  },
+  "verilator_options": "--binary --timing --threads 1 --build-jobs 1; default C++ optimization; assertions/tracing off",
+  "icarus_options": "-g2012; vvp -n; single process",
+  "kirimasim_options": "default four-state; interpreter; no waveform/assertion request"
+}
+```
+
+</details>
+
+- `latest`: `441dddbd0fcd80aed298ca33311f2ee67aa8866c` — kirimasim 0.1.1 (commit 441dddbd0fcd), built with GNU 13.3.0
+- `baseline`: `cfa2ccd75989c1ebb9ed63303271183377364cf0` — kirimasim 0.1.0 (commit cfa2ccd75989), built with GNU 13.3.0
+- `icarus`: `dfeee909ed9f20b4870dd93423156c0170c0e1ff` — Icarus Verilog version 13.0 (stable) (dfeee90-dirty)
+- `verilator`: `bbb60a403932a9f695cb6ff001ceb73de6ad9234` — Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261117-bbb60a4
+
+Definition and measurement identity: `{'config_sha256': '56c0140f54b187d0bc8506e9ab0627cbdc616b69d2a1910aa6fd9b324b2ab9b7', 'driver_sha256': '0037fb4780de47740de92f102487477aac29570998a2aa3ca095bbcbb94219fa', 'comparison_sha256': '2896f429781d5eaff2d0ecec465726de342f840892056d20304d2df179ad6be0', 'history_sha256': '50af56d972f3e551c2a9bc7ae0b8ee158405c6ab25ab7f97c36cd32bebe90f8a', 'setup_sha256': '35fd0861a6a91f6bd13719ca3a926142a8a248cb672d9499e328bfdd04c791e3', 'adapter_sha256': '4811f9d50d4a09d8794710296d644350468c49a9579a794f27af42ac9fb6b5bc', 'benchmark_commit': 'cfa2ccd75989c1ebb9ed63303271183377364cf0', 'reference_sha256': {'bench/reference_expanded.py': 'a1196d79efb88425f61cc69ba1d9ec99542f7f5dc41fac2a07ade82090b00f4a', 'bench/reference_fourstate_mix.py': '586fb643e9ef9df9e304df83e04e711aa1b875e6cb4393e6e3c98cd1707b70e1'}}`
+
+| Case | Tool | State | Build s | T(1) median s | T(N) median s | Incremental s | MAD T(N) s | RSS MiB | latest/peer | Reason / warning |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---|
+| large_hierarchy (N=20000) | latest | measured | — | 0.1501 | 30.488 | 30.338 | 0.093651 | 108.37 | — |  |
+| large_hierarchy (N=20000) | baseline | measured | — | 0.15133 | 37.609 | 37.458 | 0.22551 | 108.23 | 0.80991 |  |
+| large_hierarchy (N=20000) | icarus | measured | 0.18767 | 0.10443 | 88.929 | 88.824 | 0.29512 | 22.973 | 0.34155 |  |
+| large_hierarchy (N=20000) | verilator | measured | 15.048 | 0.0018306 | 0.10806 | 0.10623 | 0.0010759 | 3.7969 | 285.58 |  |
+| large_memory (N=500000) | latest | measured | — | 0.11288 | 29.145 | 29.032 | 0.10063 | 44.539 | — |  |
+| large_memory (N=500000) | baseline | measured | — | 0.146 | 41.798 | 41.652 | 0.24891 | 44.41 | 0.69701 |  |
+| large_memory (N=500000) | icarus | measured | 0.0055652 | 0.21439 | 61.457 | 61.242 | 0.016669 | 11.301 | 0.47405 |  |
+| large_memory (N=500000) | verilator | measured | 8.1158 | 0.0024141 | 0.13945 | 0.13704 | 0.00082314 | 4.7266 | 211.85 |  |
+| stream_pipeline (N=250000) | latest | measured | — | 0.0085583 | 29.059 | 29.051 | 0.11181 | 28.254 | — |  |
+| stream_pipeline (N=250000) | baseline | measured | — | 0.010272 | 38.925 | 38.915 | 0.24568 | 28.285 | 0.74652 |  |
+| stream_pipeline (N=250000) | icarus | measured | 0.0087869 | 0.0063252 | 83.492 | 83.486 | 0.28265 | 7.4883 | 0.34797 |  |
+| stream_pipeline (N=250000) | verilator | measured | 8.3722 | 0.0018094 | 0.13704 | 0.13523 | 0.00030075 | 3.707 | 214.82 |  |
+
+Fixed comparison sets (all members required):
+
+- **weekly-regression**: 0.74973; 3/3; large_hierarchy, large_memory, stream_pipeline
+- **weekly-icarus**: 0.38336; 3/3; large_hierarchy, large_memory, stream_pipeline
+- **weekly-verilator**: 235.12; 3/3; large_hierarchy, large_memory, stream_pipeline
 
 ## Separate environment / definition series
 
+### `079515db5b1afbed`
+
+1 runs; 2026-11-17T22:58:29.331708+00:00 → 2026-11-17T22:58:29.331708+00:00
+
+Definition: `weekly-v1-scale`; case count: **3**
+
+![weekly-regression](charts/079515db5b1afbed9ad8eb3b50315933d96ba21786a315eb6d8889d659fc226d/weekly-regression.svg)
+
+![weekly-icarus](charts/079515db5b1afbed9ad8eb3b50315933d96ba21786a315eb6d8889d659fc226d/weekly-icarus.svg)
+
+![weekly-verilator](charts/079515db5b1afbed9ad8eb3b50315933d96ba21786a315eb6d8889d659fc226d/weekly-verilator.svg)
+
+Runs, including failures:
+
+- [actions-44186811554-1](runs/actions-44186811554-1.json): complete — `441dddbd0fcd`
 ### `ff82f2d3ef6ff628`
 
 1 runs; 2026-11-17T21:58:35.859990+00:00 → 2026-11-17T21:58:35.859990+00:00

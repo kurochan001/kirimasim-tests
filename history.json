@@ -412,6 +412,58 @@
         }
       ],
       "profile": "daily"
+    },
+    {
+      "id": "actions-44186811554-1",
+      "started_at": "2026-11-17T22:58:29.331708+00:00",
+      "completed_at": "2026-11-17T23:35:53.816729+00:00",
+      "series": "079515db5b1afbed9ad8eb3b50315933d96ba21786a315eb6d8889d659fc226d",
+      "status": "complete",
+      "groups": [
+        {
+          "name": "weekly-regression",
+          "peer": "baseline",
+          "cases": [
+            "large_hierarchy",
+            "large_memory",
+            "stream_pipeline"
+          ],
+          "expected_count": 3,
+          "available_count": 3,
+          "ratio": 0.7497324336778819,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "weekly-icarus",
+          "peer": "icarus",
+          "cases": [
+            "large_hierarchy",
+            "large_memory",
+            "stream_pipeline"
+          ],
+          "expected_count": 3,
+          "available_count": 3,
+          "ratio": 0.3833595863546663,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "weekly-verilator",
+          "peer": "verilator",
+          "cases": [
+            "large_hierarchy",
+            "large_memory",
+            "stream_pipeline"
+          ],
+          "expected_count": 3,
+          "available_count": 3,
+          "ratio": 235.11514397980642,
+          "warning": false,
+          "reason": null
+        }
+      ],
+      "profile": "weekly"
     }
   ]
 }
