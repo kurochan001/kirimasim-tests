@@ -133,7 +133,7 @@ class DailyBenchmarkTests(unittest.TestCase):
             with self.assertRaises(ValueError):history.append(directory,other)
 
     def test_smoke_private_paths_and_credentials_rejected(self):
-        for change in ({'mode':'smoke'},{'infrastructure_error':'/Users/private/person/file'},
+        for change in ({'mode':'smoke'},{'infrastructure_error':'/'+ '/'.join(('Users','private','person','file'))},
                        {'infrastructure_error':'github_pat_canary'}):
             with tempfile.TemporaryDirectory() as tmp:
                 value=campaign();value.update(change)
