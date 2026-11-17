@@ -118,9 +118,9 @@ class Adapter:
             process = subprocess.Popen(command, cwd=work, env=env, stdout=stdout, stderr=stderr,
                                        start_new_session=True)
             def stop():
+                stopped.set()
                 try:
                     os.killpg(process.pid, signal.SIGKILL)
-                    stopped.set()
                 except ProcessLookupError:
                     pass
             timer = threading.Timer(self.timeout, stop)
@@ -133,6 +133,14 @@ class Adapter:
             try:
                 _, status, usage = os.wait4(process.pid, 0)
                 elapsed = time.monotonic() - start
+            except BaseException:
+                stop()
+                try:
+                    os.wait4(process.pid,0)
+                except ChildProcessError:
+                    pass
+                process.returncode = -signal.SIGKILL
+                raise
             finally:
                 timer.cancel()
                 done.set()
