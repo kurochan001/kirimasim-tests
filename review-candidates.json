@@ -1,29 +1,29 @@
 {
  "inputs": {
   "icarus": {
-   "version": "Icarus Verilog version 14.0 (devel) (s20260301-1091-g32d891a8)",
-   "time": "2026-11-16T05:12:16Z",
-   "suite_commit": "9f9121f0a5290dd2f2fdf1def77df5dded32ad9a"
+   "version": "Icarus Verilog version 14.0 (devel) (s20260301-1129-g98bdb3a7)",
+   "time": "2026-11-17T08:08:09Z",
+   "suite_commit": "77dc1f7657aab90277f65cb008524ef7bd9ae323"
   },
   "verilator": {
-   "version": "Verilator 5.055 devel rev v5.054-288-g1e30e73a",
-   "time": "2026-11-16T05:12:16Z",
-   "suite_commit": "9f9121f0a5290dd2f2fdf1def77df5dded32ad9a"
+   "version": "Verilator 5.055 devel rev v5.054-302-g2d6aba6e",
+   "time": "2026-11-17T08:08:09Z",
+   "suite_commit": "77dc1f7657aab90277f65cb008524ef7bd9ae323"
   },
   "kirimasim": {
-   "version": "kirimasim 0.1.0 (commit c152d237ac8d), built with GNU 13.3.0",
-   "time": "2026-11-16T05:12:16Z",
-   "suite_commit": "9f9121f0a5290dd2f2fdf1def77df5dded32ad9a"
+   "version": "kirimasim 0.1.1 (commit 26f359bcd504), built with GNU 13.3.0",
+   "time": "2026-11-17T08:08:09Z",
+   "suite_commit": "77dc1f7657aab90277f65cb008524ef7bd9ae323"
   },
   "lyra": {
-   "version": "Lyra (commit 05225260af49)",
-   "time": "2026-11-16T05:12:16Z",
-   "suite_commit": "9f9121f0a5290dd2f2fdf1def77df5dded32ad9a"
+   "version": "Lyra (commit 5d2288cdcecc)",
+   "time": "2026-11-17T08:08:09Z",
+   "suite_commit": "77dc1f7657aab90277f65cb008524ef7bd9ae323"
   },
   "ghost": {
-   "version": "private build c82f33747734",
-   "time": "2026-11-16T05:12:16Z",
-   "suite_commit": "9f9121f0a5290dd2f2fdf1def77df5dded32ad9a"
+   "version": "private build 5a7fd8588bb0",
+   "time": "2026-11-17T08:08:09Z",
+   "suite_commit": "77dc1f7657aab90277f65cb008524ef7bd9ae323"
   }
  },
  "candidates": {
@@ -42,7 +42,6 @@
    "ch6/test_illegal_initial_block_variable_initializer_no_keyword",
    "ch6/test_illegal_static_task_variable_initializer_no_keyword",
    "ch6/test_illegal_type_parameter_scope_prefix_in_variable",
-   "ch6/test_interconnect_declaration_generic_forms",
    "ch7/test_illegal_union_holding_struct_member_default",
    "ch8/test_illegal_interface_method_default_not_constant",
    "ch8/test_illegal_interface_typedef_scope_prefix_in_variable_declaration",
@@ -64,21 +63,12 @@
    "ch16/test_illegal_assertion_function_side_effect",
    "ch16/test_illegal_local_variable_implicit_type",
    "ch16/test_illegal_triggered_ending_clock",
-   "ch16/test_sequence_method_inferred_clock_default",
-   "ch17/test_checker_always_ff_assertions_sampled",
-   "ch17/test_checker_dollar_actual_unbounded_range",
    "ch17/test_illegal_checker_function_keeps_state",
    "ch17/test_illegal_checker_function_side_effect",
-   "ch18/test_constraint_function_priority_partition",
    "ch18/test_discarded_soft_distribution",
    "ch18/test_illegal_constraint_function_mode",
    "ch18/test_illegal_constraint_function_state",
    "ch18/test_illegal_randsequence_negative_weight",
-   "ch18/test_solve_before_partial_latest_set",
-   "ch19/test_cg_four_state_literal_wildcard_enum",
-   "ch21/test_illegal_value_plusargs_bad_format",
-   "ch25/test_illegal_virtual_interface_component_in_always_event_control",
-   "ch25/test_illegal_virtual_interface_component_in_always_ff",
    "ch30/test_illegal_edge_parallel_path_vector_destination",
    "ch30/test_illegal_pathpulse_error_below_reject",
    "ch30/test_illegal_pulsestyle_ondetect_after_path",
@@ -86,42 +76,26 @@
    "ch30/test_illegal_showcancelled_after_path",
    "ch30/test_illegal_specify_edge_path_part_and_bit_select",
    "ch30/test_illegal_specify_ifnone_with_unconditional_path",
-   "ch30/test_specify_interface_signal_path_terminals",
-   "ch30/test_specify_parallel_path_bit_to_bit",
-   "ch30/test_specify_path_delay_mintypmax_vpi",
    "ch31/test_illegal_hold_limit_negative",
    "ch31/test_illegal_recovery_limit_negative",
    "ch31/test_illegal_removal_limit_negative",
    "ch31/test_illegal_setup_limit_negative",
    "ch31/test_illegal_setuphold_negative_sum",
    "ch31/test_illegal_timing_condition_two_signals",
-   "ch32/test_sdf_backannotates_all_timing_values",
-   "ch32/test_sdf_label_recomputes_delay_expression",
-   "ch32/test_sdf_label_specparam",
    "ch37/test_vpi_attribute_ports_params",
    "ch37/test_vpi_program_interface_relations",
    "ch37/test_vpi_struct_and_tagged_patterns",
-   "ch38/test_vpi_get_delays_flag_layouts",
    "ch38/test_vpi_size_change_callback_resizes",
    "ch39/test_vpi_assertion_cover_no_failure",
    "ch39/test_vpi_assertion_system_task_control",
-   "ch6/test_parameter_and_specparam_override_mechanisms",
    "ch7/test_illegal_string_in_untagged_union",
    "ch7/test_illegal_unique_index_without_with_struct_elements",
-   "ch7/test_illegal_unique_without_with_struct_elements",
-   "gen/ch28/test_gen_prim_identity_switch_ascending",
-   "gen/ch28/test_gen_prim_identity_switch_descending",
-   "gen/ch28/test_gen_prim_identity_switch_negative_down",
-   "gen/ch28/test_gen_prim_identity_switch_negative_up",
-   "gen/ch28/test_gen_prim_identity_switch_singleton",
-   "gen/ch28/test_gen_prim_identity_udp_ascending",
-   "gen/ch28/test_gen_prim_identity_udp_descending",
-   "gen/ch28/test_gen_prim_identity_udp_negative_down",
-   "gen/ch28/test_gen_prim_identity_udp_negative_up"
+   "ch7/test_illegal_unique_without_with_struct_elements"
   ],
   "oracle_ghost_lyra": [
    "ch11/test_illegal_unsized_constant_in_concatenation",
    "ch17/test_illegal_checker_writes_input",
+   "ch18/test_rand_enum_solver_finds_solution",
    "ch19/test_illegal_cg_matches_negative",
    "ch19/test_illegal_cg_transition_length_zero",
    "ch22/test_illegal_directive_split_across_lines",
@@ -131,7 +105,6 @@
    "ch3/test_illegal_package_import_precedes_package",
    "ch3/test_illegal_package_scoped_name_precedes_package",
    "ch6/test_ch6_extra_for_loop_automatic",
-   "ch7/test_illegal_dynamic_new_nonblocking_assignment",
    "ch8/test_illegal_instance_constant_assigned_twice",
    "ch9/test_illegal_automatic_variable_as_sequence_event_argument"
   ]

@@ -33742,6 +33742,1042 @@
      }
     }
    }
+  },
+  {
+   "time": "2026-11-17T08:08:09Z",
+   "suite_commit": "77dc1f7657aab90277f65cb008524ef7bd9ae323",
+   "run_url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/44003441634",
+   "tests": 13842,
+   "chapters": {
+    "10": 437,
+    "11": 1687,
+    "12": 312,
+    "13": 669,
+    "14": 170,
+    "15": 196,
+    "16": 799,
+    "17": 128,
+    "18": 282,
+    "19": 242,
+    "20": 465,
+    "21": 503,
+    "22": 1326,
+    "23": 417,
+    "24": 221,
+    "25": 264,
+    "26": 262,
+    "27": 283,
+    "28": 397,
+    "29": 142,
+    "3": 152,
+    "30": 70,
+    "31": 66,
+    "32": 68,
+    "33": 89,
+    "34": 4,
+    "35": 187,
+    "36": 89,
+    "37": 231,
+    "38": 125,
+    "39": 39,
+    "4": 480,
+    "40": 39,
+    "5": 520,
+    "6": 717,
+    "7": 821,
+    "8": 479,
+    "9": 464
+   },
+   "simulators": {
+    "icarus": {
+     "name": "Icarus Verilog",
+     "version": "Icarus Verilog version 14.0 (devel) (s20260301-1129-g98bdb3a7)",
+     "counts": {
+      "pass": 8654,
+      "fail": 7,
+      "known": 4914,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       123,
+       152
+      ],
+      "4": [
+       445,
+       480
+      ],
+      "5": [
+       443,
+       520
+      ],
+      "6": [
+       513,
+       717
+      ],
+      "7": [
+       430,
+       821
+      ],
+      "8": [
+       234,
+       479
+      ],
+      "9": [
+       366,
+       464
+      ],
+      "10": [
+       335,
+       437
+      ],
+      "11": [
+       1386,
+       1687
+      ],
+      "12": [
+       228,
+       312
+      ],
+      "13": [
+       391,
+       669
+      ],
+      "14": [
+       25,
+       170
+      ],
+      "15": [
+       9,
+       196
+      ],
+      "16": [
+       165,
+       532
+      ],
+      "17": [
+       1,
+       128
+      ],
+      "18": [
+       64,
+       282
+      ],
+      "19": [
+       83,
+       242
+      ],
+      "20": [
+       321,
+       465
+      ],
+      "21": [
+       379,
+       503
+      ],
+      "22": [
+       1257,
+       1326
+      ],
+      "23": [
+       309,
+       417
+      ],
+      "24": [
+       46,
+       221
+      ],
+      "25": [
+       120,
+       264
+      ],
+      "26": [
+       95,
+       262
+      ],
+      "27": [
+       238,
+       283
+      ],
+      "28": [
+       321,
+       397
+      ],
+      "29": [
+       99,
+       142
+      ],
+      "30": [
+       40,
+       70
+      ],
+      "31": [
+       17,
+       66
+      ],
+      "32": [
+       24,
+       68
+      ],
+      "33": [
+       13,
+       89
+      ],
+      "34": [
+       2,
+       4
+      ],
+      "35": [
+       20,
+       187
+      ],
+      "36": [
+       34,
+       89
+      ],
+      "37": [
+       18,
+       231
+      ],
+      "38": [
+       59,
+       125
+      ],
+      "39": [
+       0,
+       39
+      ],
+      "40": [
+       1,
+       39
+      ]
+     },
+     "changes": {
+      "passing": 36,
+      "failing": 2,
+      "passing_tests": [
+       "ch13/test_parameterized_function_width_truncation",
+       "ch23/test_scope_resolution_edge_cases_2",
+       "ch6/test_illegal_continuous_assign_reads_dynamic_element",
+       "ch6/test_illegal_continuous_assign_reads_queue_element",
+       "ch6/test_param_without_default_not_implicit_top",
+       "ch6/test_parameterized_typedef_specializations",
+       "ch6/test_string_atobin",
+       "ch6/test_string_atobin_2",
+       "ch6/test_string_atooct",
+       "ch6/test_string_atooct_2",
+       "ch6/test_string_binary_octal_round_trip",
+       "ch6/test_string_conversion",
+       "ch6/test_unbounded_queue_tail_after_resize",
+       "ch7/test_queue_edge_2",
+       "ch7/test_queue_slice_bounds_clip_and_empty",
+       "ch8/test_class_local_and_protected_constructors",
+       "ch8/test_class_scope_access",
+       "ch8/test_class_static",
+       "ch8/test_class_static_2",
+       "ch8/test_class_static_method",
+       "ch8/test_illegal_static_method_uses_property",
+       "ch8/test_illegal_this_in_static_method",
+       "ch8/test_method_static",
+       "ch8/test_static_method_through_null_handle",
+       "gen/ch22/test_gen_cross_macro_actual_bare_simple_cls_unit",
+       "gen/ch22/test_gen_cross_macro_empty_bare_simple_cls_elsif",
+       "gen/ch22/test_gen_cross_macro_function_bare_simple_cls_other",
+       "gen/ch22/test_gen_cross_macro_late_twice_brace_cls_unit",
+       "gen/ch22/test_gen_cross_macro_lines_bare_low_cls_same",
+       "gen/ch22/test_gen_cross_macro_object_bare_simple_cls_undef",
+       "gen/ch22/test_gen_cross_macro_paste_wrap_simple_cls_ifndef",
+       "gen/ch22/test_gen_cross_macro_second_bare_simple_cls_unit",
+       "gen/ch8/test_gen_cross_scopeclass_gen_case_variable_local_static_none",
+       "gen/ch8/test_gen_cross_scopeclass_gen_for_param_local_static_outer",
+       "gen/ch8/test_gen_cross_scopeclass_gen_if_function_local_static_property",
+       "gen/ch8/test_gen_cross_scopeclass_module_local_local_static_none"
+      ],
+      "failing_tests": [
+       [
+        "ch6/test_illegal_dollar_in_ordinary_expression",
+        "known",
+        "no error matches 'test_illegal_dollar_in_ordinary_expression\\\\.sv:40:'"
+       ],
+       [
+        "ch6/test_illegal_dollar_with_operator_in_value_range",
+        "known",
+        "no error matches 'test_illegal_dollar_with_operator_in_value_range\\\\.sv:41:'"
+       ]
+      ],
+      "added": 42,
+      "added_passing": 36,
+      "removed": 0
+     }
+    },
+    "verilator": {
+     "name": "Verilator",
+     "version": "Verilator 5.055 devel rev v5.054-302-g2d6aba6e",
+     "counts": {
+      "pass": 7955,
+      "fail": 29,
+      "known": 5591,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       63,
+       152
+      ],
+      "4": [
+       389,
+       480
+      ],
+      "5": [
+       415,
+       520
+      ],
+      "6": [
+       491,
+       717
+      ],
+      "7": [
+       501,
+       821
+      ],
+      "8": [
+       344,
+       479
+      ],
+      "9": [
+       245,
+       464
+      ],
+      "10": [
+       255,
+       437
+      ],
+      "11": [
+       890,
+       1687
+      ],
+      "12": [
+       209,
+       312
+      ],
+      "13": [
+       435,
+       669
+      ],
+      "14": [
+       116,
+       170
+      ],
+      "15": [
+       68,
+       196
+      ],
+      "16": [
+       245,
+       532
+      ],
+      "17": [
+       66,
+       128
+      ],
+      "18": [
+       169,
+       282
+      ],
+      "19": [
+       124,
+       242
+      ],
+      "20": [
+       270,
+       465
+      ],
+      "21": [
+       281,
+       503
+      ],
+      "22": [
+       1255,
+       1326
+      ],
+      "23": [
+       241,
+       417
+      ],
+      "24": [
+       72,
+       221
+      ],
+      "25": [
+       166,
+       264
+      ],
+      "26": [
+       148,
+       262
+      ],
+      "27": [
+       139,
+       283
+      ],
+      "28": [
+       83,
+       397
+      ],
+      "29": [
+       39,
+       142
+      ],
+      "30": [
+       4,
+       70
+      ],
+      "31": [
+       14,
+       66
+      ],
+      "32": [
+       0,
+       68
+      ],
+      "33": [
+       23,
+       89
+      ],
+      "34": [
+       4,
+       4
+      ],
+      "35": [
+       140,
+       187
+      ],
+      "36": [
+       26,
+       89
+      ],
+      "37": [
+       1,
+       231
+      ],
+      "38": [
+       20,
+       125
+      ],
+      "39": [
+       1,
+       39
+      ],
+      "40": [
+       3,
+       39
+      ]
+     },
+     "changes": {
+      "passing": 0,
+      "failing": 0,
+      "passing_tests": [],
+      "failing_tests": [],
+      "added": 42,
+      "added_passing": 18,
+      "removed": 0
+     }
+    },
+    "kirimasim": {
+     "name": "kirimasim",
+     "version": "kirimasim 0.1.1 (commit 26f359bcd504), built with GNU 13.3.0",
+     "counts": {
+      "pass": 10896,
+      "fail": 119,
+      "known": 0,
+      "unsupported": 2560
+     },
+     "chapters": {
+      "3": [
+       135,
+       152
+      ],
+      "4": [
+       462,
+       480
+      ],
+      "5": [
+       499,
+       520
+      ],
+      "6": [
+       632,
+       717
+      ],
+      "7": [
+       662,
+       821
+      ],
+      "8": [
+       392,
+       479
+      ],
+      "9": [
+       428,
+       464
+      ],
+      "10": [
+       415,
+       437
+      ],
+      "11": [
+       1639,
+       1687
+      ],
+      "12": [
+       293,
+       312
+      ],
+      "13": [
+       621,
+       669
+      ],
+      "14": [
+       74,
+       170
+      ],
+      "15": [
+       59,
+       196
+      ],
+      "16": [
+       251,
+       532
+      ],
+      "17": [
+       50,
+       128
+      ],
+      "18": [
+       89,
+       282
+      ],
+      "19": [
+       71,
+       242
+      ],
+      "20": [
+       387,
+       465
+      ],
+      "21": [
+       462,
+       503
+      ],
+      "22": [
+       1315,
+       1326
+      ],
+      "23": [
+       371,
+       417
+      ],
+      "24": [
+       182,
+       221
+      ],
+      "25": [
+       212,
+       264
+      ],
+      "26": [
+       254,
+       262
+      ],
+      "27": [
+       281,
+       283
+      ],
+      "28": [
+       371,
+       397
+      ],
+      "29": [
+       142,
+       142
+      ],
+      "30": [
+       29,
+       70
+      ],
+      "31": [
+       12,
+       66
+      ],
+      "32": [
+       0,
+       68
+      ],
+      "33": [
+       76,
+       89
+      ],
+      "34": [
+       4,
+       4
+      ],
+      "35": [
+       22,
+       187
+      ],
+      "36": [
+       2,
+       89
+      ],
+      "37": [
+       0,
+       231
+      ],
+      "38": [
+       0,
+       125
+      ],
+      "39": [
+       0,
+       39
+      ],
+      "40": [
+       2,
+       39
+      ]
+     },
+     "changes": {
+      "passing": 0,
+      "failing": 0,
+      "passing_tests": [],
+      "failing_tests": [],
+      "added": 42,
+      "added_passing": 42,
+      "removed": 0
+     }
+    },
+    "lyra": {
+     "name": "Lyra",
+     "version": "Lyra (commit 5d2288cdcecc)",
+     "counts": {
+      "pass": 11224,
+      "fail": 634,
+      "known": 0,
+      "unsupported": 1717
+     },
+     "chapters": {
+      "3": [
+       123,
+       152
+      ],
+      "4": [
+       357,
+       480
+      ],
+      "5": [
+       499,
+       520
+      ],
+      "6": [
+       641,
+       717
+      ],
+      "7": [
+       784,
+       821
+      ],
+      "8": [
+       444,
+       479
+      ],
+      "9": [
+       442,
+       464
+      ],
+      "10": [
+       401,
+       437
+      ],
+      "11": [
+       1643,
+       1687
+      ],
+      "12": [
+       300,
+       312
+      ],
+      "13": [
+       658,
+       669
+      ],
+      "14": [
+       159,
+       170
+      ],
+      "15": [
+       186,
+       196
+      ],
+      "16": [
+       382,
+       532
+      ],
+      "17": [
+       50,
+       128
+      ],
+      "18": [
+       214,
+       282
+      ],
+      "19": [
+       199,
+       242
+      ],
+      "20": [
+       422,
+       465
+      ],
+      "21": [
+       374,
+       503
+      ],
+      "22": [
+       1312,
+       1326
+      ],
+      "23": [
+       363,
+       417
+      ],
+      "24": [
+       207,
+       221
+      ],
+      "25": [
+       244,
+       264
+      ],
+      "26": [
+       255,
+       262
+      ],
+      "27": [
+       279,
+       283
+      ],
+      "28": [
+       71,
+       397
+      ],
+      "29": [
+       29,
+       142
+      ],
+      "30": [
+       12,
+       70
+      ],
+      "31": [
+       19,
+       66
+      ],
+      "32": [
+       0,
+       68
+      ],
+      "33": [
+       26,
+       89
+      ],
+      "34": [
+       4,
+       4
+      ],
+      "35": [
+       121,
+       187
+      ],
+      "36": [
+       2,
+       89
+      ],
+      "37": [
+       0,
+       231
+      ],
+      "38": [
+       0,
+       125
+      ],
+      "39": [
+       0,
+       39
+      ],
+      "40": [
+       2,
+       39
+      ]
+     },
+     "changes": {
+      "passing": 1,
+      "failing": 0,
+      "passing_tests": [
+       "ch7/test_illegal_dynamic_new_nonblocking_assignment"
+      ],
+      "failing_tests": [],
+      "added": 42,
+      "added_passing": 42,
+      "removed": 0
+     }
+    },
+    "ghost": {
+     "name": "Ghost",
+     "version": "private build 5a7fd8588bb0",
+     "counts": {
+      "pass": 13298,
+      "fail": 277,
+      "known": 0,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       146,
+       152
+      ],
+      "4": [
+       478,
+       480
+      ],
+      "5": [
+       517,
+       520
+      ],
+      "6": [
+       685,
+       717
+      ],
+      "7": [
+       804,
+       821
+      ],
+      "8": [
+       469,
+       479
+      ],
+      "9": [
+       454,
+       464
+      ],
+      "10": [
+       429,
+       437
+      ],
+      "11": [
+       1673,
+       1687
+      ],
+      "12": [
+       310,
+       312
+      ],
+      "13": [
+       662,
+       669
+      ],
+      "14": [
+       167,
+       170
+      ],
+      "15": [
+       190,
+       196
+      ],
+      "16": [
+       479,
+       532
+      ],
+      "17": [
+       125,
+       128
+      ],
+      "18": [
+       267,
+       282
+      ],
+      "19": [
+       229,
+       242
+      ],
+      "20": [
+       450,
+       465
+      ],
+      "21": [
+       503,
+       503
+      ],
+      "22": [
+       1321,
+       1326
+      ],
+      "23": [
+       406,
+       417
+      ],
+      "24": [
+       221,
+       221
+      ],
+      "25": [
+       258,
+       264
+      ],
+      "26": [
+       259,
+       262
+      ],
+      "27": [
+       283,
+       283
+      ],
+      "28": [
+       397,
+       397
+      ],
+      "29": [
+       142,
+       142
+      ],
+      "30": [
+       59,
+       70
+      ],
+      "31": [
+       55,
+       66
+      ],
+      "32": [
+       68,
+       68
+      ],
+      "33": [
+       86,
+       89
+      ],
+      "34": [
+       4,
+       4
+      ],
+      "35": [
+       186,
+       187
+      ],
+      "36": [
+       88,
+       89
+      ],
+      "37": [
+       228,
+       231
+      ],
+      "38": [
+       124,
+       125
+      ],
+      "39": [
+       37,
+       39
+      ],
+      "40": [
+       39,
+       39
+      ]
+     },
+     "changes": {
+      "passing": 56,
+      "failing": 3,
+      "passing_tests": [
+       "ch10/test_assignment_like_port_connections",
+       "ch10/test_assignment_like_subroutine_arguments",
+       "ch16/test_sequence_method_inferred_clock_default",
+       "ch17/test_checker_always_ff_assertions_sampled",
+       "ch17/test_checker_dollar_actual_unbounded_range",
+       "ch17/test_illegal_checker_variable_initial_assignment",
+       "ch18/test_constraint_function_priority_partition",
+       "ch18/test_illegal_constraint_mode_redefined",
+       "ch18/test_illegal_pure_constraint_not_implemented",
+       "ch18/test_illegal_rand_mode_getter_whole_array",
+       "ch18/test_illegal_rand_mode_override",
+       "ch18/test_illegal_randomize_method_redefined",
+       "ch18/test_inline_local_scope_binding",
+       "ch18/test_solve_before_partial_latest_set",
+       "ch19/test_cg_four_state_literal_wildcard_enum",
+       "ch19/test_cg_real_fixed_bin_items_and_names",
+       "ch21/test_fd_no_broadcast",
+       "ch21/test_fst_dump_control_keeps_header",
+       "ch21/test_fst_header_and_dumpfile",
+       "ch21/test_illegal_value_plusargs_bad_format",
+       "ch24/test_program_port_reactive_variable_and_net",
+       "ch25/test_extern_forkjoin_without_definition_runtime_error",
+       "ch25/test_illegal_virtual_interface_component_in_always_event_control",
+       "ch25/test_illegal_virtual_interface_component_in_always_ff",
+       "ch25/test_interface_named_bundle_ports_share_variable_and_net",
+       "ch25/test_interface_port_default_ref_and_inout_access",
+       "ch29/test_illegal_udp_table_without_endtable",
+       "ch3/test_unit_scope_name_space_item_kinds",
+       "ch30/test_specify_interface_signal_path_terminals",
+       "ch30/test_specify_parallel_path_bit_to_bit",
+       "ch30/test_specify_path_delay_mintypmax_vpi",
+       "ch32/test_sdf_backannotates_all_timing_values",
+       "ch32/test_sdf_label_recomputes_delay_expression",
+       "ch32/test_sdf_label_specparam",
+       "ch33/test_illegal_config_hierarchical_name_in_expression",
+       "ch33/test_illegal_config_index_not_literal",
+       "ch33/test_illegal_config_instance_array_path",
+       "ch38/test_vpi_get_delays_flag_layouts",
+       "ch6/test_interconnect_declaration_generic_forms",
+       "ch6/test_parameter_and_specparam_override_mechanisms",
+       "ch6/test_type_equivalence_anonymous_same_statement",
+       "ch6/test_type_identity_per_instance_cast",
+       "gen/ch24/test_gen_cross_progif_module_hier_delayed_blocking_comb_module",
+       "gen/ch24/test_gen_cross_progif_program_hier_delayed_nba_nba_module",
+       "gen/ch24/test_gen_cross_progif_program_hier_function_blocking_always_module",
+       "gen/ch24/test_gen_cross_progif_program_modport_task_nba_comb_module",
+       "gen/ch24/test_gen_cross_progif_program_modport_wrapper_blocking_assign_module",
+       "gen/ch28/test_gen_prim_identity_switch_ascending",
+       "gen/ch28/test_gen_prim_identity_switch_descending",
+       "gen/ch28/test_gen_prim_identity_switch_negative_down",
+       "gen/ch28/test_gen_prim_identity_switch_negative_up",
+       "gen/ch28/test_gen_prim_identity_switch_singleton",
+       "gen/ch28/test_gen_prim_identity_udp_ascending",
+       "gen/ch28/test_gen_prim_identity_udp_descending",
+       "gen/ch28/test_gen_prim_identity_udp_negative_down",
+       "gen/ch28/test_gen_prim_identity_udp_negative_up"
+      ],
+      "failing_tests": [
+       [
+        "ch18/test_rand_enum_solver_finds_solution",
+        "fail",
+        "output differs (exit 2)"
+       ],
+       [
+        "ch23/test_23_extra_signed_interconnect",
+        "fail",
+        "the design was accepted, but it is illegal"
+       ],
+       [
+        "gen/ch18/test_gen_cross_randreduce_8_signed_dynamic_sum_wide_2_fail_sat_fail",
+        "fail",
+        "output differs (exit 2)"
+       ]
+      ],
+      "added": 42,
+      "added_passing": 42,
+      "removed": 0
+     }
+    }
+   }
   }
  ]
 }

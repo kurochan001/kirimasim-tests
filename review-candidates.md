@@ -2,25 +2,25 @@
 
 [日本語](review-candidates.ja.md)
 
-Tests and clauses whose expected results rest least on anything but the reading of the standard, from the latest results of each simulator. A candidate is not a finding: a review against the standard decides. [How the reviews are recorded](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/docs/review-candidates.en.md).
+Tests and clauses whose expected results rest least on anything but the reading of the standard, from the latest results of each simulator. A candidate is not a finding: a review against the standard decides. [How the reviews are recorded](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/docs/review-candidates.en.md).
 
 ## Results read
 
 | Simulator | Version | Time | Suite commit |
 | --- | --- | --- | --- |
-| Icarus Verilog | `Icarus Verilog version 14.0 (devel) (s20260301-1091-g32d891a8)` | 2026-11-16T05:12:16Z | `9f9121f0` |
-| Verilator | `Verilator 5.055 devel rev v5.054-288-g1e30e73a` | 2026-11-16T05:12:16Z | `9f9121f0` |
-| kirimasim | `kirimasim 0.1.0 (commit c152d237ac8d), built with GNU 13.3.0` | 2026-11-16T05:12:16Z | `9f9121f0` |
-| Lyra | `Lyra (commit 05225260af49)` | 2026-11-16T05:12:16Z | `9f9121f0` |
-| Ghost | `private build c82f33747734` | 2026-11-16T05:12:16Z | `9f9121f0` |
+| Icarus Verilog | `Icarus Verilog version 14.0 (devel) (s20260301-1129-g98bdb3a7)` | 2026-11-17T08:08:09Z | `77dc1f76` |
+| Verilator | `Verilator 5.055 devel rev v5.054-302-g2d6aba6e` | 2026-11-17T08:08:09Z | `77dc1f76` |
+| kirimasim | `kirimasim 0.1.1 (commit 26f359bcd504), built with GNU 13.3.0` | 2026-11-17T08:08:09Z | `77dc1f76` |
+| Lyra | `Lyra (commit 5d2288cdcecc)` | 2026-11-17T08:08:09Z | `77dc1f76` |
+| Ghost | `private build 5a7fd8588bb0` | 2026-11-17T08:08:09Z | `77dc1f76` |
 
 ## Counts
 
 | Candidate | Number |
 | --- | ---: |
-| Spec only, failing on Ghost, kirimasim and Lyra | 19 |
+| Spec only, failing on Ghost, kirimasim and Lyra | 18 |
 | Spec only, passing on kirimasim alone | 7 |
-| Other spec-only tests passing nowhere | 60 |
+| Other spec-only tests passing nowhere | 34 |
 | Release oracle, failing on both Ghost and Lyra | 14 |
 | Clauses whose citing tests are all spec only | 212 |
 
@@ -30,121 +30,94 @@ Results: I Icarus Verilog, V Verilator, K kirimasim, L Lyra, G Ghost; p pass, f 
 
 | Test | Results |
 | --- | --- |
-| [`ch10/test_illegal_force_mixed_driven_variable`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch10/test_illegal_force_mixed_driven_variable.sv) | `Ik Vk Kf Lf Gf` |
-| [`ch13/test_illegal_constant_function_call_in_constant_context`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch13/test_illegal_constant_function_call_in_constant_context.sv) | `Ik Vk Kf Lf Gf` |
-| [`ch20/test_illegal_isunbounded_variable`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch20/test_illegal_isunbounded_variable.sv) | `Ik Vk Kf Lf Gf` |
-| [`ch22/test_illegal_begin_keywords_without_end`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch22/test_illegal_begin_keywords_without_end.sv) | `Ik Vk Kf Lf Gf` |
-| [`ch22/test_illegal_line_directive_trailing_comment`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch22/test_illegal_line_directive_trailing_comment.sv) | `Ik Vk Kf Lf Gf` |
-| [`ch25/test_illegal_modport_import_default_argument_without_prototype`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch25/test_illegal_modport_import_default_argument_without_prototype.sv) | `Ik Vk Kf Lf Gf` |
-| [`ch25/test_illegal_modport_import_named_binding_without_prototype`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch25/test_illegal_modport_import_named_binding_without_prototype.sv) | `Ik Vk Kf Lf Gf` |
-| [`ch25/test_illegal_modport_prototype_unnamed_named_binding`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch25/test_illegal_modport_prototype_unnamed_named_binding.sv) | `Ik Vk Kf Lf Gf` |
-| [`ch5/test_illegal_method_implicit_variable_without_parentheses`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch5/test_illegal_method_implicit_variable_without_parentheses.sv) | `Ik Vk Kf Lf Gf` |
-| [`ch5/test_illegal_string_octal_escape_z_digit`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch5/test_illegal_string_octal_escape_z_digit.sv) | `Ik Vk Kf Lf Gf` |
-| [`ch6/test_illegal_chandle_event_control`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch6/test_illegal_chandle_event_control.sv) | `Ik Vk Kf Lf Gf` |
-| [`ch6/test_illegal_initial_block_variable_initializer_no_keyword`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch6/test_illegal_initial_block_variable_initializer_no_keyword.sv) | `Ik Vk Kf Lf Gf` |
-| [`ch6/test_illegal_static_task_variable_initializer_no_keyword`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch6/test_illegal_static_task_variable_initializer_no_keyword.sv) | `Ik Vk Kf Lf Gf` |
-| [`ch6/test_illegal_type_parameter_scope_prefix_in_variable`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch6/test_illegal_type_parameter_scope_prefix_in_variable.sv) | `Ik Vk Kf Lf Gf` |
-| [`ch6/test_interconnect_declaration_generic_forms`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch6/test_interconnect_declaration_generic_forms.sv) | `Ik Vk Kf Lf Gf` |
-| [`ch7/test_illegal_union_holding_struct_member_default`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch7/test_illegal_union_holding_struct_member_default.sv) | `Ik Vk Kf Lf Gf` |
-| [`ch8/test_illegal_interface_method_default_not_constant`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch8/test_illegal_interface_method_default_not_constant.sv) | `Ik Vk Kf Lf Gf` |
-| [`ch8/test_illegal_interface_typedef_scope_prefix_in_variable_declaration`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch8/test_illegal_interface_typedef_scope_prefix_in_variable_declaration.sv) | `Ik Vk Kf Lf Gf` |
-| [`ch8/test_illegal_type_parameter_scope_prefix_in_variable_declaration`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch8/test_illegal_type_parameter_scope_prefix_in_variable_declaration.sv) | `Ik Vk Kf Lf Gf` |
+| [`ch10/test_illegal_force_mixed_driven_variable`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch10/test_illegal_force_mixed_driven_variable.sv) | `Ik Vk Kf Lf Gf` |
+| [`ch13/test_illegal_constant_function_call_in_constant_context`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch13/test_illegal_constant_function_call_in_constant_context.sv) | `Ik Vk Kf Lf Gf` |
+| [`ch20/test_illegal_isunbounded_variable`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch20/test_illegal_isunbounded_variable.sv) | `Ik Vk Kf Lf Gf` |
+| [`ch22/test_illegal_begin_keywords_without_end`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch22/test_illegal_begin_keywords_without_end.sv) | `Ik Vk Kf Lf Gf` |
+| [`ch22/test_illegal_line_directive_trailing_comment`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch22/test_illegal_line_directive_trailing_comment.sv) | `Ik Vk Kf Lf Gf` |
+| [`ch25/test_illegal_modport_import_default_argument_without_prototype`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch25/test_illegal_modport_import_default_argument_without_prototype.sv) | `Ik Vk Kf Lf Gf` |
+| [`ch25/test_illegal_modport_import_named_binding_without_prototype`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch25/test_illegal_modport_import_named_binding_without_prototype.sv) | `Ik Vk Kf Lf Gf` |
+| [`ch25/test_illegal_modport_prototype_unnamed_named_binding`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch25/test_illegal_modport_prototype_unnamed_named_binding.sv) | `Ik Vk Kf Lf Gf` |
+| [`ch5/test_illegal_method_implicit_variable_without_parentheses`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch5/test_illegal_method_implicit_variable_without_parentheses.sv) | `Ik Vk Kf Lf Gf` |
+| [`ch5/test_illegal_string_octal_escape_z_digit`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch5/test_illegal_string_octal_escape_z_digit.sv) | `Ik Vk Kf Lf Gf` |
+| [`ch6/test_illegal_chandle_event_control`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch6/test_illegal_chandle_event_control.sv) | `Ik Vk Kf Lf Gf` |
+| [`ch6/test_illegal_initial_block_variable_initializer_no_keyword`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch6/test_illegal_initial_block_variable_initializer_no_keyword.sv) | `Ik Vk Kf Lf Gf` |
+| [`ch6/test_illegal_static_task_variable_initializer_no_keyword`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch6/test_illegal_static_task_variable_initializer_no_keyword.sv) | `Ik Vk Kf Lf Gf` |
+| [`ch6/test_illegal_type_parameter_scope_prefix_in_variable`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch6/test_illegal_type_parameter_scope_prefix_in_variable.sv) | `Ik Vk Kf Lf Gf` |
+| [`ch7/test_illegal_union_holding_struct_member_default`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch7/test_illegal_union_holding_struct_member_default.sv) | `Ik Vk Kf Lf Gf` |
+| [`ch8/test_illegal_interface_method_default_not_constant`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch8/test_illegal_interface_method_default_not_constant.sv) | `Ik Vk Kf Lf Gf` |
+| [`ch8/test_illegal_interface_typedef_scope_prefix_in_variable_declaration`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch8/test_illegal_interface_typedef_scope_prefix_in_variable_declaration.sv) | `Ik Vk Kf Lf Gf` |
+| [`ch8/test_illegal_type_parameter_scope_prefix_in_variable_declaration`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch8/test_illegal_type_parameter_scope_prefix_in_variable_declaration.sv) | `Ik Vk Kf Lf Gf` |
 
 ## Spec only, passing on kirimasim alone
 
 | Test | Results |
 | --- | --- |
-| [`ch16/test_illegal_final_deferred_postponed_call`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch16/test_illegal_final_deferred_postponed_call.sv) | `Ik Vk Kp Lf Gf` |
-| [`ch20/test_illegal_bits_function_dynamic_return`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch20/test_illegal_bits_function_dynamic_return.sv) | `Ik Vk Kp Lf Gf` |
-| [`ch20/test_illegal_timeformat_unit_above_range`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch20/test_illegal_timeformat_unit_above_range.sv) | `Ik Vk Kp Lf Gf` |
-| [`ch20/test_illegal_timeformat_unit_below_range`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch20/test_illegal_timeformat_unit_below_range.sv) | `Ik Vk Kp Lf Gf` |
-| [`ch20/test_illegal_timeformat_unit_out_of_range`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch20/test_illegal_timeformat_unit_out_of_range.sv) | `Ik Vk Kp Lf Gf` |
-| [`ch4/test_illegal_final_deferred_action_schedules_event`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch4/test_illegal_final_deferred_action_schedules_event.sv) | `Ik Vk Kp Lf Gf` |
-| [`ch4/test_illegal_final_deferred_action_writes_variable`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch4/test_illegal_final_deferred_action_writes_variable.sv) | `Ik Vk Kp Lf Gf` |
+| [`ch16/test_illegal_final_deferred_postponed_call`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch16/test_illegal_final_deferred_postponed_call.sv) | `Ik Vk Kp Lf Gf` |
+| [`ch20/test_illegal_bits_function_dynamic_return`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch20/test_illegal_bits_function_dynamic_return.sv) | `Ik Vk Kp Lf Gf` |
+| [`ch20/test_illegal_timeformat_unit_above_range`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch20/test_illegal_timeformat_unit_above_range.sv) | `Ik Vk Kp Lf Gf` |
+| [`ch20/test_illegal_timeformat_unit_below_range`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch20/test_illegal_timeformat_unit_below_range.sv) | `Ik Vk Kp Lf Gf` |
+| [`ch20/test_illegal_timeformat_unit_out_of_range`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch20/test_illegal_timeformat_unit_out_of_range.sv) | `Ik Vk Kp Lf Gf` |
+| [`ch4/test_illegal_final_deferred_action_schedules_event`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch4/test_illegal_final_deferred_action_schedules_event.sv) | `Ik Vk Kp Lf Gf` |
+| [`ch4/test_illegal_final_deferred_action_writes_variable`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch4/test_illegal_final_deferred_action_writes_variable.sv) | `Ik Vk Kp Lf Gf` |
 
 ## Other spec-only tests passing nowhere
 
 | Test | Results |
 | --- | --- |
-| [`ch10/test_illegal_user_nettype_assignment_two_delays`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch10/test_illegal_user_nettype_assignment_two_delays.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch16/test_illegal_assertion_clocking_input_not_1step`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch16/test_illegal_assertion_clocking_input_not_1step.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch16/test_illegal_assertion_function_keeps_state`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch16/test_illegal_assertion_function_keeps_state.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch16/test_illegal_assertion_function_side_effect`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch16/test_illegal_assertion_function_side_effect.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch16/test_illegal_local_variable_implicit_type`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch16/test_illegal_local_variable_implicit_type.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch16/test_illegal_triggered_ending_clock`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch16/test_illegal_triggered_ending_clock.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch16/test_sequence_method_inferred_clock_default`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch16/test_sequence_method_inferred_clock_default.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch17/test_checker_always_ff_assertions_sampled`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch17/test_checker_always_ff_assertions_sampled.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch17/test_checker_dollar_actual_unbounded_range`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch17/test_checker_dollar_actual_unbounded_range.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch17/test_illegal_checker_function_keeps_state`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch17/test_illegal_checker_function_keeps_state.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch17/test_illegal_checker_function_side_effect`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch17/test_illegal_checker_function_side_effect.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch18/test_constraint_function_priority_partition`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch18/test_constraint_function_priority_partition.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch18/test_discarded_soft_distribution`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch18/test_discarded_soft_distribution.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch18/test_illegal_constraint_function_mode`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch18/test_illegal_constraint_function_mode.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch18/test_illegal_constraint_function_state`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch18/test_illegal_constraint_function_state.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch18/test_illegal_randsequence_negative_weight`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch18/test_illegal_randsequence_negative_weight.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch18/test_solve_before_partial_latest_set`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch18/test_solve_before_partial_latest_set.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch19/test_cg_four_state_literal_wildcard_enum`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch19/test_cg_four_state_literal_wildcard_enum.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch21/test_illegal_value_plusargs_bad_format`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch21/test_illegal_value_plusargs_bad_format.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch25/test_illegal_virtual_interface_component_in_always_event_control`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch25/test_illegal_virtual_interface_component_in_always_event_control.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch25/test_illegal_virtual_interface_component_in_always_ff`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch25/test_illegal_virtual_interface_component_in_always_ff.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch30/test_illegal_edge_parallel_path_vector_destination`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch30/test_illegal_edge_parallel_path_vector_destination.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch30/test_illegal_pathpulse_error_below_reject`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch30/test_illegal_pathpulse_error_below_reject.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch30/test_illegal_pulsestyle_ondetect_after_path`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch30/test_illegal_pulsestyle_ondetect_after_path.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch30/test_illegal_pulsestyle_onevent_after_path`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch30/test_illegal_pulsestyle_onevent_after_path.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch30/test_illegal_showcancelled_after_path`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch30/test_illegal_showcancelled_after_path.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch30/test_illegal_specify_edge_path_part_and_bit_select`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch30/test_illegal_specify_edge_path_part_and_bit_select.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch30/test_illegal_specify_ifnone_with_unconditional_path`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch30/test_illegal_specify_ifnone_with_unconditional_path.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch30/test_specify_interface_signal_path_terminals`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch30/test_specify_interface_signal_path_terminals.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch30/test_specify_parallel_path_bit_to_bit`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch30/test_specify_parallel_path_bit_to_bit.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch30/test_specify_path_delay_mintypmax_vpi`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch30/test_specify_path_delay_mintypmax_vpi.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch31/test_illegal_hold_limit_negative`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch31/test_illegal_hold_limit_negative.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch31/test_illegal_recovery_limit_negative`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch31/test_illegal_recovery_limit_negative.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch31/test_illegal_removal_limit_negative`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch31/test_illegal_removal_limit_negative.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch31/test_illegal_setup_limit_negative`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch31/test_illegal_setup_limit_negative.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch31/test_illegal_setuphold_negative_sum`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch31/test_illegal_setuphold_negative_sum.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch31/test_illegal_timing_condition_two_signals`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch31/test_illegal_timing_condition_two_signals.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch32/test_sdf_backannotates_all_timing_values`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch32/test_sdf_backannotates_all_timing_values.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch32/test_sdf_label_recomputes_delay_expression`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch32/test_sdf_label_recomputes_delay_expression.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch32/test_sdf_label_specparam`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch32/test_sdf_label_specparam.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch37/test_vpi_attribute_ports_params`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch37/test_vpi_attribute_ports_params.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch37/test_vpi_program_interface_relations`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch37/test_vpi_program_interface_relations.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch37/test_vpi_struct_and_tagged_patterns`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch37/test_vpi_struct_and_tagged_patterns.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch38/test_vpi_get_delays_flag_layouts`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch38/test_vpi_get_delays_flag_layouts.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch38/test_vpi_size_change_callback_resizes`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch38/test_vpi_size_change_callback_resizes.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch39/test_vpi_assertion_cover_no_failure`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch39/test_vpi_assertion_cover_no_failure.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch39/test_vpi_assertion_system_task_control`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch39/test_vpi_assertion_system_task_control.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch6/test_parameter_and_specparam_override_mechanisms`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch6/test_parameter_and_specparam_override_mechanisms.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch7/test_illegal_string_in_untagged_union`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch7/test_illegal_string_in_untagged_union.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch7/test_illegal_unique_index_without_with_struct_elements`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch7/test_illegal_unique_index_without_with_struct_elements.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch7/test_illegal_unique_without_with_struct_elements`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch7/test_illegal_unique_without_with_struct_elements.sv) | `Ik Vk Ku Lf Gf` |
-| [`gen/ch28/test_gen_prim_identity_switch_ascending`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/gen/ch28/test_gen_prim_identity_switch_ascending.sv) | `Ik Vk Ku Lu Gf` |
-| [`gen/ch28/test_gen_prim_identity_switch_descending`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/gen/ch28/test_gen_prim_identity_switch_descending.sv) | `Ik Vk Ku Lu Gf` |
-| [`gen/ch28/test_gen_prim_identity_switch_negative_down`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/gen/ch28/test_gen_prim_identity_switch_negative_down.sv) | `Ik Vk Ku Lu Gf` |
-| [`gen/ch28/test_gen_prim_identity_switch_negative_up`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/gen/ch28/test_gen_prim_identity_switch_negative_up.sv) | `Ik Vk Ku Lu Gf` |
-| [`gen/ch28/test_gen_prim_identity_switch_singleton`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/gen/ch28/test_gen_prim_identity_switch_singleton.sv) | `Ik Vk Ku Lu Gf` |
-| [`gen/ch28/test_gen_prim_identity_udp_ascending`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/gen/ch28/test_gen_prim_identity_udp_ascending.sv) | `Ik Vk Ku Lu Gf` |
-| [`gen/ch28/test_gen_prim_identity_udp_descending`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/gen/ch28/test_gen_prim_identity_udp_descending.sv) | `Ik Vk Ku Lu Gf` |
-| [`gen/ch28/test_gen_prim_identity_udp_negative_down`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/gen/ch28/test_gen_prim_identity_udp_negative_down.sv) | `Ik Vk Ku Lu Gf` |
-| [`gen/ch28/test_gen_prim_identity_udp_negative_up`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/gen/ch28/test_gen_prim_identity_udp_negative_up.sv) | `Ik Vk Ku Lu Gf` |
+| [`ch10/test_illegal_user_nettype_assignment_two_delays`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch10/test_illegal_user_nettype_assignment_two_delays.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch16/test_illegal_assertion_clocking_input_not_1step`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch16/test_illegal_assertion_clocking_input_not_1step.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch16/test_illegal_assertion_function_keeps_state`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch16/test_illegal_assertion_function_keeps_state.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch16/test_illegal_assertion_function_side_effect`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch16/test_illegal_assertion_function_side_effect.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch16/test_illegal_local_variable_implicit_type`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch16/test_illegal_local_variable_implicit_type.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch16/test_illegal_triggered_ending_clock`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch16/test_illegal_triggered_ending_clock.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch17/test_illegal_checker_function_keeps_state`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch17/test_illegal_checker_function_keeps_state.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch17/test_illegal_checker_function_side_effect`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch17/test_illegal_checker_function_side_effect.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch18/test_discarded_soft_distribution`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch18/test_discarded_soft_distribution.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch18/test_illegal_constraint_function_mode`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch18/test_illegal_constraint_function_mode.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch18/test_illegal_constraint_function_state`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch18/test_illegal_constraint_function_state.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch18/test_illegal_randsequence_negative_weight`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch18/test_illegal_randsequence_negative_weight.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch30/test_illegal_edge_parallel_path_vector_destination`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch30/test_illegal_edge_parallel_path_vector_destination.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch30/test_illegal_pathpulse_error_below_reject`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch30/test_illegal_pathpulse_error_below_reject.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch30/test_illegal_pulsestyle_ondetect_after_path`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch30/test_illegal_pulsestyle_ondetect_after_path.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch30/test_illegal_pulsestyle_onevent_after_path`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch30/test_illegal_pulsestyle_onevent_after_path.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch30/test_illegal_showcancelled_after_path`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch30/test_illegal_showcancelled_after_path.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch30/test_illegal_specify_edge_path_part_and_bit_select`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch30/test_illegal_specify_edge_path_part_and_bit_select.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch30/test_illegal_specify_ifnone_with_unconditional_path`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch30/test_illegal_specify_ifnone_with_unconditional_path.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch31/test_illegal_hold_limit_negative`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch31/test_illegal_hold_limit_negative.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch31/test_illegal_recovery_limit_negative`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch31/test_illegal_recovery_limit_negative.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch31/test_illegal_removal_limit_negative`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch31/test_illegal_removal_limit_negative.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch31/test_illegal_setup_limit_negative`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch31/test_illegal_setup_limit_negative.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch31/test_illegal_setuphold_negative_sum`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch31/test_illegal_setuphold_negative_sum.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch31/test_illegal_timing_condition_two_signals`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch31/test_illegal_timing_condition_two_signals.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch37/test_vpi_attribute_ports_params`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch37/test_vpi_attribute_ports_params.sv) | `Ik Vk Ku Lu Gf` |
+| [`ch37/test_vpi_program_interface_relations`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch37/test_vpi_program_interface_relations.sv) | `Ik Vk Ku Lu Gf` |
+| [`ch37/test_vpi_struct_and_tagged_patterns`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch37/test_vpi_struct_and_tagged_patterns.sv) | `Ik Vk Ku Lu Gf` |
+| [`ch38/test_vpi_size_change_callback_resizes`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch38/test_vpi_size_change_callback_resizes.sv) | `Ik Vk Ku Lu Gf` |
+| [`ch39/test_vpi_assertion_cover_no_failure`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch39/test_vpi_assertion_cover_no_failure.sv) | `Ik Vk Ku Lu Gf` |
+| [`ch39/test_vpi_assertion_system_task_control`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch39/test_vpi_assertion_system_task_control.sv) | `Ik Vk Ku Lu Gf` |
+| [`ch7/test_illegal_string_in_untagged_union`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch7/test_illegal_string_in_untagged_union.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch7/test_illegal_unique_index_without_with_struct_elements`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch7/test_illegal_unique_index_without_with_struct_elements.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch7/test_illegal_unique_without_with_struct_elements`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch7/test_illegal_unique_without_with_struct_elements.sv) | `Ik Vk Ku Lf Gf` |
 
 ## Release oracle, failing on both Ghost and Lyra
 
 | Test | Results |
 | --- | --- |
-| [`ch11/test_illegal_unsized_constant_in_concatenation`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch11/test_illegal_unsized_constant_in_concatenation.sv) | `Ip Vk Kf Lf Gf` |
-| [`ch17/test_illegal_checker_writes_input`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch17/test_illegal_checker_writes_input.sv) | `Ik Vp Ku Lf Gf` |
-| [`ch19/test_illegal_cg_matches_negative`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch19/test_illegal_cg_matches_negative.sv) | `Ip Vp Ku Lf Gf` |
-| [`ch19/test_illegal_cg_transition_length_zero`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch19/test_illegal_cg_transition_length_zero.sv) | `Ip Vf Ku Lf Gf` |
-| [`ch22/test_illegal_directive_split_across_lines`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch22/test_illegal_directive_split_across_lines.sv) | `Ik Vp Kf Lf Gf` |
-| [`ch22/test_illegal_include_line_trailing_code`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch22/test_illegal_include_line_trailing_code.sv) | `Ip Vk Kf Lf Gf` |
-| [`ch23/test_illegal_scope_duplicate_in_unselected_generate`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch23/test_illegal_scope_duplicate_in_unselected_generate.sv) | `Ip Vp Kf Lf Gf` |
-| [`ch26/test_illegal_package_imported_before_compiled`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch26/test_illegal_package_imported_before_compiled.sv) | `Ip Vk Kf Lf Gf` |
-| [`ch3/test_illegal_package_import_precedes_package`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch3/test_illegal_package_import_precedes_package.sv) | `Ip Vk Kf Lf Gf` |
-| [`ch3/test_illegal_package_scoped_name_precedes_package`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch3/test_illegal_package_scoped_name_precedes_package.sv) | `Ip Vk Kf Lf Gf` |
-| [`ch6/test_ch6_extra_for_loop_automatic`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch6/test_ch6_extra_for_loop_automatic.sv) | `Ik Vp Kf Lf Gf` |
-| [`ch7/test_illegal_dynamic_new_nonblocking_assignment`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch7/test_illegal_dynamic_new_nonblocking_assignment.sv) | `Ip Vp Kf Lf Gf` |
-| [`ch8/test_illegal_instance_constant_assigned_twice`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch8/test_illegal_instance_constant_assigned_twice.sv) | `Ip Vk Kp Lf Gf` |
-| [`ch9/test_illegal_automatic_variable_as_sequence_event_argument`](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/tests/ch9/test_illegal_automatic_variable_as_sequence_event_argument.sv) | `Ip Vp Ku Lf Gf` |
+| [`ch11/test_illegal_unsized_constant_in_concatenation`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch11/test_illegal_unsized_constant_in_concatenation.sv) | `Ip Vk Kf Lf Gf` |
+| [`ch17/test_illegal_checker_writes_input`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch17/test_illegal_checker_writes_input.sv) | `Ik Vp Ku Lf Gf` |
+| [`ch18/test_rand_enum_solver_finds_solution`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch18/test_rand_enum_solver_finds_solution.sv) | `Ik Vp Ku Lf Gf` |
+| [`ch19/test_illegal_cg_matches_negative`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch19/test_illegal_cg_matches_negative.sv) | `Ip Vp Ku Lf Gf` |
+| [`ch19/test_illegal_cg_transition_length_zero`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch19/test_illegal_cg_transition_length_zero.sv) | `Ip Vf Ku Lf Gf` |
+| [`ch22/test_illegal_directive_split_across_lines`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch22/test_illegal_directive_split_across_lines.sv) | `Ik Vp Kf Lf Gf` |
+| [`ch22/test_illegal_include_line_trailing_code`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch22/test_illegal_include_line_trailing_code.sv) | `Ip Vk Kf Lf Gf` |
+| [`ch23/test_illegal_scope_duplicate_in_unselected_generate`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch23/test_illegal_scope_duplicate_in_unselected_generate.sv) | `Ip Vp Kf Lf Gf` |
+| [`ch26/test_illegal_package_imported_before_compiled`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch26/test_illegal_package_imported_before_compiled.sv) | `Ip Vk Kf Lf Gf` |
+| [`ch3/test_illegal_package_import_precedes_package`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch3/test_illegal_package_import_precedes_package.sv) | `Ip Vk Kf Lf Gf` |
+| [`ch3/test_illegal_package_scoped_name_precedes_package`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch3/test_illegal_package_scoped_name_precedes_package.sv) | `Ip Vk Kf Lf Gf` |
+| [`ch6/test_ch6_extra_for_loop_automatic`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch6/test_ch6_extra_for_loop_automatic.sv) | `Ik Vp Kf Lf Gf` |
+| [`ch8/test_illegal_instance_constant_assigned_twice`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch8/test_illegal_instance_constant_assigned_twice.sv) | `Ip Vk Kp Lf Gf` |
+| [`ch9/test_illegal_automatic_variable_as_sequence_event_argument`](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/tests/ch9/test_illegal_automatic_variable_as_sequence_event_argument.sv) | `Ip Vp Ku Lf Gf` |
 
 ## Clauses whose citing tests are all spec only
 

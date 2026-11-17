@@ -4,27 +4,27 @@
 
 [kirimasim-tests](https://github.com/kurochan001/kirimasim-tests) の[夜間ワークフロー](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml)がこのブランチを更新します。毎晩、main ブランチの全テストを各シミュレータで実行し、結果を `history.json` に追加して、以下の図を生成します。ローカル実行の結果も取り込むことができ、`local` と表示します。出力と指定された検査が期待結果に一致する場合、または不正な設計が必要な診断付きで拒否される場合に、テストを「一致」と数えます。各ステータスの意味はスイートの README を参照してください。
 
-最新の実行: 2026-11-16 05:12 UTC、スイートのコミット [`9f9121f`](https://github.com/kurochan001/kirimasim-tests/commit/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a)、テスト13800件、[ワークフロー実行](https://github.com/kurochan001/kirimasim-tests/actions/runs/43774666796)。
+最新の実行: 2026-11-17 08:08 UTC、スイートのコミット [`77dc1f7`](https://github.com/kurochan001/kirimasim-tests/commit/77dc1f7657aab90277f65cb008524ef7bd9ae323)、テスト13842件、[ワークフロー実行](https://github.com/kurochan001/kirimasim-tests/actions/runs/44003441634)。
 
 ## シミュレータごとの最新結果
 
 各行と章別表の各列には、そのシミュレータの最新の実行記録を使います。実行日時、スイートのコミット、テスト数は異なる場合があります。古い結果の日時はそのまま保持し、最新の実行に含まれる結果としては扱いません。
 
-緑のworkflowは全テストの合格を意味しません。[Nightlyが緑でもDifferが残る理由](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/docs/faq.md#q11-why-can-nightly-be-green-with-differ-results)と、[区分・個別テストの確認先](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/docs/faq.md#q9-what-do-match-differ-known-difference-and-unsupported-mean)を読んでから件数を比較してください。
+緑のworkflowは全テストの合格を意味しません。[Nightlyが緑でもDifferが残る理由](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/docs/faq.md#q11-why-can-nightly-be-green-with-differ-results)と、[区分・個別テストの確認先](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/docs/faq.md#q9-what-do-match-differ-known-difference-and-unsupported-mean)を読んでから件数を比較してください。
 
 | シミュレータ | バージョン | 実行 (UTC) | スイート | 取り込み元 | 一致 (pass) | 不一致 (fail) | 既知の差異 (known) | 未対応 (unsupported) |
 | --- | --- | --- | --- | --- | ---: | ---: | ---: | ---: |
-| Icarus Verilog | Icarus Verilog version 14.0 (devel) (s20260301-1091-g32d891a8) | 2026-11-16 05:12 | [`9f9121f`](https://github.com/kurochan001/kirimasim-tests/commit/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a) | nightly | 8584 (63.4%) | 7 | 4942 | 0 |
-| Verilator | Verilator 5.055 devel rev v5.054-288-g1e30e73a | 2026-11-16 05:12 | [`9f9121f`](https://github.com/kurochan001/kirimasim-tests/commit/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a) | nightly | 7937 (58.6%) | 29 | 5567 | 0 |
-| kirimasim | kirimasim 0.1.0 (commit c152d237ac8d), built with GNU 13.3.0 | 2026-11-16 05:12 | [`9f9121f`](https://github.com/kurochan001/kirimasim-tests/commit/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a) | nightly | 10854 (80.2%) | 119 | 0 | 2560 |
-| Lyra | Lyra (commit 05225260af49) | 2026-11-16 05:12 | [`9f9121f`](https://github.com/kurochan001/kirimasim-tests/commit/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a) | nightly | 11181 (82.6%) | 635 | 0 | 1717 |
-| Ghost | private build c82f33747734 | 2026-11-16 05:12 | [`9f9121f`](https://github.com/kurochan001/kirimasim-tests/commit/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a) | nightly | 13203 (97.6%) | 330 | 0 | 0 |
+| Icarus Verilog | Icarus Verilog version 14.0 (devel) (s20260301-1129-g98bdb3a7) | 2026-11-17 08:08 | [`77dc1f7`](https://github.com/kurochan001/kirimasim-tests/commit/77dc1f7657aab90277f65cb008524ef7bd9ae323) | nightly | 8654 (63.7%) | 7 | 4914 | 0 |
+| Verilator | Verilator 5.055 devel rev v5.054-302-g2d6aba6e | 2026-11-17 08:08 | [`77dc1f7`](https://github.com/kurochan001/kirimasim-tests/commit/77dc1f7657aab90277f65cb008524ef7bd9ae323) | nightly | 7955 (58.6%) | 29 | 5591 | 0 |
+| kirimasim | kirimasim 0.1.1 (commit 26f359bcd504), built with GNU 13.3.0 | 2026-11-17 08:08 | [`77dc1f7`](https://github.com/kurochan001/kirimasim-tests/commit/77dc1f7657aab90277f65cb008524ef7bd9ae323) | nightly | 10896 (80.3%) | 119 | 0 | 2560 |
+| Lyra | Lyra (commit 5d2288cdcecc) | 2026-11-17 08:08 | [`77dc1f7`](https://github.com/kurochan001/kirimasim-tests/commit/77dc1f7657aab90277f65cb008524ef7bd9ae323) | nightly | 11224 (82.7%) | 634 | 0 | 1717 |
+| Ghost | private build 5a7fd8588bb0 | 2026-11-17 08:08 | [`77dc1f7`](https://github.com/kurochan001/kirimasim-tests/commit/77dc1f7657aab90277f65cb008524ef7bd9ae323) | nightly | 13298 (98.0%) | 277 | 0 | 0 |
 
 Ghost は正式公開前に参加している匿名のシミュレータです。現在公開しているのはテスト結果のみです。名称、ソースコード、ビルドログは非公開で、ビルドIDには実行ファイルのハッシュを使用します。
 
-![期待結果に一致するテスト数](charts/overview.ja.svg?v=20261116T051216)
+![期待結果に一致するテスト数](charts/overview.ja.svg?v=20261117T080809)
 
-![一致したテストの割合](charts/rate.ja.svg?v=20261116T051216)
+![一致したテストの割合](charts/rate.ja.svg?v=20261117T080809)
 
 ## 最新の実行での変化
 
@@ -32,56 +32,44 @@ Ghost は正式公開前に参加している匿名のシミュレータです�
 
 ### Icarus Verilog
 
-新たに一致（30件）: `ch13/test_evaluation_context_extended`, `ch15/test_illegal_mailbox_param_get_type`, `ch20/test_bits_member_through_null_handle`, `ch3/test_same_class_name_in_two_scopes`, `ch6/test_ch6_extra_class_body_parameter_local`, `ch6/test_illegal_automatic_variable_nonblocking`, `ch6/test_illegal_class_parameter_without_default_default_specialization`, `ch6/test_illegal_continuous_assign_reads_automatic_variable`, `ch6/test_param_declaration_contexts`, `ch6/test_parameterized_data_types`, `ch6/test_typedef_param`, `ch8/test_class_bounded_fifo`, `ch8/test_class_const_global_and_instance_properties`, `ch8/test_class_enum_and_parameters_via_handle_and_scope`, `ch8/test_class_param`, `ch8/test_class_param_2`, `ch8/test_class_super_hidden_members_and_implicit_super_new`, `ch8/test_class_value_parameters_through_handles`, `ch8/test_class_virtual_param`, `ch8/test_forward_class_typedef_parameterized`, `ch8/test_generic_fifo`, `ch8/test_illegal_handle_parameter_in_packed_dimension`, `ch8/test_illegal_parameterized_class_without_default_specialization`, `ch8/test_illegal_super_parameter_in_packed_dimension`, `ch8/test_illegal_type_parameter_through_class_handle`, `ch8/test_param_class_extends_param_class`, `ch8/test_param_class_package_vs_module_instance_specializations`, `ch8/test_parameterized_class_static_per_specialization`, `ch9/test_illegal_class_extends_process`, `ch9/test_illegal_new_process_object`
+新たに一致（36件）: `ch13/test_parameterized_function_width_truncation`, `ch23/test_scope_resolution_edge_cases_2`, `ch6/test_illegal_continuous_assign_reads_dynamic_element`, `ch6/test_illegal_continuous_assign_reads_queue_element`, `ch6/test_param_without_default_not_implicit_top`, `ch6/test_parameterized_typedef_specializations`, `ch6/test_string_atobin`, `ch6/test_string_atobin_2`, `ch6/test_string_atooct`, `ch6/test_string_atooct_2`, `ch6/test_string_binary_octal_round_trip`, `ch6/test_string_conversion`, `ch6/test_unbounded_queue_tail_after_resize`, `ch7/test_queue_edge_2`, `ch7/test_queue_slice_bounds_clip_and_empty`, `ch8/test_class_local_and_protected_constructors`, `ch8/test_class_scope_access`, `ch8/test_class_static`, `ch8/test_class_static_2`, `ch8/test_class_static_method`, `ch8/test_illegal_static_method_uses_property`, `ch8/test_illegal_this_in_static_method`, `ch8/test_method_static`, `ch8/test_static_method_through_null_handle`, `gen/ch22/test_gen_cross_macro_actual_bare_simple_cls_unit`, `gen/ch22/test_gen_cross_macro_empty_bare_simple_cls_elsif`, `gen/ch22/test_gen_cross_macro_function_bare_simple_cls_other`, `gen/ch22/test_gen_cross_macro_late_twice_brace_cls_unit`, `gen/ch22/test_gen_cross_macro_lines_bare_low_cls_same`, `gen/ch22/test_gen_cross_macro_object_bare_simple_cls_undef`, `gen/ch22/test_gen_cross_macro_paste_wrap_simple_cls_ifndef`, `gen/ch22/test_gen_cross_macro_second_bare_simple_cls_unit`, `gen/ch8/test_gen_cross_scopeclass_gen_case_variable_local_static_none`, `gen/ch8/test_gen_cross_scopeclass_gen_for_param_local_static_outer`, `gen/ch8/test_gen_cross_scopeclass_gen_if_function_local_static_property`, `gen/ch8/test_gen_cross_scopeclass_module_local_local_static_none`
 
-一致しなくなったテスト（5件）:
+一致しなくなったテスト（2件）:
 
-- `ch18/test_illegal_scope_randomize_null`: 既知の差異 (known) — no error matches 'test_illegal_scope_randomize_null\\.sv:38:'; the first is: tests/ch18/test_illegal_scope_randomize_null.sv:36: syntax error
-- `ch6/test_illegal_forward_type_scope_prefix_in_variable`: 既知の差異 (known) — the design was accepted, but it is illegal
-- `ch6/test_illegal_forward_type_scope_prefix_not_class`: 既知の差異 (known) — the design was accepted, but it is illegal
-- `ch8/test_illegal_forward_class_scope_prefix_in_variable_declaration`: 既知の差異 (known) — the design was accepted, but it is illegal
-- `ch8/test_illegal_interface_typedef_scope_prefix_in_variable_declaration`: 既知の差異 (known) — no error matches 'test_illegal_interface_typedef_scope_prefix_in_variable_declaration\\.sv:34:'; the first is: tests/ch8/test_illegal_interface_typedef_scope_prefix_in_variable_declaration.sv:31: syntax error
-
-### Verilator
-
-新たに一致（2件）: `ch11/test_illegal_stream_into_real_target`, `ch13/test_illegal_automatic_task_variable_in_nonblocking_event`
+- `ch6/test_illegal_dollar_in_ordinary_expression`: 既知の差異 (known) — no error matches 'test_illegal_dollar_in_ordinary_expression\\.sv:40:'
+- `ch6/test_illegal_dollar_with_operator_in_value_range`: 既知の差異 (known) — no error matches 'test_illegal_dollar_with_operator_in_value_range\\.sv:41:'
 
 ### Lyra
 
-新たに一致（11件）: `ch20/test_associative_array_query_functions`, `gen/ch20/test_gen_cross_assocquery_4_unsigned_compact_ascending_high_implicit`, `gen/ch20/test_gen_cross_assocquery_4_unsigned_compact_ascending_low_implicit`, `gen/ch20/test_gen_cross_assocquery_4_unsigned_compact_descending_middle_implicit`, `gen/ch20/test_gen_cross_assocquery_4_unsigned_extreme_ascending_low_implicit`, `gen/ch20/test_gen_cross_assocquery_4_unsigned_extreme_descending_low_implicit`, `gen/ch20/test_gen_cross_assocquery_4_unsigned_extreme_descending_middle_implicit`, `gen/ch20/test_gen_cross_assocquery_4_unsigned_extreme_zigzag_high_implicit`, `gen/ch20/test_gen_cross_assocquery_8_unsigned_compact_ascending_middle_explicit`, `gen/ch20/test_gen_cross_assocquery_8_unsigned_compact_descending_high_implicit`, `gen/ch20/test_gen_cross_assocquery_8_unsigned_extreme_zigzag_low_explicit`
+新たに一致（1件）: `ch7/test_illegal_dynamic_new_nonblocking_assignment`
 
 ### Ghost
 
-新たに一致（28件）: `ch10/test_syntax_assignment_pattern_forms`, `ch11/test_tagged_union_write_wrong_tag_runtime_error`, `ch15/test_ipc_classes_extended_shadowed_and_created`, `ch15/test_mailbox_typeless_get_type_mismatch_runtime_error`, `ch15/test_mailbox_typeless_peek_type_mismatch_runtime_error`, `ch16/test_ch16_sim_multiclock_init`, `ch18/test_constraint_block_all_forms`, `ch18/test_rand_enum_solver_finds_solution`, `ch20/test_array_query_types_and_invalid`, `gen/ch18/test_gen_cross_randreduce_8_signed_dynamic_sum_wide_2_fail_sat_fail`, `gen/ch18/test_gen_cross_randreduce_8_unsigned_dynamic_sum_element_3_sat_fail_sat`, `gen/ch24/test_gen_cross_progif_module_hier_direct_blocking_always_interface`, `gen/ch24/test_gen_cross_progif_module_hier_function_blocking_always_interface`, `gen/ch24/test_gen_cross_progif_module_modport_task_blocking_always_interface`, `gen/ch24/test_gen_cross_progif_module_port_delayed_blocking_always_interface`, `gen/ch24/test_gen_cross_progif_module_port_task_blocking_always_interface`, `gen/ch24/test_gen_cross_progif_module_port_wrapper_nba_nba_module`, `gen/ch24/test_gen_cross_progif_program_hier_direct_nba_assign_interface`, `gen/ch24/test_gen_cross_progif_program_hier_task_blocking_nba_interface`, `gen/ch24/test_gen_cross_progif_program_hier_wrapper_blocking_comb_interface`, `gen/ch24/test_gen_cross_progif_program_modport_delayed_blocking_always_interface`, `gen/ch24/test_gen_cross_progif_program_modport_direct_blocking_always_interface`, `gen/ch24/test_gen_cross_progif_program_modport_function_blocking_always_interface`, `gen/ch24/test_gen_cross_progif_program_port_delayed_blocking_nba_interface`, `gen/ch24/test_gen_cross_progif_program_port_direct_blocking_comb_interface`, `gen/ch24/test_gen_cross_progif_program_port_function_nba_assign_interface`, `gen/ch24/test_gen_cross_progif_program_port_task_blocking_always_interface`, `gen/ch24/test_gen_cross_progif_program_port_wrapper_nba_always_interface`
+新たに一致（56件）: `ch10/test_assignment_like_port_connections`, `ch10/test_assignment_like_subroutine_arguments`, `ch16/test_sequence_method_inferred_clock_default`, `ch17/test_checker_always_ff_assertions_sampled`, `ch17/test_checker_dollar_actual_unbounded_range`, `ch17/test_illegal_checker_variable_initial_assignment`, `ch18/test_constraint_function_priority_partition`, `ch18/test_illegal_constraint_mode_redefined`, `ch18/test_illegal_pure_constraint_not_implemented`, `ch18/test_illegal_rand_mode_getter_whole_array`, `ch18/test_illegal_rand_mode_override`, `ch18/test_illegal_randomize_method_redefined`, `ch18/test_inline_local_scope_binding`, `ch18/test_solve_before_partial_latest_set`, `ch19/test_cg_four_state_literal_wildcard_enum`, `ch19/test_cg_real_fixed_bin_items_and_names`, `ch21/test_fd_no_broadcast`, `ch21/test_fst_dump_control_keeps_header`, `ch21/test_fst_header_and_dumpfile`, `ch21/test_illegal_value_plusargs_bad_format`, `ch24/test_program_port_reactive_variable_and_net`, `ch25/test_extern_forkjoin_without_definition_runtime_error`, `ch25/test_illegal_virtual_interface_component_in_always_event_control`, `ch25/test_illegal_virtual_interface_component_in_always_ff`, `ch25/test_interface_named_bundle_ports_share_variable_and_net`, `ch25/test_interface_port_default_ref_and_inout_access`, `ch29/test_illegal_udp_table_without_endtable`, `ch3/test_unit_scope_name_space_item_kinds`, `ch30/test_specify_interface_signal_path_terminals`, `ch30/test_specify_parallel_path_bit_to_bit`, `ch30/test_specify_path_delay_mintypmax_vpi`, `ch32/test_sdf_backannotates_all_timing_values`, `ch32/test_sdf_label_recomputes_delay_expression`, `ch32/test_sdf_label_specparam`, `ch33/test_illegal_config_hierarchical_name_in_expression`, `ch33/test_illegal_config_index_not_literal`, `ch33/test_illegal_config_instance_array_path`, `ch38/test_vpi_get_delays_flag_layouts`, `ch6/test_interconnect_declaration_generic_forms`, `ch6/test_parameter_and_specparam_override_mechanisms`, `ch6/test_type_equivalence_anonymous_same_statement`, `ch6/test_type_identity_per_instance_cast`, `gen/ch24/test_gen_cross_progif_module_hier_delayed_blocking_comb_module`, `gen/ch24/test_gen_cross_progif_program_hier_delayed_nba_nba_module`, `gen/ch24/test_gen_cross_progif_program_hier_function_blocking_always_module`, `gen/ch24/test_gen_cross_progif_program_modport_task_nba_comb_module`, `gen/ch24/test_gen_cross_progif_program_modport_wrapper_blocking_assign_module`, `gen/ch28/test_gen_prim_identity_switch_ascending`, `gen/ch28/test_gen_prim_identity_switch_descending`, `gen/ch28/test_gen_prim_identity_switch_negative_down`, `gen/ch28/test_gen_prim_identity_switch_negative_up`, `gen/ch28/test_gen_prim_identity_switch_singleton`, `gen/ch28/test_gen_prim_identity_udp_ascending`, `gen/ch28/test_gen_prim_identity_udp_descending`, `gen/ch28/test_gen_prim_identity_udp_negative_down`, `gen/ch28/test_gen_prim_identity_udp_negative_up`
 
-一致しなくなったテスト（8件）:
+一致しなくなったテスト（3件）:
 
-- `ch18/test_inline_local_scope_binding`: 不一致 (fail) — output differs (exit 1)
-- `ch24/test_program_port_reactive_variable_and_net`: 不一致 (fail) — output differs
-- `ch25/test_interface_named_bundle_ports_share_variable_and_net`: 不一致 (fail) — output differs
-- `ch25/test_interface_port_default_ref_and_inout_access`: 不一致 (fail) — output differs
-- `ch32/test_sdf_backannotates_all_timing_values`: 不一致 (fail) — output differs
-- `ch32/test_sdf_label_recomputes_delay_expression`: 不一致 (fail) — output differs
-- `ch32/test_sdf_label_specparam`: 不一致 (fail) — output differs
-- `ch6/test_ch6_extra_for_loop_automatic`: 不一致 (fail) — output differs
+- `ch18/test_rand_enum_solver_finds_solution`: 不一致 (fail) — output differs (exit 2)
+- `ch23/test_23_extra_signed_interconnect`: 不一致 (fail) — the design was accepted, but it is illegal
+- `gen/ch18/test_gen_cross_randreduce_8_signed_dynamic_sum_wide_2_fail_sat_fail`: 不一致 (fail) — output differs (exit 2)
 
 ## 章別の結果
 
-各セルは一致数／結果登録数で、known・unsupportedも分母に含みます。[8/10の具体例](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/docs/faq.md#q12-what-percentage-does-by-chapter-show)と、[要求カバレッジとの違い](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/docs/faq.md#q15-is-the-nightly-match-rate-requirement-coverage)を確認してください。
+各セルは一致数／結果登録数で、known・unsupportedも分母に含みます。[8/10の具体例](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/docs/faq.md#q12-what-percentage-does-by-chapter-show)と、[要求カバレッジとの違い](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/docs/faq.md#q15-is-the-nightly-match-rate-requirement-coverage)を確認してください。
 
-![章別の一致テスト数](charts/chapters.ja.svg?v=20261116T051216)
+![章別の一致テスト数](charts/chapters.ja.svg?v=20261117T080809)
 
 ## シミュレータごとの推移
 
-![Icarus Verilog：ステータス別の結果](charts/status-icarus.ja.svg?v=20261116T051216)
+![Icarus Verilog：ステータス別の結果](charts/status-icarus.ja.svg?v=20261117T080809)
 
-![Verilator：ステータス別の結果](charts/status-verilator.ja.svg?v=20261116T051216)
+![Verilator：ステータス別の結果](charts/status-verilator.ja.svg?v=20261117T080809)
 
-![kirimasim：ステータス別の結果](charts/status-kirimasim.ja.svg?v=20261116T051216)
+![kirimasim：ステータス別の結果](charts/status-kirimasim.ja.svg?v=20261117T080809)
 
-![Lyra：ステータス別の結果](charts/status-lyra.ja.svg?v=20261116T051216)
+![Lyra：ステータス別の結果](charts/status-lyra.ja.svg?v=20261117T080809)
 
-![Ghost：ステータス別の結果](charts/status-ghost.ja.svg?v=20261116T051216)
+![Ghost：ステータス別の結果](charts/status-ghost.ja.svg?v=20261117T080809)
 
 ## 最近の実行
 
@@ -89,6 +77,7 @@ Ghost は正式公開前に参加している匿名のシミュレータです�
 
 | 実行 (UTC) | スイート | テスト数 | Icarus Verilog | Verilator | kirimasim | Lyra | Ghost |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| [2026-11-17 08:08](https://github.com/kurochan001/kirimasim-tests/actions/runs/44003441634) | [`77dc1f7`](https://github.com/kurochan001/kirimasim-tests/commit/77dc1f7657aab90277f65cb008524ef7bd9ae323) | 13842 | 8654 (+72 −2) `14.0 devel 98bdb3a` | 7955 (+18 −0) `5.055 devel 2d6aba6` | 10896 (+42 −0) `26f359bcd` | 11224 (+43 −0) `5d2288cdc` | 13298 (+98 −3) `private build 5a7fd8588bb0` |
 | [2026-11-16 05:12](https://github.com/kurochan001/kirimasim-tests/actions/runs/43774666796) | [`9f9121f`](https://github.com/kurochan001/kirimasim-tests/commit/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a) | 13800 | 8584 (+1007 −5) `14.0 devel 32d891a` | 7937 (+986 −0) `5.055 devel 1e30e73` | 10854 (+1106 −0) `c152d237a` | 11181 (+1120 −0) `05225260a` | 13203 (+1423 −8) `private build c82f33747734` |
 | [2026-11-15 06:20](https://github.com/kurochan001/kirimasim-tests/actions/runs/43651437455) | [`ed5ded9`](https://github.com/kurochan001/kirimasim-tests/commit/ed5ded9a0130470fb1e36fa46a9094a3326b0ad6) | 12630 | 7582 (+166 −4) `14.0 devel 77bb46f` | 6951 (+108 −0) `5.055 devel 9fc843a` | 9748 (+174 −0) `c3571569b` | 10061 (+193 −0) | — |
 | [2026-11-14 07:31](https://github.com/kurochan001/kirimasim-tests/actions/runs/43533749064) | [`aef04b9`](https://github.com/kurochan001/kirimasim-tests/commit/aef04b93c6ebe776c598f3a40474eeea1e88dfec) | 12344 | 7420 (+53 −0) `14.0 devel 27a70c8` | 6843 (+40 −1) `5.055 devel afacb7a` | 9574 (+82 −0) `c093a2a97` | 9868 (+76 −0) `2f842a92f` | 11788 (+132 −2) `private build 17224fd34b2f` |
@@ -118,7 +107,6 @@ Ghost は正式公開前に参加している匿名のシミュレータです�
 | [2026-10-27 00:11](https://github.com/kurochan001/kirimasim-tests/actions/runs/40417919375) | [`1ff9998`](https://github.com/kurochan001/kirimasim-tests/commit/1ff999828c59ca24649bf722f6bfc46b70724520) | 7327 | 4535 (+39 −12) `14.0 devel 0accff4` | 4646 (+96 −4) `5.053 devel be33a0f` | 4969 (+103 −0) `1650064d2` | 5398 (+118 −0) | — |
 | [2026-10-26 14:44](https://github.com/kurochan001/kirimasim-tests/actions/runs/40333187203) | [`5fb3c45`](https://github.com/kurochan001/kirimasim-tests/commit/5fb3c45d73e4946d99690389752b82c86eecaa50) | 7144 | 4508 (+152 −0) `14.0 devel 1d601c9` | 4554 (+167 −0) `5.053 devel 5dcc718` | 4866 (+174 −0) `5563871fc` | 5280 (+674 −1) | — |
 | [2026-10-25 22:50](https://github.com/kurochan001/kirimasim-tests/actions/runs/40237581816) | [`eadc98d`](https://github.com/kurochan001/kirimasim-tests/commit/eadc98d6c452244167e267a46866808291771198) | 6799 | 4356 (+338 −0) `14.0 devel 49bebc9` | 4387 (+363 −0) `5.053 devel 7fa05ab` | 4692 (+458 −1) `a4f653c1d` | — | — |
-| [2026-10-24 22:48](https://github.com/kurochan001/kirimasim-tests/actions/runs/40135271002) | [`c87448b`](https://github.com/kurochan001/kirimasim-tests/commit/c87448ba87b6b6ca136bf526b1ee8710efcb05a3) | 6009 | 4018 | 4024 (+1 −0) `5.053 devel 441c0df` | 4235 `c507631d2` | 4607 | — |
 
 ## ファイル
 

@@ -6,9 +6,9 @@
 
 このレポートは登録した有限モデルだけを対象にします。要求カバレッジや全言語の 組合せ網羅率ではありません。計画上の網羅と、実行結果に基づく合格確認を分けます。 既存テストは削減していません。選択数の削減率は実行時間の削減率ではありません。
 
-生成元・利用手順・適用限界は[導入手順](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/docs/interaction-verification.md)を参照してください。
+生成元・利用手順・適用限界は[導入手順](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/docs/interaction-verification.md)を参照してください。
 
-2因子100%で何を判断できるかは[4行の具体例](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/docs/faq.md#q28-why-not-simply-cross-every-feature)、計画と実際のPASSの違いは[実行充足の説明](https://github.com/kurochan001/kirimasim-tests/blob/9f9121f0a5290dd2f2fdf1def77df5dded32ad9a/docs/faq.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution)を参照してください。
+2因子100%で何を判断できるかは[4行の具体例](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/docs/faq.md#q28-why-not-simply-cross-every-feature)、計画と実際のPASSの違いは[実行充足の説明](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/docs/faq.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution)を参照してください。
 
 ## scheduling_visibility / model 1
 
@@ -2337,8 +2337,8 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
 
 ### results/ghost.json
 
-- 環境: private build c82f33747734。
-- 実行日時: 2026-11-16T00:20:39.600985+00:00。
+- 環境: private build 5a7fd8588bb0。
+- 実行日時: 2026-11-17T03:10:34.615177+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -2620,10 +2620,10 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 4/4。
   - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - array_reduction_constraint:
-  - 2因子の合格確認済み組合せ: 92/96。
-  - 3因子の合格確認済み組合せ: 36/40。
+  - 2因子の合格確認済み組合せ: 90/96。
+  - 3因子の合格確認済み組合せ: 33/40。
   - 必須ケース: 3/4。
-  - ケース状態: pass=12, fail=1, known=0, unsupported=0, stale=0, not_run=0。
+  - ケース状態: pass=11, fail=2, known=0, unsupported=0, stale=0, not_run=0。
 - associative_array_queries:
   - 2因子の合格確認済み組合せ: 93/93。
   - 3因子の合格確認済み組合せ: 54/54。
@@ -2881,10 +2881,10 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 6/6。
   - ケース状態: pass=24, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - program_interface_regions:
-  - 2因子の合格確認済み組合せ: 121/131。
-  - 3因子の合格確認済み組合せ: 66/82。
-  - 必須ケース: 7/10。
-  - ケース状態: pass=25, fail=5, known=0, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 131/131。
+  - 3因子の合格確認済み組合せ: 82/82。
+  - 必須ケース: 10/10。
+  - ケース状態: pass=30, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - simulation_end_sources:
   - 2因子の合格確認済み組合せ: 110/110。
   - 3因子の合格確認済み組合せ: 95/95。
@@ -2897,8 +2897,8 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
 
 ### results/icarus.json
 
-- 環境: Icarus Verilog version 14.0 (devel) (s20260301-1091-g32d891a8)。
-- 実行日時: 2026-11-16T00:06:36.947615+00:00。
+- 環境: Icarus Verilog version 14.0 (devel) (s20260301-1129-g98bdb3a7)。
+- 実行日時: 2026-11-17T02:42:48.017957+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -3360,9 +3360,9 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 4/6。
   - ケース状態: pass=34, fail=0, known=17, unsupported=0, stale=0, not_run=0。
 - macro_expansion_context:
-  - 2因子の合格確認済み組合せ: 369/463。
-  - 必須ケース: 7/9。
-  - ケース状態: pass=90, fail=0, known=24, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 395/463。
+  - 必須ケース: 8/9。
+  - ケース状態: pass=98, fail=0, known=16, unsupported=0, stale=0, not_run=0。
 - force_release_visibility:
   - 2因子の合格確認済み組合せ: 197/228。
   - 3因子の合格確認済み組合せ: 54/72。
@@ -3426,10 +3426,10 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 7/7。
   - ケース状態: pass=29, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - scoped_class_declaration:
-  - 2因子の合格確認済み組合せ: 88/100。
-  - 3因子の合格確認済み組合せ: 44/48。
-  - 必須ケース: 5/7。
-  - ケース状態: pass=44, fail=0, known=4, unsupported=0, stale=0, not_run=0。
+  - 2因子の合格確認済み組合せ: 100/100。
+  - 3因子の合格確認済み組合せ: 48/48。
+  - 必須ケース: 7/7。
+  - ケース状態: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - case_literal_wildcard:
   - 2因子の合格確認済み組合せ: 91/112。
   - 3因子の合格確認済み組合せ: 18/24。
@@ -3457,8 +3457,8 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
 
 ### results/kirimasim.json
 
-- 環境: kirimasim 0.1.0 (commit c152d237ac8d), built with GNU 13.3.0。
-- 実行日時: 2026-11-16T00:02:33.145127+00:00。
+- 環境: kirimasim 0.1.1 (commit 26f359bcd504), built with GNU 13.3.0。
+- 実行日時: 2026-11-17T02:50:22.529975+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -4017,8 +4017,8 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
 
 ### results/lyra.json
 
-- 環境: Lyra (commit 05225260af49)。
-- 実行日時: 2026-11-16T05:11:47.863446+00:00。
+- 環境: Lyra (commit 5d2288cdcecc)。
+- 実行日時: 2026-11-17T08:07:38.686099+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 111/126。
@@ -4577,8 +4577,8 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
 
 ### results/verilator.json
 
-- 環境: Verilator 5.055 devel rev v5.054-288-g1e30e73a。
-- 実行日時: 2026-11-16T01:16:02.216726+00:00。
+- 環境: Verilator 5.055 devel rev v5.054-302-g2d6aba6e。
+- 実行日時: 2026-11-17T04:40:56.584959+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
