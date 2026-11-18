@@ -141,6 +141,7 @@ import function_formal_contexts
 import array_element_refs
 import bitvector_queries
 import array_shape_queries
+import stream_boundaries
 import scheduling
 import strength
 import wide_paths
@@ -180,7 +181,7 @@ GENERATORS = [interaction_progmod, interaction_progif, interaction_simend, inter
               combination_monitors, cg_option_levels, gate_strength_truth, keywords_inherited,
               primitive_array_bounds, ambiguous_strength_union,
               function_result_ranges, primitive_array_identity, function_formal_contexts,
-              array_element_refs, bitvector_queries, array_shape_queries]
+              array_element_refs, bitvector_queries, array_shape_queries, stream_boundaries]
 
 
 def main() -> int:

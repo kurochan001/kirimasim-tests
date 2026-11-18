@@ -80,6 +80,10 @@
     "array_shape_queries": {
       "en": "Sixty array-shape query cases at 32/33, 64/65 and 128/129 bits: negative and offset packed ranges, mixed and nested typedef dimensions, singleton directions, constant type widths, invalid dimensions, and dynamic-array/queue changes; runtime container bits queries are isolated from geometry, with live-data controls.",
       "ja": "32/33・64/65・128/129ビットの配列形状照会60本。負・非ゼロのパック範囲、混在・typedefの段階的な次元展開、単一要素の向き、定数式の型幅、無効な次元、動的配列・キューのサイズ変更を確認。実行時のコンテナ全体のビット数照会は形状照会から分け、生きている要素の値も確認。"
+    },
+    "stream_boundaries": {
+      "en": "Ninety-six streaming boundary cases at 63/64/65 and 127/128/129 bits in both directions: right padding versus ordinary sign extension, inverse unpack across fields and MSB consumption, typed/default block sizes, nested streams, packed-record X/Z values, and descending fixed-array traversal with explicit-list controls.",
+      "ja": "63/64/65・127/128/129ビットと両方向のストリーミング96本。右側のゼロ埋めと通常の符号拡張、フィールドをまたぐ逆置換と上位ビットの消費、型・省略時の区画幅、入れ子の式、パック構造体のX/Z、降順の固定配列と明示した要素列の対照を確認。"
     }
   }
 }

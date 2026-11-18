@@ -1,0 +1,543 @@
+{
+  "schema": 1,
+  "kind": "finite one-edit observability checks; not independent standards review",
+  "recorded_at": "2026-11-18T22:45:24.937081+00:00",
+  "simulator": {
+    "version": "kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401",
+    "commit": "441dddbd0fcd80aed298ca33311f2ee67aa8866c",
+    "binary_sha256": "c3b343c753737a564deb1156e8064062793c133f7be2ea567daced985b26f24b"
+  },
+  "baselines": [
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_pad_known_left_w65.sv",
+      "source_sha256": "071c259b58d24a6f8d075873e7ba50ca318dd165274ca43eee218f96404db429",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_pad_logic_left_w65.sv",
+      "source_sha256": "97715fef18db7d147023ee3887486711eaa386b3d74f56ebba82d3f0945ee898",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_unpack_split_left_w65.sv",
+      "source_sha256": "1f241e8b9fccc951d3b6da74bc8227e7ba223352159858d3bae886c740026a77",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_unpack_drop_left_w65.sv",
+      "source_sha256": "7ae204b203fd4ebb964dc02782d5d483786f9cffcc3c54c804c54eb1e1d4db70",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_typed_left_w65.sv",
+      "source_sha256": "dfaf8ee2cfeef2af7c9667a8fb84470b2a5e74561ffa2539ac376c828d8eb33a",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_nested_left_w65.sv",
+      "source_sha256": "ed088ec3c43d8ca6cbe20b4108924b32e988efd1d7af7ad7fda08b2b0298840b",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_record_left_w65.sv",
+      "source_sha256": "2036ed622c4a7f62c7238544b9ee12a04d8ba9dd14e0ba3f466b5ba29fd3c0bb",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_array_left_w65.sv",
+      "source_sha256": "f0976db8c81760fcadb1a4de66b33b0bd23e2e3f7963da13894ebbfc1ac96543",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_pad_known_right_w65.sv",
+      "source_sha256": "66d1de2d69bb269313fe1f501cdb1644aa2f11ca1d0a21c63439698ee482eebf",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_pad_logic_right_w65.sv",
+      "source_sha256": "edc53cd1ad2f10b85c98a3f160d7d0611eaa9d0c6217a4821105f830ca497714",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_unpack_split_right_w65.sv",
+      "source_sha256": "0005986deb794471468ed060d2a4000ac98e327db15a47ccf132406acfbc157d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_unpack_drop_right_w65.sv",
+      "source_sha256": "8ac2a688ec2973ed4dcdd719cfc3681ae07cdf97fa852cbe5bfc479ecc24514e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_typed_right_w65.sv",
+      "source_sha256": "2f2bfc3e5ba3a5e6beaf7bfea85fe39fb7b0dc099dfbb24d9fd4eef49a032590",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_nested_right_w65.sv",
+      "source_sha256": "b45f1b1fc32af8d7496e1b3e707590635ad46d5101d4e14ef170955490472dc3",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_record_right_w65.sv",
+      "source_sha256": "b5ac0d671ec7f0d0fa08dcc7a2a14712422227d95139948d9eb7417b400a2391",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_array_right_w65.sv",
+      "source_sha256": "8b75e201d373af44560d869a7b49aae7e62eac4bf196973465ce56769b0cbbae",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    }
+  ],
+  "mutations": [
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_pad_known_left_w65.sv",
+      "label": "wrong-stream-order-left",
+      "replacement": {
+        "old": "padded = {<< 5{source}}",
+        "new": "padded = {>> 5{source}}",
+        "occurrences": 1
+      },
+      "source_sha256": "4324d8e8a78437231ecb08511c6a9b8be53e04e446f341f6c7c545f04957fd17",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_pad_known_left_w65.sv",
+      "label": "ordinary-assignment-instead-of-stream-left",
+      "replacement": {
+        "old": "padded = {<< 5{source}}",
+        "new": "padded = source",
+        "occurrences": 1
+      },
+      "source_sha256": "b32d5a5128f099ab87ffd74d4aaa697307f9dd50878ab659e9220d72f31cc75d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_pad_logic_left_w65.sv",
+      "label": "wrong-stream-order-left",
+      "replacement": {
+        "old": "padded = {<< 5{source}}",
+        "new": "padded = {>> 5{source}}",
+        "occurrences": 1
+      },
+      "source_sha256": "91db451f9724ea6d4eba46f0eb98965caccb55d7ac628c59856fbec30eed3b47",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_pad_logic_left_w65.sv",
+      "label": "lose-signed-control-left",
+      "replacement": {
+        "old": "ordinary = source",
+        "new": "ordinary = $unsigned(source)",
+        "occurrences": 1
+      },
+      "source_sha256": "e08744cd397f78e12dedcecd641dcee91220920687551c1d1a3caab51ce17d70",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_unpack_split_left_w65.sv",
+      "label": "wrong-unpack-order-left",
+      "replacement": {
+        "old": "{<< 5{head, payload, tail}} = incoming",
+        "new": "{>> 5{head, payload, tail}} = incoming",
+        "occurrences": 1
+      },
+      "source_sha256": "d4f531239e0b4b886c4dbda43f33b30be5e8a8cb82af1a825377e1dcd48f333f",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_unpack_split_left_w65.sv",
+      "label": "swap-target-fields-left",
+      "replacement": {
+        "old": "{<< 5{head, payload, tail}} = incoming",
+        "new": "{<< 5{tail, payload, head}} = incoming",
+        "occurrences": 1
+      },
+      "source_sha256": "f9e150138ea6f6bef14d3d33e9c72cea634499e1f3d5d134bb59a2d2e109d41f",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_unpack_drop_left_w65.sv",
+      "label": "consume-low-source-bits-left",
+      "replacement": {
+        "old": "{<< 7{target}} = incoming",
+        "new": "{<< 7{target}} = incoming[W-1:0]",
+        "occurrences": 1
+      },
+      "source_sha256": "615fa6c7ccdfa91d276ab0a0f6ba57de5419ac0e708645535833f576cf0652b2",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_unpack_drop_left_w65.sv",
+      "label": "wrong-unpack-order-left",
+      "replacement": {
+        "old": "{<< 7{target}} = incoming",
+        "new": "{>> 7{target}} = incoming",
+        "occurrences": 1
+      },
+      "source_sha256": "ca3a037fe9756d3fbebbce0a02013ce125eeea672020848b65bdd70f20814fe5",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_typed_left_w65.sv",
+      "label": "wrong-typed-direction-left",
+      "replacement": {
+        "old": "typed_result = {<< chunk_t{source}}",
+        "new": "typed_result = {>> chunk_t{source}}",
+        "occurrences": 1
+      },
+      "source_sha256": "1d9d3fc934edcda0ebe862b279f1ec9b3e2ce31e7662d4600ec1df41b450b446",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_typed_left_w65.sv",
+      "label": "wrong-default-direction-left",
+      "replacement": {
+        "old": "default_result = {<<{source}}",
+        "new": "default_result = {>>{source}}",
+        "occurrences": 1
+      },
+      "source_sha256": "5802d582bb0f393721f07919f2618188d95e014dffffc0f778c108f9dfca4f46",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_nested_left_w65.sv",
+      "label": "wrong-inner-direction-left",
+      "replacement": {
+        "old": "inner_control = {<< 3{source}}",
+        "new": "inner_control = {>> 3{source}}",
+        "occurrences": 1
+      },
+      "source_sha256": "9f33bd35aa0c5cb7a5c28bda0692753c138757d9ddd1a186aea191e7ad0d666c",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_nested_left_w65.sv",
+      "label": "wrong-outer-direction-left",
+      "replacement": {
+        "old": "nested_result = {<< 7{5'b10110, {<< 3{source}}, 3'b011}}",
+        "new": "nested_result = {>> 7{5'b10110, {<< 3{source}}, 3'b011}}",
+        "occurrences": 1
+      },
+      "source_sha256": "2f8d274f4a1d832b9beb970d4d37838ecafcfda24a9ca5e548f07c19c1d2afcf",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_record_left_w65.sv",
+      "label": "wrong-record-order-left",
+      "replacement": {
+        "old": "result = {<< 9{record_value}}",
+        "new": "result = {>> 9{record_value}}",
+        "occurrences": 1
+      },
+      "source_sha256": "b663fcb6c47fe3aa0bcd1bb2767e641e97b3fecd34e60b210396969072021316",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_record_left_w65.sv",
+      "label": "omit-record-header-left",
+      "replacement": {
+        "old": "list_control = {<< 9{record_value.head, record_value.payload, record_value.tail}}",
+        "new": "list_control = {<< 9{record_value.payload, record_value.tail}}",
+        "occurrences": 1
+      },
+      "source_sha256": "63dcd12132f1f5f9552551240cfcee6f8435e9f506c233bfe2219463540eb67b",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_array_left_w65.sv",
+      "label": "reverse-array-bounds-left",
+      "replacement": {
+        "old": "words[3:1]",
+        "new": "words[1:3]",
+        "occurrences": 1
+      },
+      "source_sha256": "8a70fd2d0876bec2517a4a74ef0dfb59b3d45098a430a4fb3fe5d162633ebbb4",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_array_left_w65.sv",
+      "label": "swap-explicit-elements-left",
+      "replacement": {
+        "old": "list_control = {<< 5{words[3], words[2], words[1]}}",
+        "new": "list_control = {<< 5{words[2], words[3], words[1]}}",
+        "occurrences": 1
+      },
+      "source_sha256": "3579b7b472036dcfab3000dcf3ccc217822be04b89a8cca529efae53c79163d8",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_pad_known_right_w65.sv",
+      "label": "wrong-stream-order-right",
+      "replacement": {
+        "old": "padded = {>> 5{source}}",
+        "new": "padded = {<< 5{source}}",
+        "occurrences": 1
+      },
+      "source_sha256": "af98bf2fd650d32eae3ab8c2608af0df2ab8a44cf516d58fbeb8f0249c46bcfb",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_pad_known_right_w65.sv",
+      "label": "ordinary-assignment-instead-of-stream-right",
+      "replacement": {
+        "old": "padded = {>> 5{source}}",
+        "new": "padded = source",
+        "occurrences": 1
+      },
+      "source_sha256": "538add2ef81567a6d102e261c7facc742f4eca2bc7fbdc2a98641e2eaf1d23b0",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_pad_logic_right_w65.sv",
+      "label": "wrong-stream-order-right",
+      "replacement": {
+        "old": "padded = {>> 5{source}}",
+        "new": "padded = {<< 5{source}}",
+        "occurrences": 1
+      },
+      "source_sha256": "5eec87fe9773f1d012676d09da895c1e786045a62529fba24cb57c4bdd362143",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_pad_logic_right_w65.sv",
+      "label": "lose-signed-control-right",
+      "replacement": {
+        "old": "ordinary = source",
+        "new": "ordinary = $unsigned(source)",
+        "occurrences": 1
+      },
+      "source_sha256": "f532e21a2e3afa16442c7e1d0f9e9cc32d521f3cff580ca10a3c197a52c8691c",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_unpack_split_right_w65.sv",
+      "label": "wrong-unpack-order-right",
+      "replacement": {
+        "old": "{>> 5{head, payload, tail}} = incoming",
+        "new": "{<< 5{head, payload, tail}} = incoming",
+        "occurrences": 1
+      },
+      "source_sha256": "d91fb776c44f0c4836ec0904b67f43c6d7e9711cebfac666a169c3d9467d4e9f",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_unpack_split_right_w65.sv",
+      "label": "swap-target-fields-right",
+      "replacement": {
+        "old": "{>> 5{head, payload, tail}} = incoming",
+        "new": "{>> 5{tail, payload, head}} = incoming",
+        "occurrences": 1
+      },
+      "source_sha256": "152ac7189c532bf54b8eace2c2bf5c25b0af57f45bd6d19e033a4ea59067458e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_unpack_drop_right_w65.sv",
+      "label": "consume-low-source-bits-right",
+      "replacement": {
+        "old": "{>> 7{target}} = incoming",
+        "new": "{>> 7{target}} = incoming[W-1:0]",
+        "occurrences": 1
+      },
+      "source_sha256": "b11a5627358674a9420de7ea3109bbbb59ad93e33890d92ad94c942ad1a4098e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_unpack_drop_right_w65.sv",
+      "label": "wrong-unpack-order-right",
+      "replacement": {
+        "old": "{>> 7{target}} = incoming",
+        "new": "{<< 7{target}} = incoming",
+        "occurrences": 1
+      },
+      "source_sha256": "961e018138858e1207324d91ee60f29ec4976288c4253bcb52c4881f96471306",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_typed_right_w65.sv",
+      "label": "wrong-typed-direction-right",
+      "replacement": {
+        "old": "typed_result = {>> chunk_t{source}}",
+        "new": "typed_result = {<< chunk_t{source}}",
+        "occurrences": 1
+      },
+      "source_sha256": "92104425dc3b37afb6c165c6c201879ac8755a0639f95c8149100602aaffd015",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_typed_right_w65.sv",
+      "label": "wrong-default-direction-right",
+      "replacement": {
+        "old": "default_result = {>>{source}}",
+        "new": "default_result = {<<{source}}",
+        "occurrences": 1
+      },
+      "source_sha256": "1bf2c22007720110d06a1e121a646ec193db985ff1cee507bf0cfa8538a26c34",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_nested_right_w65.sv",
+      "label": "wrong-inner-direction-right",
+      "replacement": {
+        "old": "inner_control = {<< 3{source}}",
+        "new": "inner_control = {>> 3{source}}",
+        "occurrences": 1
+      },
+      "source_sha256": "12c119d251a2282dccee038131d527a8bd09b4b9ad3229eeae4957a95317ccac",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_nested_right_w65.sv",
+      "label": "wrong-outer-direction-right",
+      "replacement": {
+        "old": "nested_result = {>> 7{5'b10110, {<< 3{source}}, 3'b011}}",
+        "new": "nested_result = {<< 7{5'b10110, {<< 3{source}}, 3'b011}}",
+        "occurrences": 1
+      },
+      "source_sha256": "273d555482599eec5a2fa5d485c7a9502e09f537b95f502675758c7a3bb453de",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_record_right_w65.sv",
+      "label": "wrong-record-order-right",
+      "replacement": {
+        "old": "result = {>> 9{record_value}}",
+        "new": "result = {<< 9{record_value}}",
+        "occurrences": 1
+      },
+      "source_sha256": "4cd15d8554a74acab7f9deb84ba99aae8fbf87d9c5eb34ae2462ff7c8fbfade4",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_record_right_w65.sv",
+      "label": "omit-record-header-right",
+      "replacement": {
+        "old": "list_control = {>> 9{record_value.head, record_value.payload, record_value.tail}}",
+        "new": "list_control = {>> 9{record_value.payload, record_value.tail}}",
+        "occurrences": 1
+      },
+      "source_sha256": "99c4b6e1b7ea4b4e2acae23376eb35a763e35a2fa1601eda923300b6262170b0",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_array_right_w65.sv",
+      "label": "reverse-array-bounds-right",
+      "replacement": {
+        "old": "words[3:1]",
+        "new": "words[1:3]",
+        "occurrences": 1
+      },
+      "source_sha256": "c79d4324eaddad339e8a44bd18d97e4fe068623e7f2ded08ab07081b6f47f1ca",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_stream_boundary_array_right_w65.sv",
+      "label": "swap-explicit-elements-right",
+      "replacement": {
+        "old": "list_control = {>> 5{words[3], words[2], words[1]}}",
+        "new": "list_control = {>> 5{words[2], words[3], words[1]}}",
+        "occurrences": 1
+      },
+      "source_sha256": "8be67442a17f3a4f2a2f252c1bb0bb37cb3882a18b1eb6f2f5103f86a73f6e80",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    }
+  ],
+  "status": "all-sixteen-baselines-pass-and-thirtytwo-compiled-mutants-differ"
+}

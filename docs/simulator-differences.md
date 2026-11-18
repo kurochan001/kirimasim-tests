@@ -1414,3 +1414,16 @@ IEEE 1800-2023 20.7 permits runtime dimension expressions, numbers unpacked dime
 - Verilator 5.054 matches the 30 `packed`/`mixed`/`typedef`/`singleton`/`constant` cases at seeds 1 and 73; only these receive `verilator@5.054`. In the empty stage of the 12 `dynamic`/`queue` cases, querying dimension 2 returns the outer container bounds instead of the packed element bounds `[-3:W-4]`. The dimension-0 observations in the 6 `invalid` cases return known zeros instead of unknown integers and require four-state observation. The 12 runtime container `$bits` cases are rejected with explicit unsupported diagnostics. Per-case reasons remain in the saved runs; none of these 30 differences receives a Verilator oracle.
 
 20.6.2 measures the current expression's bit stream, and 6.24.3 includes dynamic arrays and queues of bit-stream elements. Therefore the isolated dynamic sizes are 0, 3W, 5W, W, 0 bits and queue sizes 0, W, 2W, W, 0 bits. No dynamically sized type identifier is passed. Unsupported implementations do not change this reference. See [evidence](../coverage/README.en.md) and the [generator](../generators/array_shape_queries.py). These cases add regressions without adding requirement bindings.
+
+<a id="stream-boundaries-20261119a"></a>
+
+## Streaming assignment boundaries (2026-11-19)
+
+The 96 `test_gen_stream_boundary_*` programs combine 63/64/65- and 127/128/129-bit words with both stream directions. IEEE 1800-2023 11.4.14 requires a wider pack destination to add zeros on the right; 11.4.14.3 makes unpack invert the packing transformation and consume the most significant prefix when the source is wider. Typed slice sizes, the default of one bit, nested streams and aggregate order follow 11.4.14.1–11.4.14.2 and 6.24.3. Expectations are independently clause-derived, not copied from a simulator.
+
+- Icarus Verilog 13.0 rejects streaming syntax in all 96 programs and has no oracle entry for them.
+- Verilator 5.054 matches 61 cases at seeds 1 and 73. These are the two-state padding, array, nested and typed forms, all rightward unpack forms, and the leftward `unpack_split_w127` case. Only these cases receive `verilator@5.054`.
+- The other five leftward `unpack_split` cases have a partial five-bit block and disagree with the inverse-permutation reference. All six leftward `unpack_drop` cases also produce differing target values when a source nine bits wider must supply only its most significant prefix. The extra source bits and every target are observed; no expectation is changed to accept either difference.
+- The 24 `pad_logic`/`record` cases contain X/Z observations and are recorded as known differences on the two-state Verilator run. They have no Verilator oracle. Their known-data phase remains a control within each four-state program.
+
+Kirimasim 0.1.1 `441dddbd0fcd` passes all 96 in four saved runs. [Execution records](../coverage/README.en.md), [finite qualification](../coverage/qualification/stream-boundaries-20261119a.json) and the [generator](../generators/stream_boundaries.py) retain the source and observation scope. These are regressions with no new requirement bindings, and all review metadata remains AI review.

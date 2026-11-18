@@ -23729,6 +23729,22 @@
     "Runtime bits queries measure the current dynamic array contents": "Runtime bits queries measure the current dynamic array contents",
     "Runtime bits queries measure the current dynamic array contents ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Runtime bits queries measure the current dynamic array contents ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
     "Runtime bits queries measure the current queue contents": "Runtime bits queries measure the current queue contents",
-    "Runtime bits queries measure the current queue contents ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Runtime bits queries measure the current queue contents ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )"
+    "Runtime bits queries measure the current queue contents ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Runtime bits queries measure the current queue contents ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Wider streaming targets add right zeros rather than signed left padding": "Wider streaming targets add right zeros rather than signed left padding",
+    "Wider streaming targets add right zeros rather than signed left padding ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wider streaming targets add right zeros rather than signed left padding ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Wider four-state streaming targets preserve unknowns before right padding": "Wider four-state streaming targets preserve unknowns before right padding",
+    "Wider four-state streaming targets preserve unknowns before right padding ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wider four-state streaming targets preserve unknowns before right padding ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Streaming unpack distributes a partial-block permutation across target fields": "Streaming unpack distributes a partial-block permutation across target fields",
+    "Streaming unpack distributes a partial-block permutation across target fields ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Streaming unpack distributes a partial-block permutation across target fields ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Narrower streaming targets consume the most significant source bits": "Narrower streaming targets consume the most significant source bits",
+    "Narrower streaming targets consume the most significant source bits ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Narrower streaming targets consume the most significant source bits ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Typed and numeric stream slice sizes agree and omitted slices are single bits": "Typed and numeric stream slice sizes agree and omitted slices are single bits",
+    "Typed and numeric stream slice sizes agree and omitted slices are single bits ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Typed and numeric stream slice sizes agree and omitted slices are single bits ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Nested streaming expressions reorder the inner stream before the outer stream": "Nested streaming expressions reorder the inner stream before the outer stream",
+    "Nested streaming expressions reorder the inner stream before the outer stream ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Nested streaming expressions reorder the inner stream before the outer stream ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Streaming ZXQPH0QXZ records preserves field order and four-state member values": "Streaming ZXQPH0QXZ records preserves field order and four-state member values",
+    "Streaming ZXQPH0QXZ records preserves field order and four-state member values ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "Streaming ZXQPH0QXZ records preserves field order and four-state member values ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )",
+    "Streaming fixed arrays visits elements in declared order across word boundaries": "Streaming fixed arrays visits elements in declared order across word boundaries",
+    "Streaming fixed arrays visits elements in declared order across word boundaries ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Streaming fixed arrays visits elements in declared order across word boundaries ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )"
   }
 }
