@@ -6,5 +6,150 @@
   "timezone": "Asia/Tokyo",
   "metric": "geometric mean of 25 latest / Icarus 14 devel incremental elapsed ratios; lower is faster",
   "selection": "last formal daily attempt per JST date, including failures",
-  "points": []
+  "points": [
+    {
+      "date": "2026-11-18",
+      "id": "actions-44311501813-1",
+      "series": "cc3a300591d180c94564d1f6b7c978ab008d23e394b5745165aa4940904482bd",
+      "ratio": 0.8971913781099041,
+      "status": "complete",
+      "reason": null,
+      "available_count": 25,
+      "cases": [
+        "casez_struct",
+        "comb_chain",
+        "dyn_queue",
+        "fork_join",
+        "func_call",
+        "gate_udp",
+        "mem_rw",
+        "nba_burst",
+        "nba_shift",
+        "proc_wait",
+        "string_fmt",
+        "wide_arith",
+        "fourstate_mix",
+        "fifo_stream",
+        "uart_loopback",
+        "bus_fabric",
+        "hierarchy_fanout",
+        "event_fanout",
+        "word_boundary",
+        "wide_divide",
+        "packed_slice",
+        "memory_scatter",
+        "clock_domains",
+        "fourstate_arith",
+        "resolved_bus"
+      ],
+      "started_at": "2026-11-18T13:42:55.941756+00:00",
+      "completed_at": "2026-11-18T14:39:10.210799+00:00",
+      "commits": {
+        "latest": "441dddbd0fcd80aed298ca33311f2ee67aa8866c",
+        "baseline": "cfa2ccd75989c1ebb9ed63303271183377364cf0",
+        "icarus": "dfeee909ed9f20b4870dd93423156c0170c0e1ff",
+        "verilator": "bbb60a403932a9f695cb6ff001ceb73de6ad9234",
+        "icarus_devel": "0b15315c14177986b98fcad2940c0c3f98fdc8f9"
+      },
+      "environment": {
+        "machine": {
+          "os": "Linux-7.0.0-1014-aws-x86_64-with-glibc2.39",
+          "cores": 4,
+          "cpu": "Intel(R) Xeon(R) 6975P-C",
+          "memory_gib": 15,
+          "distribution": "Ubuntu 24.04.5 LTS",
+          "architecture": "x86_64"
+        },
+        "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "profile": "daily",
+        "environment": "github-hosted-ubuntu-24.04",
+        "image_os": "ubuntu24",
+        "image_version": "20261111.127.1",
+        "settings": {
+          "runs": 5,
+          "warmups": 1,
+          "timeout_seconds": 600,
+          "short_seconds": 0.05,
+          "regression_warning_ratio": 1.15,
+          "simulation_threads": 1,
+          "waveforms": false,
+          "assertions": false,
+          "verilator_build_jobs": 1
+        },
+        "mode": "formal",
+        "runs": 5,
+        "tool_builds": {
+          "latest": {
+            "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+            "c_compiler": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+            "flags": {
+              "CC": "gcc",
+              "CXX": "g++",
+              "CFLAGS": "",
+              "CXXFLAGS": "",
+              "preset": "release",
+              "cmake": "-O3 -DNDEBUG -ffp-contract=off, no fast-math",
+              "make_jobs": 2
+            }
+          },
+          "baseline": {
+            "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+            "c_compiler": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+            "flags": {
+              "CC": "gcc",
+              "CXX": "g++",
+              "CFLAGS": "",
+              "CXXFLAGS": "",
+              "preset": "release",
+              "cmake": "-O3 -DNDEBUG -ffp-contract=off, no fast-math",
+              "make_jobs": 2
+            }
+          },
+          "icarus": {
+            "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+            "c_compiler": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+            "flags": {
+              "CC": "gcc",
+              "CXX": "g++",
+              "CFLAGS": "",
+              "CXXFLAGS": "",
+              "preset": "release",
+              "cmake": "-O3 -DNDEBUG -ffp-contract=off, no fast-math",
+              "make_jobs": 2
+            }
+          },
+          "verilator": {
+            "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+            "c_compiler": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+            "flags": {
+              "CC": "gcc",
+              "CXX": "g++",
+              "CFLAGS": "",
+              "CXXFLAGS": "",
+              "preset": "release",
+              "cmake": "-O3 -DNDEBUG -ffp-contract=off, no fast-math",
+              "make_jobs": 2
+            }
+          },
+          "icarus_devel": {
+            "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+            "c_compiler": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+            "flags": {
+              "CC": "gcc",
+              "CXX": "g++",
+              "CFLAGS": "",
+              "CXXFLAGS": "",
+              "preset": "release",
+              "cmake": "-O3 -DNDEBUG -ffp-contract=off, no fast-math",
+              "make_jobs": 2
+            }
+          }
+        },
+        "verilator_options": "--binary --timing --threads 1 --build-jobs 1; default C++ optimization; assertions/tracing off",
+        "icarus_options": "-g2012; vvp -n; single process",
+        "kirimasim_options": "default four-state; interpreter; no waveform/assertion request"
+      },
+      "actions_url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/44311501813/attempts/1"
+    }
+  ]
 }
