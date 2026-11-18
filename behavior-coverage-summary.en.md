@@ -4,9 +4,9 @@
 
 [English](behavior-coverage-summary.en.md) / [日本語](behavior-coverage-summary.md)
 
-[Details of all items](behavior-coverage.en.md) / [Management procedures](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/coverage/README.en.md) / [Interpretation and Re-examination Record](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/docs/requirement-extraction-notes.en.md)
+[Details of all items](behavior-coverage.en.md) / [Management procedures](https://github.com/kurochan001/kirimasim-tests/blob/befffe9069ef17894f2559328d1b8494732917d3/coverage/README.en.md) / [Interpretation and Re-examination Record](https://github.com/kurochan001/kirimasim-tests/blob/befffe9069ef17894f2559328d1b8494732917d3/docs/requirement-extraction-notes.en.md)
 
-The denominator counts requirement-ledger rows, not test files. See [Design, execution and PASS distinctions](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/docs/faq.en.md#q16-how-do-design-and-execution-coverage-differ) for concrete examples.
+The denominator counts requirement-ledger rows, not test files. See [Design, execution and PASS distinctions](https://github.com/kurochan001/kirimasim-tests/blob/befffe9069ef17894f2559328d1b8494732917d3/docs/faq.en.md#q16-how-do-design-and-execution-coverage-differ) for concrete examples.
 
 <a id="全規格の要求台帳に対する値"></a>
 
@@ -52,13 +52,13 @@ Unsupported behavior does not mean that no existing test is available.
 
 ## Execution confirmation rate by simulator
 
-Each row is a separate saved run. A narrow run can leave many tests unexecuted; check [how to read dates, versions and scope](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/docs/faq.en.md#q14-why-do-main-results-or-simulator-totals-differ) and the measurement source.
+Each row is a separate saved run. A narrow run can leave many tests unexecuted; check [how to read dates, versions and scope](https://github.com/kurochan001/kirimasim-tests/blob/befffe9069ef17894f2559328d1b8494732917d3/docs/faq.en.md#q14-why-do-main-results-or-simulator-totals-differ) and the measurement source.
 
-- `ghost` / `private build 5a7fd8588bb0` : 9601/12332 ( 77.85% )。 Measurement source: `2026-11-17T03:10:34.615177+00:00` / `ghost.json` 。 Failures 211; known mismatches 0; unsupported 0; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1326 rows.
-- `icarus` / `Icarus Verilog version 14.0 (devel) (s20260301-1129-g98bdb3a7)` : 2658/12332 ( 21.55% )。 Measurement source: `2026-11-17T02:42:48.017957+00:00` / `icarus.json` 。 Failures 13; known mismatches 7335; unsupported 0; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1132 rows.
-- `kirimasim` / `kirimasim 0.1.1 (commit 26f359bcd504), built with GNU 13.3.0` : 3091/12332 ( 25.06% )。 Measurement source: `2026-11-17T02:50:22.529975+00:00` / `kirimasim.json` 。 Failures 166; known mismatches 0; unsupported 6493; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1388 rows.
-- `lyra` / `Lyra (commit 5d2288cdcecc)` : 3654/12332 ( 29.63% )。 Measurement source: `2026-11-17T08:07:38.686099+00:00` / `lyra.json` 。 Failures 839; known mismatches 0; unsupported 5264; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1381 rows.
-- `verilator` / `Verilator 5.055 devel rev v5.054-302-g2d6aba6e` : 3786/12332 ( 30.70% )。 Measurement source: `2026-11-17T04:40:56.584959+00:00` / `verilator.json` 。 Failures 27; known mismatches 6298; unsupported 0; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1027 rows.
+- `ghost` / `private build 15d7fdeeb7d9` : 9604/12332 ( 77.88% )。 Measurement source: `2026-11-18T02:17:16.080841+00:00` / `ghost.json` 。 Failures 208; known mismatches 0; unsupported 0; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1326 rows.
+- `icarus` / `Icarus Verilog version 14.0 (devel) (s20260301-1142-gec433ed2)` : 2659/12332 ( 21.56% )。 Measurement source: `2026-11-18T01:56:28.410137+00:00` / `icarus.json` 。 Failures 13; known mismatches 7334; unsupported 0; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1132 rows.
+- `kirimasim` / `kirimasim 0.1.1 (commit 441dddbd0fcd), built with GNU 13.3.0` : 3091/12332 ( 25.06% )。 Measurement source: `2026-11-18T02:06:48.418292+00:00` / `kirimasim.json` 。 Failures 166; known mismatches 0; unsupported 6493; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1388 rows.
+- `lyra` / `Lyra (commit 5d2288cdcecc)` : 3654/12332 ( 29.63% )。 Measurement source: `2026-11-18T05:07:12.410168+00:00` / `lyra.json` 。 Failures 839; known mismatches 0; unsupported 5264; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1381 rows.
+- `verilator` / `Verilator 5.055 devel rev v5.054-312-g4c858632` : 3786/12332 ( 30.70% )。 Measurement source: `2026-11-18T02:26:48.240369+00:00` / `verilator.json` 。 Failures 27; known mismatches 6298; unsupported 0; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1027 rows.
 - The result file of the rejection: 0.
 
 <a id="章附属書別登録項目に対する割合"></a>

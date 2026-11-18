@@ -2,7 +2,7 @@
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
   "registry_sha256": "a09ee43ac5ccdc8fdabd43102fce23049da626ff0e9e22c9e7d5859692b63ea6",
-  "source_url": "https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323",
+  "source_url": "https://github.com/kurochan001/kirimasim-tests/blob/befffe9069ef17894f2559328d1b8494732917d3",
   "source_audit": {
     "audited": 1740,
     "classified_blocks": 15846,
@@ -765,8 +765,8 @@
       {
         "file": "ghost.json",
         "simulator": "ghost",
-        "version": "private build 5a7fd8588bb0",
-        "generated_at": "2026-11-17T03:10:34.615177+00:00",
+        "version": "private build 15d7fdeeb7d9",
+        "generated_at": "2026-11-18T02:17:16.080841+00:00",
         "executed": [
           "SV2023-10.10-EXTRACT-ARRAY-ITEM-FLATTEN",
           "SV2023-10.10-EXTRACT-BOUNDED-CONCAT-OVERFLOW",
@@ -2097,9 +2097,12 @@
           "SV2023-18.3-EXTRACT-BIDIRECTIONAL",
           "SV2023-18.3-EXTRACT-CALLBACK-BASE",
           "SV2023-18.3-EXTRACT-CALLBACKS",
+          "SV2023-18.3-EXTRACT-ENUM-DOMAIN",
+          "SV2023-18.3-EXTRACT-INLINE-CONSTRAINTS",
           "SV2023-18.3-EXTRACT-NAMED-MODE",
           "SV2023-18.3-EXTRACT-RAND-MODE",
           "SV2023-18.3-EXTRACT-RANDOMIZE-ALL",
+          "SV2023-18.3-EXTRACT-SOLVE-EXISTENCE",
           "SV2023-18.3-EXTRACT-SOLVER-CAPABILITY",
           "SV2023-18.4-EXTRACT-ARRAY-INDICES",
           "SV2023-18.4-EXTRACT-ASSOCIATIVE-SIZE-KEYS",
@@ -10372,8 +10375,8 @@
         ],
         "stale_links": 0,
         "status_counts": {
-          "pass": 9601,
-          "fail": 211,
+          "pass": 9604,
+          "fail": 208,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 1326,
@@ -10386,8 +10389,8 @@
       {
         "file": "icarus.json",
         "simulator": "icarus",
-        "version": "Icarus Verilog version 14.0 (devel) (s20260301-1129-g98bdb3a7)",
-        "generated_at": "2026-11-17T02:42:48.017957+00:00",
+        "version": "Icarus Verilog version 14.0 (devel) (s20260301-1142-gec433ed2)",
+        "generated_at": "2026-11-18T01:56:28.410137+00:00",
         "executed": [
           "SV2023-10.2-EXTRACT-ASSIGNMENT-KINDS",
           "SV2023-10.2-EXTRACT-ASSIGNMENT-OPERATORS",
@@ -12698,6 +12701,7 @@
           "SV2023-8.20-EXTRACT-VIRTUAL-KEYWORD-OPTIONAL",
           "SV2023-8.22-EXTRACT-RUNTIME-DISPATCH",
           "SV2023-8.23-EXTRACT-CLASS-PARAMETER-CONSTANT",
+          "SV2023-8.25-EXTRACT-DEFAULT-SPECIALIZATION",
           "SV2023-8.25-EXTRACT-PARAMETERIZED-INHERITANCE",
           "SV2023-8.25.1-EXTRACT-DEFAULT-SCOPE-EXPLICIT",
           "SV2023-8.27-EXTRACT-FORWARD-PARAMETERIZED",
@@ -13050,9 +13054,9 @@
         ],
         "stale_links": 0,
         "status_counts": {
-          "pass": 2658,
+          "pass": 2659,
           "fail": 13,
-          "known": 7335,
+          "known": 7334,
           "unsupported": 0,
           "unreviewed_oracle": 1132,
           "stale": 0,
@@ -13064,8 +13068,8 @@
       {
         "file": "kirimasim.json",
         "simulator": "kirimasim",
-        "version": "kirimasim 0.1.1 (commit 26f359bcd504), built with GNU 13.3.0",
-        "generated_at": "2026-11-17T02:50:22.529975+00:00",
+        "version": "kirimasim 0.1.1 (commit 441dddbd0fcd), built with GNU 13.3.0",
+        "generated_at": "2026-11-18T02:06:48.418292+00:00",
         "executed": [
           "SV2023-10.10-EXTRACT-BOUNDED-CONCAT-OVERFLOW",
           "SV2023-10.10.3-EXTRACT-TYPED-PATTERN-AS-CONCAT-ITEM",
@@ -16176,7 +16180,7 @@
         "file": "lyra.json",
         "simulator": "lyra",
         "version": "Lyra (commit 5d2288cdcecc)",
-        "generated_at": "2026-11-17T08:07:38.686099+00:00",
+        "generated_at": "2026-11-18T05:07:12.410168+00:00",
         "executed": [
           "SV2023-10.10-EXTRACT-ARRAY-ITEM-FLATTEN",
           "SV2023-10.10-EXTRACT-BOUNDED-CONCAT-OVERFLOW",
@@ -19849,8 +19853,8 @@
       {
         "file": "verilator.json",
         "simulator": "verilator",
-        "version": "Verilator 5.055 devel rev v5.054-302-g2d6aba6e",
-        "generated_at": "2026-11-17T04:40:56.584959+00:00",
+        "version": "Verilator 5.055 devel rev v5.054-312-g4c858632",
+        "generated_at": "2026-11-18T02:26:48.240369+00:00",
         "executed": [
           "SV2023-10.10-EXTRACT-CONCAT-LEFT-TO-RIGHT",
           "SV2023-10.11-EXTRACT-ALIAS-PLACEMENT",

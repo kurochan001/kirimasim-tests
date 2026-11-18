@@ -1,8 +1,8 @@
 {
  "name": "Ghost",
- "version": "private build 5a7fd8588bb0",
- "time": "2026-11-17T08:08:09Z",
- "suite_commit": "77dc1f7657aab90277f65cb008524ef7bd9ae323",
+ "version": "private build 15d7fdeeb7d9",
+ "time": "2026-11-18T05:07:34Z",
+ "suite_commit": "befffe9069ef17894f2559328d1b8494732917d3",
  "tests": {
   "ch10/test_a6_7_1_assignment_pattern_keys": "pass",
   "ch10/test_adder_edge_cases": "pass",
@@ -1997,7 +1997,7 @@
   "ch18/test_object_stability_seeding": "pass",
   "ch18/test_pre_post_randomize": "pass",
   "ch18/test_rand_constraints_hold": "pass",
-  "ch18/test_rand_enum_solver_finds_solution": "fail",
+  "ch18/test_rand_enum_solver_finds_solution": "pass",
   "ch18/test_rand_join_depth_one_nonterminals": "pass",
   "ch18/test_rand_join_interleaving": "pass",
   "ch18/test_rand_join_length_bias": "pass",

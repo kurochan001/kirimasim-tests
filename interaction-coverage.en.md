@@ -6,9 +6,9 @@
 
 This report is only for registered finite models. The coverage of the requirements and the combination of all languages is not the same. The coverage on the plan and the confirmation of the pass based on the execution result are divided. The existing test is not reduced. A reduction in selected case count is not a measured reduction in runtime.
 
-For the source, use, and limits of application, see [Import procedure](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/docs/interaction-verification.en.md).
+For the source, use, and limits of application, see [Import procedure](https://github.com/kurochan001/kirimasim-tests/blob/befffe9069ef17894f2559328d1b8494732917d3/docs/interaction-verification.en.md).
 
-See [a 4-row example](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/docs/faq.en.md#q28-why-not-simply-cross-every-feature) for what 100% of 2-factor coverage establishes, and [passing-execution satisfaction](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/docs/faq.en.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution) for the difference between the plan and actual PASS.
+See [a 4-row example](https://github.com/kurochan001/kirimasim-tests/blob/befffe9069ef17894f2559328d1b8494732917d3/docs/faq.en.md#q28-why-not-simply-cross-every-feature) for what 100% of 2-factor coverage establishes, and [passing-execution satisfaction](https://github.com/kurochan001/kirimasim-tests/blob/befffe9069ef17894f2559328d1b8494732917d3/docs/faq.en.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution) for the difference between the plan and actual PASS.
 
 ## scheduling_visibility / model 1
 
@@ -2337,8 +2337,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/ghost.json
 
-- Environment: private build 5a7fd8588bb0.
-- Execution timestamp: 2026-11-17T03:10:34.615177+00:00.
+- Environment: private build 15d7fdeeb7d9.
+- Execution timestamp: 2026-11-18T02:17:16.080841+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -2897,8 +2897,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/icarus.json
 
-- Environment: Icarus Verilog version 14.0 (devel) (s20260301-1129-g98bdb3a7).
-- Execution timestamp: 2026-11-17T02:42:48.017957+00:00.
+- Environment: Icarus Verilog version 14.0 (devel) (s20260301-1142-gec433ed2).
+- Execution timestamp: 2026-11-18T01:56:28.410137+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -3457,8 +3457,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/kirimasim.json
 
-- Environment: kirimasim 0.1.1 (commit 26f359bcd504), built with GNU 13.3.0.
-- Execution timestamp: 2026-11-17T02:50:22.529975+00:00.
+- Environment: kirimasim 0.1.1 (commit 441dddbd0fcd), built with GNU 13.3.0.
+- Execution timestamp: 2026-11-18T02:06:48.418292+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -4018,7 +4018,7 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 ### results/lyra.json
 
 - Environment: Lyra (commit 5d2288cdcecc).
-- Execution timestamp: 2026-11-17T08:07:38.686099+00:00.
+- Execution timestamp: 2026-11-18T05:07:12.410168+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 111/126.
@@ -4577,8 +4577,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/verilator.json
 
-- Environment: Verilator 5.055 devel rev v5.054-302-g2d6aba6e.
-- Execution timestamp: 2026-11-17T04:40:56.584959+00:00.
+- Environment: Verilator 5.055 devel rev v5.054-312-g4c858632.
+- Execution timestamp: 2026-11-18T02:26:48.240369+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.

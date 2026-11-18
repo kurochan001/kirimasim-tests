@@ -4,9 +4,9 @@
 
 [English](behavior-coverage-summary.en.md) / [日本語](behavior-coverage-summary.md)
 
-[全項目の詳細](behavior-coverage.md) / [管理手順](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/coverage/README.md) / [解釈・再検討記録](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/docs/requirement-extraction-notes.md)
+[全項目の詳細](behavior-coverage.md) / [管理手順](https://github.com/kurochan001/kirimasim-tests/blob/befffe9069ef17894f2559328d1b8494732917d3/coverage/README.md) / [解釈・再検討記録](https://github.com/kurochan001/kirimasim-tests/blob/befffe9069ef17894f2559328d1b8494732917d3/docs/requirement-extraction-notes.md)
 
-割合の分母は要求台帳の行で、テスト本数ではありません。[設計・実行・PASSの違い](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/docs/faq.md#q16-how-do-design-and-execution-coverage-differ)を具体例で確認できます。
+割合の分母は要求台帳の行で、テスト本数ではありません。[設計・実行・PASSの違い](https://github.com/kurochan001/kirimasim-tests/blob/befffe9069ef17894f2559328d1b8494732917d3/docs/faq.md#q16-how-do-design-and-execution-coverage-differ)を具体例で確認できます。
 
 <a id="value-for-all-standards-in-the-required-table"></a>
 
@@ -52,13 +52,13 @@
 
 ## シミュレータ別の実行確認率
 
-各行は独立した保存実行です。小範囲の実行で未実行が多い場合もあるため、[日時・版・対象範囲の読み方](https://github.com/kurochan001/kirimasim-tests/blob/77dc1f7657aab90277f65cb008524ef7bd9ae323/docs/faq.md#q14-why-do-main-results-or-simulator-totals-differ)と計測元を確認してください。
+各行は独立した保存実行です。小範囲の実行で未実行が多い場合もあるため、[日時・版・対象範囲の読み方](https://github.com/kurochan001/kirimasim-tests/blob/befffe9069ef17894f2559328d1b8494732917d3/docs/faq.md#q14-why-do-main-results-or-simulator-totals-differ)と計測元を確認してください。
 
-- `ghost` / `private build 5a7fd8588bb0`: 9601/12332 (77.85%)。 計測元: `2026-11-17T03:10:34.615177+00:00` / `ghost.json`。 失敗 211、既知不一致 0、未対応 0、未実行 290、古い証跡 0、規格違反テストの判定根拠が未承認 1326 行。
-- `icarus` / `Icarus Verilog version 14.0 (devel) (s20260301-1129-g98bdb3a7)`: 2658/12332 (21.55%)。 計測元: `2026-11-17T02:42:48.017957+00:00` / `icarus.json`。 失敗 13、既知不一致 7335、未対応 0、未実行 290、古い証跡 0、規格違反テストの判定根拠が未承認 1132 行。
-- `kirimasim` / `kirimasim 0.1.1 (commit 26f359bcd504), built with GNU 13.3.0`: 3091/12332 (25.06%)。 計測元: `2026-11-17T02:50:22.529975+00:00` / `kirimasim.json`。 失敗 166、既知不一致 0、未対応 6493、未実行 290、古い証跡 0、規格違反テストの判定根拠が未承認 1388 行。
-- `lyra` / `Lyra (commit 5d2288cdcecc)`: 3654/12332 (29.63%)。 計測元: `2026-11-17T08:07:38.686099+00:00` / `lyra.json`。 失敗 839、既知不一致 0、未対応 5264、未実行 290、古い証跡 0、規格違反テストの判定根拠が未承認 1381 行。
-- `verilator` / `Verilator 5.055 devel rev v5.054-302-g2d6aba6e`: 3786/12332 (30.70%)。 計測元: `2026-11-17T04:40:56.584959+00:00` / `verilator.json`。 失敗 27、既知不一致 6298、未対応 0、未実行 290、古い証跡 0、規格違反テストの判定根拠が未承認 1027 行。
+- `ghost` / `private build 15d7fdeeb7d9`: 9604/12332 (77.88%)。 計測元: `2026-11-18T02:17:16.080841+00:00` / `ghost.json`。 失敗 208、既知不一致 0、未対応 0、未実行 290、古い証跡 0、規格違反テストの判定根拠が未承認 1326 行。
+- `icarus` / `Icarus Verilog version 14.0 (devel) (s20260301-1142-gec433ed2)`: 2659/12332 (21.56%)。 計測元: `2026-11-18T01:56:28.410137+00:00` / `icarus.json`。 失敗 13、既知不一致 7334、未対応 0、未実行 290、古い証跡 0、規格違反テストの判定根拠が未承認 1132 行。
+- `kirimasim` / `kirimasim 0.1.1 (commit 441dddbd0fcd), built with GNU 13.3.0`: 3091/12332 (25.06%)。 計測元: `2026-11-18T02:06:48.418292+00:00` / `kirimasim.json`。 失敗 166、既知不一致 0、未対応 6493、未実行 290、古い証跡 0、規格違反テストの判定根拠が未承認 1388 行。
+- `lyra` / `Lyra (commit 5d2288cdcecc)`: 3654/12332 (29.63%)。 計測元: `2026-11-18T05:07:12.410168+00:00` / `lyra.json`。 失敗 839、既知不一致 0、未対応 5264、未実行 290、古い証跡 0、規格違反テストの判定根拠が未承認 1381 行。
+- `verilator` / `Verilator 5.055 devel rev v5.054-312-g4c858632`: 3786/12332 (30.70%)。 計測元: `2026-11-18T02:26:48.240369+00:00` / `verilator.json`。 失敗 27、既知不一致 6298、未対応 0、未実行 290、古い証跡 0、規格違反テストの判定根拠が未承認 1027 行。
 - 不採用の結果ファイル: 0 件。
 
 <a id="by-chapter-and-appendix-percentage-of-registered-items"></a>
