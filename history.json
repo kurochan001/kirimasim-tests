@@ -464,6 +464,236 @@
         }
       ],
       "profile": "weekly"
+    },
+    {
+      "id": "actions-44223268236-1",
+      "started_at": "2026-11-18T02:38:15.609997+00:00",
+      "completed_at": "2026-11-18T03:22:01.021116+00:00",
+      "series": "25a1c78c12d65db98513377f5b0378ea74a2d9c42643d7ac36a95e5fa701da53",
+      "status": "complete",
+      "groups": [
+        {
+          "name": "regression-common",
+          "peer": "baseline",
+          "cases": [
+            "casez_struct",
+            "comb_chain",
+            "dyn_queue",
+            "fork_join",
+            "func_call",
+            "gate_udp",
+            "mem_rw",
+            "nba_burst",
+            "nba_shift",
+            "proc_wait",
+            "string_fmt",
+            "wide_arith"
+          ],
+          "expected_count": 12,
+          "available_count": 12,
+          "ratio": 0.7505507727272921,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "regression-fourstate",
+          "peer": "baseline",
+          "cases": [
+            "fourstate_mix"
+          ],
+          "expected_count": 1,
+          "available_count": 1,
+          "ratio": 0.7522054143646714,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "icarus-common",
+          "peer": "icarus",
+          "cases": [
+            "casez_struct",
+            "comb_chain",
+            "dyn_queue",
+            "fork_join",
+            "func_call",
+            "gate_udp",
+            "mem_rw",
+            "nba_burst",
+            "nba_shift",
+            "proc_wait",
+            "string_fmt",
+            "wide_arith"
+          ],
+          "expected_count": 12,
+          "available_count": 12,
+          "ratio": 0.579822361005041,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "icarus-fourstate",
+          "peer": "icarus",
+          "cases": [
+            "fourstate_mix"
+          ],
+          "expected_count": 1,
+          "available_count": 1,
+          "ratio": 0.4066572331376708,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "verilator-common",
+          "peer": "verilator",
+          "cases": [
+            "casez_struct",
+            "comb_chain",
+            "dyn_queue",
+            "fork_join",
+            "func_call",
+            "gate_udp",
+            "mem_rw",
+            "nba_burst",
+            "nba_shift",
+            "proc_wait",
+            "string_fmt",
+            "wide_arith"
+          ],
+          "expected_count": 12,
+          "available_count": 12,
+          "ratio": 39.440576701545254,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "expanded-regression-common",
+          "peer": "baseline",
+          "cases": [
+            "casez_struct",
+            "comb_chain",
+            "dyn_queue",
+            "fork_join",
+            "func_call",
+            "gate_udp",
+            "mem_rw",
+            "nba_burst",
+            "nba_shift",
+            "proc_wait",
+            "string_fmt",
+            "wide_arith",
+            "fifo_stream",
+            "uart_loopback",
+            "bus_fabric",
+            "hierarchy_fanout",
+            "event_fanout",
+            "word_boundary",
+            "wide_divide",
+            "packed_slice",
+            "memory_scatter",
+            "clock_domains"
+          ],
+          "expected_count": 22,
+          "available_count": 22,
+          "ratio": 0.7452037342444552,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "expanded-regression-fourstate",
+          "peer": "baseline",
+          "cases": [
+            "fourstate_mix",
+            "fourstate_arith",
+            "resolved_bus"
+          ],
+          "expected_count": 3,
+          "available_count": 3,
+          "ratio": 0.783321672332329,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "expanded-icarus-common",
+          "peer": "icarus",
+          "cases": [
+            "casez_struct",
+            "comb_chain",
+            "dyn_queue",
+            "fork_join",
+            "func_call",
+            "gate_udp",
+            "mem_rw",
+            "nba_burst",
+            "nba_shift",
+            "proc_wait",
+            "string_fmt",
+            "wide_arith",
+            "fifo_stream",
+            "uart_loopback",
+            "bus_fabric",
+            "hierarchy_fanout",
+            "event_fanout",
+            "word_boundary",
+            "wide_divide",
+            "packed_slice",
+            "memory_scatter",
+            "clock_domains"
+          ],
+          "expected_count": 22,
+          "available_count": 22,
+          "ratio": 0.6417845300194972,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "expanded-icarus-fourstate",
+          "peer": "icarus",
+          "cases": [
+            "fourstate_mix",
+            "fourstate_arith",
+            "resolved_bus"
+          ],
+          "expected_count": 3,
+          "available_count": 3,
+          "ratio": 0.5122908511781727,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "expanded-verilator-common",
+          "peer": "verilator",
+          "cases": [
+            "casez_struct",
+            "comb_chain",
+            "dyn_queue",
+            "fork_join",
+            "func_call",
+            "gate_udp",
+            "mem_rw",
+            "nba_burst",
+            "nba_shift",
+            "proc_wait",
+            "string_fmt",
+            "wide_arith",
+            "fifo_stream",
+            "uart_loopback",
+            "bus_fabric",
+            "hierarchy_fanout",
+            "event_fanout",
+            "word_boundary",
+            "wide_divide",
+            "packed_slice",
+            "memory_scatter",
+            "clock_domains"
+          ],
+          "expected_count": 22,
+          "available_count": 22,
+          "ratio": 40.918861443760754,
+          "warning": false,
+          "reason": null
+        }
+      ],
+      "profile": "daily"
     }
   ]
 }
