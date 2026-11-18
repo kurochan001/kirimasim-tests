@@ -11,14 +11,6 @@ statuses, Nightly, coverage and the SVA/formal checks used by this suite.
 [![Speed benchmarks](https://github.com/kurochan001/kirimasim-tests/actions/workflows/benchmark.yml/badge.svg)](https://github.com/kurochan001/kirimasim-tests/actions/workflows/benchmark.yml)
 [![License: Apache-2.0 WITH LLVM-exception](https://img.shields.io/badge/license-Apache--2.0%20WITH%20LLVM--exception-blue)](LICENSE)
 
-**Daily overall elapsed ratio: latest Icarus Verilog 14.0 devel = 1**
-
-[![Daily 25-design overall elapsed ratio: lower is faster](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/benchmark-results/charts/daily-icarus14.svg)](https://github.com/kurochan001/kirimasim-tests/tree/benchmark-results#readme)
-
-Equal-weight geometric mean of `kirimasim incremental elapsed / Icarus 14 devel incremental elapsed` over the fixed 25 daily designs (22 common + 3 four-state). **0.97 means 3% less elapsed time**; lower is faster. Use the last formal attempt per JST day; one invalid member makes the mean missing. Until the first formal result, the graph displays a waiting message. Separate curves identify different machines/definitions. GitHub-hosted values are reference measurements.
-
-Independent [daily and weekly speed benchmarks](docs/daily-benchmark.md) run **25 daily designs and 3 larger weekly designs**. Resolve both latest kirimasim and latest Icarus 14 devel once per campaign, then freeze both commits. Both projects change; comparisons with fixed baseline kirimasim, Icarus 13 and Verilator, plus individual cases, remain in the [details, raw data and trends](https://github.com/kurochan001/kirimasim-tests/tree/benchmark-results#readme). The workflow and history are separate from functional Nightly.
-
 A conformance test suite for the simulation semantics of IEEE 1800-2023
 SystemVerilog.
 
@@ -67,6 +59,14 @@ What sets the suite apart:
 > Reports of wrong expectations are welcome.
 
 For a first test, [walk through 24 real lines](docs/faq.en.md#q49-read-a-real-test); for results, read [why green can coexist with Differ](docs/faq.en.md#q11-why-can-nightly-be-green-with-differ-results); for verified scope, start with [numerator/denominator examples](docs/faq.en.md#q16-how-do-design-and-execution-coverage-differ).
+
+**Daily overall elapsed ratio: latest Icarus Verilog 14.0 devel = 1**
+
+[![Daily 25-design overall elapsed ratio: lower is faster](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/benchmark-results/charts/daily-icarus14.svg)](https://github.com/kurochan001/kirimasim-tests/tree/benchmark-results#readme)
+
+Equal-weight geometric mean of `kirimasim incremental elapsed / Icarus 14 devel incremental elapsed` over the fixed 25 daily designs (22 common + 3 four-state). **0.97 means 3% less elapsed time**; lower is faster. Use the last formal attempt per JST day; one invalid member makes the mean missing. Until the first formal result, the graph displays a waiting message. Separate curves identify different machines/definitions. GitHub-hosted values are reference measurements.
+
+Independent [daily and weekly speed benchmarks](docs/daily-benchmark.md) run **25 daily designs and 3 larger weekly designs**. Resolve both latest kirimasim and latest Icarus 14 devel once per campaign, then freeze both commits. Both projects change; comparisons with fixed baseline kirimasim, Icarus 13 and Verilator, plus individual cases, remain in the [details, raw data and trends](https://github.com/kurochan001/kirimasim-tests/tree/benchmark-results#readme). The workflow and history are separate from functional Nightly.
 
 <a id="収録内容"></a>
 
