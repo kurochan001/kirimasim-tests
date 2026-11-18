@@ -23753,6 +23753,14 @@
     "Packed lane and part selections are unsigned while whole ZXQPH0QXZ arrays retain signing": "Packed lane and part selections are unsigned while whole ZXQPH0QXZ arrays retain signing",
     "Packed lane and part selections are unsigned while whole ZXQPH0QXZ arrays retain signing ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "Packed lane and part selections are unsigned while whole ZXQPH0QXZ arrays retain signing ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )",
     "Clipped ZXQPH0QXZ lane writes preserve neighbors and invalid indices perform no write": "Clipped ZXQPH0QXZ lane writes preserve neighbors and invalid indices perform no write",
-    "Clipped ZXQPH0QXZ lane writes preserve neighbors and invalid indices perform no write ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "Clipped ZXQPH0QXZ lane writes preserve neighbors and invalid indices perform no write ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )"
+    "Clipped ZXQPH0QXZ lane writes preserve neighbors and invalid indices perform no write ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "Clipped ZXQPH0QXZ lane writes preserve neighbors and invalid indices perform no write ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )",
+    "Runtime wide division and remainder preserve signs with small nonzero divisors": "Runtime wide division and remainder preserve signs with small nonzero divisors",
+    "Runtime wide division and remainder preserve signs with small nonzero divisors ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Runtime wide division and remainder preserve signs with small nonzero divisors ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Runtime wide division and remainder cross power-of-two word boundaries": "Runtime wide division and remainder cross power-of-two word boundaries",
+    "Runtime wide division and remainder cross power-of-two word boundaries ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Runtime wide division and remainder cross power-of-two word boundaries ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Runtime wide division and remainder handle extrema and fixed-width overflow": "Runtime wide division and remainder handle extrema and fixed-width overflow",
+    "Runtime wide division and remainder handle extrema and fixed-width overflow ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Runtime wide division and remainder handle extrema and fixed-width overflow ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Compound wide division and remainder evaluate an array index exactly once": "Compound wide division and remainder evaluate an array index exactly once",
+    "Compound wide division and remainder evaluate an array index exactly once ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Compound wide division and remainder evaluate an array index exactly once ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )"
   }
 }

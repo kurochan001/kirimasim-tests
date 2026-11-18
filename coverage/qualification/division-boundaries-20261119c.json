@@ -1,0 +1,547 @@
+{
+  "schema": 1,
+  "kind": "finite one-edit observability checks; not independent standards review",
+  "recorded_at": "2026-11-18T23:43:52.498762+00:00",
+  "scope": "All four forms, both signs, widths65and257; sixteen controls and thirty-two normally exiting compiled mutations",
+  "simulator": {
+    "version": "kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401",
+    "commit": "441dddbd0fcd80aed298ca33311f2ee67aa8866c",
+    "binary_sha256": "c3b343c753737a564deb1156e8064062793c133f7be2ea567daced985b26f24b"
+  },
+  "args": [
+    "+nonce=1"
+  ],
+  "baselines": [
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_small_signed_w65.sv",
+      "source_sha256": "6d4ec357db0ad2e10fb7c5c76cb3a166d025357aabb3908475232d9a948c4026",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_power_signed_w65.sv",
+      "source_sha256": "37499aed9d639d96f3a090cbee161fda0e9790b6b3c5c07466673c41f0f37bec",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_extreme_signed_w65.sv",
+      "source_sha256": "6c51628ddc31e42435f1406508038fdb90ed3dca90f10433faa0a738dd04539e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_compound_signed_w65.sv",
+      "source_sha256": "a7e9568d166612673f7dee0427895e1beda457277ad35bb290db9061c5536930",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_small_unsigned_w65.sv",
+      "source_sha256": "ac6c8b64715965768037bc972f4179629c521c59007acf45b1ab138957d5310c",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_power_unsigned_w65.sv",
+      "source_sha256": "53a25d088f6841eb3199224e99cdbe1a2bf825c84127eaa926a4acdb9fd2f19d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_extreme_unsigned_w65.sv",
+      "source_sha256": "f7b4dd25148c1fc02353fcf3ffac612d147bc04f9bba7b0ab2477f25d3da9ceb",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_compound_unsigned_w65.sv",
+      "source_sha256": "7583edb2454e9bef7118ec5aee4f2c3508993856d25bd6bf516a7da96f12d5bc",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_small_signed_w257.sv",
+      "source_sha256": "969d46be6c4af99438142282aff3662db487f43a7c76660f44df177a85e5e26f",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_power_signed_w257.sv",
+      "source_sha256": "ac1c44a6c8a9083817a7ca3d1c04d4bbef08fda42fa39a133f36e088005e293c",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_extreme_signed_w257.sv",
+      "source_sha256": "f09acfc53c08e609a8b99a7f687ddc10b6f60c29486e9cbb5d2d68c646a02faf",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_compound_signed_w257.sv",
+      "source_sha256": "5c36817416456c2c70088e3c449b64de9ec55116868f8a6a572db6b0a7306830",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_small_unsigned_w257.sv",
+      "source_sha256": "f356b98af29484e7a52a4a21595fda35a030dc2d01c8a52f85fce4ecb899d21d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_power_unsigned_w257.sv",
+      "source_sha256": "053865689c2d96d3d811ed820583d2680ebdd1b860f19b655cdda2801392068a",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_extreme_unsigned_w257.sv",
+      "source_sha256": "47796b9da7aab98c4a4dbb3f8cdc912670ae92df9bbaf83f0f985d51dab1a656",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_compound_unsigned_w257.sv",
+      "source_sha256": "bdb6ab0ba4ddd9939eee0b7c75d60c94ab2c7dd8e6b75f0962566ad7ea5822e8",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    }
+  ],
+  "mutations": [
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_small_signed_w65.sv",
+      "label": "wrong-quotient",
+      "replacement": {
+        "old": "quotient = numerator / denominator;",
+        "new": "quotient = numerator / denominator + word_t'(1);",
+        "occurrences": 1
+      },
+      "source_sha256": "79553c725f9d24f48c363c8ca47e6b62f72f5a5d0dfe8085ea235211829c25e1",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_small_signed_w65.sv",
+      "label": "lose-runtime-numerator",
+      "replacement": {
+        "old": "numerator = numerator ^ word_t'(nonce);",
+        "new": "numerator = word_t'(nonce);",
+        "occurrences": 1
+      },
+      "source_sha256": "be598b97ef4f79e3e0f7a2e569e6b37eb342a1e8ad202aa2591cb22f2649442f",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_power_signed_w65.sv",
+      "label": "wrong-runtime-divisor",
+      "replacement": {
+        "old": "denominator = denominator + word_t'(nonce);",
+        "new": "denominator = denominator - word_t'(nonce);",
+        "occurrences": 1
+      },
+      "source_sha256": "b73f18a62e06d8222d3345bb9bfaba3bcbf702ada01853b727857cc3ad71854a",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_power_signed_w65.sv",
+      "label": "wrong-quotient",
+      "replacement": {
+        "old": "quotient = numerator / denominator;",
+        "new": "quotient = numerator / denominator + word_t'(1);",
+        "occurrences": 1
+      },
+      "source_sha256": "4168b447a0760c19d8f76f6ed3defddad2a3d136c0f5a33038713001bd07d683",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_extreme_signed_w65.sv",
+      "label": "remainder-is-quotient",
+      "replacement": {
+        "old": "remainder = numerator % denominator;",
+        "new": "remainder = numerator / denominator;",
+        "occurrences": 1
+      },
+      "source_sha256": "7ea47ecd94f5ad00ed8477097840c26ea2d70f39d1c0b712e2a9f16797db0ea0",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_extreme_signed_w65.sv",
+      "label": "wrong-quotient",
+      "replacement": {
+        "old": "quotient = numerator / denominator;",
+        "new": "quotient = numerator / denominator + word_t'(1);",
+        "occurrences": 1
+      },
+      "source_sha256": "8e8e9ae1842d0451e87f65494b0fd3e36332029cd08da0a14a7ac5dccb660d98",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_compound_signed_w65.sv",
+      "label": "wrong-array-element",
+      "replacement": {
+        "old": "return 1;",
+        "new": "return 0;",
+        "occurrences": 1
+      },
+      "source_sha256": "ab9af526736a5d446839c2128fe7a8b3d3ce2d408eeeddf3b00a46fc68d9600b",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_compound_signed_w65.sv",
+      "label": "duplicate-index-effect",
+      "replacement": {
+        "old": "index_calls = index_calls + 1;",
+        "new": "index_calls = index_calls + 2;",
+        "occurrences": 1
+      },
+      "source_sha256": "ce67e8e2552228535a49f54f3b06244c233145a6b302cf387020d7a92281da05",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_small_unsigned_w65.sv",
+      "label": "wrong-quotient",
+      "replacement": {
+        "old": "quotient = numerator / denominator;",
+        "new": "quotient = numerator / denominator + word_t'(1);",
+        "occurrences": 1
+      },
+      "source_sha256": "bcd95a6d5cbd2035f5845319ef9e6a82cb0eb36ac2ef0747369f8eac699c134e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_small_unsigned_w65.sv",
+      "label": "lose-runtime-numerator",
+      "replacement": {
+        "old": "numerator = numerator ^ word_t'(nonce);",
+        "new": "numerator = word_t'(nonce);",
+        "occurrences": 1
+      },
+      "source_sha256": "efa3f8bf20649e42ce4436dcf956ac54b8858bec7853e02011457c6d72ed8520",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_power_unsigned_w65.sv",
+      "label": "wrong-runtime-divisor",
+      "replacement": {
+        "old": "denominator = denominator + word_t'(nonce);",
+        "new": "denominator = denominator - word_t'(nonce);",
+        "occurrences": 1
+      },
+      "source_sha256": "691f88ff8a1f0a3e69a0eb5b048244a4d5f467218f3ee7214647731877e95cb7",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_power_unsigned_w65.sv",
+      "label": "wrong-quotient",
+      "replacement": {
+        "old": "quotient = numerator / denominator;",
+        "new": "quotient = numerator / denominator + word_t'(1);",
+        "occurrences": 1
+      },
+      "source_sha256": "9d5822e7a607c49bf9574f2a305030047bc2cac0aed247c53d26005ffa13161a",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_extreme_unsigned_w65.sv",
+      "label": "remainder-is-quotient",
+      "replacement": {
+        "old": "remainder = numerator % denominator;",
+        "new": "remainder = numerator / denominator;",
+        "occurrences": 1
+      },
+      "source_sha256": "efc188d250dcff4320ca6e1bd36d5929b7dd84772b18580f9a8c2e279c39c645",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_extreme_unsigned_w65.sv",
+      "label": "wrong-quotient",
+      "replacement": {
+        "old": "quotient = numerator / denominator;",
+        "new": "quotient = numerator / denominator + word_t'(1);",
+        "occurrences": 1
+      },
+      "source_sha256": "f47fe12f3e1da57b7e066514e5639cf986820c8664566abffccd9cf9eee4fd2f",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_compound_unsigned_w65.sv",
+      "label": "wrong-array-element",
+      "replacement": {
+        "old": "return 1;",
+        "new": "return 0;",
+        "occurrences": 1
+      },
+      "source_sha256": "fe2133e1e7a2600ce9f493a253d5005386c4e184259567381e708847a1ab3c89",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_compound_unsigned_w65.sv",
+      "label": "duplicate-index-effect",
+      "replacement": {
+        "old": "index_calls = index_calls + 1;",
+        "new": "index_calls = index_calls + 2;",
+        "occurrences": 1
+      },
+      "source_sha256": "bf3499e3d1a31a9b0f1e0de0257e0f13c750b20bbd9431ae6c4af1ebf050eab7",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_small_signed_w257.sv",
+      "label": "wrong-quotient",
+      "replacement": {
+        "old": "quotient = numerator / denominator;",
+        "new": "quotient = numerator / denominator + word_t'(1);",
+        "occurrences": 1
+      },
+      "source_sha256": "c49fafd5b8e3d6dc74d71a32c75e855a8623b639cc98899a6d4394ba48028d20",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_small_signed_w257.sv",
+      "label": "lose-runtime-numerator",
+      "replacement": {
+        "old": "numerator = numerator ^ word_t'(nonce);",
+        "new": "numerator = word_t'(nonce);",
+        "occurrences": 1
+      },
+      "source_sha256": "c155086dbfd678628f5e34d2d02ff1e788ba3273c760413efa7455577a3bb964",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_power_signed_w257.sv",
+      "label": "wrong-runtime-divisor",
+      "replacement": {
+        "old": "denominator = denominator + word_t'(nonce);",
+        "new": "denominator = denominator - word_t'(nonce);",
+        "occurrences": 1
+      },
+      "source_sha256": "213e3cce512ceb9964c9a76d759e08b7989436ca46f149b3e1fd9355bb33de1d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_power_signed_w257.sv",
+      "label": "wrong-quotient",
+      "replacement": {
+        "old": "quotient = numerator / denominator;",
+        "new": "quotient = numerator / denominator + word_t'(1);",
+        "occurrences": 1
+      },
+      "source_sha256": "f16c589d4c0c14036ac7a634df60c06ab4986cf19a739d210568d68a53f238b7",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_extreme_signed_w257.sv",
+      "label": "remainder-is-quotient",
+      "replacement": {
+        "old": "remainder = numerator % denominator;",
+        "new": "remainder = numerator / denominator;",
+        "occurrences": 1
+      },
+      "source_sha256": "87a6fe61a8013fd0fc7b17ae5718e1f09999633a1489eafadcfb09c856559f64",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_extreme_signed_w257.sv",
+      "label": "wrong-quotient",
+      "replacement": {
+        "old": "quotient = numerator / denominator;",
+        "new": "quotient = numerator / denominator + word_t'(1);",
+        "occurrences": 1
+      },
+      "source_sha256": "6068b3f8081401d977ad18b17859ea0b466f46b1a6790d1f510c554d5c38fba6",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_compound_signed_w257.sv",
+      "label": "wrong-array-element",
+      "replacement": {
+        "old": "return 1;",
+        "new": "return 0;",
+        "occurrences": 1
+      },
+      "source_sha256": "937fe80b58effb891091e93c63014be45290d4aa76531af330ab3ee77868ba91",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_compound_signed_w257.sv",
+      "label": "duplicate-index-effect",
+      "replacement": {
+        "old": "index_calls = index_calls + 1;",
+        "new": "index_calls = index_calls + 2;",
+        "occurrences": 1
+      },
+      "source_sha256": "f226b738cabd8bf1caa5cee661b205a847bd3a0f9f1a46f6e7537d261cfc46c4",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_small_unsigned_w257.sv",
+      "label": "wrong-quotient",
+      "replacement": {
+        "old": "quotient = numerator / denominator;",
+        "new": "quotient = numerator / denominator + word_t'(1);",
+        "occurrences": 1
+      },
+      "source_sha256": "7b4c09b4282564de6adf53848b3a03d739c6a113abe70bd40970260a5c518c32",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_small_unsigned_w257.sv",
+      "label": "lose-runtime-numerator",
+      "replacement": {
+        "old": "numerator = numerator ^ word_t'(nonce);",
+        "new": "numerator = word_t'(nonce);",
+        "occurrences": 1
+      },
+      "source_sha256": "7751272d68e17e08eb4290ea47a05cc2c8981c65c1f48d1455be6d756d7d3015",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_power_unsigned_w257.sv",
+      "label": "wrong-runtime-divisor",
+      "replacement": {
+        "old": "denominator = denominator + word_t'(nonce);",
+        "new": "denominator = denominator - word_t'(nonce);",
+        "occurrences": 1
+      },
+      "source_sha256": "d0e05e16f9ec4e0d14cb9f62176182089d4fe1b72d5a38bfcfe2b3703d9d150b",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_power_unsigned_w257.sv",
+      "label": "wrong-quotient",
+      "replacement": {
+        "old": "quotient = numerator / denominator;",
+        "new": "quotient = numerator / denominator + word_t'(1);",
+        "occurrences": 1
+      },
+      "source_sha256": "a382f16f0e222a4ab24256ef1863b9ac5f1aa0294ff502c9edb497dfeabec2c5",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_extreme_unsigned_w257.sv",
+      "label": "remainder-is-quotient",
+      "replacement": {
+        "old": "remainder = numerator % denominator;",
+        "new": "remainder = numerator / denominator;",
+        "occurrences": 1
+      },
+      "source_sha256": "d7e6bf7c31909e40fb1e7d5f5ffec673a762d10a7b61904a6b86b8b1dfc60615",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_extreme_unsigned_w257.sv",
+      "label": "wrong-quotient",
+      "replacement": {
+        "old": "quotient = numerator / denominator;",
+        "new": "quotient = numerator / denominator + word_t'(1);",
+        "occurrences": 1
+      },
+      "source_sha256": "f2ab598f2ef70f2ab1bdcfcfc9bd2864dad874c4a054e0aa93d45dfe7ff720a6",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_compound_unsigned_w257.sv",
+      "label": "wrong-array-element",
+      "replacement": {
+        "old": "return 1;",
+        "new": "return 0;",
+        "occurrences": 1
+      },
+      "source_sha256": "496a88fa0c027529f12b9d61332a47a05fe417217ff28ff48bcf99a264661b65",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_division_boundary_compound_unsigned_w257.sv",
+      "label": "duplicate-index-effect",
+      "replacement": {
+        "old": "index_calls = index_calls + 1;",
+        "new": "index_calls = index_calls + 2;",
+        "occurrences": 1
+      },
+      "source_sha256": "bc06245494cd618ce214166a541eeb79ba7714488a7ac05106c8eda2c0c75834",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    }
+  ],
+  "status": "all-sixteen-controls-pass-and-thirty-two-compiled-mutants-differ"
+}

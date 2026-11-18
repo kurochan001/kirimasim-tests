@@ -88,6 +88,10 @@
     "packed_lanes": {
       "en": "192 two-dimensional packed-lane cases at 32/33, 64/65 and 128/129 bits: ascending/descending outer and inner ranges, offset and zero-origin inner controls, runtime bit writes, overlapping windows, whole/lane/part signedness, clipped lane boundaries, invalid/unknown indices and recovery; full-bank observations preserve neighbors.",
       "ja": "32/33・64/65・128/129ビットの2次元パック要素192本。外側・内側の両向き、内側の非ゼロ・0始まりの対照、可変ビット書込み、重なる範囲コピー、全体と要素・部分の符号、要素境界での切詰め、無効・未知の添字と回復を、全体と隣接要素の値で確認。"
+    },
+    "division_boundaries": {
+      "en": "72 runtime division/remainder cases at 63/64/65, 127/128/129 and 255/256/257 bits: signed/unsigned small divisors, power-of-two boundaries, extrema and fixed-width overflow; compound array updates observe one index evaluation, a neighboring guard and direct scalar controls. A recorded plusarg supplies runtime operand dependencies.",
+      "ja": "63/64/65・127/128/129・255/256/257ビットの実行時除算と剰余72本。符号の有無、小さい除数、2の冪の境界、端値と固定幅の桁あふれを確認。配列への複合代入は添字の評価回数、隣の要素、直接計算の対照を観測し、記録した実行時引数をオペランドへ反映。"
     }
   }
 }

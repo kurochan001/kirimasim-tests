@@ -63,6 +63,13 @@
 - `constcall-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T07:46:53.963163+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `constcall-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T07:46:45.505234+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `constcall-20261115-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T07:46:53.247659+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `division-boundaries-20261119c-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-18T23:42:55.291969+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `division-boundaries-20261119c-kirimasim-441dddbd0fcd-run1.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T23:42:56.026640+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `division-boundaries-20261119c-kirimasim-441dddbd0fcd-run2.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T23:42:56.768990+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `division-boundaries-20261119c-kirimasim-441dddbd0fcd-run3.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T23:42:57.507237+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `division-boundaries-20261119c-kirimasim-441dddbd0fcd-run4.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T23:42:58.242286+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `division-boundaries-20261119c-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-18T23:45:30.445544+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `division-boundaries-20261119c-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-18T23:47:58.657268+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12332 動作確認、古い入力との対応 0 件。
 - `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3089/12332 動作確認、古い入力との対応 340 件。
 - `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2994/12332 動作確認、古い入力との対応 340 件。

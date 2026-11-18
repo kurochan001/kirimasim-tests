@@ -51,9 +51,9 @@
     "interpretation_pending": 0
   },
   "test_mapping": {
-    "suite_test_files": 14238,
+    "suite_test_files": 14310,
     "linked_test_files": 6644,
-    "unlinked_test_files": 7594
+    "unlinked_test_files": 7666
   },
   "collective_requirement_count": 760,
   "requirement_status_counts": {
@@ -1437,6 +1437,139 @@
         "simulator": "verilator",
         "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
         "generated_at": "2026-11-15T07:46:53.247659+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11428,
+          "unmapped": 904,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "division-boundaries-20261119c-icarus13.json",
+        "simulator": "icarus",
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+        "generated_at": "2026-11-18T23:42:55.291969+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11428,
+          "unmapped": 904,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "division-boundaries-20261119c-kirimasim-441dddbd0fcd-run1.json",
+        "simulator": "kirimasim",
+        "version": "kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401",
+        "generated_at": "2026-11-18T23:42:56.026640+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11428,
+          "unmapped": 904,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "division-boundaries-20261119c-kirimasim-441dddbd0fcd-run2.json",
+        "simulator": "kirimasim",
+        "version": "kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401",
+        "generated_at": "2026-11-18T23:42:56.768990+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11428,
+          "unmapped": 904,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "division-boundaries-20261119c-kirimasim-441dddbd0fcd-run3.json",
+        "simulator": "kirimasim",
+        "version": "kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401",
+        "generated_at": "2026-11-18T23:42:57.507237+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11428,
+          "unmapped": 904,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "division-boundaries-20261119c-kirimasim-441dddbd0fcd-run4.json",
+        "simulator": "kirimasim",
+        "version": "kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401",
+        "generated_at": "2026-11-18T23:42:58.242286+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11428,
+          "unmapped": 904,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "division-boundaries-20261119c-verilator5.054-seed1.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "generated_at": "2026-11-18T23:45:30.445544+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11428,
+          "unmapped": 904,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "division-boundaries-20261119c-verilator5.054-seed73.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "generated_at": "2026-11-18T23:47:58.657268+00:00",
         "executed": [],
         "stale_links": 0,
         "status_counts": {

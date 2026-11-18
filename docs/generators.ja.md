@@ -4,7 +4,7 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の135生成器から7,345件のテストを生成しています。
+現在の136生成器から7,417件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
@@ -21,6 +21,7 @@
 | [`combination_io`](../generators/combination_io.py) | 9, 10, 21 | 13 | 境界条件13件。`$fread`の格納先とバイト順、キュー・動的配列の暗黙感度、SV内で読み戻したVCDの内容を確認 |
 | [`combination_monitors`](../generators/combination_monitors.py) | 21 | 18 | 9種類の登録場所と2種類のコンテナ・記述子を組み合わせ、ファイルを読み戻して、Postponedの最終値、非選択要素、選択・置換、monitoroff、閉鎖後の出力抑止を確認する。 |
 | [`combination_nba`](../generators/combination_nba.py) | 10, 13 | 16 | 境界条件16件。`ref static`経由の遅延・イベント制御付きNBA、値と添字の確定、文字列の文字要素、配列スライスのコピーアウトを確認 |
+| [`division_boundaries`](../generators/division_boundaries.py) | 11 | 72 | 63/64/65・127/128/129・255/256/257ビットの実行時除算と剰余72本。符号の有無、小さい除数、2の冪の境界、端値と固定幅の桁あふれを確認。配列への複合代入は添字の評価回数、隣の要素、直接計算の対照を観測し、記録した実行時引数をオペランドへ反映。 |
 | [`function_formal_contexts`](../generators/function_formal_contexts.py) | 13 | 60 | runtimeのoutput・inout・ref受渡し30本と、実引数をリテラル・パラメータに限定したmodule・package・static classの定数呼出し30本。5幅と符号の有無を確認 |
 | [`function_result_ranges`](../generators/function_result_ranges.py) | 13 | 24 | 関数呼出し結果を直接選択する24本。非ゼロ・負・単一要素・広幅の6範囲、符号の有無、パッケージ呼出しと非nullのクラス参照の連鎖 |
 | [`gate_strength_truth`](../generators/gate_strength_truth.py) | 28 | 5 | nand・or・xnor・xorの非対称な駆動強度と、pull源の例外を含む表28-2の全ゲート種別の既定強度 |
