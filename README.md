@@ -11,7 +11,13 @@ statuses, Nightly, coverage and the SVA/formal checks used by this suite.
 [![Speed benchmarks](https://github.com/kurochan001/kirimasim-tests/actions/workflows/benchmark.yml/badge.svg)](https://github.com/kurochan001/kirimasim-tests/actions/workflows/benchmark.yml)
 [![License: Apache-2.0 WITH LLVM-exception](https://img.shields.io/badge/license-Apache--2.0%20WITH%20LLVM--exception-blue)](LICENSE)
 
-Independent **[daily and weekly speed benchmarks](docs/daily-benchmark.md)** run **25 daily designs and 3 larger weekly designs**, comparing latest kirimasim with a fixed baseline, Icarus and Verilator. The original thirteen-case comparison sets are retained. See [latest daily/weekly results and trend charts](https://github.com/kurochan001/kirimasim-tests/tree/benchmark-results#readme); correctness failures and missing measurements remain visible. Their workflow and history are separate from functional Nightly.
+**Daily overall elapsed ratio: latest Icarus Verilog 14.0 devel = 1**
+
+[![Daily 25-design overall elapsed ratio: lower is faster](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/benchmark-results/charts/daily-icarus14.svg)](https://github.com/kurochan001/kirimasim-tests/tree/benchmark-results#readme)
+
+Equal-weight geometric mean of `kirimasim incremental elapsed / Icarus 14 devel incremental elapsed` over the fixed 25 daily designs (22 common + 3 four-state). **0.97 means 3% less elapsed time**; lower is faster. Use the last formal attempt per JST day; one invalid member makes the mean missing. Until the first formal result, the graph displays a waiting message. Separate curves identify different machines/definitions. GitHub-hosted values are reference measurements.
+
+Independent [daily and weekly speed benchmarks](docs/daily-benchmark.md) run **25 daily designs and 3 larger weekly designs**. Resolve both latest kirimasim and latest Icarus 14 devel once per campaign, then freeze both commits. Both projects change; comparisons with fixed baseline kirimasim, Icarus 13 and Verilator, plus individual cases, remain in the [details, raw data and trends](https://github.com/kurochan001/kirimasim-tests/tree/benchmark-results#readme). The workflow and history are separate from functional Nightly.
 
 A conformance test suite for the simulation semantics of IEEE 1800-2023
 SystemVerilog.

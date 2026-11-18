@@ -10,7 +10,13 @@
 [![Speed benchmarks](https://github.com/kurochan001/kirimasim-tests/actions/workflows/benchmark.yml/badge.svg)](https://github.com/kurochan001/kirimasim-tests/actions/workflows/benchmark.yml)
 [![License: Apache-2.0 WITH LLVM-exception](https://img.shields.io/badge/license-Apache--2.0%20WITH%20LLVM--exception-blue)](LICENSE)
 
-独立した**[日次・週次速度ベンチマーク](docs/daily-benchmark.ja.md)**で**日次25種類・週次の大規模3種類**を実行し、最新kirimasimを固定基準版・Icarus・Verilatorと比較します。従来13種類の比較集合も残します。[日次・週次それぞれの最新結果と推移グラフ](https://github.com/kurochan001/kirimasim-tests/tree/benchmark-results#readme)では、不一致や欠測も確認できます。機能Nightlyとは別のワークフローと履歴です。
+**日次の総合所要時間比：Icarus Verilog 14.0 devel 最新版 = 1**
+
+[![日次25種類の総合所要時間比：小さいほど高速](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/benchmark-results/charts/daily-icarus14.svg)](https://github.com/kurochan001/kirimasim-tests/tree/benchmark-results#readme)
+
+共通22種類＋4値3種類、固定25種類の「kirimasimの差分時間 ÷ Icarus 14 develの差分時間」の等重み幾何平均です。**0.97なら所要時間が3%短い**意味で、小さいほど高速です。JSTの各日の最後の正式測定を表示し、1種類でも無効なら欠測にします。初回の正式結果が出るまでは測定待ちと表示します。機材・定義ごとに線を分け、GitHub標準ランナーでの参考値として扱います。
+
+独立した[日次・週次速度ベンチマーク](docs/daily-benchmark.ja.md)で**日次25種類・週次の大規模3種類**を実行します。kirimasimとIcarus 14 develの最新コミットを各回の開始時に一度解決して固定します。双方が変化するため、kirimasimの固定基準版・Icarus 13・Verilatorとの比較とケース別結果は[詳細・生データ・推移](https://github.com/kurochan001/kirimasim-tests/tree/benchmark-results#readme)に残します。機能Nightlyとは別のワークフローと履歴です。
 
 IEEE 1800-2023 SystemVerilogのシミュレーションの意味論を確認する適合性テストスイートです。
 
