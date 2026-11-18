@@ -4,6 +4,18 @@
 
 Independent of functional Nightly. GitHub-hosted values are reference measurements; five repetitions do not establish statistical significance.
 
+![Daily overall elapsed ratio: Icarus 14 devel = 1](charts/daily-icarus14.svg)
+
+Equal-weight geometric mean of all 25 daily designs (22 common + 3 four-state). Ratio = kirimasim / Icarus 14.0 devel incremental elapsed. 0.97 means 3% less elapsed time; lower is faster.
+
+Both development heads are resolved once per campaign. A day uses its last formal attempt in JST; one invalid member makes the mean missing. Different environments/definitions are separate curves. Both simulators can affect the trend; fixed-version comparisons are below.
+
+[JSON](headline.json) · [Method / 測定方法](https://github.com/kurochan001/kirimasim-tests/blob/main/docs/daily-benchmark.md)
+
+Awaiting a formal Icarus 14 devel run. Older Icarus 13 data is retained below and is not relabeled.
+
+<details><summary>Case results, fixed-version comparisons and earlier series</summary>
+
 ## Latest daily attempt
 
 [JSON](latest-daily.json)
@@ -481,3 +493,5 @@ Definition: `daily-v1`; case count: **5**
 Runs, including failures:
 
 - [actions-44085771320-1](runs/actions-44085771320-1.json): complete — `26f359bcd504`
+
+</details>

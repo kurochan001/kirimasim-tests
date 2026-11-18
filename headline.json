@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "group": "daily-overall-icarus14",
+  "peer": "icarus_devel",
+  "expected_count": 25,
+  "timezone": "Asia/Tokyo",
+  "metric": "geometric mean of 25 latest / Icarus 14 devel incremental elapsed ratios; lower is faster",
+  "selection": "last formal daily attempt per JST date, including failures",
+  "points": []
+}

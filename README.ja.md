@@ -4,6 +4,18 @@
 
 機能テストのNightlyとは独立しています。GitHub標準ランナーの値は参考値で、5回の測定から統計的有意性を断言しません。
 
+![日次総合所要時間比：Icarus 14 devel = 1](charts/daily-icarus14.svg)
+
+日次25種類（共通22＋4値3）の等重み幾何平均です。比率はkirimasim÷Icarus 14.0 develの差分所要時間。0.97は所要時間が3%短い意味で、小さいほど高速です。
+
+両開発版のコミットを測定開始時に一度解決します。JSTの各日の最後の正式測定を使い、1種類でも無効なら総合値は欠測です。環境・定義ごとに線を分けます。双方の変更が推移に影響するため、固定版との比較も下に残します。
+
+[JSON](headline.json) · [Method / 測定方法](https://github.com/kurochan001/kirimasim-tests/blob/main/docs/daily-benchmark.md)
+
+Icarus 14 develの正式測定待ちです。過去のIcarus 13の値は下に残し、14の値として転用しません。
+
+<details><summary>ケース別結果・固定版との比較・過去の系列</summary>
+
 ## 最新の日次測定
 
 [JSON](latest-daily.json)
@@ -481,3 +493,5 @@
 失敗を含む各回：
 
 - [actions-44085771320-1](runs/actions-44085771320-1.json): complete — `26f359bcd504`
+
+</details>
