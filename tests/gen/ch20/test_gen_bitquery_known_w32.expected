@@ -1,0 +1,5 @@
+width=32 form=known
+ascending ones=4 zeros=28
+ascending ones=4 onehot=0 onehot0=0 unknown=0
+duplicate=4 union=32
+return_bits=32,32,1,1,1

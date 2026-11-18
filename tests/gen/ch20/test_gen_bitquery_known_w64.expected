@@ -1,0 +1,5 @@
+width=64 form=known
+ascending ones=5 zeros=59
+ascending ones=5 onehot=0 onehot0=0 unknown=0
+duplicate=5 union=64
+return_bits=32,32,1,1,1

@@ -23693,6 +23693,22 @@
     "片側だけの有効化と両側無効化も表示し、強い側だけを残す実装や常にxを返す実装を区別する。": "Display the one-source-enabled and both-disabled controls too, distinguishing an implementation that retains only the stronger source or always returns x.",
     "ZXQPH0QXZ : 宣言 ZXQPH1QXZ に対し、 ZXQPH2QXZ で範囲と実個数を ZXQPH3QXZ として読み出す。": "ZXQPH0QXZ: For declaration ZXQPH1QXZ, read the bounds and actual cardinality through ZXQPH2QXZ as ZXQPH3QXZ.",
     "実 ZXQPH0QXZ で整列した全要素について、親配列とindex lookupの同一性、重複の有無、端子の添字と入出力値を ZXQPH1QXZ 種類の入力で照合する。": "For every element sorted by actual ZXQPH0QXZ, compare parent-array and by-index lookup identities, duplicate status, terminal indices and input/output values for ZXQPH1QXZ input patterns.",
-    "末尾の観測 ZXQPH0QXZ と、単独primitiveの ZXQPH1QXZ も確認し、値だけが一致する誤った個数・添字対応を区別する。": "Also check the final observation ZXQPH0QXZ and the scalar-primitive control ZXQPH1QXZ, distinguishing an incorrect instance count or index-to-bit mapping despite matching vector values."
+    "末尾の観測 ZXQPH0QXZ と、単独primitiveの ZXQPH1QXZ も確認し、値だけが一致する誤った個数・添字対応を区別する。": "Also check the final observation ZXQPH0QXZ and the scalar-primitive control ZXQPH1QXZ, distinguishing an incorrect instance count or index-to-bit mapping despite matching vector values.",
+    "Wide ZXQPH0QXZ -vector queries preserve known argument and result semantics": "Wide ZXQPH0QXZ -vector queries preserve known argument and result semantics",
+    "Wide ZXQPH0QXZ -vector queries preserve known argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "Wide ZXQPH0QXZ -vector queries preserve known argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )",
+    "Wide ZXQPH0QXZ -vector queries preserve xz argument and result semantics": "Wide ZXQPH0QXZ -vector queries preserve xz argument and result semantics",
+    "Wide ZXQPH0QXZ -vector queries preserve xz argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "Wide ZXQPH0QXZ -vector queries preserve xz argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )",
+    "Wide ZXQPH0QXZ -vector queries preserve mutation argument and result semantics": "Wide ZXQPH0QXZ -vector queries preserve mutation argument and result semantics",
+    "Wide ZXQPH0QXZ -vector queries preserve mutation argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "Wide ZXQPH0QXZ -vector queries preserve mutation argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )",
+    "Wide ZXQPH0QXZ -vector queries preserve predicates argument and result semantics": "Wide ZXQPH0QXZ -vector queries preserve predicates argument and result semantics",
+    "Wide ZXQPH0QXZ -vector queries preserve predicates argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "Wide ZXQPH0QXZ -vector queries preserve predicates argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )",
+    "Wide ZXQPH0QXZ -vector queries preserve function argument and result semantics": "Wide ZXQPH0QXZ -vector queries preserve function argument and result semantics",
+    "Wide ZXQPH0QXZ -vector queries preserve function argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "Wide ZXQPH0QXZ -vector queries preserve function argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )",
+    "Wide ZXQPH0QXZ -vector queries preserve record argument and result semantics": "Wide ZXQPH0QXZ -vector queries preserve record argument and result semantics",
+    "Wide ZXQPH0QXZ -vector queries preserve record argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "Wide ZXQPH0QXZ -vector queries preserve record argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )",
+    "Wide ZXQPH0QXZ -vector queries preserve controls argument and result semantics": "Wide ZXQPH0QXZ -vector queries preserve controls argument and result semantics",
+    "Wide ZXQPH0QXZ -vector queries preserve controls argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "Wide ZXQPH0QXZ -vector queries preserve controls argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )",
+    "Wide ZXQPH0QXZ -vector queries preserve constant argument and result semantics": "Wide ZXQPH0QXZ -vector queries preserve constant argument and result semantics",
+    "Wide ZXQPH0QXZ -vector queries preserve constant argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "Wide ZXQPH0QXZ -vector queries preserve constant argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )"
   }
 }

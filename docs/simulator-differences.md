@@ -1395,3 +1395,11 @@ The array-element reference additions of 2026-11-15 reproduce these differences 
 
 - For 65-bit signed and unsigned dynamic-array elements, the task's first reference write is not visible in the caller's `live` dump. IEEE 1800-2023 13.5.2 requires immediate visibility. This occurs in ten cases across all five dynamic-array operations, including the other-element control. Examples: `gen/ch13/test_gen_array_ref_dynamic_write_other_w65_signed`, `gen/ch13/test_gen_array_ref_dynamic_write_other_w65_unsigned`.
 - For widths 1/8/32/33, the task's later write through a reference outdated by grow-copy, shrink-copy or same-value whole-array assignment modifies the replacement array. IEEE 1800-2023 13.5.2 requires the removed element to survive only for the callee, with its later writes detached from the caller's replacement storage. These 24 cases extend the dynamic-array difference recorded above. Examples: `gen/ch13/test_gen_array_ref_dynamic_grow_copy_w8_unsigned`, `gen/ch13/test_gen_array_ref_dynamic_shrink_copy_w32_unsigned`, `gen/ch13/test_gen_array_ref_dynamic_equal_assignment_w33_signed`.
+
+<a id="bitvector-queries-20261119"></a>
+
+## Wide bit-vector queries (2026-11-19)
+
+IEEE 1800-2023 20.9 queries the complete bit stream; 13.4.1 gives a function call its declared return type. For `test_gen_bitquery_function_w33`, `_w65` and `_w129`, Icarus Verilog 13.0 can miscount a directly supplied, fully initialized two-state function result, or report unknown bits in a zero result. The same values captured in a packed variable give the expected counts. Complement counts are 28, 59 and 121; the zero-producing function must give zero ones and no unknowns. The mismatching field and value can vary between runs.
+
+Verilator 5.054 at seeds 1 and 73 and kirimasim 0.1.1 `441dddbd0fcd` reproduce all three expected outputs. These three tests therefore list `verilator@5.054` and not `iverilog@13.0`. The remaining 45 tests of this generator match Icarus 13.0. The 30 four-state cases give `known` on the two-state Verilator runs and carry no Verilator oracle token. See the [saved runs](../coverage/README.en.md) and [generator](../generators/bitvector_queries.py).

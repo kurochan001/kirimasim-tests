@@ -1394,3 +1394,11 @@ ch30/test_illegal_specify_path_to_input                           アサーシ�
 
 - 動的配列の65 bitの符号付き・符号なし要素について、タスク内の最初の参照経由の書込みが、呼出し側の`live`表示に反映されません。IEEE 1800-2023の13.5.2は即時の反映を要求します。別要素を更新する対照を含め、動的配列の5操作の計10本で発生します。例：`gen/ch13/test_gen_array_ref_dynamic_write_other_w65_signed`、`gen/ch13/test_gen_array_ref_dynamic_write_other_w65_unsigned`。
 - 幅1/8/32/33について、拡張コピー・縮小コピー・同値の全体代入で古くなった参照への後続の書込みが、新しい配列を変更します。IEEE 1800-2023の13.5.2は、取り除かれた要素を呼出し先のために存続させ、その後の書込みを呼出し側の新しい格納先へ反映しないよう要求します。これら24本は、上記の動的配列の差異を拡充するものです。例：`gen/ch13/test_gen_array_ref_dynamic_grow_copy_w8_unsigned`、`gen/ch13/test_gen_array_ref_dynamic_shrink_copy_w32_unsigned`、`gen/ch13/test_gen_array_ref_dynamic_equal_assignment_w33_signed`。
+
+<a id="bitvector-queries-20261119"></a>
+
+## 広幅のビット集計関数（2026-11-19）
+
+IEEE 1800-2023の20.9は引数のビット列全体を集計し、13.4.1は関数呼出しの値に宣言した返り値型を与えます。`test_gen_bitquery_function_w33`・`_w65`・`_w129`で、Icarus Verilog 13.0は、初期化済みの2値の関数結果を直接渡すと個数を誤ったり、ゼロを返す関数結果に未知ビットがあると判定したりします。同じ値をパック変数へ格納してから数える対照は期待値に一致します。反転後の1の個数は28・59・121で、ゼロを返す関数は1の個数も未知ビットもゼロです。差が出る項目や値は実行ごとに変わることがあります。
+
+Verilator 5.054はseed 1と73、kirimasim 0.1.1 `441dddbd0fcd`は、3本すべての期待出力に一致しました。この3本のoracleは`verilator@5.054`で、`iverilog@13.0`は付けていません。この生成器の残り45本はIcarus 13.0で一致します。4値の30本は2値のVerilatorでは`known`となり、Verilatorのoracleは登録していません。[保存記録](../coverage/README.md)と[生成器](../generators/bitvector_queries.py)を参照してください。

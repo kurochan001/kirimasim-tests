@@ -1,0 +1,4 @@
+width=65 form=constant
+ones=6 zeros=59 single=0 empty_ok=1
+counted_bits=6
+return_bits=32,32,1,1,1

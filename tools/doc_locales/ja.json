@@ -25523,6 +25523,22 @@
     "ZXQPH0QXZ - ZXQPH1QXZ signed element ref identity across shrink copy in a dynamic array": "ZXQPH0QXZ - ZXQPH1QXZの符号付き要素参照：動的配列の縮小と初期値コピー前後の同一性",
     "ZXQPH0QXZ - ZXQPH1QXZ unsigned element ref identity across shrink copy in a dynamic array": "ZXQPH0QXZ - ZXQPH1QXZの符号なし要素参照：動的配列の縮小と初期値コピー前後の同一性",
     "ZXQPH0QXZ - ZXQPH1QXZ signed element ref identity across write other in a dynamic array": "ZXQPH0QXZ - ZXQPH1QXZの符号付き要素参照：動的配列の別要素の更新前後の同一性",
-    "ZXQPH0QXZ - ZXQPH1QXZ unsigned element ref identity across write other in a dynamic array": "ZXQPH0QXZ - ZXQPH1QXZの符号なし要素参照：動的配列の別要素の更新前後の同一性"
+    "ZXQPH0QXZ - ZXQPH1QXZ unsigned element ref identity across write other in a dynamic array": "ZXQPH0QXZ - ZXQPH1QXZの符号なし要素参照：動的配列の別要素の更新前後の同一性",
+    "Wide ZXQPH0QXZ -vector queries preserve known argument and result semantics": "広幅のZXQPH0QXZベクタに対する既知値の集計を確認する",
+    "Wide ZXQPH0QXZ -vector queries preserve known argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "広幅のZXQPH0QXZベクタに対する既知値の集計を確認する（ZXQPH1QXZ ZXQPH2QXZのZXQPH3QXZ節）",
+    "Wide ZXQPH0QXZ -vector queries preserve xz argument and result semantics": "広幅のZXQPH0QXZベクタに対するX/Zの個数の区別を確認する",
+    "Wide ZXQPH0QXZ -vector queries preserve xz argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "広幅のZXQPH0QXZベクタに対するX/Zの個数の区別を確認する（ZXQPH1QXZ ZXQPH2QXZのZXQPH3QXZ節）",
+    "Wide ZXQPH0QXZ -vector queries preserve mutation argument and result semantics": "広幅のZXQPH0QXZベクタに対する更新後の再集計を確認する",
+    "Wide ZXQPH0QXZ -vector queries preserve mutation argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "広幅のZXQPH0QXZベクタに対する更新後の再集計を確認する（ZXQPH1QXZ ZXQPH2QXZのZXQPH3QXZ節）",
+    "Wide ZXQPH0QXZ -vector queries preserve predicates argument and result semantics": "広幅のZXQPH0QXZベクタに対するonehotと未知値の判定を確認する",
+    "Wide ZXQPH0QXZ -vector queries preserve predicates argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "広幅のZXQPH0QXZベクタに対するonehotと未知値の判定を確認する（ZXQPH1QXZ ZXQPH2QXZのZXQPH3QXZ節）",
+    "Wide ZXQPH0QXZ -vector queries preserve function argument and result semantics": "広幅のZXQPH0QXZベクタに対する関数の返り値の直接集計を確認する",
+    "Wide ZXQPH0QXZ -vector queries preserve function argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "広幅のZXQPH0QXZベクタに対する関数の返り値の直接集計を確認する（ZXQPH1QXZ ZXQPH2QXZのZXQPH3QXZ節）",
+    "Wide ZXQPH0QXZ -vector queries preserve record argument and result semantics": "広幅のZXQPH0QXZベクタに対するパック構造体全体の集計を確認する",
+    "Wide ZXQPH0QXZ -vector queries preserve record argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "広幅のZXQPH0QXZベクタに対するパック構造体全体の集計を確認する（ZXQPH1QXZ ZXQPH2QXZのZXQPH3QXZ節）",
+    "Wide ZXQPH0QXZ -vector queries preserve controls argument and result semantics": "広幅のZXQPH0QXZベクタに対する広幅の可変制御引数と重複の扱いを確認する",
+    "Wide ZXQPH0QXZ -vector queries preserve controls argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "広幅のZXQPH0QXZベクタに対する広幅の可変制御引数と重複の扱いを確認する（ZXQPH1QXZ ZXQPH2QXZのZXQPH3QXZ節）",
+    "Wide ZXQPH0QXZ -vector queries preserve constant argument and result semantics": "広幅のZXQPH0QXZベクタに対する定数式による集計と型の幅を確認する",
+    "Wide ZXQPH0QXZ -vector queries preserve constant argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "広幅のZXQPH0QXZベクタに対する定数式による集計と型の幅を確認する（ZXQPH1QXZ ZXQPH2QXZのZXQPH3QXZ節）"
   }
 }

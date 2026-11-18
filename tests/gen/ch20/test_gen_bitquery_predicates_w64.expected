@@ -1,0 +1,8 @@
+width=64 form=predicates
+zero ones=0 onehot=0 onehot0=1 unknown=0
+only_x ones=0 onehot=0 onehot0=1 unknown=1
+only_one ones=1 onehot=1 onehot0=1 unknown=0
+two_ones ones=2 onehot=0 onehot0=0 unknown=0
+with_z ones=2 onehot=0 onehot0=0 unknown=1
+two_state ones=2 onehot=0 onehot0=0 unknown=0
+return_bits=32,32,1,1,1

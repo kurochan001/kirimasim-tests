@@ -1,0 +1,279 @@
+{
+  "schema": 1,
+  "kind": "finite one-edit observability checks; not independent standards review",
+  "recorded_at": "2026-11-18T16:18:16.565970+00:00",
+  "simulator": {
+    "version": "kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401",
+    "commit": "441dddbd0fcd80aed298ca33311f2ee67aa8866c",
+    "binary_sha256": "c3b343c753737a564deb1156e8064062793c133f7be2ea567daced985b26f24b"
+  },
+  "baselines": [
+    {
+      "test": "tests/gen/ch20/test_gen_bitquery_known_w65.sv",
+      "source_sha256": "fccf16807df8bc7f7d123d070cba20d9e779283ccd788938d5618a6cf7853c11",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_bitquery_xz_w65.sv",
+      "source_sha256": "07b8585859d00c1fe83631d22950003051f2b66567f40894f4b887306cf73fef",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_bitquery_mutation_w65.sv",
+      "source_sha256": "44378d42d26d97bda89f3edad3c352f9a518f6e45b62d2240feeb89e47bdd42a",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_bitquery_predicates_w65.sv",
+      "source_sha256": "9d0165aeded5213fdbebda28a03d816476f8552952a08ae3be39e13a9e40f1af",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_bitquery_function_w65.sv",
+      "source_sha256": "c05edc76124538efb540309fba13a8e96a2ff08845e234e88f2343289f61001e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_bitquery_record_w65.sv",
+      "source_sha256": "58d65a81e8dcd830112608553ccc17b51d51137392948c0bbd0f8bd67863673e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_bitquery_controls_w65.sv",
+      "source_sha256": "299ae75747d31a86fbc645de6c59eb915b4dbfa8a8faef9fe809f0f3cc8c1748",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_bitquery_constant_w65.sv",
+      "source_sha256": "70ab18db1adf0e647286cfc7622467cf5d3169ec64e50f31e75eecece4306014",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    }
+  ],
+  "mutations": [
+    {
+      "test": "tests/gen/ch20/test_gen_bitquery_known_w65.sv",
+      "label": "drop-upper-word",
+      "replacement": {
+        "old": "$countones(value)",
+        "new": "$countones(32'(value))",
+        "occurrences": 1
+      },
+      "source_sha256": "c8e33a43746c53c5418228da5000fa6ce9f601ac5d61286489a25c2ec290fff3",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_bitquery_known_w65.sv",
+      "label": "wrong-count-state",
+      "replacement": {
+        "old": "$countbits(value, 1'b0)",
+        "new": "$countbits(value, 1'b1)",
+        "occurrences": 1
+      },
+      "source_sha256": "056607bf68142b5b39be9ae041b7c460884ca6f518b46b84561c8ca9b2d350cc",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_bitquery_xz_w65.sv",
+      "label": "swap-x-z",
+      "replacement": {
+        "old": "$countbits(value, 1'bx)",
+        "new": "$countbits(value, 1'bz)",
+        "occurrences": 1
+      },
+      "source_sha256": "c35761a1e377713b125d7bac152b8d8707e52b5c3523489d0fe75aeab25585e0",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_bitquery_xz_w65.sv",
+      "label": "count-duplicate-twice",
+      "replacement": {
+        "old": "$countbits(value, 1'bx, 1'bx)",
+        "new": "($countbits(value, 1'bx) + $countbits(value, 1'bx))",
+        "occurrences": 1
+      },
+      "source_sha256": "6540ad7f7136a838abda5a3f47140ef7f63b2cd303da5dcd4ba968ba7baf35e9",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_bitquery_mutation_w65.sv",
+      "label": "stale-high-state",
+      "replacement": {
+        "old": "value[64] = 1'b1;",
+        "new": "value[64] = 1'bx;",
+        "occurrences": 1
+      },
+      "source_sha256": "22b010a4a50aedc03736bc200920f9152a570fda8768c801429a039c907c2f22",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_bitquery_mutation_w65.sv",
+      "label": "wrong-middle-state",
+      "replacement": {
+        "old": "value[32] = 1'bz;",
+        "new": "value[32] = 1'bx;",
+        "occurrences": 1
+      },
+      "source_sha256": "81d800ed561ddffdb632a70024455fb3aa2343f8cfb7ad2a313c0dc37161dc25",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_bitquery_predicates_w65.sv",
+      "label": "empty-onehot-contract",
+      "replacement": {
+        "old": "$onehot0(value)",
+        "new": "$onehot(value)",
+        "occurrences": 1
+      },
+      "source_sha256": "d8639e9cd0ed6b602f962382002ab9d3d29aa1308d66d33194400c7c8f3889ee",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_bitquery_predicates_w65.sv",
+      "label": "drop-only-unknown",
+      "replacement": {
+        "old": "value[64] = 1'bx;",
+        "new": "value[64] = 1'b0;",
+        "occurrences": 1
+      },
+      "source_sha256": "77e20376e160202c1bbf6b803c26099f2c786454129772e93692702f9aedb081",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_bitquery_function_w65.sv",
+      "label": "wrong-function-result",
+      "replacement": {
+        "old": "return ~a;",
+        "new": "return a;",
+        "occurrences": 1
+      },
+      "source_sha256": "88cb43c627a7d675baa00c2fc81edd3051dc2c018e4532373e8345989e90dcd8",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_bitquery_function_w65.sv",
+      "label": "truncate-direct-return",
+      "replacement": {
+        "old": "$countones(invert(value))",
+        "new": "$countones(32'(invert(value)))",
+        "occurrences": 1
+      },
+      "source_sha256": "069656790618a84dc749dbae59970343ae3c4555d174a014fdf967a6ee1ffacf",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_bitquery_record_w65.sv",
+      "label": "lose-unknown-header",
+      "replacement": {
+        "old": "record_value.head = 2'bxz;",
+        "new": "record_value.head = 2'b00;",
+        "occurrences": 1
+      },
+      "source_sha256": "89c8eef4909e1815ee3f58b1ee9754a80aa6f804352671e325ef200bb0a74f4e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_bitquery_record_w65.sv",
+      "label": "omit-tag-fields",
+      "replacement": {
+        "old": "$countones(record_value)",
+        "new": "$countones(record_value.payload)",
+        "occurrences": 1
+      },
+      "source_sha256": "3981d962a2c97c19c04c364d9553fe99b41a3db89d80276fd5c4c51f88d77412",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_bitquery_controls_w65.sv",
+      "label": "ignore-lsb-selection",
+      "replacement": {
+        "old": "control[0] = 1'b0;",
+        "new": "control[0] = 1'b1;",
+        "occurrences": 1
+      },
+      "source_sha256": "788c321001eadda4f7979a8b445c16d933998032beb49b90e636934cfb5a7e88",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_bitquery_controls_w65.sv",
+      "label": "count-control-twice",
+      "replacement": {
+        "old": "$countbits(value, control, duplicate)",
+        "new": "($countbits(value, control) + $countbits(value, duplicate))",
+        "occurrences": 1
+      },
+      "source_sha256": "b1d589b2b69fa27e131bb3f3f3c79df16c7d71d062db97f570fa3cf52b44f07a",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_bitquery_constant_w65.sv",
+      "label": "wrong-elaboration-count",
+      "replacement": {
+        "old": "ONES = $countones(VALUE)",
+        "new": "ONES = $countbits(VALUE, 1'b0)",
+        "occurrences": 1
+      },
+      "source_sha256": "3e801373821948ab95562fdb6528031c18ed4016218cfc35798c53972b5fc0cb",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_bitquery_constant_w65.sv",
+      "label": "wrong-constant-predicate",
+      "replacement": {
+        "old": "EMPTY_OK = $onehot0({W{1'b0}})",
+        "new": "EMPTY_OK = $onehot({W{1'b0}})",
+        "occurrences": 1
+      },
+      "source_sha256": "48cc88cf63f56b522d32cf3b67804eb526c92f5cc7575035a041e93d66b4457d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    }
+  ],
+  "status": "all-eight-baselines-pass-and-sixteen-compiled-mutants-differ"
+}

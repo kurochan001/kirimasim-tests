@@ -1,0 +1,203 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401",
+ "tests": {
+  "gen/ch20/test_gen_bitquery_constant_w128": {
+   "status": "pass",
+   "inputs_sha256": "d28ceb0718fbb100c8fbd2339efd452bbb06b3f7065ab5379efc70599d2aa3ef"
+  },
+  "gen/ch20/test_gen_bitquery_constant_w129": {
+   "status": "pass",
+   "inputs_sha256": "e09cfc7d5d36eecb91d6550dc75b5defe5229c55f376056f5c0d8b97246d2461"
+  },
+  "gen/ch20/test_gen_bitquery_constant_w32": {
+   "status": "pass",
+   "inputs_sha256": "30a8df99241d936970510bbab753695696f9eebc3b5455c9a5b437de7f980413"
+  },
+  "gen/ch20/test_gen_bitquery_constant_w33": {
+   "status": "pass",
+   "inputs_sha256": "4db87960608ba1f8748048fded4781fd4788f52c9fa5cfb1c5e529260be0f193"
+  },
+  "gen/ch20/test_gen_bitquery_constant_w64": {
+   "status": "pass",
+   "inputs_sha256": "8535884cc3fe65b2b07aee84b6e17a1d006fb3be6cea9e1d5f26d60efc1f1586"
+  },
+  "gen/ch20/test_gen_bitquery_constant_w65": {
+   "status": "pass",
+   "inputs_sha256": "3bca8805181b72c586ebca42a578f031bdb57c9d9a7f5683bec71ba4ee5b58ab"
+  },
+  "gen/ch20/test_gen_bitquery_controls_w128": {
+   "status": "pass",
+   "inputs_sha256": "63bd64c28c0eb2d42795cdafd8928a93240d18cc83a67a0744c7858923f43eed"
+  },
+  "gen/ch20/test_gen_bitquery_controls_w129": {
+   "status": "pass",
+   "inputs_sha256": "efdc750890e14c465ceb356252dd7b7e60f9d6eba59a3ff79e849f39a0533be2"
+  },
+  "gen/ch20/test_gen_bitquery_controls_w32": {
+   "status": "pass",
+   "inputs_sha256": "89c69b744b51685f8b1da31b61b02b95ea8cc014e27823e8f1df0a1c81ab3ecc"
+  },
+  "gen/ch20/test_gen_bitquery_controls_w33": {
+   "status": "pass",
+   "inputs_sha256": "2504298400b7240d5e500c584ee711f57255c03cea2c293980189f32932fc1f2"
+  },
+  "gen/ch20/test_gen_bitquery_controls_w64": {
+   "status": "pass",
+   "inputs_sha256": "d6051c78b3382bc0f5bc6525a9a7ad9fda2b2d91f246d6730e9afeb7662aee35"
+  },
+  "gen/ch20/test_gen_bitquery_controls_w65": {
+   "status": "pass",
+   "inputs_sha256": "3d86c9b74fee5f724163d7660951261712bcf6666f496ca6a93b29039cddf9ab"
+  },
+  "gen/ch20/test_gen_bitquery_function_w128": {
+   "status": "pass",
+   "inputs_sha256": "22783c37c52bfa3f90ce25a18c5b7b310d737023082c93437a8da7dc2b0390f9"
+  },
+  "gen/ch20/test_gen_bitquery_function_w129": {
+   "status": "pass",
+   "inputs_sha256": "1764dc75f7c254e9bfa475caf2c0f4e2e02f4c876f86e78ea4ec3355f28bd102"
+  },
+  "gen/ch20/test_gen_bitquery_function_w32": {
+   "status": "pass",
+   "inputs_sha256": "27e4b333b395fdbaa415ec443a22c91243f59f9403ebf012e75a4f6fa475fee0"
+  },
+  "gen/ch20/test_gen_bitquery_function_w33": {
+   "status": "pass",
+   "inputs_sha256": "30ba7bb4ff698d6eaea5c26ad09b56996e437626492070a228b48de4244e3cb1"
+  },
+  "gen/ch20/test_gen_bitquery_function_w64": {
+   "status": "pass",
+   "inputs_sha256": "c4e455fc74def9593829c3e06bc8fa762bcbece3b6d099a8f9e76f2ac4a1dae8"
+  },
+  "gen/ch20/test_gen_bitquery_function_w65": {
+   "status": "pass",
+   "inputs_sha256": "580e8db5afbefadb6a5a858d6eb4042a8ba34c7124f21a18e7f6b5320f802de0"
+  },
+  "gen/ch20/test_gen_bitquery_known_w128": {
+   "status": "pass",
+   "inputs_sha256": "7561c83c88fde7d1976a8260fe629d9d0fe86476e404a2ac94a3cd9ad243e1c3"
+  },
+  "gen/ch20/test_gen_bitquery_known_w129": {
+   "status": "pass",
+   "inputs_sha256": "1a645a5cc3be75bb330574b34624f99133c781a7f5765b78d2a2d2075b3f3641"
+  },
+  "gen/ch20/test_gen_bitquery_known_w32": {
+   "status": "pass",
+   "inputs_sha256": "a95727b04b3771eca9dc125b555cd0e379b861594e7290674c008db9f19b067a"
+  },
+  "gen/ch20/test_gen_bitquery_known_w33": {
+   "status": "pass",
+   "inputs_sha256": "ea0241dc7ebad672d4e4a3a807361d10bd7df0920135b4e0ea5688c965d62fba"
+  },
+  "gen/ch20/test_gen_bitquery_known_w64": {
+   "status": "pass",
+   "inputs_sha256": "c32bef0c5ccda2b79c6d12cc86e96c6492398e3b11db314cd1f87e66c5f76661"
+  },
+  "gen/ch20/test_gen_bitquery_known_w65": {
+   "status": "pass",
+   "inputs_sha256": "f9d38393892faa9a808686d50ee3fb2b27ef9dd4c2c63a10d390ea7fa88aa1d4"
+  },
+  "gen/ch20/test_gen_bitquery_mutation_w128": {
+   "status": "pass",
+   "inputs_sha256": "3a3a524e9a5f6ab023aef5e4d553a2293d71a8c7e248830d9ed2204a0157b5cd"
+  },
+  "gen/ch20/test_gen_bitquery_mutation_w129": {
+   "status": "pass",
+   "inputs_sha256": "9ea3f7974b0234828c929a1b6c0cf0ec24b648ab7590c32afac47addd2981c44"
+  },
+  "gen/ch20/test_gen_bitquery_mutation_w32": {
+   "status": "pass",
+   "inputs_sha256": "61f62eccb623179a3786f5f7024ffd74f665c7bcfd2b3a619869dad4b0411a71"
+  },
+  "gen/ch20/test_gen_bitquery_mutation_w33": {
+   "status": "pass",
+   "inputs_sha256": "3bd6432964a2edf3a550d9da3cc1bbb59b7521dc4e6ed3c1e213290a729b7a91"
+  },
+  "gen/ch20/test_gen_bitquery_mutation_w64": {
+   "status": "pass",
+   "inputs_sha256": "a2d9277fa18d0457486ce6ae8ab4195d9cb96cac85c45ad34d9670268f54d7b5"
+  },
+  "gen/ch20/test_gen_bitquery_mutation_w65": {
+   "status": "pass",
+   "inputs_sha256": "fe3a9a3f5c08190ca017c3683637e663c3f81e0ef015a0aec5c569be322a0ac7"
+  },
+  "gen/ch20/test_gen_bitquery_predicates_w128": {
+   "status": "pass",
+   "inputs_sha256": "77d9477e6d41cbc807d76f0fefdde789120d8e0facaa167f7e9b23e1e530a87b"
+  },
+  "gen/ch20/test_gen_bitquery_predicates_w129": {
+   "status": "pass",
+   "inputs_sha256": "71e7f6bc4435135746d977fc3d15b0abc66353884588229fbfae9fc0fd22aa7e"
+  },
+  "gen/ch20/test_gen_bitquery_predicates_w32": {
+   "status": "pass",
+   "inputs_sha256": "d5fe8e98442ecb7a1f846d6a7c3df849cad5a007e71d14c89c20069d48671b9a"
+  },
+  "gen/ch20/test_gen_bitquery_predicates_w33": {
+   "status": "pass",
+   "inputs_sha256": "7847538c2782dec34c29ab859ce8e0274e86f555bd6912d1451b35cbc2f1b694"
+  },
+  "gen/ch20/test_gen_bitquery_predicates_w64": {
+   "status": "pass",
+   "inputs_sha256": "0a9c85f2e573339b36f172f9013b3c2ff04070802fb50292a9cd57d48067c149"
+  },
+  "gen/ch20/test_gen_bitquery_predicates_w65": {
+   "status": "pass",
+   "inputs_sha256": "17d7f2729fcf9e9908c5e89f6c525cd453e79035d921c77b56c60a210e0a986d"
+  },
+  "gen/ch20/test_gen_bitquery_record_w128": {
+   "status": "pass",
+   "inputs_sha256": "249224387a2116945c618b81f91ad8f92b46ad8370cbaad3a273f0b9a58a8855"
+  },
+  "gen/ch20/test_gen_bitquery_record_w129": {
+   "status": "pass",
+   "inputs_sha256": "0afcf83cb5a9c547f00d7bf657771976a9cbb3894c16f42f234a18d10ab0ba13"
+  },
+  "gen/ch20/test_gen_bitquery_record_w32": {
+   "status": "pass",
+   "inputs_sha256": "53ca7940a7f26da06bd16e905415f48942c40a35616b1f76777a197cf2bfe52c"
+  },
+  "gen/ch20/test_gen_bitquery_record_w33": {
+   "status": "pass",
+   "inputs_sha256": "16a4590a3351ed5743adf8975d78b408f296caef27b628adddcf62fa3456dacf"
+  },
+  "gen/ch20/test_gen_bitquery_record_w64": {
+   "status": "pass",
+   "inputs_sha256": "56f7d0a76a7cd0e255be156a6ae8d16f0cf407f3a6b92010a6934523840280ba"
+  },
+  "gen/ch20/test_gen_bitquery_record_w65": {
+   "status": "pass",
+   "inputs_sha256": "bc6ce69794ce9594723075e266bc838dcf168e4329d3b7ccc97d94d0527308d3"
+  },
+  "gen/ch20/test_gen_bitquery_xz_w128": {
+   "status": "pass",
+   "inputs_sha256": "a29c1715622d8db382a0e55c0d041cd0b435ba1c2ddc9fed6170f576e7dcb06f"
+  },
+  "gen/ch20/test_gen_bitquery_xz_w129": {
+   "status": "pass",
+   "inputs_sha256": "305704138c9ab5f10e1edb1ad84785d3b4a0e2c16ea80c41043b5512d35efb51"
+  },
+  "gen/ch20/test_gen_bitquery_xz_w32": {
+   "status": "pass",
+   "inputs_sha256": "efc75484283c13ad2dc37c28d97bb172eb16316dff39da833d3aced3075beaf4"
+  },
+  "gen/ch20/test_gen_bitquery_xz_w33": {
+   "status": "pass",
+   "inputs_sha256": "65e8a9fd32a6b5d455c54aaa9d4eaacee84e81a6b13c39411c6c5ac3194ad04a"
+  },
+  "gen/ch20/test_gen_bitquery_xz_w64": {
+   "status": "pass",
+   "inputs_sha256": "8e058397064d3376335fccffcc3880fb0e7ef648c1736c3382da4d40362fe3ec"
+  },
+  "gen/ch20/test_gen_bitquery_xz_w65": {
+   "status": "pass",
+   "inputs_sha256": "85d5ca75a804b5aa3eb194c94a398fcd69d6196dab749add821a4698ecae3a5d"
+  }
+ },
+ "generated_at": "2026-11-18T16:18:17.457959+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

@@ -1,0 +1,7 @@
+width=32 form=mutation
+initial ones=4 zeros=28 x=0 z=0
+top_x ones=3 zeros=28 x=1 z=0
+middle_z ones=2 zeros=28 x=1 z=1
+low_clear ones=1 zeros=29 x=1 z=1
+top_one ones=2 zeros=29 x=0 z=1
+return_bits=32,32,1,1,1
