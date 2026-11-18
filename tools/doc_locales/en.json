@@ -23745,6 +23745,14 @@
     "Streaming ZXQPH0QXZ records preserves field order and four-state member values": "Streaming ZXQPH0QXZ records preserves field order and four-state member values",
     "Streaming ZXQPH0QXZ records preserves field order and four-state member values ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "Streaming ZXQPH0QXZ records preserves field order and four-state member values ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )",
     "Streaming fixed arrays visits elements in declared order across word boundaries": "Streaming fixed arrays visits elements in declared order across word boundaries",
-    "Streaming fixed arrays visits elements in declared order across word boundaries ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Streaming fixed arrays visits elements in declared order across word boundaries ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )"
+    "Streaming fixed arrays visits elements in declared order across word boundaries ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Streaming fixed arrays visits elements in declared order across word boundaries ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Nested ZXQPH0QXZ ZXQPH1QXZ writes preserve neighboring lanes and declared index labels": "Nested ZXQPH0QXZ ZXQPH1QXZ writes preserve neighboring lanes and declared index labels",
+    "Nested ZXQPH0QXZ ZXQPH1QXZ writes preserve neighboring lanes and declared index labels ( ZXQPH2QXZ ZXQPH3QXZ Section ZXQPH4QXZ )": "Nested ZXQPH0QXZ ZXQPH1QXZ writes preserve neighboring lanes and declared index labels ( ZXQPH2QXZ ZXQPH3QXZ Section ZXQPH4QXZ )",
+    "Packed lane windows copy overlapping sources before updating their destinations": "Packed lane windows copy overlapping sources before updating their destinations",
+    "Packed lane windows copy overlapping sources before updating their destinations ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Packed lane windows copy overlapping sources before updating their destinations ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Packed lane and part selections are unsigned while whole ZXQPH0QXZ arrays retain signing": "Packed lane and part selections are unsigned while whole ZXQPH0QXZ arrays retain signing",
+    "Packed lane and part selections are unsigned while whole ZXQPH0QXZ arrays retain signing ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "Packed lane and part selections are unsigned while whole ZXQPH0QXZ arrays retain signing ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )",
+    "Clipped ZXQPH0QXZ lane writes preserve neighbors and invalid indices perform no write": "Clipped ZXQPH0QXZ lane writes preserve neighbors and invalid indices perform no write",
+    "Clipped ZXQPH0QXZ lane writes preserve neighbors and invalid indices perform no write ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "Clipped ZXQPH0QXZ lane writes preserve neighbors and invalid indices perform no write ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )"
   }
 }

@@ -1427,3 +1427,15 @@ The 96 `test_gen_stream_boundary_*` programs combine 63/64/65- and 127/128/129-b
 - The 24 `pad_logic`/`record` cases contain X/Z observations and are recorded as known differences on the two-state Verilator run. They have no Verilator oracle. Their known-data phase remains a control within each four-state program.
 
 Kirimasim 0.1.1 `441dddbd0fcd` passes all 96 in four saved runs. [Execution records](../coverage/README.en.md), [finite qualification](../coverage/qualification/stream-boundaries-20261119a.json) and the [generator](../generators/stream_boundaries.py) retain the source and observation scope. These are regressions with no new requirement bindings, and all review metadata remains AI review.
+
+<a id="packed-lanes-20261119b"></a>
+
+## Nested packed-lane coordinates (2026-11-19)
+
+The 192 `test_gen_packed_lane_*` programs pair inner bounds `[-5:W-6]` / `[W-6:-5]` with zero-origin `[0:W-1]` / `[W-1:0]` controls, at six widths and both outer directions `[-1:1]` / `[1:-1]`. IEEE 1800-2023 7.4.1 and 7.4.5 give each selected packed lane its declared remaining bounds. 11.5.1 clips writes at that lane's boundaries; bits of an adjacent lane are not valid destinations. 10.4.1 evaluates the right-hand value before a blocking assignment. 11.7 and 11.8 distinguish a signed whole array from unsigned lane/part selections. Expected full-bank snapshots come from individual declared coordinates, not simulator output.
+
+- Icarus Verilog 13.0 does not match these programs. Its diagnostics require constant expressions for the outer packed index in nested selections, including reads through the runtime `row`. No Icarus oracle is registered.
+- Verilator 5.054 matches all 144 two-state `bits`, `window` and `signatures` programs at seeds 1 and 73. Only these receive `verilator@5.054`. The 48 `boundary` programs observe X/Z and remain known differences on the two-state runner, without a Verilator oracle.
+- Kirimasim 0.1.1 `441dddbd0fcd` records 50 pass and 142 output mismatches in each of four saved runs. The original offset-inner set contributes 2 pass / 94 fail. Its otherwise equivalent zero-origin controls contribute 48 pass / 48 fail: all descending-inner cases match and all ascending-inner cases differ. This narrows the observed dependence on bounds and direction; it does not establish an implementation root cause or a regression between engine versions.
+
+Full-bank and selected-lane observations retain neighboring data, overlap ordering, signing controls, partial out-of-range writes and recovery after invalid indices. All normative expectations remain unchanged. [Saved evidence](../coverage/README.en.md) and [generator](../generators/packed_lanes.py) retain case-level reasons and hashes. The [finite mutation checks](../coverage/qualification/packed-lanes-20261119b.json) apply only to eight successful zero-origin descending-inner 65-bit controls. This is AI review, with no new requirement bindings.

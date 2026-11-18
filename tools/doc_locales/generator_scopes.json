@@ -84,6 +84,10 @@
     "stream_boundaries": {
       "en": "Ninety-six streaming boundary cases at 63/64/65 and 127/128/129 bits in both directions: right padding versus ordinary sign extension, inverse unpack across fields and MSB consumption, typed/default block sizes, nested streams, packed-record X/Z values, and descending fixed-array traversal with explicit-list controls.",
       "ja": "63/64/65・127/128/129ビットと両方向のストリーミング96本。右側のゼロ埋めと通常の符号拡張、フィールドをまたぐ逆置換と上位ビットの消費、型・省略時の区画幅、入れ子の式、パック構造体のX/Z、降順の固定配列と明示した要素列の対照を確認。"
+    },
+    "packed_lanes": {
+      "en": "192 two-dimensional packed-lane cases at 32/33, 64/65 and 128/129 bits: ascending/descending outer and inner ranges, offset and zero-origin inner controls, runtime bit writes, overlapping windows, whole/lane/part signedness, clipped lane boundaries, invalid/unknown indices and recovery; full-bank observations preserve neighbors.",
+      "ja": "32/33・64/65・128/129ビットの2次元パック要素192本。外側・内側の両向き、内側の非ゼロ・0始まりの対照、可変ビット書込み、重なる範囲コピー、全体と要素・部分の符号、要素境界での切詰め、無効・未知の添字と回復を、全体と隣接要素の値で確認。"
     }
   }
 }

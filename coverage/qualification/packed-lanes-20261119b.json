@@ -1,0 +1,280 @@
+{
+  "schema": 1,
+  "kind": "finite one-edit observability checks; not independent standards review",
+  "recorded_at": "2026-11-18T23:25:06.194384+00:00",
+  "simulator": {
+    "version": "kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401",
+    "commit": "441dddbd0fcd80aed298ca33311f2ee67aa8866c",
+    "binary_sha256": "c3b343c753737a564deb1156e8064062793c133f7be2ea567daced985b26f24b"
+  },
+  "baselines": [
+    {
+      "test": "tests/gen/ch7/test_gen_packed_lane_bits_up_down_zero_w65.sv",
+      "source_sha256": "4e2aa08a4961408f23f20bfc194bc904fce2c8130ed607aa89b69a4b233cb649",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_packed_lane_window_up_down_zero_w65.sv",
+      "source_sha256": "61ed2f6d94e32ddc0db2295edfcc0f51a899d9f50f60fb21344c0092ffb4d9f2",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_packed_lane_signatures_up_down_zero_w65.sv",
+      "source_sha256": "97138a5d442aec697bf9cdbcb94c2c0facb21a9c2be38c2a5a6c47f9d7918f41",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_packed_lane_boundary_up_down_zero_w65.sv",
+      "source_sha256": "c0fab3297bc44bbb29a42d86ae850367044115c9327142a651c71e5d7c4b5057",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_packed_lane_bits_down_down_zero_w65.sv",
+      "source_sha256": "d430fa991b6fa1b8f0cc36bf847d7174df613aa68617387469e876b04e8674e3",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_packed_lane_window_down_down_zero_w65.sv",
+      "source_sha256": "855fc44cf1dca9b4b04d01977af9228f9318cf3dbab86932eca9cc6c861ee0c1",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_packed_lane_signatures_down_down_zero_w65.sv",
+      "source_sha256": "43fc718dfd9fbdbbf28703252ded291488bb1a5da3442ba21ac9ab2d9ebfd9fa",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_packed_lane_boundary_down_down_zero_w65.sv",
+      "source_sha256": "66f33f5c66be1cae0d9a10b555963fd88035e76775a55d274b08d2c994effbd0",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    }
+  ],
+  "mutations": [
+    {
+      "test": "tests/gen/ch7/test_gen_packed_lane_bits_up_down_zero_w65.sv",
+      "label": "wrong-column-up",
+      "replacement": {
+        "old": "col = 64;",
+        "new": "col = 63;",
+        "occurrences": 1
+      },
+      "source_sha256": "3bb32833ebf14dedbcc10df2dcffd0769038415ff7e65b108712e75b9c8ceb58",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_packed_lane_bits_up_down_zero_w65.sv",
+      "label": "skip-toggle-up",
+      "replacement": {
+        "old": "bank[row][col] = ~bank[row][col];",
+        "new": "bank[row][col] = bank[row][col];",
+        "occurrences": 1
+      },
+      "source_sha256": "462a8199afbdd6deb9fd9e8eb30bbbb951a2b31eb096a9f96cd67752dd809a28",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_packed_lane_window_up_down_zero_w65.sv",
+      "label": "wrong-window-width-up",
+      "replacement": {
+        "old": "SPAN = 17",
+        "new": "SPAN = 16",
+        "occurrences": 1
+      },
+      "source_sha256": "c92db071245819d133a3bee5c417cfb737453d00a6b5fe1c75717df49319f827",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_packed_lane_window_up_down_zero_w65.sv",
+      "label": "lose-overlap-copy-up",
+      "replacement": {
+        "old": "bank[-1][base +: SPAN] = bank[-1][src_base +: SPAN];",
+        "new": "bank[-1][base +: SPAN] = bank[-1][base +: SPAN];",
+        "occurrences": 1
+      },
+      "source_sha256": "3b4676013a8e2cbbe2278e1fb543dbc178a358d613a7dc16985ec7d2d69f7e09",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_packed_lane_signatures_up_down_zero_w65.sv",
+      "label": "wrong-lane-sign-up",
+      "replacement": {
+        "old": "extended = bank[row];",
+        "new": "extended = $signed(bank[row]);",
+        "occurrences": 1
+      },
+      "source_sha256": "a732e508af85dd2cdaf844755faa71619efbb7b3079328b23d3d8b460ea13839",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_packed_lane_signatures_up_down_zero_w65.sv",
+      "label": "wrong-whole-sign-up",
+      "replacement": {
+        "old": "whole_unsigned = $unsigned(bank);",
+        "new": "whole_unsigned = bank;",
+        "occurrences": 1
+      },
+      "source_sha256": "e4ce583ff35c0859221e766ef1bb5cb3d8f6c14c0c2dcfdb7331c86865da3ca7",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_packed_lane_boundary_up_down_zero_w65.sv",
+      "label": "wrong-clipped-edge-up",
+      "replacement": {
+        "old": "base = 61;",
+        "new": "base = 64;",
+        "occurrences": 1
+      },
+      "source_sha256": "700ef80e0b585b924365db4bc1888985edb1c1b43133219742eeb5e82d044099",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_packed_lane_boundary_up_down_zero_w65.sv",
+      "label": "accept-invalid-row-up",
+      "replacement": {
+        "old": "row = 3;",
+        "new": "row = 0;",
+        "occurrences": 1
+      },
+      "source_sha256": "207b8e593280b61f405b53ccd760900c6d8d496a2c296e093e7ba2b148a5cb41",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_packed_lane_bits_down_down_zero_w65.sv",
+      "label": "wrong-column-down",
+      "replacement": {
+        "old": "col = 64;",
+        "new": "col = 63;",
+        "occurrences": 1
+      },
+      "source_sha256": "cb24e4239aef67b4c2092fb465cbfb7529c11c7192f76bb00e57bfc02efb40b8",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_packed_lane_bits_down_down_zero_w65.sv",
+      "label": "skip-toggle-down",
+      "replacement": {
+        "old": "bank[row][col] = ~bank[row][col];",
+        "new": "bank[row][col] = bank[row][col];",
+        "occurrences": 1
+      },
+      "source_sha256": "bf758583e69b1c38e4e7cd3cf70eab516d33ee6bae06e1b083200ac2c25e27a5",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_packed_lane_window_down_down_zero_w65.sv",
+      "label": "wrong-window-width-down",
+      "replacement": {
+        "old": "SPAN = 17",
+        "new": "SPAN = 16",
+        "occurrences": 1
+      },
+      "source_sha256": "ae9997c7e97751dac37d290018cd5da9326df35680a233777deaeb26f485b91e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_packed_lane_window_down_down_zero_w65.sv",
+      "label": "lose-overlap-copy-down",
+      "replacement": {
+        "old": "bank[1][base +: SPAN] = bank[1][src_base +: SPAN];",
+        "new": "bank[1][base +: SPAN] = bank[1][base +: SPAN];",
+        "occurrences": 1
+      },
+      "source_sha256": "26799c3c2f49c108d9fd88d20e3068a4128afd7fe0fce420a5df9063584668a8",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_packed_lane_signatures_down_down_zero_w65.sv",
+      "label": "wrong-lane-sign-down",
+      "replacement": {
+        "old": "extended = bank[row];",
+        "new": "extended = $signed(bank[row]);",
+        "occurrences": 1
+      },
+      "source_sha256": "16cf663975ab92d36621ae93fcf2bce60aae14caeec95947016eae8af4be2b17",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_packed_lane_signatures_down_down_zero_w65.sv",
+      "label": "wrong-whole-sign-down",
+      "replacement": {
+        "old": "whole_unsigned = $unsigned(bank);",
+        "new": "whole_unsigned = bank;",
+        "occurrences": 1
+      },
+      "source_sha256": "fbc40c14e1383401de38ebd957b55a22fc9ce1ea44031813b525ebbbfc347831",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_packed_lane_boundary_down_down_zero_w65.sv",
+      "label": "wrong-clipped-edge-down",
+      "replacement": {
+        "old": "base = 61;",
+        "new": "base = 64;",
+        "occurrences": 1
+      },
+      "source_sha256": "e2ff88791b56c48dfb06e2b07ff65356e3d44a2745352b7e9af3fa5ac295246b",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch7/test_gen_packed_lane_boundary_down_down_zero_w65.sv",
+      "label": "accept-invalid-row-down",
+      "replacement": {
+        "old": "row = 3;",
+        "new": "row = 0;",
+        "occurrences": 1
+      },
+      "source_sha256": "b6a41dca2cefcd311381c73a5bc8ce30bca3c844c9e1dd077640f16b58c16c23",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    }
+  ],
+  "status": "all-eight-zero-origin-controls-pass-and-sixteen-compiled-mutants-differ",
+  "scope": "Eight zero-origin, descending-inner-range, 65-bit controls (four forms and both outer directions); not validation of the offset or ascending-inner cases"
+}

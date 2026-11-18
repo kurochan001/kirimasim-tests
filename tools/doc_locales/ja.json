@@ -25575,6 +25575,14 @@
     "Streaming ZXQPH0QXZ records preserves field order and four-state member values": "ZXQPH0QXZ構造体のストリーミングはフィールドの順と4値のメンバー値を保つ",
     "Streaming ZXQPH0QXZ records preserves field order and four-state member values ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "ZXQPH0QXZ構造体のストリーミングはフィールドの順と4値のメンバー値を保つ（ZXQPH1QXZ ZXQPH2QXZのZXQPH3QXZ節）",
     "Streaming fixed arrays visits elements in declared order across word boundaries": "固定配列のストリーミングは宣言順に要素を訪れワード境界をまたいで並べ替える",
-    "Streaming fixed arrays visits elements in declared order across word boundaries ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "固定配列のストリーミングは宣言順に要素を訪れワード境界をまたいで並べ替える（ZXQPH0QXZ ZXQPH1QXZのZXQPH2QXZ節）"
+    "Streaming fixed arrays visits elements in declared order across word boundaries ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "固定配列のストリーミングは宣言順に要素を訪れワード境界をまたいで並べ替える（ZXQPH0QXZ ZXQPH1QXZのZXQPH2QXZ節）",
+    "Nested ZXQPH0QXZ ZXQPH1QXZ writes preserve neighboring lanes and declared index labels": "入れ子のZXQPH0QXZ配列のZXQPH1QXZ書込みは隣接要素と宣言された添字を保つ",
+    "Nested ZXQPH0QXZ ZXQPH1QXZ writes preserve neighboring lanes and declared index labels ( ZXQPH2QXZ ZXQPH3QXZ Section ZXQPH4QXZ )": "入れ子のZXQPH0QXZ配列のZXQPH1QXZ書込みは隣接要素と宣言された添字を保つ（ZXQPH2QXZ ZXQPH3QXZのZXQPH4QXZ節）",
+    "Packed lane windows copy overlapping sources before updating their destinations": "パック要素の範囲コピーは重なる入力を取り出した後に代入先を更新する",
+    "Packed lane windows copy overlapping sources before updating their destinations ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "パック要素の範囲コピーは重なる入力を取り出した後に代入先を更新する（ZXQPH0QXZ ZXQPH1QXZのZXQPH2QXZ節）",
+    "Packed lane and part selections are unsigned while whole ZXQPH0QXZ arrays retain signing": "選択した要素と部分は符号なしとなり、全体のZXQPH0QXZ配列は符号を保つ",
+    "Packed lane and part selections are unsigned while whole ZXQPH0QXZ arrays retain signing ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "選択した要素と部分は符号なしとなり、全体のZXQPH0QXZ配列は符号を保つ（ZXQPH1QXZ ZXQPH2QXZのZXQPH3QXZ節）",
+    "Clipped ZXQPH0QXZ lane writes preserve neighbors and invalid indices perform no write": "範囲をはみ出すZXQPH0QXZ要素の書込みは隣接要素を保ち、無効な添字は書き込まない",
+    "Clipped ZXQPH0QXZ lane writes preserve neighbors and invalid indices perform no write ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "範囲をはみ出すZXQPH0QXZ要素の書込みは隣接要素を保ち、無効な添字は書き込まない（ZXQPH1QXZ ZXQPH2QXZのZXQPH3QXZ節）"
   }
 }
