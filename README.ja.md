@@ -2,13 +2,13 @@
 
 [English](README.md)
 
-用語やよくある質問は、[用語集](docs/glossary.md)と[FAQ](docs/faq.md)を参照してください。
-期待値、結果の分類、Nightly、網羅率、SVA・フォーマル検証について説明しています。
-
 [![Check](https://github.com/kurochan001/kirimasim-tests/actions/workflows/check.yml/badge.svg)](https://github.com/kurochan001/kirimasim-tests/actions/workflows/check.yml)
 [![Nightly](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml/badge.svg)](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml)
 [![Speed benchmarks](https://github.com/kurochan001/kirimasim-tests/actions/workflows/benchmark.yml/badge.svg)](https://github.com/kurochan001/kirimasim-tests/actions/workflows/benchmark.yml)
 [![License: Apache-2.0 WITH LLVM-exception](https://img.shields.io/badge/license-Apache--2.0%20WITH%20LLVM--exception-blue)](LICENSE)
+
+用語やよくある質問は、[用語集](docs/glossary.md)と[FAQ](docs/faq.md)を参照してください。
+期待値、結果の分類、Nightly、網羅率、SVA・フォーマル検証について説明しています。
 
 IEEE 1800-2023 SystemVerilogのシミュレーションの意味論を確認する適合性テストスイートです。
 
