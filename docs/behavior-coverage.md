@@ -32,6 +32,13 @@
 
 複数テストで一つの要求を分担する `check_groups` は、同じ実行環境・実行回で グループ内の全テストが成功した場合に限り成功とします。未指定の対応は独立した代替証拠です。
 
+- `array-shape-20261119-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-18T21:42:00.646435+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `array-shape-20261119-kirimasim-441dddbd0fcd-run1.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T21:42:02.346874+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `array-shape-20261119-kirimasim-441dddbd0fcd-run2.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T21:42:03.990893+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `array-shape-20261119-kirimasim-441dddbd0fcd-run3.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T21:42:05.571990+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `array-shape-20261119-kirimasim-441dddbd0fcd-run4.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T21:42:07.154047+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `array-shape-20261119-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-18T21:46:58.671082+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `array-shape-20261119-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-18T21:52:06.760512+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `arrayfunc-20261115-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-15T05:50:28.045416+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `arrayfunc-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T05:50:46.736634+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `arrayfunc-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T05:50:40.662343+00:00` / 0/12332 動作確認、古い入力との対応 0 件。

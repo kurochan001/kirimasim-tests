@@ -76,6 +76,10 @@
     "bitvector_queries": {
       "en": "Forty-eight bit-vector query cases at 32/33, 64/65 and 128/129 bits: known and X/Z histograms, successive updates, onehot/isunknown predicates, signed function results, packed records, wide variable controls with duplicate LSBs, and constant-expression type widths.",
       "ja": "32/33・64/65・128/129ビットのビット集計48本。既知値とX/Zの個数、更新後の再集計、onehot・isunknown、符号付き関数結果、パック構造体、下位1ビットが重複する広幅の可変制御引数、定数式による型の幅を確認。"
+    },
+    "array_shape_queries": {
+      "en": "Sixty array-shape query cases at 32/33, 64/65 and 128/129 bits: negative and offset packed ranges, mixed and nested typedef dimensions, singleton directions, constant type widths, invalid dimensions, and dynamic-array/queue changes; runtime container bits queries are isolated from geometry, with live-data controls.",
+      "ja": "32/33・64/65・128/129ビットの配列形状照会60本。負・非ゼロのパック範囲、混在・typedefの段階的な次元展開、単一要素の向き、定数式の型幅、無効な次元、動的配列・キューのサイズ変更を確認。実行時のコンテナ全体のビット数照会は形状照会から分け、生きている要素の値も確認。"
     }
   }
 }

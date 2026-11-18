@@ -1,0 +1,13 @@
+width=128 form=constant
+value dims=3 unpacked=1 bits=768
+type dims=3 unpacked=1 bits=768
+type_d1 left=2 right=1 low=1 high=2 inc=1 size=2
+type_d2 left=1 right=3 low=1 high=3 inc=-1 size=3
+type_d3 left=127 right=0 low=0 high=127 inc=1 size=128
+variable_d1 left=2 right=1 low=1 high=2 inc=1 size=2
+variable_d2 left=1 right=3 low=1 high=3 inc=-1 size=3
+variable_d3 left=127 right=0 low=0 high=127 inc=1 size=128
+default_control left=2 right=1 low=1 high=2 inc=1 size=2
+omitted left=2 right=1 low=1 high=2 inc=1 size=2
+constant elements=6 lane=128 flat=768
+return_bits=32,32,32,32

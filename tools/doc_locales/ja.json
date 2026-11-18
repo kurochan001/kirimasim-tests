@@ -25539,6 +25539,26 @@
     "Wide ZXQPH0QXZ -vector queries preserve controls argument and result semantics": "広幅のZXQPH0QXZベクタに対する広幅の可変制御引数と重複の扱いを確認する",
     "Wide ZXQPH0QXZ -vector queries preserve controls argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "広幅のZXQPH0QXZベクタに対する広幅の可変制御引数と重複の扱いを確認する（ZXQPH1QXZ ZXQPH2QXZのZXQPH3QXZ節）",
     "Wide ZXQPH0QXZ -vector queries preserve constant argument and result semantics": "広幅のZXQPH0QXZベクタに対する定数式による集計と型の幅を確認する",
-    "Wide ZXQPH0QXZ -vector queries preserve constant argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "広幅のZXQPH0QXZベクタに対する定数式による集計と型の幅を確認する（ZXQPH1QXZ ZXQPH2QXZのZXQPH3QXZ節）"
+    "Wide ZXQPH0QXZ -vector queries preserve constant argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "広幅のZXQPH0QXZベクタに対する定数式による集計と型の幅を確認する（ZXQPH1QXZ ZXQPH2QXZのZXQPH3QXZ節）",
+    "Array queries preserve offset and negative ZXQPH0QXZ bounds": "配列照会で非ゼロおよび負のZXQPH0QXZ範囲の境界を維持する",
+    "Array queries preserve offset and negative ZXQPH0QXZ bounds ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "配列照会で非ゼロおよび負のZXQPH0QXZ範囲の境界を維持する（ZXQPH1QXZ ZXQPH2QXZのZXQPH3QXZ節）",
+    "Array queries number ZXQPH0QXZ dimensions before ZXQPH1QXZ dimensions": "配列照会でZXQPH0QXZ次元をZXQPH1QXZ次元より先に数える",
+    "Array queries number ZXQPH0QXZ dimensions before ZXQPH1QXZ dimensions ( ZXQPH2QXZ ZXQPH3QXZ Section ZXQPH4QXZ )": "配列照会でZXQPH0QXZ次元をZXQPH1QXZ次元より先に数える（ZXQPH2QXZ ZXQPH3QXZのZXQPH4QXZ節）",
+    "Array queries expand nested ZXQPH0QXZ dimensions before numbering": "配列照会で入れ子のZXQPH0QXZ次元を展開してから番号を付ける",
+    "Array queries expand nested ZXQPH0QXZ dimensions before numbering ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "配列照会で入れ子のZXQPH0QXZ次元を展開してから番号を付ける（ZXQPH1QXZ ZXQPH2QXZのZXQPH3QXZ節）",
+    "Array queries give singleton ranges a positive increment": "配列照会で単一要素の範囲の増分を正にする",
+    "Array queries give singleton ranges a positive increment ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "配列照会で単一要素の範囲の増分を正にする（ZXQPH0QXZ ZXQPH1QXZのZXQPH2QXZ節）",
+    "Constant array queries determine a new ZXQPH0QXZ type width": "定数の配列照会で新しいZXQPH0QXZ型の幅を定める",
+    "Constant array queries determine a new ZXQPH0QXZ type width ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "定数の配列照会で新しいZXQPH0QXZ型の幅を定める（ZXQPH1QXZ ZXQPH2QXZのZXQPH3QXZ節）",
+    "Out-of-range array dimensions return full-width unknown integers": "範囲外の配列次元は整数の全ビットが未知の値を返す",
+    "Out-of-range array dimensions return full-width unknown integers ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "範囲外の配列次元は整数の全ビットが未知の値を返す（ZXQPH0QXZ ZXQPH1QXZのZXQPH2QXZ節）",
+    "Array queries track dynamic allocation, resizing and deletion": "配列照会で動的配列の確保・サイズ変更・削除を追跡する",
+    "Array queries track dynamic allocation, resizing and deletion ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "配列照会で動的配列の確保・サイズ変更・削除を追跡する（ZXQPH0QXZ ZXQPH1QXZのZXQPH2QXZ節）",
+    "Array queries track queue insertion, removal and deletion": "配列照会でキューへの挿入・取出し・削除を追跡する",
+    "Array queries track queue insertion, removal and deletion ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "配列照会でキューへの挿入・取出し・削除を追跡する（ZXQPH0QXZ ZXQPH1QXZのZXQPH2QXZ節）",
+    "Runtime bits queries measure the current dynamic array contents": "実行時のビット数照会で現在の動的配列の内容を測る",
+    "Runtime bits queries measure the current dynamic array contents ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "実行時のビット数照会で現在の動的配列の内容を測る（ZXQPH0QXZ ZXQPH1QXZのZXQPH2QXZ節）",
+    "Runtime bits queries measure the current queue contents": "実行時のビット数照会で現在のキューの内容を測る",
+    "Runtime bits queries measure the current queue contents ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "実行時のビット数照会で現在のキューの内容を測る（ZXQPH0QXZ ZXQPH1QXZのZXQPH2QXZ節）"
   }
 }

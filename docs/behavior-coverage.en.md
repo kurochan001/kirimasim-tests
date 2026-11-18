@@ -32,6 +32,13 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 
 `check_groups` distributes a single request across multiple tests, and is successful only if all tests in the group are successful in the same runtime and run. The unspecified response is an independent alternative proof.
 
+- `array-shape-20261119-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-18T21:42:00.646435+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `array-shape-20261119-kirimasim-441dddbd0fcd-run1.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T21:42:02.346874+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `array-shape-20261119-kirimasim-441dddbd0fcd-run2.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T21:42:03.990893+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `array-shape-20261119-kirimasim-441dddbd0fcd-run3.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T21:42:05.571990+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `array-shape-20261119-kirimasim-441dddbd0fcd-run4.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T21:42:07.154047+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `array-shape-20261119-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-18T21:46:58.671082+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `array-shape-20261119-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-18T21:52:06.760512+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `arrayfunc-20261115-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-15T05:50:28.045416+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `arrayfunc-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T05:50:46.736634+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `arrayfunc-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T05:50:40.662343+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.

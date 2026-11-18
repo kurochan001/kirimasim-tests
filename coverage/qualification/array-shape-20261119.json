@@ -1,0 +1,279 @@
+{
+  "schema": 1,
+  "kind": "finite one-edit observability checks; not independent standards review",
+  "recorded_at": "2026-11-18T21:42:27.395805+00:00",
+  "simulator": {
+    "version": "kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401",
+    "commit": "441dddbd0fcd80aed298ca33311f2ee67aa8866c",
+    "binary_sha256": "c3b343c753737a564deb1156e8064062793c133f7be2ea567daced985b26f24b"
+  },
+  "baselines": [
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_packed_w65.sv",
+      "source_sha256": "78174d678defae123cddf479b2dc61729346fc88030a797dac7208950fcc4f8d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_mixed_w65.sv",
+      "source_sha256": "a603dad595ff46cff01d30fadd17e15bd77fd24765e4b69c87fd3fb3e44c96cb",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_typedef_w65.sv",
+      "source_sha256": "986f4128d75f160fedb410ce347a8c2bcf4f6c0e8508229f5b072d319097efc8",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_singleton_w65.sv",
+      "source_sha256": "cdeb7afb52413c277f24f3057d68114f227c2bc805e52b9068a9746bd8be0863",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_constant_w65.sv",
+      "source_sha256": "90eb37f172c29eebcea59467c3666f9f9f0d66002387663e939efb1398b663ef",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_invalid_w65.sv",
+      "source_sha256": "bf61d9ef8125c608359345071a85fab125505ce15598b066b0f09d4912b23c6c",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_dynamic_w65.sv",
+      "source_sha256": "12f2b10674002453d1a211b15147dbee4ff99ace9c981a9095859346374b87be",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_queue_w65.sv",
+      "source_sha256": "9b425f465f6a2c1421787fd3dd8d864f8889b4c5079718726f7c5ca179bb88b9",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    }
+  ],
+  "mutations": [
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_packed_w65.sv",
+      "label": "swap-packed-left-right",
+      "replacement": {
+        "old": "$left(value, d)",
+        "new": "$right(value, d)",
+        "occurrences": 1
+      },
+      "source_sha256": "14bf0ed408d24d6874cccd9e9808ceca96102a65d77b944fd6e45f2a055c3fd1",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_packed_w65.sv",
+      "label": "lose-packed-dimension",
+      "replacement": {
+        "old": "$dimensions(value)",
+        "new": "$unpacked_dimensions(value)",
+        "occurrences": 1
+      },
+      "source_sha256": "f7db9617ba5f821b3c2c74bc58aaa25ca68e17ebbe39aea8a99af7439b623c38",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_mixed_w65.sv",
+      "label": "swap-unpacked-direction",
+      "replacement": {
+        "old": "$increment(value, d)",
+        "new": "(-$increment(value, d))",
+        "occurrences": 1
+      },
+      "source_sha256": "98c9244d507a1d5d13bc4faa493d4b73bf6b0aca41d2bef30b25ba3e3d64aed7",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_mixed_w65.sv",
+      "label": "wrong-total-bit-product",
+      "replacement": {
+        "old": "$bits(value)",
+        "new": "($bits(value) - 1)",
+        "occurrences": 1
+      },
+      "source_sha256": "72556b58bb770f5deee077e9cf451791e0abe63a0effa1e12639b39b51e95862",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_typedef_w65.sv",
+      "label": "reverse-outer-alias",
+      "replacement": {
+        "old": "shape_t [-1:0]",
+        "new": "shape_t [0:-1]",
+        "occurrences": 1
+      },
+      "source_sha256": "af937401d53e41c5f296b9eeba8f3ca55ccffb92aa800f52e88bfe65b9540cc5",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_typedef_w65.sv",
+      "label": "reverse-inner-alias",
+      "replacement": {
+        "old": "pair_t row_t [4:2]",
+        "new": "pair_t row_t [2:4]",
+        "occurrences": 1
+      },
+      "source_sha256": "085e2bb958223b5c737dcb5bb2d367ad5661d50b5b02b5494f9063d57d9fb056",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_singleton_w65.sv",
+      "label": "wrong-singleton-increment",
+      "replacement": {
+        "old": "$increment(value, d)",
+        "new": "(-$increment(value, d))",
+        "occurrences": 1
+      },
+      "source_sha256": "cd8a34b787b07616f0816d134c11c58872b21a1d42cd42d81fdb91a021d638c2",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_singleton_w65.sv",
+      "label": "wrong-singleton-cardinality",
+      "replacement": {
+        "old": "$size(value, d)",
+        "new": "($size(value, d) + 1)",
+        "occurrences": 1
+      },
+      "source_sha256": "9d3e5991353cfd66d9572e20ea44f69d3179e52579464b3c50afa59c9c4c1c81",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_constant_w65.sv",
+      "label": "truncate-constant-target",
+      "replacement": {
+        "old": "ELEMENTS*LANE-1:0",
+        "new": "ELEMENTS*LANE-2:0",
+        "occurrences": 1
+      },
+      "source_sha256": "54a803493ed49fbe34572b75f071ce30b00402883ea9dd057608b5193c338b09",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_constant_w65.sv",
+      "label": "wrong-constant-dimension",
+      "replacement": {
+        "old": "LANE = $size(shape_t, 3)",
+        "new": "LANE = $size(shape_t, 2)",
+        "occurrences": 1
+      },
+      "source_sha256": "f25f3cb55e42606dce35b8e1a0a5ef657506fc6931a8c835c29d769ad3daa05b",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_invalid_w65.sv",
+      "label": "accept-zero-dimension",
+      "replacement": {
+        "old": "bad = 0;",
+        "new": "bad = 1;",
+        "occurrences": 1
+      },
+      "source_sha256": "fc482fa7af8202d6cc0f84037b80d58be7e36ee105cec5aade9d6c46d8d4fc53",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_invalid_w65.sv",
+      "label": "accept-negative-dimension",
+      "replacement": {
+        "old": "bad = -1;",
+        "new": "bad = 1;",
+        "occurrences": 1
+      },
+      "source_sha256": "34999bcba4dfe54bab31e7fa3455e5c9be0b19b9e2c251ac86bf034b7dc9603c",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_dynamic_w65.sv",
+      "label": "wrong-growth-count",
+      "replacement": {
+        "old": "new[5](value)",
+        "new": "new[4](value)",
+        "occurrences": 1
+      },
+      "source_sha256": "7d091a1fa084752d103bfacdcd0fae6600ea1dae41b31e36e995137155f531c1",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_dynamic_w65.sv",
+      "label": "lose-preserved-element",
+      "replacement": {
+        "old": "new[1](value)",
+        "new": "new[1]",
+        "occurrences": 1
+      },
+      "source_sha256": "944897903e5fb9aef350e0ee8c41f0442ca9cf216dede03eb6b15835e7f943cc",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_queue_w65.sv",
+      "label": "wrong-front-value",
+      "replacement": {
+        "old": "value.push_front('0)",
+        "new": "value.push_front('1)",
+        "occurrences": 1
+      },
+      "source_sha256": "e9d68b60ec53c72b78d55ec4ab979b2aa5e2309789bd2e81f144dfc74e468c8f",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_queue_w65.sv",
+      "label": "remove-wrong-end",
+      "replacement": {
+        "old": "value.pop_front()",
+        "new": "value.pop_back()",
+        "occurrences": 1
+      },
+      "source_sha256": "382c909bb2b1c6d6dfcd92270a50818696f3a24138c705fd557eb42ce081cc60",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    }
+  ],
+  "status": "all-eight-baselines-pass-and-sixteen-compiled-mutants-differ"
+}

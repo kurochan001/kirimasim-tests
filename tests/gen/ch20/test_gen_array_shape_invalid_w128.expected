@@ -1,0 +1,11 @@
+width=128 form=invalid
+value dims=3 unpacked=1 bits=768
+variable_d1 left=2 right=1 low=1 high=2 inc=1 size=2
+variable_d2 left=1 right=3 low=1 high=3 inc=-1 size=3
+variable_d3 left=127 right=0 low=0 high=127 inc=1 size=128
+default_control left=2 right=1 low=1 high=2 inc=1 size=2
+omitted left=2 right=1 low=1 high=2 inc=1 size=2
+invalid_0 left=xxxxxxxx right=xxxxxxxx low=xxxxxxxx high=xxxxxxxx inc=xxxxxxxx size=xxxxxxxx
+invalid_-1 left=xxxxxxxx right=xxxxxxxx low=xxxxxxxx high=xxxxxxxx inc=xxxxxxxx size=xxxxxxxx
+invalid_4 left=xxxxxxxx right=xxxxxxxx low=xxxxxxxx high=xxxxxxxx inc=xxxxxxxx size=xxxxxxxx
+return_bits=32,32,32,32

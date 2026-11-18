@@ -1,0 +1,283 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "gen/ch20/test_gen_array_shape_constant_w128": {
+   "status": "pass",
+   "inputs_sha256": "08b2691ba83acae4dce4f112c035ca225dc4f509995282c4e66119e091a79cf3"
+  },
+  "gen/ch20/test_gen_array_shape_constant_w129": {
+   "status": "pass",
+   "inputs_sha256": "08bc89eb2344ab546b566ea6787994fc76cc097557b8349d02bcacff8e31bda7"
+  },
+  "gen/ch20/test_gen_array_shape_constant_w32": {
+   "status": "pass",
+   "inputs_sha256": "65a87dbf35bb0bae807249f0bb928e7a4618851729aebc03ba52c5d8efe00287"
+  },
+  "gen/ch20/test_gen_array_shape_constant_w33": {
+   "status": "pass",
+   "inputs_sha256": "05161fe1bd2d33377ba1a8bb4214c8e3d0ed9d62c882d2a2d12e0d0ddf2dfcb8"
+  },
+  "gen/ch20/test_gen_array_shape_constant_w64": {
+   "status": "pass",
+   "inputs_sha256": "0a3e8a3ffa0e7f7b41ac3f0b8ef98424105af450577dc85fb9a2a91129456a26"
+  },
+  "gen/ch20/test_gen_array_shape_constant_w65": {
+   "status": "pass",
+   "inputs_sha256": "7897d4eb57ddc2c469aa47db894ea8c4dd664afa695dbd5e9104f8b0e41a6fc1"
+  },
+  "gen/ch20/test_gen_array_shape_dynamic_bits_w128": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch20/test_gen_array_shape_dynamic_bits_w128.sv:28:43: Unsupported: $bits for dynamic array",
+   "inputs_sha256": "c04b16f90e88668e692ed6606ca0b77d423ceeedec14a4a1ce3959648a2b75a2"
+  },
+  "gen/ch20/test_gen_array_shape_dynamic_bits_w129": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch20/test_gen_array_shape_dynamic_bits_w129.sv:28:43: Unsupported: $bits for dynamic array",
+   "inputs_sha256": "762024e44bb1c5d14fc6a3dbe8a81fb2abca16f559d65807dbedd8de4754e206"
+  },
+  "gen/ch20/test_gen_array_shape_dynamic_bits_w32": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch20/test_gen_array_shape_dynamic_bits_w32.sv:28:43: Unsupported: $bits for dynamic array",
+   "inputs_sha256": "ab5cd484955c1c0629f4d23cdd6fd70bab7aafd072c7078d9a823b3bf1182686"
+  },
+  "gen/ch20/test_gen_array_shape_dynamic_bits_w33": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch20/test_gen_array_shape_dynamic_bits_w33.sv:28:43: Unsupported: $bits for dynamic array",
+   "inputs_sha256": "208eb3dd4a22f6f26b055a530084bc6377281eaa3bd4eb4eda485825b1fd2e62"
+  },
+  "gen/ch20/test_gen_array_shape_dynamic_bits_w64": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch20/test_gen_array_shape_dynamic_bits_w64.sv:28:43: Unsupported: $bits for dynamic array",
+   "inputs_sha256": "8616b559e66c106fe113f4dd4f2390f196ed96c3570fce8201ad84f51a68730d"
+  },
+  "gen/ch20/test_gen_array_shape_dynamic_bits_w65": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch20/test_gen_array_shape_dynamic_bits_w65.sv:28:43: Unsupported: $bits for dynamic array",
+   "inputs_sha256": "0e753efdd4a1ffae33c0f564be890b073858773388ec03d13d997b38b0e8bef1"
+  },
+  "gen/ch20/test_gen_array_shape_dynamic_w128": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'empty_packed left=0 right=-1 low=0 high=-1 inc=-1 size=0', expected 'empty_packed left=-3 right=124 low=-3 high=124 inc=-1 siz...'",
+   "inputs_sha256": "bc8661c3ea9ddf2582276ca526edbe7e9d640a72ed786c2e55cd31089adfd668"
+  },
+  "gen/ch20/test_gen_array_shape_dynamic_w129": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'empty_packed left=0 right=-1 low=0 high=-1 inc=-1 size=0', expected 'empty_packed left=-3 right=125 low=-3 high=125 inc=-1 siz...'",
+   "inputs_sha256": "b4b542b08437fadfb37d6c152c632168c9178a1bfd277fe72bfc9858a5125841"
+  },
+  "gen/ch20/test_gen_array_shape_dynamic_w32": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'empty_packed left=0 right=-1 low=0 high=-1 inc=-1 size=0', expected 'empty_packed left=-3 right=28 low=-3 high=28 inc=-1 size=32'",
+   "inputs_sha256": "944e2948e5918d5a79b096ce4240311404782d3dd129415352e8842cec87c0a0"
+  },
+  "gen/ch20/test_gen_array_shape_dynamic_w33": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'empty_packed left=0 right=-1 low=0 high=-1 inc=-1 size=0', expected 'empty_packed left=-3 right=29 low=-3 high=29 inc=-1 size=33'",
+   "inputs_sha256": "0a5c872c36a3a833e9cd7aa30071199657a38647893298e7fa14e2190c9b2528"
+  },
+  "gen/ch20/test_gen_array_shape_dynamic_w64": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'empty_packed left=0 right=-1 low=0 high=-1 inc=-1 size=0', expected 'empty_packed left=-3 right=60 low=-3 high=60 inc=-1 size=64'",
+   "inputs_sha256": "292e29e3b0b3c1d041fbc1935e74ecb4f3d54a8d38711e4618642a9e51075f6d"
+  },
+  "gen/ch20/test_gen_array_shape_dynamic_w65": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'empty_packed left=0 right=-1 low=0 high=-1 inc=-1 size=0', expected 'empty_packed left=-3 right=61 low=-3 high=61 inc=-1 size=65'",
+   "inputs_sha256": "1af0abdbe3097981c095db7a01955a048bbfc11ac9b6b3107fe6fb4c1832ad3f"
+  },
+  "gen/ch20/test_gen_array_shape_invalid_w128": {
+   "status": "known",
+   "reason": "output differs: line 8 is 'invalid_0 left=00000000 right=00000000 low=00000000 high=...', expected 'invalid_0 left=xxxxxxxx right=xxxxxxxx low=xxxxxxxx high=...'",
+   "inputs_sha256": "226541224722032bb3ac0b68a28519c88726c65e212f8817adac5e42e3c9657d"
+  },
+  "gen/ch20/test_gen_array_shape_invalid_w129": {
+   "status": "known",
+   "reason": "output differs: line 8 is 'invalid_0 left=00000000 right=00000000 low=00000000 high=...', expected 'invalid_0 left=xxxxxxxx right=xxxxxxxx low=xxxxxxxx high=...'",
+   "inputs_sha256": "e70ca55e586eb16a71db186a02c490cca904d1372757420e404943681559a805"
+  },
+  "gen/ch20/test_gen_array_shape_invalid_w32": {
+   "status": "known",
+   "reason": "output differs: line 8 is 'invalid_0 left=00000000 right=00000000 low=00000000 high=...', expected 'invalid_0 left=xxxxxxxx right=xxxxxxxx low=xxxxxxxx high=...'",
+   "inputs_sha256": "2120a16c2ddce03c6e715a01eb2f169c097c77a98d82e9310395f92601c22ac6"
+  },
+  "gen/ch20/test_gen_array_shape_invalid_w33": {
+   "status": "known",
+   "reason": "output differs: line 8 is 'invalid_0 left=00000000 right=00000000 low=00000000 high=...', expected 'invalid_0 left=xxxxxxxx right=xxxxxxxx low=xxxxxxxx high=...'",
+   "inputs_sha256": "273dbc845b0729db3a268c48a2ef77094408656e44b6f203fb7bed6f6c30042f"
+  },
+  "gen/ch20/test_gen_array_shape_invalid_w64": {
+   "status": "known",
+   "reason": "output differs: line 8 is 'invalid_0 left=00000000 right=00000000 low=00000000 high=...', expected 'invalid_0 left=xxxxxxxx right=xxxxxxxx low=xxxxxxxx high=...'",
+   "inputs_sha256": "17900d7e3bf1817b97b062f818a9ff0a8a0d4c57cf2b3a3579b0b37a1eb3ea80"
+  },
+  "gen/ch20/test_gen_array_shape_invalid_w65": {
+   "status": "known",
+   "reason": "output differs: line 8 is 'invalid_0 left=00000000 right=00000000 low=00000000 high=...', expected 'invalid_0 left=xxxxxxxx right=xxxxxxxx low=xxxxxxxx high=...'",
+   "inputs_sha256": "c0db3a94430d07ced75f81cf3d891f3a1be403b373f3b58ed6fec058c7b3e06a"
+  },
+  "gen/ch20/test_gen_array_shape_mixed_w128": {
+   "status": "pass",
+   "inputs_sha256": "552c373e568e27a344f4a1db052ee77ed9dd2d9e6bba101e9856409f803a04e7"
+  },
+  "gen/ch20/test_gen_array_shape_mixed_w129": {
+   "status": "pass",
+   "inputs_sha256": "c7535d3bfff3a914ea15342bb1aafc27e6a73fde520b1bac608da42aa7bc4d21"
+  },
+  "gen/ch20/test_gen_array_shape_mixed_w32": {
+   "status": "pass",
+   "inputs_sha256": "a1f580817d6d458af5dbed0c47e817c1041d503937146266214ab58a27278b20"
+  },
+  "gen/ch20/test_gen_array_shape_mixed_w33": {
+   "status": "pass",
+   "inputs_sha256": "4ad536c91f957b75dd9a175c2e7c0b6250bce9f7d736787a061c0a7e67edda72"
+  },
+  "gen/ch20/test_gen_array_shape_mixed_w64": {
+   "status": "pass",
+   "inputs_sha256": "1469baadd8e2356822f4f3e349efb9d3a106844ca1c703d88baa5d314c3ff8b6"
+  },
+  "gen/ch20/test_gen_array_shape_mixed_w65": {
+   "status": "pass",
+   "inputs_sha256": "668c5040af17e8e58aaeeec7c003df660648dc02aa104fbf3c9fa79c81b05223"
+  },
+  "gen/ch20/test_gen_array_shape_packed_w128": {
+   "status": "pass",
+   "inputs_sha256": "af87c2ebb17fd73929d5338d7b56e4e122fd83ee1ec6c3ea4f4f5244b6cf8df7"
+  },
+  "gen/ch20/test_gen_array_shape_packed_w129": {
+   "status": "pass",
+   "inputs_sha256": "6bb493267278fef92d4449374a7bfb9c8d69dd2b09780444197f7910848f284d"
+  },
+  "gen/ch20/test_gen_array_shape_packed_w32": {
+   "status": "pass",
+   "inputs_sha256": "77c34cf3e9238a76d3c2ae5f316eddab3e9e08fe103f0c0d2b8e10aea6fbc6ac"
+  },
+  "gen/ch20/test_gen_array_shape_packed_w33": {
+   "status": "pass",
+   "inputs_sha256": "308425a7e90dc8796ae108ac9a8619abcbe9fc63e6d7fe4ef72cc2968773e86d"
+  },
+  "gen/ch20/test_gen_array_shape_packed_w64": {
+   "status": "pass",
+   "inputs_sha256": "de25d8f81fc8bcc7a2bca093ecc5a90b4a083e568b4ff3a83c752cf515cc6076"
+  },
+  "gen/ch20/test_gen_array_shape_packed_w65": {
+   "status": "pass",
+   "inputs_sha256": "ebc9a05ef3e56ba950d1b7dbce830e79fa5829b6f354c931da4026f3ce8d95da"
+  },
+  "gen/ch20/test_gen_array_shape_queue_bits_w128": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch20/test_gen_array_shape_queue_bits_w128.sv:28:43: Unsupported: $bits for queue",
+   "inputs_sha256": "94a7426951bbb56c38b2d9d49d003a757ce49df738ecad8831fbf2fd19000de4"
+  },
+  "gen/ch20/test_gen_array_shape_queue_bits_w129": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch20/test_gen_array_shape_queue_bits_w129.sv:28:43: Unsupported: $bits for queue",
+   "inputs_sha256": "45967af0dee7b43bdf846d83e0be5d2de4c85fc589a05bb349381277f45963cd"
+  },
+  "gen/ch20/test_gen_array_shape_queue_bits_w32": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch20/test_gen_array_shape_queue_bits_w32.sv:28:43: Unsupported: $bits for queue",
+   "inputs_sha256": "dbb1fb50f3a84d4bf46431d4055bc3f6c1e1400d348697a1123fe881848d46fa"
+  },
+  "gen/ch20/test_gen_array_shape_queue_bits_w33": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch20/test_gen_array_shape_queue_bits_w33.sv:28:43: Unsupported: $bits for queue",
+   "inputs_sha256": "f377ce179e3304b52e28ecdc41e89b1032691ba2987f4264a52d314f951c680b"
+  },
+  "gen/ch20/test_gen_array_shape_queue_bits_w64": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch20/test_gen_array_shape_queue_bits_w64.sv:28:43: Unsupported: $bits for queue",
+   "inputs_sha256": "9357f73c31e924ab099124658a2f5b6d79cc50aeeaf14284a2988f9b354f1a62"
+  },
+  "gen/ch20/test_gen_array_shape_queue_bits_w65": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/gen/ch20/test_gen_array_shape_queue_bits_w65.sv:28:43: Unsupported: $bits for queue",
+   "inputs_sha256": "02b90489b78a764f36fb6d6ae286c0f8ea8b4a25429573751532ce6591635f53"
+  },
+  "gen/ch20/test_gen_array_shape_queue_w128": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'empty_packed left=0 right=-1 low=0 high=-1 inc=-1 size=0', expected 'empty_packed left=-3 right=124 low=-3 high=124 inc=-1 siz...'",
+   "inputs_sha256": "d70124740cc8002f164f413bef3b8414b25718a66994dc0cc4bcc38a3a18f477"
+  },
+  "gen/ch20/test_gen_array_shape_queue_w129": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'empty_packed left=0 right=-1 low=0 high=-1 inc=-1 size=0', expected 'empty_packed left=-3 right=125 low=-3 high=125 inc=-1 siz...'",
+   "inputs_sha256": "776a28e45915e5f0e00103d37a9757f4ce9f818f39625848f681cad1da845005"
+  },
+  "gen/ch20/test_gen_array_shape_queue_w32": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'empty_packed left=0 right=-1 low=0 high=-1 inc=-1 size=0', expected 'empty_packed left=-3 right=28 low=-3 high=28 inc=-1 size=32'",
+   "inputs_sha256": "a8e1750fb2cf2b44a3be82e1a4ac8afcf39aa8661c1a056078a102ae9e97948e"
+  },
+  "gen/ch20/test_gen_array_shape_queue_w33": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'empty_packed left=0 right=-1 low=0 high=-1 inc=-1 size=0', expected 'empty_packed left=-3 right=29 low=-3 high=29 inc=-1 size=33'",
+   "inputs_sha256": "0167e4f8ab29cee46f5fad20fcb528d8268323d0082a2ddd6b0b2e8de4303066"
+  },
+  "gen/ch20/test_gen_array_shape_queue_w64": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'empty_packed left=0 right=-1 low=0 high=-1 inc=-1 size=0', expected 'empty_packed left=-3 right=60 low=-3 high=60 inc=-1 size=64'",
+   "inputs_sha256": "b02a4a7ec426a670c9ca6e4ecf52195c59cf02f0fdd194d933eec0ce935578d8"
+  },
+  "gen/ch20/test_gen_array_shape_queue_w65": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'empty_packed left=0 right=-1 low=0 high=-1 inc=-1 size=0', expected 'empty_packed left=-3 right=61 low=-3 high=61 inc=-1 size=65'",
+   "inputs_sha256": "26a6bb1f51a640037fdb9677ef853ae0097de7ecfa415d72a05adbee35275580"
+  },
+  "gen/ch20/test_gen_array_shape_singleton_w128": {
+   "status": "pass",
+   "inputs_sha256": "0ff02abca2881905a5b3d561e61e7852c15b11cd2a20292982d818a9ad9c77ab"
+  },
+  "gen/ch20/test_gen_array_shape_singleton_w129": {
+   "status": "pass",
+   "inputs_sha256": "ad127fda6dd15432be98515729ec4b425df15d20074aff62e51ae566e11063a6"
+  },
+  "gen/ch20/test_gen_array_shape_singleton_w32": {
+   "status": "pass",
+   "inputs_sha256": "89ee9ee89011f6582698fef3d62d2c75bd62bac4e53f780758b54af2038c4f82"
+  },
+  "gen/ch20/test_gen_array_shape_singleton_w33": {
+   "status": "pass",
+   "inputs_sha256": "4d45f53d22a9dfdd7817b2476adc3694d48672ab6c70ea76e16767e2274e1fc3"
+  },
+  "gen/ch20/test_gen_array_shape_singleton_w64": {
+   "status": "pass",
+   "inputs_sha256": "fe77e8954c9a7d2b9ee9e13ac3d3ba4decc92b2d841233cab901d2037f71e937"
+  },
+  "gen/ch20/test_gen_array_shape_singleton_w65": {
+   "status": "pass",
+   "inputs_sha256": "ddd06d497eed4c8e1b43efe4f3eb1287234991e188e9be1d39a8f3a323072a15"
+  },
+  "gen/ch20/test_gen_array_shape_typedef_w128": {
+   "status": "pass",
+   "inputs_sha256": "17e2fcbc42cde7cabf3425a455964e1a030e23ff21585834bf18fc8d0807739f"
+  },
+  "gen/ch20/test_gen_array_shape_typedef_w129": {
+   "status": "pass",
+   "inputs_sha256": "46b733d940dbbf33ea676cd4def191407f91963b10dda8fe6228affbd6429014"
+  },
+  "gen/ch20/test_gen_array_shape_typedef_w32": {
+   "status": "pass",
+   "inputs_sha256": "9ba89bec2cc30c8aab937358e4aef90781f5c139b2c445474752e16b526ec9a9"
+  },
+  "gen/ch20/test_gen_array_shape_typedef_w33": {
+   "status": "pass",
+   "inputs_sha256": "47e797533135ec30c9d9d21cb36e948549c48743b424072f0c41421929511a0e"
+  },
+  "gen/ch20/test_gen_array_shape_typedef_w64": {
+   "status": "pass",
+   "inputs_sha256": "ab215b53614aa1d1e6333fd01ae1356cafdc507aced134d7d46f46d00403d973"
+  },
+  "gen/ch20/test_gen_array_shape_typedef_w65": {
+   "status": "pass",
+   "inputs_sha256": "5bf00e7557af95bd634143b3f7009262a0073dd86df2cc10a4c1be4d55983303"
+  }
+ },
+ "generated_at": "2026-11-18T21:52:06.760512+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

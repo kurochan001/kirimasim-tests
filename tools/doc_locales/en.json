@@ -23709,6 +23709,26 @@
     "Wide ZXQPH0QXZ -vector queries preserve controls argument and result semantics": "Wide ZXQPH0QXZ -vector queries preserve controls argument and result semantics",
     "Wide ZXQPH0QXZ -vector queries preserve controls argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "Wide ZXQPH0QXZ -vector queries preserve controls argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )",
     "Wide ZXQPH0QXZ -vector queries preserve constant argument and result semantics": "Wide ZXQPH0QXZ -vector queries preserve constant argument and result semantics",
-    "Wide ZXQPH0QXZ -vector queries preserve constant argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "Wide ZXQPH0QXZ -vector queries preserve constant argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )"
+    "Wide ZXQPH0QXZ -vector queries preserve constant argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "Wide ZXQPH0QXZ -vector queries preserve constant argument and result semantics ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )",
+    "Array queries preserve offset and negative ZXQPH0QXZ bounds": "Array queries preserve offset and negative ZXQPH0QXZ bounds",
+    "Array queries preserve offset and negative ZXQPH0QXZ bounds ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "Array queries preserve offset and negative ZXQPH0QXZ bounds ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )",
+    "Array queries number ZXQPH0QXZ dimensions before ZXQPH1QXZ dimensions": "Array queries number ZXQPH0QXZ dimensions before ZXQPH1QXZ dimensions",
+    "Array queries number ZXQPH0QXZ dimensions before ZXQPH1QXZ dimensions ( ZXQPH2QXZ ZXQPH3QXZ Section ZXQPH4QXZ )": "Array queries number ZXQPH0QXZ dimensions before ZXQPH1QXZ dimensions ( ZXQPH2QXZ ZXQPH3QXZ Section ZXQPH4QXZ )",
+    "Array queries expand nested ZXQPH0QXZ dimensions before numbering": "Array queries expand nested ZXQPH0QXZ dimensions before numbering",
+    "Array queries expand nested ZXQPH0QXZ dimensions before numbering ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "Array queries expand nested ZXQPH0QXZ dimensions before numbering ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )",
+    "Array queries give singleton ranges a positive increment": "Array queries give singleton ranges a positive increment",
+    "Array queries give singleton ranges a positive increment ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Array queries give singleton ranges a positive increment ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Constant array queries determine a new ZXQPH0QXZ type width": "Constant array queries determine a new ZXQPH0QXZ type width",
+    "Constant array queries determine a new ZXQPH0QXZ type width ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "Constant array queries determine a new ZXQPH0QXZ type width ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )",
+    "Out-of-range array dimensions return full-width unknown integers": "Out-of-range array dimensions return full-width unknown integers",
+    "Out-of-range array dimensions return full-width unknown integers ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Out-of-range array dimensions return full-width unknown integers ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Array queries track dynamic allocation, resizing and deletion": "Array queries track dynamic allocation, resizing and deletion",
+    "Array queries track dynamic allocation, resizing and deletion ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Array queries track dynamic allocation, resizing and deletion ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Array queries track queue insertion, removal and deletion": "Array queries track queue insertion, removal and deletion",
+    "Array queries track queue insertion, removal and deletion ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Array queries track queue insertion, removal and deletion ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Runtime bits queries measure the current dynamic array contents": "Runtime bits queries measure the current dynamic array contents",
+    "Runtime bits queries measure the current dynamic array contents ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Runtime bits queries measure the current dynamic array contents ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Runtime bits queries measure the current queue contents": "Runtime bits queries measure the current queue contents",
+    "Runtime bits queries measure the current queue contents ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Runtime bits queries measure the current queue contents ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )"
   }
 }

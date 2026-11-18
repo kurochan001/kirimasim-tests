@@ -1,0 +1,130 @@
+{
+  "schema": 1,
+  "kind": "Representative black-box diagnostics; not expected-value derivation or oracle qualification",
+  "recorded_at": "2026-11-18T21:44:23.658159+00:00",
+  "simulator": "icarus",
+  "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+  "records": [
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_typedef_w33.sv",
+      "inputs_sha256": "47e797533135ec30c9d9d21cb36e948549c48743b424072f0c41421929511a0e",
+      "source_sha256": "2f1096cd54311c7826526fde6530827f39b5260fa7c556f3d3d1da2a6cd54c99",
+      "compile_exit": 52,
+      "compile_stdout_excerpt": [],
+      "compile_stderr_excerpt": [
+        "tests/gen/ch20/test_gen_array_shape_typedef_w33.sv:35: error: Type names are not valid expressions here.",
+        "tests/gen/ch20/test_gen_array_shape_typedef_w33.sv:35: internal error: I do not know how to elaborate this expression. ",
+        "tests/gen/ch20/test_gen_array_shape_typedef_w33.sv:35:               : Expression is: <type>",
+        "tests/gen/ch20/test_gen_array_shape_typedef_w33.sv:35:               : Expression type: 10PETypename",
+        "tests/gen/ch20/test_gen_array_shape_typedef_w33.sv:35: error: Type names are not valid expressions here.",
+        "tests/gen/ch20/test_gen_array_shape_typedef_w33.sv:35: internal error: I do not know how to elaborate this expression. ",
+        "tests/gen/ch20/test_gen_array_shape_typedef_w33.sv:35:               : Expression is: <type>",
+        "tests/gen/ch20/test_gen_array_shape_typedef_w33.sv:35:               : Expression type: 10PETypename"
+      ]
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_packed_w33.sv",
+      "inputs_sha256": "308425a7e90dc8796ae108ac9a8619abcbe9fc63e6d7fe4ef72cc2968773e86d",
+      "source_sha256": "83c724cfd1ef11a3cc0494c9f067c3de89d7b07824f584b5d180cac059d47ee9",
+      "compile_exit": 0,
+      "compile_stdout_excerpt": [],
+      "compile_stderr_excerpt": [],
+      "run_exit": 1,
+      "run_stdout_excerpt": [
+        "ERROR: tests/gen/ch20/test_gen_array_shape_packed_w33.sv:32: $left expects an array and optionally an integer.",
+        "ERROR: tests/gen/ch20/test_gen_array_shape_packed_w33.sv:32: $right expects an array and optionally an integer.",
+        "ERROR: tests/gen/ch20/test_gen_array_shape_packed_w33.sv:33: $low has too many arguments.",
+        "ERROR: tests/gen/ch20/test_gen_array_shape_packed_w33.sv:33: $high has too many arguments.",
+        "ERROR: tests/gen/ch20/test_gen_array_shape_packed_w33.sv:34: $increment expects an array and optionally an integer.",
+        "ERROR: tests/gen/ch20/test_gen_array_shape_packed_w33.sv:34: $size argument must be a dynamic array, queue or string, given a vpiBitVar.",
+        "ERROR: tests/gen/ch20/test_gen_array_shape_packed_w33.sv:34: $size has too many arguments."
+      ],
+      "run_stderr_excerpt": [],
+      "stdout_excerpt_truncated": false
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_dynamic_w33.sv",
+      "inputs_sha256": "0a5c872c36a3a833e9cd7aa30071199657a38647893298e7fa14e2190c9b2528",
+      "source_sha256": "2e7d981bae52daedc3882871cde34b2cdfefe42026e1a9ea9d867f284465866d",
+      "compile_exit": 0,
+      "compile_stdout_excerpt": [],
+      "compile_stderr_excerpt": [],
+      "run_exit": 1,
+      "run_stdout_excerpt": [
+        "ERROR: tests/gen/ch20/test_gen_array_shape_dynamic_w33.sv:32: $low has too many arguments.",
+        "ERROR: tests/gen/ch20/test_gen_array_shape_dynamic_w33.sv:32: $high has too many arguments.",
+        "ERROR: tests/gen/ch20/test_gen_array_shape_dynamic_w33.sv:33: $size has too many arguments.",
+        "ERROR: tests/gen/ch20/test_gen_array_shape_dynamic_w33.sv:36: $low has too many arguments.",
+        "ERROR: tests/gen/ch20/test_gen_array_shape_dynamic_w33.sv:36: $high has too many arguments.",
+        "ERROR: tests/gen/ch20/test_gen_array_shape_dynamic_w33.sv:37: $size has too many arguments.",
+        "ERROR: tests/gen/ch20/test_gen_array_shape_dynamic_w33.sv:45: $low has too many arguments.",
+        "ERROR: tests/gen/ch20/test_gen_array_shape_dynamic_w33.sv:45: $high has too many arguments."
+      ],
+      "run_stderr_excerpt": [],
+      "stdout_excerpt_truncated": true
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_queue_w33.sv",
+      "inputs_sha256": "0167e4f8ab29cee46f5fad20fcb528d8268323d0082a2ddd6b0b2e8de4303066",
+      "source_sha256": "6c6e63d6521eeef537c48bba2e08b45832a6c76138cddc61476e4ddbe537fd13",
+      "compile_exit": 0,
+      "compile_stdout_excerpt": [],
+      "compile_stderr_excerpt": [],
+      "run_exit": 1,
+      "run_stdout_excerpt": [
+        "ERROR: tests/gen/ch20/test_gen_array_shape_queue_w33.sv:32: $low has too many arguments.",
+        "ERROR: tests/gen/ch20/test_gen_array_shape_queue_w33.sv:32: $high has too many arguments.",
+        "ERROR: tests/gen/ch20/test_gen_array_shape_queue_w33.sv:33: $size has too many arguments.",
+        "ERROR: tests/gen/ch20/test_gen_array_shape_queue_w33.sv:36: $low has too many arguments.",
+        "ERROR: tests/gen/ch20/test_gen_array_shape_queue_w33.sv:36: $high has too many arguments.",
+        "ERROR: tests/gen/ch20/test_gen_array_shape_queue_w33.sv:37: $size has too many arguments.",
+        "ERROR: tests/gen/ch20/test_gen_array_shape_queue_w33.sv:44: $low has too many arguments.",
+        "ERROR: tests/gen/ch20/test_gen_array_shape_queue_w33.sv:44: $high has too many arguments."
+      ],
+      "run_stderr_excerpt": [],
+      "stdout_excerpt_truncated": true
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_dynamic_bits_w33.sv",
+      "inputs_sha256": "208eb3dd4a22f6f26b055a530084bc6377281eaa3bd4eb4eda485825b1fd2e62",
+      "source_sha256": "b212a7f26f813fd88f98aab01f977f8012302baeb905b30ebb5972ec32d74f03",
+      "compile_exit": 0,
+      "compile_stdout_excerpt": [],
+      "compile_stderr_excerpt": [],
+      "run_exit": 0,
+      "run_stdout_excerpt": [
+        "width=33 form=dynamic_bits",
+        "empty bits=1 method=0",
+        "three bits=1 method=3",
+        "three_first=111111111111111111111111111111111",
+        "five bits=1 method=5",
+        "five_first=111111111111111111111111111111111",
+        "one bits=1 method=1",
+        "one_first=111111111111111111111111111111111"
+      ],
+      "run_stderr_excerpt": [],
+      "stdout_excerpt_truncated": true
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_array_shape_queue_bits_w33.sv",
+      "inputs_sha256": "f377ce179e3304b52e28ecdc41e89b1032691ba2987f4264a52d314f951c680b",
+      "source_sha256": "507ece1db737f1e8319a2d5a5f28ebe0c6f0d631048169650750b84d52dfbe46",
+      "compile_exit": 0,
+      "compile_stdout_excerpt": [],
+      "compile_stderr_excerpt": [],
+      "run_exit": 0,
+      "run_stdout_excerpt": [
+        "width=33 form=queue_bits",
+        "empty bits=1 method=0",
+        "one bits=1 method=1",
+        "one_first=111111111111111111111111111111111",
+        "two bits=1 method=2",
+        "two_first=000000000000000000000000000000000",
+        "popped bits=1 method=1",
+        "popped_first=111111111111111111111111111111111"
+      ],
+      "run_stderr_excerpt": [],
+      "stdout_excerpt_truncated": true
+    }
+  ]
+}

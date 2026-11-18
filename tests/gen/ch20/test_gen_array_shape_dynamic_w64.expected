@@ -1,0 +1,19 @@
+width=64 form=dynamic
+empty dims=2 unpacked=1 element_bits=64 method=0
+empty_outer left=0 right=-1 low=0 high=-1 inc=-1 size=0
+empty_packed left=-3 right=60 low=-3 high=60 inc=-1 size=64
+three dims=2 unpacked=1 element_bits=64 method=3
+three_outer left=0 right=2 low=0 high=2 inc=-1 size=3
+three_packed left=-3 right=60 low=-3 high=60 inc=-1 size=64
+three_first=1111111111111111111111111111111111111111111111111111111111111111
+five dims=2 unpacked=1 element_bits=64 method=5
+five_outer left=0 right=4 low=0 high=4 inc=-1 size=5
+five_packed left=-3 right=60 low=-3 high=60 inc=-1 size=64
+five_first=1111111111111111111111111111111111111111111111111111111111111111
+one dims=2 unpacked=1 element_bits=64 method=1
+one_outer left=0 right=0 low=0 high=0 inc=-1 size=1
+one_packed left=-3 right=60 low=-3 high=60 inc=-1 size=64
+one_first=1111111111111111111111111111111111111111111111111111111111111111
+deleted dims=2 unpacked=1 element_bits=64 method=0
+deleted_outer left=0 right=-1 low=0 high=-1 inc=-1 size=0
+deleted_packed left=-3 right=60 low=-3 high=60 inc=-1 size=64
