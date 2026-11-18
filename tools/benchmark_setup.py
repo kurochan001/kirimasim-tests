@@ -38,11 +38,28 @@ def command(args,cwd=None,log=None,private_roots=()):
 
 
 def resolve(config):
-    output=command(['git','ls-remote','--exit-code',config['latest_repository'],config['latest_ref']])
-    sha=output.split()[0]
-    if not re.fullmatch('[0-9a-f]{40}',sha):
-        raise ValueError('could not resolve latest commit')
-    return {'schema':1,'resolved_at':now(),'latest_commit':sha,'config_sha256':digest(ROOT/'bench/daily.json')}
+    def revision(repository,ref):
+        output=command(['git','ls-remote','--exit-code',repository,ref])
+        rows=[line.split() for line in output.splitlines()]
+        if len(rows)!=1 or len(rows[0])!=2 or rows[0][1]!=ref or not re.fullmatch('[0-9a-f]{40}',rows[0][0]):
+            raise ValueError('could not resolve a unique commit for '+ref)
+        return rows[0][0]
+    sha=revision(config['latest_repository'],config['latest_ref'])
+    moving={name:revision(spec['repository'],spec['ref']) for name,spec in config['tools'].items() if spec.get('ref')}
+    plan={'schema':1,'resolved_at':now(),'latest_commit':sha,'resolved_tools':moving,'config_sha256':digest(ROOT/'bench/daily.json')}
+    plan['cache_revision']=identity(commits(config,plan))
+    return plan
+
+
+def commits(config,plan):
+    moving=plan.get('resolved_tools',{})
+    if set(moving)!={name for name,spec in config['tools'].items() if spec.get('ref')}:
+        raise ValueError('missing or unexpected resolved tool')
+    result={name:plan['latest_commit'] if name=='latest' else moving[name] if spec.get('ref') else spec['commit']
+            for name,spec in config['tools'].items()}
+    if any(not re.fullmatch('[0-9a-f]{40}',sha) for sha in result.values()):
+        raise ValueError('all tool commits must be resolved full SHAs')
+    return result
 
 
 def checkout(repository,commit,path,log):
@@ -58,6 +75,7 @@ def prepare(args,config):
     plan=json.loads(args.plan.read_text())
     if plan['config_sha256']!=digest(ROOT/'bench/daily.json'):
         raise ValueError('definition changed since resolution')
+    revisions=commits(config,plan)
     args.root.mkdir(parents=True,exist_ok=True)
     args.install.mkdir(parents=True,exist_ok=True)
     compiler=command([os.environ.get('CXX','c++'),'--version']).splitlines()[0]
@@ -68,16 +86,16 @@ def prepare(args,config):
         return command(arguments,cwd,log,private_roots=(args.root,args.install))
     tools={}
     for name,spec in config['tools'].items():
-        commit=plan['latest_commit'] if name=='latest' else spec['commit']
+        commit=revisions[name]
         repository=config['latest_repository'] if name=='latest' else spec['repository']
         prefix=args.install/name
-        executable=prefix/('bin/iverilog' if name=='icarus' else 'bin/verilator' if name=='verilator' else 'bin/kirimasim')
+        executable=prefix/('bin/iverilog' if spec['kind']=='icarus' else 'bin/verilator' if spec['kind']=='verilator' else 'bin/kirimasim')
         receipt=prefix/'receipt.json'
         cache_identity=identity({'commit':commit,'compiler':compiler,'c_compiler':c_compiler,'flags':flags,
             'os':platform.platform(),'arch':platform.machine(),'install_prefix':str(prefix.resolve()),'setup_sha256':digest(__file__)})
         previous=json.loads(receipt.read_text()) if receipt.exists() else None
         cached=bool(previous and previous['cache_identity']==cache_identity and executable.exists() and previous['binary_sha256']==digest(executable))
-        if name=='icarus' and cached:
+        if spec['kind']=='icarus' and cached:
             cached=previous.get('vvp_sha256')==digest(executable.with_name('vvp'))
         if cached:
             cached=all((prefix/p).is_file() and digest(prefix/p)==h for p,h in previous.get('components_sha256',{}).items()) and bool(previous.get('components_sha256'))
@@ -95,14 +113,14 @@ def prepare(args,config):
                 shutil.copy2(source/'build/release/src/driver/kirimasim',executable)
             else:
                 # Build-only black boxes: no source text or upstream tests are read.
-                run(['sh','autoconf.sh'] if name=='icarus' else ['autoconf'],source,log)
+                run(['sh','autoconf.sh'] if spec['kind']=='icarus' else ['autoconf'],source,log)
                 options=['./configure','--prefix='+str(prefix.resolve())]
                 run(options,source,log)
                 run(['make','-j'+str(args.jobs)],source,log)
                 run(['make','install'],source,log)
             previous={'cache_identity':cache_identity,'commit':commit,'binary_sha256':digest(executable),
                 'build':{'seconds':time.monotonic()-start,'compiler':compiler,'c_compiler':c_compiler,'flags':flags,'finished_at':now()}}
-            if name=='icarus':
+            if spec['kind']=='icarus':
                 previous['vvp_sha256']=digest(executable.with_name('vvp'))
             previous['components_sha256']={p.relative_to(prefix).as_posix():digest(p) for p in prefix.rglob('*') if p.is_file() and p!=receipt}
             write_json(receipt,previous)

@@ -145,7 +145,7 @@ class DailyBenchmarkTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             directory=Path(tmp);first=campaign();first['definition_config']['definition']='test-v1';history.append(directory,first)
             other=campaign();other['series']='different-definition';other['id']='other';other['definition_config']['definition']='test-v2';history.append(directory,other)
-            self.assertEqual(len(list((directory/'charts').iterdir())),2)
+            self.assertEqual(sum(p.is_dir() for p in (directory/'charts').iterdir()),2)
             report=(directory/'README.ja.md').read_text()
             self.assertIn('test-v1',report);self.assertIn('test-v2',report)
             self.assertIn('ケース数: **1**',report)
@@ -195,12 +195,12 @@ class DailyBenchmarkTests(unittest.TestCase):
             'casez_struct','comb_chain','dyn_queue','fork_join','func_call',
             'gate_udp','mem_rw','nba_burst','nba_shift','proc_wait','string_fmt',
             'wide_arith','fourstate_mix'})
-        self.assertEqual(config['definition'],'daily-v3-expanded')
+        self.assertEqual(config['definition'],'daily-v4-icarus14')
         for group in config['groups'][:5]:
             self.assertEqual(len(group['cases']),12 if group['name'].endswith('-common') else 1)
-        for group in config['groups'][5:]:
+        for group in config['groups'][5:10]:
             self.assertEqual(len(group['cases']),22 if group['name'].endswith('-common') else 3)
-        self.assertEqual(len(config['groups']),10)
+        self.assertEqual(len(config['groups']),11)
         self.assertEqual(config['benchmark_source']['commit'],config['tools']['baseline']['commit'])
         for name in ('baseline','icarus','verilator'):
             self.assertRegex(config['tools'][name]['commit'],r'^[0-9a-f]{40}$')
@@ -224,11 +224,11 @@ class DailyBenchmarkTests(unittest.TestCase):
         day=daily.config_at(daily.DEFAULT_CONFIG)
         week=daily.config_at(daily.DEFAULT_CONFIG,'weekly')
         self.assertEqual(week['profile'],'weekly')
-        self.assertEqual(week['definition'],'weekly-v1-scale')
+        self.assertEqual(week['definition'],'weekly-v2-icarus14')
         names={c['name'] for c in week['cases']}
         self.assertEqual(names,{'large_hierarchy','large_memory','stream_pipeline'})
         self.assertFalse(names & {c['name'] for c in day['cases']})
-        self.assertEqual(len(week['groups']),3)
+        self.assertEqual(len(week['groups']),4)
         for g in week['groups']:self.assertEqual(set(g['cases']),names)
         self.assertEqual(week['tools'],day['tools'])
         self.assertEqual(week['measurement'],day['measurement'])

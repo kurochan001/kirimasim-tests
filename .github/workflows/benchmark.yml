@@ -43,7 +43,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - name: Record start and resolve latest exactly once
+      - name: Record start and resolve both development heads exactly once
         id: plan
         run: |
           set -euo pipefail
@@ -52,6 +52,8 @@ jobs:
           date -u +%Y-%m-%dT%H:%M:%SZ > "$RUNNER_TEMP/benchmark-output/start.txt"
           sha=$(python3 tools/benchmark_setup.py resolve --out "$RUNNER_TEMP/benchmark-build/plan.json")
           echo "sha=$sha" >> "$GITHUB_OUTPUT"
+          revision=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["cache_revision"])' "$RUNNER_TEMP/benchmark-build/plan.json")
+          echo "revision=$revision" >> "$GITHUB_OUTPUT"
           conditions=$( { uname -sm; "$CXX" --version; printf '%s' "${ImageVersion:-fixed-runner}"; } | sha256sum | cut -d' ' -f1)
           echo "conditions=$conditions" >> "$GITHUB_OUTPUT"
       - name: Install build prerequisites
@@ -63,7 +65,7 @@ jobs:
         uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ${{ runner.temp }}/benchmark-install
-          key: benchmark-${{ runner.os }}-${{ runner.arch }}-${{ steps.plan.outputs.conditions }}-${{ hashFiles('bench/daily.json', 'tools/benchmark_setup.py') }}-${{ steps.plan.outputs.sha }}
+          key: benchmark-${{ runner.os }}-${{ runner.arch }}-${{ steps.plan.outputs.conditions }}-${{ hashFiles('bench/daily.json', 'tools/benchmark_setup.py') }}-${{ steps.plan.outputs.revision }}
           # A case-only definition update may reuse installed tools. Receipts
           # still verify commit, compiler, settings, prefix and every file hash.
           restore-keys: |
@@ -119,6 +121,7 @@ jobs:
           text=(Path(os.environ['RUNNER_TEMP'])/'benchmark-preview/README.md').read_text()
           base=os.environ['GITHUB_SERVER_URL']+'/'+os.environ['GITHUB_REPOSITORY']
           text=text.replace('](runs/', ']('+base+'/blob/benchmark-results/runs/')
+          text=text.replace('](headline.json)', ']('+base+'/blob/benchmark-results/headline.json)')
           text=text.replace('](latest-', ']('+base+'/blob/benchmark-results/latest-')
           text=text.replace('](charts/', ']('+base+'/raw/refs/heads/benchmark-results/charts/')
           with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as stream:
@@ -169,7 +172,7 @@ jobs:
           test "$(printf '%s\n' "$result" | wc -l)" -eq 1
           python3 tools/benchmark_history.py append --directory history "$result"
           cd history
-          git add runs history.json latest*.json charts README.md README.ja.md
+          git add runs history.json latest*.json headline.json charts README.md README.ja.md
           if ! git diff --cached --quiet; then
             git -c user.name='github-actions[bot]' \
               -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \

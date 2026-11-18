@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "definition": "bench-v3-expanded",
+  "definition": "bench-v4-icarus14",
   "benchmark_source": {
     "repository": "https://github.com/kurochan001/kirimasim.git",
     "commit": "cfa2ccd75989c1ebb9ed63303271183377364cf0",
@@ -33,6 +33,12 @@
       "tag": "v5.054",
       "commit": "bbb60a403932a9f695cb6ff001ceb73de6ad9234",
       "version_pattern": "Verilator 5\\.054"
+    },
+    "icarus_devel": {
+      "kind": "icarus",
+      "repository": "https://github.com/steveicarus/iverilog.git",
+      "ref": "refs/heads/master",
+      "version_pattern": "version 14\\.0.*devel"
     }
   },
   "measurement": {
@@ -534,6 +540,46 @@
         "large_memory",
         "stream_pipeline"
       ]
+    },
+    {
+      "name": "daily-overall-icarus14",
+      "peer": "icarus_devel",
+      "cases": [
+        "casez_struct",
+        "comb_chain",
+        "dyn_queue",
+        "fork_join",
+        "func_call",
+        "gate_udp",
+        "mem_rw",
+        "nba_burst",
+        "nba_shift",
+        "proc_wait",
+        "string_fmt",
+        "wide_arith",
+        "fourstate_mix",
+        "fifo_stream",
+        "uart_loopback",
+        "bus_fabric",
+        "hierarchy_fanout",
+        "event_fanout",
+        "word_boundary",
+        "wide_divide",
+        "packed_slice",
+        "memory_scatter",
+        "clock_domains",
+        "fourstate_arith",
+        "resolved_bus"
+      ]
+    },
+    {
+      "name": "weekly-icarus14-common",
+      "peer": "icarus_devel",
+      "cases": [
+        "large_hierarchy",
+        "large_memory",
+        "stream_pipeline"
+      ]
     }
   ],
   "reference_sources": {
@@ -542,7 +588,7 @@
   },
   "profiles": {
     "daily": {
-      "definition": "daily-v3-expanded",
+      "definition": "daily-v4-icarus14",
       "cases": [
         "casez_struct",
         "comb_chain",
@@ -580,11 +626,12 @@
         "expanded-regression-fourstate",
         "expanded-icarus-common",
         "expanded-icarus-fourstate",
-        "expanded-verilator-common"
+        "expanded-verilator-common",
+        "daily-overall-icarus14"
       ]
     },
     "weekly": {
-      "definition": "weekly-v1-scale",
+      "definition": "weekly-v2-icarus14",
       "cases": [
         "large_hierarchy",
         "large_memory",
@@ -593,7 +640,8 @@
       "groups": [
         "weekly-regression",
         "weekly-icarus",
-        "weekly-verilator"
+        "weekly-verilator",
+        "weekly-icarus14-common"
       ]
     }
   }

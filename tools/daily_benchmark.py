@@ -250,7 +250,7 @@ def measure(args):
     if inventory:
         executables.update({k:v['executable'] for k,v in inventory['tools'].items()})
     if set(executables) != set(config['tools']):
-        raise ValueError('provide latest, baseline, icarus and verilator executables')
+        raise ValueError('provide executables for every configured tool: '+', '.join(config['tools']))
     executables = {k:shared.executable(v) for k,v in executables.items()}
     latest = inventory['latest_commit'] if inventory else args.latest_commit
     if not latest or not re.fullmatch('[0-9a-f]{40}', latest):
@@ -272,30 +272,43 @@ def measure(args):
         text = re.sub(r'/(?:Users|home)/[^/\\\s"\']+', '${HOME}', text)
         text = re.sub(r'/(?:private/)?(?:tmp|var/folders)/[^\s"\']+', '${TEMP}', text)
         return json.loads(text)
+    external_commits=dict(s.split('=',1) for s in args.tool_commit)
+    if not set(external_commits)<={name for name,spec in config['tools'].items() if spec.get('ref')}:
+        raise ValueError('--tool-commit is only for configured tracking tools')
     tools = {}
     protected = {str(Path(__file__)): shared.digest(__file__), str(ROOT/'tools/benchmark_compare.py'):shared.digest(ROOT/'tools/benchmark_compare.py'), str(ROOT/'tools/benchmark_history.py'):shared.digest(ROOT/'tools/benchmark_history.py'), str(args.config.resolve()): shared.digest(args.config), str(source): shared.digest(source)}
     for name, executable in executables.items():
         kind = config['tools'][name]['kind']
         flag = '-V' if kind == 'icarus' else '--version'
         version = adapter_module.text_of([executable, flag])
-        commit = latest if name == 'latest' else config['tools'][name]['commit']
+        spec=config['tools'][name]
+        if name=='latest':
+            commit=latest
+        elif spec.get('ref'):
+            commit=inventory['tools'][name]['commit'] if inventory else external_commits.get(name)
+        else:
+            commit=spec['commit']
+        if not commit or not re.fullmatch('[0-9a-f]{40}',commit):
+            raise ValueError(name+' commit must be resolved once to a full SHA')
         if kind == 'kirimasim' and commit[:12] not in version:
             raise ValueError(name+' version does not match declared commit')
+        if kind=='icarus' and spec.get('ref') and commit[:7] not in version:
+            raise ValueError(name+' development version does not match declared commit')
         pattern = config['tools'][name].get('version_pattern')
         if pattern and not re.search(pattern, version):
-            raise ValueError(name+' does not match fixed release')
+            raise ValueError(name+' does not match the configured version family')
         binary_hash = shared.digest(executable)
         if inventory and (inventory['tools'][name]['commit'] != commit or inventory['tools'][name]['binary_sha256'] != binary_hash):
             raise ValueError('prepared binary receipt mismatch')
         protected[executable] = binary_hash
         tools[name] = {'kind':kind,'commit':commit,'version':version,'binary_sha256':binary_hash,
                        'simulator_build':inventory['tools'][name]['build'] if inventory else {'provenance':'externally supplied; verify build flags separately'}}
-    vvp = Path(executables['icarus']).with_name('vvp')
-    protected[str(vvp)] = shared.digest(vvp)
-    verilator_bin=Path(executables['verilator']).with_name('verilator_bin')
-    protected[str(verilator_bin)]=shared.digest(verilator_bin)
-    tools['verilator']['verilator_bin_sha256']=protected[str(verilator_bin)]
-    tools['icarus']['vvp_sha256'] = protected[str(vvp)]
+    for name,executable in executables.items():
+        companion={'icarus':'vvp','verilator':'verilator_bin'}.get(config['tools'][name]['kind'])
+        if companion:
+            path=Path(executable).with_name(companion)
+            protected[str(path)]=shared.digest(path)
+            tools[name][companion+'_sha256']=protected[str(path)]
     selected = config['cases']
     if args.only:
         if not args.smoke or not set(args.only) <= {c['name'] for c in selected}:
@@ -373,6 +386,7 @@ def main():
     p.add_argument('--inventory',type=Path)
     p.add_argument('--benchmark-root',type=Path)
     p.add_argument('--tool',action='append',default=[],metavar='NAME=EXECUTABLE')
+    p.add_argument('--tool-commit',action='append',default=[],metavar='NAME=SHA',help='resolved full SHA for externally supplied tracking tools')
     p.add_argument('--latest-commit')
     p.add_argument('--out',type=Path,required=True)
     p.add_argument('--smoke',action='store_true')
