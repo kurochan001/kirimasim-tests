@@ -322,7 +322,7 @@ tests/ch6/test_automatic_data_declarations_in_static_procedural_scopes.sv",Maint
 6,Data types,10,Assignment statements,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,1058,"tests/ch10/test_alias_undeclared_name_implicit_net.sv
 tests/ch10/test_array_pattern_index_type_default_keys.sv
 tests/ch10/test_assignment_like_contexts.sv",Maintaining the planning and execution evidence of existing models.,,
-6,Data types,11,Operators and expressions,M,Modeling licensed,登録済み,14,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,2121,"tests/ch11/test_A_extra_specparam_range.sv
+6,Data types,11,Operators and expressions,M,Modeling licensed,登録済み,14,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,2175,"tests/ch11/test_A_extra_specparam_range.sv
 tests/ch11/test_a8_3_a8_4_constant_primaries.sv
 tests/ch11/test_concatenation_pattern_string_operand_and_replication_once.sv",Maintaining the planning and execution evidence of existing models.,,
 6,Data types,12,Procedural programming statements,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,308,"tests/ch11/test_propagated_operand_sign.sv

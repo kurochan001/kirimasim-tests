@@ -23761,6 +23761,18 @@
     "Runtime wide division and remainder handle extrema and fixed-width overflow": "Runtime wide division and remainder handle extrema and fixed-width overflow",
     "Runtime wide division and remainder handle extrema and fixed-width overflow ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Runtime wide division and remainder handle extrema and fixed-width overflow ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
     "Compound wide division and remainder evaluate an array index exactly once": "Compound wide division and remainder evaluate an array index exactly once",
-    "Compound wide division and remainder evaluate an array index exactly once ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Compound wide division and remainder evaluate an array index exactly once ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )"
+    "Compound wide division and remainder evaluate an array index exactly once ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Compound wide division and remainder evaluate an array index exactly once ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Wide vector truth uses all bits before logical results become two-state": "Wide vector truth uses all bits before logical results become two-state",
+    "Wide vector truth uses all bits before logical results become two-state ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide vector truth uses all bits before logical results become two-state ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Wide bitwise controlling values preserve four-state word-boundary data": "Wide bitwise controlling values preserve four-state word-boundary data",
+    "Wide bitwise controlling values preserve four-state word-boundary data ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide bitwise controlling values preserve four-state word-boundary data ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Wide reductions observe controlling and unknown bits in every storage word": "Wide reductions observe controlling and unknown bits in every storage word",
+    "Wide reductions observe controlling and unknown bits in every storage word ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide reductions observe controlling and unknown bits in every storage word ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Wide equality distinguishes known mismatches and right-sided unknown wildcards": "Wide equality distinguishes known mismatches and right-sided unknown wildcards",
+    "Wide equality distinguishes known mismatches and right-sided unknown wildcards ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide equality distinguishes known mismatches and right-sided unknown wildcards ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Wide conditional selection and ambiguous merging preserve conversion order": "Wide conditional selection and ambiguous merging preserve conversion order",
+    "Wide conditional selection and ambiguous merging preserve conversion order ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide conditional selection and ambiguous merging preserve conversion order ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Wide four-state shifts preserve unknown data and inspect the complete shift amount": "Wide four-state shifts preserve unknown data and inspect the complete shift amount",
+    "Wide four-state shifts preserve unknown data and inspect the complete shift amount ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide four-state shifts preserve unknown data and inspect the complete shift amount ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )"
   }
 }

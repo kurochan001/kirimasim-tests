@@ -1,0 +1,236 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "gen/ch11/test_gen_fourstate_boundary_bitwise_w127": {
+   "status": "pass",
+   "inputs_sha256": "31ec14c13a40edfbc58eaaa85109da62d8c1c8251d63f666568e0a577a12f8f9"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_bitwise_w128": {
+   "status": "pass",
+   "inputs_sha256": "c728c8e38d80433167b8839d466bf8dca317481fb086aeafd6e36df0b7cbfb9f"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_bitwise_w129": {
+   "status": "pass",
+   "inputs_sha256": "a43ea1fef69bd863f8b786fa6ba18e5c14aebd1b1d97184f705dc8bf0d6138d0"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_bitwise_w255": {
+   "status": "pass",
+   "inputs_sha256": "9b51540a628d2186c3f6bb6dfe899a5ecdcb821fd1a0bffba7c88ee3dbe5a8d9"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_bitwise_w256": {
+   "status": "pass",
+   "inputs_sha256": "ae33189681da6959a39f2a4b6f5405d9b369f1e018a4a93395f40d30adf6a96b"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_bitwise_w257": {
+   "status": "pass",
+   "inputs_sha256": "ba9ac633ddaf87d79344d05ab8b98c8f1bf7a6c537b5ffeb669e30850de75f60"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_bitwise_w63": {
+   "status": "pass",
+   "inputs_sha256": "1a50fac2c4ecbe6b4a69e3dc09a9c9f59bc1dd42c94f430bfd3f364d11112b96"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_bitwise_w64": {
+   "status": "pass",
+   "inputs_sha256": "80de1da7dff3dd87c419ecaf8369267d44ccb8b2538155ea75965248421e68e3"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_bitwise_w65": {
+   "status": "pass",
+   "inputs_sha256": "399e706ff78fc6724339955d7a5f82050ceb1d4e185d9d967ba32502c5d15d32"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_compare_w127": {
+   "status": "pass",
+   "inputs_sha256": "f8f416d65d57443e6b9a488ea75a6e97c1cdf5519f4a79ab20af7e90eb850506"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_compare_w128": {
+   "status": "pass",
+   "inputs_sha256": "334866e03e70f77699385f30edf8008bd2cf54e8ca36731e490031012bfb59c5"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_compare_w129": {
+   "status": "pass",
+   "inputs_sha256": "1aacd5ca45a24e85800d336d0e440139dc8d4b6b7b47b03bb431a426f8ace0fc"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_compare_w255": {
+   "status": "pass",
+   "inputs_sha256": "c7ef96c0811228f2852946cf60da5774bdd052d766243da762ae081d52e5a707"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_compare_w256": {
+   "status": "pass",
+   "inputs_sha256": "ebe4f6fe90d7725eb4e51de67435d7495e9c8c14b6c53bf7a230bd1a54e240f3"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_compare_w257": {
+   "status": "pass",
+   "inputs_sha256": "de10e934a22e9fb385b7e71dac16853a75088c6f1c44b50acbe4db9a1e59c0b7"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_compare_w63": {
+   "status": "pass",
+   "inputs_sha256": "88b47c465cba2fdfdcb48d48761bfacf5f56ac8f5685d12bde9d0783946414e1"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_compare_w64": {
+   "status": "pass",
+   "inputs_sha256": "74cf2217ce8ed16495e65aa7e90e24af5c645734892e524f36c4f413cbea3f63"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_compare_w65": {
+   "status": "pass",
+   "inputs_sha256": "1b2f99817e3e917d857f526fc1cd799dffd6b9af30b5fd93802125aa9075583a"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_merge_w127": {
+   "status": "known",
+   "reason": "output differs: line 65 is 'p4_unknown_raw=101010010101010010101010110101010100101010...', expected 'p4_unknown_raw=101010010101010010101010110101010100101010...'",
+   "inputs_sha256": "45678505e07ec6cfb0ee1f5af306de81d5df046dbb1a5c5fddbbc49184521b0d"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_merge_w128": {
+   "status": "known",
+   "reason": "output differs: line 65 is 'p4_unknown_raw=101010010101010010101010110101010100101010...', expected 'p4_unknown_raw=101010010101010010101010110101010100101010...'",
+   "inputs_sha256": "780331d9e629de82e4e0e16f59b541cfe4a50077a3c0d53048c23bede3daeaa7"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_merge_w129": {
+   "status": "known",
+   "reason": "output differs: line 65 is 'p4_unknown_raw=101010010101010010101010110101010100101010...', expected 'p4_unknown_raw=101010010101010010101010110101010100101010...'",
+   "inputs_sha256": "87be15ca0bf0b66b4ec1f36f5a29373f0ec0f672fd1169ee91ecc4c8b1e97b85"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_merge_w255": {
+   "status": "known",
+   "reason": "output differs: line 65 is 'p4_unknown_raw=101010010101010010101010110101010100101010...', expected 'p4_unknown_raw=101010010101010010101010110101010100101010...'",
+   "inputs_sha256": "8dac00d2254c3ed5f05323be8fa07117c7f22205a52a6376437e9f59d011cb46"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_merge_w256": {
+   "status": "known",
+   "reason": "output differs: line 65 is 'p4_unknown_raw=101010010101010010101010110101010100101010...', expected 'p4_unknown_raw=101010010101010010101010110101010100101010...'",
+   "inputs_sha256": "099d790307cd0a7d15943bda123a489f6f6533552fdc641974f7e472258ab3fa"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_merge_w257": {
+   "status": "known",
+   "reason": "output differs: line 65 is 'p4_unknown_raw=101010010101010010101010110101010100101010...', expected 'p4_unknown_raw=101010010101010010101010110101010100101010...'",
+   "inputs_sha256": "1b0fc701d69de11e3b3ff31dcbbce47130be5203b4f5ddeeb5129530d53a36b8"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_merge_w63": {
+   "status": "known",
+   "reason": "output differs: line 65 is 'p4_unknown_raw=101010010101010010101010110101010100101010...', expected 'p4_unknown_raw=101010010101010010101010110101010100101010...'",
+   "inputs_sha256": "2a69dfe1f75dd0fe4c3c7672cfdc8789a484ce11aa5589cf04220412d07c7aa2"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_merge_w64": {
+   "status": "known",
+   "reason": "output differs: line 65 is 'p4_unknown_raw=101010010101010010101010110101010100101010...', expected 'p4_unknown_raw=101010010101010010101010110101010100101010...'",
+   "inputs_sha256": "25fbc888051d0374cc4a6445bf43eb0bb52baaeb38318d69377a44621e1c7f68"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_merge_w65": {
+   "status": "known",
+   "reason": "output differs: line 65 is 'p4_unknown_raw=101010010101010010101010110101010100101010...', expected 'p4_unknown_raw=101010010101010010101010110101010100101010...'",
+   "inputs_sha256": "efeb32dac6cb7e6840859e5a1e9af4b54caf3da97dfa096f80211c33850b01c2"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_reduction_w127": {
+   "status": "pass",
+   "inputs_sha256": "fea9c1ef6733ee237e502b5484ca994723ad3bd593a7fdd5c562bf709e78957c"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_reduction_w128": {
+   "status": "pass",
+   "inputs_sha256": "f9f614c8727fba704424be84319a6533cc0cb3f99f16ce8a03377f30819f4978"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_reduction_w129": {
+   "status": "pass",
+   "inputs_sha256": "354e6e828d1b15bb75277e94c0cc18a863454f081299cb86bfdfe785102e6f4a"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_reduction_w255": {
+   "status": "pass",
+   "inputs_sha256": "351d3941a3de53f2676c37811a88155df77b8fcffac2ff4afda08a14a60db3d9"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_reduction_w256": {
+   "status": "pass",
+   "inputs_sha256": "19792104249949a2be468d1e7b2bd47f838c95a2deb6bc7e0be1943196f5eda2"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_reduction_w257": {
+   "status": "pass",
+   "inputs_sha256": "51f814895d96edc015b2f9ceca18cc69381d87158d88ddef7297f052c1ded058"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_reduction_w63": {
+   "status": "pass",
+   "inputs_sha256": "9aea26b34cf4cbc4f81ea67f6016a9238f2da62a2195115e0d752831d3ae2b62"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_reduction_w64": {
+   "status": "pass",
+   "inputs_sha256": "d21ab44ae84759555759792161a47104bea02a4288f188abb969404198c1ea1e"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_reduction_w65": {
+   "status": "pass",
+   "inputs_sha256": "0a9ffbf2ef8f228b831ef75a5949925112c4ccb4d81b0e2c9ba871518d5a45c2"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_shift_w127": {
+   "status": "pass",
+   "inputs_sha256": "7d9f24103c19ab18db8849acff255fe49a8089d6f9b0e9bb2fc3558fd5619b02"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_shift_w128": {
+   "status": "pass",
+   "inputs_sha256": "0b952ff7f9e0cc80d8d28554d8e27e35a14297cee0c6c74ca784f83a20ae915b"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_shift_w129": {
+   "status": "pass",
+   "inputs_sha256": "99b8c8be830acc5afd83bcecb232774bff517de32e83d43499db791f98cddc8b"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_shift_w255": {
+   "status": "pass",
+   "inputs_sha256": "fc91e7d23884ec7230b94720a7347e78e4327e35a33a2dee520e0e5938237711"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_shift_w256": {
+   "status": "pass",
+   "inputs_sha256": "c6118efe334135314c0bcbf44d259e43e17b56548156625238ae135108f570bc"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_shift_w257": {
+   "status": "pass",
+   "inputs_sha256": "ae03b28f12a85dd1f5eaab2a9c2022b3cc587e2805320b8e1c180a94752efdf3"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_shift_w63": {
+   "status": "pass",
+   "inputs_sha256": "a11dc0f4158c824d9ef4fec31528057860660abbd8ff112e2918e5a4159d7695"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_shift_w64": {
+   "status": "pass",
+   "inputs_sha256": "8f36715205458edca8ca7ac71337346cfe79a1cb3b0ea440f3f03877eb0611a5"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_shift_w65": {
+   "status": "pass",
+   "inputs_sha256": "d62942df6582a87e25dd5fda93332c27426c7ba841533a1dcdffe7d3b91f757f"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_truth_w127": {
+   "status": "pass",
+   "inputs_sha256": "656e8694981194603c86dfe2e0f703091011b8ed7a035ee49201f2be161c7998"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_truth_w128": {
+   "status": "pass",
+   "inputs_sha256": "7a07bb42fb3eca2220c2f8114767ec25b2e89de3e71609a6966fe8b6f4a9678b"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_truth_w129": {
+   "status": "pass",
+   "inputs_sha256": "6654bc2c30c90d70a56edcfc2d1687236ef583bfb9e192e310318f31fc3ae6d4"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_truth_w255": {
+   "status": "pass",
+   "inputs_sha256": "c647d8f084b4476ae0b8808c4a18fa38f383cac92a167f657b21c5e953e0c00c"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_truth_w256": {
+   "status": "pass",
+   "inputs_sha256": "778d5c3c9505d142ac20aaa2039d10322721cfee142c3976aca4aeee728a8925"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_truth_w257": {
+   "status": "pass",
+   "inputs_sha256": "eef345f8e0c4613129d521b9313e79522e224e7b92ca4038f0616cf89edaadba"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_truth_w63": {
+   "status": "pass",
+   "inputs_sha256": "67a6a6bf69641836cd165db7f0e0645df319d7236eb08769a2423d173c409f65"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_truth_w64": {
+   "status": "pass",
+   "inputs_sha256": "f25aea3c4d5718905cea8b3d82fce60ad76bdc99fa00ee83e241425593ed9cbb"
+  },
+  "gen/ch11/test_gen_fourstate_boundary_truth_w65": {
+   "status": "pass",
+   "inputs_sha256": "88c995ec9abf02c32238352241a373c57206974be2db67d9ef752a5ea752852f"
+  }
+ },
+ "generated_at": "2026-11-18T23:54:04.772205+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

@@ -25591,6 +25591,18 @@
     "Runtime wide division and remainder handle extrema and fixed-width overflow": "実行時の広い除算と剰余は端値と固定幅の桁あふれを扱う",
     "Runtime wide division and remainder handle extrema and fixed-width overflow ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "実行時の広い除算と剰余は端値と固定幅の桁あふれを扱う ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
     "Compound wide division and remainder evaluate an array index exactly once": "広い除算と剰余の複合代入は配列添字を一度だけ評価する",
-    "Compound wide division and remainder evaluate an array index exactly once ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広い除算と剰余の複合代入は配列添字を一度だけ評価する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )"
+    "Compound wide division and remainder evaluate an array index exactly once ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広い除算と剰余の複合代入は配列添字を一度だけ評価する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Wide vector truth uses all bits before logical results become two-state": "広いベクトルの真偽は2値への結果変換前に全ビットから求める",
+    "Wide vector truth uses all bits before logical results become two-state ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広いベクトルの真偽は2値への結果変換前に全ビットから求める ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Wide bitwise controlling values preserve four-state word-boundary data": "広いビット演算の支配値は語境界の4値データを保つ",
+    "Wide bitwise controlling values preserve four-state word-boundary data ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広いビット演算の支配値は語境界の4値データを保つ ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Wide reductions observe controlling and unknown bits in every storage word": "広いリダクションは全格納語の支配値と未知ビットを観測する",
+    "Wide reductions observe controlling and unknown bits in every storage word ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広いリダクションは全格納語の支配値と未知ビットを観測する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Wide equality distinguishes known mismatches and right-sided unknown wildcards": "広い等値比較は既知の不一致と右側だけの未知ワイルドカードを区別する",
+    "Wide equality distinguishes known mismatches and right-sided unknown wildcards ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広い等値比較は既知の不一致と右側だけの未知ワイルドカードを区別する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Wide conditional selection and ambiguous merging preserve conversion order": "広い条件選択と曖昧な条件の併合は変換の順序を保つ",
+    "Wide conditional selection and ambiguous merging preserve conversion order ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広い条件選択と曖昧な条件の併合は変換の順序を保つ ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Wide four-state shifts preserve unknown data and inspect the complete shift amount": "広い4値シフトは未知データを保ちシフト量の全ビットを調べる",
+    "Wide four-state shifts preserve unknown data and inspect the complete shift amount ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広い4値シフトは未知データを保ちシフト量の全ビットを調べる ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )"
   }
 }
