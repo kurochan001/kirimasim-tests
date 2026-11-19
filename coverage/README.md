@@ -266,3 +266,5 @@ Nightlyの測定対象は実行したスイートのコミットです。`main`�
 - `results/memory-file-boundaries-20261119k-*.json`：広い型付きメモリファイル138本の記録7件です。Icarus 13.0は90 pass・48 known、Verilator 5.054はseed 1と73で各138 known、kirimasim 0.1.1 `a6222f0656d4`は4回とも138 passです。一致90本だけにIcarusのoracleを付けます。拡張側のコメント検査器をソース封印前に直し、旧v2の記録と不変の期待値を保管しています。[有限の検査](qualification/memory-file-boundaries-20261119k.json)は257/513ビットの成功対照46本と、コンパイル・正常終了する検査器・読込語の変異92本です。独立AIレビューは12,654行を確認し、有限モデル・要求対応は追加していません。
 
 - `results/negative-power-controls-20261119l-*.json`：整数の負乗16本の記録7件です。Icarus 13.0は16 known、Verilator 5.054はseed 1・73で各12 pass・4 known、kirimasim 0.1.1 `a6222f0656d4`は4回とも16 passです。一致した既知値12本だけにVerilatorのoracleを付けます。独立AIは564行を導出し、[有限の検査](qualification/negative-power-controls-20261119l.json)は実際の`+nonce=1`を使った成功対照16本と、コンパイル・正常終了する変異32本です。要求対応・有限モデルの対応は増やしていません。
+
+- `results/wide-values-20261119m-*.json`：広い条件演算・比較312本の記録7件です。Icarus 13.0は300 pass・12 known、Verilator 5.054はseed 1・73で各120 pass・192 known、kirimasim 0.1.1 `a6222f0656d4`は4回とも312 passです。一致したIcarus300本だけにoracleを付け、Zのマージ12本はspecのみです。独立AIは1,344行を導出し、[有限の検査](qualification/wide-values-20261119m.json)は257/513ビットの成功対照104本と、コンパイル・正常終了する結果の破壊208本です。有限モデルの行・要求対応は変えていません。

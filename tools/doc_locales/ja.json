@@ -25647,6 +25647,8 @@
     "Signed minus one to negative powers follows exponent parity at full width": "符号付きマイナス一の負乗は指数の奇偶に従い幅全体を保つ",
     "Signed minus one to negative powers follows exponent parity at full width ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "符号付きマイナス一の負乗は指数の奇偶に従い幅全体を保つ ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
     "Unsigned nonunit bases with signed negative integral exponents produce zero": "符号なしの非単位の底と符号付きの負の整数指数はゼロを返す",
-    "Unsigned nonunit bases with signed negative integral exponents produce zero ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "符号なしの非単位の底と符号付きの負の整数指数はゼロを返す ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )"
+    "Unsigned nonunit bases with signed negative integral exponents produce zero ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "符号なしの非単位の底と符号付きの負の整数指数はゼロを返す ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Conditional selection and X/Z merge respect context signs and destination state ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "条件選択とX／Zのマージは、文脈の符号と格納先の状態型に従う ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Comparisons extend operands and preserve one- ZXQPH0QXZ results before destination conversion ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "比較はオペランドを拡張し、格納先への変換の前に1 ZXQPH0QXZ の結果を維持する ( ZXQPH1QXZ ZXQPH2QXZ ZXQPH3QXZ 節 )"
   }
 }

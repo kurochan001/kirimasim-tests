@@ -151,6 +151,7 @@ import wide_scan
 import nba_boundaries
 import memory_file_boundaries
 import negative_power_controls
+import wide_value_boundaries
 import scheduling
 import strength
 import wide_paths
@@ -190,7 +191,7 @@ GENERATORS = [interaction_progmod, interaction_progif, interaction_simend, inter
               combination_monitors, cg_option_levels, gate_strength_truth, keywords_inherited,
               primitive_array_bounds, ambiguous_strength_union,
               function_result_ranges, primitive_array_identity, function_formal_contexts,
-              array_element_refs, bitvector_queries, array_shape_queries, stream_boundaries, packed_lanes, division_boundaries, fourstate_boundaries, arithmetic_context, power_boundaries, wide_scan, nba_boundaries, memory_file_boundaries, negative_power_controls]
+              array_element_refs, bitvector_queries, array_shape_queries, stream_boundaries, packed_lanes, division_boundaries, fourstate_boundaries, arithmetic_context, power_boundaries, wide_scan, nba_boundaries, memory_file_boundaries, negative_power_controls, wide_value_boundaries]
 
 
 def main() -> int:

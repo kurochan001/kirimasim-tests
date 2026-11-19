@@ -120,6 +120,10 @@
     "negative_power_controls": {
       "en": "16 focused negative integral-power controls from our saved random findings: bases zero/one/signed minus-one/unsigned three, independently signed exponent widths 3/8/32/65, lower bounds and neighbors. Runtime plusargs feed the base and low exponent bit. Four zero-base X cases remain separate from twelve known-only controls; natural/direct/captured values and bit conversion are observed without claiming broad context discrimination.",
       "ja": "保存したランダム探索から切り出した、整数の負乗の対照16本。底がゼロ・一・符号付きマイナス一・符号なし三、独立した符号付き3/8/32/65ビットの指数、下限と隣の値を確認。実行時引数を底と指数の最下位ビットへ与え、未知値を要するゼロの4本と既知値だけの12本を分離。自然幅・直接・保存後の値と2値変換を観測し、文脈の区別を広く検査したとは主張しない。"
+    },
+    "wide_value_boundaries": {
+      "en": "312 regressions at 255/256/257 and 511/512/513 bits:32 frozen conditional and20 comparison configurations per width. Joint signs, destination widths/state, X/Z branch merging, all ten comparison operators and full input/result observations reuse existing clause models without changing their finite rows or bindings. Four-state cases retain their flags even when final results happen to be known.",
+      "ja": "255/256/257・511/512/513ビットの312本。各幅で条件演算32通りと比較20通りを固定し、共同の符号、格納先の幅・状態型、X/Zの分岐マージ、全10比較演算子、入力・出力全体を既存の規格モデルで確認。有限モデルの行と要求対応は変えず、最終結果が偶然既知でも4値の指定を維持する。"
     }
   }
 }

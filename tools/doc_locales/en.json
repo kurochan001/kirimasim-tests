@@ -23817,6 +23817,8 @@
     "Signed minus one to negative powers follows exponent parity at full width": "Signed minus one to negative powers follows exponent parity at full width",
     "Signed minus one to negative powers follows exponent parity at full width ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Signed minus one to negative powers follows exponent parity at full width ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
     "Unsigned nonunit bases with signed negative integral exponents produce zero": "Unsigned nonunit bases with signed negative integral exponents produce zero",
-    "Unsigned nonunit bases with signed negative integral exponents produce zero ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Unsigned nonunit bases with signed negative integral exponents produce zero ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )"
+    "Unsigned nonunit bases with signed negative integral exponents produce zero ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Unsigned nonunit bases with signed negative integral exponents produce zero ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Conditional selection and X/Z merge respect context signs and destination state ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Conditional selection and X/Z merge respect context signs and destination state ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Comparisons extend operands and preserve one- ZXQPH0QXZ results before destination conversion ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "Comparisons extend operands and preserve one- ZXQPH0QXZ results before destination conversion ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )"
   }
 }
