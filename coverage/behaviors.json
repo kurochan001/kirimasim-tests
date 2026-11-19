@@ -433770,9 +433770,9 @@
         {
           "test": "tests/ch37/test_vpi_attribute_ports_params.sv",
           "observation": "インスタンス u の vpi_iterate(vpiPort, u) で得た各 port に vpi_iterate(vpiAttribute, port) を行い、ANSI ポート宣言の前に attribute (* a_port = 1 *) を書いた port p からは名前 a_port・値 1 の attribute 1個だけが返り、attribute のない port q からは何も返らない（none）ことを期待出力と照合する。 区別: port → attribute の iteration を実装しない（NULL を返す）誤実装では『port p: none』になり、attribute を net p など別の対象にだけ付けて port に付けない誤実装でも同じく none になる。宣言のない port q にまで a_port を返す誤実装では『port q: none』が変わり、値や名前を取り違えれば a_port=1 が変わる。",
-          "reviewed_on": "2026-10-31",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "95b1258827a9d0bf2518b81812a3aabb4b98f6d98c0ba60fa44c10e83fcae21e",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "e9d42a373b711d6aca21fc9ef05686bebc823fbca81c2503dc2a5948030ea0c4",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_attribute_ports_params.sv",
@@ -433839,9 +433839,9 @@
         {
           "test": "tests/ch37/test_vpi_attribute_ports_params.sv",
           "observation": "port p の attribute a_port について vpi_handle(vpiParent, attr) を取り、iteration の元にした port p のハンドルと vpi_compare_objects で同一であること（vpiParent is it: 1）を期待出力と照合する。 区別: attribute → port の vpiParent が NULL を返す誤実装、port の代わりにモジュールのインスタンス u や net p を返す誤実装のいずれでも『port p: a_port=1 (vpiParent is it: 0)』になる。",
-          "reviewed_on": "2026-10-31",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "95b1258827a9d0bf2518b81812a3aabb4b98f6d98c0ba60fa44c10e83fcae21e",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "e9d42a373b711d6aca21fc9ef05686bebc823fbca81c2503dc2a5948030ea0c4",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_attribute_ports_params.sv",
@@ -434655,10 +434655,10 @@
       "checks": [
         {
           "test": "tests/ch37/test_vpi_attribute_ports_params.sv",
-          "observation": "u の vpi_iterate(vpiParamAssign, u) で得た各 param assign（名前は vpiLhs の parameter の vpiName）に vpi_iterate(vpiAttribute, pa) を行い、attribute (* a_param = 2 *) 付きの1つの parameter 宣言で宣言した P と Q の param assign からはそれぞれ a_param=2 が1個だけ返り、attribute なしで宣言した R の param assign からは何も返らないことを期待出力と照合する（5.12: 宣言の attribute はその宣言の各項目に付く）。 区別: param assign → attribute の iteration を実装しない誤実装では P と Q が none になり、宣言の最初の param assign にだけ付ける誤実装では『param assign Q: none』になる。attribute を宣言から外れた R にも付ける誤実装では『param assign R: none』が変わり、名前や値を取り違えれば a_param=2 が変わる。",
-          "reviewed_on": "2026-10-31",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "95b1258827a9d0bf2518b81812a3aabb4b98f6d98c0ba60fa44c10e83fcae21e",
+          "observation": "u は P と Q を上書きするので、vpi_iterate(vpiParamAssign, u) は P と Q の param assign を返す（§37.28: param assign はパラメータの上書き）。各 param assign（名前は vpiLhs の parameter の vpiName）に vpi_iterate(vpiAttribute, pa) を行い、attribute (* a_param = 2 *) 付きの1つの parameter 宣言で宣言した P と Q の param assign からはそれぞれ a_param=2 が1個だけ返ることを期待出力と照合する（5.12: 宣言の attribute はその宣言の各項目に付く）。上書きしていない R には param assign がない。 区別: param assign → attribute の iteration を実装しない誤実装では P と Q が none になり、宣言の最初の param assign にだけ付ける誤実装では『param assign Q: none』になる。上書きしていない R にも param assign を作る誤実装では『param assign R: none』の行が加わる。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "e9d42a373b711d6aca21fc9ef05686bebc823fbca81c2503dc2a5948030ea0c4",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_attribute_ports_params.sv",
@@ -434683,10 +434683,6 @@
             {
               "file": "tests/ch37/test_vpi_attribute_ports_params.expected",
               "contains": "param assign Q: a_param=2 (vpiParent is it: 1)"
-            },
-            {
-              "file": "tests/ch37/test_vpi_attribute_ports_params.expected",
-              "contains": "param assign R: none"
             }
           ]
         }
@@ -434729,9 +434725,9 @@
         {
           "test": "tests/ch37/test_vpi_attribute_ports_params.sv",
           "observation": "param assign P と Q それぞれの attribute a_param について vpi_handle(vpiParent, attr) を取り、iteration の元にした param assign と vpi_compare_objects で同一であること（vpiParent is it: 1）を期待出力と照合する。2つの param assign は同じ宣言の attribute を持つので、それぞれ自分自身を返すことも見る。 区別: attribute → param assign の vpiParent が NULL を返す誤実装、parameter オブジェクト（vpiLhs 側）やインスタンス u を返す誤実装、共有した attribute が最初の param assign P しか指さない誤実装では、該当行が『(vpiParent is it: 0)』になる。",
-          "reviewed_on": "2026-10-31",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "95b1258827a9d0bf2518b81812a3aabb4b98f6d98c0ba60fa44c10e83fcae21e",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "e9d42a373b711d6aca21fc9ef05686bebc823fbca81c2503dc2a5948030ea0c4",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_attribute_ports_params.sv",
@@ -436394,9 +436390,9 @@
         {
           "test": "tests/ch37/test_vpi_attribute_ports_params.sv",
           "observation": "port p の a_port、param assign P と Q の a_param、net w の a_net の各 attribute について vpi_get_str(vpiDefFile, attr) を読み、ディレクトリ部分を除いた名前がこのテストのファイル名 test_vpi_attribute_ports_params.sv であることを期待出力の4行の location 行で照合する。 区別: attribute に vpiDefFile を実装しない（NULL を返す）誤実装では各 location 行のファイル名が NULL になり、別のファイル（VPI アプリケーションや規定の名前）を返す誤実装でもファイル名が変わる。",
-          "reviewed_on": "2026-10-31",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "95b1258827a9d0bf2518b81812a3aabb4b98f6d98c0ba60fa44c10e83fcae21e",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "e9d42a373b711d6aca21fc9ef05686bebc823fbca81c2503dc2a5948030ea0c4",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_attribute_ports_params.sv",
@@ -436416,11 +436412,11 @@
             },
             {
               "file": "tests/ch37/test_vpi_attribute_ports_params.expected",
-              "contains": "location of a_port of port p: test_vpi_attribute_ports_params.sv line 43"
+              "contains": "location of a_port of port p: test_vpi_attribute_ports_params.sv line 46"
             },
             {
               "file": "tests/ch37/test_vpi_attribute_ports_params.expected",
-              "contains": "location of a_net of net w: test_vpi_attribute_ports_params.sv line 48"
+              "contains": "location of a_net of net w: test_vpi_attribute_ports_params.sv line 51"
             }
           ]
         }
@@ -436462,10 +436458,10 @@
       "checks": [
         {
           "test": "tests/ch37/test_vpi_attribute_ports_params.sv",
-          "observation": "attribute を書いた行がそれぞれ 43（a_port）、46（a_param）、48（a_net）で、モジュール見出しの行 42 とも異なるように配置し、vpi_get(vpiDefLineNo, attr) がそれぞれ 43、46（P と Q の両方）、48 を返すことを期待出力の location 行で照合する。 区別: vpiDefLineNo を実装しない誤実装は 0 や vpiUndefined を出し、attribute ではなくモジュール定義の行（40）を返す誤実装は 43・46・48 がすべて 42 になり、対象のオブジェクト以外の行を返せば該当行の数値が変わる。",
-          "reviewed_on": "2026-10-31",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "95b1258827a9d0bf2518b81812a3aabb4b98f6d98c0ba60fa44c10e83fcae21e",
+          "observation": "attribute を書いた行がそれぞれ 46（a_port）、49（a_param）、51（a_net）で、モジュール見出しの行 45 とも異なるように配置し、vpi_get(vpiDefLineNo, attr) がそれぞれ 46、49（P と Q の両方）、51 を返すことを期待出力の location 行で照合する。 区別: vpiDefLineNo を実装しない誤実装は 0 や vpiUndefined を出し、attribute ではなくモジュール定義の行（45）を返す誤実装は 46・49・51 がすべて 45 になり、対象のオブジェクト以外の行を返せば該当行の数値が変わる。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "e9d42a373b711d6aca21fc9ef05686bebc823fbca81c2503dc2a5948030ea0c4",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_attribute_ports_params.sv",
@@ -436489,15 +436485,15 @@
             },
             {
               "file": "tests/ch37/test_vpi_attribute_ports_params.expected",
-              "contains": "location of a_port of port p: test_vpi_attribute_ports_params.sv line 43"
+              "contains": "location of a_port of port p: test_vpi_attribute_ports_params.sv line 46"
             },
             {
               "file": "tests/ch37/test_vpi_attribute_ports_params.expected",
-              "contains": "location of a_param of param assign P: test_vpi_attribute_ports_params.sv line 46"
+              "contains": "location of a_param of param assign P: test_vpi_attribute_ports_params.sv line 49"
             },
             {
               "file": "tests/ch37/test_vpi_attribute_ports_params.expected",
-              "contains": "location of a_net of net w: test_vpi_attribute_ports_params.sv line 48"
+              "contains": "location of a_net of net w: test_vpi_attribute_ports_params.sv line 51"
             }
           ]
         }

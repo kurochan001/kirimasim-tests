@@ -19,19 +19,22 @@
 // before a declaration is attached to it; a declaration that declares several
 // items gives the attribute to each of them, and items declared without it do
 // not have it. A.1.3: an attribute instance can precede each ANSI port
-// declaration. §37.28: an instance iterates the param assigns of its
-// parameters with vpiParamAssign, and vpiLhs of a param assign is the
-// parameter. §37.14: an instance iterates its ports with vpiPort.
+// declaration. §37.28: a param assign is a parameter override; an instance
+// iterates the param assigns of its overridden parameters with vpiParamAssign,
+// and vpiLhs of a param assign is the overridden parameter. §37.14: an
+// instance iterates its ports with vpiPort.
 //
 // In atp_leaf, the port p has the attribute a_port and the port q none; the
 // one parameter declaration with a_param declares P and Q, and R is declared
-// without an attribute; the net w has a_net. Each attribute is written on the
-// same line as what it is attached to, so its definition line is that line,
-// and none is on the line of the module header. From a start-of-simulation
-// callback the application prints, for each port and param assign of the
-// instance u, the name and value of its attributes and whether their
-// vpiParent is that object, and for each attribute found, and the one of w,
-// the base name of vpiDefFile and vpiDefLineNo; the lines are sorted.
+// without an attribute; the net w has a_net. The instance u overrides P and Q,
+// so each has a param assign, while R is not overridden and has none. Each
+// attribute is written on the same line as what it is attached to, so its
+// definition line is that line, and none is on the line of the module header.
+// From a start-of-simulation callback the application prints, for each port
+// and param assign of the instance u, the name and value of its attributes and
+// whether their vpiParent is that object, and for each attribute found, and
+// the one of w, the base name of vpiDefFile and vpiDefLineNo; the lines are
+// sorted.
 // vpi_get_str() returns each string in the same buffer (§38.11), so the
 // application copies the name of an attribute before it asks for the file.
 // Neither release produces this output: Icarus Verilog 13.0 cannot build the
@@ -51,5 +54,5 @@ endmodule
 module test_vpi_attribute_ports_params;
   logic x, y;
 
-  atp_leaf u (.p(x), .q(y));
+  atp_leaf #(.P(7), .Q(8)) u (.p(x), .q(y));
 endmodule
