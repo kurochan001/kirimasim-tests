@@ -1,0 +1,7 @@
+width=255 form=mutation
+initial ones=9 zeros=246 x=0 z=0
+top_x ones=8 zeros=246 x=1 z=0
+middle_z ones=7 zeros=246 x=1 z=1
+low_clear ones=6 zeros=247 x=1 z=1
+top_one ones=7 zeros=247 x=0 z=1
+return_bits=32,32,1,1,1

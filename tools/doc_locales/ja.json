@@ -25670,6 +25670,22 @@
     "Packed reads match literal and flat-vector controls without element writes": "パック配列の読み取りが要素を書き換えずリテラルと平坦なベクトルの対照に一致する",
     "Packed reads match literal and flat-vector controls without element writes ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "パック配列の読み取りが要素を書き換えずリテラルと平坦なベクトルの対照に一致する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
     "Positive format fields pad small values and retain full wide numbers": "正の表示幅は小さい値を埋め広い数値を切り捨てず維持する",
-    "Positive format fields pad small values and retain full wide numbers ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "正の表示幅は小さい値を埋め広い数値を切り捨てず維持する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )"
+    "Positive format fields pad small values and retain full wide numbers ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "正の表示幅は小さい値を埋め広い数値を切り捨てず維持する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Wide query boundaries preserve known argument and result semantics": "広いビット列の問い合わせでknownの引数と戻り値の規則を維持する",
+    "Wide query boundaries preserve known argument and result semantics ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広いビット列の問い合わせでknownの引数と戻り値の規則を維持する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Wide query boundaries preserve xz argument and result semantics": "広いビット列の問い合わせでxzの引数と戻り値の規則を維持する",
+    "Wide query boundaries preserve xz argument and result semantics ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広いビット列の問い合わせでxzの引数と戻り値の規則を維持する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Wide query boundaries preserve mutation argument and result semantics": "広いビット列の問い合わせでmutationの引数と戻り値の規則を維持する",
+    "Wide query boundaries preserve mutation argument and result semantics ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広いビット列の問い合わせでmutationの引数と戻り値の規則を維持する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Wide query boundaries preserve predicates argument and result semantics": "広いビット列の問い合わせでpredicatesの引数と戻り値の規則を維持する",
+    "Wide query boundaries preserve predicates argument and result semantics ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広いビット列の問い合わせでpredicatesの引数と戻り値の規則を維持する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Wide query boundaries preserve function argument and result semantics": "広いビット列の問い合わせでfunctionの引数と戻り値の規則を維持する",
+    "Wide query boundaries preserve function argument and result semantics ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広いビット列の問い合わせでfunctionの引数と戻り値の規則を維持する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Wide query boundaries preserve record argument and result semantics": "広いビット列の問い合わせでrecordの引数と戻り値の規則を維持する",
+    "Wide query boundaries preserve record argument and result semantics ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広いビット列の問い合わせでrecordの引数と戻り値の規則を維持する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Wide query boundaries preserve controls argument and result semantics": "広いビット列の問い合わせでcontrolsの引数と戻り値の規則を維持する",
+    "Wide query boundaries preserve controls argument and result semantics ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広いビット列の問い合わせでcontrolsの引数と戻り値の規則を維持する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Wide query boundaries preserve constant argument and result semantics": "広いビット列の問い合わせでconstantの引数と戻り値の規則を維持する",
+    "Wide query boundaries preserve constant argument and result semantics ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広いビット列の問い合わせでconstantの引数と戻り値の規則を維持する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )"
   }
 }

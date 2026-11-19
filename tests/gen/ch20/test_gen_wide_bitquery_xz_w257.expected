@@ -1,0 +1,5 @@
+width=257 form=xz
+fourstate ones=6 zeros=246 x=2 z=3
+fourstate ones=6 onehot=0 onehot0=0 unknown=1
+duplicate=2 union=5
+return_bits=32,32,1,1,1

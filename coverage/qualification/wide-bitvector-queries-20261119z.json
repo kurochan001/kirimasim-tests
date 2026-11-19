@@ -1,0 +1,705 @@
+{
+  "schema": 1,
+  "kind": "Finite query value and return-width observations; not independent standards review",
+  "recorded_at": "2026-11-19T07:21:46.046084+00:00",
+  "scope": "All eight forms at257/513bits:16passingcontrols and32compiled normallyexiting query-value/return-width corruptions. No exhaustive semantic fault claim.",
+  "simulator": {
+    "version": "kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401",
+    "commit": "a6222f0656d46fbafc332ba8d8adaebb9273b964",
+    "binary_sha256": "140c543ac7edf9e658d25c862b0c217c99da14770ce56a02d4aa1fe26260e1a7"
+  },
+  "args": [],
+  "baselines": [
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_constant_w257.sv",
+      "source_sha256": "b5f912dc3d440730ea2a714c13879ac1cc853a0bba714ee4dc460c0eb8a8b99d",
+      "expected_sha256": "726c19b3376569af6cccd104c1f89d1790fa488331ca25b3bdb837e6908ada4f",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "726c19b3376569af6cccd104c1f89d1790fa488331ca25b3bdb837e6908ada4f"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_constant_w513.sv",
+      "source_sha256": "f2b083c2d6b4d0290dc341211ce4fa489269808be377642b230d7f62defaabd7",
+      "expected_sha256": "b97be4c77fd04c78307f55e80f2aee749a9599a717270f0b24862f79c5674274",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "b97be4c77fd04c78307f55e80f2aee749a9599a717270f0b24862f79c5674274"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_controls_w257.sv",
+      "source_sha256": "0aa289501e69718776ccfae4dd9b9caa2ac07dcbfd695161976377bef78f930d",
+      "expected_sha256": "4d7c675e93be41959e4348d97ec7ae710c10ce50cdb75c66638e0af14d74a5b6",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "4d7c675e93be41959e4348d97ec7ae710c10ce50cdb75c66638e0af14d74a5b6"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_controls_w513.sv",
+      "source_sha256": "a1f39052bc8fc34e971aa37657b92ead7644b1e1cdb0bdba4a2f64189dd65ce0",
+      "expected_sha256": "f02457e62ecd166034f2079b159df8aa3a439c3d75d9e145811f542f40028044",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "f02457e62ecd166034f2079b159df8aa3a439c3d75d9e145811f542f40028044"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_function_w257.sv",
+      "source_sha256": "045ef347e49fe60b61a6bec626c1432683cf563082cf453d76c2a31036dad99e",
+      "expected_sha256": "a81645cc4c0f21b1599d4549177587da61edf7b96d4ca2a8c22ca1733225c13b",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "a81645cc4c0f21b1599d4549177587da61edf7b96d4ca2a8c22ca1733225c13b"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_function_w513.sv",
+      "source_sha256": "0ec6f6304928493a6c731a737a7fdae749536626a947d53539beb9f456a89860",
+      "expected_sha256": "3e5aff1cbb64571351d4cc310bb99083653afc88bcd4f9d912a26aaa65432fb5",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "3e5aff1cbb64571351d4cc310bb99083653afc88bcd4f9d912a26aaa65432fb5"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_known_w257.sv",
+      "source_sha256": "9483c4f72bbecd91654bcab8a88d0d88bd193bb9036b2c5b3e915d3767754188",
+      "expected_sha256": "0d7f6c3de500e15eab97215f92848b52b6ee4d4c9ec585c1c33f90974ceedb22",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "0d7f6c3de500e15eab97215f92848b52b6ee4d4c9ec585c1c33f90974ceedb22"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_known_w513.sv",
+      "source_sha256": "1b8f01ea8505b213c9871050093439e6a56ff7841deba8db5b219e1f8696affd",
+      "expected_sha256": "652d84fe71b6d46cf3fe80a9a4c81fe59e6d1e636dd1e7fbdce16086155567fb",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "652d84fe71b6d46cf3fe80a9a4c81fe59e6d1e636dd1e7fbdce16086155567fb"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_mutation_w257.sv",
+      "source_sha256": "a76ff27f1516f2acda01cca9ac21fb60a573f97723c12118e8269837c13c3433",
+      "expected_sha256": "0807874bae2435ac9dc452906828124ffcbe13afd71b96714fc9d0d747925d7c",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "0807874bae2435ac9dc452906828124ffcbe13afd71b96714fc9d0d747925d7c"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_mutation_w513.sv",
+      "source_sha256": "2b5da61db428c9e34706f9f8dfa7d29811ed143458715e48defe41d2a77daf87",
+      "expected_sha256": "188244039cef34c618dc7dfc3394255c59fcf94e54c82f822606eb3d76d78714",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "188244039cef34c618dc7dfc3394255c59fcf94e54c82f822606eb3d76d78714"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_predicates_w257.sv",
+      "source_sha256": "c99cc792ed3fd9e547d0bd2496bc8cd7f9a5cca2ea1b1ad2d1067a8bff4f25dd",
+      "expected_sha256": "520b702e0b28dbb12fdea6484ba4516b34ef6d905704e06ad93ab495b309bb97",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "520b702e0b28dbb12fdea6484ba4516b34ef6d905704e06ad93ab495b309bb97"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_predicates_w513.sv",
+      "source_sha256": "a239ef7bcf16fb2c2c08b485b580c837bacd171948e476965a5c5378d19e3f18",
+      "expected_sha256": "e70ad77c90a20c102004cb019763b695844688ae49c17f4da0409b01cca2a7d2",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "e70ad77c90a20c102004cb019763b695844688ae49c17f4da0409b01cca2a7d2"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_record_w257.sv",
+      "source_sha256": "c626f3df406e46a24ee3ad700e0b27b3c47a0da28ede7846873b0c54596b918d",
+      "expected_sha256": "0960683159f6855cdbc92a1483b1731b0c241baa7d297f8bc900e61787326bf4",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "0960683159f6855cdbc92a1483b1731b0c241baa7d297f8bc900e61787326bf4"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_record_w513.sv",
+      "source_sha256": "2714f4f0b9f5a5be961e23cc05f7d92eeace4725663d265aec7a1b33678324a4",
+      "expected_sha256": "e6221bcf66649a555d270ed6aa2fe0f5535daad493427c2563c0370cddc3df9a",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "e6221bcf66649a555d270ed6aa2fe0f5535daad493427c2563c0370cddc3df9a"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_xz_w257.sv",
+      "source_sha256": "d798eca92c11ff1a5ce22af15ddf4a897e7494333a8d5a9552107cf45883d38f",
+      "expected_sha256": "efc6985e2ded3b08f00ca3ad960ec788b0d814f6bde36e0c7adcc160d7c6f76c",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "efc6985e2ded3b08f00ca3ad960ec788b0d814f6bde36e0c7adcc160d7c6f76c"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_xz_w513.sv",
+      "source_sha256": "e5adcbe96aefbfa0bf7a5a781b1a2dbf9de2010fa15856dd4c8cd44b51fd675f",
+      "expected_sha256": "e434297db073cacff54619dd2b7f71ad4217bdd12621b8fa5dc0c08c0370a1a3",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "e434297db073cacff54619dd2b7f71ad4217bdd12621b8fa5dc0c08c0370a1a3"
+    }
+  ],
+  "mutations": [
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_constant_w257.sv",
+      "source_sha256": "6629870250b6c41c3ebeaf1fc503d583e984f2b333148c7e5ed2ab6a1145a8e5",
+      "expected_sha256": "726c19b3376569af6cccd104c1f89d1790fa488331ca25b3bdb837e6908ada4f",
+      "original_source_sha256": "b5f912dc3d440730ea2a714c13879ac1cc853a0bba714ee4dc460c0eb8a8b99d",
+      "mutated_source_sha256": "6629870250b6c41c3ebeaf1fc503d583e984f2b333148c7e5ed2ab6a1145a8e5",
+      "label": "query-value",
+      "replacement": {
+        "old": "localparam int ONES = $countones(VALUE);",
+        "new": "localparam int ONES = $countones(VALUE) + 1;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "42f68c97ee6752137243de78792d6a217913b365f28860e47876a0c506cdafaa"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_constant_w257.sv",
+      "source_sha256": "9a6cb9e59d713fda632694798bbe27cb6544bcd6ad7c4dd546d9f2d0282181cc",
+      "expected_sha256": "726c19b3376569af6cccd104c1f89d1790fa488331ca25b3bdb837e6908ada4f",
+      "original_source_sha256": "b5f912dc3d440730ea2a714c13879ac1cc853a0bba714ee4dc460c0eb8a8b99d",
+      "mutated_source_sha256": "9a6cb9e59d713fda632694798bbe27cb6544bcd6ad7c4dd546d9f2d0282181cc",
+      "label": "return-width",
+      "replacement": {
+        "old": "$bits($countbits(VALUE, 1'b1))",
+        "new": "$bits($countbits(VALUE, 1'b1)) + 1",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "916f5e9b4f9a3bd6636efe3a2cadce1601157a703e920a3b455232eec7cf1997"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_constant_w513.sv",
+      "source_sha256": "72667aa41122ec008adf2784fd8bd86e21c15c24eed0a3bbb6fbbdd516d0569c",
+      "expected_sha256": "b97be4c77fd04c78307f55e80f2aee749a9599a717270f0b24862f79c5674274",
+      "original_source_sha256": "f2b083c2d6b4d0290dc341211ce4fa489269808be377642b230d7f62defaabd7",
+      "mutated_source_sha256": "72667aa41122ec008adf2784fd8bd86e21c15c24eed0a3bbb6fbbdd516d0569c",
+      "label": "query-value",
+      "replacement": {
+        "old": "localparam int ONES = $countones(VALUE);",
+        "new": "localparam int ONES = $countones(VALUE) + 1;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "39032b74604e047059d5e562f88e03fae82245d02c854d22749365fdd02c87b9"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_constant_w513.sv",
+      "source_sha256": "89cecbbd9439eb9653851387dd7bfb7a196cdbc54338790c30644d440f4ea3db",
+      "expected_sha256": "b97be4c77fd04c78307f55e80f2aee749a9599a717270f0b24862f79c5674274",
+      "original_source_sha256": "f2b083c2d6b4d0290dc341211ce4fa489269808be377642b230d7f62defaabd7",
+      "mutated_source_sha256": "89cecbbd9439eb9653851387dd7bfb7a196cdbc54338790c30644d440f4ea3db",
+      "label": "return-width",
+      "replacement": {
+        "old": "$bits($countbits(VALUE, 1'b1))",
+        "new": "$bits($countbits(VALUE, 1'b1)) + 1",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "e447ee424096ce5f1cef27675f10482c181a4f36aa36f761bda84d8f5f2a5710"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_controls_w257.sv",
+      "source_sha256": "ae24a419f6bfb39c0fc51ff0d42a00fbb896aa6fe8c5d8862b419c3654e072fb",
+      "expected_sha256": "4d7c675e93be41959e4348d97ec7ae710c10ce50cdb75c66638e0af14d74a5b6",
+      "original_source_sha256": "0aa289501e69718776ccfae4dd9b9caa2ac07dcbfd695161976377bef78f930d",
+      "mutated_source_sha256": "ae24a419f6bfb39c0fc51ff0d42a00fbb896aa6fe8c5d8862b419c3654e072fb",
+      "label": "query-value",
+      "replacement": {
+        "old": "$countbits(value, control)",
+        "new": "$countbits(value, control ^ 1'b1)",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "6534c161b964ad72923f0fd0495c6f6ed59b464cde787d94c94463d9e9103243"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_controls_w257.sv",
+      "source_sha256": "4b3494dee1da5f71d265fcb463608927a1383616ee5465bb660a940cf91427f1",
+      "expected_sha256": "4d7c675e93be41959e4348d97ec7ae710c10ce50cdb75c66638e0af14d74a5b6",
+      "original_source_sha256": "0aa289501e69718776ccfae4dd9b9caa2ac07dcbfd695161976377bef78f930d",
+      "mutated_source_sha256": "4b3494dee1da5f71d265fcb463608927a1383616ee5465bb660a940cf91427f1",
+      "label": "return-width",
+      "replacement": {
+        "old": "$bits($countbits(value, 1'b1))",
+        "new": "$bits($countbits(value, 1'b1)) + 1",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "7e97236af40d9fcd8015546460f3aaf34f366d857614bd9068b6dfad37ec6389"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_controls_w513.sv",
+      "source_sha256": "ee5bfd617df61d99e4d3ab49cecd6b41f613006e3fc41694dde05d3936585540",
+      "expected_sha256": "f02457e62ecd166034f2079b159df8aa3a439c3d75d9e145811f542f40028044",
+      "original_source_sha256": "a1f39052bc8fc34e971aa37657b92ead7644b1e1cdb0bdba4a2f64189dd65ce0",
+      "mutated_source_sha256": "ee5bfd617df61d99e4d3ab49cecd6b41f613006e3fc41694dde05d3936585540",
+      "label": "query-value",
+      "replacement": {
+        "old": "$countbits(value, control)",
+        "new": "$countbits(value, control ^ 1'b1)",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "e70189a91cd26401da31eff29e7ef2b7f3b914b29fbcec6f366894df96793845"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_controls_w513.sv",
+      "source_sha256": "cffdb1024864f432c680e26fcd1b83160dd348f6e014418dea9ae5c333216db2",
+      "expected_sha256": "f02457e62ecd166034f2079b159df8aa3a439c3d75d9e145811f542f40028044",
+      "original_source_sha256": "a1f39052bc8fc34e971aa37657b92ead7644b1e1cdb0bdba4a2f64189dd65ce0",
+      "mutated_source_sha256": "cffdb1024864f432c680e26fcd1b83160dd348f6e014418dea9ae5c333216db2",
+      "label": "return-width",
+      "replacement": {
+        "old": "$bits($countbits(value, 1'b1))",
+        "new": "$bits($countbits(value, 1'b1)) + 1",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "7ef66644fe6895f115917935d191aee2764dbfd4253a7ae24f86b16efc3ced4c"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_function_w257.sv",
+      "source_sha256": "db9d51ecc2f25d4e72d513f518b21754f57bb56a2e3f54ebf97098d3ff9a6c31",
+      "expected_sha256": "a81645cc4c0f21b1599d4549177587da61edf7b96d4ca2a8c22ca1733225c13b",
+      "original_source_sha256": "045ef347e49fe60b61a6bec626c1432683cf563082cf453d76c2a31036dad99e",
+      "mutated_source_sha256": "db9d51ecc2f25d4e72d513f518b21754f57bb56a2e3f54ebf97098d3ff9a6c31",
+      "label": "query-value",
+      "replacement": {
+        "old": "$countones(captured)",
+        "new": "$countones(~captured)",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "a62ce3bb30dc3a0196140ec7731bd1a176ecc4cb81dbd96fa58765e62cf12bcd"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_function_w257.sv",
+      "source_sha256": "ea907f79929e77aa2c261f4741bdc1c962ea833cbd159535a862c3a6244be2db",
+      "expected_sha256": "a81645cc4c0f21b1599d4549177587da61edf7b96d4ca2a8c22ca1733225c13b",
+      "original_source_sha256": "045ef347e49fe60b61a6bec626c1432683cf563082cf453d76c2a31036dad99e",
+      "mutated_source_sha256": "ea907f79929e77aa2c261f4741bdc1c962ea833cbd159535a862c3a6244be2db",
+      "label": "return-width",
+      "replacement": {
+        "old": "$bits($countbits(invert(value), 1'b1))",
+        "new": "$bits($countbits(invert(value), 1'b1)) + 1",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "09e288a47f0d61e4cbcbf0f16980bc15173bcc6a1f9e8ae7148b7965af774c37"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_function_w513.sv",
+      "source_sha256": "e186aea55cc3c2f27e5fcee213349705e12cd5ddcc806540c2ec3c7822b643f6",
+      "expected_sha256": "3e5aff1cbb64571351d4cc310bb99083653afc88bcd4f9d912a26aaa65432fb5",
+      "original_source_sha256": "0ec6f6304928493a6c731a737a7fdae749536626a947d53539beb9f456a89860",
+      "mutated_source_sha256": "e186aea55cc3c2f27e5fcee213349705e12cd5ddcc806540c2ec3c7822b643f6",
+      "label": "query-value",
+      "replacement": {
+        "old": "$countones(captured)",
+        "new": "$countones(~captured)",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "01a598e38faa8aa6fb7e99ad7ec86de0d0142778073af47e6ed5c48f3477ea93"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_function_w513.sv",
+      "source_sha256": "5f1765ae6f73c36c80ac277de03209cc8ed8d6a28b0bbd35dd50c8bef55a2f86",
+      "expected_sha256": "3e5aff1cbb64571351d4cc310bb99083653afc88bcd4f9d912a26aaa65432fb5",
+      "original_source_sha256": "0ec6f6304928493a6c731a737a7fdae749536626a947d53539beb9f456a89860",
+      "mutated_source_sha256": "5f1765ae6f73c36c80ac277de03209cc8ed8d6a28b0bbd35dd50c8bef55a2f86",
+      "label": "return-width",
+      "replacement": {
+        "old": "$bits($countbits(invert(value), 1'b1))",
+        "new": "$bits($countbits(invert(value), 1'b1)) + 1",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "1066c2f87721b8cbea3aa7a834dd15f47fe56d51150c52f80d7b259180590db4"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_known_w257.sv",
+      "source_sha256": "666e2f58007c274db8cd4b28701b8b672a272376071133fc44793049fe37ec07",
+      "expected_sha256": "0d7f6c3de500e15eab97215f92848b52b6ee4d4c9ec585c1c33f90974ceedb22",
+      "original_source_sha256": "9483c4f72bbecd91654bcab8a88d0d88bd193bb9036b2c5b3e915d3767754188",
+      "mutated_source_sha256": "666e2f58007c274db8cd4b28701b8b672a272376071133fc44793049fe37ec07",
+      "label": "query-value",
+      "replacement": {
+        "old": "$countones(value)",
+        "new": "$countones(~value)",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "68b9c170ba76c019ca67dc6dc29fe4cdcd3d36aa7fa6722523b28da5b3a2be10"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_known_w257.sv",
+      "source_sha256": "3086802dc8bd8dddbbd9d702b1339d0644908b6c93684bb64332a414c73529f8",
+      "expected_sha256": "0d7f6c3de500e15eab97215f92848b52b6ee4d4c9ec585c1c33f90974ceedb22",
+      "original_source_sha256": "9483c4f72bbecd91654bcab8a88d0d88bd193bb9036b2c5b3e915d3767754188",
+      "mutated_source_sha256": "3086802dc8bd8dddbbd9d702b1339d0644908b6c93684bb64332a414c73529f8",
+      "label": "return-width",
+      "replacement": {
+        "old": "$bits($countbits(value, 1'b1))",
+        "new": "$bits($countbits(value, 1'b1)) + 1",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "f3c121840492a27d804a5ff665b333d46eaa9c205c3c32aa011bef5bafab5265"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_known_w513.sv",
+      "source_sha256": "6c0a23a21ae03ee5880b7ddae666539d164ae003992e80752cad97129143d1ad",
+      "expected_sha256": "652d84fe71b6d46cf3fe80a9a4c81fe59e6d1e636dd1e7fbdce16086155567fb",
+      "original_source_sha256": "1b8f01ea8505b213c9871050093439e6a56ff7841deba8db5b219e1f8696affd",
+      "mutated_source_sha256": "6c0a23a21ae03ee5880b7ddae666539d164ae003992e80752cad97129143d1ad",
+      "label": "query-value",
+      "replacement": {
+        "old": "$countones(value)",
+        "new": "$countones(~value)",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "d20e868217f4e62dcc9f384ee797fa5d01e3ffeabcc26fa142af67a3ea933914"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_known_w513.sv",
+      "source_sha256": "d388cc48a66d6dd956022cfe8214bfae288e1c314e03ce8a3100720d3342dc5a",
+      "expected_sha256": "652d84fe71b6d46cf3fe80a9a4c81fe59e6d1e636dd1e7fbdce16086155567fb",
+      "original_source_sha256": "1b8f01ea8505b213c9871050093439e6a56ff7841deba8db5b219e1f8696affd",
+      "mutated_source_sha256": "d388cc48a66d6dd956022cfe8214bfae288e1c314e03ce8a3100720d3342dc5a",
+      "label": "return-width",
+      "replacement": {
+        "old": "$bits($countbits(value, 1'b1))",
+        "new": "$bits($countbits(value, 1'b1)) + 1",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "0499ce99448549e1e27c38b5846b5acca0b4816285f42d0564bf9c1238ea709f"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_mutation_w257.sv",
+      "source_sha256": "4412dba7986a5fb9ebcd515cd2d2f1d945f6720c3efc024d0db53a52c8b9a956",
+      "expected_sha256": "0807874bae2435ac9dc452906828124ffcbe13afd71b96714fc9d0d747925d7c",
+      "original_source_sha256": "a76ff27f1516f2acda01cca9ac21fb60a573f97723c12118e8269837c13c3433",
+      "mutated_source_sha256": "4412dba7986a5fb9ebcd515cd2d2f1d945f6720c3efc024d0db53a52c8b9a956",
+      "label": "query-value",
+      "replacement": {
+        "old": "$countones(value)",
+        "new": "$countones(~value)",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "0bc4c507a1f3fb658041c58d51ccafc9a2857c38f75edffe2e08eb42fa81ad39"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_mutation_w257.sv",
+      "source_sha256": "05d1e2c33cf916d22e05832f2714f6be66236d40bb78f41ff21ba50362a47fa5",
+      "expected_sha256": "0807874bae2435ac9dc452906828124ffcbe13afd71b96714fc9d0d747925d7c",
+      "original_source_sha256": "a76ff27f1516f2acda01cca9ac21fb60a573f97723c12118e8269837c13c3433",
+      "mutated_source_sha256": "05d1e2c33cf916d22e05832f2714f6be66236d40bb78f41ff21ba50362a47fa5",
+      "label": "return-width",
+      "replacement": {
+        "old": "$bits($countbits(value, 1'b1))",
+        "new": "$bits($countbits(value, 1'b1)) + 1",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "d311e240419594be94fd28a6639a6dddc40349610585ee603076050f60a60d45"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_mutation_w513.sv",
+      "source_sha256": "de726267b2b3b2591e792a44f64cb9cf60dbc9f3bcea093896cdd66d509c1c77",
+      "expected_sha256": "188244039cef34c618dc7dfc3394255c59fcf94e54c82f822606eb3d76d78714",
+      "original_source_sha256": "2b5da61db428c9e34706f9f8dfa7d29811ed143458715e48defe41d2a77daf87",
+      "mutated_source_sha256": "de726267b2b3b2591e792a44f64cb9cf60dbc9f3bcea093896cdd66d509c1c77",
+      "label": "query-value",
+      "replacement": {
+        "old": "$countones(value)",
+        "new": "$countones(~value)",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "62daa8ce2288e647b9e81ef834aa6b23f301ee0d73b100220d02127b95d16b3e"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_mutation_w513.sv",
+      "source_sha256": "2038506add566a665c41f2e1a7524151bde63e452f0a59fbb878691ad21c55f8",
+      "expected_sha256": "188244039cef34c618dc7dfc3394255c59fcf94e54c82f822606eb3d76d78714",
+      "original_source_sha256": "2b5da61db428c9e34706f9f8dfa7d29811ed143458715e48defe41d2a77daf87",
+      "mutated_source_sha256": "2038506add566a665c41f2e1a7524151bde63e452f0a59fbb878691ad21c55f8",
+      "label": "return-width",
+      "replacement": {
+        "old": "$bits($countbits(value, 1'b1))",
+        "new": "$bits($countbits(value, 1'b1)) + 1",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "d6a8ab0b9a11713589222f33a9bc7edb30d34c291f63a7635f9c3ec7a15c604c"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_predicates_w257.sv",
+      "source_sha256": "8a09a989e0cb92c02f57443301bd38ef5e41b29889790cf5e77d5be94e4b9692",
+      "expected_sha256": "520b702e0b28dbb12fdea6484ba4516b34ef6d905704e06ad93ab495b309bb97",
+      "original_source_sha256": "c99cc792ed3fd9e547d0bd2496bc8cd7f9a5cca2ea1b1ad2d1067a8bff4f25dd",
+      "mutated_source_sha256": "8a09a989e0cb92c02f57443301bd38ef5e41b29889790cf5e77d5be94e4b9692",
+      "label": "query-value",
+      "replacement": {
+        "old": "$onehot0(value)",
+        "new": "!$onehot0(value)",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "77d00488dacfd4070ae4a04421cd0d5f64bbf4e8108d829305d95b70502954e1"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_predicates_w257.sv",
+      "source_sha256": "5adde86c66eda859c3bd7024efc06f3d1aef9d90e4468bc8ed3aeffedafe47a4",
+      "expected_sha256": "520b702e0b28dbb12fdea6484ba4516b34ef6d905704e06ad93ab495b309bb97",
+      "original_source_sha256": "c99cc792ed3fd9e547d0bd2496bc8cd7f9a5cca2ea1b1ad2d1067a8bff4f25dd",
+      "mutated_source_sha256": "5adde86c66eda859c3bd7024efc06f3d1aef9d90e4468bc8ed3aeffedafe47a4",
+      "label": "return-width",
+      "replacement": {
+        "old": "$bits($countbits(value, 1'b1))",
+        "new": "$bits($countbits(value, 1'b1)) + 1",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "21054b1c3b17f6062f6d4bd7191e381736fc9f3a82306a8481178abb66f36614"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_predicates_w513.sv",
+      "source_sha256": "265aa345c77c065d475c36d00dc20bb4384150352a9108ec3e3909fb17ff36a3",
+      "expected_sha256": "e70ad77c90a20c102004cb019763b695844688ae49c17f4da0409b01cca2a7d2",
+      "original_source_sha256": "a239ef7bcf16fb2c2c08b485b580c837bacd171948e476965a5c5378d19e3f18",
+      "mutated_source_sha256": "265aa345c77c065d475c36d00dc20bb4384150352a9108ec3e3909fb17ff36a3",
+      "label": "query-value",
+      "replacement": {
+        "old": "$onehot0(value)",
+        "new": "!$onehot0(value)",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "04234c4c71c635d33a00196498f57f5358fea92213cb3641415bd3753721fa22"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_predicates_w513.sv",
+      "source_sha256": "9551ecd28cff241370a6254bcde5d0af2661a3b993bd495a0a28c1d995588dd9",
+      "expected_sha256": "e70ad77c90a20c102004cb019763b695844688ae49c17f4da0409b01cca2a7d2",
+      "original_source_sha256": "a239ef7bcf16fb2c2c08b485b580c837bacd171948e476965a5c5378d19e3f18",
+      "mutated_source_sha256": "9551ecd28cff241370a6254bcde5d0af2661a3b993bd495a0a28c1d995588dd9",
+      "label": "return-width",
+      "replacement": {
+        "old": "$bits($countbits(value, 1'b1))",
+        "new": "$bits($countbits(value, 1'b1)) + 1",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "386b589044c96b281b23b95d54b66795452077aec7e8339596ab0cbaaed07d2e"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_record_w257.sv",
+      "source_sha256": "283c3dc52a0da444f66557f758a6dba82592079463723fa765acf5f1bba71a4e",
+      "expected_sha256": "0960683159f6855cdbc92a1483b1731b0c241baa7d297f8bc900e61787326bf4",
+      "original_source_sha256": "c626f3df406e46a24ee3ad700e0b27b3c47a0da28ede7846873b0c54596b918d",
+      "mutated_source_sha256": "283c3dc52a0da444f66557f758a6dba82592079463723fa765acf5f1bba71a4e",
+      "label": "query-value",
+      "replacement": {
+        "old": "$countones(record_value)",
+        "new": "$countones(~record_value)",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "f019f6b8bee15709e1e289d3b1f598be615ef90bc30f964107f524d839a91288"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_record_w257.sv",
+      "source_sha256": "0f9529e51fe334c9281da665b8dab2c38d106b47adeef7c54e270837f8310193",
+      "expected_sha256": "0960683159f6855cdbc92a1483b1731b0c241baa7d297f8bc900e61787326bf4",
+      "original_source_sha256": "c626f3df406e46a24ee3ad700e0b27b3c47a0da28ede7846873b0c54596b918d",
+      "mutated_source_sha256": "0f9529e51fe334c9281da665b8dab2c38d106b47adeef7c54e270837f8310193",
+      "label": "return-width",
+      "replacement": {
+        "old": "$bits($countbits(record_value, 1'b1))",
+        "new": "$bits($countbits(record_value, 1'b1)) + 1",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "5b21e51c6bab965fab779bfa8da8a0814480bf6ef69d18866042dd532dc8071f"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_record_w513.sv",
+      "source_sha256": "20633785b509a4850359dbfc2c83e4be8652ecb94800310a7464ff8293ce9e3a",
+      "expected_sha256": "e6221bcf66649a555d270ed6aa2fe0f5535daad493427c2563c0370cddc3df9a",
+      "original_source_sha256": "2714f4f0b9f5a5be961e23cc05f7d92eeace4725663d265aec7a1b33678324a4",
+      "mutated_source_sha256": "20633785b509a4850359dbfc2c83e4be8652ecb94800310a7464ff8293ce9e3a",
+      "label": "query-value",
+      "replacement": {
+        "old": "$countones(record_value)",
+        "new": "$countones(~record_value)",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "670e82626a6d61303ab3cca88f045e1601c2c3963d5e96594db8e1166e577aa7"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_record_w513.sv",
+      "source_sha256": "88d27870a46d1f6ed4a9927207fe25a60ddfd17678cd3ee5139849fb5d501e22",
+      "expected_sha256": "e6221bcf66649a555d270ed6aa2fe0f5535daad493427c2563c0370cddc3df9a",
+      "original_source_sha256": "2714f4f0b9f5a5be961e23cc05f7d92eeace4725663d265aec7a1b33678324a4",
+      "mutated_source_sha256": "88d27870a46d1f6ed4a9927207fe25a60ddfd17678cd3ee5139849fb5d501e22",
+      "label": "return-width",
+      "replacement": {
+        "old": "$bits($countbits(record_value, 1'b1))",
+        "new": "$bits($countbits(record_value, 1'b1)) + 1",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "59bd0021f48c8df67d9a2bfef206cceae8b45b8258f984d74b146ba0cedb5369"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_xz_w257.sv",
+      "source_sha256": "dba6ccf45f852fdf37f3364d46e076e8abcbd1f4c37f1038f56b02f047f61297",
+      "expected_sha256": "efc6985e2ded3b08f00ca3ad960ec788b0d814f6bde36e0c7adcc160d7c6f76c",
+      "original_source_sha256": "d798eca92c11ff1a5ce22af15ddf4a897e7494333a8d5a9552107cf45883d38f",
+      "mutated_source_sha256": "dba6ccf45f852fdf37f3364d46e076e8abcbd1f4c37f1038f56b02f047f61297",
+      "label": "query-value",
+      "replacement": {
+        "old": "$countones(value)",
+        "new": "$countones(~value)",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "5d358772749c46fd7c8471e977d730b0b2b2d6098555e24f0b6922af6f82ca3c"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_xz_w257.sv",
+      "source_sha256": "f271e9d762d4cf5fc2f3723ab009a430335b0edeca07a026834f30fbcb79de80",
+      "expected_sha256": "efc6985e2ded3b08f00ca3ad960ec788b0d814f6bde36e0c7adcc160d7c6f76c",
+      "original_source_sha256": "d798eca92c11ff1a5ce22af15ddf4a897e7494333a8d5a9552107cf45883d38f",
+      "mutated_source_sha256": "f271e9d762d4cf5fc2f3723ab009a430335b0edeca07a026834f30fbcb79de80",
+      "label": "return-width",
+      "replacement": {
+        "old": "$bits($countbits(value, 1'b1))",
+        "new": "$bits($countbits(value, 1'b1)) + 1",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "ca813116da7a6c11842d5feee9fa90fe71dc64fa0fcae27444933e7b0903f3fc"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_xz_w513.sv",
+      "source_sha256": "79a7c12a9dd846dd4a6a349a0e1b2b919921572163d23a3db788e7e34276e9cc",
+      "expected_sha256": "e434297db073cacff54619dd2b7f71ad4217bdd12621b8fa5dc0c08c0370a1a3",
+      "original_source_sha256": "e5adcbe96aefbfa0bf7a5a781b1a2dbf9de2010fa15856dd4c8cd44b51fd675f",
+      "mutated_source_sha256": "79a7c12a9dd846dd4a6a349a0e1b2b919921572163d23a3db788e7e34276e9cc",
+      "label": "query-value",
+      "replacement": {
+        "old": "$countones(value)",
+        "new": "$countones(~value)",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "3b0bf73fc9ba6d40ef61d5b83f877f25d9a5d3196b03455581f86f513584b9d7"
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_wide_bitquery_xz_w513.sv",
+      "source_sha256": "19faf9754b3dfc1b7baaa847becaae9ff62c1a79ffbd9909019d539400109f83",
+      "expected_sha256": "e434297db073cacff54619dd2b7f71ad4217bdd12621b8fa5dc0c08c0370a1a3",
+      "original_source_sha256": "e5adcbe96aefbfa0bf7a5a781b1a2dbf9de2010fa15856dd4c8cd44b51fd675f",
+      "mutated_source_sha256": "19faf9754b3dfc1b7baaa847becaae9ff62c1a79ffbd9909019d539400109f83",
+      "label": "return-width",
+      "replacement": {
+        "old": "$bits($countbits(value, 1'b1))",
+        "new": "$bits($countbits(value, 1'b1)) + 1",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "6e7c450231775ee9a812d9337ca515661eb1e76c3b32028e65a384eb69ba9c4e"
+    }
+  ],
+  "status": "all16controls-pass-and32compiled-mutants-differ"
+}

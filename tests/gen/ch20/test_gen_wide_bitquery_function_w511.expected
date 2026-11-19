@@ -1,0 +1,6 @@
+width=511 form=function
+captured ones=501 zeros=10
+inverted ones=501 zeros=10
+top_one ones=1 onehot=1 onehot0=1 unknown=0
+top_zero ones=0 onehot=0 onehot0=1 unknown=0
+return_bits=32,32,1,1,1

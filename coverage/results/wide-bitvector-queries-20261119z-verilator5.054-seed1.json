@@ -1,0 +1,235 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "gen/ch20/test_gen_wide_bitquery_constant_w255": {
+   "status": "pass",
+   "inputs_sha256": "34ef03205c836e4e8a48a6dba94bfec3138f64ca214e201ed44e3483263bfb68"
+  },
+  "gen/ch20/test_gen_wide_bitquery_constant_w256": {
+   "status": "pass",
+   "inputs_sha256": "a0a46a3bd3bcb8ba42407eccdf32ff90abcb3da56a24949269edd5d2203b75a1"
+  },
+  "gen/ch20/test_gen_wide_bitquery_constant_w257": {
+   "status": "pass",
+   "inputs_sha256": "485a030549589cef434c76d75a2fe550a4c6d802d8b78a992ecdb7e4a5f06334"
+  },
+  "gen/ch20/test_gen_wide_bitquery_constant_w511": {
+   "status": "pass",
+   "inputs_sha256": "fb3713617de8a588d1ae8d0b6036b7f2091a98ccddee9ac3372e5991688b2324"
+  },
+  "gen/ch20/test_gen_wide_bitquery_constant_w512": {
+   "status": "pass",
+   "inputs_sha256": "b9c2402a4b8d4a57e0520feccaf37a5bd0d40fdb6b32af7a6083c25e7ef72146"
+  },
+  "gen/ch20/test_gen_wide_bitquery_constant_w513": {
+   "status": "pass",
+   "inputs_sha256": "f2928e2ef77b93f1453fd2949e06ee051096ef37f476ffd33c8facf879bb0034"
+  },
+  "gen/ch20/test_gen_wide_bitquery_controls_w255": {
+   "status": "known",
+   "reason": "build failed: %Error: 'make -C <tmp>/obj -f Vt.mk -j 1' exited with 2",
+   "inputs_sha256": "66daa9c83925e7fb9a6c78a36b9523624d2094f25462f2b9d5332341595e99dd"
+  },
+  "gen/ch20/test_gen_wide_bitquery_controls_w256": {
+   "status": "known",
+   "reason": "build failed: %Error: 'make -C <tmp>/obj -f Vt.mk -j 1' exited with 2",
+   "inputs_sha256": "91050038b2c73844b1a433cf323654abc1219a53f6721b3c3ca9cda260ef6598"
+  },
+  "gen/ch20/test_gen_wide_bitquery_controls_w257": {
+   "status": "known",
+   "reason": "build failed: %Error: 'make -C <tmp>/obj -f Vt.mk -j 1' exited with 2",
+   "inputs_sha256": "9e53aa522883a8f4fee74528080ea7d4cedb8055b2f42d6e05cb04d60455f684"
+  },
+  "gen/ch20/test_gen_wide_bitquery_controls_w511": {
+   "status": "known",
+   "reason": "build failed: %Error: 'make -C <tmp>/obj -f Vt.mk -j 1' exited with 2",
+   "inputs_sha256": "87bc9b1c56d268cd04900c46114d4ef02ec21a74a866bff605097752db8c1f58"
+  },
+  "gen/ch20/test_gen_wide_bitquery_controls_w512": {
+   "status": "known",
+   "reason": "build failed: %Error: 'make -C <tmp>/obj -f Vt.mk -j 1' exited with 2",
+   "inputs_sha256": "be963b19fca2ff8c1003a8a5819401c35a2750285c5382b0aae3bde412291c27"
+  },
+  "gen/ch20/test_gen_wide_bitquery_controls_w513": {
+   "status": "known",
+   "reason": "build failed: %Error: 'make -C <tmp>/obj -f Vt.mk -j 1' exited with 2",
+   "inputs_sha256": "b63b397b3ead21ea401f5d74bad9093423ecb7e9b053fa6a6c0cd7da3bf649a6"
+  },
+  "gen/ch20/test_gen_wide_bitquery_function_w255": {
+   "status": "pass",
+   "inputs_sha256": "329edbf1926061244d26dc22c200f40fdaf00b4ec3090bda6461568b23788f4e"
+  },
+  "gen/ch20/test_gen_wide_bitquery_function_w256": {
+   "status": "pass",
+   "inputs_sha256": "536c21371bfafcd8905e8453829d3ad7bfe5d7bbf75843c5fa53d7e4cd088ac6"
+  },
+  "gen/ch20/test_gen_wide_bitquery_function_w257": {
+   "status": "pass",
+   "inputs_sha256": "290482990e002a21f18eb6f49ecf9df9bd2c2ae2b915d422564fbb13fc73537a"
+  },
+  "gen/ch20/test_gen_wide_bitquery_function_w511": {
+   "status": "pass",
+   "inputs_sha256": "6b0eb9fe2a1aa723f4d8add36cfab7b0810c7a274330cd7e97ab9f08897e42eb"
+  },
+  "gen/ch20/test_gen_wide_bitquery_function_w512": {
+   "status": "pass",
+   "inputs_sha256": "f49e06e18eaa178fc93832641c2e9a3cad174c3bda4655db3a2eef9d5f856150"
+  },
+  "gen/ch20/test_gen_wide_bitquery_function_w513": {
+   "status": "pass",
+   "inputs_sha256": "07b2987d6095c889d3fb51a45981f130f18716367f0133493e748b84d2ba2824"
+  },
+  "gen/ch20/test_gen_wide_bitquery_known_w255": {
+   "status": "pass",
+   "inputs_sha256": "e784d6354b86f0084316d832bfb5c1cdb85e232adf147863c59a19d2665f233f"
+  },
+  "gen/ch20/test_gen_wide_bitquery_known_w256": {
+   "status": "pass",
+   "inputs_sha256": "fbf3438207266671a2b1ae0bb8d984c7c874ecb0756cbc6b218be4848bb0d650"
+  },
+  "gen/ch20/test_gen_wide_bitquery_known_w257": {
+   "status": "pass",
+   "inputs_sha256": "5713ae04ab70d1aeee374e0fb9edc13670fefbd82fcfdab47c61d12d39b5ddc7"
+  },
+  "gen/ch20/test_gen_wide_bitquery_known_w511": {
+   "status": "pass",
+   "inputs_sha256": "383f2f4338384f4834e1554cec78fe4168e89c5f0ff815ef8eaa9c6a46863c7d"
+  },
+  "gen/ch20/test_gen_wide_bitquery_known_w512": {
+   "status": "pass",
+   "inputs_sha256": "2cb72b4affc118d7dafc9912cd55e75189df024a979fb7c8784c483d2bd624cd"
+  },
+  "gen/ch20/test_gen_wide_bitquery_known_w513": {
+   "status": "pass",
+   "inputs_sha256": "274376c3101ff58f2089600a75cf6d26d5bc71f151f39f79f28879d445cb0b1c"
+  },
+  "gen/ch20/test_gen_wide_bitquery_mutation_w255": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'initial ones=129 zeros=126 x=0 z=255', expected 'initial ones=9 zeros=246 x=0 z=0'",
+   "inputs_sha256": "f2ca4860a4e9148f53e2d67e3ec275867ea745f904d8ad4833ae2cfd07aac2fc"
+  },
+  "gen/ch20/test_gen_wide_bitquery_mutation_w256": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'initial ones=128 zeros=112 x=0 z=256', expected 'initial ones=9 zeros=247 x=0 z=0'",
+   "inputs_sha256": "cdb115a5a8d8bd56b3a106958d03224a8d59d89b858b324642a7aab879965bb7"
+  },
+  "gen/ch20/test_gen_wide_bitquery_mutation_w257": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'initial ones=132 zeros=125 x=0 z=257', expected 'initial ones=9 zeros=248 x=0 z=0'",
+   "inputs_sha256": "ddc125b2b327c7f9e1736870281cc84743688d23db0e4a5dc5e2cc1b69c0dc15"
+  },
+  "gen/ch20/test_gen_wide_bitquery_mutation_w511": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'initial ones=269 zeros=242 x=0 z=511', expected 'initial ones=10 zeros=501 x=0 z=0'",
+   "inputs_sha256": "df6659ea4bf2cc63ef97af485554b0c4800cb907bb190686138bcb0f0c5a5f4d"
+  },
+  "gen/ch20/test_gen_wide_bitquery_mutation_w512": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'initial ones=269 zeros=232 x=0 z=512', expected 'initial ones=10 zeros=502 x=0 z=0'",
+   "inputs_sha256": "243a9d8d5e677f33cedda66d20d49627419e2b335c990826281f037a06ec8993"
+  },
+  "gen/ch20/test_gen_wide_bitquery_mutation_w513": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'initial ones=277 zeros=236 x=0 z=513', expected 'initial ones=10 zeros=503 x=0 z=0'",
+   "inputs_sha256": "ac763d30ec9853b54c971fcb242b42d238ed7002349bc1071e958f6aa3ecfe13"
+  },
+  "gen/ch20/test_gen_wide_bitquery_predicates_w255": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'zero ones=126 onehot=0 onehot0=0 unknown=0', expected 'zero ones=0 onehot=0 onehot0=1 unknown=0'",
+   "inputs_sha256": "4e60cc46e7fda33a07e9a698956362ea587be305d22bf295a6af3809885eba68"
+  },
+  "gen/ch20/test_gen_wide_bitquery_predicates_w256": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'zero ones=124 onehot=0 onehot0=0 unknown=0', expected 'zero ones=0 onehot=0 onehot0=1 unknown=0'",
+   "inputs_sha256": "2719573f2274baafc67c1db33a35da89c40b15c0781be8e445572ae227804cd2"
+  },
+  "gen/ch20/test_gen_wide_bitquery_predicates_w257": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'zero ones=134 onehot=0 onehot0=0 unknown=0', expected 'zero ones=0 onehot=0 onehot0=1 unknown=0'",
+   "inputs_sha256": "893d24f7948f8440bbc7b6d6017f97631a871fc98d81c8a4a7b7505342d0a656"
+  },
+  "gen/ch20/test_gen_wide_bitquery_predicates_w511": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'zero ones=268 onehot=0 onehot0=0 unknown=0', expected 'zero ones=0 onehot=0 onehot0=1 unknown=0'",
+   "inputs_sha256": "f3b1ea1573cfafdb8d8f45356f4533c81b489ee5fdad8579a4a74dcab158a349"
+  },
+  "gen/ch20/test_gen_wide_bitquery_predicates_w512": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'zero ones=261 onehot=0 onehot0=0 unknown=0', expected 'zero ones=0 onehot=0 onehot0=1 unknown=0'",
+   "inputs_sha256": "36502db5ad0824d3f30cb4c46cb62e1547e6eb33fb8bc241422e8915f65f6d90"
+  },
+  "gen/ch20/test_gen_wide_bitquery_predicates_w513": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'zero ones=279 onehot=0 onehot0=0 unknown=0', expected 'zero ones=0 onehot=0 onehot0=1 unknown=0'",
+   "inputs_sha256": "23747fa8bea5114986858c349b20b1ae8c9c2e8702a6a6734f646b4461605fdc"
+  },
+  "gen/ch20/test_gen_wide_bitquery_record_w255": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'record_xz ones=141 zeros=118 x=0 z=256', expected 'record_xz ones=7 zeros=245 x=3 z=4'",
+   "inputs_sha256": "a04c9fa020e759606451b82023347ae92e946195144ada52f364df1dc9550d9a"
+  },
+  "gen/ch20/test_gen_wide_bitquery_record_w256": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'record_xz ones=138 zeros=122 x=0 z=257', expected 'record_xz ones=7 zeros=246 x=3 z=4'",
+   "inputs_sha256": "856f33a2344ee5ba25f886cc27acf063ebe353eaf5e95687a6901ce58da9d76d"
+  },
+  "gen/ch20/test_gen_wide_bitquery_record_w257": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'record_xz ones=121 zeros=140 x=0 z=258', expected 'record_xz ones=7 zeros=247 x=3 z=4'",
+   "inputs_sha256": "505c09f208efd0199a5d0e60e3ffd76ff997e5c51ccf2fb75b9e3987104f4364"
+  },
+  "gen/ch20/test_gen_wide_bitquery_record_w511": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'record_xz ones=253 zeros=262 x=0 z=512', expected 'record_xz ones=8 zeros=500 x=3 z=4'",
+   "inputs_sha256": "ccab6e91fd005be4053f24e7848ce1f4dfb386fa28ffa9d6563756448010b0af"
+  },
+  "gen/ch20/test_gen_wide_bitquery_record_w512": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'record_xz ones=274 zeros=242 x=0 z=513', expected 'record_xz ones=8 zeros=501 x=3 z=4'",
+   "inputs_sha256": "081f318fb660aa4386eb263bbdde545d0b64f290b3e6763087d988ab10ad6005"
+  },
+  "gen/ch20/test_gen_wide_bitquery_record_w513": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'record_xz ones=273 zeros=244 x=0 z=514', expected 'record_xz ones=8 zeros=502 x=3 z=4'",
+   "inputs_sha256": "7ef77c370cd6ffaad4f1b2b2cbfee6441d950d43179d214a17304e17e81e0394"
+  },
+  "gen/ch20/test_gen_wide_bitquery_xz_w255": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'fourstate ones=125 zeros=130 x=0 z=252', expected 'fourstate ones=6 zeros=244 x=2 z=3'",
+   "inputs_sha256": "e7aa62a6126eec49dc458b50c408602f552b2fefe776a2f6304733ed72328b5f"
+  },
+  "gen/ch20/test_gen_wide_bitquery_xz_w256": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'fourstate ones=121 zeros=119 x=0 z=253', expected 'fourstate ones=6 zeros=245 x=2 z=3'",
+   "inputs_sha256": "a8be1ad1c955caedb0c85f848a5d19cc89184e5a371fcd27ab4dceaa52150b3c"
+  },
+  "gen/ch20/test_gen_wide_bitquery_xz_w257": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'fourstate ones=123 zeros=134 x=0 z=254', expected 'fourstate ones=6 zeros=246 x=2 z=3'",
+   "inputs_sha256": "a4e5b8bf4895144fd43e01df5c1ae76c8a64b29155f5efd415d9674390393625"
+  },
+  "gen/ch20/test_gen_wide_bitquery_xz_w511": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'fourstate ones=266 zeros=245 x=0 z=508', expected 'fourstate ones=7 zeros=499 x=2 z=3'",
+   "inputs_sha256": "af3bd014a0aecba4b0c38a880af0b74e9361ae8ae75ead43dcecaec85a1edcd0"
+  },
+  "gen/ch20/test_gen_wide_bitquery_xz_w512": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'fourstate ones=258 zeros=241 x=0 z=509', expected 'fourstate ones=7 zeros=500 x=2 z=3'",
+   "inputs_sha256": "a914e9160a17b8ab7941d7ad45b761726b5a6487939ce4fca5810d75b685aaa5"
+  },
+  "gen/ch20/test_gen_wide_bitquery_xz_w513": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'fourstate ones=252 zeros=261 x=0 z=510', expected 'fourstate ones=7 zeros=501 x=2 z=3'",
+   "inputs_sha256": "6a901dbcd4214ff1b12b4defeee9a47e24bc02049f669def1f1a000ef164015c"
+  }
+ },
+ "generated_at": "2026-11-19T07:24:00.224839+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

@@ -23842,6 +23842,22 @@
     "Packed reads match literal and flat-vector controls without element writes": "Packed reads match literal and flat-vector controls without element writes",
     "Packed reads match literal and flat-vector controls without element writes ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Packed reads match literal and flat-vector controls without element writes ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
     "Positive format fields pad small values and retain full wide numbers": "Positive format fields pad small values and retain full wide numbers",
-    "Positive format fields pad small values and retain full wide numbers ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Positive format fields pad small values and retain full wide numbers ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )"
+    "Positive format fields pad small values and retain full wide numbers ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Positive format fields pad small values and retain full wide numbers ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Wide query boundaries preserve known argument and result semantics": "Wide query boundaries preserve known argument and result semantics",
+    "Wide query boundaries preserve known argument and result semantics ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide query boundaries preserve known argument and result semantics ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Wide query boundaries preserve xz argument and result semantics": "Wide query boundaries preserve xz argument and result semantics",
+    "Wide query boundaries preserve xz argument and result semantics ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide query boundaries preserve xz argument and result semantics ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Wide query boundaries preserve mutation argument and result semantics": "Wide query boundaries preserve mutation argument and result semantics",
+    "Wide query boundaries preserve mutation argument and result semantics ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide query boundaries preserve mutation argument and result semantics ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Wide query boundaries preserve predicates argument and result semantics": "Wide query boundaries preserve predicates argument and result semantics",
+    "Wide query boundaries preserve predicates argument and result semantics ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide query boundaries preserve predicates argument and result semantics ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Wide query boundaries preserve function argument and result semantics": "Wide query boundaries preserve function argument and result semantics",
+    "Wide query boundaries preserve function argument and result semantics ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide query boundaries preserve function argument and result semantics ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Wide query boundaries preserve record argument and result semantics": "Wide query boundaries preserve record argument and result semantics",
+    "Wide query boundaries preserve record argument and result semantics ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide query boundaries preserve record argument and result semantics ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Wide query boundaries preserve controls argument and result semantics": "Wide query boundaries preserve controls argument and result semantics",
+    "Wide query boundaries preserve controls argument and result semantics ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide query boundaries preserve controls argument and result semantics ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Wide query boundaries preserve constant argument and result semantics": "Wide query boundaries preserve constant argument and result semantics",
+    "Wide query boundaries preserve constant argument and result semantics ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide query boundaries preserve constant argument and result semantics ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )"
   }
 }

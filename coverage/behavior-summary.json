@@ -51,9 +51,9 @@
     "interpretation_pending": 0
   },
   "test_mapping": {
-    "suite_test_files": 16136,
+    "suite_test_files": 16184,
     "linked_test_files": 6644,
-    "unlinked_test_files": 9492
+    "unlinked_test_files": 9540
   },
   "collective_requirement_count": 760,
   "requirement_status_counts": {
@@ -42550,6 +42550,139 @@
           "unreviewed_oracle": 3,
           "stale": 0,
           "not_run": 11394,
+          "unmapped": 904,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "wide-bitvector-queries-20261119z-icarus13.json",
+        "simulator": "icarus",
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+        "generated_at": "2026-11-19T07:22:17.840650+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11428,
+          "unmapped": 904,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "wide-bitvector-queries-20261119z-kirimasim-a6222f0656d4-run1.json",
+        "simulator": "kirimasim",
+        "version": "kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401",
+        "generated_at": "2026-11-19T07:22:18.345242+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11428,
+          "unmapped": 904,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "wide-bitvector-queries-20261119z-kirimasim-a6222f0656d4-run2.json",
+        "simulator": "kirimasim",
+        "version": "kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401",
+        "generated_at": "2026-11-19T07:22:18.854769+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11428,
+          "unmapped": 904,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "wide-bitvector-queries-20261119z-kirimasim-a6222f0656d4-run3.json",
+        "simulator": "kirimasim",
+        "version": "kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401",
+        "generated_at": "2026-11-19T07:22:19.357406+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11428,
+          "unmapped": 904,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "wide-bitvector-queries-20261119z-kirimasim-a6222f0656d4-run4.json",
+        "simulator": "kirimasim",
+        "version": "kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401",
+        "generated_at": "2026-11-19T07:22:19.873962+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11428,
+          "unmapped": 904,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "wide-bitvector-queries-20261119z-verilator5.054-seed1.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "generated_at": "2026-11-19T07:24:00.224839+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11428,
+          "unmapped": 904,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "wide-bitvector-queries-20261119z-verilator5.054-seed73.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "generated_at": "2026-11-19T07:25:36.875457+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11428,
           "unmapped": 904,
           "interpretation_pending": 0
         }

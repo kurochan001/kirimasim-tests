@@ -160,6 +160,10 @@
     "wide_format_fields": {
       "en": "72 known-value positive format fields at 255/256/257 and 511/512/513 bits, both signs, binary/hexadecimal/decimal and minimum widths 3 or W+2. Reuses unchanged numeric round-trip fixtures; checks padding, expansion, exact text and length separately from parsed values/counts and preserved source. No files, floating point or four-state values.",
       "ja": "255/256/257・511/512/513ビットの既知値72本で、符号2種類・2進／16進／10進・最小幅3またはW+2を扱う。従来の数値の往復の作成処理をそのまま使い、埋め・拡張・正確な文字列と長さを、読み取った値・個数・元の入力の保持とは別に検証する。ファイル・浮動小数点・4値は範囲外とする。"
+    },
+    "wide_bitvector_queries": {
+      "en": "48 query boundary fixtures at 255/256/257 and 511/512/513 bits, reusing all eight unchanged bitvector_queries forms. Covers known and four-state populations, successive bit writes, onehot/unknown predicates, packed function/struct arguments, duplicate wide controls and constant query-defined type widths. Return widths stay separately visible; no previous helper/input changes or exhaustive argument claim.",
+      "ja": "255/256/257・511/512/513ビットの問い合わせ48本で、従来のbitvector_queriesの8形式をそのまま使う。既知値と4値の個数・連続したビット書き込み・onehotと未知値の判定・関数と構造体の全体・重複した広い制御引数・定数の問い合わせで決まる型の幅を扱う。戻り値の幅も別に表示し、過去の処理と入力は変えず、全引数を網羅したとはしない。"
     }
   }
 }

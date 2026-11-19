@@ -1,0 +1,5 @@
+width=512 form=record
+record_xz ones=8 zeros=501 x=3 z=4
+record_known_tags ones=10 zeros=501 x=2 z=3
+record_bits=516
+return_bits=32,32,1,1,1

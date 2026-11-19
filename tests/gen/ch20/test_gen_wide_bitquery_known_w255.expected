@@ -1,0 +1,5 @@
+width=255 form=known
+ascending ones=9 zeros=246
+ascending ones=9 onehot=0 onehot0=0 unknown=0
+duplicate=9 union=255
+return_bits=32,32,1,1,1

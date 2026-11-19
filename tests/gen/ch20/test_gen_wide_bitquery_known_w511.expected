@@ -1,0 +1,5 @@
+width=511 form=known
+ascending ones=10 zeros=501
+ascending ones=10 onehot=0 onehot0=0 unknown=0
+duplicate=10 union=511
+return_bits=32,32,1,1,1
