@@ -1,6 +1,6 @@
 /*
 :name: test_vpi_assertion_cover_no_failure
-:description: A cover property that does not match reports no cbAssertionFailure callback (IEEE 1800-2023 Sections 39.4.2 and 16.14.3)
+:description: A cover property that does not match reports cbAssertionFailure for each failed attempt, although it has no fail action (IEEE 1800-2023 Sections 39.4.2 and 16.14.3)
 :tags: ch39
 :type: simulation
 :lrm: 1800-2023 39.4.2 16.14.3 16.9.2
@@ -11,12 +11,13 @@
 :vpi_c: @test_vpi_assertion_cover_no_failure.c
 :expected_stdout: @test_vpi_assertion_cover_no_failure.expected
 */
-// IEEE 1800-2023 §16.14.3: a cover property has no failure action; an attempt
-// whose sequence does not match is simply not covered. §39.4.2: the assertion
-// callbacks report start, success, vacuous success and failure; a cover
-// property that does not match therefore reports no cbAssertionFailure. The
-// attempts that start at 25 and 35 cannot match, because a is 0. The
-// application places only a failure callback and counts none.
+// IEEE 1800-2023 §39.4.2: cbAssertionFailure is reported when an assertion
+// attempt or a property fails to reach a success state, and the callback may
+// be registered on any concurrent assertion, a cover included. §16.14.3 says
+// only that a cover statement has no fail action. The attempt that starts at 5
+// matches at 15. The attempt from 15 fails at 25 because b is 0 there, and the
+// attempts from 25 and 35 cannot match because a is 0, so the application
+// counts three failure callbacks before the report at 40.
 
 `timescale 1ns/1ns
 

@@ -15726,8 +15726,8 @@
     },
     {
       "test": "tests/ch39/test_vpi_assertion_cover_no_failure.sv",
-      "inputs_sha256": "8d42d6d3c945582d094c5aee3d4a0f7316f70d1013467ec104108050eb6e6449",
-      "reviewed_on": "2026-10-25",
+      "inputs_sha256": "e8b4a1d54b00e603f5892086f77a734e60768b67153e3d526a5511e2461c0468",
+      "reviewed_on": "2026-11-20",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
@@ -15737,7 +15737,7 @@
           ],
           "disposition": "partial_observation",
           "explanation": "期待出力は 'failure callbacks: 0' の1行だけで、cover property が報告すべき試行回数・成功回数・空成功回数を assertion API で取得しておらず、cbAssertionFailure を一切呼ばない実装でも同じ出力になる。同じ設計内で失敗コールバックが出る対照も置かれていない。",
-          "reviewed_on": "2026-10-25",
+          "reviewed_on": "2026-11-20",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {
