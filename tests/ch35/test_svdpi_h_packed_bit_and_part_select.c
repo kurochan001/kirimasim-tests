@@ -30,8 +30,11 @@ void dpi_bit_select(const svLogicVecVal *a, const svBitVecVal *b,
 
 void dpi_part_select(const svLogicVecVal *c, const svBitVecVal *w, svBitVecVal *d)
 {
-    svBitVecVal piece;
-    svLogicVecVal lpiece;
+    /* svGetPartselBit and svGetPartselLogic leave destination bits [31:w]
+       unchanged when w < 32 (H.11.5), so both destinations start at zero and
+       each printed value shows only the w bits that the call wrote. */
+    svBitVecVal piece = 0;
+    svLogicVecVal lpiece = {0, 0};
 
     svGetPartselBit(&piece, w, 28, 8);
     printf("part of the 64-bit value at 28 width 8: %02x\n", (unsigned)piece);

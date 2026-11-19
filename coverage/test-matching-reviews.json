@@ -51459,8 +51459,8 @@
     },
     {
       "test": "tests/ch35/test_svdpi_h_packed_bit_and_part_select.sv",
-      "inputs_sha256": "69ccaee9d5f58c4bed5538b4e30ba2bd29d0ec80f07f8fa3e74f9650733cef34",
-      "reviewed_on": "2026-10-26",
+      "inputs_sha256": "16355160b63958d176c2269cb14ca877e3a30a9553acb520b340670015d1d626",
+      "reviewed_on": "2026-11-20",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
       "decisions": [
@@ -51470,7 +51470,7 @@
           ],
           "disposition": "partial_observation",
           "explanation": "svGetPartselBit/Logic と svPutPartselBit は呼ぶが svPutPartselLogic を呼んでおらず、part-select 4 本のうち 3 本だけ。幅 32 の境界も未使用で、svPutPartselLogic の添字正規化を誤る実装が通るため一部観測である。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-11-20",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {

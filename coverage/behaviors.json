@@ -539307,9 +539307,9 @@
         {
           "test": "tests/ch35/test_svdpi_h_packed_bit_and_part_select.sv",
           "observation": "logic [15:8] a=8'b1010_0110 と bit [8:15] b=8'b0101_1001 を渡し、svGetBitselLogic/svGetBitselBit の添字 0..7 を並べて表示する。C 側の添字 0 が宣言の最下位ビット（a[8]、b[15]）になる。 区別: 添字を宣言の左端起点や逆順に扱う実装では 2 行のビット列が逆転し、a の行が 0 1 1 0 0 1 0 1 ではなく 1 0 1 0 0 1 1 0 などになる。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-11-20",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "69ccaee9d5f58c4bed5538b4e30ba2bd29d0ec80f07f8fa3e74f9650733cef34",
+          "inputs_sha256": "16355160b63958d176c2269cb14ca877e3a30a9553acb520b340670015d1d626",
           "evidence": [
             {
               "file": "tests/ch35/test_svdpi_h_packed_bit_and_part_select.sv",
@@ -540023,9 +540023,9 @@
         {
           "test": "tests/ch35/test_svdpi_h_packed_bit_and_part_select.sv",
           "observation": "SV_GET_UNSIGNED_BITS を (0x89abcdef,8)=0xef、(0x89abcdef,32)=0x89abcdef（N==32 は素通し）、(0x89abcdef,31)=0x09abcdef で評価し、結果を最後の行の 1 で示す。 区別: N==32 の場合分けを落とすと 32bit で 0x89abcdef が 0x09abcdef などに化け、マスクを誤れば 8bit の結果が 0xef にならず最終行が 0 になる。",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-11-20",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "69ccaee9d5f58c4bed5538b4e30ba2bd29d0ec80f07f8fa3e74f9650733cef34",
+          "inputs_sha256": "16355160b63958d176c2269cb14ca877e3a30a9553acb520b340670015d1d626",
           "evidence": [
             {
               "file": "tests/ch35/test_svdpi_h_packed_bit_and_part_select.sv",
