@@ -484970,9 +484970,9 @@
         {
           "test": "tests/ch19/test_covergroup_block_event_forms.sv",
           "observation": "The coverage event @@(begin work or end job) joins a begin of the task work and an end of the named block job with or; the sample at the end of job sees bv=2 and covers bin two, and the group prints 50. 区別: A tool that did not trigger on the end of the named block would cover no bin at all, and the printed coverage would be 0 instead of 50.",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-11-20",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "e5bc82941e7474827d82c4838623d1cbe9c4e511dacfd8c515eb4c7505605f09",
+          "inputs_sha256": "71b23e8a473601e7774f0c36d38a1930acf55545a7f25bde614d68158467a7c9",
           "evidence": [
             {
               "file": "tests/ch19/test_covergroup_block_event_forms.sv",
@@ -485239,9 +485239,9 @@
         {
           "test": "tests/ch19/test_covergroup_block_event_forms.sv",
           "observation": "cg carries @@(begin work or end job) and is sampled when work begins and when job ends; the end sample sees bv=2 and covers one of the two bins, so the printed coverage is 50.",
-          "reviewed_on": "2026-10-26",
+          "reviewed_on": "2026-11-20",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "e5bc82941e7474827d82c4838623d1cbe9c4e511dacfd8c515eb4c7505605f09",
+          "inputs_sha256": "71b23e8a473601e7774f0c36d38a1930acf55545a7f25bde614d68158467a7c9",
           "evidence": [
             {
               "file": "tests/ch19/test_covergroup_block_event_forms.sv",

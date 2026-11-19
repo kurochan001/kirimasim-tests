@@ -26,7 +26,7 @@
 // output follows the standard.
 
 module test_covergroup_block_event_forms;
-  bit bv = 0;
+  bit [1:0] bv = 0;
 
   task automatic work();
     bv = 1;
