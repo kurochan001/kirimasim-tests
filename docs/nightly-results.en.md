@@ -17,9 +17,11 @@
 
 ## Latest verified checkpoint
 
-The Nightly runs on `main` every night with all seven jobs: icarus, verilator, kirimasim, lyra-build, lyra, ghost and publish.
+The Nightly runs on `main` every night with icarus, verilator, kirimasim, lyra-build, lyra-shards (four parts), lyra (merge), ghost and publish.
 The results of the latest run are in the [report on the `results` branch](https://github.com/kurochan001/kirimasim-tests/tree/results#readme).
-The last successful Nightly is the [run](https://github.com/kurochan001/kirimasim-tests/actions/runs/43533749064) of 2026-11-14, on suite `aef04b93`.
+The last successful Nightly is the [run](https://github.com/kurochan001/kirimasim-tests/actions/runs/44217725110) of 2026-11-18, on suite `befffe90`.
+The [run of 2026-11-19](https://github.com/kurochan001/kirimasim-tests/actions/runs/44540686011), on suite `68ce2bc2`, passed six jobs including Ghost, but lyra's test step reached its 345-minute limit. It has no Lyra result JSON; the other simulators' results were published.
+To address that timeout, Lyra's tests now run in four parts selected by the SHA-256 of each test id. They are combined only when all assigned tests, input and runner fingerprints, versions and compiler settings agree. Shard artifacts are separate from the publishable `results-*` artifacts. Completion in a real Nightly is not yet verified.
 The [run of 2026-11-15](https://github.com/kurochan001/kirimasim-tests/actions/runs/43651437455), on suite `ed5ded9a`, failed while checking out Ghost's parser, before its build or tests. The other six jobs, including kirimasim's random comparisons and publish, succeeded. The original run did not preserve the underlying Git diagnostic. Subsequent checkout-only runs reproduced the access failure and exposed a mismatch between the CI repository setting and the current dependency configuration.
 For resuming development, see the newest [handoff](claude-code-handoff-20261112.en.md). The records below in this section are from earlier checkpoints.
 
@@ -27,7 +29,7 @@ The manual [Parser checkout diagnostic](https://github.com/kurochan001/kirimasim
 
 Before correction, the [normal HTTPS diagnostic](https://github.com/kurochan001/kirimasim-tests/actions/runs/43701395419), [isolated-token diagnostic](https://github.com/kurochan001/kirimasim-tests/actions/runs/43702092207), and [anonymous diagnostic](https://github.com/kurochan001/kirimasim-tests/actions/runs/43702094330) all exhausted three parser fetch attempts with the fixed category “authentication or repository access.” After adding a dependency-specific SSH key, the [identity check](https://github.com/kurochan001/kirimasim-tests/actions/runs/43705154602) confirmed that the configured repository did not match the repository that the key could read. These historical HTTPS comparison modes have been removed.
 
-The CI repository setting now matches the dependency configuration, and parser authentication uses a dedicated read-only deploy key instead of the job-scoped token. A job token cannot read another private repository, as the [checkout documentation](https://github.com/actions/checkout/blob/main/README.md#checkout-multiple-repos-private) explains. The parser ref and checkout path were preserved. The [first corrected diagnostic](https://github.com/kurochan001/kirimasim-tests/actions/runs/43705412434) and [second corrected diagnostic](https://github.com/kurochan001/kirimasim-tests/actions/runs/43705457958), both on `20114a39`, passed. Checkout recovery is verified; a full Nightly with this correction remains to be run.
+The CI repository setting now matches the dependency configuration, and parser authentication uses a dedicated read-only deploy key instead of the job-scoped token. A job token cannot read another private repository, as the [checkout documentation](https://github.com/actions/checkout/blob/main/README.md#checkout-multiple-repos-private) explains. The parser ref and checkout path were preserved. The [first corrected diagnostic](https://github.com/kurochan001/kirimasim-tests/actions/runs/43705412434) and [second corrected diagnostic](https://github.com/kurochan001/kirimasim-tests/actions/runs/43705457958), both on `20114a39`, passed. Checkout recovery is verified. Ghost's checkout, build and tests passed in the Nightly of 2026-11-19, while the full run failed at the Lyra timeout described above.
 
 ### Earlier artifact-reviewed details
 

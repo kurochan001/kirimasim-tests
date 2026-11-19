@@ -1012,3 +1012,9 @@
 - modportのないインタフェースポート`b`を、modportの`bi.dev`で接続するようにしました（25.5）。`vpiPortType`が接続ではなく宣言に従うこと（37.14）を区別するためで、期待出力は変わりません。
 - 独立した検証担当が、修正したテストと12件の対応の更新を確かめました。`SV2023-37.13-EXTRACT-IO-REFERENCE`はvirtual interfaceの引数の行、`SV2023-37.14-EXTRACT-PORT-FORMAL-TYPE`は`b`の接続の行を観測に加えました。結果は`coverage/results/vpi-io-decl-refinement-20261120-*.json`で、Icarus Verilog 13.0・Verilator 5.054・kirimasimはどれもこのテストを実行できません。
 - 入力の指紋が変わったので、Ghostの保存済みの一致は古くなり、Ghostとkirimasimを含む実行確認率は78.70%（9,705）から78.60%（9,693）になりました。要求カバレッジ（テスト設計）の92.96%と、再現できる実行確認率の51.20%は変わりません。
+
+### LyraのNightlyスイートの分割
+
+- [Nightly 44540686011](https://github.com/kurochan001/kirimasim-tests/actions/runs/44540686011)のLyraテストステップは345分の上限に達しました。ログは保存されましたが、ランナーは完了後にだけJSONを書くため、この晩のLyra結果はありません。
+- `lyra-shards`は、チェックアウト先に依存しないテストIDのSHA-256で4つの重複しない部分を選び、`lyra-build`が確定したビルドで実行します。各分割にステップの上限とartifactを設けます。`lyra`の統合ジョブは、4つの部分をこのチェックアウトと照合し、判定を保持して、欠落・重複・途中の結果・古い証跡・異なる設定を拒否します。`results-lyra`へ渡すのは統合した全スイートだけです。
+- 回帰テストで、全テストの割当て、分割の場所への非依存、formalの除外、全体の統合、不正な証跡の拒否、失敗時の既存出力の保持を検査します。SystemVerilogの期待値と要求の対応付けは変更していません。実際のNightlyでの完走は、これから確認します。

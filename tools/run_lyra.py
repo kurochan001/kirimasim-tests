@@ -57,11 +57,21 @@ directory of the machine (see neutral()).
 
 With --json, the result of every test is also written to FILE in the form
 that tools/suite_results.py describes.
+
+--shard-count N --shard-index I runs one disjoint part (zero-based), chosen
+by a SHA-256 of the portable test id. --merge-shards FILE ... --shard-count N
+--json FILE combines all parts of the full suite without needing Lyra.
+The merger rejects missing or duplicate parts, unassigned or missing tests,
+changed input or runner fingerprints, and different versions or settings.
+Only a complete union is written; the partition metadata is removed from
+the combined configuration.
 """
 
 import argparse
 import concurrent.futures
 import functools
+import hashlib
+import json
 import os
 import re
 import shutil
@@ -107,6 +117,65 @@ def simulation_tests(tests: list[Path]) -> list[Path]:
     :formal_case: and belongs to tools/run_sby.py; it has no expected output,
     so counting it as a simulation failure would be wrong."""
     return [test for test in tests if header_field(test, "type") != "formal"]
+
+
+def shard_index(test: Path, count: int) -> int:
+    """Assign a portable test id to one shard, spreading adjacent families."""
+    return int.from_bytes(hashlib.sha256(suite_results.test_id(test).encode()).digest(), "big") % count
+
+
+def merge_shards(paths: list[Path], tests: list[Path], count: int) -> tuple[str, dict, dict, dict, str]:
+    """Accept only complete, disjoint shards of this checkout and runner.
+
+    A timeout leaves no JSON, and a partial or stale file cannot stand in
+    for a full suite result. Configuration and simulator version must also
+    agree before any output is written.
+    """
+    inputs = suite_results.fingerprints(tests)
+    partitions = [set() for _ in range(count)]
+    for test in tests:
+        partitions[shard_index(test, count)].add(suite_results.test_id(test))
+    runner_hash = suite_results.runner_digest("lyra")
+    seen, results = set(), {}
+    version, configuration = None, None
+    for path in paths:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        if not isinstance(data, dict) or data.get("simulator") != "lyra" or data.get("name") != "Lyra":
+            raise ValueError("a shard is not a Lyra result")
+        if data.get("runner_sha256") != runner_hash or data.get("runner_changed") is not False:
+            raise ValueError("a shard was produced by a different or changed runner")
+        config = data.get("configuration")
+        if not isinstance(config, dict) or not isinstance(config.get("shard"), dict):
+            raise ValueError("a shard has no partition metadata")
+        partition = config["shard"]
+        index = partition.get("index")
+        if (type(index) is not int or type(partition.get("count")) is not int
+                or partition["count"] != count or not 0 <= index < count):
+            raise ValueError("invalid shard index or count")
+        if index in seen:
+            raise ValueError(f"duplicate shard {index}")
+        seen.add(index)
+        config = {k: v for k, v in config.items() if k != "shard"}
+        current_version = data.get("version")
+        if not isinstance(current_version, str) or not current_version:
+            raise ValueError("a shard has no simulator version")
+        if version is None:
+            version, configuration = current_version, config
+        elif version != current_version or configuration != config:
+            raise ValueError("shards have different simulator versions or configurations")
+        records = data.get("tests")
+        if not isinstance(records, dict) or set(records) != partitions[index]:
+            raise ValueError(f"shard {index} does not contain exactly its assigned tests")
+        for name, record in records.items():
+            if (not isinstance(record, dict) or record.get("status") not in suite_results.STATUSES
+                    or not isinstance(record.get("reason", ""), str)
+                    or record.get("inputs_changed", False) is not False
+                    or record.get("inputs_sha256") != inputs[name]):
+                raise ValueError(f"shard {index} has invalid or changed evidence for {name}")
+            results[name] = (record["status"], record.get("reason", ""))
+    if seen != set(range(count)):
+        raise ValueError("not all shards are present")
+    return version, configuration, results, inputs, runner_hash
 
 
 def c_source(test: Path, name: str) -> Path | None:
@@ -256,15 +325,34 @@ def main() -> int:
                          "(default: the first clang++ or c++ on PATH)")
     ap.add_argument("-j", "--jobs", type=int, default=1, help="number of tests run at once")
     ap.add_argument("--json", type=Path, default=None, help="also write the results to this file")
+    ap.add_argument("--shard-count", type=int, default=1, help="number of disjoint suite shards")
+    ap.add_argument("--shard-index", type=int, default=0, help="zero-based shard to run")
+    ap.add_argument("--merge-shards", type=Path, nargs="+",
+                    help="validate and combine all suite shards without running Lyra")
     ap.add_argument("tests", nargs="*", type=Path)
     args = ap.parse_args()
+    if args.shard_count < 1 or not 0 <= args.shard_index < args.shard_count:
+        ap.error("--shard-count must be positive and --shard-index must be within it")
+    tests = simulation_tests(args.tests or suite_results.find_tests())
+    if args.merge_shards:
+        if args.tests or args.json is None:
+            ap.error("--merge-shards requires --json and the full suite (no TEST arguments)")
+        try:
+            version, configuration, statuses, inputs, runner_hash = merge_shards(
+                args.merge_shards, tests, args.shard_count)
+        except (ValueError, OSError) as error:
+            ap.error(str(error))
+        suite_results.write(args.json, "lyra", "Lyra", version, statuses,
+                            inputs=inputs, configuration=configuration, runner_sha256=runner_hash)
+        print(f"Merged {args.shard_count} shards: {len(statuses)} tests")
+        return 0
+    tests = [t for t in tests if shard_index(t, args.shard_count) == args.shard_index]
 
     exe = shutil.which(args.lyra)
     if exe is None:
         ap.error(f"cannot find {args.lyra}")
     exe = str(Path(exe).resolve())   # the tests run in other directories
 
-    tests = simulation_tests(args.tests or suite_results.find_tests())
     inputs = suite_results.fingerprints(tests) if args.json else None
     runner_hash = suite_results.runner_digest("lyra") if args.json else None
     prefix = install_prefix(exe)
@@ -291,6 +379,8 @@ def main() -> int:
         configuration = ({"cxx": args.cxx,
                           "cxx_version": suite_results.tool_version([args.cxx, "--version"])}
                          if args.cxx else {})
+        if args.shard_count > 1:
+            configuration["shard"] = {"index": args.shard_index, "count": args.shard_count}
         suite_results.write(args.json, "lyra", "Lyra", version, statuses,
                             inputs=inputs, configuration=configuration,
                             runner_sha256=runner_hash)

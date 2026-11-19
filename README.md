@@ -17,7 +17,7 @@ SystemVerilog.
 This README describes the suite as it is now; records of earlier work and
 measurements are in the [history](docs/history.md).
 The [document index](docs/README.md) links every guide, generated report and historical record in both languages.
-The Nightly runs on `main` every night with all seven jobs. Its latest results are in the
+The Nightly runs all simulator, build and publication jobs on `main` every night. Its latest results are in the
 [report on the `results` branch](https://github.com/kurochan001/kirimasim-tests/tree/results#readme), and the [Nightly guide](docs/nightly-results.en.md) explains how to read them.
 For resuming development, use the current guides with the newest [handoff](docs/claude-code-handoff-20261112.en.md).
 
@@ -1024,7 +1024,7 @@ started by hand as well. For a fresh run of the latest suite and settings,
 GitHub can start a scheduled run hours late when it is busy. Runs do not overlap: one that starts while another is running waits
 for it, and a newer one replaces a run that is still waiting. Its results are
 reported for the fixed suite, with the kirimasim ratchet and bounded random comparisons
-as additional gates. It has seven jobs:
+as additional gates. It has these jobs:
 
 - **icarus** builds the latest `master` of Icarus Verilog (kept in the cache
   by its commit) and runs every non-formal test.
@@ -1044,15 +1044,19 @@ as additional gates. It has seven jobs:
   and runs bounded random comparisons, failing on any non-pass. Replay data uses the
   separate `random-cross-kirimasim` artifact and does not enter fixed-result publication.
 - **lyra-build** resolves the latest `main` commit of Lyra in every run and
-  passes that SHA to the lyra job. The same SHA selects the source checkout,
+  passes that SHA to the lyra-shards jobs. The same SHA selects the source checkout,
   build cache and commit recorded with the results. An uncached commit is
   built with Bazel, including LLVM. The executable and its runfiles are copied out of Bazel's tree
   without its location-dependent manifest and saved in the cache.
-- **lyra** restores that build, sets `LYRA_COMMIT` to the SHA and runs every non-formal test.
-  With the build in a job of its own, the tests have the 6-hour limit of this job, less
-  15 minutes: the test step stops after 345 minutes and fails, so that the partial log is
-  still uploaded (a job that reaches its own limit is cancelled and uploads nothing).
+- **lyra-shards** restores that build in four parallel jobs. Each runs a disjoint part of
+  the non-formal tests, selected by the SHA-256 of each portable test id, with the same
+  `LYRA_COMMIT`. Each test step stops after 345 minutes and fails, retaining its partial
+  log. Shard artifacts are separate from the publishable simulator results.
   Historical timings are in the [archived Lyra notes](docs/readme-records-20261101.md#lyra-runtime-records).
+- **lyra** combines the four shards only after all succeed. It checks the exact test
+  assignment and input/runner fingerprints, and requires the same version and compiler
+  configuration. Missing, duplicate, partial or stale shards fail before a combined
+  result is written. Publication receives one complete `lyra.json`.
 - **ghost** privately builds the unreleased guest and runs every non-formal test. Its
   checkout locations and runtime profile come from secrets. Only the public
   alias, build hash and test verdicts are uploaded; source, checkout and build output

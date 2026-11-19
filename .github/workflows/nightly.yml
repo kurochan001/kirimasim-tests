@@ -420,10 +420,14 @@ jobs:
           path: ~/lyra
           key: lyra-${{ steps.head.outputs.sha }}-ubuntu-24.04
 
-  lyra:
+  lyra-shards:
     needs: lyra-build
     runs-on: ubuntu-24.04
     timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
     env:
       LYRA_COMMIT: ${{ needs.lyra-build.outputs.sha }}
     steps:
@@ -457,18 +461,21 @@ jobs:
       # job that reaches its own limit is cancelled, which skips the upload
       # below, and the log was lost (2026-11-09). A step that reaches its
       # limit fails instead, so the upload still runs and keeps the partial
-      # log; tools/run_lyra.py writes the JSON file only at the end, so such
-      # a night has the log but no results of Lyra.
+      # log. The run of 2026-11-19 exceeded this limit even with a separate
+      # build, so four disjoint shards now share the suite. Only their full,
+      # validated union is published as Lyra's result.
       - name: Run the suite
         timeout-minutes: 345
         run: |
           mkdir -p results
           ulimit -v 6291456
           python3 tools/run_lyra.py --lyra "$HOME/lyra/lyra" --commit "$LYRA_COMMIT" \
-            --cxx c++ -j "$(nproc)" --json results/lyra.json | tee results/lyra.log
+            --cxx c++ -j "$(nproc)" --shard-count 4 --shard-index "${{ matrix.shard }}" \
+            --json "results/lyra-shard-${{ matrix.shard }}.json" \
+            | tee "results/lyra-shard-${{ matrix.shard }}.log"
           status=${PIPESTATUS[0]}
-          tail -n 1 results/lyra.log >> "$GITHUB_STEP_SUMMARY"
-          if [ "$status" -gt 1 ] || [ ! -f results/lyra.json ]; then
+          tail -n 1 "results/lyra-shard-${{ matrix.shard }}.log" >> "$GITHUB_STEP_SUMMARY"
+          if [ "$status" -gt 1 ] || [ ! -f "results/lyra-shard-${{ matrix.shard }}.json" ]; then
             echo "::error::The runner of Lyra ended with status $status and no valid results."
             exit 1
           fi
@@ -476,9 +483,35 @@ jobs:
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: ${{ !cancelled() }}
         with:
-          name: results-lyra
+          name: lyra-shard-${{ matrix.shard }}
           path: results/
           if-no-files-found: warn
+
+  lyra:
+    needs: lyra-shards
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: lyra-shard-*
+          path: shards
+          merge-multiple: true
+
+      - name: Validate and combine the complete suite
+        run: |
+          set -euo pipefail
+          python3 tools/run_lyra.py --merge-shards shards/*.json --shard-count 4 \
+            --json results/lyra.json | tee -a "$GITHUB_STEP_SUMMARY"
+          cp shards/*.log results/
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: results-lyra
+          path: results/
+          if-no-files-found: error
 
   # An unreleased guest joins under an alias until its public debut. Private
   # checkout locations, runtime options and credentials are repository secrets.

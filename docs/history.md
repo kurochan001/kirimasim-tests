@@ -1038,3 +1038,9 @@ clause 37.
 - The interface port `b`, which has no modport, is now connected with the modport `bi.dev` (25.5), so that the test tells whether `vpiPortType` follows the declaration rather than the connection (37.14). The expected output does not change.
 - An independent verifier checked the fixed test and the 12 updated mappings. `SV2023-37.13-EXTRACT-IO-REFERENCE` now also observes the virtual interface argument, and `SV2023-37.14-EXTRACT-PORT-FORMAL-TYPE` the connection of `b`. The results are in `coverage/results/vpi-io-decl-refinement-20261120-*.json`; Icarus Verilog 13.0, Verilator 5.054 and kirimasim cannot run this test.
 - The input digest changed, so the saved match of Ghost is outdated, and execution coverage with Ghost and kirimasim goes from 78.70% (9,705) to 78.60% (9,693). Design coverage stays at 92.96% and reproducible execution coverage at 51.20%.
+
+### Lyra Nightly suite partitioning
+
+- The Lyra test step of [Nightly 44540686011](https://github.com/kurochan001/kirimasim-tests/actions/runs/44540686011) reached its 345-minute limit. Its log was retained, but the runner writes JSON only after finishing, so that night has no Lyra results.
+- `lyra-shards` now runs four disjoint parts, selected by the SHA-256 of portable test ids, with the build resolved by `lyra-build`. Each keeps its own step limit and artifact. The `lyra` merge job validates all four parts against this checkout, preserving verdicts and rejecting missing, duplicate, partial, stale or differently configured results. Only the combined full suite enters `results-lyra`.
+- Regression tests cover full assignment, portable partitioning, formal exclusion, complete union, rejected evidence and preservation of an existing output on failure. No SystemVerilog expectation or requirement mapping changed. Real Nightly completion remains to be verified.
