@@ -276,3 +276,5 @@ Nightlyの測定対象は実行したスイートのコミットです。`main`�
 - `results/wide-shifts-20261119p-*.json`：広いシフト192本の記録7件です。Icarus13.0は192pass、Verilator5.054はseed1/73で各120pass・72known、kirimasim `a6222f0656d4`は4回とも192passです。192本全てにIcarusだけのトークンを加えます。独立AIは768行と実行時入力の依存を検査し、[有限の検査](qualification/wide-shifts-20261119p.json)は`+nonce=1`を使う257/513ビットの成功対照64本とコンパイルする結果ビットの変異128本です。過去の入力・有限モデルの行・要求対応は不変です。
 
 - `results/wide-casts-20261119q-*.json`：広い明示的な型変換180本の記録7件です。Icarus13.0は180pass、Verilator5.054はseed1/73で各60pass・120known、kirimasim `a6222f0656d4`は4回とも180passです。180本全てにIcarusだけのトークンを付けます。独立AIの2通りの解釈は900行を導出し、[有限の検査](qualification/wide-casts-20261119q.json)は実際の`+nonce=1`を使う257/513ビットの成功対照60本と、途中／最終の観測を壊すコンパイルする変異120本です。過去の入力・有限モデルの対応は不変です。
+
+- `results/wide-forces-20261119r-*.json`：広いforce/releaseの108本を7件の記録に保存しました。Icarus 13.0は96pass・12known（全てビルド失敗）、Verilator 5.054はseed1/73で各72pass・36known、kirimasim `a6222f0656d4`は4回とも108passです。oracleはIcarus96本・Verilator6本・specだけ6本です。独立AIは816行を導出し、[有限の検査](qualification/wide-forces-20261119r.json)は257/513ビットの成功対照36本と、強制値／release後のドライバ更新を壊すコンパイルする変異72本です。過去の入力と有限モデルの要求対応は不変です。

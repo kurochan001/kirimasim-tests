@@ -1,0 +1,443 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401",
+ "tests": {
+  "gen/ch10/test_gen_wide_force_w255_cont_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "736d4a5955da033ea2b62d79fb3b701e880a86db36017439ff97a6361cc651cd"
+  },
+  "gen/ch10/test_gen_wide_force_w255_cont_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "13550b7e5931fe8d2f0d2221ba8471768c4cd3283416a12b6f96a8201609dde1"
+  },
+  "gen/ch10/test_gen_wide_force_w255_cont_unknown_driver_nba_query_task": {
+   "status": "pass",
+   "inputs_sha256": "ce36fd0a53f173d65f6f2fb7b91636c19e809c909f4fcc77f838010e8c7d413d"
+  },
+  "gen/ch10/test_gen_wide_force_w255_net_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "ea0defb4f62e8cab1d3ff08605c405a733abf0f61532a24ed4f81cea86a4673d"
+  },
+  "gen/ch10/test_gen_wide_force_w255_net_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "ac8272e12152aaf9aceaf44dae7cbb7da3701c8e6929329aaff11ea078aadcf0"
+  },
+  "gen/ch10/test_gen_wide_force_w255_net_unknown_driver_nba_query_direct": {
+   "status": "pass",
+   "inputs_sha256": "4e7a616f183ca2741b7232f86ff13cf9957b5dc7ccdf302cc04e947d27157305"
+  },
+  "gen/ch10/test_gen_wide_force_w255_part_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "baf0255409c6e2b5fff5016d2341fe151b3310116f9d91cd2a8ec3d50569b605"
+  },
+  "gen/ch10/test_gen_wide_force_w255_part_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "a4636e78fa9ea155a6c429b93457e2f02846f80c1c127b0f6859df2310076ba7"
+  },
+  "gen/ch10/test_gen_wide_force_w255_part_unknown_driver_blocking_query_task": {
+   "status": "pass",
+   "inputs_sha256": "8c222b65f2443f8121fc97610c644d3b74d8301c4b7b1d841ae0c5abb588dbd5"
+  },
+  "gen/ch10/test_gen_wide_force_w255_pca_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "131a6afa709d8ef1ea11524e9bce0df0c96240fa711626ce438e92665d93d863"
+  },
+  "gen/ch10/test_gen_wide_force_w255_pca_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "097ff77413c8a34378420c91af23120852ce5fe49b1d3538fa4ac56d1ad410a1"
+  },
+  "gen/ch10/test_gen_wide_force_w255_pca_unknown_driver_blocking_query_hier": {
+   "status": "pass",
+   "inputs_sha256": "6f3b928673d9ae22113e5a1cbe670774f0d490f575c91eae75b7cb30ee3a2e10"
+  },
+  "gen/ch10/test_gen_wide_force_w255_var_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "8e68ee360d85932d8e7f1faa159e417a34f9a4c84b8cf76c80474056fc2adaa7"
+  },
+  "gen/ch10/test_gen_wide_force_w255_var_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "46a0815736bd9faf08aec6f70e158b4abd6e07a7e80160c8bc713371cf11221d"
+  },
+  "gen/ch10/test_gen_wide_force_w255_var_unknown_driver_blocking_query_direct": {
+   "status": "pass",
+   "inputs_sha256": "93a1a1d9eb8c6a255bba8fcb148f238b3a3688edd83db1bb09487007a2edc311"
+  },
+  "gen/ch10/test_gen_wide_force_w255_wor_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "d0bf99ae0d3ed1e47761bc7c6db48beab120deb96fd2ca4927fc779319b5a8be"
+  },
+  "gen/ch10/test_gen_wide_force_w255_wor_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "948374b0563e8046833f78c37d4bbd1b926bc4da42763c59872404cc2439cfc4"
+  },
+  "gen/ch10/test_gen_wide_force_w255_wor_unknown_driver_nba_query_hier": {
+   "status": "pass",
+   "inputs_sha256": "63153fc59f5744f97ada594a36be987c48a90f7fbede294d3dac6c20f585824d"
+  },
+  "gen/ch10/test_gen_wide_force_w256_cont_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "a675115c3333bd51faf1027921b1931257ee8279875371f9e8f1278e71ff1a07"
+  },
+  "gen/ch10/test_gen_wide_force_w256_cont_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "3d6a187adb3a6b0d5b73cff94619c63382ba75b01b84083e4f62acea75d33258"
+  },
+  "gen/ch10/test_gen_wide_force_w256_cont_unknown_driver_nba_query_task": {
+   "status": "pass",
+   "inputs_sha256": "8281830fc396ae9f7db430c0626531ccaba82107ab1e1600d32742bddf410117"
+  },
+  "gen/ch10/test_gen_wide_force_w256_net_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "2298b9237c7c50802266cdddd827b909428164ce05bce6e63114be0de4df4433"
+  },
+  "gen/ch10/test_gen_wide_force_w256_net_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "f9454c588aa120e151f01845dedea21a169ce68be39b4e405d7008ebb3ab57d4"
+  },
+  "gen/ch10/test_gen_wide_force_w256_net_unknown_driver_nba_query_direct": {
+   "status": "pass",
+   "inputs_sha256": "b327a814cc688e4afedc42b777af3e8d6aec025a7919e0b978aa781e6be4d1f1"
+  },
+  "gen/ch10/test_gen_wide_force_w256_part_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "a488912db780a837147c2208306078c3428491cce1521198a07f3d1a5152e451"
+  },
+  "gen/ch10/test_gen_wide_force_w256_part_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "facf2f5cbf2e29fd29b09a5f1e5f55cdbaa354a8cf77604cb9c4a7b11a0d7699"
+  },
+  "gen/ch10/test_gen_wide_force_w256_part_unknown_driver_blocking_query_task": {
+   "status": "pass",
+   "inputs_sha256": "81b8f3b31dec2efc6fcd3f2e8fcfc05ccdac2e9571e4c9046eddee8a733c0089"
+  },
+  "gen/ch10/test_gen_wide_force_w256_pca_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "40150467141798674d306d4dbf3b04e8986d98e84428e7a8433ea0c610f55203"
+  },
+  "gen/ch10/test_gen_wide_force_w256_pca_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "0292d46b050466f319cccac893de199b032c16549461806ccbb944bb0a76fb7c"
+  },
+  "gen/ch10/test_gen_wide_force_w256_pca_unknown_driver_blocking_query_hier": {
+   "status": "pass",
+   "inputs_sha256": "1ac853c207951ec1a289bdf95bafbc360ba2abb7a437a026e412c6fac6f1cd5a"
+  },
+  "gen/ch10/test_gen_wide_force_w256_var_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "6b6266013b5c4b178ee10f86aa8ad61311708c1c3efa8c55963ad4625ea67e8a"
+  },
+  "gen/ch10/test_gen_wide_force_w256_var_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "2b9e124617dd42f62425b6c2140380edb80ca64adb611b16e2a87255fb08f72f"
+  },
+  "gen/ch10/test_gen_wide_force_w256_var_unknown_driver_blocking_query_direct": {
+   "status": "pass",
+   "inputs_sha256": "78b8f066352bb814091800f9d829457cdfed6d853ac728c3792e53793f6a919d"
+  },
+  "gen/ch10/test_gen_wide_force_w256_wor_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "5bd588d6323de1fd65d5212bac3c3ac432768cd707f3c87c3da1954c9c2248f2"
+  },
+  "gen/ch10/test_gen_wide_force_w256_wor_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "3e3e9576d7b38c23b21d898ab29f56fa15dbea14139e1e15c6ebd1456c7dfa3d"
+  },
+  "gen/ch10/test_gen_wide_force_w256_wor_unknown_driver_nba_query_hier": {
+   "status": "pass",
+   "inputs_sha256": "3f2baaf06769138ce9c4a113b11c54a6177b4579408aa656becad0a87f299446"
+  },
+  "gen/ch10/test_gen_wide_force_w257_cont_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "90a7bdd6a874244910299bbfaa1039b39325137498cc7aae863f5a49ac63f74f"
+  },
+  "gen/ch10/test_gen_wide_force_w257_cont_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "d50a12d4d97ff98119557f537647b1134519621fd3231a06f151b2ce44325938"
+  },
+  "gen/ch10/test_gen_wide_force_w257_cont_unknown_driver_nba_query_task": {
+   "status": "pass",
+   "inputs_sha256": "67c0d5db03eefa17af12fac232296caa8e8a92a3954f8e21bcdebe75d80fcf40"
+  },
+  "gen/ch10/test_gen_wide_force_w257_net_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "e4952b4f324bfd628ad3772ac3a1af0389e697da3620ace7645bd47cd2f73668"
+  },
+  "gen/ch10/test_gen_wide_force_w257_net_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "23a9c3ef5dae356e15176a50faa30c3ce3b1701ec102fcbe8b7af6d0ddc1a25b"
+  },
+  "gen/ch10/test_gen_wide_force_w257_net_unknown_driver_nba_query_direct": {
+   "status": "pass",
+   "inputs_sha256": "8dbf83634f175c547df593979887250a8368f3722f3a5e9708eb7cadf0646d44"
+  },
+  "gen/ch10/test_gen_wide_force_w257_part_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "e1801f19da93ad9c2397d75f2a75dae162bd06fcfbd79fc550de59b55d325705"
+  },
+  "gen/ch10/test_gen_wide_force_w257_part_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "23522dfd33201daf8bd71106108c45a6e68549189032fb26d6c06a6a40e14c47"
+  },
+  "gen/ch10/test_gen_wide_force_w257_part_unknown_driver_blocking_query_task": {
+   "status": "pass",
+   "inputs_sha256": "490b05dba8afe225937a65c78649d096a6bbc3372de537123c44cef367d22202"
+  },
+  "gen/ch10/test_gen_wide_force_w257_pca_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "8c3c92ee20a78015af41b16bfb323cc67abf1d83e2b1912a60da26501a728ef0"
+  },
+  "gen/ch10/test_gen_wide_force_w257_pca_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "d3e110a09652cf34f60c31b8ccedb1191240006f846b366f49fd1bbc021b53bb"
+  },
+  "gen/ch10/test_gen_wide_force_w257_pca_unknown_driver_blocking_query_hier": {
+   "status": "pass",
+   "inputs_sha256": "ddb71ce648603be07dbaad6ae6d02c9d796c3ebcfea00875b143139875cfc958"
+  },
+  "gen/ch10/test_gen_wide_force_w257_var_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "1384b2e8d290a4f1b1b170821aba17624960b18f77314f762bf9dbfca079f979"
+  },
+  "gen/ch10/test_gen_wide_force_w257_var_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "a1286ca61a42a23557ec8253afe449a07ad0eb91bf04a5993de447da678a1a0b"
+  },
+  "gen/ch10/test_gen_wide_force_w257_var_unknown_driver_blocking_query_direct": {
+   "status": "pass",
+   "inputs_sha256": "5f6c9f2b2a4d813899bebe8c83d3c6fac75b31e2fc39652dd252d53c82af9914"
+  },
+  "gen/ch10/test_gen_wide_force_w257_wor_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "5653692db334b608b23aec9e8de5b4a76923a2122b70f9c4f9a5c47432e4e43d"
+  },
+  "gen/ch10/test_gen_wide_force_w257_wor_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "1e6571e03b90d0602ec0eeff87e0ba4eba55bbb1c4ced71e741f08033f5de43b"
+  },
+  "gen/ch10/test_gen_wide_force_w257_wor_unknown_driver_nba_query_hier": {
+   "status": "pass",
+   "inputs_sha256": "a49cf6fabfc6bc5f6206ab291825420ef37dd4fea77099b5ea29c98f2b065829"
+  },
+  "gen/ch10/test_gen_wide_force_w511_cont_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "a43a8f6faa19d49bb42a07544cf602e4e89a9aeedae98526da82e462add72233"
+  },
+  "gen/ch10/test_gen_wide_force_w511_cont_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "98633e957bfcdf6fc5ddfb7649df8560a15e0079132499346abd5c3c351f8ba8"
+  },
+  "gen/ch10/test_gen_wide_force_w511_cont_unknown_driver_nba_query_task": {
+   "status": "pass",
+   "inputs_sha256": "53adb174029ebf64a01fdbcedbd29b9c389af517d0d3e201903c850ba09461fc"
+  },
+  "gen/ch10/test_gen_wide_force_w511_net_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "83a2908b771fc162250de3939b4e536eed65d0edc8d0e51654e45cbc3f4ac629"
+  },
+  "gen/ch10/test_gen_wide_force_w511_net_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "3361af60136e910d79c6b16260164498bf48ceef20726acfd87786238aa1d3a2"
+  },
+  "gen/ch10/test_gen_wide_force_w511_net_unknown_driver_nba_query_direct": {
+   "status": "pass",
+   "inputs_sha256": "fb15f4bb38c2e7ae7c7d7dae5cf4f05579978f21c5dfdbbf60caf8b9ed9f06f6"
+  },
+  "gen/ch10/test_gen_wide_force_w511_part_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "4436c50bbd9e92aa67a4878861c7879ce8938573ba9d65d9db16c4a3a677e9a0"
+  },
+  "gen/ch10/test_gen_wide_force_w511_part_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "92ac1fa5d5b9b7248ef5d2bf6e38f816fa78e3318a1f62d80979e85b7184d516"
+  },
+  "gen/ch10/test_gen_wide_force_w511_part_unknown_driver_blocking_query_task": {
+   "status": "pass",
+   "inputs_sha256": "e79a6ae0f0f97da4c732345bde3f5369273c4c81e30d0ec5d29f3c41e55c7f4c"
+  },
+  "gen/ch10/test_gen_wide_force_w511_pca_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "9e201efdca892bf7fdbdc4dda9e7a63d0c55cfca3f033874ba96c79d7de2cfe2"
+  },
+  "gen/ch10/test_gen_wide_force_w511_pca_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "a7634a3ff92e130efb50db94144162f2b0a12a130b529109c38da4202ef08b1e"
+  },
+  "gen/ch10/test_gen_wide_force_w511_pca_unknown_driver_blocking_query_hier": {
+   "status": "pass",
+   "inputs_sha256": "364bf601e0338802089164c2c7fed63346fa3a52ee6cf1558c7dc577ec84d64e"
+  },
+  "gen/ch10/test_gen_wide_force_w511_var_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "447eb8987832fa8746e4eb93d0c2bce37454051f1ea025f4862a86fcf268e40a"
+  },
+  "gen/ch10/test_gen_wide_force_w511_var_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "ede804b5db1dad2df05311678069f90ffa3b48a4ac6194d3cf15327ce247f284"
+  },
+  "gen/ch10/test_gen_wide_force_w511_var_unknown_driver_blocking_query_direct": {
+   "status": "pass",
+   "inputs_sha256": "b41753c65d60cf412090d80230b3ef0cdeaf0a9a19ca57bde828b10092d29fd6"
+  },
+  "gen/ch10/test_gen_wide_force_w511_wor_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "74253a3699a1f85af48cded2a76d92bf2c04b135800654a86d8bdf0aa432bf4e"
+  },
+  "gen/ch10/test_gen_wide_force_w511_wor_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "8e029b1eeeb18666401e28b69079806651e3a98831f83470a2805497d0c705a6"
+  },
+  "gen/ch10/test_gen_wide_force_w511_wor_unknown_driver_nba_query_hier": {
+   "status": "pass",
+   "inputs_sha256": "a896e3181af24f85d666905de9c684a989fe5e8d360eb4728aa8e0bd5890c09b"
+  },
+  "gen/ch10/test_gen_wide_force_w512_cont_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "f628139da5fda50825710982595c9f260c7437202cb932aa693d2dd158d332fe"
+  },
+  "gen/ch10/test_gen_wide_force_w512_cont_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "6bdf08cc549fa16fff4ac7bcf6e934632e03c1492925c4ceb9f23d5fddb3ada8"
+  },
+  "gen/ch10/test_gen_wide_force_w512_cont_unknown_driver_nba_query_task": {
+   "status": "pass",
+   "inputs_sha256": "aa0fcf234b062804ff9543091fd311f981b1fded76b9d3e684ebfaf5f06bc9dd"
+  },
+  "gen/ch10/test_gen_wide_force_w512_net_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "4d5421a6628f30cfc998d1b1e8b1cbba5447b06a049d7c3ec24ddd466d7dd2f4"
+  },
+  "gen/ch10/test_gen_wide_force_w512_net_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "481bc628f1724871c0777528a3e176ee162f73f780e7393cfb537e96fea623a9"
+  },
+  "gen/ch10/test_gen_wide_force_w512_net_unknown_driver_nba_query_direct": {
+   "status": "pass",
+   "inputs_sha256": "d2a0fb61c9860d39299c6c9844ec36805dfa49b53d78ee93cd065f28168c8a54"
+  },
+  "gen/ch10/test_gen_wide_force_w512_part_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "b0f627303fd61f8e25a2588737220b096cb432250a199cecbf7b89d2e8d69e4f"
+  },
+  "gen/ch10/test_gen_wide_force_w512_part_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "aefe508de862ab4b9d657145aa791f366f2f7d44e3bdade5efe06c58cf13dcda"
+  },
+  "gen/ch10/test_gen_wide_force_w512_part_unknown_driver_blocking_query_task": {
+   "status": "pass",
+   "inputs_sha256": "25b1a27fd39faae0bca2c28db2efbc772e13e043a836b41dd348860528417857"
+  },
+  "gen/ch10/test_gen_wide_force_w512_pca_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "bdea2f25eccd7b3c110334e7c668e29e81e18debf1f2faa272a05fb5e0e898fb"
+  },
+  "gen/ch10/test_gen_wide_force_w512_pca_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "5564fb86443ec03a836d6ba3d791006057d78aedc6e76f4fba2ac91a80810b00"
+  },
+  "gen/ch10/test_gen_wide_force_w512_pca_unknown_driver_blocking_query_hier": {
+   "status": "pass",
+   "inputs_sha256": "b9c851f49d16b9400b3b7ccc0779c573e4d69410ea9becc1e0a1179b13f2d0e3"
+  },
+  "gen/ch10/test_gen_wide_force_w512_var_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "46c1cb3dae777eb9cff0bd27eb88e91c4910093a64e324070bf17a674d1fd54d"
+  },
+  "gen/ch10/test_gen_wide_force_w512_var_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "507232c617af0f0288a71110a4e9638736355238ad11a85437f3c4d3e784e86f"
+  },
+  "gen/ch10/test_gen_wide_force_w512_var_unknown_driver_blocking_query_direct": {
+   "status": "pass",
+   "inputs_sha256": "31621f522d002d8d4c2b32528ab20883e33a39f7a9b5363fa4d9fac01e53cde1"
+  },
+  "gen/ch10/test_gen_wide_force_w512_wor_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "aff2f9c5dd92c6673724d61c1cec383a1828cdc25f72772574174c8e1f029397"
+  },
+  "gen/ch10/test_gen_wide_force_w512_wor_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "f963e0e6f7569b19c0f7655dedc4ea34bfc3ca240a6fe1936f39d8175be44b63"
+  },
+  "gen/ch10/test_gen_wide_force_w512_wor_unknown_driver_nba_query_hier": {
+   "status": "pass",
+   "inputs_sha256": "75bd385d76a41f9ab86017f2849cad71433c6513d19fcfc19d7b34982ca3bd38"
+  },
+  "gen/ch10/test_gen_wide_force_w513_cont_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "66dcd15183a7f5bafcea9c782d7e74a8f88242333fd9af53e5025a4c6154a0a6"
+  },
+  "gen/ch10/test_gen_wide_force_w513_cont_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "22690cdb0db8ef875c392c8beb713b7326037cce88a43613e9cb6d3ae044fadd"
+  },
+  "gen/ch10/test_gen_wide_force_w513_cont_unknown_driver_nba_query_task": {
+   "status": "pass",
+   "inputs_sha256": "a51c3c6315ddbc6ee4d644d8634ae63b8c2160be3c38d1555f4f02dd06afb8a3"
+  },
+  "gen/ch10/test_gen_wide_force_w513_net_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "6ff1405c983e28e1c1727d4a60e9bdb2e2b0959d5085e075cfbfa2d2ac5e59f7"
+  },
+  "gen/ch10/test_gen_wide_force_w513_net_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "e64afc1d052341d014e4bc12c57d4a47115e6ccdd5ffd56efabafb41dd68029a"
+  },
+  "gen/ch10/test_gen_wide_force_w513_net_unknown_driver_nba_query_direct": {
+   "status": "pass",
+   "inputs_sha256": "cc25b64c138f87c38c9aef4a41019407cf4d163d88b2787b68668c6d1c146da3"
+  },
+  "gen/ch10/test_gen_wide_force_w513_part_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "49a3012b55eb84572fbdef2a8df0a45b34522eeea93a5f895b1d060dc245d2fe"
+  },
+  "gen/ch10/test_gen_wide_force_w513_part_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "e87afc4a1e1d1be6c1d16af4d6977f0d5890e45da0f727a3f04138a057152de8"
+  },
+  "gen/ch10/test_gen_wide_force_w513_part_unknown_driver_blocking_query_task": {
+   "status": "pass",
+   "inputs_sha256": "94d648125d78b8425a9810f3f39e3d85fedf9e2543731f78df32e4a37567b152"
+  },
+  "gen/ch10/test_gen_wide_force_w513_pca_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "3ccaf3ee00371d57b6491f5f9a0bfded709f16bec1c84e2514624ded8e908911"
+  },
+  "gen/ch10/test_gen_wide_force_w513_pca_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "565e399e7f3c093133d3192bd0702d8b75529245f4697ed0f728175951f98f8d"
+  },
+  "gen/ch10/test_gen_wide_force_w513_pca_unknown_driver_blocking_query_hier": {
+   "status": "pass",
+   "inputs_sha256": "2063a3092e6e80e9026afc5a725ba4a37f2da126b4236afed61f6574c7c9f4f0"
+  },
+  "gen/ch10/test_gen_wide_force_w513_var_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "396e66267ff844902d5f098991fddb2b4e1236c04ea70133a92ff6aa180933e9"
+  },
+  "gen/ch10/test_gen_wide_force_w513_var_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "f3e6255d014d78024db9df44c6c815427c6ed8b38322eeaec6c01d11c12fa0b6"
+  },
+  "gen/ch10/test_gen_wide_force_w513_var_unknown_driver_blocking_query_direct": {
+   "status": "pass",
+   "inputs_sha256": "7c7aaac1f531f629200053b14601a95d14211f15e6bd7c867c15f05e39c7143a"
+  },
+  "gen/ch10/test_gen_wide_force_w513_wor_const_driver_blocking_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "9ad29bd42fe9207c7241d051f29a1eb81768024941fa14e0850172fe052f5397"
+  },
+  "gen/ch10/test_gen_wide_force_w513_wor_expr_source_nba_display_direct": {
+   "status": "pass",
+   "inputs_sha256": "24cd006739629149eff32c9ab48b07830e06fa6c4f2098257a7c63834e161cb9"
+  },
+  "gen/ch10/test_gen_wide_force_w513_wor_unknown_driver_nba_query_hier": {
+   "status": "pass",
+   "inputs_sha256": "b9332b10156651e597e09bd11f4c28e3620f025cb37890e1e5c871294834b36a"
+  }
+ },
+ "generated_at": "2026-11-19T05:09:43.564585+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}
