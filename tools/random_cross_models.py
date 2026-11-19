@@ -39,8 +39,11 @@ PROFILES = ELEVEN_PROFILES + ('array_reduction_context', 'unpacked_array_copy_se
 EXTRA_PROFILES = packed_profiles.PROFILES
 WIDE_PROFILES = ('wide_conditional_context', 'wide_comparison_context')
 WIDE_WIDTHS = (255, 256, 257, 511, 512, 513)
+WIDE_BIT_PROFILES = ('wide_shift_context', 'wide_cast_pipeline')
+WIDE_COUNT_WIDTHS = (32, 65)
 WIDE_RESULT_WIDTHS = (1, 7, 255, 256, 257, 511, 512, 513, 514)
-SUPPORTED_PROFILES = PROFILES + EXTRA_PROFILES + power_profiles.PROFILES + WIDE_PROFILES
+SUPPORTED_PROFILES = (PROFILES + EXTRA_PROFILES + power_profiles.PROFILES
+                      + WIDE_PROFILES + WIDE_BIT_PROFILES)
 MAX_CASES = 256
 MAX_STIMULI = 32
 WIDTHS = (1, 32, 33, 64, 65, 129)
@@ -102,10 +105,15 @@ def generate(seed, count=96, steps=8, profiles=PROFILES):
                 fourstate=rng.randrange(2) == 0 if profile in WIDE_PROFILES else True)
         elif profile == 'package_change_sequence':
             parameters, stimuli = generate_package(rng, steps)
-        elif profile == 'shift_context':
-            parameters, stimuli = generate_shift(rng, steps)
-        elif profile == 'cast_pipeline':
-            parameters, stimuli = generate_cast(rng, steps)
+        elif profile in ('shift_context', 'wide_shift_context'):
+            parameters, stimuli = generate_shift(
+                rng, steps, WIDE_WIDTHS if profile in WIDE_BIT_PROFILES else WIDTHS,
+                WIDE_COUNT_WIDTHS if profile in WIDE_BIT_PROFILES else (8, 32, 65),
+                fourstate=rng.randrange(2) == 0 if profile in WIDE_BIT_PROFILES else True)
+        elif profile in ('cast_pipeline', 'wide_cast_pipeline'):
+            parameters, stimuli = generate_cast(
+                rng, steps, WIDE_WIDTHS if profile in WIDE_BIT_PROFILES else WIDTHS,
+                fourstate=rng.randrange(2) == 0 if profile in WIDE_BIT_PROFILES else True)
         elif profile == 'streaming_context':
             parameters, stimuli = generate_stream(rng, steps)
         elif profile == 'concat_assignment_sequence':
@@ -175,8 +183,11 @@ def validate_case(case):
                              WIDE_WIDTHS if profile in WIDE_PROFILES else WIDTHS)
     elif profile == 'package_change_sequence':
         validate_package(parameters, stimuli)
-    elif profile in ('shift_context', 'cast_pipeline'):
-        validate_bit_profile(profile, parameters, stimuli)
+    elif profile in ('shift_context', 'cast_pipeline') + WIDE_BIT_PROFILES:
+        validate_bit_profile(
+            profile, parameters, stimuli,
+            WIDE_WIDTHS if profile in WIDE_BIT_PROFILES else WIDTHS,
+            WIDE_COUNT_WIDTHS if profile in WIDE_BIT_PROFILES else (8, 32, 65))
     elif profile == 'streaming_context':
         validate_stream(parameters, stimuli)
     elif profile == 'concat_assignment_sequence':
@@ -269,7 +280,7 @@ def requires_fourstate(case):
         s = case['stimuli']
         return bool(set(s['initial_left']+s['initial_right']+''.join(
             op['source']+op['after'] for op in s['operations'])) & set('xz'))
-    if case['profile'] in ('shift_context', 'cast_pipeline'):
+    if case['profile'] in ('shift_context', 'cast_pipeline') + WIDE_BIT_PROFILES:
         return any(set(v['source']+v.get('count', '')) & set('xz') for v in case['stimuli'])
     if case['profile'] in ('conditional_context', 'wide_conditional_context'):
         return any(set(v['a']+v['b']+v['condition']) & set('xz') for v in case['stimuli'])
@@ -341,10 +352,10 @@ def materialize(case):
     elif profile == 'concat_assignment_sequence':
         lines, expected = materialize_concat(case)
         clauses = '11.4.12 10.7 10.4.1 10.4.2 6.11.2 11.8.1 11.8.2'
-    elif profile == 'shift_context':
+    elif profile in ('shift_context', 'wide_shift_context'):
         lines, expected = materialize_shift(case)
         clauses = '11.4.10 11.6.1 11.8.1 11.8.2 6.11.2'
-    elif profile == 'cast_pipeline':
+    elif profile in ('cast_pipeline', 'wide_cast_pipeline'):
         lines, expected = materialize_cast(case)
         clauses = '6.24.1 6.11.2 11.6.1 11.8.1 11.8.2'
     elif profile in ('conditional_context', 'wide_conditional_context'):
@@ -383,7 +394,7 @@ def materialize(case):
               ':description: Bounded random comparison; replay the saved manifest.', '*/',
               '// Runtime-only case; not part of the registered fixed suite.']
     body = '\n'.join(header+lines)+'\n'
-    if profile in WIDE_PROFILES:
+    if profile in WIDE_PROFILES + WIDE_BIT_PROFILES:
         body = wrap_generated_unsigned_literals(body)
     return body, '\n'.join(expected)+'\n'
 
@@ -539,11 +550,11 @@ def materialize_package(case):
     return lines, expected
 
 
-def generate_shift(rng, steps):
-    w = rng.choice(WIDTHS)
+def generate_shift(rng, steps, widths=WIDTHS, count_widths=(8, 32, 65), fourstate=True):
+    w = rng.choice(widths)
     p = {'width': w, 'sign': rng.choice(('signed', 'unsigned')), 'operator': rng.choice(tuple(shifts.OPS)),
          'relation': rng.choice(('same', 'wide') if w == 1 else ('narrow', 'same', 'wide')),
-         'state': rng.choice(('bit', 'logic')), 'count_width': rng.choice((8, 32, 65)),
+         'state': rng.choice(('bit', 'logic')), 'count_width': rng.choice(count_widths),
          'count_sign': rng.choice(('signed', 'unsigned'))}
     n = w + int(p['relation'] == 'wide')
     vectors = []
@@ -551,31 +562,31 @@ def generate_shift(rng, steps):
         # Counts are self-determined. Include huge known counts without any
         # allocation proportional to their value, plus partially unknown counts.
         count = (f'{rng.choice((0, 1, w-1, w, w+1, n, n+1, (1 << p["count_width"])-1)):0{p["count_width"]}b}'
-                 if rng.randrange(2) == 0 else word(rng, p['count_width'], True))
-        vectors.append({'source': word(rng, w, True), 'count': count})
+                 if rng.randrange(2) == 0 else word(rng, p['count_width'], fourstate))
+        vectors.append({'source': word(rng, w, fourstate), 'count': count})
     return p, vectors
 
 
-def generate_cast(rng, steps):
-    w = rng.choice(WIDTHS);kind = rng.choice(('size', 'signed', 'unsigned', 'typed_bit', 'typed_logic'))
+def generate_cast(rng, steps, widths=WIDTHS, fourstate=True):
+    w = rng.choice(widths);kind = rng.choice(('size', 'signed', 'unsigned', 'typed_bit', 'typed_logic'))
     p = {'width': w, 'sign': rng.choice(('signed', 'unsigned')), 'cast': kind,
          'relation': 'same' if kind in ('signed', 'unsigned') else rng.choice(
              ('same', 'wide') if w == 1 else ('narrow', 'same', 'wide')),
          'operation': rng.choice(('plain', 'add')), 'state': rng.choice(('bit', 'logic'))}
-    return p, [{'source': word(rng, w, True)} for _ in range(steps)]
+    return p, [{'source': word(rng, w, fourstate)} for _ in range(steps)]
 
 
-def validate_bit_profile(profile, p, vectors):
-    shift = profile == 'shift_context'
+def validate_bit_profile(profile, p, vectors, widths=WIDTHS, count_widths=(8, 32, 65)):
+    shift = profile in ('shift_context', 'wide_shift_context')
     keys(p, ('width', 'sign', 'operator', 'relation', 'state', 'count_width', 'count_sign') if shift else
          ('width', 'sign', 'cast', 'relation', 'operation', 'state'))
-    w = integer(p['width'], 1, 129, 'width')
-    if w not in WIDTHS or p['sign'] not in ('signed', 'unsigned') or p['state'] not in ('bit', 'logic') or (
+    w = integer(p['width'], min(widths), max(widths), 'width')
+    if w not in widths or p['sign'] not in ('signed', 'unsigned') or p['state'] not in ('bit', 'logic') or (
             p['relation'] not in ('narrow', 'same', 'wide')) or (w == 1 and p['relation'] == 'narrow'):
         raise ValueError('invalid bit-profile parameter')
     if shift:
-        cw = integer(p['count_width'], 8, 65, 'count width')
-        if cw not in (8, 32, 65) or p['count_sign'] not in ('signed', 'unsigned') or p['operator'] not in tuple(shifts.OPS):
+        cw = integer(p['count_width'], min(count_widths), max(count_widths), 'count width')
+        if cw not in count_widths or p['count_sign'] not in ('signed', 'unsigned') or p['operator'] not in tuple(shifts.OPS):
             raise ValueError('invalid shift parameter')
     elif p['cast'] not in ('size', 'signed', 'unsigned', 'typed_bit', 'typed_logic') or (
             p['cast'] in ('signed', 'unsigned') and p['relation'] != 'same') or p['operation'] not in ('plain', 'add'):

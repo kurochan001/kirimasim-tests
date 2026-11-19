@@ -12,7 +12,7 @@ fixed-suite test counts, chapter-matrix pass counts or requirement coverage.
 As verified on 2026-11-05 JST, [Check and Nightly on `19cd790a`](nightly-results.en.md#latest-verified-checkpoint)
 both succeeded. Nightly's thirteen profiles recorded **96 valid passes** on kirimasim `50a897dee62a`, seed `41941310616`.
 The random comparison step also succeeded in the last successful [Nightly of 2026-11-14](https://github.com/kurochan001/kirimasim-tests/actions/runs/43533749064) (suite `aef04b93`); its artifacts were not reviewed.
-Default Nightly retains thirteen profiles while [targeted exploration and independent checks](#thirteen-profile-stabilization) supply further depth. Two [additional packed profiles](#opt-in-packed-profiles) and an [integral-power profile](#opt-in-power-profile) are available for explicitly selected exploration.
+Default Nightly retains thirteen profiles while [targeted exploration and independent checks](#thirteen-profile-stabilization) supply further depth. Two [additional packed profiles](#opt-in-packed-profiles), an [integral-power profile](#opt-in-power-profile), two [wide value profiles](#opt-in-wide-value-profiles) and two [wide bit-operation profiles](#opt-in-wide-bit-operation-profiles) are available for explicitly selected exploration.
 
 <a id="purpose-and-roles"></a>
 
@@ -73,7 +73,7 @@ fixed regressions, formal Nightly and explicit replay execute again.
 
 The [small SV observation examples](faq.en.md#q50-sv-values-change-observations) explain how X/Z, bit/logic, width and signedness change these expectations.
 
-There are thirteen default Nightly profiles and five additional opt-in profiles described below. The default thirteen follow. This does not generalize every finite model to arbitrary inputs.
+There are thirteen default Nightly profiles and seven additional opt-in profiles described below. The default thirteen follow. This does not generalize every finite model to arbitrary inputs.
 
 - `expression_context` crosses widths, signedness, destination width and addition/subtraction/multiplication with arbitrary known input bits.
   It reuses the reference in `generators/interaction_expr.py`.
@@ -688,7 +688,7 @@ fingerprint-qualified interaction snapshots and fixed history remain separate.
 
 ## Additional opt-in packed profiles (2026-11-17)
 
-Two profiles are implemented in the [generator and reference](../tools/random_cross_packed.py). Select them with `--models`; the default thirteen, Nightly's 96 cases, operation count, worker count and time limits remain unchanged. Those sixteen remain selectable together; adding the two wide value profiles makes eighteen selectable overall. The previous default manifests, SV and expected-output hashes remain unchanged at seeds 1, 731 and 20261117.
+Two profiles are implemented in the [generator and reference](../tools/random_cross_packed.py). Select them with `--models`; the default thirteen, Nightly's 96 cases, operation count, worker count and time limits remain unchanged. Those eighteen remain selectable together; adding the two wide bit-operation profiles makes twenty selectable overall. The previous default manifests, SV and expected-output hashes remain unchanged at seeds 1, 731 and 20261117.
 
 - `packed_bounds_sequence` reads and writes four-state packed vectors with negative, zero and nonzero declared bounds. It selects from 21 widths between 1 and 513 bits, with part widths up to 65, crossing ascending/descending declarations, `+:`/`-:`, bit/logic read destinations and signed 32-bit indices. In-range, partially/wholly out-of-range and X/Z indices produce whole-value, part-select and single-bit observations after each operation. Invalid writes are suppressed; partial writes affect only in-range bits. Known inputs that produce X through an out-of-range read are also classified as four-state observations. Grounds are IEEE 1800-2023 11.5.1, 7.4.1 and 6.11.2.
 - `packed_field_sequence` combines whole/field assignments, differently sized field copies and whole-value shifts on three-field packed structures. It crosses ten layouts of 9–513 bits, each field's signing, aggregate signing and bit/logic storage. All fields use the same state type; mixed bit/logic fields are not generated. Whole values, individual fields and three-bit-widened field reads expose layout, preserved neighbors, copy extension/truncation and whole-structure arithmetic right shifts. Grounds are 7.2.1, 6.11.2, 10.7, 11.4.10 and 11.8.1.
@@ -783,3 +783,27 @@ python3 tools/run_random_cross.py --kirimasim /path/to/verified-build/kirimasim 
 ```
 
 Use `--replay coverage/interaction-qualification/random-wide-values-20261119/seed-1/manifest.json` instead of generating inputs to replay the saved corpus; supply a new output directory. Add `--icarus /path/to/iverilog --verilator /path/to/verilator` for comparator evidence. The current driver hashes include the shared wide-literal formatter. Previously saved old-profile stimuli remain byte-identical while the changed driver/dependency provenance is visible.
+
+<a id="opt-in-wide-bit-operation-profiles"></a>
+
+## Opt-in wide shift and cast exploration (2026-11-19)
+
+Select `wide_shift_context` and `wide_cast_pipeline` explicitly with `--models`. These reuse the existing [generation, validation and clause-based materializers](../tools/random_cross_models.py) with source widths 255/256/257 and 511/512/513. Shift destinations are W-1/W/W+1; counts are 32 or 65 bits, covering boundary, huge and partially unknown values. Declared signed counts are still interpreted as unsigned. Size/signing/typed bit/typed logic casts expose their intermediate value before optional signed positive-one addition and W+2-bit storage. Complete inputs and results remain visible, including X/Z removed by an early typed-bit cast. Literal chunking preserves the exact unsigned value. No previous profile, default allocation or resource limit changes.
+
+The [saved qualification](../coverage/interaction-qualification/random-wide-bitops-20261119/qualification.json) contains three stimulus seeds (1, 731, 20261119), each with 96 programs and eight vectors: **288 programs / 2,304 vectors**, split evenly between the families. A new case chooses known-only or four-state-enabled draws with equal probability; actual saved X/Z inputs determine exclusion. There are **150 known-only and 138 four-state programs**. Independent AI seals all **5,760 lines** from actual source before expectations, manifests, the new writer or old helpers, then checks them using separate integer planes/carry calculations. Earlier fixed shift/cast rules were already known. This is AI review, not human review. The calculation covers 783 saturated shift counts, including 300 known counts at least 2^32 and 145 signed-declared negative counts interpreted unsigned; 73 unknown counts; 27 early typed-bit X/Z removals; 528 cast additions and 624 casts without addition. These observations describe these inputs, not exhaustive coverage.
+
+Fifteen [unit checks](../tools/test_random_cross_wide_bitops.py) exercise independently calculated integer shifts, signed/unknown fill, context sizing, early versus late conversion, invalid domains, immutable replay and injected reference drift. Twelve selection/seed combinations retain every previous eighteen-profile manifest and materialized source/expected byte; golden hashes preserve the eighteen-profile stream. The original thirteen-profile Nightly remains unchanged. Three existing unit assertions change only the selectable-profile count from eighteen to twenty.
+
+Four actual CLI invocations per corpus run kirimasim 0.1.1 `a6222f0656d4`, resolved once from published main before this cohort and matched to a rehashed isolated Release binary: **1,152 executions pass**. Icarus Verilog 13.0 compiles/runs all 288 and passes. At initialization seeds 1 and 73 together, Verilator 5.054 compiles/runs the 150 known-only programs per seed, producing **300 passes**. Its **276 four-state exclusions** happen before compilation and are neither executions nor passes. No comparator build failure, output mismatch or timeout occurs in this saved cohort. The extract retains 2,016 requested outcomes, **1,740 runtime invocations and 588 actual comparator builds**, with build/simulation/normalization phase hashes. Kirimasim's command includes parsing/build work; its integrated command is counted separately from comparator builds.
+
+The first two CLI invocations per corpus exit nonzero because requested four-state Verilator comparisons are excluded; later kirimasim-only replays exit zero. Run four replays the saved public corpus, later frozen in this commit. All outcomes and input/reference/code/binary/environment checks remain recorded. Raw command lines, paths, environments and logs stay private; the public extract contains hashes and versions. [Finite qualification](../coverage/interaction-qualification/random-wide-bitops-20261119/qualification.json) adds 32 passing originals and 64 compiled, normally exiting observation changes. Each family includes both signs, storage states and actual known/four-state flags; all four shift operators and five cast kinds are represented. Shift changes corrupt separate low/high result observations. Cast changes corrupt the separately printed intermediate or final result. Finite observation checks do not prove all semantic faults. These random inputs do not increase fixed-suite counts, requirement coverage or fixed behavioral history.
+
+```sh
+python3 tools/run_random_cross.py --kirimasim /path/to/kirimasim --commit COMMIT \
+  --models wide_shift_context wide_cast_pipeline --seed 1 --cases 96 --vectors 8 \
+  --icarus /path/to/iverilog --verilator /path/to/verilator --simulator-seed 1 \
+  --output my-results/wide-bit-operations
+python3 tools/run_random_cross.py --kirimasim /path/to/kirimasim --commit COMMIT \
+  --replay coverage/interaction-qualification/random-wide-bitops-20261119/seed-1/manifest.json \
+  --output my-results/saved-wide-bit-operation-replay
+```

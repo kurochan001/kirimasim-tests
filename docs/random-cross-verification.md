@@ -12,7 +12,7 @@ Checkの固定クロス検証に加え、Nightlyで件数制限付きのラン�
 2026-11-05（日本時間）に確認した[`19cd790a`のCheck・Nightly](nightly-results.md#latest-verified-checkpoint)は、ともに成功しました。
 Nightlyの13プロファイルはkirimasim `50a897dee62a`・seed `41941310616`で**96件すべて有効なPASS**です。
 最後に成功した[2026-11-14のNightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/43533749064)（suite `aef04b93`）でも、ランダム比較のステップは成功しました。この回の個別artifactは照合していません。
-既定のNightlyは13プロファイルを維持し、[重点探索と独立検算](#thirteen-profile-stabilization)を継続します。[追加のパック値モデル2種類](#opt-in-packed-profiles)と[整数べき乗モデル](#opt-in-power-profile)は明示指定の探索で使えます。
+既定のNightlyは13プロファイルを維持し、[重点探索と独立検算](#thirteen-profile-stabilization)を継続します。[追加のパック値モデル2種類](#opt-in-packed-profiles)・[整数べき乗モデル](#opt-in-power-profile)・[広い値の2モデル](#opt-in-wide-value-profiles)・[広いシフトと型変換の2モデル](#opt-in-wide-bit-operation-profiles)は明示指定の探索で使えます。
 
 <a id="purpose-and-roles"></a>
 
@@ -75,7 +75,7 @@ Nightlyの13プロファイルはkirimasim `50a897dee62a`・seed `41941310616`�
 
 X/Z、bit/logic、幅・符号の違いが以下の期待値を変える理由は、[小さなSVの表示例](faq.md#q50-sv-values-change-observations)で確認できます。
 
-Nightlyで既定の13プロファイルと、後述する明示指定の追加5プロファイルに対応しています。以下は既定の13種類です。既存の有限モデル全体を任意の入力に対応させたものではありません。
+Nightlyで既定の13プロファイルと、後述する明示指定の追加7プロファイルに対応しています。以下は既定の13種類です。既存の有限モデル全体を任意の入力に対応させたものではありません。
 
 - `expression_context`：幅・符号・代入先の幅・加減乗算を組み合わせ、任意の既知の入力ビット列を比較します。
   既存の`generators/interaction_expr.py`の参照関数を使います。
@@ -649,7 +649,7 @@ Nightlyのrun ID・再試行番号と、直前のランダム用buildコミッ�
 
 ## 明示指定で使うパック値の追加モデル（2026-11-17）
 
-[生成器・参照モデル](../tools/random_cross_packed.py)に2種類を追加しました。`--models`で指定した場合に使用し、既定の13種類・Nightlyの96ケース・操作数・並列数・時間制限は変えていません。この16種類は引き続き明示指定で混ぜられ、広い値の2モデルを含めると計18種類から選べます。以前の既定13種類はseed 1・731・20261117でmanifest、SV、期待値のhashが追加前と一致します。
+[生成器・参照モデル](../tools/random_cross_packed.py)に2種類を追加しました。`--models`で指定した場合に使用し、既定の13種類・Nightlyの96ケース・操作数・並列数・時間制限は変えていません。この18種類は引き続き明示指定で混ぜられ、広いシフト・型変換の2モデルを含めると計20種類から選べます。以前の既定13種類はseed 1・731・20261117でmanifest、SV、期待値のhashが追加前と一致します。
 
 - `packed_bounds_sequence`：4状態パックベクタを負・ゼロ・非ゼロの宣言範囲で読み書きします。幅は1〜513ビットの21候補、選択幅は最大65ビット。昇順／降順、`+:`／`-:`、読出し先のbit／logic、32ビット符号付き添字を交差します。範囲内・一部範囲外・全部範囲外・X/Z添字を生成し、各操作の全体値、部分選択、単一ビットを観測します。無効位置への書込みを抑止し、部分的な書込みでは範囲内のビットだけを更新します。既知の入力から範囲外参照によってXを生む場合も4状態検証に分類します。根拠はIEEE 1800-2023 11.5.1、7.4.1、6.11.2です。
 - `packed_field_sequence`：3フィールドのパック構造体で全体代入・フィールド代入・異なる幅のフィールド間コピー・全体シフトを組み合わせます。9〜513ビットの10レイアウト、フィールドごとの符号、構造体全体の符号、bit／logicを交差します。全フィールドは同じ状態型で、bitとlogicの混在は生成しません。毎回の全体値、各フィールド、各フィールドを3ビット拡張した値で、配置・隣接フィールドの保持・コピーの拡張／切詰め・全体の算術右シフトを照合します。根拠は7.2.1、6.11.2、10.7、11.4.10、11.8.1です。
@@ -744,3 +744,29 @@ python3 tools/run_random_cross.py --kirimasim /path/to/verified-build/kirimasim 
 ```
 
 保存した入力の再生では、生成の指定に代えて`--replay coverage/interaction-qualification/random-wide-values-20261119/seed-1/manifest.json`を使い、出力先を新しくします。比較先の記録も取る場合は`--icarus /path/to/iverilog --verilator /path/to/verilator`を加えます。現在の処理のハッシュには広いリテラルの共通整形も含みます。古いモデルの保存入力が同じでも、測定処理・依存ファイルの変更は由来に残ります。
+
+<a id="opt-in-wide-bit-operation-profiles"></a>
+
+## 明示指定する広いシフトと型変換の探索（2026-11-19）
+
+`--models`で`wide_shift_context`と`wide_cast_pipeline`を選びます。既存の[生成・検査・規格に基づく作成処理](../tools/random_cross_models.py)へ、入力幅255/256/257・511/512/513を追加の範囲として渡します。シフトの格納先はW-1/W/W+1、シフト量は32/65ビットで、境界・巨大な値・一部が未知の値を扱います。シフト量をsignedと宣言しても規則どおり符号なしとして解釈します。幅・符号・型付きbit/logicの型変換は、符号付きの正の一の加算とW+2ビットへの格納の前の途中結果を表示します。早いtyped bitでX/Zが消える場合も入力全体を表示し、出力だけから4値を不要と判断しません。リテラルの分割は正確な符号なしの値を維持します。従来のモデル・既定の配分・資源設定は不変です。
+
+[保存した検証](../coverage/interaction-qualification/random-wide-bitops-20261119/qualification.json)は刺激seed1・731・20261119それぞれ96プログラム・8入力列で、**計288プログラム・2,304ベクトル**です。2種類を同数とし、各ケースで既知値だけ／4値を許す生成を同じ確率で選び、実際のX/Zで除外を判定します。**既知値150本・4値138本**です。独立AIは期待値・manifest・新しい作成処理・元のヘルパーを見る前に、ソースから**5,760行**を導出して封印し、別の整数・桁上がりの計算でも照合しました。以前の固定シフト・型変換の規則は既知でした。AIレビューであり、人のレビューではありません。幅以上になるシフト量783件、そのうち既知の2^32以上300件、signed宣言で負に見えるが符号なしとして扱う145件、未知のシフト量73件、typed bitで早くX/Zが消える27件、型変換後の加算528件・加算なし624件を含みます。この入力の観測であり、全ての組合せを網羅したとはしません。
+
+[単体検査15件](../tools/test_random_cross_wide_bitops.py)は別計算の整数シフト・符号／未知値による埋め・文脈の幅・早い／遅い変換・不正な範囲・保存入力の維持・参照値の意図的な変化を扱います。12通りの選択とseedで、従来18モデルのmanifest・ソース・期待値が全て不変であることを確かめ、18モデルの生成列の固定ハッシュも保存します。既定13種類のNightlyは不変です。既存の単体検査3件は選択可能なモデル数の18→20だけを更新します。
+
+各入力組で実際のCLIを4回実行します。この組の開始前に公開mainから一度解決し、独立したReleaseバイナリの再ハッシュと照合したkirimasim 0.1.1 `a6222f0656d4`は**1,152回すべてpass**です。Icarus Verilog 13.0は288本をコンパイル・実行し全てpassです。Verilator 5.054は初期化seed1・73それぞれ既知値150本をコンパイル・実行して**計300pass**です。**4値の除外276件**はコンパイル前の除外であり、実行や成功ではありません。この保存した組では比較先のビルド失敗・出力不一致・タイムアウトはありません。要求した結果2,016件、**実行1,740回と比較先の実際のビルド588回**を、build/simulation/normalizationの段階ごとのハッシュとともに保存します。kirimasimはコマンドに解析・ビルドを含み、比較先のビルド回数とは分けて数えます。
+
+各組の最初のCLI2回は要求したVerilatorの4値を除外するため非ゼロで終わり、その後のkirimasimだけの再実行2回はゼロで終わります。4回目は後でこのコミットへ固定する公開用の保存入力を再生します。全ての結果と入力・参照値・コード・バイナリ・環境の確認を残します。生のコマンド・パス・環境・ログは非公開とし、公開側はハッシュと版を保存します。[有限の検査](../coverage/interaction-qualification/random-wide-bitops-20261119/qualification.json)は成功対照32本とコンパイル・正常終了する変異64本です。各種類で符号・格納型・実際の既知値／4値を扱い、4つのシフト演算子と5つの型変換を含みます。シフトは別々の下位／上位の結果、型変換は別に表示する途中／最終結果を壊します。有限の観測検査で全ての意味的な誤りを証明したとはしません。ランダム入力は固定本数・要求カバレッジ・固定の振る舞い履歴へ加算しません。
+
+実行例は次のとおりです。`COMMIT`には使う本体のコミット、パスには手元の実行ファイルを指定します。
+
+```sh
+python3 tools/run_random_cross.py --kirimasim /path/to/kirimasim --commit COMMIT \
+  --models wide_shift_context wide_cast_pipeline --seed 1 --cases 96 --vectors 8 \
+  --icarus /path/to/iverilog --verilator /path/to/verilator --simulator-seed 1 \
+  --output my-results/wide-bit-operations
+python3 tools/run_random_cross.py --kirimasim /path/to/kirimasim --commit COMMIT \
+  --replay coverage/interaction-qualification/random-wide-bitops-20261119/seed-1/manifest.json \
+  --output my-results/saved-wide-bit-operation-replay
+```

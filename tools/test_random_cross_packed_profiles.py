@@ -119,7 +119,7 @@ class PackedRandomTests(unittest.TestCase):
             731: ('b88d50277d3efce9d290060543b338553965afc35d6248c8beb4383a0bfad3b9', 'e86fad27b08871c47c7a530f4b2d624c9d1572e7ece63ed8f4c174f0ffb77090'),
             20261117: ('e3924ec1adb01adbf64aca55dc40716f34823382dd9cb1c342b0eb79dfe3eb1c', '03b79d24f4b2afa2856d48fa7e0b1be3046bba07a41ee2bcbf59b2c55d4eb6a0')}
         self.assertEqual(len(m.PROFILES), 13)
-        self.assertEqual(len(m.SUPPORTED_PROFILES), 18)
+        self.assertEqual(len(m.SUPPORTED_PROFILES), 20)
         for seed, (manifest, corpus) in goldens.items():
             data = m.generate(seed, 96, 8)
             self.assertEqual(hashlib.sha256(m.canonical(data).encode()).hexdigest(), manifest)
