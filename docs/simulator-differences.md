@@ -1464,3 +1464,13 @@ The 54 `test_gen_fourstate_boundary_*` programs put X/Z around native-word bound
 - Kirimasim 0.1.1 `441dddbd0fcd` matches all 54 cases in each of four saved runs, including the Z/Z merge reference and complete-width shift-amount controls.
 
 [Saved evidence](../coverage/README.en.md), the [generator](../generators/fourstate_boundaries.py) and [finite checks](../coverage/qualification/fourstate-boundaries-20261119d.json) retain exact scope and hashes. All review metadata remains AI review, and no new requirement mappings are added.
+
+<a id="arithmetic-context-20261119e"></a>
+
+## Runtime wide arithmetic contexts (2026-11-19)
+
+The 90 `test_gen_arithmetic_context_*` programs distinguish evaluation width from later storage conversion. Under 11.6 and 11.8.2 a direct double-width assignment propagates its width to context-determined arithmetic operands. A narrow capture has already lost high bits; extending it cannot restore them. A typedef cast first supplies its own width, while a one-item concatenation has a self-determined narrow expression and an unsigned result. Clause 11.8.1 determines signing from operands; the destination's signing does not change it. Explicit `$signed`/`$unsigned` controls preserve operand bits while changing their interpretation (11.7).
+
+For example, unsigned `0 - 1` assigned directly to 2W bits fills all 2W bits with ones. Capturing the W-bit result in an unsigned word and then extending it leaves the upper W bits zero. Opposite-sign multiplication is jointly unsigned before its direct wider evaluation; a later signed capture is a separate operation. All observations use complete binary values instead of host-sized decimal conversions.
+
+Icarus Verilog 13.0, Verilator 5.054 at seeds 1 and 73, and kirimasim 0.1.1 `441dddbd0fcd` in four runs match every case. Only the 90 Icarus successes are recorded as fixed-release oracles; no difference is inferred from these matching finite tests. Independent AI review uses a source expression tree with explicit context propagation and cast/concatenation boundaries, separately from the writer's integer arithmetic. [Saved evidence](../coverage/README.en.md), [finite checks](../coverage/qualification/arithmetic-context-20261119e.json) and [generator](../generators/arithmetic_context.py) retain the scope. No requirement mappings are added.

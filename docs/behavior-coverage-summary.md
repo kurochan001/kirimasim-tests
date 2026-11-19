@@ -22,7 +22,7 @@
 
 ## 既存テストの集計状況
 
-- 全 14364 本のうち、要求との対応を登録済みのテストは 6644 本。未登録は 7720 本です。
+- 全 14454 本のうち、要求との対応を登録済みのテストは 6644 本。未登録は 7810 本です。
 - 上記の網羅率は、刺激と期待結果を確認して要求との対応を登録した分だけを計上しています。 未登録の既存テストも検証に役立ちますが、その貢献はまだ割合に反映できていません。
 - 登録済み本数は少なくとも一つの要求との対応がある本数で、テスト全体のレビュー完了数ではありません。
 
@@ -54,6 +54,13 @@
 
 各行は独立した保存実行です。小範囲の実行で未実行が多い場合もあるため、[日時・版・対象範囲の読み方](faq.md#q14-why-do-main-results-or-simulator-totals-differ)と計測元を確認してください。
 
+- `icarus` / `Icarus Verilog version 13.0 (stable) (v13_0)`: 0/12332 (0.00%)。 計測元: `2026-11-19T00:40:23.690825+00:00` / `arithmetic-context-20261119e-icarus13.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
+- `kirimasim` / `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401`: 0/12332 (0.00%)。 計測元: `2026-11-19T00:40:25.094367+00:00` / `arithmetic-context-20261119e-kirimasim-441dddbd0fcd-run1.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
+- `kirimasim` / `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401`: 0/12332 (0.00%)。 計測元: `2026-11-19T00:40:26.453598+00:00` / `arithmetic-context-20261119e-kirimasim-441dddbd0fcd-run2.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
+- `kirimasim` / `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401`: 0/12332 (0.00%)。 計測元: `2026-11-19T00:40:27.799007+00:00` / `arithmetic-context-20261119e-kirimasim-441dddbd0fcd-run3.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
+- `kirimasim` / `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401`: 0/12332 (0.00%)。 計測元: `2026-11-19T00:40:29.114615+00:00` / `arithmetic-context-20261119e-kirimasim-441dddbd0fcd-run4.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
+- `verilator` / `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101`: 0/12332 (0.00%)。 計測元: `2026-11-19T00:45:48.677131+00:00` / `arithmetic-context-20261119e-verilator5.054-seed1.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
+- `verilator` / `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101`: 0/12332 (0.00%)。 計測元: `2026-11-19T00:50:43.545843+00:00` / `arithmetic-context-20261119e-verilator5.054-seed73.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
 - `icarus` / `Icarus Verilog version 13.0 (stable) (v13_0)`: 0/12332 (0.00%)。 計測元: `2026-11-18T21:42:00.646435+00:00` / `array-shape-20261119-icarus13.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
 - `kirimasim` / `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401`: 0/12332 (0.00%)。 計測元: `2026-11-18T21:42:02.346874+00:00` / `array-shape-20261119-kirimasim-441dddbd0fcd-run1.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
 - `kirimasim` / `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401`: 0/12332 (0.00%)。 計測元: `2026-11-18T21:42:03.990893+00:00` / `array-shape-20261119-kirimasim-441dddbd0fcd-run2.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。

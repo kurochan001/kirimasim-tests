@@ -25603,6 +25603,16 @@
     "Wide conditional selection and ambiguous merging preserve conversion order": "広い条件選択と曖昧な条件の併合は変換の順序を保つ",
     "Wide conditional selection and ambiguous merging preserve conversion order ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広い条件選択と曖昧な条件の併合は変換の順序を保つ ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
     "Wide four-state shifts preserve unknown data and inspect the complete shift amount": "広い4値シフトは未知データを保ちシフト量の全ビットを調べる",
-    "Wide four-state shifts preserve unknown data and inspect the complete shift amount ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広い4値シフトは未知データを保ちシフト量の全ビットを調べる ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )"
+    "Wide four-state shifts preserve unknown data and inspect the complete shift amount ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広い4値シフトは未知データを保ちシフト量の全ビットを調べる ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Runtime wide products retain high words according to expression context": "実行時の広い乗算は式の文脈に従って上位の語を保持する",
+    "Runtime wide products retain high words according to expression context ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "実行時の広い乗算は式の文脈に従って上位の語を保持する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Runtime wide additions distinguish carried results from captured narrow words": "実行時の広い加算は繰上がりと狭い語への保存を区別する",
+    "Runtime wide additions distinguish carried results from captured narrow words ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "実行時の広い加算は繰上がりと狭い語への保存を区別する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Runtime wide subtractions preserve borrow and signed extension contexts": "実行時の広い減算は借りと符号拡張の文脈を保つ",
+    "Runtime wide subtractions preserve borrow and signed extension contexts ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "実行時の広い減算は借りと符号拡張の文脈を保つ ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Runtime wide unary negation applies context width before arithmetic": "実行時の広い単項マイナスは演算前に文脈の幅を適用する",
+    "Runtime wide unary negation applies context width before arithmetic ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "実行時の広い単項マイナスは演算前に文脈の幅を適用する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Runtime wide mixed-sign products separate joint unsigned and explicit signed contexts": "実行時の広い符号混在の乗算は共通の符号なし型と明示した符号付き型を区別する",
+    "Runtime wide mixed-sign products separate joint unsigned and explicit signed contexts ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "実行時の広い符号混在の乗算は共通の符号なし型と明示した符号付き型を区別する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )"
   }
 }

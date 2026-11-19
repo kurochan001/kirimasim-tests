@@ -96,6 +96,10 @@
     "fourstate_boundaries": {
       "en": "54 four-state boundary cases at 63/64/65, 127/128/129 and 255/256/257 bits: complete-vector truth, bitwise and reduction operators, equality and one-sided wildcards, conditional merging and signed shifts. X/Z bits surround native-word edges; known controls and pre-operation versus final two-state conversions are observed. Shift amounts retain all65bits.",
       "ja": "63/64/65・127/128/129・255/256/257ビットの4値境界54本。全体の真偽、ビット演算とリダクション、等値と片側ワイルドカード、条件の併合、符号付きシフトを確認。語境界周辺のX/Z、既知値の対照、演算前と最後の2値変換を観測し、シフト量は65ビット全体を保持。"
+    },
+    "arithmetic_context": {
+      "en": "90 runtime arithmetic-context cases at 63/64/65, 127/128/129 and 255/256/257 bits: multiplication, carry, borrow, unary negation and mixed signing. Direct double-width results are compared with narrow captures, typedef casts, self-determined concatenations and explicit signed/unsigned controls, with complete operands and high words observed.",
+      "ja": "63/64/65・127/128/129・255/256/257ビットの実行時演算と文脈90本。乗算、繰上がり、借り、単項マイナス、符号の混在で、直接の倍幅結果と、狭い語への保存、型変換、自己決定の連結、明示した符号の対照を比較し、全入力と上位語を観測。"
     }
   }
 }

@@ -1,0 +1,679 @@
+{
+  "schema": 1,
+  "kind": "finite one-edit observability checks; not independent standards review",
+  "recorded_at": "2026-11-19T00:40:21.743800+00:00",
+  "scope": "All five forms, both signs, widths 65 and 257; twenty controls and forty normally exiting compiled mutations",
+  "simulator": {
+    "version": "kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401",
+    "commit": "441dddbd0fcd80aed298ca33311f2ee67aa8866c",
+    "binary_sha256": "c3b343c753737a564deb1156e8064062793c133f7be2ea567daced985b26f24b"
+  },
+  "args": [
+    "+nonce=1"
+  ],
+  "baselines": [
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_multiply_signed_w65.sv",
+      "source_sha256": "52628cc83a4a2b82baf7639b2ca8cb49611e14a116a36376f55bc536761ba5f0",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_carry_signed_w65.sv",
+      "source_sha256": "c62a00e424bb5af3ba635ac5479589eb17633582482e69fcf053b1dd465ea351",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_borrow_signed_w65.sv",
+      "source_sha256": "5fe422bb10c8674f71933a34e692576a620f721c9ed2baedbc385a0694c38ac6",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_negate_signed_w65.sv",
+      "source_sha256": "3d399132924f4faa6a1268cb74017ecdeeaeb0fbaee5c794ee34123ea6bf19f3",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_mixed_signed_w65.sv",
+      "source_sha256": "5aacec6ce601f7265ae117aa1bd5c5d47b8112fb3ac7e3ed208a42fa48213cfd",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_multiply_unsigned_w65.sv",
+      "source_sha256": "2375ee269c538dd8a70e5e9c1f3cb050dd5ea23a2d2597f5bc0d67485e887b49",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_carry_unsigned_w65.sv",
+      "source_sha256": "21cf166ab1f2f8f52d08b21b521f028be396f83d4b0da8fbb71a4ed19f4998cf",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_borrow_unsigned_w65.sv",
+      "source_sha256": "599d05f76f3340723dca5ef2c316a5ae0df4909883505e4b3113c661dc16577c",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_negate_unsigned_w65.sv",
+      "source_sha256": "fa745127bf0887b1da6cbe7d90c25f7c43b2a60cf29a60124bdb0e9e64faefdc",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_mixed_unsigned_w65.sv",
+      "source_sha256": "602fe01e6665cbbc33a86df0255fe4766343e29e398898fe3865657c37947210",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_multiply_signed_w257.sv",
+      "source_sha256": "528973f1a3edca06f287593e6962c6ce254bbdb8cfbd19fb5ccc4b5088c07808",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_carry_signed_w257.sv",
+      "source_sha256": "e6dc56ebc8fd6fc46f57c7ea4985963fb88ed6dacb02e596774bdb2d5ed6f10f",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_borrow_signed_w257.sv",
+      "source_sha256": "1612b7629f5e61458410a103a8c509d8489633aa3f011b0e56e5ada90be5b8a0",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_negate_signed_w257.sv",
+      "source_sha256": "ff0df15a5071c0c64a85e5994276b6ccc1ca4d23e4c41742ea64a58376c4a26f",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_mixed_signed_w257.sv",
+      "source_sha256": "2ef1fe05a337ff0fe0f9e517c055cc9485f48dbd6ce4ee66cdded02163fc2993",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_multiply_unsigned_w257.sv",
+      "source_sha256": "5c5d235c8a8848bdc11b6ff3bb4b85614d0203bf26f11678988feabcc19fd070",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_carry_unsigned_w257.sv",
+      "source_sha256": "3b7efc9d99e04b5379e9963ef511b5d12ebbf63ef172a2f1d387979656b135ba",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_borrow_unsigned_w257.sv",
+      "source_sha256": "362799bdf78aa4d8d07883019075a4d99cf1f6042afa05da3a5764e566bfe5d2",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_negate_unsigned_w257.sv",
+      "source_sha256": "64f642bdfd0b45d0f62c9a42171588e3142170cc7fbfe9949f7628ab9aaec4be",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_mixed_unsigned_w257.sv",
+      "source_sha256": "cc7bb7756e6fd1247fa7ce02f46b6730a1390e89fdc987e61334bfb31b282891",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    }
+  ],
+  "mutations": [
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_multiply_signed_w65.sv",
+      "label": "wrong-full-result",
+      "replacement": {
+        "old": "full = a * b;",
+        "new": "full = (a * b) + 1'b1;",
+        "occurrences": 1
+      },
+      "source_sha256": "d98a1ff825f5721a916f7c166ecad3a8da1bed4910c36a0c969582ff09daf503",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_multiply_signed_w65.sv",
+      "label": "wrong-narrow-capture",
+      "replacement": {
+        "old": "captured = wrapped;",
+        "new": "captured = ~wrapped;",
+        "occurrences": 1
+      },
+      "source_sha256": "ec54064ff5ebc2deeb28098567279f34ec348f565c5bd3fde813bbb6670cb7d6",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_carry_signed_w65.sv",
+      "label": "wrong-full-result",
+      "replacement": {
+        "old": "full = a + b;",
+        "new": "full = (a + b) + 1'b1;",
+        "occurrences": 1
+      },
+      "source_sha256": "08fe73f9720094547024e78f23722810c759706efc6d62aace73e50372f870e4",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_carry_signed_w65.sv",
+      "label": "wrong-narrow-capture",
+      "replacement": {
+        "old": "captured = wrapped;",
+        "new": "captured = ~wrapped;",
+        "occurrences": 1
+      },
+      "source_sha256": "6e9ba63e39569b8c89b3ac1a3891b9ee8931c5fc8299332c00ffb0308bc69aa8",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_borrow_signed_w65.sv",
+      "label": "wrong-full-result",
+      "replacement": {
+        "old": "full = a - b;",
+        "new": "full = (a - b) + 1'b1;",
+        "occurrences": 1
+      },
+      "source_sha256": "7c34225e87ea48a5ec6e9c1a57820f6ed68275a162f82569207f5b25185dae68",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_borrow_signed_w65.sv",
+      "label": "wrong-narrow-capture",
+      "replacement": {
+        "old": "captured = wrapped;",
+        "new": "captured = ~wrapped;",
+        "occurrences": 1
+      },
+      "source_sha256": "31856f5975c8936ab34df299c6e83d89ce4448394f4a64347e034a0dfc44c039",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_negate_signed_w65.sv",
+      "label": "wrong-full-result",
+      "replacement": {
+        "old": "full = -a;",
+        "new": "full = (-a) + 1'b1;",
+        "occurrences": 1
+      },
+      "source_sha256": "6eb8c479ab3834bd87437c3c59aaca9ad3c6f72b8991185db9f04a13e7b04166",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_negate_signed_w65.sv",
+      "label": "wrong-narrow-capture",
+      "replacement": {
+        "old": "captured = wrapped;",
+        "new": "captured = ~wrapped;",
+        "occurrences": 1
+      },
+      "source_sha256": "e2babf23869e4cfd5503569837289b685a6c31773f5f96bbafe359337621eb27",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_mixed_signed_w65.sv",
+      "label": "wrong-full-result",
+      "replacement": {
+        "old": "full = a * b;",
+        "new": "full = (a * b) + 1'b1;",
+        "occurrences": 1
+      },
+      "source_sha256": "254a9e9888c215f235409748236f1305d132ea54546f15a617203b9fb0e89f2e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_mixed_signed_w65.sv",
+      "label": "wrong-narrow-capture",
+      "replacement": {
+        "old": "captured = wrapped;",
+        "new": "captured = ~wrapped;",
+        "occurrences": 1
+      },
+      "source_sha256": "1959d809ac2449038e04f91200d3d56e3c01122eb6fdc70f6488bbeaecd33e07",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_multiply_unsigned_w65.sv",
+      "label": "wrong-full-result",
+      "replacement": {
+        "old": "full = a * b;",
+        "new": "full = (a * b) + 1'b1;",
+        "occurrences": 1
+      },
+      "source_sha256": "920d0b95742c131b0e774fdf6577d8f1abc91b52f135bf3868af9a15d6d5bad6",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_multiply_unsigned_w65.sv",
+      "label": "wrong-narrow-capture",
+      "replacement": {
+        "old": "captured = wrapped;",
+        "new": "captured = ~wrapped;",
+        "occurrences": 1
+      },
+      "source_sha256": "332c07e4b992d4670605ca2de764b4bdf818186c96364df555d04cea1dfda01e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_carry_unsigned_w65.sv",
+      "label": "wrong-full-result",
+      "replacement": {
+        "old": "full = a + b;",
+        "new": "full = (a + b) + 1'b1;",
+        "occurrences": 1
+      },
+      "source_sha256": "ce6d919d6f86cf9b9c88fddd27acb474d0e5ca17b0f1626437fd4de0629f3e57",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_carry_unsigned_w65.sv",
+      "label": "wrong-narrow-capture",
+      "replacement": {
+        "old": "captured = wrapped;",
+        "new": "captured = ~wrapped;",
+        "occurrences": 1
+      },
+      "source_sha256": "1b1f2c07eda0bcd2d4da9d21d0668628c81fc33eaebc19c6756fb6bb0c956e5e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_borrow_unsigned_w65.sv",
+      "label": "wrong-full-result",
+      "replacement": {
+        "old": "full = a - b;",
+        "new": "full = (a - b) + 1'b1;",
+        "occurrences": 1
+      },
+      "source_sha256": "da0ca008968e4e04a3b1916e1bec0a14326d24783a263452ff07ede7f54d81d8",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_borrow_unsigned_w65.sv",
+      "label": "wrong-narrow-capture",
+      "replacement": {
+        "old": "captured = wrapped;",
+        "new": "captured = ~wrapped;",
+        "occurrences": 1
+      },
+      "source_sha256": "0b215c814f79ecb97e5581655fb73c4b09df1309b7edfbe3b06fdd58830aba96",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_negate_unsigned_w65.sv",
+      "label": "wrong-full-result",
+      "replacement": {
+        "old": "full = -a;",
+        "new": "full = (-a) + 1'b1;",
+        "occurrences": 1
+      },
+      "source_sha256": "e9ce1047c3f9deeab6291a5023dcb450768e680a16a9f14413ddb36ae8d7abc0",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_negate_unsigned_w65.sv",
+      "label": "wrong-narrow-capture",
+      "replacement": {
+        "old": "captured = wrapped;",
+        "new": "captured = ~wrapped;",
+        "occurrences": 1
+      },
+      "source_sha256": "a1ec6e422f0ba8012a930835c74987b040bbf0f280b6de8bde030b58034ca460",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_mixed_unsigned_w65.sv",
+      "label": "wrong-full-result",
+      "replacement": {
+        "old": "full = a * b;",
+        "new": "full = (a * b) + 1'b1;",
+        "occurrences": 1
+      },
+      "source_sha256": "b4c990c678aa0872b66acd40cab8a307ebb1ee2393f606692ea9e25c2218cea4",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_mixed_unsigned_w65.sv",
+      "label": "wrong-narrow-capture",
+      "replacement": {
+        "old": "captured = wrapped;",
+        "new": "captured = ~wrapped;",
+        "occurrences": 1
+      },
+      "source_sha256": "c1155a94719f0a491f6f3de1e0481a1cf707bf47162ff9ed52dc14133a25e3ae",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_multiply_signed_w257.sv",
+      "label": "wrong-full-result",
+      "replacement": {
+        "old": "full = a * b;",
+        "new": "full = (a * b) + 1'b1;",
+        "occurrences": 1
+      },
+      "source_sha256": "3f1e173238f389470c91e64683bacf52c716454d967b30d33fcf53e01752ed35",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_multiply_signed_w257.sv",
+      "label": "wrong-narrow-capture",
+      "replacement": {
+        "old": "captured = wrapped;",
+        "new": "captured = ~wrapped;",
+        "occurrences": 1
+      },
+      "source_sha256": "5f477e73767de3ffe9fa023656d4c4316885f4b057d8e0104379b62ae7519d5d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_carry_signed_w257.sv",
+      "label": "wrong-full-result",
+      "replacement": {
+        "old": "full = a + b;",
+        "new": "full = (a + b) + 1'b1;",
+        "occurrences": 1
+      },
+      "source_sha256": "9a6386590634b7959df2fc9adecde9f33be2db6ae9acd80cd12d0501cc635d1c",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_carry_signed_w257.sv",
+      "label": "wrong-narrow-capture",
+      "replacement": {
+        "old": "captured = wrapped;",
+        "new": "captured = ~wrapped;",
+        "occurrences": 1
+      },
+      "source_sha256": "acd57f097cdd3117d2874291f0ef137582b9f8efbced9e955a909e46b6d24199",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_borrow_signed_w257.sv",
+      "label": "wrong-full-result",
+      "replacement": {
+        "old": "full = a - b;",
+        "new": "full = (a - b) + 1'b1;",
+        "occurrences": 1
+      },
+      "source_sha256": "9f0e9416b90d78c5befd6d3719bf217a2dc41ec5cc6e0683c3db56fc96bb926b",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_borrow_signed_w257.sv",
+      "label": "wrong-narrow-capture",
+      "replacement": {
+        "old": "captured = wrapped;",
+        "new": "captured = ~wrapped;",
+        "occurrences": 1
+      },
+      "source_sha256": "096d302b7a8d1980b88745ae84cae47d3f08a2fe57efe793ee10090cea465da9",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_negate_signed_w257.sv",
+      "label": "wrong-full-result",
+      "replacement": {
+        "old": "full = -a;",
+        "new": "full = (-a) + 1'b1;",
+        "occurrences": 1
+      },
+      "source_sha256": "56ca72ee4fafc5ba46b8c67da74ef36bc9edd077f4c7b5d0c276140da9fa702b",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_negate_signed_w257.sv",
+      "label": "wrong-narrow-capture",
+      "replacement": {
+        "old": "captured = wrapped;",
+        "new": "captured = ~wrapped;",
+        "occurrences": 1
+      },
+      "source_sha256": "abb22417d196a3879fd4f33fc6c65a67ba3e769995e3ad9b56db87844167c649",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_mixed_signed_w257.sv",
+      "label": "wrong-full-result",
+      "replacement": {
+        "old": "full = a * b;",
+        "new": "full = (a * b) + 1'b1;",
+        "occurrences": 1
+      },
+      "source_sha256": "5dc61c1067d216dbbacb9a5c455b6d0fcf4a23bbbfa8697edbcd3866de751fc9",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_mixed_signed_w257.sv",
+      "label": "wrong-narrow-capture",
+      "replacement": {
+        "old": "captured = wrapped;",
+        "new": "captured = ~wrapped;",
+        "occurrences": 1
+      },
+      "source_sha256": "ca10ccd153193c4a6b2d164911be277ee1757bfd6373d129b67da4ad7a16971d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_multiply_unsigned_w257.sv",
+      "label": "wrong-full-result",
+      "replacement": {
+        "old": "full = a * b;",
+        "new": "full = (a * b) + 1'b1;",
+        "occurrences": 1
+      },
+      "source_sha256": "9e2ef9b48c2d084c72bf890ed37712db34358d42d6561f4e1a9af225e23a6b3b",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_multiply_unsigned_w257.sv",
+      "label": "wrong-narrow-capture",
+      "replacement": {
+        "old": "captured = wrapped;",
+        "new": "captured = ~wrapped;",
+        "occurrences": 1
+      },
+      "source_sha256": "105eb70d261969cbe3ac6b03cd131fb4e303995baad1906b6fb4b6c96c182c50",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_carry_unsigned_w257.sv",
+      "label": "wrong-full-result",
+      "replacement": {
+        "old": "full = a + b;",
+        "new": "full = (a + b) + 1'b1;",
+        "occurrences": 1
+      },
+      "source_sha256": "e79d3dbbae7a8d15ba6a0e6b2bc831414af7b0a375a007744ddf6ec8da96f0c3",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_carry_unsigned_w257.sv",
+      "label": "wrong-narrow-capture",
+      "replacement": {
+        "old": "captured = wrapped;",
+        "new": "captured = ~wrapped;",
+        "occurrences": 1
+      },
+      "source_sha256": "55d0644ce4048eb6f2620523004dc52d0461fa94301497915d775af5f24fecb7",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_borrow_unsigned_w257.sv",
+      "label": "wrong-full-result",
+      "replacement": {
+        "old": "full = a - b;",
+        "new": "full = (a - b) + 1'b1;",
+        "occurrences": 1
+      },
+      "source_sha256": "5bf121e21abeabe764a67621aec6ba60c1884f86f50cd29b43e15f714e28fe13",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_borrow_unsigned_w257.sv",
+      "label": "wrong-narrow-capture",
+      "replacement": {
+        "old": "captured = wrapped;",
+        "new": "captured = ~wrapped;",
+        "occurrences": 1
+      },
+      "source_sha256": "ba29823cd7273f74318078f16aedc3ae71cfa721cf76a741e18f897917a1db87",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_negate_unsigned_w257.sv",
+      "label": "wrong-full-result",
+      "replacement": {
+        "old": "full = -a;",
+        "new": "full = (-a) + 1'b1;",
+        "occurrences": 1
+      },
+      "source_sha256": "0930dc8a63cf421192abd763e618e163e6e30c5c0fbb4ef0b0dca2fa93e0a3cb",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_negate_unsigned_w257.sv",
+      "label": "wrong-narrow-capture",
+      "replacement": {
+        "old": "captured = wrapped;",
+        "new": "captured = ~wrapped;",
+        "occurrences": 1
+      },
+      "source_sha256": "438e8cdfb536246e7979e2573cb9a59d94287711c48ff59e4b9c7641e2ea524e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_mixed_unsigned_w257.sv",
+      "label": "wrong-full-result",
+      "replacement": {
+        "old": "full = a * b;",
+        "new": "full = (a * b) + 1'b1;",
+        "occurrences": 1
+      },
+      "source_sha256": "e2f4bee6762e9db1c41bcc8c5575c8946fac6024b8f41f37a9a14cac8f1e4244",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_arithmetic_context_mixed_unsigned_w257.sv",
+      "label": "wrong-narrow-capture",
+      "replacement": {
+        "old": "captured = wrapped;",
+        "new": "captured = ~wrapped;",
+        "occurrences": 1
+      },
+      "source_sha256": "00bf61ecb5935292a5e886b9f0f99cde4b041ef71b5e5b14651fbb51743a0543",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    }
+  ],
+  "status": "all-twenty-controls-pass-and-forty-compiled-mutants-differ"
+}

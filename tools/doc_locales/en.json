@@ -23773,6 +23773,16 @@
     "Wide conditional selection and ambiguous merging preserve conversion order": "Wide conditional selection and ambiguous merging preserve conversion order",
     "Wide conditional selection and ambiguous merging preserve conversion order ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide conditional selection and ambiguous merging preserve conversion order ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
     "Wide four-state shifts preserve unknown data and inspect the complete shift amount": "Wide four-state shifts preserve unknown data and inspect the complete shift amount",
-    "Wide four-state shifts preserve unknown data and inspect the complete shift amount ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide four-state shifts preserve unknown data and inspect the complete shift amount ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )"
+    "Wide four-state shifts preserve unknown data and inspect the complete shift amount ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide four-state shifts preserve unknown data and inspect the complete shift amount ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Runtime wide products retain high words according to expression context": "Runtime wide products retain high words according to expression context",
+    "Runtime wide products retain high words according to expression context ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Runtime wide products retain high words according to expression context ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Runtime wide additions distinguish carried results from captured narrow words": "Runtime wide additions distinguish carried results from captured narrow words",
+    "Runtime wide additions distinguish carried results from captured narrow words ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Runtime wide additions distinguish carried results from captured narrow words ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Runtime wide subtractions preserve borrow and signed extension contexts": "Runtime wide subtractions preserve borrow and signed extension contexts",
+    "Runtime wide subtractions preserve borrow and signed extension contexts ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Runtime wide subtractions preserve borrow and signed extension contexts ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Runtime wide unary negation applies context width before arithmetic": "Runtime wide unary negation applies context width before arithmetic",
+    "Runtime wide unary negation applies context width before arithmetic ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Runtime wide unary negation applies context width before arithmetic ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Runtime wide mixed-sign products separate joint unsigned and explicit signed contexts": "Runtime wide mixed-sign products separate joint unsigned and explicit signed contexts",
+    "Runtime wide mixed-sign products separate joint unsigned and explicit signed contexts ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Runtime wide mixed-sign products separate joint unsigned and explicit signed contexts ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )"
   }
 }

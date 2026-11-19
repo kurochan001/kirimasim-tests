@@ -32,6 +32,13 @@
 
 複数テストで一つの要求を分担する `check_groups` は、同じ実行環境・実行回で グループ内の全テストが成功した場合に限り成功とします。未指定の対応は独立した代替証拠です。
 
+- `arithmetic-context-20261119e-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T00:40:23.690825+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `arithmetic-context-20261119e-kirimasim-441dddbd0fcd-run1.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T00:40:25.094367+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `arithmetic-context-20261119e-kirimasim-441dddbd0fcd-run2.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T00:40:26.453598+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `arithmetic-context-20261119e-kirimasim-441dddbd0fcd-run3.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T00:40:27.799007+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `arithmetic-context-20261119e-kirimasim-441dddbd0fcd-run4.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T00:40:29.114615+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `arithmetic-context-20261119e-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T00:45:48.677131+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `arithmetic-context-20261119e-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T00:50:43.545843+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `array-shape-20261119-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-18T21:42:00.646435+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `array-shape-20261119-kirimasim-441dddbd0fcd-run1.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T21:42:02.346874+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `array-shape-20261119-kirimasim-441dddbd0fcd-run2.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T21:42:03.990893+00:00` / 0/12332 動作確認、古い入力との対応 0 件。

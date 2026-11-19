@@ -1,0 +1,371 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401",
+ "tests": {
+  "gen/ch11/test_gen_arithmetic_context_borrow_signed_w127": {
+   "status": "pass",
+   "inputs_sha256": "7bad254d6e53a052e3b2381c1611fad1cf798567ad36cb8ab4dd880d5ddb6806"
+  },
+  "gen/ch11/test_gen_arithmetic_context_borrow_signed_w128": {
+   "status": "pass",
+   "inputs_sha256": "4eee9001d3e742caaeaf839575a7a9dd912b1f30ee0f2aa62d41eb5392a1b734"
+  },
+  "gen/ch11/test_gen_arithmetic_context_borrow_signed_w129": {
+   "status": "pass",
+   "inputs_sha256": "19f90d2b9be221e45b161411d23dd45546a295b646d5cf6ed17e16ce2fe56be5"
+  },
+  "gen/ch11/test_gen_arithmetic_context_borrow_signed_w255": {
+   "status": "pass",
+   "inputs_sha256": "0c8703301a5017813c338e4b2339c5cf58e27a801bba767c3c2ec692a6678e5c"
+  },
+  "gen/ch11/test_gen_arithmetic_context_borrow_signed_w256": {
+   "status": "pass",
+   "inputs_sha256": "32204048303b4be2992a14eac8e00f2faec47c0c0b0710485d5c4301e9dfcb53"
+  },
+  "gen/ch11/test_gen_arithmetic_context_borrow_signed_w257": {
+   "status": "pass",
+   "inputs_sha256": "7407783bd32d9413fed97f153635dd2d4b4df4a1860fbb949b8e78d930c07eb3"
+  },
+  "gen/ch11/test_gen_arithmetic_context_borrow_signed_w63": {
+   "status": "pass",
+   "inputs_sha256": "21a4e38d73513d8168cf989f9be52f498db375f5df0c74cc15c785876898eeec"
+  },
+  "gen/ch11/test_gen_arithmetic_context_borrow_signed_w64": {
+   "status": "pass",
+   "inputs_sha256": "b949fdeda2cde73e43980f19de77244c35a8c95e0a2e5976c1a094892b6b4195"
+  },
+  "gen/ch11/test_gen_arithmetic_context_borrow_signed_w65": {
+   "status": "pass",
+   "inputs_sha256": "229d6d888dda1a47c0bf4222a73f711c048064f35dc7e17a4db7a015a654939f"
+  },
+  "gen/ch11/test_gen_arithmetic_context_borrow_unsigned_w127": {
+   "status": "pass",
+   "inputs_sha256": "de15997b119adb3602a9a8b4aeb9040e8944441a77467eeba01d59da6f0655a2"
+  },
+  "gen/ch11/test_gen_arithmetic_context_borrow_unsigned_w128": {
+   "status": "pass",
+   "inputs_sha256": "7373ffa6ae62189c168c6c2694c5c6cfe14f6bb8c42ab346d1cdf4c50611eaf7"
+  },
+  "gen/ch11/test_gen_arithmetic_context_borrow_unsigned_w129": {
+   "status": "pass",
+   "inputs_sha256": "595f22e8b6fc93019562136164acaea1643408aca0da854ef5feba43c4f1b674"
+  },
+  "gen/ch11/test_gen_arithmetic_context_borrow_unsigned_w255": {
+   "status": "pass",
+   "inputs_sha256": "21cfda516d13489fa7ad23842a025ae5a668ff3f53a9c7c328c6cb92a2b59713"
+  },
+  "gen/ch11/test_gen_arithmetic_context_borrow_unsigned_w256": {
+   "status": "pass",
+   "inputs_sha256": "0899c07c5589283cebb696f66840e3e6e3b5b16e6b1f493bb0f7afff3db51fb0"
+  },
+  "gen/ch11/test_gen_arithmetic_context_borrow_unsigned_w257": {
+   "status": "pass",
+   "inputs_sha256": "1d3c14808c4ff203b5e10dd4c76ba7bd28ccdaaddbf652d24e48001b3429a895"
+  },
+  "gen/ch11/test_gen_arithmetic_context_borrow_unsigned_w63": {
+   "status": "pass",
+   "inputs_sha256": "ad9d5cd74d9c27679da975f389568cd0ac67b48d9c7d611be57fc27043ea60f9"
+  },
+  "gen/ch11/test_gen_arithmetic_context_borrow_unsigned_w64": {
+   "status": "pass",
+   "inputs_sha256": "3ef4d5b78195a40f3df5766e142ccc7e011c2d2bc14658d40275d72b4312d53a"
+  },
+  "gen/ch11/test_gen_arithmetic_context_borrow_unsigned_w65": {
+   "status": "pass",
+   "inputs_sha256": "fde4601422ad471b45ce2527e68ee3325b10edc01c4e82ea7e340185a6e45530"
+  },
+  "gen/ch11/test_gen_arithmetic_context_carry_signed_w127": {
+   "status": "pass",
+   "inputs_sha256": "e46942e5eb9de2b90862c540d4a4f3cf2a30d23ab16b89478a0849ecd9096145"
+  },
+  "gen/ch11/test_gen_arithmetic_context_carry_signed_w128": {
+   "status": "pass",
+   "inputs_sha256": "ee176056126df6605928b0a847d4aed6cc9dd053db88f59308855e42e19016e2"
+  },
+  "gen/ch11/test_gen_arithmetic_context_carry_signed_w129": {
+   "status": "pass",
+   "inputs_sha256": "17c848964aca57deffd476000dff65241b0dd351156f2b764887521a4eeca09e"
+  },
+  "gen/ch11/test_gen_arithmetic_context_carry_signed_w255": {
+   "status": "pass",
+   "inputs_sha256": "03ac433bff77fd26dacb5396af48f94a77d6d33162c4fa7b5f017b38e393ff8d"
+  },
+  "gen/ch11/test_gen_arithmetic_context_carry_signed_w256": {
+   "status": "pass",
+   "inputs_sha256": "05059ab05bacfded5bcfd94c9f05a4fe5bd4c9134d7bca15229160f2ca644b46"
+  },
+  "gen/ch11/test_gen_arithmetic_context_carry_signed_w257": {
+   "status": "pass",
+   "inputs_sha256": "d3debeeba8a4e11d4d90c8c42c091ba565bb5de21c60547e10d58f169796b275"
+  },
+  "gen/ch11/test_gen_arithmetic_context_carry_signed_w63": {
+   "status": "pass",
+   "inputs_sha256": "97ae4c60706373649169b7bce24b92ff8ba10b229c7a4b5db383c674284fd97d"
+  },
+  "gen/ch11/test_gen_arithmetic_context_carry_signed_w64": {
+   "status": "pass",
+   "inputs_sha256": "0634e96d677a412a4d87344eee802330b4294aecda839b43d6c3ec29d3306a1c"
+  },
+  "gen/ch11/test_gen_arithmetic_context_carry_signed_w65": {
+   "status": "pass",
+   "inputs_sha256": "2c78def5bdd8bdf8bcfac15d18a044982fb45547b9a5f5cd67643e6d0dc2d479"
+  },
+  "gen/ch11/test_gen_arithmetic_context_carry_unsigned_w127": {
+   "status": "pass",
+   "inputs_sha256": "a269b3aa3e636aba20616620850ec6005df0213766db78a04306abf51086d9e1"
+  },
+  "gen/ch11/test_gen_arithmetic_context_carry_unsigned_w128": {
+   "status": "pass",
+   "inputs_sha256": "822a9b706cae89450d551e0d40cc57e5a6b6feefc31164661f2a9902097c0d07"
+  },
+  "gen/ch11/test_gen_arithmetic_context_carry_unsigned_w129": {
+   "status": "pass",
+   "inputs_sha256": "0765fee311380458a1578b21c9d9a4b8922bc1a0c83004ec73e1ff9273f34528"
+  },
+  "gen/ch11/test_gen_arithmetic_context_carry_unsigned_w255": {
+   "status": "pass",
+   "inputs_sha256": "ac7bda641d4247291a767b9a5c60637bce81d67106a1c2b9a8ff3311de089f0e"
+  },
+  "gen/ch11/test_gen_arithmetic_context_carry_unsigned_w256": {
+   "status": "pass",
+   "inputs_sha256": "4bd37b08c418c40f6c355c1d2b97bf3cedb51c7d77cc4321947b93d4fba2ded8"
+  },
+  "gen/ch11/test_gen_arithmetic_context_carry_unsigned_w257": {
+   "status": "pass",
+   "inputs_sha256": "6b8c0fbeabf28b02f92706e376f35cb631027ca3b539b878070a5292745dc1cb"
+  },
+  "gen/ch11/test_gen_arithmetic_context_carry_unsigned_w63": {
+   "status": "pass",
+   "inputs_sha256": "717efe0dddfa9eb6509b78aa6b0a4817c593781270cabbf1c2db4cb010aa82fb"
+  },
+  "gen/ch11/test_gen_arithmetic_context_carry_unsigned_w64": {
+   "status": "pass",
+   "inputs_sha256": "d487c435bd174f2c15f63a8f45f31cf3812af59a7e84069ab546503f27b6052b"
+  },
+  "gen/ch11/test_gen_arithmetic_context_carry_unsigned_w65": {
+   "status": "pass",
+   "inputs_sha256": "e0bb5b699e8e76cff84042f6e9dc44c1a8a96031e61c3b6100f2faba0e2f63a1"
+  },
+  "gen/ch11/test_gen_arithmetic_context_mixed_signed_w127": {
+   "status": "pass",
+   "inputs_sha256": "e3424c2c3bb44ebf2c242da4b134c0e93f882aaaf751203034abc912e2c126e7"
+  },
+  "gen/ch11/test_gen_arithmetic_context_mixed_signed_w128": {
+   "status": "pass",
+   "inputs_sha256": "af15c81620edfb4d4a0688a94372b48abfca8bc686275dce389e16b0609c6b6a"
+  },
+  "gen/ch11/test_gen_arithmetic_context_mixed_signed_w129": {
+   "status": "pass",
+   "inputs_sha256": "8ca2e3f2724b9791ac28f02f7fa21f72cac2d5013acfa9a7e6008701d86c6a2a"
+  },
+  "gen/ch11/test_gen_arithmetic_context_mixed_signed_w255": {
+   "status": "pass",
+   "inputs_sha256": "6163b81da3264c6c29e91433edfb2bbeff32c6143e3b3716d253efa67452973b"
+  },
+  "gen/ch11/test_gen_arithmetic_context_mixed_signed_w256": {
+   "status": "pass",
+   "inputs_sha256": "3e3e40727d42018d61ae3a31ce055e8a5e1e89263ad910862814464114531f52"
+  },
+  "gen/ch11/test_gen_arithmetic_context_mixed_signed_w257": {
+   "status": "pass",
+   "inputs_sha256": "6b5b94fc12d873fd9e4ec258e8965a53d9e4a5fc91f060cd39c81c3a2c1c45f6"
+  },
+  "gen/ch11/test_gen_arithmetic_context_mixed_signed_w63": {
+   "status": "pass",
+   "inputs_sha256": "c03266b13e710d8a5cd4957db3410c1382e0c82f704ac216ab1bc67e9dc51376"
+  },
+  "gen/ch11/test_gen_arithmetic_context_mixed_signed_w64": {
+   "status": "pass",
+   "inputs_sha256": "356925f8999875c1ddf117b441dfdc5a1a66fe0c31f98ce7700e03d05664d6b6"
+  },
+  "gen/ch11/test_gen_arithmetic_context_mixed_signed_w65": {
+   "status": "pass",
+   "inputs_sha256": "ef583b62b2a31d94478f21cfdbc022c44ccbe2fc5e5210a3a4b2264a08046577"
+  },
+  "gen/ch11/test_gen_arithmetic_context_mixed_unsigned_w127": {
+   "status": "pass",
+   "inputs_sha256": "cf02b092998ad3bc8a75e902e1ff9c50796104e0f0a80a7d13c4fff676a139c7"
+  },
+  "gen/ch11/test_gen_arithmetic_context_mixed_unsigned_w128": {
+   "status": "pass",
+   "inputs_sha256": "ecb4b38f4c0c26a3b914e36d8cd936290736519f0f23a173ad037c48cd3b6f87"
+  },
+  "gen/ch11/test_gen_arithmetic_context_mixed_unsigned_w129": {
+   "status": "pass",
+   "inputs_sha256": "ade298ec368cc855e7d968416ac47d4902c79c1181edc070553b6988ed208223"
+  },
+  "gen/ch11/test_gen_arithmetic_context_mixed_unsigned_w255": {
+   "status": "pass",
+   "inputs_sha256": "265f55289d6f8cb2ebf8fbf3f82ec0261dff64d8bfdf403c7bc961b014eb40bc"
+  },
+  "gen/ch11/test_gen_arithmetic_context_mixed_unsigned_w256": {
+   "status": "pass",
+   "inputs_sha256": "ce8ccf34c3afe134a1ad1ecb9c64772d78edee66bd184bb39ec814b688c33fe4"
+  },
+  "gen/ch11/test_gen_arithmetic_context_mixed_unsigned_w257": {
+   "status": "pass",
+   "inputs_sha256": "e62145e72046f84aac8979cb262551236a67bf711f187c41e45dca28062c06ab"
+  },
+  "gen/ch11/test_gen_arithmetic_context_mixed_unsigned_w63": {
+   "status": "pass",
+   "inputs_sha256": "1122e779da3cd998c87041676b303ec99e56b393f12124db9333c7902f4b68e9"
+  },
+  "gen/ch11/test_gen_arithmetic_context_mixed_unsigned_w64": {
+   "status": "pass",
+   "inputs_sha256": "6f4890e466308ae1c1ef4de12de5cf411bca019540c73e6aeed850231dc4339a"
+  },
+  "gen/ch11/test_gen_arithmetic_context_mixed_unsigned_w65": {
+   "status": "pass",
+   "inputs_sha256": "685358006704947815f7cface413f1cdc6ffc49f95840ec1a86258f99ff106a4"
+  },
+  "gen/ch11/test_gen_arithmetic_context_multiply_signed_w127": {
+   "status": "pass",
+   "inputs_sha256": "da40b3946b85b66a8dae399278b04dcc8cc411de9e8a5e1b1ced30c884636854"
+  },
+  "gen/ch11/test_gen_arithmetic_context_multiply_signed_w128": {
+   "status": "pass",
+   "inputs_sha256": "89159e68fe2ee5f068aa7ddb822ced6abe079770956ad56271e7e5f7a04e04cc"
+  },
+  "gen/ch11/test_gen_arithmetic_context_multiply_signed_w129": {
+   "status": "pass",
+   "inputs_sha256": "05fa8c38debf4b699cbb6d1c0a8f342ef1c45c5cc78af62d1ba1524b082e0ca2"
+  },
+  "gen/ch11/test_gen_arithmetic_context_multiply_signed_w255": {
+   "status": "pass",
+   "inputs_sha256": "9f83aa9dfabf06d04d1c35b5b33aa77f22476b82a7d2e9fb39d5ffa9be0cd728"
+  },
+  "gen/ch11/test_gen_arithmetic_context_multiply_signed_w256": {
+   "status": "pass",
+   "inputs_sha256": "1014e291344fc78c839620f32a457464492746c54b5f23fab40c28df8c3e1714"
+  },
+  "gen/ch11/test_gen_arithmetic_context_multiply_signed_w257": {
+   "status": "pass",
+   "inputs_sha256": "6f79b07c856b68c055ae3b68ca1b74c138d33dc457e6c699a21c8859967bee59"
+  },
+  "gen/ch11/test_gen_arithmetic_context_multiply_signed_w63": {
+   "status": "pass",
+   "inputs_sha256": "460563eacadd48cea998332f10c13f906910b824ceb32e2132077e6ba92b97a5"
+  },
+  "gen/ch11/test_gen_arithmetic_context_multiply_signed_w64": {
+   "status": "pass",
+   "inputs_sha256": "d50acc76392e1b521154bf8bd249e0ef5e20023c7fcae77fe4aabd18551f5f93"
+  },
+  "gen/ch11/test_gen_arithmetic_context_multiply_signed_w65": {
+   "status": "pass",
+   "inputs_sha256": "6dfeaf7376544b649aa963cc34d26350964f6e5262165b142ab6ed73efb48aa7"
+  },
+  "gen/ch11/test_gen_arithmetic_context_multiply_unsigned_w127": {
+   "status": "pass",
+   "inputs_sha256": "b95cf8612c01cad38f47053cbf3afed1837cc0995a7ae9b1f41606e224bb212b"
+  },
+  "gen/ch11/test_gen_arithmetic_context_multiply_unsigned_w128": {
+   "status": "pass",
+   "inputs_sha256": "0255bb154de5dd3413efda6a94b32d509df0bef5129cf0da6069d869acdf1c97"
+  },
+  "gen/ch11/test_gen_arithmetic_context_multiply_unsigned_w129": {
+   "status": "pass",
+   "inputs_sha256": "bcb3047aa5868f92668291c6c9ae06a738dbd873ba40f42d2a2709c8c6515a77"
+  },
+  "gen/ch11/test_gen_arithmetic_context_multiply_unsigned_w255": {
+   "status": "pass",
+   "inputs_sha256": "b6c9123c74c4036abc4cbe6154eeeb1a8ae6050ba8be8f8375910e92a4f662d3"
+  },
+  "gen/ch11/test_gen_arithmetic_context_multiply_unsigned_w256": {
+   "status": "pass",
+   "inputs_sha256": "b1e28631ccba3b3162be1b1ff118dfee987352ed0b7dc1b0c8c4ffef909deccf"
+  },
+  "gen/ch11/test_gen_arithmetic_context_multiply_unsigned_w257": {
+   "status": "pass",
+   "inputs_sha256": "051e5d70a81d44f1e31e1988eb2522e2ccad4975391a13c5eca651e1a7875202"
+  },
+  "gen/ch11/test_gen_arithmetic_context_multiply_unsigned_w63": {
+   "status": "pass",
+   "inputs_sha256": "ba860970709120c32bbb3931eb892f83f1fc78cf209a518f604468e44731037a"
+  },
+  "gen/ch11/test_gen_arithmetic_context_multiply_unsigned_w64": {
+   "status": "pass",
+   "inputs_sha256": "504c44cc80f8a7c12ec2fcfd1e5afc27c41652b9c6d92d7626a0315c8a59a1dc"
+  },
+  "gen/ch11/test_gen_arithmetic_context_multiply_unsigned_w65": {
+   "status": "pass",
+   "inputs_sha256": "28bc4d9ce12507b80dbb1bef3b324810d2928076a5a9b2f9188b91e8b6705539"
+  },
+  "gen/ch11/test_gen_arithmetic_context_negate_signed_w127": {
+   "status": "pass",
+   "inputs_sha256": "bb36b3df08ada7f9fb526f2276edb2d9b975e2b3fcb7b9657ff2f1fd3a392fb3"
+  },
+  "gen/ch11/test_gen_arithmetic_context_negate_signed_w128": {
+   "status": "pass",
+   "inputs_sha256": "6f9c7efa9afd2e5cd0a7db1f7402c88b9c50b7abc32a11a418c94cd4dae01325"
+  },
+  "gen/ch11/test_gen_arithmetic_context_negate_signed_w129": {
+   "status": "pass",
+   "inputs_sha256": "3be7f496af05563bbece4e2189621a6c6f0f600860c69d96b9bcb9cced4d5431"
+  },
+  "gen/ch11/test_gen_arithmetic_context_negate_signed_w255": {
+   "status": "pass",
+   "inputs_sha256": "7b9c5dc6071b7845d650b9c61e3bf55c690e550105ddcc77cf1359f2913632f0"
+  },
+  "gen/ch11/test_gen_arithmetic_context_negate_signed_w256": {
+   "status": "pass",
+   "inputs_sha256": "7fa251949414cfbc32625d59a323d5cca3700397031d64c8bb627014bf4cc56e"
+  },
+  "gen/ch11/test_gen_arithmetic_context_negate_signed_w257": {
+   "status": "pass",
+   "inputs_sha256": "410a7705f19f29f6b588fac1161e2db705ac26274ea42acf0a3e95b47987034a"
+  },
+  "gen/ch11/test_gen_arithmetic_context_negate_signed_w63": {
+   "status": "pass",
+   "inputs_sha256": "1d1c6723ae4ad45e9e7506aa581b51649135cd16be3604787d6cc43e95eb7581"
+  },
+  "gen/ch11/test_gen_arithmetic_context_negate_signed_w64": {
+   "status": "pass",
+   "inputs_sha256": "1ab128aafab359b15ac1a602a80bae05f2ad2340f5e615849b137cdcbe41a591"
+  },
+  "gen/ch11/test_gen_arithmetic_context_negate_signed_w65": {
+   "status": "pass",
+   "inputs_sha256": "8583a5edbe66ad9ee518420cc0e5e9795f3a896ff956be7e06aa60b101c973ee"
+  },
+  "gen/ch11/test_gen_arithmetic_context_negate_unsigned_w127": {
+   "status": "pass",
+   "inputs_sha256": "a29bcba203dac9ff773a295c75be96fcd54a887d9b3e32775217cbf8062b2e96"
+  },
+  "gen/ch11/test_gen_arithmetic_context_negate_unsigned_w128": {
+   "status": "pass",
+   "inputs_sha256": "4999522c63c292d3210c250d786dd98eaacf8be3187319de3e27c96e7dd7e09e"
+  },
+  "gen/ch11/test_gen_arithmetic_context_negate_unsigned_w129": {
+   "status": "pass",
+   "inputs_sha256": "e46e08b70b7cb145b892b2971849f9b651557efadb28582ce4e0dfc03d993d52"
+  },
+  "gen/ch11/test_gen_arithmetic_context_negate_unsigned_w255": {
+   "status": "pass",
+   "inputs_sha256": "7eb60ac771819198a421de7d29c26f3360fbfaf999ccad55c31c48c34d3bb642"
+  },
+  "gen/ch11/test_gen_arithmetic_context_negate_unsigned_w256": {
+   "status": "pass",
+   "inputs_sha256": "ac289456b346370c58f8f9ba85f7075dbfea2fae9a279d269fe23122da309f80"
+  },
+  "gen/ch11/test_gen_arithmetic_context_negate_unsigned_w257": {
+   "status": "pass",
+   "inputs_sha256": "9c4eeb4ae82b5d127d99ad0e5a1eb5ec1e26068357fd425b1fa15d6747484eb6"
+  },
+  "gen/ch11/test_gen_arithmetic_context_negate_unsigned_w63": {
+   "status": "pass",
+   "inputs_sha256": "3f2ab9b3552bf033530fe3d49fe7c1277ad4a360afcb6c5104d68e59f3e37496"
+  },
+  "gen/ch11/test_gen_arithmetic_context_negate_unsigned_w64": {
+   "status": "pass",
+   "inputs_sha256": "7921636f052d5e2ca15fc0a440777edfcbf1bdadebc82bc4719cf2e9ec9ac488"
+  },
+  "gen/ch11/test_gen_arithmetic_context_negate_unsigned_w65": {
+   "status": "pass",
+   "inputs_sha256": "f9f377670219744b383eeaebeaf30d12c979ecc5810f35174b97c8bf9e201cd0"
+  }
+ },
+ "generated_at": "2026-11-19T00:40:29.114615+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}
