@@ -36455,6 +36455,926 @@
      }
     }
    }
+  },
+  {
+   "time": "2026-11-19T20:50:41Z",
+   "suite_commit": "68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e",
+   "run_url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/44540686011",
+   "tests": 16244,
+   "chapters": {
+    "10": 737,
+    "11": 2607,
+    "12": 312,
+    "13": 741,
+    "14": 170,
+    "15": 196,
+    "16": 799,
+    "17": 128,
+    "18": 282,
+    "19": 242,
+    "20": 681,
+    "21": 929,
+    "22": 1326,
+    "23": 417,
+    "24": 221,
+    "25": 264,
+    "26": 262,
+    "27": 283,
+    "28": 397,
+    "29": 142,
+    "3": 152,
+    "30": 70,
+    "31": 66,
+    "32": 68,
+    "33": 89,
+    "34": 4,
+    "35": 187,
+    "36": 89,
+    "37": 231,
+    "38": 125,
+    "39": 39,
+    "4": 480,
+    "40": 39,
+    "5": 520,
+    "6": 897,
+    "7": 1109,
+    "8": 479,
+    "9": 464
+   },
+   "simulators": {
+    "icarus": {
+     "name": "Icarus Verilog",
+     "version": "Icarus Verilog version 14.0 (devel) (s20260301-1208-g65504129)",
+     "counts": {
+      "pass": 10250,
+      "fail": 9,
+      "known": 5718,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       123,
+       152
+      ],
+      "4": [
+       445,
+       480
+      ],
+      "5": [
+       443,
+       520
+      ],
+      "6": [
+       693,
+       897
+      ],
+      "7": [
+       478,
+       1109
+      ],
+      "8": [
+       238,
+       479
+      ],
+      "9": [
+       366,
+       464
+      ],
+      "10": [
+       623,
+       737
+      ],
+      "11": [
+       2145,
+       2607
+      ],
+      "12": [
+       228,
+       312
+      ],
+      "13": [
+       415,
+       741
+      ],
+      "14": [
+       25,
+       170
+      ],
+      "15": [
+       9,
+       196
+      ],
+      "16": [
+       165,
+       532
+      ],
+      "17": [
+       1,
+       128
+      ],
+      "18": [
+       64,
+       282
+      ],
+      "19": [
+       83,
+       242
+      ],
+      "20": [
+       417,
+       681
+      ],
+      "21": [
+       565,
+       929
+      ],
+      "22": [
+       1257,
+       1326
+      ],
+      "23": [
+       309,
+       417
+      ],
+      "24": [
+       46,
+       221
+      ],
+      "25": [
+       120,
+       264
+      ],
+      "26": [
+       95,
+       262
+      ],
+      "27": [
+       238,
+       283
+      ],
+      "28": [
+       321,
+       397
+      ],
+      "29": [
+       99,
+       142
+      ],
+      "30": [
+       40,
+       70
+      ],
+      "31": [
+       27,
+       66
+      ],
+      "32": [
+       24,
+       68
+      ],
+      "33": [
+       13,
+       89
+      ],
+      "34": [
+       2,
+       4
+      ],
+      "35": [
+       20,
+       187
+      ],
+      "36": [
+       34,
+       89
+      ],
+      "37": [
+       19,
+       231
+      ],
+      "38": [
+       59,
+       125
+      ],
+      "39": [
+       0,
+       39
+      ],
+      "40": [
+       1,
+       39
+      ]
+     },
+     "changes": {
+      "passing": 11,
+      "failing": 1,
+      "passing_tests": [
+       "ch31/test_illegal_hold_limit_negative",
+       "ch31/test_illegal_hold_limit_not_constant",
+       "ch31/test_illegal_period_reference_not_edge",
+       "ch31/test_illegal_recovery_limit_negative",
+       "ch31/test_illegal_recovery_limit_not_constant",
+       "ch31/test_illegal_removal_limit_negative",
+       "ch31/test_illegal_removal_limit_not_constant",
+       "ch31/test_illegal_setup_limit_negative",
+       "ch31/test_illegal_setup_limit_not_constant",
+       "ch31/test_illegal_timing_condition_two_signals",
+       "ch37/test_vpi_timing_checks"
+      ],
+      "failing_tests": [
+       [
+        "ch31/test_31_extra_event_grammar",
+        "fail",
+        "compile failed: tests/ch31/test_31_extra_event_grammar.sv:39: warning: Timing checks are not supported."
+       ]
+      ],
+      "added": 1934,
+      "added_passing": 1455,
+      "removed": 0
+     }
+    },
+    "verilator": {
+     "name": "Verilator",
+     "version": "Verilator 5.055 devel rev v5.054-325-g464643f7",
+     "counts": {
+      "pass": 9109,
+      "fail": 29,
+      "known": 6839,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       63,
+       152
+      ],
+      "4": [
+       389,
+       480
+      ],
+      "5": [
+       415,
+       520
+      ],
+      "6": [
+       551,
+       897
+      ],
+      "7": [
+       741,
+       1109
+      ],
+      "8": [
+       344,
+       479
+      ],
+      "9": [
+       245,
+       464
+      ],
+      "10": [
+       327,
+       737
+      ],
+      "11": [
+       1412,
+       2607
+      ],
+      "12": [
+       209,
+       312
+      ],
+      "13": [
+       507,
+       741
+      ],
+      "14": [
+       116,
+       170
+      ],
+      "15": [
+       68,
+       196
+      ],
+      "16": [
+       245,
+       532
+      ],
+      "17": [
+       66,
+       128
+      ],
+      "18": [
+       169,
+       282
+      ],
+      "19": [
+       124,
+       242
+      ],
+      "20": [
+       366,
+       681
+      ],
+      "21": [
+       373,
+       929
+      ],
+      "22": [
+       1255,
+       1326
+      ],
+      "23": [
+       241,
+       417
+      ],
+      "24": [
+       72,
+       221
+      ],
+      "25": [
+       166,
+       264
+      ],
+      "26": [
+       148,
+       262
+      ],
+      "27": [
+       139,
+       283
+      ],
+      "28": [
+       83,
+       397
+      ],
+      "29": [
+       39,
+       142
+      ],
+      "30": [
+       4,
+       70
+      ],
+      "31": [
+       14,
+       66
+      ],
+      "32": [
+       0,
+       68
+      ],
+      "33": [
+       23,
+       89
+      ],
+      "34": [
+       4,
+       4
+      ],
+      "35": [
+       140,
+       187
+      ],
+      "36": [
+       26,
+       89
+      ],
+      "37": [
+       1,
+       231
+      ],
+      "38": [
+       20,
+       125
+      ],
+      "39": [
+       1,
+       39
+      ],
+      "40": [
+       3,
+       39
+      ]
+     },
+     "changes": {
+      "passing": 0,
+      "failing": 0,
+      "passing_tests": [],
+      "failing_tests": [],
+      "added": 1934,
+      "added_passing": 830,
+      "removed": 0
+     }
+    },
+    "kirimasim": {
+     "name": "kirimasim",
+     "version": "kirimasim 0.1.1 (commit bd81035d9809), built with GNU 13.3.0",
+     "counts": {
+      "pass": 13096,
+      "fail": 297,
+      "known": 0,
+      "unsupported": 2584
+     },
+     "chapters": {
+      "3": [
+       135,
+       152
+      ],
+      "4": [
+       462,
+       480
+      ],
+      "5": [
+       499,
+       520
+      ],
+      "6": [
+       812,
+       897
+      ],
+      "7": [
+       772,
+       1109
+      ],
+      "8": [
+       392,
+       479
+      ],
+      "9": [
+       428,
+       464
+      ],
+      "10": [
+       715,
+       737
+      ],
+      "11": [
+       2559,
+       2607
+      ],
+      "12": [
+       293,
+       312
+      ],
+      "13": [
+       693,
+       741
+      ],
+      "14": [
+       74,
+       170
+      ],
+      "15": [
+       59,
+       196
+      ],
+      "16": [
+       251,
+       532
+      ],
+      "17": [
+       50,
+       128
+      ],
+      "18": [
+       89,
+       282
+      ],
+      "19": [
+       71,
+       242
+      ],
+      "20": [
+       579,
+       681
+      ],
+      "21": [
+       888,
+       929
+      ],
+      "22": [
+       1315,
+       1326
+      ],
+      "23": [
+       371,
+       417
+      ],
+      "24": [
+       182,
+       221
+      ],
+      "25": [
+       212,
+       264
+      ],
+      "26": [
+       254,
+       262
+      ],
+      "27": [
+       281,
+       283
+      ],
+      "28": [
+       371,
+       397
+      ],
+      "29": [
+       142,
+       142
+      ],
+      "30": [
+       29,
+       70
+      ],
+      "31": [
+       12,
+       66
+      ],
+      "32": [
+       0,
+       68
+      ],
+      "33": [
+       76,
+       89
+      ],
+      "34": [
+       4,
+       4
+      ],
+      "35": [
+       22,
+       187
+      ],
+      "36": [
+       2,
+       89
+      ],
+      "37": [
+       0,
+       231
+      ],
+      "38": [
+       0,
+       125
+      ],
+      "39": [
+       0,
+       39
+      ],
+      "40": [
+       2,
+       39
+      ]
+     },
+     "changes": {
+      "passing": 0,
+      "failing": 0,
+      "passing_tests": [],
+      "failing_tests": [],
+      "added": 1934,
+      "added_passing": 1886,
+      "removed": 0
+     }
+    },
+    "ghost": {
+     "name": "Ghost",
+     "version": "private build 0b90acaa7ed6",
+     "counts": {
+      "pass": 15648,
+      "fail": 329,
+      "known": 0,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       152,
+       152
+      ],
+      "4": [
+       480,
+       480
+      ],
+      "5": [
+       520,
+       520
+      ],
+      "6": [
+       896,
+       897
+      ],
+      "7": [
+       1106,
+       1109
+      ],
+      "8": [
+       479,
+       479
+      ],
+      "9": [
+       463,
+       464
+      ],
+      "10": [
+       629,
+       737
+      ],
+      "11": [
+       2510,
+       2607
+      ],
+      "12": [
+       312,
+       312
+      ],
+      "13": [
+       704,
+       741
+      ],
+      "14": [
+       170,
+       170
+      ],
+      "15": [
+       196,
+       196
+      ],
+      "16": [
+       532,
+       532
+      ],
+      "17": [
+       128,
+       128
+      ],
+      "18": [
+       279,
+       282
+      ],
+      "19": [
+       239,
+       242
+      ],
+      "20": [
+       681,
+       681
+      ],
+      "21": [
+       863,
+       929
+      ],
+      "22": [
+       1326,
+       1326
+      ],
+      "23": [
+       417,
+       417
+      ],
+      "24": [
+       221,
+       221
+      ],
+      "25": [
+       264,
+       264
+      ],
+      "26": [
+       262,
+       262
+      ],
+      "27": [
+       283,
+       283
+      ],
+      "28": [
+       397,
+       397
+      ],
+      "29": [
+       142,
+       142
+      ],
+      "30": [
+       70,
+       70
+      ],
+      "31": [
+       66,
+       66
+      ],
+      "32": [
+       65,
+       68
+      ],
+      "33": [
+       89,
+       89
+      ],
+      "34": [
+       4,
+       4
+      ],
+      "35": [
+       186,
+       187
+      ],
+      "36": [
+       89,
+       89
+      ],
+      "37": [
+       227,
+       231
+      ],
+      "38": [
+       125,
+       125
+      ],
+      "39": [
+       37,
+       39
+      ],
+      "40": [
+       39,
+       39
+      ]
+     },
+     "changes": {
+      "passing": 264,
+      "failing": 12,
+      "passing_tests": [
+       "ch10/test_illegal_continuous_assign_nonconstant_bit_select",
+       "ch10/test_illegal_continuously_assigned_variable_with_initializer",
+       "ch10/test_illegal_force_mixed_driven_variable",
+       "ch10/test_illegal_force_variable_bit_select",
+       "ch10/test_illegal_lhs_assignment_pattern_member_width",
+       "ch10/test_illegal_typed_lhs_assignment_pattern_member_width",
+       "ch10/test_illegal_user_nettype_assignment_two_delays",
+       "ch10/test_illegal_variable_driven_by_gate_and_module_output",
+       "ch11/test_illegal_assignment_operator_in_continuous_assign",
+       "ch11/test_illegal_assignment_operator_in_procedural_assign",
+       "ch11/test_illegal_bit_select_of_scalar_net",
+       "ch11/test_illegal_bit_select_of_scalar_variable",
+       "ch11/test_illegal_let_sampled_value_without_clock",
+       "ch11/test_illegal_part_select_of_scalar_variable",
+       "ch11/test_illegal_part_select_reversed_bounds",
+       "ch11/test_illegal_part_select_reversed_bounds_ascending",
+       "ch11/test_illegal_recursive_let",
+       "ch11/test_illegal_replication_multiplier_with_x",
+       "ch11/test_illegal_replication_multiplier_with_z",
+       "ch11/test_illegal_stream_with_on_two_dimensional_array",
+       "ch11/test_illegal_unpack_source_too_short",
+       "ch11/test_illegal_unsized_constant_in_concatenation",
+       "ch12/test_illegal_for_type_reference_without_var",
+       "ch12/test_illegal_pattern_constant_of_real_type",
+       "ch13/test_illegal_automatic_task_variable_force_target",
+       "ch13/test_illegal_automatic_task_variable_in_assign_expression",
+       "ch13/test_illegal_automatic_task_variable_in_force_expression",
+       "ch13/test_illegal_constant_function_call_in_constant_context",
+       "ch13/test_illegal_ref_formal_force_target",
+       "ch13/test_illegal_ref_in_static_function",
+       "ch13/test_illegal_ref_in_static_task",
+       "ch14/test_illegal_clocking_signal_dynamic_array_element",
+       "ch14/test_illegal_clocking_skew_variable",
+       "ch14/test_illegal_global_clock_without_declaration",
+       "ch15/test_illegal_mailbox_get_unpacked_array",
+       "ch15/test_illegal_mailbox_peek_unpacked_array",
+       "ch15/test_illegal_mailbox_put_unpacked_array",
+       "ch15/test_illegal_mailbox_try_get_unpacked_array",
+       "ch15/test_illegal_mailbox_try_peek_unpacked_array",
+       "ch15/test_illegal_mailbox_try_put_unpacked_array",
+       "ch16/test_illegal_abort_condition_triggered",
+       "ch16/test_illegal_assertion_clocking_input_not_1step",
+       "ch16/test_illegal_assertion_function_keeps_state",
+       "ch16/test_illegal_assertion_function_side_effect",
+       "ch16/test_illegal_attached_call_chandle_input",
+       "ch16/test_illegal_attached_call_local_variable_before_assignment",
+       "ch16/test_illegal_clocking_block_external_clock",
+       "ch16/test_illegal_cycle_delay_mintypmax",
+       "ch16/test_illegal_deferred_assertion_const_ref_dynamic_actual",
+       "ch16/test_illegal_disable_iff_nested_in_declaration",
+       "ch16/test_illegal_disable_iff_nested_through_instance",
+       "ch16/test_illegal_disable_iff_sampled_function_no_clock",
+       "ch16/test_illegal_final_deferred_postponed_call",
+       "ch16/test_illegal_global_clock_future_function_in_action_block",
+       "ch16/test_illegal_global_clock_future_function_in_procedure",
+       "ch16/test_illegal_global_clock_future_function_with_call_match_item",
+       "ch16/test_illegal_global_clock_future_function_with_local_assignment",
+       "ch16/test_illegal_global_clock_future_function_without_global_clocking",
+       "ch16/test_illegal_global_clock_future_functions_nested",
+       "ch16/test_illegal_global_clock_past_function_without_global_clocking",
+       "ch16/test_illegal_inferred_clock_missing",
+       "ch16/test_illegal_local_initializer_uninitialized",
+       "ch16/test_illegal_local_variable_hierarchical_reference",
+       "ch16/test_illegal_local_variable_implicit_type",
+       "ch16/test_illegal_local_variable_initializer_uses_uninitialized",
+       "ch16/test_illegal_local_variable_sibling_thread",
+       "ch16/test_illegal_local_variable_unassigned_compound_assignment",
+       "ch16/test_illegal_local_variable_unassigned_increment",
+       "ch16/test_illegal_local_variable_unassigned_reference",
+       "ch16/test_illegal_multiclock_empty_subsequence",
+       "ch16/test_illegal_multiclock_operator",
+       "ch16/test_illegal_past_without_clock",
+       "ch16/test_illegal_property_formal_class_handle",
+       "ch16/test_illegal_property_instance_disable_iff_as_operand",
+       "ch16/test_illegal_sampled_changed_without_clock",
+       "ch16/test_illegal_sampled_fell_without_clock",
+       "ch16/test_illegal_sampled_function_in_clock_expression_unclocked",
+       "ch16/test_illegal_sampled_function_in_disable_condition_unclocked",
+       "ch16/test_illegal_sampled_rose_without_clock",
+       "ch16/test_illegal_sampled_stable_without_clock",
+       "ch16/test_illegal_sequence_event_formal_as_boolean",
+       "ch16/test_illegal_sequence_formal_chandle_type",
+       "ch16/test_illegal_sequence_formal_goto_operand",
+       "ch16/test_illegal_sequence_local_formals_share_actual",
+       "ch16/test_illegal_sequence_local_input_actual_unassigned",
+       "ch16/test_illegal_sequence_local_output_unassigned",
+       "ch16/test_illegal_sequence_property_no_match",
+       "ch16/test_illegal_triggered_and_operand_local_variable_no_flow",
+       "ch16/test_illegal_triggered_ending_clock",
+       "ch16/test_illegal_triggered_ending_clock_differs",
+       "ch16/test_illegal_triggered_local_variable_formal_read_first",
+       "ch16/test_illegal_triggered_negated_local_variable_no_flow",
+       "ch16/test_illegal_triggered_no_clock",
+       "ch17/test_illegal_checker_function_keeps_state",
+       "ch17/test_illegal_checker_function_side_effect",
+       "ch17/test_illegal_checker_writes_input",
+       "ch18/test_illegal_constraint_function_mode",
+       "ch18/test_illegal_constraint_function_state",
+       "ch18/test_illegal_disable_soft_parentheses_variable",
+       "ch18/test_illegal_rand_join_parameter"
+      ],
+      "failing_tests": [
+       [
+        "ch13/test_function_returns_at_once_task_waits",
+        "fail",
+        "output differs"
+       ],
+       [
+        "ch19/test_cg_cross_set_function_matches",
+        "fail",
+        "output differs (exit 1)"
+       ],
+       [
+        "ch19/test_covergroup_cross_and_select_forms",
+        "fail",
+        "output differs (exit 1)"
+       ],
+       [
+        "ch21/test_fopen_name_and_type_forms",
+        "fail",
+        "output differs (exit 1)"
+       ],
+       [
+        "ch21/test_vcd_dumpvars_all_filename_start",
+        "fail",
+        "output differs (exit 1)"
+       ],
+       [
+        "ch32/test_sdf_mtm_spec",
+        "fail",
+        "output differs (exit 1)"
+       ],
+       [
+        "ch32/test_sdf_scale_factors",
+        "fail",
+        "output differs (exit 1)"
+       ],
+       [
+        "ch32/test_sdf_scale_type_members",
+        "fail",
+        "output differs (exit 1)"
+       ],
+       [
+        "ch37/test_vpi_io_decl_scope_typespec_ports",
+        "fail",
+        "output differs (exit 1)"
+       ],
+       [
+        "ch7/test_array_method_index_argument",
+        "fail",
+        "output differs"
+       ],
+       [
+        "ch7/test_array_method_iterator_index_names_and_selects",
+        "fail",
+        "output differs"
+       ],
+       [
+        "ch7/test_illegal_wildcard_array_find",
+        "fail",
+        "the design was accepted, but it is illegal"
+       ]
+      ],
+      "added": 2402,
+      "added_passing": 2097,
+      "removed": 0
+     }
+    }
+   }
   }
  ]
 }
