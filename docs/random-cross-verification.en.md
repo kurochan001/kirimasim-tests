@@ -73,7 +73,7 @@ fixed regressions, formal Nightly and explicit replay execute again.
 
 The [small SV observation examples](faq.en.md#q50-sv-values-change-observations) explain how X/Z, bit/logic, width and signedness change these expectations.
 
-There are thirteen default Nightly profiles and three additional opt-in profiles described below. The default thirteen follow. This does not generalize every finite model to arbitrary inputs.
+There are thirteen default Nightly profiles and five additional opt-in profiles described below. The default thirteen follow. This does not generalize every finite model to arbitrary inputs.
 
 - `expression_context` crosses widths, signedness, destination width and addition/subtraction/multiplication with arbitrary known input bits.
   It reuses the reference in `generators/interaction_expr.py`.
@@ -688,7 +688,7 @@ fingerprint-qualified interaction snapshots and fixed history remain separate.
 
 ## Additional opt-in packed profiles (2026-11-17)
 
-Two profiles are implemented in the [generator and reference](../tools/random_cross_packed.py). Select them with `--models`; the default thirteen, Nightly's 96 cases, operation count, worker count and time limits remain unchanged. Those fifteen remain selectable together; including the integral-power profile makes sixteen selectable overall. The previous default manifests, SV and expected-output hashes remain unchanged at seeds 1, 731 and 20261117.
+Two profiles are implemented in the [generator and reference](../tools/random_cross_packed.py). Select them with `--models`; the default thirteen, Nightly's 96 cases, operation count, worker count and time limits remain unchanged. Those sixteen remain selectable together; adding the two wide value profiles makes eighteen selectable overall. The previous default manifests, SV and expected-output hashes remain unchanged at seeds 1, 731 and 20261117.
 
 - `packed_bounds_sequence` reads and writes four-state packed vectors with negative, zero and nonzero declared bounds. It selects from 21 widths between 1 and 513 bits, with part widths up to 65, crossing ascending/descending declarations, `+:`/`-:`, bit/logic read destinations and signed 32-bit indices. In-range, partially/wholly out-of-range and X/Z indices produce whole-value, part-select and single-bit observations after each operation. Invalid writes are suppressed; partial writes affect only in-range bits. Known inputs that produce X through an out-of-range read are also classified as four-state observations. Grounds are IEEE 1800-2023 11.5.1, 7.4.1 and 6.11.2.
 - `packed_field_sequence` combines whole/field assignments, differently sized field copies and whole-value shifts on three-field packed structures. It crosses ten layouts of 9–513 bits, each field's signing, aggregate signing and bit/logic storage. All fields use the same state type; mixed bit/logic fields are not generated. Whole values, individual fields and three-bit-widened field reads expose layout, preserved neighbors, copy extension/truncation and whole-structure arithmetic right shifts. Grounds are 7.2.1, 6.11.2, 10.7, 11.4.10 and 11.8.1.
@@ -758,3 +758,28 @@ python3 tools/run_random_cross.py \
 ```
 
 The corresponding `seed-731` and `seed-20261119` directories provide the other corpora. Add `--icarus /path/to/iverilog` or `--verilator /path/to/verilator --simulator-seed 73` to request the same additional comparisons; their non-pass outcomes retain the existing nonzero CLI contract. Always use a new output directory to preserve prior evidence.
+
+<a id="opt-in-wide-value-profiles"></a>
+
+## Opt-in wide conditional and comparison exploration (2026-11-19)
+
+Select `wide_conditional_context` and `wide_comparison_context` with `--models`. They reuse the existing [random generation, validation and clause-based materializers](../tools/random_cross_models.py), with optional domains for source widths 255/256/257 and 511/512/513. Conditional destinations are W-1/W/W+1 bits; comparison operands can differ by one bit and unsigned one-bit results are separately observed in logic/bit destinations up to 514 bits. Complete inputs, joint signing, Table 11-20 branch merging, ten comparison operators, RHS wildcard semantics and storage conversion remain visible. A new case chooses known-only or four-state-enabled draws with equal probability; the actual saved X/Z inputs determine exclusion. No default profile, workload count or Nightly resource setting changes.
+
+The [saved qualification](../coverage/interaction-qualification/random-wide-values-20261119/qualification.json) contains three 96-program corpora at stimulus seeds 1, 731 and 20261119, with eight vectors each: **288 programs / 2,304 vectors**, evenly split between the two families. Independent AI derived **4,608 lines** from actual SV before opening new expectations or sampling/model changes, retaining three seals and earlier knowledge of our reference semantics. The 142 four-state and 146 known-only classifications match independent source interpretation. Three initial private drafts preceded balanced sampling and were never adopted or claimed as reviewed. Twelve seed/selection combinations preserve every previous sixteen-profile manifest and source/expected byte, including the thirteen default profiles. Fourteen [unit checks](../tools/test_random_cross_wide_profiles.py) include hand-derived 255/513-bit X/Z results, independent Python integer comparisons for all ten known operators, immutable replay and injected reference drift.
+
+The initial private trial omitted compiler phases under legacy capture and was retained without adoption or publication. The corrected worker captures actual adapter build calls separately from simulation and normalization, rejects nonzero normalization/helper exits, and adds nine subprocess regression tests for success/failure, timeout, restoration, drift and four-state exclusion. The accepted twelve CLI invocations repeat the same unchanged inputs with corrected capture.
+
+Four actual CLI invocations per corpus use kirimasim 0.1.1 `a6222f0656d4`, resolved once from published main for this cohort and matched to the existing isolated Release binary: **1,152 kirimasim executions pass**. Icarus Verilog 13.0 records **281 pass / 7 known** across 288 comparisons. Across initialization seeds 1 and 73 together, Verilator 5.054 records **266 pass / 26 known / 284 unsupported**. The 284 unsupported records are four-state exclusions before compilation, not executions or passes. Separately, **26 known-only wildcard comparisons fail to build** because their RHS is a variable declared four-state, despite known actual values. These remain build failures with preserved compile exit/phase hashes; they are not reclassified as four-state exclusions. Other executed output differences retain their actual statuses. The extract has 2,016 outcomes, **1706 simulator runtime invocations** and 580 comparator build invocations. Kirimasim includes parsing/build work in its command; comparator build/runtime phases are recorded separately.
+
+The first two CLI invocations per corpus request comparators and exit nonzero for differences/exclusions; the later kirimasim-only replays exit zero. Run four replays the saved public corpus, which is later frozen in this commit. All requested cases, input/reference/code/binary/environment fingerprints and raw-run hashes are retained; no failing repetition is dropped. Raw commands, paths, environment and logs stay private. [Finite qualification](../coverage/interaction-qualification/random-wide-values-20261119/qualification.json) adds 32 passing originals and 64 compiled, normally exiting edits that corrupt distinct result observations. These checks are finite and independent AI review is not human review or proof for every input. Random programs do not increase fixed-suite counts, requirement coverage or fixed behavioral history.
+
+For local exploration, build/verify the desired core first:
+
+```sh
+python3 tools/run_random_cross.py --kirimasim /path/to/verified-build/kirimasim \
+  --commit VERIFIED_FULL_COMMIT --seed 731 \
+  --models wide_conditional_context wide_comparison_context --cases 96 --vectors 8 \
+  --jobs 3 --timeout 30 --time-budget 600 --output my-results/wide-731
+```
+
+Use `--replay coverage/interaction-qualification/random-wide-values-20261119/seed-1/manifest.json` instead of generating inputs to replay the saved corpus; supply a new output directory. Add `--icarus /path/to/iverilog --verilator /path/to/verilator` for comparator evidence. The current driver hashes include the shared wide-literal formatter. Previously saved old-profile stimuli remain byte-identical while the changed driver/dependency provenance is visible.

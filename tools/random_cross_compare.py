@@ -38,19 +38,70 @@ def worker(simulator, source, expected, executable, seed, directory):
     phases = []
     original_run = subprocess.run
     original_expectation = suite_results.expected_output
+    original_icarus_execute = run_icarus.execute
+    original_verilator_execute = run_verilator.execute
+    phase_file = directory/'phases.json'
+    phase_file.write_text('[]\n')
 
-    def observed_run(args, **kwargs):
+    def save():
+        phase_file.write_text(json.dumps(phases, indent=2)+'\n')
+
+    def begin(args, kind):
+        command = list(map(str, args))
         index = len(phases)
         stdout, stderr = directory/f'phase-{index}.stdout', directory/f'phase-{index}.stderr'
-        command = list(map(str, args))
+        stdout.write_text('')
+        stderr.write_text('')
         resolved = __import__('shutil').which(command[0])
         before = evidence.sha(resolved) if resolved and Path(resolved).is_file() else None
-        phase = {'command': command, 'stdout': stdout.name, 'stderr': stderr.name,
-                 'binary_sha256': before, 'returncode': None,
+        phase = {'kind': kind, 'command': command, 'stdout': stdout.name,
+                 'stderr': stderr.name, 'binary_sha256': before, 'returncode': None,
+                 'timed_out': False,
                  'compiled_inputs': {name: evidence.sha(name) for name in command[1:]
-                                     if name.endswith('.vvp') and Path(name).is_file()}}
+                                     if kind == 'simulation' and name.endswith('.vvp') and Path(name).is_file()}}
         phases.append(phase)
-        (directory/'phases.json').write_text(json.dumps(phases, indent=2)+'\n')
+        save()
+        return phase, resolved, stdout, stderr
+
+    def finish(phase, resolved):
+        before = phase['binary_sha256']
+        phase['binary_changed'] = bool(before and (not Path(resolved).exists()
+                                                   or evidence.sha(resolved) != before))
+        phase['compiled_inputs_changed'] = any(not Path(name).is_file() or evidence.sha(name) != digest
+                                               for name, digest in phase['compiled_inputs'].items())
+        save()
+
+    def text(value):
+        return value.decode(errors='replace') if isinstance(value, bytes) else value or ''
+
+    def observe_build(original_execute):
+        def captured(command, timeout, cwd=None):
+            phase, resolved, stdout, stderr = begin(command, 'build')
+            try:
+                # Keep adapter process groups, timeouts and return semantics intact.
+                result = original_execute(command, timeout, cwd)
+                phase['returncode'] = result.returncode
+                stdout.write_text(text(result.stdout))
+                stderr.write_text(text(result.stderr))
+                return result
+            except subprocess.TimeoutExpired as error:
+                phase['timed_out'] = True
+                stdout.write_text(text(error.output))
+                stderr.write_text(text(error.stderr))
+                raise
+            except BaseException as error:
+                phase['exception'] = type(error).__name__
+                raise
+            finally:
+                finish(phase, resolved)
+        return captured
+
+    def observed_run(args, **kwargs):
+        command = list(map(str, args))
+        name = Path(command[0]).name
+        kind = ('simulation' if name in ('vvp', 'Vt') else 'normalization'
+                if any(Path(value).name == 'normalize_output.py' for value in command[:2]) else 'helper')
+        phase, resolved, stdout, stderr = begin(command, kind)
         kwargs.pop('capture_output', None)
         try:
             with stdout.open('w') as out, stderr.open('w') as err:
@@ -58,16 +109,16 @@ def worker(simulator, source, expected, executable, seed, directory):
             phase['returncode'] = result.returncode
             result.stdout, result.stderr = stdout.read_text(errors='replace'), stderr.read_text(errors='replace')
             return result
+        except subprocess.TimeoutExpired:
+            phase['timed_out'] = True
+            raise
         finally:
-            phase['binary_changed'] = bool(before and (not Path(resolved).exists()
-                                                       or evidence.sha(resolved) != before))
-            phase['compiled_inputs_changed'] = any(not Path(name).is_file() or evidence.sha(name) != digest
-                                                    for name, digest in phase['compiled_inputs'].items())
-            (directory/'phases.json').write_text(json.dumps(phases, indent=2)+'\n')
+            finish(phase, resolved)
 
     subprocess.run = observed_run
-    # Scope only the missing-metadata fallback to this isolated worker. Keep
-    # the existing simulator-specific > common expectation priority exactly.
+    run_icarus.execute = observe_build(original_icarus_execute)
+    run_verilator.execute = observe_build(original_verilator_execute)
+    # Scope the missing-metadata fallback to this isolated worker.
     suite_results.expected_output = lambda test, sim=None: expectation(test, sim, expected, original_expectation)
     try:
         if simulator == 'icarus':
@@ -76,13 +127,15 @@ def worker(simulator, source, expected, executable, seed, directory):
         else:
             ok, reason = run_verilator.run(source, executable, seed)
             oracle = 'verilator@5.052'
-        runtime = next((phase for phase in reversed(phases)
-                        if Path(phase['command'][0]).name in ('vvp', 'Vt')), None)
+        runtime = next((phase for phase in reversed(phases) if phase['kind'] == 'simulation'), None)
         code = runtime['returncode'] if runtime else None
         if ok and (code != 0 or re.search(r'(?:^|\s)%?(?:error|fatal):',
                                          (directory/runtime['stdout']).read_text(errors='replace')+'\n'+
                                          (directory/runtime['stderr']).read_text(errors='replace'), re.I)):
             ok, reason = False, 'runtime exit/diagnostic violates random comparison contract'
+        if ok and any(phase['kind'] in ('normalization', 'helper') and phase['returncode'] != 0
+                      for phase in phases):
+            ok, reason = False, 'normalization/helper exit violates random comparison contract'
         registered = oracle in (suite_results.header(source).get('oracle') or '').split()
         status = 'pass' if ok else 'fail' if registered else 'known'
         if any(phase['binary_changed'] or phase['compiled_inputs_changed'] for phase in phases):
@@ -94,6 +147,8 @@ def worker(simulator, source, expected, executable, seed, directory):
         (directory/'worker.json').write_text(json.dumps(result, indent=2)+'\n')
     finally:
         subprocess.run = original_run
+        run_icarus.execute = original_icarus_execute
+        run_verilator.execute = original_verilator_execute
         suite_results.expected_output = original_expectation
 
 

@@ -27,6 +27,7 @@ import interaction_logic as logical
 import interaction_method as array_methods
 import random_cross_packed as packed_profiles
 import random_cross_power as power_profiles
+from wide_literals import wrap_generated_unsigned_literals
 
 GENERATOR = 'bounded_random_cross@1'
 LEGACY_PROFILES = ('expression_context', 'division_context', 'packed_write_sequence')
@@ -36,7 +37,10 @@ NINE_PROFILES = SEVEN_PROFILES + ('streaming_context', 'concat_assignment_sequen
 ELEVEN_PROFILES = NINE_PROFILES + ('comparison_context', 'packed_logic_context')
 PROFILES = ELEVEN_PROFILES + ('array_reduction_context', 'unpacked_array_copy_sequence')
 EXTRA_PROFILES = packed_profiles.PROFILES
-SUPPORTED_PROFILES = PROFILES + EXTRA_PROFILES + power_profiles.PROFILES
+WIDE_PROFILES = ('wide_conditional_context', 'wide_comparison_context')
+WIDE_WIDTHS = (255, 256, 257, 511, 512, 513)
+WIDE_RESULT_WIDTHS = (1, 7, 255, 256, 257, 511, 512, 513, 514)
+SUPPORTED_PROFILES = PROFILES + EXTRA_PROFILES + power_profiles.PROFILES + WIDE_PROFILES
 MAX_CASES = 256
 MAX_STIMULI = 32
 WIDTHS = (1, 32, 33, 64, 65, 129)
@@ -92,8 +96,10 @@ def generate(seed, count=96, steps=8, profiles=PROFILES):
                     b = f'{rng.randrange(1, 1 << wb):0{wb}b}'
                 stimuli.append({'a': a, 'b': b})
             parameters = {'row': list(row)}
-        elif profile == 'conditional_context':
-            parameters, stimuli = generate_conditional(rng, steps)
+        elif profile in ('conditional_context', 'wide_conditional_context'):
+            parameters, stimuli = generate_conditional(
+                rng, steps, WIDE_WIDTHS if profile in WIDE_PROFILES else WIDTHS,
+                fourstate=rng.randrange(2) == 0 if profile in WIDE_PROFILES else True)
         elif profile == 'package_change_sequence':
             parameters, stimuli = generate_package(rng, steps)
         elif profile == 'shift_context':
@@ -104,8 +110,11 @@ def generate(seed, count=96, steps=8, profiles=PROFILES):
             parameters, stimuli = generate_stream(rng, steps)
         elif profile == 'concat_assignment_sequence':
             parameters, stimuli = generate_concat(rng, steps)
-        elif profile == 'comparison_context':
-            parameters, stimuli = generate_comparison(rng, steps)
+        elif profile in ('comparison_context', 'wide_comparison_context'):
+            parameters, stimuli = generate_comparison(
+                rng, steps, WIDE_WIDTHS if profile in WIDE_PROFILES else WIDTHS,
+                WIDE_RESULT_WIDTHS if profile in WIDE_PROFILES else (1, 7, 33, 65, 130),
+                fourstate=rng.randrange(2) == 0 if profile in WIDE_PROFILES else True)
         elif profile == 'packed_logic_context':
             parameters, stimuli = generate_logic(rng, steps)
         elif profile == 'array_reduction_context':
@@ -161,8 +170,9 @@ def validate_case(case):
             bits(vector['b'], wb)
             if profile == PROFILES[1] and int(vector['b'], 2) == 0:
                 raise ValueError('division profile requires a nonzero known divisor')
-    elif profile == 'conditional_context':
-        validate_conditional(parameters, stimuli)
+    elif profile in ('conditional_context', 'wide_conditional_context'):
+        validate_conditional(parameters, stimuli,
+                             WIDE_WIDTHS if profile in WIDE_PROFILES else WIDTHS)
     elif profile == 'package_change_sequence':
         validate_package(parameters, stimuli)
     elif profile in ('shift_context', 'cast_pipeline'):
@@ -171,8 +181,10 @@ def validate_case(case):
         validate_stream(parameters, stimuli)
     elif profile == 'concat_assignment_sequence':
         validate_concat(parameters, stimuli)
-    elif profile == 'comparison_context':
-        validate_comparison(parameters, stimuli)
+    elif profile in ('comparison_context', 'wide_comparison_context'):
+        validate_comparison(parameters, stimuli,
+                            WIDE_WIDTHS if profile in WIDE_PROFILES else WIDTHS,
+                            max(WIDE_RESULT_WIDTHS) if profile in WIDE_PROFILES else 130)
     elif profile == 'packed_logic_context':
         validate_logic(parameters, stimuli)
     elif profile == 'array_reduction_context':
@@ -249,7 +261,7 @@ def requires_fourstate(case):
     if case['profile'] == 'unpacked_array_copy_sequence':
         s = case['stimuli']
         return bool(set(''.join(s['source']+s['target'])+''.join(op.get('data', '') for op in s['operations'])) & set('xz'))
-    if case['profile'] in ('comparison_context', 'packed_logic_context'):
+    if case['profile'] in ('comparison_context', 'wide_comparison_context', 'packed_logic_context'):
         return any(set(''.join(v.values())) & set('xz') for v in case['stimuli'])
     if case['profile'] == 'streaming_context':
         return any(set(''.join(v.values())) & set('xz') for v in case['stimuli'])
@@ -259,7 +271,7 @@ def requires_fourstate(case):
             op['source']+op['after'] for op in s['operations'])) & set('xz'))
     if case['profile'] in ('shift_context', 'cast_pipeline'):
         return any(set(v['source']+v.get('count', '')) & set('xz') for v in case['stimuli'])
-    if case['profile'] == 'conditional_context':
+    if case['profile'] in ('conditional_context', 'wide_conditional_context'):
         return any(set(v['a']+v['b']+v['condition']) & set('xz') for v in case['stimuli'])
     if case['profile'] == 'package_change_sequence':
         return any(set(v) & set('xz') for v in case['stimuli']['initial'].values()) or any(
@@ -312,9 +324,14 @@ def materialize(case):
     elif profile == 'unpacked_array_copy_sequence':
         lines, expected = materialize_array_copy(case)
         clauses = '7.6 7.4.6 6.11.2 11.8.2'
-    elif profile == 'comparison_context':
+    elif profile in ('comparison_context', 'wide_comparison_context'):
         lines, expected = materialize_comparison(case)
         clauses = '11.4.4 11.4.5 11.4.6 11.6.1 11.8.2 6.11.2'
+        if profile in WIDE_PROFILES:
+            operator = p['operator']
+            primary = ('11.4.4' if operator in ('lt', 'le', 'gt', 'ge') else
+                       '11.4.5' if operator in ('eq', 'ne', 'ceq', 'cne') else '11.4.6')
+            clauses = primary + ' 11.6.1 11.8.2 6.11.2 20.6.2'
     elif profile == 'packed_logic_context':
         lines, expected = materialize_logic(case)
         clauses = '11.4.9 11.4.7 11.6.1 11.8.1 6.11.2 11.5.1 11.4.12'
@@ -330,7 +347,7 @@ def materialize(case):
     elif profile == 'cast_pipeline':
         lines, expected = materialize_cast(case)
         clauses = '6.24.1 6.11.2 11.6.1 11.8.1 11.8.2'
-    elif profile == 'conditional_context':
+    elif profile in ('conditional_context', 'wide_conditional_context'):
         lines, expected = materialize_conditional(case)
         clauses = '11.4.11 11.6.1 11.8.1 11.8.2 6.11.2'
     elif profile == 'package_change_sequence':
@@ -365,28 +382,31 @@ def materialize(case):
               ':lrm: 1800-2023 '+clauses, ':oracle: spec', ':spec_check: ai',
               ':description: Bounded random comparison; replay the saved manifest.', '*/',
               '// Runtime-only case; not part of the registered fixed suite.']
-    return '\n'.join(header+lines)+'\n', '\n'.join(expected)+'\n'
+    body = '\n'.join(header+lines)+'\n'
+    if profile in WIDE_PROFILES:
+        body = wrap_generated_unsigned_literals(body)
+    return body, '\n'.join(expected)+'\n'
 
 
-def generate_conditional(rng, steps):
-    width = rng.choice(WIDTHS)
+def generate_conditional(rng, steps, widths=WIDTHS, fourstate=True):
+    width = rng.choice(widths)
     p = {'width': width, 'relation': rng.choice(('same', 'wide') if width == 1 else ('narrow', 'same', 'wide')),
          'sign_a': rng.choice(('signed', 'unsigned')), 'sign_b': rng.choice(('signed', 'unsigned')),
          'state': rng.choice(('bit', 'logic'))}
     vectors = []
     for _ in range(steps):
-        a = word(rng, width, True)
+        a = word(rng, width, fourstate)
         # Equal branches exercise identical X/Z merging; independent branches
         # explore arbitrary differing bits rather than fixed pattern names.
-        b = a if rng.randrange(4) == 0 else word(rng, width, True)
-        vectors.append({'a': a, 'b': b, 'condition': rng.choice('01xz')})
+        b = a if rng.randrange(4) == 0 else word(rng, width, fourstate)
+        vectors.append({'a': a, 'b': b, 'condition': rng.choice('01xz' if fourstate else '01')})
     return p, vectors
 
 
-def validate_conditional(p, vectors):
+def validate_conditional(p, vectors, widths=WIDTHS):
     keys(p, ('width', 'relation', 'sign_a', 'sign_b', 'state'))
-    width = integer(p['width'], 1, 129, 'width')
-    if width not in WIDTHS or p['relation'] not in ('narrow', 'same', 'wide') or (
+    width = integer(p['width'], min(widths), max(widths), 'width')
+    if width not in widths or p['relation'] not in ('narrow', 'same', 'wide') or (
             width == 1 and p['relation'] == 'narrow') or p['sign_a'] not in ('signed', 'unsigned') or (
             p['sign_b'] not in ('signed', 'unsigned')) or p['state'] not in ('bit', 'logic'):
         raise ValueError('invalid conditional-context parameter')
@@ -735,24 +755,26 @@ def materialize_concat(case):
     return lines, expected
 
 
-def generate_comparison(rng, steps):
-    w = rng.choice(WIDTHS)
+def generate_comparison(rng, steps, widths=WIDTHS, result_widths=(1, 7, 33, 65, 130),
+                        fourstate=True):
+    w = rng.choice(widths)
     p = {'width': w, 'rhs_relation': rng.choice(('same', 'wide') if w == 1 else ('narrow', 'same', 'wide')),
          'sign_a': rng.choice(('signed', 'unsigned')), 'sign_b': rng.choice(('signed', 'unsigned')),
-         'operator': rng.choice(tuple(comparisons.OPERATORS)), 'result_width': rng.choice((1, 7, 33, 65, 130))}
+         'operator': rng.choice(tuple(comparisons.OPERATORS)), 'result_width': rng.choice(result_widths)}
     wb = w+{'narrow': -1, 'same': 0, 'wide': 1}[p['rhs_relation']]
     vectors = []
     for _ in range(steps):
-        a = word(rng, w, True)
-        b = bit_values.resize(a, wb, p['sign_a'] == p['sign_b'] == 'signed') if rng.randrange(4) == 0 else word(rng, wb, True)
+        a = word(rng, w, fourstate)
+        b = bit_values.resize(a, wb, p['sign_a'] == p['sign_b'] == 'signed') if rng.randrange(4) == 0 else word(rng, wb, fourstate)
         vectors.append({'a': a, 'b': b})
     return p, vectors
 
 
-def validate_comparison(p, vectors):
+def validate_comparison(p, vectors, widths=WIDTHS, max_result_width=130):
     keys(p, ('width', 'rhs_relation', 'sign_a', 'sign_b', 'operator', 'result_width'))
-    w = integer(p['width'], 1, 129, 'width');integer(p['result_width'], 1, 130, 'result width')
-    if w not in WIDTHS or p['rhs_relation'] not in ('narrow', 'same', 'wide') or (
+    w = integer(p['width'], min(widths), max(widths), 'width')
+    integer(p['result_width'], 1, max_result_width, 'result width')
+    if w not in widths or p['rhs_relation'] not in ('narrow', 'same', 'wide') or (
             w == 1 and p['rhs_relation'] == 'narrow') or p['sign_a'] not in ('signed', 'unsigned') or (
             p['sign_b'] not in ('signed', 'unsigned')) or p['operator'] not in tuple(comparisons.OPERATORS):
         raise ValueError('invalid comparison parameter')
