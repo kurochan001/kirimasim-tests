@@ -128,6 +128,10 @@
     "constant_power_controls": {
       "en": "16 paired constant/runtime negative integral-power controls. Typed local parameters and runtime plusargs independently expose zero/one/signed minus-one/unsigned three across exponent widths3/8/32/65, natural/direct/captured results and bit conversion, followed by case-equality comparisons. Four zero-base X cases remain separate from twelve known-only controls; finite scope without broad context-discrimination claims.",
       "ja": "整数の負乗を定数と実行時で対にする16本。型を明示したlocalparamと実行時引数で、底ゼロ・一・符号付きマイナス一・符号なし三と指数幅3/8/32/65、自然幅・直接・保存後の値とbit変換をそれぞれ確認し、ケース等価でも照合。Xを要するゼロの4本と既知値の12本を分離し、広い文脈の区別を検査したとは主張しない。"
+    },
+    "wide_shift_boundaries": {
+      "en": "192 regressions at255/256/257 and511/512/513bits,32 frozen configurations perwidth. Four shifts cover0/1/W-1/W/W+1/X/Z counts at eachwidth with signs, destination contexts and bit/logic conversion. Runtime+nonce=1 restores a cleared known middle sourcebit; full inputs/results and natural/count/destination widths are observed. Existing positional reference and finite rows/bindings remain unchanged; no complete interaction coverage claim.",
+      "ja": "255/256/257・511/512/513ビットの192本、各幅32通りを固定。4種類のシフトで0/1/W-1/W/W+1/X/Zのシフト量と符号・格納先の文脈・bit/logic変換を確認。実行時の+nonce=1で既知の中央入力ビットをゼロから一へ戻し、入力・結果の全体と自然幅・シフト量の幅・格納先の幅を表示。既存の位置による参照処理と有限モデルの行・要求対応は変えず、全ての相互作用の網羅は主張しない。"
     }
   }
 }

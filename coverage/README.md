@@ -272,3 +272,5 @@ Nightlyの測定対象は実行したスイートのコミットです。`main`�
 - `results/constant-power-20261119n-*.json`：定数と実行時のべき乗16本の記録7件です。Icarus 13.0は16 known、Verilator 5.054はseed1/73で各12 pass・4 known、kirimasim `a6222f0656d4`は4回とも16 passです。Icarusの全出力を追加確認し、定数の結果304箇所が一致、実行時は247差・57一致です。失敗するテスト全体にoracleは付けません。独立AIは1,172行を導出し、[有限の検査](qualification/constant-power-20261119n.json)に成功対照16本・コンパイルする定数／実行時の変異32本と、ソース・バイナリ・各観測のハッシュを記録しています。要求対応・過去の入力は不変です。
 
 - [広い値の明示指定ランダム検証](interaction-qualification/random-wide-values-20261119/qualification.json)：保存288プログラム・2,304ベクトルで、固定本数には加えません。実際のCLI12回はkirimasim1,152pass、Icarus281pass・7known、Verilator合計266pass・26known・4値の除外284件です。既知値のワイルドカードのビルド失敗26件は除外と区別します。独立AIの導出4,608行、有限の対照32本・コンパイルする変異64本と単体検査14件を記録し、非公開の生記録はハッシュで参照します。過去の全結果を維持しています。
+
+- `results/wide-shifts-20261119p-*.json`：広いシフト192本の記録7件です。Icarus13.0は192pass、Verilator5.054はseed1/73で各120pass・72known、kirimasim `a6222f0656d4`は4回とも192passです。192本全てにIcarusだけのトークンを加えます。独立AIは768行と実行時入力の依存を検査し、[有限の検査](qualification/wide-shifts-20261119p.json)は`+nonce=1`を使う257/513ビットの成功対照64本とコンパイルする結果ビットの変異128本です。過去の入力・有限モデルの行・要求対応は不変です。

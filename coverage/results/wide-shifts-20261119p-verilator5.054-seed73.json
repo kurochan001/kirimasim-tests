@@ -1,0 +1,853 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "gen/ch11/test_gen_wide_shift_w255_s_ashl_one_k_n_b": {
+   "status": "pass",
+   "inputs_sha256": "576c49551c9ea82a2c95756b27fa7df7910c56f02481b7c974f50d4312e78086"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_s_ashl_width_k_w_b": {
+   "status": "pass",
+   "inputs_sha256": "95e604b9a18067123b85e1f52657c84faa9747af921492a8075f67654b52b0f0"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_s_ashl_x_k_s_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "45281e17a158d84dbad1ca3779ce0cea56d19b1aeb5c5b69055bfc2c621b7ce7"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_s_ashr_beyond_k_s_b": {
+   "status": "pass",
+   "inputs_sha256": "a033c0153d58f117fdf47d3cd19b01070bee27b9d451ae559a96400f380c21da"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_s_ashr_last_k_w_b": {
+   "status": "pass",
+   "inputs_sha256": "5070cb75996ff1bb787202794595dfdedc4165ffa9c5291e54b720ac6dda1678"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_s_ashr_last_x_w_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=x0000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "9789be52607cbfb2431b70fd1709c3e72d8319e86ab7a8621d2329b5689cc424"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_s_ashr_width_z_w_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10110100000110100010111110101100101000100010000010...', expected 'source=z0000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "d6e741fdf57ea61b4ac6a39992ca4de56e9f1cda4977a5a2aba67206374acad0"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_s_ashr_z_k_n_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "678482ffcfcdb2b37beae30f4d15bab54aca64b6bff1e422c73ef324bf29b85a"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_s_ashr_zero_k_n_b": {
+   "status": "pass",
+   "inputs_sha256": "9c85acdbdae665d9f480b4652314121536aeaf1157515293aa33f86fcf3fe238"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_s_shl_one_k_s_b": {
+   "status": "pass",
+   "inputs_sha256": "e3357a9e373d600b5294432a86fdea8ca761802cdd0145e42078b93da2f1a1b5"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_s_shl_width_k_n_b": {
+   "status": "pass",
+   "inputs_sha256": "37c0cf62ff86ee0c2dfaea19ca72ca333fa62d0a1e95965b6232dbf7cc66d439"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_s_shl_x_k_w_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "dac8873301cdd757fc2f79da46ad37018fa6da8641cab3a224ba1e2f9a9ab20d"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_s_shr_beyond_k_w_b": {
+   "status": "pass",
+   "inputs_sha256": "efd3b8ce6d48341cb1ea3c3056989ec06cf8ac0bf0ab31225533f251814218e7"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_s_shr_last_k_n_b": {
+   "status": "pass",
+   "inputs_sha256": "dcf9d146b18d2db2506b3d1f1572232445e7288bae04d54464807bff2749ea99"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_s_shr_z_k_s_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "9ba799f031c04ec31010e18453b29b4f2794a790d01deda65e7256062a5111bb"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_s_shr_zero_k_s_b": {
+   "status": "pass",
+   "inputs_sha256": "8141f1a0289c13606b45c9a0beedc40ee16003020e9f047e2c5c75b14fb072b2"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_u_ashl_beyond_k_n_l": {
+   "status": "pass",
+   "inputs_sha256": "a9d0a92c18ab0e610b57b863ab18e041039e9abf8d25b3c0e6d6ded58e694a40"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_u_ashl_last_k_s_l": {
+   "status": "pass",
+   "inputs_sha256": "5da237d20e3041f158fceeb49858203befb439720fb7b847f520bd61a27b2ade"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_u_ashl_z_k_w_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "6ea8dda8de71f24c3c544a3651a7d76c947668fd4b2c2154291a43f34b2e2c3a"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_u_ashl_zero_k_w_l": {
+   "status": "pass",
+   "inputs_sha256": "839ca993fedd06bd0edf0e38594eca44c5cbe1414de08a841713bf8a47cb5183"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_u_ashr_one_k_s_l": {
+   "status": "pass",
+   "inputs_sha256": "575d9324e017394af14df69cdbb9dc4013accb77349ea782c81657e5902ee016"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_u_ashr_width_k_n_l": {
+   "status": "pass",
+   "inputs_sha256": "92804775e71e818e72e69f3e12c814c11050d7fd97be6b9570406dbc16b883f2"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_u_ashr_x_k_w_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "5a1684ad7d4b34272f51176b920efca4ecf88d606dd31deac7e35c62bc5ec5ca"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_u_shl_beyond_k_s_l": {
+   "status": "pass",
+   "inputs_sha256": "04ef156e5acd63553fc1ec10498c250cfae88452cbb70ac8f4e9ad9f35abf4a8"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_u_shl_last_k_w_l": {
+   "status": "pass",
+   "inputs_sha256": "2eaaa4df2e3d82398d98ee039915fd797809a4155b87e6448e7b29cee5cbf03e"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_u_shl_one_x_n_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=x0000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "a0e58c30900547a5ffb50f5c294594a8ed9055b9d415676d573c0f01235cf580"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_u_shl_z_k_n_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "6f507212ea3eaec06362d452eb300d9c5552467e7285537c379bd95d8c050dc5"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_u_shl_zero_k_n_l": {
+   "status": "pass",
+   "inputs_sha256": "db0d41a703591e5b87805e778140e665825c6f2b895ad8918e17d741a5a8fee9"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_u_shr_beyond_z_s_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=00000000000000000000000000000000000000000000000000...', expected 'source=z0000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "e13928c45c9c115244c24155691f47b0897aacef7daaebf9058f993588872ed8"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_u_shr_one_k_w_l": {
+   "status": "pass",
+   "inputs_sha256": "7d3ab01b5ef09ada12959e98302aaf08533fa27c20f26b126affbf9091ec5785"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_u_shr_width_k_s_l": {
+   "status": "pass",
+   "inputs_sha256": "e7dc10b3ccba5f5f83f1096c5302ca507565daccacaa368b8cb919ae33f981d4"
+  },
+  "gen/ch11/test_gen_wide_shift_w255_u_shr_x_k_n_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "451a2f0dbc007353bd80b0ff561a17fd192130b00e15bce11cb3973519262052"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_s_ashl_one_k_n_b": {
+   "status": "pass",
+   "inputs_sha256": "002c1c14f3af40eda33a27827dcba070cf238e9878e690d9be8dd088b463e71c"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_s_ashl_width_k_w_b": {
+   "status": "pass",
+   "inputs_sha256": "64670eab96be5f2462dcbee704027e62038c43b121a76aae188bfcd839437abe"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_s_ashl_x_k_s_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "00804fdfbbfe389fbf7093e9907089e8865c6951d633b0eed8672c54bbe2e902"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_s_ashr_beyond_k_s_b": {
+   "status": "pass",
+   "inputs_sha256": "7b9fd44a6f9a6d89fbaf7feb93b82ac2851d27f0883839ccb9167c95bd239e4b"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_s_ashr_last_k_w_b": {
+   "status": "pass",
+   "inputs_sha256": "7875610fe7116567c7fc102bbbbca6fb445561f197bacbc58bf1a235e185fe2d"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_s_ashr_last_x_w_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=x0000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "c0e73e7570f249de87bdb60c0cc03a8778fcda5d977d59f0193fd9def8687b9d"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_s_ashr_width_z_w_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=01110010011100001011010101100111000111100000100010...', expected 'source=z0000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "4b8f34bd3cd94a89792c0e222c7271f891ad2a70fffde6d41aa8245aa4e4e09c"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_s_ashr_z_k_n_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "2dcf36afb5a1bb9a75f9245605c3314700acb675e13d0e8fd38bdfd65ad0e8d5"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_s_ashr_zero_k_n_b": {
+   "status": "pass",
+   "inputs_sha256": "b386b427c4e0317fece54b9b4ccf63e8263931cc7d699905c72ba653c7c9580e"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_s_shl_one_k_s_b": {
+   "status": "pass",
+   "inputs_sha256": "337633f40d9957109ea44cc885f3ae23ff67f55d2bf341ac20d6ab1d6e5bda47"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_s_shl_width_k_n_b": {
+   "status": "pass",
+   "inputs_sha256": "4a35c70069fe228d51fd32c02225f91ecbe9167a619760c2f036ae7edcdeceb2"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_s_shl_x_k_w_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "9ebda137c04c37b5189c26eed278cabb87bf36b2d2f5757fde9e80b179e53632"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_s_shr_beyond_k_w_b": {
+   "status": "pass",
+   "inputs_sha256": "9cf795a68869393fccdc2f78dba541f3b953daca0d791348076a8cbee7148605"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_s_shr_last_k_n_b": {
+   "status": "pass",
+   "inputs_sha256": "6d6b8f9af935db13bf7ee3cd4db2aa1292b456516f4cf715ba40461532ae155a"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_s_shr_z_k_s_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "35b1d6872a8c7a1567708b78f0c6c21194ac45325ca171a65b78ab0bd658fd9a"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_s_shr_zero_k_s_b": {
+   "status": "pass",
+   "inputs_sha256": "d548e8290e64c218e05ff7e0ed70a8c82e4eca4c04a5d8b7b299ff7c2105e199"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_u_ashl_beyond_k_n_l": {
+   "status": "pass",
+   "inputs_sha256": "ba429d62af941fa4ba8973b45638e6ebd6f16b01920100e7b2471de80ed9dd1e"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_u_ashl_last_k_s_l": {
+   "status": "pass",
+   "inputs_sha256": "e428ea2e43f947e78bdcb461f225b3da3ac74592759c4e9c30e3ee43df03fc87"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_u_ashl_z_k_w_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "77fba55bd6d94958450b3d5b606a801022284068feb4b18de63af72592ed4aaa"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_u_ashl_zero_k_w_l": {
+   "status": "pass",
+   "inputs_sha256": "0e71432ac9484d8cee858fc918bb1202b17fff4b8e739ab097f8d88eb096533c"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_u_ashr_one_k_s_l": {
+   "status": "pass",
+   "inputs_sha256": "378bcf3dafbc9fc9e95c71031524714da34a568213086f8f4e381bf3dd2589ab"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_u_ashr_width_k_n_l": {
+   "status": "pass",
+   "inputs_sha256": "33f234bf49eb00fae7105029a00ed089069900d47f07ad9a14dd8831ae4e4e72"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_u_ashr_x_k_w_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "f1cdc3789b43f5f805e9e6ef4cdc7ce2886666c9d72a0420f15fcc7695e84299"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_u_shl_beyond_k_s_l": {
+   "status": "pass",
+   "inputs_sha256": "ac75a95dd2591d5943f0c8959f4cfab9eadbc76e642bb91fd74d82100bdbad0a"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_u_shl_last_k_w_l": {
+   "status": "pass",
+   "inputs_sha256": "63387fc3b4095625c391d8dce9c8978a4246b78ca77d0733c50f20b9a9a22baf"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_u_shl_one_x_n_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=x0000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "3c45fcb43122bdc409f38dabda4d2ddb5ace0f07d116091c401f4a5c9c04d88d"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_u_shl_z_k_n_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "1846e49f7f652ab7d9cf5c89cfcebb849162ef001cb3bc7759e03d2bd3b3bfa4"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_u_shl_zero_k_n_l": {
+   "status": "pass",
+   "inputs_sha256": "be1e91a981daa9344bba19012bef0b2abe292eeaa359932420bf7fae594a6700"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_u_shr_beyond_z_s_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=00000000000000000000000000000000000000000000000000...', expected 'source=z0000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "bfe66e534b0de7129faa77c98910a51d9931c736f3bebad9097e7c35d0a2773c"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_u_shr_one_k_w_l": {
+   "status": "pass",
+   "inputs_sha256": "7f5776250afd4fb967a2d07ca5a5c8e14870e1e1983c1349d5c311c3eb60771c"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_u_shr_width_k_s_l": {
+   "status": "pass",
+   "inputs_sha256": "c21ae334de221fbfdc392b0332a622fd0d531d566a4bd97d6484c07b859d9562"
+  },
+  "gen/ch11/test_gen_wide_shift_w256_u_shr_x_k_n_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "4d2c642c6cdcd70d437b23d406c2eacb29ab555368522a29c962adbfc559b217"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_s_ashl_one_k_n_b": {
+   "status": "pass",
+   "inputs_sha256": "f01a01b9b498c5923fced5b7f35170ad9ef8576447648098cd8488ce19e2a9de"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_s_ashl_width_k_w_b": {
+   "status": "pass",
+   "inputs_sha256": "35ffd3310fd2fa8554dc5b259d27b8d50cb900a4161f02ee2e9d230bb463aa28"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_s_ashl_x_k_s_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "b4f677dd6dfedac84c63a0ae688ffd4c679cc1fa987ffb40f386fdf4bc019202"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_s_ashr_beyond_k_s_b": {
+   "status": "pass",
+   "inputs_sha256": "674abdf036c847e7f73d30411214b1c6dfed703fdf8528ba5ee7ba8aaaf7f046"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_s_ashr_last_k_w_b": {
+   "status": "pass",
+   "inputs_sha256": "683872c98e4472ec01d720a8074fb910a225a462b196507d6d9d7f816c3aa387"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_s_ashr_last_x_w_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=00000000000000000000000000000000000000000000000000...', expected 'source=x0000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "d571edbb9be66076f3dd50f6ba211f7f677ec75615b8badee59067de4033325b"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_s_ashr_width_z_w_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=01001110100000011111000111110110000001000101010101...', expected 'source=z0000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "be2e4e663e3e524cf5f7bf9aca895eadaaae2d2d59b4b7e1f23dc92ba9687cb2"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_s_ashr_z_k_n_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "f4fdcd980f74703234bbdf9660f37dbd6295649ec5c2d93c55b568061ca16e24"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_s_ashr_zero_k_n_b": {
+   "status": "pass",
+   "inputs_sha256": "3f72606bcf778cc7d4c9e8b33b4e7d2700248128f956348600641a51d58993d2"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_s_shl_one_k_s_b": {
+   "status": "pass",
+   "inputs_sha256": "abb53ed84d7fd6d124eeee0d0a6e4288e8f20affc699e7080014dbd487fcd0bc"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_s_shl_width_k_n_b": {
+   "status": "pass",
+   "inputs_sha256": "3351c196103056b6166476002acf0512e866cfdbd98c37f4c5bc48c403fb879e"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_s_shl_x_k_w_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "99e4ae186a789a891182bbad2367388788585d90eb515f041d17975f38e62d2e"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_s_shr_beyond_k_w_b": {
+   "status": "pass",
+   "inputs_sha256": "c5b647cf0282952f2bf2c59ce09ff8cf4371121f02f9f19cf5e81cb7fd366583"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_s_shr_last_k_n_b": {
+   "status": "pass",
+   "inputs_sha256": "626702009e282de529fe3c0ceb7dcff81d28ba537d6ccec81d14b7bdca3969e0"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_s_shr_z_k_s_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "bf2950e53cbfa9a8310da04a6939576d5eba2ad3f845a1c9f773f43c0e212c2b"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_s_shr_zero_k_s_b": {
+   "status": "pass",
+   "inputs_sha256": "f3248ca7e767e8db2cb5a747db6a18ed8166a7ad354941ccb9bcc547c6cbb1e4"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_u_ashl_beyond_k_n_l": {
+   "status": "pass",
+   "inputs_sha256": "36dbd28f0bc9bf8924cf69b099249959cca4fcfdc6a6c912e9e529f5d07e5165"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_u_ashl_last_k_s_l": {
+   "status": "pass",
+   "inputs_sha256": "b02d41e89a2f9ec1e2c18bfe9e9e59b4b6573596bedafdcd806c824c34c1154e"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_u_ashl_z_k_w_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "6683fbbd99b57e41d39f172f758021bb820c923f43741434b3442d6cd5308992"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_u_ashl_zero_k_w_l": {
+   "status": "pass",
+   "inputs_sha256": "0bbd6e89d0eb4c75653e91e23ecd4bd0431e5d41ea585ac7b96cf2060db53091"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_u_ashr_one_k_s_l": {
+   "status": "pass",
+   "inputs_sha256": "d73ea1eca7c472a25ad1eb575a6ef773899302ef8758d3dcc7d968407a7078a0"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_u_ashr_width_k_n_l": {
+   "status": "pass",
+   "inputs_sha256": "9d9da2b06df681c470c7da8abde43b35b1afd5b814e5213a92c764f251945f65"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_u_ashr_x_k_w_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "241a36b154323e0ad852d33f3208608313012c7f5d938dbbd29c2064dddd702a"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_u_shl_beyond_k_s_l": {
+   "status": "pass",
+   "inputs_sha256": "1a5f211aa5de4cac70956bc2522e50f831652ea0cd3ec9c2adf41aeb96593986"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_u_shl_last_k_w_l": {
+   "status": "pass",
+   "inputs_sha256": "26318607e28bf30265c76f289b2f81942f70e163b7518e9f7f895d3ae5abb4a5"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_u_shl_one_x_n_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=00000000000000000000000000000000000000000000000000...', expected 'source=x0000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "15e400b6e20a9d39b60b4cd954ed1072ef6a141e0c422de21a58cd9ba268b88e"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_u_shl_z_k_n_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "b9205c1562050f257155a1fcf85832cfe71327815a45f6d5c9ce995a990f2eea"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_u_shl_zero_k_n_l": {
+   "status": "pass",
+   "inputs_sha256": "fe007603f0939424478c8b497a59f26c87546d6f77c0da3f7a68017873ff7080"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_u_shr_beyond_z_s_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=00000000000000000000000000000000000000000000000000...', expected 'source=z0000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "881a914c105dd8d831556bc26815bfd7d0f1adbc7a62e7658a197eb264cc426e"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_u_shr_one_k_w_l": {
+   "status": "pass",
+   "inputs_sha256": "993a69019f34a600be133ebb524dbdd3909c4d5a9036706f9ed52eac2ecd78b3"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_u_shr_width_k_s_l": {
+   "status": "pass",
+   "inputs_sha256": "34a942ee9be43d0480dcf89b5f00888a04e4fd14ad7f3b6711fbbb1296c12d79"
+  },
+  "gen/ch11/test_gen_wide_shift_w257_u_shr_x_k_n_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "92cebbd2f6c4bf14dcf0560f9dca992cec409f3e8167990b55eebbff80b2c55b"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_s_ashl_one_k_n_b": {
+   "status": "pass",
+   "inputs_sha256": "5a89e3867d72801db9a0632e3d5b3c9618781c065e14622ef48da0edac028af0"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_s_ashl_width_k_w_b": {
+   "status": "pass",
+   "inputs_sha256": "20df3616e259b6360dae2da49c2f457accc65f59988e84e427c0a24622ec2ea7"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_s_ashl_x_k_s_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "b581a39b538a3296f88f75995991de970bffdf74d4d73b8ed7b5e704b7ad1402"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_s_ashr_beyond_k_s_b": {
+   "status": "pass",
+   "inputs_sha256": "86daa481d9476382e3d8d0792fed3b6228f1a0280fc4a8324bbbb98269a8027e"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_s_ashr_last_k_w_b": {
+   "status": "pass",
+   "inputs_sha256": "ba2ead52eeeb2a10db31a25ab169dfc2bfc2a223461639078417a041fe9ead7e"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_s_ashr_last_x_w_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=x0000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "b0191afc35c5e7959192cbb04ae838f33d20a76c8220793f6fb380dfdcda825f"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_s_ashr_width_z_w_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=00110111111010010111011110101100001000100111111001...', expected 'source=z0000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "7b8c5e8ba31eef710ffaa02ef3b3044a4e40752f15feddc9d2e61c632bf87e8c"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_s_ashr_z_k_n_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "1f1ba942eb77b6e74753d428ffa65c92ecf809538c29f6c115212922a84e9530"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_s_ashr_zero_k_n_b": {
+   "status": "pass",
+   "inputs_sha256": "e2ab5dff1fadbf3ca961cf4829ce29bc8072bc15d41b99c3fd14660ccf5b6483"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_s_shl_one_k_s_b": {
+   "status": "pass",
+   "inputs_sha256": "507dd3f598f0a58cda9593ff035b19695373e0429909161f1649bc8512e9df85"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_s_shl_width_k_n_b": {
+   "status": "pass",
+   "inputs_sha256": "731d80333440aa3cb3cdb7d08abb7ecfdce40f075009b2f6e52962060a6dc8fb"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_s_shl_x_k_w_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "2eeb291d1b18cdd5352574415070c0c02553aac4f98ecdcf039decb9dca9a90c"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_s_shr_beyond_k_w_b": {
+   "status": "pass",
+   "inputs_sha256": "d4c309eb07cfee99c52ba8bb40a887ded88a0caac1ddf0326eb93748d002267c"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_s_shr_last_k_n_b": {
+   "status": "pass",
+   "inputs_sha256": "1d49bab1d1ac6226fd5b155e8df96c0f4c97b6327b4d4e36e13a29cc2407a2a9"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_s_shr_z_k_s_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "18969e1574219764ef09ac3ab2821b2440535e235a030ba651bf702a671c0d89"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_s_shr_zero_k_s_b": {
+   "status": "pass",
+   "inputs_sha256": "ab01c7b78879e2e964babbe2989e5a71a718bb73ded1b2505ea52140fae6c782"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_u_ashl_beyond_k_n_l": {
+   "status": "pass",
+   "inputs_sha256": "47da6708d5d0880a3010cef02058d45900737d966a2f338b6b80cd8ba3995662"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_u_ashl_last_k_s_l": {
+   "status": "pass",
+   "inputs_sha256": "131abb00d7a14b4d1a54ee6f54210296da0a13a6e234472485e0cb38511c9780"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_u_ashl_z_k_w_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "0de5688190e1b15cd3341d3c5e726e07ed7d906002f9a007d82332a043532790"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_u_ashl_zero_k_w_l": {
+   "status": "pass",
+   "inputs_sha256": "e7dedb5778cf9e528ffb7b656fe3a45bd5230402186e054203b732531dabc47c"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_u_ashr_one_k_s_l": {
+   "status": "pass",
+   "inputs_sha256": "a0f9ef8a00a198d67602ab26b64e0cf10dea788cdd96211fc5c65a148b88fa48"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_u_ashr_width_k_n_l": {
+   "status": "pass",
+   "inputs_sha256": "82df9499352b4f9dd2463f7c357aab6490bd8650450e92094db1398fc117e252"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_u_ashr_x_k_w_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "a1fa65d3453ac8e3d26a24eb4ccd205164c5aa67ad37862a0cb02e5185973d43"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_u_shl_beyond_k_s_l": {
+   "status": "pass",
+   "inputs_sha256": "fcad6b3714432013b956b3c620fb5487525388ad0729c55946387633b8b3b445"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_u_shl_last_k_w_l": {
+   "status": "pass",
+   "inputs_sha256": "a70cbcce2a54d37261155dab87bbd02ac2d5f3f687083d8856e5c4b17dc8e3df"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_u_shl_one_x_n_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=x0000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "4be472bf10abf3fd275358790c8180a49d68baa011429303a7c4f9547d96e3bd"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_u_shl_z_k_n_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "15f341f0daeb81000cfc28fadb1ca4291bdadc20dfb0696426e3c5b546b6af56"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_u_shl_zero_k_n_l": {
+   "status": "pass",
+   "inputs_sha256": "7bf3b1d9c4bfd9571d0b1fe6e53839118c3dde9fddd992e051e1f3e631493429"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_u_shr_beyond_z_s_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=00000000000000000000000000000000000000000000000000...', expected 'source=z0000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "0062256d5ffdbe5f0a37bb6df00468928d27939f22c76f20e4d2a2e55c77c9d5"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_u_shr_one_k_w_l": {
+   "status": "pass",
+   "inputs_sha256": "f8a89382b6944f25cc474bfb3494470d146c8d37f7dc96dc1bf79f2a6ce2ba27"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_u_shr_width_k_s_l": {
+   "status": "pass",
+   "inputs_sha256": "01ba11c87875ad22d4c3bd32f2796bbaec96299f9afc2322b35533f5834da62e"
+  },
+  "gen/ch11/test_gen_wide_shift_w511_u_shr_x_k_n_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "fd0bf3e7f43714f9bc61d87df1a5db8cba98af79b6cb26d5011247bac497575b"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_s_ashl_one_k_n_b": {
+   "status": "pass",
+   "inputs_sha256": "72929bb5a328b62a64b7a73c1594276b91995651f707b19813a550b2134b589b"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_s_ashl_width_k_w_b": {
+   "status": "pass",
+   "inputs_sha256": "dbc8678909dba01a7afcb6cb6342fb267af99a2b0b545b72a8e940aa56fc5145"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_s_ashl_x_k_s_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "6cc2c3170118385bda9846e8f1deb928ebaa2431e77df3d3614bd115462854d6"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_s_ashr_beyond_k_s_b": {
+   "status": "pass",
+   "inputs_sha256": "32389b024432e0dc19873951d39194c7bbe555d891b7322476bc5586cb1c4c7c"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_s_ashr_last_k_w_b": {
+   "status": "pass",
+   "inputs_sha256": "871b4bb02429ad0f52dc0ff8f71ecf9a01b8f6e5df0d42d86003214b6b15e28e"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_s_ashr_last_x_w_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=00000000000000000000000000000000000000000000000000...', expected 'source=x0000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "2b4247a7cf90336604e8532bae5c9effa18bc72defacdf54742bb753c026dc5b"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_s_ashr_width_z_w_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=11100100111001101100000111001101111010100100101101...', expected 'source=z0000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "2e39857ea3f2dfa82d9ff7c7922f84ce452c1f8c1c20b56ffc8ab272f5f9b01d"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_s_ashr_z_k_n_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "50f68d8210d5c0015779978939735e3c1250e00afbe5ac7ecdd8fe242e353cef"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_s_ashr_zero_k_n_b": {
+   "status": "pass",
+   "inputs_sha256": "41fac6f28f8017a28224118d14c1343e312cdcae88bfaf162035e345254370ab"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_s_shl_one_k_s_b": {
+   "status": "pass",
+   "inputs_sha256": "200d847e62aca242a74ddaf918e7d062aa5a5fecaa0c547c3219b70999b24f8c"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_s_shl_width_k_n_b": {
+   "status": "pass",
+   "inputs_sha256": "fb25b6670f3a4ac3a622c6071dd9c67b08b736db63ad934c2a017779c85fe428"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_s_shl_x_k_w_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "951f29780cc13b5a71c95591b5497b2bbc35ce857b903536be1edc0e0d23777a"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_s_shr_beyond_k_w_b": {
+   "status": "pass",
+   "inputs_sha256": "2b7a5da2c7dd06c2cfafad39011e1bbeacc6da659e5e964783924ea47eed69fb"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_s_shr_last_k_n_b": {
+   "status": "pass",
+   "inputs_sha256": "80e40274b671c38673270ce58f31e673af2533b7807fea6f00de64b245852333"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_s_shr_z_k_s_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "f164226e50313c05e736d91834433195881d80fa405bd088886e1d1d012054ce"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_s_shr_zero_k_s_b": {
+   "status": "pass",
+   "inputs_sha256": "c6f512ec871248e8efc03b39694aec51f9ca9a399c7e819abbcb1df3a6e4aa3b"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_u_ashl_beyond_k_n_l": {
+   "status": "pass",
+   "inputs_sha256": "6df3f00b071d986d6e3c91374e47d82e389bb6e5f56702d412e981cdb19404a2"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_u_ashl_last_k_s_l": {
+   "status": "pass",
+   "inputs_sha256": "4a56d10edc0732dfe97eb09c589f16896b6430c6b5d81275ba10e5cf4f3eb6f9"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_u_ashl_z_k_w_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "8e78c132beaff8b6952982e1e295601173c730c48980b09a0c5e81e997739ce1"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_u_ashl_zero_k_w_l": {
+   "status": "pass",
+   "inputs_sha256": "42d2eff50d870db37d8cc98468fc95451c64d22691eb5708e69e94ac80f085ab"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_u_ashr_one_k_s_l": {
+   "status": "pass",
+   "inputs_sha256": "bc4e5c51fb69c4e28ceac90c35c37a77993f50daa71783c9ccc947e797cb7bb7"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_u_ashr_width_k_n_l": {
+   "status": "pass",
+   "inputs_sha256": "d7b3aea0636eb437cd8721e65a9a91738c187f9f8ef505fd9ee0366ffd62ecb9"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_u_ashr_x_k_w_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "59c7c5763c6b2af22bdd49cf07aa3fff2ac27fdc20d8e8b1aa1e8b9a24f201e0"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_u_shl_beyond_k_s_l": {
+   "status": "pass",
+   "inputs_sha256": "6843b97e086cf828d22432e4b3ef618600c71273e6d6ef40c2afc6680ca35e55"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_u_shl_last_k_w_l": {
+   "status": "pass",
+   "inputs_sha256": "65c9459c27326b0d9f97bc109f0c6809cb368724b9bb054f5ee1a1a30e8638a8"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_u_shl_one_x_n_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=x0000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "231085b38d078cdef88096943ba6d63a8885ee0da5d90c41ded0528535e4e1bc"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_u_shl_z_k_n_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "36d3093186653c29a085dcbd980973079c23b5b36127abbd8fdbee00b530e79f"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_u_shl_zero_k_n_l": {
+   "status": "pass",
+   "inputs_sha256": "6c1e100f6b4dcf31df773e7a458fae6d6dbdb5b1293be8cedb3d1ea862243013"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_u_shr_beyond_z_s_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=00000000000000000000000000000000000000000000000000...', expected 'source=z0000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "0abab80bf3c9b2f2e0d9311dd1eacb67580ae4d6afddb6867e4f61be9fc2e26a"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_u_shr_one_k_w_l": {
+   "status": "pass",
+   "inputs_sha256": "0ae202ff4962efb0bccdd7962cded13ddb28e185ddfbba408b67580da1326207"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_u_shr_width_k_s_l": {
+   "status": "pass",
+   "inputs_sha256": "b409ffa7f34ef744d3278769cd3b3a327f20983e792acc1ea5e6c14619fde253"
+  },
+  "gen/ch11/test_gen_wide_shift_w512_u_shr_x_k_n_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "e45eb56305d83ba2a9301a058644ede97e181940db6ce285595b5e8524294629"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_s_ashl_one_k_n_b": {
+   "status": "pass",
+   "inputs_sha256": "cf8550e1c40cc65c3ec3ae9efe6a1b15206e157824f46412a7e72e4c1af74003"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_s_ashl_width_k_w_b": {
+   "status": "pass",
+   "inputs_sha256": "43b54e58410c56af81605b28b3785753da0096086008032f26c7ab2a88427bba"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_s_ashl_x_k_s_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "325fda1262129552e5f4441897dca86d009f0c6697266043d2b42a8580392fe6"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_s_ashr_beyond_k_s_b": {
+   "status": "pass",
+   "inputs_sha256": "56a2997018fc373ff6d997e84eb458e7c7932e8b11cd7e32e6a7277ed9f5d236"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_s_ashr_last_k_w_b": {
+   "status": "pass",
+   "inputs_sha256": "cb4df89622e969e2fb077ab91bcb21b1b505ae471959111d854374beaf6bf1bc"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_s_ashr_last_x_w_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=00000000000000000000000000000000000000000000000000...', expected 'source=x0000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "c17e6ed46c13e531aa4aaf93e831aec9047b1258afbe8c1b07488982ce221170"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_s_ashr_width_z_w_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=00001000010100001000110011010101001000010010001010...', expected 'source=z0000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "a0b34ef23f86f8486102a45ad6eb7483fc317ce4a52b40cd64d8ea7917cd1279"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_s_ashr_z_k_n_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "92d0eba84b907feecde16840017e54e6f970f149e002a900141df7dd428fea56"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_s_ashr_zero_k_n_b": {
+   "status": "pass",
+   "inputs_sha256": "fa31b492b5793fbc00c8febde671553afd0ca881b5e3c073eafac5463617a4a8"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_s_shl_one_k_s_b": {
+   "status": "pass",
+   "inputs_sha256": "6f74dd3beca362949c8dcf59e157dea676725edec7d31d0897146ee338297efa"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_s_shl_width_k_n_b": {
+   "status": "pass",
+   "inputs_sha256": "96fa28176be852a2e6ced044ec449147ee1a65d3e3895099eeb5b73a44cf158a"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_s_shl_x_k_w_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "c7a222cb5c46cae012afaf95cc7a69be78ee2aa55cdb5058a85a47177a77d402"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_s_shr_beyond_k_w_b": {
+   "status": "pass",
+   "inputs_sha256": "ea052424d09cdcbe27fa9d2f0ae8c2b925fefa54a54433258e860513d6b284af"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_s_shr_last_k_n_b": {
+   "status": "pass",
+   "inputs_sha256": "91d6a551d3a7330b06df9253d7b83f55dc4139958d41b58973306153eebac7f7"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_s_shr_z_k_s_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "ba165122730d6a08481b4c0f6758c98bc8eed21a562987430e13d0795eb096c9"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_s_shr_zero_k_s_b": {
+   "status": "pass",
+   "inputs_sha256": "0e4bc7731d85e39d3f495dcf42a1b040c026b651462f23e3536fbc28b22d4165"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_u_ashl_beyond_k_n_l": {
+   "status": "pass",
+   "inputs_sha256": "32e9cb228a8326ee6ff48579a8cdbc0fdb93caa6018abb882c70ba8c494b803a"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_u_ashl_last_k_s_l": {
+   "status": "pass",
+   "inputs_sha256": "334f59ace46d14bcb4b5e5c85a6379bb316e2503de7e88d7ec9d55e10f984927"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_u_ashl_z_k_w_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "27453f7a9fd0d5325fdef9c5f4ac31fc9087d0fa80aba316f61f4d4f54870650"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_u_ashl_zero_k_w_l": {
+   "status": "pass",
+   "inputs_sha256": "70ab10f44f43f468f0c2964544e7255d2c2c70281a5983123eeafd3504c7b5d3"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_u_ashr_one_k_s_l": {
+   "status": "pass",
+   "inputs_sha256": "020d9f098a7273be33a132b20c8553a02a828d7dcc9b7ffb6c9c21883aee1749"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_u_ashr_width_k_n_l": {
+   "status": "pass",
+   "inputs_sha256": "48be2afdd90f5dac8b17f69b8811f079fe722f423bcba91b1b34b59f76c777cc"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_u_ashr_x_k_w_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "ceca8a15c2e6609b4f4d883588a903e5798b9dc8f516fd795e4c706146124d4b"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_u_shl_beyond_k_s_l": {
+   "status": "pass",
+   "inputs_sha256": "e7b5a9a891ba9ebf8e5ffd4920eb6c01b5fc208bd1f3f727ee3742c979825953"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_u_shl_last_k_w_l": {
+   "status": "pass",
+   "inputs_sha256": "52bce4c62bc99aa900f22e232a7891ea68ac43fe7f4f64e0e17e3b0ef429465e"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_u_shl_one_x_n_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=x0000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "2aa5ac94b9366348a68223bbfadd3a84c2ad9af67f6cdb6289f90bb5ab5281ce"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_u_shl_z_k_n_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "adeca5a75de440af7e56122c27736f9b54710158cab0d85fabbf6701e19042c1"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_u_shl_zero_k_n_l": {
+   "status": "pass",
+   "inputs_sha256": "e2e7984e1a2efcaf81e405048cb8586ff7e16835d01637f1704ab800fccce781"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_u_shr_beyond_z_s_b": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=00000000000000000000000000000000000000000000000000...', expected 'source=z0000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "81243ad2caaa39495f391efedf3ef17406a732e6d225416dfa43a37b02552fd2"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_u_shr_one_k_w_l": {
+   "status": "pass",
+   "inputs_sha256": "12272bc5b4ee5a82ae8eed8671fa3efc8b2d88c34c1e5c482542149deff4e3c5"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_u_shr_width_k_s_l": {
+   "status": "pass",
+   "inputs_sha256": "82b76602068fcbe756c044857dc7bbf4fe13baa133ce1501b047d7cace5ee153"
+  },
+  "gen/ch11/test_gen_wide_shift_w513_u_shr_x_k_n_l": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'source=10000000000000000000000000000000000000000000000000...', expected 'source=10000000000000000000000000000000000000000000000000...'",
+   "inputs_sha256": "e47d6bdce2fc2cf317ea0fd26d3dbb63d3a62b527178f31f78a312ff70c71164"
+  }
+ },
+ "generated_at": "2026-11-19T04:36:16.959708+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}
