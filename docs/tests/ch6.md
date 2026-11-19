@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[All chapters](README.md). 897 tests, 265 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 898 tests, 265 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -498,6 +498,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_specparam_declared_and_inferred_range`](../../tests/ch6/test_specparam_declared_and_inferred_range.sv) | A specparam with a declared range has that range while one without a range takes the width of its final assigned value | 6.20.5 | Icarus Verilog 13.0 ||
 | [`test_specparam_edge_cases`](../../tests/ch6/test_specparam_edge_cases.sv) | specparam values used in expressions in the module body | 6.20.5 | Icarus Verilog 13.0 ||
 | [`test_specparam_from_parameters_and_specparams`](../../tests/ch6/test_specparam_from_parameters_and_specparams.sv) | a specparam takes a constant expression of parameters and of earlier specparams, in the module body and in a specify block, and the values follow a parameter override | 6.20.5 6.20.2 30.3 30.5.1 | Icarus Verilog 13.0 ||
+| [`test_specparam_select_in_specparam_constant`](../../tests/ch6/test_specparam_select_in_specparam_constant.sv) | the constant expression of a specparam may use an earlier specparam as a constant primary, whole or with a bit-select, a part-select or an indexed part-select | 6.20.5 A.8.4 | Icarus Verilog 13.0 ||
 | [`test_ch6_extra_const_handle_write`](../../tests/ch6/test_ch6_extra_const_handle_write.sv) | A const class handle cannot be written after its declaration, although the members of its object can be | 6.20.6 8.7 | Icarus Verilog 13.0 | illegal design |
 | [`test_const_edge_cases`](../../tests/ch6/test_const_edge_cases.sv) | Const variables edge cases | 6.20.6 6.21 | Icarus Verilog 13.0 | x/z |
 | [`test_const_ops_edge_cases`](../../tests/ch6/test_const_ops_edge_cases.sv) | Test: Const operations edge cases | 6.20.6 6.21 | Icarus Verilog 13.0 ||

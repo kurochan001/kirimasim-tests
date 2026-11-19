@@ -1,0 +1,6 @@
+probe test_bind_instance_name_over_module_name_and_placements.k1.p_ifc
+probe test_bind_instance_name_over_module_name_and_placements.m1.p_mod
+probe test_bind_instance_name_over_module_name_and_placements.m2.p_mod
+probe test_bind_instance_name_over_module_name_and_placements.u_a.p_inst
+probe test_bind_instance_name_over_module_name_and_placements.w1.p_unit
+5 probes

@@ -1,0 +1,4 @@
+b triggered before wait_order(a, b): status 1 at 14
+c triggered before wait_order(c, d): status 1 at 22
+f before e with else: status 0 at 32, else ran 1 time
+h before g without else: went on at 42

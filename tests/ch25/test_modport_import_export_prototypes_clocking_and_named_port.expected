@@ -1,0 +1,3 @@
+ini: get_stored() = 42
+ini: cb.data at 5 = 5a
+tgt: stored 42, low a

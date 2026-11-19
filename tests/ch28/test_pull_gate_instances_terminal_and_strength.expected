@@ -1,0 +1,4 @@
+pullup Pu1, pulldown Pu0
+named Pu1, unnamed Pu1
+pullup (strong1) St1, pulldown (weak0) We0
+pullup (strong0, weak1) We1, pulldown (weak1, supply0) Su0

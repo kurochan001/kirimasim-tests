@@ -1,0 +1,8 @@
+bit part at 0 width 8: 000000ef
+bit part at 28 width 8: 00000078
+bit part at 32 width 32: 01234567
+bit part at 20 width 32: 3456789a
+logic part at 36 width 8: aval 000000a9 bval 00000000
+logic part at 16 width 32: aval ba987654 bval 00000000
+bit vector after the puts: c12a5a5a5a5bcdef
+logic vector after the puts: 1111111011011100011010101001000100100011010001010110011110000000

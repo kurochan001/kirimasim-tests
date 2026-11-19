@@ -1,0 +1,5 @@
+e1 trigger at 10: @e1 10, @alias1 10, wait triggered 10
+e2 at 20: wait before trigger 20, wait after trigger 20
+e3 triggered at 20 then @e3: released at 30
+e4 at 40: wait (!e4.triggered || go) released at 50
+triggered(): bit, 1 bit, e1 1, e2 0

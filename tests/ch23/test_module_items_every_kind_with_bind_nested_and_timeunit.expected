@@ -1,0 +1,12 @@
+leaf output at 12: 0
+leaf output at 14: 1
+flag at 19: 0
+flag at 21: 1
+nested program after two posedges
+assign y 4, alias n1 1, buf 1, udp 0
+defparam K 7, bound probe 5, interface 9
+nested module 66, nested interface 77
+generate 10 44 55, specparam 4
+at 200: always 2, assertion passes 2
+program instance at 220
+final: always ran 2 times, assertion passed 2 times

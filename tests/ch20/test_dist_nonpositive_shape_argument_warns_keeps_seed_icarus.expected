@@ -1,0 +1,25 @@
+WARNING: Exponential distribution must have a positive mean
+exponential mean 0: value 0, seed 7
+WARNING: Exponential distribution must have a positive mean
+exponential mean -1: value 0, seed 7
+exponential mean 1: value 9, seed 483484
+WARNING: Poisson distribution must have a positive mean
+poisson mean 0: value 0, seed 7
+WARNING: Poisson distribution must have a positive mean
+poisson mean -1: value 0, seed 7
+poisson mean 1: value 0, seed 483484
+WARNING: Chi_square distribution must have a positive degree of freedom
+chi_square df 0: value 0, seed 7
+WARNING: Chi_square distribution must have a positive degree of freedom
+chi_square df -1: value 0, seed 7
+chi_square df 1: value 1, seed -1368524349
+WARNING: t distribution must have a positive degree of freedom
+t df 0: value 0, seed 7
+WARNING: t distribution must have a positive degree of freedom
+t df -1: value 0, seed 7
+t df 1: value -1, seed -809111543
+WARNING: K-stage erlangian distribution must have a positive k
+erlang k 0 mean 10: value 0, seed 7
+WARNING: K-stage erlangian distribution must have a positive k
+erlang k -1 mean 10: value 0, seed 7
+erlang k 1 mean 10: value 91, seed 483484

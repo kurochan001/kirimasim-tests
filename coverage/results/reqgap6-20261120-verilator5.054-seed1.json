@@ -1,0 +1,137 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch13/test_tf_port_directions_ref_static_and_item_forms": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch13/test_tf_port_directions_ref_static_and_item_forms.sv:53:42: syntax error, unexpected ')', expecting IDENTIFIER or IDENTIFIER-for-pathpulse or randomize",
+   "inputs_sha256": "d0e45dc33a970ba318bac6d0ebe22f5532b6abca8ac52a5d6a06c28cbee6d1ed"
+  },
+  "ch14/test_illegal_clocking_skew_nonconstant_expression": {
+   "status": "pass",
+   "inputs_sha256": "4b41b0589c01fc6e663c9bf327af4e3f23a92efc51e39631ee0b477cdd6ba557"
+  },
+  "ch14/test_illegal_clocking_skew_real_constant": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "afeb2974f32b9d4164216035f733e1dba610001d30d5586ec783f2551b9b6789"
+  },
+  "ch15/test_illegal_mailbox_param_get_string_from_int": {
+   "status": "pass",
+   "inputs_sha256": "200514a226461b88051731d01ae2f052ddcc0719eab2cc1ca96d7ee9baad33e7"
+  },
+  "ch15/test_illegal_mailbox_param_peek_string_from_int": {
+   "status": "pass",
+   "inputs_sha256": "fc7ff305abf8a9d4ac3d8d935ad25b39bca49433ac9011843a35aaa4fdfb19af"
+  },
+  "ch15/test_illegal_mailbox_param_put_int_into_string": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "c75fdd24b697f34b1e086184502765cb4cc17c2f006a291c6580e2c40eaefb3d"
+  },
+  "ch15/test_illegal_mailbox_param_try_get_string_from_int": {
+   "status": "pass",
+   "inputs_sha256": "bafb9fe1207065d4cf2615eba497472835a607fbac484d69f1a6e4cffb6ed03e"
+  },
+  "ch15/test_illegal_mailbox_param_try_peek_string_from_int": {
+   "status": "pass",
+   "inputs_sha256": "752a6ec659416df409b59e006aa5b00b161254e81e9eddbf6a32b6f395350730"
+  },
+  "ch15/test_illegal_mailbox_param_try_put_int_into_string": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "583abc43cc9816e17681c1cf522770d1c44bef46d4eb390480e087bcc27d4c94"
+  },
+  "ch15/test_named_event_alias_queue_and_triggered_wait": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv:60:12: Assignment to and from event in statically scheduled context.",
+   "inputs_sha256": "1ff71430633a11a2dd1c86236bfc90a1c65b5b01bd32c50f2990291a6f62f929"
+  },
+  "ch15/test_semaphore_new_int_key_count_and_handle": {
+   "status": "pass",
+   "inputs_sha256": "678bef0f16139e419daf7fe3a436341c299bdc26664ea14244271ee1563207a1"
+  },
+  "ch15/test_wait_order_later_event_ignores_earlier_trigger": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch15/test_wait_order_later_event_ignores_earlier_trigger.sv:48:21: Unsupported: wait_order",
+   "inputs_sha256": "994f687b926d2fee065a8ae25633987efbc4b49e7b3eaba48df3353055d3ec3d"
+  },
+  "ch16/test_sequence_method_call_and_match_item_forms": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch16/test_sequence_method_call_and_match_item_forms.sv:47:5: syntax error, unexpected '@', expecting IDENTIFIER-for-type",
+   "inputs_sha256": "f59c84b053534888218086cafb3f34631a507508bf1733f7055e6f2c58859ead"
+  },
+  "ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed": {
+   "status": "known",
+   "reason": "no message matches '(?is)(?:\\\\b(?:warn(?:ing)?|error)\\\\b.*?){10}'",
+   "inputs_sha256": "34c9ef49471db26bcf8fb65274bbbe788644924e45b2fc793da44efa9eef481c"
+  },
+  "ch23/test_bind_instance_name_over_module_name_and_placements": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'probe test_bind_instance_name_over_module_name_and_placem...', expected 'probe test_bind_instance_name_over_module_name_and_placem...'",
+   "inputs_sha256": "801b9527b2612b8911375760b36fecab65e6bb4b201924dcf4fb1ad92c0329df"
+  },
+  "ch23/test_module_items_every_kind_with_bind_nested_and_timeunit": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch23/test_module_items_every_kind_with_bind_nested_and_timeunit.sv:124:3: Unsupported: module decls within module decls",
+   "inputs_sha256": "dbae5ea2cc90f2b94c2e0abdcc48fc2f446e7c464cd87f8b7729e429ed58eebf"
+  },
+  "ch25/test_modport_import_export_prototypes_clocking_and_named_port": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch25/test_modport_import_export_prototypes_clocking_and_named_port.sv:70:16: No matching export prototype found in interface bus_if for task 'get_stored' (IEEE 1800-2023 25.7)",
+   "inputs_sha256": "3f91dbbd10efd6e8e5195d2007144292cf9aa7f6a18d33931d928047fc3b04e7"
+  },
+  "ch26/test_illegal_two_wildcard_imports_ambiguous_reference": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "873d4ecfed9a092bdff7c3e893f3477c40284b2c9414d47004984af30b560703"
+  },
+  "ch27/test_illegal_generate_region_in_conditional_block": {
+   "status": "pass",
+   "inputs_sha256": "1e9bafb57168149ae4279382978f6fed854fbb61bfc10b0b48dd92afdeb99944"
+  },
+  "ch27/test_illegal_generate_region_in_loop_block": {
+   "status": "pass",
+   "inputs_sha256": "95eb25f4b70438adafb405bf8c33ff8d8464aa9b0664a2866dae02e73d2d6919"
+  },
+  "ch27/test_illegal_generate_region_in_package": {
+   "status": "pass",
+   "inputs_sha256": "c57001af8e162cf88e4cafa950712cd72a875e90f9446323401bf5a318b18d02"
+  },
+  "ch28/test_gate_declaration_list_names_ranges_terminals": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch28/test_gate_declaration_list_names_ranges_terminals.sv:48:8: Unsupported: Verilog 1995 gate primitive: cmos",
+   "inputs_sha256": "57e985ba246444abeb10e86f286d95273dbc64a6eb29654b95877c8499a4b4e3"
+  },
+  "ch28/test_net_delay_counts_rise_fall_x_z": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch28/test_net_delay_counts_rise_fall_x_z.sv:66:18: Unsupported tristate construct: ARG",
+   "inputs_sha256": "dc36b3f2fecfb00aa521ba5d38858d3725be10c653961b2a78b89514b31608af"
+  },
+  "ch28/test_pull_gate_instances_terminal_and_strength": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch28/test_pull_gate_instances_terminal_and_strength.sv:34:11: Unsupported: pullup strength",
+   "inputs_sha256": "55f0613cbcba41971a693742a1e63e78c34b88c47c0375bf70adfea8b7278e0f"
+  },
+  "ch35/test_svdpi_h_partsel_get_put_bit_logic_width_32": {
+   "status": "pass",
+   "inputs_sha256": "806b41d5fe9caa9b8308bf3f804dd6522eeaa892df86f833ba7cd98bcf76c057"
+  },
+  "ch35/test_svdpi_h_signed_bits_macro_tokens": {
+   "status": "pass",
+   "inputs_sha256": "2cb66e806df15d287665adff7b9490416fffef8cc75765ccfa9dcb33a8894971"
+  },
+  "ch6/test_specparam_select_in_specparam_constant": {
+   "status": "known",
+   "reason": "output differs: line 2 is '[1] 00000000000000000000000000000000000000000000000000000...', expected '[1] 1, [2] 0'",
+   "inputs_sha256": "5aa93745d5cf1bb5515f91b86cb739b569066277a4051916794b9c06d99ff99c"
+  }
+ },
+ "generated_at": "2026-11-19T15:46:17.221209+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

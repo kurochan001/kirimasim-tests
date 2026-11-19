@@ -15,36 +15,36 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 3 | [Design and verification building blocks](ch3.md) | 152 | 48 |
 | 4 | [Scheduling semantics](ch4.md) | 480 | 386 |
 | 5 | [Lexical conventions](ch5.md) | 520 | 415 |
-| 6 | [Data types](ch6.md) | 897 | 265 |
+| 6 | [Data types](ch6.md) | 898 | 265 |
 | 7 | [Aggregate data types](ch7.md) | 1109 | 604 |
 | 8 | [Classes](ch8.md) | 479 | 138 |
 | 9 | [Processes](ch9.md) | 464 | 233 |
 | 10 | [Assignment statements](ch10.md) | 737 | 521 |
 | 11 | [Operators and expressions](ch11.md) | 2607 | 2054 |
 | 12 | [Procedural programming statements](ch12.md) | 312 | 125 |
-| 13 | [Tasks and functions (subroutines)](ch13.md) | 741 | 504 |
-| 14 | [Clocking blocks](ch14.md) | 170 | 72 |
-| 15 | [Interprocess synchronization and communication](ch15.md) | 196 | 133 |
-| 16 | [Assertions](ch16.md) | 799 | 133 |
+| 13 | [Tasks and functions (subroutines)](ch13.md) | 742 | 504 |
+| 14 | [Clocking blocks](ch14.md) | 172 | 72 |
+| 15 | [Interprocess synchronization and communication](ch15.md) | 205 | 133 |
+| 16 | [Assertions](ch16.md) | 800 | 133 |
 | 17 | [Checkers](ch17.md) | 128 | 27 |
 | 18 | [Constrained random value generation](ch18.md) | 282 | 57 |
 | 19 | [Functional coverage](ch19.md) | 242 | 50 |
-| 20 | [Utility system tasks and system functions](ch20.md) | 681 | 392 |
+| 20 | [Utility system tasks and system functions](ch20.md) | 682 | 392 |
 | 21 | [Input/output system tasks and system functions](ch21.md) | 929 | 708 |
 | 22 | [Compiler directives](ch22.md) | 1326 | 1206 |
-| 23 | [Modules and hierarchy](ch23.md) | 417 | 161 |
+| 23 | [Modules and hierarchy](ch23.md) | 419 | 161 |
 | 24 | [Programs](ch24.md) | 221 | 171 |
-| 25 | [Interfaces](ch25.md) | 264 | 134 |
-| 26 | [Packages](ch26.md) | 262 | 179 |
-| 27 | [Generate constructs](ch27.md) | 283 | 180 |
-| 28 | [Gate-level and switch-level modeling](ch28.md) | 397 | 287 |
+| 25 | [Interfaces](ch25.md) | 265 | 134 |
+| 26 | [Packages](ch26.md) | 263 | 179 |
+| 27 | [Generate constructs](ch27.md) | 286 | 180 |
+| 28 | [Gate-level and switch-level modeling](ch28.md) | 400 | 287 |
 | 29 | [User-defined primitives](ch29.md) | 142 | 61 |
 | 30 | [Specify blocks](ch30.md) | 70 ||
 | 31 | [Timing checks](ch31.md) | 66 ||
 | 32 | [Backannotation using the standard delay format](ch32.md) | 68 | 18 |
 | 33 | [Configuring the contents of a design](ch33.md) | 89 | 41 |
 | 34 | [Protected envelopes](ch34.md) | 4 ||
-| 35 | [Direct programming interface](ch35.md) | 187 | 48 |
+| 35 | [Direct programming interface](ch35.md) | 189 | 48 |
 | 36 | [Programming language interface (PLI/VPI) overview](ch36.md) | 89 ||
 | 37 | [VPI object model diagrams](ch37.md) | 231 ||
 | 38 | [VPI routine definitions](ch38.md) | 125 ||

@@ -1,0 +1,5 @@
+in the task at 0: s_ref 1004; at 2: a 1, e 50, g 70
+at 1: s_out 0, s_io 3, s_ref 1004
+after the return: s_out 11, s_io 103, s_ref 1004, s_rs 7
+sum('{3, 4}) 13, sum('{10, 20}, 4'd2, 0) 32, sum('{1, 1}, , 0) 7
+prototype without a port name: inc(4) = 5

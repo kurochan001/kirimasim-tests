@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 92.67%, execution without Ghost 51.06%, execution with Ghost 78.54%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 92.96%, execution without Ghost 51.20%, execution with Ghost 78.70%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 92.67%. Requirement execution-confirmation rate: 51.06% without Ghost, 78.54% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 92.96%. Requirement execution-confirmation rate: 51.20% without Ghost, 78.70% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 11428/12332 ( 92.67% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9686/12332 ( 78.54% ).
-- Registered but not tested: 904.
+- The requirement coverage (test design) for registered behaviors is 11464/12332 ( 92.96% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9705/12332 ( 78.70% ).
+- Registered but not tested: 868.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -96,13 +96,13 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `fourstate-boundaries-20261119d-kirimasim-441dddbd0fcd-run4.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T00:24:27.618699+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `fourstate-boundaries-20261119d-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T00:26:22.013552+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `fourstate-boundaries-20261119d-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T00:28:09.101257+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
-- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3089/12332 execution checked; 340 entries refer to older inputs.
-- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2994/12332 execution checked; 340 entries refer to older inputs.
-- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3887/12332 execution checked; 340 entries refer to older inputs.
-- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3598/12332 execution checked; 25 entries refer to older inputs.
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7928/12332 execution checked; 474 entries refer to older inputs.
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 8008/12332 execution checked; 410 entries refer to older inputs.
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7910/12332 execution checked; 474 entries refer to older inputs.
+- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3092/12332 execution checked; 340 entries refer to older inputs.
+- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2997/12332 execution checked; 340 entries refer to older inputs.
+- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3889/12332 execution checked; 340 entries refer to older inputs.
+- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3600/12332 execution checked; 25 entries refer to older inputs.
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7931/12332 execution checked; 474 entries refer to older inputs.
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 8011/12332 execution checked; 410 entries refer to older inputs.
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7913/12332 execution checked; 474 entries refer to older inputs.
 - `intcompat-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T10:26:34.150974+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `intcompat-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T10:26:46.168015+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `intcompat-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T10:26:39.847047+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -189,6 +189,10 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `reqgap5-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T14:47:44.027905+00:00` / 18/12332 execution checked; 14 entries refer to older inputs.
 - `reqgap5-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T14:46:35.374894+00:00` / 11/12332 execution checked; 14 entries refer to older inputs.
 - `reqgap5-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T14:47:43.190246+00:00` / 11/12332 execution checked; 14 entries refer to older inputs.
+- `reqgap6-20261120-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T15:46:16.026728+00:00` / 8/12332 execution checked; 0 entries refer to older inputs.
+- `reqgap6-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T15:46:16.196256+00:00` / 9/12332 execution checked; 0 entries refer to older inputs.
+- `reqgap6-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T15:46:17.221209+00:00` / 4/12332 execution checked; 0 entries refer to older inputs.
+- `reqgap6-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T15:46:17.959332+00:00` / 4/12332 execution checked; 0 entries refer to older inputs.
 - `runtime-errors-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-12T01:03:42.109814+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `runtime-errors-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-12T01:03:42.439195+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `runtime-errors-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T01:03:46.712402+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
@@ -545,8 +549,8 @@ The number of items is the investigation status of the article by heading. This 
 - 11 Operators and expressions: No interpretation restrictions 55/55, registration 459, test support 448.
 - 12 Procedural programming statements: no interpretation reservation 28/28, registration 115, test support 101.
 - 13 Tasks and functions (subroutines): no interpretation reservation 20/20, registration 124, test support 116.
-- 14 Clocking blocks: no interpretation reservation 19/19, registration 87, test support 84.
-- 15 Interprocess synchronization and communication: no interpretation reservation 27/27, registration 88, test support 75.
+- 14 Clocking blocks: no interpretation reservation 19/19, registration 87, test support 86.
+- 15 Interprocess synchronization and communication: no interpretation reservation 27/27, registration 88, test support 84.
 - 16 Assertions: No interpretation reservation 82/82, registration 557, test support 548.
 - 17 Checkers: No interpretation reservations 13/13, registration 81, test support 68.
 - 18 Constrained random value generation: 58/58 without pending interpretation issues, 323 registered, 314 mapped to tests.
@@ -554,12 +558,12 @@ The number of items is the investigation status of the article by heading. This 
 - 20 Utility system tasks and system functions: No interpretation reservation 45/45, registration 320, test support 299.
 - 21 Input/output system tasks and system functions: no interpretation reservation 65/65, registration 383, test support 358.
 - 22 Compiler directives: 28/28 without pending interpretation issues, 363 registered, 355 mapped to tests.
-- 23 Modules and hierarchy: No interpretation reservation 47/47, registration 260, test support 251.
+- 23 Modules and hierarchy: No interpretation reservation 47/47, registration 260, test support 254.
 - 24 Programs: No interpretation restrictions 10/10, registration 29, test support 25.
-- 25 Interfaces: No interpretation reservation 25/25, registration 63, test support 55.
-- 26 Packages: No interpretation reservation 8/8, registration 44, testing support 39.
-- 27 Generate constructs: no interpretation reservation 7/7, registration 32, test support 27.
-- 28 Gate-level and switch-level modeling: no interpretation reservation 34/34, registration 384, test support 370.
+- 25 Interfaces: No interpretation reservation 25/25, registration 63, test support 58.
+- 26 Packages: No interpretation reservation 8/8, registration 44, testing support 41.
+- 27 Generate constructs: no interpretation reservation 7/7, registration 32, test support 28.
+- 28 Gate-level and switch-level modeling: no interpretation reservation 34/34, registration 384, test support 374.
 - 29 User-defined primitives: no interpretation reservation 17/17, registration 52, test support 49.
 - 30 Specify blocks: no interpretation restrictions 31/31, registration 157, test support 150.
 - 31 Timing checks: no interpretation reservation 26/26, registration 180, test support 155.
@@ -573,7 +577,7 @@ The number of items is the investigation status of the article by heading. This 
 - 39 Assertion API : No interpretation reservation 14/14, registration 95, test support 82.
 - 40 Code coverage control and API : no interpretation reservation 26/26, registration 128, test support 122.
 - 41 Data read API : no interpretation reservation 1/1, registration 0, test support 0.
-- A Formal syntax: no interpretation reserve 87/87, registration 811, test compliant 792.
+- A Formal syntax: no interpretation reserve 87/87, registration 811, test compliant 796.
 - B Keywords: 1/1 without interpretation reservation, 248 registration, 248 test compliant.
 - C Deprecation: No interpretation reserve 16/16, registration 20, test support 9.
 - D Optional system tasks and system functions: Reference (not included in the denominator of the standard requirements), registration 0, test support 0.
@@ -581,12 +585,12 @@ The number of items is the investigation status of the article by heading. This 
 - F Formal semantics of concurrent assertions: no interpretation reservation 53/53, registration 253, test support 253.
 - G Std package: no interpretation reserve 8/8, registration 32, test support 25.
 - H DPI C layer: No interpretation reservation 72/72, registration 223, test support 192.
-- I svdpi.h : No interpretation reservation 4/4, registration 147, test compliant 133.
+- I svdpi.h : No interpretation reservation 4/4, registration 147, test compliant 135.
 - J Inclusion of foreign language code: no interpretation reservation 7/7, registration 16, test compatible 0.
 - K vpi_user.h: no interpretations on hold 3/3; registered 544; test mappings 541.
 - L vpi_compatibility.h: no interpretations on hold 3/3; registered 88; test mappings 85.
 - M sv_vpi_user.h: no interpretations on hold 3/3; registered 412; test mappings 407.
-- N Algorithm for probabilistic distribution functions: no interpretation reservation 3/3, registered 39, test-compatible 29.
+- N Algorithm for probabilistic distribution functions: no interpretation reservation 3/3, registered 39, test-compatible 35.
 - O Encryption/decryption flow: reference (not included in the denominator of the standard requirements), registration 0, test compatible 0.
 - P Glossary: Reference (not included in the denominator of the standard requirements), registration 0, test compliant 0.
 - Q Bibliography: Reference (not included in the denominator of the standard requirements), register 0, test compatible 0.
@@ -35467,7 +35471,7 @@ Normative role: `mandatory`。
 
 ### SV2023-14.3-EXTRACT-SKEW-VALUE
 
-`14.3` / `error` / No mapped test
+`14.3` / `error` / Test mapped; execution unconfirmed
 
 A clocking delay control must be a time literal or constant expression with nonnegative integer value.
 
@@ -35475,6 +35479,9 @@ Acceptance criterion: A clocking delay control must be a time literal or constan
 
 Normative role: `mandatory`。
 
+- [test_illegal_clocking_skew_negative.sv](../tests/ch14/test_illegal_clocking_skew_negative.sv) : rejects input #(P - 3 ) a ( P = 2 , value -1 ) at line 33 . #P, #(P - 2 ) and # 1ns are legal.
+- [test_illegal_clocking_skew_real_constant.sv](../tests/ch14/test_illegal_clocking_skew_real_constant.sv) : rejects input # 1.5 a (a real number without a time unit, with a non-integer value) at line 34 . # 2 , # 0 and the time literal # 1.5ns are legal.
+- [test_illegal_clocking_skew_nonconstant_expression.sv](../tests/ch14/test_illegal_clocking_skew_nonconstant_expression.sv) : rejects output #(d + 1 ) a (a nonconstant expression that reads variable d) at line 33 . #(P + 1 ) and # 2ns are legal.
 
 ### SV2023-14.4-EXTRACT-ONE-STEP-IMMEDIATELY-BEFORE
 
@@ -36128,7 +36135,7 @@ Normative role: `mandatory`。
 
 ### SV2023-14.16-EXTRACT-DRIVE-SKEW-ALWAYS
 
-`14.16` / `normal` / No mapped test
+`14.16` / `normal` / Execution confirmed
 
 Whether the drive matures now or in a future cycle, its signal update observes the target output skew.
 
@@ -36136,6 +36143,7 @@ Acceptance criterion: Whether the drive matures now or in a future cycle, its si
 
 Normative role: `mandatory`。
 
+- [test_clocking_drive_rhs_now_update_after_cycles_and_skew.sv](../tests/ch14/test_clocking_drive_rhs_now_update_after_cycles_and_skew.sv) : on the clockvar of output # 2 , at the clock event at time 5 , executes the drive cb.w \<= r that matures in the current cycle and the drive cb.v \<= ## 2 r that matures 2 cycles later ( 25 ). Prints that w is 0 at 6 and 1 at 8 (updated to 5 + 2 = 7 ), and that v is 0 at 26 and 1 at 28 (updated to 25 + 2 = 27 ). Distinguishing observation: An implementation that does not apply the skew to a drive that matures in the current cycle changes w of 't=6 v=0 w=0' to 1 ; one that does not apply the skew to a drive that matures in a future cycle changes v to 25 and v of 't=26 v=0 w=1' to 1 .
 
 ### SV2023-14.16-EXTRACT-DRIVE-SNAPSHOT-NONBLOCKING
 
@@ -36422,7 +36430,7 @@ Normative role: `mandatory`。
 
 ### SV2023-15.3.1-EXTRACT-SIGNATURE
 
-`15.3.1` / `normal` / No mapped test
+`15.3.1` / `normal` / Execution confirmed
 
 Semaphore new takes int keyCount default zero and constructs/returns a semaphore handle.
 
@@ -36430,6 +36438,7 @@ Acceptance criterion: Semaphore new takes int keyCount default zero and construc
 
 Normative role: `definition`。
 
+- [test_semaphore_new_int_key_count_and_handle.sv](../tests/ch15/test_semaphore_new_int_key_count_and_handle.sv) : repeats try_get ( 1 ) up to 10 times and counts the keys. new with no argument gives 0 key(s); new( -2 ) gives 0 key(s), and after put( 3 ) gives 1 (signed -2 ); new( 33'h1_0000_0003 ) gives 32 -bit low 3 key(s) by the assignment conversion to int ; the declaration initial value new( 5 ) gives 5 key(s). 2 calls of new( 1 ) return different non-null handles (different 1 , not null 1 ). Distinguishing observation: An implementation that makes the default something other than 0 changes 'new: 0 keys' . An implementation that takes the argument as a type wider than 32 bits gives 4294967299 keys for the 33 -bit value, and '3 keys' changes to the upper limit 10 . An implementation that takes it as unsigned makes new( -2 ) a huge number of keys and changes '0 keys' and 'put(3): 1 keys' . An implementation where new returns the same object or null changes 'different 1, not null 1' .
 
 ### SV2023-15.3.2-EXTRACT-NO-NEGATIVE-PUT
 
@@ -37068,7 +37077,7 @@ Normative role: `mandatory`。
 
 ### SV2023-15.4.9-EXTRACT-TYPED-MAILBOX-EQUIVALENCE
 
-`15.4.9` / `error` / No mapped test
+`15.4.9` / `error` / Test mapped; execution unconfirmed
 
 For a specialized mailbox, put/try_put/get/try_get/peek/try_peek argument types must be equivalent to the mailbox type, with mismatches caught at compilation.
 
@@ -37076,10 +37085,16 @@ Acceptance criterion: For a specialized mailbox, put/try_put/get/try_get/peek/tr
 
 Normative role: `mandatory`。
 
+- [test_illegal_mailbox_param_put_int_into_string.sv](../tests/ch15/test_illegal_mailbox_param_put_int_into_string.sv) : rejects the line that passes the int variable n to put of mailbox #(string) (line 37 ). A put of a string literal and the string variable s is legal.
+- [test_illegal_mailbox_param_try_put_int_into_string.sv](../tests/ch15/test_illegal_mailbox_param_try_put_int_into_string.sv) : rejects the line that passes the int variable n to try_put of mailbox #(string) (line 37 ). A try_put with a string literal and s is legal.
+- [test_illegal_mailbox_param_get_string_from_int.sv](../tests/ch15/test_illegal_mailbox_param_get_string_from_int.sv) : rejects the line that passes the string variable s to get of mailbox #( int ) (line 35 ). A get to a int variable n is legal.
+- [test_illegal_mailbox_param_try_get_string_from_int.sv](../tests/ch15/test_illegal_mailbox_param_try_get_string_from_int.sv) : rejects the line that passes the string variable s to try_get of mailbox #( int ) (line 35 ). A try_get to n is legal.
+- [test_illegal_mailbox_param_peek_string_from_int.sv](../tests/ch15/test_illegal_mailbox_param_peek_string_from_int.sv) : rejects the line that passes the string variable s to peek of mailbox #( int ) (line 35 ). A peek to n is legal.
+- [test_illegal_mailbox_param_try_peek_string_from_int.sv](../tests/ch15/test_illegal_mailbox_param_try_peek_string_from_int.sv) : rejects the line that passes the string variable s to try_peek of mailbox #( int ) (line 35 ). A try_peek to n is legal.
 
 ### SV2023-15.5-EXTRACT-NAMED-EVENT-HANDLE
 
-`15.5` / `normal` / No mapped test
+`15.5` / `normal` / Test mapped; execution unconfirmed
 
 An event declaration gives a named handle that can be explicitly triggered, waited in event expressions and assigned from another event.
 
@@ -37087,10 +37102,11 @@ Acceptance criterion: An event declaration gives a named handle that can be expl
 
 Normative role: `definition`。
 
+- [test_named_event_alias_queue_and_triggered_wait.sv](../tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv) : triggers event e1 explicitly with - \> at time 10 ; records and prints that both the process waiting with @( e1 ) from time 0 and the process that waits with @( alias1 ) after assigning alias1 = e1 are released at time 10 (@ e1 10 , @ alias1 10 ). Distinguishing observation: An implementation where assigning an event copies it as a separate object instead of sharing the handle does not release @( alias1 ) and changes '@alias1 -1' . - If waiting on a trigger or event control by \> does not work, '@e1 10' changes to -1 .
 
 ### SV2023-15.5-EXTRACT-SYNCHRONIZATION-QUEUE
 
-`15.5` / `normal` / No mapped test
+`15.5` / `normal` / Test mapped; execution unconfirmed
 
 Each underlying event object holds waiting processes; @ waits for triggers while wait may inspect persistent triggered state.
 
@@ -37098,6 +37114,7 @@ Acceptance criterion: Each underlying event object holds waiting processes; @ wa
 
 Normative role: `mandatory`。
 
+- [test_named_event_alias_queue_and_triggered_wait.sv](../tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv) : with the same synchronization object ( e1 and the alias1 assigned from it), 2 processes waiting with @ and 1 processes waiting with wait( e1.triggered ) are all released by 1 trigger(s) ( 10 , 10 , 10 ). As a contrast between @ and wait, @( e3 ) right after triggering e3 itself misses that trigger and is released by the next trigger at 30 , while wait( e2.triggered ) right after triggering e2 itself sees the persistent triggered state and is released at 20 . Distinguishing observation: An implementation that keeps only 1 queue of waiting processes (releasing only the last waiter) turns one of @ e1 or @ alias1 into -1 . If @ is implemented to look at the persistent state, 'released at 30' changes to 20 ; if wait is implemented not to look at the persistent state, 'wait after trigger 20' changes to -1 .
 
 ### SV2023-15.5.1-EXTRACT-ARRAY-INDEX-NOT-TRIGGER
 
@@ -37174,7 +37191,7 @@ Normative role: `mandatory`。
 
 ### SV2023-15.5.3-EXTRACT-NO-FALLING-TRIGGERED-SENSITIVITY
 
-`15.5.3` / `normal` / No mapped test
+`15.5.3` / `normal` / Test mapped; execution unconfirmed
 
 The automatic one-to-zero triggered-status reset at a time-step boundary does not itself reevaluate an event/wait expression; only actual operand-change sensitivity causes reevaluation.
 
@@ -37182,10 +37199,11 @@ Acceptance criterion: The automatic one-to-zero triggered-status reset at a time
 
 Normative role: `mandatory`。
 
+- [test_named_event_alias_queue_and_triggered_wait.sv](../tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv) : right after triggering e4 at time 40 , wait (! e4.triggered || go) waits (false at that point). At time 45 , changes only variable other, which is not an operand of the wait expression, to create a new time step, and at time 50 sets go to 1 . Prints that the release time is 50 . Distinguishing observation: An implementation that re-evaluates the wait expression when triggered returns from 1 to 0 at the end of the time step, at the end of 40 or at the next step 45 , makes ! e4.triggered becomes true and releases it, and 'released at 50' changes to 40 or 45 ( Verilator 5.054 prints 45 for a copy without the assignment, and mismatches in this form).
 
 ### SV2023-15.5.3-EXTRACT-SAME-STEP-WAIT-ORDER
 
-`15.5.3` / `normal` / No mapped test
+`15.5.3` / `normal` / Test mapped; execution unconfirmed
 
 Waiting on persistent triggered status unblocks whether the wait starts before or after a trigger in the same simulation time step.
 
@@ -37193,10 +37211,11 @@ Acceptance criterion: Waiting on persistent triggered status unblocks whether th
 
 Normative role: `mandatory`。
 
+- [test_named_event_alias_queue_and_triggered_wait.sv](../tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv) : for wait( e.triggered ) that starts before the trigger, places one that waits from time 0 (trigger at 10 ) and one that starts waiting in the Active region at time 20 with the trigger delayed to the Inactive region by # 0 (waits first within the same time step); for a wait that starts after the trigger, places one that waits after triggering e2 itself at time 20 ; prints that all are released at 10 / 20 / 20 . The order is determined by # 0 and the order within the same process, and does not depend on an order the standard does not define. Distinguishing observation: An implementation that sees only a trigger after the wait starts (treated like @) changes 'wait after trigger 20' to -1 ; one that sees only the state at wait start changes 'wait before trigger 20' to -1 .
 
 ### SV2023-15.5.3-EXTRACT-SIGNATURE
 
-`15.5.3` / `normal` / No mapped test
+`15.5.3` / `normal` / Test mapped; execution unconfirmed
 
 Event triggered is a no-argument bit-returning method.
 
@@ -37204,6 +37223,7 @@ Acceptance criterion: Event triggered is a no-argument bit-returning method.
 
 Normative role: `definition`。
 
+- [test_named_event_alias_queue_and_triggered_wait.sv](../tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv) : calls e1.triggered () with no arguments and e2.triggered , and prints that $typename ( e1.triggered ()) is bit , that $bits is 1 , that e1 triggered at time 60 is 1 , and that e2 triggered at time 20 is 0 . Distinguishing observation: An implementation that makes the return type int or logic changes 'bit' and '1 bit' of $typename ( 'int, 32 bit' or 'logic' ). An implementation that does not check for a trigger in the current time step changes 'e1 1, e2 0' . Implementations that require arguments cannot be compiled.
 
 ### SV2023-15.5.3-EXTRACT-TRIGGERED-PERSISTENCE
 
@@ -37243,7 +37263,7 @@ Normative role: `permission`。
 
 ### SV2023-15.5.4-EXTRACT-FIRST-ONLY-PERSISTENT
 
-`15.5.4` / `normal` / No mapped test
+`15.5.4` / `normal` / Test mapped; execution unconfirmed
 
 Only the first wait_order event may use its persistent triggered state.
 
@@ -37251,6 +37271,7 @@ Acceptance criterion: Only the first wait_order event may use its persistent tri
 
 Normative role: `mandatory`。
 
+- [test_wait_order_later_event_ignores_earlier_trigger.sv](../tests/ch15/test_wait_order_later_event_ignores_earlier_trigger.sv) : right after triggering b at time 10 , starts wait_order (a, b) in the same process and triggers a at 12 and b at 14 . The triggered state of the 2 th b at time 10 is not used, and the sequence succeeds at b at 14 with status 1 at 14 . As a control, starting wait_order (c, d) right after triggering the first c at time 20 and triggering d at 22 counts the persistent state of c and gives status 1 at 22 . Distinguishing observation: An implementation that also uses the persistent triggered state for the 2 th and later events regards b as having occurred before a and fails at 10 or 12 (status 0 ), or regards b as satisfied after a and completes at 12 , and the line for 'status 1 at 14' changes. An implementation that also does not use the persistent state of the first event fails with d occurring first and c never arriving, and 'status 1 at 22' changes to 'status 0 at 22' .
 
 ### SV2023-15.5.4-EXTRACT-ORDERED-EVENT-WAIT
 
@@ -37278,7 +37299,7 @@ Normative role: `mandatory`。
 
 ### SV2023-15.5.4-EXTRACT-WAIT-ORDER-FAIL-ACTION
 
-`15.5.4` / `normal` / No mapped test
+`15.5.4` / `normal` / Test mapped; execution unconfirmed
 
 An out-of-order failure executes its explicit else action, or calls $error by default when no else exists.
 
@@ -37286,6 +37307,7 @@ Acceptance criterion: An out-of-order failure executes its explicit else action,
 
 Normative role: `mandatory`。
 
+- [test_wait_order_later_event_ignores_earlier_trigger.sv](../tests/ch15/test_wait_order_later_event_ignores_earlier_trigger.sv) : the else statement of wait_order (e, f) runs only 1 time(s), on the failure where f is triggered at 32 before e, giving status 0 , else ran 1 time, at 32 . wait_order (g, h) without an else calls $error on the failure where h is triggered at 42 before g; : expected_stderr_regex : (?i)\berror\b checks that the run message contains the error word (the printed lines do not contain that word). The process moves on to the next statement and prints went on at 42 . Distinguishing observation: An implementation that does not run the else statement on failure changes 'status 0 at 32, else ran 1 time' ( -1 / 0 time). An implementation that does not call $error when there is no else prints no error word in the message and fails at : expected_stderr_regex : . An implementation that stops processing or keeps waiting on failure changes 'went on at 42' .
 
 ### SV2023-15.5.4-EXTRACT-WAIT-ORDER-GRAMMAR
 
@@ -66867,7 +66889,7 @@ Normative role: `permission`。
 
 ### SV2023-23.2.4-EXTRACT-MODULE-ITEM-GRAMMAR
 
-`23.2.4` / `normal` / No mapped test
+`23.2.4` / `normal` / Test mapped; execution unconfirmed
 
 A module has zero or more legal module items: declarations, instantiations, assertions/bind, continuous assignments/aliases, initial/final/always processes, generate constructs, specify/specparam, nested design declarations and permitted timeunits.
 
@@ -66875,6 +66897,7 @@ Acceptance criterion: A module has zero or more legal module items: declarations
 
 Normative role: `definition`。
 
+- [test_module_items_every_kind_with_bind_nested_and_timeunit.sv](../tests/ch23/test_module_items_every_kind_with_bind_nested_and_timeunit.sv) : a module empty_m with no items, and a port declaration item output logic \[ 7:0 \] y; of a non- ANSI . Places items_m that starts with this. items_m has declarations (parameter, typedef , variable, net), defparam , instances of gates, UDP , modules, interfaces and programs, concurrent assertions, bind, continuous assignments, net alias, initial / final / always, loop and conditional generate and generate regions, specparam , nested module / interface / program declarations and instances, a leading timeunit 10ns and the same timeunit 10ns repeated as an item. Prints the effect of each (y 4 , alias 1 , buf 1 , udp 0 , K 7 of defparam , 5 of the bound probe, interface 9 , nested 66 , 77 , generate 10/44/55 , specparam 4 , the specify path delay of the leaf giving 0 at 12 and 1 at 14 , # 2 in 10ns units giving 0 at 19 and 1 at 21 , 2 runs of always and the assertion, the print of the nested program, the print and finish of the program instance at 220 , and the print of final) at fixed times. Distinguishing observation: An implementation that does not accept some kind of item inside a module cannot compile, and no lines are printed. An implementation that does not accept a timeunit repeated as an item, or that ignores the leading 10ns , changes 'flag at 19: 0' / 'flag at 21: 1' . If the interpretation of bind, defparam , nested declarations, generate or specify is wrong, the corresponding values change (bound probe 5 , K 7 , nested module 66 , generate 10 44 55 , leaf output at 14 : 1 ). An implementation that does not $finish at the end of a program changes the number of final lines or the output after the program line.
 
 ### SV2023-23.2.4-EXTRACT-REPEATED-TIMEUNIT-ITEM
 
@@ -69298,7 +69321,7 @@ Normative role: `definition`。
 
 ### SV2023-23.11-EXTRACT-BIND-INSTANCE-PRECEDENCE
 
-`23.11` / `normal` / No mapped test
+`23.11` / `normal` / Test mapped; execution unconfirmed
 
 Single-instance bind targets only that instance if its name also resolves to a module name.
 
@@ -69306,6 +69329,7 @@ Acceptance criterion: Single-instance bind targets only that instance if its nam
 
 Normative role: `mandatory`。
 
+- [test_bind_instance_name_over_module_name_and_placements.sv](../tests/ch23/test_bind_instance_name_over_module_name_and_placements.sv) : places instance u_a of module other and instance x of module u_a in top, and binds with bind u_a probe p_inst () in top. The bound probe records %m in a package associative array (string index, in lexicographic order) and prints the list at time 1 . probe exists only in top.u_a.p_inst and not in top.x.p_inst . As a control, bind leaf_m , which does not resolve to an instance name, binds to both m1 and m2 . Distinguishing observation: An implementation that treats u_a as a module name and binds to all instances shows 'probe ...x.p_inst' and loses 'probe ...u_a.p_inst' ( Verilator 5.054 mismatches in this form). An implementation that binds to both adds lines and '5 probes' becomes 6 . An implementation that limits even a bind with only a module name to 1 instances loses the line for m2 .
 
 ### SV2023-23.11-EXTRACT-BIND-LIBRARY-MAPPING
 
@@ -69345,7 +69369,7 @@ Normative role: `permission`。
 
 ### SV2023-23.11-EXTRACT-BIND-PLACEMENT
 
-`23.11` / `normal` / No mapped test
+`23.11` / `normal` / Test mapped; execution unconfirmed
 
 Bind directives may appear in modules, interfaces or compilation-unit scope.
 
@@ -69353,6 +69377,7 @@ Acceptance criterion: Bind directives may appear in modules, interfaces or compi
 
 Normative role: `mandatory`。
 
+- [test_bind_instance_name_over_module_name_and_placements.sv](../tests/ch23/test_bind_instance_name_over_module_name_and_placements.sv) : places bind in 3 places: a module (bind leaf_m in top), an interface (bind leaf_i in ifc instantiated in top) and the compilation-unit scope (bind leaf_u outside any module). A probe enters each target instance, and m1 / m2.p_mod , k1.p_ifc and w1.p_unit appear in the %m list. Distinguishing observation: An implementation that ignores bind in an interface loses 'probe ...k1.p_ifc' ; one that ignores bind in the compilation-unit scope loses 'probe ...w1.p_unit' ; and the count of '5 probes' changes as well. If bind in a module is ignored, the lines for m1 / m2 disappear.
 
 ### SV2023-23.11-EXTRACT-BIND-SCOPE-ALL-SUBSET
 
@@ -69969,7 +69994,7 @@ Normative role: `mandatory`。
 
 ### SV2023-25.3-EXTRACT-MODPORT-GRAMMAR
 
-`25.3` / `normal` / No mapped test
+`25.3` / `normal` / Test mapped; execution unconfirmed
 
 Modports contain directed simple or explicitly named expression ports, imported/exported subroutine identifiers/prototypes and clocking identifiers, optionally attributed.
 
@@ -69977,6 +70002,7 @@ Acceptance criterion: Modports contain directed simple or explicitly named expre
 
 Normative role: `definition`。
 
+- [test_modport_import_export_prototypes_clocking_and_named_port.sv](../tests/ch25/test_modport_import_export_prototypes_clocking_and_named_port.sv) : lists in modport initiator an attributed simple port (* role *) input clk / output data, an identifier-only import twice, an import task store(input int v) and import function int get_stored () with prototypes, and clocking cb; and lists in modport target an explicitly named expression port input .low(data \[ 3:0 \] ), an export task store with a prototype, and an identifier-only export get_stored . ini calls twice, store and get_stored , gets 42 , reads data as 5a through cb, and prints that tgt reads b.low as a. Distinguishing observation: If the modport does not accept some form of item (attribute, explicitly named expression port, identifier/prototype import and export, clocking identifier), the design cannot compile and no lines are printed. An implementation that does not connect the expression of an explicitly named port correctly changes 'low a' ; one that gets the reference through clocking wrong changes 'cb.data at 5 = 5a' ; one that gets the import/export binding wrong changes 'get_stored() = 42' and 'stored 42' .
 
 ### SV2023-25.3.2-EXTRACT-BUNDLE-DEFAULT-DIRECTIONS
 
@@ -69993,7 +70019,7 @@ Normative role: `mandatory`。
 
 ### SV2023-25.3.3-EXTRACT-GENERIC-ANSI-ONLY
 
-`25.3.3` / `error` / No mapped test
+`25.3.3` / `error` / Execution confirmed
 
 Generic interface references require ANSI port-declaration syntax; non-ANSI is illegal.
 
@@ -70001,6 +70027,7 @@ Acceptance criterion: Generic interface references require ANSI port-declaration
 
 Normative role: `mandatory`。
 
+- [test_illegal_generic_interface_port_non_ansi.sv](../tests/ch25/test_illegal_generic_interface_port_non_ansi.sv) : lists gna_ansi that declares a generic interface port as interface.mp a in the ANSI header (legal), gna_named that declares an interface-named gna_if.mp a in a non- ANSI (legal), and gna_generic that declares the generic form interface.mp a in the body of a non- ANSI ; : expected_stderr_regex : checks the error on the declaration line of gna_generic (line 48 ). Distinguishing observation: An implementation that also accepts a generic interface reference in the declaration of a non- ANSI accepts this design and fails with 'accepted'. An implementation that rejects even the generic port of ANSI or the named interface port of a non- ANSI reports on a line that the standard permits, and is not checked as the error on line 48 ( Icarus 13.0 does not count in this form).
 
 ### SV2023-25.3.3-EXTRACT-GENERIC-INTERFACE
 
@@ -70210,7 +70237,7 @@ Normative role: `mandatory`。
 
 ### SV2023-25.7-EXTRACT-INTERFACE-SUBROUTINE-DEFINITION
 
-`25.7` / `normal` / No mapped test
+`25.7` / `normal` / Test mapped; execution unconfirmed
 
 Interface subroutines may be defined in the interface or connected modules and declared as imports in calling modports.
 
@@ -70218,6 +70245,7 @@ Acceptance criterion: Interface subroutines may be defined in the interface or c
 
 Normative role: `permission`。
 
+- [test_modport_import_export_prototypes_clocking_and_named_port.sv](../tests/ch25/test_modport_import_export_prototypes_clocking_and_named_port.sv) : defines function twice in interface bus_if , defines task store and function get_stored in connected module tgt as task b.store / function int b.get_stored , and exports them in modport target. The caller ini imports these in modport initiator (an import from another module is a full prototype); b.store ( b.twice ( 21 )) puts 42 into variable stored of tgt, b.get_stored () returns 42 , and tgt itself also prints stored 42 . Distinguishing observation: An implementation that cannot import a subroutine defined in an interface, or cannot call a subroutine defined in a connected module through export/import, cannot compile. An implementation that resolves the body of the module-side definition in the interface scope cannot find stored and stops, or writes to a different variable and changes 'tgt: stored 42' to 'stored -1' .
 
 ### SV2023-25.7-EXTRACT-MISSING-MISMATCHED-EXPORT
 
@@ -71001,7 +71029,7 @@ Normative role: `mandatory`。
 
 ### SV2023-26.5-EXTRACT-WILDCARD-WILDCARD-Q
 
-`26.5` / `error` / No mapped test
+`26.5` / `error` / Execution confirmed
 
 Wildcard imports of p and q can coexist, but a reference to their different c declarations is ambiguous and illegal.
 
@@ -71009,6 +71037,7 @@ Acceptance criterion: Wildcard imports of p and q can coexist, but a reference t
 
 Normative role: `mandatory`。
 
+- [test_illegal_two_wildcard_imports_ambiguous_reference.sv](../tests/ch26/test_illegal_two_wildcard_imports_ambiguous_reference.sv) : places import p_pkg ::* and import q_pkg ::* in the same module (both declare c), legally references only_q that exists only in q, TRUE that exists only in p, and the qualified name p_pkg::c , and then references the unqualified c at only 1 place(s). : expected_stderr_regex : checks the error on that reference line (line 41 ). The 2 wildcard import lines and the other reference lines are legal and serve as a control showing that coexistence is allowed. Distinguishing observation: An implementation that binds c to either of the 2 wildcard candidates (such as the first import) accepts this design and fails with 'accepted' ( Verilator 5.054 is this form). An implementation that forbids the coexistence of wildcard imports themselves reports on the import line, and is not checked as the error on the reference line.
 
 ### SV2023-26.5-SCOPED-PACKAGE-NAME
 
@@ -71083,7 +71112,7 @@ Normative role: `mandatory`。
 
 ### SV2023-26.7-EXTRACT-BUILTIN-PACKAGE-CLOSED
 
-`26.7` / `error` / No mapped test
+`26.7` / `error` / Test mapped; execution unconfirmed
 
 The built-in package may contain system types, variables and subroutines; users cannot add declarations to it.
 
@@ -71091,6 +71120,7 @@ Acceptance criterion: The built-in package may contain system types, variables a
 
 Normative role: `mandatory`。
 
+- [test_illegal_std_package_declaration.sv](../tests/ch26/test_illegal_std_package_declaration.sv) : declares package std in user code and tries to add the variable extra to it. : expected_stderr_regex : checks the error on the line of package std (line 18 ) or on the line that adds a declaration (line 19 ). The design has no other module than the empty module t. Distinguishing observation: An implementation that allows a user declaration to be added to the built-in package std (or replaced by a user std) accepts this design and fails with 'accepted'. The rule forbids a user from adding declarations to std, and a report on either line is checked as the same violation diagnostic.
 
 ### SV2023-26.7-EXTRACT-STD-IMPLICIT-IMPORT
 
@@ -71222,7 +71252,7 @@ Normative role: `mandatory`。
 
 ### SV2023-27.3-EXTRACT-GENERATE-REGION-CONTAINER-TEXT
 
-`27.3` / `error` / No mapped test
+`27.3` / `error` / Execution confirmed
 
 An explicit generate region (generate ... endgenerate) may occur only directly as an item of a module, interface, program, or checker body, the containers whose item grammars list generate_region; it cannot be placed in any other context, such as a package body or inside a generate block.
 
@@ -71230,6 +71260,9 @@ Acceptance criterion: A generate region placed outside the direct items of a mod
 
 Normative role: `mandatory`。
 
+- [test_illegal_generate_region_in_package.sv](../tests/ch27/test_illegal_generate_region_in_package.sv) : rejects a generate inside package region_pkg (line 26 ). A generate region directly in a module is legal.
+- [test_illegal_generate_region_in_loop_block.sv](../tests/ch27/test_illegal_generate_region_in_loop_block.sv) : rejects the generate inside the block of a loop generate g outside a region (line 33 ). A loop h enclosed in a region directly in a module is legal.
+- [test_illegal_generate_region_in_conditional_block.sv](../tests/ch27/test_illegal_generate_region_in_conditional_block.sv) : rejects the generate inside the block of an if generate g outside a region (line 36 ). A case generate enclosed in a region directly in a module is legal.
 
 ### SV2023-27.4-EXTRACT-GENERATE-ARRAY-COLLISION
 
@@ -71521,7 +71554,7 @@ Normative role: `definition`。
 
 ### SV2023-28.3-EXTRACT-PRIMITIVE-GRAMMAR
 
-`28.3` / `normal` / No mapped test
+`28.3` / `normal` / Execution confirmed
 
 A primitive declaration names its type and comma-separated instances with terminal lists, optional names/ranges and type-permitted strength/delays; input/control terminals are expressions and output/inout terminals net lvalues.
 
@@ -71529,6 +71562,7 @@ Acceptance criterion: A primitive declaration names its type and comma-separated
 
 Normative role: `definition`。
 
+- [test_gate_declaration_list_names_ranges_terminals.sv](../tests/ch28/test_gate_declaration_list_names_ranges_terminals.sv) : writes gate and switch declarations with a type keyword, a shared drive strength and delay (and ( strong0 , pull1 ) #( 2 , 3 ), buf ( weak1 , weak0 ), bufif1 # 2 ), a comma-separated list of named g_a and unnamed instances, an instance array with a range nand g_n \[ 3:0 \] , expression input and control terminals (~b, a ^ b, 1'b1 , !en), and net and net bit-select output and inout terminals ( o1 , bus \[ 0 \] , bus \[ 1 \] ), and prints the value and strength with %v and %b at 5/11/13/21/24 . Both 2 and instances output St0 / Pu1 , and change at rise 2 and fall 3 ( y1 goes to 13 with Pu1 and to 24 with St0 ; y2 goes to 24 with Pu1 ). The array is ny 1110 , the 2 output of buf is We0 / We1 , and tran passes b through to bus \[ 1 \] . Distinguishing observation: An implementation that does not let instances from the 2 th onward in the list share the strength or delay changes the strength ( St0 / Pu1 ) of y2 or the value at time 21/24 . An implementation that does not split the range of an instance array into bits changes ny 1110 ; one that does not accept expression terminals or cannot make a net bit-select an output terminal cannot compile, or changes the lines for bus \[ 0 \] /bus \[ 1 \] .
 
 ### SV2023-28.3-EXTRACT-PRIMITIVE-QUALIFIERS
 
@@ -71735,7 +71769,7 @@ Normative role: `definition`。
 
 ### SV2023-28.3.1-EXTRACT-PRIMITIVE-PULLDOWN
 
-`28.3.1` / `normal` / No mapped test
+`28.3.1` / `normal` / Execution confirmed
 
 The built-in primitive pulldown belongs to the pull gate category.
 
@@ -71743,10 +71777,11 @@ Acceptance criterion: The built-in primitive pulldown belongs to the pull gate c
 
 Normative role: `definition`。
 
+- [test_pull_gate_instances_terminal_and_strength.sv](../tests/ch28/test_pull_gate_instances_terminal_and_strength.sv) : declares pulldown in the form of a pull gate (instances with only 1 terminal(s) (the output), ( weak0 ) and ( weak1 , supply0 ) of pulldown_strength ) and prints the strength and value with %v as the only driver of each net. With no strength specification the strength is the pull strength (Pu0 for pulldown); a strength specification on the side of its own value gives that strength, and the strength on the opposite side is ignored. Distinguishing observation: An implementation that does not treat pulldown as a pull gate (requiring 2 terminals, defaulting the strength to strong, using the strength of the opposite side, and so on) cannot compile, or changes the strength display (Pu/St/We/Su) and values on lines such as 'pullup Pu1, pulldown Pu0' .
 
 ### SV2023-28.3.1-EXTRACT-PRIMITIVE-PULLUP
 
-`28.3.1` / `normal` / No mapped test
+`28.3.1` / `normal` / Execution confirmed
 
 The built-in primitive pullup belongs to the pull gate category.
 
@@ -71754,6 +71789,7 @@ Acceptance criterion: The built-in primitive pullup belongs to the pull gate cat
 
 Normative role: `definition`。
 
+- [test_pull_gate_instances_terminal_and_strength.sv](../tests/ch28/test_pull_gate_instances_terminal_and_strength.sv) : declares pullup in the form of a pull gate (instances with only 1 terminal(s) (the output), 1 declarations that hold named and unnamed 2 instances, ( strong1 ) and ( strong0 , weak1 ) of pullup_strength ) and prints the strength and value with %v as the only driver of each net. With no strength specification the strength is the pull strength (Pu1 for pullup); a strength specification on the side of its own value gives that strength, and the strength on the opposite side is ignored. Distinguishing observation: An implementation that does not treat pullup as a pull gate (requiring 2 terminals, defaulting the strength to strong, using the strength of the opposite side, and so on) cannot compile, or changes the strength display (Pu/St/We/Su) and values on lines such as 'pullup Pu1, pulldown Pu0' .
 
 ### SV2023-28.3.1-EXTRACT-PRIMITIVE-RCMOS
 
@@ -76082,7 +76118,7 @@ Normative role: `definition`。
 
 ### SV2023-28.16-EXTRACT-DELAY-COUNTS
 
-`28.16` / `normal` / No mapped test
+`28.16` / `normal` / Test mapped; execution unconfirmed
 
 Absent gate/net delay is zero; one applies to all transitions; two give rise/fall with their minimum for x/z.
 
@@ -76090,6 +76126,8 @@ Acceptance criterion: Absent gate/net delay is zero; one applies to all transiti
 
 Normative role: `mandatory`。
 
+- [test_gate_delay_table_all_transitions.sv](../tests/ch28/test_gate_delay_table_all_transitions.sv) : gates: with no delay, # 4 , #( 3,5 ) and #( 5,3 ) on bufif1 , the delay and value of all 12 transitions among 0/1 /x/z.
+- [test_net_delay_counts_rise_fall_x_z.sv](../tests/ch28/test_net_delay_counts_rise_fall_x_z.sv) : nets: drives nets with no net delay, # 5 , #( 3,7 ) and #( 7,3 ) by an assign with no delay; the delay and value of 9 transitions.
 
 ### SV2023-28.16-EXTRACT-DELAY-INDEPENDENT-STRENGTH
 
@@ -120860,7 +120898,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.7-EXTRACT-TF-DIRECTION
 
-`A.2.7` / `normal` / No mapped test
+`A.2.7` / `normal` / Execution confirmed
 
 A tf direction is port direction or optional const then ref then optional static.
 
@@ -120868,6 +120906,7 @@ Acceptance criterion: A tf direction is port direction or optional const then re
 
 Normative role: `definition`。
 
+- [test_tf_port_directions_ref_static_and_item_forms.sv](../tests/ch13/test_tf_port_directions_ref_static_and_item_forms.sv) : uses all forms of tf_port_direction (input / output / inout port direction, ref, const ref , ref static, const ref static) for the 7 arguments of task t, calls it at time 0 and returns at 2 . The input a is a copy at call time (even if s_in is changed midway, 1 ); output and inout are not copied to the caller until return (at time 1 s_out 0 / s_io 3 , and 11 / 103 after the return); ref d is shared immediately ( 1004 ); e of const ref and g of const ref static read the caller's midway changes 50 / 70 ; ref static f makes s_rs become 7 with the nonblocking assignment f \<= f + 1 . Distinguishing observation: An implementation that does not accept some form of direction as syntax cannot compile. An implementation that ignores const or static and treats the argument as another direction, or that passes ref by value, changes s_ref of 'at 1: s_out 0, s_io 3, s_ref 1004' to 4 and e/g of 'at 2: a 1, e 50, g 70' to 5/7 . An implementation that cannot use ref static in a nonblocking assignment cannot compile, and one that gets the copy time wrong changes the lines for s_out / s_io .
 
 ### SV2023-A.2.7-EXTRACT-TF-ITEM-LIST
 
@@ -120883,7 +120922,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.7-EXTRACT-TF-PORT
 
-`A.2.7` / `normal` / No mapped test
+`A.2.7` / `normal` / Execution confirmed
 
 A tf-port item has repeated attributes, optional direction, optional var, data/implicit type and optional identifier with repeated variable dimensions and optional expression default, subject to clarification 28.
 
@@ -120891,6 +120930,7 @@ Acceptance criterion: A tf-port item has repeated attributes, optional direction
 
 Normative role: `definition`。
 
+- [test_tf_port_directions_ref_static_and_item_forms.sv](../tests/ch13/test_tf_port_directions_ref_static_and_item_forms.sv) : lists in the tf_port_item of function sum an (* a1 *) (* a2 *) input var int arr \[ 2 \] with 2 stacked attributes (direction, var, data type, name, unpacked dimensions), an implicit type with the direction omitted \[ 3:0 \] nib = 4'd5 (with a default), and int k = 1 , and prints sum( '{3, 4}) = 13、sum(' { 10 , 20 }, 4'd2 , 0 ) = 32 and sum( ' { 1 , 1 }, , 0 ) = 7 with the middle omitted. As an exception under footnote 28 , the modport prototype import function int inc( int ) has an unnamed port, and u.p.inc ( 4 ) = 5 . Each port of task t also has a direction, a data type and a name. Distinguishing observation: An implementation that does not accept some of attributes, var, implicit types, unpacked dimensions, default values and omitted names in prototypes cannot compile. An implementation that treats an omitted direction as other than input, gets the width of the implicit type wrong, or does not use the default changes the 3 values of sum ( 13/32/7 ). If the binding of the unnamed ports of a prototype is wrong, 'inc(4) = 5' changes.
 
 ### SV2023-A.2.8-EXTRACT-BLOCK-DECL
 
@@ -121219,7 +121259,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.10-EXTRACT-MATCH-METHOD
 
-`A.2.10` / `normal` / No mapped test
+`A.2.10` / `normal` / Test mapped; execution unconfirmed
 
 A sequence-method call is sequence instance dot method identifier; a match item is operator assignment, increment/decrement or subroutine call.
 
@@ -121227,6 +121267,7 @@ Acceptance criterion: A sequence-method call is sequence instance dot method ide
 
 Normative role: `definition`。
 
+- [test_sequence_method_call_and_match_item_forms.sv](../tests/ch16/test_sequence_method_call_and_match_item_forms.sv) : after expression a in named sequence s_items , lists 3 forms of match item (operator assignment v = 1 and v += 2 , increment v++, subroutine call report(v)), and uses the sequence method call form s_items.triggered in wait. Because a is 1 only at posedge of 15 , the match items run in order only 1 time(s) and report receives 4 ; because b is 1 at 25 , the end point is reached and wait is released at 25 ; this is printed. Distinguishing observation: An implementation that does not accept some form of match item or some form of sequence_instance.method_identifier cannot compile. An implementation that does not evaluate match items in the written order, or treats ++ or += as another operation, changes the value of 'report(v) got 4' (for example 3 or 2 ); one that does not make the call 1 time(s) for each match changes 'in 1 call' . An implementation that does not make triggered true in the time step of the end point changes 'triggered at 25' .
 
 ### SV2023-A.2.10-EXTRACT-NOT
 
@@ -124722,7 +124763,7 @@ Normative role: `definition`。
 
 ### SV2023-A.8.4-EXTRACT-CONSTANT-PRIMARY-31
 
-`A.8.4` / `normal` / No mapped test
+`A.8.4` / `normal` / Execution confirmed
 
 A constant primary may be specparam identifier with optional bracketed constant-range expression.
 
@@ -124730,6 +124771,7 @@ Acceptance criterion: A constant primary may be specparam identifier with option
 
 Normative role: `definition`。
 
+- [test_specparam_select_in_specparam_constant.sv](../tests/ch6/test_specparam_select_in_specparam_constant.sv) : uses specparam \[ 15:0 \] SP = 16'ha5c3 as a constant primary in the constant expression of a later specparam , in the forms without a range ( SP ), part-select SP \[ 7:0 \] , indexed part-select SP \[ 8 +: 4 \] , and bit-select SP \[ 1 \] and SP \[ 2 \] , and prints the values a5c3 , c3 , 5 , 1 and 0 . Distinguishing observation: An implementation that does not accept a bracketed constant range expression after the specparam identifier cannot compile. An implementation that counts the selection from the opposite end, treats a part-select as a single index, or gets the width of +: wrong changes the values of 'whole a5c3, \[7:0\] c3, \[8 +: 4\] 5' and '\[1\] 1, \[2\] 0' .
 
 ### SV2023-A.8.4-EXTRACT-CONSTANT-PRIMARY-32
 
@@ -137771,7 +137813,7 @@ Normative role: `mandatory`。
 
 ### SV2023-I.3-EXTRACT-PART-LIMIT
 
-`I.3` / `normal` / No mapped test
+`I.3` / `normal` / Execution confirmed
 
 Part-select utilities use normalized indices and width no greater than 32.
 
@@ -137779,6 +137821,7 @@ Acceptance criterion: Part-select utilities use normalized indices and width no 
 
 Normative role: `mandatory`。
 
+- [test_svdpi_h_partsel_get_put_bit_logic_width_32.sv](../tests/ch35/test_svdpi_h_partsel_get_put_bit_logic_width_32.sv) : calls all 4 part-select functions with normalized indices on a 64 -bit bit / logic vector declared as \[ 70:7 \] . svGetPartselBit writes ( 0,8 )=ef, ( 28,8 )= 78 crossing a chunk, ( 32,32 )= 01234567 at the upper limit width and ( 20,32 )= 3456789a crossing it; svGetPartselLogic writes ( 36,8 )= a9 and ( 16,32 )= ba987654 ; svPutPartselBit writes a5a5a5a5 to ( 20,32 ) and the low 4 bits of 3c to ( 60,4 ); svPutPartselLogic writes 6 to ( 44,4 ) and 12345678 to ( 4,32 ); the design prints the whole vector c12a5a5a5a5bcdef and the 2 -ary notation of fedc6a9123456780 . Distinguishing observation: An implementation that counts the index from 7 of the declaration, or from the most significant bit, changes the extracted values (such as ef/ 78 ) and the lines of the vector after writing. An implementation that cannot handle width 32 (copying only up to 31 , or dropping all bits with 1 \< \< 32 ) changes the values of ( 32,32 ), ( 20,32 ) and ( 16,32 ), and the lines after writing to ( 20,32 ) and ( 4,32 ). An implementation that corrupts out-of-range bits on a write changes the bits that were not written (for example 1 of the top c1 , or fedc of logic ).
 
 ### SV2023-I.3-EXTRACT-PROTOTYPES
 
@@ -137901,7 +137944,7 @@ Normative role: `mandatory`。
 
 ### SV2023-I.3-EXTRACT-SIGNED-TEXT
 
-`I.3` / `normal` / No mapped test
+`I.3` / `normal` / Execution confirmed
 
 Annex I reproduces SV_GET_SIGNED_BITS(VALUE, N) verbatim from H.10.1.2: VALUE when N == 32, otherwise a bit-N test selecting sign fill or masking with SV_MASK(N). Both source occurrences carry the same token sequence and neither is corrected.
 
@@ -137909,6 +137952,7 @@ Acceptance criterion: The macro in the Annex I listing matches the H.10.1.2 defi
 
 Normative role: `definition`。
 
+- [test_svdpi_h_signed_bits_macro_tokens.sv](../tests/ch35/test_svdpi_h_signed_bits_macro_tokens.sv) : C code includes svdpi.h , removes the definition of SV_MASK , expands SV_GET_SIGNED_BITS (v, n) with the # operator into a string, and prints the token sequence with whitespace removed; 1/0 prints whether it matches ((n)== 32 ?(v):(((v)&( 1 \< \< (n)))?((v)|~ SV_MASK (n)):((v)& SV_MASK (n)))) obtained from the definitions of I.3 and H.10.1.2 (the design calls the imported dpi_signed_bits_text ). The computed value is not compared when N is less than 32 (as the acceptance condition says). Distinguishing observation: With a header whose macro is rewritten (for example, checking N-1 instead of bit N, not using SV_MASK , or lacking the branch for N == 32 ), the printed token sequence changes and 'same tokens as H.10.1.2: 1' becomes 0 . Differences in whitespace only are removed so that they do not affect the token sequence.
 
 ### SV2023-I.3-EXTRACT-TIME-ALIASES
 
@@ -150669,7 +150713,7 @@ Normative role: `definition`。
 
 ### SV2023-N.1-EXTRACT-ALGORITHM
 
-`N.1` / `normal` / No mapped test
+`N.1` / `normal` / Execution confirmed
 
 Probabilistic RNG algorithm is defined by N.2 source and must provide repeatability across implementations under 20.14.
 
@@ -150677,6 +150721,14 @@ Acceptance criterion: Probabilistic RNG algorithm is defined by N.2 source and m
 
 Normative role: `mandatory`。
 
+- [test_dist_uniform_bounded_range_floor_and_clamp.sv](../tests/ch20/test_dist_uniform_bounded_range_floor_and_clamp.sv) : $dist_uniform : uniform( -10,10 ) 8 times and so on from seed 12345 .
+- [test_dist_normal_rejection_rounding_any_deviation.sv](../tests/ch20/test_dist_normal_rejection_rounding_any_deviation.sv) : $dist_normal : the number of rejection-loop iterations (draws 2/4/6/8 ) and the rounding, in 11 combinations of seed/mean/deviation.
+- [test_dist_exponential_one_draw_log_rounding.sv](../tests/ch20/test_dist_exponential_one_draw_log_rounding.sv) : $dist_exponential : 1 uniform random draws and the rounding of -log, in 13 combinations.
+- [test_dist_poisson_counts_products_above_exp.sv](../tests/ch20/test_dist_poisson_counts_products_above_exp.sv) : $dist_poisson : the number of draws until the product falls below e^-mean, for 18 combinations of 6 seeds x mean 1/4/20 .
+- [test_dist_chi_square_odd_even_df_and_rounding.sv](../tests/ch20/test_dist_chi_square_odd_even_df_and_rounding.sv) : $dist_chi_square : 13 combinations of odd/even degrees of freedom.
+- [test_dist_t_chi_square_then_normal_order.sv](../tests/ch20/test_dist_t_chi_square_then_normal_order.sv) : $dist_t : 16 orderings of drawing normal after chi_square .
+- [test_dist_erlang_stage_count_and_product_rounding.sv](../tests/ch20/test_dist_erlang_stage_count_and_product_rounding.sv) : $dist_erlang : the product of k uniform random draws for k stages and the rounding, in 14 combinations.
+- [test_dist_uniform_full_range_and_seeded_random.sv](../tests/ch20/test_dist_uniform_full_range_and_seeded_random.sv) : $random (seed) gives the same value and seed as rtl_dist_uniform (seed, LONG_MIN , LONG_MAX ) ( 4 seeds x 3 times).
 
 ### SV2023-N.1-EXTRACT-MAP-CHI-SQUARE
 
@@ -150752,7 +150804,7 @@ Normative role: `definition`。
 
 ### SV2023-N.1-EXTRACT-MAP-UNIFORM
 
-`N.1` / `normal` / No mapped test
+`N.1` / `normal` / Execution confirmed
 
 $dist_uniform uses algorithm rtl_dist_uniform defined in N.2.
 
@@ -150760,6 +150812,10 @@ Acceptance criterion: $dist_uniform uses algorithm rtl_dist_uniform defined in N
 
 Normative role: `definition`。
 
+- [test_dist_uniform_bounded_range_floor_and_clamp.sv](../tests/ch20/test_dist_uniform_bounded_range_floor_and_clamp.sv) : the branch where end is not the maximum: uniform( -10,10 ) 8 times from seed 12345 , and uniform( 0,9 )= 9 and uniform( -20 , -11 )= -11 with seed -1271221770 , where the clamp at the end takes effect.
+- [test_dist_uniform_end_at_largest_integer.sv](../tests/ch20/test_dist_uniform_end_at_largest_integer.sv) : end = 2147483647 , the branch where start is not the minimum: 3 times each from seed 4242 with start 1000 / -5/2147483000 / -2147483647 .
+- [test_dist_uniform_full_range_and_seeded_random.sv](../tests/ch20/test_dist_uniform_full_range_and_seeded_random.sv) : full-range branch with -2147483648 and 2147483647 at both ends: calls $dist_uniform 3 times each from 4 seeds, giving the same value and seed as $random (seed).
+- [test_dist_uniform_start_not_below_end_keeps_seed.sv](../tests/ch20/test_dist_uniform_start_not_below_end_keeps_seed.sv) : early return for start \>= end: uniform( 7,7 )= 7 and uniform( 10 , -3 )= 10 , with seed staying 12345 and seed 0 staying 0 .
 
 ### SV2023-N.1-EXTRACT-RANDOM
 
@@ -150942,7 +150998,7 @@ Normative role: `mandatory`。
 
 ### SV2023-N.2-EXTRACT-SEED-UPDATE-TEXT
 
-`N.2` / `normal` / No mapped test
+`N.2` / `normal` / Execution confirmed
 
 The seed update of N.2 is evaluated in fixed 32-bit modular arithmetic: seed_next = (69069 * seed + 1) mod 2^32, stored in the seed variable as a 32-bit signed value and read into the unsigned union member as a 32-bit value. The generated stream depends only on the 32-bit seed, not on the host long width or on signed-overflow behaviour. $random returns a 32-bit signed value.
 
@@ -150950,6 +151006,8 @@ Acceptance criterion: The same 32-bit seed produces the same $random/$dist_* seq
 
 Normative role: `mandatory`。
 
+- [test_dist_exponential_one_draw_log_rounding.sv](../tests/ch20/test_dist_exponential_one_draw_log_rounding.sv) : seed 1 -\> 69070 , 648451823 -\> 100 , -1271221770 -\> -1 , and the negative result obtained from a seed whose bits are all 1 .
+- [test_dist_uniform_full_range_and_seeded_random.sv](../tests/ch20/test_dist_uniform_full_range_and_seeded_random.sv) : the signed 32 -bit return values of $random (seed), and the seed sequence that wraps around to negative.
 
 ### SV2023-N.2-EXTRACT-T
 
@@ -151082,7 +151140,7 @@ Normative role: `mandatory`。
 
 ### SV2023-N.2-EXTRACT-VALIDATE-EXPONENTIAL
 
-`N.2` / `normal` / No mapped test
+`N.2` / `normal` / Execution confirmed
 
 rtl_dist_exponential requires positive mean; otherwise issues warning and returns zero without calling distribution helper or advancing seed.
 
@@ -151090,10 +151148,11 @@ Acceptance criterion: rtl_dist_exponential requires positive mean; otherwise iss
 
 Normative role: `mandatory`。
 
+- [test_dist_nonpositive_shape_argument_warns_keeps_seed.sv](../tests/ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed.sv) : calls $dist_exponential from seed 7 with mean = 0 , mean = -1 and mean = 1 , and prints the value and the seed after the call. The calls with mean 0 and -1 leave the value 0 and the seed 7 ; the control with mean 1 takes 1 uniform random draws and gives value 9 and seed 483484 . : expected_stderr_regex : checks that the run message contains 10 warnings (the words warning/error), counting the warning of each of the 10 invalid calls (the printed lines do not contain those words). Distinguishing observation: An implementation that passes a mean of 0 or below to the helper without checking advances the seed from 7 (and usually the value becomes something other than 0 ), and the lines for 'exponential mean 0: value 0, seed 7' and 'exponential mean -1: value 0, seed 7' change. An implementation that rejects only values below 0 rather than 0 and below changes the line for mean = 0 ; one that also rejects positive values changes the control line for mean = 1 (exponential mean 1 : value 9 , seed 483484 ) to 'value 0, seed 7' . An implementation that issues no warning fails to reach the 10 warnings of : expected_stderr_regex : ( Verilator 5.054 mismatches in this form).
 
 ### SV2023-N.2-EXTRACT-VALIDATE-POISSON
 
-`N.2` / `normal` / No mapped test
+`N.2` / `normal` / Execution confirmed
 
 rtl_dist_poisson requires positive mean; otherwise issues warning and returns zero without calling distribution helper or advancing seed.
 
@@ -151101,10 +151160,11 @@ Acceptance criterion: rtl_dist_poisson requires positive mean; otherwise issues 
 
 Normative role: `mandatory`。
 
+- [test_dist_nonpositive_shape_argument_warns_keeps_seed.sv](../tests/ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed.sv) : calls $dist_poisson from seed 7 with mean = 0 , mean = -1 and mean = 1 , and prints the value and the seed after the call. The calls with mean 0 and -1 leave the value 0 and the seed 7 ; the control with mean 1 takes 1 uniform random draws (value 0 , but the seed advances to 483484 ). : expected_stderr_regex : checks that the run message contains 10 warnings (the words warning/error), counting the warning of each of the 10 invalid calls (the printed lines do not contain those words). Distinguishing observation: An implementation that passes a mean of 0 or below to the helper without checking advances the seed from 7 (and usually the value becomes something other than 0 ), and the lines for 'poisson mean 0: value 0, seed 7' and 'poisson mean -1: value 0, seed 7' change. An implementation that rejects only values below 0 rather than 0 and below changes the line for mean = 0 ; one that also rejects positive values changes the control line for mean = 1 (poisson mean 1 : value 0 , seed 483484 ) to 'value 0, seed 7' . An implementation that issues no warning fails to reach the 10 warnings of : expected_stderr_regex : ( Verilator 5.054 mismatches in this form).
 
 ### SV2023-N.2-EXTRACT-VALIDATE-T
 
-`N.2` / `normal` / No mapped test
+`N.2` / `normal` / Execution confirmed
 
 rtl_dist_t requires positive degrees of freedom; otherwise issues warning and returns zero without calling distribution helper or advancing seed.
 
@@ -151112,6 +151172,7 @@ Acceptance criterion: rtl_dist_t requires positive degrees of freedom; otherwise
 
 Normative role: `mandatory`。
 
+- [test_dist_nonpositive_shape_argument_warns_keeps_seed.sv](../tests/ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed.sv) : calls $dist_t from seed 7 with df = 0 , df = -1 and df = 1 , and prints the value and the seed after the call. The calls with degrees of freedom 0 and -1 leave the value 0 and the seed 7 ; the control with degrees of freedom 1 draws chi_square and normal, giving value -1 and seed -809111543 . : expected_stderr_regex : checks that the run message contains 10 warnings (the words warning/error), counting the warning of each of the 10 invalid calls (the printed lines do not contain those words). Distinguishing observation: An implementation that passes a df of 0 or below to the helper without checking advances the seed from 7 (and usually the value becomes something other than 0 ), and the lines for 't df 0: value 0, seed 7' and 't df -1: value 0, seed 7' change. An implementation that rejects only values below 0 rather than 0 and below changes the line for df = 0 ; one that also rejects positive values changes the control line for df = 1 (t df 1 : value -1 , seed -809111543 ) to 'value 0, seed 7' . An implementation that issues no warning fails to reach the 10 warnings of : expected_stderr_regex : ( Verilator 5.054 mismatches in this form).
 
 ### SV2023-N.2-EXTRACT-ZERO-SEED
 

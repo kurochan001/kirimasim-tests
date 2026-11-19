@@ -1,0 +1,15 @@
+exponential mean 0: value 0, seed 7
+exponential mean -1: value 0, seed 7
+exponential mean 1: value 9, seed 483484
+poisson mean 0: value 0, seed 7
+poisson mean -1: value 0, seed 7
+poisson mean 1: value 0, seed 483484
+chi_square df 0: value 0, seed 7
+chi_square df -1: value 0, seed 7
+chi_square df 1: value 1, seed -1368524349
+t df 0: value 0, seed 7
+t df -1: value 0, seed 7
+t df 1: value -1, seed -809111543
+erlang k 0 mean 10: value 0, seed 7
+erlang k -1 mean 10: value 0, seed 7
+erlang k 1 mean 10: value 91, seed 483484

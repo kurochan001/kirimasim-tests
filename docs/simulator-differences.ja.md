@@ -1395,6 +1395,19 @@ ch30/test_illegal_specify_path_to_input                           アサーシ�
 - 動的配列の65 bitの符号付き・符号なし要素について、タスク内の最初の参照経由の書込みが、呼出し側の`live`表示に反映されません。IEEE 1800-2023の13.5.2は即時の反映を要求します。別要素を更新する対照を含め、動的配列の5操作の計10本で発生します。例：`gen/ch13/test_gen_array_ref_dynamic_write_other_w65_signed`、`gen/ch13/test_gen_array_ref_dynamic_write_other_w65_unsigned`。
 - 幅1/8/32/33について、拡張コピー・縮小コピー・同値の全体代入で古くなった参照への後続の書込みが、新しい配列を変更します。IEEE 1800-2023の13.5.2は、取り除かれた要素を呼出し先のために存続させ、その後の書込みを呼出し側の新しい格納先へ反映しないよう要求します。これら24本は、上記の動的配列の差異を拡充するものです。例：`gen/ch13/test_gen_array_ref_dynamic_grow_copy_w8_unsigned`、`gen/ch13/test_gen_array_ref_dynamic_shrink_copy_w32_unsigned`、`gen/ch13/test_gen_array_ref_dynamic_equal_assignment_w33_signed`。
 
+2026-11-20に2・7・14・15・23〜29・32・39・40章と附属書A・I・L・M・Nのために追加したテストは、さらに次の差異を示します（未対応の構文は載せません）。
+
+- Verilator 5.054は、平均・自由度・段数が0か負の`$dist_exponential`・`$dist_poisson`・`$dist_chi_square`・`$dist_t`・`$dist_erlang`で、0を返してseedを変えないものの、附属書N.2の各関数が出す警告を出さない。`ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed`
+- Verilator 5.054は、トリガの直後に始めた`wait (!e.triggered || go)`を、関係のない変数だけが変わる時刻に解放する。`triggered`が時間の区切りで1から0に戻ったことで、待ちの式を評価し直しているとみられる（15.5.3）。eventの代入は未対応なので、それを除いた写しで確かめました。`ch15/test_named_event_alias_queue_and_triggered_wait`
+- Verilator 5.054は、clockingの入力スキューに、時間の単位がなく値が整数でない`#1.5`を受け付ける（14.3）。`ch14/test_illegal_clocking_skew_real_constant`
+- Verilator 5.054は、`mailbox #(string)`の`put`と`try_put`にint型の変数を渡すことを受け付ける（15.4.9）。`get`・`try_get`・`peek`・`try_peek`の型の不一致は拒否する。`ch15/test_illegal_mailbox_param_put_int_into_string`、`ch15/test_illegal_mailbox_param_try_put_int_into_string`
+- Verilator 5.054は、bindの対象の名前がインスタンス名にもモジュール名にも当たるとき、インスタンスではなくそのモジュールのインスタンスに束縛する（23.11）。`ch23/test_bind_instance_name_over_module_name_and_placements`
+- Verilator 5.054は、modportの識別子だけの`export`を、一致するprototypeがないとして拒否する（25.7）。書き換えた写しでは、接続先のモジュールで定義したtaskの本体の名前を、モジュールではなくinterfaceのスコープで探して止まる（25.7.2）。`ch25/test_modport_import_export_prototypes_clocking_and_named_port`
+- Verilator 5.054は、2つのwildcard importがどちらも宣言する名前への、修飾のない参照を受け付ける（26.5、表26-1）。`ch26/test_illegal_two_wildcard_imports_ambiguous_reference`
+- Verilator 5.054は、範囲のないspecparamを64ビットとして扱い、1ビットの値を`%b`で64桁に表示する（6.20.5）。`ch6/test_specparam_select_in_specparam_constant`
+- Icarus Verilog 13.0は、ループと条件のgenerateブロックの中に直接書いた`generate`〜`endgenerate`を受け付ける（27.3）。packageの中の領域は拒否する。`ch27/test_illegal_generate_region_in_loop_block`、`ch27/test_illegal_generate_region_in_conditional_block`
+- Icarus Verilog 13.0は、`$dist_*`の警告を標準出力に書く。規格は警告の文言も出力先も決めないので、`ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed`は、警告の行を含むIcarus用の期待出力（`:expected_stdout_icarus:`）を持ちます。値・seed・警告の数は規格どおりです。
+
 <a id="bitvector-queries-20261119"></a>
 
 ## 広幅のビット集計関数（2026-11-19）

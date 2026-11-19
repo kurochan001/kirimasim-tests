@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 92.67%、Ghostを除く実行 51.06%、Ghostを含む実行 78.54%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 92.96%、Ghostを除く実行 51.20%、Ghostを含む実行 78.70%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 92.67%。** 規格要求の実行確認率: Ghostを除いて 51.06%、Ghostを含めて 78.54%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 92.96%。** 規格要求の実行確認率: Ghostを除いて 51.20%、Ghostを含めて 78.70%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対する要求カバレッジ（テスト設計）: 11428/12332 (92.67%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9686/12332 (78.54%)。
-- 登録済みだがテスト未対応: 904 動作。
+- 登録済み動作に対する要求カバレッジ（テスト設計）: 11464/12332 (92.96%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9705/12332 (78.70%)。
+- 登録済みだがテスト未対応: 868 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。
 
@@ -96,13 +96,13 @@
 - `fourstate-boundaries-20261119d-kirimasim-441dddbd0fcd-run4.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T00:24:27.618699+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `fourstate-boundaries-20261119d-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T00:26:22.013552+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `fourstate-boundaries-20261119d-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T00:28:09.101257+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
-- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3089/12332 動作確認、古い入力との対応 340 件。
-- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2994/12332 動作確認、古い入力との対応 340 件。
-- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3887/12332 動作確認、古い入力との対応 340 件。
-- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3598/12332 動作確認、古い入力との対応 25 件。
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7928/12332 動作確認、古い入力との対応 474 件。
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 8008/12332 動作確認、古い入力との対応 410 件。
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7910/12332 動作確認、古い入力との対応 474 件。
+- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3092/12332 動作確認、古い入力との対応 340 件。
+- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2997/12332 動作確認、古い入力との対応 340 件。
+- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3889/12332 動作確認、古い入力との対応 340 件。
+- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3600/12332 動作確認、古い入力との対応 25 件。
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7931/12332 動作確認、古い入力との対応 474 件。
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 8011/12332 動作確認、古い入力との対応 410 件。
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7913/12332 動作確認、古い入力との対応 474 件。
 - `intcompat-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T10:26:34.150974+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `intcompat-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T10:26:46.168015+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `intcompat-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T10:26:39.847047+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
@@ -189,6 +189,10 @@
 - `reqgap5-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T14:47:44.027905+00:00` / 18/12332 動作確認、古い入力との対応 14 件。
 - `reqgap5-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T14:46:35.374894+00:00` / 11/12332 動作確認、古い入力との対応 14 件。
 - `reqgap5-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T14:47:43.190246+00:00` / 11/12332 動作確認、古い入力との対応 14 件。
+- `reqgap6-20261120-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T15:46:16.026728+00:00` / 8/12332 動作確認、古い入力との対応 0 件。
+- `reqgap6-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T15:46:16.196256+00:00` / 9/12332 動作確認、古い入力との対応 0 件。
+- `reqgap6-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T15:46:17.221209+00:00` / 4/12332 動作確認、古い入力との対応 0 件。
+- `reqgap6-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T15:46:17.959332+00:00` / 4/12332 動作確認、古い入力との対応 0 件。
 - `runtime-errors-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-12T01:03:42.109814+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `runtime-errors-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-12T01:03:42.439195+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `runtime-errors-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T01:03:46.712402+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
@@ -545,8 +549,8 @@
 - 11 Operators and expressions: 解釈保留なし 55/55、登録 459、テスト対応 448。
 - 12 Procedural programming statements: 解釈保留なし 28/28、登録 115、テスト対応 101。
 - 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 124、テスト対応 116。
-- 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 84。
-- 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 75。
+- 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 86。
+- 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 84。
 - 16 Assertions: 解釈保留なし 82/82、登録 557、テスト対応 548。
 - 17 Checkers: 解釈保留なし 13/13、登録 81、テスト対応 68。
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 323、テスト対応 314。
@@ -554,12 +558,12 @@
 - 20 Utility system tasks and system functions: 解釈保留なし 45/45、登録 320、テスト対応 299。
 - 21 入出力システムタスクとシステム関数：解釈保留なし65/65、登録383、テスト対応358。
 - 22 Compiler directives: 解釈保留なし 28/28、登録 363、テスト対応 355。
-- 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 251。
+- 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 254。
 - 24 Programs: 解釈保留なし 10/10、登録 29、テスト対応 25。
-- 25 Interfaces: 解釈保留なし 25/25、登録 63、テスト対応 55。
-- 26 Packages: 解釈保留なし 8/8、登録 44、テスト対応 39。
-- 27 Generate constructs: 解釈保留なし 7/7、登録 32、テスト対応 27。
-- 28 Gate-level and switch-level modeling: 解釈保留なし 34/34、登録 384、テスト対応 370。
+- 25 Interfaces: 解釈保留なし 25/25、登録 63、テスト対応 58。
+- 26 Packages: 解釈保留なし 8/8、登録 44、テスト対応 41。
+- 27 Generate constructs: 解釈保留なし 7/7、登録 32、テスト対応 28。
+- 28 Gate-level and switch-level modeling: 解釈保留なし 34/34、登録 384、テスト対応 374。
 - 29 User-defined primitives: 解釈保留なし 17/17、登録 52、テスト対応 49。
 - 30 Specify blocks: 解釈保留なし 31/31、登録 157、テスト対応 150。
 - 31 Timing checks: 解釈保留なし 26/26、登録 180、テスト対応 155。
@@ -573,7 +577,7 @@
 - 39 Assertion API: 解釈保留なし 14/14、登録 95、テスト対応 82。
 - 40 Code coverage control and API: 解釈保留なし 26/26、登録 128、テスト対応 122。
 - 41 Data read API: 解釈保留なし 1/1、登録 0、テスト対応 0。
-- A Formal syntax: 解釈保留なし 87/87、登録 811、テスト対応 792。
+- A Formal syntax: 解釈保留なし 87/87、登録 811、テスト対応 796。
 - B Keywords: 解釈保留なし 1/1、登録 248、テスト対応 248。
 - C Deprecation: 解釈保留なし 16/16、登録 20、テスト対応 9。
 - D Optional system tasks and system functions: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
@@ -581,12 +585,12 @@
 - F Formal semantics of concurrent assertions: 解釈保留なし 53/53、登録 253、テスト対応 253。
 - G Std package: 解釈保留なし 8/8、登録 32、テスト対応 25。
 - H DPI C layer: 解釈保留なし 72/72、登録 223、テスト対応 192。
-- I svdpi.h: 解釈保留なし 4/4、登録 147、テスト対応 133。
+- I svdpi.h: 解釈保留なし 4/4、登録 147、テスト対応 135。
 - J Inclusion of foreign language code: 解釈保留なし 7/7、登録 16、テスト対応 0。
 - K vpi_user.h: 解釈保留なし 3/3、登録 544、テスト対応 541。
 - L vpi_compatibility.h: 解釈保留なし 3/3、登録 88、テスト対応 85。
 - M sv_vpi_user.h: 解釈保留なし 3/3、登録 412、テスト対応 407。
-- N Algorithm for probabilistic distribution functions: 解釈保留なし 3/3、登録 39、テスト対応 29。
+- N Algorithm for probabilistic distribution functions: 解釈保留なし 3/3、登録 39、テスト対応 35。
 - O Encryption/decryption flow: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
 - P Glossary: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
 - Q Bibliography: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
@@ -35467,7 +35471,7 @@ DPIの輸入外国サブルートをSVのサブルートと呼び，SVのタス�
 
 ### SV2023-14.3-EXTRACT-SKEW-VALUE
 
-`14.3` / `error` / テスト未対応
+`14.3` / `error` / テスト対応あり・実行未確認
 
 integer値を持つ時間リテラルまたは定数表現を用いたクロック遅延制御を提案した。
 
@@ -35475,6 +35479,9 @@ integer値を持つ時間リテラルまたは定数表現を用いたクロッ�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_clocking_skew_negative.sv](../tests/ch14/test_illegal_clocking_skew_negative.sv): input #(P - 3) a（P=2 で値 -1）を 33 行で拒否する。#P、#(P - 2)、#1ns は合法。
+- [test_illegal_clocking_skew_real_constant.sv](../tests/ch14/test_illegal_clocking_skew_real_constant.sv): input #1.5 a（時間単位の無い実数、値が整数でない）を 34 行で拒否する。#2、#0、時間リテラル #1.5ns は合法。
+- [test_illegal_clocking_skew_nonconstant_expression.sv](../tests/ch14/test_illegal_clocking_skew_nonconstant_expression.sv): output #(d + 1) a（変数 d を読む定数でない式）を 33 行で拒否する。#(P + 1) と #2ns は合法。
 
 ### SV2023-14.4-EXTRACT-ONE-STEP-IMMEDIATELY-BEFORE
 
@@ -36128,7 +36135,7 @@ output/inout同期ドライブは，クロックイベントと出力スキュ�
 
 ### SV2023-14.16-EXTRACT-DRIVE-SKEW-ALWAYS
 
-`14.16` / `normal` / テスト未対応
+`14.16` / `normal` / 実行確認あり
 
 ドライブが今または将来のサイクルで成熟するかどうか，その信号更新はターゲット出力スキューを観察する。
 
@@ -36136,6 +36143,7 @@ output/inout同期ドライブは，クロックイベントと出力スキュ�
 
 規定の性質: `mandatory`。
 
+- [test_clocking_drive_rhs_now_update_after_cycles_and_skew.sv](../tests/ch14/test_clocking_drive_rhs_now_update_after_cycles_and_skew.sv): output #2 の clockvar に、時刻 5 のクロック事象で現在のサイクルで成熟するドライブ cb.w \<= r と、2サイクル後（25）に成熟するドライブ cb.v \<= ##2 r を実行する。w は 6 で 0・8 で 1（5+2=7 に更新）、v は 26 で 0・28 で 1（25+2=27 に更新）であることを表示する。 区別: 現在のサイクルで成熟するドライブにスキューを適用しない実装では 't=6 v=0 w=0' の w が 1 に、将来のサイクルで成熟するドライブにスキューを適用しない実装では v が 25 に変わり 't=26 v=0 w=1' の v が 1 に変わる。
 
 ### SV2023-14.16-EXTRACT-DRIVE-SNAPSHOT-NONBLOCKING
 
@@ -36422,7 +36430,7 @@ putは、セマフォのキー数をコンストラクタのkeyCountより多く
 
 ### SV2023-15.3.1-EXTRACT-SIGNATURE
 
-`15.3.1` / `normal` / テスト未対応
+`15.3.1` / `normal` / 実行確認あり
 
 int keyCount をデフォルトのゼロとして、セマホーハンドルを構築/返します。
 
@@ -36430,6 +36438,7 @@ int keyCount をデフォルトのゼロとして、セマホーハンドルを�
 
 規定の性質: `definition`。
 
+- [test_semaphore_new_int_key_count_and_handle.sv](../tests/ch15/test_semaphore_new_int_key_count_and_handle.sv): try_get(1) を最大10回繰り返して鍵の数を数える。引数なしの new は 0 個、new(-2) は 0 個で put(3) 後に 1 個（符号付きの -2）、new(33'h1_0000_0003) は int への代入変換で下位 32 ビットの 3 個、宣言の初期値 new(5) は 5 個。2回の new(1) が異なる非 null のハンドルを返す（different 1, not null 1）。 区別: 既定値を 0 以外にする実装では 'new: 0 keys' が変わる。引数を 32 ビットより広い型で受ける実装では 33 ビットの値が 4294967299 個となり '3 keys' が上限の 10 に変わる。符号なしで受ける実装では new(-2) が大量の鍵になり '0 keys' と 'put(3): 1 keys' が変わる。new が同じオブジェクトや null を返す実装では 'different 1, not null 1' が変わる。
 
 ### SV2023-15.3.2-EXTRACT-NO-NEGATIVE-PUT
 
@@ -37068,7 +37077,7 @@ try_peekはブロックせずにコピーを試みる。
 
 ### SV2023-15.4.9-EXTRACT-TYPED-MAILBOX-EQUIVALENCE
 
-`15.4.9` / `error` / テスト未対応
+`15.4.9` / `error` / テスト対応あり・実行未確認
 
 特殊メールボックスの場合、put/try_put /get/try_get /peek/try_peek の引数タイプはメールボックスタイプと同じでなければなりません。
 
@@ -37076,10 +37085,16 @@ try_peekはブロックせずにコピーを試みる。
 
 規定の性質: `mandatory`。
 
+- [test_illegal_mailbox_param_put_int_into_string.sv](../tests/ch15/test_illegal_mailbox_param_put_int_into_string.sv): mailbox #(string) の put に int 変数 n を渡す行（37 行）を拒否する。文字列リテラルと string 変数 s の put は合法。
+- [test_illegal_mailbox_param_try_put_int_into_string.sv](../tests/ch15/test_illegal_mailbox_param_try_put_int_into_string.sv): mailbox #(string) の try_put に int 変数 n を渡す行（37 行）を拒否する。文字列リテラルと s の try_put は合法。
+- [test_illegal_mailbox_param_get_string_from_int.sv](../tests/ch15/test_illegal_mailbox_param_get_string_from_int.sv): mailbox #(int) の get に string 変数 s を渡す行（35 行）を拒否する。int 変数 n への get は合法。
+- [test_illegal_mailbox_param_try_get_string_from_int.sv](../tests/ch15/test_illegal_mailbox_param_try_get_string_from_int.sv): mailbox #(int) の try_get に string 変数 s を渡す行（35 行）を拒否する。n への try_get は合法。
+- [test_illegal_mailbox_param_peek_string_from_int.sv](../tests/ch15/test_illegal_mailbox_param_peek_string_from_int.sv): mailbox #(int) の peek に string 変数 s を渡す行（35 行）を拒否する。n への peek は合法。
+- [test_illegal_mailbox_param_try_peek_string_from_int.sv](../tests/ch15/test_illegal_mailbox_param_try_peek_string_from_int.sv): mailbox #(int) の try_peek に string 変数 s を渡す行（35 行）を拒否する。n への try_peek は合法。
 
 ### SV2023-15.5-EXTRACT-NAMED-EVENT-HANDLE
 
-`15.5` / `normal` / テスト未対応
+`15.5` / `normal` / テスト対応あり・実行未確認
 
 イベント宣言は，明示的にトリガされ，イベント表現で待たれ，他のイベントから割り当てられる名前付きハンドルを与える。
 
@@ -37087,10 +37102,11 @@ try_peekはブロックせずにコピーを試みる。
 
 規定の性質: `definition`。
 
+- [test_named_event_alias_queue_and_triggered_wait.sv](../tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv): event e1 を時刻 10 に -\> で明示的にトリガし、時刻 0 から @(e1) で待つプロセスと、alias1 = e1 と代入した後 @(alias1) で待つプロセスが、ともに時刻 10 に解放されることを記録して表示する（@e1 10, @alias1 10）。 区別: event の代入がハンドルの共有でなく別オブジェクトの複製になる実装では @(alias1) が解放されず '@alias1 -1' に変わる。-\> によるトリガやイベント制御での待機が働かなければ '@e1 10' が -1 に変わる。
 
 ### SV2023-15.5-EXTRACT-SYNCHRONIZATION-QUEUE
 
-`15.5` / `normal` / テスト未対応
+`15.5` / `normal` / テスト対応あり・実行未確認
 
 各イベントオブジェクトは待ち受けるプロセスを持つ。トリガを待つと、トリガの状態を検査することができます。
 
@@ -37098,6 +37114,7 @@ try_peekはブロックせずにコピーを試みる。
 
 規定の性質: `mandatory`。
 
+- [test_named_event_alias_queue_and_triggered_wait.sv](../tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv): 同じ同期オブジェクト（e1 と、それを代入した alias1）で @ 待ちの2プロセスと wait(e1.triggered) の1プロセスが1回のトリガで全員解放される（10, 10, 10）。@ と wait の対比として、自分で e3 をトリガした直後の @(e3) はそのトリガを逃して次のトリガの 30 で解放され、自分で e2 をトリガした直後の wait(e2.triggered) は持続する triggered 状態を見て 20 で解放される。 区別: 待ちプロセスの列を1つしか持たない実装（最後の待機者だけ解放）では @e1 か @alias1 の一方が -1 になる。@ が持続状態を見る実装では 'released at 30' が 20 に、wait が持続状態を見ない実装では 'wait after trigger 20' が -1 に変わる。
 
 ### SV2023-15.5.1-EXTRACT-ARRAY-INDEX-NOT-TRIGGER
 
@@ -37174,7 +37191,7 @@ try_peekはブロックせずにコピーを試みる。
 
 ### SV2023-15.5.3-EXTRACT-NO-FALLING-TRIGGERED-SENSITIVITY
 
-`15.5.3` / `normal` / テスト未対応
+`15.5.3` / `normal` / テスト対応あり・実行未確認
 
 時間ステップ境界での自動1から0にトリガされた状態リセットは，それ自体でイベント／待ち表現を再評価しない。実際のオペランド変更感度だけが 再評価を引き起こします
 
@@ -37182,10 +37199,11 @@ try_peekはブロックせずにコピーを試みる。
 
 規定の性質: `mandatory`。
 
+- [test_named_event_alias_queue_and_triggered_wait.sv](../tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv): 時刻 40 に e4 をトリガした直後に wait (!e4.triggered || go) で待つ（その時点で偽）。時刻 45 に待機式の被演算子でない変数 other だけを変えて新しい時間ステップを作り、時刻 50 に go を 1 にする。解放時刻が 50 であることを表示する。 区別: time step の終わりに triggered が 1→0 に戻ることで待機式を再評価する実装では、40 の終わりか次のステップ 45 に !e4.triggered が真になって解放され、'released at 50' が 40 か 45 に変わる（Verilator 5.054 は代入を除いた写しで 45 を出し、この形で不一致）。
 
 ### SV2023-15.5.3-EXTRACT-SAME-STEP-WAIT-ORDER
 
-`15.5.3` / `normal` / テスト未対応
+`15.5.3` / `normal` / テスト対応あり・実行未確認
 
 持続的にトリガされた状態に待つことにより，同じシミュレーション時間ステップでトリガの前後で待ちが始まるかどうかを解除する。
 
@@ -37193,10 +37211,11 @@ try_peekはブロックせずにコピーを試みる。
 
 規定の性質: `mandatory`。
 
+- [test_named_event_alias_queue_and_triggered_wait.sv](../tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv): wait(e.triggered) をトリガより前に始める場合として、時刻 0 から待つもの（トリガは 10）と、時刻 20 の Active 領域で待ち始めトリガを #0 で Inactive 領域へ遅らせたもの（同じ時間ステップ内で先に待つ）、トリガより後に始める場合として、時刻 20 に自分で e2 をトリガした後に待つものを置き、いずれも 10 / 20 / 20 で解放されることを表示する。順序は #0 と同一プロセス内の順で決まり、規格が決めない順序に依存しない。 区別: 待機開始後のトリガしか見ない実装（@ と同じ扱い）では 'wait after trigger 20' が -1 に、待機開始時の状態しか見ない実装では 'wait before trigger 20' が -1 に変わる。
 
 ### SV2023-15.5.3-EXTRACT-SIGNATURE
 
-`15.5.3` / `normal` / テスト未対応
+`15.5.3` / `normal` / テスト対応あり・実行未確認
 
 bit は引数を返さないメソッドである。
 
@@ -37204,6 +37223,7 @@ bit は引数を返さないメソッドである。
 
 規定の性質: `definition`。
 
+- [test_named_event_alias_queue_and_triggered_wait.sv](../tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv): 引数なしの e1.triggered() と e2.triggered を呼び、$typename(e1.triggered()) が bit、$bits が 1 であること、時刻 60 にトリガした e1 が 1、時刻 20 にトリガした e2 が 0 であることを表示する。 区別: 戻り値型を int や logic にする実装では $typename の 'bit' と '1 bit' が変わる（'int, 32 bit' や 'logic'）。現在の時間ステップのトリガを判定しない実装では 'e1 1, e2 0' が変わる。引数を要求する実装はコンパイルできない。
 
 ### SV2023-15.5.3-EXTRACT-TRIGGERED-PERSISTENCE
 
@@ -37243,7 +37263,7 @@ triggered() はこの時間ステップでトリガーされた場合は 1 を�
 
 ### SV2023-15.5.4-EXTRACT-FIRST-ONLY-PERSISTENT
 
-`15.5.4` / `normal` / テスト未対応
+`15.5.4` / `normal` / テスト対応あり・実行未確認
 
 wait_order イベントのみがその持続的なトリガ状態を使用できる。
 
@@ -37251,6 +37271,7 @@ wait_order イベントのみがその持続的なトリガ状態を使用でき
 
 規定の性質: `mandatory`。
 
+- [test_wait_order_later_event_ignores_earlier_trigger.sv](../tests/ch15/test_wait_order_later_event_ignores_earlier_trigger.sv): 時刻 10 に b をトリガした直後に同じプロセスで wait_order(a, b) を始め、a を 12、b を 14 にトリガする。2番目の b の時刻 10 の triggered 状態は使われず、14 の b で成功して status 1 at 14 となる。対照として、時刻 20 に先頭の c をトリガした直後に wait_order(c, d) を始め、d を 22 にトリガすると、c の持続状態が数えられて status 1 at 22 となる。 区別: 2番目以降の event にも持続する triggered 状態を使う実装では、b が a より先に起きたとみなして 10 か 12 に失敗する（status 0）か、a の後に b を満たしたとみなして 12 に完了し、'status 1 at 14' の行が変わる。先頭の event の持続状態も使わない実装では、c が来ないまま d が先に起きて失敗し 'status 1 at 22' が 'status 0 at 22' に変わる。
 
 ### SV2023-15.5.4-EXTRACT-ORDERED-EVENT-WAIT
 
@@ -37278,7 +37299,7 @@ wait_order イベントが順序で受け入れられた後、それを再トリ
 
 ### SV2023-15.5.4-EXTRACT-WAIT-ORDER-FAIL-ACTION
 
-`15.5.4` / `normal` / テスト未対応
+`15.5.4` / `normal` / テスト対応あり・実行未確認
 
 次数外の故障は、その明示的なelseアクションを実行するか、elseが存在しない場合はデフォルトで$errorを呼び出す。
 
@@ -37286,6 +37307,7 @@ wait_order イベントが順序で受け入れられた後、それを再トリ
 
 規定の性質: `mandatory`。
 
+- [test_wait_order_later_event_ignores_earlier_trigger.sv](../tests/ch15/test_wait_order_later_event_ignores_earlier_trigger.sv): wait_order(e, f) の else 文が、e より先に f が 32 にトリガされた失敗で1回だけ実行され status 0・else ran 1 time・at 32 となる。else の無い wait_order(g, h) は、h が 42 に g より先にトリガされた失敗で $error を呼び、:expected_stderr_regex: (?i)\berror\b が実行のメッセージにエラーの語があることを照合する（表示行にはその語を含めない）。プロセスは次の文へ進み went on at 42 となる。 区別: 失敗時に else 文を実行しない実装では 'status 0 at 32, else ran 1 time' が変わる（-1 / 0 time）。else が無いときに $error を呼ばない実装はメッセージにエラーの語が出ず :expected_stderr_regex: で失敗する。失敗で処理を止めたり待ち続けたりする実装では 'went on at 42' が変わる。
 
 ### SV2023-15.5.4-EXTRACT-WAIT-ORDER-GRAMMAR
 
@@ -66867,7 +66889,7 @@ ANSI ポートは，先行ポートから，相互接続の種類を含めて，
 
 ### SV2023-23.2.4-EXTRACT-MODULE-ITEM-GRAMMAR
 
-`23.2.4` / `normal` / テスト未対応
+`23.2.4` / `normal` / テスト対応あり・実行未確認
 
 モジュールには、合法なモジュール項目を0個以上記述できます。宣言、インスタンス化、アサーション・bind、継続代入・alias、initial・final・alwaysプロセス、generate構文、specify・specparam、入れ子の設計宣言、許可された時間単位の指定です。
 
@@ -66875,6 +66897,7 @@ ANSI ポートは，先行ポートから，相互接続の種類を含めて，
 
 規定の性質: `definition`。
 
+- [test_module_items_every_kind_with_bind_nested_and_timeunit.sv](../tests/ch23/test_module_items_every_kind_with_bind_nested_and_timeunit.sv): 項目の無い module empty_m と、非 ANSI のポート宣言項目 output logic \[7:0\] y; から始まる items_m を置く。items_m は宣言（parameter・typedef・変数・ネット）、defparam、ゲート・UDP・モジュール・interface・program のインスタンス、コンカレントアサーション、bind、連続代入、net alias、initial / final / always、ループ・条件 generate と generate 領域、specparam、入れ子の module / interface / program の宣言とインスタンス、先頭の timeunit 10ns と項目として繰り返す同じ timeunit 10ns を持つ。それぞれの効果（y 4・alias 1・buf 1・udp 0、defparam の K 7、bind した probe の 5、interface 9・入れ子 66・77、generate 10/44/55、specparam 4、leaf の specify の経路遅延で 12 に 0・14 に 1、10ns 単位の #2 で 19 に 0・21 に 1、always と assertion の2回、入れ子 program の表示、program インスタンスの 220 での表示と終了、final の表示）を固定時刻に表示する。 区別: どれかの種類の項目を module の中で受け付けない実装はコンパイルできず全行が出ない。項目として繰り返した timeunit を受け付けない、あるいは先頭の 10ns を無視する実装では 'flag at 19: 0' / 'flag at 21: 1' が変わる。bind・defparam・入れ子宣言・generate・specify の解釈を誤れば、対応する値（bound probe 5、K 7、nested module 66、generate 10 44 55、leaf output at 14: 1）が変わる。program の終了で $finish しない実装では final の行の回数や program 行の後の出力が変わる。
 
 ### SV2023-23.2.4-EXTRACT-REPEATED-TIMEUNIT-ITEM
 
@@ -69298,7 +69321,7 @@ defparam 階層名は完全な精製の前に解決され，完全な精製の�
 
 ### SV2023-23.11-EXTRACT-BIND-INSTANCE-PRECEDENCE
 
-`23.11` / `normal` / テスト未対応
+`23.11` / `normal` / テスト対応あり・実行未確認
 
 単一インスタンスバインドは、その名前がモジュール名にも解決される場合、そのインスタンスのみをターゲットとします。
 
@@ -69306,6 +69329,7 @@ defparam 階層名は完全な精製の前に解決され，完全な精製の�
 
 規定の性質: `mandatory`。
 
+- [test_bind_instance_name_over_module_name_and_placements.sv](../tests/ch23/test_bind_instance_name_over_module_name_and_placements.sv): top に module other のインスタンス u_a と、module u_a のインスタンス x を置き、top 内の bind u_a probe p_inst() で束縛する。束縛された probe が %m を package の連想配列（string 添字で辞書順）に記録し、時刻 1 に一覧を表示する。probe は top.u_a.p_inst にだけあり top.x.p_inst は無い。対照として、インスタンス名に解決しない bind leaf_m は m1 と m2 の両方に束縛される。 区別: u_a をモジュール名として扱い全インスタンスへ束縛する実装では 'probe ...x.p_inst' が現れ 'probe ...u_a.p_inst' が消える（Verilator 5.054 がこの形で不一致）。両方へ束縛する実装では行が増え '5 probes' が 6 になる。モジュール名だけの bind まで1インスタンスに限る実装では m2 の行が消える。
 
 ### SV2023-23.11-EXTRACT-BIND-LIBRARY-MAPPING
 
@@ -69345,7 +69369,7 @@ defparam 階層名は完全な精製の前に解決され，完全な精製の�
 
 ### SV2023-23.11-EXTRACT-BIND-PLACEMENT
 
-`23.11` / `normal` / テスト未対応
+`23.11` / `normal` / テスト対応あり・実行未確認
 
 バインド指令はモジュール，インタフェース，またはコンパイルユニットスコープに現れる。
 
@@ -69353,6 +69377,7 @@ defparam 階層名は完全な精製の前に解決され，完全な精製の�
 
 規定の性質: `mandatory`。
 
+- [test_bind_instance_name_over_module_name_and_placements.sv](../tests/ch23/test_bind_instance_name_over_module_name_and_placements.sv): bind を3か所に置く: module（top 内の bind leaf_m）、interface（top に実体化した ifc 内の bind leaf_i）、compilation-unit スコープ（モジュール外の bind leaf_u）。それぞれの対象インスタンスに probe が入り、%m の一覧に m1/m2.p_mod、k1.p_ifc、w1.p_unit が現れる。 区別: interface 内の bind を無視する実装では 'probe ...k1.p_ifc' が、compilation-unit スコープの bind を無視する実装では 'probe ...w1.p_unit' が消え、'5 probes' の数も変わる。module 内の bind を無視すれば m1/m2 の行が消える。
 
 ### SV2023-23.11-EXTRACT-BIND-SCOPE-ALL-SUBSET
 
@@ -69969,7 +69994,7 @@ ANSIモジュール/インタフェース/プログラムヘッダパッケー�
 
 ### SV2023-25.3-EXTRACT-MODPORT-GRAMMAR
 
-`25.3` / `normal` / テスト未対応
+`25.3` / `normal` / テスト対応あり・実行未確認
 
 Modポートは，指向された単純なまたは明示的に名前付けられた表現ポート，インポート／エクスポートされたサブルートイン識別子／プロトタイプ，およびクロック識別子を含み，任意に属性付けられる。
 
@@ -69977,6 +70002,7 @@ Modポートは，指向された単純なまたは明示的に名前付けら�
 
 規定の性質: `definition`。
 
+- [test_modport_import_export_prototypes_clocking_and_named_port.sv](../tests/ch25/test_modport_import_export_prototypes_clocking_and_named_port.sv) : modport initiator に属性付きの単純ポート (* role *) input clk / output data、識別子だけの import twice、prototype 付きの import task store(input int v) と import function int get_stored ()、clocking cb を並べ、modport target に明示名の式ポート input .low(data \[ 3:0 \] )、prototype 付きの export task store、識別子だけの export get_stored を並べる。ini が twice・store・ get_stored を呼んで 42 を得、cb 経由で data を 5a と読み、tgt が b.low を a と読むことを表示する。区別: どれかの項目の形（属性、明示名の式ポート、識別子／prototype の import・export、clocking 識別子）を modport が受け付けなければ設計がコンパイルできず全行が出ない。明示名ポートの式を正しく結ばない実装では 'low a' が、clocking 経由の参照を誤る実装では 'cb.data at 5 = 5a' が、import/export の結合を誤る実装では 'get_stored() = 42' と 'stored 42' が変わる。
 
 ### SV2023-25.3.2-EXTRACT-BUNDLE-DEFAULT-DIRECTIONS
 
@@ -69993,7 +70019,7 @@ modport制限がないとき，ポート参照インタフェース内の変数�
 
 ### SV2023-25.3.3-EXTRACT-GENERIC-ANSI-ONLY
 
-`25.3.3` / `error` / テスト未対応
+`25.3.3` / `error` / 実行確認あり
 
 一般的なインタフェース参照は ANSI ポート宣言構文を必要とします。非ANSIは違法です
 
@@ -70001,6 +70027,7 @@ modport制限がないとき，ポート参照インタフェース内の変数�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_generic_interface_port_non_ansi.sv](../tests/ch25/test_illegal_generic_interface_port_non_ansi.sv): 汎用 interface ポートを ANSI ヘッダで interface.mp a と宣言する gna_ansi（合法）、非 ANSI でインターフェース名付きの gna_if.mp a と宣言する gna_named（合法）、非 ANSI の本体で汎用形 interface.mp a と宣言する gna_generic を並べ、:expected_stderr_regex: が gna_generic の宣言行（48 行）のエラーを照合する。 区別: 汎用 interface 参照を非 ANSI の宣言でも受け付ける実装はこの設計を受理し『受理された』で失敗する。ANSI の汎用ポートや非 ANSI の名前付き interface ポートまで拒否する実装は、その規格で認められる行で報告し、48 行のエラーとしては照合されない（Icarus 13.0 はこの形で数えない）。
 
 ### SV2023-25.3.3-EXTRACT-GENERIC-INTERFACE
 
@@ -70210,7 +70237,7 @@ modport表現は自己決定的であり，代入のようなものではなく�
 
 ### SV2023-25.7-EXTRACT-INTERFACE-SUBROUTINE-DEFINITION
 
-`25.7` / `normal` / テスト未対応
+`25.7` / `normal` / テスト対応あり・実行未確認
 
 インタフェイスサブルーチンはインタフェイスまたは接続モジュールで定義され，モッドポートを呼び出すときにインポートとして宣言される。
 
@@ -70218,6 +70245,7 @@ modport表現は自己決定的であり，代入のようなものではなく�
 
 規定の性質: `permission`。
 
+- [test_modport_import_export_prototypes_clocking_and_named_port.sv](../tests/ch25/test_modport_import_export_prototypes_clocking_and_named_port.sv): 関数 twice を interface bus_if 内で定義し、タスク store と関数 get_stored を接続モジュール tgt で task b.store / function int b.get_stored として定義して modport target で export する。呼び出し側 ini は modport initiator でこれらを import 宣言し（他モジュールからの import は完全な prototype）、b.store(b.twice(21)) が tgt の変数 stored に 42 を入れ、b.get_stored() が 42 を返し、tgt 自身も stored 42 を表示する。 区別: interface で定義したサブルーチンを import できない実装、または接続モジュールで定義したサブルーチンを export/import で呼べない実装はコンパイルできない。モジュール側の定義の本体を interface のスコープで解決する実装では stored が見つからず止まるか、別の変数に書いて 'tgt: stored 42' が 'stored -1' に変わる。
 
 ### SV2023-25.7-EXTRACT-MISSING-MISMATCHED-EXPORT
 
@@ -71001,7 +71029,7 @@ q::c は p ワイドキャラ候補 c より優先される。
 
 ### SV2023-26.5-EXTRACT-WILDCARD-WILDCARD-Q
 
-`26.5` / `error` / テスト未対応
+`26.5` / `error` / 実行確認あり
 
 pとqのワイルドカードインポートは共存できるが，それらの異なるc宣言への参照は曖昧で違法である。
 
@@ -71009,6 +71037,7 @@ pとqのワイルドカードインポートは共存できるが，それらの
 
 規定の性質: `mandatory`。
 
+- [test_illegal_two_wildcard_imports_ambiguous_reference.sv](../tests/ch26/test_illegal_two_wildcard_imports_ambiguous_reference.sv): 同じモジュールに import p_pkg::* と import q_pkg::* を置き（どちらも c を宣言）、q だけにある only_q、p だけにある TRUE、修飾名 p_pkg::c を合法に参照したうえで、非修飾の c を1か所だけ参照する。:expected_stderr_regex: がその参照行（41 行）のエラーを照合する。2つの wildcard import の行や他の参照の行は合法で、共存が許されることの対照になる。 区別: 2つの wildcard 候補のどちらか（先の import など）に c を結び付ける実装はこの設計を受理し『受理された』で失敗する（Verilator 5.054 がこの形）。wildcard import 自体の共存を禁じる実装は import 行で報告し、参照行のエラーとして照合されない。
 
 ### SV2023-26.5-SCOPED-PACKAGE-NAME
 
@@ -71083,7 +71112,7 @@ pとqのワイルドカードインポートは共存できるが，それらの
 
 ### SV2023-26.7-EXTRACT-BUILTIN-PACKAGE-CLOSED
 
-`26.7` / `error` / テスト未対応
+`26.7` / `error` / テスト対応あり・実行未確認
 
 内蔵パッケージはシステムタイプ，変数，サブルーチンを含むことができる。ユーザーは宣言を追加できません
 
@@ -71091,6 +71120,7 @@ pとqのワイルドカードインポートは共存できるが，それらの
 
 規定の性質: `mandatory`。
 
+- [test_illegal_std_package_declaration.sv](../tests/ch26/test_illegal_std_package_declaration.sv): 利用者のコードで package std を宣言し、その中に変数 extra を加えようとする。:expected_stderr_regex: が package std の行（18 行）か宣言を加える行（19 行）のエラーを照合する。設計にはほかに空のモジュール t しか無い。 区別: 組込みパッケージ std に利用者の宣言を加えられる（あるいは利用者の std で置き換えられる）実装はこの設計を受理し『受理された』で失敗する。規則は利用者による std への宣言の追加を禁じるもので、どちらの行で報告しても同じ違反の診断として照合される。
 
 ### SV2023-26.7-EXTRACT-STD-IMPLICIT-IMPORT
 
@@ -71222,7 +71252,7 @@ genvar は初期化/テスト/更新、定数 if/else または case/default 選
 
 ### SV2023-27.3-EXTRACT-GENERATE-REGION-CONTAINER-TEXT
 
-`27.3` / `error` / テスト未対応
+`27.3` / `error` / 実行確認あり
 
 generate_region 文法の項目リストのコンテナであるモジュール，インタフェース，プログラム，またはチェッカボディの項目としてのみ，明示的な生成領域（generate... endgenerate）が直接生成される。パッケージのボディや 生成ブロックの中に置くことはできません
 
@@ -71230,6 +71260,9 @@ generate_region 文法の項目リストのコンテナであるモジュール�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_generate_region_in_package.sv](../tests/ch27/test_illegal_generate_region_in_package.sv): package region_pkg の中の generate（26 行）を拒否する。モジュール直下の generate 領域は合法。
+- [test_illegal_generate_region_in_loop_block.sv](../tests/ch27/test_illegal_generate_region_in_loop_block.sv): 領域の外にあるループ generate g のブロック内の generate（33 行）を拒否する。モジュール直下の領域で囲んだループ h は合法。
+- [test_illegal_generate_region_in_conditional_block.sv](../tests/ch27/test_illegal_generate_region_in_conditional_block.sv): 領域の外にある if generate g のブロック内の generate（36 行）を拒否する。モジュール直下の領域で囲んだ case generate は合法。
 
 ### SV2023-27.4-EXTRACT-GENERATE-ARRAY-COLLISION
 
@@ -71521,7 +71554,7 @@ If／case生成は，定数制御を評価し，多くの場合1つの選択可�
 
 ### SV2023-28.3-EXTRACT-PRIMITIVE-GRAMMAR
 
-`28.3` / `normal` / テスト未対応
+`28.3` / `normal` / 実行確認あり
 
 プライミティブ宣言は、そのタイプとコンマで区切られたインスタンスの名前を、端末リスト、オプション名/範囲、タイプが許容する強度/遅延と共に指定する。入力端子は表現であり，output/inout端子はnetl値である。
 
@@ -71529,6 +71562,7 @@ If／case生成は，定数制御を評価し，多くの場合1つの選択可�
 
 規定の性質: `definition`。
 
+- [test_gate_declaration_list_names_ranges_terminals.sv](../tests/ch28/test_gate_declaration_list_names_ranges_terminals.sv): ゲート・スイッチの宣言を、型のキーワード、共有の駆動強度と遅延（and (strong0, pull1) #(2, 3)、buf (weak1, weak0)、bufif1 #2）、名前付き g_a と名前なしのインスタンスのコンマ区切りの列、範囲付きのインスタンス配列 nand g_n \[3:0\]、式の入力・制御端子（~b、a ^ b、1'b1、!en）、ネットとネットのビット選択の出力・inout 端子（o1、bus\[0\]、bus\[1\]）で書き、5/11/13/21/24 に %v と %b で値と強度を表示する。2つの and インスタンスはともに St0/Pu1 を出し、立上り 2・立下り 3 で変わる（y1 は 13 に Pu1・24 に St0、y2 は 24 に Pu1）。配列は ny 1110、buf の2出力は We0/We1、tran は bus\[1\] に b を通す。 区別: 列の2番目以降のインスタンスに強度や遅延を共有させない実装では y2 の強度（St0/Pu1）や時刻 21/24 の値が変わる。インスタンス配列の範囲をビットに分けない実装では ny 1110 が変わり、式の端子を受け付けない・ネットのビット選択を出力端子にできない実装はコンパイルできないか、bus\[0\]/bus\[1\] の行が変わる。
 
 ### SV2023-28.3-EXTRACT-PRIMITIVE-QUALIFIERS
 
@@ -71735,7 +71769,7 @@ MOSスイッチカテゴリに属する。
 
 ### SV2023-28.3.1-EXTRACT-PRIMITIVE-PULLDOWN
 
-`28.3.1` / `normal` / テスト未対応
+`28.3.1` / `normal` / 実行確認あり
 
 内蔵したプリミティブプルダウンはプルゲートカテゴリに属する。
 
@@ -71743,10 +71777,11 @@ MOSスイッチカテゴリに属する。
 
 規定の性質: `definition`。
 
+- [test_pull_gate_instances_terminal_and_strength.sv](../tests/ch28/test_pull_gate_instances_terminal_and_strength.sv): pulldown を pull gate の形（端子1つ（出力）だけのインスタンス、pulldown_strength の (weak0) と (weak1, supply0)）で宣言し、それぞれのネットの唯一のドライバとして %v で強度と値を表示する。強度指定なしは pull 強度（pulldown は Pu0）、自分の値の側の強度指定はその強度、反対側の強度は無視される。 区別: pulldown を pull gate として扱わない実装（端子を2つ要求する、強度の既定を strong にする、反対側の強度を使う等）では、コンパイルできないか、'pullup Pu1, pulldown Pu0' などの行の強度表示（Pu/St/We/Su）や値が変わる。
 
 ### SV2023-28.3.1-EXTRACT-PRIMITIVE-PULLUP
 
-`28.3.1` / `normal` / テスト未対応
+`28.3.1` / `normal` / 実行確認あり
 
 内蔵したプリミティブプールップは，プルゲートカテゴリに属する。
 
@@ -71754,6 +71789,7 @@ MOSスイッチカテゴリに属する。
 
 規定の性質: `definition`。
 
+- [test_pull_gate_instances_terminal_and_strength.sv](../tests/ch28/test_pull_gate_instances_terminal_and_strength.sv): pullup を pull gate の形（端子1つ（出力）だけのインスタンス、名前付きと名前なしの2インスタンスを持つ1つの宣言、pullup_strength の (strong1) と (strong0, weak1)）で宣言し、それぞれのネットの唯一のドライバとして %v で強度と値を表示する。強度指定なしは pull 強度（pullup は Pu1）、自分の値の側の強度指定はその強度、反対側の強度は無視される。 区別: pullup を pull gate として扱わない実装（端子を2つ要求する、強度の既定を strong にする、反対側の強度を使う等）では、コンパイルできないか、'pullup Pu1, pulldown Pu0' などの行の強度表示（Pu/St/We/Su）や値が変わる。
 
 ### SV2023-28.3.1-EXTRACT-PRIMITIVE-RCMOS
 
@@ -76082,7 +76118,7 @@ Supply0とsupply1は地上電力をモデル化し，電力供給駆動力を用
 
 ### SV2023-28.16-EXTRACT-DELAY-COUNTS
 
-`28.16` / `normal` / テスト未対応
+`28.16` / `normal` / テスト対応あり・実行未確認
 
 欠けたゲート／ネット遅延はゼロである。1つはすべての転換に適用されます2つの値はx/zの最小値を与えます
 
@@ -76090,6 +76126,8 @@ Supply0とsupply1は地上電力をモデル化し，電力供給駆動力を用
 
 規定の性質: `mandatory`。
 
+- [test_gate_delay_table_all_transitions.sv](../tests/ch28/test_gate_delay_table_all_transitions.sv): ゲート: bufif1 の遅延なし・#4・#(3,5)・#(5,3) で、0/1/x/z の全12遷移の遅延と値。
+- [test_net_delay_counts_rise_fall_x_z.sv](../tests/ch28/test_net_delay_counts_rise_fall_x_z.sv): ネット: net delay なし・#5・#(3,7)・#(7,3) のネットを遅延なしの assign で駆動し、9遷移の遅延と値。
 
 ### SV2023-28.16-EXTRACT-DELAY-INDEPENDENT-STRENGTH
 
@@ -120860,7 +120898,7 @@ tfポート宣言は、属性、必要な方向、オプションのvar、デー
 
 ### SV2023-A.2.7-EXTRACT-TF-DIRECTION
 
-`A.2.7` / `normal` / テスト未対応
+`A.2.7` / `normal` / 実行確認あり
 
 tf方向はポート方向または選択的なconst，ref，staticである。
 
@@ -120868,6 +120906,7 @@ tf方向はポート方向または選択的なconst，ref，staticである。
 
 規定の性質: `definition`。
 
+- [test_tf_port_directions_ref_static_and_item_forms.sv](../tests/ch13/test_tf_port_directions_ref_static_and_item_forms.sv): タスク t の7つの引数に tf_port_direction の全形（input / output / inout の port direction、ref、const ref、ref static、const ref static）を使い、時刻 0 に呼んで 2 に戻る。input の a は呼出し時の写し（途中で s_in を変えても 1）、output と inout は戻るまで呼び手に写されず（時刻 1 に s_out 0・s_io 3、戻った後 11・103）、ref の d は即座に共有され（1004）、const ref の e と const ref static の g は呼び手の途中の変更 50・70 を読み、ref static の f はノンブロッキング代入 f \<= f + 1 で s_rs を 7 にする。 区別: どれかの方向の形を構文として受け付けない実装はコンパイルできない。const や static を無視して別の方向として扱う実装、または ref を値渡しにする実装では、'at 1: s_out 0, s_io 3, s_ref 1004' の s_ref が 4 に、'at 2: a 1, e 50, g 70' の e/g が 5/7 に変わる。ref static をノンブロッキング代入に使えない実装はコンパイルできず、写す時点を誤る実装では s_out/s_io の行が変わる。
 
 ### SV2023-A.2.7-EXTRACT-TF-ITEM-LIST
 
@@ -120883,7 +120922,7 @@ tf方向はポート方向または選択的なconst，ref，staticである。
 
 ### SV2023-A.2.7-EXTRACT-TF-PORT
 
-`A.2.7` / `normal` / テスト未対応
+`A.2.7` / `normal` / 実行確認あり
 
 28の明確化により，tf‐port項目は，繰り返し属性，任意の方向，任意のvar，データ／暗黙型，および繰り返し変数次元を持つ任意の識別子，および任意の表現デフォルトを持つ。
 
@@ -120891,6 +120930,7 @@ tf方向はポート方向または選択的なconst，ref，staticである。
 
 規定の性質: `definition`。
 
+- [test_tf_port_directions_ref_static_and_item_forms.sv](../tests/ch13/test_tf_port_directions_ref_static_and_item_forms.sv): 関数 sum の tf_port_item に、属性を2つ重ねた (* a1 *) (* a2 *) input var int arr \[2\]（方向・var・データ型・名前・unpacked 次元）、方向を省いた暗黙の型 \[3:0\] nib = 4'd5（既定値付き）、int k = 1 を並べ、sum('{3, 4}) = 13、sum('{10, 20}, 4'd2, 0) = 32、中央を省いた sum('{1, 1}, , 0) = 7 を表示する。脚注 28 の例外として、modport の prototype import function int inc(int) は名前の無いポートを持ち、u.p.inc(4) = 5 となる。task t の各ポートも方向とデータ型と名前を持つ形である。 区別: 属性・var・暗黙の型・unpacked 次元・既定値・prototype での名前の省略のどれかを受け付けない実装はコンパイルできない。方向の省略を input 以外として扱う、暗黙の型の幅を誤る、既定値を使わない実装では sum の3つの値（13/32/7）が変わる。prototype の無名ポートの結合を誤れば 'inc(4) = 5' が変わる。
 
 ### SV2023-A.2.8-EXTRACT-BLOCK-DECL
 
@@ -121219,7 +121259,7 @@ first_matchは括弧内の列と零以上のコンママッチ項目を取る。
 
 ### SV2023-A.2.10-EXTRACT-MATCH-METHOD
 
-`A.2.10` / `normal` / テスト未対応
+`A.2.10` / `normal` / テスト対応あり・実行未確認
 
 シーケンスメソッドコールはシーケンスインスタンスドットメソッド識別子である。演算子代入、増減、サブルーティン呼び出しをマッチする項目です。
 
@@ -121227,6 +121267,7 @@ first_matchは括弧内の列と零以上のコンママッチ項目を取る。
 
 規定の性質: `definition`。
 
+- [test_sequence_method_call_and_match_item_forms.sv](../tests/ch16/test_sequence_method_call_and_match_item_forms.sv): 名前付き sequence s_items の式 a の後に、match item の3つの形（operator assignment の v = 1 と v += 2、increment の v++、subroutine call の report(v)）を並べ、sequence method call の形 s_items.triggered を wait で使う。a が 15 の posedge でだけ 1 なので match item は1回だけ順に実行されて report が 4 を受け取り、b が 25 で 1 なので終点に達して wait が 25 に解放されることを表示する。 区別: どれかの match item の形や sequence_instance.method_identifier の形を受け付けない実装はコンパイルできない。match item を書かれた順に評価しない、あるいは ++ や += を別の演算として扱う実装では 'report(v) got 4' の値が変わり（例: 3 や 2）、呼出しを match のたびに1回行わない実装では 'in 1 call' が変わる。triggered を終点の時間ステップで真にしない実装では 'triggered at 25' が変わる。
 
 ### SV2023-A.2.10-EXTRACT-NOT
 
@@ -124722,7 +124763,7 @@ Castはキャスト型のアポストロフ括弧入り表現である。常に�
 
 ### SV2023-A.8.4-EXTRACT-CONSTANT-PRIMARY-31
 
-`A.8.4` / `normal` / テスト未対応
+`A.8.4` / `normal` / 実行確認あり
 
 定数一次式には、任意の角括弧付き定数範囲式を伴うspecparam識別子を使用できます。
 
@@ -124730,6 +124771,7 @@ Castはキャスト型のアポストロフ括弧入り表現である。常に�
 
 規定の性質: `definition`。
 
+- [test_specparam_select_in_specparam_constant.sv](../tests/ch6/test_specparam_select_in_specparam_constant.sv): specparam \[15:0\] SP = 16'ha5c3 を、後の specparam の定数式の中で constant primary として、範囲なし（SP）、部分選択 SP\[7:0\]、インデックス付き部分選択 SP\[8 +: 4\]、ビット選択 SP\[1\] と SP\[2\] の形で使い、値 a5c3、c3、5、1、0 を表示する。 区別: specparam 識別子の後の角括弧の constant range expression を受け付けない実装はコンパイルできない。選択を逆端から数える、部分選択を単一の添字と扱う、+: の幅を誤る実装では 'whole a5c3, \[7:0\] c3, \[8 +: 4\] 5' や '\[1\] 1, \[2\] 0' の値が変わる。
 
 ### SV2023-A.8.4-EXTRACT-CONSTANT-PRIMARY-32
 
@@ -137771,7 +137813,7 @@ n-1：0 , LSBゼロに正規化したパッケージされた選択ユーティ�
 
 ### SV2023-I.3-EXTRACT-PART-LIMIT
 
-`I.3` / `normal` / テスト未対応
+`I.3` / `normal` / 実行確認あり
 
 32 より大きくない幅の正規化した指数を用いる部分選択ユーティリティを提案した。
 
@@ -137779,6 +137821,7 @@ n-1：0 , LSBゼロに正規化したパッケージされた選択ユーティ�
 
 規定の性質: `mandatory`。
 
+- [test_svdpi_h_partsel_get_put_bit_logic_width_32.sv](../tests/ch35/test_svdpi_h_partsel_get_put_bit_logic_width_32.sv): \[70:7\] と宣言した 64 ビットの bit / logic ベクタに対して、4つの part-select 関数すべてを正規化添字で呼ぶ。svGetPartselBit は (0,8)=ef、チャンクをまたぐ (28,8)=78、上限幅の (32,32)=01234567 とまたぐ (20,32)=3456789a、svGetPartselLogic は (36,8)=a9 と (16,32)=ba987654、svPutPartselBit は a5a5a5a5 を (20,32) と 3c の下位4ビットを (60,4) に、svPutPartselLogic は 6 を (44,4) と 12345678 を (4,32) に書き、設計がベクタ全体 c12a5a5a5a5bcdef と fedc6a9123456780 の2進表記を表示する。 区別: 添字を宣言の 7 から数える実装や最上位ビットから数える実装では、取り出した値（ef/78 など）と書き込んだ後のベクタの行が変わる。幅 32 を扱えない（31 までしか写さない、あるいは 1\<\<32 で全ビットを落とす）実装では (32,32)・(20,32)・(16,32) の値と、(20,32)・(4,32) に書いた後の行が変わる。書込みで範囲外のビットを壊す実装では、書かなかったビット（例: 最上位の c1 の 1 や logic の fedc）が変わる。
 
 ### SV2023-I.3-EXTRACT-PROTOTYPES
 
@@ -137901,7 +137944,7 @@ svSetScope は前のスコープを返し、次のエクスポートスコープ
 
 ### SV2023-I.3-EXTRACT-SIGNED-TEXT
 
-`I.3` / `normal` / テスト未対応
+`I.3` / `normal` / 実行確認あり
 
 附録Iは，N == 32時のH.10.1.2：VALUEからSV_GET_SIGNED_BITS（VALUE，N）を文字通り再現し，それ以外はbit‐NテストでSV_MASK（N）で符号充填あるいはマスクを選択した。両方のソース出現は同じトークン配列を持ち，どちらも修正されない。
 
@@ -137909,6 +137952,7 @@ svSetScope は前のスコープを返し、次のエクスポートスコープ
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_signed_bits_macro_tokens.sv](../tests/ch35/test_svdpi_h_signed_bits_macro_tokens.sv): C コードが svdpi.h を取り込んだ後に SV_MASK の定義を外し、SV_GET_SIGNED_BITS(v, n) の展開を # 演算子で文字列にして空白を除いたトークン列を表示し、I.3 と H.10.1.2 の定義から得られる ((n)==32?(v):(((v)&(1\<\<(n)))?((v)|~SV_MASK(n)):((v)&SV_MASK(n)))) と一致するかを 1/0 で表示する（設計が import した dpi_signed_bits_text を呼ぶ）。N が 32 未満のときの計算値は比較しない（受入条件どおり）。 区別: マクロを書き換えた（例: ビット N でなく N-1 を調べる、SV_MASK を使わない、N==32 の分岐が無い）ヘッダでは、表示されるトークン列が変わり 'same tokens as H.10.1.2: 1' が 0 になる。空白だけの違いはトークン列に影響しないよう除いている。
 
 ### SV2023-I.3-EXTRACT-TIME-ALIASES
 
@@ -150669,7 +150713,7 @@ vpi_register_assertion_cbはvpiHandleを返し，アサーションションハ�
 
 ### SV2023-N.1-EXTRACT-ALGORITHM
 
-`N.1` / `normal` / テスト未対応
+`N.1` / `normal` / 実行確認あり
 
 確率論的RNGアルゴリズムはN.2のソースで定義され，20.14以下の実装にわたって繰り返し性を提供しなければならない。
 
@@ -150677,6 +150721,14 @@ vpi_register_assertion_cbはvpiHandleを返し，アサーションションハ�
 
 規定の性質: `mandatory`。
 
+- [test_dist_uniform_bounded_range_floor_and_clamp.sv](../tests/ch20/test_dist_uniform_bounded_range_floor_and_clamp.sv): $dist_uniform: seed 12345 から uniform(-10,10) を8回など。
+- [test_dist_normal_rejection_rounding_any_deviation.sv](../tests/ch20/test_dist_normal_rejection_rounding_any_deviation.sv): $dist_normal: 棄却ループの回数（draws 2/4/6/8）と丸めを11通りの seed/mean/deviation で。
+- [test_dist_exponential_one_draw_log_rounding.sv](../tests/ch20/test_dist_exponential_one_draw_log_rounding.sv): $dist_exponential: 一様乱数1回と -log の丸めを13通りで。
+- [test_dist_poisson_counts_products_above_exp.sv](../tests/ch20/test_dist_poisson_counts_products_above_exp.sv): $dist_poisson: 6 seed × 平均 1/4/20 の18通りで、積が e^-mean を下回るまでの描画回数。
+- [test_dist_chi_square_odd_even_df_and_rounding.sv](../tests/ch20/test_dist_chi_square_odd_even_df_and_rounding.sv): $dist_chi_square: 奇数/偶数自由度の13通り。
+- [test_dist_t_chi_square_then_normal_order.sv](../tests/ch20/test_dist_t_chi_square_then_normal_order.sv): $dist_t: chi_square の後に normal を引く順序を16通りで。
+- [test_dist_erlang_stage_count_and_product_rounding.sv](../tests/ch20/test_dist_erlang_stage_count_and_product_rounding.sv): $dist_erlang: 段数 k 回の一様乱数の積と丸めを14通りで。
+- [test_dist_uniform_full_range_and_seeded_random.sv](../tests/ch20/test_dist_uniform_full_range_and_seeded_random.sv): $random(seed) が rtl_dist_uniform(seed, LONG_MIN, LONG_MAX) と同じ値・seed になる（4 seed × 3回）。
 
 ### SV2023-N.1-EXTRACT-MAP-CHI-SQUARE
 
@@ -150752,7 +150804,7 @@ $dist_tは rtl_dist_t N.2 で定義されたアルゴリズムを使用します
 
 ### SV2023-N.1-EXTRACT-MAP-UNIFORM
 
-`N.1` / `normal` / テスト未対応
+`N.1` / `normal` / 実行確認あり
 
 $dist_uniformは rtl_dist_uniform N.2 で定義されたアルゴリズムを使用します。
 
@@ -150760,6 +150812,10 @@ $dist_uniformは rtl_dist_uniform N.2 で定義されたアルゴリズムを使
 
 規定の性質: `definition`。
 
+- [test_dist_uniform_bounded_range_floor_and_clamp.sv](../tests/ch20/test_dist_uniform_bounded_range_floor_and_clamp.sv): end が最大値でない分岐: seed 12345 から uniform(-10,10) を8回、端のクランプが効く seed -1271221770 で uniform(0,9)=9 と uniform(-20,-11)=-11。
+- [test_dist_uniform_end_at_largest_integer.sv](../tests/ch20/test_dist_uniform_end_at_largest_integer.sv): end=2147483647 で start が最小値でない分岐: start 1000/-5/2147483000/-2147483647 で seed 4242 から3回ずつ。
+- [test_dist_uniform_full_range_and_seeded_random.sv](../tests/ch20/test_dist_uniform_full_range_and_seeded_random.sv): 両端が -2147483648 と 2147483647 の全範囲分岐: 4つの seed から3回ずつ $dist_uniform を呼び、$random(seed) と同じ値・seed になる。
+- [test_dist_uniform_start_not_below_end_keeps_seed.sv](../tests/ch20/test_dist_uniform_start_not_below_end_keeps_seed.sv) : start \>= end の早期 return: uniform( 7,7 )= 7 、uniform( 10 , -3 )= 10 で seed 12345 のまま、seed 0 も 0 のまま。
 
 ### SV2023-N.1-EXTRACT-RANDOM
 
@@ -150942,7 +150998,7 @@ rtl_dist_poisson はポアソンヘルパーの長い結果を変更なしに返
 
 ### SV2023-N.2-EXTRACT-SEED-UPDATE-TEXT
 
-`N.2` / `normal` / テスト未対応
+`N.2` / `normal` / 実行確認あり
 
 N.2のシード更新は固定32 - bitモジュラー算術で評価される：seed_next＝（69069＊シード＋1）mod2^32，シード変数に32 - bit符号値として保存され，無符号ユニオンメンバに32 - bit値として読み込まれる。32 - bitシードのみに依存し，ホストの長い幅や符号オーバーフロー挙動には依存しない。$random 32 - bit の符号付き値を返します。
 
@@ -150950,6 +151006,8 @@ N.2のシード更新は固定32 - bitモジュラー算術で評価される：
 
 規定の性質: `mandatory`。
 
+- [test_dist_exponential_one_draw_log_rounding.sv](../tests/ch20/test_dist_exponential_one_draw_log_rounding.sv): seed 1 → 69070、648451823 → 100、-1271221770 → -1 と、全ビット 1 の seed から得る負の結果。
+- [test_dist_uniform_full_range_and_seeded_random.sv](../tests/ch20/test_dist_uniform_full_range_and_seeded_random.sv): $random(seed) の符号付き 32 ビットの戻り値と、折り返して負になる seed 列。
 
 ### SV2023-N.2-EXTRACT-T
 
@@ -151082,7 +151140,7 @@ rtl_dist_erlang は正のステージ数 k を必要とする。配布ヘルパ�
 
 ### SV2023-N.2-EXTRACT-VALIDATE-EXPONENTIAL
 
-`N.2` / `normal` / テスト未対応
+`N.2` / `normal` / 実行確認あり
 
 rtl_dist_exponential は正の平均を必要とします。配布ヘルパーを呼び出すか シードを進めないで 警告を出し ゼロを返します
 
@@ -151090,10 +151148,11 @@ rtl_dist_exponential は正の平均を必要とします。配布ヘルパー�
 
 規定の性質: `mandatory`。
 
+- [test_dist_nonpositive_shape_argument_warns_keeps_seed.sv](../tests/ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed.sv): $dist_exponential を seed 7 から mean=0、mean=-1、mean=1 で呼び、値と呼出し後の seed を表示する。平均 0 と -1 の呼出しが値 0・seed 7 のまま、平均 1 の対照は一様乱数1回で値 9・seed 483484。:expected_stderr_regex: が実行のメッセージに警告（warning/error の語）が10個あることを照合し、無効な10回の呼出しそれぞれの警告を数える（表示行にはその語を含めない）。 区別: 0 以下の mean を検査せずヘルパへ渡す実装では seed が 7 から進み（多くは値も 0 以外になり）、'exponential mean 0: value 0, seed 7' と 'exponential mean -1: value 0, seed 7' の行が変わる。0 以下でなく 0 未満だけを弾く実装では mean=0 の行が変わり、正の値まで弾く実装では mean=1 の対照行（exponential mean 1: value 9, seed 483484）が 'value 0, seed 7' に変わる。警告を出さない実装は :expected_stderr_regex: の10個の警告に届かず失敗する（Verilator 5.054 がこの形で不一致）。
 
 ### SV2023-N.2-EXTRACT-VALIDATE-POISSON
 
-`N.2` / `normal` / テスト未対応
+`N.2` / `normal` / 実行確認あり
 
 rtl_dist_poisson は正の平均を必要とします。配布ヘルパーを呼び出すか シードを進めないで 警告を出し ゼロを返します
 
@@ -151101,10 +151160,11 @@ rtl_dist_poisson は正の平均を必要とします。配布ヘルパーを呼
 
 規定の性質: `mandatory`。
 
+- [test_dist_nonpositive_shape_argument_warns_keeps_seed.sv](../tests/ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed.sv): $dist_poisson を seed 7 から mean=0、mean=-1、mean=1 で呼び、値と呼出し後の seed を表示する。平均 0 と -1 の呼出しが値 0・seed 7 のまま、平均 1 の対照は一様乱数1回（値 0 だが seed は 483484 に進む）。:expected_stderr_regex: が実行のメッセージに警告（warning/error の語）が10個あることを照合し、無効な10回の呼出しそれぞれの警告を数える（表示行にはその語を含めない）。 区別: 0 以下の mean を検査せずヘルパへ渡す実装では seed が 7 から進み（多くは値も 0 以外になり）、'poisson mean 0: value 0, seed 7' と 'poisson mean -1: value 0, seed 7' の行が変わる。0 以下でなく 0 未満だけを弾く実装では mean=0 の行が変わり、正の値まで弾く実装では mean=1 の対照行（poisson mean 1: value 0, seed 483484）が 'value 0, seed 7' に変わる。警告を出さない実装は :expected_stderr_regex: の10個の警告に届かず失敗する（Verilator 5.054 がこの形で不一致）。
 
 ### SV2023-N.2-EXTRACT-VALIDATE-T
 
-`N.2` / `normal` / テスト未対応
+`N.2` / `normal` / 実行確認あり
 
 rtl_dist_t は正の自由度を必要とします。配布ヘルパーを呼び出すか シードを進めないで 警告を出し ゼロを返します
 
@@ -151112,6 +151172,7 @@ rtl_dist_t は正の自由度を必要とします。配布ヘルパーを呼び
 
 規定の性質: `mandatory`。
 
+- [test_dist_nonpositive_shape_argument_warns_keeps_seed.sv](../tests/ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed.sv): $dist_t を seed 7 から df=0、df=-1、df=1 で呼び、値と呼出し後の seed を表示する。自由度 0 と -1 の呼出しが値 0・seed 7 のまま、自由度 1 の対照は chi_square と normal の描画で値 -1・seed -809111543。:expected_stderr_regex: が実行のメッセージに警告（warning/error の語）が10個あることを照合し、無効な10回の呼出しそれぞれの警告を数える（表示行にはその語を含めない）。 区別: 0 以下の df を検査せずヘルパへ渡す実装では seed が 7 から進み（多くは値も 0 以外になり）、't df 0: value 0, seed 7' と 't df -1: value 0, seed 7' の行が変わる。0 以下でなく 0 未満だけを弾く実装では df=0 の行が変わり、正の値まで弾く実装では df=1 の対照行（t df 1: value -1, seed -809111543）が 'value 0, seed 7' に変わる。警告を出さない実装は :expected_stderr_regex: の10個の警告に届かず失敗する（Verilator 5.054 がこの形で不一致）。
 
 ### SV2023-N.2-EXTRACT-ZERO-SEED
 

@@ -1,0 +1,2 @@
+SV_GET_SIGNED_BITS(v, n) tokens: ((n)==32?(v):(((v)&(1<<(n)))?((v)|~SV_MASK(n)):((v)&SV_MASK(n))))
+same tokens as H.10.1.2: 1

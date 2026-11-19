@@ -146005,13 +146005,66 @@
       "acceptance": "A clocking delay control must be a time literal or constant expression with nonnegative integer value.",
       "source_note": "IEEE 1800-2023 14.3; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch14/test_illegal_clocking_skew_negative.sv",
+          "observation": "input #(P - 3) a（P=2 で値 -1）を 33 行で拒否する。#P、#(P - 2)、#1ns は合法。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "177cff3782f2c40e3ebc0d5a763b0e11c8ec39d55507b7a131b7205642d5e838",
+          "evidence": [
+            {
+              "file": "tests/ch14/test_illegal_clocking_skew_negative.sv",
+              "contains": ":expected_stderr_regex: test_illegal_clocking_skew_negative\\.sv:33:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch14/test_illegal_clocking_skew_real_constant.sv",
+          "observation": "input #1.5 a（時間単位の無い実数、値が整数でない）を 34 行で拒否する。#2、#0、時間リテラル #1.5ns は合法。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "afeb2974f32b9d4164216035f733e1dba610001d30d5586ec783f2551b9b6789",
+          "evidence": [
+            {
+              "file": "tests/ch14/test_illegal_clocking_skew_real_constant.sv",
+              "contains": ":expected_stderr_regex: test_illegal_clocking_skew_real_constant\\.sv:34:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch14/test_illegal_clocking_skew_nonconstant_expression.sv",
+          "observation": "output #(d + 1) a（変数 d を読む定数でない式）を 33 行で拒否する。#(P + 1) と #2ns は合法。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "4b41b0589c01fc6e663c9bf327af4e3f23a92efc51e39631ee0b477cdd6ba557",
+          "evidence": [
+            {
+              "file": "tests/ch14/test_illegal_clocking_skew_nonconstant_expression.sv",
+              "contains": ":expected_stderr_regex: test_illegal_clocking_skew_nonconstant_expression\\.sv:33:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "14.3",
           "blocks": [
             "B006"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "r01-14.3-skew-value-forms",
+          "tests": [
+            "tests/ch14/test_illegal_clocking_skew_negative.sv",
+            "tests/ch14/test_illegal_clocking_skew_real_constant.sv",
+            "tests/ch14/test_illegal_clocking_skew_nonconstant_expression.sv"
+          ],
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "observation": "clocking のスキューの遅延制御が「時間リテラル」か「非負の整数に評価される定数式」でなければならない規則を、違反の3通り（値が負の定数 (P - 3)、値が整数でない実数 1.5、定数でない式 (d + 1)）それぞれを1つだけ含む負テストで照合する。各テストは同じ clocking に合法な形（パラメータ P、(P - 2)=0、整数 2 と 0、時間リテラル 1ns / 1.5ns / 2ns、(P + 1)）を並べ、違反行だけを :expected_stderr_regex: のファイルと行で指す。 区別: 定数であることだけを検査し値を検査しない実装は (P - 3) の行を、値の符号だけを検査する実装は 1.5 の行を、定数であることを検査しない実装は (d + 1) の行を受理し、それぞれのテストが『受理された』で失敗する。合法な形まで拒否する実装は、その行を報告して違反行の報告と区別される（規則の両側）。"
         }
       ]
     },
@@ -148491,7 +148544,45 @@
       "acceptance": "Whether the drive matures now or in a future cycle, its signal update observes the target output skew.",
       "source_note": "IEEE 1800-2023 14.16; complete own-body source review, blocks B023. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch14/test_clocking_drive_rhs_now_update_after_cycles_and_skew.sv",
+          "observation": "output #2 の clockvar に、時刻 5 のクロック事象で現在のサイクルで成熟するドライブ cb.w <= r と、2サイクル後（25）に成熟するドライブ cb.v <= ##2 r を実行する。w は 6 で 0・8 で 1（5+2=7 に更新）、v は 26 で 0・28 で 1（25+2=27 に更新）であることを表示する。 区別: 現在のサイクルで成熟するドライブにスキューを適用しない実装では 't=6 v=0 w=0' の w が 1 に、将来のサイクルで成熟するドライブにスキューを適用しない実装では v が 25 に変わり 't=26 v=0 w=1' の v が 1 に変わる。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "7ae15f02650798873c9ba2d7543cfdb646c6b17a566b07bf82ac75fce428cd75",
+          "evidence": [
+            {
+              "file": "tests/ch14/test_clocking_drive_rhs_now_update_after_cycles_and_skew.sv",
+              "contains": "output #2 v, w;"
+            },
+            {
+              "file": "tests/ch14/test_clocking_drive_rhs_now_update_after_cycles_and_skew.sv",
+              "contains": "cb.w <= r;"
+            },
+            {
+              "file": "tests/ch14/test_clocking_drive_rhs_now_update_after_cycles_and_skew.sv",
+              "contains": "cb.v <= ##2 r;"
+            },
+            {
+              "file": "tests/ch14/test_clocking_drive_rhs_now_update_after_cycles_and_skew.expected",
+              "contains": "t=6 v=0 w=0"
+            },
+            {
+              "file": "tests/ch14/test_clocking_drive_rhs_now_update_after_cycles_and_skew.expected",
+              "contains": "t=8 v=0 w=1"
+            },
+            {
+              "file": "tests/ch14/test_clocking_drive_rhs_now_update_after_cycles_and_skew.expected",
+              "contains": "t=26 v=0 w=1"
+            },
+            {
+              "file": "tests/ch14/test_clocking_drive_rhs_now_update_after_cycles_and_skew.expected",
+              "contains": "t=28 v=1 w=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "14.16",
@@ -149626,7 +149717,45 @@
       "acceptance": "Semaphore new takes int keyCount default zero and constructs/returns a semaphore handle.",
       "source_note": "IEEE 1800-2023 15.3.1; complete own-body source review, blocks B002, B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch15/test_semaphore_new_int_key_count_and_handle.sv",
+          "observation": "try_get(1) を最大10回繰り返して鍵の数を数える。引数なしの new は 0 個、new(-2) は 0 個で put(3) 後に 1 個（符号付きの -2）、new(33'h1_0000_0003) は int への代入変換で下位 32 ビットの 3 個、宣言の初期値 new(5) は 5 個。2回の new(1) が異なる非 null のハンドルを返す（different 1, not null 1）。 区別: 既定値を 0 以外にする実装では 'new: 0 keys' が変わる。引数を 32 ビットより広い型で受ける実装では 33 ビットの値が 4294967299 個となり '3 keys' が上限の 10 に変わる。符号なしで受ける実装では new(-2) が大量の鍵になり '0 keys' と 'put(3): 1 keys' が変わる。new が同じオブジェクトや null を返す実装では 'different 1, not null 1' が変わる。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "678bef0f16139e419daf7fe3a436341c299bdc26664ea14244271ee1563207a1",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_semaphore_new_int_key_count_and_handle.sv",
+              "contains": "s_wide = new(33'h1_0000_0003);"
+            },
+            {
+              "file": "tests/ch15/test_semaphore_new_int_key_count_and_handle.sv",
+              "contains": "s_def = new;"
+            },
+            {
+              "file": "tests/ch15/test_semaphore_new_int_key_count_and_handle.sv",
+              "contains": "s_neg = new(-2);"
+            },
+            {
+              "file": "tests/ch15/test_semaphore_new_int_key_count_and_handle.expected",
+              "contains": "new: 0 keys"
+            },
+            {
+              "file": "tests/ch15/test_semaphore_new_int_key_count_and_handle.expected",
+              "contains": "new(33'h1_0000_0003): 3 keys"
+            },
+            {
+              "file": "tests/ch15/test_semaphore_new_int_key_count_and_handle.expected",
+              "contains": "new(-2), put(3): 1 keys"
+            },
+            {
+              "file": "tests/ch15/test_semaphore_new_int_key_count_and_handle.expected",
+              "contains": "two new(1) handles: different 1, not null 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "15.3.1",
@@ -151760,13 +151889,108 @@
       "acceptance": "For a specialized mailbox, put/try_put/get/try_get/peek/try_peek argument types must be equivalent to the mailbox type, with mismatches caught at compilation.",
       "source_note": "IEEE 1800-2023 15.4.9; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch15/test_illegal_mailbox_param_put_int_into_string.sv",
+          "observation": "mailbox #(string) の put に int 変数 n を渡す行（37 行）を拒否する。文字列リテラルと string 変数 s の put は合法。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "c75fdd24b697f34b1e086184502765cb4cc17c2f006a291c6580e2c40eaefb3d",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_illegal_mailbox_param_put_int_into_string.sv",
+              "contains": ":expected_stderr_regex: test_illegal_mailbox_param_put_int_into_string\\.sv:37:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch15/test_illegal_mailbox_param_try_put_int_into_string.sv",
+          "observation": "mailbox #(string) の try_put に int 変数 n を渡す行（37 行）を拒否する。文字列リテラルと s の try_put は合法。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "583abc43cc9816e17681c1cf522770d1c44bef46d4eb390480e087bcc27d4c94",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_illegal_mailbox_param_try_put_int_into_string.sv",
+              "contains": ":expected_stderr_regex: test_illegal_mailbox_param_try_put_int_into_string\\.sv:37:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch15/test_illegal_mailbox_param_get_string_from_int.sv",
+          "observation": "mailbox #(int) の get に string 変数 s を渡す行（35 行）を拒否する。int 変数 n への get は合法。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "200514a226461b88051731d01ae2f052ddcc0719eab2cc1ca96d7ee9baad33e7",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_illegal_mailbox_param_get_string_from_int.sv",
+              "contains": ":expected_stderr_regex: test_illegal_mailbox_param_get_string_from_int\\.sv:35:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch15/test_illegal_mailbox_param_try_get_string_from_int.sv",
+          "observation": "mailbox #(int) の try_get に string 変数 s を渡す行（35 行）を拒否する。n への try_get は合法。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "bafb9fe1207065d4cf2615eba497472835a607fbac484d69f1a6e4cffb6ed03e",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_illegal_mailbox_param_try_get_string_from_int.sv",
+              "contains": ":expected_stderr_regex: test_illegal_mailbox_param_try_get_string_from_int\\.sv:35:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch15/test_illegal_mailbox_param_peek_string_from_int.sv",
+          "observation": "mailbox #(int) の peek に string 変数 s を渡す行（35 行）を拒否する。n への peek は合法。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "fc7ff305abf8a9d4ac3d8d935ad25b39bca49433ac9011843a35aaa4fdfb19af",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_illegal_mailbox_param_peek_string_from_int.sv",
+              "contains": ":expected_stderr_regex: test_illegal_mailbox_param_peek_string_from_int\\.sv:35:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch15/test_illegal_mailbox_param_try_peek_string_from_int.sv",
+          "observation": "mailbox #(int) の try_peek に string 変数 s を渡す行（35 行）を拒否する。n への try_peek は合法。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "752a6ec659416df409b59e006aa5b00b161254e81e9eddbf6a32b6f395350730",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_illegal_mailbox_param_try_peek_string_from_int.sv",
+              "contains": ":expected_stderr_regex: test_illegal_mailbox_param_try_peek_string_from_int\\.sv:35:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "15.4.9",
           "blocks": [
             "B011"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "r01-15.4.9-six-methods",
+          "tests": [
+            "tests/ch15/test_illegal_mailbox_param_put_int_into_string.sv",
+            "tests/ch15/test_illegal_mailbox_param_try_put_int_into_string.sv",
+            "tests/ch15/test_illegal_mailbox_param_get_string_from_int.sv",
+            "tests/ch15/test_illegal_mailbox_param_try_get_string_from_int.sv",
+            "tests/ch15/test_illegal_mailbox_param_peek_string_from_int.sv",
+            "tests/ch15/test_illegal_mailbox_param_try_peek_string_from_int.sv"
+          ],
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "observation": "型引数付き mailbox の put / try_put / get / try_get / peek / try_peek の6メソッドそれぞれについて、mailbox の型と等価でない型の実引数を1か所だけ渡す負テストを置き、違反行をファイルと行で照合する。同じテストに等価な型の呼出しを合法な対照として置くので、メソッド自体の呼出しは受理され、型の不一致だけがコンパイル時に拒否されることを分担して観測する。 区別: 6メソッドのうちどれか1つでも実引数の型を検査しない実装（例: 入力引数の put / try_put を検査しない Verilator 5.054）は、そのメソッドのテストを『受理された』で失敗する。等価な型の呼出しまで拒否する実装は合法な行を報告し、違反行の報告と区別される。"
         }
       ]
     },
@@ -151778,7 +152002,33 @@
       "acceptance": "An event declaration gives a named handle that can be explicitly triggered, waited in event expressions and assigned from another event.",
       "source_note": "IEEE 1800-2023 15.5; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv",
+          "observation": "event e1 を時刻 10 に -> で明示的にトリガし、時刻 0 から @(e1) で待つプロセスと、alias1 = e1 と代入した後 @(alias1) で待つプロセスが、ともに時刻 10 に解放されることを記録して表示する（@e1 10, @alias1 10）。 区別: event の代入がハンドルの共有でなく別オブジェクトの複製になる実装では @(alias1) が解放されず '@alias1 -1' に変わる。-> によるトリガやイベント制御での待機が働かなければ '@e1 10' が -1 に変わる。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "1ff71430633a11a2dd1c86236bfc90a1c65b5b01bd32c50f2990291a6f62f929",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv",
+              "contains": "alias1 = e1;"
+            },
+            {
+              "file": "tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv",
+              "contains": "@(alias1) at_alias = $time;"
+            },
+            {
+              "file": "tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv",
+              "contains": "initial #10 -> e1;"
+            },
+            {
+              "file": "tests/ch15/test_named_event_alias_queue_and_triggered_wait.expected",
+              "contains": "e1 trigger at 10: @e1 10, @alias1 10, wait triggered 10"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "15.5",
@@ -151796,7 +152046,41 @@
       "acceptance": "Each underlying event object holds waiting processes; @ waits for triggers while wait may inspect persistent triggered state.",
       "source_note": "IEEE 1800-2023 15.5; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv",
+          "observation": "同じ同期オブジェクト（e1 と、それを代入した alias1）で @ 待ちの2プロセスと wait(e1.triggered) の1プロセスが1回のトリガで全員解放される（10, 10, 10）。@ と wait の対比として、自分で e3 をトリガした直後の @(e3) はそのトリガを逃して次のトリガの 30 で解放され、自分で e2 をトリガした直後の wait(e2.triggered) は持続する triggered 状態を見て 20 で解放される。 区別: 待ちプロセスの列を1つしか持たない実装（最後の待機者だけ解放）では @e1 か @alias1 の一方が -1 になる。@ が持続状態を見る実装では 'released at 30' が 20 に、wait が持続状態を見ない実装では 'wait after trigger 20' が -1 に変わる。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "1ff71430633a11a2dd1c86236bfc90a1c65b5b01bd32c50f2990291a6f62f929",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv",
+              "contains": "@(e3) at_at = $time;"
+            },
+            {
+              "file": "tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv",
+              "contains": "initial #30 -> e3;"
+            },
+            {
+              "file": "tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv",
+              "contains": "#0 -> e2;"
+            },
+            {
+              "file": "tests/ch15/test_named_event_alias_queue_and_triggered_wait.expected",
+              "contains": "e1 trigger at 10: @e1 10, @alias1 10, wait triggered 10"
+            },
+            {
+              "file": "tests/ch15/test_named_event_alias_queue_and_triggered_wait.expected",
+              "contains": "e2 at 20: wait before trigger 20, wait after trigger 20"
+            },
+            {
+              "file": "tests/ch15/test_named_event_alias_queue_and_triggered_wait.expected",
+              "contains": "e3 triggered at 20 then @e3: released at 30"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "15.5",
@@ -152092,7 +152376,33 @@
       "acceptance": "The automatic one-to-zero triggered-status reset at a time-step boundary does not itself reevaluate an event/wait expression; only actual operand-change sensitivity causes reevaluation.",
       "source_note": "IEEE 1800-2023 15.5.3; complete own-body source review, blocks B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv",
+          "observation": "時刻 40 に e4 をトリガした直後に wait (!e4.triggered || go) で待つ（その時点で偽）。時刻 45 に待機式の被演算子でない変数 other だけを変えて新しい時間ステップを作り、時刻 50 に go を 1 にする。解放時刻が 50 であることを表示する。 区別: time step の終わりに triggered が 1→0 に戻ることで待機式を再評価する実装では、40 の終わりか次のステップ 45 に !e4.triggered が真になって解放され、'released at 50' が 40 か 45 に変わる（Verilator 5.054 は代入を除いた写しで 45 を出し、この形で不一致）。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "1ff71430633a11a2dd1c86236bfc90a1c65b5b01bd32c50f2990291a6f62f929",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv",
+              "contains": "wait (!e4.triggered || go);"
+            },
+            {
+              "file": "tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv",
+              "contains": "initial #45 other = 1;"
+            },
+            {
+              "file": "tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv",
+              "contains": "initial #50 go = 1;"
+            },
+            {
+              "file": "tests/ch15/test_named_event_alias_queue_and_triggered_wait.expected",
+              "contains": "e4 at 40: wait (!e4.triggered || go) released at 50"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "15.5.3",
@@ -152110,7 +152420,37 @@
       "acceptance": "Waiting on persistent triggered status unblocks whether the wait starts before or after a trigger in the same simulation time step.",
       "source_note": "IEEE 1800-2023 15.5.3; complete own-body source review, blocks B008, B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv",
+          "observation": "wait(e.triggered) をトリガより前に始める場合として、時刻 0 から待つもの（トリガは 10）と、時刻 20 の Active 領域で待ち始めトリガを #0 で Inactive 領域へ遅らせたもの（同じ時間ステップ内で先に待つ）、トリガより後に始める場合として、時刻 20 に自分で e2 をトリガした後に待つものを置き、いずれも 10 / 20 / 20 で解放されることを表示する。順序は #0 と同一プロセス内の順で決まり、規格が決めない順序に依存しない。 区別: 待機開始後のトリガしか見ない実装（@ と同じ扱い）では 'wait after trigger 20' が -1 に、待機開始時の状態しか見ない実装では 'wait before trigger 20' が -1 に変わる。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "1ff71430633a11a2dd1c86236bfc90a1c65b5b01bd32c50f2990291a6f62f929",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv",
+              "contains": "#0 -> e2;"
+            },
+            {
+              "file": "tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv",
+              "contains": "wait (e2.triggered);"
+            },
+            {
+              "file": "tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv",
+              "contains": "wait (e1.triggered);"
+            },
+            {
+              "file": "tests/ch15/test_named_event_alias_queue_and_triggered_wait.expected",
+              "contains": "e1 trigger at 10: @e1 10, @alias1 10, wait triggered 10"
+            },
+            {
+              "file": "tests/ch15/test_named_event_alias_queue_and_triggered_wait.expected",
+              "contains": "e2 at 20: wait before trigger 20, wait after trigger 20"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "15.5.3",
@@ -152129,7 +152469,33 @@
       "acceptance": "Event triggered is a no-argument bit-returning method.",
       "source_note": "IEEE 1800-2023 15.5.3; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv",
+          "observation": "引数なしの e1.triggered() と e2.triggered を呼び、$typename(e1.triggered()) が bit、$bits が 1 であること、時刻 60 にトリガした e1 が 1、時刻 20 にトリガした e2 が 0 であることを表示する。 区別: 戻り値型を int や logic にする実装では $typename の 'bit' と '1 bit' が変わる（'int, 32 bit' や 'logic'）。現在の時間ステップのトリガを判定しない実装では 'e1 1, e2 0' が変わる。引数を要求する実装はコンパイルできない。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "1ff71430633a11a2dd1c86236bfc90a1c65b5b01bd32c50f2990291a6f62f929",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv",
+              "contains": "t1 = e1.triggered();"
+            },
+            {
+              "file": "tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv",
+              "contains": "t2 = e2.triggered;"
+            },
+            {
+              "file": "tests/ch15/test_named_event_alias_queue_and_triggered_wait.sv",
+              "contains": "$typename(e1.triggered())"
+            },
+            {
+              "file": "tests/ch15/test_named_event_alias_queue_and_triggered_wait.expected",
+              "contains": "triggered(): bit, 1 bit, e1 1, e2 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "15.5.3",
@@ -152256,7 +152622,33 @@
       "acceptance": "Only the first wait_order event may use its persistent triggered state.",
       "source_note": "IEEE 1800-2023 15.5.4; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch15/test_wait_order_later_event_ignores_earlier_trigger.sv",
+          "observation": "時刻 10 に b をトリガした直後に同じプロセスで wait_order(a, b) を始め、a を 12、b を 14 にトリガする。2番目の b の時刻 10 の triggered 状態は使われず、14 の b で成功して status 1 at 14 となる。対照として、時刻 20 に先頭の c をトリガした直後に wait_order(c, d) を始め、d を 22 にトリガすると、c の持続状態が数えられて status 1 at 22 となる。 区別: 2番目以降の event にも持続する triggered 状態を使う実装では、b が a より先に起きたとみなして 10 か 12 に失敗する（status 0）か、a の後に b を満たしたとみなして 12 に完了し、'status 1 at 14' の行が変わる。先頭の event の持続状態も使わない実装では、c が来ないまま d が先に起きて失敗し 'status 1 at 22' が 'status 0 at 22' に変わる。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "994f687b926d2fee065a8ae25633987efbc4b49e7b3eaba48df3353055d3ec3d",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_wait_order_later_event_ignores_earlier_trigger.sv",
+              "contains": "wait_order (a, b) st_ab = 1; else st_ab = 0;"
+            },
+            {
+              "file": "tests/ch15/test_wait_order_later_event_ignores_earlier_trigger.sv",
+              "contains": "wait_order (c, d) st_cd = 1; else st_cd = 0;"
+            },
+            {
+              "file": "tests/ch15/test_wait_order_later_event_ignores_earlier_trigger.expected",
+              "contains": "b triggered before wait_order(a, b): status 1 at 14"
+            },
+            {
+              "file": "tests/ch15/test_wait_order_later_event_ignores_earlier_trigger.expected",
+              "contains": "c triggered before wait_order(c, d): status 1 at 22"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "15.5.4",
@@ -152350,7 +152742,37 @@
       "acceptance": "An out-of-order failure executes its explicit else action, or calls $error by default when no else exists.",
       "source_note": "IEEE 1800-2023 15.5.4; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch15/test_wait_order_later_event_ignores_earlier_trigger.sv",
+          "observation": "wait_order(e, f) の else 文が、e より先に f が 32 にトリガされた失敗で1回だけ実行され status 0・else ran 1 time・at 32 となる。else の無い wait_order(g, h) は、h が 42 に g より先にトリガされた失敗で $error を呼び、:expected_stderr_regex: (?i)\\berror\\b が実行のメッセージにエラーの語があることを照合する（表示行にはその語を含めない）。プロセスは次の文へ進み went on at 42 となる。 区別: 失敗時に else 文を実行しない実装では 'status 0 at 32, else ran 1 time' が変わる（-1 / 0 time）。else が無いときに $error を呼ばない実装はメッセージにエラーの語が出ず :expected_stderr_regex: で失敗する。失敗で処理を止めたり待ち続けたりする実装では 'went on at 42' が変わる。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "994f687b926d2fee065a8ae25633987efbc4b49e7b3eaba48df3353055d3ec3d",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_wait_order_later_event_ignores_earlier_trigger.sv",
+              "contains": "wait_order (g, h);"
+            },
+            {
+              "file": "tests/ch15/test_wait_order_later_event_ignores_earlier_trigger.sv",
+              "contains": ":expected_stderr_regex: (?i)\\berror\\b"
+            },
+            {
+              "file": "tests/ch15/test_wait_order_later_event_ignores_earlier_trigger.sv",
+              "contains": "initial #32 -> f;"
+            },
+            {
+              "file": "tests/ch15/test_wait_order_later_event_ignores_earlier_trigger.expected",
+              "contains": "f before e with else: status 0 at 32, else ran 1 time"
+            },
+            {
+              "file": "tests/ch15/test_wait_order_later_event_ignores_earlier_trigger.expected",
+              "contains": "h before g without else: went on at 42"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "15.5.4",
@@ -276570,7 +276992,65 @@
       "acceptance": "A module has zero or more legal module items: declarations, instantiations, assertions/bind, continuous assignments/aliases, initial/final/always processes, generate constructs, specify/specparam, nested design declarations and permitted timeunits.",
       "source_note": "IEEE 1800-2023 23.2.4; complete own-body source review, blocks B002, B003, B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_module_items_every_kind_with_bind_nested_and_timeunit.sv",
+          "observation": "項目の無い module empty_m と、非 ANSI のポート宣言項目 output logic [7:0] y; から始まる items_m を置く。items_m は宣言（parameter・typedef・変数・ネット）、defparam、ゲート・UDP・モジュール・interface・program のインスタンス、並行アサーション、bind、連続代入、net alias、initial / final / always、ループ・条件 generate と generate 領域、specparam、入れ子の module / interface / program の宣言とインスタンス、先頭の timeunit 10ns と項目として繰り返す同じ timeunit 10ns を持つ。それぞれの効果（y 4・alias 1・buf 1・udp 0、defparam の K 7、bind した probe の 5、interface 9・入れ子 66・77、generate 10/44/55、specparam 4、leaf の specify の経路遅延で 12 に 0・14 に 1、10ns 単位の #2 で 19 に 0・21 に 1、always と assertion の2回、入れ子 program の表示、program インスタンスの 220 での表示と終了、final の表示）を固定時刻に表示する。 区別: どれかの種類の項目を module の中で受け付けない実装はコンパイルできず全行が出ない。項目として繰り返した timeunit を受け付けない、あるいは先頭の 10ns を無視する実装では 'flag at 19: 0' / 'flag at 21: 1' が変わる。bind・defparam・入れ子宣言・generate・specify の解釈を誤れば、対応する値（bound probe 5、K 7、nested module 66、generate 10 44 55、leaf output at 14: 1）が変わる。program の終了で $finish しない実装では final の行の回数や program 行の後の出力が変わる。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "dbae5ea2cc90f2b94c2e0abdcc48fc2f446e7c464cd87f8b7729e429ed58eebf",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_module_items_every_kind_with_bind_nested_and_timeunit.sv",
+              "contains": "  output logic [7:0] y;"
+            },
+            {
+              "file": "tests/ch23/test_module_items_every_kind_with_bind_nested_and_timeunit.sv",
+              "contains": "  bind leaf probe_m u_probe ();"
+            },
+            {
+              "file": "tests/ch23/test_module_items_every_kind_with_bind_nested_and_timeunit.sv",
+              "contains": "  alias n1 = n2;"
+            },
+            {
+              "file": "tests/ch23/test_module_items_every_kind_with_bind_nested_and_timeunit.sv",
+              "contains": "  defparam u_leaf.K = 7;"
+            },
+            {
+              "file": "tests/ch23/test_module_items_every_kind_with_bind_nested_and_timeunit.sv",
+              "contains": "  module nested_m (output int v);"
+            },
+            {
+              "file": "tests/ch23/test_module_items_every_kind_with_bind_nested_and_timeunit.sv",
+              "contains": "  a_holds: assert property (@(posedge clk) a == 4'd3) n_pass++;"
+            },
+            {
+              "file": "tests/ch23/test_module_items_every_kind_with_bind_nested_and_timeunit.expected",
+              "contains": "assign y 4, alias n1 1, buf 1, udp 0"
+            },
+            {
+              "file": "tests/ch23/test_module_items_every_kind_with_bind_nested_and_timeunit.expected",
+              "contains": "defparam K 7, bound probe 5, interface 9"
+            },
+            {
+              "file": "tests/ch23/test_module_items_every_kind_with_bind_nested_and_timeunit.expected",
+              "contains": "nested module 66, nested interface 77"
+            },
+            {
+              "file": "tests/ch23/test_module_items_every_kind_with_bind_nested_and_timeunit.expected",
+              "contains": "generate 10 44 55, specparam 4"
+            },
+            {
+              "file": "tests/ch23/test_module_items_every_kind_with_bind_nested_and_timeunit.expected",
+              "contains": "flag at 21: 1"
+            },
+            {
+              "file": "tests/ch23/test_module_items_every_kind_with_bind_nested_and_timeunit.expected",
+              "contains": "final: always ran 2 times, assertion passed 2 times"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.2.4",
@@ -285329,7 +285809,41 @@
       "acceptance": "Single-instance bind targets only that instance if its name also resolves to a module name.",
       "source_note": "IEEE 1800-2023 23.11; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_bind_instance_name_over_module_name_and_placements.sv",
+          "observation": "top に module other のインスタンス u_a と、module u_a のインスタンス x を置き、top 内の bind u_a probe p_inst() で束縛する。束縛された probe が %m を package の連想配列（string 添字で辞書順）に記録し、時刻 1 に一覧を表示する。probe は top.u_a.p_inst にだけあり top.x.p_inst は無い。対照として、インスタンス名に解決しない bind leaf_m は m1 と m2 の両方に束縛される。 区別: u_a をモジュール名として扱い全インスタンスへ束縛する実装では 'probe ...x.p_inst' が現れ 'probe ...u_a.p_inst' が消える（Verilator 5.054 がこの形で不一致）。両方へ束縛する実装では行が増え '5 probes' が 6 になる。モジュール名だけの bind まで1インスタンスに限る実装では m2 の行が消える。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "801b9527b2612b8911375760b36fecab65e6bb4b201924dcf4fb1ad92c0329df",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_bind_instance_name_over_module_name_and_placements.sv",
+              "contains": "bind u_a probe p_inst();"
+            },
+            {
+              "file": "tests/ch23/test_bind_instance_name_over_module_name_and_placements.sv",
+              "contains": "other u_a();"
+            },
+            {
+              "file": "tests/ch23/test_bind_instance_name_over_module_name_and_placements.sv",
+              "contains": "u_a x();"
+            },
+            {
+              "file": "tests/ch23/test_bind_instance_name_over_module_name_and_placements.expected",
+              "contains": "probe test_bind_instance_name_over_module_name_and_placements.u_a.p_inst"
+            },
+            {
+              "file": "tests/ch23/test_bind_instance_name_over_module_name_and_placements.expected",
+              "contains": "probe test_bind_instance_name_over_module_name_and_placements.m2.p_mod"
+            },
+            {
+              "file": "tests/ch23/test_bind_instance_name_over_module_name_and_placements.expected",
+              "contains": "5 probes"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.11",
@@ -285482,7 +285996,41 @@
       "acceptance": "Bind directives may appear in modules, interfaces or compilation-unit scope.",
       "source_note": "IEEE 1800-2023 23.11; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_bind_instance_name_over_module_name_and_placements.sv",
+          "observation": "bind を3か所に置く: module（top 内の bind leaf_m）、interface（top に実体化した ifc 内の bind leaf_i）、compilation-unit スコープ（モジュール外の bind leaf_u）。それぞれの対象インスタンスに probe が入り、%m の一覧に m1/m2.p_mod、k1.p_ifc、w1.p_unit が現れる。 区別: interface 内の bind を無視する実装では 'probe ...k1.p_ifc' が、compilation-unit スコープの bind を無視する実装では 'probe ...w1.p_unit' が消え、'5 probes' の数も変わる。module 内の bind を無視すれば m1/m2 の行が消える。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "801b9527b2612b8911375760b36fecab65e6bb4b201924dcf4fb1ad92c0329df",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_bind_instance_name_over_module_name_and_placements.sv",
+              "contains": "bind leaf_u probe p_unit();"
+            },
+            {
+              "file": "tests/ch23/test_bind_instance_name_over_module_name_and_placements.sv",
+              "contains": "bind leaf_i probe p_ifc();"
+            },
+            {
+              "file": "tests/ch23/test_bind_instance_name_over_module_name_and_placements.sv",
+              "contains": "bind leaf_m probe p_mod();"
+            },
+            {
+              "file": "tests/ch23/test_bind_instance_name_over_module_name_and_placements.expected",
+              "contains": "probe test_bind_instance_name_over_module_name_and_placements.k1.p_ifc"
+            },
+            {
+              "file": "tests/ch23/test_bind_instance_name_over_module_name_and_placements.expected",
+              "contains": "probe test_bind_instance_name_over_module_name_and_placements.w1.p_unit"
+            },
+            {
+              "file": "tests/ch23/test_bind_instance_name_over_module_name_and_placements.expected",
+              "contains": "probe test_bind_instance_name_over_module_name_and_placements.m1.p_mod"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.11",
@@ -288145,7 +288693,49 @@
       "acceptance": "Modports contain directed simple or explicitly named expression ports, imported/exported subroutine identifiers/prototypes and clocking identifiers, optionally attributed.",
       "source_note": "IEEE 1800-2023 25.3; complete own-body source review, blocks B002, B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch25/test_modport_import_export_prototypes_clocking_and_named_port.sv",
+          "observation": "modport initiator に属性付きの単純ポート (* role *) input clk / output data、識別子だけの import twice、prototype 付きの import task store(input int v) と import function int get_stored()、clocking cb を並べ、modport target に明示名の式ポート input .low(data[3:0])、prototype 付きの export task store、識別子だけの export get_stored を並べる。ini が twice・store・get_stored を呼んで 42 を得、cb 経由で data を 5a と読み、tgt が b.low を a と読むことを表示する。 区別: どれかの項目の形（属性、明示名の式ポート、識別子／prototype の import・export、clocking 識別子）を modport が受け付けなければ設計がコンパイルできず全行が出ない。明示名ポートの式を正しく結ばない実装では 'low a' が、clocking 経由の参照を誤る実装では 'cb.data at 5 = 5a' が、import/export の結合を誤る実装では 'get_stored() = 42' と 'stored 42' が変わる。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "3f91dbbd10efd6e8e5195d2007144292cf9aa7f6a18d33931d928047fc3b04e7",
+          "evidence": [
+            {
+              "file": "tests/ch25/test_modport_import_export_prototypes_clocking_and_named_port.sv",
+              "contains": "modport target (input .low(data[3:0]),"
+            },
+            {
+              "file": "tests/ch25/test_modport_import_export_prototypes_clocking_and_named_port.sv",
+              "contains": "import task store(input int v),"
+            },
+            {
+              "file": "tests/ch25/test_modport_import_export_prototypes_clocking_and_named_port.sv",
+              "contains": "export get_stored);"
+            },
+            {
+              "file": "tests/ch25/test_modport_import_export_prototypes_clocking_and_named_port.sv",
+              "contains": "clocking cb);"
+            },
+            {
+              "file": "tests/ch25/test_modport_import_export_prototypes_clocking_and_named_port.sv",
+              "contains": "modport initiator ((* role = \"clock\" *) input clk, (* role = \"bus\" *) output data,"
+            },
+            {
+              "file": "tests/ch25/test_modport_import_export_prototypes_clocking_and_named_port.expected",
+              "contains": "ini: get_stored() = 42"
+            },
+            {
+              "file": "tests/ch25/test_modport_import_export_prototypes_clocking_and_named_port.expected",
+              "contains": "ini: cb.data at 5 = 5a"
+            },
+            {
+              "file": "tests/ch25/test_modport_import_export_prototypes_clocking_and_named_port.expected",
+              "contains": "tgt: stored 42, low a"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "25.3",
@@ -288249,7 +288839,25 @@
       "acceptance": "Generic interface references require ANSI port-declaration syntax; non-ANSI is illegal.",
       "source_note": "IEEE 1800-2023 25.3.3; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch25/test_illegal_generic_interface_port_non_ansi.sv",
+          "observation": "汎用 interface ポートを ANSI ヘッダで interface.mp a と宣言する gna_ansi（合法）、非 ANSI でインターフェース名付きの gna_if.mp a と宣言する gna_named（合法）、非 ANSI の本体で汎用形 interface.mp a と宣言する gna_generic を並べ、:expected_stderr_regex: が gna_generic の宣言行（48 行）のエラーを照合する。 区別: 汎用 interface 参照を非 ANSI の宣言でも受け付ける実装はこの設計を受理し『受理された』で失敗する。ANSI の汎用ポートや非 ANSI の名前付き interface ポートまで拒否する実装は、その合法な行で報告し、48 行のエラーとしては照合されない（Icarus 13.0 はこの形で数えない）。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "da34ce904c1801f0fdc3860316661099b3fd3317a515487e63f57c5a119bb2e5",
+          "evidence": [
+            {
+              "file": "tests/ch25/test_illegal_generic_interface_port_non_ansi.sv",
+              "contains": ":expected_stderr_regex: test_illegal_generic_interface_port_non_ansi\\.sv:48:"
+            },
+            {
+              "file": "tests/ch25/test_illegal_generic_interface_port_non_ansi.sv",
+              "contains": "module gna_ansi (interface.mp a);"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "25.3.3",
@@ -289013,7 +289621,41 @@
       "acceptance": "Interface subroutines may be defined in the interface or connected modules and declared as imports in calling modports.",
       "source_note": "IEEE 1800-2023 25.7; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch25/test_modport_import_export_prototypes_clocking_and_named_port.sv",
+          "observation": "関数 twice を interface bus_if 内で定義し、タスク store と関数 get_stored を接続モジュール tgt で task b.store / function int b.get_stored として定義して modport target で export する。呼び出し側 ini は modport initiator でこれらを import 宣言し（他モジュールからの import は完全な prototype）、b.store(b.twice(21)) が tgt の変数 stored に 42 を入れ、b.get_stored() が 42 を返し、tgt 自身も stored 42 を表示する。 区別: interface で定義したサブルーチンを import できない実装、または接続モジュールで定義したサブルーチンを export/import で呼べない実装はコンパイルできない。モジュール側の定義の本体を interface のスコープで解決する実装では stored が見つからず止まるか、別の変数に書いて 'tgt: stored 42' が 'stored -1' に変わる。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "3f91dbbd10efd6e8e5195d2007144292cf9aa7f6a18d33931d928047fc3b04e7",
+          "evidence": [
+            {
+              "file": "tests/ch25/test_modport_import_export_prototypes_clocking_and_named_port.sv",
+              "contains": "task b.store(input int v);"
+            },
+            {
+              "file": "tests/ch25/test_modport_import_export_prototypes_clocking_and_named_port.sv",
+              "contains": "function int b.get_stored();"
+            },
+            {
+              "file": "tests/ch25/test_modport_import_export_prototypes_clocking_and_named_port.sv",
+              "contains": "function automatic int twice(int v);"
+            },
+            {
+              "file": "tests/ch25/test_modport_import_export_prototypes_clocking_and_named_port.sv",
+              "contains": "b.store(b.twice(21));"
+            },
+            {
+              "file": "tests/ch25/test_modport_import_export_prototypes_clocking_and_named_port.expected",
+              "contains": "ini: get_stored() = 42"
+            },
+            {
+              "file": "tests/ch25/test_modport_import_export_prototypes_clocking_and_named_port.expected",
+              "contains": "tgt: stored 42, low a"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "25.7",
@@ -292254,7 +292896,25 @@
       "acceptance": "Wildcard imports of p and q can coexist, but a reference to their different c declarations is ambiguous and illegal.",
       "source_note": "IEEE 1800-2023 26.5; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch26/test_illegal_two_wildcard_imports_ambiguous_reference.sv",
+          "observation": "同じモジュールに import p_pkg::* と import q_pkg::* を置き（どちらも c を宣言）、q だけにある only_q、p だけにある TRUE、修飾名 p_pkg::c を合法に参照したうえで、非修飾の c を1か所だけ参照する。:expected_stderr_regex: がその参照行（41 行）のエラーを照合する。2つの wildcard import の行や他の参照の行は合法で、共存が許されることの対照になる。 区別: 2つの wildcard 候補のどちらか（先の import など）に c を結び付ける実装はこの設計を受理し『受理された』で失敗する（Verilator 5.054 がこの形）。wildcard import 自体の共存を禁じる実装は import 行で報告し、参照行のエラーとして照合されない。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "873d4ecfed9a092bdff7c3e893f3477c40284b2c9414d47004984af30b560703",
+          "evidence": [
+            {
+              "file": "tests/ch26/test_illegal_two_wildcard_imports_ambiguous_reference.sv",
+              "contains": ":expected_stderr_regex: test_illegal_two_wildcard_imports_ambiguous_reference\\.sv:41:"
+            },
+            {
+              "file": "tests/ch26/test_illegal_two_wildcard_imports_ambiguous_reference.sv",
+              "contains": "import q_pkg::*;"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "26.5",
@@ -292558,7 +293218,25 @@
       "acceptance": "The built-in package may contain system types, variables and subroutines; users cannot add declarations to it.",
       "source_note": "IEEE 1800-2023 26.7; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch26/test_illegal_std_package_declaration.sv",
+          "observation": "利用者のコードで package std を宣言し、その中に変数 extra を加えようとする。:expected_stderr_regex: が package std の行（18 行）か宣言を加える行（19 行）のエラーを照合する。設計にはほかに空のモジュール t しか無い。 区別: 組込みパッケージ std に利用者の宣言を加えられる（あるいは利用者の std で置き換えられる）実装はこの設計を受理し『受理された』で失敗する。規則は利用者による std への宣言の追加を禁じるもので、どちらの行で報告しても同じ違反の診断として照合される。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "b96f1f3abcb2a32095fcf5d3f73f87748d176f0a4f26de490bcc38fe7068e44f",
+          "evidence": [
+            {
+              "file": "tests/ch26/test_illegal_std_package_declaration.sv",
+              "contains": ":expected_stderr_regex: test_illegal_std_package_declaration\\.sv:(18|19):"
+            },
+            {
+              "file": "tests/ch26/test_illegal_std_package_declaration.sv",
+              "contains": "package std;"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "26.7",
@@ -293198,13 +293876,66 @@
       "acceptance": "A generate region placed outside the direct items of a module, interface, program or checker body, such as in a package body or nested inside a loop or conditional generate block, is rejected with an error; the containers that accept it are the A.1.4, A.1.6, A.1.7 and A.1.8 grammar requirements.",
       "source_note": "IEEE 1800-2023 27.3; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable. Interpretation issue GENERATE-REGION-CONTAINER resolved on 2026-10-24: Entire generate grammar, elaboration semantics, optional regions, nonnesting and item-context footnote extracted. The directly-within-a-module wording is read as covering every container whose item grammar lists generate_region (module, interface, program, checker: 23.2.4 B003, 25.3 B002, 24.3 B005, 17.2 B003), keeping the direct-placement and nonnesting limits.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch27/test_illegal_generate_region_in_package.sv",
+          "observation": "package region_pkg の中の generate（26 行）を拒否する。モジュール直下の generate 領域は合法。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "c57001af8e162cf88e4cafa950712cd72a875e90f9446323401bf5a318b18d02",
+          "evidence": [
+            {
+              "file": "tests/ch27/test_illegal_generate_region_in_package.sv",
+              "contains": ":expected_stderr_regex: test_illegal_generate_region_in_package\\.sv:26:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch27/test_illegal_generate_region_in_loop_block.sv",
+          "observation": "領域の外にあるループ generate g のブロック内の generate（33 行）を拒否する。モジュール直下の領域で囲んだループ h は合法。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "95eb25f4b70438adafb405bf8c33ff8d8464aa9b0664a2866dae02e73d2d6919",
+          "evidence": [
+            {
+              "file": "tests/ch27/test_illegal_generate_region_in_loop_block.sv",
+              "contains": ":expected_stderr_regex: test_illegal_generate_region_in_loop_block\\.sv:33:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch27/test_illegal_generate_region_in_conditional_block.sv",
+          "observation": "領域の外にある if generate g のブロック内の generate（36 行）を拒否する。モジュール直下の領域で囲んだ case generate は合法。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "1e9bafb57168149ae4279382978f6fed854fbb61bfc10b0b48dd92afdeb99944",
+          "evidence": [
+            {
+              "file": "tests/ch27/test_illegal_generate_region_in_conditional_block.sv",
+              "contains": ":expected_stderr_regex: test_illegal_generate_region_in_conditional_block\\.sv:36:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "27.3",
           "blocks": [
             "B005"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "r01-27.3-region-contexts",
+          "tests": [
+            "tests/ch27/test_illegal_generate_region_in_package.sv",
+            "tests/ch27/test_illegal_generate_region_in_loop_block.sv",
+            "tests/ch27/test_illegal_generate_region_in_conditional_block.sv"
+          ],
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "observation": "明示的な generate 領域を、module 等の本体の直接の項目以外の3つの文脈に1つずつ置いた負テストで、その generate の行をファイルと行で照合する: package 本体（26 行）、ループ generate のブロックの中（33 行）、条件（if）generate のブロックの中（36 行）。どのテストもモジュール直下の合法な generate 領域（条件・ループ・case の generate を囲む）を対照に持ち、違反行の generate/endgenerate を外した版はエラーなく通る（作成時に Icarus・Verilator・kirimasim の slang 前段で確認）。 区別: generate 領域を文脈に関係なく受け付ける実装は、該当テストを『受理された』で失敗する（Icarus 13.0 はループ／条件ブロック内を受理）。モジュール直下の領域まで拒否する実装は対照の行を報告し、違反行の報告と区別される。既存の領域の入れ子（領域内の領域）とは別に、package と、外側に領域の無い generate ブロックを分担する。"
         }
       ]
     },
@@ -294241,7 +294972,45 @@
       "acceptance": "A primitive declaration names its type and comma-separated instances with terminal lists, optional names/ranges and type-permitted strength/delays; input/control terminals are expressions and output/inout terminals net lvalues.",
       "source_note": "IEEE 1800-2023 28.3; complete own-body source review, blocks B003, B004, B005, B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch28/test_gate_declaration_list_names_ranges_terminals.sv",
+          "observation": "ゲート・スイッチの宣言を、型のキーワード、共有の駆動強度と遅延（and (strong0, pull1) #(2, 3)、buf (weak1, weak0)、bufif1 #2）、名前付き g_a と名前なしのインスタンスのコンマ区切りの列、範囲付きのインスタンス配列 nand g_n [3:0]、式の入力・制御端子（~b、a ^ b、1'b1、!en）、ネットとネットのビット選択の出力・inout 端子（o1、bus[0]、bus[1]）で書き、5/11/13/21/24 に %v と %b で値と強度を表示する。2つの and インスタンスはともに St0/Pu1 を出し、立上り 2・立下り 3 で変わる（y1 は 13 に Pu1・24 に St0、y2 は 24 に Pu1）。配列は ny 1110、buf の2出力は We0/We1、tran は bus[1] に b を通す。 区別: 列の2番目以降のインスタンスに強度や遅延を共有させない実装では y2 の強度（St0/Pu1）や時刻 21/24 の値が変わる。インスタンス配列の範囲をビットに分けない実装では ny 1110 が変わり、式の端子を受け付けない・ネットのビット選択を出力端子にできない実装はコンパイルできないか、bus[0]/bus[1] の行が変わる。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "57e985ba246444abeb10e86f286d95273dbc64a6eb29654b95877c8499a4b4e3",
+          "evidence": [
+            {
+              "file": "tests/ch28/test_gate_declaration_list_names_ranges_terminals.sv",
+              "contains": "and (strong0, pull1) #(2, 3) g_a (y1, a, b), (y2, a, ~b);"
+            },
+            {
+              "file": "tests/ch28/test_gate_declaration_list_names_ranges_terminals.sv",
+              "contains": "nand g_n [3:0] (ny, av, bv);"
+            },
+            {
+              "file": "tests/ch28/test_gate_declaration_list_names_ranges_terminals.sv",
+              "contains": "buf (weak1, weak0) g_b (o1, bus[0], a ^ b);"
+            },
+            {
+              "file": "tests/ch28/test_gate_declaration_list_names_ranges_terminals.sv",
+              "contains": "tran (t1, bus[1]);"
+            },
+            {
+              "file": "tests/ch28/test_gate_declaration_list_names_ranges_terminals.expected",
+              "contains": "t=13: y1 Pu1, y2 St0, o1 We0, bus[0] 0, ye St1, ym St1, yc St1, bus[1] 1, ny 1110"
+            },
+            {
+              "file": "tests/ch28/test_gate_declaration_list_names_ranges_terminals.expected",
+              "contains": "t=24: y1 St0, y2 Pu1, o1 We1, bus[0] 1, ye St1, ym St0, yc St1, bus[1] 0, ny 1110"
+            },
+            {
+              "file": "tests/ch28/test_gate_declaration_list_names_ranges_terminals.expected",
+              "contains": "t=5: y1 St0, y2 St0, o1 We0, bus[0] 0, ye HiZ, ym HiZ, yc HiZ, bus[1] 0, ny 1110"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "28.3",
@@ -294950,7 +295719,41 @@
       "acceptance": "The built-in primitive pulldown belongs to the pull gate category.",
       "source_note": "IEEE 1800-2023 28.3.1; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch28/test_pull_gate_instances_terminal_and_strength.sv",
+          "observation": "pulldown を pull gate の形（端子1つ（出力）だけのインスタンス、pulldown_strength の (weak0) と (weak1, supply0)）で宣言し、それぞれのネットの唯一のドライバとして %v で強度と値を表示する。強度指定なしは pull 強度（pulldown は Pu0）、自分の値の側の強度指定はその強度、反対側の強度は無視される。 区別: pulldown を pull gate として扱わない実装（端子を2つ要求する、強度の既定を strong にする、反対側の強度を使う等）では、コンパイルできないか、'pullup Pu1, pulldown Pu0' などの行の強度表示（Pu/St/We/Su）や値が変わる。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "55f0613cbcba41971a693742a1e63e78c34b88c47c0375bf70adfea8b7278e0f",
+          "evidence": [
+            {
+              "file": "tests/ch28/test_pull_gate_instances_terminal_and_strength.sv",
+              "contains": "pulldown u_dn (n_dn);"
+            },
+            {
+              "file": "tests/ch28/test_pull_gate_instances_terminal_and_strength.sv",
+              "contains": "pulldown (weak0) u_we (n_we);"
+            },
+            {
+              "file": "tests/ch28/test_pull_gate_instances_terminal_and_strength.sv",
+              "contains": "pulldown (weak1, supply0) u_pair0 (n_pair0);"
+            },
+            {
+              "file": "tests/ch28/test_pull_gate_instances_terminal_and_strength.expected",
+              "contains": "pullup Pu1, pulldown Pu0"
+            },
+            {
+              "file": "tests/ch28/test_pull_gate_instances_terminal_and_strength.expected",
+              "contains": "pullup (strong1) St1, pulldown (weak0) We0"
+            },
+            {
+              "file": "tests/ch28/test_pull_gate_instances_terminal_and_strength.expected",
+              "contains": "pullup (strong0, weak1) We1, pulldown (weak1, supply0) Su0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "28.3.1",
@@ -294968,7 +295771,49 @@
       "acceptance": "The built-in primitive pullup belongs to the pull gate category.",
       "source_note": "IEEE 1800-2023 28.3.1; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch28/test_pull_gate_instances_terminal_and_strength.sv",
+          "observation": "pullup を pull gate の形（端子1つ（出力）だけのインスタンス、名前付きと名前なしの2インスタンスを持つ1つの宣言、pullup_strength の (strong1) と (strong0, weak1)）で宣言し、それぞれのネットの唯一のドライバとして %v で強度と値を表示する。強度指定なしは pull 強度（pullup は Pu1）、自分の値の側の強度指定はその強度、反対側の強度は無視される。 区別: pullup を pull gate として扱わない実装（端子を2つ要求する、強度の既定を strong にする、反対側の強度を使う等）では、コンパイルできないか、'pullup Pu1, pulldown Pu0' などの行の強度表示（Pu/St/We/Su）や値が変わる。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "55f0613cbcba41971a693742a1e63e78c34b88c47c0375bf70adfea8b7278e0f",
+          "evidence": [
+            {
+              "file": "tests/ch28/test_pull_gate_instances_terminal_and_strength.sv",
+              "contains": "pullup u_up (n_up);"
+            },
+            {
+              "file": "tests/ch28/test_pull_gate_instances_terminal_and_strength.sv",
+              "contains": "pullup u_a (n_a), (n_b);"
+            },
+            {
+              "file": "tests/ch28/test_pull_gate_instances_terminal_and_strength.sv",
+              "contains": "pullup (strong1) u_st (n_st);"
+            },
+            {
+              "file": "tests/ch28/test_pull_gate_instances_terminal_and_strength.sv",
+              "contains": "pullup (strong0, weak1) u_pair1 (n_pair1);"
+            },
+            {
+              "file": "tests/ch28/test_pull_gate_instances_terminal_and_strength.expected",
+              "contains": "pullup Pu1, pulldown Pu0"
+            },
+            {
+              "file": "tests/ch28/test_pull_gate_instances_terminal_and_strength.expected",
+              "contains": "named Pu1, unnamed Pu1"
+            },
+            {
+              "file": "tests/ch28/test_pull_gate_instances_terminal_and_strength.expected",
+              "contains": "pullup (strong1) St1, pulldown (weak0) We0"
+            },
+            {
+              "file": "tests/ch28/test_pull_gate_instances_terminal_and_strength.expected",
+              "contains": "pullup (strong0, weak1) We1, pulldown (weak1, supply0) Su0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "28.3.1",
@@ -314712,13 +315557,88 @@
       "acceptance": "Absent gate/net delay is zero; one applies to all transitions; two give rise/fall with their minimum for x/z.",
       "source_note": "IEEE 1800-2023 28.16; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch28/test_gate_delay_table_all_transitions.sv",
+          "observation": "ゲート: bufif1 の遅延なし・#4・#(3,5)・#(5,3) で、0/1/x/z の全12遷移の遅延と値。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "a36c54342720216dd9b1e9df6e8f65ae85b9139030389f288951c5a57f0b5a40",
+          "evidence": [
+            {
+              "file": "tests/ch28/test_gate_delay_table_all_transitions.sv",
+              "contains": "bufif1 #(3, 5) g_35(o_35, dc[1], dc[0]);"
+            },
+            {
+              "file": "tests/ch28/test_gate_delay_table_all_transitions.sv",
+              "contains": "bufif1 g_0(o_0, dc[1], dc[0]);"
+            },
+            {
+              "file": "tests/ch28/test_gate_delay_table_all_transitions.expected",
+              "contains": "0->x: none=+0 x one=+4 x (3,5)=+3 x (5,3)=+3 x"
+            },
+            {
+              "file": "tests/ch28/test_gate_delay_table_all_transitions.expected",
+              "contains": "0->z: none=+0 z one=+4 z (3,5)=+3 z (5,3)=+3 z"
+            },
+            {
+              "file": "tests/ch28/test_gate_delay_table_all_transitions.expected",
+              "contains": "1->0: none=+0 0 one=+4 0 (3,5)=+5 0 (5,3)=+3 0"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch28/test_net_delay_counts_rise_fall_x_z.sv",
+          "observation": "ネット: net delay なし・#5・#(3,7)・#(7,3) のネットを遅延なしの assign で駆動し、9遷移の遅延と値。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "dc36b3f2fecfb00aa521ba5d38858d3725be10c653961b2a78b89514b31608af",
+          "evidence": [
+            {
+              "file": "tests/ch28/test_net_delay_counts_rise_fall_x_z.sv",
+              "contains": "wire #(3, 7) w_37;"
+            },
+            {
+              "file": "tests/ch28/test_net_delay_counts_rise_fall_x_z.sv",
+              "contains": "wire w_none;"
+            },
+            {
+              "file": "tests/ch28/test_net_delay_counts_rise_fall_x_z.sv",
+              "contains": "assign w_37 = s;"
+            },
+            {
+              "file": "tests/ch28/test_net_delay_counts_rise_fall_x_z.expected",
+              "contains": "0->x: none=+0 x one=+5 x (3,7)=+3 x (7,3)=+3 x"
+            },
+            {
+              "file": "tests/ch28/test_net_delay_counts_rise_fall_x_z.expected",
+              "contains": "1->z: none=+0 z one=+5 z (3,7)=+3 z (7,3)=+3 z"
+            },
+            {
+              "file": "tests/ch28/test_net_delay_counts_rise_fall_x_z.expected",
+              "contains": "z->0: none=+0 0 one=+5 0 (3,7)=+7 0 (7,3)=+3 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "28.16",
           "blocks": [
             "B004"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "r01-28.16-gate-and-net",
+          "tests": [
+            "tests/ch28/test_gate_delay_table_all_transitions.sv",
+            "tests/ch28/test_net_delay_counts_rise_fall_x_z.sv"
+          ],
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "observation": "ゲートとネットの両方で、遅延なし・遅延1つ・遅延2つの選択を観測する。ゲート側は既存の bufif1 7個のテストで、遅延なし +0、#4 は全12遷移で +4、#(3,5) / #(5,3) は 1 への変化に第1、0 への変化に第2、x と z への変化に小さい方（+3）を使う。ネット側は新規テストで、assign に遅延の無い4本のネットに net delay なし / #5 / #(3,7) / #(7,3) を付け、0・1・x・z の間の9遷移で遅延なし +0、#5 は常に +5、2つの値は 1 へ第1、0 へ第2、x と z へ小さい方（+3）となることを表示する。 区別: 遅延なしを 0 以外にする実装では none=+0 の列が、1つの値を一部の遷移にしか使わない実装では one の列が、2つの値の割当てを入れ替える・x/z に大きい方や第2の値を使う実装では (3,5)/(5,3) や (3,7)/(7,3) の列（例: '0->x: ... (7,3)=+3 x'、'1->z: ... (3,7)=+3 z'）が変わる。ゲートだけ・ネットだけを正しく扱う実装は、もう一方のテストで検出される。"
         }
       ]
     },
@@ -481133,7 +482053,41 @@
       "acceptance": "A tf direction is port direction or optional const then ref then optional static.",
       "source_note": "IEEE 1800-2023 A.2.7; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch13/test_tf_port_directions_ref_static_and_item_forms.sv",
+          "observation": "タスク t の7つの引数に tf_port_direction の全形（input / output / inout の port direction、ref、const ref、ref static、const ref static）を使い、時刻 0 に呼んで 2 に戻る。input の a は呼出し時の写し（途中で s_in を変えても 1）、output と inout は戻るまで呼び手に写されず（時刻 1 に s_out 0・s_io 3、戻った後 11・103）、ref の d は即座に共有され（1004）、const ref の e と const ref static の g は呼び手の途中の変更 50・70 を読み、ref static の f はノンブロッキング代入 f <= f + 1 で s_rs を 7 にする。 区別: どれかの方向の形を構文として受け付けない実装はコンパイルできない。const や static を無視して別の方向として扱う実装、または ref を値渡しにする実装では、'at 1: s_out 0, s_io 3, s_ref 1004' の s_ref が 4 に、'at 2: a 1, e 50, g 70' の e/g が 5/7 に変わる。ref static をノンブロッキング代入に使えない実装はコンパイルできず、写す時点を誤る実装では s_out/s_io の行が変わる。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "d0e45dc33a970ba318bac6d0ebe22f5532b6abca8ac52a5d6a06c28cbee6d1ed",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_tf_port_directions_ref_static_and_item_forms.sv",
+              "contains": "task automatic t(input int a, output int b, inout int c, ref int d, const ref int e,"
+            },
+            {
+              "file": "tests/ch13/test_tf_port_directions_ref_static_and_item_forms.sv",
+              "contains": "ref static int f, const ref static int g);"
+            },
+            {
+              "file": "tests/ch13/test_tf_port_directions_ref_static_and_item_forms.sv",
+              "contains": "f <= f + 1;"
+            },
+            {
+              "file": "tests/ch13/test_tf_port_directions_ref_static_and_item_forms.expected",
+              "contains": "in the task at 0: s_ref 1004; at 2: a 1, e 50, g 70"
+            },
+            {
+              "file": "tests/ch13/test_tf_port_directions_ref_static_and_item_forms.expected",
+              "contains": "at 1: s_out 0, s_io 3, s_ref 1004"
+            },
+            {
+              "file": "tests/ch13/test_tf_port_directions_ref_static_and_item_forms.expected",
+              "contains": "after the return: s_out 11, s_io 103, s_ref 1004, s_rs 7"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "A.2.7",
@@ -481187,7 +482141,37 @@
       "acceptance": "A tf-port item has repeated attributes, optional direction, optional var, data/implicit type and optional identifier with repeated variable dimensions and optional expression default, subject to clarification 28.",
       "source_note": "IEEE 1800-2023 A.2.7; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch13/test_tf_port_directions_ref_static_and_item_forms.sv",
+          "observation": "関数 sum の tf_port_item に、属性を2つ重ねた (* a1 *) (* a2 *) input var int arr [2]（方向・var・データ型・名前・unpacked 次元）、方向を省いた暗黙の型 [3:0] nib = 4'd5（既定値付き）、int k = 1 を並べ、sum('{3, 4}) = 13、sum('{10, 20}, 4'd2, 0) = 32、中央を省いた sum('{1, 1}, , 0) = 7 を表示する。脚注 28 の例外として、modport の prototype import function int inc(int) は名前の無いポートを持ち、u.p.inc(4) = 5 となる。task t の各ポートも方向とデータ型と名前を持つ形である。 区別: 属性・var・暗黙の型・unpacked 次元・既定値・prototype での名前の省略のどれかを受け付けない実装はコンパイルできない。方向の省略を input 以外として扱う、暗黙の型の幅を誤る、既定値を使わない実装では sum の3つの値（13/32/7）が変わる。prototype の無名ポートの結合を誤れば 'inc(4) = 5' が変わる。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "d0e45dc33a970ba318bac6d0ebe22f5532b6abca8ac52a5d6a06c28cbee6d1ed",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_tf_port_directions_ref_static_and_item_forms.sv",
+              "contains": "function automatic int sum((* a1 *) (* a2 *) input var int arr [2], [3:0] nib = 4'd5,"
+            },
+            {
+              "file": "tests/ch13/test_tf_port_directions_ref_static_and_item_forms.sv",
+              "contains": "modport mp (import function int inc(int));"
+            },
+            {
+              "file": "tests/ch13/test_tf_port_directions_ref_static_and_item_forms.sv",
+              "contains": "sum('{1, 1}, , 0)"
+            },
+            {
+              "file": "tests/ch13/test_tf_port_directions_ref_static_and_item_forms.expected",
+              "contains": "sum('{3, 4}) 13, sum('{10, 20}, 4'd2, 0) 32, sum('{1, 1}, , 0) 7"
+            },
+            {
+              "file": "tests/ch13/test_tf_port_directions_ref_static_and_item_forms.expected",
+              "contains": "prototype without a port name: inc(4) = 5"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "A.2.7",
@@ -482386,7 +483370,29 @@
       "acceptance": "A sequence-method call is sequence instance dot method identifier; a match item is operator assignment, increment/decrement or subroutine call.",
       "source_note": "IEEE 1800-2023 A.2.10; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_sequence_method_call_and_match_item_forms.sv",
+          "observation": "名前付き sequence s_items の式 a の後に、match item の3つの形（operator assignment の v = 1 と v += 2、increment の v++、subroutine call の report(v)）を並べ、sequence method call の形 s_items.triggered を wait で使う。a が 15 の posedge でだけ 1 なので match item は1回だけ順に実行されて report が 4 を受け取り、b が 25 で 1 なので終点に達して wait が 25 に解放されることを表示する。 区別: どれかの match item の形や sequence_instance.method_identifier の形を受け付けない実装はコンパイルできない。match item を書かれた順に評価しない、あるいは ++ や += を別の演算として扱う実装では 'report(v) got 4' の値が変わり（例: 3 や 2）、呼出しを match のたびに1回行わない実装では 'in 1 call' が変わる。triggered を終点の時間ステップで真にしない実装では 'triggered at 25' が変わる。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "f59c84b053534888218086cafb3f34631a507508bf1733f7055e6f2c58859ead",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sequence_method_call_and_match_item_forms.sv",
+              "contains": "@(posedge clk) (a, v = 1, v++, v += 2, report(v)) ##1 b;"
+            },
+            {
+              "file": "tests/ch16/test_sequence_method_call_and_match_item_forms.sv",
+              "contains": "wait (s_items.triggered);"
+            },
+            {
+              "file": "tests/ch16/test_sequence_method_call_and_match_item_forms.expected",
+              "contains": "report(v) got 4 in 1 call, s_items.triggered at 25"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "A.2.10",
@@ -494468,7 +495474,41 @@
       "acceptance": "A constant primary may be specparam identifier with optional bracketed constant-range expression.",
       "source_note": "IEEE 1800-2023 A.8.4; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_specparam_select_in_specparam_constant.sv",
+          "observation": "specparam [15:0] SP = 16'ha5c3 を、後の specparam の定数式の中で constant primary として、範囲なし（SP）、部分選択 SP[7:0]、インデックス付き部分選択 SP[8 +: 4]、ビット選択 SP[1] と SP[2] の形で使い、値 a5c3、c3、5、1、0 を表示する。 区別: specparam 識別子の後の角括弧の constant range expression を受け付けない実装はコンパイルできない。選択を逆端から数える、部分選択を単一の添字と扱う、+: の幅を誤る実装では 'whole a5c3, [7:0] c3, [8 +: 4] 5' や '[1] 1, [2] 0' の値が変わる。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "5aa93745d5cf1bb5515f91b86cb739b569066277a4051916794b9c06d99ff99c",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_specparam_select_in_specparam_constant.sv",
+              "contains": "specparam [7:0] SP_LOW = SP[7:0];"
+            },
+            {
+              "file": "tests/ch6/test_specparam_select_in_specparam_constant.sv",
+              "contains": "specparam [3:0] SP_IDX = SP[8 +: 4];"
+            },
+            {
+              "file": "tests/ch6/test_specparam_select_in_specparam_constant.sv",
+              "contains": "specparam SP_B1 = SP[1];"
+            },
+            {
+              "file": "tests/ch6/test_specparam_select_in_specparam_constant.sv",
+              "contains": "specparam [15:0] SP_WHOLE = SP;"
+            },
+            {
+              "file": "tests/ch6/test_specparam_select_in_specparam_constant.expected",
+              "contains": "whole a5c3, [7:0] c3, [8 +: 4] 5"
+            },
+            {
+              "file": "tests/ch6/test_specparam_select_in_specparam_constant.expected",
+              "contains": "[1] 1, [2] 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "A.8.4",
@@ -538295,7 +539335,53 @@
       "acceptance": "Part-select utilities use normalized indices and width no greater than 32.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B029. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_partsel_get_put_bit_logic_width_32.sv",
+          "observation": "[70:7] と宣言した 64 ビットの bit / logic ベクタに対して、4つの part-select 関数すべてを正規化添字で呼ぶ。svGetPartselBit は (0,8)=ef、チャンクをまたぐ (28,8)=78、上限幅の (32,32)=01234567 とまたぐ (20,32)=3456789a、svGetPartselLogic は (36,8)=a9 と (16,32)=ba987654、svPutPartselBit は a5a5a5a5 を (20,32) と 3c の下位4ビットを (60,4) に、svPutPartselLogic は 6 を (44,4) と 12345678 を (4,32) に書き、設計がベクタ全体 c12a5a5a5a5bcdef と fedc6a9123456780 の2進表記を表示する。 区別: 添字を宣言の 7 から数える実装や最上位ビットから数える実装では、取り出した値（ef/78 など）と書き込んだ後のベクタの行が変わる。幅 32 を扱えない（31 までしか写さない、あるいは 1<<32 で全ビットを落とす）実装では (32,32)・(20,32)・(16,32) の値と、(20,32)・(4,32) に書いた後の行が変わる。書込みで範囲外のビットを壊す実装では、書かなかったビット（例: 最上位の c1 の 1 や logic の fedc）が変わる。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "806b41d5fe9caa9b8308bf3f804dd6522eeaa892df86f833ba7cd98bcf76c057",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_partsel_get_put_bit_logic_width_32.c",
+              "contains": "svGetPartselBit(&d, b, bit_parts[k][0], bit_parts[k][1]);"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_partsel_get_put_bit_logic_width_32.c",
+              "contains": "svPutPartselLogic(l, s, 4, 32);"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_partsel_get_put_bit_logic_width_32.c",
+              "contains": "svPutPartselBit(b, 0xa5a5a5a5u, 20, 32);"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_partsel_get_put_bit_logic_width_32.sv",
+              "contains": "bit [70:7] b = 64'h0123_4567_89ab_cdef;"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_partsel_get_put_bit_logic_width_32.expected",
+              "contains": "bit part at 32 width 32: 01234567"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_partsel_get_put_bit_logic_width_32.expected",
+              "contains": "bit part at 20 width 32: 3456789a"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_partsel_get_put_bit_logic_width_32.expected",
+              "contains": "logic part at 16 width 32: aval ba987654 bval 00000000"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_partsel_get_put_bit_logic_width_32.expected",
+              "contains": "bit vector after the puts: c12a5a5a5a5bcdef"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_partsel_get_put_bit_logic_width_32.expected",
+              "contains": "logic vector after the puts: 1111111011011100011010101001000100100011010001010110011110000000"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -538699,7 +539785,37 @@
       "acceptance": "The macro in the Annex I listing matches the H.10.1.2 definition exactly, so reproducing either occurrence satisfies both. Tests compare the text and do not assert sign extension for N != 32.",
       "source_note": "IEEE 1800-2023 I.3 (B018), p.1295; complete own-body source review, block B018. Quote: \"#define SV_GET_SIGNED_BITS(VALUE, N)\" with the body \"((N) == 32 ? (VALUE) :\" and \"(((VALUE) & (1 << (N))) ? ((VALUE) | ~SV_MASK(N)) : ((VALUE) & SV_MASK(N))))\" — identical to H.10.1.2 (p.1276 L61-L63). Both occurrences are retained verbatim; the bit-N test is recorded, not corrected.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.sv",
+          "observation": "C コードが svdpi.h を取り込んだ後に SV_MASK の定義を外し、SV_GET_SIGNED_BITS(v, n) の展開を # 演算子で文字列にして空白を除いたトークン列を表示し、I.3 と H.10.1.2 の定義から得られる ((n)==32?(v):(((v)&(1<<(n)))?((v)|~SV_MASK(n)):((v)&SV_MASK(n)))) と一致するかを 1/0 で表示する（設計が import した dpi_signed_bits_text を呼ぶ）。N が 32 未満のときの計算値は比較しない（受入条件どおり）。 区別: マクロを書き換えた（例: ビット N でなく N-1 を調べる、SV_MASK を使わない、N==32 の分岐が無い）ヘッダでは、表示されるトークン列が変わり 'same tokens as H.10.1.2: 1' が 0 になる。空白だけの違いはトークン列に影響しないよう除いている。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "2cb66e806df15d287665adff7b9490416fffef8cc75765ccfa9dcb33a8894971",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.sv",
+              "contains": "initial $display(\"same tokens as H.10.1.2: %0d\", dpi_signed_bits_text());"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.c",
+              "contains": "static const char vt_text[] = VT_XSTR(SV_GET_SIGNED_BITS(v, n));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.c",
+              "contains": "#undef SV_MASK"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.expected",
+              "contains": "SV_GET_SIGNED_BITS(v, n) tokens: ((n)==32?(v):(((v)&(1<<(n)))?((v)|~SV_MASK(n)):((v)&SV_MASK(n))))"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.expected",
+              "contains": "same tokens as H.10.1.2: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -582206,13 +583322,172 @@
       "acceptance": "Probabilistic RNG algorithm is defined by N.2 source and must provide repeatability across implementations under 20.14.",
       "source_note": "IEEE 1800-2023 N.1; complete own-body source review, blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_dist_uniform_bounded_range_floor_and_clamp.sv",
+          "observation": "$dist_uniform: seed 12345 から uniform(-10,10) を8回など。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "18879943d1f5a00de341b9812be5b481f7b37c89a0b172b61f2cc4343e989b61",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_uniform_bounded_range_floor_and_clamp.sv",
+              "contains": "v = $dist_uniform(seed, -10, 10);"
+            },
+            {
+              "file": "tests/ch20/test_dist_uniform_bounded_range_floor_and_clamp.expected",
+              "contains": "uniform(-10, 10) = 8, seed -438629137"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch20/test_dist_normal_rejection_rounding_any_deviation.sv",
+          "observation": "$dist_normal: 棄却ループの回数（draws 2/4/6/8）と丸めを11通りの seed/mean/deviation で。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "a51c93c65e635d7ca72998e5f9e0da62853e587d2eb6d9f44737df1ada9c7788",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_normal_rejection_rounding_any_deviation.sv",
+              "contains": "v = $dist_normal(seed, mean, deviation);"
+            },
+            {
+              "file": "tests/ch20/test_dist_normal_rejection_rounding_any_deviation.expected",
+              "contains": "normal(0, 10) from 3025058 = -5, seed 765498170, draws 8"
+            },
+            {
+              "file": "tests/ch20/test_dist_normal_rejection_rounding_any_deviation.expected",
+              "contains": "normal(25, 0) from 3025058 = 25, seed 765498170, draws 8"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch20/test_dist_exponential_one_draw_log_rounding.sv",
+          "observation": "$dist_exponential: 一様乱数1回と -log の丸めを13通りで。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "2ba9535578f037e108489893ec73d7e62efa0c064c5d7c56ec288862b902d877",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_exponential_one_draw_log_rounding.sv",
+              "contains": "v = $dist_exponential(seed, mean);"
+            },
+            {
+              "file": "tests/ch20/test_dist_exponential_one_draw_log_rounding.expected",
+              "contains": "exponential(10) from 1 = 110, seed 69070, draws 1"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch20/test_dist_poisson_counts_products_above_exp.sv",
+          "observation": "$dist_poisson: 6 seed × 平均 1/4/20 の18通りで、積が e^-mean を下回るまでの描画回数。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "3352b3f4eb17ea5759840e68e8531da5cf2262be8c50d2cd3f26edf75a3dc13f",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_poisson_counts_products_above_exp.sv",
+              "contains": "v = $dist_poisson(seed, means[j]);"
+            },
+            {
+              "file": "tests/ch20/test_dist_poisson_counts_products_above_exp.expected",
+              "contains": "poisson(20) from 12345 = 26, seed -1122087956, draws 27"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch20/test_dist_chi_square_odd_even_df_and_rounding.sv",
+          "observation": "$dist_chi_square: 奇数/偶数自由度の13通り。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "f9961be835bcaf351c48bdb17ba08949edfa06359c2db73cf5e0286d3258ff64",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_chi_square_odd_even_df_and_rounding.sv",
+              "contains": "v = $dist_chi_square(seed, df);"
+            },
+            {
+              "file": "tests/ch20/test_dist_chi_square_odd_even_df_and_rounding.expected",
+              "contains": "chi_square(10) from 1 = 31, seed -417135238, draws 5"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch20/test_dist_t_chi_square_then_normal_order.sv",
+          "observation": "$dist_t: chi_square の後に normal を引く順序を16通りで。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "0af73b613b34da7f54f64d8c3782c68865ed835469493f63a812a71862574b00",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_t_chi_square_then_normal_order.sv",
+              "contains": "v = $dist_t(seed, df);"
+            },
+            {
+              "file": "tests/ch20/test_dist_t_chi_square_then_normal_order.expected",
+              "contains": "t(1) from 8 = 4, seed 1335259182, draws 10"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch20/test_dist_erlang_stage_count_and_product_rounding.sv",
+          "observation": "$dist_erlang: 段数 k 回の一様乱数の積と丸めを14通りで。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "3b8627c2ceeef5e3d3434b138bce56e9849fac86ee34053a8edf886bb35be823",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_erlang_stage_count_and_product_rounding.sv",
+              "contains": "v = $dist_erlang(seed, k, mean);"
+            },
+            {
+              "file": "tests/ch20/test_dist_erlang_stage_count_and_product_rounding.expected",
+              "contains": "erlang(4, 100) from 1 = 381, seed 772999773, draws 4"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch20/test_dist_uniform_full_range_and_seeded_random.sv",
+          "observation": "$random(seed) が rtl_dist_uniform(seed, LONG_MIN, LONG_MAX) と同じ値・seed になる（4 seed × 3回）。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "ce41b64ef2438322208957e98ed8ce29d0a0ddb1833f661df16f35ad00055b55",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_uniform_full_range_and_seeded_random.sv",
+              "contains": "r = $random(seed_r);"
+            },
+            {
+              "file": "tests/ch20/test_dist_uniform_full_range_and_seeded_random.expected",
+              "contains": "from 2026: $random = 1073658239, seed -1073825879; $dist_uniform = 1073658239, seed -1073825879"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "N.1",
           "blocks": [
             "B013"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "r01-n1-all-dist-functions",
+          "tests": [
+            "tests/ch20/test_dist_uniform_bounded_range_floor_and_clamp.sv",
+            "tests/ch20/test_dist_normal_rejection_rounding_any_deviation.sv",
+            "tests/ch20/test_dist_exponential_one_draw_log_rounding.sv",
+            "tests/ch20/test_dist_poisson_counts_products_above_exp.sv",
+            "tests/ch20/test_dist_chi_square_odd_even_df_and_rounding.sv",
+            "tests/ch20/test_dist_t_chi_square_then_normal_order.sv",
+            "tests/ch20/test_dist_erlang_stage_count_and_product_rounding.sv",
+            "tests/ch20/test_dist_uniform_full_range_and_seeded_random.sv"
+          ],
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "observation": "表 N.1 の8つのシステム関数（$dist_uniform / $dist_normal / $dist_exponential / $dist_poisson / $dist_chi_square / $dist_t / $dist_erlang / $random）それぞれを、固定した seed から呼び、値と呼出し後の seed（多くは描画回数も）を N.2 の C コードを 32 ビット long で実行した結果と比べる。同じ seed からは同じ値・seed になること（再現性）も、同じ seed を複数回使う行で現れる。作成担当が独自に組んだ参照実装で8本全行を再計算して一致を確認した。 区別: どれかの関数が N.2 と異なるアルゴリズム（別の乱数器、丸めの違い、ヘルパの順序・回数の違い）を使えば、その関数のテストの値・seed・draws の行が変わる。seed が再現的でなければ、同じ seed からの行（例: normal(0,10) from 3025058 と normal(25,0) from 3025058 の seed 765498170、$random と $dist_uniform の並行列）が一致しなくなる。"
         }
       ]
     },
@@ -582476,13 +583751,108 @@
       "acceptance": "$dist_uniform uses algorithm rtl_dist_uniform defined in N.2.",
       "source_note": "IEEE 1800-2023 N.1; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_dist_uniform_bounded_range_floor_and_clamp.sv",
+          "observation": "end が最大値でない分岐: seed 12345 から uniform(-10,10) を8回、端のクランプが効く seed -1271221770 で uniform(0,9)=9 と uniform(-20,-11)=-11。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "18879943d1f5a00de341b9812be5b481f7b37c89a0b172b61f2cc4343e989b61",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_uniform_bounded_range_floor_and_clamp.sv",
+              "contains": "v = $dist_uniform(seed, -10, 10);"
+            },
+            {
+              "file": "tests/ch20/test_dist_uniform_bounded_range_floor_and_clamp.expected",
+              "contains": "uniform(-10, 10) = -6, seed 852656806"
+            },
+            {
+              "file": "tests/ch20/test_dist_uniform_bounded_range_floor_and_clamp.expected",
+              "contains": "from -1271221770: uniform(0, 9) = 9, seed -1"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch20/test_dist_uniform_end_at_largest_integer.sv",
+          "observation": "end=2147483647 で start が最小値でない分岐: start 1000/-5/2147483000/-2147483647 で seed 4242 から3回ずつ。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "d2191150b829b0d2c722436ed9bdb735f8345fb66a0c80e2467f27094ae62ed7",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_uniform_end_at_largest_integer.sv",
+              "contains": "v = $dist_uniform(seed, starts[i], 2147483647);"
+            },
+            {
+              "file": "tests/ch20/test_dist_uniform_end_at_largest_integer.expected",
+              "contains": "uniform(1000, 2147483647) = 146496437, seed 292990699"
+            },
+            {
+              "file": "tests/ch20/test_dist_uniform_end_at_largest_integer.expected",
+              "contains": "uniform(-2147483647, 2147483647) = -1854492637, seed 292990699"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch20/test_dist_uniform_full_range_and_seeded_random.sv",
+          "observation": "両端が -2147483648 と 2147483647 の全範囲分岐: 4つの seed から3回ずつ $dist_uniform を呼び、$random(seed) と同じ値・seed になる。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "ce41b64ef2438322208957e98ed8ce29d0a0ddb1833f661df16f35ad00055b55",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_uniform_full_range_and_seeded_random.sv",
+              "contains": "u = $dist_uniform(seed_u, -2147483648, 2147483647);"
+            },
+            {
+              "file": "tests/ch20/test_dist_uniform_full_range_and_seeded_random.expected",
+              "contains": "from 5: $random = -2147138048, seed 345346; $dist_uniform = -2147138048, seed 345346"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch20/test_dist_uniform_start_not_below_end_keeps_seed.sv",
+          "observation": "start>=end の早期 return: uniform(7,7)=7、uniform(10,-3)=10 で seed 12345 のまま、seed 0 も 0 のまま。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "118f237b097e75454989aabbe141b883f621f5a2e631b7fb22fde6a2d3e904bd",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_uniform_start_not_below_end_keeps_seed.sv",
+              "contains": "v = $dist_uniform(seed, 10, -3);"
+            },
+            {
+              "file": "tests/ch20/test_dist_uniform_start_not_below_end_keeps_seed.expected",
+              "contains": "uniform(10, -3) = 10, seed 12345"
+            },
+            {
+              "file": "tests/ch20/test_dist_uniform_start_not_below_end_keeps_seed.expected",
+              "contains": "uniform(5, 5) from seed 0 = 5, seed 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "N.1",
           "blocks": [
             "B005"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "r01-n1-uniform-branches",
+          "tests": [
+            "tests/ch20/test_dist_uniform_bounded_range_floor_and_clamp.sv",
+            "tests/ch20/test_dist_uniform_end_at_largest_integer.sv",
+            "tests/ch20/test_dist_uniform_full_range_and_seeded_random.sv",
+            "tests/ch20/test_dist_uniform_start_not_below_end_keeps_seed.sv"
+          ],
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "observation": "rtl_dist_uniform の4つの分岐（start>=end の早期 return、end が最大値でない通常分岐、end が最大値で start が最小値でない分岐、両端が最小値・最大値の全範囲分岐）を、$dist_uniform の値と呼出し後の seed で1本ずつ観測する。全行の値は N.2 の C コードを 32 ビット long で計算したものと一致する（作成担当が独自に組んだ参照実装で全 42 行を再計算して一致を確認）。 区別: $dist_uniform が rtl_dist_uniform 以外（独自の乱数器や別の写像）を使うと、どの分岐でも値か seed の行が変わる。分岐ごとの処理（end++ と負の切り捨て補正・端のクランプ、start-- と +1.0、2**31 シフトと 2**32-1 での割り算、start>=end での seed 不変）を1つでも誤れば、該当テストの行（例: uniform(-10, 10) = -6 が -5、uniform(1000, 2147483647) の値が1ずれる、seed 12345 が 852656806 に進む）が変わる。"
         }
       ]
     },
@@ -583187,13 +584557,72 @@
       "acceptance": "The same 32-bit seed produces the same $random/$dist_* sequence on any host: seed 32'h0000_0001 gives the next seed 32'h0001_0DCE, and seed 32'h7FFF_FFFF gives 32'h7FFE_F234. Building the wrapper with a 64-bit long does not change either value, and no sequence element depends on signed overflow. $random returns values in -2^31..2^31-1.",
       "source_note": "IEEE 1800-2023 N.2 (B034), p.1343; complete own-body source review, block B034. Quote: \"*seed = 69069 * (*seed) + 1;\" followed by \"u.stemp = *seed;\". N.1 (p.1338 L38) says \"The algorithm for these functions is defined by the C code in N.2.\" Read with 20.14.1 (p.646 L24-L26, \"$random provides a mechanism for generating random numbers. The function returns a new 32-bit random number\") and 20.14.2 (p.647 L16-L17, \"The system functions shall always return the same value given the same seed\").",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_dist_exponential_one_draw_log_rounding.sv",
+          "observation": "seed 1 → 69070、648451823 → 100、-1271221770 → -1 と、全ビット 1 の seed から得る負の結果。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "2ba9535578f037e108489893ec73d7e62efa0c064c5d7c56ec288862b902d877",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_exponential_one_draw_log_rounding.sv",
+              "contains": "check(648451823, 10);"
+            },
+            {
+              "file": "tests/ch20/test_dist_exponential_one_draw_log_rounding.expected",
+              "contains": "exponential(10) from 1 = 110, seed 69070, draws 1"
+            },
+            {
+              "file": "tests/ch20/test_dist_exponential_one_draw_log_rounding.expected",
+              "contains": "exponential(10) from 648451823 = 159, seed 100, draws 1"
+            },
+            {
+              "file": "tests/ch20/test_dist_exponential_one_draw_log_rounding.expected",
+              "contains": "exponential(2147483647) from -1271221770 = -256, seed -1, draws 1"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch20/test_dist_uniform_full_range_and_seeded_random.sv",
+          "observation": "$random(seed) の符号付き 32 ビットの戻り値と、折り返して負になる seed 列。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "ce41b64ef2438322208957e98ed8ce29d0a0ddb1833f661df16f35ad00055b55",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_uniform_full_range_and_seeded_random.sv",
+              "contains": "r = $random(seed_r);"
+            },
+            {
+              "file": "tests/ch20/test_dist_uniform_full_range_and_seeded_random.expected",
+              "contains": "from 5: $random = -2147138048, seed 345346; $dist_uniform = -2147138048, seed 345346"
+            },
+            {
+              "file": "tests/ch20/test_dist_uniform_full_range_and_seeded_random.expected",
+              "contains": "from 5: $random = 230383387, seed -1917100901; $dist_uniform = 230383387, seed -1917100901"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "N.2",
           "blocks": [
             "B034"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "r01-n2-seed-32bit",
+          "tests": [
+            "tests/ch20/test_dist_exponential_one_draw_log_rounding.sv",
+            "tests/ch20/test_dist_uniform_full_range_and_seeded_random.sv"
+          ],
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "observation": "seed の更新 69069*seed+1 が 2**32 を法として 32 ビット符号付きで seed 変数に残り、一様乱数は seed を符号なし 32 ビットとして読むことを観測する。exponential のテストで seed 1 → 69070（受入条件の 32'h0001_0DCE）、648451823 → 100 と -1271221770 → -1（いずれも 2**32 を超えて折り返す）を表示し、seed -1（全ビット 1）を符号なしで読んだ結果として exponential(2147483647) = -256 となる。全範囲のテストで $random が -2147138048 などの符号付き 32 ビット値と負の seed（-1917100901 など）を返す。 区別: 64 ビットの long で折り返さずに計算する実装では 648451823 の次が 100 にならず、以降の値と seed の行がすべて変わる。seed を符号付きで右シフトする実装では seed -1 の標本が負側に変わり、exponential(2147483647) from -1271221770 = -256 の行が変わる。$random を符号なしで返す実装では -2147138048 などの負の値の行が変わる。"
         }
       ]
     },
@@ -583663,7 +585092,41 @@
       "acceptance": "rtl_dist_exponential requires positive mean; otherwise issues warning and returns zero without calling distribution helper or advancing seed.",
       "source_note": "IEEE 1800-2023 N.2; complete own-body source review, blocks B012, B013, B014, B015, B016. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed.sv",
+          "observation": "$dist_exponential を seed 7 から mean=0、mean=-1、mean=1 で呼び、値と呼出し後の seed を表示する。平均 0 と -1 の呼出しが値 0・seed 7 のまま、平均 1 の対照は一様乱数1回で値 9・seed 483484。:expected_stderr_regex: が実行のメッセージに警告（warning/error の語）が10個あることを照合し、無効な10回の呼出しそれぞれの警告を数える（表示行にはその語を含めない）。 区別: 0 以下の mean を検査せずヘルパへ渡す実装では seed が 7 から進み（多くは値も 0 以外になり）、'exponential mean 0: value 0, seed 7' と 'exponential mean -1: value 0, seed 7' の行が変わる。0 以下でなく 0 未満だけを弾く実装では mean=0 の行が変わり、正の値まで弾く実装では mean=1 の対照行（exponential mean 1: value 9, seed 483484）が 'value 0, seed 7' に変わる。警告を出さない実装は :expected_stderr_regex: の10個の警告に届かず失敗する（Verilator 5.054 がこの形で不一致）。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "34c9ef49471db26bcf8fb65274bbbe788644924e45b2fc793da44efa9eef481c",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed.sv",
+              "contains": "seed = 7; v = $dist_exponential(seed, 0);"
+            },
+            {
+              "file": "tests/ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed.sv",
+              "contains": "seed = 7; v = $dist_exponential(seed, 1);"
+            },
+            {
+              "file": "tests/ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed.sv",
+              "contains": ":expected_stderr_regex: (?is)(?:\\b(?:warn(?:ing)?|error)\\b.*?){10}"
+            },
+            {
+              "file": "tests/ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed.expected",
+              "contains": "exponential mean 0: value 0, seed 7"
+            },
+            {
+              "file": "tests/ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed.expected",
+              "contains": "exponential mean -1: value 0, seed 7"
+            },
+            {
+              "file": "tests/ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed.expected",
+              "contains": "exponential mean 1: value 9, seed 483484"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "N.2",
@@ -583685,7 +585148,41 @@
       "acceptance": "rtl_dist_poisson requires positive mean; otherwise issues warning and returns zero without calling distribution helper or advancing seed.",
       "source_note": "IEEE 1800-2023 N.2; complete own-body source review, blocks B020, B021, B022. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed.sv",
+          "observation": "$dist_poisson を seed 7 から mean=0、mean=-1、mean=1 で呼び、値と呼出し後の seed を表示する。平均 0 と -1 の呼出しが値 0・seed 7 のまま、平均 1 の対照は一様乱数1回（値 0 だが seed は 483484 に進む）。:expected_stderr_regex: が実行のメッセージに警告（warning/error の語）が10個あることを照合し、無効な10回の呼出しそれぞれの警告を数える（表示行にはその語を含めない）。 区別: 0 以下の mean を検査せずヘルパへ渡す実装では seed が 7 から進み（多くは値も 0 以外になり）、'poisson mean 0: value 0, seed 7' と 'poisson mean -1: value 0, seed 7' の行が変わる。0 以下でなく 0 未満だけを弾く実装では mean=0 の行が変わり、正の値まで弾く実装では mean=1 の対照行（poisson mean 1: value 0, seed 483484）が 'value 0, seed 7' に変わる。警告を出さない実装は :expected_stderr_regex: の10個の警告に届かず失敗する（Verilator 5.054 がこの形で不一致）。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "34c9ef49471db26bcf8fb65274bbbe788644924e45b2fc793da44efa9eef481c",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed.sv",
+              "contains": "seed = 7; v = $dist_poisson(seed, 0);"
+            },
+            {
+              "file": "tests/ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed.sv",
+              "contains": "seed = 7; v = $dist_poisson(seed, 1);"
+            },
+            {
+              "file": "tests/ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed.sv",
+              "contains": ":expected_stderr_regex: (?is)(?:\\b(?:warn(?:ing)?|error)\\b.*?){10}"
+            },
+            {
+              "file": "tests/ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed.expected",
+              "contains": "poisson mean 0: value 0, seed 7"
+            },
+            {
+              "file": "tests/ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed.expected",
+              "contains": "poisson mean -1: value 0, seed 7"
+            },
+            {
+              "file": "tests/ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed.expected",
+              "contains": "poisson mean 1: value 0, seed 483484"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "N.2",
@@ -583705,7 +585202,41 @@
       "acceptance": "rtl_dist_t requires positive degrees of freedom; otherwise issues warning and returns zero without calling distribution helper or advancing seed.",
       "source_note": "IEEE 1800-2023 N.2; complete own-body source review, blocks B023, B024. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed.sv",
+          "observation": "$dist_t を seed 7 から df=0、df=-1、df=1 で呼び、値と呼出し後の seed を表示する。自由度 0 と -1 の呼出しが値 0・seed 7 のまま、自由度 1 の対照は chi_square と normal の描画で値 -1・seed -809111543。:expected_stderr_regex: が実行のメッセージに警告（warning/error の語）が10個あることを照合し、無効な10回の呼出しそれぞれの警告を数える（表示行にはその語を含めない）。 区別: 0 以下の df を検査せずヘルパへ渡す実装では seed が 7 から進み（多くは値も 0 以外になり）、't df 0: value 0, seed 7' と 't df -1: value 0, seed 7' の行が変わる。0 以下でなく 0 未満だけを弾く実装では df=0 の行が変わり、正の値まで弾く実装では df=1 の対照行（t df 1: value -1, seed -809111543）が 'value 0, seed 7' に変わる。警告を出さない実装は :expected_stderr_regex: の10個の警告に届かず失敗する（Verilator 5.054 がこの形で不一致）。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "34c9ef49471db26bcf8fb65274bbbe788644924e45b2fc793da44efa9eef481c",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed.sv",
+              "contains": "seed = 7; v = $dist_t(seed, 0);"
+            },
+            {
+              "file": "tests/ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed.sv",
+              "contains": "seed = 7; v = $dist_t(seed, 1);"
+            },
+            {
+              "file": "tests/ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed.sv",
+              "contains": ":expected_stderr_regex: (?is)(?:\\b(?:warn(?:ing)?|error)\\b.*?){10}"
+            },
+            {
+              "file": "tests/ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed.expected",
+              "contains": "t df 0: value 0, seed 7"
+            },
+            {
+              "file": "tests/ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed.expected",
+              "contains": "t df -1: value 0, seed 7"
+            },
+            {
+              "file": "tests/ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed.expected",
+              "contains": "t df 1: value -1, seed -809111543"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "N.2",

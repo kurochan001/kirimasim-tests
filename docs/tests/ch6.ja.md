@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[すべての章](README.ja.md) .テストは897本で、そのうち265本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは898本で、そのうち265本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -498,6 +498,7 @@
 | [`test_specparam_declared_and_inferred_range`](../../tests/ch6/test_specparam_declared_and_inferred_range.sv) |範囲を定義した specparam はその範囲を持ち、範囲を定義しないものは最終的に割り当てられた値の幅を取る。| 6.20.5 | Icarus Verilog 13.0 ||
 | [`test_specparam_edge_cases`](../../tests/ch6/test_specparam_edge_cases.sv) |表現の値を変更するには、specparam を使用します。| 6.20.5 | Icarus Verilog 13.0 ||
 | [`test_specparam_from_parameters_and_specparams`](../../tests/ch6/test_specparam_from_parameters_and_specparams.sv) |specparam はパラメータの定数表現と それ以前の specparams をモジュールボディと指定ブロックに取得し、 値はパラメータオーバーライドに従います。| 6.20.5 6.20.2 30.3 30.5.1 | Icarus Verilog 13.0 ||
+| [`test_specparam_select_in_specparam_constant`](../../tests/ch6/test_specparam_select_in_specparam_constant.sv) |specparam の定数式は、先に宣言した specparam を constant primary として全体、 bit 選択、部分選択、インデックス付き部分選択の形で使える。| 6.20.5 A.8.4 | Icarus Verilog 13.0 ||
 | [`test_ch6_extra_const_handle_write`](../../tests/ch6/test_ch6_extra_const_handle_write.sv) |定義されたクラスハンドルは、そのオブジェクトのメンバーを変更することは可能ですが、その後は書き込めません。| 6.20.6 8.7 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_const_edge_cases`](../../tests/ch6/test_const_edge_cases.sv) |コンスト変数のエッジケース| 6.20.6 6.21 | Icarus Verilog 13.0 | x/z |
 | [`test_const_ops_edge_cases`](../../tests/ch6/test_const_ops_edge_cases.sv) |テスト：コンスト演算のエッジケース| 6.20.6 6.21 | Icarus Verilog 13.0 ||
