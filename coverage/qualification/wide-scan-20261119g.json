@@ -1,0 +1,679 @@
+{
+  "schema": 1,
+  "kind": "finite one-edit observability checks; not independent standards review",
+  "recorded_at": "2026-11-19T01:27:17.737791+00:00",
+  "scope": "All five forms, putc and direct-index variants, signed widths 65 and 257; twenty successful controls and forty compiled normally exiting corruption examples",
+  "simulator": {
+    "version": "kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401",
+    "commit": "441dddbd0fcd80aed298ca33311f2ee67aa8866c",
+    "binary_sha256": "c3b343c753737a564deb1156e8064062793c133f7be2ea567daced985b26f24b"
+  },
+  "args": [
+    "+digit=1"
+  ],
+  "baselines": [
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_decimal_signed_w65.sv",
+      "source_sha256": "3d8f7bee1bc452c9c4bba2029ad51f1b652390140f22e6a810aa2ebf31426cea",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_binary_signed_w65.sv",
+      "source_sha256": "c6592a4d09c807954dea97bbe15eb54b149bb5f61d47357d1b3b7db9ef09041f",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_hex_signed_w65.sv",
+      "source_sha256": "0c1884bf2d7dc512cad98050589a1f09948b3f0244635b20b7b53a6358021dce",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_octal_signed_w65.sv",
+      "source_sha256": "450c5d81ad70030011ad06ba8857b09312cfda408b9de66f52e77d3f967e59ab",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_bounded_signed_w65.sv",
+      "source_sha256": "0e58ef04b1dc3a2006031772aad084106b7c0ce5fae520ee29add511033a1276",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_decimal_signed_direct_w65.sv",
+      "source_sha256": "417c4f6813882d81316856250d503de5c634fcdd509155a0dccdad1b53bcc347",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_binary_signed_direct_w65.sv",
+      "source_sha256": "5bae5cced71eeeea0e23e46119060f4d6340c07ea03eac8bc89246b7cd0e764e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_hex_signed_direct_w65.sv",
+      "source_sha256": "cb4b7db12f89f5b2fe95bd7c9f36307a1601d0fa046dbd31631b2b94271e1904",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_octal_signed_direct_w65.sv",
+      "source_sha256": "c7cb862ecbde4c9158674b6e44e4e5a5e5cef016a2580a5833f3a1c61981c83d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_bounded_signed_direct_w65.sv",
+      "source_sha256": "37faed4fe1b2aefbad01b9d5939a9aa7387664a42b17304e7cb88a914df70474",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_decimal_signed_w257.sv",
+      "source_sha256": "13c5cb3d09503c9fde1384c125cfef942b65084705465e93f2a62c00de0731c4",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_binary_signed_w257.sv",
+      "source_sha256": "6b8f93a032e1e7e4e6d40c33ea3e9d9e5ae9fe00485c0bce34e738971f703f6a",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_hex_signed_w257.sv",
+      "source_sha256": "bc0cffee6dab13210ccffe134db1356ed9bf57dc36f98d87ed3afa245bd08189",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_octal_signed_w257.sv",
+      "source_sha256": "3d6cc72a725223e2362f416287f28d04c3fbe43e85850d57e68dd7af9aa93f86",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_bounded_signed_w257.sv",
+      "source_sha256": "c385c2058aaec669c53ab0df5c449643acb93a6705c631ec49dd8385bfee859a",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_decimal_signed_direct_w257.sv",
+      "source_sha256": "ea92c14f8c18390c1c7eafb098cec7468700e87bab675a5283901bd6c11f729f",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_binary_signed_direct_w257.sv",
+      "source_sha256": "e119adcc877ca6e5224babaa037825999a014a50556cc3c9b6e917009d444279",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_hex_signed_direct_w257.sv",
+      "source_sha256": "5d1d8b664ba1ee523ba108f0f9ec9ce59cd71c31861caf699d63b477a5c01153",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_octal_signed_direct_w257.sv",
+      "source_sha256": "6fbc7429a06dee38515d071a2fd1a1af9ab3d7ca2dfda5ac80f0170b76c32e8e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_bounded_signed_direct_w257.sv",
+      "source_sha256": "ec6f314a20e7a63e77e1c90958615c062639936a9a09f7a9b54160860ef1f369",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    }
+  ],
+  "mutations": [
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_decimal_signed_w65.sv",
+      "label": "drop-scanned-value",
+      "replacement": {
+        "old": "$display(\"p0_value=%b\", scanned);",
+        "new": "scanned = '0;\n    $display(\"p0_value=%b\", scanned);",
+        "occurrences": 1
+      },
+      "source_sha256": "309c71593d1cff6bb5a733556e3e800c3229e3cf57512da81b764d75d4e70e41",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_decimal_signed_w65.sv",
+      "label": "corrupt-invalid-input-guard",
+      "replacement": {
+        "old": "rc_bad = $sscanf(",
+        "new": "guard = '0;\n    rc_bad = $sscanf(",
+        "occurrences": 1
+      },
+      "source_sha256": "ed16edc831a9fbd8f67b7e87266f89807bfcdd57e332b2f580ae212433e0960a",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_binary_signed_w65.sv",
+      "label": "drop-scanned-value",
+      "replacement": {
+        "old": "$display(\"p0_value=%b\", scanned);",
+        "new": "scanned = '0;\n    $display(\"p0_value=%b\", scanned);",
+        "occurrences": 1
+      },
+      "source_sha256": "4088caab3a357386ca973425f489a90357a815861beb391434cfcf089367a602",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_binary_signed_w65.sv",
+      "label": "corrupt-invalid-input-guard",
+      "replacement": {
+        "old": "rc_bad = $sscanf(",
+        "new": "guard = '0;\n    rc_bad = $sscanf(",
+        "occurrences": 1
+      },
+      "source_sha256": "b694f43e11f14c5a6362e341311afbb355f45afa70807c868f8ecb88e288aa96",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_hex_signed_w65.sv",
+      "label": "drop-scanned-value",
+      "replacement": {
+        "old": "$display(\"p0_value=%b\", scanned);",
+        "new": "scanned = '0;\n    $display(\"p0_value=%b\", scanned);",
+        "occurrences": 1
+      },
+      "source_sha256": "35f79fd871eac6da9af6d4b40498f1c10d02b7ebb5658460360aedaad32832f4",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_hex_signed_w65.sv",
+      "label": "corrupt-invalid-input-guard",
+      "replacement": {
+        "old": "rc_bad = $sscanf(",
+        "new": "guard = '0;\n    rc_bad = $sscanf(",
+        "occurrences": 1
+      },
+      "source_sha256": "a1919f6b07bf44830b2644aaa650c818f240b60be5331f3327e7b72ade5d7702",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_octal_signed_w65.sv",
+      "label": "drop-scanned-value",
+      "replacement": {
+        "old": "$display(\"p0_value=%b\", scanned);",
+        "new": "scanned = '0;\n    $display(\"p0_value=%b\", scanned);",
+        "occurrences": 1
+      },
+      "source_sha256": "5458c3a68af2186aaf746ff35f59030744bd7d415c756d3207c47f66bf42db5c",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_octal_signed_w65.sv",
+      "label": "corrupt-invalid-input-guard",
+      "replacement": {
+        "old": "rc_bad = $sscanf(",
+        "new": "guard = '0;\n    rc_bad = $sscanf(",
+        "occurrences": 1
+      },
+      "source_sha256": "f20a507fca8b52b203aea2bd1bb0a7ad95cb71251128049522f299d2f2953ceb",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_bounded_signed_w65.sv",
+      "label": "drop-scanned-value",
+      "replacement": {
+        "old": "$display(\"p0_value=%b\", scanned);",
+        "new": "scanned = '0;\n    $display(\"p0_value=%b\", scanned);",
+        "occurrences": 1
+      },
+      "source_sha256": "f9f1d5e3a35a70dc4f71310daffad32aba34da7a352ab487921261af9a1a907d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_bounded_signed_w65.sv",
+      "label": "corrupt-invalid-input-guard",
+      "replacement": {
+        "old": "rc_bad = $sscanf(",
+        "new": "guard = '0;\n    rc_bad = $sscanf(",
+        "occurrences": 1
+      },
+      "source_sha256": "a9b6dafd845a48988e3e1b791c97cf9a2fce73e988f23b8609dfd7eff06e1ea6",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_decimal_signed_direct_w65.sv",
+      "label": "drop-scanned-value",
+      "replacement": {
+        "old": "$display(\"p0_value=%b\", scanned);",
+        "new": "scanned = '0;\n    $display(\"p0_value=%b\", scanned);",
+        "occurrences": 1
+      },
+      "source_sha256": "fc8721bd13040afbf03ad295bf904ab40579fbe2df223b092eeedec6a7f02741",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_decimal_signed_direct_w65.sv",
+      "label": "corrupt-invalid-input-guard",
+      "replacement": {
+        "old": "rc_bad = $sscanf(",
+        "new": "guard = '0;\n    rc_bad = $sscanf(",
+        "occurrences": 1
+      },
+      "source_sha256": "21b390b83d431cede6fedb05a2ef9097aac42dac0a3d98261fa08b12312e744b",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_binary_signed_direct_w65.sv",
+      "label": "drop-scanned-value",
+      "replacement": {
+        "old": "$display(\"p0_value=%b\", scanned);",
+        "new": "scanned = '0;\n    $display(\"p0_value=%b\", scanned);",
+        "occurrences": 1
+      },
+      "source_sha256": "59aca4e2d317a8c53be4258ab78c3e6cac5b25290f6f33976c2f18d17f83e391",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_binary_signed_direct_w65.sv",
+      "label": "corrupt-invalid-input-guard",
+      "replacement": {
+        "old": "rc_bad = $sscanf(",
+        "new": "guard = '0;\n    rc_bad = $sscanf(",
+        "occurrences": 1
+      },
+      "source_sha256": "d1db38660dde27f020bdf2ccd122e2109219653f51ef1ca4ecb1dce56375e562",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_hex_signed_direct_w65.sv",
+      "label": "drop-scanned-value",
+      "replacement": {
+        "old": "$display(\"p0_value=%b\", scanned);",
+        "new": "scanned = '0;\n    $display(\"p0_value=%b\", scanned);",
+        "occurrences": 1
+      },
+      "source_sha256": "a450708bc0e225f46737d3c24a5e2aa89a65cca8346d9ace681aeb5387e2fafa",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_hex_signed_direct_w65.sv",
+      "label": "corrupt-invalid-input-guard",
+      "replacement": {
+        "old": "rc_bad = $sscanf(",
+        "new": "guard = '0;\n    rc_bad = $sscanf(",
+        "occurrences": 1
+      },
+      "source_sha256": "c61b3c4b7b2b58d206880b50555b7afc6c2ff7859c7f136fd6257568b9f525ac",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_octal_signed_direct_w65.sv",
+      "label": "drop-scanned-value",
+      "replacement": {
+        "old": "$display(\"p0_value=%b\", scanned);",
+        "new": "scanned = '0;\n    $display(\"p0_value=%b\", scanned);",
+        "occurrences": 1
+      },
+      "source_sha256": "9685c924dfbf975a4502a9a0b1cdc50a97992f19ae1907e1a288dafe4757b1e2",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_octal_signed_direct_w65.sv",
+      "label": "corrupt-invalid-input-guard",
+      "replacement": {
+        "old": "rc_bad = $sscanf(",
+        "new": "guard = '0;\n    rc_bad = $sscanf(",
+        "occurrences": 1
+      },
+      "source_sha256": "c04ddb14c735016c0c7c19e6c300f695caf6d52eed051768569fe183deb016da",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_bounded_signed_direct_w65.sv",
+      "label": "drop-scanned-value",
+      "replacement": {
+        "old": "$display(\"p0_value=%b\", scanned);",
+        "new": "scanned = '0;\n    $display(\"p0_value=%b\", scanned);",
+        "occurrences": 1
+      },
+      "source_sha256": "16796ef39ae64523b0e115ed53eadb864d5310b1593c76afe60ee2ac6b6f5af0",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_bounded_signed_direct_w65.sv",
+      "label": "corrupt-invalid-input-guard",
+      "replacement": {
+        "old": "rc_bad = $sscanf(",
+        "new": "guard = '0;\n    rc_bad = $sscanf(",
+        "occurrences": 1
+      },
+      "source_sha256": "27669e0fd87c4db0e0b720f2a0c30c506a4565d9bd420fa91455bbbfbf8c218b",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_decimal_signed_w257.sv",
+      "label": "drop-scanned-value",
+      "replacement": {
+        "old": "$display(\"p0_value=%b\", scanned);",
+        "new": "scanned = '0;\n    $display(\"p0_value=%b\", scanned);",
+        "occurrences": 1
+      },
+      "source_sha256": "208b301fa4d844349bc9a910d66eb1a1ad8fe3895ecb7cb58de33f1375db8ac4",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_decimal_signed_w257.sv",
+      "label": "corrupt-invalid-input-guard",
+      "replacement": {
+        "old": "rc_bad = $sscanf(",
+        "new": "guard = '0;\n    rc_bad = $sscanf(",
+        "occurrences": 1
+      },
+      "source_sha256": "a7f40928e4da16e37a9492c9a7a9d013396e01471ef4e0b033d5dacadd0e9bfb",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_binary_signed_w257.sv",
+      "label": "drop-scanned-value",
+      "replacement": {
+        "old": "$display(\"p0_value=%b\", scanned);",
+        "new": "scanned = '0;\n    $display(\"p0_value=%b\", scanned);",
+        "occurrences": 1
+      },
+      "source_sha256": "9664bfcbf53f715e77ee85836a992134187e50c024b66f2619a7941b224c2456",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_binary_signed_w257.sv",
+      "label": "corrupt-invalid-input-guard",
+      "replacement": {
+        "old": "rc_bad = $sscanf(",
+        "new": "guard = '0;\n    rc_bad = $sscanf(",
+        "occurrences": 1
+      },
+      "source_sha256": "f94cbeaf8d63867e3b6527ce077f275b38a3f83c1c0cf6296a1d580925b24fe1",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_hex_signed_w257.sv",
+      "label": "drop-scanned-value",
+      "replacement": {
+        "old": "$display(\"p0_value=%b\", scanned);",
+        "new": "scanned = '0;\n    $display(\"p0_value=%b\", scanned);",
+        "occurrences": 1
+      },
+      "source_sha256": "1487da34cebaa6cde5e2b4e1e170cb8daa5f2b0a020109966e31ba5bb2f46420",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_hex_signed_w257.sv",
+      "label": "corrupt-invalid-input-guard",
+      "replacement": {
+        "old": "rc_bad = $sscanf(",
+        "new": "guard = '0;\n    rc_bad = $sscanf(",
+        "occurrences": 1
+      },
+      "source_sha256": "eb716f39ab77e125de6fdb14003573660212a686f7c9733dca59490cdd15f342",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_octal_signed_w257.sv",
+      "label": "drop-scanned-value",
+      "replacement": {
+        "old": "$display(\"p0_value=%b\", scanned);",
+        "new": "scanned = '0;\n    $display(\"p0_value=%b\", scanned);",
+        "occurrences": 1
+      },
+      "source_sha256": "58be3223536adb0795eac1c02789c8f1a77b58974cbb3b2ff3551d1bc7129d52",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_octal_signed_w257.sv",
+      "label": "corrupt-invalid-input-guard",
+      "replacement": {
+        "old": "rc_bad = $sscanf(",
+        "new": "guard = '0;\n    rc_bad = $sscanf(",
+        "occurrences": 1
+      },
+      "source_sha256": "242b891c2431737759dfdde801e236c9900a67d61a946deb7db32c71fe5698f0",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_bounded_signed_w257.sv",
+      "label": "drop-scanned-value",
+      "replacement": {
+        "old": "$display(\"p0_value=%b\", scanned);",
+        "new": "scanned = '0;\n    $display(\"p0_value=%b\", scanned);",
+        "occurrences": 1
+      },
+      "source_sha256": "305cfe6bd884351e79bbc6796010035459617ceef51f543f2f66c4cb84cb0d3b",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_bounded_signed_w257.sv",
+      "label": "corrupt-invalid-input-guard",
+      "replacement": {
+        "old": "rc_bad = $sscanf(",
+        "new": "guard = '0;\n    rc_bad = $sscanf(",
+        "occurrences": 1
+      },
+      "source_sha256": "e1e94f657e459a072175c2506fb007823eb0d69121c59f541d023827d5e9474e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_decimal_signed_direct_w257.sv",
+      "label": "drop-scanned-value",
+      "replacement": {
+        "old": "$display(\"p0_value=%b\", scanned);",
+        "new": "scanned = '0;\n    $display(\"p0_value=%b\", scanned);",
+        "occurrences": 1
+      },
+      "source_sha256": "bcf6c146b8e5d8e1309c390df58a1f1cdf03cfa07baf010f960ff9582badaec6",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_decimal_signed_direct_w257.sv",
+      "label": "corrupt-invalid-input-guard",
+      "replacement": {
+        "old": "rc_bad = $sscanf(",
+        "new": "guard = '0;\n    rc_bad = $sscanf(",
+        "occurrences": 1
+      },
+      "source_sha256": "1f401aa5241eb4f9d3057e6e30e1aa4b63225dc7add4055868e69cdc11a067cc",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_binary_signed_direct_w257.sv",
+      "label": "drop-scanned-value",
+      "replacement": {
+        "old": "$display(\"p0_value=%b\", scanned);",
+        "new": "scanned = '0;\n    $display(\"p0_value=%b\", scanned);",
+        "occurrences": 1
+      },
+      "source_sha256": "6e54bc0a9d016af739ee822956ba58c5d18c7e0b72da68d50b923e6625754f4e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_binary_signed_direct_w257.sv",
+      "label": "corrupt-invalid-input-guard",
+      "replacement": {
+        "old": "rc_bad = $sscanf(",
+        "new": "guard = '0;\n    rc_bad = $sscanf(",
+        "occurrences": 1
+      },
+      "source_sha256": "c88e026d7ccb159b56f0f7b825582a925d2d661decd97b93b07d75a2aa867dbd",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_hex_signed_direct_w257.sv",
+      "label": "drop-scanned-value",
+      "replacement": {
+        "old": "$display(\"p0_value=%b\", scanned);",
+        "new": "scanned = '0;\n    $display(\"p0_value=%b\", scanned);",
+        "occurrences": 1
+      },
+      "source_sha256": "f213377d9e2be5f85fd2193ae188c72c953e1c33f0bc17cd8c6757579a18f189",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_hex_signed_direct_w257.sv",
+      "label": "corrupt-invalid-input-guard",
+      "replacement": {
+        "old": "rc_bad = $sscanf(",
+        "new": "guard = '0;\n    rc_bad = $sscanf(",
+        "occurrences": 1
+      },
+      "source_sha256": "ddd96796903090ce5c1f6430928804d6916f5879207e917fc87fa110addd91e1",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_octal_signed_direct_w257.sv",
+      "label": "drop-scanned-value",
+      "replacement": {
+        "old": "$display(\"p0_value=%b\", scanned);",
+        "new": "scanned = '0;\n    $display(\"p0_value=%b\", scanned);",
+        "occurrences": 1
+      },
+      "source_sha256": "6bb7cd0f077b2b8385400238b55f71969369b599ec71cdc42aeaef74a455bd70",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_octal_signed_direct_w257.sv",
+      "label": "corrupt-invalid-input-guard",
+      "replacement": {
+        "old": "rc_bad = $sscanf(",
+        "new": "guard = '0;\n    rc_bad = $sscanf(",
+        "occurrences": 1
+      },
+      "source_sha256": "d465d0be2052e0ad0ed02227237eb93823aeab8b675b89ea0c638563351a3a13",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_bounded_signed_direct_w257.sv",
+      "label": "drop-scanned-value",
+      "replacement": {
+        "old": "$display(\"p0_value=%b\", scanned);",
+        "new": "scanned = '0;\n    $display(\"p0_value=%b\", scanned);",
+        "occurrences": 1
+      },
+      "source_sha256": "07d8e947a3723ec3f56bdf7defc6ccaafd44b90573ae7388a1657d8586e085ad",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_scan_bounded_signed_direct_w257.sv",
+      "label": "corrupt-invalid-input-guard",
+      "replacement": {
+        "old": "rc_bad = $sscanf(",
+        "new": "guard = '0;\n    rc_bad = $sscanf(",
+        "occurrences": 1
+      },
+      "source_sha256": "d0d8aa84886c549673eb9d96f2d0fbe9926ca3788d870e41d9af92c9c1f2b7ca",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    }
+  ],
+  "status": "all-twenty-controls-pass-and-forty-compiled-mutants-differ"
+}

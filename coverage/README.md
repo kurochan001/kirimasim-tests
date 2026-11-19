@@ -256,3 +256,5 @@ Nightlyの測定対象は実行したスイートのコミットです。`main`�
 - `results/arithmetic-context-20261119e-*.json`：`+nonce=1`を使った実行時演算と文脈90本の記録7件です。Icarus 13.0、seed 1と73のVerilator 5.054、4回のkirimasim 0.1.1 `441dddbd0fcd`は各90 passです。oracleにはIcarusの一致90本を登録しています。[有限の検査](qualification/arithmetic-context-20261119e.json)は、成功する符号付き・符号なし65/257ビットの対照20本と、コンパイル・正常終了して倍幅結果や狭い語からの保存値を変える変異40本です。独立AIレビューは7,380期待行を確認し、要求対応は変更していません。
 
 - `results/power-boundaries-20261119f-*.json`：`+nonce=1`を使った整数べき乗72本の記録7件です。Icarus 13.0は54 pass・18 known、Verilator 5.054はseed 1と73で各36 pass・36 known、kirimasim 0.1.1 `441dddbd0fcd`は4回とも72 passです。一致したIcarus54本だけにoracleを登録し、4値にはVerilatorを登録していません。[有限の検査](qualification/power-boundaries-20261119f.json)は、成功する符号付き・符号なし65/257ビットの対照16本と、コンパイル・正常終了した結果破壊32本です。独立AIレビューは3,924期待行を確認し、要求対応は変更していません。
+
+- `results/wide-scan-20261119g-*.json`：putcと添字代入の対照を含む数値文字列180本の記録7件です。Icarus 13.0は36 pass・144 known、Verilator 5.054はseed 1と73で各20 pass・160 known、kirimasim 0.1.1 `441dddbd0fcd`は4回とも180 passです。Icarusの36本と元の2値Verilator10本にoracleを登録し、134本はspecのみです。[有限の検査](qualification/wide-scan-20261119g.json)は、符号付き65/257ビットの対照20本の成功と、コンパイル・正常終了した破壊例40本です。独立AIレビューは別々に封印した5,688期待行を確認し、要求対応は変更していません。

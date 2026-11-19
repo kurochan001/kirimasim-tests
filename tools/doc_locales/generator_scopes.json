@@ -104,6 +104,10 @@
     "power_boundaries": {
       "en": "72 runtime integral-power cases at 63/64/65, 127/128/129 and 255/256/257 bits: signed/unsigned bases, positive and negative exponents, complete 65-bit exponent boundaries and explicit unknown operands. Direct double-width results, captured narrow values and final two-state conversion remain distinct, with a runtime low-bit dependency that preserves other X/Z states.",
       "ja": "63/64/65・127/128/129・255/256/257ビットの実行時整数べき乗72本。底の符号の有無、正と負の指数、65ビット指数全体の境界、明示した未知値を確認。直接の倍幅結果、狭い値からの保存、最後の2値変換を区別し、他のX/Zを保つ最下位ビットに実行時の依存を与える。"
+    },
+    "wide_scan": {
+      "en": "180 wide numeric text cases at 32/33, 64/65, 128/129 and 255/256/257 bits: decimal/binary/hex/octal scanning, fixed formatting, round trips, maximum input field widths and failed-assignment guards. Original putc updates and equivalent direct-index controls retain runtime input dependencies, signed/unsigned destinations and explicit two-state conversion. Prepared input text is independent of simulator formatting.",
+      "ja": "32/33・64/65・128/129・255/256/257ビットの数値文字列180本。10進・2進・16進・8進の読取り、整形、往復、入力フィールド幅の上限、失敗時の値の保持を確認。putcと同等の添字代入の対照で実行時の依存を与え、符号の有無と2値への変換を観測し、入力文字列は処理系の整形とは別に用意。"
     }
   }
 }

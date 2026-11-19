@@ -23791,6 +23791,16 @@
     "Wide power exponents retain high bits independently of base width and signing": "Wide power exponents retain high bits independently of base width and signing",
     "Wide power exponents retain high bits independently of base width and signing ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide power exponents retain high bits independently of base width and signing ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
     "Wide integral powers preserve unknown base and exponent observations": "Wide integral powers preserve unknown base and exponent observations",
-    "Wide integral powers preserve unknown base and exponent observations ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide integral powers preserve unknown base and exponent observations ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )"
+    "Wide integral powers preserve unknown base and exponent observations ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide integral powers preserve unknown base and exponent observations ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Wide decimal scanning and formatting retain complete signed and unsigned values": "Wide decimal scanning and formatting retain complete signed and unsigned values",
+    "Wide decimal scanning and formatting retain complete signed and unsigned values ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide decimal scanning and formatting retain complete signed and unsigned values ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Wide binary scanning preserves unknown digits before destination conversion": "Wide binary scanning preserves unknown digits before destination conversion",
+    "Wide binary scanning preserves unknown digits before destination conversion ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide binary scanning preserves unknown digits before destination conversion ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Wide hexadecimal scanning and formatting preserve complete unknown digit groups": "Wide hexadecimal scanning and formatting preserve complete unknown digit groups",
+    "Wide hexadecimal scanning and formatting preserve complete unknown digit groups ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide hexadecimal scanning and formatting preserve complete unknown digit groups ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Wide octal scanning and formatting preserve complete unknown digit groups": "Wide octal scanning and formatting preserve complete unknown digit groups",
+    "Wide octal scanning and formatting preserve complete unknown digit groups ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide octal scanning and formatting preserve complete unknown digit groups ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Scan field widths limit consumed characters independently of destination width": "Scan field widths limit consumed characters independently of destination width",
+    "Scan field widths limit consumed characters independently of destination width ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Scan field widths limit consumed characters independently of destination width ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )"
   }
 }

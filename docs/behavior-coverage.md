@@ -185,6 +185,13 @@
 - `wide-boundaries-20261116-kirimasim-cfa2ccd7-run4.json`: `kirimasim 0.1.0 (commit cfa2ccd75989), built with AppleClang 21.0.0.21000401` / `2026-11-16T14:45:51.492227+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `wide-boundaries-20261116-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-16T14:48:32.216656+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `wide-boundaries-20261116-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-16T14:45:30.994335+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `wide-scan-20261119g-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T01:27:22.963056+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `wide-scan-20261119g-kirimasim-441dddbd0fcd-run1.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T01:27:24.973823+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `wide-scan-20261119g-kirimasim-441dddbd0fcd-run2.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T01:27:27.017736+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `wide-scan-20261119g-kirimasim-441dddbd0fcd-run3.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T01:27:29.091620+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `wide-scan-20261119g-kirimasim-441dddbd0fcd-run4.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T01:27:31.225314+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `wide-scan-20261119g-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T01:34:05.091232+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `wide-scan-20261119g-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T01:40:31.496871+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - 採用しません: additions2023-20261109-icarus13.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: additions2023-20261109-kirimasim-33cee3fa.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: additions2023-20261109-verilator5.052-seed1.json: 古い、未知の、または古いランナーの出身。
