@@ -231,6 +231,7 @@ def execution(rows: list, result_paths: list[Path]) -> tuple[dict, list]:
     """
     snapshots, ignored = [], []
     digests = {}
+    test_ids = {}
     for path in sorted(result_paths):
         data = json.loads(path.read_text(encoding="utf-8"))
         simulator = data.get("simulator")
@@ -250,7 +251,9 @@ def execution(rows: list, result_paths: list[Path]) -> tuple[dict, list]:
             by_test = {}
             for c in r["checks"]:
                 test = ROOT / c["test"]
-                result = data.get("tests", {}).get(suite_results.test_id(test), {})
+                if c["test"] not in test_ids:
+                    test_ids[c["test"]] = suite_results.test_id(test)
+                result = data.get("tests", {}).get(test_ids[c["test"]], {})
                 if not result:
                     by_test[c["test"]] = "not_run"
                     continue
