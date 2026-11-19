@@ -140,7 +140,7 @@ class IntegralPowerProfileTests(unittest.TestCase):
     def test_defaults_and_the_two_previous_opt_in_profiles_are_preserved(self):
         self.assertEqual(len(models.PROFILES), 13)
         self.assertEqual(models.EXTRA_PROFILES, ('packed_bounds_sequence', 'packed_field_sequence'))
-        self.assertEqual(len(models.SUPPORTED_PROFILES), 20)
+        self.assertEqual(len(models.SUPPORTED_PROFILES), 21)
         self.assertNotIn('integral_power_context', models.PROFILES)
         self.assertIn('integral_power_context', models.SUPPORTED_PROFILES)
 

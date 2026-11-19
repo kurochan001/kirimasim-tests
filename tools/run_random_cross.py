@@ -32,6 +32,7 @@ import suite_results
 ROOT = models.ROOT
 SOURCES = ('tools/run_random_cross.py', 'tools/random_cross_models.py', 'tools/random_cross_packed.py',
            'tools/random_cross_power.py', 'generators/power_boundaries.py',
+           'tools/random_cross_format.py', 'generators/function_formal_contexts.py',
            'generators/bitvector_queries.py', 'generators/wide_literals.py',
            'tools/normalize_output.py',
            'tools/random_cross_compare.py', 'tools/random_cross_evidence.py',

@@ -125,7 +125,7 @@ class WideBitOperationTests(unittest.TestCase):
 
     def test_new_profiles_are_opt_in_and_have_safe_count_widths(self):
         self.assertEqual(len(models.PROFILES),13)
-        self.assertEqual(len(models.SUPPORTED_PROFILES),20)
+        self.assertEqual(len(models.SUPPORTED_PROFILES),21)
         self.assertEqual(models.WIDE_BIT_PROFILES,('wide_shift_context','wide_cast_pipeline'))
         self.assertEqual(models.WIDE_PROFILES,('wide_conditional_context','wide_comparison_context'))
         self.assertFalse(set(models.PROFILES)&set(models.WIDE_BIT_PROFILES))

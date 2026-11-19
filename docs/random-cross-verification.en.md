@@ -73,7 +73,7 @@ fixed regressions, formal Nightly and explicit replay execute again.
 
 The [small SV observation examples](faq.en.md#q50-sv-values-change-observations) explain how X/Z, bit/logic, width and signedness change these expectations.
 
-There are thirteen default Nightly profiles and seven additional opt-in profiles described below. The default thirteen follow. This does not generalize every finite model to arbitrary inputs.
+There are thirteen default Nightly profiles and eight additional opt-in profiles described below. The default thirteen follow. This does not generalize every finite model to arbitrary inputs.
 
 - `expression_context` crosses widths, signedness, destination width and addition/subtraction/multiplication with arbitrary known input bits.
   It reuses the reference in `generators/interaction_expr.py`.
@@ -688,7 +688,7 @@ fingerprint-qualified interaction snapshots and fixed history remain separate.
 
 ## Additional opt-in packed profiles (2026-11-17)
 
-Two profiles are implemented in the [generator and reference](../tools/random_cross_packed.py). Select them with `--models`; the default thirteen, Nightly's 96 cases, operation count, worker count and time limits remain unchanged. Those eighteen remain selectable together; adding the two wide bit-operation profiles makes twenty selectable overall. The previous default manifests, SV and expected-output hashes remain unchanged at seeds 1, 731 and 20261117.
+Two profiles are implemented in the [generator and reference](../tools/random_cross_packed.py). Select them with `--models`; the default thirteen, Nightly's 96 cases, operation count, worker count and time limits remain unchanged. Those twenty remain selectable together; adding the wide numeric format/scan profile makes twenty-one selectable overall. The previous default manifests, SV and expected-output hashes remain unchanged at seeds 1, 731 and 20261117.
 
 - `packed_bounds_sequence` reads and writes four-state packed vectors with negative, zero and nonzero declared bounds. It selects from 21 widths between 1 and 513 bits, with part widths up to 65, crossing ascending/descending declarations, `+:`/`-:`, bit/logic read destinations and signed 32-bit indices. In-range, partially/wholly out-of-range and X/Z indices produce whole-value, part-select and single-bit observations after each operation. Invalid writes are suppressed; partial writes affect only in-range bits. Known inputs that produce X through an out-of-range read are also classified as four-state observations. Grounds are IEEE 1800-2023 11.5.1, 7.4.1 and 6.11.2.
 - `packed_field_sequence` combines whole/field assignments, differently sized field copies and whole-value shifts on three-field packed structures. It crosses ten layouts of 9–513 bits, each field's signing, aggregate signing and bit/logic storage. All fields use the same state type; mixed bit/logic fields are not generated. Whole values, individual fields and three-bit-widened field reads expose layout, preserved neighbors, copy extension/truncation and whole-structure arithmetic right shifts. Grounds are 7.2.1, 6.11.2, 10.7, 11.4.10 and 11.8.1.
@@ -806,4 +806,32 @@ python3 tools/run_random_cross.py --kirimasim /path/to/kirimasim --commit COMMIT
 python3 tools/run_random_cross.py --kirimasim /path/to/kirimasim --commit COMMIT \
   --replay coverage/interaction-qualification/random-wide-bitops-20261119/seed-1/manifest.json \
   --output my-results/saved-wide-bit-operation-replay
+```
+
+<a id="opt-in-wide-format-scan-profile"></a>
+
+## Opt-in wide numeric format and scan sequences (2026-11-19)
+
+Select `wide_format_scan_sequence` with `--models`. The [small materializer](../tools/random_cross_format.py) reuses the existing scheduler, word draws, exact literal formatter, declared-sign decimal helper, validation, phase capture and replay CLI. Known-only bit vectors at 255/256/257 and 511/512/513 bits are formatted with `%0b`, `%0h` or `%0d`, then scanned into an equally typed destination reset to all ones. Only hex calls `tolower()`. Each vector separately exposes full input, formatted text and length, parsed bits, conversion count and unchanged source; a final observation checks both declared widths. X/Z, arbitrary format strings, files and floating point are outside this bounded profile.
+
+[Saved inputs and qualification](../coverage/interaction-qualification/random-format-scan-20261119/qualification.json) contain seeds 1, 731 and 20261119, each with 96 programs and eight vectors: **288 programs / 2,304 vectors / 7,200 lines**, including 96 binary, 103 hex and 89 decimal programs. Independent AI sealed three actual-source derivations and a separate bit-string/manual-digit calculation before reading current expectations, manifests, the new writer or existing helpers. Earlier fixed format/scan semantics were already known. All expected bytes match both methods. The saved values include 161 negative decimal texts and 125 minimal zero texts. This is AI review, not human review or exhaustive language coverage.
+
+Fifteen [new unit checks](../tools/test_random_cross_format_profile.py) cover independent digit calculations, signs, widths, zero, hex-only normalization, distinct observations, ordered/repeated vectors, bounded domains, deterministic generation, immutable replay and injected reference drift. Twelve selection/seed combinations preserve all prior twenty-profile source/expectation and manifest bytes. The thirteen defaults and Nightly allocation stay unchanged; selectable profiles increase from twenty to twenty-one. Four previous count assertions change only that total.
+
+Twelve real CLI invocations (four per corpus) use the rehashed isolated kirimasim 0.1.1 `a6222f0656d4` Release binary: **1,152 executions pass**. Icarus Verilog 13.0 records **185 passes and 103 known hex build failures** because this build lacks `tolower()`; those failures never execute a simulation. Verilator 5.054 at initialization seeds 1 and 73 records **398 passes and 178 known decimal scan output mismatches**. All 288 programs are known-only, so none is excluded for four-state semantics. A known result is still a failure to match the normative expectation. No failed result is adopted as an oracle or silently corrected.
+
+The extract retains **2,016 requested outcomes, 1,913 actual runtime invocations and 864 comparator builds**, including 103 failed builds, with raw-record, CLI-log, source/input and per-phase hashes. Successful comparator builds have build/simulation/normalization phases; failed Icarus builds have only a failing build phase. All started runtime and helper processes exit zero; no timeout occurs. Kirimasim's integrated command includes parsing/build work and is counted separately from comparator builds. Each corpus's first two CLI invocations exit nonzero for the retained comparator differences; its kirimasim-only replays exit zero. The fourth invocation replays the saved public corpus later committed here. Code, inputs, expected values, binaries, dependencies and environment remain stable during all runs. Raw paths, environments and logs remain private; public evidence retains hashes and versions.
+
+Finite qualification adds **24 passing originals and 72 compiled, normally exiting corruptions**: both signs and all three radices at 257/513 bits, two programs each. Separate changes corrupt the formatted argument, a parsed middle bit, or the conversion count. These checks demonstrate observation liveness for this set, not all semantic faults. Random programs do not increase fixed-suite counts, requirement mappings or fixed behavioral history.
+
+The Check documentation job's time budget increases from 45 to 60 minutes. Two earlier immutable candidates hit the documented 45-minute job limit; their original logs are retained and only failed jobs are retried at their original SHA. The pinned Ubuntu runner, commands, assertions, simulator jobs, Nightly and benchmark settings are unchanged. This budget change does not claim a proven host-level cause or successful completion of pending CI.
+
+```sh
+python3 tools/run_random_cross.py --kirimasim /path/to/kirimasim --commit COMMIT \
+  --models wide_format_scan_sequence --seed 1 --cases 96 --vectors 8 \
+  --icarus /path/to/iverilog --verilator /path/to/verilator --simulator-seed 1 \
+  --output my-results/wide-format-scan
+python3 tools/run_random_cross.py --kirimasim /path/to/kirimasim --commit COMMIT \
+  --replay coverage/interaction-qualification/random-format-scan-20261119/seed-1/manifest.json \
+  --output my-results/saved-wide-format-scan
 ```

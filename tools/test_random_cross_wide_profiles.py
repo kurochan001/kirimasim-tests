@@ -118,7 +118,7 @@ class WideRandomProfileTests(unittest.TestCase):
 
     def test_new_profiles_are_opt_in_and_do_not_replace_previous_domains(self):
         self.assertEqual(len(models.PROFILES),13)
-        self.assertEqual(len(models.SUPPORTED_PROFILES),20)
+        self.assertEqual(len(models.SUPPORTED_PROFILES),21)
         self.assertEqual(models.WIDE_PROFILES,('wide_conditional_context','wide_comparison_context'))
         self.assertFalse(set(models.WIDE_PROFILES)&set(models.PROFILES))
         for case in [conditional(),comparison()]:
