@@ -1004,3 +1004,11 @@
 - `ch14/test_illegal_clocking_skew_real_constant`は14.3の本文のとおり、時間の単位がなく値が整数でないスキュー`#1.5`を違反とします。Verilator 5.054は受け付けます。kirimasimの固定版`a6222f0656d4`は、`#1step`以外のclockingの入力スキューが未対応です。
 - 要求カバレッジ（テスト設計）は92.67%（11,428/12,332）から92.96%（11,464/12,332）、再現できる実行確認率は51.06%（6,297）から51.20%（6,314）、Ghostとkirimasimを含む実行確認率は78.54%（9,686）から78.70%（9,705）になりました。結果は`coverage/results/reqgap6-20261120-*.json`で、Icarus Verilog 13.0とVerilator 5.054の差異を記録しました。kirimasim `a6222f0656d4`は27本のうち16本がpass、11本がunsupportedで、failはありません。
 - テストは16,271件になりました。
+
+### ch37のVPIテストのvirtual interfaceのポート
+
+- `ch37/test_vpi_io_decl_scope_typespec_ports`は、モジュールのポートに`input var virtual tids_bus vif`を使っていました。25.9はvirtual interfaceをポートに使うことを禁じるので、正常系のテストに違反が入っていました。2026-11-19のNightlyでGhostがこの設計を拒否したのを見直して分かりました。kirimasimのslangの前段も、このポートを拒否します。
+- virtual interfaceの仮引数をtask `t`の引数`tv`に移しました（25.9はtaskの引数を許す）。Cのコードは`tv`のio宣言の式が`vpiVirtualInterfaceVar`であることを表示し、期待出力からポートの`vif`を除いて、ポートの添字を詰めました。
+- modportのないインタフェースポート`b`を、modportの`bi.dev`で接続するようにしました（25.5）。`vpiPortType`が接続ではなく宣言に従うこと（37.14）を区別するためで、期待出力は変わりません。
+- 独立した検証担当が、修正したテストと12件の対応の更新を確かめました。`SV2023-37.13-EXTRACT-IO-REFERENCE`はvirtual interfaceの引数の行、`SV2023-37.14-EXTRACT-PORT-FORMAL-TYPE`は`b`の接続の行を観測に加えました。結果は`coverage/results/vpi-io-decl-refinement-20261120-*.json`で、Icarus Verilog 13.0・Verilator 5.054・kirimasimはどれもこのテストを実行できません。
+- 入力の指紋が変わったので、Ghostの保存済みの一致は古くなり、Ghostとkirimasimを含む実行確認率は78.70%（9,705）から78.60%（9,693）になりました。要求カバレッジ（テスト設計）の92.96%と、再現できる実行確認率の51.20%は変わりません。

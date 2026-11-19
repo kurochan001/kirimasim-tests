@@ -1,6 +1,6 @@
 /*
 :name: test_vpi_io_decl_scope_typespec_ports
-:description: The io declarations of an instance, a task, a function and a UDP lead back to their owner, an io declaration gives its instance, its range iteration, its typespec and the same bounds as that typespec, vpiScalar, vpiSigned and vpiVector describe the formal, a virtual interface port has a virtual interface variable as expression, and a port gives vpiPortType from its formal (IEEE 1800-2023 Sections 37.13, 37.14)
+:description: The io declarations of an instance, a task, a function and a UDP lead back to their owner, an io declaration gives its instance, its range iteration, its typespec and the same bounds as that typespec, vpiScalar, vpiSigned and vpiVector describe the formal, a virtual interface task argument has a virtual interface variable as expression, and a port gives vpiPortType from its formal (IEEE 1800-2023 Sections 37.13, 37.14)
 :tags: ch37
 :type: simulation
 :lrm: 1800-2023 37.13 37.14 37.36 23.2.2.3 25.5
@@ -21,8 +21,12 @@
 // vpiScalar, vpiSigned and vpiVector describe the formal. A ref, interface or
 // modport io declaration has a ref obj as vpiExpr; a virtual interface io
 // declaration has a vpiVirtualInterfaceVar (detail 2), and its direction is
-// undefined (detail 3), so it is not printed. §37.14: vpiPortType is vpiPort,
-// vpiInterfacePort or vpiModportPort according to the formal (detail 1).
+// undefined (detail 3), so it is not printed. A virtual interface cannot be a
+// port (25.9), so the virtual interface formal is the argument tv of the task
+// t, which 25.9 allows. §37.14: vpiPortType is vpiPort, vpiInterfacePort or
+// vpiModportPort according to the formal (detail 1). The interface port b has
+// no modport and is connected with the modport bi.dev (25.5), so a port type
+// taken from the actual would make b a modport port.
 // The io declarations are sorted by name; vpi_get_str() returns each string
 // in the same buffer (§38.11), so the names are copied before the sort.
 
@@ -47,12 +51,11 @@ module tids_m (
   output logic [3:0] dout,
   tids_bus b,
   tids_bus.dev d,
-  input var virtual tids_bus vif,
   input logic scalar,
   output logic [7:0] vec,
   ref logic [2:0] rp
 );
-  task automatic t (input int ti, output int to, ref int tr);
+  task automatic t (input int ti, output int to, ref int tr, input virtual tids_bus tv);
     to = ti;
   endtask
 
@@ -69,7 +72,7 @@ module test_vpi_io_decl_scope_typespec_ports;
   logic sc;
   logic uo, ua, ub;
   tids_bus bi ();
-  tids_m u (.din(nib), .dout(out), .b(bi), .d(bi.dev), .vif(bi),
+  tids_m u (.din(nib), .dout(out), .b(bi.dev), .d(bi.dev),
             .scalar(sc), .vec(vout), .rp(rv));
   tids_udp up (uo, ua, ub);
 

@@ -129,7 +129,7 @@ No test timed out or crashed.
 | With `:vpi_c:` | 148 | 351 | 499 |
 
 - 348 of the 351 rejected VPI tests stop at a system task that their C code registers (`$vt_...` 343, `$depth_...` 4, `$Depth$probe_7` 1).
-- The other three were not reviewed: `ch37/test_vpi_interconnect_net_type_size` (the interconnect with a packed dimension, as in the triage below), `ch37/test_vpi_io_decl_scope_typespec_ports` (a virtual interface port) and `ch37/test_vpi_variable_driver_load_arrays` (the target of a force).
+- The other three were not reviewed: `ch37/test_vpi_interconnect_net_type_size` (the interconnect with a packed dimension, as in the triage below), `ch37/test_vpi_io_decl_scope_typespec_ports` (a virtual interface port; a mistake of the test against 25.9, fixed on 2026-11-20) and `ch37/test_vpi_variable_driver_load_arrays` (the target of a force).
 - The 53 others are triaged [below](#triage-of-legal-tests-that-slang-rejects).
 
 <a id="illegal-tests-and-kirimasim-2b05349e"></a>

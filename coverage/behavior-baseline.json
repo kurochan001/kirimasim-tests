@@ -43836,5 +43836,5 @@
     "P",
     "Q"
   ],
-  "reason": "Monotonic additions of requirements, mappings or completed investigations, recorded by --update"
+  "reason": "ch37/test_vpi_io_decl_scope_typespec_ports had a virtual interface module port, which 25.9 forbids; the formal moved to a task argument and b is connected with a modport, so the inputs digest of its 12 mappings changed"
 }

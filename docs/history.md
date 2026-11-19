@@ -1030,3 +1030,11 @@ clause 37.
 - `ch14/test_illegal_clocking_skew_real_constant` follows the text of 14.3 and makes the skew `#1.5`, which has no time unit and whose value is not an integer, a violation. Verilator 5.054 accepts it; the fixed kirimasim build `a6222f0656d4` does not support clocking input skews other than `#1step` yet.
 - Design coverage goes from 92.67% (11,428/12,332) to 92.96% (11,464/12,332), reproducible execution coverage from 51.06% (6,297) to 51.20% (6,314), and execution coverage with Ghost and kirimasim from 78.54% (9,686) to 78.70% (9,705). The results are in `coverage/results/reqgap6-20261120-*.json`, and the differences of Icarus Verilog 13.0 and Verilator 5.054 are recorded. kirimasim `a6222f0656d4` passes 16 of the 27 tests and does not support 11; none fails.
 - The suite now has 16,271 tests.
+
+### The virtual interface port of a VPI test in ch37
+
+- `ch37/test_vpi_io_decl_scope_typespec_ports` used `input var virtual tids_bus vif` as a module port. 25.9 forbids a virtual interface as a port, so the legal test held a violation. This was found when reviewing why Ghost rejected the design in the Nightly of 2026-11-19; kirimasim's slang front end rejects the port as well.
+- The virtual interface formal moved to the argument `tv` of the task `t`, which 25.9 allows. The C code prints that the expression of the io declaration `tv` is a `vpiVirtualInterfaceVar`, and the expected output drops the port `vif` and renumbers the port indices.
+- The interface port `b`, which has no modport, is now connected with the modport `bi.dev` (25.5), so that the test tells whether `vpiPortType` follows the declaration rather than the connection (37.14). The expected output does not change.
+- An independent verifier checked the fixed test and the 12 updated mappings. `SV2023-37.13-EXTRACT-IO-REFERENCE` now also observes the virtual interface argument, and `SV2023-37.14-EXTRACT-PORT-FORMAL-TYPE` the connection of `b`. The results are in `coverage/results/vpi-io-decl-refinement-20261120-*.json`; Icarus Verilog 13.0, Verilator 5.054 and kirimasim cannot run this test.
+- The input digest changed, so the saved match of Ghost is outdated, and execution coverage with Ghost and kirimasim goes from 78.70% (9,705) to 78.60% (9,693). Design coverage stays at 92.96% and reproducible execution coverage at 51.20%.

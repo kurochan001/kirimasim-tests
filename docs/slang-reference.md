@@ -129,7 +129,7 @@ slang `6fbb158f156436a1cb4d0ce9de5373a416a05d4c`（kirimasim `2b05349e`（2026-1
 | `:vpi_c:`あり | 148 | 351 | 499 |
 
 - 拒否したVPIテスト351本のうち348本は、Cコードが登録するシステムタスクで止まります（`$vt_...` 343本、`$depth_...` 4本、`$Depth$probe_7` 1本）。
-- 残る3本は見直していません。`ch37/test_vpi_interconnect_net_type_size`（下の仕分けと同じ、パック次元のあるinterconnect）、`ch37/test_vpi_io_decl_scope_typespec_ports`（virtual interfaceのポート）、`ch37/test_vpi_variable_driver_load_arrays`（forceの対象）です。
+- 残る3本は見直していません。`ch37/test_vpi_interconnect_net_type_size`（下の仕分けと同じ、パック次元のあるinterconnect）、`ch37/test_vpi_io_decl_scope_typespec_ports`（virtual interfaceのポート。25.9に反するテストの誤りで、2026-11-20に直しました）、`ch37/test_vpi_variable_driver_load_arrays`（forceの対象）です。
 - ほかの53本は[下で](#triage-of-legal-tests-that-slang-rejects)仕分けました。
 
 <a id="illegal-tests-and-kirimasim-2b05349e"></a>

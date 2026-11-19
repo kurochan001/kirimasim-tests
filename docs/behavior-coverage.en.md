@@ -6,10 +6,10 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 92.96%, execution without Ghost 51.20%, execution with Ghost 78.70%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 92.96%, execution without Ghost 51.20%, execution with Ghost 78.60%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 92.96%. Requirement execution-confirmation rate: 51.20% without Ghost, 78.70% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 92.96%. Requirement execution-confirmation rate: 51.20% without Ghost, 78.60% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
@@ -17,7 +17,7 @@ Requirement coverage (test design): 92.96%. Requirement execution-confirmation r
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
 - The requirement coverage (test design) for registered behaviors is 11464/12332 ( 92.96% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9705/12332 ( 78.70% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9693/12332 ( 78.60% ).
 - Registered but not tested: 868.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
@@ -96,12 +96,12 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `fourstate-boundaries-20261119d-kirimasim-441dddbd0fcd-run4.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T00:24:27.618699+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `fourstate-boundaries-20261119d-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T00:26:22.013552+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `fourstate-boundaries-20261119d-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T00:28:09.101257+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
-- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3092/12332 execution checked; 340 entries refer to older inputs.
-- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2997/12332 execution checked; 340 entries refer to older inputs.
-- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3889/12332 execution checked; 340 entries refer to older inputs.
+- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3092/12332 execution checked; 352 entries refer to older inputs.
+- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2997/12332 execution checked; 352 entries refer to older inputs.
+- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3889/12332 execution checked; 352 entries refer to older inputs.
 - `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3600/12332 execution checked; 25 entries refer to older inputs.
 - `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7931/12332 execution checked; 474 entries refer to older inputs.
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 8011/12332 execution checked; 410 entries refer to older inputs.
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7999/12332 execution checked; 422 entries refer to older inputs.
 - `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7913/12332 execution checked; 474 entries refer to older inputs.
 - `intcompat-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T10:26:34.150974+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `intcompat-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T10:26:46.168015+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
@@ -212,7 +212,7 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `test-fix-20261113-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-12T21:43:29.567975+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `test-fix-20261113-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T21:43:25.251767+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `test-fix-20261113-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T21:43:29.466399+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
-- `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 73/12332 execution checked; 1 entries refer to older inputs.
+- `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 61/12332 execution checked; 13 entries refer to older inputs.
 - `test-fixes-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T23:50:40.175858+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `test-fixes-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T23:50:40.334300+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `test-fixes-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:50:41.819877+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -221,6 +221,10 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `vifsense-20261114-kirimasim-77c27531.json`: `kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401` / `2026-11-14T02:58:21.742365+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vifsense-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:58:11.624866+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vifsense-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:58:21.644402+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-io-decl-refinement-20261120-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T20:48:30.198207+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-io-decl-refinement-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T20:48:30.248426+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-io-decl-refinement-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T20:48:30.380302+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-io-decl-refinement-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T20:48:30.513143+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vpidpi-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T13:04:58.367365+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vpidpi-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T13:06:19.523413+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vpidpi-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T13:05:38.888744+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
@@ -93312,7 +93316,7 @@ Normative role: `definition`。
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-002
 
-`37.13` / `normal` / Execution confirmed
+`37.13` / `normal` / Test mapped; execution unconfirmed
 
 37.13 defines a one-to-one relation from IO declaration to instance, using the untagged instance access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -93324,7 +93328,7 @@ Normative role: `definition`。
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-003
 
-`37.13` / `normal` / Execution confirmed
+`37.13` / `normal` / Test mapped; execution unconfirmed
 
 37.13 defines a one-to-many relation from UDP definition to IO declaration, using the untagged IO declaration access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -93336,7 +93340,7 @@ Normative role: `definition`。
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-004
 
-`37.13` / `normal` / Execution confirmed
+`37.13` / `normal` / Test mapped; execution unconfirmed
 
 37.13 defines a one-to-one relation from IO declaration to UDP definition, using the untagged UDP definition access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -93360,7 +93364,7 @@ Normative role: `definition`。
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-006
 
-`37.13` / `normal` / Execution confirmed
+`37.13` / `normal` / Test mapped; execution unconfirmed
 
 37.13 defines a one-to-one relation from IO declaration to task/function, using the untagged task/function access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -93368,7 +93372,7 @@ Acceptance criterion: 37.13 defines a one-to-one relation from IO declaration to
 
 Normative role: `definition`。
 
-- [test_vpi_io_decl_scope_typespec_ports.sv](../tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv): The io declarations of task t (ti, to, tr) and function f (fi) lead back with vpiTaskFunc to that task or function. Distinguishing observation: A wrong reverse relation changes 'ti: back with vpiTaskFunc 1', 'tr: ...' or 'fi: ...' to 0.
+- [test_vpi_io_decl_scope_typespec_ports.sv](../tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv): The io declarations of task t (ti, to, tr, tv) and function f (fi) lead back with vpiTaskFunc to that task or function. Distinguishing observation: A wrong reverse relation changes 'ti: back with vpiTaskFunc 1', 'tr: ...', 'tv: ...' or 'fi: ...' to 0.
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-007
 
@@ -93432,7 +93436,7 @@ Normative role: `definition`。
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-012
 
-`37.13` / `normal` / Execution confirmed
+`37.13` / `normal` / Test mapped; execution unconfirmed
 
 37.13 defines a one-to-many relation from IO declaration to range, using the untagged range access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -93444,7 +93448,7 @@ Normative role: `definition`。
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-013
 
-`37.13` / `normal` / Execution confirmed
+`37.13` / `normal` / Test mapped; execution unconfirmed
 
 37.13 defines a one-to-one relation from IO declaration to typespec, using the untagged typespec access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -93480,7 +93484,7 @@ Normative role: `definition`。
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-016
 
-`37.13` / `normal` / Execution confirmed
+`37.13` / `normal` / Test mapped; execution unconfirmed
 
 IO declaration exposes vpiScalar as Boolean, representing scalar status; access it with the appropriate property routine under 37.3.1.
 
@@ -93492,7 +93496,7 @@ Normative role: `definition`。
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-017
 
-`37.13` / `normal` / Execution confirmed
+`37.13` / `normal` / Test mapped; execution unconfirmed
 
 IO declaration exposes vpiSigned as Boolean, representing signedness; access it with the appropriate property routine under 37.3.1.
 
@@ -93516,7 +93520,7 @@ Normative role: `definition`。
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-019
 
-`37.13` / `normal` / Execution confirmed
+`37.13` / `normal` / Test mapped; execution unconfirmed
 
 IO declaration exposes vpiVector as Boolean, representing vector status; access it with the appropriate property routine under 37.3.1.
 
@@ -93540,7 +93544,7 @@ Normative role: `definition`。
 
 ### SV2023-37.13-EXTRACT-IO-RANGES
 
-`37.13` / `normal` / Execution confirmed
+`37.13` / `normal` / Test mapped; execution unconfirmed
 
 IO range/left/right relations match its corresponding typespec.
 
@@ -93552,7 +93556,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.13-EXTRACT-IO-REFERENCE
 
-`37.13` / `normal` / Execution confirmed
+`37.13` / `normal` / Test mapped; execution unconfirmed
 
 vpiDirection returns vpiRef for pass-by-reference ports/arguments. vpiExpr returns vpiRefObj for ref/interface/modport IO; virtual-interface IO instead returns vpiVirtualInterfaceVar.
 
@@ -93560,7 +93564,7 @@ Acceptance criterion: vpiDirection returns vpiRef for pass-by-reference ports/ar
 
 Normative role: `mandatory`。
 
-- [test_vpi_io_decl_scope_typespec_ports.sv](../tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv): The ref port rp and the ref task argument tr have vpiDirection vpiRef and a vpiRefObj expression; the interface port b and modport port d also give ref objs. Distinguishing observation: Returning another direction or expression type changes 'ref 1' or 'expr ref obj 1' for rp, tr, b or d.
+- [test_vpi_io_decl_scope_typespec_ports.sv](../tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv): The ref port rp and the ref task argument tr have vpiDirection vpiRef and a vpiRefObj expression; the interface port b and modport port d also give ref objs; the virtual interface task argument tv gives a vpiVirtualInterfaceVar expression. Distinguishing observation: Returning another direction or expression type changes 'ref 1' or 'expr ref obj 1' for rp, tr, b or d, or 'expr virtual interface var 1' for tv.
 
 ### SV2023-37.14-EXTRACT-DIAGRAM-001
 
@@ -93861,7 +93865,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.14-EXTRACT-PORT-FORMAL-TYPE
 
-`37.14` / `normal` / Execution confirmed
+`37.14` / `normal` / Test mapped; execution unconfirmed
 
 vpiPortType depends on the formal and is vpiPort, vpiInterfacePort or vpiModportPort.
 
@@ -93869,7 +93873,7 @@ Acceptance criterion: vpiPortType depends on the formal and is vpiPort, vpiInter
 
 Normative role: `mandatory`。
 
-- [test_vpi_io_decl_scope_typespec_ports.sv](../tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv): vpiPortType is vpiPort for din, dout, scalar, vec and rp, vpiInterfacePort for b, and vpiModportPort for d. Distinguishing observation: Returning another port type changes the 'port 1', 'interface port 1' or 'modport port 1' field of a port line.
+- [test_vpi_io_decl_scope_typespec_ports.sv](../tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv): vpiPortType is vpiPort for din, dout, scalar, vec and rp, vpiInterfacePort for b, and vpiModportPort for d. b has no modport in its formal but is connected with the modport bi.dev, so the port type follows the formal and not the actual. Distinguishing observation: Returning another port type, or taking it from the actual, changes the 'port 1', 'interface port 1' or 'modport port 1' values; for b an actual-based type gives 'interface port 0, modport port 1'.
 
 ### SV2023-37.14-EXTRACT-PORT-NAME
 

@@ -130,9 +130,6 @@ static void io_decl(vpiHandle d, vpiHandle u)
         vpi_printf((PLI_BYTE8 *)", ref %d, expr ref obj %d",
                    vpi_get(vpiDirection, d) == vpiRef,
                    expr != NULL && vpi_get(vpiType, expr) == vpiRefObj);
-    } else if (strcmp(name, "vif") == 0) {
-        vpi_printf((PLI_BYTE8 *)", expr virtual interface var %d",
-                   expr != NULL && vpi_get(vpiType, expr) == vpiVirtualInterfaceVar);
     } else {
         vpi_printf((PLI_BYTE8 *)", expr ref obj %d",
                    expr != NULL && vpi_get(vpiType, expr) == vpiRefObj);
@@ -195,6 +192,12 @@ static PLI_INT32 io_calltf(PLI_BYTE8 *user_data)
                        vpi_get(vpiDirection, decls[i]) == vpiRef,
                        x != NULL && vpi_get(vpiType, x) == vpiRefObj);
         }
+    for (i = 0; i < n; i++)
+        if (strcmp(sprop(vpiName, decls[i]), "tv") == 0) {
+            vpiHandle x = vpi_handle(vpiExpr, decls[i]);
+            vpi_printf((PLI_BYTE8 *)"  tv: expr virtual interface var %d\n",
+                       x != NULL && vpi_get(vpiType, x) == vpiVirtualInterfaceVar);
+        }
     vpi_printf((PLI_BYTE8 *)"function f io declarations:\n");
     it = func != NULL ? vpi_iterate(vpiIODecl, func) : NULL;
     while (it != NULL && (d = vpi_scan(it)) != NULL)
@@ -227,12 +230,9 @@ static PLI_INT32 io_calltf(PLI_BYTE8 *user_data)
     for (i = 0; i < n; i++) {
         vpiHandle p = decls[i];
         PLI_INT32 t = vpi_get(vpiPortType, p);
-        if (strcmp(sprop(vpiName, p), "vif") == 0)
-            vpi_printf((PLI_BYTE8 *)"  vif: index %d\n", (int)vpi_get(vpiPortIndex, p));
-        else
-            vpi_printf((PLI_BYTE8 *)"  %s: port %d, interface port %d, modport port %d, index %d\n",
-                       sprop(vpiName, p), t == vpiPort, t == vpiInterfacePort,
-                       t == vpiModportPort, (int)vpi_get(vpiPortIndex, p));
+        vpi_printf((PLI_BYTE8 *)"  %s: port %d, interface port %d, modport port %d, index %d\n",
+                   sprop(vpiName, p), t == vpiPort, t == vpiInterfacePort,
+                   t == vpiModportPort, (int)vpi_get(vpiPortIndex, p));
     }
     return 0;
 }

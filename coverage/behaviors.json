@@ -374863,11 +374863,11 @@
           "observation": "Each io declaration of instance u gives that same instance with vpiInstance, compared by vpi_compare_objects. 区別: Returning NULL or another instance changes 'instance is u 1' to 0 on an io declaration line.",
           "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "43a46e4f421b4576300f439713b3625532769d21180960999dbba3d401dcf582",
+          "inputs_sha256": "294edbee4ceeea5c8bbda745a6edd5eedbaaa58289971964d5c178521a2d031b",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
-              "contains": "  tids_m u (.din(nib), .dout(out), .b(bi), .d(bi.dev), .vif(bi),"
+              "contains": "  tids_m u (.din(nib), .dout(out), .b(bi.dev), .d(bi.dev),"
             },
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.expected",
@@ -374899,7 +374899,7 @@
           "observation": "The UDP definition of instance up iterates its three io declarations a, b and o. 区別: Missing an io declaration or returning another owner changes the three 'udp io declarations' lines.",
           "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "43a46e4f421b4576300f439713b3625532769d21180960999dbba3d401dcf582",
+          "inputs_sha256": "294edbee4ceeea5c8bbda745a6edd5eedbaaa58289971964d5c178521a2d031b",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
@@ -374939,7 +374939,7 @@
           "observation": "Each UDP io declaration leads back with vpiUdpDefn to the definition that owns it. 区別: A wrong reverse relation changes 'a: back with vpiUdpDefn 1' to 0.",
           "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "43a46e4f421b4576300f439713b3625532769d21180960999dbba3d401dcf582",
+          "inputs_sha256": "294edbee4ceeea5c8bbda745a6edd5eedbaaa58289971964d5c178521a2d031b",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
@@ -375012,14 +375012,14 @@
       "checks": [
         {
           "test": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
-          "observation": "The io declarations of task t (ti, to, tr) and function f (fi) lead back with vpiTaskFunc to that task or function. 区別: A wrong reverse relation changes 'ti: back with vpiTaskFunc 1', 'tr: ...' or 'fi: ...' to 0.",
-          "reviewed_on": "2026-10-31",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "43a46e4f421b4576300f439713b3625532769d21180960999dbba3d401dcf582",
+          "observation": "The io declarations of task t (ti, to, tr, tv) and function f (fi) lead back with vpiTaskFunc to that task or function. 区別: A wrong reverse relation changes 'ti: back with vpiTaskFunc 1', 'tr: ...', 'tv: ...' or 'fi: ...' to 0.",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "294edbee4ceeea5c8bbda745a6edd5eedbaaa58289971964d5c178521a2d031b",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
-              "contains": "  task automatic t (input int ti, output int to, ref int tr);"
+              "contains": "  task automatic t (input int ti, output int to, ref int tr, input virtual tids_bus tv);"
             },
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.expected",
@@ -375259,7 +375259,7 @@
           "observation": "The io declarations din, dout, scalar and vec iterate their ranges: one 7:0 or 3:0 range, or none for scalar. 区別: A missing range iteration or the wrong ranges changes 'ranges 1 7:0', 'ranges 1 3:0' or 'ranges 0'.",
           "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "43a46e4f421b4576300f439713b3625532769d21180960999dbba3d401dcf582",
+          "inputs_sha256": "294edbee4ceeea5c8bbda745a6edd5eedbaaa58289971964d5c178521a2d031b",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
@@ -375295,7 +375295,7 @@
           "observation": "Each io declaration din, dout, scalar and vec gives a typespec whose ranges and left/right bounds match the io declaration's own. 区別: Returning a NULL typespec or different bounds changes 'typespec exists 1', 'same bounds 1' or the left/right comparison.",
           "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "43a46e4f421b4576300f439713b3625532769d21180960999dbba3d401dcf582",
+          "inputs_sha256": "294edbee4ceeea5c8bbda745a6edd5eedbaaa58289971964d5c178521a2d031b",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
@@ -375411,7 +375411,7 @@
           "observation": "vpiScalar is 1 for the scalar io declaration and 0 for the vector declarations. 区別: Returning the wrong scalar property changes 'scalar 1' or 'scalar 0' on the four lines.",
           "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "43a46e4f421b4576300f439713b3625532769d21180960999dbba3d401dcf582",
+          "inputs_sha256": "294edbee4ceeea5c8bbda745a6edd5eedbaaa58289971964d5c178521a2d031b",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
@@ -375447,7 +375447,7 @@
           "observation": "vpiSigned is 1 for the signed input din and 0 for the unsigned output dout and the other formals. 区別: Returning the wrong signedness changes 'signed 1' or 'signed 0'.",
           "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "43a46e4f421b4576300f439713b3625532769d21180960999dbba3d401dcf582",
+          "inputs_sha256": "294edbee4ceeea5c8bbda745a6edd5eedbaaa58289971964d5c178521a2d031b",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
@@ -375523,7 +375523,7 @@
           "observation": "vpiVector is 1 for the 8-bit and 4-bit wide formals and 0 for the 1-bit scalar. 区別: Returning the wrong vector property changes 'vector 1' or 'vector 0'.",
           "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "43a46e4f421b4576300f439713b3625532769d21180960999dbba3d401dcf582",
+          "inputs_sha256": "294edbee4ceeea5c8bbda745a6edd5eedbaaa58289971964d5c178521a2d031b",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
@@ -375595,7 +375595,7 @@
           "observation": "For din and dout, the io declaration's range iteration, vpiLeftRange and vpiRightRange equal those of its typespec. 区別: A different bound or a missing range relation changes 'same bounds 1' or the left/right 'same 1'.",
           "reviewed_on": "2026-10-31",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "43a46e4f421b4576300f439713b3625532769d21180960999dbba3d401dcf582",
+          "inputs_sha256": "294edbee4ceeea5c8bbda745a6edd5eedbaaa58289971964d5c178521a2d031b",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
@@ -375628,10 +375628,10 @@
       "checks": [
         {
           "test": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
-          "observation": "The ref port rp and the ref task argument tr have vpiDirection vpiRef and a vpiRefObj expression; the interface port b and modport port d also give ref objs. 区別: Returning another direction or expression type changes 'ref 1' or 'expr ref obj 1' for rp, tr, b or d.",
-          "reviewed_on": "2026-10-31",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "43a46e4f421b4576300f439713b3625532769d21180960999dbba3d401dcf582",
+          "observation": "The ref port rp and the ref task argument tr have vpiDirection vpiRef and a vpiRefObj expression; the interface port b and modport port d also give ref objs; the virtual interface task argument tv gives a vpiVirtualInterfaceVar expression. 区別: Returning another direction or expression type changes 'ref 1' or 'expr ref obj 1' for rp, tr, b or d, or 'expr virtual interface var 1' for tv.",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "294edbee4ceeea5c8bbda745a6edd5eedbaaa58289971964d5c178521a2d031b",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
@@ -375639,7 +375639,7 @@
             },
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
-              "contains": "  task automatic t (input int ti, output int to, ref int tr);"
+              "contains": "  task automatic t (input int ti, output int to, ref int tr, input virtual tids_bus tv);"
             },
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.expected",
@@ -375652,6 +375652,10 @@
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.expected",
               "contains": "b: instance is u 1, expr ref obj 1"
+            },
+            {
+              "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.expected",
+              "contains": "  tv: expr virtual interface var 1"
             }
           ]
         }
@@ -376809,10 +376813,10 @@
       "checks": [
         {
           "test": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
-          "observation": "vpiPortType is vpiPort for din, dout, scalar, vec and rp, vpiInterfacePort for b, and vpiModportPort for d. 区別: Returning another port type changes the 'port 1', 'interface port 1' or 'modport port 1' field of a port line.",
-          "reviewed_on": "2026-10-31",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "43a46e4f421b4576300f439713b3625532769d21180960999dbba3d401dcf582",
+          "observation": "vpiPortType is vpiPort for din, dout, scalar, vec and rp, vpiInterfacePort for b, and vpiModportPort for d. b has no modport in its formal but is connected with the modport bi.dev, so the port type follows the formal and not the actual. 区別: Returning another port type, or taking it from the actual, changes the 'port 1', 'interface port 1' or 'modport port 1' values; for b an actual-based type gives 'interface port 0, modport port 1'.",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "294edbee4ceeea5c8bbda745a6edd5eedbaaa58289971964d5c178521a2d031b",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
@@ -376825,6 +376829,10 @@
             {
               "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.expected",
               "contains": "  b: port 0, interface port 1, modport port 0, index 2"
+            },
+            {
+              "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
+              "contains": "  tids_m u (.din(nib), .dout(out), .b(bi.dev), .d(bi.dev),"
             }
           ]
         }

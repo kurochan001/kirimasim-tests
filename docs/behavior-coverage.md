@@ -6,10 +6,10 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 92.96%、Ghostを除く実行 51.20%、Ghostを含む実行 78.70%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 92.96%、Ghostを除く実行 51.20%、Ghostを含む実行 78.60%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 92.96%。** 規格要求の実行確認率: Ghostを除いて 51.20%、Ghostを含めて 78.70%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 92.96%。** 規格要求の実行確認率: Ghostを除いて 51.20%、Ghostを含めて 78.60%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
@@ -17,7 +17,7 @@
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
 - 登録済み動作に対する要求カバレッジ（テスト設計）: 11464/12332 (92.96%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9705/12332 (78.70%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9693/12332 (78.60%)。
 - 登録済みだがテスト未対応: 868 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。
@@ -96,12 +96,12 @@
 - `fourstate-boundaries-20261119d-kirimasim-441dddbd0fcd-run4.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T00:24:27.618699+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `fourstate-boundaries-20261119d-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T00:26:22.013552+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `fourstate-boundaries-20261119d-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T00:28:09.101257+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
-- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3092/12332 動作確認、古い入力との対応 340 件。
-- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2997/12332 動作確認、古い入力との対応 340 件。
-- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3889/12332 動作確認、古い入力との対応 340 件。
+- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3092/12332 動作確認、古い入力との対応 352 件。
+- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2997/12332 動作確認、古い入力との対応 352 件。
+- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3889/12332 動作確認、古い入力との対応 352 件。
 - `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3600/12332 動作確認、古い入力との対応 25 件。
 - `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7931/12332 動作確認、古い入力との対応 474 件。
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 8011/12332 動作確認、古い入力との対応 410 件。
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7999/12332 動作確認、古い入力との対応 422 件。
 - `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7913/12332 動作確認、古い入力との対応 474 件。
 - `intcompat-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T10:26:34.150974+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `intcompat-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T10:26:46.168015+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
@@ -212,7 +212,7 @@
 - `test-fix-20261113-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-12T21:43:29.567975+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `test-fix-20261113-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T21:43:25.251767+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `test-fix-20261113-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T21:43:29.466399+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
-- `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 73/12332 動作確認、古い入力との対応 1 件。
+- `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 61/12332 動作確認、古い入力との対応 13 件。
 - `test-fixes-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T23:50:40.175858+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `test-fixes-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T23:50:40.334300+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `test-fixes-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:50:41.819877+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
@@ -221,6 +221,10 @@
 - `vifsense-20261114-kirimasim-77c27531.json`: `kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401` / `2026-11-14T02:58:21.742365+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vifsense-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:58:11.624866+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vifsense-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:58:21.644402+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `vpi-io-decl-refinement-20261120-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T20:48:30.198207+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `vpi-io-decl-refinement-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T20:48:30.248426+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `vpi-io-decl-refinement-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T20:48:30.380302+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `vpi-io-decl-refinement-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T20:48:30.513143+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vpidpi-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T13:04:58.367365+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vpidpi-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T13:06:19.523413+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vpidpi-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T13:05:38.888744+00:00` / 3/12332 動作確認、古い入力との対応 0 件。
@@ -93312,7 +93316,7 @@ vpiVirtualInterfaceVar 反復は，語彙的クラス定義ではなく，詳細
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-002
 
-`37.13` / `normal` / 実行確認あり
+`37.13` / `normal` / テスト対応あり・実行未確認
 
 37.13はIO 37.3 で導出されたタグなしのインスタンスアクセスタイプを使って、［1］宣言からインスタンスへの一対一の関係を定義します。vpi_handle と特殊な制約条件を持つトラベリングを実行します。
 
@@ -93324,7 +93328,7 @@ vpiVirtualInterfaceVar 反復は，語彙的クラス定義ではなく，詳細
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-003
 
-`37.13` / `normal` / 実行確認あり
+`37.13` / `normal` / テスト対応あり・実行未確認
 
 37.13は，37.3により導出された無タグIO宣言アクセスタイプを用いて，UDP定義からIO宣言までの1対多関係を定義する。特殊な場合の制約を 指定して vpi_iterate に vpi_scan を追加してトラベースします。
 
@@ -93336,7 +93340,7 @@ vpiVirtualInterfaceVar 反復は，語彙的クラス定義ではなく，詳細
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-004
 
-`37.13` / `normal` / 実行確認あり
+`37.13` / `normal` / テスト対応あり・実行未確認
 
 37.13は，37.3により導出された無タグUDP定義アクセスタイプを用いて，IO宣言からUDP定義への1対1関係を定義する。vpi_handle と特殊な制約条件を持つトラベリングを実行します。
 
@@ -93360,7 +93364,7 @@ vpiVirtualInterfaceVar 反復は，語彙的クラス定義ではなく，詳細
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-006
 
-`37.13` / `normal` / 実行確認あり
+`37.13` / `normal` / テスト対応あり・実行未確認
 
 37.13は，37.3に導出されたタグなしタスク／関数アクセスタイプを用いて，IO宣言からタスク／関数への1対1関係を定義する。vpi_handle と特殊な制約条件を持つトラベリングを実行します。
 
@@ -93368,7 +93372,7 @@ vpiVirtualInterfaceVar 反復は，語彙的クラス定義ではなく，詳細
 
 規定の性質: `definition`。
 
-- [test_vpi_io_decl_scope_typespec_ports.sv](../tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv) : タスク t の io 宣言（ti、to、tr）と関数 f の io 宣言（fi）は、vpiTaskFunc をたどるとそのタスクまたは関数へ戻る。区別: 逆方向の関係が誤っていると、'ti: back with vpiTaskFunc 1'、'tr: ...'、'fi: ...' のいずれかが 0 に変わる。
+- [test_vpi_io_decl_scope_typespec_ports.sv](../tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv) : task t（ti、to、tr、tv）とfunction f（fi）のio宣言は、vpiTaskFuncでそのtaskかfunctionに戻る。 区別: 戻る関係を誤れば、'ti: back with vpiTaskFunc 1'、'tr: ...'、'tv: ...'、'fi: ...'が0に変わる。
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-007
 
@@ -93432,7 +93436,7 @@ vpiVirtualInterfaceVar 反復は，語彙的クラス定義ではなく，詳細
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-012
 
-`37.13` / `normal` / 実行確認あり
+`37.13` / `normal` / テスト対応あり・実行未確認
 
 37.13はIO 37.3 で導出されたタグなしの範囲アクセスタイプを使って、［1］宣言から範囲への一対多関係を定義します。特殊な場合の制約を 指定して vpi_iterate に vpi_scan を追加してトラベースします。
 
@@ -93444,7 +93448,7 @@ vpiVirtualInterfaceVar 反復は，語彙的クラス定義ではなく，詳細
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-013
 
-`37.13` / `normal` / 実行確認あり
+`37.13` / `normal` / テスト対応あり・実行未確認
 
 37.13はIO 37.3 で導出されたタグなしの typespec アクセスタイプを使って、 typespec への一対一の関係を定義します。vpi_handle と特殊な制約条件を持つトラベリングを実行します。
 
@@ -93480,7 +93484,7 @@ IO vpiName は名前を表す文字列として表示されます。37.3.1 の�
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-016
 
-`37.13` / `normal` / 実行確認あり
+`37.13` / `normal` / テスト対応あり・実行未確認
 
 IO vpiScalar はスカラー状態を表すブーリアンである。37.3.1 の下の適切なプロパティルーチンでアクセスします。
 
@@ -93492,7 +93496,7 @@ IO vpiScalar はスカラー状態を表すブーリアンである。37.3.1 の
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-017
 
-`37.13` / `normal` / 実行確認あり
+`37.13` / `normal` / テスト対応あり・実行未確認
 
 IO vpiSigned をブーリアンとして表示し、符号化を表します。37.3.1 の下の適切なプロパティルーチンでアクセスします。
 
@@ -93516,7 +93520,7 @@ IOの宣言はvpiSizeをintegerとして暴露し、サイズを表す。37.3.1 
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-019
 
-`37.13` / `normal` / 実行確認あり
+`37.13` / `normal` / テスト対応あり・実行未確認
 
 IO vpiVector はベクトルの状態を表すブール関数である。37.3.1 の下の適切なプロパティルーチンでアクセスします。
 
@@ -93540,7 +93544,7 @@ IO 方向は，実際の参照がインタフェース／modport宣言または�
 
 ### SV2023-37.13-EXTRACT-IO-RANGES
 
-`37.13` / `normal` / 実行確認あり
+`37.13` / `normal` / テスト対応あり・実行未確認
 
 IO の範囲/左/右関係は対応するタイプスペックと一致します。
 
@@ -93552,7 +93556,7 @@ IO の範囲/左/右関係は対応するタイプスペックと一致します
 
 ### SV2023-37.13-EXTRACT-IO-REFERENCE
 
-`37.13` / `normal` / 実行確認あり
+`37.13` / `normal` / テスト対応あり・実行未確認
 
 引数は、vpiDirection と vpiRef の両方を返します。vpiExpr は ref/interface/modport IO に対して vpiRefObj を返します仮想インタフェース IO は vpiVirtualInterfaceVar を返します。
 
@@ -93560,7 +93564,7 @@ IO の範囲/左/右関係は対応するタイプスペックと一致します
 
 規定の性質: `mandatory`。
 
-- [test_vpi_io_decl_scope_typespec_ports.sv](../tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv)：ref port rpとref task argument trはvpiDirection vpiRefとvpiRefObjの表現を持つ。interfaceポートbとmodportポートdからもrefオブジェクトが取得される。区別: 別の方向または式の型を返すと、rp、tr、b、dの'ref 1'または'expr ref obj 1'が変わる。
+- [test_vpi_io_decl_scope_typespec_ports.sv](../tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv)：ref port rpとref task argument trはvpiDirection vpiRefとvpiRefObjの表現を持つ。インタフェースポートbとmodportポートdもref objを与え、virtual interfaceのtaskの引数tvはvpiVirtualInterfaceVarの式を与える。 区別: ほかの方向か式の種類を返せば、rp・tr・b・dの'ref 1'か'expr ref obj 1'、tvの'expr virtual interface var 1'が変わる。
 
 ### SV2023-37.14-EXTRACT-DIAGRAM-001
 
@@ -93861,7 +93865,7 @@ vpiHighConnは vpiLowConnよりも階層的に高い接続であり、低速接�
 
 ### SV2023-37.14-EXTRACT-PORT-FORMAL-TYPE
 
-`37.14` / `normal` / 実行確認あり
+`37.14` / `normal` / テスト対応あり・実行未確認
 
 vpiPortTypeは形式によって vpiPort , vpiInterfacePortかvpiModportPortです
 
@@ -93869,7 +93873,7 @@ vpiPortTypeは形式によって vpiPort , vpiInterfacePortかvpiModportPortで�
 
 規定の性質: `mandatory`。
 
-- [test_vpi_io_decl_scope_typespec_ports.sv](../tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv): vpiPortTypeは、din、dout、scalar、vec、rpではvpiPort、bではvpiInterfacePort、dではvpiModportPortです。区別: 別のポート型を返すと、ポート行の'port 1'、'interface port 1'、'modport port 1'のいずれかのフィールドが変わります。
+- [test_vpi_io_decl_scope_typespec_ports.sv](../tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv) : vpiPortTypeは、din・dout・scalar・vec・rpではvpiPort、bではvpiInterfacePort、dではvpiModportPortである。bは宣言（formal）にmodportがないが、modport bi.devで接続しているので、ポートの型は接続（actual）ではなく宣言に従う。 区別: ほかのポートの型を返すか、型を接続から取れば、'port 1'、'interface port 1'、'modport port 1'の値が変わり、bでは接続から取った型が'interface port 0, modport port 1'になる。
 
 ### SV2023-37.14-EXTRACT-PORT-NAME
 

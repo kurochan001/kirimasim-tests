@@ -51763,7 +51763,7 @@
     },
     {
       "test": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
-      "inputs_sha256": "43a46e4f421b4576300f439713b3625532769d21180960999dbba3d401dcf582",
+      "inputs_sha256": "294edbee4ceeea5c8bbda745a6edd5eedbaaa58289971964d5c178521a2d031b",
       "reviewed_on": "2026-10-31",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",

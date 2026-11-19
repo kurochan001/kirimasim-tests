@@ -1,0 +1,18 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch37/test_vpi_io_decl_scope_typespec_ports": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv:79:14: Unsupported or unknown PLI call: '$vt_io'",
+   "inputs_sha256": "294edbee4ceeea5c8bbda745a6edd5eedbaaa58289971964d5c178521a2d031b"
+  }
+ },
+ "generated_at": "2026-11-19T20:48:30.380302+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}
