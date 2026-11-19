@@ -205,7 +205,7 @@ def main() -> int:
         data["registry_sha256"] = hashlib.sha256(registry_bytes).hexdigest()
         data["inventory_sha256"] = hashlib.sha256(source_bytes).hexdigest()
         data["review_ledger_sha256"] = hashlib.sha256(review_bytes).hexdigest()
-        artifacts = doc_localization.expand({OUTPUT: json.dumps(data, ensure_ascii=False, indent=2) + "\n",
+        artifacts = doc_localization.expand({OUTPUT: json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n",
                                              REPORT: report(data)})
         for path, text in artifacts.items():
             if args.check:
