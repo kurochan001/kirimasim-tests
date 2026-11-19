@@ -156,6 +156,10 @@
     "packed_read_controls": {
       "en": "96 read-only controls at six widths around 256/512 bits, both directions of two packed dimensions, zero/nonzero inner origins and separate row/bit modes. All three rows are observed with literal/runtime array coordinates and independently addressed flat-vector controls. Payload and runtime indices depend on a plusarg; whole flat/array values are checked before and after all reads. No element writes occur after initialization; old coordinate-reference helpers/cases remain unchanged.",
       "ja": "256/512ビット前後の6つの幅、パック配列2次元それぞれの昇順／降順、内側のゼロ／非ゼロの起点、行／ビットを分けた読取り専用の対照96本。3行全てをリテラル／実行時の配列座標と、別に計算した平坦なベクトルの座標で観測する。値と実行時の添字は引数に依存し、全ての読み取りの前後で平坦／配列の全値を表示する。初期化後の要素書込みは行わず、従来の座標参照のヘルパーとケースは不変とする。"
+    },
+    "wide_format_fields": {
+      "en": "72 known-value positive format fields at 255/256/257 and 511/512/513 bits, both signs, binary/hexadecimal/decimal and minimum widths 3 or W+2. Reuses unchanged numeric round-trip fixtures; checks padding, expansion, exact text and length separately from parsed values/counts and preserved source. No files, floating point or four-state values.",
+      "ja": "255/256/257・511/512/513ビットの既知値72本で、符号2種類・2進／16進／10進・最小幅3またはW+2を扱う。従来の数値の往復の作成処理をそのまま使い、埋め・拡張・正確な文字列と長さを、読み取った値・個数・元の入力の保持とは別に検証する。ファイル・浮動小数点・4値は範囲外とする。"
     }
   }
 }

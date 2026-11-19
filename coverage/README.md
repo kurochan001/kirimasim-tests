@@ -290,3 +290,5 @@ Nightlyの測定対象は実行したスイートのコミットです。`main`�
 - `results/packed-read-controls-20261119w-*.json`：新規の読取り専用96本の記録7件です。Icarus 13.0は行48pass・ビット48known（ビルド失敗）、Verilator 5.054はseed1/73で各96pass、kirimasim `a6222f0656d4`は4回とも60pass・出力差36件を維持します。oracleはIcarus48本・Verilator48本です。独立AIの導出は1,728行、[Verilatorの有限の検査](qualification/packed-read-controls-20261119w.json)は成功対照32本・コンパイルする変更64本です。別の[既存Bの再確認](qualification/packed-lanes-a622-recheck-20261119w.json)は192本を4回、各50pass・出力差142件で保存し、新規本数はゼロです。従来の入力・台帳・不合格を維持します。
 
 - [広い数値の書式化・読み取りのランダム検証](interaction-qualification/random-format-scan-20261119/qualification.json)：保存288プログラム・2,304ベクトル・独立導出7,200行で、固定本数とは別です。kirimasim1,152pass・Icarus185passと既知のビルド失敗103件・Verilator398passと既知の出力不一致178件を残し、除外はありません。実行1,913回・比較先のビルド864回・失敗ビルド103回を区別します。単体検査15件・成功対照24本とコンパイルする変異72本を添え、過去の入力と履歴を保全します。
+
+- `results/wide-format-fields-20261119y-*.json`：正の表示幅72本の記録7件です。Icarus24pass・2進24known（実行時の差）・16進24known（ビルド失敗）、Verilator各48pass・10進24known（実行時の差）、kirimasim4回各72passです。oracleはIcarus24本・Verilator48本です。独立AIの2手法で1,008行を導出し、[有限の検査](qualification/wide-format-fields-20261119y.json)に成功対照24本・コンパイル・正常終了する変異72本を残します。過去の入力と台帳は不変です。

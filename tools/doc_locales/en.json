@@ -23840,6 +23840,8 @@
     "Wide numeric formatting and scanning preserve text and full values": "Wide numeric formatting and scanning preserve text and full values",
     "Wide numeric formatting and scanning preserve text and full values ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide numeric formatting and scanning preserve text and full values ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
     "Packed reads match literal and flat-vector controls without element writes": "Packed reads match literal and flat-vector controls without element writes",
-    "Packed reads match literal and flat-vector controls without element writes ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Packed reads match literal and flat-vector controls without element writes ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )"
+    "Packed reads match literal and flat-vector controls without element writes ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Packed reads match literal and flat-vector controls without element writes ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Positive format fields pad small values and retain full wide numbers": "Positive format fields pad small values and retain full wide numbers",
+    "Positive format fields pad small values and retain full wide numbers ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Positive format fields pad small values and retain full wide numbers ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )"
   }
 }

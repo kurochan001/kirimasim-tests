@@ -1,0 +1,1459 @@
+{
+  "schema": 1,
+  "kind": "Finite formatting/parsed-value/count observations; not independent standards review",
+  "recorded_at": "2026-11-19T07:13:28.184683+00:00",
+  "scope": "All6sign/radixforms andbothfieldwidths at257/513bits:24passingcontrols and72compilednormallyexiting changes tofieldwidth,parsedmiddlebit orconversioncount. Not exhaustive semantic fault coverage.",
+  "simulator": {
+    "version": "kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401",
+    "commit": "a6222f0656d46fbafc332ba8d8adaebb9273b964",
+    "binary_sha256": "140c543ac7edf9e658d25c862b0c217c99da14770ce56a02d4aa1fe26260e1a7"
+  },
+  "args": [
+    "+nonce=1"
+  ],
+  "baselines": [
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_signed_b_small.sv",
+      "source_sha256": "03492763e371502b650184913c2235df26de41881489b221dc73694677357461",
+      "expected_sha256": "2be4f63468900998d33a8a4e3cf75166407b834ffce80a68a3467f0be304a71e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "2be4f63468900998d33a8a4e3cf75166407b834ffce80a68a3467f0be304a71e"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_signed_b_wide.sv",
+      "source_sha256": "da45ba28ec3b40262cf92ed89474d1b23cc8e168af051e37d7ea00b1b65f8c60",
+      "expected_sha256": "becc1b10864efbf3f7ea276ca867302ba89567c7e1cd7d1a2ca7fff7e35dc23d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "becc1b10864efbf3f7ea276ca867302ba89567c7e1cd7d1a2ca7fff7e35dc23d"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_signed_d_small.sv",
+      "source_sha256": "2eee49d69dc2de5c6e5f2a42698ef03ec0a38abbdd33ade811c6682f01ae97b5",
+      "expected_sha256": "0dc95325718f058fb589c2f4205e556107de0736a842c36b7d1644772eaf0ff3",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "0dc95325718f058fb589c2f4205e556107de0736a842c36b7d1644772eaf0ff3"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_signed_d_wide.sv",
+      "source_sha256": "e35528f58c6f631162791d6475066eb23d60d37ac6a63e5dbca5ac45863cac60",
+      "expected_sha256": "8320fb173d50e7cee32701b2d3e518b4f7e2a3080333ebae1d5ce0826ad859bb",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "8320fb173d50e7cee32701b2d3e518b4f7e2a3080333ebae1d5ce0826ad859bb"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_signed_h_small.sv",
+      "source_sha256": "cf8a00ba72f877d86d8f06b948ecf6b13998e928541f06d4ca4cdf743395324e",
+      "expected_sha256": "2bb37905876a8fc44da5f6729fd09a0e1589dbdbd12d54b5ea9ec0cae199233a",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "2bb37905876a8fc44da5f6729fd09a0e1589dbdbd12d54b5ea9ec0cae199233a"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_signed_h_wide.sv",
+      "source_sha256": "a145e8657f1f1151d0fb070826ce298b6c16859ac9c8bfc3c00052c6e15baf19",
+      "expected_sha256": "3e213cd47db25f36141c17429e0a4796d6fabc89149d71eb3c3adb20aaf45104",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "3e213cd47db25f36141c17429e0a4796d6fabc89149d71eb3c3adb20aaf45104"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_unsigned_b_small.sv",
+      "source_sha256": "c0112e10bba057a985d4f1028717b99fadfd607e1c7976140b1846b1daca76a2",
+      "expected_sha256": "2be4f63468900998d33a8a4e3cf75166407b834ffce80a68a3467f0be304a71e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "2be4f63468900998d33a8a4e3cf75166407b834ffce80a68a3467f0be304a71e"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_unsigned_b_wide.sv",
+      "source_sha256": "18a142f2a99681eb6c4f4230141f9aafb4734e8dbf57d44abe0583d15e17d648",
+      "expected_sha256": "becc1b10864efbf3f7ea276ca867302ba89567c7e1cd7d1a2ca7fff7e35dc23d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "becc1b10864efbf3f7ea276ca867302ba89567c7e1cd7d1a2ca7fff7e35dc23d"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_unsigned_d_small.sv",
+      "source_sha256": "1c0ec5ca45c958023a6892a4ff091de0d7c8f6beacad5d84f8c8224d82f5e407",
+      "expected_sha256": "e690f64160bc4940ebf8bc7a16cc607fe77fcd9fc8eff9bfa482b7c545b68598",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "e690f64160bc4940ebf8bc7a16cc607fe77fcd9fc8eff9bfa482b7c545b68598"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_unsigned_d_wide.sv",
+      "source_sha256": "dcd7f617274440d995d87ffb0410a076071b12b1d43098447142d63723fd15f6",
+      "expected_sha256": "df6636ee393cf029bfe3984ec8ad10a9282add9e78ba8628e3c4bad051f66e6d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "df6636ee393cf029bfe3984ec8ad10a9282add9e78ba8628e3c4bad051f66e6d"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_unsigned_h_small.sv",
+      "source_sha256": "0bd03ee4e4aad9c338bb1ab81b06e24618816fd791083ee6aab2498ae2c41891",
+      "expected_sha256": "2bb37905876a8fc44da5f6729fd09a0e1589dbdbd12d54b5ea9ec0cae199233a",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "2bb37905876a8fc44da5f6729fd09a0e1589dbdbd12d54b5ea9ec0cae199233a"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_unsigned_h_wide.sv",
+      "source_sha256": "0b707e1b6e679fe05d599b59ba77a2073674a7dd960d8beabb3eb7ff09c11b81",
+      "expected_sha256": "3e213cd47db25f36141c17429e0a4796d6fabc89149d71eb3c3adb20aaf45104",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "3e213cd47db25f36141c17429e0a4796d6fabc89149d71eb3c3adb20aaf45104"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_signed_b_small.sv",
+      "source_sha256": "eed8f570f2d7b8749f50f823bde9104cad961ae6d825897fd3b157c835f8953b",
+      "expected_sha256": "00941abd9efff1858f6f465e6139eacf6e053d373f4e7a0529c25c297444d64c",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "00941abd9efff1858f6f465e6139eacf6e053d373f4e7a0529c25c297444d64c"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_signed_b_wide.sv",
+      "source_sha256": "0b3fbea81818cd22ad3384e6612fe9c479d982dc9c7f2f5489b959e4d7fe6684",
+      "expected_sha256": "290056bdb342e25c27d0c811a7f3871b534c4c95daad82a37e369ab78d0885b2",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "290056bdb342e25c27d0c811a7f3871b534c4c95daad82a37e369ab78d0885b2"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_signed_d_small.sv",
+      "source_sha256": "355e1805e46f916d213062646fec166a413d0187c4645610e093add72af5fa7f",
+      "expected_sha256": "f2c89f6ed4391f93cf07255ffc2ede74e9bc9cfdd78efc8ced4b54f446b39e5c",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "f2c89f6ed4391f93cf07255ffc2ede74e9bc9cfdd78efc8ced4b54f446b39e5c"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_signed_d_wide.sv",
+      "source_sha256": "d5e5647eeb3e846c9cc930068db691f515ae9225ce9fd2960469502e4212bb79",
+      "expected_sha256": "6fd54b5510e4b0338ff7d7517e73bf0f0b4895fcf800604cfb8f373ee7a6a522",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "6fd54b5510e4b0338ff7d7517e73bf0f0b4895fcf800604cfb8f373ee7a6a522"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_signed_h_small.sv",
+      "source_sha256": "a4bb4cfc9041efda3d1a2f852886eb14fa8ae3dfa79f4d3b18cb34a36893f429",
+      "expected_sha256": "e3cc835eebedf9a7ea862b3deeb5f1d6fca9ce2cea5337604268562bdb73d257",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "e3cc835eebedf9a7ea862b3deeb5f1d6fca9ce2cea5337604268562bdb73d257"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_signed_h_wide.sv",
+      "source_sha256": "618c3da10589daee44dde329e70b0788e1c41c5d0aaea56fdf82e0b0d01ab153",
+      "expected_sha256": "b649638deb15d76b641e3f95dbf427701dbe177470e72dcf6bb3240b3ff51df9",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "b649638deb15d76b641e3f95dbf427701dbe177470e72dcf6bb3240b3ff51df9"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_unsigned_b_small.sv",
+      "source_sha256": "01e103894f6d3826435957488764eb8f64191e12103f909a3131c807aa9a057d",
+      "expected_sha256": "00941abd9efff1858f6f465e6139eacf6e053d373f4e7a0529c25c297444d64c",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "00941abd9efff1858f6f465e6139eacf6e053d373f4e7a0529c25c297444d64c"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_unsigned_b_wide.sv",
+      "source_sha256": "33fcd5917f50e46d647bbaf81425dea36018de1bb7d85977ba2f484fa8d5708b",
+      "expected_sha256": "290056bdb342e25c27d0c811a7f3871b534c4c95daad82a37e369ab78d0885b2",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "290056bdb342e25c27d0c811a7f3871b534c4c95daad82a37e369ab78d0885b2"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_unsigned_d_small.sv",
+      "source_sha256": "f2fd492039c2813f6c7948264bcaaa0492ce8684421ff211aa4acc7aff5d1c0e",
+      "expected_sha256": "95f4949867fdb5dbd95ba2403b240ace880ed8b34596c5b5496aa8686839b4dc",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "95f4949867fdb5dbd95ba2403b240ace880ed8b34596c5b5496aa8686839b4dc"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_unsigned_d_wide.sv",
+      "source_sha256": "f743b96a9c8a7bfea42676e8d1a44ebfee0e88a4e07d820769050a2c4a19f911",
+      "expected_sha256": "dbfe6e238c4a32ea95e75530f4007d9bbdf2b7c849389984854593fd2fa6fc48",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "dbfe6e238c4a32ea95e75530f4007d9bbdf2b7c849389984854593fd2fa6fc48"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_unsigned_h_small.sv",
+      "source_sha256": "d7a87d2d405b2891594324e2d98c4e5fbaa123ca1d0724d9d2c1eaa9307844b3",
+      "expected_sha256": "e3cc835eebedf9a7ea862b3deeb5f1d6fca9ce2cea5337604268562bdb73d257",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "e3cc835eebedf9a7ea862b3deeb5f1d6fca9ce2cea5337604268562bdb73d257"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_unsigned_h_wide.sv",
+      "source_sha256": "73e731411521826f9d5ea0802bb835068eb1e5ee1959207ef654551228e73ce2",
+      "expected_sha256": "b649638deb15d76b641e3f95dbf427701dbe177470e72dcf6bb3240b3ff51df9",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "b649638deb15d76b641e3f95dbf427701dbe177470e72dcf6bb3240b3ff51df9"
+    }
+  ],
+  "mutations": [
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_signed_b_small.sv",
+      "source_sha256": "1adc6f15f0b9edb003a5301c20c881ec49ff2cfc7bc831761db11de4f8c1990f",
+      "expected_sha256": "2be4f63468900998d33a8a4e3cf75166407b834ffce80a68a3467f0be304a71e",
+      "original_source_sha256": "03492763e371502b650184913c2235df26de41881489b221dc73694677357461",
+      "mutated_source_sha256": "1adc6f15f0b9edb003a5301c20c881ec49ff2cfc7bc831761db11de4f8c1990f",
+      "label": "formatting-input",
+      "replacement": {
+        "old": "    text = $sformatf(\"%3b\", source);",
+        "new": "    text = $sformatf(\"%3b\", ~source);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "523320ff164119f8027a25dfb021230e3e00865376e0b133b3820e5882f5f913"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_signed_b_small.sv",
+      "source_sha256": "f7ef72ffecfd62cfca790b150427b4efc8fbb1ac8d0033d5b2b49af8dd9df8db",
+      "expected_sha256": "2be4f63468900998d33a8a4e3cf75166407b834ffce80a68a3467f0be304a71e",
+      "original_source_sha256": "03492763e371502b650184913c2235df26de41881489b221dc73694677357461",
+      "mutated_source_sha256": "f7ef72ffecfd62cfca790b150427b4efc8fbb1ac8d0033d5b2b49af8dd9df8db",
+      "label": "parsed-middle-bit",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%b\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%b\", parsed);\n    parsed[128] = ~parsed[128];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "f7f47adf2e3c93bf1017285db64290a88bfdfc40a2e9a9eb82bf62927ec955b0"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_signed_b_small.sv",
+      "source_sha256": "25c6d86980662fc3c775f1a681ed6e8b7aeaef369c6be2f063ee20476dfbf6ea",
+      "expected_sha256": "2be4f63468900998d33a8a4e3cf75166407b834ffce80a68a3467f0be304a71e",
+      "original_source_sha256": "03492763e371502b650184913c2235df26de41881489b221dc73694677357461",
+      "mutated_source_sha256": "25c6d86980662fc3c775f1a681ed6e8b7aeaef369c6be2f063ee20476dfbf6ea",
+      "label": "conversion-count",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%b\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%b\", parsed);\n    scanned = 0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "5ce6afd166ddff2b189495bd1507d0b8694da3b85d7ea8ac3107e1908e9a88d7"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_signed_b_wide.sv",
+      "source_sha256": "6b8b456a9822f0eb1532173ca114beeea101d2965e959a6745359d0df66bec0a",
+      "expected_sha256": "becc1b10864efbf3f7ea276ca867302ba89567c7e1cd7d1a2ca7fff7e35dc23d",
+      "original_source_sha256": "da45ba28ec3b40262cf92ed89474d1b23cc8e168af051e37d7ea00b1b65f8c60",
+      "mutated_source_sha256": "6b8b456a9822f0eb1532173ca114beeea101d2965e959a6745359d0df66bec0a",
+      "label": "field-width-plus-one",
+      "replacement": {
+        "old": "    text = $sformatf(\"%259b\", source);",
+        "new": "    text = $sformatf(\"%260b\", source);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "e083edb09d1468f9aa4bf21566900401ee54e1d17cd63d2d72981d648a91b5c5"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_signed_b_wide.sv",
+      "source_sha256": "b77320b86744d100e18752e2fc3a9b7924310104f37f9dc1d2d7799b46cd25ef",
+      "expected_sha256": "becc1b10864efbf3f7ea276ca867302ba89567c7e1cd7d1a2ca7fff7e35dc23d",
+      "original_source_sha256": "da45ba28ec3b40262cf92ed89474d1b23cc8e168af051e37d7ea00b1b65f8c60",
+      "mutated_source_sha256": "b77320b86744d100e18752e2fc3a9b7924310104f37f9dc1d2d7799b46cd25ef",
+      "label": "parsed-middle-bit",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%b\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%b\", parsed);\n    parsed[128] = ~parsed[128];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "b662ae62150709bfce05ee7d4f3c92be5d0277a763749feb1cb59606a7378d4c"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_signed_b_wide.sv",
+      "source_sha256": "3dd84500d1535165a7949817b78dd46461c053b45d0cd1478433f4185154e0d6",
+      "expected_sha256": "becc1b10864efbf3f7ea276ca867302ba89567c7e1cd7d1a2ca7fff7e35dc23d",
+      "original_source_sha256": "da45ba28ec3b40262cf92ed89474d1b23cc8e168af051e37d7ea00b1b65f8c60",
+      "mutated_source_sha256": "3dd84500d1535165a7949817b78dd46461c053b45d0cd1478433f4185154e0d6",
+      "label": "conversion-count",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%b\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%b\", parsed);\n    scanned = 0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "73187fb30554f3e2ddafe87160e70c1357710c000e88081f859ef4e833259579"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_signed_d_small.sv",
+      "source_sha256": "183c0b9b03d66b6293ddc4c648fa6f0c2f3218374d4db7a26f9e6c1e548b670e",
+      "expected_sha256": "0dc95325718f058fb589c2f4205e556107de0736a842c36b7d1644772eaf0ff3",
+      "original_source_sha256": "2eee49d69dc2de5c6e5f2a42698ef03ec0a38abbdd33ade811c6682f01ae97b5",
+      "mutated_source_sha256": "183c0b9b03d66b6293ddc4c648fa6f0c2f3218374d4db7a26f9e6c1e548b670e",
+      "label": "formatting-input",
+      "replacement": {
+        "old": "    text = $sformatf(\"%3d\", source);",
+        "new": "    text = $sformatf(\"%3d\", ~source);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "d63965fb62599628d8c76cbf14dce4924287ece2fa2521f97297752ca5e52b41"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_signed_d_small.sv",
+      "source_sha256": "6707a9eb0da30b8eb4233fbdc7283e9ca2695afe1b1f94bf8e180223ef2d4e84",
+      "expected_sha256": "0dc95325718f058fb589c2f4205e556107de0736a842c36b7d1644772eaf0ff3",
+      "original_source_sha256": "2eee49d69dc2de5c6e5f2a42698ef03ec0a38abbdd33ade811c6682f01ae97b5",
+      "mutated_source_sha256": "6707a9eb0da30b8eb4233fbdc7283e9ca2695afe1b1f94bf8e180223ef2d4e84",
+      "label": "parsed-middle-bit",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%d\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%d\", parsed);\n    parsed[128] = ~parsed[128];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "3025a94f3691beab5af2bd88ce21e6c9408af1a1b9404d3236c2138c79d3e2d6"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_signed_d_small.sv",
+      "source_sha256": "61b43ae6a27496d898dfcbf0ca768b4337ba6c16ff9dddee9c72642c8ad83d53",
+      "expected_sha256": "0dc95325718f058fb589c2f4205e556107de0736a842c36b7d1644772eaf0ff3",
+      "original_source_sha256": "2eee49d69dc2de5c6e5f2a42698ef03ec0a38abbdd33ade811c6682f01ae97b5",
+      "mutated_source_sha256": "61b43ae6a27496d898dfcbf0ca768b4337ba6c16ff9dddee9c72642c8ad83d53",
+      "label": "conversion-count",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%d\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%d\", parsed);\n    scanned = 0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "61d35326544de067ac869e51869c996d34ed581f172fb2ef498d50a4432a3ee8"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_signed_d_wide.sv",
+      "source_sha256": "fe306dff0fb884fdb0c2ab382a05106e882a6fe7279c8147282dfdea8cedf0c2",
+      "expected_sha256": "8320fb173d50e7cee32701b2d3e518b4f7e2a3080333ebae1d5ce0826ad859bb",
+      "original_source_sha256": "e35528f58c6f631162791d6475066eb23d60d37ac6a63e5dbca5ac45863cac60",
+      "mutated_source_sha256": "fe306dff0fb884fdb0c2ab382a05106e882a6fe7279c8147282dfdea8cedf0c2",
+      "label": "field-width-plus-one",
+      "replacement": {
+        "old": "    text = $sformatf(\"%259d\", source);",
+        "new": "    text = $sformatf(\"%260d\", source);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "efc53fd6b61d4095cb604aad1e09e969fe153fb4b24f76f09379300fa18d1cbf"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_signed_d_wide.sv",
+      "source_sha256": "9fe9df76c248e76c06930fb1c61bbfe60ab589e3fda11ab00379df922ef55d9d",
+      "expected_sha256": "8320fb173d50e7cee32701b2d3e518b4f7e2a3080333ebae1d5ce0826ad859bb",
+      "original_source_sha256": "e35528f58c6f631162791d6475066eb23d60d37ac6a63e5dbca5ac45863cac60",
+      "mutated_source_sha256": "9fe9df76c248e76c06930fb1c61bbfe60ab589e3fda11ab00379df922ef55d9d",
+      "label": "parsed-middle-bit",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%d\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%d\", parsed);\n    parsed[128] = ~parsed[128];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "60bce2e9346de518472083f494f943429fc7a3e83329c0874d1d8b53883860c1"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_signed_d_wide.sv",
+      "source_sha256": "0f6403b3ba7f8c2de380ccf7c1f2c18a32e81bb142ec08c6956693269b76649f",
+      "expected_sha256": "8320fb173d50e7cee32701b2d3e518b4f7e2a3080333ebae1d5ce0826ad859bb",
+      "original_source_sha256": "e35528f58c6f631162791d6475066eb23d60d37ac6a63e5dbca5ac45863cac60",
+      "mutated_source_sha256": "0f6403b3ba7f8c2de380ccf7c1f2c18a32e81bb142ec08c6956693269b76649f",
+      "label": "conversion-count",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%d\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%d\", parsed);\n    scanned = 0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "f89e0de23d58437785d7b01373e7515570e1aa88392c9bd3ff4adfff7f2c42c5"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_signed_h_small.sv",
+      "source_sha256": "a837d4df9b7b8ce3b56c3c0c8889d3b8b042998a135fbb9d323e7c1adf749531",
+      "expected_sha256": "2bb37905876a8fc44da5f6729fd09a0e1589dbdbd12d54b5ea9ec0cae199233a",
+      "original_source_sha256": "cf8a00ba72f877d86d8f06b948ecf6b13998e928541f06d4ca4cdf743395324e",
+      "mutated_source_sha256": "a837d4df9b7b8ce3b56c3c0c8889d3b8b042998a135fbb9d323e7c1adf749531",
+      "label": "formatting-input",
+      "replacement": {
+        "old": "    text = $sformatf(\"%3h\", source);",
+        "new": "    text = $sformatf(\"%3h\", ~source);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "611855c375a67348b03a531cee9ff52af0e60d90687437b3e47083f453fdb434"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_signed_h_small.sv",
+      "source_sha256": "dd4f2019ab968602916788d596eac30f6ffd711f15a1100ced98872354d1574d",
+      "expected_sha256": "2bb37905876a8fc44da5f6729fd09a0e1589dbdbd12d54b5ea9ec0cae199233a",
+      "original_source_sha256": "cf8a00ba72f877d86d8f06b948ecf6b13998e928541f06d4ca4cdf743395324e",
+      "mutated_source_sha256": "dd4f2019ab968602916788d596eac30f6ffd711f15a1100ced98872354d1574d",
+      "label": "parsed-middle-bit",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%h\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%h\", parsed);\n    parsed[128] = ~parsed[128];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "21f540fb89388ff638df664c0e952b5533f054158f8a81125aa588bc3ae15afc"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_signed_h_small.sv",
+      "source_sha256": "7516d2ef05d5bf4c65fd32bdde6e966a0cb5508fe835f8c8a8dcb84bd1857971",
+      "expected_sha256": "2bb37905876a8fc44da5f6729fd09a0e1589dbdbd12d54b5ea9ec0cae199233a",
+      "original_source_sha256": "cf8a00ba72f877d86d8f06b948ecf6b13998e928541f06d4ca4cdf743395324e",
+      "mutated_source_sha256": "7516d2ef05d5bf4c65fd32bdde6e966a0cb5508fe835f8c8a8dcb84bd1857971",
+      "label": "conversion-count",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%h\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%h\", parsed);\n    scanned = 0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "17122a256f8bc7958a66c5005d66af906336c3cb6f2d53968a13affcf3f15034"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_signed_h_wide.sv",
+      "source_sha256": "8c792b638c78e7b14791c9e9978f2c9ef4cc89bd77d8b133557b9d0c81a39cf4",
+      "expected_sha256": "3e213cd47db25f36141c17429e0a4796d6fabc89149d71eb3c3adb20aaf45104",
+      "original_source_sha256": "a145e8657f1f1151d0fb070826ce298b6c16859ac9c8bfc3c00052c6e15baf19",
+      "mutated_source_sha256": "8c792b638c78e7b14791c9e9978f2c9ef4cc89bd77d8b133557b9d0c81a39cf4",
+      "label": "field-width-plus-one",
+      "replacement": {
+        "old": "    text = $sformatf(\"%259h\", source);",
+        "new": "    text = $sformatf(\"%260h\", source);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "c5aef2675b089bdcf4fc66c4de1af58d1466964d90696959fb1f8bc50d33e9e0"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_signed_h_wide.sv",
+      "source_sha256": "04cf77f4c2a9981b075978553d41eabf57591f3b2f5f5b29d9e5f73185d2a262",
+      "expected_sha256": "3e213cd47db25f36141c17429e0a4796d6fabc89149d71eb3c3adb20aaf45104",
+      "original_source_sha256": "a145e8657f1f1151d0fb070826ce298b6c16859ac9c8bfc3c00052c6e15baf19",
+      "mutated_source_sha256": "04cf77f4c2a9981b075978553d41eabf57591f3b2f5f5b29d9e5f73185d2a262",
+      "label": "parsed-middle-bit",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%h\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%h\", parsed);\n    parsed[128] = ~parsed[128];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "ac769817fe58c301ce06a44e4a7c4718007f76cc813e4116ee22150d62e8a634"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_signed_h_wide.sv",
+      "source_sha256": "69f619da8edfaeaf7fe9227e6c2146a53f8b07bd2a87012299e8dde67d9c182c",
+      "expected_sha256": "3e213cd47db25f36141c17429e0a4796d6fabc89149d71eb3c3adb20aaf45104",
+      "original_source_sha256": "a145e8657f1f1151d0fb070826ce298b6c16859ac9c8bfc3c00052c6e15baf19",
+      "mutated_source_sha256": "69f619da8edfaeaf7fe9227e6c2146a53f8b07bd2a87012299e8dde67d9c182c",
+      "label": "conversion-count",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%h\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%h\", parsed);\n    scanned = 0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "59c4db13ef2204e3b312ff6b25ce10c2b46a77925dcdcc01e13a83b84dec43ce"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_unsigned_b_small.sv",
+      "source_sha256": "fe29391d503afb513e8248971bcd9fd15272cf202cf2d569a988a0d57653279a",
+      "expected_sha256": "2be4f63468900998d33a8a4e3cf75166407b834ffce80a68a3467f0be304a71e",
+      "original_source_sha256": "c0112e10bba057a985d4f1028717b99fadfd607e1c7976140b1846b1daca76a2",
+      "mutated_source_sha256": "fe29391d503afb513e8248971bcd9fd15272cf202cf2d569a988a0d57653279a",
+      "label": "formatting-input",
+      "replacement": {
+        "old": "    text = $sformatf(\"%3b\", source);",
+        "new": "    text = $sformatf(\"%3b\", ~source);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "523320ff164119f8027a25dfb021230e3e00865376e0b133b3820e5882f5f913"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_unsigned_b_small.sv",
+      "source_sha256": "56cdc82ed680aa03ebc0f91f281bc7dc9bf529f49e289c72a267e7b55303a07c",
+      "expected_sha256": "2be4f63468900998d33a8a4e3cf75166407b834ffce80a68a3467f0be304a71e",
+      "original_source_sha256": "c0112e10bba057a985d4f1028717b99fadfd607e1c7976140b1846b1daca76a2",
+      "mutated_source_sha256": "56cdc82ed680aa03ebc0f91f281bc7dc9bf529f49e289c72a267e7b55303a07c",
+      "label": "parsed-middle-bit",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%b\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%b\", parsed);\n    parsed[128] = ~parsed[128];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "f7f47adf2e3c93bf1017285db64290a88bfdfc40a2e9a9eb82bf62927ec955b0"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_unsigned_b_small.sv",
+      "source_sha256": "07a31c12e081d9845a28c3348334cf010ce85b40b6c1e6f8d827f64a66e41341",
+      "expected_sha256": "2be4f63468900998d33a8a4e3cf75166407b834ffce80a68a3467f0be304a71e",
+      "original_source_sha256": "c0112e10bba057a985d4f1028717b99fadfd607e1c7976140b1846b1daca76a2",
+      "mutated_source_sha256": "07a31c12e081d9845a28c3348334cf010ce85b40b6c1e6f8d827f64a66e41341",
+      "label": "conversion-count",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%b\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%b\", parsed);\n    scanned = 0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "5ce6afd166ddff2b189495bd1507d0b8694da3b85d7ea8ac3107e1908e9a88d7"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_unsigned_b_wide.sv",
+      "source_sha256": "c625077c048520906f3f2ff148e64d45e78cad08621475d031eae56b55ca70c3",
+      "expected_sha256": "becc1b10864efbf3f7ea276ca867302ba89567c7e1cd7d1a2ca7fff7e35dc23d",
+      "original_source_sha256": "18a142f2a99681eb6c4f4230141f9aafb4734e8dbf57d44abe0583d15e17d648",
+      "mutated_source_sha256": "c625077c048520906f3f2ff148e64d45e78cad08621475d031eae56b55ca70c3",
+      "label": "field-width-plus-one",
+      "replacement": {
+        "old": "    text = $sformatf(\"%259b\", source);",
+        "new": "    text = $sformatf(\"%260b\", source);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "e083edb09d1468f9aa4bf21566900401ee54e1d17cd63d2d72981d648a91b5c5"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_unsigned_b_wide.sv",
+      "source_sha256": "31e90fc638627a71d7260db5519200ad26223d4e9ed1797d8922a81c23fecc96",
+      "expected_sha256": "becc1b10864efbf3f7ea276ca867302ba89567c7e1cd7d1a2ca7fff7e35dc23d",
+      "original_source_sha256": "18a142f2a99681eb6c4f4230141f9aafb4734e8dbf57d44abe0583d15e17d648",
+      "mutated_source_sha256": "31e90fc638627a71d7260db5519200ad26223d4e9ed1797d8922a81c23fecc96",
+      "label": "parsed-middle-bit",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%b\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%b\", parsed);\n    parsed[128] = ~parsed[128];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "b662ae62150709bfce05ee7d4f3c92be5d0277a763749feb1cb59606a7378d4c"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_unsigned_b_wide.sv",
+      "source_sha256": "6f120938c8ee93302a8bae46e169b18dd94e04446cb31ea7faac40a28233c4dd",
+      "expected_sha256": "becc1b10864efbf3f7ea276ca867302ba89567c7e1cd7d1a2ca7fff7e35dc23d",
+      "original_source_sha256": "18a142f2a99681eb6c4f4230141f9aafb4734e8dbf57d44abe0583d15e17d648",
+      "mutated_source_sha256": "6f120938c8ee93302a8bae46e169b18dd94e04446cb31ea7faac40a28233c4dd",
+      "label": "conversion-count",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%b\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%b\", parsed);\n    scanned = 0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "73187fb30554f3e2ddafe87160e70c1357710c000e88081f859ef4e833259579"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_unsigned_d_small.sv",
+      "source_sha256": "fff6fe33b56ca77a42115014cbe0e200998a5e3df7a284c6d442b6465891e014",
+      "expected_sha256": "e690f64160bc4940ebf8bc7a16cc607fe77fcd9fc8eff9bfa482b7c545b68598",
+      "original_source_sha256": "1c0ec5ca45c958023a6892a4ff091de0d7c8f6beacad5d84f8c8224d82f5e407",
+      "mutated_source_sha256": "fff6fe33b56ca77a42115014cbe0e200998a5e3df7a284c6d442b6465891e014",
+      "label": "formatting-input",
+      "replacement": {
+        "old": "    text = $sformatf(\"%3d\", source);",
+        "new": "    text = $sformatf(\"%3d\", ~source);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "2b0e6d196b7a52bbe93e3e0488a540eb9c2db0bef49e86b50230221a31c114ed"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_unsigned_d_small.sv",
+      "source_sha256": "d6133b14415f7dbfaf9f5e0dd871a3a2a1e67e95647ebae3afcf9c8513465084",
+      "expected_sha256": "e690f64160bc4940ebf8bc7a16cc607fe77fcd9fc8eff9bfa482b7c545b68598",
+      "original_source_sha256": "1c0ec5ca45c958023a6892a4ff091de0d7c8f6beacad5d84f8c8224d82f5e407",
+      "mutated_source_sha256": "d6133b14415f7dbfaf9f5e0dd871a3a2a1e67e95647ebae3afcf9c8513465084",
+      "label": "parsed-middle-bit",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%d\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%d\", parsed);\n    parsed[128] = ~parsed[128];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "024deee0b3fca18864cf64cdbc13e6d233b164a4ce869eed6a4b2c2bd4e13b58"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_unsigned_d_small.sv",
+      "source_sha256": "95256aa2c4c85eb0b3d429432da9573e15b3489005ffb8b7eb7617ac383ecdb9",
+      "expected_sha256": "e690f64160bc4940ebf8bc7a16cc607fe77fcd9fc8eff9bfa482b7c545b68598",
+      "original_source_sha256": "1c0ec5ca45c958023a6892a4ff091de0d7c8f6beacad5d84f8c8224d82f5e407",
+      "mutated_source_sha256": "95256aa2c4c85eb0b3d429432da9573e15b3489005ffb8b7eb7617ac383ecdb9",
+      "label": "conversion-count",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%d\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%d\", parsed);\n    scanned = 0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "9c8ab947eb1031d4e0b5795c89f8a4d314a21e7863642172fab4f53b43922897"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_unsigned_d_wide.sv",
+      "source_sha256": "20308568f7b2d604692e1a3d6a2d80bf5aac3d5b46da324d6b1a2733051eab55",
+      "expected_sha256": "df6636ee393cf029bfe3984ec8ad10a9282add9e78ba8628e3c4bad051f66e6d",
+      "original_source_sha256": "dcd7f617274440d995d87ffb0410a076071b12b1d43098447142d63723fd15f6",
+      "mutated_source_sha256": "20308568f7b2d604692e1a3d6a2d80bf5aac3d5b46da324d6b1a2733051eab55",
+      "label": "field-width-plus-one",
+      "replacement": {
+        "old": "    text = $sformatf(\"%259d\", source);",
+        "new": "    text = $sformatf(\"%260d\", source);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "1a0b7964a5ee8f6dec6941e61b3864282bcf349d3756978949db7132181b2521"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_unsigned_d_wide.sv",
+      "source_sha256": "7ef6af8f6cfad084b7015cee5455503e0260b39a16add0d6349999431bacbb24",
+      "expected_sha256": "df6636ee393cf029bfe3984ec8ad10a9282add9e78ba8628e3c4bad051f66e6d",
+      "original_source_sha256": "dcd7f617274440d995d87ffb0410a076071b12b1d43098447142d63723fd15f6",
+      "mutated_source_sha256": "7ef6af8f6cfad084b7015cee5455503e0260b39a16add0d6349999431bacbb24",
+      "label": "parsed-middle-bit",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%d\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%d\", parsed);\n    parsed[128] = ~parsed[128];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "9629537ba74286ed1fd3e01ed6d4fd0e7cbfcd02649a88e182e2b48ea753c113"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_unsigned_d_wide.sv",
+      "source_sha256": "6435b3b01743d46c5b7b775e6cf6280dc5cb3a8488af6b747a335e696107ac75",
+      "expected_sha256": "df6636ee393cf029bfe3984ec8ad10a9282add9e78ba8628e3c4bad051f66e6d",
+      "original_source_sha256": "dcd7f617274440d995d87ffb0410a076071b12b1d43098447142d63723fd15f6",
+      "mutated_source_sha256": "6435b3b01743d46c5b7b775e6cf6280dc5cb3a8488af6b747a335e696107ac75",
+      "label": "conversion-count",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%d\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%d\", parsed);\n    scanned = 0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "495ff3326e813cdc9e6827c84785aa61e684dabbe2e2f02502e2d972945cade4"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_unsigned_h_small.sv",
+      "source_sha256": "cb6be7bf994a9849beee1ffb6974939dcb20fb1f21f62ae72b8d1a7df7ee2625",
+      "expected_sha256": "2bb37905876a8fc44da5f6729fd09a0e1589dbdbd12d54b5ea9ec0cae199233a",
+      "original_source_sha256": "0bd03ee4e4aad9c338bb1ab81b06e24618816fd791083ee6aab2498ae2c41891",
+      "mutated_source_sha256": "cb6be7bf994a9849beee1ffb6974939dcb20fb1f21f62ae72b8d1a7df7ee2625",
+      "label": "formatting-input",
+      "replacement": {
+        "old": "    text = $sformatf(\"%3h\", source);",
+        "new": "    text = $sformatf(\"%3h\", ~source);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "611855c375a67348b03a531cee9ff52af0e60d90687437b3e47083f453fdb434"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_unsigned_h_small.sv",
+      "source_sha256": "531b926738ca509a4e571edac3d54df387e752ec2e6e8d44c3b5691a5f191edd",
+      "expected_sha256": "2bb37905876a8fc44da5f6729fd09a0e1589dbdbd12d54b5ea9ec0cae199233a",
+      "original_source_sha256": "0bd03ee4e4aad9c338bb1ab81b06e24618816fd791083ee6aab2498ae2c41891",
+      "mutated_source_sha256": "531b926738ca509a4e571edac3d54df387e752ec2e6e8d44c3b5691a5f191edd",
+      "label": "parsed-middle-bit",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%h\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%h\", parsed);\n    parsed[128] = ~parsed[128];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "21f540fb89388ff638df664c0e952b5533f054158f8a81125aa588bc3ae15afc"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_unsigned_h_small.sv",
+      "source_sha256": "1a4977384304e757aef04ae2a4ea59c6be104cc4d52bfbccf9148ae509df310b",
+      "expected_sha256": "2bb37905876a8fc44da5f6729fd09a0e1589dbdbd12d54b5ea9ec0cae199233a",
+      "original_source_sha256": "0bd03ee4e4aad9c338bb1ab81b06e24618816fd791083ee6aab2498ae2c41891",
+      "mutated_source_sha256": "1a4977384304e757aef04ae2a4ea59c6be104cc4d52bfbccf9148ae509df310b",
+      "label": "conversion-count",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%h\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%h\", parsed);\n    scanned = 0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "17122a256f8bc7958a66c5005d66af906336c3cb6f2d53968a13affcf3f15034"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_unsigned_h_wide.sv",
+      "source_sha256": "d723896d432573128856106504586b24ff2efad2e8fc39c1baa6b3dcc8a48eea",
+      "expected_sha256": "3e213cd47db25f36141c17429e0a4796d6fabc89149d71eb3c3adb20aaf45104",
+      "original_source_sha256": "0b707e1b6e679fe05d599b59ba77a2073674a7dd960d8beabb3eb7ff09c11b81",
+      "mutated_source_sha256": "d723896d432573128856106504586b24ff2efad2e8fc39c1baa6b3dcc8a48eea",
+      "label": "field-width-plus-one",
+      "replacement": {
+        "old": "    text = $sformatf(\"%259h\", source);",
+        "new": "    text = $sformatf(\"%260h\", source);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "c5aef2675b089bdcf4fc66c4de1af58d1466964d90696959fb1f8bc50d33e9e0"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_unsigned_h_wide.sv",
+      "source_sha256": "a391b7826764faf8c5a3493ffc3721ec895ede60a6258b6988f29ffa69e382eb",
+      "expected_sha256": "3e213cd47db25f36141c17429e0a4796d6fabc89149d71eb3c3adb20aaf45104",
+      "original_source_sha256": "0b707e1b6e679fe05d599b59ba77a2073674a7dd960d8beabb3eb7ff09c11b81",
+      "mutated_source_sha256": "a391b7826764faf8c5a3493ffc3721ec895ede60a6258b6988f29ffa69e382eb",
+      "label": "parsed-middle-bit",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%h\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%h\", parsed);\n    parsed[128] = ~parsed[128];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "ac769817fe58c301ce06a44e4a7c4718007f76cc813e4116ee22150d62e8a634"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w257_unsigned_h_wide.sv",
+      "source_sha256": "29feb5eae7b06dec9fade9e8e6fee99ad7ebb756c896006d2ca4b0576c5f8dd4",
+      "expected_sha256": "3e213cd47db25f36141c17429e0a4796d6fabc89149d71eb3c3adb20aaf45104",
+      "original_source_sha256": "0b707e1b6e679fe05d599b59ba77a2073674a7dd960d8beabb3eb7ff09c11b81",
+      "mutated_source_sha256": "29feb5eae7b06dec9fade9e8e6fee99ad7ebb756c896006d2ca4b0576c5f8dd4",
+      "label": "conversion-count",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%h\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%h\", parsed);\n    scanned = 0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "59c4db13ef2204e3b312ff6b25ce10c2b46a77925dcdcc01e13a83b84dec43ce"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_signed_b_small.sv",
+      "source_sha256": "d518fe7d84fd77429f906f3eb2f114f9ddf322a7a9570ae304282b99aed177fd",
+      "expected_sha256": "00941abd9efff1858f6f465e6139eacf6e053d373f4e7a0529c25c297444d64c",
+      "original_source_sha256": "eed8f570f2d7b8749f50f823bde9104cad961ae6d825897fd3b157c835f8953b",
+      "mutated_source_sha256": "d518fe7d84fd77429f906f3eb2f114f9ddf322a7a9570ae304282b99aed177fd",
+      "label": "formatting-input",
+      "replacement": {
+        "old": "    text = $sformatf(\"%3b\", source);",
+        "new": "    text = $sformatf(\"%3b\", ~source);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "aff201bb562e8658f8a883e08a70c0bc54e3c7daa84e976a5eb9276e3cc2fd53"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_signed_b_small.sv",
+      "source_sha256": "9005f27759dad448d071b13e293ee5ddba3831ee443db3809848f167a2cb0b0b",
+      "expected_sha256": "00941abd9efff1858f6f465e6139eacf6e053d373f4e7a0529c25c297444d64c",
+      "original_source_sha256": "eed8f570f2d7b8749f50f823bde9104cad961ae6d825897fd3b157c835f8953b",
+      "mutated_source_sha256": "9005f27759dad448d071b13e293ee5ddba3831ee443db3809848f167a2cb0b0b",
+      "label": "parsed-middle-bit",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%b\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%b\", parsed);\n    parsed[256] = ~parsed[256];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "0130a4756d69ee135acfac467665f135f4ab93d3630385cfe333bdfe8505cf9f"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_signed_b_small.sv",
+      "source_sha256": "93c78989a1336948c2c29616d496322affb108f5b6f05a6e15421f97a57a7801",
+      "expected_sha256": "00941abd9efff1858f6f465e6139eacf6e053d373f4e7a0529c25c297444d64c",
+      "original_source_sha256": "eed8f570f2d7b8749f50f823bde9104cad961ae6d825897fd3b157c835f8953b",
+      "mutated_source_sha256": "93c78989a1336948c2c29616d496322affb108f5b6f05a6e15421f97a57a7801",
+      "label": "conversion-count",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%b\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%b\", parsed);\n    scanned = 0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "e089c106716dc69cfd7aa3d1352ce5ba9c4b83e621415e2082f0f96f364936e6"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_signed_b_wide.sv",
+      "source_sha256": "f03d1e175e729fea2fd31e06d0873344c38fb2ce75de4a55aff17f4d268ce293",
+      "expected_sha256": "290056bdb342e25c27d0c811a7f3871b534c4c95daad82a37e369ab78d0885b2",
+      "original_source_sha256": "0b3fbea81818cd22ad3384e6612fe9c479d982dc9c7f2f5489b959e4d7fe6684",
+      "mutated_source_sha256": "f03d1e175e729fea2fd31e06d0873344c38fb2ce75de4a55aff17f4d268ce293",
+      "label": "field-width-plus-one",
+      "replacement": {
+        "old": "    text = $sformatf(\"%515b\", source);",
+        "new": "    text = $sformatf(\"%516b\", source);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "19e35ef90e2c16539074198c4cee6b11ac7fe2ebddb65d0ef683af0b92df81cf"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_signed_b_wide.sv",
+      "source_sha256": "b56ef7929353ee95d55a408d66e6938ce3319350cb908ff840a68dc3ca507944",
+      "expected_sha256": "290056bdb342e25c27d0c811a7f3871b534c4c95daad82a37e369ab78d0885b2",
+      "original_source_sha256": "0b3fbea81818cd22ad3384e6612fe9c479d982dc9c7f2f5489b959e4d7fe6684",
+      "mutated_source_sha256": "b56ef7929353ee95d55a408d66e6938ce3319350cb908ff840a68dc3ca507944",
+      "label": "parsed-middle-bit",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%b\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%b\", parsed);\n    parsed[256] = ~parsed[256];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "5a8cb30dcc26cb5513c3955f60d50848de26e0c36dfb069d2163f31226af9855"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_signed_b_wide.sv",
+      "source_sha256": "b5b94edcbbb04337c8c83fd758368f65d96279de0f3803f8eb84605758fd194b",
+      "expected_sha256": "290056bdb342e25c27d0c811a7f3871b534c4c95daad82a37e369ab78d0885b2",
+      "original_source_sha256": "0b3fbea81818cd22ad3384e6612fe9c479d982dc9c7f2f5489b959e4d7fe6684",
+      "mutated_source_sha256": "b5b94edcbbb04337c8c83fd758368f65d96279de0f3803f8eb84605758fd194b",
+      "label": "conversion-count",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%b\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%b\", parsed);\n    scanned = 0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "b74b9c5ab7c61a718f2cb991350f62b5884540d8f1a4cba86829a1085bb3529c"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_signed_d_small.sv",
+      "source_sha256": "1c14fd9534bde8ca425d4019f3a17d82bd92857780d475f5b97b1e82df4709bf",
+      "expected_sha256": "f2c89f6ed4391f93cf07255ffc2ede74e9bc9cfdd78efc8ced4b54f446b39e5c",
+      "original_source_sha256": "355e1805e46f916d213062646fec166a413d0187c4645610e093add72af5fa7f",
+      "mutated_source_sha256": "1c14fd9534bde8ca425d4019f3a17d82bd92857780d475f5b97b1e82df4709bf",
+      "label": "formatting-input",
+      "replacement": {
+        "old": "    text = $sformatf(\"%3d\", source);",
+        "new": "    text = $sformatf(\"%3d\", ~source);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "81db4c6e0f3fdc67846a02767fae8b73a31b7d2dc48c3da8107329f0d566d307"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_signed_d_small.sv",
+      "source_sha256": "0476c91165582bb896761da54c00bcf9c961f1b1762d7408a46047df4c23c837",
+      "expected_sha256": "f2c89f6ed4391f93cf07255ffc2ede74e9bc9cfdd78efc8ced4b54f446b39e5c",
+      "original_source_sha256": "355e1805e46f916d213062646fec166a413d0187c4645610e093add72af5fa7f",
+      "mutated_source_sha256": "0476c91165582bb896761da54c00bcf9c961f1b1762d7408a46047df4c23c837",
+      "label": "parsed-middle-bit",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%d\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%d\", parsed);\n    parsed[256] = ~parsed[256];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "2b4ecdccbfec2a7814350527aeae94f461f956666e7e7e62234f9ed52a560910"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_signed_d_small.sv",
+      "source_sha256": "e8fe179999e985b65dccb417641705dcaa90f53ef2e4879824be46fd07911d48",
+      "expected_sha256": "f2c89f6ed4391f93cf07255ffc2ede74e9bc9cfdd78efc8ced4b54f446b39e5c",
+      "original_source_sha256": "355e1805e46f916d213062646fec166a413d0187c4645610e093add72af5fa7f",
+      "mutated_source_sha256": "e8fe179999e985b65dccb417641705dcaa90f53ef2e4879824be46fd07911d48",
+      "label": "conversion-count",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%d\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%d\", parsed);\n    scanned = 0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "c1e6996aef105e497b210d1bdc32117bb6bba1bd213f7e5c4b0c1f4df030c494"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_signed_d_wide.sv",
+      "source_sha256": "fba2144ed1a041a1b835904754a4599ce9f3343a42f25d5cc37a3e85dc72acf3",
+      "expected_sha256": "6fd54b5510e4b0338ff7d7517e73bf0f0b4895fcf800604cfb8f373ee7a6a522",
+      "original_source_sha256": "d5e5647eeb3e846c9cc930068db691f515ae9225ce9fd2960469502e4212bb79",
+      "mutated_source_sha256": "fba2144ed1a041a1b835904754a4599ce9f3343a42f25d5cc37a3e85dc72acf3",
+      "label": "field-width-plus-one",
+      "replacement": {
+        "old": "    text = $sformatf(\"%515d\", source);",
+        "new": "    text = $sformatf(\"%516d\", source);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "5d8a2c3fb3faac16dc260be3748cc3ceda48d49a00c9083ce8578d3341472d61"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_signed_d_wide.sv",
+      "source_sha256": "8ef5b73166b41bb411b2ff30d04b834217473478a0b8f78640f3f8ed8fbb77ea",
+      "expected_sha256": "6fd54b5510e4b0338ff7d7517e73bf0f0b4895fcf800604cfb8f373ee7a6a522",
+      "original_source_sha256": "d5e5647eeb3e846c9cc930068db691f515ae9225ce9fd2960469502e4212bb79",
+      "mutated_source_sha256": "8ef5b73166b41bb411b2ff30d04b834217473478a0b8f78640f3f8ed8fbb77ea",
+      "label": "parsed-middle-bit",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%d\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%d\", parsed);\n    parsed[256] = ~parsed[256];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "de7e69ca9485833da4613607b38bba9a77462b25d133270b75c7de7dbcfb5272"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_signed_d_wide.sv",
+      "source_sha256": "f21c1c3c5d9d27b36f67e9a6919a3aeabaffae2ccd26dfee613ce4f11c3c4155",
+      "expected_sha256": "6fd54b5510e4b0338ff7d7517e73bf0f0b4895fcf800604cfb8f373ee7a6a522",
+      "original_source_sha256": "d5e5647eeb3e846c9cc930068db691f515ae9225ce9fd2960469502e4212bb79",
+      "mutated_source_sha256": "f21c1c3c5d9d27b36f67e9a6919a3aeabaffae2ccd26dfee613ce4f11c3c4155",
+      "label": "conversion-count",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%d\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%d\", parsed);\n    scanned = 0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "8d9f98a56721c56890644533e72fd8cec28b9645b6d0a3d26320316dd989363d"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_signed_h_small.sv",
+      "source_sha256": "8547673f2206a963e7b253c2ca15ab4c04984e94ca74b453aa81ad7c49d7b86f",
+      "expected_sha256": "e3cc835eebedf9a7ea862b3deeb5f1d6fca9ce2cea5337604268562bdb73d257",
+      "original_source_sha256": "a4bb4cfc9041efda3d1a2f852886eb14fa8ae3dfa79f4d3b18cb34a36893f429",
+      "mutated_source_sha256": "8547673f2206a963e7b253c2ca15ab4c04984e94ca74b453aa81ad7c49d7b86f",
+      "label": "formatting-input",
+      "replacement": {
+        "old": "    text = $sformatf(\"%3h\", source);",
+        "new": "    text = $sformatf(\"%3h\", ~source);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "149f5c9eca6853ffbaaa54ded0a7d59ac98f3806b790033a934eaa1676dd28b3"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_signed_h_small.sv",
+      "source_sha256": "e658f51e813696982748cd1f54d06abbdc8ecaff7d0fca7e4c6dad431473a73a",
+      "expected_sha256": "e3cc835eebedf9a7ea862b3deeb5f1d6fca9ce2cea5337604268562bdb73d257",
+      "original_source_sha256": "a4bb4cfc9041efda3d1a2f852886eb14fa8ae3dfa79f4d3b18cb34a36893f429",
+      "mutated_source_sha256": "e658f51e813696982748cd1f54d06abbdc8ecaff7d0fca7e4c6dad431473a73a",
+      "label": "parsed-middle-bit",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%h\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%h\", parsed);\n    parsed[256] = ~parsed[256];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "fa9d16546872fcc76416d267f4311f011b80b54d72a6dab61ce12f4e8b1f9853"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_signed_h_small.sv",
+      "source_sha256": "f81873e02cc14ffb984f6e011610841d61ea93458fad9505da8e19d9dd271d45",
+      "expected_sha256": "e3cc835eebedf9a7ea862b3deeb5f1d6fca9ce2cea5337604268562bdb73d257",
+      "original_source_sha256": "a4bb4cfc9041efda3d1a2f852886eb14fa8ae3dfa79f4d3b18cb34a36893f429",
+      "mutated_source_sha256": "f81873e02cc14ffb984f6e011610841d61ea93458fad9505da8e19d9dd271d45",
+      "label": "conversion-count",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%h\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%h\", parsed);\n    scanned = 0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "4462fb4663bbfd0626c4cf05de2069d46aa23d13685680fccf24df1b566e2a09"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_signed_h_wide.sv",
+      "source_sha256": "e0118651f961040b35cd9542eb628709a180c8b721acbfdd2fd982f95d41bfe7",
+      "expected_sha256": "b649638deb15d76b641e3f95dbf427701dbe177470e72dcf6bb3240b3ff51df9",
+      "original_source_sha256": "618c3da10589daee44dde329e70b0788e1c41c5d0aaea56fdf82e0b0d01ab153",
+      "mutated_source_sha256": "e0118651f961040b35cd9542eb628709a180c8b721acbfdd2fd982f95d41bfe7",
+      "label": "field-width-plus-one",
+      "replacement": {
+        "old": "    text = $sformatf(\"%515h\", source);",
+        "new": "    text = $sformatf(\"%516h\", source);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "795ba0ca77ded5d582afce47f7473c57a093e3b23d3d6e2451a1f04b78cc38f7"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_signed_h_wide.sv",
+      "source_sha256": "45c181d671c8529eec458d96183ad99f09a5e0559feb4c0c5a5cb28c6c3969fc",
+      "expected_sha256": "b649638deb15d76b641e3f95dbf427701dbe177470e72dcf6bb3240b3ff51df9",
+      "original_source_sha256": "618c3da10589daee44dde329e70b0788e1c41c5d0aaea56fdf82e0b0d01ab153",
+      "mutated_source_sha256": "45c181d671c8529eec458d96183ad99f09a5e0559feb4c0c5a5cb28c6c3969fc",
+      "label": "parsed-middle-bit",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%h\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%h\", parsed);\n    parsed[256] = ~parsed[256];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "69118dbea311534bbf1f841599267f5fc14c2e75ec0fcb1f6d6141b5b2a8a2d5"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_signed_h_wide.sv",
+      "source_sha256": "ac0d3bcad274fb08bad62efc1b20bcc52559b6dbcf74f6e902f435eb18a42226",
+      "expected_sha256": "b649638deb15d76b641e3f95dbf427701dbe177470e72dcf6bb3240b3ff51df9",
+      "original_source_sha256": "618c3da10589daee44dde329e70b0788e1c41c5d0aaea56fdf82e0b0d01ab153",
+      "mutated_source_sha256": "ac0d3bcad274fb08bad62efc1b20bcc52559b6dbcf74f6e902f435eb18a42226",
+      "label": "conversion-count",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%h\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%h\", parsed);\n    scanned = 0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "e093195dd1670db0f695516215b292c423d78c1a2c9be000214db44fd65c42f5"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_unsigned_b_small.sv",
+      "source_sha256": "fe38f506174fa1137572a00e0219577cd09b25fbd56cf83d58e63af685c253bb",
+      "expected_sha256": "00941abd9efff1858f6f465e6139eacf6e053d373f4e7a0529c25c297444d64c",
+      "original_source_sha256": "01e103894f6d3826435957488764eb8f64191e12103f909a3131c807aa9a057d",
+      "mutated_source_sha256": "fe38f506174fa1137572a00e0219577cd09b25fbd56cf83d58e63af685c253bb",
+      "label": "formatting-input",
+      "replacement": {
+        "old": "    text = $sformatf(\"%3b\", source);",
+        "new": "    text = $sformatf(\"%3b\", ~source);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "aff201bb562e8658f8a883e08a70c0bc54e3c7daa84e976a5eb9276e3cc2fd53"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_unsigned_b_small.sv",
+      "source_sha256": "cec0069345f0e9ba43e17b263bf52e30beeaef101183c60f565fbdbccc7d17e7",
+      "expected_sha256": "00941abd9efff1858f6f465e6139eacf6e053d373f4e7a0529c25c297444d64c",
+      "original_source_sha256": "01e103894f6d3826435957488764eb8f64191e12103f909a3131c807aa9a057d",
+      "mutated_source_sha256": "cec0069345f0e9ba43e17b263bf52e30beeaef101183c60f565fbdbccc7d17e7",
+      "label": "parsed-middle-bit",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%b\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%b\", parsed);\n    parsed[256] = ~parsed[256];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "0130a4756d69ee135acfac467665f135f4ab93d3630385cfe333bdfe8505cf9f"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_unsigned_b_small.sv",
+      "source_sha256": "76f29ff8684c42d16315d86abaadf0e1deabc0fb248c02849d45a3a8626535ce",
+      "expected_sha256": "00941abd9efff1858f6f465e6139eacf6e053d373f4e7a0529c25c297444d64c",
+      "original_source_sha256": "01e103894f6d3826435957488764eb8f64191e12103f909a3131c807aa9a057d",
+      "mutated_source_sha256": "76f29ff8684c42d16315d86abaadf0e1deabc0fb248c02849d45a3a8626535ce",
+      "label": "conversion-count",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%b\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%b\", parsed);\n    scanned = 0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "e089c106716dc69cfd7aa3d1352ce5ba9c4b83e621415e2082f0f96f364936e6"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_unsigned_b_wide.sv",
+      "source_sha256": "24f86a22b9d7bb1f30e1967e6fc29b6c9380c0bbf06acac00eda7c81a67f4401",
+      "expected_sha256": "290056bdb342e25c27d0c811a7f3871b534c4c95daad82a37e369ab78d0885b2",
+      "original_source_sha256": "33fcd5917f50e46d647bbaf81425dea36018de1bb7d85977ba2f484fa8d5708b",
+      "mutated_source_sha256": "24f86a22b9d7bb1f30e1967e6fc29b6c9380c0bbf06acac00eda7c81a67f4401",
+      "label": "field-width-plus-one",
+      "replacement": {
+        "old": "    text = $sformatf(\"%515b\", source);",
+        "new": "    text = $sformatf(\"%516b\", source);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "19e35ef90e2c16539074198c4cee6b11ac7fe2ebddb65d0ef683af0b92df81cf"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_unsigned_b_wide.sv",
+      "source_sha256": "34353e94bd2184dd2851018ce56e0ff03a61ca092be4768813999a712f9fb77a",
+      "expected_sha256": "290056bdb342e25c27d0c811a7f3871b534c4c95daad82a37e369ab78d0885b2",
+      "original_source_sha256": "33fcd5917f50e46d647bbaf81425dea36018de1bb7d85977ba2f484fa8d5708b",
+      "mutated_source_sha256": "34353e94bd2184dd2851018ce56e0ff03a61ca092be4768813999a712f9fb77a",
+      "label": "parsed-middle-bit",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%b\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%b\", parsed);\n    parsed[256] = ~parsed[256];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "5a8cb30dcc26cb5513c3955f60d50848de26e0c36dfb069d2163f31226af9855"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_unsigned_b_wide.sv",
+      "source_sha256": "aea59f331610352ba16afbdfb1bd890847ef696733e52b97dc9e2ecb79ee6812",
+      "expected_sha256": "290056bdb342e25c27d0c811a7f3871b534c4c95daad82a37e369ab78d0885b2",
+      "original_source_sha256": "33fcd5917f50e46d647bbaf81425dea36018de1bb7d85977ba2f484fa8d5708b",
+      "mutated_source_sha256": "aea59f331610352ba16afbdfb1bd890847ef696733e52b97dc9e2ecb79ee6812",
+      "label": "conversion-count",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%b\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%b\", parsed);\n    scanned = 0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "b74b9c5ab7c61a718f2cb991350f62b5884540d8f1a4cba86829a1085bb3529c"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_unsigned_d_small.sv",
+      "source_sha256": "f7be5488277eb8fd8a069c6d6f08bac707fb7e4ada481af0ed734cdf61ca8f62",
+      "expected_sha256": "95f4949867fdb5dbd95ba2403b240ace880ed8b34596c5b5496aa8686839b4dc",
+      "original_source_sha256": "f2fd492039c2813f6c7948264bcaaa0492ce8684421ff211aa4acc7aff5d1c0e",
+      "mutated_source_sha256": "f7be5488277eb8fd8a069c6d6f08bac707fb7e4ada481af0ed734cdf61ca8f62",
+      "label": "formatting-input",
+      "replacement": {
+        "old": "    text = $sformatf(\"%3d\", source);",
+        "new": "    text = $sformatf(\"%3d\", ~source);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "86afb4c73234787b98363f66a055f1f89350f340ff3529d52f529949ccec01a5"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_unsigned_d_small.sv",
+      "source_sha256": "a0daa14d4a0d8a9fa070c52d14c0a9dd22e8882b3ea2075f453988e26a755423",
+      "expected_sha256": "95f4949867fdb5dbd95ba2403b240ace880ed8b34596c5b5496aa8686839b4dc",
+      "original_source_sha256": "f2fd492039c2813f6c7948264bcaaa0492ce8684421ff211aa4acc7aff5d1c0e",
+      "mutated_source_sha256": "a0daa14d4a0d8a9fa070c52d14c0a9dd22e8882b3ea2075f453988e26a755423",
+      "label": "parsed-middle-bit",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%d\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%d\", parsed);\n    parsed[256] = ~parsed[256];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "d951cfa7dfb2eb6609ef6d213f176e314a34cff947fdf51786e3068fc2ea4f91"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_unsigned_d_small.sv",
+      "source_sha256": "029628bd05db685a4a2b383c9971efe796d6f1b80670f0a1f4737446db97a541",
+      "expected_sha256": "95f4949867fdb5dbd95ba2403b240ace880ed8b34596c5b5496aa8686839b4dc",
+      "original_source_sha256": "f2fd492039c2813f6c7948264bcaaa0492ce8684421ff211aa4acc7aff5d1c0e",
+      "mutated_source_sha256": "029628bd05db685a4a2b383c9971efe796d6f1b80670f0a1f4737446db97a541",
+      "label": "conversion-count",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%d\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%d\", parsed);\n    scanned = 0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "a5bdc4510dea736dfb539730c6d2088c6a5cc0f3818020157e6dcfe989382077"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_unsigned_d_wide.sv",
+      "source_sha256": "fb6200c0286263adaff6074fc7aa59fa69ba9f4da9cf3eec1c99aa7e20f99ea6",
+      "expected_sha256": "dbfe6e238c4a32ea95e75530f4007d9bbdf2b7c849389984854593fd2fa6fc48",
+      "original_source_sha256": "f743b96a9c8a7bfea42676e8d1a44ebfee0e88a4e07d820769050a2c4a19f911",
+      "mutated_source_sha256": "fb6200c0286263adaff6074fc7aa59fa69ba9f4da9cf3eec1c99aa7e20f99ea6",
+      "label": "field-width-plus-one",
+      "replacement": {
+        "old": "    text = $sformatf(\"%515d\", source);",
+        "new": "    text = $sformatf(\"%516d\", source);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "537f4508c32e716ba626eaac8a251d8a24c868d6a05b5258475beb0481b5fc43"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_unsigned_d_wide.sv",
+      "source_sha256": "cae5dfbdd96b0589dbd8b946e4194f8372ae72a36b5ff9f277e59febffde44ea",
+      "expected_sha256": "dbfe6e238c4a32ea95e75530f4007d9bbdf2b7c849389984854593fd2fa6fc48",
+      "original_source_sha256": "f743b96a9c8a7bfea42676e8d1a44ebfee0e88a4e07d820769050a2c4a19f911",
+      "mutated_source_sha256": "cae5dfbdd96b0589dbd8b946e4194f8372ae72a36b5ff9f277e59febffde44ea",
+      "label": "parsed-middle-bit",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%d\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%d\", parsed);\n    parsed[256] = ~parsed[256];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "d641fa8ffd9255cb451ef2f5ee91d4d75b037e21b0af8dfb045dfa28b0437d09"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_unsigned_d_wide.sv",
+      "source_sha256": "63c1b85cb2a3ca035cbe4465fb7a30eb6c6ab022cb2dfe37f3adf71afff6fe7a",
+      "expected_sha256": "dbfe6e238c4a32ea95e75530f4007d9bbdf2b7c849389984854593fd2fa6fc48",
+      "original_source_sha256": "f743b96a9c8a7bfea42676e8d1a44ebfee0e88a4e07d820769050a2c4a19f911",
+      "mutated_source_sha256": "63c1b85cb2a3ca035cbe4465fb7a30eb6c6ab022cb2dfe37f3adf71afff6fe7a",
+      "label": "conversion-count",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%d\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%d\", parsed);\n    scanned = 0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "7e77ef69006cfa439297a1b2322ed13442bdf822474984590af679e7759c5a96"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_unsigned_h_small.sv",
+      "source_sha256": "38d4780787665baeddbe5e363a71630a9b8b823bf7d15b6eb0003bd874748e47",
+      "expected_sha256": "e3cc835eebedf9a7ea862b3deeb5f1d6fca9ce2cea5337604268562bdb73d257",
+      "original_source_sha256": "d7a87d2d405b2891594324e2d98c4e5fbaa123ca1d0724d9d2c1eaa9307844b3",
+      "mutated_source_sha256": "38d4780787665baeddbe5e363a71630a9b8b823bf7d15b6eb0003bd874748e47",
+      "label": "formatting-input",
+      "replacement": {
+        "old": "    text = $sformatf(\"%3h\", source);",
+        "new": "    text = $sformatf(\"%3h\", ~source);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "149f5c9eca6853ffbaaa54ded0a7d59ac98f3806b790033a934eaa1676dd28b3"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_unsigned_h_small.sv",
+      "source_sha256": "1eb10b34ff7edffab19e11e328c09aafd3429cae7b596e0d433e53aca34b418d",
+      "expected_sha256": "e3cc835eebedf9a7ea862b3deeb5f1d6fca9ce2cea5337604268562bdb73d257",
+      "original_source_sha256": "d7a87d2d405b2891594324e2d98c4e5fbaa123ca1d0724d9d2c1eaa9307844b3",
+      "mutated_source_sha256": "1eb10b34ff7edffab19e11e328c09aafd3429cae7b596e0d433e53aca34b418d",
+      "label": "parsed-middle-bit",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%h\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%h\", parsed);\n    parsed[256] = ~parsed[256];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "fa9d16546872fcc76416d267f4311f011b80b54d72a6dab61ce12f4e8b1f9853"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_unsigned_h_small.sv",
+      "source_sha256": "2cc872a29a82ffff23bdb293d6740049052e2737fc838406919697ea9120e0b1",
+      "expected_sha256": "e3cc835eebedf9a7ea862b3deeb5f1d6fca9ce2cea5337604268562bdb73d257",
+      "original_source_sha256": "d7a87d2d405b2891594324e2d98c4e5fbaa123ca1d0724d9d2c1eaa9307844b3",
+      "mutated_source_sha256": "2cc872a29a82ffff23bdb293d6740049052e2737fc838406919697ea9120e0b1",
+      "label": "conversion-count",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%h\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%h\", parsed);\n    scanned = 0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "4462fb4663bbfd0626c4cf05de2069d46aa23d13685680fccf24df1b566e2a09"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_unsigned_h_wide.sv",
+      "source_sha256": "717bc47759214f8bd3ce346039ac594428862ba51a224b9e12a20ba06569d4cf",
+      "expected_sha256": "b649638deb15d76b641e3f95dbf427701dbe177470e72dcf6bb3240b3ff51df9",
+      "original_source_sha256": "73e731411521826f9d5ea0802bb835068eb1e5ee1959207ef654551228e73ce2",
+      "mutated_source_sha256": "717bc47759214f8bd3ce346039ac594428862ba51a224b9e12a20ba06569d4cf",
+      "label": "field-width-plus-one",
+      "replacement": {
+        "old": "    text = $sformatf(\"%515h\", source);",
+        "new": "    text = $sformatf(\"%516h\", source);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "795ba0ca77ded5d582afce47f7473c57a093e3b23d3d6e2451a1f04b78cc38f7"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_unsigned_h_wide.sv",
+      "source_sha256": "defc65386b0d59adace0500e5d267f49ed8351c42c90b6ec197750d7b5da32be",
+      "expected_sha256": "b649638deb15d76b641e3f95dbf427701dbe177470e72dcf6bb3240b3ff51df9",
+      "original_source_sha256": "73e731411521826f9d5ea0802bb835068eb1e5ee1959207ef654551228e73ce2",
+      "mutated_source_sha256": "defc65386b0d59adace0500e5d267f49ed8351c42c90b6ec197750d7b5da32be",
+      "label": "parsed-middle-bit",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%h\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%h\", parsed);\n    parsed[256] = ~parsed[256];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "69118dbea311534bbf1f841599267f5fc14c2e75ec0fcb1f6d6141b5b2a8a2d5"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_wide_format_field_w513_unsigned_h_wide.sv",
+      "source_sha256": "7dedad9bde264d266a1aa4e808bc5c86b83a18d28b9a6196bfc83d9404b4229f",
+      "expected_sha256": "b649638deb15d76b641e3f95dbf427701dbe177470e72dcf6bb3240b3ff51df9",
+      "original_source_sha256": "73e731411521826f9d5ea0802bb835068eb1e5ee1959207ef654551228e73ce2",
+      "mutated_source_sha256": "7dedad9bde264d266a1aa4e808bc5c86b83a18d28b9a6196bfc83d9404b4229f",
+      "label": "conversion-count",
+      "replacement": {
+        "old": "    scanned = $sscanf(text, \"%h\", parsed);",
+        "new": "    scanned = $sscanf(text, \"%h\", parsed);\n    scanned = 0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "e093195dd1670db0f695516215b292c423d78c1a2c9be000214db44fd65c42f5"
+    }
+  ],
+  "status": "all24controls-pass-and72compiled-mutants-differ"
+}
