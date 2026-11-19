@@ -116,6 +116,10 @@
     "memory_file_boundaries": {
       "en": "138 typed memory-file regressions at 255/256/257 and 511/512/513 bits, reusing existing source/reference semantics across 23 frozen configurations. Plain/enum bit/logic storage, bin/hex, known/X/Z, explicit source/target ranges and guarded reverse loads use independent canonical input. The extension-local address scanner handles a valid slash-first block comment; the original finite model and generated inputs remain unchanged.",
       "ja": "255/256/257・511/512/513ビットの型付きメモリファイル138本。既存の作成・参照処理を23通りの固定構成で再利用し、通常語・enum、bit/logic、2進・16進、既知値・X/Z、明示した書出し・読込み範囲と逆順の読込み、未更新領域を確認。独立した正規入力と、本文がスラッシュで始まる合法なブロックコメントを扱う拡張専用のアドレス検査を使い、元の有限モデルと生成入力は維持。"
+    },
+    "negative_power_controls": {
+      "en": "16 focused negative integral-power controls from our saved random findings: bases zero/one/signed minus-one/unsigned three, independently signed exponent widths 3/8/32/65, lower bounds and neighbors. Runtime plusargs feed the base and low exponent bit. Four zero-base X cases remain separate from twelve known-only controls; natural/direct/captured values and bit conversion are observed without claiming broad context discrimination.",
+      "ja": "保存したランダム探索から切り出した、整数の負乗の対照16本。底がゼロ・一・符号付きマイナス一・符号なし三、独立した符号付き3/8/32/65ビットの指数、下限と隣の値を確認。実行時引数を底と指数の最下位ビットへ与え、未知値を要するゼロの4本と既知値だけの12本を分離。自然幅・直接・保存後の値と2値変換を観測し、文脈の区別を広く検査したとは主張しない。"
     }
   }
 }

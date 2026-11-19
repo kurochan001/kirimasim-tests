@@ -114,6 +114,13 @@
 - `nba-boundaries-20261119h-kirimasim-441dddbd0fcd-run4.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T01:44:45.882463+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `nba-boundaries-20261119h-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T01:54:49.097034+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `nba-boundaries-20261119h-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T02:03:25.500540+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `negative-power-controls-20261119l-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T03:05:52.617864+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `negative-power-controls-20261119l-kirimasim-a6222f0656d4-run1.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T03:05:52.842153+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `negative-power-controls-20261119l-kirimasim-a6222f0656d4-run2.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T03:05:53.066297+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `negative-power-controls-20261119l-kirimasim-a6222f0656d4-run3.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T03:05:53.302353+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `negative-power-controls-20261119l-kirimasim-a6222f0656d4-run4.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T03:05:53.539075+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `negative-power-controls-20261119l-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T03:06:28.618019+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `negative-power-controls-20261119l-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T03:07:00.773137+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `oracle-tokens-2-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T22:25:00.780016+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `oracle-tokens-2-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T22:25:00.894678+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `oracle-tokens-2-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T22:25:01.564353+00:00` / 2/12332 動作確認、古い入力との対応 0 件。

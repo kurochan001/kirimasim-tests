@@ -7497,3 +7497,20 @@ test_gen_memory_file_boundary_513_logic_plain_x_bin_all_down_logic_reverse spec 
 test_gen_memory_file_boundary_513_logic_plain_x_bin_all_up_bit_forward spec iverilog@13.0
 test_gen_memory_file_boundary_513_logic_plain_z_bin_all_up_bit_forward spec iverilog@13.0
 test_gen_memory_file_boundary_513_logic_plain_z_bin_middle_up_logic_reverse spec iverilog@13.0
+# Focused negative integral-power controls (2026-11-19)
+test_gen_negative_power_minus_one_e3 spec verilator@5.054
+test_gen_negative_power_minus_one_e32 spec verilator@5.054
+test_gen_negative_power_minus_one_e65 spec verilator@5.054
+test_gen_negative_power_minus_one_e8 spec verilator@5.054
+test_gen_negative_power_one_e3 spec verilator@5.054
+test_gen_negative_power_one_e32 spec verilator@5.054
+test_gen_negative_power_one_e65 spec verilator@5.054
+test_gen_negative_power_one_e8 spec verilator@5.054
+test_gen_negative_power_other_e3 spec verilator@5.054
+test_gen_negative_power_other_e32 spec verilator@5.054
+test_gen_negative_power_other_e65 spec verilator@5.054
+test_gen_negative_power_other_e8 spec verilator@5.054
+test_gen_negative_power_zero_e3 spec
+test_gen_negative_power_zero_e32 spec
+test_gen_negative_power_zero_e65 spec
+test_gen_negative_power_zero_e8 spec

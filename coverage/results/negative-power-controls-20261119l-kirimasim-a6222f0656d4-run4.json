@@ -1,0 +1,75 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401",
+ "tests": {
+  "gen/ch11/test_gen_negative_power_minus_one_e3": {
+   "status": "pass",
+   "inputs_sha256": "3bcdbf82209c28e3e7707aac0ce9beed00a88258292cabdfae6714496bf95669"
+  },
+  "gen/ch11/test_gen_negative_power_minus_one_e32": {
+   "status": "pass",
+   "inputs_sha256": "99a6ac0bfdf6baa47f48e42ecdc774f898d73664c1961f359fa3e5d7aedf76d5"
+  },
+  "gen/ch11/test_gen_negative_power_minus_one_e65": {
+   "status": "pass",
+   "inputs_sha256": "df2073ea6fa70ecb14246817a81fcec912a7324931316cd80f31983514dbc5ae"
+  },
+  "gen/ch11/test_gen_negative_power_minus_one_e8": {
+   "status": "pass",
+   "inputs_sha256": "c5c9d7cf6aa50b8c25b57e2bdef5bee119013f4e3766dea88aaed521f90f98c9"
+  },
+  "gen/ch11/test_gen_negative_power_one_e3": {
+   "status": "pass",
+   "inputs_sha256": "68f32c6c4c47369ed9423abdc32c508a722db6a66af5541ebc93658b94180aed"
+  },
+  "gen/ch11/test_gen_negative_power_one_e32": {
+   "status": "pass",
+   "inputs_sha256": "d2a73147abcb672a094dd6b87b0221a433393a1b7d1a9c946f93d6e84f3bda01"
+  },
+  "gen/ch11/test_gen_negative_power_one_e65": {
+   "status": "pass",
+   "inputs_sha256": "3f26c28f4f078667760c501c7feb3fba804bd139ba9a493e4d9a11c1e7f81aa7"
+  },
+  "gen/ch11/test_gen_negative_power_one_e8": {
+   "status": "pass",
+   "inputs_sha256": "f8b2ab5f1c5c26f02085b77c4f3939c974cc4ae597cc62fc88ef3a176f4cefeb"
+  },
+  "gen/ch11/test_gen_negative_power_other_e3": {
+   "status": "pass",
+   "inputs_sha256": "32e118ce0bb35d34ad4c231f449f4ec959598fbcd29461befcae1b30b49731fe"
+  },
+  "gen/ch11/test_gen_negative_power_other_e32": {
+   "status": "pass",
+   "inputs_sha256": "811140ea83b46bce2b531de0c1c587b3fa151de629cb272c5579125de17b77ba"
+  },
+  "gen/ch11/test_gen_negative_power_other_e65": {
+   "status": "pass",
+   "inputs_sha256": "0933483fff777b7bf4ea2e4300a26bed5b10eafa4a62427342b98967f7e518fc"
+  },
+  "gen/ch11/test_gen_negative_power_other_e8": {
+   "status": "pass",
+   "inputs_sha256": "0aeb4d09ebc462f7a9eb07699b7a8fa53455b7e5391f5a139534a9ce64bd4776"
+  },
+  "gen/ch11/test_gen_negative_power_zero_e3": {
+   "status": "pass",
+   "inputs_sha256": "31aa13b867cf4ec787e3fb6f37a3d540ee8c02a50fe57c6e813d493e78675df8"
+  },
+  "gen/ch11/test_gen_negative_power_zero_e32": {
+   "status": "pass",
+   "inputs_sha256": "54fd1a61f30377188551d10549d4babcf7598de165a80da88ce8e02acaace023"
+  },
+  "gen/ch11/test_gen_negative_power_zero_e65": {
+   "status": "pass",
+   "inputs_sha256": "8c13b045c2c66931c8dd5aea33691f9c0418bbd66153ba983db44b1b8914dd30"
+  },
+  "gen/ch11/test_gen_negative_power_zero_e8": {
+   "status": "pass",
+   "inputs_sha256": "2b4265c361712c0de8eaca4d972875da27b9f52e867ace8a54172e47b3f64d58"
+  }
+ },
+ "generated_at": "2026-11-19T03:05:53.539075+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

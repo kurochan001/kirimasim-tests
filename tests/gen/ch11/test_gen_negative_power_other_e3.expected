@@ -1,0 +1,30 @@
+category=other base_width=2 exponent_width=3
+nonce=1 found=1
+p0_base=11
+p0_exponent=111
+p0_narrow=00
+p0_full=00000
+p0_captured=00000
+p0_converted=00000
+p0_widths=2,3,5
+p1_base=11
+p1_exponent=110
+p1_narrow=00
+p1_full=00000
+p1_captured=00000
+p1_converted=00000
+p1_widths=2,3,5
+p2_base=11
+p2_exponent=101
+p2_narrow=00
+p2_full=00000
+p2_captured=00000
+p2_converted=00000
+p2_widths=2,3,5
+p3_base=11
+p3_exponent=100
+p3_narrow=00
+p3_full=00000
+p3_captured=00000
+p3_converted=00000
+p3_widths=2,3,5

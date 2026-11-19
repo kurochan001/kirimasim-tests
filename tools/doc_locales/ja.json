@@ -25639,6 +25639,14 @@
     "Overlapping wide nonblocking writes preserve captured coordinates and source order": "重なる広い非ブロッキング書込みは保存した位置とソース順を保つ",
     "Overlapping wide nonblocking writes preserve captured coordinates and source order ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "重なる広い非ブロッキング書込みは保存した位置とソース順を保つ ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
     "Wide nonblocking array writes capture element indices and preserve untouched guards": "広い非ブロッキングの配列書込みは要素添字を保存し未更新の値を保つ",
-    "Wide nonblocking array writes capture element indices and preserve untouched guards ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広い非ブロッキングの配列書込みは要素添字を保存し未更新の値を保つ ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )"
+    "Wide nonblocking array writes capture element indices and preserve untouched guards ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広い非ブロッキングの配列書込みは要素添字を保存し未更新の値を保つ ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Integral zero to negative powers remains unknown before storage conversion": "整数のゼロの負乗は格納時の変換より前に未知値を保つ",
+    "Integral zero to negative powers remains unknown before storage conversion ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "整数のゼロの負乗は格納時の変換より前に未知値を保つ ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Integral one to negative powers remains one with independent exponent width": "整数の一の負乗は独立した指数の幅でも一のままになる",
+    "Integral one to negative powers remains one with independent exponent width ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "整数の一の負乗は独立した指数の幅でも一のままになる ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Signed minus one to negative powers follows exponent parity at full width": "符号付きマイナス一の負乗は指数の奇偶に従い幅全体を保つ",
+    "Signed minus one to negative powers follows exponent parity at full width ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "符号付きマイナス一の負乗は指数の奇偶に従い幅全体を保つ ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Unsigned nonunit bases with signed negative integral exponents produce zero": "符号なしの非単位の底と符号付きの負の整数指数はゼロを返す",
+    "Unsigned nonunit bases with signed negative integral exponents produce zero ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "符号なしの非単位の底と符号付きの負の整数指数はゼロを返す ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )"
   }
 }

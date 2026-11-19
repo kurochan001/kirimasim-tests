@@ -23809,6 +23809,14 @@
     "Overlapping wide nonblocking writes preserve captured coordinates and source order": "Overlapping wide nonblocking writes preserve captured coordinates and source order",
     "Overlapping wide nonblocking writes preserve captured coordinates and source order ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Overlapping wide nonblocking writes preserve captured coordinates and source order ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
     "Wide nonblocking array writes capture element indices and preserve untouched guards": "Wide nonblocking array writes capture element indices and preserve untouched guards",
-    "Wide nonblocking array writes capture element indices and preserve untouched guards ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide nonblocking array writes capture element indices and preserve untouched guards ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )"
+    "Wide nonblocking array writes capture element indices and preserve untouched guards ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide nonblocking array writes capture element indices and preserve untouched guards ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Integral zero to negative powers remains unknown before storage conversion": "Integral zero to negative powers remains unknown before storage conversion",
+    "Integral zero to negative powers remains unknown before storage conversion ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Integral zero to negative powers remains unknown before storage conversion ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Integral one to negative powers remains one with independent exponent width": "Integral one to negative powers remains one with independent exponent width",
+    "Integral one to negative powers remains one with independent exponent width ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Integral one to negative powers remains one with independent exponent width ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Signed minus one to negative powers follows exponent parity at full width": "Signed minus one to negative powers follows exponent parity at full width",
+    "Signed minus one to negative powers follows exponent parity at full width ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Signed minus one to negative powers follows exponent parity at full width ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Unsigned nonunit bases with signed negative integral exponents produce zero": "Unsigned nonunit bases with signed negative integral exponents produce zero",
+    "Unsigned nonunit bases with signed negative integral exponents produce zero ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Unsigned nonunit bases with signed negative integral exponents produce zero ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )"
   }
 }
