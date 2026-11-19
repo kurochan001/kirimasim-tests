@@ -1,0 +1,30 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build b35e2bcc3231",
+ "tests": {
+  "ch19/test_covergroup_block_event_forms": {
+   "status": "pass",
+   "inputs_sha256": "71b23e8a473601e7774f0c36d38a1930acf55545a7f25bde614d68158467a7c9"
+  },
+  "ch35/test_svdpi_h_packed_bit_and_part_select": {
+   "status": "pass",
+   "inputs_sha256": "16355160b63958d176c2269cb14ca877e3a30a9553acb520b340670015d1d626"
+  },
+  "ch37/test_vpi_struct_and_tagged_patterns": {
+   "status": "pass",
+   "inputs_sha256": "69174b522aded9ed2136cb94efd40333d484714b13407edae5daf582a2e31277"
+  },
+  "ch6/test_ch6_extra_for_loop_automatic": {
+   "status": "pass",
+   "inputs_sha256": "1c2d3c62eca71864e892bd1747d51b7a45a8e28effe2fbb3a99e89680937953c"
+  }
+ },
+ "generated_at": "2026-11-19T21:25:25.584836+00:00",
+ "runner_sha256": "c39ee013549700f53ae37be884805b5b843a0415a5f0c8bd7a7b7738f25f465c",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "b35e2bcc3231a2a7d117307b50271f674224f84dbad7ecac8cff2281c8d70aaf",
+  "profile_sha256": "2a0447ba622e51e54d6dc3a52f2800193b8e3fac9f7dfdbeda3234a532a575e2"
+ }
+}

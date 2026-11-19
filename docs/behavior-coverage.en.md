@@ -6,10 +6,10 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 92.96%, execution without Ghost 51.20%, execution with Ghost 78.60%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 92.96%, execution without Ghost 51.20%, execution with Ghost 78.63%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 92.96%. Requirement execution-confirmation rate: 51.20% without Ghost, 78.60% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 92.96%. Requirement execution-confirmation rate: 51.20% without Ghost, 78.63% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
@@ -17,7 +17,7 @@ Requirement coverage (test design): 92.96%. Requirement execution-confirmation r
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
 - The requirement coverage (test design) for registered behaviors is 11464/12332 ( 92.96% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9693/12332 ( 78.60% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9697/12332 ( 78.63% ).
 - Registered but not tested: 868.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
@@ -96,13 +96,13 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `fourstate-boundaries-20261119d-kirimasim-441dddbd0fcd-run4.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T00:24:27.618699+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `fourstate-boundaries-20261119d-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T00:26:22.013552+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `fourstate-boundaries-20261119d-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T00:28:09.101257+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
-- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3092/12332 execution checked; 352 entries refer to older inputs.
-- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2997/12332 execution checked; 352 entries refer to older inputs.
-- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3889/12332 execution checked; 352 entries refer to older inputs.
-- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3600/12332 execution checked; 25 entries refer to older inputs.
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7931/12332 execution checked; 474 entries refer to older inputs.
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7999/12332 execution checked; 422 entries refer to older inputs.
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7913/12332 execution checked; 474 entries refer to older inputs.
+- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3092/12332 execution checked; 357 entries refer to older inputs.
+- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2997/12332 execution checked; 357 entries refer to older inputs.
+- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3886/12332 execution checked; 357 entries refer to older inputs.
+- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3597/12332 execution checked; 28 entries refer to older inputs.
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7930/12332 execution checked; 479 entries refer to older inputs.
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7998/12332 execution checked; 427 entries refer to older inputs.
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7912/12332 execution checked; 479 entries refer to older inputs.
 - `intcompat-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T10:26:34.150974+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `intcompat-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T10:26:46.168015+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `intcompat-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T10:26:39.847047+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -213,10 +213,13 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `test-fix-20261113-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T21:43:25.251767+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `test-fix-20261113-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T21:43:29.466399+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 61/12332 execution checked; 13 entries refer to older inputs.
-- `test-fixes-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T23:50:40.175858+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
-- `test-fixes-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T23:50:40.334300+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
-- `test-fixes-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:50:41.819877+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
-- `test-fixes-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:50:43.072508+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `test-fixes-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T23:50:40.175858+00:00` / 0/12332 execution checked; 3 entries refer to older inputs.
+- `test-fixes-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T23:50:40.334300+00:00` / 0/12332 execution checked; 3 entries refer to older inputs.
+- `test-fixes-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:50:41.819877+00:00` / 0/12332 execution checked; 3 entries refer to older inputs.
+- `test-fixes-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:50:43.072508+00:00` / 0/12332 execution checked; 3 entries refer to older inputs.
+- `test-side-fixes-20261120-ghost-strict.json`: `private build b35e2bcc3231` / `2026-11-19T21:25:25.584836+00:00` / 7/12332 execution checked; 0 entries refer to older inputs.
+- `test-side-fixes-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev v5.054` / `2026-11-19T21:25:34.006223+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
+- `test-side-fixes-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev v5.054` / `2026-11-19T21:25:35.189349+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
 - `vifsense-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T02:58:01.691798+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vifsense-20261114-kirimasim-77c27531.json`: `kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401` / `2026-11-14T02:58:21.742365+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vifsense-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:58:11.624866+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -12998,7 +13001,7 @@ Acceptance criterion: Class methods and variables declared by for loops default 
 
 Normative role: `mandatory`。
 
-- [test_ch6_extra_for_loop_automatic.sv](../tests/ch6/test_ch6_extra_for_loop_automatic.sv): 6.21 - EXTRACT-CLASS-LOOP-AUTOMATIC are observed in simulation. 6.21 defaults the variables declared by the class method and the for loop to automatic, regardless of the lifetime specified for the surrounding scope. Observe that 3 processes forked from the static module scope for (int i...) retain their respective i and become got = 0 1 2, and that the recurrence of the class method retains its saved every call and becomes depth = 6. Distinguishing observation: The condition of the requirement is stimulated in the new test and compared with the expected value derived from the standard.
+- [test_ch6_extra_for_loop_automatic.sv](../tests/ch6/test_ch6_extra_for_loop_automatic.sv): 6.21 - EXTRACT-CLASS-LOOP-AUTOMATIC are observed in simulation. 6.21 defaults the variables declared by the class method and the for loop to automatic, regardless of the lifetime specified for the surrounding scope. The for loop in the static module scope declares an automatic i for each iteration, and each join_none process starts after the loop has ended and copies the i of its own iteration into its automatic block item k, so the 3 processes retain their own k and give got = 0 1 2; the recursion of the class method keeps a separate saved on every call and gives depth = 6. Distinguishing observation: If the for loop variable were static and shared by all processes, each process would copy the final value 3 and got would stay 0 0 0; if the block item k were shared, only the last k would remain and got would become 0 0 2.
 
 ### SV2023-6.21-EXTRACT-DECLARATION-BEFORE-SIMPLE-REFERENCE
 
@@ -108255,7 +108258,7 @@ Normative role: `definition`。
 
 ### SV2023-37.72-EXTRACT-DIAGRAM-009
 
-`37.72` / `normal` / Test mapped; execution unconfirmed
+`37.72` / `normal` / Execution confirmed
 
 The 37.72 VPI model includes struct pattern in the pattern group; group properties and relationships apply to this member.
 
@@ -108326,7 +108329,7 @@ Normative role: `definition`。
 
 ### SV2023-37.72-EXTRACT-DIAGRAM-015
 
-`37.72` / `normal` / Test mapped; execution unconfirmed
+`37.72` / `normal` / Execution confirmed
 
 37.72 defines a one-to-one relation from tagged pattern to typespec, using the untagged typespec access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -108338,7 +108341,7 @@ Normative role: `definition`。
 
 ### SV2023-37.72-EXTRACT-DIAGRAM-016
 
-`37.72` / `normal` / Test mapped; execution unconfirmed
+`37.72` / `normal` / Execution confirmed
 
 37.72 defines a one-to-many relation from struct pattern to pattern, using the untagged pattern access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -121779,7 +121782,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-BLOCK-EVENT
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 Block-event expressions combine with or, or use begin/end hierarchical block/task/function identifier; identifiers include hierarchical tf/block or optionally hierarchical/class-scoped method.
 

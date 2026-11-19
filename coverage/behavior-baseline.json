@@ -28847,7 +28847,7 @@
     "SV2023-A.2.2.1-EXTRACT-TYPE-SET-NET": "dc4e8f5a4ed8ba94a7aa5ad3d7ac2d9bcca1465eb446eff2978c2cb74210d020",
     "SV2023-A.2.4-EXTRACT-SPECPARAM": "f317913feef71a811d03fe350692dc461b092c215a5ad10e8263cc9ee8d1db5e",
     "SV2023-A.2.10-EXTRACT-CONCURRENT-ITEM": "100fdad9c9d1989c4385850f4cec5846f47e4bbf501f656a25e0ab338f145486",
-    "SV2023-A.2.11-EXTRACT-EVENT": "f0042f875d4953f4b6f197bf348a7c7cea5baa3b0f8c66c00d362ad0bb91cb80",
+    "SV2023-A.2.11-EXTRACT-EVENT": "38b00db2a76ad5c32bfc101b47950d1aa841609ba66c94ada31816420390135e",
     "SV2023-A.3.4-EXTRACT-TYPES-CMOS": "e4c30c288eab5b01c9db029e6703070a0f3f0f3f2bc5f93c083a4e44e3a02304",
     "SV2023-A.3.4-EXTRACT-TYPES-MOS": "8e57309ff6a27fa1b4487e653b9b4b5ab1668e8669919c87e54d370fcf23d44a",
     "SV2023-A.6.5-EXTRACT-EVENT": "f56a1cdcef0fddc6718f973f69d4b705b03dac30c2e22accf33abc3648b71a87",
@@ -43836,5 +43836,5 @@
     "P",
     "Q"
   ],
-  "reason": "ch37/test_vpi_io_decl_scope_typespec_ports had a virtual interface module port, which 25.9 forbids; the formal moved to a task argument and b is connected with a modport, so the inputs digest of its 12 mappings changed"
+  "reason": "Refreshed the review records of the four corrected tests (#73, #77, #80, #81): their input digests, review dates and reviewers changed, and the observation of SV2023-6.21-EXTRACT-CLASS-LOOP-AUTOMATIC now describes the automatic block item that copies the loop variable. The collective witness of SV2023-A.2.11-EXTRACT-EVENT keeps the same tests and groups; only the refreshed check record of the ch19 test changed its hash."
 }

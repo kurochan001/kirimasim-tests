@@ -6,10 +6,10 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 92.96%、Ghostを除く実行 51.20%、Ghostを含む実行 78.60%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 92.96%、Ghostを除く実行 51.20%、Ghostを含む実行 78.63%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 92.96%。** 規格要求の実行確認率: Ghostを除いて 51.20%、Ghostを含めて 78.60%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 92.96%。** 規格要求の実行確認率: Ghostを除いて 51.20%、Ghostを含めて 78.63%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
@@ -17,7 +17,7 @@
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
 - 登録済み動作に対する要求カバレッジ（テスト設計）: 11464/12332 (92.96%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9693/12332 (78.60%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9697/12332 (78.63%)。
 - 登録済みだがテスト未対応: 868 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。
@@ -96,13 +96,13 @@
 - `fourstate-boundaries-20261119d-kirimasim-441dddbd0fcd-run4.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T00:24:27.618699+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `fourstate-boundaries-20261119d-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T00:26:22.013552+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `fourstate-boundaries-20261119d-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T00:28:09.101257+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
-- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3092/12332 動作確認、古い入力との対応 352 件。
-- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2997/12332 動作確認、古い入力との対応 352 件。
-- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3889/12332 動作確認、古い入力との対応 352 件。
-- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3600/12332 動作確認、古い入力との対応 25 件。
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7931/12332 動作確認、古い入力との対応 474 件。
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7999/12332 動作確認、古い入力との対応 422 件。
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7913/12332 動作確認、古い入力との対応 474 件。
+- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3092/12332 動作確認、古い入力との対応 357 件。
+- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2997/12332 動作確認、古い入力との対応 357 件。
+- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3886/12332 動作確認、古い入力との対応 357 件。
+- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3597/12332 動作確認、古い入力との対応 28 件。
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7930/12332 動作確認、古い入力との対応 479 件。
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7998/12332 動作確認、古い入力との対応 427 件。
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7912/12332 動作確認、古い入力との対応 479 件。
 - `intcompat-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T10:26:34.150974+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `intcompat-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T10:26:46.168015+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `intcompat-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T10:26:39.847047+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
@@ -213,10 +213,13 @@
 - `test-fix-20261113-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T21:43:25.251767+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `test-fix-20261113-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T21:43:29.466399+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 61/12332 動作確認、古い入力との対応 13 件。
-- `test-fixes-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T23:50:40.175858+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
-- `test-fixes-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T23:50:40.334300+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
-- `test-fixes-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:50:41.819877+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
-- `test-fixes-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:50:43.072508+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `test-fixes-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T23:50:40.175858+00:00` / 0/12332 動作確認、古い入力との対応 3 件。
+- `test-fixes-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T23:50:40.334300+00:00` / 0/12332 動作確認、古い入力との対応 3 件。
+- `test-fixes-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:50:41.819877+00:00` / 0/12332 動作確認、古い入力との対応 3 件。
+- `test-fixes-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:50:43.072508+00:00` / 0/12332 動作確認、古い入力との対応 3 件。
+- `test-side-fixes-20261120-ghost-strict.json`: `private build b35e2bcc3231` / `2026-11-19T21:25:25.584836+00:00` / 7/12332 動作確認、古い入力との対応 0 件。
+- `test-side-fixes-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev v5.054` / `2026-11-19T21:25:34.006223+00:00` / 3/12332 動作確認、古い入力との対応 0 件。
+- `test-side-fixes-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev v5.054` / `2026-11-19T21:25:35.189349+00:00` / 3/12332 動作確認、古い入力との対応 0 件。
 - `vifsense-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T02:58:01.691798+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vifsense-20261114-kirimasim-77c27531.json`: `kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401` / `2026-11-14T02:58:21.742365+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vifsense-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:58:11.624866+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
@@ -12998,7 +13001,7 @@ $isunbounded bit はパッケージスコープまたは階層的パラメータ
 
 規定の性質: `mandatory`。
 
-- [test_ch6_extra_for_loop_automatic.sv](../tests/ch6/test_ch6_extra_for_loop_automatic.sv): シミュレーションで6.21-EXTRACT-CLASS-LOOP-AUTOMATICを観測する。6.21 は class method と for ループが宣言する変数を、囲むスコープの lifetime 指定にかかわらず既定で automatic とする。static な module スコープの for (int i...) から fork した 3 プロセスが各自の i を保持し got=0 1 2 になること、class method の再帰が呼び出しごとの saved を保ち depth=6 になることを観測する。 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。
+- [test_ch6_extra_for_loop_automatic.sv](../tests/ch6/test_ch6_extra_for_loop_automatic.sv): シミュレーションで6.21-EXTRACT-CLASS-LOOP-AUTOMATICを観測する。6.21 は class method と for ループが宣言する変数を、囲むスコープの lifetime 指定にかかわらず既定で automatic とする。static な module スコープの for ループは反復ごとの automatic i を宣言し、join_none の各プロセスはループ終了後に開始して自分の反復の i を automatic なブロック項目 k にコピーするため、3 プロセスが各自の k を保持して got=0 1 2 になること、class method の再帰が呼び出しごとの saved を保ち depth=6 になることを観測する。 区別: for ループの変数を静的として全プロセスで共有すると各プロセスが最後の値 3 をコピーするため got は 0 0 0 のままになり、ブロック項目 k を共有すると最後の k だけが残って got は 0 0 2 になる。
 
 ### SV2023-6.21-EXTRACT-DECLARATION-BEFORE-SIMPLE-REFERENCE
 
@@ -108255,7 +108258,7 @@ if-else は vpiQualifier を integer に 暴露し、条件限定詞を表しま
 
 ### SV2023-37.72-EXTRACT-DIAGRAM-009
 
-`37.72` / `normal` / テスト対応あり・実行未確認
+`37.72` / `normal` / 実行確認あり
 
 37.72 VPIモデルはパターングループに構造パターンを含む。グループのプロパティと関係はこのメンバーに適用されます。
 
@@ -108326,7 +108329,7 @@ structパターンは vpiName を文字列として 表示し、パターン名�
 
 ### SV2023-37.72-EXTRACT-DIAGRAM-015
 
-`37.72` / `normal` / テスト対応あり・実行未確認
+`37.72` / `normal` / 実行確認あり
 
 37.72 37.3 で導出されたタグ付けされていない typespec アクセスタイプを使用して、タグ付けされたパターンから typespec への一対一関係を定義します。vpi_handle と特殊な制約条件を持つトラベリングを実行します。
 
@@ -108338,7 +108341,7 @@ structパターンは vpiName を文字列として 表示し、パターン名�
 
 ### SV2023-37.72-EXTRACT-DIAGRAM-016
 
-`37.72` / `normal` / テスト対応あり・実行未確認
+`37.72` / `normal` / 実行確認あり
 
 37.72は 37.3で導出されたタグなしのパターンアクセスタイプを使って，構造パターンからパターンへの1対多の関係を定義する。特殊な場合の制約を 指定して vpi_iterate に vpi_scan を追加してトラベースします。
 
@@ -121779,7 +121782,7 @@ bins/optionエントリは、オプションのワイルドカード、binsキ�
 
 ### SV2023-A.2.11-EXTRACT-BLOCK-EVENT
 
-`A.2.11` / `normal` / テスト対応あり・実行未確認
+`A.2.11` / `normal` / 実行確認あり
 
 ブロックイベント表現は，または，または階層的ブロック／タスク／関数識別子を用いて開始／終了を組み合わせる。識別子は階層的tf/ブロックまたは選択的に階層的/クラススコープ法を含む。
 
