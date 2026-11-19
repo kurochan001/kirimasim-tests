@@ -23829,6 +23829,8 @@
     "Constant and runtime nonunit integral bases agree for negative exponents": "Constant and runtime nonunit integral bases agree for negative exponents",
     "Constant and runtime nonunit integral bases agree for negative exponents ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Constant and runtime nonunit integral bases agree for negative exponents ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
     "Shift count, sign, assignment width and four-state conversion interact correctly": "Shift count, sign, assignment width and four-state conversion interact correctly",
-    "Shift count, sign, assignment width and four-state conversion interact correctly ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Shift count, sign, assignment width and four-state conversion interact correctly ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )"
+    "Shift count, sign, assignment width and four-state conversion interact correctly ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Shift count, sign, assignment width and four-state conversion interact correctly ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Explicit cast conversion occurs before outer arithmetic and destination conversion": "Explicit cast conversion occurs before outer arithmetic and destination conversion",
+    "Explicit cast conversion occurs before outer arithmetic and destination conversion ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Explicit cast conversion occurs before outer arithmetic and destination conversion ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )"
   }
 }

@@ -132,6 +132,10 @@
     "wide_shift_boundaries": {
       "en": "192 regressions at255/256/257 and511/512/513bits,32 frozen configurations perwidth. Four shifts cover0/1/W-1/W/W+1/X/Z counts at eachwidth with signs, destination contexts and bit/logic conversion. Runtime+nonce=1 restores a cleared known middle sourcebit; full inputs/results and natural/count/destination widths are observed. Existing positional reference and finite rows/bindings remain unchanged; no complete interaction coverage claim.",
       "ja": "255/256/257・511/512/513ビットの192本、各幅32通りを固定。4種類のシフトで0/1/W-1/W/W+1/X/Zのシフト量と符号・格納先の文脈・bit/logic変換を確認。実行時の+nonce=1で既知の中央入力ビットをゼロから一へ戻し、入力・結果の全体と自然幅・シフト量の幅・格納先の幅を表示。既存の位置による参照処理と有限モデルの行・要求対応は変えず、全ての相互作用の網羅は主張しない。"
+    },
+    "wide_cast_boundaries": {
+      "en": "180 explicit-cast regressions at255/256/257 and511/512/513bits,30 frozen configurations perwidth. Size/signing/typed bit/typedlogic casts precede optional signed+1 and finalbit/logic storage. A runtime plusarg restores a cleared known inputbit; complete source/intermediate/final values and all widths remain visible. Original finite-model rows/bindings are unchanged; selected signatures do not prove all contexts.",
+      "ja": "255/256/257・511/512/513ビットの明示的な型変換180本、各幅30通りを固定。幅・符号・型付きbit/logicへの変換と、符号付きの一の加算・最終格納の順序を確認。実行時引数で既知の入力ビットをゼロから一に戻し、入力・途中・最終の全ビットと幅を表示する。元の有限モデルの行・要求対応は変えず、選んだ組合せで全ての文脈を証明したとはしない。"
     }
   }
 }

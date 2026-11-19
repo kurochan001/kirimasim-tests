@@ -25658,6 +25658,7 @@
     "Constant and runtime signed minus one preserve negative exponent parity ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "定数と実行時の符号付きマイナス一は負の指数の奇偶を維持する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
     "Constant and runtime nonunit integral bases agree for negative exponents": "定数と実行時の非単位の整数の底は負の指数で一致する",
     "Constant and runtime nonunit integral bases agree for negative exponents ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "定数と実行時の非単位の整数の底は負の指数で一致する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
-    "Shift count, sign, assignment width and four-state conversion interact correctly ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "シフト量・符号・代入の幅・4値からの変換は組み合わせに従う ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )"
+    "Shift count, sign, assignment width and four-state conversion interact correctly ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "シフト量・符号・代入の幅・4値からの変換は組み合わせに従う ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Explicit cast conversion occurs before outer arithmetic and destination conversion ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "明示した型変換は外側の算術と格納先への変換より先に行う ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )"
   }
 }
