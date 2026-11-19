@@ -431540,9 +431540,9 @@
         {
           "test": "tests/ch37/test_vpi_struct_and_tagged_patterns.sv",
           "observation": "The case matches items '{ 1, 2 } and '{ 3, 4 } of the case on the struct p each give from vpiExpr a pattern whose vpi_get(vpiType) is vpiStructPattern, and vpiPattern leads from it to a member pattern. The application prints the same kind for both struct patterns and counts 4 patterns in the two case statements. 区別: A tool that did not put the struct pattern in the pattern group would model '{ 1, 2 } as a constant, an expr or another object, so the application would print another pattern instead of the struct pattern line, and the pattern count would no longer be 4.",
-          "reviewed_on": "2026-11-12",
-          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
-          "inputs_sha256": "7afe5ccb6e61a73fb41ed1a2d5ad5130ede0593e6ca08ac3ad73bdd7ef3bb9e9",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "69174b522aded9ed2136cb94efd40333d484714b13407edae5daf582a2e31277",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_struct_and_tagged_patterns.sv",
@@ -431810,9 +431810,9 @@
         {
           "test": "tests/ch37/test_vpi_struct_and_tagged_patterns.sv",
           "observation": "In the case on the tagged union u, the items tagged Wide .w and tagged Narrow .n each give a tagged pattern for which vpi_handle(vpiTypespec) returns a typespec, printed as 'typespec 1', and the nested any patterns are named w and n. The diagram does not say which typespec it is, so its type is not compared. 区別: A tool without the one-to-one relation from the tagged pattern to a typespec returns NULL and prints 'typespec 0' in one of the two lines.",
-          "reviewed_on": "2026-11-12",
-          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
-          "inputs_sha256": "7afe5ccb6e61a73fb41ed1a2d5ad5130ede0593e6ca08ac3ad73bdd7ef3bb9e9",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "69174b522aded9ed2136cb94efd40333d484714b13407edae5daf582a2e31277",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_struct_and_tagged_patterns.sv",
@@ -431856,9 +431856,9 @@
         {
           "test": "tests/ch37/test_vpi_struct_and_tagged_patterns.sv",
           "observation": "The struct patterns '{ 1, 2 } and '{ 3, 4 } of the case on p each lead to a member pattern through vpiPattern: the application takes it from vpi_handle or, when that gives none, as the first object of vpi_iterate, and prints 'member pattern 1'. The figure of 37.72 draws this relation with a single arrow and the clause has no detail about it, so the test fixes neither the access routine, the number of member patterns nor their values. 区別: A tool that gave no member pattern through vpiPattern, by either routine, would print 'member pattern 0'.",
-          "reviewed_on": "2026-11-12",
-          "reviewer": "Claude Fable 5.2 (AI); not an independent human review",
-          "inputs_sha256": "7afe5ccb6e61a73fb41ed1a2d5ad5130ede0593e6ca08ac3ad73bdd7ef3bb9e9",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "69174b522aded9ed2136cb94efd40333d484714b13407edae5daf582a2e31277",
           "evidence": [
             {
               "file": "tests/ch37/test_vpi_struct_and_tagged_patterns.sv",

@@ -61,14 +61,20 @@ static void describe(const char *cond, vpiHandle p)
         }
         add_line("case on %s: struct pattern, member pattern %d", cond, m != NULL);
         break;
-    case vpiTaggedPattern:
+    case vpiTaggedPattern: {
+        /* vpi_get_str() reuses one buffer (38.11), so each name is copied
+           before the next call. */
+        char member[64], any[64];
+
         ts = vpi_handle(vpiTypespec, p);
         nested = vpi_handle(vpiPattern, p);
+        snprintf(member, sizeof member, "%s", name_or(p, "(no name)"));
+        snprintf(any, sizeof any, "%s",
+                 nested != NULL ? name_or(nested, "(no name)") : "none");
         add_line("case on %s: tagged pattern %s, member any pattern %s, typespec %d",
-                 cond, name_or(p, "(no name)"),
-                 nested != NULL ? name_or(nested, "(no name)") : "none",
-                 ts != NULL);
+                 cond, member, any, ts != NULL);
         break;
+    }
     default:
         add_line("case on %s: another pattern", cond);
         break;
