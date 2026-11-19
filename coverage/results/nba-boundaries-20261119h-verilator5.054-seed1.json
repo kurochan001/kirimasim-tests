@@ -1,0 +1,973 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "gen/ch10/test_gen_nba_boundary_array_bit_delayed_w127": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00101010011001110011001110101111011001001001010...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "0e7715f8b1eefe3b6e5ce077b6bb151873ce5cfb289df5515551deb83cf747d5"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_bit_delayed_w128": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11011100010110101110000000010010110100101111010...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "3ae7b531c47c99478c624e2909de7a6e3869dacbb67b9caf49d94ca1efb48ff4"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_bit_delayed_w129": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11110000101110000001111001101000001010011010100...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "6d4300c595822717ee5ddc09ebc64a634e9046236eb987b03f08d49754bfbd1b"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_bit_delayed_w255": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00000000001101010011101101100111010010000011111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "83f1f33c6c03109362cb5c92849b9c76c7fabef999ed0308d0afe98c9c815b5e"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_bit_delayed_w256": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01000001111011011100010001011111110001111100010...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "b7f69fce6ca279c0b54dd738c012d5da85ca22a71ae96203745ce1e65cc4bb54"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_bit_delayed_w257": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11100111010100011010111111010101101100000011000...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "86e8231c24012e57fd2e0daa831de1dc389cbf0ff8c08862fa6703f481cced6e"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_bit_delayed_w511": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10111000110011110101110001011100100010100001100...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "f2a79aafb59617e7358693a446a4b7b7c40bfe3cafd169ac25303b4119403d35"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_bit_delayed_w512": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00110100011001101001101000100001010110100101111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "6d1b75150c7475bd63ccba028df8e3be7e40c93c89d113cdfc839dd373b64cc4"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_bit_delayed_w513": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10111101011101001010010011010110100010111101000...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "0228d405e0c1501da6bb0816de35df1a7646185c38fcd45686fd9f4bc45100b9"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_bit_delayed_w63": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11011010011001101100010010111101010100011100110...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "0bf71d707a313d33ffd8315dc4686d31a414c98a3cfa1220b0ed88963bc9936b"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_bit_delayed_w64": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11111110010011110011000010001100000000100011111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "af5182153e6631961764c54de8041ab3f833901484b722039ebc56bff49b689e"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_bit_delayed_w65": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10101101110000001001100111010111000100101111011...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "2bb005609ecb029313b1babea54ee6a167bb32203d653d0706ab45e007bb5c0d"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_bit_immediate_w127": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11110000000101101111111111011011110110111100111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "21de3166faae3ee5679adfb1dabac509bf167baabf7620933414d05f22e8e497"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_bit_immediate_w128": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11101100000111100000100111100100010101001010110...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "184723d7ef5932cd629d65daecddf1ca0a0ebee3822dd70bdc21484f3dc64249"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_bit_immediate_w129": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10111101101001111111110100000100111110110001010...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "c9a9f556f67438138c2e626cf1b3e1207bd1ddd460b03fb5b5b1d2afbcf52d9f"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_bit_immediate_w255": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11010100100011000011101000001001011110111011101...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "0888da7166287752c66656ef17c7c5451be32a0df438f50d757f82349e26a0e2"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_bit_immediate_w256": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00011010000000010100110110001100011111110010100...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "51983ab375833de385f97ce1bc81f631c91419f6cf222f358f884fe5367bb5e4"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_bit_immediate_w257": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10011110001011100010011110001010110101100000101...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "822246cc015e3cb747c470fd1929a652561c72b0003a6614da3af492f8879444"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_bit_immediate_w511": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01111110111101100111001011000110010000111110000...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "f9f5e50717b1300127a5b2ba3fc8c4c588535f8010b8cc3df0d898895ddfe56e"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_bit_immediate_w512": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11111000001111001011010101100110001000100110011...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "c6b0123194e1b1239aa62605e207dd454de78ccf7ac83d63be33dd126d42bd6c"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_bit_immediate_w513": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11101010010100101010111111010110100100010111100...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "89815f9f57e36ecb2809153263d1d426b2442a57ce7b157e01bbf1c1df6ecd86"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_bit_immediate_w63": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01001000101111100001100011110111101110001001010...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "141cc7a5f5f23b7206c867d052ec7e2927256c17d48b9ea7e093d0b6cfb368a8"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_bit_immediate_w64": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01101100110010110011101010101101100011000110100...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "1ef8b0da9747eb74b6371333c7e4c10c51893f44aef5c72641d24cf24658b8fb"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_bit_immediate_w65": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00101110010000101000111000011100010110111110111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "c1cb87992a46640d1b130c6dd303a0d0406e481ab3453277f7ccb7148cd563e0"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_logic_delayed_w127": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00001011011001001010100010101001011101100010010...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "1f64cafb2d8b94e76777dc902d6aeefd5cfcb124738d72782d303aaf6d7752f9"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_logic_delayed_w128": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11001101010111100000010010011110010110010000100...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "3d3c7ffa71820b37f78bfeebf0d94c2fcb3fdfd90b4c23d26c6ee6f7b61016ca"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_logic_delayed_w129": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11011101011000100010000010011001010101011111010...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "7a2e5939feb670483ac8c50f7ddcb50f8d3fc5cf703f7c42e314f0dd05d70bb8"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_logic_delayed_w255": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00111110010100101111001101110100010011100000101...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "e7f0e84abca8d4f0f2cda730bfb0c13147497df245bb499bc6e9b126ff1880c8"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_logic_delayed_w256": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11000100111001000111101110011110001101110001100...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "f2d08247d095344c754759e14a4930c597af0c6074b39b51f9e0dc1a15ef370b"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_logic_delayed_w257": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01111101101100100101100011101100101000011110001...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "d32a3fe43e8a93173346e3caec92c5cc96350a2cefdeffb83f326c4ac109119c"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_logic_delayed_w511": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00110110000000010001011010101100000010111001110...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "8b673749f1ee4d6ec439e46102cf8d8acab99dba379815d4f5348dd0d1ec0fb9"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_logic_delayed_w512": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10011101111000111001000000000111101111100001100...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "9e292690578ed2ad03fb6bfbc0521a0899c483cf3406fc545b6f69a8b94a3f17"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_logic_delayed_w513": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01000001011000110001100101101011110101111011010...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "9d3f1d76ea4effb1dbc78db7fd9ef3ba3dd1939514715382b61e96b71bd4df77"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_logic_delayed_w63": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01100011001111111001101101110110010111010100111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "39eeca87eff147b7027f3d64e6fb0fc24e9cab3bbed63c085a8789ee7e630300"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_logic_delayed_w64": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00011110010111001000010011000000111000011011001...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "24dd654d950fd78080f5d2a3bfdefe8f148372b6b0b4a1cf6844fc8935fdbbf4"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_logic_delayed_w65": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10000110101101110000010001100101011111001110111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "afdef310b6e476324bc3146f2017da88dddf4de9d9a0314ff6763c708c96d7b2"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_logic_immediate_w127": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01111111001111100111101000110001101100101001100...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "dfa0ae8b36f3cf633b97bb85d4416565e99bd48a5055e221527d59b3c1e57616"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_logic_immediate_w128": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01010001101101011001011101101111011011100110010...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "5c0bd005120de9cd2ba7286a010aa0be1a5ff956924fedccfd63f2f667e9b836"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_logic_immediate_w129": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01010011101001100011111111111101010110000010011...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "c741dc5cd15045e9d634032b2f0229cb5c401d4d40cc286e6a80a95a908a3f78"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_logic_immediate_w255": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11000111000010011101000010101101110000010010101...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "0c963b56502216a07a00d53fcf3b1b278feaf2c0d5a688b3a9dbc47c9fca8beb"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_logic_immediate_w256": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11110110101010001011000011100100000000011000100...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "caf54fadf4f43339e757476acabe056ad2e3a7f73f20ec22b73943aa1604bfcf"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_logic_immediate_w257": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00000001011011000100101001111111101100111000000...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "5b6f18061f6704172fc0a6a81d77def9d45f68feea2b295a951efe28d15fc57f"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_logic_immediate_w511": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00101011010111010000100100101001101000010110111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "074d662cbb193baa081c53a9bca23b1a2020e509d2bb861e80257fcfdddef01d"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_logic_immediate_w512": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00011001001010100010010110000011001011011000000...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "7cf1c97363f699edeb4753a89d4fdcb5d50800305163269bc96d89aaa8a8fe79"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_logic_immediate_w513": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11001111001110000100001110101111011000000101001...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "279b3c4ea965c8dc2875c319c5e6473d1be5682c089a34c45b62d56fba081a57"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_logic_immediate_w63": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00111000111111110110111010101000100111001101110...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "a7bfa9239a1d189bbaf30dbdd7d624b7c7fd297330ef260f8b9ac986a43cb576"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_logic_immediate_w64": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00011101011001110100011101001010111101011000000...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "23f59cf209227f8363dedfd27c8dff97376cf7d2718ff725a0810eb3d468f497"
+  },
+  "gen/ch10/test_gen_nba_boundary_array_logic_immediate_w65": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00111011011111100100100011101110101000111001010...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "712deefe82acb23c44e7c184fcf262176b7b7049983f69f80ab18fa1e47b8ec8"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w127": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00111001100101100001111110000111000100011010100...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "88f1d0d0c4ecb732a97239535f215cd9cfa35bf9886cadd30c3770d14f3e5946"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w128": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01011011000011101010100110001000010111110000101...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "bfd58247377b1402f41bf0ee5cb16f5dc056415661dad8090fbab7ff0eb792cb"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w129": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01111010101010100011110110100001001100100010000...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "ea1b6b4d396955f9c12a66dbc25e5ed5f5ba2976f95f6810257c5c276e6b18c5"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w255": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00111100100100010101101100101110010001010101010...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "cc3a95b257385177b4412bd2ccf5c9e1110a77d69603c270b801764f01817d0f"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w256": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00110100101110011010111110100011011000010111101...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "c634c61ea505f2e16f6f4947975df2e16a6f9107c54e3c4e258788eecf49f091"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w257": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01000100001000100110110101100100111110010100111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "809cf23a496beda17103234e9f400649de0370e362608c1b4edb237dec16058e"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w511": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01101011100101100100011111101011110110001001101...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "3d2bf88cbc1993944518c29d82f1a37653881ffe3f89815b5cabd2b4f7d56cc5"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w512": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01001100111110101111110001001100111010010110001...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "adf137faf5ba2d8d7ce419198870d6047c36b25e5b9ef6a57a77e3d7a1571e88"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w513": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00111100111001011000001001110011010010000101111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "6cfc367234ed22aacdd5239a04fa39728efd75149b864e085f15435c4e53bec3"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w63": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00001110101111110111000001110000000000000011110...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "04672d79ab485c0e15751590536ef84cb6b5a970451136caadab01caccf5e2e0"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w64": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01110000100110011110101101011110010010111000010...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "fb887577829d8fab01c63eb85a107a1ed476c013c15c216c3f7beaaa2ced3845"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w65": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10110111111110100101100011011101001111011001001...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "93d0fbde44eaaf11304f7052373317d183c7e44a7656d9e995cb342dd65cc7e6"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w127": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11101110100010100101011000100010010010011100010...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "ef907ae5029eeb97f7e1d75958464c8fa1e28682032cff4bfac774d45697ba87"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w128": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01001000001100100110110010111000001001000000100...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "7fc1e2bbca618aec7cd6ea9ae23b8fe3b24d69fbe1be9b98ed924e5af54c8338"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w129": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11100010011011001101000110101110101010001111011...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "13ac0e264daad78ab9537168781b82524d3e01c1f07f2996fce24962d108d00c"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w255": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00111000010000011100011111111000010001001101100...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "73023938b6a3bc5d9716e751fa1683fdd7a1597455925aff927adbf75fc00933"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w256": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01010011100111111110001100111111101100000011111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "4e0ab6c6b9f8cb3bff3fe6eea686d2b68560406f306e4a62ad0bb7cfdd8909b8"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w257": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11101101011001100010000001001100100111000010110...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "f165250589b128ac5caabde7f5d9981645c679082909859cbb8d501692d14dc3"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w511": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11110000010000010100011101000011000100100011001...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "29d5fb3d493ecbf632955a5c61bdffd37fbb70e5f5b95e4e59a8d5dfe5cec33e"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w512": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10110111101001000000111100011110111011011111101...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "d0ceac8d44b93bbaa9d591019908d74dfd8037e18d41e7b0ffdc3aab148e188e"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w513": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01101110111100000110011100110001111011100111000...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "602951088ad69168da9401bacca6d6901189b8927c60ae650c7d95b590aab05e"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w63": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00001010100001011011011100111000111111111100001...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "c1d776d82a50b10756ab454769382c5d27fab8fd98266c69cc40f24360667ff3"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w64": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10100010111001001010000000101000001100010100111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "bcfbbaf7974e25f27aaae3efff304b32506382dedfd508219992400bd472f0b5"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w65": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11001111011111111101011001110010001011011111100...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "f2f5529ae1ade057050320fbcec2f01750db4f8ebe2209922c7435b53fa3aa3d"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_logic_delayed_w127": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11011110001010000010010111000100111010110011111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "107a98ece6f4122cdb124734acc43195885af99285ff4b319d30053afba3e643"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_logic_delayed_w128": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10101111011101011011100110011001111100111111110...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "0ae2d04401f240b8580597951aa8bcd8dd18ca6a6fdfcfe39fe79cc81aef1b31"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_logic_delayed_w129": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00100100101101101001101011000101011110001110011...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "c2870ed445550439410fffdab82aad0e939cc73e73086ce55247a743679fbe2c"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_logic_delayed_w255": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11010111110101110000010010100110100100100111101...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "e58c04de0386e59fa23ceee306950cb97407600d324495e28d0ed97bbb4c0478"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_logic_delayed_w256": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10100110001101011101001110001011011100101010010...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "6ebd07dcb6bf17c6e997be9da68344df5bdc6ca4cf02120051510a1ad5e383b3"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_logic_delayed_w257": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00001110111010000000000100110101100010010111010...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "923b9b161c825f730085701394a8983fb77588308f993b3e33b793a0035cfa10"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_logic_delayed_w511": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00011110111110001011100001101000110001010010110...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "34261a69cdde6cfa7dbf8fc3ec3539fa1ffe092b776d6ac77eaf20ee9e0fad01"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_logic_delayed_w512": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01101100110100110010010111100001000101101001011...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "83e5a8a985dac9c0c522a3b3d652a0ad34f80541ed7eb095355c155b753a0651"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_logic_delayed_w513": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11011110110001110100011111110111011100110101000...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "5f00163238d7e332d2c62243459e462a4cf112979e8066a29ce5ceafa9a79df6"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_logic_delayed_w63": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10001111101110001111011111000011010101000010010...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "ef7166012d9e481a870895920e59954034b16f602dd74881bb1ab280ea0f0349"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_logic_delayed_w64": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01011111011001111100111000110000100011110001111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "ed82ae92abf1f4aee028a41faf812fbb21e12327282194b02b3c34ebe3a51f13"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_logic_delayed_w65": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01010100101000100011100100011000111000000100001...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "e484776b3e4987fdea1e1967beea067380359d7afc46795f9f8a58d73f7b2459"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_logic_immediate_w127": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00110011000110110011110001101011000000111100010...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "bea351634c6739dd3731763794142f84c196e58634d20a6e231013afe5267dbd"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_logic_immediate_w128": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11110100001000010111101100110111001010001100011...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "b3470148675d5807fc0a8bd225855d09413aa1f4f5b7353b71dc9e43c09a02c9"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_logic_immediate_w129": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11111000110101111111101001000000101110011010100...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "0f954f7dc813d7e10be4612968113b5e1212dfa8e449e9e979d05b4fb95c8f94"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_logic_immediate_w255": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01001110111011111101010011011001111100110111101...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "090efca47ee816c03c6fe905fe53fa12dbf35fabe087f32b50cc984e16fd4297"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_logic_immediate_w256": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00010110111010101110001011100000111100001100011...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "64e86ec05587b7282761282fb03be7fabbe23a3deaf493f62ad83107fe7e091d"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_logic_immediate_w257": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10010001010100111111010111100100110011011011000...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "42be2cdc3f89e65d08a62e37a48c7cf9ace043bb8006b623dfea00b3e6eed744"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_logic_immediate_w511": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01100000001111110010000011111011000010101011111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "d40415b67ee8ad449890144dbc6f59d59053600754ca6c339b1c45ab765afefb"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_logic_immediate_w512": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00011100100110100011001010011010001011110001111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "673c6ba754a9dbc539c01cfac53d01acca0a3000cd133088093e8e02e3df4484"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_logic_immediate_w513": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11110001010110110101100111111110001101110111011...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "5a9834478ef7856a664f0d41a3589a158c049ca1cc840ba38934280ac9d6a93e"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_logic_immediate_w63": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10010110011000010010010101101000101111000010100...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "e056e8e38f5db6cf50926dd5aad953bca83f5c00ad9d3774b7f523d08541f690"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_logic_immediate_w64": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11110001111110110001110011011001111100101110000...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "19c9cbbe7d83542ae6ab8139a91388db3dd456800f258f31c8d7a1dea2cdf74d"
+  },
+  "gen/ch10/test_gen_nba_boundary_overlap_logic_immediate_w65": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10111000010100110101110010100000000111011011010...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "4b1bcb8a62110dbbf265ad58570bd8bd9465734ef3b48518c7a233012a9b58cf"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w127": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01001011111100111101000101011001000110011111011...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "1dbe8a2c0e4652bd0cf9565e43e3e607c8d547586d3074510453cd1d444d19e5"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w128": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01001001001011110001110101101100011111011111001...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "9f29812c8d98c62c3830a5280af870f08a5eed6bf34318d94ad6ffaf612c903b"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w129": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01011011111001001101110111110100001010110101111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "a30eeca2f8f1c9d4c9527e3f40a9af108328ea8df9092a58afafe63c34140e31"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w255": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10001100101110100010011101010000001101011001100...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "ce9138b5070457de0deef3d87d73f083d544450dd9bf5900f5ee97bb810c77de"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w256": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01000101000100111000100101100101001000111001110...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "22e8f9a4ae98df3f81c310ef84502e537a68c760dc584db8703cb6baa9c06495"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w257": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00100001000111100110100110111110011000000000010...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "b2f3b2394186bd9a2088154fc850520deef14a50ce40370d859e6d6c91b0afb3"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w511": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11101110011100101101001010100010100110001110010...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "0482936b6ffd1208aa02e63cdd4cc3131cf4b537ea16fdcb2d94e8347ce37683"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w512": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00011010111000110011011111110000011110001100101...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "6fb1a0ed01e549427b9b46e7970ab04e0bf6ddaca8041e780f7141b65bb4b83b"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w513": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00100110011111110000110011011100111000001011001...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "676b4ff60049c22f88f2033e2c40b6bb562b3f42f7e78ed30500f9d1cc596c6b"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w63": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10001100001100101110100100001010000011011000110...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "76cc66236b66663542b62bd3c269224cc5b5edc84b9412c80a98cec1307291da"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w64": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01110010011101110110001100111011010010010010110...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "14a3ff5c899315e5cb83e278ecac9beaabd0f308ec129b3583090be139593d2e"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w65": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00111001000110011111000001100000110101101010011...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "6cf8049fe15feb637faf633176bd922ad777d62da5d5ece4df2c92c61a054134"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_bit_immediate_w127": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10010100111100101101000100000101111010011101001...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "5060d449a361b517e2f38360f0fb0ac8b072c4a25ee148e8e882ce128fb657e6"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_bit_immediate_w128": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11111111011111010010111100101110010000101000101...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "1ee600f5bba8864bf5eab374bfb40881cdd4d1c2ece4a3cfa8bae8465081504c"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_bit_immediate_w129": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01011100100111111001000001100100110100011110110...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "9ae23b30c1ee873d9f56f265b6d0cf20b3ee8810b0886b8df5943f37a5be6f48"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_bit_immediate_w255": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10010010010011001010111100101011110110000000001...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "d1aaa99810a265f1ac556538da165d9904636a9bf13d8d66016df428fc19c3ad"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_bit_immediate_w256": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00000000110101100101001110110101110001010000001...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "dcc07d85e520cdf4bd000545e170047311d87997471bd67c1c0a72da286defe3"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_bit_immediate_w257": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10100100010001010100111000011100111111101000110...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "c34634ae9ba91add531e91b7430ebf24d81427180bc5df30b8e52b2b169a4f17"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_bit_immediate_w511": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01000001110110001110011011111101001011000011110...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "5a1bb55552612093307675026c84d7594e342233947eefb5e16ebfa9d7a2c7a6"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_bit_immediate_w512": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10000011100000110010000011000001000100100010010...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "9473258dd7e9097c3cd9f89647e7198cf0a475e9b6361464908ac7b205bc61ae"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_bit_immediate_w513": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01110010001111000001010011010010100111001001001...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "309989ed6ef9f0413ec9a5739b0848dc2acbad4948f8745a79bc28999c2d9348"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_bit_immediate_w63": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11101101010010110010101010110101111111100010101...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "a0956bb7de13434e3feda47d0e6837713d627882dc444e095f7915ba1150c813"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_bit_immediate_w64": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11111011101000001110110011000011101001011010110...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "9a0468fb4930f86a5df2af7ca2392c7afe68d376156f83d4f3c4432c9659d5e0"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_bit_immediate_w65": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01010001110010001101110000111011001011111001000...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "0ee30def167dcb137461c8a0475bbfc4e02f46d4a8df2f7f9d0bef8e4dc44cee"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_logic_delayed_w127": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11011010000101000101101001011101101110100100001...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "64b8a7c798f21943f6235c1fd9fb436a98ded74606e535fdd22328613d5873aa"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_logic_delayed_w128": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10101010011011111010010001111111011011101111011...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "80c9825d1758d1b20bd65d8d2912c7fa715ba495b33bb8071c42b3e88b29f4a3"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_logic_delayed_w129": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01111011011101111001010100110101010010100000100...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "9cf876edf15e13f1ab622a5d31f758a96e9bab0a2057d5eda5463dbc46b8e5d4"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_logic_delayed_w255": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00110010010100011011100010110001100000111100101...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "dc360ce9ce7932103809841c1852246d4f324ce1df3631e68212ebedb2b69205"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_logic_delayed_w256": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00111000100011001110001000011010111001001100011...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "0947863de1d995bc04e23828a7d35e503e07983523cf75ffdbfd292a9488e512"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_logic_delayed_w257": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01110000001110001110001111111101001011011010110...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "9d6455cee98b5ce69527c5dd06591b8992cedd6c18b4ebfddb328d99f885d63c"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_logic_delayed_w511": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00011111010100111110001100111010100010010011011...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "0843c2ac6e0654bd9124aea9c212aa870237baa2ef1b5a127d331661943b2f05"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_logic_delayed_w512": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00000011110010010101001000000111101011000000101...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "ce5b65b451cc1b2b64e5f7d66bc2d0a5aa1071dfba27c5bda2bc9dd65a8d68b1"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_logic_delayed_w513": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00111000110000001011000101011110101110101001000...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "0463d724c4bb445d28c0343134651bf9724e511e89e226e5ad3b4f93e16fe665"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_logic_delayed_w63": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11101110110010010111001100001010000111110111010...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "b767d45422f8cbcb4cf89a1052183755ffa9fd0e67edb4681c41aada4b45de8e"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_logic_delayed_w64": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10111110110111100000000010111101010011011100110...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "39977ee6ab6ebf32b8fccdf9e9042b8d5514a1ccbf7edecc9cd964516c146361"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_logic_delayed_w65": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01000111100011101110000110011111001011110010101...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "220dd4998fcd076eaf468087c018a205550eef7bce0f5d2e61120f4b9f13d2df"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_logic_immediate_w127": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11001111101001110101000001110011010111010011001...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "2855af67d6da08547063f211919baaf7c61236d71f425bfe950db9aff7148f2b"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_logic_immediate_w128": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01110101010011001101010110010100100101100001011...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "b15e0bf03ea21032f7e9878af123c4d1fd8428246860db045de6b233e3145b8c"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_logic_immediate_w129": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11001001001010011111111100100101101000010000101...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "da651fa80d3692314c2b026f17cc33bbd5c0c5c3e21391d1947d4faf32584772"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_logic_immediate_w255": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10100111010000111110110100101111110111111100111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "d72ed16d434c05001bc7834d28f41e5859305e62dc5b60062cc8cf40f8e730d3"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_logic_immediate_w256": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01100000110101011010001100011011101110010110101...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "150d3ab13501b60e2083dbd963acc5b3cd87225345386bad3bc6258944ada341"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_logic_immediate_w257": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11010000110000101000111110001001111011111100100...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "1a83f3e0a163ac10fbbf395219e47eb681ed2dde8c6e89918feb98b7ab4349d9"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_logic_immediate_w511": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01011101010010000100010110010101111110010101111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "8b4f6bdcc7bf53a9ce7ab4f3c993606160c4569deee04f9fe79b612f5c50df94"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_logic_immediate_w512": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01110100111101000101001000000110111010010000110...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "c1d72676bb393e72670d412fd4299828faf7995c107395d58230893f7bbc7621"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_logic_immediate_w513": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11011101011011011001111011010100100001010101110...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "c29f722ca0e92566fe3befd5d761ddb0efc68bf9ef9e7aa0977216f820ae359a"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_logic_immediate_w63": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10111101010110011000000001010100010010011101011...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "2d3d34a2a204338e58d4201f30f4c91b8dff567e13aa5d0bbb23b4b8cdb9f6a7"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_logic_immediate_w64": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11111000101010000000000000100010011011011000000...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "fc38c019eb88e352241d49ebb7aedd604b1d901eedc3157c5250d37198c68a58"
+  },
+  "gen/ch10/test_gen_nba_boundary_slice_logic_immediate_w65": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01011001001001001110101111001001010111101110110...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "eb9a9f3554820c9391d1837a41c4afdea2f30d3e3d95d0c94b5fd8a77c952fcf"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_bit_delayed_w127": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01001101100001100010001100010011110111100111111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "4b1a3402e424fd08db2e1ba51ee749fe9ec57f4c3b1c1da487528431fca73e45"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_bit_delayed_w128": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10000111110110001111101110100000101011011001111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "abe69e4d3b31e4e87f5e5975c0ada703172061dcd9ad78476a2f18f9834a1cba"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_bit_delayed_w129": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01100110110010000100101100010111101101011101101...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "385714f56db327b6a5f129dce9c8f68210ae2ee57d5e8684aeddc9ec48558d94"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_bit_delayed_w255": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01011101011001111010010100011010000111010010100...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "b268edcf262da1d5ddde10905110f3f11e6478da28cd1f2f6a8a94e38d16b70c"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_bit_delayed_w256": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11100100100000110001110010001110110010011011010...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "289ef25c624aa617c72c72638ad80753170f9d783d430b8171927dcdad340212"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_bit_delayed_w257": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00011110000000011110010111010111111001110100110...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "f15f17498a6b0929434ed649cecbdf349248936acd81e615f9b9fbf7472234a7"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_bit_delayed_w511": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00110010001100111100011101100011100010111001000...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "7d03f74307ac866a379b39353e2e533f3f2cd631409a01e1dc16c3a6f732e9d0"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_bit_delayed_w512": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10000011110100110100110010100010110111010111101...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "ff023d0aed5ede6018f214f8103fdd85e017e56b426a85ac324a12d4af6c3af1"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_bit_delayed_w513": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00011001000100100011001111110010111111001011101...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "f50f453724100f81c4b8b0e7d304d8ab2d2a886ef13af090158177939fdc0949"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_bit_delayed_w63": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01101101010111100101011111111110000100001100001...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "da770b6ae6d37513f060d0e04abe79a9d02c559ef4a44140b5db623dd2ca5016"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_bit_delayed_w64": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10001111101010100000110000000110101111001001011...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "439ba274be2c3c83387cd7535924e9888d923a92424f4b2a2c4acd4785bd77fb"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_bit_delayed_w65": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10000110101111111100001011011001111100000000111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "3abb3ed3973660eac477ffc8936447cc972bf663285882e0f748d54ba8a72520"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_bit_immediate_w127": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01001110011010001101111100011100110000010010000...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "48a4e092b76366c945494c681ef420842f6b29b454392987358adc31dc5e0403"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_bit_immediate_w128": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10101000110101010001001000011011001110111110111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "ccbaadc5a77277d4b865c986741e15b3e5669ee339393848acf41c563ba7e153"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_bit_immediate_w129": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10010001101000001110001011000001011011011000000...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "a37390c7b6ea08be3dc3e7f3565e8a1eccedb34f8348fa11dff6d45b3ae33b3f"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_bit_immediate_w255": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00001110110100000111111100111101010001111001101...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "3d1d9d4b1dfb76a42143b25f9082d0c20ca687877de92fb62108e905fcb79e1a"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_bit_immediate_w256": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01001010000101011100001110101001001000011100111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "66e7fc77f08da26b03203baf78f376a7ebf0e78838fd6d7643e692df00e56f74"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_bit_immediate_w257": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01000001111111111001011001001101001010110111000...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "82c82c11363280af0114d4a295d93854e5400219fa0f8dd7f99ee069fe839a60"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_bit_immediate_w511": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00110100111100100000111101111100010000001100001...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "291231e7cdd507b2c8b52d73f6544a8290773c0fcfc97fb92f175ab7a3f254ce"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_bit_immediate_w512": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00101110101111010101100110000011111100010101010...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "9eb76845ce35f4a1411155de176c1e9080868e7ad1b8487a5a594df4f98dc61d"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_bit_immediate_w513": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00010111100100001011001111101111110001001101000...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "5db700a262ed3bb1647304c0b060ab2c0535a39c825d2f8aaa1708da52059967"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_bit_immediate_w63": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01100100110011010010010010101110101000001011001...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "94c365dd2df63a3e652f597584b548e7dd3a5a08086ceaae7a684e561406ced5"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_bit_immediate_w64": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11000110011010011111010110100110111011001001010...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "efbe53e7aba92f43ab273dcc1721064a3db00698e5f3bdb2ce95f8f48e8a2472"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_bit_immediate_w65": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11100100011100100101010010110001110110111001111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "d4654f3df39414fd492df13ff081ce411c4f0ec1151335ef68327ec15b78f70d"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_logic_delayed_w127": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10001000101001100100111010001110111101111001100...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "cd3c5efe6b20ad9c1e92200d5938c1c4988a212185345467ee13cd81d3d09589"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_logic_delayed_w128": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00000001101101100000001010101011000011011100010...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "d8951629006c764e31740d131d0baf5ee57e6c7b63b224ba192b019f3cb0482e"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_logic_delayed_w129": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00111101111001011110100110011000100010000110111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "d138ffe58b88c0bd4427d744f180e9d3007adfcc1f32628a485ca58a477b3763"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_logic_delayed_w255": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11000111001111001010110001101010100111011011100...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "da07b263968912a0c3cd2321183a28f133f84a5bc6a956651269cf1a72360784"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_logic_delayed_w256": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10111000111110000001101111010011111000110101011...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "d398a7cc6aea4c591bc51319f1e4070dceee0b094126b0baaf8fc66c734fd358"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_logic_delayed_w257": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01001001110110000001011001000110111011000101111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "8af3943a56931ffa87e5a60ad7f91e1e7e1c2c986b2a6bfb04f0a1d19d9b8110"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_logic_delayed_w511": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11111000110010110110001001001110110111101100100...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "d12a424ed24d1ac66a993006365b53fd15de5280ad0cad16bbb9108d77fd43d2"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_logic_delayed_w512": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11101000101110101011011101000111010010010011110...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "c40e7394b9b0ab1c391f124ce4697920ac89a8d26e0a559b793710b79850799f"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_logic_delayed_w513": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00011001110110001100001000110111000100000011000...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "d935ccdc661f6a8933f718a5d9339ca0c721a0efa3f1d952c15a686fe1129665"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_logic_delayed_w63": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00001100101110000111100000001010111110010101100...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "a1bd0deb328f0268680c810a64ed4a3b6bae10185935f317f500d6118a7617e4"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_logic_delayed_w64": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01110011000001000000001101001001111000110110011...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "8a43d4f0070df2419fdef02343a948cf5302a8c852cfdf80be3db5e75f616c7d"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_logic_delayed_w65": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=11000110000001100111001110101011101010011000100...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "a929176ab69fa1660c6279ebecc5f668d99113367a5edd055a6acc10bcec71df"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_logic_immediate_w127": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10000011011111011110001001100000001010011101101...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "fe02b9ed82a5ffc3b6dcc7aa6434f46c46fe2298e684fb3867ddc0855eda52e6"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_logic_immediate_w128": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00001111001001100011001100101111000001011111101...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "3b3ed6109f19fb7975461ff43ea1bc927753bee6660f90fe84e6e6e3d90059c3"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_logic_immediate_w129": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10001110100001111010100001000111010110100000110...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "de20c9b8878bf016c4b94f55ee62e8bfbbca8b63405180a8c8f84ea83a8b5033"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_logic_immediate_w255": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01010100111000010101101111000111100010100011111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "ffa44deaac9c53bd869b32261912124edd9b6f63c7a47150001513e14da72eac"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_logic_immediate_w256": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01110011001011100001011100001001111010101100010...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "fab6bd925137ff54027caa4c1caab3e9b9c496d3227b2b391f319f083b0045f9"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_logic_immediate_w257": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00010110110101010100110011010010010011000011001...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "981b95ff36e83d4c4add566a380515a80a2e7d7810f155a0f227a7903a92a357"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_logic_immediate_w511": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01110011110111100111000001000111011000001100000...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "fd752e8bc7651f1630ccbf5e3ac1e654e81d6ecbea89be6816bfd86d14804ffb"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_logic_immediate_w512": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=10010110100001101101101111100100001000001110111...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "e631fe4a75db92660128e5a6076a7dceecddd9e426342b2c2f23e40ef021e597"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_logic_immediate_w513": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01110011110000000000011110001011011001101111101...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "2da6eab1954650aa926a834c2679981599a7911174ecc258da555903bdbebee2"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_logic_immediate_w63": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=00001100110110011100110010110010000101111000101...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "88310e92329386f7304b35664d3b9c2bfd6ac27446e2a5438e14f2f639bff71d"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_logic_immediate_w64": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01101101101000001001011100011100000111000101100...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "32c417e6158119ecf5e82449819d4c1ccf5d18f711a0be293ed443a56bcc4352"
+  },
+  "gen/ch10/test_gen_nba_boundary_whole_logic_immediate_w65": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'p0_source=01000000011001001000111011110101011100100100010...', expected 'p0_source=11011000011011000001010111110101000001101100001...'",
+   "inputs_sha256": "637617d5bfec0894a11408a9455495e4b1978943094bf4c7e556839283876a15"
+  }
+ },
+ "generated_at": "2026-11-19T01:54:49.097034+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

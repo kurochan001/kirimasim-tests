@@ -1,0 +1,1075 @@
+{
+  "schema": 1,
+  "kind": "finite one-edit observability checks; not independent standards review",
+  "recorded_at": "2026-11-19T01:44:32.538757+00:00",
+  "scope": "All four forms, both states and both timings, widths 65 and 513; thirty-two successful controls and sixty-four compiled normally exiting scheduling/value-corruption examples",
+  "simulator": {
+    "version": "kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401",
+    "commit": "441dddbd0fcd80aed298ca33311f2ee67aa8866c",
+    "binary_sha256": "c3b343c753737a564deb1156e8064062793c133f7be2ea567daced985b26f24b"
+  },
+  "args": [
+    "+nonce=1"
+  ],
+  "baselines": [
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_whole_bit_immediate_w65.sv",
+      "source_sha256": "37a82bc265f5fde3b69d914651c1f012e4fca39801341c51b681e68b7c9468f5",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_slice_bit_immediate_w65.sv",
+      "source_sha256": "d8d2ad5a37faaa4631f56dcd87e9a4dfb63ec1faa2270a68e7c27efb58ae3f8b",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w65.sv",
+      "source_sha256": "47b2061ca82161b9df7eca1129aae98e89b0480db5bf3502d61ed96c69c445d9",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_array_bit_immediate_w65.sv",
+      "source_sha256": "ab2b9f8a45cdb77bdbbd4ddeeb5b3304790b8af45d719406aa1e19ecb87e752c",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_whole_bit_delayed_w65.sv",
+      "source_sha256": "0be2a9395a96947903396bb84c78333e229bd8ab33370e6de4a70a835278a801",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w65.sv",
+      "source_sha256": "dc1ef184858fdc5fb46ab571002fbf7a5a786b11e3000ec8210b1454f1749127",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w65.sv",
+      "source_sha256": "2bb19e909296ab51fd3f9b37663e53f14eeebc89fb480d8f5b013af5ea7543ca",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_array_bit_delayed_w65.sv",
+      "source_sha256": "e22bf3a1e26cd2104db2628020e57474266275bb6567635d43f87f9985018fd8",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_whole_logic_immediate_w65.sv",
+      "source_sha256": "12d2f2ea5bcc71a508baf22547726ca9a92bef8a3d9ad38428b5ecf987d8a8ee",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_slice_logic_immediate_w65.sv",
+      "source_sha256": "ab879618bae061e2ca06a10d3176f655dbb4f0ddb5c344ea97b89beccad76f6c",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_overlap_logic_immediate_w65.sv",
+      "source_sha256": "3e155dc1b0bdbb4fd8119be5ddede7789e97e1be5cdc9fc4ffe76fb2facc3372",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_array_logic_immediate_w65.sv",
+      "source_sha256": "7574afc547874e2a7b1f6da3d4ad7386b1837bcd455618429a6e9562c2d47fb3",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_whole_logic_delayed_w65.sv",
+      "source_sha256": "cec3956eb817380d10f1198905c0001a783e06dcb8964e088d08adbde9fd3b39",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_slice_logic_delayed_w65.sv",
+      "source_sha256": "826d09572b968ae851b114f1a8a661cc532e52dfe1adaa1373da0cf8f49cba59",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_overlap_logic_delayed_w65.sv",
+      "source_sha256": "6572f1a07086e76cfcecd37ad03f7992dc9b8ab95fd6f15b4b73d245f5b23f41",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_array_logic_delayed_w65.sv",
+      "source_sha256": "810cc09ca3768f7172e8fab72f71e04e3cc3a8d50bd72395f5a45e8da241b48a",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_whole_bit_immediate_w513.sv",
+      "source_sha256": "8cc3cb90abde31f9a739acc3731d5539f9ece4bd7a937a38a048ad7a45780137",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_slice_bit_immediate_w513.sv",
+      "source_sha256": "856e2e3817ed5be3eabc7137cf34df83d279b69d1fe3f38f1319580f0abb33ab",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w513.sv",
+      "source_sha256": "c9b06edc65e2e16723b7385e922cd4347ca277c27162d41f7e70d4eeab7b0a34",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_array_bit_immediate_w513.sv",
+      "source_sha256": "5ff2f8a39da01bb9f9fd2c72aab556afc3666f672b5679e31d4e9eff097fb224",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_whole_bit_delayed_w513.sv",
+      "source_sha256": "e53b1d9583cdb50f82b186ee968880791d64d47817e4860656d104bad88181cb",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w513.sv",
+      "source_sha256": "d467130314de2e69261ee2b1a3cbf0e7d4cb4e9adde7c80305ad9103afd2c8ff",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w513.sv",
+      "source_sha256": "c05a623f3f35a57a51d6475bcef1ba52721c38e3172e9a81fee17f647c874446",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_array_bit_delayed_w513.sv",
+      "source_sha256": "eead8042b61d2fa5e31b6903293e5a4cac690977b0f21f503e606a1a671c329b",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_whole_logic_immediate_w513.sv",
+      "source_sha256": "ec7f03bf78531ca43996669b1c2d4a9c86ce553af05ac2f147600c9f7e6428b1",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_slice_logic_immediate_w513.sv",
+      "source_sha256": "52692f507a7eec81f535dd099299994068c772278dc70f39a96a1041d5d56032",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_overlap_logic_immediate_w513.sv",
+      "source_sha256": "3f54b8f8dfe5b5290b31b56840762a80401ef25fe53afe8c82cd5f202ca1474e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_array_logic_immediate_w513.sv",
+      "source_sha256": "316e737775e844c9f7c0e08121100f3c658d831cfacb5fd26993321afa14f4bc",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_whole_logic_delayed_w513.sv",
+      "source_sha256": "48c88d3b6ec4a0aedee75be46b48fd854c5aef12a8a32f43514c73f06380916f",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_slice_logic_delayed_w513.sv",
+      "source_sha256": "61d69fc41523e2dab9adb161a69b88739fc72097193f27fb70b24d0447534b53",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_overlap_logic_delayed_w513.sv",
+      "source_sha256": "e919dd35223ccd5fde324bce0a4d4486934acf1b416114dacec53b3f2d2b887d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_array_logic_delayed_w513.sv",
+      "source_sha256": "21846a0bd79e4b7e2d52b60759340fb5ad519dd31ce10cebcce52e566dbbc805",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    }
+  ],
+  "mutations": [
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_whole_bit_immediate_w65.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target <= source;",
+        "new": "    target = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "5132bb10c5070647a40272730bf34dff98e04091f6015bf4c57bd6679a466ccd",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_whole_bit_immediate_w65.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target <= source;",
+        "new": "    target <= '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "67f52ba16339d18a35070cabc7ce83e01094d7660cba3c975795cfd75451d291",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_slice_bit_immediate_w65.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target[base +: 17] <= source;",
+        "new": "    target[base +: 17] = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "4c61b2449a2660a2843a1b1712e719d572468662bf300ed535304317bc915460",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_slice_bit_immediate_w65.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target[base +: 17] <= source;",
+        "new": "    target[base +: 17] <= '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "3c65f0c50bce75e542f38b952f7aae47779d49141a578e33cea05f69b609adce",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w65.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target[base +: 17] <= source;",
+        "new": "    target[base +: 17] = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "ec3127841c189f92ef4fb08072d027a27b4aebec78e68dc033aeab1df17c7f1a",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w65.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target[base +: 17] <= source;",
+        "new": "    target[base +: 17] <= '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "233ab6a95c69db170f82d9a6465160e0e8aec298160063f2713cb12421d39afc",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_array_bit_immediate_w65.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target[index] <= source;",
+        "new": "    target[index] = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "83163ec3b0812e2cb5c2170a6e2a4877786739e58c53d71d3c34f56c40bfd9d3",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_array_bit_immediate_w65.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target[index] <= source;",
+        "new": "    target[index] <= '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "aad9b20cc79afedd5328992d0daaed015d2c14844f12f148a945b6e75e34a98e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_whole_bit_delayed_w65.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target <= #1 source;",
+        "new": "    target = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "d9f775f3ca803acb60efb408aeab71e953c7523a5ae751ce27f4394d1ec1de79",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_whole_bit_delayed_w65.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target <= #1 source;",
+        "new": "    target <= #1 '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "e11fcc4fe123ee93594cf8361730c0e3309a7a1acb6c894314ae50e89a752c4a",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w65.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target[base +: 17] <= #1 source;",
+        "new": "    target[base +: 17] = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "9184b5247e73750b41e09cfa6a3bbd675345f4346e00d842954af3133b447f82",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w65.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target[base +: 17] <= #1 source;",
+        "new": "    target[base +: 17] <= #1 '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "7b570e63bcf3e05ac7ed1fc175bc36d055481797a4647fb6ce6a7ab220e67ce2",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w65.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target[base +: 17] <= #1 source;",
+        "new": "    target[base +: 17] = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "c8f6d2ba2d20fe2a8d1b06b8d342b9f34d57feda3225d6ee21d44adb9b991b4f",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w65.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target[base +: 17] <= #1 source;",
+        "new": "    target[base +: 17] <= #1 '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "c879ccd133eaacd17c2d177b901d2a4d050b311aed7a6bf88790feb0cfb458b1",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_array_bit_delayed_w65.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target[index] <= #1 source;",
+        "new": "    target[index] = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "9d29580b4a23881d33e81d4448cb9adf8196980edc488e6b7aa47c03ab321ff6",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_array_bit_delayed_w65.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target[index] <= #1 source;",
+        "new": "    target[index] <= #1 '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "5c390f6acca46cf9a7310301714cb52d3d7d3ff302abdf0f5141ac6968aa3d41",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_whole_logic_immediate_w65.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target <= source;",
+        "new": "    target = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "3b290d7bfeff925b2d7b714379d2ef2f9b9d3cccc5fc8936426c3476d5e9623f",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_whole_logic_immediate_w65.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target <= source;",
+        "new": "    target <= '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "3d9b796a1744c07d40ab333e14629f2d4456bc3e14c193aa4a9de5354d472647",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_slice_logic_immediate_w65.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target[base +: 17] <= source;",
+        "new": "    target[base +: 17] = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "23f7d52bad426e2b486cb052ccbebe2e0dac2a7afeb6d29aaad5f659e946481f",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_slice_logic_immediate_w65.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target[base +: 17] <= source;",
+        "new": "    target[base +: 17] <= '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "3b96258983453e958a1d48f16cd50eea53711e224a9815f4360cbeaf4cbe239c",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_overlap_logic_immediate_w65.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target[base +: 17] <= source;",
+        "new": "    target[base +: 17] = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "70721934118e5d03931e6641047ed0e64d66e6ef92f1749d604e8af12a3369e7",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_overlap_logic_immediate_w65.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target[base +: 17] <= source;",
+        "new": "    target[base +: 17] <= '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "9045d986090e985d468e2ea3cdb935c9a370e77389232deb4144d84c46ec6552",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_array_logic_immediate_w65.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target[index] <= source;",
+        "new": "    target[index] = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "c8900b917b59df8fda1d991f20b97d2d0d8cb13a6457c12567a2d8544fb09c67",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_array_logic_immediate_w65.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target[index] <= source;",
+        "new": "    target[index] <= '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "7fc91ab3c2db3dd2dd9322d01f4bd77d240c4b902171ea49daa3cb690586550d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_whole_logic_delayed_w65.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target <= #1 source;",
+        "new": "    target = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "0bfc29f935776a7a6672ce319d490d591e7c045e69ac6d540fdf5e82caf0e750",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_whole_logic_delayed_w65.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target <= #1 source;",
+        "new": "    target <= #1 '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "216d82fae5a644637c764ad91cdc6c01e9f57134ad44cfd9a4db9fbd527979ba",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_slice_logic_delayed_w65.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target[base +: 17] <= #1 source;",
+        "new": "    target[base +: 17] = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "5b19263b7eb2d672c13e55d94819f4336a879c826562fb9ab5440d8cf07bf4a4",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_slice_logic_delayed_w65.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target[base +: 17] <= #1 source;",
+        "new": "    target[base +: 17] <= #1 '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "37a02e1df80201e62d9ee8788a8d0394d578433136214617836b68778d06e92f",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_overlap_logic_delayed_w65.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target[base +: 17] <= #1 source;",
+        "new": "    target[base +: 17] = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "0d90387bea44428b43d461e20ee13096674e04daf91f4fa1c19e7a97ac754848",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_overlap_logic_delayed_w65.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target[base +: 17] <= #1 source;",
+        "new": "    target[base +: 17] <= #1 '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "3e9de5f5e1ae8fd9afe6b9cffc293d965d4b2dc15052997ed9f1ec8a1ecc2a89",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_array_logic_delayed_w65.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target[index] <= #1 source;",
+        "new": "    target[index] = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "64cfb1a9b739a77f5d85702b7a545aaa3fb9d98505a0591d3602614abe5b22b6",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_array_logic_delayed_w65.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target[index] <= #1 source;",
+        "new": "    target[index] <= #1 '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "1a645076bb94c2cad5ef84dc532d3cb5e9561979fdccb8f7c6c4e31f4c5bb220",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_whole_bit_immediate_w513.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target <= source;",
+        "new": "    target = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "1567ab1e5dc8c82f4f8b8f0fc2c3f66129225f4d669120b4315c029288864078",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_whole_bit_immediate_w513.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target <= source;",
+        "new": "    target <= '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "4cd160178e9d636adab0539c7b601d818866feb10348ff8fd365e532e3a8fb0e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_slice_bit_immediate_w513.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target[base +: 17] <= source;",
+        "new": "    target[base +: 17] = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "1e9b80db9dd63e03f7f246681fa9d40a6b115dc020e330448d3ec4aeb2b53391",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_slice_bit_immediate_w513.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target[base +: 17] <= source;",
+        "new": "    target[base +: 17] <= '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "d0ca893f06313eff7b60d6f137ab560ec14131a381a1d4bd37737139b6c65151",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w513.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target[base +: 17] <= source;",
+        "new": "    target[base +: 17] = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "9234040bd47dc02edda6fb3083cc40bab4a2a1804b8e66fa8189bd42f9ab81aa",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w513.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target[base +: 17] <= source;",
+        "new": "    target[base +: 17] <= '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "905d5575700331489a62d81fb01e7d32160b43c3af0c8441a3510ff0ab0764c2",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_array_bit_immediate_w513.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target[index] <= source;",
+        "new": "    target[index] = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "a06c30ffd82eb6c55f9293a709e4160cef40a7e3907f2747d3179fceddfe5677",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_array_bit_immediate_w513.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target[index] <= source;",
+        "new": "    target[index] <= '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "30e7bec8e3f79edaed2ec6181ead2c2a1ac446bddb2bedbe9b17e6fded56bef8",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_whole_bit_delayed_w513.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target <= #1 source;",
+        "new": "    target = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "414dc1ab2582d884a25fdfb7f9537ac57bb21969edfc6149fdc75240967a6c41",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_whole_bit_delayed_w513.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target <= #1 source;",
+        "new": "    target <= #1 '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "aa95fe2c0e8c4016b480f4e26ccc2d03989f3025fb0c30d8b7fe41c7df303306",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w513.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target[base +: 17] <= #1 source;",
+        "new": "    target[base +: 17] = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "ea591f0b6c0ed7432d6339d3da392cc318cd6978d52a9694e8c3719851028029",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w513.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target[base +: 17] <= #1 source;",
+        "new": "    target[base +: 17] <= #1 '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "201c1f077e1ecb14051afb6dca8fc4412c98dd71df3a04bcc2954f11a977189a",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w513.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target[base +: 17] <= #1 source;",
+        "new": "    target[base +: 17] = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "e379d7b9205dcca94980360172c82e0da041cd5137034eda46254ab5d24432c9",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w513.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target[base +: 17] <= #1 source;",
+        "new": "    target[base +: 17] <= #1 '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "32eb23533c2262368a2821d4c53bc84f6b9d5a71d14a889afa9bc5f48a31adae",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_array_bit_delayed_w513.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target[index] <= #1 source;",
+        "new": "    target[index] = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "c13f9afc00d39c819f2b346414e03ea7e76910f2cd24037a7f4b85595ff2493b",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_array_bit_delayed_w513.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target[index] <= #1 source;",
+        "new": "    target[index] <= #1 '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "da24b2b95c5f1596c91e435c74c5048c74eaea5f93fc12f7376381303aefea3d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_whole_logic_immediate_w513.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target <= source;",
+        "new": "    target = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "d080da443de29c94d3a3ea359a2a95e8742c88762b7c69c032624a7fa99253de",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_whole_logic_immediate_w513.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target <= source;",
+        "new": "    target <= '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "cbb60dc1878e9647f5a34805e27cd893ba49f4477b8a6553fffcf37755ba0520",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_slice_logic_immediate_w513.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target[base +: 17] <= source;",
+        "new": "    target[base +: 17] = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "021e3ca65f4b88f48ef763cdec9046a6818aec584367706bef769191d4ba3fbf",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_slice_logic_immediate_w513.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target[base +: 17] <= source;",
+        "new": "    target[base +: 17] <= '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "2dc36e4343435e41cb99ff4cc7589b458ecf1d46e90010032ac91a757a96428a",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_overlap_logic_immediate_w513.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target[base +: 17] <= source;",
+        "new": "    target[base +: 17] = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "bab8f6318fb6bd0e3d3d103749ccd09140da4670619b230e317faea6a1b9dfef",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_overlap_logic_immediate_w513.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target[base +: 17] <= source;",
+        "new": "    target[base +: 17] <= '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "28876a17e0c99c0e7f26ef6b25ec7386563064c1ed63aa96ec78d92ac7b572fb",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_array_logic_immediate_w513.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target[index] <= source;",
+        "new": "    target[index] = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "cebb722575592b69f5535552a282ec2e4a3fb58146df8dca6f9b844da03dde0a",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_array_logic_immediate_w513.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target[index] <= source;",
+        "new": "    target[index] <= '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "e86597006f05516a60c065556d96ba9a5bc1cb9fa98062efdba5450f5c10574a",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_whole_logic_delayed_w513.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target <= #1 source;",
+        "new": "    target = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "85cf1cdb660d7c1b326ee9b3203263958f937e92134853a1f11bd67d530aba61",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_whole_logic_delayed_w513.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target <= #1 source;",
+        "new": "    target <= #1 '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "aa9a1fee125635a73afcbc6a8ebda975174afbe6808df3aaa046747874e913b8",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_slice_logic_delayed_w513.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target[base +: 17] <= #1 source;",
+        "new": "    target[base +: 17] = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "8742a3b2190778a2f2b02c216d9fc985bb3ccdfd61dbcbcea503d3cf8fa798b0",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_slice_logic_delayed_w513.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target[base +: 17] <= #1 source;",
+        "new": "    target[base +: 17] <= #1 '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "57b4e21ff677cf0749fe5545163ef4593816c0d065fa46df35371c00ca5bb953",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_overlap_logic_delayed_w513.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target[base +: 17] <= #1 source;",
+        "new": "    target[base +: 17] = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "da831ceff49e83734c0f39318a0abe195446c5fe8343ff43403a20bb9621db6b",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_overlap_logic_delayed_w513.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target[base +: 17] <= #1 source;",
+        "new": "    target[base +: 17] <= #1 '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "6d2dc170b7ecfbd34f51b0885bfc0c93566b314ae20936abd17a0690284b1dd3",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_array_logic_delayed_w513.sv",
+      "label": "replace-first-NBA-with-immediate-write",
+      "replacement": {
+        "old": "    target[index] <= #1 source;",
+        "new": "    target[index] = source;",
+        "occurrences": 1
+      },
+      "source_sha256": "db8aa8c8736de2b1897cf5e2d52c6f01cdf100d97cc2aa991c6116d46f6bbc1d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_nba_boundary_array_logic_delayed_w513.sv",
+      "label": "lose-first-captured-source",
+      "replacement": {
+        "old": "    target[index] <= #1 source;",
+        "new": "    target[index] <= #1 '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "f7562e2c698aae74b4e6b220c3652776a25f86c4af2f5facd019f9e1d26c5aa8",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    }
+  ],
+  "status": "all-thirty-two-controls-pass-and-sixty-four-compiled-mutants-differ"
+}

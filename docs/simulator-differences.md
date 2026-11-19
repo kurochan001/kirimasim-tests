@@ -1498,3 +1498,17 @@ The 180 `test_gen_wide_scan_*` programs follow 21.3.4.3, the formatting clauses 
 - kirimasim 0.1.1 `441dddbd0fcd` matches all 180 cases in each of four runs. Saved fingerprints identify these exact sources, expected files, plusarg and adapter versions. This does not establish behavior for untested formats or arbitrary numeric strings.
 
 Independent AI review checks 5,688 expected lines in two separately sealed sets. The original model was known before deriving the added direct-index set; neither set was derived from simulator output values. [Finite qualification](../coverage/qualification/wide-scan-20261119g.json) records twenty successful signed 65/257-bit controls and forty compiled, normally exiting corruption examples. It is not exhaustive proof or human review. No expectation was adjusted to hide a simulator difference, and no requirement mapping changed.
+
+<a id="nba-boundaries-20261119h"></a>
+
+## Captured wide NBA values, indices and ordered writes (2026-11-19)
+
+The 192 `test_gen_nba_boundary_*` programs follow 10.4.2, 4.6, Active/NBA regions in 4.4.2.2/4, intra-assignment timing in 9.4.5 and the relevant packed-select, array and conversion clauses. One sequential initial process writes module-static fixed-size destinations; there are no automatic destinations, concurrent writers or races over evaluation order. It queues updates, changes the sources and coordinates, then observes the retained old value and completed captures. With `<= #1`, the next time's Active observation still precedes that time's NBA update; both immediate and delayed cases are complete one time later.
+
+Whole-word and fixed-array cases extend signed W-bit sources to W+5 before final bit/logic storage conversion. The second phase has two ordered writes to the same word. Slice and overlap cases cross W and 2W boundaries in a 3W-bit bank; overlapping writes share twelve of seventeen bits and expose enqueue order while retaining all unselected neighbors. Array observations retain untouched guard elements and demonstrate capture of the original element index. `+nonce=1` changes known low input bits without removing other X/Z bits. Full source, blocking conversion controls and complete destinations are observed.
+
+- Icarus Verilog 13.0 matches all 192 programs; every case receives its fixed-version oracle.
+- Verilator 5.054 records 192 known at both seeds 1 and 73. Every program observes X/Z sources in its second phase, including cases with bit destinations. These are not comparable two-state-only programs, and no Verilator oracle is registered. This result does not imply that all two-state nonblocking assignments are unsupported.
+- kirimasim 0.1.1 `441dddbd0fcd` matches all 192 in four runs. This tests the stated finite schedules and destinations, not arbitrary concurrent scheduling or dynamic reference lifetimes.
+
+Independent AI review derived all 5,280 expected lines before inspecting expected files or writer helpers. [Finite qualification](../coverage/qualification/nba-boundaries-20261119h.json) checks 32 successful 65/513-bit originals and 64 compiled, normally exiting scheduling/value corruption examples. This is neither exhaustive proof nor independent human review. Existing expectations, requirement bindings, holds and baseline remain unchanged.

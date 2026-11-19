@@ -23801,6 +23801,14 @@
     "Wide octal scanning and formatting preserve complete unknown digit groups": "Wide octal scanning and formatting preserve complete unknown digit groups",
     "Wide octal scanning and formatting preserve complete unknown digit groups ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide octal scanning and formatting preserve complete unknown digit groups ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
     "Scan field widths limit consumed characters independently of destination width": "Scan field widths limit consumed characters independently of destination width",
-    "Scan field widths limit consumed characters independently of destination width ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Scan field widths limit consumed characters independently of destination width ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )"
+    "Scan field widths limit consumed characters independently of destination width ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Scan field widths limit consumed characters independently of destination width ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Wide nonblocking assignments capture signed values and preserve ordered whole-word updates": "Wide nonblocking assignments capture signed values and preserve ordered whole-word updates",
+    "Wide nonblocking assignments capture signed values and preserve ordered whole-word updates ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide nonblocking assignments capture signed values and preserve ordered whole-word updates ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Wide nonblocking slice writes capture runtime indices and preserve neighboring bits": "Wide nonblocking slice writes capture runtime indices and preserve neighboring bits",
+    "Wide nonblocking slice writes capture runtime indices and preserve neighboring bits ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide nonblocking slice writes capture runtime indices and preserve neighboring bits ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Overlapping wide nonblocking writes preserve captured coordinates and source order": "Overlapping wide nonblocking writes preserve captured coordinates and source order",
+    "Overlapping wide nonblocking writes preserve captured coordinates and source order ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Overlapping wide nonblocking writes preserve captured coordinates and source order ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Wide nonblocking array writes capture element indices and preserve untouched guards": "Wide nonblocking array writes capture element indices and preserve untouched guards",
+    "Wide nonblocking array writes capture element indices and preserve untouched guards ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide nonblocking array writes capture element indices and preserve untouched guards ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )"
   }
 }

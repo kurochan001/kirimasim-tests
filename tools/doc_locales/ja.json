@@ -25631,6 +25631,14 @@
     "Wide octal scanning and formatting preserve complete unknown digit groups": "広い8進数の読取りと整形は未知値の桁全体を保つ",
     "Wide octal scanning and formatting preserve complete unknown digit groups ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広い8進数の読取りと整形は未知値の桁全体を保つ ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
     "Scan field widths limit consumed characters independently of destination width": "読取りのフィールド幅は代入先の幅と独立して消費する文字数を制限する",
-    "Scan field widths limit consumed characters independently of destination width ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "読取りのフィールド幅は代入先の幅と独立して消費する文字数を制限する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )"
+    "Scan field widths limit consumed characters independently of destination width ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "読取りのフィールド幅は代入先の幅と独立して消費する文字数を制限する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Wide nonblocking assignments capture signed values and preserve ordered whole-word updates": "広い非ブロッキング代入は符号付きの値を保存し語全体の更新順を保つ",
+    "Wide nonblocking assignments capture signed values and preserve ordered whole-word updates ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広い非ブロッキング代入は符号付きの値を保存し語全体の更新順を保つ ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Wide nonblocking slice writes capture runtime indices and preserve neighboring bits": "広い非ブロッキングの部分書込みは実行時の添字を保存し隣接ビットを保つ",
+    "Wide nonblocking slice writes capture runtime indices and preserve neighboring bits ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広い非ブロッキングの部分書込みは実行時の添字を保存し隣接ビットを保つ ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Overlapping wide nonblocking writes preserve captured coordinates and source order": "重なる広い非ブロッキング書込みは保存した位置とソース順を保つ",
+    "Overlapping wide nonblocking writes preserve captured coordinates and source order ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "重なる広い非ブロッキング書込みは保存した位置とソース順を保つ ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Wide nonblocking array writes capture element indices and preserve untouched guards": "広い非ブロッキングの配列書込みは要素添字を保存し未更新の値を保つ",
+    "Wide nonblocking array writes capture element indices and preserve untouched guards ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広い非ブロッキングの配列書込みは要素添字を保存し未更新の値を保つ ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )"
   }
 }
