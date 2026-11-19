@@ -25664,6 +25664,8 @@
     "Folded and runtime wide function calls preserve values and declared types ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "定数として評価する呼出しと実行時の広い関数呼出しが値と宣言された型を維持する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
     "Folded and runtime wide function calls preserve values and declared types": "定数として評価する呼出しと実行時の広い関数呼出しが値と宣言された型を維持する",
     "Runtime function aliases distinguish immediate updates from return-time copies": "実行時の関数の別名参照で即時の更新と復帰時のコピーの違いを確かめる",
-    "Runtime function aliases distinguish immediate updates from return-time copies ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "実行時の関数の別名参照で即時の更新と復帰時のコピーの違いを確かめる ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )"
+    "Runtime function aliases distinguish immediate updates from return-time copies ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "実行時の関数の別名参照で即時の更新と復帰時のコピーの違いを確かめる ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Wide numeric formatting and scanning preserve text and full values": "広い数値の書式化と読み取りで文字列と全ての値を維持する",
+    "Wide numeric formatting and scanning preserve text and full values ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広い数値の書式化と読み取りで文字列と全ての値を維持する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )"
   }
 }

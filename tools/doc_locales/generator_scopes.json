@@ -148,6 +148,10 @@
     "wide_runtime_aliases": {
       "en": "36 known-value runtime function controls at 255/256/257 and 511/512/513 bits across output/inout/ref and both signs. A second ref aliases the same automatic local and observes it before return, distinguishing immediate ref writes from later copy-out. Input-formal controls preserve their caller; complete four-word packed returns, decimals, caller values and widths remain visible. The current qualified source uses legal identifiers; no constant calls or noninput constant formals are included.",
       "ja": "255/256/257・511/512/513ビットの既知値36本で、output/inout/refと符号あり／なしを扱う。別のrefが同じ自動変数を参照し、復帰前に値を読むことで、refの即時の更新と復帰時のコピーを区別する。inputの対照は呼出し元を維持し、4語のpackedな戻り値・十進数・呼出し元の値・幅を全て観測する。採用する版は合法な識別子を使い、定数呼出しと入力以外の定数仮引数は含めない。"
+    },
+    "wide_format_roundtrips": {
+      "en": "36 known-value format/scan round trips at 255/256/257 and 511/512/513 bits across signed/unsigned binary/hexadecimal/decimal formats. Four runtime-dependent seeds expose the full source, minimum-width formatted string and length, complete parsed value, conversion count and unchanged source. Only hex uses explicit lowercase normalization. Existing generators and expectations are unchanged; arbitrary formats, four-state data and file I/O are outside this scope.",
+      "ja": "255/256/257・511/512/513ビットの既知値36本で、符号あり／なしの2進・16進・10進の書式化と読み取りを扱う。実行時に依存する4つの値を、入力全体・最小幅の文字列と長さ・読み取った全値・変換個数・変更されない元の入力として観測する。小文字化は16進だけに適用する。従来の作成処理と期待値は不変で、任意の書式・4値・ファイル入出力は範囲外とする。"
     }
   }
 }
