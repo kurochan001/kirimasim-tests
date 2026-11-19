@@ -1,0 +1,1995 @@
+{
+  "schema": 1,
+  "kind": "Finite one-edit observation checks; not independent standards review",
+  "recorded_at": "2026-11-19T02:39:38.572308+00:00",
+  "scope": "All23 frozen configurations at widths257and513;46 successful controls and92 compiled normally exiting mismatch examples",
+  "simulator": {
+    "version": "kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401",
+    "commit": "a6222f0656d46fbafc332ba8d8adaebb9273b964",
+    "binary_sha256": "140c543ac7edf9e658d25c862b0c217c99da14770ce56a02d4aa1fe26260e1a7"
+  },
+  "args": [],
+  "baselines": [
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_enum_known_bin_single_up_bit_forward.sv",
+      "source_sha256": "c460e186d38e64607e79b560fc8fd4efe1d98e6189105d642d2c4a85fa79df76",
+      "expected_sha256": "a36825c23ca9669acbc5d0f3e62f41aef7ed122aaab618966f392c05987d67d0",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "a36825c23ca9669acbc5d0f3e62f41aef7ed122aaab618966f392c05987d67d0"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_enum_known_hex_all_up_bit_forward.sv",
+      "source_sha256": "1df4a32282c852c71728fb3b9dde1e1dbd2184c9876aec508fab7170b5e17c22",
+      "expected_sha256": "711da0f6637d05f16f5b00aab10729748d9a9e945f5298824c6517ef156bc781",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "711da0f6637d05f16f5b00aab10729748d9a9e945f5298824c6517ef156bc781"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_enum_x_bin_single_up_bit_forward.sv",
+      "source_sha256": "908e0de4d04ed63c2f640857f6b8db0a284f3de82fc1a042908411fe628b512d",
+      "expected_sha256": "a7849e1019258283053e9b4fce4f4184167eba579c6a006ff2fb35bd2a30ccde",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "a7849e1019258283053e9b4fce4f4184167eba579c6a006ff2fb35bd2a30ccde"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_enum_x_hex_single_up_logic_forward.sv",
+      "source_sha256": "e0e17800592a8d9b4da32b2e878e7fd3ee7d27b72996d3adb2431b6cc1bcd82f",
+      "expected_sha256": "a7849e1019258283053e9b4fce4f4184167eba579c6a006ff2fb35bd2a30ccde",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "a7849e1019258283053e9b4fce4f4184167eba579c6a006ff2fb35bd2a30ccde"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_enum_z_bin_all_up_bit_reverse.sv",
+      "source_sha256": "4ce650c35faaa5a15940359eb2e923588d43b8eb6a5dc990cd66ef827c23e2a4",
+      "expected_sha256": "cf881a2f9d857368b7fe4d9c528238c545a13f22b167732018f4fc28e521e3dd",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "cf881a2f9d857368b7fe4d9c528238c545a13f22b167732018f4fc28e521e3dd"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_plain_known_bin_all_up_bit_forward.sv",
+      "source_sha256": "27d554bbdb3611824ee48aed386240041ac0dc219ef0ce64955a3cf9e6410da0",
+      "expected_sha256": "711da0f6637d05f16f5b00aab10729748d9a9e945f5298824c6517ef156bc781",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "711da0f6637d05f16f5b00aab10729748d9a9e945f5298824c6517ef156bc781"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_plain_known_bin_all_up_logic_forward.sv",
+      "source_sha256": "6d7e96802f75973b96b26b548abc5c669068e00cc71cb569dfdca7c0924ab221",
+      "expected_sha256": "711da0f6637d05f16f5b00aab10729748d9a9e945f5298824c6517ef156bc781",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "711da0f6637d05f16f5b00aab10729748d9a9e945f5298824c6517ef156bc781"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_plain_known_hex_all_down_bit_forward.sv",
+      "source_sha256": "c5fb27235f5659a1072c4ed9670664baa1d5f2717ea9d157a2bf21c4a68eb8a6",
+      "expected_sha256": "711da0f6637d05f16f5b00aab10729748d9a9e945f5298824c6517ef156bc781",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "711da0f6637d05f16f5b00aab10729748d9a9e945f5298824c6517ef156bc781"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_plain_known_hex_single_up_logic_forward.sv",
+      "source_sha256": "5c6d8e7bc970d583818a2c3c67691b3d04bee2ea5f76133088aafebba2aca2d1",
+      "expected_sha256": "a36825c23ca9669acbc5d0f3e62f41aef7ed122aaab618966f392c05987d67d0",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "a36825c23ca9669acbc5d0f3e62f41aef7ed122aaab618966f392c05987d67d0"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_plain_x_bin_all_up_bit_forward.sv",
+      "source_sha256": "a6efb1350d11748e1c57c5fe7e09bb18e1af8ef8ff5ae6b9019af1822f077301",
+      "expected_sha256": "8e5cdc184e1d88e86b3c31f3895540e4494d82cb23da0da77cda84cc0f8ca606",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "8e5cdc184e1d88e86b3c31f3895540e4494d82cb23da0da77cda84cc0f8ca606"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_plain_x_hex_middle_up_bit_forward.sv",
+      "source_sha256": "67f360855302b708569ecaf0ce425486766d5257447b263e3070a9c5a9e99ab1",
+      "expected_sha256": "2c3bb64cdfeb7a09ff6b6836785442a3be4eff89c90e8200c2401e7e2a63750d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "2c3bb64cdfeb7a09ff6b6836785442a3be4eff89c90e8200c2401e7e2a63750d"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_plain_z_bin_all_up_bit_forward.sv",
+      "source_sha256": "81f5634e3805dfbafe60f87a6b099a9508e7f0b2f7f2484ebcde604dea3fd957",
+      "expected_sha256": "6e9170723201719f6a2d929a082f2568556430bc1873e8f6a55ece7ec9a05903",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "6e9170723201719f6a2d929a082f2568556430bc1873e8f6a55ece7ec9a05903"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_plain_z_bin_single_down_logic_forward.sv",
+      "source_sha256": "b1153d1aa4f0d4fa8d44eb44678aade2991840c2e9a0518100b7d85885b05242",
+      "expected_sha256": "b7f8329bb1b24f0efb1c7788df9d8ab61dbbc8b9cb736ec6b274a137d8f2454d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "b7f8329bb1b24f0efb1c7788df9d8ab61dbbc8b9cb736ec6b274a137d8f2454d"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_plain_z_hex_middle_up_logic_reverse.sv",
+      "source_sha256": "3b31fd50a33c608df38aba3e4fd8b801ed42c9252d945af0c671e7487578a5ed",
+      "expected_sha256": "862e92e0c4a5006ca9f29646f31a6c799d7628e46acfb237309bfcb5e4d6bc3b",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "862e92e0c4a5006ca9f29646f31a6c799d7628e46acfb237309bfcb5e4d6bc3b"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_logic_enum_known_bin_middle_up_bit_reverse.sv",
+      "source_sha256": "1d84b6cddb347227a136d4d1d57a5e8463c9b2ec8ff6de09e58ccadcf614d832",
+      "expected_sha256": "db9971ed028fc048cbdae03c2bef0fd626a04b72268fb1cdb0a20126b390ac5f",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "db9971ed028fc048cbdae03c2bef0fd626a04b72268fb1cdb0a20126b390ac5f"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_logic_enum_x_bin_single_down_bit_forward.sv",
+      "source_sha256": "3d596820199c6fb11bd77fd0ad67788c319d88904dd9f439e8b2c8f09c68ec73",
+      "expected_sha256": "9c119f0291760cab6c6a6ead787800451aeeeeda5510a19acabb84091b74602c",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "9c119f0291760cab6c6a6ead787800451aeeeeda5510a19acabb84091b74602c"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_logic_enum_z_hex_middle_down_bit_reverse.sv",
+      "source_sha256": "f12a15649f02372b91920825a998d5ae25f620120d78e258ec9657e3a948382f",
+      "expected_sha256": "87a6e83088958e1fbcf453585a7f22e42dcc46d366041d1b9c4ce2295015ff46",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "87a6e83088958e1fbcf453585a7f22e42dcc46d366041d1b9c4ce2295015ff46"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_logic_plain_known_bin_all_up_bit_forward.sv",
+      "source_sha256": "d9ffc9867e016b4b550ab313c741772749f881a4b797c138e7124c4d9f04b021",
+      "expected_sha256": "711da0f6637d05f16f5b00aab10729748d9a9e945f5298824c6517ef156bc781",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "711da0f6637d05f16f5b00aab10729748d9a9e945f5298824c6517ef156bc781"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_logic_plain_known_bin_middle_down_bit_forward.sv",
+      "source_sha256": "fad5f8649285635b24dbc0d5d99bdbb62580a4cb29bdd6d0a04f1ff7d08c87f3",
+      "expected_sha256": "a952e968fa305117a903b74d9de974059a7cba8ac58987e9989b94cf6c0fabc3",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "a952e968fa305117a903b74d9de974059a7cba8ac58987e9989b94cf6c0fabc3"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_logic_plain_x_bin_all_down_logic_reverse.sv",
+      "source_sha256": "fc2f5fc8e840f9d0f90b84e97231a2c1a2f389407ddc450bef0333ba37e131e7",
+      "expected_sha256": "52025c76a7530b7c2d85326fc96759eb618cb87865e9d3c55e7712d5a0c56591",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "52025c76a7530b7c2d85326fc96759eb618cb87865e9d3c55e7712d5a0c56591"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_logic_plain_x_bin_all_up_bit_forward.sv",
+      "source_sha256": "fccc9c5d5fa8acc0159031331c9f1d5fcc3a670862f088efd2a3355c53188e57",
+      "expected_sha256": "e9dc9f493f77efc802f7980b7e6e48dca6dbf6650267f120581c4ad7eadf9566",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "e9dc9f493f77efc802f7980b7e6e48dca6dbf6650267f120581c4ad7eadf9566"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_logic_plain_z_bin_all_up_bit_forward.sv",
+      "source_sha256": "5f38bf11612f1edf7e7d79426326894f8e9f478027f15015604884aa1d702875",
+      "expected_sha256": "cfeba9b7a9856344c86a04c7e0c1e7a101068d2530f39d5503ad58bbf5169bf0",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "cfeba9b7a9856344c86a04c7e0c1e7a101068d2530f39d5503ad58bbf5169bf0"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_logic_plain_z_bin_middle_up_logic_reverse.sv",
+      "source_sha256": "65db28652b61025916ba46b87a3a49c7d14302aa345ee36c560417de0a2398e2",
+      "expected_sha256": "e2dc9a43e5ca989aa96ff75d055b618b999cdcba29358af6e4ebaef7c3099a2e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "e2dc9a43e5ca989aa96ff75d055b618b999cdcba29358af6e4ebaef7c3099a2e"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_enum_known_bin_single_up_bit_forward.sv",
+      "source_sha256": "04a0f79a595b1608f7e137a6eaf297cb8acfe2e4e0c5e84355629dba26844393",
+      "expected_sha256": "da169026d35671570b033bd4ab226c102f402c12d856b089e48990a22c484328",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "da169026d35671570b033bd4ab226c102f402c12d856b089e48990a22c484328"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_enum_known_hex_all_up_bit_forward.sv",
+      "source_sha256": "d386df349920cb94ebd77c93bb65b6af78bc287dd76c74c0daceac68f6910acb",
+      "expected_sha256": "49be7818b2618bde530be179e57fbcd7a16c35a588a78e932a3c60b797d673f2",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "49be7818b2618bde530be179e57fbcd7a16c35a588a78e932a3c60b797d673f2"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_enum_x_bin_single_up_bit_forward.sv",
+      "source_sha256": "7e35a814a2cfb44c95941b1ac15bda944b6021594a23d4abd2246f488521a057",
+      "expected_sha256": "70ea973d7fe504538f53ce08262ba82815efb078d8c6eb563d9522b7e693986f",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "70ea973d7fe504538f53ce08262ba82815efb078d8c6eb563d9522b7e693986f"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_enum_x_hex_single_up_logic_forward.sv",
+      "source_sha256": "bc89b7ef56cf6eb40dca117af4b6039964057cf883ffd16f1cc2acdac8b896b1",
+      "expected_sha256": "70ea973d7fe504538f53ce08262ba82815efb078d8c6eb563d9522b7e693986f",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "70ea973d7fe504538f53ce08262ba82815efb078d8c6eb563d9522b7e693986f"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_enum_z_bin_all_up_bit_reverse.sv",
+      "source_sha256": "6133763808ff3285e62b11606e73587356271a00de902547b888354e8c18855b",
+      "expected_sha256": "81e2c5132bf2739e3c8caef56247929589e81697665f71c7121f9469f8000cee",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "81e2c5132bf2739e3c8caef56247929589e81697665f71c7121f9469f8000cee"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_plain_known_bin_all_up_bit_forward.sv",
+      "source_sha256": "3bb6273bf559d08377866523fded6b84434b05f13293b967e1fd74f1de46cb3c",
+      "expected_sha256": "49be7818b2618bde530be179e57fbcd7a16c35a588a78e932a3c60b797d673f2",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "49be7818b2618bde530be179e57fbcd7a16c35a588a78e932a3c60b797d673f2"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_plain_known_bin_all_up_logic_forward.sv",
+      "source_sha256": "41ee57085d2327c2b0683d5f847f858c20c5b37c0edcc5b71317ee4b6ee32bad",
+      "expected_sha256": "49be7818b2618bde530be179e57fbcd7a16c35a588a78e932a3c60b797d673f2",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "49be7818b2618bde530be179e57fbcd7a16c35a588a78e932a3c60b797d673f2"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_plain_known_hex_all_down_bit_forward.sv",
+      "source_sha256": "20ce7bcaa5f8c90a9b3abc4a0f825401343e846e58cca62a498b4bdf33f6fd54",
+      "expected_sha256": "49be7818b2618bde530be179e57fbcd7a16c35a588a78e932a3c60b797d673f2",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "49be7818b2618bde530be179e57fbcd7a16c35a588a78e932a3c60b797d673f2"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_plain_known_hex_single_up_logic_forward.sv",
+      "source_sha256": "5eccfd0af222517352bf8af16413a5f64c3d726eab8896ca3eb8f5f94f4395d5",
+      "expected_sha256": "da169026d35671570b033bd4ab226c102f402c12d856b089e48990a22c484328",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "da169026d35671570b033bd4ab226c102f402c12d856b089e48990a22c484328"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_plain_x_bin_all_up_bit_forward.sv",
+      "source_sha256": "5e153002b53c8561aeb0404b2897b1902ad4fc5ead7d71d2c0a7b9ba79bdf279",
+      "expected_sha256": "d0fe3ab9358e4f0d71d78bf0753f173dde8be4717944a0f03a968848778c3159",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "d0fe3ab9358e4f0d71d78bf0753f173dde8be4717944a0f03a968848778c3159"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_plain_x_hex_middle_up_bit_forward.sv",
+      "source_sha256": "86942d4b6c637b8010397d4c605314f5a48e738c98651c99af5a694fad49611a",
+      "expected_sha256": "8905f2be8071ece92833dd2e80d906c7fdccd151515df4a1d7aad2747f6ae7f8",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "8905f2be8071ece92833dd2e80d906c7fdccd151515df4a1d7aad2747f6ae7f8"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_plain_z_bin_all_up_bit_forward.sv",
+      "source_sha256": "18573e9382944ceb0792413c94d91ef56ca27dc60ae85694ca5f2ff416616f7a",
+      "expected_sha256": "2f4243e50c826d0077952b2e96d93a2fb9c85cfe84b68e533b3dfba2632fcdc8",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "2f4243e50c826d0077952b2e96d93a2fb9c85cfe84b68e533b3dfba2632fcdc8"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_plain_z_bin_single_down_logic_forward.sv",
+      "source_sha256": "b8e4f43e6d757352049a294a21ce68074156fc22518b7cd6c09bf34ec0cdd723",
+      "expected_sha256": "afd0daa3b146097533d53d330624410fb887d36328435c077f8523623831ad1e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "afd0daa3b146097533d53d330624410fb887d36328435c077f8523623831ad1e"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_plain_z_hex_middle_up_logic_reverse.sv",
+      "source_sha256": "f8938bdadf5b8741bcaa5a783742ab6149c0b0c4d2e779e701a7b57ed1b35493",
+      "expected_sha256": "887aca63ad87d6592bf92e6318c0ae60bc59ad868826288cf5165d5d5cd30051",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "887aca63ad87d6592bf92e6318c0ae60bc59ad868826288cf5165d5d5cd30051"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_logic_enum_known_bin_middle_up_bit_reverse.sv",
+      "source_sha256": "a653e1c1bfe1e4e3cc662da17b3fedc368ca31dfaba4b76fa3caca402b6b65bb",
+      "expected_sha256": "20ed2ca14f8e7e53531d33fad0542c53ba8bf4c04e8335f28f6d604dcd5ebc07",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "20ed2ca14f8e7e53531d33fad0542c53ba8bf4c04e8335f28f6d604dcd5ebc07"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_logic_enum_x_bin_single_down_bit_forward.sv",
+      "source_sha256": "6e71af1a3d972adc7d1010eef19c7d625ffc26484f6ff1160c15509d17182c01",
+      "expected_sha256": "d3172e8449ae2df3a8a0b6fe77ac244b2214ecb3e541a28c6b561b862e340d86",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "d3172e8449ae2df3a8a0b6fe77ac244b2214ecb3e541a28c6b561b862e340d86"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_logic_enum_z_hex_middle_down_bit_reverse.sv",
+      "source_sha256": "32bfa1b32ccb1989fac7b52c1447cde30929dd946b2bc8b10f4f22e7c88f3c39",
+      "expected_sha256": "d6287e0e279cc6571ff52f7eec19e96e0a2da2c4c5e131e4ab2f1a32c5ed6ac9",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "d6287e0e279cc6571ff52f7eec19e96e0a2da2c4c5e131e4ab2f1a32c5ed6ac9"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_logic_plain_known_bin_all_up_bit_forward.sv",
+      "source_sha256": "5ba327d12798f3af645184fc25330a2b64839f331d449217f79166e9e52e3ce5",
+      "expected_sha256": "49be7818b2618bde530be179e57fbcd7a16c35a588a78e932a3c60b797d673f2",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "49be7818b2618bde530be179e57fbcd7a16c35a588a78e932a3c60b797d673f2"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_logic_plain_known_bin_middle_down_bit_forward.sv",
+      "source_sha256": "58665373bd14bdfaa9c3c800367c8636b9f2bfc09af8f6a3fd5f5c68f3621284",
+      "expected_sha256": "4e35434a11c3049a19dc086ab6d2415d3f6ea4cd7bb70d4d36290c93a8774f0f",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "4e35434a11c3049a19dc086ab6d2415d3f6ea4cd7bb70d4d36290c93a8774f0f"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_logic_plain_x_bin_all_down_logic_reverse.sv",
+      "source_sha256": "4987ba5286f9b4c2a6ebbf0da0cad848afeb5aabf7a6cf44767be65553ee4b66",
+      "expected_sha256": "b16cbeeda1afb7cb7f1886827597cf8874ac1496ee12e1ed331f2be590aefb47",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "b16cbeeda1afb7cb7f1886827597cf8874ac1496ee12e1ed331f2be590aefb47"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_logic_plain_x_bin_all_up_bit_forward.sv",
+      "source_sha256": "0d2addd157390321f9eabed61a4912a201674c3df0a122b96663c0b6fbc11570",
+      "expected_sha256": "690f886d5df22d980e8acb2cbd8e1ffeb99005d3fbc1e72fd621f177363458e9",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "690f886d5df22d980e8acb2cbd8e1ffeb99005d3fbc1e72fd621f177363458e9"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_logic_plain_z_bin_all_up_bit_forward.sv",
+      "source_sha256": "49451d2c63ff802f9d81793915bf82358fa448338d9bb45d395c82b2499c2db1",
+      "expected_sha256": "518ab5ed7c06ed282dd45448c7045c145b7b67b90adc009fdbd67e5ffc323a21",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "518ab5ed7c06ed282dd45448c7045c145b7b67b90adc009fdbd67e5ffc323a21"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_logic_plain_z_bin_middle_up_logic_reverse.sv",
+      "source_sha256": "c0e5fa91c0666aa4d88ee0ec91c802b81f2b2f955dec123e50d7d26a3f3f70a9",
+      "expected_sha256": "397cebd9a037341969b7de695a1e5aad2944078b21384cb179949c4e2abccb32",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "397cebd9a037341969b7de695a1e5aad2944078b21384cb179949c4e2abccb32"
+    }
+  ],
+  "mutations": [
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_enum_known_bin_single_up_bit_forward.sv",
+      "source_sha256": "8a5cd85281f5f44e0322e5ef052db66163f065303878afe1d1556ce5228d4d6d",
+      "expected_sha256": "a36825c23ca9669acbc5d0f3e62f41aef7ed122aaab618966f392c05987d67d0",
+      "original_source_sha256": "c460e186d38e64607e79b560fc8fd4efe1d98e6189105d642d2c4a85fa79df76",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "8a5cd85281f5f44e0322e5ef052db66163f065303878afe1d1556ce5228d4d6d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "c9aa9e8b548b5dbed9b0f046586b6eb530889d0ad79be2856e495d8fc813a08a"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_enum_known_bin_single_up_bit_forward.sv",
+      "source_sha256": "10b6949c7e45401d3eee3b81107afce746b0bdb06b312449b650322a18f20346",
+      "expected_sha256": "a36825c23ca9669acbc5d0f3e62f41aef7ed122aaab618966f392c05987d67d0",
+      "original_source_sha256": "c460e186d38e64607e79b560fc8fd4efe1d98e6189105d642d2c4a85fa79df76",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 11, 11);",
+        "new": "    $readmemb(\"written.mem\", loaded, 11, 11);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "10b6949c7e45401d3eee3b81107afce746b0bdb06b312449b650322a18f20346",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "198c8350ee07a36a17f6c89eaa52fca94de5aec893c756cd28288d72ef25f8a4"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_enum_known_hex_all_up_bit_forward.sv",
+      "source_sha256": "8029edef77200d893fd30a7abbe1338f4bca39868e1c2a2971e08b40f2b72cf0",
+      "expected_sha256": "711da0f6637d05f16f5b00aab10729748d9a9e945f5298824c6517ef156bc781",
+      "original_source_sha256": "1df4a32282c852c71728fb3b9dde1e1dbd2184c9876aec508fab7170b5e17c22",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "8029edef77200d893fd30a7abbe1338f4bca39868e1c2a2971e08b40f2b72cf0",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "74360d7c066f581a2c539b824522dc19f8bd051e673e5da32d3f901423c312ed"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_enum_known_hex_all_up_bit_forward.sv",
+      "source_sha256": "247eceb2a3218f1855a9b6e32d6634a0930c1a525021af307512adaa044d49ba",
+      "expected_sha256": "711da0f6637d05f16f5b00aab10729748d9a9e945f5298824c6517ef156bc781",
+      "original_source_sha256": "1df4a32282c852c71728fb3b9dde1e1dbd2184c9876aec508fab7170b5e17c22",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemh(\"written.mem\", loaded, 11, 15);",
+        "new": "    $readmemh(\"written.mem\", loaded, 11, 15);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "247eceb2a3218f1855a9b6e32d6634a0930c1a525021af307512adaa044d49ba",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "ea3bc2bd18fa75d680e3dcdf20362e8c0be40cd5a872ce9df5a23ae59709faf8"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_enum_x_bin_single_up_bit_forward.sv",
+      "source_sha256": "79ab7e185b032a3f52177a6dcf04234cd72d8a55c6a0a4755b6d7fb40204c4d5",
+      "expected_sha256": "a7849e1019258283053e9b4fce4f4184167eba579c6a006ff2fb35bd2a30ccde",
+      "original_source_sha256": "908e0de4d04ed63c2f640857f6b8db0a284f3de82fc1a042908411fe628b512d",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "79ab7e185b032a3f52177a6dcf04234cd72d8a55c6a0a4755b6d7fb40204c4d5",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "e011431a2ea1df7b9122213187636982f35c3f411d90f9be97c078eeb2f7c21d"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_enum_x_bin_single_up_bit_forward.sv",
+      "source_sha256": "ad1287347ab03148911575732160e6a883521f4b04ff019326964c04bec24349",
+      "expected_sha256": "a7849e1019258283053e9b4fce4f4184167eba579c6a006ff2fb35bd2a30ccde",
+      "original_source_sha256": "908e0de4d04ed63c2f640857f6b8db0a284f3de82fc1a042908411fe628b512d",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 11, 11);",
+        "new": "    $readmemb(\"written.mem\", loaded, 11, 11);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "ad1287347ab03148911575732160e6a883521f4b04ff019326964c04bec24349",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "081cf8614c80ba24f4c8949b15581b57f336d2cab75a47c34c80fd9124ce75cb"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_enum_x_hex_single_up_logic_forward.sv",
+      "source_sha256": "13dfc992f8f056e20921341f8fbe7107ccdb57f8a5586986e6fdaaef11b7e596",
+      "expected_sha256": "a7849e1019258283053e9b4fce4f4184167eba579c6a006ff2fb35bd2a30ccde",
+      "original_source_sha256": "e0e17800592a8d9b4da32b2e878e7fd3ee7d27b72996d3adb2431b6cc1bcd82f",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "13dfc992f8f056e20921341f8fbe7107ccdb57f8a5586986e6fdaaef11b7e596",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "e011431a2ea1df7b9122213187636982f35c3f411d90f9be97c078eeb2f7c21d"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_enum_x_hex_single_up_logic_forward.sv",
+      "source_sha256": "a3a4ff9c06289e63127997ac54802be9ae388a21de2880f169dcb0422a75b81c",
+      "expected_sha256": "a7849e1019258283053e9b4fce4f4184167eba579c6a006ff2fb35bd2a30ccde",
+      "original_source_sha256": "e0e17800592a8d9b4da32b2e878e7fd3ee7d27b72996d3adb2431b6cc1bcd82f",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemh(\"written.mem\", loaded, 11, 11);",
+        "new": "    $readmemh(\"written.mem\", loaded, 11, 11);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "a3a4ff9c06289e63127997ac54802be9ae388a21de2880f169dcb0422a75b81c",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "081cf8614c80ba24f4c8949b15581b57f336d2cab75a47c34c80fd9124ce75cb"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_enum_z_bin_all_up_bit_reverse.sv",
+      "source_sha256": "1f30b281b389a9417a61fa368880d5f31f3a5d81d607a30b9bedf10490bf5f66",
+      "expected_sha256": "cf881a2f9d857368b7fe4d9c528238c545a13f22b167732018f4fc28e521e3dd",
+      "original_source_sha256": "4ce650c35faaa5a15940359eb2e923588d43b8eb6a5dc990cd66ef827c23e2a4",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "1f30b281b389a9417a61fa368880d5f31f3a5d81d607a30b9bedf10490bf5f66",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "e023832b5a18e70bcb67d6c2fdc602bdc6a1bc3894e96710f6956c8636b5ea27"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_enum_z_bin_all_up_bit_reverse.sv",
+      "source_sha256": "412bff1fbb7633aa8bf2e3dd6a87455885320d5b66f66fc6aee74a536e0f0336",
+      "expected_sha256": "cf881a2f9d857368b7fe4d9c528238c545a13f22b167732018f4fc28e521e3dd",
+      "original_source_sha256": "4ce650c35faaa5a15940359eb2e923588d43b8eb6a5dc990cd66ef827c23e2a4",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 15, 11);",
+        "new": "    $readmemb(\"written.mem\", loaded, 15, 11);\n    loaded[15] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "412bff1fbb7633aa8bf2e3dd6a87455885320d5b66f66fc6aee74a536e0f0336",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "d1b4440a5819a8dd86f8d22d31126f175122491000b4ea7c0ff234806db7d63a"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_plain_known_bin_all_up_bit_forward.sv",
+      "source_sha256": "54e9d116bd5e219f81c4bdf4c11278d267dc2853859e5ba471347f44b6d752f8",
+      "expected_sha256": "711da0f6637d05f16f5b00aab10729748d9a9e945f5298824c6517ef156bc781",
+      "original_source_sha256": "27d554bbdb3611824ee48aed386240041ac0dc219ef0ce64955a3cf9e6410da0",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "54e9d116bd5e219f81c4bdf4c11278d267dc2853859e5ba471347f44b6d752f8",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "74360d7c066f581a2c539b824522dc19f8bd051e673e5da32d3f901423c312ed"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_plain_known_bin_all_up_bit_forward.sv",
+      "source_sha256": "990ae6edf4bae9fdc70da4580265db2177d333bea59997d8778bdaee99f74ac7",
+      "expected_sha256": "711da0f6637d05f16f5b00aab10729748d9a9e945f5298824c6517ef156bc781",
+      "original_source_sha256": "27d554bbdb3611824ee48aed386240041ac0dc219ef0ce64955a3cf9e6410da0",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 11, 15);",
+        "new": "    $readmemb(\"written.mem\", loaded, 11, 15);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "990ae6edf4bae9fdc70da4580265db2177d333bea59997d8778bdaee99f74ac7",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "ea3bc2bd18fa75d680e3dcdf20362e8c0be40cd5a872ce9df5a23ae59709faf8"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_plain_known_bin_all_up_logic_forward.sv",
+      "source_sha256": "97306fb4d3d2bc55a6de9ccd956f2d4233a6b23edb9532dc8255f58e6786751e",
+      "expected_sha256": "711da0f6637d05f16f5b00aab10729748d9a9e945f5298824c6517ef156bc781",
+      "original_source_sha256": "6d7e96802f75973b96b26b548abc5c669068e00cc71cb569dfdca7c0924ab221",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "97306fb4d3d2bc55a6de9ccd956f2d4233a6b23edb9532dc8255f58e6786751e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "74360d7c066f581a2c539b824522dc19f8bd051e673e5da32d3f901423c312ed"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_plain_known_bin_all_up_logic_forward.sv",
+      "source_sha256": "4563870713f1174b544e2d88052692fc4357493c604787e60737f5375f051ce6",
+      "expected_sha256": "711da0f6637d05f16f5b00aab10729748d9a9e945f5298824c6517ef156bc781",
+      "original_source_sha256": "6d7e96802f75973b96b26b548abc5c669068e00cc71cb569dfdca7c0924ab221",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 11, 15);",
+        "new": "    $readmemb(\"written.mem\", loaded, 11, 15);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "4563870713f1174b544e2d88052692fc4357493c604787e60737f5375f051ce6",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "ea3bc2bd18fa75d680e3dcdf20362e8c0be40cd5a872ce9df5a23ae59709faf8"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_plain_known_hex_all_down_bit_forward.sv",
+      "source_sha256": "7bf20b4f3d3de41239fdb9b5c1b775a1b62864333987bbfe7acd09ade9e26465",
+      "expected_sha256": "711da0f6637d05f16f5b00aab10729748d9a9e945f5298824c6517ef156bc781",
+      "original_source_sha256": "c5fb27235f5659a1072c4ed9670664baa1d5f2717ea9d157a2bf21c4a68eb8a6",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "7bf20b4f3d3de41239fdb9b5c1b775a1b62864333987bbfe7acd09ade9e26465",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "74360d7c066f581a2c539b824522dc19f8bd051e673e5da32d3f901423c312ed"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_plain_known_hex_all_down_bit_forward.sv",
+      "source_sha256": "94826a43ba7b6bc7a8659cfbbfd879bb56c3c467b161dff7e2be4da11f9aa271",
+      "expected_sha256": "711da0f6637d05f16f5b00aab10729748d9a9e945f5298824c6517ef156bc781",
+      "original_source_sha256": "c5fb27235f5659a1072c4ed9670664baa1d5f2717ea9d157a2bf21c4a68eb8a6",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemh(\"written.mem\", loaded, 11, 15);",
+        "new": "    $readmemh(\"written.mem\", loaded, 11, 15);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "94826a43ba7b6bc7a8659cfbbfd879bb56c3c467b161dff7e2be4da11f9aa271",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "ea3bc2bd18fa75d680e3dcdf20362e8c0be40cd5a872ce9df5a23ae59709faf8"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_plain_known_hex_single_up_logic_forward.sv",
+      "source_sha256": "27f35cf4b68578afcaee09075755411d9748bf3f83ae3c1369089289a66fece2",
+      "expected_sha256": "a36825c23ca9669acbc5d0f3e62f41aef7ed122aaab618966f392c05987d67d0",
+      "original_source_sha256": "5c6d8e7bc970d583818a2c3c67691b3d04bee2ea5f76133088aafebba2aca2d1",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "27f35cf4b68578afcaee09075755411d9748bf3f83ae3c1369089289a66fece2",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "c9aa9e8b548b5dbed9b0f046586b6eb530889d0ad79be2856e495d8fc813a08a"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_plain_known_hex_single_up_logic_forward.sv",
+      "source_sha256": "18df2cb3963b3c3f3e07ec4bdceec644dc7fc1490acffaff853ceba6bfee37c2",
+      "expected_sha256": "a36825c23ca9669acbc5d0f3e62f41aef7ed122aaab618966f392c05987d67d0",
+      "original_source_sha256": "5c6d8e7bc970d583818a2c3c67691b3d04bee2ea5f76133088aafebba2aca2d1",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemh(\"written.mem\", loaded, 11, 11);",
+        "new": "    $readmemh(\"written.mem\", loaded, 11, 11);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "18df2cb3963b3c3f3e07ec4bdceec644dc7fc1490acffaff853ceba6bfee37c2",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "198c8350ee07a36a17f6c89eaa52fca94de5aec893c756cd28288d72ef25f8a4"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_plain_x_bin_all_up_bit_forward.sv",
+      "source_sha256": "977d8a6dd46912a50d1c256c2a2856b444026a297ec791e2917171edc4767bd7",
+      "expected_sha256": "8e5cdc184e1d88e86b3c31f3895540e4494d82cb23da0da77cda84cc0f8ca606",
+      "original_source_sha256": "a6efb1350d11748e1c57c5fe7e09bb18e1af8ef8ff5ae6b9019af1822f077301",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "977d8a6dd46912a50d1c256c2a2856b444026a297ec791e2917171edc4767bd7",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "582bbc294ed4675e4b7b71de871c7d3ac828719c572ef4596cd32a5c695cddbd"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_plain_x_bin_all_up_bit_forward.sv",
+      "source_sha256": "0fc274615a34e816de9c00ad90632dfdd7b066dd4ffce8bb64bbb5c489215b50",
+      "expected_sha256": "8e5cdc184e1d88e86b3c31f3895540e4494d82cb23da0da77cda84cc0f8ca606",
+      "original_source_sha256": "a6efb1350d11748e1c57c5fe7e09bb18e1af8ef8ff5ae6b9019af1822f077301",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 11, 15);",
+        "new": "    $readmemb(\"written.mem\", loaded, 11, 15);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "0fc274615a34e816de9c00ad90632dfdd7b066dd4ffce8bb64bbb5c489215b50",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "5258f42be10ab15d9a6bf411136add37e5746aa844a7683534daa9af2ac25f2d"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_plain_x_hex_middle_up_bit_forward.sv",
+      "source_sha256": "f97cd93e8d58856391a3af7042365f6d376d6cf9e2409b10c3558b3a5658a09c",
+      "expected_sha256": "2c3bb64cdfeb7a09ff6b6836785442a3be4eff89c90e8200c2401e7e2a63750d",
+      "original_source_sha256": "67f360855302b708569ecaf0ce425486766d5257447b263e3070a9c5a9e99ab1",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "f97cd93e8d58856391a3af7042365f6d376d6cf9e2409b10c3558b3a5658a09c",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "fb59e1f337ab28d9ccb474c51cfda2db52e4b750eff314e6952ac38419110ede"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_plain_x_hex_middle_up_bit_forward.sv",
+      "source_sha256": "28e7222cf2421d5643815ccdfa4339f20c59d5bdb8d46d3dcdcc306d6c8bdd21",
+      "expected_sha256": "2c3bb64cdfeb7a09ff6b6836785442a3be4eff89c90e8200c2401e7e2a63750d",
+      "original_source_sha256": "67f360855302b708569ecaf0ce425486766d5257447b263e3070a9c5a9e99ab1",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemh(\"written.mem\", loaded, 11, 13);",
+        "new": "    $readmemh(\"written.mem\", loaded, 11, 13);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "28e7222cf2421d5643815ccdfa4339f20c59d5bdb8d46d3dcdcc306d6c8bdd21",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "141d25a32a32c806009ae4f42585e84bfdd4118b5f3af3ed629cf0e327bdea88"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_plain_z_bin_all_up_bit_forward.sv",
+      "source_sha256": "a1cc1756d0dfa985e4a329fba8d651e6be6df396644427a4dc217f7b3b2ee817",
+      "expected_sha256": "6e9170723201719f6a2d929a082f2568556430bc1873e8f6a55ece7ec9a05903",
+      "original_source_sha256": "81f5634e3805dfbafe60f87a6b099a9508e7f0b2f7f2484ebcde604dea3fd957",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "a1cc1756d0dfa985e4a329fba8d651e6be6df396644427a4dc217f7b3b2ee817",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "d5cc8d35e98cf93e98966ab939718092b6d3fe4ac0603703bcf88e4f2bad6710"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_plain_z_bin_all_up_bit_forward.sv",
+      "source_sha256": "13516cc1b0cd3bc3ced710090d069d177d11cfc6bf65f84f1187d8825d4464a4",
+      "expected_sha256": "6e9170723201719f6a2d929a082f2568556430bc1873e8f6a55ece7ec9a05903",
+      "original_source_sha256": "81f5634e3805dfbafe60f87a6b099a9508e7f0b2f7f2484ebcde604dea3fd957",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 11, 15);",
+        "new": "    $readmemb(\"written.mem\", loaded, 11, 15);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "13516cc1b0cd3bc3ced710090d069d177d11cfc6bf65f84f1187d8825d4464a4",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "d73d6977bfa5aede382f3b6dddc0adb0c5fa1e2a213559af151bdec5182b276a"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_plain_z_bin_single_down_logic_forward.sv",
+      "source_sha256": "b0ddc76cdab5c635ebcf14166facbc52ea1dd91b6a09488656ccb84d37bbcc3e",
+      "expected_sha256": "b7f8329bb1b24f0efb1c7788df9d8ab61dbbc8b9cb736ec6b274a137d8f2454d",
+      "original_source_sha256": "b1153d1aa4f0d4fa8d44eb44678aade2991840c2e9a0518100b7d85885b05242",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "b0ddc76cdab5c635ebcf14166facbc52ea1dd91b6a09488656ccb84d37bbcc3e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "449b323c92df984bf5b75013b8b2c29d62b2aea5447f86b08170578744964baa"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_plain_z_bin_single_down_logic_forward.sv",
+      "source_sha256": "5d3867a0ba63319918db069e67a0b7fdb9ec707fbee400eb109171a006338af4",
+      "expected_sha256": "b7f8329bb1b24f0efb1c7788df9d8ab61dbbc8b9cb736ec6b274a137d8f2454d",
+      "original_source_sha256": "b1153d1aa4f0d4fa8d44eb44678aade2991840c2e9a0518100b7d85885b05242",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 11, 11);",
+        "new": "    $readmemb(\"written.mem\", loaded, 11, 11);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "5d3867a0ba63319918db069e67a0b7fdb9ec707fbee400eb109171a006338af4",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "7368088319dfba6cb17f0cb003aaa992c2fc052c493dd60fc9dfb142388ed4a5"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_plain_z_hex_middle_up_logic_reverse.sv",
+      "source_sha256": "d83b25ed5416b0f25418521d9602200197efba97aff8f38e9fbfadf7df48d659",
+      "expected_sha256": "862e92e0c4a5006ca9f29646f31a6c799d7628e46acfb237309bfcb5e4d6bc3b",
+      "original_source_sha256": "3b31fd50a33c608df38aba3e4fd8b801ed42c9252d945af0c671e7487578a5ed",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "d83b25ed5416b0f25418521d9602200197efba97aff8f38e9fbfadf7df48d659",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "80ef428e7b0290d6b9031087c0e43ec07d3bb67d33ed90d3485e0570730fa9e6"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_bit_plain_z_hex_middle_up_logic_reverse.sv",
+      "source_sha256": "9580e85293a7f9c544f607e5e5aabd28a8b36891e454afecf0ac46b786c0851b",
+      "expected_sha256": "862e92e0c4a5006ca9f29646f31a6c799d7628e46acfb237309bfcb5e4d6bc3b",
+      "original_source_sha256": "3b31fd50a33c608df38aba3e4fd8b801ed42c9252d945af0c671e7487578a5ed",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemh(\"written.mem\", loaded, 13, 11);",
+        "new": "    $readmemh(\"written.mem\", loaded, 13, 11);\n    loaded[13] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "9580e85293a7f9c544f607e5e5aabd28a8b36891e454afecf0ac46b786c0851b",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "cbd11cda7ff46fb8f5610b8647aafb5146693c3dc7d7b48a22240b52c1b3c442"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_logic_enum_known_bin_middle_up_bit_reverse.sv",
+      "source_sha256": "a202c1a1f514d32db0d30724a93ff04e366ad3f90083ffde41bdbf294d885536",
+      "expected_sha256": "db9971ed028fc048cbdae03c2bef0fd626a04b72268fb1cdb0a20126b390ac5f",
+      "original_source_sha256": "1d84b6cddb347227a136d4d1d57a5e8463c9b2ec8ff6de09e58ccadcf614d832",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "a202c1a1f514d32db0d30724a93ff04e366ad3f90083ffde41bdbf294d885536",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "3529be6e600d072d7e00628b9e74d3e1a9c25daecd470a53fff7d512d8b3b225"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_logic_enum_known_bin_middle_up_bit_reverse.sv",
+      "source_sha256": "48fa3df5589f4fac10b33fe151a579c20f7a033a78a95a6c8c2135d4738eaa88",
+      "expected_sha256": "db9971ed028fc048cbdae03c2bef0fd626a04b72268fb1cdb0a20126b390ac5f",
+      "original_source_sha256": "1d84b6cddb347227a136d4d1d57a5e8463c9b2ec8ff6de09e58ccadcf614d832",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 13, 11);",
+        "new": "    $readmemb(\"written.mem\", loaded, 13, 11);\n    loaded[13] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "48fa3df5589f4fac10b33fe151a579c20f7a033a78a95a6c8c2135d4738eaa88",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "6924bcc2b424c5a26916988fa021bc6aa6adc39eea55fc33b78ee142b366db4b"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_logic_enum_x_bin_single_down_bit_forward.sv",
+      "source_sha256": "edb0575a01d74b2a11dddd80b4023313f506eee57053bf3d31a885bfb435705d",
+      "expected_sha256": "9c119f0291760cab6c6a6ead787800451aeeeeda5510a19acabb84091b74602c",
+      "original_source_sha256": "3d596820199c6fb11bd77fd0ad67788c319d88904dd9f439e8b2c8f09c68ec73",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "edb0575a01d74b2a11dddd80b4023313f506eee57053bf3d31a885bfb435705d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "184e9cac5e884ead0fbaf7334ddb21cbe88b6761b616d8e3a7b58df55fc36250"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_logic_enum_x_bin_single_down_bit_forward.sv",
+      "source_sha256": "a6ba5b735ecd236182b155bc105627cb2247ca4918080abd46b5938e1d03f833",
+      "expected_sha256": "9c119f0291760cab6c6a6ead787800451aeeeeda5510a19acabb84091b74602c",
+      "original_source_sha256": "3d596820199c6fb11bd77fd0ad67788c319d88904dd9f439e8b2c8f09c68ec73",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 11, 11);",
+        "new": "    $readmemb(\"written.mem\", loaded, 11, 11);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "a6ba5b735ecd236182b155bc105627cb2247ca4918080abd46b5938e1d03f833",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "4b746724ec470b5078b8708d9d0b730e4c4bfd27d74ca77c1e0109b2de7e691b"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_logic_enum_z_hex_middle_down_bit_reverse.sv",
+      "source_sha256": "b15de20b239a343b59717a601090461538fa367172f5e55877d3f0d7cd604160",
+      "expected_sha256": "87a6e83088958e1fbcf453585a7f22e42dcc46d366041d1b9c4ce2295015ff46",
+      "original_source_sha256": "f12a15649f02372b91920825a998d5ae25f620120d78e258ec9657e3a948382f",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "b15de20b239a343b59717a601090461538fa367172f5e55877d3f0d7cd604160",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "a598ab706586c71de3a2275729b4f173dcef616b9ac92b8397ae737189424a96"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_logic_enum_z_hex_middle_down_bit_reverse.sv",
+      "source_sha256": "78abecf77f37fde999857421f51765cab0880436a2533fabb9988a3b2a8711bc",
+      "expected_sha256": "87a6e83088958e1fbcf453585a7f22e42dcc46d366041d1b9c4ce2295015ff46",
+      "original_source_sha256": "f12a15649f02372b91920825a998d5ae25f620120d78e258ec9657e3a948382f",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemh(\"written.mem\", loaded, 13, 11);",
+        "new": "    $readmemh(\"written.mem\", loaded, 13, 11);\n    loaded[13] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "78abecf77f37fde999857421f51765cab0880436a2533fabb9988a3b2a8711bc",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "884de731b7cf26f0976471246cbe20c26792ff93351f30ffa3fdc43a2b39dedc"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_logic_plain_known_bin_all_up_bit_forward.sv",
+      "source_sha256": "dc4234ad0c2c003b852a51402eb24586fbd1537bdefe38cdfa5bd949568bbf28",
+      "expected_sha256": "711da0f6637d05f16f5b00aab10729748d9a9e945f5298824c6517ef156bc781",
+      "original_source_sha256": "d9ffc9867e016b4b550ab313c741772749f881a4b797c138e7124c4d9f04b021",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "dc4234ad0c2c003b852a51402eb24586fbd1537bdefe38cdfa5bd949568bbf28",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "74360d7c066f581a2c539b824522dc19f8bd051e673e5da32d3f901423c312ed"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_logic_plain_known_bin_all_up_bit_forward.sv",
+      "source_sha256": "1e1524679ba8cfb7f479b5a5f6cd2e11f054fb980c79da94b1b16629afb10ab1",
+      "expected_sha256": "711da0f6637d05f16f5b00aab10729748d9a9e945f5298824c6517ef156bc781",
+      "original_source_sha256": "d9ffc9867e016b4b550ab313c741772749f881a4b797c138e7124c4d9f04b021",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 11, 15);",
+        "new": "    $readmemb(\"written.mem\", loaded, 11, 15);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "1e1524679ba8cfb7f479b5a5f6cd2e11f054fb980c79da94b1b16629afb10ab1",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "ea3bc2bd18fa75d680e3dcdf20362e8c0be40cd5a872ce9df5a23ae59709faf8"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_logic_plain_known_bin_middle_down_bit_forward.sv",
+      "source_sha256": "de7f8438ccef8a18eaf258e2312ca4215936e0c46e9a3cd183001a6518a53066",
+      "expected_sha256": "a952e968fa305117a903b74d9de974059a7cba8ac58987e9989b94cf6c0fabc3",
+      "original_source_sha256": "fad5f8649285635b24dbc0d5d99bdbb62580a4cb29bdd6d0a04f1ff7d08c87f3",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "de7f8438ccef8a18eaf258e2312ca4215936e0c46e9a3cd183001a6518a53066",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "8758bf800794935d8870f670b6a24c40e31a2896c123963617d6ae2dea2a2679"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_logic_plain_known_bin_middle_down_bit_forward.sv",
+      "source_sha256": "e42a6ad419f37574794c28533af46ed49ce18a6cef144931817e00f37aa3e61d",
+      "expected_sha256": "a952e968fa305117a903b74d9de974059a7cba8ac58987e9989b94cf6c0fabc3",
+      "original_source_sha256": "fad5f8649285635b24dbc0d5d99bdbb62580a4cb29bdd6d0a04f1ff7d08c87f3",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 11, 13);",
+        "new": "    $readmemb(\"written.mem\", loaded, 11, 13);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "e42a6ad419f37574794c28533af46ed49ce18a6cef144931817e00f37aa3e61d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "5f551a7b9c1653df1c14fcd81b336342d4bb4ebe5a9611f785625db20d20a3ed"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_logic_plain_x_bin_all_down_logic_reverse.sv",
+      "source_sha256": "6bdd5d94e005045f39d45d66a99efbc7179f82665975937f7e87c7f8660d984d",
+      "expected_sha256": "52025c76a7530b7c2d85326fc96759eb618cb87865e9d3c55e7712d5a0c56591",
+      "original_source_sha256": "fc2f5fc8e840f9d0f90b84e97231a2c1a2f389407ddc450bef0333ba37e131e7",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "6bdd5d94e005045f39d45d66a99efbc7179f82665975937f7e87c7f8660d984d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "11d6d1517a0897283f4803752c83309c56e12d60e9c69fefa9915313d52a0fd4"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_logic_plain_x_bin_all_down_logic_reverse.sv",
+      "source_sha256": "147d92f5aac744ad8b76c0d0f36becab68f6e3e093b7660a5df4c587cd968d69",
+      "expected_sha256": "52025c76a7530b7c2d85326fc96759eb618cb87865e9d3c55e7712d5a0c56591",
+      "original_source_sha256": "fc2f5fc8e840f9d0f90b84e97231a2c1a2f389407ddc450bef0333ba37e131e7",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 15, 11);",
+        "new": "    $readmemb(\"written.mem\", loaded, 15, 11);\n    loaded[15] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "147d92f5aac744ad8b76c0d0f36becab68f6e3e093b7660a5df4c587cd968d69",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "fc337da012dcb2c6624fe2ecf6a12db6b7d577b8088f1cc7cab6f3cd05d38f79"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_logic_plain_x_bin_all_up_bit_forward.sv",
+      "source_sha256": "d91be7a3c58a5a9cc94ccf67ebd04ae659d01cb2314f0b289b0825b6c41fa265",
+      "expected_sha256": "e9dc9f493f77efc802f7980b7e6e48dca6dbf6650267f120581c4ad7eadf9566",
+      "original_source_sha256": "fccc9c5d5fa8acc0159031331c9f1d5fcc3a670862f088efd2a3355c53188e57",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "d91be7a3c58a5a9cc94ccf67ebd04ae659d01cb2314f0b289b0825b6c41fa265",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "5371c77afbecf8c988ac790057f970b6ff15a8e6b19544ef76370e82bd744dae"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_logic_plain_x_bin_all_up_bit_forward.sv",
+      "source_sha256": "f8e99ba5d5cfd300512dc11e1eedc52c75d93f5c1f2a90fdb04c4d60769478ed",
+      "expected_sha256": "e9dc9f493f77efc802f7980b7e6e48dca6dbf6650267f120581c4ad7eadf9566",
+      "original_source_sha256": "fccc9c5d5fa8acc0159031331c9f1d5fcc3a670862f088efd2a3355c53188e57",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 11, 15);",
+        "new": "    $readmemb(\"written.mem\", loaded, 11, 15);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "f8e99ba5d5cfd300512dc11e1eedc52c75d93f5c1f2a90fdb04c4d60769478ed",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "8af5ce04f264d1cd99747773df21e0ab874073949205ecb6e9c02367b6c7a395"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_logic_plain_z_bin_all_up_bit_forward.sv",
+      "source_sha256": "f5e336e8cea5b620d318d9c3537c8287933d722244c1a8591313ca28511323f2",
+      "expected_sha256": "cfeba9b7a9856344c86a04c7e0c1e7a101068d2530f39d5503ad58bbf5169bf0",
+      "original_source_sha256": "5f38bf11612f1edf7e7d79426326894f8e9f478027f15015604884aa1d702875",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "f5e336e8cea5b620d318d9c3537c8287933d722244c1a8591313ca28511323f2",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "f514eaf6d170e0a2bb8831ffa3dda58a740427e02d402f5e3e74d71bffaca1d6"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_logic_plain_z_bin_all_up_bit_forward.sv",
+      "source_sha256": "0c8a64c12b13133c3d34218103dda7d0e50deefd855c7ea557b5d0525b2437fe",
+      "expected_sha256": "cfeba9b7a9856344c86a04c7e0c1e7a101068d2530f39d5503ad58bbf5169bf0",
+      "original_source_sha256": "5f38bf11612f1edf7e7d79426326894f8e9f478027f15015604884aa1d702875",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 11, 15);",
+        "new": "    $readmemb(\"written.mem\", loaded, 11, 15);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "0c8a64c12b13133c3d34218103dda7d0e50deefd855c7ea557b5d0525b2437fe",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "5c3e4aeaae3c37d82072660c52b91c40b66761574b811cf9b2bfeda86d7d181a"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_logic_plain_z_bin_middle_up_logic_reverse.sv",
+      "source_sha256": "d0fa12685a1193171da9e8b587c8b226eda0ca46401949f0bbdf4b04a1f5811c",
+      "expected_sha256": "e2dc9a43e5ca989aa96ff75d055b618b999cdcba29358af6e4ebaef7c3099a2e",
+      "original_source_sha256": "65db28652b61025916ba46b87a3a49c7d14302aa345ee36c560417de0a2398e2",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "d0fa12685a1193171da9e8b587c8b226eda0ca46401949f0bbdf4b04a1f5811c",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "9b0ac5320c70bbc12b012aa80e635757748afd962c218d7c05b6f78a23ebd88b"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_257_logic_plain_z_bin_middle_up_logic_reverse.sv",
+      "source_sha256": "410990780007f0dfe313896b23ea3f4f53a25537d645dfcdac24e6ce21911f39",
+      "expected_sha256": "e2dc9a43e5ca989aa96ff75d055b618b999cdcba29358af6e4ebaef7c3099a2e",
+      "original_source_sha256": "65db28652b61025916ba46b87a3a49c7d14302aa345ee36c560417de0a2398e2",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 13, 11);",
+        "new": "    $readmemb(\"written.mem\", loaded, 13, 11);\n    loaded[13] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "410990780007f0dfe313896b23ea3f4f53a25537d645dfcdac24e6ce21911f39",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "05fbc93b38e3e2808449fa061ccc9801002bbc3bf8586b4998d5e8fad153e7d6"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_enum_known_bin_single_up_bit_forward.sv",
+      "source_sha256": "95d4cd0accd4a74991da134143da3dacda0aa9709eb6c4339eac4188eb85a755",
+      "expected_sha256": "da169026d35671570b033bd4ab226c102f402c12d856b089e48990a22c484328",
+      "original_source_sha256": "04a0f79a595b1608f7e137a6eaf297cb8acfe2e4e0c5e84355629dba26844393",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "95d4cd0accd4a74991da134143da3dacda0aa9709eb6c4339eac4188eb85a755",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "324632f345a9af00df52020e362e58e133ee0753d226c188d74c14486750af47"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_enum_known_bin_single_up_bit_forward.sv",
+      "source_sha256": "f466aa8dcc70176ffdc398b863f2caca0e37041e34b85552b6a404130f6ce6dd",
+      "expected_sha256": "da169026d35671570b033bd4ab226c102f402c12d856b089e48990a22c484328",
+      "original_source_sha256": "04a0f79a595b1608f7e137a6eaf297cb8acfe2e4e0c5e84355629dba26844393",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 11, 11);",
+        "new": "    $readmemb(\"written.mem\", loaded, 11, 11);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "f466aa8dcc70176ffdc398b863f2caca0e37041e34b85552b6a404130f6ce6dd",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "31f456a441b90244e31c7aae5a68977aca5cc7f9a9a077247a9c4d187ecd3872"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_enum_known_hex_all_up_bit_forward.sv",
+      "source_sha256": "d069019ed8493c9305ed00594a70d8bc39cdedc6523c6cf3aea3e0fe1968a429",
+      "expected_sha256": "49be7818b2618bde530be179e57fbcd7a16c35a588a78e932a3c60b797d673f2",
+      "original_source_sha256": "d386df349920cb94ebd77c93bb65b6af78bc287dd76c74c0daceac68f6910acb",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "d069019ed8493c9305ed00594a70d8bc39cdedc6523c6cf3aea3e0fe1968a429",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "0569550a39f06824b3c72d787bc52e3bfe807c57effaa0b45decebd78aeb82f8"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_enum_known_hex_all_up_bit_forward.sv",
+      "source_sha256": "aa4e00c42032898c034e57c7d209f9e3df2175458d83babb199cb6982c846b27",
+      "expected_sha256": "49be7818b2618bde530be179e57fbcd7a16c35a588a78e932a3c60b797d673f2",
+      "original_source_sha256": "d386df349920cb94ebd77c93bb65b6af78bc287dd76c74c0daceac68f6910acb",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemh(\"written.mem\", loaded, 11, 15);",
+        "new": "    $readmemh(\"written.mem\", loaded, 11, 15);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "aa4e00c42032898c034e57c7d209f9e3df2175458d83babb199cb6982c846b27",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "db428ef0b0e2a9b2d0fd5e23013fb56c00192a7b1c207d03b5b73a7f1350243b"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_enum_x_bin_single_up_bit_forward.sv",
+      "source_sha256": "c3867d4127f597cd7b73c83a43f60e3104c57197259443c0cc4f6b536d951168",
+      "expected_sha256": "70ea973d7fe504538f53ce08262ba82815efb078d8c6eb563d9522b7e693986f",
+      "original_source_sha256": "7e35a814a2cfb44c95941b1ac15bda944b6021594a23d4abd2246f488521a057",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "c3867d4127f597cd7b73c83a43f60e3104c57197259443c0cc4f6b536d951168",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "d570d63ac46910839d6bb861f9dee778328837135631ddfc2350e396a30137a2"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_enum_x_bin_single_up_bit_forward.sv",
+      "source_sha256": "c2d7a19a003d6c49a7ebbff36e1c5b18003f6f16c9c20c4dacb4bc93c6135e9b",
+      "expected_sha256": "70ea973d7fe504538f53ce08262ba82815efb078d8c6eb563d9522b7e693986f",
+      "original_source_sha256": "7e35a814a2cfb44c95941b1ac15bda944b6021594a23d4abd2246f488521a057",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 11, 11);",
+        "new": "    $readmemb(\"written.mem\", loaded, 11, 11);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "c2d7a19a003d6c49a7ebbff36e1c5b18003f6f16c9c20c4dacb4bc93c6135e9b",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "7704ba5d3e4122bc28936930220f1374b5741174fce820e8a6fc35f6e5a03239"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_enum_x_hex_single_up_logic_forward.sv",
+      "source_sha256": "2a65c8f606b4b68007ba6c85fe854d33acc125d74667c7c8e4345c3c2a6900b2",
+      "expected_sha256": "70ea973d7fe504538f53ce08262ba82815efb078d8c6eb563d9522b7e693986f",
+      "original_source_sha256": "bc89b7ef56cf6eb40dca117af4b6039964057cf883ffd16f1cc2acdac8b896b1",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "2a65c8f606b4b68007ba6c85fe854d33acc125d74667c7c8e4345c3c2a6900b2",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "d570d63ac46910839d6bb861f9dee778328837135631ddfc2350e396a30137a2"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_enum_x_hex_single_up_logic_forward.sv",
+      "source_sha256": "69d101a8260f41a9561f572421222955d487590c2b9164da79d57532933c66b3",
+      "expected_sha256": "70ea973d7fe504538f53ce08262ba82815efb078d8c6eb563d9522b7e693986f",
+      "original_source_sha256": "bc89b7ef56cf6eb40dca117af4b6039964057cf883ffd16f1cc2acdac8b896b1",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemh(\"written.mem\", loaded, 11, 11);",
+        "new": "    $readmemh(\"written.mem\", loaded, 11, 11);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "69d101a8260f41a9561f572421222955d487590c2b9164da79d57532933c66b3",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "7704ba5d3e4122bc28936930220f1374b5741174fce820e8a6fc35f6e5a03239"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_enum_z_bin_all_up_bit_reverse.sv",
+      "source_sha256": "68606fc928744bc7f39ebd5f842ee8deb6667342860b9f9d6fea4ad35a5a345b",
+      "expected_sha256": "81e2c5132bf2739e3c8caef56247929589e81697665f71c7121f9469f8000cee",
+      "original_source_sha256": "6133763808ff3285e62b11606e73587356271a00de902547b888354e8c18855b",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "68606fc928744bc7f39ebd5f842ee8deb6667342860b9f9d6fea4ad35a5a345b",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "f061645da672b3034bbc89fc20e1874021a0ee182fce1e340eed669b00c2ce88"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_enum_z_bin_all_up_bit_reverse.sv",
+      "source_sha256": "77311032573148b69adc4c79c076de3a2fdd4e5fcf08cff24f04536535b564dd",
+      "expected_sha256": "81e2c5132bf2739e3c8caef56247929589e81697665f71c7121f9469f8000cee",
+      "original_source_sha256": "6133763808ff3285e62b11606e73587356271a00de902547b888354e8c18855b",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 15, 11);",
+        "new": "    $readmemb(\"written.mem\", loaded, 15, 11);\n    loaded[15] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "77311032573148b69adc4c79c076de3a2fdd4e5fcf08cff24f04536535b564dd",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "a1fe5922f89b2740f483d9fa9bf1631b6855a4a4b9d0155b4c85213162ca7898"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_plain_known_bin_all_up_bit_forward.sv",
+      "source_sha256": "39694c0f1f71e3916ad6a958216e5dd01434bce2d1aab01119a3083b28e16352",
+      "expected_sha256": "49be7818b2618bde530be179e57fbcd7a16c35a588a78e932a3c60b797d673f2",
+      "original_source_sha256": "3bb6273bf559d08377866523fded6b84434b05f13293b967e1fd74f1de46cb3c",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "39694c0f1f71e3916ad6a958216e5dd01434bce2d1aab01119a3083b28e16352",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "0569550a39f06824b3c72d787bc52e3bfe807c57effaa0b45decebd78aeb82f8"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_plain_known_bin_all_up_bit_forward.sv",
+      "source_sha256": "28511353fc30cf877aa16bc3fd4cd481abc28bafd9d339548c29f47af3dbafb6",
+      "expected_sha256": "49be7818b2618bde530be179e57fbcd7a16c35a588a78e932a3c60b797d673f2",
+      "original_source_sha256": "3bb6273bf559d08377866523fded6b84434b05f13293b967e1fd74f1de46cb3c",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 11, 15);",
+        "new": "    $readmemb(\"written.mem\", loaded, 11, 15);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "28511353fc30cf877aa16bc3fd4cd481abc28bafd9d339548c29f47af3dbafb6",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "db428ef0b0e2a9b2d0fd5e23013fb56c00192a7b1c207d03b5b73a7f1350243b"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_plain_known_bin_all_up_logic_forward.sv",
+      "source_sha256": "2b355d67a9dcdb5ff2fa92d14bf384507b33fa9950bdae5441a1e5edb6a93dc5",
+      "expected_sha256": "49be7818b2618bde530be179e57fbcd7a16c35a588a78e932a3c60b797d673f2",
+      "original_source_sha256": "41ee57085d2327c2b0683d5f847f858c20c5b37c0edcc5b71317ee4b6ee32bad",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "2b355d67a9dcdb5ff2fa92d14bf384507b33fa9950bdae5441a1e5edb6a93dc5",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "0569550a39f06824b3c72d787bc52e3bfe807c57effaa0b45decebd78aeb82f8"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_plain_known_bin_all_up_logic_forward.sv",
+      "source_sha256": "ef674d98043d7b0f86697d8257c75871771224e28d856f4cce879fcafa236f50",
+      "expected_sha256": "49be7818b2618bde530be179e57fbcd7a16c35a588a78e932a3c60b797d673f2",
+      "original_source_sha256": "41ee57085d2327c2b0683d5f847f858c20c5b37c0edcc5b71317ee4b6ee32bad",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 11, 15);",
+        "new": "    $readmemb(\"written.mem\", loaded, 11, 15);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "ef674d98043d7b0f86697d8257c75871771224e28d856f4cce879fcafa236f50",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "db428ef0b0e2a9b2d0fd5e23013fb56c00192a7b1c207d03b5b73a7f1350243b"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_plain_known_hex_all_down_bit_forward.sv",
+      "source_sha256": "178fcf177db59d11dd329ee57689d8166f84b20530d90077c0c412a5b9a2fdbf",
+      "expected_sha256": "49be7818b2618bde530be179e57fbcd7a16c35a588a78e932a3c60b797d673f2",
+      "original_source_sha256": "20ce7bcaa5f8c90a9b3abc4a0f825401343e846e58cca62a498b4bdf33f6fd54",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "178fcf177db59d11dd329ee57689d8166f84b20530d90077c0c412a5b9a2fdbf",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "0569550a39f06824b3c72d787bc52e3bfe807c57effaa0b45decebd78aeb82f8"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_plain_known_hex_all_down_bit_forward.sv",
+      "source_sha256": "941062de116b06ac95ed9fa0c5f49556ca829b054a936995fdad5e79bee0d1d2",
+      "expected_sha256": "49be7818b2618bde530be179e57fbcd7a16c35a588a78e932a3c60b797d673f2",
+      "original_source_sha256": "20ce7bcaa5f8c90a9b3abc4a0f825401343e846e58cca62a498b4bdf33f6fd54",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemh(\"written.mem\", loaded, 11, 15);",
+        "new": "    $readmemh(\"written.mem\", loaded, 11, 15);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "941062de116b06ac95ed9fa0c5f49556ca829b054a936995fdad5e79bee0d1d2",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "db428ef0b0e2a9b2d0fd5e23013fb56c00192a7b1c207d03b5b73a7f1350243b"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_plain_known_hex_single_up_logic_forward.sv",
+      "source_sha256": "66d9ebe21f7e4b515f447785174ab383b5135b8be392d9447b918721b39c7f37",
+      "expected_sha256": "da169026d35671570b033bd4ab226c102f402c12d856b089e48990a22c484328",
+      "original_source_sha256": "5eccfd0af222517352bf8af16413a5f64c3d726eab8896ca3eb8f5f94f4395d5",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "66d9ebe21f7e4b515f447785174ab383b5135b8be392d9447b918721b39c7f37",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "324632f345a9af00df52020e362e58e133ee0753d226c188d74c14486750af47"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_plain_known_hex_single_up_logic_forward.sv",
+      "source_sha256": "ccc5e1c9f5c03b39ef31bda28de6e5b2edd527b76987ec28f4b5311d93174aab",
+      "expected_sha256": "da169026d35671570b033bd4ab226c102f402c12d856b089e48990a22c484328",
+      "original_source_sha256": "5eccfd0af222517352bf8af16413a5f64c3d726eab8896ca3eb8f5f94f4395d5",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemh(\"written.mem\", loaded, 11, 11);",
+        "new": "    $readmemh(\"written.mem\", loaded, 11, 11);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "ccc5e1c9f5c03b39ef31bda28de6e5b2edd527b76987ec28f4b5311d93174aab",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "31f456a441b90244e31c7aae5a68977aca5cc7f9a9a077247a9c4d187ecd3872"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_plain_x_bin_all_up_bit_forward.sv",
+      "source_sha256": "081642d8b6904fcab123055c06d086f27b4f0692217ded015d2648179ecf49e2",
+      "expected_sha256": "d0fe3ab9358e4f0d71d78bf0753f173dde8be4717944a0f03a968848778c3159",
+      "original_source_sha256": "5e153002b53c8561aeb0404b2897b1902ad4fc5ead7d71d2c0a7b9ba79bdf279",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "081642d8b6904fcab123055c06d086f27b4f0692217ded015d2648179ecf49e2",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "85db4ec21dfdd2bf98a2946d6a0dd9ed3a80edb25af59a28750a9904abb89bad"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_plain_x_bin_all_up_bit_forward.sv",
+      "source_sha256": "c964340d8d6751eb3c0575114aee09ced653f6a0798a9a221600060d44970766",
+      "expected_sha256": "d0fe3ab9358e4f0d71d78bf0753f173dde8be4717944a0f03a968848778c3159",
+      "original_source_sha256": "5e153002b53c8561aeb0404b2897b1902ad4fc5ead7d71d2c0a7b9ba79bdf279",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 11, 15);",
+        "new": "    $readmemb(\"written.mem\", loaded, 11, 15);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "c964340d8d6751eb3c0575114aee09ced653f6a0798a9a221600060d44970766",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "e17f5d22424d9c0fa7510dd1cd588dc3906b4f14e2619770a8807dc610691ec6"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_plain_x_hex_middle_up_bit_forward.sv",
+      "source_sha256": "2c9678d0e72214fd563043886fd551ece3d79e3da525159eed2bcaebba68b534",
+      "expected_sha256": "8905f2be8071ece92833dd2e80d906c7fdccd151515df4a1d7aad2747f6ae7f8",
+      "original_source_sha256": "86942d4b6c637b8010397d4c605314f5a48e738c98651c99af5a694fad49611a",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "2c9678d0e72214fd563043886fd551ece3d79e3da525159eed2bcaebba68b534",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "c5664ec7a8158912d1966ab97cab049124a43df32c54f2c5aeec1ea28969e4e3"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_plain_x_hex_middle_up_bit_forward.sv",
+      "source_sha256": "36fbbfdd13262028ee5de0d53adecfeb5930e8e1e9c432344262bec002a1c287",
+      "expected_sha256": "8905f2be8071ece92833dd2e80d906c7fdccd151515df4a1d7aad2747f6ae7f8",
+      "original_source_sha256": "86942d4b6c637b8010397d4c605314f5a48e738c98651c99af5a694fad49611a",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemh(\"written.mem\", loaded, 11, 13);",
+        "new": "    $readmemh(\"written.mem\", loaded, 11, 13);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "36fbbfdd13262028ee5de0d53adecfeb5930e8e1e9c432344262bec002a1c287",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "7abe2bbf117c2ff6efd7d013048fd20ad50a5070b8ed0c57f96882a13ff82498"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_plain_z_bin_all_up_bit_forward.sv",
+      "source_sha256": "fa07bf140b754c4d4407e43c07e62390278d753bd152807290f5fc3eb5b2e53e",
+      "expected_sha256": "2f4243e50c826d0077952b2e96d93a2fb9c85cfe84b68e533b3dfba2632fcdc8",
+      "original_source_sha256": "18573e9382944ceb0792413c94d91ef56ca27dc60ae85694ca5f2ff416616f7a",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "fa07bf140b754c4d4407e43c07e62390278d753bd152807290f5fc3eb5b2e53e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "1ee2dd2844d9a4d666127c6cea637df6983fdfb6e5e76b06e7d274c2f9592ea8"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_plain_z_bin_all_up_bit_forward.sv",
+      "source_sha256": "52ee56f911635c9950c538b67954bbcf91cefd19616e095beba64346020a4247",
+      "expected_sha256": "2f4243e50c826d0077952b2e96d93a2fb9c85cfe84b68e533b3dfba2632fcdc8",
+      "original_source_sha256": "18573e9382944ceb0792413c94d91ef56ca27dc60ae85694ca5f2ff416616f7a",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 11, 15);",
+        "new": "    $readmemb(\"written.mem\", loaded, 11, 15);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "52ee56f911635c9950c538b67954bbcf91cefd19616e095beba64346020a4247",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "ea3545282e6559f76684ca23f75ec2d8145f9a8cdb4b6f1b9960d4e02d7cb658"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_plain_z_bin_single_down_logic_forward.sv",
+      "source_sha256": "530ed26e097be8e84f8334514250b8fbef6ac8872d8c81cc70f3fbe6b84fe3fc",
+      "expected_sha256": "afd0daa3b146097533d53d330624410fb887d36328435c077f8523623831ad1e",
+      "original_source_sha256": "b8e4f43e6d757352049a294a21ce68074156fc22518b7cd6c09bf34ec0cdd723",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "530ed26e097be8e84f8334514250b8fbef6ac8872d8c81cc70f3fbe6b84fe3fc",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "a3576106167b7d7c8c1fc7ea33d8df52beef4e80f9ac86b6d885fa7064bf469c"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_plain_z_bin_single_down_logic_forward.sv",
+      "source_sha256": "f0bb86546eccf571994af5b393bb480f3bc844a7471f16c5ba8969237bb978ce",
+      "expected_sha256": "afd0daa3b146097533d53d330624410fb887d36328435c077f8523623831ad1e",
+      "original_source_sha256": "b8e4f43e6d757352049a294a21ce68074156fc22518b7cd6c09bf34ec0cdd723",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 11, 11);",
+        "new": "    $readmemb(\"written.mem\", loaded, 11, 11);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "f0bb86546eccf571994af5b393bb480f3bc844a7471f16c5ba8969237bb978ce",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "f18bf7326da1f0fc5432108ce4f19c0af838ee3de555c7d9efc462d14c864ba7"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_plain_z_hex_middle_up_logic_reverse.sv",
+      "source_sha256": "28365cb99ad5c949db0ae9d87d95a552a7676d24bfeb48c5d77e0a2163820791",
+      "expected_sha256": "887aca63ad87d6592bf92e6318c0ae60bc59ad868826288cf5165d5d5cd30051",
+      "original_source_sha256": "f8938bdadf5b8741bcaa5a783742ab6149c0b0c4d2e779e701a7b57ed1b35493",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "28365cb99ad5c949db0ae9d87d95a552a7676d24bfeb48c5d77e0a2163820791",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "79a585c63fe84d9ee0a59f6134d902266cc0c09ed960b9d3a80059387a25b060"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_bit_plain_z_hex_middle_up_logic_reverse.sv",
+      "source_sha256": "70cefbdc2bca4df360439de6d9e6eeaf6ac30f56be314224d22bd63858fb67e5",
+      "expected_sha256": "887aca63ad87d6592bf92e6318c0ae60bc59ad868826288cf5165d5d5cd30051",
+      "original_source_sha256": "f8938bdadf5b8741bcaa5a783742ab6149c0b0c4d2e779e701a7b57ed1b35493",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemh(\"written.mem\", loaded, 13, 11);",
+        "new": "    $readmemh(\"written.mem\", loaded, 13, 11);\n    loaded[13] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "70cefbdc2bca4df360439de6d9e6eeaf6ac30f56be314224d22bd63858fb67e5",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "3f9f9f8a7a04d964c58b6b426e3e2afccc71bccb595de76237b1bf5d9d54c989"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_logic_enum_known_bin_middle_up_bit_reverse.sv",
+      "source_sha256": "a7b1f2ed94ce06a87f4ef0ffb90496f341fca968cc64e8b8522035a6d312a76e",
+      "expected_sha256": "20ed2ca14f8e7e53531d33fad0542c53ba8bf4c04e8335f28f6d604dcd5ebc07",
+      "original_source_sha256": "a653e1c1bfe1e4e3cc662da17b3fedc368ca31dfaba4b76fa3caca402b6b65bb",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "a7b1f2ed94ce06a87f4ef0ffb90496f341fca968cc64e8b8522035a6d312a76e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "97c62f2ac94a41bf44209c896d276fac0285e0154d5341b42d3c669f434c3888"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_logic_enum_known_bin_middle_up_bit_reverse.sv",
+      "source_sha256": "b8736df0c6ddf0674a79a8579b4f7450bced6ab567d8ff67d30f16bf448745d7",
+      "expected_sha256": "20ed2ca14f8e7e53531d33fad0542c53ba8bf4c04e8335f28f6d604dcd5ebc07",
+      "original_source_sha256": "a653e1c1bfe1e4e3cc662da17b3fedc368ca31dfaba4b76fa3caca402b6b65bb",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 13, 11);",
+        "new": "    $readmemb(\"written.mem\", loaded, 13, 11);\n    loaded[13] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "b8736df0c6ddf0674a79a8579b4f7450bced6ab567d8ff67d30f16bf448745d7",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "cd8d36a48fde53038ebb29cc09a4502ad0a57163ea6c38cd0b5fd665346f1b38"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_logic_enum_x_bin_single_down_bit_forward.sv",
+      "source_sha256": "6c83a20d64a76ae71777f47c001601fe9877beaf2f3e49a43053436df719b6e9",
+      "expected_sha256": "d3172e8449ae2df3a8a0b6fe77ac244b2214ecb3e541a28c6b561b862e340d86",
+      "original_source_sha256": "6e71af1a3d972adc7d1010eef19c7d625ffc26484f6ff1160c15509d17182c01",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "6c83a20d64a76ae71777f47c001601fe9877beaf2f3e49a43053436df719b6e9",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "a48326aee0df2fbc639966251b77f3d9ec7fee358dd38c28caf890a543090c72"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_logic_enum_x_bin_single_down_bit_forward.sv",
+      "source_sha256": "5e7bf013cdcf26a8397ec8cd0d4bf88a7918e2e9b0a62838c1d0d7f8dce93dfd",
+      "expected_sha256": "d3172e8449ae2df3a8a0b6fe77ac244b2214ecb3e541a28c6b561b862e340d86",
+      "original_source_sha256": "6e71af1a3d972adc7d1010eef19c7d625ffc26484f6ff1160c15509d17182c01",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 11, 11);",
+        "new": "    $readmemb(\"written.mem\", loaded, 11, 11);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "5e7bf013cdcf26a8397ec8cd0d4bf88a7918e2e9b0a62838c1d0d7f8dce93dfd",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "b1477abc1fae0e0540b512bd61f63e2442fefa35a2b4bea0f0c916e79998335e"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_logic_enum_z_hex_middle_down_bit_reverse.sv",
+      "source_sha256": "155390521728a4a526b78b690e324f83d3b81adcd34c108552741b54f65ae36e",
+      "expected_sha256": "d6287e0e279cc6571ff52f7eec19e96e0a2da2c4c5e131e4ab2f1a32c5ed6ac9",
+      "original_source_sha256": "32bfa1b32ccb1989fac7b52c1447cde30929dd946b2bc8b10f4f22e7c88f3c39",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "155390521728a4a526b78b690e324f83d3b81adcd34c108552741b54f65ae36e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "afe66d674367585d7edeed3e890685f20c5a060ebe268d4d9e075c3c017536b0"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_logic_enum_z_hex_middle_down_bit_reverse.sv",
+      "source_sha256": "7694955ac226875208970a4319a841ed2b34f2bd908622b6114a59113a5a085d",
+      "expected_sha256": "d6287e0e279cc6571ff52f7eec19e96e0a2da2c4c5e131e4ab2f1a32c5ed6ac9",
+      "original_source_sha256": "32bfa1b32ccb1989fac7b52c1447cde30929dd946b2bc8b10f4f22e7c88f3c39",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemh(\"written.mem\", loaded, 13, 11);",
+        "new": "    $readmemh(\"written.mem\", loaded, 13, 11);\n    loaded[13] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "7694955ac226875208970a4319a841ed2b34f2bd908622b6114a59113a5a085d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "f169181fdc594d56d05a7f3f19763e3e88576f4274d533c78770173847a3aa67"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_logic_plain_known_bin_all_up_bit_forward.sv",
+      "source_sha256": "86457800dda43f98c081b3bacc43b282cb5d195d92df1d4a9f2953fc1471500b",
+      "expected_sha256": "49be7818b2618bde530be179e57fbcd7a16c35a588a78e932a3c60b797d673f2",
+      "original_source_sha256": "5ba327d12798f3af645184fc25330a2b64839f331d449217f79166e9e52e3ce5",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "86457800dda43f98c081b3bacc43b282cb5d195d92df1d4a9f2953fc1471500b",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "0569550a39f06824b3c72d787bc52e3bfe807c57effaa0b45decebd78aeb82f8"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_logic_plain_known_bin_all_up_bit_forward.sv",
+      "source_sha256": "5666c23cd5867d5acaefa916072e9a1bc58f8988e0ba48bbb095327107915667",
+      "expected_sha256": "49be7818b2618bde530be179e57fbcd7a16c35a588a78e932a3c60b797d673f2",
+      "original_source_sha256": "5ba327d12798f3af645184fc25330a2b64839f331d449217f79166e9e52e3ce5",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 11, 15);",
+        "new": "    $readmemb(\"written.mem\", loaded, 11, 15);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "5666c23cd5867d5acaefa916072e9a1bc58f8988e0ba48bbb095327107915667",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "db428ef0b0e2a9b2d0fd5e23013fb56c00192a7b1c207d03b5b73a7f1350243b"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_logic_plain_known_bin_middle_down_bit_forward.sv",
+      "source_sha256": "11d2605e1a286888a42ec3e1f30eae2a08e5dd5791d7e4865151dc017da6e125",
+      "expected_sha256": "4e35434a11c3049a19dc086ab6d2415d3f6ea4cd7bb70d4d36290c93a8774f0f",
+      "original_source_sha256": "58665373bd14bdfaa9c3c800367c8636b9f2bfc09af8f6a3fd5f5c68f3621284",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "11d2605e1a286888a42ec3e1f30eae2a08e5dd5791d7e4865151dc017da6e125",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "26a41e6e4a0315e5ee75335d89ba3643963e7266934a0bd8e6abcd9e9129c75c"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_logic_plain_known_bin_middle_down_bit_forward.sv",
+      "source_sha256": "864147608f8eb68b61aa84bc1bd7c99cd530e62f988f615a6eccb0f61b64bb46",
+      "expected_sha256": "4e35434a11c3049a19dc086ab6d2415d3f6ea4cd7bb70d4d36290c93a8774f0f",
+      "original_source_sha256": "58665373bd14bdfaa9c3c800367c8636b9f2bfc09af8f6a3fd5f5c68f3621284",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 11, 13);",
+        "new": "    $readmemb(\"written.mem\", loaded, 11, 13);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "864147608f8eb68b61aa84bc1bd7c99cd530e62f988f615a6eccb0f61b64bb46",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "1b897c44d8b4c82b457afb7940a62d9265c754ac56ffbaf96072dc3a13e600cc"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_logic_plain_x_bin_all_down_logic_reverse.sv",
+      "source_sha256": "e8d74d61d8e36d3ba9b8384521d207cf38cf8d9b3ad6a25c611b5d5dcced2b49",
+      "expected_sha256": "b16cbeeda1afb7cb7f1886827597cf8874ac1496ee12e1ed331f2be590aefb47",
+      "original_source_sha256": "4987ba5286f9b4c2a6ebbf0da0cad848afeb5aabf7a6cf44767be65553ee4b66",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "e8d74d61d8e36d3ba9b8384521d207cf38cf8d9b3ad6a25c611b5d5dcced2b49",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "7b7872131aadeb0cac1c42bdd4f74caac0d87c918e138783dc36ba1c3b092174"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_logic_plain_x_bin_all_down_logic_reverse.sv",
+      "source_sha256": "7c912d6eafb2cd6678567eed8a206b3598ed18f49083d8051e1f0726256178ea",
+      "expected_sha256": "b16cbeeda1afb7cb7f1886827597cf8874ac1496ee12e1ed331f2be590aefb47",
+      "original_source_sha256": "4987ba5286f9b4c2a6ebbf0da0cad848afeb5aabf7a6cf44767be65553ee4b66",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 15, 11);",
+        "new": "    $readmemb(\"written.mem\", loaded, 15, 11);\n    loaded[15] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "7c912d6eafb2cd6678567eed8a206b3598ed18f49083d8051e1f0726256178ea",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "c21ec2f7729a4dae85cd6b5084d61850edc2037b337329794fcc4cd9889a7660"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_logic_plain_x_bin_all_up_bit_forward.sv",
+      "source_sha256": "200e3a0abf5814420ffaf70460634a18238446befcf81cf9c1a5299fa2c3cfb4",
+      "expected_sha256": "690f886d5df22d980e8acb2cbd8e1ffeb99005d3fbc1e72fd621f177363458e9",
+      "original_source_sha256": "0d2addd157390321f9eabed61a4912a201674c3df0a122b96663c0b6fbc11570",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "200e3a0abf5814420ffaf70460634a18238446befcf81cf9c1a5299fa2c3cfb4",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "848ab166e8cf297d29f46b1f1dd4e98c7b360082945424b795a0c67eb1038d70"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_logic_plain_x_bin_all_up_bit_forward.sv",
+      "source_sha256": "379c86fd3fd6196fb562a452b69613c13d2a9332410ec46d2ff9be0c2ce397d8",
+      "expected_sha256": "690f886d5df22d980e8acb2cbd8e1ffeb99005d3fbc1e72fd621f177363458e9",
+      "original_source_sha256": "0d2addd157390321f9eabed61a4912a201674c3df0a122b96663c0b6fbc11570",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 11, 15);",
+        "new": "    $readmemb(\"written.mem\", loaded, 11, 15);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "379c86fd3fd6196fb562a452b69613c13d2a9332410ec46d2ff9be0c2ce397d8",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "3391c5404ce513b8310223b42613eee5558e24e86cdd7eb36cefd8348982c380"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_logic_plain_z_bin_all_up_bit_forward.sv",
+      "source_sha256": "74235d912f4dac2409cf9b4d7dc3e366e0f047959be5374793591c33c3f6d4cf",
+      "expected_sha256": "518ab5ed7c06ed282dd45448c7045c145b7b67b90adc009fdbd67e5ffc323a21",
+      "original_source_sha256": "49451d2c63ff802f9d81793915bf82358fa448338d9bb45d395c82b2499c2db1",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "74235d912f4dac2409cf9b4d7dc3e366e0f047959be5374793591c33c3f6d4cf",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "bb6603db6723a5c30ddb310a96f3f212afcacbdc3027aaa806f236fe4f6bd291"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_logic_plain_z_bin_all_up_bit_forward.sv",
+      "source_sha256": "a1c1c7449e2dbe74f06d7973a3982017374243b44c66c0c433eee67dd2cc1565",
+      "expected_sha256": "518ab5ed7c06ed282dd45448c7045c145b7b67b90adc009fdbd67e5ffc323a21",
+      "original_source_sha256": "49451d2c63ff802f9d81793915bf82358fa448338d9bb45d395c82b2499c2db1",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 11, 15);",
+        "new": "    $readmemb(\"written.mem\", loaded, 11, 15);\n    loaded[11] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "a1c1c7449e2dbe74f06d7973a3982017374243b44c66c0c433eee67dd2cc1565",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "fde1db86bf9d2d0a2f4532c36eda145f2cb96b602a91011008937c01475b046a"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_logic_plain_z_bin_middle_up_logic_reverse.sv",
+      "source_sha256": "f2fcb0f73b399380b6d72f1f45284858798ffa05323f446d40b38be8708092a7",
+      "expected_sha256": "397cebd9a037341969b7de695a1e5aad2944078b21384cb179949c4e2abccb32",
+      "original_source_sha256": "c0e5fa91c0666aa4d88ee0ec91c802b81f2b2f955dec123e50d7d26a3f3f70a9",
+      "label": "restore-overlapping-comment-delimiter-bug",
+      "replacement": {
+        "old": "else if (c == 8'd42) state = 4;",
+        "new": "else if (c == 8'd42) state = 3;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "f2fcb0f73b399380b6d72f1f45284858798ffa05323f446d40b38be8708092a7",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "95fb66140ddb52e5a9774f4e7ee5f0f4941e30c9cbab7864ab026572b7190d67"
+    },
+    {
+      "test": "tests/gen/ch21/test_gen_memory_file_boundary_513_logic_plain_z_bin_middle_up_logic_reverse.sv",
+      "source_sha256": "14dab0e3ba9ae361dcb4a86db88ef06a5cce0ac7bc795e596a861a6068897c9f",
+      "expected_sha256": "397cebd9a037341969b7de695a1e5aad2944078b21384cb179949c4e2abccb32",
+      "original_source_sha256": "c0e5fa91c0666aa4d88ee0ec91c802b81f2b2f955dec123e50d7d26a3f3f70a9",
+      "label": "lose-first-loaded-word",
+      "replacement": {
+        "old": "    $readmemb(\"written.mem\", loaded, 13, 11);",
+        "new": "    $readmemb(\"written.mem\", loaded, 13, 11);\n    loaded[13] = '0;",
+        "occurrences": 1
+      },
+      "mutated_source_sha256": "14dab0e3ba9ae361dcb4a86db88ef06a5cce0ac7bc795e596a861a6068897c9f",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "8a56c40093562494b11533809d64c3ba47755f32913199764bf76f9b5494095d"
+    }
+  ],
+  "status": "all-forty-six-controls-pass-and-ninety-two-compiled-mutants-differ"
+}

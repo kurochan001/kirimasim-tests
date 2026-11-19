@@ -243,12 +243,12 @@ tests/ch38/test_vpi_time_callbacks.sv",引用探索の候補とソースを確�
 4,スケジューリングの意味論,39,アサーションAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 4,スケジューリングの意味論,40,コードカバレッジの制御とAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 4,スケジューリングの意味論,41,データ読出しAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-5,字句規則,6,データ型,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,371,"tests/ch37/test_vpi_cast_pattern_constants.sv
+5,字句規則,6,データ型,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,509,"tests/ch37/test_vpi_cast_pattern_constants.sv
 tests/ch5/test_boundary_values.sv
 tests/ch5/test_builtin_method_optional_parens.sv",既存モデルの計画・実行証跡を維持する,,
-5,字句規則,7,集合データ型,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,5,"tests/ch5/test_builtin_method_optional_parens.sv
+5,字句規則,7,集合データ型,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,143,"tests/ch5/test_builtin_method_optional_parens.sv
 tests/ch5/test_string_literal_to_unpacked_byte_array.sv
-tests/gen/ch23/test_gen_cross_paramtype_struct_narrow_ordered.sv",既存モデルの計画・実行証跡を維持する,,
+tests/gen/ch21/test_gen_memory_file_boundary_255_bit_enum_known_bin_single_up_bit_forward.sv",既存モデルの計画・実行証跡を維持する,,
 5,字句規則,8,クラス,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 5,字句規則,9,プロセス,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,104,"tests/ch10/test_assignment_delays_with_time_units.sv
 tests/ch5/test_attribute_latch_generate.sv
@@ -256,7 +256,7 @@ tests/gen/ch3/test_gen_cross_timescope_directive_interface_10ns_tenth_argument_t
 5,字句規則,10,代入文,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,205,"tests/ch10/test_assignment_delays_with_time_units.sv
 tests/ch10/test_assignment_pattern.sv
 tests/ch37/test_vpi_cast_pattern_constants.sv",既存モデルの計画・実行証跡を維持する,,
-5,字句規則,11,演算子と式,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,290,"tests/ch11/test_arithmetic_overflow.sv
+5,字句規則,11,演算子と式,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,428,"tests/ch11/test_arithmetic_overflow.sv
 tests/ch11/test_expression_alternatives_with_operator_attributes.sv
 tests/ch11/test_literal_base_sign_division.sv",既存モデルの計画・実行証跡を維持する,,
 5,字句規則,12,手続き型プログラミング文,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,33,"tests/gen/ch5/test_gen_cross_casedigit_bin_q_wild_unsized_casex.sv
@@ -274,7 +274,7 @@ tests/gen/ch13/test_gen_cross_litarg_based_int_positional_plain.sv",既存モデ
 5,字句規則,20,ユーティリティ用システムタスク・関数,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,120,"tests/ch20/test_real_literal_type.sv
 tests/ch3/test_delay_time_unit_suffix.sv
 tests/ch36/test_36_extra_builtin_systf_names.sv",既存モデルの計画・実行証跡を維持する,,
-5,字句規則,21,入出力用システムタスク・関数,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,328,"tests/ch21/test_display_backslash_escapes.sv
+5,字句規則,21,入出力用システムタスク・関数,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,466,"tests/ch21/test_display_backslash_escapes.sv
 tests/ch21/test_format_special.sv
 tests/ch21/test_sformat_assignment_rules.sv",既存モデルの計画・実行証跡を維持する,,
 5,字句規則,22,コンパイラ指令,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,136,"tests/ch22/test_macro_comments_and_string_continuation.sv
@@ -313,7 +313,7 @@ tests/ch5/test_system_function_names_cell_reset_and_attributes.sv",引用探索�
 5,字句規則,39,アサーションAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 5,字句規則,40,コードカバレッジの制御とAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch40/test_coverage_fsm_pragmas.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 5,字句規則,41,データ読出しAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-6,データ型,7,集合データ型,M,モデル登録済み,登録済み,8,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,1518,"tests/ch11/test_memory_invalid_address_2state.sv
+6,データ型,7,集合データ型,M,モデル登録済み,登録済み,8,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,1656,"tests/ch11/test_memory_invalid_address_2state.sv
 tests/ch26/test_package_typedef.sv
 tests/ch37/test_vpi_net_array_members_parents.sv",既存モデルの計画・実行証跡を維持する,,
 6,データ型,8,クラス,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,219,"tests/ch13/test_evaluation_context_extended.sv
@@ -325,7 +325,7 @@ tests/ch6/test_automatic_data_declarations_in_static_procedural_scopes.sv",既�
 6,データ型,10,代入文,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,1250,"tests/ch10/test_alias_undeclared_name_implicit_net.sv
 tests/ch10/test_array_pattern_index_type_default_keys.sv
 tests/ch10/test_assignment_like_contexts.sv",既存モデルの計画・実行証跡を維持する,,
-6,データ型,11,演算子と式,M,モデル登録済み,登録済み,14,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,2709,"tests/ch11/test_A_extra_specparam_range.sv
+6,データ型,11,演算子と式,M,モデル登録済み,登録済み,14,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,2847,"tests/ch11/test_A_extra_specparam_range.sv
 tests/ch11/test_a8_3_a8_4_constant_primaries.sv
 tests/ch11/test_concatenation_pattern_string_operand_and_replication_once.sv",既存モデルの計画・実行証跡を維持する,,
 6,データ型,12,手続き型プログラミング文,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,308,"tests/ch11/test_propagated_operand_sign.sv
@@ -351,7 +351,7 @@ tests/gen/ch18/test_gen_cross_randreduce_33_signed_dynamic_sum_wide_2_sat_fail_s
 6,データ型,20,ユーティリティ用システムタスク・関数,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,788,"tests/ch11/test_const_expr.sv
 tests/ch11/test_real_operand_result_types.sv
 tests/ch11/test_shortreal_result_and_condition_types.sv",既存モデルの計画・実行証跡を維持する,,
-6,データ型,21,入出力用システムタスク・関数,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,879,"tests/ch21/test_comb_systask_string_format.sv
+6,データ型,21,入出力用システムタスク・関数,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,1017,"tests/ch21/test_comb_systask_string_format.sv
 tests/ch21/test_writemem_two_state_enum.sv
 tests/ch23/test_port_collapse_trireg_charge_strength.sv",既存モデルの計画・実行証跡を維持する,,
 6,データ型,22,コンパイラ指令,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,151,"tests/ch22/test_define_value_in_parameters.sv
@@ -408,7 +408,7 @@ tests/ch7/test_assignment_forms.sv",既存モデルの計画・実行証跡を�
 7,集合データ型,10,代入文,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,678,"tests/ch10/test_assign_lhs_forms.sv
 tests/ch10/test_assignment_deep.sv
 tests/ch10/test_contassign_pattern_to_net_array.sv",既存モデルの計画・実行証跡を維持する,,
-7,集合データ型,11,演算子と式,M,モデル登録済み,登録済み,10,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,1248,"tests/ch10/test_assign_lhs_forms.sv
+7,集合データ型,11,演算子と式,M,モデル登録済み,登録済み,10,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,1386,"tests/ch10/test_assign_lhs_forms.sv
 tests/ch10/test_contassign_select_of_struct_member.sv
 tests/ch10/test_lvalue_scopes_selects_and_concatenation_forms.sv",既存モデルの計画・実行証跡を維持する,,
 7,集合データ型,12,手続き型プログラミング文,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,185,"tests/ch11/test_tagged_union_expression_and_matches_precedence.sv
@@ -432,7 +432,7 @@ tests/gen/ch19/test_gen_cross_cgsample_dynamic_clear_both_arguments_first_2_none
 7,集合データ型,20,ユーティリティ用システムタスク・関数,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,510,"tests/ch20/test_array_multidim_query.sv
 tests/ch20/test_array_query_fixed_dimensions.sv
 tests/ch20/test_associative_array_query_functions.sv",既存モデルの計画・実行証跡を維持する,,
-7,集合データ型,21,入出力用システムタスク・関数,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,329,"tests/ch21/test_readmem_multidim_packed.sv
+7,集合データ型,21,入出力用システムタスク・関数,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,467,"tests/ch21/test_readmem_multidim_packed.sv
 tests/ch21/test_readmemh_address_range.sv
 tests/gen/ch10/test_gen_cross_delay_129_bit_known_one_long_direct.sv",既存モデルの計画・実行証跡を維持する,,
 7,集合データ型,22,コンパイラ指令,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,9,"tests/gen/ch22/test_gen_cross_macro_actual_wrap_brace_member_unit.sv
@@ -696,7 +696,7 @@ tests/ch11/test_precedence_dist_takes_whole_expression.sv",既存モデルの計
 11,演算子と式,20,ユーティリティ用システムタスク・関数,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,770,"tests/ch10/test_contassign_system_function_operand.sv
 tests/ch11/test_arithmetic_wider_than_64_bits.sv
 tests/ch11/test_bit_manip.sv",既存モデルの計画・実行証跡を維持する,,
-11,演算子と式,21,入出力用システムタスク・関数,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,710,"tests/ch11/test_bit_slicing.sv
+11,演算子と式,21,入出力用システムタスク・関数,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,848,"tests/ch11/test_bit_slicing.sv
 tests/ch11/test_ternary.sv
 tests/ch21/test_display_arguments_without_format.sv",既存モデルの計画・実行証跡を維持する,,
 11,演算子と式,22,コンパイラ指令,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,182,"tests/ch22/test_ifdef_expression.sv

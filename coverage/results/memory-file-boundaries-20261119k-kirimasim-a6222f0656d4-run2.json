@@ -1,0 +1,563 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401",
+ "tests": {
+  "gen/ch21/test_gen_memory_file_boundary_255_bit_enum_known_bin_single_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "1ee9f046f24597ead39641a404ffccaacd57ed3f94a0637fafd769da3781f596"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_255_bit_enum_known_hex_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "b20be6ef91afbbfc801991c71148eaed67d12ab277f1dcac5edf1b4e26c48083"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_255_bit_enum_x_bin_single_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "91f11830b622a916575172207b44c48a9d04a86070d93e88ced5057166f27f9f"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_255_bit_enum_x_hex_single_up_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "9576c4dc2126943c3b9343cad99241fa2003e74272c477583e95afe6eaa90441"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_255_bit_enum_z_bin_all_up_bit_reverse": {
+   "status": "pass",
+   "inputs_sha256": "e056d7f4751ccf70d1e126d4b15f00c6534649a34d4ac50839943fe60d1cfa90"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_255_bit_plain_known_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "a79d37b85c1e1638868ed327cfe7b36a0bdbacbcd2cae42d9c22bd3ef568e2fb"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_255_bit_plain_known_bin_all_up_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "74cb76861338694b6887f66ced40a4e99e0c72e04fda454c14d21e270f3bba57"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_255_bit_plain_known_hex_all_down_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "cc0c2cbaa10ccc7dfe91b76508bbc715edb8ade1bb254ce6f545742d4a4f4f49"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_255_bit_plain_known_hex_single_up_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "53a7b42b8cdc04f42ceff8787dff3e42be5fee931466c2b1b8ea47421a6c2c08"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_255_bit_plain_x_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "a95e5ba6942c218095a4b03d345ae9f6fb2778318c27dfe82336a234b3e19170"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_255_bit_plain_x_hex_middle_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "a6ce448550160831f41d592490c4f17117fdf062acfe56f2bfb5279906ed9bd2"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_255_bit_plain_z_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "425bb915179320a9b3e92ab91630587dfbd7977a178b3ae1deaa1281c24080c1"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_255_bit_plain_z_bin_single_down_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "6c2c98a962f20ca8e568baa74e3d02e0ef275056466dcaf59e4a973aa7105a76"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_255_bit_plain_z_hex_middle_up_logic_reverse": {
+   "status": "pass",
+   "inputs_sha256": "4334a727530073631b2debde61574b6c33e4fa12c6c3d9401fbc11ad1ca9d199"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_255_logic_enum_known_bin_middle_up_bit_reverse": {
+   "status": "pass",
+   "inputs_sha256": "eb42a3c542b9d75bd62c079259e1baf1fc7a67aba64dc1cc2d278d85e6cdc5f8"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_255_logic_enum_x_bin_single_down_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "a70d04bf105e133349413e7b81ddb75817865fce1d4ed13873b7e47c6799970b"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_255_logic_enum_z_hex_middle_down_bit_reverse": {
+   "status": "pass",
+   "inputs_sha256": "2bd4f2dda5d5f7610d1921c4e68eb1752f76679c046ffc2080501dc3b520ee0e"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_255_logic_plain_known_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "fdbd5fd8789070e3dd0000d9be9ebfea79ff6922c9765be31b8de296f8ca0646"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_255_logic_plain_known_bin_middle_down_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "b2af60a47c06002ece8ca7462b923e38399a60451aed547fd13398f1684d3e62"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_255_logic_plain_x_bin_all_down_logic_reverse": {
+   "status": "pass",
+   "inputs_sha256": "22976b0d50d8316313faaf4e97e1ec4f3c3e0b3df1fd7a6d8198adc838dfa7fe"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_255_logic_plain_x_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "ff845e18801dad1b3e9c045136fcd6525dd734ec9d809e5571157d07a12e54b8"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_255_logic_plain_z_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "134b0706158a9db4015dbfbbe6a09e7c5a06d790a8bcc7db12ed69e803cdf919"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_255_logic_plain_z_bin_middle_up_logic_reverse": {
+   "status": "pass",
+   "inputs_sha256": "930d96632be19b71e81b375b1318b9276d258a5ee36f5d98830d8339c74e5c39"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_256_bit_enum_known_bin_single_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "14eb20f8db1b930439ea2cff5e464454fdc9c18d3a9bceaa6450af28e3f23b16"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_256_bit_enum_known_hex_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "1c8f932eb08d80cd494fe236fc6249ceb808eddeb919dae41f5022bc7dcd645a"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_256_bit_enum_x_bin_single_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "9172b4d036ebec19d75561fe376ed8409f16f8b428e70bdfaed289581814a82b"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_256_bit_enum_x_hex_single_up_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "a05108a6551b948e34c1b53b36ace270905a67645b97e4b9d1667fc1bf9b225e"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_256_bit_enum_z_bin_all_up_bit_reverse": {
+   "status": "pass",
+   "inputs_sha256": "5b5780be6abe761e3fd189402a2db5202b7757663a8145cc3b559a3dec5c5a50"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_256_bit_plain_known_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "d698edf45e40ec238950ffba90594105b675655e346476485754ec613e3c0fff"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_256_bit_plain_known_bin_all_up_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "8dc7c7bdf24d5d892908791751f259af585796ab7d2001c1ffa4e868471e0a54"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_256_bit_plain_known_hex_all_down_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "f2b686e4fa7c55de5fb682c71d47856282a1a436a6256fc2d5484f695e073b86"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_256_bit_plain_known_hex_single_up_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "dfa74c428889f50cbd977f70016921ac20c06375bc67f701c782c0133cd0a1e3"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_256_bit_plain_x_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "e00aa77efe4c1ba68baecd6f73d143fb4a8962ad089fc756f494b69efebd4a54"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_256_bit_plain_x_hex_middle_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "f8c13b774530c33199387ecb674f128dd92b4133a1ebdfdfa0bd94474c1817de"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_256_bit_plain_z_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "8a94d672992431bc654ca134776aaf7a8806f6cb988f99ca526f7b90ea957d2d"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_256_bit_plain_z_bin_single_down_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "88c8eb50d2551412b45247291c2cbc4902b2c493173c6bb7165875351c8e59c1"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_256_bit_plain_z_hex_middle_up_logic_reverse": {
+   "status": "pass",
+   "inputs_sha256": "2353fa8d88cffcfaf51c72291f4f2309c2b652318184f9fa7037ecacae19bbde"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_256_logic_enum_known_bin_middle_up_bit_reverse": {
+   "status": "pass",
+   "inputs_sha256": "69e3a8065ec72d14f4265c334f4938a983c2ae1153159f7c48d35b2c958f55a8"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_256_logic_enum_x_bin_single_down_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "3545b15263ffdd95a64a160a1a264e25ed80a837004fcbcc7aaaa62c71359b1f"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_256_logic_enum_z_hex_middle_down_bit_reverse": {
+   "status": "pass",
+   "inputs_sha256": "2f05532bec7f06180a8271564a0d7eedcd734d04d9121072d453edcc1bdca236"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_256_logic_plain_known_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "3ed62c8409525336f2ee40379a6554770ce32ef2f0900e7540b180a53d33c818"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_256_logic_plain_known_bin_middle_down_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "bb9476394674752e09db0afe7a9d79dd2a519dea5699dd1a2878cbf80c8bc32d"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_256_logic_plain_x_bin_all_down_logic_reverse": {
+   "status": "pass",
+   "inputs_sha256": "831ea6f79d4d8ca2fb4013e3ea141482fd308045140990b010f0e9d9d0926339"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_256_logic_plain_x_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "9e2cdd4445321448332527965744a58db61bf702a58c06e11cd2c9df57a062a4"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_256_logic_plain_z_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "45dab82667b8e8acf659cf24c7f509ec888594adf71e399021c121545163878a"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_256_logic_plain_z_bin_middle_up_logic_reverse": {
+   "status": "pass",
+   "inputs_sha256": "6a3fb326223ce98703badfd7514704c4189bfb0f2cf3298c61858b36a153f9f4"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_257_bit_enum_known_bin_single_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "5dc1648d1a692813267c2ebd0d9fdf3c2cd86dee795bfd844b3b914f2cf12f45"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_257_bit_enum_known_hex_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "b92da3c3e5bfcfc6bc490da7369a75a70292b8a4687031b10864724847f34e0c"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_257_bit_enum_x_bin_single_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "56414fd4d660e3f70f81f463bc3176399f514ff429bae33ff8dddc2677d87cfb"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_257_bit_enum_x_hex_single_up_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "01fc5c01c938f3179c94eff15a5524af613648e82f2f318b9e88a845469285cd"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_257_bit_enum_z_bin_all_up_bit_reverse": {
+   "status": "pass",
+   "inputs_sha256": "a8a7e64a6573728356b7aaf1691f994eaeb2573739c125483ac2d3de7b1222a9"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_257_bit_plain_known_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "2f79e265fd1d84b934d11ccfd6b667dd303bafb71ea643ea21e03e77480efb80"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_257_bit_plain_known_bin_all_up_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "362797b8e182145a5f23b49f58c67575ea1a9387fc4015f40c467d761967b58e"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_257_bit_plain_known_hex_all_down_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "393284c8f64b8dbdf3b5b22b03ed4379cb468807e625b3100d01bff06a5f132d"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_257_bit_plain_known_hex_single_up_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "939e7e42f09e9d4e925fe04b9b1e998ad972ef288f5abe9d6d7abea86ef6f036"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_257_bit_plain_x_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "b1c0263a44c55f570246d9b4c89c5e4a50ef8e52171600e15a6087b87b1ba0df"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_257_bit_plain_x_hex_middle_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "c8d338d1e9a219c030673c56ab1b9dda9627dc760eaedc19bf5781e572d751ab"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_257_bit_plain_z_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "f314490ee98c383de9a1905b6a444890ffb5b44230b84c0fbc334242b7235be5"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_257_bit_plain_z_bin_single_down_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "6d742f6c3201240339e5ce8b0416704822f02d1fe4a6b6f45bc1563b25290767"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_257_bit_plain_z_hex_middle_up_logic_reverse": {
+   "status": "pass",
+   "inputs_sha256": "7f1f915db89d58c2ac4ba7b338f9675d9eeb9babaebfcc0f303475a2689def54"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_257_logic_enum_known_bin_middle_up_bit_reverse": {
+   "status": "pass",
+   "inputs_sha256": "146562f66d95a8beb0fe2c3b22db42b4d774d459b052cde1b2f00fe372f247ad"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_257_logic_enum_x_bin_single_down_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "121508d3020529ec7e3f707aa9afca2b7a114719fcdd98b4b5e9459dbe2f3adf"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_257_logic_enum_z_hex_middle_down_bit_reverse": {
+   "status": "pass",
+   "inputs_sha256": "b05def0a64f75a91a00382f318627b59207fdc056d959e7f71c7dbd988ef5e77"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_257_logic_plain_known_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "5b92e46d340faced6f1acc13da59c09cd02118bd54d926d2d1e87c47a7794df4"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_257_logic_plain_known_bin_middle_down_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "7be3fe93d31886f1378c0eb11f830eccf868b8902ff00eda5bf36322a4605800"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_257_logic_plain_x_bin_all_down_logic_reverse": {
+   "status": "pass",
+   "inputs_sha256": "586c7e276be65992451e70bf587b37a48962a2b299b4f455c6074157a1c89cf9"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_257_logic_plain_x_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "000f3936a4372ffe8d38a207b7ed3ba6ab517d78a374b8b965d69f1b2fa18700"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_257_logic_plain_z_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "17716611c0f4c80ca9837d373af24fa3df691e0c0f70efae330eba2d4a8bb766"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_257_logic_plain_z_bin_middle_up_logic_reverse": {
+   "status": "pass",
+   "inputs_sha256": "c891a185979a326facf26e9d8fb386e5aaf1c451c32dbd330b0d4c4bcf12be94"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_511_bit_enum_known_bin_single_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "5921ef1cdb663143b5539353b59cb5b7eaeddb41f1a397c2de8aad36c15c9f63"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_511_bit_enum_known_hex_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "c9620e66a664ddddecf21391f2ce715f23072feeaf6b0bce27d707030e7ef6df"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_511_bit_enum_x_bin_single_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "8a8f45b0f3651925d8d25585db512f632a3f47d93f3d79fce9dd3eddd1457ebe"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_511_bit_enum_x_hex_single_up_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "b044b30300fcd549d3be9344770984a7b7b509988076fad0abbec68be5ca0d28"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_511_bit_enum_z_bin_all_up_bit_reverse": {
+   "status": "pass",
+   "inputs_sha256": "49b5244b323646b984f01a72dd55d0c392f16c240817c960e670dbb204988101"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_511_bit_plain_known_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "3b84009709e29a0729ded937064c1c71aadbefdfb2f9161f3add0a336a714259"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_511_bit_plain_known_bin_all_up_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "dc458d29f68410cc2b1cb9f5d18b3041ca12e5095afd032e50707af87c55e4ec"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_511_bit_plain_known_hex_all_down_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "56f347cb6c5ce787040ea424326b9b57cb8f863006ba7d592319f8962ffe3a2e"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_511_bit_plain_known_hex_single_up_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "bdfa7cbea42920afabcad5a576869e26205bb404e76a482d5f067c05ea116e93"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_511_bit_plain_x_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "55487c0353cb78b3b3bb24fb3ab7cd54a108e2e7a8e5deed5172e035da414e21"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_511_bit_plain_x_hex_middle_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "41b55983794e82dd94a8147f352f1a6f9eef907fb67eb1715fd00d5b04da66b8"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_511_bit_plain_z_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "8c5de407f1c34f36a9231d0ce76a1dbe649f085998af986c279c1db0a708a987"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_511_bit_plain_z_bin_single_down_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "4c6112105d2554a3b822e18e0dae2c7f154fe1cd2164c7842dddcafe98198d06"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_511_bit_plain_z_hex_middle_up_logic_reverse": {
+   "status": "pass",
+   "inputs_sha256": "42495f87d97fc2a85a7cd511276907b02f1211d9ff79ed7209161cbdad9fee97"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_511_logic_enum_known_bin_middle_up_bit_reverse": {
+   "status": "pass",
+   "inputs_sha256": "8fa1a742c3d68e05de4e98eef66636846b9337dea0081dd0e87315d75753f4bc"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_511_logic_enum_x_bin_single_down_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "8058530854e6d9b791c63dcdd0bf3f95ddef0efc2079e81a90f57344f2e2f055"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_511_logic_enum_z_hex_middle_down_bit_reverse": {
+   "status": "pass",
+   "inputs_sha256": "037b347a46b587a42b06c9f4ff4961e71ddf4447ac241c26ecaaba0bcc6a0c31"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_511_logic_plain_known_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "96bc5632ba9fa28c631ab4fab6789548bbd9073b2f331053cbf3c14029a35719"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_511_logic_plain_known_bin_middle_down_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "ebddfae5e3874380e4e201cba465671bdd223bbb7c5487cab8866658d896a1d8"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_511_logic_plain_x_bin_all_down_logic_reverse": {
+   "status": "pass",
+   "inputs_sha256": "a173d35556540d3379cc118b87b3f07c2b8e6a686f941af2946b68fbfe0c4934"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_511_logic_plain_x_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "680c7b923c0442c0f627d08df7af44113ebeb891e586556d2a096fac6b6ad0a0"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_511_logic_plain_z_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "50bf007a1a2b8dc89e782706216f050bf8e268025ab79daecff53475d5bdadbe"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_511_logic_plain_z_bin_middle_up_logic_reverse": {
+   "status": "pass",
+   "inputs_sha256": "26815703f9051b65b8d1d84e8a7602617c76a950282779d09f5d56818a16d6a0"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_512_bit_enum_known_bin_single_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "1dc0f156ac0d6bfc7673041401ea2005b4df6588db3847f8a987387197b1520e"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_512_bit_enum_known_hex_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "ca11ac5057a26c469cb3b407c4f92a0631d810e33904492b1557501f048309d6"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_512_bit_enum_x_bin_single_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "9b078d239f0c934ea8aa3352ec646ceceb59f1c680a64181373ea32b1f758903"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_512_bit_enum_x_hex_single_up_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "ffb143b6d66b806666225ae99ff7a328a24683c352edc02fe238cbcc411b02ec"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_512_bit_enum_z_bin_all_up_bit_reverse": {
+   "status": "pass",
+   "inputs_sha256": "9bff9023da7703fdf4fec312fc706f83feb740602c9c455a18403c34b606825a"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_512_bit_plain_known_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "a7c459b62e40e9313512c075ddc0f5d5d6c6db52926c628f75cf5996718ccadf"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_512_bit_plain_known_bin_all_up_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "843d625c9b6e75cd59fe7c88a57048df04c11b332ae1c4b56dd69c6c132825f9"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_512_bit_plain_known_hex_all_down_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "217f0c54f077c2b45847e2c4157dcabde335569c657a69467df1a8b12f2b289b"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_512_bit_plain_known_hex_single_up_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "93e0c8d663653b7307f3beda9469cf17a9d3882141c168a150d463e3bf873dd9"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_512_bit_plain_x_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "9856704515ef536cd3e63e6fea75085c3e8c07c1873f2a423be159a67b5ac42b"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_512_bit_plain_x_hex_middle_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "0bbc943c2a10b509010ed64210b81e7264117265961c9b8d427f3d45e0ceb402"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_512_bit_plain_z_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "5afb01226fd987b3cbb8b0b8273bb0aa485ea7aa7cbe9df6f42ec369812d2c72"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_512_bit_plain_z_bin_single_down_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "b3a217a41e32f5e8e84f4245f8acd39c94bebab7d1632a7af67c9f68e4fd0875"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_512_bit_plain_z_hex_middle_up_logic_reverse": {
+   "status": "pass",
+   "inputs_sha256": "5adafaebdceac94ebb8a87525edc2088d4387ced90f41f58c018ebc7604de1a1"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_512_logic_enum_known_bin_middle_up_bit_reverse": {
+   "status": "pass",
+   "inputs_sha256": "6bb1ac4c29d92b634de7ff670a38f421716753715b4b573f4e3203e873fecbf2"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_512_logic_enum_x_bin_single_down_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "dd46f2ca2b02729ac08053e3911b2746b2b17ee7d57eecb3caa7ed5815e22651"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_512_logic_enum_z_hex_middle_down_bit_reverse": {
+   "status": "pass",
+   "inputs_sha256": "0f73157920af2e6acf4952a0871fa9fa838cca09758f41e93155f3ad8c073522"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_512_logic_plain_known_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "dd174ebca1d709d3d919ca2326440c129423fa76d44bc015c25937142a2e5e78"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_512_logic_plain_known_bin_middle_down_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "b1f432cb56f60a541c830bfd709007768309a10ca6fb31c7e7b1dc162b938971"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_512_logic_plain_x_bin_all_down_logic_reverse": {
+   "status": "pass",
+   "inputs_sha256": "9634c8096ba18bfa4dae5674007654a92278da9b5a5855dcc4bf5a68753b0f7a"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_512_logic_plain_x_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "a6db8ff664cd14f6f3bc071cd607134835851406e236b9f93d8cc3c58824fe80"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_512_logic_plain_z_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "864c2aa36931acbb3e9c4be672a3dc88c4983d54b5b030d32be47169960c3bbb"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_512_logic_plain_z_bin_middle_up_logic_reverse": {
+   "status": "pass",
+   "inputs_sha256": "77162b448ef56f90becc0afb92cdaefdc9e52424f44ed5372edbf89352eb1e5f"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_513_bit_enum_known_bin_single_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "ca72b57bd1676db29494038cbed69d8b3bde345e0bc2dc6e25e3d05682888bdb"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_513_bit_enum_known_hex_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "3ddb027199e38b89875d2e350cefaa1c7b85fd19ee5bdbbc7119267d3dceb34c"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_513_bit_enum_x_bin_single_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "4adf5942d75e7be50c063d8f088c81e46eeeaf54495c2111cb4c7b537d5a0b4b"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_513_bit_enum_x_hex_single_up_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "b9ec21a6e542ee2f81c8d2505d3f00ac47857bb5a79ec01e2ad78afd266328de"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_513_bit_enum_z_bin_all_up_bit_reverse": {
+   "status": "pass",
+   "inputs_sha256": "6bda87d47685ff2f138803dcab94cad0946768e5ba80167e2da6ed96667b2269"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_513_bit_plain_known_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "e7bfbcf41e6109842b68b64347f3f3fed75d2c743dfb85855d0a1246ce8b7992"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_513_bit_plain_known_bin_all_up_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "659c372a96b347eb680e42824d7f8ebb79e7002941b7d7530e085830056e96a3"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_513_bit_plain_known_hex_all_down_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "fff20d283e64246b60d97dbf9484e1b60d2d43ddd5f498e626d10e7fcb80f38a"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_513_bit_plain_known_hex_single_up_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "c02805ea4d2ef62af8fd13d25b1371d6443c40fb8c486db61c75928ec2791d00"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_513_bit_plain_x_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "9e90cd560ee19ba76c37e781f61d5b7ccc09c8c6d5a1a281196c456bec38531a"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_513_bit_plain_x_hex_middle_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "3882be41b53009b78d3c4d811179a01f75d98a588fa8bd223a852721070065a8"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_513_bit_plain_z_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "0a0c75038a2ea37413c498f6e2752a37d0f1e6272f30496139863407e7dfdf8a"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_513_bit_plain_z_bin_single_down_logic_forward": {
+   "status": "pass",
+   "inputs_sha256": "7d7a3a258ac19725bec3fe84e8864f31e816752448c3b6769b97b844e43be50d"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_513_bit_plain_z_hex_middle_up_logic_reverse": {
+   "status": "pass",
+   "inputs_sha256": "9d10b8b914b24745138bb0967394041e8534eeb6369eaf4271f795faacf78f6e"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_513_logic_enum_known_bin_middle_up_bit_reverse": {
+   "status": "pass",
+   "inputs_sha256": "ab0679bea3446b8ac76ccfd8dd738e989cc820793884aa6990f038f297c395d4"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_513_logic_enum_x_bin_single_down_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "3e1ad8ec76405c9b387ad2d3296e8c12a94d644a393e1c935eff1702240523de"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_513_logic_enum_z_hex_middle_down_bit_reverse": {
+   "status": "pass",
+   "inputs_sha256": "ef6c21c6b221e38c1f71634a1b1926336a96f34342146de14ad6d9885eeeb6b3"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_513_logic_plain_known_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "5680521835d83fe10608f676d38f887d34e4164d86960b460a06b6ef51b80f62"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_513_logic_plain_known_bin_middle_down_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "41bcf01d565d3f8f2ace2df34af3c7ad75e5ed56175195d8836c545babfcf1d6"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_513_logic_plain_x_bin_all_down_logic_reverse": {
+   "status": "pass",
+   "inputs_sha256": "ff36e0525c24e617520441c863f87c1c161fc9ad77086b72b2df0eae9df01914"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_513_logic_plain_x_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "52f5d096fa101335842fea1a088a5ca08abdcdaf9659702de19a52a2da285664"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_513_logic_plain_z_bin_all_up_bit_forward": {
+   "status": "pass",
+   "inputs_sha256": "a0fb5465e457fff65924dbbda0caa9bcab1157b19f6515bad105ea0e7365d067"
+  },
+  "gen/ch21/test_gen_memory_file_boundary_513_logic_plain_z_bin_middle_up_logic_reverse": {
+   "status": "pass",
+   "inputs_sha256": "16b7b36c0f4b3ffb95e17bc64e93918e80d654f06bc5c79c29bf5538aea98985"
+  }
+ },
+ "generated_at": "2026-11-19T02:39:47.250370+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

@@ -22,7 +22,7 @@
 
 ## 既存テストの集計状況
 
-- 全 14898 本のうち、要求との対応を登録済みのテストは 6644 本。未登録は 8254 本です。
+- 全 15036 本のうち、要求との対応を登録済みのテストは 6644 本。未登録は 8392 本です。
 - 上記の網羅率は、刺激と期待結果を確認して要求との対応を登録した分だけを計上しています。 未登録の既存テストも検証に役立ちますが、その貢献はまだ割合に反映できていません。
 - 登録済み本数は少なくとも一つの要求との対応がある本数で、テスト全体のレビュー完了数ではありません。
 
@@ -122,6 +122,13 @@
 - `kirimasim` / `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401`: 0/12332 (0.00%)。 計測元: `2026-11-15T02:46:56.224616+00:00` / `keywords-inherited-20261115-kirimasim-d1d8a178.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11278、古い証跡 0、規格違反テストの判定根拠が未承認 150 行。
 - `verilator` / `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101`: 1/12332 (0.01%)。 計測元: `2026-11-15T02:46:27.050750+00:00` / `keywords-inherited-20261115-verilator5.054-seed1.json`。 失敗 0、既知不一致 3、未対応 0、未実行 11278、古い証跡 0、規格違反テストの判定根拠が未承認 146 行。
 - `verilator` / `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101`: 1/12332 (0.01%)。 計測元: `2026-11-15T02:46:49.835333+00:00` / `keywords-inherited-20261115-verilator5.054-seed73.json`。 失敗 0、既知不一致 3、未対応 0、未実行 11278、古い証跡 0、規格違反テストの判定根拠が未承認 146 行。
+- `icarus` / `Icarus Verilog version 13.0 (stable) (v13_0)`: 0/12332 (0.00%)。 計測元: `2026-11-19T02:39:43.830642+00:00` / `memory-file-boundaries-20261119k-icarus13.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
+- `kirimasim` / `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401`: 0/12332 (0.00%)。 計測元: `2026-11-19T02:39:45.516267+00:00` / `memory-file-boundaries-20261119k-kirimasim-a6222f0656d4-run1.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
+- `kirimasim` / `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401`: 0/12332 (0.00%)。 計測元: `2026-11-19T02:39:47.250370+00:00` / `memory-file-boundaries-20261119k-kirimasim-a6222f0656d4-run2.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
+- `kirimasim` / `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401`: 0/12332 (0.00%)。 計測元: `2026-11-19T02:39:48.976818+00:00` / `memory-file-boundaries-20261119k-kirimasim-a6222f0656d4-run3.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
+- `kirimasim` / `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401`: 0/12332 (0.00%)。 計測元: `2026-11-19T02:39:50.878398+00:00` / `memory-file-boundaries-20261119k-kirimasim-a6222f0656d4-run4.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
+- `verilator` / `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101`: 0/12332 (0.00%)。 計測元: `2026-11-19T02:43:12.104689+00:00` / `memory-file-boundaries-20261119k-verilator5.054-seed1.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
+- `verilator` / `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101`: 0/12332 (0.00%)。 計測元: `2026-11-19T02:46:26.386745+00:00` / `memory-file-boundaries-20261119k-verilator5.054-seed73.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
 - `icarus` / `Icarus Verilog version 13.0 (stable) (v13_0)`: 0/12332 (0.00%)。 計測元: `2026-11-19T01:44:38.151064+00:00` / `nba-boundaries-20261119h-icarus13.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
 - `kirimasim` / `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401`: 0/12332 (0.00%)。 計測元: `2026-11-19T01:44:40.043357+00:00` / `nba-boundaries-20261119h-kirimasim-441dddbd0fcd-run1.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
 - `kirimasim` / `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401`: 0/12332 (0.00%)。 計測元: `2026-11-19T01:44:41.969708+00:00` / `nba-boundaries-20261119h-kirimasim-441dddbd0fcd-run2.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
