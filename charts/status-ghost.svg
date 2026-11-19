@@ -11,78 +11,78 @@
 <line class="grid" x1="64" x2="856" y1="300.0" y2="300.0"/>
 <text x="56.0" y="304.0" class="muted" text-anchor="end">0</text>
 <line class="grid" x1="64" x2="856" y1="258.4" y2="258.4"/>
-<text x="56.0" y="262.4" class="muted" text-anchor="end">2800</text>
+<text x="56.0" y="262.4" class="muted" text-anchor="end">3000</text>
 <line class="grid" x1="64" x2="856" y1="216.8" y2="216.8"/>
-<text x="56.0" y="220.8" class="muted" text-anchor="end">5600</text>
+<text x="56.0" y="220.8" class="muted" text-anchor="end">6000</text>
 <line class="grid" x1="64" x2="856" y1="175.2" y2="175.2"/>
-<text x="56.0" y="179.2" class="muted" text-anchor="end">8400</text>
+<text x="56.0" y="179.2" class="muted" text-anchor="end">9000</text>
 <line class="grid" x1="64" x2="856" y1="133.6" y2="133.6"/>
-<text x="56.0" y="137.6" class="muted" text-anchor="end">11200</text>
+<text x="56.0" y="137.6" class="muted" text-anchor="end">12000</text>
 <line class="grid" x1="64" x2="856" y1="92.0" y2="92.0"/>
-<text x="56.0" y="96.0" class="muted" text-anchor="end">14000</text>
+<text x="56.0" y="96.0" class="muted" text-anchor="end">15000</text>
 <line class="axis" x1="64" x2="856" y1="300" y2="300"/>
-<line class="axis" x1="94.4" x2="94.4" y1="300" y2="304"/>
-<text x="94.4" y="318.0" class="muted" text-anchor="middle">10-20</text>
-<line class="axis" x1="276.2" x2="276.2" y1="300" y2="304"/>
-<text x="276.2" y="318.0" class="muted" text-anchor="middle">10-27</text>
-<line class="axis" x1="457.9" x2="457.9" y1="300" y2="304"/>
-<text x="457.9" y="318.0" class="muted" text-anchor="middle">11-03</text>
-<line class="axis" x1="639.7" x2="639.7" y1="300" y2="304"/>
-<text x="639.7" y="318.0" class="muted" text-anchor="middle">11-10</text>
-<line class="axis" x1="821.5" x2="821.5" y1="300" y2="304"/>
-<text x="821.5" y="318.0" class="muted" text-anchor="middle">11-17</text>
-<rect class="c-pass" x="279.9" y="213.5" width="2.0" height="86.5"/>
-<rect class="c-fail" x="279.9" y="186.7" width="2.0" height="26.8"/>
-<rect class="c-pass" x="288.7" y="211.8" width="2.0" height="88.2"/>
-<rect class="c-fail" x="288.7" y="185.1" width="2.0" height="26.7"/>
-<rect class="c-pass" x="298.9" y="211.7" width="2.0" height="88.3"/>
-<rect class="c-fail" x="298.9" y="185.0" width="2.0" height="26.7"/>
-<rect class="c-pass" x="315.0" y="209.6" width="2.0" height="90.4"/>
-<rect class="c-fail" x="315.0" y="184.9" width="2.0" height="24.7"/>
-<rect class="c-pass" x="318.3" y="209.4" width="2.0" height="90.6"/>
-<rect class="c-fail" x="318.3" y="184.9" width="2.0" height="24.5"/>
-<rect class="c-pass" x="341.9" y="193.6" width="2.0" height="106.4"/>
-<rect class="c-fail" x="341.9" y="169.6" width="2.0" height="24.1"/>
-<rect class="c-pass" x="368.5" y="180.6" width="2.0" height="119.4"/>
-<rect class="c-fail" x="368.5" y="167.3" width="2.0" height="13.4"/>
-<rect class="c-pass" x="394.8" y="167.7" width="2.0" height="132.3"/>
-<rect class="c-fail" x="394.8" y="154.8" width="2.0" height="12.9"/>
-<rect class="c-pass" x="435.1" y="163.5" width="2.0" height="136.5"/>
-<rect class="c-fail" x="435.1" y="151.1" width="2.0" height="12.4"/>
-<rect class="c-pass" x="450.3" y="159.5" width="2.0" height="140.5"/>
-<rect class="c-fail" x="450.3" y="147.8" width="2.0" height="11.7"/>
-<rect class="c-pass" x="461.5" y="155.9" width="2.0" height="144.1"/>
-<rect class="c-fail" x="461.5" y="145.4" width="2.0" height="10.4"/>
-<rect class="c-pass" x="473.6" y="155.9" width="2.0" height="144.1"/>
-<rect class="c-fail" x="473.6" y="145.4" width="2.0" height="10.4"/>
-<rect class="c-pass" x="501.0" y="154.5" width="2.0" height="145.5"/>
-<rect class="c-fail" x="501.0" y="143.9" width="2.0" height="10.7"/>
-<rect class="c-pass" x="527.4" y="152.6" width="2.0" height="147.4"/>
-<rect class="c-fail" x="527.4" y="140.6" width="2.0" height="12.0"/>
-<rect class="c-pass" x="554.6" y="151.6" width="2.0" height="148.4"/>
-<rect class="c-fail" x="554.6" y="140.1" width="2.0" height="11.4"/>
-<rect class="c-pass" x="580.7" y="139.2" width="2.0" height="160.8"/>
-<rect class="c-fail" x="580.7" y="129.1" width="2.0" height="10.2"/>
-<rect class="c-pass" x="587.5" y="133.3" width="2.0" height="166.7"/>
-<rect class="c-fail" x="587.5" y="123.2" width="2.0" height="10.0"/>
-<rect class="c-pass" x="593.8" y="133.3" width="2.0" height="166.7"/>
-<rect class="c-fail" x="593.8" y="123.2" width="2.0" height="10.0"/>
-<rect class="c-pass" x="606.6" y="133.1" width="2.0" height="166.9"/>
-<rect class="c-fail" x="606.6" y="123.2" width="2.0" height="9.9"/>
-<rect class="c-pass" x="637.8" y="127.1" width="2.0" height="172.9"/>
-<rect class="c-fail" x="637.8" y="121.7" width="2.0" height="5.4"/>
-<rect class="c-pass" x="659.8" y="127.1" width="2.0" height="172.9"/>
-<rect class="c-fail" x="659.8" y="121.7" width="2.0" height="5.4"/>
-<rect class="c-pass" x="686.9" y="126.9" width="2.0" height="173.1"/>
-<rect class="c-fail" x="686.9" y="121.8" width="2.0" height="5.1"/>
-<rect class="c-pass" x="711.1" y="126.8" width="2.0" height="173.2"/>
-<rect class="c-fail" x="711.1" y="121.6" width="2.0" height="5.2"/>
-<rect class="c-pass" x="737.7" y="124.9" width="2.0" height="175.1"/>
-<rect class="c-fail" x="737.7" y="120.6" width="2.0" height="4.3"/>
-<rect class="c-pass" x="787.1" y="103.8" width="2.0" height="196.2"/>
-<rect class="c-fail" x="787.1" y="98.9" width="2.0" height="4.9"/>
-<rect class="c-pass" x="816.3" y="102.4" width="2.0" height="197.6"/>
-<rect class="c-fail" x="816.3" y="98.3" width="2.0" height="4.1"/>
-<rect class="c-pass" x="839.0" y="102.4" width="2.0" height="197.6"/>
-<rect class="c-fail" x="839.0" y="98.3" width="2.0" height="4.1"/>
+<line class="axis" x1="93.9" x2="93.9" y1="300" y2="304"/>
+<text x="93.9" y="318.0" class="muted" text-anchor="middle">10-20</text>
+<line class="axis" x1="269.2" x2="269.2" y1="300" y2="304"/>
+<text x="269.2" y="318.0" class="muted" text-anchor="middle">10-27</text>
+<line class="axis" x1="444.6" x2="444.6" y1="300" y2="304"/>
+<text x="444.6" y="318.0" class="muted" text-anchor="middle">11-03</text>
+<line class="axis" x1="620.0" x2="620.0" y1="300" y2="304"/>
+<text x="620.0" y="318.0" class="muted" text-anchor="middle">11-10</text>
+<line class="axis" x1="795.3" x2="795.3" y1="300" y2="304"/>
+<text x="795.3" y="318.0" class="muted" text-anchor="middle">11-17</text>
+<rect class="c-pass" x="272.8" y="219.3" width="2.0" height="80.7"/>
+<rect class="c-fail" x="272.8" y="194.2" width="2.0" height="25.0"/>
+<rect class="c-pass" x="281.3" y="217.7" width="2.0" height="82.3"/>
+<rect class="c-fail" x="281.3" y="192.8" width="2.0" height="24.9"/>
+<rect class="c-pass" x="291.1" y="217.6" width="2.0" height="82.4"/>
+<rect class="c-fail" x="291.1" y="192.7" width="2.0" height="24.9"/>
+<rect class="c-pass" x="306.7" y="215.6" width="2.0" height="84.4"/>
+<rect class="c-fail" x="306.7" y="192.6" width="2.0" height="23.0"/>
+<rect class="c-pass" x="309.9" y="215.5" width="2.0" height="84.5"/>
+<rect class="c-fail" x="309.9" y="192.6" width="2.0" height="22.9"/>
+<rect class="c-pass" x="332.7" y="200.7" width="2.0" height="99.3"/>
+<rect class="c-fail" x="332.7" y="178.3" width="2.0" height="22.5"/>
+<rect class="c-pass" x="358.3" y="188.6" width="2.0" height="111.4"/>
+<rect class="c-fail" x="358.3" y="176.1" width="2.0" height="12.5"/>
+<rect class="c-pass" x="383.7" y="176.5" width="2.0" height="123.5"/>
+<rect class="c-fail" x="383.7" y="164.5" width="2.0" height="12.0"/>
+<rect class="c-pass" x="422.6" y="172.6" width="2.0" height="127.4"/>
+<rect class="c-fail" x="422.6" y="161.0" width="2.0" height="11.6"/>
+<rect class="c-pass" x="437.2" y="168.9" width="2.0" height="131.1"/>
+<rect class="c-fail" x="437.2" y="158.0" width="2.0" height="10.9"/>
+<rect class="c-pass" x="448.0" y="165.5" width="2.0" height="134.5"/>
+<rect class="c-fail" x="448.0" y="155.7" width="2.0" height="9.7"/>
+<rect class="c-pass" x="459.7" y="165.5" width="2.0" height="134.5"/>
+<rect class="c-fail" x="459.7" y="155.7" width="2.0" height="9.7"/>
+<rect class="c-pass" x="486.1" y="164.2" width="2.0" height="135.8"/>
+<rect class="c-fail" x="486.1" y="154.3" width="2.0" height="9.9"/>
+<rect class="c-pass" x="511.5" y="162.5" width="2.0" height="137.5"/>
+<rect class="c-fail" x="511.5" y="151.3" width="2.0" height="11.2"/>
+<rect class="c-pass" x="537.8" y="161.5" width="2.0" height="138.5"/>
+<rect class="c-fail" x="537.8" y="150.8" width="2.0" height="10.7"/>
+<rect class="c-pass" x="563.0" y="149.9" width="2.0" height="150.1"/>
+<rect class="c-fail" x="563.0" y="140.5" width="2.0" height="9.5"/>
+<rect class="c-pass" x="569.5" y="144.4" width="2.0" height="155.6"/>
+<rect class="c-fail" x="569.5" y="135.0" width="2.0" height="9.4"/>
+<rect class="c-pass" x="575.7" y="144.4" width="2.0" height="155.6"/>
+<rect class="c-fail" x="575.7" y="135.0" width="2.0" height="9.4"/>
+<rect class="c-pass" x="588.0" y="144.2" width="2.0" height="155.8"/>
+<rect class="c-fail" x="588.0" y="135.0" width="2.0" height="9.2"/>
+<rect class="c-pass" x="618.1" y="138.6" width="2.0" height="161.4"/>
+<rect class="c-fail" x="618.1" y="133.6" width="2.0" height="5.0"/>
+<rect class="c-pass" x="639.4" y="138.6" width="2.0" height="161.4"/>
+<rect class="c-fail" x="639.4" y="133.6" width="2.0" height="5.0"/>
+<rect class="c-pass" x="665.5" y="138.4" width="2.0" height="161.6"/>
+<rect class="c-fail" x="665.5" y="133.7" width="2.0" height="4.7"/>
+<rect class="c-pass" x="688.8" y="138.3" width="2.0" height="161.7"/>
+<rect class="c-fail" x="688.8" y="133.5" width="2.0" height="4.8"/>
+<rect class="c-pass" x="714.5" y="136.5" width="2.0" height="163.5"/>
+<rect class="c-fail" x="714.5" y="132.5" width="2.0" height="4.0"/>
+<rect class="c-pass" x="762.2" y="116.9" width="2.0" height="183.1"/>
+<rect class="c-fail" x="762.2" y="112.3" width="2.0" height="4.6"/>
+<rect class="c-pass" x="790.3" y="115.6" width="2.0" height="184.4"/>
+<rect class="c-fail" x="790.3" y="111.8" width="2.0" height="3.8"/>
+<rect class="c-pass" x="812.2" y="115.6" width="2.0" height="184.4"/>
+<rect class="c-fail" x="812.2" y="111.8" width="2.0" height="3.8"/>
 </svg>
