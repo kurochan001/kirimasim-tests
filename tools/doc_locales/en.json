@@ -23819,6 +23819,14 @@
     "Unsigned nonunit bases with signed negative integral exponents produce zero": "Unsigned nonunit bases with signed negative integral exponents produce zero",
     "Unsigned nonunit bases with signed negative integral exponents produce zero ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Unsigned nonunit bases with signed negative integral exponents produce zero ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
     "Conditional selection and X/Z merge respect context signs and destination state ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Conditional selection and X/Z merge respect context signs and destination state ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
-    "Comparisons extend operands and preserve one- ZXQPH0QXZ results before destination conversion ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "Comparisons extend operands and preserve one- ZXQPH0QXZ results before destination conversion ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )"
+    "Comparisons extend operands and preserve one- ZXQPH0QXZ results before destination conversion ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "Comparisons extend operands and preserve one- ZXQPH0QXZ results before destination conversion ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )",
+    "Constant and runtime zero to negative powers preserve unknown results": "Constant and runtime zero to negative powers preserve unknown results",
+    "Constant and runtime zero to negative powers preserve unknown results ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Constant and runtime zero to negative powers preserve unknown results ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Constant and runtime unit bases agree for signed negative exponents": "Constant and runtime unit bases agree for signed negative exponents",
+    "Constant and runtime unit bases agree for signed negative exponents ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Constant and runtime unit bases agree for signed negative exponents ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Constant and runtime signed minus one preserve negative exponent parity": "Constant and runtime signed minus one preserve negative exponent parity",
+    "Constant and runtime signed minus one preserve negative exponent parity ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Constant and runtime signed minus one preserve negative exponent parity ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Constant and runtime nonunit integral bases agree for negative exponents": "Constant and runtime nonunit integral bases agree for negative exponents",
+    "Constant and runtime nonunit integral bases agree for negative exponents ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Constant and runtime nonunit integral bases agree for negative exponents ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )"
   }
 }

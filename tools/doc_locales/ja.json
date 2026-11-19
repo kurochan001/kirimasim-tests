@@ -25649,6 +25649,14 @@
     "Unsigned nonunit bases with signed negative integral exponents produce zero": "符号なしの非単位の底と符号付きの負の整数指数はゼロを返す",
     "Unsigned nonunit bases with signed negative integral exponents produce zero ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "符号なしの非単位の底と符号付きの負の整数指数はゼロを返す ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
     "Conditional selection and X/Z merge respect context signs and destination state ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "条件選択とX／Zのマージは、文脈の符号と格納先の状態型に従う ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
-    "Comparisons extend operands and preserve one- ZXQPH0QXZ results before destination conversion ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "比較はオペランドを拡張し、格納先への変換の前に1 ZXQPH0QXZ の結果を維持する ( ZXQPH1QXZ ZXQPH2QXZ ZXQPH3QXZ 節 )"
+    "Comparisons extend operands and preserve one- ZXQPH0QXZ results before destination conversion ( ZXQPH1QXZ ZXQPH2QXZ Section ZXQPH3QXZ )": "比較はオペランドを拡張し、格納先への変換の前に1 ZXQPH0QXZ の結果を維持する ( ZXQPH1QXZ ZXQPH2QXZ ZXQPH3QXZ 節 )",
+    "Constant and runtime zero to negative powers preserve unknown results": "定数と実行時のゼロの負乗は未知の結果を維持する",
+    "Constant and runtime zero to negative powers preserve unknown results ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "定数と実行時のゼロの負乗は未知の結果を維持する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Constant and runtime unit bases agree for signed negative exponents": "定数と実行時の一の底は符号付きの負の指数で一致する",
+    "Constant and runtime unit bases agree for signed negative exponents ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "定数と実行時の一の底は符号付きの負の指数で一致する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Constant and runtime signed minus one preserve negative exponent parity": "定数と実行時の符号付きマイナス一は負の指数の奇偶を維持する",
+    "Constant and runtime signed minus one preserve negative exponent parity ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "定数と実行時の符号付きマイナス一は負の指数の奇偶を維持する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Constant and runtime nonunit integral bases agree for negative exponents": "定数と実行時の非単位の整数の底は負の指数で一致する",
+    "Constant and runtime nonunit integral bases agree for negative exponents ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "定数と実行時の非単位の整数の底は負の指数で一致する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )"
   }
 }

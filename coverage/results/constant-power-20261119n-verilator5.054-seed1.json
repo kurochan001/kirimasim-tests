@@ -1,0 +1,81 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "gen/ch11/test_gen_constant_negative_power_minus_one_e3": {
+   "status": "pass",
+   "inputs_sha256": "0d9405760c6383703d843fa73bdbf7b7fae14ce963444000ba48ae8c56891699"
+  },
+  "gen/ch11/test_gen_constant_negative_power_minus_one_e32": {
+   "status": "pass",
+   "inputs_sha256": "e4cb25c21f708530882371a5f8f700728175f4634b8e4f8e9b45e5840c5c7cc7"
+  },
+  "gen/ch11/test_gen_constant_negative_power_minus_one_e65": {
+   "status": "pass",
+   "inputs_sha256": "92fee82a651395e54a628439d67872153651ff694fd97d2fa3c9612085c8a4fe"
+  },
+  "gen/ch11/test_gen_constant_negative_power_minus_one_e8": {
+   "status": "pass",
+   "inputs_sha256": "d9b7abcc401bfa11549f3dce53e4e1a1995c0f00313f33ced4066dff7fd45527"
+  },
+  "gen/ch11/test_gen_constant_negative_power_one_e3": {
+   "status": "pass",
+   "inputs_sha256": "9aa37f98cff1b493d30b5c86f2c08a871fa28e756ec4c975558b35c9bb88b66e"
+  },
+  "gen/ch11/test_gen_constant_negative_power_one_e32": {
+   "status": "pass",
+   "inputs_sha256": "848ce2072d51119d2b7b125efe3668f1044e2d58c1c0af2356e508b3aa26a381"
+  },
+  "gen/ch11/test_gen_constant_negative_power_one_e65": {
+   "status": "pass",
+   "inputs_sha256": "12a71b18a5bc0b1e890038d1c009ecbbb6d444ec5a1a082c6c3161b1f121c1f6"
+  },
+  "gen/ch11/test_gen_constant_negative_power_one_e8": {
+   "status": "pass",
+   "inputs_sha256": "246532860b444506b41906ee926504a4347b78ed7594956577d58d1260e52c8a"
+  },
+  "gen/ch11/test_gen_constant_negative_power_other_e3": {
+   "status": "pass",
+   "inputs_sha256": "8cdc9340ca5ca71809dd4f799e96154903b19c83b5308ff4502be8e404e44a9c"
+  },
+  "gen/ch11/test_gen_constant_negative_power_other_e32": {
+   "status": "pass",
+   "inputs_sha256": "015728299796902212dc2d28ee3a803a6ff7cb351fda0615cfcb170bb51af56c"
+  },
+  "gen/ch11/test_gen_constant_negative_power_other_e65": {
+   "status": "pass",
+   "inputs_sha256": "4e1099c80fac72328c5e1a0590bc3df6d446e9f399f6bfa7d181dc51e6826caf"
+  },
+  "gen/ch11/test_gen_constant_negative_power_other_e8": {
+   "status": "pass",
+   "inputs_sha256": "a92949c491c9f8d51c73d58a862fa241590b18026adbc34a7024c232542986cd"
+  },
+  "gen/ch11/test_gen_constant_negative_power_zero_e3": {
+   "status": "known",
+   "reason": "output differs: line 5 is 'p0_narrow=00000000000000000000000000000000000000000000000...', expected 'p0_narrow=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...'",
+   "inputs_sha256": "e2c04b98965552375993ec1f2ea261cb3d48da3e95aa2d8ac0b68df45b263242"
+  },
+  "gen/ch11/test_gen_constant_negative_power_zero_e32": {
+   "status": "known",
+   "reason": "output differs: line 5 is 'p0_narrow=00000000000000000000000000000000000000000000000...', expected 'p0_narrow=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...'",
+   "inputs_sha256": "97bda0489412b07aa5f5417979019c54443b2a59def809f8bc6c976af67dc975"
+  },
+  "gen/ch11/test_gen_constant_negative_power_zero_e65": {
+   "status": "known",
+   "reason": "output differs: line 5 is 'p0_narrow=00000000000000000000000000000000000000000000000...', expected 'p0_narrow=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...'",
+   "inputs_sha256": "e89607135b43565c75dfd65188763695f41f4f7a2b10cd0c5ec5b6f43acf705c"
+  },
+  "gen/ch11/test_gen_constant_negative_power_zero_e8": {
+   "status": "known",
+   "reason": "output differs: line 5 is 'p0_narrow=00000000000000000000000000000000000000000000000...', expected 'p0_narrow=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...'",
+   "inputs_sha256": "1f7547cab5883f6ad1211f7d307e32f3c07c7f6c92220d03bc0f7eb925b84815"
+  }
+ },
+ "generated_at": "2026-11-19T03:41:20.257356+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

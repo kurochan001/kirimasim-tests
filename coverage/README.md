@@ -268,3 +268,5 @@ Nightlyの測定対象は実行したスイートのコミットです。`main`�
 - `results/negative-power-controls-20261119l-*.json`：整数の負乗16本の記録7件です。Icarus 13.0は16 known、Verilator 5.054はseed 1・73で各12 pass・4 known、kirimasim 0.1.1 `a6222f0656d4`は4回とも16 passです。一致した既知値12本だけにVerilatorのoracleを付けます。独立AIは564行を導出し、[有限の検査](qualification/negative-power-controls-20261119l.json)は実際の`+nonce=1`を使った成功対照16本と、コンパイル・正常終了する変異32本です。要求対応・有限モデルの対応は増やしていません。
 
 - `results/wide-values-20261119m-*.json`：広い条件演算・比較312本の記録7件です。Icarus 13.0は300 pass・12 known、Verilator 5.054はseed 1・73で各120 pass・192 known、kirimasim 0.1.1 `a6222f0656d4`は4回とも312 passです。一致したIcarus300本だけにoracleを付け、Zのマージ12本はspecのみです。独立AIは1,344行を導出し、[有限の検査](qualification/wide-values-20261119m.json)は257/513ビットの成功対照104本と、コンパイル・正常終了する結果の破壊208本です。有限モデルの行・要求対応は変えていません。
+
+- `results/constant-power-20261119n-*.json`：定数と実行時のべき乗16本の記録7件です。Icarus 13.0は16 known、Verilator 5.054はseed1/73で各12 pass・4 known、kirimasim `a6222f0656d4`は4回とも16 passです。Icarusの全出力を追加確認し、定数の結果304箇所が一致、実行時は247差・57一致です。失敗するテスト全体にoracleは付けません。独立AIは1,172行を導出し、[有限の検査](qualification/constant-power-20261119n.json)に成功対照16本・コンパイルする定数／実行時の変異32本と、ソース・バイナリ・各観測のハッシュを記録しています。要求対応・過去の入力は不変です。

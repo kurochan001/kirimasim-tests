@@ -4,7 +4,7 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の144生成器から8,471件のテストを生成しています。
+現在の145生成器から8,487件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
@@ -22,6 +22,7 @@
 | [`combination_io`](../generators/combination_io.py) | 9, 10, 21 | 13 | 境界条件13件。`$fread`の格納先とバイト順、キュー・動的配列の暗黙感度、SV内で読み戻したVCDの内容を確認 |
 | [`combination_monitors`](../generators/combination_monitors.py) | 21 | 18 | 9種類の登録場所と2種類のコンテナ・記述子を組み合わせ、ファイルを読み戻して、Postponedの最終値、非選択要素、選択・置換、monitoroff、閉鎖後の出力抑止を確認する。 |
 | [`combination_nba`](../generators/combination_nba.py) | 10, 13 | 16 | 境界条件16件。`ref static`経由の遅延・イベント制御付きNBA、値と添字の確定、文字列の文字要素、配列スライスのコピーアウトを確認 |
+| [`constant_power_controls`](../generators/constant_power_controls.py) | 11 | 16 | 整数の負乗を定数と実行時で対にする16本。型を明示したlocalparamと実行時引数で、底ゼロ・一・符号付きマイナス一・符号なし三と指数幅3/8/32/65、自然幅・直接・保存後の値とbit変換をそれぞれ確認し、ケース等価でも照合。Xを要するゼロの4本と既知値の12本を分離し、広い文脈の区別を検査したとは主張しない。 |
 | [`division_boundaries`](../generators/division_boundaries.py) | 11 | 72 | 63/64/65・127/128/129・255/256/257ビットの実行時除算と剰余72本。符号の有無、小さい除数、2の冪の境界、端値と固定幅の桁あふれを確認。配列への複合代入は添字の評価回数、隣の要素、直接計算の対照を観測し、記録した実行時引数をオペランドへ反映。 |
 | [`fourstate_boundaries`](../generators/fourstate_boundaries.py) | 11 | 54 | 63/64/65・127/128/129・255/256/257ビットの4値境界54本。全体の真偽、ビット演算とリダクション、等値と片側ワイルドカード、条件の併合、符号付きシフトを確認。語境界周辺のX/Z、既知値の対照、演算前と最後の2値変換を観測し、シフト量は65ビット全体を保持。 |
 | [`function_formal_contexts`](../generators/function_formal_contexts.py) | 13 | 60 | runtimeのoutput・inout・ref受渡し30本と、実引数をリテラル・パラメータに限定したmodule・package・static classの定数呼出し30本。5幅と符号の有無を確認 |

@@ -124,6 +124,10 @@
     "wide_value_boundaries": {
       "en": "312 regressions at 255/256/257 and 511/512/513 bits:32 frozen conditional and20 comparison configurations per width. Joint signs, destination widths/state, X/Z branch merging, all ten comparison operators and full input/result observations reuse existing clause models without changing their finite rows or bindings. Four-state cases retain their flags even when final results happen to be known.",
       "ja": "255/256/257・511/512/513ビットの312本。各幅で条件演算32通りと比較20通りを固定し、共同の符号、格納先の幅・状態型、X/Zの分岐マージ、全10比較演算子、入力・出力全体を既存の規格モデルで確認。有限モデルの行と要求対応は変えず、最終結果が偶然既知でも4値の指定を維持する。"
+    },
+    "constant_power_controls": {
+      "en": "16 paired constant/runtime negative integral-power controls. Typed local parameters and runtime plusargs independently expose zero/one/signed minus-one/unsigned three across exponent widths3/8/32/65, natural/direct/captured results and bit conversion, followed by case-equality comparisons. Four zero-base X cases remain separate from twelve known-only controls; finite scope without broad context-discrimination claims.",
+      "ja": "整数の負乗を定数と実行時で対にする16本。型を明示したlocalparamと実行時引数で、底ゼロ・一・符号付きマイナス一・符号なし三と指数幅3/8/32/65、自然幅・直接・保存後の値とbit変換をそれぞれ確認し、ケース等価でも照合。Xを要するゼロの4本と既知値の12本を分離し、広い文脈の区別を検査したとは主張しない。"
     }
   }
 }
