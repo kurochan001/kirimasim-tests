@@ -9,7 +9,7 @@
 <text x="44.0" y="74.0" text-anchor="start">Icarus 14 devel reference: 1.000</text>
 <line class="line c-ratio0" x1="280" x2="298" y1="70" y2="70"/>
 <circle class="mk c-ratio0" cx="289.0" cy="70.0" r="7.5"/>
-<text x="304.0" y="74.0" text-anchor="start">kirimasim Intel(R) Xeon(R) 6975P-C / cc3a3005 (last valid): 0.897</text>
+<text x="304.0" y="74.0" text-anchor="start">kirimasim Intel(R) Xeon(R) 6975P-C / cc3a3005 (last valid): 0.896</text>
 <line class="grid" x1="64" x2="852" y1="340.0" y2="340.0"/>
 <text x="56.0" y="344.0" class="muted" text-anchor="end">0</text>
 <line class="grid" x1="64" x2="852" y1="290.4" y2="290.4"/>
@@ -24,11 +24,11 @@
 <text x="56.0" y="96.0" class="muted" text-anchor="end">1.2</text>
 <line class="axis" x1="64" x2="852" y1="340" y2="340"/>
 <line class="axis" x1="64.0" x2="64.0" y1="340" y2="344"/>
-<text x="64.0" y="358.0" class="muted" text-anchor="middle">11-17</text>
-<line class="axis" x1="458.0" x2="458.0" y1="340" y2="344"/>
-<text x="458.0" y="358.0" class="muted" text-anchor="middle">11-18</text>
+<text x="64.0" y="358.0" class="muted" text-anchor="middle">11-18</text>
 <line class="axis" x1="852.0" x2="852.0" y1="340" y2="344"/>
 <text x="852.0" y="358.0" class="muted" text-anchor="middle">11-19</text>
-<polyline class="line dashed c-reference" points="64.0,133.3 458.0,133.3 852.0,133.3"/>
-<circle class="mk c-ratio0" cx="458.0" cy="154.6" r="7.5"/>
+<polyline class="line dashed c-reference" points="64.0,133.3 852.0,133.3"/>
+<polyline class="line c-ratio0" points="64.0,154.6 852.0,154.9"/>
+<circle class="mk c-ratio0" cx="64.0" cy="154.6" r="7.5"/>
+<circle class="mk c-ratio0" cx="852.0" cy="154.9" r="7.5"/>
 </svg>
