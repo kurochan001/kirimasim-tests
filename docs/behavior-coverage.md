@@ -220,6 +220,13 @@
 - `wide-casts-20261119q-kirimasim-a6222f0656d4-run4.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T04:51:53.984176+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `wide-casts-20261119q-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T04:58:05.410719+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `wide-casts-20261119q-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T05:04:07.348920+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `wide-constant-calls-20261119s-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T05:20:35.477542+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `wide-constant-calls-20261119s-kirimasim-a6222f0656d4-run1.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T05:20:36.098428+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `wide-constant-calls-20261119s-kirimasim-a6222f0656d4-run2.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T05:20:36.723459+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `wide-constant-calls-20261119s-kirimasim-a6222f0656d4-run3.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T05:20:37.344390+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `wide-constant-calls-20261119s-kirimasim-a6222f0656d4-run4.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T05:20:37.952667+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `wide-constant-calls-20261119s-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T05:22:39.770875+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `wide-constant-calls-20261119s-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T05:23:59.183594+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `wide-forces-20261119r-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T05:09:41.265216+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `wide-forces-20261119r-kirimasim-a6222f0656d4-run1.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T05:09:42.408924+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `wide-forces-20261119r-kirimasim-a6222f0656d4-run2.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T05:09:43.564585+00:00` / 0/12332 動作確認、古い入力との対応 0 件。

@@ -140,6 +140,10 @@
     "wide_force_boundaries": {
       "en": "108 force/release regressions at 255/256/257 and 511/512/513 bits with 18 frozen configurations per width. Six target kinds retain variable, continuous, procedural-continuous, net, guarded-net-slice and wired-or behavior across constant/source-following/X/Z forces and driver changes. Query cases also print every bit; each net slice preserves two guards at both ends. Original finite rows/bindings remain unchanged; strengths, user-defined nets and force stacks are outside this scope.",
       "ja": "255/256/257・511/512/513ビットのforce/releaseの108本で、各幅18構成を固定。変数・継続代入・手続き的な継続代入・ネット・ガード付きネット部分・wired-orの6種類を、定数・追従する信号・X/Zの強制とドライバ変更で確認。問合せだけでなく全ビットも表示し、ネット部分の両端に2ビットずつガードを残す。従来の有限の行・要求対応は変えず、強度・ユーザー定義ネット・forceの重なりは範囲外とする。"
+    },
+    "wide_constant_calls": {
+      "en": "36 known-value regressions at 255/256/257 and 511/512/513 bits across module, package and static-class functions with signed/unsigned returns. Legal constant calls retain literal/parameter actuals; runtime plusargs supply full variable actuals. Direct input-copy leaves and folded/runtime wrappers expose full bits, signed decimals and declared result widths. Original formal-context helpers/cases remain unchanged; noninput constant calls, arbitrary recursion and four-state behavior are outside this scope.",
+      "ja": "255/256/257・511/512/513ビットの既知値36本。module・package・staticなclassの関数と符号あり／なしの戻り値を扱う。合法な定数呼出しはリテラル・parameterの実引数を維持し、実行時引数が変数の実引数を作る。入力のコピーを変更する直接の関数と、定数／実行時のラッパーで、全ビット・符号付き十進数・宣言された戻り値の幅を観測する。従来のヘルパーとケースは不変で、入力以外の仮引数を持つ定数呼出し・任意の再帰・4値は範囲外とする。"
     }
   }
 }

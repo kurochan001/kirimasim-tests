@@ -1,0 +1,943 @@
+{
+  "schema": 1,
+  "kind": "Finite one-edit observation checks; not independent standards review",
+  "recorded_at": "2026-11-19T05:20:34.798555+00:00",
+  "scope": "Every scope/sign configuration at257/513bits:12passing originals and48compiled normally exiting corruptions of folded value, runtime wrapper return, direct runtime leaf return or post-call source retention; not exhaustive fault detection",
+  "simulator": {
+    "version": "kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401",
+    "commit": "a6222f0656d46fbafc332ba8d8adaebb9273b964",
+    "binary_sha256": "140c543ac7edf9e658d25c862b0c217c99da14770ce56a02d4aa1fe26260e1a7"
+  },
+  "args": [
+    "+nonce=1"
+  ],
+  "baselines": [
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_class_w257_signed.sv",
+      "source_sha256": "074a122953442a6be4f8d87bed8f470f4b397fdd660b6899ed715ac5a7cb44e0",
+      "expected_sha256": "26d27461411824464eadf7f2098e5b33af91adf4a2d4f1d1e58ff83a00eb3c16",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "26d27461411824464eadf7f2098e5b33af91adf4a2d4f1d1e58ff83a00eb3c16"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_class_w257_unsigned.sv",
+      "source_sha256": "f079849e8f0e4b1808bc1ee93022260562dc59c25889efc16d22b9f738dceb15",
+      "expected_sha256": "7992207660490296221ea48f27d613ff98e6cf7b170ff87e027cfc835e37a13c",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "7992207660490296221ea48f27d613ff98e6cf7b170ff87e027cfc835e37a13c"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_class_w513_signed.sv",
+      "source_sha256": "42514ff170b50b27fd12bc4a2dc291229cde496e0d42db5c90963ed6ba6c1900",
+      "expected_sha256": "6f36d200dfbc6476802f5d641d7cb54198b3b27ba705ee3f7ea710f226f19da9",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "6f36d200dfbc6476802f5d641d7cb54198b3b27ba705ee3f7ea710f226f19da9"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_class_w513_unsigned.sv",
+      "source_sha256": "169900346c96894b46a65c2d78d1d437743e93538e615522dd853eb43b69b109",
+      "expected_sha256": "1030cc8e5d65e557e65c4b623ece92a7694a364296e7f18ac092252415358661",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "1030cc8e5d65e557e65c4b623ece92a7694a364296e7f18ac092252415358661"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_module_w257_signed.sv",
+      "source_sha256": "55a082ba1d812551ff649d03b6eda3851ca0ea8d03e9288062fce92963fd164b",
+      "expected_sha256": "26d27461411824464eadf7f2098e5b33af91adf4a2d4f1d1e58ff83a00eb3c16",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "26d27461411824464eadf7f2098e5b33af91adf4a2d4f1d1e58ff83a00eb3c16"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_module_w257_unsigned.sv",
+      "source_sha256": "7057cd0ccbebc0becd3de8541615aa2ea39f25d21c03b0e08dc268771ae7aeea",
+      "expected_sha256": "7992207660490296221ea48f27d613ff98e6cf7b170ff87e027cfc835e37a13c",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "7992207660490296221ea48f27d613ff98e6cf7b170ff87e027cfc835e37a13c"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_module_w513_signed.sv",
+      "source_sha256": "a29a5e92c6782976c683127d807a7f4cc1ca0828483edcc99a9f1539df50b376",
+      "expected_sha256": "6f36d200dfbc6476802f5d641d7cb54198b3b27ba705ee3f7ea710f226f19da9",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "6f36d200dfbc6476802f5d641d7cb54198b3b27ba705ee3f7ea710f226f19da9"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_module_w513_unsigned.sv",
+      "source_sha256": "827f91367e39b5f2268cbc98979a4eea17c82b2995fd7d70ceac46edddadcf92",
+      "expected_sha256": "1030cc8e5d65e557e65c4b623ece92a7694a364296e7f18ac092252415358661",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "1030cc8e5d65e557e65c4b623ece92a7694a364296e7f18ac092252415358661"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_package_w257_signed.sv",
+      "source_sha256": "160c2c3ceac5e0ce34aa13d7b118853ad8a3aa9a3f5815d3fb5694d89bc8194a",
+      "expected_sha256": "26d27461411824464eadf7f2098e5b33af91adf4a2d4f1d1e58ff83a00eb3c16",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "26d27461411824464eadf7f2098e5b33af91adf4a2d4f1d1e58ff83a00eb3c16"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_package_w257_unsigned.sv",
+      "source_sha256": "ec3e0c912e320bd9858c65a19f8d0dbdcd789eac3e4dfb90acc4c82738c92973",
+      "expected_sha256": "7992207660490296221ea48f27d613ff98e6cf7b170ff87e027cfc835e37a13c",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "7992207660490296221ea48f27d613ff98e6cf7b170ff87e027cfc835e37a13c"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_package_w513_signed.sv",
+      "source_sha256": "4d50be59df04c87fdc6caa154259293a3ee937f939263b7fe4b5f2e410591656",
+      "expected_sha256": "6f36d200dfbc6476802f5d641d7cb54198b3b27ba705ee3f7ea710f226f19da9",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "6f36d200dfbc6476802f5d641d7cb54198b3b27ba705ee3f7ea710f226f19da9"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_package_w513_unsigned.sv",
+      "source_sha256": "5a80076e779d0a40b4e403caa25d2c27f9cfba4ad9a3f2de36f7658a6459e90b",
+      "expected_sha256": "1030cc8e5d65e557e65c4b623ece92a7694a364296e7f18ac092252415358661",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "1030cc8e5d65e557e65c4b623ece92a7694a364296e7f18ac092252415358661"
+    }
+  ],
+  "mutations": [
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_class_w257_signed.sv",
+      "source_sha256": "2cfd791ec2cb45384412cf9f6ba384c98ca9f0ce49f3ad74a62051c0b982ca76",
+      "expected_sha256": "26d27461411824464eadf7f2098e5b33af91adf4a2d4f1d1e58ff83a00eb3c16",
+      "original_source_sha256": "074a122953442a6be4f8d87bed8f470f4b397fdd660b6899ed715ac5a7cb44e0",
+      "mutated_source_sha256": "2cfd791ec2cb45384412cf9f6ba384c98ca9f0ce49f3ad74a62051c0b982ca76",
+      "label": "folded-result",
+      "replacement": {
+        "old": "  localparam word_t P0 = helper::calculate(",
+        "new": "  localparam word_t P0 = ~helper::calculate(",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "83be6b50b4ffbffb13c02c81a2e504d10d0056b30b46b8b32c9f57f2d6ead706"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_class_w257_signed.sv",
+      "source_sha256": "2f68c2a0fcfda892725dc119e3d678cf5b6e72fde20daa1726f4080cc5dc7667",
+      "expected_sha256": "26d27461411824464eadf7f2098e5b33af91adf4a2d4f1d1e58ff83a00eb3c16",
+      "original_source_sha256": "074a122953442a6be4f8d87bed8f470f4b397fdd660b6899ed715ac5a7cb44e0",
+      "mutated_source_sha256": "2f68c2a0fcfda892725dc119e3d678cf5b6e72fde20daa1726f4080cc5dc7667",
+      "label": "runtime-wrapper-result",
+      "replacement": {
+        "old": "    runtime_value = helper::calculate(runtime_source);",
+        "new": "    runtime_value = helper::calculate(runtime_source);\n    runtime_value[256] = ~runtime_value[256];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "bc7a6cf57d59be13d411fadd048ba0e787ecf1287d5ebb8ae4196b4fb25cdbe3"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_class_w257_signed.sv",
+      "source_sha256": "443c91bdf405e63bdc6a5c3674dfede5da51b388dd372c73d92c19e74b5c2411",
+      "expected_sha256": "26d27461411824464eadf7f2098e5b33af91adf4a2d4f1d1e58ff83a00eb3c16",
+      "original_source_sha256": "074a122953442a6be4f8d87bed8f470f4b397fdd660b6899ed715ac5a7cb44e0",
+      "mutated_source_sha256": "443c91bdf405e63bdc6a5c3674dfede5da51b388dd372c73d92c19e74b5c2411",
+      "label": "runtime-leaf-result",
+      "replacement": {
+        "old": "    runtime_leaf = helper::leaf(runtime_source);",
+        "new": "    runtime_leaf = helper::leaf(runtime_source);\n    runtime_leaf[0] = ~runtime_leaf[0];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "e28fca109d304f357cb9f71cf4ad258492827e93fc2033b08db9b6bb9354971a"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_class_w257_signed.sv",
+      "source_sha256": "8c00355d1ec62de945f41926fadd3aa26a8426913ed2e4ff9a6b34b8a84d74dd",
+      "expected_sha256": "26d27461411824464eadf7f2098e5b33af91adf4a2d4f1d1e58ff83a00eb3c16",
+      "original_source_sha256": "074a122953442a6be4f8d87bed8f470f4b397fdd660b6899ed715ac5a7cb44e0",
+      "mutated_source_sha256": "8c00355d1ec62de945f41926fadd3aa26a8426913ed2e4ff9a6b34b8a84d74dd",
+      "label": "caller-input-retention",
+      "replacement": {
+        "old": "    runtime_leaf = helper::leaf(runtime_source);",
+        "new": "    runtime_leaf = helper::leaf(runtime_source);\n    runtime_source[0] = ~runtime_source[0];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "fd8e0b01b25d640601a345cea6d8cd2cd53a3d34b4b6fbee17f0dc7847a4cd8b"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_class_w257_unsigned.sv",
+      "source_sha256": "ff6ab71104cecc17469bc74d99a2071307f19ede843ccaf8e30b670113608f36",
+      "expected_sha256": "7992207660490296221ea48f27d613ff98e6cf7b170ff87e027cfc835e37a13c",
+      "original_source_sha256": "f079849e8f0e4b1808bc1ee93022260562dc59c25889efc16d22b9f738dceb15",
+      "mutated_source_sha256": "ff6ab71104cecc17469bc74d99a2071307f19ede843ccaf8e30b670113608f36",
+      "label": "folded-result",
+      "replacement": {
+        "old": "  localparam word_t P0 = helper::calculate(",
+        "new": "  localparam word_t P0 = ~helper::calculate(",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "43f9b050d887f258f0eb9fdad2125d9cf49e190fcf32988462152bcc8bee7db2"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_class_w257_unsigned.sv",
+      "source_sha256": "c23e3e7de73679b9491f269c5024da7908c9ffd83b33077261e7d38aa31ec6ba",
+      "expected_sha256": "7992207660490296221ea48f27d613ff98e6cf7b170ff87e027cfc835e37a13c",
+      "original_source_sha256": "f079849e8f0e4b1808bc1ee93022260562dc59c25889efc16d22b9f738dceb15",
+      "mutated_source_sha256": "c23e3e7de73679b9491f269c5024da7908c9ffd83b33077261e7d38aa31ec6ba",
+      "label": "runtime-wrapper-result",
+      "replacement": {
+        "old": "    runtime_value = helper::calculate(runtime_source);",
+        "new": "    runtime_value = helper::calculate(runtime_source);\n    runtime_value[256] = ~runtime_value[256];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "2fe215f3796e34dee7ec60aab2caa264401575f69c634fd550a31d676223074c"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_class_w257_unsigned.sv",
+      "source_sha256": "019fc371f4983c73af1f3f0c42def7299e0e785e3cef533c1cc59ef89fc0a2bf",
+      "expected_sha256": "7992207660490296221ea48f27d613ff98e6cf7b170ff87e027cfc835e37a13c",
+      "original_source_sha256": "f079849e8f0e4b1808bc1ee93022260562dc59c25889efc16d22b9f738dceb15",
+      "mutated_source_sha256": "019fc371f4983c73af1f3f0c42def7299e0e785e3cef533c1cc59ef89fc0a2bf",
+      "label": "runtime-leaf-result",
+      "replacement": {
+        "old": "    runtime_leaf = helper::leaf(runtime_source);",
+        "new": "    runtime_leaf = helper::leaf(runtime_source);\n    runtime_leaf[0] = ~runtime_leaf[0];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "d267e9c2a8771c0eff7a169f29c17d2e6775180730167428c31366cd20d74bfc"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_class_w257_unsigned.sv",
+      "source_sha256": "c7683e8dc3e31d126b20cd62145e56f5ff15d31547bb4cc0c996f3f086742c2c",
+      "expected_sha256": "7992207660490296221ea48f27d613ff98e6cf7b170ff87e027cfc835e37a13c",
+      "original_source_sha256": "f079849e8f0e4b1808bc1ee93022260562dc59c25889efc16d22b9f738dceb15",
+      "mutated_source_sha256": "c7683e8dc3e31d126b20cd62145e56f5ff15d31547bb4cc0c996f3f086742c2c",
+      "label": "caller-input-retention",
+      "replacement": {
+        "old": "    runtime_leaf = helper::leaf(runtime_source);",
+        "new": "    runtime_leaf = helper::leaf(runtime_source);\n    runtime_source[0] = ~runtime_source[0];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "da0daa84adc6e18af77ee48c26566fb6bef877e0b2ed271cceec5353dd13c25d"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_class_w513_signed.sv",
+      "source_sha256": "0461e194bb8516ef4695098353cda5fc76e22f5b46b28538211259cd947aa514",
+      "expected_sha256": "6f36d200dfbc6476802f5d641d7cb54198b3b27ba705ee3f7ea710f226f19da9",
+      "original_source_sha256": "42514ff170b50b27fd12bc4a2dc291229cde496e0d42db5c90963ed6ba6c1900",
+      "mutated_source_sha256": "0461e194bb8516ef4695098353cda5fc76e22f5b46b28538211259cd947aa514",
+      "label": "folded-result",
+      "replacement": {
+        "old": "  localparam word_t P0 = helper::calculate(",
+        "new": "  localparam word_t P0 = ~helper::calculate(",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "3b9bdc80055909b5173f4240364a1d406562e3195881333d0dac80540dd70b60"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_class_w513_signed.sv",
+      "source_sha256": "6a687784f2c9df0b95b470a62a6063e4e5c5a3a1b1ff794cb4b2216e47a2a175",
+      "expected_sha256": "6f36d200dfbc6476802f5d641d7cb54198b3b27ba705ee3f7ea710f226f19da9",
+      "original_source_sha256": "42514ff170b50b27fd12bc4a2dc291229cde496e0d42db5c90963ed6ba6c1900",
+      "mutated_source_sha256": "6a687784f2c9df0b95b470a62a6063e4e5c5a3a1b1ff794cb4b2216e47a2a175",
+      "label": "runtime-wrapper-result",
+      "replacement": {
+        "old": "    runtime_value = helper::calculate(runtime_source);",
+        "new": "    runtime_value = helper::calculate(runtime_source);\n    runtime_value[512] = ~runtime_value[512];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "b6b0833253e302fc4070c35da7b11f67e13cdd17795d684935c62ef822c615bf"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_class_w513_signed.sv",
+      "source_sha256": "1796291865b8776bd34866552b3f91515d9816db5256bc8a71dc4dd26378b7f7",
+      "expected_sha256": "6f36d200dfbc6476802f5d641d7cb54198b3b27ba705ee3f7ea710f226f19da9",
+      "original_source_sha256": "42514ff170b50b27fd12bc4a2dc291229cde496e0d42db5c90963ed6ba6c1900",
+      "mutated_source_sha256": "1796291865b8776bd34866552b3f91515d9816db5256bc8a71dc4dd26378b7f7",
+      "label": "runtime-leaf-result",
+      "replacement": {
+        "old": "    runtime_leaf = helper::leaf(runtime_source);",
+        "new": "    runtime_leaf = helper::leaf(runtime_source);\n    runtime_leaf[0] = ~runtime_leaf[0];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "74505cd227f91b128ac8f89169bbbbcb8ce762a3bad5c48ce709d44aab11c9f5"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_class_w513_signed.sv",
+      "source_sha256": "fbef84944870f7d363b999180386d8d2df378abeec74fd1234e8a1775ed52569",
+      "expected_sha256": "6f36d200dfbc6476802f5d641d7cb54198b3b27ba705ee3f7ea710f226f19da9",
+      "original_source_sha256": "42514ff170b50b27fd12bc4a2dc291229cde496e0d42db5c90963ed6ba6c1900",
+      "mutated_source_sha256": "fbef84944870f7d363b999180386d8d2df378abeec74fd1234e8a1775ed52569",
+      "label": "caller-input-retention",
+      "replacement": {
+        "old": "    runtime_leaf = helper::leaf(runtime_source);",
+        "new": "    runtime_leaf = helper::leaf(runtime_source);\n    runtime_source[0] = ~runtime_source[0];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "b3c0b2521235829345c4bb77b6d0ab8328b754fc854eec997f6f521a277daf72"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_class_w513_unsigned.sv",
+      "source_sha256": "dd937342a2a047ad8b9209e0d6640f53d4bacbed991731b0cb55a19ada2016e0",
+      "expected_sha256": "1030cc8e5d65e557e65c4b623ece92a7694a364296e7f18ac092252415358661",
+      "original_source_sha256": "169900346c96894b46a65c2d78d1d437743e93538e615522dd853eb43b69b109",
+      "mutated_source_sha256": "dd937342a2a047ad8b9209e0d6640f53d4bacbed991731b0cb55a19ada2016e0",
+      "label": "folded-result",
+      "replacement": {
+        "old": "  localparam word_t P0 = helper::calculate(",
+        "new": "  localparam word_t P0 = ~helper::calculate(",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "580b4f4e44cefef6575b2bc3984c53d429226616d390196ab868055f711e1165"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_class_w513_unsigned.sv",
+      "source_sha256": "fa427d4e6ded2783ccc146c3da9b549658daf247f99f14cfc81a31d7a366ccbb",
+      "expected_sha256": "1030cc8e5d65e557e65c4b623ece92a7694a364296e7f18ac092252415358661",
+      "original_source_sha256": "169900346c96894b46a65c2d78d1d437743e93538e615522dd853eb43b69b109",
+      "mutated_source_sha256": "fa427d4e6ded2783ccc146c3da9b549658daf247f99f14cfc81a31d7a366ccbb",
+      "label": "runtime-wrapper-result",
+      "replacement": {
+        "old": "    runtime_value = helper::calculate(runtime_source);",
+        "new": "    runtime_value = helper::calculate(runtime_source);\n    runtime_value[512] = ~runtime_value[512];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "2c43d5a481a821ab86c24a382f72f2f79abe5dfe3dd6a22a00a720f832559064"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_class_w513_unsigned.sv",
+      "source_sha256": "0601b306e7d614d959aaedb9342156abb7fb5599b5a00df6a1a78d2ff1529fb1",
+      "expected_sha256": "1030cc8e5d65e557e65c4b623ece92a7694a364296e7f18ac092252415358661",
+      "original_source_sha256": "169900346c96894b46a65c2d78d1d437743e93538e615522dd853eb43b69b109",
+      "mutated_source_sha256": "0601b306e7d614d959aaedb9342156abb7fb5599b5a00df6a1a78d2ff1529fb1",
+      "label": "runtime-leaf-result",
+      "replacement": {
+        "old": "    runtime_leaf = helper::leaf(runtime_source);",
+        "new": "    runtime_leaf = helper::leaf(runtime_source);\n    runtime_leaf[0] = ~runtime_leaf[0];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "7409f856bf52539986faab6781c0c13e05e053d819f7f2cbcc29278e3b265a3f"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_class_w513_unsigned.sv",
+      "source_sha256": "d1f0dde3643c7fa1faf27b5358914a5968e2c3218e34908dd9174e114bddc7c5",
+      "expected_sha256": "1030cc8e5d65e557e65c4b623ece92a7694a364296e7f18ac092252415358661",
+      "original_source_sha256": "169900346c96894b46a65c2d78d1d437743e93538e615522dd853eb43b69b109",
+      "mutated_source_sha256": "d1f0dde3643c7fa1faf27b5358914a5968e2c3218e34908dd9174e114bddc7c5",
+      "label": "caller-input-retention",
+      "replacement": {
+        "old": "    runtime_leaf = helper::leaf(runtime_source);",
+        "new": "    runtime_leaf = helper::leaf(runtime_source);\n    runtime_source[0] = ~runtime_source[0];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "dbd251c3681e7f816f70f69ae0a1d0a68422b8a57afa83e0af1e2ae5e6a2f865"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_module_w257_signed.sv",
+      "source_sha256": "43ea191ea52ae80f976346238943a75888fa1d0d46286fbaffde241d9f29323e",
+      "expected_sha256": "26d27461411824464eadf7f2098e5b33af91adf4a2d4f1d1e58ff83a00eb3c16",
+      "original_source_sha256": "55a082ba1d812551ff649d03b6eda3851ca0ea8d03e9288062fce92963fd164b",
+      "mutated_source_sha256": "43ea191ea52ae80f976346238943a75888fa1d0d46286fbaffde241d9f29323e",
+      "label": "folded-result",
+      "replacement": {
+        "old": "  localparam word_t P0 = calculate(",
+        "new": "  localparam word_t P0 = ~calculate(",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "83be6b50b4ffbffb13c02c81a2e504d10d0056b30b46b8b32c9f57f2d6ead706"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_module_w257_signed.sv",
+      "source_sha256": "8c04984f4825ade8cfda7701560f0b765673da43ac3289cd9841db9b3f435b7b",
+      "expected_sha256": "26d27461411824464eadf7f2098e5b33af91adf4a2d4f1d1e58ff83a00eb3c16",
+      "original_source_sha256": "55a082ba1d812551ff649d03b6eda3851ca0ea8d03e9288062fce92963fd164b",
+      "mutated_source_sha256": "8c04984f4825ade8cfda7701560f0b765673da43ac3289cd9841db9b3f435b7b",
+      "label": "runtime-wrapper-result",
+      "replacement": {
+        "old": "    runtime_value = calculate(runtime_source);",
+        "new": "    runtime_value = calculate(runtime_source);\n    runtime_value[256] = ~runtime_value[256];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "bc7a6cf57d59be13d411fadd048ba0e787ecf1287d5ebb8ae4196b4fb25cdbe3"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_module_w257_signed.sv",
+      "source_sha256": "e3cfc6e412865cee9ad3b0414339ff17a63743bda53973db719c13cea3225643",
+      "expected_sha256": "26d27461411824464eadf7f2098e5b33af91adf4a2d4f1d1e58ff83a00eb3c16",
+      "original_source_sha256": "55a082ba1d812551ff649d03b6eda3851ca0ea8d03e9288062fce92963fd164b",
+      "mutated_source_sha256": "e3cfc6e412865cee9ad3b0414339ff17a63743bda53973db719c13cea3225643",
+      "label": "runtime-leaf-result",
+      "replacement": {
+        "old": "    runtime_leaf = leaf(runtime_source);",
+        "new": "    runtime_leaf = leaf(runtime_source);\n    runtime_leaf[0] = ~runtime_leaf[0];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "e28fca109d304f357cb9f71cf4ad258492827e93fc2033b08db9b6bb9354971a"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_module_w257_signed.sv",
+      "source_sha256": "5fe25e01607628aeca6fdf1749f8d0d0bf573d64e9ee43e0f189fe3939a88524",
+      "expected_sha256": "26d27461411824464eadf7f2098e5b33af91adf4a2d4f1d1e58ff83a00eb3c16",
+      "original_source_sha256": "55a082ba1d812551ff649d03b6eda3851ca0ea8d03e9288062fce92963fd164b",
+      "mutated_source_sha256": "5fe25e01607628aeca6fdf1749f8d0d0bf573d64e9ee43e0f189fe3939a88524",
+      "label": "caller-input-retention",
+      "replacement": {
+        "old": "    runtime_leaf = leaf(runtime_source);",
+        "new": "    runtime_leaf = leaf(runtime_source);\n    runtime_source[0] = ~runtime_source[0];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "fd8e0b01b25d640601a345cea6d8cd2cd53a3d34b4b6fbee17f0dc7847a4cd8b"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_module_w257_unsigned.sv",
+      "source_sha256": "8d1ee4065864903ef9f679d964494c374a9f31e9712baf60b38734d97af91d3d",
+      "expected_sha256": "7992207660490296221ea48f27d613ff98e6cf7b170ff87e027cfc835e37a13c",
+      "original_source_sha256": "7057cd0ccbebc0becd3de8541615aa2ea39f25d21c03b0e08dc268771ae7aeea",
+      "mutated_source_sha256": "8d1ee4065864903ef9f679d964494c374a9f31e9712baf60b38734d97af91d3d",
+      "label": "folded-result",
+      "replacement": {
+        "old": "  localparam word_t P0 = calculate(",
+        "new": "  localparam word_t P0 = ~calculate(",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "43f9b050d887f258f0eb9fdad2125d9cf49e190fcf32988462152bcc8bee7db2"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_module_w257_unsigned.sv",
+      "source_sha256": "02d0331f8294cdc11e3329a72d7fbefda6fa9bf7f692af93a2e574c3a1afa178",
+      "expected_sha256": "7992207660490296221ea48f27d613ff98e6cf7b170ff87e027cfc835e37a13c",
+      "original_source_sha256": "7057cd0ccbebc0becd3de8541615aa2ea39f25d21c03b0e08dc268771ae7aeea",
+      "mutated_source_sha256": "02d0331f8294cdc11e3329a72d7fbefda6fa9bf7f692af93a2e574c3a1afa178",
+      "label": "runtime-wrapper-result",
+      "replacement": {
+        "old": "    runtime_value = calculate(runtime_source);",
+        "new": "    runtime_value = calculate(runtime_source);\n    runtime_value[256] = ~runtime_value[256];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "2fe215f3796e34dee7ec60aab2caa264401575f69c634fd550a31d676223074c"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_module_w257_unsigned.sv",
+      "source_sha256": "8dd6f0053fbf0cfd157ac81dc5d43025f3778fe7dea2b3ff984f9b3a8416c2b3",
+      "expected_sha256": "7992207660490296221ea48f27d613ff98e6cf7b170ff87e027cfc835e37a13c",
+      "original_source_sha256": "7057cd0ccbebc0becd3de8541615aa2ea39f25d21c03b0e08dc268771ae7aeea",
+      "mutated_source_sha256": "8dd6f0053fbf0cfd157ac81dc5d43025f3778fe7dea2b3ff984f9b3a8416c2b3",
+      "label": "runtime-leaf-result",
+      "replacement": {
+        "old": "    runtime_leaf = leaf(runtime_source);",
+        "new": "    runtime_leaf = leaf(runtime_source);\n    runtime_leaf[0] = ~runtime_leaf[0];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "d267e9c2a8771c0eff7a169f29c17d2e6775180730167428c31366cd20d74bfc"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_module_w257_unsigned.sv",
+      "source_sha256": "8d28ff046ce50c442877e70e5031c29502f72a81959d8aa1997e8d7f67269a51",
+      "expected_sha256": "7992207660490296221ea48f27d613ff98e6cf7b170ff87e027cfc835e37a13c",
+      "original_source_sha256": "7057cd0ccbebc0becd3de8541615aa2ea39f25d21c03b0e08dc268771ae7aeea",
+      "mutated_source_sha256": "8d28ff046ce50c442877e70e5031c29502f72a81959d8aa1997e8d7f67269a51",
+      "label": "caller-input-retention",
+      "replacement": {
+        "old": "    runtime_leaf = leaf(runtime_source);",
+        "new": "    runtime_leaf = leaf(runtime_source);\n    runtime_source[0] = ~runtime_source[0];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "da0daa84adc6e18af77ee48c26566fb6bef877e0b2ed271cceec5353dd13c25d"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_module_w513_signed.sv",
+      "source_sha256": "9578f2ad57101b2620bca73260d613e62414dceef43a05761b295343c3eca18b",
+      "expected_sha256": "6f36d200dfbc6476802f5d641d7cb54198b3b27ba705ee3f7ea710f226f19da9",
+      "original_source_sha256": "a29a5e92c6782976c683127d807a7f4cc1ca0828483edcc99a9f1539df50b376",
+      "mutated_source_sha256": "9578f2ad57101b2620bca73260d613e62414dceef43a05761b295343c3eca18b",
+      "label": "folded-result",
+      "replacement": {
+        "old": "  localparam word_t P0 = calculate(",
+        "new": "  localparam word_t P0 = ~calculate(",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "3b9bdc80055909b5173f4240364a1d406562e3195881333d0dac80540dd70b60"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_module_w513_signed.sv",
+      "source_sha256": "5239658b705ca5154990308ae189053704558c2585da70f1a715e4ea11158e15",
+      "expected_sha256": "6f36d200dfbc6476802f5d641d7cb54198b3b27ba705ee3f7ea710f226f19da9",
+      "original_source_sha256": "a29a5e92c6782976c683127d807a7f4cc1ca0828483edcc99a9f1539df50b376",
+      "mutated_source_sha256": "5239658b705ca5154990308ae189053704558c2585da70f1a715e4ea11158e15",
+      "label": "runtime-wrapper-result",
+      "replacement": {
+        "old": "    runtime_value = calculate(runtime_source);",
+        "new": "    runtime_value = calculate(runtime_source);\n    runtime_value[512] = ~runtime_value[512];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "b6b0833253e302fc4070c35da7b11f67e13cdd17795d684935c62ef822c615bf"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_module_w513_signed.sv",
+      "source_sha256": "03323c01595554a88d081a1e61344b945fb72db9b0a5f1cfd78f620e77a45475",
+      "expected_sha256": "6f36d200dfbc6476802f5d641d7cb54198b3b27ba705ee3f7ea710f226f19da9",
+      "original_source_sha256": "a29a5e92c6782976c683127d807a7f4cc1ca0828483edcc99a9f1539df50b376",
+      "mutated_source_sha256": "03323c01595554a88d081a1e61344b945fb72db9b0a5f1cfd78f620e77a45475",
+      "label": "runtime-leaf-result",
+      "replacement": {
+        "old": "    runtime_leaf = leaf(runtime_source);",
+        "new": "    runtime_leaf = leaf(runtime_source);\n    runtime_leaf[0] = ~runtime_leaf[0];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "74505cd227f91b128ac8f89169bbbbcb8ce762a3bad5c48ce709d44aab11c9f5"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_module_w513_signed.sv",
+      "source_sha256": "ddff083a2782a30dcdd75741092716fbd0b0e804309dead0b1503b195c1e5951",
+      "expected_sha256": "6f36d200dfbc6476802f5d641d7cb54198b3b27ba705ee3f7ea710f226f19da9",
+      "original_source_sha256": "a29a5e92c6782976c683127d807a7f4cc1ca0828483edcc99a9f1539df50b376",
+      "mutated_source_sha256": "ddff083a2782a30dcdd75741092716fbd0b0e804309dead0b1503b195c1e5951",
+      "label": "caller-input-retention",
+      "replacement": {
+        "old": "    runtime_leaf = leaf(runtime_source);",
+        "new": "    runtime_leaf = leaf(runtime_source);\n    runtime_source[0] = ~runtime_source[0];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "b3c0b2521235829345c4bb77b6d0ab8328b754fc854eec997f6f521a277daf72"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_module_w513_unsigned.sv",
+      "source_sha256": "2b52bb2c17af0289f5d3fe2bbde7886e2defec0a130619dbb4dcb703d692bdcb",
+      "expected_sha256": "1030cc8e5d65e557e65c4b623ece92a7694a364296e7f18ac092252415358661",
+      "original_source_sha256": "827f91367e39b5f2268cbc98979a4eea17c82b2995fd7d70ceac46edddadcf92",
+      "mutated_source_sha256": "2b52bb2c17af0289f5d3fe2bbde7886e2defec0a130619dbb4dcb703d692bdcb",
+      "label": "folded-result",
+      "replacement": {
+        "old": "  localparam word_t P0 = calculate(",
+        "new": "  localparam word_t P0 = ~calculate(",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "580b4f4e44cefef6575b2bc3984c53d429226616d390196ab868055f711e1165"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_module_w513_unsigned.sv",
+      "source_sha256": "272c9ceefa619b6207340cf6d2da28b4a765f12bab2f9cd7a04494f1159eb6ee",
+      "expected_sha256": "1030cc8e5d65e557e65c4b623ece92a7694a364296e7f18ac092252415358661",
+      "original_source_sha256": "827f91367e39b5f2268cbc98979a4eea17c82b2995fd7d70ceac46edddadcf92",
+      "mutated_source_sha256": "272c9ceefa619b6207340cf6d2da28b4a765f12bab2f9cd7a04494f1159eb6ee",
+      "label": "runtime-wrapper-result",
+      "replacement": {
+        "old": "    runtime_value = calculate(runtime_source);",
+        "new": "    runtime_value = calculate(runtime_source);\n    runtime_value[512] = ~runtime_value[512];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "2c43d5a481a821ab86c24a382f72f2f79abe5dfe3dd6a22a00a720f832559064"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_module_w513_unsigned.sv",
+      "source_sha256": "94cc1fdb5d666061c2fe62d3e7bbcc81ec2a9f6345a5212918848050ecf0e09b",
+      "expected_sha256": "1030cc8e5d65e557e65c4b623ece92a7694a364296e7f18ac092252415358661",
+      "original_source_sha256": "827f91367e39b5f2268cbc98979a4eea17c82b2995fd7d70ceac46edddadcf92",
+      "mutated_source_sha256": "94cc1fdb5d666061c2fe62d3e7bbcc81ec2a9f6345a5212918848050ecf0e09b",
+      "label": "runtime-leaf-result",
+      "replacement": {
+        "old": "    runtime_leaf = leaf(runtime_source);",
+        "new": "    runtime_leaf = leaf(runtime_source);\n    runtime_leaf[0] = ~runtime_leaf[0];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "7409f856bf52539986faab6781c0c13e05e053d819f7f2cbcc29278e3b265a3f"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_module_w513_unsigned.sv",
+      "source_sha256": "5faf418beae78745e32f817ee834a124b09d11a3c819bdbfa03bd838bcf4e508",
+      "expected_sha256": "1030cc8e5d65e557e65c4b623ece92a7694a364296e7f18ac092252415358661",
+      "original_source_sha256": "827f91367e39b5f2268cbc98979a4eea17c82b2995fd7d70ceac46edddadcf92",
+      "mutated_source_sha256": "5faf418beae78745e32f817ee834a124b09d11a3c819bdbfa03bd838bcf4e508",
+      "label": "caller-input-retention",
+      "replacement": {
+        "old": "    runtime_leaf = leaf(runtime_source);",
+        "new": "    runtime_leaf = leaf(runtime_source);\n    runtime_source[0] = ~runtime_source[0];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "dbd251c3681e7f816f70f69ae0a1d0a68422b8a57afa83e0af1e2ae5e6a2f865"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_package_w257_signed.sv",
+      "source_sha256": "fdfa068ecd5ce5bb6e2cf9bd0724746efe21823979a99ef8df823cb6b7a3b470",
+      "expected_sha256": "26d27461411824464eadf7f2098e5b33af91adf4a2d4f1d1e58ff83a00eb3c16",
+      "original_source_sha256": "160c2c3ceac5e0ce34aa13d7b118853ad8a3aa9a3f5815d3fb5694d89bc8194a",
+      "mutated_source_sha256": "fdfa068ecd5ce5bb6e2cf9bd0724746efe21823979a99ef8df823cb6b7a3b470",
+      "label": "folded-result",
+      "replacement": {
+        "old": "  localparam word_t P0 = constant_helpers::calculate(",
+        "new": "  localparam word_t P0 = ~constant_helpers::calculate(",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "83be6b50b4ffbffb13c02c81a2e504d10d0056b30b46b8b32c9f57f2d6ead706"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_package_w257_signed.sv",
+      "source_sha256": "ed114e7d94bd0288af22ea692aa31b704f93f703c34001974113e7485da91483",
+      "expected_sha256": "26d27461411824464eadf7f2098e5b33af91adf4a2d4f1d1e58ff83a00eb3c16",
+      "original_source_sha256": "160c2c3ceac5e0ce34aa13d7b118853ad8a3aa9a3f5815d3fb5694d89bc8194a",
+      "mutated_source_sha256": "ed114e7d94bd0288af22ea692aa31b704f93f703c34001974113e7485da91483",
+      "label": "runtime-wrapper-result",
+      "replacement": {
+        "old": "    runtime_value = constant_helpers::calculate(runtime_source);",
+        "new": "    runtime_value = constant_helpers::calculate(runtime_source);\n    runtime_value[256] = ~runtime_value[256];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "bc7a6cf57d59be13d411fadd048ba0e787ecf1287d5ebb8ae4196b4fb25cdbe3"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_package_w257_signed.sv",
+      "source_sha256": "16b7d865ceff8390ff0d686759bdc3ee051d2ccb714bb5621f45ceb717957d7d",
+      "expected_sha256": "26d27461411824464eadf7f2098e5b33af91adf4a2d4f1d1e58ff83a00eb3c16",
+      "original_source_sha256": "160c2c3ceac5e0ce34aa13d7b118853ad8a3aa9a3f5815d3fb5694d89bc8194a",
+      "mutated_source_sha256": "16b7d865ceff8390ff0d686759bdc3ee051d2ccb714bb5621f45ceb717957d7d",
+      "label": "runtime-leaf-result",
+      "replacement": {
+        "old": "    runtime_leaf = constant_helpers::leaf(runtime_source);",
+        "new": "    runtime_leaf = constant_helpers::leaf(runtime_source);\n    runtime_leaf[0] = ~runtime_leaf[0];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "e28fca109d304f357cb9f71cf4ad258492827e93fc2033b08db9b6bb9354971a"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_package_w257_signed.sv",
+      "source_sha256": "c2987a4d394e3281de32b981997c40b8cb4b8515d5e6621b7d8c0e78ad4eeb1e",
+      "expected_sha256": "26d27461411824464eadf7f2098e5b33af91adf4a2d4f1d1e58ff83a00eb3c16",
+      "original_source_sha256": "160c2c3ceac5e0ce34aa13d7b118853ad8a3aa9a3f5815d3fb5694d89bc8194a",
+      "mutated_source_sha256": "c2987a4d394e3281de32b981997c40b8cb4b8515d5e6621b7d8c0e78ad4eeb1e",
+      "label": "caller-input-retention",
+      "replacement": {
+        "old": "    runtime_leaf = constant_helpers::leaf(runtime_source);",
+        "new": "    runtime_leaf = constant_helpers::leaf(runtime_source);\n    runtime_source[0] = ~runtime_source[0];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "fd8e0b01b25d640601a345cea6d8cd2cd53a3d34b4b6fbee17f0dc7847a4cd8b"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_package_w257_unsigned.sv",
+      "source_sha256": "8bfe1249c4427d1364c63c580c1e7e8a7ff54e55f91189daa71ab68159cfce4d",
+      "expected_sha256": "7992207660490296221ea48f27d613ff98e6cf7b170ff87e027cfc835e37a13c",
+      "original_source_sha256": "ec3e0c912e320bd9858c65a19f8d0dbdcd789eac3e4dfb90acc4c82738c92973",
+      "mutated_source_sha256": "8bfe1249c4427d1364c63c580c1e7e8a7ff54e55f91189daa71ab68159cfce4d",
+      "label": "folded-result",
+      "replacement": {
+        "old": "  localparam word_t P0 = constant_helpers::calculate(",
+        "new": "  localparam word_t P0 = ~constant_helpers::calculate(",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "43f9b050d887f258f0eb9fdad2125d9cf49e190fcf32988462152bcc8bee7db2"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_package_w257_unsigned.sv",
+      "source_sha256": "09a400ffa7524386ca6ea9900c4a6bd5a499b7b37c6a094aadf38188a62a0bbf",
+      "expected_sha256": "7992207660490296221ea48f27d613ff98e6cf7b170ff87e027cfc835e37a13c",
+      "original_source_sha256": "ec3e0c912e320bd9858c65a19f8d0dbdcd789eac3e4dfb90acc4c82738c92973",
+      "mutated_source_sha256": "09a400ffa7524386ca6ea9900c4a6bd5a499b7b37c6a094aadf38188a62a0bbf",
+      "label": "runtime-wrapper-result",
+      "replacement": {
+        "old": "    runtime_value = constant_helpers::calculate(runtime_source);",
+        "new": "    runtime_value = constant_helpers::calculate(runtime_source);\n    runtime_value[256] = ~runtime_value[256];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "2fe215f3796e34dee7ec60aab2caa264401575f69c634fd550a31d676223074c"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_package_w257_unsigned.sv",
+      "source_sha256": "e5e2a9bd87c8a2a226f3215cd86f974dbf50c2dbe75bbc7d82bde3eca9bbf056",
+      "expected_sha256": "7992207660490296221ea48f27d613ff98e6cf7b170ff87e027cfc835e37a13c",
+      "original_source_sha256": "ec3e0c912e320bd9858c65a19f8d0dbdcd789eac3e4dfb90acc4c82738c92973",
+      "mutated_source_sha256": "e5e2a9bd87c8a2a226f3215cd86f974dbf50c2dbe75bbc7d82bde3eca9bbf056",
+      "label": "runtime-leaf-result",
+      "replacement": {
+        "old": "    runtime_leaf = constant_helpers::leaf(runtime_source);",
+        "new": "    runtime_leaf = constant_helpers::leaf(runtime_source);\n    runtime_leaf[0] = ~runtime_leaf[0];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "d267e9c2a8771c0eff7a169f29c17d2e6775180730167428c31366cd20d74bfc"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_package_w257_unsigned.sv",
+      "source_sha256": "1c47867ab8dd5622e51819f6485aefceb6ee50db2fa898c0b5e429ea8884e829",
+      "expected_sha256": "7992207660490296221ea48f27d613ff98e6cf7b170ff87e027cfc835e37a13c",
+      "original_source_sha256": "ec3e0c912e320bd9858c65a19f8d0dbdcd789eac3e4dfb90acc4c82738c92973",
+      "mutated_source_sha256": "1c47867ab8dd5622e51819f6485aefceb6ee50db2fa898c0b5e429ea8884e829",
+      "label": "caller-input-retention",
+      "replacement": {
+        "old": "    runtime_leaf = constant_helpers::leaf(runtime_source);",
+        "new": "    runtime_leaf = constant_helpers::leaf(runtime_source);\n    runtime_source[0] = ~runtime_source[0];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "da0daa84adc6e18af77ee48c26566fb6bef877e0b2ed271cceec5353dd13c25d"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_package_w513_signed.sv",
+      "source_sha256": "21bc59d902096ccbea3b3127d624eadd73678c806caf6a8e82abe25a7840c1d8",
+      "expected_sha256": "6f36d200dfbc6476802f5d641d7cb54198b3b27ba705ee3f7ea710f226f19da9",
+      "original_source_sha256": "4d50be59df04c87fdc6caa154259293a3ee937f939263b7fe4b5f2e410591656",
+      "mutated_source_sha256": "21bc59d902096ccbea3b3127d624eadd73678c806caf6a8e82abe25a7840c1d8",
+      "label": "folded-result",
+      "replacement": {
+        "old": "  localparam word_t P0 = constant_helpers::calculate(",
+        "new": "  localparam word_t P0 = ~constant_helpers::calculate(",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "3b9bdc80055909b5173f4240364a1d406562e3195881333d0dac80540dd70b60"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_package_w513_signed.sv",
+      "source_sha256": "451ebe1fcb43f3f90f706aca96d2109c6212741783aa9eef77ee21806a98d412",
+      "expected_sha256": "6f36d200dfbc6476802f5d641d7cb54198b3b27ba705ee3f7ea710f226f19da9",
+      "original_source_sha256": "4d50be59df04c87fdc6caa154259293a3ee937f939263b7fe4b5f2e410591656",
+      "mutated_source_sha256": "451ebe1fcb43f3f90f706aca96d2109c6212741783aa9eef77ee21806a98d412",
+      "label": "runtime-wrapper-result",
+      "replacement": {
+        "old": "    runtime_value = constant_helpers::calculate(runtime_source);",
+        "new": "    runtime_value = constant_helpers::calculate(runtime_source);\n    runtime_value[512] = ~runtime_value[512];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "b6b0833253e302fc4070c35da7b11f67e13cdd17795d684935c62ef822c615bf"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_package_w513_signed.sv",
+      "source_sha256": "6563c1a2b1ba07ad4bea712d3f8fc117cb9033e413fef49840ac8a317bbaa7d9",
+      "expected_sha256": "6f36d200dfbc6476802f5d641d7cb54198b3b27ba705ee3f7ea710f226f19da9",
+      "original_source_sha256": "4d50be59df04c87fdc6caa154259293a3ee937f939263b7fe4b5f2e410591656",
+      "mutated_source_sha256": "6563c1a2b1ba07ad4bea712d3f8fc117cb9033e413fef49840ac8a317bbaa7d9",
+      "label": "runtime-leaf-result",
+      "replacement": {
+        "old": "    runtime_leaf = constant_helpers::leaf(runtime_source);",
+        "new": "    runtime_leaf = constant_helpers::leaf(runtime_source);\n    runtime_leaf[0] = ~runtime_leaf[0];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "74505cd227f91b128ac8f89169bbbbcb8ce762a3bad5c48ce709d44aab11c9f5"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_package_w513_signed.sv",
+      "source_sha256": "0ac4aae2eeebe4795bb124248b5d00d46d5e136066d2e4a0d23ed20e204b197e",
+      "expected_sha256": "6f36d200dfbc6476802f5d641d7cb54198b3b27ba705ee3f7ea710f226f19da9",
+      "original_source_sha256": "4d50be59df04c87fdc6caa154259293a3ee937f939263b7fe4b5f2e410591656",
+      "mutated_source_sha256": "0ac4aae2eeebe4795bb124248b5d00d46d5e136066d2e4a0d23ed20e204b197e",
+      "label": "caller-input-retention",
+      "replacement": {
+        "old": "    runtime_leaf = constant_helpers::leaf(runtime_source);",
+        "new": "    runtime_leaf = constant_helpers::leaf(runtime_source);\n    runtime_source[0] = ~runtime_source[0];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "b3c0b2521235829345c4bb77b6d0ab8328b754fc854eec997f6f521a277daf72"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_package_w513_unsigned.sv",
+      "source_sha256": "75a8a1431ba5cea82ec8fcab90469df1825fecac12b8042cfaf46f256c11fdb1",
+      "expected_sha256": "1030cc8e5d65e557e65c4b623ece92a7694a364296e7f18ac092252415358661",
+      "original_source_sha256": "5a80076e779d0a40b4e403caa25d2c27f9cfba4ad9a3f2de36f7658a6459e90b",
+      "mutated_source_sha256": "75a8a1431ba5cea82ec8fcab90469df1825fecac12b8042cfaf46f256c11fdb1",
+      "label": "folded-result",
+      "replacement": {
+        "old": "  localparam word_t P0 = constant_helpers::calculate(",
+        "new": "  localparam word_t P0 = ~constant_helpers::calculate(",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "580b4f4e44cefef6575b2bc3984c53d429226616d390196ab868055f711e1165"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_package_w513_unsigned.sv",
+      "source_sha256": "07587de1b0cada882b939c29079b7b0f60c4d833ff16478ab14a085b94ad6791",
+      "expected_sha256": "1030cc8e5d65e557e65c4b623ece92a7694a364296e7f18ac092252415358661",
+      "original_source_sha256": "5a80076e779d0a40b4e403caa25d2c27f9cfba4ad9a3f2de36f7658a6459e90b",
+      "mutated_source_sha256": "07587de1b0cada882b939c29079b7b0f60c4d833ff16478ab14a085b94ad6791",
+      "label": "runtime-wrapper-result",
+      "replacement": {
+        "old": "    runtime_value = constant_helpers::calculate(runtime_source);",
+        "new": "    runtime_value = constant_helpers::calculate(runtime_source);\n    runtime_value[512] = ~runtime_value[512];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "2c43d5a481a821ab86c24a382f72f2f79abe5dfe3dd6a22a00a720f832559064"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_package_w513_unsigned.sv",
+      "source_sha256": "0ca53f1736462557dc7ade50e2d6ea3219322b47892ef29e3308e7c278ff1c49",
+      "expected_sha256": "1030cc8e5d65e557e65c4b623ece92a7694a364296e7f18ac092252415358661",
+      "original_source_sha256": "5a80076e779d0a40b4e403caa25d2c27f9cfba4ad9a3f2de36f7658a6459e90b",
+      "mutated_source_sha256": "0ca53f1736462557dc7ade50e2d6ea3219322b47892ef29e3308e7c278ff1c49",
+      "label": "runtime-leaf-result",
+      "replacement": {
+        "old": "    runtime_leaf = constant_helpers::leaf(runtime_source);",
+        "new": "    runtime_leaf = constant_helpers::leaf(runtime_source);\n    runtime_leaf[0] = ~runtime_leaf[0];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "7409f856bf52539986faab6781c0c13e05e053d819f7f2cbcc29278e3b265a3f"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_constant_call_package_w513_unsigned.sv",
+      "source_sha256": "2561781f9d02dc0d8d22c87f1061d8fdb43ccebde9434cfd2fb5ff2efe779a29",
+      "expected_sha256": "1030cc8e5d65e557e65c4b623ece92a7694a364296e7f18ac092252415358661",
+      "original_source_sha256": "5a80076e779d0a40b4e403caa25d2c27f9cfba4ad9a3f2de36f7658a6459e90b",
+      "mutated_source_sha256": "2561781f9d02dc0d8d22c87f1061d8fdb43ccebde9434cfd2fb5ff2efe779a29",
+      "label": "caller-input-retention",
+      "replacement": {
+        "old": "    runtime_leaf = constant_helpers::leaf(runtime_source);",
+        "new": "    runtime_leaf = constant_helpers::leaf(runtime_source);\n    runtime_source[0] = ~runtime_source[0];",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "dbd251c3681e7f816f70f69ae0a1d0a68422b8a57afa83e0af1e2ae5e6a2f865"
+    }
+  ],
+  "status": "all12controls-pass-and48compiled-mutants-differ"
+}
