@@ -6,10 +6,10 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 92.96%、Ghostを除く実行 51.20%、Ghostを含む実行 78.63%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 92.96%、Ghostを除く実行 51.20%、Ghostを含む実行 78.68%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 92.96%。** 規格要求の実行確認率: Ghostを除いて 51.20%、Ghostを含めて 78.63%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 92.96%。** 規格要求の実行確認率: Ghostを除いて 51.20%、Ghostを含めて 78.68%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
@@ -17,7 +17,7 @@
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
 - 登録済み動作に対する要求カバレッジ（テスト設計）: 11464/12332 (92.96%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9697/12332 (78.63%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9703/12332 (78.68%)。
 - 登録済みだがテスト未対応: 868 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。
@@ -96,13 +96,13 @@
 - `fourstate-boundaries-20261119d-kirimasim-441dddbd0fcd-run4.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T00:24:27.618699+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `fourstate-boundaries-20261119d-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T00:26:22.013552+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `fourstate-boundaries-20261119d-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T00:28:09.101257+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
-- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3092/12332 動作確認、古い入力との対応 357 件。
-- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2997/12332 動作確認、古い入力との対応 357 件。
-- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3886/12332 動作確認、古い入力との対応 357 件。
+- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3092/12332 動作確認、古い入力との対応 369 件。
+- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2997/12332 動作確認、古い入力との対応 369 件。
+- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3886/12332 動作確認、古い入力との対応 369 件。
 - `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3597/12332 動作確認、古い入力との対応 28 件。
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7930/12332 動作確認、古い入力との対応 479 件。
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7998/12332 動作確認、古い入力との対応 427 件。
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7912/12332 動作確認、古い入力との対応 479 件。
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7924/12332 動作確認、古い入力との対応 491 件。
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7992/12332 動作確認、古い入力との対応 439 件。
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7906/12332 動作確認、古い入力との対応 491 件。
 - `intcompat-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T10:26:34.150974+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `intcompat-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T10:26:46.168015+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `intcompat-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T10:26:39.847047+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
@@ -220,6 +220,7 @@
 - `test-side-fixes-20261120-ghost-strict.json`: `private build b35e2bcc3231` / `2026-11-19T21:25:25.584836+00:00` / 7/12332 動作確認、古い入力との対応 0 件。
 - `test-side-fixes-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev v5.054` / `2026-11-19T21:25:34.006223+00:00` / 3/12332 動作確認、古い入力との対応 0 件。
 - `test-side-fixes-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev v5.054` / `2026-11-19T21:25:35.189349+00:00` / 3/12332 動作確認、古い入力との対応 0 件。
+- `test-side-fixes-20261120b-ghost-strict.json`: `private build b35e2bcc3231` / `2026-11-19T23:00:55.519691+00:00` / 12/12332 動作確認、古い入力との対応 0 件。
 - `vifsense-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T02:58:01.691798+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vifsense-20261114-kirimasim-77c27531.json`: `kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401` / `2026-11-14T02:58:21.742365+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vifsense-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:58:11.624866+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
@@ -108856,7 +108857,7 @@ $timeformat()が呼び出されていない場合、vpi_handle(vpiActiveTimeForm
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-003
 
-`37.83` / `normal` / テスト対応あり・実行未確認
+`37.83` / `normal` / 実行確認あり
 
 37.83 37.3 で導出されたタグなしの属性アクセスタイプを使って、ポートから属性への1対多の関係を定義します。特殊な場合の制約を 指定して vpi_iterate に vpi_scan を追加してトラベースします。
 
@@ -108868,7 +108869,7 @@ $timeformat()が呼び出されていない場合、vpi_handle(vpiActiveTimeForm
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-004
 
-`37.83` / `normal` / テスト対応あり・実行未確認
+`37.83` / `normal` / 実行確認あり
 
 37.83 vpiParent タグを使って属性からポートへの一対一の関係を定義します。vpi_handle と特殊な制約条件を持つトラベリングを実行します。
 
@@ -109064,7 +109065,7 @@ $timeformat()が呼び出されていない場合、vpi_handle(vpiActiveTimeForm
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-021
 
-`37.83` / `normal` / テスト対応あり・実行未確認
+`37.83` / `normal` / 実行確認あり
 
 37.83は 37.3で導出されたタグなしの属性アクセスタイプを使って、パラメータ代入から属性への1対多の関係を定義します。特殊な場合の制約を 指定して vpi_iterate に vpi_scan を追加してトラベースします。
 
@@ -109072,11 +109073,11 @@ $timeformat()が呼び出されていない場合、vpi_handle(vpiActiveTimeForm
 
 規定の性質: `definition`。
 
-- [test_vpi_attribute_ports_params.sv](../tests/ch37/test_vpi_attribute_ports_params.sv): u の vpi_iterate(vpiParamAssign, u) で得た各 param assign（名前は vpiLhs の parameter の vpiName）に vpi_iterate(vpiAttribute, pa) を行い、attribute (* a_param = 2 *) 付きの1つの parameter 宣言で宣言した P と Q の param assign からはそれぞれ a_param=2 が1個だけ返り、attribute なしで宣言した R の param assign からは何も返らないことを期待出力と照合する（5.12: 宣言の attribute はその宣言の各項目に付く）。 区別: param assign → attribute の iteration を実装しない誤実装では P と Q が none になり、宣言の最初の param assign にだけ付ける誤実装では『param assign Q: none』になる。attribute を宣言から外れた R にも付ける誤実装では『param assign R: none』が変わり、名前や値を取り違えれば a_param=2 が変わる。
+- [test_vpi_attribute_ports_params.sv](../tests/ch37/test_vpi_attribute_ports_params.sv): u は P と Q を上書きするので、vpi_iterate(vpiParamAssign, u) は P と Q の param assign を返す（§37.28: param assign はパラメータの上書き）。各 param assign（名前は vpiLhs の parameter の vpiName）に vpi_iterate(vpiAttribute, pa) を行い、attribute (* a_param = 2 *) 付きの1つの parameter 宣言で宣言した P と Q の param assign からはそれぞれ a_param=2 が1個だけ返ることを期待出力と照合する（5.12: 宣言の attribute はその宣言の各項目に付く）。上書きしていない R には param assign がない。 区別: param assign → attribute の iteration を実装しない誤実装では P と Q が none になり、宣言の最初の param assign にだけ付ける誤実装では『param assign Q: none』になる。上書きしていない R にも param assign を作る誤実装では『param assign R: none』の行が加わる。
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-022
 
-`37.83` / `normal` / テスト対応あり・実行未確認
+`37.83` / `normal` / 実行確認あり
 
 属性とパラメータの代入の間の一対一の関係を定義するために、37.83 はタグ vpiParent を使用します。vpi_handle と特殊な制約条件を持つトラベリングを実行します。
 
@@ -109422,7 +109423,7 @@ $timeformat()が呼び出されていない場合、vpi_handle(vpiActiveTimeForm
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-051
 
-`37.83` / `normal` / テスト対応あり・実行未確認
+`37.83` / `normal` / 実行確認あり
 
 属性は vpiDefFile を文字列として表示し、定義ソースファイルを表します。37.3.1 の下の適切なプロパティルーチンでアクセスします。
 
@@ -109434,7 +109435,7 @@ $timeformat()が呼び出されていない場合、vpi_handle(vpiActiveTimeForm
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-052
 
-`37.83` / `normal` / テスト対応あり・実行未確認
+`37.83` / `normal` / 実行確認あり
 
 属性は vpiDefLineNo を integer に露出させ、定義線を表します。37.3.1 の下の適切なプロパティルーチンでアクセスします。
 
@@ -109442,7 +109443,7 @@ $timeformat()が呼び出されていない場合、vpi_handle(vpiActiveTimeForm
 
 規定の性質: `definition`。
 
-- [test_vpi_attribute_ports_params.sv](../tests/ch37/test_vpi_attribute_ports_params.sv): attribute を書いた行がそれぞれ 43（a_port）、46（a_param）、48（a_net）で、モジュール見出しの行 42 とも異なるように配置し、vpi_get(vpiDefLineNo, attr) がそれぞれ 43、46（P と Q の両方）、48 を返すことを期待出力の location 行で照合する。 区別: vpiDefLineNo を実装しない誤実装は 0 や vpiUndefined を出し、attribute ではなくモジュール定義の行（40）を返す誤実装は 43・46・48 がすべて 42 になり、対象のオブジェクト以外の行を返せば該当行の数値が変わる。
+- [test_vpi_attribute_ports_params.sv](../tests/ch37/test_vpi_attribute_ports_params.sv): attribute を書いた行がそれぞれ 46（a_port）、49（a_param）、51（a_net）で、モジュール見出しの行 45 とも異なるように配置し、vpi_get(vpiDefLineNo, attr) がそれぞれ 46、49（P と Q の両方）、51 を返すことを期待出力の location 行で照合する。 区別: vpiDefLineNo を実装しない誤実装は 0 や vpiUndefined を出し、attribute ではなくモジュール定義の行（45）を返す誤実装は 46・49・51 がすべて 45 になり、対象のオブジェクト以外の行を返せば該当行の数値が変わる。
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-053
 

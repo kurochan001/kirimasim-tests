@@ -6,10 +6,10 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 92.96%, execution without Ghost 51.20%, execution with Ghost 78.63%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 92.96%, execution without Ghost 51.20%, execution with Ghost 78.68%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 92.96%. Requirement execution-confirmation rate: 51.20% without Ghost, 78.63% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 92.96%. Requirement execution-confirmation rate: 51.20% without Ghost, 78.68% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
@@ -17,7 +17,7 @@ Requirement coverage (test design): 92.96%. Requirement execution-confirmation r
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
 - The requirement coverage (test design) for registered behaviors is 11464/12332 ( 92.96% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9697/12332 ( 78.63% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9703/12332 ( 78.68% ).
 - Registered but not tested: 868.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
@@ -96,13 +96,13 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `fourstate-boundaries-20261119d-kirimasim-441dddbd0fcd-run4.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T00:24:27.618699+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `fourstate-boundaries-20261119d-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T00:26:22.013552+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `fourstate-boundaries-20261119d-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T00:28:09.101257+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
-- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3092/12332 execution checked; 357 entries refer to older inputs.
-- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2997/12332 execution checked; 357 entries refer to older inputs.
-- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3886/12332 execution checked; 357 entries refer to older inputs.
+- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3092/12332 execution checked; 369 entries refer to older inputs.
+- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2997/12332 execution checked; 369 entries refer to older inputs.
+- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3886/12332 execution checked; 369 entries refer to older inputs.
 - `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3597/12332 execution checked; 28 entries refer to older inputs.
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7930/12332 execution checked; 479 entries refer to older inputs.
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7998/12332 execution checked; 427 entries refer to older inputs.
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7912/12332 execution checked; 479 entries refer to older inputs.
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7924/12332 execution checked; 491 entries refer to older inputs.
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7992/12332 execution checked; 439 entries refer to older inputs.
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7906/12332 execution checked; 491 entries refer to older inputs.
 - `intcompat-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T10:26:34.150974+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `intcompat-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T10:26:46.168015+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `intcompat-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T10:26:39.847047+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -220,6 +220,7 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `test-side-fixes-20261120-ghost-strict.json`: `private build b35e2bcc3231` / `2026-11-19T21:25:25.584836+00:00` / 7/12332 execution checked; 0 entries refer to older inputs.
 - `test-side-fixes-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev v5.054` / `2026-11-19T21:25:34.006223+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
 - `test-side-fixes-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev v5.054` / `2026-11-19T21:25:35.189349+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
+- `test-side-fixes-20261120b-ghost-strict.json`: `private build b35e2bcc3231` / `2026-11-19T23:00:55.519691+00:00` / 12/12332 execution checked; 0 entries refer to older inputs.
 - `vifsense-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T02:58:01.691798+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vifsense-20261114-kirimasim-77c27531.json`: `kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401` / `2026-11-14T02:58:21.742365+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vifsense-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:58:11.624866+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -108856,7 +108857,7 @@ Normative role: `definition`。
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-003
 
-`37.83` / `normal` / Test mapped; execution unconfirmed
+`37.83` / `normal` / Execution confirmed
 
 37.83 defines a one-to-many relation from port to attribute, using the untagged attribute access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -108868,7 +108869,7 @@ Normative role: `definition`。
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-004
 
-`37.83` / `normal` / Test mapped; execution unconfirmed
+`37.83` / `normal` / Execution confirmed
 
 37.83 defines a one-to-one relation from attribute to port, using tag vpiParent; traverse with vpi_handle and the stated special-case constraints.
 
@@ -109064,7 +109065,7 @@ Normative role: `definition`。
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-021
 
-`37.83` / `normal` / Test mapped; execution unconfirmed
+`37.83` / `normal` / Execution confirmed
 
 37.83 defines a one-to-many relation from parameter assignment to attribute, using the untagged attribute access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -109072,11 +109073,11 @@ Acceptance criterion: 37.83 defines a one-to-many relation from parameter assign
 
 Normative role: `definition`。
 
-- [test_vpi_attribute_ports_params.sv](../tests/ch37/test_vpi_attribute_ports_params.sv) : perform vpi_iterate ( vpiAttribute, pa ) for each param assign obtained in vpi_iterate ( vpiParamAssign, u ) of u (named vpiName of vpiLhs parameters), and compare with the expected output that a_param = 2 of the 1 param assigns of P and Q declared in parameter declarations with attribute (* a_param = 2 *) return only 1, and nothing from the param assign of R declared without attribute (5.12 : the attribute of the declaration is attached to each item of that declaration). Distinguishing observation: In a incorrect implementation that does not implement the iteration of param assign → attribute, P and Q are none, and in a incorrect implementations that only attaches to the first param assign of the declaration, it is "param assign Q: none". In the incorrect implementation where attribute is also assigned to R that is not declared, the parameter assign R: none is changed, and a_param = 2 is changed if the name or value is wrong.
+- [test_vpi_attribute_ports_params.sv](../tests/ch37/test_vpi_attribute_ports_params.sv): Because u overrides P and Q, vpi_iterate(vpiParamAssign, u) returns the param assigns of P and Q (§37.28: a param assign is a parameter override). For each param assign (its name is vpiName of the parameter given by vpiLhs), calling vpi_iterate(vpiAttribute, pa) iterates its attributes; the param assigns of P and Q, which the 1 parameter declaration with the attribute (* a_param = 2 *) declares, each return a_param=2 exactly 1 time, and this is compared with the expected output (5.12: an attribute of a declaration is attached to each item of the declaration). R, which is not overridden, has no param assign. Distinguishing observation: In a incorrect implementation that does not implement the iteration of param assign → attribute, P and Q are none, and in a incorrect implementations that only attaches to the first param assign of the declaration, it is "param assign Q: none". An implementation that creates a param assign for the unoverridden R as well adds the line 'param assign R: none'.
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-022
 
-`37.83` / `normal` / Test mapped; execution unconfirmed
+`37.83` / `normal` / Execution confirmed
 
 37.83 defines a one-to-one relation from attribute to parameter assignment, using tag vpiParent; traverse with vpi_handle and the stated special-case constraints.
 
@@ -109422,7 +109423,7 @@ Normative role: `definition`。
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-051
 
-`37.83` / `normal` / Test mapped; execution unconfirmed
+`37.83` / `normal` / Execution confirmed
 
 attribute exposes vpiDefFile as string, representing definition source file; access it with the appropriate property routine under 37.3.1.
 
@@ -109434,7 +109435,7 @@ Normative role: `definition`。
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-052
 
-`37.83` / `normal` / Test mapped; execution unconfirmed
+`37.83` / `normal` / Execution confirmed
 
 attribute exposes vpiDefLineNo as integer, representing definition line; access it with the appropriate property routine under 37.3.1.
 
@@ -109442,7 +109443,7 @@ Acceptance criterion: attribute exposes vpiDefLineNo as integer, representing de
 
 Normative role: `definition`。
 
-- [test_vpi_attribute_ports_params.sv](../tests/ch37/test_vpi_attribute_ports_params.sv): The lines writing attribute are 43 (a_port), 46 (a_param), and 48 (a_net) respectively, placed differently from line 42 in the module header, and vpi_get (vpiDefLineNo, attr) is compared to the location line of the expected output to return 43, 46 (both P and Q), and 48 respectively. Distinguishing observation: The faulty implementation that does not implement vpiDefLineNo returns 0 or vpiUndefined, and the faulty implementation which returns the row (40) of the module definition instead of the attribute returns 43, 46, and 48 all as 42, and the values of those rows change if the rows are returned other than the object of the object.
+- [test_vpi_attribute_ports_params.sv](../tests/ch37/test_vpi_attribute_ports_params.sv): The lines writing attribute are 46 (a_port), 49 (a_param), and 51 (a_net) respectively, placed differently from line 45 in the module header, and vpi_get (vpiDefLineNo, attr) is compared to the location line of the expected output to return 46, 49 (both P and Q), and 51 respectively. Distinguishing observation: The faulty implementation that does not implement vpiDefLineNo returns 0 or vpiUndefined, and the faulty implementation which returns the row (45) of the module definition instead of the attribute returns 46, 49, and 51 all as 45, and the values of those rows change if the rows are returned other than the object of the object.
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-053
 
