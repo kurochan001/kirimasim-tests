@@ -147,6 +147,17 @@
 - `packed-lanes-20261119b-kirimasim-441dddbd0fcd-run4.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T23:25:16.713955+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `packed-lanes-20261119b-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-18T23:32:13.976957+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `packed-lanes-20261119b-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-18T23:38:58.439443+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `packed-lanes-a622-recheck-20261119w-run1.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T05:40:48.376240+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `packed-lanes-a622-recheck-20261119w-run2.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T05:40:50.520349+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `packed-lanes-a622-recheck-20261119w-run3.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T05:40:52.695049+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `packed-lanes-a622-recheck-20261119w-run4.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T05:40:54.862373+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `packed-read-controls-20261119w-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T06:26:59.765398+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `packed-read-controls-20261119w-kirimasim-a6222f0656d4-run1.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T06:27:00.811236+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `packed-read-controls-20261119w-kirimasim-a6222f0656d4-run2.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T06:27:01.857170+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `packed-read-controls-20261119w-kirimasim-a6222f0656d4-run3.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T06:27:02.894197+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `packed-read-controls-20261119w-kirimasim-a6222f0656d4-run4.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T06:27:03.938723+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `packed-read-controls-20261119w-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T06:30:24.144918+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `packed-read-controls-20261119w-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T06:33:32.423404+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `power-boundaries-20261119f-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T01:05:47.851676+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `power-boundaries-20261119f-kirimasim-441dddbd0fcd-run1.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T01:05:48.765507+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `power-boundaries-20261119f-kirimasim-441dddbd0fcd-run2.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T01:05:49.677617+00:00` / 0/12332 動作確認、古い入力との対応 0 件。

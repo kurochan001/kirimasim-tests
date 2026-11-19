@@ -25666,6 +25666,8 @@
     "Runtime function aliases distinguish immediate updates from return-time copies": "実行時の関数の別名参照で即時の更新と復帰時のコピーの違いを確かめる",
     "Runtime function aliases distinguish immediate updates from return-time copies ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "実行時の関数の別名参照で即時の更新と復帰時のコピーの違いを確かめる ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
     "Wide numeric formatting and scanning preserve text and full values": "広い数値の書式化と読み取りで文字列と全ての値を維持する",
-    "Wide numeric formatting and scanning preserve text and full values ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広い数値の書式化と読み取りで文字列と全ての値を維持する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )"
+    "Wide numeric formatting and scanning preserve text and full values ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広い数値の書式化と読み取りで文字列と全ての値を維持する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Packed reads match literal and flat-vector controls without element writes": "パック配列の読み取りが要素を書き換えずリテラルと平坦なベクトルの対照に一致する",
+    "Packed reads match literal and flat-vector controls without element writes ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "パック配列の読み取りが要素を書き換えずリテラルと平坦なベクトルの対照に一致する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )"
   }
 }

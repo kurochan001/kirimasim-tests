@@ -14,7 +14,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 15968 |
+| Tests | 16064 |
 | Clauses in scope | 1011 |
 | Clauses out of scope | 148 |
 | Clauses with a direct test | 1011/1011 |
@@ -27,8 +27,8 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | Oracle | Tests |
 | --- | ---: |
 | both releases | 1698 |
-| Icarus Verilog 13.0 only | 7180 |
-| Verilator 5.052 or 5.054 only | 2764 |
+| Icarus Verilog 13.0 only | 7228 |
+| Verilator 5.052 or 5.054 only | 2812 |
 | standard only | 4326 |
 
 <a id="章別"></a>
@@ -41,7 +41,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | 4 | Scheduling semantics | 480 | 27 | 17.8 | 0 | 29 |
 | 5 | Lexical conventions | 520 | 16 | 32.5 | 0 | 50 |
 | 6 | Data types | 897 | 76 | 11.8 | 0 | 165 |
-| 7 | Aggregate data types | 1013 | 49 | 20.7 | 0 | 297 |
+| 7 | Aggregate data types | 1109 | 49 | 22.6 | 0 | 297 |
 | 8 | Classes | 479 | 43 | 11.1 | 0 | 139 |
 | 9 | Processes | 464 | 25 | 18.6 | 0 | 67 |
 | 10 | Assignment statements | 737 | 18 | 40.9 | 0 | 71 |

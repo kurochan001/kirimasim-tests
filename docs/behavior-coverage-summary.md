@@ -22,7 +22,7 @@
 
 ## 既存テストの集計状況
 
-- 全 15968 本のうち、要求との対応を登録済みのテストは 6644 本。未登録は 9324 本です。
+- 全 16064 本のうち、要求との対応を登録済みのテストは 6644 本。未登録は 9420 本です。
 - 上記の網羅率は、刺激と期待結果を確認して要求との対応を登録した分だけを計上しています。 未登録の既存テストも検証に役立ちますが、その貢献はまだ割合に反映できていません。
 - 登録済み本数は少なくとも一つの要求との対応がある本数で、テスト全体のレビュー完了数ではありません。
 
@@ -169,6 +169,17 @@
 - `kirimasim` / `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401`: 0/12332 (0.00%)。 計測元: `2026-11-18T23:25:16.713955+00:00` / `packed-lanes-20261119b-kirimasim-441dddbd0fcd-run4.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
 - `verilator` / `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101`: 0/12332 (0.00%)。 計測元: `2026-11-18T23:32:13.976957+00:00` / `packed-lanes-20261119b-verilator5.054-seed1.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
 - `verilator` / `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101`: 0/12332 (0.00%)。 計測元: `2026-11-18T23:38:58.439443+00:00` / `packed-lanes-20261119b-verilator5.054-seed73.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
+- `kirimasim` / `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401`: 0/12332 (0.00%)。 計測元: `2026-11-19T05:40:48.376240+00:00` / `packed-lanes-a622-recheck-20261119w-run1.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
+- `kirimasim` / `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401`: 0/12332 (0.00%)。 計測元: `2026-11-19T05:40:50.520349+00:00` / `packed-lanes-a622-recheck-20261119w-run2.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
+- `kirimasim` / `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401`: 0/12332 (0.00%)。 計測元: `2026-11-19T05:40:52.695049+00:00` / `packed-lanes-a622-recheck-20261119w-run3.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
+- `kirimasim` / `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401`: 0/12332 (0.00%)。 計測元: `2026-11-19T05:40:54.862373+00:00` / `packed-lanes-a622-recheck-20261119w-run4.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
+- `icarus` / `Icarus Verilog version 13.0 (stable) (v13_0)`: 0/12332 (0.00%)。 計測元: `2026-11-19T06:26:59.765398+00:00` / `packed-read-controls-20261119w-icarus13.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
+- `kirimasim` / `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401`: 0/12332 (0.00%)。 計測元: `2026-11-19T06:27:00.811236+00:00` / `packed-read-controls-20261119w-kirimasim-a6222f0656d4-run1.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
+- `kirimasim` / `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401`: 0/12332 (0.00%)。 計測元: `2026-11-19T06:27:01.857170+00:00` / `packed-read-controls-20261119w-kirimasim-a6222f0656d4-run2.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
+- `kirimasim` / `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401`: 0/12332 (0.00%)。 計測元: `2026-11-19T06:27:02.894197+00:00` / `packed-read-controls-20261119w-kirimasim-a6222f0656d4-run3.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
+- `kirimasim` / `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401`: 0/12332 (0.00%)。 計測元: `2026-11-19T06:27:03.938723+00:00` / `packed-read-controls-20261119w-kirimasim-a6222f0656d4-run4.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
+- `verilator` / `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101`: 0/12332 (0.00%)。 計測元: `2026-11-19T06:30:24.144918+00:00` / `packed-read-controls-20261119w-verilator5.054-seed1.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
+- `verilator` / `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101`: 0/12332 (0.00%)。 計測元: `2026-11-19T06:33:32.423404+00:00` / `packed-read-controls-20261119w-verilator5.054-seed73.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
 - `icarus` / `Icarus Verilog version 13.0 (stable) (v13_0)`: 0/12332 (0.00%)。 計測元: `2026-11-19T01:05:47.851676+00:00` / `power-boundaries-20261119f-icarus13.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
 - `kirimasim` / `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401`: 0/12332 (0.00%)。 計測元: `2026-11-19T01:05:48.765507+00:00` / `power-boundaries-20261119f-kirimasim-441dddbd0fcd-run1.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。
 - `kirimasim` / `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401`: 0/12332 (0.00%)。 計測元: `2026-11-19T01:05:49.677617+00:00` / `power-boundaries-20261119f-kirimasim-441dddbd0fcd-run2.json`。 失敗 0、既知不一致 0、未対応 0、未実行 11428、古い証跡 0、規格違反テストの判定根拠が未承認 0 行。

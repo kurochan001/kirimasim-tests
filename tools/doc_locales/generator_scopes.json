@@ -152,6 +152,10 @@
     "wide_format_roundtrips": {
       "en": "36 known-value format/scan round trips at 255/256/257 and 511/512/513 bits across signed/unsigned binary/hexadecimal/decimal formats. Four runtime-dependent seeds expose the full source, minimum-width formatted string and length, complete parsed value, conversion count and unchanged source. Only hex uses explicit lowercase normalization. Existing generators and expectations are unchanged; arbitrary formats, four-state data and file I/O are outside this scope.",
       "ja": "255/256/257・511/512/513ビットの既知値36本で、符号あり／なしの2進・16進・10進の書式化と読み取りを扱う。実行時に依存する4つの値を、入力全体・最小幅の文字列と長さ・読み取った全値・変換個数・変更されない元の入力として観測する。小文字化は16進だけに適用する。従来の作成処理と期待値は不変で、任意の書式・4値・ファイル入出力は範囲外とする。"
+    },
+    "packed_read_controls": {
+      "en": "96 read-only controls at six widths around 256/512 bits, both directions of two packed dimensions, zero/nonzero inner origins and separate row/bit modes. All three rows are observed with literal/runtime array coordinates and independently addressed flat-vector controls. Payload and runtime indices depend on a plusarg; whole flat/array values are checked before and after all reads. No element writes occur after initialization; old coordinate-reference helpers/cases remain unchanged.",
+      "ja": "256/512ビット前後の6つの幅、パック配列2次元それぞれの昇順／降順、内側のゼロ／非ゼロの起点、行／ビットを分けた読取り専用の対照96本。3行全てをリテラル／実行時の配列座標と、別に計算した平坦なベクトルの座標で観測する。値と実行時の添字は引数に依存し、全ての読み取りの前後で平坦／配列の全値を表示する。初期化後の要素書込みは行わず、従来の座標参照のヘルパーとケースは不変とする。"
     }
   }
 }
