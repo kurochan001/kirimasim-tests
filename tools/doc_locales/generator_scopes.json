@@ -136,6 +136,10 @@
     "wide_cast_boundaries": {
       "en": "180 explicit-cast regressions at255/256/257 and511/512/513bits,30 frozen configurations perwidth. Size/signing/typed bit/typedlogic casts precede optional signed+1 and finalbit/logic storage. A runtime plusarg restores a cleared known inputbit; complete source/intermediate/final values and all widths remain visible. Original finite-model rows/bindings are unchanged; selected signatures do not prove all contexts.",
       "ja": "255/256/257・511/512/513ビットの明示的な型変換180本、各幅30通りを固定。幅・符号・型付きbit/logicへの変換と、符号付きの一の加算・最終格納の順序を確認。実行時引数で既知の入力ビットをゼロから一に戻し、入力・途中・最終の全ビットと幅を表示する。元の有限モデルの行・要求対応は変えず、選んだ組合せで全ての文脈を証明したとはしない。"
+    },
+    "wide_force_boundaries": {
+      "en": "108 force/release regressions at 255/256/257 and 511/512/513 bits with 18 frozen configurations per width. Six target kinds retain variable, continuous, procedural-continuous, net, guarded-net-slice and wired-or behavior across constant/source-following/X/Z forces and driver changes. Query cases also print every bit; each net slice preserves two guards at both ends. Original finite rows/bindings remain unchanged; strengths, user-defined nets and force stacks are outside this scope.",
+      "ja": "255/256/257・511/512/513ビットのforce/releaseの108本で、各幅18構成を固定。変数・継続代入・手続き的な継続代入・ネット・ガード付きネット部分・wired-orの6種類を、定数・追従する信号・X/Zの強制とドライバ変更で確認。問合せだけでなく全ビットも表示し、ネット部分の両端に2ビットずつガードを残す。従来の有限の行・要求対応は変えず、強度・ユーザー定義ネット・forceの重なりは範囲外とする。"
     }
   }
 }

@@ -1,0 +1,1565 @@
+{
+  "schema": 1,
+  "kind": "Finite one-edit observation checks; not independent standards review",
+  "recorded_at": "2026-11-19T05:09:39.767250+00:00",
+  "scope": "All18frozen forms at257/513bits:36passing originals and72compiled normally exiting one-edit faults replacing the forcedvalue or the post-release driver update withzero; not exhaustive fault coverage",
+  "simulator": {
+    "version": "kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401",
+    "commit": "a6222f0656d46fbafc332ba8d8adaebb9273b964",
+    "binary_sha256": "140c543ac7edf9e658d25c862b0c217c99da14770ce56a02d4aa1fe26260e1a7"
+  },
+  "args": [],
+  "baselines": [
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_cont_const_driver_blocking_display_direct.sv",
+      "source_sha256": "9c4886e9d08bf194ce68da3be2fa0ff3185962add60f2fe3293a8ad0c9c356ef",
+      "expected_sha256": "64da3f9a53fc9343989e07dbdc314c80ac96f57c6853bc75c3eecbf1d17922a2",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "64da3f9a53fc9343989e07dbdc314c80ac96f57c6853bc75c3eecbf1d17922a2"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_cont_expr_source_nba_display_direct.sv",
+      "source_sha256": "b56a2e279e45b7b3b991c5f86ab3941ff0fc94f0bba6301d4796f36ad6eb2183",
+      "expected_sha256": "873f578ef82bd951b29b03698803c66581b9855a5f4881fd876289e64f56e0a0",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "873f578ef82bd951b29b03698803c66581b9855a5f4881fd876289e64f56e0a0"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_cont_unknown_driver_nba_query_task.sv",
+      "source_sha256": "99defaf9fc1333b2f95b65398b71a98c2d820ca1a8b41c34cbc6deb93b573e24",
+      "expected_sha256": "814d306678dd1128d1f706353349def15bff9cb4a24e4a47f764df52a488bec1",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "814d306678dd1128d1f706353349def15bff9cb4a24e4a47f764df52a488bec1"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_net_const_driver_blocking_display_direct.sv",
+      "source_sha256": "465c8cb61fe39e6b88866cfc7a74b95e26e628d4b9c1c6bd86c5dd39e985cef2",
+      "expected_sha256": "c250799f0030d4b75f204ca864178ae6ab98446100fa0f633b9677cdb5bbc2da",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "c250799f0030d4b75f204ca864178ae6ab98446100fa0f633b9677cdb5bbc2da"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_net_expr_source_nba_display_direct.sv",
+      "source_sha256": "5f68599c115252c7d65a034c60b3f22c281eb1135afb2f973f6bee126db68d7a",
+      "expected_sha256": "8d414cd5e82b97be20161bbb038a1cd7ac0df0144f04843985aaf7828fc0bf98",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "8d414cd5e82b97be20161bbb038a1cd7ac0df0144f04843985aaf7828fc0bf98"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_net_unknown_driver_nba_query_direct.sv",
+      "source_sha256": "6419d2a70bf2e311a96e9d0375f0750d5ad50687acb50e64c4ae96cf8e05015b",
+      "expected_sha256": "814d306678dd1128d1f706353349def15bff9cb4a24e4a47f764df52a488bec1",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "814d306678dd1128d1f706353349def15bff9cb4a24e4a47f764df52a488bec1"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_part_const_driver_blocking_display_direct.sv",
+      "source_sha256": "9c612cb7d738456f99e9260caac84081c092cefbe29cf87f7ec3e8595a0329fb",
+      "expected_sha256": "51e1d821e0276e57636d62f2fd85ccd9d710f0395788dbdf45de702bc6699e83",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "51e1d821e0276e57636d62f2fd85ccd9d710f0395788dbdf45de702bc6699e83"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_part_expr_source_nba_display_direct.sv",
+      "source_sha256": "a8287ac5da60967541bbb0340588dc07524a3331c6228a5c5451debe1a987228",
+      "expected_sha256": "3f005dcd30187735bf7c12126540c4b388d6921a68e3b90610832b1fdf252061",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "3f005dcd30187735bf7c12126540c4b388d6921a68e3b90610832b1fdf252061"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_part_unknown_driver_blocking_query_task.sv",
+      "source_sha256": "c3d0aaee00b8dbdd1cf5dfdce6359b8981022c317529b6edabde96daf3fb7ad3",
+      "expected_sha256": "27da534bb7b9a5aecf076d362e51e95d2618b0f464263eef288e3bc6d24e41dd",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "27da534bb7b9a5aecf076d362e51e95d2618b0f464263eef288e3bc6d24e41dd"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_pca_const_driver_blocking_display_direct.sv",
+      "source_sha256": "218173af9303966c4f4736d5fb302238d03d3c2f6b520e040bc6767e3d9673ea",
+      "expected_sha256": "6072487c7c58d87dcbd6ac8504153543541e8f6c1662cb3d384cf55c6ad5826c",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "6072487c7c58d87dcbd6ac8504153543541e8f6c1662cb3d384cf55c6ad5826c"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_pca_expr_source_nba_display_direct.sv",
+      "source_sha256": "7a903d1f1284863d7c080bb9faf4fd19a58a98cdd92642e45291811fb1ecec27",
+      "expected_sha256": "b1f8c62aaf90f81afd59b70bd8074cb5c3dcec57d113cba514c02fcf77a76f0e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "b1f8c62aaf90f81afd59b70bd8074cb5c3dcec57d113cba514c02fcf77a76f0e"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_pca_unknown_driver_blocking_query_hier.sv",
+      "source_sha256": "08501e1b1e153e3beb7a509e42291948d8bd49eb47f5f2e2c1c7604dda6eb459",
+      "expected_sha256": "3443bc6b05b531601477e1e79775b4ee59179ff8f97505824fc373de6b532aa8",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "3443bc6b05b531601477e1e79775b4ee59179ff8f97505824fc373de6b532aa8"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_var_const_driver_blocking_display_direct.sv",
+      "source_sha256": "8d3c76061baf77784e542aa73a72e3db438e54f0befa7c18e570c5edfcc49744",
+      "expected_sha256": "daf9877bccede8909a697ee84461d28ad438a008ac1ae47feda2a5cbdc8999b0",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "daf9877bccede8909a697ee84461d28ad438a008ac1ae47feda2a5cbdc8999b0"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_var_expr_source_nba_display_direct.sv",
+      "source_sha256": "b994a897cfc14e79b2a180d06e6c91d7bacfadfe5516ff83a8278e418f3ffa1f",
+      "expected_sha256": "23b225fc4433fec4d11008b32bddcc36939313e224931aabfab590922c694e66",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "23b225fc4433fec4d11008b32bddcc36939313e224931aabfab590922c694e66"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_var_unknown_driver_blocking_query_direct.sv",
+      "source_sha256": "2b0b663ae0cbc9abfd1819418815521543975b2abd23e35c0cfbc45ad3d1419d",
+      "expected_sha256": "0ad5c511f0a62b32442a7287e0400a3faabb12317bbd75276f658d8a332c683d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "0ad5c511f0a62b32442a7287e0400a3faabb12317bbd75276f658d8a332c683d"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_wor_const_driver_blocking_display_direct.sv",
+      "source_sha256": "93d91466ec048fd53037019fb2d1a3ad47e89d5d55b5834ab1501a1ba712558b",
+      "expected_sha256": "233b6996e7835537f337666a09929b5cbffefad7cba3cf999e040d0284d4316d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "233b6996e7835537f337666a09929b5cbffefad7cba3cf999e040d0284d4316d"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_wor_expr_source_nba_display_direct.sv",
+      "source_sha256": "c3c33bc8ce38b3362c4685072bd88b35b7c3f9d125d1de398888f1227bd6ee1b",
+      "expected_sha256": "059b5a5e41faa1dbfc6e5347a73afb2e589e7472acfce1d6eb56a83f1ef0f311",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "059b5a5e41faa1dbfc6e5347a73afb2e589e7472acfce1d6eb56a83f1ef0f311"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_wor_unknown_driver_nba_query_hier.sv",
+      "source_sha256": "b3e42c91d8c48f8392a4597407e8db1e649bd4e2857630335beafaacca47ceb6",
+      "expected_sha256": "99d1041204e4a9b29f357064416f69396f9603a45adf30ad0313bcc4c9a273af",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "99d1041204e4a9b29f357064416f69396f9603a45adf30ad0313bcc4c9a273af"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_cont_const_driver_blocking_display_direct.sv",
+      "source_sha256": "9e934f17941877502071414c903c38ca3b73cadc35eeeabe459d9fd57aeb33d0",
+      "expected_sha256": "073b0bad560bf899bfe2bbdbce3daf10b4da0b3d3ebdbb79a0602a07cefa1e48",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "073b0bad560bf899bfe2bbdbce3daf10b4da0b3d3ebdbb79a0602a07cefa1e48"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_cont_expr_source_nba_display_direct.sv",
+      "source_sha256": "38590a1ba05328ac50a946481a6910cd5fe76782c56e8add1779769730c82b05",
+      "expected_sha256": "ac711878dbd0d6b92ab8ed7521aa63805bf9360c1f0fc7d7ff6696d920a130b5",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "ac711878dbd0d6b92ab8ed7521aa63805bf9360c1f0fc7d7ff6696d920a130b5"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_cont_unknown_driver_nba_query_task.sv",
+      "source_sha256": "07fa130c244c93b7e49e47065e7ee2f4d76cd302054ee7bed4071b67a4687538",
+      "expected_sha256": "b7a7fcb4c4ed169f71dfd25df21bfe1d2cf2aed5369fedbade45c57fa3934c89",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "b7a7fcb4c4ed169f71dfd25df21bfe1d2cf2aed5369fedbade45c57fa3934c89"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_net_const_driver_blocking_display_direct.sv",
+      "source_sha256": "99c96f47345cbe3506cac5dbf3bae661d51d3b9d9d1db021cbca7a45484d3797",
+      "expected_sha256": "2a918c5f630d9262ace7d4e63e1a02c30c6ffff1150571bb25bf064c173fafda",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "2a918c5f630d9262ace7d4e63e1a02c30c6ffff1150571bb25bf064c173fafda"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_net_expr_source_nba_display_direct.sv",
+      "source_sha256": "c2a94d6170897ac8369be4ace7099f2b0ee7bd2408c3f2f95e41e0b4ffdf5055",
+      "expected_sha256": "7155b36f7d74b1f798e035416b39f36d8a6b87f8d2df2c0c414c6adf02d8990b",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "7155b36f7d74b1f798e035416b39f36d8a6b87f8d2df2c0c414c6adf02d8990b"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_net_unknown_driver_nba_query_direct.sv",
+      "source_sha256": "67eaac0a0d0112551d5f12fd6eefb24b028660340cef0c4af8e58f9a5b8021fa",
+      "expected_sha256": "b7a7fcb4c4ed169f71dfd25df21bfe1d2cf2aed5369fedbade45c57fa3934c89",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "b7a7fcb4c4ed169f71dfd25df21bfe1d2cf2aed5369fedbade45c57fa3934c89"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_part_const_driver_blocking_display_direct.sv",
+      "source_sha256": "6c3a3cfb51668178b462e2c813f1744402f0518393876ffad9d11b3b90778b20",
+      "expected_sha256": "994e75b43a84ea05d638cda928e165f2e3e9451584444014b995b4a2b4dd9fb0",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "994e75b43a84ea05d638cda928e165f2e3e9451584444014b995b4a2b4dd9fb0"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_part_expr_source_nba_display_direct.sv",
+      "source_sha256": "2d76899c886f63f272b621e808dcd828fb7aaca5e65d4b56a7410d6d390def68",
+      "expected_sha256": "41068c799b52f07eafa5f0fa38444ec1a0852fa5f2e63f054365ab1ca5fb9785",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "41068c799b52f07eafa5f0fa38444ec1a0852fa5f2e63f054365ab1ca5fb9785"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_part_unknown_driver_blocking_query_task.sv",
+      "source_sha256": "a8aa11d0c15cc39bfd4036991b1c6be33395e5c490350da5b38b309768aba7d3",
+      "expected_sha256": "4fb75fd99177a8d399c094c2193c8c37252f487454a53cf952ef04648931ff96",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "4fb75fd99177a8d399c094c2193c8c37252f487454a53cf952ef04648931ff96"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_pca_const_driver_blocking_display_direct.sv",
+      "source_sha256": "d6359b56f90068c2db9680a0d2aba6f91fd9e23403eda811c6d927f907c4dc06",
+      "expected_sha256": "06276ce4cc3bda19655e17d855751e833b90c1e728ab02318139d3bb47e3007e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "06276ce4cc3bda19655e17d855751e833b90c1e728ab02318139d3bb47e3007e"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_pca_expr_source_nba_display_direct.sv",
+      "source_sha256": "255ebea6cf0f64a1d869ae6a3139ffe1f7a35dd52149029785f5df1e7fc4ad6e",
+      "expected_sha256": "bb9beded78422c1bcfbe2c0cbc107cf076394e79b6c991f8423454caab667ad2",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "bb9beded78422c1bcfbe2c0cbc107cf076394e79b6c991f8423454caab667ad2"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_pca_unknown_driver_blocking_query_hier.sv",
+      "source_sha256": "ed3aa6a6383d76d060b52d31793a31d91896239c2168e5adc71774d6ce63b4bd",
+      "expected_sha256": "997bd9163aa0cff1a786536deeda6c1391768fd5a6426635d9d623bd49f79c2f",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "997bd9163aa0cff1a786536deeda6c1391768fd5a6426635d9d623bd49f79c2f"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_var_const_driver_blocking_display_direct.sv",
+      "source_sha256": "80a8d84a60d444f533f35b4e8310a08367d68ae66ec36b38c1eefe6c2203cfba",
+      "expected_sha256": "7da195289cfc04b539ff33be921a9c46706e6eb63e6fa49819f47f1664df74da",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "7da195289cfc04b539ff33be921a9c46706e6eb63e6fa49819f47f1664df74da"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_var_expr_source_nba_display_direct.sv",
+      "source_sha256": "9c44fab7c3badde6dd45217bf97930f952d2c419f71a9bffb66010bd8f939f30",
+      "expected_sha256": "7b6123ca04bdf6d3816b848a152d3737794e6f7267a9edc3218160b0118d6c47",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "7b6123ca04bdf6d3816b848a152d3737794e6f7267a9edc3218160b0118d6c47"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_var_unknown_driver_blocking_query_direct.sv",
+      "source_sha256": "e6239e0dbc695b20947c0c22d75eed2b2eef544b7cdfee7b647f4b2cd3de5224",
+      "expected_sha256": "7bdee650211d57e1b32d885164159b60a28936772cab9bcb77c2ce95f0378f29",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "7bdee650211d57e1b32d885164159b60a28936772cab9bcb77c2ce95f0378f29"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_wor_const_driver_blocking_display_direct.sv",
+      "source_sha256": "1add32d6c951e1afa979fbf34b247aecde50636bf56e471b004e19205abcb29a",
+      "expected_sha256": "b5f792ffeedf94a7187b3a5436ddb2da18822806ac356bf24d0d4886b96af485",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "b5f792ffeedf94a7187b3a5436ddb2da18822806ac356bf24d0d4886b96af485"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_wor_expr_source_nba_display_direct.sv",
+      "source_sha256": "40a27bbe76992f2a2d6b9a40aee739f0086cd815418bd4c980baa219f6644cec",
+      "expected_sha256": "8be3c701a74ea9091cbe28db5d5f2dc783287e67b1374def914e94dbfac0eb1d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "8be3c701a74ea9091cbe28db5d5f2dc783287e67b1374def914e94dbfac0eb1d"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_wor_unknown_driver_nba_query_hier.sv",
+      "source_sha256": "cac09bc7704f259a6eec21358488aaf8d04944d5640eead583230c5491e0cbdc",
+      "expected_sha256": "688f7700f97c0dbb67e3c1cc5e838b5642e3a9816e0f536de1e72c035427ae37",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "688f7700f97c0dbb67e3c1cc5e838b5642e3a9816e0f536de1e72c035427ae37"
+    }
+  ],
+  "mutations": [
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_cont_const_driver_blocking_display_direct.sv",
+      "source_sha256": "5c6b95512edd14abd8c5482e3f9a24448a0c1b273493e607420e566abbbd555e",
+      "expected_sha256": "64da3f9a53fc9343989e07dbdc314c80ac96f57c6853bc75c3eecbf1d17922a2",
+      "original_source_sha256": "9c4886e9d08bf194ce68da3be2fa0ff3185962add60f2fe3293a8ad0c9c356ef",
+      "mutated_source_sha256": "5c6b95512edd14abd8c5482e3f9a24448a0c1b273493e607420e566abbbd555e",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t = {\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      1'b0\n    };",
+        "new": "    force t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "1d3881849cb1c021a99eba8138841f6b1e5b6059f34e4bfbc619d77398653cb2"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_cont_const_driver_blocking_display_direct.sv",
+      "source_sha256": "cfee6e564944a827af56ad97373ac6f054aff961afbec9cec8d5db845d24c746",
+      "expected_sha256": "64da3f9a53fc9343989e07dbdc314c80ac96f57c6853bc75c3eecbf1d17922a2",
+      "original_source_sha256": "9c4886e9d08bf194ce68da3be2fa0ff3185962add60f2fe3293a8ad0c9c356ef",
+      "mutated_source_sha256": "cfee6e564944a827af56ad97373ac6f054aff961afbec9cec8d5db845d24c746",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    d = {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    d = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "f8a89697d3f756a7704999e09e2ee4e1293d8759da7c4136da6159314514ee5b"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_cont_expr_source_nba_display_direct.sv",
+      "source_sha256": "a0c6188b86a167d13ca1656fa563c29b71c2a3fbe20673413a45aa7d93dd5fc1",
+      "expected_sha256": "873f578ef82bd951b29b03698803c66581b9855a5f4881fd876289e64f56e0a0",
+      "original_source_sha256": "b56a2e279e45b7b3b991c5f86ab3941ff0fc94f0bba6301d4796f36ad6eb2183",
+      "mutated_source_sha256": "a0c6188b86a167d13ca1656fa563c29b71c2a3fbe20673413a45aa7d93dd5fc1",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t = src;",
+        "new": "    force t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "4e5896dbe8a1e2f8f05647fcef27dc160863fbec2253aafcb3ede02a6b391fde"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_cont_expr_source_nba_display_direct.sv",
+      "source_sha256": "92da16cce81f980ec9c22806693e2cae400aac42acd002d7b5573d4b9791d7d4",
+      "expected_sha256": "873f578ef82bd951b29b03698803c66581b9855a5f4881fd876289e64f56e0a0",
+      "original_source_sha256": "b56a2e279e45b7b3b991c5f86ab3941ff0fc94f0bba6301d4796f36ad6eb2183",
+      "mutated_source_sha256": "92da16cce81f980ec9c22806693e2cae400aac42acd002d7b5573d4b9791d7d4",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    d <= {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    d <= '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "b11765118597faddc93ebe45b97bf4842d0ccee8f83673626b4a06858924454a"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_cont_unknown_driver_nba_query_task.sv",
+      "source_sha256": "5e89df74f7374ce16bfeeeb8e66db2980f1ff414ee4e16e014894fd063fe1253",
+      "expected_sha256": "814d306678dd1128d1f706353349def15bff9cb4a24e4a47f764df52a488bec1",
+      "original_source_sha256": "99defaf9fc1333b2f95b65398b71a98c2d820ca1a8b41c34cbc6deb93b573e24",
+      "mutated_source_sha256": "5e89df74f7374ce16bfeeeb8e66db2980f1ff414ee4e16e014894fd063fe1253",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t = {\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      1'bz\n    };",
+        "new": "    force t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "ee39aeb4280c7c3b719ab15e08da7efa83af3a7e63175dedce5e387b2a85da4c"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_cont_unknown_driver_nba_query_task.sv",
+      "source_sha256": "e27df575d61a61cdf2d75b936c3d90c91c39d50ba9babb54ecebf87060cfce88",
+      "expected_sha256": "814d306678dd1128d1f706353349def15bff9cb4a24e4a47f764df52a488bec1",
+      "original_source_sha256": "99defaf9fc1333b2f95b65398b71a98c2d820ca1a8b41c34cbc6deb93b573e24",
+      "mutated_source_sha256": "e27df575d61a61cdf2d75b936c3d90c91c39d50ba9babb54ecebf87060cfce88",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    d <= {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    d <= '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "3aa1ecde34e03d4598eda07dde7061392beeda11a3ac22df9136129fc5290925"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_net_const_driver_blocking_display_direct.sv",
+      "source_sha256": "2e7e29f2d4c3436b1c6e787049a1c591c40ea2fe5ea7513d4c9ab3594da0ef3d",
+      "expected_sha256": "c250799f0030d4b75f204ca864178ae6ab98446100fa0f633b9677cdb5bbc2da",
+      "original_source_sha256": "465c8cb61fe39e6b88866cfc7a74b95e26e628d4b9c1c6bd86c5dd39e985cef2",
+      "mutated_source_sha256": "2e7e29f2d4c3436b1c6e787049a1c591c40ea2fe5ea7513d4c9ab3594da0ef3d",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t = {\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      1'b0\n    };",
+        "new": "    force t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "7f421994013b29f32aba0586b611741eee27fc13e72dfd0ce9765d440aacb35e"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_net_const_driver_blocking_display_direct.sv",
+      "source_sha256": "27a2df253b96ac8c288e559c397da09d39324be047c37f81cd5f9991dffdb132",
+      "expected_sha256": "c250799f0030d4b75f204ca864178ae6ab98446100fa0f633b9677cdb5bbc2da",
+      "original_source_sha256": "465c8cb61fe39e6b88866cfc7a74b95e26e628d4b9c1c6bd86c5dd39e985cef2",
+      "mutated_source_sha256": "27a2df253b96ac8c288e559c397da09d39324be047c37f81cd5f9991dffdb132",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    d = {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    d = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "58e5c9b33f497b71c7fa52e4efb989bf59644d0b43015e3e52ea62ee5f11956f"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_net_expr_source_nba_display_direct.sv",
+      "source_sha256": "e7b4d54be72c6b96ee526df2199523baf81f7f4e0432c34f0e06e404f4fd6dcd",
+      "expected_sha256": "8d414cd5e82b97be20161bbb038a1cd7ac0df0144f04843985aaf7828fc0bf98",
+      "original_source_sha256": "5f68599c115252c7d65a034c60b3f22c281eb1135afb2f973f6bee126db68d7a",
+      "mutated_source_sha256": "e7b4d54be72c6b96ee526df2199523baf81f7f4e0432c34f0e06e404f4fd6dcd",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t = src;",
+        "new": "    force t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "41496b3bfdd8e2c2096a7855c1c6070053aa812b746ba53a2870e0db97779938"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_net_expr_source_nba_display_direct.sv",
+      "source_sha256": "fda22709c75003e76224b43b7683f7772299c8bbfb80a83374b6c5b7da0832af",
+      "expected_sha256": "8d414cd5e82b97be20161bbb038a1cd7ac0df0144f04843985aaf7828fc0bf98",
+      "original_source_sha256": "5f68599c115252c7d65a034c60b3f22c281eb1135afb2f973f6bee126db68d7a",
+      "mutated_source_sha256": "fda22709c75003e76224b43b7683f7772299c8bbfb80a83374b6c5b7da0832af",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    d <= {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    d <= '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "5640fce74b0c15b15ca725545f586d99e9284f672f76fcde3c52c7ad01e8f8e1"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_net_unknown_driver_nba_query_direct.sv",
+      "source_sha256": "6642511290739716329ff91adc901bb9e050bb6ec01e3df75ba10018d341abd1",
+      "expected_sha256": "814d306678dd1128d1f706353349def15bff9cb4a24e4a47f764df52a488bec1",
+      "original_source_sha256": "6419d2a70bf2e311a96e9d0375f0750d5ad50687acb50e64c4ae96cf8e05015b",
+      "mutated_source_sha256": "6642511290739716329ff91adc901bb9e050bb6ec01e3df75ba10018d341abd1",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t = {\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      1'bz\n    };",
+        "new": "    force t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "ee39aeb4280c7c3b719ab15e08da7efa83af3a7e63175dedce5e387b2a85da4c"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_net_unknown_driver_nba_query_direct.sv",
+      "source_sha256": "2472f295a5a4ad7dabbb3ea550ec2a49b511a2ec9261fa25ba7b85a28d345309",
+      "expected_sha256": "814d306678dd1128d1f706353349def15bff9cb4a24e4a47f764df52a488bec1",
+      "original_source_sha256": "6419d2a70bf2e311a96e9d0375f0750d5ad50687acb50e64c4ae96cf8e05015b",
+      "mutated_source_sha256": "2472f295a5a4ad7dabbb3ea550ec2a49b511a2ec9261fa25ba7b85a28d345309",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    d <= {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    d <= '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "3aa1ecde34e03d4598eda07dde7061392beeda11a3ac22df9136129fc5290925"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_part_const_driver_blocking_display_direct.sv",
+      "source_sha256": "ae269a52f7d500ef0ea6b2b1e98817e88cdda29f07fc573903728350ef7970a6",
+      "expected_sha256": "51e1d821e0276e57636d62f2fd85ccd9d710f0395788dbdf45de702bc6699e83",
+      "original_source_sha256": "9c612cb7d738456f99e9260caac84081c092cefbe29cf87f7ec3e8595a0329fb",
+      "mutated_source_sha256": "ae269a52f7d500ef0ea6b2b1e98817e88cdda29f07fc573903728350ef7970a6",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t[258:2] = {\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      1'b0\n    };",
+        "new": "    force t[258:2] = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "91399936d872af49ce1ec45f1f7df5f87ed30d829ab03ffe196a9e9d8bad3442"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_part_const_driver_blocking_display_direct.sv",
+      "source_sha256": "0f3b4f06a298e31670b001c3687552d99c78d72272ad7624218008df6cb5b4cf",
+      "expected_sha256": "51e1d821e0276e57636d62f2fd85ccd9d710f0395788dbdf45de702bc6699e83",
+      "original_source_sha256": "9c612cb7d738456f99e9260caac84081c092cefbe29cf87f7ec3e8595a0329fb",
+      "mutated_source_sha256": "0f3b4f06a298e31670b001c3687552d99c78d72272ad7624218008df6cb5b4cf",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    d = {\n      64'b1110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      5'b01100\n    };",
+        "new": "    d = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "c1ce6e87b2a169d78cb461f6207aba1fced27228a5443daa6ea7c24d35038acb"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_part_expr_source_nba_display_direct.sv",
+      "source_sha256": "f0e2b28034339f93bbfc932f74e3007893221eff44a68d6362e0958cafa2598e",
+      "expected_sha256": "3f005dcd30187735bf7c12126540c4b388d6921a68e3b90610832b1fdf252061",
+      "original_source_sha256": "a8287ac5da60967541bbb0340588dc07524a3331c6228a5c5451debe1a987228",
+      "mutated_source_sha256": "f0e2b28034339f93bbfc932f74e3007893221eff44a68d6362e0958cafa2598e",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t[258:2] = src;",
+        "new": "    force t[258:2] = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "e2a15560ab9a3d162a5b73e87056d91bc93fd14d2a795521b8ed94ead949f660"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_part_expr_source_nba_display_direct.sv",
+      "source_sha256": "407433198ad708b8fc0ef505ecf05ec253905263649d2b7f6d6600426227750c",
+      "expected_sha256": "3f005dcd30187735bf7c12126540c4b388d6921a68e3b90610832b1fdf252061",
+      "original_source_sha256": "a8287ac5da60967541bbb0340588dc07524a3331c6228a5c5451debe1a987228",
+      "mutated_source_sha256": "407433198ad708b8fc0ef505ecf05ec253905263649d2b7f6d6600426227750c",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    d <= {\n      64'b1110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      5'b01100\n    };",
+        "new": "    d <= '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "0b33bfd5e5e32700867612684aa917c0b0db6023f0f0d549d5edc9fa9fcd80aa"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_part_unknown_driver_blocking_query_task.sv",
+      "source_sha256": "ce3293ee0d67843954ff8971a286b43860a53b1074436951990fe1aea9d51987",
+      "expected_sha256": "27da534bb7b9a5aecf076d362e51e95d2618b0f464263eef288e3bc6d24e41dd",
+      "original_source_sha256": "c3d0aaee00b8dbdd1cf5dfdce6359b8981022c317529b6edabde96daf3fb7ad3",
+      "mutated_source_sha256": "ce3293ee0d67843954ff8971a286b43860a53b1074436951990fe1aea9d51987",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t[258:2] = {\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      1'bz\n    };",
+        "new": "    force t[258:2] = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "4f0c122dcb558f10b8c48840d3ca8e02dadc23acf2447d468b924df0b98d3e09"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_part_unknown_driver_blocking_query_task.sv",
+      "source_sha256": "f73c8d0310c730d659dd8fe1101b6e41ea7c43a61bb60d4f4b7d4edc7219223a",
+      "expected_sha256": "27da534bb7b9a5aecf076d362e51e95d2618b0f464263eef288e3bc6d24e41dd",
+      "original_source_sha256": "c3d0aaee00b8dbdd1cf5dfdce6359b8981022c317529b6edabde96daf3fb7ad3",
+      "mutated_source_sha256": "f73c8d0310c730d659dd8fe1101b6e41ea7c43a61bb60d4f4b7d4edc7219223a",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    d = {\n      64'b1110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      5'b01100\n    };",
+        "new": "    d = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "b39bfde3c604f6ddde32c42c16134a4b03c7f0b5e7f4db5116de23d5eda41a18"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_pca_const_driver_blocking_display_direct.sv",
+      "source_sha256": "521538f3549cbbd48ed060ad19488991e022efe3d56ad3d7f574e14f3937fc14",
+      "expected_sha256": "6072487c7c58d87dcbd6ac8504153543541e8f6c1662cb3d384cf55c6ad5826c",
+      "original_source_sha256": "218173af9303966c4f4736d5fb302238d03d3c2f6b520e040bc6767e3d9673ea",
+      "mutated_source_sha256": "521538f3549cbbd48ed060ad19488991e022efe3d56ad3d7f574e14f3937fc14",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t = {\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      1'b0\n    };",
+        "new": "    force t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "4acef75f50c30221f9650c01e4a9265ae9432775ff3328110278c09127c40d98"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_pca_const_driver_blocking_display_direct.sv",
+      "source_sha256": "6724597cc8cbfeb280aa632e4fc676c21a246575385406b8cdb4d579daa84a3f",
+      "expected_sha256": "6072487c7c58d87dcbd6ac8504153543541e8f6c1662cb3d384cf55c6ad5826c",
+      "original_source_sha256": "218173af9303966c4f4736d5fb302238d03d3c2f6b520e040bc6767e3d9673ea",
+      "mutated_source_sha256": "6724597cc8cbfeb280aa632e4fc676c21a246575385406b8cdb4d579daa84a3f",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    d = {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    d = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "6327f3de538144a4f535a5ef1f57519012dc5f812c5e8cae4f6cfab726ca6d7a"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_pca_expr_source_nba_display_direct.sv",
+      "source_sha256": "ae0cf1a3fafb3298b944fdff2c61ce53c6268a57f4ff55d5af4f5a8fb8cea04a",
+      "expected_sha256": "b1f8c62aaf90f81afd59b70bd8074cb5c3dcec57d113cba514c02fcf77a76f0e",
+      "original_source_sha256": "7a903d1f1284863d7c080bb9faf4fd19a58a98cdd92642e45291811fb1ecec27",
+      "mutated_source_sha256": "ae0cf1a3fafb3298b944fdff2c61ce53c6268a57f4ff55d5af4f5a8fb8cea04a",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t = src;",
+        "new": "    force t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "1bc36221d9489c19a27d9a1d1a0304cc6a1f698e6a7de3ff5bf19b3585f4fc26"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_pca_expr_source_nba_display_direct.sv",
+      "source_sha256": "8bdb2e93932d42f5fdb3b44a1a5a71965c137012244aa22ec47b8538dbf4e004",
+      "expected_sha256": "b1f8c62aaf90f81afd59b70bd8074cb5c3dcec57d113cba514c02fcf77a76f0e",
+      "original_source_sha256": "7a903d1f1284863d7c080bb9faf4fd19a58a98cdd92642e45291811fb1ecec27",
+      "mutated_source_sha256": "8bdb2e93932d42f5fdb3b44a1a5a71965c137012244aa22ec47b8538dbf4e004",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    d <= {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    d <= '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "42a89f6f21db658168cbb821ba9aa688ef52039834106c7c33f8e8451d98145a"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_pca_unknown_driver_blocking_query_hier.sv",
+      "source_sha256": "3e7cfce49ea2559ba64ca09f522544e43069b2475f00998f123f1f32217f4bbc",
+      "expected_sha256": "3443bc6b05b531601477e1e79775b4ee59179ff8f97505824fc373de6b532aa8",
+      "original_source_sha256": "08501e1b1e153e3beb7a509e42291948d8bd49eb47f5f2e2c1c7604dda6eb459",
+      "mutated_source_sha256": "3e7cfce49ea2559ba64ca09f522544e43069b2475f00998f123f1f32217f4bbc",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force u.t = {\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      1'bz\n    };",
+        "new": "    force u.t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "f7694c37fd0d3c0ab0e6238e6d1585a29308b9a9b47d51c9acaf18db75925492"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_pca_unknown_driver_blocking_query_hier.sv",
+      "source_sha256": "f98e3aeb4bf22ad5dce5fce8e1993f56b27cf45bee6fe110aa8aa4bb39a35824",
+      "expected_sha256": "3443bc6b05b531601477e1e79775b4ee59179ff8f97505824fc373de6b532aa8",
+      "original_source_sha256": "08501e1b1e153e3beb7a509e42291948d8bd49eb47f5f2e2c1c7604dda6eb459",
+      "mutated_source_sha256": "f98e3aeb4bf22ad5dce5fce8e1993f56b27cf45bee6fe110aa8aa4bb39a35824",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    u.d = {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    u.d = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "77fed1a9a07b25cab40beab13d9a387f4fde45bfc7ad93da1368daee42e71bc1"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_var_const_driver_blocking_display_direct.sv",
+      "source_sha256": "62547095a8674d6cff23984eacbe12ff0655deada6d91dc5d61104c344316279",
+      "expected_sha256": "daf9877bccede8909a697ee84461d28ad438a008ac1ae47feda2a5cbdc8999b0",
+      "original_source_sha256": "8d3c76061baf77784e542aa73a72e3db438e54f0befa7c18e570c5edfcc49744",
+      "mutated_source_sha256": "62547095a8674d6cff23984eacbe12ff0655deada6d91dc5d61104c344316279",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t = {\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      1'b0\n    };",
+        "new": "    force t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "1ca65628af6b939ac474d8d4d3369705ac9c150034a518d73ecd098b3f6c316f"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_var_const_driver_blocking_display_direct.sv",
+      "source_sha256": "473dd4e014e8196993867fdce291a498b88d8d73292c3e2aa808a88d94bb3b1c",
+      "expected_sha256": "daf9877bccede8909a697ee84461d28ad438a008ac1ae47feda2a5cbdc8999b0",
+      "original_source_sha256": "8d3c76061baf77784e542aa73a72e3db438e54f0befa7c18e570c5edfcc49744",
+      "mutated_source_sha256": "473dd4e014e8196993867fdce291a498b88d8d73292c3e2aa808a88d94bb3b1c",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    t = {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "8d2cbe33189b7db6a5ed0013870c74c42809cc391e72708324c8c96b593acc01"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_var_expr_source_nba_display_direct.sv",
+      "source_sha256": "46b3f3a135f16a61d02e49a3b4f33b3928719364d4707c8984ab0b5a1557123f",
+      "expected_sha256": "23b225fc4433fec4d11008b32bddcc36939313e224931aabfab590922c694e66",
+      "original_source_sha256": "b994a897cfc14e79b2a180d06e6c91d7bacfadfe5516ff83a8278e418f3ffa1f",
+      "mutated_source_sha256": "46b3f3a135f16a61d02e49a3b4f33b3928719364d4707c8984ab0b5a1557123f",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t = src;",
+        "new": "    force t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "1ca65628af6b939ac474d8d4d3369705ac9c150034a518d73ecd098b3f6c316f"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_var_expr_source_nba_display_direct.sv",
+      "source_sha256": "1f4d30a82f61dad5e5628a6402591ef389f5696266038bfdb61dcaf0b40c168e",
+      "expected_sha256": "23b225fc4433fec4d11008b32bddcc36939313e224931aabfab590922c694e66",
+      "original_source_sha256": "b994a897cfc14e79b2a180d06e6c91d7bacfadfe5516ff83a8278e418f3ffa1f",
+      "mutated_source_sha256": "1f4d30a82f61dad5e5628a6402591ef389f5696266038bfdb61dcaf0b40c168e",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    t <= {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    t <= '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "f8382b4702cef6bbfbf425b93c07d006b576f68022bf16720719644ea4dda9f3"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_var_unknown_driver_blocking_query_direct.sv",
+      "source_sha256": "361c68f7337aeb47bb91cee9489ab43efa4e55f9f236e3d73e31e38f83e89e30",
+      "expected_sha256": "0ad5c511f0a62b32442a7287e0400a3faabb12317bbd75276f658d8a332c683d",
+      "original_source_sha256": "2b0b663ae0cbc9abfd1819418815521543975b2abd23e35c0cfbc45ad3d1419d",
+      "mutated_source_sha256": "361c68f7337aeb47bb91cee9489ab43efa4e55f9f236e3d73e31e38f83e89e30",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t = {\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      1'bz\n    };",
+        "new": "    force t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "e89b79f571001f7a1905bd39fbe31755dbbb10299a8e0a5cd858fcf3fb8a5433"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_var_unknown_driver_blocking_query_direct.sv",
+      "source_sha256": "7b16f5157abc625d91095deecd5a00a7882d8794dc74ac80c033ba86295d563a",
+      "expected_sha256": "0ad5c511f0a62b32442a7287e0400a3faabb12317bbd75276f658d8a332c683d",
+      "original_source_sha256": "2b0b663ae0cbc9abfd1819418815521543975b2abd23e35c0cfbc45ad3d1419d",
+      "mutated_source_sha256": "7b16f5157abc625d91095deecd5a00a7882d8794dc74ac80c033ba86295d563a",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    t = {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "d0476dc2a2a660f953942ef034a402692ee67b3e06321d0557234be2e189b773"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_wor_const_driver_blocking_display_direct.sv",
+      "source_sha256": "8e02a22cc60b896b2ca26747321d82e2c00ea0c9a1da90b91b01b0ea8fe77db7",
+      "expected_sha256": "233b6996e7835537f337666a09929b5cbffefad7cba3cf999e040d0284d4316d",
+      "original_source_sha256": "93d91466ec048fd53037019fb2d1a3ad47e89d5d55b5834ab1501a1ba712558b",
+      "mutated_source_sha256": "8e02a22cc60b896b2ca26747321d82e2c00ea0c9a1da90b91b01b0ea8fe77db7",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t = {\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      1'b0\n    };",
+        "new": "    force t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "0db0513d9ecb284ab0256d530db32e387f11fe2965e3cdecee1d1044f9139e01"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_wor_const_driver_blocking_display_direct.sv",
+      "source_sha256": "75faf7093cb0bbf706b6b473d9310158de1672fc0564d28ce76d0563ade27841",
+      "expected_sha256": "233b6996e7835537f337666a09929b5cbffefad7cba3cf999e040d0284d4316d",
+      "original_source_sha256": "93d91466ec048fd53037019fb2d1a3ad47e89d5d55b5834ab1501a1ba712558b",
+      "mutated_source_sha256": "75faf7093cb0bbf706b6b473d9310158de1672fc0564d28ce76d0563ade27841",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    d = {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    d = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "4f1cfa48a369175e7a9d44c020cbfb30ed9187f24f3907d7c7fafce95ad1b048"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_wor_expr_source_nba_display_direct.sv",
+      "source_sha256": "4938091e85f0dea27790b5a308fe061948ed5d677ab14ac246d536e66f2b6a5d",
+      "expected_sha256": "059b5a5e41faa1dbfc6e5347a73afb2e589e7472acfce1d6eb56a83f1ef0f311",
+      "original_source_sha256": "c3c33bc8ce38b3362c4685072bd88b35b7c3f9d125d1de398888f1227bd6ee1b",
+      "mutated_source_sha256": "4938091e85f0dea27790b5a308fe061948ed5d677ab14ac246d536e66f2b6a5d",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t = src;",
+        "new": "    force t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "0db0513d9ecb284ab0256d530db32e387f11fe2965e3cdecee1d1044f9139e01"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_wor_expr_source_nba_display_direct.sv",
+      "source_sha256": "8cbcd9c97ba09fcfa63c60caa85c99d7667d89e62e33399764ca94ef0a096db1",
+      "expected_sha256": "059b5a5e41faa1dbfc6e5347a73afb2e589e7472acfce1d6eb56a83f1ef0f311",
+      "original_source_sha256": "c3c33bc8ce38b3362c4685072bd88b35b7c3f9d125d1de398888f1227bd6ee1b",
+      "mutated_source_sha256": "8cbcd9c97ba09fcfa63c60caa85c99d7667d89e62e33399764ca94ef0a096db1",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    d <= {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    d <= '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "4634a6f54b533fb66bf7060b23cbb56931abb0b5dcd2304daee0ecc58f105603"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_wor_unknown_driver_nba_query_hier.sv",
+      "source_sha256": "0d70b9cb66b26792bf1eb0efdf812fafa9de428d93c7881c7f8165aab750cb05",
+      "expected_sha256": "99d1041204e4a9b29f357064416f69396f9603a45adf30ad0313bcc4c9a273af",
+      "original_source_sha256": "b3e42c91d8c48f8392a4597407e8db1e649bd4e2857630335beafaacca47ceb6",
+      "mutated_source_sha256": "0d70b9cb66b26792bf1eb0efdf812fafa9de428d93c7881c7f8165aab750cb05",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force u.t = {\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      1'bz\n    };",
+        "new": "    force u.t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "dd075650f9f44b4541bf46a2479c9d752054ae130afb8514656259af01066cfb"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w257_wor_unknown_driver_nba_query_hier.sv",
+      "source_sha256": "c25fc3d475b4522d2337c121a2d08fa0efa7afbe36b28f405ce3dd3e92447d93",
+      "expected_sha256": "99d1041204e4a9b29f357064416f69396f9603a45adf30ad0313bcc4c9a273af",
+      "original_source_sha256": "b3e42c91d8c48f8392a4597407e8db1e649bd4e2857630335beafaacca47ceb6",
+      "mutated_source_sha256": "c25fc3d475b4522d2337c121a2d08fa0efa7afbe36b28f405ce3dd3e92447d93",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    u.d <= {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    u.d <= '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "8c77f5beff4b8dff0bc13b89f09038a10e804b473009b8149e8d09199a38cdc0"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_cont_const_driver_blocking_display_direct.sv",
+      "source_sha256": "75ce56ed351bccc1ef54f2ca093b763bf575654ba86d31c4a1938b5be054a1a1",
+      "expected_sha256": "073b0bad560bf899bfe2bbdbce3daf10b4da0b3d3ebdbb79a0602a07cefa1e48",
+      "original_source_sha256": "9e934f17941877502071414c903c38ca3b73cadc35eeeabe459d9fd57aeb33d0",
+      "mutated_source_sha256": "75ce56ed351bccc1ef54f2ca093b763bf575654ba86d31c4a1938b5be054a1a1",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t = {\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      1'b0\n    };",
+        "new": "    force t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "8ab408fecd5bd3d8875dafc625d64b5dfcad837ffff1abff5be7a04cafabc5e1"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_cont_const_driver_blocking_display_direct.sv",
+      "source_sha256": "99b765eca0785d63aa2b2383f6924f335559802e0249961c299cdeab15801299",
+      "expected_sha256": "073b0bad560bf899bfe2bbdbce3daf10b4da0b3d3ebdbb79a0602a07cefa1e48",
+      "original_source_sha256": "9e934f17941877502071414c903c38ca3b73cadc35eeeabe459d9fd57aeb33d0",
+      "mutated_source_sha256": "99b765eca0785d63aa2b2383f6924f335559802e0249961c299cdeab15801299",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    d = {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    d = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "471b571d5434231e7e3e137fed2a7c5d35b62009ff0b59274f9f2ad3cb57f2f5"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_cont_expr_source_nba_display_direct.sv",
+      "source_sha256": "c3f6c4cc8f25400ce149174e22635023793152d57506a151c9223e42294df28e",
+      "expected_sha256": "ac711878dbd0d6b92ab8ed7521aa63805bf9360c1f0fc7d7ff6696d920a130b5",
+      "original_source_sha256": "38590a1ba05328ac50a946481a6910cd5fe76782c56e8add1779769730c82b05",
+      "mutated_source_sha256": "c3f6c4cc8f25400ce149174e22635023793152d57506a151c9223e42294df28e",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t = src;",
+        "new": "    force t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "bd35457eaf56179f26fc30959103d99123a0233794a1d21a864568f91e7f00ca"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_cont_expr_source_nba_display_direct.sv",
+      "source_sha256": "165c2290c65a2081b4f09cb26c65da3c6992703940437ff0521d90cd360d7307",
+      "expected_sha256": "ac711878dbd0d6b92ab8ed7521aa63805bf9360c1f0fc7d7ff6696d920a130b5",
+      "original_source_sha256": "38590a1ba05328ac50a946481a6910cd5fe76782c56e8add1779769730c82b05",
+      "mutated_source_sha256": "165c2290c65a2081b4f09cb26c65da3c6992703940437ff0521d90cd360d7307",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    d <= {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    d <= '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "82a4ff7538ca0cdac9396ed23e6327efb0edc75436e1de717eaa1062cfa41c84"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_cont_unknown_driver_nba_query_task.sv",
+      "source_sha256": "af197c4b9d6841ce1aa0acbf7a47c887650f3b10f27ae1fbf80d791cabb28a17",
+      "expected_sha256": "b7a7fcb4c4ed169f71dfd25df21bfe1d2cf2aed5369fedbade45c57fa3934c89",
+      "original_source_sha256": "07fa130c244c93b7e49e47065e7ee2f4d76cd302054ee7bed4071b67a4687538",
+      "mutated_source_sha256": "af197c4b9d6841ce1aa0acbf7a47c887650f3b10f27ae1fbf80d791cabb28a17",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t = {\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      1'bz\n    };",
+        "new": "    force t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "ded8dc692e95290a065a77794f2eb80d06e4fcfa6a7155c44fb93535423d341f"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_cont_unknown_driver_nba_query_task.sv",
+      "source_sha256": "761f7c6394bf6a52d3a1b17ab95f2b7b882f6ad1f90963d1d6c52eaf07b369f0",
+      "expected_sha256": "b7a7fcb4c4ed169f71dfd25df21bfe1d2cf2aed5369fedbade45c57fa3934c89",
+      "original_source_sha256": "07fa130c244c93b7e49e47065e7ee2f4d76cd302054ee7bed4071b67a4687538",
+      "mutated_source_sha256": "761f7c6394bf6a52d3a1b17ab95f2b7b882f6ad1f90963d1d6c52eaf07b369f0",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    d <= {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    d <= '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "099b8bec094d9ceb52c7a0797a68e680bc94f55ef44d7779072ad8d609e09c96"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_net_const_driver_blocking_display_direct.sv",
+      "source_sha256": "3294f545276962c7be384a01d3fab9ed2c2b6e58b3077728af0be00412674ace",
+      "expected_sha256": "2a918c5f630d9262ace7d4e63e1a02c30c6ffff1150571bb25bf064c173fafda",
+      "original_source_sha256": "99c96f47345cbe3506cac5dbf3bae661d51d3b9d9d1db021cbca7a45484d3797",
+      "mutated_source_sha256": "3294f545276962c7be384a01d3fab9ed2c2b6e58b3077728af0be00412674ace",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t = {\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      1'b0\n    };",
+        "new": "    force t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "4e16ebc743642c86bdf6deebeb7b82a06a37e90f6ac5ded1354be4483818082e"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_net_const_driver_blocking_display_direct.sv",
+      "source_sha256": "1813f778922940e98475b930cea0a3c004a28c75419ec168d1ea043deee5f400",
+      "expected_sha256": "2a918c5f630d9262ace7d4e63e1a02c30c6ffff1150571bb25bf064c173fafda",
+      "original_source_sha256": "99c96f47345cbe3506cac5dbf3bae661d51d3b9d9d1db021cbca7a45484d3797",
+      "mutated_source_sha256": "1813f778922940e98475b930cea0a3c004a28c75419ec168d1ea043deee5f400",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    d = {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    d = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "15244fabf576dceffc33d45a02ce6797a24dc99aef78005e6eb672c20a844829"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_net_expr_source_nba_display_direct.sv",
+      "source_sha256": "6b2bba843279b310773a0ef9832a6253d9b9042fcf472a60a79278cac0cd1beb",
+      "expected_sha256": "7155b36f7d74b1f798e035416b39f36d8a6b87f8d2df2c0c414c6adf02d8990b",
+      "original_source_sha256": "c2a94d6170897ac8369be4ace7099f2b0ee7bd2408c3f2f95e41e0b4ffdf5055",
+      "mutated_source_sha256": "6b2bba843279b310773a0ef9832a6253d9b9042fcf472a60a79278cac0cd1beb",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t = src;",
+        "new": "    force t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "28e28a8c69350b218eccdde2426ce157aeeffaba90beade2031575620e1f38ed"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_net_expr_source_nba_display_direct.sv",
+      "source_sha256": "661e3db9f2fa3561b5d09e12a14302ded0dca14cc090e5da0fb6dab589217196",
+      "expected_sha256": "7155b36f7d74b1f798e035416b39f36d8a6b87f8d2df2c0c414c6adf02d8990b",
+      "original_source_sha256": "c2a94d6170897ac8369be4ace7099f2b0ee7bd2408c3f2f95e41e0b4ffdf5055",
+      "mutated_source_sha256": "661e3db9f2fa3561b5d09e12a14302ded0dca14cc090e5da0fb6dab589217196",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    d <= {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    d <= '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "1e11fa8ddf287b2a5d2aea6f1472f2e7ff874cabeabb0fb4cad6818f1a78db77"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_net_unknown_driver_nba_query_direct.sv",
+      "source_sha256": "4888536f60ca16c7d3ca6ecd37f612c6295ddbcb5692311065c6a2d848d37b44",
+      "expected_sha256": "b7a7fcb4c4ed169f71dfd25df21bfe1d2cf2aed5369fedbade45c57fa3934c89",
+      "original_source_sha256": "67eaac0a0d0112551d5f12fd6eefb24b028660340cef0c4af8e58f9a5b8021fa",
+      "mutated_source_sha256": "4888536f60ca16c7d3ca6ecd37f612c6295ddbcb5692311065c6a2d848d37b44",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t = {\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      1'bz\n    };",
+        "new": "    force t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "ded8dc692e95290a065a77794f2eb80d06e4fcfa6a7155c44fb93535423d341f"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_net_unknown_driver_nba_query_direct.sv",
+      "source_sha256": "3fe35939e962ca27d9773a6e2e025d2b1c420f766db4ec4b3836cf9d15a1762c",
+      "expected_sha256": "b7a7fcb4c4ed169f71dfd25df21bfe1d2cf2aed5369fedbade45c57fa3934c89",
+      "original_source_sha256": "67eaac0a0d0112551d5f12fd6eefb24b028660340cef0c4af8e58f9a5b8021fa",
+      "mutated_source_sha256": "3fe35939e962ca27d9773a6e2e025d2b1c420f766db4ec4b3836cf9d15a1762c",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    d <= {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    d <= '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "099b8bec094d9ceb52c7a0797a68e680bc94f55ef44d7779072ad8d609e09c96"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_part_const_driver_blocking_display_direct.sv",
+      "source_sha256": "f1c0fd647b14b2d96c29bfe1e893ef4849f9d502c39cd09a048b4600078dbc4e",
+      "expected_sha256": "994e75b43a84ea05d638cda928e165f2e3e9451584444014b995b4a2b4dd9fb0",
+      "original_source_sha256": "6c3a3cfb51668178b462e2c813f1744402f0518393876ffad9d11b3b90778b20",
+      "mutated_source_sha256": "f1c0fd647b14b2d96c29bfe1e893ef4849f9d502c39cd09a048b4600078dbc4e",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t[514:2] = {\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      1'b0\n    };",
+        "new": "    force t[514:2] = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "60daa37ad294d6e7b66eb461f3071ccd43b2d98f56daa894f78f5885a65d9ae6"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_part_const_driver_blocking_display_direct.sv",
+      "source_sha256": "edfd601d465b5937aa1e8b992af2c7b63240a9fcab573932427f3696e45028c2",
+      "expected_sha256": "994e75b43a84ea05d638cda928e165f2e3e9451584444014b995b4a2b4dd9fb0",
+      "original_source_sha256": "6c3a3cfb51668178b462e2c813f1744402f0518393876ffad9d11b3b90778b20",
+      "mutated_source_sha256": "edfd601d465b5937aa1e8b992af2c7b63240a9fcab573932427f3696e45028c2",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    d = {\n      64'b1110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      5'b01100\n    };",
+        "new": "    d = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "d8a349113e94ca55e82825cb945ad39898cd8b3a43bcb9a189328ef1f6b99607"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_part_expr_source_nba_display_direct.sv",
+      "source_sha256": "21b6da2dcbe7404f42aae046a9a187ec73d5d47badf1c71021a6613db457125c",
+      "expected_sha256": "41068c799b52f07eafa5f0fa38444ec1a0852fa5f2e63f054365ab1ca5fb9785",
+      "original_source_sha256": "2d76899c886f63f272b621e808dcd828fb7aaca5e65d4b56a7410d6d390def68",
+      "mutated_source_sha256": "21b6da2dcbe7404f42aae046a9a187ec73d5d47badf1c71021a6613db457125c",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t[514:2] = src;",
+        "new": "    force t[514:2] = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "0fbd28125159da7927c82f4f5b28a54f53be8bcdaf7b928bed6f139a5b830798"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_part_expr_source_nba_display_direct.sv",
+      "source_sha256": "920d9de3e83a8e563c03647b77297b2b089ce7c0f3f61b3fce2ece7730a28601",
+      "expected_sha256": "41068c799b52f07eafa5f0fa38444ec1a0852fa5f2e63f054365ab1ca5fb9785",
+      "original_source_sha256": "2d76899c886f63f272b621e808dcd828fb7aaca5e65d4b56a7410d6d390def68",
+      "mutated_source_sha256": "920d9de3e83a8e563c03647b77297b2b089ce7c0f3f61b3fce2ece7730a28601",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    d <= {\n      64'b1110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      5'b01100\n    };",
+        "new": "    d <= '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "b89df531424df9fb3115bdc43273782f5682c6bd5a40c9cc84ec5867c5e80c56"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_part_unknown_driver_blocking_query_task.sv",
+      "source_sha256": "95a151ad2be645076f42021834f701e89614e350d7c0286e0a4dcbfc7bce82cf",
+      "expected_sha256": "4fb75fd99177a8d399c094c2193c8c37252f487454a53cf952ef04648931ff96",
+      "original_source_sha256": "a8aa11d0c15cc39bfd4036991b1c6be33395e5c490350da5b38b309768aba7d3",
+      "mutated_source_sha256": "95a151ad2be645076f42021834f701e89614e350d7c0286e0a4dcbfc7bce82cf",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t[514:2] = {\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      1'bz\n    };",
+        "new": "    force t[514:2] = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "2208099b2c3754269e16d3341064187078258280472c02778bdd874538f0df9e"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_part_unknown_driver_blocking_query_task.sv",
+      "source_sha256": "a49d8c15fdd3a7dc70a2d44989f0b3cff0d8e2ce44d000ef20f55fc2909d0807",
+      "expected_sha256": "4fb75fd99177a8d399c094c2193c8c37252f487454a53cf952ef04648931ff96",
+      "original_source_sha256": "a8aa11d0c15cc39bfd4036991b1c6be33395e5c490350da5b38b309768aba7d3",
+      "mutated_source_sha256": "a49d8c15fdd3a7dc70a2d44989f0b3cff0d8e2ce44d000ef20f55fc2909d0807",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    d = {\n      64'b1110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      5'b01100\n    };",
+        "new": "    d = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "1defe656a011eeeae6a67462b9130805dbbbc484cff39628f5158ab4416f8ce1"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_pca_const_driver_blocking_display_direct.sv",
+      "source_sha256": "255c76f1499625a859436211028bce4c88c290ea0bc31f7e427ef673717bd8a9",
+      "expected_sha256": "06276ce4cc3bda19655e17d855751e833b90c1e728ab02318139d3bb47e3007e",
+      "original_source_sha256": "d6359b56f90068c2db9680a0d2aba6f91fd9e23403eda811c6d927f907c4dc06",
+      "mutated_source_sha256": "255c76f1499625a859436211028bce4c88c290ea0bc31f7e427ef673717bd8a9",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t = {\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      1'b0\n    };",
+        "new": "    force t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "18b266adc01944f74023d88e503ebb427aefacaee6461fe1994011f060220388"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_pca_const_driver_blocking_display_direct.sv",
+      "source_sha256": "e6fc99fe4ec41477255bd9c4528f8b3e23dedc073ff3d40938960152ebb88fea",
+      "expected_sha256": "06276ce4cc3bda19655e17d855751e833b90c1e728ab02318139d3bb47e3007e",
+      "original_source_sha256": "d6359b56f90068c2db9680a0d2aba6f91fd9e23403eda811c6d927f907c4dc06",
+      "mutated_source_sha256": "e6fc99fe4ec41477255bd9c4528f8b3e23dedc073ff3d40938960152ebb88fea",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    d = {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    d = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "d477a2c4f089e2285ffa46878361145945409564b5efe2d5eec741c3ae835235"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_pca_expr_source_nba_display_direct.sv",
+      "source_sha256": "8bfa70ed20d92059702b7f88353d6762ef552bcfa344fa951dcdb97d02b92b6e",
+      "expected_sha256": "bb9beded78422c1bcfbe2c0cbc107cf076394e79b6c991f8423454caab667ad2",
+      "original_source_sha256": "255ebea6cf0f64a1d869ae6a3139ffe1f7a35dd52149029785f5df1e7fc4ad6e",
+      "mutated_source_sha256": "8bfa70ed20d92059702b7f88353d6762ef552bcfa344fa951dcdb97d02b92b6e",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t = src;",
+        "new": "    force t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "b872a59f5700b879326725dba07f90679fd65309603a77a68fb897f4820d307a"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_pca_expr_source_nba_display_direct.sv",
+      "source_sha256": "b7ccaa0b597f699432a41a2788fa195d224273e73f03f602725220e79fbfdd9d",
+      "expected_sha256": "bb9beded78422c1bcfbe2c0cbc107cf076394e79b6c991f8423454caab667ad2",
+      "original_source_sha256": "255ebea6cf0f64a1d869ae6a3139ffe1f7a35dd52149029785f5df1e7fc4ad6e",
+      "mutated_source_sha256": "b7ccaa0b597f699432a41a2788fa195d224273e73f03f602725220e79fbfdd9d",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    d <= {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    d <= '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "539f0d3d549c083ba7454e5d36d2dc4e5b5b2876230f52b716dc829c453ce0c8"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_pca_unknown_driver_blocking_query_hier.sv",
+      "source_sha256": "fbfec02e8fe6a0d5f5e521c97f5293dd055069e3d23291f173c65b663210a79e",
+      "expected_sha256": "997bd9163aa0cff1a786536deeda6c1391768fd5a6426635d9d623bd49f79c2f",
+      "original_source_sha256": "ed3aa6a6383d76d060b52d31793a31d91896239c2168e5adc71774d6ce63b4bd",
+      "mutated_source_sha256": "fbfec02e8fe6a0d5f5e521c97f5293dd055069e3d23291f173c65b663210a79e",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force u.t = {\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      1'bz\n    };",
+        "new": "    force u.t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "e179f6be78ad85b85b65c377fa1e672569d8a47e0d89d9618d589b68e7936b23"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_pca_unknown_driver_blocking_query_hier.sv",
+      "source_sha256": "8899fa2ec964a9963f02b2f8cd90aacc8b1446e01684917f6b9c0e13b4512c50",
+      "expected_sha256": "997bd9163aa0cff1a786536deeda6c1391768fd5a6426635d9d623bd49f79c2f",
+      "original_source_sha256": "ed3aa6a6383d76d060b52d31793a31d91896239c2168e5adc71774d6ce63b4bd",
+      "mutated_source_sha256": "8899fa2ec964a9963f02b2f8cd90aacc8b1446e01684917f6b9c0e13b4512c50",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    u.d = {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    u.d = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "1e17e6cae014ba16de112125253e811c863583aceedb13319bba3a022cfdeb59"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_var_const_driver_blocking_display_direct.sv",
+      "source_sha256": "48876e4312244aed2b2e4da3ea60c31f0b83f651e6582b42890d16b85ca6907c",
+      "expected_sha256": "7da195289cfc04b539ff33be921a9c46706e6eb63e6fa49819f47f1664df74da",
+      "original_source_sha256": "80a8d84a60d444f533f35b4e8310a08367d68ae66ec36b38c1eefe6c2203cfba",
+      "mutated_source_sha256": "48876e4312244aed2b2e4da3ea60c31f0b83f651e6582b42890d16b85ca6907c",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t = {\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      1'b0\n    };",
+        "new": "    force t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "00968661bac9642475b0ea5fdcd905285d3b5fc9ae3795ace7bb416b389b6599"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_var_const_driver_blocking_display_direct.sv",
+      "source_sha256": "9699279525b776db375346fc1eb699cca83236d18f26eedcb97de19863be6e29",
+      "expected_sha256": "7da195289cfc04b539ff33be921a9c46706e6eb63e6fa49819f47f1664df74da",
+      "original_source_sha256": "80a8d84a60d444f533f35b4e8310a08367d68ae66ec36b38c1eefe6c2203cfba",
+      "mutated_source_sha256": "9699279525b776db375346fc1eb699cca83236d18f26eedcb97de19863be6e29",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    t = {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "03745bc3bc4157b8eb2515fe14e037c5bfbace8111aedde31b700999deb94b46"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_var_expr_source_nba_display_direct.sv",
+      "source_sha256": "ade8206de3b29ef8d60c445f8b8f73a532ca155fe67d9cd3c67be5c349ad3ee7",
+      "expected_sha256": "7b6123ca04bdf6d3816b848a152d3737794e6f7267a9edc3218160b0118d6c47",
+      "original_source_sha256": "9c44fab7c3badde6dd45217bf97930f952d2c419f71a9bffb66010bd8f939f30",
+      "mutated_source_sha256": "ade8206de3b29ef8d60c445f8b8f73a532ca155fe67d9cd3c67be5c349ad3ee7",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t = src;",
+        "new": "    force t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "00968661bac9642475b0ea5fdcd905285d3b5fc9ae3795ace7bb416b389b6599"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_var_expr_source_nba_display_direct.sv",
+      "source_sha256": "e042be9e4d118b52fa43d7c73dbc7c8319b005a5acffb89dfb84ebb62fe70e72",
+      "expected_sha256": "7b6123ca04bdf6d3816b848a152d3737794e6f7267a9edc3218160b0118d6c47",
+      "original_source_sha256": "9c44fab7c3badde6dd45217bf97930f952d2c419f71a9bffb66010bd8f939f30",
+      "mutated_source_sha256": "e042be9e4d118b52fa43d7c73dbc7c8319b005a5acffb89dfb84ebb62fe70e72",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    t <= {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    t <= '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "6509a78c0d13f8ea04b20a73a63501d09cf18ecc617d68ac83ea4e65c395373f"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_var_unknown_driver_blocking_query_direct.sv",
+      "source_sha256": "34a54d5820fc4a7813bf78615a748ff75e421786ffe3dff13b1253eb972f4c76",
+      "expected_sha256": "7bdee650211d57e1b32d885164159b60a28936772cab9bcb77c2ce95f0378f29",
+      "original_source_sha256": "e6239e0dbc695b20947c0c22d75eed2b2eef544b7cdfee7b647f4b2cd3de5224",
+      "mutated_source_sha256": "34a54d5820fc4a7813bf78615a748ff75e421786ffe3dff13b1253eb972f4c76",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t = {\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      1'bz\n    };",
+        "new": "    force t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "fb7c426a5a2045ed01f844c6d9b6aebac340f3b79d1f232a2fb5f22546f20716"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_var_unknown_driver_blocking_query_direct.sv",
+      "source_sha256": "6abf58b80372c634bca79fe3b28c87030b7138a8a833ed3331b6ef77e38fcad6",
+      "expected_sha256": "7bdee650211d57e1b32d885164159b60a28936772cab9bcb77c2ce95f0378f29",
+      "original_source_sha256": "e6239e0dbc695b20947c0c22d75eed2b2eef544b7cdfee7b647f4b2cd3de5224",
+      "mutated_source_sha256": "6abf58b80372c634bca79fe3b28c87030b7138a8a833ed3331b6ef77e38fcad6",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    t = {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "10ff385482acc4ec0a0e93ea06485ef32cbcc002bbd45937043b1cfa9dc390df"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_wor_const_driver_blocking_display_direct.sv",
+      "source_sha256": "a323fa3d96c0aa25c20fe22875a5cc0e9fb9954968acb0b0cc20f00d9270d6f1",
+      "expected_sha256": "b5f792ffeedf94a7187b3a5436ddb2da18822806ac356bf24d0d4886b96af485",
+      "original_source_sha256": "1add32d6c951e1afa979fbf34b247aecde50636bf56e471b004e19205abcb29a",
+      "mutated_source_sha256": "a323fa3d96c0aa25c20fe22875a5cc0e9fb9954968acb0b0cc20f00d9270d6f1",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t = {\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      64'b0101010101010101010101010101010101010101010101010101010101010101,\n      1'b0\n    };",
+        "new": "    force t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "6f7a44bc72e0f6dc2dce01ab9caec0921b1cb19de0c6f5f4e504cb81540befc2"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_wor_const_driver_blocking_display_direct.sv",
+      "source_sha256": "cca14314a913a6ad5f8cbc21bda46db9f8c9c92941f86f73840818b5d48f39d1",
+      "expected_sha256": "b5f792ffeedf94a7187b3a5436ddb2da18822806ac356bf24d0d4886b96af485",
+      "original_source_sha256": "1add32d6c951e1afa979fbf34b247aecde50636bf56e471b004e19205abcb29a",
+      "mutated_source_sha256": "cca14314a913a6ad5f8cbc21bda46db9f8c9c92941f86f73840818b5d48f39d1",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    d = {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    d = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "962ee7feac716e948f89cc16093ff2a22d9745e3a1879d82a58bde007e0588ec"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_wor_expr_source_nba_display_direct.sv",
+      "source_sha256": "7b960bb1da0228d6e4367f666cffbbbdbd1c8dd54fa7d0a2fe067410687a19a7",
+      "expected_sha256": "8be3c701a74ea9091cbe28db5d5f2dc783287e67b1374def914e94dbfac0eb1d",
+      "original_source_sha256": "40a27bbe76992f2a2d6b9a40aee739f0086cd815418bd4c980baa219f6644cec",
+      "mutated_source_sha256": "7b960bb1da0228d6e4367f666cffbbbdbd1c8dd54fa7d0a2fe067410687a19a7",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force t = src;",
+        "new": "    force t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "6f7a44bc72e0f6dc2dce01ab9caec0921b1cb19de0c6f5f4e504cb81540befc2"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_wor_expr_source_nba_display_direct.sv",
+      "source_sha256": "096bcfe83579f875f692bfeb37e46ad38786a02269b3af6cca8e3c4cfc2b8165",
+      "expected_sha256": "8be3c701a74ea9091cbe28db5d5f2dc783287e67b1374def914e94dbfac0eb1d",
+      "original_source_sha256": "40a27bbe76992f2a2d6b9a40aee739f0086cd815418bd4c980baa219f6644cec",
+      "mutated_source_sha256": "096bcfe83579f875f692bfeb37e46ad38786a02269b3af6cca8e3c4cfc2b8165",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    d <= {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    d <= '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "2022f6c5b5cfdd4e9c24398d7aac56e69b251180e2bdfe9123cc420aff04b9f7"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_wor_unknown_driver_nba_query_hier.sv",
+      "source_sha256": "41962ac24fa463d1c0867e45a607b8e43efcc7534ad9ba2a3216cfe889b82f3f",
+      "expected_sha256": "688f7700f97c0dbb67e3c1cc5e838b5642e3a9816e0f536de1e72c035427ae37",
+      "original_source_sha256": "cac09bc7704f259a6eec21358488aaf8d04944d5640eead583230c5491e0cbdc",
+      "mutated_source_sha256": "41962ac24fa463d1c0867e45a607b8e43efcc7534ad9ba2a3216cfe889b82f3f",
+      "label": "lose-force-value",
+      "replacement": {
+        "old": "    force u.t = {\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      64'bz1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0z1x0,\n      1'bz\n    };",
+        "new": "    force u.t = '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "cce516a67dd6b325e48b3986b37688d0de808e81c1328c31546f74210fbe6fc2"
+    },
+    {
+      "test": "tests/gen/ch10/test_gen_wide_force_w513_wor_unknown_driver_nba_query_hier.sv",
+      "source_sha256": "62faf4f80ec898252fcb16fe57721cbb169d8f480f6c08c1c3ced2db90636097",
+      "expected_sha256": "688f7700f97c0dbb67e3c1cc5e838b5642e3a9816e0f536de1e72c035427ae37",
+      "original_source_sha256": "cac09bc7704f259a6eec21358488aaf8d04944d5640eead583230c5491e0cbdc",
+      "mutated_source_sha256": "62faf4f80ec898252fcb16fe57721cbb169d8f480f6c08c1c3ced2db90636097",
+      "label": "lose-post-release-driver-update",
+      "replacement": {
+        "old": "    u.d <= {\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      64'b0110011001100110011001100110011001100110011001100110011001100110,\n      1'b0\n    };",
+        "new": "    u.d <= '0;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "4a39641da6832eb494a614475b8625e87de4d646352b2b146ff7a7864f16f1dd"
+    }
+  ],
+  "status": "all36controls-pass-and72compiled-mutants-differ"
+}
