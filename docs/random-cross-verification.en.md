@@ -12,7 +12,7 @@ fixed-suite test counts, chapter-matrix pass counts or requirement coverage.
 As verified on 2026-11-05 JST, [Check and Nightly on `19cd790a`](nightly-results.en.md#latest-verified-checkpoint)
 both succeeded. Nightly's thirteen profiles recorded **96 valid passes** on kirimasim `50a897dee62a`, seed `41941310616`.
 The random comparison step also succeeded in the last successful [Nightly of 2026-11-14](https://github.com/kurochan001/kirimasim-tests/actions/runs/43533749064) (suite `aef04b93`); its artifacts were not reviewed.
-Default Nightly retains thirteen profiles while [targeted exploration and independent checks](#thirteen-profile-stabilization) supply further depth. Two [additional packed profiles](#opt-in-packed-profiles) are available for explicitly selected exploration.
+Default Nightly retains thirteen profiles while [targeted exploration and independent checks](#thirteen-profile-stabilization) supply further depth. Two [additional packed profiles](#opt-in-packed-profiles) and an [integral-power profile](#opt-in-power-profile) are available for explicitly selected exploration.
 
 <a id="purpose-and-roles"></a>
 
@@ -73,7 +73,7 @@ fixed regressions, formal Nightly and explicit replay execute again.
 
 The [small SV observation examples](faq.en.md#q50-sv-values-change-observations) explain how X/Z, bit/logic, width and signedness change these expectations.
 
-There are thirteen default Nightly profiles and two additional opt-in profiles described below. The default thirteen follow. This does not generalize every finite model to arbitrary inputs.
+There are thirteen default Nightly profiles and three additional opt-in profiles described below. The default thirteen follow. This does not generalize every finite model to arbitrary inputs.
 
 - `expression_context` crosses widths, signedness, destination width and addition/subtraction/multiplication with arbitrary known input bits.
   It reuses the reference in `generators/interaction_expr.py`.
@@ -688,7 +688,7 @@ fingerprint-qualified interaction snapshots and fixed history remain separate.
 
 ## Additional opt-in packed profiles (2026-11-17)
 
-Two profiles are implemented in the [generator and reference](../tools/random_cross_packed.py). Select them with `--models`; the default thirteen, Nightly's 96 cases, operation count, worker count and time limits remain unchanged. All fifteen may also be explicitly selected together. The previous default manifests, SV and expected-output hashes remain unchanged at seeds 1, 731 and 20261117.
+Two profiles are implemented in the [generator and reference](../tools/random_cross_packed.py). Select them with `--models`; the default thirteen, Nightly's 96 cases, operation count, worker count and time limits remain unchanged. Those fifteen remain selectable together; including the integral-power profile makes sixteen selectable overall. The previous default manifests, SV and expected-output hashes remain unchanged at seeds 1, 731 and 20261117.
 
 - `packed_bounds_sequence` reads and writes four-state packed vectors with negative, zero and nonzero declared bounds. It selects from 21 widths between 1 and 513 bits, with part widths up to 65, crossing ascending/descending declarations, `+:`/`-:`, bit/logic read destinations and signed 32-bit indices. In-range, partially/wholly out-of-range and X/Z indices produce whole-value, part-select and single-bit observations after each operation. Invalid writes are suppressed; partial writes affect only in-range bits. Known inputs that produce X through an out-of-range read are also classified as four-state observations. Grounds are IEEE 1800-2023 11.5.1, 7.4.1 and 6.11.2.
 - `packed_field_sequence` combines whole/field assignments, differently sized field copies and whole-value shifts on three-field packed structures. It crosses ten layouts of 9–513 bits, each field's signing, aggregate signing and bit/logic storage. All fields use the same state type; mixed bit/logic fields are not generated. Whole values, individual fields and three-bit-widened field reads expose layout, preserved neighbors, copy extension/truncation and whole-structure arithmetic right shifts. Grounds are 7.2.1, 6.11.2, 10.7, 11.4.10 and 11.8.1.
@@ -714,3 +714,47 @@ python3 tools/run_random_cross.py \
   --jobs 3 --timeout 5 --time-budget 120 \
   --output my-results/random-packed-saved-replay
 ```
+
+<a id="opt-in-power-profile"></a>
+
+## Opt-in integral-power exploration (2026-11-19)
+
+Select `integral_power_context` through `--models`. Its [stimulus and source writer](../tools/random_cross_power.py) reuses the [fixed integral-power reference](../generators/power_boundaries.py), grounded in IEEE 1800-2023 11.4.3/Table 11-4, 11.6.1, 11.8.1/2 and 6.11.2. It explores base widths 2, 7, 31/32/33, 63/64/65, 127/128/129 and 255/256/257; independently signed 3/8/32/65-bit exponents; W−1, W and 2W+1-bit destinations; and bit/logic storage. Concrete known and X/Z operands mix random bits and type boundaries. Natural-width, direct-context, later-extended captured results and final two-state conversion remain separate observations, alongside complete inputs and type widths.
+
+An exponent is self-determined: its width/sign does not come from the base or assignment destination. A narrow destination does not truncate the base before evaluating a negative-exponent table case, and high unknown base bits still affect the arithmetic result before final truncation. Real operands and an unknown base raised to a known zero exponent are outside this bounded profile. The selected inputs, rather than simulator random streams, determine every expected value.
+
+The default thirteen profiles, 96-case Nightly allocation, operation count and resource limits are unchanged. All fifteen previous profile paths and RNG calls remain intact. Nine representative selection/seed combinations retain their manifest and materialized-source/expectation hashes. The new profile is opt-in local exploration; this addition does not establish a new scheduled Nightly result. Changes to the implementation/dependency inventory are still visible in replay provenance even when an old saved corpus has unchanged bytes.
+
+### Qualification and differences
+
+[Saved inputs and qualification](../coverage/interaction-qualification/random-power-20261119/qualification.json) retain three 96-case corpora at seeds 1, 731 and 20261119, each with eight vectors per case: **288 distinct programs and 2,304 vectors**. These are separate from fixed-suite counts and requirement coverage. Each corpus ran through the actual CLI four times on an isolated Release build of kirimasim 0.1.1 [`a6222f0656d4`](https://github.com/kurochan001/kirimasim/commit/a6222f0656d46fbafc332ba8d8adaebb9273b964), resolved once from GitHub main before building. All **1,152 kirimasim executions pass**, with stable source, reference, input, environment and binary fingerprints. Later core changes are not included in this record.
+
+- Icarus Verilog 13.0 records **240 pass / 48 known**, all with normal runtime exits. First differing vectors occur with negative exponents: base one in 19 cases, signed minus one in 13, zero in 11 and other bases in five. These are input categories, not a proven shared implementation root cause. For example, seed 1 `case_0002` expects integral `1 ** -3` to remain one, while the saved Icarus run returns zero. Seed 1 `case_0047` has an unsigned two-bit base three and a separately signed 32-bit exponent −2147483647; its natural-width result should be zero but is three. Expectations remain standard-derived and unchanged.
+- Verilator 5.054 passes all **23 known-only programs at each initialization seed 1 and 73**. The other **265 programs per seed require four-state observations** and the existing random comparator explicitly excludes them as `unsupported`. Its 530 excluded outcome records are not executions or passes.
+- Across four kirimasim runs, one Icarus comparison and two Verilator initialization seeds per corpus, the extract contains **2,016 outcome records**: 1,438 pass, 48 known and 530 unsupported. There are 1,486 actual simulator invocations. A comparison requesting Icarus/Verilator exits nonzero when any requested tool differs or is excluded; it is not reported as an all-tool success. Kirimasim-only saved replays exit zero.
+
+Independent AI review interpreted the actual SV and primary clauses, sealing all three output sets before reading their new expected files or writer models. Earlier fixed-power semantics/model were already known. All **18,432 expected lines** and the classification of 265 four-state / 23 known-only cases match. This is AI review, not human review. Thirteen [unit checks](../tools/test_random_cross_power_profile.py) cover hand-derived boundaries, an independent repeated-squaring check, invalid inputs, immutable replay and injected reference drift. [Finite qualification](../coverage/interaction-qualification/random-power-20261119/qualification.json) additionally records sixteen successful wide-context controls and 32 one-edit programs that compile and exit normally but corrupt distinct direct/captured observations. Shared reference helpers, finite examples and passing samples do not prove all inputs correct.
+
+The public extract contains versions, source/input/output hashes, per-case outcomes, original run hashes and all saved SV/expected files. Raw environment inventories, commands and logs remain private. No fixed test, requirement mapping, denominator, baseline, hold or previous random artifact was changed.
+
+### Run and replay
+
+Build and verify the desired core commit first; `--commit` must match the supplied executable. The qualification used three workers, a 30-second per-case bound and a 600-second comparison budget. A kirimasim-only example is:
+
+```sh
+python3 tools/run_random_cross.py \
+  --kirimasim /path/to/verified-build/kirimasim --commit VERIFIED_FULL_COMMIT \
+  --seed 731 --models integral_power_context --cases 96 --vectors 8 \
+  --jobs 3 --timeout 30 --time-budget 600 --output my-results/power-731
+```
+
+Replay the committed seed 1 corpus without redrawing inputs:
+
+```sh
+python3 tools/run_random_cross.py \
+  --kirimasim /path/to/verified-build/kirimasim --commit VERIFIED_FULL_COMMIT \
+  --replay coverage/interaction-qualification/random-power-20261119/seed-1/manifest.json \
+  --jobs 3 --timeout 30 --time-budget 600 --output my-results/power-replay-1
+```
+
+The corresponding `seed-731` and `seed-20261119` directories provide the other corpora. Add `--icarus /path/to/iverilog` or `--verilator /path/to/verilator --simulator-seed 73` to request the same additional comparisons; their non-pass outcomes retain the existing nonzero CLI contract. Always use a new output directory to preserve prior evidence.

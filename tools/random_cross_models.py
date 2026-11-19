@@ -26,6 +26,7 @@ import interaction_compare as comparisons
 import interaction_logic as logical
 import interaction_method as array_methods
 import random_cross_packed as packed_profiles
+import random_cross_power as power_profiles
 
 GENERATOR = 'bounded_random_cross@1'
 LEGACY_PROFILES = ('expression_context', 'division_context', 'packed_write_sequence')
@@ -35,7 +36,7 @@ NINE_PROFILES = SEVEN_PROFILES + ('streaming_context', 'concat_assignment_sequen
 ELEVEN_PROFILES = NINE_PROFILES + ('comparison_context', 'packed_logic_context')
 PROFILES = ELEVEN_PROFILES + ('array_reduction_context', 'unpacked_array_copy_sequence')
 EXTRA_PROFILES = packed_profiles.PROFILES
-SUPPORTED_PROFILES = PROFILES + EXTRA_PROFILES
+SUPPORTED_PROFILES = PROFILES + EXTRA_PROFILES + power_profiles.PROFILES
 MAX_CASES = 256
 MAX_STIMULI = 32
 WIDTHS = (1, 32, 33, 64, 65, 129)
@@ -111,6 +112,8 @@ def generate(seed, count=96, steps=8, profiles=PROFILES):
             parameters, stimuli = generate_array_reduction(rng, steps)
         elif profile == 'unpacked_array_copy_sequence':
             parameters, stimuli = generate_array_copy(rng, steps)
+        elif profile in power_profiles.PROFILES:
+            parameters, stimuli = power_profiles.generate(profile, rng, steps, word)
         elif profile in EXTRA_PROFILES:
             parameters, stimuli = packed_profiles.generate(profile, rng, steps, word)
         else:
@@ -176,6 +179,8 @@ def validate_case(case):
         validate_array_reduction(parameters, stimuli)
     elif profile == 'unpacked_array_copy_sequence':
         validate_array_copy(parameters, stimuli)
+    elif profile in power_profiles.PROFILES:
+        power_profiles.validate(case)
     elif profile in EXTRA_PROFILES:
         packed_profiles.validate(case)
     else:
@@ -235,6 +240,8 @@ def content_digest(case):
 
 def requires_fourstate(case):
     validate_case(case)
+    if case['profile'] in power_profiles.PROFILES:
+        return power_profiles.requires_fourstate(case)
     if case['profile'] in EXTRA_PROFILES:
         return packed_profiles.requires_fourstate(case)
     if case['profile'] == 'array_reduction_context':
@@ -295,6 +302,8 @@ def materialize(case):
                 expected += [f'v{index}_raw={divide.reference(row, a, b, natural)} '
                              f'result={divide.reference(row, a, b, wr)} bits={natural}']
         clauses = '11.6.1 11.8.1 11.8.2'+(' 11.4.3' if profile == PROFILES[1] else '')
+    elif profile in power_profiles.PROFILES:
+        lines, expected, clauses = power_profiles.materialize(case)
     elif profile in EXTRA_PROFILES:
         lines, expected, clauses = packed_profiles.materialize(case)
     elif profile == 'array_reduction_context':
