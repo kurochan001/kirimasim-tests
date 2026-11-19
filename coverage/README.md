@@ -282,3 +282,5 @@ Nightlyの測定対象は実行したスイートのコミットです。`main`�
 - `results/wide-constant-calls-20261119s-*.json`：既知値の定数／実行時の関数36本の記録7件です。Icarus 13.0は24pass・12known（class形式のビルド失敗）、Verilator 5.054はseed1/73で各36pass、kirimasim `a6222f0656d4`は4回とも36passです。oracleはIcarus24本・Verilator12本です。独立したソースの解釈2通りで720行を導出し、[有限の検査](qualification/wide-constant-calls-20261119s.json)は257/513ビットの成功対照12本と、定数／実行時／直接の関数／入力保持を壊すコンパイルする変異48本です。過去の入力は不変です。
 
 - [広いシフト・型変換の明示指定ランダム検証](interaction-qualification/random-wide-bitops-20261119/qualification.json)：保存288プログラム・2,304ベクトルで、固定本数には加えません。CLI12回でkirimasim1,152pass・Icarus288pass・Verilator合計300passと4値の除外276件を残します。実行1,740回と比較先のビルド588回を分け、この組にはビルド失敗・出力不一致はありません。独立AIの導出5,760行に加え、有限の成功対照32本とコンパイルする観測の変異64本・単体検査15件を記録します。過去の入力・履歴・結果は不変です。
+
+- `results/wide-runtime-aliases-20261119u-*.json`：合法に修正した実行時の別名参照36本の記録7件です。Icarus 13.0は36known（ビルド失敗）、Verilator 5.054はseed1/73で各36pass、kirimasim `a6222f0656d4`は4回とも36passです。36本全てにVerilatorのトークンを付けます。予約語を使った草案は却下し、独立した2通りの方法で修正後の648行を以前の知識を明記して再計算しました。[有限の検査](qualification/wide-runtime-aliases-20261119u.json)は成功対照12本とコンパイルする引数の渡し方／戻り値の変更36本です。過去の入力と台帳は不変です。

@@ -25662,6 +25662,8 @@
     "Explicit cast conversion occurs before outer arithmetic and destination conversion ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "明示した型変換は外側の算術と格納先への変換より先に行う ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
     "A force overrides every other assignment until release, and a release restores by kind ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "forceはreleaseまで他の全ての代入に優先し、release後は対象の種類に応じて復帰する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
     "Folded and runtime wide function calls preserve values and declared types ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "定数として評価する呼出しと実行時の広い関数呼出しが値と宣言された型を維持する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
-    "Folded and runtime wide function calls preserve values and declared types": "定数として評価する呼出しと実行時の広い関数呼出しが値と宣言された型を維持する"
+    "Folded and runtime wide function calls preserve values and declared types": "定数として評価する呼出しと実行時の広い関数呼出しが値と宣言された型を維持する",
+    "Runtime function aliases distinguish immediate updates from return-time copies": "実行時の関数の別名参照で即時の更新と復帰時のコピーの違いを確かめる",
+    "Runtime function aliases distinguish immediate updates from return-time copies ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "実行時の関数の別名参照で即時の更新と復帰時のコピーの違いを確かめる ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )"
   }
 }

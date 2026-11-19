@@ -14,7 +14,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 15896 |
+| Tests | 15932 |
 | Clauses in scope | 1011 |
 | Clauses out of scope | 148 |
 | Clauses with a direct test | 1011/1011 |
@@ -28,7 +28,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | --- | ---: |
 | both releases | 1698 |
 | Icarus Verilog 13.0 only | 7156 |
-| Verilator 5.052 or 5.054 only | 2716 |
+| Verilator 5.052 or 5.054 only | 2752 |
 | standard only | 4326 |
 
 <a id="章別"></a>
@@ -47,7 +47,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | 10 | Assignment statements | 737 | 18 | 40.9 | 0 | 71 |
 | 11 | Operators and expressions | 2607 | 42 | 62.1 | 0 | 358 |
 | 12 | Procedural programming statements | 312 | 19 | 16.4 | 0 | 65 |
-| 13 | Tasks and functions (subroutines) | 705 | 15 | 47.0 | 0 | 163 |
+| 13 | Tasks and functions (subroutines) | 741 | 15 | 49.4 | 0 | 163 |
 | 14 | Clocking blocks | 170 | 15 | 11.3 | 0 | 69 |
 | 15 | Interprocess synchronization and communication | 196 | 21 | 9.3 | 0 | 135 |
 | 16 | Assertions | 799 | 69 | 11.6 | 0 | 639 |

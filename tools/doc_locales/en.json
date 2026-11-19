@@ -23834,6 +23834,8 @@
     "Explicit cast conversion occurs before outer arithmetic and destination conversion ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Explicit cast conversion occurs before outer arithmetic and destination conversion ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
     "A force overrides every other assignment until release, and a release restores by kind ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "A force overrides every other assignment until release, and a release restores by kind ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
     "Folded and runtime wide function calls preserve values and declared types ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Folded and runtime wide function calls preserve values and declared types ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
-    "Folded and runtime wide function calls preserve values and declared types": "Folded and runtime wide function calls preserve values and declared types"
+    "Folded and runtime wide function calls preserve values and declared types": "Folded and runtime wide function calls preserve values and declared types",
+    "Runtime function aliases distinguish immediate updates from return-time copies": "Runtime function aliases distinguish immediate updates from return-time copies",
+    "Runtime function aliases distinguish immediate updates from return-time copies ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Runtime function aliases distinguish immediate updates from return-time copies ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )"
   }
 }

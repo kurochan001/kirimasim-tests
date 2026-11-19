@@ -1,0 +1,740 @@
+{
+  "schema": 1,
+  "kind": "Finite actual pass-mode/return semantic changes; not independent standards review",
+  "recorded_at": "2026-11-19T05:56:04.530892+00:00",
+  "scope": "Every output/inout/ref xsign form at257/513bits:12passing controls/36compiled normally exiting changes. Editableformal togglesrefvsreturn-timecopy, inputcontrol changesinputtoinout, or editableleafreturnsarg instead ofcomplement. Not exhaustive semantic fault coverage.",
+  "simulator": {
+    "version": "kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401",
+    "commit": "a6222f0656d46fbafc332ba8d8adaebb9273b964",
+    "binary_sha256": "140c543ac7edf9e658d25c862b0c217c99da14770ce56a02d4aa1fe26260e1a7"
+  },
+  "args": [
+    "+nonce=1"
+  ],
+  "baselines": [
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_inout_w257_signed.sv",
+      "source_sha256": "8a87bdfe66cd5ef34325f5fd688d091f9688e99cc50ab40eabd84e99b9045564",
+      "expected_sha256": "e87e75741b36724634ef9db1d97b7a27611c39333a8b4f12a72440b6eac493a0",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "e87e75741b36724634ef9db1d97b7a27611c39333a8b4f12a72440b6eac493a0"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_inout_w257_unsigned.sv",
+      "source_sha256": "dfb1d04cfccd4a6623c445951b3a650355808740032bd053ddd7d146068165bd",
+      "expected_sha256": "aea8abb1834e1d87331689c340c438307571abcede379d4ba9b1bc29a82a8392",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "aea8abb1834e1d87331689c340c438307571abcede379d4ba9b1bc29a82a8392"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_inout_w513_signed.sv",
+      "source_sha256": "38a97024143d91d81ea91934f2449effa3836f66c32fa0e217495cb613cc3492",
+      "expected_sha256": "b519c82e41bd585e8ab1424d052c058b04d5dbc9e2e4e125e15269399c4612c1",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "b519c82e41bd585e8ab1424d052c058b04d5dbc9e2e4e125e15269399c4612c1"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_inout_w513_unsigned.sv",
+      "source_sha256": "6e7945a5447e02f1cf6a6bef6595f8011dd8a1da348f132ceecaaf2b5948f7f5",
+      "expected_sha256": "915477910e409ad8b7624b265039d73c3b3b59f4c2cb555b9a91413eb9fbce2f",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "915477910e409ad8b7624b265039d73c3b3b59f4c2cb555b9a91413eb9fbce2f"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_output_w257_signed.sv",
+      "source_sha256": "4ee08af128a42984052aa81183fb0a89e70c8b4d794de438e23a0998dda6d3d5",
+      "expected_sha256": "28f8f3e760b2b82ca1f52c20b9b883b7dbb4b92149554ee9b97dd7edebe1ed83",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "28f8f3e760b2b82ca1f52c20b9b883b7dbb4b92149554ee9b97dd7edebe1ed83"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_output_w257_unsigned.sv",
+      "source_sha256": "dbc733f4c665cd6d949a8552baa86971cf2f4f35324c0b9b779e3ad3808281a2",
+      "expected_sha256": "13817d0bb17abe1cbe55a3b27956ae00cbafffdb097dab64cd651959e0d48829",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "13817d0bb17abe1cbe55a3b27956ae00cbafffdb097dab64cd651959e0d48829"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_output_w513_signed.sv",
+      "source_sha256": "a089b980639b1cf34a92c5ef7f4e4184a7f2687765ac69577ee85e10b07147bd",
+      "expected_sha256": "c31e28d65a5535bd22d7b52b7d2645d5042eb7944c9ddad4fb40a65ca3dd6850",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "c31e28d65a5535bd22d7b52b7d2645d5042eb7944c9ddad4fb40a65ca3dd6850"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_output_w513_unsigned.sv",
+      "source_sha256": "798bd633cb986eb0bfaef052474af93a9a9557772297d877eadb4e29f3368787",
+      "expected_sha256": "a424ae5fdbbdd42daecb6cee0208f6c316baf19ebc0653175e84896d768edccf",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "a424ae5fdbbdd42daecb6cee0208f6c316baf19ebc0653175e84896d768edccf"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_ref_w257_signed.sv",
+      "source_sha256": "6172731d19f4bab04117e259be8bb74a5602e33f990650d18a8c5d975a16e79e",
+      "expected_sha256": "e5e05d335f5b1f57eb77bb22f8bc0645d2ce0800756f133b1ef781446167110b",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "e5e05d335f5b1f57eb77bb22f8bc0645d2ce0800756f133b1ef781446167110b"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_ref_w257_unsigned.sv",
+      "source_sha256": "9a6818ec7293222e42cd61665f38e4832a240f2bdbb33f5bf56eefa6a482928e",
+      "expected_sha256": "80a843381756948dbf38ce548daf7d85e05416eb185af23c9823d23b5c789cd2",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "80a843381756948dbf38ce548daf7d85e05416eb185af23c9823d23b5c789cd2"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_ref_w513_signed.sv",
+      "source_sha256": "cac736f26c9b2a52c7536e79b297013fb015bbd7dc5748dae015ad580842c782",
+      "expected_sha256": "8fd25e9987a7d04c99bbc41e449896e9b3a95d3ed9b2cfd1dde26e7a67041c39",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "8fd25e9987a7d04c99bbc41e449896e9b3a95d3ed9b2cfd1dde26e7a67041c39"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_ref_w513_unsigned.sv",
+      "source_sha256": "bcd18238820f6d718a257ce8016a747d8c1fb8569077a269326d099f84dde7d1",
+      "expected_sha256": "f5226671dcfa10ace363cdf96efd3027455fd547feb01a15ca34138bcb828f64",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true,
+      "normalized_stdout_sha256": "f5226671dcfa10ace363cdf96efd3027455fd547feb01a15ca34138bcb828f64"
+    }
+  ],
+  "mutations": [
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_inout_w257_signed.sv",
+      "source_sha256": "79eeabe4bb5cc67e9f0bb3544dabce04fd09280bfafc54d7f98be52718a4508e",
+      "expected_sha256": "e87e75741b36724634ef9db1d97b7a27611c39333a8b4f12a72440b6eac493a0",
+      "original_source_sha256": "8a87bdfe66cd5ef34325f5fd688d091f9688e99cc50ab40eabd84e99b9045564",
+      "mutated_source_sha256": "79eeabe4bb5cc67e9f0bb3544dabce04fd09280bfafc54d7f98be52718a4508e",
+      "label": "editable-ref-versus-copy",
+      "replacement": {
+        "old": "      inout word_t arg, ref word_t witness, output word_t during_call);",
+        "new": "      ref word_t arg, ref word_t witness, output word_t during_call);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "e5e05d335f5b1f57eb77bb22f8bc0645d2ce0800756f133b1ef781446167110b"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_inout_w257_signed.sv",
+      "source_sha256": "aac06c74fe06109d402d79bbef6c6160470efb40ab0658741831254a921c79d8",
+      "expected_sha256": "e87e75741b36724634ef9db1d97b7a27611c39333a8b4f12a72440b6eac493a0",
+      "original_source_sha256": "8a87bdfe66cd5ef34325f5fd688d091f9688e99cc50ab40eabd84e99b9045564",
+      "mutated_source_sha256": "aac06c74fe06109d402d79bbef6c6160470efb40ab0658741831254a921c79d8",
+      "label": "input-copyback",
+      "replacement": {
+        "old": "      input word_t arg, ref word_t witness, output word_t during_call);",
+        "new": "      inout word_t arg, ref word_t witness, output word_t during_call);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "7c5e3c2bc9b1fea116c22d7e1b963cd541cb5d446186c5b606319cb5fc4863a4"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_inout_w257_signed.sv",
+      "source_sha256": "5b86e0fc3b3127bde2459c546cdddade41e654f0a4d15304f0359df4a2439b9d",
+      "expected_sha256": "e87e75741b36724634ef9db1d97b7a27611c39333a8b4f12a72440b6eac493a0",
+      "original_source_sha256": "8a87bdfe66cd5ef34325f5fd688d091f9688e99cc50ab40eabd84e99b9045564",
+      "mutated_source_sha256": "5b86e0fc3b3127bde2459c546cdddade41e654f0a4d15304f0359df4a2439b9d",
+      "label": "separate-return-value",
+      "replacement": {
+        "old": "    return ~arg;",
+        "new": "    return arg;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "75a0e7a36a2a26dc739166862f78b8474ee400336c9df0f9b0c8e04c1c25af0e"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_inout_w257_unsigned.sv",
+      "source_sha256": "fd718ead0d22f1ad021f65beae823f84e161b33863e3b364458ec9965abadd26",
+      "expected_sha256": "aea8abb1834e1d87331689c340c438307571abcede379d4ba9b1bc29a82a8392",
+      "original_source_sha256": "dfb1d04cfccd4a6623c445951b3a650355808740032bd053ddd7d146068165bd",
+      "mutated_source_sha256": "fd718ead0d22f1ad021f65beae823f84e161b33863e3b364458ec9965abadd26",
+      "label": "editable-ref-versus-copy",
+      "replacement": {
+        "old": "      inout word_t arg, ref word_t witness, output word_t during_call);",
+        "new": "      ref word_t arg, ref word_t witness, output word_t during_call);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "80a843381756948dbf38ce548daf7d85e05416eb185af23c9823d23b5c789cd2"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_inout_w257_unsigned.sv",
+      "source_sha256": "b720b308f18ccbb395714d5803e7e3712c29ef9be35f39854af35fd1ad7094bf",
+      "expected_sha256": "aea8abb1834e1d87331689c340c438307571abcede379d4ba9b1bc29a82a8392",
+      "original_source_sha256": "dfb1d04cfccd4a6623c445951b3a650355808740032bd053ddd7d146068165bd",
+      "mutated_source_sha256": "b720b308f18ccbb395714d5803e7e3712c29ef9be35f39854af35fd1ad7094bf",
+      "label": "input-copyback",
+      "replacement": {
+        "old": "      input word_t arg, ref word_t witness, output word_t during_call);",
+        "new": "      inout word_t arg, ref word_t witness, output word_t during_call);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "386949b48a30109eb0e1d94edfbf6b9fd99e5bdf9562e42d787b39180cd97728"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_inout_w257_unsigned.sv",
+      "source_sha256": "d33e590b71f8870339f45d667905174ddf5a614efef18b8405a1dc2c85f4d74b",
+      "expected_sha256": "aea8abb1834e1d87331689c340c438307571abcede379d4ba9b1bc29a82a8392",
+      "original_source_sha256": "dfb1d04cfccd4a6623c445951b3a650355808740032bd053ddd7d146068165bd",
+      "mutated_source_sha256": "d33e590b71f8870339f45d667905174ddf5a614efef18b8405a1dc2c85f4d74b",
+      "label": "separate-return-value",
+      "replacement": {
+        "old": "    return ~arg;",
+        "new": "    return arg;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "67a4296896b1e3c8b867592165190c6f7ce3eda56f51c781f3596d2ae2d6f115"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_inout_w513_signed.sv",
+      "source_sha256": "ff4992a1ced20dc625623e4fa2679ce01ebbcddb077152035a5a7ca668694489",
+      "expected_sha256": "b519c82e41bd585e8ab1424d052c058b04d5dbc9e2e4e125e15269399c4612c1",
+      "original_source_sha256": "38a97024143d91d81ea91934f2449effa3836f66c32fa0e217495cb613cc3492",
+      "mutated_source_sha256": "ff4992a1ced20dc625623e4fa2679ce01ebbcddb077152035a5a7ca668694489",
+      "label": "editable-ref-versus-copy",
+      "replacement": {
+        "old": "      inout word_t arg, ref word_t witness, output word_t during_call);",
+        "new": "      ref word_t arg, ref word_t witness, output word_t during_call);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "8fd25e9987a7d04c99bbc41e449896e9b3a95d3ed9b2cfd1dde26e7a67041c39"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_inout_w513_signed.sv",
+      "source_sha256": "246b8b17c1ecdc4bbc6bcd9348e1680d36f6fec4e033e9e9a0fbcfe75cb9e65e",
+      "expected_sha256": "b519c82e41bd585e8ab1424d052c058b04d5dbc9e2e4e125e15269399c4612c1",
+      "original_source_sha256": "38a97024143d91d81ea91934f2449effa3836f66c32fa0e217495cb613cc3492",
+      "mutated_source_sha256": "246b8b17c1ecdc4bbc6bcd9348e1680d36f6fec4e033e9e9a0fbcfe75cb9e65e",
+      "label": "input-copyback",
+      "replacement": {
+        "old": "      input word_t arg, ref word_t witness, output word_t during_call);",
+        "new": "      inout word_t arg, ref word_t witness, output word_t during_call);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "4f75cd77e3268354bdd17c8305167ac6c08545360269985acb6d4c8a3e5f7f3f"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_inout_w513_signed.sv",
+      "source_sha256": "82fc66453afce439002187839747d88d66d9d0676f8de1cffb1eae8ad2843173",
+      "expected_sha256": "b519c82e41bd585e8ab1424d052c058b04d5dbc9e2e4e125e15269399c4612c1",
+      "original_source_sha256": "38a97024143d91d81ea91934f2449effa3836f66c32fa0e217495cb613cc3492",
+      "mutated_source_sha256": "82fc66453afce439002187839747d88d66d9d0676f8de1cffb1eae8ad2843173",
+      "label": "separate-return-value",
+      "replacement": {
+        "old": "    return ~arg;",
+        "new": "    return arg;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "4582e0bf20870bf99d84427091956484ca71815a32adf186aeb73db5cb447e21"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_inout_w513_unsigned.sv",
+      "source_sha256": "bfa1098c6789787583f38f210e059dc5cd017446c97c264ae6841390f5ac286c",
+      "expected_sha256": "915477910e409ad8b7624b265039d73c3b3b59f4c2cb555b9a91413eb9fbce2f",
+      "original_source_sha256": "6e7945a5447e02f1cf6a6bef6595f8011dd8a1da348f132ceecaaf2b5948f7f5",
+      "mutated_source_sha256": "bfa1098c6789787583f38f210e059dc5cd017446c97c264ae6841390f5ac286c",
+      "label": "editable-ref-versus-copy",
+      "replacement": {
+        "old": "      inout word_t arg, ref word_t witness, output word_t during_call);",
+        "new": "      ref word_t arg, ref word_t witness, output word_t during_call);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "f5226671dcfa10ace363cdf96efd3027455fd547feb01a15ca34138bcb828f64"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_inout_w513_unsigned.sv",
+      "source_sha256": "805e33c9d82d77dd610e2d3ee89b4c4eb4371a1db17d18d1edffa4ad517bbaad",
+      "expected_sha256": "915477910e409ad8b7624b265039d73c3b3b59f4c2cb555b9a91413eb9fbce2f",
+      "original_source_sha256": "6e7945a5447e02f1cf6a6bef6595f8011dd8a1da348f132ceecaaf2b5948f7f5",
+      "mutated_source_sha256": "805e33c9d82d77dd610e2d3ee89b4c4eb4371a1db17d18d1edffa4ad517bbaad",
+      "label": "input-copyback",
+      "replacement": {
+        "old": "      input word_t arg, ref word_t witness, output word_t during_call);",
+        "new": "      inout word_t arg, ref word_t witness, output word_t during_call);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "559e8c3cb0cdbe0b33689bf60b92df59e173fc939ffa35b0109856ecf066c950"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_inout_w513_unsigned.sv",
+      "source_sha256": "ecae9313033a7f9e68dd3845b9f6331ef5e6d61c586b066f65c78fb92e101155",
+      "expected_sha256": "915477910e409ad8b7624b265039d73c3b3b59f4c2cb555b9a91413eb9fbce2f",
+      "original_source_sha256": "6e7945a5447e02f1cf6a6bef6595f8011dd8a1da348f132ceecaaf2b5948f7f5",
+      "mutated_source_sha256": "ecae9313033a7f9e68dd3845b9f6331ef5e6d61c586b066f65c78fb92e101155",
+      "label": "separate-return-value",
+      "replacement": {
+        "old": "    return ~arg;",
+        "new": "    return arg;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "733d10a19d0888861a304e296c975a9537c487107135237716cbdb951c40a202"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_output_w257_signed.sv",
+      "source_sha256": "5a596c3db2a2709ed2a5247669258db47ce8dfd170b1d5e9dbff16e320d0bcf8",
+      "expected_sha256": "28f8f3e760b2b82ca1f52c20b9b883b7dbb4b92149554ee9b97dd7edebe1ed83",
+      "original_source_sha256": "4ee08af128a42984052aa81183fb0a89e70c8b4d794de438e23a0998dda6d3d5",
+      "mutated_source_sha256": "5a596c3db2a2709ed2a5247669258db47ce8dfd170b1d5e9dbff16e320d0bcf8",
+      "label": "editable-ref-versus-copy",
+      "replacement": {
+        "old": "      output word_t arg, ref word_t witness, output word_t during_call);",
+        "new": "      ref word_t arg, ref word_t witness, output word_t during_call);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "df73e5ec4f6dc5a71124cdf9e292c821d5cffc82f4d12a2396d4e36831ebc068"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_output_w257_signed.sv",
+      "source_sha256": "e9c7543b9de7638d8cca23d12865033aa81923f708d9baaacb18178a0d3c9cb4",
+      "expected_sha256": "28f8f3e760b2b82ca1f52c20b9b883b7dbb4b92149554ee9b97dd7edebe1ed83",
+      "original_source_sha256": "4ee08af128a42984052aa81183fb0a89e70c8b4d794de438e23a0998dda6d3d5",
+      "mutated_source_sha256": "e9c7543b9de7638d8cca23d12865033aa81923f708d9baaacb18178a0d3c9cb4",
+      "label": "input-copyback",
+      "replacement": {
+        "old": "      input word_t arg, ref word_t witness, output word_t during_call);",
+        "new": "      inout word_t arg, ref word_t witness, output word_t during_call);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "9d32e69afba6f0a0e0cd60e4f9b794e426581d2413634e9cc9932dd7a41666bb"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_output_w257_signed.sv",
+      "source_sha256": "da8a5c84c94e85a128c6989751181ca5eb719c70e548424bb68aedfc5f869242",
+      "expected_sha256": "28f8f3e760b2b82ca1f52c20b9b883b7dbb4b92149554ee9b97dd7edebe1ed83",
+      "original_source_sha256": "4ee08af128a42984052aa81183fb0a89e70c8b4d794de438e23a0998dda6d3d5",
+      "mutated_source_sha256": "da8a5c84c94e85a128c6989751181ca5eb719c70e548424bb68aedfc5f869242",
+      "label": "separate-return-value",
+      "replacement": {
+        "old": "    return ~arg;",
+        "new": "    return arg;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "a7e4a619b0dce345075ce5971ced42770a88c078c1ac48cf466f682e4a37eae8"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_output_w257_unsigned.sv",
+      "source_sha256": "2ee8114c600c1a67a74414734bccb47f3a99fbbc72ef1d7f6434ccfba65d88f4",
+      "expected_sha256": "13817d0bb17abe1cbe55a3b27956ae00cbafffdb097dab64cd651959e0d48829",
+      "original_source_sha256": "dbc733f4c665cd6d949a8552baa86971cf2f4f35324c0b9b779e3ad3808281a2",
+      "mutated_source_sha256": "2ee8114c600c1a67a74414734bccb47f3a99fbbc72ef1d7f6434ccfba65d88f4",
+      "label": "editable-ref-versus-copy",
+      "replacement": {
+        "old": "      output word_t arg, ref word_t witness, output word_t during_call);",
+        "new": "      ref word_t arg, ref word_t witness, output word_t during_call);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "6b09ff9287fb58fb06aac8921373cd3d4b9dcc300a493a750166d1632affe0f0"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_output_w257_unsigned.sv",
+      "source_sha256": "a27273b38f7d3a193d3bef5a79102fe23746f239193baa28e01cc269340d2197",
+      "expected_sha256": "13817d0bb17abe1cbe55a3b27956ae00cbafffdb097dab64cd651959e0d48829",
+      "original_source_sha256": "dbc733f4c665cd6d949a8552baa86971cf2f4f35324c0b9b779e3ad3808281a2",
+      "mutated_source_sha256": "a27273b38f7d3a193d3bef5a79102fe23746f239193baa28e01cc269340d2197",
+      "label": "input-copyback",
+      "replacement": {
+        "old": "      input word_t arg, ref word_t witness, output word_t during_call);",
+        "new": "      inout word_t arg, ref word_t witness, output word_t during_call);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "b0b27db38f42249ecc0a60a7cc2cda141fecab0b4d4966c82605003c137b630e"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_output_w257_unsigned.sv",
+      "source_sha256": "595e7c3e2554bbb20e2443cbb0b0636fbd8f4784d4ac4c97b23469188b3597ea",
+      "expected_sha256": "13817d0bb17abe1cbe55a3b27956ae00cbafffdb097dab64cd651959e0d48829",
+      "original_source_sha256": "dbc733f4c665cd6d949a8552baa86971cf2f4f35324c0b9b779e3ad3808281a2",
+      "mutated_source_sha256": "595e7c3e2554bbb20e2443cbb0b0636fbd8f4784d4ac4c97b23469188b3597ea",
+      "label": "separate-return-value",
+      "replacement": {
+        "old": "    return ~arg;",
+        "new": "    return arg;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "456f25194d9312e97d96bd6fc26dbfda815c78b7bbc79c6bab5e6f17f909c226"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_output_w513_signed.sv",
+      "source_sha256": "23d7f1360325575b4edfa950b787c4ea95de31543932f4d78b3961ae9f015637",
+      "expected_sha256": "c31e28d65a5535bd22d7b52b7d2645d5042eb7944c9ddad4fb40a65ca3dd6850",
+      "original_source_sha256": "a089b980639b1cf34a92c5ef7f4e4184a7f2687765ac69577ee85e10b07147bd",
+      "mutated_source_sha256": "23d7f1360325575b4edfa950b787c4ea95de31543932f4d78b3961ae9f015637",
+      "label": "editable-ref-versus-copy",
+      "replacement": {
+        "old": "      output word_t arg, ref word_t witness, output word_t during_call);",
+        "new": "      ref word_t arg, ref word_t witness, output word_t during_call);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "1ed0a80f14dcc1891580971831c925b897cb7a7b2384feb7f79595ff2e2494ad"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_output_w513_signed.sv",
+      "source_sha256": "90a2778ed3d4ad49412518914ad0c9875b334172d6a5fc13a69dee5cf4d103dc",
+      "expected_sha256": "c31e28d65a5535bd22d7b52b7d2645d5042eb7944c9ddad4fb40a65ca3dd6850",
+      "original_source_sha256": "a089b980639b1cf34a92c5ef7f4e4184a7f2687765ac69577ee85e10b07147bd",
+      "mutated_source_sha256": "90a2778ed3d4ad49412518914ad0c9875b334172d6a5fc13a69dee5cf4d103dc",
+      "label": "input-copyback",
+      "replacement": {
+        "old": "      input word_t arg, ref word_t witness, output word_t during_call);",
+        "new": "      inout word_t arg, ref word_t witness, output word_t during_call);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "99b4a415af7765dcece9d77863bbc36bc45fda0f9ffa0f4972e2839fcb0b784d"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_output_w513_signed.sv",
+      "source_sha256": "9880b9cc3c7311f7cb9ff345f4f5b50076ae64aa2d1fbef2dedea46f4a046fe2",
+      "expected_sha256": "c31e28d65a5535bd22d7b52b7d2645d5042eb7944c9ddad4fb40a65ca3dd6850",
+      "original_source_sha256": "a089b980639b1cf34a92c5ef7f4e4184a7f2687765ac69577ee85e10b07147bd",
+      "mutated_source_sha256": "9880b9cc3c7311f7cb9ff345f4f5b50076ae64aa2d1fbef2dedea46f4a046fe2",
+      "label": "separate-return-value",
+      "replacement": {
+        "old": "    return ~arg;",
+        "new": "    return arg;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "e8a95530748f21bbb8cdd59cdcce6a9998a29c1533374b36044e13f8745a4250"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_output_w513_unsigned.sv",
+      "source_sha256": "680b48541ef0e3a9e7c919c933f5cb0dfbcbd521f20b20fc336dcd3b2e48052c",
+      "expected_sha256": "a424ae5fdbbdd42daecb6cee0208f6c316baf19ebc0653175e84896d768edccf",
+      "original_source_sha256": "798bd633cb986eb0bfaef052474af93a9a9557772297d877eadb4e29f3368787",
+      "mutated_source_sha256": "680b48541ef0e3a9e7c919c933f5cb0dfbcbd521f20b20fc336dcd3b2e48052c",
+      "label": "editable-ref-versus-copy",
+      "replacement": {
+        "old": "      output word_t arg, ref word_t witness, output word_t during_call);",
+        "new": "      ref word_t arg, ref word_t witness, output word_t during_call);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "e7cac6e36f6448ba68dbfc95e99f9ee68f4df3d98cb5efd642194aa9b1c10697"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_output_w513_unsigned.sv",
+      "source_sha256": "b457f7b7a0187c956c1a80d1a1387cc308317499e0db2a7fe559c8f59730a753",
+      "expected_sha256": "a424ae5fdbbdd42daecb6cee0208f6c316baf19ebc0653175e84896d768edccf",
+      "original_source_sha256": "798bd633cb986eb0bfaef052474af93a9a9557772297d877eadb4e29f3368787",
+      "mutated_source_sha256": "b457f7b7a0187c956c1a80d1a1387cc308317499e0db2a7fe559c8f59730a753",
+      "label": "input-copyback",
+      "replacement": {
+        "old": "      input word_t arg, ref word_t witness, output word_t during_call);",
+        "new": "      inout word_t arg, ref word_t witness, output word_t during_call);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "4ee90f3780e52e8685b7016115e97e53e653099e504164086f6e69cb02d787b6"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_output_w513_unsigned.sv",
+      "source_sha256": "1c0bc2456008a54be59aeec916c967a41c1d3e6558f5fa5ef7985f243690dc37",
+      "expected_sha256": "a424ae5fdbbdd42daecb6cee0208f6c316baf19ebc0653175e84896d768edccf",
+      "original_source_sha256": "798bd633cb986eb0bfaef052474af93a9a9557772297d877eadb4e29f3368787",
+      "mutated_source_sha256": "1c0bc2456008a54be59aeec916c967a41c1d3e6558f5fa5ef7985f243690dc37",
+      "label": "separate-return-value",
+      "replacement": {
+        "old": "    return ~arg;",
+        "new": "    return arg;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "1effbaa71fb86fedb344cc0b1b80fe9485123a3e81d8cc06ba8b71d847fe8d66"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_ref_w257_signed.sv",
+      "source_sha256": "ee7f72b3d7b29b88427dbec41167393694b88d18be3afac98d02d200aded598e",
+      "expected_sha256": "e5e05d335f5b1f57eb77bb22f8bc0645d2ce0800756f133b1ef781446167110b",
+      "original_source_sha256": "6172731d19f4bab04117e259be8bb74a5602e33f990650d18a8c5d975a16e79e",
+      "mutated_source_sha256": "ee7f72b3d7b29b88427dbec41167393694b88d18be3afac98d02d200aded598e",
+      "label": "editable-ref-versus-copy",
+      "replacement": {
+        "old": "      ref word_t arg, ref word_t witness, output word_t during_call);",
+        "new": "      inout word_t arg, ref word_t witness, output word_t during_call);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "e87e75741b36724634ef9db1d97b7a27611c39333a8b4f12a72440b6eac493a0"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_ref_w257_signed.sv",
+      "source_sha256": "934f1cc2094c3af8e7cf4565e354efb951e177d92c0ecff4fe7f42615cbc8fe2",
+      "expected_sha256": "e5e05d335f5b1f57eb77bb22f8bc0645d2ce0800756f133b1ef781446167110b",
+      "original_source_sha256": "6172731d19f4bab04117e259be8bb74a5602e33f990650d18a8c5d975a16e79e",
+      "mutated_source_sha256": "934f1cc2094c3af8e7cf4565e354efb951e177d92c0ecff4fe7f42615cbc8fe2",
+      "label": "input-copyback",
+      "replacement": {
+        "old": "      input word_t arg, ref word_t witness, output word_t during_call);",
+        "new": "      inout word_t arg, ref word_t witness, output word_t during_call);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "b3b76bd79e1600d9af69eaa41f3f50604833108d4ddc2f46c8be7b8497b6f274"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_ref_w257_signed.sv",
+      "source_sha256": "ae8a599abc0ee7b559ef5d6219358c11a90920c37fb18cdd88c53f0648b793fd",
+      "expected_sha256": "e5e05d335f5b1f57eb77bb22f8bc0645d2ce0800756f133b1ef781446167110b",
+      "original_source_sha256": "6172731d19f4bab04117e259be8bb74a5602e33f990650d18a8c5d975a16e79e",
+      "mutated_source_sha256": "ae8a599abc0ee7b559ef5d6219358c11a90920c37fb18cdd88c53f0648b793fd",
+      "label": "separate-return-value",
+      "replacement": {
+        "old": "    return ~arg;",
+        "new": "    return arg;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "dfc754a69c36a1b3c46175592c03103d61807514d7d0badce03e306c0971b044"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_ref_w257_unsigned.sv",
+      "source_sha256": "311aaf39ce12f8a5a7d592f582b0ef86d93d9ce512882c1496603ac0d4eab919",
+      "expected_sha256": "80a843381756948dbf38ce548daf7d85e05416eb185af23c9823d23b5c789cd2",
+      "original_source_sha256": "9a6818ec7293222e42cd61665f38e4832a240f2bdbb33f5bf56eefa6a482928e",
+      "mutated_source_sha256": "311aaf39ce12f8a5a7d592f582b0ef86d93d9ce512882c1496603ac0d4eab919",
+      "label": "editable-ref-versus-copy",
+      "replacement": {
+        "old": "      ref word_t arg, ref word_t witness, output word_t during_call);",
+        "new": "      inout word_t arg, ref word_t witness, output word_t during_call);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "aea8abb1834e1d87331689c340c438307571abcede379d4ba9b1bc29a82a8392"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_ref_w257_unsigned.sv",
+      "source_sha256": "e9d56fcb3b5a5b56151ebf526ea03487965a54a4070a9979a3d20589af74fb37",
+      "expected_sha256": "80a843381756948dbf38ce548daf7d85e05416eb185af23c9823d23b5c789cd2",
+      "original_source_sha256": "9a6818ec7293222e42cd61665f38e4832a240f2bdbb33f5bf56eefa6a482928e",
+      "mutated_source_sha256": "e9d56fcb3b5a5b56151ebf526ea03487965a54a4070a9979a3d20589af74fb37",
+      "label": "input-copyback",
+      "replacement": {
+        "old": "      input word_t arg, ref word_t witness, output word_t during_call);",
+        "new": "      inout word_t arg, ref word_t witness, output word_t during_call);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "2e795857ae54d5484c23c27317df32fa2fb4d49d1076138bfd2531377aa56c92"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_ref_w257_unsigned.sv",
+      "source_sha256": "b7343c91d919cc0593f5590481f49e9ef6808fdb3ba7efd3f0dbc0d24890e96c",
+      "expected_sha256": "80a843381756948dbf38ce548daf7d85e05416eb185af23c9823d23b5c789cd2",
+      "original_source_sha256": "9a6818ec7293222e42cd61665f38e4832a240f2bdbb33f5bf56eefa6a482928e",
+      "mutated_source_sha256": "b7343c91d919cc0593f5590481f49e9ef6808fdb3ba7efd3f0dbc0d24890e96c",
+      "label": "separate-return-value",
+      "replacement": {
+        "old": "    return ~arg;",
+        "new": "    return arg;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "81741fe8a08358e11e0f029d2ae05f2479fb50c0c6c624814b81ad76b1a56eb5"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_ref_w513_signed.sv",
+      "source_sha256": "af47ea76d2a5e5afed4fd2b4aefb183489517e6bb1e4d9a6fa7853fb022f725d",
+      "expected_sha256": "8fd25e9987a7d04c99bbc41e449896e9b3a95d3ed9b2cfd1dde26e7a67041c39",
+      "original_source_sha256": "cac736f26c9b2a52c7536e79b297013fb015bbd7dc5748dae015ad580842c782",
+      "mutated_source_sha256": "af47ea76d2a5e5afed4fd2b4aefb183489517e6bb1e4d9a6fa7853fb022f725d",
+      "label": "editable-ref-versus-copy",
+      "replacement": {
+        "old": "      ref word_t arg, ref word_t witness, output word_t during_call);",
+        "new": "      inout word_t arg, ref word_t witness, output word_t during_call);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "b519c82e41bd585e8ab1424d052c058b04d5dbc9e2e4e125e15269399c4612c1"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_ref_w513_signed.sv",
+      "source_sha256": "da6ddf4ae1b1842f951ee3e630e37dc585ca02e10bc600d6991b28c0c42d7ac9",
+      "expected_sha256": "8fd25e9987a7d04c99bbc41e449896e9b3a95d3ed9b2cfd1dde26e7a67041c39",
+      "original_source_sha256": "cac736f26c9b2a52c7536e79b297013fb015bbd7dc5748dae015ad580842c782",
+      "mutated_source_sha256": "da6ddf4ae1b1842f951ee3e630e37dc585ca02e10bc600d6991b28c0c42d7ac9",
+      "label": "input-copyback",
+      "replacement": {
+        "old": "      input word_t arg, ref word_t witness, output word_t during_call);",
+        "new": "      inout word_t arg, ref word_t witness, output word_t during_call);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "4a12743371773a95b963e1f6430bdaeb79cf68ca99182307622d3c08f108b386"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_ref_w513_signed.sv",
+      "source_sha256": "55d1a600a4651c9614b2a99abadf1d23dfdab281734968af223fff21b23d6167",
+      "expected_sha256": "8fd25e9987a7d04c99bbc41e449896e9b3a95d3ed9b2cfd1dde26e7a67041c39",
+      "original_source_sha256": "cac736f26c9b2a52c7536e79b297013fb015bbd7dc5748dae015ad580842c782",
+      "mutated_source_sha256": "55d1a600a4651c9614b2a99abadf1d23dfdab281734968af223fff21b23d6167",
+      "label": "separate-return-value",
+      "replacement": {
+        "old": "    return ~arg;",
+        "new": "    return arg;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "7299148c8d21196ccae3026a08f59044aa7675a07f58459f2802fd514f190a7d"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_ref_w513_unsigned.sv",
+      "source_sha256": "7acd1af86c62ba13a77e5f38e0f3b1090d3c14b1b6ab95a2198e1f3e75849451",
+      "expected_sha256": "f5226671dcfa10ace363cdf96efd3027455fd547feb01a15ca34138bcb828f64",
+      "original_source_sha256": "bcd18238820f6d718a257ce8016a747d8c1fb8569077a269326d099f84dde7d1",
+      "mutated_source_sha256": "7acd1af86c62ba13a77e5f38e0f3b1090d3c14b1b6ab95a2198e1f3e75849451",
+      "label": "editable-ref-versus-copy",
+      "replacement": {
+        "old": "      ref word_t arg, ref word_t witness, output word_t during_call);",
+        "new": "      inout word_t arg, ref word_t witness, output word_t during_call);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "915477910e409ad8b7624b265039d73c3b3b59f4c2cb555b9a91413eb9fbce2f"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_ref_w513_unsigned.sv",
+      "source_sha256": "514578165388b2a5d7459ad2614d4afcbe2be21808fb62bd69bd474dd3a5ab26",
+      "expected_sha256": "f5226671dcfa10ace363cdf96efd3027455fd547feb01a15ca34138bcb828f64",
+      "original_source_sha256": "bcd18238820f6d718a257ce8016a747d8c1fb8569077a269326d099f84dde7d1",
+      "mutated_source_sha256": "514578165388b2a5d7459ad2614d4afcbe2be21808fb62bd69bd474dd3a5ab26",
+      "label": "input-copyback",
+      "replacement": {
+        "old": "      input word_t arg, ref word_t witness, output word_t during_call);",
+        "new": "      inout word_t arg, ref word_t witness, output word_t during_call);",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "173fea4e595550c7b70788ded66ebfc9f447042c23229e6cfd2a2fe99a79bae8"
+    },
+    {
+      "test": "tests/gen/ch13/test_gen_wide_runtime_alias_ref_w513_unsigned.sv",
+      "source_sha256": "761ee58c6af8d401d06dd08983d95348d5fa3e7aecd71c372ab0f40fbde35f25",
+      "expected_sha256": "f5226671dcfa10ace363cdf96efd3027455fd547feb01a15ca34138bcb828f64",
+      "original_source_sha256": "bcd18238820f6d718a257ce8016a747d8c1fb8569077a269326d099f84dde7d1",
+      "mutated_source_sha256": "761ee58c6af8d401d06dd08983d95348d5fa3e7aecd71c372ab0f40fbde35f25",
+      "label": "separate-return-value",
+      "replacement": {
+        "old": "    return ~arg;",
+        "new": "    return arg;",
+        "occurrences": 1
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false,
+      "normalized_stdout_sha256": "2834fd212a726381b6623313737b2f8b908b7944cbc86cb48ab1b3132a0db97c"
+    }
+  ],
+  "source_review_corrections": "Originalprivatev1/v2usedreservedinsideformal and are rejected, never adopted. Currentv3onlyrenames to during_call and corrects auxiliary11.4.7to11.4.5. Initialnumericderivations retained; both independent methods recompute currentlegalv3 after prior expected/model knowledge; no freshsource-first claim.",
+  "status": "all12controls-pass-and36compiled-mutants-differ"
+}
