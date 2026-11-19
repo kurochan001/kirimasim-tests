@@ -25613,6 +25613,14 @@
     "Runtime wide unary negation applies context width before arithmetic": "実行時の広い単項マイナスは演算前に文脈の幅を適用する",
     "Runtime wide unary negation applies context width before arithmetic ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "実行時の広い単項マイナスは演算前に文脈の幅を適用する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
     "Runtime wide mixed-sign products separate joint unsigned and explicit signed contexts": "実行時の広い符号混在の乗算は共通の符号なし型と明示した符号付き型を区別する",
-    "Runtime wide mixed-sign products separate joint unsigned and explicit signed contexts ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "実行時の広い符号混在の乗算は共通の符号なし型と明示した符号付き型を区別する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )"
+    "Runtime wide mixed-sign products separate joint unsigned and explicit signed contexts ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "実行時の広い符号混在の乗算は共通の符号なし型と明示した符号付き型を区別する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Runtime wide integral powers propagate result width before exponentiation": "実行時の広い整数べき乗は計算前に結果の幅を伝える",
+    "Runtime wide integral powers propagate result width before exponentiation ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "実行時の広い整数べき乗は計算前に結果の幅を伝える ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Runtime integral powers distinguish negative exponents and zero-base unknown results": "実行時の整数べき乗は負の指数と底が0の未知結果を区別する",
+    "Runtime integral powers distinguish negative exponents and zero-base unknown results ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "実行時の整数べき乗は負の指数と底が0の未知結果を区別する ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Wide power exponents retain high bits independently of base width and signing": "広いべき乗の指数は底の幅と符号から独立して上位ビットを保つ",
+    "Wide power exponents retain high bits independently of base width and signing ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広いべき乗の指数は底の幅と符号から独立して上位ビットを保つ ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )",
+    "Wide integral powers preserve unknown base and exponent observations": "広い整数べき乗は底と指数の未知値の観測を保つ",
+    "Wide integral powers preserve unknown base and exponent observations ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "広い整数べき乗は底と指数の未知値の観測を保つ ( ZXQPH0QXZ ZXQPH1QXZ ZXQPH2QXZ 節 )"
   }
 }

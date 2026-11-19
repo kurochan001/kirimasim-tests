@@ -1,0 +1,299 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401",
+ "tests": {
+  "gen/ch11/test_gen_power_boundary_negative_signed_w127": {
+   "status": "pass",
+   "inputs_sha256": "3d07199e482adb04a5de8c1c2a99d5073042e0668f86c6e77ff5bf690881cd15"
+  },
+  "gen/ch11/test_gen_power_boundary_negative_signed_w128": {
+   "status": "pass",
+   "inputs_sha256": "38d86b908b1af2a98a46846ac0097c72dfc400e19068ce5dcb65da7b0dec673e"
+  },
+  "gen/ch11/test_gen_power_boundary_negative_signed_w129": {
+   "status": "pass",
+   "inputs_sha256": "0ac2de55fc68ab4ef04db87f25a2d9665bbe8e57f12636dc818603ae0e5818c3"
+  },
+  "gen/ch11/test_gen_power_boundary_negative_signed_w255": {
+   "status": "pass",
+   "inputs_sha256": "9f770105144b41e73ac37c30d10665dce099ff8c3e19f411d0389ec1038e973b"
+  },
+  "gen/ch11/test_gen_power_boundary_negative_signed_w256": {
+   "status": "pass",
+   "inputs_sha256": "93dbd216bb7465eefb1374bbbebb2d1a9ac9d5cc2fbdbf7c016cd0fedf5b6c73"
+  },
+  "gen/ch11/test_gen_power_boundary_negative_signed_w257": {
+   "status": "pass",
+   "inputs_sha256": "7ba6e718a206bea6e6ce6b422d6009e17b816b9f9ad401e2df44ce48fd5930f4"
+  },
+  "gen/ch11/test_gen_power_boundary_negative_signed_w63": {
+   "status": "pass",
+   "inputs_sha256": "db75642694ca4c99850ab40b74c6cea0510c2eecd4b71e906beaf26f0b113598"
+  },
+  "gen/ch11/test_gen_power_boundary_negative_signed_w64": {
+   "status": "pass",
+   "inputs_sha256": "c19488931d61f8730ccdb280c581b820c4fad04dc94783bb25ce1a3c2d096b6d"
+  },
+  "gen/ch11/test_gen_power_boundary_negative_signed_w65": {
+   "status": "pass",
+   "inputs_sha256": "30751d40ae272c72679d7edb201dfbade1e1587b8947952ba428303a14286165"
+  },
+  "gen/ch11/test_gen_power_boundary_negative_unsigned_w127": {
+   "status": "pass",
+   "inputs_sha256": "4c9db9b0ad4fd82c458cd80416e0184424c2e54cdbb07937e3ecc0d166ace688"
+  },
+  "gen/ch11/test_gen_power_boundary_negative_unsigned_w128": {
+   "status": "pass",
+   "inputs_sha256": "b398fb8b22ebbbd830c23c16c4fa8e985cd3ee0862fc89d8316f20ac22d8bc8c"
+  },
+  "gen/ch11/test_gen_power_boundary_negative_unsigned_w129": {
+   "status": "pass",
+   "inputs_sha256": "1952ccea9860f9662f334b70c5b1337ab7a2c7fec3dbbdb5d5514cc67a36e151"
+  },
+  "gen/ch11/test_gen_power_boundary_negative_unsigned_w255": {
+   "status": "pass",
+   "inputs_sha256": "8d4ca172d92752c2240b3e0f19408b3b9891ea62c86cc5eafd75930bf7c8fc3e"
+  },
+  "gen/ch11/test_gen_power_boundary_negative_unsigned_w256": {
+   "status": "pass",
+   "inputs_sha256": "c55fec5463d243d09697ec467975b9752d1e2e552ea098de4141d9849ec65677"
+  },
+  "gen/ch11/test_gen_power_boundary_negative_unsigned_w257": {
+   "status": "pass",
+   "inputs_sha256": "4d288694212cce151c56113b62bbfb0c4bd809b32de55ba1c146f5dd76442cf9"
+  },
+  "gen/ch11/test_gen_power_boundary_negative_unsigned_w63": {
+   "status": "pass",
+   "inputs_sha256": "e09a7d3d8d79b5daf81bfb205bc05cc9e1e939f13fa10e9f49cbe87ba8bb4da2"
+  },
+  "gen/ch11/test_gen_power_boundary_negative_unsigned_w64": {
+   "status": "pass",
+   "inputs_sha256": "e1ca295518f762d10ba7e2beff1ab5c93a3de9a97ac32ee5abaa3aa4700df64f"
+  },
+  "gen/ch11/test_gen_power_boundary_negative_unsigned_w65": {
+   "status": "pass",
+   "inputs_sha256": "0d36841858d5758433b313dd38817903a26f266f28a7bede00dfb724819d2456"
+  },
+  "gen/ch11/test_gen_power_boundary_positive_signed_w127": {
+   "status": "pass",
+   "inputs_sha256": "c552c0b5bb8a38d816a444fb3dac066db6cc6d15a8d21c7c8ee844cef65d6fd7"
+  },
+  "gen/ch11/test_gen_power_boundary_positive_signed_w128": {
+   "status": "pass",
+   "inputs_sha256": "d154d18f70d10f3289b6096ea3b89d205193998243b429864d8ec980f5a9f980"
+  },
+  "gen/ch11/test_gen_power_boundary_positive_signed_w129": {
+   "status": "pass",
+   "inputs_sha256": "db38569fdf273d436bfb6a304412f7c1084fae9af61df58cbb1cbb43208fa435"
+  },
+  "gen/ch11/test_gen_power_boundary_positive_signed_w255": {
+   "status": "pass",
+   "inputs_sha256": "401e191f14a58d148083e87ff9ecc88479b31a44590cc5a98d547bd2d43d15cf"
+  },
+  "gen/ch11/test_gen_power_boundary_positive_signed_w256": {
+   "status": "pass",
+   "inputs_sha256": "3864b75c519b0962e8ed2dde72a209e6fda6865ac76f8b9255c926a02eeb57af"
+  },
+  "gen/ch11/test_gen_power_boundary_positive_signed_w257": {
+   "status": "pass",
+   "inputs_sha256": "74def6c52f02f07f9900ef78a592652ec128921cd21b72ec351ef14b0e61a56c"
+  },
+  "gen/ch11/test_gen_power_boundary_positive_signed_w63": {
+   "status": "pass",
+   "inputs_sha256": "10c875bf8091b1f3af148e899300134c42df2b26f82d14b7238785cdc04200dc"
+  },
+  "gen/ch11/test_gen_power_boundary_positive_signed_w64": {
+   "status": "pass",
+   "inputs_sha256": "4c49b063ea1ee44000fcda88367a42a56acf8f76631c08cba5f60e99e51592a7"
+  },
+  "gen/ch11/test_gen_power_boundary_positive_signed_w65": {
+   "status": "pass",
+   "inputs_sha256": "fb591baa2da83d2af953e22785713875fac3aa55762cea9719b9da3c6e4a03a3"
+  },
+  "gen/ch11/test_gen_power_boundary_positive_unsigned_w127": {
+   "status": "pass",
+   "inputs_sha256": "12aeb90480960bd1edd1b5a2e6a9a8e454b4ea12fe33cb28b85a6870292dec57"
+  },
+  "gen/ch11/test_gen_power_boundary_positive_unsigned_w128": {
+   "status": "pass",
+   "inputs_sha256": "ee025669ca0f01c9d90e00b836cc2daef974d431ae9c8745ce47dfca802ccfeb"
+  },
+  "gen/ch11/test_gen_power_boundary_positive_unsigned_w129": {
+   "status": "pass",
+   "inputs_sha256": "25cc3bbd070064d20f2fd659b8991071f6487e7fd5d0f695699cabec5884a50e"
+  },
+  "gen/ch11/test_gen_power_boundary_positive_unsigned_w255": {
+   "status": "pass",
+   "inputs_sha256": "f28a234ac75501a089008920e141568b40c018979e47dbcd9515f8d4ba5c7225"
+  },
+  "gen/ch11/test_gen_power_boundary_positive_unsigned_w256": {
+   "status": "pass",
+   "inputs_sha256": "08453b19ebb7bcf2f57860230eb3ec90f69f8b1dcba627e93adeb8416f2ee931"
+  },
+  "gen/ch11/test_gen_power_boundary_positive_unsigned_w257": {
+   "status": "pass",
+   "inputs_sha256": "cda12955f4439744f919ef363b9e06ec5cd4c7689d10bb25c08c1f3ace46366e"
+  },
+  "gen/ch11/test_gen_power_boundary_positive_unsigned_w63": {
+   "status": "pass",
+   "inputs_sha256": "dc30daecdd190537d49f84469bb37c7ba872725061f90f970c6e32c8b5b67ee0"
+  },
+  "gen/ch11/test_gen_power_boundary_positive_unsigned_w64": {
+   "status": "pass",
+   "inputs_sha256": "972d6b6c865cef9fa29848863ff480927ee7e9feb8b26232d90acc910c994c6a"
+  },
+  "gen/ch11/test_gen_power_boundary_positive_unsigned_w65": {
+   "status": "pass",
+   "inputs_sha256": "5ae47d652f5b1ed701da7dad80a1468c6c398e5473557e2e14fa620898a3c72a"
+  },
+  "gen/ch11/test_gen_power_boundary_unknown_signed_w127": {
+   "status": "pass",
+   "inputs_sha256": "416358efc8ccd33f3f43fc34536cabb3aa9fa0ec30d8c3bddd308ffea911cc25"
+  },
+  "gen/ch11/test_gen_power_boundary_unknown_signed_w128": {
+   "status": "pass",
+   "inputs_sha256": "a208dbb29bb34a1081b3baad1fa81d40bf353f92c2522f52864718c75f39c330"
+  },
+  "gen/ch11/test_gen_power_boundary_unknown_signed_w129": {
+   "status": "pass",
+   "inputs_sha256": "5cb67ba8d12c423f1313cc20baa49df2c268efc10520d6e0a48ba7b3542fe939"
+  },
+  "gen/ch11/test_gen_power_boundary_unknown_signed_w255": {
+   "status": "pass",
+   "inputs_sha256": "71d2919266c0b4b01da39ba8a08f2da60dc23a7b63badb3aa4a158ae7efa368b"
+  },
+  "gen/ch11/test_gen_power_boundary_unknown_signed_w256": {
+   "status": "pass",
+   "inputs_sha256": "62de1d497182bce035e391080e173a35f11b5e295d94239e8a2c15f928680fdb"
+  },
+  "gen/ch11/test_gen_power_boundary_unknown_signed_w257": {
+   "status": "pass",
+   "inputs_sha256": "d784135aaf65404b1be321bb0a3dedfe023562aab13b2c3e645f3fe7fe807b71"
+  },
+  "gen/ch11/test_gen_power_boundary_unknown_signed_w63": {
+   "status": "pass",
+   "inputs_sha256": "b18c13271e0192ae23645029a656e74bf34adc298f8ebce938b75452d787bf3a"
+  },
+  "gen/ch11/test_gen_power_boundary_unknown_signed_w64": {
+   "status": "pass",
+   "inputs_sha256": "059423564a15a5a3d949998113ff64046e9239229be033e968118c161ba60d57"
+  },
+  "gen/ch11/test_gen_power_boundary_unknown_signed_w65": {
+   "status": "pass",
+   "inputs_sha256": "68b7e804e6d848fcda9458634a7b2c0ea19c6d35b6c550964bb442233c47ea9f"
+  },
+  "gen/ch11/test_gen_power_boundary_unknown_unsigned_w127": {
+   "status": "pass",
+   "inputs_sha256": "aa84ca077733c05c6584a4f13a525bb7356e6f0ad7a424781eeabdc5b4eda90d"
+  },
+  "gen/ch11/test_gen_power_boundary_unknown_unsigned_w128": {
+   "status": "pass",
+   "inputs_sha256": "88eccfd4678b1d0a9e72b773d6fe17cb0a8bc071195fbf92860f2c00be055913"
+  },
+  "gen/ch11/test_gen_power_boundary_unknown_unsigned_w129": {
+   "status": "pass",
+   "inputs_sha256": "8661e606c7fc6f7c2574e8bf7bdd43d33fef9ff603eddd49be415144562de05d"
+  },
+  "gen/ch11/test_gen_power_boundary_unknown_unsigned_w255": {
+   "status": "pass",
+   "inputs_sha256": "3f608bfa52ac9604eb91e07cab56ea407516da88243639c83afa7634bc5b9ac5"
+  },
+  "gen/ch11/test_gen_power_boundary_unknown_unsigned_w256": {
+   "status": "pass",
+   "inputs_sha256": "cf7167a4b8c256bb54ba33c383e4fe8c5bc42d5d21d6154c34bebc06262630a4"
+  },
+  "gen/ch11/test_gen_power_boundary_unknown_unsigned_w257": {
+   "status": "pass",
+   "inputs_sha256": "a5bf659988ebaf98e5e3ebc6796b4e64d8fdc99a3506439e3d459ac7d82b6d63"
+  },
+  "gen/ch11/test_gen_power_boundary_unknown_unsigned_w63": {
+   "status": "pass",
+   "inputs_sha256": "50890011df784478553acce59d91766c4bf73bf8595ffb98197b39ecb6244b26"
+  },
+  "gen/ch11/test_gen_power_boundary_unknown_unsigned_w64": {
+   "status": "pass",
+   "inputs_sha256": "26690651ccd5220dae737663c235a0b7b286cd5b13833c657eda98cdfcae49f7"
+  },
+  "gen/ch11/test_gen_power_boundary_unknown_unsigned_w65": {
+   "status": "pass",
+   "inputs_sha256": "fa61c5e9b2fde4ed8ccb13ae19acb671514e76f45a374a3e70cc71d619369c49"
+  },
+  "gen/ch11/test_gen_power_boundary_wide_exp_signed_w127": {
+   "status": "pass",
+   "inputs_sha256": "5338078e3b52c16b10bd7e65f79c1e41bf02f728d75c295eb61d5c2b642a3d1f"
+  },
+  "gen/ch11/test_gen_power_boundary_wide_exp_signed_w128": {
+   "status": "pass",
+   "inputs_sha256": "d0cf7fd18ca127b07460003b6e61f5a96e304402ca5dd78d112f4912d07490a6"
+  },
+  "gen/ch11/test_gen_power_boundary_wide_exp_signed_w129": {
+   "status": "pass",
+   "inputs_sha256": "7cd8f58027502f9b3113d30d396f1fc14266a1edac002c95903c82834be70cc2"
+  },
+  "gen/ch11/test_gen_power_boundary_wide_exp_signed_w255": {
+   "status": "pass",
+   "inputs_sha256": "fc69cf1401f93512c76c1b3ff1f02ee6423265b3c93c17cac9e8fc3c86e9637c"
+  },
+  "gen/ch11/test_gen_power_boundary_wide_exp_signed_w256": {
+   "status": "pass",
+   "inputs_sha256": "f76ba78dd0c3d0ec8d54ccfdcc60e7c5367a56c3bc629a7308e15053c4bc9549"
+  },
+  "gen/ch11/test_gen_power_boundary_wide_exp_signed_w257": {
+   "status": "pass",
+   "inputs_sha256": "143936e99a3046e333014c41e83fe5d69f220da5cef34125f70153db137f5a0c"
+  },
+  "gen/ch11/test_gen_power_boundary_wide_exp_signed_w63": {
+   "status": "pass",
+   "inputs_sha256": "027d86439ff6e96d9c771a50ec80694b5a613b4287fe6e3c4a537186f598d11d"
+  },
+  "gen/ch11/test_gen_power_boundary_wide_exp_signed_w64": {
+   "status": "pass",
+   "inputs_sha256": "6f699d9b9b27bc0cbe389f4081cb19d0716243d5a536ec6135105cead4daa4cd"
+  },
+  "gen/ch11/test_gen_power_boundary_wide_exp_signed_w65": {
+   "status": "pass",
+   "inputs_sha256": "756bd936236e3620c869525aa6aaa70f04b2aa2455b2179aa6bdf3df4a05838f"
+  },
+  "gen/ch11/test_gen_power_boundary_wide_exp_unsigned_w127": {
+   "status": "pass",
+   "inputs_sha256": "1735f58260d2487653b2e7f7cb97c7a9ad7897420679581b9ee44dcadb2a3fe9"
+  },
+  "gen/ch11/test_gen_power_boundary_wide_exp_unsigned_w128": {
+   "status": "pass",
+   "inputs_sha256": "59be331176c3af2d104a4f74517a1c478ea4295b9760da0e8b9c851ba3cdd5c2"
+  },
+  "gen/ch11/test_gen_power_boundary_wide_exp_unsigned_w129": {
+   "status": "pass",
+   "inputs_sha256": "74efc8b77b120cd850589c804e8f843d5ef7a54aaa65a9e0cb51d918cc782aa6"
+  },
+  "gen/ch11/test_gen_power_boundary_wide_exp_unsigned_w255": {
+   "status": "pass",
+   "inputs_sha256": "5a8284a4563bbaee0cf9f1c4ff782bf245f6b1984cf9fae0597783b72a68a4c1"
+  },
+  "gen/ch11/test_gen_power_boundary_wide_exp_unsigned_w256": {
+   "status": "pass",
+   "inputs_sha256": "737909486ec8fc26225839a766cea80b1958c7f12634f843fe8009db552d0934"
+  },
+  "gen/ch11/test_gen_power_boundary_wide_exp_unsigned_w257": {
+   "status": "pass",
+   "inputs_sha256": "7cabe7f5eaf3eeebd34d145e11b50048a0e8c35dd5ae16c05a4ef12f9a680273"
+  },
+  "gen/ch11/test_gen_power_boundary_wide_exp_unsigned_w63": {
+   "status": "pass",
+   "inputs_sha256": "575f60d3bcaf0595061e8d203c75872a0359482eaaba76a4eefb72f80c3ce507"
+  },
+  "gen/ch11/test_gen_power_boundary_wide_exp_unsigned_w64": {
+   "status": "pass",
+   "inputs_sha256": "23c50b445771c06cbf9c9bb2186ba04853131247d4443449cfda766c14103157"
+  },
+  "gen/ch11/test_gen_power_boundary_wide_exp_unsigned_w65": {
+   "status": "pass",
+   "inputs_sha256": "8ae15396b328be6698d7c82438248d5d95715ebb120145cdb395be9af7b4fe25"
+  }
+ },
+ "generated_at": "2026-11-19T01:05:50.568809+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

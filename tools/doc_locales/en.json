@@ -23783,6 +23783,14 @@
     "Runtime wide unary negation applies context width before arithmetic": "Runtime wide unary negation applies context width before arithmetic",
     "Runtime wide unary negation applies context width before arithmetic ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Runtime wide unary negation applies context width before arithmetic ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
     "Runtime wide mixed-sign products separate joint unsigned and explicit signed contexts": "Runtime wide mixed-sign products separate joint unsigned and explicit signed contexts",
-    "Runtime wide mixed-sign products separate joint unsigned and explicit signed contexts ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Runtime wide mixed-sign products separate joint unsigned and explicit signed contexts ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )"
+    "Runtime wide mixed-sign products separate joint unsigned and explicit signed contexts ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Runtime wide mixed-sign products separate joint unsigned and explicit signed contexts ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Runtime wide integral powers propagate result width before exponentiation": "Runtime wide integral powers propagate result width before exponentiation",
+    "Runtime wide integral powers propagate result width before exponentiation ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Runtime wide integral powers propagate result width before exponentiation ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Runtime integral powers distinguish negative exponents and zero-base unknown results": "Runtime integral powers distinguish negative exponents and zero-base unknown results",
+    "Runtime integral powers distinguish negative exponents and zero-base unknown results ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Runtime integral powers distinguish negative exponents and zero-base unknown results ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Wide power exponents retain high bits independently of base width and signing": "Wide power exponents retain high bits independently of base width and signing",
+    "Wide power exponents retain high bits independently of base width and signing ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide power exponents retain high bits independently of base width and signing ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )",
+    "Wide integral powers preserve unknown base and exponent observations": "Wide integral powers preserve unknown base and exponent observations",
+    "Wide integral powers preserve unknown base and exponent observations ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )": "Wide integral powers preserve unknown base and exponent observations ( ZXQPH0QXZ ZXQPH1QXZ Section ZXQPH2QXZ )"
   }
 }

@@ -4,7 +4,7 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の138生成器から7,561件のテストを生成しています。
+現在の139生成器から7,633件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
@@ -141,6 +141,7 @@
 | [`keywords`](../generators/keywords.py) | 5, 22 | 496 | 不正な設計。附属書Bの各予約語を``begin_keywords "1800-2023"``の下で変数名として宣言し、22.14で各版が追加する予約語もその版の``begin_keywords``の下で宣言する。ツールは拒否する必要がある |
 | [`keywords_inherited`](../generators/keywords_inherited.py) | 22 | 804 | 5種類のbegin_keywordsで継承される予約語と、1364-2001-noconfigの全予約語。既存の追加語テストと合わせ、各版の累積集合の全語を確認 |
 | [`packed_lanes`](../generators/packed_lanes.py) | 7 | 192 | 32/33・64/65・128/129ビットの2次元パック要素192本。外側・内側の両向き、内側の非ゼロ・0始まりの対照、可変ビット書込み、重なる範囲コピー、全体と要素・部分の符号、要素境界での切詰め、無効・未知の添字と回復を、全体と隣接要素の値で確認。 |
+| [`power_boundaries`](../generators/power_boundaries.py) | 11 | 72 | 63/64/65・127/128/129・255/256/257ビットの実行時整数べき乗72本。底の符号の有無、正と負の指数、65ビット指数全体の境界、明示した未知値を確認。直接の倍幅結果、狭い値からの保存、最後の2値変換を区別し、他のX/Zを保つ最下位ビットに実行時の依存を与える。 |
 | [`primitive_array_bounds`](../generators/primitive_array_bounds.py) | 28 | 61 | ゲート配列の端子幅が不正な56本と、負・降順・非ゼロ・単一要素の範囲およびスカラ共有を確認する合法5本 |
 | [`primitive_array_identity`](../generators/primitive_array_identity.py) | 28 | 15 | gate・switch・UDP配列をVPIで直接観測する15本。宣言範囲、実要素数と添字、親配列・添字検索の同一性、端子値、単独primitiveの対照 |
 | [`scheduling`](../generators/scheduling.py) | 4 | 325 | 既存の8ビットの書き込みを、書き込み元・待機中の別プロセス・strobe・monitorから指定の時刻とイベント領域で観測する。既存の生成テストと期待値は変更しない。 |

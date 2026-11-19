@@ -1474,3 +1474,15 @@ The 90 `test_gen_arithmetic_context_*` programs distinguish evaluation width fro
 For example, unsigned `0 - 1` assigned directly to 2W bits fills all 2W bits with ones. Capturing the W-bit result in an unsigned word and then extending it leaves the upper W bits zero. Opposite-sign multiplication is jointly unsigned before its direct wider evaluation; a later signed capture is a separate operation. All observations use complete binary values instead of host-sized decimal conversions.
 
 Icarus Verilog 13.0, Verilator 5.054 at seeds 1 and 73, and kirimasim 0.1.1 `441dddbd0fcd` in four runs match every case. Only the 90 Icarus successes are recorded as fixed-release oracles; no difference is inferred from these matching finite tests. Independent AI review uses a source expression tree with explicit context propagation and cast/concatenation boundaries, separately from the writer's integer arithmetic. [Saved evidence](../coverage/README.en.md), [finite checks](../coverage/qualification/arithmetic-context-20261119e.json) and [generator](../generators/arithmetic_context.py) retain the scope. No requirement mappings are added.
+
+<a id="power-boundaries-20261119f"></a>
+
+## Runtime integral power boundaries (2026-11-19)
+
+The 72 `test_gen_power_boundary_*` programs follow 11.4.3 and Table 11-4. With a negative integral exponent, bases other than 0, 1 and signed -1 give zero. Zero gives X, one gives one, and a signed minus-one base uses exponent parity. The exponent is independently declared at 65 bits, with high-bit inputs at positions 32, 63 and 64. Its size and signing do not change the base's signing or receive the wider result context. Direct 2W-bit evaluation and later extension of a captured W-bit word are separately observed, including their full high words.
+
+- Icarus Verilog 13.0 matches 54 `positive`, `wide_exp` and `unknown` cases; only these receive `iverilog@13.0`. All 18 `negative` cases first differ on zero raised to minus one: the saved narrow result is zero instead of the all-X reference required by 11.4.3. Complete operands and an explicit signed exponent distinguish this from an unsigned large-exponent input. No expectation is changed to accept the difference.
+- Verilator 5.054 matches all 36 two-state positive/wide-exponent cases at seeds 1 and 73. The 36 four-state negative/unknown cases remain known differences and have no Verilator oracle.
+- Kirimasim 0.1.1 `441dddbd0fcd` matches every case in each of four saved runs. Runtime input changes only known low bits, so supplied X/Z values elsewhere remain intact. Unknown-base samples use strictly positive exponents or an explicitly unknown exponent, avoiding the separate unknown-base-to-zero-power question.
+
+[Saved evidence](../coverage/README.en.md), [finite checks](../coverage/qualification/power-boundaries-20261119f.json) and [generator](../generators/power_boundaries.py) preserve scope and hashes. This is independent AI review with no new requirement mappings, not human review or a performance measurement.

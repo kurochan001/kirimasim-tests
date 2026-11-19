@@ -100,6 +100,10 @@
     "arithmetic_context": {
       "en": "90 runtime arithmetic-context cases at 63/64/65, 127/128/129 and 255/256/257 bits: multiplication, carry, borrow, unary negation and mixed signing. Direct double-width results are compared with narrow captures, typedef casts, self-determined concatenations and explicit signed/unsigned controls, with complete operands and high words observed.",
       "ja": "63/64/65・127/128/129・255/256/257ビットの実行時演算と文脈90本。乗算、繰上がり、借り、単項マイナス、符号の混在で、直接の倍幅結果と、狭い語への保存、型変換、自己決定の連結、明示した符号の対照を比較し、全入力と上位語を観測。"
+    },
+    "power_boundaries": {
+      "en": "72 runtime integral-power cases at 63/64/65, 127/128/129 and 255/256/257 bits: signed/unsigned bases, positive and negative exponents, complete 65-bit exponent boundaries and explicit unknown operands. Direct double-width results, captured narrow values and final two-state conversion remain distinct, with a runtime low-bit dependency that preserves other X/Z states.",
+      "ja": "63/64/65・127/128/129・255/256/257ビットの実行時整数べき乗72本。底の符号の有無、正と負の指数、65ビット指数全体の境界、明示した未知値を確認。直接の倍幅結果、狭い値からの保存、最後の2値変換を区別し、他のX/Zを保つ最下位ビットに実行時の依存を与える。"
     }
   }
 }

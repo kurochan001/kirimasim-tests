@@ -1,0 +1,547 @@
+{
+  "schema": 1,
+  "kind": "finite one-edit observability checks; not independent standards review",
+  "recorded_at": "2026-11-19T01:05:46.576963+00:00",
+  "scope": "All four forms, both signs, widths 65 and 257; sixteen successful controls and thirty-two compiled normally exiting result-corruption examples",
+  "simulator": {
+    "version": "kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401",
+    "commit": "441dddbd0fcd80aed298ca33311f2ee67aa8866c",
+    "binary_sha256": "c3b343c753737a564deb1156e8064062793c133f7be2ea567daced985b26f24b"
+  },
+  "args": [
+    "+nonce=1"
+  ],
+  "baselines": [
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_positive_signed_w65.sv",
+      "source_sha256": "081d924c2651bbb6315c77ba70f188b26e74009a406c0822e426cb139a202c1b",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_negative_signed_w65.sv",
+      "source_sha256": "484921aa94919265c4d77881382cef0e1e006b5c94f34d3967ae8fe51d8d45b5",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_wide_exp_signed_w65.sv",
+      "source_sha256": "139fa7d63d482fd39f7f15c6944b883baa0e905a2c62d5fada452565ea4fb0b3",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_unknown_signed_w65.sv",
+      "source_sha256": "690b950f58abff65bf00c4b5991dba736c2f9c4899d3aacf30f05d2dee59fcab",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_positive_unsigned_w65.sv",
+      "source_sha256": "7f05be14450105e3f5adadbc91574afde0897fc0cc08647bc8fe062149e409a3",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_negative_unsigned_w65.sv",
+      "source_sha256": "c3e281439b072c102b503aba9764216278498584a933421408143feab0644a35",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_wide_exp_unsigned_w65.sv",
+      "source_sha256": "08e9469b194f9026b9935676957b305cf0715d3a899e76979c75f302753b831c",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_unknown_unsigned_w65.sv",
+      "source_sha256": "cbc462a82a72cbca077fc860466c010a493dc0085df4f29ee008884167cb8eb6",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_positive_signed_w257.sv",
+      "source_sha256": "cad473b9001d6c5fed7530d477de1f85b301d33eb6fdc830afbc8a5176e1a3d0",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_negative_signed_w257.sv",
+      "source_sha256": "f7acbf5332aa071f5fd3fcc6cf2268f3996048333abb14897aa871d0492c88a7",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_wide_exp_signed_w257.sv",
+      "source_sha256": "41c76b58469fa7937077c978d066218d5282ef7753cdd7d49dd07d1f4a6e67b9",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_unknown_signed_w257.sv",
+      "source_sha256": "a4bf1326e8abf4edc73f7a23aedd86ef74dce02573925a93a288c80be50465ca",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_positive_unsigned_w257.sv",
+      "source_sha256": "02209c277a84e9f0f6a4dc69c1be98893a7dde26e0d53bff13baba6127738cd5",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_negative_unsigned_w257.sv",
+      "source_sha256": "af119ba08cf42655d280fc8988649ac3c04f1ef9e333fbb827683368812a3597",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_wide_exp_unsigned_w257.sv",
+      "source_sha256": "aadff6d1ff7f49f8b627b430f1a6bcdc7b3d7f6c95252c89cbe2af54b9e0db61",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_unknown_unsigned_w257.sv",
+      "source_sha256": "0289f09a8776f93740026e5f314a48038216e327ac1f443bfa98f9dfe82ef66f",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    }
+  ],
+  "mutations": [
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_positive_signed_w65.sv",
+      "label": "drop-narrow-power",
+      "replacement": {
+        "old": "narrow = base ** exponent;",
+        "new": "narrow = '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "bf1ba9c1018406d22abc31d37c706462be11397bef79fe42873b3a07f15f8493",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_positive_signed_w65.sv",
+      "label": "corrupt-final-conversion",
+      "replacement": {
+        "old": "converted = full;",
+        "new": "converted = '1;",
+        "occurrences": 1
+      },
+      "source_sha256": "d35ff73cd1f99de21a64fb02633bb129b6fc10342730126d59b45fbd39247fb9",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_negative_signed_w65.sv",
+      "label": "drop-narrow-power",
+      "replacement": {
+        "old": "narrow = base ** exponent;",
+        "new": "narrow = '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "84600a160e75296042df73f8fa17a61fa1800f1b2f4ac5e9eeda7bf6bcebca6d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_negative_signed_w65.sv",
+      "label": "corrupt-final-conversion",
+      "replacement": {
+        "old": "converted = full;",
+        "new": "converted = '1;",
+        "occurrences": 1
+      },
+      "source_sha256": "6cc095542aaabca56aed1fd983fceff485bcb21016109ddf25569c73ed168cfe",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_wide_exp_signed_w65.sv",
+      "label": "drop-narrow-power",
+      "replacement": {
+        "old": "narrow = base ** exponent;",
+        "new": "narrow = '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "731c1b30745c5500507be27dd2ac8164372cbf626c29a5fbba13f30f5dc8d5cb",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_wide_exp_signed_w65.sv",
+      "label": "corrupt-final-conversion",
+      "replacement": {
+        "old": "converted = full;",
+        "new": "converted = '1;",
+        "occurrences": 1
+      },
+      "source_sha256": "c8cf2166707ffd42afbac9c72728ae736cfc5606e70be1c57ef98590d32f59fa",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_unknown_signed_w65.sv",
+      "label": "drop-narrow-power",
+      "replacement": {
+        "old": "narrow = base ** exponent;",
+        "new": "narrow = '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "68a6850048d73bc83032124bce898193a1d76134fbf6c46d5c33d5f56653b50c",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_unknown_signed_w65.sv",
+      "label": "corrupt-final-conversion",
+      "replacement": {
+        "old": "converted = full;",
+        "new": "converted = '1;",
+        "occurrences": 1
+      },
+      "source_sha256": "03cd9f815c33432210905c9447766e3d6f4274e5dfddffce123646989735cc49",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_positive_unsigned_w65.sv",
+      "label": "drop-narrow-power",
+      "replacement": {
+        "old": "narrow = base ** exponent;",
+        "new": "narrow = '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "dcc8eddbe6103463c71086bb13e4eac12f6ca243a84f3bd6c1245e9e0f3f8f97",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_positive_unsigned_w65.sv",
+      "label": "corrupt-final-conversion",
+      "replacement": {
+        "old": "converted = full;",
+        "new": "converted = '1;",
+        "occurrences": 1
+      },
+      "source_sha256": "2f38ffa68a6e81a9534bf7a3201b535c3f905966e1c12ef7effa29dfddf62a38",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_negative_unsigned_w65.sv",
+      "label": "drop-narrow-power",
+      "replacement": {
+        "old": "narrow = base ** exponent;",
+        "new": "narrow = '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "dec200420504f24eb9154ad78ddf31cb5164ec22a42cdee00e47d20408deedbb",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_negative_unsigned_w65.sv",
+      "label": "corrupt-final-conversion",
+      "replacement": {
+        "old": "converted = full;",
+        "new": "converted = '1;",
+        "occurrences": 1
+      },
+      "source_sha256": "12c97bb73e4c8a0722b8381a67d15710d8583fde6f846ce4335e92eae9b66ecf",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_wide_exp_unsigned_w65.sv",
+      "label": "drop-narrow-power",
+      "replacement": {
+        "old": "narrow = base ** exponent;",
+        "new": "narrow = '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "7d320ab10f44ba5418d0cb8373faa2fcf4907471998d0a38de99bd8b067f147f",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_wide_exp_unsigned_w65.sv",
+      "label": "corrupt-final-conversion",
+      "replacement": {
+        "old": "converted = full;",
+        "new": "converted = '1;",
+        "occurrences": 1
+      },
+      "source_sha256": "d66a981b7538dc787379ac4c3ddd49c2edb3e8e20c817d979b27c3dec1b88e24",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_unknown_unsigned_w65.sv",
+      "label": "drop-narrow-power",
+      "replacement": {
+        "old": "narrow = base ** exponent;",
+        "new": "narrow = '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "08a24f43a503f0cc73d4cd0536a471329969c34a23e5f462a082f34559d697e3",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_unknown_unsigned_w65.sv",
+      "label": "corrupt-final-conversion",
+      "replacement": {
+        "old": "converted = full;",
+        "new": "converted = '1;",
+        "occurrences": 1
+      },
+      "source_sha256": "671b756d6b30a39010ee860abc8ccb9397f1ae5b216bdb186e119fcdf9daaf1d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_positive_signed_w257.sv",
+      "label": "drop-narrow-power",
+      "replacement": {
+        "old": "narrow = base ** exponent;",
+        "new": "narrow = '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "735978b516ab02d80dab045dcb2715161b28788e9a65d9433b2107635994c565",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_positive_signed_w257.sv",
+      "label": "corrupt-final-conversion",
+      "replacement": {
+        "old": "converted = full;",
+        "new": "converted = '1;",
+        "occurrences": 1
+      },
+      "source_sha256": "2ed353a804b094a2a1e052d2a540a5ed5b5785395fa17ea843d56e9e9dde2b10",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_negative_signed_w257.sv",
+      "label": "drop-narrow-power",
+      "replacement": {
+        "old": "narrow = base ** exponent;",
+        "new": "narrow = '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "d1456375cb5a4f799f6d147c0470baa92fbd06cbda2f2805aef99a68d287f244",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_negative_signed_w257.sv",
+      "label": "corrupt-final-conversion",
+      "replacement": {
+        "old": "converted = full;",
+        "new": "converted = '1;",
+        "occurrences": 1
+      },
+      "source_sha256": "410805261e4924dde02bb33c3d856be02e18a965941b50e041f0e22bd3d124e3",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_wide_exp_signed_w257.sv",
+      "label": "drop-narrow-power",
+      "replacement": {
+        "old": "narrow = base ** exponent;",
+        "new": "narrow = '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "a31be8cc15828b1503e3184e1c65e4590a25a08bb58c4349812ffb343dbfe363",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_wide_exp_signed_w257.sv",
+      "label": "corrupt-final-conversion",
+      "replacement": {
+        "old": "converted = full;",
+        "new": "converted = '1;",
+        "occurrences": 1
+      },
+      "source_sha256": "15615a27433bb1bf23b4d1e370f25f158fa871b70a66af55779b2bfbcb7d3e84",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_unknown_signed_w257.sv",
+      "label": "drop-narrow-power",
+      "replacement": {
+        "old": "narrow = base ** exponent;",
+        "new": "narrow = '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "3461a7b94e0b8d06d00d3525fe2a489571da900c34f407e9db3749dc792a2af7",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_unknown_signed_w257.sv",
+      "label": "corrupt-final-conversion",
+      "replacement": {
+        "old": "converted = full;",
+        "new": "converted = '1;",
+        "occurrences": 1
+      },
+      "source_sha256": "81040261d8f83c5689b6022fde078664cc991388baa6d1472073f4ab7383153e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_positive_unsigned_w257.sv",
+      "label": "drop-narrow-power",
+      "replacement": {
+        "old": "narrow = base ** exponent;",
+        "new": "narrow = '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "e5589a6f152d2ddb773d871b79e036273dc77644374c0c1d4677d184b2ea607f",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_positive_unsigned_w257.sv",
+      "label": "corrupt-final-conversion",
+      "replacement": {
+        "old": "converted = full;",
+        "new": "converted = '1;",
+        "occurrences": 1
+      },
+      "source_sha256": "00e65429c40a9cdb451c8a68dcdceadf0c77f27066c28a9e9c4c01f815712e7a",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_negative_unsigned_w257.sv",
+      "label": "drop-narrow-power",
+      "replacement": {
+        "old": "narrow = base ** exponent;",
+        "new": "narrow = '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "ed15afdee1702a41019a16e9e769503f8701c2f79e7b99ea24778a8e48494121",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_negative_unsigned_w257.sv",
+      "label": "corrupt-final-conversion",
+      "replacement": {
+        "old": "converted = full;",
+        "new": "converted = '1;",
+        "occurrences": 1
+      },
+      "source_sha256": "814abea185d11cfdd7cc0b7bda78471f3b6fb8ac305dddc9c7551625137d96ef",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_wide_exp_unsigned_w257.sv",
+      "label": "drop-narrow-power",
+      "replacement": {
+        "old": "narrow = base ** exponent;",
+        "new": "narrow = '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "d73944928746a88f71daa226cdaf4307a486b9ca04c7d6df4b915b23b0e5de63",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_wide_exp_unsigned_w257.sv",
+      "label": "corrupt-final-conversion",
+      "replacement": {
+        "old": "converted = full;",
+        "new": "converted = '1;",
+        "occurrences": 1
+      },
+      "source_sha256": "2999898b52bab24bef98bc06e0a171e51530190de6a7e1162ba60df1a080324f",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_unknown_unsigned_w257.sv",
+      "label": "drop-narrow-power",
+      "replacement": {
+        "old": "narrow = base ** exponent;",
+        "new": "narrow = '0;",
+        "occurrences": 1
+      },
+      "source_sha256": "0bcb938617dbc08722268ed7b7e21165719a8da8928dcb77568cd79f9983faa1",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_power_boundary_unknown_unsigned_w257.sv",
+      "label": "corrupt-final-conversion",
+      "replacement": {
+        "old": "converted = full;",
+        "new": "converted = '1;",
+        "occurrences": 1
+      },
+      "source_sha256": "e7b18ec616f8fac7dc19703685e3c7e2ac2895fb31c772ebbd23d5434ab606ef",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    }
+  ],
+  "status": "all-sixteen-controls-pass-and-thirty-two-compiled-mutants-differ"
+}
