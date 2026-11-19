@@ -164,6 +164,10 @@
     "wide_bitvector_queries": {
       "en": "48 query boundary fixtures at 255/256/257 and 511/512/513 bits, reusing all eight unchanged bitvector_queries forms. Covers known and four-state populations, successive bit writes, onehot/unknown predicates, packed function/struct arguments, duplicate wide controls and constant query-defined type widths. Return widths stay separately visible; no previous helper/input changes or exhaustive argument claim.",
       "ja": "255/256/257・511/512/513ビットの問い合わせ48本で、従来のbitvector_queriesの8形式をそのまま使う。既知値と4値の個数・連続したビット書き込み・onehotと未知値の判定・関数と構造体の全体・重複した広い制御引数・定数の問い合わせで決まる型の幅を扱う。戻り値の幅も別に表示し、過去の処理と入力は変えず、全引数を網羅したとはしない。"
+    },
+    "wide_array_shapes": {
+      "en": "60 wide array-shape fixtures at 255/256/257 and 511/512/513 bits, reusing ten unchanged array_shape_queries forms. Covers declared packed/mixed/nested typedef/singleton/constant geometry, invalid dimensions and live dynamic-array/queue resize/delete/element controls, with runtime bits isolated. Fixed queries inspect types without reading uninitialized data; no arbitrary element-content or rank coverage claim.",
+      "ja": "255/256/257・511/512/513ビットの配列形状60本で、従来のarray_shape_queriesの10形式をそのまま使う。宣言したパック／混在／入れ子のtypedef／単一要素／定数の形状・範囲外の次元・動的配列とキューの生成／変更／削除と要素の対照を扱い、実行時のbitsは別に検証する。固定の問い合わせは型を調べ、未初期化データを読まない。任意の要素内容や次元数の網羅とはしない。"
     }
   }
 }

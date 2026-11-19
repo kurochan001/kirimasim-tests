@@ -1,0 +1,7 @@
+width=513 form=packed
+value dims=2 unpacked=0 bits=1539
+variable_d1 left=4 right=2 low=2 high=4 inc=1 size=3
+variable_d2 left=-3 right=509 low=-3 high=509 inc=-1 size=513
+default_control left=4 right=2 low=2 high=4 inc=1 size=3
+omitted left=4 right=2 low=2 high=4 inc=1 size=3
+return_bits=32,32,32,32

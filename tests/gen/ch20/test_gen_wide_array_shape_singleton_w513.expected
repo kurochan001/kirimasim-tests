@@ -1,0 +1,9 @@
+width=513 form=singleton
+value dims=4 unpacked=2 bits=513
+variable_d1 left=-2 right=-2 low=-2 high=-2 inc=1 size=1
+variable_d2 left=3 right=3 low=3 high=3 inc=1 size=1
+variable_d3 left=7 right=7 low=7 high=7 inc=1 size=1
+variable_d4 left=512 right=0 low=0 high=512 inc=1 size=513
+default_control left=-2 right=-2 low=-2 high=-2 inc=1 size=1
+omitted left=-2 right=-2 low=-2 high=-2 inc=1 size=1
+return_bits=32,32,32,32
