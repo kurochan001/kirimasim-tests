@@ -1451,3 +1451,16 @@ The 72 `test_gen_division_boundary_*` programs use equal-width, equal-sign opera
 - Kirimasim 0.1.1 `441dddbd0fcd` matches all 72 cases in four saved runs. Each compound operation reports exactly one index-function evaluation, the unchanged neighboring element and the matching direct scalar result.
 
 These are correctness regressions with no performance claim or new requirement binding. [Saved evidence](../coverage/README.en.md), [finite mutation checks](../coverage/qualification/division-boundaries-20261119c.json) and [generator](../generators/division_boundaries.py) retain their scope. Expected values are not changed to accept implementation differences; standard checking remains AI review.
+
+<a id="fourstate-boundaries-20261119d"></a>
+
+## Four-state word boundaries (2026-11-19)
+
+The 54 `test_gen_fourstate_boundary_*` programs put X/Z around native-word boundaries in nine widths from 63 to 257 bits. Clause-derived character truth tables from 11.4.5–11.4.11 produce the expected values. Independent review interprets the actual source rather than importing those writer helpers. Full operands, known-data controls and before/after two-state conversions remain visible. The 65-bit shift operand is self-determined: a known bit at position 32 requests an over-width shift, and an unknown bit anywhere in it makes the complete result X. Arithmetic right shifts retain the signed operand's sign bit, including X/Z fill.
+
+- Icarus Verilog 13.0 matches the 45 `truth`, `bitwise`, `reduction`, `compare` and `shift` cases; only these gain `iverilog@13.0`.
+- The nine `merge` cases have an ambiguous vector condition and branches sharing Z at the same position. Table 11-20 maps Z/Z to X, while Icarus preserves Z in the saved runs. Each case also has false and known-true vector conditions, known branch values and final two-state conversion controls. The expectation retains the table's X; these cases remain spec-only.
+- Verilator 5.054 records known differences for all 54 four-state cases at seeds 1 and 73. It is not an oracle for any of them; a two-state implementation cannot qualify the same X/Z observations by dropping them.
+- Kirimasim 0.1.1 `441dddbd0fcd` matches all 54 cases in each of four saved runs, including the Z/Z merge reference and complete-width shift-amount controls.
+
+[Saved evidence](../coverage/README.en.md), the [generator](../generators/fourstate_boundaries.py) and [finite checks](../coverage/qualification/fourstate-boundaries-20261119d.json) retain exact scope and hashes. All review metadata remains AI review, and no new requirement mappings are added.

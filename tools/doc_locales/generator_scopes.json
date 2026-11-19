@@ -92,6 +92,10 @@
     "division_boundaries": {
       "en": "72 runtime division/remainder cases at 63/64/65, 127/128/129 and 255/256/257 bits: signed/unsigned small divisors, power-of-two boundaries, extrema and fixed-width overflow; compound array updates observe one index evaluation, a neighboring guard and direct scalar controls. A recorded plusarg supplies runtime operand dependencies.",
       "ja": "63/64/65・127/128/129・255/256/257ビットの実行時除算と剰余72本。符号の有無、小さい除数、2の冪の境界、端値と固定幅の桁あふれを確認。配列への複合代入は添字の評価回数、隣の要素、直接計算の対照を観測し、記録した実行時引数をオペランドへ反映。"
+    },
+    "fourstate_boundaries": {
+      "en": "54 four-state boundary cases at 63/64/65, 127/128/129 and 255/256/257 bits: complete-vector truth, bitwise and reduction operators, equality and one-sided wildcards, conditional merging and signed shifts. X/Z bits surround native-word edges; known controls and pre-operation versus final two-state conversions are observed. Shift amounts retain all65bits.",
+      "ja": "63/64/65・127/128/129・255/256/257ビットの4値境界54本。全体の真偽、ビット演算とリダクション、等値と片側ワイルドカード、条件の併合、符号付きシフトを確認。語境界周辺のX/Z、既知値の対照、演算前と最後の2値変換を観測し、シフト量は65ビット全体を保持。"
     }
   }
 }

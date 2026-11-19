@@ -1,0 +1,412 @@
+{
+  "schema": 1,
+  "kind": "finite one-edit observability checks; not independent standards review",
+  "recorded_at": "2026-11-19T00:24:24.333881+00:00",
+  "scope": "All six forms at widths65and257; twelve controls and twenty-four compiled normally exiting mutations",
+  "simulator": {
+    "version": "kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401",
+    "commit": "441dddbd0fcd80aed298ca33311f2ee67aa8866c",
+    "binary_sha256": "c3b343c753737a564deb1156e8064062793c133f7be2ea567daced985b26f24b"
+  },
+  "baselines": [
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_truth_w65.sv",
+      "source_sha256": "cc08fdfea2c90ea3a3b8b47c4bc1f23341770fd8fc7c174e2f03ee4bc6d803ca",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_bitwise_w65.sv",
+      "source_sha256": "7da5f33a9cbf5f362a3545a14534d3ea0aa03110cd8dad2742e205840a121672",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_reduction_w65.sv",
+      "source_sha256": "c682789b4a6d11aab900ff7d3043529288350a602a9ad2669a94f00ff9f5ba5a",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_compare_w65.sv",
+      "source_sha256": "d4bf2758d8e1fa2370ee369b5d9a440428af49910c5c02a050c1bbd7307996ac",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_merge_w65.sv",
+      "source_sha256": "712a95d381a44fbde68c20a9e0c2b67760ca9a78e6626b1e60afe6207f87bda2",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_shift_w65.sv",
+      "source_sha256": "137551f8c36a1f7fdb2fbbd35807aa81d5478b29f3882a9a28ddb90af660588d",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_truth_w257.sv",
+      "source_sha256": "9a245cbb5c3b3aa1c378572f7e447652391b874e5f6bbccd85e1382518f4b42c",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_bitwise_w257.sv",
+      "source_sha256": "db1eeec92300a0e45354b9ffb2f17455952d4c1ef0809e947fbaaf50bf9b1477",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_reduction_w257.sv",
+      "source_sha256": "d014eeb1b4e37d1511f775b022b775ce17901bf30960af15045cc9c4c0e824c0",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_compare_w257.sv",
+      "source_sha256": "746370fd896a321a91a3abb17b2d9866ca457e80f8d0e1dab332106ce89b6323",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_merge_w257.sv",
+      "source_sha256": "fa80d7d39679dc87c392560de01595825f9d8a5b43cc75acd20414e30355f6b6",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_shift_w257.sv",
+      "source_sha256": "0922e01f9a459c9b83b6d7d82762e31a0894bf7b95651d5a5d296741aa00fb16",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": true
+    }
+  ],
+  "mutations": [
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_truth_w65.sv",
+      "label": "wrong-logical-negation",
+      "replacement": {
+        "old": "raw = {!a,",
+        "new": "raw = {|a,",
+        "occurrences": 1
+      },
+      "source_sha256": "98f0329167bf0dee2a79a4cc06d077336430dc27760ddcc20d83bd95c07d23b1",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_truth_w65.sv",
+      "label": "invert-final-conversion",
+      "replacement": {
+        "old": "after_conversion = raw;",
+        "new": "after_conversion = ~raw;",
+        "occurrences": 1
+      },
+      "source_sha256": "f3e489c3011b7cc381dafec46624a3e53eaf282f8e0b49726d568611204a0613",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_bitwise_w65.sv",
+      "label": "invert-bitwise-and",
+      "replacement": {
+        "old": "raw = a & b;",
+        "new": "raw = ~(a & b);",
+        "occurrences": 1
+      },
+      "source_sha256": "5d0dd5181b86b336b25126535a1bcd135a532fbab79e97919bd1898d6ae72e58",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_bitwise_w65.sv",
+      "label": "wrong-final-not",
+      "replacement": {
+        "old": "after_conversion = ~a;",
+        "new": "after_conversion = a;",
+        "occurrences": 1
+      },
+      "source_sha256": "6281ce34b7e3da954c2b5394aa25493bf54656541a23c8d3fd5ee65576529cd4",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_reduction_w65.sv",
+      "label": "invert-reduction-and",
+      "replacement": {
+        "old": "raw = {&a,",
+        "new": "raw = {~&a,",
+        "occurrences": 1
+      },
+      "source_sha256": "85c76f443b5c5e3e909a82d490ee3f1f7032458e53c5cd7478f7d6b35b1cf3df",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_reduction_w65.sv",
+      "label": "invert-final-conversion",
+      "replacement": {
+        "old": "after_conversion = raw;",
+        "new": "after_conversion = ~raw;",
+        "occurrences": 1
+      },
+      "source_sha256": "0311fdb16742d63b2cbc39c509332c3d149d0d00a43bd18c56efad9735a083f2",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_compare_w65.sv",
+      "label": "invert-logical-equality",
+      "replacement": {
+        "old": "raw = {a == b,",
+        "new": "raw = {a != b,",
+        "occurrences": 1
+      },
+      "source_sha256": "e766ea693599c2564a4fa27ea92df82a521b63bdbb394d5a053bf0a0ba214b46",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_compare_w65.sv",
+      "label": "invert-final-conversion",
+      "replacement": {
+        "old": "after_conversion = raw;",
+        "new": "after_conversion = ~raw;",
+        "occurrences": 1
+      },
+      "source_sha256": "3ec8ca7ffdba31c8f2838bde0265c01fec6d7b36600be2968eba6f2039aa0dfc",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_merge_w65.sv",
+      "label": "invert-false-branch",
+      "replacement": {
+        "old": "raw = condition ? a : b;",
+        "new": "raw = condition ? a : ~b;",
+        "occurrences": 1
+      },
+      "source_sha256": "8aa5059555de88d067f59bfa458a134475a51191561ac4c02a3b7baed1489b82",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_merge_w65.sv",
+      "label": "invert-final-conversion",
+      "replacement": {
+        "old": "after_conversion = raw;",
+        "new": "after_conversion = ~raw;",
+        "occurrences": 1
+      },
+      "source_sha256": "aeb8df0b5e5e43e165668c73c99b09a418613d5db4a69d214f2997a9f06552aa",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_shift_w65.sv",
+      "label": "shift-one-too-far",
+      "replacement": {
+        "old": "raw = a << amount;",
+        "new": "raw = a << (amount + 65'd1);",
+        "occurrences": 1
+      },
+      "source_sha256": "29296bdad63f8903084e729c8e4c046329d7a2687898351c40400b03e4c13228",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_shift_w65.sv",
+      "label": "invert-final-conversion",
+      "replacement": {
+        "old": "after_conversion = raw;",
+        "new": "after_conversion = ~raw;",
+        "occurrences": 1
+      },
+      "source_sha256": "56c650d942e7906b5d4da15c13f0501ad0833148825d90d49c43fc7dede75a9b",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_truth_w257.sv",
+      "label": "wrong-logical-negation",
+      "replacement": {
+        "old": "raw = {!a,",
+        "new": "raw = {|a,",
+        "occurrences": 1
+      },
+      "source_sha256": "d36de090c83ac6839f1ec088513aefd9864f106efc313371830ccd1abf1682cd",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_truth_w257.sv",
+      "label": "invert-final-conversion",
+      "replacement": {
+        "old": "after_conversion = raw;",
+        "new": "after_conversion = ~raw;",
+        "occurrences": 1
+      },
+      "source_sha256": "fe946468daad8a7cbe4070811141ea43b0d3cb2062a990edeb74bdddeb4e6a7a",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_bitwise_w257.sv",
+      "label": "invert-bitwise-and",
+      "replacement": {
+        "old": "raw = a & b;",
+        "new": "raw = ~(a & b);",
+        "occurrences": 1
+      },
+      "source_sha256": "4412d2fa0fc49e1991ded03504173da7e9f75c375067a04b2b45927bddf5886a",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_bitwise_w257.sv",
+      "label": "wrong-final-not",
+      "replacement": {
+        "old": "after_conversion = ~a;",
+        "new": "after_conversion = a;",
+        "occurrences": 1
+      },
+      "source_sha256": "9e5eccb569a3a24545255ab92a1e4761ad120bcd3137f17688b40a953d4a7217",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_reduction_w257.sv",
+      "label": "invert-reduction-and",
+      "replacement": {
+        "old": "raw = {&a,",
+        "new": "raw = {~&a,",
+        "occurrences": 1
+      },
+      "source_sha256": "373ef9569c4a1e5addadf76de5e23a86597190ea47885613ae87d9dcc12d0810",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_reduction_w257.sv",
+      "label": "invert-final-conversion",
+      "replacement": {
+        "old": "after_conversion = raw;",
+        "new": "after_conversion = ~raw;",
+        "occurrences": 1
+      },
+      "source_sha256": "a9ab4e2f4e1a7d6c300116860f28abd65d485bf6c3663103c947260dfda17f50",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_compare_w257.sv",
+      "label": "invert-logical-equality",
+      "replacement": {
+        "old": "raw = {a == b,",
+        "new": "raw = {a != b,",
+        "occurrences": 1
+      },
+      "source_sha256": "2ac1dee70887ac45881d1d4f5e9d2ef88f018a2010a6e2f5031003448af10b9a",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_compare_w257.sv",
+      "label": "invert-final-conversion",
+      "replacement": {
+        "old": "after_conversion = raw;",
+        "new": "after_conversion = ~raw;",
+        "occurrences": 1
+      },
+      "source_sha256": "1e80ac9b1d92dbfc85b20eb8192019dac9523d6c0c87a2b0a1ab1b710069107e",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_merge_w257.sv",
+      "label": "invert-false-branch",
+      "replacement": {
+        "old": "raw = condition ? a : b;",
+        "new": "raw = condition ? a : ~b;",
+        "occurrences": 1
+      },
+      "source_sha256": "abbf071444c55a95bb95054aba529670fead95e88c80a76cfedbad4610a5dc98",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_merge_w257.sv",
+      "label": "invert-final-conversion",
+      "replacement": {
+        "old": "after_conversion = raw;",
+        "new": "after_conversion = ~raw;",
+        "occurrences": 1
+      },
+      "source_sha256": "2f5ed6f2c502033c8b493f6667d6a92179c63f5395ee3aaf592b6ed28466d556",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_shift_w257.sv",
+      "label": "shift-one-too-far",
+      "replacement": {
+        "old": "raw = a << amount;",
+        "new": "raw = a << (amount + 65'd1);",
+        "occurrences": 1
+      },
+      "source_sha256": "68c981108c24ac89f363089194ec9eec97d3cb29a8df5550970c6fdc47f2aed3",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    },
+    {
+      "test": "tests/gen/ch11/test_gen_fourstate_boundary_shift_w257.sv",
+      "label": "invert-final-conversion",
+      "replacement": {
+        "old": "after_conversion = raw;",
+        "new": "after_conversion = ~raw;",
+        "occurrences": 1
+      },
+      "source_sha256": "711e656fee0ab8695747ff87ea8674a074a066c66180272f96b55590561faebb",
+      "exit_code": 0,
+      "timed_out": false,
+      "matches": false
+    }
+  ],
+  "status": "all-twelve-controls-pass-and-twenty-four-compiled-mutants-differ"
+}

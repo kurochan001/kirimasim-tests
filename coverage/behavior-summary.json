@@ -51,9 +51,9 @@
     "interpretation_pending": 0
   },
   "test_mapping": {
-    "suite_test_files": 14310,
+    "suite_test_files": 14364,
     "linked_test_files": 6644,
-    "unlinked_test_files": 7666
+    "unlinked_test_files": 7720
   },
   "collective_requirement_count": 760,
   "requirement_status_counts": {
@@ -1890,6 +1890,139 @@
           "unreviewed_oracle": 0,
           "stale": 0,
           "not_run": 11138,
+          "unmapped": 904,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "fourstate-boundaries-20261119d-icarus13.json",
+        "simulator": "icarus",
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+        "generated_at": "2026-11-19T00:24:25.210824+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11428,
+          "unmapped": 904,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "fourstate-boundaries-20261119d-kirimasim-441dddbd0fcd-run1.json",
+        "simulator": "kirimasim",
+        "version": "kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401",
+        "generated_at": "2026-11-19T00:24:25.819476+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11428,
+          "unmapped": 904,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "fourstate-boundaries-20261119d-kirimasim-441dddbd0fcd-run2.json",
+        "simulator": "kirimasim",
+        "version": "kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401",
+        "generated_at": "2026-11-19T00:24:26.412445+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11428,
+          "unmapped": 904,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "fourstate-boundaries-20261119d-kirimasim-441dddbd0fcd-run3.json",
+        "simulator": "kirimasim",
+        "version": "kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401",
+        "generated_at": "2026-11-19T00:24:27.012478+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11428,
+          "unmapped": 904,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "fourstate-boundaries-20261119d-kirimasim-441dddbd0fcd-run4.json",
+        "simulator": "kirimasim",
+        "version": "kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401",
+        "generated_at": "2026-11-19T00:24:27.618699+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11428,
+          "unmapped": 904,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "fourstate-boundaries-20261119d-verilator5.054-seed1.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "generated_at": "2026-11-19T00:26:22.013552+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11428,
+          "unmapped": 904,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "fourstate-boundaries-20261119d-verilator5.054-seed73.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "generated_at": "2026-11-19T00:28:09.101257+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11428,
           "unmapped": 904,
           "interpretation_pending": 0
         }

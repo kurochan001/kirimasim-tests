@@ -71,6 +71,13 @@
 - `division-boundaries-20261119c-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-18T23:45:30.445544+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `division-boundaries-20261119c-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-18T23:47:58.657268+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12332 動作確認、古い入力との対応 0 件。
+- `fourstate-boundaries-20261119d-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T00:24:25.210824+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `fourstate-boundaries-20261119d-kirimasim-441dddbd0fcd-run1.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T00:24:25.819476+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `fourstate-boundaries-20261119d-kirimasim-441dddbd0fcd-run2.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T00:24:26.412445+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `fourstate-boundaries-20261119d-kirimasim-441dddbd0fcd-run3.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T00:24:27.012478+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `fourstate-boundaries-20261119d-kirimasim-441dddbd0fcd-run4.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T00:24:27.618699+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `fourstate-boundaries-20261119d-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T00:26:22.013552+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `fourstate-boundaries-20261119d-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T00:28:09.101257+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3089/12332 動作確認、古い入力との対応 340 件。
 - `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2994/12332 動作確認、古い入力との対応 340 件。
 - `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3887/12332 動作確認、古い入力との対応 340 件。
