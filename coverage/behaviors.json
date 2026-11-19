@@ -46367,10 +46367,10 @@
       "checks": [
         {
           "test": "tests/ch6/test_ch6_extra_for_loop_automatic.sv",
-          "observation": "シミュレーションで6.21-EXTRACT-CLASS-LOOP-AUTOMATICを観測する。6.21 は class method と for ループが宣言する変数を、囲むスコープの lifetime 指定にかかわらず既定で automatic とする。static な module スコープの for (int i...) から fork した 3 プロセスが各自の i を保持し got=0 1 2 になること、class method の再帰が呼び出しごとの saved を保ち depth=6 になることを観測する。 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
-          "reviewed_on": "2026-10-28",
+          "observation": "シミュレーションで6.21-EXTRACT-CLASS-LOOP-AUTOMATICを観測する。6.21 は class method と for ループが宣言する変数を、囲むスコープの lifetime 指定にかかわらず既定で automatic とする。static な module スコープの for ループは反復ごとの automatic i を宣言し、join_none の各プロセスはループ終了後に開始して自分の反復の i を automatic なブロック項目 k にコピーするため、3 プロセスが各自の k を保持して got=0 1 2 になること、class method の再帰が呼び出しごとの saved を保ち depth=6 になることを観測する。 区別: for ループの変数を静的として全プロセスで共有すると各プロセスが最後の値 3 をコピーするため got は 0 0 0 のままになり、ブロック項目 k を共有すると最後の k だけが残って got は 0 0 2 になる。",
+          "reviewed_on": "2026-11-20",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "9aef05d40f7a60cef6bb5ba7aa4f4a9fd47fc1f64d410097eb2fc0f2f96859a9",
+          "inputs_sha256": "1c2d3c62eca71864e892bd1747d51b7a45a8e28effe2fbb3a99e89680937953c",
           "evidence": [
             {
               "file": "tests/ch6/test_ch6_extra_for_loop_automatic.sv",

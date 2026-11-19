@@ -520,7 +520,7 @@
 | [`test_automatic_data_declarations_in_static_procedural_scopes`](../../tests/ch6/test_automatic_data_declarations_in_static_procedural_scopes.sv) |静的タスク、静的関数、ループボディブロック、プロセスをフォークするブロックの内部に自動キーワードを持つデータ宣言は、それらの値を保持する明示的に静的なものに対して、各エントリに初期化された変数を与える。| 6.21 9.3.2 A.2.1.3 A.10 | Verilator 5.052 ||
 | [`test_automatic_var`](../../tests/ch6/test_automatic_var.sv) |自動変数をテスト| 6.21 13.4.2 | Icarus Verilog 13.0 ||
 | [`test_automatic_variable_in_static_subroutine`](../../tests/ch6/test_automatic_variable_in_static_subroutine.sv) |静的関数やタスクの自動変数は呼び出しごとに初期化されますが、静的変数はその値を保持します。| 6.21 13.3.1 13.4.2 | Verilator 5.052 ||
-| [`test_ch6_extra_for_loop_automatic`](../../tests/ch6/test_ch6_extra_for_loop_automatic.sv) |forループの変数とクラスメソッド内の変数は既定でautomaticであるため、ループの各反復とメソッドの各呼出しは、それぞれ固有の値を保持する。| 6.21 12.7.1 8.4 | Verilator 5.052 ||
+| [`test_ch6_extra_for_loop_automatic`](../../tests/ch6/test_ch6_extra_for_loop_automatic.sv) |forループの変数とクラスメソッド内の変数は既定でautomaticであるため、forkのブロック項目はループ変数をプロセスごとにコピーでき、メソッドの各呼出しはそれぞれ固有の値を保持する。| 6.21 12.7.1 8.4 | Verilator 5.052 ||
 | [`test_design_element_static_lifetime`](../../tests/ch6/test_design_element_static_lifetime.sv) |設計要素が自動的であっても，モジュール，インタフェース，プログラム，チェッカのタスク，プロセス，関数以外の変数は静的な寿命を持ち，他の設計要素における同じ名前は異なる変数である。| 6.21 | Verilator 5.052 ||
 | [`test_illegal_automatic_variable_nonblocking`](../../tests/ch6/test_illegal_automatic_variable_nonblocking.sv) |自動変数はブロックしない代入で書き込めません| 6.21 10.4.2 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_continuous_assign_reads_automatic_variable`](../../tests/ch6/test_illegal_continuous_assign_reads_automatic_variable.sv) |連続代入は automatic 変数を参照できない。static な initial 手続きの名前付きブロックで宣言したものでも同じで、そのような参照は手続きブロックに限られるからである| 6.21 |規格のみ|規格違反の設計|
