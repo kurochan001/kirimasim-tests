@@ -215870,9 +215870,9 @@
         {
           "test": "tests/ch39/test_vpi_assertion_system_task_control.sv",
           "observation": "明示的にa1を指定した制御taskのcallback理由をCで判別し、callback時刻とNULL attempt情報を出力する。",
-          "reviewed_on": "2026-10-23",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "415484d3f79d44d8abd0b272070c18b4183769634b9f4e8743d91b6d939ba14c",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "5b86b862cf4d2656b338a1830dbc989a65800bc4570da59cc9ce9ce4df720117",
           "evidence": [
             {
               "file": "tests/ch39/test_vpi_assertion_system_task_control.sv",
@@ -215910,9 +215910,9 @@
         {
           "test": "tests/ch39/test_vpi_assertion_system_task_control.sv",
           "observation": "明示的にa1を指定した制御taskのcallback理由をCで判別し、callback時刻とNULL attempt情報を出力する。",
-          "reviewed_on": "2026-10-23",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "415484d3f79d44d8abd0b272070c18b4183769634b9f4e8743d91b6d939ba14c",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "5b86b862cf4d2656b338a1830dbc989a65800bc4570da59cc9ce9ce4df720117",
           "evidence": [
             {
               "file": "tests/ch39/test_vpi_assertion_system_task_control.sv",
@@ -218098,9 +218098,9 @@
         {
           "test": "tests/ch39/test_vpi_assertion_system_task_control.sv",
           "observation": "16でoffした後、15開始の既存attemptは25で成功する一方、25の新規startは存在しない。26のonで35から新規startが戻り、pass action合計3も一致する。",
-          "reviewed_on": "2026-10-23",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "415484d3f79d44d8abd0b272070c18b4183769634b9f4e8743d91b6d939ba14c",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "5b86b862cf4d2656b338a1830dbc989a65800bc4570da59cc9ce9ce4df720117",
           "evidence": [
             {
               "file": "tests/ch39/test_vpi_assertion_system_task_control.sv",
@@ -456766,9 +456766,9 @@
         {
           "test": "tests/ch39/test_vpi_assertion_system_task_control.sv",
           "observation": "選択したa1への$assertoff/on/killに対応するreasonとcb_timeを確認。startが止まり旧attemptがoff後に完了することとkill後に消えることも実traceで照合。info NULLそのものは別の複合行へ加算しない。",
-          "reviewed_on": "2026-10-23",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "415484d3f79d44d8abd0b272070c18b4183769634b9f4e8743d91b6d939ba14c",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "5b86b862cf4d2656b338a1830dbc989a65800bc4570da59cc9ce9ce4df720117",
           "evidence": [
             {
               "file": "tests/ch39/test_vpi_assertion_system_task_control.sv",
@@ -456978,9 +456978,9 @@
         {
           "test": "tests/ch39/test_vpi_assertion_system_task_control.sv",
           "observation": "選択したa1への$assertoff/on/killに対応するreasonとcb_timeを確認。startが止まり旧attemptがoff後に完了することとkill後に消えることも実traceで照合。info NULLそのものは別の複合行へ加算しない。",
-          "reviewed_on": "2026-10-23",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "415484d3f79d44d8abd0b272070c18b4183769634b9f4e8743d91b6d939ba14c",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "5b86b862cf4d2656b338a1830dbc989a65800bc4570da59cc9ce9ce4df720117",
           "evidence": [
             {
               "file": "tests/ch39/test_vpi_assertion_system_task_control.sv",
@@ -457190,9 +457190,9 @@
         {
           "test": "tests/ch39/test_vpi_assertion_system_task_control.sv",
           "observation": "選択したa1への$assertoff/on/killに対応するreasonとcb_timeを確認。startが止まり旧attemptがoff後に完了することとkill後に消えることも実traceで照合。info NULLそのものは別の複合行へ加算しない。",
-          "reviewed_on": "2026-10-23",
-          "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "415484d3f79d44d8abd0b272070c18b4183769634b9f4e8743d91b6d939ba14c",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "5b86b862cf4d2656b338a1830dbc989a65800bc4570da59cc9ce9ce4df720117",
           "evidence": [
             {
               "file": "tests/ch39/test_vpi_assertion_system_task_control.sv",

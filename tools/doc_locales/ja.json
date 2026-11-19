@@ -25720,6 +25720,9 @@
     "for b an actual-based type gives ZXQPH0QXZ .": "bでは接続から取った型がZXQPH0QXZになる。",
     "the interface port b and modport port d also give ref objs;": "インタフェースポートbとmodportポートdもref objを与え、",
     "the virtual interface task argument tv gives a ZXQPH0QXZ expression. 区別: Returning another direction or expression type changes ZXQPH1QXZ or ZXQPH2QXZ for rp, tr, b or d, or ZXQPH3QXZ for tv.": "virtual interfaceのtaskの引数tvはZXQPH0QXZの式を与える。 区別: ほかの方向か式の種類を返せば、rp・tr・b・dのZXQPH1QXZかZXQPH2QXZ、tvのZXQPH3QXZが変わる。",
-    "A for loop variable and the variables of a class method are automatic by default, so a fork block item can copy the loop variable for each process and each method call keeps its own value": "forループの変数とクラスメソッド内の変数は既定でautomaticであるため、forkのブロック項目はループ変数をプロセスごとにコピーでき、メソッドの各呼出しはそれぞれ固有の値を保持する。"
+    "A for loop variable and the variables of a class method are automatic by default, so a fork block item can copy the loop variable for each process and each method call keeps its own value": "forループの変数とクラスメソッド内の変数は既定でautomaticであるため、forkのブロック項目はループ変数をプロセスごとにコピーでき、メソッドの各呼出しはそれぞれ固有の値を保持する。",
+    "A cover property that does not match reports ZXQPH0QXZ for each failed attempt, although it has no fail action": "一致しない cover property は、失敗アクションを持たないが、失敗した各試行について ZXQPH0QXZ を報告する",
+    "The assertion control tasks ZXQPH0QXZ , ZXQPH1QXZ and ZXQPH2QXZ stop and restart checking and discard attempts in progress, and the assertion callbacks report the disable, enable and kill with no attempt information;": "アサーション制御タスク ZXQPH0QXZ 、ZXQPH1QXZ 、ZXQPH2QXZ はチェックを停止・再開し、進行中の試行を破棄する。アサーションコールバックは、試行情報を持たない disable・enable・kill を報告する;",
+    "ZXQPH0QXZ reports both the disable of the assertion and the kill of the attempt": "ZXQPH0QXZ はアサーションの disable と試行の kill の両方を報告する"
   }
 }

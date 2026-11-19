@@ -14684,38 +14684,6 @@
       ]
     },
     {
-      "test": "tests/ch39/test_vpi_assertion_system_task_control.sv",
-      "inputs_sha256": "415484d3f79d44d8abd0b272070c18b4183769634b9f4e8743d91b6d939ba14c",
-      "reviewed_on": "2026-10-23",
-      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTKILL"
-          ],
-          "disposition": "oracle_issue",
-          "explanation": "M107: Table 20-8 は引数付き $assertkill に cbAssertionReset + cbAssertionDisable を対応させる。このテストの C helper は a1 に cbAssertionDisable を登録しているので、36 の $assertkill(0, a1) では \"36: a1 disable, attempt information NULL\" も出るはずだが、期待出力は \"36: a1 kill\" だけで disable 行がない（cbAssertionReset は未登録で観測もされない）。Table 20-8 準拠の実装はこの期待出力と食い違うため、期待値を見直すまで ASSERTKILL の callback 対応の証拠にできない。",
-          "reviewed_on": "2026-10-23",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch39/test_vpi_assertion_system_task_control.sv",
-              "contains": "#10 $assertkill(0, a1);   // 36"
-            },
-            {
-              "file": "tests/ch39/test_vpi_assertion_system_task_control.c",
-              "contains": "cbAssertionDisable, cbAssertionEnable, cbAssertionKill};"
-            },
-            {
-              "file": "tests/ch39/test_vpi_assertion_system_task_control.expected",
-              "contains": "36: a1 kill, attempt information NULL\n46: a1 enable, attempt information NULL"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "test": "tests/ch20/test_assertcontrol.sv",
       "inputs_sha256": "09b190a8a3613db7906fc3321102981f3063294714c2255bc54b5bcd983da646",
       "reviewed_on": "2026-10-23",
