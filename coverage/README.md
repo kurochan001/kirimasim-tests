@@ -294,3 +294,5 @@ Nightlyの測定対象は実行したスイートのコミットです。`main`�
 - `results/wide-format-fields-20261119y-*.json`：正の表示幅72本の記録7件です。Icarus24pass・2進24known（実行時の差）・16進24known（ビルド失敗）、Verilator各48pass・10進24known（実行時の差）、kirimasim4回各72passです。oracleはIcarus24本・Verilator48本です。独立AIの2手法で1,008行を導出し、[有限の検査](qualification/wide-format-fields-20261119y.json)に成功対照24本・コンパイル・正常終了する変異72本を残します。過去の入力と台帳は不変です。
 
 - `results/wide-bitvector-queries-20261119z-*.json`：全幅の問い合わせ48本（既知値18・4値30）の記録7件です。Icarus48pass・kirimasim4回各48pass・Verilator各18passと既知のビルド失敗6件／実行時差異24件です。oracleはIcarus48本です。ソースだけの独立AI2手法で276行を導出し、その後の説明6件だけの修正でも全本体・期待値を維持します。[有限の検査](qualification/wide-bitvector-queries-20261119z.json)は対照16本・コンパイルして正常終了する変更32本で、過去の入力と台帳は不変です。
+
+- [広いビット問い合わせのランダム検証](interaction-qualification/random-wide-queries-20261119/qualification.json)：保存288プログラム・2304ベクトル・AI導出9504行で固定本数とは別です。kirimasim1,152pass・Icarus288pass・Verilator0pass／既知のビルド失敗262件／4値の除外314件です。実行1440回・ビルド550回・失敗ビルド262回を区別し、単体検査15件・成功対照16本とコンパイルして正常終了する変異32本・保存入力の再生を記録します。過去の入力・履歴・台帳は保全します。

@@ -73,7 +73,7 @@ fixed regressions, formal Nightly and explicit replay execute again.
 
 The [small SV observation examples](faq.en.md#q50-sv-values-change-observations) explain how X/Z, bit/logic, width and signedness change these expectations.
 
-There are thirteen default Nightly profiles and eight additional opt-in profiles described below. The default thirteen follow. This does not generalize every finite model to arbitrary inputs.
+There are thirteen default Nightly profiles and nine additional opt-in profiles described below. The default thirteen follow. This does not generalize every finite model to arbitrary inputs.
 
 - `expression_context` crosses widths, signedness, destination width and addition/subtraction/multiplication with arbitrary known input bits.
   It reuses the reference in `generators/interaction_expr.py`.
@@ -688,7 +688,7 @@ fingerprint-qualified interaction snapshots and fixed history remain separate.
 
 ## Additional opt-in packed profiles (2026-11-17)
 
-Two profiles are implemented in the [generator and reference](../tools/random_cross_packed.py). Select them with `--models`; the default thirteen, Nightly's 96 cases, operation count, worker count and time limits remain unchanged. Those twenty remain selectable together; adding the wide numeric format/scan profile makes twenty-one selectable overall. The previous default manifests, SV and expected-output hashes remain unchanged at seeds 1, 731 and 20261117.
+Two profiles are implemented in the [generator and reference](../tools/random_cross_packed.py). Select them with `--models`; the default thirteen, Nightly's 96 cases, operation count, worker count and time limits remain unchanged. Those twenty-one remain selectable together; adding the wide bit-query profile makes twenty-two selectable overall. The previous default manifests, SV and expected-output hashes remain unchanged at seeds 1, 731 and 20261117.
 
 - `packed_bounds_sequence` reads and writes four-state packed vectors with negative, zero and nonzero declared bounds. It selects from 21 widths between 1 and 513 bits, with part widths up to 65, crossing ascending/descending declarations, `+:`/`-:`, bit/logic read destinations and signed 32-bit indices. In-range, partially/wholly out-of-range and X/Z indices produce whole-value, part-select and single-bit observations after each operation. Invalid writes are suppressed; partial writes affect only in-range bits. Known inputs that produce X through an out-of-range read are also classified as four-state observations. Grounds are IEEE 1800-2023 11.5.1, 7.4.1 and 6.11.2.
 - `packed_field_sequence` combines whole/field assignments, differently sized field copies and whole-value shifts on three-field packed structures. It crosses ten layouts of 9–513 bits, each field's signing, aggregate signing and bit/logic storage. All fields use the same state type; mixed bit/logic fields are not generated. Whole values, individual fields and three-bit-widened field reads expose layout, preserved neighbors, copy extension/truncation and whole-structure arithmetic right shifts. Grounds are 7.2.1, 6.11.2, 10.7, 11.4.10 and 11.8.1.
@@ -834,4 +834,30 @@ python3 tools/run_random_cross.py --kirimasim /path/to/kirimasim --commit COMMIT
 python3 tools/run_random_cross.py --kirimasim /path/to/kirimasim --commit COMMIT \
   --replay coverage/interaction-qualification/random-format-scan-20261119/seed-1/manifest.json \
   --output my-results/saved-wide-format-scan
+```
+
+<a id="opt-in-wide-bitquery-profile"></a>
+
+## Opt-in wide bit-vector query sequences (2026-11-19)
+
+Select `wide_bitquery_sequence` with `--models`. The [small bounded materializer](../tools/random_cross_queries.py) reuses the scheduler, existing word draws, exact literal chunking, validation dispatch, CLI phase capture and immutable replay. A logic source at 255/256/257 or 511/512/513 bits has either sign and either packed range direction. Three logic control variables are one bit or W bits wide. Queries count exact 0/1/X/Z states, test onehot/onehot0/unknown, and count the union selected by `a,b,c,a`. Only each control's LSB is used; repeated selected states count once. Inputs, histogram, predicates/selected counts and retained inputs are separate observations; all five return widths are printed. File I/O and arbitrary expressions are outside this bounded profile.
+
+[Saved evidence](../coverage/interaction-qualification/random-wide-queries-20261119/qualification.json) contains seeds 1, 731 and 20261119, each with 96 programs and eight vectors: **288 programs / 2,304 vectors / 9,504 lines**. There are 157 actual four-state and 131 known-only programs, 142 scalar-control and 146 wide-control programs, and 138 ascending/150 descending sources. Full observed controls count toward four-state admission even if their upper X/Z bits would not affect a query. Repeated inputs are kept in order: 406 consecutive repeats and 2,222 vectors with duplicate control states; 82 select three distinct states. These describe this saved sample, not exhaustive coverage.
+
+Independent AI seals three actual-source calculations and a separate reparsed state-plane/LSB-union calculation before current expectations, manifests, the new writer or helpers. Earlier Z query/parser/helper knowledge is disclosed. All 9,504 expected lines match, including 20,736 queries, 1,440 unevaluated width queries and 2,304 retained input groups; all 1,440 declaration positions are checked against reserved keywords. This is AI review, not human review. Fifteen [unit checks](../tools/test_random_cross_query_profile.py) independently use disjoint integer planes and exercise LSB conversion, de-duplication, unknown predicates, signs/directions, distinct observations, ordered repeats, bounded validation, deterministic generation, old-stream goldens, immutable replay and injected reference drift. Twelve named selection/seed combinations preserve all earlier twenty-one-profile manifest/source/expected bytes. Default thirteen and Nightly allocation are unchanged; selectable profiles become twenty-two. Five old count assertions update only that total, and the previous format profile retains its existing index 20.
+
+Twelve actual CLI invocations (four per corpus) use the isolated, rehashed kirimasim 0.1.1 `a6222f0656d4` Release binary, reconfirmed against published main before qualification: **1,152 executions pass**. Icarus Verilog 13.0 compiles/runs and passes all 288. Verilator 5.054 at initialization seeds 1/73 together records **0 passes, 262 known build failures and 314 four-state exclusions**. Every known build failure reports `Unsupported: $countbits with more than 3 control fields` during Verilator's build. IEEE 1800-2023 20.9 allows a control followed by repeated comma-separated controls and removes duplicate selected states; it sets no three-control limit. The four-argument input remains unchanged. No known-only Verilator program in this cohort reaches simulation; the separate four-state exclusions are not build attempts. These legitimate input failures remain build failures, not unsupported exclusions, executed simulations or successful oracle matches. No expected values or simulator behavior are changed to match a tool.
+
+The extract retains **2,016 requested outcomes / 1,440 runtime invocations / 550 actual comparator builds**, including 262 failed builds. Excluded X/Z inputs are never compiled; failed builds never start a simulation. Actual build/simulation/normalization roles, raw-file and CLI-log manifests, inputs, versions, driver hashes and live binary/companion fingerprints remain distinct. Every started runtime/helper process exits zero and no timeout occurs. Kirimasim's integrated command includes parsing/build work and is counted separately from comparator builds. The first two CLI invocations per corpus exit nonzero for retained comparator results; later kirimasim-only replays exit zero. The fourth replays the saved public corpus later committed here. Code, inputs, expected values, binaries, dependencies and environment stay stable. Large raw logs and private paths remain private; public files contain saved stimuli, small records, hashes and versions.
+
+[Finite qualification](../coverage/interaction-qualification/random-wide-queries-20261119/qualification.json) uses **16 passing originals and 32 compiled, normally exiting corruptions**. Both signs, range directions, scalar/wide controls and actual known/four-state flags are represented. One edit changes a histogram count and another inverts a separate onehot0 observation, each in one vector. All changed observations differ from the original expectation. These finite checks do not establish exhaustive semantic fault detection. No fixed tests, mappings or fixed behavioral history are added; previous inputs, corpora, six protected ledgers, baselines, holds and denominators remain unchanged. The inherited Check time budget is unchanged from X.
+
+```sh
+python3 tools/run_random_cross.py --kirimasim /path/to/kirimasim --commit COMMIT \
+  --models wide_bitquery_sequence --seed 1 --cases 96 --vectors 8 \
+  --icarus /path/to/iverilog --verilator /path/to/verilator --simulator-seed 1 \
+  --output my-results/wide-bitqueries
+python3 tools/run_random_cross.py --kirimasim /path/to/kirimasim --commit COMMIT \
+  --replay coverage/interaction-qualification/random-wide-queries-20261119/seed-1/manifest.json \
+  --output my-results/saved-wide-bitqueries
 ```

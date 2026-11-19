@@ -28,6 +28,7 @@ import interaction_method as array_methods
 import random_cross_packed as packed_profiles
 import random_cross_power as power_profiles
 import random_cross_format as format_profiles
+import random_cross_queries as query_profiles
 from wide_literals import wrap_generated_unsigned_literals
 
 GENERATOR = 'bounded_random_cross@1'
@@ -44,7 +45,7 @@ WIDE_BIT_PROFILES = ('wide_shift_context', 'wide_cast_pipeline')
 WIDE_COUNT_WIDTHS = (32, 65)
 WIDE_RESULT_WIDTHS = (1, 7, 255, 256, 257, 511, 512, 513, 514)
 SUPPORTED_PROFILES = (PROFILES + EXTRA_PROFILES + power_profiles.PROFILES
-                      + WIDE_PROFILES + WIDE_BIT_PROFILES + format_profiles.PROFILES)
+                      + WIDE_PROFILES + WIDE_BIT_PROFILES + format_profiles.PROFILES + query_profiles.PROFILES)
 MAX_CASES = 256
 MAX_STIMULI = 32
 WIDTHS = (1, 32, 33, 64, 65, 129)
@@ -132,6 +133,8 @@ def generate(seed, count=96, steps=8, profiles=PROFILES):
             parameters, stimuli = generate_array_copy(rng, steps)
         elif profile in power_profiles.PROFILES:
             parameters, stimuli = power_profiles.generate(profile, rng, steps, word)
+        elif profile in query_profiles.PROFILES:
+            parameters, stimuli = query_profiles.generate(profile, rng, steps, word)
         elif profile in format_profiles.PROFILES:
             parameters, stimuli = format_profiles.generate(profile, rng, steps, word)
         elif profile in EXTRA_PROFILES:
@@ -207,6 +210,8 @@ def validate_case(case):
         validate_array_copy(parameters, stimuli)
     elif profile in power_profiles.PROFILES:
         power_profiles.validate(case)
+    elif profile in query_profiles.PROFILES:
+        query_profiles.validate(case)
     elif profile in format_profiles.PROFILES:
         format_profiles.validate(case)
     elif profile in EXTRA_PROFILES:
@@ -270,6 +275,8 @@ def requires_fourstate(case):
     validate_case(case)
     if case['profile'] in power_profiles.PROFILES:
         return power_profiles.requires_fourstate(case)
+    if case['profile'] in query_profiles.PROFILES:
+        return query_profiles.requires_fourstate(case)
     if case['profile'] in format_profiles.PROFILES:
         return format_profiles.requires_fourstate(case)
     if case['profile'] in EXTRA_PROFILES:
@@ -334,6 +341,8 @@ def materialize(case):
         clauses = '11.6.1 11.8.1 11.8.2'+(' 11.4.3' if profile == PROFILES[1] else '')
     elif profile in power_profiles.PROFILES:
         lines, expected, clauses = power_profiles.materialize(case)
+    elif profile in query_profiles.PROFILES:
+        lines, expected, clauses = query_profiles.materialize(case)
     elif profile in format_profiles.PROFILES:
         lines, expected, clauses = format_profiles.materialize(case)
     elif profile in EXTRA_PROFILES:
@@ -403,7 +412,7 @@ def materialize(case):
               ':description: Bounded random comparison; replay the saved manifest.', '*/',
               '// Runtime-only case; not part of the registered fixed suite.']
     body = '\n'.join(header+lines)+'\n'
-    if profile in WIDE_PROFILES + WIDE_BIT_PROFILES + format_profiles.PROFILES:
+    if profile in WIDE_PROFILES + WIDE_BIT_PROFILES + format_profiles.PROFILES + query_profiles.PROFILES:
         body = wrap_generated_unsigned_literals(body)
     return body, '\n'.join(expected)+'\n'
 

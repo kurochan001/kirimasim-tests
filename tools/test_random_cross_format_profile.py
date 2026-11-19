@@ -116,8 +116,8 @@ class WideFormatProfileTests(unittest.TestCase):
 
     def test_profile_is_opt_in_with_default_thirteen_and_known_only_scope(self):
         self.assertEqual(len(models.PROFILES),13)
-        self.assertEqual(len(models.SUPPORTED_PROFILES),21)
-        self.assertEqual(models.SUPPORTED_PROFILES[-1],'wide_format_scan_sequence')
+        self.assertEqual(len(models.SUPPORTED_PROFILES),22)
+        self.assertEqual(models.SUPPORTED_PROFILES[20],'wide_format_scan_sequence')
         self.assertNotIn('wide_format_scan_sequence',models.PROFILES)
         self.assertFalse(models.requires_fourstate(case('1'*513,'signed','d')))
 
