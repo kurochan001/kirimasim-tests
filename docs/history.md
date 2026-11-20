@@ -1043,7 +1043,8 @@ clause 37.
 
 - The Lyra test step of [Nightly 44540686011](https://github.com/kurochan001/kirimasim-tests/actions/runs/44540686011) reached its 345-minute limit. Its log was retained, but the runner writes JSON only after finishing, so that night has no Lyra results.
 - `lyra-shards` now runs four disjoint parts, selected by the SHA-256 of portable test ids, with the build resolved by `lyra-build`. Each keeps its own step limit and artifact. The `lyra` merge job validates all four parts against this checkout, preserving verdicts and rejecting missing, duplicate, partial, stale or differently configured results. Only the combined full suite enters `results-lyra`.
-- Regression tests cover full assignment, portable partitioning, formal exclusion, complete union, rejected evidence and preservation of an existing output on failure. No SystemVerilog expectation or requirement mapping changed. Real Nightly completion remains to be verified.
+- Regression tests cover full assignment, portable partitioning, formal exclusion, complete union, rejected evidence and preservation of an existing output on failure. No SystemVerilog expectation or requirement mapping changed.
+- The first verified four-part Nightly completed all 11 jobs, including publish. The combined Lyra result covered all 16,004 simulation tests and preserved every verdict and reason. The four suite steps took 4,278, 5,508, 4,824 and 4,101 seconds. [Nightly 44631823505](https://github.com/kurochan001/kirimasim-tests/actions/runs/44631823505) · [Verification record](../coverage/qualification/lyra-nightly-shards-20261120.json)
 
 <a id="language-gap-second-pass-20261120"></a>
 

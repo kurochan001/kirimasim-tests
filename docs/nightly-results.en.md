@@ -19,9 +19,12 @@
 
 The Nightly runs on `main` every night with icarus, verilator, kirimasim, lyra-build, lyra-shards (four parts), lyra (merge), ghost and publish.
 The results of the latest run are in the [report on the `results` branch](https://github.com/kurochan001/kirimasim-tests/tree/results#readme).
-The last successful Nightly is the [run](https://github.com/kurochan001/kirimasim-tests/actions/runs/44217725110) of 2026-11-18, on suite `befffe90`.
+Before partitioning, the most recent successful Nightly was the [run](https://github.com/kurochan001/kirimasim-tests/actions/runs/44217725110) of 2026-11-18, on suite `befffe90`.
 The [run of 2026-11-19](https://github.com/kurochan001/kirimasim-tests/actions/runs/44540686011), on suite `68ce2bc2`, passed six jobs including Ghost, but lyra's test step reached its 345-minute limit. It has no Lyra result JSON; the other simulators' results were published.
-To address that timeout, Lyra's tests now run in four parts selected by the SHA-256 of each test id. They are combined only when all assigned tests, input and runner fingerprints, versions and compiler settings agree. Shard artifacts are separate from the publishable `results-*` artifacts. Completion in a real Nightly is not yet verified.
+To address that timeout, Lyra's tests now run in four parts selected by the SHA-256 of each test id. They are combined only when all assigned tests, input and runner fingerprints, versions and compiler settings agree. Shard artifacts are separate from the publishable `results-*` artifacts.
+
+The first verified four-part run used suite `03b2e107` and published results after all 11 jobs finished successfully. Lyra covered all 16,004 simulation tests. Its longest test step took 91.8 minutes. The combined result preserved 13,384 passes, 1,735 unsupported verdicts and 885 failures. The verification checked every assigned test, the input and runner fingerprints, the shared build and settings, and the verdict and reason for each test. [Nightly 44631823505](https://github.com/kurochan001/kirimasim-tests/actions/runs/44631823505) · [Verification record](../coverage/qualification/lyra-nightly-shards-20261120.json)
+
 The [run of 2026-11-15](https://github.com/kurochan001/kirimasim-tests/actions/runs/43651437455), on suite `ed5ded9a`, failed while checking out Ghost's parser, before its build or tests. The other six jobs, including kirimasim's random comparisons and publish, succeeded. The original run did not preserve the underlying Git diagnostic. Subsequent checkout-only runs reproduced the access failure and exposed a mismatch between the CI repository setting and the current dependency configuration.
 For resuming development, see the newest [handoff](claude-code-handoff-20261112.en.md). The records below in this section are from earlier checkpoints.
 

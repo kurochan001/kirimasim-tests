@@ -1,0 +1,177 @@
+{
+  "schema": "lyra-nightly-finite-qualification-v1",
+  "scope": "The four native Lyra simulation shards and their aggregate in this one Nightly run.",
+  "review": {
+    "prepared_by": "Codex (AI)",
+    "independent_runtime_verification": "Codex (AI); not independent human review or human approval",
+    "independent_verdict": "ok",
+    "independently_verified_at": "2026-11-20T01:18:35.774851+00:00",
+    "publication_review": "Separate review matched the counts, timings, digests and workflow status to the retained evidence."
+  },
+  "run": {
+    "id": 44631823505,
+    "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/44631823505",
+    "source_commit": "03b2e107c60de3163952376dc1c1944f9d95f781",
+    "workflow_observation": {
+      "observed_at": "2026-11-20T01:17:26.581974+00:00",
+      "status": "queued",
+      "conclusion": "",
+      "is_final": false
+    },
+    "workflow_final_observation": {
+      "observed_at": "2026-11-20T01:24:46.259320+00:00",
+      "status": "completed",
+      "conclusion": "success",
+      "job_count": 11,
+      "all_jobs_completed": true,
+      "all_jobs_success": true,
+      "publish_success": true,
+      "snapshot_sha256": "a50a6259624dbc4456466099f4a5510d434de75ad85063b29584779cb50b01d0"
+    },
+    "whole_workflow_final_status_verified": true
+  },
+  "simulator": {
+    "version": "Lyra (commit 9a9813a48c8c)",
+    "runner_sha256": "bda4ac9173cf1a7832c93bbcea91ec4225751782b8ace5593d5d675478f29bdd",
+    "configuration_sha256": "94cfaaef134b8485f921946305568c78a01b906bad66375c13446653048d3226",
+    "configuration_hash_scheme": "SHA-256 of UTF-8 JSON with sorted keys, compact comma/colon separators and ensure_ascii=false; after excluding only the per-shard index/count assignment metadata; common native configuration values are omitted."
+  },
+  "inputs": {
+    "source_tests": 16271,
+    "simulation_tests": 16004,
+    "formal_tests_excluded": 267
+  },
+  "counts": {
+    "pass": 13384,
+    "unsupported": 1735,
+    "fail": 885
+  },
+  "shards": [
+    {
+      "index": 0,
+      "shard_count": 4,
+      "simulation_tests": 4107,
+      "counts": {
+        "pass": 3426,
+        "unsupported": 459,
+        "fail": 222
+      },
+      "job_id": 135968602973,
+      "job_status": "completed",
+      "job_conclusion": "success",
+      "job_started_at": "2026-11-19T23:43:56Z",
+      "job_completed_at": "2026-11-20T00:55:37Z",
+      "suite_seconds": 4278.0,
+      "json_sha256": "29a352cc178a29c53b8a9760ea713d0d58bb71dcc44cb56239f25791d5d822b2",
+      "artifact": {
+        "id": 14589699955,
+        "name": "lyra-shard-0",
+        "digest": "sha256:4c3e071fffcbf7197f03d3131148f652c23e0fa6d690de635760891453daf6fb",
+        "size_in_bytes": 223634
+      }
+    },
+    {
+      "index": 1,
+      "shard_count": 4,
+      "simulation_tests": 3978,
+      "counts": {
+        "pass": 3360,
+        "unsupported": 411,
+        "fail": 207
+      },
+      "job_id": 135968603164,
+      "job_status": "completed",
+      "job_conclusion": "success",
+      "job_started_at": "2026-11-19T23:43:56Z",
+      "job_completed_at": "2026-11-20T01:16:04Z",
+      "suite_seconds": 5508.0,
+      "json_sha256": "5b2efec89c4edfdefba290aa5fd2f37d0542ae918bd845704dc7555ead708373",
+      "artifact": {
+        "id": 14590714528,
+        "name": "lyra-shard-1",
+        "digest": "sha256:901eacb19dade84acff6271613083af585a1e0fd0ed7fdd28d40dc7323ca29c0",
+        "size_in_bytes": 216486
+      }
+    },
+    {
+      "index": 2,
+      "shard_count": 4,
+      "simulation_tests": 3894,
+      "counts": {
+        "pass": 3252,
+        "unsupported": 431,
+        "fail": 211
+      },
+      "job_id": 135968603042,
+      "job_status": "completed",
+      "job_conclusion": "success",
+      "job_started_at": "2026-11-19T23:43:56Z",
+      "job_completed_at": "2026-11-20T01:04:44Z",
+      "suite_seconds": 4824.0,
+      "json_sha256": "8738548ab2f312429e7dad6ae328c0267fb6976e00bcfc33656084a71de0f09a",
+      "artifact": {
+        "id": 14590147624,
+        "name": "lyra-shard-2",
+        "digest": "sha256:4765ffcd58713ff2f8c87e2bb4ab21284c699c348279fc57a0c4d482e839165d",
+        "size_in_bytes": 214106
+      }
+    },
+    {
+      "index": 3,
+      "shard_count": 4,
+      "simulation_tests": 4025,
+      "counts": {
+        "pass": 3346,
+        "unsupported": 434,
+        "fail": 245
+      },
+      "job_id": 135968602944,
+      "job_status": "completed",
+      "job_conclusion": "success",
+      "job_started_at": "2026-11-19T23:43:57Z",
+      "job_completed_at": "2026-11-20T00:52:50Z",
+      "suite_seconds": 4101.0,
+      "json_sha256": "768e68e1acd57466971bbcd4238fb5b5bd1a61b9e919879d28166d8efd8d52ab",
+      "artifact": {
+        "id": 14590180812,
+        "name": "lyra-shard-3",
+        "digest": "sha256:b42cc8b08e821929d1de08aa1b6d87b5316a67d213012ec6f0cdfcdfd86b71bf",
+        "size_in_bytes": 221148
+      }
+    }
+  ],
+  "aggregate": {
+    "merge_job_id": 136010018765,
+    "job_status": "completed",
+    "job_conclusion": "success",
+    "job_started_at": "2026-11-20T01:16:38Z",
+    "job_completed_at": "2026-11-20T01:17:05Z",
+    "json_sha256": "2c2f87c03267ff0877a3fec0362e7c17a1aaaa0100ac9a0db917710a5fc3d6e4",
+    "artifact": {
+      "id": 14591378817,
+      "name": "results-lyra",
+      "digest": "sha256:82c90d542e940ee82c7af9dcbcf2690ff754e6ccf9dd75510a34f729fc5852de",
+      "size_in_bytes": 819429
+    }
+  },
+  "checks": {
+    "full_simulation_set": true,
+    "disjoint_complete_assignment": true,
+    "input_fingerprints": true,
+    "runner_fingerprint": true,
+    "same_version_and_configuration": true,
+    "unchanged_verdicts_and_reasons": true,
+    "all_shards_within_step_limit": true,
+    "independent_source_manifest": true,
+    "combined_has_no_shard_configuration": true,
+    "selected_artifact_zip_digests_and_sizes": true,
+    "selected_json_byte_hashes": true
+  },
+  "limits": [
+    "Finite qualification of this source/run: pipeline completeness, disjoint assignment, current input and runner fingerprints, consistent version/configuration, preserved verdicts/reasons and selected artifact integrity.",
+    "A completed shard or merge job is not a claim that all tests match: fail and unsupported verdicts remain in the aggregate.",
+    "This is not a simulator oracle grant or a claim of universal test correctness.",
+    "These per-shard times are observations of this run, not a guarantee of future duration or a controlled benchmark against the earlier 345-minute timeout.",
+    "The original queued workflow observation is retained separately from the later completed/success whole-workflow observation. Neither is rewritten to resemble the other."
+  ]
+}

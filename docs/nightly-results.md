@@ -21,9 +21,12 @@
 
 Nightlyは毎晩`main`で、icarus・verilator・kirimasim・lyra-build・lyra-shards（4分割）・lyra（統合）・ghost・publishを実行します。
 最新の実行の結果は[`results`ブランチのレポート](https://github.com/kurochan001/kirimasim-tests/tree/results#readme)にあります。
-最後に成功したNightlyは2026-11-18の[実行](https://github.com/kurochan001/kirimasim-tests/actions/runs/44217725110)で、suite `befffe90`を対象にしました。
+分割導入前に最後に成功したNightlyは2026-11-18の[実行](https://github.com/kurochan001/kirimasim-tests/actions/runs/44217725110)で、suite `befffe90`を対象にしました。
 2026-11-19の[実行](https://github.com/kurochan001/kirimasim-tests/actions/runs/44540686011)はsuite `68ce2bc2`を対象にし、Ghostを含む6ジョブは成功しましたが、lyraのテストステップが345分の上限に達しました。lyraの結果JSONはなく、ほかのシミュレータの結果は公開されています。
-この時間切れへの対策として、LyraのテストをIDのSHA-256で4分割し、全分割の担当テスト・入力とランナーの指紋・版・コンパイラ設定が揃う場合だけ統合するようにしました。分割のartifactは公開対象の`results-*`と分けます。実際のNightlyでの完走はまだ確認していません。
+この時間切れへの対策として、LyraのテストをIDのSHA-256で4分割し、全分割の担当テスト・入力とランナーの指紋・版・コンパイラ設定が揃う場合だけ統合するようにしました。分割のartifactは公開対象の`results-*`と分けます。
+
+最初に検証した4分割の実行はsuite `03b2e107`を使用し、全11ジョブが成功して結果を公開しました。Lyraはシミュレーション16,004本を収録し、テストステップの最長は91.8分でした。統合結果は13,384 pass、1,735 unsupported、885 failの判定を保持しました。担当テスト、入力とランナーの指紋、共通のビルドと設定、各テストの判定と理由を照合しました。[Nightly 44631823505](https://github.com/kurochan001/kirimasim-tests/actions/runs/44631823505) · [検証記録](../coverage/qualification/lyra-nightly-shards-20261120.json)
+
 2026-11-15の[実行](https://github.com/kurochan001/kirimasim-tests/actions/runs/43651437455)はsuite `ed5ded9a`が対象で、Ghostのパーサ取得中に失敗し、ビルド・テストには進みませんでした。kirimasimのランダム照合とpublishを含む、ほかの6ジョブは成功しました。元の実行にはGitの直接の診断が残っていません。その後の取得専用の診断でアクセス失敗を再現し、CIの取得先設定が現在の依存先設定と食い違っていることを確認しました。
 開発を引き継ぐときは、最新の[引き継ぎ資料](claude-code-handoff-20261112.md)を参照してください。この節の以下の記録は、以前の確認時点のものです。
 
