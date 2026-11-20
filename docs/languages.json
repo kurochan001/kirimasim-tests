@@ -20,8 +20,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "3e33ff91b29dc31a789221a90f7e4dc8cd3ff615a9ad7aa3cdc03e6c1495bf25",
-        "ja": "f15985afbe0d9ffd0f9d29975c0e7000757737086945ac938f772e28ffd1e4c3"
+        "en": "7fff876041888cc8b2299a6ed290524eb609aa67ca5ddc8a2357a95a671abe90",
+        "ja": "12fcff5cb3f91c047bc06f2f09758bd36bb35eb484adc5d144a51722dcdbbbf2"
       }
     },
     {
@@ -1343,6 +1343,17 @@
       "sha256": {
         "en": "8f02e503af81026082c388d376d2d4511edd5b4272d8ebd3b2c56bb2ea078818",
         "ja": "bce9937bbf75e24c3a8a4e89e0e91f9d17ba2444075b0d9d31085471af58370f"
+      }
+    },
+    {
+      "en": "docs/review-sample.en.md",
+      "ja": "docs/review-sample.md",
+      "source": "docs/review-sample.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "26c11c4d9c1487f9a40193bcbe69988b641393b2a36755f6a0407bd101f7468e",
+        "ja": "29cb16d12bbc09c8a6eb77d0403a9b5c537945e97fadc1c8a7cca5fc6c6a0871"
       }
     }
   ]

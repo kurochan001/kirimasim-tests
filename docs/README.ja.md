@@ -51,6 +51,7 @@
 | 期待値のレビュー候補 | [日本語](review-candidates.md) | [English](review-candidates.en.md) |
 | slangによる参考判定 | [日本語](slang-reference.md) | [English](slang-reference.en.md) |
 | 日次・週次シミュレーション速度ベンチマーク | [日本語](daily-benchmark.ja.md) | [English](daily-benchmark.md) |
+| 人による抽き取りレビュー | [日本語](review-sample.md) | [English](review-sample.en.md) |
 
 <a id="generated-reports-and-catalogs"></a>
 

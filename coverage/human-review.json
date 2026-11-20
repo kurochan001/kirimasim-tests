@@ -1,0 +1,5 @@
+{
+  "schema": 1,
+  "note": "Verdicts of a person who checked tests drawn by tools/review_sample.py against IEEE 1800-2023. An entry is current while the test keeps the recorded input digest. This ledger does not change :spec_check:.",
+  "reviews": []
+}
