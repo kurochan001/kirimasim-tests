@@ -637,8 +637,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "722a56d221b929631b945f7609154ec573c1f40685db54008a610546113d5230",
-        "ja": "f3622b6afcbbcfbd6d9131dafee5586427d21e1130767d216d36315a823d24d4"
+        "en": "9a672adcb117e47526a2ad4a540459a5a83e11e2b1d52dd591789b7e6219f9ae",
+        "ja": "63cbc179b8b11f4f573da39a0dd39e7569ffa34bad05b9129101377daaa4afed"
       }
     },
     {
@@ -1369,6 +1369,17 @@
       "source": "docs/sv2023-features.md",
       "source_language": "ja",
       "generated": true
+    },
+    {
+      "en": "docs/metamorphic.en.md",
+      "ja": "docs/metamorphic.md",
+      "source": "docs/metamorphic.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "a25e637767b6240a72b49e74e29366f20787424605c73095510f4455addd253a",
+        "ja": "cd83bc0478850e270c0cdc13dfae3024845fd7c580dd4e8e5db13c80f2b5a5d7"
+      }
     }
   ]
 }

@@ -52,6 +52,7 @@ Code, identifiers, raw execution evidence and license terms retain their origina
 | slang reference | [English](slang-reference.en.md) | [日本語](slang-reference.md) |
 | Daily and weekly simulation-speed benchmarks | [English](daily-benchmark.md) | [日本語](daily-benchmark.ja.md) |
 | Human review of a sample of tests | [English](review-sample.en.md) | [日本語](review-sample.md) |
+| Metamorphic checks | [English](metamorphic.en.md) | [日本語](metamorphic.md) |
 
 <a id="自動生成レポートカタログ"></a>
 
