@@ -1,0 +1,5 @@
+r=1.25: inh 1/2, odd 1/3, own 1/4, one 0/1, ints 1/3, plain 1/1
+r=1.50: inh 2/2, odd 2/3, own 2/4, one 0/1, ints 1/3, plain 1/1
+r=2.10: inh 2/2, odd 3/3, own 2/4, one 0/1, ints 1/3, plain 1/1
+r=2.00: inh 2/2, odd 3/3, own 3/4, one 0/1, ints 1/3, plain 1/1
+r=3.50: inh 2/2, odd 3/3, own 3/4, one 1/1, ints 1/3, plain 1/1

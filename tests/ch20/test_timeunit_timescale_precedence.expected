@@ -1,0 +1,5 @@
+top: -6 -8
+unit_only: -5 -8
+prec_only: -6 -12
+late: -3 -6
+both: -9 -12

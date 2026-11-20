@@ -4,7 +4,7 @@
 
 [English](ch7.md) / [日本語](ch7.ja.md)
 
-[すべての章](README.ja.md) .テストは1109本で、そのうち604本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは1111本で、そのうち604本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -411,6 +411,8 @@
 | [`test_array_and_class_method_call_forms`](../../tests/ch7/test_array_and_class_method_call_forms.sv) |一次式・this・superに対する、メソッド名の後に属性インスタンスを伴うメソッド呼出し、および識別子またはunique/and/or/xorで指定する配列操作メソッドの呼出しを確認します。括弧の有無、イテレータ引数、with句、呼出し後の選択も対象です。| 7.12 7.12.1 7.12.3 8.11 8.15 A.8.2 | Verilator 5.052 ||
 | [`test_array_method_corner`](../../tests/ch7/test_array_method_corner.sv) |検査検索、ソート、和、min、max、ユニークな方法| 7.12 7.12.1 7.12.2 7.12.3 | Verilator 5.052 ||
 | [`test_array_method_index_argument`](../../tests/ch7/test_array_method_index_argument.sv) |次の例では，このメソッドを用いて，インデックスを指定した要素を指定する。| 7.12 7.12.4 7.12.1 |規格のみ||
+| [`test_array_method_index_argument_class_assoc_nested`](../../tests/ch7/test_array_method_index_argument_class_assoc_nested.sv) |添字の引数を使うと、`index`という名前のメソッドを持つクラスのハンドルのキューで、そのメソッドと位置の両方を使え、連想配列の名前を変えた添字のメソッドは符号付きのbyteのキーを返し、with式の中の入れ子の配列メソッドの呼出しは外側の反復子の名前を変えた添字を読む| 7.12 7.12.4 7.12.1 7.12.3 |規格のみ||
+| [`test_array_method_index_argument_without_iterator`](../../tests/ch7/test_array_method_index_argument_without_iterator.sv) |配列メソッドの呼出しは添字の引数だけを与えて反復子の名前を`item`のままにでき、名前を変えた添字のメソッドは位置指定・縮約・min・maxの呼出しで働き、添字のメソッドの次元の引数を取る| 7.12 7.12.4 7.12.1 7.12.3 |規格のみ||
 | [`test_array_method_iterator_index_names_and_selects`](../../tests/ch7/test_array_method_iterator_index_names_and_selects.sv) |index は index のメソッドの名前を変更します。 index() は int または 連想インデックスタイプを返します。 結果に対する select とメソッドは with 条項またはコールに従います。| 7.12 7.12.1 7.12.4 |規格のみ||
 | [`test_array_methods_2`](../../tests/ch7/test_array_methods_2.sv) |IEEE 1800-2023 § 7.12 のテスト: 配列操作法| 7.12 7.12.1 7.12.2 7.12.3 | Verilator 5.052 ||
 | [`test_array_predicates`](../../tests/ch7/test_array_predicates.sv) |配列メソッドテスト| 7.12 7.5 7.10 | Icarus Verilog 13.0 ||

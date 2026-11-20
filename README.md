@@ -75,36 +75,36 @@ Independent [daily and weekly speed benchmarks](docs/daily-benchmark.md) run **2
 These are inventory and expectation-provenance counts, not current simulator passes. See [what `:lrm:` and `:oracle:` record](docs/faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
 <!-- suite-stats:begin -->
-The suite has **16298 tests** in 38 chapters. 9351 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
+The suite has **16326 tests** in 38 chapters. 9351 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
 | Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 9005 |
-| Verilator 5.052 or 5.054, with no Icarus Verilog 13.0 oracle recorded | 2904 |
-| The standard only, with no fixed-release simulator oracle recorded | 4389 |
+| Verilator 5.052 or 5.054, with no Icarus Verilog 13.0 oracle recorded | 2916 |
+| The standard only, with no fixed-release simulator oracle recorded | 4405 |
 
-4053 tests depend on x or z values (`:fourstate: yes`). 746 tests come with C code: 192 DPI tests (`:dpi_c:`) and 554 VPI tests (`:vpi_c:`). 3050 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 77 tests check the exit code of the simulation (`:expected_exit:`). 26 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 56 name the top-level module or configuration (`:top_module:`), and 1299 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+4053 tests depend on x or z values (`:fourstate: yes`). 746 tests come with C code: 192 DPI tests (`:dpi_c:`) and 554 VPI tests (`:vpi_c:`). 3058 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 77 tests check the exit code of the simulation (`:expected_exit:`). 26 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 56 name the top-level module or configuration (`:top_module:`), and 1299 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
 | 3 | Design and verification building blocks | 152 | 117 | 15 | 20 |
 | 4 | Scheduling semantics | 480 | 444 | 7 | 29 |
 | 5 | Lexical conventions | 520 | 441 | 29 | 50 |
-| 6 | Data types | 899 | 564 | 169 | 166 |
-| 7 | Aggregate data types | 1109 | 325 | 487 | 297 |
-| 8 | Classes | 479 | 77 | 263 | 139 |
+| 6 | Data types | 902 | 564 | 171 | 167 |
+| 7 | Aggregate data types | 1111 | 325 | 487 | 299 |
+| 8 | Classes | 489 | 77 | 269 | 143 |
 | 9 | Processes | 464 | 344 | 53 | 67 |
 | 10 | Assignment statements | 749 | 589 | 80 | 80 |
 | 11 | Operators and expressions | 2607 | 2018 | 231 | 358 |
 | 12 | Procedural programming statements | 312 | 214 | 33 | 65 |
-| 13 | Tasks and functions (subroutines) | 742 | 333 | 245 | 164 |
+| 13 | Tasks and functions (subroutines) | 743 | 333 | 246 | 164 |
 | 14 | Clocking blocks | 172 |  | 102 | 70 |
 | 15 | Interprocess synchronization and communication | 205 | 2 | 64 | 139 |
 | 16 | Assertions | 801 | 38 | 122 | 641 |
 | 17 | Checkers | 129 |  | 49 | 80 |
-| 18 | Constrained random value generation | 283 | 4 | 129 | 150 |
-| 19 | Functional coverage | 243 |  | 71 | 172 |
-| 20 | Utility system tasks and system functions | 683 | 388 | 122 | 173 |
+| 18 | Constrained random value generation | 289 | 4 | 132 | 153 |
+| 19 | Functional coverage | 246 |  | 71 | 175 |
+| 20 | Utility system tasks and system functions | 686 | 388 | 122 | 176 |
 | 21 | Input/output system tasks and system functions | 931 | 529 | 108 | 294 |
 | 22 | Compiler directives | 1326 | 1244 | 41 | 41 |
 | 23 | Modules and hierarchy | 419 | 281 | 57 | 81 |

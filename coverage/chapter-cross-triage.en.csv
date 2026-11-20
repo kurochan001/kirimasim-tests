@@ -119,15 +119,15 @@ tests/ch3/test_interface_instantiates_interface_program_and_checker.sv
 tests/ch3/test_module_instantiates_each_block_kind.sv","The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
 3,Design and verification building blocks,18,Constrained random value generation,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,1,tests/ch26/test_std_package_access.sv,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
 3,Design and verification building blocks,19,Functional coverage,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,1,tests/ch26/test_package_items_anonymous_program_export_timeunit.sv,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
-3,Design and verification building blocks,20,Utility system tasks and system functions,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,264,"tests/ch20/test_edge_time_round.sv
+3,Design and verification building blocks,20,Utility system tasks and system functions,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,267,"tests/ch20/test_edge_time_round.sv
 tests/ch20/test_printtimescale_unit_root_names.sv
 tests/ch20/test_stime_time_units.sv",Maintaining the planning and execution evidence of existing models.,,
 3,Design and verification building blocks,21,Input/output system tasks and system functions,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,243,"tests/ch20/test_timeformat_units_precision.sv
 tests/ch4/test_delta_cycles.sv
 tests/gen/ch10/test_gen_nba_boundary_array_bit_delayed_w127.sv",Maintaining the planning and execution evidence of existing models.,,
-3,Design and verification building blocks,22,Compiler directives,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,56,"tests/ch22/test_include_guard_two_files.sv
-tests/ch22/test_timescale_child_units_in_parent.sv
-tests/ch3/test_directives_apply_to_later_text_only.sv",Maintaining the planning and execution evidence of existing models.,,
+3,Design and verification building blocks,22,Compiler directives,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,57,"tests/ch20/test_timeunit_timescale_precedence.sv
+tests/ch22/test_include_guard_two_files.sv
+tests/ch22/test_timescale_child_units_in_parent.sv",Maintaining the planning and execution evidence of existing models.,,
 3,Design and verification building blocks,23,Modules and hierarchy,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,29,"tests/ch23/test_extern_module_headers_wildcard_definition.sv
 tests/ch23/test_module_declaration_all_header_elements.sv
 tests/ch23/test_subroutine_name_resolution.sv",Maintaining the planning and execution evidence of existing models.,,
@@ -316,7 +316,7 @@ tests/ch5/test_system_function_names_cell_reset_and_attributes.sv","The candidat
 6,Data types,7,Aggregate data types,M,Modeling licensed,登録済み,8,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,1716,"tests/ch11/test_memory_invalid_address_2state.sv
 tests/ch26/test_package_typedef.sv
 tests/ch37/test_vpi_net_array_members_parents.sv",Maintaining the planning and execution evidence of existing models.,,
-6,Data types,8,Classes,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,219,"tests/ch13/test_evaluation_context_extended.sv
+6,Data types,8,Classes,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,223,"tests/ch13/test_evaluation_context_extended.sv
 tests/ch13/test_ref_static_accepted_actuals.sv
 tests/ch37/test_vpi_scope_lifetimes.sv",Maintaining the planning and execution evidence of existing models.,,
 6,Data types,9,Processes,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,662,"tests/ch12/test_foreach_index_shadows_outer.sv
@@ -496,9 +496,9 @@ tests/gen/ch15/test_gen_cross_mailbox_129_bit_known_typed_get_before_bounded_obj
 tests/gen/ch15/test_gen_cross_mailbox_129_bit_x_typeless_peek_after_bounded_object.sv",Maintaining the planning and execution evidence of existing models.,,
 8,Classes,16,Assertions,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,1,tests/ch37/test_vpi_typespec_kinds_more.sv,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
 8,Classes,17,Checkers,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,0,,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
-8,Classes,18,Constrained random value generation,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,25,"tests/ch18/test_constraint_inherit_add_and_pure_chain.sv
-tests/ch18/test_rand_mode_array_element.sv
-tests/ch26/test_package_item_declaration_kinds.sv",Maintaining the planning and execution evidence of existing models.,,
+8,Classes,18,Constrained random value generation,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,26,"tests/ch18/test_constraint_inherit_add_and_pure_chain.sv
+tests/ch18/test_constraint_override_specifiers_prototypes_pure_param.sv
+tests/ch18/test_rand_mode_array_element.sv",Maintaining the planning and execution evidence of existing models.,,
 8,Classes,19,Functional coverage,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,1,tests/ch8/test_class_shallow_copy_covergroup_handles.sv,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
 8,Classes,20,Utility system tasks and system functions,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,18,"tests/ch13/test_parameterized_subroutines.sv
 tests/ch20/test_bits_member_through_null_handle.sv
@@ -1066,9 +1066,9 @@ tests/ch26/test_package_items_anonymous_program_export_timeunit.sv","The candida
 20,Utility system tasks and system functions,21,Input/output system tasks and system functions,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,1171,"tests/ch20/test_array_query_invalid_dimension_all_x.sv
 tests/ch20/test_assertion_control_levels_and_scopes.sv
 tests/ch20/test_comb_sysfunc_edge.sv",Maintaining the planning and execution evidence of existing models.,,
-20,Utility system tasks and system functions,22,Compiler directives,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,130,"tests/ch20/test_printtimescale_other_module.sv
+20,Utility system tasks and system functions,22,Compiler directives,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,131,"tests/ch20/test_printtimescale_other_module.sv
 tests/ch20/test_severity_tasks_report_contents.sv
-tests/ch22/test_timescale_child_units_in_parent.sv",Maintaining the planning and execution evidence of existing models.,,
+tests/ch20/test_timeunit_timescale_precedence.sv",Maintaining the planning and execution evidence of existing models.,,
 20,Utility system tasks and system functions,23,Modules and hierarchy,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,18,"tests/ch23/test_module_common_item_kinds.sv
 tests/gen/ch20/test_gen_cross_simend_fatal_always_event_child_finish.sv
 tests/gen/ch20/test_gen_cross_simend_fatal_fork_delay_child_fatal.sv","The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,

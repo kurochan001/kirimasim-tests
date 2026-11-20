@@ -1701,3 +1701,13 @@ The 5.054 release accepts four designs that 10.9 forbids: a non-bit-stream `real
 ### Covergroup filtering and distribution order (Verilator 5.054)
 
 `ch19/test_cg_with_construction_freezes_filter` constructs two covergroups with `ceiling=5`, then changes it to 2. Clause 19.5.1.1 B011 evaluates the filter at construction. With two bins over 0 through 5, filtering before distribution gives `{0,1}` and `{2,3,4}`; `distribute_first` instead gives `{0,1,2}` and `{3,4}`. After sampling 2 then 1, the expected coverages are therefore `filter=100 distribute=50`. Verilator 5.054 reports `filter=100 distribute=100` at both seeds 1 and 73. The expected value remains 50 and the oracle remains `spec`. This observes a distribution-order difference without establishing an internal implementation cause or a separate failure of construction-time capture.
+
+<a id="sv2023-thin-features-20261121"></a>
+
+### Features added by 1800-2023 (Verilator 5.054)
+
+The tests added on 2026-11-21 for features added by 1800-2023 show these differences (constructs that a release does not support are left out):
+
+- With an interface instance as the argument, `$timeunit` and `$timeprecision` return the values of the calling module (20.4.1). The difference that `$timeprecision` without an argument returns the simulation precision (the 20.4.1 row) remains. `ch20/test_timeunit_package_interface_program_nested`, `ch20/test_timeunit_timescale_precedence`
+- It accepts `int` as the default of a type parameter restricted with `type enum` (6.20.3). `ch6/test_illegal_enum_restricted_type_parameter_default_int`
+- It accepts a class that replaces a constraint that an intermediate class declared `:extends :final` (18.5.2). `ch18/test_illegal_constraint_final_replacement_replaced`

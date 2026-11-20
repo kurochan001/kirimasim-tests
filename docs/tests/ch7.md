@@ -4,7 +4,7 @@
 
 [English](ch7.md) / [日本語](ch7.ja.md)
 
-[All chapters](README.md). 1109 tests, 604 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 1111 tests, 604 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -411,6 +411,8 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_array_and_class_method_call_forms`](../../tests/ch7/test_array_and_class_method_call_forms.sv) | Method calls on a primary or on this or super, with attribute instances after the method name, and array manipulation calls named by an identifier or by unique, and, or and xor, with and without parentheses, an iterator argument and a with clause, and with a select after the call | 7.12 7.12.1 7.12.3 8.11 8.15 A.8.2 | Verilator 5.052 ||
 | [`test_array_method_corner`](../../tests/ch7/test_array_method_corner.sv) | Tests find, sort, sum, min, max, unique methods | 7.12 7.12.1 7.12.2 7.12.3 | Verilator 5.052 ||
 | [`test_array_method_index_argument`](../../tests/ch7/test_array_method_index_argument.sv) | The second argument of an array method names the index method of its iterator, also where an element has a member named index | 7.12 7.12.4 7.12.1 | standard only ||
+| [`test_array_method_index_argument_class_assoc_nested`](../../tests/ch7/test_array_method_index_argument_class_assoc_nested.sv) | With the index argument, a queue of class handles whose class has a method named index can use both that method and the position, a renamed index method of an associative array returns the signed byte keys, and a nested array method call in the with expression reads the renamed index of the outer iterator | 7.12 7.12.4 7.12.1 7.12.3 | standard only ||
+| [`test_array_method_index_argument_without_iterator`](../../tests/ch7/test_array_method_index_argument_without_iterator.sv) | An array method call may give only the index argument, leaving the iterator name item, and the renamed index method works in locator, reduction, min and max calls and takes the dimension argument of the index method | 7.12 7.12.4 7.12.1 7.12.3 | standard only ||
 | [`test_array_method_iterator_index_names_and_selects`](../../tests/ch7/test_array_method_iterator_index_names_and_selects.sv) | array method calls use item and index as default names, an iterator argument names the element only inside the with expression, an index argument renames the index method, index() returns int or the associative index type, and selects and methods on the result follow the with clause or the call | 7.12 7.12.1 7.12.4 | standard only ||
 | [`test_array_methods_2`](../../tests/ch7/test_array_methods_2.sv) | Test for IEEE 1800-2023 §7.12: Array manipulation methods | 7.12 7.12.1 7.12.2 7.12.3 | Verilator 5.052 ||
 | [`test_array_predicates`](../../tests/ch7/test_array_predicates.sv) | Array Methods Tests | 7.12 7.5 7.10 | Icarus Verilog 13.0 ||

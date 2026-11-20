@@ -216,6 +216,10 @@
 - `strength-events-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T01:33:42.310174+00:00` / 6/12332 動作確認、古い入力との対応 0 件。
 - `strength-events-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T01:33:41.184186+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `strength-events-20261115-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T01:33:42.187059+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
+- `sv2023-thin-20261121-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-20T21:24:39.791096+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `sv2023-thin-20261121-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-20T21:24:40.094672+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `sv2023-thin-20261121-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-20T21:25:04.136848+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `sv2023-thin-20261121-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-20T21:25:22.711190+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `test-fix-20261113-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-12T21:43:20.959244+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `test-fix-20261113-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-12T21:43:29.567975+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `test-fix-20261113-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T21:43:25.251767+00:00` / 1/12332 動作確認、古い入力との対応 0 件。

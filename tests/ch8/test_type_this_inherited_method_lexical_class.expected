@@ -1,0 +1,5 @@
+inherited is_base: 1
+in the subclass: derived 1, base 0
+me().kind: base kind
+me_derived().kind: derived kind
+me().vkind: derived vkind

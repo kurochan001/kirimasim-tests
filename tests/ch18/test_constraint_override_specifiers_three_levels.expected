@@ -1,0 +1,4 @@
+base: ok=1 x=1 y=2
+mid: ok=1 x=1 y=20 z=3
+leaf: ok=1 x=100 y=20 z=3 w=4
+leaf through a base handle: ok=1 x=100 y=20 w=4

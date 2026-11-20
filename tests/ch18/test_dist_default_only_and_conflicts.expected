@@ -1,0 +1,5 @@
+only1: values allowed=4
+only0: ok=0 x=2
+def1: ok=100 at most 3=0
+none: ok=0
+def0: ok=0

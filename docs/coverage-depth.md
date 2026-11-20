@@ -14,7 +14,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 16298 |
+| Tests | 16326 |
 | Clauses in scope | 1011 |
 | Clauses out of scope | 148 |
 | Clauses with a direct test | 1011/1011 |
@@ -28,8 +28,8 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | --- | ---: |
 | both releases | 1699 |
 | Icarus Verilog 13.0 only | 7306 |
-| Verilator 5.052 or 5.054 only | 2904 |
-| standard only | 4389 |
+| Verilator 5.052 or 5.054 only | 2916 |
+| standard only | 4405 |
 
 <a id="章別"></a>
 
@@ -40,21 +40,21 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | 3 | Design and verification building blocks | 152 | 17 | 8.9 | 0 | 20 |
 | 4 | Scheduling semantics | 480 | 27 | 17.8 | 0 | 29 |
 | 5 | Lexical conventions | 520 | 16 | 32.5 | 0 | 50 |
-| 6 | Data types | 899 | 76 | 11.8 | 0 | 166 |
-| 7 | Aggregate data types | 1109 | 49 | 22.6 | 0 | 297 |
-| 8 | Classes | 479 | 43 | 11.1 | 0 | 139 |
+| 6 | Data types | 902 | 76 | 11.9 | 0 | 167 |
+| 7 | Aggregate data types | 1111 | 49 | 22.7 | 0 | 299 |
+| 8 | Classes | 489 | 43 | 11.4 | 0 | 143 |
 | 9 | Processes | 464 | 25 | 18.6 | 0 | 67 |
 | 10 | Assignment statements | 749 | 18 | 41.6 | 0 | 80 |
 | 11 | Operators and expressions | 2607 | 42 | 62.1 | 0 | 358 |
 | 12 | Procedural programming statements | 312 | 19 | 16.4 | 0 | 65 |
-| 13 | Tasks and functions (subroutines) | 742 | 15 | 49.5 | 0 | 164 |
+| 13 | Tasks and functions (subroutines) | 743 | 15 | 49.5 | 0 | 164 |
 | 14 | Clocking blocks | 172 | 15 | 11.5 | 0 | 70 |
 | 15 | Interprocess synchronization and communication | 205 | 21 | 9.8 | 0 | 139 |
 | 16 | Assertions | 801 | 69 | 11.6 | 0 | 641 |
 | 17 | Checkers | 129 | 10 | 12.9 | 0 | 80 |
-| 18 | Constrained random value generation | 283 | 44 | 6.4 | 0 | 150 |
-| 19 | Functional coverage | 243 | 24 | 10.1 | 0 | 172 |
-| 20 | Utility system tasks and system functions | 683 | 31 | 22.0 | 0 | 173 |
+| 18 | Constrained random value generation | 289 | 44 | 6.6 | 0 | 153 |
+| 19 | Functional coverage | 246 | 24 | 10.2 | 0 | 175 |
+| 20 | Utility system tasks and system functions | 686 | 31 | 22.1 | 0 | 176 |
 | 21 | Input/output system tasks and system functions | 931 | 47 | 19.8 | 0 | 294 |
 | 22 | Compiler directives | 1326 | 21 | 63.1 | 0 | 41 |
 | 23 | Modules and hierarchy | 419 | 33 | 12.7 | 0 | 81 |

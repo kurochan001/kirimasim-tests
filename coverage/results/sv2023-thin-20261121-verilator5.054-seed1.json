@@ -1,0 +1,140 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch13/test_illegal_stacktrace_in_constant_function": {
+   "status": "pass",
+   "inputs_sha256": "7f939e09b9c4fb9c1478e4bf7b4cd85f0dc8a334461ef7938741e775a0ec3d09"
+  },
+  "ch18/test_constraint_final_constraint_mode_inline": {
+   "status": "pass",
+   "inputs_sha256": "fc46258eaf77e20e67eb773816f94ec90ae86fb8856236999b532b36d4a264d9"
+  },
+  "ch18/test_constraint_override_specifiers_prototypes_pure_param": {
+   "status": "pass",
+   "inputs_sha256": "d9d609dab4ba452c66e17eec57583941e0fcaa1de6cb8ec71d4bf42d1b63415c"
+  },
+  "ch18/test_constraint_override_specifiers_three_levels": {
+   "status": "pass",
+   "inputs_sha256": "35c3734a0285897a91254f4f1cbd569f9844147dd5aebc334bb0c780de2078d4"
+  },
+  "ch18/test_dist_default_in_implication_inline_foreach": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch18/test_dist_default_in_implication_inline_foreach.sv:34:60: Unsupported: 'default :/' constraint",
+   "inputs_sha256": "abe7508a94e23326540b8fb6bebbd600a6a0c93195f6dd9d1a244673c60bc7db"
+  },
+  "ch18/test_dist_default_only_and_conflicts": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch18/test_dist_default_only_and_conflicts.sv:33:35: Unsupported: 'default :/' constraint",
+   "inputs_sha256": "55c2edfc9b1b25a48ed48995d4b797d0585c39833435a9d063442542ed1ad2e5"
+  },
+  "ch18/test_illegal_constraint_final_replacement_replaced": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "955063121ae344affb553763e5775f450b926626110e3c3f675fb745bd8c6875"
+  },
+  "ch19/test_cg_real_coverpoint_cross": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch19/test_cg_real_coverpoint_cross.sv:50:35: Unsupported: arguments of 'get_inst_coverage' of coverpoint or cross 'cr'",
+   "inputs_sha256": "f74a84750527ee7a88c22b5d960e6272fb3e63e76da704cfa43f84960f59b93d"
+  },
+  "ch19/test_cg_real_interval_covergroup_level": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch19/test_cg_real_interval_covergroup_level.sv:58:36: Unsupported: arguments of 'get_inst_coverage' of coverpoint or cross 'inh'",
+   "inputs_sha256": "8721ed903d1c4c5590a566a4eac601f7eb66314186f06b2f0351cd9483909838"
+  },
+  "ch19/test_illegal_cg_cross_real_variable": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "8c998b925ca77e9aefd206227b8309d0b250266c5386e9120e827cf1e16de7e5"
+  },
+  "ch20/test_timeprecision_exponent_table": {
+   "status": "known",
+   "reason": "output differs: line 1 is '100s: 2 -15', expected '100s: 2 2'",
+   "inputs_sha256": "7e1879adf3625ba0a8905fd751a7a1a2bb0a7d3e50e3edcc71fdcef2845b3770"
+  },
+  "ch20/test_timeunit_package_interface_program_nested": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch20/test_timeunit_package_interface_program_nested.sv:67:3: Unsupported: module decls within module decls",
+   "inputs_sha256": "fa471e36f57c2d3aa50120f2f84cac437be5536960b82b4c11781d7f86eca361"
+  },
+  "ch20/test_timeunit_timescale_precedence": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'top: -6 -12', expected 'top: -6 -8'",
+   "inputs_sha256": "9b0a1c58047f819aa9318086dee8cdd98c8db7df68bf91ca90fd053f8049b559"
+  },
+  "ch6/test_illegal_class_restricted_type_parameter_via_type_parameter": {
+   "status": "pass",
+   "inputs_sha256": "bf174be433a1e1e229244846cbc380b5e50ee0d6e600fc6aefa4ef111e7033c4"
+  },
+  "ch6/test_illegal_enum_restricted_type_parameter_default_int": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "33db37d9066059239c29be64f44404e8176f64ce5bbc699edabe7c948e6e7f9a"
+  },
+  "ch6/test_type_param_restricted_abstract_final_scoped": {
+   "status": "pass",
+   "inputs_sha256": "d0f6a9ecc9e31c28acef24b4bbc9071ce9872804aced6d37396f066c2cdd15be"
+  },
+  "ch7/test_array_method_index_argument_class_assoc_nested": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch7/test_array_method_index_argument_class_assoc_nested.sv:65:28: 'with' function expects only up to one argument",
+   "inputs_sha256": "529f13190cb37e0b8167c39f734b1d4e7b64522f443541864e51e32d42f047c4"
+  },
+  "ch7/test_array_method_index_argument_without_iterator": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch7/test_array_method_index_argument_without_iterator.sv:46:16: 'with' function expects simple variable name",
+   "inputs_sha256": "0ff16fa61797d8969c695d676e2c5ea5fbac17886ee3344b163a2813660a9b2c"
+  },
+  "ch8/test_constructor_default_empty_and_inout": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch8/test_constructor_default_empty_and_inout.sv:39:23: Unsupported: new constructor 'default' argument",
+   "inputs_sha256": "cccc285c8a35d00b741afe56ccf12fba63e9328d93e7bef4635c1d22afeb6431"
+  },
+  "ch8/test_constructor_default_parameterized_superclass": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch8/test_constructor_default_parameterized_superclass.sv:39:25: Unsupported: new constructor 'default' argument",
+   "inputs_sha256": "126a7122e1a062390edf777bd1ee0a0ef6aeaf3910620fc4c579314c8e2c5021"
+  },
+  "ch8/test_constructor_default_through_implicit_constructor": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch8/test_constructor_default_through_implicit_constructor.sv:42:33: Unsupported: 'extends' with 'default'",
+   "inputs_sha256": "a38a974fffb3911d60513c0c848ece1e35c511d0ad8321e2a4044d6afd7e9f53"
+  },
+  "ch8/test_final_class_parameterized_implements": {
+   "status": "pass",
+   "inputs_sha256": "a04af499c423d0f7409e5879c87ad174e4c00d63be6c9a54fd7f2ae2e500091a"
+  },
+  "ch8/test_illegal_final_class_specialization_extended": {
+   "status": "pass",
+   "inputs_sha256": "53123b5a36e4ea06b98dccce5f1eb92b3b86720b7081945ea9987ac6a8a98233"
+  },
+  "ch8/test_illegal_final_derived_class_in_package_extended": {
+   "status": "pass",
+   "inputs_sha256": "c25b4ed9dab46b50f9ea3aafa10ff48789270934549e6c62443929df5cce56b7"
+  },
+  "ch8/test_illegal_super_new_default_with_extends_default": {
+   "status": "pass",
+   "inputs_sha256": "a5e177f1cd9a89bbb9dc22243a544c7e2c28be8470bf5cd3803e231e45e9e18e"
+  },
+  "ch8/test_type_this_final_class_typedef": {
+   "status": "pass",
+   "inputs_sha256": "e781dce7807914a4f373deaa8e6a3195ca89511d32eaebb276c2b02c3d4173bd"
+  },
+  "ch8/test_type_this_inherited_method_lexical_class": {
+   "status": "pass",
+   "inputs_sha256": "36335b27cdcae6d5f4721b4d1051b7775c6ebc9f831a3c07f72307f3f1cd3ea5"
+  },
+  "ch8/test_type_this_parameterized_specialization": {
+   "status": "pass",
+   "inputs_sha256": "c5ebaf58434c8b3762e8937f1b0fadaa9ca4bc8aa2183682f141428d4cd846dc"
+  }
+ },
+ "generated_at": "2026-11-20T21:25:04.136848+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

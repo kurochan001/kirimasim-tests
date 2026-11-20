@@ -4,7 +4,7 @@
 
 [English](ch8.md) / [日本語](ch8.ja.md)
 
-[すべての章](README.ja.md) .テストは479本で、そのうち138本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは489本で、そのうち138本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -122,6 +122,9 @@
 | [`test_this_and_super_in_out_of_block_methods`](../../tests/ch8/test_this_and_super_in_out_of_block_methods.sv) |クラス宣言やブロック外のメソッド宣言 (コンストラクタと2つの関数) の中で使われる this、super、this.super は、同名の引数や派生属性の代わりに、現在のオブジェクトまたはそのベースクラスのプロパティを選択します。| 8.11 8.15 8.24 A.8.4 A.10 | Verilator 5.052 ||
 | [`test_this_expr`](../../tests/ch8/test_this_expr.sv) |この表現をテスト| 8.11 | Icarus Verilog 13.0 ||
 | [`test_type_this`](../../tests/ch8/test_type_this.sv) |type(this) はサブクラスの中に含まれる クラスのタイプであり、サブクラスの名前を与えます| 8.11 6.23 |規格のみ||
+| [`test_type_this_final_class_typedef`](../../tests/ch8/test_type_this_final_class_typedef.sv) |パッケージで`:final`と宣言したクラスの中で、type(this)はクラスのtypedef、varで宣言したキューのプロパティの要素の型、局所変数の型を表せ、クラスのスコープから辿るtypedefはクラスの型そのものである| 8.11 6.23 8.13 6.18 | Verilator 5.054 ||
+| [`test_type_this_inherited_method_lexical_class`](../../tests/ch8/test_type_this_inherited_method_lexical_class.sv) |type(this)はそれを書いたクラスの本体のクラスを表すので、派生クラスが受け継ぐメソッドの中でも基底クラスのままである。そこでは基底クラスとの比較が成り立ち、受け継いだメソッドがtype(this)として返すハンドルは基底の型を持ち、それが非virtualのメソッドの呼出しを決めるが、virtualのメソッドは上書きしたものが動く| 8.11 6.23 8.20 | Verilator 5.054 ||
+| [`test_type_this_parameterized_specialization`](../../tests/ch8/test_type_this_parameterized_specialization.sv) |パラメータ付きのクラスの中で、type(this)はそれを囲む特殊化である。その型を返すメソッドは特殊化のハンドルを返し、その型のプロパティは同じ特殊化のオブジェクトをつなぎ、特殊化ごとに自分のオブジェクトを数え、type(this)は自分の特殊化には一致するが別の特殊化には一致しない| 8.11 6.23 8.25 | Verilator 5.054 ||
 | [`test_assign_class`](../../tests/ch8/test_assign_class.sv) |クラス代入テスト| 8.12 8.4 | Icarus Verilog 13.0 ||
 | [`test_class_copy`](../../tests/ch8/test_class_copy.sv) |8.13 のクラスコピー (§)| 8.12 | Verilator 5.052 ||
 | [`test_class_copy_2`](../../tests/ch8/test_class_copy_2.sv) |テスト: クラスコピー法| 8.12 8.7 | Verilator 5.052 ||
@@ -145,9 +148,12 @@
 | [`test_class_inheritance_virtual_super`](../../tests/ch8/test_class_inheritance_virtual_super.sv) |クラス継承、スーパー、仮想メソッドのオーバーライド| 8.13 8.15 8.20 |規格のみ||
 | [`test_class_multilevel_inheritance`](../../tests/ch8/test_class_multilevel_inheritance.sv) |多重レベル継承明示的に super.new () を呼び出さないコンストラクタ| 8.13 8.17 | Icarus Verilog 13.0 ||
 | [`test_final_class_and_method`](../../tests/ch8/test_final_class_and_method.sv) |:final で宣言されたクラスは他のクラスを拡張して使用することができ、 :final で 宣言されたメソッドは他のメソッドと同様に継承され呼び出されます。| 8.13 8.20 | Verilator 5.052 ||
+| [`test_final_class_parameterized_implements`](../../tests/ch8/test_final_class_parameterized_implements.sv) |`:final`と宣言したクラスは、パッケージの中でパラメータを持ち、抽象クラスを継承し、インタフェースクラスを実装できる。その特殊化はそれぞれ自分のstatic変数を持ち、そのオブジェクトは抽象基底とインタフェースクラスのハンドルを通して使われる| 8.13 8.3 8.25 8.26 8.21 | Verilator 5.054 ||
 | [`test_illegal_class_extends_two_classes`](../../tests/ch8/test_illegal_class_extends_two_classes.sv) |クラスは単一のベースクラスを拡張します2つのクラスを拡張するのは違法です| 8.13 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_final_class_extended`](../../tests/ch8/test_illegal_final_class_extended.sv) |:final と宣言されたクラスは拡張できません| 8.13 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_final_class_extends`](../../tests/ch8/test_illegal_final_class_extends.sv) |決定宣言されたクラスは 延長できません| 8.13 | Verilator 5.052 |規格違反の設計|
+| [`test_illegal_final_class_specialization_extended`](../../tests/ch8/test_illegal_final_class_specialization_extended.sv) |`:final`と宣言したパラメータ付きのクラスは、どの特殊化を通しても継承できない| 8.13 8.25 | Verilator 5.054 |規格違反の設計|
+| [`test_illegal_final_derived_class_in_package_extended`](../../tests/ch8/test_illegal_final_derived_class_in_package_extended.sv) |それ自身が基底クラスを継承する`:final`のクラスをパッケージで宣言すると、パッケージで修飾した名前でも継承できないが、その基底クラスは継承できる| 8.13 26.3 | Verilator 5.054 |規格違反の設計|
 | [`test_lrm_class_inheritance_8`](../../tests/ch8/test_lrm_class_inheritance_8.sv) |クラス継承と多型のエッジケース| 8.13 8.15 8.20 8.21 | Verilator 5.052 ||
 | [`test_base_handle_redeclared_members_and_virtual_dispatch`](../../tests/ch8/test_base_handle_redeclared_members_and_virtual_dispatch.sv) |クラスハンドルを導出オブジェクトに渡すと、再宣言されたプロパティと非仮想メソッドはベースクラスに解決され、仮想メソッドだけが導出されたオバーライドを呼び出す。| 8.14 8.20 | Verilator 5.052 ||
 | [`test_class_super`](../../tests/ch8/test_class_super.sv) |テスト: super キーワードの使用| 8.15 8.20 8.13 | Icarus Verilog 13.0 ||
@@ -167,12 +173,16 @@
 | [`test_system_cast`](../../tests/ch8/test_system_cast.sv) |テスト$cast：動的な型キャスト| 8.16 6.24.2 | Verilator 5.052 ||
 | [`test_type_check`](../../tests/ch8/test_type_check.sv) |タイプチェックテスト| 8.16 6.24.2 | Verilator 5.052 ||
 | [`test_class_constructor_default_argument_expansion`](../../tests/ch8/test_class_constructor_default_argument_expansion.sv) |派生クラスのコンストラクタ引数リスト内のdefaultは、順序・方向・型・名前・既定値を含む基底コンストラクタの引数リスト全体を表します。その直後の引数はlogic型のinputになり、super.newを持たないコンストラクタにはsuper.new (default)が入ります。| 8.17 |規格のみ||
+| [`test_constructor_default_empty_and_inout`](../../tests/ch8/test_constructor_default_empty_and_inout.sv) |コンストラクタの引数並びの`default`は、基底クラスのコンストラクタに引数がないとき（基底クラスに暗黙のコンストラクタしかないときや、派生クラスが`default`付きのextendsを使うときも）何にも展開されず、基底クラスのコンストラクタのinoutの引数はinoutのままにする| 8.17 8.7 |規格のみ||
+| [`test_constructor_default_parameterized_superclass`](../../tests/ch8/test_constructor_default_parameterized_superclass.sv) |派生クラスがパラメータ付きのクラスの特殊化を継承するとき、コンストラクタの引数並びの`default`とextends指定の`default`は、その特殊化のコンストラクタの引数に展開され、その型はパラメータに与えた型になる| 8.17 8.25 |規格のみ||
+| [`test_constructor_default_through_implicit_constructor`](../../tests/ch8/test_constructor_default_through_implicit_constructor.sv) |`default`だけを引数にして基底を継承し、コンストラクタを持たないクラスは、基底のコンストラクタの引数・名前・既定値を持つ暗黙のコンストラクタを得て、その下のfinalのクラスのコンストラクタの`default`も同じ引数に展開される| 8.17 8.13 |規格のみ||
 | [`test_illegal_constructor_default_name_conflict`](../../tests/ch8/test_illegal_constructor_default_name_conflict.sv) |明示的な構成引数はデフォルトが使われるときは スーパークラス構成引数と名前を共有できません| 8.17 |規格のみ|規格違反の設計|
 | [`test_illegal_constructor_default_outside_subclass`](../../tests/ch8/test_illegal_constructor_default_outside_subclass.sv) |標準の構造子引数キーワードはサブクラスでのみ有効です| 8.17 |規格のみ|規格違反の設計|
 | [`test_illegal_constructor_default_repeated`](../../tests/ch8/test_illegal_constructor_default_repeated.sv) |構成引数リストにはデフォルトキーワードが二度と含まれない| 8.17 |規格のみ|規格違反の設計|
 | [`test_illegal_default_depends_on_local_member`](../../tests/ch8/test_illegal_default_depends_on_local_member.sv) |ローカルメンバーを参照するデフォルト表現は 違法です| 8.17 |規格のみ|規格違反の設計|
 | [`test_illegal_extends_default_without_default_argument`](../../tests/ch8/test_illegal_extends_default_without_default_argument.sv) |extends(default)を使う場合、ユーザーのコンストラクタ引数リストにdefaultが必要である| 8.17 |規格のみ|規格違反の設計|
 | [`test_illegal_super_default_without_expansion`](../../tests/ch8/test_illegal_super_default_without_expansion.sv) |構成子引数リストがデフォルトを使用しない場合は super.new (デフォルト) は不正です。| 8.17 |規格のみ|規格違反の設計|
+| [`test_illegal_super_new_default_with_extends_default`](../../tests/ch8/test_illegal_super_new_default_with_extends_default.sv) |extends指定が`default`だけを引数に持つとき、派生クラスのコンストラクタはそこからsuper.new（default）を得るので、自分でsuper.newを呼んではならず、super.new（default）としても呼べない| 8.17 |規格のみ|規格違反の設計|
 | [`test_illegal_super_new_default_without_default`](../../tests/ch8/test_illegal_super_new_default_without_default.sv) |super.new (デフォルト) は構成子の引数リストにデフォルトを必要とします。| 8.17 |規格のみ|規格違反の設計|
 | [`test_illegal_super_new_with_extends_arguments`](../../tests/ch8/test_illegal_super_new_with_extends_arguments.sv) |クラスの構成要素は super.new を呼び出す必要がありません| 8.17 | Verilator 5.052 |規格違反の設計|
 | [`test_super_new_default`](../../tests/ch8/test_super_new_default.sv) |構成要素の引数リストのデフォルトは、スーパークラス構成要素の 引数を受け取り、super.new (デフォルト) はそれらを渡し、default と拡張すると、暗黙的な構成要素に同じ引数を与えます。| 8.17 8.15 |規格のみ||

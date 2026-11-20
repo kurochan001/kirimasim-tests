@@ -1,0 +1,4 @@
+lock on: ok=1 x=7
+lock on, x > 8: ok=0 x=7
+lock off, x > 8: ok=1 x=9 mode=0
+lock off, x < 5: ok=0 x=9

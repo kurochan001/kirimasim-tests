@@ -51,9 +51,9 @@
     "interpretation_pending": 0
   },
   "test_mapping": {
-    "suite_test_files": 16298,
+    "suite_test_files": 16326,
     "linked_test_files": 6699,
-    "unlinked_test_files": 9599
+    "unlinked_test_files": 9627
   },
   "collective_requirement_count": 770,
   "requirement_status_counts": {
@@ -42460,6 +42460,82 @@
           "unreviewed_oracle": 0,
           "stale": 0,
           "not_run": 11479,
+          "unmapped": 847,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "sv2023-thin-20261121-icarus13.json",
+        "simulator": "icarus",
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+        "generated_at": "2026-11-20T21:24:39.791096+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11485,
+          "unmapped": 847,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "sv2023-thin-20261121-kirimasim-a6222f06.json",
+        "simulator": "kirimasim",
+        "version": "kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401",
+        "generated_at": "2026-11-20T21:24:40.094672+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11485,
+          "unmapped": 847,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "sv2023-thin-20261121-verilator5.054-seed1.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "generated_at": "2026-11-20T21:25:04.136848+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11485,
+          "unmapped": 847,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "sv2023-thin-20261121-verilator5.054-seed73.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "generated_at": "2026-11-20T21:25:22.711190+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11485,
           "unmapped": 847,
           "interpretation_pending": 0
         }

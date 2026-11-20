@@ -1700,3 +1700,13 @@ Checkの文書ジョブは、既存のunittestの探索コマンドへ`-v`を加
 ### covergroupのfilterと分配順序（Verilator 5.054）
 
 `ch19/test_cg_with_construction_freezes_filter`は、`ceiling=5`で2つのcovergroupを構築し、その後2へ変えます。19.5.1.1 B011では、filterは構築時に評価されます。0〜5を2個のbinへ分けるとき、filterを先に適用すると`{0,1}`と`{2,3,4}`に、`distribute_first`では`{0,1,2}`と`{3,4}`になります。そのため2、1の順に採取した後の期待値は`filter=100 distribute=50`です。Verilator 5.054はseed 1・73とも`filter=100 distribute=100`を出します。期待値50と`:oracle: spec`を維持します。この観測は分配順序の差を示すもので、内部実装の原因や、構築時の値の捕捉にも別の誤りがあることを確定するものではありません。
+
+<a id="sv2023-thin-features-20261121"></a>
+
+### 1800-2023で加わった機能（Verilator 5.054）
+
+2026-11-21に1800-2023で加わった機能のために追加したテストは、次の差異を示します（未対応の構文は載せません）。
+
+- `$timeunit`と`$timeprecision`の引数にインタフェースのインスタンスを与えると、呼び出すモジュールの値を返す（20.4.1）。引数のない`$timeprecision`がシミュレーションの精度を返す差異（20.4.1の行）も残る。`ch20/test_timeunit_package_interface_program_nested`、`ch20/test_timeunit_timescale_precedence`
+- `type enum`で制限した型パラメータの既定値に`int`を書いた設計を受け付ける（6.20.3）。`ch6/test_illegal_enum_restricted_type_parameter_default_int`
+- 中間のクラスで`:extends :final`にした制約を、さらに下のクラスで置き換える設計を受け付ける（18.5.2）。`ch18/test_illegal_constraint_final_replacement_replaced`

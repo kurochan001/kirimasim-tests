@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[すべての章](README.ja.md) .テストは899本で、そのうち265本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは902本で、そのうち265本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -464,6 +464,8 @@
 | [`test_parameter_width_latitude`](../../tests/ch6/test_parameter_width_latitude.sv) |タイプなしのパラメータはサイズなしの値で 右辺の限界はゼロで 左辺の限界は少なくとも 31 で 、正確な幅はツールに任せます| 6.20.2 | Icarus Verilog 13.0 ||
 | [`test_parameters_edge_cases`](../../tests/ch6/test_parameters_edge_cases.sv) |ローカルパラメータと上書きされたインスタンスパラメータ| 6.20.2 6.20.4 23.10 | Icarus Verilog 13.0 ||
 | [`test_untyped_parameter_width_from_override`](../../tests/ch6/test_untyped_parameter_width_from_override.sv) |タイプも範囲もないパラメータは、その上位値の幅を取ります。| 6.20.2 23.10.2.1 23.10.2.2 | Icarus Verilog 13.0 ||
+| [`test_illegal_class_restricted_type_parameter_via_type_parameter`](../../tests/ch6/test_illegal_class_restricted_type_parameter_via_type_parameter.sv) |別の型パラメータを与えた`class`の制限付きの型パラメータは、その型パラメータがクラスに解決するときだけ適合するので、制限のない型パラメータを通してintを渡すとエラーになる| 6.20.3 6.20.1 | Verilator 5.054 |規格違反の設計|
+| [`test_illegal_enum_restricted_type_parameter_default_int`](../../tests/ch6/test_illegal_enum_restricted_type_parameter_default_int.sv) |enumで制限した型パラメータの既定値もそれに代入される型なので、インスタンスが既定値のままならintの既定値はエラーになる| 6.20.3 6.20.1 |規格のみ|規格違反の設計|
 | [`test_illegal_enum_restricted_type_parameter_given_int`](../../tests/ch6/test_illegal_enum_restricted_type_parameter_given_int.sv) |型パラメータは、enum キーワードで制限され、エナメルタイプのみを与えられます。int はエラーです| 6.20.3 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_interface_class_restricted_type_parameter_given_class`](../../tests/ch6/test_illegal_interface_class_restricted_type_parameter_given_class.sv) |interface class で制限した型パラメータにはインタフェースクラスしか与えられない。インタフェースクラスを実装するクラスはエラーである| 6.20.3 8.26 |規格のみ|規格違反の設計|
 | [`test_illegal_struct_restricted_type_parameter_given_union`](../../tests/ch6/test_illegal_struct_restricted_type_parameter_given_union.sv) |struct キーワードで制限した型パラメータには構造体型しか与えられない。同じ幅の packed 共用体はエラーである| 6.20.3 | Verilator 5.052 |規格違反の設計|
@@ -472,6 +474,7 @@
 | [`test_illegal_type_parameter_hierarchical_type_name`](../../tests/ch6/test_illegal_type_parameter_hierarchical_type_name.sv) |タイプパラメータに与えられたデータタイプは階層的な名前を通じて名付けることはできませんが、パッケージに限定された名前は許可されています。| 6.20.3 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_type_parameter_scope_prefix_in_variable`](../../tests/ch6/test_illegal_type_parameter_scope_prefix_in_variable.sv) |タイプパラメータを通して :: で選択されたタイプは、typedef またはタイプパラメータ代入に使用できますが、変数宣言に直接使用できません。| 6.20.3 |規格のみ|規格違反の設計|
 | [`test_illegal_type_parameter_scope_prefix_not_class`](../../tests/ch6/test_illegal_type_parameter_scope_prefix_not_class.sv) |クラスの範囲解決演算子の プレフィックスとして使われるタイプパラメータは クラスに解決されなければなりません| 6.20.3 | Verilator 5.052 |規格違反の設計|
+| [`test_type_param_restricted_abstract_final_scoped`](../../tests/ch6/test_type_param_restricted_abstract_final_scoped.sv) |`class`で制限した型パラメータは抽象クラスにもfinalのクラスにも適合し、`struct`で制限したものはクラスのスコープから辿るunpackedの構造体typedefに、`union`で制限したものはunpackedの共用体に、既定値でも上書きでも適合する| 6.20.3 8.13 8.21 8.23 | Verilator 5.054 ||
 | [`test_type_param_restricted_class_and_interface_lists`](../../tests/ch6/test_type_param_restricted_class_and_interface_lists.sv) |クラスとインタフェースのパラメータポートリストにある parameter キーワードも既定値もない制限付き型パラメータと、クラス本体の制限付きローカル型パラメータは、既定値、特殊化、上書きによって適合する型を受け取る| 6.20.3 6.20.1 6.20.4 8.25 25.8 | Verilator 5.052 ||
 | [`test_type_param_restricted_conforming_types`](../../tests/ch6/test_type_param_restricted_conforming_types.sv) |制限付き型パラメータは、 enum の typedef 名、前方 typedef で宣言した enum 、派生クラス、パラメータ化クラスの特殊化、別のインタフェースクラスを拡張するインタフェースクラス、または同じ制限を持つ別の型パラメータを与えられたときに適合する| 6.20.3 6.18 8.25 8.26 | Verilator 5.052 ||
 | [`test_type_param_restricted_kinds`](../../tests/ch6/test_type_param_restricted_kinds.sv) |タイプパラメータは enum に制限され、struct、union、class、interface クラスは単独またはタイプ代入のリストとして、デフォルトとオバーライドで適合型を取ります。| 6.20.3 6.20.1 8.26 | Verilator 5.052 ||
