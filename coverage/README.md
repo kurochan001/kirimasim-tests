@@ -302,3 +302,5 @@ Nightlyの測定対象は実行したスイートのコミットです。`main`�
 - `results/vpi-io-decl-refinement-20261120-*.json`：2026-11-20に、25.9に反するvirtual interfaceのポートを直した`ch37/test_vpi_io_decl_scope_typespec_ports`の実行。Icarus Verilog 13.0とVerilator 5.054（seed 1と73）はknown、kirimasim `a6222f0656d4`はunsupportedで、どれもこのテストを実行できません。
 
 - `results/reqgap7-20261120-*.json`：言語仕様の未対応269要求の2巡目で作った20本と、入力不変の既存1本。独立検証を経て14要求に対応を追加しました。Icarus 13.0は未対応の左辺構文による見かけの違法系passが10件、knownが11件で、10件は未承認oracleの検査により実行確認率から除外されます。Verilator 5.054は両seedとも9 pass・12 knownですが、4 passは未対応構文によるもので承認oracleにはしていません。kirimasim `a6222f0656d4`は5 pass・16 unsupported・fail 0。期待値は規格から導き、既存の保留は削除していません。
+
+- `results/reqgap8-20261120-*.json`：DPI/VPI新規7本・独立検証した8対応の、新しい4記録・28結果です。Icarus 13.0は1 pass・未対応による6 known、Verilator 5.054 seed1/73は各7 known、kirimasim固定版`a6222f0656d4`は7 unsupported。呼出し元の1本だけにIcarus oracleがあり、6本はspec-onlyです。別の[nativeトークン比較の有限検査](qualification/signed-macro-token-audit-20261120.json)により旧I.3対応1件を撤回し限定保留M130を追加しました。これはシミュレータ証跡を増やすものではなく、旧入力・旧結果・要求定義を維持します。

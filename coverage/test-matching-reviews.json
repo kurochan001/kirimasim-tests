@@ -56044,6 +56044,42 @@
           ]
         }
       ]
+    },
+    {
+      "test": "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.sv",
+      "inputs_sha256": "2cb66e806df15d287665adff7b9490416fffef8cc75765ccfa9dcb33a8894971",
+      "reviewed_on": "2026-11-20",
+      "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-I.3-EXTRACT-SIGNED-TEXT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M130: 展開した文字列から空白をすべて除く比較は、SV_GET_SIGNED_BITS の << を別々の < < トークンに変えたヘッダでも、元と同じ期待出力と一致してしまう。既存Cヘルパーを変更せずC11/C++17でこの偽陽性を確認し、同じ変異ヘッダの通常の数値呼出しは両言語でコンパイル不能となることも確認した。したがって、表示値1はI.3 B018/H.10.1.2 B008のトークン列の一致を証明しない。また、再帰展開により同じ本体への別マクロ経由の定義も同一文字列となり、元のreplacement-list自体は観測できない。後者を規格違反とみなす解釈の要否にかかわらず、前者の異なる演算子トークンの取り違えだけで観測不足が成立する。対象はこの要求との単一checkに限り、テストや期待値、過去の実行結果、要求定義、印刷どおりのbit-N本文は変更しない。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.sv",
+              "contains": "initial $display(\"same tokens as H.10.1.2: %0d\", dpi_signed_bits_text());"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.c",
+              "contains": "static const char vt_text[] = VT_XSTR(SV_GET_SIGNED_BITS(v, n));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.c",
+              "contains": "if (vt_text[i] != ' ')"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.expected",
+              "contains": "same tokens as H.10.1.2: 1"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

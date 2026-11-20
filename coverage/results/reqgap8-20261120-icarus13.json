@@ -1,0 +1,45 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch37/test_vpi_interconnect_array_packed_contrast": {
+   "status": "known",
+   "reason": "VPI build failed: 2 errors generated.",
+   "inputs_sha256": "a1901cbc4ea8d10a66a0859b8f9f6b3c3af8432ab4a246440f0c44696ed55d58"
+  },
+  "ch37/test_vpi_interface_expression_port_refs_and_null": {
+   "status": "known",
+   "reason": "VPI build failed: 12 errors generated.",
+   "inputs_sha256": "1e0082e9f650eb8a282d9f837a65085de3b9fedc1d0b104e5d44d6baed5cc788"
+  },
+  "ch37/test_vpi_vif_declaration_specialization_owner": {
+   "status": "known",
+   "reason": "VPI build failed: 2 errors generated.",
+   "inputs_sha256": "4256f5e961ef49ccb09efb7c592e1595f1ac93d156d6697261286b1e4e72e1d7"
+  },
+  "ch38/test_vpi_bulk_propagation_suppressed_then_restored": {
+   "status": "known",
+   "reason": "VPI build failed: 5 errors generated.",
+   "inputs_sha256": "2803bc5b12b72c43c47a9930df2c1562068eb1cf87e95ef9087f6879585034df"
+  },
+  "ch38/test_vpi_callsite_argument_and_scope_context": {
+   "status": "pass",
+   "inputs_sha256": "f3dc72ff11d071c2660d012d1a371a17de8aaa14ba28d1d9d3eb0f8231e01ea8"
+  },
+  "ch38/test_vpi_delay_buffer_count_flag_matrix": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'count=1 mtm=0 pulse=1 elems=3 appbuf=1 guards=1: 11 -0 -0', expected 'count=1 mtm=0 pulse=1 elems=3 appbuf=1 guards=1: 11 2 4'",
+   "inputs_sha256": "d0a3c09711ed041588ee54566f3422f7cfc1308be9cfbd23696dccb92e4a9196"
+  },
+  "ch38/test_vpi_enter_thread_resume_identity": {
+   "status": "known",
+   "reason": "VPI build failed: 5 errors generated.",
+   "inputs_sha256": "b5a72924f3e42fce8267db38ed7f98c9972ecf6a21c5eb77fbc0c3524d0c8260"
+  }
+ },
+ "generated_at": "2026-11-20T00:44:12.999452+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

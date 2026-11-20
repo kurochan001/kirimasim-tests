@@ -1,0 +1,2 @@
+packed_link: interconnect array 1, owner top 1, packed 1, range 3:1, elements 3
+unpacked_link: interconnect array 1, owner top 1, packed 0, range -2:0, elements 3

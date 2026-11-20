@@ -1,0 +1,70 @@
+{
+  "schema": "signed-macro-token-audit-v1",
+  "date": "2026-11-20",
+  "review": "Separate AI author investigation and independent AI reproduction; not an independent human review",
+  "requirement_id": "SV2023-I.3-EXTRACT-SIGNED-TEXT",
+  "test": "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.sv",
+  "test_inputs_sha256": "2cb66e806df15d287665adff7b9490416fffef8cc75765ccfa9dcb33a8894971",
+  "file_sha256": {
+    "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.sv": "17f04d0daf1e6007a03b6ab3e6dac86fdddd43fbc3bf6504e6ca20bc9d843133",
+    "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.c": "edf1a9e09af6be048055aac3af9626352a3c0e2c86a73702b5e73e21ddd5ae10",
+    "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.expected": "a3ff46bab93e42fafbbb6b2716ad32f7ca0a200d84f3eb16470ff04d198f32b3"
+  },
+  "source_clauses": [
+    "I.3 B018",
+    "H.10.1.2 B008",
+    "H.10.1 B003"
+  ],
+  "comparison": "Execute the unchanged existing C helper against a complete reference svdpi.h and against the same header with only the shift operator token in SV_GET_SIGNED_BITS split into two less-than tokens. A small native driver calls the helper and prints the existing SV display line.",
+  "reference_header_sha256": "478f1b254420b06f3827df55490a729ec76e106de626d8d0135c35dc37732ff6",
+  "tool_versions": {
+    "C11": "Apple clang version 21.0.0 (clang-2100.4.1.1)",
+    "C++17": "Apple clang version 21.0.0 (clang-2100.4.1.1)"
+  },
+  "records": [
+    {
+      "variant": "reference",
+      "language": "C11",
+      "old_helper_compile_exit": 0,
+      "old_helper_run_exit": 0,
+      "old_helper_matches_expected": true,
+      "old_helper_stdout_sha256": "a3ff46bab93e42fafbbb6b2716ad32f7ca0a200d84f3eb16470ff04d198f32b3",
+      "numeric_compile_exit": 0
+    },
+    {
+      "variant": "reference",
+      "language": "C++17",
+      "old_helper_compile_exit": 0,
+      "old_helper_run_exit": 0,
+      "old_helper_matches_expected": true,
+      "old_helper_stdout_sha256": "a3ff46bab93e42fafbbb6b2716ad32f7ca0a200d84f3eb16470ff04d198f32b3",
+      "numeric_compile_exit": 0
+    },
+    {
+      "variant": "split_shift_tokens",
+      "language": "C11",
+      "old_helper_compile_exit": 0,
+      "old_helper_run_exit": 0,
+      "old_helper_matches_expected": true,
+      "old_helper_stdout_sha256": "a3ff46bab93e42fafbbb6b2716ad32f7ca0a200d84f3eb16470ff04d198f32b3",
+      "numeric_compile_exit": 1
+    },
+    {
+      "variant": "split_shift_tokens",
+      "language": "C++17",
+      "old_helper_compile_exit": 0,
+      "old_helper_run_exit": 0,
+      "old_helper_matches_expected": true,
+      "old_helper_stdout_sha256": "a3ff46bab93e42fafbbb6b2716ad32f7ca0a200d84f3eb16470ff04d198f32b3",
+      "numeric_compile_exit": 1
+    }
+  ],
+  "conclusion": "Both compilers accept and execute the existing helper with the incorrect-token header, producing exactly the old expected output. A separate ordinary numerical invocation is syntactically rejected only for that header. Removing spaces merged distinct preprocessing tokens, so the check cannot establish the mapped token identity.",
+  "corrective_scope": "Withdraw the single check and record a scoped partial-observation hold. Preserve the requirement definition, denominator, existing tests, expectations and old result snapshots. Do not repair the printed bit-N expression.",
+  "limits": [
+    "Native C-helper executions, not fresh simulator runs or simulator oracle grants.",
+    "One finite wrong-token counterexample, not an exhaustive tokenizer qualification.",
+    "No conclusion about computed sign-extension values or unrelated macros.",
+    "The decisive split-token defect does not require interpreting whether equivalent alias definitions are allowed."
+  ]
+}

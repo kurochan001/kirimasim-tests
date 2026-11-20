@@ -392644,7 +392644,33 @@
       "acceptance": "interconnect array exposes vpiPacked as Boolean, representing packed-array status; access it with the appropriate property routine under 37.3.1.",
       "source_note": "IEEE 1800-2023 37.24; complete own-body source review, blocks B002, B003, B004, B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_interconnect_array_packed_contrast.sv",
+          "observation": "同じ3要素の packed interconnect [3:1] と unpacked interconnect [-2:0] の vpiPacked を実値1/0として出力し、型・所有moduleの同一性・両境界・要素数も確認する。 区別: 定数TRUEならunpacked行、定数FALSEならpacked行が変わる。別objectへの誤結合やdimension消失もtype/owner/range/sizeで区別する。37.24 B002のBoolean意味と37.3.1の1/0規定から導出した期待値で、縮退したcount-only比較ではない。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "a1901cbc4ea8d10a66a0859b8f9f6b3c3af8432ab4a246440f0c44696ed55d58",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_interconnect_array_packed_contrast.sv",
+              "contains": "interconnect [3:1] packed_link;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_interconnect_array_packed_contrast.sv",
+              "contains": "interconnect unpacked_link [-2:0];"
+            },
+            {
+              "file": "tests/ch37/test_vpi_interconnect_array_packed_contrast.expected",
+              "contains": "packed_link: interconnect array 1, owner top 1, packed 1, range 3:1, elements 3"
+            },
+            {
+              "file": "tests/ch37/test_vpi_interconnect_array_packed_contrast.expected",
+              "contains": "unpacked_link: interconnect array 1, owner top 1, packed 0, range -2:0, elements 3"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.24",
@@ -400232,7 +400258,37 @@
       "acceptance": "The 37.29 VPI model includes reference object in the interface expression group; group properties and relationships apply to this member.",
       "source_note": "IEEE 1800-2023 37.29; complete own-body source review, blocks B002, B003, B004, B005, B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_interface_expression_port_refs_and_null.sv",
+          "observation": "interface expressionとして使われるlocal interface/modport portのRHSがvpiRefObjであり、各port lowconnの宣言objectと同一で、実対象が指定したleftまたはright.mpであることを確認する。 区別: 37.29 interface-expression groupにref objが含まれることを具体的な参照元宣言と束縛先まで観測する。群自身に追加のproperty/relationはない。refを返さない実装や別参照を返す実装ではrhs/local-port/actual行が変わり、count/typeだけの証拠ではない。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "1e0082e9f650eb8a282d9f837a65085de3b9fedc1d0b104e5d44d6baed5cc788",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_interface_expression_port_refs_and_null.sv",
+              "contains": "test_vpi_interface_expression_port_refs_and_null_child u(left, right.mp);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_interface_expression_port_refs_and_null.sv",
+              "contains": "vi = s;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_interface_expression_port_refs_and_null.sv",
+              "contains": "vm = m;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_interface_expression_port_refs_and_null.expected",
+              "contains": "vi: lhs virtual interface var 1, rhs ref obj 1, local port 1, actual type 1, correct actual 1, wrong interface 0"
+            },
+            {
+              "file": "tests/ch37/test_vpi_interface_expression_port_refs_and_null.expected",
+              "contains": "vm: lhs virtual interface var 1, rhs ref obj 1, local port 1, actual type 1, correct actual 1, wrong interface 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.29",
@@ -400566,7 +400622,41 @@
       "acceptance": "An interface-expression reference object must be a local interface/modport declaration passed through a port; an interface-expression constant must have vpiConstType=vpiNullConst.",
       "source_note": "IEEE 1800-2023 37.29; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_interface_expression_port_refs_and_null.sv",
+          "observation": "virtual interfaceへの代入のRHSを読み、local interface port sとlocal modport port mが各lowconnと同じvpiRefObjであることを確認し、vpiActualの具体的なleft/right.mp同一性と誤対象の否定を出力する。null RHSはvpiConstantかつvpiNullConstとして出力する。 区別: 37.29 B007のref側とconstant側を両方刺激する。ref型だけを返す誤実装、local宣言との誤同定、interfaceとmodportまたは異なるinstanceの取り違え、非null定数なら対応行が変わる。taskは実行せずnull dereferenceもない。出力はLHS名で整列しiteration順に依存しない。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "1e0082e9f650eb8a282d9f837a65085de3b9fedc1d0b104e5d44d6baed5cc788",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_interface_expression_port_refs_and_null.sv",
+              "contains": "vi = s;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_interface_expression_port_refs_and_null.sv",
+              "contains": "vm = m;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_interface_expression_port_refs_and_null.sv",
+              "contains": "vn = null;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_interface_expression_port_refs_and_null.expected",
+              "contains": "vi: lhs virtual interface var 1, rhs ref obj 1, local port 1, actual type 1, correct actual 1, wrong interface 0"
+            },
+            {
+              "file": "tests/ch37/test_vpi_interface_expression_port_refs_and_null.expected",
+              "contains": "vm: lhs virtual interface var 1, rhs ref obj 1, local port 1, actual type 1, correct actual 1, wrong interface 0"
+            },
+            {
+              "file": "tests/ch37/test_vpi_interface_expression_port_refs_and_null.expected",
+              "contains": "vn: lhs virtual interface var 1, rhs constant 1, null constant 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.29",
@@ -403177,7 +403267,37 @@
       "acceptance": "37.32 defines a one-to-one relation from virtual-interface variable to class typespec, using the untagged class typespec access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.",
       "source_note": "IEEE 1800-2023 37.32; complete own-body source review, blocks B002, B003, B004, B005, B006, B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_vif_declaration_specialization_owner.sv",
+          "observation": "module-scope holder#(3)とholder#(8)の型から得た別々のspecialization内のvif宣言にvpiClassTypespecを適用し、返却型・ownとの同一性・otherとの非同一性・ownerのID値3/8を観測する。 区別: 37.32原図physical1044の全member共通枝から中央class typespecへの左向き単矢印を使う。37.33 detail5と37.32 detail1により入力はlexical-onlyでなく宣言されたspecialization。owner未実装・誤lexical owner・両specializationの混同はowner type/identity/IDの少なくとも一つを変える。live class objectやframe値は参照せず、tool-dependent specialization名も出力しない。既存holdのpairは保持し、新規別名testだけを提案する。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "4256f5e961ef49ccb09efb7c592e1595f1ac93d156d6697261286b1e4e72e1d7",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_vif_declaration_specialization_owner.sv",
+              "contains": "holder #(3) owner3;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_vif_declaration_specialization_owner.sv",
+              "contains": "holder #(8) owner8;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_vif_declaration_specialization_owner.c",
+              "contains": "back = vpi_handle(vpiClassTypespec, vif);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_vif_declaration_specialization_owner.expected",
+              "contains": "owner3: declarations 1, named vif 1, virtual interface var 1, owner class typespec 1, own 1, other 0, ID 3"
+            },
+            {
+              "file": "tests/ch37/test_vpi_vif_declaration_specialization_owner.expected",
+              "contains": "owner8: declarations 1, named vif 1, virtual interface var 1, owner class typespec 1, own 1, other 0, ID 8"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.32",
@@ -442624,7 +442744,37 @@
       "acceptance": "The application allocates da as an s_vpi_time array sized from delay count, min/typ/max flag and pulse-reject/error flag.",
       "source_note": "IEEE 1800-2023 38.10; complete own-body source review, blocks B017, B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_delay_buffer_count_flag_matrix.sv",
+          "observation": "Each legal module-path count (1,2,3,6,12) is crossed with mtm/pulse flags 00,01,10,11. The application allocates count,3*count,3*count,9*count s_vpi_time elements with surrounding guards and prints every returned value from its own allocation. 区別: Distinct path delay values and reject=2/error=4 identify all returned elements. Incorrect flag/count sizing or layout leaves missing or misplaced values; an overwrite changes a guard. The test observes all factors in B017/B018 rather than a fixed-count struct declaration.",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "d0a3c09711ed041588ee54566f3422f7cfc1308be9cfbd23696dccb92e4a9196",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_delay_buffer_count_flag_matrix.c",
+              "contains": "request.da = storage + 1;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_delay_buffer_count_flag_matrix.c",
+              "contains": "int per_delay = mtm && pulse ? 9 : mtm || pulse ? 3 : 1;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_delay_buffer_count_flag_matrix.c",
+              "contains": "vpi_get_delays(path, &request);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_delay_buffer_count_flag_matrix.sv",
+              "contains": "specparam PATHPULSE$a$y = (2, 4);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_delay_buffer_count_flag_matrix.expected",
+              "contains": "count=12 mtm=1 pulse=1 elems=108 appbuf=1 guards=1:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.10",
@@ -449956,7 +450106,37 @@
       "acceptance": "vpiPropagateOff inhibits array-fanout value-change notification; during active simulation a subsequent update may be needed to restore correct propagation.",
       "source_note": "IEEE 1800-2023 38.35; complete own-body source review, blocks B024. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_bulk_propagation_suppressed_then_restored.sv",
+          "observation": "A bulk put at time10 writes distinct array elements 31,47 with vpiPropagateOff. At11 stored values changed while captured fanout values remain10,20 and counters remain0. A no-delay put at20 writes32,48; at21 the fanouts captured those values once each. An unrelated array remains100,200. 区別: Ignoring vpiPropagateOff changes the suppressed captured values and event counters. Suppressing later ordinary propagation changes the restored row. Separate element values and an unrelated array reject wrong target/element routing. Initialization at time1 avoids an initial-process order assumption; observations follow each API update by a whole time step.",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "2803bc5b12b72c43c47a9930df2c1562068eb1cf87e95ef9087f6879585034df",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_bulk_propagation_suppressed_then_restored.c",
+              "contains": "value.flags = quiet ? vpiPropagateOff : vpiNoDelay;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_bulk_propagation_suppressed_then_restored.c",
+              "contains": "vpi_put_value_array(array_object, &value, start, 2);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_bulk_propagation_suppressed_then_restored.sv",
+              "contains": "always @(a[0]) begin"
+            },
+            {
+              "file": "tests/ch38/test_vpi_bulk_propagation_suppressed_then_restored.expected",
+              "contains": "suppressed a=31,47 seen=10,20 events=0,0 other=100,200"
+            },
+            {
+              "file": "tests/ch38/test_vpi_bulk_propagation_suppressed_then_restored.expected",
+              "contains": "restored a=32,48 seen=32,48 events=1,1 other=100,200"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.35",
@@ -451995,7 +452175,41 @@
       "acceptance": "cbEnterThread invokes the registered callback when a thread resumes execution.",
       "source_note": "IEEE 1800-2023 38.36.1; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_enter_thread_resume_identity.sv",
+          "observation": "Two live worker threads install cbEnterThread on their actual thread handles. Each resumes from delay, event control and false wait, at3/6/9 or4/7/10. Every callback saves its requested simulation time and the named automatic marker (91 or52) and compares its trigger object to its watched thread. Reports use fixed worker order and saved integers after registrations were removed in their live frames. 区別: Missing or extra resumes alter callback counts/times. Global or crossed thread routing alters distinct times/marker values or object identity. The automatic marker is stable before and after every resumed statement, avoiding callback-versus-body ordering assumptions; no invalid frame/thread handle is probed after return.",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "b5a72924f3e42fce8267db38ed7f98c9972ecf6a21c5eb77fbc0c3524d0c8260",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_enter_thread_resume_identity.c",
+              "contains": "registration.reason = cbEnterThread;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_enter_thread_resume_identity.c",
+              "contains": "!vpi_compare_objects(cb->obj, state->thread)"
+            },
+            {
+              "file": "tests/ch38/test_vpi_enter_thread_resume_identity.c",
+              "contains": "strcmp(name, \"marker\") == 0"
+            },
+            {
+              "file": "tests/ch38/test_vpi_enter_thread_resume_identity.sv",
+              "contains": "if (tag == 91) wait (go_first); else wait (go_second);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_enter_thread_resume_identity.expected",
+              "contains": "tag=91 callbacks=3 times=3,6,9 markers=91,91,91 identity=1"
+            },
+            {
+              "file": "tests/ch38/test_vpi_enter_thread_resume_identity.expected",
+              "contains": "tag=52 callbacks=3 times=4,7,10 markers=52,52,52 identity=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.36.1",
@@ -529165,7 +529379,45 @@
       "acceptance": "VPI context is associated with system-task call site, used for arguments and surrounding scope.",
       "source_note": "IEEE 1800-2023 H.9.1; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_callsite_argument_and_scope_context.sv",
+          "observation": "同じ登録VPI system taskをleft/rightの2 instanceから時刻1/2で呼び、vpiSysTfCallから各callのscope、actualの名前/値、scope内local_valueの名前/値を表示する。actualはparent宣言の41/62、callsite localは7/19、parentには同名101を置き、actual-owner scopeとcallsiteを分離する。 区別: H.9.1 B005と37.42 B009によりVPI contextはsystem-task callsiteに関連し、actual argumentsとsurrounding declarative scopeをそこから取得できる。名前と値を共に見るため、単にnon-NULLや個数だけの検査ではない。引数宣言scopeやrootを誤ってcontextに使うとscope名にleft/rightがなくlocal_valueが101となり、childの7/19を使う期待2行と異なる。同じregistered callbackの2callsiteを比較し、先のcallの引数/文脈を使い回す誤実装も右の名前/62/19で区別する。DPI importだけを使う既存held候補に無かったVPI system-task applicationを追加した。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "f3dc72ff11d071c2660d012d1a371a17de8aaa14ba28d1d9d3eb0f8231e01ea8",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_callsite_argument_and_scope_context.sv",
+              "contains": "initial #1 $vt_callsite_context(test_vpi_callsite_argument_and_scope_context.left_arg);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_callsite_argument_and_scope_context.sv",
+              "contains": "initial #2 $vt_callsite_context(test_vpi_callsite_argument_and_scope_context.right_arg);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_callsite_argument_and_scope_context.sv",
+              "contains": "int local_value = 101;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_callsite_argument_and_scope_context.c",
+              "contains": "vpiHandle call = vpi_handle(vpiSysTfCall, NULL);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_callsite_argument_and_scope_context.c",
+              "contains": "vpiHandle scope = call != NULL ? vpi_handle(vpiScope, call) : NULL;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_callsite_argument_and_scope_context.expected",
+              "contains": "scope=test_vpi_callsite_argument_and_scope_context.left argument=test_vpi_callsite_argument_and_scope_context.left_arg value=41 surrounding=test_vpi_callsite_argument_and_scope_context.left.local_value value=7"
+            },
+            {
+              "file": "tests/ch38/test_vpi_callsite_argument_and_scope_context.expected",
+              "contains": "scope=test_vpi_callsite_argument_and_scope_context.right argument=test_vpi_callsite_argument_and_scope_context.right_arg value=62 surrounding=test_vpi_callsite_argument_and_scope_context.right.local_value value=19"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "H.9.1",
@@ -540440,37 +540692,7 @@
       "acceptance": "The macro in the Annex I listing matches the H.10.1.2 definition exactly, so reproducing either occurrence satisfies both. Tests compare the text and do not assert sign extension for N != 32.",
       "source_note": "IEEE 1800-2023 I.3 (B018), p.1295; complete own-body source review, block B018. Quote: \"#define SV_GET_SIGNED_BITS(VALUE, N)\" with the body \"((N) == 32 ? (VALUE) :\" and \"(((VALUE) & (1 << (N))) ? ((VALUE) | ~SV_MASK(N)) : ((VALUE) & SV_MASK(N))))\" — identical to H.10.1.2 (p.1276 L61-L63). Both occurrences are retained verbatim; the bit-N test is recorded, not corrected.",
       "modality": "definition",
-      "checks": [
-        {
-          "test": "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.sv",
-          "observation": "C コードが svdpi.h を取り込んだ後に SV_MASK の定義を外し、SV_GET_SIGNED_BITS(v, n) の展開を # 演算子で文字列にして空白を除いたトークン列を表示し、I.3 と H.10.1.2 の定義から得られる ((n)==32?(v):(((v)&(1<<(n)))?((v)|~SV_MASK(n)):((v)&SV_MASK(n)))) と一致するかを 1/0 で表示する（設計が import した dpi_signed_bits_text を呼ぶ）。N が 32 未満のときの計算値は比較しない（受入条件どおり）。 区別: マクロを書き換えた（例: ビット N でなく N-1 を調べる、SV_MASK を使わない、N==32 の分岐が無い）ヘッダでは、表示されるトークン列が変わり 'same tokens as H.10.1.2: 1' が 0 になる。空白だけの違いはトークン列に影響しないよう除いている。",
-          "reviewed_on": "2026-11-20",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "2cb66e806df15d287665adff7b9490416fffef8cc75765ccfa9dcb33a8894971",
-          "evidence": [
-            {
-              "file": "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.sv",
-              "contains": "initial $display(\"same tokens as H.10.1.2: %0d\", dpi_signed_bits_text());"
-            },
-            {
-              "file": "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.c",
-              "contains": "static const char vt_text[] = VT_XSTR(SV_GET_SIGNED_BITS(v, n));"
-            },
-            {
-              "file": "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.c",
-              "contains": "#undef SV_MASK"
-            },
-            {
-              "file": "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.expected",
-              "contains": "SV_GET_SIGNED_BITS(v, n) tokens: ((n)==32?(v):(((v)&(1<<(n)))?((v)|~SV_MASK(n)):((v)&SV_MASK(n))))"
-            },
-            {
-              "file": "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.expected",
-              "contains": "same tokens as H.10.1.2: 1"
-            }
-          ]
-        }
-      ],
+      "checks": [],
       "source_spans": [
         {
           "section": "I.3",

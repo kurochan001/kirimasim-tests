@@ -75,15 +75,15 @@ Independent [daily and weekly speed benchmarks](docs/daily-benchmark.md) run **2
 These are inventory and expectation-provenance counts, not current simulator passes. See [what `:lrm:` and `:oracle:` record](docs/faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
 <!-- suite-stats:begin -->
-The suite has **16291 tests** in 38 chapters. 9351 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
+The suite has **16298 tests** in 38 chapters. 9351 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 9004 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 9005 |
 | Verilator 5.052 or 5.054, with no Icarus Verilog 13.0 oracle recorded | 2904 |
-| The standard only, with no fixed-release simulator oracle recorded | 4383 |
+| The standard only, with no fixed-release simulator oracle recorded | 4389 |
 
-4053 tests depend on x or z values (`:fourstate: yes`). 739 tests come with C code: 192 DPI tests (`:dpi_c:`) and 547 VPI tests (`:vpi_c:`). 3050 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 77 tests check the exit code of the simulation (`:expected_exit:`). 26 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 56 name the top-level module or configuration (`:top_module:`), and 1299 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+4053 tests depend on x or z values (`:fourstate: yes`). 746 tests come with C code: 192 DPI tests (`:dpi_c:`) and 554 VPI tests (`:vpi_c:`). 3050 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 77 tests check the exit code of the simulation (`:expected_exit:`). 26 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 56 name the top-level module or configuration (`:top_module:`), and 1299 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -121,8 +121,8 @@ The suite has **16291 tests** in 38 chapters. 9351 of them are generated. The [g
 | 34 | Protected envelopes | 4 | 2 | 2 |  |
 | 35 | Direct programming interface | 189 |  | 119 | 70 |
 | 36 | Programming language interface (PLI/VPI) overview | 89 | 34 | 19 | 36 |
-| 37 | VPI object model diagrams | 231 | 18 | 1 | 212 |
-| 38 | VPI routine definitions | 125 | 59 | 10 | 56 |
+| 37 | VPI object model diagrams | 234 | 18 | 1 | 215 |
+| 38 | VPI routine definitions | 129 | 60 | 10 | 59 |
 | 39 | Assertion API | 39 |  | 1 | 38 |
 | 40 | Code coverage control and API | 39 | 1 | 2 | 36 |
 <!-- suite-stats:end -->
@@ -306,13 +306,13 @@ an accepted and a rejected form were then split (7 on 2026-11-14 and 27 on
 2026-11-15), and 76 rows got the kind or wording their observation needs
 (23 and 53): rows that could be shown only by a rejected design, and error rows
 that also stated a legal behavior. The reviewer was an AI, not an independent human.
-Design coverage is **93.07% (11,478/12,332)**;
+Design coverage is **93.13% (11,485/12,332)**;
 execution coverage from the saved `coverage/results/` evidence of the tools
 anyone can reproduce (Icarus Verilog, Verilator and SymbiYosys) is
 **51.22% (6,316/12,332)**.
 Of these rows, 6,026 are confirmed by a simulator and 290 by formal checks alone, which run no simulator.
 With the results of Ghost, an unreleased simulator, and of kirimasim added, it is 78.70% (9,705/12,332).
-Clauses 1 to 40 alone are at 92.14% (8,752/9,499) design coverage.
+Clauses 1 to 40 alone are at 92.21% (8,759/9,499) design coverage.
 See the [generated behavior summary](docs/behavior-coverage-summary.en.md) for the
 measurement inputs and denominator.
 The full existing-test semantic review is still incomplete.

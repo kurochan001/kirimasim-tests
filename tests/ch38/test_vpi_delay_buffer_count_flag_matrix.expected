@@ -1,0 +1,20 @@
+count=1 mtm=0 pulse=0 elems=1 appbuf=1 guards=1: 11
+count=1 mtm=0 pulse=1 elems=3 appbuf=1 guards=1: 11 2 4
+count=1 mtm=1 pulse=0 elems=3 appbuf=1 guards=1: 11 11 11
+count=1 mtm=1 pulse=1 elems=9 appbuf=1 guards=1: 11 11 11 2 2 2 4 4 4
+count=2 mtm=0 pulse=0 elems=2 appbuf=1 guards=1: 21 22
+count=2 mtm=0 pulse=1 elems=6 appbuf=1 guards=1: 21 2 4 22 2 4
+count=2 mtm=1 pulse=0 elems=6 appbuf=1 guards=1: 21 21 21 22 22 22
+count=2 mtm=1 pulse=1 elems=18 appbuf=1 guards=1: 21 21 21 2 2 2 4 4 4 22 22 22 2 2 2 4 4 4
+count=3 mtm=0 pulse=0 elems=3 appbuf=1 guards=1: 31 32 33
+count=3 mtm=0 pulse=1 elems=9 appbuf=1 guards=1: 31 2 4 32 2 4 33 2 4
+count=3 mtm=1 pulse=0 elems=9 appbuf=1 guards=1: 31 31 31 32 32 32 33 33 33
+count=3 mtm=1 pulse=1 elems=27 appbuf=1 guards=1: 31 31 31 2 2 2 4 4 4 32 32 32 2 2 2 4 4 4 33 33 33 2 2 2 4 4 4
+count=6 mtm=0 pulse=0 elems=6 appbuf=1 guards=1: 61 62 63 64 65 66
+count=6 mtm=0 pulse=1 elems=18 appbuf=1 guards=1: 61 2 4 62 2 4 63 2 4 64 2 4 65 2 4 66 2 4
+count=6 mtm=1 pulse=0 elems=18 appbuf=1 guards=1: 61 61 61 62 62 62 63 63 63 64 64 64 65 65 65 66 66 66
+count=6 mtm=1 pulse=1 elems=54 appbuf=1 guards=1: 61 61 61 2 2 2 4 4 4 62 62 62 2 2 2 4 4 4 63 63 63 2 2 2 4 4 4 64 64 64 2 2 2 4 4 4 65 65 65 2 2 2 4 4 4 66 66 66 2 2 2 4 4 4
+count=12 mtm=0 pulse=0 elems=12 appbuf=1 guards=1: 121 122 123 124 125 126 127 128 129 130 131 132
+count=12 mtm=0 pulse=1 elems=36 appbuf=1 guards=1: 121 2 4 122 2 4 123 2 4 124 2 4 125 2 4 126 2 4 127 2 4 128 2 4 129 2 4 130 2 4 131 2 4 132 2 4
+count=12 mtm=1 pulse=0 elems=36 appbuf=1 guards=1: 121 121 121 122 122 122 123 123 123 124 124 124 125 125 125 126 126 126 127 127 127 128 128 128 129 129 129 130 130 130 131 131 131 132 132 132
+count=12 mtm=1 pulse=1 elems=108 appbuf=1 guards=1: 121 121 121 2 2 2 4 4 4 122 122 122 2 2 2 4 4 4 123 123 123 2 2 2 4 4 4 124 124 124 2 2 2 4 4 4 125 125 125 2 2 2 4 4 4 126 126 126 2 2 2 4 4 4 127 127 127 2 2 2 4 4 4 128 128 128 2 2 2 4 4 4 129 129 129 2 2 2 4 4 4 130 130 130 2 2 2 4 4 4 131 131 131 2 2 2 4 4 4 132 132 132 2 2 2 4 4 4

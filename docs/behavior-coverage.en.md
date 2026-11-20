@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 93.07%, execution without Ghost 51.22%, execution with Ghost 78.70%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 93.13%, execution without Ghost 51.22%, execution with Ghost 78.70%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 93.07%. Requirement execution-confirmation rate: 51.22% without Ghost, 78.70% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 93.13%. Requirement execution-confirmation rate: 51.22% without Ghost, 78.70% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 11478/12332 ( 93.07% ).
+- The requirement coverage (test design) for registered behaviors is 11485/12332 ( 93.13% ).
 - Among the registered behaviors, the one with a record of path results corresponding to the current input: 9705/12332 ( 78.70% ).
-- Registered but not tested: 854.
+- Registered but not tested: 847.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -191,12 +191,16 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `reqgap5-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T14:47:43.190246+00:00` / 12/12332 execution checked; 14 entries refer to older inputs.
 - `reqgap6-20261120-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T15:46:16.026728+00:00` / 8/12332 execution checked; 0 entries refer to older inputs.
 - `reqgap6-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T15:46:16.196256+00:00` / 9/12332 execution checked; 0 entries refer to older inputs.
-- `reqgap6-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T15:46:17.221209+00:00` / 4/12332 execution checked; 0 entries refer to older inputs.
-- `reqgap6-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T15:46:17.959332+00:00` / 4/12332 execution checked; 0 entries refer to older inputs.
+- `reqgap6-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T15:46:17.221209+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
+- `reqgap6-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T15:46:17.959332+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
 - `reqgap7-20261120-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T23:33:37.497509+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `reqgap7-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T23:33:37.526094+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `reqgap7-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T23:33:58.371412+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `reqgap7-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T23:33:58.371408+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `reqgap8-20261120-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-20T00:44:12.999452+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `reqgap8-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-20T00:44:12.606501+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `reqgap8-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-20T00:44:19.746413+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `reqgap8-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-20T00:44:19.746335+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `runtime-errors-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-12T01:03:42.109814+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `runtime-errors-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-12T01:03:42.439195+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `runtime-errors-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T01:03:46.712402+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
@@ -584,8 +588,8 @@ The number of items is the investigation status of the article by heading. This 
 - 34 Protected envelopes: No interpretation reservation 104/104, registration 214, test support 5.
 - 35 Direct programming interface: No interpretation reservation 31/31, registration 143, test support 121.
 - 36 Programming language interface ( PLI / VPI ) overview: No interpretation restrictions 29/29, registration 163, test support 148.
-- 37 VPI object model diagrams: no interpretation restrictions 101/101, registration 1757, test support 1662.
-- 38 VPI routine definitions: no interpretation reservation 51/51, registration 348, test support 280.
+- 37 VPI object model diagrams: no interpretation restrictions 101/101, registration 1757, test support 1666.
+- 38 VPI routine definitions: no interpretation reservation 51/51, registration 348, test support 283.
 - 39 Assertion API : No interpretation reservation 14/14, registration 95, test support 82.
 - 40 Code coverage control and API : no interpretation reservation 26/26, registration 128, test support 122.
 - 41 Data read API : no interpretation reservation 1/1, registration 0, test support 0.
@@ -596,8 +600,8 @@ The number of items is the investigation status of the article by heading. This 
 - E Optional compiler directives: Reference (not included in the denominator of the standard requirements), registration 0, test support 0.
 - F Formal semantics of concurrent assertions: no interpretation reservation 53/53, registration 253, test support 253.
 - G Std package: no interpretation reserve 8/8, registration 32, test support 25.
-- H DPI C layer: No interpretation reservation 72/72, registration 223, test support 192.
-- I svdpi.h : No interpretation reservation 4/4, registration 147, test compliant 135.
+- H DPI C layer: No interpretation reservation 72/72, registration 223, test support 193.
+- I svdpi.h : No interpretation reservation 4/4, registration 147, test compliant 134.
 - J Inclusion of foreign language code: no interpretation reservation 7/7, registration 16, test compatible 0.
 - K vpi_user.h: no interpretations on hold 3/3; registered 544; test mappings 541.
 - L vpi_compatibility.h: no interpretations on hold 3/3; registered 88; test mappings 85.
@@ -97716,7 +97720,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.24-EXTRACT-DIAGRAM-001
 
-`37.24` / `normal` / No mapped test
+`37.24` / `normal` / Test mapped; execution unconfirmed
 
 interconnect array exposes vpiPacked as Boolean, representing packed-array status; access it with the appropriate property routine under 37.3.1.
 
@@ -97724,6 +97728,7 @@ Acceptance criterion: interconnect array exposes vpiPacked as Boolean, represent
 
 Normative role: `definition`。
 
+- [test_vpi_interconnect_array_packed_contrast.sv](../tests/ch37/test_vpi_interconnect_array_packed_contrast.sv) : Print vpiPacked as the actual value 1/0 for packed interconnect \[ 3:1 \] and unpacked interconnect \[ -2:0 \], which both have 3 elements, and also check the type, identity of the owning module, both bounds, and element count. Distinguishing observation: A constant TRUE changes the unpacked row, and a constant FALSE changes the packed row. The type/owner/range/size checks also distinguish an incorrect binding to another object or a lost dimension. The expected values are derived from the Boolean meaning in 37.24 B002 and the 1/0 rule in 37.3.1; this is not a reduced count-only comparison.
 
 ### SV2023-37.24-EXTRACT-DIAGRAM-002
 
@@ -99802,7 +99807,7 @@ Normative role: `definition`。
 
 ### SV2023-37.29-EXTRACT-DIAGRAM-004
 
-`37.29` / `normal` / No mapped test
+`37.29` / `normal` / Test mapped; execution unconfirmed
 
 The 37.29 VPI model includes reference object in the interface expression group; group properties and relationships apply to this member.
 
@@ -99810,6 +99815,7 @@ Acceptance criterion: The 37.29 VPI model includes reference object in the inter
 
 Normative role: `definition`。
 
+- [test_vpi_interface_expression_port_refs_and_null.sv](../tests/ch37/test_vpi_interface_expression_port_refs_and_null.sv) : Check that RHS of local interface/modport ports used as interface expressions is vpiRefObj, is identical to the declaration object of each port's lowconn, and has the specified left or right.mp as its actual target. Distinguishing observation: Observe that ref obj belongs to the interface-expression group in 37.29, including the specific referenced declaration and bound target. The group itself has no additional property or relation. For an implementation that does not return a ref or returns a different reference, the rhs/local-port/actual rows change, so the evidence is not limited to count/type.
 
 ### SV2023-37.29-EXTRACT-DIAGRAM-005
 
@@ -99897,7 +99903,7 @@ Normative role: `definition`。
 
 ### SV2023-37.29-EXTRACT-INTERFACE-EXPRESSION-RESTRICTIONS
 
-`37.29` / `normal` / No mapped test
+`37.29` / `normal` / Test mapped; execution unconfirmed
 
 An interface-expression reference object must be a local interface/modport declaration passed through a port; an interface-expression constant must have vpiConstType=vpiNullConst.
 
@@ -99905,6 +99911,7 @@ Acceptance criterion: An interface-expression reference object must be a local i
 
 Normative role: `mandatory`。
 
+- [test_vpi_interface_expression_port_refs_and_null.sv](../tests/ch37/test_vpi_interface_expression_port_refs_and_null.sv) : Read RHS of assignments to virtual interfaces, check that local interface port s and local modport port m are vpiRefObj objects identical to their respective lowconn, and print the specific identity of vpiActual with left/right.mp and its nonidentity with the wrong target. Print the null RHS as both vpiConstant and vpiNullConst. Distinguishing observation: Exercise both the ref and constant cases of 37.29 B007. The corresponding row changes for an incorrect implementation that returns only the ref type, misidentifies the local declaration, confuses interface with modport or different instances, or returns a non-null constant. The task is not executed, and there is no null dereference. The output is sorted by LHS name and does not depend on iteration order.
 
 ### SV2023-37.29-EXTRACT-VIRTUAL-INITIALIZER
 
@@ -100626,7 +100633,7 @@ Normative role: `definition`。
 
 ### SV2023-37.32-EXTRACT-DIAGRAM-014
 
-`37.32` / `normal` / No mapped test
+`37.32` / `normal` / Test mapped; execution unconfirmed
 
 37.32 defines a one-to-one relation from virtual-interface variable to class typespec, using the untagged class typespec access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -100634,6 +100641,7 @@ Acceptance criterion: 37.32 defines a one-to-one relation from virtual-interface
 
 Normative role: `definition`。
 
+- [test_vpi_vif_declaration_specialization_owner.sv](../tests/ch37/test_vpi_vif_declaration_specialization_owner.sv) : Apply vpiClassTypespec to vif declarations in the distinct specializations obtained from the types of module-scope holder#( 3 ) and holder#( 8 ), and observe the return type, identity with own, nonidentity with other, and the owner's ID value 3/8. Distinguishing observation: Use the single left-pointing arrow from the branch common to all members to the central class typespec in the original 37.32 diagram, physical1044. By 37.33 detail5 and 37.32 detail1, the input is the declared specialization, rather than a lexical-only construct. An unimplemented owner relation, an incorrect lexical owner, or confusion between the two specializations changes at least one of owner type/identity/ID. No live class object or frame value is accessed, and no tool-dependent specialization name is printed. Keep the existing held pairs and propose only the new test with a different name.
 
 ### SV2023-37.32-EXTRACT-DIAGRAM-015
 
@@ -110841,7 +110849,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.10-EXTRACT-DELAY-ARRAY-MEMORY
 
-`38.10` / `normal` / No mapped test
+`38.10` / `normal` / Test mapped; execution unconfirmed
 
 The application allocates da as an s_vpi_time array sized from delay count, min/typ/max flag and pulse-reject/error flag.
 
@@ -110849,6 +110857,7 @@ Acceptance criterion: The application allocates da as an s_vpi_time array sized 
 
 Normative role: `mandatory`。
 
+- [test_vpi_delay_buffer_count_flag_matrix.sv](../tests/ch38/test_vpi_delay_buffer_count_flag_matrix.sv): Each legal module-path count (1,2,3,6,12) is crossed with mtm/pulse flags 00,01,10,11. The application allocates count,3*count,3*count,9*count s_vpi_time elements with surrounding guards and prints every returned value from its own allocation. Distinguishing observation: Distinct path delay values and reject=2/error=4 identify all returned elements. Incorrect flag/count sizing or layout leaves missing or misplaced values; an overwrite changes a guard. The test observes all factors in B017/B018 rather than a fixed-count struct declaration.
 
 ### SV2023-38.10-EXTRACT-DELAY-LAYOUT-0-0
 
@@ -112842,7 +112851,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.35-EXTRACT-PROPAGATE-OFF
 
-`38.35` / `normal` / No mapped test
+`38.35` / `normal` / Test mapped; execution unconfirmed
 
 vpiPropagateOff inhibits array-fanout value-change notification; during active simulation a subsequent update may be needed to restore correct propagation.
 
@@ -112850,6 +112859,7 @@ Acceptance criterion: vpiPropagateOff inhibits array-fanout value-change notific
 
 Normative role: `mandatory`。
 
+- [test_vpi_bulk_propagation_suppressed_then_restored.sv](../tests/ch38/test_vpi_bulk_propagation_suppressed_then_restored.sv): A bulk put at time10 writes distinct array elements 31,47 with vpiPropagateOff. At11 stored values changed while captured fanout values remain10,20 and counters remain0. A no-delay put at20 writes32,48; at21 the fanouts captured those values once each. An unrelated array remains100,200. Distinguishing observation: Ignoring vpiPropagateOff changes the suppressed captured values and event counters. Suppressing later ordinary propagation changes the restored row. Separate element values and an unrelated array reject wrong target/element routing. Initialization at time1 avoids an initial-process order assumption; observations follow each API update by a whole time step.
 
 ### SV2023-38.35-EXTRACT-PUT-ARRAY-FORMAT
 
@@ -113456,7 +113466,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.36.1-EXTRACT-EVENT-CBENTERTHREAD
 
-`38.36.1` / `normal` / No mapped test
+`38.36.1` / `normal` / Test mapped; execution unconfirmed
 
 cbEnterThread invokes the registered callback when a thread resumes execution.
 
@@ -113464,6 +113474,7 @@ Acceptance criterion: cbEnterThread invokes the registered callback when a threa
 
 Normative role: `mandatory`。
 
+- [test_vpi_enter_thread_resume_identity.sv](../tests/ch38/test_vpi_enter_thread_resume_identity.sv): Two live worker threads install cbEnterThread on their actual thread handles. Each resumes from delay, event control and false wait, at3/6/9 or4/7/10. Every callback saves its requested simulation time and the named automatic marker (91 or52) and compares its trigger object to its watched thread. Reports use fixed worker order and saved integers after registrations were removed in their live frames. Distinguishing observation: Missing or extra resumes alter callback counts/times. Global or crossed thread routing alters distinct times/marker values or object identity. The automatic marker is stable before and after every resumed statement, avoiding callback-versus-body ordering assumptions; no invalid frame/thread handle is probed after return.
 
 ### SV2023-38.36.1-EXTRACT-EVENT-CBFORCE
 
@@ -134686,7 +134697,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.9.1-EXTRACT-VPI-CALLSITE
 
-`H.9.1` / `normal` / No mapped test
+`H.9.1` / `normal` / Execution confirmed
 
 VPI context is associated with system-task call site, used for arguments and surrounding scope.
 
@@ -134694,6 +134705,7 @@ Acceptance criterion: VPI context is associated with system-task call site, used
 
 Normative role: `definition`。
 
+- [test_vpi_callsite_argument_and_scope_context.sv](../tests/ch38/test_vpi_callsite_argument_and_scope_context.sv) : Call the same registered VPI system task from 2 instances, left/right, at times 1/2, and use vpiSysTfCall to print each call's scope, the actual's name/value, and the name/value of local_value in that scope. The parent declarations supply the actuals 41/62, the callsite locals are 7/19, and the parent has a same-named 101, separating the actual-owner scope from the callsite. Distinguishing observation: By H.9.1 B005 and 37.42 B009, the VPI context is associated with the system-task callsite, from which the actual arguments and surrounding declarative scope can be obtained. Both names and values are examined, so this is not merely a non-NULL or count-only check. If the argument declaration scope or root is incorrectly used as the context, the scope name lacks left/right and local_value becomes 101, differing from the expected 2 lines that use the child's 7/19. Compare 2callsite of the same registered callback, and also distinguish an incorrect implementation that reuses the previous call's arguments/context using the right call's name/62/19. Add a VPI system-task application that was absent from the existing held candidate, which uses only DPI imports.
 
 ### SV2023-H.9.2-EXTRACT-SAME-SCOPE
 
@@ -137977,7 +137989,7 @@ Normative role: `mandatory`。
 
 ### SV2023-I.3-EXTRACT-SIGNED-TEXT
 
-`I.3` / `normal` / Execution confirmed
+`I.3` / `normal` / No mapped test
 
 Annex I reproduces SV_GET_SIGNED_BITS(VALUE, N) verbatim from H.10.1.2: VALUE when N == 32, otherwise a bit-N test selecting sign fill or masking with SV_MASK(N). Both source occurrences carry the same token sequence and neither is corrected.
 
@@ -137985,7 +137997,6 @@ Acceptance criterion: The macro in the Annex I listing matches the H.10.1.2 defi
 
 Normative role: `definition`。
 
-- [test_svdpi_h_signed_bits_macro_tokens.sv](../tests/ch35/test_svdpi_h_signed_bits_macro_tokens.sv) : C code includes svdpi.h , removes the definition of SV_MASK , expands SV_GET_SIGNED_BITS (v, n) with the # operator into a string, and prints the token sequence with whitespace removed; 1/0 prints whether it matches ((n)== 32 ?(v):(((v)&( 1 \< \< (n)))?((v)|~ SV_MASK (n)):((v)& SV_MASK (n)))) obtained from the definitions of I.3 and H.10.1.2 (the design calls the imported dpi_signed_bits_text ). The computed value is not compared when N is less than 32 (as the acceptance condition says). Distinguishing observation: With a header whose macro is rewritten (for example, checking N-1 instead of bit N, not using SV_MASK , or lacking the branch for N == 32 ), the printed token sequence changes and 'same tokens as H.10.1.2: 1' becomes 0 . Differences in whitespace only are removed so that they do not affect the token sequence.
 
 ### SV2023-I.3-EXTRACT-TIME-ALIASES
 

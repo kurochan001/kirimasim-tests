@@ -1357,7 +1357,7 @@ tests/ch32/test_sdf_cond_unknown_true.sv",既存モデルの計画・実行証�
 30,specifyブロック,37,VPIオブジェクトモデル図,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,6,"tests/ch36/test_vpi_routines_path_delays.sv
 tests/ch37/test_vpi_mod_path_relations_delays.sv
 tests/ch37/test_vpi_module_paths.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-30,specifyブロック,38,VPIルーチンの定義,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,7,"tests/ch30/test_specify_path_delay_mintypmax_vpi.sv
+30,specifyブロック,38,VPIルーチンの定義,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,8,"tests/ch30/test_specify_path_delay_mintypmax_vpi.sv
 tests/ch36/test_vpi_routines_path_delays.sv
 tests/ch37/test_vpi_mod_path_relations_delays.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 30,specifyブロック,39,アサーションAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
@@ -1421,7 +1421,7 @@ tests/ch36/test_sv_vpi_user_h_coverage_constants.sv",引用探索の候補とソ
 36,プログラミング言語インターフェース（PLI/VPI）の概要,39,アサーションAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch39/test_vpi_assertion_attempt_info_structures.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 36,プログラミング言語インターフェース（PLI/VPI）の概要,40,コードカバレッジの制御とAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch40/test_vpi_coverage_extension_constants.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 36,プログラミング言語インターフェース（PLI/VPI）の概要,41,データ読出しAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-37,VPIオブジェクトモデル図,38,VPIルーチンの定義,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,99,"tests/ch3/test_global_precision_from_timeprecision.sv
+37,VPIオブジェクトモデル図,38,VPIルーチンの定義,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,101,"tests/ch3/test_global_precision_from_timeprecision.sv
 tests/ch3/test_global_precision_from_timescale.sv
 tests/ch3/test_global_precision_from_timeunit_slash.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 37,VPIオブジェクトモデル図,39,アサーションAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,7,"tests/ch37/test_vpi_assertion_columns.sv

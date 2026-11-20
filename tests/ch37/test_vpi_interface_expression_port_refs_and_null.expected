@@ -1,0 +1,4 @@
+statements 3, observed expressions 3
+vi: lhs virtual interface var 1, rhs ref obj 1, local port 1, actual type 1, correct actual 1, wrong interface 0
+vm: lhs virtual interface var 1, rhs ref obj 1, local port 1, actual type 1, correct actual 1, wrong interface 0
+vn: lhs virtual interface var 1, rhs constant 1, null constant 1

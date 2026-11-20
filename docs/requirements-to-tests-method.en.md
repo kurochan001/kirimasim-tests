@@ -293,6 +293,7 @@ Holes found in the verification so far (checklist to avoid the same kind of erro
 |The comment on the explanation on the line of violation is itself a violation (comment on the same line as `` `line `` is prohibited in 22.12).|Do not comment on command lines|
 |Marked `:fourstate: no` despite outputting strengths or tri-state values|The test using the strength syntax is `:fourstate: yes`.|
 |Outputs unspecified values, such as the unsized value `$bits`, the sequence of simultaneous events, the repetition order of VPI, and the element name.|No output, or change to the form specified by the standard.|
+|Deleting spaces from a macro expansion merges `< <` with `<<` and also hides an indirect alias definition.|Preserve token boundaries. A row requiring the definition itself needs the original replacement list; an expansion alone is incomplete evidence ([finite counterexample](../coverage/qualification/signed-macro-token-audit-20261120.json)).|
 
 <a id="9-段階g統合計測記録"></a>
 
