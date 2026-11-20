@@ -1,91 +1,44 @@
 {
  "inputs": {
   "icarus": {
-   "version": "Icarus Verilog version 14.0 (devel) (s20260301-1208-g65504129)",
-   "time": "2026-11-19T20:50:41Z",
-   "suite_commit": "68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e"
+   "version": "Icarus Verilog version 14.0 (devel) (s20260301-1212-gc717fc33)",
+   "time": "2026-11-20T01:21:14Z",
+   "suite_commit": "03b2e107c60de3163952376dc1c1944f9d95f781"
   },
   "verilator": {
-   "version": "Verilator 5.055 devel rev v5.054-325-g464643f7",
-   "time": "2026-11-19T20:50:41Z",
-   "suite_commit": "68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e"
+   "version": "Verilator 5.055 devel rev v5.054-326-g3bdc686f",
+   "time": "2026-11-20T01:21:14Z",
+   "suite_commit": "03b2e107c60de3163952376dc1c1944f9d95f781"
   },
   "kirimasim": {
    "version": "kirimasim 0.1.1 (commit bd81035d9809), built with GNU 13.3.0",
-   "time": "2026-11-19T20:50:41Z",
-   "suite_commit": "68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e"
+   "time": "2026-11-20T01:21:14Z",
+   "suite_commit": "03b2e107c60de3163952376dc1c1944f9d95f781"
   },
   "lyra": {
-   "version": "Lyra (commit f164508a8662)",
-   "time": "2026-11-19T06:47:05Z",
-   "suite_commit": "a00ad6ad86a9a6da1bb76e7622969c35057e14b9"
+   "version": "Lyra (commit 9a9813a48c8c)",
+   "time": "2026-11-20T01:21:14Z",
+   "suite_commit": "03b2e107c60de3163952376dc1c1944f9d95f781"
   },
   "ghost": {
-   "version": "private build 0b90acaa7ed6",
-   "time": "2026-11-19T20:50:41Z",
-   "suite_commit": "68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e"
+   "version": "private build d72b3e26ad6a",
+   "time": "2026-11-20T01:21:14Z",
+   "suite_commit": "03b2e107c60de3163952376dc1c1944f9d95f781"
   }
  },
  "candidates": {
   "spec_fail_all": [],
-  "kirimasim_only": [
-   "gen/ch11/test_gen_constant_negative_power_zero_e3",
-   "gen/ch11/test_gen_constant_negative_power_zero_e32",
-   "gen/ch11/test_gen_constant_negative_power_zero_e8",
-   "gen/ch11/test_gen_negative_power_zero_e3",
-   "gen/ch11/test_gen_negative_power_zero_e32",
-   "gen/ch11/test_gen_negative_power_zero_e8",
-   "gen/ch11/test_gen_power_boundary_negative_signed_w127",
-   "gen/ch11/test_gen_power_boundary_negative_signed_w128",
-   "gen/ch11/test_gen_power_boundary_negative_signed_w129",
-   "gen/ch11/test_gen_power_boundary_negative_signed_w255",
-   "gen/ch11/test_gen_power_boundary_negative_signed_w256",
-   "gen/ch11/test_gen_power_boundary_negative_signed_w257",
-   "gen/ch11/test_gen_power_boundary_negative_signed_w63",
-   "gen/ch11/test_gen_power_boundary_negative_signed_w64",
-   "gen/ch11/test_gen_power_boundary_negative_signed_w65",
-   "gen/ch11/test_gen_power_boundary_negative_unsigned_w127",
-   "gen/ch11/test_gen_power_boundary_negative_unsigned_w128",
-   "gen/ch11/test_gen_power_boundary_negative_unsigned_w129",
-   "gen/ch11/test_gen_power_boundary_negative_unsigned_w255",
-   "gen/ch11/test_gen_power_boundary_negative_unsigned_w256",
-   "gen/ch11/test_gen_power_boundary_negative_unsigned_w257",
-   "gen/ch11/test_gen_power_boundary_negative_unsigned_w63",
-   "gen/ch11/test_gen_power_boundary_negative_unsigned_w64",
-   "gen/ch11/test_gen_power_boundary_negative_unsigned_w65",
-   "gen/ch21/test_gen_wide_scan_decimal_signed_w128",
-   "gen/ch21/test_gen_wide_scan_decimal_signed_w129",
-   "gen/ch21/test_gen_wide_scan_decimal_signed_w255",
-   "gen/ch21/test_gen_wide_scan_decimal_signed_w256",
-   "gen/ch21/test_gen_wide_scan_decimal_signed_w257",
-   "gen/ch21/test_gen_wide_scan_decimal_signed_w64",
-   "gen/ch21/test_gen_wide_scan_decimal_signed_w65",
-   "gen/ch21/test_gen_wide_scan_decimal_unsigned_w128",
-   "gen/ch21/test_gen_wide_scan_decimal_unsigned_w129",
-   "gen/ch21/test_gen_wide_scan_decimal_unsigned_w255",
-   "gen/ch21/test_gen_wide_scan_decimal_unsigned_w256",
-   "gen/ch21/test_gen_wide_scan_decimal_unsigned_w257",
-   "gen/ch21/test_gen_wide_scan_decimal_unsigned_w64",
-   "gen/ch21/test_gen_wide_scan_decimal_unsigned_w65"
-  ],
+  "kirimasim_only": [],
   "spec_no_pass": [
+   "ch16/test_sequence_method_call_and_match_item_forms",
    "ch18/test_discarded_soft_distribution",
-   "ch19/test_cg_cross_set_function_matches",
-   "ch19/test_covergroup_cross_and_select_forms",
-   "ch32/test_sdf_mtm_spec",
-   "ch32/test_sdf_scale_factors",
-   "ch32/test_sdf_scale_type_members",
    "ch37/test_vpi_attribute_ports_params",
-   "ch37/test_vpi_io_decl_scope_typespec_ports",
    "ch37/test_vpi_program_interface_relations",
    "ch37/test_vpi_struct_and_tagged_patterns",
    "ch39/test_vpi_assertion_cover_no_failure",
-   "ch39/test_vpi_assertion_system_task_control",
-   "ch7/test_illegal_wildcard_array_find"
+   "ch39/test_vpi_assertion_system_task_control"
   ],
   "oracle_ghost_lyra": [
-   "ch21/test_fopen_name_and_type_forms",
-   "ch21/test_vcd_dumpvars_all_filename_start",
    "ch6/test_ch6_extra_for_loop_automatic"
   ]
  },
@@ -575,10 +528,6 @@
    "tests": 6
   },
   {
-   "clause": "15.5.4",
-   "tests": 6
-  },
-  {
    "clause": "16.9.1",
    "tests": 6
   },
@@ -672,6 +621,10 @@
   },
   {
    "clause": "12.6.2",
+   "tests": 7
+  },
+  {
+   "clause": "15.5.4",
    "tests": 7
   },
   {
@@ -896,7 +849,7 @@
   },
   {
    "clause": "16.11",
-   "tests": 19
+   "tests": 20
   },
   {
    "clause": "31.3.1",

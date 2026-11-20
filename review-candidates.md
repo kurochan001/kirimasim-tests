@@ -2,26 +2,26 @@
 
 [日本語](review-candidates.ja.md)
 
-Tests and clauses whose expected results rest least on anything but the reading of the standard, from the latest results of each simulator. A candidate is not a finding: a review against the standard decides. [How the reviews are recorded](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/docs/review-candidates.en.md).
+Tests and clauses whose expected results rest least on anything but the reading of the standard, from the latest results of each simulator. A candidate is not a finding: a review against the standard decides. [How the reviews are recorded](https://github.com/kurochan001/kirimasim-tests/blob/03b2e107c60de3163952376dc1c1944f9d95f781/docs/review-candidates.en.md).
 
 ## Results read
 
 | Simulator | Version | Time | Suite commit |
 | --- | --- | --- | --- |
-| Icarus Verilog | `Icarus Verilog version 14.0 (devel) (s20260301-1208-g65504129)` | 2026-11-19T20:50:41Z | `68ce2bc2` |
-| Verilator | `Verilator 5.055 devel rev v5.054-325-g464643f7` | 2026-11-19T20:50:41Z | `68ce2bc2` |
-| kirimasim | `kirimasim 0.1.1 (commit bd81035d9809), built with GNU 13.3.0` | 2026-11-19T20:50:41Z | `68ce2bc2` |
-| Lyra | `Lyra (commit f164508a8662)` | 2026-11-19T06:47:05Z | `a00ad6ad` (older suite commit) |
-| Ghost | `private build 0b90acaa7ed6` | 2026-11-19T20:50:41Z | `68ce2bc2` |
+| Icarus Verilog | `Icarus Verilog version 14.0 (devel) (s20260301-1212-gc717fc33)` | 2026-11-20T01:21:14Z | `03b2e107` |
+| Verilator | `Verilator 5.055 devel rev v5.054-326-g3bdc686f` | 2026-11-20T01:21:14Z | `03b2e107` |
+| kirimasim | `kirimasim 0.1.1 (commit bd81035d9809), built with GNU 13.3.0` | 2026-11-20T01:21:14Z | `03b2e107` |
+| Lyra | `Lyra (commit 9a9813a48c8c)` | 2026-11-20T01:21:14Z | `03b2e107` |
+| Ghost | `private build d72b3e26ad6a` | 2026-11-20T01:21:14Z | `03b2e107` |
 
 ## Counts
 
 | Candidate | Number |
 | --- | ---: |
 | Spec only, failing on Ghost, kirimasim and Lyra | 0 |
-| Spec only, passing on kirimasim alone | 38 |
-| Other spec-only tests passing nowhere | 13 |
-| Release oracle, failing on both Ghost and Lyra | 3 |
+| Spec only, passing on kirimasim alone | 0 |
+| Other spec-only tests passing nowhere | 7 |
+| Release oracle, failing on both Ghost and Lyra | 1 |
 | Clauses whose citing tests are all spec only | 212 |
 
 Results: I Icarus Verilog, V Verilator, K kirimasim, L Lyra, G Ghost; p pass, f fail, u unsupported, k known, - not run.
@@ -32,72 +32,25 @@ None.
 
 ## Spec only, passing on kirimasim alone
 
-| Test | Results |
-| --- | --- |
-| [`gen/ch11/test_gen_constant_negative_power_zero_e3`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch11/test_gen_constant_negative_power_zero_e3.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch11/test_gen_constant_negative_power_zero_e32`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch11/test_gen_constant_negative_power_zero_e32.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch11/test_gen_constant_negative_power_zero_e8`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch11/test_gen_constant_negative_power_zero_e8.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch11/test_gen_negative_power_zero_e3`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch11/test_gen_negative_power_zero_e3.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch11/test_gen_negative_power_zero_e32`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch11/test_gen_negative_power_zero_e32.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch11/test_gen_negative_power_zero_e8`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch11/test_gen_negative_power_zero_e8.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch11/test_gen_power_boundary_negative_signed_w127`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch11/test_gen_power_boundary_negative_signed_w127.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch11/test_gen_power_boundary_negative_signed_w128`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch11/test_gen_power_boundary_negative_signed_w128.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch11/test_gen_power_boundary_negative_signed_w129`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch11/test_gen_power_boundary_negative_signed_w129.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch11/test_gen_power_boundary_negative_signed_w255`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch11/test_gen_power_boundary_negative_signed_w255.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch11/test_gen_power_boundary_negative_signed_w256`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch11/test_gen_power_boundary_negative_signed_w256.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch11/test_gen_power_boundary_negative_signed_w257`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch11/test_gen_power_boundary_negative_signed_w257.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch11/test_gen_power_boundary_negative_signed_w63`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch11/test_gen_power_boundary_negative_signed_w63.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch11/test_gen_power_boundary_negative_signed_w64`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch11/test_gen_power_boundary_negative_signed_w64.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch11/test_gen_power_boundary_negative_signed_w65`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch11/test_gen_power_boundary_negative_signed_w65.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch11/test_gen_power_boundary_negative_unsigned_w127`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch11/test_gen_power_boundary_negative_unsigned_w127.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch11/test_gen_power_boundary_negative_unsigned_w128`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch11/test_gen_power_boundary_negative_unsigned_w128.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch11/test_gen_power_boundary_negative_unsigned_w129`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch11/test_gen_power_boundary_negative_unsigned_w129.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch11/test_gen_power_boundary_negative_unsigned_w255`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch11/test_gen_power_boundary_negative_unsigned_w255.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch11/test_gen_power_boundary_negative_unsigned_w256`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch11/test_gen_power_boundary_negative_unsigned_w256.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch11/test_gen_power_boundary_negative_unsigned_w257`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch11/test_gen_power_boundary_negative_unsigned_w257.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch11/test_gen_power_boundary_negative_unsigned_w63`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch11/test_gen_power_boundary_negative_unsigned_w63.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch11/test_gen_power_boundary_negative_unsigned_w64`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch11/test_gen_power_boundary_negative_unsigned_w64.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch11/test_gen_power_boundary_negative_unsigned_w65`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch11/test_gen_power_boundary_negative_unsigned_w65.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch21/test_gen_wide_scan_decimal_signed_w128`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch21/test_gen_wide_scan_decimal_signed_w128.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch21/test_gen_wide_scan_decimal_signed_w129`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch21/test_gen_wide_scan_decimal_signed_w129.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch21/test_gen_wide_scan_decimal_signed_w255`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch21/test_gen_wide_scan_decimal_signed_w255.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch21/test_gen_wide_scan_decimal_signed_w256`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch21/test_gen_wide_scan_decimal_signed_w256.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch21/test_gen_wide_scan_decimal_signed_w257`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch21/test_gen_wide_scan_decimal_signed_w257.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch21/test_gen_wide_scan_decimal_signed_w64`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch21/test_gen_wide_scan_decimal_signed_w64.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch21/test_gen_wide_scan_decimal_signed_w65`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch21/test_gen_wide_scan_decimal_signed_w65.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch21/test_gen_wide_scan_decimal_unsigned_w128`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch21/test_gen_wide_scan_decimal_unsigned_w128.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch21/test_gen_wide_scan_decimal_unsigned_w129`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch21/test_gen_wide_scan_decimal_unsigned_w129.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch21/test_gen_wide_scan_decimal_unsigned_w255`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch21/test_gen_wide_scan_decimal_unsigned_w255.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch21/test_gen_wide_scan_decimal_unsigned_w256`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch21/test_gen_wide_scan_decimal_unsigned_w256.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch21/test_gen_wide_scan_decimal_unsigned_w257`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch21/test_gen_wide_scan_decimal_unsigned_w257.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch21/test_gen_wide_scan_decimal_unsigned_w64`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch21/test_gen_wide_scan_decimal_unsigned_w64.sv) | `Ik Vk Kp L- Gf` |
-| [`gen/ch21/test_gen_wide_scan_decimal_unsigned_w65`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/gen/ch21/test_gen_wide_scan_decimal_unsigned_w65.sv) | `Ik Vk Kp L- Gf` |
+None.
 
 ## Other spec-only tests passing nowhere
 
 | Test | Results |
 | --- | --- |
-| [`ch18/test_discarded_soft_distribution`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/ch18/test_discarded_soft_distribution.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch19/test_cg_cross_set_function_matches`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/ch19/test_cg_cross_set_function_matches.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch19/test_covergroup_cross_and_select_forms`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/ch19/test_covergroup_cross_and_select_forms.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch32/test_sdf_mtm_spec`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/ch32/test_sdf_mtm_spec.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch32/test_sdf_scale_factors`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/ch32/test_sdf_scale_factors.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch32/test_sdf_scale_type_members`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/ch32/test_sdf_scale_type_members.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch37/test_vpi_attribute_ports_params`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/ch37/test_vpi_attribute_ports_params.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch37/test_vpi_io_decl_scope_typespec_ports`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch37/test_vpi_program_interface_relations`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/ch37/test_vpi_program_interface_relations.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch37/test_vpi_struct_and_tagged_patterns`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/ch37/test_vpi_struct_and_tagged_patterns.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch39/test_vpi_assertion_cover_no_failure`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/ch39/test_vpi_assertion_cover_no_failure.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch39/test_vpi_assertion_system_task_control`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/ch39/test_vpi_assertion_system_task_control.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch7/test_illegal_wildcard_array_find`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/ch7/test_illegal_wildcard_array_find.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch16/test_sequence_method_call_and_match_item_forms`](https://github.com/kurochan001/kirimasim-tests/blob/03b2e107c60de3163952376dc1c1944f9d95f781/tests/ch16/test_sequence_method_call_and_match_item_forms.sv) | `Ik Vk Ku Lu Gf` |
+| [`ch18/test_discarded_soft_distribution`](https://github.com/kurochan001/kirimasim-tests/blob/03b2e107c60de3163952376dc1c1944f9d95f781/tests/ch18/test_discarded_soft_distribution.sv) | `Ik Vk Ku Lf Gf` |
+| [`ch37/test_vpi_attribute_ports_params`](https://github.com/kurochan001/kirimasim-tests/blob/03b2e107c60de3163952376dc1c1944f9d95f781/tests/ch37/test_vpi_attribute_ports_params.sv) | `Ik Vk Ku Lu Gf` |
+| [`ch37/test_vpi_program_interface_relations`](https://github.com/kurochan001/kirimasim-tests/blob/03b2e107c60de3163952376dc1c1944f9d95f781/tests/ch37/test_vpi_program_interface_relations.sv) | `Ik Vk Ku Lu Gf` |
+| [`ch37/test_vpi_struct_and_tagged_patterns`](https://github.com/kurochan001/kirimasim-tests/blob/03b2e107c60de3163952376dc1c1944f9d95f781/tests/ch37/test_vpi_struct_and_tagged_patterns.sv) | `Ik Vk Ku Lu Gf` |
+| [`ch39/test_vpi_assertion_cover_no_failure`](https://github.com/kurochan001/kirimasim-tests/blob/03b2e107c60de3163952376dc1c1944f9d95f781/tests/ch39/test_vpi_assertion_cover_no_failure.sv) | `Ik Vk Ku Lu Gf` |
+| [`ch39/test_vpi_assertion_system_task_control`](https://github.com/kurochan001/kirimasim-tests/blob/03b2e107c60de3163952376dc1c1944f9d95f781/tests/ch39/test_vpi_assertion_system_task_control.sv) | `Ik Vk Ku Lu Gf` |
 
 ## Release oracle, failing on both Ghost and Lyra
 
 | Test | Results |
 | --- | --- |
-| [`ch21/test_fopen_name_and_type_forms`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/ch21/test_fopen_name_and_type_forms.sv) | `Ip Vp Kf Lf Gf` |
-| [`ch21/test_vcd_dumpvars_all_filename_start`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/ch21/test_vcd_dumpvars_all_filename_start.sv) | `Ip Vk Kf Lf Gf` |
-| [`ch6/test_ch6_extra_for_loop_automatic`](https://github.com/kurochan001/kirimasim-tests/blob/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e/tests/ch6/test_ch6_extra_for_loop_automatic.sv) | `Ik Vp Kf Lf Gf` |
+| [`ch6/test_ch6_extra_for_loop_automatic`](https://github.com/kurochan001/kirimasim-tests/blob/03b2e107c60de3163952376dc1c1944f9d95f781/tests/ch6/test_ch6_extra_for_loop_automatic.sv) | `Ik Vp Kf Lf Gf` |
 
 ## Clauses whose citing tests are all spec only
 
@@ -224,7 +177,6 @@ None.
 | 40.3.2.5 | 5 |
 | 7.9.8 | 6 |
 | 12.4.2.1 | 6 |
-| 15.5.4 | 6 |
 | 16.9.1 | 6 |
 | 16.9.5 | 6 |
 | 16.9.7 | 6 |
@@ -249,6 +201,7 @@ None.
 | 37.75 | 6 |
 | 37.83 | 6 |
 | 12.6.2 | 7 |
+| 15.5.4 | 7 |
 | 16.12.19 | 7 |
 | 16.12.22 | 7 |
 | 16.14.6.1 | 7 |
@@ -304,7 +257,7 @@ None.
 | 40.3.2.2 | 16 |
 | 31.3.2 | 17 |
 | 36.12.2.1 | 17 |
-| 16.11 | 19 |
+| 16.11 | 20 |
 | 31.3.1 | 20 |
 | 37.11 | 22 |
 | 40.3.2.3 | 22 |
