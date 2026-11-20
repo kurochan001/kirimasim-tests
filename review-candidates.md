@@ -2,17 +2,17 @@
 
 [日本語](review-candidates.ja.md)
 
-Tests and clauses whose expected results rest least on anything but the reading of the standard, from the latest results of each simulator. A candidate is not a finding: a review against the standard decides. [How the reviews are recorded](https://github.com/kurochan001/kirimasim-tests/blob/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d/docs/review-candidates.en.md).
+Tests and clauses whose expected results rest least on anything but the reading of the standard, from the latest results of each simulator. A candidate is not a finding: a review against the standard decides. [How the reviews are recorded](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/docs/review-candidates.en.md).
 
 ## Results read
 
 | Simulator | Version | Time | Suite commit |
 | --- | --- | --- | --- |
-| Icarus Verilog | `Icarus Verilog version 14.0 (devel) (s20260301-1212-gc717fc33)` | 2026-11-20T04:35:10Z | `3be3ed02` |
-| Verilator | `Verilator 5.055 devel rev v5.054-334-g8dfa22d7` | 2026-11-20T04:35:10Z | `3be3ed02` |
-| kirimasim | `kirimasim 0.1.1 (commit cb97fc93bf6b), built with GNU 13.3.0` | 2026-11-20T04:35:10Z | `3be3ed02` |
-| Lyra | `Lyra (commit 9a9813a48c8c)` | 2026-11-20T04:35:10Z | `3be3ed02` |
-| Ghost | `private build 8afc1893d8a1` | 2026-11-20T04:35:10Z | `3be3ed02` |
+| Icarus Verilog | `Icarus Verilog version 14.0 (devel) (s20260301-1212-gc717fc33)` | 2026-11-20T04:35:10Z | `3be3ed02` (older suite commit) |
+| Verilator | `Verilator 5.055 devel rev v5.054-340-g53a72711` | 2026-11-20T06:26:49Z | `7e233e9a` |
+| kirimasim | `kirimasim 0.1.1 (commit cb97fc93bf6b), built with GNU 13.3.0` | 2026-11-20T06:26:49Z | `7e233e9a` |
+| Lyra | `Lyra (commit 9a9813a48c8c)` | 2026-11-20T06:26:49Z | `7e233e9a` |
+| Ghost | `private build da2a4afe0dc9` | 2026-11-20T06:26:49Z | `7e233e9a` |
 
 ## Counts
 
@@ -20,7 +20,7 @@ Tests and clauses whose expected results rest least on anything but the reading 
 | --- | ---: |
 | Spec only, failing on Ghost, kirimasim and Lyra | 0 |
 | Spec only, passing on kirimasim alone | 0 |
-| Other spec-only tests passing nowhere | 4 |
+| Other spec-only tests passing nowhere | 8 |
 | Release oracle, failing on both Ghost and Lyra | 0 |
 | Clauses whose citing tests are all spec only | 212 |
 
@@ -38,10 +38,14 @@ None.
 
 | Test | Results |
 | --- | --- |
-| [`ch16/test_sequence_method_call_and_match_item_forms`](https://github.com/kurochan001/kirimasim-tests/blob/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d/tests/ch16/test_sequence_method_call_and_match_item_forms.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch16/test_sequence_method_port_call_clocks`](https://github.com/kurochan001/kirimasim-tests/blob/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d/tests/ch16/test_sequence_method_port_call_clocks.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch18/test_discarded_soft_distribution`](https://github.com/kurochan001/kirimasim-tests/blob/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d/tests/ch18/test_discarded_soft_distribution.sv) | `Ik Vk Ku Lf Gf` |
-| [`ch37/test_vpi_program_interface_relations`](https://github.com/kurochan001/kirimasim-tests/blob/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d/tests/ch37/test_vpi_program_interface_relations.sv) | `Ik Vk Ku Lu Gf` |
+| [`ch16/test_sequence_method_call_and_match_item_forms`](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/tests/ch16/test_sequence_method_call_and_match_item_forms.sv) | `Ik Vk Ku Lu Gf` |
+| [`ch16/test_sequence_method_port_call_clocks`](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/tests/ch16/test_sequence_method_port_call_clocks.sv) | `Ik Vk Ku Lu Gf` |
+| [`ch37/test_vpi_interconnect_array_packed_contrast`](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/tests/ch37/test_vpi_interconnect_array_packed_contrast.sv) | `I- Vk Ku Lu Gf` |
+| [`ch37/test_vpi_interface_expression_port_refs_and_null`](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/tests/ch37/test_vpi_interface_expression_port_refs_and_null.sv) | `I- Vk Ku Lu Gf` |
+| [`ch37/test_vpi_program_interface_relations`](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/tests/ch37/test_vpi_program_interface_relations.sv) | `Ik Vk Ku Lu Gf` |
+| [`ch37/test_vpi_vif_declaration_specialization_owner`](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/tests/ch37/test_vpi_vif_declaration_specialization_owner.sv) | `I- Vk Ku Lu Gf` |
+| [`ch38/test_vpi_bulk_propagation_suppressed_then_restored`](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/tests/ch38/test_vpi_bulk_propagation_suppressed_then_restored.sv) | `I- Vk Ku Lu Gf` |
+| [`ch38/test_vpi_enter_thread_resume_identity`](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/tests/ch38/test_vpi_enter_thread_resume_identity.sv) | `I- Vk Ku Lu Gf` |
 
 ## Release oracle, failing on both Ghost and Lyra
 
@@ -72,7 +76,6 @@ None.
 | 35.5.1.5 | 2 |
 | 36.10.3 | 2 |
 | 37.3.5 | 2 |
-| 37.7 | 2 |
 | 37.56 | 2 |
 | 37.69 | 2 |
 | 37.79 | 2 |
@@ -97,6 +100,7 @@ None.
 | 30.7.4.2 | 3 |
 | 36.10.1 | 3 |
 | 37.3.2 | 3 |
+| 37.7 | 3 |
 | 37.8 | 3 |
 | 37.38 | 3 |
 | 37.55 | 3 |
@@ -135,7 +139,6 @@ None.
 | 37.19 | 4 |
 | 37.21 | 4 |
 | 37.23 | 4 |
-| 37.24 | 4 |
 | 37.30 | 4 |
 | 37.48 | 4 |
 | 37.57 | 4 |
@@ -159,6 +162,7 @@ None.
 | 20.16.4 | 5 |
 | 21.7.4.3.1 | 5 |
 | 33.4.2 | 5 |
+| 37.24 | 5 |
 | 37.46 | 5 |
 | 37.50 | 5 |
 | 37.54 | 5 |
@@ -184,11 +188,8 @@ None.
 | 31.4.5 | 6 |
 | 36.8.1 | 6 |
 | 37.6 | 6 |
-| 37.15 | 6 |
-| 37.29 | 6 |
 | 37.34 | 6 |
 | 37.36 | 6 |
-| 37.44 | 6 |
 | 37.49 | 6 |
 | 37.53 | 6 |
 | 37.63 | 6 |
@@ -203,7 +204,10 @@ None.
 | 30.7.4.1 | 7 |
 | 31.4.2 | 7 |
 | 37.3.4 | 7 |
+| 37.15 | 7 |
 | 37.26 | 7 |
+| 37.29 | 7 |
+| 37.44 | 7 |
 | 37.61 | 7 |
 | 37.64 | 7 |
 | 38.36.1.1 | 7 |
@@ -242,11 +246,11 @@ None.
 | 36.12.1 | 13 |
 | 37.25 | 13 |
 | 7.3.2 | 14 |
-| 37.32 | 14 |
-| 37.33 | 14 |
 | 39.5.2 | 14 |
 | 40.2.2 | 14 |
 | 16.12.17 | 15 |
+| 37.32 | 15 |
+| 37.33 | 15 |
 | 37.47 | 15 |
 | 37.31 | 16 |
 | 40.3.2.2 | 16 |

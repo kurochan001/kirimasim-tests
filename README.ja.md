@@ -4,65 +4,53 @@
 
 [kirimasim-tests](https://github.com/kurochan001/kirimasim-tests) の[夜間ワークフロー](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml)がこのブランチを更新します。毎晩、main ブランチの全テストを各シミュレータで実行し、結果を `history.json` に追加して、以下の図を生成します。ローカル実行の結果も取り込むことができ、`local` と表示します。出力と指定された検査が期待結果に一致する場合、または不正な設計が必要な診断付きで拒否される場合に、テストを「一致」と数えます。各ステータスの意味はスイートの README を参照してください。
 
-最新の実行: 2026-11-20 04:35 UTC、スイートのコミット [`3be3ed0`](https://github.com/kurochan001/kirimasim-tests/commit/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d)、テスト16291件、[ワークフロー実行](https://github.com/kurochan001/kirimasim-tests/actions/runs/44652861270)。
+最新の実行: 2026-11-20 06:26 UTC、スイートのコミット [`7e233e9`](https://github.com/kurochan001/kirimasim-tests/commit/7e233e9afefc1a6e975ef85ed0ea7cffddb158de)、テスト16298件、[ワークフロー実行](https://github.com/kurochan001/kirimasim-tests/actions/runs/44656954132)。
 
 ## シミュレータごとの最新結果
 
 各行と章別表の各列には、そのシミュレータの最新の実行記録を使います。実行日時、スイートのコミット、テスト数は異なる場合があります。古い結果の日時はそのまま保持し、最新の実行に含まれる結果としては扱いません。
 
-緑のworkflowは全テストの合格を意味しません。[Nightlyが緑でもDifferが残る理由](https://github.com/kurochan001/kirimasim-tests/blob/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d/docs/faq.md#q11-why-can-nightly-be-green-with-differ-results)と、[区分・個別テストの確認先](https://github.com/kurochan001/kirimasim-tests/blob/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d/docs/faq.md#q9-what-do-match-differ-known-difference-and-unsupported-mean)を読んでから件数を比較してください。
+緑のworkflowは全テストの合格を意味しません。[Nightlyが緑でもDifferが残る理由](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/docs/faq.md#q11-why-can-nightly-be-green-with-differ-results)と、[区分・個別テストの確認先](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/docs/faq.md#q9-what-do-match-differ-known-difference-and-unsupported-mean)を読んでから件数を比較してください。
 
 | シミュレータ | バージョン | 実行 (UTC) | スイート | 取り込み元 | 一致 (pass) | 不一致 (fail) | 既知の差異 (known) | 未対応 (unsupported) |
 | --- | --- | --- | --- | --- | ---: | ---: | ---: | ---: |
 | Icarus Verilog | Icarus Verilog version 14.0 (devel) (s20260301-1212-gc717fc33) | 2026-11-20 04:35 | [`3be3ed0`](https://github.com/kurochan001/kirimasim-tests/commit/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d) | nightly | 10274 (64.1%) | 9 | 5741 | 0 |
-| Verilator | Verilator 5.055 devel rev v5.054-334-g8dfa22d7 | 2026-11-20 04:35 | [`3be3ed0`](https://github.com/kurochan001/kirimasim-tests/commit/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d) | nightly | 9128 (57.0%) | 29 | 6867 | 0 |
-| kirimasim | kirimasim 0.1.1 (commit cb97fc93bf6b), built with GNU 13.3.0 | 2026-11-20 04:35 | [`3be3ed0`](https://github.com/kurochan001/kirimasim-tests/commit/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d) | nightly | 13121 (81.9%) | 293 | 0 | 2610 |
-| Lyra | Lyra (commit 9a9813a48c8c) | 2026-11-20 04:35 | [`3be3ed0`](https://github.com/kurochan001/kirimasim-tests/commit/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d) | nightly | 13394 (83.6%) | 890 | 0 | 1740 |
-| Ghost | private build 8afc1893d8a1 | 2026-11-20 04:35 | [`3be3ed0`](https://github.com/kurochan001/kirimasim-tests/commit/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d) | nightly | 16008 (99.9%) | 16 | 0 | 0 |
+| Verilator | Verilator 5.055 devel rev v5.054-340-g53a72711 | 2026-11-20 06:26 | [`7e233e9`](https://github.com/kurochan001/kirimasim-tests/commit/7e233e9afefc1a6e975ef85ed0ea7cffddb158de) | nightly | 9128 (56.9%) | 29 | 6874 | 0 |
+| kirimasim | kirimasim 0.1.1 (commit cb97fc93bf6b), built with GNU 13.3.0 | 2026-11-20 06:26 | [`7e233e9`](https://github.com/kurochan001/kirimasim-tests/commit/7e233e9afefc1a6e975ef85ed0ea7cffddb158de) | nightly | 13121 (81.8%) | 293 | 0 | 2617 |
+| Lyra | Lyra (commit 9a9813a48c8c) | 2026-11-20 06:26 | [`7e233e9`](https://github.com/kurochan001/kirimasim-tests/commit/7e233e9afefc1a6e975ef85ed0ea7cffddb158de) | nightly | 13394 (83.6%) | 890 | 0 | 1747 |
+| Ghost | private build da2a4afe0dc9 | 2026-11-20 06:26 | [`7e233e9`](https://github.com/kurochan001/kirimasim-tests/commit/7e233e9afefc1a6e975ef85ed0ea7cffddb158de) | nightly | 16013 (99.9%) | 18 | 0 | 0 |
 
 Ghost は正式公開前に参加している匿名のシミュレータです。現在公開しているのはテスト結果のみです。名称、ソースコード、ビルドログは非公開で、ビルドIDには実行ファイルのハッシュを使用します。
 
-![期待結果に一致するテスト数](charts/overview.ja.svg?v=20261120T043510)
+![期待結果に一致するテスト数](charts/overview.ja.svg?v=20261120T062649)
 
-![一致したテストの割合](charts/rate.ja.svg?v=20261120T043510)
+![一致したテストの割合](charts/rate.ja.svg?v=20261120T062649)
 
 ## 最新の実行での変化
 
 同じシミュレータの前回実行では一致せず今回は一致したテストと、前回は一致したものの今回は一致しなくなったテストです。スイートに追加されたテストの件数は上の表に示します。
 
-### kirimasim
-
-新たに一致（4件）: `ch11/test_static_prefix_of_field_selects`, `ch20/test_typename_anonymous_type_names`, `ch6/test_ch6_extra_for_loop_automatic`, `ch9/test_always_comb_timing_control_identifiers_not_sensitive`
-
-### Lyra
-
-新たに一致（1件）: `ch6/test_ch6_extra_for_loop_automatic`
-
 ### Ghost
 
-新たに一致（7件）: `ch19/test_covergroup_block_event_forms`, `ch35/test_svdpi_h_packed_bit_and_part_select`, `ch37/test_vpi_attribute_ports_params`, `ch37/test_vpi_struct_and_tagged_patterns`, `ch39/test_vpi_assertion_cover_no_failure`, `ch39/test_vpi_assertion_system_task_control`, `ch6/test_ch6_extra_for_loop_automatic`
-
-一致しなくなったテスト（1件）:
-
-- `gen/ch18/test_gen_cross_randreduce_8_signed_dynamic_sum_wide_2_fail_sat_fail`: 不一致 (fail) — timed out
+新たに一致（3件）: `ch18/test_discarded_soft_distribution`, `gen/ch18/test_gen_cross_randreduce_33_unsigned_dynamic_product_wide_3_fail_sat_fail`, `gen/ch18/test_gen_cross_randreduce_8_signed_dynamic_sum_wide_2_fail_sat_fail`
 
 ## 章別の結果
 
-各セルは一致数／結果登録数で、known・unsupportedも分母に含みます。[8/10の具体例](https://github.com/kurochan001/kirimasim-tests/blob/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d/docs/faq.md#q12-what-percentage-does-by-chapter-show)と、[要求カバレッジとの違い](https://github.com/kurochan001/kirimasim-tests/blob/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d/docs/faq.md#q15-is-the-nightly-match-rate-requirement-coverage)を確認してください。
+各セルは一致数／結果登録数で、known・unsupportedも分母に含みます。[8/10の具体例](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/docs/faq.md#q12-what-percentage-does-by-chapter-show)と、[要求カバレッジとの違い](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/docs/faq.md#q15-is-the-nightly-match-rate-requirement-coverage)を確認してください。
 
-![章別の一致テスト数](charts/chapters.ja.svg?v=20261120T043510)
+![章別の一致テスト数](charts/chapters.ja.svg?v=20261120T062649)
 
 ## シミュレータごとの推移
 
-![Icarus Verilog：ステータス別の結果](charts/status-icarus.ja.svg?v=20261120T043510)
+![Icarus Verilog：ステータス別の結果](charts/status-icarus.ja.svg?v=20261120T062649)
 
-![Verilator：ステータス別の結果](charts/status-verilator.ja.svg?v=20261120T043510)
+![Verilator：ステータス別の結果](charts/status-verilator.ja.svg?v=20261120T062649)
 
-![kirimasim：ステータス別の結果](charts/status-kirimasim.ja.svg?v=20261120T043510)
+![kirimasim：ステータス別の結果](charts/status-kirimasim.ja.svg?v=20261120T062649)
 
-![Lyra：ステータス別の結果](charts/status-lyra.ja.svg?v=20261120T043510)
+![Lyra：ステータス別の結果](charts/status-lyra.ja.svg?v=20261120T062649)
 
-![Ghost：ステータス別の結果](charts/status-ghost.ja.svg?v=20261120T043510)
+![Ghost：ステータス別の結果](charts/status-ghost.ja.svg?v=20261120T062649)
 
 ## 最近の実行
 
@@ -70,6 +58,7 @@ Ghost は正式公開前に参加している匿名のシミュレータです�
 
 | 実行 (UTC) | スイート | テスト数 | Icarus Verilog | Verilator | kirimasim | Lyra | Ghost |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| [2026-11-20 06:26](https://github.com/kurochan001/kirimasim-tests/actions/runs/44656954132) | [`7e233e9`](https://github.com/kurochan001/kirimasim-tests/commit/7e233e9afefc1a6e975ef85ed0ea7cffddb158de) | 16298 | — | 9128 `5.055 devel 53a7271` | 13121 | 13394 | 16013 (+5 −0) `private build da2a4afe0dc9` |
 | [2026-11-20 04:35](https://github.com/kurochan001/kirimasim-tests/actions/runs/44652861270) | [`3be3ed0`](https://github.com/kurochan001/kirimasim-tests/commit/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d) | 16291 | 10274 (+10 −0) | 9128 (+8 −0) `5.055 devel 8dfa22d` | 13121 (+9 −0) `cb97fc93b` | 13394 (+10 −0) | 16008 (+20 −1) `private build 8afc1893d8a1` |
 | [2026-11-20 01:21](https://github.com/kurochan001/kirimasim-tests/actions/runs/44631823505) | [`03b2e10`](https://github.com/kurochan001/kirimasim-tests/commit/03b2e107c60de3163952376dc1c1944f9d95f781) | 16271 | 10264 (+14 −0) `14.0 devel c717fc3` | 9120 (+11 −0) `5.055 devel 3bdc686` | 13112 (+16 −0) | 13384 (+1849 −0) `9a9813a48` | 15989 (+341 −0) `private build d72b3e26ad6a` |
 | [2026-11-19 20:50](https://github.com/kurochan001/kirimasim-tests/actions/runs/44540686011) | [`68ce2bc`](https://github.com/kurochan001/kirimasim-tests/commit/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e) | 16244 | 10250 (+1466 −1) `14.0 devel 6550412` | 9109 (+830 −0) `5.055 devel 464643f` | 13096 (+1886 −0) `bd81035d9` | — | 15648 (+2361 −12) `private build 0b90acaa7ed6` |
@@ -99,7 +88,6 @@ Ghost は正式公開前に参加している匿名のシミュレータです�
 | [2026-10-30 01:43](https://github.com/kurochan001/kirimasim-tests/actions/runs/40972765631) | [`360ef70`](https://github.com/kurochan001/kirimasim-tests/commit/360ef70c73218de1f44dd83c1cda24f60e242537) | 8779 | 5502 (+898 −3) `14.0 devel 6991445` | 5151 (+372 −0) `5.053 devel 453b02a` | 6108 (+1032 −0) `51cda3143` | 6537 (+1037 −1) `8eff7abdc` | 7159 (+1071 −7) `private build 2d76b598f1c1` |
 | [2026-10-29 03:55](https://github.com/kurochan001/kirimasim-tests/actions/runs/40805499579) | [`a594d65`](https://github.com/kurochan001/kirimasim-tests/commit/a594d659b947a7321ce5e252660ea6d376d813b3) | 7744 | 4607 | 4779 `5.053 devel ad83990` | 5076 (+6 −0) `938d60c83` | 5501 (+9 −6) `ed9515d8e` | 6095 (+12 −0) `private build 5c1261cba4df` |
 | [2026-10-29 00:48](https://github.com/kurochan001/kirimasim-tests/actions/runs/40786512421) | [`248cca8`](https://github.com/kurochan001/kirimasim-tests/commit/248cca894a2607eb6eae0bda3303dc1c7cb130a9) | 7744 | 4607 (+5 −1) `14.0 devel fd8759f` | 4779 (+3 −1) `5.053 devel 375685d` | 5070 (+17 −0) `df25891fa` | 5498 (+19 −0) | 6083 (+143 −3) `private build af267bf4f8b1` |
-| [2026-10-28 09:54](https://github.com/kurochan001/kirimasim-tests/actions/runs/40657143465) | [`b83d0ff`](https://github.com/kurochan001/kirimasim-tests/commit/b83d0ffd666f533b0ce1c77f6cb5377fbbe0b511) | 7740 | 4603 (+4 −0) | 4777 (+14 −0) `5.053 devel 9440ae8` | 5053 (+8 −0) `a24202947` | 5479 (+5 −0) | 5943 (+9 −1) `private build 07c6cb0ee0df` |
 
 ## ファイル
 

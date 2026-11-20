@@ -6,24 +6,24 @@
    "suite_commit": "3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d"
   },
   "verilator": {
-   "version": "Verilator 5.055 devel rev v5.054-334-g8dfa22d7",
-   "time": "2026-11-20T04:35:10Z",
-   "suite_commit": "3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d"
+   "version": "Verilator 5.055 devel rev v5.054-340-g53a72711",
+   "time": "2026-11-20T06:26:49Z",
+   "suite_commit": "7e233e9afefc1a6e975ef85ed0ea7cffddb158de"
   },
   "kirimasim": {
    "version": "kirimasim 0.1.1 (commit cb97fc93bf6b), built with GNU 13.3.0",
-   "time": "2026-11-20T04:35:10Z",
-   "suite_commit": "3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d"
+   "time": "2026-11-20T06:26:49Z",
+   "suite_commit": "7e233e9afefc1a6e975ef85ed0ea7cffddb158de"
   },
   "lyra": {
    "version": "Lyra (commit 9a9813a48c8c)",
-   "time": "2026-11-20T04:35:10Z",
-   "suite_commit": "3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d"
+   "time": "2026-11-20T06:26:49Z",
+   "suite_commit": "7e233e9afefc1a6e975ef85ed0ea7cffddb158de"
   },
   "ghost": {
-   "version": "private build 8afc1893d8a1",
-   "time": "2026-11-20T04:35:10Z",
-   "suite_commit": "3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d"
+   "version": "private build da2a4afe0dc9",
+   "time": "2026-11-20T06:26:49Z",
+   "suite_commit": "7e233e9afefc1a6e975ef85ed0ea7cffddb158de"
   }
  },
  "candidates": {
@@ -32,8 +32,12 @@
   "spec_no_pass": [
    "ch16/test_sequence_method_call_and_match_item_forms",
    "ch16/test_sequence_method_port_call_clocks",
-   "ch18/test_discarded_soft_distribution",
-   "ch37/test_vpi_program_interface_relations"
+   "ch37/test_vpi_interconnect_array_packed_contrast",
+   "ch37/test_vpi_interface_expression_port_refs_and_null",
+   "ch37/test_vpi_program_interface_relations",
+   "ch37/test_vpi_vif_declaration_specialization_owner",
+   "ch38/test_vpi_bulk_propagation_suppressed_then_restored",
+   "ch38/test_vpi_enter_thread_resume_identity"
   ],
   "oracle_ghost_lyra": []
  },
@@ -120,10 +124,6 @@
   },
   {
    "clause": "37.3.5",
-   "tests": 2
-  },
-  {
-   "clause": "37.7",
    "tests": 2
   },
   {
@@ -220,6 +220,10 @@
   },
   {
    "clause": "37.3.2",
+   "tests": 3
+  },
+  {
+   "clause": "37.7",
    "tests": 3
   },
   {
@@ -375,10 +379,6 @@
    "tests": 4
   },
   {
-   "clause": "37.24",
-   "tests": 4
-  },
-  {
    "clause": "37.30",
    "tests": 4
   },
@@ -468,6 +468,10 @@
   },
   {
    "clause": "33.4.2",
+   "tests": 5
+  },
+  {
+   "clause": "37.24",
    "tests": 5
   },
   {
@@ -571,23 +575,11 @@
    "tests": 6
   },
   {
-   "clause": "37.15",
-   "tests": 6
-  },
-  {
-   "clause": "37.29",
-   "tests": 6
-  },
-  {
    "clause": "37.34",
    "tests": 6
   },
   {
    "clause": "37.36",
-   "tests": 6
-  },
-  {
-   "clause": "37.44",
    "tests": 6
   },
   {
@@ -647,7 +639,19 @@
    "tests": 7
   },
   {
+   "clause": "37.15",
+   "tests": 7
+  },
+  {
    "clause": "37.26",
+   "tests": 7
+  },
+  {
+   "clause": "37.29",
+   "tests": 7
+  },
+  {
+   "clause": "37.44",
    "tests": 7
   },
   {
@@ -803,14 +807,6 @@
    "tests": 14
   },
   {
-   "clause": "37.32",
-   "tests": 14
-  },
-  {
-   "clause": "37.33",
-   "tests": 14
-  },
-  {
    "clause": "39.5.2",
    "tests": 14
   },
@@ -820,6 +816,14 @@
   },
   {
    "clause": "16.12.17",
+   "tests": 15
+  },
+  {
+   "clause": "37.32",
+   "tests": 15
+  },
+  {
+   "clause": "37.33",
    "tests": 15
   },
   {
