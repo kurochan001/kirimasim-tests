@@ -1,0 +1,70 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch10/test_unpacked_concat_typed_pattern_items_flatten": {
+   "status": "pass",
+   "inputs_sha256": "2cf03410b50ba236ff65a173109d7ee6d63331267895d63da1be81c88216f20a"
+  },
+  "ch16/test_changing_gclk_sampled_expression_value": {
+   "status": "known",
+   "reason": "output differs: line 2 is '$changing_gclk(v), actions at: 55', expected '$changing_gclk(v), actions at: 45 55'",
+   "inputs_sha256": "224d375e7d44ea57707eff680873d2131c96fb349263ef2d413ebe1ac7cad937"
+  },
+  "ch20/test_illegal_bits_dynamic_array_in_localparam": {
+   "status": "known",
+   "reason": "no error matches '^(?![^\\\\n]*(?i:unsupported|not supported|not implemented|internal error|syntax error))[^\\\\n]*test_illegal_bits_dynamic_array_in_localparam\\\\.sv:29:'; the first is: %Error-UNSUPPORTED: tests/ch20/test_illegal_bits_dynamic_array_in_localparam.sv:29:22: Unsupported: $bits for dynamic array",
+   "inputs_sha256": "43429f2ffdb413be355a6caca6b9017700446049be37b9fed091f2d084f03218"
+  },
+  "ch20/test_illegal_bits_encloses_queue_returning_call": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "24a3ba2a4d42f4d1a6e6c21849363619a7adadd9cf9d10984087f1842d9de7f2"
+  },
+  "ch20/test_pla_async_forms_net_inputs_and_late_personality": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch20/test_pla_async_forms_net_inputs_and_late_personality.sv:52:5: Unsupported or unknown PLI call: '$async$nand$array'",
+   "inputs_sha256": "1d1df6e5035a6f3e408f60db31faa1c164534d74e146737265208806b64ca24c"
+  },
+  "ch21/test_fdisplay_fwrite_radix_variants_four_state": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'file: h p=235 q=0a5 s=fd n=0000002a d=42', expected 'file: h p=2xZ q=0a5 s=fd n=0000002a d=42'",
+   "inputs_sha256": "e00267d4ebfcc1d44155884ac24175291c1981a58edb00d9d4b48575dcbd4959"
+  },
+  "ch21/test_fmonitor_radix_variants_simultaneous": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'o: o y=37', expected 'b: b x=10x1z0'",
+   "inputs_sha256": "5bd08fbee2549909e0ac91b04f4edf7dbb0bfc99092b674859d52eb16b552de2"
+  },
+  "ch21/test_fstrobe_radix_variants_end_of_step": {
+   "status": "known",
+   "reason": "output differs: line 1 is 't1 call v=0000000 k=000', expected 't1 call v=1x0z101 k=000'",
+   "inputs_sha256": "b7a3ca9c8e830840a8f596e1ba6d25c82cd25c8332c85ebf6d9923dbd15fee95"
+  },
+  "ch21/test_monitorh_monitoro_time_is_not_a_change": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'o t=15 v=17 w=12', expected 'h t=10 v=2a w=X'",
+   "inputs_sha256": "2f81b308c455ce5276a1812085b0b932615a6ec7af35880f6dad4fa2cf857ae1"
+  },
+  "ch21/test_strobeb_strobeo_four_state_end_of_step": {
+   "status": "known",
+   "reason": "output differs: line 1 is 't1 call v=0000000 k=000', expected 't1 call v=10xz110 k=000'",
+   "inputs_sha256": "1674cf4511cbd34eba5e1f1a95e2b2facfbe1d7d800e4727af4d425b8d44b696"
+  },
+  "ch35/test_dpi_context_import_optimization_barrier": {
+   "status": "pass",
+   "inputs_sha256": "6536650cb6a67c12daaa20af8d1fb9f45008f64226fdf170e9604df6c13ca74a"
+  },
+  "ch4/test_procedural_continuous_assign_force_track_operands": {
+   "status": "pass",
+   "inputs_sha256": "f5b193bf49aea756ebccf29516a08c7f9c80f59783c16e2d18550d794456d3d4"
+  }
+ },
+ "generated_at": "2026-11-20T21:13:19.508385+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

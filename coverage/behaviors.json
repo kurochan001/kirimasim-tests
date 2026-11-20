@@ -212204,13 +212204,60 @@
       "acceptance": "A $bits call that encloses a call of a function returning a dynamic array is rejected, and $bits of a dynamic array variable used as a localparam value is rejected.",
       "source_note": "IEEE 1800-2023 20.6.2; split on 2026-11-15 from SV2023-20.6.2-EXTRACT-BITS-NO-EVAL (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review), blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_illegal_bits_encloses_queue_returning_call.sv",
+          "observation": "typedef byte bytes_t[$] を返す関数 make を、手続き的代入 n = $bits(make()) の $bits が囲む。:expected_stderr_regex: は 33 行（違反の行）の、未対応・内部エラー・構文エラーでないエラーを求める。",
+          "reviewed_on": "2026-11-21",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "24a3ba2a4d42f4d1a6e6c21849363619a7adadd9cf9d10984087f1842d9de7f2",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_illegal_bits_encloses_queue_returning_call.sv",
+              "contains": "n = $bits(make());   // illegal: make returns a queue"
+            },
+            {
+              "file": "tests/ch20/test_illegal_bits_encloses_queue_returning_call.sv",
+              "contains": ":expected_stderr_regex: ^(?![^\\n]*(?i:unsupported|not supported|not implemented|internal error|syntax error))[^\\n]*test_illegal_bits_encloses_queue_returning_call\\.sv:33:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch20/test_illegal_bits_dynamic_array_in_localparam.sv",
+          "observation": "動的配列変数 int dyn[] の $bits を localparam int W の値にする。:expected_stderr_regex: は 29 行（違反の行）の、未対応・内部エラー・構文エラーでないエラーを求める。",
+          "reviewed_on": "2026-11-21",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "43429f2ffdb413be355a6caca6b9017700446049be37b9fed091f2d084f03218",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_illegal_bits_dynamic_array_in_localparam.sv",
+              "contains": "localparam int W = $bits(dyn);   // illegal: not valid at elaboration"
+            },
+            {
+              "file": "tests/ch20/test_illegal_bits_dynamic_array_in_localparam.sv",
+              "contains": ":expected_stderr_regex: ^(?![^\\n]*(?i:unsupported|not supported|not implemented|internal error|syntax error))[^\\n]*test_illegal_bits_dynamic_array_in_localparam\\.sv:29:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.6.2",
           "blocks": [
             "B012"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "bits-dynamic-call-and-constant",
+          "tests": [
+            "tests/ch20/test_illegal_bits_encloses_queue_returning_call.sv",
+            "tests/ch20/test_illegal_bits_dynamic_array_in_localparam.sv"
+          ],
+          "reviewed_on": "2026-11-21",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "observation": "要求の2つの条件を別々の負テストで1つずつ起こす。(a) 手続き文 n = $bits(make()) で、戻り値の型が byte のキュー bytes_t である関数 make の呼び出しを $bits が囲む（定数式の文脈ではないので、関数を囲む規則だけに違反する）。(b) localparam int W = $bits(dyn) で、動的配列変数 dyn の $bits を elaboration 時の定数として使う（型識別子でも関数呼び出しでもないので、elaboration で有効でない規則だけに違反する）。どちらも違反の行を :expected_stderr_regex: が指し、未対応構文・内部エラーの行は数えない。 区別: 動的型を返す関数を囲む $bits を受け入れる誤実装は (a) を拒否せず、動的配列の $bits を elaboration 定数として受け入れる誤実装（Icarus 13.0 がそうで、W を 1 などにする）は (b) を拒否しないので、どちらかの誤りがあれば群の一方が不合格になる。違反行だけを直した合法版（(a) は q = make(); n = $bits(q)、(b) は int dyn[4]）は Icarus 13.0 と Verilator 5.054 が受け入れ、ほかの誤りはない。両リリースとも規則を診断しない（Verilator 5.054 は (b) を未対応として止まるだけ）ので :oracle: は spec のみ。"
         }
       ]
     },
@@ -349229,7 +349276,45 @@
       "acceptance": "Noncontext imports affect only actual arguments and do not block SV optimization; context imports may access SV data via VPI/exports and are optimization barriers.",
       "source_note": "IEEE 1800-2023 35.5.3; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_dpi_context_import_optimization_barrier.sv",
+          "observation": "around_call は x=3 を書いた直後に context import c_swap_x を呼び、C は export sv_get_x で x を読み sv_set_x で 103 を書く。呼び出し直後に SV が x を読む。ループでは各回の先頭で x を読んで足し、context import c_bump_x が export 経由で x に 5 を足す（10+15+20=45、最終 x=25）。noncontext import c_args_only(7, o, io) は output o に 14、inout io に 5+7=12 を書き、x は 25 のまま。期待出力は import が見た 3、呼び出し後の 103、sum=45 と x=25、o=14 io=12 x=25 を比べる。 区別: context の呼び出しを最適化の障壁として扱わない実装（呼び出しの前の書き込みを呼び出しの後ろへ動かす、x を呼び出しをまたいでレジスタに保持する、ループ中の x の読み出しをループ外へ出す）は、import が見る値が 0、呼び出し後の x が 3、sum が 30、最終 x が 10 のいずれかになり、期待出力の1・2行目が変わる。noncontext import の実引数（output・inout）が呼び出し後に反映されなければ3行目の o/io が変わる。noncontext 側の『最適化を妨げない』は実装への許可であり、出力で区別すべき義務ではない。",
+          "reviewed_on": "2026-11-21",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "inputs_sha256": "6536650cb6a67c12daaa20af8d1fb9f45008f64226fdf170e9604df6c13ca74a",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_context_import_optimization_barrier.sv",
+              "contains": "    seen = c_swap_x(a + 100);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_context_import_optimization_barrier.sv",
+              "contains": "      c_bump_x();"
+            },
+            {
+              "file": "tests/ch35/test_dpi_context_import_optimization_barrier.sv",
+              "contains": "    c_args_only(7, o, io);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_context_import_optimization_barrier.c",
+              "contains": "    sv_set_x(sv_get_x() + 5);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_context_import_optimization_barrier.expected",
+              "contains": "context call: the import saw x=3, x after the call=103"
+            },
+            {
+              "file": "tests/ch35/test_dpi_context_import_optimization_barrier.expected",
+              "contains": "context calls in a loop: sum=45, x=25"
+            },
+            {
+              "file": "tests/ch35/test_dpi_context_import_optimization_barrier.expected",
+              "contains": "noncontext call: o=14 io=12 x=25"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "35.5.3",

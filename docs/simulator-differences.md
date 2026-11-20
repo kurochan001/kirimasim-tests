@@ -1711,3 +1711,14 @@ The tests added on 2026-11-21 for features added by 1800-2023 show these differe
 - With an interface instance as the argument, `$timeunit` and `$timeprecision` return the values of the calling module (20.4.1). The difference that `$timeprecision` without an argument returns the simulation precision (the 20.4.1 row) remains. `ch20/test_timeunit_package_interface_program_nested`, `ch20/test_timeunit_timescale_precedence`
 - It accepts `int` as the default of a type parameter restricted with `type enum` (6.20.3). `ch6/test_illegal_enum_restricted_type_parameter_default_int`
 - It accepts a class that replaces a constraint that an intermediate class declared `:extends :final` (18.5.2). `ch18/test_illegal_constraint_final_replacement_replaced`
+
+<a id="requirement-gaps-20261121"></a>
+
+### Tests for requirements without tests (2026-11-21)
+
+The tests added on 2026-11-21 for requirements without tests show these differences (constructs that a release does not support are left out):
+
+- Icarus Verilog 13.0 evaluates the right-hand side of a procedural assign and a force of a variable only once, and does not update the target when an operand changes later (4.9.2). `ch4/test_procedural_continuous_assign_force_track_operands`
+- Icarus Verilog 13.0 accepts `$bits` around the call of a function that returns a dynamic type, and the `$bits` of a dynamic array as the value of a localparam (20.6.2). `ch20/test_illegal_bits_encloses_queue_returning_call`, `ch20/test_illegal_bits_dynamic_array_in_localparam`
+- Verilator 5.054 misses one change of the value of the expression in `$changing_gclk` (16.9.4). `ch16/test_changing_gclk_sampled_expression_value`
+- Verilator 5.054 writes only the lines of the last of three `$fmonitor` calls active on three files at the same time (21.3.2). `ch21/test_fmonitor_radix_variants_simultaneous`

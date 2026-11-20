@@ -181,3 +181,4 @@ Code, identifiers, raw execution evidence and license terms retain their origina
 | kirimasim 0.1.0 versus Icarus 14.0 devel: Mac, 2026-11-16 | [English](simulation-speed-mac-20261116.md) | [日本語](simulation-speed-mac-20261116.ja.md) |
 | WSL2 speed measurement with concurrent load: 2026-11-16 | [English](simulation-speed-wsl2-20261116.md) | [日本語](simulation-speed-wsl2-20261116.ja.md) |
 | WSL2 rerun and prototype verification received: 2026-11-16 | [English](simulation-speed-wsl2-followup-20261116.md) | [日本語](simulation-speed-wsl2-followup-20261116.ja.md) |
+| Triage of the requirements without tests (2026-11-20) | [English](unmapped-requirements-20261120.en.md) | [日本語](unmapped-requirements-20261120.md) |

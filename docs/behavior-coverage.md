@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 93.13%、Ghostを除く実行 51.22%、Ghostを含む実行 78.70%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 93.15%、Ghostを除く実行 51.22%、Ghostを含む実行 78.71%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 93.13%。** 規格要求の実行確認率: Ghostを除いて 51.22%、Ghostを含めて 78.70%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 93.15%。** 規格要求の実行確認率: Ghostを除いて 51.22%、Ghostを含めて 78.71%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対する要求カバレッジ（テスト設計）: 11485/12332 (93.13%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9705/12332 (78.70%)。
-- 登録済みだがテスト未対応: 847 動作。
+- 登録済み動作に対する要求カバレッジ（テスト設計）: 11487/12332 (93.15%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9706/12332 (78.71%)。
+- 登録済みだがテスト未対応: 845 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。
 
@@ -197,6 +197,10 @@
 - `reqgap7-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T23:33:37.526094+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `reqgap7-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T23:33:58.371412+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
 - `reqgap7-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T23:33:58.371408+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
+- `reqgap7-20261121-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-20T21:11:46.826734+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `reqgap7-20261121-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-20T21:11:47.173114+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `reqgap7-20261121-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-20T21:12:40.545470+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
+- `reqgap7-20261121-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-20T21:13:19.508385+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `reqgap8-20261120-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-20T00:44:12.999452+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `reqgap8-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-20T00:44:12.606501+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `reqgap8-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-20T00:44:19.746413+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
@@ -575,7 +579,7 @@
 - 17 Checkers: 解釈保留なし 13/13、登録 81、テスト対応 69。
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 323、テスト対応 315。
 - 19 Functional coverage: 解釈保留なし 34/34、登録 276、テスト対応 268。
-- 20 Utility system tasks and system functions: 解釈保留なし 45/45、登録 320、テスト対応 300。
+- 20 Utility system tasks and system functions: 解釈保留なし 45/45、登録 320、テスト対応 301。
 - 21 入出力システムタスクとシステム関数：解釈保留なし65/65、登録383、テスト対応362。
 - 22 Compiler directives: 解釈保留なし 28/28、登録 363、テスト対応 355。
 - 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 254。
@@ -590,7 +594,7 @@
 - 32 Backannotation using the standard delay format: 解釈保留なし 14/14、登録 131、テスト対応 119。
 - 33 Configuring the contents of a design: 解釈保留なし 36/36、登録 63、テスト対応 41。
 - 34 Protected envelopes: 解釈保留なし 104/104、登録 214、テスト対応 5。
-- 35 Direct programming interface: 解釈保留なし 31/31、登録 143、テスト対応 121。
+- 35 Direct programming interface: 解釈保留なし 31/31、登録 143、テスト対応 122。
 - 36 Programming language interface (PLI/VPI) overview: 解釈保留なし 29/29、登録 163、テスト対応 148。
 - 37 VPI object model diagrams: 解釈保留なし 101/101、登録 1757、テスト対応 1666。
 - 38 VPI routine definitions: 解釈保留なし 51/51、登録 348、テスト対応 283。
@@ -53294,7 +53298,7 @@ $bits は，固定サイズ型に対して，精密化時間定数として用�
 
 ### SV2023-20.6.2-EXTRACT-BITS-DYNAMIC-RESTRICTIONS
 
-`20.6.2` / `error` / テスト未対応
+`20.6.2` / `error` / テスト対応あり・実行未確認
 
 $bits が動的なサイズの型を返す関数の呼び出しを囲むことはエラーであり、動的なサイズの型を含む式の $bits はエラボレーション時には有効でないので、エラボレーション時の定数が必要な場所でそれを使うことはエラーである。
 
@@ -53302,6 +53306,8 @@ $bits が動的なサイズの型を返す関数の呼び出しを囲むこと�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_bits_encloses_queue_returning_call.sv](../tests/ch20/test_illegal_bits_encloses_queue_returning_call.sv): typedef byte bytes_t\[$\] を返す関数 make を、手続き的代入 n = $bits(make()) の $bits が囲む。:expected_stderr_regex: は 33 行（違反の行）の、未対応・内部エラー・構文エラーでないエラーを求める。
+- [test_illegal_bits_dynamic_array_in_localparam.sv](../tests/ch20/test_illegal_bits_dynamic_array_in_localparam.sv): 動的配列変数 int dyn\[\] の $bits を localparam int W の値にする。:expected_stderr_regex: は 29 行（違反の行）の、未対応・内部エラー・構文エラーでないエラーを求める。
 
 ### SV2023-20.6.2-EXTRACT-BITS-DYNAMIC-TYPE-ERROR
 
@@ -86458,7 +86464,7 @@ SVから外国語への輸入ルートから始まり，そのルート呼び出
 
 ### SV2023-35.5.3-EXTRACT-OPTIMIZATION-BARRIER
 
-`35.5.3` / `normal` / テスト未対応
+`35.5.3` / `normal` / 実行確認あり
 
 非コンテキストインポートは実際の引数にのみ影響し、SV最適化をブロックしません。コンテキストインポートは、SVデータにVPI/エクスポートを介してアクセスすることができ、最適化の障壁となる。
 
@@ -86466,6 +86472,7 @@ SVから外国語への輸入ルートから始まり，そのルート呼び出
 
 規定の性質: `mandatory`。
 
+- [test_dpi_context_import_optimization_barrier.sv](../tests/ch35/test_dpi_context_import_optimization_barrier.sv) : around_call は x = 3 を書いた直後に context import c_swap_x を呼び、C は export sv_get_x で x を読み sv_set_x で 103 を書く。呼び出し直後に SV が x を読む。ループでは各回の先頭で x を読んで足し、context import c_bump_x が export 経由で x に 5 を足す（ 10 + 15 + 20 = 45 、最終 x = 25 ）。noncontext import c_args_only ( 7 , o, io) は output o に 14 、inout io に 5 + 7 = 12 を書き、x は 25 のまま。期待出力は import が見た 3 、呼び出し後の 103 、 sum = 45 と x = 25 、 o = 14 io = 12 x = 25 を比べる。区別: context の呼び出しを最適化の障壁として扱わない実装（呼び出しの前の書き込みを呼び出しの後ろへ動かす、x を呼び出しをまたいでレジスタに保持する、ループ中の x の読み出しをループ外へ出す）は、import が見る値が 0 、呼び出し後の x が 3 、sum が 30 、最終 x が 10 のいずれかになり、期待出力の 1 ・ 2 行目が変わる。noncontext import の実引数（output・inout）が呼び出し後に反映されなければ 3 行目の o/io が変わる。noncontext 側の『最適化を妨げない』は実装への許可であり、出力で区別すべき義務ではない。
 
 ### SV2023-35.5.3-EXTRACT-OTHER-INTERFACE-ENABLE
 

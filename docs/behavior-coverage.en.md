@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 93.13%, execution without Ghost 51.22%, execution with Ghost 78.70%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 93.15%, execution without Ghost 51.22%, execution with Ghost 78.71%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 93.13%. Requirement execution-confirmation rate: 51.22% without Ghost, 78.70% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 93.15%. Requirement execution-confirmation rate: 51.22% without Ghost, 78.71% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 11485/12332 ( 93.13% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9705/12332 ( 78.70% ).
-- Registered but not tested: 847.
+- The requirement coverage (test design) for registered behaviors is 11487/12332 ( 93.15% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9706/12332 ( 78.71% ).
+- Registered but not tested: 845.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -197,6 +197,10 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `reqgap7-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T23:33:37.526094+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `reqgap7-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T23:33:58.371412+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `reqgap7-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T23:33:58.371408+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `reqgap7-20261121-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-20T21:11:46.826734+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `reqgap7-20261121-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-20T21:11:47.173114+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `reqgap7-20261121-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-20T21:12:40.545470+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `reqgap7-20261121-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-20T21:13:19.508385+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `reqgap8-20261120-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-20T00:44:12.999452+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `reqgap8-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-20T00:44:12.606501+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `reqgap8-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-20T00:44:19.746413+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -575,7 +579,7 @@ The number of items is the investigation status of the article by heading. This 
 - 17 Checkers: No interpretation reservations 13/13, registration 81, test support 69.
 - 18 Constrained random value generation: 58/58 without pending interpretation issues, 323 registered, 315 mapped to tests.
 - 19 Functional coverage: no interpretation reservation 34/34, registration 276, test support 268.
-- 20 Utility system tasks and system functions: No interpretation reservation 45/45, registration 320, test support 300.
+- 20 Utility system tasks and system functions: No interpretation reservation 45/45, registration 320, test support 301.
 - 21 Input/output system tasks and system functions: no interpretation reservation 65/65, registration 383, test support 362.
 - 22 Compiler directives: 28/28 without pending interpretation issues, 363 registered, 355 mapped to tests.
 - 23 Modules and hierarchy: No interpretation reservation 47/47, registration 260, test support 254.
@@ -590,7 +594,7 @@ The number of items is the investigation status of the article by heading. This 
 - 32 Backannotation using the standard delay format: no interpretation reservation 14/14, registration 131, test support 119.
 - 33 Configuring the contents of a design: No interpretation reservation 36/36, registration 63, test support 41.
 - 34 Protected envelopes: No interpretation reservation 104/104, registration 214, test support 5.
-- 35 Direct programming interface: No interpretation reservation 31/31, registration 143, test support 121.
+- 35 Direct programming interface: No interpretation reservation 31/31, registration 143, test support 122.
 - 36 Programming language interface ( PLI / VPI ) overview: No interpretation restrictions 29/29, registration 163, test support 148.
 - 37 VPI object model diagrams: no interpretation restrictions 101/101, registration 1757, test support 1666.
 - 38 VPI routine definitions: no interpretation reservation 51/51, registration 348, test support 283.
@@ -53294,7 +53298,7 @@ Normative role: `permission`。
 
 ### SV2023-20.6.2-EXTRACT-BITS-DYNAMIC-RESTRICTIONS
 
-`20.6.2` / `error` / No mapped test
+`20.6.2` / `error` / Test mapped; execution unconfirmed
 
 It is an error for $bits to enclose a call of a function that returns a dynamically sized type, and $bits of an expression that contains a dynamically sized type is not valid at elaboration, so using it where an elaboration-time constant is required is an error.
 
@@ -53302,6 +53306,8 @@ Acceptance criterion: A $bits call that encloses a call of a function returning 
 
 Normative role: `mandatory`。
 
+- [test_illegal_bits_encloses_queue_returning_call.sv](../tests/ch20/test_illegal_bits_encloses_queue_returning_call.sv) : $bits of the procedural assignment n = $bits (make()) encloses the function make that returns typedef byte bytes_t \[ $ \] . : expected_stderr_regex : requires an error on line 33 (the line of the violation) that is not an unsupported, internal or syntax error.
+- [test_illegal_bits_dynamic_array_in_localparam.sv](../tests/ch20/test_illegal_bits_dynamic_array_in_localparam.sv) : $bits of the dynamic array variable int dyn \[ \] is made the value of localparam int W. : expected_stderr_regex : requires an error on line 29 (the line of the violation) that is not an unsupported, internal or syntax error.
 
 ### SV2023-20.6.2-EXTRACT-BITS-DYNAMIC-TYPE-ERROR
 
@@ -86458,7 +86464,7 @@ Normative role: `definition`。
 
 ### SV2023-35.5.3-EXTRACT-OPTIMIZATION-BARRIER
 
-`35.5.3` / `normal` / No mapped test
+`35.5.3` / `normal` / Execution confirmed
 
 Noncontext imports affect only actual arguments and do not block SV optimization; context imports may access SV data via VPI/exports and are optimization barriers.
 
@@ -86466,6 +86472,7 @@ Acceptance criterion: Noncontext imports affect only actual arguments and do not
 
 Normative role: `mandatory`。
 
+- [test_dpi_context_import_optimization_barrier.sv](../tests/ch35/test_dpi_context_import_optimization_barrier.sv) : around_call calls the context import c_swap_x right after writing x = 3 , and the C code reads x through the export sv_get_x and writes 103 through sv_set_x . Right after the call SV reads x. In the loop each pass reads x first and adds it, and the context import c_bump_x adds 5 to x through the export ( 10 + 15 + 20 = 45 , final x = 25 ). The noncontext import c_args_only ( 7 , o, io) writes 14 to the output o and 5 + 7 = 12 to the inout io, and x stays 25 . The expected output compares 3 seen by the import, 103 after the call, sum = 45 and x = 25 , and o = 14 io = 12 x = 25 . Distinguishing observation: An implementation that does not treat a context call as an optimization barrier (moving a write before the call after it, keeping x in a register across the call, or hoisting the read of x in the loop out of the loop) makes the value the import sees 0 , x after the call 3 , sum 30 or the final x 10 , which changes lines 1 and 2 of the expected output. If the output and inout actual arguments of the noncontext import are not updated after the call, o/io on line 3 change. That the noncontext side does not hinder optimization is a permission to implementations, not a duty that the output must show.
 
 ### SV2023-35.5.3-EXTRACT-OTHER-INTERFACE-ENABLE
 

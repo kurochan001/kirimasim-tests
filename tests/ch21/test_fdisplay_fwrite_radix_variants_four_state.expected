@@ -1,0 +1,5 @@
+file: h p=2xZ q=0a5 s=fd n=0000002a d=42
+file: o p=1XXZ q=0245 s=375 n=00000000052 h=0a5
+file: b p=10xxxx01z0 s=11111101 q=000010100101
+file: o2 q=0245 s=375
+end of file

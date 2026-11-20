@@ -177,7 +177,7 @@ tests/gen/ch10/test_gen_cross_delay_129_bit_x_three_short_direct.sv",既存モ�
 4,スケジューリングの意味論,9,プロセス,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,690,"tests/ch10/test_intra_assignment_delay_nba_concatenation.sv
 tests/ch10/test_nba_then_event_control_same_step.sv
 tests/ch15/test_event_nonblocking_trigger.sv",既存モデルの計画・実行証跡を維持する,,
-4,スケジューリングの意味論,10,代入文,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,1189,"tests/ch10/test_assign_nba.sv
+4,スケジューリングの意味論,10,代入文,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,1190,"tests/ch10/test_assign_nba.sv
 tests/ch10/test_edge_delta_cycle_chain.sv
 tests/ch10/test_intra_assignment_delay_nba_concatenation.sv",既存モデルの計画・実行証跡を維持する,,
 4,スケジューリングの意味論,11,演算子と式,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,509,"tests/ch4/test_range_select_lhs.sv
@@ -857,9 +857,9 @@ tests/ch36/test_vpi_systf_task_function_places.sv",引用探索の候補とソ�
 14,クロッキングブロック,15,プロセス間の同期と通信,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,25,"tests/ch13/test_function_nonblocking_statements_no_delay.sv
 tests/gen/ch14/test_gen_cross_clockevent_129_step_posedge_blocking_blocking_1.sv
 tests/gen/ch14/test_gen_cross_clockevent_129_step_posedge_blocking_nba_1.sv",既存モデルの計画・実行証跡を維持する,,
-14,クロッキングブロック,16,アサーション,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,63,"tests/ch14/test_global_clocking_lookup_at_assertion.sv
-tests/ch16/test_clocking_block_assertions.sv
-tests/ch16/test_clocking_block_other_clock_assertion.sv",既存モデルの計画・実行証跡を維持する,,
+14,クロッキングブロック,16,アサーション,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,64,"tests/ch14/test_global_clocking_lookup_at_assertion.sv
+tests/ch16/test_changing_gclk_sampled_expression_value.sv
+tests/ch16/test_clocking_block_assertions.sv",既存モデルの計画・実行証跡を維持する,,
 14,クロッキングブロック,17,チェッカー,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,31,"tests/ch16/test_default_clocking_assertion_clocks.sv
 tests/ch17/test_checker_concurrent_assertion.sv
 tests/ch17/test_checker_context_inference.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,

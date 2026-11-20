@@ -9,8 +9,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "dc4923d997e28d05abd61c8d02935e73587e84159b01c9c0380dfacca011ae50",
-        "ja": "10ba2ceeeb636af022ca5f0f751d4e724c0131324e99fb4f9ce8e0c862ac5e5e"
+        "en": "5d7edb7943fdf5f2fa0a15b7a1a74fd1f87d63e986fab8c85dd1439fa1f3adfb",
+        "ja": "62500bf4775c697261a16a65e7451541a97d83bd7cc30590baf9b0ae58160771"
       }
     },
     {
@@ -20,8 +20,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "8de192043c14978f8dbd3afd38d1da28f515ff0adc448a1603d4aaa85ec58b7f",
-        "ja": "523cb61aeb1b80d36ab6a1343b567ca30f3a51541871c5611f4672ad801899fd"
+        "en": "124b9b6f1010df82760a77c0e65de59b88fbfd83fb389b40e5e0d4d62439059a",
+        "ja": "23e11a62e8fa6de8630da865efe4bd903bcdd74bcf08429d7970299db1095cdf"
       }
     },
     {
@@ -425,8 +425,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "8e0a699e24d2ebc1712d508b1cff58f498c28acdee75b5a35d4d1466c516fee3",
-        "ja": "077f141fcef0ce3c556cb3a13d900490df99e11ec0edd02117d04d1840409912"
+        "en": "7bb73c86a14afbe1be027d3da3c213062b40de0671a4281745cbb0b189a0bffa",
+        "ja": "098230d3b157018b5b6d067ef658508ced71bf30bffcd4b23c626e85aa78cf50"
       }
     },
     {
@@ -637,8 +637,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "9a672adcb117e47526a2ad4a540459a5a83e11e2b1d52dd591789b7e6219f9ae",
-        "ja": "63cbc179b8b11f4f573da39a0dd39e7569ffa34bad05b9129101377daaa4afed"
+        "en": "4902c3ca320c027f75a7fcae582c1827db4c3237488ed139d7f5cdb13530b167",
+        "ja": "5bbdb2050b8766c67d2aff15d5a5bd30a6b8fdb7fdf4cb2ec7d5d17b16a4ac85"
       }
     },
     {
@@ -1379,6 +1379,17 @@
       "sha256": {
         "en": "a25e637767b6240a72b49e74e29366f20787424605c73095510f4455addd253a",
         "ja": "cd83bc0478850e270c0cdc13dfae3024845fd7c580dd4e8e5db13c80f2b5a5d7"
+      }
+    },
+    {
+      "en": "docs/unmapped-requirements-20261120.en.md",
+      "ja": "docs/unmapped-requirements-20261120.md",
+      "source": "docs/unmapped-requirements-20261120.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "fba2abbed247c28f4a8cb8b9e464fa1d4bf051cfa8b978d5747a55ba177501c5",
+        "ja": "efbf4175a74bcb405223d36d7aada7d0ed84fd88bf77424dfd7c910da2972528"
       }
     }
   ]

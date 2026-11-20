@@ -1710,3 +1710,14 @@ Checkの文書ジョブは、既存のunittestの探索コマンドへ`-v`を加
 - `$timeunit`と`$timeprecision`の引数にインタフェースのインスタンスを与えると、呼び出すモジュールの値を返す（20.4.1）。引数のない`$timeprecision`がシミュレーションの精度を返す差異（20.4.1の行）も残る。`ch20/test_timeunit_package_interface_program_nested`、`ch20/test_timeunit_timescale_precedence`
 - `type enum`で制限した型パラメータの既定値に`int`を書いた設計を受け付ける（6.20.3）。`ch6/test_illegal_enum_restricted_type_parameter_default_int`
 - 中間のクラスで`:extends :final`にした制約を、さらに下のクラスで置き換える設計を受け付ける（18.5.2）。`ch18/test_illegal_constraint_final_replacement_replaced`
+
+<a id="requirement-gaps-20261121"></a>
+
+### テストのない要求の補充（2026-11-21）
+
+2026-11-21にテストのない要求のために追加したテストは、次の差異を示します（未対応の構文は載せません）。
+
+- Icarus Verilog 13.0は、変数への手続き的assignとforceの右辺を一度しか評価せず、後でオペランドが変わっても代入先を更新しない（4.9.2）。`ch4/test_procedural_continuous_assign_force_track_operands`
+- Icarus Verilog 13.0は、動的な型を返す関数の呼出しを囲む`$bits`と、動的配列の`$bits`をlocalparamの値にする設計を受け付ける（20.6.2）。`ch20/test_illegal_bits_encloses_queue_returning_call`、`ch20/test_illegal_bits_dynamic_array_in_localparam`
+- Verilator 5.054は、`$changing_gclk`で、式の値が変わる刻みの変化を1つ見落とす（16.9.4）。`ch16/test_changing_gclk_sampled_expression_value`
+- Verilator 5.054は、3つのファイルに同時に有効にした`$fmonitor`のうち、最後に呼んだものの行しか書かない（21.3.2）。`ch21/test_fmonitor_radix_variants_simultaneous`

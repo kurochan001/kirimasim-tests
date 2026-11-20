@@ -1,0 +1,6 @@
+t1 call v=10xz110 k=000
+b v=10xz111 k=z10
+t2 call v=10xz111 k=z10
+o v=123 k=1z0
+t3 call v=1010011 k=1z0
+o2 v=xZZ k=x

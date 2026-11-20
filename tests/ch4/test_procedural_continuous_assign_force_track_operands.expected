@@ -1,0 +1,7 @@
+t2 start: r=13 w=30 u=7
+t2 a=5: r=15 w=50 u=5
+t3 b=12: r=17 w=60 u=7
+t3 c=99, r written: r=17 w=60 u=7
+t4 ended: r=17 w=99 u=7
+t4 a=1 b=2: r=17 w=99 u=7
+t4 written: r=40 w=99 u=41

@@ -177,7 +177,7 @@ tests/gen/ch10/test_gen_cross_delay_129_bit_x_three_short_direct.sv",Maintaining
 4,Scheduling semantics,9,Processes,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,690,"tests/ch10/test_intra_assignment_delay_nba_concatenation.sv
 tests/ch10/test_nba_then_event_control_same_step.sv
 tests/ch15/test_event_nonblocking_trigger.sv",Maintaining the planning and execution evidence of existing models.,,
-4,Scheduling semantics,10,Assignment statements,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,1189,"tests/ch10/test_assign_nba.sv
+4,Scheduling semantics,10,Assignment statements,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,1190,"tests/ch10/test_assign_nba.sv
 tests/ch10/test_edge_delta_cycle_chain.sv
 tests/ch10/test_intra_assignment_delay_nba_concatenation.sv",Maintaining the planning and execution evidence of existing models.,,
 4,Scheduling semantics,11,Operators and expressions,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,509,"tests/ch4/test_range_select_lhs.sv
@@ -857,9 +857,9 @@ tests/ch36/test_vpi_systf_task_function_places.sv","The candidates and sources o
 14,Clocking blocks,15,Interprocess synchronization and communication,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,25,"tests/ch13/test_function_nonblocking_statements_no_delay.sv
 tests/gen/ch14/test_gen_cross_clockevent_129_step_posedge_blocking_blocking_1.sv
 tests/gen/ch14/test_gen_cross_clockevent_129_step_posedge_blocking_nba_1.sv",Maintaining the planning and execution evidence of existing models.,,
-14,Clocking blocks,16,Assertions,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,63,"tests/ch14/test_global_clocking_lookup_at_assertion.sv
-tests/ch16/test_clocking_block_assertions.sv
-tests/ch16/test_clocking_block_other_clock_assertion.sv",Maintaining the planning and execution evidence of existing models.,,
+14,Clocking blocks,16,Assertions,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,64,"tests/ch14/test_global_clocking_lookup_at_assertion.sv
+tests/ch16/test_changing_gclk_sampled_expression_value.sv
+tests/ch16/test_clocking_block_assertions.sv",Maintaining the planning and execution evidence of existing models.,,
 14,Clocking blocks,17,Checkers,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,31,"tests/ch16/test_default_clocking_assertion_clocks.sv
 tests/ch17/test_checker_concurrent_assertion.sv
 tests/ch17/test_checker_context_inference.sv","The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,

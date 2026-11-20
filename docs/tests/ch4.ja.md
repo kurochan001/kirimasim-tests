@@ -4,7 +4,7 @@
 
 [English](ch4.md) / [日本語](ch4.ja.md)
 
-[すべての章](README.ja.md) .テストは480本で、そのうち386本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは481本で、そのうち386本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -83,6 +83,7 @@
 | [`test_port_connection_evaluated_at_time_zero`](../../tests/ch4/test_port_connection_evaluated_at_time_zero.sv) |inputポートの暗黙の継続代入は時刻0で評価します。そのため、定数式または宣言時初期値を保持する変数に接続したポートは、値変化がなくてもその値になります。| 4.9.1 4.9.6 23.3.3 | Icarus Verilog 13.0 ||
 | [`test_sched_contassign_zero_delay`](../../tests/ch4/test_sched_contassign_zero_delay.sv) |連続代入は、時間ゼロで評価され、アクティブ領域で更新されます。# 0 を待つプロセスが再開する前に。| 4.9.1 4.4.2.2 4.4.2.3 10.3.2 | Icarus Verilog 13.0 ||
 | [`test_force_and_assign_follow_expression`](../../tests/ch4/test_force_and_assign_follow_expression.sv) |アクティブフォースまたはプロセスアッセンブリ命令は、その表現に敏感なプロセスであり、表現の変更は、リリースまたはアッセンブリ解除が終了するまで、アクティブ領域のターゲットを更新します。| 4.9.2 10.6.1 10.6.2 |規格のみ||
+| [`test_procedural_continuous_assign_force_track_operands`](../../tests/ch4/test_procedural_continuous_assign_force_track_operands.sv) |変数への有効な手続き的assignと、ネットと変数へのforceは、式のオペランドが変わるたびにActive領域で代入先を更新し、deassignとreleaseでそれが終わる。その後の代入先はそれぞれの種類の規則に従う| 4.9.2 10.6.1 10.6.2 | Verilator 5.054 ||
 | [`test_sched_procedural_assign_deassign`](../../tests/ch4/test_sched_procedural_assign_deassign.sv) |プロセス的連続代入は右側に従い、代入を解除するまでプロセス的代入を上書きします。| 4.9.2 10.6.1 |規格のみ||
 | [`test_blocking_delayed_target_after_index_change`](../../tests/ch4/test_blocking_delayed_target_after_index_change.sv) |代入内ブロック遅延は RHS を保存するが、再開時にインデックスされた目的地を選択する| 4.9.3 | Icarus Verilog 13.0 ||
 | [`test_blocking_zero_delay_resumes_in_inactive`](../../tests/ch4/test_blocking_zero_delay_resumes_in_inactive.sv) |ブロックアシストは遅延なく次のステートメントの前にターゲットを更新し、アシスト間遅延がゼロのアシストは右側を一度に計算し、NBA 更新前に Inactive 領域で再開し、再開時に選択したターゲットを更 新し、それに感度のあるプロセスを起動します。| 4.9.3 4.5 10.4.1 | Icarus Verilog 13.0 ||

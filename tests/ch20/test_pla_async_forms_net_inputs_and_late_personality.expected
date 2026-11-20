@@ -1,0 +1,6 @@
+inputs in=0010 nand_array=111 nor_array=100 or_array=011 and_plane=010 nand_plane=101 nor_plane=100
+inputs in=1100 nand_array=011 nor_array=000 or_array=111 and_plane=100 nand_plane=011 nor_plane=011
+inputs in=1011 nand_array=110 nor_array=000 or_array=111 and_plane=010 nand_plane=101 nor_plane=000
+words in=1011 nand_array=110 nor_array=010 or_array=101 and_plane=110 nand_plane=001 nor_plane=000
+inputs in=0110 nand_array=101 nor_array=000 or_array=111 and_plane=000 nand_plane=111 nor_plane=000
+inputs in=0001 nand_array=111 nor_array=110 or_array=001 and_plane=001 nand_plane=110 nor_plane=000

@@ -1,0 +1,6 @@
+t1 call v=1x0z101 k=000
+t2 call v=0x0z101 k=0z1
+t3 call v=1011010 k=1x0
+file: b v=0x0z101 k=0z1
+file: h v=5a k=X
+file: o v=zZ7 k=111

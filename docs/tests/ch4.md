@@ -4,7 +4,7 @@
 
 [English](ch4.md) / [日本語](ch4.ja.md)
 
-[All chapters](README.md). 480 tests, 386 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 481 tests, 386 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -83,6 +83,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_port_connection_evaluated_at_time_zero`](../../tests/ch4/test_port_connection_evaluated_at_time_zero.sv) | The implicit continuous assignments of input ports are evaluated at time zero, so a port connected to a constant expression or to a variable that keeps its declared initial value has that value without any change | 4.9.1 4.9.6 23.3.3 | Icarus Verilog 13.0 ||
 | [`test_sched_contassign_zero_delay`](../../tests/ch4/test_sched_contassign_zero_delay.sv) | A continuous assignment is evaluated at time zero and updated in the Active region, before a process waiting on #0 resumes | 4.9.1 4.4.2.2 4.4.2.3 10.3.2 | Icarus Verilog 13.0 ||
 | [`test_force_and_assign_follow_expression`](../../tests/ch4/test_force_and_assign_follow_expression.sv) | An active force or procedural assign statement is a process sensitive to its expression, and a change of the expression updates the target in the Active region, until release or deassign ends it | 4.9.2 10.6.1 10.6.2 | standard only ||
+| [`test_procedural_continuous_assign_force_track_operands`](../../tests/ch4/test_procedural_continuous_assign_force_track_operands.sv) | An active procedural assign of a variable and forces of a net and of a variable update their targets in the Active region whenever an operand of their expressions changes, and deassign and release end that, after which the targets follow the rules of their kinds | 4.9.2 10.6.1 10.6.2 | Verilator 5.054 ||
 | [`test_sched_procedural_assign_deassign`](../../tests/ch4/test_sched_procedural_assign_deassign.sv) | A procedural continuous assignment follows its right-hand side and overrides procedural assignments until deassign | 4.9.2 10.6.1 | standard only ||
 | [`test_blocking_delayed_target_after_index_change`](../../tests/ch4/test_blocking_delayed_target_after_index_change.sv) | An intra assignment blocking delay saves the RHS but chooses the indexed destination on resumption | 4.9.3 | Icarus Verilog 13.0 ||
 | [`test_blocking_zero_delay_resumes_in_inactive`](../../tests/ch4/test_blocking_zero_delay_resumes_in_inactive.sv) | A blocking assignment without delay updates its target before the next statement, and one with a zero intra-assignment delay computes its right-hand side at once, resumes in the Inactive region before the NBA updates, then updates the target chosen at resumption and wakes the processes sensitive to it | 4.9.3 4.5 10.4.1 | Icarus Verilog 13.0 ||
