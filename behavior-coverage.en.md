@@ -6,10 +6,10 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/docs/requirement-extraction.en.md) / [Management procedures](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/coverage/README.en.md) / [Number of citations per paragraph](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/docs/coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/docs/faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 93.13%, execution without Ghost 30.74%, execution with Ghost 78.39%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/docs/faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 93.13%, execution without Ghost 43.08%, execution with Ghost 78.39%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 93.13%. Requirement execution-confirmation rate: 30.74% without Ghost, 78.39% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 93.13%. Requirement execution-confirmation rate: 43.08% without Ghost, 78.39% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
@@ -33,6 +33,7 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 `check_groups` distributes a single request across multiple tests, and is successful only if all tests in the group are successful in the same runtime and run. The unspecified response is an independent alternative proof.
 
 - `ghost.json`: `private build da2a4afe0dc9` / `2026-11-20T04:57:15.544798+00:00` / 9658/12332 execution checked; 0 entries refer to older inputs.
+- `icarus.json`: `Icarus Verilog version 14.0 (devel) (s20260301-1230-gbefc352e)` / `2026-11-20T06:45:07.658230+00:00` / 2666/12332 execution checked; 0 entries refer to older inputs.
 - `kirimasim.json`: `kirimasim 0.1.1 (commit cb97fc93bf6b), built with GNU 13.3.0` / `2026-11-20T04:52:31.092570+00:00` / 3107/12332 execution checked; 0 entries refer to older inputs.
 - `lyra.json`: `Lyra (commit 9a9813a48c8c)` / `2026-11-20T06:20:11.820137+00:00` / 3674/12332 execution checked; 0 entries refer to older inputs.
 - `verilator.json`: `Verilator 5.055 devel rev v5.054-340-g53a72711` / `2026-11-20T06:08:58.723548+00:00` / 3791/12332 execution checked; 0 entries refer to older inputs.

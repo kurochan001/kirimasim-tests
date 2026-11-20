@@ -6,8 +6,8 @@ The [list of differences](https://github.com/kurochan001/kirimasim-tests/blob/7e
 
 | Simulator | Version of the run | Run (UTC) | Suite | Named tests | Still differ | Now match | Not run |
 | --- | --- | --- | --- | ---: | ---: | ---: | ---: |
-| Icarus Verilog | Icarus Verilog version 14.0 (devel) (s20260301-1212-gc717fc33) | 2026-11-20 04:35 | [`3be3ed0`](https://github.com/kurochan001/kirimasim-tests/commit/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d) | 240 | 200 | 40 | 0 |
-| Verilator | Verilator 5.055 devel rev v5.054-340-g53a72711 | 2026-11-20 06:26 | [`7e233e9`](https://github.com/kurochan001/kirimasim-tests/commit/7e233e9afefc1a6e975ef85ed0ea7cffddb158de) | 617 | 542 | 75 | 0 |
+| Icarus Verilog | Icarus Verilog version 14.0 (devel) (s20260301-1230-gbefc352e) | 2026-11-20 06:49 | [`7e233e9`](https://github.com/kurochan001/kirimasim-tests/commit/7e233e9afefc1a6e975ef85ed0ea7cffddb158de) | 240 | 200 | 40 | 0 |
+| Verilator | Verilator 5.055 devel rev v5.054-340-g53a72711 | 2026-11-20 06:49 | [`7e233e9`](https://github.com/kurochan001/kirimasim-tests/commit/7e233e9afefc1a6e975ef85ed0ea7cffddb158de) | 617 | 542 | 75 | 0 |
 
 Named tests counts each test once per simulator. Patterns and the items under "To check in the list" are not in these counts.
 
@@ -65,7 +65,7 @@ The tests whose names match the pattern; the item may narrow them.
 | Pattern | Item of the list | Tests | Match | Differ | Not run |
 | --- | --- | ---: | ---: | ---: | ---: |
 | `ch36/test_vpi_compatibility_h_*` | [Cases added by the 2026-10-23 header and VPI model tests](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/docs/simulator-differences.md#cases-added-by-the-2026-10-23-header-and-vpi-model-tests) | 6 | 0 | 6 | 0 |
-| `ch37/test_vpi_*` | [Cases added by the 2026-10-23 header and VPI model tests](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/docs/simulator-differences.md#cases-added-by-the-2026-10-23-header-and-vpi-model-tests) | 216 | 1 | 212 | 3 |
+| `ch37/test_vpi_*` | [Cases added by the 2026-10-23 header and VPI model tests](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/docs/simulator-differences.md#cases-added-by-the-2026-10-23-header-and-vpi-model-tests) | 216 | 1 | 215 | 0 |
 | `gen/ch11/test_gen_cross_index_*` | [Cases added by the 2026-10-24 gap tests › Icarus Verilog 13.0: results](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/docs/simulator-differences.md#icarus-verilog-130-results) | 44 | 26 | 18 | 0 |
 | `gen/ch20/test_gen_cross_query_*` | [Icarus Verilog 13.0 › Results](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/docs/simulator-differences.md#results) | 60 | 60 | 0 | 0 |
 | `gen/ch24/test_gen_cross_progmod_{top_inst,child_inst,implicit_top}_*` | [Icarus Verilog 13.0 › Results](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/docs/simulator-differences.md#results) | 14 | 0 | 14 | 0 |

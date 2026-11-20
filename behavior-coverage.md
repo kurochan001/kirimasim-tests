@@ -6,10 +6,10 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/docs/requirement-extraction.md) / [管理手順](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/coverage/README.md) / [節の引用数](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/docs/coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/docs/faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 93.13%、Ghostを除く実行 30.74%、Ghostを含む実行 78.39%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/docs/faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 93.13%、Ghostを除く実行 43.08%、Ghostを含む実行 78.39%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 93.13%。** 規格要求の実行確認率: Ghostを除いて 30.74%、Ghostを含めて 78.39%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 93.13%。** 規格要求の実行確認率: Ghostを除いて 43.08%、Ghostを含めて 78.39%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
@@ -33,6 +33,7 @@
 複数テストで一つの要求を分担する `check_groups` は、同じ実行環境・実行回で グループ内の全テストが成功した場合に限り成功とします。未指定の対応は独立した代替証拠です。
 
 - `ghost.json`: `private build da2a4afe0dc9` / `2026-11-20T04:57:15.544798+00:00` / 9658/12332 動作確認、古い入力との対応 0 件。
+- `icarus.json`: `Icarus Verilog version 14.0 (devel) (s20260301-1230-gbefc352e)` / `2026-11-20T06:45:07.658230+00:00` / 2666/12332 動作確認、古い入力との対応 0 件。
 - `kirimasim.json`: `kirimasim 0.1.1 (commit cb97fc93bf6b), built with GNU 13.3.0` / `2026-11-20T04:52:31.092570+00:00` / 3107/12332 動作確認、古い入力との対応 0 件。
 - `lyra.json`: `Lyra (commit 9a9813a48c8c)` / `2026-11-20T06:20:11.820137+00:00` / 3674/12332 動作確認、古い入力との対応 0 件。
 - `verilator.json`: `Verilator 5.055 devel rev v5.054-340-g53a72711` / `2026-11-20T06:08:58.723548+00:00` / 3791/12332 動作確認、古い入力との対応 0 件。

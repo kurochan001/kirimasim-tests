@@ -2895,6 +2895,566 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 7/7.
   - Case statuses: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 
+### results/icarus.json
+
+- Environment: Icarus Verilog version 14.0 (devel) (s20260301-1230-gbefc352e).
+- Execution timestamp: 2026-11-20T06:45:07.658230+00:00.
+
+- scheduling_visibility:
+  - The confirmed combination of the 2 factor: 126/126.
+  - The confirmed combination of the 3 factor: 51/51.
+  - Individual mandatory cases: No objects.
+  - Case statuses: pass=325, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- nba_capture:
+  - The confirmed combination of the 2 factor: 162/162.
+  - The confirmed combination of the 3 factor: 44/44.
+  - Mandatory case: 3/3.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- expression_context:
+  - The confirmed combination of the 2 factor: 143/143.
+  - The confirmed combination of the 3 factor: 63/63.
+  - Mandatory case: 3/3.
+  - Case statuses: pass=51, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- packed_part_select:
+  - The confirmed combination of the 2 factor: 162/162.
+  - The confirmed combination of the 3 factor: 48/48.
+  - Mandatory case: 3/3.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- conditional_merge:
+  - The confirmed combination of the 2 factor: 182/185.
+  - The confirmed combination of the 3 factor: 71/76.
+  - Mandatory case: 2/3.
+  - Case statuses: pass=30, fail=0, known=2, unsupported=0, stale=0, not_run=0.
+- shift_context:
+  - The confirmed combination of the 2 factor: 298/298.
+  - The confirmed combination of the 3 factor: 92/92.
+  - Mandatory case: 4/4.
+  - Case statuses: pass=56, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- cast_pipeline:
+  - The confirmed combination of the 2 factor: 214/214.
+  - The confirmed combination of the 3 factor: 76/76.
+  - Mandatory case: 3/3.
+  - Case statuses: pass=32, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- task_argument_visibility:
+  - The confirmed combination of the 2 factor: 137/144.
+  - The confirmed combination of the 3 factor: 48/52.
+  - Mandatory case: 2/3.
+  - Case statuses: pass=34, fail=0, known=2, unsupported=0, stale=0, not_run=0.
+- argument_binding_index:
+  - The confirmed combination of the 2 factor: 104/162.
+  - The confirmed combination of the 3 factor: 27/63.
+  - Mandatory case: 1/5.
+  - Case statuses: pass=18, fail=0, known=18, unsupported=0, stale=0, not_run=0.
+- packed_structure:
+  - The confirmed combination of the 2 factor: 186/186.
+  - The confirmed combination of the 3 factor: 52/52.
+  - Mandatory case: 3/3.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- case_matching:
+  - The confirmed combination of the 2 factor: 220/220.
+  - The confirmed combination of the 3 factor: 82/82.
+  - Mandatory case: 3/3.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- port_connection:
+  - The confirmed combination of the 2 factor: 198/204.
+  - The confirmed combination of the 3 factor: 52/56.
+  - Mandatory case: 3/5.
+  - Case statuses: pass=34, fail=0, known=2, unsupported=0, stale=0, not_run=0.
+- unpacked_array_copy:
+  - The confirmed combination of the 2 factor: 107/148.
+  - The confirmed combination of the 3 factor: 30/52.
+  - Mandatory case: 1/3.
+  - Case statuses: pass=26, fail=0, known=10, unsupported=0, stale=0, not_run=0.
+- bit_vector_queries:
+  - The confirmed combination of the 2 factor: 285/285.
+  - The confirmed combination of the 3 factor: 108/108.
+  - Mandatory case: 4/4.
+  - Case statuses: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- streaming_permutation:
+  - The confirmed combination of the 2 factor: 0/182.
+  - The confirmed combination of the 3 factor: 0/68.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0.
+- comparison_context:
+  - The confirmed combination of the 2 factor: 302/302.
+  - The confirmed combination of the 3 factor: 174/174.
+  - Mandatory case: 4/4.
+  - Case statuses: pass=100, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- array_reduction_pipeline:
+  - The confirmed combination of the 2 factor: 129/261.
+  - The confirmed combination of the 3 factor: 34/162.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=12, fail=0, known=60, unsupported=0, stale=0, not_run=0.
+- variable_bit_index:
+  - The confirmed combination of the 2 factor: 217/253.
+  - The confirmed combination of the 3 factor: 68/106.
+  - Mandatory case: 3/4.
+  - Case statuses: pass=26, fail=0, known=18, unsupported=0, stale=0, not_run=0.
+- queue_update_capacity:
+  - The confirmed combination of the 2 factor: 245/258.
+  - The confirmed combination of the 3 factor: 100/120.
+  - Mandatory case: 4/5.
+  - Case statuses: pass=41, fail=0, known=7, unsupported=0, stale=0, not_run=0.
+- queue_element_reference:
+  - The confirmed combination of the 2 factor: 0/257.
+  - The confirmed combination of the 3 factor: 0/96.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=60, unsupported=0, stale=0, not_run=0.
+- division_context:
+  - The confirmed combination of the 2 factor: 283/283.
+  - The confirmed combination of the 3 factor: 98/98.
+  - Mandatory case: 5/5.
+  - Case statuses: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- dynamic_array_resize:
+  - The confirmed combination of the 2 factor: 219/219.
+  - The confirmed combination of the 3 factor: 96/96.
+  - Mandatory case: 5/5.
+  - Case statuses: pass=38, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- concatenated_assignment:
+  - The confirmed combination of the 2 factor: 265/265.
+  - The confirmed combination of the 3 factor: 126/126.
+  - Mandatory case: 5/5.
+  - Case statuses: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- packed_logical_reduction:
+  - The confirmed combination of the 2 factor: 218/218.
+  - The confirmed combination of the 3 factor: 142/142.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=70, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- logical_short_circuit:
+  - The confirmed combination of the 2 factor: 214/214.
+  - The confirmed combination of the 3 factor: 236/236.
+  - Mandatory case: 5/5.
+  - Case statuses: pass=92, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- edge_event_expression:
+  - The confirmed combination of the 2 factor: 259/259.
+  - The confirmed combination of the 3 factor: 152/152.
+  - Mandatory case: 5/5.
+  - Case statuses: pass=64, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- event_or_iff:
+  - The confirmed combination of the 2 factor: 0/104.
+  - The confirmed combination of the 3 factor: 0/59.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=27, unsupported=0, stale=0, not_run=0.
+- heap_file_monitor_context:
+  - The confirmed combination of the 2 factor: 0/40.
+  - Mandatory case: 0/3.
+  - Case statuses: pass=0, fail=0, known=18, unsupported=0, stale=0, not_run=0.
+- compound_shift_target:
+  - The confirmed combination of the 2 factor: 308/308.
+  - The confirmed combination of the 3 factor: 90/90.
+  - Mandatory case: 4/4.
+  - Case statuses: pass=40, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- membership_container:
+  - The confirmed combination of the 2 factor: 0/305.
+  - The confirmed combination of the 3 factor: 0/174.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=46, unsupported=0, stale=0, not_run=0.
+- membership_range:
+  - The confirmed combination of the 2 factor: 0/303.
+  - The confirmed combination of the 3 factor: 0/178.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=46, unsupported=0, stale=0, not_run=0.
+- case_inside_selection:
+  - The confirmed combination of the 2 factor: 0/315.
+  - The confirmed combination of the 3 factor: 0/154.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=34, unsupported=0, stale=0, not_run=0.
+- clocking_input_sampling:
+  - The confirmed combination of the 2 factor: 0/165.
+  - The confirmed combination of the 3 factor: 0/72.
+  - Mandatory case: 0/5.
+  - Case statuses: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0.
+- assertion_sample_visibility:
+  - The confirmed combination of the 2 factor: 0/225.
+  - The confirmed combination of the 3 factor: 0/96.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0.
+- container_wait_visibility:
+  - The confirmed combination of the 2 factor: 205/214.
+  - The confirmed combination of the 3 factor: 75/88.
+  - Mandatory case: 4/6.
+  - Case statuses: pass=32, fail=0, known=4, unsupported=0, stale=0, not_run=0.
+- class_method_reference:
+  - The confirmed combination of the 2 factor: 202/202.
+  - The confirmed combination of the 3 factor: 99/99.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- function_loop_return:
+  - The confirmed combination of the 2 factor: 161/161.
+  - The confirmed combination of the 3 factor: 120/120.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- loop_assignment_order:
+  - The confirmed combination of the 2 factor: 246/246.
+  - The confirmed combination of the 3 factor: 111/111.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- implicit_process_visibility:
+  - The confirmed combination of the 2 factor: 242/242.
+  - The confirmed combination of the 3 factor: 96/96.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- generate_scope_lookup:
+  - The confirmed combination of the 2 factor: 148/148.
+  - The confirmed combination of the 3 factor: 68/68.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- default_argument_scope:
+  - The confirmed combination of the 2 factor: 159/159.
+  - The confirmed combination of the 3 factor: 128/128.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- event_task_scope:
+  - The confirmed combination of the 2 factor: 0/109.
+  - The confirmed combination of the 3 factor: 0/52.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=13, unsupported=0, stale=0, not_run=0.
+- continuous_delay_inertial:
+  - The confirmed combination of the 2 factor: 134/141.
+  - The confirmed combination of the 3 factor: 114/129.
+  - Mandatory case: 5/7.
+  - Case statuses: pass=57, fail=0, known=6, unsupported=0, stale=0, not_run=0.
+- port_import_scope:
+  - The confirmed combination of the 2 factor: 158/158.
+  - The confirmed combination of the 3 factor: 141/141.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=39, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- typed_memory_file:
+  - The confirmed combination of the 2 factor: 248/248.
+  - The confirmed combination of the 3 factor: 82/82.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- program_descendant_shutdown:
+  - The confirmed combination of the 2 factor: 0/109.
+  - The confirmed combination of the 3 factor: 0/38.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=18, unsupported=0, stale=0, not_run=0.
+- implicit_port_nettype:
+  - The confirmed combination of the 2 factor: 90/156.
+  - The confirmed combination of the 3 factor: 28/72.
+  - Mandatory case: 2/6.
+  - Case statuses: pass=14, fail=0, known=26, unsupported=0, stale=0, not_run=0.
+- generated_interface_binding:
+  - The confirmed combination of the 2 factor: 0/165.
+  - The confirmed combination of the 3 factor: 0/74.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0.
+- program_reactive_handoff:
+  - The confirmed combination of the 2 factor: 0/183.
+  - The confirmed combination of the 3 factor: 0/84.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0.
+- configuration_generated_shape:
+  - The confirmed combination of the 2 factor: 0/213.
+  - The confirmed combination of the 3 factor: 0/80.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=41, unsupported=0, stale=0, not_run=0.
+- udp_array_strength:
+  - The confirmed combination of the 2 factor: 21/182.
+  - The confirmed combination of the 3 factor: 4/80.
+  - Mandatory case: 1/6.
+  - Case statuses: pass=1, fail=0, known=24, unsupported=0, stale=0, not_run=0.
+- generated_udp_state:
+  - The confirmed combination of the 2 factor: 165/165.
+  - The confirmed combination of the 3 factor: 68/68.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- interface_header_import:
+  - The confirmed combination of the 2 factor: 183/183.
+  - The confirmed combination of the 3 factor: 78/78.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- mailbox_class_alias:
+  - The confirmed combination of the 2 factor: 0/245.
+  - The confirmed combination of the 3 factor: 0/92.
+  - Mandatory case: 0/9.
+  - Case statuses: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0.
+- distribution_expression_binding:
+  - The confirmed combination of the 2 factor: 0/154.
+  - The confirmed combination of the 3 factor: 0/81.
+  - Mandatory case: 0/8.
+  - Case statuses: pass=0, fail=0, known=31, unsupported=0, stale=0, not_run=0.
+- generate_default_disable:
+  - The confirmed combination of the 2 factor: 0/93.
+  - The confirmed combination of the 3 factor: 0/60.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=18, unsupported=0, stale=0, not_run=0.
+- array_reduction_constraint:
+  - The confirmed combination of the 2 factor: 0/96.
+  - The confirmed combination of the 3 factor: 0/40.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=13, unsupported=0, stale=0, not_run=0.
+- associative_array_queries:
+  - The confirmed combination of the 2 factor: 0/93.
+  - The confirmed combination of the 3 factor: 0/54.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=18, unsupported=0, stale=0, not_run=0.
+- clocking_event_iff:
+  - The confirmed combination of the 2 factor: 0/109.
+  - The confirmed combination of the 3 factor: 0/44.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=12, unsupported=0, stale=0, not_run=0.
+- class_virtual_interface:
+  - The confirmed combination of the 2 factor: 0/96.
+  - The confirmed combination of the 3 factor: 0/48.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=13, unsupported=0, stale=0, not_run=0.
+- resolved_strength_format:
+  - The confirmed combination of the 2 factor: 87/87.
+  - The confirmed combination of the 3 factor: 78/78.
+  - Mandatory case: 4/4.
+  - Case statuses: pass=31, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- class_array_shallow_copy:
+  - The confirmed combination of the 2 factor: 0/108.
+  - The confirmed combination of the 3 factor: 0/60.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=18, unsupported=0, stale=0, not_run=0.
+- dpi_openarray_shape:
+  - The confirmed combination of the 2 factor: 0/100.
+  - The confirmed combination of the 3 factor: 0/72.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=30, unsupported=0, stale=0, not_run=0.
+- clocking_assertion_sampling:
+  - The confirmed combination of the 2 factor: 0/109.
+  - The confirmed combination of the 3 factor: 0/50.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=18, unsupported=0, stale=0, not_run=0.
+- constraint_inheritance:
+  - The confirmed combination of the 2 factor: 0/70.
+  - The confirmed combination of the 3 factor: 0/40.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=13, unsupported=0, stale=0, not_run=0.
+- dpi_nba_capture:
+  - The confirmed combination of the 2 factor: 0/81.
+  - The confirmed combination of the 3 factor: 0/48.
+  - Mandatory case: 0/4.
+  - Case statuses: pass=0, fail=0, known=18, unsupported=0, stale=0, not_run=0.
+- aggregate_event_lifetime:
+  - The confirmed combination of the 2 factor: 0/123.
+  - The confirmed combination of the 3 factor: 0/54.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=18, unsupported=0, stale=0, not_run=0.
+- sv_dpi_array_queries:
+  - The confirmed combination of the 2 factor: 0/176.
+  - The confirmed combination of the 3 factor: 0/63.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=16, unsupported=0, stale=0, not_run=0.
+- sdf_conditional_paths:
+  - The confirmed combination of the 2 factor: 73/109.
+  - The confirmed combination of the 3 factor: 19/46.
+  - Mandatory case: 4/7.
+  - Case statuses: pass=6, fail=0, known=12, unsupported=0, stale=0, not_run=0.
+- checker_assertion_sampling:
+  - The confirmed combination of the 2 factor: 0/174.
+  - The confirmed combination of the 3 factor: 0/63.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=27, unsupported=0, stale=0, not_run=0.
+- program_assertion_attempts:
+  - The confirmed combination of the 2 factor: 0/138.
+  - The confirmed combination of the 3 factor: 0/75.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=27, unsupported=0, stale=0, not_run=0.
+- container_coverage_sampling:
+  - The confirmed combination of the 2 factor: 0/172.
+  - The confirmed combination of the 3 factor: 0/79.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=33, unsupported=0, stale=0, not_run=0.
+- deferred_disable_reports:
+  - The confirmed combination of the 2 factor: 0/151.
+  - The confirmed combination of the 3 factor: 0/92.
+  - Mandatory case: 0/10.
+  - Case statuses: pass=0, fail=0, known=31, unsupported=0, stale=0, not_run=0.
+- event_rebinding:
+  - The confirmed combination of the 2 factor: 0/138.
+  - The confirmed combination of the 3 factor: 0/69.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=27, unsupported=0, stale=0, not_run=0.
+- clocking_named_event:
+  - The confirmed combination of the 2 factor: 0/100.
+  - The confirmed combination of the 3 factor: 0/40.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=24, unsupported=0, stale=0, not_run=0.
+- deferred_argument_capture:
+  - The confirmed combination of the 2 factor: 0/145.
+  - The confirmed combination of the 3 factor: 0/71.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=29, unsupported=0, stale=0, not_run=0.
+- generated_enum_navigation:
+  - The confirmed combination of the 2 factor: 181/181.
+  - The confirmed combination of the 3 factor: 110/110.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- package_nba_capture:
+  - The confirmed combination of the 2 factor: 0/183.
+  - The confirmed combination of the 3 factor: 0/126.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0.
+- package_change_observers:
+  - The confirmed combination of the 2 factor: 0/225.
+  - The confirmed combination of the 3 factor: 0/122.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0.
+- class_method_package_lookup:
+  - The confirmed combination of the 2 factor: 0/244.
+  - The confirmed combination of the 3 factor: 0/110.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=34, unsupported=0, stale=0, not_run=0.
+- generated_subroutine_binding:
+  - The confirmed combination of the 2 factor: 228/228.
+  - The confirmed combination of the 3 factor: 112/112.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- class_conditional_return:
+  - The confirmed combination of the 2 factor: 180/183.
+  - The confirmed combination of the 3 factor: 122/135.
+  - Mandatory case: 5/6.
+  - Case statuses: pass=32, fail=0, known=4, unsupported=0, stale=0, not_run=0.
+- generated_process_loop_transfer:
+  - The confirmed combination of the 2 factor: 293/293.
+  - The confirmed combination of the 3 factor: 160/160.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- interface_array_query_walk:
+  - The confirmed combination of the 2 factor: 274/274.
+  - The confirmed combination of the 3 factor: 96/96.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- generated_constant_expression_shape:
+  - The confirmed combination of the 2 factor: 297/297.
+  - The confirmed combination of the 3 factor: 132/132.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- formatted_scan_partial_write:
+  - The confirmed combination of the 2 factor: 222/292.
+  - The confirmed combination of the 3 factor: 67/142.
+  - Mandatory case: 3/6.
+  - Case statuses: pass=17, fail=0, known=19, unsupported=0, stale=0, not_run=0.
+- program_task_frame_lifetime:
+  - The confirmed combination of the 2 factor: 150/249.
+  - The confirmed combination of the 3 factor: 32/100.
+  - Mandatory case: 2/6.
+  - Case statuses: pass=6, fail=0, known=30, unsupported=0, stale=0, not_run=0.
+- package_array_query_scope:
+  - The confirmed combination of the 2 factor: 0/249.
+  - The confirmed combination of the 3 factor: 0/118.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0.
+- named_event_loop_transfer:
+  - The confirmed combination of the 2 factor: 0/223.
+  - The confirmed combination of the 3 factor: 0/140.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=36, unsupported=0, stale=0, not_run=0.
+- time_scope_delay:
+  - The confirmed combination of the 2 factor: 270/291.
+  - The confirmed combination of the 3 factor: 124/136.
+  - Mandatory case: 4/6.
+  - Case statuses: pass=44, fail=0, known=4, unsupported=0, stale=0, not_run=0.
+- literal_context_extension:
+  - The confirmed combination of the 2 factor: 303/303.
+  - The confirmed combination of the 3 factor: 148/148.
+  - Mandatory case: 8/8.
+  - Case statuses: pass=66, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- gate_array_connection:
+  - The confirmed combination of the 2 factor: 255/278.
+  - The confirmed combination of the 3 factor: 98/135.
+  - Mandatory case: 4/6.
+  - Case statuses: pass=34, fail=0, known=17, unsupported=0, stale=0, not_run=0.
+- macro_expansion_context:
+  - The confirmed combination of the 2 factor: 395/463.
+  - Mandatory case: 8/9.
+  - Case statuses: pass=98, fail=0, known=16, unsupported=0, stale=0, not_run=0.
+- force_release_visibility:
+  - The confirmed combination of the 2 factor: 197/228.
+  - The confirmed combination of the 3 factor: 54/72.
+  - Mandatory case: 5/8.
+  - Case statuses: pass=54, fail=0, known=18, unsupported=0, stale=0, not_run=0.
+- implicit_sensitivity_update:
+  - The confirmed combination of the 2 factor: 155/177.
+  - Mandatory case: 18/25.
+  - Case statuses: pass=50, fail=0, known=11, unsupported=0, stale=0, not_run=0.
+- interface_member_expression:
+  - The confirmed combination of the 2 factor: 0/264.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=49, unsupported=0, stale=0, not_run=0.
+- loop_control_scheduling:
+  - The confirmed combination of the 2 factor: 82/82.
+  - The confirmed combination of the 3 factor: 55/55.
+  - Mandatory case: 6/6.
+  - Case statuses: pass=55, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- literal_format_display:
+  - The confirmed combination of the 2 factor: 274/301.
+  - Mandatory case: 6/9.
+  - Case statuses: pass=79, fail=0, known=12, unsupported=0, stale=0, not_run=0.
+- parameter_override_type:
+  - The confirmed combination of the 2 factor: 101/120.
+  - Mandatory case: 7/8.
+  - Case statuses: pass=36, fail=0, known=8, unsupported=0, stale=0, not_run=0.
+- assertion_vector_query:
+  - The confirmed combination of the 2 factor: 75/138.
+  - The confirmed combination of the 3 factor: 5/15.
+  - Mandatory case: 2/6.
+  - Case statuses: pass=18, fail=0, known=12, unsupported=0, stale=0, not_run=0.
+- literal_argument_conversion:
+  - The confirmed combination of the 2 factor: 155/169.
+  - Mandatory case: 6/8.
+  - Case statuses: pass=58, fail=0, known=4, unsupported=0, stale=0, not_run=0.
+- hierarchical_process_control:
+  - The confirmed combination of the 2 factor: 102/113.
+  - The confirmed combination of the 3 factor: 30/36.
+  - Mandatory case: 6/7.
+  - Case statuses: pass=36, fail=0, known=6, unsupported=0, stale=0, not_run=0.
+- hierarchical_name_display:
+  - The confirmed combination of the 2 factor: 125/143.
+  - The confirmed combination of the 3 factor: 23/27.
+  - Mandatory case: 5/7.
+  - Case statuses: pass=59, fail=0, known=6, unsupported=0, stale=0, not_run=0.
+- array_query_loop:
+  - The confirmed combination of the 2 factor: 64/151.
+  - Mandatory case: 2/7.
+  - Case statuses: pass=14, fail=0, known=26, unsupported=0, stale=0, not_run=0.
+- delay_value_form:
+  - The confirmed combination of the 2 factor: 126/126.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=60, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- package_name_lookup:
+  - The confirmed combination of the 2 factor: 88/88.
+  - The confirmed combination of the 3 factor: 37/37.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=37, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- escaped_name_binding:
+  - The confirmed combination of the 2 factor: 100/100.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=29, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- scoped_class_declaration:
+  - The confirmed combination of the 2 factor: 100/100.
+  - The confirmed combination of the 3 factor: 48/48.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+- case_literal_wildcard:
+  - The confirmed combination of the 2 factor: 91/112.
+  - The confirmed combination of the 3 factor: 18/24.
+  - Mandatory case: 5/7.
+  - Case statuses: pass=18, fail=0, known=6, unsupported=0, stale=0, not_run=0.
+- program_hierarchy_instances:
+  - The confirmed combination of the 2 factor: 0/90.
+  - The confirmed combination of the 3 factor: 0/52.
+  - Mandatory case: 0/6.
+  - Case statuses: pass=0, fail=0, known=24, unsupported=0, stale=0, not_run=0.
+- program_interface_regions:
+  - The confirmed combination of the 2 factor: 103/131.
+  - The confirmed combination of the 3 factor: 49/82.
+  - Mandatory case: 5/10.
+  - Case statuses: pass=15, fail=0, known=15, unsupported=0, stale=0, not_run=0.
+- simulation_end_sources:
+  - The confirmed combination of the 2 factor: 98/110.
+  - The confirmed combination of the 3 factor: 84/95.
+  - Mandatory case: 7/10.
+  - Case statuses: pass=38, fail=0, known=4, unsupported=0, stale=0, not_run=0.
+- aggregate_literal_key:
+  - The confirmed combination of the 2 factor: 0/104.
+  - Mandatory case: 0/7.
+  - Case statuses: pass=0, fail=0, known=48, unsupported=0, stale=0, not_run=0.
+
 ### results/kirimasim.json
 
 - Environment: kirimasim 0.1.1 (commit cb97fc93bf6b), built with GNU 13.3.0.

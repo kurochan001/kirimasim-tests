@@ -8,11 +8,11 @@
 
 | シミュレータ | 版 | 時刻 | スイートのコミット |
 | --- | --- | --- | --- |
-| Icarus Verilog | `Icarus Verilog version 14.0 (devel) (s20260301-1212-gc717fc33)` | 2026-11-20T04:35:10Z | `3be3ed02`（古いコミット） |
-| Verilator | `Verilator 5.055 devel rev v5.054-340-g53a72711` | 2026-11-20T06:26:49Z | `7e233e9a` |
-| kirimasim | `kirimasim 0.1.1 (commit cb97fc93bf6b), built with GNU 13.3.0` | 2026-11-20T06:26:49Z | `7e233e9a` |
-| Lyra | `Lyra (commit 9a9813a48c8c)` | 2026-11-20T06:26:49Z | `7e233e9a` |
-| Ghost | `private build da2a4afe0dc9` | 2026-11-20T06:26:49Z | `7e233e9a` |
+| Icarus Verilog | `Icarus Verilog version 14.0 (devel) (s20260301-1230-gbefc352e)` | 2026-11-20T06:49:26Z | `7e233e9a` |
+| Verilator | `Verilator 5.055 devel rev v5.054-340-g53a72711` | 2026-11-20T06:49:26Z | `7e233e9a` |
+| kirimasim | `kirimasim 0.1.1 (commit cb97fc93bf6b), built with GNU 13.3.0` | 2026-11-20T06:49:26Z | `7e233e9a` |
+| Lyra | `Lyra (commit 9a9813a48c8c)` | 2026-11-20T06:49:26Z | `7e233e9a` |
+| Ghost | `private build da2a4afe0dc9` | 2026-11-20T06:49:26Z | `7e233e9a` |
 
 ## 件数
 
@@ -40,12 +40,12 @@
 | --- | --- |
 | [`ch16/test_sequence_method_call_and_match_item_forms`](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/tests/ch16/test_sequence_method_call_and_match_item_forms.sv) | `Ik Vk Ku Lu Gf` |
 | [`ch16/test_sequence_method_port_call_clocks`](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/tests/ch16/test_sequence_method_port_call_clocks.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch37/test_vpi_interconnect_array_packed_contrast`](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/tests/ch37/test_vpi_interconnect_array_packed_contrast.sv) | `I- Vk Ku Lu Gf` |
-| [`ch37/test_vpi_interface_expression_port_refs_and_null`](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/tests/ch37/test_vpi_interface_expression_port_refs_and_null.sv) | `I- Vk Ku Lu Gf` |
+| [`ch37/test_vpi_interconnect_array_packed_contrast`](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/tests/ch37/test_vpi_interconnect_array_packed_contrast.sv) | `Ik Vk Ku Lu Gf` |
+| [`ch37/test_vpi_interface_expression_port_refs_and_null`](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/tests/ch37/test_vpi_interface_expression_port_refs_and_null.sv) | `Ik Vk Ku Lu Gf` |
 | [`ch37/test_vpi_program_interface_relations`](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/tests/ch37/test_vpi_program_interface_relations.sv) | `Ik Vk Ku Lu Gf` |
-| [`ch37/test_vpi_vif_declaration_specialization_owner`](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/tests/ch37/test_vpi_vif_declaration_specialization_owner.sv) | `I- Vk Ku Lu Gf` |
-| [`ch38/test_vpi_bulk_propagation_suppressed_then_restored`](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/tests/ch38/test_vpi_bulk_propagation_suppressed_then_restored.sv) | `I- Vk Ku Lu Gf` |
-| [`ch38/test_vpi_enter_thread_resume_identity`](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/tests/ch38/test_vpi_enter_thread_resume_identity.sv) | `I- Vk Ku Lu Gf` |
+| [`ch37/test_vpi_vif_declaration_specialization_owner`](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/tests/ch37/test_vpi_vif_declaration_specialization_owner.sv) | `Ik Vk Ku Lu Gf` |
+| [`ch38/test_vpi_bulk_propagation_suppressed_then_restored`](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/tests/ch38/test_vpi_bulk_propagation_suppressed_then_restored.sv) | `Ik Vk Ku Lu Gf` |
+| [`ch38/test_vpi_enter_thread_resume_identity`](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/tests/ch38/test_vpi_enter_thread_resume_identity.sv) | `Ik Vk Ku Lu Gf` |
 
 ## 固定版のoracleがあり、GhostとLyraの両方でfail
 

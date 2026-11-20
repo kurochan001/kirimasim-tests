@@ -6,8 +6,8 @@
 
 | シミュレータ | 実行した版 | 実行（UTC） | スイート | 挙げられたテスト | まだ異なる | 一致した | 未実行 |
 | --- | --- | --- | --- | ---: | ---: | ---: | ---: |
-| Icarus Verilog | Icarus Verilog version 14.0 (devel) (s20260301-1212-gc717fc33) | 2026-11-20 04:35 | [`3be3ed0`](https://github.com/kurochan001/kirimasim-tests/commit/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d) | 240 | 200 | 40 | 0 |
-| Verilator | Verilator 5.055 devel rev v5.054-340-g53a72711 | 2026-11-20 06:26 | [`7e233e9`](https://github.com/kurochan001/kirimasim-tests/commit/7e233e9afefc1a6e975ef85ed0ea7cffddb158de) | 617 | 542 | 75 | 0 |
+| Icarus Verilog | Icarus Verilog version 14.0 (devel) (s20260301-1230-gbefc352e) | 2026-11-20 06:49 | [`7e233e9`](https://github.com/kurochan001/kirimasim-tests/commit/7e233e9afefc1a6e975ef85ed0ea7cffddb158de) | 240 | 200 | 40 | 0 |
+| Verilator | Verilator 5.055 devel rev v5.054-340-g53a72711 | 2026-11-20 06:49 | [`7e233e9`](https://github.com/kurochan001/kirimasim-tests/commit/7e233e9afefc1a6e975ef85ed0ea7cffddb158de) | 617 | 542 | 75 | 0 |
 
 挙げられたテストは、シミュレータごとに各テストを1回数えます。パターンと「一覧で確かめること」の項目は、この数に含みません。
 
@@ -65,7 +65,7 @@
 | パターン | 一覧の項目 | テスト | 一致 | 異なる | 未実行 |
 | --- | --- | ---: | ---: | ---: | ---: |
 | `ch36/test_vpi_compatibility_h_*` | [2026-10-23のヘッダテストとVPIのモデルテストで追加したケース](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/docs/simulator-differences.ja.md#2026-10-23のヘッダテストとvpiのモデルテストで追加したケース) | 6 | 0 | 6 | 0 |
-| `ch37/test_vpi_*` | [2026-10-23のヘッダテストとVPIのモデルテストで追加したケース](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/docs/simulator-differences.ja.md#2026-10-23のヘッダテストとvpiのモデルテストで追加したケース) | 216 | 1 | 212 | 3 |
+| `ch37/test_vpi_*` | [2026-10-23のヘッダテストとVPIのモデルテストで追加したケース](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/docs/simulator-differences.ja.md#2026-10-23のヘッダテストとvpiのモデルテストで追加したケース) | 216 | 1 | 215 | 0 |
 | `gen/ch11/test_gen_cross_index_*` | [2026-10-24 ギャップテストによって追加されたケース › Icarus Verilog 13.0: 結果](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/docs/simulator-differences.ja.md#icarus-verilog-130-結果) | 44 | 26 | 18 | 0 |
 | `gen/ch20/test_gen_cross_query_*` | [Icarus Verilog 13.0 › 結果](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/docs/simulator-differences.ja.md#結果) | 60 | 60 | 0 | 0 |
 | `gen/ch24/test_gen_cross_progmod_{top_inst,child_inst,implicit_top}_*` | [Icarus Verilog 13.0 › 結果](https://github.com/kurochan001/kirimasim-tests/blob/7e233e9afefc1a6e975ef85ed0ea7cffddb158de/docs/simulator-differences.ja.md#結果) | 14 | 0 | 14 | 0 |
