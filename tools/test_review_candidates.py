@@ -69,6 +69,18 @@ class ReviewCandidatesTests(unittest.TestCase):
                                         entry("d", clauses=["4.9.4"])], rc.ROOT)
         self.assertEqual(clauses, [{"clause": "4.9.3", "tests": 2}])
 
+    def test_contested_tests_are_listed_apart_without_changing_the_counts(self):
+        runs = {"icarus": run(a="known", s="pass"), "ghost": run(a="pass", s="fail")}
+        found = rc.classify([entry("a"), entry("s")], runs)
+        plain = rc.render("en", runs, found, [], rc.SOURCE_URL)
+        splits = [{"test": "s", "kind": "contested", "status": "unresolved"}]
+        text = rc.render("en", runs, found, [], rc.SOURCE_URL, splits)
+        self.assertNotIn("Tests with contested readings", plain)
+        self.assertIn("## Tests with contested readings", text)
+        self.assertIn("| `contested` | `unresolved` | `Ip Gf` |", text)
+        self.assertEqual(text.split("| Tests with contested readings | 1 |")[0],
+                         plain.split("\n\nResults:")[0] + "\n")
+
 
 if __name__ == "__main__":
     unittest.main()

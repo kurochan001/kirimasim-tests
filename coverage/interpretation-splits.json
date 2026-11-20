@@ -1,0 +1,2081 @@
+{
+  "schema": 1,
+  "note": "Tests whose expectation follows one of two readings of IEEE 1800-2023 (contested), or relies on something the standard leaves undefined (standard_gap), collected from the review documents of 2026-11-12 and 2026-11-13. Reading a is the one the current expected output follows. AI reviews, not a person's. No test was changed for this ledger.",
+  "entries": [
+    {
+      "test": "ch11/test_equality_class_interface_chandle_handles",
+      "kind": "contested",
+      "clauses": [
+        "11.4.6",
+        "8.4",
+        "6.14"
+      ],
+      "readings": {
+        "ja": {
+          "a": "ハンドルの`==?`は`==`と同じで、使えます(11.4.6の最後の段落)。",
+          "b": "表11-1、8.4、6.14は、ハンドルに使える演算子に`==?`を含めていません。"
+        },
+        "en": {
+          "a": "`==?` on handles is the same as `==` and is allowed (last paragraph of 11.4.6).",
+          "b": "Table 11-1, 8.4 and 6.14 do not list `==?` among the operators allowed on handles."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-rest-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch11/test_illegal_stream_with_on_two_dimensional_array",
+      "kind": "contested",
+      "clauses": [
+        "11.4.14.4"
+      ],
+      "readings": {
+        "ja": {
+          "a": "ストリーミングの`with`の前の式は、1次元のunpacked配列に限られるので、2次元配列への`with`はエラーです。",
+          "b": "該当する文は「can be」と述べるだけで、エラーを定めていません。"
+        },
+        "en": {
+          "a": "The expression before `with` in a streaming concatenation is limited to a one-dimensional unpacked array, so `with` on a two-dimensional array is an error.",
+          "b": "The sentence says only \"can be\" and states no error."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/pass-nowhere-review-20261112.md",
+        "anchor": "contested-tests"
+      },
+      "proposal": {
+        "ja": "必須のエラーとして数えません。テストを取り下げるか、解釈が分かれると明記します。",
+        "en": "Do not count it as a required error: withdraw the test or mark it as contested."
+      },
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch16/test_first_match_items_and_boolean_or",
+      "kind": "contested",
+      "clauses": [
+        "16.9.8",
+        "16.11"
+      ],
+      "readings": {
+        "ja": {
+          "a": "`first_match(seq, 呼出し)`の呼出しは、最初のマッチの1回だけ実行されます。16.9.8はこの形を`first_match((seq, 呼出し))`と等価としています。",
+          "b": "16.11は、付けたシーケンスの終点ごとに呼出しを実行するとしており、その読み方では2回になります。"
+        },
+        "en": {
+          "a": "The call of `first_match(seq, call)` runs once, for the first match, because 16.9.8 makes the form equivalent to `first_match((seq, call))`.",
+          "b": "16.11 runs a call at every end point of the sequence it is attached to, which gives two calls."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-ch16-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch16/test_sequence_consecutive_repetition",
+      "kind": "contested",
+      "clauses": [
+        "16.9.2.1",
+        "16.14.3",
+        "16.12.22"
+      ],
+      "readings": {
+        "ja": {
+          "a": "マッチのないシーケンス`a[*0] ##0 b`を`cover sequence`に書けます。16.12.22が制限するのはプロパティと含意の前件だけで、マッチは記録されません。",
+          "b": "16.14.3はcover sequenceのマッチを含意の形で定義しており、その前件にはマッチが必要なので、マッチのないシーケンスは使えません。"
+        },
+        "en": {
+          "a": "The sequence `a[*0] ##0 b`, which has no match, may be written in a `cover sequence` and records no match, since 16.12.22 restricts only properties and antecedents of implications.",
+          "b": "16.14.3 defines the matches of a cover sequence through an implication whose antecedent needs a match, so a sequence without a match cannot be used."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-ch16-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch16/test_sequence_empty_match_concatenation",
+      "kind": "contested",
+      "clauses": [
+        "16.9.2.1",
+        "16.14.3",
+        "16.12.22"
+      ],
+      "readings": {
+        "ja": {
+          "a": "マッチのないシーケンス`a ##0 b[*0]`の1行は、`cover sequence`に書けて、マッチは記録されません。ほかの5行は、どちらの読み方でも正しいです。",
+          "b": "16.14.3はcover sequenceのマッチを含意の形で定義しており、前件にはマッチが必要なので、その行は使えません。"
+        },
+        "en": {
+          "a": "The line `a ##0 b[*0]`, a sequence without a match, may be written in a `cover sequence` and records no match. The other five lines are right under both readings.",
+          "b": "16.14.3 defines the matches of a cover sequence through an implication whose antecedent needs a match, so that line cannot be used."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-ch16-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch16/test_sequence_empty_match_fusion",
+      "kind": "contested",
+      "clauses": [
+        "16.9.2.1",
+        "16.14.3",
+        "16.12.22"
+      ],
+      "readings": {
+        "ja": {
+          "a": "マッチのないシーケンスを使うcoverの3行は、`cover sequence`に書けて、マッチは記録されません。ほかの6行は、どちらの読み方でも正しいです。",
+          "b": "16.14.3はcover sequenceのマッチを含意の形で定義しており、前件にはマッチが必要なので、その3行は使えません。"
+        },
+        "en": {
+          "a": "The three cover lines with a sequence that has no match may be written in a `cover sequence` and record no match. The other six lines are right under both readings.",
+          "b": "16.14.3 defines the matches of a cover sequence through an implication whose antecedent needs a match, so those three lines cannot be used."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-ch16-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch16/test_sequence_local_formal_assignment",
+      "kind": "contested",
+      "clauses": [
+        "16.8.1",
+        "16.8.2"
+      ],
+      "readings": {
+        "ja": {
+          "a": "`local input`の仮引数への代入は、実引数`w`に書き戻されません。16.8.2は入力を初期値だけとし、こちらがより具体的な規則です。",
+          "b": "16.8.1のc項は、実引数が変数のとき、仮引数への代入のあとに実引数へ代入するとしています。"
+        },
+        "en": {
+          "a": "An assignment to a `local input` formal is not written back to the actual `w`, because 16.8.2 makes an input only an initial value and is the more specific rule.",
+          "b": "Item c of 16.8.1 says that, when the actual is a variable, an assignment to the formal is followed by one to the actual."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-ch16-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch17/test_checker_assertion_placement",
+      "kind": "contested",
+      "clauses": [
+        "17.7.3",
+        "16.14.6",
+        "4.5"
+      ],
+      "readings": {
+        "ja": {
+          "a": "Reactive領域で投入された並行アサーションは、同じ時刻のうちに評価されます。",
+          "b": "同じ時刻のうちには評価されない、という読み方もあります。"
+        },
+        "en": {
+          "a": "A concurrent assertion queued in the Reactive region matures in the same time step.",
+          "b": "It might not mature in the same time step."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-rest-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch18/test_inline_local_scope_binding",
+      "kind": "contested",
+      "clauses": [
+        "18.7.1",
+        "8.4"
+      ],
+      "readings": {
+        "ja": {
+          "a": "`local::r`は、ランダム化される対象のオブジェクト自身です。テストは`local::r.r`で比べます(2026-11-14に変更)。",
+          "b": "`local::r`は、クラスのstaticメンバーです。"
+        },
+        "en": {
+          "a": "`local::r` is the randomized object itself; the test compares with `local::r.r` (changed on 2026-11-14).",
+          "b": "`local::r` is the static member of the class."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-rest-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch18/test_rand_mode_inactive_handle",
+      "kind": "contested",
+      "clauses": [
+        "18.8"
+      ],
+      "readings": {
+        "ja": {
+          "a": "`o.h.rand_mode(0)`は、ハンドル`h`だけを止め、`h`が指すオブジェクトは親のrandomizeで対象外になりますが、その変数のモードは変わりません。",
+          "b": "`h`が指すオブジェクトの変数をすべて止める、という読み方もあります。18.8の構文はどちらにも読めます。"
+        },
+        "en": {
+          "a": "`o.h.rand_mode(0)` switches off only the handle `h`: the object of `h` is left out of the parent's randomize, but the modes of its variables do not change.",
+          "b": "It could switch off every random variable of the object of `h`. The syntax of 18.8 fits both."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-rest-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch18/test_randomize_callback_override",
+      "kind": "contested",
+      "clauses": [
+        "18.8"
+      ],
+      "readings": {
+        "ja": {
+          "a": "`o.h.rand_mode(0)`は、ハンドル`h`だけを止め、`h`が指すオブジェクトは親のrandomizeで対象外になりますが、その変数のモードは変わりません。",
+          "b": "`h`が指すオブジェクトの変数をすべて止める、という読み方もあります。18.8の構文はどちらにも読めます。"
+        },
+        "en": {
+          "a": "`o.h.rand_mode(0)` switches off only the handle `h`: the object of `h` is left out of the parent's randomize, but the modes of its variables do not change.",
+          "b": "It could switch off every random variable of the object of `h`. The syntax of 18.8 fits both."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-rest-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch19/test_cg_four_state_literal_wildcard_enum",
+      "kind": "contested",
+      "clauses": [
+        "19.5.4",
+        "19.5.7"
+      ],
+      "readings": {
+        "ja": {
+          "a": "19.5.4に従い、xやzを含むbinの値は`===`で数えます。",
+          "b": "19.5.7に従い、その値は警告になり、binに加わりません。規格の中で食い違っています。"
+        },
+        "en": {
+          "a": "By 19.5.4 a bin value with x or z counts by `===`.",
+          "b": "By 19.5.7 such a value gets a warning and takes no part in the bins. The standard conflicts with itself."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/pass-nowhere-review-20261112.md",
+        "anchor": "contested-tests"
+      },
+      "proposal": {
+        "ja": "コメントを付けたまま残すか、どちらの読み方でも同じになる内容だけを表示します。",
+        "en": "Keep the test with its comment, or print only what both readings give."
+      },
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch19/test_cg_option_levels_readback",
+      "kind": "contested",
+      "clauses": [
+        "19.7",
+        "19.7.1"
+      ],
+      "readings": {
+        "ja": {
+          "a": "インスタンスを作る前に読む`type_option`は、定義に書いた値を返します。",
+          "b": "既定値を返す、という読み方もあります。"
+        },
+        "en": {
+          "a": "`type_option` read before any instance exists has the value of the definition.",
+          "b": "It could have the default value."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-rest-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch20/test_pla_all_forms",
+      "kind": "contested",
+      "clauses": [
+        "20.16.1",
+        "20.16.4"
+      ],
+      "readings": {
+        "ja": {
+          "a": "非同期のPLAタスクは、呼ばれた時点で1回評価します(20.16.4の例の前提)。",
+          "b": "20.16.1の文は入力かpersonalityの変化だけを挙げており、呼ばれた時点では評価しない、という読み方もあります。"
+        },
+        "en": {
+          "a": "An asynchronous PLA task evaluates once when it is called, as the example of 20.16.4 assumes.",
+          "b": "20.16.1 names only changes of the inputs or the personality, so it might not evaluate at the call."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-rest-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch20/test_pla_sync_snapshot_versus_async_update",
+      "kind": "contested",
+      "clauses": [
+        "20.16.1",
+        "20.16.4"
+      ],
+      "readings": {
+        "ja": {
+          "a": "非同期のPLAタスクは、呼ばれた時点で1回評価します(20.16.4の例の前提)。",
+          "b": "20.16.1の文は入力かpersonalityの変化だけを挙げており、呼ばれた時点では評価しない、という読み方もあります。"
+        },
+        "en": {
+          "a": "An asynchronous PLA task evaluates once when it is called, as the example of 20.16.4 assumes.",
+          "b": "20.16.1 names only changes of the inputs or the personality, so it might not evaluate at the call."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-rest-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch21/test_fwrite_unformatted_aggregates",
+      "kind": "contested",
+      "clauses": [
+        "21.2.1.1"
+      ],
+      "readings": {
+        "ja": {
+          "a": "unpacked構造体への`%u`は定義されていて、メンバごとに書かれます。",
+          "b": "21.2.1.1はunpackedの集合型に`%u`を使うことを禁じています。"
+        },
+        "en": {
+          "a": "`%u` on an unpacked structure is defined and writes member by member.",
+          "b": "21.2.1.1 forbids `%u` on unpacked aggregates."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-rest-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch21/test_illegal_value_plusargs_bad_format",
+      "kind": "contested",
+      "clauses": [
+        "21.6"
+      ],
+      "readings": {
+        "ja": {
+          "a": "有効な変換は一覧にあるものだけなので、`%q`は不正です。",
+          "b": "エラーは定められていません。一致する引数がなければ関数は0を返し、警告も出しません。"
+        },
+        "en": {
+          "a": "The listed conversions are the only valid ones, so `%q` is illegal.",
+          "b": "No error is stated. With no matching argument the function returns 0 and gives no warning."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/pass-nowhere-review-20261112.md",
+        "anchor": "contested-tests"
+      },
+      "proposal": {
+        "ja": "不正な設計のテストをやめるか、どちらの結果も認めます。",
+        "en": "Drop the illegal test or accept either result."
+      },
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch22/test_illegal_include_absolute_path_in_angle_brackets",
+      "kind": "contested",
+      "clauses": [
+        "22.4"
+      ],
+      "readings": {
+        "ja": {
+          "a": "絶対パスを書けるのは、二重引用符の形の`include`だけなので、山括弧では不正です。",
+          "b": "該当する文は「can」と述べるだけで、エラーを定めていません。"
+        },
+        "en": {
+          "a": "Only the double-quote form of `include` may name an absolute path, so the angle-bracket form is illegal.",
+          "b": "The sentence says \"can\" and states no error."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/pass-nowhere-review-20261112.md",
+        "anchor": "contested-tests"
+      },
+      "proposal": {
+        "ja": "必須のエラーとして数えません。",
+        "en": "Do not count it as a required error."
+      },
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch23/test_defparam_block_task_function_parameters",
+      "kind": "contested",
+      "clauses": [
+        "6.20.1",
+        "23.10"
+      ],
+      "readings": {
+        "ja": {
+          "a": "パラメータポートリストを持つモジュールでも、ブロック、task、function内のparameterは`defparam`で再定義できます。",
+          "b": "それらのparameterがlocalparamになる、という読み方もあります。"
+        },
+        "en": {
+          "a": "Even in a module with a parameter port list, parameters inside a block, a task and a function can be redefined by `defparam`.",
+          "b": "They might become local parameters."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-rest-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch23/test_port_collapse_uwire_external_delay",
+      "kind": "contested",
+      "clauses": [
+        "23.3.3.7",
+        "28.16"
+      ],
+      "readings": {
+        "ja": {
+          "a": "二つのネットは一つにまとめられ、優先するネットの遅延を使います。",
+          "b": "まとめるかどうかは任意です。二つのネットを残すツールは、両方の遅延を適用します。"
+        },
+        "en": {
+          "a": "The two nets are merged and take the delay of the dominating net.",
+          "b": "Merging is optional. A tool that keeps both nets applies both delays."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/pass-nowhere-review-20261112.md",
+        "anchor": "contested-tests"
+      },
+      "proposal": {
+        "ja": "内側のネットの遅延をなくし、どちらの読み方でも同じ出力にします。",
+        "en": "Give the internal net no delay, so that both readings print the same."
+      },
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch30/test_illegal_specify_edge_path_same_edge_and_condition",
+      "kind": "contested",
+      "clauses": [
+        "30.4.4.3"
+      ],
+      "readings": {
+        "ja": {
+          "a": "一つのエッジ依存パスに二つの遅延を与えるには、エッジか条件が違う必要があるので、両方が同じ宣言はエラーです。",
+          "b": "該当する文は、その条件のもとで「can be assigned」と述べるだけで、エラーを定めていません。"
+        },
+        "en": {
+          "a": "Two delays for one edge-sensitive path need a different edge or condition, so repeating both is an error.",
+          "b": "The sentence says \"can be assigned\" under these conditions and states no error."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/pass-nowhere-review-20261112.md",
+        "anchor": "contested-tests"
+      },
+      "proposal": {
+        "ja": "必須のエラーとして数えません。同じ文に基づくテストがもう1本あります。",
+        "en": "Do not count it as a required error. A sibling test rests on the same sentence."
+      },
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch31/test_illegal_setuphold_negative_sum",
+      "kind": "contested",
+      "clauses": [
+        "31.3.3",
+        "31.9.1"
+      ],
+      "readings": {
+        "ja": {
+          "a": "負の制限値があるとき、setupとholdの和は正でなければならず、満たさない設計は拒否されます。",
+          "b": "31.9.1は、そのような値に警告と補正を定めていて、拒否は定めていません。"
+        },
+        "en": {
+          "a": "With a negative limit the sum of setup and hold has to be positive, so a design that breaks this is rejected.",
+          "b": "31.9.1 gives a warning and a repair for such values, not a rejection."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/pass-nowhere-review-20261112.md",
+        "anchor": "contested-tests"
+      },
+      "proposal": {
+        "ja": "テストをやめるか、警告を認めます。",
+        "en": "Drop the test or accept a warning."
+      },
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch31/test_illegal_timing_condition_two_signals",
+      "kind": "contested",
+      "clauses": [
+        "31.7"
+      ],
+      "readings": {
+        "ja": {
+          "a": "条件の信号が二つ以上のときは、その論理をspecifyブロックの外でまとめる必要があり、`&&&`の後に二信号を書くとエラーです。",
+          "b": "文法は`&&&`の後に任意の式を認め、エラーは定められていません。"
+        },
+        "en": {
+          "a": "Logic of more than one conditioning signal has to be combined outside the specify block, so two signals after `&&&` are an error.",
+          "b": "The grammar allows any expression after `&&&`, and no error is stated."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/pass-nowhere-review-20261112.md",
+        "anchor": "contested-tests"
+      },
+      "proposal": {
+        "ja": "どちらの結果も認めるか、テストをやめます。",
+        "en": "Accept either result or drop the test."
+      },
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch31/test_timing_check_condition_x",
+      "kind": "contested",
+      "clauses": [
+        "31.7",
+        "31.2"
+      ],
+      "readings": {
+        "ja": {
+          "a": "条件`en !== 1'b1`で`en`がxのとき、チェックは有効になりません(31.7の文)。",
+          "b": "式の値は1なので有効になる、という読み方もあります。"
+        },
+        "en": {
+          "a": "When `en` is x, the condition `en !== 1'b1` does not enable the check (sentence of 31.7).",
+          "b": "The value of the expression is 1, so the check might be enabled."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-rest-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch32/test_sdf_scale_type_members",
+      "kind": "contested",
+      "clauses": [
+        "32.9"
+      ],
+      "readings": {
+        "ja": {
+          "a": "`FROM_MINIMUM`などは、選んだ1つの値に3つの係数をかけます。",
+          "b": "その値だけをその値自身の係数でかける、という読み方もあります。"
+        },
+        "en": {
+          "a": "`FROM_MINIMUM` and the like apply all three factors to one chosen value.",
+          "b": "They might scale only that value by its own factor."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-rest-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch33/test_config_cell_parameter",
+      "kind": "contested",
+      "clauses": [
+        "33.4.1",
+        "A.1.5",
+        "33.4.3"
+      ],
+      "readings": {
+        "ja": {
+          "a": "use句に`#( )`の形のパラメータ指定を書けます(33.4.3の例)。",
+          "b": "構文33-4とA.1.5にはその形がありません。既に記録した食い違いと同じです。"
+        },
+        "en": {
+          "a": "A use clause may carry a parameter assignment in the form `#( )` (examples of 33.4.3).",
+          "b": "Syntax 33-4 and A.1.5 do not have that form. This is the conflict already recorded."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-rest-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch33/test_duplicate_cell_last_definition_wins",
+      "kind": "contested",
+      "clauses": [
+        "33.3.1.1",
+        "3.13"
+      ],
+      "readings": {
+        "ja": {
+          "a": "同じ名前のモジュールが2つあるとき、最後の定義を使い、警告を出します(33.3.1.1)。",
+          "b": "3.13 a)は同じ名前の宣言を禁じています。"
+        },
+        "en": {
+          "a": "With two modules of the same name, the last definition is used with a warning (33.3.1.1).",
+          "b": "3.13 a) forbids the second declaration of the same name."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-rest-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch36/test_vpi_chk_error_callbacks",
+      "kind": "contested",
+      "clauses": [
+        "38.36.2"
+      ],
+      "readings": {
+        "ja": {
+          "a": "誤りのある登録は`NULL`を返し、コールバックは作られません。",
+          "b": "誤りのある登録が`NULL`を返すことを、38.36.2は述べていません(エラーになることは決まっています)。"
+        },
+        "en": {
+          "a": "An erroneous registration returns `NULL` and creates no callback.",
+          "b": "38.36.2 does not say that it returns `NULL`; only that it is an error is settled."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-vpi-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch36/test_vpi_compatibility_1800v2017_mode",
+      "kind": "contested",
+      "clauses": [
+        "36.10.2",
+        "36.12.2.1",
+        "L.2"
+      ],
+      "readings": {
+        "ja": {
+          "a": "36.12.2.1はこのモードのシンボルを有効としていて、アプリケーションはスタートアップルーチンから表示します。",
+          "b": "36.10.2は、そこで二つの登録ルーチンしか認めません。また、L.2に載っているヘッダは、このシンボルではコンパイルできません。"
+        },
+        "en": {
+          "a": "36.12.2.1 lists the mode symbol as valid, and the application prints from its startup routine.",
+          "b": "36.10.2 allows only the two registration routines there, and the header of L.2 as printed does not compile with this symbol."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/pass-nowhere-review-20261112.md",
+        "anchor": "contested-tests"
+      },
+      "proposal": {
+        "ja": "シミュレーション開始のコールバックから表示します。L.2の問題は、規格の中の食い違いとして記録します。",
+        "en": "Print from the start-of-simulation callback. Record the defect of L.2 as a conflict in the standard."
+      },
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch36/test_vpi_compatibility_1800v2023_mode",
+      "kind": "contested",
+      "clauses": [
+        "36.10.2",
+        "36.12.2.1",
+        "L.2"
+      ],
+      "readings": {
+        "ja": {
+          "a": "36.12.2.1はこのモードのシンボルを有効としていて、アプリケーションはスタートアップルーチンから表示します。",
+          "b": "36.10.2は、そこで二つの登録ルーチンしか認めません。また、L.2に載っているヘッダは、このシンボルではコンパイルできません。"
+        },
+        "en": {
+          "a": "36.12.2.1 lists the mode symbol as valid, and the application prints from its startup routine.",
+          "b": "36.10.2 allows only the two registration routines there, and the header of L.2 as printed does not compile with this symbol."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/pass-nowhere-review-20261112.md",
+        "anchor": "contested-tests"
+      },
+      "proposal": {
+        "ja": "シミュレーション開始のコールバックから表示します。L.2の問題は、規格の中の食い違いとして記録します。",
+        "en": "Print from the start-of-simulation callback. Record the defect of L.2 as a conflict in the standard."
+      },
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch36/test_vpi_compiletf_sizetf",
+      "kind": "contested",
+      "clauses": [
+        "36.10.2",
+        "38.37.1"
+      ],
+      "readings": {
+        "ja": {
+          "a": "compiletfとsizetfは`cbEndOfCompile`より前に呼ばれます。",
+          "b": "36.10.2はその順序を明示していません。"
+        },
+        "en": {
+          "a": "compiletf and sizetf run before `cbEndOfCompile`.",
+          "b": "36.10.2 does not state that order."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-vpi-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch37/test_vpi_atomic_task_call_label",
+      "kind": "contested",
+      "clauses": [
+        "37.60",
+        "37.42"
+      ],
+      "readings": {
+        "ja": {
+          "a": "文の`vpiName`はラベルで、ラベルのない呼出しでは`NULL`です(37.60の詳細1)。",
+          "b": "37.42の図はtf callに呼び出す名前の`vpiName`を置いており、呼出しの`vpiName`は呼び出す名前になります。"
+        },
+        "en": {
+          "a": "The `vpiName` of a call statement is its label, and `NULL` without a label (detail 1 of 37.60).",
+          "b": "The diagram of 37.42 gives a tf call a `vpiName` for the called name, so the name of a call would be the callee."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-ch37-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch37/test_vpi_attribute_value_types",
+      "kind": "contested",
+      "clauses": [
+        "5.12",
+        "38.15"
+      ],
+      "readings": {
+        "ja": {
+          "a": "文字列リテラルの属性の`vpiObjTypeVal`はベクタです(`vpiVectorVal`)。",
+          "b": "文字列として扱う(`vpiStringVal`)、という読み方もあります。"
+        },
+        "en": {
+          "a": "`vpiObjTypeVal` of an attribute with a string literal gives a vector (`vpiVectorVal`).",
+          "b": "It could instead be treated as a string (`vpiStringVal`)."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-ch37-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch37/test_vpi_class_relations_scope_typespec",
+      "kind": "contested",
+      "clauses": [
+        "37.31",
+        "8.17"
+      ],
+      "readings": {
+        "ja": {
+          "a": "extendsオブジェクトの`vpiArgument`は、`super.new(v)`の引数を返します。",
+          "b": "extendsオブジェクトはextends節を表し、そこに書いた引数だけを返します。"
+        },
+        "en": {
+          "a": "`vpiArgument` of the extends object gives the argument of `super.new(v)`.",
+          "b": "The extends object stands for the extends clause and gives only the arguments written there."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/pass-nowhere-review-20261112.md",
+        "anchor": "contested-tests"
+      },
+      "proposal": {
+        "ja": "どちらの読み方でも返る、extends節に書いた引数を使います。",
+        "en": "Write the argument in the extends clause, which both readings return."
+      },
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch37/test_vpi_cont_assign_bits_delays",
+      "kind": "contested",
+      "clauses": [
+        "37.3.4",
+        "37.16"
+      ],
+      "readings": {
+        "ja": {
+          "a": "ネットは`vpiDelay`を持ち、ソースに書いた遅延を返します(37.3.4の文)。",
+          "b": "37.16の図のネットには`vpiDelay`の関係がありません。"
+        },
+        "en": {
+          "a": "A net has `vpiDelay` and returns the delay written in the source (text of 37.3.4).",
+          "b": "The diagram of 37.16 has no `vpiDelay` relation for a net."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-ch37-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch37/test_vpi_generate_nettype_typedef",
+      "kind": "standard_gap",
+      "clauses": [
+        "37.10",
+        "37.85",
+        "M"
+      ],
+      "readings": {
+        "ja": {
+          "a": "テストはnettypeの宣言を`vpiNettypeDecl`で反復します。規格はこの反復を定めていません。宣言に到達したあとの期待値は37.23に従います。",
+          "b": "37.10と37.85の図と詳細は、この反復を`vpiNetTypedef`というタグで示します。附属書Mのヘッダにこの定数はなく、あるのは`vpiNettypeDecl`と`vpiNetTypedefAlias`です。"
+        },
+        "en": {
+          "a": "The test iterates to the nettype declarations with `vpiNettypeDecl`, an iteration the standard does not define. Once a declaration is reached, the expected values follow 37.23.",
+          "b": "The diagram and details of 37.10 and 37.85 show this iteration with the tag `vpiNetTypedef`, but the header of Annex M has no such constant, only `vpiNettypeDecl` and `vpiNetTypedefAlias`."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-ch37-20261113.md",
+        "anchor": "standard-gap"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch37/test_vpi_interconnect_array_ranges",
+      "kind": "contested",
+      "clauses": [
+        "23.3.3.7.1",
+        "6.6.8"
+      ],
+      "readings": {
+        "ja": {
+          "a": "どこにも接続しないinterconnectの配列は合法です。",
+          "b": "23.3.3.7.1の最後の規則により、接続しないinterconnectの配列は違法、という読み方もあります。"
+        },
+        "en": {
+          "a": "An interconnect array that is connected nowhere is legal.",
+          "b": "By the last rule of 23.3.3.7.1 such an unconnected interconnect array could be illegal."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-ch37-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch37/test_vpi_iterator_objects",
+      "kind": "contested",
+      "clauses": [
+        "37.2.2",
+        "38.38",
+        "38.40"
+      ],
+      "readings": {
+        "ja": {
+          "a": "最後のオブジェクトを返したあとも、反復子はまだ有効で、`vpi_release_handle`は成功します。解放されるのは`vpi_scan`が`NULL`を返したときです。",
+          "b": "最後のオブジェクトを返した時点で反復子が無効になる、という読み方もあり、解放の結果が変わります。"
+        },
+        "en": {
+          "a": "An iterator is still valid after it returned its last object, so `vpi_release_handle` succeeds; it is freed when `vpi_scan` returns `NULL`.",
+          "b": "The iterator could already be invalid once it returned its last object, which changes the result of the release."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-ch37-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch37/test_vpi_module_paths",
+      "kind": "contested",
+      "clauses": [
+        "37.39",
+        "K"
+      ],
+      "readings": {
+        "ja": {
+          "a": "`vpiModPathHasIfNone`は、ifnoneで宣言したパスで真になります。",
+          "b": "ifnoneの既定を持つ条件付きパスで真になる、という読み方もあり、規格は決めていません。"
+        },
+        "en": {
+          "a": "`vpiModPathHasIfNone` is true for the path declared with ifnone.",
+          "b": "It could instead be true for the conditional path that has an ifnone default; the standard does not settle this."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-ch37-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch37/test_vpi_named_event_relations",
+      "kind": "contested",
+      "clauses": [
+        "37.27"
+      ],
+      "readings": {
+        "ja": {
+          "a": "named eventの配列要素のフルネームに添字が入ります(ネットと変数の規定と同様)。",
+          "b": "37.27はこれを述べておらず、添字が入らない読み方もあります。"
+        },
+        "en": {
+          "a": "The full name of an element of a named event array carries its indices, as the rules for nets and variables do.",
+          "b": "37.27 does not say this, so the indices could be absent."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-ch37-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch37/test_vpi_named_events",
+      "kind": "contested",
+      "clauses": [
+        "37.27"
+      ],
+      "readings": {
+        "ja": {
+          "a": "named event配列の要素の`vpiName`は`lane[1]`のように添字を含みます。",
+          "b": "37.27は述べておらず、要素の`vpiName`の形は決まりません。"
+        },
+        "en": {
+          "a": "The `vpiName` of an element of a named event array includes the index, as in `lane[1]`.",
+          "b": "37.27 does not say this, so the form of the element `vpiName` is not settled."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-ch37-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch37/test_vpi_net_driver_objects",
+      "kind": "contested",
+      "clauses": [
+        "37.16",
+        "37.47"
+      ],
+      "readings": {
+        "ja": {
+          "a": "ネットのビットのドライバは、そのビットのcont assign bitです。",
+          "b": "ドライバは連続代入全体、という読み方もあり、規格は決めていません。"
+        },
+        "en": {
+          "a": "The driver of a net bit is the cont assign bit of that bit.",
+          "b": "The driver could be the whole continuous assignment; the standard does not settle this."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-ch37-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch37/test_vpi_nettype_alias_chain_relations",
+      "kind": "standard_gap",
+      "clauses": [
+        "37.10",
+        "37.85",
+        "M"
+      ],
+      "readings": {
+        "ja": {
+          "a": "テストはnettypeの宣言を`vpiNettypeDecl`で反復します。規格はこの反復を定めていません。宣言に到達したあとの期待値は37.23に従います。",
+          "b": "37.10と37.85の図と詳細は、この反復を`vpiNetTypedef`というタグで示します。附属書Mのヘッダにこの定数はなく、あるのは`vpiNettypeDecl`と`vpiNetTypedefAlias`です。"
+        },
+        "en": {
+          "a": "The test iterates to the nettype declarations with `vpiNettypeDecl`, an iteration the standard does not define. Once a declaration is reached, the expected values follow 37.23.",
+          "b": "The diagram and details of 37.10 and 37.85 show this iteration with the tag `vpiNetTypedef`, but the header of Annex M has no such constant, only `vpiNettypeDecl` and `vpiNetTypedefAlias`."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-ch37-20261113.md",
+        "anchor": "standard-gap"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch37/test_vpi_nettype_declarations",
+      "kind": "standard_gap",
+      "clauses": [
+        "37.10",
+        "37.85",
+        "M"
+      ],
+      "readings": {
+        "ja": {
+          "a": "テストはnettypeの宣言を`vpiNettypeDecl`で反復します。規格はこの反復を定めていません。宣言に到達したあとの期待値は37.23に従います。",
+          "b": "37.10と37.85の図と詳細は、この反復を`vpiNetTypedef`というタグで示します。附属書Mのヘッダにこの定数はなく、あるのは`vpiNettypeDecl`と`vpiNetTypedefAlias`です。"
+        },
+        "en": {
+          "a": "The test iterates to the nettype declarations with `vpiNettypeDecl`, an iteration the standard does not define. Once a declaration is reached, the expected values follow 37.23.",
+          "b": "The diagram and details of 37.10 and 37.85 show this iteration with the tag `vpiNetTypedef`, but the header of Annex M has no such constant, only `vpiNettypeDecl` and `vpiNetTypedefAlias`."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-ch37-20261113.md",
+        "anchor": "standard-gap"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch37/test_vpi_nettype_net_parts",
+      "kind": "contested",
+      "clauses": [
+        "37.16"
+      ],
+      "readings": {
+        "ja": {
+          "a": "nettypeのネットの配列要素は`vpiNettypeNet`です。",
+          "b": "詳細11から、配列要素は`vpiNettypeNetSelect`、という読み方もあります。"
+        },
+        "en": {
+          "a": "An array element of a nettype net is `vpiNettypeNet`.",
+          "b": "Detail 11 could be read to make an array element `vpiNettypeNetSelect`."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-ch37-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch37/test_vpi_nettype_relations",
+      "kind": "standard_gap",
+      "clauses": [
+        "37.10",
+        "37.85",
+        "M"
+      ],
+      "readings": {
+        "ja": {
+          "a": "テストはnettypeの宣言を`vpiNettypeDecl`で反復します。規格はこの反復を定めていません。宣言に到達したあとの期待値は37.23に従います。",
+          "b": "37.10と37.85の図と詳細は、この反復を`vpiNetTypedef`というタグで示します。附属書Mのヘッダにこの定数はなく、あるのは`vpiNettypeDecl`と`vpiNetTypedefAlias`です。"
+        },
+        "en": {
+          "a": "The test iterates to the nettype declarations with `vpiNettypeDecl`, an iteration the standard does not define. Once a declaration is reached, the expected values follow 37.23.",
+          "b": "The diagram and details of 37.10 and 37.85 show this iteration with the tag `vpiNetTypedef`, but the header of Annex M has no such constant, only `vpiNettypeDecl` and `vpiNetTypedefAlias`."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-ch37-20261113.md",
+        "anchor": "standard-gap"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch37/test_vpi_prefix_allocation",
+      "kind": "contested",
+      "clauses": [
+        "37.61",
+        "37.3.7"
+      ],
+      "readings": {
+        "ja": {
+          "a": "プレフィックスを持つオブジェクトのメモリ割当ての方式は、プレフィックスと同じです(37.61の詳細2)。",
+          "b": "37.3.7は、クラスオブジェクトの一部を動的としています。"
+        },
+        "en": {
+          "a": "An object with a prefix has the same memory allocation scheme as its prefix (detail 2 of 37.61).",
+          "b": "37.3.7 makes a part of a class object dynamic."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-ch37-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch37/test_vpi_program_interface_relations",
+      "kind": "contested",
+      "clauses": [
+        "37.9",
+        "37.10"
+      ],
+      "readings": {
+        "ja": {
+          "a": "programからは、そのポートにつながるinterfaceが得られ、`vpiInstance`でprogramに戻ります。",
+          "b": "`vpiInstance`は、interfaceを実体化しているインスタンス、つまりmoduleを返します。"
+        },
+        "en": {
+          "a": "A program leads to the interfaces connected to its ports, and `vpiInstance` leads back to the program.",
+          "b": "`vpiInstance` returns the instance that holds the interface, which is the module."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/pass-nowhere-review-20261112.md",
+        "anchor": "contested-tests"
+      },
+      "proposal": {
+        "ja": "テストをやめるか、両方を認めます。",
+        "en": "Remove the test or accept both."
+      },
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch37/test_vpi_property_operator_kinds",
+      "kind": "contested",
+      "clauses": [
+        "37.52",
+        "A.2.10"
+      ],
+      "readings": {
+        "ja": {
+          "a": "先頭のクロックはproperty specに属し、`p_clk`と`p_clk2`はクロックイベントとその下のプロパティ式として返ります。",
+          "b": "先頭のクロックがclocked propertyになる、という読み方もあり、この2行が変わります。"
+        },
+        "en": {
+          "a": "The leading clock belongs to the property spec, so `p_clk` and `p_clk2` give a clocking event and the property expression under it.",
+          "b": "The leading clock could form a clocked property, which changes these two lines."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-ch37-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch37/test_vpi_select_objects_event_arrays",
+      "kind": "contested",
+      "clauses": [
+        "37.17",
+        "37.19"
+      ],
+      "readings": {
+        "ja": {
+          "a": "配列変数の要素はvar selectです。",
+          "b": "37.17の詳細7・18・26の読み方によっては、その型の変数になります。"
+        },
+        "en": {
+          "a": "An element of an array variable is a var select.",
+          "b": "Depending on details 7, 18 and 26 of 37.17 it could be a variable of its type."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-ch37-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch37/test_vpi_size_change_callback",
+      "kind": "contested",
+      "clauses": [
+        "37.17"
+      ],
+      "readings": {
+        "ja": {
+          "a": "サイズ変更のコールバックの中で、文字列はまだ古い値のままです。",
+          "b": "文字列がすでに新しい値かどうかは、37.17の詳細14から決まらず、新しい値という読み方もあります。"
+        },
+        "en": {
+          "a": "Inside the size-change callback the string still has its old value.",
+          "b": "Detail 14 of 37.17 does not settle this, and the string could already hold the new value."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-ch37-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch37/test_vpi_statement_control_kinds",
+      "kind": "contested",
+      "clauses": [
+        "37.60",
+        "9.3.5"
+      ],
+      "readings": {
+        "ja": {
+          "a": "ラベル付きの文は、そのままの文(immediate assertなど)として残ります。",
+          "b": "ラベル付きの文が名前付きブロックになる、という読み方もあり、3行が変わります。"
+        },
+        "en": {
+          "a": "A labelled statement stays the statement itself, such as an immediate assert.",
+          "b": "A labelled statement could become a named block, which changes three lines."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-ch37-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch37/test_vpi_tf_call_kinds_relations",
+      "kind": "contested",
+      "clauses": [
+        "37.42",
+        "15.4"
+      ],
+      "readings": {
+        "ja": {
+          "a": "mailboxのメソッドは組込みで、`vpiUserDefn`は偽、呼び先は`NULL`です。",
+          "b": "パッケージ`std`のクラスの宣言されたメソッドと見る読み方もあり、1行が変わります。"
+        },
+        "en": {
+          "a": "The methods of mailbox are built-in: `vpiUserDefn` is false and the callee is `NULL`.",
+          "b": "They could be declared methods of a class of package `std`, which changes one line."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-ch37-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch37/test_vpi_unbounded_const_ranges",
+      "kind": "contested",
+      "clauses": [
+        "37.52",
+        "A.2.10"
+      ],
+      "readings": {
+        "ja": {
+          "a": "先頭のクロックはproperty specに属し、最後の1行の`p_imp`はその直下の含意になります。",
+          "b": "先頭のクロックがclocked propertyになる、という読み方もあり、最後の1行が変わります。"
+        },
+        "en": {
+          "a": "The leading clock belongs to the property spec, so `p_imp` on the last line is the implication directly under it.",
+          "b": "The leading clock could form a clocked property, which changes the last line."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-ch37-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch38/test_vpi_error_callback_runtime_errors",
+      "kind": "contested",
+      "clauses": [
+        "38.36.3",
+        "20.10"
+      ],
+      "readings": {
+        "ja": {
+          "a": "`$error`は実行時エラーなので`cbError`を起こします(20.10)。",
+          "b": "38.36.3は`$error`が`cbError`を起こすかどうかを述べていません。"
+        },
+        "en": {
+          "a": "`$error` is a run-time error and so causes `cbError` (20.10).",
+          "b": "38.36.3 does not say whether `$error` causes `cbError`."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-vpi-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch38/test_vpi_get_value_array",
+      "kind": "contested",
+      "clauses": [
+        "38.16",
+        "38.15"
+      ],
+      "readings": {
+        "ja": {
+          "a": "`logic [7:0]`の要素を`vpiIntVal`で読めます。",
+          "b": "38.16は要素の型に合わない形式をエラーとしており、`vpiIntVal`が合わない、という読み方もあります。"
+        },
+        "en": {
+          "a": "Elements of `logic [7:0]` can be read with `vpiIntVal`.",
+          "b": "38.16 makes a format that does not fit the element type an error, so `vpiIntVal` might not fit."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-vpi-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch38/test_vpi_get_value_real_conversion",
+      "kind": "contested",
+      "clauses": [
+        "38.15"
+      ],
+      "readings": {
+        "ja": {
+          "a": "実数の文字列の「16桁の精度」は、有効数字16桁以内の意味です。",
+          "b": "小数点以下の桁数の意味、という読み方もあります。"
+        },
+        "en": {
+          "a": "\"16 digits of precision\" of the string of a real means at most 16 significant digits.",
+          "b": "It could mean 16 fraction digits."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-vpi-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch38/test_vpi_mcd_open_reuse",
+      "kind": "contested",
+      "clauses": [
+        "38.25"
+      ],
+      "readings": {
+        "ja": {
+          "a": "ファイルのないチャネルのflushは、非0を返して失敗します。ほかの5行は正しいです。",
+          "b": "38.25は、ファイルのないチャネルのflushが失敗かどうかを述べていません。"
+        },
+        "en": {
+          "a": "Flushing a channel without a file fails and returns nonzero. The other five lines are right.",
+          "b": "38.25 does not say whether flushing a channel without a file fails."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-vpi-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch38/test_vpi_value_change_event",
+      "kind": "contested",
+      "clauses": [
+        "38.36.1",
+        "37.27"
+      ],
+      "readings": {
+        "ja": {
+          "a": "named eventのオブジェクトに`cbValueChange`を置けて、トリガーのたびに呼ばれます。",
+          "b": "38.36.1が述べるのはevent文で、named eventのオブジェクトは対象外、という読み方もあります。"
+        },
+        "en": {
+          "a": "`cbValueChange` can be placed on a named event object and is called at each trigger.",
+          "b": "38.36.1 speaks of event statements, so a named event object might be outside it."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-vpi-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch39/test_vpi_assertion_reset_restores_initial_state",
+      "kind": "contested",
+      "clauses": [
+        "39.5.2"
+      ],
+      "readings": {
+        "ja": {
+          "a": "リセットで戻る「初期状態」は、有効・無効やアクションの設定を含みます。",
+          "b": "初期状態に有効・無効やアクションの設定は含まれない、という読み方もあります。"
+        },
+        "en": {
+          "a": "The \"initial state\" that a reset restores includes the enable and action settings.",
+          "b": "The initial state might not include the enable and action settings."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-vpi-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch40/test_coverage_control_package_scope",
+      "kind": "contested",
+      "clauses": [
+        "40.3.2.1",
+        "40.5.3"
+      ],
+      "readings": {
+        "ja": {
+          "a": "パッケージ名の文字列を範囲に渡せます。40.5.3からはパッケージも範囲になると読めます。",
+          "b": "40.3.2.1が述べるのはモジュールの定義名だけで、その読み方ではパッケージ名は誤りです。"
+        },
+        "en": {
+          "a": "The name of a package can be passed as the scope; 40.5.3 can be read to make a package a scope.",
+          "b": "40.3.2.1 speaks only of module definition names, and under that reading a package name is an error."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-vpi-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch40/test_coverage_fsm_next_state_pragmas",
+      "kind": "contested",
+      "clauses": [
+        "40.4",
+        "40.4.5"
+      ],
+      "readings": {
+        "ja": {
+          "a": "プラグマは、プラグマのない信号の自動抽出も止めるので、最大値は5です。",
+          "b": "プラグマがあっても、プラグマのない信号の自動抽出は続く、という読み方もあり、最大値が変わります。"
+        },
+        "en": {
+          "a": "The pragmas also stop the automatic extraction of a signal without a pragma, so the maximum is 5.",
+          "b": "The automatic extraction might go on for a signal without a pragma, which changes the maximum."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-vpi-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch40/test_vpi_coverage_save_merge",
+      "kind": "contested",
+      "clauses": [
+        "38.4",
+        "40.5.3"
+      ],
+      "readings": {
+        "ja": {
+          "a": "保存していない名前のマージで、`vpi_control`は0を返します(38.4)。",
+          "b": "40.5.3から、-1を返す、という読み方もあります。"
+        },
+        "en": {
+          "a": "A merge of a name that was not saved makes `vpi_control` return 0 (38.4).",
+          "b": "40.5.3 could be read to make it return -1."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-vpi-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch6/test_a2_1_3_interconnect_declaration_identifiers",
+      "kind": "contested",
+      "clauses": [
+        "23.3.3.7.1"
+      ],
+      "readings": {
+        "ja": {
+          "a": "接続されない`ib[0]`はinterconnectのまま残り、合法です。",
+          "b": "23.3.3.7.1の最後の規則がこれを違法とする、という読み方もあります。"
+        },
+        "en": {
+          "a": "The unconnected `ib[0]` stays an interconnect and is legal.",
+          "b": "The last rule of 23.3.3.7.1 could make it illegal."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-rest-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch6/test_builtin_net_declaration_forms",
+      "kind": "contested",
+      "clauses": [
+        "10.3.4",
+        "6.7.1"
+      ],
+      "readings": {
+        "ja": {
+          "a": "ベクタのネットにドライブ強度を付けられ、各ビットに強度が付きます。",
+          "b": "10.3.4は強度をスカラーのネットに限っている、という読み方もあります。"
+        },
+        "en": {
+          "a": "A vector net may have a drive strength, and each bit takes the strength.",
+          "b": "10.3.4 limits strengths to scalar nets."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-rest-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch7/test_array_ordering_methods_and_index_queries",
+      "kind": "contested",
+      "clauses": [
+        "7.12.3",
+        "7.12.4"
+      ],
+      "readings": {
+        "ja": {
+          "a": "2次元配列の`with`で、`item`は要素ごとに働きます。",
+          "b": "`item`が行である、という読み方もあり、7.12.3の例は行と読めます。"
+        },
+        "en": {
+          "a": "In `with` on a two-dimensional array, `item` is one element at a time.",
+          "b": "`item` could be a row; the example of 7.12.3 reads as a row."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-rest-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch7/test_illegal_string_in_untagged_union",
+      "kind": "contested",
+      "clauses": [
+        "7.3"
+      ],
+      "readings": {
+        "ja": {
+          "a": "stringは動的な型なので、タグなしunionのメンバにできません。",
+          "b": "用語集の動的な型の一覧にstringが載っていないので、禁止の対象とは限りません。"
+        },
+        "en": {
+          "a": "A string is a dynamic type, so it cannot be a member of an untagged union.",
+          "b": "The glossary list of dynamic types does not name string, so the ban need not cover it."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/pass-nowhere-review-20261112.md",
+        "anchor": "contested-tests"
+      },
+      "proposal": {
+        "ja": "争いのないキューまたはchandleのメンバを使います。",
+        "en": "Use a queue or chandle member, which is not disputed."
+      },
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch7/test_illegal_unique_index_without_with_struct_elements",
+      "kind": "contested",
+      "clauses": [
+        "7.12.1"
+      ],
+      "readings": {
+        "ja": {
+          "a": "`with`節を省けるのは、要素の型に`<`、`>`、`==`がすべて定義されているときだけです。unpacked構造体の配列では省けません。",
+          "b": "`unique`と`unique_index`は等しいかどうかだけを比べ、`==`はunpacked構造体に定義されているので、`with`節を省けます。"
+        },
+        "en": {
+          "a": "The `with` clause may be left out only when `<`, `>` and `==` are all defined for the element type, so an array of unpacked structures needs it.",
+          "b": "`unique` and `unique_index` compare for equality only and `==` is defined for unpacked structures, so the `with` clause may be left out."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/pass-nowhere-review-20261112.md",
+        "anchor": "contested-tests"
+      },
+      "proposal": {
+        "ja": "どちらの結果も認めます。規則は`min`と`max`のテストに残ります。",
+        "en": "Accept either result. The tests of `min` and `max` keep the rule."
+      },
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch7/test_illegal_unique_without_with_struct_elements",
+      "kind": "contested",
+      "clauses": [
+        "7.12.1"
+      ],
+      "readings": {
+        "ja": {
+          "a": "`with`節を省けるのは、要素の型に`<`、`>`、`==`がすべて定義されているときだけです。unpacked構造体の配列では省けません。",
+          "b": "`unique`と`unique_index`は等しいかどうかだけを比べ、`==`はunpacked構造体に定義されているので、`with`節を省けます。"
+        },
+        "en": {
+          "a": "The `with` clause may be left out only when `<`, `>` and `==` are all defined for the element type, so an array of unpacked structures needs it.",
+          "b": "`unique` and `unique_index` compare for equality only and `==` is defined for unpacked structures, so the `with` clause may be left out."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/pass-nowhere-review-20261112.md",
+        "anchor": "contested-tests"
+      },
+      "proposal": {
+        "ja": "どちらの結果も認めます。規則は`min`と`max`のテストに残ります。",
+        "en": "Accept either result. The tests of `min` and `max` keep the rule."
+      },
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "gen/ch20/test_gen_cross_dpiquery_1_up_neg_one_4_sized_offset_same_variable",
+      "kind": "contested",
+      "clauses": [
+        "H.12.2",
+        "20.7"
+      ],
+      "readings": {
+        "ja": {
+          "a": "`svDimensions`はunpackedの次元だけを数えます。",
+          "b": "H.12.2は20.7と同じ意味としており、packedの次元も数える、という読み方もあります。"
+        },
+        "en": {
+          "a": "`svDimensions` counts only the unpacked dimensions.",
+          "b": "H.12.2 gives it the meaning of 20.7, so it might also count the packed dimension."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-rest-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "gen/ch20/test_gen_cross_dpiquery_2_up_pos_one_4_sized_offset_same_variable",
+      "kind": "contested",
+      "clauses": [
+        "H.12.2",
+        "20.7"
+      ],
+      "readings": {
+        "ja": {
+          "a": "`svDimensions`はunpackedの次元だけを数えます。",
+          "b": "H.12.2は20.7と同じ意味としており、packedの次元も数える、という読み方もあります。"
+        },
+        "en": {
+          "a": "`svDimensions` counts only the unpacked dimensions.",
+          "b": "H.12.2 gives it the meaning of 20.7, so it might also count the packed dimension."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-rest-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "gen/ch20/test_gen_cross_dpiquery_3_up_neg_one_4_open_offset_switch_literal",
+      "kind": "contested",
+      "clauses": [
+        "H.12.2",
+        "20.7"
+      ],
+      "readings": {
+        "ja": {
+          "a": "`svDimensions`はunpackedの次元だけを数えます。",
+          "b": "H.12.2は20.7と同じ意味としており、packedの次元も数える、という読み方もあります。"
+        },
+        "en": {
+          "a": "`svDimensions` counts only the unpacked dimensions.",
+          "b": "H.12.2 gives it the meaning of 20.7, so it might also count the packed dimension."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-rest-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "gen/ch21/test_gen_cross_litfmt_fill_b_display_param",
+      "kind": "contested",
+      "clauses": [
+        "6.20.2",
+        "5.7.1"
+      ],
+      "readings": {
+        "ja": {
+          "a": "`localparam P = '1;`は、自己決定の`'1`の1ビットの値を持ちます。",
+          "b": "6.20.2の最後の項目では、型のないパラメータで値にサイズがなければ、32ビット以上になります。"
+        },
+        "en": {
+          "a": "`localparam P = '1;` has the one-bit value of a self-determined `'1`.",
+          "b": "By the last item of 6.20.2 an untyped parameter with an unsized value has at least 32 bits."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/pass-nowhere-review-20261112.md",
+        "anchor": "contested-tests"
+      },
+      "proposal": {
+        "ja": "生成器が、そのようなパラメータの幅を固定しないようにします。",
+        "en": "Do not let the generators fix the width of such a parameter."
+      },
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "gen/ch33/test_gen_cross_config_1_both_reset_all_0_if_literal_direct",
+      "kind": "contested",
+      "clauses": [
+        "33.4.1",
+        "A.1.5",
+        "33.4.3"
+      ],
+      "readings": {
+        "ja": {
+          "a": "use句に`#( )`の形のパラメータ指定を書けます(33.4.3の例)。",
+          "b": "構文33-4とA.1.5にはその形がありません。既に記録した食い違いと同じです。"
+        },
+        "en": {
+          "a": "A use clause may carry a parameter assignment in the form `#( )` (examples of 33.4.3).",
+          "b": "Syntax 33-4 and A.1.5 do not have that form. This is the conflict already recorded."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-rest-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "gen/ch33/test_gen_cross_config_32_defparam_reset_all_0_case_literal_wrapped",
+      "kind": "contested",
+      "clauses": [
+        "33.4.1",
+        "A.1.5",
+        "33.4.3"
+      ],
+      "readings": {
+        "ja": {
+          "a": "use句に`#( )`の形のパラメータ指定を書けます(33.4.3の例)。",
+          "b": "構文33-4とA.1.5にはその形がありません。既に記録した食い違いと同じです。"
+        },
+        "en": {
+          "a": "A use clause may carry a parameter assignment in the form `#( )` (examples of 33.4.3).",
+          "b": "Syntax 33-4 and A.1.5 do not have that form. This is the conflict already recorded."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-rest-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "gen/ch33/test_gen_cross_config_32_defparam_reset_all_0_if_literal_direct",
+      "kind": "contested",
+      "clauses": [
+        "33.4.1",
+        "A.1.5",
+        "33.4.3"
+      ],
+      "readings": {
+        "ja": {
+          "a": "use句に`#( )`の形のパラメータ指定を書けます(33.4.3の例)。",
+          "b": "構文33-4とA.1.5にはその形がありません。既に記録した食い違いと同じです。"
+        },
+        "en": {
+          "a": "A use clause may carry a parameter assignment in the form `#( )` (examples of 33.4.3).",
+          "b": "Syntax 33-4 and A.1.5 do not have that form. This is the conflict already recorded."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-rest-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "gen/ch33/test_gen_cross_config_64_both_reset_all_0_if_literal_wrapped",
+      "kind": "contested",
+      "clauses": [
+        "33.4.1",
+        "A.1.5",
+        "33.4.3"
+      ],
+      "readings": {
+        "ja": {
+          "a": "use句に`#( )`の形のパラメータ指定を書けます(33.4.3の例)。",
+          "b": "構文33-4とA.1.5にはその形がありません。既に記録した食い違いと同じです。"
+        },
+        "en": {
+          "a": "A use clause may carry a parameter assignment in the form `#( )` (examples of 33.4.3).",
+          "b": "Syntax 33-4 and A.1.5 do not have that form. This is the conflict already recorded."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/ghost-only-review-rest-20261113.md",
+        "anchor": "contested"
+      },
+      "proposal": null,
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "gen/ch5/test_gen_cross_literal_fill_unsigned_unsized_one_add_signed_logic_65",
+      "kind": "contested",
+      "clauses": [
+        "6.20.2",
+        "5.7.1"
+      ],
+      "readings": {
+        "ja": {
+          "a": "`localparam P = '1;`は、自己決定の`'1`の1ビットの値を持ちます。",
+          "b": "6.20.2の最後の項目では、型のないパラメータで値にサイズがなければ、32ビット以上になります。"
+        },
+        "en": {
+          "a": "`localparam P = '1;` has the one-bit value of a self-determined `'1`.",
+          "b": "By the last item of 6.20.2 an untyped parameter with an unsized value has at least 32 bits."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/pass-nowhere-review-20261112.md",
+        "anchor": "contested-tests"
+      },
+      "proposal": {
+        "ja": "生成器が、そのようなパラメータの幅を固定しないようにします。",
+        "en": "Do not let the generators fix the width of such a parameter."
+      },
+      "status": "unresolved",
+      "resolution": null
+    }
+  ]
+}

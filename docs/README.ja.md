@@ -107,6 +107,7 @@
 | 第8章：クラス | [日本語](tests/ch8.ja.md) | [English](tests/ch8.md) |
 | 第9章：プロセス | [日本語](tests/ch9.ja.md) | [English](tests/ch9.md) |
 | テストが引用する条項 | [日本語](tests/clauses.ja.md) | [English](tests/clauses.md) |
+| 読み方が割れるテスト | [日本語](interpretation-splits.md) | [English](interpretation-splits.en.md) |
 
 <a id="historical-records"></a>
 

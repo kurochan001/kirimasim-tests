@@ -959,6 +959,7 @@ python3 tools/suite_catalog.py --update
 python3 tools/coverage_depth.py --update
 python3 tools/behavior_coverage.py --update
 python3 tools/requirement_matching.py --update
+python3 tools/interpretation_splits.py --update
 python3 tools/interaction_coverage.py --update
 python3 tools/chapter_cross_matrix.py --update
 python3 tools/chapter_cross_triage.py --update

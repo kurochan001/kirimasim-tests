@@ -9,8 +9,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "929dc517b88d605a4ff6a80950ac2046b5acf11986b22c90c9af72a2408c3156",
-        "ja": "2d2b7626ba9f338ff197df19f472cf96437605af6b874eac11e882b458e886ba"
+        "en": "3eaf49ecd3cd8f2c1f188172590e83898ec4cde2727589a57571285fb969ed0e",
+        "ja": "6f60e5d1cddc52cb9f8246baa837c38284fb06e3acf5faba96265e4e6e64a17f"
       }
     },
     {
@@ -20,8 +20,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "7fff876041888cc8b2299a6ed290524eb609aa67ca5ddc8a2357a95a671abe90",
-        "ja": "12fcff5cb3f91c047bc06f2f09758bd36bb35eb484adc5d144a51722dcdbbbf2"
+        "en": "ad765455575bc7bd42c867a27e4120b266be7366f0f59357c44c69fd23a840cc",
+        "ja": "08515bfcb770178b87cc5c9e386989705191715e7edbc1b0a026bae90aa3b8fc"
       }
     },
     {
@@ -1122,8 +1122,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "191706eb7001b095c8ddd0a6ea6da9b50e5e6b0d4a5e3a96c5a1e36e9278b826",
-        "ja": "94ba5adc76b54013c828f9e4a0bc2cd53bd5b3104cad673a41aa28bfccd1dabc"
+        "en": "abccd8b8064619e306825df471984e5d9353065ea0b491db157dd8dd1eea2dae",
+        "ja": "b2225cee3d108480e12b5f8bbc8c9cac0a4128304e63b90e361b470393ec3bbb"
       }
     },
     {
@@ -1355,6 +1355,13 @@
         "en": "26c11c4d9c1487f9a40193bcbe69988b641393b2a36755f6a0407bd101f7468e",
         "ja": "29cb16d12bbc09c8a6eb77d0403a9b5c537945e97fadc1c8a7cca5fc6c6a0871"
       }
+    },
+    {
+      "en": "docs/interpretation-splits.en.md",
+      "ja": "docs/interpretation-splits.md",
+      "source": "docs/interpretation-splits.md",
+      "source_language": "ja",
+      "generated": true
     }
   ]
 }

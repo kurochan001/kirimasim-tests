@@ -27,7 +27,11 @@ suite commit of each result, and these candidates:
                     subclauses (tools/clauses.txt) whose citing tests in :lrm:
                     are all spec only
 
-Formal tests are left out. The order of the sections is the order for review.
+The tests of coverage/interpretation-splits.json (tools/interpretation_splits.py),
+whose expectation follows one of two readings of the standard, are listed
+apart with their results; they stay in the candidates above and no count
+changes. Formal tests are left out. The order of the sections is the order
+for review.
 A candidate is not a finding: the review against the standard decides, and
 docs/review-candidates.md says how the reviews are recorded. The report
 changes nothing in the tests.
@@ -67,6 +71,15 @@ def load(directory: Path) -> dict[str, dict]:
                          or data.get("generated_at", ""), "suite_commit": data.get("suite_commit", ""),
                          "tests": tests}
     return runs
+
+
+def splits_of(root: Path) -> list[dict]:
+    """The entries of the ledger of contested readings, if there is one."""
+    path = root / "coverage" / "interpretation-splits.json"
+    if not path.is_file():
+        return []
+    return sorted(json.loads(path.read_text(encoding="utf-8")).get("entries", []),
+                  key=lambda e: e["test"])
 
 
 def tests_of(root: Path) -> list[dict]:
@@ -134,6 +147,10 @@ TEXT = {
         "spec_no_pass": "Other spec-only tests passing nowhere",
         "oracle_ghost_lyra": "Release oracle, failing on both Ghost and Lyra",
         "spec_only_clauses": "Clauses whose citing tests are all spec only",
+        "splits": "Tests with contested readings",
+        "splits_intro": ("The tests of the [ledger of contested readings]({docs}/docs/interpretation-splits.en.md), "
+                         "listed apart; they stay in the candidates above and no count changes."),
+        "kind": "Kind", "status": "Status",
         "test": "Test", "results": "Results", "clause": "Clause", "tests": "Citing tests",
         "none": "None.",
         "legend": "Results: I Icarus Verilog, V Verilator, K kirimasim, L Lyra, G Ghost; "
@@ -153,6 +170,10 @@ TEXT = {
         "spec_no_pass": "specのみで、どこでもpassしないその他のテスト",
         "oracle_ghost_lyra": "固定版のoracleがあり、GhostとLyraの両方でfail",
         "spec_only_clauses": "引用するテストがすべてspecのみの条項",
+        "splits": "読み方が割れるテスト",
+        "splits_intro": ("[読み方が割れるテストの台帳]({docs}/docs/interpretation-splits.md)のテストを別枠で挙げます。"
+                         "上の候補にもそのまま含まれ、件数は変わりません。"),
+        "kind": "区分", "status": "状態",
         "test": "テスト", "results": "結果", "clause": "条項", "tests": "引用するテスト",
         "none": "なし。",
         "legend": "結果: I Icarus Verilog、V Verilator、K kirimasim、L Lyra、G Ghost。"
@@ -163,7 +184,8 @@ MARK = {"pass": "p", "fail": "f", "unsupported": "u", "known": "k"}
 LETTER = {"icarus": "I", "verilator": "V", "kirimasim": "K", "lyra": "L", "ghost": "G"}
 
 
-def render(language: str, runs: dict, found: dict, clauses: list[dict], source_url: str) -> str:
+def render(language: str, runs: dict, found: dict, clauses: list[dict], source_url: str,
+           splits: list[dict] = ()) -> str:
     t = TEXT[language]
     docs = source_url.rstrip("/")
     newest = max((r["time"] for r in runs.values()), default="")
@@ -181,7 +203,10 @@ def render(language: str, runs: dict, found: dict, clauses: list[dict], source_u
                      f"`{run['suite_commit'][:8]}`{stale} |")
     lines += ["", f"## {t['counts']}", "", f"| {t['category']} | {t['number']} |", "| --- | ---: |"]
     lines += [f"| {t[c]} | {len(found[c])} |" for c in CATEGORIES]
-    lines += [f"| {t['spec_only_clauses']} | {len(clauses)} |", "", t["legend"]]
+    lines += [f"| {t['spec_only_clauses']} | {len(clauses)} |"]
+    if splits:
+        lines.append(f"| {t['splits']} | {len(splits)} |")
+    lines += ["", t["legend"]]
     for c in CATEGORIES:
         lines += ["", f"## {t[c]}", ""]
         if not found[c]:
@@ -198,6 +223,15 @@ def render(language: str, runs: dict, found: dict, clauses: list[dict], source_u
         lines += [f"| {r['clause']} | {r['tests']} |" for r in clauses]
     else:
         lines.append(t["none"])
+    if splits:
+        lines += ["", f"## {t['splits']}", "", t["splits_intro"].format(docs=docs), "",
+                  f"| {t['test']} | {t['kind']} | {t['status']} | {t['results']} |",
+                  "| --- | --- | --- | --- |"]
+        for e in splits:
+            marks = " ".join(f"{LETTER[s]}{MARK.get(runs[s]['tests'].get(e['test']), '-')}"
+                             for s in SIMULATORS if s in runs)
+            lines.append(f"| [`{e['test']}`]({docs}/tests/{e['test']}.sv) | `{e['kind']}` | "
+                         f"`{e['status']}` | `{marks}` |")
     return "\n".join(lines) + "\n"
 
 
@@ -215,17 +249,23 @@ def main() -> int:
     entries = tests_of(args.root)
     found = classify(entries, runs)
     clauses = spec_only_clauses(entries, args.root)
+    splits = splits_of(args.root)
     args.output.mkdir(parents=True, exist_ok=True)
     (args.output / "review-candidates.md").write_text(
-        render("en", runs, found, clauses, args.source_url), encoding="utf-8")
+        render("en", runs, found, clauses, args.source_url, splits), encoding="utf-8")
     (args.output / "review-candidates.ja.md").write_text(
-        render("ja", runs, found, clauses, args.source_url), encoding="utf-8")
+        render("ja", runs, found, clauses, args.source_url, splits), encoding="utf-8")
     inputs = {s: {k: v for k, v in r.items() if k != "tests"} for s, r in runs.items()}
+    split_results = [{"test": e["test"], "kind": e["kind"], "status": e["status"],
+                      "results": {s: runs[s]["tests"].get(e["test"]) for s in SIMULATORS if s in runs}}
+                     for e in splits]
     (args.output / "review-candidates.json").write_text(json.dumps(
-        {"inputs": inputs, "candidates": found, "spec_only_clauses": clauses},
+        {"inputs": inputs, "candidates": found, "spec_only_clauses": clauses,
+         "interpretation_splits": split_results},
         ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     counts = ", ".join(f"{c} {len(v)}" for c, v in found.items())
-    print(f"review candidates: {counts}, spec_only_clauses {len(clauses)}")
+    print(f"review candidates: {counts}, spec_only_clauses {len(clauses)}, "
+          f"interpretation_splits {len(splits)}")
     return 0
 
 

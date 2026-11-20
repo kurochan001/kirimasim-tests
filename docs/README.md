@@ -107,6 +107,7 @@ Code, identifiers, raw execution evidence and license terms retain their origina
 | Clause 8: Classes | [English](tests/ch8.md) | [日本語](tests/ch8.ja.md) |
 | Clause 9: Processes | [English](tests/ch9.md) | [日本語](tests/ch9.ja.md) |
 | Clauses cited by the tests | [English](tests/clauses.md) | [日本語](tests/clauses.ja.md) |
+| Tests with contested readings | [English](interpretation-splits.en.md) | [日本語](interpretation-splits.md) |
 
 <a id="過去の作業測定記録"></a>
 

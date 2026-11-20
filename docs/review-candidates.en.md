@@ -32,6 +32,8 @@ Tests with `:type: formal` are left out. "Spec only" means a test whose `:oracle
 
 kirimasim and Lyra share slang as their front end, so their agreement on parsing and elaboration is not independent evidence.
 
+The tests of [the ledger of contested readings](interpretation-splits.en.md) are listed apart in the last section, "Tests with contested readings", with their kind, status and the results of each simulator. They stay in the candidates above and no count changes.
+
 ## Order of review
 
 A person checks the candidates against the standard in the order of the sections of the list:
