@@ -2,28 +2,28 @@
  "inputs": {
   "icarus": {
    "version": "Icarus Verilog version 14.0 (devel) (s20260301-1212-gc717fc33)",
-   "time": "2026-11-20T01:21:14Z",
-   "suite_commit": "03b2e107c60de3163952376dc1c1944f9d95f781"
+   "time": "2026-11-20T04:35:10Z",
+   "suite_commit": "3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d"
   },
   "verilator": {
-   "version": "Verilator 5.055 devel rev v5.054-326-g3bdc686f",
-   "time": "2026-11-20T01:21:14Z",
-   "suite_commit": "03b2e107c60de3163952376dc1c1944f9d95f781"
+   "version": "Verilator 5.055 devel rev v5.054-334-g8dfa22d7",
+   "time": "2026-11-20T04:35:10Z",
+   "suite_commit": "3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d"
   },
   "kirimasim": {
-   "version": "kirimasim 0.1.1 (commit bd81035d9809), built with GNU 13.3.0",
-   "time": "2026-11-20T01:21:14Z",
-   "suite_commit": "03b2e107c60de3163952376dc1c1944f9d95f781"
+   "version": "kirimasim 0.1.1 (commit cb97fc93bf6b), built with GNU 13.3.0",
+   "time": "2026-11-20T04:35:10Z",
+   "suite_commit": "3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d"
   },
   "lyra": {
    "version": "Lyra (commit 9a9813a48c8c)",
-   "time": "2026-11-20T01:21:14Z",
-   "suite_commit": "03b2e107c60de3163952376dc1c1944f9d95f781"
+   "time": "2026-11-20T04:35:10Z",
+   "suite_commit": "3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d"
   },
   "ghost": {
-   "version": "private build d72b3e26ad6a",
-   "time": "2026-11-20T01:21:14Z",
-   "suite_commit": "03b2e107c60de3163952376dc1c1944f9d95f781"
+   "version": "private build 8afc1893d8a1",
+   "time": "2026-11-20T04:35:10Z",
+   "suite_commit": "3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d"
   }
  },
  "candidates": {
@@ -31,16 +31,11 @@
   "kirimasim_only": [],
   "spec_no_pass": [
    "ch16/test_sequence_method_call_and_match_item_forms",
+   "ch16/test_sequence_method_port_call_clocks",
    "ch18/test_discarded_soft_distribution",
-   "ch37/test_vpi_attribute_ports_params",
-   "ch37/test_vpi_program_interface_relations",
-   "ch37/test_vpi_struct_and_tagged_patterns",
-   "ch39/test_vpi_assertion_cover_no_failure",
-   "ch39/test_vpi_assertion_system_task_control"
+   "ch37/test_vpi_program_interface_relations"
   ],
-  "oracle_ghost_lyra": [
-   "ch6/test_ch6_extra_for_loop_automatic"
-  ]
+  "oracle_ghost_lyra": []
  },
  "spec_only_clauses": [
   {
@@ -80,19 +75,7 @@
    "tests": 2
   },
   {
-   "clause": "21.7.3.3",
-   "tests": 2
-  },
-  {
-   "clause": "21.7.3.5",
-   "tests": 2
-  },
-  {
    "clause": "21.7.3.7",
-   "tests": 2
-  },
-  {
-   "clause": "21.7.4.2",
    "tests": 2
   },
   {
@@ -212,7 +195,15 @@
    "tests": 3
   },
   {
+   "clause": "21.7.3.3",
+   "tests": 3
+  },
+  {
    "clause": "21.7.3.4",
+   "tests": 3
+  },
+  {
+   "clause": "21.7.4.2",
    "tests": 3
   },
   {
@@ -340,15 +331,7 @@
    "tests": 4
   },
   {
-   "clause": "20.16.1",
-   "tests": 4
-  },
-  {
-   "clause": "20.16.2",
-   "tests": 4
-  },
-  {
-   "clause": "20.16.4",
+   "clause": "21.7.3.5",
    "tests": 4
   },
   {
@@ -468,6 +451,18 @@
    "tests": 5
   },
   {
+   "clause": "20.16.1",
+   "tests": 5
+  },
+  {
+   "clause": "20.16.2",
+   "tests": 5
+  },
+  {
+   "clause": "20.16.4",
+   "tests": 5
+  },
+  {
    "clause": "21.7.4.3.1",
    "tests": 5
   },
@@ -560,10 +555,6 @@
    "tests": 6
   },
   {
-   "clause": "28.15.2",
-   "tests": 6
-  },
-  {
    "clause": "31.4.1",
    "tests": 6
   },
@@ -640,7 +631,7 @@
    "tests": 7
   },
   {
-   "clause": "19.5.1.1",
+   "clause": "28.15.2",
    "tests": 7
   },
   {
@@ -676,7 +667,7 @@
    "tests": 7
   },
   {
-   "clause": "17.7.2",
+   "clause": "19.5.1.1",
    "tests": 8
   },
   {
@@ -685,10 +676,6 @@
   },
   {
    "clause": "19.5.6",
-   "tests": 8
-  },
-  {
-   "clause": "20.16.3",
    "tests": 8
   },
   {
@@ -725,6 +712,14 @@
   },
   {
    "clause": "16.13.1",
+   "tests": 9
+  },
+  {
+   "clause": "17.7.2",
+   "tests": 9
+  },
+  {
+   "clause": "20.16.3",
    "tests": 9
   },
   {
@@ -768,10 +763,6 @@
    "tests": 11
   },
   {
-   "clause": "21.7.3.1",
-   "tests": 11
-  },
-  {
    "clause": "37.59",
    "tests": 11
   },
@@ -793,6 +784,10 @@
   },
   {
    "clause": "16.9.2.1",
+   "tests": 13
+  },
+  {
+   "clause": "21.7.3.1",
    "tests": 13
   },
   {

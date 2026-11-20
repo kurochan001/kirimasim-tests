@@ -4,53 +4,65 @@
 
 The [nightly workflow](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml) of [kirimasim-tests](https://github.com/kurochan001/kirimasim-tests) writes this branch. Each night it runs every test of the suite's main branch with each simulator, adds the results to `history.json` and draws the charts below. Local runs can also be imported and are marked `local`. A test matches when its output and specified checks agree with the expected result, or an illegal design is rejected with the required diagnostic; see the suite's README for what each status means.
 
-Latest run: 2026-11-20 01:21 UTC, suite commit [`03b2e10`](https://github.com/kurochan001/kirimasim-tests/commit/03b2e107c60de3163952376dc1c1944f9d95f781), 16271 tests, [workflow run](https://github.com/kurochan001/kirimasim-tests/actions/runs/44631823505).
+Latest run: 2026-11-20 04:35 UTC, suite commit [`3be3ed0`](https://github.com/kurochan001/kirimasim-tests/commit/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d), 16291 tests, [workflow run](https://github.com/kurochan001/kirimasim-tests/actions/runs/44652861270).
 
 ## Latest results per simulator
 
 Each row and chapter-table column uses that simulator's most recent recorded run. Dates, suite commits and test counts can differ; older results retain their own dates and are not treated as part of the latest run.
 
-A green workflow does not mean every test passed: [why Differ can remain](https://github.com/kurochan001/kirimasim-tests/blob/03b2e107c60de3163952376dc1c1944f9d95f781/docs/faq.en.md#q11-why-can-nightly-be-green-with-differ-results). Read [status meanings and per-test evidence](https://github.com/kurochan001/kirimasim-tests/blob/03b2e107c60de3163952376dc1c1944f9d95f781/docs/faq.en.md#q9-what-do-match-differ-known-difference-and-unsupported-mean) before comparing totals.
+A green workflow does not mean every test passed: [why Differ can remain](https://github.com/kurochan001/kirimasim-tests/blob/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d/docs/faq.en.md#q11-why-can-nightly-be-green-with-differ-results). Read [status meanings and per-test evidence](https://github.com/kurochan001/kirimasim-tests/blob/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d/docs/faq.en.md#q9-what-do-match-differ-known-difference-and-unsupported-mean) before comparing totals.
 
 | Simulator | Version | Run (UTC) | Suite | Source | Match | Differ | Known differences | Unsupported |
 | --- | --- | --- | --- | --- | ---: | ---: | ---: | ---: |
-| Icarus Verilog | Icarus Verilog version 14.0 (devel) (s20260301-1212-gc717fc33) | 2026-11-20 01:21 | [`03b2e10`](https://github.com/kurochan001/kirimasim-tests/commit/03b2e107c60de3163952376dc1c1944f9d95f781) | nightly | 10264 (64.1%) | 9 | 5731 | 0 |
-| Verilator | Verilator 5.055 devel rev v5.054-326-g3bdc686f | 2026-11-20 01:21 | [`03b2e10`](https://github.com/kurochan001/kirimasim-tests/commit/03b2e107c60de3163952376dc1c1944f9d95f781) | nightly | 9120 (57.0%) | 29 | 6855 | 0 |
-| kirimasim | kirimasim 0.1.1 (commit bd81035d9809), built with GNU 13.3.0 | 2026-11-20 01:21 | [`03b2e10`](https://github.com/kurochan001/kirimasim-tests/commit/03b2e107c60de3163952376dc1c1944f9d95f781) | nightly | 13112 (81.9%) | 297 | 0 | 2595 |
-| Lyra | Lyra (commit 9a9813a48c8c) | 2026-11-20 01:21 | [`03b2e10`](https://github.com/kurochan001/kirimasim-tests/commit/03b2e107c60de3163952376dc1c1944f9d95f781) | nightly | 13384 (83.6%) | 885 | 0 | 1735 |
-| Ghost | private build d72b3e26ad6a | 2026-11-20 01:21 | [`03b2e10`](https://github.com/kurochan001/kirimasim-tests/commit/03b2e107c60de3163952376dc1c1944f9d95f781) | nightly | 15989 (99.9%) | 15 | 0 | 0 |
+| Icarus Verilog | Icarus Verilog version 14.0 (devel) (s20260301-1212-gc717fc33) | 2026-11-20 04:35 | [`3be3ed0`](https://github.com/kurochan001/kirimasim-tests/commit/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d) | nightly | 10274 (64.1%) | 9 | 5741 | 0 |
+| Verilator | Verilator 5.055 devel rev v5.054-334-g8dfa22d7 | 2026-11-20 04:35 | [`3be3ed0`](https://github.com/kurochan001/kirimasim-tests/commit/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d) | nightly | 9128 (57.0%) | 29 | 6867 | 0 |
+| kirimasim | kirimasim 0.1.1 (commit cb97fc93bf6b), built with GNU 13.3.0 | 2026-11-20 04:35 | [`3be3ed0`](https://github.com/kurochan001/kirimasim-tests/commit/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d) | nightly | 13121 (81.9%) | 293 | 0 | 2610 |
+| Lyra | Lyra (commit 9a9813a48c8c) | 2026-11-20 04:35 | [`3be3ed0`](https://github.com/kurochan001/kirimasim-tests/commit/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d) | nightly | 13394 (83.6%) | 890 | 0 | 1740 |
+| Ghost | private build 8afc1893d8a1 | 2026-11-20 04:35 | [`3be3ed0`](https://github.com/kurochan001/kirimasim-tests/commit/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d) | nightly | 16008 (99.9%) | 16 | 0 | 0 |
 
 Ghost is an unidentified simulator taking part before its public debut. For now, only its test results step out from behind the curtain. Its name, source and build logs remain private; build IDs are executable hashes.
 
-![Tests that match their expected results](charts/overview.svg?v=20261120T012114)
+![Tests that match their expected results](charts/overview.svg?v=20261120T043510)
 
-![Share of the tests that match](charts/rate.svg?v=20261120T012114)
+![Share of the tests that match](charts/rate.svg?v=20261120T043510)
 
 ## Changes in the latest run
 
 Tests that match now but did not in the previous run of the same simulator, and tests that matched then but do not now. Tests added to the suite are counted in the table above.
 
+### kirimasim
+
+Newly match (4): `ch11/test_static_prefix_of_field_selects`, `ch20/test_typename_anonymous_type_names`, `ch6/test_ch6_extra_for_loop_automatic`, `ch9/test_always_comb_timing_control_identifiers_not_sensitive`
+
+### Lyra
+
+Newly match (1): `ch6/test_ch6_extra_for_loop_automatic`
+
 ### Ghost
 
-Newly match (318): `ch13/test_function_returns_at_once_task_waits`, `ch19/test_cg_cross_set_function_matches`, `ch19/test_covergroup_cross_and_select_forms`, `ch21/test_fopen_name_and_type_forms`, `ch21/test_vcd_dumpvars_all_filename_start`, `ch32/test_sdf_mtm_spec`, `ch32/test_sdf_scale_factors`, `ch32/test_sdf_scale_type_members`, `ch37/test_vpi_io_decl_scope_typespec_ports`, `ch7/test_array_method_index_argument`, `ch7/test_array_method_iterator_index_names_and_selects`, `ch7/test_illegal_wildcard_array_find`, `gen/ch10/test_gen_nba_boundary_array_bit_delayed_w127`, `gen/ch10/test_gen_nba_boundary_array_bit_delayed_w128`, `gen/ch10/test_gen_nba_boundary_array_bit_delayed_w129`, `gen/ch10/test_gen_nba_boundary_array_bit_delayed_w255`, `gen/ch10/test_gen_nba_boundary_array_bit_delayed_w256`, `gen/ch10/test_gen_nba_boundary_array_bit_delayed_w257`, `gen/ch10/test_gen_nba_boundary_array_bit_delayed_w511`, `gen/ch10/test_gen_nba_boundary_array_bit_delayed_w512`, `gen/ch10/test_gen_nba_boundary_array_bit_delayed_w513`, `gen/ch10/test_gen_nba_boundary_array_bit_delayed_w63`, `gen/ch10/test_gen_nba_boundary_array_bit_delayed_w64`, `gen/ch10/test_gen_nba_boundary_array_bit_delayed_w65`, `gen/ch10/test_gen_nba_boundary_array_bit_immediate_w127`, `gen/ch10/test_gen_nba_boundary_array_bit_immediate_w128`, `gen/ch10/test_gen_nba_boundary_array_bit_immediate_w129`, `gen/ch10/test_gen_nba_boundary_array_bit_immediate_w255`, `gen/ch10/test_gen_nba_boundary_array_bit_immediate_w256`, `gen/ch10/test_gen_nba_boundary_array_bit_immediate_w257`, `gen/ch10/test_gen_nba_boundary_array_bit_immediate_w511`, `gen/ch10/test_gen_nba_boundary_array_bit_immediate_w512`, `gen/ch10/test_gen_nba_boundary_array_bit_immediate_w513`, `gen/ch10/test_gen_nba_boundary_array_bit_immediate_w63`, `gen/ch10/test_gen_nba_boundary_array_bit_immediate_w64`, `gen/ch10/test_gen_nba_boundary_array_bit_immediate_w65`, `gen/ch10/test_gen_nba_boundary_array_logic_delayed_w127`, `gen/ch10/test_gen_nba_boundary_array_logic_delayed_w128`, `gen/ch10/test_gen_nba_boundary_array_logic_delayed_w129`, `gen/ch10/test_gen_nba_boundary_array_logic_delayed_w255`, `gen/ch10/test_gen_nba_boundary_array_logic_delayed_w256`, `gen/ch10/test_gen_nba_boundary_array_logic_delayed_w257`, `gen/ch10/test_gen_nba_boundary_array_logic_delayed_w511`, `gen/ch10/test_gen_nba_boundary_array_logic_delayed_w512`, `gen/ch10/test_gen_nba_boundary_array_logic_delayed_w513`, `gen/ch10/test_gen_nba_boundary_array_logic_delayed_w63`, `gen/ch10/test_gen_nba_boundary_array_logic_delayed_w64`, `gen/ch10/test_gen_nba_boundary_array_logic_delayed_w65`, `gen/ch10/test_gen_nba_boundary_array_logic_immediate_w127`, `gen/ch10/test_gen_nba_boundary_array_logic_immediate_w128`, `gen/ch10/test_gen_nba_boundary_array_logic_immediate_w129`, `gen/ch10/test_gen_nba_boundary_array_logic_immediate_w255`, `gen/ch10/test_gen_nba_boundary_array_logic_immediate_w256`, `gen/ch10/test_gen_nba_boundary_array_logic_immediate_w257`, `gen/ch10/test_gen_nba_boundary_array_logic_immediate_w511`, `gen/ch10/test_gen_nba_boundary_array_logic_immediate_w512`, `gen/ch10/test_gen_nba_boundary_array_logic_immediate_w513`, `gen/ch10/test_gen_nba_boundary_array_logic_immediate_w63`, `gen/ch10/test_gen_nba_boundary_array_logic_immediate_w64`, `gen/ch10/test_gen_nba_boundary_array_logic_immediate_w65`, `gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w127`, `gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w128`, `gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w129`, `gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w255`, `gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w256`, `gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w257`, `gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w511`, `gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w512`, `gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w513`, `gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w63`, `gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w64`, `gen/ch10/test_gen_nba_boundary_overlap_bit_delayed_w65`, `gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w127`, `gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w128`, `gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w129`, `gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w255`, `gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w256`, `gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w257`, `gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w511`, `gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w512`, `gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w513`, `gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w63`, `gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w64`, `gen/ch10/test_gen_nba_boundary_overlap_bit_immediate_w65`, `gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w127`, `gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w128`, `gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w129`, `gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w255`, `gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w256`, `gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w257`, `gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w511`, `gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w512`, `gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w513`, `gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w63`, `gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w64`, `gen/ch10/test_gen_nba_boundary_slice_bit_delayed_w65`, `gen/ch10/test_gen_nba_boundary_slice_bit_immediate_w127`, `gen/ch10/test_gen_nba_boundary_slice_bit_immediate_w128`, `gen/ch10/test_gen_nba_boundary_slice_bit_immediate_w129`, `gen/ch10/test_gen_nba_boundary_slice_bit_immediate_w255` and 218 more
+Newly match (7): `ch19/test_covergroup_block_event_forms`, `ch35/test_svdpi_h_packed_bit_and_part_select`, `ch37/test_vpi_attribute_ports_params`, `ch37/test_vpi_struct_and_tagged_patterns`, `ch39/test_vpi_assertion_cover_no_failure`, `ch39/test_vpi_assertion_system_task_control`, `ch6/test_ch6_extra_for_loop_automatic`
+
+No longer match (1):
+
+- `gen/ch18/test_gen_cross_randreduce_8_signed_dynamic_sum_wide_2_fail_sat_fail`: differ — timed out
 
 ## By chapter
 
-Cells show matching tests / recorded results, including known and unsupported in the denominator: [8/10 example](https://github.com/kurochan001/kirimasim-tests/blob/03b2e107c60de3163952376dc1c1944f9d95f781/docs/faq.en.md#q12-what-percentage-does-by-chapter-show). This is [not requirement coverage](https://github.com/kurochan001/kirimasim-tests/blob/03b2e107c60de3163952376dc1c1944f9d95f781/docs/faq.en.md#q15-is-the-nightly-match-rate-requirement-coverage).
+Cells show matching tests / recorded results, including known and unsupported in the denominator: [8/10 example](https://github.com/kurochan001/kirimasim-tests/blob/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d/docs/faq.en.md#q12-what-percentage-does-by-chapter-show). This is [not requirement coverage](https://github.com/kurochan001/kirimasim-tests/blob/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d/docs/faq.en.md#q15-is-the-nightly-match-rate-requirement-coverage).
 
-![Matching tests by chapter](charts/chapters.svg?v=20261120T012114)
+![Matching tests by chapter](charts/chapters.svg?v=20261120T043510)
 
 ## Each simulator over time
 
-![Icarus Verilog: results by status](charts/status-icarus.svg?v=20261120T012114)
+![Icarus Verilog: results by status](charts/status-icarus.svg?v=20261120T043510)
 
-![Verilator: results by status](charts/status-verilator.svg?v=20261120T012114)
+![Verilator: results by status](charts/status-verilator.svg?v=20261120T043510)
 
-![kirimasim: results by status](charts/status-kirimasim.svg?v=20261120T012114)
+![kirimasim: results by status](charts/status-kirimasim.svg?v=20261120T043510)
 
-![Lyra: results by status](charts/status-lyra.svg?v=20261120T012114)
+![Lyra: results by status](charts/status-lyra.svg?v=20261120T043510)
 
-![Ghost: results by status](charts/status-ghost.svg?v=20261120T012114)
+![Ghost: results by status](charts/status-ghost.svg?v=20261120T043510)
 
 ## Recent runs
 
@@ -58,6 +70,7 @@ Matching tests of each simulator, with the change since its previous run. The ve
 
 | Run (UTC) | Suite | Tests | Icarus Verilog | Verilator | kirimasim | Lyra | Ghost |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| [2026-11-20 04:35](https://github.com/kurochan001/kirimasim-tests/actions/runs/44652861270) | [`3be3ed0`](https://github.com/kurochan001/kirimasim-tests/commit/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d) | 16291 | 10274 (+10 −0) | 9128 (+8 −0) `5.055 devel 8dfa22d` | 13121 (+9 −0) `cb97fc93b` | 13394 (+10 −0) | 16008 (+20 −1) `private build 8afc1893d8a1` |
 | [2026-11-20 01:21](https://github.com/kurochan001/kirimasim-tests/actions/runs/44631823505) | [`03b2e10`](https://github.com/kurochan001/kirimasim-tests/commit/03b2e107c60de3163952376dc1c1944f9d95f781) | 16271 | 10264 (+14 −0) `14.0 devel c717fc3` | 9120 (+11 −0) `5.055 devel 3bdc686` | 13112 (+16 −0) | 13384 (+1849 −0) `9a9813a48` | 15989 (+341 −0) `private build d72b3e26ad6a` |
 | [2026-11-19 20:50](https://github.com/kurochan001/kirimasim-tests/actions/runs/44540686011) | [`68ce2bc`](https://github.com/kurochan001/kirimasim-tests/commit/68ce2bc2a458f118cae0e4e65f1e042c3b90aa6e) | 16244 | 10250 (+1466 −1) `14.0 devel 6550412` | 9109 (+830 −0) `5.055 devel 464643f` | 13096 (+1886 −0) `bd81035d9` | — | 15648 (+2361 −12) `private build 0b90acaa7ed6` |
 | [2026-11-19 06:47](https://github.com/kurochan001/kirimasim-tests/actions/runs/44435742536) | [`a00ad6a`](https://github.com/kurochan001/kirimasim-tests/commit/a00ad6ad86a9a6da1bb76e7622969c35057e14b9) | 14310 | 8785 (+129 −1) `14.0 devel cf020c5` | 8279 (+324 −0) `5.055 devel b3694de` | 11210 (+314 −0) `a6222f065` | 11535 (+311 −0) `f164508a8` | — |
@@ -87,7 +100,6 @@ Matching tests of each simulator, with the change since its previous run. The ve
 | [2026-10-29 03:55](https://github.com/kurochan001/kirimasim-tests/actions/runs/40805499579) | [`a594d65`](https://github.com/kurochan001/kirimasim-tests/commit/a594d659b947a7321ce5e252660ea6d376d813b3) | 7744 | 4607 | 4779 `5.053 devel ad83990` | 5076 (+6 −0) `938d60c83` | 5501 (+9 −6) `ed9515d8e` | 6095 (+12 −0) `private build 5c1261cba4df` |
 | [2026-10-29 00:48](https://github.com/kurochan001/kirimasim-tests/actions/runs/40786512421) | [`248cca8`](https://github.com/kurochan001/kirimasim-tests/commit/248cca894a2607eb6eae0bda3303dc1c7cb130a9) | 7744 | 4607 (+5 −1) `14.0 devel fd8759f` | 4779 (+3 −1) `5.053 devel 375685d` | 5070 (+17 −0) `df25891fa` | 5498 (+19 −0) | 6083 (+143 −3) `private build af267bf4f8b1` |
 | [2026-10-28 09:54](https://github.com/kurochan001/kirimasim-tests/actions/runs/40657143465) | [`b83d0ff`](https://github.com/kurochan001/kirimasim-tests/commit/b83d0ffd666f533b0ce1c77f6cb5377fbbe0b511) | 7740 | 4603 (+4 −0) | 4777 (+14 −0) `5.053 devel 9440ae8` | 5053 (+8 −0) `a24202947` | 5479 (+5 −0) | 5943 (+9 −1) `private build 07c6cb0ee0df` |
-| [2026-10-28 00:30](https://github.com/kurochan001/kirimasim-tests/actions/runs/40599008464) | [`41085fe`](https://github.com/kurochan001/kirimasim-tests/commit/41085fe3432bb093bf52c4f33bc4b44fff1a9401) | 7732 | 4599 (+64 −0) `14.0 devel d95f240` | 4763 (+120 −3) `5.053 devel c0b2894` | 5045 (+79 −3) `cfb76b386` | 5474 (+76 −0) | 5935 (+128 −16) `private build bdc4d9a56351` |
 
 ## Files
 

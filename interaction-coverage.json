@@ -65211,8 +65211,8 @@
     {
       "source": "results/ghost.json",
       "simulator": "ghost",
-      "version": "private build d72b3e26ad6a",
-      "generated_at": "2026-11-19T23:11:02.697083+00:00",
+      "version": "private build 8afc1893d8a1",
+      "generated_at": "2026-11-20T02:15:21.853777+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -66947,8 +66947,8 @@
         },
         "array_reduction_constraint": {
           "case_statuses": {
-            "pass": 12,
-            "fail": 1,
+            "pass": 11,
+            "fail": 2,
             "known": 0,
             "unsupported": 0,
             "stale": 0,
@@ -66956,14 +66956,14 @@
           },
           "coverage": {
             "2": {
-              "passed": 92,
+              "passed": 90,
               "total": 96,
-              "missing": 4
+              "missing": 6
             },
             "3": {
-              "passed": 36,
+              "passed": 33,
               "total": 40,
-              "missing": 4
+              "missing": 7
             }
           },
           "mandatory_witnesses": {
@@ -68763,7 +68763,7 @@
       "source": "results/icarus.json",
       "simulator": "icarus",
       "version": "Icarus Verilog version 14.0 (devel) (s20260301-1212-gc717fc33)",
-      "generated_at": "2026-11-19T22:50:46.417113+00:00",
+      "generated_at": "2026-11-20T01:55:06.138637+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -72313,8 +72313,8 @@
     {
       "source": "results/kirimasim.json",
       "simulator": "kirimasim",
-      "version": "kirimasim 0.1.1 (commit bd81035d9809), built with GNU 13.3.0",
-      "generated_at": "2026-11-19T22:59:09.140683+00:00",
+      "version": "kirimasim 0.1.1 (commit cb97fc93bf6b), built with GNU 13.3.0",
+      "generated_at": "2026-11-20T02:06:41.128671+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -75865,7 +75865,7 @@
       "source": "results/lyra.json",
       "simulator": "lyra",
       "version": "Lyra (commit 9a9813a48c8c)",
-      "generated_at": "2026-11-20T01:17:02.673254+00:00",
+      "generated_at": "2026-11-20T04:34:43.020442+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -79415,8 +79415,8 @@
     {
       "source": "results/verilator.json",
       "simulator": "verilator",
-      "version": "Verilator 5.055 devel rev v5.054-326-g3bdc686f",
-      "generated_at": "2026-11-20T00:06:43.066623+00:00",
+      "version": "Verilator 5.055 devel rev v5.054-334-g8dfa22d7",
+      "generated_at": "2026-11-20T03:04:06.123080+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {

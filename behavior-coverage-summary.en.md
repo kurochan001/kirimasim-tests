@@ -4,17 +4,17 @@
 
 [English](behavior-coverage-summary.en.md) / [日本語](behavior-coverage-summary.md)
 
-[Details of all items](behavior-coverage.en.md) / [Management procedures](https://github.com/kurochan001/kirimasim-tests/blob/03b2e107c60de3163952376dc1c1944f9d95f781/coverage/README.en.md) / [Interpretation and Re-examination Record](https://github.com/kurochan001/kirimasim-tests/blob/03b2e107c60de3163952376dc1c1944f9d95f781/docs/requirement-extraction-notes.en.md)
+[Details of all items](behavior-coverage.en.md) / [Management procedures](https://github.com/kurochan001/kirimasim-tests/blob/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d/coverage/README.en.md) / [Interpretation and Re-examination Record](https://github.com/kurochan001/kirimasim-tests/blob/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d/docs/requirement-extraction-notes.en.md)
 
-The denominator counts requirement-ledger rows, not test files. See [Design, execution and PASS distinctions](https://github.com/kurochan001/kirimasim-tests/blob/03b2e107c60de3163952376dc1c1944f9d95f781/docs/faq.en.md#q16-how-do-design-and-execution-coverage-differ) for concrete examples.
+The denominator counts requirement-ledger rows, not test files. See [Design, execution and PASS distinctions](https://github.com/kurochan001/kirimasim-tests/blob/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d/docs/faq.en.md#q16-how-do-design-and-execution-coverage-differ) for concrete examples.
 
 <a id="全規格の要求台帳に対する値"></a>
 
 ## Value for all standards in the required table
 
-- Requirement coverage (test design): 92.96% ( 11464/12332 ).
-- Execution confirmation rate without Ghost: 43.09% ( 5314/12332 ). Union of successes on Icarus Verilog, Verilator and SymbiYosys, which third parties can reproduce. Of these, 5314 rows are confirmed by a simulator and 0 rows by formal checks alone.
-- The execution confirmation rate is 78.16% ( 9639/12332 ). Union of successes across environments. Of these, 9639 rows are confirmed by a simulator and 0 rows by formal checks alone.
+- Requirement coverage (test design): 93.07% ( 11478/12332 ).
+- Execution confirmation rate without Ghost: 43.11% ( 5316/12332 ). Union of successes on Icarus Verilog, Verilator and SymbiYosys, which third parties can reproduce. Of these, 5316 rows are confirmed by a simulator and 0 rows by formal checks alone.
+- The execution confirmation rate is 78.37% ( 9665/12332 ). Union of successes across environments. Of these, 9665 rows are confirmed by a simulator and 0 rows by formal checks alone.
 - The denominator includes pending interpretations and items without test mappings. We do not exclude non-implemented and non-supported.
 - The registration unit is the occurrence point, condition, and observation case of the requirement, and the duplication of meaning is integrated by the review of the denominator. This is neither the fraction of all program/input combinations tested nor a single simulator's standard conformance rate.
 
@@ -22,18 +22,18 @@ The denominator counts requirement-ledger rows, not test files. See [Design, exe
 
 ## Aggregation of existing tests
 
-- 6674 of 16271 tests have a registered correspondence with the requirements. 9597 tests remain unregistered.
+- 6693 of 16291 tests have a registered correspondence with the requirements. 9598 tests remain unregistered.
 - The above coverage rate is calculated only for the part which registered the response to the demand by confirming the stimulus and the expected result. Existing tests that are not registered are also useful for verification, but their contribution is not yet reflected in the proportion.
 - The number of registered units is the number of units that correspond to at least one requirement, not the number of completed reviews of the whole test.
 
-- The requests that are shared by multiple tests are in the 767 row. Only if all tests in each group are successful in the same run, they count as a success for the entire request.
+- The requests that are shared by multiple tests are in the 770 row. Only if all tests in each group are successful in the same run, they count as a success for the entire request.
 
 <a id="確定値"></a>
 
 ## Definite value
 
-- Requirement coverage (test design): 92.96%.
-- Requirement execution-confirmation rate: 43.09% without Ghost, 78.16% with Ghost.
+- Requirement coverage (test design): 93.07%.
+- Requirement execution-confirmation rate: 43.11% without Ghost, 78.37% with Ghost.
 - Approval of denominator: Approval. The measured state is `confirmed`.
 - The method was confirmed after document verification, resolution of the reservation interpretation, duplication of the requirement unit, and review of the denominator.
 
@@ -41,9 +41,9 @@ The denominator counts requirement-ledger rows, not test files. See [Design, exe
 
 ## Remains
 
-- There is a record of the path result corresponding to the current input: 9639 line.
-- No record of passed/passout results: 1825 line.
-- Test compatibility not confirmed (except for interpretation reservation): 868 line.
+- There is a record of the path result corresponding to the current input: 9665 line.
+- No record of passed/passout results: 1813 line.
+- Test compatibility not confirmed (except for interpretation reservation): 854 line.
 - Interpretation reservation: 0 line.
 
 Unsupported behavior does not mean that no existing test is available.
@@ -52,13 +52,13 @@ Unsupported behavior does not mean that no existing test is available.
 
 ## Execution confirmation rate by simulator
 
-Each row is a separate saved run. A narrow run can leave many tests unexecuted; check [how to read dates, versions and scope](https://github.com/kurochan001/kirimasim-tests/blob/03b2e107c60de3163952376dc1c1944f9d95f781/docs/faq.en.md#q14-why-do-main-results-or-simulator-totals-differ) and the measurement source.
+Each row is a separate saved run. A narrow run can leave many tests unexecuted; check [how to read dates, versions and scope](https://github.com/kurochan001/kirimasim-tests/blob/3be3ed023e92bd9d8bd8c28f3aaa29cda54acc4d/docs/faq.en.md#q14-why-do-main-results-or-simulator-totals-differ) and the measurement source.
 
-- `ghost` / `private build d72b3e26ad6a` : 9627/12332 ( 78.07% )。 Measurement source: `2026-11-19T23:11:02.697083+00:00` / `ghost.json` 。 Failures 35; known mismatches 0; unsupported 0; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1512 rows.
-- `icarus` / `Icarus Verilog version 14.0 (devel) (s20260301-1212-gc717fc33)` : 2669/12332 ( 21.64% )。 Measurement source: `2026-11-19T22:50:46.417113+00:00` / `icarus.json` 。 Failures 15; known mismatches 7346; unsupported 0; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1144 rows.
-- `kirimasim` / `kirimasim 0.1.1 (commit bd81035d9809), built with GNU 13.3.0` : 3103/12332 ( 25.16% )。 Measurement source: `2026-11-19T22:59:09.140683+00:00` / `kirimasim.json` 。 Failures 166; known mismatches 0; unsupported 6512; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1393 rows.
-- `lyra` / `Lyra (commit 9a9813a48c8c)` : 3672/12332 ( 29.78% )。 Measurement source: `2026-11-20T01:17:02.673254+00:00` / `lyra.json` 。 Failures 844; known mismatches 0; unsupported 5272; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1386 rows.
-- `verilator` / `Verilator 5.055 devel rev v5.054-326-g3bdc686f` : 3790/12332 ( 30.73% )。 Measurement source: `2026-11-20T00:06:43.066623+00:00` / `verilator.json` 。 Failures 27; known mismatches 6327; unsupported 0; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1030 rows.
+- `ghost` / `private build 8afc1893d8a1` : 9656/12332 ( 78.30% )。 Measurement source: `2026-11-20T02:15:21.853777+00:00` / `ghost.json` 。 Failures 20; known mismatches 0; unsupported 0; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1512 rows.
+- `icarus` / `Icarus Verilog version 14.0 (devel) (s20260301-1212-gc717fc33)` : 2669/12332 ( 21.64% )。 Measurement source: `2026-11-20T01:55:06.138637+00:00` / `icarus.json` 。 Failures 15; known mismatches 7357; unsupported 0; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1147 rows.
+- `kirimasim` / `kirimasim 0.1.1 (commit cb97fc93bf6b), built with GNU 13.3.0` : 3107/12332 ( 25.19% )。 Measurement source: `2026-11-20T02:06:41.128671+00:00` / `kirimasim.json` 。 Failures 162; known mismatches 0; unsupported 6526; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1393 rows.
+- `lyra` / `Lyra (commit 9a9813a48c8c)` : 3675/12332 ( 29.80% )。 Measurement source: `2026-11-20T04:34:43.020442+00:00` / `lyra.json` 。 Failures 847; known mismatches 0; unsupported 5280; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1386 rows.
+- `verilator` / `Verilator 5.055 devel rev v5.054-334-g8dfa22d7` : 3792/12332 ( 30.75% )。 Measurement source: `2026-11-20T03:04:06.123080+00:00` / `verilator.json` 。 Failures 27; known mismatches 6338; unsupported 0; not run 290; stale evidence 0; unapproved judgment evidence for illegal-design tests 1031 rows.
 - The result file of the rejection: 0.
 
 <a id="章附属書別登録項目に対する割合"></a>
@@ -67,25 +67,25 @@ Each row is a separate saved run. A narrow run can leave many tests unexecuted; 
 
 - 1 Overview: test mapping no registered items, execution confirmed no registered items, execution confirmed without Ghost no registered items, interpretation pending 0 rows.
 - 2 Normative references: test mapping 0/2 ( 0.00% ), execution confirmed 0/2 ( 0.00% ), execution confirmed without Ghost 0/2 ( 0.00% ), interpretation pending 0 rows.
-- 3 Design and verification building blocks: test mapping 131/146 ( 89.73% ), execution confirmed 111/146 ( 76.03% ), execution confirmed without Ghost 107/146 ( 73.29% ), interpretation pending 0 rows.
+- 3 Design and verification building blocks: test mapping 132/146 ( 90.41% ), execution confirmed 112/146 ( 76.71% ), execution confirmed without Ghost 108/146 ( 73.97% ), interpretation pending 0 rows.
 - 4 Scheduling semantics: test mapping 90/107 ( 84.11% ), execution confirmed 88/107 ( 82.24% ), execution confirmed without Ghost 59/107 ( 55.14% ), interpretation pending 0 rows.
 - 5 Lexical conventions: test mapping 146/155 ( 94.19% ), execution confirmed 128/155 ( 82.58% ), execution confirmed without Ghost 118/155 ( 76.13% ), interpretation pending 0 rows.
-- 6 Data types: test mapping 710/720 ( 98.61% ), execution confirmed 580/720 ( 80.56% ), execution confirmed without Ghost 463/720 ( 64.31% ), interpretation pending 0 rows.
+- 6 Data types: test mapping 711/720 ( 98.75% ), execution confirmed 581/720 ( 80.69% ), execution confirmed without Ghost 463/720 ( 64.31% ), interpretation pending 0 rows.
 - 7 Aggregate data types: test mapping 337/347 ( 97.12% ), execution confirmed 267/347 ( 76.95% ), execution confirmed without Ghost 165/347 ( 47.55% ), interpretation pending 0 rows.
 - 8 Classes: test mapping 239/255 ( 93.73% ), execution confirmed 151/255 ( 59.22% ), execution confirmed without Ghost 116/255 ( 45.49% ), interpretation pending 0 rows.
 - 9 Processes: test mapping 183/192 ( 95.31% ), execution confirmed 161/192 ( 83.85% ), execution confirmed without Ghost 107/192 ( 55.73% ), interpretation pending 0 rows.
-- 10 Assignment statements: test mapping 144/156 ( 92.31% ), execution confirmed 108/156 ( 69.23% ), execution confirmed without Ghost 65/156 ( 41.67% ), interpretation pending 0 rows.
+- 10 Assignment statements: test mapping 147/156 ( 94.23% ), execution confirmed 108/156 ( 69.23% ), execution confirmed without Ghost 65/156 ( 41.67% ), interpretation pending 0 rows.
 - 11 Operators and expressions: test mapping 448/459 ( 97.60% ), execution confirmed 412/459 ( 89.76% ), execution confirmed without Ghost 346/459 ( 75.38% ), interpretation pending 0 rows.
 - 12 Procedural programming statements: test mapping 101/115 ( 87.83% ), execution confirmed 86/115 ( 74.78% ), execution confirmed without Ghost 48/115 ( 41.74% ), interpretation pending 0 rows.
 - 13 Tasks and functions (subroutines): test mapping 116/124 ( 93.55% ), execution confirmed 75/124 ( 60.48% ), execution confirmed without Ghost 61/124 ( 49.19% ), interpretation pending 0 rows.
 - 14 Clocking blocks: test mapping 86/87 ( 98.85% ), execution confirmed 67/87 ( 77.01% ), execution confirmed without Ghost 49/87 ( 56.32% ), interpretation pending 0 rows.
 - 15 Interprocess synchronization and communication: test mapping 84/88 ( 95.45% ), execution confirmed 77/88 ( 87.50% ), execution confirmed without Ghost 46/88 ( 52.27% ), interpretation pending 0 rows.
-- 16 Assertions: test mapping 548/557 ( 98.38% ), execution confirmed 402/557 ( 72.17% ), execution confirmed without Ghost 67/557 ( 12.03% ), interpretation pending 0 rows.
-- 17 Checkers: test mapping 68/81 ( 83.95% ), execution confirmed 42/81 ( 51.85% ), execution confirmed without Ghost 9/81 ( 11.11% ), interpretation pending 0 rows.
-- 18 Constrained random value generation: test mapping 314/323 ( 97.21% ), execution confirmed 252/323 ( 78.02% ), execution confirmed without Ghost 135/323 ( 41.80% ), interpretation pending 0 rows.
-- 19 Functional coverage: test mapping 267/276 ( 96.74% ), execution confirmed 211/276 ( 76.45% ), execution confirmed without Ghost 36/276 ( 13.04% ), interpretation pending 0 rows.
-- 20 Utility system tasks and system functions: test mapping 299/320 ( 93.44% ), execution confirmed 285/320 ( 89.06% ), execution confirmed without Ghost 130/320 ( 40.62% ), interpretation pending 0 rows.
-- 21 Input/output system tasks and system functions: test mapping 358/383 ( 93.47% ), execution confirmed 342/383 ( 89.30% ), execution confirmed without Ghost 221/383 ( 57.70% ), interpretation pending 0 rows.
+- 16 Assertions: test mapping 549/557 ( 98.56% ), execution confirmed 402/557 ( 72.17% ), execution confirmed without Ghost 67/557 ( 12.03% ), interpretation pending 0 rows.
+- 17 Checkers: test mapping 69/81 ( 85.19% ), execution confirmed 43/81 ( 53.09% ), execution confirmed without Ghost 9/81 ( 11.11% ), interpretation pending 0 rows.
+- 18 Constrained random value generation: test mapping 315/323 ( 97.52% ), execution confirmed 253/323 ( 78.33% ), execution confirmed without Ghost 136/323 ( 42.11% ), interpretation pending 0 rows.
+- 19 Functional coverage: test mapping 268/276 ( 97.10% ), execution confirmed 212/276 ( 76.81% ), execution confirmed without Ghost 36/276 ( 13.04% ), interpretation pending 0 rows.
+- 20 Utility system tasks and system functions: test mapping 300/320 ( 93.75% ), execution confirmed 289/320 ( 90.31% ), execution confirmed without Ghost 130/320 ( 40.62% ), interpretation pending 0 rows.
+- 21 Input/output system tasks and system functions: test mapping 362/383 ( 94.52% ), execution confirmed 346/383 ( 90.34% ), execution confirmed without Ghost 221/383 ( 57.70% ), interpretation pending 0 rows.
 - 22 Compiler directives: test mapping 355/363 ( 97.80% ), execution confirmed 76/363 ( 20.94% ), execution confirmed without Ghost 72/363 ( 19.83% ), interpretation pending 0 rows.
 - 23 Modules and hierarchy: test mapping 254/260 ( 97.69% ), execution confirmed 194/260 ( 74.62% ), execution confirmed without Ghost 101/260 ( 38.85% ), interpretation pending 0 rows.
 - 24 Programs: test mapping 25/29 ( 86.21% ), execution confirmed 18/29 ( 62.07% ), execution confirmed without Ghost 2/29 ( 6.90% ), interpretation pending 0 rows.
@@ -101,12 +101,12 @@ Each row is a separate saved run. A narrow run can leave many tests unexecuted; 
 - 34 Protected envelopes: test mapping 5/214 ( 2.34% ), execution confirmed 5/214 ( 2.34% ), execution confirmed without Ghost 5/214 ( 2.34% ), interpretation pending 0 rows.
 - 35 Direct programming interface: test mapping 121/143 ( 84.62% ), execution confirmed 106/143 ( 74.13% ), execution confirmed without Ghost 78/143 ( 54.55% ), interpretation pending 0 rows.
 - 36 Programming language interface ( PLI / VPI ) overview: test mapping 148/163 ( 90.80% ), execution confirmed 145/163 ( 88.96% ), execution confirmed without Ghost 43/163 ( 26.38% ), interpretation pending 0 rows.
-- 37 VPI object model diagrams: test mapping 1662/1757 ( 94.59% ), execution confirmed 1649/1757 ( 93.85% ), execution confirmed without Ghost 73/1757 ( 4.15% ), interpretation pending 0 rows.
+- 37 VPI object model diagrams: test mapping 1662/1757 ( 94.59% ), execution confirmed 1658/1757 ( 94.37% ), execution confirmed without Ghost 73/1757 ( 4.15% ), interpretation pending 0 rows.
 - 38 VPI routine definitions: test mapping 280/348 ( 80.46% ), execution confirmed 280/348 ( 80.46% ), execution confirmed without Ghost 146/348 ( 41.95% ), interpretation pending 0 rows.
-- 39 Assertion API : test mapping 82/95 ( 86.32% ), execution confirmed 79/95 ( 83.16% ), execution confirmed without Ghost 2/95 ( 2.11% ), interpretation pending 0 rows.
+- 39 Assertion API : test mapping 82/95 ( 86.32% ), execution confirmed 82/95 ( 86.32% ), execution confirmed without Ghost 2/95 ( 2.11% ), interpretation pending 0 rows.
 - 40 Code coverage control and API : test mapping 122/128 ( 95.31% ), execution confirmed 122/128 ( 95.31% ), execution confirmed without Ghost 34/128 ( 26.56% ), interpretation pending 0 rows.
 - 41 Data read API : test mapping no registered items, execution confirmed no registered items, execution confirmed without Ghost no registered items, interpretation pending 0 rows.
-- A Formal syntax: test mapping 796/811 ( 98.15% ), execution confirmed 794/811 ( 97.90% ), execution confirmed without Ghost 537/811 ( 66.21% ), interpretation pending 0 rows.
+- A Formal syntax: test mapping 796/811 ( 98.15% ), execution confirmed 795/811 ( 98.03% ), execution confirmed without Ghost 537/811 ( 66.21% ), interpretation pending 0 rows.
 - B Keywords: test mapping 248/248 ( 100.00% ), execution confirmed 0/248 ( 0.00% ), execution confirmed without Ghost 0/248 ( 0.00% ), interpretation pending 0 rows.
 - C Deprecation: test mapping 9/20 ( 45.00% ), execution confirmed 9/20 ( 45.00% ), execution confirmed without Ghost 7/20 ( 35.00% ), interpretation pending 0 rows.
 - D Optional system tasks and system functions: test mapping no registered items, execution confirmed no registered items, execution confirmed without Ghost no registered items, interpretation pending 0 rows.

@@ -6,24 +6,24 @@
 <text x="20.0" y="48.0" class="muted" text-anchor="start">各シミュレータの最新記録（日付・スイートのコミットは列ごとに異なる場合があります）</text>
 <text x="530.0" y="70.0" text-anchor="middle" font-weight="600">Icarus Verilog</text>
 <text x="530.0" y="86.0" class="muted" text-anchor="middle">14.0 devel c717fc3</text>
-<text x="530.0" y="102.0" class="muted" text-anchor="middle">2026-11-20 01:21 UTC</text>
-<text x="530.0" y="118.0" class="muted" text-anchor="middle">スイート 03b2e10 / nightly</text>
+<text x="530.0" y="102.0" class="muted" text-anchor="middle">2026-11-20 04:35 UTC</text>
+<text x="530.0" y="118.0" class="muted" text-anchor="middle">スイート 3be3ed0 / nightly</text>
 <text x="730.0" y="70.0" text-anchor="middle" font-weight="600">Verilator</text>
-<text x="730.0" y="86.0" class="muted" text-anchor="middle">5.055 devel 3bdc686</text>
-<text x="730.0" y="102.0" class="muted" text-anchor="middle">2026-11-20 01:21 UTC</text>
-<text x="730.0" y="118.0" class="muted" text-anchor="middle">スイート 03b2e10 / nightly</text>
+<text x="730.0" y="86.0" class="muted" text-anchor="middle">5.055 devel 8dfa22d</text>
+<text x="730.0" y="102.0" class="muted" text-anchor="middle">2026-11-20 04:35 UTC</text>
+<text x="730.0" y="118.0" class="muted" text-anchor="middle">スイート 3be3ed0 / nightly</text>
 <text x="930.0" y="70.0" text-anchor="middle" font-weight="600">kirimasim</text>
-<text x="930.0" y="86.0" class="muted" text-anchor="middle">bd81035d9</text>
-<text x="930.0" y="102.0" class="muted" text-anchor="middle">2026-11-20 01:21 UTC</text>
-<text x="930.0" y="118.0" class="muted" text-anchor="middle">スイート 03b2e10 / nightly</text>
+<text x="930.0" y="86.0" class="muted" text-anchor="middle">cb97fc93b</text>
+<text x="930.0" y="102.0" class="muted" text-anchor="middle">2026-11-20 04:35 UTC</text>
+<text x="930.0" y="118.0" class="muted" text-anchor="middle">スイート 3be3ed0 / nightly</text>
 <text x="1130.0" y="70.0" text-anchor="middle" font-weight="600">Lyra</text>
 <text x="1130.0" y="86.0" class="muted" text-anchor="middle">9a9813a48</text>
-<text x="1130.0" y="102.0" class="muted" text-anchor="middle">2026-11-20 01:21 UTC</text>
-<text x="1130.0" y="118.0" class="muted" text-anchor="middle">スイート 03b2e10 / nightly</text>
+<text x="1130.0" y="102.0" class="muted" text-anchor="middle">2026-11-20 04:35 UTC</text>
+<text x="1130.0" y="118.0" class="muted" text-anchor="middle">スイート 3be3ed0 / nightly</text>
 <text x="1330.0" y="70.0" text-anchor="middle" font-weight="600">Ghost</text>
-<text x="1330.0" y="86.0" class="muted" text-anchor="middle">private build d72b3e26ad6a</text>
-<text x="1330.0" y="102.0" class="muted" text-anchor="middle">2026-11-20 01:21 UTC</text>
-<text x="1330.0" y="118.0" class="muted" text-anchor="middle">スイート 03b2e10 / nightly</text>
+<text x="1330.0" y="86.0" class="muted" text-anchor="middle">private build 8afc1893d8a1</text>
+<text x="1330.0" y="102.0" class="muted" text-anchor="middle">2026-11-20 04:35 UTC</text>
+<text x="1330.0" y="118.0" class="muted" text-anchor="middle">スイート 3be3ed0 / nightly</text>
 <text x="20.0" y="149.0" text-anchor="start">3  設計と検証の構成要素</text>
 <rect x="432" y="136" width="196" height="18" rx="3" style="fill:hsl(97,70%,45%);fill-opacity:0.35"/>
 <text x="530.0" y="149.0" text-anchor="middle">123/152  81%</text>
@@ -59,15 +59,15 @@
 <text x="1330.0" y="193.0" text-anchor="middle">520/520  100%</text>
 <text x="20.0" y="215.0" text-anchor="start">6  データ型</text>
 <rect x="432" y="202" width="196" height="18" rx="3" style="fill:hsl(93,70%,45%);fill-opacity:0.35"/>
-<text x="530.0" y="215.0" text-anchor="middle">694/898  77%</text>
+<text x="530.0" y="215.0" text-anchor="middle">694/899  77%</text>
 <rect x="632" y="202" width="196" height="18" rx="3" style="fill:hsl(74,70%,45%);fill-opacity:0.35"/>
-<text x="730.0" y="215.0" text-anchor="middle">551/898  61%</text>
+<text x="730.0" y="215.0" text-anchor="middle">551/899  61%</text>
 <rect x="832" y="202" width="196" height="18" rx="3" style="fill:hsl(109,70%,45%);fill-opacity:0.35"/>
-<text x="930.0" y="215.0" text-anchor="middle">813/898  91%</text>
+<text x="930.0" y="215.0" text-anchor="middle">814/899  91%</text>
 <rect x="1032" y="202" width="196" height="18" rx="3" style="fill:hsl(110,70%,45%);fill-opacity:0.35"/>
-<text x="1130.0" y="215.0" text-anchor="middle">822/898  92%</text>
+<text x="1130.0" y="215.0" text-anchor="middle">823/899  92%</text>
 <rect x="1232" y="202" width="196" height="18" rx="3" style="fill:hsl(120,70%,45%);fill-opacity:0.35"/>
-<text x="1330.0" y="215.0" text-anchor="middle">897/898  100%</text>
+<text x="1330.0" y="215.0" text-anchor="middle">899/899  100%</text>
 <text x="20.0" y="237.0" text-anchor="start">7  集合データ型</text>
 <rect x="432" y="224" width="196" height="18" rx="3" style="fill:hsl(52,70%,45%);fill-opacity:0.35"/>
 <text x="530.0" y="237.0" text-anchor="middle">478/1109  43%</text>
@@ -96,29 +96,29 @@
 <rect x="632" y="268" width="196" height="18" rx="3" style="fill:hsl(63,70%,45%);fill-opacity:0.35"/>
 <text x="730.0" y="281.0" text-anchor="middle">245/464  53%</text>
 <rect x="832" y="268" width="196" height="18" rx="3" style="fill:hsl(111,70%,45%);fill-opacity:0.35"/>
-<text x="930.0" y="281.0" text-anchor="middle">428/464  92%</text>
+<text x="930.0" y="281.0" text-anchor="middle">429/464  92%</text>
 <rect x="1032" y="268" width="196" height="18" rx="3" style="fill:hsl(114,70%,45%);fill-opacity:0.35"/>
 <text x="1130.0" y="281.0" text-anchor="middle">442/464  95%</text>
 <rect x="1232" y="268" width="196" height="18" rx="3" style="fill:hsl(120,70%,45%);fill-opacity:0.35"/>
 <text x="1330.0" y="281.0" text-anchor="middle">463/464  100%</text>
 <text x="20.0" y="303.0" text-anchor="start">10  代入文</text>
 <rect x="432" y="290" width="196" height="18" rx="3" style="fill:hsl(101,70%,45%);fill-opacity:0.35"/>
-<text x="530.0" y="303.0" text-anchor="middle">623/737  85%</text>
-<rect x="632" y="290" width="196" height="18" rx="3" style="fill:hsl(53,70%,45%);fill-opacity:0.35"/>
-<text x="730.0" y="303.0" text-anchor="middle">327/737  44%</text>
-<rect x="832" y="290" width="196" height="18" rx="3" style="fill:hsl(116,70%,45%);fill-opacity:0.35"/>
-<text x="930.0" y="303.0" text-anchor="middle">715/737  97%</text>
-<rect x="1032" y="290" width="196" height="18" rx="3" style="fill:hsl(114,70%,45%);fill-opacity:0.35"/>
-<text x="1130.0" y="303.0" text-anchor="middle">701/737  95%</text>
-<rect x="1232" y="290" width="196" height="18" rx="3" style="fill:hsl(120,70%,45%);fill-opacity:0.35"/>
-<text x="1330.0" y="303.0" text-anchor="middle">737/737  100%</text>
+<text x="530.0" y="303.0" text-anchor="middle">633/749  85%</text>
+<rect x="632" y="290" width="196" height="18" rx="3" style="fill:hsl(54,70%,45%);fill-opacity:0.35"/>
+<text x="730.0" y="303.0" text-anchor="middle">334/749  45%</text>
+<rect x="832" y="290" width="196" height="18" rx="3" style="fill:hsl(115,70%,45%);fill-opacity:0.35"/>
+<text x="930.0" y="303.0" text-anchor="middle">720/749  96%</text>
+<rect x="1032" y="290" width="196" height="18" rx="3" style="fill:hsl(113,70%,45%);fill-opacity:0.35"/>
+<text x="1130.0" y="303.0" text-anchor="middle">708/749  95%</text>
+<rect x="1232" y="290" width="196" height="18" rx="3" style="fill:hsl(119,70%,45%);fill-opacity:0.35"/>
+<text x="1330.0" y="303.0" text-anchor="middle">744/749  99%</text>
 <text x="20.0" y="325.0" text-anchor="start">11  演算子と式</text>
 <rect x="432" y="312" width="196" height="18" rx="3" style="fill:hsl(99,70%,45%);fill-opacity:0.35"/>
 <text x="530.0" y="325.0" text-anchor="middle">2145/2607  82%</text>
 <rect x="632" y="312" width="196" height="18" rx="3" style="fill:hsl(65,70%,45%);fill-opacity:0.35"/>
 <text x="730.0" y="325.0" text-anchor="middle">1412/2607  54%</text>
 <rect x="832" y="312" width="196" height="18" rx="3" style="fill:hsl(118,70%,45%);fill-opacity:0.35"/>
-<text x="930.0" y="325.0" text-anchor="middle">2559/2607  98%</text>
+<text x="930.0" y="325.0" text-anchor="middle">2560/2607  98%</text>
 <rect x="1032" y="312" width="196" height="18" rx="3" style="fill:hsl(118,70%,45%);fill-opacity:0.35"/>
 <text x="1130.0" y="325.0" text-anchor="middle">2553/2607  98%</text>
 <rect x="1232" y="312" width="196" height="18" rx="3" style="fill:hsl(120,70%,45%);fill-opacity:0.35"/>
@@ -169,70 +169,70 @@
 <text x="1330.0" y="413.0" text-anchor="middle">204/205  100%</text>
 <text x="20.0" y="435.0" text-anchor="start">16  アサーション</text>
 <rect x="432" y="422" width="196" height="18" rx="3" style="fill:hsl(37,70%,45%);fill-opacity:0.35"/>
-<text x="530.0" y="435.0" text-anchor="middle">165/533  31%</text>
+<text x="530.0" y="435.0" text-anchor="middle">165/534  31%</text>
 <rect x="632" y="422" width="196" height="18" rx="3" style="fill:hsl(55,70%,45%);fill-opacity:0.35"/>
-<text x="730.0" y="435.0" text-anchor="middle">245/533  46%</text>
-<rect x="832" y="422" width="196" height="18" rx="3" style="fill:hsl(57,70%,45%);fill-opacity:0.35"/>
-<text x="930.0" y="435.0" text-anchor="middle">251/533  47%</text>
+<text x="730.0" y="435.0" text-anchor="middle">245/534  46%</text>
+<rect x="832" y="422" width="196" height="18" rx="3" style="fill:hsl(56,70%,45%);fill-opacity:0.35"/>
+<text x="930.0" y="435.0" text-anchor="middle">251/534  47%</text>
 <rect x="1032" y="422" width="196" height="18" rx="3" style="fill:hsl(86,70%,45%);fill-opacity:0.35"/>
-<text x="1130.0" y="435.0" text-anchor="middle">382/533  72%</text>
+<text x="1130.0" y="435.0" text-anchor="middle">382/534  72%</text>
 <rect x="1232" y="422" width="196" height="18" rx="3" style="fill:hsl(120,70%,45%);fill-opacity:0.35"/>
-<text x="1330.0" y="435.0" text-anchor="middle">532/533  100%</text>
+<text x="1330.0" y="435.0" text-anchor="middle">532/534  100%</text>
 <text x="20.0" y="457.0" text-anchor="start">17  チェッカー</text>
 <rect x="432" y="444" width="196" height="18" rx="3" style="fill:hsl(1,70%,45%);fill-opacity:0.35"/>
-<text x="530.0" y="457.0" text-anchor="middle">1/128  1%</text>
-<rect x="632" y="444" width="196" height="18" rx="3" style="fill:hsl(62,70%,45%);fill-opacity:0.35"/>
-<text x="730.0" y="457.0" text-anchor="middle">66/128  52%</text>
+<text x="530.0" y="457.0" text-anchor="middle">1/129  1%</text>
+<rect x="632" y="444" width="196" height="18" rx="3" style="fill:hsl(61,70%,45%);fill-opacity:0.35"/>
+<text x="730.0" y="457.0" text-anchor="middle">66/129  51%</text>
 <rect x="832" y="444" width="196" height="18" rx="3" style="fill:hsl(47,70%,45%);fill-opacity:0.35"/>
-<text x="930.0" y="457.0" text-anchor="middle">50/128  39%</text>
+<text x="930.0" y="457.0" text-anchor="middle">50/129  39%</text>
 <rect x="1032" y="444" width="196" height="18" rx="3" style="fill:hsl(47,70%,45%);fill-opacity:0.35"/>
-<text x="1130.0" y="457.0" text-anchor="middle">50/128  39%</text>
+<text x="1130.0" y="457.0" text-anchor="middle">50/129  39%</text>
 <rect x="1232" y="444" width="196" height="18" rx="3" style="fill:hsl(120,70%,45%);fill-opacity:0.35"/>
-<text x="1330.0" y="457.0" text-anchor="middle">128/128  100%</text>
+<text x="1330.0" y="457.0" text-anchor="middle">129/129  100%</text>
 <text x="20.0" y="479.0" text-anchor="start">18  制約付き乱数値の生成</text>
 <rect x="432" y="466" width="196" height="18" rx="3" style="fill:hsl(27,70%,45%);fill-opacity:0.35"/>
-<text x="530.0" y="479.0" text-anchor="middle">64/282  23%</text>
+<text x="530.0" y="479.0" text-anchor="middle">64/283  23%</text>
 <rect x="632" y="466" width="196" height="18" rx="3" style="fill:hsl(72,70%,45%);fill-opacity:0.35"/>
-<text x="730.0" y="479.0" text-anchor="middle">169/282  60%</text>
+<text x="730.0" y="479.0" text-anchor="middle">170/283  60%</text>
 <rect x="832" y="466" width="196" height="18" rx="3" style="fill:hsl(38,70%,45%);fill-opacity:0.35"/>
-<text x="930.0" y="479.0" text-anchor="middle">89/282  32%</text>
+<text x="930.0" y="479.0" text-anchor="middle">89/283  31%</text>
 <rect x="1032" y="466" width="196" height="18" rx="3" style="fill:hsl(91,70%,45%);fill-opacity:0.35"/>
-<text x="1130.0" y="479.0" text-anchor="middle">214/282  76%</text>
+<text x="1130.0" y="479.0" text-anchor="middle">215/283  76%</text>
 <rect x="1232" y="466" width="196" height="18" rx="3" style="fill:hsl(119,70%,45%);fill-opacity:0.35"/>
-<text x="1330.0" y="479.0" text-anchor="middle">280/282  99%</text>
+<text x="1330.0" y="479.0" text-anchor="middle">280/283  99%</text>
 <text x="20.0" y="501.0" text-anchor="start">19  機能カバレッジ</text>
 <rect x="432" y="488" width="196" height="18" rx="3" style="fill:hsl(41,70%,45%);fill-opacity:0.35"/>
-<text x="530.0" y="501.0" text-anchor="middle">83/242  34%</text>
+<text x="530.0" y="501.0" text-anchor="middle">83/243  34%</text>
 <rect x="632" y="488" width="196" height="18" rx="3" style="fill:hsl(61,70%,45%);fill-opacity:0.35"/>
-<text x="730.0" y="501.0" text-anchor="middle">124/242  51%</text>
+<text x="730.0" y="501.0" text-anchor="middle">124/243  51%</text>
 <rect x="832" y="488" width="196" height="18" rx="3" style="fill:hsl(35,70%,45%);fill-opacity:0.35"/>
-<text x="930.0" y="501.0" text-anchor="middle">71/242  29%</text>
+<text x="930.0" y="501.0" text-anchor="middle">71/243  29%</text>
 <rect x="1032" y="488" width="196" height="18" rx="3" style="fill:hsl(99,70%,45%);fill-opacity:0.35"/>
-<text x="1130.0" y="501.0" text-anchor="middle">199/242  82%</text>
+<text x="1130.0" y="501.0" text-anchor="middle">200/243  82%</text>
 <rect x="1232" y="488" width="196" height="18" rx="3" style="fill:hsl(120,70%,45%);fill-opacity:0.35"/>
-<text x="1330.0" y="501.0" text-anchor="middle">241/242  100%</text>
+<text x="1330.0" y="501.0" text-anchor="middle">242/243  100%</text>
 <text x="20.0" y="523.0" text-anchor="start">20  ユーティリティ用システムタスク・関数</text>
-<rect x="432" y="510" width="196" height="18" rx="3" style="fill:hsl(74,70%,45%);fill-opacity:0.35"/>
-<text x="530.0" y="523.0" text-anchor="middle">418/682  61%</text>
+<rect x="432" y="510" width="196" height="18" rx="3" style="fill:hsl(73,70%,45%);fill-opacity:0.35"/>
+<text x="530.0" y="523.0" text-anchor="middle">418/683  61%</text>
 <rect x="632" y="510" width="196" height="18" rx="3" style="fill:hsl(64,70%,45%);fill-opacity:0.35"/>
-<text x="730.0" y="523.0" text-anchor="middle">366/682  54%</text>
+<text x="730.0" y="523.0" text-anchor="middle">366/683  54%</text>
 <rect x="832" y="510" width="196" height="18" rx="3" style="fill:hsl(102,70%,45%);fill-opacity:0.35"/>
-<text x="930.0" y="523.0" text-anchor="middle">580/682  85%</text>
+<text x="930.0" y="523.0" text-anchor="middle">581/683  85%</text>
 <rect x="1032" y="510" width="196" height="18" rx="3" style="fill:hsl(110,70%,45%);fill-opacity:0.35"/>
-<text x="1130.0" y="523.0" text-anchor="middle">626/682  92%</text>
+<text x="1130.0" y="523.0" text-anchor="middle">626/683  92%</text>
 <rect x="1232" y="510" width="196" height="18" rx="3" style="fill:hsl(120,70%,45%);fill-opacity:0.35"/>
-<text x="1330.0" y="523.0" text-anchor="middle">682/682  100%</text>
+<text x="1330.0" y="523.0" text-anchor="middle">683/683  100%</text>
 <text x="20.0" y="545.0" text-anchor="start">21  入出力用システムタスク・関数</text>
 <rect x="432" y="532" width="196" height="18" rx="3" style="fill:hsl(73,70%,45%);fill-opacity:0.35"/>
-<text x="530.0" y="545.0" text-anchor="middle">565/929  61%</text>
+<text x="530.0" y="545.0" text-anchor="middle">565/931  61%</text>
 <rect x="632" y="532" width="196" height="18" rx="3" style="fill:hsl(48,70%,45%);fill-opacity:0.35"/>
-<text x="730.0" y="545.0" text-anchor="middle">373/929  40%</text>
-<rect x="832" y="532" width="196" height="18" rx="3" style="fill:hsl(115,70%,45%);fill-opacity:0.35"/>
-<text x="930.0" y="545.0" text-anchor="middle">888/929  96%</text>
-<rect x="1032" y="532" width="196" height="18" rx="3" style="fill:hsl(96,70%,45%);fill-opacity:0.35"/>
-<text x="1130.0" y="545.0" text-anchor="middle">740/929  80%</text>
+<text x="730.0" y="545.0" text-anchor="middle">373/931  40%</text>
+<rect x="832" y="532" width="196" height="18" rx="3" style="fill:hsl(114,70%,45%);fill-opacity:0.35"/>
+<text x="930.0" y="545.0" text-anchor="middle">888/931  95%</text>
+<rect x="1032" y="532" width="196" height="18" rx="3" style="fill:hsl(95,70%,45%);fill-opacity:0.35"/>
+<text x="1130.0" y="545.0" text-anchor="middle">740/931  79%</text>
 <rect x="1232" y="532" width="196" height="18" rx="3" style="fill:hsl(120,70%,45%);fill-opacity:0.35"/>
-<text x="1330.0" y="545.0" text-anchor="middle">929/929  100%</text>
+<text x="1330.0" y="545.0" text-anchor="middle">931/931  100%</text>
 <text x="20.0" y="567.0" text-anchor="start">22  コンパイラ指令</text>
 <rect x="432" y="554" width="196" height="18" rx="3" style="fill:hsl(114,70%,45%);fill-opacity:0.35"/>
 <text x="530.0" y="567.0" text-anchor="middle">1257/1326  95%</text>
@@ -385,8 +385,8 @@
 <text x="930.0" y="853.0" text-anchor="middle">22/189  12%</text>
 <rect x="1032" y="840" width="196" height="18" rx="3" style="fill:hsl(78,70%,45%);fill-opacity:0.35"/>
 <text x="1130.0" y="853.0" text-anchor="middle">123/189  65%</text>
-<rect x="1232" y="840" width="196" height="18" rx="3" style="fill:hsl(119,70%,45%);fill-opacity:0.35"/>
-<text x="1330.0" y="853.0" text-anchor="middle">188/189  99%</text>
+<rect x="1232" y="840" width="196" height="18" rx="3" style="fill:hsl(120,70%,45%);fill-opacity:0.35"/>
+<text x="1330.0" y="853.0" text-anchor="middle">189/189  100%</text>
 <text x="20.0" y="875.0" text-anchor="start">36  プログラミング言語インターフェース（PLI/VPI）の概要</text>
 <rect x="432" y="862" width="196" height="18" rx="3" style="fill:hsl(46,70%,45%);fill-opacity:0.35"/>
 <text x="530.0" y="875.0" text-anchor="middle">34/89  38%</text>
@@ -407,8 +407,8 @@
 <text x="930.0" y="897.0" text-anchor="middle">0/231  0%</text>
 <rect x="1032" y="884" width="196" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
 <text x="1130.0" y="897.0" text-anchor="middle">0/231  0%</text>
-<rect x="1232" y="884" width="196" height="18" rx="3" style="fill:hsl(118,70%,45%);fill-opacity:0.35"/>
-<text x="1330.0" y="897.0" text-anchor="middle">228/231  99%</text>
+<rect x="1232" y="884" width="196" height="18" rx="3" style="fill:hsl(119,70%,45%);fill-opacity:0.35"/>
+<text x="1330.0" y="897.0" text-anchor="middle">230/231  100%</text>
 <text x="20.0" y="919.0" text-anchor="start">38  VPIルーチンの定義</text>
 <rect x="432" y="906" width="196" height="18" rx="3" style="fill:hsl(57,70%,45%);fill-opacity:0.35"/>
 <text x="530.0" y="919.0" text-anchor="middle">59/125  47%</text>
@@ -429,8 +429,8 @@
 <text x="930.0" y="941.0" text-anchor="middle">0/39  0%</text>
 <rect x="1032" y="928" width="196" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
 <text x="1130.0" y="941.0" text-anchor="middle">0/39  0%</text>
-<rect x="1232" y="928" width="196" height="18" rx="3" style="fill:hsl(114,70%,45%);fill-opacity:0.35"/>
-<text x="1330.0" y="941.0" text-anchor="middle">37/39  95%</text>
+<rect x="1232" y="928" width="196" height="18" rx="3" style="fill:hsl(120,70%,45%);fill-opacity:0.35"/>
+<text x="1330.0" y="941.0" text-anchor="middle">39/39  100%</text>
 <text x="20.0" y="963.0" text-anchor="start">40  コードカバレッジの制御とAPI</text>
 <rect x="432" y="950" width="196" height="18" rx="3" style="fill:hsl(3,70%,45%);fill-opacity:0.35"/>
 <text x="530.0" y="963.0" text-anchor="middle">1/39  3%</text>
