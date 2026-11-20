@@ -108,6 +108,7 @@
 | 第9章：プロセス | [日本語](tests/ch9.ja.md) | [English](tests/ch9.md) |
 | テストが引用する条項 | [日本語](tests/clauses.ja.md) | [English](tests/clauses.md) |
 | 読み方が割れるテスト | [日本語](interpretation-splits.md) | [English](interpretation-splits.en.md) |
+| IEEE 1800-2023で加わった機能のテスト | [日本語](sv2023-features.md) | [English](sv2023-features.en.md) |
 
 <a id="historical-records"></a>
 

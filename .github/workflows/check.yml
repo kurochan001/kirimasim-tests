@@ -318,6 +318,7 @@ jobs:
           python3 tools/requirement_matching.py --check
           python3 tools/review_sample.py check
           python3 tools/interpretation_splits.py --check
+          python3 tools/sv2023_features.py --check
 
       # Problems of existing tests listed in tools/lint_baseline.txt are known.
       - name: Check the metadata of the tests

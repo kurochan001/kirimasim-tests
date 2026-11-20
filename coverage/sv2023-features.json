@@ -1,0 +1,1651 @@
+{
+  "schema": 1,
+  "note": "Features added by IEEE 1800-2023 (the 18 items of the DVCon tutorial \"A Subjective Review on IEEE Std 1800-2023\" and three more), with the tests whose code was read and found to exercise each feature. Regular expressions only proposed candidates. AI review, not a person's.",
+  "features": [
+    {
+      "key": "type_this",
+      "title": {
+        "en": "type(this)",
+        "ja": "type(this)"
+      },
+      "listed_in": "dvcon",
+      "clauses": [
+        "6.23",
+        "8.11"
+      ],
+      "requirements": [
+        "SV2023-6.23-EXTRACT-TYPE-THIS",
+        "SV2023-8.11-EXTRACT-THIS-CONTEXT"
+      ],
+      "illegal_forms": [
+        {
+          "clause": "8.11",
+          "en": "this may appear only as type(this) or inside nonstatic methods, constraints, inlined constraint methods and class-embedded covergroups, so type(this) outside any class is an error.",
+          "ja": "this は type(this) として、または非 static メソッド・制約・インライン制約メソッド・クラス内 covergroup の中でのみ使え、クラスの外の type(this) はエラーである。"
+        }
+      ],
+      "tests": [
+        {
+          "test": "ch8/test_illegal_type_this_outside_class",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_type_this",
+          "illegal": false
+        }
+      ]
+    },
+    {
+      "key": "ifdef_expression",
+      "title": {
+        "ja": "ifdef系の指令の論理式",
+        "en": "Logical expressions in the ifdef directives"
+      },
+      "listed_in": "dvcon",
+      "clauses": [
+        "22.6"
+      ],
+      "requirements": [
+        "SV2023-22.6-EXTRACT-CONDITIONAL-EVALUATION",
+        "SV2023-22.6-EXTRACT-CONDITIONAL-GRAMMAR",
+        "SV2023-22.6-EXTRACT-FIRST-SUCCESS",
+        "SV2023-22.6-EXTRACT-IFNDEF-NEGATION",
+        "SV2023-22.6-EXTRACT-DIRECTIVES-NOT-DEFINED"
+      ],
+      "illegal_forms": [
+        {
+          "clause": "22.6",
+          "en": "Syntax 22-5 allows only macro names, parentheses, ! and the binary operators &&, ||, -> and <-> in the expression; other operators are not part of the syntax (the standard gives no separate shall-not sentence).",
+          "ja": "構文 22-5 は式にマクロ名・括弧・!・二項演算子 &&, ||, ->, <-> だけを認めており、他の演算子は構文に含まれない（独立した shall not の文はない）。"
+        }
+      ],
+      "tests": [
+        {
+          "test": "ch22/test_ifdef_branches_and_expressions",
+          "illegal": false
+        },
+        {
+          "test": "ch22/test_ifdef_directive_names_not_defined",
+          "illegal": false
+        },
+        {
+          "test": "ch22/test_ifdef_expression",
+          "illegal": false
+        },
+        {
+          "test": "ch22/test_illegal_ifdef_expression_operator",
+          "illegal": true
+        }
+      ]
+    },
+    {
+      "key": "array_method_index_argument",
+      "title": {
+        "en": "Index argument of an array method call",
+        "ja": "配列メソッド呼び出しの index_argument"
+      },
+      "listed_in": "dvcon",
+      "clauses": [
+        "7.12",
+        "7.12.4"
+      ],
+      "requirements": [
+        "SV2023-7.12-EXTRACT-INDEX-NAME-DEFAULT",
+        "SV2023-7.12-EXTRACT-METHOD-CALL-GRAMMAR",
+        "SV2023-7.12.4-EXTRACT-INDEX-RENAME"
+      ],
+      "illegal_forms": [],
+      "tests": [
+        {
+          "test": "ch7/test_array_method_index_argument",
+          "illegal": false
+        },
+        {
+          "test": "ch7/test_array_method_iterator_index_names_and_selects",
+          "illegal": false
+        },
+        {
+          "test": "ch7/test_map_element_types_and_index_names",
+          "illegal": false
+        }
+      ]
+    },
+    {
+      "key": "class_final",
+      "title": {
+        "en": "class :final",
+        "ja": "class :final"
+      },
+      "listed_in": "dvcon",
+      "clauses": [
+        "8.3",
+        "8.13"
+      ],
+      "requirements": [
+        "SV2023-8.3-EXTRACT-CLASS-DECLARATION",
+        "SV2023-8.13-EXTRACT-FINAL-CLASS"
+      ],
+      "illegal_forms": [
+        {
+          "clause": "8.13",
+          "en": "A class declared with the final specifier cannot be extended; deriving from it is an error.",
+          "ja": "final 指定子付きで宣言したクラスは拡張できず、そこから派生するとエラーである。"
+        }
+      ],
+      "tests": [
+        {
+          "test": "ch8/test_class_declaration_grammar_forms",
+          "illegal": false
+        },
+        {
+          "test": "ch8/test_final_class_and_method",
+          "illegal": false
+        },
+        {
+          "test": "ch8/test_illegal_final_class_extended",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_illegal_final_class_extends",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_syntax_class_and_interface_class_headers",
+          "illegal": false
+        }
+      ]
+    },
+    {
+      "key": "dist_default",
+      "title": {
+        "en": "default item of dist",
+        "ja": "dist の default 項目"
+      },
+      "listed_in": "dvcon",
+      "clauses": [
+        "18.5.3"
+      ],
+      "requirements": [
+        "SV2023-18.5.3-EXTRACT-DEFAULT-COMPLEMENT",
+        "SV2023-18.5.3-EXTRACT-DEFAULT-DIVIDE-UNIQUE",
+        "SV2023-18.5.3-EXTRACT-DIST-MEMBERSHIP"
+      ],
+      "illegal_forms": [
+        {
+          "clause": "18.5.3",
+          "en": "The default item must use :/ with a weight (omitting the weight or using := is an error) and a distribution may have at most one default item.",
+          "ja": "default 項目は :/ と重みを使わなければならず（重みの省略や := はエラー）、1 つの分布に default 項目は高々 1 つしか置けない。"
+        }
+      ],
+      "tests": [
+        {
+          "test": "ch18/test_constraint_grammar_forms",
+          "illegal": false
+        },
+        {
+          "test": "ch18/test_dist_default_complement",
+          "illegal": false
+        },
+        {
+          "test": "ch18/test_dist_default_weight",
+          "illegal": false
+        },
+        {
+          "test": "ch18/test_illegal_dist_default_colon_equal",
+          "illegal": true
+        },
+        {
+          "test": "ch18/test_illegal_dist_default_no_weight",
+          "illegal": true
+        },
+        {
+          "test": "ch18/test_illegal_dist_two_defaults",
+          "illegal": true
+        }
+      ]
+    },
+    {
+      "key": "real_coverpoint",
+      "title": {
+        "en": "Real coverpoints, real bins and type_option.real_interval",
+        "ja": "real 型の coverpoint・real の bins と type_option.real_interval"
+      },
+      "listed_in": "instruction",
+      "clauses": [
+        "19.5",
+        "19.5.1",
+        "19.5.1.1",
+        "19.5.2",
+        "19.5.3",
+        "19.5.4",
+        "19.6",
+        "19.7.1",
+        "19.10"
+      ],
+      "requirements": [
+        "SV2023-19.5-EXTRACT-COVERPOINT-DOMAIN",
+        "SV2023-19.5-EXTRACT-REAL-EXPLICIT-BINS",
+        "SV2023-19.5.1-EXTRACT-EXCESS-REAL-BINS",
+        "SV2023-19.5.1-EXTRACT-FIXED-REAL-DISTRIBUTION",
+        "SV2023-19.5.1-EXTRACT-MERGE-IDENTICAL-INTERVALS",
+        "SV2023-19.5.1-EXTRACT-REAL-BIN-FORMS",
+        "SV2023-19.5.1-EXTRACT-REAL-BIN-NAMES",
+        "SV2023-19.5.1-EXTRACT-REAL-DEFAULT-NO-ARRAY",
+        "SV2023-19.5.1-EXTRACT-REAL-DOLLAR-RANGE",
+        "SV2023-19.5.1-EXTRACT-REAL-INTERVAL-ENDS",
+        "SV2023-19.5.1-EXTRACT-REAL-OPEN-PARTITION",
+        "SV2023-19.5.1-EXTRACT-REAL-RANGE",
+        "SV2023-19.5.1-EXTRACT-REAL-TOLERANCE",
+        "SV2023-19.5.1.1-EXTRACT-WITH-FILTER",
+        "SV2023-19.5.2-EXTRACT-TRANSITION-INTEGRAL",
+        "SV2023-19.5.3-EXTRACT-AUTO-WHEN-NO-NORMAL",
+        "SV2023-19.5.4-EXTRACT-WILDCARD-SAMPLES",
+        "SV2023-19.6-EXTRACT-CROSS-ITEMS",
+        "SV2023-19.7.1-EXTRACT-TYPE-DEFAULTS",
+        "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-REAL-INTERVAL-COVERGROUP",
+        "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-REAL-INTERVAL-COVERPOINT",
+        "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-REAL-INTERVAL-CROSS",
+        "SV2023-19.7.1-EXTRACT-TYPE-OPTION-MUTATION",
+        "SV2023-19.7.1-EXTRACT-TYPE-OPTION-REAL-INTERVAL",
+        "SV2023-19.10-EXTRACT-GROUP-TYPE-OPTION-STRUCT",
+        "SV2023-19.10-EXTRACT-POINT-TYPE-OPTION-STRUCT"
+      ],
+      "illegal_forms": [
+        {
+          "clause": "19.5",
+          "en": "A coverpoint of a real expression must have at least one explicit bins construct (no automatic bins).",
+          "ja": "real 式の coverpoint は少なくとも 1 つの明示的な bins を持たなければならない（自動 bins は作られない）。"
+        },
+        {
+          "clause": "19.5.1",
+          "en": "A default bin of a real coverpoint cannot use the [] or [N] array notation.",
+          "ja": "real coverpoint の default bin に [] や [N] の配列表記は使えない。"
+        },
+        {
+          "clause": "19.5.1.1",
+          "en": "A with clause is not allowed on bins of a real coverpoint.",
+          "ja": "real coverpoint の bins に with 句は使えない。"
+        },
+        {
+          "clause": "19.5.2",
+          "en": "Transition bins of real values are not allowed.",
+          "ja": "real 値の遷移 bins は使えない。"
+        },
+        {
+          "clause": "19.5.4",
+          "en": "Wildcard bins of a real coverpoint are not allowed.",
+          "ja": "real coverpoint の wildcard bins は使えない。"
+        },
+        {
+          "clause": "19.6",
+          "en": "A cross cannot name a real variable directly; a real expression must be wrapped in an explicit coverpoint (no test for this form found).",
+          "ja": "cross に real 変数を直接指定できず、real 式は明示的な coverpoint で包まなければならない（この形のテストは見つからなかった）。"
+        },
+        {
+          "clause": "19.7.1",
+          "en": "type_option.real_interval can be set only at the covergroup and coverpoint levels, not in a cross.",
+          "ja": "type_option.real_interval を設定できるのは covergroup と coverpoint のレベルだけで、cross では設定できない。"
+        }
+      ],
+      "tests": [
+        {
+          "test": "ch19/test_cg_auto_bins_only_ignored_and_real",
+          "illegal": false
+        },
+        {
+          "test": "ch19/test_cg_real_bin_intervals",
+          "illegal": false
+        },
+        {
+          "test": "ch19/test_cg_real_bins_fixed_and_dollar",
+          "illegal": false
+        },
+        {
+          "test": "ch19/test_cg_real_bins_tolerance_and_merge",
+          "illegal": false
+        },
+        {
+          "test": "ch19/test_cg_real_fixed_bin_items_and_names",
+          "illegal": false
+        },
+        {
+          "test": "ch19/test_cg_real_fixed_bins_listed_order",
+          "illegal": false
+        },
+        {
+          "test": "ch19/test_cg_real_open_bin_names_merge",
+          "illegal": false
+        },
+        {
+          "test": "ch19/test_illegal_cg_real_bins_with",
+          "illegal": true
+        },
+        {
+          "test": "ch19/test_illegal_cg_real_default_bin_array",
+          "illegal": true
+        },
+        {
+          "test": "ch19/test_illegal_cg_real_default_bin_n",
+          "illegal": true
+        },
+        {
+          "test": "ch19/test_illegal_cg_real_no_bins",
+          "illegal": true
+        },
+        {
+          "test": "ch19/test_illegal_cg_real_transition_bins",
+          "illegal": true
+        },
+        {
+          "test": "ch19/test_illegal_cg_real_transition_domain",
+          "illegal": true
+        },
+        {
+          "test": "ch19/test_illegal_cg_real_wildcard",
+          "illegal": true
+        },
+        {
+          "test": "ch19/test_option_member_defaults",
+          "illegal": false
+        },
+        {
+          "test": "ch19/test_option_struct_member_types",
+          "illegal": false
+        },
+        {
+          "test": "ch19/test_option_struct_members",
+          "illegal": false
+        },
+        {
+          "test": "gen/ch19/test_gen_cglevel_type_option_real_interval_cross",
+          "illegal": true
+        }
+      ]
+    },
+    {
+      "key": "stacktrace",
+      "title": {
+        "en": "$stacktrace",
+        "ja": "$stacktrace"
+      },
+      "listed_in": "dvcon",
+      "clauses": [
+        "20.17.2",
+        "11.2.1"
+      ],
+      "requirements": [
+        "SV2023-20.17.2-EXTRACT-STACKTRACE-CONTEXT",
+        "SV2023-20.17.2-EXTRACT-STACKTRACE-RESULT"
+      ],
+      "illegal_forms": [
+        {
+          "clause": "20.17.2",
+          "en": "Syntax 20-18 gives $stacktrace no arguments, so a call with an argument is not valid.",
+          "ja": "構文 20-18 では $stacktrace は引数を取らないので、引数付きの呼び出しは不正である。"
+        },
+        {
+          "clause": "11.2.1",
+          "en": "$stacktrace is not among the system functions allowed in constant system function calls, so it cannot appear in a constant expression such as a parameter value.",
+          "ja": "$stacktrace は定数システム関数呼び出しに使えるシステム関数に含まれず、パラメータ値のような定数式には書けない。"
+        }
+      ],
+      "tests": [
+        {
+          "test": "ch11/test_illegal_stacktrace_in_constant_expression",
+          "illegal": true
+        },
+        {
+          "test": "ch20/test_illegal_stacktrace_argument",
+          "illegal": true
+        },
+        {
+          "test": "ch20/test_stacktrace_function",
+          "illegal": false
+        },
+        {
+          "test": "ch20/test_stacktrace_function_call_contexts",
+          "illegal": false
+        },
+        {
+          "test": "ch20/test_stacktrace_function_string_value",
+          "illegal": false
+        }
+      ]
+    },
+    {
+      "key": "timeunit_timeprecision_functions",
+      "title": {
+        "en": "$timeunit and $timeprecision system functions",
+        "ja": "システム関数 $timeunit と $timeprecision"
+      },
+      "listed_in": "dvcon",
+      "clauses": [
+        "20.4",
+        "20.4.1",
+        "11.2.1"
+      ],
+      "requirements": [
+        "SV2023-20.4.1-EXTRACT-COMPILATION-SCOPE",
+        "SV2023-20.4.1-EXTRACT-CURRENT-SCOPE",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-RANGE",
+        "SV2023-20.4.1-EXTRACT-NAMED-SCOPE",
+        "SV2023-20.4.1-EXTRACT-ROOT-SCOPE",
+        "SV2023-20.4.1-EXTRACT-TIMESCALE-QUERIES",
+        "SV2023-11.2.1-EXTRACT-CONSTANT-TIMESCALE-NAME",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-0",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-1",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-2",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG1",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG2",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG3",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG4",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG5",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG6",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG7",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG8",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG9",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG10",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG11",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG12",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG13",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG14",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG15"
+      ],
+      "illegal_forms": [],
+      "tests": [
+        {
+          "test": "ch11/test_expr_timescale_constants",
+          "illegal": false
+        },
+        {
+          "test": "ch20/test_timeunit_exponent_table",
+          "illegal": false
+        },
+        {
+          "test": "ch20/test_timeunit_timeprecision_functions",
+          "illegal": false
+        },
+        {
+          "test": "ch20/test_timeunit_unit_root",
+          "illegal": false
+        },
+        {
+          "test": "imported/ch20/test_time_query_matrix",
+          "illegal": false
+        }
+      ]
+    },
+    {
+      "key": "type_parameter_restriction",
+      "title": {
+        "en": "Restricted type parameters (type enum/struct/union/class/interface class)",
+        "ja": "制限付き型パラメータ（type enum / struct / union / class / interface class）"
+      },
+      "listed_in": "instruction",
+      "clauses": [
+        "6.20.3"
+      ],
+      "requirements": [
+        "SV2023-6.20.3-EXTRACT-BASIC-TYPE-RESTRICTION",
+        "SV2023-6.20.3-EXTRACT-RESTRICTION-CONFORMANCE"
+      ],
+      "illegal_forms": [
+        {
+          "clause": "6.20.3",
+          "en": "It is an error to give a restricted type parameter a type that does not belong to the stated basic category.",
+          "ja": "制限付き型パラメータに、指定した基本カテゴリに属さない型を与えるとエラーである。"
+        }
+      ],
+      "tests": [
+        {
+          "test": "ch6/test_illegal_enum_restricted_type_parameter_given_int",
+          "illegal": true
+        },
+        {
+          "test": "ch6/test_illegal_interface_class_restricted_type_parameter_given_class",
+          "illegal": true
+        },
+        {
+          "test": "ch6/test_illegal_struct_restricted_type_parameter_given_union",
+          "illegal": true
+        },
+        {
+          "test": "ch6/test_parameter_declaration_forms",
+          "illegal": false
+        },
+        {
+          "test": "ch6/test_type_param_restricted_class_and_interface_lists",
+          "illegal": false
+        },
+        {
+          "test": "ch6/test_type_param_restricted_conforming_types",
+          "illegal": false
+        },
+        {
+          "test": "ch6/test_type_param_restricted_kinds",
+          "illegal": false
+        }
+      ]
+    },
+    {
+      "key": "constructor_default_arguments",
+      "title": {
+        "en": "default in constructor argument lists (function new(default...), super.new(default), extends Base(default))",
+        "ja": "コンストラクタの default 引数（function new(default…)、super.new(default)、extends Base(default)）"
+      },
+      "listed_in": "dvcon",
+      "clauses": [
+        "8.17",
+        "8.3",
+        "8.15"
+      ],
+      "requirements": [
+        "SV2023-8.3-EXTRACT-CLASS-DECLARATION",
+        "SV2023-8.3-EXTRACT-ONE-CONSTRUCTOR-DEFAULT",
+        "SV2023-8.15-EXTRACT-IMPLICIT-SUPER-NEW",
+        "SV2023-8.17-EXTRACT-AFTER-DEFAULT-ARGUMENT",
+        "SV2023-8.17-EXTRACT-DEFAULT-EXPANSION",
+        "SV2023-8.17-EXTRACT-DEFAULT-NAME-CONFLICT",
+        "SV2023-8.17-EXTRACT-DEFAULT-ONCE",
+        "SV2023-8.17-EXTRACT-DEFAULT-REQUIRES-SUBCLASS",
+        "SV2023-8.17-EXTRACT-EXTENDS-DEFAULT-EXPLICIT",
+        "SV2023-8.17-EXTRACT-EXTENDS-DEFAULT-IMPLICIT",
+        "SV2023-8.17-EXTRACT-IMPLICIT-DEFAULT-FORWARD",
+        "SV2023-8.17-EXTRACT-NO-LOCAL-DEFAULT-DEPENDENCY",
+        "SV2023-8.17-EXTRACT-SUPER-DEFAULT-FORWARD",
+        "SV2023-8.17-EXTRACT-SUPER-DEFAULT-REQUIRES-EXPANSION"
+      ],
+      "illegal_forms": [
+        {
+          "clause": "8.17",
+          "en": "default may appear at most once in a constructor argument list, only in a subclass, must not be combined with an argument that repeats a superclass argument name, and is an error when a superclass argument default refers to a local member.",
+          "ja": "default はコンストラクタ引数リストに高々 1 回、サブクラスでのみ書け、スーパークラスの引数名と同じ名前の引数とは併用できず、スーパークラス引数の既定値がローカルメンバを参照する場合はエラーである。"
+        },
+        {
+          "clause": "8.17",
+          "en": "super.new(default) is an error when the constructor argument list has no default; with extends Base(default) a user-defined constructor must contain default.",
+          "ja": "コンストラクタ引数リストに default がないときの super.new(default) はエラーであり、extends Base(default) のときユーザ定義コンストラクタは default を含まなければならない。"
+        }
+      ],
+      "tests": [
+        {
+          "test": "ch8/test_class_constructor_default_argument_expansion",
+          "illegal": false
+        },
+        {
+          "test": "ch8/test_constructor_default_argument",
+          "illegal": false
+        },
+        {
+          "test": "ch8/test_illegal_constructor_default_name_conflict",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_illegal_constructor_default_outside_subclass",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_illegal_constructor_default_repeated",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_illegal_constructor_default_twice",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_illegal_default_depends_on_local_member",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_illegal_extends_default_without_default_argument",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_illegal_super_default_without_expansion",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_illegal_super_new_default_without_default",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_super_new_default",
+          "illegal": false
+        }
+      ]
+    },
+    {
+      "key": "array_map_method",
+      "title": {
+        "en": "map array method",
+        "ja": "配列メソッド map"
+      },
+      "listed_in": "dvcon",
+      "clauses": [
+        "7.12.5",
+        "7.12"
+      ],
+      "requirements": [
+        "SV2023-7.12.5-EXTRACT-MAP-REQUIRED-WITH",
+        "SV2023-7.12.5-EXTRACT-MAP-SELF-DETERMINED-TYPE",
+        "SV2023-7.12.5-EXTRACT-MAP-SHAPE"
+      ],
+      "illegal_forms": [
+        {
+          "clause": "7.12.5",
+          "en": "map() requires a with clause, and the result keeps the dimension range and index type of the source array, so assigning it to an array with another element type or index type is an error.",
+          "ja": "map() には with 句が必須で、結果は元の配列の次元範囲とインデックス型を保つため、別の要素型・インデックス型の配列への代入はエラーである。"
+        }
+      ],
+      "tests": [
+        {
+          "test": "ch7/test_array_map_method",
+          "illegal": false
+        },
+        {
+          "test": "ch7/test_illegal_map_assoc_result_to_other_index_type",
+          "illegal": true
+        },
+        {
+          "test": "ch7/test_illegal_map_int_elements_to_string_queue",
+          "illegal": true
+        },
+        {
+          "test": "ch7/test_illegal_map_without_with",
+          "illegal": true
+        },
+        {
+          "test": "ch7/test_map_element_types_and_index_names",
+          "illegal": false
+        },
+        {
+          "test": "ch7/test_map_result_to_same_array",
+          "illegal": false
+        },
+        {
+          "test": "ch7/test_map_result_type_range_and_keys",
+          "illegal": false
+        },
+        {
+          "test": "ch7/test_map_selects_order_and_empty",
+          "illegal": false
+        }
+      ]
+    },
+    {
+      "key": "soft_packed_union",
+      "title": {
+        "en": "union soft (soft packed union)",
+        "ja": "union soft（soft packed union）"
+      },
+      "listed_in": "dvcon",
+      "clauses": [
+        "7.3.1",
+        "7.3",
+        "7.2"
+      ],
+      "requirements": [
+        "SV2023-7.2-EXTRACT-UNION-DIMENSION-QUALIFIER",
+        "SV2023-7.3-EXTRACT-AGGREGATE-FOOTNOTES",
+        "SV2023-7.3-EXTRACT-UNION-GRAMMAR",
+        "SV2023-7.3.1-EXTRACT-SOFT-RECURSIVE",
+        "SV2023-7.3.1-EXTRACT-SOFT-RIGHT-ALIGN",
+        "SV2023-7.3.1-EXTRACT-SOFT-SIZE",
+        "SV2023-7.3.1-EXTRACT-SOFT-VARYING-SIZE",
+        "SV2023-7.3.1-EXTRACT-SOFT-WRITE-HIGH-UNCHANGED"
+      ],
+      "illegal_forms": [
+        {
+          "clause": "7.3",
+          "en": "A union followed by a packed dimension must carry soft or packed (or both); without either it is an error.",
+          "ja": "packed 次元が後ろに付く union は soft か packed（または両方）を持たなければならず、どちらもなければエラーである。"
+        }
+      ],
+      "tests": [
+        {
+          "test": "ch37/test_vpi_struct_union_flags_members",
+          "illegal": false
+        },
+        {
+          "test": "ch37/test_vpi_struct_union_net_flags",
+          "illegal": false
+        },
+        {
+          "test": "ch6/test_data_type_keyword_forms",
+          "illegal": false
+        },
+        {
+          "test": "ch7/test_illegal_union_packed_dimension_needs_soft_or_packed",
+          "illegal": true
+        },
+        {
+          "test": "ch7/test_soft_packed_union",
+          "illegal": false
+        },
+        {
+          "test": "ch7/test_soft_packed_union_nested_layout",
+          "illegal": false
+        },
+        {
+          "test": "ch7/test_tagged_union_keywords_and_members",
+          "illegal": false
+        },
+        {
+          "test": "ch7/test_union_grammar_forms",
+          "illegal": false
+        }
+      ]
+    },
+    {
+      "key": "triple_quoted_string",
+      "title": {
+        "ja": "三重引用符の文字列リテラル",
+        "en": "Triple-quoted string literals"
+      },
+      "listed_in": "dvcon",
+      "clauses": [
+        "5.9",
+        "5.9.1",
+        "A.8.8",
+        "22.5.1"
+      ],
+      "requirements": [
+        "SV2023-5.9-EXTRACT-STRING-DELIMITERS",
+        "SV2023-5.9-EXTRACT-TRIPLE-CHARACTERS",
+        "SV2023-5.9-EXTRACT-TRIPLE-ESCAPE-SAME",
+        "SV2023-5.9-EXTRACT-TRIPLE-RAW-NEWLINE",
+        "SV2023-5.9-EXTRACT-TRIPLE-RAW-QUOTE",
+        "SV2023-5.9.1-EXTRACT-TRIPLE-ESCAPES-SUPPORTED",
+        "SV2023-A.8.8-EXTRACT-ITEMS",
+        "SV2023-A.8.8-EXTRACT-STRING",
+        "SV2023-22.5.1-EXTRACT-MACRO-ARGUMENT-DELIMITERS",
+        "SV2023-22.5.1-EXTRACT-MACRO-LINE-CONTINUATION",
+        "SV2023-22.5.1-EXTRACT-MACRO-MIXED-QUOTES",
+        "SV2023-22.5.1-EXTRACT-MACRO-TRIPLE-QUOTE",
+        "SV2023-22.5.1-EXTRACT-MACRO-TRIPLE-STRING"
+      ],
+      "illegal_forms": [
+        {
+          "clause": "22.5.1",
+          "en": "In macro text, an unescaped newline inside a grave-accent triple quote ends the macro definition (unlike inside a plain triple-quoted literal), and an ordinary quote there starts a string literal that must close on its line; text left over is ordinary source and is an error.",
+          "ja": "マクロ本文では、`\"\"\" の中の（バックスラッシュのない）改行はマクロ定義を終了させ（通常の三重引用符リテラルとは異なる）、そこにある普通の \" は同じ行で閉じなければならない文字列リテラルを始める。残った本文は通常のソースとなりエラーになる。"
+        }
+      ],
+      "tests": [
+        {
+          "test": "ch22/test_illegal_macro_grave_triple_quote_newline_ends_text",
+          "illegal": true
+        },
+        {
+          "test": "ch22/test_illegal_macro_grave_triple_quote_plain_quote_unclosed",
+          "illegal": true
+        },
+        {
+          "test": "ch22/test_macro_grave_triple_quote",
+          "illegal": false
+        },
+        {
+          "test": "ch22/test_macro_grave_triple_quote_expansion_steps",
+          "illegal": false
+        },
+        {
+          "test": "ch22/test_macro_grave_triple_quote_inner_quotes",
+          "illegal": false
+        },
+        {
+          "test": "ch22/test_macro_triple_quoted_string_newline",
+          "illegal": false
+        },
+        {
+          "test": "ch5/test_string_backslash_newline_continuation",
+          "illegal": false
+        },
+        {
+          "test": "ch5/test_triple_quoted_and_quoted_string_contents",
+          "illegal": false
+        },
+        {
+          "test": "ch5/test_triple_quoted_string",
+          "illegal": false
+        }
+      ]
+    },
+    {
+      "key": "rand_real",
+      "title": {
+        "en": "rand real variables",
+        "ja": "rand real 変数"
+      },
+      "listed_in": "dvcon",
+      "clauses": [
+        "18.4",
+        "18.4.1",
+        "18.5.3",
+        "18.5.4",
+        "18.5.5",
+        "18.5.6",
+        "18.5.9"
+      ],
+      "requirements": [
+        "SV2023-18.4-EXTRACT-SINGULAR-TYPES",
+        "SV2023-18.4.1-EXTRACT-REAL-UNIFORM",
+        "SV2023-18.5.3-EXTRACT-DIST-ITEM-TYPES",
+        "SV2023-18.5.3-EXTRACT-REAL-SINGLE-WEIGHT",
+        "SV2023-18.5.4-EXTRACT-UNIQUE-GROUP",
+        "SV2023-18.5.5-EXTRACT-IMPLICATION-FORM",
+        "SV2023-18.5.6-EXTRACT-IF-FORM",
+        "SV2023-18.5.9-EXTRACT-ORDER-VARIABLE-TYPES"
+      ],
+      "illegal_forms": [
+        {
+          "clause": "18.4",
+          "en": "A real variable (or an array of reals) shall not be declared randc.",
+          "ja": "real 変数（および real の配列）を randc で宣言してはならない。"
+        },
+        {
+          "clause": "18.5.3",
+          "en": "A real range in a dist requires an explicit :/ weight; omitting it or using := is an error.",
+          "ja": "dist の real 範囲には明示的な :/ の重みが必要で、省略や := はエラーである。"
+        }
+      ],
+      "tests": [
+        {
+          "test": "ch18/test_illegal_dist_real_range_colon_equal",
+          "illegal": true
+        },
+        {
+          "test": "ch18/test_illegal_dist_real_range_no_weight",
+          "illegal": true
+        },
+        {
+          "test": "ch18/test_illegal_dist_real_tolerance_colon_equal",
+          "illegal": true
+        },
+        {
+          "test": "ch18/test_illegal_randc_real",
+          "illegal": true
+        },
+        {
+          "test": "ch18/test_illegal_randc_real_array",
+          "illegal": true
+        },
+        {
+          "test": "ch18/test_illegal_unique_real_and_int",
+          "illegal": false
+        },
+        {
+          "test": "ch18/test_rand_real_constraint",
+          "illegal": false
+        },
+        {
+          "test": "ch18/test_rand_real_kinds_and_arrays",
+          "illegal": false
+        },
+        {
+          "test": "ch18/test_rand_real_uniform_and_dist",
+          "illegal": false
+        },
+        {
+          "test": "ch18/test_rand_real_unique_and_conditions",
+          "illegal": false
+        }
+      ]
+    },
+    {
+      "key": "constraint_dynamic_override",
+      "title": {
+        "en": "constraint :initial / :extends / :final",
+        "ja": "constraint の :initial / :extends / :final"
+      },
+      "listed_in": "dvcon",
+      "clauses": [
+        "18.5.2",
+        "18.5",
+        "18.5.10",
+        "8.3"
+      ],
+      "requirements": [
+        "SV2023-8.3-EXTRACT-NO-PURE-FINAL",
+        "SV2023-18.5-EXTRACT-PURE-NO-FINAL",
+        "SV2023-18.5-EXTRACT-STATIC-NO-OVERRIDE",
+        "SV2023-18.5.2-EXTRACT-EXTENDS-REQUIRES-OVERRIDE",
+        "SV2023-18.5.2-EXTRACT-FINAL-CONSTRAINT",
+        "SV2023-18.5.2-EXTRACT-INITIAL-EXTENDS-EXCLUSIVE",
+        "SV2023-18.5.2-EXTRACT-INITIAL-NO-OVERRIDE",
+        "SV2023-18.5.2-EXTRACT-MATCH-PROTOTYPE-SPECIFIERS",
+        "SV2023-18.5.10-EXTRACT-STATIC-NO-SPECIFIER",
+        "SV2023-A.10-EXTRACT-FOOTNOTE-11",
+        "SV2023-A.10-EXTRACT-FOOTNOTE-8"
+      ],
+      "illegal_forms": [
+        {
+          "clause": "18.5.2",
+          "en": ":initial must not replace a base constraint; :extends must replace one; :initial and :extends are mutually exclusive; a :final constraint cannot be replaced by a subclass; the specifiers must appear on both the prototype and the external block or on neither.",
+          "ja": ":initial は基底の制約を置き換えてはならず、:extends は置き換えなければならない。:initial と :extends は排他的で、:final の制約はサブクラスで置き換えられず、指定子はプロトタイプと外部ブロックの両方にあるか両方にないかでなければならない。"
+        },
+        {
+          "clause": "18.5",
+          "en": "A pure constraint shall not use final, and static constraints shall not use dynamic override specifiers (18.5.10).",
+          "ja": "pure 制約に final は使えず、static 制約に動的オーバーライド指定子は使えない（18.5.10）。"
+        }
+      ],
+      "tests": [
+        {
+          "test": "ch18/test_constraint_prototype_and_specifier_forms",
+          "illegal": false
+        },
+        {
+          "test": "ch18/test_illegal_constraint_extends_no_override",
+          "illegal": true
+        },
+        {
+          "test": "ch18/test_illegal_constraint_final_replaced",
+          "illegal": true
+        },
+        {
+          "test": "ch18/test_illegal_constraint_initial_extends",
+          "illegal": true
+        },
+        {
+          "test": "ch18/test_illegal_constraint_initial_override",
+          "illegal": true
+        },
+        {
+          "test": "ch18/test_illegal_constraint_specifier_block_mismatch",
+          "illegal": true
+        },
+        {
+          "test": "ch18/test_illegal_constraint_specifier_prototype_mismatch",
+          "illegal": true
+        },
+        {
+          "test": "ch18/test_illegal_pure_constraint_final",
+          "illegal": true
+        },
+        {
+          "test": "ch18/test_illegal_static_constraint_override",
+          "illegal": true
+        },
+        {
+          "test": "ch18/test_illegal_static_constraint_specifier",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_illegal_pure_constraint_final",
+          "illegal": true
+        }
+      ]
+    },
+    {
+      "key": "weak_reference",
+      "title": {
+        "en": "weak_reference class",
+        "ja": "weak_reference クラス"
+      },
+      "listed_in": "dvcon",
+      "clauses": [
+        "8.29",
+        "8.30",
+        "8.30.1",
+        "8.30.2",
+        "8.30.3",
+        "8.30.4",
+        "8.30.5",
+        "G.7",
+        "G.1"
+      ],
+      "requirements": [
+        "SV2023-8.29-EXTRACT-UNREACHABLE",
+        "SV2023-8.29-EXTRACT-WEAK-RECLAMATION-REFERENCE",
+        "SV2023-8.29-EXTRACT-WEAKLY-REACHABLE",
+        "SV2023-8.30.1-EXTRACT-ATOMIC-WEAK-CLEAR",
+        "SV2023-8.30.1-EXTRACT-STD-WEAK-REFERENCE",
+        "SV2023-8.30.1-EXTRACT-WEAK-CLASS-TYPE",
+        "SV2023-8.30.1-EXTRACT-WEAK-REFERENCE-NONRETAINING",
+        "SV2023-8.30.1-EXTRACT-WEAK-WRAPPER-GC",
+        "SV2023-8.30.2-EXTRACT-NULL-NO-WARNING",
+        "SV2023-8.30.2-EXTRACT-SIGNATURE",
+        "SV2023-8.30.2-EXTRACT-WRAPPER-IDENTITY",
+        "SV2023-8.30.3-EXTRACT-GET-EVENT-CONTROL",
+        "SV2023-8.30.3-EXTRACT-GET-REFERENT",
+        "SV2023-8.30.3-EXTRACT-SIGNATURE",
+        "SV2023-8.30.4-EXTRACT-CLEAR-NULL",
+        "SV2023-8.30.4-EXTRACT-SIGNATURE",
+        "SV2023-8.30.5-EXTRACT-LIFETIME-UNIQUE-ID",
+        "SV2023-8.30.5-EXTRACT-NULL-ZERO",
+        "SV2023-8.30.5-EXTRACT-NUMERIC-ID-NONRETAINING",
+        "SV2023-8.30.5-EXTRACT-SIGNATURE",
+        "SV2023-8.30.5-EXTRACT-STABLE-POLYMORPHIC-ID",
+        "SV2023-G.1-EXTRACT-CONTENTS",
+        "SV2023-G.7-EXTRACT-CLEAR",
+        "SV2023-G.7-EXTRACT-GET",
+        "SV2023-G.7-EXTRACT-ID",
+        "SV2023-G.7-EXTRACT-NEW",
+        "SV2023-G.7-EXTRACT-PARAMETER"
+      ],
+      "illegal_forms": [
+        {
+          "clause": "8.30.1",
+          "en": "weak_reference takes a class type parameter; specializing it with any other type (for example int) is a compilation error.",
+          "ja": "weak_reference はクラス型のパラメータを取り、それ以外の型（例えば int）で特殊化するとコンパイルエラーである。"
+        }
+      ],
+      "tests": [
+        {
+          "test": "ch26/test_std_package_system_types",
+          "illegal": false
+        },
+        {
+          "test": "ch8/test_illegal_weak_reference_scalar_type",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_object_strongly_reachable",
+          "illegal": false
+        },
+        {
+          "test": "ch8/test_weak_reference_clear_void_no_arguments",
+          "illegal": false
+        },
+        {
+          "test": "ch8/test_weak_reference_get_clear",
+          "illegal": false
+        },
+        {
+          "test": "ch8/test_weak_reference_get_id",
+          "illegal": false
+        },
+        {
+          "test": "ch8/test_weak_reference_get_id_static_longint",
+          "illegal": false
+        },
+        {
+          "test": "ch8/test_weak_reference_get_id_unique_across_types",
+          "illegal": false
+        },
+        {
+          "test": "ch8/test_weak_reference_id_alias_after_clear",
+          "illegal": false
+        },
+        {
+          "test": "ch8/test_weak_reference_null_referent_no_warning",
+          "illegal": false
+        },
+        {
+          "test": "ch8/test_weak_reference_prototypes",
+          "illegal": false
+        },
+        {
+          "test": "ch8/test_weak_reference_std_scope_and_strong_reachability",
+          "illegal": false
+        },
+        {
+          "test": "ch8/test_weak_reference_wait_cleared",
+          "illegal": false
+        }
+      ]
+    },
+    {
+      "key": "covergroup_inheritance",
+      "title": {
+        "en": "covergroup extends (derived embedded covergroup)",
+        "ja": "covergroup extends（派生クラスの埋め込み covergroup）"
+      },
+      "listed_in": "dvcon",
+      "clauses": [
+        "19.3",
+        "19.4",
+        "19.4.1",
+        "A.2.11"
+      ],
+      "requirements": [
+        "SV2023-19.3-EXTRACT-EXTENDS-CLASS-ONLY",
+        "SV2023-19.4-EXTRACT-ENCAPSULATED-PROPERTIES",
+        "SV2023-19.4.1-EXTRACT-ADD-COVERPOINT",
+        "SV2023-19.4.1-EXTRACT-DISTINCT-COVERAGE-TYPES",
+        "SV2023-19.4.1-EXTRACT-EMBEDDED-EXTENDS",
+        "SV2023-19.4.1-EXTRACT-INHERIT-ARGS-EVENT",
+        "SV2023-19.4.1-EXTRACT-INHERIT-COMPONENTS",
+        "SV2023-19.4.1-EXTRACT-OVERRIDE-COVERPOINT",
+        "SV2023-19.4.1-EXTRACT-OVERRIDE-OPTIONS",
+        "SV2023-19.4.1-EXTRACT-REPLACE-INSTANCE",
+        "SV2023-A.10-EXTRACT-FOOTNOTE-29",
+        "SV2023-A.2.11-EXTRACT-COVERGROUP"
+      ],
+      "illegal_forms": [
+        {
+          "clause": "19.3",
+          "en": "The extends form of a covergroup is allowed only inside a class.",
+          "ja": "covergroup の extends 形式はクラスの中でのみ許される。"
+        },
+        {
+          "clause": "19.4.1",
+          "en": "covergroup extends must name a covergroup that exists in a base class (a missing base is an error); the derived covergroup takes the base arguments and coverage event, so it cannot declare its own.",
+          "ja": "covergroup extends は基底クラスに存在する covergroup を指さなければならず（基底がなければエラー）、派生側は基底の引数とカバレッジイベントを引き継ぐので独自のものを宣言できない。"
+        },
+        {
+          "clause": "19.4",
+          "en": "A derived covergroup shall not define a new coverage model for a local member of the base class.",
+          "ja": "派生 covergroup は基底クラスの local メンバについて新しいカバレッジモデルを定義してはならない。"
+        }
+      ],
+      "tests": [
+        {
+          "test": "ch19/test_cg_derived_option_override",
+          "illegal": false
+        },
+        {
+          "test": "ch19/test_cg_embedded_inheritance",
+          "illegal": false
+        },
+        {
+          "test": "ch19/test_cg_extends_inherited_event_base_handle",
+          "illegal": false
+        },
+        {
+          "test": "ch19/test_cg_extends_type_option_inherited",
+          "illegal": false
+        },
+        {
+          "test": "ch19/test_cg_inheritance_args_and_cross",
+          "illegal": false
+        },
+        {
+          "test": "ch19/test_covergroup_declaration_and_option_forms",
+          "illegal": false
+        },
+        {
+          "test": "ch19/test_illegal_cg_extends_missing_base",
+          "illegal": true
+        },
+        {
+          "test": "ch19/test_illegal_cg_extends_not_base",
+          "illegal": true
+        },
+        {
+          "test": "ch19/test_illegal_cg_extends_outside_class",
+          "illegal": true
+        },
+        {
+          "test": "ch19/test_illegal_cg_extends_own_arguments",
+          "illegal": true
+        },
+        {
+          "test": "ch19/test_illegal_cg_extends_own_event",
+          "illegal": true
+        },
+        {
+          "test": "ch19/test_illegal_cg_extends_property_name",
+          "illegal": true
+        },
+        {
+          "test": "ch19/test_illegal_covergroup_derived_base_local",
+          "illegal": true
+        }
+      ]
+    },
+    {
+      "key": "ref_static",
+      "title": {
+        "en": "ref static arguments",
+        "ja": "ref static 引数"
+      },
+      "listed_in": "instruction",
+      "clauses": [
+        "13.5.2",
+        "13.3",
+        "13.4",
+        "A.2.7"
+      ],
+      "requirements": [
+        "SV2023-13.5.2-EXTRACT-REF-AUTOMATIC-RESTRICTIONS",
+        "SV2023-13.5.2-EXTRACT-REF-STATIC-ACCEPTED-ACTUALS",
+        "SV2023-13.5.2-EXTRACT-REF-STATIC-ACTUALS",
+        "SV2023-13.5.2-EXTRACT-REF-STATIC-AUTOMATIC-CONTEXTS",
+        "SV2023-13.3-EXTRACT-DIRECTION-INHERITANCE",
+        "SV2023-13.3-EXTRACT-TASK-PORT-GRAMMAR",
+        "SV2023-13.4-EXTRACT-FUNCTION-DIRECTION-DEFAULT",
+        "SV2023-A.2.7-EXTRACT-TF-DIRECTION"
+      ],
+      "illegal_forms": [
+        {
+          "clause": "13.5.2",
+          "en": "A ref static formal shall not be given an automatic variable, an element of a dynamically sized array, a non-static class property or a ref formal without static.",
+          "ja": "ref static 仮引数に、automatic 変数、動的サイズ配列の要素、非 static クラスプロパティ、static のない ref 仮引数を渡してはならない。"
+        }
+      ],
+      "tests": [
+        {
+          "test": "ch13/test_function_formal_ref_static_direction_inherited",
+          "illegal": false
+        },
+        {
+          "test": "ch13/test_illegal_ref_static_given_automatic_variable",
+          "illegal": true
+        },
+        {
+          "test": "ch13/test_illegal_ref_static_given_dynamic_array_element",
+          "illegal": true
+        },
+        {
+          "test": "ch13/test_illegal_ref_static_given_non_static_property",
+          "illegal": true
+        },
+        {
+          "test": "ch13/test_illegal_ref_static_given_plain_ref_argument",
+          "illegal": true
+        },
+        {
+          "test": "ch13/test_ref_static_accepted_actuals",
+          "illegal": false
+        },
+        {
+          "test": "ch13/test_ref_static_const_waits_after_return",
+          "illegal": false
+        },
+        {
+          "test": "ch13/test_ref_static_force_release",
+          "illegal": false
+        },
+        {
+          "test": "ch13/test_task_direction_and_port_forms",
+          "illegal": false
+        },
+        {
+          "test": "ch13/test_task_formal_inherits_ref_static_nonblocking",
+          "illegal": false
+        },
+        {
+          "test": "ch13/test_tf_port_directions_ref_static_and_item_forms",
+          "illegal": false
+        },
+        {
+          "test": "ch9/test_ref_static_fork_join_none_after_return",
+          "illegal": false
+        },
+        {
+          "test": "gen/ch10/test_gen_ref_static_array_event_nba_w65_ascending",
+          "illegal": false
+        },
+        {
+          "test": "gen/ch10/test_gen_ref_static_array_event_nba_w65_descending",
+          "illegal": false
+        },
+        {
+          "test": "gen/ch10/test_gen_ref_static_array_event_nba_w8_ascending",
+          "illegal": false
+        },
+        {
+          "test": "gen/ch10/test_gen_ref_static_array_event_nba_w8_descending",
+          "illegal": false
+        },
+        {
+          "test": "gen/ch10/test_gen_ref_static_delayed_nba_w65_logic",
+          "illegal": false
+        },
+        {
+          "test": "gen/ch10/test_gen_ref_static_delayed_nba_w8_bit",
+          "illegal": false
+        },
+        {
+          "test": "gen/ch10/test_gen_ref_static_nested_packed_event_nba_w65_outside_parent",
+          "illegal": false
+        },
+        {
+          "test": "gen/ch10/test_gen_ref_static_nested_packed_event_nba_w65_valid",
+          "illegal": false
+        },
+        {
+          "test": "gen/ch10/test_gen_ref_static_nested_packed_event_nba_w8_outside_parent",
+          "illegal": false
+        },
+        {
+          "test": "gen/ch10/test_gen_ref_static_nested_packed_event_nba_w8_valid",
+          "illegal": false
+        }
+      ]
+    },
+    {
+      "key": "tolerance_ranges",
+      "title": {
+        "en": "Tolerance ranges [A +/- B] and [A +%- B]",
+        "ja": "許容誤差範囲 [A +/- B] と [A +%- B]"
+      },
+      "listed_in": "dvcon",
+      "clauses": [
+        "11.4.13",
+        "18.5.3",
+        "19.5.1",
+        "A.2.11",
+        "A.6.7"
+      ],
+      "requirements": [
+        "SV2023-11.4.13-EXTRACT-ABSOLUTE-TOLERANCE",
+        "SV2023-11.4.13-EXTRACT-RELATIVE-TOLERANCE",
+        "SV2023-11.4.13-EXTRACT-TOLERANCE-ORDER-TYPE",
+        "SV2023-11.4.13-EXTRACT-TOLERANCE-TRUNCATES",
+        "SV2023-11.4.13-EXTRACT-INSIDE-GRAMMAR",
+        "SV2023-18.5.3-EXTRACT-DIST-ITEM-TYPES",
+        "SV2023-18.5.3-EXTRACT-REAL-SINGLE-WEIGHT",
+        "SV2023-19.5.1-EXTRACT-REAL-TOLERANCE",
+        "SV2023-A.2.11-EXTRACT-COVERAGE-RANGES",
+        "SV2023-A.6.7-EXTRACT-VALUE-RANGE"
+      ],
+      "illegal_forms": [
+        {
+          "clause": "18.5.3",
+          "en": "A real tolerance range in a dist is a real range, so it needs a :/ weight (:= is an error). Other illegal uses (a string center, a tolerance range in a unique list) follow from the definition by subtraction and addition and from the unique rule, not from a dedicated sentence.",
+          "ja": "dist の real の許容誤差範囲は real 範囲なので :/ の重みが必要である（:= はエラー）。文字列の中心や unique リスト中の許容誤差範囲が不正になるのは、減算・加算による定義と unique の規則から導かれるもので、専用の文はない。"
+        }
+      ],
+      "tests": [
+        {
+          "test": "ch11/test_expr_inside_set_forms",
+          "illegal": false
+        },
+        {
+          "test": "ch11/test_illegal_inside_tolerance_string_center",
+          "illegal": true
+        },
+        {
+          "test": "ch11/test_inside_ranges_tolerance_unknown_and_types",
+          "illegal": false
+        },
+        {
+          "test": "ch11/test_inside_tolerance_center_type",
+          "illegal": false
+        },
+        {
+          "test": "ch11/test_inside_tolerance_ranges",
+          "illegal": false
+        },
+        {
+          "test": "ch12/test_syntax_case_matches_and_inside_forms",
+          "illegal": false
+        },
+        {
+          "test": "ch18/test_dist_tolerance_range_weights",
+          "illegal": false
+        },
+        {
+          "test": "ch18/test_illegal_dist_real_tolerance_colon_equal",
+          "illegal": true
+        },
+        {
+          "test": "ch18/test_illegal_unique_tolerance_range",
+          "illegal": true
+        },
+        {
+          "test": "ch18/test_rand_real_uniform_and_dist",
+          "illegal": false
+        },
+        {
+          "test": "ch19/test_cg_real_bins_tolerance_and_merge",
+          "illegal": false
+        },
+        {
+          "test": "ch19/test_cg_tolerance_bin_arrays_transitions",
+          "illegal": false
+        },
+        {
+          "test": "ch19/test_covergroup_bins_and_range_forms",
+          "illegal": false
+        },
+        {
+          "test": "gen/ch11/test_gen_cross_range_w129_s_ss_l_abs_tol_bound_x_m",
+          "illegal": false
+        },
+        {
+          "test": "gen/ch11/test_gen_cross_range_w129_s_us_l_rel_tol_bound_z_m",
+          "illegal": false
+        },
+        {
+          "test": "gen/ch11/test_gen_cross_range_w129_w_us_b_abs_tol_known_s",
+          "illegal": false
+        },
+        {
+          "test": "gen/ch11/test_gen_cross_range_w1_s_uu_b_rel_tol_lhs_x_m",
+          "illegal": false
+        },
+        {
+          "test": "gen/ch11/test_gen_cross_range_w1_s_uu_l_abs_tol_bound_z_m",
+          "illegal": false
+        },
+        {
+          "test": "gen/ch11/test_gen_cross_range_w1_s_uu_l_abs_tol_lhs_x_m",
+          "illegal": false
+        },
+        {
+          "test": "gen/ch11/test_gen_cross_range_w1_s_uu_l_rel_tol_bound_x_m",
+          "illegal": false
+        },
+        {
+          "test": "gen/ch11/test_gen_cross_range_w32_n_su_b_abs_tol_bound_x_s",
+          "illegal": false
+        },
+        {
+          "test": "gen/ch11/test_gen_cross_range_w32_w_us_b_rel_tol_bound_z_s",
+          "illegal": false
+        },
+        {
+          "test": "gen/ch11/test_gen_cross_range_w33_s_uu_b_abs_tol_lhs_x_s",
+          "illegal": false
+        },
+        {
+          "test": "gen/ch11/test_gen_cross_range_w33_w_su_b_rel_tol_bound_x_s",
+          "illegal": false
+        },
+        {
+          "test": "gen/ch11/test_gen_cross_range_w64_n_uu_l_rel_tol_lhs_x_s",
+          "illegal": false
+        },
+        {
+          "test": "gen/ch11/test_gen_cross_range_w64_w_uu_b_abs_tol_bound_z_s",
+          "illegal": false
+        },
+        {
+          "test": "gen/ch11/test_gen_cross_range_w65_n_ss_l_rel_tol_known_s",
+          "illegal": false
+        },
+        {
+          "test": "gen/ch11/test_gen_cross_range_w65_n_us_l_abs_tol_known_m",
+          "illegal": false
+        },
+        {
+          "test": "gen/ch11/test_gen_cross_range_w65_s_su_b_rel_tol_known_m",
+          "illegal": false
+        }
+      ]
+    },
+    {
+      "key": "method_dynamic_override",
+      "title": {
+        "en": "function/task :initial / :extends / :final",
+        "ja": "function / task の :initial / :extends / :final"
+      },
+      "listed_in": "dvcon",
+      "clauses": [
+        "8.20",
+        "8.3",
+        "8.24",
+        "13.3",
+        "13.4",
+        "35.5.4",
+        "A.2.6",
+        "A.2.7"
+      ],
+      "requirements": [
+        "SV2023-8.3-EXTRACT-DYNAMIC-OVERRIDE-SYNTAX",
+        "SV2023-8.3-EXTRACT-NO-PURE-FINAL",
+        "SV2023-8.3-EXTRACT-OVERRIDE-NONINTERFACE-METHOD",
+        "SV2023-8.20-EXTRACT-EXTENDS-IMPLIES-VIRTUAL",
+        "SV2023-8.20-EXTRACT-EXTENDS-REQUIRES-VIRTUAL-OVERRIDE",
+        "SV2023-8.20-EXTRACT-FINAL-NO-IMPLIED-VIRTUAL",
+        "SV2023-8.20-EXTRACT-FINAL-NO-OVERRIDE",
+        "SV2023-8.20-EXTRACT-INITIAL-EXTENDS-EXCLUSIVE",
+        "SV2023-8.20-EXTRACT-INITIAL-NO-IMPLIED-VIRTUAL",
+        "SV2023-8.20-EXTRACT-INITIAL-NO-VIRTUAL-OVERRIDE",
+        "SV2023-8.20-EXTRACT-PURE-NOT-FINAL",
+        "SV2023-8.24-EXTRACT-EXTERN-PROTOTYPE",
+        "SV2023-13.3-EXTRACT-OVERRIDE-METHOD-ONLY",
+        "SV2023-13.3-EXTRACT-TASK-GRAMMAR",
+        "SV2023-13.4-EXTRACT-FUNCTION-GRAMMAR",
+        "SV2023-13.4-EXTRACT-FUNCTION-TYPE-FOOTNOTES",
+        "SV2023-35.5.4-EXTRACT-PROTOTYPE-RESTRICTIONS",
+        "SV2023-A.2.6-EXTRACT-DECL",
+        "SV2023-A.2.6-EXTRACT-PROTOTYPE",
+        "SV2023-A.2.7-EXTRACT-DECL",
+        "SV2023-A.2.7-EXTRACT-OVERRIDES",
+        "SV2023-A.2.7-EXTRACT-PROTOTYPE",
+        "SV2023-A.10-EXTRACT-FOOTNOTE-25",
+        "SV2023-A.10-EXTRACT-FOOTNOTE-8"
+      ],
+      "illegal_forms": [
+        {
+          "clause": "8.20",
+          "en": ":initial must not override a virtual or pure virtual method; :extends must override a virtual method; :initial and :extends are mutually exclusive; a :final method cannot be overridden (virtual or not); a pure virtual method cannot be :final.",
+          "ja": ":initial は virtual / pure virtual メソッドをオーバーライドしてはならず、:extends は virtual メソッドをオーバーライドしなければならない。:initial と :extends は排他的で、:final のメソッドは（virtual かどうかによらず）オーバーライドできず、pure virtual メソッドは :final にできない。"
+        },
+        {
+          "clause": "8.3",
+          "en": "The specifiers are legal only on methods of a non-interface class; a task or function outside a class, in an interface class, or a DPI import (35.5.4) cannot have them (13.3, 13.4, A.10 footnote 25).",
+          "ja": "指定子は非 interface クラスのメソッドにだけ使え、クラスの外、interface class、DPI import の task / function には使えない（13.3、13.4、35.5.4、A.10 脚注 25）。"
+        }
+      ],
+      "tests": [
+        {
+          "test": "ch13/test_a2_7_dynamic_override_specifiers",
+          "illegal": false
+        },
+        {
+          "test": "ch13/test_function_declaration_scoped_and_override_forms",
+          "illegal": false
+        },
+        {
+          "test": "ch13/test_illegal_dynamic_override_specifier_in_interface_class",
+          "illegal": true
+        },
+        {
+          "test": "ch13/test_illegal_dynamic_override_specifier_on_module_task",
+          "illegal": true
+        },
+        {
+          "test": "ch13/test_illegal_function_override_specifier_interface_class",
+          "illegal": true
+        },
+        {
+          "test": "ch13/test_illegal_function_override_specifier_outside_class",
+          "illegal": true
+        },
+        {
+          "test": "ch13/test_task_declaration_grammar_and_nesting",
+          "illegal": false
+        },
+        {
+          "test": "ch35/test_illegal_dpi_import_override_specifier",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_class_declaration_grammar_forms",
+          "illegal": false
+        },
+        {
+          "test": "ch8/test_class_virtual_dispatch_and_initial",
+          "illegal": false
+        },
+        {
+          "test": "ch8/test_class_virtual_override_of_nonvirtual_and_initial",
+          "illegal": false
+        },
+        {
+          "test": "ch8/test_extern_method_prototype_qualifiers",
+          "illegal": false
+        },
+        {
+          "test": "ch8/test_final_class_and_method",
+          "illegal": false
+        },
+        {
+          "test": "ch8/test_final_method_not_virtual_vpi",
+          "illegal": false
+        },
+        {
+          "test": "ch8/test_illegal_extends_nonvirtual_method",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_illegal_final_method_overridden",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_illegal_final_pure_virtual",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_illegal_initial_method_overrides_pure_virtual",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_illegal_initial_method_overrides_virtual",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_illegal_method_extends_without_base",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_illegal_method_initial_and_extends",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_illegal_method_initial_overrides",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_illegal_method_initial_with_extends_specifier",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_illegal_nonvirtual_final_method_overridden",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_illegal_override_specifier_in_interface_class",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_illegal_override_specifier_outside_class",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_illegal_pure_virtual_final",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_illegal_pure_virtual_method_final",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_illegal_virtual_final_method_overridden_in_subclass",
+          "illegal": true
+        },
+        {
+          "test": "ch8/test_method_initial_extends",
+          "illegal": false
+        },
+        {
+          "test": "ch9/test_illegal_override_specifier_in_interface_class",
+          "illegal": true
+        },
+        {
+          "test": "ch9/test_illegal_override_specifier_on_module_function",
+          "illegal": true
+        },
+        {
+          "test": "ch9/test_structured_procedure_forms_and_subroutine_lifetimes",
+          "illegal": false
+        }
+      ]
+    }
+  ]
+}

@@ -108,6 +108,7 @@ Code, identifiers, raw execution evidence and license terms retain their origina
 | Clause 9: Processes | [English](tests/ch9.md) | [日本語](tests/ch9.ja.md) |
 | Clauses cited by the tests | [English](tests/clauses.md) | [日本語](tests/clauses.ja.md) |
 | Tests with contested readings | [English](interpretation-splits.en.md) | [日本語](interpretation-splits.md) |
+| Tests of the features added by IEEE 1800-2023 | [English](sv2023-features.en.md) | [日本語](sv2023-features.md) |
 
 <a id="過去の作業測定記録"></a>
 

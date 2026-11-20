@@ -9,8 +9,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "3eaf49ecd3cd8f2c1f188172590e83898ec4cde2727589a57571285fb969ed0e",
-        "ja": "6f60e5d1cddc52cb9f8246baa837c38284fb06e3acf5faba96265e4e6e64a17f"
+        "en": "8e916935bbfe9dcabe6d3988ed2df79c767b4f212da3210cc2003d2d2fb4b628",
+        "ja": "8ca43677ac1a58d14a6618ba8ffd1267e83803238fc6e8cc98787ee514ff7645"
       }
     },
     {
@@ -20,8 +20,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "ad765455575bc7bd42c867a27e4120b266be7366f0f59357c44c69fd23a840cc",
-        "ja": "08515bfcb770178b87cc5c9e386989705191715e7edbc1b0a026bae90aa3b8fc"
+        "en": "9f6f889adfc594b29504a36b87b4c04c864123102fc125c1d2e494fa3c357cdb",
+        "ja": "0e13fb580734ee56ce8053b2fec0f0b1c089cb3b7fe11a2442d4fd8382bffbb5"
       }
     },
     {
@@ -1360,6 +1360,13 @@
       "en": "docs/interpretation-splits.en.md",
       "ja": "docs/interpretation-splits.md",
       "source": "docs/interpretation-splits.md",
+      "source_language": "ja",
+      "generated": true
+    },
+    {
+      "en": "docs/sv2023-features.en.md",
+      "ja": "docs/sv2023-features.md",
+      "source": "docs/sv2023-features.md",
       "source_language": "ja",
       "generated": true
     }
