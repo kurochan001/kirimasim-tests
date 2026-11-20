@@ -1,0 +1,3 @@
+initial deterministic=2 fixed=1
+after one deterministic=5 fixed=1
+after four deterministic=14 fixed=1 stable=1

@@ -1,0 +1,4 @@
+input=00 and=00x or=xxx nand=11x nor=xxx
+input=01 and=x0x or=1xx nand=x1x nor=0xx
+input=10 and=0xx or=x1x nand=1xx nor=x0x
+input=11 and=xxx or=11x nand=xxx nor=00x

@@ -331,7 +331,7 @@ tests/ch11/test_concatenation_pattern_string_operand_and_replication_once.sv",�
 6,データ型,12,手続き型プログラミング文,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,308,"tests/ch11/test_propagated_operand_sign.sv
 tests/ch11/test_real_equality_is_exact.sv
 tests/ch12/test_do_while_edge_cases.sv",既存モデルの計画・実行証跡を維持する,,
-6,データ型,13,タスクと関数（サブルーチン）,M,モデル登録済み,登録済み,3,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,799,"tests/ch10/test_assignment_like_contexts.sv
+6,データ型,13,タスクと関数（サブルーチン）,M,モデル登録済み,登録済み,3,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,800,"tests/ch10/test_assignment_like_contexts.sv
 tests/ch13/test_evaluation_context_extended.sv
 tests/ch13/test_func_static.sv",既存モデルの計画・実行証跡を維持する,,
 6,データ型,14,クロッキングブロック,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,50,"tests/ch14/test_clocking_output_net_driver.sv
@@ -423,9 +423,9 @@ tests/ch37/test_vpi_tf_call_kinds_relations.sv
 tests/gen/ch15/test_gen_cross_eventlife_nested_copy_1_before_arm_blocking_forward_1.sv",既存モデルの計画・実行証跡を維持する,,
 7,集合データ型,16,アサーション,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch37/test_vpi_typespec_kinds_more.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 7,集合データ型,17,チェッカー,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-7,集合データ型,18,制約付き乱数値の生成,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,17,"tests/ch18/test_array_reduction_element_type.sv
-tests/ch18/test_urandom_seed_repeatable.sv
-tests/ch37/test_vpi_struct_union_flags_members.sv",既存モデルの計画・実行証跡を維持する,,
+7,集合データ型,18,制約付き乱数値の生成,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,18,"tests/ch18/test_array_reduction_element_type.sv
+tests/ch18/test_foreach_oob_constraints_need_guards.sv
+tests/ch18/test_urandom_seed_repeatable.sv",既存モデルの計画・実行証跡を維持する,,
 7,集合データ型,19,機能カバレッジ,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,33,"tests/gen/ch19/test_gen_cross_cgsample_dynamic_clear_after_live_first_1_all_1.sv
 tests/gen/ch19/test_gen_cross_cgsample_dynamic_clear_before_live_last_2_all_1.sv
 tests/gen/ch19/test_gen_cross_cgsample_dynamic_clear_both_arguments_first_2_nonempty_1.sv",既存モデルの計画・実行証跡を維持する,,
@@ -1112,9 +1112,9 @@ tests/ch40/test_vpi_coverage_assertion_counts.sv",引用探索の候補とソー
 21,入出力用システムタスク・関数,22,コンパイラ指令,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,84,"tests/ch4/test_delta_cycles.sv
 tests/gen/ch21/test_gen_cross_litfmt_fill_wh_fdisplay_macro.sv
 tests/gen/ch21/test_gen_cross_litfmt_negate_wh_swrite_macro.sv",既存モデルの計画・実行証跡を維持する,,
-21,入出力用システムタスク・関数,23,モジュールと階層,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,97,"tests/ch23/test_port_collapse_trireg_charge_strength.sv
-tests/ch23/test_port_collapse_trireg_external_charge.sv
-tests/ch26/test_scope_resolution.sv",既存モデルの計画・実行証跡を維持する,,
+21,入出力用システムタスク・関数,23,モジュールと階層,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,98,"tests/ch21/test_evcd_explicit_port_range_from_internal_net.sv
+tests/ch23/test_port_collapse_trireg_charge_strength.sv
+tests/ch23/test_port_collapse_trireg_external_charge.sv",既存モデルの計画・実行証跡を維持する,,
 21,入出力用システムタスク・関数,24,プログラム,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,25,"tests/ch4/test_postponed_strobe_monitor_after_reactive_writes.sv
 tests/gen/ch24/test_gen_cross_progmod_child_inst_one_absolute_default_none_ignored.sv
 tests/gen/ch24/test_gen_cross_progmod_child_inst_one_absolute_default_none_none.sv",既存モデルの計画・実行証跡を維持する,,
@@ -1127,9 +1127,9 @@ tests/gen/ch3/test_gen_cross_timescope_directive_package_1us_same_argument_down_
 21,入出力用システムタスク・関数,27,generate構文,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,57,"tests/gen/ch21/test_gen_cross_hiername_loopgen_auto_up_initial.sv
 tests/gen/ch21/test_gen_cross_hiername_loopgen_block_own_initial.sv
 tests/gen/ch21/test_gen_cross_hiername_loopgen_fork_own_initial.sv",既存モデルの計画・実行証跡を維持する,,
-21,入出力用システムタスク・関数,28,ゲートレベル・スイッチレベルのモデリング,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,298,"tests/ch21/test_display_strength_format.sv
-tests/ch28/test_ambiguous_strength_ranges_and_levels.sv
-tests/ch28/test_ambiguous_strengths.sv",既存モデルの計画・実行証跡を維持する,,
+21,入出力用システムタスク・関数,28,ゲートレベル・スイッチレベルのモデリング,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,299,"tests/ch21/test_display_strength_format.sv
+tests/ch21/test_evcd_small_medium_large_strength_components.sv
+tests/ch28/test_ambiguous_strength_ranges_and_levels.sv",既存モデルの計画・実行証跡を維持する,,
 21,入出力用システムタスク・関数,29,ユーザー定義プリミティブ,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch29/test_udp_instance_strength_and_array_range.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 21,入出力用システムタスク・関数,30,specifyブロック,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 21,入出力用システムタスク・関数,31,タイミング検査,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,

@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 92.96%、Ghostを除く実行 51.20%、Ghostを含む実行 78.68%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 93.07%、Ghostを除く実行 51.22%、Ghostを含む実行 78.70%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 92.96%。** 規格要求の実行確認率: Ghostを除いて 51.20%、Ghostを含めて 78.68%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 93.07%。** 規格要求の実行確認率: Ghostを除いて 51.22%、Ghostを含めて 78.70%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対する要求カバレッジ（テスト設計）: 11464/12332 (92.96%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9703/12332 (78.68%)。
-- 登録済みだがテスト未対応: 868 動作。
+- 登録済み動作に対する要求カバレッジ（テスト設計）: 11478/12332 (93.07%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9705/12332 (78.70%)。
+- 登録済みだがテスト未対応: 854 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。
 
@@ -187,12 +187,16 @@
 - `reqgap3-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T08:10:24.715784+00:00` / 9/12332 動作確認、古い入力との対応 0 件。
 - `reqgap5-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T14:45:27.599657+00:00` / 26/12332 動作確認、古い入力との対応 14 件。
 - `reqgap5-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T14:47:44.027905+00:00` / 18/12332 動作確認、古い入力との対応 14 件。
-- `reqgap5-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T14:46:35.374894+00:00` / 11/12332 動作確認、古い入力との対応 14 件。
-- `reqgap5-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T14:47:43.190246+00:00` / 11/12332 動作確認、古い入力との対応 14 件。
+- `reqgap5-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T14:46:35.374894+00:00` / 12/12332 動作確認、古い入力との対応 14 件。
+- `reqgap5-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T14:47:43.190246+00:00` / 12/12332 動作確認、古い入力との対応 14 件。
 - `reqgap6-20261120-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T15:46:16.026728+00:00` / 8/12332 動作確認、古い入力との対応 0 件。
 - `reqgap6-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T15:46:16.196256+00:00` / 9/12332 動作確認、古い入力との対応 0 件。
 - `reqgap6-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T15:46:17.221209+00:00` / 4/12332 動作確認、古い入力との対応 0 件。
 - `reqgap6-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T15:46:17.959332+00:00` / 4/12332 動作確認、古い入力との対応 0 件。
+- `reqgap7-20261120-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T23:33:37.497509+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `reqgap7-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T23:33:37.526094+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `reqgap7-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T23:33:58.371412+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
+- `reqgap7-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T23:33:58.371408+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
 - `runtime-errors-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-12T01:03:42.109814+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `runtime-errors-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-12T01:03:42.439195+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `runtime-errors-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T01:03:46.712402+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
@@ -546,25 +550,25 @@
 
 - 1 Overview: 解釈保留なし 12/12、登録 0、テスト対応 0。
 - 2 Normative references: 解釈保留なし 1/1、登録 2、テスト対応 0。
-- 3 Design and verification building blocks: 解釈保留なし 22/22、登録 146、テスト対応 131。
+- 3 Design and verification building blocks: 解釈保留なし 22/22、登録 146、テスト対応 132。
 - 4 Scheduling semantics: 解釈保留なし 40/40、登録 107、テスト対応 90。
 - 5 Lexical conventions: 解釈保留なし 21/21、登録 155、テスト対応 146。
-- 6 Data types: 解釈保留なし 92/92、登録 720、テスト対応 710。
+- 6 Data types: 解釈保留なし 92/92、登録 720、テスト対応 711。
 - 7 Aggregate data types: 解釈保留なし 61/61、登録 347、テスト対応 337。
 - 8 Classes: 解釈保留なし 49/49、登録 255、テスト対応 239。
 - 9 Processes: 解釈保留なし 34/34、登録 192、テスト対応 183。
-- 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 144。
+- 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 147。
 - 11 Operators and expressions: 解釈保留なし 55/55、登録 459、テスト対応 448。
 - 12 Procedural programming statements: 解釈保留なし 28/28、登録 115、テスト対応 101。
 - 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 124、テスト対応 116。
 - 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 86。
 - 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 84。
-- 16 Assertions: 解釈保留なし 82/82、登録 557、テスト対応 548。
-- 17 Checkers: 解釈保留なし 13/13、登録 81、テスト対応 68。
-- 18 Constrained random value generation: 解釈保留なし 58/58、登録 323、テスト対応 314。
-- 19 Functional coverage: 解釈保留なし 34/34、登録 276、テスト対応 267。
-- 20 Utility system tasks and system functions: 解釈保留なし 45/45、登録 320、テスト対応 299。
-- 21 入出力システムタスクとシステム関数：解釈保留なし65/65、登録383、テスト対応358。
+- 16 Assertions: 解釈保留なし 82/82、登録 557、テスト対応 549。
+- 17 Checkers: 解釈保留なし 13/13、登録 81、テスト対応 69。
+- 18 Constrained random value generation: 解釈保留なし 58/58、登録 323、テスト対応 315。
+- 19 Functional coverage: 解釈保留なし 34/34、登録 276、テスト対応 268。
+- 20 Utility system tasks and system functions: 解釈保留なし 45/45、登録 320、テスト対応 300。
+- 21 入出力システムタスクとシステム関数：解釈保留なし65/65、登録383、テスト対応362。
 - 22 Compiler directives: 解釈保留なし 28/28、登録 363、テスト対応 355。
 - 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 254。
 - 24 Programs: 解釈保留なし 10/10、登録 29、テスト対応 25。
@@ -2377,7 +2381,7 @@ module、program、package、interface、コンパイル単位のスコープは
 
 ### SV2023-3.14.3-EXTRACT-STEP-SCALE
 
-`3.14.3` / `normal` / テスト未対応
+`3.14.3` / `normal` / 実行確認あり
 
 ステップ時間単位は大域的な時間精度を表す。
 
@@ -2385,6 +2389,7 @@ module、program、package、interface、コンパイル単位のスコープは
 
 規定の性質: `definition`。
 
+- [test_step_is_global_time_precision.sv](../tests/ch3/test_step_is_global_time_precision.sv): design全体のglobal precisionを1ps、呼び出し側moduleのunit/precisionを1nsに分け、#1stepが0.001nsで終わり、clocking input #1stepがedge直前9.999nsの1を、#1が9nsの0をsampleする実値を表示する。 区別: 3.14.3 B002/B003からglobal precisionは1ps。#1step=1psなので第1行0.001ns。14.4 B009より10ns edge前のstep sampleは9.999nsの更新後1、#1ns sampleは9nsの0。stepをscopeのunit/precision1nsと取り違える実装は第2行の1step sampleが0になり、第1行ではunit1nsに取り違える実装を識別する。旧heldのglobal_precision_from_timescaleは1stepを使わないが、この別の既存テストは直接使い、不足条件を追加観測する。作成者による再照合であり独立承認ではない。
 
 ### SV2023-4.3-EXTRACT-CONCURRENT-PROCESSES
 
@@ -7590,7 +7595,7 @@ packed集合を含む2状態メンバを持つ2状態整数型を用いるユー
 
 ### SV2023-6.6.7-EXTRACT-RESOLVER-LIFETIME
 
-`6.6.7` / `normal` / テスト未対応
+`6.6.7` / `normal` / テスト対応あり・実行未確認
 
 解析関数は自動的な寿命を持つか，あるいはそのような状態情報を保持しない。
 
@@ -7598,6 +7603,7 @@ packed集合を含む2状態メンバを持つ2状態整数型を用いるユー
 
 規定の性質: `mandatory`。
 
+- [test_nettype_resolver_automatic_local_reinitializes.sv](../tests/ch6/test_nettype_resolver_automatic_local_reinitializes.sv): automatic resolverの局所変数を宣言時に100へ初期化し、正の2driverを2+3、7+3、1+3へ変えて、全安定点で105、110、104となる実値を表示する。 区別: 6.6.7 B012と6.21 B004によりautomatic局所totalは評価ごとに100へ戻る。保持状態を誤って持たせると正の寄与でtotalが増え続け、特に110から104への減少を再現できない。旧heldのsum_resは毎回手続き代入でsum=0に戻して寿命差が消えていたが、新案は宣言初期化に差を持たせる。回数は数えず全ての正しい呼出しは同じdriver集合に同じ値を返すため、規格が許す評価回数の任意性に依存しない。外部オブジェクトやinput配列には書かず、local変数の操作だけなので禁止されるside effectを入れない。固定版のnettype未対応をoracleにせずspecのみ、独立検証待ち。
 
 ### SV2023-6.6.7-EXTRACT-RESOLVER-NO-INPUT-WRITES
 
@@ -25528,7 +25534,7 @@ output/inout 値の引数は代入のようなコンテキストです。
 
 ### SV2023-10.9-EXTRACT-LHS-PATTERN-POSITIONAL
 
-`10.9` / `error` / テスト未対応
+`10.9` / `error` / テスト対応あり・実行未確認
 
 LHS 上の代入パターンは位置的でなければならない。各メンバー表現は対応するRHS要素と互換性のあるbit-ストリームタイプ代入と、それに等しいbit-サイズを持つ必要があります。
 
@@ -25536,6 +25542,10 @@ LHS 上の代入パターンは位置的でなければならない。各メン�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_lhs_pattern_integral_pair_keys.sv](../tests/ch10/test_illegal_lhs_pattern_integral_pair_keys.sv) : メンバーは対応する要素と型が一致する整数型の 64 - bit 値だが、添字キーは要求される位置指定の記法に違反する。
+- [test_illegal_lhs_pattern_real_member_not_bitstream.sv](../tests/ch10/test_illegal_lhs_pattern_real_member_not_bitstream.sv) : real 型のメンバーは対応する要素と型および幅が同じだが、bit ストリーム型という条件を満たさない。
+- [test_illegal_lhs_pattern_member_array_type_same_bits.sv](../tests/ch10/test_illegal_lhs_pattern_member_array_type_same_bits.sv) : 先頭のメンバーは二つの int（64 ビット）を持つ一方、対応する型は八つの byte（64 ビット）を持つ。どちらも bit ストリーム型だが、配列の代入互換性を満たさない。
+- [test_illegal_lhs_pattern_integral_member_width_only.sv](../tests/ch10/test_illegal_lhs_pattern_integral_member_width_only.sv) : 先頭のメンバーは 63 - bit の packed 整数値であり、対応する整数型要素は 64 - bit である。代入互換性は満たすが、bit 数の一致だけを満たさない。
 
 ### SV2023-10.9-EXTRACT-NO-PATTERN-PORT-EXPRESSION
 
@@ -25588,7 +25598,7 @@ APAは表現を構造フィールド／配列要素にマッピングし，自�
 
 ### SV2023-10.9-EXTRACT-TYPED-LHS-PATTERN
 
-`10.9` / `error` / テスト未対応
+`10.9` / `error` / テスト対応あり・実行未確認
 
 LHSパターン表現は位置的で，bitストリームメンバの代入を用い，それらの明示型の対応するメンバとbit個の数で相容し，等しい。
 
@@ -25596,10 +25606,14 @@ LHSパターン表現は位置的で，bitストリームメンバの代入を�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_typed_lhs_pattern_integral_pair_keys.sv](../tests/ch10/test_illegal_typed_lhs_pattern_integral_pair_keys.sv) : メンバーは対応する要素と型が一致する整数型の 64 - bit 値だが、添字キーは要求される位置指定の記法に違反する。
+- [test_illegal_typed_lhs_pattern_real_member_not_bitstream.sv](../tests/ch10/test_illegal_typed_lhs_pattern_real_member_not_bitstream.sv) : real 型のメンバーは対応する要素と型および幅が同じだが、bit ストリーム型という条件を満たさない。
+- [test_illegal_typed_lhs_pattern_member_array_type_same_bits.sv](../tests/ch10/test_illegal_typed_lhs_pattern_member_array_type_same_bits.sv) : 先頭のメンバーは二つの int（64 ビット）を持つ一方、対応する型は八つの byte（64 ビット）を持つ。どちらも bit ストリーム型だが、配列の代入互換性を満たさない。
+- [test_illegal_typed_lhs_pattern_integral_member_width_only.sv](../tests/ch10/test_illegal_typed_lhs_pattern_integral_member_width_only.sv) : 先頭のメンバーは 63 - bit の packed 整数値であり、対応する整数型要素は 64 - bit である。代入互換性は満たすが、bit 数の一致だけを満たさない。
 
 ### SV2023-10.9-EXTRACT-TYPED-LHS-RHS-COMPATIBILITY
 
-`10.9` / `error` / テスト未対応
+`10.9` / `error` / テスト対応あり・実行未確認
 
 タイプ化されたLHSパターンに代入られた自己決定RHSは，代入が適合し，タイプ化されたパターンとbitサイズが等しい必要がある。
 
@@ -25607,6 +25621,8 @@ LHSパターン表現は位置的で，bitストリームメンバの代入を�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_typed_lhs_pattern_rhs_type_same_bits.sv](../tests/ch10/test_illegal_typed_lhs_pattern_rhs_type_same_bits.sv) : 十六 byte の RHS と、二×二の int の明示型は、ビット数がどちらも 128 だが、unpacked 配列の形状には互換性がない。
+- [test_illegal_typed_lhs_pattern_rhs_width_only.sv](../tests/ch10/test_illegal_typed_lhs_pattern_rhs_width_only.sv) : packed の明示型（二 bit）と、packed の RHS（三 bit）は、代入互換な整数型だが、bit 数が異なる。
 
 ### SV2023-10.9-EXTRACT-TYPED-PATTERN-SELF-TYPE
 
@@ -42480,7 +42496,7 @@ bit true/false を返します。 これはマッチ開始時点に関係なく�
 
 ### SV2023-16.13.6-EXTRACT-PORT-CALL-INFERENCE
 
-`16.13.6` / `normal` / テスト未対応
+`16.13.6` / `normal` / テスト対応あり・実行未確認
 
 また，モジュール／インタフェース／プログラムポートに接続されたメソッドを持つシーケンスまたはタスク／関数に渡されたメソッドは，そのインスタンス／呼び出しサイトでインスタンス化されたとクロックされる。
 
@@ -42488,6 +42504,7 @@ bit true/false を返します。 これはマッチ開始時点に関係なく�
 
 規定の性質: `mandatory`。
 
+- [test_sequence_method_port_call_clocks.sv](../tests/ch16/test_sequence_method_port_call_clocks.sv): module/interface/programのポート実引数pair_s.triggeredが呼出し元default clockの25で初回成立し、task/function実引数はassertion actionのclockによる27,57で成立する。受取り側default clockなら22となる刺激で区別する。 区別: 16.13.6 B020の全5接続/呼出し形式を一つの合法テストで観測する。受取り側や宣言場所のdefault clockを誤用するとport時刻が22、call時刻が25/55または空列になり期待行が変わる。Reactiveで読むのでObservedとの順序競合はない。
 
 ### SV2023-16.13.6-EXTRACT-TRIGGERED-STATUS
 
@@ -44207,7 +44224,7 @@ property_spec action_block はプロパティ構文を受け入れる手続き�
 
 ### SV2023-17.1-EXTRACT-MODELING-KINDS
 
-`17.1` / `normal` / テスト未対応
+`17.1` / `normal` / テスト対応あり・実行未確認
 
 チェッカ変数は決定論的かつ非決定論的モデル化に対してはランダムである。
 
@@ -44215,6 +44232,7 @@ property_spec action_block はプロパティ構文を受け入れる手続き�
 
 規定の性質: `permission`。
 
+- [test_checker_deterministic_random_models.sv](../tests/ch17/test_checker_deterministic_random_models.sv): 同じchecker内の通常int変数が2からクロックごと3ずつ進み、rand constの明示初期値11と任意初期値の保持を別々に検査する。任意の乱数値自体や複数seed間の値差は期待しない。 区別: 17.1 B003が許可するdeterministic/random変数を両方宣言して使用する正常系。通常変数の更新欠落は2,5,14を変え、rand構文の拒否はコンパイルを失敗させ、constの再乱数化は保持フラグを変える。確率分布や形式ツールの全値考慮の証拠とはしない。
 
 ### SV2023-17.1-EXTRACT-NO-NETS
 
@@ -46351,7 +46369,7 @@ foreach 制約は packed / unpacked 配列とオプションの次元ループ�
 
 ### SV2023-18.5.7.1-EXTRACT-INDICES-NOT-FILTERED
 
-`18.5.7.1` / `normal` / テスト未対応
+`18.5.7.1` / `normal` / 実行確認あり
 
 指標はループ変数／定数／状態変数を使用できる。非有効/境界外のインデックスは自動的に削除されず、ユーザ述語で除外されなければなりません。
 
@@ -46359,6 +46377,7 @@ foreach 制約は packed / unpacked 配列とオプションの次元ループ�
 
 規定の性質: `mandatory`。
 
+- [test_foreach_oob_constraints_need_guards.sv](../tests/ch18/test_foreach_oob_constraints_need_guards.sv): loop i+1・定数2・状態変数index=2の各添字について、2要素2値配列の範囲外要素を4と比較する制約をガード無しで残すとrandomizeが0、明示境界ガードで除くと1かつ要素3,4になる。 区別: 7.4.5 B013/B019の範囲外2値要素は0なので4との比較は満たせない。評価エラーとする経路でも18.5.12の失敗規則となる。範囲外の制約を自動削除する誤実装はunguarded=1となり3行すべてで区別できる。ランダム値の具体値、失敗後の配列状態、診断文言に依存しない。正常kindに合うruntime randomize失敗のテストであり、compile illegal検出ではない。
 
 ### SV2023-18.5.7.1-EXTRACT-LOOP-COUNT-NAMES
 
@@ -49854,7 +49873,7 @@ type_option.real_intervalより広い実域は，可能な限り短い最終間�
 
 ### SV2023-19.5.1.1-EXTRACT-WITH-CONSTRUCTION
 
-`19.5.1.1` / `normal` / テスト未対応
+`19.5.1.1` / `normal` / テスト対応あり・実行未確認
 
 それぞれの候補者の評価として covergroup構築において行動するdistribute_first でフィルタリングする前にフィルタリングするか、デフォルトでビン配布前にフィルタを実行します。
 
@@ -49862,6 +49881,7 @@ type_option.real_intervalより広い実域は，可能な限り短い最終間�
 
 規定の性質: `mandatory`。
 
+- [test_cg_with_construction_freezes_filter.sv](../tests/ch19/test_cg_with_construction_freezes_filter.sv): ceiling=5で構築した後2へ変更し、0..5の全候補をfresh instanceで個別に採取して0..4だけが50%、5は0を観測する。さらに同一instanceへ2,1,4を採取しfilter-firstの50,100,100とdistribute-firstの50,50,100を区別する。 区別: 19.5.1.1 B011の構築時評価と両分配順序を一つの正常系で観測する。sample時にwithを再評価すると2..4が0になり、全候補へ適用しない誤実装も個別採取行を変える。distribute_firstを無視するとsample=1のdistributeが100になり、逆に常に分配先行ならfilterが50になる。
 
 ### SV2023-19.5.1.1-EXTRACT-WITH-FILTER
 
@@ -56189,7 +56209,7 @@ PLA人格記憶は入力項目数幅と出力項目数深さを持つ。
 
 ### SV2023-20.16.4-EXTRACT-PLANE-UNKNOWN
 
-`20.16.4` / `normal` / テスト未対応
+`20.16.4` / `normal` / テスト対応あり・実行未確認
 
 平面性格形式では，xは最悪の入力値をとる。
 
@@ -56197,6 +56217,7 @@ PLA人格記憶は入力項目数幅と出力項目数深さを持つ。
 
 規定の性質: `definition`。
 
+- [test_pla_plane_unknown_personality_control_values.sv](../tests/ch20/test_pla_plane_unknown_personality_control_values.sv): personality x1/1x/xz を4種類の同期 plane に渡し、2入力00/01/10/11に対する and/or/nand/nor の実値を表示する。 区別: 20.16.4 B002 の worst case を未知の寄与として論理演算する。20.16.2 B002 と合わせ、AND の制御0と OR の制御1では x がマスクされ、他は x が残る。x を true/complement/dont-care に置換する実装と、常に全出力xにする実装を区別する。既存 held に無い personality x を刺激する新規設計。oracleはspecのみ、独立検証待ち。
 
 ### SV2023-20.16.4-EXTRACT-PLANE-ZERO
 
@@ -60222,7 +60243,7 @@ VCD ノードエントリの拡張として連結したポートが現れる。
 
 ### SV2023-21.7.4.2-EXTRACT-PORT-NODE-RANGE
 
-`21.7.4.2` / `normal` / テスト未対応
+`21.7.4.2` / `normal` / テスト対応あり・実行未確認
 
 これは、ポートの宣言ベクトルインデックスを使用する場合、それ以外の場合は対応するネット/変数宣言インデックスを使用します。どちらもないと スカラー値になります
 
@@ -60230,6 +60251,7 @@ VCD ノードエントリの拡張として連結したポートが現れる。
 
 規定の性質: `mandatory`。
 
+- [test_evcd_explicit_port_range_from_internal_net.sv](../tests/ch21/test_evcd_explicit_port_range_from_internal_net.sv): 明示ANSI .by_net(by_net) の内部 wire \[7:4\]、通常ポート宣言の \[0:3\]、範囲なしscalarについて、EVCDの実際のreferenceに対応するsizeを読み出す。 区別: 21.7.4.2 B012の3経路を1本で観測する。23.2.2.2 B014/B015/B019により明示ポートは本文netの自己決定型を持つ。宣言範囲\[0:3\]と内部net範囲\[7:4\]を異なる向き・添字にして、全ベクトルを\[3:0\]等に正規化する実装、内部netを無視してscalar扱いする実装、scalarをvector扱いする実装を区別する。旧heldの非観測部分を実際に追加した。両固定版はcomplex ports/EVCD未対応で、oracleはspecのみ。
 
 ### SV2023-21.7.4.2-EXTRACT-PORT-NODE-SPACING
 
@@ -60257,7 +60279,7 @@ VCD 0の強度成分は高い値を表す。
 
 ### SV2023-21.7.4.3-EXTRACT-PORT-STRENGTH-1
 
-`21.7.4.3` / `normal` / テスト未対応
+`21.7.4.3` / `normal` / テスト対応あり・実行未確認
 
 VCD 1の拡張強度成分は小さなものを表す。
 
@@ -60265,10 +60287,11 @@ VCD 1の拡張強度成分は小さなものを表す。
 
 規定の性質: `definition`。
 
+- [test_evcd_small_medium_large_strength_components.sv](../tests/ch21/test_evcd_small_medium_large_strength_components.sv): small の0/1を出力ポートへ作り、時刻3の dumpportsall checkpoint から実際のポート参照名に対応する strength0/strength1 成分を読み、1/0 と 0/1 を表示する。 区別: 21.7.4.3 B005/B006。small/medium は28.14 B009/B010の抵抗スイッチ減衰、largeは28.15.2 B002の電荷保持で生成できるため、旧heldの「continuous assignmentでは生成できない」はこの新規刺激には当たらない。strength 1 を他の数字に置き換える、常に0を出す、0/1成分を交換する実装を識別する。EVCD/trireg未対応による失敗をoracleにせずspecのみ。
 
 ### SV2023-21.7.4.3-EXTRACT-PORT-STRENGTH-2
 
-`21.7.4.3` / `normal` / テスト未対応
+`21.7.4.3` / `normal` / テスト対応あり・実行未確認
 
 VCD 2の強度成分は中程度の強度を示した。
 
@@ -60276,6 +60299,7 @@ VCD 2の強度成分は中程度の強度を示した。
 
 規定の性質: `definition`。
 
+- [test_evcd_small_medium_large_strength_components.sv](../tests/ch21/test_evcd_small_medium_large_strength_components.sv): medium の0/1を出力ポートへ作り、時刻3の dumpportsall checkpoint から実際のポート参照名に対応する strength0/strength1 成分を読み、2/0 と 0/2 を表示する。 区別: 21.7.4.3 B005/B006。small/medium は28.14 B009/B010の抵抗スイッチ減衰、largeは28.15.2 B002の電荷保持で生成できるため、旧heldの「continuous assignmentでは生成できない」はこの新規刺激には当たらない。strength 2 を他の数字に置き換える、常に0を出す、0/1成分を交換する実装を識別する。EVCD/trireg未対応による失敗をoracleにせずspecのみ。
 
 ### SV2023-21.7.4.3-EXTRACT-PORT-STRENGTH-3
 
@@ -60291,7 +60315,7 @@ VCD 3の強度成分が拡張されたとき，弱いことを示す。
 
 ### SV2023-21.7.4.3-EXTRACT-PORT-STRENGTH-4
 
-`21.7.4.3` / `normal` / テスト未対応
+`21.7.4.3` / `normal` / テスト対応あり・実行未確認
 
 VCD 4の強度成分は大きいことを示した。
 
@@ -60299,6 +60323,7 @@ VCD 4の強度成分は大きいことを示した。
 
 規定の性質: `definition`。
 
+- [test_evcd_small_medium_large_strength_components.sv](../tests/ch21/test_evcd_small_medium_large_strength_components.sv): large の0/1を出力ポートへ作り、時刻3の dumpportsall checkpoint から実際のポート参照名に対応する strength0/strength1 成分を読み、4/0 と 0/4 を表示する。 区別: 21.7.4.3 B005/B006。small/medium は28.14 B009/B010の抵抗スイッチ減衰、largeは28.15.2 B002の電荷保持で生成できるため、旧heldの「continuous assignmentでは生成できない」はこの新規刺激には当たらない。strength 4 を他の数字に置き換える、常に0を出す、0/1成分を交換する実装を識別する。EVCD/trireg未対応による失敗をoracleにせずspecのみ。
 
 ### SV2023-21.7.4.3-EXTRACT-PORT-STRENGTH-5
 

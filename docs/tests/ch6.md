@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[All chapters](README.md). 898 tests, 265 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 899 tests, 265 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -97,6 +97,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_nettype_declarations_and_user_nets`](../../tests/ch6/test_nettype_declarations_and_user_nets.sv) | nettype declarations without a resolution function, with one named directly, through a package or through a class, and new names for a nettype with and without a package scope; nets of these nettypes declared with a delay and a list of net declaration assignments, observed through resolved values and change times | 6.6.7 6.7.2 6.7.3 10.3.3 A.2.1.3 A.2.3 A.2.4 | standard only | x/z |
 | [`test_nettype_identifier_and_net`](../../tests/ch6/test_nettype_identifier_and_net.sv) | A nettype declaration names a user-defined net type with a data type and an identifier, and a net declared with that name carries the driven value with the four-state semantics of that data type | 6.6.7 6.6.1 A.9.3 | standard only ||
 | [`test_nettype_resolution`](../../tests/ch6/test_nettype_resolution.sv) | a net of a user-defined nettype takes the value its resolution function computes from all its drivers, including an output port, again whenever a driver changes; a second nettype name shares the resolution, and force and release override and restore the resolved value | 6.6.7 10.3 10.6.2 23.3.3 | standard only ||
+| [`test_nettype_resolver_automatic_local_reinitializes`](../../tests/ch6/test_nettype_resolver_automatic_local_reinitializes.sv) | Each evaluation of an automatic nettype resolver reinitializes its local accumulator, so decreasing a driver decreases the resolved value independently of the evaluation count | 6.6.7 6.21 13.4.2 | standard only ||
 | [`test_nettype_unpacked_union_struct_array_data`](../../tests/ch6/test_nettype_unpacked_union_struct_array_data.sv) | A user-defined nettype can have as its data type an unpacked union of real and logic members, an unpacked structure holding a fixed-size array of unpacked structures of shortreal and bit members, and a fixed-size array of such unions, and its resolver combines whole driver values of these types | 6.6.7 | standard only ||
 | [`test_user_nettype_resolution_forms`](../../tests/ch6/test_user_nettype_resolution_forms.sv) | User-defined nettypes of 4-state, 2-state, real, shortreal and unpacked data types, with resolvers named directly, through a package scope or as static methods of a parameterized class, renamed through a package scope, declared with a delay, as arrays and without a resolver, resolve their nets as a whole | 6.6.7 6.6 6.7 6.7.2 6.7.3 13.8 | standard only | x/z |
 | [`test_x_value_bitwise`](../../tests/ch6/test_x_value_bitwise.sv) | 4-state logic truth tables | 6.6.7 11.4.8 | Icarus Verilog 13.0 | x/z |

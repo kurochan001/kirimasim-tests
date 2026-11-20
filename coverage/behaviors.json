@@ -6613,7 +6613,37 @@
       "acceptance": "The step time unit denotes the global time precision.",
       "source_note": "IEEE 1800-2023 3.14.3; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch3/test_step_is_global_time_precision.sv",
+          "observation": "design全体のglobal precisionを1ps、呼び出し側moduleのunit/precisionを1nsに分け、#1stepが0.001nsで終わり、clocking input #1stepがedge直前9.999nsの1を、#1が9nsの0をsampleする実値を表示する。 区別: 3.14.3 B002/B003からglobal precisionは1ps。#1step=1psなので第1行0.001ns。14.4 B009より10ns edge前のstep sampleは9.999nsの更新後1、#1ns sampleは9nsの0。stepをscopeのunit/precision1nsと取り違える実装は第2行の1step sampleが0になり、第1行ではunit1nsに取り違える実装を識別する。旧heldのglobal_precision_from_timescaleは1stepを使わないが、この別の既存テストは直接使い、不足条件を追加観測する。作成者による再照合であり独立承認ではない。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "1c148fc7ce134af0bf0d7c42c7af2ed5fbdd825280857dfee700b74800555c6c",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_step_is_global_time_precision.sv",
+              "contains": "input #1step d;"
+            },
+            {
+              "file": "tests/ch3/test_step_is_global_time_precision.sv",
+              "contains": "#1step;"
+            },
+            {
+              "file": "tests/ch3/test_step_is_global_time_precision.sv",
+              "contains": "#9.999 q = 1'b1;"
+            },
+            {
+              "file": "tests/ch3/test_step_is_global_time_precision.expected",
+              "contains": "#1step ended at 0.001 ns"
+            },
+            {
+              "file": "tests/ch3/test_step_is_global_time_precision.expected",
+              "contains": "at 12 ns: 1step sample 1, #1 sample 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "3.14.3",
@@ -26300,7 +26330,41 @@
       "acceptance": "A resolution function has automatic lifetime or otherwise preserves no state information between its prescribed evaluations.",
       "source_note": "IEEE 1800-2023 6.6.7; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_nettype_resolver_automatic_local_reinitializes.sv",
+          "observation": "automatic resolverの局所変数を宣言時に100へ初期化し、正の2driverを2+3、7+3、1+3へ変えて、全安定点で105、110、104となる実値を表示する。 区別: 6.6.7 B012と6.21 B004によりautomatic局所totalは評価ごとに100へ戻る。保持状態を誤って持たせると正の寄与でtotalが増え続け、特に110から104への減少を再現できない。旧heldのsum_resは毎回手続き代入でsum=0に戻して寿命差が消えていたが、新案は宣言初期化に差を持たせる。回数は数えず全ての正しい呼出しは同じdriver集合に同じ値を返すため、規格が許す評価回数の任意性に依存しない。外部オブジェクトやinput配列には書かず、local変数の操作だけなので禁止されるside effectを入れない。固定版のnettype未対応をoracleにせずspecのみ、独立検証待ち。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "ca84b2db2165087dd603c5ca209ca41ce6783ac669029c68b7cd835c00cfbedd",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_nettype_resolver_automatic_local_reinitializes.sv",
+              "contains": "function automatic int resolve(input int drivers[]);"
+            },
+            {
+              "file": "tests/ch6/test_nettype_resolver_automatic_local_reinitializes.sv",
+              "contains": "int total = 100;"
+            },
+            {
+              "file": "tests/ch6/test_nettype_resolver_automatic_local_reinitializes.sv",
+              "contains": "a = 1;"
+            },
+            {
+              "file": "tests/ch6/test_nettype_resolver_automatic_local_reinitializes.expected",
+              "contains": "a=2 b=3 resolved=105"
+            },
+            {
+              "file": "tests/ch6/test_nettype_resolver_automatic_local_reinitializes.expected",
+              "contains": "a=7 b=3 resolved=110"
+            },
+            {
+              "file": "tests/ch6/test_nettype_resolver_automatic_local_reinitializes.expected",
+              "contains": "a=1 b=3 resolved=104"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "6.6.7",
@@ -99753,13 +99817,136 @@
       "acceptance": "An assignment pattern on an LHS must be positional; every member expression must have a bit-stream type assignment compatible with and bit-size equal to its corresponding RHS element.",
       "source_note": "IEEE 1800-2023 10.9; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch10/test_illegal_lhs_pattern_integral_pair_keys.sv",
+          "observation": "The members are matching integral 64-bit values, but index keys violate the required positional notation.",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "7153333123716026bd1863de2e14df03925bdb977fc2b0b1e542a60049c12f56",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_illegal_lhs_pattern_integral_pair_keys.sv",
+              "contains": "    '{0:first, 1:second} = src; // illegal: keyed LHS instead of positional"
+            },
+            {
+              "file": "tests/ch10/test_illegal_lhs_pattern_integral_pair_keys.sv",
+              "contains": ":expected_stderr_regex: test_illegal_lhs_pattern_integral_pair_keys\\.sv:25:"
+            },
+            {
+              "file": "tests/ch10/test_illegal_lhs_pattern_integral_pair_keys.sv",
+              "contains": "  typedef bit [63:0] element_t;"
+            },
+            {
+              "file": "tests/ch10/test_illegal_lhs_pattern_integral_pair_keys.sv",
+              "contains": "  typedef element_t pair_t[2];"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch10/test_illegal_lhs_pattern_real_member_not_bitstream.sv",
+          "observation": "The real member has the same type and width as its corresponding element but fails the bit-stream-type condition.",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "be0fda00d837fe2040448a3c3120fd4a460a65b63822f0765a04a31d01f55791",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_illegal_lhs_pattern_real_member_not_bitstream.sv",
+              "contains": "    '{real_member, int_member} = src; // illegal: real is not bit-stream"
+            },
+            {
+              "file": "tests/ch10/test_illegal_lhs_pattern_real_member_not_bitstream.sv",
+              "contains": ":expected_stderr_regex: test_illegal_lhs_pattern_real_member_not_bitstream\\.sv:30:"
+            },
+            {
+              "file": "tests/ch10/test_illegal_lhs_pattern_real_member_not_bitstream.sv",
+              "contains": "  typedef struct { real r; int i; } record_t;"
+            },
+            {
+              "file": "tests/ch10/test_illegal_lhs_pattern_real_member_not_bitstream.sv",
+              "contains": "  typedef int control_t[2];"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch10/test_illegal_lhs_pattern_member_array_type_same_bits.sv",
+          "observation": "The first member has two ints (64 bits) while its corresponding type has eight bytes (64 bits); both are bit-stream types but array assignment compatibility fails.",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "901e0e1b0b797870e3e2af9c14925573865162f181bffc8820c0dfdb1074b872",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_illegal_lhs_pattern_member_array_type_same_bits.sv",
+              "contains": "    '{incompatible, second} = src; // illegal: type, not bit count"
+            },
+            {
+              "file": "tests/ch10/test_illegal_lhs_pattern_member_array_type_same_bits.sv",
+              "contains": ":expected_stderr_regex: test_illegal_lhs_pattern_member_array_type_same_bits\\.sv:27:"
+            },
+            {
+              "file": "tests/ch10/test_illegal_lhs_pattern_member_array_type_same_bits.sv",
+              "contains": "  typedef byte row_t[8];"
+            },
+            {
+              "file": "tests/ch10/test_illegal_lhs_pattern_member_array_type_same_bits.sv",
+              "contains": "  typedef row_t matrix_t[2];"
+            },
+            {
+              "file": "tests/ch10/test_illegal_lhs_pattern_member_array_type_same_bits.sv",
+              "contains": "  int incompatible[2];"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch10/test_illegal_lhs_pattern_integral_member_width_only.sv",
+          "observation": "The first member is a 63-bit packed integral value for a 64-bit integral element; assignment compatibility holds while only equal bit count fails.",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "24dacc2331bf2d43a9d0776a098cdfd7d66cd1f0d37a13c93fffb1dff96a47a6",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_illegal_lhs_pattern_integral_member_width_only.sv",
+              "contains": "    '{narrow, second} = src; // illegal: member width only"
+            },
+            {
+              "file": "tests/ch10/test_illegal_lhs_pattern_integral_member_width_only.sv",
+              "contains": ":expected_stderr_regex: test_illegal_lhs_pattern_integral_member_width_only\\.sv:27:"
+            },
+            {
+              "file": "tests/ch10/test_illegal_lhs_pattern_integral_member_width_only.sv",
+              "contains": "  typedef bit [63:0] element_t;"
+            },
+            {
+              "file": "tests/ch10/test_illegal_lhs_pattern_integral_member_width_only.sv",
+              "contains": "  typedef element_t pair_t[2];"
+            },
+            {
+              "file": "tests/ch10/test_illegal_lhs_pattern_integral_member_width_only.sv",
+              "contains": "  bit [62:0] narrow;"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "10.9",
           "blocks": [
             "B008"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "lhs-four-independent-conditions-20261120",
+          "tests": [
+            "tests/ch10/test_illegal_lhs_pattern_integral_pair_keys.sv",
+            "tests/ch10/test_illegal_lhs_pattern_real_member_not_bitstream.sv",
+            "tests/ch10/test_illegal_lhs_pattern_member_array_type_same_bits.sv",
+            "tests/ch10/test_illegal_lhs_pattern_integral_member_width_only.sv"
+          ],
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "observation": "Four negative designs isolate the positional, bit-stream, assignment-compatible and equal-bit-count conditions of a left-hand assignment pattern. Every other condition stays valid in each design, and each expected diagnostic identifies its marked assignment. 区別: The earlier scoped holds concerned a single test observing only one conjunct. Those held pairs remain untouched. This new AND group uses separate controlled stimuli for all four conjuncts: omitting any one check admits its corresponding illegal design while the other three checks still hold. Unsupported syntax diagnostics are not counted as fixed-tool oracle evidence."
         }
       ]
     },
@@ -99989,13 +100176,136 @@
       "acceptance": "A typed LHS pattern expression must be positional and use bit-stream members assignment compatible with/equal in bit count to their corresponding members of its explicit type.",
       "source_note": "IEEE 1800-2023 10.9; complete own-body source review, blocks B015. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch10/test_illegal_typed_lhs_pattern_integral_pair_keys.sv",
+          "observation": "The members are matching integral 64-bit values, but index keys violate the required positional notation.",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "75721632f57d2982b9c3a4e7801aa7a8286f3efc88bfa09caf209fe79f0626e8",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_illegal_typed_lhs_pattern_integral_pair_keys.sv",
+              "contains": "    pair_t'{0:first, 1:second} = src; // illegal: keyed LHS instead of positional"
+            },
+            {
+              "file": "tests/ch10/test_illegal_typed_lhs_pattern_integral_pair_keys.sv",
+              "contains": ":expected_stderr_regex: test_illegal_typed_lhs_pattern_integral_pair_keys\\.sv:25:"
+            },
+            {
+              "file": "tests/ch10/test_illegal_typed_lhs_pattern_integral_pair_keys.sv",
+              "contains": "  typedef bit [63:0] element_t;"
+            },
+            {
+              "file": "tests/ch10/test_illegal_typed_lhs_pattern_integral_pair_keys.sv",
+              "contains": "  typedef element_t pair_t[2];"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch10/test_illegal_typed_lhs_pattern_real_member_not_bitstream.sv",
+          "observation": "The real member has the same type and width as its corresponding element but fails the bit-stream-type condition.",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "a7412772450a616cfb0e8c0db9a30a488175fb43ccedadd5885245c95928d2a3",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_illegal_typed_lhs_pattern_real_member_not_bitstream.sv",
+              "contains": "    record_t'{real_member, int_member} = src; // illegal: real is not bit-stream"
+            },
+            {
+              "file": "tests/ch10/test_illegal_typed_lhs_pattern_real_member_not_bitstream.sv",
+              "contains": ":expected_stderr_regex: test_illegal_typed_lhs_pattern_real_member_not_bitstream\\.sv:30:"
+            },
+            {
+              "file": "tests/ch10/test_illegal_typed_lhs_pattern_real_member_not_bitstream.sv",
+              "contains": "  typedef struct { real r; int i; } record_t;"
+            },
+            {
+              "file": "tests/ch10/test_illegal_typed_lhs_pattern_real_member_not_bitstream.sv",
+              "contains": "  typedef int control_t[2];"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch10/test_illegal_typed_lhs_pattern_member_array_type_same_bits.sv",
+          "observation": "The first member has two ints (64 bits) while its corresponding type has eight bytes (64 bits); both are bit-stream types but array assignment compatibility fails.",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "25c899a75965b998039d869f189d4a71f6535112fa7e1b325573386163dd606b",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_illegal_typed_lhs_pattern_member_array_type_same_bits.sv",
+              "contains": "    matrix_t'{incompatible, second} = src; // illegal: type, not bit count"
+            },
+            {
+              "file": "tests/ch10/test_illegal_typed_lhs_pattern_member_array_type_same_bits.sv",
+              "contains": ":expected_stderr_regex: test_illegal_typed_lhs_pattern_member_array_type_same_bits\\.sv:27:"
+            },
+            {
+              "file": "tests/ch10/test_illegal_typed_lhs_pattern_member_array_type_same_bits.sv",
+              "contains": "  typedef byte row_t[8];"
+            },
+            {
+              "file": "tests/ch10/test_illegal_typed_lhs_pattern_member_array_type_same_bits.sv",
+              "contains": "  typedef row_t matrix_t[2];"
+            },
+            {
+              "file": "tests/ch10/test_illegal_typed_lhs_pattern_member_array_type_same_bits.sv",
+              "contains": "  int incompatible[2];"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch10/test_illegal_typed_lhs_pattern_integral_member_width_only.sv",
+          "observation": "The first member is a 63-bit packed integral value for a 64-bit integral element; assignment compatibility holds while only equal bit count fails.",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "ac273ffa8adc0b09f710b27dbc895664fc218a33810c960a314d15193614683b",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_illegal_typed_lhs_pattern_integral_member_width_only.sv",
+              "contains": "    pair_t'{narrow, second} = src; // illegal: member width only"
+            },
+            {
+              "file": "tests/ch10/test_illegal_typed_lhs_pattern_integral_member_width_only.sv",
+              "contains": ":expected_stderr_regex: test_illegal_typed_lhs_pattern_integral_member_width_only\\.sv:27:"
+            },
+            {
+              "file": "tests/ch10/test_illegal_typed_lhs_pattern_integral_member_width_only.sv",
+              "contains": "  typedef bit [63:0] element_t;"
+            },
+            {
+              "file": "tests/ch10/test_illegal_typed_lhs_pattern_integral_member_width_only.sv",
+              "contains": "  typedef element_t pair_t[2];"
+            },
+            {
+              "file": "tests/ch10/test_illegal_typed_lhs_pattern_integral_member_width_only.sv",
+              "contains": "  bit [62:0] narrow;"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "10.9",
           "blocks": [
             "B015"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "typed-lhs-four-independent-conditions-20261120",
+          "tests": [
+            "tests/ch10/test_illegal_typed_lhs_pattern_integral_pair_keys.sv",
+            "tests/ch10/test_illegal_typed_lhs_pattern_real_member_not_bitstream.sv",
+            "tests/ch10/test_illegal_typed_lhs_pattern_member_array_type_same_bits.sv",
+            "tests/ch10/test_illegal_typed_lhs_pattern_integral_member_width_only.sv"
+          ],
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "observation": "Four negative designs isolate the positional, bit-stream, assignment-compatible and equal-bit-count conditions of a left-hand assignment pattern. Every other condition stays valid in each design, and each expected diagnostic identifies its marked assignment. 区別: The earlier scoped holds concerned a single test observing only one conjunct. Those held pairs remain untouched. This new AND group uses separate controlled stimuli for all four conjuncts: omitting any one check admits its corresponding illegal design while the other three checks still hold. Unsupported syntax diagnostics are not counted as fixed-tool oracle evidence."
         }
       ]
     },
@@ -100007,13 +100317,80 @@
       "acceptance": "A self-determined RHS assigned to a typed LHS pattern must be assignment compatible with and bit-size equal to the typed pattern.",
       "source_note": "IEEE 1800-2023 10.9; complete own-body source review, blocks B015. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch10/test_illegal_typed_lhs_pattern_rhs_type_same_bits.sv",
+          "observation": "The sixteen-byte RHS and the two-by-two-int explicit type have the same 128 bits but incompatible unpacked array shapes.",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "a06a68e76c3af3c13f4fe161ebb2f87cd91dedb56f4c501f916bfbf2f2a88fbc",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_illegal_typed_lhs_pattern_rhs_type_same_bits.sv",
+              "contains": "    matrix_t'{first, second} = incompatible; // illegal: type, not bit count"
+            },
+            {
+              "file": "tests/ch10/test_illegal_typed_lhs_pattern_rhs_type_same_bits.sv",
+              "contains": ":expected_stderr_regex: test_illegal_typed_lhs_pattern_rhs_type_same_bits\\.sv:27:"
+            },
+            {
+              "file": "tests/ch10/test_illegal_typed_lhs_pattern_rhs_type_same_bits.sv",
+              "contains": "  typedef int row_t[2];"
+            },
+            {
+              "file": "tests/ch10/test_illegal_typed_lhs_pattern_rhs_type_same_bits.sv",
+              "contains": "  typedef row_t matrix_t[2];"
+            },
+            {
+              "file": "tests/ch10/test_illegal_typed_lhs_pattern_rhs_type_same_bits.sv",
+              "contains": "  byte incompatible[16];"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch10/test_illegal_typed_lhs_pattern_rhs_width_only.sv",
+          "observation": "The packed two-bit explicit type and packed three-bit RHS are assignment-compatible integral types, but have different bit counts.",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "d559e0521c732b8eb2f445fabb09fce6c1ea8b4bfaf7a5bb161872ab9bd35a38",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_illegal_typed_lhs_pattern_rhs_width_only.sv",
+              "contains": "    pair_t'{first, second} = wider; // illegal: 3 RHS bits for a 2-bit pattern"
+            },
+            {
+              "file": "tests/ch10/test_illegal_typed_lhs_pattern_rhs_width_only.sv",
+              "contains": ":expected_stderr_regex: test_illegal_typed_lhs_pattern_rhs_width_only\\.sv:26:"
+            },
+            {
+              "file": "tests/ch10/test_illegal_typed_lhs_pattern_rhs_width_only.sv",
+              "contains": "  typedef bit [1:0] pair_t;"
+            },
+            {
+              "file": "tests/ch10/test_illegal_typed_lhs_pattern_rhs_width_only.sv",
+              "contains": "  bit [2:0] wider = 3'b110;"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "10.9",
           "blocks": [
             "B015"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "typed-lhs-rhs-two-independent-conditions-20261120",
+          "tests": [
+            "tests/ch10/test_illegal_typed_lhs_pattern_rhs_type_same_bits.sv",
+            "tests/ch10/test_illegal_typed_lhs_pattern_rhs_width_only.sv"
+          ],
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "observation": "The self-determined RHS is separately rejected for incompatible unpacked array shape with the same 128 bits, and for a different packed-integral bit count while assignment compatibility holds. 区別: Checking only type compatibility rejects both an unpacked size mismatch and an unpacked shape mismatch; it does not establish the separate width rule. The second new design instead uses compatible integral types of two and three bits, so removing the width check admits exactly that design. Existing held RHS-size tests and decisions remain unchanged."
         }
       ]
     },
@@ -172660,7 +173037,41 @@
       "acceptance": "A method-bearing sequence connected to a module/interface/program port or passed to a task/function is clocked as though instantiated at that instantiation/call site.",
       "source_note": "IEEE 1800-2023 16.13.6; complete own-body source review, blocks B020. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_sequence_method_port_call_clocks.sv",
+          "observation": "module/interface/programのポート実引数pair_s.triggeredが呼出し元default clockの25で初回成立し、task/function実引数はassertion actionのclockによる27,57で成立する。受取り側default clockなら22となる刺激で区別する。 区別: 16.13.6 B020の全5接続/呼出し形式を一つの合法テストで観測する。受取り側や宣言場所のdefault clockを誤用するとport時刻が22、call時刻が25/55または空列になり期待行が変わる。Reactiveで読むのでObservedとの順序競合はない。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "9e7ab8430a8e354fb896f669ea376cfced2cf9574a075ad595cdb444194bf1df",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sequence_method_port_call_clocks.sv",
+              "contains": "port_clock_interface ui(wrong_clk, pair_s.triggered, interface_hit);"
+            },
+            {
+              "file": "tests/ch16/test_sequence_method_port_call_clocks.sv",
+              "contains": "record_task(pair_s.triggered);"
+            },
+            {
+              "file": "tests/ch16/test_sequence_method_port_call_clocks.sv",
+              "contains": "if (echo_hit(pair_s.triggered))"
+            },
+            {
+              "file": "tests/ch16/test_sequence_method_port_call_clocks.expected",
+              "contains": "ports module=25 interface=25 program=25"
+            },
+            {
+              "file": "tests/ch16/test_sequence_method_port_call_clocks.expected",
+              "contains": "task hits: 27 57"
+            },
+            {
+              "file": "tests/ch16/test_sequence_method_port_call_clocks.expected",
+              "contains": "function hits: 27 57"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.13.6",
@@ -178844,7 +179255,33 @@
       "acceptance": "Checker variables may be deterministic or random for nondeterministic modeling.",
       "source_note": "IEEE 1800-2023 17.1; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_checker_deterministic_random_models.sv",
+          "observation": "同じchecker内の通常int変数が2からクロックごと3ずつ進み、rand constの明示初期値11と任意初期値の保持を別々に検査する。任意の乱数値自体や複数seed間の値差は期待しない。 区別: 17.1 B003が許可するdeterministic/random変数を両方宣言して使用する正常系。通常変数の更新欠落は2,5,14を変え、rand構文の拒否はコンパイルを失敗させ、constの再乱数化は保持フラグを変える。確率分布や形式ツールの全値考慮の証拠とはしない。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "a88bfd5aa367914c800f7e20b2eaa0e6fd87c6771e79416c07fd04bb29414fda",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_deterministic_random_models.sv",
+              "contains": "rand const bit [3:0] fixed_free = 4'd11;"
+            },
+            {
+              "file": "tests/ch17/test_checker_deterministic_random_models.sv",
+              "contains": "deterministic <= deterministic + 3;"
+            },
+            {
+              "file": "tests/ch17/test_checker_deterministic_random_models.sv",
+              "contains": "else if (arbitrary_free != first_arbitrary) arbitrary_good <= 0;"
+            },
+            {
+              "file": "tests/ch17/test_checker_deterministic_random_models.expected",
+              "contains": "after four deterministic=14 fixed=1 stable=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.1",
@@ -186644,7 +187081,41 @@
       "acceptance": "Indices may use loop variables/constants/state variables; invalid/out-of-bounds indices are not automatically removed and must be excluded by user predicates.",
       "source_note": "IEEE 1800-2023 18.5.7.1; complete own-body source review, blocks B020. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch18/test_foreach_oob_constraints_need_guards.sv",
+          "observation": "loop i+1・定数2・状態変数index=2の各添字について、2要素2値配列の範囲外要素を4と比較する制約をガード無しで残すとrandomizeが0、明示境界ガードで除くと1かつ要素3,4になる。 区別: 7.4.5 B013/B019の範囲外2値要素は0なので4との比較は満たせない。評価エラーとする経路でも18.5.12の失敗規則となる。範囲外の制約を自動削除する誤実装はunguarded=1となり3行すべてで区別できる。ランダム値の具体値、失敗後の配列状態、診断文言に依存しない。正常kindに合うruntime randomize失敗のテストであり、compile illegal検出ではない。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "e705e4bde5e94ecfc49a388d2129f3794d0a53e67e34dd4b42e2689c1ad54e1b",
+          "evidence": [
+            {
+              "file": "tests/ch18/test_foreach_oob_constraints_need_guards.sv",
+              "contains": "if (!guarded || i + 1 < 2) a[i + 1] == 8'd4;"
+            },
+            {
+              "file": "tests/ch18/test_foreach_oob_constraints_need_guards.sv",
+              "contains": "if (!guarded || 2 < 2) a[2] == 8'd4;"
+            },
+            {
+              "file": "tests/ch18/test_foreach_oob_constraints_need_guards.sv",
+              "contains": "if (!guarded || index < 2) a[index] == 8'd4;"
+            },
+            {
+              "file": "tests/ch18/test_foreach_oob_constraints_need_guards.expected",
+              "contains": "form=0 unguarded=0 guarded=1 values=3,4"
+            },
+            {
+              "file": "tests/ch18/test_foreach_oob_constraints_need_guards.expected",
+              "contains": "form=1 unguarded=0 guarded=1 values=3,4"
+            },
+            {
+              "file": "tests/ch18/test_foreach_oob_constraints_need_guards.expected",
+              "contains": "form=2 unguarded=0 guarded=1 values=3,4"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "18.5.7.1",
@@ -199401,7 +199872,41 @@
       "acceptance": "with acts as evaluation for every candidate at covergroup construction; by default filter before bin distribution, or distribute before filtering with distribute_first.",
       "source_note": "IEEE 1800-2023 19.5.1.1; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_cg_with_construction_freezes_filter.sv",
+          "observation": "ceiling=5で構築した後2へ変更し、0..5の全候補をfresh instanceで個別に採取して0..4だけが50%、5は0を観測する。さらに同一instanceへ2,1,4を採取しfilter-firstの50,100,100とdistribute-firstの50,50,100を区別する。 区別: 19.5.1.1 B011の構築時評価と両分配順序を一つの正常系で観測する。sample時にwithを再評価すると2..4が0になり、全候補へ適用しない誤実装も個別採取行を変える。distribute_firstを無視するとsample=1のdistributeが100になり、逆に常に分配先行ならfilterが50になる。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "292bb886519d2ad999807f15990ed5b7cc5115f41a7f7f24249e673918f49d19",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_with_construction_freezes_filter.sv",
+              "contains": "type_option.distribute_first = 1;"
+            },
+            {
+              "file": "tests/ch19/test_cg_with_construction_freezes_filter.sv",
+              "contains": "ceiling = 2;"
+            },
+            {
+              "file": "tests/ch19/test_cg_with_construction_freezes_filter.sv",
+              "contains": "gf_one[i].sample();"
+            },
+            {
+              "file": "tests/ch19/test_cg_with_construction_freezes_filter.expected",
+              "contains": "sample=1 filter=100 distribute=50"
+            },
+            {
+              "file": "tests/ch19/test_cg_with_construction_freezes_filter.expected",
+              "contains": "isolated=4 filter=50 distribute=50"
+            },
+            {
+              "file": "tests/ch19/test_cg_with_construction_freezes_filter.expected",
+              "contains": "isolated=5 filter=0 distribute=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5.1.1",
@@ -222116,7 +222621,41 @@
       "acceptance": "In plane personality format, x takes the worst-case input value.",
       "source_note": "IEEE 1800-2023 20.16.4; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_pla_plane_unknown_personality_control_values.sv",
+          "observation": "personality x1/1x/xz を4種類の同期 plane に渡し、2入力00/01/10/11に対する and/or/nand/nor の実値を表示する。 区別: 20.16.4 B002 の worst case を未知の寄与として論理演算する。20.16.2 B002 と合わせ、AND の制御0と OR の制御1では x がマスクされ、他は x が残る。x を true/complement/dont-care に置換する実装と、常に全出力xにする実装を区別する。既存 held に無い personality x を刺激する新規設計。oracleはspecのみ、独立検証待ち。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "5b7433c33df0a860b7bd2943d378938e91f4cc1db8fe7e0e2bdfb87e429de6c6",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_pla_plane_unknown_personality_control_values.sv",
+              "contains": "personality[1] = 2'bx1;"
+            },
+            {
+              "file": "tests/ch20/test_pla_plane_unknown_personality_control_values.sv",
+              "contains": "personality[2] = 2'b1x;"
+            },
+            {
+              "file": "tests/ch20/test_pla_plane_unknown_personality_control_values.sv",
+              "contains": "personality[3] = 2'bxz;"
+            },
+            {
+              "file": "tests/ch20/test_pla_plane_unknown_personality_control_values.sv",
+              "contains": "$sync$nand$plane(personality, inputs, nand_result);"
+            },
+            {
+              "file": "tests/ch20/test_pla_plane_unknown_personality_control_values.expected",
+              "contains": "input=00 and=00x or=xxx nand=11x nor=xxx"
+            },
+            {
+              "file": "tests/ch20/test_pla_plane_unknown_personality_control_values.expected",
+              "contains": "input=11 and=xxx or=11x nand=xxx nor=00x"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.16.4",
@@ -237009,7 +237548,41 @@
       "acceptance": "Use the port declaration vector index if present, otherwise the matching net/variable declaration index; absence of either means scalar.",
       "source_note": "IEEE 1800-2023 21.7.4.2; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_evcd_explicit_port_range_from_internal_net.sv",
+          "observation": "明示ANSI .by_net(by_net) の内部 wire [7:4]、通常ポート宣言の [0:3]、範囲なしscalarについて、EVCDの実際のreferenceに対応するsizeを読み出す。 区別: 21.7.4.2 B012の3経路を1本で観測する。23.2.2.2 B014/B015/B019により明示ポートは本文netの自己決定型を持つ。宣言範囲[0:3]と内部net範囲[7:4]を異なる向き・添字にして、全ベクトルを[3:0]等に正規化する実装、内部netを無視してscalar扱いする実装、scalarをvector扱いする実装を区別する。旧heldの非観測部分を実際に追加した。両固定版はcomplex ports/EVCD未対応で、oracleはspecのみ。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "b44f013697c46a77dab3974b71c75097524a6918648589d4ae667cdf8b273902",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_evcd_explicit_port_range_from_internal_net.sv",
+              "contains": "module evcd_explicit_range_dut(output .by_net(by_net),"
+            },
+            {
+              "file": "tests/ch21/test_evcd_explicit_port_range_from_internal_net.sv",
+              "contains": "wire [7:4] by_net;"
+            },
+            {
+              "file": "tests/ch21/test_evcd_explicit_port_range_from_internal_net.sv",
+              "contains": "output wire [0:3] by_port,"
+            },
+            {
+              "file": "tests/ch21/test_evcd_explicit_port_range_from_internal_net.expected",
+              "contains": "by_net size=[7:4]"
+            },
+            {
+              "file": "tests/ch21/test_evcd_explicit_port_range_from_internal_net.expected",
+              "contains": "by_port size=[0:3]"
+            },
+            {
+              "file": "tests/ch21/test_evcd_explicit_port_range_from_internal_net.expected",
+              "contains": "scalar size=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.4.2",
@@ -237119,7 +237692,33 @@
       "acceptance": "Extended VCD strength component 1 represents small.",
       "source_note": "IEEE 1800-2023 21.7.4.3; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_evcd_small_medium_large_strength_components.sv",
+          "observation": "small の0/1を出力ポートへ作り、時刻3の dumpportsall checkpoint から実際のポート参照名に対応する strength0/strength1 成分を読み、1/0 と 0/1 を表示する。 区別: 21.7.4.3 B005/B006。small/medium は28.14 B009/B010の抵抗スイッチ減衰、largeは28.15.2 B002の電荷保持で生成できるため、旧heldの「continuous assignmentでは生成できない」はこの新規刺激には当たらない。strength 1 を他の数字に置き換える、常に0を出す、0/1成分を交換する実装を識別する。EVCD/trireg未対応による失敗をoracleにせずspecのみ。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "967ff24188f0e7682e409e868c06de67c50bde3fa8d4110745aa5d1d67875b61",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_evcd_small_medium_large_strength_components.sv",
+              "contains": "rtran small_zero(m0, s0);"
+            },
+            {
+              "file": "tests/ch21/test_evcd_small_medium_large_strength_components.sv",
+              "contains": "$dumpportsall(\"test_evcd_small_medium_large_strength_components.evcd\");"
+            },
+            {
+              "file": "tests/ch21/test_evcd_small_medium_large_strength_components.expected",
+              "contains": "s0 strength0=1 strength1=0"
+            },
+            {
+              "file": "tests/ch21/test_evcd_small_medium_large_strength_components.expected",
+              "contains": "s1 strength0=0 strength1=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.4.3",
@@ -237137,7 +237736,33 @@
       "acceptance": "Extended VCD strength component 2 represents medium.",
       "source_note": "IEEE 1800-2023 21.7.4.3; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_evcd_small_medium_large_strength_components.sv",
+          "observation": "medium の0/1を出力ポートへ作り、時刻3の dumpportsall checkpoint から実際のポート参照名に対応する strength0/strength1 成分を読み、2/0 と 0/2 を表示する。 区別: 21.7.4.3 B005/B006。small/medium は28.14 B009/B010の抵抗スイッチ減衰、largeは28.15.2 B002の電荷保持で生成できるため、旧heldの「continuous assignmentでは生成できない」はこの新規刺激には当たらない。strength 2 を他の数字に置き換える、常に0を出す、0/1成分を交換する実装を識別する。EVCD/trireg未対応による失敗をoracleにせずspecのみ。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "967ff24188f0e7682e409e868c06de67c50bde3fa8d4110745aa5d1d67875b61",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_evcd_small_medium_large_strength_components.sv",
+              "contains": "rtran medium_zero(weak_zero, m0);"
+            },
+            {
+              "file": "tests/ch21/test_evcd_small_medium_large_strength_components.sv",
+              "contains": "$dumpportsall(\"test_evcd_small_medium_large_strength_components.evcd\");"
+            },
+            {
+              "file": "tests/ch21/test_evcd_small_medium_large_strength_components.expected",
+              "contains": "m0 strength0=2 strength1=0"
+            },
+            {
+              "file": "tests/ch21/test_evcd_small_medium_large_strength_components.expected",
+              "contains": "m1 strength0=0 strength1=2"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.4.3",
@@ -237207,7 +237832,33 @@
       "acceptance": "Extended VCD strength component 4 represents large.",
       "source_note": "IEEE 1800-2023 21.7.4.3; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_evcd_small_medium_large_strength_components.sv",
+          "observation": "large の0/1を出力ポートへ作り、時刻3の dumpportsall checkpoint から実際のポート参照名に対応する strength0/strength1 成分を読み、4/0 と 0/4 を表示する。 区別: 21.7.4.3 B005/B006。small/medium は28.14 B009/B010の抵抗スイッチ減衰、largeは28.15.2 B002の電荷保持で生成できるため、旧heldの「continuous assignmentでは生成できない」はこの新規刺激には当たらない。strength 4 を他の数字に置き換える、常に0を出す、0/1成分を交換する実装を識別する。EVCD/trireg未対応による失敗をoracleにせずspecのみ。",
+          "reviewed_on": "2026-11-20",
+          "reviewer": "Codex:GPT-6 (AI); not an independent human review",
+          "inputs_sha256": "967ff24188f0e7682e409e868c06de67c50bde3fa8d4110745aa5d1d67875b61",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_evcd_small_medium_large_strength_components.sv",
+              "contains": "trireg (large) l0, l1;"
+            },
+            {
+              "file": "tests/ch21/test_evcd_small_medium_large_strength_components.sv",
+              "contains": "$dumpportsall(\"test_evcd_small_medium_large_strength_components.evcd\");"
+            },
+            {
+              "file": "tests/ch21/test_evcd_small_medium_large_strength_components.expected",
+              "contains": "l0 strength0=4 strength1=0"
+            },
+            {
+              "file": "tests/ch21/test_evcd_small_medium_large_strength_components.expected",
+              "contains": "l1 strength0=0 strength1=4"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.4.3",

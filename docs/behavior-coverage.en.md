@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 92.96%, execution without Ghost 51.20%, execution with Ghost 78.68%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 93.07%, execution without Ghost 51.22%, execution with Ghost 78.70%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 92.96%. Requirement execution-confirmation rate: 51.20% without Ghost, 78.68% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 93.07%. Requirement execution-confirmation rate: 51.22% without Ghost, 78.70% with Ghost. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 11464/12332 ( 92.96% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9703/12332 ( 78.68% ).
-- Registered but not tested: 868.
+- The requirement coverage (test design) for registered behaviors is 11478/12332 ( 93.07% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9705/12332 ( 78.70% ).
+- Registered but not tested: 854.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -187,12 +187,16 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `reqgap3-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T08:10:24.715784+00:00` / 9/12332 execution checked; 0 entries refer to older inputs.
 - `reqgap5-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T14:45:27.599657+00:00` / 26/12332 execution checked; 14 entries refer to older inputs.
 - `reqgap5-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T14:47:44.027905+00:00` / 18/12332 execution checked; 14 entries refer to older inputs.
-- `reqgap5-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T14:46:35.374894+00:00` / 11/12332 execution checked; 14 entries refer to older inputs.
-- `reqgap5-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T14:47:43.190246+00:00` / 11/12332 execution checked; 14 entries refer to older inputs.
+- `reqgap5-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T14:46:35.374894+00:00` / 12/12332 execution checked; 14 entries refer to older inputs.
+- `reqgap5-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T14:47:43.190246+00:00` / 12/12332 execution checked; 14 entries refer to older inputs.
 - `reqgap6-20261120-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T15:46:16.026728+00:00` / 8/12332 execution checked; 0 entries refer to older inputs.
 - `reqgap6-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T15:46:16.196256+00:00` / 9/12332 execution checked; 0 entries refer to older inputs.
 - `reqgap6-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T15:46:17.221209+00:00` / 4/12332 execution checked; 0 entries refer to older inputs.
 - `reqgap6-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T15:46:17.959332+00:00` / 4/12332 execution checked; 0 entries refer to older inputs.
+- `reqgap7-20261120-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T23:33:37.497509+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `reqgap7-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T23:33:37.526094+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `reqgap7-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T23:33:58.371412+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `reqgap7-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T23:33:58.371408+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `runtime-errors-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-12T01:03:42.109814+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `runtime-errors-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-12T01:03:42.439195+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `runtime-errors-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T01:03:46.712402+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
@@ -546,25 +550,25 @@ The number of items is the investigation status of the article by heading. This 
 
 - 1 Overview: No interpretation reservation 12/12, registration 0, test support 0.
 - 2 Normative references: No reservation of interpretation 1/1, registration 2, test compatibility 0.
-- 3 Design and verification building blocks: No interpretation reservation 22/22, registration 146, test support 131.
+- 3 Design and verification building blocks: No interpretation reservation 22/22, registration 146, test support 132.
 - 4 Scheduling semantics: no interpretation reservation 40/40, registration 107, test support 90.
 - 5 Lexical conventions: no interpretation reservation 21/21, registration 155, test support 146.
-- 6 Data types: No interpretation reservation 92/92, registration 720, test support 710.
+- 6 Data types: No interpretation reservation 92/92, registration 720, test support 711.
 - 7 Aggregate data types: no interpretation reservation 61/61, registration 347, test support 337.
 - 8 Classes: No interpretation restrictions 49/49, registration 255, test support 239.
 - 9 Processes: No interpretation reservation 34/34, registration 192, test support 183.
-- 10 Assignment statements: No interpretation reservation 25/25, registration 156, test support 144.
+- 10 Assignment statements: No interpretation reservation 25/25, registration 156, test support 147.
 - 11 Operators and expressions: No interpretation restrictions 55/55, registration 459, test support 448.
 - 12 Procedural programming statements: no interpretation reservation 28/28, registration 115, test support 101.
 - 13 Tasks and functions (subroutines): no interpretation reservation 20/20, registration 124, test support 116.
 - 14 Clocking blocks: no interpretation reservation 19/19, registration 87, test support 86.
 - 15 Interprocess synchronization and communication: no interpretation reservation 27/27, registration 88, test support 84.
-- 16 Assertions: No interpretation reservation 82/82, registration 557, test support 548.
-- 17 Checkers: No interpretation reservations 13/13, registration 81, test support 68.
-- 18 Constrained random value generation: 58/58 without pending interpretation issues, 323 registered, 314 mapped to tests.
-- 19 Functional coverage: no interpretation reservation 34/34, registration 276, test support 267.
-- 20 Utility system tasks and system functions: No interpretation reservation 45/45, registration 320, test support 299.
-- 21 Input/output system tasks and system functions: no interpretation reservation 65/65, registration 383, test support 358.
+- 16 Assertions: No interpretation reservation 82/82, registration 557, test support 549.
+- 17 Checkers: No interpretation reservations 13/13, registration 81, test support 69.
+- 18 Constrained random value generation: 58/58 without pending interpretation issues, 323 registered, 315 mapped to tests.
+- 19 Functional coverage: no interpretation reservation 34/34, registration 276, test support 268.
+- 20 Utility system tasks and system functions: No interpretation reservation 45/45, registration 320, test support 300.
+- 21 Input/output system tasks and system functions: no interpretation reservation 65/65, registration 383, test support 362.
 - 22 Compiler directives: 28/28 without pending interpretation issues, 363 registered, 355 mapped to tests.
 - 23 Modules and hierarchy: No interpretation reservation 47/47, registration 260, test support 254.
 - 24 Programs: No interpretation restrictions 10/10, registration 29, test support 25.
@@ -2377,7 +2381,7 @@ Normative role: `mandatory`。
 
 ### SV2023-3.14.3-EXTRACT-STEP-SCALE
 
-`3.14.3` / `normal` / No mapped test
+`3.14.3` / `normal` / Execution confirmed
 
 The step time unit denotes the global time precision.
 
@@ -2385,6 +2389,7 @@ Acceptance criterion: The step time unit denotes the global time precision.
 
 Normative role: `definition`。
 
+- [test_step_is_global_time_precision.sv](../tests/ch3/test_step_is_global_time_precision.sv): set the global precision of the design to 1ps and the unit/precision of the calling module to 1ns, and print the actual results: #1step ends at 0.001ns, clocking input #1step samples 1 at 9.999ns immediately before the edge, and #1 samples 0 at 9ns. Distinguishing observation: Under 3.14.3 B002 / B003, the global precision is 1ps. #1step = 1ps, so line 1 is 0.001ns. Under 14.4 B009, the step sample before the 10ns edge is 1 after the update at 9.999ns, while the #1ns sample is 0 at 9ns. An implementation that confuses step with the scope unit/precision1ns makes the 1step sample in line 2 become 0; line 1 identifies an implementation that confuses it with unit1ns. The previously held global_precision_from_timescale does not use 1step, but this other existing test uses it directly and observes the missing condition. This is a recheck by the author, not independent approval.
 
 ### SV2023-4.3-EXTRACT-CONCURRENT-PROCESSES
 
@@ -7590,7 +7595,7 @@ Normative role: `definition`。
 
 ### SV2023-6.6.7-EXTRACT-RESOLVER-LIFETIME
 
-`6.6.7` / `normal` / No mapped test
+`6.6.7` / `normal` / Test mapped; execution unconfirmed
 
 A resolution function has automatic lifetime or otherwise preserves no state information between its prescribed evaluations.
 
@@ -7598,6 +7603,7 @@ Acceptance criterion: A resolution function has automatic lifetime or otherwise 
 
 Normative role: `mandatory`。
 
+- [test_nettype_resolver_automatic_local_reinitializes.sv](../tests/ch6/test_nettype_resolver_automatic_local_reinitializes.sv): initialize the automatic resolver's local variable to 100 in its declaration, change the positive 2driver to 2 + 3, 7 + 3, and 1 + 3, and print the actual values 105, 110, and 104 at all stable points. Distinguishing observation: Under 6.6.7 B012 and 6.21 B004, the automatic local total returns to 100 on each evaluation. If state is incorrectly retained, positive contributions keep increasing total, making it impossible to reproduce the decrease from 110 to 104 in particular. The previously held sum_res resets sum = 0 by procedural assignment each time, hiding the lifetime difference; the new proposal exposes the difference through declaration initialization. The count is not measured, and every correct call returns the same value for the same set of drivers, so this does not depend on the freedom in evaluation count permitted by the standard. Only local variables are modified, with no writes to external objects or the input array, so no prohibited side effect is introduced. The fixed versions' lack of nettype support is not used as an oracle; only spec is recorded, pending independent verification.
 
 ### SV2023-6.6.7-EXTRACT-RESOLVER-NO-INPUT-WRITES
 
@@ -25528,7 +25534,7 @@ Normative role: `mandatory`。
 
 ### SV2023-10.9-EXTRACT-LHS-PATTERN-POSITIONAL
 
-`10.9` / `error` / No mapped test
+`10.9` / `error` / Test mapped; execution unconfirmed
 
 An assignment pattern on an LHS must be positional; every member expression must have a bit-stream type assignment compatible with and bit-size equal to its corresponding RHS element.
 
@@ -25536,6 +25542,10 @@ Acceptance criterion: An assignment pattern on an LHS must be positional; every 
 
 Normative role: `mandatory`。
 
+- [test_illegal_lhs_pattern_integral_pair_keys.sv](../tests/ch10/test_illegal_lhs_pattern_integral_pair_keys.sv): The members are matching integral 64-bit values, but index keys violate the required positional notation.
+- [test_illegal_lhs_pattern_real_member_not_bitstream.sv](../tests/ch10/test_illegal_lhs_pattern_real_member_not_bitstream.sv): The real member has the same type and width as its corresponding element but fails the bit-stream-type condition.
+- [test_illegal_lhs_pattern_member_array_type_same_bits.sv](../tests/ch10/test_illegal_lhs_pattern_member_array_type_same_bits.sv): The first member has two ints (64 bits) while its corresponding type has eight bytes (64 bits); both are bit-stream types but array assignment compatibility fails.
+- [test_illegal_lhs_pattern_integral_member_width_only.sv](../tests/ch10/test_illegal_lhs_pattern_integral_member_width_only.sv): The first member is a 63-bit packed integral value for a 64-bit integral element; assignment compatibility holds while only equal bit count fails.
 
 ### SV2023-10.9-EXTRACT-NO-PATTERN-PORT-EXPRESSION
 
@@ -25588,7 +25598,7 @@ Normative role: `permission`。
 
 ### SV2023-10.9-EXTRACT-TYPED-LHS-PATTERN
 
-`10.9` / `error` / No mapped test
+`10.9` / `error` / Test mapped; execution unconfirmed
 
 A typed LHS pattern expression must be positional and use bit-stream members assignment compatible with/equal in bit count to their corresponding members of its explicit type.
 
@@ -25596,10 +25606,14 @@ Acceptance criterion: A typed LHS pattern expression must be positional and use 
 
 Normative role: `mandatory`。
 
+- [test_illegal_typed_lhs_pattern_integral_pair_keys.sv](../tests/ch10/test_illegal_typed_lhs_pattern_integral_pair_keys.sv): The members are matching integral 64-bit values, but index keys violate the required positional notation.
+- [test_illegal_typed_lhs_pattern_real_member_not_bitstream.sv](../tests/ch10/test_illegal_typed_lhs_pattern_real_member_not_bitstream.sv): The real member has the same type and width as its corresponding element but fails the bit-stream-type condition.
+- [test_illegal_typed_lhs_pattern_member_array_type_same_bits.sv](../tests/ch10/test_illegal_typed_lhs_pattern_member_array_type_same_bits.sv): The first member has two ints (64 bits) while its corresponding type has eight bytes (64 bits); both are bit-stream types but array assignment compatibility fails.
+- [test_illegal_typed_lhs_pattern_integral_member_width_only.sv](../tests/ch10/test_illegal_typed_lhs_pattern_integral_member_width_only.sv): The first member is a 63-bit packed integral value for a 64-bit integral element; assignment compatibility holds while only equal bit count fails.
 
 ### SV2023-10.9-EXTRACT-TYPED-LHS-RHS-COMPATIBILITY
 
-`10.9` / `error` / No mapped test
+`10.9` / `error` / Test mapped; execution unconfirmed
 
 A self-determined RHS assigned to a typed LHS pattern must be assignment compatible with and bit-size equal to the typed pattern.
 
@@ -25607,6 +25621,8 @@ Acceptance criterion: A self-determined RHS assigned to a typed LHS pattern must
 
 Normative role: `mandatory`。
 
+- [test_illegal_typed_lhs_pattern_rhs_type_same_bits.sv](../tests/ch10/test_illegal_typed_lhs_pattern_rhs_type_same_bits.sv): The sixteen-byte RHS and the two-by-two-int explicit type have the same 128 bits but incompatible unpacked array shapes.
+- [test_illegal_typed_lhs_pattern_rhs_width_only.sv](../tests/ch10/test_illegal_typed_lhs_pattern_rhs_width_only.sv): The packed two-bit explicit type and packed three-bit RHS are assignment-compatible integral types, but have different bit counts.
 
 ### SV2023-10.9-EXTRACT-TYPED-PATTERN-SELF-TYPE
 
@@ -42480,7 +42496,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.13.6-EXTRACT-PORT-CALL-INFERENCE
 
-`16.13.6` / `normal` / No mapped test
+`16.13.6` / `normal` / Test mapped; execution unconfirmed
 
 A method-bearing sequence connected to a module/interface/program port or passed to a task/function is clocked as though instantiated at that instantiation/call site.
 
@@ -42488,6 +42504,7 @@ Acceptance criterion: A method-bearing sequence connected to a module/interface/
 
 Normative role: `mandatory`。
 
+- [test_sequence_method_port_call_clocks.sv](../tests/ch16/test_sequence_method_port_call_clocks.sv): the module/interface/program port actual pair_s.triggered first holds at 25 under the caller's default clock, while task/function actuals hold at 27,57 under the assertion action's clock. The stimulus distinguishes this from use of the receiver's default clock, which would give 22. Distinguishing observation: All 5 connection/call forms in 16.13.6 B020 are observed in one legal test. Incorrect use of the receiver's or declaration scope's default clock makes the port time 22 and the call-time list 25/55 or empty, changing the expected lines. Reading in Reactive avoids an ordering race with Observed.
 
 ### SV2023-16.13.6-EXTRACT-TRIGGERED-STATUS
 
@@ -44207,7 +44224,7 @@ Normative role: `mandatory`。
 
 ### SV2023-17.1-EXTRACT-MODELING-KINDS
 
-`17.1` / `normal` / No mapped test
+`17.1` / `normal` / Test mapped; execution unconfirmed
 
 Checker variables may be deterministic or random for nondeterministic modeling.
 
@@ -44215,6 +44232,7 @@ Acceptance criterion: Checker variables may be deterministic or random for nonde
 
 Normative role: `permission`。
 
+- [test_checker_deterministic_random_models.sv](../tests/ch17/test_checker_deterministic_random_models.sv): within the same checker, an ordinary int variable advances from 2 by 3 on each clock; the explicit initial value 11 of rand const and retention of an arbitrary initial value are checked separately. Neither particular random values nor differences in values across seeds are expected. Distinguishing observation: This is a normal case declaring and using both deterministic and random variables permitted by 17.1 B003. A missing ordinary-variable update changes 2,5,14, rejection of rand syntax causes compilation to fail, and rerandomization of const changes the retention flag. This is not evidence of a probability distribution or of a formal tool considering all values.
 
 ### SV2023-17.1-EXTRACT-NO-NETS
 
@@ -46351,7 +46369,7 @@ Normative role: `permission`。
 
 ### SV2023-18.5.7.1-EXTRACT-INDICES-NOT-FILTERED
 
-`18.5.7.1` / `normal` / No mapped test
+`18.5.7.1` / `normal` / Execution confirmed
 
 Indices may use loop variables/constants/state variables; invalid/out-of-bounds indices are not automatically removed and must be excluded by user predicates.
 
@@ -46359,6 +46377,7 @@ Acceptance criterion: Indices may use loop variables/constants/state variables; 
 
 Normative role: `mandatory`。
 
+- [test_foreach_oob_constraints_need_guards.sv](../tests/ch18/test_foreach_oob_constraints_need_guards.sv): for each of the loop i+1, constant 2, and state-variable index = 2 indices, leaving constraints that compare out-of-bounds elements of a 2-element, 2-state array with 4 unguarded makes randomize return 0; removing them with explicit bounds guards gives 1 and elements 3,4. Distinguishing observation: Under 7.4.5 B013 / B019, out-of-bounds 2-state elements have value 0, so the comparison with 4 cannot be satisfied. The path that treats this as an evaluation error also falls under the 18.5.12 failure rule. An incorrect implementation that automatically removes out-of-bounds constraints gives unguarded = 1 and can be distinguished by all 3 lines. This does not depend on particular random values, the array state after failure, or diagnostic wording. This tests a runtime randomize failure consistent with the normal kind, rather than detection of an illegal design at compilation.
 
 ### SV2023-18.5.7.1-EXTRACT-LOOP-COUNT-NAMES
 
@@ -49854,7 +49873,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.1.1-EXTRACT-WITH-CONSTRUCTION
 
-`19.5.1.1` / `normal` / No mapped test
+`19.5.1.1` / `normal` / Test mapped; execution unconfirmed
 
 with acts as evaluation for every candidate at covergroup construction; by default filter before bin distribution, or distribute before filtering with distribute_first.
 
@@ -49862,6 +49881,7 @@ Acceptance criterion: with acts as evaluation for every candidate at covergroup 
 
 Normative role: `mandatory`。
 
+- [test_cg_with_construction_freezes_filter.sv](../tests/ch19/test_cg_with_construction_freezes_filter.sv): after construction with ceiling = 5, change it to 2, and for 0 .. 5, sample every candidate individually in a fresh instance and observe that 0 .. 4 alone yield 50%, while 5 yields 0. Also sample 2,1,4 in the same instance to distinguish 50,100,100 for filter-first from 50,50,100 for distribute-first. Distinguishing observation: Construction-time evaluation and both distribution orders in 19.5.1.1 B011 are observed in one normal case. If with is reevaluated at sampling time, 2 .. 4 becomes 0; an incorrect implementation that does not apply it to all candidates also changes the lines for individual samples. If distribute_first is ignored, distribute at sample = 1 becomes 100; conversely, always distributing first makes filter 50.
 
 ### SV2023-19.5.1.1-EXTRACT-WITH-FILTER
 
@@ -56189,7 +56209,7 @@ Normative role: `definition`。
 
 ### SV2023-20.16.4-EXTRACT-PLANE-UNKNOWN
 
-`20.16.4` / `normal` / No mapped test
+`20.16.4` / `normal` / Test mapped; execution unconfirmed
 
 In plane personality format, x takes the worst-case input value.
 
@@ -56197,6 +56217,7 @@ Acceptance criterion: In plane personality format, x takes the worst-case input 
 
 Normative role: `definition`。
 
+- [test_pla_plane_unknown_personality_control_values.sv](../tests/ch20/test_pla_plane_unknown_personality_control_values.sv): pass personality x1 / 1x /xz to 4 types of synchronous plane, and print the actual and/or/nand/nor results for the 2 inputs 00/01/10/11. Distinguishing observation: Apply logical operations to the worst case in 20.16.4 B002 as an unknown contribution. Together with 20.16.2 B002, x is masked by controlling 0 for AND and controlling 1 for OR, and remains x otherwise. Distinguishes implementations that replace x with true/complement/dont-care, as well as implementations that always make every output x. A new design that stimulates personality x, which the existing held tests do not cover. The oracle is spec only, pending independent verification.
 
 ### SV2023-20.16.4-EXTRACT-PLANE-ZERO
 
@@ -60222,7 +60243,7 @@ Normative role: `mandatory`。
 
 ### SV2023-21.7.4.2-EXTRACT-PORT-NODE-RANGE
 
-`21.7.4.2` / `normal` / No mapped test
+`21.7.4.2` / `normal` / Test mapped; execution unconfirmed
 
 Use the port declaration vector index if present, otherwise the matching net/variable declaration index; absence of either means scalar.
 
@@ -60230,6 +60251,7 @@ Acceptance criterion: Use the port declaration vector index if present, otherwis
 
 Normative role: `mandatory`。
 
+- [test_evcd_explicit_port_range_from_internal_net.sv](../tests/ch21/test_evcd_explicit_port_range_from_internal_net.sv): explicit ANSI . by_net(by_net) with internal wire \[ 7:4 \], an ordinary port declaration with \[ 0:3 \], and a scalar without a range: read the size associated with each actual reference in EVCD. Distinguishing observation: Observe the 3 paths in 21.7.4.2 B012 with 1 test(s). Under 23.2.2.2 B014 / B015 / B019, the explicit port has the self-determined type of the net in the body. Use different orientations and indices for the declared range \[ 0:3 \] and the internal-net range \[ 7:4 \] to distinguish implementations that normalize all vectors to a range such as \[ 3:0 \], ignore the internal net and treat it as a scalar, or treat a scalar as a vector. The part not observed by the previously held test has actually been added. Both fixed versions lack complex ports/EVCD support, so the oracle is spec only.
 
 ### SV2023-21.7.4.2-EXTRACT-PORT-NODE-SPACING
 
@@ -60257,7 +60279,7 @@ Normative role: `definition`。
 
 ### SV2023-21.7.4.3-EXTRACT-PORT-STRENGTH-1
 
-`21.7.4.3` / `normal` / No mapped test
+`21.7.4.3` / `normal` / Test mapped; execution unconfirmed
 
 Extended VCD strength component 1 represents small.
 
@@ -60265,10 +60287,11 @@ Acceptance criterion: Extended VCD strength component 1 represents small.
 
 Normative role: `definition`。
 
+- [test_evcd_small_medium_large_strength_components.sv](../tests/ch21/test_evcd_small_medium_large_strength_components.sv): produce small 0/1 on output ports, read the strength0 / strength1 components associated with the actual port reference names from the dumpportsall checkpoint at time 3, and print 1/0 and 0/1. Distinguishing observation: 21.7.4.3 B005 / B006 。 Because small/medium can be produced by resistive switch attenuation in 28.14 B009 / B010, and large by charge retention in 28.15.2 B002, the previous hold's statement that continuous assignment cannot produce them does not apply to this new stimulus. Identifies implementations that replace strength 1 with another number, always output 0, or swap the 0/1 components. Failures due to lack of EVCD /trireg support are not used as an oracle; only spec is recorded.
 
 ### SV2023-21.7.4.3-EXTRACT-PORT-STRENGTH-2
 
-`21.7.4.3` / `normal` / No mapped test
+`21.7.4.3` / `normal` / Test mapped; execution unconfirmed
 
 Extended VCD strength component 2 represents medium.
 
@@ -60276,6 +60299,7 @@ Acceptance criterion: Extended VCD strength component 2 represents medium.
 
 Normative role: `definition`。
 
+- [test_evcd_small_medium_large_strength_components.sv](../tests/ch21/test_evcd_small_medium_large_strength_components.sv): produce medium 0/1 on output ports, read the strength0 / strength1 components associated with the actual port reference names from the dumpportsall checkpoint at time 3, and print 2/0 and 0/2. Distinguishing observation: 21.7.4.3 B005 / B006 。 Because small/medium can be produced by resistive switch attenuation in 28.14 B009 / B010, and large by charge retention in 28.15.2 B002, the previous hold's statement that continuous assignment cannot produce them does not apply to this new stimulus. Identifies implementations that replace strength 2 with another number, always output 0, or swap the 0/1 components. Failures due to lack of EVCD /trireg support are not used as an oracle; only spec is recorded.
 
 ### SV2023-21.7.4.3-EXTRACT-PORT-STRENGTH-3
 
@@ -60291,7 +60315,7 @@ Normative role: `definition`。
 
 ### SV2023-21.7.4.3-EXTRACT-PORT-STRENGTH-4
 
-`21.7.4.3` / `normal` / No mapped test
+`21.7.4.3` / `normal` / Test mapped; execution unconfirmed
 
 Extended VCD strength component 4 represents large.
 
@@ -60299,6 +60323,7 @@ Acceptance criterion: Extended VCD strength component 4 represents large.
 
 Normative role: `definition`。
 
+- [test_evcd_small_medium_large_strength_components.sv](../tests/ch21/test_evcd_small_medium_large_strength_components.sv): produce large 0/1 on output ports, read the strength0 / strength1 components associated with the actual port reference names from the dumpportsall checkpoint at time 3, and print 4/0 and 0/4. Distinguishing observation: 21.7.4.3 B005 / B006 。 Because small/medium can be produced by resistive switch attenuation in 28.14 B009 / B010, and large by charge retention in 28.15.2 B002, the previous hold's statement that continuous assignment cannot produce them does not apply to this new stimulus. Identifies implementations that replace strength 4 with another number, always output 0, or swap the 0/1 components. Failures due to lack of EVCD /trireg support are not used as an oracle; only spec is recorded.
 
 ### SV2023-21.7.4.3-EXTRACT-PORT-STRENGTH-5
 

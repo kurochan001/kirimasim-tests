@@ -1689,3 +1689,15 @@ Two independent actual-source methods seal **714 lines** before current expectat
 A [separate unchanged-case recheck](../coverage/qualification/early-fixed-a622-recheck-20261119ab.json) runs 756 earlier streaming/division/four-state/arithmetic/power/scanning/NBA cases on the same frozen `a6222f0656d4` Release binary: **four × 756 passes**, with all 1,512 source/expected files unchanged. The earlier `441dddbd0fcd` snapshots and original source-derived AI receipts remain intact; current input fingerprints and versions are verified without claiming fresh derivations, verdicts, cases or mappings. The 192 packed-lane cases were already rechecked separately in the [earlier packed-read scope](#packed-read-controls-20261119w). These 3,024 additional records are separate from the **420 official records for the new sixty cases**. No compiler-generated implementation source is read for diagnostics.
 
 The Check documentation job now appends `-v` to its existing unittest discovery command. Cancelled quiet runs left no individual test progress, while another complete 1,602-test CI run finished in 1,720.717 seconds with the existing nine optional FST skips. Completed test names will make a later stop easier to locate. The tests, assertions, skip policy, pinned runner, inherited 60-minute budget and other jobs are unchanged; this does not establish a host-level cause for earlier cancellations.
+
+<a id="typed-lhs-pattern-conditions-20261120"></a>
+
+### Typed LHS assignment-pattern conditions (Verilator 5.054)
+
+The 5.054 release accepts four designs that 10.9 forbids: a non-bit-stream `real` member, keyed rather than positional notation, an assignment-compatible integral member of the wrong width, and an assignment-compatible integral RHS of the wrong width. The cases are `ch10/test_illegal_typed_lhs_pattern_real_member_not_bitstream`, `ch10/test_illegal_typed_lhs_pattern_integral_pair_keys`, `ch10/test_illegal_typed_lhs_pattern_integral_member_width_only` and `ch10/test_illegal_typed_lhs_pattern_rhs_width_only`. Both seeds 1 and 73 accept them, so their oracle remains `spec`. Legalized controls and independent source derivation isolate each violated condition. Untyped LHS syntax is unsupported by this release and is not a semantic comparison.
+
+<a id="covergroup-distribute-first-20261120"></a>
+
+### Covergroup filtering and distribution order (Verilator 5.054)
+
+`ch19/test_cg_with_construction_freezes_filter` constructs two covergroups with `ceiling=5`, then changes it to 2. Clause 19.5.1.1 B011 evaluates the filter at construction. With two bins over 0 through 5, filtering before distribution gives `{0,1}` and `{2,3,4}`; `distribute_first` instead gives `{0,1,2}` and `{3,4}`. After sampling 2 then 1, the expected coverages are therefore `filter=100 distribute=50`. Verilator 5.054 reports `filter=100 distribute=100` at both seeds 1 and 73. The expected value remains 50 and the oracle remains `spec`. This observes a distribution-order difference without establishing an internal implementation cause or a separate failure of construction-time capture.

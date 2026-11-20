@@ -1688,3 +1688,15 @@ Verilator 5.054は初期化seed1/73で各30本の固定形状が一致します�
 [別の既存入力の再確認](../coverage/qualification/early-fixed-a622-recheck-20261119ab.json)では、以前のストリーム・除算・4値演算・算術・べき乗・読み取り・NBAの756本を、同じ固定Releaseの`a6222f0656d4`で実行し、**4回とも756本全てpass**でした。ソースと期待値1,512ファイルは不変です。以前の`441dddbd0fcd`の記録と元の規格に基づくAI導出の記録を保管し、新しい導出・判定・本数・要求対応を増やすとはしません。入力のハッシュと版だけを現在の組として照合します。パック配列192本は[以前の読み取りの範囲](#packed-read-controls-20261119w)で別に再確認済みです。追加の3,024件は、**新しい60本の正式な420件**とは別です。診断でコンパイラの生成した実装ソースは読んでいません。
 
 Checkの文書ジョブは、既存のunittestの探索コマンドへ`-v`を加えます。停止した簡素なログには個別の検査の進捗がなく、別の1,602件のCIは従来の任意FSTの9件を除いて1,720.717秒で完了しました。完了した検査名を記録して、次に停止した場合の場所を絞れるようにします。検査・判定・除外の規則・固定のランナー・引き継いだ60分の上限・他のジョブは変えず、以前の停止の機材側の原因を特定したとはしません。
+
+<a id="typed-lhs-pattern-conditions-20261120"></a>
+
+### 型付き左辺assignment patternの条件（Verilator 5.054）
+
+5.054は、10.9が禁じる4設計を受け付けます。bit-stream型でない`real`メンバー、位置指定でないキー、代入互換だが幅が違うintegralメンバー、代入互換だが幅が違うintegral右辺です。対象は`ch10/test_illegal_typed_lhs_pattern_real_member_not_bitstream`、`ch10/test_illegal_typed_lhs_pattern_integral_pair_keys`、`ch10/test_illegal_typed_lhs_pattern_integral_member_width_only`、`ch10/test_illegal_typed_lhs_pattern_rhs_width_only`です。seed 1・73の両方で受理するため、oracleは`spec`のままです。合法化した対照と独立の規格導出で、違反する条件を分離しました。型なしの左辺構文はこの版では未対応で、意味上の比較には使いません。
+
+<a id="covergroup-distribute-first-20261120"></a>
+
+### covergroupのfilterと分配順序（Verilator 5.054）
+
+`ch19/test_cg_with_construction_freezes_filter`は、`ceiling=5`で2つのcovergroupを構築し、その後2へ変えます。19.5.1.1 B011では、filterは構築時に評価されます。0〜5を2個のbinへ分けるとき、filterを先に適用すると`{0,1}`と`{2,3,4}`に、`distribute_first`では`{0,1,2}`と`{3,4}`になります。そのため2、1の順に採取した後の期待値は`filter=100 distribute=50`です。Verilator 5.054はseed 1・73とも`filter=100 distribute=100`を出します。期待値50と`:oracle: spec`を維持します。この観測は分配順序の差を示すもので、内部実装の原因や、構築時の値の捕捉にも別の誤りがあることを確定するものではありません。

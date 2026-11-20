@@ -1,0 +1,12 @@
+before samples filter=0 distribute=0
+sample=2 filter=50 distribute=50
+sample=1 filter=100 distribute=50
+sample=4 filter=100 distribute=100
+sample=3 filter=100 distribute=100
+sample=0 filter=100 distribute=100
+isolated=0 filter=50 distribute=50
+isolated=1 filter=50 distribute=50
+isolated=2 filter=50 distribute=50
+isolated=3 filter=50 distribute=50
+isolated=4 filter=50 distribute=50
+isolated=5 filter=0 distribute=0

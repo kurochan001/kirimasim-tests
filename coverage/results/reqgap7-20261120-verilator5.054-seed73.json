@@ -1,0 +1,109 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch10/test_illegal_lhs_pattern_integral_member_width_only": {
+   "status": "pass",
+   "inputs_sha256": "24dacc2331bf2d43a9d0776a098cdfd7d66cd1f0d37a13c93fffb1dff96a47a6"
+  },
+  "ch10/test_illegal_lhs_pattern_integral_pair_keys": {
+   "status": "pass",
+   "inputs_sha256": "7153333123716026bd1863de2e14df03925bdb977fc2b0b1e542a60049c12f56"
+  },
+  "ch10/test_illegal_lhs_pattern_member_array_type_same_bits": {
+   "status": "pass",
+   "inputs_sha256": "901e0e1b0b797870e3e2af9c14925573865162f181bffc8820c0dfdb1074b872"
+  },
+  "ch10/test_illegal_lhs_pattern_real_member_not_bitstream": {
+   "status": "pass",
+   "inputs_sha256": "be0fda00d837fe2040448a3c3120fd4a460a65b63822f0765a04a31d01f55791"
+  },
+  "ch10/test_illegal_typed_lhs_pattern_integral_member_width_only": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "ac273ffa8adc0b09f710b27dbc895664fc218a33810c960a314d15193614683b"
+  },
+  "ch10/test_illegal_typed_lhs_pattern_integral_pair_keys": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "75721632f57d2982b9c3a4e7801aa7a8286f3efc88bfa09caf209fe79f0626e8"
+  },
+  "ch10/test_illegal_typed_lhs_pattern_member_array_type_same_bits": {
+   "status": "pass",
+   "inputs_sha256": "25c899a75965b998039d869f189d4a71f6535112fa7e1b325573386163dd606b"
+  },
+  "ch10/test_illegal_typed_lhs_pattern_real_member_not_bitstream": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "a7412772450a616cfb0e8c0db9a30a488175fb43ccedadd5885245c95928d2a3"
+  },
+  "ch10/test_illegal_typed_lhs_pattern_rhs_type_same_bits": {
+   "status": "pass",
+   "inputs_sha256": "a06a68e76c3af3c13f4fe161ebb2f87cd91dedb56f4c501f916bfbf2f2a88fbc"
+  },
+  "ch10/test_illegal_typed_lhs_pattern_rhs_width_only": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "d559e0521c732b8eb2f445fabb09fce6c1ea8b4bfaf7a5bb161872ab9bd35a38"
+  },
+  "ch10/test_lhs_pattern_unpacked_member_controls": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch10/test_lhs_pattern_unpacked_member_controls.sv:23:5: Unsupported/Illegal: Assignment pattern member not underneath a supported construct: ASSIGN",
+   "inputs_sha256": "4036d28fa60eacfc3596138dfcfb28c94f234fd9adcd09fe2b9875639089acb7"
+  },
+  "ch10/test_typed_lhs_pattern_unpacked_member_controls": {
+   "status": "pass",
+   "inputs_sha256": "9e1dd2c222b5cab41525d9f8d51b671cd96e2402717a9f120e4c6a4b5c80b7a1"
+  },
+  "ch16/test_sequence_method_port_call_clocks": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch16/test_sequence_method_port_call_clocks.sv:69:42: Can't find definition of variable/method: 'triggered'",
+   "inputs_sha256": "9e7ab8430a8e354fb896f669ea376cfced2cf9574a075ad595cdb444194bf1df"
+  },
+  "ch17/test_checker_deterministic_random_models": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch17/test_checker_deterministic_random_models.sv:27:3: Unsupported: checker rand",
+   "inputs_sha256": "a88bfd5aa367914c800f7e20b2eaa0e6fd87c6771e79416c07fd04bb29414fda"
+  },
+  "ch18/test_foreach_oob_constraints_need_guards": {
+   "status": "pass",
+   "inputs_sha256": "e705e4bde5e94ecfc49a388d2129f3794d0a53e67e34dd4b42e2689c1ad54e1b"
+  },
+  "ch19/test_cg_with_construction_freezes_filter": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'sample=1 filter=100 distribute=100', expected 'sample=1 filter=100 distribute=50'",
+   "inputs_sha256": "292bb886519d2ad999807f15990ed5b7cc5115f41a7f7f24249e673918f49d19"
+  },
+  "ch20/test_pla_plane_unknown_personality_control_values": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch20/test_pla_plane_unknown_personality_control_values.sv:29:5: Unsupported or unknown PLI call: '$sync$and$plane'",
+   "inputs_sha256": "5b7433c33df0a860b7bd2943d378938e91f4cc1db8fe7e0e2bdfb87e429de6c6"
+  },
+  "ch21/test_evcd_explicit_port_range_from_internal_net": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch21/test_evcd_explicit_port_range_from_internal_net.sv:22:39: Unsupported: complex ports (IEEE 1800-2023 23.2.2.1/2)",
+   "inputs_sha256": "b44f013697c46a77dab3974b71c75097524a6918648589d4ae667cdf8b273902"
+  },
+  "ch21/test_evcd_small_medium_large_strength_components": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch21/test_evcd_small_medium_large_strength_components.sv:28:3: Unsupported: trireg",
+   "inputs_sha256": "967ff24188f0e7682e409e868c06de67c50bde3fa8d4110745aa5d1d67875b61"
+  },
+  "ch3/test_step_is_global_time_precision": {
+   "status": "pass",
+   "inputs_sha256": "1c148fc7ce134af0bf0d7c42c7af2ed5fbdd825280857dfee700b74800555c6c"
+  },
+  "ch6/test_nettype_resolver_automatic_local_reinitializes": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch6/test_nettype_resolver_automatic_local_reinitializes.sv:29:3: Unsupported: nettype with",
+   "inputs_sha256": "ca84b2db2165087dd603c5ca209ca41ce6783ac669029c68b7cd835c00cfbedd"
+  }
+ },
+ "generated_at": "2026-11-19T23:33:58.371408+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

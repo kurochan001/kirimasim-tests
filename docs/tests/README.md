@@ -15,22 +15,22 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 3 | [Design and verification building blocks](ch3.md) | 152 | 48 |
 | 4 | [Scheduling semantics](ch4.md) | 480 | 386 |
 | 5 | [Lexical conventions](ch5.md) | 520 | 415 |
-| 6 | [Data types](ch6.md) | 898 | 265 |
+| 6 | [Data types](ch6.md) | 899 | 265 |
 | 7 | [Aggregate data types](ch7.md) | 1109 | 604 |
 | 8 | [Classes](ch8.md) | 479 | 138 |
 | 9 | [Processes](ch9.md) | 464 | 233 |
-| 10 | [Assignment statements](ch10.md) | 737 | 521 |
+| 10 | [Assignment statements](ch10.md) | 749 | 521 |
 | 11 | [Operators and expressions](ch11.md) | 2607 | 2054 |
 | 12 | [Procedural programming statements](ch12.md) | 312 | 125 |
 | 13 | [Tasks and functions (subroutines)](ch13.md) | 742 | 504 |
 | 14 | [Clocking blocks](ch14.md) | 172 | 72 |
 | 15 | [Interprocess synchronization and communication](ch15.md) | 205 | 133 |
-| 16 | [Assertions](ch16.md) | 800 | 133 |
-| 17 | [Checkers](ch17.md) | 128 | 27 |
-| 18 | [Constrained random value generation](ch18.md) | 282 | 57 |
-| 19 | [Functional coverage](ch19.md) | 242 | 50 |
-| 20 | [Utility system tasks and system functions](ch20.md) | 682 | 392 |
-| 21 | [Input/output system tasks and system functions](ch21.md) | 929 | 708 |
+| 16 | [Assertions](ch16.md) | 801 | 133 |
+| 17 | [Checkers](ch17.md) | 129 | 27 |
+| 18 | [Constrained random value generation](ch18.md) | 283 | 57 |
+| 19 | [Functional coverage](ch19.md) | 243 | 50 |
+| 20 | [Utility system tasks and system functions](ch20.md) | 683 | 392 |
+| 21 | [Input/output system tasks and system functions](ch21.md) | 931 | 708 |
 | 22 | [Compiler directives](ch22.md) | 1326 | 1206 |
 | 23 | [Modules and hierarchy](ch23.md) | 419 | 161 |
 | 24 | [Programs](ch24.md) | 221 | 171 |

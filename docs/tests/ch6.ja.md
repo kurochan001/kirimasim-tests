@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[すべての章](README.ja.md) .テストは898本で、そのうち265本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは899本で、そのうち265本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -97,6 +97,7 @@
 | [`test_nettype_declarations_and_user_nets`](../../tests/ch6/test_nettype_declarations_and_user_nets.sv) |解決関数なしのネットタイプ宣言、直接、パッケージまたはクラスを通して名前付けられたもの、パッケージの範囲を持つまたは持たないネットタイプの新しい名前、これらのネットタイプのネットを遅延とネット宣言代入のリストを持って宣言し、解決値と変更時間を観察した。| 6.6.7 6.7.2 6.7.3 10.3.3 A.2.1.3 A.2.3 A.2.4 |規格のみ| x/z |
 | [`test_nettype_identifier_and_net`](../../tests/ch6/test_nettype_identifier_and_net.sv) |ネットタイプ宣言はデータタイプと識別子を持つユーザ定義ネットタイプを名付け、その名前で宣言されたネットはそのデータタイプの四状態意味論を持つ駆動値を持つ。| 6.6.7 6.6.1 A.9.3 |規格のみ||
 | [`test_nettype_resolution`](../../tests/ch6/test_nettype_resolution.sv) |ユーザ定義ネットタイプのネットは、出力ポートを含む全ドライバから、その解像度関数が計算した値を、ドライバが変更される度に再び取る。2番目のネットタイプ名は解像度を共有し フォースとリリースは解像度を上書きして復元します| 6.6.7 10.3 10.6.2 23.3.3 |規格のみ||
+| [`test_nettype_resolver_automatic_local_reinitializes`](../../tests/ch6/test_nettype_resolver_automatic_local_reinitializes.sv) |automatic な nettype 解決関数は、評価のたびにローカルの累算変数を初期化し直すため、ドライバーの値を減らすと、評価回数に依存せず解決値が減少する| 6.6.7 6.21 13.4.2 |規格のみ||
 | [`test_nettype_unpacked_union_struct_array_data`](../../tests/ch6/test_nettype_unpacked_union_struct_array_data.sv) |ユーザ定義 nettype は、データ型として real と logic のメンバーを持つ unpacked 共用体、 shortreal と bit のメンバーを持つ unpacked 構造体の固定長配列を持つ unpacked 構造体、そのような共用体の固定長配列を持つことができ、その解決関数はこれらの型のドライバ値を全体として合成する| 6.6.7 |規格のみ||
 | [`test_user_nettype_resolution_forms`](../../tests/ch6/test_user_nettype_resolution_forms.sv) |4状態，2状態，実数，shortrealおよびunpackedデータ型のユーザ定義ネットタイプ，パッケージスコープを通じて直接名付けた解析器またはパラメータ化クラスの静的メソッドとして，パッケージスコープを通じて名前を変更し，遅延を伴って宣言し，配列として，解析器なしで，ネットを全体として解析する。| 6.6.7 6.6 6.7 6.7.2 6.7.3 13.8 |規格のみ| x/z |
 | [`test_x_value_bitwise`](../../tests/ch6/test_x_value_bitwise.sv) |4 -state logic 真理値テーブル| 6.6.7 11.4.8 | Icarus Verilog 13.0 | x/z |
