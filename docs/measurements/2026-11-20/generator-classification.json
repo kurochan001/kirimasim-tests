@@ -1,0 +1,1601 @@
+{
+ "schema": 1,
+ "generated_on": "2026-11-20",
+ "note": "A proposed classification of the test generators, made by an AI model as a first pass and not checked by a person. mappable: the tests observe whole rows of coverage/behaviors.json; boundary: the tests repeat requirements other tests check and widen implementation boundaries; undecided. About 55 interaction generators were judged from their catalog description and test names only. Nothing is applied before the owner approves.",
+ "generators": {
+  "ambiguous_strength_union": {
+   "tests": 20,
+   "linked": 20,
+   "category": "mappable",
+   "rows": [
+    "SV2023-28.12.2-EXTRACT-AMBIGUOUS-UNION-TEXT"
+   ],
+   "observes": "Resolved value/strength text of H/L ambiguous strength unions and unambiguous controls.",
+   "reason": "All 20 tests are already linked to this row."
+  },
+  "arithmetic_context": {
+   "tests": 90,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-11.4.3-EXTRACT-MUL",
+    "SV2023-11.4.3-EXTRACT-ADD",
+    "SV2023-11.4.3-EXTRACT-SUB",
+    "SV2023-11.4.3-EXTRACT-UNARY-MINUS",
+    "SV2023-11.6.1-EXTRACT-WIDE-MULTIPLY-CONTEXT",
+    "SV2023-11.8.1-EXTRACT-CONTEXT-UNSIGNED"
+   ],
+   "observes": null,
+   "reason": "Arithmetic context rules repeated at 63..257 bits."
+  },
+  "array_element_refs": {
+   "tests": 80,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Tests observe ref lifetime across delete/new (13.5.2 rows) at 1..65 bits; unclear if width ladder or whole-row observation."
+  },
+  "array_shape_queries": {
+   "tests": 60,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-20.7-EXTRACT-DIMENSIONS",
+    "SV2023-20.7-EXTRACT-SIZE",
+    "SV2023-20.7-EXTRACT-LOW-HIGH",
+    "SV2023-20.7-EXTRACT-INVALID-DIMENSION"
+   ],
+   "observes": null,
+   "reason": "Array query rules at 32..129 bits."
+  },
+  "bitvector_queries": {
+   "tests": 48,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-20.9-EXTRACT-COUNTONES",
+    "SV2023-20.9-EXTRACT-ONEHOT",
+    "SV2023-20.9-EXTRACT-ISUNKNOWN",
+    "SV2023-20.9-EXTRACT-COUNTBITS"
+   ],
+   "observes": null,
+   "reason": "Bit-vector query rules at 32..129 bits."
+  },
+  "cg_option_levels": {
+   "tests": 17,
+   "linked": 17,
+   "category": "mappable",
+   "rows": [
+    "SV2023-19.7-EXTRACT-LEVEL-AUTO-BIN-MAX-CROSS",
+    "SV2023-19.7-EXTRACT-LEVEL-CROSS-NUM-PRINT-MISSING-COVERPOINT"
+   ],
+   "observes": "Each illegal option/type_option level assignment is rejected.",
+   "reason": "All 17 tests are already linked to per-level rows."
+  },
+  "combination_aggregates": {
+   "tests": 18,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Eighteen bespoke mechanism-boundary scenarios mixing several rules; no single row is observed wholly."
+  },
+  "combination_events": {
+   "tests": 9,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Nine bespoke event-lifetime scenarios (15.5.5.1, 6.21, 9.4.2) each mixing several rows."
+  },
+  "combination_io": {
+   "tests": 13,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Thirteen bespoke $fread/VCD/sensitivity scenarios; rows not identified."
+  },
+  "combination_monitors": {
+   "tests": 18,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Eighteen file-monitor registration scenarios mixing 21.2.3 and 21.3 rules."
+  },
+  "combination_nba": {
+   "tests": 16,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Sixteen NBA-through-ref scenarios mixing 10.4.2 and 13.5.2 rows."
+  },
+  "constant_power_controls": {
+   "tests": 16,
+   "linked": 0,
+   "category": "mappable",
+   "rows": [
+    "SV2023-11.4.3-EXTRACT-POWER-NEGATIVE-NEG-ONE",
+    "SV2023-11.4.3-EXTRACT-POWER-NEGATIVE-ZERO",
+    "SV2023-11.4.3-EXTRACT-POWER-NEGATIVE-ONE",
+    "SV2023-11.4.3-EXTRACT-POWER-NEGATIVE-POS-BIG"
+   ],
+   "observes": "Result of base 0/1/-1/3 raised to a negative exponent, checked against the Table 11-4 value.",
+   "reason": "Read test: each case is one row base/exponent class; four-state zero-base case gives all x."
+  },
+  "division_boundaries": {
+   "tests": 72,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-11.4.3-EXTRACT-DIV",
+    "SV2023-11.4.3-EXTRACT-MOD",
+    "SV2023-11.4.3-EXTRACT-ZERO-DIVISOR",
+    "SV2023-11.4.3-EXTRACT-MOD-REMAINDER-SIGN"
+   ],
+   "observes": null,
+   "reason": "Division/remainder rules repeated at 63..257 bits."
+  },
+  "fourstate_boundaries": {
+   "tests": 54,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-11.4.8-EXTRACT-PER-BIT-OPERATIONS",
+    "SV2023-11.4.9-EXTRACT-REDUCTION-FOLD",
+    "SV2023-11.4.5-EXTRACT-LOGICAL-UNKNOWN",
+    "SV2023-11.4.11-EXTRACT-AMBIGUOUS-BOTH"
+   ],
+   "observes": null,
+   "reason": "Four-state operator rules with x/z around 64-bit word edges."
+  },
+  "function_formal_contexts": {
+   "tests": 60,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-13.5.1-EXTRACT-DEFAULT-BY-VALUE",
+    "SV2023-13.4.3-EXTRACT-INPUT-ONLY"
+   ],
+   "observes": null,
+   "reason": "Formal-direction and constant-call rules over five widths and both signs."
+  },
+  "function_result_ranges": {
+   "tests": 24,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Function-result selection ranges (13.4.1 IMPLICIT-RESULT-INDEX-RANGE has 0 checks) but tests also mix 7.4.1 and 20.7; whole-row fit unclear."
+  },
+  "gate_strength_truth": {
+   "tests": 5,
+   "linked": 5,
+   "category": "mappable",
+   "rows": [
+    "SV2023-28.3.2-EXTRACT-STRENGTH-NAND",
+    "SV2023-28.3.2-EXTRACT-STRENGTH-OR",
+    "SV2023-28.3.2-EXTRACT-STRENGTH-XNOR",
+    "SV2023-28.3.2-EXTRACT-STRENGTH-XOR",
+    "SV2023-28.3.2-EXTRACT-DEFAULT-DRIVE-STRENGTH"
+   ],
+   "observes": "Printed strengths of asymmetric gate drives and defaults.",
+   "reason": "All 5 tests are already linked."
+  },
+  "interaction_agglit": {
+   "tests": 48,
+   "linked": 2,
+   "category": "mappable",
+   "rows": [
+    "SV2023-5.10-EXTRACT-STRUCT-TYPE-DEFAULT-KEY",
+    "SV2023-10.9.2-EXTRACT-STRUCT-DEFAULT-RECURSION",
+    "SV2023-10.9.2-EXTRACT-MEMBER-OVER-TYPE",
+    "SV2023-10.9.2-EXTRACT-TYPE-OVER-DEFAULT",
+    "SV2023-10.9.2-EXTRACT-STRUCT-POSITIONAL",
+    "SV2023-5.10-EXTRACT-STRUCT-MEMBER-KEY"
+   ],
+   "observes": "Member values of a nested structure literal built by position, name, type or default key (test printed all members).",
+   "reason": "Each test builds one literal and prints every member, which matches the key-precedence rows; two are linked."
+  },
+  "interaction_array": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-7.6-EXTRACT-LEFT-TO-RIGHT-CORRESPONDENCE",
+    "SV2023-7.6-EXTRACT-FIXED-TARGET-COUNT"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_arrayloop": {
+   "tests": 40,
+   "linked": 0,
+   "category": "mappable",
+   "rows": [
+    "SV2023-20.7-EXTRACT-LEFT-BOUND",
+    "SV2023-20.7-EXTRACT-RIGHT-BOUND",
+    "SV2023-20.7-EXTRACT-LOW-HIGH",
+    "SV2023-20.7-EXTRACT-INCREMENT",
+    "SV2023-20.7-EXTRACT-SIZE",
+    "SV2023-20.7-EXTRACT-DIMENSIONS"
+   ],
+   "observes": "Printed $left/$right/$low/$high/$increment/$size/$dimensions of each shape, and loop visit order.",
+   "reason": "Read test prints all query values for one shape; loop part adds 12.7 behavior."
+  },
+  "interaction_assertion": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [],
+   "observes": null,
+   "reason": "Assertion sampling combinations repeated at 129 bits."
+  },
+  "interaction_assertquery": {
+   "tests": 30,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Observes $countones/$onehot in immediate and deferred assertions; mixes 20.9 and 16.4 rows."
+  },
+  "interaction_assocquery": {
+   "tests": 18,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-20.7-EXTRACT-ASSOCIATIVE-BOUNDS",
+    "SV2023-20.7-EXTRACT-ASSOCIATIVE-EXTREMA",
+    "SV2023-20.7-EXTRACT-ASSOCIATIVE-COUNT"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_binding": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-13.5.2-EXTRACT-CONST-REF-NO-WRITE",
+    "SV2023-13.5.1-EXTRACT-DEFAULT-BY-VALUE"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_case": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-12.5-EXTRACT-CASE-DECISION",
+    "SV2023-12.5-EXTRACT-CASE-COMMON-WIDTH",
+    "SV2023-12.5-EXTRACT-CASE-COMMON-SIGN"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_case_inside": {
+   "tests": 34,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-12.5.4-EXTRACT-CASE-INSIDE-TRUE-ONLY",
+    "SV2023-12.5.4-EXTRACT-CASE-INSIDE-EVALUATION"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_casedigit": {
+   "tests": 24,
+   "linked": 0,
+   "category": "mappable",
+   "rows": [
+    "SV2023-12.5.1-EXTRACT-CASEZ-CASEX",
+    "SV2023-12.5.1-EXTRACT-QUESTION-AS-Z",
+    "SV2023-12.5.1-EXTRACT-BOTH-SIDES-WILDCARD"
+   ],
+   "observes": "Hit/miss of items containing ?, z, x digits in case, casez, casex.",
+   "reason": "Read test: prints hit/miss for fill, flip, z and x selectors."
+  },
+  "interaction_cast": {
+   "tests": 32,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-6.24.1-EXTRACT-SIZE-CAST-RESIZE",
+    "SV2023-6.24.1-EXTRACT-SIGN-CAST-SIGN"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_cgsample": {
+   "tests": 33,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Covergroup sampling over container updates mixes many 19.x rows."
+  },
+  "interaction_checksample": {
+   "tests": 27,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Checker sampling combinations; rows not identified."
+  },
+  "interaction_class_array": {
+   "tests": 18,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Class shallow copy with array handles (8.12, 7.6) combined; rows not identified."
+  },
+  "interaction_class_import": {
+   "tests": 34,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [],
+   "observes": null,
+   "reason": "Method-local imports repeated at 33/65/129 bits."
+  },
+  "interaction_class_method": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [],
+   "observes": null,
+   "reason": "Virtual/nonvirtual calls repeated at 33/65/129 bits."
+  },
+  "interaction_class_select": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [],
+   "observes": null,
+   "reason": "Class-handle conditional/update paths repeated at 33/65/129 bits."
+  },
+  "interaction_clockassert": {
+   "tests": 18,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Clocking input sampling in assertions; combination of 14.x and 16.x rows."
+  },
+  "interaction_clockevent": {
+   "tests": 24,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [],
+   "observes": null,
+   "reason": "Clocking event wakeups repeated at 33/65/129 bits."
+  },
+  "interaction_clockiff": {
+   "tests": 12,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Clocking iff counting; combination of 14.x rows."
+  },
+  "interaction_clocking": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [],
+   "observes": null,
+   "reason": "Clocking-block sampling combinations repeated at 33/65/129 bits."
+  },
+  "interaction_compare": {
+   "tests": 100,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-11.4.4-EXTRACT-SIGNED-COMPARISON",
+    "SV2023-11.4.4-EXTRACT-UNSIGNED-COMPARISON",
+    "SV2023-11.4.5-EXTRACT-LOGICAL-UNKNOWN"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_compound": {
+   "tests": 40,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-11.4.1-EXTRACT-COMPOUND-ASSIGNMENT",
+    "SV2023-11.4.10-EXTRACT-SHIFT-SIGN-CONTEXT"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_concat": {
+   "tests": 72,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-11.4.12-EXTRACT-CONCAT-VECTOR-VALUE",
+    "SV2023-11.6.1-EXTRACT-CONCAT-WIDTH",
+    "SV2023-11.8.1-EXTRACT-CONCAT-UNSIGNED"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_cond": {
+   "tests": 32,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-11.4.11-EXTRACT-INTEGRAL-BRANCH-WIDTH",
+    "SV2023-11.4.11-EXTRACT-AMBIGUOUS-BOTH"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_config": {
+   "tests": 41,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [],
+   "observes": null,
+   "reason": "Config override combinations repeated at 129 bits."
+  },
+  "interaction_constraint": {
+   "tests": 13,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Inherited constraint solving across class levels; rows 18.5.x not matched."
+  },
+  "interaction_default": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_deferarg": {
+   "tests": 29,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [],
+   "observes": null,
+   "reason": "Deferred assertion argument capture repeated at 33/65/129 bits."
+  },
+  "interaction_deferdis": {
+   "tests": 31,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Disable and deferred report cancellation mixes 16.4.4, 16.4.1, 16.4.2 rows with captured inputs."
+  },
+  "interaction_delay": {
+   "tests": 63,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_delayval": {
+   "tests": 60,
+   "linked": 0,
+   "category": "mappable",
+   "rows": [
+    "SV2023-9.4.1-EXTRACT-UNKNOWN-DELAY-ZERO",
+    "SV2023-9.4.1-EXTRACT-NEGATIVE-DELAY-UNSIGNED",
+    "SV2023-9.4.1-EXTRACT-PROCEDURAL-DELAY"
+   ],
+   "observes": "Wake time of delays with x/z, negative, real or time-literal values.",
+   "reason": "Read test: negative delay statement never completes before the end."
+  },
+  "interaction_dist": {
+   "tests": 31,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_divide": {
+   "tests": 72,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-11.4.3-EXTRACT-DIV",
+    "SV2023-11.4.3-EXTRACT-MOD",
+    "SV2023-11.4.3-EXTRACT-ZERO-DIVISOR"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_dpi_array": {
+   "tests": 30,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Open-array DPI calls; rows in 35.5.6.1 not matched and tests need a C side."
+  },
+  "interaction_dpi_nba": {
+   "tests": 18,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "DPI argument directions with NBA capture; mix of 35.x and 10.4.2."
+  },
+  "interaction_dpiquery": {
+   "tests": 16,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "SV vs DPI-C array queries; rows not matched."
+  },
+  "interaction_edge": {
+   "tests": 64,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-11.4.5-EXTRACT-LOGICAL-UNKNOWN"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_escname": {
+   "tests": 29,
+   "linked": 0,
+   "category": "mappable",
+   "rows": [
+    "SV2023-5.6.1-EXTRACT-ESCAPE-NAME-EQUIVALENCE",
+    "SV2023-5.6.1-EXTRACT-ESCAPE-BOUNDARIES",
+    "SV2023-5.6.1-EXTRACT-ESCAPED-KEYWORD-NAME"
+   ],
+   "observes": "Plain and escaped spellings bind to the same name, with space/tab/newline terminators.",
+   "reason": "Read test: swapped spellings elaborate and print the same values."
+  },
+  "interaction_event_rebind": {
+   "tests": 27,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Event rebinding across task arguments; many 15.5.5.x rows combined."
+  },
+  "interaction_event_task": {
+   "tests": 13,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Event passing to tasks with waiters; many 15.5.x rows combined."
+  },
+  "interaction_eventflow": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [],
+   "observes": null,
+   "reason": "Event-consuming loops repeated at 33/65/129 bits."
+  },
+  "interaction_eventlife": {
+   "tests": 18,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Aggregate event identity after automatic return; combined 15.5.2/6.17 rows."
+  },
+  "interaction_expr": {
+   "tests": 51,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-11.4.3-EXTRACT-ADD",
+    "SV2023-11.4.3-EXTRACT-SUB",
+    "SV2023-11.4.3-EXTRACT-MUL",
+    "SV2023-11.8.2-EXTRACT-PROPAGATE-CONTEXT"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_force": {
+   "tests": 72,
+   "linked": 0,
+   "category": "mappable",
+   "rows": [
+    "SV2023-10.6.2-EXTRACT-FORCE-VARIABLE-OVERRIDE",
+    "SV2023-10.6.2-EXTRACT-FORCE-NET-OVERRIDE",
+    "SV2023-10.6.2-EXTRACT-RELEASE-CONTINUOUS-RESTORES",
+    "SV2023-10.6.2-EXTRACT-RELEASE-NET-RESOLVES",
+    "SV2023-10.6.2-EXTRACT-RELEASE-UNDRIVEN-RETAINS"
+   ],
+   "observes": "Value printed before, during and after force/release for each target kind.",
+   "reason": "Read test: force a continuously driven variable, change driver, release, observe restore."
+  },
+  "interaction_gatearray": {
+   "tests": 51,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Gate array bit mapping plus per-bit delays; rows 28.3.6 partition and 28.16 combined."
+  },
+  "interaction_gendisable": {
+   "tests": 18,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Default disable iff in generate scopes; rows 16.15 and 16.12 combined."
+  },
+  "interaction_genenum": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [],
+   "observes": null,
+   "reason": "Enum widths per generate scope repeated at 33/65/129 bits."
+  },
+  "interaction_generate": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [],
+   "observes": null,
+   "reason": "Generate-scope lookups repeated at 33/65/129 bits."
+  },
+  "interaction_genexpr": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-11.8.1-EXTRACT-CONTEXT-SIGNED"
+   ],
+   "observes": null,
+   "reason": "Constant-expression sign/width rules in generate conditions at 33/65/129 bits."
+  },
+  "interaction_genloop": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-12.8-EXTRACT-CONTINUE-STEP"
+   ],
+   "observes": null,
+   "reason": "Generated loops with break/continue repeated at 33/65/129 bits."
+  },
+  "interaction_gensub": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [],
+   "observes": null,
+   "reason": "Generate-scope arrays/subroutines repeated at 33/65/129 bits."
+  },
+  "interaction_hiername": {
+   "tests": 65,
+   "linked": 0,
+   "category": "mappable",
+   "rows": [
+    "SV2023-21.2.1.5-EXTRACT-HIERARCHY-NO-ARG"
+   ],
+   "observes": "%m output for each scope kind and place.",
+   "reason": "Read test: expected output is the hierarchical name of the enclosing scope."
+  },
+  "interaction_hierproc": {
+   "tests": 42,
+   "linked": 0,
+   "category": "mappable",
+   "rows": [
+    "SV2023-23.6-EXTRACT-HIERARCHICAL-USES"
+   ],
+   "observes": "Effect of reading, writing, event and task call through a hierarchical name.",
+   "reason": "Read test: hierarchical task call wakes a waiter in the child."
+  },
+  "interaction_ifexpr": {
+   "tests": 49,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-11.8.1-EXTRACT-CONTEXT-SIGNED",
+    "SV2023-11.6.1-EXTRACT-CONTEXT-DETERMINED-SIZE"
+   ],
+   "observes": null,
+   "reason": "Operator sign/width rules reached through interface member paths."
+  },
+  "interaction_iff": {
+   "tests": 27,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Event OR with per-term iff; 9.4.2.1 rows combined with counts, whole-row fit unclear."
+  },
+  "interaction_ifgenerate": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [],
+   "observes": null,
+   "reason": "Interface generate selections repeated at 33/65/129 bits."
+  },
+  "interaction_ifimport": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [],
+   "observes": null,
+   "reason": "Interface-header imports repeated at 33/65/129 bits."
+  },
+  "interaction_ifquery": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-20.7-EXTRACT-LEFT-BOUND",
+    "SV2023-20.7-EXTRACT-SIZE"
+   ],
+   "observes": null,
+   "reason": "Interface-local array queries repeated at 33/65/129 bits."
+  },
+  "interaction_import": {
+   "tests": 39,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [],
+   "observes": null,
+   "reason": "Package import connection defaults repeated at 33/65/129 bits."
+  },
+  "interaction_index": {
+   "tests": 44,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-11.5.1-EXTRACT-INVALID-BIT-READ",
+    "SV2023-7.4.5-EXTRACT-INVALID-INDEX",
+    "SV2023-7.4.5-EXTRACT-INVALID-WRITE-NOOP"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_inside": {
+   "tests": 46,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-11.4.13-EXTRACT-INSIDE-MATCH-RESULT",
+    "SV2023-11.4.13-EXTRACT-INSIDE-UNKNOWN"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_litarg": {
+   "tests": 62,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-13.5.1-EXTRACT-DEFAULT-BY-VALUE",
+    "SV2023-5.7.1-EXTRACT-FILL-CONTEXT"
+   ],
+   "observes": null,
+   "reason": "Literal-to-formal conversion combinations of rules already tested elsewhere."
+  },
+  "interaction_literal": {
+   "tests": 66,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-5.7.1-EXTRACT-LITERAL-ZERO-PADDING",
+    "SV2023-5.7.1-EXTRACT-LITERAL-UNKNOWN-PADDING",
+    "SV2023-5.7.1-EXTRACT-LITERAL-TRUNCATION"
+   ],
+   "observes": null,
+   "reason": "Literal padding/truncation rules repeated across bases, widths and carriers."
+  },
+  "interaction_litfmt": {
+   "tests": 91,
+   "linked": 0,
+   "category": "mappable",
+   "rows": [
+    "SV2023-21.2.1.2-EXTRACT-AUTO-SIZE",
+    "SV2023-21.2.1.2-EXTRACT-FIELD-WIDTH",
+    "SV2023-21.2.1.3-EXTRACT-GROUP-ALL-X"
+   ],
+   "observes": "Formatted text of a literal with x/z/? digits under each format and width.",
+   "reason": "Read test: $display(\":%0h:\", '1) prints one literal formatted."
+  },
+  "interaction_logic": {
+   "tests": 70,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-11.4.7-EXTRACT-LOGICAL-RESULT",
+    "SV2023-11.4.9-EXTRACT-REDUCTION-FOLD",
+    "SV2023-11.4.7-EXTRACT-LOGICAL-NOT"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_loop_nba": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-10.4.2-EXTRACT-TWO-PHASE-NBA",
+    "SV2023-10.4.1-EXTRACT-BLOCKING-SEQUENTIAL"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_loopsched": {
+   "tests": 55,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-4.4.2.3-EXTRACT-INACTIVE-AFTER-ACTIVE",
+    "SV2023-10.4.2-EXTRACT-TWO-PHASE-NBA"
+   ],
+   "observes": null,
+   "reason": "Loop control-variable updates by NBA/#0/delay; combinations of scheduling rules covered by scheduling."
+  },
+  "interaction_macro": {
+   "tests": 114,
+   "linked": 0,
+   "category": "mappable",
+   "rows": [
+    "SV2023-22.5.1-EXTRACT-MACRO-LITERAL-ACTUAL",
+    "SV2023-22.5.1-EXTRACT-MACRO-SUBSTITUTION",
+    "SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE"
+   ],
+   "observes": "Value of an expression whose operands come from text macros (textual binding).",
+   "reason": "Read test: result 6 shows textual substitution without added parentheses."
+  },
+  "interaction_mailbox": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [],
+   "observes": null,
+   "reason": "Mailbox handle messages repeated at 33/65/129 bits."
+  },
+  "interaction_memfile": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-21.4-EXTRACT-ENDPOINT-LOAD",
+    "SV2023-21.5-EXTRACT-MEMORY-WRITE"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_method": {
+   "tests": 72,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-7.12.3-EXTRACT-SUM-REDUCE",
+    "SV2023-7.12.3-EXTRACT-WITH-RESULT-WIDTH",
+    "SV2023-7.12.3-EXTRACT-PRODUCT-REDUCE"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_nba": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-10.4.2-EXTRACT-NBA-LOCATION-CAPTURE",
+    "SV2023-10.4.2-EXTRACT-TWO-PHASE-NBA"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_nettype": {
+   "tests": 40,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [],
+   "observes": null,
+   "reason": "Default nettype vector/scalar combinations repeated at 33/65/129 bits."
+  },
+  "interaction_paramtype": {
+   "tests": 44,
+   "linked": 0,
+   "category": "mappable",
+   "rows": [
+    "SV2023-23.10.2.2-EXTRACT-NAMED-PARAMETERS"
+   ],
+   "observes": "Final value, width and sign of a parameter after declaration, #() and defparam.",
+   "reason": "Read test prints P, $bits(P) and sign; override rows for 23.10.1 not checked."
+  },
+  "interaction_pkglookup": {
+   "tests": 37,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Package search order in loops (26.3); rows not matched."
+  },
+  "interaction_pkgnba": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-10.4.2-EXTRACT-NBA-LOCATION-CAPTURE"
+   ],
+   "observes": null,
+   "reason": "NBA on package variables repeated at 33/65/129 bits."
+  },
+  "interaction_pkgquery": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-20.7-EXTRACT-LEFT-BOUND",
+    "SV2023-20.7-EXTRACT-SIZE"
+   ],
+   "observes": null,
+   "reason": "Package-qualified array queries repeated at 33/65/129 bits."
+  },
+  "interaction_pkgwatch": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [],
+   "observes": null,
+   "reason": "Package-variable event/wait observers repeated at 33/65/129 bits."
+  },
+  "interaction_port": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_process": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [],
+   "observes": null,
+   "reason": "Process activation at time 0 repeated at 33/65/129 bits."
+  },
+  "interaction_progassert": {
+   "tests": 27,
+   "linked": 1,
+   "category": "mappable",
+   "rows": [
+    "SV2023-24.3.1-EXTRACT-PROGRAM-ASSERTION-SCHEDULING"
+   ],
+   "observes": "Program/module clock attempts of assertions and decision counts.",
+   "reason": "One test is linked to the program assertion scheduling row."
+  },
+  "interaction_progframe": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [],
+   "observes": null,
+   "reason": "Program frame copies repeated at 33/65/129 bits."
+  },
+  "interaction_progif": {
+   "tests": 30,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Program/module writes to interface variables by region (24.3.1, 4.5); combined rows."
+  },
+  "interaction_progmod": {
+   "tests": 24,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Program instances in hierarchy and implicit finish; combined 24.3 rows."
+  },
+  "interaction_program": {
+   "tests": 18,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Program termination with waiting descendants; combined 24.3, 24.7 rows."
+  },
+  "interaction_query": {
+   "tests": 60,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-20.9-EXTRACT-COUNTBITS",
+    "SV2023-20.9-EXTRACT-ONEHOT",
+    "SV2023-20.9-EXTRACT-ISUNKNOWN",
+    "SV2023-20.9-EXTRACT-CONTROL-LSB"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_queue": {
+   "tests": 48,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-7.10.2.7-EXTRACT-PUSH",
+    "SV2023-7.10.1-EXTRACT-BOUND-MAXIMUM",
+    "SV2023-7.10.1-EXTRACT-INVALID-READ"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_queue_ref": {
+   "tests": 60,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-13.5.2-EXTRACT-QUEUE-DELETE",
+    "SV2023-13.5.2-EXTRACT-QUEUE-DYNAMIC-ASSIGN",
+    "SV2023-13.5.2-EXTRACT-OUTDATED-REFERENCE-LIFETIME"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_randreduce": {
+   "tests": 13,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Randomization with array reductions; combined 18.5.7 and 7.12.3 rows."
+  },
+  "interaction_range": {
+   "tests": 46,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-11.4.13-EXTRACT-INCLUSIVE-RANGE",
+    "SV2023-11.4.13-EXTRACT-ABSOLUTE-TOLERANCE",
+    "SV2023-11.4.13-EXTRACT-RELATIVE-TOLERANCE",
+    "SV2023-11.4.13-EXTRACT-REVERSED-COLON-EMPTY"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_reactive": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [],
+   "observes": null,
+   "reason": "Reactive-region NBA chains repeated at 33/65/129 bits."
+  },
+  "interaction_resize": {
+   "tests": 38,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-7.5.1-EXTRACT-NEW-DESTRUCTIVE",
+    "SV2023-7.5.1-EXTRACT-DEFAULT-ELEMENTS",
+    "SV2023-7.5.2-EXTRACT-CURRENT-SIZE"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_return": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-12.8-EXTRACT-RETURN-FORMS",
+    "SV2023-13.4.1-EXTRACT-RETURN-OVERRIDES-NAME"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_scansel": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-21.3.4.3-EXTRACT-SCAN-ARG-COUNT",
+    "SV2023-21.3.4.3-EXTRACT-SCAN-DECIMAL"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_scopeclass": {
+   "tests": 48,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Class methods binding declaring-scope names (8.3, 23.9); rows not matched."
+  },
+  "interaction_sdfpath": {
+   "tests": 18,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "SDF annotation of conditional paths; rows 32.x and 30.4.4 not matched."
+  },
+  "interaction_select": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-11.5.1-EXTRACT-INVALID-BIT-READ",
+    "SV2023-11.5.1-EXTRACT-INDEXED-DIRECTION"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_sense": {
+   "tests": 61,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [],
+   "observes": null,
+   "reason": "Implicit sensitivity of always_comb/@*/assign over read forms; combinations of the same sensitivity rule."
+  },
+  "interaction_shift": {
+   "tests": 56,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-11.4.10-EXTRACT-ARITH-RIGHT-SIGNED",
+    "SV2023-11.4.10-EXTRACT-LOGICAL-RIGHT-ZERO",
+    "SV2023-11.4.10-EXTRACT-UNKNOWN-SHIFT-COUNT"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_shortcircuit": {
+   "tests": 92,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-11.4.7-EXTRACT-AND-SHORT-CIRCUIT",
+    "SV2023-11.4.7-EXTRACT-OR-SHORT-CIRCUIT",
+    "SV2023-11.4.7-EXTRACT-IMPLICATION-SHORT-CIRCUIT"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_simend": {
+   "tests": 42,
+   "linked": 0,
+   "category": "mappable",
+   "rows": [
+    "SV2023-20.2-EXTRACT-FINISH",
+    "SV2023-20.2-EXTRACT-EXIT",
+    "SV2023-20.10-EXTRACT-FATAL"
+   ],
+   "observes": "End time and surviving writes after $finish/$fatal/$exit from each process site.",
+   "reason": "Read test: final block shows writes before time 5 only."
+  },
+  "interaction_stream": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-11.4.14-EXTRACT-PACK-UNPACK",
+    "SV2023-11.4.14-EXTRACT-FIXED-WIDE-RIGHT-ZEROS"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_strengthfmt": {
+   "tests": 31,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Strength formatting of resolved drives through three API families; combined 21.2.1.4 and 28.12 rows."
+  },
+  "interaction_struct": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-7.2.1-EXTRACT-MEMBER-SIGNIFICANCE",
+    "SV2023-7.2.1-EXTRACT-CONTIGUOUS-FIELDS"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_task": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-13.5.1-EXTRACT-DEFAULT-BY-VALUE"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "interaction_timescope": {
+   "tests": 48,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Tests observe precedence and rounding of time scopes in 3.14 and 20.3, but I found no ledger row to match; needs a 3.14 row search."
+  },
+  "interaction_udp": {
+   "tests": 25,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [],
+   "observes": null,
+   "reason": "UDP array connection combinations repeated at 33/65/129 bits."
+  },
+  "interaction_udpstate": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [],
+   "observes": null,
+   "reason": "Sequential UDP states repeated at 33/65/129 bits."
+  },
+  "interaction_vif_class": {
+   "tests": 13,
+   "linked": 0,
+   "category": "undecided",
+   "rows": [],
+   "observes": null,
+   "reason": "Class-held virtual interfaces under copies; rows 25.9 not matched."
+  },
+  "interaction_wait": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-9.4.3-EXTRACT-WAIT-LEVEL",
+    "SV2023-7.10.2.7-SIZE-WAIT-WAKES",
+    "SV2023-7.10.2.7-SIZE-WAIT-BLOCKED"
+   ],
+   "observes": null,
+   "reason": "Cross of the same operator/container rules with 33/65/129-bit widths, signs and X/Z values (about two thirds of rows are width factors); no new rule."
+  },
+  "keywords": {
+   "tests": 496,
+   "linked": 496,
+   "category": "mappable",
+   "rows": [
+    "SV2023-22.14.2-EXTRACT-VERSION-SET",
+    "SV2023-22.14.6-EXTRACT-VERSION-SET",
+    "SV2023-22.14.7-EXTRACT-VERSION-SET",
+    "SV2023-22.14.3-EXTRACT-VERSION-SET"
+   ],
+   "observes": "Each keyword used as a variable name is rejected under its begin_keywords version.",
+   "reason": "All 496 tests are already linked to version-set rows."
+  },
+  "keywords_inherited": {
+   "tests": 804,
+   "linked": 804,
+   "category": "mappable",
+   "rows": [
+    "SV2023-22.14.8-EXTRACT-VERSION-SET",
+    "SV2023-22.14.7-EXTRACT-VERSION-SET",
+    "SV2023-22.14.4-EXTRACT-NOCONFIG-BASE"
+   ],
+   "observes": "Inherited reserved words are rejected in each begin_keywords mode.",
+   "reason": "All 804 tests are already linked."
+  },
+  "memory_file_boundaries": {
+   "tests": 138,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-21.4-EXTRACT-ENDPOINT-LOAD",
+    "SV2023-21.4-EXTRACT-MEMORY-DIRECTION",
+    "SV2023-21.5-EXTRACT-MEMORY-WRITE"
+   ],
+   "observes": null,
+   "reason": "Memory file load/write repeated at 255..513 bits (says it reuses existing models)."
+  },
+  "nba_boundaries": {
+   "tests": 192,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-10.4.2-EXTRACT-NBA-LOCATION-CAPTURE",
+    "SV2023-10.4.2-EXTRACT-TWO-PHASE-NBA",
+    "SV2023-10.4.2-EXTRACT-ORDERED-NBA-UPDATES"
+   ],
+   "observes": null,
+   "reason": "NBA capture and ordering repeated at 63..513 bits."
+  },
+  "negative_power_controls": {
+   "tests": 16,
+   "linked": 0,
+   "category": "mappable",
+   "rows": [
+    "SV2023-11.4.3-EXTRACT-POWER-NEGATIVE-NEG-ONE",
+    "SV2023-11.4.3-EXTRACT-POWER-NEGATIVE-ZERO",
+    "SV2023-11.4.3-EXTRACT-POWER-NEGATIVE-ONE",
+    "SV2023-11.4.3-EXTRACT-POWER-NEGATIVE-POS-BIG"
+   ],
+   "observes": "Result of base 0/1/-1/3 raised to a negative exponent, checked against the Table 11-4 value.",
+   "reason": "Read test: each case is one row base/exponent class; four-state zero-base case gives all x."
+  },
+  "packed_lanes": {
+   "tests": 192,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-7.4.5-EXTRACT-PART-SELECT-DEFINITION",
+    "SV2023-7.4.5-EXTRACT-INVALID-INDEX",
+    "SV2023-7.4.1-EXTRACT-PACKED-CONTIGUOUS"
+   ],
+   "observes": null,
+   "reason": "Packed select rules over 32..129-bit lanes and ranges."
+  },
+  "packed_read_controls": {
+   "tests": 96,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-7.4.5-EXTRACT-ELEMENT-INDEX",
+    "SV2023-7.4.5-EXTRACT-SLICE-DEFINITION",
+    "SV2023-7.4.1-EXTRACT-PACKED-CONTIGUOUS"
+   ],
+   "observes": null,
+   "reason": "Read-only packed selects around 256/512 bits."
+  },
+  "power_boundaries": {
+   "tests": 72,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-11.4.3-EXTRACT-POW",
+    "SV2023-11.4.3-EXTRACT-ZERO-EXPONENT",
+    "SV2023-11.4.3-EXTRACT-INTEGRAL-POWER-TYPE"
+   ],
+   "observes": null,
+   "reason": "Integral power rules repeated at 63..257 bits."
+  },
+  "primitive_array_bounds": {
+   "tests": 61,
+   "linked": 0,
+   "category": "mappable",
+   "rows": [
+    "SV2023-28.3.6-EXTRACT-ARRAY-TERMINAL-PARTITION",
+    "SV2023-28.3.5-EXTRACT-INSTANCE-RANGE"
+   ],
+   "observes": "Illegal terminal widths (2 or 5 bits for 4 instances) are rejected at the marked line; legal scalar/vector cases elaborate.",
+   "reason": "Read test: the single marked declaration violates the partition rule (error row, 0 checks)."
+  },
+  "primitive_array_identity": {
+   "tests": 15,
+   "linked": 15,
+   "category": "mappable",
+   "rows": [
+    "SV2023-28.3.5-EXTRACT-INSTANCE-RANGE"
+   ],
+   "observes": "VPI bounds, counts and indices of primitive instance arrays.",
+   "reason": "All 15 tests are already linked."
+  },
+  "scheduling": {
+   "tests": 325,
+   "linked": 66,
+   "category": "mappable",
+   "rows": [
+    "SV2023-10.4.2-EXTRACT-NONBLOCKING-FLOW",
+    "SV2023-4.4.2.3-EXTRACT-INACTIVE-AFTER-ACTIVE",
+    "SV2023-4.4.2.3-EXTRACT-ZERO-DELAY-INACTIVE",
+    "SV2023-9.2.1-EXTRACT-ONCE"
+   ],
+   "observes": "Values seen by writer, waiter, strobe and monitor at each time and region.",
+   "reason": "66 of 325 tests are already linked to these rows; the others are the same family."
+  },
+  "stream_boundaries": {
+   "tests": 96,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-11.4.14-EXTRACT-FIXED-WIDE-RIGHT-ZEROS",
+    "SV2023-11.4.14-EXTRACT-PACK-UNPACK",
+    "SV2023-11.4.14-EXTRACT-STREAM-STATE"
+   ],
+   "observes": null,
+   "reason": "Streaming rules at 63..129 bits."
+  },
+  "strength": {
+   "tests": 135,
+   "linked": 112,
+   "category": "mappable",
+   "rows": [
+    "SV2023-28.12.1-EXTRACT-STRONGER-KNOWN-DRIVER",
+    "SV2023-6.6.5-EXTRACT-TRI0-PULL",
+    "SV2023-6.6.5-EXTRACT-TRI1-PULL",
+    "SV2023-28.11-EXTRACT-LEVEL-STRONG0"
+   ],
+   "observes": "%v strength of two drivers of different strengths on each net type.",
+   "reason": "112 of 135 tests are already linked to these rows."
+  },
+  "wide_array_shapes": {
+   "tests": 60,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-20.7-EXTRACT-DIMENSIONS",
+    "SV2023-20.7-EXTRACT-SIZE",
+    "SV2023-20.7-EXTRACT-LOW-HIGH"
+   ],
+   "observes": null,
+   "reason": "Array query rules at 255..513 bits (repeats array_shape_queries)."
+  },
+  "wide_bitvector_queries": {
+   "tests": 48,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-20.9-EXTRACT-COUNTONES",
+    "SV2023-20.9-EXTRACT-ONEHOT",
+    "SV2023-20.9-EXTRACT-ISUNKNOWN",
+    "SV2023-20.9-EXTRACT-CONTROL-LSB"
+   ],
+   "observes": null,
+   "reason": "Bit-vector query rules at 255..513 bits."
+  },
+  "wide_cast_boundaries": {
+   "tests": 180,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-6.24.1-EXTRACT-SIZE-CAST-RESIZE",
+    "SV2023-6.24.1-EXTRACT-SIGN-CAST-WIDTH",
+    "SV2023-6.24.1-EXTRACT-SIGN-CAST-SIGN"
+   ],
+   "observes": null,
+   "reason": "Cast rules at 255..513 bits."
+  },
+  "wide_constant_calls": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-13.4.3-EXTRACT-CONSTANT-DEFAULT-ARGUMENT",
+    "SV2023-13.4.3-EXTRACT-INPUT-ONLY"
+   ],
+   "observes": null,
+   "reason": "Constant function calls repeated at 255..513 bits."
+  },
+  "wide_force_boundaries": {
+   "tests": 108,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-10.6.2-EXTRACT-FORCE-VARIABLE-OVERRIDE",
+    "SV2023-10.6.2-EXTRACT-FORCE-NET-OVERRIDE",
+    "SV2023-10.6.2-EXTRACT-RELEASE-NET-RESOLVES"
+   ],
+   "observes": null,
+   "reason": "Force/release repeated at 255..513 bits."
+  },
+  "wide_format_fields": {
+   "tests": 72,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-21.2.1.2-EXTRACT-FIELD-PADDING",
+    "SV2023-21.2.1.2-EXTRACT-FIELD-WIDTH"
+   ],
+   "observes": null,
+   "reason": "Format field rules at 255..513 bits."
+  },
+  "wide_format_roundtrips": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-21.3.4.3-EXTRACT-SCAN-BINARY",
+    "SV2023-21.3.4.3-EXTRACT-SCAN-DECIMAL",
+    "SV2023-21.3.4.3-EXTRACT-SCAN-HEX"
+   ],
+   "observes": null,
+   "reason": "Format/scan round trip at 255..513 bits."
+  },
+  "wide_paths": {
+   "tests": 91,
+   "linked": 35,
+   "category": "boundary",
+   "rows": [
+    "SV2023-7.4.5-EXTRACT-PART-SELECT-DEFINITION",
+    "SV2023-11.4.10-EXTRACT-ARITH-RIGHT-SIGNED",
+    "SV2023-6.11.2-EXTRACT-SIGNED-WIDEN",
+    "SV2023-6.11.2-EXTRACT-NARROW-MSB-TRUNCATION"
+   ],
+   "observes": null,
+   "reason": "Value paths (assign, select, concat, shift, compare) at 63..513 bits; 35 of 91 already linked to these rows."
+  },
+  "wide_runtime_aliases": {
+   "tests": 36,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-13.5.2-EXTRACT-REF-STATIC-AUTOMATIC-CONTEXTS",
+    "SV2023-13.5.1-EXTRACT-DEFAULT-BY-VALUE"
+   ],
+   "observes": null,
+   "reason": "Argument passing directions repeated at 255..513 bits."
+  },
+  "wide_scan": {
+   "tests": 180,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-21.3.4.3-EXTRACT-SCAN-BINARY",
+    "SV2023-21.3.4.3-EXTRACT-SCAN-DECIMAL",
+    "SV2023-21.3.4.3-EXTRACT-SCAN-HEX"
+   ],
+   "observes": null,
+   "reason": "Numeric scan rules at 32..257 bits."
+  },
+  "wide_shift_boundaries": {
+   "tests": 192,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-11.4.10-EXTRACT-LEFT-SHIFT-ZERO",
+    "SV2023-11.4.10-EXTRACT-ARITH-RIGHT-SIGNED",
+    "SV2023-11.4.10-EXTRACT-LOGICAL-RIGHT-ZERO",
+    "SV2023-11.4.10-EXTRACT-UNKNOWN-SHIFT-COUNT"
+   ],
+   "observes": null,
+   "reason": "Shift rules at 255..513 bits with counts 0/1/W-1/W/W+1."
+  },
+  "wide_value_boundaries": {
+   "tests": 312,
+   "linked": 0,
+   "category": "boundary",
+   "rows": [
+    "SV2023-11.4.4-EXTRACT-SIGNED-COMPARISON",
+    "SV2023-11.4.4-EXTRACT-UNSIGNED-COMPARISON",
+    "SV2023-11.4.5-EXTRACT-LOGICAL-UNKNOWN",
+    "SV2023-11.4.11-EXTRACT-AMBIGUOUS-BOTH"
+   ],
+   "observes": null,
+   "reason": "Comparison and conditional rules at 255..513 bits."
+  },
+  "width_sign": {
+   "tests": 144,
+   "linked": 55,
+   "category": "boundary",
+   "rows": [
+    "SV2023-11.8.1-EXTRACT-CONTEXT-UNSIGNED",
+    "SV2023-11.6.1-EXTRACT-CONTEXT-DETERMINED-SIZE",
+    "SV2023-11.8.2-EXTRACT-PROPAGATE-CONTEXT"
+   ],
+   "observes": null,
+   "reason": "Width/sign rules of 11.6-11.8 at 63..1000 bits; 55 of 144 already linked to these rows."
+  },
+  "xz_propagation": {
+   "tests": 158,
+   "linked": 118,
+   "category": "mappable",
+   "rows": [
+    "SV2023-11.4.3-EXTRACT-ARITHMETIC-XZ",
+    "SV2023-11.4.10-EXTRACT-UNKNOWN-SHIFT-COUNT",
+    "SV2023-11.4.9-EXTRACT-INVERTED-REDUCTIONS",
+    "SV2023-11.4.3-EXTRACT-ZERO-DIVISOR"
+   ],
+   "observes": "Result of each operator with x/z operands.",
+   "reason": "118 of 158 tests are already linked; the rest repeat the same operator rows."
+  }
+ }
+}

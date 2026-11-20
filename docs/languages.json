@@ -1391,6 +1391,17 @@
         "en": "fba2abbed247c28f4a8cb8b9e464fa1d4bf051cfa8b978d5747a55ba177501c5",
         "ja": "efbf4175a74bcb405223d36d7aada7d0ed84fd88bf77424dfd7c910da2972528"
       }
+    },
+    {
+      "en": "docs/generator-classification-20261120.en.md",
+      "ja": "docs/generator-classification-20261120.md",
+      "source": "docs/generator-classification-20261120.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "bbf3d0c06988d70475b68ad812c408bcf8c6b255c218ed98c5a9382bd92786fa",
+        "ja": "a545e6166f4e14e4f2d5e6e6d2666ac1d444b882952601a2ebeea8ff80ac92fc"
+      }
     }
   ]
 }
