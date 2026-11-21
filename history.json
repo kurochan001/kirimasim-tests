@@ -1492,6 +1492,272 @@
         }
       ],
       "profile": "daily"
+    },
+    {
+      "id": "actions-44850710627-1",
+      "started_at": "2026-11-21T02:30:14.755165+00:00",
+      "completed_at": "2026-11-21T03:21:57.950262+00:00",
+      "series": "341b44a021dff5ebab52b6f89885804c6faf5d3f127ba754ddff873cc82d21a1",
+      "status": "complete",
+      "groups": [
+        {
+          "name": "regression-common",
+          "peer": "baseline",
+          "cases": [
+            "casez_struct",
+            "comb_chain",
+            "dyn_queue",
+            "fork_join",
+            "func_call",
+            "gate_udp",
+            "mem_rw",
+            "nba_burst",
+            "nba_shift",
+            "proc_wait",
+            "string_fmt",
+            "wide_arith"
+          ],
+          "expected_count": 12,
+          "available_count": 12,
+          "ratio": 0.4639783473498037,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "regression-fourstate",
+          "peer": "baseline",
+          "cases": [
+            "fourstate_mix"
+          ],
+          "expected_count": 1,
+          "available_count": 1,
+          "ratio": 0.4322149966616065,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "icarus-common",
+          "peer": "icarus",
+          "cases": [
+            "casez_struct",
+            "comb_chain",
+            "dyn_queue",
+            "fork_join",
+            "func_call",
+            "gate_udp",
+            "mem_rw",
+            "nba_burst",
+            "nba_shift",
+            "proc_wait",
+            "string_fmt",
+            "wide_arith"
+          ],
+          "expected_count": 12,
+          "available_count": 12,
+          "ratio": 0.3585634935719886,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "icarus-fourstate",
+          "peer": "icarus",
+          "cases": [
+            "fourstate_mix"
+          ],
+          "expected_count": 1,
+          "available_count": 1,
+          "ratio": 0.23410134124258178,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "verilator-common",
+          "peer": "verilator",
+          "cases": [
+            "casez_struct",
+            "comb_chain",
+            "dyn_queue",
+            "fork_join",
+            "func_call",
+            "gate_udp",
+            "mem_rw",
+            "nba_burst",
+            "nba_shift",
+            "proc_wait",
+            "string_fmt",
+            "wide_arith"
+          ],
+          "expected_count": 12,
+          "available_count": 12,
+          "ratio": 25.159136858150536,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "expanded-regression-common",
+          "peer": "baseline",
+          "cases": [
+            "casez_struct",
+            "comb_chain",
+            "dyn_queue",
+            "fork_join",
+            "func_call",
+            "gate_udp",
+            "mem_rw",
+            "nba_burst",
+            "nba_shift",
+            "proc_wait",
+            "string_fmt",
+            "wide_arith",
+            "fifo_stream",
+            "uart_loopback",
+            "bus_fabric",
+            "hierarchy_fanout",
+            "event_fanout",
+            "word_boundary",
+            "wide_divide",
+            "packed_slice",
+            "memory_scatter",
+            "clock_domains"
+          ],
+          "expected_count": 22,
+          "available_count": 22,
+          "ratio": 0.4243116317573933,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "expanded-regression-fourstate",
+          "peer": "baseline",
+          "cases": [
+            "fourstate_mix",
+            "fourstate_arith",
+            "resolved_bus"
+          ],
+          "expected_count": 3,
+          "available_count": 3,
+          "ratio": 0.5266996464498896,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "expanded-icarus-common",
+          "peer": "icarus",
+          "cases": [
+            "casez_struct",
+            "comb_chain",
+            "dyn_queue",
+            "fork_join",
+            "func_call",
+            "gate_udp",
+            "mem_rw",
+            "nba_burst",
+            "nba_shift",
+            "proc_wait",
+            "string_fmt",
+            "wide_arith",
+            "fifo_stream",
+            "uart_loopback",
+            "bus_fabric",
+            "hierarchy_fanout",
+            "event_fanout",
+            "word_boundary",
+            "wide_divide",
+            "packed_slice",
+            "memory_scatter",
+            "clock_domains"
+          ],
+          "expected_count": 22,
+          "available_count": 22,
+          "ratio": 0.3654632933088207,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "expanded-icarus-fourstate",
+          "peer": "icarus",
+          "cases": [
+            "fourstate_mix",
+            "fourstate_arith",
+            "resolved_bus"
+          ],
+          "expected_count": 3,
+          "available_count": 3,
+          "ratio": 0.341817926550453,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "expanded-verilator-common",
+          "peer": "verilator",
+          "cases": [
+            "casez_struct",
+            "comb_chain",
+            "dyn_queue",
+            "fork_join",
+            "func_call",
+            "gate_udp",
+            "mem_rw",
+            "nba_burst",
+            "nba_shift",
+            "proc_wait",
+            "string_fmt",
+            "wide_arith",
+            "fifo_stream",
+            "uart_loopback",
+            "bus_fabric",
+            "hierarchy_fanout",
+            "event_fanout",
+            "word_boundary",
+            "wide_divide",
+            "packed_slice",
+            "memory_scatter",
+            "clock_domains"
+          ],
+          "expected_count": 22,
+          "available_count": 22,
+          "ratio": 23.684888155163733,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "daily-overall-icarus14",
+          "peer": "icarus_devel",
+          "cases": [
+            "casez_struct",
+            "comb_chain",
+            "dyn_queue",
+            "fork_join",
+            "func_call",
+            "gate_udp",
+            "mem_rw",
+            "nba_burst",
+            "nba_shift",
+            "proc_wait",
+            "string_fmt",
+            "wide_arith",
+            "fourstate_mix",
+            "fifo_stream",
+            "uart_loopback",
+            "bus_fabric",
+            "hierarchy_fanout",
+            "event_fanout",
+            "word_boundary",
+            "wide_divide",
+            "packed_slice",
+            "memory_scatter",
+            "clock_domains",
+            "fourstate_arith",
+            "resolved_bus"
+          ],
+          "expected_count": 25,
+          "available_count": 25,
+          "ratio": 0.5151573817654862,
+          "warning": false,
+          "reason": null
+        }
+      ],
+      "profile": "daily"
     }
   ]
 }
