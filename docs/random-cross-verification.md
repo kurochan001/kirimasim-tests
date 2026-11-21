@@ -642,7 +642,7 @@ python3 tools/promote_random_cross.py \
 ビルドキャッシュ・ccacheで減らすのはコンパイルであり、実行は省略しません。
 Nightlyのrun ID・再試行番号と、直前のランダム用buildコミットを別に記録します。
 同じNightlyでも、その前の固定スイートは以前のkirimasim版の場合があるため、固定結果自身の版を確認します。
-`results_ratchet.py`のゲートは引き続きpass→failだけです。pass→unsupportedなどを黙って追加しません。
+`results_ratchet.py`のゲートはpass→failと、2026-11-21の所有者の決定によるpass→unsupportedです。ほかの変化を黙って追加しません。
 固定境界ケース、指紋付きのクロス実行証拠、固定履歴はそれぞれ維持します。
 
 <a id="opt-in-packed-profiles"></a>

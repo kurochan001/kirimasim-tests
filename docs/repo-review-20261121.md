@@ -66,8 +66,8 @@
 
 ## 所有者の判断を待つもの
 
-- kirimasimの回帰の比較は、passからunsupportedへの変化を回帰に数えない（`tools/results_ratchet.py`の説明どおり）。kirimasimが以前通った構文に新しく未対応を出しても、ジョブは失敗しない。おすすめは回帰に数えること。
-- 履歴のJSONが大きくなり続けている。mainの`coverage/behavior-history.json`は29.9 MB（1日に約1.9 MB）、resultsブランチの`behavior-history.json`は30.9 MB、`coverage/interaction-summary.json`は51.3 MB、`coverage/test-matching.json`は45.6 MB。GitHubは50 MiBで警告し、100 MiBを超えるファイルのpushを拒む。いまの増え方なら、mainの履歴は12月末ごろに100 MiBに届く（推定）。おすすめは、古い回の実行一覧を別のファイルに分けるか捨てること、大きいファイルを分けること、Checkでサイズを検査すること。
+- kirimasimの回帰の比較は、passからunsupportedへの変化を回帰に数えなかった。2026-11-21に決定：回帰に数える。
+- 2026-11-21に決定：分ける（要求カバレッジの履歴は1日1ファイルの`coverage/behavior-history/`に、機能間クロスの集計は`coverage/interaction-summary/`に、照合台帳は`coverage/test-matching/`に分け、Checkで大きさを検査する）。当時の状況：履歴のJSONが大きくなり続けている。mainの`coverage/behavior-history.json`は29.9 MB（1日に約1.9 MB）、resultsブランチの`behavior-history.json`は30.9 MB、`coverage/interaction-summary.json`は51.3 MB、`coverage/test-matching.json`は45.6 MB。GitHubは50 MiBで警告し、100 MiBを超えるファイルのpushを拒む。いまの増え方なら、mainの履歴は12月末ごろに100 MiBに届く（推定）。おすすめは、古い回の実行一覧を別のファイルに分けるか捨てること、大きいファイルを分けること、Checkでサイズを検査すること。
 - resultsブランチの履歴には、同じ実行の記録が2組ある（実行44656954132と42477954992）。今回の修正は新しい重複を防ぐだけで、既存の2組はそのまま。
 - `coverage/interaction-results/cross25`〜`cross29`の10本に、手元のmacOSの一時フォルダのパスが残っている（ホームのパスや個人名ではない）。置き換えると、それらのSHA-256を記録した`coverage/interaction-qualification/*-prior-digests.json`も書き換えることになる。
 - Actionsのキャッシュが10 GBの上限を超えている（111件）。Nightlyが毎回約930 MBのccacheを新しいキーで保存しているため。Lyraの4分割はキャッシュがないと失敗するので、Lyraのキャッシュが消されるとその夜のLyraが欠けうる。

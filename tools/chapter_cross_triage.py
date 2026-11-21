@@ -190,7 +190,7 @@ def guide(rows: list[dict], data: dict) -> str:
 
 
 def build(root: Path = ROOT) -> tuple[dict[str, bytes], dict]:
-    summary = json.loads((root / chapters.SUMMARY).read_text(encoding="utf-8"))
+    summary = chapters.interaction_coverage.load_summary(root)
     if summary["source_sha256"] != chapters.interaction_coverage.source_digest():
         raise ValueError("interaction summary is stale; refresh the interaction reports first")
     mapping = json.loads((root / chapters.REGISTRY).read_text(encoding="utf-8"))

@@ -81,7 +81,7 @@
 | Nightly | 開発版シミュレータ等で定期実行し、履歴・比較図を公開するGitHub Actionsのワークフロー |
 | Check | 固定バージョンoracleの再現、生成物、メタデータ、台帳、ツールの単体テストなどを検査するワークフロー |
 | By chapter | 章ごとに各シミュレータの一致数／対象テスト数と一致率を並べる表。規格の要求ごとの網羅率ではない |
-| 回帰（regression）／ratchet | 以前満たした条件が満たせなくなること／現在のNightlyでkirimasimの前回`pass`から今回`fail`への変化を失敗にする仕組み |
+| 回帰（regression）／ratchet | 以前満たした条件が満たせなくなること／現在のNightlyでkirimasimの前回`pass`から今回`fail`か`unsupported`への変化を失敗にする仕組み |
 | `main`／`results`／suite commit | テストとツールを管理するブランチ／Nightlyの結果を公開するブランチ／その実行で使ったスイートのコミット |
 | UTC／JST | 協定世界時／日本標準時。公開結果のUTC表示へ9時間を加えるとJSTになる |
 

@@ -15,7 +15,37 @@ import behavior_coverage as coverage
 import suite_results
 import doc_localization
 
-OUTPUT = coverage.DATA / "test-matching.json"
+# The inventory is a directory so that no file grows too large: index.json
+# holds everything but the tests, tests-<group>.json the tests of one
+# directory under tests/ (gen and imported per chapter). It was split from
+# test-matching.json on 2026-11-21; load_inventory reassembles it.
+OUTPUT = coverage.DATA / "test-matching"
+LEGACY_OUTPUT = coverage.DATA / "test-matching.json"
+
+
+def group_of(test: str) -> str:
+    parts = test.split("/")
+    return f"{parts[1]}-{parts[2]}" if parts[1] in ("gen", "imported") else parts[1]
+
+
+def inventory_files(data: dict, directory: Path = OUTPUT) -> dict:
+    text = lambda value: json.dumps(value, ensure_ascii=False, separators=(",", ":")) + "\n"
+    files = {directory / "index.json": text({k: v for k, v in data.items() if k != "tests"})}
+    groups = {}
+    for record in data["tests"]:
+        groups.setdefault(group_of(record["test"]), []).append(record)
+    for key, records in sorted(groups.items()):
+        files[directory / f"tests-{key}.json"] = text({"schema": 1, "tests": records})
+    return files
+
+
+def load_inventory(root: Path = coverage.ROOT) -> dict:
+    directory = root / "coverage" / "test-matching"
+    data = json.loads((directory / "index.json").read_text(encoding="utf-8"))
+    records = [record for path in sorted(directory.glob("tests-*.json"))
+               for record in json.loads(path.read_text(encoding="utf-8"))["tests"]]
+    data["tests"] = sorted(records, key=lambda record: record["test"])
+    return data
 REPORT = coverage.ROOT / "docs/test-requirement-matching.md"
 DISPOSITIONS = "test-matching-reviews.json"
 DISPOSITION_KINDS = {"partial_observation", "oracle_issue", "citation_refinement",
@@ -126,7 +156,7 @@ def inventory(tests: list[Path], rows: list[dict]) -> dict:
 def report(data: dict) -> str:
     lines = ["# 既存テストと規格要求の照合", "",
              "[要求カバレッジ集計](behavior-coverage-summary.md) / "
-             "[全テストの照合台帳](../coverage/test-matching.json) / "
+             "[全テストの照合台帳](../coverage/test-matching/) / "
              "[内容確認で見つかった問題](existing-test-matching-review-20261022.md)", "",
              f"全 {data['test_files']} 本を対象に、引用節から照合候補を列挙しました。",
              f"刺激・期待結果に基づく要求対応が登録済みのテストは {data['linked_test_files']} 本、"
@@ -205,8 +235,15 @@ def main() -> int:
         data["registry_sha256"] = hashlib.sha256(registry_bytes).hexdigest()
         data["inventory_sha256"] = hashlib.sha256(source_bytes).hexdigest()
         data["review_ledger_sha256"] = hashlib.sha256(review_bytes).hexdigest()
-        artifacts = doc_localization.expand({OUTPUT: json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n",
-                                             REPORT: report(data)})
+        artifacts = doc_localization.expand({**inventory_files(data), REPORT: report(data)})
+        extra = sorted(set(OUTPUT.glob("*.json")) - set(artifacts)) + \
+            ([LEGACY_OUTPUT] if LEGACY_OUTPUT.exists() else [])
+        if args.check:
+            coverage.require(not extra, f"stale test matching: {extra[0] if extra else ''}; run --update")
+        else:
+            OUTPUT.mkdir(parents=True, exist_ok=True)
+            for path in extra:
+                path.unlink()
         for path, text in artifacts.items():
             if args.check:
                 coverage.require(path.is_file() and path.read_text(encoding="utf-8") == text,

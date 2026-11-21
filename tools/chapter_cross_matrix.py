@@ -22,7 +22,7 @@ from suite_stats import CHAPTERS_JA
 
 ROOT = Path(__file__).resolve().parent.parent
 REGISTRY = "coverage/chapter-interactions.json"
-SUMMARY = "coverage/interaction-summary.json"
+SUMMARY = "coverage/interaction-summary"
 CHAPTERS = {1: "概要", 2: "引用規格", **CHAPTERS_JA, 41: "データ読出しAPI"}
 OUTPUTS = ("coverage/chapter-cross-models.csv", "coverage/chapter-cross-passed-models.csv",
            "coverage/chapter-cross-details.csv")
@@ -127,7 +127,7 @@ def csv_bytes(rows: list[list]) -> bytes:
 
 
 def build(root: Path = ROOT) -> tuple[dict[str, bytes], dict]:
-    summary = json.loads((root / SUMMARY).read_text(encoding="utf-8"))
+    summary = interaction_coverage.load_summary(root)
     if summary["source_sha256"] != interaction_coverage.source_digest():
         raise ValueError("interaction summary is stale; run interaction_coverage.py --update first")
     registry = json.loads((root / REGISTRY).read_text(encoding="utf-8"))

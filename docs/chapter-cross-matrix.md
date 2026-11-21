@@ -59,7 +59,7 @@ IEEE 1800-2023のどの章とどの章を組み合わせて検証しているか
 明細の「該当選択ケース数」と状態別件数はこの条件で絞った数です。
 「モデル選択ケース数」はモデル全体の数なので、両者は一致しない場合があります。
 代表テストは該当ケースの一例です。全選択ケースは
-[クロス計画のJSON](../coverage/interaction-summary.json)の各モデルの`selection`から確認できます。
+[クロス計画のJSON](../coverage/interaction-summary/plan.json)の各モデルの`selection`から確認できます。
 
 <a id="execution-policy"></a>
 

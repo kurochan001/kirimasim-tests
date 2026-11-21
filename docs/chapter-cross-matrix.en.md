@@ -32,7 +32,7 @@ The scope is [registered finite interaction models](interaction-verification.en.
 
 The [mapping registry](../coverage/chapter-interactions.json) records AI review of factors, stimulus and observations. Pairs are not inferred from every chapter cited in a test: display-only `$display` use or a process needed merely to execute a test must not inflate interaction counts. These are reviewed interactions, not an exhaustive list of possible mappings.
 
-Where only some factor levels exercise a pair, `when` restricts the mapping. For example, chapter 7×13 in the task-argument model includes only array-element actuals. Matching-selection and status counts apply that filter; whole-model selection counts may differ. A representative test is one example. Every selected path is in each model's `selection` in the [plan JSON](../coverage/interaction-summary.json).
+Where only some factor levels exercise a pair, `when` restricts the mapping. For example, chapter 7×13 in the task-argument model includes only array-element actuals. Matching-selection and status counts apply that filter; whole-model selection counts may differ. A representative test is one example. Every selected path is in each model's `selection` in the [plan JSON](../coverage/interaction-summary/plan.json).
 
 <a id="実行結果の扱い"></a>
 

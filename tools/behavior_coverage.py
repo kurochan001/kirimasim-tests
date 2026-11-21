@@ -547,6 +547,72 @@ def compact_history_lists(data: dict) -> None:
                     seen.add(digest)
 
 
+def history_sharded(path: Path) -> bool:
+    """A history path without the .json suffix is a directory of daily files."""
+    return path.suffix != ".json"
+
+
+def read_history(path: Path) -> dict:
+    """The runs of a behavior history, in order: one JSON file, or a directory
+    of daily files YYYY-MM-DD.json read by date. Before a directory's first
+    write, the single file of the same name with .json (the former layout)
+    is read first."""
+    files = []
+    if history_sharded(path):
+        legacy = path.with_suffix(".json")
+        if legacy.is_file():
+            files.append(legacy)
+        if path.is_dir():
+            for shard in sorted(path.glob("*.json")):
+                require(re.fullmatch(r"\d{4}-\d{2}-\d{2}\.json", shard.name),
+                        f"unexpected file in the behavior history: {shard.name}")
+                files.append(shard)
+    elif path.is_file():
+        files.append(path)
+    runs = []
+    for file in files:
+        data = json.loads(file.read_text(encoding="utf-8"))
+        require(data.get("schema") == 1 and isinstance(data.get("runs"), list),
+                "unknown behavior history format")
+        runs += data["runs"]
+    return {"schema": 1, "runs": runs}
+
+
+def history_days(runs: list) -> list[str]:
+    """The daily file of each run: the UTC date it was measured, never earlier
+    than that of the run before it, so the files read by date keep the order
+    of the runs (a reference to an executed list always points back)."""
+    days, last = [], "0000-00-00"
+    for run in runs:
+        day = str(run.get("generated_at", ""))[:10]
+        last = max(last, day) if re.fullmatch(r"\d{4}-\d{2}-\d{2}", day) else last
+        days.append(last)
+    return days
+
+
+def write_history(path: Path, data: dict) -> None:
+    """Writes a behavior history in the layout of its path; a directory gets
+    one file per day, and only the files whose text changes are written."""
+    text = lambda value: json.dumps(value, ensure_ascii=False, indent=2) + "\n"
+    if not history_sharded(path):
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(text(data), encoding="utf-8")
+        return
+    groups = {}
+    for day, run in zip(history_days(data["runs"]), data["runs"]):
+        groups.setdefault(day, []).append(run)
+    path.mkdir(parents=True, exist_ok=True)
+    for day, runs in groups.items():
+        target = path / f"{day}.json"
+        content = text({"schema": 1, "runs": runs})
+        if not target.is_file() or target.read_text(encoding="utf-8") != content:
+            target.write_text(content, encoding="utf-8")
+    for old in path.glob("*.json"):
+        if old.stem not in groups:
+            old.unlink()
+    path.with_suffix(".json").unlink(missing_ok=True)
+
+
 def append_history(path: Path, entry: dict) -> None:
     """Keep the denominator identity beside counts so scope changes stay visible.
 
@@ -556,10 +622,10 @@ def append_history(path: Path, entry: dict) -> None:
     they were measured. An executed list that an earlier snapshot already
     holds is written as a reference to it (compact_history_lists), so the
     history grows only by the lists that changed. An entry with a run_url
-    replaces an earlier entry of the same run (a rerun of the workflow)."""
-    data = json.loads(path.read_text(encoding="utf-8")) if path.is_file() else {"schema": 1, "runs": []}
-    require(data.get("schema") == 1 and isinstance(data.get("runs"), list),
-            "unknown behavior history format")
+    replaces an earlier entry of the same run (a rerun of the workflow).
+    The history is one file or a directory of daily files (read_history);
+    references may point to a list in an earlier file."""
+    data = read_history(path)
     expand_history_lists(data)
     drop_unknown_snapshots(data)
     if entry.get("run_url"):
@@ -567,8 +633,7 @@ def append_history(path: Path, entry: dict) -> None:
         data["runs"] = [r for r in data["runs"] if r.get("run_url") != entry["run_url"]]
     data["runs"].append(entry)
     compact_history_lists(data)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    write_history(path, data)
 
 
 def summary_data(snapshot: dict, keep_timestamp: bool = False) -> dict:
@@ -729,7 +794,8 @@ def main() -> int:
     ap.add_argument("--json", type=Path, help="also write a machine-readable summary")
     ap.add_argument("--summary-output", type=Path, help="compact Markdown; defaults beside the standard report")
     ap.add_argument("--summary-json", type=Path, help="compact JSON; defaults to coverage/behavior-summary.json")
-    ap.add_argument("--history", type=Path, help="append counts and denominator identities to history")
+    ap.add_argument("--history", type=Path, help="append counts and denominator identities to history: "
+                                                 "a .json file, or a directory of daily files")
     ap.add_argument("--run-url", help="with --history: the workflow run measured; a rerun replaces "
                                       "the entry of its earlier attempt")
     ap.add_argument("--require-complete", action="store_true",

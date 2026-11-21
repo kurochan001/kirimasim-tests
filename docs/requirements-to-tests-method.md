@@ -74,7 +74,7 @@ Icarus 13.0は、`v13_0`タグからビルドします。macOSでは、次の2�
 | `tools/import_standard_sections.py` | 節台帳の取り込みと検査 |
 | `tools/behavior_coverage.py` | 台帳の検査、計測、基準値、履歴、生成レポート |
 | `tools/requirement_audit.py` | 出典監査と台帳の双方向の照合（`behavior_coverage`から呼ばれる） |
-| `tools/requirement_matching.py` | 全テストの引用節・対応・保留判断の台帳（`coverage/test-matching.json`） |
+| `tools/requirement_matching.py` | 全テストの引用節・対応・保留判断の台帳（`coverage/test-matching/`） |
 | `tools/run_icarus.py`、`tools/run_verilator.py` | 実行と判定。`--json`で入力ハッシュとランナーのハッシュ付きの結果を書く |
 | `tools/run_sby.py` | `:type: formal`の`:formal_case:`をSymbiYosysで検査。シミュレーションランナーの対象からは除外する |
 | `tools/new_test.py` | 新規テストの雛形 |
@@ -137,7 +137,7 @@ Icarus 13.0は、`v13_0`タグからビルドします。macOSでは、次の2�
 
 ```sh
 python3 tools/behavior_coverage.py --write-baseline --update --require-source-reviewed \
-  --history coverage/behavior-history.json --reason '具体的な理由'
+  --history coverage/behavior-history --reason '具体的な理由'
 ```
 
 分母のSHA-256は変わります。変更前後の割合を比べるときは、分母を明記します。
@@ -316,7 +316,7 @@ README の「テストフォーマット」「メタデータ」「テストの�
 5. 生成物を更新します。
 
    ```sh
-   python3 tools/behavior_coverage.py --update --require-source-reviewed --history coverage/behavior-history.json
+   python3 tools/behavior_coverage.py --update --require-source-reviewed --history coverage/behavior-history
    python3 tools/requirement_matching.py --update
    python3 tools/suite_stats.py --update
    python3 tools/suite_catalog.py --update
@@ -389,7 +389,7 @@ README の「テストフォーマット」「メタデータ」「テストの�
 ## 11. 再現性のために固定するもの
 
 - 資料：PDFと抽出テキストのSHA-256、出典索引のSHA-256。
-- 台帳：分母のSHA-256（`behavior-summary.json`）、基準値（`behavior-baseline.json`の理由）、履歴（`behavior-history.json`）、計測規則の版（`metric_policy_version`）。
+- 台帳：分母のSHA-256（`behavior-summary.json`）、基準値（`behavior-baseline.json`の理由）、履歴（`behavior-history/`）、計測規則の版（`metric_policy_version`）。
 - テスト：入力digest（テスト本体、期待値、C、include、`:files:`）、ランナーのSHA-256、シミュレータの版とseed。
 - 判断：照合案と判定のJSONL、レビュー担当者の識別子、日付、担当、使った指示文（Workflowスクリプト）。
 - 生成テスト：生成器の`VERSION`と`oracles.txt`。

@@ -23,7 +23,33 @@ sys.path.insert(0, str(ROOT / "generators"))
 import common  # noqa: E402
 import interaction_models  # noqa: E402
 
-DATA = ROOT / "coverage" / "interaction-summary.json"
+# The summary is a directory so that no file grows too large: plan.json holds
+# the schema, the source digest and the models, runs-<simulator>.json the
+# saved runs of each simulator (split from interaction-summary.json on
+# 2026-11-21). load_summary reassembles it in the order of the result files.
+DATA = ROOT / "coverage" / "interaction-summary"
+LEGACY_DATA = ROOT / "coverage" / "interaction-summary.json"
+
+
+def summary_files(data: dict, directory: Path = DATA) -> dict:
+    text = lambda value: json.dumps(value, ensure_ascii=False, indent=2) + "\n"
+    files = {directory / "plan.json": text({k: v for k, v in data.items() if k != "runs"})}
+    groups = {}
+    for run in data["runs"]:
+        groups.setdefault(run["simulator"], []).append(run)
+    for simulator, runs in sorted(groups.items()):
+        files[directory / f"runs-{simulator}.json"] = text({"schema": 1, "runs": runs})
+    return files
+
+
+def load_summary(root: Path = ROOT) -> dict:
+    directory = root / "coverage" / "interaction-summary"
+    plan = json.loads((directory / "plan.json").read_text(encoding="utf-8"))
+    runs = []
+    for path in sorted(directory.glob("runs-*.json")):
+        runs += json.loads(path.read_text(encoding="utf-8"))["runs"]
+    runs.sort(key=lambda run: run["source"])
+    return {**plan, "runs": runs}
 REPORT = ROOT / "docs" / "interaction-coverage.md"
 RESULTS = ROOT / "coverage" / "interaction-results"
 SIMULATORS = {"icarus", "verilator", "kirimasim", "lyra", "ghost"}
@@ -222,16 +248,21 @@ def main() -> int:
         data = build(plans, paths)
         rendered = markdown(data, args.source_url)
         encoded = json.dumps(data, ensure_ascii=False, indent=2) + "\n"
-        committed_outputs = doc_localization.expand({DATA: encoded, REPORT: rendered}) \
+        committed_outputs = doc_localization.expand({**summary_files(data), REPORT: rendered}) \
             if args.check or args.update else None
+        extra = sorted(set(DATA.glob("*.json")) - set(committed_outputs or ())) + \
+            ([LEGACY_DATA] if LEGACY_DATA.exists() else [])
         if args.check:
-            if any(not path.is_file() or path.read_text() != content
-                   for path, content in committed_outputs.items()):
+            if extra or any(not path.is_file() or path.read_text() != content
+                            for path, content in committed_outputs.items()):
                 raise ValueError("interaction reports are stale; run --update")
             print("Interaction models, selected witnesses and execution reports are current.")
         elif args.update:
+            DATA.mkdir(parents=True, exist_ok=True)
             for path, content in committed_outputs.items():
                 path.write_text(content)
+            for path in extra:
+                path.unlink()
         else:
             if args.output:
                 outputs = doc_localization.export_versions(args.output, rendered, REPORT,

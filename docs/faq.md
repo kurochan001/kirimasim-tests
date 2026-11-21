@@ -121,11 +121,11 @@ Matchには規格違反のコードを適切に拒否した結果も含みます
 
 ### Q11. Nightlyが緑なのにDifferが残るのはなぜですか
 
-Nightlyは各シミュレータの対応状況を記録するため、全テストの一致を成功条件にはしていません。現在のkirimasimのratchetは、前回`pass`だったテストが今回`fail`になった場合に失敗します。新規テストや前回から失敗していたテストは、その条件だけでは回帰失敗になりません。固定バージョンoracleの維持や台帳の整合性は別のCheckワークフローで確認します。[ワークフロー](../README.ja.md#workflows)を参照してください。
+Nightlyは各シミュレータの対応状況を記録するため、全テストの一致を成功条件にはしていません。現在のkirimasimのratchetは、前回`pass`だったテストが今回`fail`か`unsupported`になった場合に失敗します。新規テストや前回から失敗していたテストは、その条件だけでは回帰失敗になりません。固定バージョンoracleの維持や台帳の整合性は別のCheckワークフローで確認します。[ワークフロー](../README.ja.md#workflows)を参照してください。
 
 この説明は固定スイートの集計です。追加の[ランダム比較](random-cross-verification.md)は全ケースの有効なPASSを要求し、未対応・時間切れも成功にはしません。専用artifactに再現資料を保存し、固定スイートの結果へ混ぜません。
 
-現在のratchetでは、前回`pass`から今回`unsupported`への変化も失敗の対象外です。緑の表示に加え、結果区分の変化と個別ログを確認してください。
+2026-11-21から、前回`pass`から今回`unsupported`への変化もratchetの失敗にします。既知の差分への変化は失敗にしません。緑の表示に加え、結果区分の変化と個別ログを確認してください。
 
 具体例は[2026-11-04に確認した保存レポート](nightly-results.md#checkpoint-9926160a)です。この回のkirimasim固定suiteは7,868 pass・2,403 unsupported・133 failで、Check・Nightlyは成功しています。これは当該回の規定ゲートが成功したという記録であり、133件が合格したことにはなりません。個別テストを判断するには[Q9の区分とログの確認先](#q9-what-do-match-differ-known-difference-and-unsupported-mean)へ進みます。
 
@@ -320,7 +320,7 @@ Nightlyはその回のスイートと各ツールの版・対象範囲を持つ�
 [章間表](chapter-cross-matrix.md)の数字はモデル数です。上下対称なので、一つの章対が二つのマスに現れます。
 また、一つのモデルを複数の章対へ対応付ける場合もあるため、マスを合計してモデル総数やテスト本数にはしません。
 対角線は主題章ごとのモデル数で、その合計がモデル総数です。個々のテストは
-[計画JSON](../coverage/interaction-summary.json)の`selection`、実行区分は明細CSVから確認できます。
+[計画JSON](../coverage/interaction-summary/plan.json)の`selection`、実行区分は明細CSVから確認できます。
 
 <a id="q33-do-zero-cells-and-mecnr-indicate-missing-tests-or-passes"></a>
 

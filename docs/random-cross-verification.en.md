@@ -680,8 +680,9 @@ development builds. Build caches/ccache save compilation, not execution.
 Nightly records workflow run ID/attempt separately from the fresh random build
 commit. The preceding fixed suite can use an earlier kirimasim revision in the
 same workflow; inspect its own result version, not the later random build.
-`results_ratchet.py` still gates only pass→fail; pass→unsupported and other
-transitions are not silently added to that gate. Fixed boundary witnesses,
+`results_ratchet.py` gates pass→fail and, since the owner's decision of
+2026-11-21, pass→unsupported; other transitions are not silently added to that
+gate. Fixed boundary witnesses,
 fingerprint-qualified interaction snapshots and fixed history remain separate.
 
 <a id="opt-in-packed-profiles"></a>
