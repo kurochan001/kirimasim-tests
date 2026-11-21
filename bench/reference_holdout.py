@@ -221,6 +221,34 @@ def file_output(n):
     return f'lines={n} bytes={size} checksum={checksum:08x}'
 
 
+def dynarray_resize(n):
+    """7.5.1: new[size](data) keeps the first elements of data and fills the
+    rest with the default value; new[size] holds default values only;
+    delete() empties the array. 7.6: assigning an array copies it, so a write
+    to the copy leaves the original unchanged."""
+    data = list(range(4))
+    seed = 1
+    checksum = sizes = 0
+    for i in range(1, n + 1):
+        seed = lcg(seed)
+        size = (seed >> 8) % 16 + 1
+        if seed >> 3 & 1:
+            data = (data + [0] * size)[:size]
+        else:
+            data = [0] * size
+        data = [(value * 3 + (seed ^ k)) & MASK for k, value in enumerate(data)]
+        if i % 7 == 0:
+            copy = list(data)
+            copy[0] = (copy[0] + 1) & MASK
+            checksum ^= copy[0] ^ data[0]
+        for value in data:
+            checksum = ((checksum * 33) ^ value) & MASK
+        sizes = (sizes + len(data)) & MASK
+        if i % 11 == 0:
+            data = []
+    return f'checksum={checksum:08x} size={len(data)} sizes={sizes}'
+
+
 def oracle(name, n):
     if name == 'class_pool':
         extra = class_pool(n)
@@ -236,13 +264,15 @@ def oracle(name, n):
         extra = specify_paths(n)
     elif name == 'file_output':
         extra = file_output(n)
+    elif name == 'dynarray_resize':
+        extra = dynarray_resize(n)
     else:
         raise ValueError('unknown reference case: ' + name)
     return f'{name} n={n} ' + extra
 
 
-DESIGNS = ('class_pool', 'intf_modport', 'real_filter', 'force_release', 'delayed_nets',
-           'specify_paths', 'file_output')
+DESIGNS = ('class_pool', 'dynarray_resize', 'intf_modport', 'real_filter', 'force_release',
+           'delayed_nets', 'specify_paths', 'file_output')
 
 
 def digest(path):

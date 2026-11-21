@@ -76,7 +76,7 @@ class Definition(unittest.TestCase):
         holdout.check_definition()
         config = holdout.config_at(holdout.DEFAULT_CONFIG)
         self.assertEqual(config['definition'], 'holdout-v1-icarus14')
-        self.assertEqual(len(config['cases']), 9)
+        self.assertEqual(len(config['cases']), 10)
         names = {c['name'] for c in config['cases']}
         self.assertFalse(names & {c['name'] for c in theirs['cases']}, 'holdout names are new')
         self.assertEqual({c['name'] for c in config['cases'] if c.get('waveforms')}, {'bus_fabric_vcd', 'bus_fabric_fst'})
@@ -88,6 +88,7 @@ class Definition(unittest.TestCase):
         self.assertEqual(reference.oracle('class_pool', 1), 'class_pool n=1 checksum=6b3154a9 consumed=1 reads=0')
         self.assertEqual(reference.oracle('force_release', 4), 'force_release n=4 checksum=12ca4acf w=5dcb516e v=07910b35')
         self.assertEqual(reference.oracle('file_output', 1), 'file_output n=1 lines=1 bytes=22 checksum=00000016')
+        self.assertEqual(reference.oracle('dynarray_resize', 11), 'dynarray_resize n=11 checksum=2bd694b9 size=0 sizes=84')
         reference.check()
 
     def test_groups_hold_only_what_their_peer_runs(self):
@@ -147,7 +148,7 @@ class History(unittest.TestCase):
             self.assertTrue((directory / 'holdout/runs/actions-9-1.json').is_file())
             latest = json.loads((directory / 'latest-holdout.json').read_text())
             self.assertEqual({g['name']: g['available_count'] for g in latest['groups']},
-                             {'holdout-icarus14': 8, 'holdout-regression': 9, 'holdout-verilator': 8})
+                             {'holdout-icarus14': 9, 'holdout-regression': 10, 'holdout-verilator': 9})
             self.assertTrue(all(g['ratio'] == 1 for g in latest['groups']))
             text = (directory / 'README.md').read_text()
             self.assertIn('Latest holdout attempt (reported only)', text)
@@ -184,9 +185,10 @@ class History(unittest.TestCase):
 
     def test_a_wrong_result_line_is_not_measured(self):
         value = campaign()
-        value['cases'][7]['tools']['latest']['samples']['large'][0]['result_line'] = 'bus_fabric n=100000 checksum=0'
+        index = next(i for i, c in enumerate(value['cases']) if c['name'] == 'bus_fabric_vcd')
+        value['cases'][index]['tools']['latest']['samples']['large'][0]['result_line'] = 'bus_fabric n=100000 checksum=0'
         value = holdout_history.normalized(value)
-        self.assertEqual(value['cases'][7]['tools']['latest']['status'], 'output_mismatch')
+        self.assertEqual(value['cases'][index]['tools']['latest']['status'], 'output_mismatch')
         self.assertIsNone(next(g for g in value['groups'] if g['name'] == 'holdout-icarus14')['ratio'])
 
 

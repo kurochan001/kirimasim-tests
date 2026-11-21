@@ -69,6 +69,16 @@
    }
   },
   {
+   "name": "dynarray_resize",
+   "source": "suite",
+   "path": "bench/dynarray_resize.sv",
+   "sha256": "9768b451c336d9c7c132edce92733d9a68e4c52ddc7613244ff1e8a1e987096c",
+   "count": 120000,
+   "expected": "dynarray_resize n=120000 checksum=5dd37c41 size=3 sizes=1020283",
+   "expected_small": "dynarray_resize n=1 checksum=3c3d1f51 size=10 sizes=10",
+   "class": "common"
+  },
+  {
    "name": "intf_modport",
    "source": "suite",
    "path": "bench/intf_modport.sv",
@@ -196,6 +206,7 @@
    "peer": "icarus_devel",
    "cases": [
     "class_pool",
+    "dynarray_resize",
     "intf_modport",
     "real_filter",
     "delayed_nets",
@@ -210,6 +221,7 @@
    "peer": "baseline",
    "cases": [
     "class_pool",
+    "dynarray_resize",
     "intf_modport",
     "real_filter",
     "force_release",
@@ -225,6 +237,7 @@
    "peer": "verilator",
    "cases": [
     "class_pool",
+    "dynarray_resize",
     "intf_modport",
     "real_filter",
     "force_release",
@@ -237,13 +250,14 @@
  ],
  "reference_sources": {
   "bench/reference_expanded.py": "a1196d79efb88425f61cc69ba1d9ec99542f7f5dc41fac2a07ade82090b00f4a",
-  "bench/reference_holdout.py": "1016c6c460306b2777e4d05ad4c7c5c586e1d0a70165ee02603a997844294fed"
+  "bench/reference_holdout.py": "422e7ec147459f8dca2f42b91af07e6c2cf05435345a7eb11757a93305c500c2"
  },
  "profiles": {
   "holdout": {
    "definition": "holdout-v1-icarus14",
    "cases": [
     "class_pool",
+    "dynarray_resize",
     "intf_modport",
     "real_filter",
     "force_release",

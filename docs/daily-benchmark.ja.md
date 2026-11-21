@@ -67,13 +67,14 @@ Lyraは初期構成には含めません。手元に実行ファイルや専用�
 
 ## 別枠（holdout、報告のみ）
 
-[bench/holdout.json](../bench/holdout.json)は、日次・週次の集合が触れない9つの条件の定義`holdout-v1-icarus14`です。**別枠は測って報告するだけで、kirimasimの最適化の判断には使いません。** 値を目標にして調整せず、日次の総合値、`headline.json`、READMEの総合グラフにも入れません。
+[bench/holdout.json](../bench/holdout.json)は、日次・週次の集合が触れない10の条件の定義`holdout-v1-icarus14`です。**別枠は測って報告するだけで、kirimasimの最適化の判断には使いません。** 値を目標にして調整せず、日次の総合値、`headline.json`、READMEの総合グラフにも入れません。
 
 日次・週次の定義は変えていません。`bench/daily.json`、`tools/daily_benchmark.py`、`tools/benchmark_compare.py`、`tools/benchmark_history.py`、`tools/benchmark_setup.py`を変更しないので、日次・週次の系列は指紋を保ちます（`tools/test_holdout_benchmark.py`がハッシュを確かめます）。別枠は同じ5つの処理系、固定したアダプタ、同じ設定（n=1と完全なNの各5回、ウォームアップ1回、単一スレッド、600秒の上限）を使います。
 
 | 条件 | 試す仕組み | N | 実行しない処理系 |
 | --- | --- | ---: | --- |
 | `class_pool` | 2つの派生クラスのオブジェクトを生成し、基底クラスのハンドルとして16要素のリングバッファ（固定長の配列のFIFO）に入れ、仮想メソッドで消費する（8、7.4） | 800,000 | Icarus 13.0：仮想メソッドの上書きでなく基底クラスのメソッドを呼ぶ（8.20） |
+| `dynarray_resize` | 動的配列を毎回`new[size](data)`か`new[size]`で作り直し、`foreach`で更新し、コピーと`delete()`も行う（7.5、7.6）。キューと連想配列は使わない | 120,000 | — |
 | `intf_modport` | 1つのinterfaceのmodportで結んだ送信側・受信側・監視側と、valid/readyのハンドシェイク（25） | 1,000,000 | Icarus 13.0：modportのポート宣言を構文解析できない |
 | `real_filter` | `real`の2次IIRフィルタ。`$realtobits`で観測する（6.12、20.5） | 2,000,000 | — |
 | `force_release` | ネットの`force`/`release`と変数の`assign`/`deassign`を毎回切り替える（10.6） | 1,500,000 | Icarus 13.0と14.0 devel：右辺を1回しか評価しない。10.6は評価し直すと定める |
@@ -83,13 +84,13 @@ Lyraは初期構成には含めません。手元に実行ファイルや専用�
 | `bus_fabric_vcd` | 変更しない`bench/bus_fabric.sv`の全信号をVCDファイルに書く | 100,000 | — |
 | `bus_fabric_fst` | 同じ内容をFSTファイルに書く | 100,000 | — |
 
-クラスの処理では、主な比較の相手のIcarus Verilog 14.0 develが実行できるように、ハンドルをキューでなく固定長の配列に入れます。キューの操作は日次の`dyn_queue`が測ります。連想配列を使う入力（`dynarray_assoc`）は作りませんでした。kirimasimの`docs/P1_SUPPORT.md`が連想配列を未実装としており、別枠の入力はそこで対応済みの形だけを使うためです。
+クラスの処理では、主な比較の相手のIcarus Verilog 14.0 develが実行できるように、ハンドルをキューでなく固定長の配列に入れます。キューの操作は日次の`dyn_queue`が測ります。連想配列を使う入力（`dynarray_assoc`）は作りませんでした。kirimasimの`docs/P1_SUPPORT.md`が連想配列を未実装としており、別枠の入力はそこで対応済みの形だけを使うためです。所有者の承認を得て、その動的配列の部分を`dynarray_resize`で測ります。連想配列は、kirimasimが対応してから足せます。
 
 [`bench/reference_holdout.py`](../bench/reference_holdout.py)は、シミュレータの出力を読まずに、各設計が試す規則から期待値を計算します。クラスとキューの順序、ハンドシェイクのサイクルモデル、積が正確なIEEE 754倍精度の加算（係数が2のべき乗なので、積和演算の融合で結果は変わりません）、10.6の上書きの規則、10.3.3の手順と表28-9、既定のパルス除去を伴うmodule pathの遅延、ファイルに書く正確な文字列です。波形の条件は`reference_expanded.py`の`bus_fabric`のモデルを使います。設計は規格が決めていない場合を避けます。立ち上がりと立ち下がりの遅延が違うのは、どの変化もそれより長く続く場合だけで、パルスの長さが遅延とちょうど同じになることはなく、遅延の境目で観測することもなく、パスのセルの2入力は遅延の時間内に続けて変わりません。完全なNとn=1の期待値は定義と各ソースの見出しに固定し、`--check`がそれらとソースのハッシュ、別枠のドライバのハッシュを確かめます。
 
 波形の条件は、`bus_fabric`以下の全階層の変数とネットを記録します。メモリは4値VCD形式（21.7.2.1）と同じく除きます。kirimasimは`--wave=FILE`で、Icarus VerilogとVerilatorは変更しない設計と一緒に[`bench/holdout_waveform.sv`](../bench/holdout_waveform.sv)（`$dumpvars(0, bus_fabric)`）をコンパイルして記録します。FSTではvvpに`-fst`を付け、Verilatorは`--trace`か`--trace-fst`と、ふだんは記録するレジスタの配列を除く`--trace-max-array 1`を使います。Icarus Verilogはforループの変数とgenvarの値も記録します。各サンプルに波形ファイルの大きさ（`waveform_bytes`）を残し、中身は比べません。VerilatorのFSTの書き出しにはLZ4の開発用ヘッダが要ります。ワークフローは`liblz4-dev`を入れます。HomebrewのmacOSでは、`CPATH`と`LIBRARY_PATH`にその`include`と`lib`を指定してください。ほかに2つの条件が条件ごとのオプションを持ち、定義に記録しています。`specify_paths`はIcarus Verilogの`-gspecify`でコンパイルし（付けないとパスの遅延を無視します）、`file_output`は実行ごとにファイルを消します。実行が書くファイルは作業ディレクトリにだけ置き、消します。
 
-Nは、手元のMac 1台での正しさの事前確認で、kirimasimの差分時間がそこでおよそ1.5〜2.5秒になるように選び、固定しました。事前確認の値は速度の証拠にしません。3つの比較の集合には、相手が実行できる条件だけを入れます。`holdout-icarus14`（8条件、Icarus 14 devel）、`holdout-regression`（9条件すべて、baseline）、`holdout-verilator`（8条件、Verilator）です。宣言した非対応は欠測として示し、ゼロにはしません。
+Nは、手元のMac 1台での正しさの事前確認で、kirimasimの差分時間がそこでおよそ1.5〜2.5秒になるように選び、固定しました。事前確認の値は速度の証拠にしません。3つの比較の集合には、相手が実行できる条件だけを入れます。`holdout-icarus14`（9条件、Icarus 14 devel）、`holdout-regression`（10条件すべて、baseline）、`holdout-verilator`（9条件、Verilator）です。宣言した非対応は欠測として示し、ゼロにはしません。
 
 別枠は週に1回、月曜03:47 UTC／12:47 JSTに、週次の後に同じconcurrency groupで実行します。定期実行は、人が最初の正式な別枠の測定を公開した後にだけ始まります（**Run workflow**で`profile=holdout`）。それまではgateジョブが飛ばします。記録はbenchmark-resultsの`holdout/runs/`、`holdout/history.json`、`latest-holdout.json`と、READMEの折りたたみの中の別の表です。表は公開のたびに`tools/holdout_history.py readme`が入れ直します。`tools/holdout_benchmark.py`は、変更しない日次のドライバを別枠の定義で動かします。条件ごとのオプションのない条件は、固定したアダプタのコマンドのとおりに実行します。定義は別枠のドライバのハッシュを記録するので、ドライバを変えると別枠の定義が変わります。
 
