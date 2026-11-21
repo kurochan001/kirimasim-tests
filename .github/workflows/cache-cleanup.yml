@@ -1,0 +1,110 @@
+name: Cache cleanup
+
+# Nightly and Check save ccache under a key that names the run, so each run
+# adds a new entry while restore-keys reuses only the newest one. GitHub's
+# automatic eviction was too slow to hold the storage under the 10 GB limit
+# (docs/repo-review-20261121.md), so this workflow deletes what nothing can
+# restore anymore: for each key family, only the newest entries are kept —
+# two for the prefix-restored ccache and benchmark caches, one for the
+# commit-keyed simulator builds, which only an exact key can hit.
+#
+# Never deleted: the Lyra caches, whose shards fail without them, the caches
+# keyed by a tag, which stay valid, and keys this file does not recognize.
+
+on:
+  schedule:
+    - cron: "17 6 * * *"  # once a day (06:17 UTC, 15:17 JST), a quiet hour
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: List what would be deleted without deleting anything
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  actions: write
+
+concurrency:
+  group: nightly
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: "${{ github.token }}"
+    steps:
+      - name: Delete stale caches
+        run: |
+          set -euo pipefail
+          python3 - "${{ inputs.dry_run && '1' || '0' }}" <<'PY'
+          import json, os, re, subprocess, sys
+
+          dry_run = sys.argv[1] == "1"
+          api = f"repos/{os.environ['GITHUB_REPOSITORY']}/actions/caches"
+
+          out = subprocess.check_output(
+              ["gh", "api", "--paginate", f"{api}?per_page=100",
+               "--jq", ".actions_caches[]"],
+              text=True)
+          caches = [json.loads(line) for line in out.splitlines() if line.strip()]
+
+          def family(key):
+              # None keeps the cache untouched.
+              if key.startswith("lyra-") or re.match(r"^(icarus|verilator)-v", key):
+                  return None
+              if key.startswith("ccache-"):
+                  return re.sub(r"-\d+-\d+$", "", key)
+              if re.match(r"^icarus-[0-9a-f]{40}-", key):
+                  return "icarus-commit"
+              if re.match(r"^verilator-[0-9a-f]{40}-", key):
+                  return "verilator-commit"
+              if key.startswith("kirimasim-fetchcontent"):
+                  return "fetch-content"
+              if key.startswith("benchmark-"):
+                  return re.sub(r"-[0-9a-f]{64}$", "", key)
+              return "keep-unknown:" + key
+
+          groups = {}
+          for cache in caches:
+              fam = family(cache["key"])
+              if fam is not None:
+                  groups.setdefault(fam, []).append(cache)
+
+          delete = []
+          for fam, items in sorted(groups.items()):
+              if fam.startswith("keep-unknown:"):
+                  print(f"::warning::Unrecognized cache key, kept: {fam[13:]}")
+                  continue
+              # A prefix restore falls back to the second-newest entry when
+              # the newest one is missing or damaged, so it stays too.
+              keep = 2 if fam.startswith(("ccache-", "benchmark-")) else 1
+              items.sort(key=lambda cache: cache["created_at"])
+              if len(items) > keep:
+                  delete += items[:-keep]
+
+          def gib(caches):
+              return sum(c["size_in_bytes"] for c in caches) / 1e9
+
+          print(f"{len(caches)} caches, {gib(caches):.2f} GB; "
+                f"{'would delete' if dry_run else 'deleting'} "
+                f"{len(delete)} caches, {gib(delete):.2f} GB")
+          for cache in delete:
+              if dry_run:
+                  print(f"would delete {cache['id']} {cache['key']}")
+                  continue
+              gone = subprocess.run(
+                  ["gh", "api", "-X", "DELETE", f"{api}/{cache['id']}"],
+                  capture_output=True, text=True)
+              if gone.returncode != 0 and "Does Not Exist" not in gone.stderr:
+                  sys.exit(f"failed to delete {cache['id']}: {gone.stderr.strip()}")
+
+          summary = os.environ.get("GITHUB_STEP_SUMMARY", "")
+          if summary:
+              verb = "Would delete" if dry_run else "Deleted"
+              with open(summary, "a", encoding="utf-8") as handle:
+                  handle.write(f"{verb} {len(delete)} of {len(caches)} Actions "
+                               f"caches, {gib(delete):.2f} GB of {gib(caches):.2f} GB.\n")
+          PY

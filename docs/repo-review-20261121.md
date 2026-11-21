@@ -70,7 +70,7 @@
 - 2026-11-21に決定：分ける（要求カバレッジの履歴は1日1ファイルの`coverage/behavior-history/`に、機能間クロスの集計は`coverage/interaction-summary/`に、照合台帳は`coverage/test-matching/`に分け、Checkで大きさを検査する）。当時の状況：履歴のJSONが大きくなり続けている。mainの`coverage/behavior-history.json`は29.9 MB（1日に約1.9 MB）、resultsブランチの`behavior-history.json`は30.9 MB、`coverage/interaction-summary.json`は51.3 MB、`coverage/test-matching.json`は45.6 MB。GitHubは50 MiBで警告し、100 MiBを超えるファイルのpushを拒む。いまの増え方なら、mainの履歴は12月末ごろに100 MiBに届く（推定）。おすすめは、古い回の実行一覧を別のファイルに分けるか捨てること、大きいファイルを分けること、Checkでサイズを検査すること。
 - resultsブランチの履歴には、同じ実行の記録が2組ある（実行44656954132と42477954992）。今回の修正は新しい重複を防ぐだけで、既存の2組はそのまま。
 - `coverage/interaction-results/cross25`〜`cross29`の10本に、手元のmacOSの一時フォルダのパスが残っている（ホームのパスや個人名ではない）。置き換えると、それらのSHA-256を記録した`coverage/interaction-qualification/*-prior-digests.json`も書き換えることになる。
-- Actionsのキャッシュが10 GBの上限を超えている（111件）。Nightlyが毎回約930 MBのccacheを新しいキーで保存しているため。Lyraの4分割はキャッシュがないと失敗するので、Lyraのキャッシュが消されるとその夜のLyraが欠けうる。
+- Actionsのキャッシュが10 GBの上限を超えている（111件）。Nightlyが毎回約930 MBのccacheを新しいキーで保存しているため。Lyraの4分割はキャッシュがないと失敗するので、Lyraのキャッシュが消されるとその夜のLyraが欠けうる。2026-11-21に対応：誰も復元できない71件を消し、10.27 GBから3.63 GBにした（棚卸しは`docs/measurements/2026-11-21/actions-cache-before.json`と`actions-cache-after.json`）。`cache-cleanup.yml`を足し、毎日15:17 JSTに、キーの系統ごとに、ccacheとベンチマークは最新2件、コミット名で引くビルドは最新1件を残して古いを消す。Lyraとタグ名で引くキャッシュは消さない。
 - Checkは参照のシミュレータをタグから作り、タグの指すコミットを確かめない（いまのタグの指す先は正しい）。
 - `generate.py --check`は、期待値を決める手書きのCファイル（`tests/ch35`の3つ、`tests/ch28`の1つ）の変更を見ない。
 

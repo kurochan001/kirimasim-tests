@@ -1,0 +1,82 @@
+{
+  "remaining": [
+    {
+      "gb": 0.15,
+      "key": "benchmark-Linux-X64-34ccea858a05c6fdef4e4bd387"
+    },
+    {
+      "gb": 0.15,
+      "key": "benchmark-Linux-X64-34ccea858a05c6fdef4e4bd387"
+    },
+    {
+      "gb": 0.15,
+      "key": "benchmark-Linux-X64-3641a16e7e4ed491d0c318c377"
+    },
+    {
+      "gb": 0.15,
+      "key": "benchmark-Linux-X64-3641a16e7e4ed491d0c318c377"
+    },
+    {
+      "gb": 0.97,
+      "key": "ccache-verilator-master-ubuntu-24.04-446569541"
+    },
+    {
+      "gb": 0.97,
+      "key": "ccache-verilator-master-ubuntu-24.04-448465174"
+    },
+    {
+      "gb": 0.07,
+      "key": "ccache-verilator-v5.052-ubuntu-24.04-448816041"
+    },
+    {
+      "gb": 0.07,
+      "key": "ccache-verilator-v5.052-ubuntu-24.04-448957654"
+    },
+    {
+      "gb": 0.04,
+      "key": "ccache-verilator-v5.054-ubuntu-24.04-448817244"
+    },
+    {
+      "gb": 0.04,
+      "key": "ccache-verilator-v5.054-ubuntu-24.04-448957654"
+    },
+    {
+      "gb": 0.03,
+      "key": "icarus-c20d73fe3b36ca93ebcf5f1b67f85e0d5f61a91"
+    },
+    {
+      "gb": 0.02,
+      "key": "icarus-v13_0-ubuntu-24.04"
+    },
+    {
+      "gb": 0.08,
+      "key": "kirimasim-fetchcontent-ubuntu-24.04-release-35"
+    },
+    {
+      "gb": 0.17,
+      "key": "lyra-054a38cf3458be374f884bd1c0d2dd2c4a7737a4-"
+    },
+    {
+      "gb": 0.17,
+      "key": "lyra-9a9813a48c8c10f88a09166b7fe7516057701eb4-"
+    },
+    {
+      "gb": 0.17,
+      "key": "lyra-e17c9a53c9eb2a38869b6b847baf9a5bf4cb8dfa-"
+    },
+    {
+      "gb": 0.09,
+      "key": "verilator-9b3b1d9852475b546e24eb617c8869095e66"
+    },
+    {
+      "gb": 0.07,
+      "key": "verilator-v5.052-ubuntu-24.04"
+    },
+    {
+      "gb": 0.08,
+      "key": "verilator-v5.054-ubuntu-24.04"
+    }
+  ],
+  "total_gb": 3.63,
+  "count": 19
+}
