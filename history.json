@@ -41038,6 +41038,991 @@
      }
     }
    }
+  },
+  {
+   "time": "2026-11-21T05:35:46Z",
+   "suite_commit": "82b5713ffacca6048e89ffac200dd42bcca8e93a",
+   "run_url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/44846517415",
+   "tests": 16338,
+   "chapters": {
+    "10": 750,
+    "11": 2607,
+    "12": 312,
+    "13": 743,
+    "14": 172,
+    "15": 205,
+    "16": 802,
+    "17": 129,
+    "18": 289,
+    "19": 246,
+    "20": 689,
+    "21": 936,
+    "22": 1326,
+    "23": 419,
+    "24": 221,
+    "25": 265,
+    "26": 263,
+    "27": 286,
+    "28": 400,
+    "29": 142,
+    "3": 152,
+    "30": 70,
+    "31": 66,
+    "32": 68,
+    "33": 89,
+    "34": 4,
+    "35": 190,
+    "36": 89,
+    "37": 234,
+    "38": 129,
+    "39": 39,
+    "4": 481,
+    "40": 39,
+    "5": 520,
+    "6": 902,
+    "7": 1111,
+    "8": 489,
+    "9": 464
+   },
+   "simulators": {
+    "icarus": {
+     "name": "Icarus Verilog",
+     "version": "Icarus Verilog version 14.0 (devel) (s20260301-1253-gc20d73fe)",
+     "counts": {
+      "pass": 10322,
+      "fail": 16,
+      "known": 5733,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       123,
+       152
+      ],
+      "4": [
+       445,
+       481
+      ],
+      "5": [
+       443,
+       520
+      ],
+      "6": [
+       696,
+       902
+      ],
+      "7": [
+       478,
+       1111
+      ],
+      "8": [
+       279,
+       489
+      ],
+      "9": [
+       366,
+       464
+      ],
+      "10": [
+       633,
+       750
+      ],
+      "11": [
+       2145,
+       2607
+      ],
+      "12": [
+       228,
+       312
+      ],
+      "13": [
+       416,
+       743
+      ],
+      "14": [
+       27,
+       172
+      ],
+      "15": [
+       15,
+       205
+      ],
+      "16": [
+       165,
+       535
+      ],
+      "17": [
+       1,
+       129
+      ],
+      "18": [
+       65,
+       289
+      ],
+      "19": [
+       84,
+       246
+      ],
+      "20": [
+       418,
+       689
+      ],
+      "21": [
+       570,
+       936
+      ],
+      "22": [
+       1257,
+       1326
+      ],
+      "23": [
+       309,
+       419
+      ],
+      "24": [
+       46,
+       221
+      ],
+      "25": [
+       120,
+       265
+      ],
+      "26": [
+       96,
+       263
+      ],
+      "27": [
+       239,
+       286
+      ],
+      "28": [
+       323,
+       400
+      ],
+      "29": [
+       99,
+       142
+      ],
+      "30": [
+       40,
+       70
+      ],
+      "31": [
+       21,
+       66
+      ],
+      "32": [
+       24,
+       68
+      ],
+      "33": [
+       13,
+       89
+      ],
+      "34": [
+       2,
+       4
+      ],
+      "35": [
+       20,
+       190
+      ],
+      "36": [
+       34,
+       89
+      ],
+      "37": [
+       19,
+       234
+      ],
+      "38": [
+       62,
+       129
+      ],
+      "39": [
+       0,
+       39
+      ],
+      "40": [
+       1,
+       39
+      ]
+     },
+     "changes": {
+      "passing": 3,
+      "failing": 4,
+      "passing_tests": [
+       "ch31/test_illegal_setuphold_negative_sum",
+       "ch38/test_vpi_get_delays_tchk_limit_counts",
+       "ch38/test_vpi_put_delays_tchk_limit_counts"
+      ],
+      "failing_tests": [
+       [
+        "ch31/test_31_extra_negative_condition_args",
+        "fail",
+        "compile failed: tests/ch31/test_31_extra_negative_condition_args.sv:35: error: $setuphold timestamp/timecheck conditions and delayed signals are not supported."
+       ],
+       [
+        "ch31/test_31_extra_negative_option_disabled",
+        "fail",
+        "compile failed: tests/ch31/test_31_extra_negative_option_disabled.sv:31: error: $setuphold timestamp/timecheck conditions and delayed signals are not supported."
+       ],
+       [
+        "ch31/test_31_extra_setuphold_negative_limits",
+        "fail",
+        "compile failed: tests/ch31/test_31_extra_setuphold_negative_limits.sv:33: error: $setuphold timestamp/timecheck conditions and delayed signals are not supported."
+       ],
+       [
+        "ch31/test_timing_delayed_signals_positive_limits",
+        "fail",
+        "compile failed: tests/ch31/test_timing_delayed_signals_positive_limits.sv:28: error: $setuphold timestamp/timecheck conditions and delayed signals are not supported."
+       ]
+      ],
+      "added": 40,
+      "added_passing": 10,
+      "removed": 0
+     }
+    },
+    "verilator": {
+     "name": "Verilator",
+     "version": "Verilator 5.055 devel rev v5.054-348-g9b3b1d98",
+     "counts": {
+      "pass": 9144,
+      "fail": 29,
+      "known": 6898,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       63,
+       152
+      ],
+      "4": [
+       390,
+       481
+      ],
+      "5": [
+       415,
+       520
+      ],
+      "6": [
+       553,
+       902
+      ],
+      "7": [
+       741,
+       1111
+      ],
+      "8": [
+       351,
+       489
+      ],
+      "9": [
+       245,
+       464
+      ],
+      "10": [
+       335,
+       750
+      ],
+      "11": [
+       1412,
+       2607
+      ],
+      "12": [
+       209,
+       312
+      ],
+      "13": [
+       508,
+       743
+      ],
+      "14": [
+       117,
+       172
+      ],
+      "15": [
+       73,
+       205
+      ],
+      "16": [
+       245,
+       535
+      ],
+      "17": [
+       66,
+       129
+      ],
+      "18": [
+       173,
+       289
+      ],
+      "19": [
+       124,
+       246
+      ],
+      "20": [
+       366,
+       689
+      ],
+      "21": [
+       373,
+       936
+      ],
+      "22": [
+       1255,
+       1326
+      ],
+      "23": [
+       241,
+       419
+      ],
+      "24": [
+       72,
+       221
+      ],
+      "25": [
+       166,
+       265
+      ],
+      "26": [
+       148,
+       263
+      ],
+      "27": [
+       142,
+       286
+      ],
+      "28": [
+       83,
+       400
+      ],
+      "29": [
+       39,
+       142
+      ],
+      "30": [
+       4,
+       70
+      ],
+      "31": [
+       14,
+       66
+      ],
+      "32": [
+       0,
+       68
+      ],
+      "33": [
+       23,
+       89
+      ],
+      "34": [
+       4,
+       4
+      ],
+      "35": [
+       143,
+       190
+      ],
+      "36": [
+       26,
+       89
+      ],
+      "37": [
+       1,
+       234
+      ],
+      "38": [
+       20,
+       129
+      ],
+      "39": [
+       1,
+       39
+      ],
+      "40": [
+       3,
+       39
+      ]
+     },
+     "changes": {
+      "passing": 0,
+      "failing": 0,
+      "passing_tests": [],
+      "failing_tests": [],
+      "added": 40,
+      "added_passing": 16,
+      "removed": 0
+     }
+    },
+    "kirimasim": {
+     "name": "kirimasim",
+     "version": "kirimasim 0.1.3 (commit 256839f71089), built with GNU 13.3.0",
+     "counts": {
+      "pass": 13143,
+      "fail": 291,
+      "known": 0,
+      "unsupported": 2637
+     },
+     "chapters": {
+      "3": [
+       135,
+       152
+      ],
+      "4": [
+       463,
+       481
+      ],
+      "5": [
+       499,
+       520
+      ],
+      "6": [
+       816,
+       902
+      ],
+      "7": [
+       773,
+       1111
+      ],
+      "8": [
+       395,
+       489
+      ],
+      "9": [
+       429,
+       464
+      ],
+      "10": [
+       721,
+       750
+      ],
+      "11": [
+       2560,
+       2607
+      ],
+      "12": [
+       293,
+       312
+      ],
+      "13": [
+       695,
+       743
+      ],
+      "14": [
+       75,
+       172
+      ],
+      "15": [
+       65,
+       205
+      ],
+      "16": [
+       251,
+       535
+      ],
+      "17": [
+       50,
+       129
+      ],
+      "18": [
+       90,
+       289
+      ],
+      "19": [
+       72,
+       246
+      ],
+      "20": [
+       586,
+       689
+      ],
+      "21": [
+       893,
+       936
+      ],
+      "22": [
+       1315,
+       1326
+      ],
+      "23": [
+       372,
+       419
+      ],
+      "24": [
+       182,
+       221
+      ],
+      "25": [
+       212,
+       265
+      ],
+      "26": [
+       255,
+       263
+      ],
+      "27": [
+       284,
+       286
+      ],
+      "28": [
+       373,
+       400
+      ],
+      "29": [
+       142,
+       142
+      ],
+      "30": [
+       29,
+       70
+      ],
+      "31": [
+       12,
+       66
+      ],
+      "32": [
+       0,
+       68
+      ],
+      "33": [
+       76,
+       89
+      ],
+      "34": [
+       4,
+       4
+      ],
+      "35": [
+       22,
+       190
+      ],
+      "36": [
+       2,
+       89
+      ],
+      "37": [
+       0,
+       234
+      ],
+      "38": [
+       0,
+       129
+      ],
+      "39": [
+       0,
+       39
+      ],
+      "40": [
+       2,
+       39
+      ]
+     },
+     "changes": {
+      "passing": 2,
+      "failing": 0,
+      "passing_tests": [
+       "ch23/test_defparam_last_in_source_text_wins",
+       "ch7/test_illegal_dynamic_new_nonblocking_assignment"
+      ],
+      "failing_tests": [],
+      "added": 40,
+      "added_passing": 20,
+      "removed": 0
+     }
+    },
+    "lyra": {
+     "name": "Lyra",
+     "version": "Lyra (commit e17c9a53c9eb)",
+     "counts": {
+      "pass": 13444,
+      "fail": 878,
+      "known": 0,
+      "unsupported": 1749
+     },
+     "chapters": {
+      "3": [
+       123,
+       152
+      ],
+      "4": [
+       358,
+       481
+      ],
+      "5": [
+       499,
+       520
+      ],
+      "6": [
+       825,
+       902
+      ],
+      "7": [
+       902,
+       1111
+      ],
+      "8": [
+       448,
+       489
+      ],
+      "9": [
+       443,
+       464
+      ],
+      "10": [
+       719,
+       750
+      ],
+      "11": [
+       2553,
+       2607
+      ],
+      "12": [
+       300,
+       312
+      ],
+      "13": [
+       736,
+       743
+      ],
+      "14": [
+       160,
+       172
+      ],
+      "15": [
+       194,
+       205
+      ],
+      "16": [
+       382,
+       535
+      ],
+      "17": [
+       50,
+       129
+      ],
+      "18": [
+       221,
+       289
+      ],
+      "19": [
+       205,
+       246
+      ],
+      "20": [
+       627,
+       689
+      ],
+      "21": [
+       744,
+       936
+      ],
+      "22": [
+       1312,
+       1326
+      ],
+      "23": [
+       364,
+       419
+      ],
+      "24": [
+       207,
+       221
+      ],
+      "25": [
+       245,
+       265
+      ],
+      "26": [
+       256,
+       263
+      ],
+      "27": [
+       282,
+       286
+      ],
+      "28": [
+       71,
+       400
+      ],
+      "29": [
+       29,
+       142
+      ],
+      "30": [
+       12,
+       70
+      ],
+      "31": [
+       19,
+       66
+      ],
+      "32": [
+       0,
+       68
+      ],
+      "33": [
+       26,
+       89
+      ],
+      "34": [
+       4,
+       4
+      ],
+      "35": [
+       124,
+       190
+      ],
+      "36": [
+       2,
+       89
+      ],
+      "37": [
+       0,
+       234
+      ],
+      "38": [
+       0,
+       129
+      ],
+      "39": [
+       0,
+       39
+      ],
+      "40": [
+       2,
+       39
+      ]
+     },
+     "changes": {
+      "passing": 27,
+      "failing": 0,
+      "passing_tests": [
+       "ch13/test_function_formal_ref_static_direction_inherited",
+       "ch13/test_ref_static_const_waits_after_return",
+       "ch13/test_ref_static_force_release",
+       "ch13/test_task_formal_inherits_ref_static_nonblocking",
+       "ch13/test_tf_port_directions_ref_static_and_item_forms",
+       "ch19/test_cg_option_group_defaults",
+       "ch19/test_cg_option_levels_readback",
+       "ch19/test_covergroup_declaration_and_option_forms",
+       "ch7/test_assoc_composite_empty_null_key_order",
+       "ch7/test_assoc_foreach_struct_key",
+       "ch7/test_assoc_invalid_write_reports_diagnostic",
+       "ch7/test_assoc_missing_read_reports_diagnostic",
+       "ch7/test_assoc_missing_read_warning_and_index",
+       "ch7/test_dpi_open_and_unsized_packed",
+       "ch7/test_queue_invalid_index_write_ignored_warning",
+       "ch9/test_ref_static_fork_join_none_after_return",
+       "gen/ch10/test_gen_ref_static_array_event_nba_w65_ascending",
+       "gen/ch10/test_gen_ref_static_array_event_nba_w65_descending",
+       "gen/ch10/test_gen_ref_static_array_event_nba_w8_ascending",
+       "gen/ch10/test_gen_ref_static_array_event_nba_w8_descending",
+       "gen/ch10/test_gen_ref_static_delayed_nba_w65_logic",
+       "gen/ch10/test_gen_ref_static_delayed_nba_w8_bit",
+       "gen/ch10/test_gen_ref_static_nested_packed_event_nba_w65_outside_parent",
+       "gen/ch10/test_gen_ref_static_nested_packed_event_nba_w65_valid",
+       "gen/ch10/test_gen_ref_static_nested_packed_event_nba_w8_outside_parent",
+       "gen/ch10/test_gen_ref_static_nested_packed_event_nba_w8_valid",
+       "gen/ch21/test_gen_comb_fread_dynamic_selection"
+      ],
+      "failing_tests": [],
+      "added": 40,
+      "added_passing": 23,
+      "removed": 0
+     }
+    },
+    "ghost": {
+     "name": "Ghost",
+     "version": "private build dbabb459b24a",
+     "counts": {
+      "pass": 16044,
+      "fail": 27,
+      "known": 0,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       152,
+       152
+      ],
+      "4": [
+       481,
+       481
+      ],
+      "5": [
+       520,
+       520
+      ],
+      "6": [
+       902,
+       902
+      ],
+      "7": [
+       1110,
+       1111
+      ],
+      "8": [
+       487,
+       489
+      ],
+      "9": [
+       463,
+       464
+      ],
+      "10": [
+       745,
+       750
+      ],
+      "11": [
+       2607,
+       2607
+      ],
+      "12": [
+       312,
+       312
+      ],
+      "13": [
+       743,
+       743
+      ],
+      "14": [
+       171,
+       172
+      ],
+      "15": [
+       204,
+       205
+      ],
+      "16": [
+       533,
+       535
+      ],
+      "17": [
+       129,
+       129
+      ],
+      "18": [
+       284,
+       289
+      ],
+      "19": [
+       245,
+       246
+      ],
+      "20": [
+       688,
+       689
+      ],
+      "21": [
+       936,
+       936
+      ],
+      "22": [
+       1326,
+       1326
+      ],
+      "23": [
+       418,
+       419
+      ],
+      "24": [
+       221,
+       221
+      ],
+      "25": [
+       265,
+       265
+      ],
+      "26": [
+       263,
+       263
+      ],
+      "27": [
+       286,
+       286
+      ],
+      "28": [
+       400,
+       400
+      ],
+      "29": [
+       142,
+       142
+      ],
+      "30": [
+       70,
+       70
+      ],
+      "31": [
+       66,
+       66
+      ],
+      "32": [
+       68,
+       68
+      ],
+      "33": [
+       89,
+       89
+      ],
+      "34": [
+       4,
+       4
+      ],
+      "35": [
+       190,
+       190
+      ],
+      "36": [
+       89,
+       89
+      ],
+      "37": [
+       230,
+       234
+      ],
+      "38": [
+       127,
+       129
+      ],
+      "39": [
+       39,
+       39
+      ],
+      "40": [
+       39,
+       39
+      ]
+     },
+     "changes": {
+      "passing": 0,
+      "failing": 3,
+      "passing_tests": [],
+      "failing_tests": [
+       [
+        "ch18/test_discarded_soft_distribution",
+        "fail",
+        "timed out"
+       ],
+       [
+        "gen/ch18/test_gen_cross_randreduce_33_unsigned_dynamic_product_wide_3_fail_sat_fail",
+        "fail",
+        "timed out"
+       ],
+       [
+        "gen/ch18/test_gen_cross_randreduce_8_signed_dynamic_sum_wide_2_fail_sat_fail",
+        "fail",
+        "timed out"
+       ]
+      ],
+      "added": 40,
+      "added_passing": 34,
+      "removed": 0
+     }
+    }
+   }
   }
  ]
 }

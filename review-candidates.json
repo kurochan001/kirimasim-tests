@@ -1,37 +1,41 @@
 {
  "inputs": {
   "icarus": {
-   "version": "Icarus Verilog version 14.0 (devel) (s20260301-1230-gbefc352e)",
-   "time": "2026-11-20T06:49:26Z",
-   "suite_commit": "7e233e9afefc1a6e975ef85ed0ea7cffddb158de"
+   "version": "Icarus Verilog version 14.0 (devel) (s20260301-1253-gc20d73fe)",
+   "time": "2026-11-21T05:35:46Z",
+   "suite_commit": "82b5713ffacca6048e89ffac200dd42bcca8e93a"
   },
   "verilator": {
-   "version": "Verilator 5.055 devel rev v5.054-340-g53a72711",
-   "time": "2026-11-20T06:49:26Z",
-   "suite_commit": "7e233e9afefc1a6e975ef85ed0ea7cffddb158de"
+   "version": "Verilator 5.055 devel rev v5.054-348-g9b3b1d98",
+   "time": "2026-11-21T05:35:46Z",
+   "suite_commit": "82b5713ffacca6048e89ffac200dd42bcca8e93a"
   },
   "kirimasim": {
-   "version": "kirimasim 0.1.1 (commit cb97fc93bf6b), built with GNU 13.3.0",
-   "time": "2026-11-20T06:49:26Z",
-   "suite_commit": "7e233e9afefc1a6e975ef85ed0ea7cffddb158de"
+   "version": "kirimasim 0.1.3 (commit 256839f71089), built with GNU 13.3.0",
+   "time": "2026-11-21T05:35:46Z",
+   "suite_commit": "82b5713ffacca6048e89ffac200dd42bcca8e93a"
   },
   "lyra": {
-   "version": "Lyra (commit 9a9813a48c8c)",
-   "time": "2026-11-20T06:49:26Z",
-   "suite_commit": "7e233e9afefc1a6e975ef85ed0ea7cffddb158de"
+   "version": "Lyra (commit e17c9a53c9eb)",
+   "time": "2026-11-21T05:35:46Z",
+   "suite_commit": "82b5713ffacca6048e89ffac200dd42bcca8e93a"
   },
   "ghost": {
-   "version": "private build da2a4afe0dc9",
-   "time": "2026-11-20T06:49:26Z",
-   "suite_commit": "7e233e9afefc1a6e975ef85ed0ea7cffddb158de"
+   "version": "private build dbabb459b24a",
+   "time": "2026-11-21T05:35:46Z",
+   "suite_commit": "82b5713ffacca6048e89ffac200dd42bcca8e93a"
   }
  },
  "candidates": {
-  "spec_fail_all": [],
+  "spec_fail_all": [
+   "ch7/test_array_method_index_argument_without_iterator"
+  ],
   "kirimasim_only": [],
   "spec_no_pass": [
    "ch16/test_sequence_method_call_and_match_item_forms",
    "ch16/test_sequence_method_port_call_clocks",
+   "ch18/test_discarded_soft_distribution",
+   "ch20/test_pla_async_forms_net_inputs_and_late_personality",
    "ch37/test_vpi_interconnect_array_packed_contrast",
    "ch37/test_vpi_interface_expression_port_refs_and_null",
    "ch37/test_vpi_program_interface_relations",
@@ -149,10 +153,6 @@
   {
    "clause": "40.2.1",
    "tests": 2
-  },
-  {
-   "clause": "4.9.2",
-   "tests": 3
   },
   {
    "clause": "6.6.4.1",
@@ -307,10 +307,6 @@
    "tests": 4
   },
   {
-   "clause": "10.10.3",
-   "tests": 4
-  },
-  {
    "clause": "12.6.3",
    "tests": 4
   },
@@ -451,18 +447,6 @@
    "tests": 5
   },
   {
-   "clause": "20.16.1",
-   "tests": 5
-  },
-  {
-   "clause": "20.16.2",
-   "tests": 5
-  },
-  {
-   "clause": "20.16.4",
-   "tests": 5
-  },
-  {
    "clause": "21.7.4.3.1",
    "tests": 5
   },
@@ -544,6 +528,18 @@
   },
   {
    "clause": "19.5.7",
+   "tests": 6
+  },
+  {
+   "clause": "20.16.1",
+   "tests": 6
+  },
+  {
+   "clause": "20.16.2",
+   "tests": 6
+  },
+  {
+   "clause": "20.16.4",
    "tests": 6
   },
   {
@@ -723,10 +719,6 @@
    "tests": 9
   },
   {
-   "clause": "20.16.3",
-   "tests": 9
-  },
-  {
    "clause": "31.3.5",
    "tests": 9
   },
@@ -748,6 +740,10 @@
   },
   {
    "clause": "16.12.13",
+   "tests": 10
+  },
+  {
+   "clause": "20.16.3",
    "tests": 10
   },
   {
@@ -889,6 +885,944 @@
   {
    "clause": "15.5.5.3",
    "tests": 52
+  }
+ ],
+ "interpretation_splits": [
+  {
+   "test": "ch11/test_equality_class_interface_chandle_handles",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "fail",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch11/test_illegal_stream_with_on_two_dimensional_array",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "pass",
+    "verilator": "pass",
+    "kirimasim": "unsupported",
+    "lyra": "fail",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch16/test_first_match_items_and_boolean_or",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch16/test_sequence_consecutive_repetition",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch16/test_sequence_empty_match_concatenation",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch16/test_sequence_empty_match_fusion",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch16/test_sequence_local_formal_assignment",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch17/test_checker_assertion_placement",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch18/test_inline_local_scope_binding",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "pass",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch18/test_rand_mode_inactive_handle",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "pass",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch18/test_randomize_callback_override",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "pass",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch19/test_cg_four_state_literal_wildcard_enum",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "fail",
+    "lyra": "fail",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch19/test_cg_option_levels_readback",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "pass",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch20/test_pla_all_forms",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch20/test_pla_sync_snapshot_versus_async_update",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch21/test_fwrite_unformatted_aggregates",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch21/test_illegal_value_plusargs_bad_format",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "fail",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch22/test_illegal_include_absolute_path_in_angle_brackets",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "pass",
+    "verilator": "known",
+    "kirimasim": "fail",
+    "lyra": "fail",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch23/test_defparam_block_task_function_parameters",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "fail",
+    "verilator": "known",
+    "kirimasim": "fail",
+    "lyra": "fail",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch23/test_port_collapse_uwire_external_delay",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "pass",
+    "kirimasim": "fail",
+    "lyra": "fail",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch30/test_illegal_specify_edge_path_same_edge_and_condition",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "pass",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "fail",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch31/test_illegal_setuphold_negative_sum",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "pass",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "fail",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch31/test_illegal_timing_condition_two_signals",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "pass",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "fail",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch31/test_timing_check_condition_x",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "fail",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch32/test_sdf_scale_type_members",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch33/test_config_cell_parameter",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "pass",
+    "lyra": "fail",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch33/test_duplicate_cell_last_definition_wins",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "fail",
+    "lyra": "fail",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch36/test_vpi_chk_error_callbacks",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch36/test_vpi_compatibility_1800v2017_mode",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch36/test_vpi_compatibility_1800v2023_mode",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch36/test_vpi_compiletf_sizetf",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch37/test_vpi_atomic_task_call_label",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch37/test_vpi_attribute_value_types",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch37/test_vpi_class_relations_scope_typespec",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch37/test_vpi_cont_assign_bits_delays",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch37/test_vpi_generate_nettype_typedef",
+   "kind": "standard_gap",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch37/test_vpi_interconnect_array_ranges",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch37/test_vpi_iterator_objects",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch37/test_vpi_module_paths",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch37/test_vpi_named_event_relations",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch37/test_vpi_named_events",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch37/test_vpi_net_driver_objects",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch37/test_vpi_nettype_alias_chain_relations",
+   "kind": "standard_gap",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch37/test_vpi_nettype_declarations",
+   "kind": "standard_gap",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch37/test_vpi_nettype_net_parts",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch37/test_vpi_nettype_relations",
+   "kind": "standard_gap",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch37/test_vpi_prefix_allocation",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch37/test_vpi_program_interface_relations",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "fail"
+   }
+  },
+  {
+   "test": "ch37/test_vpi_property_operator_kinds",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch37/test_vpi_select_objects_event_arrays",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch37/test_vpi_size_change_callback",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch37/test_vpi_statement_control_kinds",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch37/test_vpi_tf_call_kinds_relations",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch37/test_vpi_unbounded_const_ranges",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch38/test_vpi_error_callback_runtime_errors",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch38/test_vpi_get_value_array",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch38/test_vpi_get_value_real_conversion",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch38/test_vpi_mcd_open_reuse",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch38/test_vpi_value_change_event",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch39/test_vpi_assertion_reset_restores_initial_state",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch40/test_coverage_control_package_scope",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch40/test_coverage_fsm_next_state_pragmas",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch40/test_vpi_coverage_save_merge",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch6/test_a2_1_3_interconnect_declaration_identifiers",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "fail",
+    "lyra": "fail",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch6/test_builtin_net_declaration_forms",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch7/test_array_ordering_methods_and_index_queries",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "fail",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch7/test_illegal_string_in_untagged_union",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "fail",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch7/test_illegal_unique_index_without_with_struct_elements",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "fail",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch7/test_illegal_unique_without_with_struct_elements",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "fail",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "gen/ch20/test_gen_cross_dpiquery_1_up_neg_one_4_sized_offset_same_variable",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "fail",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "gen/ch20/test_gen_cross_dpiquery_2_up_pos_one_4_sized_offset_same_variable",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "fail",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "gen/ch20/test_gen_cross_dpiquery_3_up_neg_one_4_open_offset_switch_literal",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "fail",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "gen/ch21/test_gen_cross_litfmt_fill_b_display_param",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "pass",
+    "verilator": "pass",
+    "kirimasim": "pass",
+    "lyra": "fail",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "gen/ch33/test_gen_cross_config_1_both_reset_all_0_if_literal_direct",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "fail",
+    "lyra": "fail",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "gen/ch33/test_gen_cross_config_32_defparam_reset_all_0_case_literal_wrapped",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "fail",
+    "lyra": "fail",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "gen/ch33/test_gen_cross_config_32_defparam_reset_all_0_if_literal_direct",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "fail",
+    "lyra": "fail",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "gen/ch33/test_gen_cross_config_64_both_reset_all_0_if_literal_wrapped",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "fail",
+    "lyra": "fail",
+    "ghost": "pass"
+   }
+  },
+  {
+   "test": "gen/ch5/test_gen_cross_literal_fill_unsigned_unsized_one_add_signed_logic_65",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "pass",
+    "verilator": "pass",
+    "kirimasim": "pass",
+    "lyra": "fail",
+    "ghost": "pass"
+   }
   }
  ]
 }
