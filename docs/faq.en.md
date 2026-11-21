@@ -301,7 +301,7 @@ It confirms fixed-oracle maintenance and consistency of generated files and regi
 
 ### Q32. Can I sum matrix cells to get the cross-test total?
 
-The [matrix](chapter-cross-matrix.en.md) counts models. It is symmetric, and a model may map to several chapter pairs, so summing cells gives neither model nor test totals. Diagonal cells count models by primary chapter and sum to the model total. Individual tests are in each model's `selection` in the [plan JSON](../coverage/interaction-summary.json); detailed CSVs identify execution status.
+The [matrix](chapter-cross-matrix.en.md) counts models. It is symmetric, and a model may map to several chapter pairs, so summing cells gives neither model nor test totals. Diagonal cells count models by primary chapter and sum to the model total. Individual tests are in each model's `selection` in the [plan JSON](../coverage/interaction-summary/plan.json); detailed CSVs identify execution status.
 
 <a id="q33-0セルやmecnrは未検証や合格を表しますか"></a>
 

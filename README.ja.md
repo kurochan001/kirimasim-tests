@@ -429,7 +429,7 @@ docs/p1-combination-regressions-20261030.md Issue #21の境界条件と実行証
 coverage/combination-gaps.json   Issue #21の候補と回帰テストの確認済み対応
 docs/requirements-to-tests-method.md 規格PDFから要求・テスト・網羅率に至る方法
 coverage/behavior-summary.json  現在の要求カバレッジの集計結果と分母の識別情報
-coverage/behavior-history.json  分母の識別情報を含む測定履歴
+coverage/behavior-history/      分母の識別情報を含む測定履歴（1日1ファイル）
 coverage/slang/                 slangによる参考判定の日付付きの記録（どこにも数えない）
 coverage/human-review.json      抽き取りレビューで人が記録した判定
 coverage/interpretation-splits.json 読み方が割れるテストの台帳
@@ -444,6 +444,7 @@ tools/normalize_output.py       比較前の出力正規化
 tools/suite_results.py          実行結果のJSON形式（--json）
 tools/results_history.py        Nightlyの履歴とグラフ生成
 tools/results_ratchet.py        前回一致して今回不一致のテストの一覧
+tools/file_sizes.py             追跡するファイルが40 MiBを超えないことの検査（Check）
 tools/differences_status.py     差異一覧のテストの最新masterでの結果
 tools/review_candidates.py      人が見直す期待結果のテストと条項の一覧
 tools/review_sample.py          抽き取りレビューの標本・判定の取込み・誤り率の上限
@@ -471,7 +472,7 @@ tools/matching_kit/             要求とテストの対応の提案・検査・
 シミュレータだけを表示します。実行スクリプトがないシミュレータのうち、履歴に以前の結果を残すのは
 `tools/results_history.py`の`RETIRED`に挙げたものだけで、これは描画しません。ほかのものの結果は履歴から除きます。
 publishジョブは、その実行の要求カバレッジとして`behavior-coverage-summary.md`、
-`behavior-coverage.md`、`behavior-summary.json`、`behavior-coverage.json`、`behavior-history.json`も
+`behavior-coverage.md`、`behavior-summary.json`、`behavior-coverage.json`、`behavior-history/`（1日1ファイル）も
 書き出します。機能間クロスのシミュレータ別の実行確認は`interaction-coverage.md`と
 `interaction-coverage.json`に書き出します。レビュー候補の`review-candidates.md`（英語）、
 `review-candidates.ja.md`（日本語）、`review-candidates.json`も書き出します。3種類のカバレッジMarkdownは日本語の`.md`に
@@ -897,7 +898,7 @@ GitHubが混雑していると数時間遅れることがあります。実行�
   Verilatorが無限再帰する設計でランナーのメモリを使い尽くし、ジョブが止まるのを防ぐためです。
 - **kirimasim**：最新の`main`を`release`プリセットでビルドしてformal以外の全件を実行します。
   `tools/results_ratchet.py`で、`results`ブランチの`latest/kirimasim.json`にある前夜の結果と比較し、
-  前回一致したテストが今回不一致なら失敗にします。新規・未対応や前回結果がない場合は数えません。
+  前回一致したテストが今回不一致か未対応なら失敗にします。新規・既知の差分や前回結果がない場合は数えません。
   結果は先にアップロードするので、ジョブの成否によらずその晩の履歴に含められます。
   固定スイートの後に上流mainを再取得・ビルドしてランダム比較を実行し、非PASSがあれば失敗させます。
   再現資料は専用の`random-cross-kirimasim` artifactに保存し、固定結果の公開集計には加算しません。

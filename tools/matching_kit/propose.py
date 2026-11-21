@@ -75,12 +75,13 @@ class State:
                     self.holds[(review["test"], rid)].append(decision)
         self.withdrawn = {(check["test"], rid)
                           for rid, check in json.loads(WITHDRAWN.read_text(encoding="utf-8"))}
-        inventory = json.loads((ROOT / "coverage/test-matching.json").read_text(encoding="utf-8"))["tests"]
+        inventory = [record for path in sorted((ROOT / "coverage/test-matching").glob("tests-*.json"))
+                     for record in json.loads(path.read_text(encoding="utf-8"))["tests"]]
         self.tests = {t["test"]: t for t in inventory}
         self._add_new_tests()
 
     def _add_new_tests(self):
-        """Tests written after coverage/test-matching.json was last generated."""
+        """Tests written after coverage/test-matching/ was last generated."""
         by_clause = defaultdict(list)
         for r in self.rows.values():
             by_clause[r["clause"]].append(r)

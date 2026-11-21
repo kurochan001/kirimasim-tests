@@ -321,6 +321,7 @@ jobs:
           python3 tools/behavior_coverage.py --check --require-source-reviewed
           python3 tools/requirement_matching.py --check
           python3 tools/review_sample.py check
+          python3 tools/file_sizes.py --check
           python3 tools/interpretation_splits.py --check
           python3 tools/sv2023_features.py --check
 

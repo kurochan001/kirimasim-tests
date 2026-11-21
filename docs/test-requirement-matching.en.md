@@ -4,7 +4,7 @@
 
 [English](test-requirement-matching.en.md) / [日本語](test-requirement-matching.md)
 
-[Requirement-coverage aggregation](behavior-coverage-summary.en.md) / [Comparison ledger for all tests](../coverage/test-matching.json) / [Content check errors](existing-test-matching-review-20261022.en.md)
+[Requirement-coverage aggregation](behavior-coverage-summary.en.md) / [Comparison ledger for all tests](../coverage/test-matching/) / [Content check errors](existing-test-matching-review-20261022.en.md)
 
 The reference candidates are listed from the citation section for all 16338 tests. The test which has registered the demand response based on stimulus and expected result is 6702 tests, and the test which is not registered is 9636 tests.
 

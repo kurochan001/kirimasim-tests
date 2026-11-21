@@ -74,7 +74,7 @@ The built executable locates libraries relative to itself, so it works after rel
 | `tools/import_standard_sections.py` |Importing and checking the clause ledger|
 | `tools/behavior_coverage.py` |Ledger checks, measurements, baselines, history, and generated reports|
 | `tools/requirement_audit.py` |Bidirectional comparison between the source audit and ledger (called from `behavior_coverage`)|
-| `tools/requirement_matching.py` |Ledger of all tests' cited clauses, mappings, and decisions to hold mappings (`coverage/test-matching.json`)|
+| `tools/requirement_matching.py` |Ledger of all tests' cited clauses, mappings, and decisions to hold mappings (`coverage/test-matching/`)|
 | `tools/run_icarus.py`, `tools/run_verilator.py` |Execution and evaluation. Write the result with the input hash and the runner hash in `--json`|
 | `tools/run_sby.py` |The `:formal_case:` of `:type: formal` is checked by SymbiYosys. Exclude from simulation-runner targets|
 | `tools/new_test.py` |New test prototype|
@@ -137,7 +137,7 @@ Preserve requirements ID and `source_spans`, rewrite `kind`, `behavior`, and `ac
 
 ```sh
 python3 tools/behavior_coverage.py --write-baseline --update --require-source-reviewed \
-  --history coverage/behavior-history.json --reason 'the specific reason'
+  --history coverage/behavior-history --reason 'the specific reason'
 ```
 
 The SHA-256 of the denominator changes. When comparing the ratios before and after the change, the denominator is stated.
@@ -316,7 +316,7 @@ Holes found in the verification so far (checklist to avoid the same kind of erro
 5. Update generated artifacts.
 
    ```sh
-   python3 tools/behavior_coverage.py --update --require-source-reviewed --history coverage/behavior-history.json
+   python3 tools/behavior_coverage.py --update --require-source-reviewed --history coverage/behavior-history
    python3 tools/requirement_matching.py --update
    python3 tools/suite_stats.py --update
    python3 tools/suite_catalog.py --update
@@ -389,7 +389,7 @@ The large scale comparison and test creation was done in parallel, by dividing t
 ## 11. Fixed for reproducibility.
 
 - The references are PDF and SHA-256 for the extracted text and SHA-256 for the index of the sources.
-- The table includes: SHA-256 ( `behavior-summary.json` ) of the denominator, reference value ( reason for `behavior-baseline.json` ), history ( `behavior-history.json` ), and version of the measurement rules ( `metric_policy_version` ).
+- The table includes: SHA-256 ( `behavior-summary.json` ) of the denominator, reference value ( reason for `behavior-baseline.json` ), history ( `behavior-history/` ), and version of the measurement rules ( `metric_policy_version` ).
 - Test: Inputs digest (test body, expected value, C, include, `:files:`), SHA-256 of the runner, version and seed of the simulator.
 - The decisions are made by the following elements: JSONL of the comparison proposal and the decision, the identifier of the reviewer, the date, the department, and the instructions used (workflow script).
 - Generated tests: generator `VERSION` and `oracles.txt`.

@@ -4,7 +4,7 @@
 
 [English](test-requirement-matching.en.md) / [日本語](test-requirement-matching.md)
 
-[要求カバレッジ集計](behavior-coverage-summary.md) / [全テストの照合台帳](../coverage/test-matching.json) / [内容確認で見つかった問題](existing-test-matching-review-20261022.md)
+[要求カバレッジ集計](behavior-coverage-summary.md) / [全テストの照合台帳](../coverage/test-matching/) / [内容確認で見つかった問題](existing-test-matching-review-20261022.md)
 
 全 16338 本を対象に、引用節から照合候補を列挙しました。 刺激・期待結果に基づく要求対応が登録済みのテストは 6702 本、未登録は 9636 本です。
 

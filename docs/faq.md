@@ -320,7 +320,7 @@ Nightlyはその回のスイートと各ツールの版・対象範囲を持つ�
 [章間表](chapter-cross-matrix.md)の数字はモデル数です。上下対称なので、一つの章対が二つのマスに現れます。
 また、一つのモデルを複数の章対へ対応付ける場合もあるため、マスを合計してモデル総数やテスト本数にはしません。
 対角線は主題章ごとのモデル数で、その合計がモデル総数です。個々のテストは
-[計画JSON](../coverage/interaction-summary.json)の`selection`、実行区分は明細CSVから確認できます。
+[計画JSON](../coverage/interaction-summary/plan.json)の`selection`、実行区分は明細CSVから確認できます。
 
 <a id="q33-do-zero-cells-and-mecnr-indicate-missing-tests-or-passes"></a>
 

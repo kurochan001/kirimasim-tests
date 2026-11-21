@@ -16,7 +16,7 @@ Issue #21の組合せ境界は[回帰取り込みレポート](../docs/p1-combin
 
 機能間クロスは、要求カバレッジとは別に次のファイルで管理します。 [保存実行の概要](../docs/interaction-verification.md#保存実行の概要)から、対象版と残件を確認できます。
 
-- `interaction-summary.json`と[クロス検証レポート](../docs/interaction-coverage.md): 登録モデルの因子・制約・対象組合せ・必須ケースと、各実行の充足状況。
+- `interaction-summary/`（`plan.json`と、シミュレータごとの`runs-<シミュレータ>.json`）と[クロス検証レポート](../docs/interaction-coverage.md): 登録モデルの因子・制約・対象組合せ・必須ケースと、各実行の充足状況。
 - `interaction-results/`: ランナーが保存した実行結果。入力・期待値・ランナーのハッシュ、 日時、シミュレータの版を照合します。別の実行回の部分成功を合成しません。
 - `interaction-qualification/`: 確認元の選別、最小例、独立検算、故障注入、ビルドの補助証跡。 このJSONを回帰実行の成功として取り込んだり、テスト数へ加算したりはしません。
 
@@ -64,7 +64,7 @@ Nightlyの開始予定は毎日04:23 JSTです。公開は全ジョブ終了後�
 - `requirement-audit.json`: 確認した各節のすべての出典ブロックについて、要求への対応、 見出し、説明、例、参照先のいずれかを理由付きで記録します。図表の確認方法と範囲も記録します。 `behaviors.json`の`source_spans`と双方向で照合します。未解決の解釈がある節は`in_progress`です。
 - `behavior-baseline.json`: 見出しの集合・規定区分・規格出典、要求ID・合格基準、対応済みID、 解釈確定見出しと出典確認済み見出しの基準値。削除、対応解除、要求の緩和、 調査の差し戻し、対象縮小をCIで検出します。 複合証拠の定義と入力ハッシュも固定し、グループを削除して一部の成功で代替する変更を検出します。
 - テストの期待出力は、`:expected_stdout:`（共通）と`:expected_stdout_<simulator>:`（`icarus`、 `verilator`、`kirimasim`、`lyra`）を持てます。シミュレータ別のフィールドが優先され、 共通の`:expected_stdout:`は残りのシミュレータの期待値になります。どちらも`@<file>`を参照できます。 入力SHA-256は、実際に選ばれたファイルだけでなく、テストが参照する全期待値ファイルを含みます。 そのため、シミュレータ別ファイルだけを変えた場合も、以前の実行結果はstaleになり、 その結果を使った要求の実行確認は数えません。シミュレータ別の期待値を追加してよいのは、 差分が規格に由来する場合だけです。両方の出力を記録し、規格と矛盾しないことを確かめてください。
-- `test-matching.json`: 全既存テストの入力ハッシュ、引用節、対応登録済みID、未承認候補、 解釈保留、正常系／規格違反区分の相違、上位節の引用を記録する照合台帳。 [照合状況](../docs/test-requirement-matching.md)は章別の登録済み／未登録本数を表示します。 全件の候補列挙は検証内容に基づく対応付け完了ではなく、候補だけから動作網羅率は増えません。
+- `test-matching/`（`index.json`と、テストのディレクトリごとの`tests-<グループ>.json`）: 全既存テストの入力ハッシュ、引用節、対応登録済みID、未承認候補、 解釈保留、正常系／規格違反区分の相違、上位節の引用を記録する照合台帳。 [照合状況](../docs/test-requirement-matching.md)は章別の登録済み／未登録本数を表示します。 全件の候補列挙は検証内容に基づく対応付け完了ではなく、候補だけから動作網羅率は増えません。
 - `human-review.json`: [人による抽き取りレビュー](../docs/review-sample.md)の判定。`tools/review_sample.py record`が、人が記入したレビュー用シートから、テスト・層・入力の指紋・判定・根拠条項・レビュー者・日付を取り込みます。テストが変わった判定は古いとして集計から外します。`:spec_check:`は変えず、動作網羅率にも使いません。
 - `sv2023-features.json`: 1800-2023で加わった機能の台帳。機能ごとに、条項・要求台帳の行・規格が定める不正な形と、コードを読んでその機能を使うと確かめたテスト（規格違反かどうか）を持ちます。`tools/sv2023_features.py`が検査し、[生成資料](../docs/sv2023-features.md)を書きます。
 - `interpretation-splits.json`: 規格の二つの読み方の一方に期待値が従うテストと、規格が定めないことに頼るテストの台帳。テスト・条項・二つの読み方（日英）・期待値が従う読み方・出典の見直しの記録とアンカー・状態を持ちます。`tools/interpretation_splits.py`が検査し、[生成資料](../docs/interpretation-splits.md)を書きます。テストと期待値は変えず、どの集計の分母も変えません。
@@ -177,7 +177,7 @@ Nightlyの開始予定は毎日04:23 JSTです。公開は全ジョブ終了後�
 - `results/test-side-fixes-20261120b-ghost-strict.json`: 同じ日に直したテスト3本のGhostでの再実行で、3本ともpassです。
 - `slang/`: 固定版slangによる[参考判定](../docs/slang-reference.md)の日付付きの記録。`tools/run_slang.py`が書きます。 どの集計にも数えず、カバレッジのツールは読みません。[レビュー候補](../docs/review-candidates.md)は`tools/review_candidates.py`がNightlyの結果から作り、`results`ブランチに置きます。
 - `behavior-summary.json`: 現在の暫定値・確定値、章別の割合、分母SHA-256、 シミュレータごとの失敗・既知不一致・未対応・未実行・古い証跡などの内訳。 `--update`で概要Markdownとともに再生成し、`--check`で両方の整合性を検査します。
-- `behavior-history.json`: 計測履歴。分母と計測規則の版を添えて保存します。 分母が変わった前後の割合は、そのまま改善・悪化として比較しません。 各スナップショットの`executed`一覧は最初の出現時だけ保存し、重複は`same_as_sha256`参照にします。復元方法は[方法書](../docs/requirements-to-tests-method.md#11-fixed-for-reproducibility)を参照してください。この変更を含むコミットで実行したNightlyはresults側の履歴にも同じ形式を使います。
+- `behavior-history/`: 計測履歴。1日1ファイル（`YYYY-MM-DD.json`、計測したUTCの日付）に分け、分母と計測規則の版を添えて保存します。1つのファイルが大きくなりすぎないように、2026-11-21に1つの`behavior-history.json`から分けました。 分母が変わった前後の割合は、そのまま改善・悪化として比較しません。 各スナップショットの`executed`一覧は最初の出現時だけ保存し、重複は`same_as_sha256`参照にします。参照は前の日のファイルを指すこともあり、日付の順にすべてを読むと復元できます。復元方法は[方法書](../docs/requirements-to-tests-method.md#11-fixed-for-reproducibility)を参照してください。この変更を含むコミットで実行したNightlyはresults側の履歴にも同じ形式を使います。
 
 入力ハッシュにはテスト本体、期待値、`:files:`、DPI/VPIのCソース、文字列で指定した includeとinclude検索ディレクトリ内のファイルを含めます。マクロで選ぶincludeや外部データは 必ず `:files:` に宣言してください。コンパイラのインストール全体やOSの再現性を証明する ハッシュではありません。include検索ディレクトリは保守的に全ファイルを対象にします。
 
@@ -212,7 +212,7 @@ python3 tools/behavior_coverage.py --results /tmp/icarus.json \
   --output /tmp/behavior-coverage.md --json /tmp/behavior-coverage.json
 ```
 
-`--results` は保存済みの初期スナップショットを置き換えて、その引数だけを計測します。 一つのシミュレータの異なる版・異なる回の成功を、単一環境の適合率として合成しません。 `--history /tmp/behavior-history.json` を付けると分母の識別情報と計数を追記できます。 要求台帳の変更前後の割合は分母も確認して比較してください。 分母SHA-256は要求の内容と対象範囲から算出し、対応テストや実行結果の変化だけでは変わりません。 全項目のJSONでは`requirements[].status`と、各実行結果の`outcomes`から残件IDを抽出できます。 複数のレビュー済みテストが同じ要求を独立に検証する場合は、少なくとも一つの有効な成功を採用します。 複数ケースで一つの要求を分担する `check_groups` は、いずれかのグループ内の全テストが 同じシミュレータ・同じ実行回で成功した場合だけ採用します。別の版・実行回の部分成功は合成しません。 この拡張を計測規則の版3に記録しています。版2との数値比較では規則の変更も確認してください。 成功がない場合の環境別表示は、失敗、既知不一致、未対応、規格違反テストの判定根拠が未承認、古い証跡、 未実行の順で代表状態を選びます。各登録行は各環境で一つの状態に数えます。
+`--results` は保存済みの初期スナップショットを置き換えて、その引数だけを計測します。 一つのシミュレータの異なる版・異なる回の成功を、単一環境の適合率として合成しません。 `--history /tmp/behavior-history.json` を付けると分母の識別情報と計数を追記できます（`.json`で終わらないパスなら、1日1ファイルのディレクトリに書きます）。 要求台帳の変更前後の割合は分母も確認して比較してください。 分母SHA-256は要求の内容と対象範囲から算出し、対応テストや実行結果の変化だけでは変わりません。 全項目のJSONでは`requirements[].status`と、各実行結果の`outcomes`から残件IDを抽出できます。 複数のレビュー済みテストが同じ要求を独立に検証する場合は、少なくとも一つの有効な成功を採用します。 複数ケースで一つの要求を分担する `check_groups` は、いずれかのグループ内の全テストが 同じシミュレータ・同じ実行回で成功した場合だけ採用します。別の版・実行回の部分成功は合成しません。 この拡張を計測規則の版3に記録しています。版2との数値比較では規則の変更も確認してください。 成功がない場合の環境別表示は、失敗、既知不一致、未対応、規格違反テストの判定根拠が未承認、古い証跡、 未実行の順で代表状態を選びます。各登録行は各環境で一つの状態に数えます。
 
 ```sh
 python3 tools/behavior_coverage.py --update
@@ -226,7 +226,7 @@ python3 -m unittest discover -s tools -p 'test_*.py'
 
 ```sh
 python3 tools/behavior_coverage.py --update --json /tmp/behavior-coverage.json \
-  --history coverage/behavior-history.json
+  --history coverage/behavior-history
 ```
 
 `--summary-output`と`--summary-json`で概要の出力先を指定できます。 既定の詳細レポートを更新／検査する場合は、概要Markdownと`coverage/behavior-summary.json`も対象です。 `--results`なしの再計測は保存済み証跡を使います。新たにシミュレーションを実行したことにはなりません。
@@ -273,7 +273,7 @@ Checkは台帳・基準・ハッシュ・観測点・レポートの整合性と
 - `behavior-coverage.md`: その回の動作別・環境別の結果。テストへのリンクは実行時のコミットを指します。
 - `behavior-coverage.json`: 集計値、分母識別情報、動作IDごとの対応・実行確認状態。
 - `behavior-coverage-summary.md` / `behavior-summary.json`: 暫定値・確定値と章別・環境別の集計。
-- `behavior-history.json`: 各回の計数と分母・実行環境の履歴。
+- `behavior-history/`: 各回の計数と分母・実行環境の履歴（1日1ファイル）。
 
 履歴には集計を保存し、全登録行の状態はその回の詳細JSONに保存します。 GitHub Actionsの実行概要にも暫定値・確定値と残件数を表示します。
 

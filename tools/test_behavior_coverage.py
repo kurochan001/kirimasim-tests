@@ -90,6 +90,43 @@ class BehaviorCoverageTests(unittest.TestCase):
                          [(3, "https://example.test/runs/1"), (5, "https://example.test/runs/2"),
                           (6, None)])
 
+    def test_a_history_directory_keeps_one_file_per_day_with_references_across_files(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "behavior-history"
+            same, changed = ["SV2023-A", "SV2023-B"], ["SV2023-A"]
+            for day, executed in (("2026-11-20", same), ("2026-11-21", same), ("2026-11-21", changed),
+                                  ("2026-11-19", same)):
+                coverage.append_history(path, {"generated_at": day + "T01:00:00+00:00", "execution": {
+                    "snapshots": [{"simulator": "icarus", "executed": list(executed)}]}})
+            self.assertEqual(sorted(p.name for p in path.iterdir()), ["2026-11-20.json", "2026-11-21.json"])
+            second = json.loads((path / "2026-11-21.json").read_text(encoding="utf-8"))["runs"]
+            # The run measured with an earlier date stays after the runs before it.
+            self.assertEqual(len(second), 3)
+            self.assertEqual(second[0]["execution"]["snapshots"][0]["executed"],
+                             {"same_as_sha256": coverage.executed_digest(same)})
+            data = coverage.read_history(path)
+            coverage.expand_history_lists(data)
+            self.assertEqual([r["execution"]["snapshots"][0]["executed"] for r in data["runs"]],
+                             [same, same, changed, same])
+
+    def test_a_history_directory_takes_over_the_single_file_once(self):
+        with tempfile.TemporaryDirectory() as directory:
+            legacy = Path(directory) / "behavior-history.json"
+            for day in ("2026-11-18", "2026-11-19"):
+                coverage.append_history(legacy, {"generated_at": day + "T00:00:00+00:00", "executed": day,
+                                                 "execution": {"snapshots": []}})
+            before = coverage.read_history(legacy)
+            path = Path(directory) / "behavior-history"
+            coverage.append_history(path, {"generated_at": "2026-11-21T00:00:00+00:00", "executed": "new",
+                                           "execution": {"snapshots": []}})
+            self.assertFalse(legacy.exists())
+            self.assertEqual([r["executed"] for r in coverage.read_history(path)["runs"]],
+                             [r["executed"] for r in before["runs"]] + ["new"])
+            unexpected = path / "notes.json"
+            unexpected.write_text("{}", encoding="utf-8")
+            with self.assertRaisesRegex(coverage.InvalidCoverage, "unexpected file"):
+                coverage.read_history(path)
+
     def test_history_keeps_a_repeated_executed_list_once(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "behavior-history.json"

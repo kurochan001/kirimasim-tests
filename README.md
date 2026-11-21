@@ -493,7 +493,7 @@ docs/p1-combination-regressions-20261030.en.md reviewed boundaries and run evide
 coverage/combination-gaps.json   reviewed links from Issue #21 candidates to regression tests
 docs/requirements-to-tests-method.en.md the method from the standard's PDF to requirements, tests and coverage
 coverage/behavior-summary.json  the current behavior measurements and denominator identity
-coverage/behavior-history.json  saved measurement history with denominator identities
+coverage/behavior-history/      saved measurement history with denominator identities (one file a day)
 coverage/slang/                 dated records of the slang reference, which are not counted
 coverage/human-review.json      the verdicts a person recorded in the sampled human review
 coverage/interpretation-splits.json the ledger of tests with contested readings
@@ -508,6 +508,7 @@ tools/normalize_output.py       normalizes a simulator's output before it is com
 tools/suite_results.py          the JSON form of a runner's results (--json)
 tools/results_history.py        keeps the nightly history and draws its charts
 tools/results_ratchet.py        lists the tests that matched in the previous run and differ now
+tools/file_sizes.py             checks that no tracked file exceeds 40 MiB (Check)
 tools/differences_status.py     reports the tests of docs/simulator-differences.md on the latest master
 tools/review_candidates.py      lists the tests and clauses whose expected results a person should review
 tools/review_sample.py          draws the sample for the human review, records verdicts and bounds error rates
@@ -537,7 +538,7 @@ has a runner for. The history keeps the earlier results only of a simulator that
 `RETIRED` in `tools/results_history.py` lists, without drawing them, and drops the
 results of any other simulator without a runner. The publish job also writes `behavior-coverage-summary.md`,
 `behavior-coverage.md`, `behavior-summary.json`, `behavior-coverage.json`
-and `behavior-history.json` for behavioral coverage of that run, plus
+and `behavior-history/` (one file a day) for behavioral coverage of that run, plus
 `interaction-coverage.md` and `interaction-coverage.json` for each simulator's
 feature-interaction coverage. It also writes the review candidates,
 `review-candidates.md` (English), `review-candidates.ja.md` (Japanese) and
@@ -1074,9 +1075,9 @@ as additional gates. It has these jobs:
 - **kirimasim** builds the latest `main` of kirimasim with its `release`
   preset and runs every non-formal test. Then it compares the results with
   `latest/kirimasim.json` of the `results` branch, the previous night's, with
-  `tools/results_ratchet.py`, and fails when a test that matched there differs
-  now; tests that are new or unsupported, and a night without previous
-  results, do not count. The results are uploaded before, so the night's
+  `tools/results_ratchet.py`, and fails when a test that matched there now
+  fails or is unsupported; new tests, known differences and a night without
+  previous results do not count. The results are uploaded before, so the night's
   entry has them either way. After the fixed suite it fetches/builds upstream main again
   and runs bounded random comparisons, failing on any non-pass. Replay data uses the
   separate `random-cross-kirimasim` artifact and does not enter fixed-result publication.
