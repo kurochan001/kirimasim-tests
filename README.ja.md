@@ -57,7 +57,7 @@ Icarus Verilog、Verilator、kirimasim、
 
 共通22種類＋4値3種類、固定25種類の「kirimasimの差分時間 ÷ Icarus 14 develの差分時間」の等重み幾何平均です。**0.97なら所要時間が3%短い**意味で、小さいほど高速です。JSTの各日の最後の正式測定を表示し、1種類でも無効なら欠測にします。初回の正式結果が出るまでは測定待ちと表示します。機材・定義ごとに線を分け、GitHub標準ランナーでの参考値として扱います。
 
-独立した[日次・週次速度ベンチマーク](docs/daily-benchmark.ja.md)で**日次25種類・週次の大規模3種類**を実行します。kirimasimとIcarus 14 develの最新コミットを各回の開始時に一度解決して固定します。双方が変化するため、kirimasimの固定基準版・Icarus 13・Verilatorとの比較とケース別結果は[詳細・生データ・推移](https://github.com/kurochan001/kirimasim-tests/tree/benchmark-results#readme)に残します。機能Nightlyとは別のワークフローと履歴です。
+独立した[日次・週次速度ベンチマーク](docs/daily-benchmark.ja.md)で**日次25種類・週次の大規模3種類**を実行します。kirimasimとIcarus 14 develの最新コミットを各回の開始時に一度解決して固定します。双方が変化するため、kirimasimの固定基準版・Icarus 13・Verilatorとの比較とケース別結果は[詳細・生データ・推移](https://github.com/kurochan001/kirimasim-tests/tree/benchmark-results#readme)に残します。機能Nightlyとは別のワークフローと履歴です。週に1回、ほかの10条件（クラス、動的配列、interface、real演算、force/release、遅延、specifyのパス、ファイル出力、VCD/FSTの波形）を[別枠](docs/daily-benchmark.ja.md#別枠holdout報告のみ)として測り、報告だけします。kirimasimの調整には使わず、総合グラフにも入れません。
 
 <a id="contents"></a>
 

@@ -1,15 +1,20 @@
 name: Daily and weekly benchmarks
 
+# The holdout profile (bench/holdout.json) is measured once a week after the
+# weekly one and is reported only; see "Holdout" in docs/daily-benchmark.md.
+# Its schedule runs only after a person has published a first formal holdout
+# attempt (Run workflow with profile=holdout).
 on:
   schedule:
     - cron: '17 20 * * *' # Daily 20:17 UTC / next day 05:17 JST.
     - cron: '47 23 * * 0' # Weekly Sunday 23:47 UTC / Monday 08:47 JST.
+    - cron: '47 3 * * 1' # Holdout Monday 03:47 UTC / 12:47 JST, after the weekly.
   workflow_dispatch:
     inputs:
       profile:
-        description: Daily fixed core plus extensions, or weekly scale cases
+        description: Daily fixed core plus extensions, weekly scale cases, or holdout (reported only)
         type: choice
-        options: [daily, weekly]
+        options: [daily, weekly, holdout]
         default: daily
       mode:
         description: Formal history or validated smoke (never published)
@@ -27,7 +32,32 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # A scheduled holdout attempt waits until a person has published the first
+  # formal one: latest-holdout.json exists on benchmark-results.
+  gate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    outputs:
+      run: ${{ steps.gate.outputs.run }}
+    steps:
+      - id: gate
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SCHEDULED_HOLDOUT: ${{ github.event.schedule == '47 3 * * 1' }}
+        run: |
+          set -euo pipefail
+          if [ "$SCHEDULED_HOLDOUT" != true ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          elif gh api "repos/$GITHUB_REPOSITORY/contents/latest-holdout.json?ref=benchmark-results" --silent 2>/dev/null; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::notice::No formal holdout attempt has been published yet; the first one is started by a person."
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+
   measure:
+    needs: gate
+    if: ${{ needs.gate.outputs.run == 'true' }}
     outputs:
       artifact: ${{ steps.plan.outputs.artifact }}
     runs-on: ubuntu-24.04
@@ -38,7 +68,7 @@ jobs:
       OMP_NUM_THREADS: '1'
       OPENBLAS_NUM_THREADS: '1'
       RUN_MODE: ${{ inputs.mode || 'formal' }}
-      BENCH_PROFILE: ${{ inputs.profile || (github.event.schedule == '47 23 * * 0' && 'weekly' || 'daily') }}
+      BENCH_PROFILE: ${{ inputs.profile || (github.event.schedule == '47 23 * * 0' && 'weekly' || (github.event.schedule == '47 3 * * 1' && 'holdout' || 'daily')) }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -60,7 +90,8 @@ jobs:
         run: |
           # As in check.yml: a source that the runner image adds can fail.
           sudo apt-get update || echo "::warning::apt-get update failed for some sources"
-          sudo apt-get install -y --no-install-recommends ninja-build cmake autoconf gperf bison flex help2man libfl-dev zlib1g-dev libbz2-dev
+          # liblz4-dev: the FST writer of Verilator (holdout bus_fabric_fst) needs it.
+          sudo apt-get install -y --no-install-recommends ninja-build cmake autoconf gperf bison flex help2man libfl-dev zlib1g-dev libbz2-dev liblz4-dev
       - name: Restore release installations
         id: cache
         uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
@@ -89,9 +120,12 @@ jobs:
           flags=()
           if [ "$RUN_MODE" = smoke ]; then
             if [ "$BENCH_PROFILE" = weekly ]; then flags+=(--smoke --only large_memory);
+            elif [ "$BENCH_PROFILE" = holdout ]; then flags+=(--smoke --only real_filter file_output bus_fabric_vcd);
             else flags+=(--smoke --only wide_arith fourstate_mix fifo_stream resolved_bus); fi
           fi
-          python3 tools/daily_benchmark.py --profile "$BENCH_PROFILE" \
+          if [ "$BENCH_PROFILE" = holdout ]; then driver=(tools/holdout_benchmark.py);
+          else driver=(tools/daily_benchmark.py --profile "$BENCH_PROFILE"); fi
+          python3 "${driver[@]}" \
             --inventory "$RUNNER_TEMP/benchmark-build/inventory.json" \
             --out "$RUNNER_TEMP/benchmark-output" --environment github-hosted-ubuntu-24.04 \
             --run-id "actions-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" \
@@ -105,7 +139,9 @@ jobs:
             if [ -f "$RUNNER_TEMP/benchmark-output/start.txt" ]; then
               started+=(--started-at "$(cat "$RUNNER_TEMP/benchmark-output/start.txt")")
             fi
-            python3 tools/benchmark_history.py failure --profile "$BENCH_PROFILE" --out "$RUNNER_TEMP/benchmark-output/results.json" \
+            if [ "$BENCH_PROFILE" = holdout ]; then history=(tools/holdout_history.py failure);
+            else history=(tools/benchmark_history.py failure --profile "$BENCH_PROFILE"); fi
+            python3 "${history[@]}" --out "$RUNNER_TEMP/benchmark-output/results.json" \
               --run-id "actions-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" \
               --plan "$RUNNER_TEMP/benchmark-build/plan.json" \
               --run-url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/attempts/$GITHUB_RUN_ATTEMPT" \
@@ -114,7 +150,8 @@ jobs:
       - name: Render this attempt for the job summary
         if: ${{ always() && (inputs.mode || 'formal') == 'formal' }}
         run: |
-          python3 tools/benchmark_history.py append --directory "$RUNNER_TEMP/benchmark-preview" \
+          if [ "$BENCH_PROFILE" = holdout ]; then history=tools/holdout_history.py; else history=tools/benchmark_history.py; fi
+          python3 "$history" append --directory "$RUNNER_TEMP/benchmark-preview" \
             "$RUNNER_TEMP/benchmark-output/results.json"
           python3 - <<'PY_SUMMARY'
           import os
@@ -124,6 +161,7 @@ jobs:
           text=text.replace('](runs/', ']('+base+'/blob/benchmark-results/runs/')
           text=text.replace('](headline.json)', ']('+base+'/blob/benchmark-results/headline.json)')
           text=text.replace('](latest-', ']('+base+'/blob/benchmark-results/latest-')
+          text=text.replace('](holdout/', ']('+base+'/blob/benchmark-results/holdout/')
           text=text.replace('](charts/', ']('+base+'/raw/refs/heads/benchmark-results/charts/')
           with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as stream:
               stream.write(text)
@@ -143,11 +181,13 @@ jobs:
 
   publish:
     needs: measure
-    if: ${{ !cancelled() && github.ref == 'refs/heads/main' && (inputs.mode || 'formal') == 'formal' }}
+    if: ${{ !cancelled() && needs.measure.result != 'skipped' && github.ref == 'refs/heads/main' && (inputs.mode || 'formal') == 'formal' }}
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     permissions:
       contents: write
+    env:
+      BENCH_PROFILE: ${{ inputs.profile || (github.event.schedule == '47 23 * * 0' && 'weekly' || (github.event.schedule == '47 3 * * 1' && 'holdout' || 'daily')) }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
@@ -171,9 +211,18 @@ jobs:
           result=$(find incoming -name results.json -type f -print)
           test -n "$result"
           test "$(printf '%s\n' "$result" | wc -l)" -eq 1
-          python3 tools/benchmark_history.py append --directory history "$result"
+          if [ "$BENCH_PROFILE" = holdout ]; then
+            python3 tools/holdout_history.py append --directory history "$result"
+          else
+            python3 tools/benchmark_history.py append --directory history "$result"
+          fi
+          # benchmark_history rewrites both READMEs; put the holdout table back.
+          python3 tools/holdout_history.py readme --directory history
           cd history
-          git add runs history.json latest*.json headline.json charts README.md README.ja.md
+          git add README.md README.ja.md latest*.json
+          for path in runs history.json headline.json charts holdout; do
+            if [ -e "$path" ]; then git add "$path"; fi
+          done
           if ! git diff --cached --quiet; then
             git -c user.name='github-actions[bot]' \
               -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
