@@ -578,7 +578,7 @@ it does not know.
 | `:lrm:` | IEEE 1800-2023 clauses the test checks, for example `1800-2023 11.4.3` |
 | `:oracle:` | Where the expected output comes from: `spec` (it was checked against the cited clauses of the standard; `:spec_check:` says by whom), `iverilog@13.0` (Icarus Verilog 13.0 produced it), `verilator@5.052` (Verilator 5.052 produced it), `verilator@5.054` (Verilator 5.054 produced it; only tests added while the pin moves to 5.054, see [the interim pin](docs/simulator-differences.md#verilator-5054-interim)) |
 | `:spec_check:` | Who checked a `spec` expectation against the standard: `ai` (an AI model read the cited clauses; no person has checked this test yet) or `human` (a person checked it) |
-| `:fourstate:` | Whether the result depends on x or z values (`yes` / `no`): the test has x or z literals, `$isunknown`, `casex`/`casez`, tri-state or strength constructs, or x or z in its expected output |
+| `:fourstate:` | Whether the result depends on x or z values (`yes` / `no`). It usually does when the test has x or z literals, tri-state or strength constructs, or x or z in its expected output; a test that applies `$isunknown` or `casex`/`casez` only to known values can be `no`. The lint checks only the x and z literals |
 | `:nondeterministic:` | Whether the result can depend on an ordering the standard leaves open |
 | `:expected_stdout:` | Expected standard output, or `@<file>` naming a file next to the test. It is the fallback for every simulator that has no field of its own |
 | `:expected_stdout_<simulator>:` | Expected standard output for one simulator: `<simulator>` is `icarus`, `verilator`, `kirimasim` or `lyra`. It wins over `:expected_stdout:`, which may stay as the fallback for the other simulators. Add it only when the difference follows from the standard, such as a form the standard leaves to the tool, and say in the test comment why. Every referenced expectation file is part of the input fingerprint, so a change to any of them invalidates the stored execution evidence |
@@ -765,7 +765,9 @@ test that neither release produces follows the model alone (`:oracle: spec`);
 where the model and a simulator differ, the clause decides, as above.
 Generated tests added while the pin moves from 5.052 to 5.054 have
 `verilator@5.054` in `generators/oracles.txt` when Verilator 5.054 produced their
-output (`generators/record_oracles.py` reads the results of 5.052).
+output. `generators/record_oracles.py` records the token of the release that
+the results come from (5.052 or 5.054), and adds or removes only the tokens of
+the simulators given, for the tests in their results.
 
 <a id="スイートの実行"></a>
 
@@ -1205,10 +1207,10 @@ Update both language versions of handwritten documents, then run
 Keep current status here; put dated work and measurements in the [history](docs/history.md).
 
 `tools/lint_metadata.py` reports what a script can check of the rules above:
-the fields and their values, a field without a value, a `:name:` that another
-test has, an `:expected_stderr_regex:` that does not compile, `:lrm:` and the directory, x or z literals in a
+the fields and their values, a field without a value, a field written twice, a `:name:` that another
+test has, an `:expected_stderr_regex:` that does not compile, `:lrm:`, its clauses and the directory, x or z literals in a
 test with `:fourstate: no`, the expected output, the fields of an illegal
-design, the files that the metadata names, the line lengths, comment lines
+design and whether its `:expected_stderr_regex:` names a file and line, the files that the metadata names, the line lengths, comment lines
 that start with the word Verilator, a `` `timescale `` when a time is printed,
 and TODO left from the skeleton. Its docstring lists the rules.
 `tools/lint_baseline.txt` holds, for each test and rule, the number of known

@@ -16,13 +16,21 @@ without ".sv". The rules:
     duplicate-name      :name: is also the :name: of another test of the suite
     empty-field         a field has no value (the next line would be read as
                         its value)
+    duplicate-field     a field appears twice (the runners read the first
+                        value and the coverage tools the last)
     stderr-regex        :expected_stderr_regex: is not a regular expression
                         that Python compiles
+    stderr-location     the :expected_stderr_regex: of an illegal design names
+                        no place of the error: a file name ending in .sv,
+                        .svh, .v or .vh, a colon and a line number (or a
+                        group of line numbers)
     value               a field has a value outside its allowed set (:type:,
                         :oracle:, :spec_check:, :fourstate:,
                         :nondeterministic:, :expected_exit:, :generator:,
                         :compilation_unit:)
     lrm                 :lrm: is not "1800-2023" followed by clause numbers
+    lrm-clause          :lrm: cites a clause that is not a section of the
+                        standard (coverage/standard-sections.json)
     chapter             the first clause of :lrm: is not of the chapter of the
                         directory (chNN)
     tags                :tags: is not the directory (chNN)
@@ -64,6 +72,7 @@ some tests (TEST arguments) does not report the gone problems of others.
 """
 
 import argparse
+import json
 import re
 import sys
 from pathlib import Path
@@ -91,6 +100,10 @@ TIME_UNIT = re.compile(r"^\s*`timescale\b|\btimeunit\b|\btimeprecision\b", re.MU
 # A field with nothing after it on its line. suite_results.header reads the
 # next line as its value, so this is found in the text of the comment.
 EMPTY_FIELD = re.compile(r"^:(\w+):[ \t]*$", re.MULTILINE)
+FIELD = re.compile(r"^:(\w+):", re.MULTILINE)
+# A place in an :expected_stderr_regex: such as test_x\.sv:12: or
+# test_x\.sv:(12|13): (README, ":should_fail_because:").
+LOCATION = re.compile(r"\.(?:svh?|vh?)\)?\??:\(?(?:\?:)?\[?\d")
 
 
 def split(test: Path) -> tuple[str, list[str]]:
@@ -125,6 +138,18 @@ def modules_of(paths: list[Path]) -> set[str]:
     return names
 
 
+_SECTIONS: set[str] | None = None
+
+
+def sections() -> set[str]:
+    """The section numbers of the standard, read once."""
+    global _SECTIONS
+    if _SECTIONS is None:
+        data = json.loads((ROOT / "coverage" / "standard-sections.json").read_text(encoding="utf-8"))
+        _SECTIONS = {s["id"] for s in data["sections"]}
+    return _SECTIONS
+
+
 def check(test: Path) -> list[tuple[str, str]]:
     problems = []
     def bad(rule: str, detail: str) -> None:
@@ -141,6 +166,11 @@ def check(test: Path) -> list[tuple[str, str]]:
     empty = EMPTY_FIELD.findall(header)
     for f in empty:
         bad("empty-field", f":{f}: has no value")
+    seen_fields = set()
+    for f in FIELD.findall(header):
+        if f in seen_fields:
+            bad("duplicate-field", f":{f}: appears more than once")
+        seen_fields.add(f)
     regex = fields.get("expected_stderr_regex")
     if regex is not None and "expected_stderr_regex" not in empty:
         try:
@@ -171,8 +201,12 @@ def check(test: Path) -> list[tuple[str, str]]:
         words = fields["lrm"].split()
         if len(words) < 2 or words[0] != "1800-2023" or not all(CLAUSE.match(w) for w in words[1:]):
             bad("lrm", f":lrm: {fields['lrm']}")
-        elif f"ch{words[1].split('.')[0]}" != directory:
-            bad("chapter", f"first clause {words[1]} in {directory}")
+        else:
+            if f"ch{words[1].split('.')[0]}" != directory:
+                bad("chapter", f"first clause {words[1]} in {directory}")
+            for clause in words[1:]:
+                if clause not in sections():
+                    bad("lrm-clause", f"{clause} is not a section of the standard")
     if "tags" in fields and fields["tags"] != directory:
         bad("tags", f":tags: {fields['tags']} in {directory}")
 
@@ -193,6 +227,9 @@ def check(test: Path) -> list[tuple[str, str]]:
             bad("should-fail", ":should_fail_because: without :type: elaboration")
         if "expected_stderr_regex" not in fields:
             bad("should-fail", ":should_fail_because: without :expected_stderr_regex:")
+        elif not LOCATION.search(fields["expected_stderr_regex"]):
+            bad("stderr-location", f":expected_stderr_regex: {fields['expected_stderr_regex']} "
+                "names no file and line")
         if expected_names:
             bad("should-fail", ":should_fail_because: with " + ", ".join(
                 f":{n}:" for n in expected_names))

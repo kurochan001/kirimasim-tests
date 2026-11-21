@@ -184,6 +184,17 @@ class PrivateParserCheckoutTests(unittest.TestCase):
                 self.assertEqual(calls, [])
                 self.assertEqual(sleeps, [])
 
+    def test_paths_the_run_uses_or_publishes_are_rejected(self):
+        for path in ("results", "results/fixture-parser-dir", "history/x", "simulator", "tests/x",
+                     "tools", ".github/x", "coverage/"):
+            with self.subTest(path=path):
+                code, output, calls, sleeps = self.run_checkout(path=path)
+                self.assertNotEqual(code, 0)
+                self.assertIn("a directory that the run uses or publishes", output)
+                self.assertEqual(calls, [])
+        code, _, _, _ = self.run_checkout(path="simulator/fixture-parser-dir")
+        self.assertEqual(code, 0)
+
     def test_empty_ref_fetches_remote_head(self):
         code, _, calls, _ = self.run_checkout(ref="")
         self.assertEqual(code, 0)

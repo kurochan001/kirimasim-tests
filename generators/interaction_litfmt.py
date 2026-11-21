@@ -75,17 +75,18 @@ def value_type(row: Row) -> tuple[int, bool, str]:
 
 
 def digits(bits: str, step: int) -> str:
-    """Hexadecimal or octal digits, by the groups of bits from the right."""
-    bits = bits.rjust(-(-len(bits) // step) * step, '0')
+    """Hexadecimal or octal digits, by the groups of bits from the right; the
+    leftmost group holds only the bits there are (14'bx01010 gives xxXa,
+    21.2.1.3)."""
     out = []
-    for i in range(0, len(bits), step):
-        group = bits[i:i + step]
+    for end in range(len(bits), 0, -step):
+        group = bits[max(0, end - step):end]
         if set(group) == {'x'}: out.append('x')
         elif set(group) == {'z'}: out.append('z')
         elif 'x' in group: out.append('X')
         elif 'z' in group: out.append('Z')
         else: out.append(format(int(group, 2), 'x'))
-    return ''.join(out)
+    return ''.join(reversed(out))
 
 
 def decimal(width: int, signed: bool, bits: str) -> str:

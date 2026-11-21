@@ -506,7 +506,7 @@ publishジョブは、その実行の要求カバレッジとして`behavior-cov
 | `:lrm:` | 確認対象のIEEE 1800-2023の条項。例：`1800-2023 11.4.3` |
 | `:oracle:` | 期待出力の根拠。`spec`は引用条項と照合済み（担当は`:spec_check:`）、`iverilog@13.0`はIcarus Verilog 13.0で再現、`verilator@5.052`はVerilator 5.052で再現、`verilator@5.054`はVerilator 5.054で再現（固定版を5.054へ移す間に追加したテストだけ。[移行中の固定版](docs/simulator-differences.ja.md#verilator-5054-interim)） |
 | `:spec_check:` | `spec`の期待値を規格と照合した担当。`ai`はAIモデル（人による照合はまだなし）、`human`は人 |
-| `:fourstate:` | x/zに依存するか（`yes` / `no`）。x/zリテラル、`$isunknown`、`casex`/`casez`、三状態・強度構文、期待出力のx/zなど |
+| `:fourstate:` | 結果がx/zに依存するか（`yes` / `no`）。x/zリテラル、三状態・強度構文、期待出力のx/zがあれば、ふつうは依存します。`$isunknown`や`casex`/`casez`を既知の値にだけ使うテストは`no`でかまいません。lintが検査するのはx/zリテラルだけです |
 | `:nondeterministic:` | 規格が決めていない実行順に結果が依存し得るか |
 | `:expected_stdout:` | 期待する標準出力、または隣のファイルを示す`@<file>`。シミュレータ別のフィールドがない場合の共通の期待値 |
 | `:expected_stdout_<simulator>:` | シミュレータ別の期待する標準出力。`<simulator>`は`icarus`、`verilator`、`kirimasim`、`lyra`。`:expected_stdout:`より優先し、`:expected_stdout:`は他のシミュレータ用の共通値として残せる。差分が規格に由来する場合（規格がツールに委ねた表示形式など）だけ追加し、理由をテストのコメントに書く。参照する全期待値ファイルは入力ハッシュに含めるので、どれを変えても保存済みの実行証跡は無効になる |
@@ -653,7 +653,7 @@ python3 generators/generate.py --check    # 生成内容が最新か検査
 `generators/record_oracles.py`が再現できたリリースを`generators/oracles.txt`に記録します。
 そこから`:oracle:`を書き出します。どちらも再現しないものはモデルだけが根拠の`:oracle: spec`です。
 固定版を5.052から5.054へ移す間に追加した生成テストは、Verilator 5.054で確認したものに
-`verilator@5.054`を`generators/oracles.txt`へ記録しています（`generators/record_oracles.py`が読むのは5.052の結果です）。
+`verilator@5.054`を`generators/oracles.txt`へ記録しています。`generators/record_oracles.py`は、渡した結果の版（5.052か5.054）の印を記録し、渡したシミュレータの印だけを、その結果にあるテストについて付け外しします。
 モデルとシミュレータが異なる場合は、ここでも条項で判断します。
 
 <a id="running-the-suite"></a>
@@ -1002,9 +1002,9 @@ python3 tools/lint_metadata.py
 現在の状態はREADMEに記載し、日付付きの作業・測定記録は[履歴](docs/history.ja.md)に残します。
 
 `tools/lint_metadata.py`は、上のルールのうちスクリプトで確認できるものを報告します。
-フィールドと値、値のないフィールド、ほかのテストと重複する`:name:`、コンパイルできない`:expected_stderr_regex:`、
-`:lrm:`とディレクトリ、`:fourstate: no`でのx/zリテラル、期待出力、
-不正な設計のフィールド、指定ファイル、行長、`Verilator`で始まるコメント、
+フィールドと値、値のないフィールド、2回書いたフィールド、ほかのテストと重複する`:name:`、コンパイルできない`:expected_stderr_regex:`、
+`:lrm:`とその節が規格にあるかとディレクトリ、`:fourstate: no`でのx/zリテラル、期待出力、
+不正な設計のフィールドとその`:expected_stderr_regex:`がファイルと行を指すか、指定ファイル、行長、`Verilator`で始まるコメント、
 時刻を出力する場合の`` `timescale ``、ひな型のTODO残りなどです。ルールの一覧はdocstringにあります。
 `tools/lint_baseline.txt`には、テストとルールの組ごとに既知の問題の件数を記録します。
 あるルールの問題がその件数より多いテストは、そのルールが既に記録されていても報告します。

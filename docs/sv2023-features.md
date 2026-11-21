@@ -21,7 +21,7 @@
 | [配列メソッド map](#array-map-method) | 7.12.5, 7.12 | 8 | 5 | 3 | 2 | 6 | 2 | 2 | 3 | 2 | 3/3 | DVConの18項目 |
 | [union soft（soft packed union）](#soft-packed-union) | 7.3.1, 7.3, 7.2 | 8 | 7 | 1 | 4 | 4 | 0 | 4 | 4 | 6 | 8/8 | DVConの18項目 |
 | [三重引用符の文字列リテラル](#triple-quoted-string) | 5.9, 5.9.1, A.8.8, 22.5.1 | 9 | 7 | 2 | 5 | 4 | 1 | 5 | 9 | 5 | 13/13 | DVConの18項目 |
-| [rand real 変数](#rand-real) | 18.4, 18.4.1, 18.5.3, 18.5.4, 18.5.5, 18.5.6, 18.5.9 | 10 | 5 | 5 | 0 | 10 | 4 | 4 | 6 | 2 | 8/8 | DVConの18項目 |
+| [rand real 変数](#rand-real) | 18.4, 18.4.1, 18.5.3, 18.5.4, 18.5.5, 18.5.6, 18.5.9 | 10 | 4 | 6 | 0 | 10 | 4 | 4 | 6 | 2 | 8/8 | DVConの18項目 |
 | [constraint の :initial / :extends / :final](#constraint-dynamic-override) | 18.5.2, 18.5, 18.5.10, 8.3 | 15 | 4 | 11 | 5 | 10 | 11 | 7 | 11 | 5 | 11/11 | DVConの18項目 |
 | [weak_reference クラス](#weak-reference) | 8.29, 8.30, 8.30.1, 8.30.2, 8.30.3, 8.30.4, 8.30.5, G.7, G.1 | 13 | 12 | 1 | 0 | 13 | 1 | 1 | 1 | 9 | 17/27 | DVConの18項目 |
 | [covergroup extends（派生クラスの埋め込み covergroup）](#covergroup-inheritance) | 19.3, 19.4, 19.4.1, A.2.11 | 13 | 6 | 7 | 0 | 13 | 7 | 6 | 7 | 4 | 11/12 | DVConの18項目 |
@@ -302,7 +302,6 @@
 
 | テスト | 種類 | `:oracle:` | 保存済みの結果 |
 | --- | --- | --- | --- |
-| [`ch18/test_illegal_unique_real_and_int`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_unique_real_and_int.sv) | 正常系 | `spec` | `Ip V- Kp G-` |
 | [`ch18/test_rand_real_constraint`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_rand_real_constraint.sv) | 正常系 | `spec` | `I- V- K- Gp` |
 | [`ch18/test_rand_real_kinds_and_arrays`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_rand_real_kinds_and_arrays.sv) | 正常系 | `spec` | `I- V- K- G-` |
 | [`ch18/test_rand_real_uniform_and_dist`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_rand_real_uniform_and_dist.sv) | 正常系 | `spec` | `I- V- K- G-` |
@@ -312,6 +311,7 @@
 | [`ch18/test_illegal_dist_real_tolerance_colon_equal`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_dist_real_tolerance_colon_equal.sv) | 規格違反 | `spec` | `Ip V- Kp G-` |
 | [`ch18/test_illegal_randc_real`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_randc_real.sv) | 規格違反 | `spec` | `I- Vp Kp Gp` |
 | [`ch18/test_illegal_randc_real_array`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_randc_real_array.sv) | 規格違反 | `spec` | `I- Vp Kp G-` |
+| [`ch18/test_illegal_unique_real_and_int`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_unique_real_and_int.sv) | 規格違反 | `spec` | `Ip V- Kp G-` |
 
 <a id="constraint-dynamic-override"></a>
 

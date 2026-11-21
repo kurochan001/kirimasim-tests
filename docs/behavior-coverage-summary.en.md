@@ -33,7 +33,7 @@ The denominator counts requirement-ledger rows, not test files. See [Design, exe
 ## Definite value
 
 - Requirement coverage (test design): 93.15%.
-- Requirement execution-confirmation rate: 51.22% without Ghost, 78.71% with Ghost.
+- Requirement execution-confirmation rate: 51.22% without Ghost, 78.71% with Ghost and kirimasim.
 - Approval of denominator: Approval. The measured state is `confirmed`.
 - The method was confirmed after document verification, resolution of the reservation interpretation, duplication of the requirement unit, and review of the denominator.
 

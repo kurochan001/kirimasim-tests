@@ -979,7 +979,7 @@
         },
         {
           "test": "ch18/test_illegal_unique_real_and_int",
-          "illegal": false
+          "illegal": true
         },
         {
           "test": "ch18/test_rand_real_constraint",

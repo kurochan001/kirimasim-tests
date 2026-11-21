@@ -36,12 +36,19 @@ input digest, and the empty fields verdict, basis_clauses, reviewer and date.
 record reads such a JSON file after a person has filled it in and adds the
 filled entries to coverage/human-review.json; it refuses an entry whose test
 changed since the sample was drawn, an unknown verdict, a missing reviewer,
-date or basis, and a reviewer marked as an AI. report counts, per stratum, the
-current reviews n and the errors k (verdicts expectation_wrong and
-test_defect) and gives a one-sided 95% upper bound on the error rate: 3/n when
-k is 0 (the rule of three) and the Clopper-Pearson bound otherwise. A review
-whose test changed since it was recorded is stale and is left out of n. check
-validates the ledger. Nothing here changes a test or its :spec_check: field.
+date or basis, and a reviewer marked as an AI. report counts, per stratum and
+per sampling frame (the chapters a sample was drawn from), the tests n with a
+current review and the tests k found wrong (expectation_wrong or test_defect
+by any reviewer); a test only found contested is left out of n. It gives a
+one-sided 95% upper bound on the error rate: 3/n when k is 0 (the rule of
+three) and the Clopper-Pearson bound otherwise, never below 3/n. A review
+whose test changed or was removed since it was recorded is stale and is left
+out of n. check validates the ledger. Nothing here changes a test or its
+:spec_check: field.
+
+A run that stores bare statuses (latest/<simulator>.json) places a test only
+when git shows no change to the test's input files since the run's
+suite_commit.
 """
 
 import argparse
@@ -50,6 +57,7 @@ import json
 import math
 import random
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -125,6 +133,19 @@ def load_runs(directory: Path) -> dict[str, dict]:
     return runs
 
 
+def changed_since(root: Path, commit: str) -> set[str] | None:
+    """Repository paths that differ between commit and the working tree, or
+    None when git cannot tell (no commit given, or a shallow clone)."""
+    if not commit:
+        return None
+    try:
+        out = subprocess.run(["git", "-C", str(root), "diff", "--name-only", commit, "--"],
+                             capture_output=True, text=True, check=True).stdout
+    except (OSError, subprocess.CalledProcessError):
+        return None
+    return {line.strip() for line in out.splitlines() if line.strip()}
+
+
 def chapter_of(test: str) -> str:
     match = re.search(r"(?:^|/)ch(\d+)/", test)
     return match.group(1) if match else ""
@@ -135,6 +156,15 @@ def classify(root: Path, runs: dict[str, dict], chapters: set[str] | None = None
     found = {s: [] for s in STRATA}
     left = {"formal": 0, "fixed_release_oracle": 0, "no_current_result": 0, "other": 0}
     statuses = {}
+    # A run that stores bare statuses (latest/<simulator>.json of the results
+    # branch) has no input digest per test; its status counts only when no
+    # input of the test changed after the suite commit of the run.
+    changed = {sim: changed_since(root, run.get("suite_commit", "")) for sim, run in runs.items()}
+    unchecked = sorted(sim for sim, paths in changed.items() if paths is None
+                       and any(r is None for _, r in runs[sim]["tests"].values()))
+    for sim in unchecked:
+        print(f"review_sample: warning: cannot tell which tests changed after the run of {sim}; "
+              "its statuses are used as they are", file=sys.stderr)
     for path in suite_results.find_tests(root):
         test = path.resolve().relative_to(root / "tests").with_suffix("").as_posix()
         if chapters and chapter_of(test) not in chapters:
@@ -147,11 +177,22 @@ def classify(root: Path, runs: dict[str, dict], chapters: set[str] | None = None
             left["fixed_release_oracle"] += 1
             continue
         digest = suite_results.input_digest(path)
+        inputs = None
         seen = {}
         for sim, run in runs.items():
             status, recorded = run["tests"].get(test, (None, None))
-            if status is not None and (recorded is None or recorded == digest):
-                seen[sim] = status
+            if status is None:
+                continue
+            if recorded is None:
+                if changed[sim] is not None:
+                    if inputs is None:
+                        inputs = {p.resolve().relative_to(root).as_posix()
+                                  for p in suite_results.input_files(path)}
+                    if inputs & changed[sim]:
+                        continue
+            elif recorded != digest:
+                continue
+            seen[sim] = status
         if not seen:
             left["no_current_result"] += 1
             continue
@@ -258,8 +299,9 @@ def upper_bound(k: int, n: int, confidence: float = CONFIDENCE) -> float | None:
     error was found, the Clopper-Pearson bound otherwise."""
     if n <= 0:
         return None
+    rule_of_three = min(3.0 / n, 1.0)
     if k <= 0:
-        return min(3.0 / n, 1.0)
+        return rule_of_three
     if k >= n:
         return 1.0
     alpha = 1.0 - confidence
@@ -270,7 +312,9 @@ def upper_bound(k: int, n: int, confidence: float = CONFIDENCE) -> float | None:
             low = middle
         else:
             high = middle
-    return high
+    # For very small n the rule of three can exceed the exact bound with one
+    # error; finding an error must never lower the bound.
+    return max(high, rule_of_three)
 
 
 def read_ledger(path: Path) -> dict:
@@ -304,9 +348,6 @@ def review_errors(review: dict, root: Path) -> list[str]:
         errors.append(f"{name}: basis_clauses must list clause numbers such as 13.4.4")
     if not re.fullmatch(r"[0-9a-f]{64}", str(review.get("inputs_sha256", ""))):
         errors.append(f"{name}: the input digest is missing")
-    path = root / str(review.get("path", ""))
-    if not path.is_file():
-        errors.append(f"{name}: the test {review.get('path')} does not exist")
     return errors
 
 
@@ -328,9 +369,12 @@ def record(sheet_path: Path, ledger_path: Path, root: Path) -> int:
                   "reviewer": str(item.get("reviewer", "")).strip(),
                   "date": str(item.get("date", "")).strip(),
                   "notes": str(item.get("notes", "")).strip(),
-                  "sample": {"seed": sheet.get("seed"), "generated_at": sheet.get("generated_at")}}
+                  "sample": {"seed": sheet.get("seed"), "generated_at": sheet.get("generated_at"),
+                             "chapters": sorted(sheet.get("chapters") or [])}}
         errors = review_errors(review, root)
         path = root / str(review["path"])
+        if not errors and not path.is_file():
+            errors.append(f"{review['test']}: the test {review['path']} does not exist")
         if not errors and suite_results.input_digest(path) != review["inputs_sha256"]:
             errors.append(f"{review['test']}: the test changed after the sample was drawn; "
                           "draw it again")
@@ -354,18 +398,30 @@ def record(sheet_path: Path, ledger_path: Path, root: Path) -> int:
 
 
 def summarize(ledger: dict, root: Path, chapters: set[str] | None = None) -> dict:
+    """Per stratum, the current reviews of the samples drawn over the given
+    chapters (all chapters when None). A test counts once: it is an error when
+    any current review of it says so, contested when none does but one says
+    contested (left out of n), and correct otherwise."""
+    frame = sorted(chapters) if chapters else []
     rows = {s: {"n": 0, "k": 0, "contested": 0, "stale": 0} for s in STRATA}
+    verdicts = {}
     for review in ledger.get("reviews", []):
-        if chapters and chapter_of(review["test"]) not in chapters:
+        if sorted(review.get("sample", {}).get("chapters") or []) != frame:
             continue
-        row = rows[review["stratum"]]
         path = root / review["path"]
         if not path.is_file() or suite_results.input_digest(path) != review["inputs_sha256"]:
-            row["stale"] += 1
+            rows[review["stratum"]]["stale"] += 1
             continue
-        row["n"] += 1
-        row["k"] += review["verdict"] in ERRORS
-        row["contested"] += review["verdict"] == "contested"
+        verdicts.setdefault((review["stratum"], review["test"]), set()).add(review["verdict"])
+    for (stratum, _), seen in verdicts.items():
+        row = rows[stratum]
+        if seen & ERRORS:
+            row["n"] += 1
+            row["k"] += 1
+        elif "contested" in seen:
+            row["contested"] += 1
+        else:
+            row["n"] += 1
     for row in rows.values():
         row["upper_bound"] = upper_bound(row["k"], row["n"])
     return rows

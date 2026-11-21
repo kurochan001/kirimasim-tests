@@ -98,6 +98,10 @@ class LyraRunnerTests(unittest.TestCase):
         verdict, _ = self.run_result("TEST PASSED\n", "", -11)
         self.assertEqual(verdict, ("fail", "crashed (signal 11)"))
 
+    def test_a_crash_is_a_failure_even_with_an_unsupported_line(self):
+        verdict, _ = self.run_result("TEST PASSED\n", "t.sv:2:1: error: X is not yet supported\n", -11)
+        self.assertEqual(verdict, ("fail", "crashed (signal 11)"))
+
     def test_a_check_that_crashes_does_not_reject_an_illegal_design(self):
         self.write(":should_fail_because: bad declaration\n:expected_stderr_regex: bad declaration")
         verdict, _ = self.run_result("", "t.sv:1:1: error: bad declaration", -6)

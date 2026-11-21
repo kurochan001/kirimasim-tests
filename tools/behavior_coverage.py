@@ -455,7 +455,7 @@ def compact_report(snapshot: dict, source_url: str | None = None,
              f"- 要求カバレッジ（テスト設計）: {percent(snapshot['whole_standard_percent'])}。",
              "- 規格要求の実行確認率: " + ("未確定。" if whole_reproducible is None else
                                    f"Ghostを除いて {percent(whole_reproducible)}、"
-                                   f"Ghostを含めて {percent(snapshot['whole_standard_executed_percent'])}。"),
+                                   f"Ghostとkirimasimを含めて {percent(snapshot['whole_standard_executed_percent'])}。"),
              f"- 分母の承認: {'承認済み' if scope['reviewed'] else '未承認'}。"
              f"計測状態: `{snapshot['whole_standard_status']}`。",
              "- 資料確認、保留解釈の解決、要求単位の重複整理、分母のレビューを経て確定しました。"
@@ -555,12 +555,16 @@ def append_history(path: Path, entry: dict) -> None:
     results, and the run records how many were dropped; its counts are left as
     they were measured. An executed list that an earlier snapshot already
     holds is written as a reference to it (compact_history_lists), so the
-    history grows only by the lists that changed."""
+    history grows only by the lists that changed. An entry with a run_url
+    replaces an earlier entry of the same run (a rerun of the workflow)."""
     data = json.loads(path.read_text(encoding="utf-8")) if path.is_file() else {"schema": 1, "runs": []}
     require(data.get("schema") == 1 and isinstance(data.get("runs"), list),
             "unknown behavior history format")
     expand_history_lists(data)
     drop_unknown_snapshots(data)
+    if entry.get("run_url"):
+        # A rerun of a workflow measures the same run again.
+        data["runs"] = [r for r in data["runs"] if r.get("run_url") != entry["run_url"]]
     data["runs"].append(entry)
     compact_history_lists(data)
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -623,7 +627,7 @@ def report(inventory: dict, sections: dict, rows: list, runs: dict, ignored: lis
              f"**要求カバレッジ（テスト設計）: {pending if whole is None else f'{whole:.2f}%'}。**",
              "規格要求の実行確認率: " + ("未確定。" if executed_whole is None else
                                  f"Ghostを除いて {100 * stats['executed_reproducible'] / total:.2f}%、"
-                                 f"Ghostを含めて {executed_whole:.2f}%。"),
+                                 f"Ghostとkirimasimを含めて {executed_whole:.2f}%。"),
              "節の引用やテスト本数を、全動作の網羅率に換算しません。", "",
              f"- 規格棚卸し: 本文1–41章と附属書A–Q、計 {stats['sections']} 見出し。",
              f"- 規定部分の解釈保留なし: {stats['audited_sections']}/{stats['normative_sections']} 見出し "
@@ -653,12 +657,12 @@ def report(inventory: dict, sections: dict, rows: list, runs: dict, ignored: lis
         if whole is not None:
             lines[6:6] = [f"**全規格の要求台帳ベース（確定）: 設計 {display(provisional)}、"
                           f"Ghostを除く実行 {display(reproducible_pct)}、"
-                          f"Ghostを含む実行 {display(execution_pct)}。**",
+                          f"Ghostとkirimasimを含む実行 {display(execution_pct)}。**",
                           "解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。", ""]
         else:
             lines[6:6] = [f"**全規格の要求台帳ベース（暫定）: 設計 {display(provisional)}、"
                           f"Ghostを除く実行 {display(reproducible_pct)}、"
-                          f"Ghostを含む実行 {display(execution_pct)}。**",
+                          f"Ghostとkirimasimを含む実行 {display(execution_pct)}。**",
                           "解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。", ""]
     if source_audit:
         position = lines.index(f"- 規格棚卸し: 本文1–41章と附属書A–Q、計 {stats['sections']} 見出し。") + 1
@@ -726,6 +730,8 @@ def main() -> int:
     ap.add_argument("--summary-output", type=Path, help="compact Markdown; defaults beside the standard report")
     ap.add_argument("--summary-json", type=Path, help="compact JSON; defaults to coverage/behavior-summary.json")
     ap.add_argument("--history", type=Path, help="append counts and denominator identities to history")
+    ap.add_argument("--run-url", help="with --history: the workflow run measured; a rerun replaces "
+                                      "the entry of its earlier attempt")
     ap.add_argument("--require-complete", action="store_true",
                     help="require an audited whole-standard denominator and all behaviors mapped/executed")
     ap.add_argument("--require-source-reviewed", action="store_true",
@@ -861,7 +867,10 @@ def main() -> int:
                     "some sections lack a complete source-block classification")
         if args.history:
             require(not args.check, "--check cannot append measurement history")
-            append_history(args.history, summary_data(snapshot, keep_timestamp=True))
+            entry = summary_data(snapshot, keep_timestamp=True)
+            if args.run_url:
+                entry["run_url"] = args.run_url
+            append_history(args.history, entry)
     except (InvalidCoverage, KeyError, TypeError, OSError, ValueError) as exc:
         print(f"behavior coverage: {exc}", file=sys.stderr)
         return 1

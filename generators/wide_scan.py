@@ -60,17 +60,18 @@ def formatted(bits, code, signed):
             value -= 1 << len(bits)
         return str(value)
     group = {"b": 1, "h": 4, "o": 3}[code]
-    padded = bits.rjust(((len(bits) + group - 1) // group) * group, "0")
+    # Groups from the right; the leftmost one holds only the bits there are,
+    # so 14'bx01010 gives xxXa with %h (21.2.1.3).
     digits = []
-    for i in range(0, len(padded), group):
-        part = padded[i:i + group]
+    for end in range(len(bits), 0, -group):
+        part = bits[max(0, end - group):end]
         if "x" in part:
             digits.append("x" if set(part) == {"x"} else "X")
         elif "z" in part:
             digits.append("z" if set(part) == {"z"} else "Z")
         else:
             digits.append(format(int(part, 2), "x" if group == 4 else "o" if group == 3 else "b"))
-    return "".join(digits)
+    return "".join(reversed(digits))
 
 
 def inputs(width, form):

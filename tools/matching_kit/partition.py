@@ -22,7 +22,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 from behavior_coverage import section_key  # noqa: E402
+import propose  # noqa: E402
 
 
 def chunks(ids: list[str], clause_of: dict, target: int) -> list[list[str]]:
@@ -61,7 +63,10 @@ def main() -> int:
     ap.add_argument("--skip-roots", default="")
     args = ap.parse_args()
     rows = json.loads((ROOT / "coverage/behaviors.json").read_text(encoding="utf-8"))["requirements"]
-    tests = json.loads((ROOT / "coverage/test-matching.json").read_text(encoding="utf-8"))["tests"]
+    # The saved inventory plus the tests written since it was generated, as
+    # propose.py sees them; otherwise a row whose only candidate is a new
+    # test would be sent to the files that ask for new tests.
+    tests = list(propose.State().tests.values())
     reviews = json.loads((ROOT / "coverage/test-matching-reviews.json").read_text(encoding="utf-8"))["reviews"]
     held = {(rv["test"], rid) for rv in reviews for d in rv["decisions"] for rid in d["requirement_ids"]}
     skip = set(args.skip_roots.split())

@@ -228,11 +228,14 @@ ch5/test_operator_token_lengths fourstate 1
 ch5/test_unsized_fill_wide_part_select_nba width 2
 ch6/test_bit_type_edge_cases width 5
 ch6/test_byte_edge_cases width 9
+ch6/test_cast_casting_type_forms_and_const lrm-clause 1
 ch6/test_cast_dynamic_array width 3
 ch6/test_cast_edge_cases width 1
 ch6/test_cast_expr_2 width 1
 ch6/test_cast_function width 2
 ch6/test_cast_packed_struct_member width 1
+ch6/test_cast_shortreal_round_vs_bit_pattern lrm-clause 1
+ch6/test_charge_strength_and_vectored_net_declarations lrm-clause 1
 ch6/test_comb_string_compare width 4
 ch6/test_const_edge_cases width 5
 ch6/test_const_ops_edge_cases width 2

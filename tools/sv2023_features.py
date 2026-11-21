@@ -134,8 +134,10 @@ def validate(ledger: dict, root: Path = ROOT) -> list[str]:
             if path is None:
                 errors.append(f"{key}: the test {test} does not exist")
                 continue
-            if item.get("illegal") and "should_fail_because" not in suite_results.header(path):
-                errors.append(f"{key}: {test} is marked illegal but has no :should_fail_because:")
+            illegal = "should_fail_because" in suite_results.header(path)
+            if bool(item.get("illegal")) != illegal:
+                errors.append(f"{key}: {test} is marked {'' if item.get('illegal') else 'not '}"
+                              f"illegal but {'has no' if not illegal else 'has a'} :should_fail_because:")
     return errors
 
 

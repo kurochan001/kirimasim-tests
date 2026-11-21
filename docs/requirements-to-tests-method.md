@@ -262,7 +262,7 @@ README の「テストフォーマット」「メタデータ」「テストの�
 
 - 参照モデルは規格の表から作ります。表どうしの一致（例：版ごとの追加分の和が附属書Bと一致すること）を、生成器の中で検査します。
 - 規格違反テストのケースは`Case(should_fail_because=...)`とし、本文のエラー行を「`// illegal`」で終えます。`common.render`が、その行番号から`:expected_stderr_regex:`を作ります。
-- 実行結果から`generators/oracles.txt`に`:oracle:`を記録し、`generate.py`で書き直します。`record_oracles.py`は、`--verilator`を付けると対象外の生成テストまで`spec`に戻すので、新しいケースだけを同じ規則で追記します。
+- 実行結果から`generators/oracles.txt`に`:oracle:`を記録し、`generate.py`で書き直します。`record_oracles.py`は、渡した結果にあるテストの、渡したシミュレータの印だけを付け外しします（2026-11-21から）。
 - 生成器のコメントを直すと、エラーの行番号が変わることがあります。照合案のanchorも合わせて直します。
 
 <a id="8-stage-f-independent-review"></a>

@@ -4,3 +4,5 @@ __pycache__/
 /my-results/
 /random-results/
 /random-cross.log
+# Output directories that README.md suggests for local runs.
+/out/

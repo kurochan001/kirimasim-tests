@@ -39,6 +39,10 @@ class Case:
     # the body that ends with "// illegal" names the error in
     # :expected_stderr_regex:.
     should_fail_because: str | None = None
+    # Simulators ("icarus", "verilator") whose match record_oracles.py does
+    # not record as an oracle: their output is known to vary between runs or
+    # to match only by accident. The comment of the case says why.
+    unregistered: tuple[str, ...] = ()
 
 
 def read_oracles() -> dict[str, str]:

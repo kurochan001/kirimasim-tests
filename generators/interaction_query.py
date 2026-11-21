@@ -120,6 +120,7 @@ def make_case(row: Row) -> Case:
         fourstate=value in ("x", "z", "mixed") or control in ("unknown", "mixed", "duplicate"),
         extra={"interaction_model": f"{MODEL.name}@{MODEL.version}",
                "interaction_values": " ".join(f"{k}={v}" for k, v in MODEL.values(row).items())},
+        unregistered=("icarus",) if icarus_unstable(row) else (),
     )
 
 

@@ -296,10 +296,12 @@ def judge(test: Path, lyra: str, cache: Path, cxx: str | None, tmp: str,
     if norm == want and r.returncode >= 0:
         why = suite_results.judge_run(test, r.returncode, r.stdout + r.stderr)
         return ("fail" if why else "pass"), why
-    if unsupported:
-        return "unsupported", message(unsupported)
+    # A crash is reported as one even when Lyra also printed that something
+    # is not supported (README, "fail: crashed").
     if r.returncode < 0:
         return "fail", f"crashed (signal {-r.returncode})"
+    if unsupported:
+        return "unsupported", message(unsupported)
     internal = next((l for l in lines if "internal error:" in l), "")
     if internal:
         return "fail", message(internal)

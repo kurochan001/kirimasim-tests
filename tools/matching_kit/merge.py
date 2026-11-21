@@ -11,7 +11,9 @@ before this merge. Checks go to coverage/behaviors.json, with the input digest
 of the test computed now; groups become check_groups; holds are added to
 coverage/test-matching-reviews.json. Proposals already applied are skipped, so
 running it again changes nothing. A requirement that gets a group has every
-one of its checks in some group, as validate() requires.
+one of its checks in some group, as validate() requires; a test that satisfies
+the requirement on its own (a check proposal, or a check of a row that had no
+groups before) keeps a standalone group even when a group also lists it.
 
 Then regenerate the reports (docs/requirements-to-tests-method.md, section 9).
 """
@@ -92,11 +94,15 @@ def main() -> int:
             continue
         valid.append((source, p, v))
 
-    log, grouped = [], {}
+    # standalone[row id]: the tests that satisfy the row on their own. A test
+    # can also be a member of a group of the same row; it must keep its own
+    # standalone group then, or the row would need the whole group to pass.
+    log, grouped, standalone = [], {}, {}
     for source, p, v in valid:
         kind = p["type"]
         if kind == "check":
             r = rows[p["requirement_id"]]
+            standalone.setdefault(r["id"], set()).add(p["test"])
             if any(c["test"] == p["test"] for c in r["checks"]):
                 continue
             r["checks"].append({"test": p["test"],
@@ -105,6 +111,9 @@ def main() -> int:
                                 "inputs_sha256": digest(p["test"]), "evidence": p["evidence"]})
         elif kind == "group":
             r = rows[p["requirement_id"]]
+            if not r.get("check_groups"):
+                # Before its first group every check of a row stands alone.
+                standalone.setdefault(r["id"], set()).update(c["test"] for c in r["checks"])
             for m in p["members"]:
                 if not any(c["test"] == m["test"] for c in r["checks"]):
                     r["checks"].append({"test": m["test"], "observation": m["observation"],
@@ -134,8 +143,10 @@ def main() -> int:
 
     for r in grouped.values():
         in_groups = {t for g in r["check_groups"] for t in g["tests"]}
+        alone = {g["tests"][0] for g in r["check_groups"] if len(g["tests"]) == 1}
         for c in r["checks"]:
-            if c["test"] not in in_groups:
+            if c["test"] not in in_groups or \
+                    (c["test"] in standalone.get(r["id"], ()) and c["test"] not in alone):
                 r["check_groups"].append(
                     {"id": "standalone-" + Path(c["test"]).stem.replace("_", "-"),
                      "tests": [c["test"]], "reviewed_on": args.date, "reviewer": args.reviewer,

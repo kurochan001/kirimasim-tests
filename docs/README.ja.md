@@ -183,3 +183,4 @@
 | WSL2 の再測定と試作検証の受領（2026-11-16） | [日本語](simulation-speed-wsl2-followup-20261116.ja.md) | [English](simulation-speed-wsl2-followup-20261116.md) |
 | テストのない要求の仕分け（2026-11-20） | [日本語](unmapped-requirements-20261120.md) | [English](unmapped-requirements-20261120.en.md) |
 | 生成テストの仕分けの案（2026-11-20） | [日本語](generator-classification-20261120.md) | [English](generator-classification-20261120.en.md) |
+| リポジトリのレビュー（2026-11-21） | [日本語](repo-review-20261121.md) | [English](repo-review-20261121.en.md) |

@@ -327,8 +327,18 @@ jobs:
         run: |
           if [ ! -f results/kirimasim.json ]; then
             echo "No results of kirimasim: the comparison is skipped."
-          elif git fetch -q --depth 1 origin results &&
-               git show FETCH_HEAD:latest/kirimasim.json > previous-kirimasim.json 2>/dev/null; then
+          elif ! git fetch -q --depth 1 origin results; then
+            echo "::warning::The results branch could not be fetched, so kirimasim was not compared with the previous night."
+          elif git show FETCH_HEAD:latest/kirimasim.json > previous-kirimasim.json 2>/dev/null; then
+            # A rerun: an earlier attempt of this run has already published,
+            # so the run before it is in latest/previous/.
+            this_run="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            if python3 -c 'import json, sys; sys.exit(json.load(open(sys.argv[1])).get("run_url") != sys.argv[2])' \
+                 previous-kirimasim.json "$this_run" &&
+               ! git show FETCH_HEAD:latest/previous/kirimasim.json > previous-kirimasim.json 2>/dev/null; then
+              echo "No results of kirimasim before this run: the comparison is skipped."
+              exit 0
+            fi
             python3 tools/results_ratchet.py previous-kirimasim.json results/kirimasim.json \
               | tee ratchet.log
             status=${PIPESTATUS[0]}
@@ -567,6 +577,14 @@ jobs:
               echo "::error::The private path of the parser is not a directory inside the workspace."
               exit 1 ;;
           esac
+          # The directory is replaced, and results/ and history/ are published.
+          case "${PARSER_PATH%/}" in
+            results | results/* | history | history/* | simulator | .git | .git/* | .github | .github/* | \
+            tests | tests/* | tools | tools/* | generators | generators/* | coverage | coverage/* | \
+            docs | docs/* | bench | bench/*)
+              echo "::error::The private path of the parser is a directory that the run uses or publishes."
+              exit 1 ;;
+          esac
           if [ -z "$PARSER_KEY" ]; then
             echo "::error::The parser read-only deploy key is not configured."
             exit 1
@@ -710,7 +728,8 @@ jobs:
             --summary-output history/behavior-coverage-summary.md \
             --summary-json history/behavior-summary.json --require-source-reviewed \
             --source-url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/blob/$GITHUB_SHA" \
-            --history history/behavior-history.json
+            --history history/behavior-history.json \
+            --run-url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
           sed -n '/^## 全規格/,/^## 章・附属書別/p' history/behavior-coverage-summary.md >> "$GITHUB_STEP_SUMMARY"
           printf '\nBehavioral coverage / 動作カバレッジ集計: [English](%s/%s/blob/results/behavior-coverage-summary.en.md) / [日本語](%s/%s/blob/results/behavior-coverage-summary.md)\n' \
             "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" \

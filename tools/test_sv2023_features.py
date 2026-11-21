@@ -60,6 +60,7 @@ class Features(unittest.TestCase):
         for change in ({"listed_in": "blog"}, {"clauses": ["clause eight"]},
                        {"requirements": ["SV2023-UNKNOWN"]},
                        {"tests": [{"test": "ch8/test_a", "illegal": True}]},
+                       {"tests": [{"test": "ch8/test_illegal_b", "illegal": False}]},
                        {"tests": [{"test": "ch8/test_missing", "illegal": False}]}):
             with self.subTest(change=change):
                 feature = copy.deepcopy(FEATURE)

@@ -98,6 +98,26 @@ class Rules(unittest.TestCase):
         self.assertIn("empty-field", self.rules(empty))
         self.assertNotIn("stderr-regex", self.rules(empty))
 
+    def test_an_illegal_regex_must_name_a_file_and_line(self):
+        for regex, problems in ((r"test_a\.sv:14:", []), (r"test_a\.sv:(14|15):", []),
+                                (r"inc_a\.svh:3:", []), (r"test_a\.sv:(?:14|15):", []),
+                                (r"(?i)error", ["stderr-location"]),
+                                (r"test_a\.sv", ["stderr-location"]),
+                                (r":14:", ["stderr-location"])):
+            with self.subTest(regex=regex):
+                path = self.write("ch6/test_a", ILLEGAL.format(name="test_a", regex=regex))
+                self.assertEqual(self.rules(path), problems)
+
+    def test_a_clause_that_the_standard_lacks_is_reported(self):
+        path = self.write("ch6/test_a", LEGAL.format(name="test_a", chapter="ch6", clause="6.1 6.12.2"))
+        self.assertEqual(dict(lint.check(path)).get("lrm-clause"), "6.12.2 is not a section of the standard")
+
+    def test_a_field_written_twice_is_reported(self):
+        path = self.write("ch6/test_a", LEGAL.format(name="test_a", chapter="ch6", clause="6.1")
+                          .replace(":fourstate: no\n", ":fourstate: no\n:fourstate: yes\n"))
+        self.assertEqual(dict(lint.check(path)).get("duplicate-field"),
+                         ":fourstate: appears more than once")
+
     def test_a_name_of_two_tests_is_reported_for_both(self):
         paths = [self.legal("ch6/test_a"), self.legal("ch8/test_a"), self.legal("ch8/test_b"),
                  self.legal("gen/ch9/test_c", name="test_b")]

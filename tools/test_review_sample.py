@@ -72,6 +72,21 @@ class Strata(TempRoot):
         self.assertEqual(found["left_out"]["no_current_result"], 1)
         self.assertEqual(found["strata"]["ghost_only"], [])
 
+    def test_a_bare_status_is_not_used_when_the_test_changed_after_the_run(self):
+        kept = write_test(self.root, "test_kept")
+        changed = write_test(self.root, "test_changed")
+        directory = self.root / "latest"
+        directory.mkdir()
+        (directory / "ghost.json").write_text(json.dumps(
+            {"version": "v", "generated_at": "t", "suite_commit": "abc",
+             "tests": {"ch5/test_kept": "pass", "ch5/test_changed": "pass"}}), encoding="utf-8")
+        runs = rs.load_runs(directory)
+        with mock.patch.object(rs, "changed_since", return_value={"tests/ch5/test_changed.sv"}):
+            found = rs.classify(self.root, runs)
+        self.assertEqual(found["strata"]["ghost_only"], ["ch5/test_kept"])
+        self.assertEqual(found["left_out"]["no_current_result"], 1)
+        self.assertTrue(kept.is_file() and changed.is_file())
+
     def test_chapters_restrict_the_population(self):
         write_test(self.root, "test_a")
         directory = results(self.root, {"ghost": {"ch5/test_a": "pass"}})
@@ -109,6 +124,11 @@ class Bounds(unittest.TestCase):
         self.assertAlmostEqual(bound, 0.0764, places=3)
         self.assertEqual(rs.upper_bound(5, 5), 1.0)
 
+    def test_finding_an_error_never_lowers_the_bound(self):
+        for n in range(1, 80):
+            with self.subTest(n=n):
+                self.assertGreaterEqual(rs.upper_bound(1, n), rs.upper_bound(0, n))
+
 
 class Ledger(TempRoot):
     def setUp(self):
@@ -117,14 +137,48 @@ class Ledger(TempRoot):
         self.ledger = self.root / "human-review.json"
         self.sheet = self.root / "sheet.json"
 
-    def fill(self, **fields):
+    def fill(self, chapters=(), **fields):
         item = {"test": "ch5/test_r", "path": "tests/ch5/test_r.sv", "stratum": "ghost_only",
                 "inputs_sha256": suite_results.input_digest(self.path), "verdict": "correct",
                 "basis_clauses": "5.7.1, 5.7.2", "reviewer": "A. Person", "date": "2026-11-21",
                 "notes": ""}
         item.update(fields)
-        self.sheet.write_text(json.dumps({"seed": 1, "generated_at": "t", "tests": [item]}),
-                              encoding="utf-8")
+        self.sheet.write_text(json.dumps({"seed": 1, "generated_at": "t", "chapters": list(chapters),
+                                          "tests": [item]}), encoding="utf-8")
+
+    def test_a_test_counts_once_however_many_review_it(self):
+        for reviewer in ("A. Person", "B. Person", "C. Person"):
+            self.fill(reviewer=reviewer)
+            self.assertEqual(rs.record(self.sheet, self.ledger, self.root), 0)
+        ledger = json.loads(self.ledger.read_text(encoding="utf-8"))
+        self.assertEqual(len(ledger["reviews"]), 3)
+        self.assertEqual(rs.summarize(ledger, self.root)["ghost_only"]["n"], 1)
+        self.fill(reviewer="D. Person", verdict="test_defect")
+        rs.record(self.sheet, self.ledger, self.root)
+        row = rs.summarize(json.loads(self.ledger.read_text(encoding="utf-8")), self.root)["ghost_only"]
+        self.assertEqual((row["n"], row["k"]), (1, 1))
+
+    def test_a_contested_test_is_left_out_of_n(self):
+        self.fill(verdict="contested")
+        rs.record(self.sheet, self.ledger, self.root)
+        row = rs.summarize(json.loads(self.ledger.read_text(encoding="utf-8")), self.root)["ghost_only"]
+        self.assertEqual((row["n"], row["k"], row["contested"], row["upper_bound"]), (0, 0, 1, None))
+
+    def test_samples_of_a_chapter_are_reported_apart(self):
+        self.fill(chapters=["5"], verdict="test_defect")
+        rs.record(self.sheet, self.ledger, self.root)
+        ledger = json.loads(self.ledger.read_text(encoding="utf-8"))
+        self.assertEqual(ledger["reviews"][0]["sample"]["chapters"], ["5"])
+        self.assertEqual(rs.summarize(ledger, self.root)["ghost_only"]["n"], 0)
+        self.assertEqual(rs.summarize(ledger, self.root, {"5"})["ghost_only"]["k"], 1)
+
+    def test_check_counts_a_removed_test_as_stale(self):
+        self.fill()
+        rs.record(self.sheet, self.ledger, self.root)
+        self.path.unlink()
+        ledger = json.loads(self.ledger.read_text(encoding="utf-8"))
+        self.assertEqual(rs.review_errors(ledger["reviews"][0], self.root), [])
+        self.assertEqual(rs.summarize(ledger, self.root)["ghost_only"]["stale"], 1)
 
     def test_a_filled_entry_is_recorded_and_the_test_is_not_changed(self):
         before = self.path.read_bytes()

@@ -139,17 +139,13 @@ def check_member(state: State, rid: str, m: dict, standalone: bool) -> None:
     if not any(a.get("file") == name for a in anchors):
         reject("evidence must include a stimulus anchor in the test .sv itself")
     inputs = {p.relative_to(ROOT).as_posix() for p in suite_results.input_files(test)}
-    expected_names = []
-    for field in suite_results.EXPECTED_FIELDS:
-        value = fields.get(field)
-        if value is None:
-            continue
-        expected_name = ((test.parent / value[1:]).resolve().relative_to(ROOT).as_posix()
-                         if value.startswith("@") else name)
-        if expected_name not in expected_names:
-            expected_names.append(expected_name)
-    if not expected_names:
-        expected_names.append(name)
+    # The ledger validation (behavior_coverage.validate) accepts only the
+    # common :expected_stdout: file, or the test itself when the expectation
+    # is inline; an anchor in a simulator-specific expectation would pass
+    # here and then stop the merge.
+    value = fields.get("expected_stdout", "")
+    expected_names = [(test.parent / value[1:]).resolve().relative_to(ROOT).as_posix()
+                      if value.startswith("@") else name]
     if r["kind"] != "error":
         if not any(a.get("file") in expected_names for a in anchors):
             reject("evidence must include an anchor in the checked output "

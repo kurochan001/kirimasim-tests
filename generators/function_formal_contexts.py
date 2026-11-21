@@ -97,7 +97,8 @@ def runtime(direction, width, signed):
                         "no constant call passes a local variable. Icarus "
                         "Verilog 13.0 does not implement these ordinary "
                         "noninput function formals and is not an oracle.",
-                body="\n".join(lines)+"\n",expected="\n".join(expected)+"\n")
+                body="\n".join(lines)+"\n",expected="\n".join(expected)+"\n",
+                unregistered=("icarus",))
 
 
 def shift(value, width, signed):

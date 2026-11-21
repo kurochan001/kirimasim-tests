@@ -9,8 +9,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "d66c39df1fa50c6d715126bfcf0da36e20e09c33eed1a2fd002ff82dd36ddd02",
-        "ja": "bbab8f4923fcec4dea4c5a85262db33491475841784d883ec92952ea3c874385"
+        "en": "27e701bb6e2bdd6a1252cba5b4ea021182b65280ae28107151fbe78e99657d77",
+        "ja": "b7979506d5f178ee3d84faeb56abe16bbbe9378d33f9f6ee050c21ad00dd0783"
       }
     },
     {
@@ -20,8 +20,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "61c7919ba69b7d31df9d0c0b00241e283cc55275bcccfacfccbe645fc51a1efd",
-        "ja": "ade6da4ed5201735f30ccd6636e13b9095afd0d51dc579b3259ee7743c53a856"
+        "en": "2af31edefd3a86eca1ad56d7040f8f047ce826c12d8ac344155f650f29f84644",
+        "ja": "5c8875809d124681601ce27e86a438c9d3950fd442f591d2b740d762239451d4"
       }
     },
     {
@@ -425,8 +425,8 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "d9237f1fb0e3cdea4c07ef5539a1ea33e951bd0ca3353af082e2c67042ac9904",
-        "ja": "ef527acf2459f1a66221868b80113842f0dd876cab4c5ca07b2beb531f418ec8"
+        "en": "24dcc156983cf660b5601fc5e6103cd656b9d5dbfc2d921e990661bd81a351f8",
+        "ja": "3b398ef58720488f876f31f8e7a82890fee50b21f2dc6fcec197872393fd3c2f"
       }
     },
     {
@@ -443,8 +443,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "a579adb656c79da988aa0993edeedf24c343845e2c5cd5a68d885fa52441b0d4",
-        "ja": "14006b8baa321caf2a61c796b9d386addf79b918b239f06c714e5e373653f2c8"
+        "en": "9d40585bb2ef0a69d97aa40b6b984671615075af78a8dd03ffda7d5171944ebe",
+        "ja": "9a97639303bf67383d0a546756d5c8a92ad54e2f609e8fa036e05d26dced8110"
       }
     },
     {
@@ -615,8 +615,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "80b50cb2acd59277984b3b5ecaa790d6048f09883232a6ed2ccb30f8cde26637",
-        "ja": "b30cfe95c36e9c2d65d8e3e0a88360d66c15cf944f277e5dfa1a6f8bbf7fc11d"
+        "en": "3f935365e9caca25fa28ac51b1c4115ba8ae9e9274b68df3ecd8d78a3d38a202",
+        "ja": "b8c3062d3ca2668d6b2fde4f0d2190a671966040e5d127dac0f538aa42461c51"
       }
     },
     {
@@ -1352,8 +1352,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "26c11c4d9c1487f9a40193bcbe69988b641393b2a36755f6a0407bd101f7468e",
-        "ja": "29cb16d12bbc09c8a6eb77d0403a9b5c537945e97fadc1c8a7cca5fc6c6a0871"
+        "en": "281366855ff719bde7298ba73a9b8f681402cbee09499867fc9ebc47c5411534",
+        "ja": "07de21a0ce9961473437a0af66adf1063ff11fecb3d4bccfd8ff0407fc411b85"
       }
     },
     {
@@ -1401,6 +1401,17 @@
       "sha256": {
         "en": "bbf3d0c06988d70475b68ad812c408bcf8c6b255c218ed98c5a9382bd92786fa",
         "ja": "a545e6166f4e14e4f2d5e6e6d2666ac1d444b882952601a2ebeea8ff80ac92fc"
+      }
+    },
+    {
+      "en": "docs/repo-review-20261121.en.md",
+      "ja": "docs/repo-review-20261121.md",
+      "source": "docs/repo-review-20261121.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "c6c577e1d21b836fe1a32bd8fd34ad59299e5794968570ea5879dd8405c371cd",
+        "ja": "7a3737066e11538c59ef47acd7bbf51d3b7afed2d68c721155782aed7bf4da37"
       }
     }
   ]

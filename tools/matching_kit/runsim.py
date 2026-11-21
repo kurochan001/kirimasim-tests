@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Run tests with Icarus Verilog 13.0 and Verilator 5.052 (seeds 1 and 73) and
-say, for each test and run, whether it produces its expected result.
+"""Run tests with Icarus Verilog and Verilator (seeds 1 and 73) and say, for
+each test and run, whether it produces its expected result.
 
 Usage:
     runsim.py [--iverilog-bin DIR] [--verilator PATH] tests/chNN/test_x.sv [...]
@@ -10,7 +10,9 @@ the iverilog on PATH). The runs use tools/run_icarus.py and
 tools/run_verilator.py --all and write their JSON to a temporary directory, so
 nothing in the repository changes. A test matches a release when that run
 passes; use it to decide :oracle: (README, "Where the expected outputs come
-from"). With ccache on PATH, Verilator models compile through it.
+from"). The version each run used is printed first: a release token such as
+iverilog@13.0 or verilator@5.052 is right only for a match on that release.
+With ccache on PATH, Verilator models compile through it.
 """
 
 import argparse
@@ -49,6 +51,8 @@ def main() -> int:
         for p in procs:
             p.wait()
         results = {name: json.loads(Path(d, file).read_text(encoding="utf-8")) for name, file in RUNS}
+    for name, data in results.items():
+        print(f"{name:17s} {data.get('version', '?')}")
     for t in args.tests:
         tid = (ROOT / t).resolve().relative_to(ROOT / "tests").with_suffix("").as_posix()
         print(f"== {t}")

@@ -204,6 +204,9 @@ def case(kind: str, member: str, level: str) -> Case:
                             f"{allowed_levels(kind, member)}, and the {kind} "
                             f"structure of a {level} (19.10) has no member {member}, so the "
                             f"assignment in the body of {level} {ITEM[level]} is an error",
+        # Icarus rejects every covergroup line, so its error at this line is
+        # no evidence of the intended one.
+        unregistered=("icarus",),
     )
 
 

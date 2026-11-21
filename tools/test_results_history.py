@@ -122,6 +122,48 @@ class ResultsHistoryTests(unittest.TestCase):
         latest = json.loads((self.directory / "latest/icarus.json").read_text(encoding="utf-8"))
         self.assertEqual(latest["time"], "2026-10-28T00:00:00Z")
 
+    def publish(self, time, results, run_url):
+        """One publish of a nightly run: results maps a simulator to its tests."""
+        sources = []
+        for sim, tests in results.items():
+            source = self.directory / f"{sim}.json"
+            history.save_json(source, result(sim, sim.title(), tests))
+            sources.append(source)
+        with mock.patch.object(history.suite_stats, "collect", return_value={
+                "totals": {"tests": 2}, "chapters": {6: {"tests": 2}}}), \
+                mock.patch("sys.stderr", io.StringIO()):
+            return history.update(self.directory, sources, "d" * 40, run_url, time)
+
+    def test_a_rerun_replaces_its_record_and_is_compared_with_the_run_before(self):
+        self.publish("2026-11-19T00:00:00Z", {"icarus": {"ch6/a": "fail", "ch6/b": "pass"},
+                                              "ghost": {"ch6/a": "fail", "ch6/b": "fail"}},
+                     "https://example.test/runs/1")
+        # The first attempt of run 2 lacks Icarus, whose build failed.
+        self.publish("2026-11-20T00:00:00Z", {"ghost": {"ch6/a": "pass", "ch6/b": "fail"}},
+                     "https://example.test/runs/2")
+        # The rerun publishes every simulator again.
+        again = self.publish("2026-11-20T03:00:00Z",
+                             {"icarus": {"ch6/a": "pass", "ch6/b": "pass"},
+                              "ghost": {"ch6/a": "pass", "ch6/b": "fail"}},
+                             "https://example.test/runs/2")
+        runs = history.load_history(self.directory)
+        self.assertEqual([r["run_url"] for r in runs],
+                         ["https://example.test/runs/1", "https://example.test/runs/2"])
+        self.assertEqual(again["simulators"]["ghost"]["changes"]["passing"], 1)
+        self.assertEqual(again["simulators"]["icarus"]["changes"]["passing"], 1)
+        latest = json.loads((self.directory / "latest/ghost.json").read_text(encoding="utf-8"))
+        self.assertEqual((latest["run_url"], latest["tests"]["ch6/a"]),
+                         ("https://example.test/runs/2", "pass"))
+        previous = json.loads((self.directory / "latest/previous/ghost.json")
+                              .read_text(encoding="utf-8"))
+        self.assertEqual(previous["run_url"], "https://example.test/runs/1")
+        # A third publish of the same run still compares with run 1.
+        third = self.publish("2026-11-20T05:00:00Z", {"ghost": {"ch6/a": "pass", "ch6/b": "fail"}},
+                             "https://example.test/runs/2")
+        self.assertEqual(third["simulators"]["ghost"]["changes"]["passing"], 1)
+        self.assertIn("icarus", third["simulators"])
+        self.assertEqual(len(history.load_history(self.directory)), 2)
+
     def test_times_are_ordered_as_times_not_as_text(self):
         runs = [{"time": "2026-10-27T16:21:03.5+00:00"}, {"time": "2026-10-27T16:21:03Z"},
                 {"time": "2026-10-27T23:00:00+09:00"}, {"time": "2026-10-27T15:00:00"}]

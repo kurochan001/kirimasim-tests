@@ -18,8 +18,9 @@ The tests that are not formal and have no fixed-release oracle (`iverilog@13.0`,
 | `reference_pass` | pass on the latest Icarus Verilog, Verilator or Lyra |
 
 - A result is used only when its run recorded the same input digest as the test has now. If the test changed after the run, that run's result does not place it.
+- A result without an input digest per test, such as `latest/<simulator>.json` of the results branch, is used only when git shows no change to the test's input files after the `suite_commit` of the run. When git cannot tell (a shallow clone, for example), a warning is printed and the result is used as it is.
 - A test that fits no stratum, such as one that passes on kirimasim alone, is counted but not drawn.
-- `--chapter` (repeatable) restricts the strata to chapters.
+- `--chapter` (repeatable) restricts the strata to chapters. The sample records the chapters it was drawn from.
 
 ## Draw a sample
 
@@ -62,14 +63,17 @@ python3 tools/review_sample.py record review-sheet/review-sample.json
 python3 tools/review_sample.py report [--chapter 37] [--json report.json]
 ```
 
-For each stratum the report gives the number n of current verdicts, the number k of errors (`expectation_wrong` and `test_defect`), the number of `contested` verdicts, the number of stale verdicts and a one-sided 95% upper bound on the error rate.
+For each stratum the report gives the number n of tests with a current verdict, the number k of tests found wrong (`expectation_wrong` and `test_defect`), the number of `contested` tests, the number of stale verdicts and a one-sided 95% upper bound on the error rate.
+
+- A test counts once, however many people reviewed it. It is wrong when anyone found it wrong, `contested` when nobody found it wrong and someone found it contested, and correct otherwise.
+- Samples are counted per sampling frame. Without `--chapter` only samples drawn from all chapters count; with `--chapter 37` only samples drawn from chapter 37. Samples drawn from different frames are not random draws from one population, so they are not pooled.
 
 - When k = 0 the bound is 3/n (the rule of three): 5% for 60 tests and 1% for 300.
-- When k > 0 it is the one-sided 95% Clopper–Pearson bound: the error rate at which the binomial probability P(X ≤ k) is 5%.
-- `contested` is not counted as an error but counted apart. How tests that read two ways are treated is for the owner to decide.
+- When k > 0 it is the one-sided 95% Clopper–Pearson bound: the error rate at which the binomial probability P(X ≤ k) is 5%. For very small n (three or fewer), where this can fall below 3/n, 3/n is used, so that finding an error never lowers the bound.
+- A `contested` test is not counted as an error and is left out of n, since it is neither right nor wrong; it is counted apart. How tests that read two ways are treated is for the owner to decide.
 - A verdict whose test changed after it was recorded is stale and is left out of n. A test whose expectation was fixed is drawn and read again.
 
-`python3 tools/review_sample.py check` validates the ledger; the readme job of Check runs it.
+`python3 tools/review_sample.py check` validates the ledger; the readme job of Check runs it. A verdict on a test that was renamed or removed is counted as stale, not as an error.
 
 ## Difference from the review candidates
 

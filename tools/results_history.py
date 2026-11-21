@@ -18,7 +18,10 @@ newest time, whatever the order they were added in. A run added with a --time
 before a simulator's latest recorded run goes to its place in the history; its
 results for that simulator are not compared with any run and do not replace
 DIR/latest/<simulator>.json, which stays that of the newest run. A --time
-without a UTC offset is read as UTC. render writes DIR/charts/*.svg and DIR/README.md / DIR/README.ja.md from
+without a UTC offset is read as UTC. A rerun of a workflow publishes the same
+--run-url again: its record replaces the earlier one (keeping the simulators
+only the earlier attempt had), and each simulator is compared with the run
+before the first attempt, which DIR/latest/previous/<simulator>.json keeps. render writes DIR/charts/*.svg and DIR/README.md / DIR/README.ja.md from
 DIR/history.json alone. A simulator that the suite no longer has a runner for
 (tools/run_<simulator>.py) stays in the history but is not drawn when it is one
 of RETIRED; update and render drop the results of any other simulator without
@@ -140,7 +143,8 @@ def prune(directory: Path) -> list[dict]:
     runs = load_history(directory)
     if (directory / "history.json").is_file():
         save_json(directory / "history.json", {"runs": runs})
-    for path in sorted((directory / "latest").glob("*.json")):
+    for path in sorted([*(directory / "latest").glob("*.json"),
+                        *(directory / "latest" / "previous").glob("*.json")]):
         if not kept(path.stem):
             path.unlink()
     return runs
@@ -223,8 +227,16 @@ def update(directory: Path, results: list[Path], commit: str, run_url: str, time
                   file=sys.stderr)
             continue
         latest = directory / "latest" / f"{sim}.json"
+        previous = directory / "latest" / "previous" / f"{sim}.json"
         newest = json.loads(latest.read_text(encoding="utf-8")) if latest.is_file() else None
-        if newest and newest.get("time") and parse_time(time) < parse_time(newest["time"]):
+        # An earlier attempt of this run already replaced latest/; compare with
+        # the run before it, which that attempt kept in latest/previous/.
+        again = bool(run_url) and newest is not None and newest.get("run_url") == run_url
+        base = newest
+        if again:
+            base = json.loads(previous.read_text(encoding="utf-8")) if previous.is_file() else None
+        if newest and not again and newest.get("time") and \
+                parse_time(time) < parse_time(newest["time"]):
             # An earlier run than the latest recorded one. The results of the
             # run before it are not kept, so it is compared with none, and
             # latest/ stays that of the newest run.
@@ -233,13 +245,26 @@ def update(directory: Path, results: list[Path], commit: str, run_url: str, time
                   f"and latest/{sim}.json is kept", file=sys.stderr)
             run["simulators"][sim] = {**summarize(result, None), "earlier_than_latest": True}
             continue
-        run["simulators"][sim] = summarize(result, newest["tests"] if newest else None)
+        run["simulators"][sim] = summarize(result, base["tests"] if base else None)
+        if newest and not again:
+            save_json(previous, newest)
         save_json(latest, {"name": result["name"], "version": result["version"], "time": time,
                            "suite_commit": commit,
+                           **({"run_url": run_url} if run_url else {}),
                            **({"source": source} if source != "nightly" else {}),
                            "tests": {t: r["status"] for t, r in result["tests"].items()}})
+    runs = prune(directory)
+    earlier = [r for r in runs if run_url and r.get("run_url") == run_url]
+    if earlier:
+        print(f"results_history: {run_url} was recorded before; its record is replaced",
+              file=sys.stderr)
+        merged = {}
+        for r in earlier:
+            merged.update(r["simulators"])
+        run["simulators"] = {**merged, **run["simulators"]}
+        runs = [r for r in runs if r.get("run_url") != run_url]
     run["simulators"] = dict(sorted(run["simulators"].items(), key=lambda kv: sim_order(kv[0])))
-    runs = in_time_order(prune(directory) + [run])
+    runs = in_time_order(runs + [run])
     save_json(directory / "history.json", {"runs": runs})
     render(directory, runs)
     return run
@@ -888,6 +913,9 @@ def report(runs: list[dict], sims: list[str], language: str = "en") -> str:
         tr("- `latest/<simulator>.json`: the result of every test in the latest run of each "
            "simulator, which the next run is compared with.",
            "- `latest/<simulator>.json`: 各シミュレータの最新実行における全テストの結果。次回実行の比較元になります。"),
+        tr("- `latest/previous/<simulator>.json`: the run before the latest one, which a rerun "
+           "of the latest run is compared with.",
+           "- `latest/previous/<simulator>.json`: 最新の1つ前の実行。最新の実行を再実行したときの比較元になります。"),
         tr("- `charts/*.svg`: the charts above.",
            "- `charts/*.svg`: 上記の図。日本語版は `.ja.svg`、英語版は `.svg` です。"),
         "",

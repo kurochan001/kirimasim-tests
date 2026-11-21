@@ -6,6 +6,10 @@ Usage:
     python3 generators/generate.py --check    exit with 1 if tests/gen/ is out of date
     python3 generators/generate.py --list     print the name of every generated test
 
+Every mode first checks generators/oracles.txt and stops when a line names
+no case or a case twice, or gives a Verilator token to a case that depends
+on x or z.
+
 See common.py for the form of a generator, and "Generated tests" in README.md.
 """
 
@@ -205,6 +209,26 @@ GENERATORS = [interaction_progmod, interaction_progif, interaction_simend, inter
               array_element_refs, bitvector_queries, array_shape_queries, stream_boundaries, packed_lanes, division_boundaries, fourstate_boundaries, arithmetic_context, power_boundaries, wide_scan, nba_boundaries, memory_file_boundaries, negative_power_controls, wide_value_boundaries, constant_power_controls, wide_shift_boundaries, wide_cast_boundaries, wide_force_boundaries, wide_constant_calls, wide_runtime_aliases, wide_format_roundtrips, packed_read_controls, wide_format_fields, wide_bitvector_queries, wide_array_shapes]
 
 
+def oracle_problems(generators) -> list[str]:
+    """Lines of oracles.txt that name no case or a case twice, and Verilator
+    tokens on cases that depend on x or z (Verilator has two states)."""
+    cases = {c.name: c for g in generators for c in g.cases()}
+    problems, seen = [], set()
+    for line in common.ORACLES.read_text(encoding="utf-8").splitlines() if common.ORACLES.exists() else []:
+        if not line.strip() or line.startswith("#"):
+            continue
+        name, oracle = line.split(None, 1)
+        if name in seen:
+            problems.append(f"{name} is listed twice")
+        seen.add(name)
+        case = cases.get(name)
+        if case is None:
+            problems.append(f"{name} is not a case of any generator")
+        elif case.fourstate and "verilator@" in oracle:
+            problems.append(f"{name} depends on x or z but lists {oracle}")
+    return problems
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--check", action="store_true", help="only check that tests/gen/ is up to date")
@@ -212,6 +236,11 @@ def main() -> int:
     args = ap.parse_args()
 
     files = common.outputs(GENERATORS)
+    problems = oracle_problems(GENERATORS)
+    for problem in problems:
+        print(f"generators/oracles.txt: {problem}", file=sys.stderr)
+    if problems:
+        return 1
     if args.list:
         for path in sorted(files):
             if path.suffix == ".sv":

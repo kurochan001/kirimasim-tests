@@ -58,7 +58,8 @@ jobs:
           echo "conditions=$conditions" >> "$GITHUB_OUTPUT"
       - name: Install build prerequisites
         run: |
-          sudo apt-get update
+          # As in check.yml: a source that the runner image adds can fail.
+          sudo apt-get update || echo "::warning::apt-get update failed for some sources"
           sudo apt-get install -y --no-install-recommends ninja-build cmake autoconf gperf bison flex help2man libfl-dev zlib1g-dev libbz2-dev
       - name: Restore release installations
         id: cache
@@ -129,7 +130,7 @@ jobs:
           PY_SUMMARY
       - name: Upload samples and sanitized execution logs even on failure
         if: always()
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.1
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: benchmark-${{ github.run_id }}-${{ github.run_attempt }}
           path: |

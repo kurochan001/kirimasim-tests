@@ -99,7 +99,8 @@ def case(version: str, word: str) -> Case:
              "`end_keywords\n",
         expected="",
         should_fail_because=f"{word} is reserved in the complete {version} keyword set "
-                            f"of {clause}, so it cannot be an unescaped variable name")
+                            f"of {clause}, so it cannot be an unescaped variable name",
+        unregistered=("verilator",) if (version, word) in UNSUPPORTED_BY_5054 else ())
 
 
 def cases() -> list[Case]:

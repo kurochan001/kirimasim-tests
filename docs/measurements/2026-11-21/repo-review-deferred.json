@@ -1,0 +1,328 @@
+{
+ "schema": 1,
+ "date": "2026-11-21",
+ "suite_commit": "82b5713f",
+ "purpose": "Fixes of existing tests found by the repository review of 2026-11-21 and left for the next re-save of Ghost's results (docs/repo-review-20261121.md).",
+ "net_typed_ansi_inputs": {
+  "clauses": [
+   "23.2.2.3",
+   "6.7.1"
+  ],
+  "tests": {
+   "tests/ch10/test_assignment_like_contexts.sv": {
+    "kind": "legal",
+    "declarations": [
+     "25: input pair_t in"
+    ]
+   },
+   "tests/ch11/test_aggregate_copy_through_port_and_argument.sv": {
+    "kind": "legal",
+    "declarations": [
+     "25: input pair_t i"
+    ]
+   },
+   "tests/ch22/include_guard_two_files_helper.sv": {
+    "kind": "helper",
+    "declarations": [
+     "3: input int x"
+    ]
+   },
+   "tests/ch23/test_23_extra_bind_end_scope.sv": {
+    "kind": "legal",
+    "declarations": [
+     "33: input int a",
+     "42: input int x",
+     "42: input int y"
+    ]
+   },
+   "tests/ch23/test_23_extra_bind_instance_name.sv": {
+    "kind": "legal",
+    "declarations": [
+     "26: input int a",
+     "29: input int a",
+     "32: input int x"
+    ]
+   },
+   "tests/ch23/test_23_extra_bind_placement.sv": {
+    "kind": "legal",
+    "declarations": [
+     "28: input int a",
+     "31: input int a",
+     "34: input int a",
+     "37: input int x"
+    ]
+   },
+   "tests/ch23/test_23_extra_instance_unpacked_dims.sv": {
+    "kind": "illegal",
+    "declarations": [
+     "29: input int p"
+    ]
+   },
+   "tests/ch23/test_bind_only_selected_instance.sv": {
+    "kind": "legal",
+    "declarations": [
+     "19: input bit flag",
+     "20: input bit flag"
+    ]
+   },
+   "tests/ch23/test_extern_module_named_parameter_binding.sv": {
+    "kind": "W",
+    "declarations": [
+     "17: input bit",
+     "24: input bit"
+    ]
+   },
+   "tests/ch23/test_module_inst.sv": {
+    "kind": "legal",
+    "declarations": [
+     "14: input int a"
+    ]
+   },
+   "tests/ch23/test_nested_module_implicit_instance.sv": {
+    "kind": "legal",
+    "declarations": [
+     "43: input int p"
+    ]
+   },
+   "tests/ch23/test_port_data_types_and_ref_share.sv": {
+    "kind": "legal",
+    "declarations": [
+     "28: input real rd",
+     "28: input string s",
+     "29: input pdt_st st",
+     "29: input int arr",
+     "29: input int conv"
+    ]
+   },
+   "tests/ch23/test_syntax_parameter_port_list_forms.sv": {
+    "kind": "legal",
+    "declarations": [
+     "48: input U a",
+     "48: input V b"
+    ]
+   },
+   "tests/ch23/test_vpi_port_kind_defaults.sv": {
+    "kind": "legal",
+    "declarations": [
+     "23: input int in_int"
+    ]
+   },
+   "tests/ch24/test_program_stimulus_after_clock_edge.sv": {
+    "kind": "legal",
+    "declarations": [
+     "23: input int d",
+     "27: input int q"
+    ]
+   },
+   "tests/ch25/test_virtual_modport_clocking_output_skew.sv": {
+    "kind": "legal",
+    "declarations": [
+     "19: input bit clk"
+    ]
+   },
+   "tests/ch3/test_program_instances_connected_separately.sv": {
+    "kind": "legal",
+    "declarations": [
+     "27: input int base"
+    ]
+   },
+   "tests/gen/ch16/test_gen_cross_assert_129_logic_z_equal_negedge_nba_edge_interface.sv": {
+    "kind": "legal",
+    "declarations": [
+     "31: input bit clk"
+    ]
+   },
+   "tests/gen/ch16/test_gen_cross_assert_1_bit_z_case_equal_negedge_blocking_after_interface.sv": {
+    "kind": "legal",
+    "declarations": [
+     "31: input bit clk"
+    ]
+   },
+   "tests/gen/ch16/test_gen_cross_assert_32_bit_x_reduce_or_negedge_nba_after_interface.sv": {
+    "kind": "legal",
+    "declarations": [
+     "31: input bit clk"
+    ]
+   },
+   "tests/gen/ch16/test_gen_cross_assert_32_logic_z_case_equal_posedge_nba_before_interface.sv": {
+    "kind": "legal",
+    "declarations": [
+     "31: input bit clk"
+    ]
+   },
+   "tests/gen/ch16/test_gen_cross_assert_33_bit_known_equal_posedge_blocking_after_interface.sv": {
+    "kind": "legal",
+    "declarations": [
+     "31: input bit clk"
+    ]
+   },
+   "tests/gen/ch16/test_gen_cross_assert_33_bit_x_equal_negedge_blocking_before_interface.sv": {
+    "kind": "legal",
+    "declarations": [
+     "31: input bit clk"
+    ]
+   },
+   "tests/gen/ch16/test_gen_cross_assert_64_bit_known_reduce_or_negedge_blocking_before_interface.sv": {
+    "kind": "legal",
+    "declarations": [
+     "31: input bit clk"
+    ]
+   },
+   "tests/gen/ch16/test_gen_cross_assert_64_bit_x_case_equal_posedge_blocking_edge_interface.sv": {
+    "kind": "legal",
+    "declarations": [
+     "31: input bit clk"
+    ]
+   },
+   "tests/gen/ch16/test_gen_cross_assert_65_bit_z_reduce_or_negedge_blocking_edge_interface.sv": {
+    "kind": "legal",
+    "declarations": [
+     "31: input bit clk"
+    ]
+   }
+  },
+  "generator": "generators/interaction_assertion.py emits `input bit clk` in 9 tests of gen/ch16"
+ },
+ "expectation_not_derivable": [
+  {
+   "test": "tests/ch23/test_vpi_port_kind_defaults.sv",
+   "line": 23,
+   "reason": "input int in_int is a net of type int, which 6.7.1 does not allow; the expectation 'in_int: int net' cannot be derived; the 4 rows of 23.2.2.3 rest on this test alone"
+  }
+ ],
+ "unsized_width_printed": {
+  "clause": "5.7.1",
+  "tests": [
+   {
+    "test": "tests/ch11/test_real_operand_result_types.sv",
+    "lines": "37",
+    "expression": "$bits(c ? 3 : 4)"
+   },
+   {
+    "test": "tests/ch11/test_real_operator_result_and_condition.sv",
+    "lines": "22",
+    "expression": "$bits(r ? 1 : 2)"
+   },
+   {
+    "test": "tests/ch13/test_system_tf_call_forms_without_assertions.sv",
+    "lines": "35",
+    "expression": "$bits(v + 1)"
+   },
+   {
+    "test": "tests/ch5/test_number_grammar_every_base_digit_and_real_form.sv",
+    "lines": "53-54",
+    "expression": "$bits('d255), $bits(1_000), $bits('h1_0), $bits('b1_01)"
+   },
+   {
+    "test": "tests/ch21/test_format_precision.sv",
+    "lines": "137,149",
+    "expression": "$sformatf(\"%x\", 255), $sformatf(\"%o\", 8)"
+   },
+   {
+    "test": "tests/ch21/test_format_specifiers_edge.sv",
+    "lines": "39",
+    "expression": "$sformatf(\"%h\", 255)"
+   }
+  ]
+ },
+ "illegal_with_other_violations": [
+  {
+   "test": "tests/ch17/test_illegal_checker_enclosing_references.sv",
+   "note": "line 29 is legal (module-level variables are static, 6.21) but the regex accepts it; lines 33 and 37 are separate violations"
+  },
+  {
+   "test": "tests/ch17/test_illegal_checker_port_types.sv",
+   "note": "three independent violations; one detected one passes; a comment on Verilator disagrees with the saved result"
+  },
+  {
+   "test": "tests/ch23/test_illegal_mixed_positional_named_connections.sv",
+   "note": "variable o is written by two output ports (6.5) at lines 30-31"
+  },
+  {
+   "test": "tests/ch23/test_23_extra_instance_unpacked_dims.sv",
+   "note": "input int p[8][4] at line 29 is also a net with type int"
+  },
+  {
+   "test": "tests/ch6/test_illegal_interconnect_explicit_type.sv",
+   "note": "line 21 also refers to the interconnect in a procedural statement"
+  }
+ ],
+ "fourstate_no_but_depends": [
+  {
+   "test": "tests/ch21/test_sformat_only_second_argument_is_format.sv",
+   "evidence": [
+    "%v"
+   ]
+  },
+  {
+   "test": "tests/ch28/test_nonresistive_pass_preserves_pull_strength.sv",
+   "evidence": [
+    "strength:pull0",
+    "tri:tran",
+    "%v"
+   ]
+  },
+  {
+   "test": "tests/ch28/test_wired_logic_strength.sv",
+   "evidence": [
+    "strength:weak1",
+    "tri:wand",
+    "%v"
+   ]
+  },
+  {
+   "test": "tests/ch29/test_udp_instance_strength_and_array_range.sv",
+   "evidence": [
+    "strength:pull0",
+    "strength:supply",
+    "%v"
+   ]
+  },
+  {
+   "test": "tests/ch6/test_port_variable_net_implied_continuous.sv",
+   "evidence": [
+    "strength:weak0",
+    "%v"
+   ]
+  },
+  {
+   "test": "tests/ch6/test_net_strength_and_scalared_select.sv",
+   "evidence": [
+    "strength:strong0"
+   ]
+  },
+  {
+   "test": "tests/imported/ch9/test_intra_assignment_timing.sv",
+   "evidence": [
+    "out:xx"
+   ]
+  }
+ ],
+ "lrm_clause_not_in_standard": [
+  {
+   "test": "tests/ch6/test_cast_casting_type_forms_and_const.sv",
+   "clause": "6.12.2",
+   "fix": "6.12.1"
+  },
+  {
+   "test": "tests/ch6/test_cast_shortreal_round_vs_bit_pattern.sv",
+   "clause": "6.12.2",
+   "fix": "6.12.1"
+  },
+  {
+   "test": "tests/ch6/test_charge_strength_and_vectored_net_declarations.sv",
+   "clause": "6.3.3",
+   "fix": "6.9.2"
+  }
+ ],
+ "verilator_5052_without_5052_result": [
+  "tests/ch22/test_22_extra_include_syntax.sv",
+  "tests/ch22/test_directive_macro_expansion_not_in_comments_or_strings.sv",
+  "tests/ch22/test_directive_scope_across_include_until_superseded.sv",
+  "tests/ch22/test_illegal_begin_keywords_spans_include_boundary.sv",
+  "tests/ch22/test_illegal_include_absolute_path_not_searched.sv",
+  "tests/ch3/test_include_text_joins_compilation_unit.sv",
+  "tests/ch35/test_svdpi_h_packed_bit_and_part_select.sv",
+  "tests/ch6/test_ch6_extra_for_loop_automatic.sv"
+ ]
+}

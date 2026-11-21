@@ -76,6 +76,20 @@ class BehaviorCoverageTests(unittest.TestCase):
         self.assertEqual((runs[0]["executed"], runs[0]["dropped_snapshots"]), (3, 1))
         self.assertEqual(len(runs), 2)
 
+    def test_a_rerun_replaces_the_entry_of_its_run(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "behavior-history.json"
+            for executed, url in ((3, "https://example.test/runs/1"), (4, "https://example.test/runs/2"),
+                                  (5, "https://example.test/runs/2"), (6, None)):
+                entry = {"executed": executed, "execution": {"snapshots": []}}
+                if url:
+                    entry["run_url"] = url
+                coverage.append_history(path, entry)
+            runs = json.loads(path.read_text(encoding="utf-8"))["runs"]
+        self.assertEqual([(r["executed"], r.get("run_url")) for r in runs],
+                         [(3, "https://example.test/runs/1"), (5, "https://example.test/runs/2"),
+                          (6, None)])
+
     def test_history_keeps_a_repeated_executed_list_once(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "behavior-history.json"

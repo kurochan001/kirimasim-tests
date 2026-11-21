@@ -262,7 +262,7 @@ The generator is written to `generators/` for requirements (reserved words, cons
 
 - The reference model is made from the table of the standard. Checks the table matches (e.g., the sum of the additions per edition matches the appendix B) in the generator.
 - The case of the non-conformity test is `Case(should_fail_because=...)`, and the error line in the text ends with "`// illegal`". `common.render` creates `:expected_stderr_regex:` from its line number.
-- Record `:oracle:` in `generators/oracles.txt` from the execution results, then rewrite using `generate.py`. Because `record_oracles.py` with `--verilator` also resets out-of-scope generated tests to `spec`, append only new cases under the same rules.
+- Record `:oracle:` in `generators/oracles.txt` from the execution results, then rewrite using `generate.py`. `record_oracles.py` adds or removes only the tokens of the simulators given, for the tests in their results (since 2026-11-21).
 - When you edit the generator's comment, the error line numbers may change. The anchor of the reference proposal is also corrected.
 
 <a id="8-段階f独立レビュー"></a>

@@ -24129,6 +24129,9 @@
     "noncontext 側の『最適化を妨げない』は実装への許可であり、出力で区別すべき義務ではない。": "That the noncontext side does not hinder optimization is a permission to implementations, not a duty that the output must show.",
     "ループでは各回の先頭で x を読んで足し、context import ZXQPH0QXZ が export 経由で x に ZXQPH1QXZ を足す（ ZXQPH2QXZ + ZXQPH3QXZ + ZXQPH4QXZ = ZXQPH5QXZ 、最終 ZXQPH6QXZ = ZXQPH7QXZ ）。": "In the loop each pass reads x first and adds it, and the context import ZXQPH0QXZ adds ZXQPH1QXZ to x through the export ( ZXQPH2QXZ + ZXQPH3QXZ + ZXQPH4QXZ = ZXQPH5QXZ , final ZXQPH6QXZ = ZXQPH7QXZ ).",
     "呼び出し直後に ZXQPH0QXZ が x を読む。": "Right after the call ZXQPH0QXZ reads x.",
-    "期待出力は import が見た ZXQPH0QXZ 、呼び出し後の ZXQPH1QXZ 、 ZXQPH2QXZ = ZXQPH3QXZ と ZXQPH4QXZ = ZXQPH5QXZ 、 ZXQPH6QXZ = ZXQPH7QXZ ZXQPH8QXZ = ZXQPH9QXZ ZXQPH10QXZ = ZXQPH11QXZ を比べる。": "The expected output compares ZXQPH0QXZ seen by the import, ZXQPH1QXZ after the call, ZXQPH2QXZ = ZXQPH3QXZ and ZXQPH4QXZ = ZXQPH5QXZ , and ZXQPH6QXZ = ZXQPH7QXZ ZXQPH8QXZ = ZXQPH9QXZ ZXQPH10QXZ = ZXQPH11QXZ ."
+    "期待出力は import が見た ZXQPH0QXZ 、呼び出し後の ZXQPH1QXZ 、 ZXQPH2QXZ = ZXQPH3QXZ と ZXQPH4QXZ = ZXQPH5QXZ 、 ZXQPH6QXZ = ZXQPH7QXZ ZXQPH8QXZ = ZXQPH9QXZ ZXQPH10QXZ = ZXQPH11QXZ を比べる。": "The expected output compares ZXQPH0QXZ seen by the import, ZXQPH1QXZ after the call, ZXQPH2QXZ = ZXQPH3QXZ and ZXQPH4QXZ = ZXQPH5QXZ , and ZXQPH6QXZ = ZXQPH7QXZ ZXQPH8QXZ = ZXQPH9QXZ ZXQPH10QXZ = ZXQPH11QXZ .",
+    "全規格の要求台帳ベース（確定）: 設計 ZXQPH0QXZ 、 ZXQPH1QXZ を除く実行 ZXQPH2QXZ 、 ZXQPH3QXZ と ZXQPH4QXZ を含む実行 ZXQPH5QXZ 。": "Against the whole-standard requirement ledger (confirmed): design ZXQPH0QXZ, execution without ZXQPH1QXZ ZXQPH2QXZ, execution with ZXQPH3QXZ and ZXQPH4QXZ ZXQPH5QXZ.",
+    "全規格の要求台帳ベース（暫定）: 設計 ZXQPH0QXZ 、 ZXQPH1QXZ を除く実行 ZXQPH2QXZ 、 ZXQPH3QXZ と ZXQPH4QXZ を含む実行 ZXQPH5QXZ 。": "Against the whole-standard requirement ledger (provisional): design ZXQPH0QXZ, execution without ZXQPH1QXZ ZXQPH2QXZ, execution with ZXQPH3QXZ and ZXQPH4QXZ ZXQPH5QXZ.",
+    "規格要求の実行確認率: ZXQPH0QXZ を除いて ZXQPH1QXZ 、 ZXQPH2QXZ と ZXQPH3QXZ を含めて ZXQPH4QXZ 。": "Requirement execution-confirmation rate: ZXQPH1QXZ without ZXQPH0QXZ, ZXQPH4QXZ with ZXQPH2QXZ and ZXQPH3QXZ."
   }
 }
