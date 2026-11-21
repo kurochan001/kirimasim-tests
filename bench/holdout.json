@@ -1,0 +1,265 @@
+{
+ "schema": 1,
+ "definition": "holdout-v1-icarus14",
+ "purpose": "Holdout conditions outside the daily and weekly sets. Measured and reported only: not used to decide kirimasim optimizations, and never part of the daily overall value, headline.json or the overall graph. A comparison set holds only the conditions its peer runs.",
+ "benchmark_source": {
+  "repository": "https://github.com/kurochan001/kirimasim.git",
+  "commit": "cfa2ccd75989c1ebb9ed63303271183377364cf0",
+  "adapter_sha256": "4811f9d50d4a09d8794710296d644350468c49a9579a794f27af42ac9fb6b5bc"
+ },
+ "latest_repository": "https://github.com/kurochan001/kirimasim.git",
+ "latest_ref": "refs/heads/main",
+ "tools": {
+  "latest": {
+   "kind": "kirimasim"
+  },
+  "baseline": {
+   "kind": "kirimasim",
+   "repository": "https://github.com/kurochan001/kirimasim.git",
+   "tag": "v0.1.0",
+   "commit": "cfa2ccd75989c1ebb9ed63303271183377364cf0",
+   "version_pattern": "kirimasim 0\\.1\\.0"
+  },
+  "icarus": {
+   "kind": "icarus",
+   "repository": "https://github.com/steveicarus/iverilog.git",
+   "tag": "v13_0",
+   "commit": "dfeee909ed9f20b4870dd93423156c0170c0e1ff",
+   "version_pattern": "version 13\\.0",
+   "tag_object": "30a7d1a11b7586aa0fc868e509f04f514effc0ad"
+  },
+  "verilator": {
+   "kind": "verilator",
+   "repository": "https://github.com/verilator/verilator.git",
+   "tag": "v5.054",
+   "commit": "bbb60a403932a9f695cb6ff001ceb73de6ad9234",
+   "version_pattern": "Verilator 5\\.054"
+  },
+  "icarus_devel": {
+   "kind": "icarus",
+   "repository": "https://github.com/steveicarus/iverilog.git",
+   "ref": "refs/heads/master",
+   "version_pattern": "version 14\\.0.*devel"
+  }
+ },
+ "measurement": {
+  "runs": 5,
+  "warmups": 1,
+  "timeout_seconds": 600,
+  "short_seconds": 0.05,
+  "regression_warning_ratio": 1.15,
+  "simulation_threads": 1,
+  "waveforms": false,
+  "assertions": false,
+  "verilator_build_jobs": 1
+ },
+ "driver_sha256": "ff16ce6924de0b4b586b932f8e68e6f1c567ae729422627859f762c402199ed9",
+ "cases": [
+  {
+   "name": "class_pool",
+   "source": "suite",
+   "path": "bench/class_pool.sv",
+   "sha256": "15e2953119e002ac4cbabbb6b980dd92af13ed105832e2d74f0e891a2aefcf0c",
+   "count": 400000,
+   "expected": "class_pool n=400000 checksum=5b3ef168 consumed=400000 reads=199997",
+   "expected_small": "class_pool n=1 checksum=6b3154a9 consumed=1 reads=0",
+   "class": "common",
+   "unsupported": {
+    "icarus": "Icarus Verilog 13.0 rejects queues of class handles at elaboration (push_back/pop_front of a handle); declared before execution",
+    "icarus_devel": "Icarus Verilog 14.0 devel rejects queues of class handles at elaboration (push_back/pop_front of a handle); declared before execution"
+   }
+  },
+  {
+   "name": "intf_modport",
+   "source": "suite",
+   "path": "bench/intf_modport.sv",
+   "sha256": "8f35ecb22bf2c3de967b2d7ce650485fd33989f82a9b5c448ed93d7b432b15ac",
+   "count": 1000000,
+   "expected": "intf_modport n=1000000 checksum=dc06be40 accepted=1000000 transfers=1000000 parity=41d71d40",
+   "expected_small": "intf_modport n=1 checksum=3c88596c accepted=1 transfers=1 parity=3c88596c",
+   "class": "common",
+   "unsupported": {
+    "icarus": "Icarus Verilog 13.0 does not parse modport port declarations; 14.0 devel does; declared before execution"
+   }
+  },
+  {
+   "name": "real_filter",
+   "source": "suite",
+   "path": "bench/real_filter.sv",
+   "sha256": "32fb9e8878df045a55c6be3dd8961a94dd3c2b75bd4317ea08ad7f0155176c81",
+   "count": 2000000,
+   "expected": "real_filter n=2000000 checksum=8e364df1 last=40b24dbdfb7b8b0f",
+   "expected_small": "real_filter n=1 checksum=409e4400 last=409e440000000000",
+   "class": "common"
+  },
+  {
+   "name": "force_release",
+   "source": "suite",
+   "path": "bench/force_release.sv",
+   "sha256": "d175c67db17d84d57b6260cc218537da1628d0109878f7f0d988efd98cbdf206",
+   "count": 1500000,
+   "expected": "force_release n=1500000 checksum=39c19273 w=5dcc89a0 v=0796d3fb",
+   "expected_small": "force_release n=1 checksum=4598ebb4 w=3c88596c v=3c88596c",
+   "class": "common",
+   "unsupported": {
+    "icarus": "Icarus Verilog evaluates the right-hand side of assign and force once (its \"sorry: procedural continuous assignments are not yet fully supported\"), while 10.6 reevaluates it when an operand changes; declared before execution",
+    "icarus_devel": "Icarus Verilog evaluates the right-hand side of assign and force once (its \"sorry: procedural continuous assignments are not yet fully supported\"), while 10.6 reevaluates it when an operand changes; declared before execution"
+   }
+  },
+  {
+   "name": "delayed_nets",
+   "source": "suite",
+   "path": "bench/delayed_nets.sv",
+   "sha256": "ac4e0a93d652a377a414e49c0a2b6e75ba8cdffb124518bf5f44c3f08956d5e1",
+   "count": 400000,
+   "expected": "delayed_nets n=400000 checksum=4cb74800",
+   "expected_small": "delayed_nets n=1 checksum=0002e900",
+   "class": "common"
+  },
+  {
+   "name": "specify_paths",
+   "source": "suite",
+   "path": "bench/specify_paths.sv",
+   "sha256": "d74e6be08d811823098f3dd2295af119c0c6794e144cc150bee4ad0eead618ac",
+   "count": 400000,
+   "expected": "specify_paths n=400000 checksum=7a667f84",
+   "expected_small": "specify_paths n=1 checksum=052054e9",
+   "class": "common",
+   "unsupported": {
+    "verilator": "Verilator does not apply module path delays (30.4); its output equals that of zero-delay paths; declared before execution"
+   },
+   "icarus_flags": [
+    "-gspecify"
+   ],
+   "icarus_flags_reason": "Icarus Verilog applies specify path delays only with -gspecify; without it the paths are ignored"
+  },
+  {
+   "name": "file_output",
+   "source": "suite",
+   "path": "bench/file_output.sv",
+   "sha256": "bdb8109ce25e614f1f95af04f361c535d5acd904d87cd2e9174a56f0e787397a",
+   "count": 1000000,
+   "expected": "file_output n=1000000 lines=1000000 bytes=27469311 checksum=b0fac4c3",
+   "expected_small": "file_output n=1 lines=1 bytes=22 checksum=00000016",
+   "class": "common",
+   "outputs": [
+    "file_output.txt"
+   ]
+  },
+  {
+   "name": "bus_fabric_vcd",
+   "result_name": "bus_fabric",
+   "source": "suite",
+   "path": "bench/bus_fabric.sv",
+   "sha256": "c98f5ddcd943c1a192ba26edf1985edd2e1c91e962da631811a1bbe3ab36a34c",
+   "count": 100000,
+   "expected": "bus_fabric n=100000 checksum=0d0cb37b",
+   "expected_small": "bus_fabric n=1 checksum=00000001",
+   "class": "common",
+   "waveform": "vcd",
+   "waveforms": true,
+   "files": {
+    "bench/holdout_waveform.sv": "fb6d5fd442ed5c18e4c57dbfde07aebc1e3026529c58f32a0bed5260993cfaf2"
+   },
+   "verilator_flags": [
+    "--trace",
+    "--trace-max-array",
+    "1"
+   ],
+   "waveform_scope": "every variable and net of the bus_fabric hierarchy, memories excluded (21.7.2.1): kirimasim --wave=FILE; Icarus Verilog and Verilator compile bench/holdout_waveform.sv ($dumpvars(0, bus_fabric)); Verilator --trace-max-array 1 leaves out the register arrays it would otherwise record; Icarus Verilog also records the for-loop variable and the genvar values"
+  },
+  {
+   "name": "bus_fabric_fst",
+   "result_name": "bus_fabric",
+   "source": "suite",
+   "path": "bench/bus_fabric.sv",
+   "sha256": "c98f5ddcd943c1a192ba26edf1985edd2e1c91e962da631811a1bbe3ab36a34c",
+   "count": 100000,
+   "expected": "bus_fabric n=100000 checksum=0d0cb37b",
+   "expected_small": "bus_fabric n=1 checksum=00000001",
+   "class": "common",
+   "waveform": "fst",
+   "waveforms": true,
+   "files": {
+    "bench/holdout_waveform.sv": "fb6d5fd442ed5c18e4c57dbfde07aebc1e3026529c58f32a0bed5260993cfaf2"
+   },
+   "verilator_flags": [
+    "--trace-fst",
+    "--trace-max-array",
+    "1"
+   ],
+   "waveform_scope": "every variable and net of the bus_fabric hierarchy, memories excluded (21.7.2.1): kirimasim --wave=FILE; Icarus Verilog and Verilator compile bench/holdout_waveform.sv ($dumpvars(0, bus_fabric)); Verilator --trace-max-array 1 leaves out the register arrays it would otherwise record; Icarus Verilog also records the for-loop variable and the genvar values",
+   "unsupported": {
+    "verilator": "The FST writer of the pinned Verilator needs the LZ4 development headers, which the workflow does not install; adding liblz4-dev awaits approval; declared before execution"
+   }
+  }
+ ],
+ "groups": [
+  {
+   "name": "holdout-icarus14",
+   "peer": "icarus_devel",
+   "cases": [
+    "intf_modport",
+    "real_filter",
+    "delayed_nets",
+    "specify_paths",
+    "file_output",
+    "bus_fabric_vcd",
+    "bus_fabric_fst"
+   ]
+  },
+  {
+   "name": "holdout-regression",
+   "peer": "baseline",
+   "cases": [
+    "class_pool",
+    "intf_modport",
+    "real_filter",
+    "force_release",
+    "delayed_nets",
+    "specify_paths",
+    "file_output",
+    "bus_fabric_vcd",
+    "bus_fabric_fst"
+   ]
+  },
+  {
+   "name": "holdout-verilator",
+   "peer": "verilator",
+   "cases": [
+    "class_pool",
+    "intf_modport",
+    "real_filter",
+    "force_release",
+    "delayed_nets",
+    "file_output",
+    "bus_fabric_vcd"
+   ]
+  }
+ ],
+ "reference_sources": {
+  "bench/reference_expanded.py": "a1196d79efb88425f61cc69ba1d9ec99542f7f5dc41fac2a07ade82090b00f4a",
+  "bench/reference_holdout.py": "e2f49f6fa9b1c55c64292cabd474849029f1f20bc6fa640048c155a2d20a319e"
+ },
+ "profiles": {
+  "holdout": {
+   "definition": "holdout-v1-icarus14",
+   "cases": [
+    "class_pool",
+    "intf_modport",
+    "real_filter",
+    "force_release",
+    "delayed_nets",
+    "specify_paths",
+    "file_output",
+    "bus_fabric_vcd",
+    "bus_fabric_fst"
+   ],
+   "groups": [
+    "holdout-icarus14",
+    "holdout-regression",
+    "holdout-verilator"
+   ]
+  }
+ }
+}

@@ -47,7 +47,7 @@ JSTの各日で最後に開始した正式測定を採用し、同日再実行�
 - `large_memory`：32bit×262,144語（論理データ1MiB）へ、1反復あたり64語のストライド付きバーストアクセスを行い、バーストごとに1時間単位進めます。無時間進行の安全ガードは変更しません。論理データ量とシミュレータのRSSは別です。
 - `stream_pipeline`：8段、32bit×32並列レーンのパイプライン。validの伝搬、全段共通のクロックイネーブルによる停止、最後の排出を含め、データのチェックサムと受け付けた件数を独立に確認します。
 
-個別処理を測るケースに、小さなRTLシステムと大きな構造を加えます。全用途や完全なプロセッサの性能を代表するとは主張しません。クラスを用いた検証、アサーション・カバレッジの負荷、波形I/Oは今回の定義に含みません。
+個別処理を測るケースに、小さなRTLシステムと大きな構造を加えます。全用途や完全なプロセッサの性能を代表するとは主張しません。クラスを用いた検証、アサーション・カバレッジの負荷、波形I/Oは日次・週次の定義に含みません。クラスと波形の出力は、それらとは別に[別枠](#別枠holdout報告のみ)で測り、報告だけします。
 
 [`bench/reference_expanded.py`](../bench/reference_expanded.py)はシミュレータの出力を読まずに期待値を計算します。取引単位のFIFO、送信バイト列、平坦なメモリ、整数の剰余演算、クロック・イベントの回数の式、平坦なリーフ状態、データ単位のパイプライン変換、1bitずつの4値解決を使います。完全なNとn=1の期待値を設定とソースヘッダへ固定します。NはFIFOのサイクル数、バスの書き込み・読み出しの組数（1組2クロック）、パイプラインの入力サイクル数（その後に8サイクル排出）、UARTのフレーム数です。クロックは30時間単位の区画数で、時刻30N+1に観測します。ほかは記載した処理の反復数です。大規模ケースではn=1でも初期化やエラボレーションに時間がかかります。参照計算ソースのハッシュも記録し、測定中の変更を検出します。`spec_check: ai`はAIによる照合を表し、人の独立レビューとは区別します。
 
@@ -64,6 +64,34 @@ JSTの各日で最後に開始した正式測定を採用し、同日再実行�
 タグと完全コミットは上流Gitで確認しました。準備処理は固定ソースを取得・ビルドするだけで、GPL実装の内容は読みません。基準版と比較OSSの固定値は自動更新しません。版表示、実行ファイルと付属実行ファイルのハッシュ、ビルド記録を、ケースや測定処理のハッシュとは別に保存します。
 
 Lyraは初期構成には含めません。手元に実行ファイルや専用ランナーがなく、追加バックエンドのビルド環境を要求せず5処理系の比較を完成させるためです。固定した`tools/bench.py`のアダプターは`lyra`・`lyra_llvm`に対応しています。追加するときは、固定コミットと再現できるビルドを確認し、準備処理と版の検査、対応ケース、固定比較集合を登録してください。実行ファイルがない状態をゼロ秒にしてはいけません。
+
+## 別枠（holdout、報告のみ）
+
+[bench/holdout.json](../bench/holdout.json)は、日次・週次の集合が触れない9つの条件の定義`holdout-v1-icarus14`です。**別枠は測って報告するだけで、kirimasimの最適化の判断には使いません。** 値を目標にして調整せず、日次の総合値、`headline.json`、READMEの総合グラフにも入れません。
+
+日次・週次の定義は変えていません。`bench/daily.json`、`tools/daily_benchmark.py`、`tools/benchmark_compare.py`、`tools/benchmark_history.py`、`tools/benchmark_setup.py`を変更しないので、日次・週次の系列は指紋を保ちます（`tools/test_holdout_benchmark.py`がハッシュを確かめます）。別枠は同じ5つの処理系、固定したアダプタ、同じ設定（n=1と完全なNの各5回、ウォームアップ1回、単一スレッド、600秒の上限）を使います。
+
+| 条件 | 試す仕組み | N | 実行しない処理系 |
+| --- | --- | ---: | --- |
+| `class_pool` | 2つの派生クラスのオブジェクトを生成し、基底クラスのハンドルとしてキューに入れ、仮想メソッドで消費する（8、7.10） | 400,000 | Icarus 13.0と14.0 devel：クラスのハンドルのキューを受け付けない |
+| `intf_modport` | 1つのinterfaceのmodportで結んだ送信側・受信側・監視側と、valid/readyのハンドシェイク（25） | 1,000,000 | Icarus 13.0：modportのポート宣言を構文解析できない |
+| `real_filter` | `real`の2次IIRフィルタ。`$realtobits`で観測する（6.12、20.5） | 2,000,000 | — |
+| `force_release` | ネットの`force`/`release`と変数の`assign`/`deassign`を毎回切り替える（10.6） | 1,500,000 | Icarus 13.0と14.0 devel：右辺を1回しか評価しない。10.6は評価し直すと定める |
+| `delayed_nets` | 連続代入とゲートの立ち上がり・立ち下がり遅延と、慣性遅延で消えるパルス（10.3.3、28.16） | 400,000 | — |
+| `specify_paths` | 立ち上がり・立ち下がり遅延を持つスカラーのmodule path、2入力のパス、既定のパルス除去（30.4、30.7） | 400,000 | Verilator：module pathの遅延を適用しない |
+| `file_output` | `$sformatf`と`$fwrite`で作業ディレクトリのファイルに書き、`$fgets`で読み返す。標準出力には件数とチェックサムだけを出す（21.2、21.3） | 1,000,000 | — |
+| `bus_fabric_vcd` | 変更しない`bench/bus_fabric.sv`の全信号をVCDファイルに書く | 100,000 | — |
+| `bus_fabric_fst` | 同じ内容をFSTファイルに書く | 100,000 | Verilator（承認まで）：FSTの書き出しにLZ4の開発用ヘッダが要り、ワークフローはそれを入れていない |
+
+連想配列を使う入力（`dynarray_assoc`）は作りませんでした。kirimasimの`docs/P1_SUPPORT.md`が連想配列を未実装としており、別枠の入力はそこで対応済みの形だけを使うためです。
+
+[`bench/reference_holdout.py`](../bench/reference_holdout.py)は、シミュレータの出力を読まずに、各設計が試す規則から期待値を計算します。クラスとキューの順序、ハンドシェイクのサイクルモデル、積が正確なIEEE 754倍精度の加算（係数が2のべき乗なので、積和演算の融合で結果は変わりません）、10.6の上書きの規則、10.3.3の手順と表28-9、既定のパルス除去を伴うmodule pathの遅延、ファイルに書く正確な文字列です。波形の条件は`reference_expanded.py`の`bus_fabric`のモデルを使います。設計は規格が決めていない場合を避けます。立ち上がりと立ち下がりの遅延が違うのは、どの変化もそれより長く続く場合だけで、パルスの長さが遅延とちょうど同じになることはなく、遅延の境目で観測することもなく、パスのセルの2入力は遅延の時間内に続けて変わりません。完全なNとn=1の期待値は定義と各ソースの見出しに固定し、`--check`がそれらとソースのハッシュ、別枠のドライバのハッシュを確かめます。
+
+波形の条件は、`bus_fabric`以下の全階層の変数とネットを記録します。メモリは4値VCD形式（21.7.2.1）と同じく除きます。kirimasimは`--wave=FILE`で、Icarus VerilogとVerilatorは変更しない設計と一緒に[`bench/holdout_waveform.sv`](../bench/holdout_waveform.sv)（`$dumpvars(0, bus_fabric)`）をコンパイルして記録します。FSTではvvpに`-fst`を付け、Verilatorは`--trace`か`--trace-fst`と、ふだんは記録するレジスタの配列を除く`--trace-max-array 1`を使います。Icarus Verilogはforループの変数とgenvarの値も記録します。各サンプルに波形ファイルの大きさ（`waveform_bytes`）を残し、中身は比べません。ほかに2つの条件が条件ごとのオプションを持ち、定義に記録しています。`specify_paths`はIcarus Verilogの`-gspecify`でコンパイルし（付けないとパスの遅延を無視します）、`file_output`は実行ごとにファイルを消します。実行が書くファイルは作業ディレクトリにだけ置き、消します。
+
+Nは、手元のMac 1台での正しさの事前確認で、kirimasimの差分時間がそこでおよそ1.5〜2.5秒になるように選び、固定しました。事前確認の値は速度の証拠にしません。3つの比較の集合には、相手が実行できる条件だけを入れます。`holdout-icarus14`（7条件、Icarus 14 devel）、`holdout-regression`（9条件すべて、baseline）、`holdout-verilator`（7条件、Verilator）です。宣言した非対応は欠測として示し、ゼロにはしません。
+
+別枠は週に1回、月曜03:47 UTC／12:47 JSTに、週次の後に同じconcurrency groupで実行します。定期実行は、人が最初の正式な別枠の測定を公開した後にだけ始まります（**Run workflow**で`profile=holdout`）。それまではgateジョブが飛ばします。記録はbenchmark-resultsの`holdout/runs/`、`holdout/history.json`、`latest-holdout.json`と、READMEの折りたたみの中の別の表です。表は公開のたびに`tools/holdout_history.py readme`が入れ直します。`tools/holdout_benchmark.py`は、変更しない日次のドライバを別枠の定義で動かします。条件ごとのオプションのない条件は、固定したアダプタのコマンドのとおりに実行します。定義は別枠のドライバのハッシュを記録するので、ドライバを変えると別枠の定義が変わります。
 
 ## 何の時間を測るか
 
@@ -101,7 +129,7 @@ Lyraは初期構成には含めません。手元に実行ファイルや専用�
 
 ## 手動実行とローカル実行
 
-Actionsの**Daily and weekly benchmarks → Run workflow**で`profile=daily`または`weekly`、`mode=formal`を選びます。日次は**20:17 UTC／翌日05:17 JST**、週次は**日曜23:47 UTC／月曜08:47 JST**です。機能Nightlyは19:23 UTC／04:23 JSTのままです。両プロファイルは同じconcurrencyとローカルロックで排他し、予定時刻をずらすだけには依存しません。GitHub側の遅延もあるため実際の開始・終了時刻を保存します。測定ジョブの上限は準備を含め180分です。`mode=smoke`は日次の`wide_arith`・`fourstate_mix`・`fifo_stream`・`resolved_bus`、週次の`large_memory`を、固定した完全なNで1反復します。出力・処理回数・終了の検証は残し、正式な性能履歴には入れません。
+Actionsの**Daily and weekly benchmarks → Run workflow**で`profile=daily`・`weekly`・`holdout`のどれかと`mode=formal`を選びます。日次は**20:17 UTC／翌日05:17 JST**、週次は**日曜23:47 UTC／月曜08:47 JST**です。機能Nightlyは19:23 UTC／04:23 JSTのままです。両プロファイルは同じconcurrencyとローカルロックで排他し、予定時刻をずらすだけには依存しません。GitHub側の遅延もあるため実際の開始・終了時刻を保存します。測定ジョブの上限は準備を含め180分です。`mode=smoke`は日次の`wide_arith`・`fourstate_mix`・`fifo_stream`・`resolved_bus`、週次の`large_memory`を、固定した完全なNで1反復します。出力・処理回数・終了の検証は残し、正式な性能履歴には入れません。
 
 同じCLIをmacOSとLinuxで使えます。Git、Python 3.10以上、本体が対応するC++23コンパイラ、CMake 3.28以上、Ninja、圧縮ライブラリの開発ファイル、OSSのビルドに必要な道具を用意してください。Ubuntuの導入一覧はワークフローにあります。Homebrewでは十分新しいbison・flexをPATHへ追加します。静かなマシンと新しい出力先を使ってください。
 
@@ -116,7 +144,7 @@ python3 tools/daily_benchmark.py --profile daily --inventory "$WORK/inventory.js
 python3 tools/benchmark_history.py append --directory "$WORK/report" "$WORK/run-001/results.json"
 ```
 
-週次は別の出力先で`--profile weekly`を指定し、準備済みのinventoryを共用できます。各測定回で両開発版の最新をそれぞれ一度だけ解決します。同じinventoryから日次・週次を続けて実行する場合は、意図的に同じSHAを使います。最新を更新するときはresolve・prepareをやり直してください。
+週次は別の出力先で`--profile weekly`を指定し、準備済みのinventoryを共用できます。別枠は同じinventoryで専用のドライバを使い、`python3 tools/holdout_benchmark.py --inventory "$WORK/inventory.json" --out "$WORK/holdout-001"`と`python3 tools/holdout_history.py append --directory "$WORK/report" "$WORK/holdout-001/results.json"`を実行します。別枠のスモークは`--smoke --only real_filter file_output bus_fabric_vcd`を使えます。各測定回で両開発版の最新をそれぞれ一度だけ解決します。同じinventoryから日次・週次を続けて実行する場合は、意図的に同じSHAを使います。最新を更新するときはresolve・prepareをやり直してください。
 
 日次スモークでは測定コマンドに`--smoke --only wide_arith fourstate_mix`を追加し、別の出力先を使います。週次スモークは`--profile weekly --smoke --only large_memory`です。`benchmark_history.py append`はスモークを意図的に拒否します。準備済みの実行ファイルを使う場合はinventoryの代わりに、固定したソースの`--benchmark-root`、解決済み完全SHAの`--latest-commit`と、`--tool latest=... --tool baseline=... --tool icarus=... --tool verilator=... --tool icarus_devel=...`と`--tool-commit icarus_devel=完全SHA`を指定できます。本体のSHA・版とOSSのリリース表示を確認します。外部から渡されたOSS実行ファイルにはソースからのビルド証明がないため、その制約を結果へ記録します。再現する正式インストールには準備処理の記録を使ってください。
 
@@ -126,7 +154,7 @@ python3 tools/benchmark_history.py append --directory "$WORK/report" "$WORK/run-
 
 `contents: write`は公開ジョブだけに付けます。mainの正式実行だけを**benchmark-results**へ追記し、通常のpushを使います。最初のブランチはmainの内容をコピーせず作ります。`runs/actions-RUN_ID-ATTEMPT.json`は書き換えません。同日の手動実行と再実行も別IDです。同じ内容の再取込みは何も壊さず、同じIDへ違う内容を登録すると拒否します。機能テストの履歴を変えず、日次サンプルをmainへコミットしません。公開ジョブだけを再試行するときは、元の測定のArtifactと測定IDを使います。新しいサンプルを測る場合は測定ジョブまたは全ジョブを再実行してください。
 
-結果ブランチには小さな各回のJSON、索引、全体の最新回`latest.json`、日次の`latest-daily.json`、週次の`latest-weekly.json`、日英README、SVG、日別総合値`headline.json`を保存します。パスを伏せた全実行ログ・ビルドログはActions Artifactsで14日保存し、測定回のURLからたどれます。実行ファイルのパスを含むinventory、ソースツリー、ビルドフォルダはアップロードしません。途中で止まった測定や準備失敗は実行基盤の失敗として残し、総合値を欠測にします。取得済みのサンプルも保持します。アップロードや公開自体が失敗した場合は、そのジョブとArtifactsを確認してください。公開成功とは報告しません。
+結果ブランチには小さな各回のJSON、索引、全体の最新回`latest.json`、日次の`latest-daily.json`、週次の`latest-weekly.json`、別枠の`latest-holdout.json`と`holdout/`（各回と索引。日次の履歴は読みません）、日英README、SVG、日別総合値`headline.json`を保存します。パスを伏せた全実行ログ・ビルドログはActions Artifactsで14日保存し、測定回のURLからたどれます。実行ファイルのパスを含むinventory、ソースツリー、ビルドフォルダはアップロードしません。途中で止まった測定や準備失敗は実行基盤の失敗として残し、総合値を欠測にします。取得済みのサンプルも保持します。アップロードや公開自体が失敗した場合は、そのジョブとArtifactsを確認してください。公開成功とは報告しません。
 
 新しいSecretや未登録の専用ランナーは不要です。Actionsで既存の固定アクションを使用でき、公開ジョブにcontents権限を付けられること、ブランチ規則がbenchmark-resultsへの通常の追記を許すことが必要です。キャッシュのキーにはOS・アーキテクチャ・イメージ・コンパイラ・固定設定・準備処理のハッシュ・両開発版の解決済みSHAを含みます。ケース定義だけの変更では、同じプラットフォーム・コンパイラの過去の設置キャッシュも候補にできます。復元後もコミット・コンパイラ・設定・設置先・ビルド処理・インストール全ファイルのハッシュを照合し、一致しない処理系は作り直します。本体ビルドとキャッシュ転送が終わってから測定します。
 
@@ -139,7 +167,9 @@ python3 tools/benchmark_history.py append --directory "$WORK/report" "$WORK/run-
 ```sh
 python3 -m unittest discover -s tools -p 'test_daily_benchmark.py'
 python3 -m unittest discover -s tools -p 'test_benchmark*.py'
+python3 -m unittest discover -s tools -p 'test_holdout_benchmark.py'
 python3 bench/reference_expanded.py --check
+python3 bench/reference_holdout.py --check
 actionlint .github/workflows/benchmark.yml
 ```
 
