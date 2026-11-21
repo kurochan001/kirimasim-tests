@@ -96,7 +96,7 @@ class Definition(unittest.TestCase):
         for group in config['groups']:
             self.assertEqual(group['cases'], [n for n in cases if group['peer'] not in cases[n].get('unsupported', {})])
         broken = json.loads(holdout.DEFAULT_CONFIG.read_text())
-        broken['groups'][0]['cases'].insert(0, 'class_pool')
+        broken['groups'][0]['cases'].insert(0, 'force_release')
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / 'holdout.json'
             path.write_text(json.dumps(broken))
@@ -147,7 +147,7 @@ class History(unittest.TestCase):
             self.assertTrue((directory / 'holdout/runs/actions-9-1.json').is_file())
             latest = json.loads((directory / 'latest-holdout.json').read_text())
             self.assertEqual({g['name']: g['available_count'] for g in latest['groups']},
-                             {'holdout-icarus14': 7, 'holdout-regression': 9, 'holdout-verilator': 7})
+                             {'holdout-icarus14': 8, 'holdout-regression': 9, 'holdout-verilator': 8})
             self.assertTrue(all(g['ratio'] == 1 for g in latest['groups']))
             text = (directory / 'README.md').read_text()
             self.assertIn('Latest holdout attempt (reported only)', text)
@@ -158,11 +158,12 @@ class History(unittest.TestCase):
     def test_a_declared_exclusion_is_shown_as_missing(self):
         value = holdout_history.normalized(campaign())
         lines = '\n'.join(history.report(value, prefix='holdout/'))
-        row = next(line for line in lines.splitlines() if line.startswith('| class_pool (N=400000) | icarus_devel |'))
+        row = next(line for line in lines.splitlines() if line.startswith('| class_pool (N=800000) | icarus |'))
         self.assertIn('| unsupported |', row)
         self.assertIn('| — |', row)
-        self.assertIn('queues of class handles', row)
-        self.assertIsNone(value['cases'][0]['ratios']['icarus_devel'])
+        self.assertIn('virtual override', row)
+        self.assertIsNone(value['cases'][0]['ratios']['icarus'])
+        self.assertIsNotNone(value['cases'][0]['ratios']['icarus_devel'])
 
     def test_the_holdout_table_survives_a_daily_publication(self):
         with tempfile.TemporaryDirectory() as tmp:

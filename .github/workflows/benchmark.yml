@@ -90,7 +90,8 @@ jobs:
         run: |
           # As in check.yml: a source that the runner image adds can fail.
           sudo apt-get update || echo "::warning::apt-get update failed for some sources"
-          sudo apt-get install -y --no-install-recommends ninja-build cmake autoconf gperf bison flex help2man libfl-dev zlib1g-dev libbz2-dev
+          # liblz4-dev: the FST writer of Verilator (holdout bus_fabric_fst) needs it.
+          sudo apt-get install -y --no-install-recommends ninja-build cmake autoconf gperf bison flex help2man libfl-dev zlib1g-dev libbz2-dev liblz4-dev
       - name: Restore release installations
         id: cache
         uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0

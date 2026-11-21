@@ -59,14 +59,13 @@
    "name": "class_pool",
    "source": "suite",
    "path": "bench/class_pool.sv",
-   "sha256": "15e2953119e002ac4cbabbb6b980dd92af13ed105832e2d74f0e891a2aefcf0c",
-   "count": 400000,
-   "expected": "class_pool n=400000 checksum=5b3ef168 consumed=400000 reads=199997",
+   "sha256": "335bd26801fe025b16fa4a6a7592c2a8a2e12045735c9a64e347687468aed5c3",
+   "count": 800000,
+   "expected": "class_pool n=800000 checksum=47210840 consumed=800000 reads=400000",
    "expected_small": "class_pool n=1 checksum=6b3154a9 consumed=1 reads=0",
    "class": "common",
    "unsupported": {
-    "icarus": "Icarus Verilog 13.0 rejects queues of class handles at elaboration (push_back/pop_front of a handle); declared before execution",
-    "icarus_devel": "Icarus Verilog 14.0 devel rejects queues of class handles at elaboration (push_back/pop_front of a handle); declared before execution"
+    "icarus": "Icarus Verilog 13.0 calls the base-class method instead of the virtual override for a base-class handle (8.20); 14.0 devel calls the override; declared before execution"
    }
   },
   {
@@ -188,10 +187,7 @@
     "--trace-max-array",
     "1"
    ],
-   "waveform_scope": "every variable and net of the bus_fabric hierarchy, memories excluded (21.7.2.1): kirimasim --wave=FILE; Icarus Verilog and Verilator compile bench/holdout_waveform.sv ($dumpvars(0, bus_fabric)); Verilator --trace-max-array 1 leaves out the register arrays it would otherwise record; Icarus Verilog also records the for-loop variable and the genvar values",
-   "unsupported": {
-    "verilator": "The FST writer of the pinned Verilator needs the LZ4 development headers, which the workflow does not install; adding liblz4-dev awaits approval; declared before execution"
-   }
+   "waveform_scope": "every variable and net of the bus_fabric hierarchy, memories excluded (21.7.2.1): kirimasim --wave=FILE; Icarus Verilog and Verilator compile bench/holdout_waveform.sv ($dumpvars(0, bus_fabric)); Verilator --trace-max-array 1 leaves out the register arrays it would otherwise record; Icarus Verilog also records the for-loop variable and the genvar values"
   }
  ],
  "groups": [
@@ -199,6 +195,7 @@
    "name": "holdout-icarus14",
    "peer": "icarus_devel",
    "cases": [
+    "class_pool",
     "intf_modport",
     "real_filter",
     "delayed_nets",
@@ -233,13 +230,14 @@
     "force_release",
     "delayed_nets",
     "file_output",
-    "bus_fabric_vcd"
+    "bus_fabric_vcd",
+    "bus_fabric_fst"
    ]
   }
  ],
  "reference_sources": {
   "bench/reference_expanded.py": "a1196d79efb88425f61cc69ba1d9ec99542f7f5dc41fac2a07ade82090b00f4a",
-  "bench/reference_holdout.py": "e2f49f6fa9b1c55c64292cabd474849029f1f20bc6fa640048c155a2d20a319e"
+  "bench/reference_holdout.py": "1016c6c460306b2777e4d05ad4c7c5c586e1d0a70165ee02603a997844294fed"
  },
  "profiles": {
   "holdout": {

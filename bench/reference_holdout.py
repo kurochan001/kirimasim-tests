@@ -37,7 +37,7 @@ def expanded():
 
 def class_pool(n):
     """8.5, 8.13, 8.20: a handle keeps its object's class, and a virtual call
-    runs the override of that class; 7.10.2: push_back/pop_front keep order."""
+    runs the override of that class; the ring buffer of handles is a FIFO."""
     def weight(kind, ident, payload):
         if kind == 'read':
             return ((payload >> 3) + ident * 3) & MASK
