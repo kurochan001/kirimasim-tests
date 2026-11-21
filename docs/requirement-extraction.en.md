@@ -14,9 +14,9 @@
 - Normative part: 1,703/1,703 clauses (100%). The 37 informative clauses have also been reviewed.
 - Source block: 15,846/15,846 ( 100% ). The requirements, headings, explanations, examples, and references to other sections are classified.
 - Registration: 12,332 rows (accepted denominator). The extraction was done with 12,319 rows, the 12,214 added rows and the initial 105 rows; the denominator review merged 21 duplicate rows, giving 12,298. Rows that mixed an accepted and a rejected form were then split: 7 on 2026-11-14 and 27 on 2026-11-15.
-- Pending interpretations: 0. Of the initial 46 issues, 42 clauses, and 49 rows, resolved 27 issues at 2026-10-24 and the remaining 19 issues, 20 clauses, and 21 rows at 2026-10-28. [Interpretation and Re-examination Record](requirement-extraction-notes.en.md) 。
+- Pending interpretations: 0. Of the initial 46 issues, 42 clauses, and 49 rows, resolved 27 issues at 2026-10-24 and the remaining 19 issues, 20 clauses, and 21 rows at 2026-10-28. [Interpretation and Re-examination Record](requirement-extraction-notes.en.md).
 - Normative clauses without pending interpretations: 1,703/1,703 clauses (100%).
-- Denominator acceptance: `approved` ( 2026-10-28, AI ) Review. This is not an independent review or approval by a person). [Approval grounds and limits](denominator-review-20261028.en.md) 。
+- Denominator acceptance: `approved` (2026-10-28, AI review; not an independent review or approval by a person). [Approval grounds and limits](denominator-review-20261028.en.md).
 
 Scope also includes parent headings' own introductory text, footnotes, grammar alternatives/omission conditions, table values, VPI diagram relations/multiplicities, API types/return values, formula boundaries, and C headers/algorithms. PDF images were also compared with the areas that could be misunderstood by text alone, such as formulas and diagrams, and the verification method was recorded in the audit log. Chapter 41 confirms the explanation of the discontinuation and does not have any current actions. Informative Annexes D, E, O, P, and Q are not included in the normative-requirement denominator. Annex C has different normative/informative designations in the summary and main text; use the main text's normative designation.
 

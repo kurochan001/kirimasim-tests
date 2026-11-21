@@ -20,6 +20,7 @@ The previous 126 cases passed the pinned comparisons in [Check on `c229a05f`](ht
 
 [Check on baseline 67321079](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584) passed pinned comparisons/static checks on the preceding 88-model suite.
 [Nightly on the same baseline](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265) and all its jobs succeeded; individual artifacts remain uninspected. Later additions are outside both runs.
+Nightly runs since 2026-11-15 use suites that contain all 113 models (for example [Nightly 44631823505](https://github.com/kurochan001/kirimasim-tests/actions/runs/44631823505), the first verified four-part run, on suite `03b2e107`). The statements above that cases have not run in Nightly or are outside both runs describe the time of each record. The execution check of each Nightly is in [Feature interaction execution](https://github.com/kurochan001/kirimasim-tests/blob/results/interaction-coverage.en.md) on the `results` branch.
 The historical uncommitted builds below explain the repair process; they do not describe the current upstream state.
 One successful kirimasim-tests Nightly is separate from the core repository's seven-consecutive-Nightly condition.
 

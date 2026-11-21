@@ -55,7 +55,9 @@ What sets the suite apart:
   default time unit or on the exact wording of a simulator's messages.
 
 > **Status: early.** Every test has been checked against the standard by an
-> AI model, and none by a person yet (`:spec_check: ai`).
+> AI model, and none by a person yet (`:spec_check: ai`). The
+> [sampled human review](docs/review-sample.en.md) describes how a person
+> rechecks randomly drawn tests against the standard.
 > Reports of wrong expectations are welcome.
 
 For a first test, [walk through 24 real lines](docs/faq.en.md#q49-read-a-real-test); for results, read [why green can coexist with Differ](docs/faq.en.md#q11-why-can-nightly-be-green-with-differ-results); for verified scope, start with [numerator/denominator examples](docs/faq.en.md#q16-how-do-design-and-execution-coverage-differ).
@@ -203,68 +205,69 @@ on kirimasim **`77c27531437c`**, records
 The snapshot has 113 models and 4,509 selected cases.
 The Check and the Nightly run the generated cross tests with the rest of the fixed suite; the [report on the `results` branch](https://github.com/kurochan001/kirimasim-tests/tree/results#readme) has the latest Nightly results.
 All inputs retain their original expectations; four failures are config parameter resets localized to pinned slang, and four are [nested programs](docs/interaction-verification.en.md#program-hierarchy-instances) with parameters that kirimasim does not instantiate implicitly. The
-[follow-up record](docs/cross-verification-followup.en.md) retains the earlier 11→9→4 history,
+[follow-up record](docs/cross-verification-followup.en.md) retains how the failure count changed,
 complete-output replays, the 19-mechanism unsupported inventory and reviewed chapter pairs.
 The chapter CSVs use this single complete local run; formal confirmation is recorded separately.
+The kirimasim counts of the models below come from this saved run (kirimasim `77c27531437c`).
 
 Named events and loop transfers (Chapters 12×15) select 36 of 2,016 legal representative combinations.
 Check same-slot registration, blocking/NBA triggers and break/continue through received words, retention and loop completion.
-Latest kirimasim passes all 36. See [design, examples and pinned differences](docs/interaction-verification.en.md#named-event-loop-transfer).
+kirimasim passes all 36. See [design, examples and pinned differences](docs/interaction-verification.en.md#named-event-loop-transfer).
 
 Package array queries and name lookup (Chapters 20×26) select 36 of 3,456 legal combinations.
 Function-local imports and qualified references determine query operands; check widths, bounds and directions through actual scans and full-width accumulation.
-Latest kirimasim passes all 36. See [design, independent checks and pinned comparisons](docs/interaction-verification.en.md#package-array-query-scope), including local namesakes.
+kirimasim passes all 36. See [design, independent checks and pinned comparisons](docs/interaction-verification.en.md#package-array-query-scope), including local namesakes.
 
 Program termination and automatic tasks (Chapters 13×24 and 12×24) select 36 of 3,456 legal combinations.
 Check private overlapping calls, normal-return copyout, cancellation without copyout and a surviving peer program.
-Latest kirimasim passes all 36; pinned Icarus records 6 pass / 30 known and Verilator 36 known. See [design, independent checks and scope](docs/interaction-verification.en.md#program-task-frame-lifetime).
+kirimasim passes all 36; pinned Icarus records 6 pass / 30 known and Verilator 36 known. See [design, independent checks and scope](docs/interaction-verification.en.md#program-task-frame-lifetime).
 
 Formatted scanning and partial writes (Chapters 11×21 and 20×21) select 36 of 5,760 legal representative combinations.
 Observe every full storage word to check writes before a stopped conversion, later-output retention and successful followup scans.
-Latest kirimasim passes all 36; pinned Icarus records 17 pass / 19 known. See [design, independent checks and pinned differences](docs/interaction-verification.en.md#formatted-scan-partial-write).
+kirimasim passes all 36; pinned Icarus records 17 pass / 19 known. See [design, independent checks and pinned differences](docs/interaction-verification.en.md#formatted-scan-partial-write).
 
 Constant expressions and generate (Chapters 11×27 and 20×27) select 36 of 6,912 legal combinations.
 Separate operand signs, context width and result declaration sign; observe actual branches, generated counts, element widths and full-width data.
-Latest kirimasim and pinned Icarus pass all 36. See [design, independent checks and pinned comparisons](docs/interaction-verification.en.md#generated-constant-expression-shape).
+kirimasim and pinned Icarus pass all 36. See [design, independent checks and pinned comparisons](docs/interaction-verification.en.md#generated-constant-expression-shape).
 
 Interface-local array queries (Chapters 7×25, 20×25 and 13×20) select 36 of 4,608 legal combinations.
 Queries determine the scan start, count and direction; observe an order-sensitive full-width checksum and retention of the other instance after calls.
-Latest kirimasim and pinned Icarus pass all 36. See [design, independent checks and pinned-release comparisons](docs/interaction-verification.en.md#interface-array-query-walk).
+kirimasim and pinned Icarus pass all 36. See [design, independent checks and pinned-release comparisons](docs/interaction-verification.en.md#interface-array-query-walk).
 
 Generated processes and loop transfers (Chapters 12×27 and 9×27, also 7×27) select 36 of 6,912 legal combinations.
 Check scope-local break/continue, every array element and result, rearming after input changes and retention after falling edges/idle.
-Latest kirimasim passes all 36; pinned Icarus records 31 pass / 5 known, and each Verilator seed records 12 pass / 24 known.
+kirimasim passes all 36; pinned Icarus records 31 pass / 5 known, and each Verilator seed records 12 pass / 24 known.
 See [design, independent checks and repeat-count-one differences](docs/interaction-verification.en.md#generated-process-loop-transfer).
 
 Class selection and early return (Chapters 8×11 and 8×12) select 36 of 1,296 legal combinations.
 They distinguish direct/virtual/nonvirtual calls, if/case versus X/Z conditional merging,
 receiver-only updates, typed-result extension and retained aliases after handle rebinding.
-All 36 pass on latest kirimasim; pinned Verilator seeds 1/73 each give 12 pass and 24 known.
+All 36 pass on kirimasim; pinned Verilator seeds 1/73 each give 12 pass and 24 known.
 See [design, independent checks and limits](docs/interaction-verification.en.md#class-conditional-return).
 
 Generated subroutines and array state (Chapters 13×27 and 7×27, also 7×13) select 36 of 2,304 legal combinations.
 They check default-argument reevaluation, local types/constants, function returns versus task copy-out,
-array bounds and independent scopes after every call. Latest kirimasim and pinned Icarus 13.0 pass all 36;
+array bounds and independent scopes after every call. kirimasim and pinned Icarus 13.0 pass all 36;
 both pinned Verilator seeds record 11 pass and 25 known results.
 See [design, independent checks and saved differences](docs/interaction-verification.en.md#generated-subroutine-binding).
 
 Class methods and package imports (Chapters 8×26) select 34 of 3,264 legal combinations.
 They check method-local versus enclosing lookup, typed function/task results, shared package state,
-object aliases and handle rebinding. All 34 pass on latest kirimasim; both fixed Verilator seeds record
+object aliases and handle rebinding. All 34 pass on kirimasim; both fixed Verilator seeds record
 18 pass and 16 known results, and fixed Icarus rejects all 34 builds.
 See [design, independent checks and limits](docs/interaction-verification.en.md#class-method-package-lookup).
 
-Disable and deferred reports (Chapters 9×16) select 31 of 720 combinations. Check cancellation scope, input capture/side effects, live action data and ordinary control transfer. Latest kirimasim matches all 31 cases, retaining sibling reports, captured-input side effects and settled history. Both fixed Verilator seeds record 13 pass and 18 known results. See [scope and complete-output replays](docs/interaction-verification.en.md#deferred-disable-reports).
+Disable and deferred reports (Chapters 9×16) select 31 of 720 combinations. Check cancellation scope, input capture/side effects, live action data and ordinary control transfer. kirimasim matches all 31 cases, retaining sibling reports, captured-input side effects and settled history. Both fixed Verilator seeds record 13 pass and 18 known results. See [scope and complete-output replays](docs/interaction-verification.en.md#deferred-disable-reports).
 
-Deferred report arguments (Chapters 13×16) select 29 of 368 legal combinations, checking input capture, static references, width/signedness conversion and input-evaluation side effects. All 29 additions pass on latest kirimasim. Both fixed Verilator seeds record 29 known results; fixed Icarus rejects all 29 builds. Common expectations remain unchanged. See [design, independent checks and limits](docs/interaction-verification.en.md#deferred-argument-capture).
+Deferred report arguments (Chapters 13×16) select 29 of 368 legal combinations, checking input capture, static references, width/signedness conversion and input-evaluation side effects. All 29 pass on kirimasim. Both fixed Verilator seeds record 29 known results; fixed Icarus rejects all 29 builds. Common expectations remain unchanged. See [design, independent checks and limits](docs/interaction-verification.en.md#deferred-argument-capture).
 
-Package change observers (Chapters 9×26 and 11×26) select 36 of 2,592 legal combinations. They check event/wait fanout, always_comb sensitivity through function reads, whole-word versus low-bit changes, X conditions, retained wake history, repeated writes and independent neighbors/packages. All 36 pass on latest kirimasim. See [design, independent checks and limits](docs/interaction-verification.en.md#package-change-observers).
+Package change observers (Chapters 9×26 and 11×26) select 36 of 2,592 legal combinations. They check event/wait fanout, always_comb sensitivity through function reads, whole-word versus low-bit changes, X conditions, retained wake history, repeated writes and independent neighbors/packages. All 36 pass on kirimasim. See [design, independent checks and limits](docs/interaction-verification.en.md#package-change-observers).
 
-Package variables and NBA (Chapters 10×26) select 36 of 1,296 legal combinations, checking shared state across modules, captured values/indices, reservation order within one initial thread, delay and state conversion. All 36 additions pass on latest kirimasim. Both fixed Verilator seeds pass the 12 known-value cases; 24 requiring X/Z observations remain known two-state differences. See [design, independent checks and limits](docs/interaction-verification.en.md#package-nba-capture).
+Package variables and NBA (Chapters 10×26) select 36 of 1,296 legal combinations, checking shared state across modules, captured values/indices, reservation order within one initial thread, delay and state conversion. All 36 pass on kirimasim. Both fixed Verilator seeds pass the 12 known-value cases; 24 requiring X/Z observations remain known two-state differences. See [design, independent checks and limits](docs/interaction-verification.en.md#package-nba-capture).
 
-Enums and generate (Chapters 6×27) select 36 of 1,056 legal combinations, checking per-element width/signedness/tables, next/prev navigation and held copies. All 36 additions pass on latest kirimasim. Both fixed Verilator seeds record 18 pass and 18 known results; fixed Icarus records 36 known. See [design, independent checks and limits](docs/interaction-verification.en.md#generated-enum-navigation).
+Enums and generate (Chapters 6×27) select 36 of 1,056 legal combinations, checking per-element width/signedness/tables, next/prev navigation and held copies. All 36 pass on kirimasim. Both fixed Verilator seeds record 18 pass and 18 known results; fixed Icarus records 36 known. See [design, independent checks and limits](docs/interaction-verification.en.md#generated-enum-navigation).
 
-Clocking inputs and named-event waiters (Chapters 14×15) select 24 of 192 combinations. Check sample retention, live values, notification counts, fanout and rearming. Latest kirimasim records 12 pass and 12 unsupported `input #0` cases; fixed Verilator seeds each record 12 pass and 12 known nonblocking-notification differences. See [design, controls and limits](docs/interaction-verification.en.md#clocking-named-event).
+Clocking inputs and named-event waiters (Chapters 14×15) select 24 of 192 combinations. Check sample retention, live values, notification counts, fanout and rearming. kirimasim records 12 pass and 12 unsupported `input #0` cases; fixed Verilator seeds each record 12 pass and 12 known nonblocking-notification differences. See [design, controls and limits](docs/interaction-verification.en.md#clocking-named-event).
 
 - The [interaction report](docs/interaction-coverage.en.md) separates the selection plan
   from fingerprint-qualified passes in each saved execution.
@@ -293,19 +296,24 @@ A complete selection plan and a successful Check do not mean all crosses passed 
 every simulator. Use the [saved-run summary](docs/interaction-verification.en.md#保存実行の概要)
 for the build revision, execution scope and status counts.
 
+[Metamorphic checks](docs/metamorphic.en.md) (`tools/metamorphic.py`) run a test
+and a copy transformed without changing its meaning (renamed identifiers, added
+white space and comments, a larger time unit) on the same simulator and compare
+the normalized outputs. They use no expected output, so a wrong expectation does
+not hide a simulator defect or a hidden dependency of the test. They add nothing
+to the fixed-suite counts or coverage.
+
 The [method from the PDF to tests](docs/requirements-to-tests-method.en.md) describes,
 step by step, how the requirements were extracted from the standard, how existing
 tests are matched to them and new tests written, how an independent reviewer checks
 both, and how the results are merged and measured, with the
 [matching kit](tools/matching_kit/README.md) that the steps use.
 
-The requirement denominator is **12,332 requirements**. The
-[denominator review](docs/denominator-review-20261028.en.md) approved 12,298
-after duplicate rows were merged. With the owner's approval, 34 rows that mixed
-an accepted and a rejected form were then split (7 on 2026-11-14 and 27 on
-2026-11-15), and 76 rows got the kind or wording their observation needs
-(23 and 53): rows that could be shown only by a rejected design, and error rows
-that also stated a legal behavior. The reviewer was an AI, not an independent human.
+The requirement denominator is **12,332 requirements**: those that the
+[denominator review](docs/denominator-review-20261028.en.md) approved after
+merging duplicate rows, with 34 rows that mixed an accepted and a rejected form
+each split in two with the owner's approval. The [history](docs/history.md)
+records how the denominator changed. The reviewer was an AI, not an independent human.
 Design coverage is **93.15% (11,487/12,332)**;
 execution coverage from the saved `coverage/results/` evidence of the tools
 anyone can reproduce (Icarus Verilog, Verilator and SymbiYosys) is
@@ -320,6 +328,15 @@ The reports of each extraction, matching and test-addition step are linked
 from the [history](docs/history.md); they record the observations,
 standard-derived expectations, simulator differences, mutation checks and
 execution evidence.
+
+Tests whose expectation follows one of two readings of the standard, and tests
+that rely on something the standard leaves undefined, are listed in
+[tests with contested readings](docs/interpretation-splits.en.md); the tests and
+requirements of each feature added by 1800-2023 are in
+[tests of the features added by 1800-2023](docs/sv2023-features.en.md). Both are
+AI records generated from their ledgers (`coverage/interpretation-splits.json`,
+`coverage/sv2023-features.json`), and neither changes a test, an expectation or
+the requirement denominator.
 
 Tests are grouped in directories by the chapter (clause) of IEEE 1800-2023
 that the first clause in their `:lrm:` belongs to. The columns Icarus,
@@ -437,9 +454,10 @@ Use [Q9](docs/faq.en.md#q9-what-do-match-differ-known-difference-and-unsupported
 
 ## Simulation speed
 
-The [2026-11-17 speed-improvement record for 0.1.1](docs/simulation-speed-20261117.md) separates the full thirteen-input measurement at 7f5a9134 (ten inputs faster than Icarus) from the final three-input comparison at 1745b8fc. In that direct comparison only proc_wait has a smaller median time than Icarus; gate_udp and mem_rw remain slower. Concurrent-CI limitations and all samples are recorded.
-
-The [2026-11-16 Mac/WSL2 comparison and countermeasure investigation](docs/simulation-speed-20261116.md) records kirimasim 0.1.0 versus Icarus 14.0 devel, raw samples, data quality and measured prototype effects. Both received WSL2 release runs have concurrent-load limitations; Linux prototype checks and timings are now documented. Earlier measurements remain in the
+Day-to-day speed comparisons of kirimasim and Icarus Verilog come from the
+[daily and weekly speed benchmarks](docs/daily-benchmark.md) above. Dated speed
+measurements, including the latest [2026-11-17 speed-improvement record for 0.1.1](docs/simulation-speed-20261117.md),
+are reached from the [history](docs/history.md) and the
 [measurement archive](docs/readme-records-20261101.md#simulation-speed).
 The simulator repository maintains the [benchmark code and commands](https://github.com/kurochan001/kirimasim/tree/main/bench).
 
@@ -477,6 +495,9 @@ docs/requirements-to-tests-method.en.md the method from the standard's PDF to re
 coverage/behavior-summary.json  the current behavior measurements and denominator identity
 coverage/behavior-history.json  saved measurement history with denominator identities
 coverage/slang/                 dated records of the slang reference, which are not counted
+coverage/human-review.json      the verdicts a person recorded in the sampled human review
+coverage/interpretation-splits.json the ledger of tests with contested readings
+coverage/sv2023-features.json   the ledger of the features added by 1800-2023 and their tests
 tools/run_icarus.py             runs the suite with Icarus Verilog
 tools/run_verilator.py          runs the suite with Verilator
 tools/run_kirimasim.py          runs the suite with kirimasim
@@ -489,6 +510,10 @@ tools/results_history.py        keeps the nightly history and draws its charts
 tools/results_ratchet.py        lists the tests that matched in the previous run and differ now
 tools/differences_status.py     reports the tests of docs/simulator-differences.md on the latest master
 tools/review_candidates.py      lists the tests and clauses whose expected results a person should review
+tools/review_sample.py          draws the sample for the human review, records verdicts and bounds error rates
+tools/interpretation_splits.py  checks the ledger of contested readings and writes its report
+tools/sv2023_features.py        checks the ledger of the features added by 1800-2023 and writes its report
+tools/metamorphic.py            compares a test with a copy transformed without changing its meaning
 tools/suite_stats.py            counts the tests and keeps both README language versions' tables
 tools/suite_catalog.py          writes the catalog of the tests, docs/tests/
 tools/coverage_depth.py         writes docs/coverage-depth.md, the depth report
@@ -738,6 +763,9 @@ and Verilator 5.052, and `generators/record_oracles.py` records which of them
 produce them in `generators/oracles.txt`, from which `:oracle:` is written. A
 test that neither release produces follows the model alone (`:oracle: spec`);
 where the model and a simulator differ, the clause decides, as above.
+Generated tests added while the pin moves from 5.052 to 5.054 have
+`verilator@5.054` in `generators/oracles.txt` when Verilator 5.054 produced their
+output (`generators/record_oracles.py` reads the results of 5.052).
 
 <a id="スイートの実行"></a>
 
@@ -983,7 +1011,8 @@ the newest run. A `--time` without a UTC offset is read as UTC.
 
 `.github/workflows/check.yml` runs on every push to `main` and every pull
 request that changes `tests/`, `tools/`, `generators/`, `docs/`, this
-README or its Japanese version, `coverage/`
+README or its Japanese version, `coverage/`, `bench/`, the speed-benchmark
+workflow (`.github/workflows/benchmark.yml`)
 or the workflow itself, and can be started by hand from the Actions
 tab (`workflow_dispatch`). Its jobs fail when the
 suite has a problem:
@@ -1010,9 +1039,15 @@ suite has a problem:
   `tools/lint_metadata.py` checks, other than the known problems of existing
   tests in `tools/lint_baseline.txt`. It also runs the tooling unit tests,
   validates behavioral coverage and its baseline with source review required,
-  checks the freshness of the requirement-matching inventory, and validates the
+  and checks the freshness of the requirement-matching inventory. It checks the
+  ledger of the sampled human review (`tools/review_sample.py check`) and the
+  ledgers of contested readings and of the features added by 1800-2023 with
+  their reports (`tools/interpretation_splits.py --check`,
+  `tools/sv2023_features.py --check`). It validates the
   interaction models, selected witnesses and saved execution report
-  (`tools/interaction_coverage.py --check`). It also checks the complete generator
+  (`tools/interaction_coverage.py --check`), the chapter matrices and zero-cell
+  triage (`tools/chapter_cross_matrix.py --check`, `tools/chapter_cross_triage.py --check`)
+  and the Issue #21 combination ledger (`tools/combination_gaps.py --check`). It also checks the complete generator
   catalog and every English/Japanese document pair, including handwritten-page
   fingerprints and generated translations. It also checks random stimulus generation
   and saved-manifest replay, requiring byte-identical SV and expectations.

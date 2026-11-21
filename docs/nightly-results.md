@@ -50,8 +50,9 @@ suite `19cd790a5f639348ad67fd63959dce9811d3ab56`の[Nightly](https://github.com/
 ### 直近のローカル追加
 
 最新のローカル追加は[programのインスタンスを階層に置く方法](interaction-verification.md#program-hierarchy-instances)の24件で、113モデル・4,509件です。
-最新のmainをビルドした`77c27531437c`による[単一実行](../coverage/interaction-results/full-20261114-kirimasim-77c27531-progmod.json)は4,017 pass・484 unsupported・8 failです。追加24件のうち20件がPASSで、4件は入れ子のprogramをkirimasimが暗黙にインスタンス化しないものです。従来4,485件の入力と状態は不変です。今回の24件は[`5871523d`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/43555973796)に含まれ、Checkは成功しました（24件は規格だけを根拠にし、固定版の一致を求めるケースはありません）。Nightlyでは未実行です。
+最新のmainをビルドした`77c27531437c`による[単一実行](../coverage/interaction-results/full-20261114-kirimasim-77c27531-progmod.json)は4,017 pass・484 unsupported・8 failです。追加24件のうち20件がPASSで、4件は入れ子のprogramをkirimasimが暗黙にインスタンス化しないものです。従来4,485件の入力と状態は不変です。今回の24件は[`5871523d`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/43555973796)に含まれ、Checkは成功しました（24件は規格だけを根拠にし、固定版の一致を求めるケースはありません）。記録した時点ではNightlyで未実行でした。
 下の30件と42件は、2026-11-14のNightly（suite `aef04b93`）で実行しました。
+この節の各追加に書いた「Nightlyでは未実行」は、記録した時点の状態です。2026-11-20のNightly（suite `7e233e9`）では、113モデルの全4,509件を5つのシミュレータがすべて実行しています（`results`ブランチの`latest/<シミュレータ>.json`）。
 
 その前のローカル追加は[programとinterfaceの間の書込みと反応の領域](interaction-verification.md#program-interface-regions)の30件で、112モデル・4,485件です。
 `77c27531437c`による[単一実行](../coverage/interaction-results/full-20261114-kirimasim-77c27531.json)は3,997 pass・484 unsupported・4 failです。追加30件は全PASSで、従来4,455件の入力は不変です。この30件は[`aef04b93`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/43525301976)で固定版比較が成功し、Nightlyでは未実行です。
@@ -155,7 +156,7 @@ Ghostは、公開前の正体不明なシミュレータが仮名で参加する
 毎晩、他の参加者と同じテストを実行し、正体やソースを伏せたまま結果を公開します。
 ビルドの識別には実行ファイルのハッシュを使い、取得先・内部の診断・ビルドログは公開しません。
 nvcは2026年10月24日に比較対象へ加えましたが、SystemVerilogへの対応が少ないため、10月25日に外しました。それまでのnvcの結果は`history.json`に残りますが、推移図とレポートには描きません。
-Lyraはビルド用のジョブ（`lyra-build`）で実行ごとに`main`先端のコミットを取得し、テストを実行する`lyra`ジョブへ渡します。そのSHAをソース取得・キャッシュキー・結果記録で共通に使い、同じコミットのビルドだけを再利用します。未キャッシュのコミットは`lyra-build`で再ビルドするので、テストには`lyra`ジョブの6時間の上限をすべて使えます（[履歴](history.ja.md#2026-11-09-lyra-build-job)を参照）。過去のGitHubランナーでのビルドには40〜90分かかりました。Lyraは各テストをランナーのGCC（`--cxx c++`）でビルドします。Lyra `4872d420`からはランナーのclang 18ではLyraのランタイムをコンパイルできず、2026-11-07と11-08のLyraのジョブが止まりました（[履歴](history.ja.md#2026-11-08-lyra-host-compiler)を参照）。
+Lyraはビルド用のジョブ（`lyra-build`）で実行ごとに`main`先端のコミットを取得し、テストを実行する`lyra-shards`ジョブへ渡します。そのSHAをソース取得・キャッシュキー・結果記録で共通に使い、同じコミットのビルドだけを再利用します。未キャッシュのコミットは`lyra-build`で再ビルドするので、テストのジョブはビルドの時間を使いません（[履歴](history.ja.md#2026-11-09-lyra-build-job)を参照）。`lyra-shards`は4つの並列ジョブで、テストIDのSHA-256で分けた互いに重ならない部分を実行し、各テストステップは345分で止まります。`lyra`ジョブは4つの分割がすべて成功したときだけ、担当テスト・入力とランナーの指紋・版・コンパイラ設定を確かめて1つの`lyra.json`に統合します。過去のGitHubランナーでのビルドには40〜90分かかりました。Lyraは各テストをランナーのGCC（`--cxx c++`）でビルドします。Lyra `4872d420`からはランナーのclang 18ではLyraのランタイムをコンパイルできず、2026-11-07と11-08のLyraのジョブが止まりました（[履歴](history.ja.md#2026-11-08-lyra-host-compiler)を参照）。
 `publish`は`main`の実行だけが行います。ほかのブランチで手動実行した場合、結果はartifactとして残るだけで、公開はされません。
 `publish`が結果を集計して`results`ブランチへpushすると、READMEから参照しているグラフと結果レポートが更新されます。
 `main`へのpushと、Nightly結果の公開は別の処理です。
@@ -189,7 +190,7 @@ gh workflow run nightly.yml --repo kurochan001/kirimasim-tests --ref main
 GitHubの[Re-runは元の実行と同じコミット・refを使います](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/re-run-workflows-and-jobs)。
 `workflow_dispatch`で`main`を選ぶと、起動時の`main`先端のスイートと設定が対象になります。
 Lyraはその実行の`lyra-build`ジョブで上流の`main`先端を取得し、実行に使ったSHAを結果へ記録します。
-`lyra`ジョブだけを再実行した場合は、その実行で`lyra-build`が取得したSHAを使います。
+`lyra-shards`のジョブだけを再実行した場合も、その実行で`lyra-build`が取得したSHAを使います。
 
 <a id="random-comparisons"></a>
 
@@ -297,8 +298,10 @@ mainでLyraを初めてビルドした10月24日の実行では、Lyraのジョ�
 Lyraが各テストをGCCでビルドするようになってから最初の[2026年11月8日の実行](https://github.com/kurochan001/kirimasim-tests/actions/runs/42477954992)（11,897本）では、Lyraのテストに4時間20分、未キャッシュのビルドに85分かかり、ジョブの6時間の上限のうち5時間47分を使いました。
 [2026年11月9日の実行](https://github.com/kurochan001/kirimasim-tests/actions/runs/42532762726)（12,165本）では、Lyraの新しいコミットのビルドに1時間32分かかり、生成テストの途中でジョブが上限に達したため、この実行にはLyraの結果がありません。
 これ以降、ビルドは別のジョブで行います。
+[2026年11月19日の実行](https://github.com/kurochan001/kirimasim-tests/actions/runs/44540686011)では、ビルドを分けてもLyraのテストステップが345分の上限に達しました。
+これ以降、Lyraのテストは4分割で実行します。最初に検証した4分割の実行（suite `03b2e107`）では、テストステップの最長は91.8分でした（[上記](#latest-verified-checkpoint)）。
 
-Verilatorのジョブでは、各プロセスのアドレス空間を6GBに制限しています（`ulimit -v`）。
+Verilatorのジョブでは、各プロセスのアドレス空間を6GBに制限しています（`ulimit -v`）。Lyraの各分割とGhostのジョブにも同じ制限があります。
 名前付きシーケンスが互いを参照する規格違反のコード（`tests/ch16/test_illegal_sequence_cycle_through_bodies.sv`）で、Verilatorが再帰を止めずにランナーのメモリ（16GB）を使い切り、GitHubがジョブを止めたためです。
 制限の下では、そのテストだけが失敗します。
 
@@ -332,7 +335,7 @@ IEEE 1800-2023の全動作に対する網羅率とは別の指標です。
   出力先は`results`ブランチ直下の`behavior-coverage-summary.md`で、[resultsブランチ](https://github.com/kurochan001/kirimasim-tests/tree/results)から参照できます。
   2026年10月24日からは、Lyraの結果も集計の対象です（規格違反の検出を求める要求は、`:oracle:`に固定バージョンのトークンがあるIcarusとVerilatorの結果だけを数えます）。
 - [管理手順](../coverage/README.md)：分母、暫定値と確定値、入力ハッシュ、複数テストの集合証拠の扱い。
-- [照合一覧](test-requirement-matching.md)と[ギャップ調査](coverage-gap-recommendations-20261029.md)：現在の照合状況と、2026-10-29時点の追加テスト候補。
+- [照合一覧](test-requirement-matching.md)と[ギャップ調査](coverage-gap-recommendations-20261029.md)：現在の照合状況と、2026-10-29時点の追加テスト候補。[テストのない要求の仕分け](unmapped-requirements-20261120.md)は、2026-11-20時点でテストのない行を、1回の実行で観測できるかどうかで分けています。
 
 機能間クロスは要求カバレッジとは別に、`publish`がその回の実行結果から
 `interaction-coverage.md`と`interaction-coverage.json`を`results`ブランチへ書き出します。
@@ -345,7 +348,7 @@ IEEE 1800-2023の全動作に対する網羅率とは別の指標です。
 両言語は同じ保存結果を使い、公開処理でシミュレータを再実行したり、生のJSONを変更したりはしません。
 公開ブランチへの追加ファイルの反映は、更新後のツールを使った公開処理が完了してからです。
 
-mainの保存済み証跡には固定バージョンの実行、部分再実行、Ghostのローカル全件実行があり、
+mainの保存済み証跡には固定バージョンの実行、部分再実行、Ghostのローカル全件実行、kirimasimのローカル実行があり、
 Nightlyは各シミュレータの開発版で実行します。
 対象コミット・実行範囲・版が異なるため、両者の割合を同一条件の結果として比較しないでください。
 集合証拠は同じ実行回の全メンバーの成功を必要とし、別実行の部分成功は合成しません。
@@ -355,7 +358,7 @@ Nightlyは各シミュレータの開発版で実行します。
 ## 更新されていないときの確認順
 
 1. 実行一覧で開始済みか、待機中かを確認します。04:23を過ぎても開始遅延の場合があります。
-2. 開始済みなら5つのシミュレータジョブと`publish`の状態を確認します。
+2. 開始済みならシミュレータのジョブ（icarus・verilator・kirimasim・lyra-build・4つのlyra-shards・lyra・ghost）と`publish`の状態を確認します。
 3. `publish`が成功したら、公開レポートの時刻・`suite commit`・本数を確認します。
 4. グラフだけが古く見える場合は、公開レポートと`results`ブランチの更新履歴も確認します。
 

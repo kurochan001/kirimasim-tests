@@ -27,7 +27,7 @@
 | specのみで、Ghost・kirimasim・Lyraのすべてでfail | どのシミュレータでもpassせず、3つでfail（unsupportedではない） | 独立した3つの実装がそろって違う結果なので、期待値の誤りの可能性が最も高い |
 | specのみで、kirimasimだけがpass | ほかのどれもpassしない | テストとkirimasimが同じ読み違いをしている可能性がある |
 | specのみで、どこでもpassしないその他のテスト | 上の2つ以外 | 未実装による失敗が多いが、期待値の裏付けがない |
-| 固定版のoracleがあり、GhostとLyraの両方でfail | `:oracle:`にIcarus 13.0かVerilator 5.052がある | 期待値がIcarus・Verilatorの振る舞いに引きずられた可能性がある（[`test_readmemh_address_range`の例](simulator-differences.ja.md)） |
+| 固定版のoracleがあり、GhostとLyraの両方でfail | `:oracle:`にIcarus 13.0かVerilator 5.052・5.054がある | 期待値がIcarus・Verilatorの振る舞いに引きずられた可能性がある（[`test_readmemh_address_range`の例](simulator-differences.ja.md)） |
 | 引用するテストがすべてspecのみの条項 | 3〜40章の対象範囲の末端条項（`tools/clauses.txt`）で、`:lrm:`で引用するテストがすべてspecのみ | 条項全体の裏付けが規格の読み方だけ |
 
 kirimasimとLyraはフロントエンドにslangを共有しているので、構文解析や展開についての両者の一致は独立した裏付けになりません。
@@ -52,8 +52,10 @@ kirimasimとLyraはフロントエンドにslangを共有しているので、�
 - 期待値が正しければ、根拠の条項をテストのコメントに書き足します。
 - 誤りなら期待値を直し、理由と引用した条項をテストのコメントと[履歴](history.ja.md)に残します。生成テストは生成器を直します。
 - `:spec_check: ai`は、人が照合するまで変えません。
+- 人が読んだ判定は、[人による抽き取りレビュー](review-sample.md)の`tools/review_sample.py`で`coverage/human-review.json`に記録します。無作為に選んだ一部を読むことで、層ごとの誤り率に上限を付けます。
 
 記録した見直し：
 
 - [2026-11-09](spec-only-review-20261109.md)
 - [2026-11-12：どのシミュレータでも合格しないテスト](pass-nowhere-review-20261112.md)
+- 2026-11-13：Ghostだけが一致するテスト（この一覧の候補の外）：[37章](ghost-only-review-ch37-20261113.md)、[16章](ghost-only-review-ch16-20261113.md)、[36・38・39・40章](ghost-only-review-vpi-20261113.md)、[残りの章](ghost-only-review-rest-20261113.md)

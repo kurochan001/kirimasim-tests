@@ -27,6 +27,7 @@
 - slangは`:vpi_c:`のCコードを読み込みません。そのコードが`$vt_...`などのシステムタスクを登録するので、slangはVPIテストの大半を拒否します。ツールはこれらに印を付け、集計でも別にします。
 - オプションはkirimasimの前段（`src/front/front.cpp`）と同じです。kirimasimはさらに、`--top`がないとき最初のconfigを最上位に選び、slangの後に独自の検査をします。このため、kirimasimが拒否するものをslang単体では受理することがあります。
 - slangのコミットはkirimasimの固定に合わせます。kirimasimが固定を変えたら、新しいコミットをビルドし、日付付きの記録を新しく作ります。Lyraが使うslangのコミットは確かめていません。
+- kirimasimは2026-11-19（`155b8e8e`）にslangの固定を`e81bcd25`へ移しました。このコミットの記録はまだありません。下の記録は、それより前の固定版のものです。
 
 <a id="build-the-pinned-driver"></a>
 

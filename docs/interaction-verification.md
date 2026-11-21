@@ -20,6 +20,10 @@
 追加24件のうち20件がPASSで、従来4,485件の入力と状態は不変です。全選択ケースPASSは87モデルです。
 [programのインスタンスを階層に置く方法](#program-hierarchy-instances)に独立検算と固定版比較を記録します。
 
+2026-11-15以降のNightlyは、113モデルをすべて含むsuiteで実行しています（例：4分割を初めて検証した[Nightly 44631823505](https://github.com/kurochan001/kirimasim-tests/actions/runs/44631823505)、suite `03b2e107`）。
+Nightlyごとの実行確認は`results`ブランチの[機能間クロスの実行確認](https://github.com/kurochan001/kirimasim-tests/blob/results/interaction-coverage.md)にあります。
+以下の段落の「Nightlyでは未実行」は、それぞれの追加の時点の記録です。
+
 同じ日のprogramとinterfaceの間の書込みと反応の領域の追加で、**112モデル・4,485件・192章対**になりました。
 最新のmainをビルドしたkirimasim `77c27531437c`の[単一実行](../coverage/interaction-results/full-20261114-kirimasim-77c27531.json)は、
 **3,997 pass・484 unsupported・4 fail**です。failは既存configの4件だけです。
@@ -40,7 +44,7 @@
 [moduleとgenerateブロックで宣言したクラス](#scoped-class-declaration)、[case項目のリテラルの桁](#case-literal-wildcard)、[構造体リテラルのキー](#aggregate-literal-key)に独立検算と固定版比較を記録します。
 追加120件は[`a9c8a8eb`のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42461618429)で固定版比較が成功しました。Nightlyでは未実行です。
 
-2026-11-12に、モデル[`edge_event_expression`](#event-expression-edge-classification-xz-transitions-and-update-timing)と[`sv_dpi_array_queries`](#sv-dpi-array-queries)を、同じ内容のケースを選ばないように改訂しました。現在は**110モデル・4,413件・189章対**です。
+2026-11-12に、モデル[`edge_event_expression`](#event-expression-edge-classification-xz-transitions-and-update-timing)と[`sv_dpi_array_queries`](#sv-dpi-array-queries)を、同じ内容のケースを選ばないように改訂しました。この時点では**110モデル・4,413件・189章対**です。
 kirimasim `7de185f776a1`の[単一実行](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-edgedpiquery.json)は**3,915 pass・484 unsupported・14 fail**で、failは同じ14件です。全選択ケースPASSは83モデルです。
 
 2026-11-12に、モデル[`dpi_openarray_shape`](#dpi-open-arrayの形状と書戻し)の期待値を1か所直しました。1要素の動的配列・キューの`svIncrement`は-1です（20.7、H.12.2）。選択済みの4件の期待出力が変わりました。行、選択、合計は変わっていません。
@@ -163,7 +167,7 @@ kirimasim `28c6c1a1cb83`の[単一実行](../coverage/interaction-results/cross1
 以下の正式確認は追加前の状態を記録しており、今回のローカル結果とは別です。
 [メソッド内のpackage参照](#class-method-package-lookup)に設計と独立確認を記載しています。
 
-2026-11-04（日本時間）に照合した[最新の確認済み状態](nightly-results.md#latest-verified-checkpoint)では、
+2026-11-04（日本時間）に照合した[確認済み状態](nightly-results.md#checkpoint-9926160a)では、
 suite `9926160a`のCheck・Nightlyがともに成功しています。
 この正式Nightlyのkirimasim `9113955914d8`実行には、追加前の**79モデルの全2,922件**が含まれ、
 **2,389 pass・529 unsupported・configの4 fail**、**全選択ケースPASSは52モデル**、**章対は114組**です。
@@ -174,7 +178,7 @@ suite `9926160a`のCheck・Nightlyがともに成功しています。
 以下の日時付きスナップショットは、各追加・修正を実行した当時の記録です。
 未コミットの修正という記述は、その時点のビルド条件を示し、現在の上流の状態を示すものではありません。
 
-package変更の観測追加（2026-11-03）：現在は**79モデル・2,922件・114章対**です。
+package変更の観測追加（2026-11-03）：当時は**79モデル・2,922件・114章対**です。
 実行直前に上流mainを取得・構成・ビルドしたkirimasim `a682e19e3238`の
 [全クロス保存実行](../coverage/interaction-results/cross79-kirimasim-a682e19e-pkgwatch.json)は
 **2,389 pass・529 unsupported・既存configの4 fail**です。追加36件は全て解析成功・PASSで、
@@ -740,7 +744,7 @@ python3 tools/interaction_coverage.py --model nba_capture \
 
 ## CI・更新手順
 
-Checkは生成結果、選択計画、保存済み実行証跡からの集計、単体テストを検査します。 固定リリースのIcarus Verilog 13.0、またはVerilator 5.052の両seedで期待値と一致したケースにoracleを登録しています。 規格ベースの期待値と異なるケースは`spec`のまま保持し、実行確認済みとは数えません。 固定リリースによる確認と、開発版の最新コミットによるNightly測定を区別します。 Nightlyはその回のシミュレータ別JSONから`results`ブランチの `interaction-coverage.md`と`interaction-coverage.json`を生成します。
+Checkは生成結果、選択計画、保存済み実行証跡からの集計、単体テストを検査します。 固定リリースのIcarus Verilog 13.0、またはVerilator 5.052の両seedで期待値と一致したケースにoracleを登録しています。 2026-11-14から固定版を移すまでに追加したケースは、Verilator 5.052の代わりに5.054で確かめます（[暫定の固定版](simulator-differences.ja.md#verilator-5054-interim)）。 規格ベースの期待値と異なるケースは`spec`のまま保持し、実行確認済みとは数えません。 固定リリースによる確認と、開発版の最新コミットによるNightly測定を区別します。 Nightlyはその回のシミュレータ別JSONから`results`ブランチの `interaction-coverage.md`（英語版は`interaction-coverage.en.md`）と`interaction-coverage.json`を生成します。
 
 <a id="regression-test-of-boundary-conditions-for-issue-21"></a>
 
@@ -3210,7 +3214,7 @@ python3 tools/chapter_cross_triage.py --check
 python3 -m unittest discover -s tools -p test_interaction_coverage.py
 ```
 
-生成テスト追加時はREADMEの統計、カタログ、条項別テスト数、要求照合一覧、要求カバレッジの 生成物も通常どおり更新します。新しいクロスモデルは要求台帳の分母を変更しません。 章間の対応は[章間クロス検証マトリクス](chapter-cross-matrix.md)の台帳にも登録し、CSVを更新します。 [0セルの仕分け](chapter-cross-triage.md)に該当章対の既存検証や候補がある場合は、登録後の扱いを再確認します。 新規テストを要求カバレッジに算入するには、別途、刺激・観測・期待値と要求の対応を レビューして登録する必要があります。既存テスト、負例、期待値は維持します。
+生成テスト追加時はREADMEの統計、カタログ、条項別テスト数、要求照合一覧、要求カバレッジ、 二つの読み方と1800-2023の機能の台帳から作るレポート（`tools/interpretation_splits.py`・`tools/sv2023_features.py`の`--update`）の 生成物も通常どおり更新します。新しいクロスモデルは要求台帳の分母を変更しません。 章間の対応は[章間クロス検証マトリクス](chapter-cross-matrix.md)の台帳にも登録し、CSVを更新します。 [0セルの仕分け](chapter-cross-triage.md)に該当章対の既存検証や候補がある場合は、登録後の扱いを再確認します。 新規テストを要求カバレッジに算入するには、別途、刺激・観測・期待値と要求の対応を レビューして登録する必要があります。既存テスト、負例、期待値は維持します。
 
 方式の背景は[NIST SP 800-142，実践的組合せテスト](https://csrc.nist.gov/pubs/sp/800/142/final) を参照してください。ここでは2因子だけで十分とは仮定せず、指定した3因子群と 必須ケースを併用します。
 

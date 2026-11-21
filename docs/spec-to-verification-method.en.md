@@ -35,7 +35,7 @@ In scope and out of scope:
 |Clause citations through the test's `:lrm:`|Requirement ID attached to tests, checkers, and coverage items|
 |Expected output file compared to output|Pass/fail evaluation using reference-model-based scoreboards, checkers, and assertions|
 |Record of test conditions and observations|The functional coverage obtained by the monitor. Record that conditions are reached and link those records to pass/fail evaluation|
-|Icarus 13.0 and Verilator 5.052 comparison (`:oracle:`)|Cross-check reference models, multiple simulators, formal verification, and FPGA prototypes|
+|Icarus 13.0 and Verilator 5.052 (5.054 for the tests added while the pin moves) comparison (`:oracle:`)|Cross-check reference models, multiple simulators, formal verification, and FPGA prototypes|
 |Generated tests for header constants and reserved words|Generated tests from register maps, opcode tables, pin-multiplexing tables, and error-code tables|
 |Pending interpretation|Issue records for specification ambiguities and contradictions. Can ask the author for clarification|
 |Input hash and runner hash|Input of the test, commit of RTL, version of the tool, seed|
@@ -360,8 +360,8 @@ The reference scheme (JSON, same as `propose.py add` in the original procedure):
 ```json
 {"requirement_id": "UART-REG-LCR-WLS-RESET",
  "test": "tb/tests/reg_reset_values_test.sv",
- "observation": "リセット解除直後にLCRを読み、WLS=2'b11と他フィールドのリセット値をスコアボードで比較する。",
- "rationale": "WLSのリセット値を2'b00にした誤実装では比較が失敗し、REG_RESET_MISMATCHが報告される。",
+ "observation": "Read LCR right after reset is released and compare WLS=2'b11 and the reset values of the other fields in the scoreboard.",
+ "rationale": "An implementation with a WLS reset value of 2'b00 fails the comparison and reports REG_RESET_MISMATCH.",
  "evidence": [{"file": "tb/tests/reg_reset_values_test.sv", "contains": "read_reg(LCR, data);"},
               {"file": "tb/env/reg_scoreboard.sv", "contains": "REG_RESET_MISMATCH"}]}
 ```
@@ -379,3 +379,7 @@ The reference scheme (JSON, same as `propose.py add` in the original procedure):
 | `tools/matching_kit/runsim.py` |Displays matches with execution in multiple verification points (simulator, reference model)|
 | `generators/` |Generated tests from tabular specifications|
 | `tools/behavior_coverage.py` |Ledger checks, measurements, baselines for detecting regressions, and history|
+| `tools/review_sample.py` |A person checks a random sample per stratum of the expectations an AI checked, which bounds the error rate of each stratum|
+| `tools/interpretation_splits.py` |A ledger of items where the specification reads two ways and the expectation follows one reading (linked to the issue tickets)|
+| `tools/sv2023_features.py` |A ledger of the features added by a revision of the specification and the tests that use them|
+| `tools/metamorphic.py` |Compares the outputs before and after a transform that keeps the meaning, to find defects of the verification tool or hidden dependencies of a test without relying on expectations|

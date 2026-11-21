@@ -4,13 +4,13 @@
 
 [English](simulator-differences.md) / [日本語](simulator-differences.ja.md)
 
-スイートの期待出力はIEEE 1800-2023に従い、Icarus Verilog 13.0とVerilator 5.052で確認する（README内の"Where the expected outputs come from"を参照）。2026-11-14から固定版を移すまでに追加したテストは代わりにVerilator 5.054で確認し、それらのテストで見つかった5.054の差は[最後の節](#verilator-5054-interim)にある。これらのリリースのいずれかが引用条項の要求と異なる結果を与えるか，または規格が違法とする設計を受け入れる場所を，それを示すテストと共に一覧表にした。
+スイートの期待出力はIEEE 1800-2023に従い、Icarus Verilog 13.0とVerilator 5.052で確認する（READMEの[期待出力の決め方](../README.ja.md#where-the-expected-outputs-come-from)を参照）。2026-11-14から固定版を移すまでに追加したテストは代わりにVerilator 5.054で確認し、それらのテストで見つかった5.054の差は[Verilator 5.054の節](#verilator-5054-interim)とその後の節にある。これらのリリースのいずれかが引用条項の要求と異なる結果を与えるか，または規格が違法とする設計を受け入れる場所を，それを示すテストと共に一覧表にした。これらのリリースの差ではない関連の観察を記録した節もいくつかある。slangと、それを使うkirimasim・Lyraが取る規格の読み方（2026-11-08・2026-11-09）、kirimasimに現れたslangの退行（2026-11-08）、開発版の実行（2026-11-12）などで、どの節もその旨を書いている。期待出力が規格の二つの読み方の一方に従うテストは、[読み方が割れるテスト](interpretation-splits.md)にまとめている。
 
 リリースがまったく対応せず、エラー、"sorry"、"unsupported"のメッセージで停止する構文は列挙していない。それらは、コンパイルできない既知の差異として表示される。Verilator の2状態シミュレータとしてのx，zおよび強度の欠如もリストされていない。構文未対応だけを理由にリリースが拒否する規格違反の設計も、同様に列挙しない。そのエラーがテストで指定した行にあればランナーは拒否として数えるが、`:oracle:`にそのリリースを記録しない理由を、テストのコメントに記述する。
 
 これらはプロジェクトに報告していない。報告する前に、現在の開発版で確かめること。[ナイトリーレポート](https://github.com/kurochan001/kirimasim-tests/tree/results#readme)は両方の最新の`master`を実行しており、[差異一覧のテストの最新masterでの結果](https://github.com/kurochan001/kirimasim-tests/blob/results/differences-on-master.ja.md)は、ここに挙げた各テストについて、その実行でまだ異なるか、一致したかを、実行した版と時刻とともに示す。そこで一致しても、この一覧は変わらない。人が確かめてから項目を直す。
 
-新しいテストでそのような場所を見つけたら、ここに追加し、テストのコメントにも言ってください。[相互作用ガイド](interaction-verification.md)には、2026-10-30の複合シフトとmembership追加に対する出典の節、独立した検算、および保持した未対応ケースを記載している。その[保存された実行の要約](interaction-verification.md#保存実行の概要)は、それらの実行をCIおよびNightlyから分けている。固定リリースの観察は 後の開発ビルドについての主張ではありません
+新しいテストでそのような場所を見つけたら、ここに追加し、テストのコメントにも書く。[相互作用ガイド](interaction-verification.md)には、2026-10-30の複合シフトとmembership追加に対する出典の節、独立した検算、および保持した未対応ケースを記載している。その[保存された実行の要約](interaction-verification.md#保存実行の概要)は、それらの実行をCIおよびNightlyから分けている。固定リリースの観察は、後の開発ビルドについての主張ではない。
 
 ## Icarus Verilog 13.0
 
@@ -22,7 +22,7 @@
 | --- | --- | --- |
 | 11.4.10, 6.11.2 |packed bit ストレージへの6つの選択された複合シフトに対して，X／Zカウントで，元のベクトルは保持される。bit に保存するとき，シフト結果は未知でなければならず，ゼロに変換する。|[cross26-icarus-13.json](../coverage/interaction-results/cross26-icarus-13.json)内の、bitを代入先としX／Zをシフト量とする6件の複合シフトケース。[129 - bit スカラーの場合](../tests/gen/ch11/test_gen_cross_compound_shift_w129_b_u_scalar_shl_z_c8_known.sv)を含む。|
 | 11.4.1, 11.4.10 |符号bitがZである符号付き65-bit logic配列要素を65だけ算術右シフトすると、Zを複製せずゼロとなる。これは、以下の添字付きintへの複合代入で先に観測した内容を拡張する。| [test_gen_cross_compound_shift_w65_l_s_element_ashr_width_c65_z](../tests/gen/ch11/test_gen_cross_compound_shift_w65_l_s_element_ashr_width_c65_z.sv) |
-| 20.9 |32ビットの倍数でない連結／複製引数の`$countones`は再実行やホスト間で異なる：9つの選択例は6つのローカル実行で異なり，12個はUbunto24.04で異なる（引数幅2 , 33と34）。これらの21はどれもIcarusオラクルを受け取らない。2026-11-12に、macOS arm64のIcarus Verilog 13.0で2,250回実行したが、出力は変動しなかった。60ケースを各20回、21ケースをさらに各50回（環境変数の大きさと出力ファイル名を変えて）実行した。以前に保存したUbuntuのログでは、`ones=`の値が異なっている。[補助証跡](../coverage/interaction-qualification/README.md) を参照。2026-11-21の[メタモルフィック検査](metamorphic.md)では、macOS arm64でも3〜8本が再実行で変わり、`test_gen_cross_query_w129_l_prefix_x_low_zero`は12回の実行で`ones=`が2・8・9になった（規格の値は2）。|21 `gen/ch20/test_gen_cross_query_*`のケースは `icarus_unstable`が`generators/interaction_query.py`で同定した|
+| 20.9 |32ビットの倍数でない連結／複製引数の`$countones`は再実行やホスト間で異なる：9つの選択例は6つのローカル実行で異なり，12個はUbuntu 24.04で異なる（引数幅2 , 33と34）。これらの21はどれもIcarusオラクルを受け取らない。2026-11-12に、macOS arm64のIcarus Verilog 13.0で2,250回実行したが、出力は変動しなかった。60ケースを各20回、21ケースをさらに各50回（環境変数の大きさと出力ファイル名を変えて）実行した。以前に保存したUbuntuのログでは、`ones=`の値が異なっている。[補助証跡](../coverage/interaction-qualification/README.md) を参照。2026-11-21の[メタモルフィック検査](metamorphic.md)では、macOS arm64でも3〜8本が再実行で変わり、`test_gen_cross_query_w129_l_prefix_x_low_zero`は12回の実行で`ones=`が2・8・9になった（規格の値は2）。|21 `gen/ch20/test_gen_cross_query_*`のケースは `icarus_unstable`が`generators/interaction_query.py`で同定した|
 | 23.3.3.8, 10.7 |`-ginterconnect`オプションを使うと、より広い入力ポートに接続された符号付き親値をゼロパッドする。変換元を符号拡張しなければならない。同じケースは`-ginterconnect`がない場合も一致する。| `gen/ch23/test_gen_cross_port_w32_i_s_w_k_l_n_a`, `gen/ch23/test_gen_cross_port_w33_i_s_w_x_b_p_n` |
 | 11.4.11 |条件がxまたはzの場合、`?:`は両オペランドの同じbitがzの位置でzを返す。11-20 表は x を返します。| `gen/ch11/test_gen_xz_cond_07`, `_08`; `gen/ch11/test_gen_cross_cond_w129_ss_x_same_xz_w_l`, `gen/ch11/test_gen_cross_cond_w65_uu_z_same_xz_n_l` |
 | 28.12.1, 28.12.4 |ワンド，ワー，トリアンド，トリオネットについては，ドライバの強さを無視し，その値をlogic関数と組み合わせて強い強さを与える。強いドライバが勝つ必要があり，同じ強さのドライバのみがその強さで組み合わされる。|`:oracle: spec`を伴う29 `gen/ch28/test_gen_strength_{wand,wor,triand,trior}_*`のテスト|
@@ -318,7 +318,7 @@ Icarus Verilog 13.0安定版（v13_0-dirty）は、連想配列またはunpacked
 
 - IEEE H.10.1.2、I.3：Verilator 5.052のsvdpi.hは、規格がintの`~(-1 << (N))`と定める`SV_MASK(N)`を、符号なしintの`~(0xffffffffU << (N))`として定義しています。設定する下位ビットは同じである。`ch35/test_svdpi_h_sv_mask`は、マクロのテキストと型に0を出力するため、`:oracle:`にはシミュレータを記録していない。
 
-これらのテストが示す他の差異は、上記のとおり未対応機能として除外する。Icarus Verilog 13.0 ' sのvpi_user.hとsv_vpi_user.hは、K.2およびM.2の855個の定数のうち218個を、すべて附属書どおりの値で定義しています。一方、K.2とM.2の宣言の大半がないため、定数テストでは行が欠け、宣言テストはこれに対してコンパイルできません。どちらのリリースもvpi_compatibility.hを提供しない（Verilatorのvpi_user.hのコピーでは、そのinclude行がコメントアウトされている）。そのため、6件の`ch36/test_vpi_compatibility_h_*`テストではルーチン名が未対応付けとなる。節37の新しいVPIテスト24件（`ch37/test_vpi_*`を同日に追加）は、Icarus Verilog 13.0 ' sのヘッダにない定数と、vpi_register_systfで登録したシステムタスクを使います。これらのシステムタスクは、Verilator 5.052から呼び出せません。1件はIcarus Verilog 13.0と一致し、残りは`:oracle: spec`を持つ。
+これらのテストが示す他の差異は、上記のとおり未対応機能として除外する。Icarus Verilog 13.0のvpi_user.hとsv_vpi_user.hは、K.2およびM.2の855個の定数のうち218個を、すべて附属書どおりの値で定義しています。一方、K.2とM.2の宣言の大半がないため、定数テストでは行が欠け、宣言テストはこれに対してコンパイルできません。どちらのリリースもvpi_compatibility.hを提供しない（Verilatorのvpi_user.hのコピーでは、そのinclude行がコメントアウトされている）。そのため、6件の`ch36/test_vpi_compatibility_h_*`テストではルーチン名が未対応付けとなる。節37の新しいVPIテスト24件（`ch37/test_vpi_*`を同日に追加）は、Icarus Verilog 13.0のヘッダにない定数と、vpi_register_systfで登録したシステムタスクを使います。これらのシステムタスクは、Verilator 5.052から呼び出せません。1件はIcarus Verilog 13.0と一致し、残りは`:oracle: spec`を持つ。
 
 <a id="cases-added-by-the-2026-10-24-keyword-tests"></a>
 
@@ -403,7 +403,7 @@ Icarus Verilog 13.0安定版（v13_0-dirty）は、連想配列またはunpacked
 |7.4.5 7-1 表|real、shortreal、string、class、interface class、virtual interfaceの要素を持つ固定unpacked配列を、範囲外の添字（[0:3]に対する7）またはxを含む添字bitで読むと、0.0、""、nullではなく、保存済みの要素の値（1.5、2.5、"full"、nullではないハンドル）が返されます。また、C++ビルドはイベント配列要素 (`cannot convert 'VlEvent' to 'IData'`) の reads/ `== null` 比較に失敗します。| `ch7/test_array_invalid_index_read_handles_real_string` |
 |7.4.5 7-1 表|キュー、動的配列、連想配列、固定長配列、unpacked構造体、unpacked共用体を要素とする`[0:1]`配列を添字5または2'bx0で読み出すと、空配列、'x/'0の配列、メンバの既定値を持つ構造体（初期代入c = 9を含む）、共用体の先頭メンバの'xではなく、格納済みの要素（サイズ2/3/1、1,2,3、格納済みの構造体と共用体）を返します。| `ch7/test_array_invalid_index_read_aggregates` |
 |7.4.5 7-1 表|C側で要素を非nullポインタに設定した`chandle ch [0:3]`を、添字7または2'b1xで読み出すと、nullではなく非nullのchandle（`null=0`）を返します。| `ch7/test_array_invalid_index_read_chandle` |
-| 7.5.1, 13.5.2 |`d = new[3](d)`によって、タスクの`d[1]`への`ref int r`が古くなった後、タスク内の後続の書込み`r = 99`は、古い要素`5 6 7`だけでなく新しい配列`t=4: 5 99 7`を変更する。| `ch7/test_dynamic_array_new_discards_data_and_references` |
+| 7.5.1, 13.5.2 |`d = new[3](d)`によって、タスクの`d[1]`への`ref int r`が古くなった後、タスク内の後続の書込み`r = 99`は、古くなった要素だけを変える（`5 6 7`）のではなく、新しい配列を変える（`t=4: 5 99 7`）。| `ch7/test_dynamic_array_new_discards_data_and_references` |
 | 7.10.1 |q = {10,20,30,40,50}の場合、`q[5:5]`は`{}`ではなく`{50}`を返し、`q[-1:-1]`は`{}`ではなくキュー全体を返し、`q[1:3'b0z1]`は`{}`ではなく1要素を返す（zのbitを含む境界）。範囲内，クリップ，逆スライスは正しい。| `ch7/test_queue_slice_bounds_clip_and_empty` |
 | 7.10.5 |満杯の`int bq[$:2]`への`insert(1, 9)`は、添字2を超えて押し出される要素を捨てず（`0 9 1`）、4要素に増やす（`0 9 1 2`）。push_back、push_front、および[$+1]への書込みでは、境界が正しく扱われる。| `ch7/test_bounded_queue_methods_discard_beyond_bound` |
 | 7.10.5 |5要素の上限なしキューを`int bq[$:2]`へ代入すると、3要素`20 21 22`ではなく2要素`20 21`を保持する。連結代入は正しく境界付けられています。| `ch7/test_bounded_queue_assign_discards_beyond_bound` |
@@ -1388,7 +1388,7 @@ ch30/test_illegal_specify_path_to_input                           アサーシ�
 
 2026-11-15に追加したゲート配列の出力幅20本では、Verilator 5.054のseed 1と73の両方で次の差異を再現しました。
 
-- `and`・`xnor`・`not`・`bufif1`・`nmos`の4要素配列に、2ビットまたは5ビットの出力を接続することを、負の添字の両方向で受理します。ランナーの`-Wno-fatal`設定では幅の警告を出して続行します。IEEE 1800-2023 28.3.6は、単一端子の幅（1ビット）でも全要素を満たす幅（4ビット）でもない接続をエラーとします。対象は`gen/ch28/test_gen_primarray_bad_{gate}_y_w{2,5}_negative_{up,down}`です。Verilatorのoracleは登録しません。入力・制御端子の同様の幅不一致は拒否します。
+- `and`・`xnor`・`not`・`bufif1`・`nmos`の4要素配列に、2ビットまたは5ビットの出力を接続することを、負の添字の両方向で受理します。ランナーの`-Wno-fatal`設定では幅の警告を出して続行します。IEEE 1800-2023 28.3.6は、単一端子の幅（1ビット）でも全要素を満たす幅（4ビット）でもない接続をエラーとします。対象は`gen/ch28/test_gen_primarray_bad_{and,xnor,not,bufif1,nmos}_y_w{2,5}_negative_{up,down}`です。Verilatorのoracleは登録しません。入力・制御端子の同様の幅不一致は拒否します。
 
 2026-11-15に追加した配列要素の参照では、Verilator 5.054のseed 1と73の両方で次の差異を再現しました。
 
@@ -1420,10 +1420,10 @@ Verilator 5.054はseed 1と73、kirimasim 0.1.1 `441dddbd0fcd`は、3本すべ�
 
 ## 配列形状の照会（2026-11-19）
 
-IEEE1800-2023の20.7は実行時の次元式を許し、typedef展開後のアンパック次元をパック次元より先に数え、範囲外の次元には32ビット全体が未知の整数を返すよう定めます。`test_gen_array_shape_*`の60本は、正常な次元、省略した次元、生きているデータの対照を含みます。参照値は宣言の境界対と明示したコンテナ操作から求め、独立した担当が規格と照合しました。シミュレータ出力から期待値を決めていません。
+IEEE 1800-2023の20.7は実行時の次元式を許し、typedef展開後のアンパック次元をパック次元より先に数え、範囲外の次元には32ビット全体が未知の整数を返すよう定めます。`test_gen_array_shape_*`の60本は、正常な次元、省略した次元、生きているデータの対照を含みます。参照値は宣言の境界対と明示したコンテナ操作から求め、独立した担当が規格と照合しました。シミュレータ出力から期待値を決めていません。
 
-- Icarus Verilog13.0は60本とも一致しません。`typedef`と`constant`の型名への照会を拒否します。可変の次元式を含むプログラムはコンパイルできますが、最初の観測より前に実行時の配列照会の引数診断で停止します。分離した`dynamic_bits`・`queue_bits`は実行でき、空のコンテナのビット数を1と表示しますが、20.6.2の期待値は0です。[代表例のコンパイル・実行診断](../coverage/qualification/array-shape-20261119-icarus-diagnostics.json)には入力指紋と私有パスを除いた抜粋を保存しています。
-- Verilator5.054は、`packed`・`mixed`・`typedef`・`singleton`・`constant`の30本がseed1と73で一致し、この30本だけに`verilator@5.054`を登録しています。`dynamic`・`queue`の12本は、空の状態の次元2に対してパック要素の境界`[-3:W-4]`ではなく外側のコンテナの境界を返します。`invalid`の6本は次元0の照会に未知の整数ではなく既知のゼロを返し、4値の観測が必要です。実行時のコンテナ全体への`$bits`12本は明示的な未対応診断で拒否されます。各理由は保存記録に残し、これら30本へVerilatorのoracleを登録していません。
+- Icarus Verilog 13.0は60本とも一致しません。`typedef`と`constant`の型名への照会を拒否します。可変の次元式を含むプログラムはコンパイルできますが、最初の観測より前に実行時の配列照会の引数診断で停止します。分離した`dynamic_bits`・`queue_bits`は実行でき、空のコンテナのビット数を1と表示しますが、20.6.2の期待値は0です。[代表例のコンパイル・実行診断](../coverage/qualification/array-shape-20261119-icarus-diagnostics.json)には入力指紋と私有パスを除いた抜粋を保存しています。
+- Verilator 5.054は、`packed`・`mixed`・`typedef`・`singleton`・`constant`の30本がseed1と73で一致し、この30本だけに`verilator@5.054`を登録しています。`dynamic`・`queue`の12本は、空の状態の次元2に対してパック要素の境界`[-3:W-4]`ではなく外側のコンテナの境界を返します。`invalid`の6本は次元0の照会に未知の整数ではなく既知のゼロを返し、4値の観測が必要です。実行時のコンテナ全体への`$bits`12本は明示的な未対応診断で拒否されます。各理由は保存記録に残し、これら30本へVerilatorのoracleを登録していません。
 
 20.6.2は現在の式のビット列の長さを測り、6.24.3はビット列型の要素からなる動的配列・キューを含めます。このため分離した動的配列の各段階は0・3W・5W・W・0ビット、キューは0・W・2W・W・0ビットです。動的サイズの型名は引数にしていません。実装が未対応でも参照値は変更しません。[証跡](../coverage/README.md)と[生成器](../generators/array_shape_queries.py)を参照してください。要求対応を増やさない回帰の追加です。
 
@@ -1575,7 +1575,7 @@ Icarus Verilog 13.0はテスト全体では16 knownです。追加の全出力�
 
 192本の`test_gen_wide_shift_*`は、既存の位置によるシフトの参照処理を、固定した32構成と6つの幅へ展開します。各幅で`<<`・`>>`・`<<<`・`>>>`のそれぞれが0・1・W-1・W・W+1・X・Zのシフト量を持ちます。選んだ符号、W-1/W/W+1の格納先、bit/logic変換で、シフト前の拡張・切り詰め・最終格納を確認します。算術右シフトの補充は符号付き入力のX/Zの符号ビットを保ちます。符号なし32ビットのシフト量は自己決定され、結果の符号を変えません。`+nonce=1`は最初にゼロにした既知の中央入力ビットを一へ変え、入力・結果の全体と`$bits`でその依存を観測します。処理系内部の評価方法は指定しません。従来の有限モデルの行・要求対応を広げず、全ての相互作用の網羅ともしていません。
 
-Icarus Verilog13.0は192本すべてが一致し、そのoracleを登録します。Verilator5.054は初期化seed1/73で既知値120本が一致し、4値の72本はX/Zの入力・結果を全て表示する箇所で差が残ります。Verilatorのトークンは付けません。kirimasim0.1.1 `a6222f0656d4`は4回とも192本が一致します。処理系に合わせた期待値の変更はありません。
+Icarus Verilog 13.0は192本すべてが一致し、そのoracleを登録します。Verilator 5.054は初期化seed1/73で既知値120本が一致し、4値の72本はX/Zの入力・結果を全て表示する箇所で差が残ります。Verilatorのトークンは付けません。kirimasim 0.1.1 `a6222f0656d4`は4回とも192本が一致します。処理系に合わせた期待値の変更はありません。
 
 独立AIは期待ファイルや新しい作成処理を見る前に、実際の文と一次資料11.4.10・11.6・11.8・6.11.2・20.6.2・21.6から768行を導出しました。別のビット列による検査でも、実行時の中央ビットの依存と文脈の幅でのシフト192件、格納前に全Xとなる未知シフト量48件、算術右シフトでX/Zを補充する12件を確認しています。その後の作成処理の構成一覧の整形でも、192組のSV・期待値は全バイト不変です。[有限の検査](../coverage/qualification/wide-shifts-20261119p.json)は257/513ビットの全32構成で、実際のメタデータの引数を使う成功対照64本と、結果ビットを壊すコンパイル・正常終了する変異128本です。有限の観測検査とAIレビューであり、全ての意味的な誤りの検出や人のレビューではありません。負の符号付きシフト量、異なるシフト量の幅、任意の入力模様、全ての文脈の組合せはこの拡張の範囲外です。
 
@@ -1585,7 +1585,7 @@ Icarus Verilog13.0は192本すべてが一致し、そのoracleを登録しま�
 
 180本の`test_gen_wide_cast_*`は既存の6.24.1の作成・参照処理を、固定した30構成と6つの幅へ展開します。幅の変換は元の符号を、符号の変換は幅を維持し、型付きの符号なしbit/logicへの変換は先に指定した型の途中結果を作ります。typed bitは後続の符号付き2ビットの正の一の加算より前にX/Zをゼロへ変え、最終のbitへの格納は加算の後で変換します。W-1/W/W+1の途中とW+2の格納先について、入力・途中・最終の全ビットと`$bits`を別々に表示します。実行時引数で最初にゼロにした既知の中央入力ビットを一へ戻します。元の有限モデル・選択行・要求対応は不変で、選んだ構成で全ての文脈を証明したとはしません。
 
-Icarus Verilog13.0は180本が一致し、そのoracleを付けます。Verilator5.054は初期化seed1/73で既知値60本が一致します。4値の120本はX/Zの入力全体を表示する箇所で差が残り、後のtyped bit変換で結果が既知となる場合も4値の指定を維持します。最終変換の一致からVerilatorのトークンを付けません。kirimasim0.1.1 `a6222f0656d4`は4回とも180本が一致し、期待値は全て規格から導いたままです。
+Icarus Verilog 13.0は180本が一致し、そのoracleを付けます。Verilator 5.054は初期化seed1/73で既知値60本が一致します。4値の120本はX/Zの入力全体を表示する箇所で差が残り、後のtyped bit変換で結果が既知となる場合も4値の指定を維持します。最終変換の一致からVerilatorのトークンを付けません。kirimasim 0.1.1 `a6222f0656d4`は4回とも180本が一致し、期待値は全て規格から導いたままです。
 
 独立AIは期待ファイル・新しい作成処理・元の型変換のヘルパーを見る前に、実際の文から900行を導出して封印しました。別のソースだけを使うビット列・桁上がりの計算でも、型変換180件、加算90件、加算なし90件、narrow36・same108・wide36、早い段階のX/Zの変換と外側の符号を照合しています。30構成は明示した有限の組合せ74通りを含みますが、要求対応を増やしていません。[有限の検査](../coverage/qualification/wide-casts-20261119q.json)は257/513ビットの全構成で、成功対照60本とコンパイル・正常終了する変異120本です。一方は入力の表示と最終値の計算の後、途中の型変換を表示する前に中央の既知ビットを変え、その独立した観測を確かめます。他方は最終の結果ビットを変えます。有限の観測検査とAIレビューであり、人のレビューや全ての意味的な誤りの検出ではありません。実数・enum・動的・ストリームの型変換、任意の入れ子の式はこの拡張の範囲外です。
 
@@ -1691,21 +1691,21 @@ Checkの文書ジョブは、既存のunittestの探索コマンドへ`-v`を加
 
 <a id="typed-lhs-pattern-conditions-20261120"></a>
 
-### 型付き左辺assignment patternの条件（Verilator 5.054）
+## 型付き左辺assignment patternの条件（Verilator 5.054）
 
 5.054は、10.9が禁じる4設計を受け付けます。bit-stream型でない`real`メンバー、位置指定でないキー、代入互換だが幅が違うintegralメンバー、代入互換だが幅が違うintegral右辺です。対象は`ch10/test_illegal_typed_lhs_pattern_real_member_not_bitstream`、`ch10/test_illegal_typed_lhs_pattern_integral_pair_keys`、`ch10/test_illegal_typed_lhs_pattern_integral_member_width_only`、`ch10/test_illegal_typed_lhs_pattern_rhs_width_only`です。seed 1・73の両方で受理するため、oracleは`spec`のままです。合法化した対照と独立の規格導出で、違反する条件を分離しました。型なしの左辺構文はこの版では未対応で、意味上の比較には使いません。
 
 <a id="covergroup-distribute-first-20261120"></a>
 
-### covergroupのfilterと分配順序（Verilator 5.054）
+## covergroupのfilterと分配順序（Verilator 5.054）
 
 `ch19/test_cg_with_construction_freezes_filter`は、`ceiling=5`で2つのcovergroupを構築し、その後2へ変えます。19.5.1.1 B011では、filterは構築時に評価されます。0〜5を2個のbinへ分けるとき、filterを先に適用すると`{0,1}`と`{2,3,4}`に、`distribute_first`では`{0,1,2}`と`{3,4}`になります。そのため2、1の順に採取した後の期待値は`filter=100 distribute=50`です。Verilator 5.054はseed 1・73とも`filter=100 distribute=100`を出します。期待値50と`:oracle: spec`を維持します。この観測は分配順序の差を示すもので、内部実装の原因や、構築時の値の捕捉にも別の誤りがあることを確定するものではありません。
 
 <a id="sv2023-thin-features-20261121"></a>
 
-### 1800-2023で加わった機能（Verilator 5.054）
+## 1800-2023で加わった機能（Verilator 5.054）
 
-2026-11-21に1800-2023で加わった機能のために追加したテストは、次の差異を示します（未対応の構文は載せません）。
+2026-11-21に1800-2023で加わった機能のために追加したテスト（[1800-2023で加わった機能のテスト](sv2023-features.md)を参照。保存した実行は[seed 1](../coverage/results/sv2023-thin-20261121-verilator5.054-seed1.json)と[seed 73](../coverage/results/sv2023-thin-20261121-verilator5.054-seed73.json)）は、次の差異を示します（未対応の構文は載せません）。
 
 - `$timeunit`と`$timeprecision`の引数にインタフェースのインスタンスを与えると、呼び出すモジュールの値を返す（20.4.1）。引数のない`$timeprecision`がシミュレーションの精度を返す差異（20.4.1の行）も残る。`ch20/test_timeunit_package_interface_program_nested`、`ch20/test_timeunit_timescale_precedence`
 - `type enum`で制限した型パラメータの既定値に`int`を書いた設計を受け付ける（6.20.3）。`ch6/test_illegal_enum_restricted_type_parameter_default_int`
@@ -1713,9 +1713,9 @@ Checkの文書ジョブは、既存のunittestの探索コマンドへ`-v`を加
 
 <a id="requirement-gaps-20261121"></a>
 
-### テストのない要求の補充（2026-11-21）
+## テストのない要求の補充（2026-11-21）
 
-2026-11-21にテストのない要求のために追加したテストは、次の差異を示します（未対応の構文は載せません）。
+2026-11-21にテストのない要求のために追加したテスト（保存した実行は[Icarus Verilog 13.0](../coverage/results/reqgap7-20261121-icarus13.json)と、Verilator 5.054の[seed 1](../coverage/results/reqgap7-20261121-verilator5.054-seed1.json)・[seed 73](../coverage/results/reqgap7-20261121-verilator5.054-seed73.json)）は、次の差異を示します（未対応の構文は載せません）。
 
 - Icarus Verilog 13.0は、変数への手続き的assignとforceの右辺を一度しか評価せず、後でオペランドが変わっても代入先を更新しない（4.9.2）。`ch4/test_procedural_continuous_assign_force_track_operands`
 - Icarus Verilog 13.0は、動的な型を返す関数の呼出しを囲む`$bits`と、動的配列の`$bits`をlocalparamの値にする設計を受け付ける（20.6.2）。`ch20/test_illegal_bits_encloses_queue_returning_call`、`ch20/test_illegal_bits_dynamic_array_in_localparam`

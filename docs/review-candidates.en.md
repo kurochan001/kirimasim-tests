@@ -27,7 +27,7 @@ Tests with `:type: formal` are left out. "Spec only" means a test whose `:oracle
 | Spec only, failing on Ghost, kirimasim and Lyra | passes on no simulator and fails, not merely unsupported, on those three | three separate implementations agree on another result, so the expectation is the most likely to be wrong |
 | Spec only, passing on kirimasim alone | passes on no other simulator | the test and kirimasim may share a misreading |
 | Other spec-only tests passing nowhere | neither of the above | most fail on missing features, but nothing but the reading backs the expectation |
-| Release oracle, failing on both Ghost and Lyra | `:oracle:` names Icarus 13.0 or Verilator 5.052 | the expectation may follow the behavior of Icarus or Verilator ([the `test_readmemh_address_range` case](simulator-differences.md)) |
+| Release oracle, failing on both Ghost and Lyra | `:oracle:` names Icarus 13.0 or Verilator 5.052 or 5.054 | the expectation may follow the behavior of Icarus or Verilator ([the `test_readmemh_address_range` case](simulator-differences.md)) |
 | Clauses whose citing tests are all spec only | a clause of chapters 3 to 40 in scope and without subclauses (`tools/clauses.txt`) whose citing tests in `:lrm:` are all spec only | the whole clause rests on the reading of the standard |
 
 kirimasim and Lyra share slang as their front end, so their agreement on parsing and elaboration is not independent evidence.
@@ -52,8 +52,10 @@ Within a section, the order is that of the test paths.
 - When an expectation is right, the test's comment gains the clauses that support it.
 - When it is wrong, the expectation is fixed, and the test's comment and the [history](history.md) give the reason and the clauses cited. Generated tests are fixed in their generators.
 - `:spec_check: ai` stays as it is until a person checks the test.
+- A person's verdicts are recorded in `coverage/human-review.json` with `tools/review_sample.py` of [the human review of a sample](review-sample.en.md). Reading a random part bounds the error rate of each stratum.
 
 Recorded reviews:
 
 - [2026-11-09](spec-only-review-20261109.en.md)
 - [2026-11-12: tests that no simulator passes](pass-nowhere-review-20261112.en.md)
+- 2026-11-13: tests that only Ghost passes (outside the candidates of this list): [chapter 37](ghost-only-review-ch37-20261113.en.md), [chapter 16](ghost-only-review-ch16-20261113.en.md), [chapters 36, 38, 39 and 40](ghost-only-review-vpi-20261113.en.md), [the other chapters](ghost-only-review-rest-20261113.en.md)

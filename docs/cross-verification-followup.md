@@ -19,6 +19,7 @@
 
 [基点67321079のCheck](https://github.com/kurochan001/kirimasim-tests/actions/runs/42120289584)は成功し、追加前の88モデルを含む固定版比較・静的検査を確認しました。
 [同じ基点のNightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/42136599265)もworkflowと全ジョブが成功しましたが、個別artifactは未照合です。その後の追加は両実行の対象外です。
+2026-11-15以降のNightlyは、113モデルをすべて含むsuiteで実行しています（例：4分割を初めて検証した[Nightly 44631823505](https://github.com/kurochan001/kirimasim-tests/actions/runs/44631823505)、suite `03b2e107`）。上の「Nightlyでは未実行」と「両実行の対象外」は、それぞれの記録の時点のものです。Nightlyごとの実行確認は`results`ブランチの[機能間クロスの実行確認](https://github.com/kurochan001/kirimasim-tests/blob/results/interaction-coverage.md)にあります。
 以下の未コミットビルドは修正過程の記録であり、現在の上流の状態を示すものではありません。
 kirimasim-testsのNightlyの1回の成功と、本体リポジトリの7連続Nightly条件は分けて扱います。
 

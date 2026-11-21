@@ -4,7 +4,7 @@
 
 [English](simulator-differences.md) / [日本語](simulator-differences.ja.md)
 
-The expected outputs of the suite follow IEEE 1800-2023 and are checked with Icarus Verilog 13.0 and Verilator 5.052 (see "Where the expected outputs come from" in the README). Tests added from 2026-11-14 until the pin moves are checked with Verilator 5.054 instead, and the differences of 5.054 that they show are in [the last section](#verilator-5054-interim). This file lists the places found so far where one of these releases gives another result than the cited clauses require, or accepts a design that the standard makes illegal, with the tests that show it.
+The expected outputs of the suite follow IEEE 1800-2023 and are checked with Icarus Verilog 13.0 and Verilator 5.052 (see [Where the expected outputs come from](../README.md#where-the-expected-outputs-come-from) in the README). Tests added from 2026-11-14 until the pin moves are checked with Verilator 5.054 instead, and the differences of 5.054 that they show are in [the section on Verilator 5.054](#verilator-5054-interim) and the sections after it. This file lists the places found so far where one of these releases gives another result than the cited clauses require, or accepts a design that the standard makes illegal, with the tests that show it. A few sections record related observations that are not differences of these releases, such as readings of the standard that slang, and kirimasim and Lyra with it, take (2026-11-08 and 2026-11-09), a regression of slang that kirimasim shows (2026-11-08) and runs of the development versions (2026-11-12); each of them says so. The tests whose expected output follows one of two readings of the standard are listed in [the tests with contested readings](interpretation-splits.en.md).
 
 Constructs that a release does not support at all, where it stops with an error, a "sorry" or "unsupported" message, are not listed: they show as known differences that do not compile. Verilator's lack of x, z and strengths, as a two-state simulator, is not listed either. Nor is an illegal design that a release rejects only because it does not support a construct in it: when that error falls on the line the test names, the runner counts it, and the comment of the test says why `:oracle:` does not list the release.
 
@@ -1389,7 +1389,7 @@ On 2026-11-15, the inherited-keyword additions reproduce the following differenc
 
 On 2026-11-15, 20 new primitive-array output-width tests reproduce the following difference with Verilator 5.054 at both seeds 1 and 73:
 
-- It accepts two-bit and five-bit output connections on four-instance arrays of `and`, `xnor`, `not`, `bufif1` and `nmos`, in both negative-index range directions. It emits width warnings with the runner's `-Wno-fatal` setting and continues. IEEE 1800-2023 28.3.6 requires an error when a connection has neither the single-terminal width (one bit) nor enough bits for all instances (four bits). The tests are `gen/ch28/test_gen_primarray_bad_{gate}_y_w{2,5}_negative_{up,down}`. No Verilator oracle is registered for them. The corresponding input/control mismatches are rejected.
+- It accepts two-bit and five-bit output connections on four-instance arrays of `and`, `xnor`, `not`, `bufif1` and `nmos`, in both negative-index range directions. It emits width warnings with the runner's `-Wno-fatal` setting and continues. IEEE 1800-2023 28.3.6 requires an error when a connection has neither the single-terminal width (one bit) nor enough bits for all instances (four bits). The tests are `gen/ch28/test_gen_primarray_bad_{and,xnor,not,bufif1,nmos}_y_w{2,5}_negative_{up,down}`. No Verilator oracle is registered for them. The corresponding input/control mismatches are rejected.
 
 The array-element reference additions of 2026-11-15 reproduce these differences with Verilator 5.054 at both seeds 1 and 73:
 
@@ -1572,23 +1572,23 @@ Independent AI derives 1,172 lines from actual constant declarations and runtime
 
 <a id="wide-shifts-20261119p"></a>
 
-## Runtime shift input across256/512-bit boundaries (2026-11-19)
+## Runtime shift input across 256/512-bit boundaries (2026-11-19)
 
-The192 `test_gen_wide_shift_*` programs extend the existing positional shift reference using32 frozen configurations at six widths. Each of `<<`, `>>`, `<<<`, `>>>` covers zero, one, W-1, W, W+1, X and Z counts at everywidth; selected signs, W-1/W/W+1 destinations and bit/logic conversion expose extension before shifting, truncation and final storage. Arithmetic right fill preserves a signed source's X/Z sign bit. The unsigned32-bit count is self-determined and does not change result signing. `+nonce=1` sets an initially cleared, known middle sourcebit; complete final inputs/results and `$bits` observations make that dependency visible without prescribing compiler internals. No old finite-model rows or bindings are extended, and no complete interaction covering set is claimed.
+The 192 `test_gen_wide_shift_*` programs extend the existing positional shift reference using 32 frozen configurations at six widths. Each of `<<`, `>>`, `<<<`, `>>>` covers zero, one, W-1, W, W+1, X and Z counts at every width; selected signs, W-1/W/W+1 destinations and bit/logic conversion expose extension before shifting, truncation and final storage. Arithmetic right fill preserves a signed source's X/Z sign bit. The unsigned 32-bit count is self-determined and does not change result signing. `+nonce=1` sets an initially cleared, known middle source bit; complete final inputs/results and `$bits` observations make that dependency visible without prescribing compiler internals. No old finite-model rows or bindings are extended, and no complete interaction covering set is claimed.
 
-Icarus Verilog13.0 matches all192 and supplies their simulator oracle. Verilator5.054 matches120known-only programs at initialization seeds1/73; all72four-state programs retain known differences where full X/Z inputs/results are observed. No Verilator token is added. Kirimasim0.1.1 `a6222f0656d4` matches192 in each of four runs. No expected value is changed for a simulator.
+Icarus Verilog 13.0 matches all 192 and supplies their simulator oracle. Verilator 5.054 matches 120 known-only programs at initialization seeds 1/73; all 72 four-state programs retain known differences where full X/Z inputs/results are observed. No Verilator token is added. Kirimasim 0.1.1 `a6222f0656d4` matches 192 in each of four runs. No expected value is changed for a simulator.
 
-Independent AI derives768lines from actual statements and primary11.4.10/11.6/11.8/6.11.2/20.6.2/21.6 before reading expected files or the new wrapper. Its separate bit-plane check confirms192runtime middlebit dependencies and context-sized shifts,48unknown-count all-X results before storage, and12arithmetic-right X/Z fill cases. Formatting the wrapper's configuration tuple later preserves all192SV/expected pairs. [Finite qualification](../coverage/qualification/wide-shifts-20261119p.json) covers all32 configurations at257/513bits:64passing originals and128compiled, normally exiting result-bit corruptions with actual metadata arguments. This is finite observation validation and AI review, not exhaustive semantic mutation detection or human review. Negative signed counts, differing count widths, arbitrary input patterns and all context combinations are outside this extension.
+Independent AI derives 768 lines from actual statements and primary 11.4.10/11.6/11.8/6.11.2/20.6.2/21.6 before reading expected files or the new wrapper. Its separate bit-plane check confirms 192 runtime middle-bit dependencies and context-sized shifts, 48 unknown-count all-X results before storage, and 12 arithmetic-right X/Z fill cases. Formatting the wrapper's configuration tuple later preserves all 192 SV/expected pairs. [Finite qualification](../coverage/qualification/wide-shifts-20261119p.json) covers all 32 configurations at 257/513 bits: 64 passing originals and 128 compiled, normally exiting result-bit corruptions with actual metadata arguments. This is finite observation validation and AI review, not exhaustive semantic mutation detection or human review. Negative signed counts, differing count widths, arbitrary input patterns and all context combinations are outside this extension.
 
 <a id="wide-casts-20261119q"></a>
 
 ## Explicit wide casts before arithmetic and storage (2026-11-19)
 
-The180 `test_gen_wide_cast_*` programs extend the existing6.24.1 source/reference to six widths with30frozen configurations. Size casts retain source signing, signing casts retain width, and typed unsigned bit/logic casts first produce their declared intermediate value. Typed bit conversion removes X/Z before a later signed two-bit positive-one addition; final bit assignment converts after that addition. W-1/W/W+1 casts and W+2 destinations are observed separately with complete source, cast, result and `$bits` output. A runtime plusarg restores an initially cleared known middle sourcebit. The old finite model, selected rows and requirement bindings remain unchanged; these selected signatures do not prove every context combination.
+The 180 `test_gen_wide_cast_*` programs extend the existing 6.24.1 source/reference to six widths with 30 frozen configurations. Size casts retain source signing, signing casts retain width, and typed unsigned bit/logic casts first produce their declared intermediate value. Typed bit conversion removes X/Z before a later signed two-bit positive-one addition; final bit assignment converts after that addition. W-1/W/W+1 casts and W+2 destinations are observed separately with complete source, cast, result and `$bits` output. A runtime plusarg restores an initially cleared known middle source bit. The old finite model, selected rows and requirement bindings remain unchanged; these selected signatures do not prove every context combination.
 
-Icarus Verilog13.0 matches all180 and supplies their oracle. Verilator5.054 matches60known-only cases at initialization seeds1/73. The120four-state programs retain known differences where full X/Z source values are printed, including typed-bit cases whose later result is known; no Verilator token is inferred from final conversion. Kirimasim0.1.1 `a6222f0656d4` matches180 in each of four runs. All expectations stay standard-derived.
+Icarus Verilog 13.0 matches all 180 and supplies their oracle. Verilator 5.054 matches 60 known-only cases at initialization seeds 1/73. The 120 four-state programs retain known differences where full X/Z source values are printed, including typed-bit cases whose later result is known; no Verilator token is inferred from final conversion. Kirimasim 0.1.1 `a6222f0656d4` matches 180 in each of four runs. All expectations stay standard-derived.
 
-Independent AI seals900lines from actual statements before reading expected files, the new writer or the old cast helper. A second source-only string/ripple-carry calculation checks all180casts,90additions,90plain results,36narrow/108same/36wide intermediates, early X/Z removal and outer context signing. Thirty frozen configurations cover74explicit finite selection signatures without creating requirement mappings. [Finite qualification](../coverage/qualification/wide-casts-20261119q.json) checks every configuration at257/513bits:60passing originals and120compiled, normally exiting edits. One changes the known middle sourcebit after printing the source/computing the final result but before printing the cast, testing its separate observation; the other corrupts a final resultbit. These are finite observation checks and AI review, not human review or exhaustive semantic mutation detection. Real/enum/dynamic/stream casts and arbitrary nested expressions are outside this extension.
+Independent AI seals 900 lines from actual statements before reading expected files, the new writer or the old cast helper. A second source-only string/ripple-carry calculation checks all 180 casts, 90 additions, 90 plain results, 36 narrow/108 same/36 wide intermediates, early X/Z removal and outer context signing. Thirty frozen configurations cover 74 explicit finite selection signatures without creating requirement mappings. [Finite qualification](../coverage/qualification/wide-casts-20261119q.json) checks every configuration at 257/513 bits: 60 passing originals and 120 compiled, normally exiting edits. One changes the known middle source bit after printing the source/computing the final result but before printing the cast, testing its separate observation; the other corrupts a final result bit. These are finite observation checks and AI review, not human review or exhaustive semantic mutation detection. Real/enum/dynamic/stream casts and arbitrary nested expressions are outside this extension.
 
 <a id="wide-forces-20261119r"></a>
 
@@ -1692,21 +1692,21 @@ The Check documentation job now appends `-v` to its existing unittest discovery 
 
 <a id="typed-lhs-pattern-conditions-20261120"></a>
 
-### Typed LHS assignment-pattern conditions (Verilator 5.054)
+## Typed LHS assignment-pattern conditions (Verilator 5.054)
 
 The 5.054 release accepts four designs that 10.9 forbids: a non-bit-stream `real` member, keyed rather than positional notation, an assignment-compatible integral member of the wrong width, and an assignment-compatible integral RHS of the wrong width. The cases are `ch10/test_illegal_typed_lhs_pattern_real_member_not_bitstream`, `ch10/test_illegal_typed_lhs_pattern_integral_pair_keys`, `ch10/test_illegal_typed_lhs_pattern_integral_member_width_only` and `ch10/test_illegal_typed_lhs_pattern_rhs_width_only`. Both seeds 1 and 73 accept them, so their oracle remains `spec`. Legalized controls and independent source derivation isolate each violated condition. Untyped LHS syntax is unsupported by this release and is not a semantic comparison.
 
 <a id="covergroup-distribute-first-20261120"></a>
 
-### Covergroup filtering and distribution order (Verilator 5.054)
+## Covergroup filtering and distribution order (Verilator 5.054)
 
 `ch19/test_cg_with_construction_freezes_filter` constructs two covergroups with `ceiling=5`, then changes it to 2. Clause 19.5.1.1 B011 evaluates the filter at construction. With two bins over 0 through 5, filtering before distribution gives `{0,1}` and `{2,3,4}`; `distribute_first` instead gives `{0,1,2}` and `{3,4}`. After sampling 2 then 1, the expected coverages are therefore `filter=100 distribute=50`. Verilator 5.054 reports `filter=100 distribute=100` at both seeds 1 and 73. The expected value remains 50 and the oracle remains `spec`. This observes a distribution-order difference without establishing an internal implementation cause or a separate failure of construction-time capture.
 
 <a id="sv2023-thin-features-20261121"></a>
 
-### Features added by 1800-2023 (Verilator 5.054)
+## Features added by 1800-2023 (Verilator 5.054)
 
-The tests added on 2026-11-21 for features added by 1800-2023 show these differences (constructs that a release does not support are left out):
+The tests added on 2026-11-21 for features added by 1800-2023 (see [the tests of the features added by 1800-2023](sv2023-features.en.md); saved runs at [seed 1](../coverage/results/sv2023-thin-20261121-verilator5.054-seed1.json) and [seed 73](../coverage/results/sv2023-thin-20261121-verilator5.054-seed73.json)) show these differences (constructs that a release does not support are left out):
 
 - With an interface instance as the argument, `$timeunit` and `$timeprecision` return the values of the calling module (20.4.1). The difference that `$timeprecision` without an argument returns the simulation precision (the 20.4.1 row) remains. `ch20/test_timeunit_package_interface_program_nested`, `ch20/test_timeunit_timescale_precedence`
 - It accepts `int` as the default of a type parameter restricted with `type enum` (6.20.3). `ch6/test_illegal_enum_restricted_type_parameter_default_int`
@@ -1714,9 +1714,9 @@ The tests added on 2026-11-21 for features added by 1800-2023 show these differe
 
 <a id="requirement-gaps-20261121"></a>
 
-### Tests for requirements without tests (2026-11-21)
+## Tests for requirements without tests (2026-11-21)
 
-The tests added on 2026-11-21 for requirements without tests show these differences (constructs that a release does not support are left out):
+The tests added on 2026-11-21 for requirements without tests (saved runs of [Icarus Verilog 13.0](../coverage/results/reqgap7-20261121-icarus13.json) and of Verilator 5.054 at [seed 1](../coverage/results/reqgap7-20261121-verilator5.054-seed1.json) and [seed 73](../coverage/results/reqgap7-20261121-verilator5.054-seed73.json)) show these differences (constructs that a release does not support are left out):
 
 - Icarus Verilog 13.0 evaluates the right-hand side of a procedural assign and a force of a variable only once, and does not update the target when an operand changes later (4.9.2). `ch4/test_procedural_continuous_assign_force_track_operands`
 - Icarus Verilog 13.0 accepts `$bits` around the call of a function that returns a dynamic type, and the `$bits` of a dynamic array as the value of a localparam (20.6.2). `ch20/test_illegal_bits_encloses_queue_returning_call`, `ch20/test_illegal_bits_dynamic_array_in_localparam`

@@ -44,7 +44,7 @@
 | SVA参照評価器とフォーマル検証 | [日本語](sva-reference-formal-verification.md) | [English](sva-reference-formal-verification.en.md) |
 | ドキュメントの翻訳データ | [日本語](../tools/doc_locales/README.ja.md) | [English](../tools/doc_locales/README.md) |
 | マッチングキット | [日本語](../tools/matching_kit/README.ja.md) | [English](../tools/matching_kit/README.md) |
-| 記号的フォーマル検査（2026-10-26。2026-10-29 を更新しました | [日本語](../tools/sva_reference/FORMAL_REVIEW.ja.md) | [English](../tools/sva_reference/FORMAL_REVIEW.md) |
+| 記号的フォーマル検査（2026-10-26、2026-10-29に更新） | [日本語](../tools/sva_reference/FORMAL_REVIEW.ja.md) | [English](../tools/sva_reference/FORMAL_REVIEW.md) |
 | M3 2026-10-26 差異点検討 | [日本語](../tools/sva_reference/M3_REVIEW.ja.md) | [English](../tools/sva_reference/M3_REVIEW.md) |
 | M4：シングルクロックサンプル関数（2026-10-26） | [日本語](../tools/sva_reference/M4_REVIEW.ja.md) | [English](../tools/sva_reference/M4_REVIEW.md) |
 | SVA参照評価器とフォーマル検査 | [日本語](../tools/sva_reference/README.ja.md) | [English](../tools/sva_reference/README.md) |

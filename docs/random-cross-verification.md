@@ -11,8 +11,8 @@ Checkの固定クロス検証に加え、Nightlyで件数制限付きのラン�
 
 2026-11-05（日本時間）に確認した[`19cd790a`のCheck・Nightly](nightly-results.md#latest-verified-checkpoint)は、ともに成功しました。
 Nightlyの13プロファイルはkirimasim `50a897dee62a`・seed `41941310616`で**96件すべて有効なPASS**です。
-最後に成功した[2026-11-14のNightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/43533749064)（suite `aef04b93`）でも、ランダム比較のステップは成功しました。この回の個別artifactは照合していません。
-既定のNightlyは13プロファイルを維持し、[重点探索と独立検算](#thirteen-profile-stabilization)を継続します。[追加のパック値モデル2種類](#opt-in-packed-profiles)・[整数べき乗モデル](#opt-in-power-profile)・[広い値の2モデル](#opt-in-wide-value-profiles)・[広いシフトと型変換の2モデル](#opt-in-wide-bit-operation-profiles)は明示指定の探索で使えます。
+[2026-11-14のNightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/43533749064)（suite `aef04b93`）と、4分割を初めて検証した2026-11-20（日本時間）の[Nightly 44631823505](https://github.com/kurochan001/kirimasim-tests/actions/runs/44631823505)（suite `03b2e107`）でも、ランダム比較のステップは成功しました。これらの回のランダム比較のartifactは照合していません。
+既定のNightlyは13プロファイルを維持し、[重点探索と独立検算](#thirteen-profile-stabilization)を継続します。[追加のパック値モデル2種類](#opt-in-packed-profiles)・[整数べき乗モデル](#opt-in-power-profile)・[広い値の2モデル](#opt-in-wide-value-profiles)・[広いシフトと型変換の2モデル](#opt-in-wide-bit-operation-profiles)・[広い数値の書式化と読み取りのモデル](#opt-in-wide-format-scan-profile)・[広いビット問い合わせのモデル](#opt-in-wide-bitquery-profile)の計9種類は明示指定の探索で使えます。
 
 <a id="purpose-and-roles"></a>
 
@@ -291,7 +291,7 @@ Checkに最新kirimasimでのランダム実行を追加してはいません。
 固定スイートの合格数へは加算しません。通常の境界ケースと少数因子網羅は引き続き固定回帰で保持します。
 
 以下の日時付きの節は、導入時のローカル確認とその制限を保持しています。
-過去の件数や「正式CI未実行」は当時の確認時点の記録であり、現在の正式結果は次の節に分けて記載します。
+過去の件数や「正式CI未実行」は当時の確認時点の記録です。個別artifactまで照合した正式結果は次の節に、その後のNightlyの状況はこの資料の冒頭に分けて記載します。
 
 <a id="formal-thirteen-profile-checkpoint"></a>
 
@@ -638,7 +638,7 @@ python3 tools/promote_random_cross.py \
 値演算・scheduler・libFuzzerの問題はkirimasimのunit／機構別matrixへ追加します。
 ツール検査用の模擬失敗から、新しい実シミュレータの不具合が確認されたとは判断しません。
 
-正式Checkは固定Icarus 13.0／Verilator 5.052を、Nightlyは開発版を比較します。
+正式Checkは固定Icarus 13.0／Verilator 5.052（固定版を移すまでに追加したテストは5.054）を、Nightlyは開発版を比較します。
 ビルドキャッシュ・ccacheで減らすのはコンパイルであり、実行は省略しません。
 Nightlyのrun ID・再試行番号と、直前のランダム用buildコミットを別に記録します。
 同じNightlyでも、その前の固定スイートは以前のkirimasim版の場合があるため、固定結果自身の版を確認します。

@@ -46,7 +46,8 @@ Icarus Verilog、Verilator、kirimasim、
   既定の時間単位、シミュレータの診断文の正確な言い回しには依存しません。
 
 > **開発の初期段階です。** すべてのテストをAIモデルが規格と照合していますが、
-> 人による照合はまだありません（`:spec_check: ai`）。期待値の誤りの報告を歓迎します。
+> 人による照合はまだありません（`:spec_check: ai`）。人が無作為に選んだテストを規格から読み直す手順は
+> [抽き取りレビュー](docs/review-sample.md)にあります。期待値の誤りの報告を歓迎します。
 
 初めてテストを読むなら[実在する24行の読み解き](docs/faq.md#q49-read-a-real-test)、結果を読むなら[緑でもDifferが残る理由](docs/faq.md#q11-why-can-nightly-be-green-with-differ-results)、検証済みの範囲を調べるなら[分子と分母の具体例](docs/faq.md#q16-how-do-design-and-execution-coverage-differ)から始められます。
 
@@ -181,65 +182,66 @@ CIは台帳と生成した要約を検査します。Nightlyは、率、残件�
 この保存実行は113モデル・選択4,509件です。
 CheckとNightlyは、生成したクロステストを固定スイートのほかのテストと一緒に実行します。Nightlyの最新の結果は[`results`ブランチのレポート](https://github.com/kurochan001/kirimasim-tests/tree/results#readme)にあります。
 入力と元の期待値を保持し、failのうち4件は固定版slangへ
-切り分けたconfigのパラメータリセット、4件はパラメータを持つ[入れ子のprogram](docs/interaction-verification.md#program-hierarchy-instances)をkirimasimが暗黙にインスタンス化しないものです。11→9→4の履歴、全出力の再現、未対応19機構の内訳、
+切り分けたconfigのパラメータリセット、4件はパラメータを持つ[入れ子のprogram](docs/interaction-verification.md#program-hierarchy-instances)をkirimasimが暗黙にインスタンス化しないものです。fail件数の経過、全出力の再現、未対応19機構の内訳、
 章対の精査は[不一致対応と次の優先順位](docs/cross-verification-followup.md)に記録しています。
 章間CSVの出典はこの単一の全クロスローカル実行とし、正式実行による確認は別に記録しています。
+以下のモデル別のkirimasimの件数は、この全クロス保存実行（kirimasim `77c27531437c`）のものです。
 
 名前付きイベントとループ制御（第12章×第15章）は、代表化後の合法2,016通りから36件を選びます。
 同じタイムスロットでの待機開始、blocking/NBA発火、break/continueによる受信・保持・終了を照合します。
-最新kirimasimは全36件PASSです。[設計・具体例・固定版の差異](docs/interaction-verification.md#named-event-loop-transfer)を参照してください。
+kirimasimは全36件PASSです。[設計・具体例・固定版の差異](docs/interaction-verification.md#named-event-loop-transfer)を参照してください。
 
 packageの配列問い合わせと名前解決（第20章×第26章）は、合法3,456通りから36件を選びます。
 関数内のimportと修飾参照で問い合わせ先を決め、幅・境界・向きが実際の走査と全幅集計に反映されるかを確認します。
-最新kirimasimは全36件PASSです。[設計・独立検算・固定版比較](docs/interaction-verification.md#package-array-query-scope)から同名ローカル配列を含む具体例を辿れます。
+kirimasimは全36件PASSです。[設計・独立検算・固定版比較](docs/interaction-verification.md#package-array-query-scope)から同名ローカル配列を含む具体例を辿れます。
 
 programの終了とautomatic task（第13章×第24章・第12章×第24章）は、合法3,456通りから36件を選びます。
 重なる呼出しの局所値、正常復帰時の出力コピー、途中終了時のコピー抑止と別programの生存を確認します。
-最新kirimasimは全36件PASS、固定Icarusは6 pass・30 known、固定Verilatorは36 knownです。[設計・独立検算・確認範囲](docs/interaction-verification.md#program-task-frame-lifetime)を参照してください。
+kirimasimは全36件PASS、固定Icarusは6 pass・30 known、固定Verilatorは36 knownです。[設計・独立検算・確認範囲](docs/interaction-verification.md#program-task-frame-lifetime)を参照してください。
 
 書式付き読取りと部分書込み（第11章×第21章・第20章×第21章）は、代表化後の合法5,760通りから36件を選びます。
 途中で止まった変換の書込み範囲・後続出力の保持・全成功の再呼出しを、全格納語で確認します。
-最新kirimasimは全36件PASS、固定Icarusは17 pass・19 knownです。[設計・独立検算・固定版の差異](docs/interaction-verification.md#formatted-scan-partial-write)を参照してください。
+kirimasimは全36件PASS、固定Icarusは17 pass・19 knownです。[設計・独立検算・固定版の差異](docs/interaction-verification.md#formatted-scan-partial-write)を参照してください。
 
 定数式とgenerate（第11章×第27章・第20章×第27章）は、合法6,912通りから36件を選びます。
 オペランドの符号・文脈幅・結果の宣言符号を分離し、実際の分岐・生成個数・要素幅・全幅データを観測します。
-最新kirimasimと固定Icarusは全36件PASSです。[設計・独立検算・固定版比較](docs/interaction-verification.md#generated-constant-expression-shape)を参照してください。
+kirimasimと固定Icarusは全36件PASSです。[設計・独立検算・固定版比較](docs/interaction-verification.md#generated-constant-expression-shape)を参照してください。
 
 interface内の配列問い合わせ（第7章×第25章・第20章×第25章・第13章×第20章）は、合法4,608通りから36件を選びます。
 問い合わせの値で走査の開始位置・回数・方向を決め、順序依存の全幅チェックサムと、呼出し後の別実体の保持を観測します。
-最新kirimasimと固定Icarusは全36件PASSです。[設計・独立検算・固定版比較](docs/interaction-verification.md#interface-array-query-walk)を参照してください。
+kirimasimと固定Icarusは全36件PASSです。[設計・独立検算・固定版比較](docs/interaction-verification.md#interface-array-query-walk)を参照してください。
 
 生成プロセスとループ制御（第12章×第27章・第9章×第27章、および第7章×第27章）は、合法6,912通りから36件を選びます。
 各スコープのbreak/continue、全配列要素と結果、入力変更後の再起動、立下り・待機中の保持を確認します。
-最新kirimasimは全36件PASS、固定Icarusは31 pass・5 known、固定Verilatorの両seedは各12 pass・24 knownです。
+kirimasimは全36件PASS、固定Icarusは31 pass・5 known、固定Verilatorの両seedは各12 pass・24 knownです。
 [設計・独立検算・repeat回数1の差異](docs/interaction-verification.md#generated-process-loop-transfer)を参照してください。
 
 クラスの条件選択と早期return（第8章×第11章・第8章×第12章）は、合法1,296通りから36件を選びます。
 直呼び・virtual/非virtual、if/caseと条件演算子のX/Z、receiverだけの更新、型付き結果の拡張、再束縛後の別名を区別します。
-最新kirimasimは全36件がPASS、固定Verilatorのseed 1/73は各12 pass・24 knownです。
+kirimasimは全36件がPASS、固定Verilatorのseed 1/73は各12 pass・24 knownです。
 [設計・独立検算・制限](docs/interaction-verification.md#class-conditional-return)を参照してください。
 
 生成スコープのサブルーチンと配列状態（第13章×第27章・第7章×第27章、および第7章×第13章）は、合法2,304通りから36件を選びます。
 既定引数の再評価、局所型と定数、functionの戻り値とtaskのcopy-out、配列境界、各呼出し後の別スコープの独立性を照合します。
-最新kirimasimと固定Icarus 13.0は36件すべてPASS、固定Verilatorの両seedは各11 pass・25 knownです。
+kirimasimと固定Icarus 13.0は36件すべてPASS、固定Verilatorの両seedは各11 pass・25 knownです。
 [設計・独立検算・保存した差異](docs/interaction-verification.md#generated-subroutine-binding)を参照してください。
 
 クラスメソッドとpackage import（第8章×第26章）は、合法3,264通りから34件を選びます。
 メソッド内と外側の名前解決、型付きのfunction/taskの結果、共有package状態、オブジェクトの別名とハンドル再束縛を照合します。
-追加34件は最新kirimasimで全PASSです。固定Verilatorの両seedは各18 pass・16 known、固定Icarusは全34件のビルドを拒否します。
+34件はkirimasimで全PASSです。固定Verilatorの両seedは各18 pass・16 known、固定Icarusは全34件のビルドを拒否します。
 [設計・独立検算・制限](docs/interaction-verification.md#class-method-package-lookup)を参照してください。
 
-disableと遅延報告（第9章×第16章）は、720通りから31件を選びます。取消し対象、引数取得と副作用、報告時の生値、通常の制御移動を照合します。最新kirimasimは31件すべてPASSで、兄弟報告・入力取得の副作用・成熟済み履歴を保持します。固定Verilatorは両seedで13 pass・18 knownです。[範囲と再現出力](docs/interaction-verification.md#deferred-disable-reports)を参照してください。
+disableと遅延報告（第9章×第16章）は、720通りから31件を選びます。取消し対象、引数取得と副作用、報告時の生値、通常の制御移動を照合します。kirimasimは31件すべてPASSで、兄弟報告・入力取得の副作用・成熟済み履歴を保持します。固定Verilatorは両seedで13 pass・18 knownです。[範囲と再現出力](docs/interaction-verification.md#deferred-disable-reports)を参照してください。
 
-遅延報告の引数（第13章×第16章）は合法368通りから29件を選び、値渡しでの取得・静的な参照・幅と符号の変換・引数評価の副作用を照合します。追加29件は最新kirimasimで全PASSです。固定Verilatorは両seedで各29 known、固定Icarusは29件コンパイル拒否で、共通期待値を保持しています。[設計・独立検算・制限](docs/interaction-verification.md#deferred-argument-capture)を参照してください。
+遅延報告の引数（第13章×第16章）は合法368通りから29件を選び、値渡しでの取得・静的な参照・幅と符号の変換・引数評価の副作用を照合します。29件はkirimasimで全PASSです。固定Verilatorは両seedで各29 known、固定Icarusは29件コンパイル拒否で、共通期待値を保持しています。[設計・独立検算・制限](docs/interaction-verification.md#deferred-argument-capture)を参照してください。
 
-package変数の変更通知（第9章×第26章、第11章×第26章）は合法2,592通りから36件を選び、複数モジュールのイベント待機・wait・関数経由のalways_comb感度を照合します。全体と最下位ビットの変化、条件のX、起床履歴、再書込みと隣接要素・別packageの独立性を確認し、最新kirimasimで全36件PASSです。[設計・独立検算・制限](docs/interaction-verification.md#package-change-observers)を参照してください。
+package変数の変更通知（第9章×第26章、第11章×第26章）は合法2,592通りから36件を選び、複数モジュールのイベント待機・wait・関数経由のalways_comb感度を照合します。全体と最下位ビットの変化、条件のX、起床履歴、再書込みと隣接要素・別packageの独立性を確認し、kirimasimで全36件PASSです。[設計・独立検算・制限](docs/interaction-verification.md#package-change-observers)を参照してください。
 
-package変数とNBA（第10章×第26章）は合法1,296通りを36件に絞り、モジュールをまたぐ共有状態、予約時の値と添字、同じinitial内での予約順序、遅延と状態型変換を照合します。追加36件は最新kirimasimで全PASSです。固定Verilatorは既知値12件が両seedでPASS、X/Z観測の24件は2値実行の既知差です。[設計・独立検算・制限](docs/interaction-verification.md#package-nba-capture)を参照してください。
+package変数とNBA（第10章×第26章）は合法1,296通りを36件に絞り、モジュールをまたぐ共有状態、予約時の値と添字、同じinitial内での予約順序、遅延と状態型変換を照合します。36件はkirimasimで全PASSです。固定Verilatorは既知値12件が両seedでPASS、X/Z観測の24件は2値実行の既知差です。[設計・独立検算・制限](docs/interaction-verification.md#package-nba-capture)を参照してください。
 
-列挙型とgenerate（第6章×第27章）は合法1,056通りを36件に絞り、生成要素ごとの幅・符号・値表、next/prevの巡回と保持コピーを照合します。追加36件は最新kirimasimで全PASSです。固定Verilatorは両seedとも18 pass・18 known、固定Icarusは36 knownです。[設計・独立検算・制限](docs/interaction-verification.md#generated-enum-navigation)を参照してください。
+列挙型とgenerate（第6章×第27章）は合法1,056通りを36件に絞り、生成要素ごとの幅・符号・値表、next/prevの巡回と保持コピーを照合します。36件はkirimasimで全PASSです。固定Verilatorは両seedとも18 pass・18 known、固定Icarusは36 knownです。[設計・独立検算・制限](docs/interaction-verification.md#generated-enum-navigation)を参照してください。
 
-clocking入力と名前付きイベントの待機（第14×15章）は192通りから24件を選択し、採取値の保持、生値、通知回数、複数待機者への通知、再待機を確認します。最新kirimasimは12 pass・`input #0`未対応12件、固定Verilatorの両seedは各12 pass・非ブロッキング通知の既知差12件です。[設計・対照・制限](docs/interaction-verification.md#clocking-named-event)を参照してください。
+clocking入力と名前付きイベントの待機（第14×15章）は192通りから24件を選択し、採取値の保持、生値、通知回数、複数待機者への通知、再待機を確認します。kirimasimは12 pass・`input #0`未対応12件、固定Verilatorの両seedは各12 pass・非ブロッキング通知の既知差12件です。[設計・対照・制限](docs/interaction-verification.md#clocking-named-event)を参照してください。
 
 - [クロス検証レポート](docs/interaction-coverage.md)：計画上の網羅と、入力・ランナーのハッシュが
   一致した保存実行の合格を分けて集計します。
@@ -264,14 +266,19 @@ clocking入力と名前付きイベントの待機（第14×15章）は192通り
 計画上の網羅とCheckの成功を、各シミュレータでの全クロス合格とは扱いません。
 ビルド版・実行範囲・結果の内訳は[保存実行の概要](docs/interaction-verification.md#保存実行の概要)を確認してください。
 
+[メタモルフィック検査](docs/metamorphic.md)（`tools/metamorphic.py`）は、意味を変えない変換
+（識別子の付け替え、空白とコメント、時間の単位の拡大）をしたテストの写しと元のテストを同じシミュレータで実行し、
+正規化した出力を比べます。期待出力を使わないので、期待値の誤りに左右されずにシミュレータの不具合や
+テストの隠れた依存を探せます。固定スイートの本数やカバレッジには加えません。
+
 [規格PDFからテストに至る方法](docs/requirements-to-tests-method.md)は、要求の抽出、
 既存テストとの照合と追加テストの作成、独立したレビュー、統合と測定までを順に説明します。
 作業には[照合キット](tools/matching_kit/README.ja.md)を使います。
 
 要求カバレッジの分母は**12,332要求**です。
-[分母レビュー](docs/denominator-review-20261028.md)で、重複を統合した12,298要求を承認しました。
-その後、所有者の承認を得て、受理される形と拒否される形が混ざった34行を2行ずつに分け（2026-11-14に7行、2026-11-15に27行）、
-76行の種別か文を観測できる形に直しました（23行と53行）。拒否される設計でしか示せなかった行と、合法な動作も述べていたerrorの行です。
+[分母レビュー](docs/denominator-review-20261028.md)で重複を統合して承認した要求のうち、
+受理される形と拒否される形が混ざった34行を、所有者の承認を得てそれぞれ2行に分けたものです。
+分母の変更の経過は[履歴](docs/history.ja.md)にあります。
 レビューしたのはAIで、人による独立したレビュー・承認ではありません。
 現在の要求カバレッジ（テスト設計）は**93.15%（11,487/12,332）**、
 `coverage/results/`の保存済み証跡による実行確認率は、第三者が再現できる
@@ -284,6 +291,12 @@ Icarus Verilog・Verilator・SymbiYosysの結果で**51.22%（6,317/12,332）**�
 要求の抽出・照合・テスト追加の各回の報告は[履歴](docs/history.ja.md)から辿れます。
 報告には、観測、規格から決めた期待値、シミュレータとの差、意図的な誤りを入れる検査、
 実行証拠を記録しています。
+
+期待値が規格の二つの読み方の一方に従うテストと、規格が定めないことに頼るテストは
+[読み方が割れるテスト](docs/interpretation-splits.md)に、1800-2023で加わった機能ごとの
+テストと要求は[1800-2023で加わった機能のテスト](docs/sv2023-features.md)にまとめています。
+どちらも台帳（`coverage/interpretation-splits.json`、`coverage/sv2023-features.json`）から生成するAIの記録で、
+テスト・期待値と要求カバレッジの分母は変えません。
 
 テストの配置先は、`:lrm:`の先頭の条項が属するIEEE 1800-2023の章に対応するディレクトリです。
 表のIcarus・Verilator・規格のみの列は、最初の表と同じく、期待結果の確認元別の件数です。
@@ -379,10 +392,9 @@ Icarus Verilog 13.0とVerilator 5.052で記録した期待結果と、固定版�
 
 ## シミュレーション速度
 
-[0.1.1の速度改善記録（2026-11-17）](docs/simulation-speed-20261117.ja.md)では、7f5a9134の全13入力測定（Icarusより短いのは10本）と、1745b8fcの最終3入力比較を分けています。直接比較でIcarusより中央値が短いのはproc_waitだけで、gate_udpとmem_rwはまだ遅い結果です。並行CIの制約と全サンプルも保存しています。
-
-[2026-11-16 の Mac・WSL2 比較と原因・対策の調査](docs/simulation-speed-20261116.ja.md)に、kirimasim 0.1.0 と Icarus 14.0 devel の全サンプル、データ品質、試作の効果をまとめています。WSL2 の再測定と試作検証も受領し、背景負荷の制約を分けて記録しています。過去の速度測定は
-[測定記録](docs/readme-records-20261101.ja.md#シミュレーション速度)へまとめています。
+kirimasimとIcarus Verilogの日々の速度比較は、上の[日次・週次速度ベンチマーク](docs/daily-benchmark.ja.md)の結果で確認します。
+日付の入った速度の測定記録は、最新の[0.1.1の速度改善記録（2026-11-17）](docs/simulation-speed-20261117.ja.md)を含めて
+[履歴](docs/history.ja.md)と[測定記録](docs/readme-records-20261101.ja.md#シミュレーション速度)から辿れます。
 実行コードと手順は[シミュレータのベンチマーク](https://github.com/kurochan001/kirimasim/tree/main/bench)を参照してください。
 
 <a id="layout"></a>
@@ -419,6 +431,9 @@ docs/requirements-to-tests-method.md 規格PDFから要求・テスト・網羅�
 coverage/behavior-summary.json  現在の要求カバレッジの集計結果と分母の識別情報
 coverage/behavior-history.json  分母の識別情報を含む測定履歴
 coverage/slang/                 slangによる参考判定の日付付きの記録（どこにも数えない）
+coverage/human-review.json      抽き取りレビューで人が記録した判定
+coverage/interpretation-splits.json 読み方が割れるテストの台帳
+coverage/sv2023-features.json   1800-2023で加わった機能とそのテストの台帳
 tools/run_icarus.py             Icarus Verilogでの実行
 tools/run_verilator.py          Verilatorでの実行
 tools/run_kirimasim.py          kirimasimでの実行
@@ -431,6 +446,10 @@ tools/results_history.py        Nightlyの履歴とグラフ生成
 tools/results_ratchet.py        前回一致して今回不一致のテストの一覧
 tools/differences_status.py     差異一覧のテストの最新masterでの結果
 tools/review_candidates.py      人が見直す期待結果のテストと条項の一覧
+tools/review_sample.py          抽き取りレビューの標本・判定の取込み・誤り率の上限
+tools/interpretation_splits.py  読み方が割れるテストの台帳の検査と資料の生成
+tools/sv2023_features.py        1800-2023で加わった機能の台帳の検査と資料の生成
+tools/metamorphic.py            意味を変えない変換をしたテストと元のテストの出力の比較
 tools/suite_stats.py            テスト集計と両言語のREADMEの表の更新
 tools/suite_catalog.py          docs/tests/のカタログ生成
 tools/coverage_depth.py         docs/coverage-depth.mdの生成
@@ -633,6 +652,8 @@ python3 generators/generate.py --check    # 生成内容が最新か検査
 他のテストと同様にIcarus Verilog 13.0とVerilator 5.052で期待出力を確認し、
 `generators/record_oracles.py`が再現できたリリースを`generators/oracles.txt`に記録します。
 そこから`:oracle:`を書き出します。どちらも再現しないものはモデルだけが根拠の`:oracle: spec`です。
+固定版を5.052から5.054へ移す間に追加した生成テストは、Verilator 5.054で確認したものに
+`verilator@5.054`を`generators/oracles.txt`へ記録しています（`generators/record_oracles.py`が読むのは5.052の結果です）。
 モデルとシミュレータが異なる場合は、ここでも条項で判断します。
 
 <a id="running-the-suite"></a>
@@ -836,7 +857,8 @@ UTCオフセットのない`--time`はUTCとして扱います。
 ## ワークフロー
 
 `.github/workflows/check.yml`は、`tests/`、`tools/`、`generators/`、`docs/`、
-英語版または日本語版README、`coverage/`、またはワークフロー自身を変更するmainへのpushとプルリクエストで動きます。
+英語版または日本語版README、`coverage/`、`bench/`、速度ベンチマークのワークフロー（`.github/workflows/benchmark.yml`）、
+またはワークフロー自身を変更するmainへのpushとプルリクエストで動きます。
 Actionsタブから手動実行もできます（`workflow_dispatch`）。スイートに問題がある場合に失敗します。
 
 - **icarus**：Icarus Verilog 13.0を`v13_0`タグからビルドし、Actionsのキャッシュに保存してformal以外の全件を実行します。
@@ -852,8 +874,12 @@ Actionsタブから手動実行もできます（`workflow_dispatch`）。スイ
   `tools/lint_metadata.py`が確認できるメタデータ・参加ルール違反が、
   `tools/lint_baseline.txt`の既知の問題以外にないことも検査します。
   ツールの単体テスト、原文レビュー必須での要求カバレッジとベースラインの検査、
-  要求照合一覧の更新状況の確認も行います。クロスのモデル・選択ケース・保存済み実行集計は
-  `tools/interaction_coverage.py --check`で検査します。
+  要求照合一覧の更新状況の確認も行います。抽き取りレビューの台帳（`tools/review_sample.py check`）、
+  読み方が割れるテストと1800-2023で加わった機能の台帳とその生成資料
+  （`tools/interpretation_splits.py --check`、`tools/sv2023_features.py --check`）も検査します。
+  クロスのモデル・選択ケース・保存済み実行集計は`tools/interaction_coverage.py --check`、
+  章間表と0セルの仕分けは`tools/chapter_cross_matrix.py --check`と`tools/chapter_cross_triage.py --check`、
+  Issue #21の組合せの台帳は`tools/combination_gaps.py --check`で検査します。
   全生成器のカタログと日英の全資料も検査し、手書き資料の更新漏れをハッシュで検出し、
   自動生成資料の両言語版が最新の状態であることを確認します。
   ランダム比較の刺激生成とmanifestからの再現も検査し、SVと期待値のバイト一致を確認します。

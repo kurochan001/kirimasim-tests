@@ -27,8 +27,8 @@
 
 - The 5 requirements given tests comprise 4 normal and 1 boundary requirements (`SV2023-34.2-EXTRACT-DECRYPTION-ENVELOPE`, the only boundary requirement in Clause 34). The not_testable 210 items are normal 201 items and error 9 items.
 - Icarus 13.0: `2/2 tests match; 2 known differences not counted` (the 2 tests specific to Verilator are known because their payload is a syntax error under Icarus).
-- Verilator 5.052: `4/4 tests match` （`python3 tools/run_verilator.py --all -j 4 ... tests/ch34/*.sv`）。
-- `python3 tools/lint_metadata.py tests/ch34/*.sv` → `4 tests checked: 0 new problems, 0 known, 0 gone`（exit 0）。
+- Verilator 5.052: `4/4 tests match` (`python3 tools/run_verilator.py --all -j 4 ... tests/ch34/*.sv`).
+- `python3 tools/lint_metadata.py tests/ch34/*.sv` → `4 tests checked: 0 new problems, 0 known, 0 gone` (exit 0).
 
 Conclusion of this chapter: Neither tool does "decrypt" IEEE 34. Icarus ignores all `` `pragma protect ``, while Verilator discards only the base64 body of `data_block`/`key_block`. Thus, for most of the 215 requirements, the prescribed observations (cleartext substitution, key selection, digest comparison, licence checks, errors) cannot be produced in principle. Even the 5 tested requirements are limited to acceptance of syntax and exclusion of a region from parsing; no claim is made that protection worked.
 
@@ -72,7 +72,7 @@ Icarus treats `` `pragma `` as an unknown pragma line and does not parse any Cha
 |`encoding` is reserved for base64|The `uuencode`, `quoted-printable`, and `raw` are `Unsupported: only BASE64 is recognized` ( P7 ). Error if `line_length` is not a multiple of 4 (P8)|
 |`bytes` for 1 `encoding` is shared across all blocks|Placing `key_block` and `data_block` in 1 envelope fails with `BASE64 encoding (too short)`/`length mismatch` (P6). If `encoding` is placed in each block, it is rejected by ``Multiple '`pragma protected encoding sections'`` (P20). The actual envelope with the key block cannot be accepted.|
 |Does not decrypt|Passing `--protect-key` does not change the handling of the IEEE envelope; the same skip warning appears (P14). If you put the module in `data_block`, it will be `Cannot find file containing module` (P15).|
-|There's no old form `` `protected ``.| `Define or directive not defined`（P18） |
+|There's no old form `` `protected ``.| `Define or directive not defined` (P18) |
 
 The "skip" of Verilator is a deletion rather than a decoding. The contents of `data_block` are not passed to source parsing, but are not converted back to cleartext either. Thus, neither 34.2's “conversion to cleartext” nor 34.3's “decryption” can be observed.
 
@@ -135,7 +135,7 @@ Scope: 32 keyword-definition and 1 default-value items in 34.4, 4 bare-spelling 
 
 - Observed: The acceptable spelling and the rejected spelling (P19) are shown. If `begin_protected` is given an argument, it is rejected, and if it is naked, it is passed (P2 ). Verilator does not read `author`, `data_keyname`, `digest_*`, `reset`, `viewport`, or similar items.
 - Not observed: The values carried by the keywords, default values, and reset. Both tools do not maintain the keyword state, and neither encryption output nor decryption are available. Icarus ignores all lines.
-- Standard: 34.4「The scope of protect pragma directives is completely lexical …」 「In protected envelopes where a specific pragma keyword is absent, the SystemVerilog tool shall use the default value.」
+- Standard: 34.4 “The scope of protect pragma directives is completely lexical …” “In protected envelopes where a specific pragma keyword is absent, the SystemVerilog tool shall use the default value.”
 - Tested 2 items: 34.5.3.1 / 34.5.4.1 (bare delimiter). The representative not_testable are: `SV2023-34.4-EXTRACT-KEYWORD-AUTHOR`, `SV2023-34.4-EXTRACT-PROTECT-DEFAULTS`, and `SV2023-34.5.31.2-EXTRACT-RESET-PROTECT`.
 
 <a id="42-envelope構造24-件テスト化-2"></a>
@@ -146,7 +146,7 @@ Scope: 5 cases in 34.2, 2 in 34.3, 2 in 34.3.1, 1 in 34.3.2, 3 lexical region/sc
 
 - Observed: Delimiter acceptance (P2), 8-level nesting (P11), state across includes (P13), and absence of diagnostics for unmatched delimiters (P12).
 - Not observed: “Replace the decryption envelope with cleartext” in 34.3; “replace it with the decrypted text of data_block, then perform macro expansion and nested decryption” in 34.3.2; “put all content between begin/end into data_block” in 34.5.1.2; and re-encryption of encrypted input. Both require a cipher/decipherer.
-- Standard: 34.2「Protected envelopes specify a region of text that shall be transformed prior to analysis by the source language processor.」 34.3「Tools that process SystemVerilog source code shall perform envelope decryption for all decryption envelopes contained in the source text, where the proper key is supplied by the user.」
+- Standard: 34.2 “Protected envelopes specify a region of text that shall be transformed prior to analysis by the source language processor.” 34.3 “Tools that process SystemVerilog source code shall perform envelope decryption for all decryption envelopes contained in the source text, where the proper key is supplied by the user.”
 - The 2 cases converted into tests: 34.2 (nested lower bound 8) and 34.4 (lexical scope). The test of 34.2 can only be used against null. The standard addresses encrypted data containing another envelope, which can be constructed only with decryption support. Stated explicitly in the test's `limitation`.
 - 34.3.1's "Source text that is not contained in an encryption envelope shall not be modified" can be observed at first glance because both tools compile the outside as it is. However, this is also because the inside is left unchanged; a tool without protection support gives the same result. The rule is not tested because it does not show the implementation of the rule (the reason is `SV2023-34.3.1-EXTRACT-OUTSIDE-ENCRYPTION-PRESERVED` of JSON).
 
@@ -158,7 +158,7 @@ Scope: 6 cases for 34.5.14, 19 for 34.5.23–27, and 1 session keys for 34.3.1.
 
 - Observed: `key_block` is read as the beginning of the base64 entity. However, Verilator has only 1 `bytes` counter(s) for 1 `encoding`, so placing `key_block` and `data_block` in the same envelope fails (P6).
 - Not observed: Key selection (key_keyowner + key_keyname/key_public_key), decryption/decompression of key_block, storage of data_decrypt_key, digital-signature formats, and per-owner uniqueness. There is no key store.
-- Standard: 34.5.27.2「Decode key_block then decrypt and parse its text for data_block keys …」
+- Standard: 34.5.27.2 “Decode key_block then decrypt and parse its text for data_block keys …”
 - Representative: `SV2023-34.5.27.2-EXTRACT-KEY-BLOCK-DECRYPT`, `SV2023-34.5.25.2-EXTRACT-KEY-NAME-DECRYPT-TEXT`.
 - Verilator being unable to handle `key_block` and `data_block` together is an observed nonconformance, but the standard does not require an error, so it is recorded in P6 rather than turned into a should_fail test.
 
@@ -170,7 +170,7 @@ Scope: The 34.5.16 to 22 38 items are shown.
 
 - Observed: None. `digest_block`, `digest_method`, `digest_keyowner`, `digest_key_method`, `digest_keyname`, `digest_public_key`, and `digest_decrypt_key` are all unknown in Verilator (P9, P19); Icarus is ignored.
 - Not observed: Digest generation, encryption, placement immediately after data_block, and recalculation/comparison from decrypted data (34.5.22.2). Decryption data and digest key required.
-- Standard: 34.5.22.2「Decode/decrypt the data and digest, generate a digest from decrypted data and compare; mismatch indicates modification …」
+- Standard: 34.5.22.2 “Decode/decrypt the data and digest, generate a digest from decrypted data and compare; mismatch indicates modification …”
 - Representative: `SV2023-34.5.22.2-EXTRACT-DIGEST-AUTHENTICATE`, `SV2023-34.5.16.2-EXTRACT-DIGEST-OWNER`.
 
 <a id="45-暗号化encoding51-件テスト化-1"></a>
@@ -181,7 +181,7 @@ Scope: 12 cases for 34.5.9, 5 for 34.5.10, 21 for 34.5.11, 4 for 34.5.12, 4 for 
 
 - Observed: base64 is the only enctype (P7); `bytes` determines how many characters to discard (P4); `line_length` is a multiple of 4 (P8); the body begins on the next line (P16).
 - Not observed: Cryptographic algorithms (identifiers such as aes256-cbc are never used), prepending/removing IV, key selection by data_keyowner/keyname/public_key/decrypt_key, uuencode (Required in Table 34-2), quoted-printable, raw, per-field encoding, and decryption.
-- Standard: 34.5.9.2 Table 34-2 marks `uuencode` and `base64` as Required, and `quoted-printable` and `raw` as Optional. 34.5.15.2 「The data_block pragma expression indicates that a data block begins on the next line in the file.」
+- Standard: 34.5.9.2 Table 34-2 marks `uuencode` and `base64` as Required, and `quoted-printable` and `raw` as Optional. 34.5.15.2 “The data_block pragma expression indicates that a data block begins on the next line in the file.”
 - Tested 1 item: the output side of 34.5.15.2 (starts at the next line, only the number of declared bytes is excluded from parsing). The encryption itself has not been observed.
 - Representative: `SV2023-34.5.11.2-EXTRACT-ALGORITHM-AES256-CBC`, `SV2023-34.5.9.2-EXTRACT-UUENCODE-REQUIRED`.
 
@@ -193,7 +193,7 @@ Scope: 10 author/author_info/encrypt_agent/encrypt_agent_info cases, 4 comment c
 
 - Observed: None. There is no encrypted output itself, so there is no object to compare what is output in plain text other than data_block.
 - Not observed: Placement of author and related directives, output of comment immediately before data_block, unchanged output of decrypt_license / runtime_license, and inclusion within the envelope of the object referenced by viewport.
-- Standard: 34.5.30.2「Emit the entire comment including the initial pragma in cleartext immediately before the data_block …」。34.5.32.2「The specified object name shall be contained within the current envelope.」
+- Standard: 34.5.30.2 “Emit the entire comment including the initial pragma in cleartext immediately before the data_block …” 34.5.32.2 “The specified object name shall be contained within the current envelope.”
 - Representative: `SV2023-34.5.5.2-EXTRACT-AUTHOR-CLEARTEXT-OUTPUT`, `SV2023-34.5.30.2-EXTRACT-COMMENT-OUTPUT`.
 
 <a id="47-エラー9-件テスト化-0"></a>
@@ -215,7 +215,7 @@ Scope: Encryption-identifier extension in 34.5.11.2, digest-identifier extension
 
 - Observed: None (there is no transferable expected value).
 - Not observed: The meaning of the additional identifier, the library call protocol, and the access value of the viewport. Verilator rejects viewport itself as unknown, while Icarus ignores it.
-- Standard: 34.5.32.2「The access value is an implementation-specific relaxation of protection.」34.5.9.2「Additional identifier values and their corresponding encoding algorithms are implementation-defined.」
+- Standard: 34.5.32.2 “The access value is an implementation-specific relaxation of protection.” 34.5.9.2 “Additional identifier values and their corresponding encoding algorithms are implementation-defined.”
 - Representative: `SV2023-34.5.32.2-EXTRACT-VIEWPORT-ACCESS`, `SV2023-34.5.11.2-EXTRACT-ALGORITHM-EXTENSIONS`.
 
 <a id="5-テスト化した-5-要求4-ファイル"></a>
@@ -279,7 +279,7 @@ Representative examples (all with a reason in JSON):
 ## 7. Cases whose observable result is not specified by the standard (limits of test design)
 
 - Errors: 34.5.12.2, 34.5.15.2, 34.5.18.2, 34.5.25.2, and 34.5.27.2 require only an error; neither the message nor the exit status is specified. 34.5.28.2 is defined only as "error containing return value". Therefore, even if the condition is met, the only string that can be compared is the tool-specific string.
-- Nesting count: 34.2 is “implementation-specific; however, … no less than 8 」。 8 is a lower bound; 9 or greater and “decryption of encrypted nesting” are not guaranteed.
+- Nesting count: 34.2 is “implementation-specific; however, … no less than 8”. 8 is a lower bound; 9 or greater and “decryption of encrypted nesting” are not guaranteed.
 - Encryption algorithms: 34.5.11.2 maps identifiers to reference standards; Required/Optional status determines which identifiers implementations support, while key acquisition is outside the standard's scope.
 - Encoding: 34.5.9.2 marks uuencode and base64 as Required and others as Optional; additional identifiers are implementation-defined.
 - Visibility: Access to 34.5.32.2 is implementation-specific.
@@ -298,15 +298,15 @@ Representative examples (all with a reason in JSON):
 ## 9. Reproduction procedure
 
 ```sh
-# ICARUS_BIN は Icarus Verilog 13.0 の bin ディレクトリ、OUT は結果の置き場所
-export ICARUS_BIN=<Icarus Verilog 13.0 の bin>
+# ICARUS_BIN is the bin directory of Icarus Verilog 13.0, OUT is where the results go
+export ICARUS_BIN=<bin directory of Icarus Verilog 13.0>
 ROOT=$(pwd)
 OUT=$(mktemp -d)
 
-# 1. プローブ（P0〜P20 の生ログ）。入力の .sv は空のディレクトリに生成される
+# 1. Probes (raw log of P0 to P20). The input .sv files are generated in the empty directory
 (cd "$OUT" && sh "$ROOT/docs/protected-envelope-boundary/probe.sh" > probe-log.txt 2>&1)
 
-# 2. 新規テスト
+# 2. New tests
 python3 tools/run_icarus.py --iverilog-bin "$ICARUS_BIN" -j 4 \
   --json "$OUT/ch34-extra-icarus.json" tests/ch34/*.sv
 python3 tools/run_verilator.py --all -j 4 \

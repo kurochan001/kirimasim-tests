@@ -15,6 +15,7 @@ The selection now contains 113 models / 4,509 cases; for the model added last, s
 [`check-9c39d865-20261106.json`](check-9c39d865-20261106.json) confirms Check’s pinned comparisons/static checks for the preceding 86-model suite.
 [`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json) records an 82-model formal Nightly/publish and 96 random passes; these are separate runs.
 The new 36 cases have not run in Check/Nightly. The 252 cases added since generated loops remain outside this earlier artifact-reviewed Nightly.
+These two sentences describe 2026-11-06. Nightly runs since 2026-11-15 use suites that contain all 113 models, but no record in this directory reviews their individual artifacts. The execution check of each Nightly is in [Feature interaction execution](https://github.com/kurochan001/kirimasim-tests/blob/results/interaction-coverage.en.md) on the `results` branch.
 
 <a id="checkpoint-9926160a"></a>
 
@@ -29,7 +30,7 @@ These are read-only checks of existing evidence, not new simulator executions or
 The fixed suite also records five ordinary specify-condition tests improving from unsupported to pass;
 their identities and unchanged input fingerprints are recorded separately from the finite selection and ratchet gate.
 The [previous checkpoint](formal-ci-e8d991a9-20261104.json) remains unchanged.
-See the [current formal checkpoint](../../docs/nightly-results.en.md#latest-verified-checkpoint) for versions, times and workflow links.
+See [that checkpoint](../../docs/nightly-results.en.md#checkpoint-9926160a) for versions, times and workflow links.
 
 Random development evidence remains dated and separate:
 
@@ -40,8 +41,13 @@ Random development evidence remains dated and separate:
   [thirteen](random-cross-thirteen-profiles.json) / [manifest](random-cross-thirteen-profiles-manifest.json).
 - [Thirteen-profile stabilization](random-stabilization-20261103.json): 1,152 local passes, 864 independently interpreted saved array/package programs;
   288 packed-write programs use the existing execution/reference comparison. See [scope and commands](../../docs/random-cross-verification.en.md#thirteen-profile-stabilization).
+- Qualification records and saved stimuli of the additional profiles for explicit selection: [two packed profiles](random-packed-20261117/qualification.json) (2026-11-17),
+  [integral power](random-power-20261119/qualification.json), [wide conditional and comparison](random-wide-values-20261119/qualification.json),
+  [wide shift and cast](random-wide-bitops-20261119/qualification.json), [wide numeric format and scan](random-format-scan-20261119/qualification.json)
+  and [wide bit queries](random-wide-queries-20261119/qualification.json) (all 2026-11-19).
+  `seed-1/manifest.json` in each directory can be read with `--replay`. See [scope and results](../../docs/random-cross-verification.en.md#opt-in-packed-profiles) and the sections after it.
 
-The latest finite-model additions are [deferred arguments](deferarg.json), [generated enums](genenum.json),
+The finite models added on 2026-11-03 are [deferred arguments](deferarg.json), [generated enums](genenum.json),
 [package NBA capture](pkgnba.json) and [package change observers](pkgwatch.json).
 Each retains separate `*-build.json` and `*-fixed-replays.json` records in this directory.
 Their designs, controls, fixed-release known differences and limits are in the [model guide](../../docs/interaction-verification.en.md).

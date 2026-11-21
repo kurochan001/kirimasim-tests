@@ -54,7 +54,7 @@ PDF ─┬─> A. 出典索引・節台帳（位置とハッシュだけ）
 
 | シミュレータ | 版 | 用途 |
 | --- | --- | --- |
-| Icarus Verilog | 13.0（`Icarus Verilog version 13.0 (stable) (v13_0-dirty)`） | 第一の確認先。`iverilog@13.0` |
+| Icarus Verilog | 13.0（保存済みの結果の版の表示は、2026-11-07以降は`Icarus Verilog version 13.0 (stable) (v13_0)`、それより前の多くは下のmacOS向けの修正を入れた`(v13_0-dirty)`） | 第一の確認先。`iverilog@13.0` |
 | Verilator | 5.052（2026-11-14から固定版を移すまでに追加するテストは5.054） | Icarusが規格に従わない、またはコンパイルできない場合。seed 1と73の両方で一致したら`verilator@5.052`（5.054で確かめたテストは`verilator@5.054`。[移行中の固定版](simulator-differences.ja.md#verilator-5054-interim)） |
 
 Icarus 13.0は、`v13_0`タグからビルドします。macOSでは、次の2点が必要です。
@@ -80,6 +80,10 @@ Icarus 13.0は、`v13_0`タグからビルドします。macOSでは、次の2�
 | `tools/new_test.py` | 新規テストの雛形 |
 | `tools/lint_metadata.py` | メタデータと書式の検査 |
 | `tools/suite_stats.py`、`suite_catalog.py`、`coverage_depth.py` | READMEの表、カタログ、深さの集計 |
+| `tools/review_sample.py` | 固定版のoracleがないテストを層ごとに無作為に選び、人の判定を`coverage/human-review.json`に記録して、層ごとの誤り率の上限を出す（[人による抽き取りレビュー](review-sample.md)） |
+| `tools/interpretation_splits.py` | 規格の読み方が割れるテストの台帳`coverage/interpretation-splits.json`と、その報告（[読み方が割れるテスト](interpretation-splits.md)） |
+| `tools/sv2023_features.py` | 1800-2023で加わった機能とそれを使うテストの台帳`coverage/sv2023-features.json`と、その報告（[1800-2023で加わった機能のテスト](sv2023-features.md)） |
+| `tools/metamorphic.py` | 意味を変えない変換の前後で、同じシミュレータの正規化した出力を比べる。期待出力は使わない（[メタモルフィック検査](metamorphic.md)） |
 | `generators/` | 表形式の要求を網羅する生成テスト |
 
 <a id="34-reference-kit-toolsmatching_kit"></a>
@@ -94,7 +98,7 @@ Icarus 13.0は、`v13_0`タグからビルドします。macOSでは、次の2�
 | `propose.py` | `req`（要求・出典・候補テスト・既存の保留）、`test`（テストのヘッダ・入力ファイル・リンク）、`scope`（担当範囲の進捗）、`add`／`group`／`hold`（照合案の追記）、`verdict`／`testverdict`（レビュー担当者の判定）。追記の時点で`behavior_coverage.validate()`と同じ条件を検査する。条件は、節の引用、正常系テストと規格違反テストの一致、anchorの実在、入力ファイル、既存の保留、取り下げ済みの組（`withdrawn-20261023.json`）、利用禁止のテスト。 |
 | `merge.py` | 最新の判定が`accept`の案だけを、統合直前の台帳に対して再検査してから`behaviors.json`と`test-matching-reviews.json`へ統合する。入力digestは統合の時点で計算する。統合済みの案は飛ばす。担当者名と日付は引数で渡す。 |
 | `runsim.py` | Icarus 13.0とVerilator 5.052（seed 1/73）で実行し、どれが一致するかを表示する。固定版を5.054へ移す間は、新しいテストに`--verilator`で5.054のビルドを渡す。 |
-| `workflows/*.js` | Claude CodeのWorkflowで、区間ごとに作成担当とレビュー担当を流すスクリプト（10章）。指示文に判断基準が入っている。 |
+| `workflows/*.js` | Claude CodeのWorkflowで、区間ごとに作成担当とレビュー担当を流すスクリプト（10章）。指示文に判断基準が入っている。どのスクリプトも`runsim.py`に`--verilator`を渡さず、`gap.js`の指示文は新しいテストに`verilator@5.052`を付けるよう書いているので、固定版を移す間は7.1の5.054の扱いに読み替える。 |
 
 `tools/test_matching_kit.py`が、検査の主な条件をCIで確かめます。
 
@@ -111,7 +115,7 @@ Icarus 13.0は、`v13_0`タグからビルドします。macOSでは、次の2�
    - `checks: []`は未対応の意味です。
 4. **出典監査**（`requirement-audit.json`）：全ブロックを`requirements`／`heading`／`informative`／`example`／`reference`のどれかに分類します。`requirements`の場合は、どの要求に対応するかを書きます。`source_spans`と双方向で照合されます。
 5. **解釈保留**：規格の中で整合しない記述は、`interpretation_issue`を付けて行に残し、節を`in_progress`にします。この行にはテストを対応付けられません。
-6. **分母**：登録行の全体が暫定値の分母です。`denominator_review.state`は、意味上の重複整理と保留の解決を経て承認されるまで`pending`のままにします。
+6. **分母**：登録行の全体が暫定値の分母です。`denominator_review.state`は、意味上の重複整理と保留の解決を経て承認されるまで`pending`のままにします（このスイートでは2026-10-28に`approved`になりました）。
 
 抽出のときに守ること（見直しで分かったこと）：
 
@@ -223,7 +227,7 @@ README の「テストフォーマット」「メタデータ」「テストの�
   - Icarus 13.0が一致すれば`iverilog@13.0`を付ける。
   - Verilatorのseed 1と73の両方が一致すれば`verilator@5.052`を付ける。2026-11-14から固定版を5.054へ移すまでに追加するテストは、5.054で確かめて`verilator@5.054`を付ける（[移行中の固定版](simulator-differences.ja.md#verilator-5054-interim)）。
   - どちらも一致しなければ`spec`だけにする。
-  - kirimasimとLyraの結果は`:oracle:`に記録しない。これらは、期待値の裏付けを増やすための比較用です（nightlyで実行）。
+  - kirimasim、Lyra、Ghostの結果は`:oracle:`に記録しない。これらは、期待値の裏付けを増やすための比較用です（nightlyで実行）。
   - `:fourstate:`と`` `timescale ``は実態に合わせる。
 - 規格違反テストは、`kind: error`の要求にだけ使います。意図した違反を1つだけ含め、`:expected_stderr_regex:`で妥当な診断位置と必要な診断内容を指定します。複数の報告位置が妥当なら、それらを許容します。未対応構文のエラーを、規格違反の検出と取り違えないようにします。
 - コメント行を「Verilator」という語で始めないでください（BADVLTPRAGMAになる）。実行に数秒以上かかるテストや、巨大なメモリを使うテストは避けます。
@@ -301,7 +305,7 @@ README の「テストフォーマット」「メタデータ」「テストの�
 
 1. `defective`のテストと、判定のないテストを取り除きます（または、リポジトリ外へ退避します）。生成物は`tests/`を全件走査するので、未検証のテストを作業ツリーに残したまま再生成しないでください。
 2. 残ったテストのlintを通し、事前実行で`:oracle:`の記載と実際の結果が食い違わないことを確かめます。 新しいテストが、ほかに引用するテストのない節を1本だけで引用していないかも、ここで`coverage_depth.py --check --minimum-tests 2`で確かめます。引用した節には2本以上のテストが必要です。背景として引いただけの節なら、`:lrm:`から外します。
-3. 記録用に本実行し、`coverage/results/<名前>-<日付>-icarus13.json`、`-verilator-seed1.json`、`-verilator-seed73.json`として保存します。全件の結果は上書きしません。部分実行の結果も合成しません。
+3. 記録用に本実行し、`coverage/results/<名前>-<日付>-icarus13.json`、`-verilator5.052-seed1.json`、`-verilator5.052-seed73.json`として保存します（名前にVerilatorの版を入れます。2026-10-31までの結果は`-verilator-seed1.json`の形です。固定版を移す間に5.054で実行した結果は`-verilator5.054-seed1.json`のようにします）。比較用にkirimasimで実行した結果は`-kirimasim-<コミット>.json`のように保存します。全件の結果は上書きしません。部分実行の結果も合成しません。
 4. 採用された案を統合します。統合は「未対応の要求」だけを受け付けます。入力digestは統合の時点で計算するので、テストを確定させてから行います。
 
    ```sh
@@ -317,7 +321,11 @@ README の「テストフォーマット」「メタデータ」「テストの�
    python3 tools/suite_stats.py --update
    python3 tools/suite_catalog.py --update
    python3 tools/coverage_depth.py --update
+   python3 tools/interpretation_splits.py --update
+   python3 tools/sv2023_features.py --update
    ```
+
+   `sv2023_features.py`の報告は、台帳に載るテストの入力の指紋と`coverage/results/`の保存結果を読むので、テストや保存結果を変えたときも作り直します。`interpretation_splits.py`の報告は台帳から作ります。
 
    統合した後でテストを直した場合は、次のようにします。
    - 直したテストを再実行し、`coverage/results/<名前>-refinement-<日付>-*.json`のように別名で保存します。
@@ -325,22 +333,31 @@ README の「テストフォーマット」「メタデータ」「テストの�
    - ベースラインとの差分になるので、`behavior_coverage.py --update --require-source-reviewed --write-baseline --reason '<理由>'`で理由を残します。
    - `--history`は、作業の最後に1回だけ付けます。付けるたびに、履歴が1件増えます。
 
-6. 文書を更新します：結果報告（新規）、README、`coverage/README.md`の結果ファイル一覧、`docs/nightly-results.md`のmain集計、累積の指摘資料、`docs/simulator-differences.md`。
-7. 全検査を通してからコミットします。
+6. 文書を更新します：結果報告（新規）と[履歴](history.ja.md)からのリンク、READMEの今の数値（READMEには今の情報だけを書き、日付の入った経過は履歴に置く）、`coverage/README.md`の結果ファイル一覧、累積の指摘資料、`docs/simulator-differences.md`。
+7. 全検査を通してからコミットします。Checkのreadmeジョブ（`.github/workflows/check.yml`）は、このうち`--verify-source`と`git diff --check`以外を実行します。
 
    ```sh
    python3 -m unittest discover -s tools -p 'test_*.py'
    python3 tools/behavior_coverage.py --check --require-source-reviewed --verify-source <資料dir>
    python3 tools/requirement_matching.py --check
+   python3 tools/review_sample.py check
+   python3 tools/interpretation_splits.py --check
+   python3 tools/sv2023_features.py --check
    python3 tools/suite_stats.py --check
    python3 tools/suite_catalog.py --check
    python3 tools/coverage_depth.py --check --minimum-tests 2
    python3 generators/generate.py --check
+   python3 tools/generator_catalog.py --check
+   python3 tools/interaction_coverage.py --check
+   python3 tools/chapter_cross_matrix.py --check
+   python3 tools/chapter_cross_triage.py --check
+   python3 tools/combination_gaps.py --check
+   python3 tools/documentation_languages.py --check
    python3 tools/lint_metadata.py
    git diff --check
    ```
 
-8. push した後、最初のnightly（または手動実行）で、すべてのシミュレータのジョブが最後まで走ったことを確かめます。 新しいテストが、シミュレータを暴走させることがあるためです。2026-10-24には、規格違反を含むシーケンスの循環でVerilatorが再帰を止めず、ランナーのメモリを使い切ってジョブが止まりました。いまはVerilatorのジョブでプロセスごとのメモリを制限しています。
+8. push した後、最初のnightly（または手動実行）で、すべてのシミュレータのジョブ（Lyraは`lyra-build`、4つの`lyra-shards`、統合の`lyra`）が最後まで走ったことを確かめます。 新しいテストが、シミュレータを暴走させることがあるためです。2026-10-24には、規格違反を含むシーケンスの循環でVerilatorが再帰を止めず、ランナーのメモリを使い切ってジョブが止まりました。いまはVerilator、Lyraの各分割、Ghostのジョブで、プロセスごとのアドレス空間を6GBに制限しています。
 
 <a id="reading-measurements"></a>
 
@@ -348,7 +365,7 @@ README の「テストフォーマット」「メタデータ」「テストの�
 
 - **暫定値**：全登録行を同じ重みで数えます。附属書の定数や予約語は、1個が1行です。このため、それらの行で値が大きく動きます。全体の値と並べて、本文（1〜40章）だけの値と章別の内訳を必ず載せます。
 - **実行確認**：入力とランナーのハッシュが一致する`pass`だけを数えます。`known`、`unsupported`、`fail`、古い入力は数えません。 規格違反の検出を求める要求は、`:oracle:`に固定バージョンのトークンがあるシミュレータの結果だけを数えます。 AND集合は、同じシミュレータの同じ実行回でグループ内の全テストが成功した場合だけ数えます。
-- **確定値**：分母の承認（意味上の重複整理と解釈保留の解決）までは出しません。
+- **確定値**：分母の承認（意味上の重複整理と解釈保留の解決）までは出しません。このスイートの分母は2026-10-28にAIレビューで承認したので、いまの集計は確定値です（`behavior-summary.json`の`whole_standard_status`が`confirmed`）。
 
 <a id="10-parallelization-and-cost"></a>
 
@@ -390,7 +407,7 @@ README の「テストフォーマット」「メタデータ」「テストの�
 
 ## 12. 既知の限界と未完了
 
-- 2026-10-29時点の要求カバレッジ（テスト設計）は89.33%（10,986/12,298）、実行確認率は59.60%（7,330/12,298、Ghostを含む）です。2026-10-25〜26に残りの照合区間と追加テストを検証・統合しました。現在の残件と証跡は[集計概要](behavior-coverage-summary.md)と[ギャップ調査](coverage-gap-recommendations-20261029.md)を参照してください。
+- 2026-11-21時点の要求カバレッジ（テスト設計）は93.15%（11,487/12,332）です。実行確認率は、誰でも再現できるIcarus Verilog・Verilator・SymbiYosysの証跡で51.22%（6,317/12,332）、Ghostとkirimasimの結果を加えると78.71%（9,706/12,332）です。値は変わっていくので、今の値と残件・証跡は[集計概要](behavior-coverage-summary.md)を参照してください。追加するテストの候補は[ギャップ調査](coverage-gap-recommendations-20261029.md)（2026-10-29時点）と[テストのない要求の仕分け](unmapped-requirements-20261120.md)にあります。
 - 附属書Fは全253要求に対応とパス結果の記録があります。これは登録したモデル・条件の範囲での結果で、任意のSVAやシミュレータの実装全体を証明したものではありません。
 - 34章、40章、VPI、DPI、タイミング検査には、利用可能なツールで観測できない要求が残ります。[保護エンベロープの境界](protected-envelope-boundary.md)と[ギャップ調査](coverage-gap-recommendations-20261029.md#8-追加しない方がよい領域)に範囲と理由を記録しています。これらも分母に残しています。
 - 解釈保留は0件で、分母はAIレビューで承認した12,298要求に、2026-11-14と2026-11-15の分割の34行を加えた12,332要求です。人による独立したレビュー・承認は未実施です。節単位の出典しか持たない3行など、[分母レビューの限界](denominator-review-20261028.md#6-限界)も残ります。

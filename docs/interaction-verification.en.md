@@ -20,6 +20,10 @@ The [single run](../coverage/interaction-results/full-20261114-kirimasim-77c2753
 20 of the 24 additions pass, and the preceding 4,485 inputs and statuses are unchanged. 87 models pass their entire selection.
 See [the ways of placing program instances in the hierarchy](#program-hierarchy-instances) for the independent check and the pinned comparisons.
 
+Nightly runs since 2026-11-15 use suites that contain all 113 models (for example [Nightly 44631823505](https://github.com/kurochan001/kirimasim-tests/actions/runs/44631823505), the first verified four-part run, on suite `03b2e107`).
+The execution check of each Nightly is in [Feature interaction execution](https://github.com/kurochan001/kirimasim-tests/blob/results/interaction-coverage.en.md) on the `results` branch.
+Where a paragraph below says that additions have not run in Nightly, it describes the time of that addition.
+
 The addition on the same day for the regions of writes and reactions between a program and an interface brought totals to **112 models / 4,485 cases / 192 chapter pairs**.
 The [single run](../coverage/interaction-results/full-20261114-kirimasim-77c27531.json) on kirimasim `77c27531437c`, built from the latest main, records
 **3,997 pass / 484 unsupported / 4 fail**: only the four existing config failures.
@@ -40,7 +44,7 @@ Preceding 4,296 inputs and statuses are unchanged. 83 models pass their entire s
 See [classes declared in a module or a generate block](#scoped-class-declaration), [case item literal digits](#case-literal-wildcard) and [structure literal keys](#aggregate-literal-key) for the independent checks and pinned comparisons.
 The 120 additions passed the pinned comparisons in [Check on `a9c8a8eb`](https://github.com/kurochan001/kirimasim-tests/actions/runs/42461618429); they have not run in Nightly.
 
-On 2026-11-12 the models [`edge_event_expression`](#event-expression-edge-classification-xz-transitions-and-update-timing) and [`sv_dpi_array_queries`](#sv-dpi-array-queries) were revised so that they select no equal cases. The totals are now **110 models / 4,413 cases / 189 chapter pairs**.
+On 2026-11-12 the models [`edge_event_expression`](#event-expression-edge-classification-xz-transitions-and-update-timing) and [`sv_dpi_array_queries`](#sv-dpi-array-queries) were revised so that they select no equal cases. The totals were then **110 models / 4,413 cases / 189 chapter pairs**.
 The [single run](../coverage/interaction-results/full-20261112-kirimasim-7de185f7-edgedpiquery.json) on kirimasim `7de185f776a1` records **3,915 pass / 484 unsupported / 14 fail**, with the same 14 failures. 83 models pass their entire selection.
 
 On 2026-11-12 one expected value of the model [`dpi_openarray_shape`](#dpi-open-array-shape-and-copyback) was corrected: `svIncrement` of a dynamic array or queue of one element is -1 (20.7, H.12.2). Four selected cases changed their expected output. The rows, the selection and the totals did not change.
@@ -160,7 +164,7 @@ All 34 additions parse and pass. The preceding 2,922 input fingerprints and stat
 **53 models** pass their full selection. This is separate from the formal checkpoint below, which predates the additions.
 See [class method/package lookup](#class-method-package-lookup) for design and qualification.
 
-The [latest verified checkpoint](nightly-results.en.md#checkpoint-9926160a), checked on 2026-11-04 JST,
+The [verified checkpoint](nightly-results.en.md#checkpoint-9926160a), checked on 2026-11-04 JST,
 confirms successful Check and Nightly on suite `9926160a`.
 That formal kirimasim `9113955914d8` run includes the preceding **2,922 selected cases in 79 models**:
 **2,389 pass, 529 unsupported and four config failures**, with **52 full-selection-pass models** and **114 mapped chapter pairs**.
@@ -735,7 +739,7 @@ Do not combine partial successes from runs with different versions or seeds. Eac
 
 ## CI and update procedure
 
-Check checks generated results, selection plans, aggregates from saved execution evidence, and unit tests. Register oracles for cases matching expected values on fixed release Icarus Verilog 13.0, or on Verilator 5.052 at both seeds. Keep cases differing from standard-derived expected values as `spec`; do not count them as execution-verified. Distinguish fixed-release verification from Nightly measurements using the latest development commit. Nightly generates `interaction-coverage.md` and `interaction-coverage.json` for branch `results` from that run's simulator-specific JSON.
+Check checks generated results, selection plans, aggregates from saved execution evidence, and unit tests. Register oracles for cases matching expected values on fixed release Icarus Verilog 13.0, or on Verilator 5.052 at both seeds. Cases added from 2026-11-14 until the pin moves are checked with Verilator 5.054 instead of 5.052 ([the interim pin](simulator-differences.md#verilator-5054-interim)). Keep cases differing from standard-derived expected values as `spec`; do not count them as execution-verified. Distinguish fixed-release verification from Nightly measurements using the latest development commit. Nightly generates `interaction-coverage.md` (in English `interaction-coverage.en.md`) and `interaction-coverage.json` for branch `results` from that run's simulator-specific JSON.
 
 <a id="issue-21の境界条件の回帰テスト"></a>
 
@@ -1034,7 +1038,7 @@ python3 tools/interaction_coverage.py --model clocking_input_sampling --results 
 
 Select 36 cases from all 2,592 possibilities, retaining 225 pairs, 96 priority 3-factor combinations, and 7 mandatory cases. Priority groups comprise 36 combinations of width × state type × value; 18 combinations of expression × state type × value; 12 combinations of update time × edge × update method; 12 combinations of placement × update time × update method; 18 combinations of placement × expression × update time.
 
-Known-value controls in each case include inputs producing both pass and fail. In the X/Z row, the variable is changed from unknown to known and vice versa. In both actions, save cumulative counts, `$sampled(data)`, `$sampled(式)`, and the current data, then display them with data after 2 ticks. Use single-cycle Boolean properties without implication-induced vacuous successes. Distinguish updates before, simultaneous with, and after an edge: before, sample/action/final values agree; simultaneous, only the sample is old; after, both sample and action values are old. Also distinguish logical-equivalence result X and case-equality result 0 as observations of 1-bit expressions.
+Known-value controls in each case include inputs producing both pass and fail. In the X/Z row, the variable is changed from unknown to known and vice versa. In both actions, save cumulative counts, `$sampled(data)`, `$sampled(expr)`, and the current data, then display them with data after 2 ticks. Use single-cycle Boolean properties without implication-induced vacuous successes. Distinguish updates before, simultaneous with, and after an edge: before, sample/action/final values agree; simultaneous, only the sample is old; after, both sample and action values are old. Also distinguish logical-equivalence result X and case-equality result 0 as observations of 1-bit expressions.
 
 Calculate expected values with the generator's standard model and compare all 2,592 lines using [Independent event-order model](../tools/test_interaction_assertion_wait.py). Programs, clocking variables, automatic variables, disable iff, assertion control, time arithmetic, and history functions are out of scope.
 
@@ -1525,7 +1529,7 @@ Passed 512 tool regression tests and consistency checks of generated artifacts, 
 `udp_array_strength` combines combinational UDP from Clause 29 with primitive-array connections and drive strengths from Clause 28. Existing [Strengths and arrays of UDP](../tests/ch29/test_udp_instance_strength_and_array_range.sv) is unchanged. Moved Chapter 28 × Chapter 29 from E existing verification to M finite model. All 25 cases are mapped to this chapter pair.
 
 - Array element count: 1, 32, 33, 64, 65, 129.
-- UDP ：A AND NOT B／A OR NOT B。 This 2 function changes its result when input order changes.
+- UDP: A AND NOT B / A OR NOT B. These two functions change their result when the input order changes.
 - The strength of UDP: default strong/pull/strong0 and weak1/weak0 and strong1.
 - Other-driver strength: weak / pull / strong.
 - Instance-array range: descending / ascending. Index endpoints are 3 and element count +2.
@@ -1615,7 +1619,7 @@ Following 26.4 and 25.3, the name imported in the header is passed to the defaul
 
 In the relay package on the re-export path, explicitly import the 5 items BASE, MARK, raw_t, word_t, and encode before exporting them. In 26.6, names that are merely wildcard-import candidates are not all automatically re-exported. Use a path carrying the 5 actually imported items into the interface as their original declarations. Conflicting imports, type-parameter changes, modports, virtual interfaces, and time-consuming package subroutines are out of scope.
 
-Place same-named BASE, MARK, word_t, and encode in the caller with different values or definitions. Interface parameter defaults use imported BASE / MARK; require the input type and function to bind to the package declarations too. Meanwhile, instance-specified `.W(BASE), .TAG(MARK)` uses declarations in the caller's scope. Width-only specification reduces the width to `max(1, 基準幅/2)` and keeps the default tag. Width-and-tag specification uses the caller's reference width +3 and 99. guard, created from the same interface definition, serves as a control unaffected by target overrides.
+Place same-named BASE, MARK, word_t, and encode in the caller with different values or definitions. Interface parameter defaults use imported BASE / MARK; require the input type and function to bind to the package declarations too. Meanwhile, instance-specified `.W(BASE), .TAG(MARK)` uses declarations in the caller's scope. Width-only specification reduces the width to `max(1, base width/2)` and keeps the default tag. Width-and-tag specification uses the caller's reference width +3 and 99. guard, created from the same interface definition, serves as a control unaffected by target overrides.
 
 raw uses reference width +2 bits, wider than both packages' inputs, so input-port truncation is also observed. incoming remains logic and retains X/Z; from it, the assignment to the interface's word_t variable typed and the input to the package function encode are created separately. Under 13.5.1 and 6.11.2, require conversion to the formal argument's word_t type before the function performs its operations. For example, in bit, converting the unknown input to 0 before inversion produces 1. This differs from 0, which inverts to X first and then converts back to bit. In logic, inverting or applying XOR to Z produces X.
 
@@ -3219,7 +3223,7 @@ When changing models or tests, rerun the necessary cases and save new evidence. 
 
 ```sh
 python3 generators/generate.py
-# シミュレータで実行し、必要ならcoverage/interaction-results/へ新しいJSONを保存
+# Run the simulators and, if needed, save new JSON under coverage/interaction-results/
 python3 tools/interaction_coverage.py --update
 python3 tools/interaction_coverage.py --check
 python3 tools/chapter_cross_matrix.py --update
@@ -3229,7 +3233,7 @@ python3 tools/chapter_cross_triage.py --check
 python3 -m unittest discover -s tools -p test_interaction_coverage.py
 ```
 
-When adding generated tests, update README statistics, catalogs, per-clause test counts, requirement-mapping lists, and requirement-coverage artifacts as usual. New cross models do not change the requirement-ledger denominator. Also register cross-chapter mappings in the [Cross-chapter verification matrix](chapter-cross-matrix.en.md) ledger and update CSV. If [0-cell triage](chapter-cross-triage.en.md) already lists verification or candidates for the chapter pair, review their disposition after registration. Counting new tests toward requirement coverage requires separate review and registration of mappings between requirements and stimulus, observations, and expected values. Retain existing tests, negative cases, and expected values.
+When adding generated tests, update README statistics, catalogs, per-clause test counts, requirement-mapping lists, requirement-coverage artifacts, and the reports made from the ledgers of two readings and of 1800-2023 features (`--update` of `tools/interpretation_splits.py` and `tools/sv2023_features.py`) as usual. New cross models do not change the requirement-ledger denominator. Also register cross-chapter mappings in the [Cross-chapter verification matrix](chapter-cross-matrix.en.md) ledger and update CSV. If [0-cell triage](chapter-cross-triage.en.md) already lists verification or candidates for the chapter pair, review their disposition after registration. Counting new tests toward requirement coverage requires separate review and registration of mappings between requirements and stimulus, observations, and expected values. Retain existing tests, negative cases, and expected values.
 
 See [NIST SP 800-142, Practical Combinatorial Testing](https://csrc.nist.gov/pubs/sp/800/142/final) for the approach's background. Do not assume that 2 factors alone suffice; also use the specified 3-factor groups and mandatory cases.
 

@@ -413,11 +413,13 @@ The basic set detects changes in the Python source of `tools/sva_reference/`. In
 
 The basic set and boundary value extension of 2026-10-26 above do not change the value of `:oracle:`. Do not automatically count matches with reference evaluators to the simulator's success.
 
-Subsequently, registered tests with `:type: formal` and `:formal_case:` in the suite (267 now), and used the saved SymbiYosys results from `tools/run_sby.py` as verified execution in the requirement ledger. This is a separate evidence from the simulator output matching. The Icarus, Verilator, kirimasim, and Lyra runners exclude formal tests even when explicitly requested. See [Execution procedure](../README.md#symbiyosys) and [Selection rules](runner-selection-20261028.en.md). There is no dedicated formal CI job; Check runs unit tests and ledger consistency checks without launching an external solver.
+Subsequently, registered tests with `:type: formal` and `:formal_case:` in the suite (267 now), and used the saved SymbiYosys results from `tools/run_sby.py` as verified execution in the requirement ledger. This is a separate evidence from the simulator output matching. The Icarus, Verilator, kirimasim, Lyra and Ghost runners exclude formal tests even when explicitly requested. See [Execution procedure](../README.md#symbiyosys) and [Selection rules](runner-selection-20261028.en.md). There is no dedicated formal CI job; Check runs unit tests and ledger consistency checks without launching an external solver.
 
 In addition to the 10 case of the basic set, we have added a regression check of the 12 case to verify the extension of the boundary value and the correspondence to the actual test. These are not executed by external formal tools, and they verify the generation processing, the degree of freedom of input, the negative example, the result judgment, and the consistency of evidence, etc. At the 2026-10-26 expansion, all 205 unit tests, concrete output comparisons for 45 existing tests, evidence checks for both sets, and existing consistency checks passed.
 
 Rechecking 2026-10-29 passed all 263 unit tests and output comparisons for 45 existing tests (10 M2 tests, 28 M3 tests, and 7 M4 tests). The whole scan of M3 would classify `test_ch16_sim_prop_inherited_eventually.sv` and `test_dollar_cycle_delay_and_actual.sv` as `in_scope_unhandled`, and the exit code would be 2, apart from the 28 tests match. The execution verification of this 2 tests is not included in this result.
+
+An offline recheck on 2026-11-21 still matched the output comparisons for the 45 existing tests, and both saved result sets passed `--check-results` against the current sources (no solver was rerun). The whole scan of M3 classifies 15 tests as `in_scope_unhandled` and exits with code 2: 13 of the `gen/ch16/test_gen_cross_gendisable_*` tests added on 2026-11-02, `test_ch16_sim_prop_inherited_always.sv` and `test_dollar_cycle_delay_and_actual.sv`. The 129 unit tests of the SVA reference evaluator and the formal checks, and all 1,667 repository unit tests, passed as well.
 
 <a id="m4-checker-cross-scope-2026-11-03"></a>
 
@@ -448,7 +450,8 @@ The existing M4 evaluator and audited scope are retained.
 [`m4_deferred.json`](../tools/sva_reference/fixtures/m4_deferred.json) adds nine explicit source-hashed deferrals;
 all preceding 44 entries remain unchanged. Source changes return to unhandled until re-audited.
 
-The [current comparison](../coverage/interaction-qualification/progassert-m4.json), using validated existing input traces,
+At the program addition, the [comparison](../coverage/interaction-qualification/progassert-m4.json), using validated existing input traces,
 records seven matches, 53 deferrals and zero unhandled cases. This is not a new simulator execution or nine new matches.
+Later, three tests that observe the scheduling regions (two of them through PLI callbacks) and one test that calls `$past` and `$rose` in a procedure were deferred as well. On 2026-11-21, `check.py --sampled` records seven matches, 57 deferrals and zero unhandled cases.
 Separate cross-specific interpretation checks all 648 rows; six original controls, seven actual SV faults and two known-difference
 replays remain separate from M4 support. See [design and runtime limits](interaction-verification.en.md#program-assertion-attempts).

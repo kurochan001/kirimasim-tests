@@ -4,14 +4,14 @@
 
 [English](FORMAL_REVIEW.md) / [日本語](FORMAL_REVIEW.ja.md)
 
-For an introduction and operating guide in Japanese, see [`SVA参照評価器とフォーマル検証`](../../docs/sva-reference-formal-verification.en.md).
+For an introduction and operating guide, see [SVA reference evaluator and formal verification](../../docs/sva-reference-formal-verification.en.md).
 
 Two formal sets are recorded as of 2026-10-26:
 
 - **Basic set:** 40 BMC checks, 22 PDR proofs, four covers and five deliberate BMC failures (71 jobs), plus one separately recorded PDR negative control.
 - **Parameter-boundary sweep:** 111 BMC checks, 111 PDR proofs, three covers and three deliberate BMC failures (228 jobs). Suite bindings identify 127 Boolean sequence fragments in 91 directives across 28 tests.
 
-The sets overlap and must not be added as disjoint model counts. The first sections describe the basic set; the extension is described below and in the [Japanese boundary-sweep report](../../docs/sva-formal-expansion-20261026.en.md). On 2026-10-29, both saved reports and their negative-control VCDs were regenerated from the current sources. The catalogue report now includes all 267 cases: 267 BMC checks, 44 PDR proofs, 267 covers and five deliberate BMC failures (583 jobs: 578 expected PASS, five expected FAIL). The boundary sweep again produced 225 expected PASS and three expected FAIL results. Both current-source/task-completeness checks pass. The separate PDR negative control was also rerun and produced its expected counterexample.
+The sets overlap and must not be added as disjoint model counts. The first sections describe the basic set; the extension is described below and in the [boundary-sweep report](../../docs/sva-formal-expansion-20261026.en.md). On 2026-10-29, both saved reports and their negative-control VCDs were regenerated from the current sources. The catalogue report now includes all 267 cases: 267 BMC checks, 44 PDR proofs, 267 covers and five deliberate BMC failures (583 jobs: 578 expected PASS, five expected FAIL). The boundary sweep again produced 225 expected PASS and three expected FAIL results. Both current-source/task-completeness checks pass. The separate PDR negative control was also rerun and produced its expected counterexample.
 
 The full catalogue contains 120 local-semantics tables, 34 clocking tables, 44 sequence/streaming cases, 58 property cases, nine nonvacuity cases and two sampled-function cases. The 40-model counts and descriptions below refer to the initial 2026-10-26 subset, which is included in the current catalogue. Suite-level requirement evidence remains separate, through `tools/run_sby.py` and the [behavior summary](../../docs/behavior-coverage-summary.en.md).
 
@@ -123,3 +123,5 @@ Tool-mode references: [SBY configuration reference](https://yosyshq.readthedocs.
 Validation after the boundary-sweep extension: all 205 repository unittests passed (the basic-set milestone had 193). The 45 concrete suite comparisons still match, both saved formal result sets pass their freshness checks, and README, generator, catalog, coverage-depth, metadata, behavior/source-audit and requirement-matching consistency checks passed.
 
 The 2026-10-29 refresh also passed all 263 repository unittests and the 45 audited output comparisons (M2: 10, M3: 28, M4: seven). The wider M3 survey still exits with status 2 for two `in_scope_unhandled` tests, `test_ch16_sim_prop_inherited_eventually.sv` and `test_dollar_cycle_delay_and_actual.sv`; neither is counted as an additional verified output or proof in this refresh.
+
+On 2026-11-21, both saved reports still passed `--check-results` against the current sources without rerunning a solver, and the 22 offline regressions of `test_sva_reference_formal.py` and `test_sva_formal_sweep.py` passed.

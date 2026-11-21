@@ -54,13 +54,15 @@
 | `spec`／standard only | 引用条文に基づく期待結果／`:oracle:`が`spec`だけの状態。固定バージョンシミュレータによる確認を記録していない |
 | `iverilog@13.0`／`verilator@5.052`／`verilator@5.054` | その固定バージョンで期待結果を確認したという記録。`verilator@5.054`は、固定版を5.054へ移す間に追加したテストだけに付ける。Nightlyで使う開発版や、別のリリースへ自動で読み替えない |
 | `:spec_check:` | 規格と期待結果を照合した主体。`ai`はAIによる確認、`human`は人による確認を表す |
+| 抽き取りレビュー（層別の無作為標本） | `tools/review_sample.py`が層ごとに無作為に選んだテストを、人が規格から読み直すこと。判定は`coverage/human-review.json`に記録し、層ごとの誤り率の片側95%上限を出す。`:spec_check:`は変えず、要求カバレッジにも使わない |
+| 読み方が割れる（contested）／規格の不備に依存（standard_gap） | 規格の文が二つの読み方を許し、期待値がその一方（読み方a）に従うこと／規格が定めていないことに期待値が頼ること。`coverage/interpretation-splits.json`に記録し、テストと期待値は変えない。扱いは所有者が決める |
 | `:fourstate:` | 結果がX/Zに依存するか。`yes`のテストを2値の実行だけで同等に確認したとは扱わない |
 | `:expected_stdout:`／`:should_fail_because:` | 期待する標準出力／規格違反のコードを拒否すべき理由。規格違反テストには期待出力ではなく診断の条件を記録する |
 | `:expected_stderr_regex:`／正規表現 | 診断を照合するパターン。適切な位置と、必要に応じて意図した違反の内容を検査する。構文未対応のエラーとの区別が必要 |
 | `:files:`／`:incdirs:`／`:defines:` | 追加の入力ファイル／includeの検索先／コンパイル時のマクロ。テスト本体以外の再現条件にもなる |
 | `:top_module:`／`:args:` | トップとして選ぶモジュールまたはconfig／実行時の引数。各ランナーがツールに合う形式へ変換する |
 
-参照：[メタデータ一覧](../README.ja.md#metadata)、[期待値の決め方](../README.ja.md#where-the-expected-outputs-come-from)。
+参照：[メタデータ一覧](../README.ja.md#metadata)、[期待値の決め方](../README.ja.md#where-the-expected-outputs-come-from)、[抽き取りレビュー](review-sample.md)、[読み方が割れるテスト](interpretation-splits.md)。
 
 <a id="3-results-and-nightly"></a>
 
@@ -154,6 +156,7 @@
 | 固定バージョン／開発版／commit | oracleの確認で使う特定リリース／更新される開発中の版／ソースのスナップショットを識別するID。名前が同じツールでも結果が変わり得る |
 | seed（シード） | 乱数系列を選ぶ入力の一部。版・設定・テストが変われば、同じ数値だけで同じ動作を保証できない |
 | モデルに基づくランダム比較 | 合法な入力値・操作列を生成し、同じ刺激に対する設計の結果を参照モデルの期待値と照合する。固定の組合せ網羅とは別に測定する |
+| メタモルフィック検査 | 意味を変えない変換（識別子の付け替え、空白とコメント、時間の単位の拡大）をしたテストの写しと元のテストを同じシミュレータで実行し、正規化した出力を比べる検査。期待出力を使わないので、期待値の誤りに左右されない |
 | 刺激manifest | seedに加え、実際のパラメータ・入力値・操作列を保存するJSON。生成器が変わった後も再抽選せず刺激を読み直すために使う |
 | 保存証跡を保持するreplay／参照の差分（reference drift） | 保存SV・期待値を使う再実行／現在の参照コードで生成し直した場合の差分の記録。現在の参照を使う場合は`--reference-policy current`を明示し、元の証跡を保持する |
 | 追加探索の投入管理（exploration admission） | 任意の`--explore`で、入力と実行条件の識別値により同一の完了ジョブの再投入を管理すること。有効・完了した比較だけを再利用対象とし、省略を今回のPASSに加算しない。固定回帰・正式Nightly・明示replayは実行する |
@@ -167,7 +170,7 @@
 | 生成テスト／生成器（generator） | `tests/gen/`に書き出すテスト／規格由来の参照モデルから入力・期待値を作るPythonコード。生成ファイルは生成器から更新する |
 | lint／単体テスト／CI | ヘッダや形式等の機械検査／ツール等の個別機能の検査／設定した検査を継続実行する仕組み。何を検査する設定かと併せて結果を読む |
 
-参照：[実行方法](../README.ja.md#running-the-suite)、[生成テスト](../README.ja.md#generated-tests)、[ランダム比較とreplay](random-cross-verification.md)、[証跡の計測規則](../coverage/README.md#台帳と証跡)。
+参照：[実行方法](../README.ja.md#running-the-suite)、[生成テスト](../README.ja.md#generated-tests)、[ランダム比較とreplay](random-cross-verification.md)、[メタモルフィック検査](metamorphic.md)、[証跡の計測規則](../coverage/README.md#台帳と証跡)。
 
 用語の参考例：[PALTEKの検証環境・スティミュラスの解説](https://www.paltek.co.jp/techblog/techinfo/220125-01)、[プロパティとVacuous Successの解説](https://www.paltek.co.jp/techblog/techinfo/210816-02)、[Synopsysのフォーマル・プロパティ検証の説明](https://www.synopsys.com/ja-jp/verification/static-and-formal-verification/vc-formal.html)。
 

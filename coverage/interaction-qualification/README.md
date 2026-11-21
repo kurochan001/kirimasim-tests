@@ -15,6 +15,7 @@
 [`check-9c39d865-20261106.json`](check-9c39d865-20261106.json)は前回までの86モデルの固定版比較・静的検査のCheck成功を確認します。
 [`formal-ci-19cd790a-20261105.json`](formal-ci-19cd790a-20261105.json)は82モデルを対象にした正式Nightly・publish・ランダム96 PASSの記録であり、実行を混同しません。
 今回の36件はCheck・Nightlyでは未実行です。生成ループ以降の252件は、この個別artifactまで照合済みの旧Nightlyの範囲外です。
+この2文は2026-11-06時点の記録です。2026-11-15以降のNightlyは113モデルをすべて含むsuiteで実行していますが、その個別artifactをこのディレクトリで照合した記録はありません。Nightlyごとの実行確認は`results`ブランチの[機能間クロスの実行確認](https://github.com/kurochan001/kirimasim-tests/blob/results/interaction-coverage.md)にあります。
 
 <a id="checkpoint-9926160a"></a>
 
@@ -29,7 +30,7 @@ kirimasim `9113955914d8`の有限クロス全2,922件はcross79と入力ハッ�
 固定suiteでは、通常のspecify条件テスト5件がunsupportedからPASSへ改善しています。
 テストの識別と入力ハッシュの不変を、有限クロスの選択やratchetのゲートとは別に記録しています。
 [前回の確認記録](formal-ci-e8d991a9-20261104.json)も変更せず保持します。
-版・日時・workflowのリンクは[最新の正式確認](../../docs/nightly-results.md#latest-verified-checkpoint)を参照してください。
+版・日時・workflowのリンクは[その確認状態](../../docs/nightly-results.md#checkpoint-9926160a)を参照してください。
 
 ランダム検証の開発時の証跡は、日時を付けて別に保持します。
 
@@ -40,8 +41,13 @@ kirimasim `9113955914d8`の有限クロス全2,922件はcross79と入力ハッ�
   [13個](random-cross-thirteen-profiles.json)／[manifest](random-cross-thirteen-profiles-manifest.json)。
 - [13プロファイルの安定化](random-stabilization-20261103.json)：ローカル1,152 PASS、保存済み配列・packageの864件を独立解釈しています。
   パック書込み288件は既存の実行・参照比較です。[範囲とコマンド](../../docs/random-cross-verification.md#thirteen-profile-stabilization)を参照してください。
+- 明示指定で使う追加プロファイルの検証記録と保存刺激：[パック値の2種類](random-packed-20261117/qualification.json)（2026-11-17）、
+  [整数べき乗](random-power-20261119/qualification.json)、[広い条件演算・比較](random-wide-values-20261119/qualification.json)、
+  [広いシフトと型変換](random-wide-bitops-20261119/qualification.json)、[広い数値の書式化と読み取り](random-format-scan-20261119/qualification.json)、
+  [広いビット問い合わせ](random-wide-queries-20261119/qualification.json)（いずれも2026-11-19）。
+  各ディレクトリの`seed-1/manifest.json`は`--replay`で読み込めます。[対象と結果](../../docs/random-cross-verification.md#opt-in-packed-profiles)以降の各節を参照してください。
 
-直近の有限モデルの追加は、[遅延報告の引数](deferarg.json)、[generate内enum](genenum.json)、
+2026-11-03に加えた有限モデルは、[遅延報告の引数](deferarg.json)、[generate内enum](genenum.json)、
 [packageのNBA取得](pkgnba.json)、[package変更の観測](pkgwatch.json)です。
 それぞれの`*-build.json`と`*-fixed-replays.json`もこのディレクトリで別に保持します。
 設計・対照・固定版の既知差・制限は[モデル別ガイド](../../docs/interaction-verification.md)を参照してください。
@@ -424,7 +430,7 @@ Zのビルド診断、Icarusの拒否を保持します。2値の観測でX/Zの
 正常対照5件とSVへの9故障で、局所配列・制御移動先・集約・クロックエッジ・guardの観測を検算します。
 [`genloop-build.json`](genloop-build.json)は直前取得・ビルドの本体`50a897dee62a`、parse成功36件、全3,064件の単一実行を記録します。
 2,531 pass・529 unsupported・既存configの4 failで、追加は全PASS、従来3,028件の入力・分類は不変です。
-現在は83モデル・121章対・全選択ケースPASS 56モデルです。
+この時点では83モデル・121章対・全選択ケースPASS 56モデルです。
 [`genloop-fixed-replays.json`](genloop-fixed-replays.json)にIcarus 13.0の31 pass・5 known、Verilatorのseed 1/73の各12 pass・24 knownを保持します。
 [`genloop-known-replays.json`](genloop-known-replays.json)はrepeat回数1の拒否5件と独立に解釈した回数3の対照2件を記録し、
 [対照SV・期待値](genloop-repeat-controls/)を固定テストの外に保存します。期待値や失敗記録は置き換えません。

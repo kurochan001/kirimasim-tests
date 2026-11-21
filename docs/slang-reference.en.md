@@ -27,6 +27,7 @@ Its limits:
 - slang does not load the C code of `:vpi_c:`. That code registers system tasks such as `$vt_...`, so slang rejects most VPI tests. The tool marks them, and the counts keep them apart.
 - The options are those of kirimasim's front end (`src/front/front.cpp`). kirimasim also chooses the first config as the top when no `--top` is given, and it has checks of its own after slang. So slang alone can accept what kirimasim rejects.
 - The slang commit follows kirimasim's pin. When kirimasim changes the pin, build the new commit and make a new dated record. The commit of Lyra's slang was not checked.
+- kirimasim moved its slang pin to `e81bcd25` on 2026-11-19 (`155b8e8e`). There is no record of that commit yet; the records below are of earlier pins.
 
 <a id="build-the-pinned-driver"></a>
 

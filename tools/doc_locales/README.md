@@ -20,7 +20,7 @@ python3 tools/documentation_languages.py --record
 python3 tools/documentation_languages.py --check
 ```
 
-`--record` records content identities after the pair was updated; it does not translate prose or certify semantic correctness. The check rejects missing pages, absent language links, unresolved placeholders, unregistered Markdown files and changed handwritten pairs. Generated report tools additionally check their own outputs. The README describes current status and commands; dated changes, measurements and past run counts belong in history or dated records.
+`--record` records content identities after the pair was updated; it does not translate prose or certify semantic correctness. The check rejects missing pages or titles, absent language links, unresolved placeholders, Japanese prose left in an English page, a Japanese page without Japanese prose, heading structures that differ between the two languages, unregistered Markdown files and changed handwritten pairs. Generated report tools additionally check their own outputs. The README describes current status and commands; dated changes, measurements and past run counts belong in history or dated records.
 
 <a id="生成文書の更新"></a>
 

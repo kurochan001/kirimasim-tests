@@ -1090,3 +1090,11 @@ clause 37.
 - `tools/metamorphic.py` compares the outputs of a test and a transformed copy on one simulator, with three transforms: renaming, white space and comments, and a larger time unit. On Icarus Verilog 13.0 and kirimasim no transform changed an output. The known nondeterministic `$countones` of Icarus (20.9) appeared and now also varies on macOS. [Metamorphic checks](metamorphic.en.md).
 - Design coverage goes from 93.13% (11,485/12,332) to 93.15% (11,487/12,332), clauses 1 to 40 to 92.23% (8,761/9,499), reproducible execution coverage stays at 51.22% (6,316 to 6,317), and execution coverage with Ghost and kirimasim goes from 78.70% (9,705) to 78.71% (9,706). The results are in `coverage/results/reqgap7-20261121-*.json`.
 - The suite now has 16,338 tests.
+
+### Documentation review
+
+The README describes only the current state, so the following text of README.md and README.ja.md moved here.
+
+- Requirement denominator: the [denominator review](denominator-review-20261028.en.md) approved 12,298 requirements after duplicate rows were merged. With the owner's approval, 34 rows that mixed an accepted and a rejected form were then split (7 on 2026-11-14 and 27 on 2026-11-15), and 76 rows got the kind or wording their observation needs (23 and 53): rows that could be shown only by a rejected design, and error rows that also stated a legal behavior.
+- Simulation speed: the [2026-11-17 speed-improvement record for 0.1.1](simulation-speed-20261117.md) separates the full thirteen-input measurement at 7f5a9134 (ten inputs faster than Icarus) from the final three-input comparison at 1745b8fc. In that direct comparison only proc_wait had a smaller median time than Icarus; gate_udp and mem_rw were slower. Concurrent-CI limitations and all samples are recorded. The [2026-11-16 Mac/WSL2 comparison and countermeasure investigation](simulation-speed-20261116.md) records kirimasim 0.1.0 versus Icarus 14.0 devel, raw samples, data quality and measured prototype effects. The two WSL2 measurements have concurrent-load limitations, and the Linux prototype checks and timings are recorded too.
+- Feature interactions: the failure count recorded in the [follow-up record](cross-verification-followup.en.md) went 11→9→4.

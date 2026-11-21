@@ -223,9 +223,9 @@ Available model rows must correspond to actual tests. Reused tests may preserve 
 
 ### 5.2 Check expected values and record execution evidence
 
-Fixed releases Icarus 13.0 and Verilator 5.052 check reproducibility of expected values for oracle registration. Check Verilator with two seeds for cases independent of X/Z. For kirimasim development verification, fetch/check the latest upstream commit immediately before execution, use a binary built from that commit and record its revision. Fixed oracle releases and builds used to verify the latest implementation serve different purposes.
+Fixed releases Icarus 13.0 and Verilator 5.052 check reproducibility of expected values for oracle registration. Check Verilator with two seeds for cases independent of X/Z. Cases added from 2026-11-14 until the pin moves are checked with Verilator 5.054 instead of 5.052 and record `verilator@5.054` ([the interim pin](simulator-differences.md#verilator-5054-interim)). For kirimasim development verification, fetch/check the latest upstream commit immediately before execution, use a binary built from that commit and record its revision. Fixed oracle releases and builds used to verify the latest implementation serve different purposes.
 
-`generators/record_oracles.py` updates oracle registrations for every generator. In particular, passing partial-run JSON to `--verilator` may reset existing oracles absent from that result to `spec`. Use results covering every target, or review/merge only new entries and verify preservation of existing registrations. After registration changes, regenerate oracle metadata with `python3 generators/generate.py` and collect result JSON again because input hashes changed. Do not reuse old results by rewriting their hashes to current values.
+`generators/record_oracles.py` updates oracle registrations for every generator. In particular, passing partial-run JSON to `--verilator` may reset existing oracles absent from that result to `spec`. The only Verilator registration this tool writes is `verilator@5.052`; with `--verilator`, an existing `verilator@5.054` that does not match in the supplied results also returns to `spec`. Use results covering every target, or review/merge only new entries and verify preservation of existing registrations. After registration changes, regenerate oracle metadata with `python3 generators/generate.py` and collect result JSON again because input hashes changed. Do not reuse old results by rewriting their hashes to current values.
 
 The following example runs specified models and checks pass evidence for the same inputs. Run from the repository root after replacing the simulator path.
 
@@ -264,6 +264,8 @@ python3 tools/suite_catalog.py --update
 python3 tools/coverage_depth.py --update --minimum-tests 2
 python3 tools/requirement_matching.py --update
 python3 tools/behavior_coverage.py --update --require-source-reviewed
+python3 tools/interpretation_splits.py --update
+python3 tools/sv2023_features.py --update
 python3 tools/interaction_coverage.py --update
 python3 tools/chapter_cross_matrix.py --update
 python3 tools/chapter_cross_triage.py --update

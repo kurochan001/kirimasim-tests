@@ -44,7 +44,7 @@ The results of each stage are the table of `coverage/` and the data of `docs/`, 
 ### 3.1 data
 
 - Place the standard's PDF and the text extracted with `pdftotext -layout` (`out/lrm_pdftotext_layout.txt`) together in 1 material directory/directories. The tool's default location is `DEFAULT_SOURCE` in `tools/requirement_source.py`.
-- PDF and SHA-256 of the extracted text are fixed to `coverage/standard-sections.json` and `coverage/requirement-source-index.json`. `python3 tools/behavior_coverage.py --check --verify-source <資料dir>`, to verify that the documents you have are the same version.
+- PDF and SHA-256 of the extracted text are fixed to `coverage/standard-sections.json` and `coverage/requirement-source-index.json`. `python3 tools/behavior_coverage.py --check --verify-source <source-dir>`, to verify that the documents you have are the same version.
 
 <a id="32-シミュレータ"></a>
 
@@ -54,7 +54,7 @@ Use the same version as the saved execution trace. The result of a different ver
 
 |Simulator|Version|Purpose|
 | --- | --- | --- |
-| Icarus Verilog | 13.0（`Icarus Verilog version 13.0 (stable) (v13_0-dirty)`） |First confirmation point. `iverilog@13.0`|
+| Icarus Verilog | 13.0 (the saved results show `Icarus Verilog version 13.0 (stable) (v13_0)` from 2026-11-07, and most earlier ones `(v13_0-dirty)`, built with the macOS change below) |First confirmation point. `iverilog@13.0`|
 | Verilator | 5.052 (5.054 for tests added from 2026-11-14 until the pin moves) |If Icarus does not comply with the specification or cannot be compiled. If the results match for both seed 1 and seed 73, `verilator@5.052` (`verilator@5.054` for a test checked with 5.054; see [the interim pin](simulator-differences.md#verilator-5054-interim))|
 
 Icarus 13.0 is built from the `v13_0` tag. macOS require 2 points.
@@ -70,16 +70,20 @@ The built executable locates libraries relative to itself, so it works after rel
 
 |Tool|Role|
 | --- | --- |
-| `tools/requirement_source.py --show <節>` |Displays the text of the paragraph with the block ID (the text is not output to the repository)|
+| `tools/requirement_source.py --show <clause>` |Displays the text of the paragraph with the block ID (the text is not output to the repository)|
 | `tools/import_standard_sections.py` |Importing and checking the clause ledger|
 | `tools/behavior_coverage.py` |Ledger checks, measurements, baselines, history, and generated reports|
 | `tools/requirement_audit.py` |Bidirectional comparison between the source audit and ledger (called from `behavior_coverage`)|
 | `tools/requirement_matching.py` |Ledger of all tests' cited clauses, mappings, and decisions to hold mappings (`coverage/test-matching.json`)|
-| `tools/run_icarus.py`、`tools/run_verilator.py` |Execution and evaluation. Write the result with the input hash and the runner hash in `--json`|
+| `tools/run_icarus.py`, `tools/run_verilator.py` |Execution and evaluation. Write the result with the input hash and the runner hash in `--json`|
 | `tools/run_sby.py` |The `:formal_case:` of `:type: formal` is checked by SymbiYosys. Exclude from simulation-runner targets|
 | `tools/new_test.py` |New test prototype|
 | `tools/lint_metadata.py` |Checking metadata and formatting|
-| `tools/suite_stats.py`、`suite_catalog.py`、`coverage_depth.py` |Table, catalog, depth aggregation of README|
+| `tools/suite_stats.py`, `suite_catalog.py`, `coverage_depth.py` |Table, catalog, depth aggregation of README|
+| `tools/review_sample.py` |Draws tests without a fixed-release oracle at random per stratum, records a person's verdicts in `coverage/human-review.json` and bounds the error rate of each stratum ([human review of a sample](review-sample.en.md))|
+| `tools/interpretation_splits.py` |The ledger of tests that follow one of two readings of the standard, `coverage/interpretation-splits.json`, and its report ([tests with contested readings](interpretation-splits.en.md))|
+| `tools/sv2023_features.py` |The ledger of the features added by 1800-2023 and the tests that use them, `coverage/sv2023-features.json`, and its report ([tests of the features added by 1800-2023](sv2023-features.en.md))|
+| `tools/metamorphic.py` |Compares the normalized outputs of one simulator before and after a transform that keeps the meaning; no expected output is used ([metamorphic checks](metamorphic.en.md))|
 | `generators/` |Generating tests covering the requirements of table formats|
 
 <a id="34-照合キットtoolsmatching_kit"></a>
@@ -94,7 +98,7 @@ Auxiliary scripts automate receiving comparison proposals, recording reviewers' 
 | `propose.py` |`req` (requirements, sources, candidate tests, existing pending items); `test` (test headers, input files, links); `scope` (assigned-scope progress); `add` / `group` / `hold` (appending proposed mappings); `verdict` / `testverdict` (reviewer assessments). The same conditions as `behavior_coverage.validate()` are examined at the time of the addition. Conditions include clause citations, matching positive/standard-violation kinds, existing anchors, input files, existing holds, withdrawn pairs (`withdrawn-20261023.json`), and prohibited tests.|
 | `merge.py` |Recheck only proposals whose latest judgment is `accept` against the ledger immediately before integration, then integrate them into `behaviors.json` and `test-matching-reviews.json`. The input digest is calculated at the time of integration. Skip proposals already integrated. The name of the person responsible and the date are passed as arguments.|
 | `runsim.py` |Runs on Icarus 13.0 and Verilator 5.052 (seed 1/73) and shows which ones match. While the pin moves to 5.054, give a 5.054 build with `--verilator` for new tests.|
-| `workflows/*.js` |In the Claude Code workflow, scripts that run author and reviewer for each section (10 chapter). The instruction text contains the criteria for judgment.|
+| `workflows/*.js` |In the Claude Code workflow, scripts that run author and reviewer for each section (10 chapter). The instruction text contains the criteria for judgment. No script passes `--verilator` to `runsim.py`, and the prompt of `gap.js` tells the writer to add `verilator@5.052` to new tests, so while the pin moves, apply the 5.054 rule of section 7.1 instead.|
 
 `tools/test_matching_kit.py` checks the main conditions of the test with CI.
 
@@ -111,7 +115,7 @@ There are detailed rules for [Results of requirement extraction](requirement-ext
    - `checks: []` means unmapped.
 4. Source audit (`requirement-audit.json`): classify every block as one of `requirements` / `heading` / `informative` / `example` / `reference`. In the case of `requirements`, write which requirements it will respond to. It is compared with `source_spans` in both directions.
 5. Pending interpretations: retain internally inconsistent standard statements as rows tagged `interpretation_issue`, and set the clause to `in_progress`. Cannot assign a test to this row.
-6. Denominator: all registered rows form the provisional denominator. Keep `denominator_review.state` as `pending` until approval after semantic deduplication and resolution of pending issues.
+6. Denominator: all registered rows form the provisional denominator. Keep `denominator_review.state` as `pending` until approval after semantic deduplication and resolution of pending issues (in this suite it became `approved` on 2026-10-28).
 
 To be careful when extracting (what I learned from the review):
 
@@ -133,7 +137,7 @@ Preserve requirements ID and `source_spans`, rewrite `kind`, `behavior`, and `ac
 
 ```sh
 python3 tools/behavior_coverage.py --write-baseline --update --require-source-reviewed \
-  --history coverage/behavior-history.json --reason '具体的な理由'
+  --history coverage/behavior-history.json --reason 'the specific reason'
 ```
 
 The SHA-256 of the denominator changes. When comparing the ratios before and after the change, the denominator is stated.
@@ -215,7 +219,7 @@ In comparison alone, only 8 to 35 requirements (approximately 6 to 15% of non-co
 
 Follow the sections "Test format", "Metadata", "How a test is judged", "Tests with C code", "Where the expected outputs come from", and "Contributing" of README. The main points are as follows.
 
-- Create a prototype with `tools/new_test.py chNN test_<内容> --lrm "節 ..."`. The location is the directory of the chapter in the first quoted paragraph. The section of the requirement to match must be included in `:lrm:`.
+- Create a prototype with `tools/new_test.py chNN test_<content> --lrm "clause ..."`. The location is the directory of the chapter in the first quoted paragraph. The section of the requirement to match must be included in `:lrm:`.
 - If the display format of the expected output is different for each simulator, add `:expected_stdout_icarus:`, `:expected_stdout_verilator:`, `:expected_stdout_kirimasim:`, and `:expected_stdout_lyra:`, and leave the common `:expected_stdout:`. The fields by simulator will be prioritized. You can add it if the only difference is the format the standard has given to the tool, such as the blank `%p`, and both outputs are compatible with the standard. You will actually record both outputs and write the reasons for the differences in the test comments and work notes. If the standard does not specify the execution order, the order is not fixed as the expected value for each simulator, and the results are observed independent of the order. All referenced expected value files are included in the input hash, and any change to any of them will invalidate the execution trace.
 - Use 1 test(s) to verify fully a closely related group of 1 to a few requirements. In the case of a incorrect implementation, the output will be different, so that the case is contrasted (true and false, both sides of the boundary, both x and z for x/z-handling requirements). The output is only the values specified by the standard and displays the actual values.
 - Write the expected value first and check with `runsim`. If it does not match, you first check your expectations with the standard. For simulator-side errors, document them in `docs/simulator-differences.md` and test comments (do not record unsupported syntax).
@@ -223,7 +227,7 @@ Follow the sections "Test format", "Metadata", "How a test is judged", "Tests wi
   - If the results match with Icarus 13.0, add `iverilog@13.0`.
   - If the seeds 1 and 73 of Verilator are both matching, `verilator@5.052` is added. Tests added from 2026-11-14 until the pin moves to 5.054 are checked with 5.054 and get `verilator@5.054` ([the interim pin](simulator-differences.md#verilator-5054-interim)).
   - If neither match, only `spec` is used.
-  - The results of kirimasim and Lyra are not recorded in `:oracle:`. These are for comparison purposes to increase the proof of expectations (run nightly).
+  - The results of kirimasim, Lyra and Ghost are not recorded in `:oracle:`. These are for comparison purposes to increase the proof of expectations (run nightly).
   - The `:fourstate:` and `` `timescale `` are adjusted to the actual state.
 - The non-conformity test is only used for requirements of `kind: error`. Include only 1 intended violations, and specify the valid diagnostic location and required diagnostic content in `:expected_stderr_regex:`. If multiple report locations are valid, allow them. Avoid mistaking an unsupported-syntax error for detection of a standard violation.
 - Do not start a comment line with the word "Verilator" (it will be BADVLTPRAGMA). Avoid tests that take more than a few seconds to run or that use a large amount of memory.
@@ -301,12 +305,12 @@ Holes found in the verification so far (checklist to avoid the same kind of erro
 
 1. Remove `defective` tests and tests with no judgment, or move them outside the repository. Because generated artifacts scan all of `tests/`, do not regenerate while leaving unverified tests in the working tree.
 2. Run the remaining tests through the lint and pre-run them to make sure that the description of `:oracle:` is consistent with the actual results. Use `coverage_depth.py --check --minimum-tests 2` here to check that a new test is not the sole 1 test(s) citing a clause with no other citing tests. 2 or more tests are required for the cited section. If you want to use a paragraph as a background, remove it from `:lrm:`.
-3. Run this for record, and save it as `coverage/results/<名前>-<日付>-icarus13.json`, `-verilator-seed1.json`, and `-verilator-seed73.json`. The results of all cases will not be overwritten. The results of partial execution are not synthesized either.
+3. Run this for record, and save it as `coverage/results/<name>-<date>-icarus13.json`, `-verilator5.052-seed1.json`, and `-verilator5.052-seed73.json` (the name includes the Verilator release; results up to 2026-10-31 use the form `-verilator-seed1.json`, and results run with 5.054 while the pin moves are named like `-verilator5.054-seed1.json`). Results of kirimasim run for comparison are saved like `-kirimasim-<commit>.json`. The results of all cases will not be overwritten. The results of partial execution are not synthesized either.
 4. Integrate accepted proposals. Integration accepts only unmapped requirements. Input digest is calculated at the time of integration, so it is done after the test is confirmed.
 
    ```sh
    python3 tools/matching_kit/merge.py <work>/proposals/<wave> \
-     --reviewer '<モデル名> (AI); not an independent human review' --date YYYY-MM-DD
+     --reviewer '<model name> (AI); not an independent human review' --date YYYY-MM-DD
    ```
 
 5. Update generated artifacts.
@@ -317,30 +321,43 @@ Holes found in the verification so far (checklist to avoid the same kind of erro
    python3 tools/suite_stats.py --update
    python3 tools/suite_catalog.py --update
    python3 tools/coverage_depth.py --update
+   python3 tools/interpretation_splits.py --update
+   python3 tools/sv2023_features.py --update
    ```
 
-If you have corrected the test after merging, do the following:
-   - Rerun the corrected test and save it with an alternate name, such as `coverage/results/<名前>-refinement-<日付>-*.json`.
+   The report of `sv2023_features.py` reads the input digests of the tests in its ledger and the saved results in `coverage/results/`, so regenerate it also when tests or saved results change. The report of `interpretation_splits.py` is made from its ledger.
+
+   If you have corrected the test after merging, do the following:
+   - Rerun the corrected test and save it with an alternate name, such as `coverage/results/<name>-refinement-<date>-*.json`.
    - Recalculate the `inputs_sha256` in the table with new input.
-   - This is a difference from the baseline, so leave the reason in `behavior_coverage.py --update --require-source-reviewed --write-baseline --reason '<理由>'`.
+   - This is a difference from the baseline, so leave the reason in `behavior_coverage.py --update --require-source-reviewed --write-baseline --reason '<reason>'`.
    - Attach `--history` only 1 time(s), at the end of the work. Every time you add, the history increases by 1.
 
-6. Update the documentation: Results report (new), result file list for README, `coverage/README.md`, main aggregate for `docs/nightly-results.md`, cumulative pointer, `docs/simulator-differences.md`.
-7. Commit after all checks are passed.
+6. Update the documentation: the results report (new) and its link from the [history](history.md), the current figures in the README (the README holds current information only; dated progress goes to the history), the result file list in `coverage/README.md`, the cumulative findings documents, and `docs/simulator-differences.md`.
+7. Commit after all checks are passed. The readme job of Check (`.github/workflows/check.yml`) runs all of these except `--verify-source` and `git diff --check`.
 
    ```sh
    python3 -m unittest discover -s tools -p 'test_*.py'
-   python3 tools/behavior_coverage.py --check --require-source-reviewed --verify-source <資料dir>
+   python3 tools/behavior_coverage.py --check --require-source-reviewed --verify-source <source-dir>
    python3 tools/requirement_matching.py --check
+   python3 tools/review_sample.py check
+   python3 tools/interpretation_splits.py --check
+   python3 tools/sv2023_features.py --check
    python3 tools/suite_stats.py --check
    python3 tools/suite_catalog.py --check
    python3 tools/coverage_depth.py --check --minimum-tests 2
    python3 generators/generate.py --check
+   python3 tools/generator_catalog.py --check
+   python3 tools/interaction_coverage.py --check
+   python3 tools/chapter_cross_matrix.py --check
+   python3 tools/chapter_cross_triage.py --check
+   python3 tools/combination_gaps.py --check
+   python3 tools/documentation_languages.py --check
    python3 tools/lint_metadata.py
    git diff --check
    ```
 
-8. After push, the first nightly (or manual) run ensures that all simulator jobs have been run to the end. New tests can cause simulators to run out of control. At 2026-10-24, Verilator failed to stop recursion in a cycle of sequences containing a standard violation, exhausting runner memory and stopping the job. The Verilator job is now restricting the memory per process.
+8. After push, the first nightly (or manual) run ensures that all simulator jobs (for Lyra, `lyra-build`, the four `lyra-shards` and the merging `lyra`) have been run to the end. New tests can cause simulators to run out of control. At 2026-10-24, Verilator failed to stop recursion in a cycle of sequences containing a standard violation, exhausting runner memory and stopping the job. The Verilator job, each Lyra shard and the Ghost job now limit the address space of each process to 6 GB.
 
 <a id="計測の読み方"></a>
 
@@ -348,7 +365,7 @@ If you have corrected the test after merging, do the following:
 
 - Temporary: Count all enrollment rows with the same weight. For annex constants and reserved words, 1 item(s) correspond to 1 row(s). Therefore, the values in those rows will move a lot. In addition to the total values, the values of the text (chapters 1 to 40) and the chapter-by-chapter summary are always included.
 - Run check: Counts only `pass` that match the input and the runner hash. `known`, `unsupported`, `fail`, and old inputs are not counted. requirements for detection of non-conformity count only the results of simulators with fixed version tokens in `:oracle:`. The AND set is counted only if all tests in the group are successful in the same run of the same simulator.
-- Finalized values are not published until denominator approval after semantic deduplication and resolution of pending interpretations.
+- Finalized values are not published until denominator approval after semantic deduplication and resolution of pending interpretations. The denominator of this suite was approved by an AI review on 2026-10-28, so the current figures are finalized values (`whole_standard_status` is `confirmed` in `behavior-summary.json`).
 
 <a id="10-並列化と費用"></a>
 
@@ -392,7 +409,7 @@ percentages or the denominator. Earlier git commits are not rewritten.
 
 ## 12. Known limits and incompleteness.
 
-- The requirement coverage (test design) at the time of 2026-10-29 is 89.33% (10,986/12,298), and the execution confirmation rate is 59.60% (including 7,330/12,298 and Ghost). The remaining reference intervals and additional tests were verified and integrated in 2026-10-25 to 26. For current remains and evidence, see [Summary of the aggregate](behavior-coverage-summary.en.md) and [Gap investigation](coverage-gap-recommendations-20261029.en.md).
+- As of 2026-11-21 the requirement coverage (test design) is 93.15% (11,487/12,332). The execution coverage is 51.22% (6,317/12,332) from the evidence of Icarus Verilog, Verilator and SymbiYosys, which anyone can reproduce, and 78.71% (9,706/12,332) with the results of Ghost and kirimasim added. The figures change, so see the [Summary of the aggregate](behavior-coverage-summary.en.md) for the current values, the remaining rows and the evidence. Candidate tests to add are in the [Gap investigation](coverage-gap-recommendations-20261029.en.md) (as of 2026-10-29) and the [triage of the requirements without tests](unmapped-requirements-20261120.en.md).
 - All 253 requirements in Annex F have mappings and recorded passes. This is a result within the scope of the registered model and conditions, and does not prove the entire implementation of any SVA or simulator.
 - The 34 chapter, 40 chapter, VPI, DPI, and the timing checks have requirements that cannot be observed by the available tools. The range and reason are recorded in [Protective envelope boundary](protected-envelope-boundary.en.md) and [Gap investigation](coverage-gap-recommendations-20261029.en.md#8-追加しない方がよい領域). These are also left in the denominator.
 - There are 0 pending interpretation issues; the denominator is the 12,298 requirements approved in the AI review plus the 34 rows from the splits of 2026-11-14 and 2026-11-15, 12,332 in all. The independent review and approval by humans is not carried out. [Limits of denominator reviews](denominator-review-20261028.en.md#6-限界) also remain, including 3 rows with only clause-level sources.

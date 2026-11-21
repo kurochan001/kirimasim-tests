@@ -11,8 +11,8 @@ fixed-suite test counts, chapter-matrix pass counts or requirement coverage.
 
 As verified on 2026-11-05 JST, [Check and Nightly on `19cd790a`](nightly-results.en.md#latest-verified-checkpoint)
 both succeeded. Nightly's thirteen profiles recorded **96 valid passes** on kirimasim `50a897dee62a`, seed `41941310616`.
-The random comparison step also succeeded in the last successful [Nightly of 2026-11-14](https://github.com/kurochan001/kirimasim-tests/actions/runs/43533749064) (suite `aef04b93`); its artifacts were not reviewed.
-Default Nightly retains thirteen profiles while [targeted exploration and independent checks](#thirteen-profile-stabilization) supply further depth. Two [additional packed profiles](#opt-in-packed-profiles), an [integral-power profile](#opt-in-power-profile), two [wide value profiles](#opt-in-wide-value-profiles) and two [wide bit-operation profiles](#opt-in-wide-bit-operation-profiles) are available for explicitly selected exploration.
+The random comparison step also succeeded in the [Nightly of 2026-11-14](https://github.com/kurochan001/kirimasim-tests/actions/runs/43533749064) (suite `aef04b93`) and in [Nightly 44631823505](https://github.com/kurochan001/kirimasim-tests/actions/runs/44631823505) of 2026-11-20 JST (suite `03b2e107`), the first verified four-part run; the random comparison artifacts of these runs were not reviewed.
+Default Nightly retains thirteen profiles while [targeted exploration and independent checks](#thirteen-profile-stabilization) supply further depth. Two [additional packed profiles](#opt-in-packed-profiles), an [integral-power profile](#opt-in-power-profile), two [wide value profiles](#opt-in-wide-value-profiles), two [wide bit-operation profiles](#opt-in-wide-bit-operation-profiles), a [wide numeric format and scan profile](#opt-in-wide-format-scan-profile) and a [wide bit-query profile](#opt-in-wide-bitquery-profile), nine in all, are available for explicitly selected exploration.
 
 <a id="purpose-and-roles"></a>
 
@@ -284,8 +284,8 @@ Local success or saved evidence is not a successful GitHub Nightly execution.
 ## Initial validation
 
 The dated subsections below preserve introduction-time local evidence and its limits.
-Their old counts and statements that formal CI had not yet run describe those checkpoints;
-the current formal result is recorded separately below.
+Their old counts and statements that formal CI had not yet run describe those checkpoints.
+The artifact-reviewed formal result is recorded separately in the next subsection, and the later Nightly status at the top of this page.
 
 See [qualification evidence](../coverage/interaction-qualification/random-cross.json) for actual revisions, counts, seeds,
 fingerprints and fault detection. The [saved 96-case manifest](../coverage/interaction-qualification/random-cross-manifest.json)
@@ -675,7 +675,7 @@ internal value/scheduler/libFuzzer findings belong to kirimasim's unit/mechanism
 matrices, not an unrelated language test. No newly confirmed simulator defect
 is implied by the tooling's synthetic failure fixtures.
 
-Formal Check still executes pinned Icarus 13.0 / Verilator 5.052; Nightly uses
+Formal Check still executes pinned Icarus 13.0 / Verilator 5.052 (5.054 for the tests added until the pin moves); Nightly uses
 development builds. Build caches/ccache save compilation, not execution.
 Nightly records workflow run ID/attempt separately from the fresh random build
 commit. The preceding fixed suite can use an earlier kirimasim revision in the

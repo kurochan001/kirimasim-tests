@@ -255,11 +255,13 @@ python3 generators/generate.py --check
 
 `:spec_check: ai` and `human` identify the reviewer. AI checking, agreement with another model and successful tools do not mean human review. Requirement mappings and holds also record reviewer, date and input fingerprints so the reviewed scope remains traceable. See [metadata](../README.md#metadata) and [matching procedure](requirements-to-tests-method.en.md).
 
+Verdicts of the [sampled human review](review-sample.en.md), in which a person rechecks randomly drawn tests against the standard, go to `coverage/human-review.json` without changing `:spec_check:` and bound the error rate of each stratum. AI reviews do not enter that ledger.
+
 <a id="q27-不一致を見つけたら何を確認しどこへ報告しますか"></a>
 
 ### Q27. What should I check and where should I report a mismatch?
 
-Record the suite commit, simulator version, test and related inputs, arguments, actual output, diagnostics and exit code; reproduce identical conditions. Check expectations and source against the cited clauses, review diagnostic judgment and reduce the example. Test defects belong in [suite issues](https://github.com/kurochan001/kirimasim-tests/issues), separately from simulator defects.
+Record the suite commit, simulator version, test and related inputs, arguments, actual output, diagnostics and exit code; reproduce identical conditions. Check expectations and source against the cited clauses, review diagnostic judgment and reduce the example. Tests whose expectation follows one of two readings of the standard are listed in [tests with contested readings](interpretation-splits.en.md); check there as well. Test defects belong in [suite issues](https://github.com/kurochan001/kirimasim-tests/issues), separately from simulator defects.
 
 This project records fixed Icarus/Verilator differences in the [difference list](simulator-differences.md) and test comments, without reporting them upstream. Other implementations' issues also require checking existing issues and ownership; review does not automatically authorize external posts. Use clause numbers and original explanations, without reproducing standard text, figures or example code. See [working policy](codex-handoff-20261031.en.md#2-ユーザーの方針と作業上の注意) and [Contributing](../README.md#contributing).
 
@@ -361,11 +363,11 @@ GitHub Actions Re-run also uses the original suite commit. For current main, sta
 
 ### Q41. Can I check one model's saved results without running a simulator?
 
-From the repository root, specify the model and JSON. This example evaluates the saved interface-import run; unchanged inputs/runners allow checking targets and anchors:
+From the repository root, specify the model and JSON. This example evaluates the interface-import model with the saved complete cross run (kirimasim `77c27531437c`); unchanged inputs/runners allow checking targets and anchors. An older record made before a runner change makes every case stale and exits nonzero.
 
 ```sh
 python3 tools/interaction_coverage.py --model interface_header_import \
-  --results coverage/interaction-results/cross53-kirimasim-4fb5f6b1.json --require-pass
+  --results coverage/interaction-results/full-20261114-kirimasim-77c27531-progmod.json --require-pass
 ```
 
 `--require-pass` requires `complete` for every selected run/model, without merging partial successes. Use `--list-tests --model interface_header_import` for paths only. Check that a list is nonempty before passing it to a runner: no positional paths normally selects the full suite, so an empty expansion changes the intended scope.
@@ -420,7 +422,7 @@ The [issue form](../.github/ISSUE_TEMPLATE/report.yml) provides instructions and
 
 Explore different input values, initial states and operation histories within supported scopes to find counterexamples missed by fixed representative cases.
 Retain fixed boundaries and combination regressions, reproduce and classify discoveries, and carry confirmed failures into fixed regressions.
-Yes: drive a design and reference with identical stimuli. Thirteen profiles cover arithmetic expressions, division/remainder, indexed-write sequences, conditional context/X/Z merging, package change observers, shift contexts, cast pipelines, streaming pack/unpack, concatenated-assignment sequences, comparisons, packed reductions/logical negation, array reductions and array copy/update sequences.
+Yes: drive a design and reference with identical stimuli. The thirteen default Nightly profiles cover arithmetic expressions, division/remainder, indexed-write sequences, conditional context/X/Z merging, package change observers, shift contexts, cast pipelines, streaming pack/unpack, concatenated-assignment sequences, comparisons, packed reductions/logical negation, array reductions and array copy/update sequences. Nine more profiles, chosen explicitly with `--models` (packed boundaries and struct updates, integral power, wide conditionals and comparisons, wide shifts and casts, wide numeric formatting and scanning, wide bit queries), bring the selectable total to twenty-two.
 References must accept the generated values and operation lists within their legal scope; not every finite model accepts arbitrary inputs.
 This differs from matching random streams. Multiple-solution `randomize()` checks should validate constraints rather than require identical generated values.
 See [purpose and roles](random-cross-verification.en.md#purpose-and-roles), [the verification process](random-cross-verification.en.md#verification-process) and [scope and limits](random-cross-verification.en.md#scope).
@@ -448,8 +450,8 @@ and inspect drift in SV, expectations and reference hashes. Keep the original fa
 
 ### Q48. Should we keep adding random profiles?
 
-Additions are currently paused at thirteen. The fixed Nightly budget is 96 cases and eight vectors/operations per case;
-more profiles would reduce the samples per profile. Prioritize targeted seeds and longer sequences in additional exploration,
+The default Nightly set stays at thirteen. The fixed Nightly budget is 96 cases and eight vectors/operations per case;
+more default profiles would reduce the samples per profile. The nine profiles added later are opt-in exploration profiles selected with `--models` and are not part of the default allocation. Prioritize targeted seeds and longer sequences in additional exploration,
 independent checking of actual saved SV, and promotion of confirmed failures into fixed regressions.
 The [stabilization record](random-cross-verification.en.md#thirteen-profile-stabilization) has 1,152 local passes,
 including 864 independently interpreted array/package programs; the remaining 288 packed-write programs used the existing execution/reference comparison.

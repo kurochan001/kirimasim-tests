@@ -54,13 +54,15 @@ See [test format](../README.md#test-format), [judgment](../README.md#how-a-test-
 | `spec` / standard only | A clause-derived expectation / an oracle containing only `spec`, without recorded fixed-release confirmation. |
 | `iverilog@13.0` / `verilator@5.052` / `verilator@5.054` | Confirmation by that fixed release; `verilator@5.054` marks only tests added while the pin moves to 5.054. It does not automatically apply to Nightly development builds or another release. |
 | `:spec_check:` | Who compared the expectation with the standard: `ai` or `human`. |
+| Sampled human review (stratified random sample) | A person rechecks against the standard the tests that `tools/review_sample.py` draws at random from each stratum. The verdicts go to `coverage/human-review.json` and give a one-sided 95% upper bound on the error rate of each stratum. They change no `:spec_check:` and are not used for requirement coverage. |
+| Contested reading / standard gap (`standard_gap`) | The text of the standard allows two readings and the expectation follows one of them (reading a) / the expectation relies on something the standard leaves undefined. Recorded in `coverage/interpretation-splits.json` without changing the test or its expectation; the owner decides the handling. |
 | `:fourstate:` | Whether observations depend on X/Z. Two-state execution does not equivalently confirm a `yes` case. |
 | `:expected_stdout:` / `:should_fail_because:` | Expected stdout / the violation requiring rejection. Illegal designs record diagnostic conditions instead of expected stdout. |
 | `:expected_stderr_regex:` / regular expression | A pattern checking valid diagnostic locations and, where required, the intended violation. Distinguish unsupported syntax errors. |
 | `:files:` / `:incdirs:` / `:defines:` | Additional input files / include search paths / compile-time macros, all relevant to reproduction. |
 | `:top_module:` / `:args:` | Selected top module or config / runtime arguments, translated into tool-specific forms by runners. |
 
-See [metadata](../README.md#metadata) and [expectation policy](../README.md#where-the-expected-outputs-come-from).
+See [metadata](../README.md#metadata), [expectation policy](../README.md#where-the-expected-outputs-come-from), [sampled human review](review-sample.en.md) and [contested readings](interpretation-splits.en.md).
 
 <a id="3-結果とnightly"></a>
 
@@ -154,6 +156,7 @@ See the [guide](sva-reference-formal-verification.en.md), [boundary sweep](sva-f
 | Fixed release / development version / commit | An oracle's selected release / evolving development code / a source snapshot identifier. The same tool name does not ensure the same behavior. |
 | Seed | An input selecting a random stream. The same number does not guarantee the same behavior after version, settings or test changes. |
 | Model-based random comparison | Generate legal values/operation lists and compare a design with reference expectations for the same stimuli. Measure separately from fixed combination coverage. |
+| Metamorphic check | Running a test and a copy transformed without changing its meaning (renamed identifiers, added white space and comments, a larger time unit) on the same simulator and comparing the normalized outputs. No expected output is used, so a wrong expectation does not affect the check. |
 | Stimulus manifest | JSON retaining actual parameters, values and operations as well as the seed; replay reads these stimuli without redrawing after generator changes. |
 | Immutable replay / reference drift | Replay using saved SV and expectations / recorded differences from materializing with current reference code. `--reference-policy current` is explicit; retain the original evidence. |
 | Exploration admission | Optional `--explore` management of identical completed jobs using input and execution identities. Only valid complete comparisons qualify; a skipped submission is not a new pass. Fixed regressions, formal Nightly and explicit replay execute. |
@@ -167,7 +170,7 @@ See the [guide](sva-reference-formal-verification.en.md), [boundary sweep](sva-f
 | Generated test / generator | A test written under `tests/gen/` / Python deriving inputs and expectations from a standard-based reference. Update generated files through generators. |
 | Lint / unit tests / CI | Mechanical header/format checks / checks of individual tool functions / continuous execution of configured checks. Interpret success together with checked scope. |
 
-See [execution](../README.md#running-the-suite), [generated tests](../README.md#generated-tests), [random comparison and replay](random-cross-verification.en.md) and [evidence rules](../coverage/README.en.md#台帳と証跡).
+See [execution](../README.md#running-the-suite), [generated tests](../README.md#generated-tests), [random comparison and replay](random-cross-verification.en.md), [metamorphic checks](metamorphic.en.md) and [evidence rules](../coverage/README.en.md#the-logbook-and-the-evidence).
 
 Terminology examples: [PALTEK on verification environments and stimulus](https://www.paltek.co.jp/techblog/techinfo/220125-01), [properties and vacuous success](https://www.paltek.co.jp/techblog/techinfo/210816-02), and [Synopsys on formal property verification](https://www.synopsys.com/ja-jp/verification/static-and-formal-verification/vc-formal.html).
 

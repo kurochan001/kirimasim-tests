@@ -67,3 +67,5 @@ The scripts are inputs of the Workflow tool of Claude Code. Their prompts are in
 ```
 
 After the verifiers finish, merge, then regenerate and check as in section 9 of the method.
+
+No script passes `--verilator` to `runsim.py`, and the prompt of `gap.js` tells the writer to add `verilator@5.052` to new tests. While the pin moves to 5.054, check new tests with a 5.054 build and add `verilator@5.054` instead ([the interim pin](../../docs/simulator-differences.md#verilator-5054-interim)).
