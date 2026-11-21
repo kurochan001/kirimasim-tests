@@ -318,8 +318,9 @@ jobs:
           if-no-files-found: warn
 
       # The ratchet: the job fails when a test that matched in the previous
-      # results on the results branch differs now. New tests, unsupported ones
-      # and a first night without previous results do not fail it. The publish
+      # results on the results branch now fails or is unsupported. New tests,
+      # known differences and a first night without previous results do not
+      # fail it. The publish
       # job of this run needs this job, so the results branch still holds the
       # previous night here; publish runs even when this job fails.
       - name: Compare with the previous night

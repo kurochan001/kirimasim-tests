@@ -121,11 +121,11 @@ It counts failing tests. One defect may affect many tests, and a test may have a
 
 ### Q11. Why can Nightly be green with Differ results?
 
-Nightly records support status and does not require every test to match. kirimasim's current ratchet fails when a previous `pass` becomes `fail`. New tests and existing failures do not themselves trigger that regression rule. A separate Check workflow maintains fixed oracles and registry consistency; see [workflows](../README.md#workflows).
+Nightly records support status and does not require every test to match. kirimasim's current ratchet fails when a previous `pass` becomes `fail` or `unsupported`. New tests and existing failures do not themselves trigger that regression rule. A separate Check workflow maintains fixed oracles and registry consistency; see [workflows](../README.md#workflows).
 
 This describes fixed-suite aggregation. Additional [random comparisons](random-cross-verification.en.md) require every case to be a valid pass; unsupported features and timeouts are not successes. A separate artifact retains replay evidence outside fixed-suite results.
 
-The current ratchet also excludes `pass` to `unsupported` transitions. Review status changes and logs alongside the green workflow indicator.
+Since 2026-11-21 the ratchet also fails on a `pass` that becomes `unsupported`; a `pass` that becomes a known difference does not fail it. Review status changes and logs alongside the green workflow indicator.
 
 The [checkpoint verified on 2026-11-04](nightly-results.en.md#checkpoint-9926160a) is a concrete example: its fixed kirimasim suite had 7,868 pass, 2,403 unsupported and 133 fail while Check/Nightly succeeded. The configured gates succeeded in that run; those 133 tests did not pass. Use [Q9's status and log path](#q9-what-do-match-differ-known-difference-and-unsupported-mean) to assess individual tests.
 

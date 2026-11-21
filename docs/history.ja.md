@@ -1079,3 +1079,7 @@ READMEには今の情報だけを書く決まりなので、README.ja.mdとREADM
 - 保存済みの結果を無効にせずに直したもの：層別抽出のツール（resultsブランチの指紋のない結果、1本のテストを1本と数える、`contested`をnから除く、範囲ごとの集計）、1800-2023の機能の台帳の違法系の印、生成資料の「Ghostとkirimasimを含めて」の書き方、照合キットの4つの不具合、Lyraのランナーがクラッシュを未対応と記録する件、lintの3つの規則（`stderr-location`、`duplicate-field`、`lrm-clause`）、Nightlyの再実行で履歴が二重になる件、非公開のパーサの置き場所の検査、Checkの起動条件、文書どおりに実行すると`oracles.txt`の1,041行を壊す`generators/record_oracles.py`です。
 - 既存のテストの修正（約50本）はGhostの結果を保存し直すときに、ランナーの8件の不具合は次にランナーを変えるときにまとめます。テストの一覧は`docs/measurements/2026-11-21/repo-review-deferred.json`です。
 - 要求カバレッジの数値は変わりません。
+
+### リポジトリのレビューの後の決定
+
+- Nightlyのkirimasimのratchetは、前回の結果で一致したテストが未対応になったときにも失敗するようになりました（`tools/results_ratchet.py`、所有者の決定）。既知の差分への変化では、これまでどおり失敗しません。

@@ -1105,3 +1105,7 @@ The README describes only the current state, so the following text of README.md 
 - Fixed without invalidating saved results: the review sample tool (bare statuses of the results branch, one count per test, `contested` out of n, samples per frame), the illegal mark of the 1800-2023 features ledger, the wording "with Ghost and kirimasim" in the generated summary, four defects of the matching kit, a crash that the Lyra runner recorded as unsupported, three lint rules (`stderr-location`, `duplicate-field`, `lrm-clause`), duplicated history records after a rerun of the Nightly, the directory check of the private parser, the triggers of Check, and `generators/record_oracles.py`, which, run as documented, would have damaged 1,041 lines of `oracles.txt`.
 - Fixes of existing tests (about 50) wait for the next re-save of Ghost's results, and eight runner defects for the next change of the runners; the list of tests is `docs/measurements/2026-11-21/repo-review-deferred.json`.
 - The coverage figures do not change.
+
+### Decisions after the repository review
+
+- The kirimasim ratchet of the Nightly now also fails when a test that matched in the previous results becomes unsupported (`tools/results_ratchet.py`, owner's decision). A change to a known difference still does not fail it.

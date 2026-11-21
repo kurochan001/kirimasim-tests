@@ -439,8 +439,8 @@ reason for any rejection; the result alone does not certify a fix or add an
 oracle token.
 
 Fixed-suite Nightly results are reported without requiring every test to match.
-The kirimasim ratchet fails when a previously matching fixed test differs; new or unsupported
-fixed tests do not trigger it by themselves. Separate bounded random comparisons require
+The kirimasim ratchet fails when a previously matching fixed test now fails or is unsupported;
+new fixed tests and known differences do not trigger it by themselves. Separate bounded random comparisons require
 every case to pass: differences, unsupported features, timeouts or changed evidence fail
 that step. See [verdicts and replay](docs/random-cross-verification.en.md). The expected outputs recorded with Icarus Verilog
 13.0 and Verilator 5.052, and those of the tests recorded with Verilator 5.054

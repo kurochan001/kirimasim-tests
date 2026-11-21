@@ -81,7 +81,7 @@ See [metadata](../README.md#metadata), [expectation policy](../README.md#where-t
 | Nightly | A scheduled GitHub Actions workflow using development simulators and publishing result history/charts. |
 | Check | A workflow checking fixed oracles, generated files, metadata, registries and tool unit tests. |
 | By chapter | Per-chapter matching/recorded test counts and rates for each simulator, not per-requirement coverage. |
-| Regression / ratchet | Loss of a previously satisfied condition / the current Nightly rule failing kirimasim on a previous `pass` becoming `fail`. |
+| Regression / ratchet | Loss of a previously satisfied condition / the current Nightly rule failing kirimasim on a previous `pass` becoming `fail` or `unsupported`. |
 | main / results / suite commit | Branch containing tests/tools / branch publishing Nightly results / commit of the suite used for that execution. |
 | UTC / JST | Coordinated Universal Time / Japan Standard Time, nine hours ahead of UTC. |
 

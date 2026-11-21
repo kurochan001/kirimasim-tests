@@ -8,15 +8,21 @@ Usage:
 Each file is the --json result of a runner (see tools/suite_results.py), or
 the latest/<simulator>.json that tools/results_history.py keeps on the results
 branch, which maps each test to its status alone. A test whose status was pass
-in PREVIOUS and is fail in CURRENT is a regression, printed as
-"REGRESSION <test>: <reason>"; the script then exits with 1. Nothing else counts: tests that are new or gone, tests that are
-unsupported or known differences now, and tests that did not match before.
+in PREVIOUS and is fail or unsupported in CURRENT is a regression, printed as
+"REGRESSION <test>: <status>: <reason>"; the script then exits with 1. A newly
+unsupported test counts because the simulator ran it to a match before (the
+owner decided this on 2026-11-21). Nothing else counts: tests that are new or
+gone, tests that are known differences now (a known difference is recorded on
+the test side), and tests that did not match before.
 """
 
 import argparse
 import json
 import sys
 from pathlib import Path
+
+# The statuses that a test which matched before must not reach.
+REGRESSED = ("fail", "unsupported")
 
 
 def statuses(path: Path) -> dict[str, tuple[str, str]]:
@@ -34,9 +40,9 @@ def main() -> int:
 
     previous, current = statuses(args.previous), statuses(args.current)
     regressions = sorted(t for t, (status, _) in current.items()
-                         if status == "fail" and previous.get(t, ("", ""))[0] == "pass")
+                         if status in REGRESSED and previous.get(t, ("", ""))[0] == "pass")
     for t in regressions:
-        print(f"REGRESSION {t}: {current[t][1]}")
+        print(f"REGRESSION {t}: {current[t][0]}: {current[t][1]}")
     matched = sum(status == "pass" for status, _ in previous.values())
     print(f"{len(regressions)} of the {matched} tests that matched before differ now")
     return 1 if regressions else 0
