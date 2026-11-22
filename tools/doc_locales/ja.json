@@ -17619,6 +17619,7 @@
     "ZXQPH0QXZ of elements, ZXQPH1QXZ -selects and part-selects of multidimensional ZXQPH2QXZ arrays": "多次元ZXQPH2QXZ配列の要素、ZXQPH1QXZ選択、および部分選択に対するZXQPH0QXZ",
     "ZXQPH0QXZ of known, all-x and partly x values": "既知の全ての x 値と部分 x 値の ZXQPH0QXZ",
     "ZXQPH0QXZ of powers of two and other values": "2の冪等数のZXQPH0QXZ",
+    "ZXQPH0QXZ of a scalar interface, an interface array and its elements connected to program ports returns the module that instantiates them": "program のポートに接続した単体の interface、interface 配列、その各要素について、ZXQPH0QXZ はこれらを実体化した module を返します。",
     "ZXQPH0QXZ of the file of a pending ZXQPH1QXZ or an active ZXQPH2QXZ , through an fd: they write nothing more to it, nor to a file opened later under the freed number, and go on with the files left": "ファイルの ZXQPH0QXZ を ZXQPH1QXZ のファイルまたは ZXQPH2QXZ のアクティブファイルから fd を通して 書き込む: これ以上 書き込まない 後で 解放された番号で開かれたファイルにも 書き込まず 残ったファイルを 続ける",
     "ZXQPH0QXZ of vectors, ZXQPH1QXZ and a ZXQPH2QXZ struct": "ベクトル、ZXQPH1QXZ、およびZXQPH2QXZの構造体のZXQPH0QXZ。",
     "ZXQPH0QXZ of vectors, ZXQPH1QXZ arrays and ZXQPH2QXZ unsigned, with casts": "ベクトルの ZXQPH0QXZ、配列の ZXQPH1QXZ、符号のない ZXQPH2QXZ の組み合わせ",

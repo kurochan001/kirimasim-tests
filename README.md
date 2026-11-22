@@ -314,13 +314,13 @@ The requirement denominator is **12,332 requirements**: those that the
 merging duplicate rows, with 34 rows that mixed an accepted and a rejected form
 each split in two with the owner's approval. The [history](docs/history.md)
 records how the denominator changed. The reviewer was an AI, not an independent human.
-Design coverage is **93.15% (11,487/12,332)**;
+Design coverage is **93.12% (11,483/12,332)**;
 execution coverage from the saved `coverage/results/` evidence of the tools
 anyone can reproduce (Icarus Verilog, Verilator and SymbiYosys) is
 **51.22% (6,317/12,332)**.
 Of these rows, 6,027 are confirmed by a simulator and 290 by formal checks alone, which run no simulator.
-With the results of Ghost, an unreleased simulator, and of kirimasim added, it is 78.71% (9,706/12,332).
-Clauses 1 to 40 alone are at 92.23% (8,761/9,499) design coverage.
+With the results of Ghost, an unreleased simulator, and of kirimasim added, it is 78.71% (9,707/12,332).
+Clauses 1 to 40 alone are at 92.19% (8,757/9,499) design coverage.
 See the [generated behavior summary](docs/behavior-coverage-summary.en.md) for the
 measurement inputs and denominator.
 The full existing-test semantic review is still incomplete.

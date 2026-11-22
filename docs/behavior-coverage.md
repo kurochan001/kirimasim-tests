@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 93.15%、Ghostを除く実行 51.22%、Ghostとkirimasimを含む実行 78.71%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 93.12%、Ghostを除く実行 51.22%、Ghostとkirimasimを含む実行 78.71%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 93.15%。** 規格要求の実行確認率: Ghostを除いて 51.22%、Ghostとkirimasimを含めて 78.71%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 93.12%。** 規格要求の実行確認率: Ghostを除いて 51.22%、Ghostとkirimasimを含めて 78.71%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対する要求カバレッジ（テスト設計）: 11487/12332 (93.15%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9706/12332 (78.71%)。
-- 登録済みだがテスト未対応: 845 動作。
+- 登録済み動作に対する要求カバレッジ（テスト設計）: 11483/12332 (93.12%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 9707/12332 (78.71%)。
+- 登録済みだがテスト未対応: 849 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。
 
@@ -100,13 +100,14 @@
 - `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2997/12332 動作確認、古い入力との対応 369 件。
 - `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3886/12332 動作確認、古い入力との対応 369 件。
 - `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3597/12332 動作確認、古い入力との対応 28 件。
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7924/12332 動作確認、古い入力との対応 491 件。
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7992/12332 動作確認、古い入力との対応 439 件。
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7906/12332 動作確認、古い入力との対応 491 件。
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7924/12332 動作確認、古い入力との対応 487 件。
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7992/12332 動作確認、古い入力との対応 435 件。
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7906/12332 動作確認、古い入力との対応 487 件。
 - `intcompat-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T10:26:34.150974+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `intcompat-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T10:26:46.168015+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `intcompat-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T10:26:39.847047+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `intcompat-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T10:26:46.053076+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `issues-76-90-20261122-ghost.json`: `private build 00d5d9f1010d` / `2026-11-22T12:41:12.524029+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `keywords-inherited-20261115-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-15T02:46:05.877247+00:00` / 150/12332 動作確認、古い入力との対応 0 件。
 - `keywords-inherited-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T02:46:56.224616+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `keywords-inherited-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T02:46:27.050750+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
@@ -189,10 +190,10 @@
 - `reqgap5-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T14:47:44.027905+00:00` / 18/12332 動作確認、古い入力との対応 14 件。
 - `reqgap5-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T14:46:35.374894+00:00` / 12/12332 動作確認、古い入力との対応 14 件。
 - `reqgap5-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T14:47:43.190246+00:00` / 12/12332 動作確認、古い入力との対応 14 件。
-- `reqgap6-20261120-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T15:46:16.026728+00:00` / 8/12332 動作確認、古い入力との対応 0 件。
-- `reqgap6-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T15:46:16.196256+00:00` / 9/12332 動作確認、古い入力との対応 0 件。
-- `reqgap6-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T15:46:17.221209+00:00` / 3/12332 動作確認、古い入力との対応 0 件。
-- `reqgap6-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T15:46:17.959332+00:00` / 3/12332 動作確認、古い入力との対応 0 件。
+- `reqgap6-20261120-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T15:46:16.026728+00:00` / 8/12332 動作確認、古い入力との対応 1 件。
+- `reqgap6-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T15:46:16.196256+00:00` / 9/12332 動作確認、古い入力との対応 1 件。
+- `reqgap6-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T15:46:17.221209+00:00` / 3/12332 動作確認、古い入力との対応 1 件。
+- `reqgap6-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T15:46:17.959332+00:00` / 3/12332 動作確認、古い入力との対応 1 件。
 - `reqgap7-20261120-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T23:33:37.497509+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `reqgap7-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T23:33:37.526094+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `reqgap7-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T23:33:58.371412+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
@@ -596,7 +597,7 @@
 - 34 Protected envelopes: 解釈保留なし 104/104、登録 214、テスト対応 5。
 - 35 Direct programming interface: 解釈保留なし 31/31、登録 143、テスト対応 122。
 - 36 Programming language interface (PLI/VPI) overview: 解釈保留なし 29/29、登録 163、テスト対応 148。
-- 37 VPI object model diagrams: 解釈保留なし 101/101、登録 1757、テスト対応 1666。
+- 37 VPI object model diagrams: 解釈保留なし 101/101、登録 1757、テスト対応 1662。
 - 38 VPI routine definitions: 解釈保留なし 51/51、登録 348、テスト対応 283。
 - 39 Assertion API: 解釈保留なし 14/14、登録 95、テスト対応 82。
 - 40 Code coverage control and API: 解釈保留なし 26/26、登録 128、テスト対応 122。
@@ -91219,7 +91220,7 @@ modport は vpiName を文字列として表示し、modport の名前を表し�
 
 ### SV2023-37.9-EXTRACT-DIAGRAM-010
 
-`37.9` / `normal` / テスト対応あり・実行未確認
+`37.9` / `normal` / テスト未対応
 
 37.9は37.3で導出されたタグなしインタフェースアクセスタイプを用いて，プログラムとインタフェースの間の1対多関係を定義する。特殊な場合の制約を 指定して vpi_iterate に vpi_scan を追加してトラベースします。
 
@@ -91227,11 +91228,10 @@ modport は vpiName を文字列として表示し、modport の名前を表し�
 
 規定の性質: `definition`。
 
-- [test_vpi_program_interface_relations.sv](../tests/ch37/test_vpi_program_interface_relations.sv)：プログラム1はスカラーインタフェースポートbを取る。vpi_iterate ( vpiInterface , one) は b を返すため、出力行は 'one: type vpiProgram, interfaces b' となる。区別: プログラムからインターフェースへの関係が欠けていると、b の代わりに 'interfaces none' が表示される。
 
 ### SV2023-37.9-EXTRACT-DIAGRAM-011
 
-`37.9` / `normal` / テスト対応あり・実行未確認
+`37.9` / `normal` / テスト未対応
 
 37.9 vpiInstance タグを使ってインタフェースからプログラムへの一対一の関係を定義します。vpi_handle と特殊な制約条件を持つトラベリングを実行します。
 
@@ -91239,11 +91239,10 @@ modport は vpiName を文字列として表示し、modport の名前を表し�
 
 規定の性質: `definition`。
 
-- [test_vpi_program_interface_relations.sv](../tests/ch37/test_vpi_program_interface_relations.sv) : プログラム one から得たインターフェースインスタンス b は、vpiInstance で one を返す: 'b: instance is one 1'。区別: 最上位モジュールまたは NULL を返すと、'instance is one 1' が 0 または別の名前に変わる。
 
 ### SV2023-37.9-EXTRACT-DIAGRAM-012
 
-`37.9` / `normal` / テスト対応あり・実行未確認
+`37.9` / `normal` / テスト未対応
 
 37.9は37.3で導出されたタグなしインタフェース配列アクセスタイプを用いて，プログラムとインタフェースアレーの間の1対多関係を定義する。特殊な場合の制約を 指定して vpi_iterate に vpi_scan を追加してトラベースします。
 
@@ -91251,11 +91250,10 @@ modport は vpiName を文字列として表示し、modport の名前を表し�
 
 規定の性質: `definition`。
 
-- [test_vpi_program_interface_relations.sv](../tests/ch37/test_vpi_program_interface_relations.sv):プログラム2はインタフェース配列ポートbを取得します。vpi_iterate(vpiInterfaceArray, two)は、vpiInterfaceArrayオブジェクトbaを返し、'two: ... interface arrays ba'と出力されます。区別: インターフェース配列のリレーションがなければ、'interface arrays none'が出力されます。
 
 ### SV2023-37.9-EXTRACT-DIAGRAM-013
 
-`37.9` / `normal` / テスト対応あり・実行未確認
+`37.9` / `normal` / テスト未対応
 
 37.9は vpiInstanceタグを使ってインタフェース配列とプログラムの間の一対一の関係を定義します。vpi_handle と特殊な制約条件を持つトラベリングを実行します。
 
@@ -91263,7 +91261,6 @@ modport は vpiName を文字列として表示し、modport の名前を表し�
 
 規定の性質: `definition`。
 
-- [test_vpi_program_interface_relations.sv](../tests/ch37/test_vpi_program_interface_relations.sv): vpi_handle_by_indexで取得したinterface配列baの要素0と1は、それぞれvpiInstanceによってprogram twoを返す（'element 0: type vpiInterface, instance is two 1'。1も同様）。区別: 配列要素に対してトップモジュールまたはNULLを返すと、要素の行が0に変わる。
 
 ### SV2023-37.9-EXTRACT-DIAGRAM-014
 
@@ -121314,7 +121311,7 @@ first_matchは括弧内の列と零以上のコンママッチ項目を取る。
 
 ### SV2023-A.2.10-EXTRACT-MATCH-METHOD
 
-`A.2.10` / `normal` / テスト対応あり・実行未確認
+`A.2.10` / `normal` / 実行確認あり
 
 シーケンスメソッドコールはシーケンスインスタンスドットメソッド識別子である。演算子代入、増減、サブルーティン呼び出しをマッチする項目です。
 

@@ -2,19 +2,19 @@
 
 [English](interpretation-splits.en.md) / [日本語](interpretation-splits.md)
 
-規格の文が二つの読み方を許し、期待値がその一方に従っているテストと、規格が定めていないことに頼っているテストの台帳です。過去の見直しの記録から集めました。台帳は`coverage/interpretation-splits.json`で、この資料は`tools/interpretation_splits.py --update`が作ります。テストと期待値は変えていません。扱い（一致率の分母から外すか、両方の読み方の期待値を持たせるか）は所有者が決めます。Nightlyの[レビュー候補](review-candidates.md)は、これらのテストの結果を別枠で出します。
+規格の文が二つの読み方を許し、期待値がその一方に従っているテストと、規格が定めていないことに頼っているテストの台帳です。過去の見直しの記録から集めました。台帳は`coverage/interpretation-splits.json`で、この資料は`tools/interpretation_splits.py --update`が作ります。解決済みの行には修正コミットを記録します。未解決のテストの扱い（一致率の分母から外すか、両方の読み方の期待値を持たせるか）は所有者が決めます。Nightlyの[レビュー候補](review-candidates.md)は、これらのテストの結果を別枠で出します。
 
 ## 本数
 
 | 区分 | 未解決 | 解決済み | 本数 |
 | --- | ---: | ---: | ---: |
-| 読み方が割れる | 74 | 0 | 74 |
+| 読み方が割れる | 73 | 1 | 74 |
 | 規格の不備に依存 | 4 | 0 | 4 |
-| | 78 | 0 | 78 |
+| | 77 | 1 | 78 |
 
 ## 読み方が割れる：未解決
 
-| テスト | 条項 | 読み方a（期待値が従う） | 読み方b | 期待値 | 出典 | 扱いの案 |
+| テスト | 条項 | 読み方a | 読み方b | 期待値 | 出典 | 扱いの案 |
 | --- | --- | --- | --- | --- | --- | --- |
 | [`ch11/test_equality_class_interface_chandle_handles`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch11/test_equality_class_interface_chandle_handles.sv) | 11.4.6, 8.4, 6.14 | ハンドルの`==?`は`==`と同じで、使えます(11.4.6の最後の段落)。 | 表11-1、8.4、6.14は、ハンドルに使える演算子に`==?`を含めていません。 | aに従う | [ghost-only-review-rest-20261113](ghost-only-review-rest-20261113.md#contested) |  |
 | [`ch11/test_illegal_stream_with_on_two_dimensional_array`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch11/test_illegal_stream_with_on_two_dimensional_array.sv) | 11.4.14.4 | ストリーミングの`with`の前の式は、1次元のunpacked配列に限られるので、2次元配列への`with`はエラーです。 | 該当する文は「can be」と述べるだけで、エラーを定めていません。 | aに従う | [pass-nowhere-review-20261112](pass-nowhere-review-20261112.md#contested-tests) | 必須のエラーとして数えません。テストを取り下げるか、解釈が分かれると明記します。 |
@@ -59,7 +59,6 @@
 | [`ch37/test_vpi_net_driver_objects`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch37/test_vpi_net_driver_objects.sv) | 37.16, 37.47 | ネットのビットのドライバは、そのビットのcont assign bitです。 | ドライバは連続代入全体、という読み方もあり、規格は決めていません。 | aに従う | [ghost-only-review-ch37-20261113](ghost-only-review-ch37-20261113.md#contested) |  |
 | [`ch37/test_vpi_nettype_net_parts`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch37/test_vpi_nettype_net_parts.sv) | 37.16 | nettypeのネットの配列要素は`vpiNettypeNet`です。 | 詳細11から、配列要素は`vpiNettypeNetSelect`、という読み方もあります。 | aに従う | [ghost-only-review-ch37-20261113](ghost-only-review-ch37-20261113.md#contested) |  |
 | [`ch37/test_vpi_prefix_allocation`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch37/test_vpi_prefix_allocation.sv) | 37.61, 37.3.7 | プレフィックスを持つオブジェクトのメモリ割当ての方式は、プレフィックスと同じです(37.61の詳細2)。 | 37.3.7は、クラスオブジェクトの一部を動的としています。 | aに従う | [ghost-only-review-ch37-20261113](ghost-only-review-ch37-20261113.md#contested) |  |
-| [`ch37/test_vpi_program_interface_relations`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch37/test_vpi_program_interface_relations.sv) | 37.9, 37.10 | programからは、そのポートにつながるinterfaceが得られ、`vpiInstance`でprogramに戻ります。 | `vpiInstance`は、interfaceを実体化しているインスタンス、つまりmoduleを返します。 | aに従う | [pass-nowhere-review-20261112](pass-nowhere-review-20261112.md#contested-tests) | テストをやめるか、両方を認めます。 |
 | [`ch37/test_vpi_property_operator_kinds`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch37/test_vpi_property_operator_kinds.sv) | 37.52, A.2.10 | 先頭のクロックはproperty specに属し、`p_clk`と`p_clk2`はクロックイベントとその下のプロパティ式として返ります。 | 先頭のクロックがclocked propertyになる、という読み方もあり、この2行が変わります。 | aに従う | [ghost-only-review-ch37-20261113](ghost-only-review-ch37-20261113.md#contested) |  |
 | [`ch37/test_vpi_select_objects_event_arrays`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch37/test_vpi_select_objects_event_arrays.sv) | 37.17, 37.19 | 配列変数の要素はvar selectです。 | 37.17の詳細7・18・26の読み方によっては、その型の変数になります。 | aに従う | [ghost-only-review-ch37-20261113](ghost-only-review-ch37-20261113.md#contested) |  |
 | [`ch37/test_vpi_size_change_callback`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch37/test_vpi_size_change_callback.sv) | 37.17 | サイズ変更のコールバックの中で、文字列はまだ古い値のままです。 | 文字列がすでに新しい値かどうかは、37.17の詳細14から決まらず、新しい値という読み方もあります。 | aに従う | [ghost-only-review-ch37-20261113](ghost-only-review-ch37-20261113.md#contested) |  |
@@ -93,11 +92,13 @@
 
 ## 読み方が割れる：解決済み
 
-なし。
+| テスト | 条項 | 読み方a | 読み方b | 期待値 | 出典 | 解決 |
+| --- | --- | --- | --- | --- | --- | --- |
+| [`ch37/test_vpi_program_interface_relations`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch37/test_vpi_program_interface_relations.sv) | 37.9, 37.10 | programからは、そのポートにつながるinterfaceが得られ、`vpiInstance`でprogramに戻ります。 | `vpiInstance`は、interfaceを実体化しているインスタンス、つまりmoduleを返します。 | bに従う | [pass-nowhere-review-20261112](pass-nowhere-review-20261112.md#contested-tests) | 37.10の詳細3に従い、moduleで実体化したinterface、配列および両要素のvpiInstanceをそのmoduleと照合します。programポートからの列挙を検査対象から外し、37.9の4件の対応を取り下げました。 (`67b4acd9`, 2026-11-22) |
 
 ## 規格の不備に依存：未解決
 
-| テスト | 条項 | 読み方a（期待値が従う） | 読み方b | 期待値 | 出典 | 扱いの案 |
+| テスト | 条項 | 読み方a | 読み方b | 期待値 | 出典 | 扱いの案 |
 | --- | --- | --- | --- | --- | --- | --- |
 | [`ch37/test_vpi_generate_nettype_typedef`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch37/test_vpi_generate_nettype_typedef.sv) | 37.10, 37.85, M | テストはnettypeの宣言を`vpiNettypeDecl`で反復します。規格はこの反復を定めていません。宣言に到達したあとの期待値は37.23に従います。 | 37.10と37.85の図と詳細は、この反復を`vpiNetTypedef`というタグで示します。附属書Mのヘッダにこの定数はなく、あるのは`vpiNettypeDecl`と`vpiNetTypedefAlias`です。 | aに従う | [ghost-only-review-ch37-20261113](ghost-only-review-ch37-20261113.md#standard-gap) |  |
 | [`ch37/test_vpi_nettype_alias_chain_relations`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch37/test_vpi_nettype_alias_chain_relations.sv) | 37.10, 37.85, M | テストはnettypeの宣言を`vpiNettypeDecl`で反復します。規格はこの反復を定めていません。宣言に到達したあとの期待値は37.23に従います。 | 37.10と37.85の図と詳細は、この反復を`vpiNetTypedef`というタグで示します。附属書Mのヘッダにこの定数はなく、あるのは`vpiNettypeDecl`と`vpiNetTypedefAlias`です。 | aに従う | [ghost-only-review-ch37-20261113](ghost-only-review-ch37-20261113.md#standard-gap) |  |

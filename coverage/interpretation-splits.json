@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "note": "Tests whose expectation follows one of two readings of IEEE 1800-2023 (contested), or relies on something the standard leaves undefined (standard_gap), collected from the review documents of 2026-11-12 and 2026-11-13. Reading a is the one the current expected output follows. AI reviews, not a person's. No test was changed for this ledger.",
+  "note": "Tests whose expectation follows one of two readings of IEEE 1800-2023 (contested), or relies on something the standard leaves undefined (standard_gap), collected from the review documents of 2026-11-12 and 2026-11-13. The expectation_follows field records which reading the current test follows. AI reviews, not a person's. Resolutions identify the commit that changed the test.",
   "entries": [
     {
       "test": "ch11/test_equality_class_interface_chandle_handles",
@@ -1274,7 +1274,7 @@
           "b": "`vpiInstance` returns the instance that holds the interface, which is the module."
         }
       },
-      "expectation_follows": "a",
+      "expectation_follows": "b",
       "source": {
         "document": "docs/pass-nowhere-review-20261112.md",
         "anchor": "contested-tests"
@@ -1283,8 +1283,13 @@
         "ja": "テストをやめるか、両方を認めます。",
         "en": "Remove the test or accept both."
       },
-      "status": "unresolved",
-      "resolution": null
+      "status": "resolved",
+      "resolution": {
+        "commit": "67b4acd9",
+        "date": "2026-11-22",
+        "ja": "37.10の詳細3に従い、moduleで実体化したinterface、配列および両要素のvpiInstanceをそのmoduleと照合します。programポートからの列挙を検査対象から外し、37.9の4件の対応を取り下げました。",
+        "en": "The test follows 37.10 detail 3. It compares vpiInstance for the scalar interface, the array and both elements with the module that instantiates them. It no longer iterates from the program ports. The four 37.9 mappings were withdrawn."
+      }
     },
     {
       "test": "ch37/test_vpi_property_operator_kinds",

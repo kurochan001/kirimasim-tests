@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 93.15%, execution without Ghost 51.22%, execution with Ghost and kirimasim 78.71%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 93.12%, execution without Ghost 51.22%, execution with Ghost and kirimasim 78.71%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 93.15%. Requirement execution-confirmation rate: 51.22% without Ghost, 78.71% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 93.12%. Requirement execution-confirmation rate: 51.22% without Ghost, 78.71% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 11487/12332 ( 93.15% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9706/12332 ( 78.71% ).
-- Registered but not tested: 845.
+- The requirement coverage (test design) for registered behaviors is 11483/12332 ( 93.12% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9707/12332 ( 78.71% ).
+- Registered but not tested: 849.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -100,13 +100,14 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2997/12332 execution checked; 369 entries refer to older inputs.
 - `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3886/12332 execution checked; 369 entries refer to older inputs.
 - `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3597/12332 execution checked; 28 entries refer to older inputs.
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7924/12332 execution checked; 491 entries refer to older inputs.
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7992/12332 execution checked; 439 entries refer to older inputs.
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7906/12332 execution checked; 491 entries refer to older inputs.
+- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7924/12332 execution checked; 487 entries refer to older inputs.
+- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7992/12332 execution checked; 435 entries refer to older inputs.
+- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7906/12332 execution checked; 487 entries refer to older inputs.
 - `intcompat-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T10:26:34.150974+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `intcompat-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T10:26:46.168015+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `intcompat-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T10:26:39.847047+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `intcompat-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T10:26:46.053076+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `issues-76-90-20261122-ghost.json`: `private build 00d5d9f1010d` / `2026-11-22T12:41:12.524029+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `keywords-inherited-20261115-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-15T02:46:05.877247+00:00` / 150/12332 execution checked; 0 entries refer to older inputs.
 - `keywords-inherited-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T02:46:56.224616+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `keywords-inherited-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T02:46:27.050750+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
@@ -189,10 +190,10 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `reqgap5-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T14:47:44.027905+00:00` / 18/12332 execution checked; 14 entries refer to older inputs.
 - `reqgap5-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T14:46:35.374894+00:00` / 12/12332 execution checked; 14 entries refer to older inputs.
 - `reqgap5-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T14:47:43.190246+00:00` / 12/12332 execution checked; 14 entries refer to older inputs.
-- `reqgap6-20261120-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T15:46:16.026728+00:00` / 8/12332 execution checked; 0 entries refer to older inputs.
-- `reqgap6-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T15:46:16.196256+00:00` / 9/12332 execution checked; 0 entries refer to older inputs.
-- `reqgap6-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T15:46:17.221209+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
-- `reqgap6-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T15:46:17.959332+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
+- `reqgap6-20261120-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T15:46:16.026728+00:00` / 8/12332 execution checked; 1 entries refer to older inputs.
+- `reqgap6-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T15:46:16.196256+00:00` / 9/12332 execution checked; 1 entries refer to older inputs.
+- `reqgap6-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T15:46:17.221209+00:00` / 3/12332 execution checked; 1 entries refer to older inputs.
+- `reqgap6-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T15:46:17.959332+00:00` / 3/12332 execution checked; 1 entries refer to older inputs.
 - `reqgap7-20261120-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T23:33:37.497509+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `reqgap7-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T23:33:37.526094+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `reqgap7-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T23:33:58.371412+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
@@ -596,7 +597,7 @@ The number of items is the investigation status of the article by heading. This 
 - 34 Protected envelopes: No interpretation reservation 104/104, registration 214, test support 5.
 - 35 Direct programming interface: No interpretation reservation 31/31, registration 143, test support 122.
 - 36 Programming language interface ( PLI / VPI ) overview: No interpretation restrictions 29/29, registration 163, test support 148.
-- 37 VPI object model diagrams: no interpretation restrictions 101/101, registration 1757, test support 1666.
+- 37 VPI object model diagrams: no interpretation restrictions 101/101, registration 1757, test support 1662.
 - 38 VPI routine definitions: no interpretation reservation 51/51, registration 348, test support 283.
 - 39 Assertion API : No interpretation reservation 14/14, registration 95, test support 82.
 - 40 Code coverage control and API : no interpretation reservation 26/26, registration 128, test support 122.
@@ -91219,7 +91220,7 @@ Normative role: `definition`。
 
 ### SV2023-37.9-EXTRACT-DIAGRAM-010
 
-`37.9` / `normal` / Test mapped; execution unconfirmed
+`37.9` / `normal` / No mapped test
 
 37.9 defines a one-to-many relation from program to interface, using the untagged interface access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -91227,11 +91228,10 @@ Acceptance criterion: 37.9 defines a one-to-many relation from program to interf
 
 Normative role: `definition`。
 
-- [test_vpi_program_interface_relations.sv](../tests/ch37/test_vpi_program_interface_relations.sv): Program one takes the scalar interface port b; vpi_iterate(vpiInterface, one) returns b, so the output line is 'one: type vpiProgram, interfaces b'. Distinguishing observation: A missing program-to-interface relation prints 'interfaces none' instead of b.
 
 ### SV2023-37.9-EXTRACT-DIAGRAM-011
 
-`37.9` / `normal` / Test mapped; execution unconfirmed
+`37.9` / `normal` / No mapped test
 
 37.9 defines a one-to-one relation from interface to program, using tag vpiInstance; traverse with vpi_handle and the stated special-case constraints.
 
@@ -91239,11 +91239,10 @@ Acceptance criterion: 37.9 defines a one-to-one relation from interface to progr
 
 Normative role: `definition`。
 
-- [test_vpi_program_interface_relations.sv](../tests/ch37/test_vpi_program_interface_relations.sv): The interface instance b obtained from program one gives one with vpiInstance: 'b: instance is one 1'. Distinguishing observation: Returning the top module or NULL changes 'instance is one 1' to 0 or to another name.
 
 ### SV2023-37.9-EXTRACT-DIAGRAM-012
 
-`37.9` / `normal` / Test mapped; execution unconfirmed
+`37.9` / `normal` / No mapped test
 
 37.9 defines a one-to-many relation from program to interface array, using the untagged interface array access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -91251,11 +91250,10 @@ Acceptance criterion: 37.9 defines a one-to-many relation from program to interf
 
 Normative role: `definition`。
 
-- [test_vpi_program_interface_relations.sv](../tests/ch37/test_vpi_program_interface_relations.sv): Program two takes the interface array port ba; vpi_iterate(vpiInterfaceArray, two) returns the vpiInterfaceArray object ba, printed as 'two: ... interface arrays ba'. Distinguishing observation: A missing interface-array relation prints 'interface arrays none'.
 
 ### SV2023-37.9-EXTRACT-DIAGRAM-013
 
-`37.9` / `normal` / Test mapped; execution unconfirmed
+`37.9` / `normal` / No mapped test
 
 37.9 defines a one-to-one relation from interface array to program, using tag vpiInstance; traverse with vpi_handle and the stated special-case constraints.
 
@@ -91263,7 +91261,6 @@ Acceptance criterion: 37.9 defines a one-to-one relation from interface array to
 
 Normative role: `definition`。
 
-- [test_vpi_program_interface_relations.sv](../tests/ch37/test_vpi_program_interface_relations.sv): Elements 0 and 1 of the interface array ba, obtained with vpi_handle_by_index, each give program two with vpiInstance ('element 0: type vpiInterface, instance is two 1' and the same for 1). Distinguishing observation: Returning the top module or NULL for an array element changes the element lines to 0.
 
 ### SV2023-37.9-EXTRACT-DIAGRAM-014
 
@@ -121314,7 +121311,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.10-EXTRACT-MATCH-METHOD
 
-`A.2.10` / `normal` / Test mapped; execution unconfirmed
+`A.2.10` / `normal` / Execution confirmed
 
 A sequence-method call is sequence instance dot method identifier; a match item is operator assignment, increment/decrement or subroutine call.
 

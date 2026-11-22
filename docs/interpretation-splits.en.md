@@ -2,19 +2,19 @@
 
 [English](interpretation-splits.en.md) / [日本語](interpretation-splits.md)
 
-The tests whose expectation follows one of two readings that the text of the standard allows, and the tests that rely on something the standard leaves undefined, collected from the earlier review documents. The ledger is `coverage/interpretation-splits.json`; `tools/interpretation_splits.py --update` writes this report. No test or expectation was changed. How they are handled (left out of the denominator of the match rate, or given expectations for both readings) is for the owner to decide. The Nightly [review candidates](review-candidates.en.md) list the results of these tests apart.
+The tests whose expectation follows one of two readings that the text of the standard allows, and the tests that rely on something the standard leaves undefined, collected from the earlier review documents. The ledger is `coverage/interpretation-splits.json`; `tools/interpretation_splits.py --update` writes this report. Resolved entries identify the commit that changed the test. How unresolved tests are handled (left out of the denominator of the match rate, or given expectations for both readings) is for the owner to decide. The Nightly [review candidates](review-candidates.en.md) list the results of these tests apart.
 
 ## Counts
 
 | Kind | Unresolved | Resolved | Tests |
 | --- | ---: | ---: | ---: |
-| Contested reading | 74 | 0 | 74 |
+| Contested reading | 73 | 1 | 74 |
 | Relies on a gap in the standard | 4 | 0 | 4 |
-| | 78 | 0 | 78 |
+| | 77 | 1 | 78 |
 
 ## Contested reading: Unresolved
 
-| Test | Clauses | Reading a (followed) | Reading b | Expectation | Source | Proposed handling |
+| Test | Clauses | Reading a | Reading b | Expectation | Source | Proposed handling |
 | --- | --- | --- | --- | --- | --- | --- |
 | [`ch11/test_equality_class_interface_chandle_handles`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch11/test_equality_class_interface_chandle_handles.sv) | 11.4.6, 8.4, 6.14 | `==?` on handles is the same as `==` and is allowed (last paragraph of 11.4.6). | Table 11-1, 8.4 and 6.14 do not list `==?` among the operators allowed on handles. | follows a | [ghost-only-review-rest-20261113.en](ghost-only-review-rest-20261113.en.md#contested) |  |
 | [`ch11/test_illegal_stream_with_on_two_dimensional_array`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch11/test_illegal_stream_with_on_two_dimensional_array.sv) | 11.4.14.4 | The expression before `with` in a streaming concatenation is limited to a one-dimensional unpacked array, so `with` on a two-dimensional array is an error. | The sentence says only "can be" and states no error. | follows a | [pass-nowhere-review-20261112.en](pass-nowhere-review-20261112.en.md#contested-tests) | Do not count it as a required error: withdraw the test or mark it as contested. |
@@ -59,7 +59,6 @@ The tests whose expectation follows one of two readings that the text of the sta
 | [`ch37/test_vpi_net_driver_objects`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch37/test_vpi_net_driver_objects.sv) | 37.16, 37.47 | The driver of a net bit is the cont assign bit of that bit. | The driver could be the whole continuous assignment; the standard does not settle this. | follows a | [ghost-only-review-ch37-20261113.en](ghost-only-review-ch37-20261113.en.md#contested) |  |
 | [`ch37/test_vpi_nettype_net_parts`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch37/test_vpi_nettype_net_parts.sv) | 37.16 | An array element of a nettype net is `vpiNettypeNet`. | Detail 11 could be read to make an array element `vpiNettypeNetSelect`. | follows a | [ghost-only-review-ch37-20261113.en](ghost-only-review-ch37-20261113.en.md#contested) |  |
 | [`ch37/test_vpi_prefix_allocation`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch37/test_vpi_prefix_allocation.sv) | 37.61, 37.3.7 | An object with a prefix has the same memory allocation scheme as its prefix (detail 2 of 37.61). | 37.3.7 makes a part of a class object dynamic. | follows a | [ghost-only-review-ch37-20261113.en](ghost-only-review-ch37-20261113.en.md#contested) |  |
-| [`ch37/test_vpi_program_interface_relations`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch37/test_vpi_program_interface_relations.sv) | 37.9, 37.10 | A program leads to the interfaces connected to its ports, and `vpiInstance` leads back to the program. | `vpiInstance` returns the instance that holds the interface, which is the module. | follows a | [pass-nowhere-review-20261112.en](pass-nowhere-review-20261112.en.md#contested-tests) | Remove the test or accept both. |
 | [`ch37/test_vpi_property_operator_kinds`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch37/test_vpi_property_operator_kinds.sv) | 37.52, A.2.10 | The leading clock belongs to the property spec, so `p_clk` and `p_clk2` give a clocking event and the property expression under it. | The leading clock could form a clocked property, which changes these two lines. | follows a | [ghost-only-review-ch37-20261113.en](ghost-only-review-ch37-20261113.en.md#contested) |  |
 | [`ch37/test_vpi_select_objects_event_arrays`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch37/test_vpi_select_objects_event_arrays.sv) | 37.17, 37.19 | An element of an array variable is a var select. | Depending on details 7, 18 and 26 of 37.17 it could be a variable of its type. | follows a | [ghost-only-review-ch37-20261113.en](ghost-only-review-ch37-20261113.en.md#contested) |  |
 | [`ch37/test_vpi_size_change_callback`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch37/test_vpi_size_change_callback.sv) | 37.17 | Inside the size-change callback the string still has its old value. | Detail 14 of 37.17 does not settle this, and the string could already hold the new value. | follows a | [ghost-only-review-ch37-20261113.en](ghost-only-review-ch37-20261113.en.md#contested) |  |
@@ -93,11 +92,13 @@ The tests whose expectation follows one of two readings that the text of the sta
 
 ## Contested reading: Resolved
 
-None.
+| Test | Clauses | Reading a | Reading b | Expectation | Source | Resolution |
+| --- | --- | --- | --- | --- | --- | --- |
+| [`ch37/test_vpi_program_interface_relations`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch37/test_vpi_program_interface_relations.sv) | 37.9, 37.10 | A program leads to the interfaces connected to its ports, and `vpiInstance` leads back to the program. | `vpiInstance` returns the instance that holds the interface, which is the module. | follows b | [pass-nowhere-review-20261112.en](pass-nowhere-review-20261112.en.md#contested-tests) | The test follows 37.10 detail 3. It compares vpiInstance for the scalar interface, the array and both elements with the module that instantiates them. It no longer iterates from the program ports. The four 37.9 mappings were withdrawn. (`67b4acd9`, 2026-11-22) |
 
 ## Relies on a gap in the standard: Unresolved
 
-| Test | Clauses | Reading a (followed) | Reading b | Expectation | Source | Proposed handling |
+| Test | Clauses | Reading a | Reading b | Expectation | Source | Proposed handling |
 | --- | --- | --- | --- | --- | --- | --- |
 | [`ch37/test_vpi_generate_nettype_typedef`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch37/test_vpi_generate_nettype_typedef.sv) | 37.10, 37.85, M | The test iterates to the nettype declarations with `vpiNettypeDecl`, an iteration the standard does not define. Once a declaration is reached, the expected values follow 37.23. | The diagram and details of 37.10 and 37.85 show this iteration with the tag `vpiNetTypedef`, but the header of Annex M has no such constant, only `vpiNettypeDecl` and `vpiNetTypedefAlias`. | follows a | [ghost-only-review-ch37-20261113.en](ghost-only-review-ch37-20261113.en.md#standard-gap) |  |
 | [`ch37/test_vpi_nettype_alias_chain_relations`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch37/test_vpi_nettype_alias_chain_relations.sv) | 37.10, 37.85, M | The test iterates to the nettype declarations with `vpiNettypeDecl`, an iteration the standard does not define. Once a declaration is reached, the expected values follow 37.23. | The diagram and details of 37.10 and 37.85 show this iteration with the tag `vpiNetTypedef`, but the header of Annex M has no such constant, only `vpiNettypeDecl` and `vpiNetTypedefAlias`. | follows a | [ghost-only-review-ch37-20261113.en](ghost-only-review-ch37-20261113.en.md#standard-gap) |  |
