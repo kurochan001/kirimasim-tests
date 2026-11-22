@@ -6,10 +6,10 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 93.12%, execution without Ghost 51.22%, execution with Ghost and kirimasim 78.71%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 93.12%, execution without Ghost 51.22%, execution with Ghost and kirimasim 88.20%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 93.12%. Requirement execution-confirmation rate: 51.22% without Ghost, 78.71% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 93.12%. Requirement execution-confirmation rate: 51.22% without Ghost, 88.20% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
@@ -17,7 +17,7 @@ Requirement coverage (test design): 93.12%. Requirement execution-confirmation r
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
 - The requirement coverage (test design) for registered behaviors is 11483/12332 ( 93.12% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 9707/12332 ( 78.71% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 10877/12332 ( 88.20% ).
 - Registered but not tested: 849.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
@@ -103,6 +103,7 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7924/12332 execution checked; 487 entries refer to older inputs.
 - `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7992/12332 execution checked; 435 entries refer to older inputs.
 - `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7906/12332 execution checked; 487 entries refer to older inputs.
+- `ghost-local-20261123-strict.json`: `private build 3d017657c3e4` / `2026-11-22T20:32:55.789394+00:00` / 9676/12332 execution checked; 0 entries refer to older inputs.
 - `intcompat-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T10:26:34.150974+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `intcompat-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T10:26:46.168015+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `intcompat-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T10:26:39.847047+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -1480,7 +1481,7 @@ Normative role: `definition`。
 
 ### SV2023-3.11-EXTRACT-CHECKER-CHILDREN
 
-`3.11` / `normal` / Test mapped; execution unconfirmed
+`3.11` / `normal` / Execution confirmed
 
 Programs and checkers may instantiate checkers under checker instantiation rules.
 
@@ -1671,7 +1672,7 @@ Normative role: `mandatory`。
 
 ### SV2023-3.12-EXTRACT-SINGLE-AND-MULTIFILE
 
-`3.12` / `normal` / Test mapped; execution unconfirmed
+`3.12` / `normal` / Execution confirmed
 
 Compilation-unit use models support single-file and multi-file compilation.
 
@@ -2525,7 +2526,7 @@ Normative role: `definition`。
 
 ### SV2023-4.4-EXTRACT-ORDERED-REGIONS
 
-`4.4` / `normal` / Test mapped; execution unconfirmed
+`4.4` / `normal` / Execution confirmed
 
 A time slot orders its regions as Preponed, Pre-Active, Active, Inactive, Pre-NBA, NBA, Post-NBA, Pre-Observed, Observed, Post-Observed, Reactive, Re-Inactive, Pre-Re-NBA, Re-NBA, Post-Re-NBA, Pre-Postponed and Postponed.
 
@@ -2548,7 +2549,7 @@ Normative role: `definition`。
 
 ### SV2023-4.4.1-EXTRACT-ITERATIVE-SET
 
-`4.4.1` / `normal` / Test mapped; execution unconfirmed
+`4.4.1` / `normal` / Execution confirmed
 
 The iterative regions run from Active through Pre-Postponed, excluding Preponed, Pre-Active and Postponed.
 
@@ -2571,7 +2572,7 @@ Normative role: `definition`。
 
 ### SV2023-4.4.2-EXTRACT-SIMULATION-REGION-SET
 
-`4.4.2` / `normal` / Test mapped; execution unconfirmed
+`4.4.2` / `normal` / Execution confirmed
 
 Simulation regions are Preponed, Active, Inactive, NBA, Observed, Reactive, Re-Inactive, Re-NBA and Postponed.
 
@@ -3059,7 +3060,7 @@ Normative role: `mandatory`。
 
 ### SV2023-4.4.3.10-EXTRACT-SLOT-ENTRY
 
-`4.4.3.10` / `normal` / Test mapped; execution unconfirmed
+`4.4.3.10` / `normal` / Execution confirmed
 
 Each time slot enters Preponed, then Pre-Active, before beginning iterative Active processing.
 
@@ -3392,7 +3393,7 @@ Normative role: `mandatory`。
 
 ### SV2023-4.9.5-EXTRACT-BIDIRECTIONAL-NET-TYPES
 
-`4.9.5` / `normal` / Test mapped; execution unconfirmed
+`4.9.5` / `normal` / Execution confirmed
 
 Switch-level propagation supports bidirectional connection of built-in and user-defined net types under their respective resolution rules.
 
@@ -3442,7 +3443,7 @@ Normative role: `mandatory`。
 
 ### SV2023-4.9.5-EXTRACT-UDN-OFF-RESOLUTION
 
-`4.9.5` / `normal` / Test mapped; execution unconfirmed
+`4.9.5` / `normal` / Execution confirmed
 
 When a user-defined-net bidirectional switch is off, its two terminal nets are resolved separately.
 
@@ -3454,7 +3455,7 @@ Normative role: `mandatory`。
 
 ### SV2023-4.9.5-EXTRACT-UDN-ON-RESOLUTION
 
-`4.9.5` / `normal` / Test mapped; execution unconfirmed
+`4.9.5` / `normal` / Execution confirmed
 
 When a user-defined-net bidirectional switch is on, its two terminal nets resolve as one connected net.
 
@@ -3466,7 +3467,7 @@ Normative role: `mandatory`。
 
 ### SV2023-4.9.5-EXTRACT-UDN-UNKNOWN-OFF
 
-`4.9.5` / `normal` / Test mapped; execution unconfirmed
+`4.9.5` / `normal` / Execution confirmed
 
 A bidirectional switch between user-defined nets is off when its control is x or z.
 
@@ -4077,7 +4078,7 @@ Normative role: `permission`。
 
 ### SV2023-5.6.3-EXTRACT-SYSTEM-CALL-ARGUMENT-FORMS
 
-`5.6.3` / `normal` / Test mapped; execution unconfirmed
+`5.6.3` / `normal` / Execution confirmed
 
 A system task or function call takes one of three argument forms: an optional argument list, a data type optionally followed by an expression, or expressions with omitted positions and an optional trailing clocking event.
 
@@ -5366,7 +5367,7 @@ Normative role: `mandatory`。
 
 ### SV2023-5.12-EXTRACT-ATTRIBUTE-DEFAULT
 
-`5.12` / `normal` / Test mapped; execution unconfirmed
+`5.12` / `normal` / Execution confirmed
 
 An attribute without an explicit value has type bit and value 1.
 
@@ -5413,7 +5414,7 @@ Normative role: `definition`。
 
 ### SV2023-5.12-EXTRACT-ATTRIBUTE-LAST-WINS
 
-`5.12` / `normal` / Test mapped; execution unconfirmed
+`5.12` / `normal` / Execution confirmed
 
 When one language element has repeated definitions of the same attribute name, the last value is used.
 
@@ -5425,7 +5426,7 @@ Normative role: `mandatory`。
 
 ### SV2023-5.12-EXTRACT-ATTRIBUTE-METADATA
 
-`5.12` / `normal` / Test mapped; execution unconfirmed
+`5.12` / `normal` / Execution confirmed
 
 Attributes attach tool-consumable properties; this syntax clause does not standardize operational meaning for arbitrary attribute names.
 
@@ -5556,7 +5557,7 @@ Normative role: `definition`。
 
 ### SV2023-5.13-EXTRACT-NO-PLI-METHOD-REDEFINITION
 
-`5.13` / `normal` / Test mapped; execution unconfirmed
+`5.13` / `normal` / Execution confirmed
 
 A PLI system-task definition cannot redefine the prescribed operation of a built-in method.
 
@@ -7476,7 +7477,7 @@ Normative role: `definition`。
 
 ### SV2023-6.6.7-EXTRACT-DATA-FIXED-UNPACKED
 
-`6.6.7` / `normal` / Test mapped; execution unconfirmed
+`6.6.7` / `normal` / Execution confirmed
 
 A user-defined nettype may use a fixed-size unpacked array/structure/union whose element types recursively satisfy user-nettype type validity.
 
@@ -7608,7 +7609,7 @@ Normative role: `definition`。
 
 ### SV2023-6.6.7-EXTRACT-RESOLVER-LIFETIME
 
-`6.6.7` / `normal` / Test mapped; execution unconfirmed
+`6.6.7` / `normal` / Execution confirmed
 
 A resolution function has automatic lifetime or otherwise preserves no state information between its prescribed evaluations.
 
@@ -7801,7 +7802,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.6.8-EXTRACT-INTERCONNECT-TYPELESS
 
-`6.6.8` / `normal` / Test mapped; execution unconfirmed
+`6.6.8` / `normal` / Execution confirmed
 
 An interconnect net/port is generic and typeless; its actual connection type is determined by the connection rules.
 
@@ -7875,7 +7876,7 @@ Normative role: `definition`。
 
 ### SV2023-6.7-EXTRACT-INTERCONNECT-DECLARATION-FORM
 
-`6.7` / `normal` / Test mapped; execution unconfirmed
+`6.7` / `normal` / Execution confirmed
 
 An interconnect declaration uses its generic declaration form with implicit range/signing syntax where permitted, individual unpacked dimensions and at most one delay value.
 
@@ -7911,7 +7912,7 @@ Normative role: `definition`。
 
 ### SV2023-6.7-EXTRACT-NET-DELAY-VALUES
 
-`6.7` / `normal` / Test mapped; execution unconfirmed
+`6.7` / `normal` / Execution confirmed
 
 A delay value uses an unsigned number, real number, permitted identifier, time literal or exact 1step form under the relevant syntax.
 
@@ -8068,7 +8069,7 @@ Normative role: `definition`。
 
 ### SV2023-6.7.1-EXTRACT-NET-RECURSIVE-TYPE-DOMAIN
 
-`6.7.1` / `normal` / Test mapped; execution unconfirmed
+`6.7.1` / `normal` / Execution confirmed
 
 A valid built-in net type is a four-state integral type or a fixed-size unpacked array/structure/union recursively containing valid net data types.
 
@@ -8140,7 +8141,7 @@ Normative role: `permission`。
 
 ### SV2023-6.7.3-EXTRACT-USER-NET-INITIALIZATION-ORDER
 
-`6.7.3` / `normal` / Test mapped; execution unconfirmed
+`6.7.3` / `normal` / Execution confirmed
 
 A user-nettype net receives its initial value before initial/always procedures start and before its guaranteed time-zero resolver call.
 
@@ -12080,7 +12081,7 @@ Normative role: `definition`。
 
 ### SV2023-6.20.1-EXTRACT-BODY-PARAMETER-LOCAL
 
-`6.20.1` / `normal` / Test mapped; execution unconfirmed
+`6.20.1` / `normal` / Execution confirmed
 
 When a design element has a parameter port list, including an empty list, directly contained body parameter declarations behave as localparam.
 
@@ -12092,7 +12093,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.20.1-EXTRACT-CLASS-BODY-LOCAL
 
-`6.20.1` / `normal` / Test mapped; execution unconfirmed
+`6.20.1` / `normal` / Execution confirmed
 
 All parameter assignments in a class body are localparams regardless of whether a parameter port list exists.
 
@@ -12128,7 +12129,7 @@ Normative role: `permission`。
 
 ### SV2023-6.20.1-EXTRACT-GENERATE-PACKAGE-UNIT-LOCAL
 
-`6.20.1` / `normal` / Test mapped; execution unconfirmed
+`6.20.1` / `normal` / Execution confirmed
 
 All parameter assignments in a generate block, package or compilation-unit scope are localparams.
 
@@ -12660,7 +12661,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.20.5-EXTRACT-PARAMETER-OVERRIDE-MECHANISMS
 
-`6.20.5` / `normal` / Test mapped; execution unconfirmed
+`6.20.5` / `normal` / Execution confirmed
 
 Ordinary overridable parameters use defparam or instance parameter-value passing under 23.10, whereas specparams use SDF.
 
@@ -13241,7 +13242,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.22-EXTRACT-COMPATIBILITY-CATEGORIES
 
-`6.22` / `normal` / Test mapped; execution unconfirmed
+`6.22` / `normal` / Execution confirmed
 
 Type compatibility is classified using matching, equivalence, assignment compatibility, cast compatibility and incompatibility under the detailed inductive rules.
 
@@ -13253,7 +13254,7 @@ Normative role: `definition`。
 
 ### SV2023-6.22-EXTRACT-INSTANCE-TYPE-IDENTITY
 
-`6.22` / `normal` / Test mapped; execution unconfirmed
+`6.22` / `normal` / Execution confirmed
 
 A user type declaration includes its hierarchical instance scope, so each instance declaring the type creates a distinct type identity.
 
@@ -13385,7 +13386,7 @@ Normative role: `definition`。
 
 ### SV2023-6.22.2-EXTRACT-ANONYMOUS-EQUIVALENCE
 
-`6.22.2` / `normal` / Test mapped; execution unconfirmed
+`6.22.2` / `normal` / Execution confirmed
 
 An anonymous enum or unpacked struct/union is equivalent to itself within the same declaration statement, not an independent declaration.
 
@@ -13397,7 +13398,7 @@ Normative role: `definition`。
 
 ### SV2023-6.22.2-EXTRACT-CLOSED-EQUIVALENCE
 
-`6.22.2` / `normal` / Test mapped; execution unconfirmed
+`6.22.2` / `normal` / Execution confirmed
 
 Types are equivalent only when established by the inductive equivalence rules, otherwise nonequivalent.
 
@@ -13526,7 +13527,7 @@ Normative role: `definition`。
 
 ### SV2023-6.22.5-EXTRACT-INCOMPATIBLE
 
-`6.22.5` / `normal` / Test mapped; execution unconfirmed
+`6.22.5` / `normal` / Execution confirmed
 
 Nonequivalent types without an implicit or explicit cast rule are type incompatible; class handles, interface-class handles and chandles are incompatible with other type categories, subject to their same-category conversion rules.
 
@@ -13705,7 +13706,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.24.1-EXTRACT-AGGREGATE-BIT-PRESERVATION
 
-`6.24.1` / `normal` / Test mapped; execution unconfirmed
+`6.24.1` / `normal` / Execution confirmed
 
 A permitted structure-to-bits conversion preserves the bit pattern for a lossless round trip when the chosen bit type preserves its state domain.
 
@@ -13985,7 +13986,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.24.1-EXTRACT-UNPACKED-PACK-ORDER
 
-`6.24.1` / `normal` / Test mapped; execution unconfirmed
+`6.24.1` / `normal` / Execution confirmed
 
 Unpacked aggregate-to-packed conversion concatenates items in declaration/element order, with the first structure field in the most significant bits.
 
@@ -13997,7 +13998,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.24.2-EXTRACT-AGGREGATE-ASSIGNMENT-COMPATIBILITY
 
-`6.24.2` / `normal` / Test mapped; execution unconfirmed
+`6.24.2` / `normal` / Execution confirmed
 
 For nonsingular arguments, a dynamic cast assignment is invalid if the argument types are not assignment compatible; general static bit-stream cast permissions do not extend this test.
 
@@ -14165,7 +14166,7 @@ Normative role: `permission`。
 
 ### SV2023-6.24.3-EXTRACT-ASSOCIATIVE-PACK-ORDER
 
-`6.24.3` / `normal` / Test mapped; execution unconfirmed
+`6.24.3` / `normal` / Execution confirmed
 
 Packing an associative array follows sorted-index order with the first indexed entry most significant.
 
@@ -14201,7 +14202,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.24.3-EXTRACT-DESTINATION-LEFT-TO-RIGHT
 
-`6.24.3` / `normal` / Test mapped; execution unconfirmed
+`6.24.3` / `normal` / Execution confirmed
 
 Destination items receive bits in left-to-right order, including a dynamic item located between fixed items.
 
@@ -14213,7 +14214,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.24.3-EXTRACT-DYNAMIC-PACK-ORDER
 
-`6.24.3` / `normal` / Test mapped; execution unconfirmed
+`6.24.3` / `normal` / Execution confirmed
 
 Packing a dynamic array, queue or string places its index-zero item at the most significant end, followed by increasing indices.
 
@@ -14225,7 +14226,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.24.3-EXTRACT-DYNAMIC-SIZE-MISMATCH
 
-`6.24.3` / `normal` / Test mapped; execution unconfirmed
+`6.24.3` / `normal` / Execution confirmed
 
 A size mismatch involving dynamic types is an error reported as early as it can be determined, at compilation or runtime.
 
@@ -14237,7 +14238,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.24.3-EXTRACT-DYNAMIC-SOURCE-INCLUDED
 
-`6.24.3` / `normal` / Test mapped; execution unconfirmed
+`6.24.3` / `normal` / Execution confirmed
 
 All dynamically sized source data are included in the stream, wherever positioned in the source aggregate.
 
@@ -14261,7 +14262,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.24.3-EXTRACT-GREEDY-FIRST-DYNAMIC
 
-`6.24.3` / `normal` / Test mapped; execution unconfirmed
+`6.24.3` / `normal` / Execution confirmed
 
 For a destination with unbounded dynamic items, subtract fixed destination bits from source size and allocate the remaining size to the first dynamic item; later dynamic items stay empty.
 
@@ -14286,7 +14287,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.24.3-EXTRACT-PACK-SOURCE-DOMAIN
 
-`6.24.3` / `normal` / Test mapped; execution unconfirmed
+`6.24.3` / `normal` / Execution confirmed
 
 The generic bit-stream is four-state if any source component is four-state, otherwise two-state.
 
@@ -14310,7 +14311,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.24.3-EXTRACT-RECURSIVE-BITSTREAM-TYPES
 
-`6.24.3` / `normal` / Test mapped; execution unconfirmed
+`6.24.3` / `normal` / Execution confirmed
 
 Bit-stream types recursively include integral/packed/string types, unpacked arrays/structs/classes of such types and dynamically sized arrays/associative arrays/queues of such elements.
 
@@ -14334,7 +14335,7 @@ Normative role: `definition`。
 
 ### SV2023-6.24.3-EXTRACT-UNPACK-TWO-STATE
 
-`6.24.3` / `normal` / Test mapped; execution unconfirmed
+`6.24.3` / `normal` / Execution confirmed
 
 When a four-state generic bit stream is unpacked into two-state destination parts, those parts use four-to-two-state cast conversion.
 
@@ -15503,7 +15504,7 @@ Normative role: `mandatory`。
 
 ### SV2023-7.4.5-EXTRACT-NONEXISTENT-CLASS
 
-`7.4.5` / `boundary` / Test mapped; execution unconfirmed
+`7.4.5` / `boundary` / Execution confirmed
 
 An invalid unpacked-array index read for a class handle element returns null.
 
@@ -15527,7 +15528,7 @@ Normative role: `mandatory`。
 
 ### SV2023-7.4.5-EXTRACT-NONEXISTENT-EVENT
 
-`7.4.5` / `boundary` / Test mapped; execution unconfirmed
+`7.4.5` / `boundary` / Execution confirmed
 
 An invalid unpacked-array index read for a event element returns null rather than a newly created event.
 
@@ -15563,7 +15564,7 @@ Normative role: `mandatory`。
 
 ### SV2023-7.4.5-EXTRACT-NONEXISTENT-INTERFACE-CLASS
 
-`7.4.5` / `boundary` / Test mapped; execution unconfirmed
+`7.4.5` / `boundary` / Execution confirmed
 
 An invalid unpacked-array index read for a interface-class handle element returns null.
 
@@ -15575,7 +15576,7 @@ Normative role: `mandatory`。
 
 ### SV2023-7.4.5-EXTRACT-NONEXISTENT-REAL
 
-`7.4.5` / `boundary` / Test mapped; execution unconfirmed
+`7.4.5` / `boundary` / Execution confirmed
 
 An invalid unpacked-array index read for a real/shortreal element returns 0.0.
 
@@ -15587,7 +15588,7 @@ Normative role: `mandatory`。
 
 ### SV2023-7.4.5-EXTRACT-NONEXISTENT-STRING
 
-`7.4.5` / `boundary` / Test mapped; execution unconfirmed
+`7.4.5` / `boundary` / Execution confirmed
 
 An invalid unpacked-array index read for a string element returns the empty string.
 
@@ -15647,7 +15648,7 @@ Normative role: `mandatory`。
 
 ### SV2023-7.4.5-EXTRACT-NONEXISTENT-VIRTUAL-INTERFACE
 
-`7.4.5` / `boundary` / Test mapped; execution unconfirmed
+`7.4.5` / `boundary` / Execution confirmed
 
 An invalid unpacked-array index read for a virtual interface element returns null.
 
@@ -16167,7 +16168,7 @@ Normative role: `permission`。
 
 ### SV2023-7.6-EXTRACT-DYNAMIC-FIXED-MISMATCH
 
-`7.6` / `normal` / Test mapped; execution unconfirmed
+`7.6` / `normal` / Execution confirmed
 
 Copying a runtime-sized dynamic array or queue to a fixed array of another size reports a runtime error and performs no operation.
 
@@ -18708,7 +18709,7 @@ Normative role: `mandatory`。
 
 ### SV2023-7.12.4-EXTRACT-DIMENSION-NUMBERING
 
-`7.12.4` / `normal` / Test mapped; execution unconfirmed
+`7.12.4` / `normal` / Execution confirmed
 
 Index query dimensions start with the slowest-varying at one and increase toward faster-varying dimensions; omitted dimension means one.
 
@@ -18780,7 +18781,7 @@ Normative role: `mandatory`。
 
 ### SV2023-7.12.5-EXTRACT-MAP-SELF-DETERMINED-TYPE
 
-`7.12.5` / `normal` / Test mapped; execution unconfirmed
+`7.12.5` / `normal` / Execution confirmed
 
 Each mapped element has the self-determined type of the with expression.
 
@@ -18792,7 +18793,7 @@ Normative role: `mandatory`。
 
 ### SV2023-7.12.5-EXTRACT-MAP-SHAPE
 
-`7.12.5` / `normal` / Test mapped; execution unconfirmed
+`7.12.5` / `normal` / Execution confirmed
 
 map() returns an unpacked array with the source range/index type, or the identical associative key set, replacing values without changing dimension bounds.
 
@@ -18840,7 +18841,7 @@ Normative role: `mandatory`。
 
 ### SV2023-8.3-EXTRACT-CLASS-BODY-LOCALPARAM
 
-`8.3` / `normal` / Test mapped; execution unconfirmed
+`8.3` / `normal` / Execution confirmed
 
 A parameter declared as a class item is a localparam.
 
@@ -20373,7 +20374,7 @@ Normative role: `mandatory`。
 
 ### SV2023-8.20-EXTRACT-FINAL-NO-IMPLIED-VIRTUAL
 
-`8.20` / `normal` / Test mapped; execution unconfirmed
+`8.20` / `normal` / Execution confirmed
 
 A method final specifier does not itself imply virtual.
 
@@ -21801,7 +21802,7 @@ Normative role: `mandatory`。
 
 ### SV2023-8.30.2-EXTRACT-NULL-NO-WARNING
 
-`8.30.2` / `boundary` / Test mapped; execution unconfirmed
+`8.30.2` / `boundary` / Execution confirmed
 
 Constructing a weak reference with a null referent issues no warning.
 
@@ -21896,7 +21897,7 @@ Normative role: `definition`。
 
 ### SV2023-8.30.5-EXTRACT-LIFETIME-UNIQUE-ID
 
-`8.30.5` / `normal` / Test mapped; execution unconfirmed
+`8.30.5` / `normal` / Execution confirmed
 
 An object ID differs from every other object ID regardless of type throughout its lifetime; after garbage collection it may be reused.
 
@@ -21931,7 +21932,7 @@ Normative role: `definition`。
 
 ### SV2023-8.30.5-EXTRACT-SIGNATURE
 
-`8.30.5` / `normal` / Test mapped; execution unconfirmed
+`8.30.5` / `normal` / Execution confirmed
 
 Weak get_id is static, takes T obj and returns longint.
 
@@ -22096,7 +22097,7 @@ Normative role: `definition`。
 
 ### SV2023-9.2.2.1-EXTRACT-ZERO-TIME-DEADLOCK
 
-`9.2.2.1` / `normal` / Test mapped; execution unconfirmed
+`9.2.2.1` / `normal` / Execution confirmed
 
 A nonterminating always loop with no suspension/time-advance control causes zero-time simulation deadlock rather than implied time advancement.
 
@@ -22228,7 +22229,7 @@ Normative role: `mandatory`。
 
 ### SV2023-9.2.2.2.1-EXTRACT-EXCLUDE-TIMING-ONLY
 
-`9.2.2.2.1` / `normal` / Test mapped; execution unconfirmed
+`9.2.2.2.1` / `normal` / Execution confirmed
 
 Identifiers occurring only in wait/event/delay expressions do not contribute implicit sensitivity.
 
@@ -22822,7 +22823,7 @@ Normative role: `mandatory`。
 
 ### SV2023-9.3.4-EXTRACT-UNNAMED-DECLARATION-SCOPE
 
-`9.3.4` / `normal` / Test mapped; execution unconfirmed
+`9.3.4` / `normal` / Execution confirmed
 
 An unnamed block creates a new hierarchy scope, which has no name, only when it directly contains a block item declaration such as a variable or type declaration.
 
@@ -22982,7 +22983,7 @@ Normative role: `definition`。
 
 ### SV2023-9.4-EXTRACT-TIMING-CONTROL-GRAMMAR
 
-`9.4` / `normal` / Test mapped; execution unconfirmed
+`9.4` / `normal` / Execution confirmed
 
 Timing statements support delay/event/cycle controls with statement-or-null, repeat-counted events, edge/iff/sequence/or/comma/parenthesized event expressions and wait/wait-fork/wait-order forms under Syntax 9-4.
 
@@ -23699,7 +23700,7 @@ Normative role: `definition`。
 
 ### SV2023-9.5-EXTRACT-EXECUTION-THREAD-KINDS
 
-`9.5` / `normal` / Test mapped; execution unconfirmed
+`9.5` / `normal` / Execution confirmed
 
 Thread classifications include each initial/always variant, each fork parallel statement and each dynamic process; final execution is listed here but obeys the special one-process sequential rules of 9.2.3.
 
@@ -23822,7 +23823,7 @@ Normative role: `mandatory`。
 
 ### SV2023-9.6.2-EXTRACT-DISABLE-LABELED-ASSERTION
 
-`9.6.2` / `normal` / Test mapped; execution unconfirmed
+`9.6.2` / `normal` / Execution confirmed
 
 disable may terminate a labeled statement, including a deferred or procedural concurrent assertion under its detailed assertion rules.
 
@@ -25499,7 +25500,7 @@ Normative role: `definition`。
 
 ### SV2023-10.8-EXTRACT-TAGGED-CONTEXT
 
-`10.8` / `normal` / Test mapped; execution unconfirmed
+`10.8` / `normal` / Execution confirmed
 
 Tagged union expression is an assignment-like context.
 
@@ -25586,7 +25587,7 @@ Normative role: `definition`。
 
 ### SV2023-10.9-EXTRACT-PATTERN-GRAMMAR
 
-`10.9` / `normal` / Test mapped; execution unconfirmed
+`10.9` / `normal` / Execution confirmed
 
 Pattern grammar supports positional, member-keyed, index-keyed and constant-replicated forms; keys may be simple types or default and typed pattern expressions accept the specified type/type-parameter/integer-atom/type-reference prefixes.
 
@@ -26257,7 +26258,7 @@ Normative role: `mandatory`。
 
 ### SV2023-10.11-EXTRACT-ELABORATION-ALIAS
 
-`10.11` / `normal` / Test mapped; execution unconfirmed
+`10.11` / `normal` / Execution confirmed
 
 Aliasing occurs at elaboration, cannot be undone and does not change a net syntactic behavior in other statements.
 
@@ -26307,7 +26308,7 @@ Normative role: `definition`。
 
 ### SV2023-11.2-EXTRACT-OPERAND-CATEGORIES
 
-`11.2` / `normal` / Test mapped; execution unconfirmed
+`11.2` / `normal` / Execution confirmed
 
 Operands include numeric/string literals, parameters and selections, nets/variables and selections, structs/unions/members, arrays/elements/slices and eligible value-returning user/system/method function calls, subject to individual operation rules.
 
@@ -26536,7 +26537,7 @@ Normative role: `definition`。
 
 ### SV2023-11.3-EXTRACT-CASE-EQUALITY-OPERANDS
 
-`11.3` / `normal` / Test mapped; execution unconfirmed
+`11.3` / `normal` / Execution confirmed
 
 Table 11-1 permits === !== with eligible types other than real/shortreal operands, subject to more specific type/context rules.
 
@@ -26716,7 +26717,7 @@ Normative role: `definition`。
 
 ### SV2023-11.3-EXTRACT-STREAM-BITSTREAM-TYPES
 
-`11.3` / `normal` / Test mapped; execution unconfirmed
+`11.3` / `normal` / Execution confirmed
 
 Table 11-1 lists streaming operators with integral data; 11.4.14 explicitly extends packing to eligible bit-stream types, with restrictions on expression use.
 
@@ -28133,7 +28134,7 @@ Normative role: `definition`。
 
 ### SV2023-11.4.5-EXTRACT-CHANDLE-EQUALITY
 
-`11.4.5` / `normal` / Test mapped; execution unconfirmed
+`11.4.5` / `normal` / Execution confirmed
 
 Chandle/null equality compares handle values under chandle operand restrictions.
 
@@ -28145,7 +28146,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.4.5-EXTRACT-CLASS-EQUALITY
 
-`11.4.5` / `normal` / Test mapped; execution unconfirmed
+`11.4.5` / `normal` / Execution confirmed
 
 Class/interface handle or null equality is legal when one operand is assignment compatible with the other; equality compares handle values.
 
@@ -28291,7 +28292,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.4.6-EXTRACT-WILDCARD-HANDLE-EQUALITY
 
-`11.4.6` / `normal` / Test mapped; execution unconfirmed
+`11.4.6` / `normal` / Execution confirmed
 
 For class/interface-class/chandle/null operands, wildcard equality has logical equality semantics.
 
@@ -29817,7 +29818,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.4.11-EXTRACT-AMBIGUOUS-OTHER-DEFAULT
 
-`11.4.11` / `normal` / Test mapped; execution unconfirmed
+`11.4.11` / `normal` / Execution confirmed
 
 For other nonintegral/aggregate ambiguous unequal branches, including inapplicable array element-combination cases, return the Table 7-1 value of the determined result type.
 
@@ -29853,7 +29854,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.4.11-EXTRACT-CONDITIONAL-GRAMMAR
 
-`11.4.11` / `normal` / Test mapped; execution unconfirmed
+`11.4.11` / `normal` / Execution confirmed
 
 A conditional predicate may combine expression or matches-pattern terms with &&&, followed by ? optional attributes true-expression : false-expression.
 
@@ -30543,7 +30544,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.4.14-EXTRACT-DYNAMIC-STREAM-RESIZE
 
-`11.4.14` / `normal` / Test mapped; execution unconfirmed
+`11.4.14` / `normal` / Execution confirmed
 
 A dynamic destination resizes to the smallest element count containing the stream, adding right-side zero bits if the final element is partial.
 
@@ -30640,7 +30641,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.4.14-EXTRACT-STREAM-GRAMMAR
 
-`11.4.14` / `normal` / Test mapped; execution unconfirmed
+`11.4.14` / `normal` / Execution confirmed
 
 Streaming concatenation uses \<\< or \>\> with optional simple-type/constant slice size and nonempty stream expressions, optionally with single/ranged/indexed with selections.
 
@@ -30677,7 +30678,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.4.14.1-EXTRACT-ARRAY-STREAM-ORDER
 
-`11.4.14.1` / `normal` / Test mapped; execution unconfirmed
+`11.4.14.1` / `normal` / Execution confirmed
 
 Other unpacked arrays are recursively streamed elementwise: associative arrays in sorted-index order, others in a one-index foreach traversal order.
 
@@ -30689,7 +30690,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.4.14.1-EXTRACT-BITSTREAM-ITEM-CAST
 
-`11.4.14.1` / `normal` / Test mapped; execution unconfirmed
+`11.4.14.1` / `normal` / Execution confirmed
 
 A nested stream or eligible bit-stream item is bit-stream-cast to packed bits, converting two-state to four-state when needed, before append.
 
@@ -30701,7 +30702,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.4.14.1-EXTRACT-NULL-HANDLE-SKIP
 
-`11.4.14.1` / `boundary` / Test mapped; execution unconfirmed
+`11.4.14.1` / `boundary` / Execution confirmed
 
 A null class handle contributes no bits and may issue a warning.
 
@@ -30724,7 +30725,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.4.14.1-EXTRACT-OBJECT-STREAM-ORDER
 
-`11.4.14.1` / `normal` / Test mapped; execution unconfirmed
+`11.4.14.1` / `normal` / Execution confirmed
 
 A nonnull object streams data members rather than handle bits, in declaration order with base members before derived members.
 
@@ -30760,7 +30761,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.4.14.1-EXTRACT-STRUCT-STREAM-ORDER
 
-`11.4.14.1` / `normal` / Test mapped; execution unconfirmed
+`11.4.14.1` / `normal` / Execution confirmed
 
 Other structures recursively stream members in declaration order.
 
@@ -30772,7 +30773,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.4.14.1-EXTRACT-UNION-FIRST-MEMBER
 
-`11.4.14.1` / `normal` / Test mapped; execution unconfirmed
+`11.4.14.1` / `normal` / Execution confirmed
 
 An otherwise handled untagged union streams its first declared member.
 
@@ -30857,7 +30858,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.4.14.3-EXTRACT-UNPACK-CONSUME-HIGH
 
-`11.4.14.3` / `normal` / Test mapped; execution unconfirmed
+`11.4.14.3` / `normal` / Execution confirmed
 
 When source has more bits than required, unpack consumes from the source most significant end.
 
@@ -30869,7 +30870,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.4.14.3-EXTRACT-UNPACK-EXPLICIT-PROPERTIES
 
-`11.4.14.3` / `normal` / Test mapped; execution unconfirmed
+`11.4.14.3` / `normal` / Execution confirmed
 
 Unpack modifies only explicitly declared properties, leaving implicit state such as random modes unchanged.
 
@@ -30881,7 +30882,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.4.14.3-EXTRACT-UNPACK-NO-OBJECT-CREATION
 
-`11.4.14.3` / `normal` / Test mapped; execution unconfirmed
+`11.4.14.3` / `normal` / Execution confirmed
 
 Null handles are skipped during packing and unpacking; object hierarchies must already exist before unpack and no class objects are constructed by unpack.
 
@@ -30905,7 +30906,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.4.14.3-EXTRACT-UNPACK-STATE-CONVERSION
 
-`11.4.14.3` / `normal` / Test mapped; execution unconfirmed
+`11.4.14.3` / `normal` / Execution confirmed
 
 Unpacking between two/four-state streams and targets uses the corresponding type cast conversions.
 
@@ -30929,7 +30930,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.4.14.4-EXTRACT-EXPLICIT-WITH-EXTENT
 
-`11.4.14.4` / `normal` / Test mapped; execution unconfirmed
+`11.4.14.4` / `normal` / Execution confirmed
 
 A streaming with expression may specify a variable-size field extent explicitly.
 
@@ -30941,7 +30942,7 @@ Normative role: `permission`。
 
 ### SV2023-11.4.14.4-EXTRACT-GREEDY-DYNAMIC-UNPACK
 
-`11.4.14.4` / `normal` / Test mapped; execution unconfirmed
+`11.4.14.4` / `normal` / Execution confirmed
 
 Without an explicit extent, the first unbounded dynamic target consumes all source bits after reserving fixed targets; later dynamic targets stay empty.
 
@@ -30953,7 +30954,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.4.14.4-EXTRACT-STREAM-WITH-GRAMMAR
 
-`11.4.14.4` / `normal` / Test mapped; execution unconfirmed
+`11.4.14.4` / `normal` / Execution confirmed
 
 Streaming with accepts a bracketed integral single-index, colon range or indexed plus/minus width form.
 
@@ -30978,7 +30979,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.4.14.4-EXTRACT-WITH-DYNAMIC-RESIZE
 
-`11.4.14.4` / `normal` / Test mapped; execution unconfirmed
+`11.4.14.4` / `normal` / Execution confirmed
 
 Unpacking into a variable-size array with an explicit range resizes it to accommodate that range.
 
@@ -30990,7 +30991,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.4.14.4-EXTRACT-WITH-EVALUATION-TIME
 
-`11.4.14.4` / `normal` / Test mapped; execution unconfirmed
+`11.4.14.4` / `normal` / Execution confirmed
 
 A with range evaluates immediately before its corresponding array is streamed, allowing dependencies on values unpacked earlier while later variables still supply their old values.
 
@@ -31024,7 +31025,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.4.14.4-EXTRACT-WITH-PACK-SLICE
 
-`11.4.14.4` / `normal` / Test mapped; execution unconfirmed
+`11.4.14.4` / `normal` / Execution confirmed
 
 A pack-side with range streams only the specified array slice; positions beyond existing array size contribute the Table 7-1 nonexistent entry value.
 
@@ -31036,7 +31037,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.4.14.4-EXTRACT-WITH-PARTIAL-PRESERVES
 
-`11.4.14.4` / `normal` / Test mapped; execution unconfirmed
+`11.4.14.4` / `normal` / Execution confirmed
 
 Unpacking a smaller specified extent writes only designated locations and leaves the rest of the array unchanged.
 
@@ -31359,7 +31360,7 @@ Normative role: `definition`。
 
 ### SV2023-11.5.3-EXTRACT-STATIC-FIELD-PREFIX
 
-`11.5.3` / `normal` / Test mapped; execution unconfirmed
+`11.5.3` / `normal` / Execution confirmed
 
 A field select is static exactly when its prefix is static.
 
@@ -31997,7 +31998,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.9-EXTRACT-TAGGED-DOT-READ-WRITE
 
-`11.9` / `normal` / Test mapped; execution unconfirmed
+`11.9` / `normal` / Execution confirmed
 
 Tagged members may be read/written using dot notation only consistently with the current tag; a mismatching read/write produces a runtime error.
 
@@ -32609,7 +32610,7 @@ Normative role: `mandatory`。
 
 ### SV2023-12.4.2.1-EXTRACT-DEFERRED-OBSERVED-REPORT
 
-`12.4.2.1` / `normal` / Test mapped; execution unconfirmed
+`12.4.2.1` / `normal` / Execution confirmed
 
 Checks evaluate at statement execution but reports defer to Observed in the current time step and can be controlled by assertion control tasks.
 
@@ -32657,7 +32658,7 @@ Normative role: `mandatory`。
 
 ### SV2023-12.4.2.1-EXTRACT-MATURE-REPORT
 
-`12.4.2.1` / `normal` / Test mapped; execution unconfirmed
+`12.4.2.1` / `normal` / Execution confirmed
 
 In Observed, each remaining report matures, becomes immune to later flushing, is reported by the tool mechanism and is removed from that process queue.
 
@@ -32752,7 +32753,7 @@ Normative role: `mandatory`。
 
 ### SV2023-12.5-EXTRACT-CASE-GRAMMAR
 
-`12.5` / `normal` / Test mapped; execution unconfirmed
+`12.5` / `normal` / Execution confirmed
 
 case/casez/casex support ordinary or matches items; case inside uses range-list items. Each may have unique/unique0/priority and an optional-colon default, under its semantic restrictions.
 
@@ -33211,7 +33212,7 @@ Normative role: `mandatory`。
 
 ### SV2023-12.6.1-EXTRACT-PATTERN-CASEZ-CASEX
 
-`12.6.1` / `normal` / Test mapped; execution unconfirmed
+`12.6.1` / `normal` / Execution confirmed
 
 Pattern casez ignores z and pattern casex ignores x/z wherever compared, including tag/member bits.
 
@@ -33306,7 +33307,7 @@ Normative role: `mandatory`。
 
 ### SV2023-12.6.3-EXTRACT-TERNARY-PATTERN-AMBIGUITY
 
-`12.6.3` / `normal` / Test mapped; execution unconfirmed
+`12.6.3` / `normal` / Execution confirmed
 
 True/false/ambiguous predicate outcomes follow the conditional branch/combination rules of 11.4.11.
 
@@ -33318,7 +33319,7 @@ Normative role: `mandatory`。
 
 ### SV2023-12.6.3-EXTRACT-TERNARY-PATTERN-SCOPE
 
-`12.6.3` / `normal` / Test mapped; execution unconfirmed
+`12.6.3` / `normal` / Execution confirmed
 
 A conditional pattern binder scope extends over remaining predicate terms and the true consequent, not the false consequent.
 
@@ -33330,7 +33331,7 @@ Normative role: `mandatory`。
 
 ### SV2023-12.6.3-EXTRACT-TERNARY-PATTERN-SEQUENTIAL
 
-`12.6.3` / `normal` / Test mapped; execution unconfirmed
+`12.6.3` / `normal` / Execution confirmed
 
 A conditional predicate may contain &&& expression/matches terms evaluated left-to-right until failure, all required for true.
 
@@ -34265,7 +34266,7 @@ Normative role: `definition`。
 
 ### SV2023-13.4-EXTRACT-FUNCTION-PROCESS-CONTROL
 
-`13.4` / `normal` / Test mapped; execution unconfirmed
+`13.4` / `normal` / Execution confirmed
 
 A function may kill/suspend/resume another process or kill its current process under 9.7 restrictions.
 
@@ -34277,7 +34278,7 @@ Normative role: `permission`。
 
 ### SV2023-13.4-EXTRACT-FUNCTION-RETURN-TYPE-CATEGORIES
 
-`13.4` / `normal` / Test mapped; execution unconfirmed
+`13.4` / `normal` / Execution confirmed
 
 Return type grammar includes integer/real/struct/union/enum/string/chandle/virtual-interface/scoped-user/class/event/covergroup/type-reference forms under their type rules.
 
@@ -34884,7 +34885,7 @@ Normative role: `mandatory`。
 
 ### SV2023-13.5-EXTRACT-SUBROUTINE-CALL-GRAMMAR
 
-`13.5` / `normal` / Test mapped; execution unconfirmed
+`13.5` / `normal` / Execution confirmed
 
 Calls support task/function, system, method and std randomize forms, optional attributes and positional/named actual lists with permitted placeholders; void-cast function call statements explicitly discard values.
 
@@ -35107,7 +35108,7 @@ Normative role: `mandatory`。
 
 ### SV2023-13.5.2-EXTRACT-REF-STATIC-ACCEPTED-ACTUALS
 
-`13.5.2` / `normal` / Test mapped; execution unconfirmed
+`13.5.2` / `normal` / Execution confirmed
 
 A ref static formal can be passed a variable, class property, structure member or array element with static lifetime, or another ref static formal.
 
@@ -35134,7 +35135,7 @@ Normative role: `mandatory`。
 
 ### SV2023-13.5.2-EXTRACT-REF-STATIC-AUTOMATIC-CONTEXTS
 
-`13.5.2` / `normal` / Test mapped; execution unconfirmed
+`13.5.2` / `normal` / Execution confirmed
 
 A ref static formal can be used in the contexts that are forbidden for automatic variables.
 
@@ -35370,7 +35371,7 @@ Normative role: `mandatory`。
 
 ### SV2023-14.3-EXTRACT-CLOCKING-GRAMMAR
 
-`14.3` / `normal` / Test mapped; execution unconfirmed
+`14.3` / `normal` / Execution confirmed
 
 Clocking grammar supports default or global form, clocking event, optional identifiers/closing name, default skews, directional signal assignments and assertion declarations; skews use edge and/or delay syntax.
 
@@ -35868,7 +35869,7 @@ Normative role: `mandatory`。
 
 ### SV2023-14.12-EXTRACT-DEFAULT-LEXICAL-SCOPE
 
-`14.12` / `normal` / Test mapped; execution unconfirmed
+`14.12` / `normal` / Execution confirmed
 
 Default clocking applies to its containing scope and nested module/interface/checker declarations, but not separately instantiated design elements.
 
@@ -35916,7 +35917,7 @@ Normative role: `mandatory`。
 
 ### SV2023-14.13-EXTRACT-NO-RESAMPLE-WITHOUT-NEW-EVENT
 
-`14.13` / `normal` / Test mapped; execution unconfirmed
+`14.13` / `normal` / Execution confirmed
 
 Repeated Observed processing in one time step does not resample zero-skew inputs unless another clocking event occurs in the active region set.
 
@@ -35978,7 +35979,7 @@ Normative role: `mandatory`。
 
 ### SV2023-14.14-EXTRACT-GLOBAL-AFTER-REWRITE
 
-`14.14` / `normal` / Test mapped; execution unconfirmed
+`14.14` / `normal` / Execution confirmed
 
 Global lookup for sequence/property/checker expressions occurs after rewriting/actual substitution, so an assertion instance location rather than the template declaration selects the effective clock.
 
@@ -36479,7 +36480,7 @@ Normative role: `definition`。
 
 ### SV2023-15.3.2-EXTRACT-NO-NEGATIVE-PUT
 
-`15.3.2` / `normal` / Test mapped; execution unconfirmed
+`15.3.2` / `normal` / Execution confirmed
 
 A negative semaphore put count produces an error.
 
@@ -36526,7 +36527,7 @@ Normative role: `mandatory`。
 
 ### SV2023-15.3.3-EXTRACT-NO-NEGATIVE-GET
 
-`15.3.3` / `normal` / Test mapped; execution unconfirmed
+`15.3.3` / `normal` / Execution confirmed
 
 A negative get key count is an error.
 
@@ -36586,7 +36587,7 @@ Normative role: `mandatory`。
 
 ### SV2023-15.3.4-EXTRACT-TRY-GET-NEGATIVE
 
-`15.3.4` / `normal` / Test mapped; execution unconfirmed
+`15.3.4` / `normal` / Execution confirmed
 
 A negative try_get request returns zero and produces an error.
 
@@ -36801,7 +36802,7 @@ Normative role: `mandatory`。
 
 ### SV2023-15.4.5-EXTRACT-GET-TYPE-ERROR
 
-`15.4.5` / `normal` / Test mapped; execution unconfirmed
+`15.4.5` / `normal` / Execution confirmed
 
 If destination and queued message types are not equivalent, get generates a runtime error.
 
@@ -36969,7 +36970,7 @@ Normative role: `mandatory`。
 
 ### SV2023-15.4.7-EXTRACT-PEEK-TYPE-ERROR
 
-`15.4.7` / `normal` / Test mapped; execution unconfirmed
+`15.4.7` / `normal` / Execution confirmed
 
 A nonequivalent destination/message type causes a runtime error in peek.
 
@@ -37131,7 +37132,7 @@ Normative role: `mandatory`。
 
 ### SV2023-15.5-EXTRACT-NAMED-EVENT-HANDLE
 
-`15.5` / `normal` / Test mapped; execution unconfirmed
+`15.5` / `normal` / Execution confirmed
 
 An event declaration gives a named handle that can be explicitly triggered, waited in event expressions and assigned from another event.
 
@@ -37143,7 +37144,7 @@ Normative role: `definition`。
 
 ### SV2023-15.5-EXTRACT-SYNCHRONIZATION-QUEUE
 
-`15.5` / `normal` / Test mapped; execution unconfirmed
+`15.5` / `normal` / Execution confirmed
 
 Each underlying event object holds waiting processes; @ waits for triggers while wait may inspect persistent triggered state.
 
@@ -37228,7 +37229,7 @@ Normative role: `mandatory`。
 
 ### SV2023-15.5.3-EXTRACT-NO-FALLING-TRIGGERED-SENSITIVITY
 
-`15.5.3` / `normal` / Test mapped; execution unconfirmed
+`15.5.3` / `normal` / Execution confirmed
 
 The automatic one-to-zero triggered-status reset at a time-step boundary does not itself reevaluate an event/wait expression; only actual operand-change sensitivity causes reevaluation.
 
@@ -37240,7 +37241,7 @@ Normative role: `mandatory`。
 
 ### SV2023-15.5.3-EXTRACT-SAME-STEP-WAIT-ORDER
 
-`15.5.3` / `normal` / Test mapped; execution unconfirmed
+`15.5.3` / `normal` / Execution confirmed
 
 Waiting on persistent triggered status unblocks whether the wait starts before or after a trigger in the same simulation time step.
 
@@ -37252,7 +37253,7 @@ Normative role: `mandatory`。
 
 ### SV2023-15.5.3-EXTRACT-SIGNATURE
 
-`15.5.3` / `normal` / Test mapped; execution unconfirmed
+`15.5.3` / `normal` / Execution confirmed
 
 Event triggered is a no-argument bit-returning method.
 
@@ -37300,7 +37301,7 @@ Normative role: `permission`。
 
 ### SV2023-15.5.4-EXTRACT-FIRST-ONLY-PERSISTENT
 
-`15.5.4` / `normal` / Test mapped; execution unconfirmed
+`15.5.4` / `normal` / Execution confirmed
 
 Only the first wait_order event may use its persistent triggered state.
 
@@ -37336,7 +37337,7 @@ Normative role: `mandatory`。
 
 ### SV2023-15.5.4-EXTRACT-WAIT-ORDER-FAIL-ACTION
 
-`15.5.4` / `normal` / Test mapped; execution unconfirmed
+`15.5.4` / `normal` / Execution confirmed
 
 An out-of-order failure executes its explicit else action, or calls $error by default when no else exists.
 
@@ -37733,7 +37734,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.4-EXTRACT-ASSUME-COVER
 
-`16.4` / `normal` / Test mapped; execution unconfirmed
+`16.4` / `normal` / Execution confirmed
 
 Deferred assume and cover retain immediate assume/cover semantics except for deferral; coverage is not credited for a report flushed before maturation.
 
@@ -37757,7 +37758,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.4-EXTRACT-DEFERRED-DIFFERENCES
 
-`16.4` / `normal` / Test mapped; execution unconfirmed
+`16.4` / `normal` / Execution confirmed
 
 Deferred immediate assertions delay reporting/actions, restrict each action to one subroutine call, and may appear as module_common_item declarations.
 
@@ -37842,7 +37843,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.4-EXTRACT-STATIC-PLACEMENT
 
-`16.4` / `normal` / Test mapped; execution unconfirmed
+`16.4` / `normal` / Execution confirmed
 
 A deferred immediate assertion may occur outside procedural code as a module_common_item, with 16.4.3 semantics.
 
@@ -37854,7 +37855,7 @@ Normative role: `permission`。
 
 ### SV2023-16.4-EXTRACT-SYNTAX
 
-`16.4` / `normal` / Test mapped; execution unconfirmed
+`16.4` / `normal` / Execution confirmed
 
 Deferred immediate assert, assume and cover use #0 for observed deferral or final for final deferral and may be labeled.
 
@@ -37866,7 +37867,7 @@ Normative role: `definition`。
 
 ### SV2023-16.4.1-EXTRACT-FINAL-MATURE
 
-`16.4.1` / `normal` / Test mapped; execution unconfirmed
+`16.4.1` / `normal` / Execution confirmed
 
 Unflushed final deferred reports mature and execute in Postponed and are removed from the queue; this non-iterative region avoids the described inter-region glitch.
 
@@ -37878,7 +37879,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.4.1-EXTRACT-FLUSH
 
-`16.4.1` / `normal` / Test mapped; execution unconfirmed
+`16.4.1` / `normal` / Execution confirmed
 
 At a deferred assertion flush point all pending reports in that process queue are cleared.
 
@@ -37890,7 +37891,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.4.1-EXTRACT-OBSERVED-MATURE
 
-`16.4.1` / `normal` / Test mapped; execution unconfirmed
+`16.4.1` / `normal` / Execution confirmed
 
 Unflushed observed reports mature in Observed, cannot then be flushed, execute in Reactive and are removed from the queue.
 
@@ -37915,7 +37916,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.4.1-EXTRACT-REACTIVE-ITERATION
 
-`16.4.1` / `normal` / Test mapped; execution unconfirmed
+`16.4.1` / `normal` / Execution confirmed
 
 A Reactive-to-Active iteration can produce an additional observed deferred report in the same time step; observed deferral does not suppress every inter-region feedback glitch.
 
@@ -37951,7 +37952,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.4.2-EXTRACT-OUTERMOST-DISABLE-FLUSH
 
-`16.4.2` / `normal` / Test mapped; execution unconfirmed
+`16.4.2` / `normal` / Execution confirmed
 
 Disabling the outermost scope of a process is a deferred assertion flush point.
 
@@ -38070,7 +38071,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.5.1-EXTRACT-AUTOMATIC-HISTORY
 
-`16.5.1` / `normal` / Test mapped; execution unconfirmed
+`16.5.1` / `normal` / Execution confirmed
 
 Past/future sampled-value references to an automatic variable use its current value instead.
 
@@ -38082,7 +38083,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.5.1-EXTRACT-CHECKER-HISTORY
 
-`16.5.1` / `normal` / Test mapped; execution unconfirmed
+`16.5.1` / `normal` / Execution confirmed
 
 Past/future sampled-value references to active free checker variables use their values in Postponed of the corresponding past/future clock tick.
 
@@ -38106,7 +38107,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.5.1-EXTRACT-COMPOSE-AND-CALL
 
-`16.5.1` / `normal` / Test mapped; execution unconfirmed
+`16.5.1` / `normal` / Execution confirmed
 
 Other expression sampled values are computed recursively from sampled arguments; a function is called at expression evaluation time on those sampled argument values.
 
@@ -38118,7 +38119,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.5.1-EXTRACT-CONST-CURRENT
 
-`16.5.1` / `normal` / Test mapped; execution unconfirmed
+`16.5.1` / `normal` / Execution confirmed
 
 A const cast samples the current value of its argument; a past/future sampled-value reference to a const cast likewise uses its current value.
 
@@ -38130,7 +38131,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.5.1-EXTRACT-CURRENT-EXCEPTIONS
 
-`16.5.1` / `normal` / Test mapped; execution unconfirmed
+`16.5.1` / `normal` / Execution confirmed
 
 Automatic variables, assertion local variables and active free checker variables are sampled at their current values.
 
@@ -38142,7 +38143,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.5.1-EXTRACT-DEFAULT-EXPRESSION
 
-`16.5.1` / `normal` / Test mapped; execution unconfirmed
+`16.5.1` / `normal` / Execution confirmed
 
 Default sampled values of compound expressions are recursively evaluated from default sampled component values.
 
@@ -38154,7 +38155,7 @@ Normative role: `definition`。
 
 ### SV2023-16.5.1-EXTRACT-DEFAULT-METHOD
 
-`16.5.1` / `normal` / Test mapped; execution unconfirmed
+`16.5.1` / `normal` / Execution confirmed
 
 Default sampled values of event.triggered and sequence.triggered/matched are false.
 
@@ -38166,7 +38167,7 @@ Normative role: `definition`。
 
 ### SV2023-16.5.1-EXTRACT-DEFAULT-OTHER
 
-`16.5.1` / `normal` / Test mapped; execution unconfirmed
+`16.5.1` / `normal` / Execution confirmed
 
 The default sampled value of any other variable or net is its type default.
 
@@ -38178,7 +38179,7 @@ Normative role: `definition`。
 
 ### SV2023-16.5.1-EXTRACT-DEFAULT-STATIC
 
-`16.5.1` / `normal` / Test mapped; execution unconfirmed
+`16.5.1` / `normal` / Execution confirmed
 
 The default sampled value of a static variable is its declaration initializer, or its type default if there is no initializer.
 
@@ -38190,7 +38191,7 @@ Normative role: `definition`。
 
 ### SV2023-16.5.1-EXTRACT-METHOD-CURRENT
 
-`16.5.1` / `normal` / Test mapped; execution unconfirmed
+`16.5.1` / `normal` / Execution confirmed
 
 The sampled value of event.triggered and sequence.triggered/matched is the current result of that method; past/future references use its Postponed value at the corresponding tick.
 
@@ -38202,7 +38203,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.5.1-EXTRACT-PREPONED
 
-`16.5.1` / `normal` / Test mapped; execution unconfirmed
+`16.5.1` / `normal` / Execution confirmed
 
 At time greater than zero a variable is generally sampled in Preponed; at time zero its default sampled value is used, subject to the listed exceptions.
 
@@ -38214,7 +38215,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.5.1-EXTRACT-SINGLE-VARIABLE
 
-`16.5.1` / `normal` / Test mapped; execution unconfirmed
+`16.5.1` / `normal` / Execution confirmed
 
 The sampled value of a single-variable expression is the sampled value of that variable.
 
@@ -38238,7 +38239,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.5.2-EXTRACT-CLOCK-ASSOCIATION
 
-`16.5.2` / `normal` / Test mapped; execution unconfirmed
+`16.5.2` / `normal` / Execution confirmed
 
 Assertion expressions are tied to a clock definition except constant or automatic values from procedural code; sampled values determine value-change and Boolean sequence matches.
 
@@ -38262,7 +38263,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.5.2-EXTRACT-COMPLEX-CLOCK
 
-`16.5.2` / `normal` / Test mapped; execution unconfirmed
+`16.5.2` / `normal` / Execution confirmed
 
 Complex and iff-gated clock expressions are permitted; users should ensure glitch-free clocks with no more than one transition per simulation time.
 
@@ -38274,7 +38275,7 @@ Normative role: `recommendation`。
 
 ### SV2023-16.5.2-EXTRACT-GLOBAL-CLOCK
 
-`16.5.2` / `normal` / Test mapped; execution unconfirmed
+`16.5.2` / `normal` / Execution confirmed
 
 A $global_clock reference denotes the clocking_event of the global clocking declaration and behaves as an ordinary clocking event; formal verification also treats it as the primary system clock.
 
@@ -38508,7 +38509,7 @@ Normative role: `definition`。
 
 ### SV2023-16.7-EXTRACT-CONCAT-SYNTAX
 
-`16.7` / `normal` / Test mapped; execution unconfirmed
+`16.7` / `normal` / Execution confirmed
 
 Sequence concatenation uses ## followed by a constant delay, a constant range, \[*\] or \[+\], with the Syntax 16-4 forms.
 
@@ -38537,7 +38538,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.7-EXTRACT-DELAY-STAR-PLUS
 
-`16.7` / `normal` / Test mapped; execution unconfirmed
+`16.7` / `normal` / Execution confirmed
 
 ##\[*\] equals ##\[0:$\], and ##\[+\] equals ##\[1:$\].
 
@@ -38634,7 +38635,7 @@ Normative role: `definition`。
 
 ### SV2023-16.7-EXTRACT-SEQUENCE-GRAMMAR
 
-`16.7` / `normal` / Test mapped; execution unconfirmed
+`16.7` / `normal` / Execution confirmed
 
 Sequence expressions support delay concatenation, Boolean terms with Boolean repetition, sequence instances or parenthesized sequences with consecutive repetition, and/intersect/or, first_match, throughout, within and clocking-event prefixes; match items are assignments, increment/decrement or subroutine calls, as specified by Syntax 16-3.
 
@@ -38646,7 +38647,7 @@ Normative role: `definition`。
 
 ### SV2023-16.7-EXTRACT-START-TICK
 
-`16.7` / `normal` / Test mapped; execution unconfirmed
+`16.7` / `normal` / Execution confirmed
 
 Sequence context determines the start: the first expression is checked on the first clock tick at or after its trigger, and successive linear elements on subsequent ticks.
 
@@ -39003,7 +39004,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.8.2-EXTRACT-COPY-OUT
 
-`16.8.2` / `normal` / Test mapped; execution unconfirmed
+`16.8.2` / `normal` / Execution confirmed
 
 At each matching-thread completion, each inout/output formal value is cast and copied to its associated actual local variable; multiple matching threads continue independently with their own copies.
 
@@ -39015,7 +39016,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.8.2-EXTRACT-COPY-PER-ATTEMPT
 
-`16.8.2` / `normal` / Test mapped; execution unconfirmed
+`16.8.2` / `normal` / Execution confirmed
 
 Each attempt of a named-sequence instance creates a new copy of every local formal.
 
@@ -39041,7 +39042,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.8.2-EXTRACT-INITIALIZATION-ORDER
 
-`16.8.2` / `normal` / Test mapped; execution unconfirmed
+`16.8.2` / `normal` / Execution confirmed
 
 All input/inout local formals initialize before any declared assertion local variable; declaration initializers may reference these initialized formals.
 
@@ -39053,7 +39054,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.8.2-EXTRACT-INPUT-INITIALIZATION
 
-`16.8.2` / `normal` / Test mapped; execution unconfirmed
+`16.8.2` / `normal` / Execution confirmed
 
 Input/inout local formals initialize from associated actual values cast to their formal types; actual self-determined types shall be cast-compatible.
 
@@ -39095,7 +39096,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.8.2-EXTRACT-LOCAL-FLOW
 
-`16.8.2` / `normal` / Test mapped; execution unconfirmed
+`16.8.2` / `normal` / Execution confirmed
 
 The local-variable assignment, reference and flow rules of 16.10 apply to local formals as well as declared assertion local variables.
 
@@ -39107,7 +39108,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.8.2-EXTRACT-LOCAL-INHERITANCE
 
-`16.8.2` / `normal` / Test mapped; execution unconfirmed
+`16.8.2` / `normal` / Execution confirmed
 
 Local designation, direction and type extend to following identifier-only port items until a port specifies local or an explicit type.
 
@@ -39192,7 +39193,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.8.2-EXTRACT-UNTYPED-LOCAL-PASSING
 
-`16.8.2` / `normal` / Test mapped; execution unconfirmed
+`16.8.2` / `normal` / Execution confirmed
 
 Untyped actual substitution can pass a local variable to a subsequence, permit assignment there, and expose the assigned value in the caller context under 16.10.
 
@@ -39204,7 +39205,7 @@ Normative role: `permission`。
 
 ### SV2023-16.9.1-EXTRACT-PRECEDENCE-AND
 
-`16.9.1` / `normal` / Test mapped; execution unconfirmed
+`16.9.1` / `normal` / Execution confirmed
 
 Table 16-1 precedence level 6 (highest first) contains and; associativity is left.
 
@@ -39229,7 +39230,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.1-EXTRACT-PRECEDENCE-INTERSECT
 
-`16.9.1` / `normal` / Test mapped; execution unconfirmed
+`16.9.1` / `normal` / Execution confirmed
 
 Table 16-1 precedence level 5 (highest first) contains intersect; associativity is left.
 
@@ -39266,7 +39267,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.1-EXTRACT-PRECEDENCE-THROUGHOUT
 
-`16.9.1` / `normal` / Test mapped; execution unconfirmed
+`16.9.1` / `normal` / Execution confirmed
 
 Table 16-1 precedence level 3 (highest first) contains throughout; associativity is right.
 
@@ -39280,7 +39281,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.1-EXTRACT-PRECEDENCE-WITHIN
 
-`16.9.1` / `normal` / Test mapped; execution unconfirmed
+`16.9.1` / `normal` / Execution confirmed
 
 Table 16-1 precedence level 4 (highest first) contains within; associativity is left.
 
@@ -39293,7 +39294,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.2-EXTRACT-COMBINE-DELAY
 
-`16.9.2` / `normal` / Test mapped; execution unconfirmed
+`16.9.2` / `normal` / Execution confirmed
 
 Delay and repetition may be combined in one sequence.
 
@@ -39305,7 +39306,7 @@ Normative role: `permission`。
 
 ### SV2023-16.9.2-EXTRACT-CONSECUTIVE
 
-`16.9.2` / `normal` / Test mapped; execution unconfirmed
+`16.9.2` / `normal` / Execution confirmed
 
 Consecutive repetition iterates matching operand sequences with one clock tick from one end to the next start, and ends at the last iteration; \[*N\] requires N iterations.
 
@@ -39341,7 +39342,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.9.2-EXTRACT-EXACT-EQUIVALENCE
 
-`16.9.2` / `normal` / Test mapped; execution unconfirmed
+`16.9.2` / `normal` / Execution confirmed
 
 seq\[*n\] is equivalent to seq\[*n:n\].
 
@@ -39392,7 +39393,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.9.2-EXTRACT-RANGED-REPETITION
 
-`16.9.2` / `normal` / Test mapped; execution unconfirmed
+`16.9.2` / `normal` / Execution confirmed
 
 \[*min:max\] permits an iteration count between the inclusive bounds.
 
@@ -39416,7 +39417,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.2-EXTRACT-STAR-PLUS
 
-`16.9.2` / `normal` / Test mapped; execution unconfirmed
+`16.9.2` / `normal` / Execution confirmed
 
 \[*\] equals \[*0:$\], and \[+\] equals \[*1:$\].
 
@@ -39428,7 +39429,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.2.1-EXTRACT-EMPTY-LEFT-POSITIVE
 
-`16.9.2.1` / `normal` / Test mapped; execution unconfirmed
+`16.9.2.1` / `normal` / Execution confirmed
 
 For n\>0, empty ##n seq is equivalent to ##(n-1) seq.
 
@@ -39452,7 +39453,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.2.1-EXTRACT-EMPTY-RIGHT-POSITIVE
 
-`16.9.2.1` / `normal` / Test mapped; execution unconfirmed
+`16.9.2.1` / `normal` / Execution confirmed
 
 For n\>0, seq ##n empty is equivalent to seq ##(n-1) true.
 
@@ -39476,7 +39477,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.2.1-EXTRACT-MIXED-EMPTY
 
-`16.9.2.1` / `normal` / Test mapped; execution unconfirmed
+`16.9.2.1` / `normal` / Execution confirmed
 
 Apply empty concatenation rules to a sequence with both empty and nonempty matches by rewriting it as the OR of those cases.
 
@@ -39488,7 +39489,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.9.2.1-EXTRACT-ZERO-EMPTY
 
-`16.9.2.1` / `normal` / Test mapped; execution unconfirmed
+`16.9.2.1` / `normal` / Execution confirmed
 
 Zero sequence repetitions yield an empty sequence.
 
@@ -39500,7 +39501,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.3-EXTRACT-ACTION-CLOCK
 
-`16.9.3` / `normal` / Test mapped; execution unconfirmed
+`16.9.3` / `normal` / Execution confirmed
 
 A sampled-value function in an assertion action block infers the leading clock of that assertion.
 
@@ -39553,7 +39554,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.9.3-EXTRACT-DIFFERENT-CLOCK
 
-`16.9.3` / `normal` / Test mapped; execution unconfirmed
+`16.9.3` / `normal` / Execution confirmed
 
 A sampled-value function may explicitly use a clock different from its call context; the prior history follows its own resolved clock.
 
@@ -39640,7 +39641,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.9.3-EXTRACT-OMITTED-ARGS
 
-`16.9.3` / `normal` / Test mapped; execution unconfirmed
+`16.9.3` / `normal` / Execution confirmed
 
 Each omitted intermediate optional sampled-value function argument requires a comma placeholder.
 
@@ -39700,7 +39701,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.9.3-EXTRACT-PAST-PROCEDURAL-AUTOMATIC
 
-`16.9.3` / `normal` / Test mapped; execution unconfirmed
+`16.9.3` / `normal` / Execution confirmed
 
 $past is permitted in general SystemVerilog expressions and may reference automatic variables subject to 16.5.1 sampling.
 
@@ -39712,7 +39713,7 @@ Normative role: `permission`。
 
 ### SV2023-16.9.3-EXTRACT-PROCEDURAL-CLOCK
 
-`16.9.3` / `normal` / Test mapped; execution unconfirmed
+`16.9.3` / `normal` / Execution confirmed
 
 In a procedure a sampled-value function uses the inferred procedural clock if available; otherwise outside an assertion it uses default clocking.
 
@@ -39748,7 +39749,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.3-EXTRACT-SAMPLED
 
-`16.9.3` / `normal` / Test mapped; execution unconfirmed
+`16.9.3` / `normal` / Execution confirmed
 
 Clock-independent $sampled returns the sampled value of its expression, including when called in an action block or disable condition.
 
@@ -39760,7 +39761,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.3-EXTRACT-SIGNATURES
 
-`16.9.3` / `normal` / Test mapped; execution unconfirmed
+`16.9.3` / `normal` / Execution confirmed
 
 $sampled accepts an expression; $rose/$fell/$stable/$changed accept an expression and optional clocking event; $past accepts an expression and optional tick count, gate and clocking event in that order.
 
@@ -39798,7 +39799,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.9.4-EXTRACT-ASYNCHRONOUS-CONTROLS
 
-`16.9.4` / `normal` / Test mapped; execution unconfirmed
+`16.9.4` / `normal` / Execution confirmed
 
 disable iff and asynchronous assertion controls affect that defined attempt interval; a Kill strictly after the last assertion tick does not affect the attempt even before the next global tick.
 
@@ -39810,7 +39811,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.9.4-EXTRACT-ATTEMPT-INTERVAL
 
-`16.9.4` / `normal` / Test mapped; execution unconfirmed
+`16.9.4` / `normal` / Execution confirmed
 
 An attempt containing a future global-clock function has the interval it would have if future values were known in advance; it ends at its last assertion-clock tick without extension to the next global tick.
 
@@ -39822,7 +39823,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.9.4-EXTRACT-CHANGED-GCLK
 
-`16.9.4` / `normal` / Test mapped; execution unconfirmed
+`16.9.4` / `normal` / Execution confirmed
 
 $changed_gclk(v) equals $changed(v, @$global_clock).
 
@@ -39834,7 +39835,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.4-EXTRACT-CHANGING-GCLK
 
-`16.9.4` / `normal` / Test mapped; execution unconfirmed
+`16.9.4` / `normal` / Execution confirmed
 
 $changing_gclk is the complement of $steady_gclk.
 
@@ -39846,7 +39847,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.4-EXTRACT-DELAYED-ACTIONS
 
-`16.9.4` / `normal` / Test mapped; execution unconfirmed
+`16.9.4` / `normal` / Execution confirmed
 
 Actions and default failure $error for an assertion containing future global-clock functions execute at the global tick following the last assertion-clock tick.
 
@@ -39858,7 +39859,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.9.4-EXTRACT-FALLING-GCLK
 
-`16.9.4` / `normal` / Test mapped; execution unconfirmed
+`16.9.4` / `normal` / Execution confirmed
 
 $falling_gclk returns 1 when the expression sampled LSB changes to 0 at the next global tick, otherwise 0.
 
@@ -39870,7 +39871,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.4-EXTRACT-FELL-GCLK
 
-`16.9.4` / `normal` / Test mapped; execution unconfirmed
+`16.9.4` / `normal` / Execution confirmed
 
 $fell_gclk(v) equals $fell(v, @$global_clock).
 
@@ -39882,7 +39883,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.4-EXTRACT-FUTURE-GCLK
 
-`16.9.4` / `normal` / Test mapped; execution unconfirmed
+`16.9.4` / `normal` / Execution confirmed
 
 $future_gclk(v) returns v sampled at the next global clock tick using 16.5.1 future sampling.
 
@@ -39945,7 +39946,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.9.4-EXTRACT-PAST-GCLK
 
-`16.9.4` / `normal` / Test mapped; execution unconfirmed
+`16.9.4` / `normal` / Execution confirmed
 
 $past_gclk(v) equals $past(v,,, @$global_clock).
 
@@ -39981,7 +39982,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.9.4-EXTRACT-RISING-GCLK
 
-`16.9.4` / `normal` / Test mapped; execution unconfirmed
+`16.9.4` / `normal` / Execution confirmed
 
 $rising_gclk returns 1 when the expression sampled LSB changes to 1 at the next global tick, otherwise 0.
 
@@ -39993,7 +39994,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.4-EXTRACT-ROSE-GCLK
 
-`16.9.4` / `normal` / Test mapped; execution unconfirmed
+`16.9.4` / `normal` / Execution confirmed
 
 $rose_gclk(v) equals $rose(v, @$global_clock).
 
@@ -40005,7 +40006,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.4-EXTRACT-STABLE-GCLK
 
-`16.9.4` / `normal` / Test mapped; execution unconfirmed
+`16.9.4` / `normal` / Execution confirmed
 
 $stable_gclk(v) equals $stable(v, @$global_clock).
 
@@ -40017,7 +40018,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.4-EXTRACT-STEADY-GCLK
 
-`16.9.4` / `normal` / Test mapped; execution unconfirmed
+`16.9.4` / `normal` / Execution confirmed
 
 $steady_gclk returns 1 when the expression sampled value does not change at the next global tick, otherwise 0.
 
@@ -40029,7 +40030,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.5-EXTRACT-AND-END
 
-`16.9.5` / `normal` / Test mapped; execution unconfirmed
+`16.9.5` / `normal` / Execution confirmed
 
 The end point of an and match is the later end point of its two operand matches.
 
@@ -40041,7 +40042,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.5-EXTRACT-AND-MATCH
 
-`16.9.5` / `normal` / Test mapped; execution unconfirmed
+`16.9.5` / `normal` / Execution confirmed
 
 Sequence and takes two sequence operands, starts both together and matches only if both match; their end points may differ.
 
@@ -40065,7 +40066,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.6-EXTRACT-INTERSECT
 
-`16.9.6` / `normal` / Test mapped; execution unconfirmed
+`16.9.6` / `normal` / Execution confirmed
 
 intersect takes two sequences and requires both to match with the same length and end time.
 
@@ -40077,7 +40078,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.6-EXTRACT-PAIR-MATCHES
 
-`16.9.6` / `normal` / Test mapped; execution unconfirmed
+`16.9.6` / `normal` / Execution confirmed
 
 An intersect attempt pairs every equal-length match from its two operands; each pair yields a match with their shared length and match point; no pair means no match.
 
@@ -40101,7 +40102,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.7-EXTRACT-OR-OPERANDS
 
-`16.9.7` / `normal` / Test mapped; execution unconfirmed
+`16.9.7` / `normal` / Execution confirmed
 
 Sequence or is a binary operator on sequences requiring at least one matching operand.
 
@@ -40113,7 +40114,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.7-EXTRACT-UNION-MATCHES
 
-`16.9.7` / `normal` / Test mapped; execution unconfirmed
+`16.9.7` / `normal` / Execution confirmed
 
 Every match of either or operand yields a composite match with that operand match end time; the composite match set is the union of the operand match sets.
 
@@ -40125,7 +40126,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.8-EXTRACT-EARLIEST-TIES
 
-`16.9.8` / `normal` / Test mapped; execution unconfirmed
+`16.9.8` / `normal` / Execution confirmed
 
 All operand matches sharing the earliest ending clock tick remain matches of first_match; ties are not reduced to one arbitrary match.
 
@@ -40137,7 +40138,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.8-EXTRACT-FIRST-MATCH
 
-`16.9.8` / `normal` / Test mapped; execution unconfirmed
+`16.9.8` / `normal` / Execution confirmed
 
 first_match starts its operand at the same tick, has no match if the operand has none, and retains only matches ending at the earliest operand ending tick.
 
@@ -40161,7 +40162,7 @@ Normative role: `permission`。
 
 ### SV2023-16.9.9-EXTRACT-THROUGHOUT-EXPANSION
 
-`16.9.9` / `normal` / Test mapped; execution unconfirmed
+`16.9.9` / `normal` / Execution confirmed
 
 exp throughout seq abbreviates (exp)\[*0:$\] intersect seq.
 
@@ -40197,7 +40198,7 @@ Normative role: `definition`。
 
 ### SV2023-16.9.10-EXTRACT-WITHIN-EXPANSION
 
-`16.9.10` / `normal` / Test mapped; execution unconfirmed
+`16.9.10` / `normal` / Execution confirmed
 
 seq1 within seq2 abbreviates (1\[*0:$\] ##1 seq1 ##1 1\[*0:$\]) intersect seq2.
 
@@ -40245,7 +40246,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.9.11-EXTRACT-TRIGGERED
 
-`16.9.11` / `normal` / Test mapped; execution unconfirmed
+`16.9.11` / `normal` / Execution confirmed
 
 triggered applies to a named sequence instance with optional arguments, an untyped formal or a sequence-typed formal where allowed, returning one-bit true exactly when a nonempty operand end point is reached, independently of its starting tick.
 
@@ -40269,7 +40270,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.10-EXTRACT-AND-INTERSECT-FLOW
 
-`16.10` / `normal` / Test mapped; execution unconfirmed
+`16.10` / `normal` / Execution confirmed
 
 For and/intersect, a local flowing out of at least one operand flows out unless blocked: it is blocked if assigned in and flowing out of both operands, or blocked in either operand.
 
@@ -40281,7 +40282,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.10-EXTRACT-AND-INTERSECT-MERGE
 
-`16.10` / `normal` / Test mapped; execution unconfirmed
+`16.10` / `normal` / Execution confirmed
 
 At and/intersect completion operand threads merge, retaining the latest assigned value of each local that flows out.
 
@@ -40307,7 +40308,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.10-EXTRACT-BRANCH-FLOW-IN
 
-`16.10` / `normal` / Test mapped; execution unconfirmed
+`16.10` / `normal` / Execution confirmed
 
 A local assigned before an or/and/intersect composite flows into each operand; operand assignments and reassignment are evaluated in parallel.
 
@@ -40319,7 +40320,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.10-EXTRACT-CURRENT-SAMPLE
 
-`16.10` / `normal` / Test mapped; execution unconfirmed
+`16.10` / `normal` / Execution confirmed
 
 A local variable sampled value is its current value.
 
@@ -40368,7 +40369,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.10-EXTRACT-INIT-ORDER
 
-`16.10` / `normal` / Test mapped; execution unconfirmed
+`16.10` / `normal` / Execution confirmed
 
 Local initializations execute in Observed in declaration order, with all local-formal initializations before declared-local initializations, using expression sampled values at the attempt start.
 
@@ -40380,7 +40381,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.10-EXTRACT-LOCAL-DECLARATION
 
-`16.10` / `normal` / Test mapped; execution unconfirmed
+`16.10` / `normal` / Execution confirmed
 
 Assertion locals are either local-variable formals or variables in assertion_variable_declaration; their initialization assignments are input/inout-formal initialization or declaration assignments.
 
@@ -40429,7 +40430,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.10-EXTRACT-MATCH-ASSIGNMENTS
 
-`16.10` / `normal` / Test mapped; execution unconfirmed
+`16.10` / `normal` / Execution confirmed
 
 Locals may be assigned/reassigned by parenthesized sequence match items; at each nonempty subsequence match assignments execute in listed order.
 
@@ -40500,7 +40501,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.10-EXTRACT-OR-CONTINUATIONS
 
-`16.10` / `normal` / Test mapped; execution unconfirmed
+`16.10` / `normal` / Execution confirmed
 
 Each matching or operand continues in a separate thread with its own latest values for locals that flow out; those values need not agree.
 
@@ -40512,7 +40513,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.10-EXTRACT-OR-FLOW
 
-`16.10` / `normal` / Test mapped; execution unconfirmed
+`16.10` / `normal` / Execution confirmed
 
 A local flows out of or if and only if it flows out of each operand.
 
@@ -40524,7 +40525,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.10-EXTRACT-PER-ATTEMPT
 
-`16.10` / `normal` / Test mapped; execution unconfirmed
+`16.10` / `normal` / Execution confirmed
 
 Each attempt of a named sequence/property creates new copies of its local variables and performs their initialization assignments.
 
@@ -40537,7 +40538,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.10-EXTRACT-REPETITION-ACCUMULATION
 
-`16.10` / `normal` / Test mapped; execution unconfirmed
+`16.10` / `normal` / Execution confirmed
 
 Local assignments may be attached to a repetition operand to accumulate values across its iterations.
 
@@ -40561,7 +40562,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.10-EXTRACT-TRIGGERED-FLOW
 
-`16.10` / `normal` / Test mapped; execution unconfirmed
+`16.10` / `normal` / Execution confirmed
 
 A local variable passed as an entire actual argument to a named sequence instance to which triggered is applied flows out of that application when it flows out of the end of the instance and the application of triggered is a maximal Boolean expression; after it, the variable holds the value assigned within the named sequence.
 
@@ -40599,7 +40600,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.10-EXTRACT-TRIGGERED-THREADS
 
-`16.10` / `normal` / Test mapped; execution unconfirmed
+`16.10` / `normal` / Execution confirmed
 
 Multiple same-cycle triggered matches with distinct local valuations fork independent continuation threads as with matching or branches.
 
@@ -40611,7 +40612,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.10-EXTRACT-UNTYPED-SHARED-LOCAL
 
-`16.10` / `normal` / Test mapped; execution unconfirmed
+`16.10` / `normal` / Execution confirmed
 
 A caller local can be assigned inside a subsequence and referenced after completion if its outer scope covers instance and reference, it is the entire actual argument, and the corresponding formal is untyped.
 
@@ -40784,7 +40785,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.12-EXTRACT-EXPRESSION-PRECEDENCE
 
-`16.12` / `normal` / Test mapped; execution unconfirmed
+`16.12` / `normal` / Execution confirmed
 
 All Table 11-2 expression operators have higher precedence than sequence/property operators; strong/weak require parentheses and have no assigned precedence.
 
@@ -41234,7 +41235,7 @@ Normative role: `definition`。
 
 ### SV2023-16.12.7-EXTRACT-NONOVERLAPPED-EMPTY
 
-`16.12.7` / `normal` / Test mapped; execution unconfirmed
+`16.12.7` / `normal` / Execution confirmed
 
 For |=\> following an empty match, the consequent starts at its nearest clock tick at or after the antecedent evaluation start; for a single clock this is the current tick.
 
@@ -41246,7 +41247,7 @@ Normative role: `definition`。
 
 ### SV2023-16.12.7-EXTRACT-NONOVERLAPPED-EXPANSION
 
-`16.12.7` / `normal` / Test mapped; execution unconfirmed
+`16.12.7` / `normal` / Execution confirmed
 
 seq |=\> prop is equivalent to seq ##1 true |-\> prop.
 
@@ -41512,7 +41513,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.12.11-EXTRACT-IMPLICIT-ALWAYS
 
-`16.12.11` / `normal` / Test mapped; execution unconfirmed
+`16.12.11` / `normal` / Execution confirmed
 
 A concurrent verification statement outside an initial procedure starts a top-level property attempt at each leading clocking event.
 
@@ -41992,7 +41993,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.12.20-EXTRACT-OPTIONAL-CLOCK
 
-`16.12.20` / `normal` / Test mapped; execution unconfirmed
+`16.12.20` / `normal` / Execution confirmed
 
 A property may explicitly specify a clocking event, subject to 16.16 derivation/resolution rules.
 
@@ -42004,7 +42005,7 @@ Normative role: `permission`。
 
 ### SV2023-16.12.20-EXTRACT-PROPERTY-NAMES
 
-`16.12.20` / `normal` / Test mapped; execution unconfirmed
+`16.12.20` / `normal` / Execution confirmed
 
 Named properties may be instantiated by ordinary or hierarchical names; non-formal variables resolve hierarchically from the property declaration scope.
 
@@ -42161,7 +42162,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.13.2-EXTRACT-IF-SYNC
 
-`16.13.2` / `normal` / Test mapped; execution unconfirmed
+`16.13.2` / `normal` / Execution confirmed
 
 Multiclocked if/if-else checks its selected branch at the nearest possibly overlapping tick of that branch clock.
 
@@ -42184,7 +42185,7 @@ Normative role: `definition`。
 
 ### SV2023-16.13.2-EXTRACT-MULTICLOCK-BOOLEAN
 
-`16.13.2` / `normal` / Test mapped; execution unconfirmed
+`16.13.2` / `normal` / Execution confirmed
 
 A multiclocked property evaluation yields true or false, and multiclocked sequences may be used as properties.
 
@@ -42208,7 +42209,7 @@ Normative role: `definition`。
 
 ### SV2023-16.13.2-EXTRACT-NONOVERLAP-SYNC
 
-`16.13.2` / `normal` / Test mapped; execution unconfirmed
+`16.13.2` / `normal` / Execution confirmed
 
 For each nonempty antecedent match, multiclocked |=\> starts its consequent at the nearest strictly future tick of the consequent clock.
 
@@ -42220,7 +42221,7 @@ Normative role: `definition`。
 
 ### SV2023-16.13.2-EXTRACT-OVERLAP-SYNC
 
-`16.13.2` / `normal` / Test mapped; execution unconfirmed
+`16.13.2` / `normal` / Execution confirmed
 
 Multiclocked |-\> starts the consequent at the nearest consequent-clock tick at or after the antecedent end point; a simultaneous tick starts it immediately.
 
@@ -42280,7 +42281,7 @@ Normative role: `definition`。
 
 ### SV2023-16.13.3-EXTRACT-LINEAR-BRANCH-FLOW
 
-`16.13.3` / `normal` / Test mapped; execution unconfirmed
+`16.13.3` / `normal` / Execution confirmed
 
 Clock scope flows left-to-right through linear operators and distributes into branching operands until replaced by a new clocking event.
 
@@ -42304,7 +42305,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.13.3-EXTRACT-PARENTHESES
 
-`16.13.3` / `normal` / Test mapped; execution unconfirmed
+`16.13.3` / `normal` / Execution confirmed
 
 Clock scope flows into parenthesized expressions and across parenthesized sequences; an internal clock does not flow out of its enclosing parentheses.
 
@@ -42316,7 +42317,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.13.5-EXTRACT-MATCHED-LOCAL-FLOW
 
-`16.13.5` / `normal` / Test mapped; execution unconfirmed
+`16.13.5` / `normal` / Execution confirmed
 
 Local variables passed into a matched operand obey the same argument restrictions and flow-out conditions as triggered.
 
@@ -42328,7 +42329,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.13.5-EXTRACT-MATCHED-SYNCHRONIZATION
 
-`16.13.5` / `normal` / Test mapped; execution unconfirmed
+`16.13.5` / `normal` / Execution confirmed
 
 matched on a named sequence instance or untyped/sequence formal returns a Boolean end-point indication, independent of start, stored until the first destination-clock tick after a source match.
 
@@ -42341,7 +42342,7 @@ Normative role: `definition`。
 
 ### SV2023-16.13.5-EXTRACT-MATCHED-THREADS
 
-`16.13.5` / `normal` / Test mapped; execution unconfirmed
+`16.13.5` / `normal` / Execution confirmed
 
 Multiple source matches within one destination-clock cycle fork destination continuation threads for distinct local valuations, as for matching or operands.
 
@@ -42365,7 +42366,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.13.6-EXTRACT-CHECKER-INFERENCE
 
-`16.13.6` / `normal` / Test mapped; execution unconfirmed
+`16.13.6` / `normal` / Execution confirmed
 
 A method-bearing sequence actual passed to a checker is substituted for its formal and clocked as though instantiated inside the checker.
 
@@ -42377,7 +42378,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.13.6-EXTRACT-EMPTY-NO-METHOD
 
-`16.13.6` / `normal` / Test mapped; execution unconfirmed
+`16.13.6` / `normal` / Execution confirmed
 
 Empty sequence matches shall activate neither triggered nor matched.
 
@@ -42401,7 +42402,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.13.6-EXTRACT-INFERRED-CLOCK-DEFAULT
 
-`16.13.6` / `normal` / Test mapped; execution unconfirmed
+`16.13.6` / `normal` / Execution confirmed
 
 An omitted sequence actual defaulting to $inferred_clock binds the clock inferred using 16.9.3 rules when the instance is a method operand.
 
@@ -42509,7 +42510,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.13.6-EXTRACT-PORT-CALL-INFERENCE
 
-`16.13.6` / `normal` / Test mapped; execution unconfirmed
+`16.13.6` / `normal` / Execution confirmed
 
 A method-bearing sequence connected to a module/interface/program port or passed to a task/function is clocked as though instantiated at that instantiation/call site.
 
@@ -42521,7 +42522,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.13.6-EXTRACT-TRIGGERED-STATUS
 
-`16.13.6` / `normal` / Test mapped; execution unconfirmed
+`16.13.6` / `normal` / Execution confirmed
 
 triggered becomes true in Observed at an operand end point and persists for the remainder of the time step; otherwise it is false.
 
@@ -42533,7 +42534,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.13.7-EXTRACT-MULTICLOCK-INIT
 
-`16.13.7` / `normal` / Test mapped; execution unconfirmed
+`16.13.7` / `normal` / Execution confirmed
 
 For an instance with one semantic leading clock, local initialization occurs at the earliest tick of that clock at or after attempt start.
 
@@ -42545,7 +42546,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.13.7-EXTRACT-MULTIPLE-LEADING-COPIES
 
-`16.13.7` / `normal` / Test mapped; execution unconfirmed
+`16.13.7` / `normal` / Execution confirmed
 
 With multiple distinct semantic leading clocks, create a separate local copy for each, initialize it at that clock earliest tick at or after attempt start, and use it for that clock associated subproperty.
 
@@ -42689,7 +42690,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.14.2-EXTRACT-ASSERT-COVER-DIST
 
-`16.14.2` / `normal` / Test mapped; execution unconfirmed
+`16.14.2` / `normal` / Execution confirmed
 
 In assert or cover, dist is equivalent to inside and its weight specification is ignored.
 
@@ -42737,7 +42738,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.14.2-EXTRACT-BIAS-SYNTAX
 
-`16.14.2` / `normal` / Test mapped; execution unconfirmed
+`16.14.2` / `normal` / Execution confirmed
 
 An assumption expression may include dist {dist_list} for random-simulation biasing.
 
@@ -42941,7 +42942,7 @@ Normative role: `definition`。
 
 ### SV2023-16.14.6-EXTRACT-CLOCK-FALLBACK
 
-`16.14.6` / `normal` / Test mapped; execution unconfirmed
+`16.14.6` / `normal` / Execution confirmed
 
 Without an explicit clock, a procedural concurrent assertion infers its leading clock from the procedure where possible, otherwise from default clocking as though instantiated immediately before the procedure.
 
@@ -42953,7 +42954,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.14.6-EXTRACT-INFERRED-CLOCK-STRUCTURE
 
-`16.14.6` / `normal` / Test mapped; execution unconfirmed
+`16.14.6` / `normal` / Execution confirmed
 
 A procedure context infers a clock only with no blocking timing control, exactly one event control, and exactly one qualifying event expression; that unique expression is the inferred clock.
 
@@ -42965,7 +42966,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.14.6-EXTRACT-INFERRED-EVENT-FORM
 
-`16.14.6` / `normal` / Test mapped; execution unconfirmed
+`16.14.6` / `normal` / Execution confirmed
 
 A qualifying inference event is a sole event variable, a sole clocking block identifier, or a maximal edge_identifier expression optionally qualified by iff; an edge expression nested inside such a larger expression is not a candidate.
 
@@ -42977,7 +42978,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.14.6-EXTRACT-INFERRED-EVENT-USAGE
 
-`16.14.6` / `normal` / Test mapped; execution unconfirmed
+`16.14.6` / `normal` / Execution confirmed
 
 An inferred event variable/clocking block identifier shall not be otherwise used in the procedure except clocking-block signal references, clock events or assertions; for an edge expression no term of its operand may otherwise occur except in clocks/assertions.
 
@@ -42989,7 +42990,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.14.6-EXTRACT-MATURATION
 
-`16.14.6` / `normal` / Test mapped; execution unconfirmed
+`16.14.6` / `normal` / Execution confirmed
 
 In Observed, each remaining pending instance matures; it starts immediately if its leading event occurred in this step, otherwise waits on the matured queue for the next leading event.
 
@@ -43013,7 +43014,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.14.6-EXTRACT-PENDING-FLUSH
 
-`16.14.6` / `normal` / Test mapped; execution unconfirmed
+`16.14.6` / `normal` / Execution confirmed
 
 A process flush point clears its pending procedural assertion queue; those instances do not mature unless procedural execution queues them again.
 
@@ -43061,7 +43062,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.14.6.1-EXTRACT-MATURED-INDEPENDENCE
 
-`16.14.6.1` / `normal` / Test mapped; execution unconfirmed
+`16.14.6.1` / `normal` / Execution confirmed
 
 After maturation, subsequent procedural execution does not govern temporal completion; captured constant/automatic values remain constant throughout that instance evaluation.
 
@@ -43073,7 +43074,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.14.6.1-EXTRACT-PROCEDURAL-CONDITION
 
-`16.14.6.1` / `normal` / Test mapped; execution unconfirmed
+`16.14.6.1` / `normal` / Execution confirmed
 
 Procedural conditionals controlling assertion queuing use current values, unless explicitly sampled, while assertion expressions use assertion sampling.
 
@@ -43085,7 +43086,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.14.6.2-EXTRACT-COMB-FLUSH
 
-`16.14.6.2` / `normal` / Test mapped; execution unconfirmed
+`16.14.6.2` / `normal` / Execution confirmed
 
 Resumption of always_comb/always_latch due to a dependent signal transition is a procedural assertion flush point.
 
@@ -43097,7 +43098,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.14.6.2-EXTRACT-DISABLE-FLUSH
 
-`16.14.6.2` / `normal` / Test mapped; execution unconfirmed
+`16.14.6.2` / `normal` / Execution confirmed
 
 Disabling a process outermost scope is a procedural assertion flush point.
 
@@ -43109,7 +43110,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.14.6.2-EXTRACT-RESUME-FLUSH
 
-`16.14.6.2` / `normal` / Test mapped; execution unconfirmed
+`16.14.6.2` / `normal` / Execution confirmed
 
 Resumption after an event control or wait is a procedural assertion flush point.
 
@@ -43122,7 +43123,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.14.6.3-EXTRACT-GLITCH-LIMIT
 
-`16.14.6.3` / `normal` / Test mapped; execution unconfirmed
+`16.14.6.3` / `normal` / Execution confirmed
 
 Procedural assertion flushing removes pending transient procedural-order instances but does not guarantee suppression of glitches caused by inter-region execution loops.
 
@@ -43146,7 +43147,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.14.6.4-EXTRACT-DISABLE-SPECIFIC
 
-`16.14.6.4` / `normal` / Test mapped; execution unconfirmed
+`16.14.6.4` / `normal` / Execution confirmed
 
 Disabling a procedural assertion clears its pending instances while leaving other assertions pending instances in that queue intact.
 
@@ -43158,7 +43159,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.14.6.4-EXTRACT-INNER-NO-FLUSH
 
-`16.14.6.4` / `normal` / Test mapped; execution unconfirmed
+`16.14.6.4` / `normal` / Execution confirmed
 
 Disabling a task or non-outermost procedural scope does not flush pending procedural assertion instances.
 
@@ -43171,7 +43172,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.14.6.4-EXTRACT-MATURED-IMMUNE
 
-`16.14.6.4` / `normal` / Test mapped; execution unconfirmed
+`16.14.6.4` / `normal` / Execution confirmed
 
 A matured procedural concurrent assertion attempt is unaffected by a disable statement.
 
@@ -43675,7 +43676,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.15-EXTRACT-DEFAULT-DISABLE-SCOPE
 
-`16.15` / `normal` / Test mapped; execution unconfirmed
+`16.15` / `normal` / Execution confirmed
 
 default disable iff expression; is allowed in module/interface/program declarations and generate blocks and applies throughout their scope, subscopes and nested declarations/generate blocks.
 
@@ -43700,7 +43701,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.15-EXTRACT-INNER-DEFAULT
 
-`16.15` / `normal` / Test mapped; execution unconfirmed
+`16.15` / `normal` / Execution confirmed
 
 An inner default disable iff overrides an enclosing default within that inner declaration/generate scope; names resolve from the default declaration scope.
 
@@ -43776,7 +43777,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.16-EXTRACT-CONTEXT-OVERRIDES
 
-`16.16` / `normal` / Test mapped; execution unconfirmed
+`16.16` / `normal` / Execution confirmed
 
 A procedurally inferred clock supersedes default clocking and acts as a leading clock on each applicable assertion.
 
@@ -43944,7 +43945,7 @@ Normative role: `definition`。
 
 ### SV2023-16.16.1-EXTRACT-PROP-IMPLICATION
 
-`16.16.1` / `normal` / Test mapped; execution unconfirmed
+`16.16.1` / `normal` / Execution confirmed
 
 m |-\> p and m |=\> p inherit their semantic-leading-clock set from m.
 
@@ -43992,7 +43993,7 @@ Normative role: `definition`。
 
 ### SV2023-16.16.1-EXTRACT-PROP-INHERITED-EVENTUALLY
 
-`16.16.1` / `normal` / Test mapped; execution unconfirmed
+`16.16.1` / `normal` / Execution confirmed
 
 The s_eventually forms listed in 16.16.1 have semantic-leading-clock set {inherited}.
 
@@ -44040,7 +44041,7 @@ Normative role: `definition`。
 
 ### SV2023-16.16.1-EXTRACT-PROP-INSTANCE
 
-`16.16.1` / `normal` / Test mapped; execution unconfirmed
+`16.16.1` / `normal` / Execution confirmed
 
 A property instance semantic-leading-clock set is that of its body with actuals substituted.
 
@@ -44052,7 +44053,7 @@ Normative role: `definition`。
 
 ### SV2023-16.16.1-EXTRACT-PROP-PARENS-NOT
 
-`16.16.1` / `normal` / Test mapped; execution unconfirmed
+`16.16.1` / `normal` / Execution confirmed
 
 Property parentheses and not preserve the operand semantic-leading-clock set.
 
@@ -44076,7 +44077,7 @@ Normative role: `definition`。
 
 ### SV2023-16.16.1-EXTRACT-PROP-STRENGTH
 
-`16.16.1` / `normal` / Test mapped; execution unconfirmed
+`16.16.1` / `normal` / Execution confirmed
 
 strong(m) and weak(m) have the singleton semantic-leading-clock set containing m leading clock.
 
@@ -44173,7 +44174,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.17-EXTRACT-EXPECT-BLOCK
 
-`16.17` / `normal` / Test mapped; execution unconfirmed
+`16.17` / `normal` / Execution confirmed
 
 expect blocks its executing process until success or failure, schedules continuation after the completion Observed region, and starts no further property attempt until the statement executes again.
 
@@ -44198,7 +44199,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.17-EXTRACT-EXPECT-PLACEMENT
 
-`16.17` / `normal` / Test mapped; execution unconfirmed
+`16.17` / `normal` / Execution confirmed
 
 expect may appear anywhere wait is allowed, and its blocking lifetime permits automatic and static variable references in its property.
 
@@ -44211,7 +44212,7 @@ Normative role: `permission`。
 
 ### SV2023-16.17-EXTRACT-EXPECT-SYNTAX
 
-`16.17` / `normal` / Test mapped; execution unconfirmed
+`16.17` / `normal` / Execution confirmed
 
 expect(property_spec) action_block is a procedural blocking statement accepting property syntax.
 
@@ -44237,7 +44238,7 @@ Normative role: `mandatory`。
 
 ### SV2023-17.1-EXTRACT-MODELING-KINDS
 
-`17.1` / `normal` / Test mapped; execution unconfirmed
+`17.1` / `normal` / Execution confirmed
 
 Checker variables may be deterministic or random for nondeterministic modeling.
 
@@ -44261,7 +44262,7 @@ Normative role: `mandatory`。
 
 ### SV2023-17.2-EXTRACT-BODY-ACTION
 
-`17.2` / `normal` / Test mapped; execution unconfirmed
+`17.2` / `normal` / Execution confirmed
 
 Assertion action blocks are checker action blocks; other checker contents form its body.
 
@@ -44273,7 +44274,7 @@ Normative role: `definition`。
 
 ### SV2023-17.2-EXTRACT-BODY-CONTENTS
 
-`17.2` / `normal` / Test mapped; execution unconfirmed
+`17.2` / `normal` / Execution confirmed
 
 A checker body may contain let/sequence/property/function/checker declarations, deferred/concurrent assertions, checker instances, covergroups, variables/assignments, default clocking/disable, permitted procedures and generate blocks.
 
@@ -44297,7 +44298,7 @@ Normative role: `definition`。
 
 ### SV2023-17.2-EXTRACT-DECLARATION-SCOPES
 
-`17.2` / `normal` / Test mapped; execution unconfirmed
+`17.2` / `normal` / Execution confirmed
 
 Checkers may be declared in modules, interfaces, programs, checkers, packages, generate blocks and compilation-unit scope.
 
@@ -44369,7 +44370,7 @@ Normative role: `mandatory`。
 
 ### SV2023-17.2-EXTRACT-LEXICAL-NAMES
 
-`17.2` / `normal` / Test mapped; execution unconfirmed
+`17.2` / `normal` / Execution confirmed
 
 Checker names other than formals/internal variables resolve from the checker declaration scope.
 
@@ -44435,7 +44436,7 @@ Normative role: `mandatory`。
 
 ### SV2023-17.2-EXTRACT-STATIC-LEXICAL
 
-`17.2` / `normal` / Test mapped; execution unconfirmed
+`17.2` / `normal` / Execution confirmed
 
 Type/data declarations in a checker are local and static; default clock/disable contexts are inherited from its declaration scope, subject to explicit instance-context functions.
 
@@ -44487,7 +44488,7 @@ Normative role: `mandatory`。
 
 ### SV2023-17.3-EXTRACT-DOLLAR-ACTUAL-USES
 
-`17.3` / `normal` / Test mapped; execution unconfirmed
+`17.3` / `normal` / Execution confirmed
 
 The terminal $ can be an actual input argument of a checker instance, passed in the argument list of the instance or given as a default actual argument, and an untyped formal bound to it can serve as the upper bound of a cycle delay range or be passed on to a sequence, property or checker instance.
 
@@ -44539,7 +44540,7 @@ Normative role: `mandatory`。
 
 ### SV2023-17.3-EXTRACT-INTERNAL-PROCEDURAL-ASSERTIONS
 
-`17.3` / `normal` / Test mapped; execution unconfirmed
+`17.3` / `normal` / Execution confirmed
 
 Procedural concurrent assertions inside a checker follow ordinary procedural assertion queue semantics.
 
@@ -44551,7 +44552,7 @@ Normative role: `mandatory`。
 
 ### SV2023-17.3-EXTRACT-NESTED-STATIC-ASSERTIONS
 
-`17.3` / `normal` / Test mapped; execution unconfirmed
+`17.3` / `normal` / Execution confirmed
 
 Static assertions in nested static checkers are treated at the parent checker context and become procedural when their top-level checker ancestor is visited procedurally.
 
@@ -44563,7 +44564,7 @@ Normative role: `mandatory`。
 
 ### SV2023-17.3-EXTRACT-ONE-PERSISTENT-COPY
 
-`17.3` / `normal` / Test mapped; execution unconfirmed
+`17.3` / `normal` / Execution confirmed
 
 Non-static-assertion checker contents exist at every time step with one copy per instantiation regardless of procedural visitation.
 
@@ -44611,7 +44612,7 @@ Normative role: `recommendation`。
 
 ### SV2023-17.3-EXTRACT-STATIC-IN-PROCEDURAL
 
-`17.3` / `normal` / Test mapped; execution unconfirmed
+`17.3` / `normal` / Execution confirmed
 
 When procedural execution reaches a checker instance, its static concurrent assertions enter that process pending assertion queue and static deferred reports enter its deferred report queue, subject to maturation/flush rules.
 
@@ -44623,7 +44624,7 @@ Normative role: `mandatory`。
 
 ### SV2023-17.3-EXTRACT-STATIC-IN-STATIC
 
-`17.3` / `normal` / Test mapped; execution unconfirmed
+`17.3` / `normal` / Execution confirmed
 
 Static concurrent assertions in a static checker begin at every leading event; static deferred assertions are monitored as their expressions change.
 
@@ -44635,7 +44636,7 @@ Normative role: `mandatory`。
 
 ### SV2023-17.3-EXTRACT-STATIC-PROCEDURAL
 
-`17.3` / `normal` / Test mapped; execution unconfirmed
+`17.3` / `normal` / Execution confirmed
 
 A checker instance is procedural when written in procedural code and static otherwise.
 
@@ -44647,7 +44648,7 @@ Normative role: `definition`。
 
 ### SV2023-17.4-EXTRACT-CONTEXT-DEFAULTS
 
-`17.4` / `normal` / Test mapped; execution unconfirmed
+`17.4` / `normal` / Execution confirmed
 
 Checker formals may use context-value functions as defaults under 16.14.7 to obtain the instance clock and disable condition.
 
@@ -44695,7 +44696,7 @@ Normative role: `mandatory`。
 
 ### SV2023-17.5-EXTRACT-FF-SAMPLING
 
-`17.5` / `normal` / Test mapped; execution unconfirmed
+`17.5` / `normal` / Execution confirmed
 
 Expressions in checker always_ff, including immediate/deferred assertion expressions, use sampled values except variables used in the event control, which use current values.
 
@@ -44743,7 +44744,7 @@ Normative role: `mandatory`。
 
 ### SV2023-17.5-EXTRACT-PROCEDURE-KINDS
 
-`17.5` / `normal` / Test mapped; execution unconfirmed
+`17.5` / `normal` / Execution confirmed
 
 Checker bodies permit initial, allowed always and final procedures.
 
@@ -44945,7 +44946,7 @@ Normative role: `mandatory`。
 
 ### SV2023-17.7.1-EXTRACT-TRIGGERED-RHS
 
-`17.7.1` / `normal` / Test mapped; execution unconfirmed
+`17.7.1` / `normal` / Execution confirmed
 
 A checker assignment right side may use sequence.triggered.
 
@@ -45130,7 +45131,7 @@ Normative role: `mandatory`。
 
 ### SV2023-17.7.3-EXTRACT-REACTIVE-CHECKER
 
-`17.7.3` / `normal` / Test mapped; execution unconfirmed
+`17.7.3` / `normal` / Execution confirmed
 
 Checker change-sensitive constructs and blocking statements schedule in Reactive; checker nonblocking updates schedule in Re-NBA after Reactive/Re-Inactive are empty.
 
@@ -45153,7 +45154,7 @@ Normative role: `definition`。
 
 ### SV2023-17.8-EXTRACT-FREE-VARIABLE-ACTUAL
 
-`17.8` / `normal` / Test mapped; execution unconfirmed
+`17.8` / `normal` / Execution confirmed
 
 A free checker variable can be passed as an actual argument to a function called in a checker.
 
@@ -45214,7 +45215,7 @@ Normative role: `recommendation`。
 
 ### SV2023-18.3-EXTRACT-BIDIRECTIONAL
 
-`18.3` / `normal` / Test mapped; execution unconfirmed
+`18.3` / `normal` / Execution confirmed
 
 Selected values shall satisfy all constraints and distributions except specified exceptions; dependencies are bidirectional for all operators including inside, dist and implication.
 
@@ -45310,7 +45311,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.3-EXTRACT-RANDOMIZE-ALL
 
-`18.3` / `normal` / Test mapped; execution unconfirmed
+`18.3` / `normal` / Execution confirmed
 
 randomize() selects new values for active random object variables satisfying all enabled constraints; unconstrained variables can take values in their declared ranges.
 
@@ -45334,7 +45335,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.3-EXTRACT-SOLVER-CAPABILITY
 
-`18.3` / `normal` / Test mapped; execution unconfirmed
+`18.3` / `normal` / Execution confirmed
 
 The solver shall handle algebraic, Boolean and mixed integer/bit constraint equations.
 
@@ -45601,7 +45602,7 @@ Normative role: `definition`。
 
 ### SV2023-18.4.1-EXTRACT-REAL-UNIFORM
 
-`18.4.1` / `normal` / Test mapped; execution unconfirmed
+`18.4.1` / `normal` / Execution confirmed
 
 Random real values are uniformly distributed over their allowed range.
 
@@ -46005,7 +46006,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.5.3-EXTRACT-DEFAULT-COMPLEMENT
 
-`18.5.3` / `normal` / Test mapped; execution unconfirmed
+`18.5.3` / `normal` / Execution confirmed
 
 Distribution default denotes all values of the expression self-determined type not present in another item.
 
@@ -46140,7 +46141,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.5.3-EXTRACT-REAL-SINGLE-WEIGHT
 
-`18.5.3` / `normal` / Test mapped; execution unconfirmed
+`18.5.3` / `normal` / Execution confirmed
 
 A single real value may use :=, and distributions may mix real/integral items and real tolerance ranges.
 
@@ -46200,7 +46201,7 @@ Normative role: `definition`。
 
 ### SV2023-18.5.4-EXTRACT-LEAF-DEFINITION
 
-`18.5.4` / `normal` / Test mapped; execution unconfirmed
+`18.5.4` / `normal` / Execution confirmed
 
 An unpacked array leaf element is reached by descending until the element is not an unpacked array.
 
@@ -46212,7 +46213,7 @@ Normative role: `definition`。
 
 ### SV2023-18.5.4-EXTRACT-SMALL-UNIQUE
 
-`18.5.4` / `normal` / Test mapped; execution unconfirmed
+`18.5.4` / `normal` / Execution confirmed
 
 A group with fewer than two members has no effect and does not cause a constraint contradiction.
 
@@ -46600,7 +46601,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.5.9-EXTRACT-PARTIAL-LATEST
 
-`18.5.9` / `normal` / Test mapped; execution unconfirmed
+`18.5.9` / `normal` / Execution confirmed
 
 Partially ordered variables are solved with the latest group compatible with every ordering constraint.
 
@@ -46612,7 +46613,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.5.9-EXTRACT-PARTIAL-ORDER
 
-`18.5.9` / `normal` / Test mapped; execution unconfirmed
+`18.5.9` / `normal` / Execution confirmed
 
 solve before specifies a partial ordering with comma-separated lists of constraint-primary random variables.
 
@@ -46636,7 +46637,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.5.9-EXTRACT-UNORDERED-LAST
 
-`18.5.9` / `normal` / Test mapped; execution unconfirmed
+`18.5.9` / `normal` / Execution confirmed
 
 Variables without explicit order are solved with the last ordered group.
 
@@ -46746,7 +46747,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.5.11-EXTRACT-NO-PRIORITY-CYCLE
 
-`18.5.11` / `normal` / Test mapped; execution unconfirmed
+`18.5.11` / `normal` / Execution confirmed
 
 Circular dependencies from implicit function-argument ordering are errors.
 
@@ -47371,7 +47372,7 @@ Normative role: `definition`。
 
 ### SV2023-18.5.13.1-EXTRACT-CONTAINER-HIGHER
 
-`18.5.13.1` / `normal` / Test mapped; execution unconfirmed
+`18.5.13.1` / `normal` / Execution confirmed
 
 All constraints in a container object have higher soft priority than constraints in contained rand objects.
 
@@ -47383,7 +47384,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.5.13.1-EXTRACT-DERIVED-HIGHER
 
-`18.5.13.1` / `normal` / Test mapped; execution unconfirmed
+`18.5.13.1` / `normal` / Execution confirmed
 
 Derived-class constraints have higher soft priority than all superclass constraints.
 
@@ -47395,7 +47396,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.5.13.1-EXTRACT-EXTERNAL-PROTOTYPE-ORDER
 
-`18.5.13.1` / `normal` / Test mapped; execution unconfirmed
+`18.5.13.1` / `normal` / Execution confirmed
 
 An external block soft priority follows its prototype declaration position, not the out-of-body definition position.
 
@@ -47407,7 +47408,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.5.13.1-EXTRACT-FOREACH-PRIORITY
 
-`18.5.13.1` / `normal` / Test mapped; execution unconfirmed
+`18.5.13.1` / `normal` / Execution confirmed
 
 Later foreach iterations have higher soft priority; for associative index types without a relational operator, this priority is implementation dependent.
 
@@ -47467,7 +47468,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.5.13.1-EXTRACT-SOFT-NONCONTRADICTORY
 
-`18.5.13.1` / `normal` / Test mapped; execution unconfirmed
+`18.5.13.1` / `normal` / Execution confirmed
 
 If soft constraints do not contradict one another or applicable hard constraints, results are the same as if all were hard.
 
@@ -47479,7 +47480,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.5.13.1-EXTRACT-SOFT-ONLY-SUCCESS
 
-`18.5.13.1` / `normal` / Test mapped; execution unconfirmed
+`18.5.13.1` / `normal` / Execution confirmed
 
 Randomization involving only soft constraints shall never fail.
 
@@ -47516,7 +47517,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.5.13.2-EXTRACT-DIRECT-REFERENCE
 
-`18.5.13.2` / `normal` / Test mapped; execution unconfirmed
+`18.5.13.2` / `normal` / Execution confirmed
 
 disable soft affects only soft expressions in which the target variable directly appears, not merely an enclosing condition.
 
@@ -47855,7 +47856,7 @@ Normative role: `definition`。
 
 ### SV2023-18.7.1-EXTRACT-LOCAL-IMPORT
 
-`18.7.1` / `normal` / Test mapped; execution unconfirmed
+`18.7.1` / `normal` / Execution confirmed
 
 For wildcard package imports, local::a has the same semantics as an unqualified a in the local scope.
 
@@ -47879,7 +47880,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.7.1-EXTRACT-LOCAL-RECEIVER-SPECIAL
 
-`18.7.1` / `normal` / Test mapped; execution unconfirmed
+`18.7.1` / `normal` / Execution confirmed
 
 For obj.randomize with, the explicit rule in 18.7.1 binds local::obj to the scope of the randomize receiver class.
 
@@ -47903,7 +47904,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.7.1-EXTRACT-LOCAL-TYPES
 
-`18.7.1` / `normal` / Test mapped; execution unconfirmed
+`18.7.1` / `normal` / Execution confirmed
 
 local:: may qualify class scopes and type names.
 
@@ -48049,7 +48050,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.8-EXTRACT-STRUCT-MODES
 
-`18.8` / `normal` / Test mapped; execution unconfirmed
+`18.8` / `normal` / Execution confirmed
 
 An unpacked-structure member selection targets one member; omitting it targets every member.
 
@@ -48292,7 +48293,7 @@ Normative role: `definition`。
 
 ### SV2023-18.12-EXTRACT-SCOPE-RESULT
 
-`18.12` / `normal` / Test mapped; execution unconfirmed
+`18.12` / `normal` / Execution confirmed
 
 Scope randomize returns 1 when all selected variables receive valid values, otherwise 0.
 
@@ -48389,7 +48390,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.13.2-EXTRACT-URANDOM-RANGE-STABLE
 
-`18.13.2` / `normal` / Test mapped; execution unconfirmed
+`18.13.2` / `normal` / Execution confirmed
 
 $urandom_range is thread stable under 18.14.2.
 
@@ -48461,7 +48462,7 @@ Normative role: `implementation_defined`。
 
 ### SV2023-18.14-EXTRACT-RANDOM-STABILITY
 
-`18.14` / `normal` / Test mapped; execution unconfirmed
+`18.14` / `normal` / Execution confirmed
 
 Thread/object RNG streams are localized and independent; random stability applies to $urandom/$urandom_range, shuffle, randcase/randsequence, object/process srandom and object/scope randomize.
 
@@ -48569,7 +48570,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.14.2-EXTRACT-THREAD-ORDER-INDEPENDENT
 
-`18.14.2` / `normal` / Test mapped; execution unconfirmed
+`18.14.2` / `normal` / Execution confirmed
 
 $urandom/$urandom_range, scope randomize, shuffle and procedural randcase/randsequence choices are independent of scheduling order among threads.
 
@@ -48736,7 +48737,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.17-EXTRACT-AUTOMATIC-SCOPES
 
-`18.17` / `normal` / Test mapped; execution unconfirmed
+`18.17` / `normal` / Execution confirmed
 
 A randsequence statement creates an automatic scope in which its production identifiers are local, and each code block in it creates an anonymous automatic scope, so a variable declared in a code block is created and initialized again on each execution of the block unless it is declared with the static prefix, which makes it keep its value between executions.
 
@@ -48785,7 +48786,7 @@ Normative role: `definition`。
 
 ### SV2023-18.17-EXTRACT-RANDSEQUENCE-GRAMMAR
 
-`18.17` / `normal` / Test mapped; execution unconfirmed
+`18.17` / `normal` / Execution confirmed
 
 randsequence contains one or more optionally typed/argument-bearing productions with sequential items, alternatives, optional weights/code blocks, interleaving, if/repeat/case forms under Syntax 18-13.
 
@@ -48930,7 +48931,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.17.5-EXTRACT-JOIN-DEFAULT
 
-`18.17.5` / `normal` / Test mapped; execution unconfirmed
+`18.17.5` / `normal` / Execution confirmed
 
 An omitted rand join parameter defaults to 0.5, with no sequence-length preference.
 
@@ -48954,7 +48955,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.17.5-EXTRACT-JOIN-LENGTH
 
-`18.17.5` / `normal` / Test mapped; execution unconfirmed
+`18.17.5` / `normal` / Execution confirmed
 
 A sequence interleaving length is its number of not-yet-interleaved productions; parameter 0 favors shortest and 1 favors longest.
 
@@ -48978,7 +48979,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.17.5-EXTRACT-RAND-JOIN
 
-`18.17.5` / `normal` / Test mapped; execution unconfirmed
+`18.17.5` / `normal` / Execution confirmed
 
 rand join randomly interleaves two or more production sequences while preserving each sequence internal order.
 
@@ -49038,7 +49039,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.17.7-EXTRACT-IMPLICIT-RESULT-VARIABLE
 
-`18.17.7` / `normal` / Test mapped; execution unconfirmed
+`18.17.7` / `normal` / Execution confirmed
 
 Each rule implicitly declares a result variable for every value-returning subproduction: one syntactic occurrence uses its return type, multiple occurrences use a 1-based array of that type.
 
@@ -49050,7 +49051,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.17.7-EXTRACT-PRODUCTION-PORTS
 
-`18.17.7` / `normal` / Test mapped; execution unconfirmed
+`18.17.7` / `normal` / Execution confirmed
 
 Productions may accept task-style formal arguments and calls; productions returning data require a return type before their name.
 
@@ -49075,7 +49076,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.17.7-EXTRACT-RESULT-ACCESS
 
-`18.17.7` / `normal` / Test mapped; execution unconfirmed
+`18.17.7` / `normal` / Execution confirmed
 
 A caller production code block accesses generated subproduction results by production name and optional index.
 
@@ -49087,7 +49088,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.17.7-EXTRACT-SYNTACTIC-RESULT-ORDER
 
-`18.17.7` / `normal` / Test mapped; execution unconfirmed
+`18.17.7` / `normal` / Execution confirmed
 
 Implicit result-array elements receive values by syntactic occurrence order, not dynamic generation count.
 
@@ -49182,7 +49183,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.3-EXTRACT-COVERAGE-EVENT
 
-`19.3` / `normal` / Test mapped; execution unconfirmed
+`19.3` / `normal` / Execution confirmed
 
 A covergroup may sample on a clock event, block event or custom sample method; absent a coverage event it uses sample() with no arguments, and explicit sample calls require nondefaulted actuals.
 
@@ -49326,7 +49327,7 @@ Normative role: `permission`。
 
 ### SV2023-19.4.1-EXTRACT-ADD-COVERPOINT
 
-`19.4.1` / `normal` / Test mapped; execution unconfirmed
+`19.4.1` / `normal` / Execution confirmed
 
 A newly named derived coverpoint adds a sampled point.
 
@@ -49338,7 +49339,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.4.1-EXTRACT-DISTINCT-COVERAGE-TYPES
 
-`19.4.1` / `normal` / Test mapped; execution unconfirmed
+`19.4.1` / `normal` / Execution confirmed
 
 get_coverage treats base and derived covergroups as separate types, with no aggregation across them.
 
@@ -49362,7 +49363,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.4.1-EXTRACT-INHERIT-ARGS-EVENT
 
-`19.4.1` / `normal` / Test mapped; execution unconfirmed
+`19.4.1` / `normal` / Execution confirmed
 
 A derived covergroup implicitly has its base argument list and uses the base coverage event.
 
@@ -49374,7 +49375,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.4.1-EXTRACT-INHERIT-COMPONENTS
 
-`19.4.1` / `normal` / Test mapped; execution unconfirmed
+`19.4.1` / `normal` / Execution confirmed
 
 Derived covergroups may reference base components and inherit all components unless overridden.
 
@@ -49386,7 +49387,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.4.1-EXTRACT-OVERRIDE-COVERPOINT
 
-`19.4.1` / `normal` / Test mapped; execution unconfirmed
+`19.4.1` / `normal` / Execution confirmed
 
 A same-name derived coverpoint removes the base point contribution to coverage computation, but a base cross including it still contributes unless a same-name derived cross replaces it.
 
@@ -49398,7 +49399,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.4.1-EXTRACT-OVERRIDE-OPTIONS
 
-`19.4.1` / `normal` / Test mapped; execution unconfirmed
+`19.4.1` / `normal` / Execution confirmed
 
 Derived coverage options override same-name base options; remaining base options are inherited.
 
@@ -49410,7 +49411,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.4.1-EXTRACT-REPLACE-INSTANCE
 
-`19.4.1` / `normal` / Test mapped; execution unconfirmed
+`19.4.1` / `normal` / Execution confirmed
 
 The derived covergroup replaces its base instance, so references to the group name in the class and all base classes resolve to the derived instance.
 
@@ -49522,7 +49523,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5-EXTRACT-GROUP-FUNCTION-CONST-REF
 
-`19.5` / `normal` / Test mapped; execution unconfirmed
+`19.5` / `normal` / Execution confirmed
 
 A function whose ref formal arguments are all const ref can be called in a covergroup_expression.
 
@@ -49582,7 +49583,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5-EXTRACT-POINT-GRAMMAR
 
-`19.5` / `normal` / Test mapped; execution unconfirmed
+`19.5` / `normal` / Execution confirmed
 
 Syntax 19-2 defines optional point type/name/iff, value/set/transition/default bins and options, with bins/ignore_bins/illegal_bins and optional wildcard forms and expression restrictions.
 
@@ -49703,7 +49704,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.1-EXTRACT-EXCESS-REAL-BINS
 
-`19.5.1` / `normal` / Test mapped; execution unconfirmed
+`19.5.1` / `normal` / Execution confirmed
 
 If fixed real-bin count exceeds item count, remaining bins are empty.
 
@@ -49728,7 +49729,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.1-EXTRACT-FIXED-REAL-DISTRIBUTION
 
-`19.5.1` / `normal` / Test mapped; execution unconfirmed
+`19.5.1` / `normal` / Execution confirmed
 
 Fixed real bins binname\[N\] are named binname\[0\] through binname\[N-1\]; each range interval and each individual value counts as an item, the items are distributed in the listed order in groups of max(1, floor(items/N)), the last bin takes the remainder, and duplicates are retained.
 
@@ -49765,7 +49766,7 @@ Normative role: `definition`。
 
 ### SV2023-19.5.1-EXTRACT-MERGE-IDENTICAL-INTERVALS
 
-`19.5.1` / `normal` / Test mapped; execution unconfirmed
+`19.5.1` / `normal` / Execution confirmed
 
 Identical intervals arising from multiple real ranges in an open bin array merge; intervals differing in endpoint inclusivity remain distinct.
 
@@ -49777,7 +49778,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.1-EXTRACT-REAL-BIN-FORMS
 
-`19.5.1` / `normal` / Test mapped; execution unconfirmed
+`19.5.1` / `normal` / Execution confirmed
 
 Real bins support one bin for the full list, \[\] for individual values/range intervals, or \[N\] for a positive integral fixed count.
 
@@ -49789,7 +49790,7 @@ Normative role: `definition`。
 
 ### SV2023-19.5.1-EXTRACT-REAL-BIN-NAMES
 
-`19.5.1` / `normal` / Test mapped; execution unconfirmed
+`19.5.1` / `normal` / Execution confirmed
 
 Open real intervals use name\[low:high) or name\[low:high\] according to endpoint inclusion; a single value uses name\[value\].
 
@@ -49814,7 +49815,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.1-EXTRACT-REAL-DOLLAR-RANGE
 
-`19.5.1` / `normal` / Test mapped; execution unconfirmed
+`19.5.1` / `normal` / Execution confirmed
 
 A real range with $ in its bound is assigned as one item/bin and shall not be partitioned into intervals.
 
@@ -49826,7 +49827,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.1-EXTRACT-REAL-INTERVAL-ENDS
 
-`19.5.1` / `normal` / Test mapped; execution unconfirmed
+`19.5.1` / `normal` / Execution confirmed
 
 Real ranges wider than type_option.real_interval split into interval-sized partitions with a possibly shorter final interval; each includes its lower endpoint and excludes its upper, except the final interval includes its upper.
 
@@ -49838,7 +49839,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.1-EXTRACT-REAL-OPEN-PARTITION
 
-`19.5.1` / `normal` / Test mapped; execution unconfirmed
+`19.5.1` / `normal` / Execution confirmed
 
 Open real bin intervals begin at the range minimum, continue from prior interval endpoints and end at the range maximum; a range smaller than the interval size uses one bin.
 
@@ -49850,7 +49851,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.1-EXTRACT-REAL-RANGE
 
-`19.5.1` / `normal` / Test mapped; execution unconfirmed
+`19.5.1` / `normal` / Execution confirmed
 
 Integral ranges denote discrete inclusive values; real ranges contain all values between inclusive bounds and may be partitioned into intervals.
 
@@ -49862,7 +49863,7 @@ Normative role: `definition`。
 
 ### SV2023-19.5.1-EXTRACT-REAL-TOLERANCE
 
-`19.5.1` / `normal` / Test mapped; execution unconfirmed
+`19.5.1` / `normal` / Execution confirmed
 
 +/- and +%- on single real bin values create tolerance ranges, to which ordinary range/interval partition rules apply, including splitting when wider than the interval size.
 
@@ -49886,7 +49887,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.1.1-EXTRACT-WITH-CONSTRUCTION
 
-`19.5.1.1` / `normal` / Test mapped; execution unconfirmed
+`19.5.1.1` / `normal` / Execution confirmed
 
 with acts as evaluation for every candidate at covergroup construction; by default filter before bin distribution, or distribute before filtering with distribute_first.
 
@@ -49946,7 +49947,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.1.2-EXTRACT-SET-VISIBILITY-TIME
 
-`19.5.1.2` / `normal` / Test mapped; execution unconfirmed
+`19.5.1.2` / `normal` / Execution confirmed
 
 Coverpoint/bin and other within-covergroup identifiers are not visible in the set expression, which evaluates at covergroup construction.
 
@@ -50069,7 +50070,7 @@ Normative role: `definition`。
 
 ### SV2023-19.5.2-EXTRACT-TRANSITION-COUNT-NAMES
 
-`19.5.2` / `normal` / Test mapped; execution unconfirmed
+`19.5.2` / `normal` / Execution confirmed
 
 A bin count increments when any complete trans_list sequence matches; bounded \[\] transition bins have names binname\[transition\].
 
@@ -50081,7 +50082,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.2-EXTRACT-TRANSITION-GRAMMAR
 
-`19.5.2` / `normal` / Test mapped; execution unconfirmed
+`19.5.2` / `normal` / Execution confirmed
 
 Transition bins accept ordered trans_list alternatives, range-list items and consecutive/goto/nonconsecutive repeat ranges under Syntax 19-3, optionally with \[\] bins and iff.
 
@@ -50188,7 +50189,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.4-EXTRACT-EXPLICIT-FOUR-STATE
 
-`19.5.4` / `normal` / Test mapped; execution unconfirmed
+`19.5.4` / `normal` / Execution confirmed
 
 The default explicit integral value/transition-bin matching described in 19.5.4 compares x/z literally using case equality; wildcard definitions instead expand x/z/? to 0/1 possibilities.
 
@@ -50236,7 +50237,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.5-EXTRACT-IGNORE-SEQUENCES
 
-`19.5.5` / `normal` / Test mapped; execution unconfirmed
+`19.5.5` / `normal` / Execution confirmed
 
 Ignoring a transition removes covered sequences that cannot match without matching the ignored sequence; ignored single values do not affect transitions containing them.
 
@@ -50284,7 +50285,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.6-EXTRACT-ILLEGAL-ERROR
 
-`19.5.6` / `normal` / Test mapped; execution unconfirmed
+`19.5.6` / `normal` / Execution confirmed
 
 An observed illegal value/transition issues a runtime error, taking precedence even when also included in other bins.
 
@@ -50297,7 +50298,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.6-EXTRACT-ILLEGAL-SEQUENCES
 
-`19.5.6` / `normal` / Test mapped; execution unconfirmed
+`19.5.6` / `normal` / Execution confirmed
 
 Illegal transitions remove covered sequences that cannot match without an illegal sequence; illegal state values do not remove transitions merely containing that value.
 
@@ -50321,7 +50322,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.7-EXTRACT-EFFECTIVE-TYPE
 
-`19.5.7` / `normal` / Test mapped; execution unconfirmed
+`19.5.7` / `normal` / Execution confirmed
 
 The point comparison effective type is its specified type or otherwise its expression self-determined type; bin expressions cast statically to that type.
 
@@ -50333,7 +50334,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.7-EXTRACT-ENUM-BASE-CONTEXT
 
-`19.5.7` / `normal` / Test mapped; execution unconfirmed
+`19.5.7` / `normal` / Execution confirmed
 
 Enum bin/point values use their base types in expression context during value resolution.
 
@@ -50345,7 +50346,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.7-EXTRACT-WARN-NEGATIVE-UNSIGNED
 
-`19.5.7` / `normal` / Test mapped; execution unconfirmed
+`19.5.7` / `normal` / Execution confirmed
 
 A signed negative bin value compared against an unsigned point type shall cause a warning.
 
@@ -50357,7 +50358,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.7-EXTRACT-WARN-NONREPRESENTABLE
 
-`19.5.7` / `normal` / Test mapped; execution unconfirmed
+`19.5.7` / `normal` / Execution confirmed
 
 A bin value changed under normal == comparison by assignment conversion to the point effective type shall cause a warning.
 
@@ -50392,7 +50393,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.7-EXTRACT-WARNED-RANGE-REMOVE
 
-`19.5.7` / `normal` / Test mapped; execution unconfirmed
+`19.5.7` / `normal` / Execution confirmed
 
 A range with x/z at either endpoint, or with all values causing warnings, shall not participate in bin values.
 
@@ -50404,7 +50405,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.7-EXTRACT-WARNED-SINGLETON
 
-`19.5.7` / `normal` / Test mapped; execution unconfirmed
+`19.5.7` / `normal` / Execution confirmed
 
 A singleton bin element receiving a value-resolution warning shall not participate in bin values.
 
@@ -50416,7 +50417,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.7-EXTRACT-WILDCARD-FIRST
 
-`19.5.7` / `normal` / Test mapped; execution unconfirmed
+`19.5.7` / `normal` / Execution confirmed
 
 Expand wildcard bin x/z positions to all 0/1 possibilities before applying value-resolution casts/warnings.
 
@@ -50466,7 +50467,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.6-EXTRACT-CROSS-GRAMMAR
 
-`19.6` / `normal` / Test mapped; execution unconfirmed
+`19.6` / `normal` / Execution confirmed
 
 Syntax 19-4 defines optional cross label/iff, bin selection/options/functions and binsof/intersect/logical/with/matches/set selections.
 
@@ -50478,7 +50479,7 @@ Normative role: `definition`。
 
 ### SV2023-19.6-EXTRACT-CROSS-IFF
 
-`19.6` / `normal` / Test mapped; execution unconfirmed
+`19.6` / `normal` / Execution confirmed
 
 A false cross iff ignores that cross for the sample; a false cross-bin iff ignores that bin.
 
@@ -50502,7 +50503,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.6-EXTRACT-CROSS-LABEL-SCOPE
 
-`19.6` / `normal` / Test mapped; execution unconfirmed
+`19.6` / `normal` / Execution confirmed
 
 An optional cross label names it and creates a hierarchical scope for its bins.
 
@@ -50646,7 +50647,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.6.1.2-EXTRACT-CROSS-WITH
 
-`19.6.1.2` / `normal` / Test mapped; execution unconfirmed
+`19.6.1.2` / `normal` / Execution confirmed
 
 Cross with selects candidate bin tuples when sufficiently many constituent value tuples satisfy its expression; cross-item names represent their corresponding values in each tuple.
 
@@ -50658,7 +50659,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.6.1.2-EXTRACT-CROSS-WITH-CONSTRUCTION
 
-`19.6.1.2` / `normal` / Test mapped; execution unconfirmed
+`19.6.1.2` / `normal` / Execution confirmed
 
 Cross with behaves as evaluating every candidate value tuple at construction, while allowing equivalent symbolic/cached computation with all, some or no evaluation events scheduled.
 
@@ -50718,7 +50719,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.6.1.3-EXTRACT-CROSS-QUEUE-TYPE
 
-`19.6.1.3` / `normal` / Test mapped; execution unconfirmed
+`19.6.1.3` / `normal` / Execution confirmed
 
 CrossQueueType is an unbounded queue of CrossValType.
 
@@ -50730,7 +50731,7 @@ Normative role: `definition`。
 
 ### SV2023-19.6.1.3-EXTRACT-CROSS-TYPE-SCOPE
 
-`19.6.1.3` / `normal` / Test mapped; execution unconfirmed
+`19.6.1.3` / `normal` / Execution confirmed
 
 Each cross implicitly defines CrossValType and CrossQueueType accessible only in its own scope.
 
@@ -50742,7 +50743,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.6.1.3-EXTRACT-CROSS-VAL-TYPE
 
-`19.6.1.3` / `normal` / Test mapped; execution unconfirmed
+`19.6.1.3` / `normal` / Execution confirmed
 
 CrossValType is a struct with a member of each corresponding coverpoint name/type; unclear range bounds default to \[$bits(point_expression)-1:0\].
 
@@ -50754,7 +50755,7 @@ Normative role: `definition`。
 
 ### SV2023-19.6.1.3-EXTRACT-IMPLICIT-TYPEDEFS
 
-`19.6.1.3` / `normal` / Test mapped; execution unconfirmed
+`19.6.1.3` / `normal` / Execution confirmed
 
 The automatic cross types act as implicit typedefs despite explicit typedef syntax being disallowed in a cross body.
 
@@ -50766,7 +50767,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.6.1.4-EXTRACT-CROSS-SET-EXPRESSION
 
-`19.6.1.4` / `normal` / Test mapped; execution unconfirmed
+`19.6.1.4` / `normal` / Execution confirmed
 
 Any expression that evaluates to the CrossQueueType of the cross can define a cross bin, and for an array literal the cross bin provides the type context.
 
@@ -50779,7 +50780,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.6.1.4-EXTRACT-CROSS-SET-MATCHES
 
-`19.6.1.4` / `normal` / Test mapped; execution unconfirmed
+`19.6.1.4` / `normal` / Execution confirmed
 
 Cross set matches applies the same policy as with: select a bin tuple with the required number of its value tuples in the queue, defaulting to one.
 
@@ -50815,7 +50816,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.6.3-EXTRACT-ILLEGAL-CROSS
 
-`19.6.3` / `normal` / Test mapped; execution unconfirmed
+`19.6.3` / `normal` / Execution confirmed
 
 illegal_bins excludes selected products from coverage and issues runtime errors on matches, even when the product is explicitly ignored or included in another bin.
 
@@ -50827,7 +50828,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT
 
-`19.7` / `normal` / Test mapped; execution unconfirmed
+`19.7` / `normal` / Execution confirmed
 
 cross_retain_auto_bins is a definition-only instance option: it can be set only by an option assignment in the covergroup definition, either at the covergroup level (as the default for its crosses) or within a cross, and not within a coverpoint or by procedural assignment after the covergroup is instantiated.
 
@@ -50867,7 +50868,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.7-EXTRACT-INSTANCE-VERSUS-TYPE
 
-`19.7` / `normal` / Test mapped; execution unconfirmed
+`19.7` / `normal` / Execution confirmed
 
 Instance options affect only their initialized covergroup instance, while type options apply to the type.
 
@@ -50952,7 +50953,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7-EXTRACT-LEVEL-COMMENT-COVERGROUP
 
-`19.7` / `normal` / Test mapped; execution unconfirmed
+`19.7` / `normal` / Execution confirmed
 
 Table 19-2 permits option.comment at the covergroup syntactic level.
 
@@ -50964,7 +50965,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7-EXTRACT-LEVEL-COMMENT-COVERPOINT
 
-`19.7` / `normal` / Test mapped; execution unconfirmed
+`19.7` / `normal` / Execution confirmed
 
 Table 19-2 permits option.comment at the coverpoint syntactic level.
 
@@ -50976,7 +50977,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7-EXTRACT-LEVEL-COMMENT-CROSS
 
-`19.7` / `normal` / Test mapped; execution unconfirmed
+`19.7` / `normal` / Execution confirmed
 
 Table 19-2 permits option.comment at the cross syntactic level.
 
@@ -50988,7 +50989,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7-EXTRACT-LEVEL-CROSS-NUM-PRINT-MISSING-COVERGROUP
 
-`19.7` / `normal` / Test mapped; execution unconfirmed
+`19.7` / `normal` / Execution confirmed
 
 Table 19-2 permits option.cross_num_print_missing at the covergroup syntactic level.
 
@@ -51012,7 +51013,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7-EXTRACT-LEVEL-CROSS-NUM-PRINT-MISSING-CROSS
 
-`19.7` / `normal` / Test mapped; execution unconfirmed
+`19.7` / `normal` / Execution confirmed
 
 Table 19-2 permits option.cross_num_print_missing at the cross syntactic level.
 
@@ -51024,7 +51025,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7-EXTRACT-LEVEL-CROSS-RETAIN-AUTO-BINS-COVERGROUP
 
-`19.7` / `normal` / Test mapped; execution unconfirmed
+`19.7` / `normal` / Execution confirmed
 
 Table 19-2 permits option.cross_retain_auto_bins at the covergroup syntactic level.
 
@@ -51060,7 +51061,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7-EXTRACT-LEVEL-DETECT-OVERLAP-COVERGROUP
 
-`19.7` / `normal` / Test mapped; execution unconfirmed
+`19.7` / `normal` / Execution confirmed
 
 Table 19-2 permits option.detect_overlap at the covergroup syntactic level.
 
@@ -51132,7 +51133,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7-EXTRACT-LEVEL-GOAL-COVERGROUP
 
-`19.7` / `normal` / Test mapped; execution unconfirmed
+`19.7` / `normal` / Execution confirmed
 
 Table 19-2 permits option.goal at the covergroup syntactic level.
 
@@ -51144,7 +51145,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7-EXTRACT-LEVEL-GOAL-COVERPOINT
 
-`19.7` / `normal` / Test mapped; execution unconfirmed
+`19.7` / `normal` / Execution confirmed
 
 Table 19-2 permits option.goal at the coverpoint syntactic level.
 
@@ -51156,7 +51157,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7-EXTRACT-LEVEL-GOAL-CROSS
 
-`19.7` / `normal` / Test mapped; execution unconfirmed
+`19.7` / `normal` / Execution confirmed
 
 Table 19-2 permits option.goal at the cross syntactic level.
 
@@ -51168,7 +51169,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7-EXTRACT-LEVEL-NAME-COVERGROUP
 
-`19.7` / `normal` / Test mapped; execution unconfirmed
+`19.7` / `normal` / Execution confirmed
 
 Table 19-2 permits option.name at the covergroup syntactic level.
 
@@ -51264,7 +51265,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7-EXTRACT-LEVEL-WEIGHT-CROSS
 
-`19.7` / `normal` / Test mapped; execution unconfirmed
+`19.7` / `normal` / Execution confirmed
 
 Table 19-2 permits option.weight at the cross syntactic level.
 
@@ -51372,7 +51373,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7-EXTRACT-OPTION-GOAL
 
-`19.7` / `normal` / Test mapped; execution unconfirmed
+`19.7` / `normal` / Execution confirmed
 
 Instance option goal defaults to 100 and specifies the target for the instance or its point/cross.
 
@@ -51384,7 +51385,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7-EXTRACT-OPTION-MEMBER
 
-`19.7` / `normal` / Test mapped; execution unconfirmed
+`19.7` / `normal` / Execution confirmed
 
 option is a built-in member of every group/point/cross, assigned in declarations as option.member = expression; its definition-time assignments evaluate at instantiation.
 
@@ -51396,7 +51397,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.7-EXTRACT-OPTION-NAME
 
-`19.7` / `normal` / Test mapped; execution unconfirmed
+`19.7` / `normal` / Execution confirmed
 
 Instance option name is a string defaulting to a unique tool-generated instance name.
 
@@ -51456,7 +51457,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-DEFAULTS
 
-`19.7.1` / `normal` / Test mapped; execution unconfirmed
+`19.7.1` / `normal` / Execution confirmed
 
 Group type options do not provide lower-level defaults except real_interval.
 
@@ -51468,7 +51469,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-COMMENT-COVERGROUP
 
-`19.7.1` / `normal` / Test mapped; execution unconfirmed
+`19.7.1` / `normal` / Execution confirmed
 
 Table 19-4 permits type_option.comment at the covergroup syntactic level.
 
@@ -51480,7 +51481,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-COMMENT-COVERPOINT
 
-`19.7.1` / `normal` / Test mapped; execution unconfirmed
+`19.7.1` / `normal` / Execution confirmed
 
 Table 19-4 permits type_option.comment at the coverpoint syntactic level.
 
@@ -51492,7 +51493,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-COMMENT-CROSS
 
-`19.7.1` / `normal` / Test mapped; execution unconfirmed
+`19.7.1` / `normal` / Execution confirmed
 
 Table 19-4 permits type_option.comment at the cross syntactic level.
 
@@ -51540,7 +51541,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-GOAL-COVERGROUP
 
-`19.7.1` / `normal` / Test mapped; execution unconfirmed
+`19.7.1` / `normal` / Execution confirmed
 
 Table 19-4 permits type_option.goal at the covergroup syntactic level.
 
@@ -51552,7 +51553,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-GOAL-COVERPOINT
 
-`19.7.1` / `normal` / Test mapped; execution unconfirmed
+`19.7.1` / `normal` / Execution confirmed
 
 Table 19-4 permits type_option.goal at the coverpoint syntactic level.
 
@@ -51564,7 +51565,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-GOAL-CROSS
 
-`19.7.1` / `normal` / Test mapped; execution unconfirmed
+`19.7.1` / `normal` / Execution confirmed
 
 Table 19-4 permits type_option.goal at the cross syntactic level.
 
@@ -51624,7 +51625,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-REAL-INTERVAL-COVERPOINT
 
-`19.7.1` / `normal` / Test mapped; execution unconfirmed
+`19.7.1` / `normal` / Execution confirmed
 
 Table 19-4 permits type_option.real_interval at the coverpoint syntactic level.
 
@@ -51696,7 +51697,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-WEIGHT-COVERPOINT
 
-`19.7.1` / `normal` / Test mapped; execution unconfirmed
+`19.7.1` / `normal` / Execution confirmed
 
 Table 19-4 permits type_option.weight at the coverpoint syntactic level.
 
@@ -51708,7 +51709,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-LEVEL-WEIGHT-CROSS
 
-`19.7.1` / `normal` / Test mapped; execution unconfirmed
+`19.7.1` / `normal` / Execution confirmed
 
 Table 19-4 permits type_option.weight at the cross syntactic level.
 
@@ -51779,7 +51780,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-OPTION-REAL-INTERVAL
 
-`19.7.1` / `normal` / Test mapped; execution unconfirmed
+`19.7.1` / `normal` / Execution confirmed
 
 Type option real_interval defaults to 1.0 and determines the width of real range intervals distributed among bins.
 
@@ -51803,7 +51804,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-OPTION-WEIGHT
 
-`19.7.1` / `normal` / Test mapped; execution unconfirmed
+`19.7.1` / `normal` / Execution confirmed
 
 Type option weight defaults to 1, shall be a nonnegative integral value, and weights the group in cumulative database coverage or its points/crosses in group type coverage.
 
@@ -51815,7 +51816,7 @@ Normative role: `definition`。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-STATIC
 
-`19.7.1` / `normal` / Test mapped; execution unconfirmed
+`19.7.1` / `normal` / Execution confirmed
 
 type_option is a built-in static group/point/cross member; declaration initialization uses type_option.member = constant_expression.
 
@@ -51827,7 +51828,7 @@ Normative role: `definition`。
 
 ### SV2023-19.8-EXTRACT-COUNT-OUTPUTS
 
-`19.8` / `normal` / Test mapped; execution unconfirmed
+`19.8` / `normal` / Execution confirmed
 
 Optional coverage-query arguments receive covered-bin count first and total defined-bin count second; point/cross instance values are the calculation numerator/denominator before scaling, while other aggregation counts need not be.
 
@@ -51839,7 +51840,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.8-EXTRACT-COVERAGE-METHODS
 
-`19.8` / `normal` / Test mapped; execution unconfirmed
+`19.8` / `normal` / Execution confirmed
 
 real get_coverage/get_inst_coverage with zero arguments or two ref-int arguments are available on groups/points/crosses and return coverage on a 0..100 scale.
 
@@ -51851,7 +51852,7 @@ Normative role: `definition`。
 
 ### SV2023-19.8-EXTRACT-GROUP-INSTANCE-COUNTS
 
-`19.8` / `normal` / Test mapped; execution unconfirmed
+`19.8` / `normal` / Execution confirmed
 
 get_inst_coverage on a group aggregates bins from all its points/crosses in that one instance.
 
@@ -51863,7 +51864,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.8-EXTRACT-INSTANCE-NAME
 
-`19.8` / `normal` / Test mapped; execution unconfirmed
+`19.8` / `normal` / Execution confirmed
 
 void set_inst_name(string) sets the name of the covergroup instance on which it is called to the given string.
 
@@ -51888,7 +51889,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.8-EXTRACT-ITEM-TYPE-COUNTS
 
-`19.8` / `normal` / Test mapped; execution unconfirmed
+`19.8` / `normal` / Execution confirmed
 
 get_coverage on a point/cross aggregates its bins over all instances; on a group it aggregates all points/crosses over all instances.
 
@@ -51900,7 +51901,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.8-EXTRACT-METHOD-TIMING
 
-`19.8` / `normal` / Test mapped; execution unconfirmed
+`19.8` / `normal` / Execution confirmed
 
 Built-in coverage methods may be invoked procedurally at any time.
 
@@ -51936,7 +51937,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.8-EXTRACT-STATIC-TYPE-QUERY
 
-`19.8` / `normal` / Test mapped; execution unconfirmed
+`19.8` / `normal` / Execution confirmed
 
 get_coverage is static, considers all item instances and is callable via type:: or instance.; get_inst_coverage refers to one instance and is callable only via instance., subject to its option behavior.
 
@@ -52151,7 +52152,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.11-EXTRACT-TYPE-INSTANCE-QUERY
 
-`19.11` / `normal` / Test mapped; execution unconfirmed
+`19.11` / `normal` / Execution confirmed
 
 get_coverage computes cumulative type contribution with static ::/. access; get_inst_coverage computes the selected instance, with type merge mode selected by merge_instances.
 
@@ -52223,7 +52224,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.11.1-EXTRACT-AUTO-DENOMINATOR-TEXT
 
-`19.11.1` / `normal` / Test mapped; execution unconfirmed
+`19.11.1` / `normal` / Execution confirmed
 
 For an automatically generated coverpoint the denominator is the number of auto-created bins: for an enum coverpoint, the cardinality of the enumeration (19.5.3), independent of auto_bin_max; for any other integral coverpoint, MIN(auto_bin_max, 2^M) with M the minimum number of bits needed to represent the coverpoint. Bins with no associated value or transition are excluded from both numerator and denominator; when the denominator is zero, get_coverage/get_inst_coverage return 0.0 for nonzero weight and 100.0 for zero weight.
 
@@ -52332,7 +52333,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.11.3-EXTRACT-AUTO-BIN-IDENTITY
 
-`19.11.3` / `normal` / Test mapped; execution unconfirmed
+`19.11.3` / `normal` / Execution confirmed
 
 Automatic point-bin names use auto\[value\] or auto\[low:high\] and remain unaffected by ignored/illegal values except bin emptying; only identical names overlap.
 
@@ -52344,7 +52345,7 @@ Normative role: `definition`。
 
 ### SV2023-19.11.3-EXTRACT-AUTO-CROSS-IDENTITY
 
-`19.11.3` / `normal` / Test mapped; execution unconfirmed
+`19.11.3` / `normal` / Execution confirmed
 
 Automatic cross bins overlap only for identical \<binname1,...,binnameN\> product names.
 
@@ -52392,7 +52393,7 @@ Normative role: `definition`。
 
 ### SV2023-19.11.3-EXTRACT-SCALAR-BIN-IDENTITY
 
-`19.11.3` / `normal` / Test mapped; execution unconfirmed
+`19.11.3` / `normal` / Execution confirmed
 
 A single named state/transition bin overlaps across all instances by that same name.
 
@@ -52404,7 +52405,7 @@ Normative role: `definition`。
 
 ### SV2023-19.11.3-EXTRACT-TRANSITION-IDENTITY
 
-`19.11.3` / `normal` / Test mapped; execution unconfirmed
+`19.11.3` / `normal` / Execution confirmed
 
 Open transition bins overlap across instances when their bounded transition names match.
 
@@ -52416,7 +52417,7 @@ Normative role: `definition`。
 
 ### SV2023-19.11.3-EXTRACT-TYPE-COUNTS-CONSISTENCY
 
-`19.11.3` / `normal` / Test mapped; execution unconfirmed
+`19.11.3` / `normal` / Execution confirmed
 
 get_coverage ref counts are consistent with the specified weighted sum when merging is disabled.
 
@@ -53324,7 +53325,7 @@ Normative role: `mandatory`。
 
 ### SV2023-20.6.2-EXTRACT-BITS-EMPTY-DYNAMIC
 
-`20.6.2` / `normal` / Test mapped; execution unconfirmed
+`20.6.2` / `normal` / Execution confirmed
 
 $bits of a currently empty dynamically sized expression returns 0.
 
@@ -53360,7 +53361,7 @@ Normative role: `mandatory`。
 
 ### SV2023-20.6.2-EXTRACT-BITS-RESULT
 
-`20.6.2` / `normal` / Test mapped; execution unconfirmed
+`20.6.2` / `normal` / Execution confirmed
 
 $bits(expression or data_type) returns integer bit-stream width for 6.24.3-permitted types, counting one bit per four-state data bit rather than implementation storage.
 
@@ -53384,7 +53385,7 @@ Normative role: `mandatory`。
 
 ### SV2023-20.7-EXTRACT-ARRAY-QUERY-SYNTAX
 
-`20.7` / `normal` / Test mapped; execution unconfirmed
+`20.7` / `normal` / Execution confirmed
 
 Array queries accept an array/integral data expression or type; $left/$right/$low/$high/$increment/$size optionally select a dimension defaulting to 1, and all return integer.
 
@@ -53444,7 +53445,7 @@ Normative role: `mandatory`。
 
 ### SV2023-20.7-EXTRACT-CONSTANT-ARRAY-QUERY
 
-`20.7` / `normal` / Test mapped; execution unconfirmed
+`20.7` / `normal` / Execution confirmed
 
 An otherwise legal query is legal in a constant expression when type(first_argument) is legal and fixed-size and any dimension expression is constant.
 
@@ -53492,7 +53493,7 @@ Normative role: `mandatory`。
 
 ### SV2023-20.7-EXTRACT-INCREMENT
 
-`20.7` / `normal` / Test mapped; execution unconfirmed
+`20.7` / `normal` / Execution confirmed
 
 $increment is 1 for fixed left\>=right and -1 for fixed left\<right; dynamic arrays/queues return -1.
 
@@ -53504,7 +53505,7 @@ Normative role: `definition`。
 
 ### SV2023-20.7-EXTRACT-INVALID-DIMENSION
 
-`20.7` / `normal` / Test mapped; execution unconfirmed
+`20.7` / `normal` / Execution confirmed
 
 A dimension-specific query whose operand has zero dimensions, or whose requested dimension is out of range, returns all x, while the distinct dimension-count functions retain their explicitly defined zero result.
 
@@ -53564,7 +53565,7 @@ Normative role: `mandatory`。
 
 ### SV2023-20.7-EXTRACT-RIGHT-BOUND
 
-`20.7` / `normal` / Test mapped; execution unconfirmed
+`20.7` / `normal` / Execution confirmed
 
 $right returns the right bound or least significant packed index; an empty dynamic array/queue returns -1.
 
@@ -53900,7 +53901,7 @@ Normative role: `mandatory`。
 
 ### SV2023-20.9-EXTRACT-BIT-FUNCTION-TYPES
 
-`20.9` / `normal` / Test mapped; execution unconfirmed
+`20.9` / `normal` / Execution confirmed
 
 $countones returns int; $onehot/$onehot0/$isunknown return bit, share the bit-stream expression rules and are legal wherever their result types are legal.
 
@@ -53948,7 +53949,7 @@ Normative role: `mandatory`。
 
 ### SV2023-20.9-EXTRACT-COUNT-STREAM-VECTOR
 
-`20.9` / `normal` / Test mapped; execution unconfirmed
+`20.9` / `normal` / Execution confirmed
 
 For counting, the expression argument of $countbits is treated as a vector of equal size assigned from {\>\>{expression}}, so an unpacked array, structure or queue is counted over the bits of all its elements.
 
@@ -54033,7 +54034,7 @@ Normative role: `permission`。
 
 ### SV2023-20.10-EXTRACT-DEFAULT-FAIL-ERROR
 
-`20.10` / `normal` / Test mapped; execution unconfirmed
+`20.10` / `normal` / Execution confirmed
 
 assert/assume, expect and wait_order action blocks without else default to $error; assertion/expect default failure can be suppressed by assertcontrol FailOff.
 
@@ -54220,7 +54221,7 @@ Normative role: `mandatory`。
 
 ### SV2023-20.11-EXTRACT-ASSERTCONTROL-SYNTAX
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 $assertcontrol requires an integer control_type, with optional integer assertion/directive masks, integer levels and hierarchical scope/assertion selectors; shorthand control/action tasks accept optional levels and selector lists.
 
@@ -54343,7 +54344,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTCONTROL-1
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertcontrol-1 with selection arguments to cbAssertionLock.
 
@@ -54355,7 +54356,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTCONTROL-10
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertcontrol-10 with selection arguments to cbAssertionEnableNonvacuousAction.
 
@@ -54367,7 +54368,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTCONTROL-11
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertcontrol-11 with selection arguments to cbAssertionDisableVacuousAction.
 
@@ -54379,7 +54380,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTCONTROL-2
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertcontrol-2 with selection arguments to cbAssertionUnlock.
 
@@ -54391,7 +54392,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTCONTROL-3
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertcontrol-3 with selection arguments to cbAssertionEnable.
 
@@ -54403,7 +54404,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTCONTROL-4
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertcontrol-4 with selection arguments to cbAssertionDisable.
 
@@ -54415,7 +54416,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTCONTROL-5
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertcontrol-5 with selection arguments to cbAssertionReset + cbAssertionDisable.
 
@@ -54427,7 +54428,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTCONTROL-6
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertcontrol-6 with selection arguments to cbAssertionEnablePassAction.
 
@@ -54439,7 +54440,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTCONTROL-7
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertcontrol-7 with selection arguments to cbAssertionDisablePassAction.
 
@@ -54451,7 +54452,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTCONTROL-8
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertcontrol-8 with selection arguments to cbAssertionEnableFailAction.
 
@@ -54463,7 +54464,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTCONTROL-9
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertcontrol-9 with selection arguments to cbAssertionDisableFailAction.
 
@@ -54475,7 +54476,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTFAILOFF
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertfailoff with selection arguments to cbAssertionDisableFailAction.
 
@@ -54487,7 +54488,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTFAILON
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertfailon with selection arguments to cbAssertionEnableFailAction.
 
@@ -54499,7 +54500,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTKILL
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertkill with selection arguments to cbAssertionReset + cbAssertionDisable.
 
@@ -54511,7 +54512,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTNONVACUOUSON
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertnonvacuouson with selection arguments to cbAssertionEnableNonvacuousAction.
 
@@ -54547,7 +54548,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTPASSOFF
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertpassoff with selection arguments to cbAssertionDisablePassAction.
 
@@ -54559,7 +54560,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTPASSON
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertpasson with selection arguments to cbAssertionEnablePassAction.
 
@@ -54571,7 +54572,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTVACUOUSOFF
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertvacuousoff with selection arguments to cbAssertionDisableVacuousAction.
 
@@ -54583,7 +54584,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTCONTROL-1
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertcontrol-1 without explicit selection arguments to cbAssertionSysLock.
 
@@ -54595,7 +54596,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTCONTROL-10
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertcontrol-10 without explicit selection arguments to cbAssertionSysEnableNonvacuousAction.
 
@@ -54607,7 +54608,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTCONTROL-11
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertcontrol-11 without explicit selection arguments to cbAssertionSysDisableVacuousAction.
 
@@ -54619,7 +54620,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTCONTROL-2
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertcontrol-2 without explicit selection arguments to cbAssertionSysUnlock.
 
@@ -54631,7 +54632,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTCONTROL-3
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertcontrol-3 without explicit selection arguments to cbAssertionSysOn.
 
@@ -54643,7 +54644,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTCONTROL-4
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertcontrol-4 without explicit selection arguments to cbAssertionSysOff.
 
@@ -54655,7 +54656,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTCONTROL-5
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertcontrol-5 without explicit selection arguments to cbAssertionSysKill.
 
@@ -54667,7 +54668,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTCONTROL-6
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertcontrol-6 without explicit selection arguments to cbAssertionSysEnablePassAction.
 
@@ -54679,7 +54680,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTCONTROL-7
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertcontrol-7 without explicit selection arguments to cbAssertionSysDisablePassAction.
 
@@ -54691,7 +54692,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTCONTROL-8
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertcontrol-8 without explicit selection arguments to cbAssertionSysEnableFailAction.
 
@@ -54703,7 +54704,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTCONTROL-9
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertcontrol-9 without explicit selection arguments to cbAssertionSysDisableFailAction.
 
@@ -54715,7 +54716,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTFAILOFF
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertfailoff without explicit selection arguments to cbAssertionSysDisableFailAction.
 
@@ -54727,7 +54728,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTFAILON
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertfailon without explicit selection arguments to cbAssertionSysEnableFailAction.
 
@@ -54739,7 +54740,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTKILL
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertkill without explicit selection arguments to cbAssertionSysKill.
 
@@ -54751,7 +54752,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTNONVACUOUSON
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertnonvacuouson without explicit selection arguments to cbAssertionSysEnableNonvacuousAction.
 
@@ -54763,7 +54764,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTOFF
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertoff without explicit selection arguments to cbAssertionSysOff.
 
@@ -54775,7 +54776,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTON
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps asserton without explicit selection arguments to cbAssertionSysOn.
 
@@ -54787,7 +54788,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTPASSOFF
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertpassoff without explicit selection arguments to cbAssertionSysDisablePassAction.
 
@@ -54799,7 +54800,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTPASSON
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertpasson without explicit selection arguments to cbAssertionSysEnablePassAction.
 
@@ -54811,7 +54812,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTVACUOUSOFF
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Table 20-8 maps assertvacuousoff without explicit selection arguments to cbAssertionSysDisableVacuousAction.
 
@@ -54955,7 +54956,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-COUNTERS-UNAFFECTED
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 Action-control tasks and control types 6 through 11 do not affect assertion statistics counters; future-global-clock attempt behavior follows 16.9.4.
 
@@ -55028,7 +55029,7 @@ Normative role: `definition`。
 
 ### SV2023-20.11-EXTRACT-FAIL-OFF
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 FailOff disables selected assertion/expect fail actions including implicit $error until FailOn.
 
@@ -55041,7 +55042,7 @@ Normative role: `mandatory`。
 
 ### SV2023-20.11-EXTRACT-FAIL-ON
 
-`20.11` / `normal` / Test mapped; execution unconfirmed
+`20.11` / `normal` / Execution confirmed
 
 FailOn enables selected assertion/expect fail actions, including the implicit default $error.
 
@@ -55946,7 +55947,7 @@ Normative role: `definition`。
 
 ### SV2023-20.16-EXTRACT-PLA-INPUT-TERMS
 
-`20.16` / `normal` / Test mapped; execution unconfirmed
+`20.16` / `normal` / Execution confirmed
 
 The input terms of a PLA modeling system task can be nets or variables.
 
@@ -56224,7 +56225,7 @@ Normative role: `definition`。
 
 ### SV2023-20.16.4-EXTRACT-PLANE-UNKNOWN
 
-`20.16.4` / `normal` / Test mapped; execution unconfirmed
+`20.16.4` / `normal` / Execution confirmed
 
 In plane personality format, x takes the worst-case input value.
 
@@ -57741,7 +57742,7 @@ Normative role: `mandatory`。
 
 ### SV2023-21.3.3-EXTRACT-SWRITE-TARGET
 
-`21.3.3` / `normal` / Test mapped; execution unconfirmed
+`21.3.3` / `normal` / Execution confirmed
 
 swrite/b/h/o use fwrite-like formatting but write into an integral, string or unpacked-byte-array variable; arrays order characters left-to-right and assignment follows string-literal assignment rules.
 
@@ -59796,7 +59797,7 @@ Normative role: `permission`。
 
 ### SV2023-21.7.3.1-EXTRACT-PORT-ARGUMENT-DEFAULTS
 
-`21.7.3.1` / `normal` / Test mapped; execution unconfirmed
+`21.7.3.1` / `normal` / Execution confirmed
 
 Both dumpports; and dumpports() use defaults; a null first argument requires a comma before a supplied filename.
 
@@ -60127,7 +60128,7 @@ Normative role: `definition`。
 
 ### SV2023-21.7.4.1-EXTRACT-EXTENDED-GRAMMAR
 
-`21.7.4.1` / `normal` / Test mapped; execution unconfirmed
+`21.7.4.1` / `normal` / Execution confirmed
 
 Extended VCD declarations precede simulation commands; declaration payloads end with $end and simulation commands allow port-dump controls, comments, timestamps and port value changes.
 
@@ -60258,7 +60259,7 @@ Normative role: `mandatory`。
 
 ### SV2023-21.7.4.2-EXTRACT-PORT-NODE-RANGE
 
-`21.7.4.2` / `normal` / Test mapped; execution unconfirmed
+`21.7.4.2` / `normal` / Execution confirmed
 
 Use the port declaration vector index if present, otherwise the matching net/variable declaration index; absence of either means scalar.
 
@@ -60294,7 +60295,7 @@ Normative role: `definition`。
 
 ### SV2023-21.7.4.3-EXTRACT-PORT-STRENGTH-1
 
-`21.7.4.3` / `normal` / Test mapped; execution unconfirmed
+`21.7.4.3` / `normal` / Execution confirmed
 
 Extended VCD strength component 1 represents small.
 
@@ -60306,7 +60307,7 @@ Normative role: `definition`。
 
 ### SV2023-21.7.4.3-EXTRACT-PORT-STRENGTH-2
 
-`21.7.4.3` / `normal` / Test mapped; execution unconfirmed
+`21.7.4.3` / `normal` / Execution confirmed
 
 Extended VCD strength component 2 represents medium.
 
@@ -60330,7 +60331,7 @@ Normative role: `definition`。
 
 ### SV2023-21.7.4.3-EXTRACT-PORT-STRENGTH-4
 
-`21.7.4.3` / `normal` / Test mapped; execution unconfirmed
+`21.7.4.3` / `normal` / Execution confirmed
 
 Extended VCD strength component 4 represents large.
 
@@ -61070,7 +61071,7 @@ Normative role: `mandatory`。
 
 ### SV2023-22.5-EXTRACT-MACRO-NO-RESET
 
-`22.5` / `normal` / Test mapped; execution unconfirmed
+`22.5` / `normal` / Execution confirmed
 
 resetall does not affect text macros.
 
@@ -66516,7 +66517,7 @@ Normative role: `definition`。
 
 ### SV2023-23.2.2.1-EXTRACT-NONANSI-GRAMMAR
 
-`23.2.2.1` / `normal` / Test mapped; execution unconfirmed
+`23.2.2.1` / `normal` / Execution confirmed
 
 Non-ANSI headers separate port references from body direction/type declarations; port expressions may be absent, explicitly named or concatenated constant-selected references.
 
@@ -66601,7 +66602,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.2.2.2-EXTRACT-ANSI-EXPLICIT-EXPRESSIONS
 
-`23.2.2.2` / `normal` / Test mapped; execution unconfirmed
+`23.2.2.2` / `normal` / Execution confirmed
 
 Explicitly named ANSI ports may refer to array/structure elements, their concatenations or assignment patterns of elements declared in the module, interface or program.
 
@@ -66667,7 +66668,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.2.2.2-EXTRACT-ANSI-PORT-GRAMMAR
 
-`23.2.2.2` / `normal` / Test mapped; execution unconfirmed
+`23.2.2.2` / `normal` / Execution confirmed
 
 ANSI headers declare net, variable or interface ports with dimensions and permitted constant initial/default expressions, or explicitly named port expressions with optional direction.
 
@@ -66716,7 +66717,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.2.2.3-EXTRACT-AFTER-EXPLICIT-INFERENCE
 
-`23.2.2.3` / `normal` / Test mapped; execution unconfirmed
+`23.2.2.3` / `normal` / Execution confirmed
 
 A port immediately after an explicit port inherits only omitted direction; kind/type use first-port inference.
 
@@ -66728,7 +66729,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.2.2.3-EXTRACT-EXPLICIT-PORT-INFERENCE
 
-`23.2.2.3` / `normal` / Test mapped; execution unconfirmed
+`23.2.2.3` / `normal` / Execution confirmed
 
 An explicitly named port inherits only omitted direction, not kind/type, and obtains its self-determined expression type.
 
@@ -66752,7 +66753,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.2.2.3-EXTRACT-FIRST-TYPE
 
-`23.2.2.3` / `normal` / Test mapped; execution unconfirmed
+`23.2.2.3` / `normal` / Execution confirmed
 
 An ANSI first port without data type defaults to logic, except interconnect has no data type.
 
@@ -66849,7 +66850,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.2.2.3-EXTRACT-SUBSEQUENT-ALL-OMITTED
 
-`23.2.2.3` / `normal` / Test mapped; execution unconfirmed
+`23.2.2.3` / `normal` / Execution confirmed
 
 A later ANSI port omitting direction/kind/type inherits all three, including interconnect kind, from the preceding port.
 
@@ -66862,7 +66863,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.2.2.3-EXTRACT-SUBSEQUENT-PARTLY-OMITTED
 
-`23.2.2.3` / `normal` / Test mapped; execution unconfirmed
+`23.2.2.3` / `normal` / Execution confirmed
 
 Otherwise, a later port inherits only omitted direction, infers omitted kind by the first-port rules, and defaults omitted type to logic except typeless interconnect.
 
@@ -66937,7 +66938,7 @@ Normative role: `permission`。
 
 ### SV2023-23.2.4-EXTRACT-MODULE-ITEM-GRAMMAR
 
-`23.2.4` / `normal` / Test mapped; execution unconfirmed
+`23.2.4` / `normal` / Execution confirmed
 
 A module has zero or more legal module items: declarations, instantiations, assertions/bind, continuous assignments/aliases, initial/final/always processes, generate constructs, specify/specparam, nested design declarations and permitted timeunits.
 
@@ -67607,7 +67608,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-3
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal wire/tri and external trireg, Table 23-1 selects the external net type.
 
@@ -67715,7 +67716,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-3
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal wand/triand and external trireg, Table 23-1 selects the external net type. A warning shall be issued.
 
@@ -67751,7 +67752,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-6
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal wand/triand and external uwire, Table 23-1 selects the external net type. A warning shall be issued.
 
@@ -67823,7 +67824,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-3
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal wor/trior and external trireg, Table 23-1 selects the external net type. A warning shall be issued.
 
@@ -67859,7 +67860,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-6
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal wor/trior and external uwire, Table 23-1 selects the external net type. A warning shall be issued.
 
@@ -67895,7 +67896,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-0
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal trireg and external wire/tri, Table 23-1 selects the internal net type.
 
@@ -67907,7 +67908,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-1
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal trireg and external wand/triand, Table 23-1 selects the external net type. A warning shall be issued.
 
@@ -67919,7 +67920,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-2
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal trireg and external wor/trior, Table 23-1 selects the external net type. A warning shall be issued.
 
@@ -67943,7 +67944,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-4
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal trireg and external tri0, Table 23-1 selects the external net type.
 
@@ -67955,7 +67956,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-5
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal trireg and external tri1, Table 23-1 selects the external net type.
 
@@ -67967,7 +67968,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-6
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal trireg and external uwire, Table 23-1 selects the external net type. A warning shall be issued.
 
@@ -67979,7 +67980,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-7
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal trireg and external supply0, Table 23-1 selects the external net type.
 
@@ -67991,7 +67992,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-8
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal trireg and external supply1, Table 23-1 selects the external net type.
 
@@ -68039,7 +68040,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-3
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal tri0 and external trireg, Table 23-1 selects the internal net type.
 
@@ -68075,7 +68076,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-6
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal tri0 and external uwire, Table 23-1 selects the external net type. A warning shall be issued.
 
@@ -68147,7 +68148,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-5-3
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal tri1 and external trireg, Table 23-1 selects the internal net type.
 
@@ -68183,7 +68184,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-5-6
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal tri1 and external uwire, Table 23-1 selects the external net type. A warning shall be issued.
 
@@ -68219,7 +68220,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-6-0
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal uwire and external wire/tri, Table 23-1 selects the internal net type.
 
@@ -68231,7 +68232,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-6-1
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal uwire and external wand/triand, Table 23-1 selects the internal net type. A warning shall be issued.
 
@@ -68243,7 +68244,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-6-2
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal uwire and external wor/trior, Table 23-1 selects the internal net type. A warning shall be issued.
 
@@ -68255,7 +68256,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-6-3
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal uwire and external trireg, Table 23-1 selects the internal net type. A warning shall be issued.
 
@@ -68267,7 +68268,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-6-4
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal uwire and external tri0, Table 23-1 selects the internal net type. A warning shall be issued.
 
@@ -68279,7 +68280,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-6-5
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal uwire and external tri1, Table 23-1 selects the internal net type. A warning shall be issued.
 
@@ -68291,7 +68292,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-6-6
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal uwire and external uwire, Table 23-1 selects the external net type.
 
@@ -68363,7 +68364,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-7-3
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal supply0 and external trireg, Table 23-1 selects the internal net type.
 
@@ -68471,7 +68472,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-8-3
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 For internal supply1 and external trireg, Table 23-1 selects the internal net type.
 
@@ -68556,7 +68557,7 @@ Normative role: `definition`。
 
 ### SV2023-23.3.3.7-EXTRACT-DOMINATING-DELAY-STRENGTH
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 The simulated net uses its dominating net delay, and its trireg strength if the dominating type is trireg.
 
@@ -68581,7 +68582,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7-EXTRACT-SELECTED-DELAY-STRENGTH
 
-`23.3.3.7` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7` / `normal` / Execution confirmed
 
 The simulated net uses the table-selected type and that net delay; a selected trireg also supplies its specified strength.
 
@@ -68606,7 +68607,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.7.1-EXTRACT-INTERCONNECT-TYPE
 
-`23.3.3.7.1` / `normal` / Test mapped; execution unconfirmed
+`23.3.3.7.1` / `normal` / Execution confirmed
 
 Two interconnect nets merge as interconnect; one interconnect and one other type merge as the other type.
 
@@ -69369,7 +69370,7 @@ Normative role: `definition`。
 
 ### SV2023-23.11-EXTRACT-BIND-INSTANCE-PRECEDENCE
 
-`23.11` / `normal` / Test mapped; execution unconfirmed
+`23.11` / `normal` / Execution confirmed
 
 Single-instance bind targets only that instance if its name also resolves to a module name.
 
@@ -69417,7 +69418,7 @@ Normative role: `permission`。
 
 ### SV2023-23.11-EXTRACT-BIND-PLACEMENT
 
-`23.11` / `normal` / Test mapped; execution unconfirmed
+`23.11` / `normal` / Execution confirmed
 
 Bind directives may appear in modules, interfaces or compilation-unit scope.
 
@@ -70042,7 +70043,7 @@ Normative role: `mandatory`。
 
 ### SV2023-25.3-EXTRACT-MODPORT-GRAMMAR
 
-`25.3` / `normal` / Test mapped; execution unconfirmed
+`25.3` / `normal` / Execution confirmed
 
 Modports contain directed simple or explicitly named expression ports, imported/exported subroutine identifiers/prototypes and clocking identifiers, optionally attributed.
 
@@ -70285,7 +70286,7 @@ Normative role: `mandatory`。
 
 ### SV2023-25.7-EXTRACT-INTERFACE-SUBROUTINE-DEFINITION
 
-`25.7` / `normal` / Test mapped; execution unconfirmed
+`25.7` / `normal` / Execution confirmed
 
 Interface subroutines may be defined in the interface or connected modules and declared as imports in calling modports.
 
@@ -70310,7 +70311,7 @@ Normative role: `mandatory`。
 
 ### SV2023-25.7-EXTRACT-MODPORT-PROTOTYPE-DEFAULT
 
-`25.7` / `normal` / Test mapped; execution unconfirmed
+`25.7` / `normal` / Execution confirmed
 
 A call requiring a default must have it in the prototype; if declaration and prototype defaults differ, the prototype default wins.
 
@@ -70364,7 +70365,7 @@ Normative role: `recommendation`。
 
 ### SV2023-25.7.4-EXTRACT-FORKJOIN-DISABLE-INTERFACE
 
-`25.7.4` / `normal` / Test mapped; execution unconfirmed
+`25.7.4` / `normal` / Execution confirmed
 
 Disabling an extern forkjoin task through its interface instance disables every associated task call.
 
@@ -70376,7 +70377,7 @@ Normative role: `mandatory`。
 
 ### SV2023-25.7.4-EXTRACT-FORKJOIN-DISABLE-MODULE
 
-`25.7.4` / `normal` / Test mapped; execution unconfirmed
+`25.7.4` / `normal` / Execution confirmed
 
 Disabling an extern forkjoin task through a module instance disables only that module instance task call.
 
@@ -70388,7 +70389,7 @@ Normative role: `mandatory`。
 
 ### SV2023-25.7.4-EXTRACT-FORKJOIN-MISSING-DEFINITION
 
-`25.7.4` / `normal` / Test mapped; execution unconfirmed
+`25.7.4` / `normal` / Execution confirmed
 
 Calling an interface extern forkjoin task with no connected definition reports a run-time error and immediately returns without effect.
 
@@ -70563,7 +70564,7 @@ Normative role: `mandatory`。
 
 ### SV2023-25.9-EXTRACT-VIRTUAL-NULL
 
-`25.9` / `normal` / Test mapped; execution unconfirmed
+`25.9` / `normal` / Execution confirmed
 
 A virtual interface initially is null and shall be initialized before component use; dereferencing null causes a fatal run-time error.
 
@@ -72258,7 +72259,7 @@ Normative role: `mandatory`。
 
 ### SV2023-28.3.5-EXTRACT-INSTANCE-RANGE
 
-`28.3.5` / `normal` / Test mapped; execution unconfirmed
+`28.3.5` / `normal` / Execution confirmed
 
 A primitive instance range uses constant left/right indices in square brackets separated by colon and creates abs(left-right)+1 instances; either direction and nonzero/equal endpoints are allowed.
 
@@ -75023,7 +75024,7 @@ Normative role: `mandatory`。
 
 ### SV2023-28.8-EXTRACT-PASS-STRENGTH
 
-`28.8` / `normal` / Test mapped; execution unconfirmed
+`28.8` / `normal` / Execution confirmed
 
 Built-in-net nonresistive passes use 28.13 strength rules and resistive passes 28.14; user-nettype pass switches have no strength reduction.
 
@@ -75049,7 +75050,7 @@ Normative role: `definition`。
 
 ### SV2023-28.8-EXTRACT-USER-NET-PASS-UNKNOWN-OFF
 
-`28.8` / `normal` / Test mapped; execution unconfirmed
+`28.8` / `normal` / Execution confirmed
 
 Pass switches connecting user-defined nettypes are off for x/z control, unlike built-in-net behavior.
 
@@ -75577,7 +75578,7 @@ Normative role: `mandatory`。
 
 ### SV2023-28.12-EXTRACT-USER-NET-NO-STRENGTH
 
-`28.12` / `normal` / Test mapped; execution unconfirmed
+`28.12` / `normal` / Execution confirmed
 
 User-defined nettypes have no strength levels, ignore driver strengths and combine values under 6.6.7.
 
@@ -76166,7 +76167,7 @@ Normative role: `definition`。
 
 ### SV2023-28.16-EXTRACT-DELAY-COUNTS
 
-`28.16` / `normal` / Test mapped; execution unconfirmed
+`28.16` / `normal` / Execution confirmed
 
 Absent gate/net delay is zero; one applies to all transitions; two give rise/fall with their minimum for x/z.
 
@@ -77100,7 +77101,7 @@ Normative role: `mandatory`。
 
 ### SV2023-30.2-EXTRACT-DISTRIBUTED-PATH-DELAY
 
-`30.2` / `normal` / Test mapped; execution unconfirmed
+`30.2` / `normal` / Execution confirmed
 
 Distributed delays describe gate/net internal propagation; module-path delays describe propagation from an input/inout source to output/inout destination.
 
@@ -77198,7 +77199,7 @@ Normative role: `definition`。
 
 ### SV2023-30.4.2-EXTRACT-SIMPLE-PATH-GRAMMAR
 
-`30.4.2` / `normal` / Test mapped; execution unconfirmed
+`30.4.2` / `normal` / Execution confirmed
 
 Simple paths assign delays to parallel single-terminal or full comma-separated terminal lists, optionally annotated with polarity; terminals include input/output/inout/interface members and optional constant selects.
 
@@ -77236,7 +77237,7 @@ Normative role: `mandatory`。
 
 ### SV2023-30.4.3-EXTRACT-EDGE-PATH-GRAMMAR
 
-`30.4.3` / `normal` / Test mapped; execution unconfirmed
+`30.4.3` / `normal` / Execution confirmed
 
 Edge-sensitive paths use optional edge/polarity and parallel/full connections, optionally with an arbitrary data-source expression describing destination flow.
 
@@ -77249,7 +77250,7 @@ Normative role: `definition`。
 
 ### SV2023-30.4.3-EXTRACT-EDGE-PATH-SOURCE
 
-`30.4.3` / `normal` / Test mapped; execution unconfirmed
+`30.4.3` / `normal` / Execution confirmed
 
 Path source edges may use posedge/negedge/edge; vector source edge detection uses its LSB, and omitted edge means any source transition.
 
@@ -77261,7 +77262,7 @@ Normative role: `mandatory`。
 
 ### SV2023-30.4.3-EXTRACT-EDGE-POLARITY-DESCRIPTIVE
 
-`30.4.3` / `normal` / Test mapped; execution unconfirmed
+`30.4.3` / `normal` / Execution confirmed
 
 Optional path polarity describes inversion for timing analysis but has no effect on simulation results.
 
@@ -77623,7 +77624,7 @@ Normative role: `mandatory`。
 
 ### SV2023-30.4.5-EXTRACT-FULL-BIT-CROSS-PRODUCT
 
-`30.4.5` / `normal` / Test mapped; execution unconfirmed
+`30.4.5` / `normal` / Execution confirmed
 
 A full module path connects every source bit to every destination bit and does not require equal endpoint widths.
 
@@ -77651,7 +77652,7 @@ Normative role: `mandatory`。
 
 ### SV2023-30.4.5-EXTRACT-PARALLEL-EQUAL-WIDTH
 
-`30.4.5` / `normal` / Test mapped; execution unconfirmed
+`30.4.5` / `normal` / Execution confirmed
 
 A parallel connection connects each bit of the source to the one corresponding bit of an equal-width destination, and between two scalars either =\> or *\> sets up the same bit-to-bit connection.
 
@@ -77663,7 +77664,7 @@ Normative role: `mandatory`。
 
 ### SV2023-30.4.6-EXTRACT-MULTIPLE-PATH-FULL
 
-`30.4.6` / `normal` / Test mapped; execution unconfirmed
+`30.4.6` / `normal` / Execution confirmed
 
 A multi-source/destination declaration uses comma-separated lists joined by full connection, permits mixed scalar/vector widths and defines the corresponding source/destination cross-product.
 
@@ -77795,7 +77796,7 @@ Normative role: `mandatory`。
 
 ### SV2023-30.5.1-EXTRACT-PATH-DELAY-MINTYPMAX
 
-`30.5.1` / `normal` / Test mapped; execution unconfirmed
+`30.5.1` / `normal` / Execution confirmed
 
 A single delay expression denotes typical delay; a colon triplet denotes minimum/typical/maximum in that order.
 
@@ -79295,7 +79296,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.3.3-EXTRACT-CHECK-SYNTAX
 
-`31.3.3` / `normal` / Test mapped; execution unconfirmed
+`31.3.3` / `normal` / Execution confirmed
 
 setuphold takes reference/data events, setup/hold limits and optional notifier, timestamp condition, timecheck condition, delayed reference and delayed data in that order.
 
@@ -79665,7 +79666,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.3.6-EXTRACT-CHECK-SYNTAX
 
-`31.3.6` / `normal` / Test mapped; execution unconfirmed
+`31.3.6` / `normal` / Execution confirmed
 
 recrem takes reference/data events, recovery/removal limits and optional notifier, timestamp condition, timecheck condition, delayed reference and delayed data in that order.
 
@@ -79854,7 +79855,7 @@ Normative role: `definition`。
 
 ### SV2023-31.4-EXTRACT-CLOCK-CONTROL-CHECK
 
-`31.4` / `normal` / Test mapped; execution unconfirmed
+`31.4` / `normal` / Execution confirmed
 
 Clock/control checks compare elapsed event times with their check-specific limits and report violations; one-signal checks derive both events from that signal.
 
@@ -79880,7 +79881,7 @@ Normative role: `definition`。
 
 ### SV2023-31.4-EXTRACT-SKEW-MECHANISMS
 
-`31.4` / `normal` / Test mapped; execution unconfirmed
+`31.4` / `normal` / Execution confirmed
 
 Event-based skew evaluates on a signal transition; timer-based skew can report on limit-time expiration.
 
@@ -79892,7 +79893,7 @@ Normative role: `definition`。
 
 ### SV2023-31.4.1-EXTRACT-DATA
 
-`31.4.1` / `normal` / Test mapped; execution unconfirmed
+`31.4.1` / `normal` / Execution confirmed
 
 For skew, data is the timecheck.
 
@@ -79904,7 +79905,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.4.1-EXTRACT-LIMIT
 
-`31.4.1` / `normal` / Test mapped; execution unconfirmed
+`31.4.1` / `normal` / Execution confirmed
 
 For skew, limit is a nonnegative constant expression.
 
@@ -79916,7 +79917,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.4.1-EXTRACT-NOTIFIER
 
-`31.4.1` / `normal` / Test mapped; execution unconfirmed
+`31.4.1` / `normal` / Execution confirmed
 
 For skew, the optional notifier is a variable.
 
@@ -79928,7 +79929,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.4.1-EXTRACT-REFERENCE
 
-`31.4.1` / `normal` / Test mapped; execution unconfirmed
+`31.4.1` / `normal` / Execution confirmed
 
 For skew, reference is the timestamp.
 
@@ -79940,7 +79941,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.4.1-EXTRACT-SKEW-EVENT-BASED
 
-`31.4.1` / `normal` / Test mapped; execution unconfirmed
+`31.4.1` / `normal` / Execution confirmed
 
 Skew evaluates only after data events and never reports if none occurs.
 
@@ -79952,7 +79953,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.4.1-EXTRACT-SKEW-REPEATED-DATA
 
-`31.4.1` / `normal` / Test mapped; execution unconfirmed
+`31.4.1` / `normal` / Execution confirmed
 
 After a reference, skew remains active and reports every subsequent late data event.
 
@@ -79964,7 +79965,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.4.1-EXTRACT-SKEW-RESTART
 
-`31.4.1` / `normal` / Test mapped; execution unconfirmed
+`31.4.1` / `normal` / Execution confirmed
 
 Skew waits indefinitely for data; another reference replaces the old timestamp/wait.
 
@@ -79976,7 +79977,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.4.1-EXTRACT-SKEW-SIMULTANEOUS
 
-`31.4.1` / `boundary` / Test mapped; execution unconfirmed
+`31.4.1` / `boundary` / Execution confirmed
 
 Simultaneous reference/data transitions do not violate skew, including a zero limit.
 
@@ -79988,7 +79989,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.4.1-EXTRACT-SKEW-SYNTAX
 
-`31.4.1` / `normal` / Test mapped; execution unconfirmed
+`31.4.1` / `normal` / Execution confirmed
 
 Skew takes reference, data, limit and optional notifier in that order.
 
@@ -80000,7 +80001,7 @@ Normative role: `definition`。
 
 ### SV2023-31.4.1-EXTRACT-SKEW-TIMER-CHOICE
 
-`31.4.1` / `normal` / Test mapped; execution unconfirmed
+`31.4.1` / `normal` / Execution confirmed
 
 Timer-based timeskew/fullskew should be used when a missing or indefinitely late data event must produce a report.
 
@@ -80012,7 +80013,7 @@ Normative role: `recommendation`。
 
 ### SV2023-31.4.1-EXTRACT-SKEW-VIOLATION
 
-`31.4.1` / `normal` / Test mapped; execution unconfirmed
+`31.4.1` / `normal` / Execution confirmed
 
 Skew reports if data time minus last reference time is strictly greater than its limit.
 
@@ -80108,7 +80109,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.4.2-EXTRACT-TIMESKEW-EQUALITIES
 
-`31.4.2` / `boundary` / Test mapped; execution unconfirmed
+`31.4.2` / `boundary` / Execution confirmed
 
 Simultaneous reference/data events do not violate timeskew, even at zero limit; a new timestamp exactly at expiration prevents a violation.
 
@@ -80120,7 +80121,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.4.2-EXTRACT-TIMESKEW-EVENT-ONCE
 
-`31.4.2` / `normal` / Test mapped; execution unconfirmed
+`31.4.2` / `normal` / Execution confirmed
 
 With only event-based set, timeskew behaves as skew except that first violation or false-conditioned reference makes it dormant.
 
@@ -80204,7 +80205,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.4.3-EXTRACT-DATA
 
-`31.4.3` / `normal` / Test mapped; execution unconfirmed
+`31.4.3` / `normal` / Execution confirmed
 
 For fullskew, data may timestamp or timecheck.
 
@@ -80216,7 +80217,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.4.3-EXTRACT-EVENT-FLAG
 
-`31.4.3` / `normal` / Test mapped; execution unconfirmed
+`31.4.3` / `normal` / Execution confirmed
 
 For fullskew, event-based flag is constant.
 
@@ -80228,7 +80229,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.4.3-EXTRACT-FULLSKEW-ACTIVATION
 
-`31.4.3` / `normal` / Test mapped; execution unconfirmed
+`31.4.3` / `normal` / Execution confirmed
 
 In either mode, a timestamp with no condition or a true condition activates a dormant check.
 
@@ -80240,7 +80241,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.4.3-EXTRACT-FULLSKEW-ELAPSED
 
-`31.4.3` / `normal` / Test mapped; execution unconfirmed
+`31.4.3` / `normal` / Execution confirmed
 
 Fullskew late-event comparison is timecheck minus timestamp strictly greater than the limit selected by event order.
 
@@ -80252,7 +80253,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.4.3-EXTRACT-FULLSKEW-EQUALITIES
 
-`31.4.3` / `boundary` / Test mapped; execution unconfirmed
+`31.4.3` / `boundary` / Execution confirmed
 
 Simultaneous reference/data causes no violation even at zero limit; a new timestamp exactly at expiration also prevents violation.
 
@@ -80264,7 +80265,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.4.3-EXTRACT-FULLSKEW-EVENT-MODE
 
-`31.4.3` / `normal` / Test mapped; execution unconfirmed
+`31.4.3` / `normal` / Execution confirmed
 
 In event mode, a late timecheck reports, ends the old window and immediately timestamps a new one; a timely timecheck ends the window dormant without violation.
 
@@ -80276,7 +80277,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.4.3-EXTRACT-FULLSKEW-EVENT-RESTART
 
-`31.4.3` / `normal` / Test mapped; execution unconfirmed
+`31.4.3` / `normal` / Execution confirmed
 
 In event mode a second timestamp before a timecheck replaces the window; a false-conditioned timestamp is ignored with remain-active or makes it dormant without that flag.
 
@@ -80288,7 +80289,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.4.3-EXTRACT-FULLSKEW-EVENT-ROLES
 
-`31.4.3` / `normal` / Test mapped; execution unconfirmed
+`31.4.3` / `normal` / Execution confirmed
 
 Fullskew supports either event order; the first event timestamps and second timechecks, using limit1 for reference-first and limit2 for data-first.
 
@@ -80300,7 +80301,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.4.3-EXTRACT-FULLSKEW-NEW-WINDOW
 
-`31.4.3` / `normal` / Test mapped; execution unconfirmed
+`31.4.3` / `normal` / Execution confirmed
 
 Either qualifying event may start a window, unless it satisfies a preceding window as a timely timecheck, which instead ends it.
 
@@ -80312,7 +80313,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.4.3-EXTRACT-FULLSKEW-SYNTAX
 
-`31.4.3` / `normal` / Test mapped; execution unconfirmed
+`31.4.3` / `normal` / Execution confirmed
 
 Fullskew takes reference/data, limit1/limit2 and optional notifier, event-based and remain-active flags in that order.
 
@@ -80324,7 +80325,7 @@ Normative role: `definition`。
 
 ### SV2023-31.4.3-EXTRACT-FULLSKEW-TIMER
 
-`31.4.3` / `normal` / Test mapped; execution unconfirmed
+`31.4.3` / `normal` / Execution confirmed
 
 Default fullskew is timer-based: missing a timely second event reports on expiration and becomes dormant; a timely second event becomes dormant without violation.
 
@@ -80336,7 +80337,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.4.3-EXTRACT-FULLSKEW-TIMER-RESTART
 
-`31.4.3` / `normal` / Test mapped; execution unconfirmed
+`31.4.3` / `normal` / Execution confirmed
 
 In timer mode a second timestamp replaces a pending window; if its condition is false, remain-active ignores it, otherwise an active check becomes dormant.
 
@@ -80348,7 +80349,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.4.3-EXTRACT-LIMIT-ONE
 
-`31.4.3` / `normal` / Test mapped; execution unconfirmed
+`31.4.3` / `normal` / Execution confirmed
 
 For fullskew, limit1 is a nonnegative constant expression.
 
@@ -80360,7 +80361,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.4.3-EXTRACT-LIMIT-TWO
 
-`31.4.3` / `normal` / Test mapped; execution unconfirmed
+`31.4.3` / `normal` / Execution confirmed
 
 For fullskew, limit2 is a nonnegative constant expression.
 
@@ -80372,7 +80373,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.4.3-EXTRACT-NOTIFIER
 
-`31.4.3` / `normal` / Test mapped; execution unconfirmed
+`31.4.3` / `normal` / Execution confirmed
 
 For fullskew, optional notifier is a variable.
 
@@ -80384,7 +80385,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.4.3-EXTRACT-REFERENCE
 
-`31.4.3` / `normal` / Test mapped; execution unconfirmed
+`31.4.3` / `normal` / Execution confirmed
 
 For fullskew, reference may timestamp or timecheck.
 
@@ -80840,7 +80841,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT
 
-`31.6` / `boundary` / Test mapped; execution unconfirmed
+`31.6` / `boundary` / Execution confirmed
 
 The notifier is passed in the notifier position defined by each timing check's syntax: it is the last argument of $setup, $hold, $recovery, $removal, $skew, $period, $width and $nochange, while in $setuphold/$recrem it may be followed by optional timestamp_condition, timecheck_condition, delayed_reference and delayed_data, and in $timeskew/$fullskew by optional event_based_flag and remain_active_flag.
 
@@ -81143,7 +81144,7 @@ Normative role: `mandatory`。
 
 ### SV2023-32.2-EXTRACT-BACKANNOTATION
 
-`32.2` / `normal` / Test mapped; execution unconfirmed
+`32.2` / `normal` / Execution confirmed
 
 SDF backannotation updates specify path delays, specparams, timing constraints and interconnect delays.
 
@@ -81167,7 +81168,7 @@ Normative role: `mandatory`。
 
 ### SV2023-32.3-EXTRACT-UNANNOTATABLE-WARNING
 
-`32.3` / `normal` / Test mapped; execution unconfirmed
+`32.3` / `normal` / Execution confirmed
 
 The SDF annotator shall warn for timing data it cannot annotate.
 
@@ -81191,7 +81192,7 @@ Normative role: `mandatory`。
 
 ### SV2023-32.4-EXTRACT-SDF-SECTION-MAPPING
 
-`32.4` / `normal` / Test mapped; execution unconfirmed
+`32.4` / `normal` / Execution confirmed
 
 Within CELL, DELAY maps path/interconnect propagation values, TIMINGCHECK maps constraints and LABEL maps specparams; matching declarations receive replacement timing values.
 
@@ -81203,7 +81204,7 @@ Normative role: `definition`。
 
 ### SV2023-32.4.1-EXTRACT-COND-IOPATH
 
-`32.4.1` / `normal` / Test mapped; execution unconfirmed
+`32.4.1` / `normal` / Execution confirmed
 
 COND IOPATH maps only conditional specify-path delays/limits.
 
@@ -81215,7 +81216,7 @@ Normative role: `definition`。
 
 ### SV2023-32.4.1-EXTRACT-COND-RETAIN
 
-`32.4.1` / `normal` / Test mapped; execution unconfirmed
+`32.4.1` / `normal` / Execution confirmed
 
 COND IOPATH RETAIN maps conditional delays/limits and may ignore RETAIN.
 
@@ -81227,7 +81228,7 @@ Normative role: `definition`。
 
 ### SV2023-32.4.1-EXTRACT-CONDELSE
 
-`32.4.1` / `normal` / Test mapped; execution unconfirmed
+`32.4.1` / `normal` / Execution confirmed
 
 CONDELSE IOPATH maps ifnone.
 
@@ -81239,7 +81240,7 @@ Normative role: `definition`。
 
 ### SV2023-32.4.1-EXTRACT-CONDELSE-RETAIN
 
-`32.4.1` / `normal` / Test mapped; execution unconfirmed
+`32.4.1` / `normal` / Execution confirmed
 
 CONDELSE IOPATH RETAIN maps ifnone and may ignore RETAIN.
 
@@ -81251,7 +81252,7 @@ Normative role: `definition`。
 
 ### SV2023-32.4.1-EXTRACT-CONDITIONAL-IOPATH-MATCH
 
-`32.4.1` / `normal` / Test mapped; execution unconfirmed
+`32.4.1` / `normal` / Execution confirmed
 
 A conditional IOPATH annotates only same-endpoint specify paths with the same condition.
 
@@ -81276,7 +81277,7 @@ Normative role: `mandatory`。
 
 ### SV2023-32.4.1-EXTRACT-DEVICE-INSTANCE-PORT
 
-`32.4.1` / `normal` / Test mapped; execution unconfirmed
+`32.4.1` / `normal` / Execution confirmed
 
 DEVICE selecting a module instance annotates all its output paths or fallback primitives; selecting an instance output restricts annotation to paths/primitives driving that output.
 
@@ -81288,7 +81289,7 @@ Normative role: `mandatory`。
 
 ### SV2023-32.4.1-EXTRACT-IOPATH
 
-`32.4.1` / `normal` / Test mapped; execution unconfirmed
+`32.4.1` / `normal` / Execution confirmed
 
 IOPATH maps conditional/unconditional specify-path delays and pulse limits.
 
@@ -81300,7 +81301,7 @@ Normative role: `definition`。
 
 ### SV2023-32.4.1-EXTRACT-IOPATH-RETAIN
 
-`32.4.1` / `normal` / Test mapped; execution unconfirmed
+`32.4.1` / `normal` / Execution confirmed
 
 IOPATH with RETAIN maps those delays/limits and may ignore RETAIN.
 
@@ -81312,7 +81313,7 @@ Normative role: `definition`。
 
 ### SV2023-32.4.1-EXTRACT-PATHPULSE
 
-`32.4.1` / `normal` / Test mapped; execution unconfirmed
+`32.4.1` / `normal` / Execution confirmed
 
 PATHPULSE maps conditional/unconditional specify-path pulse limits.
 
@@ -81324,7 +81325,7 @@ Normative role: `definition`。
 
 ### SV2023-32.4.1-EXTRACT-PATHPULSEPERCENT
 
-`32.4.1` / `normal` / Test mapped; execution unconfirmed
+`32.4.1` / `normal` / Execution confirmed
 
 PATHPULSEPERCENT maps conditional/unconditional specify-path pulse limits.
 
@@ -81336,7 +81337,7 @@ Normative role: `definition`。
 
 ### SV2023-32.4.1-EXTRACT-SDF-MATCHING
 
-`32.4.1` / `normal` / Test mapped; execution unconfirmed
+`32.4.1` / `normal` / Execution confirmed
 
 Non-interconnect DELAY annotations match specify path names/conditions; TIMINGCHECK annotations additionally match check type.
 
@@ -81361,7 +81362,7 @@ Normative role: `mandatory`。
 
 ### SV2023-32.4.2-EXTRACT-MAP-BIDIRECTSKEW
 
-`32.4.2` / `normal` / Test mapped; execution unconfirmed
+`32.4.2` / `normal` / Execution confirmed
 
 BIDIRECTSKEW v1/v2 annotates both fullskew limits.
 
@@ -81373,7 +81374,7 @@ Normative role: `definition`。
 
 ### SV2023-32.4.2-EXTRACT-MAP-HOLD
 
-`32.4.2` / `normal` / Test mapped; execution unconfirmed
+`32.4.2` / `normal` / Execution confirmed
 
 HOLD v1 annotates hold limit v1 and setuphold hold limit v1, preserving setup.
 
@@ -81385,7 +81386,7 @@ Normative role: `definition`。
 
 ### SV2023-32.4.2-EXTRACT-MAP-NOCHANGE
 
-`32.4.2` / `normal` / Test mapped; execution unconfirmed
+`32.4.2` / `normal` / Execution confirmed
 
 NOCHANGE v1/v2 annotates both nochange offsets.
 
@@ -81409,7 +81410,7 @@ Normative role: `definition`。
 
 ### SV2023-32.4.2-EXTRACT-MAP-RECOVERY
 
-`32.4.2` / `normal` / Test mapped; execution unconfirmed
+`32.4.2` / `normal` / Execution confirmed
 
 RECOVERY v1 annotates recovery v1 and recrem recovery v1, preserving removal.
 
@@ -81421,7 +81422,7 @@ Normative role: `definition`。
 
 ### SV2023-32.4.2-EXTRACT-MAP-RECREM
 
-`32.4.2` / `normal` / Test mapped; execution unconfirmed
+`32.4.2` / `normal` / Execution confirmed
 
 RECREM v1/v2 annotates recovery v1, removal v2 and both recrem limits.
 
@@ -81433,7 +81434,7 @@ Normative role: `definition`。
 
 ### SV2023-32.4.2-EXTRACT-MAP-REMOVAL
 
-`32.4.2` / `normal` / Test mapped; execution unconfirmed
+`32.4.2` / `normal` / Execution confirmed
 
 REMOVAL v1 annotates removal v1 and recrem removal v1, preserving recovery.
 
@@ -81445,7 +81446,7 @@ Normative role: `definition`。
 
 ### SV2023-32.4.2-EXTRACT-MAP-SETUP
 
-`32.4.2` / `normal` / Test mapped; execution unconfirmed
+`32.4.2` / `normal` / Execution confirmed
 
 SETUP v1 annotates setup limit v1 and setuphold setup limit v1, preserving hold.
 
@@ -81457,7 +81458,7 @@ Normative role: `definition`。
 
 ### SV2023-32.4.2-EXTRACT-MAP-SETUPHOLD
 
-`32.4.2` / `normal` / Test mapped; execution unconfirmed
+`32.4.2` / `normal` / Execution confirmed
 
 SETUPHOLD v1/v2 annotates setup v1, hold v2 and both setuphold limits.
 
@@ -81469,7 +81470,7 @@ Normative role: `definition`。
 
 ### SV2023-32.4.2-EXTRACT-MAP-SKEW
 
-`32.4.2` / `normal` / Test mapped; execution unconfirmed
+`32.4.2` / `normal` / Execution confirmed
 
 SKEW v1 annotates skew and timeskew limits.
 
@@ -81481,7 +81482,7 @@ Normative role: `definition`。
 
 ### SV2023-32.4.2-EXTRACT-MAP-WIDTH
 
-`32.4.2` / `normal` / Test mapped; execution unconfirmed
+`32.4.2` / `normal` / Execution confirmed
 
 WIDTH v1 annotates width limit, preserving threshold.
 
@@ -81493,7 +81494,7 @@ Normative role: `definition`。
 
 ### SV2023-32.4.2-EXTRACT-SDF-QUALIFIED-CHECK
 
-`32.4.2` / `normal` / Test mapped; execution unconfirmed
+`32.4.2` / `normal` / Execution confirmed
 
 Each edge/condition qualifier present on an SDF timing event shall match the corresponding SystemVerilog qualifier before annotation.
 
@@ -81505,7 +81506,7 @@ Normative role: `mandatory`。
 
 ### SV2023-32.4.2-EXTRACT-SDF-UNQUALIFIED-CHECK
 
-`32.4.2` / `normal` / Test mapped; execution unconfirmed
+`32.4.2` / `normal` / Execution confirmed
 
 An SDF timing check omitting event conditions/edges matches all corresponding checks regardless of those qualifiers in SystemVerilog.
 
@@ -81517,7 +81518,7 @@ Normative role: `mandatory`。
 
 ### SV2023-32.4.3-EXTRACT-LABEL-SPECPARAM
 
-`32.4.3` / `normal` / Test mapped; execution unconfirmed
+`32.4.3` / `normal` / Execution confirmed
 
 SDF LABEL updates specparams and reevaluates every expression containing an annotated specparam.
 
@@ -81540,7 +81541,7 @@ Normative role: `mandatory`。
 
 ### SV2023-32.4.4-EXTRACT-INTERCONNECT-CONSTRUCTS
 
-`32.4.4` / `normal` / Test mapped; execution unconfirmed
+`32.4.4` / `normal` / Execution confirmed
 
 PORT, NETDELAY and INTERCONNECT annotate interconnect delays; NETDELAY is supported in OVI SDF 1.0/2.0/2.1 and IEEE SDF 4.0 only.
 
@@ -81631,7 +81632,7 @@ Normative role: `mandatory`。
 
 ### SV2023-32.4.4-EXTRACT-NETDELAY-LOADS
 
-`32.4.4` / `normal` / Test mapped; execution unconfirmed
+`32.4.4` / `normal` / Execution confirmed
 
 NETDELAY on an input/inout port annotates that load; on a net it annotates all its load ports, representing all sources.
 
@@ -81701,7 +81702,7 @@ Normative role: `mandatory`。
 
 ### SV2023-32.5-EXTRACT-SDF-EMPTY-PRESERVE
 
-`32.5` / `normal` / Test mapped; execution unconfirmed
+`32.5` / `normal` / Execution confirmed
 
 Empty SDF pulse-limit parentheses preserve the existing pulse-limit values.
 
@@ -81738,7 +81739,7 @@ Normative role: `mandatory`。
 
 ### SV2023-32.7-EXTRACT-ANNOTATED-PULSE-CLAMP
 
-`32.7` / `boundary` / Test mapped; execution unconfirmed
+`32.7` / `boundary` / Execution confirmed
 
 INCREMENT producing a pulse limit below zero clamps it to zero.
 
@@ -81750,7 +81751,7 @@ Normative role: `mandatory`。
 
 ### SV2023-32.7-EXTRACT-ANNOTATED-PULSE-DEFAULT
 
-`32.7` / `normal` / Test mapped; execution unconfirmed
+`32.7` / `normal` / Execution confirmed
 
 Default pulse limits for annotated delays, excluding timing constraints, derive from reject/error invocation percentages, each defaulting to 100 percent.
 
@@ -81762,7 +81763,7 @@ Normative role: `mandatory`。
 
 ### SV2023-32.7-EXTRACT-PULSE-ONLY-ANNOTATION
 
-`32.7` / `boundary` / Test mapped; execution unconfirmed
+`32.7` / `boundary` / Execution confirmed
 
 PATHPULSE and PATHPULSEPERCENT change pulse limits without changing delay; PATHPULSE limits above delay behave as if equal to delay.
 
@@ -82134,7 +82135,7 @@ Normative role: `definition`。
 
 ### SV2023-32.8-EXTRACT-SDF-DELAY-CAPACITY
 
-`32.8` / `normal` / Test mapped; execution unconfirmed
+`32.8` / `normal` / Execution confirmed
 
 Specify paths/interconnects support twelve transition delays; other delay constructs support at most three, subject to each construct restriction.
 
@@ -82556,7 +82557,7 @@ Normative role: `definition`。
 
 ### SV2023-32.9-EXTRACT-MTM-TYPICAL
 
-`32.9` / `normal` / Test mapped; execution unconfirmed
+`32.9` / `normal` / Execution confirmed
 
 TYPICAL selects typical.
 
@@ -82568,7 +82569,7 @@ Normative role: `definition`。
 
 ### SV2023-32.9-EXTRACT-SCALE-MAXIMUM
 
-`32.9` / `normal` / Test mapped; execution unconfirmed
+`32.9` / `normal` / Execution confirmed
 
 FROM_MAXIMUM applies factors to the maximum member.
 
@@ -82580,7 +82581,7 @@ Normative role: `definition`。
 
 ### SV2023-32.9-EXTRACT-SCALE-MINIMUM
 
-`32.9` / `normal` / Test mapped; execution unconfirmed
+`32.9` / `normal` / Execution confirmed
 
 FROM_MINIMUM applies factors to the minimum member.
 
@@ -82592,7 +82593,7 @@ Normative role: `definition`。
 
 ### SV2023-32.9-EXTRACT-SCALE-MTM
 
-`32.9` / `normal` / Test mapped; execution unconfirmed
+`32.9` / `normal` / Execution confirmed
 
 FROM_MTM defaults to applying factors to their corresponding min/typ/max members.
 
@@ -82604,7 +82605,7 @@ Normative role: `definition`。
 
 ### SV2023-32.9-EXTRACT-SCALE-TYPICAL
 
-`32.9` / `normal` / Test mapped; execution unconfirmed
+`32.9` / `normal` / Execution confirmed
 
 FROM_TYPICAL applies factors to the typical member.
 
@@ -82616,7 +82617,7 @@ Normative role: `definition`。
 
 ### SV2023-32.9-EXTRACT-SDF-ANNOTATE-SYNTAX
 
-`32.9` / `normal` / Test mapped; execution unconfirmed
+`32.9` / `normal` / Execution confirmed
 
 Sdf_annotate reads timing data for a design region and accepts filename followed by optional instance, config file, log file, min/typ/max selection, scale factors and scale type.
 
@@ -82674,7 +82675,7 @@ Normative role: `mandatory`。
 
 ### SV2023-32.9-EXTRACT-SDF-MTM-OVERRIDE
 
-`32.9` / `normal` / Test mapped; execution unconfirmed
+`32.9` / `normal` / Execution confirmed
 
 The optional MTM selection string chooses the triple member and overrides configuration-file MTM_SPEC.
 
@@ -83387,7 +83388,7 @@ Normative role: `mandatory`。
 
 ### SV2023-33.7-EXTRACT-VPI-CELL
 
-`33.7` / `normal` / Test mapped; execution unconfirmed
+`33.7` / `normal` / Execution confirmed
 
 A vpiModule has string vpiCell giving its bound cell name.
 
@@ -83399,7 +83400,7 @@ Normative role: `mandatory`。
 
 ### SV2023-33.7-EXTRACT-VPI-CONFIG
 
-`33.7` / `normal` / Test mapped; execution unconfirmed
+`33.7` / `normal` / Execution confirmed
 
 A vpiModule has string vpiConfig giving the library.cell configuration controlling its binding.
 
@@ -83411,7 +83412,7 @@ Normative role: `mandatory`。
 
 ### SV2023-33.7-EXTRACT-VPI-LIBRARY
 
-`33.7` / `normal` / Test mapped; execution unconfirmed
+`33.7` / `normal` / Execution confirmed
 
 A vpiModule has string vpiLibrary giving its compilation library.
 
@@ -86252,7 +86253,7 @@ Normative role: `mandatory`。
 
 ### SV2023-35.5.1.5-EXTRACT-TASK-REENTRANCY
 
-`35.5.1.5` / `normal` / Test mapped; execution unconfirmed
+`35.5.1.5` / `normal` / Execution confirmed
 
 An import task calling an export that delays/waits may suspend its thread, allowing simultaneous active C invocations; foreign code must accommodate reentrancy, including static-data and library-call safety.
 
@@ -86896,7 +86897,7 @@ Normative role: `definition`。
 
 ### SV2023-35.5.6-EXTRACT-FORMAL-INTEGER
 
-`35.5.6` / `normal` / Test mapped; execution unconfirmed
+`35.5.6` / `normal` / Execution confirmed
 
 integer is listed as a permitted DPI import/export formal type, subject to the other DPI formal constraints.
 
@@ -86944,7 +86945,7 @@ Normative role: `definition`。
 
 ### SV2023-35.5.6-EXTRACT-FORMAL-SCALAR-LOGIC
 
-`35.5.6` / `normal` / Test mapped; execution unconfirmed
+`35.5.6` / `normal` / Execution confirmed
 
 scalar logic is listed as a permitted DPI import/export formal type, subject to the other DPI formal constraints.
 
@@ -86992,7 +86993,7 @@ Normative role: `definition`。
 
 ### SV2023-35.5.6-EXTRACT-FORMAL-TIME
 
-`35.5.6` / `normal` / Test mapped; execution unconfirmed
+`35.5.6` / `normal` / Execution confirmed
 
 time is listed as a permitted DPI import/export formal type, subject to the other DPI formal constraints.
 
@@ -87112,7 +87113,7 @@ Normative role: `mandatory`。
 
 ### SV2023-35.6.1-EXTRACT-ARG-COERCION
 
-`35.6.1` / `normal` / Test mapped; execution unconfirmed
+`35.6.1` / `normal` / Execution confirmed
 
 Use native argument compatibility/coercion. Needed coercion creates a temporary of the formal type; initialize it for input/inout and convert it back to the actual for output/inout, using ordinary assignment rules.
 
@@ -87196,7 +87197,7 @@ Normative role: `mandatory`。
 
 ### SV2023-35.6.1.1-EXTRACT-EXACT-FORMAL-TYPE
 
-`35.6.1.1` / `normal` / Test mapped; execution unconfirmed
+`35.6.1.1` / `normal` / Execution confirmed
 
 Except open ranges, the foreign-facing actual has the exact formal type and packed/unpacked ranges in the import declaration; the call site cannot change them.
 
@@ -87208,7 +87209,7 @@ Normative role: `mandatory`。
 
 ### SV2023-35.6.1.1-EXTRACT-OPEN-RANGES
 
-`35.6.1.1` / `normal` / Test mapped; execution unconfirmed
+`35.6.1.1` / `normal` / Execution confirmed
 
 Open unpacked dimensions retain corresponding actual ranges; a sole open packed dimension uses the linearized normalized actual packed range. Only open ranges derive from the call site.
 
@@ -87617,7 +87618,7 @@ Normative role: `mandatory`。
 
 ### SV2023-36.3.2-EXTRACT-SIGNED-OVERRIDE-WIDTH
 
-`36.3.2` / `normal` / Test mapped; execution unconfirmed
+`36.3.2` / `normal` / Execution confirmed
 
 PLI may override $signed/$unsigned, but its sizetf defines one common return width for all instances rather than each argument width.
 
@@ -87629,7 +87630,7 @@ Normative role: `mandatory`。
 
 ### SV2023-36.4-EXTRACT-TFARG-ACCESS
 
-`36.4` / `normal` / Test mapped; execution unconfirmed
+`36.4` / `normal` / Execution confirmed
 
 SV task/function arguments are not passed as C arguments to the PLI application; read/write them using the VPI argument-access routines.
 
@@ -87642,7 +87643,7 @@ Normative role: `mandatory`。
 
 ### SV2023-36.4-EXTRACT-TFARG-USAGE
 
-`36.4` / `normal` / Test mapped; execution unconfirmed
+`36.4` / `normal` / Execution confirmed
 
 A user system task/function invocation may supply arguments accessible to its associated PLI application.
 
@@ -87705,7 +87706,7 @@ Normative role: `mandatory`。
 
 ### SV2023-36.8-EXTRACT-CALLBACK-PHASES
 
-`36.8` / `normal` / Test mapped; execution unconfirmed
+`36.8` / `normal` / Execution confirmed
 
 VPI system-task/function callbacks sizetf, compiletf and calltf execute during their specified processing phases.
 
@@ -87729,7 +87730,7 @@ Normative role: `mandatory`。
 
 ### SV2023-36.8.1-EXTRACT-SIZETF-ONCE
 
-`36.8.1` / `normal` / Test mapped; execution unconfirmed
+`36.8.1` / `normal` / Execution confirmed
 
 Call an associated sizetf at most once, and call it when its associated system function appears in the design, subject to the task/real exclusions.
 
@@ -87765,7 +87766,7 @@ Normative role: `recommendation`。
 
 ### SV2023-36.8.2-EXTRACT-COMPILETF-PER-INSTANCE
 
-`36.8.2` / `normal` / Test mapped; execution unconfirmed
+`36.8.2` / `normal` / Execution confirmed
 
 If provided, invoke compiletf once per source instance of its user system task/function when encountered in parsing/compilation, at the specified allowed phase.
 
@@ -87777,7 +87778,7 @@ Normative role: `mandatory`。
 
 ### SV2023-36.8.3-EXTRACT-CALLTF-PER-EXECUTION
 
-`36.8.3` / `normal` / Test mapped; execution unconfirmed
+`36.8.3` / `normal` / Execution confirmed
 
 Invoke calltf every time the associated SV system task/function executes.
 
@@ -87789,7 +87790,7 @@ Normative role: `mandatory`。
 
 ### SV2023-36.8.4-EXTRACT-CALLBACK-USER-DATA
 
-`36.8.4` / `normal` / Test mapped; execution unconfirmed
+`36.8.4` / `normal` / Execution confirmed
 
 sizetf, compiletf and calltf each receive one argument: the registered s_vpi_systf_data.user_data value.
 
@@ -87922,7 +87923,7 @@ Normative role: `mandatory`。
 
 ### SV2023-36.10.2-EXTRACT-PHASE-ACCESS
 
-`36.10.2` / `normal` / Test mapped; execution unconfirmed
+`36.10.2` / `normal` / Execution confirmed
 
 sizetf follows startup with no additional access; cbEndOfCompile callbacks follow sizetf, and all functionality is available from that phase until tool execution ends.
 
@@ -88401,7 +88402,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-10-1364-1995
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1364-1995 compatibility, vpiVariables includes vpiReg/vpiRegArray is not applicable or absent, per Table 36-10.
 
@@ -88413,7 +88414,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-10-1364-2001
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1364-2001 compatibility, vpiVariables includes vpiReg/vpiRegArray is not applicable or absent, per Table 36-10.
 
@@ -88425,7 +88426,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-10-1364-2005
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1364-2005 compatibility, vpiVariables includes vpiReg/vpiRegArray is not applicable or absent, per Table 36-10.
 
@@ -88438,7 +88439,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-10-1800-2005
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1800-2005 compatibility, vpiVariables includes vpiReg/vpiRegArray is present, per Table 36-10.
 
@@ -88450,7 +88451,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-10-1800-2009
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1800-2009 compatibility, vpiVariables includes vpiReg/vpiRegArray is present, per Table 36-10.
 
@@ -88474,7 +88475,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-11-1364-1995
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1364-1995 compatibility, vpiReg iteration on vpiRegArray includes other variable objects is not applicable or absent, per Table 36-10.
 
@@ -88486,7 +88487,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-11-1364-2001
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1364-2001 compatibility, vpiReg iteration on vpiRegArray includes other variable objects is not applicable or absent, per Table 36-10.
 
@@ -88498,7 +88499,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-11-1364-2005
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1364-2005 compatibility, vpiReg iteration on vpiRegArray includes other variable objects is not applicable or absent, per Table 36-10.
 
@@ -88510,7 +88511,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-11-1800-2005
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1800-2005 compatibility, vpiReg iteration on vpiRegArray includes other variable objects is present, per Table 36-10.
 
@@ -88522,7 +88523,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-11-1800-2009
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1800-2009 compatibility, vpiReg iteration on vpiRegArray includes other variable objects is present, per Table 36-10.
 
@@ -88546,7 +88547,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-12-1364-1995
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1364-1995 compatibility, vpiRegArray iteration includes other variable arrays is not applicable or absent, per Table 36-10.
 
@@ -88558,7 +88559,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-12-1364-2001
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1364-2001 compatibility, vpiRegArray iteration includes other variable arrays is not applicable or absent, per Table 36-10.
 
@@ -88570,7 +88571,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-12-1364-2005
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1364-2005 compatibility, vpiRegArray iteration includes other variable arrays is not applicable or absent, per Table 36-10.
 
@@ -88583,7 +88584,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-12-1800-2005
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1800-2005 compatibility, vpiRegArray iteration includes other variable arrays is present, per Table 36-10.
 
@@ -88595,7 +88596,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-12-1800-2009
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1800-2009 compatibility, vpiRegArray iteration includes other variable arrays is present, per Table 36-10.
 
@@ -88652,7 +88653,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-13-1800-2005
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1800-2005 compatibility, vpiInterfaceDecl iteration on vpiClassDefn is present, per Table 36-10.
 
@@ -88664,7 +88665,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-13-1800-2009
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1800-2009 compatibility, vpiInterfaceDecl iteration on vpiClassDefn is present, per Table 36-10.
 
@@ -88676,7 +88677,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-13-1800-2012-2017-2023
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1800-2012/2017/2023 compatibility, vpiInterfaceDecl iteration on vpiClassDefn is not applicable or absent, per Table 36-10.
 
@@ -88721,7 +88722,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-14-1800-2005
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1800-2005 compatibility, vpiInterfaceDecl iteration returns vpiRefObj is present, per Table 36-10.
 
@@ -88733,7 +88734,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-14-1800-2009
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1800-2009 compatibility, vpiInterfaceDecl iteration returns vpiRefObj is present, per Table 36-10.
 
@@ -88745,7 +88746,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-14-1800-2012-2017-2023
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1800-2012/2017/2023 compatibility, vpiInterfaceDecl iteration returns vpiRefObj is not applicable or absent, per Table 36-10.
 
@@ -88757,7 +88758,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-6-1364-1995
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1364-1995 compatibility, vpiMemory object is present, per Table 36-10.
 
@@ -88770,7 +88771,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-6-1364-2001
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1364-2001 compatibility, vpiMemory object is present but deprecated, per Table 36-10.
 
@@ -88782,7 +88783,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-6-1364-2005
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1364-2005 compatibility, vpiMemory object is not applicable or absent, per Table 36-10.
 
@@ -88794,7 +88795,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-6-1800-2005
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1800-2005 compatibility, vpiMemory object is not applicable or absent, per Table 36-10.
 
@@ -88806,7 +88807,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-6-1800-2009
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1800-2009 compatibility, vpiMemory object is not applicable or absent, per Table 36-10.
 
@@ -88830,7 +88831,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-7-1364-1995
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1364-1995 compatibility, vpiMemoryWord object is present, per Table 36-10.
 
@@ -88843,7 +88844,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-7-1364-2001
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1364-2001 compatibility, vpiMemoryWord object is present but deprecated, per Table 36-10.
 
@@ -88855,7 +88856,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-7-1364-2005
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1364-2005 compatibility, vpiMemoryWord object is not applicable or absent, per Table 36-10.
 
@@ -88867,7 +88868,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-7-1800-2005
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1800-2005 compatibility, vpiMemoryWord object is not applicable or absent, per Table 36-10.
 
@@ -88879,7 +88880,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-7-1800-2009
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1800-2009 compatibility, vpiMemoryWord object is not applicable or absent, per Table 36-10.
 
@@ -88903,7 +88904,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-8-1364-1995
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1364-1995 compatibility, vpiIntegerVar/vpiTimeVar array objects is present, per Table 36-10.
 
@@ -88915,7 +88916,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-8-1364-2001
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1364-2001 compatibility, vpiIntegerVar/vpiTimeVar array objects is present, per Table 36-10.
 
@@ -88927,7 +88928,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-8-1364-2005
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1364-2005 compatibility, vpiIntegerVar/vpiTimeVar array objects is present, per Table 36-10.
 
@@ -88939,7 +88940,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-8-1800-2005
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1800-2005 compatibility, vpiIntegerVar/vpiTimeVar array objects is not applicable or absent, per Table 36-10.
 
@@ -88951,7 +88952,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-8-1800-2009
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1800-2009 compatibility, vpiIntegerVar/vpiTimeVar array objects is not applicable or absent, per Table 36-10.
 
@@ -88986,7 +88987,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-9-1364-2001
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1364-2001 compatibility, vpiRealVar array object is present, per Table 36-10.
 
@@ -88998,7 +88999,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-9-1364-2005
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1364-2005 compatibility, vpiRealVar array object is present, per Table 36-10.
 
@@ -89011,7 +89012,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-9-1800-2005
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1800-2005 compatibility, vpiRealVar array object is not applicable or absent, per Table 36-10.
 
@@ -89023,7 +89024,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-9-1800-2009
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1800-2009 compatibility, vpiRealVar array object is not applicable or absent, per Table 36-10.
 
@@ -89047,7 +89048,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-INTERFACE-ITERATION
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Since 1800-2012, vpiInterfaceDecl (alias vpiVirtualInterfaceVar) iteration is disallowed on lexical vpiClassDefn but allowed on active vpiClassTypespec; returned objects are vpiVirtualInterfaceVar rather than vpiRefObj.
 
@@ -89059,7 +89060,7 @@ Normative role: `mandatory`。
 
 ### SV2023-36.12.1-EXTRACT-MEMORY-TRANSITIONS
 
-`36.12.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.1` / `normal` / Execution confirmed
 
 Since 1364-2005 vpiMemory is a one-to-many transition and vpiMemoryWord an iterator, not object types; unidimensional reg arrays/elements use vpiRegArray/vpiReg. In 1364-2001 either old or replacement object form was allowed.
 
@@ -89108,7 +89109,7 @@ Normative role: `mandatory`。
 
 ### SV2023-36.12.2-EXTRACT-COMPATIBILITY-SUPPORT
 
-`36.12.2` / `normal` / Test mapped; execution unconfirmed
+`36.12.2` / `normal` / Execution confirmed
 
 Provide emulation of enumerated incompatible older VPI behaviors for compatible designs/partitions; this does not generally enable old APIs to interpret newer constructs.
 
@@ -89131,7 +89132,7 @@ Normative role: `mandatory`。
 
 ### SV2023-36.12.2.1-EXTRACT-BOUND-RETARGET
 
-`36.12.2.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.2.1` / `normal` / Execution confirmed
 
 Retarget the recompiled application calls to selected compatibility variants as defined in vpi_compatibility.h.
 
@@ -89228,7 +89229,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.2.1-EXTRACT-MODE-1800V2017
 
-`36.12.2.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.2.1` / `normal` / Execution confirmed
 
 VPI_COMPATIBILITY_VERSION_1800v2017 selects the corresponding compile-bound compatibility version.
 
@@ -89240,7 +89241,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.2.1-EXTRACT-MODE-1800V2023
 
-`36.12.2.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.2.1` / `normal` / Execution confirmed
 
 VPI_COMPATIBILITY_VERSION_1800v2023 selects the corresponding compile-bound compatibility version.
 
@@ -89263,7 +89264,7 @@ Normative role: `mandatory`。
 
 ### SV2023-36.12.2.1-EXTRACT-REBIND-VPI-COMPARE-OBJECTS
 
-`36.12.2.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.2.1` / `normal` / Execution confirmed
 
 When a compile-bound version is selected, vpi_user.h remaps vpi_compare_objects to its mode-specific variant and calls use that compatibility behavior.
 
@@ -89275,7 +89276,7 @@ Normative role: `mandatory`。
 
 ### SV2023-36.12.2.1-EXTRACT-REBIND-VPI-CONTROL
 
-`36.12.2.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.2.1` / `normal` / Execution confirmed
 
 When a compile-bound version is selected, vpi_user.h remaps vpi_control to its mode-specific variant and calls use that compatibility behavior.
 
@@ -89287,7 +89288,7 @@ Normative role: `mandatory`。
 
 ### SV2023-36.12.2.1-EXTRACT-REBIND-VPI-GET
 
-`36.12.2.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.2.1` / `normal` / Execution confirmed
 
 When a compile-bound version is selected, vpi_user.h remaps vpi_get to its mode-specific variant and calls use that compatibility behavior.
 
@@ -89299,7 +89300,7 @@ Normative role: `mandatory`。
 
 ### SV2023-36.12.2.1-EXTRACT-REBIND-VPI-GET-STR
 
-`36.12.2.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.2.1` / `normal` / Execution confirmed
 
 When a compile-bound version is selected, vpi_user.h remaps vpi_get_str to its mode-specific variant and calls use that compatibility behavior.
 
@@ -89311,7 +89312,7 @@ Normative role: `mandatory`。
 
 ### SV2023-36.12.2.1-EXTRACT-REBIND-VPI-GET-VALUE
 
-`36.12.2.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.2.1` / `normal` / Execution confirmed
 
 When a compile-bound version is selected, vpi_user.h remaps vpi_get_value to its mode-specific variant and calls use that compatibility behavior.
 
@@ -89323,7 +89324,7 @@ Normative role: `mandatory`。
 
 ### SV2023-36.12.2.1-EXTRACT-REBIND-VPI-HANDLE
 
-`36.12.2.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.2.1` / `normal` / Execution confirmed
 
 When a compile-bound version is selected, vpi_user.h remaps vpi_handle to its mode-specific variant and calls use that compatibility behavior.
 
@@ -89335,7 +89336,7 @@ Normative role: `mandatory`。
 
 ### SV2023-36.12.2.1-EXTRACT-REBIND-VPI-HANDLE-BY-INDEX
 
-`36.12.2.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.2.1` / `normal` / Execution confirmed
 
 When a compile-bound version is selected, vpi_user.h remaps vpi_handle_by_index to its mode-specific variant and calls use that compatibility behavior.
 
@@ -89347,7 +89348,7 @@ Normative role: `mandatory`。
 
 ### SV2023-36.12.2.1-EXTRACT-REBIND-VPI-HANDLE-BY-MULTI-INDEX
 
-`36.12.2.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.2.1` / `normal` / Execution confirmed
 
 When a compile-bound version is selected, vpi_user.h remaps vpi_handle_by_multi_index to its mode-specific variant and calls use that compatibility behavior.
 
@@ -89359,7 +89360,7 @@ Normative role: `mandatory`。
 
 ### SV2023-36.12.2.1-EXTRACT-REBIND-VPI-HANDLE-BY-NAME
 
-`36.12.2.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.2.1` / `normal` / Execution confirmed
 
 When a compile-bound version is selected, vpi_user.h remaps vpi_handle_by_name to its mode-specific variant and calls use that compatibility behavior.
 
@@ -89371,7 +89372,7 @@ Normative role: `mandatory`。
 
 ### SV2023-36.12.2.1-EXTRACT-REBIND-VPI-HANDLE-MULTI
 
-`36.12.2.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.2.1` / `normal` / Execution confirmed
 
 When a compile-bound version is selected, vpi_user.h remaps vpi_handle_multi to its mode-specific variant and calls use that compatibility behavior.
 
@@ -89383,7 +89384,7 @@ Normative role: `mandatory`。
 
 ### SV2023-36.12.2.1-EXTRACT-REBIND-VPI-ITERATE
 
-`36.12.2.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.2.1` / `normal` / Execution confirmed
 
 When a compile-bound version is selected, vpi_user.h remaps vpi_iterate to its mode-specific variant and calls use that compatibility behavior.
 
@@ -89395,7 +89396,7 @@ Normative role: `mandatory`。
 
 ### SV2023-36.12.2.1-EXTRACT-REBIND-VPI-PUT-VALUE
 
-`36.12.2.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.2.1` / `normal` / Execution confirmed
 
 When a compile-bound version is selected, vpi_user.h remaps vpi_put_value to its mode-specific variant and calls use that compatibility behavior.
 
@@ -89407,7 +89408,7 @@ Normative role: `mandatory`。
 
 ### SV2023-36.12.2.1-EXTRACT-REBIND-VPI-REGISTER-CB
 
-`36.12.2.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.2.1` / `normal` / Execution confirmed
 
 When a compile-bound version is selected, vpi_user.h remaps vpi_register_cb to its mode-specific variant and calls use that compatibility behavior.
 
@@ -89419,7 +89420,7 @@ Normative role: `mandatory`。
 
 ### SV2023-36.12.2.1-EXTRACT-REBIND-VPI-SCAN
 
-`36.12.2.1` / `normal` / Test mapped; execution unconfirmed
+`36.12.2.1` / `normal` / Execution confirmed
 
 When a compile-bound version is selected, vpi_user.h remaps vpi_scan to its mode-specific variant and calls use that compatibility behavior.
 
@@ -91767,7 +91768,7 @@ Normative role: `definition`。
 
 ### SV2023-37.10-EXTRACT-DIAGRAM-039
 
-`37.10` / `normal` / Test mapped; execution unconfirmed
+`37.10` / `normal` / Execution confirmed
 
 37.10 defines a one-to-one relation from nettype declaration to instance, using the untagged instance access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -92589,7 +92590,7 @@ Normative role: `definition`。
 
 ### SV2023-37.12-EXTRACT-BLOCK-SCOPE
 
-`37.12` / `normal` / Test mapped; execution unconfirmed
+`37.12` / `normal` / Execution confirmed
 
 An unnamed begin/fork is a scope iff it directly contains a block-item declaration; named begin/fork is always a scope.
 
@@ -92637,7 +92638,7 @@ Normative role: `definition`。
 
 ### SV2023-37.12-EXTRACT-DIAGRAM-004
 
-`37.12` / `normal` / Test mapped; execution unconfirmed
+`37.12` / `normal` / Execution confirmed
 
 The 37.12 VPI model includes unnamed begin with declarations in the scope group; group properties and relationships apply to this member.
 
@@ -92661,7 +92662,7 @@ Normative role: `definition`。
 
 ### SV2023-37.12-EXTRACT-DIAGRAM-006
 
-`37.12` / `normal` / Test mapped; execution unconfirmed
+`37.12` / `normal` / Execution confirmed
 
 The 37.12 VPI model includes unnamed fork with declarations in the scope group; group properties and relationships apply to this member.
 
@@ -92732,7 +92733,7 @@ Normative role: `definition`。
 
 ### SV2023-37.12-EXTRACT-DIAGRAM-012
 
-`37.12` / `normal` / Test mapped; execution unconfirmed
+`37.12` / `normal` / Execution confirmed
 
 The 37.12 VPI model includes for with local declarations in the scope group; group properties and relationships apply to this member.
 
@@ -92744,7 +92745,7 @@ Normative role: `definition`。
 
 ### SV2023-37.12-EXTRACT-DIAGRAM-013
 
-`37.12` / `normal` / Test mapped; execution unconfirmed
+`37.12` / `normal` / Execution confirmed
 
 The 37.12 VPI model includes foreach statement in the scope group; group properties and relationships apply to this member.
 
@@ -92781,7 +92782,7 @@ Normative role: `definition`。
 
 ### SV2023-37.12-EXTRACT-DIAGRAM-016
 
-`37.12` / `normal` / Test mapped; execution unconfirmed
+`37.12` / `normal` / Execution confirmed
 
 37.12 defines a one-to-one relation from named begin to enclosing scope, using the untagged enclosing scope access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -92793,7 +92794,7 @@ Normative role: `definition`。
 
 ### SV2023-37.12-EXTRACT-DIAGRAM-017
 
-`37.12` / `normal` / Test mapped; execution unconfirmed
+`37.12` / `normal` / Execution confirmed
 
 37.12 defines a one-to-many relation from named begin to statement, using the untagged statement access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -92805,7 +92806,7 @@ Normative role: `definition`。
 
 ### SV2023-37.12-EXTRACT-DIAGRAM-018
 
-`37.12` / `normal` / Test mapped; execution unconfirmed
+`37.12` / `normal` / Execution confirmed
 
 37.12 defines a one-to-one relation from begin to enclosing scope, using the untagged enclosing scope access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -92829,7 +92830,7 @@ Normative role: `definition`。
 
 ### SV2023-37.12-EXTRACT-DIAGRAM-020
 
-`37.12` / `normal` / Test mapped; execution unconfirmed
+`37.12` / `normal` / Execution confirmed
 
 37.12 defines a one-to-one relation from named fork to enclosing scope, using the untagged enclosing scope access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -92853,7 +92854,7 @@ Normative role: `definition`。
 
 ### SV2023-37.12-EXTRACT-DIAGRAM-022
 
-`37.12` / `normal` / Test mapped; execution unconfirmed
+`37.12` / `normal` / Execution confirmed
 
 37.12 defines a one-to-one relation from fork to enclosing scope, using the untagged enclosing scope access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -93177,7 +93178,7 @@ Normative role: `definition`。
 
 ### SV2023-37.12-EXTRACT-DIAGRAM-049
 
-`37.12` / `normal` / Test mapped; execution unconfirmed
+`37.12` / `normal` / Execution confirmed
 
 37.12 defines a one-to-one relation from scope to scope, using the untagged scope access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -93273,7 +93274,7 @@ Normative role: `definition`。
 
 ### SV2023-37.12-EXTRACT-FOR-SCOPE
 
-`37.12` / `normal` / Test mapped; execution unconfirmed
+`37.12` / `normal` / Execution confirmed
 
 A for statement is a scope iff vpiLocalVarDecls is true; its control variables belong to that for scope.
 
@@ -93285,7 +93286,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.12-EXTRACT-FOREACH-SCOPE
 
-`37.12` / `normal` / Test mapped; execution unconfirmed
+`37.12` / `normal` / Execution confirmed
 
 Each foreach control variable belongs to the foreach statement scope.
 
@@ -93333,7 +93334,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.12-EXTRACT-VIRTUAL-ITERATION
 
-`37.12` / `normal` / Test mapped; execution unconfirmed
+`37.12` / `normal` / Execution confirmed
 
 vpiVirtualInterfaceVar iteration is supported only in elaborated contexts, not lexical class definitions. It yields each virtual-interface array element separately, whereas vpiVariables returns one vpiArrayVar declaration.
 
@@ -93357,7 +93358,7 @@ Normative role: `definition`。
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-002
 
-`37.13` / `normal` / Test mapped; execution unconfirmed
+`37.13` / `normal` / Execution confirmed
 
 37.13 defines a one-to-one relation from IO declaration to instance, using the untagged instance access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -93369,7 +93370,7 @@ Normative role: `definition`。
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-003
 
-`37.13` / `normal` / Test mapped; execution unconfirmed
+`37.13` / `normal` / Execution confirmed
 
 37.13 defines a one-to-many relation from UDP definition to IO declaration, using the untagged IO declaration access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -93381,7 +93382,7 @@ Normative role: `definition`。
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-004
 
-`37.13` / `normal` / Test mapped; execution unconfirmed
+`37.13` / `normal` / Execution confirmed
 
 37.13 defines a one-to-one relation from IO declaration to UDP definition, using the untagged UDP definition access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -93405,7 +93406,7 @@ Normative role: `definition`。
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-006
 
-`37.13` / `normal` / Test mapped; execution unconfirmed
+`37.13` / `normal` / Execution confirmed
 
 37.13 defines a one-to-one relation from IO declaration to task/function, using the untagged task/function access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -93477,7 +93478,7 @@ Normative role: `definition`。
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-012
 
-`37.13` / `normal` / Test mapped; execution unconfirmed
+`37.13` / `normal` / Execution confirmed
 
 37.13 defines a one-to-many relation from IO declaration to range, using the untagged range access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -93489,7 +93490,7 @@ Normative role: `definition`。
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-013
 
-`37.13` / `normal` / Test mapped; execution unconfirmed
+`37.13` / `normal` / Execution confirmed
 
 37.13 defines a one-to-one relation from IO declaration to typespec, using the untagged typespec access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -93525,7 +93526,7 @@ Normative role: `definition`。
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-016
 
-`37.13` / `normal` / Test mapped; execution unconfirmed
+`37.13` / `normal` / Execution confirmed
 
 IO declaration exposes vpiScalar as Boolean, representing scalar status; access it with the appropriate property routine under 37.3.1.
 
@@ -93537,7 +93538,7 @@ Normative role: `definition`。
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-017
 
-`37.13` / `normal` / Test mapped; execution unconfirmed
+`37.13` / `normal` / Execution confirmed
 
 IO declaration exposes vpiSigned as Boolean, representing signedness; access it with the appropriate property routine under 37.3.1.
 
@@ -93561,7 +93562,7 @@ Normative role: `definition`。
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-019
 
-`37.13` / `normal` / Test mapped; execution unconfirmed
+`37.13` / `normal` / Execution confirmed
 
 IO declaration exposes vpiVector as Boolean, representing vector status; access it with the appropriate property routine under 37.3.1.
 
@@ -93585,7 +93586,7 @@ Normative role: `definition`。
 
 ### SV2023-37.13-EXTRACT-IO-RANGES
 
-`37.13` / `normal` / Test mapped; execution unconfirmed
+`37.13` / `normal` / Execution confirmed
 
 IO range/left/right relations match its corresponding typespec.
 
@@ -93597,7 +93598,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.13-EXTRACT-IO-REFERENCE
 
-`37.13` / `normal` / Test mapped; execution unconfirmed
+`37.13` / `normal` / Execution confirmed
 
 vpiDirection returns vpiRef for pass-by-reference ports/arguments. vpiExpr returns vpiRefObj for ref/interface/modport IO; virtual-interface IO instead returns vpiVirtualInterfaceVar.
 
@@ -93906,7 +93907,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.14-EXTRACT-PORT-FORMAL-TYPE
 
-`37.14` / `normal` / Test mapped; execution unconfirmed
+`37.14` / `normal` / Execution confirmed
 
 vpiPortType depends on the formal and is vpiPort, vpiInterfacePort or vpiModportPort.
 
@@ -94135,7 +94136,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.15-EXTRACT-REF-CASES
 
-`37.15` / `normal` / Test mapped; execution unconfirmed
+`37.15` / `normal` / Execution confirmed
 
 A reference object represents a declared reference to an instantiated actual: ref-port low-connection variable/event/event-array and its subelements, interface/modport local port declarations and their nets/variables/events/event-arrays, or ref task/function formal and subelements.
 
@@ -94470,7 +94471,7 @@ Normative role: `definition`。
 
 ### SV2023-37.16-EXTRACT-DIAGRAM-022
 
-`37.16` / `normal` / Test mapped; execution unconfirmed
+`37.16` / `normal` / Execution confirmed
 
 The 37.16 VPI model includes unpacked array net in the user-defined net group; group properties and relationships apply to this member.
 
@@ -94626,7 +94627,7 @@ Normative role: `definition`。
 
 ### SV2023-37.16-EXTRACT-DIAGRAM-035
 
-`37.16` / `normal` / Test mapped; execution unconfirmed
+`37.16` / `normal` / Execution confirmed
 
 37.16 defines a one-to-many relation from nets to net drivers, using tag vpiDriver; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -94638,7 +94639,7 @@ Normative role: `definition`。
 
 ### SV2023-37.16-EXTRACT-DIAGRAM-036
 
-`37.16` / `normal` / Test mapped; execution unconfirmed
+`37.16` / `normal` / Execution confirmed
 
 37.16 defines a one-to-many relation from nets to net loads, using tag vpiLoad; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -95044,7 +95045,7 @@ Normative role: `definition`。
 
 ### SV2023-37.16-EXTRACT-DIAGRAM-070
 
-`37.16` / `normal` / Test mapped; execution unconfirmed
+`37.16` / `normal` / Execution confirmed
 
 nets exposes vpiConstantSelect as Boolean, representing constant selection; access it with the appropriate property routine under 37.3.1.
 
@@ -95115,7 +95116,7 @@ Normative role: `definition`。
 
 ### SV2023-37.16-EXTRACT-DIAGRAM-076
 
-`37.16` / `normal` / Test mapped; execution unconfirmed
+`37.16` / `normal` / Execution confirmed
 
 nets exposes vpiNetDeclAssign as Boolean, representing declaration assignment; access it with the appropriate property routine under 37.3.1.
 
@@ -95163,7 +95164,7 @@ Normative role: `definition`。
 
 ### SV2023-37.16-EXTRACT-DIAGRAM-080
 
-`37.16` / `normal` / Test mapped; execution unconfirmed
+`37.16` / `normal` / Execution confirmed
 
 nets exposes vpiExplicitScalared as Boolean, representing explicit scalared declaration; access it with the appropriate property routine under 37.3.1.
 
@@ -95199,7 +95200,7 @@ Normative role: `definition`。
 
 ### SV2023-37.16-EXTRACT-DIAGRAM-083
 
-`37.16` / `normal` / Test mapped; execution unconfirmed
+`37.16` / `normal` / Execution confirmed
 
 nets exposes vpiStrength0 as integer, representing zero drive strength; access it with the appropriate property routine under 37.3.1.
 
@@ -95211,7 +95212,7 @@ Normative role: `definition`。
 
 ### SV2023-37.16-EXTRACT-DIAGRAM-084
 
-`37.16` / `normal` / Test mapped; execution unconfirmed
+`37.16` / `normal` / Execution confirmed
 
 nets exposes vpiStrength1 as integer, representing one drive strength; access it with the appropriate property routine under 37.3.1.
 
@@ -95223,7 +95224,7 @@ Normative role: `definition`。
 
 ### SV2023-37.16-EXTRACT-DIAGRAM-085
 
-`37.16` / `normal` / Test mapped; execution unconfirmed
+`37.16` / `normal` / Execution confirmed
 
 nets exposes vpiChargeStrength as integer, representing charge strength; access it with the appropriate property routine under 37.3.1.
 
@@ -95247,7 +95248,7 @@ Normative role: `definition`。
 
 ### SV2023-37.16-EXTRACT-DIAGRAM-087
 
-`37.16` / `normal` / Test mapped; execution unconfirmed
+`37.16` / `normal` / Execution confirmed
 
 nets exposes vpiExplicitVectored as Boolean, representing explicit vectored declaration; access it with the appropriate property routine under 37.3.1.
 
@@ -95355,7 +95356,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.16-EXTRACT-NET-BITS-EXPANSION
 
-`37.16` / `normal` / Test mapped; execution unconfirmed
+`37.16` / `normal` / Execution confirmed
 
 Logic/bit net bit handles are available regardless of vector expansion.
 
@@ -95367,7 +95368,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.16-EXTRACT-NET-CONSTANT-SELECT
 
-`37.16` / `normal` / Test mapped; execution unconfirmed
+`37.16` / `normal` / Execution confirmed
 
 vpiConstantSelect is true if there is no parent, or every select index is elaboration-constant and each select element is a struct/union net member or statically bounded packed/unpacked array member; otherwise false.
 
@@ -95547,7 +95548,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.16-EXTRACT-NETBIT-EXPANDED
 
-`37.16` / `normal` / Test mapped; execution unconfirmed
+`37.16` / `normal` / Execution confirmed
 
 A net-bit vpiExpanded equals its parent net value.
 
@@ -95571,7 +95572,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.16-EXTRACT-NETTYPE-SELECT
 
-`37.16` / `normal` / Test mapped; execution unconfirmed
+`37.16` / `normal` / Execution confirmed
 
 Nettype-declared nets have vpiNetType=vpiNettypeNet; their selected parts have vpiNettypeNetSelect, on which vpiDriver/vpiLocalDriver iteration is unsupported.
 
@@ -95630,7 +95631,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.17-EXTRACT-ARRAY-TYPE-VALUES
 
-`37.17` / `normal` / Test mapped; execution unconfirmed
+`37.17` / `normal` / Execution confirmed
 
 vpiArrayType is vpiStaticArray, vpiDynamicArray, vpiAssocArray or vpiQueueArray.
 
@@ -96098,7 +96099,7 @@ Normative role: `definition`。
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-037
 
-`37.17` / `normal` / Test mapped; execution unconfirmed
+`37.17` / `normal` / Execution confirmed
 
 37.17 defines a one-to-one relation from variables to path terminal, using the untagged path terminal access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -96110,7 +96111,7 @@ Normative role: `definition`。
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-038
 
-`37.17` / `normal` / Test mapped; execution unconfirmed
+`37.17` / `normal` / Execution confirmed
 
 37.17 defines a one-to-one relation from variables to timing-check terminal, using the untagged timing-check terminal access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -96158,7 +96159,7 @@ Normative role: `definition`。
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-042
 
-`37.17` / `normal` / Test mapped; execution unconfirmed
+`37.17` / `normal` / Execution confirmed
 
 37.17 defines a one-to-many relation from array variable to variable select, using the untagged variable select access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -96182,7 +96183,7 @@ Normative role: `definition`。
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-044
 
-`37.17` / `normal` / Test mapped; execution unconfirmed
+`37.17` / `normal` / Execution confirmed
 
 37.17 defines a one-to-many relation from array variable to range, using the untagged range access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -96218,7 +96219,7 @@ Normative role: `definition`。
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-047
 
-`37.17` / `normal` / Test mapped; execution unconfirmed
+`37.17` / `normal` / Execution confirmed
 
 37.17 defines a one-to-many relation from packed-array variable to range, using the untagged range access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -96230,7 +96231,7 @@ Normative role: `definition`。
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-048
 
-`37.17` / `normal` / Test mapped; execution unconfirmed
+`37.17` / `normal` / Execution confirmed
 
 37.17 defines a one-to-one relation from packed-array variable to expression, using tag vpiLeftRange; traverse with vpi_handle and the stated special-case constraints.
 
@@ -96242,7 +96243,7 @@ Normative role: `definition`。
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-049
 
-`37.17` / `normal` / Test mapped; execution unconfirmed
+`37.17` / `normal` / Execution confirmed
 
 37.17 defines a one-to-one relation from packed-array variable to expression, using tag vpiRightRange; traverse with vpi_handle and the stated special-case constraints.
 
@@ -96254,7 +96255,7 @@ Normative role: `definition`。
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-050
 
-`37.17` / `normal` / Test mapped; execution unconfirmed
+`37.17` / `normal` / Execution confirmed
 
 37.17 defines a one-to-many relation from bit variable to range, using the untagged range access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -96290,7 +96291,7 @@ Normative role: `definition`。
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-053
 
-`37.17` / `normal` / Test mapped; execution unconfirmed
+`37.17` / `normal` / Execution confirmed
 
 37.17 defines a one-to-many relation from logic variable to range, using the untagged range access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -96458,7 +96459,7 @@ Normative role: `definition`。
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-067
 
-`37.17` / `normal` / Test mapped; execution unconfirmed
+`37.17` / `normal` / Execution confirmed
 
 37.17 defines a one-to-one relation from member variable to struct variable, using tag vpiParent; traverse with vpi_handle and the stated special-case constraints.
 
@@ -96518,7 +96519,7 @@ Normative role: `definition`。
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-072
 
-`37.17` / `normal` / Test mapped; execution unconfirmed
+`37.17` / `normal` / Execution confirmed
 
 array variable exposes vpiArrayType as integer, representing array kind; access it with the appropriate property routine under 37.3.1.
 
@@ -96661,7 +96662,7 @@ Normative role: `definition`。
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-084
 
-`37.17` / `normal` / Test mapped; execution unconfirmed
+`37.17` / `normal` / Execution confirmed
 
 variables exposes vpiStructUnionMember as Boolean, representing direct struct/union member; access it with the appropriate property routine under 37.3.1.
 
@@ -96745,7 +96746,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.17-EXTRACT-SELECT-SIZE
 
-`37.17` / `normal` / Test mapped; execution unconfirmed
+`37.17` / `normal` / Execution confirmed
 
 A packed variable select vpiSize is its bit count; this rule does not define an unpacked-select size.
 
@@ -96852,7 +96853,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.17-EXTRACT-VARIABLE-BOUNDS
 
-`37.17` / `normal` / Test mapped; execution unconfirmed
+`37.17` / `normal` / Execution confirmed
 
 Left/right bounds return the leftmost packed or unpacked dimension as applicable; return NULL for an unpacked array with no members or an empty leftmost range.
 
@@ -96935,7 +96936,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.17-EXTRACT-VARIABLE-RANGE-ORDER
 
-`37.17` / `normal` / Test mapped; execution unconfirmed
+`37.17` / `normal` / Execution confirmed
 
 Unpacked array range iteration goes leftmost to rightmost and returns empty ranges for associative dimensions and for nonfirst dynamic/queue dimensions. Packed ranges iterate leftmost to rightmost, excluding implicit struct/union widths and enum-base ranges.
 
@@ -96959,7 +96960,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.17-EXTRACT-VARIABLE-SELECT-INDEX
 
-`37.17` / `normal` / Test mapped; execution unconfirmed
+`37.17` / `normal` / Execution confirmed
 
 A variable select denotes an array-var element; vpi_handle(vpiIndex) returns its one-dimensional index while iteration returns multidimensional indices from selected element outward.
 
@@ -96971,7 +96972,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.17-EXTRACT-VARIABLE-STRUCT-MEMBER
 
-`37.17` / `normal` / Test mapped; execution unconfirmed
+`37.17` / `normal` / Execution confirmed
 
 vpiStructUnionMember=true identifies a variable directly belonging to a parent struct/union.
 
@@ -97055,7 +97056,7 @@ Normative role: `definition`。
 
 ### SV2023-37.18-EXTRACT-DIAGRAM-006
 
-`37.18` / `normal` / Test mapped; execution unconfirmed
+`37.18` / `normal` / Execution confirmed
 
 packed-array variable subelement exposes vpiConstantSelect as Boolean, representing constant selection; access it with the appropriate property routine under 37.3.1.
 
@@ -97067,7 +97068,7 @@ Normative role: `definition`。
 
 ### SV2023-37.18-EXTRACT-PACKED-ARRAY-REPRESENTATION
 
-`37.18` / `normal` / Test mapped; execution unconfirmed
+`37.18` / `normal` / Execution confirmed
 
 vpiPackedArrayVar represents packed arrays of packed struct/union/enum variables; vpiVector and vpiPacked are true on these arrays and underlying elements.
 
@@ -97079,7 +97080,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.18-EXTRACT-PACKED-ARRAY-SIZE
 
-`37.18` / `normal` / Test mapped; execution unconfirmed
+`37.18` / `normal` / Execution confirmed
 
 Packed-array variable vpiSize is bit width, not element count; total leaf element count is the product of packed range sizes.
 
@@ -97091,7 +97092,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.18-EXTRACT-PACKED-ELEMENT-LEVEL
 
-`37.18` / `normal` / Test mapped; execution unconfirmed
+`37.18` / `normal` / Execution confirmed
 
 vpiElement removes one leftmost packed dimension per iteration level, returning intermediate packed-array objects until leaf struct/union/enum variables.
 
@@ -97103,7 +97104,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.18-EXTRACT-PACKED-INDEX-ORDER
 
-`37.18` / `normal` / Test mapped; execution unconfirmed
+`37.18` / `normal` / Execution confirmed
 
 vpiIndex iteration gives subelement indices relative to vpiParent in right-to-left textual order, starting at the element and moving outward.
 
@@ -97115,7 +97116,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.18-EXTRACT-PACKED-MEMBER-FLAG
 
-`37.18` / `normal` / Test mapped; execution unconfirmed
+`37.18` / `normal` / Execution confirmed
 
 vpiPackedArrayMember is true on struct/union/enum/packed-array variables whose vpiParent is a packed-array variable.
 
@@ -97127,7 +97128,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.18-EXTRACT-PACKED-STRUCT-FLAG
 
-`37.18` / `normal` / Test mapped; execution unconfirmed
+`37.18` / `normal` / Execution confirmed
 
 vpiStructUnionMember is true only on a packed-array variable directly owned by a struct/union; it is false on that array subelements.
 
@@ -97139,7 +97140,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.19-EXTRACT-DIAGRAM-001
 
-`37.19` / `normal` / Test mapped; execution unconfirmed
+`37.19` / `normal` / Execution confirmed
 
 37.19 defines a one-to-many relation from array variable to variable select, using the untagged variable select access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -97163,7 +97164,7 @@ Normative role: `definition`。
 
 ### SV2023-37.19-EXTRACT-DIAGRAM-003
 
-`37.19` / `normal` / Test mapped; execution unconfirmed
+`37.19` / `normal` / Execution confirmed
 
 37.19 defines a one-to-one relation from variable select to typespec, using the untagged typespec access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -97175,7 +97176,7 @@ Normative role: `definition`。
 
 ### SV2023-37.19-EXTRACT-DIAGRAM-004
 
-`37.19` / `normal` / Test mapped; execution unconfirmed
+`37.19` / `normal` / Execution confirmed
 
 37.19 defines a one-to-one relation from variable select to expression, using tag vpiIndex; traverse with vpi_handle and the stated special-case constraints.
 
@@ -97211,7 +97212,7 @@ Normative role: `definition`。
 
 ### SV2023-37.19-EXTRACT-DIAGRAM-007
 
-`37.19` / `normal` / Test mapped; execution unconfirmed
+`37.19` / `normal` / Execution confirmed
 
 variable select exposes vpiName as string, representing local name; access it with the appropriate property routine under 37.3.1.
 
@@ -97223,7 +97224,7 @@ Normative role: `definition`。
 
 ### SV2023-37.19-EXTRACT-DIAGRAM-008
 
-`37.19` / `normal` / Test mapped; execution unconfirmed
+`37.19` / `normal` / Execution confirmed
 
 variable select exposes vpiFullName as string, representing hierarchical name; access it with the appropriate property routine under 37.3.1.
 
@@ -97247,7 +97248,7 @@ Normative role: `definition`。
 
 ### SV2023-37.19-EXTRACT-DIAGRAM-010
 
-`37.19` / `normal` / Test mapped; execution unconfirmed
+`37.19` / `normal` / Execution confirmed
 
 Variable selects support vpi_get_value and vpi_put_value when the selected type has a value property.
 
@@ -97440,7 +97441,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.21-EXTRACT-ARRAY-DRIVER-LOAD
 
-`37.21` / `normal` / Test mapped; execution unconfirmed
+`37.21` / `normal` / Execution confirmed
 
 Array driver/load iteration should include the entire array/vector or any handle-addressable portion.
 
@@ -97452,7 +97453,7 @@ Normative role: `recommendation`。
 
 ### SV2023-37.21-EXTRACT-COMPOSITE-DRIVER-LOAD
 
-`37.21` / `normal` / Test mapped; execution unconfirmed
+`37.21` / `normal` / Execution confirmed
 
 Struct/union/class variable driver/load iteration includes the whole-variable, bit/part-select and nested-member contributions.
 
@@ -97464,7 +97465,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.21-EXTRACT-DIAGRAM-001
 
-`37.21` / `normal` / Test mapped; execution unconfirmed
+`37.21` / `normal` / Execution confirmed
 
 37.21 defines a one-to-many relation from variables to variable drivers, using tag vpiDriver; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -97476,7 +97477,7 @@ Normative role: `definition`。
 
 ### SV2023-37.21-EXTRACT-DIAGRAM-002
 
-`37.21` / `normal` / Test mapped; execution unconfirmed
+`37.21` / `normal` / Execution confirmed
 
 37.21 defines a one-to-many relation from variables to variable loads, using tag vpiLoad; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -97488,7 +97489,7 @@ Normative role: `definition`。
 
 ### SV2023-37.21-EXTRACT-DIAGRAM-003
 
-`37.21` / `normal` / Test mapped; execution unconfirmed
+`37.21` / `normal` / Execution confirmed
 
 The 37.21 VPI model includes ports in the variable drivers group; group properties and relationships apply to this member.
 
@@ -97500,7 +97501,7 @@ Normative role: `definition`。
 
 ### SV2023-37.21-EXTRACT-DIAGRAM-004
 
-`37.21` / `normal` / Test mapped; execution unconfirmed
+`37.21` / `normal` / Execution confirmed
 
 The 37.21 VPI model includes force in the variable drivers group; group properties and relationships apply to this member.
 
@@ -97524,7 +97525,7 @@ Normative role: `definition`。
 
 ### SV2023-37.21-EXTRACT-DIAGRAM-006
 
-`37.21` / `normal` / Test mapped; execution unconfirmed
+`37.21` / `normal` / Execution confirmed
 
 The 37.21 VPI model includes continuous assignment bit in the variable drivers group; group properties and relationships apply to this member.
 
@@ -97536,7 +97537,7 @@ Normative role: `definition`。
 
 ### SV2023-37.21-EXTRACT-DIAGRAM-007
 
-`37.21` / `normal` / Test mapped; execution unconfirmed
+`37.21` / `normal` / Execution confirmed
 
 The 37.21 VPI model includes assign statement in the variable drivers group; group properties and relationships apply to this member.
 
@@ -97548,7 +97549,7 @@ Normative role: `definition`。
 
 ### SV2023-37.21-EXTRACT-DIAGRAM-008
 
-`37.21` / `normal` / Test mapped; execution unconfirmed
+`37.21` / `normal` / Execution confirmed
 
 The 37.21 VPI model includes assign statement in the variable loads group; group properties and relationships apply to this member.
 
@@ -97560,7 +97561,7 @@ Normative role: `definition`。
 
 ### SV2023-37.21-EXTRACT-DIAGRAM-009
 
-`37.21` / `normal` / Test mapped; execution unconfirmed
+`37.21` / `normal` / Execution confirmed
 
 The 37.21 VPI model includes force in the variable loads group; group properties and relationships apply to this member.
 
@@ -97584,7 +97585,7 @@ Normative role: `definition`。
 
 ### SV2023-37.21-EXTRACT-DIAGRAM-011
 
-`37.21` / `normal` / Test mapped; execution unconfirmed
+`37.21` / `normal` / Execution confirmed
 
 The 37.21 VPI model includes continuous assignment bit in the variable loads group; group properties and relationships apply to this member.
 
@@ -97632,7 +97633,7 @@ Normative role: `definition`。
 
 ### SV2023-37.22-EXTRACT-EMPTY-RANGE-KINDS
 
-`37.22` / `normal` / Test mapped; execution unconfirmed
+`37.22` / `normal` / Execution confirmed
 
 Use empty ranges for associative dimensions, empty dynamic arrays/queues, and all typespec ranges representing dynamic/queue/associative dimensions.
 
@@ -97668,7 +97669,7 @@ Normative role: `definition`。
 
 ### SV2023-37.23-EXTRACT-DIAGRAM-002
 
-`37.23` / `normal` / Test mapped; execution unconfirmed
+`37.23` / `normal` / Execution confirmed
 
 37.23 defines a one-to-one relation from nettype declaration to typespec, using the untagged typespec access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -97716,7 +97717,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.23-EXTRACT-NO-RESOLUTION
 
-`37.23` / `normal` / Test mapped; execution unconfirmed
+`37.23` / `normal` / Execution confirmed
 
 A nettype declaration with no resolution function returns NULL for vpiWith.
 
@@ -97728,7 +97729,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.24-EXTRACT-DIAGRAM-001
 
-`37.24` / `normal` / Test mapped; execution unconfirmed
+`37.24` / `normal` / Execution confirmed
 
 interconnect array exposes vpiPacked as Boolean, representing packed-array status; access it with the appropriate property routine under 37.3.1.
 
@@ -98076,7 +98077,7 @@ Normative role: `definition`。
 
 ### SV2023-37.25-EXTRACT-DIAGRAM-018
 
-`37.25` / `normal` / Test mapped; execution unconfirmed
+`37.25` / `normal` / Execution confirmed
 
 The 37.25 VPI model includes void typespec in the typespec group; group properties and relationships apply to this member.
 
@@ -98257,7 +98258,7 @@ Normative role: `definition`。
 
 ### SV2023-37.25-EXTRACT-DIAGRAM-033
 
-`37.25` / `normal` / Test mapped; execution unconfirmed
+`37.25` / `normal` / Execution confirmed
 
 37.25 defines a one-to-many relation from union typespec to typespec member, using the untagged typespec member access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -98306,7 +98307,7 @@ Normative role: `definition`。
 
 ### SV2023-37.25-EXTRACT-DIAGRAM-037
 
-`37.25` / `normal` / Test mapped; execution unconfirmed
+`37.25` / `normal` / Execution confirmed
 
 typespec member exposes vpiRandType as integer, representing member randomization type; access it with the appropriate property routine under 37.3.1.
 
@@ -98318,7 +98319,7 @@ Normative role: `definition`。
 
 ### SV2023-37.25-EXTRACT-DIAGRAM-038
 
-`37.25` / `normal` / Test mapped; execution unconfirmed
+`37.25` / `normal` / Execution confirmed
 
 struct typespec exposes vpiTagged as Boolean, representing tagged status; access it with the appropriate property routine under 37.3.1.
 
@@ -98330,7 +98331,7 @@ Normative role: `definition`。
 
 ### SV2023-37.25-EXTRACT-DIAGRAM-039
 
-`37.25` / `normal` / Test mapped; execution unconfirmed
+`37.25` / `normal` / Execution confirmed
 
 struct typespec exposes vpiSoft as Boolean, representing soft-union status; access it with the appropriate property routine under 37.3.1.
 
@@ -98342,7 +98343,7 @@ Normative role: `definition`。
 
 ### SV2023-37.25-EXTRACT-DIAGRAM-040
 
-`37.25` / `normal` / Test mapped; execution unconfirmed
+`37.25` / `normal` / Execution confirmed
 
 struct typespec exposes vpiPacked as Boolean, representing packed status; access it with the appropriate property routine under 37.3.1.
 
@@ -98354,7 +98355,7 @@ Normative role: `definition`。
 
 ### SV2023-37.25-EXTRACT-DIAGRAM-041
 
-`37.25` / `normal` / Test mapped; execution unconfirmed
+`37.25` / `normal` / Execution confirmed
 
 union typespec exposes vpiTagged as Boolean, representing tagged status; access it with the appropriate property routine under 37.3.1.
 
@@ -98366,7 +98367,7 @@ Normative role: `definition`。
 
 ### SV2023-37.25-EXTRACT-DIAGRAM-042
 
-`37.25` / `normal` / Test mapped; execution unconfirmed
+`37.25` / `normal` / Execution confirmed
 
 union typespec exposes vpiSoft as Boolean, representing soft-union status; access it with the appropriate property routine under 37.3.1.
 
@@ -98378,7 +98379,7 @@ Normative role: `definition`。
 
 ### SV2023-37.25-EXTRACT-DIAGRAM-043
 
-`37.25` / `normal` / Test mapped; execution unconfirmed
+`37.25` / `normal` / Execution confirmed
 
 union typespec exposes vpiPacked as Boolean, representing packed status; access it with the appropriate property routine under 37.3.1.
 
@@ -98390,7 +98391,7 @@ Normative role: `definition`。
 
 ### SV2023-37.25-EXTRACT-DIAGRAM-044
 
-`37.25` / `normal` / Test mapped; execution unconfirmed
+`37.25` / `normal` / Execution confirmed
 
 37.25 defines a one-to-many relation from bit typespec to range, using the untagged range access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -98426,7 +98427,7 @@ Normative role: `definition`。
 
 ### SV2023-37.25-EXTRACT-DIAGRAM-047
 
-`37.25` / `normal` / Test mapped; execution unconfirmed
+`37.25` / `normal` / Execution confirmed
 
 37.25 defines a one-to-many relation from logic typespec to range, using the untagged range access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -98462,7 +98463,7 @@ Normative role: `definition`。
 
 ### SV2023-37.25-EXTRACT-DIAGRAM-050
 
-`37.25` / `normal` / Test mapped; execution unconfirmed
+`37.25` / `normal` / Execution confirmed
 
 37.25 defines a one-to-many relation from packed-array typespec to range, using the untagged range access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -98606,7 +98607,7 @@ Normative role: `definition`。
 
 ### SV2023-37.25-EXTRACT-DIAGRAM-062
 
-`37.25` / `normal` / Test mapped; execution unconfirmed
+`37.25` / `normal` / Execution confirmed
 
 array typespec exposes vpiArrayType as integer, representing array kind; access it with the appropriate property routine under 37.3.1.
 
@@ -98701,7 +98702,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.25-EXTRACT-TYPE-MEMBERS
 
-`37.25` / `normal` / Test mapped; execution unconfirmed
+`37.25` / `normal` / Execution confirmed
 
 Struct/union typespecs expose vpiTypespecMember iteration; each member typespec gives its declared type, and member vpiName gives the member identifier rather than the associated type name.
 
@@ -98713,7 +98714,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.25-EXTRACT-TYPE-RANGE-ORDER
 
-`37.25` / `normal` / Test mapped; execution unconfirmed
+`37.25` / `normal` / Execution confirmed
 
 Array typespec ranges iterate leftmost to rightmost; dynamic/associative/queue dimensions return empty ranges. Ranged bit/logic typespecs return packed ranges in left-to-right order.
 
@@ -98761,7 +98762,7 @@ Normative role: `definition`。
 
 ### SV2023-37.26-EXTRACT-DIAGRAM-002
 
-`37.26` / `normal` / Test mapped; execution unconfirmed
+`37.26` / `normal` / Execution confirmed
 
 37.26 defines a one-to-one relation from member variable to struct variable, using tag vpiParent; traverse with vpi_handle and the stated special-case constraints.
 
@@ -98773,7 +98774,7 @@ Normative role: `definition`。
 
 ### SV2023-37.26-EXTRACT-DIAGRAM-003
 
-`37.26` / `normal` / Test mapped; execution unconfirmed
+`37.26` / `normal` / Execution confirmed
 
 struct variable exposes vpiTagged as Boolean, representing tagged status; access it with the appropriate property routine under 37.3.1.
 
@@ -98785,7 +98786,7 @@ Normative role: `definition`。
 
 ### SV2023-37.26-EXTRACT-DIAGRAM-004
 
-`37.26` / `normal` / Test mapped; execution unconfirmed
+`37.26` / `normal` / Execution confirmed
 
 struct variable exposes vpiSoft as Boolean, representing soft-union status; access it with the appropriate property routine under 37.3.1.
 
@@ -98833,7 +98834,7 @@ Normative role: `definition`。
 
 ### SV2023-37.26-EXTRACT-DIAGRAM-008
 
-`37.26` / `normal` / Test mapped; execution unconfirmed
+`37.26` / `normal` / Execution confirmed
 
 union variable exposes vpiTagged as Boolean, representing tagged status; access it with the appropriate property routine under 37.3.1.
 
@@ -98845,7 +98846,7 @@ Normative role: `definition`。
 
 ### SV2023-37.26-EXTRACT-DIAGRAM-009
 
-`37.26` / `normal` / Test mapped; execution unconfirmed
+`37.26` / `normal` / Execution confirmed
 
 union variable exposes vpiSoft as Boolean, representing soft-union status; access it with the appropriate property routine under 37.3.1.
 
@@ -99024,7 +99025,7 @@ Normative role: `definition`。
 
 ### SV2023-37.27-EXTRACT-DIAGRAM-003
 
-`37.27` / `normal` / Test mapped; execution unconfirmed
+`37.27` / `normal` / Execution confirmed
 
 37.27 defines a one-to-many relation from scope to named event, using the untagged named event access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -99084,7 +99085,7 @@ Normative role: `definition`。
 
 ### SV2023-37.27-EXTRACT-DIAGRAM-008
 
-`37.27` / `normal` / Test mapped; execution unconfirmed
+`37.27` / `normal` / Execution confirmed
 
 37.27 defines a one-to-many relation from named event to thread, using tag vpiWaitingProcesses; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -99228,7 +99229,7 @@ Normative role: `definition`。
 
 ### SV2023-37.27-EXTRACT-DIAGRAM-020
 
-`37.27` / `normal` / Test mapped; execution unconfirmed
+`37.27` / `normal` / Execution confirmed
 
 named event exposes vpiAutomatic as Boolean, representing lifetime; access it with the appropriate property routine under 37.3.1.
 
@@ -99240,7 +99241,7 @@ Normative role: `definition`。
 
 ### SV2023-37.27-EXTRACT-DIAGRAM-021
 
-`37.27` / `normal` / Test mapped; execution unconfirmed
+`37.27` / `normal` / Execution confirmed
 
 named event exposes vpiAllocScheme as integer, representing allocation scheme; access it with the appropriate property routine under 37.3.1.
 
@@ -99276,7 +99277,7 @@ Normative role: `definition`。
 
 ### SV2023-37.27-EXTRACT-DIAGRAM-024
 
-`37.27` / `normal` / Test mapped; execution unconfirmed
+`37.27` / `normal` / Execution confirmed
 
 named event array exposes vpiAutomatic as Boolean, representing lifetime; access it with the appropriate property routine under 37.3.1.
 
@@ -99288,7 +99289,7 @@ Normative role: `definition`。
 
 ### SV2023-37.27-EXTRACT-DIAGRAM-025
 
-`37.27` / `normal` / Test mapped; execution unconfirmed
+`37.27` / `normal` / Execution confirmed
 
 named event array exposes vpiAllocScheme as integer, representing allocation scheme; access it with the appropriate property routine under 37.3.1.
 
@@ -99360,7 +99361,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.27-EXTRACT-EVENT-WAITERS
 
-`37.27` / `normal` / Test mapped; execution unconfirmed
+`37.27` / `normal` / Execution confirmed
 
 vpiWaitingProcesses returns every waiting static/dynamic process identified by its thread.
 
@@ -99815,7 +99816,7 @@ Normative role: `definition`。
 
 ### SV2023-37.29-EXTRACT-DIAGRAM-004
 
-`37.29` / `normal` / Test mapped; execution unconfirmed
+`37.29` / `normal` / Execution confirmed
 
 The 37.29 VPI model includes reference object in the interface expression group; group properties and relationships apply to this member.
 
@@ -99911,7 +99912,7 @@ Normative role: `definition`。
 
 ### SV2023-37.29-EXTRACT-INTERFACE-EXPRESSION-RESTRICTIONS
 
-`37.29` / `normal` / Test mapped; execution unconfirmed
+`37.29` / `normal` / Execution confirmed
 
 An interface-expression reference object must be a local interface/modport declaration passed through a port; an interface-expression constant must have vpiConstType=vpiNullConst.
 
@@ -100031,7 +100032,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.31-EXTRACT-CLASS-CONSTRAINT-ORDER
 
-`37.31` / `normal` / Test mapped; execution unconfirmed
+`37.31` / `normal` / Execution confirmed
 
 Class-definition constraint iteration returns normal rather than inline constraints in syntactic order; extern constraints take prototype position. Traverse extends to the base typespec for inherited constraints.
 
@@ -100043,7 +100044,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.31-EXTRACT-CLASS-DECLARATIONS
 
-`37.31` / `normal` / Test mapped; execution unconfirmed
+`37.31` / `normal` / Execution confirmed
 
 Class-definition variable/method/event/event-array iteration includes static and automatic declarations but excludes implicit built-in methods with no explicit declaration.
 
@@ -100055,7 +100056,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.31-EXTRACT-CLASS-EXTENDS
 
-`37.31` / `normal` / Test mapped; execution unconfirmed
+`37.31` / `normal` / Execution confirmed
 
 A derived class has an extends object leading to the base class typespec; its vpiArgument iterator yields constructor-chaining arguments.
 
@@ -100091,7 +100092,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.31-EXTRACT-DIAGRAM-001
 
-`37.31` / `normal` / Test mapped; execution unconfirmed
+`37.31` / `normal` / Execution confirmed
 
 37.31 defines a one-to-many relation from NULL design root to class definition, using the untagged class definition access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -100139,7 +100140,7 @@ Normative role: `definition`。
 
 ### SV2023-37.31-EXTRACT-DIAGRAM-005
 
-`37.31` / `normal` / Test mapped; execution unconfirmed
+`37.31` / `normal` / Execution confirmed
 
 37.31 defines a one-to-many relation from extends to expression, using tag vpiArgument; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -100163,7 +100164,7 @@ Normative role: `definition`。
 
 ### SV2023-37.31-EXTRACT-DIAGRAM-007
 
-`37.31` / `normal` / Test mapped; execution unconfirmed
+`37.31` / `normal` / Execution confirmed
 
 37.31 defines a one-to-one relation from class definition to instance, using the untagged instance access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -100211,7 +100212,7 @@ Normative role: `definition`。
 
 ### SV2023-37.31-EXTRACT-DIAGRAM-011
 
-`37.31` / `normal` / Test mapped; execution unconfirmed
+`37.31` / `normal` / Execution confirmed
 
 37.31 defines a one-to-one relation from variables to class definition, using the untagged class definition access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -100235,7 +100236,7 @@ Normative role: `definition`。
 
 ### SV2023-37.31-EXTRACT-DIAGRAM-013
 
-`37.31` / `normal` / Test mapped; execution unconfirmed
+`37.31` / `normal` / Execution confirmed
 
 37.31 defines a one-to-one relation from task/function to class definition, using the untagged class definition access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -100259,7 +100260,7 @@ Normative role: `definition`。
 
 ### SV2023-37.31-EXTRACT-DIAGRAM-015
 
-`37.31` / `normal` / Test mapped; execution unconfirmed
+`37.31` / `normal` / Execution confirmed
 
 37.31 defines a one-to-one relation from constraint to class definition, using the untagged class definition access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -100283,7 +100284,7 @@ Normative role: `definition`。
 
 ### SV2023-37.31-EXTRACT-DIAGRAM-017
 
-`37.31` / `normal` / Test mapped; execution unconfirmed
+`37.31` / `normal` / Execution confirmed
 
 37.31 defines a one-to-one relation from parameters to class definition, using the untagged class definition access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -100295,7 +100296,7 @@ Normative role: `definition`。
 
 ### SV2023-37.31-EXTRACT-DIAGRAM-018
 
-`37.31` / `normal` / Test mapped; execution unconfirmed
+`37.31` / `normal` / Execution confirmed
 
 37.31 defines a one-to-many relation from class definition to named event, using the untagged named event access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -100307,7 +100308,7 @@ Normative role: `definition`。
 
 ### SV2023-37.31-EXTRACT-DIAGRAM-019
 
-`37.31` / `normal` / Test mapped; execution unconfirmed
+`37.31` / `normal` / Execution confirmed
 
 37.31 defines a one-to-one relation from named event to class definition, using the untagged class definition access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -100319,7 +100320,7 @@ Normative role: `definition`。
 
 ### SV2023-37.31-EXTRACT-DIAGRAM-020
 
-`37.31` / `normal` / Test mapped; execution unconfirmed
+`37.31` / `normal` / Execution confirmed
 
 37.31 defines a one-to-many relation from class definition to named event array, using the untagged named event array access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -100331,7 +100332,7 @@ Normative role: `definition`。
 
 ### SV2023-37.31-EXTRACT-DIAGRAM-021
 
-`37.31` / `normal` / Test mapped; execution unconfirmed
+`37.31` / `normal` / Execution confirmed
 
 37.31 defines a one-to-one relation from named event array to class definition, using the untagged class definition access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -100343,7 +100344,7 @@ Normative role: `definition`。
 
 ### SV2023-37.31-EXTRACT-DIAGRAM-022
 
-`37.31` / `normal` / Test mapped; execution unconfirmed
+`37.31` / `normal` / Execution confirmed
 
 37.31 defines a one-to-many relation from class definition to typespec, using tag vpiTypedef; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -100355,7 +100356,7 @@ Normative role: `definition`。
 
 ### SV2023-37.31-EXTRACT-DIAGRAM-023
 
-`37.31` / `normal` / Test mapped; execution unconfirmed
+`37.31` / `normal` / Execution confirmed
 
 37.31 defines a one-to-one relation from typespec to class definition, using the untagged class definition access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -100414,7 +100415,7 @@ Normative role: `definition`。
 
 ### SV2023-37.31-EXTRACT-DIAGRAM-028
 
-`37.31` / `normal` / Test mapped; execution unconfirmed
+`37.31` / `normal` / Execution confirmed
 
 class definition exposes vpiAutomatic as Boolean, representing default declared task/function variable lifetime; access it with the appropriate property routine under 37.3.1.
 
@@ -100437,7 +100438,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.32-EXTRACT-BUILTIN-CLASS-DEFINITION
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 vpiClassDefn returns NULL for a built-in class.
 
@@ -100449,7 +100450,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.32-EXTRACT-CLASS-PARAMETER-RHS
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 Lexical class parameter-assignment RHS is its explicit parameter expression/type or the declared default; specialization RHS may be any object with the correct value/type.
 
@@ -100461,7 +100462,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.32-EXTRACT-CLASS-TYPE-PARAMETERS
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 Class typespec parameters include port-list and body items, with body items marked localparam.
 
@@ -100473,7 +100474,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.32-EXTRACT-CLASS-VIRTUAL-ARRAY
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 vpiVirtualInterfaceVar returns specialization virtual-interface declarations and individual array elements; vpiVariables returns a virtual-interface array as one vpiArrayVar.
 
@@ -100485,7 +100486,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.32-EXTRACT-DIAGRAM-001
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 37.32 defines a one-to-many relation from class definition to class typespec, using the untagged class typespec access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -100497,7 +100498,7 @@ Normative role: `definition`。
 
 ### SV2023-37.32-EXTRACT-DIAGRAM-002
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 37.32 defines a one-to-one relation from class typespec to class definition, using the untagged class definition access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -100509,7 +100510,7 @@ Normative role: `definition`。
 
 ### SV2023-37.32-EXTRACT-DIAGRAM-003
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 37.32 defines a one-to-many relation from class typespec to parameter assignment, using the untagged parameter assignment access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -100521,7 +100522,7 @@ Normative role: `definition`。
 
 ### SV2023-37.32-EXTRACT-DIAGRAM-004
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 37.32 defines a one-to-one relation from class typespec to base class typespec, using tag vpiExtends; traverse with vpi_handle and the stated special-case constraints.
 
@@ -100533,7 +100534,7 @@ Normative role: `definition`。
 
 ### SV2023-37.32-EXTRACT-DIAGRAM-005
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 37.32 defines a one-to-many relation from class typespec to variables, using the untagged variables access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -100545,7 +100546,7 @@ Normative role: `definition`。
 
 ### SV2023-37.32-EXTRACT-DIAGRAM-006
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 37.32 defines a one-to-one relation from variables to class typespec, using the untagged class typespec access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -100557,7 +100558,7 @@ Normative role: `definition`。
 
 ### SV2023-37.32-EXTRACT-DIAGRAM-007
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 37.32 defines a one-to-many relation from class typespec to task/function, using tag vpiMethods; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -100569,7 +100570,7 @@ Normative role: `definition`。
 
 ### SV2023-37.32-EXTRACT-DIAGRAM-008
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 37.32 defines a one-to-one relation from task/function to class typespec, using the untagged class typespec access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -100581,7 +100582,7 @@ Normative role: `definition`。
 
 ### SV2023-37.32-EXTRACT-DIAGRAM-009
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 37.32 defines a one-to-many relation from class typespec to constraint, using the untagged constraint access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -100593,7 +100594,7 @@ Normative role: `definition`。
 
 ### SV2023-37.32-EXTRACT-DIAGRAM-010
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 37.32 defines a one-to-one relation from constraint to class typespec, using the untagged class typespec access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -100605,7 +100606,7 @@ Normative role: `definition`。
 
 ### SV2023-37.32-EXTRACT-DIAGRAM-011
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 37.32 defines a one-to-many relation from class typespec to parameters, using tag vpiParameter; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -100617,7 +100618,7 @@ Normative role: `definition`。
 
 ### SV2023-37.32-EXTRACT-DIAGRAM-012
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 37.32 defines a one-to-one relation from parameters to class typespec, using the untagged class typespec access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -100629,7 +100630,7 @@ Normative role: `definition`。
 
 ### SV2023-37.32-EXTRACT-DIAGRAM-013
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 37.32 defines a one-to-many relation from class typespec to virtual-interface variable, using the untagged virtual-interface variable access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -100641,7 +100642,7 @@ Normative role: `definition`。
 
 ### SV2023-37.32-EXTRACT-DIAGRAM-014
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 37.32 defines a one-to-one relation from virtual-interface variable to class typespec, using the untagged class typespec access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -100653,7 +100654,7 @@ Normative role: `definition`。
 
 ### SV2023-37.32-EXTRACT-DIAGRAM-015
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 37.32 defines a one-to-many relation from class typespec to named event, using the untagged named event access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -100665,7 +100666,7 @@ Normative role: `definition`。
 
 ### SV2023-37.32-EXTRACT-DIAGRAM-016
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 37.32 defines a one-to-one relation from named event to class typespec, using the untagged class typespec access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -100677,7 +100678,7 @@ Normative role: `definition`。
 
 ### SV2023-37.32-EXTRACT-DIAGRAM-017
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 37.32 defines a one-to-many relation from class typespec to named event array, using the untagged named event array access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -100689,7 +100690,7 @@ Normative role: `definition`。
 
 ### SV2023-37.32-EXTRACT-DIAGRAM-018
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 37.32 defines a one-to-one relation from named event array to class typespec, using the untagged class typespec access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -100737,7 +100738,7 @@ Normative role: `definition`。
 
 ### SV2023-37.32-EXTRACT-DIAGRAM-022
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 class typespec exposes vpiClassType as integer, representing class type category; access it with the appropriate property routine under 37.3.1.
 
@@ -100749,7 +100750,7 @@ Normative role: `definition`。
 
 ### SV2023-37.32-EXTRACT-DIAGRAM-023
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 class typespec exposes vpiAutomatic as Boolean, representing default task/function variable lifetime; access it with the appropriate property routine under 37.3.1.
 
@@ -100761,7 +100762,7 @@ Normative role: `definition`。
 
 ### SV2023-37.32-EXTRACT-DIRECT-SPECIALIZATIONS
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 vpiClassTypespec from a class definition returns specializations directly derived by parameterization, not inheritance.
 
@@ -100773,7 +100774,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.32-EXTRACT-LEXICAL-CLASS-TYPE
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 A class typespec obtained through class-definition typedefs, class-item declarations or extends is lexical; a class with empty parameter list may represent both lexical and specialization forms.
 
@@ -100785,7 +100786,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.32-EXTRACT-LEXICAL-RELATIONS
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 Lexical-only class typespecs do not support variable/method/constraint/event/event-array/typedef/internal-scope iterations.
 
@@ -100808,7 +100809,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.32-EXTRACT-SPECIALIZATION-CONSTRAINTS
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 Class typespec constraint iteration returns normal rather than inline constraints in syntactic order, with extern prototype position; obtain inherited constraints via the base typespec.
 
@@ -100820,7 +100821,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.32-EXTRACT-SPECIALIZATION-EXTENDS
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 vpiExtends returns the base class typespec if present; the base of a specialization is also specialized.
 
@@ -100832,7 +100833,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.32-EXTRACT-SPECIALIZATION-MEMBERS
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 Specialization variables/methods/events/event arrays include static and automatic declarations, excluding implicit built-in methods without explicit declarations.
 
@@ -100844,7 +100845,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.32-EXTRACT-SPECIALIZATION-NAME
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 A specialization class typespec has a valid tool-dependent name.
 
@@ -100856,7 +100857,7 @@ Normative role: `implementation_defined`。
 
 ### SV2023-37.32-EXTRACT-SPECIALIZED-CLASS-TYPE
 
-`37.32` / `normal` / Test mapped; execution unconfirmed
+`37.32` / `normal` / Execution confirmed
 
 A class typespec with all parameters resolved is a specialization, including class-definition vpiClassTypespec iteration and variable/method types outside class definitions; typedef usage yields the corresponding instantiated class type.
 
@@ -100868,7 +100869,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.33-EXTRACT-DECLARED-DYNAMIC-TYPE
 
-`37.33` / `normal` / Test mapped; execution unconfirmed
+`37.33` / `normal` / Execution confirmed
 
 Class-variable vpiClassTypespec returns its declared type, while class-object vpiClassTypespec returns its creation type. A null-valued class variable returns NULL vpiClassObj.
 
@@ -100904,7 +100905,7 @@ Normative role: `definition`。
 
 ### SV2023-37.33-EXTRACT-DIAGRAM-003
 
-`37.33` / `normal` / Test mapped; execution unconfirmed
+`37.33` / `normal` / Execution confirmed
 
 37.33 defines a one-to-one relation from class object to class typespec, using the untagged class typespec access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -100928,7 +100929,7 @@ Normative role: `definition`。
 
 ### SV2023-37.33-EXTRACT-DIAGRAM-005
 
-`37.33` / `normal` / Test mapped; execution unconfirmed
+`37.33` / `normal` / Execution confirmed
 
 37.33 defines a one-to-many relation from class object to constraint, using the untagged constraint access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -100940,7 +100941,7 @@ Normative role: `definition`。
 
 ### SV2023-37.33-EXTRACT-DIAGRAM-006
 
-`37.33` / `normal` / Test mapped; execution unconfirmed
+`37.33` / `normal` / Execution confirmed
 
 37.33 defines a one-to-many relation from class object to virtual-interface variable, using the untagged virtual-interface variable access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -100952,7 +100953,7 @@ Normative role: `definition`。
 
 ### SV2023-37.33-EXTRACT-DIAGRAM-007
 
-`37.33` / `normal` / Test mapped; execution unconfirmed
+`37.33` / `normal` / Execution confirmed
 
 37.33 defines a one-to-many relation from class object to named event, using the untagged named event access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -100964,7 +100965,7 @@ Normative role: `definition`。
 
 ### SV2023-37.33-EXTRACT-DIAGRAM-008
 
-`37.33` / `normal` / Test mapped; execution unconfirmed
+`37.33` / `normal` / Execution confirmed
 
 37.33 defines a one-to-many relation from class object to named event array, using the untagged named event array access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -101000,7 +101001,7 @@ Normative role: `definition`。
 
 ### SV2023-37.33-EXTRACT-DIAGRAM-011
 
-`37.33` / `normal` / Test mapped; execution unconfirmed
+`37.33` / `normal` / Execution confirmed
 
 37.33 defines a one-to-many relation from class object to task/function, using tag vpiMethods; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -101012,7 +101013,7 @@ Normative role: `definition`。
 
 ### SV2023-37.33-EXTRACT-DIAGRAM-012
 
-`37.33` / `normal` / Test mapped; execution unconfirmed
+`37.33` / `normal` / Execution confirmed
 
 37.33 defines a one-to-many relation from class object to parameters, using tag vpiParameter; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -101036,7 +101037,7 @@ Normative role: `definition`。
 
 ### SV2023-37.33-EXTRACT-DIAGRAM-014
 
-`37.33` / `normal` / Test mapped; execution unconfirmed
+`37.33` / `normal` / Execution confirmed
 
 class variable exposes vpiObjId as 64-bit integer, representing referenced live object identity, or 0; access it with the appropriate property routine under 37.3.1.
 
@@ -101048,7 +101049,7 @@ Normative role: `definition`。
 
 ### SV2023-37.33-EXTRACT-DIAGRAM-015
 
-`37.33` / `normal` / Test mapped; execution unconfirmed
+`37.33` / `normal` / Execution confirmed
 
 class object exposes vpiObjId as 64-bit integer, representing its live object identity; access it with the appropriate property routine under 37.3.1.
 
@@ -101072,7 +101073,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.33-EXTRACT-NONSTATIC-NAME-LOOKUP
 
-`37.33` / `normal` / Test mapped; execution unconfirmed
+`37.33` / `normal` / Execution confirmed
 
 vpi_handle_by_name accepts a full hierarchical name to a nonstatic class member even though that member has no vpiFullName property.
 
@@ -101084,7 +101085,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.33-EXTRACT-OBJECT-ID-UNIQUENESS
 
-`37.33` / `normal` / Test mapped; execution unconfirmed
+`37.33` / `normal` / Execution confirmed
 
 A class-object vpiObjId is unique among all live dynamic objects supporting it throughout its lifetime; the value may be reused after reclamation. A class variable returns the referred object ID or 0 for no object.
 
@@ -101096,7 +101097,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.33-EXTRACT-OBJECT-MEMBERS
 
-`37.33` / `normal` / Test mapped; execution unconfirmed
+`37.33` / `normal` / Execution confirmed
 
 Class-object variable/method/event/event-array iteration includes static/automatic members; method iteration excludes undeclared built-ins.
 
@@ -101108,7 +101109,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.33-EXTRACT-OBJECT-PARAMETERS
 
-`37.33` / `normal` / Test mapped; execution unconfirmed
+`37.33` / `normal` / Execution confirmed
 
 Class-object parameter iteration includes parameter-port-list/body items, marking body items local; values match those obtained from the corresponding class typespec.
 
@@ -101120,7 +101121,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.33-EXTRACT-OBJECT-VIRTUAL-ARRAY
 
-`37.33` / `normal` / Test mapped; execution unconfirmed
+`37.33` / `normal` / Execution confirmed
 
 Class-object virtual-interface iteration returns individual array elements; vpiVariables returns the complete array as one vpiArrayVar.
 
@@ -101156,7 +101157,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.34-EXTRACT-CONSTRAINT-ORDER
 
-`37.34` / `normal` / Test mapped; execution unconfirmed
+`37.34` / `normal` / Execution confirmed
 
 vpiConstraint iterates syntactic declaration order, using extern prototype position; vpiConstraintItem iterates source item order.
 
@@ -101181,7 +101182,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.34-EXTRACT-DIAGRAM-001
 
-`37.34` / `normal` / Test mapped; execution unconfirmed
+`37.34` / `normal` / Execution confirmed
 
 37.34 defines a one-to-many relation from NULL design root to constraint, using the untagged constraint access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -101193,7 +101194,7 @@ Normative role: `definition`。
 
 ### SV2023-37.34-EXTRACT-DIAGRAM-002
 
-`37.34` / `normal` / Test mapped; execution unconfirmed
+`37.34` / `normal` / Execution confirmed
 
 37.34 defines a one-to-many relation from class object to constraint, using the untagged constraint access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -101205,7 +101206,7 @@ Normative role: `definition`。
 
 ### SV2023-37.34-EXTRACT-DIAGRAM-003
 
-`37.34` / `normal` / Test mapped; execution unconfirmed
+`37.34` / `normal` / Execution confirmed
 
 37.34 defines a one-to-one relation from constraint to class object, using tag vpiParent; traverse with vpi_handle and the stated special-case constraints.
 
@@ -101217,7 +101218,7 @@ Normative role: `definition`。
 
 ### SV2023-37.34-EXTRACT-DIAGRAM-004
 
-`37.34` / `normal` / Test mapped; execution unconfirmed
+`37.34` / `normal` / Execution confirmed
 
 37.34 defines a one-to-many relation from constraint to constraint item, using the untagged constraint item access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -101229,7 +101230,7 @@ Normative role: `definition`。
 
 ### SV2023-37.34-EXTRACT-DIAGRAM-005
 
-`37.34` / `normal` / Test mapped; execution unconfirmed
+`37.34` / `normal` / Execution confirmed
 
 The 37.34 VPI model includes constraint ordering in the constraint item group; group properties and relationships apply to this member.
 
@@ -101241,7 +101242,7 @@ Normative role: `definition`。
 
 ### SV2023-37.34-EXTRACT-DIAGRAM-006
 
-`37.34` / `normal` / Test mapped; execution unconfirmed
+`37.34` / `normal` / Execution confirmed
 
 The 37.34 VPI model includes constraint expression in the constraint item group; group properties and relationships apply to this member.
 
@@ -101324,7 +101325,7 @@ Normative role: `definition`。
 
 ### SV2023-37.34-EXTRACT-DIAGRAM-013
 
-`37.34` / `normal` / Test mapped; execution unconfirmed
+`37.34` / `normal` / Execution confirmed
 
 constraint exposes vpiIsConstraintEnabled as Boolean, representing constraint enabled state; access it with the appropriate property routine under 37.3.1.
 
@@ -101336,7 +101337,7 @@ Normative role: `definition`。
 
 ### SV2023-37.34-EXTRACT-DIAGRAM-014
 
-`37.34` / `normal` / Test mapped; execution unconfirmed
+`37.34` / `normal` / Execution confirmed
 
 37.34 defines a one-to-many relation from constraint ordering to expression, using tag vpiSolveBefore; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -101348,7 +101349,7 @@ Normative role: `definition`。
 
 ### SV2023-37.34-EXTRACT-DIAGRAM-015
 
-`37.34` / `normal` / Test mapped; execution unconfirmed
+`37.34` / `normal` / Execution confirmed
 
 37.34 defines a one-to-many relation from constraint ordering to expression, using tag vpiSolveAfter; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -101360,7 +101361,7 @@ Normative role: `definition`。
 
 ### SV2023-37.34-EXTRACT-DIAGRAM-016
 
-`37.34` / `normal` / Test mapped; execution unconfirmed
+`37.34` / `normal` / Execution confirmed
 
 37.34 defines a one-to-many relation from distribution to distribution item, using the untagged distribution item access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -101384,7 +101385,7 @@ Normative role: `definition`。
 
 ### SV2023-37.34-EXTRACT-DIAGRAM-018
 
-`37.34` / `normal` / Test mapped; execution unconfirmed
+`37.34` / `normal` / Execution confirmed
 
 37.34 defines a one-to-one relation from distribution to expression, using the untagged expression access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -101396,7 +101397,7 @@ Normative role: `definition`。
 
 ### SV2023-37.34-EXTRACT-DIAGRAM-019
 
-`37.34` / `normal` / Test mapped; execution unconfirmed
+`37.34` / `normal` / Execution confirmed
 
 distribution item exposes vpiDistType as integer, representing distribution weighting kind; access it with the appropriate property routine under 37.3.1.
 
@@ -101408,7 +101409,7 @@ Normative role: `definition`。
 
 ### SV2023-37.34-EXTRACT-DIAGRAM-020
 
-`37.34` / `normal` / Test mapped; execution unconfirmed
+`37.34` / `normal` / Execution confirmed
 
 37.34 defines a one-to-one relation from distribution item to expression/range, using tag vpiValueRange; traverse with vpi_handle and the stated special-case constraints.
 
@@ -101420,7 +101421,7 @@ Normative role: `definition`。
 
 ### SV2023-37.34-EXTRACT-DIAGRAM-021
 
-`37.34` / `normal` / Test mapped; execution unconfirmed
+`37.34` / `normal` / Execution confirmed
 
 37.34 defines a one-to-one relation from distribution item to expression, using tag vpiWeight; traverse with vpi_handle and the stated special-case constraints.
 
@@ -101432,7 +101433,7 @@ Normative role: `definition`。
 
 ### SV2023-37.35-EXTRACT-DIAGRAM-001
 
-`37.35` / `normal` / Test mapped; execution unconfirmed
+`37.35` / `normal` / Execution confirmed
 
 The 37.35 VPI model includes gate in the primitive group; group properties and relationships apply to this member.
 
@@ -101456,7 +101457,7 @@ Normative role: `definition`。
 
 ### SV2023-37.35-EXTRACT-DIAGRAM-003
 
-`37.35` / `normal` / Test mapped; execution unconfirmed
+`37.35` / `normal` / Execution confirmed
 
 The 37.35 VPI model includes UDP in the primitive group; group properties and relationships apply to this member.
 
@@ -101516,7 +101517,7 @@ Normative role: `definition`。
 
 ### SV2023-37.35-EXTRACT-DIAGRAM-008
 
-`37.35` / `normal` / Test mapped; execution unconfirmed
+`37.35` / `normal` / Execution confirmed
 
 37.35 defines a one-to-one relation from UDP to UDP definition, using the untagged UDP definition access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -101528,7 +101529,7 @@ Normative role: `definition`。
 
 ### SV2023-37.35-EXTRACT-DIAGRAM-009
 
-`37.35` / `normal` / Test mapped; execution unconfirmed
+`37.35` / `normal` / Execution confirmed
 
 37.35 defines a one-to-one relation from primitive to expression, using tag vpiDelay; traverse with vpi_handle and the stated special-case constraints.
 
@@ -101552,7 +101553,7 @@ Normative role: `definition`。
 
 ### SV2023-37.35-EXTRACT-DIAGRAM-011
 
-`37.35` / `normal` / Test mapped; execution unconfirmed
+`37.35` / `normal` / Execution confirmed
 
 37.35 defines a one-to-many relation from primitive to primitive terminal, using the untagged primitive terminal access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -101564,7 +101565,7 @@ Normative role: `definition`。
 
 ### SV2023-37.35-EXTRACT-DIAGRAM-012
 
-`37.35` / `normal` / Test mapped; execution unconfirmed
+`37.35` / `normal` / Execution confirmed
 
 37.35 defines a one-to-one relation from primitive terminal to primitive, using the untagged primitive access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -101576,7 +101577,7 @@ Normative role: `definition`。
 
 ### SV2023-37.35-EXTRACT-DIAGRAM-013
 
-`37.35` / `normal` / Test mapped; execution unconfirmed
+`37.35` / `normal` / Execution confirmed
 
 37.35 defines a one-to-one relation from primitive terminal to expression, using the untagged expression access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -101588,7 +101589,7 @@ Normative role: `definition`。
 
 ### SV2023-37.35-EXTRACT-DIAGRAM-014
 
-`37.35` / `normal` / Test mapped; execution unconfirmed
+`37.35` / `normal` / Execution confirmed
 
 primitive terminal exposes vpiDirection as integer, representing terminal direction; access it with the appropriate property routine under 37.3.1.
 
@@ -101600,7 +101601,7 @@ Normative role: `definition`。
 
 ### SV2023-37.35-EXTRACT-DIAGRAM-015
 
-`37.35` / `normal` / Test mapped; execution unconfirmed
+`37.35` / `normal` / Execution confirmed
 
 primitive terminal exposes vpiTermIndex as integer, representing terminal index; access it with the appropriate property routine under 37.3.1.
 
@@ -101612,7 +101613,7 @@ Normative role: `definition`。
 
 ### SV2023-37.35-EXTRACT-DIAGRAM-016
 
-`37.35` / `normal` / Test mapped; execution unconfirmed
+`37.35` / `normal` / Execution confirmed
 
 Primitive terminal values are readable with vpi_get_value; primitive delays support get/put_delays and primitive values support get/put_value only under the stated sequential-UDP restriction.
 
@@ -101685,7 +101686,7 @@ Normative role: `definition`。
 
 ### SV2023-37.35-EXTRACT-DIAGRAM-022
 
-`37.35` / `normal` / Test mapped; execution unconfirmed
+`37.35` / `normal` / Execution confirmed
 
 primitive exposes vpiPrimType as integer, representing primitive type; access it with the appropriate property routine under 37.3.1.
 
@@ -101768,7 +101769,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.35-EXTRACT-TERMINAL-ORDER
 
-`37.35` / `normal` / Test mapped; execution unconfirmed
+`37.35` / `normal` / Execution confirmed
 
 vpiTermIndex numbers terminals from zero.
 
@@ -101780,7 +101781,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.36-EXTRACT-DIAGRAM-001
 
-`37.36` / `normal` / Test mapped; execution unconfirmed
+`37.36` / `normal` / Execution confirmed
 
 37.36 defines a one-to-one relation from UDP to UDP definition, using the untagged UDP definition access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -101792,7 +101793,7 @@ Normative role: `definition`。
 
 ### SV2023-37.36-EXTRACT-DIAGRAM-002
 
-`37.36` / `normal` / Test mapped; execution unconfirmed
+`37.36` / `normal` / Execution confirmed
 
 37.36 defines a one-to-many relation from NULL design root to UDP definition, using the untagged UDP definition access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -101804,7 +101805,7 @@ Normative role: `definition`。
 
 ### SV2023-37.36-EXTRACT-DIAGRAM-003
 
-`37.36` / `normal` / Test mapped; execution unconfirmed
+`37.36` / `normal` / Execution confirmed
 
 37.36 defines a one-to-many relation from UDP definition to IO declaration, using the untagged IO declaration access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -101816,7 +101817,7 @@ Normative role: `definition`。
 
 ### SV2023-37.36-EXTRACT-DIAGRAM-004
 
-`37.36` / `normal` / Test mapped; execution unconfirmed
+`37.36` / `normal` / Execution confirmed
 
 37.36 defines a one-to-one relation from IO declaration to UDP definition, using the untagged UDP definition access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -101828,7 +101829,7 @@ Normative role: `definition`。
 
 ### SV2023-37.36-EXTRACT-DIAGRAM-005
 
-`37.36` / `normal` / Test mapped; execution unconfirmed
+`37.36` / `normal` / Execution confirmed
 
 37.36 defines a one-to-many relation from UDP definition to table entry, using the untagged table entry access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -101840,7 +101841,7 @@ Normative role: `definition`。
 
 ### SV2023-37.36-EXTRACT-DIAGRAM-006
 
-`37.36` / `normal` / Test mapped; execution unconfirmed
+`37.36` / `normal` / Execution confirmed
 
 37.36 defines a one-to-one relation from UDP definition to initial, using the untagged initial access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -101852,7 +101853,7 @@ Normative role: `definition`。
 
 ### SV2023-37.36-EXTRACT-DIAGRAM-007
 
-`37.36` / `normal` / Test mapped; execution unconfirmed
+`37.36` / `normal` / Execution confirmed
 
 UDP definition exposes vpiDefName as string, representing definition name; access it with the appropriate property routine under 37.3.1.
 
@@ -101864,7 +101865,7 @@ Normative role: `definition`。
 
 ### SV2023-37.36-EXTRACT-DIAGRAM-008
 
-`37.36` / `normal` / Test mapped; execution unconfirmed
+`37.36` / `normal` / Execution confirmed
 
 UDP definition exposes vpiSize as integer, representing number of inputs; access it with the appropriate property routine under 37.3.1.
 
@@ -101876,7 +101877,7 @@ Normative role: `definition`。
 
 ### SV2023-37.36-EXTRACT-DIAGRAM-009
 
-`37.36` / `normal` / Test mapped; execution unconfirmed
+`37.36` / `normal` / Execution confirmed
 
 UDP definition exposes vpiProtected as Boolean, representing protected definition; access it with the appropriate property routine under 37.3.1.
 
@@ -101900,7 +101901,7 @@ Normative role: `definition`。
 
 ### SV2023-37.36-EXTRACT-DIAGRAM-011
 
-`37.36` / `normal` / Test mapped; execution unconfirmed
+`37.36` / `normal` / Execution confirmed
 
 table entry exposes vpiSize as integer, representing number of symbol entries; access it with the appropriate property routine under 37.3.1.
 
@@ -101912,7 +101913,7 @@ Normative role: `definition`。
 
 ### SV2023-37.36-EXTRACT-DIAGRAM-012
 
-`37.36` / `normal` / Test mapped; execution unconfirmed
+`37.36` / `normal` / Execution confirmed
 
 UDP table entries expose values via vpi_get_value.
 
@@ -101995,7 +101996,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.38-EXTRACT-DIAGRAM-001
 
-`37.38` / `normal` / Test mapped; execution unconfirmed
+`37.38` / `normal` / Execution confirmed
 
 The 37.38 VPI model includes implication in the constraint expression group; group properties and relationships apply to this member.
 
@@ -102007,7 +102008,7 @@ Normative role: `definition`。
 
 ### SV2023-37.38-EXTRACT-DIAGRAM-002
 
-`37.38` / `normal` / Test mapped; execution unconfirmed
+`37.38` / `normal` / Execution confirmed
 
 The 37.38 VPI model includes constraint if in the constraint expression group; group properties and relationships apply to this member.
 
@@ -102043,7 +102044,7 @@ Normative role: `definition`。
 
 ### SV2023-37.38-EXTRACT-DIAGRAM-005
 
-`37.38` / `normal` / Test mapped; execution unconfirmed
+`37.38` / `normal` / Execution confirmed
 
 The 37.38 VPI model includes distribution in the constraint expression group; group properties and relationships apply to this member.
 
@@ -102055,7 +102056,7 @@ Normative role: `definition`。
 
 ### SV2023-37.38-EXTRACT-DIAGRAM-006
 
-`37.38` / `normal` / Test mapped; execution unconfirmed
+`37.38` / `normal` / Execution confirmed
 
 The 37.38 VPI model includes expression in the constraint expression group; group properties and relationships apply to this member.
 
@@ -102067,7 +102068,7 @@ Normative role: `definition`。
 
 ### SV2023-37.38-EXTRACT-DIAGRAM-007
 
-`37.38` / `normal` / Test mapped; execution unconfirmed
+`37.38` / `normal` / Execution confirmed
 
 The 37.38 VPI model includes soft disable in the constraint expression group; group properties and relationships apply to this member.
 
@@ -102079,7 +102080,7 @@ Normative role: `definition`。
 
 ### SV2023-37.38-EXTRACT-DIAGRAM-008
 
-`37.38` / `normal` / Test mapped; execution unconfirmed
+`37.38` / `normal` / Execution confirmed
 
 37.38 defines a one-to-one relation from implication to expression, using tag vpiCondition; traverse with vpi_handle and the stated special-case constraints.
 
@@ -102091,7 +102092,7 @@ Normative role: `definition`。
 
 ### SV2023-37.38-EXTRACT-DIAGRAM-009
 
-`37.38` / `normal` / Test mapped; execution unconfirmed
+`37.38` / `normal` / Execution confirmed
 
 37.38 defines a one-to-many relation from implication to constraint expression, using the untagged constraint expression access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -102103,7 +102104,7 @@ Normative role: `definition`。
 
 ### SV2023-37.38-EXTRACT-DIAGRAM-010
 
-`37.38` / `normal` / Test mapped; execution unconfirmed
+`37.38` / `normal` / Execution confirmed
 
 37.38 defines a one-to-one relation from constraint if to expression, using tag vpiCondition; traverse with vpi_handle and the stated special-case constraints.
 
@@ -102115,7 +102116,7 @@ Normative role: `definition`。
 
 ### SV2023-37.38-EXTRACT-DIAGRAM-011
 
-`37.38` / `normal` / Test mapped; execution unconfirmed
+`37.38` / `normal` / Execution confirmed
 
 37.38 defines a one-to-many relation from constraint if to constraint expression, using the untagged constraint expression access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -102163,7 +102164,7 @@ Normative role: `definition`。
 
 ### SV2023-37.38-EXTRACT-DIAGRAM-015
 
-`37.38` / `normal` / Test mapped; execution unconfirmed
+`37.38` / `normal` / Execution confirmed
 
 distribution/expression constraint exposes vpiSoft as Boolean, representing soft constraint; access it with the appropriate property routine under 37.3.1.
 
@@ -102175,7 +102176,7 @@ Normative role: `definition`。
 
 ### SV2023-37.38-EXTRACT-DIAGRAM-016
 
-`37.38` / `normal` / Test mapped; execution unconfirmed
+`37.38` / `normal` / Execution confirmed
 
 37.38 defines a one-to-one relation from soft disable to expression, using the untagged expression access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -102713,7 +102714,7 @@ Normative role: `definition`。
 
 ### SV2023-37.41-EXTRACT-DIAGRAM-005
 
-`37.41` / `normal` / Test mapped; execution unconfirmed
+`37.41` / `normal` / Execution confirmed
 
 37.41 defines a one-to-one relation from function call to function, using the untagged function access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -102725,7 +102726,7 @@ Normative role: `definition`。
 
 ### SV2023-37.41-EXTRACT-DIAGRAM-006
 
-`37.41` / `normal` / Test mapped; execution unconfirmed
+`37.41` / `normal` / Execution confirmed
 
 37.41 defines a one-to-one relation from task call to task, using the untagged task access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -103012,7 +103013,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.42-EXTRACT-BUILTIN-METHOD-DECLARATION
 
-`37.42` / `normal` / Test mapped; execution unconfirmed
+`37.42` / `normal` / Execution confirmed
 
 Built-in method function calls return NULL vpiFunction and built-in method task calls NULL vpiTask.
 
@@ -103024,7 +103025,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.42-EXTRACT-DIAGRAM-001
 
-`37.42` / `normal` / Test mapped; execution unconfirmed
+`37.42` / `normal` / Execution confirmed
 
 The 37.42 VPI model includes task call in the task/function call group; group properties and relationships apply to this member.
 
@@ -103036,7 +103037,7 @@ Normative role: `definition`。
 
 ### SV2023-37.42-EXTRACT-DIAGRAM-002
 
-`37.42` / `normal` / Test mapped; execution unconfirmed
+`37.42` / `normal` / Execution confirmed
 
 The 37.42 VPI model includes function call in the task/function call group; group properties and relationships apply to this member.
 
@@ -103048,7 +103049,7 @@ Normative role: `definition`。
 
 ### SV2023-37.42-EXTRACT-DIAGRAM-003
 
-`37.42` / `normal` / Test mapped; execution unconfirmed
+`37.42` / `normal` / Execution confirmed
 
 The 37.42 VPI model includes method function call in the task/function call group; group properties and relationships apply to this member.
 
@@ -103060,7 +103061,7 @@ Normative role: `definition`。
 
 ### SV2023-37.42-EXTRACT-DIAGRAM-004
 
-`37.42` / `normal` / Test mapped; execution unconfirmed
+`37.42` / `normal` / Execution confirmed
 
 The 37.42 VPI model includes method task call in the task/function call group; group properties and relationships apply to this member.
 
@@ -103072,7 +103073,7 @@ Normative role: `definition`。
 
 ### SV2023-37.42-EXTRACT-DIAGRAM-005
 
-`37.42` / `normal` / Test mapped; execution unconfirmed
+`37.42` / `normal` / Execution confirmed
 
 The 37.42 VPI model includes system function call in the task/function call group; group properties and relationships apply to this member.
 
@@ -103084,7 +103085,7 @@ Normative role: `definition`。
 
 ### SV2023-37.42-EXTRACT-DIAGRAM-006
 
-`37.42` / `normal` / Test mapped; execution unconfirmed
+`37.42` / `normal` / Execution confirmed
 
 The 37.42 VPI model includes system task call in the task/function call group; group properties and relationships apply to this member.
 
@@ -103096,7 +103097,7 @@ Normative role: `definition`。
 
 ### SV2023-37.42-EXTRACT-DIAGRAM-007
 
-`37.42` / `normal` / Test mapped; execution unconfirmed
+`37.42` / `normal` / Execution confirmed
 
 37.42 defines a one-to-one relation from task/function call to scope, using the untagged scope access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -103120,7 +103121,7 @@ Normative role: `definition`。
 
 ### SV2023-37.42-EXTRACT-DIAGRAM-009
 
-`37.42` / `normal` / Test mapped; execution unconfirmed
+`37.42` / `normal` / Execution confirmed
 
 37.42 defines a one-to-one relation from task call to task, using the untagged task access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -103132,7 +103133,7 @@ Normative role: `definition`。
 
 ### SV2023-37.42-EXTRACT-DIAGRAM-010
 
-`37.42` / `normal` / Test mapped; execution unconfirmed
+`37.42` / `normal` / Execution confirmed
 
 37.42 defines a one-to-one relation from function call to function, using the untagged function access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -103144,7 +103145,7 @@ Normative role: `definition`。
 
 ### SV2023-37.42-EXTRACT-DIAGRAM-011
 
-`37.42` / `normal` / Test mapped; execution unconfirmed
+`37.42` / `normal` / Execution confirmed
 
 37.42 defines a one-to-one relation from method function call to function, using the untagged function access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -103156,7 +103157,7 @@ Normative role: `definition`。
 
 ### SV2023-37.42-EXTRACT-DIAGRAM-012
 
-`37.42` / `normal` / Test mapped; execution unconfirmed
+`37.42` / `normal` / Execution confirmed
 
 37.42 defines a one-to-one relation from method task call to task, using the untagged task access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -103168,7 +103169,7 @@ Normative role: `definition`。
 
 ### SV2023-37.42-EXTRACT-DIAGRAM-013
 
-`37.42` / `normal` / Test mapped; execution unconfirmed
+`37.42` / `normal` / Execution confirmed
 
 37.42 defines a one-to-one relation from method function call to expression, using tag vpiPrefix; traverse with vpi_handle and the stated special-case constraints.
 
@@ -103180,7 +103181,7 @@ Normative role: `definition`。
 
 ### SV2023-37.42-EXTRACT-DIAGRAM-014
 
-`37.42` / `normal` / Test mapped; execution unconfirmed
+`37.42` / `normal` / Execution confirmed
 
 37.42 defines a one-to-one relation from method function call to expression/constraint, using tag vpiWith; traverse with vpi_handle and the stated special-case constraints.
 
@@ -103192,7 +103193,7 @@ Normative role: `definition`。
 
 ### SV2023-37.42-EXTRACT-DIAGRAM-015
 
-`37.42` / `normal` / Test mapped; execution unconfirmed
+`37.42` / `normal` / Execution confirmed
 
 method function call exposes vpiUserDefn as Boolean, representing user-defined method; access it with the appropriate property routine under 37.3.1.
 
@@ -103204,7 +103205,7 @@ Normative role: `definition`。
 
 ### SV2023-37.42-EXTRACT-DIAGRAM-016
 
-`37.42` / `normal` / Test mapped; execution unconfirmed
+`37.42` / `normal` / Execution confirmed
 
 37.42 defines a one-to-one relation from method task call to expression, using tag vpiPrefix; traverse with vpi_handle and the stated special-case constraints.
 
@@ -103216,7 +103217,7 @@ Normative role: `definition`。
 
 ### SV2023-37.42-EXTRACT-DIAGRAM-017
 
-`37.42` / `normal` / Test mapped; execution unconfirmed
+`37.42` / `normal` / Execution confirmed
 
 37.42 defines a one-to-one relation from method task call to expression/constraint, using tag vpiWith; traverse with vpi_handle and the stated special-case constraints.
 
@@ -103228,7 +103229,7 @@ Normative role: `definition`。
 
 ### SV2023-37.42-EXTRACT-DIAGRAM-018
 
-`37.42` / `normal` / Test mapped; execution unconfirmed
+`37.42` / `normal` / Execution confirmed
 
 method task call exposes vpiUserDefn as Boolean, representing user-defined method; access it with the appropriate property routine under 37.3.1.
 
@@ -103240,7 +103241,7 @@ Normative role: `definition`。
 
 ### SV2023-37.42-EXTRACT-DIAGRAM-019
 
-`37.42` / `normal` / Test mapped; execution unconfirmed
+`37.42` / `normal` / Execution confirmed
 
 function call exposes vpiFuncType as integer, representing function result type; access it with the appropriate property routine under 37.3.1.
 
@@ -103252,7 +103253,7 @@ Normative role: `definition`。
 
 ### SV2023-37.42-EXTRACT-DIAGRAM-020
 
-`37.42` / `normal` / Test mapped; execution unconfirmed
+`37.42` / `normal` / Execution confirmed
 
 system function call exposes vpiFuncType as integer, representing function result type; access it with the appropriate property routine under 37.3.1.
 
@@ -103276,7 +103277,7 @@ Normative role: `definition`。
 
 ### SV2023-37.42-EXTRACT-DIAGRAM-022
 
-`37.42` / `normal` / Test mapped; execution unconfirmed
+`37.42` / `normal` / Execution confirmed
 
 method function call supports value evaluation via vpi_get_value.
 
@@ -103288,7 +103289,7 @@ Normative role: `definition`。
 
 ### SV2023-37.42-EXTRACT-DIAGRAM-023
 
-`37.42` / `normal` / Test mapped; execution unconfirmed
+`37.42` / `normal` / Execution confirmed
 
 system function call exposes vpiUserDefn as Boolean, representing user-defined system routine; access it with the appropriate property routine under 37.3.1.
 
@@ -103384,7 +103385,7 @@ Normative role: `definition`。
 
 ### SV2023-37.42-EXTRACT-DIAGRAM-031
 
-`37.42` / `normal` / Test mapped; execution unconfirmed
+`37.42` / `normal` / Execution confirmed
 
 User-system-task/function metadata is read through vpi_get_systf_info; system-function calls support get/put_value.
 
@@ -103396,7 +103397,7 @@ Normative role: `definition`。
 
 ### SV2023-37.42-EXTRACT-INVOKING-SYSTEM-CALL
 
-`37.42` / `normal` / Test mapped; execution unconfirmed
+`37.42` / `normal` / Execution confirmed
 
 Use vpi_handle(vpiSysTfCall,NULL) to access the system task/function invoking the application; get_value yields the system function current value.
 
@@ -103408,7 +103409,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.42-EXTRACT-LAZY-SYSTEM-ARGUMENTS
 
-`37.42` / `normal` / Test mapped; execution unconfirmed
+`37.42` / `normal` / Execution confirmed
 
 Do not evaluate system task/function arguments when invoking them. Evaluate argument/subexpression values only when requested by get_value, value-change callback or equivalent; unrequested arguments are never evaluated.
 
@@ -103421,7 +103422,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.42-EXTRACT-METHOD-PREFIX
 
-`37.42` / `normal` / Test mapped; execution unconfirmed
+`37.42` / `normal` / Execution confirmed
 
 vpiPrefix returns the object receiving the method invocation.
 
@@ -103433,7 +103434,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.42-EXTRACT-METHOD-WITH
 
-`37.42` / `normal` / Test mapped; execution unconfirmed
+`37.42` / `normal` / Execution confirmed
 
 vpiWith is available only on randomize and array-locator methods.
 
@@ -103445,7 +103446,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.42-EXTRACT-OMITTED-VERSUS-NULL
 
-`37.42` / `normal` / Test mapped; execution unconfirmed
+`37.42` / `normal` / Execution confirmed
 
 An omitted argument is vpiOperation/vpiNullOp; the special null value is vpiConstant/vpiNullConst.
 
@@ -103889,7 +103890,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.46-EXTRACT-COMPLEX-PORT-LOAD
 
-`37.46` / `normal` / Test mapped; execution unconfirmed
+`37.46` / `normal` / Execution confirmed
 
 A nonconcatenation complex input-port expression is a net load; its returned port handle exposes the expression through vpiHighConn.
 
@@ -103901,7 +103902,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.46-EXTRACT-DIAGRAM-001
 
-`37.46` / `normal` / Test mapped; execution unconfirmed
+`37.46` / `normal` / Execution confirmed
 
 37.46 defines a one-to-many relation from nets to net drivers, using tag vpiDriver; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -103913,7 +103914,7 @@ Normative role: `definition`。
 
 ### SV2023-37.46-EXTRACT-DIAGRAM-002
 
-`37.46` / `normal` / Test mapped; execution unconfirmed
+`37.46` / `normal` / Execution confirmed
 
 37.46 defines a one-to-many relation from nets to net loads, using tag vpiLoad; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -103937,7 +103938,7 @@ Normative role: `definition`。
 
 ### SV2023-37.46-EXTRACT-DIAGRAM-004
 
-`37.46` / `normal` / Test mapped; execution unconfirmed
+`37.46` / `normal` / Execution confirmed
 
 The 37.46 VPI model includes force in the net drivers group; group properties and relationships apply to this member.
 
@@ -104007,7 +104008,7 @@ Normative role: `definition`。
 
 ### SV2023-37.46-EXTRACT-DIAGRAM-010
 
-`37.46` / `normal` / Test mapped; execution unconfirmed
+`37.46` / `normal` / Execution confirmed
 
 The 37.46 VPI model includes assign statement in the net loads group; group properties and relationships apply to this member.
 
@@ -104019,7 +104020,7 @@ Normative role: `definition`。
 
 ### SV2023-37.46-EXTRACT-DIAGRAM-011
 
-`37.46` / `normal` / Test mapped; execution unconfirmed
+`37.46` / `normal` / Execution confirmed
 
 The 37.46 VPI model includes force in the net loads group; group properties and relationships apply to this member.
 
@@ -104066,7 +104067,7 @@ Normative role: `definition`。
 
 ### SV2023-37.46-EXTRACT-DIAGRAM-015
 
-`37.46` / `normal` / Test mapped; execution unconfirmed
+`37.46` / `normal` / Execution confirmed
 
 The 37.46 VPI model includes ports in the net loads group; group properties and relationships apply to this member.
 
@@ -104078,7 +104079,7 @@ Normative role: `definition`。
 
 ### SV2023-37.46-EXTRACT-LOAD-HIGH-CONNECTION
 
-`37.46` / `normal` / Test mapped; execution unconfirmed
+`37.46` / `normal` / Execution confirmed
 
 Use vpi_handle(vpiHighConn,port_handle) on a returned loading port to access its complex high-side expression.
 
@@ -104751,7 +104752,7 @@ Normative role: `definition`。
 
 ### SV2023-37.49-EXTRACT-DIAGRAM-015
 
-`37.49` / `normal` / Test mapped; execution unconfirmed
+`37.49` / `normal` / Execution confirmed
 
 assertion exposes vpiColumn as integer, representing starting column; access it with the appropriate property routine under 37.3.1.
 
@@ -104775,7 +104776,7 @@ Normative role: `definition`。
 
 ### SV2023-37.49-EXTRACT-DIAGRAM-017
 
-`37.49` / `normal` / Test mapped; execution unconfirmed
+`37.49` / `normal` / Execution confirmed
 
 assertion exposes vpiEndColumn as integer, representing ending column; access it with the appropriate property routine under 37.3.1.
 
@@ -104871,7 +104872,7 @@ Normative role: `definition`。
 
 ### SV2023-37.50-EXTRACT-DIAGRAM-006
 
-`37.50` / `normal` / Test mapped; execution unconfirmed
+`37.50` / `normal` / Execution confirmed
 
 37.50 defines a one-to-one relation from concurrent assertion to pass statement, when supported, using the untagged pass statement, when supported access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -104883,7 +104884,7 @@ Normative role: `definition`。
 
 ### SV2023-37.50-EXTRACT-DIAGRAM-007
 
-`37.50` / `normal` / Test mapped; execution unconfirmed
+`37.50` / `normal` / Execution confirmed
 
 37.50 defines a one-to-one relation from assert to statement, using tag vpiElseStmt; traverse with vpi_handle and the stated special-case constraints.
 
@@ -104895,7 +104896,7 @@ Normative role: `definition`。
 
 ### SV2023-37.50-EXTRACT-DIAGRAM-008
 
-`37.50` / `normal` / Test mapped; execution unconfirmed
+`37.50` / `normal` / Execution confirmed
 
 37.50 defines a one-to-one relation from assume to statement, using tag vpiElseStmt; traverse with vpi_handle and the stated special-case constraints.
 
@@ -104979,7 +104980,7 @@ Normative role: `definition`。
 
 ### SV2023-37.50-EXTRACT-RESTRICT-NO-RUNTIME
 
-`37.50` / `normal` / Test mapped; execution unconfirmed
+`37.50` / `normal` / Execution confirmed
 
 restrict has no pass/fail action, is not simulated and produces no runtime information.
 
@@ -106382,7 +106383,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.58-EXTRACT-DIAGRAM-001
 
-`37.58` / `normal` / Test mapped; execution unconfirmed
+`37.58` / `normal` / Execution confirmed
 
 The 37.58 VPI model includes nets in the simple expression group; group properties and relationships apply to this member.
 
@@ -106394,7 +106395,7 @@ Normative role: `definition`。
 
 ### SV2023-37.58-EXTRACT-DIAGRAM-002
 
-`37.58` / `normal` / Test mapped; execution unconfirmed
+`37.58` / `normal` / Execution confirmed
 
 The 37.58 VPI model includes variables in the simple expression group; group properties and relationships apply to this member.
 
@@ -106417,7 +106418,7 @@ Normative role: `definition`。
 
 ### SV2023-37.58-EXTRACT-DIAGRAM-004
 
-`37.58` / `normal` / Test mapped; execution unconfirmed
+`37.58` / `normal` / Execution confirmed
 
 The 37.58 VPI model includes parameter in the simple expression group; group properties and relationships apply to this member.
 
@@ -106429,7 +106430,7 @@ Normative role: `definition`。
 
 ### SV2023-37.58-EXTRACT-DIAGRAM-005
 
-`37.58` / `normal` / Test mapped; execution unconfirmed
+`37.58` / `normal` / Execution confirmed
 
 The 37.58 VPI model includes specparam in the simple expression group; group properties and relationships apply to this member.
 
@@ -106513,7 +106514,7 @@ Normative role: `definition`。
 
 ### SV2023-37.58-EXTRACT-DIAGRAM-012
 
-`37.58` / `normal` / Test mapped; execution unconfirmed
+`37.58` / `normal` / Execution confirmed
 
 bit select exposes vpiName as string, representing name; access it with the appropriate property routine under 37.3.1.
 
@@ -106525,7 +106526,7 @@ Normative role: `definition`。
 
 ### SV2023-37.58-EXTRACT-DIAGRAM-013
 
-`37.58` / `normal` / Test mapped; execution unconfirmed
+`37.58` / `normal` / Execution confirmed
 
 bit select exposes vpiFullName as string, representing full name; access it with the appropriate property routine under 37.3.1.
 
@@ -106549,7 +106550,7 @@ Normative role: `definition`。
 
 ### SV2023-37.58-EXTRACT-VECTOR-USES
 
-`37.58` / `normal` / Test mapped; execution unconfirmed
+`37.58` / `normal` / Execution confirmed
 
 Vector vpiUse includes uses of the whole vector and any bit/part-select; bit-select vpiUse includes that bit, its parent-vector uses and every containing part-select.
 
@@ -106597,7 +106598,7 @@ Normative role: `definition`。
 
 ### SV2023-37.59-EXTRACT-DIAGRAM-002
 
-`37.59` / `normal` / Test mapped; execution unconfirmed
+`37.59` / `normal` / Execution confirmed
 
 The 37.59 VPI model includes simple expression in the expression group; group properties and relationships apply to this member.
 
@@ -106621,7 +106622,7 @@ Normative role: `definition`。
 
 ### SV2023-37.59-EXTRACT-DIAGRAM-004
 
-`37.59` / `normal` / Test mapped; execution unconfirmed
+`37.59` / `normal` / Execution confirmed
 
 The 37.59 VPI model includes operation in the expression group; group properties and relationships apply to this member.
 
@@ -106633,7 +106634,7 @@ Normative role: `definition`。
 
 ### SV2023-37.59-EXTRACT-DIAGRAM-005
 
-`37.59` / `normal` / Test mapped; execution unconfirmed
+`37.59` / `normal` / Execution confirmed
 
 The 37.59 VPI model includes constant in the expression group; group properties and relationships apply to this member.
 
@@ -106669,7 +106670,7 @@ Normative role: `definition`。
 
 ### SV2023-37.59-EXTRACT-DIAGRAM-008
 
-`37.59` / `normal` / Test mapped; execution unconfirmed
+`37.59` / `normal` / Execution confirmed
 
 The 37.59 VPI model includes system function call in the expression group; group properties and relationships apply to this member.
 
@@ -106813,7 +106814,7 @@ Normative role: `definition`。
 
 ### SV2023-37.59-EXTRACT-DIAGRAM-020
 
-`37.59` / `normal` / Test mapped; execution unconfirmed
+`37.59` / `normal` / Execution confirmed
 
 37.59 defines a one-to-many relation from operation to expression/interface expression/range/pattern/sequence instance/property instance, using tag vpiOperand; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -106873,7 +106874,7 @@ Normative role: `definition`。
 
 ### SV2023-37.59-EXTRACT-DIAGRAM-025
 
-`37.59` / `normal` / Test mapped; execution unconfirmed
+`37.59` / `normal` / Execution confirmed
 
 Expressions support evaluation with vpi_get_value subject to expression side-effect and protection rules.
 
@@ -106909,7 +106910,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.59-EXTRACT-MULTICONCAT-OPERANDS
 
-`37.59` / `normal` / Test mapped; execution unconfirmed
+`37.59` / `normal` / Execution confirmed
 
 vpiMultiConcatOp returns its multiplier as first operand, followed by the concatenated expressions.
 
@@ -107628,7 +107629,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.63-EXTRACT-DIAGRAM-001
 
-`37.63` / `normal` / Test mapped; execution unconfirmed
+`37.63` / `normal` / Execution confirmed
 
 The 37.63 VPI model includes initial in the process group; group properties and relationships apply to this member.
 
@@ -107640,7 +107641,7 @@ Normative role: `definition`。
 
 ### SV2023-37.63-EXTRACT-DIAGRAM-002
 
-`37.63` / `normal` / Test mapped; execution unconfirmed
+`37.63` / `normal` / Execution confirmed
 
 The 37.63 VPI model includes final in the process group; group properties and relationships apply to this member.
 
@@ -107652,7 +107653,7 @@ Normative role: `definition`。
 
 ### SV2023-37.63-EXTRACT-DIAGRAM-003
 
-`37.63` / `normal` / Test mapped; execution unconfirmed
+`37.63` / `normal` / Execution confirmed
 
 The 37.63 VPI model includes always in the process group; group properties and relationships apply to this member.
 
@@ -107664,7 +107665,7 @@ Normative role: `definition`。
 
 ### SV2023-37.63-EXTRACT-DIAGRAM-004
 
-`37.63` / `normal` / Test mapped; execution unconfirmed
+`37.63` / `normal` / Execution confirmed
 
 37.63 defines a one-to-many relation from module to process, using the untagged process access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -107688,7 +107689,7 @@ Normative role: `definition`。
 
 ### SV2023-37.63-EXTRACT-DIAGRAM-006
 
-`37.63` / `normal` / Test mapped; execution unconfirmed
+`37.63` / `normal` / Execution confirmed
 
 37.63 defines a one-to-one relation from process to statement, using the untagged statement access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -107736,7 +107737,7 @@ Normative role: `definition`。
 
 ### SV2023-37.63-EXTRACT-DIAGRAM-010
 
-`37.63` / `normal` / Test mapped; execution unconfirmed
+`37.63` / `normal` / Execution confirmed
 
 The 37.63 VPI model includes atomic statement in the statement group; group properties and relationships apply to this member.
 
@@ -107748,7 +107749,7 @@ Normative role: `definition`。
 
 ### SV2023-37.63-EXTRACT-DIAGRAM-011
 
-`37.63` / `normal` / Test mapped; execution unconfirmed
+`37.63` / `normal` / Execution confirmed
 
 always exposes vpiAlwaysType as integer, representing always procedure kind; access it with the appropriate property routine under 37.3.1.
 
@@ -107760,7 +107761,7 @@ Normative role: `definition`。
 
 ### SV2023-37.64-EXTRACT-ASSIGNMENT-OP-TYPE
 
-`37.64` / `normal` / Test mapped; execution unconfirmed
+`37.64` / `normal` / Execution confirmed
 
 Both ordinary = and \<= return vpiAssignmentOp; compound assignment returns the combined arithmetic/bitwise/shift operator kind under 11.4.1.
 
@@ -107772,7 +107773,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.64-EXTRACT-DIAGRAM-001
 
-`37.64` / `normal` / Test mapped; execution unconfirmed
+`37.64` / `normal` / Execution confirmed
 
 37.64 defines a one-to-one relation from assignment to expression, using tag vpiLhs; traverse with vpi_handle and the stated special-case constraints.
 
@@ -107784,7 +107785,7 @@ Normative role: `definition`。
 
 ### SV2023-37.64-EXTRACT-DIAGRAM-002
 
-`37.64` / `normal` / Test mapped; execution unconfirmed
+`37.64` / `normal` / Execution confirmed
 
 37.64 defines a one-to-one relation from assignment to expression/interface expression, using tag vpiRhs; traverse with vpi_handle and the stated special-case constraints.
 
@@ -107796,7 +107797,7 @@ Normative role: `definition`。
 
 ### SV2023-37.64-EXTRACT-DIAGRAM-003
 
-`37.64` / `normal` / Test mapped; execution unconfirmed
+`37.64` / `normal` / Execution confirmed
 
 37.64 defines a one-to-one relation from assignment to delay control, using the untagged delay control access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -107832,7 +107833,7 @@ Normative role: `definition`。
 
 ### SV2023-37.64-EXTRACT-DIAGRAM-006
 
-`37.64` / `normal` / Test mapped; execution unconfirmed
+`37.64` / `normal` / Execution confirmed
 
 assignment exposes vpiOpType as integer, representing assignment operator; access it with the appropriate property routine under 37.3.1.
 
@@ -107844,7 +107845,7 @@ Normative role: `definition`。
 
 ### SV2023-37.64-EXTRACT-DIAGRAM-007
 
-`37.64` / `normal` / Test mapped; execution unconfirmed
+`37.64` / `normal` / Execution confirmed
 
 assignment exposes vpiBlocking as Boolean, representing blocking assignment; access it with the appropriate property routine under 37.3.1.
 
@@ -107868,7 +107869,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.65-EXTRACT-DIAGRAM-001
 
-`37.65` / `normal` / Test mapped; execution unconfirmed
+`37.65` / `normal` / Execution confirmed
 
 37.65 defines a one-to-one relation from event control to expression/sequence instance/named event, using tag vpiCondition; traverse with vpi_handle and the stated special-case constraints.
 
@@ -107880,7 +107881,7 @@ Normative role: `definition`。
 
 ### SV2023-37.65-EXTRACT-DIAGRAM-002
 
-`37.65` / `normal` / Test mapped; execution unconfirmed
+`37.65` / `normal` / Execution confirmed
 
 37.65 defines a one-to-one relation from event control to statement, using the untagged statement access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -107892,7 +107893,7 @@ Normative role: `definition`。
 
 ### SV2023-37.66-EXTRACT-DIAGRAM-001
 
-`37.66` / `normal` / Test mapped; execution unconfirmed
+`37.66` / `normal` / Execution confirmed
 
 37.66 defines a one-to-one relation from while to expression, using tag vpiCondition; traverse with vpi_handle and the stated special-case constraints.
 
@@ -107904,7 +107905,7 @@ Normative role: `definition`。
 
 ### SV2023-37.66-EXTRACT-DIAGRAM-002
 
-`37.66` / `normal` / Test mapped; execution unconfirmed
+`37.66` / `normal` / Execution confirmed
 
 37.66 defines a one-to-one relation from while to statement, using the untagged statement access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -107928,7 +107929,7 @@ Normative role: `definition`。
 
 ### SV2023-37.66-EXTRACT-DIAGRAM-004
 
-`37.66` / `normal` / Test mapped; execution unconfirmed
+`37.66` / `normal` / Execution confirmed
 
 37.66 defines a one-to-one relation from repeat to statement, using the untagged statement access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -108036,7 +108037,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.68-EXTRACT-DIAGRAM-001
 
-`37.68` / `normal` / Test mapped; execution unconfirmed
+`37.68` / `normal` / Execution confirmed
 
 37.68 defines a one-to-one relation from delay control to statement, using the untagged statement access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -108060,7 +108061,7 @@ Normative role: `definition`。
 
 ### SV2023-37.68-EXTRACT-DIAGRAM-003
 
-`37.68` / `normal` / Test mapped; execution unconfirmed
+`37.68` / `normal` / Execution confirmed
 
 Delay controls expose effective delay through vpi_get_delays.
 
@@ -108096,7 +108097,7 @@ Normative role: `definition`。
 
 ### SV2023-37.70-EXTRACT-DIAGRAM-001
 
-`37.70` / `normal` / Test mapped; execution unconfirmed
+`37.70` / `normal` / Execution confirmed
 
 37.70 defines a one-to-one relation from forever to statement, using the untagged statement access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -108108,7 +108109,7 @@ Normative role: `definition`。
 
 ### SV2023-37.71-EXTRACT-DIAGRAM-001
 
-`37.71` / `normal` / Test mapped; execution unconfirmed
+`37.71` / `normal` / Execution confirmed
 
 37.71 defines a one-to-one relation from if to expression, using tag vpiCondition; traverse with vpi_handle and the stated special-case constraints.
 
@@ -108120,7 +108121,7 @@ Normative role: `definition`。
 
 ### SV2023-37.71-EXTRACT-DIAGRAM-002
 
-`37.71` / `normal` / Test mapped; execution unconfirmed
+`37.71` / `normal` / Execution confirmed
 
 37.71 defines a one-to-one relation from if to statement, using the untagged statement access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -108132,7 +108133,7 @@ Normative role: `definition`。
 
 ### SV2023-37.71-EXTRACT-DIAGRAM-003
 
-`37.71` / `normal` / Test mapped; execution unconfirmed
+`37.71` / `normal` / Execution confirmed
 
 if exposes vpiQualifier as integer, representing conditional qualifier; access it with the appropriate property routine under 37.3.1.
 
@@ -108144,7 +108145,7 @@ Normative role: `definition`。
 
 ### SV2023-37.71-EXTRACT-DIAGRAM-004
 
-`37.71` / `normal` / Test mapped; execution unconfirmed
+`37.71` / `normal` / Execution confirmed
 
 37.71 defines a one-to-one relation from if-else to expression, using tag vpiCondition; traverse with vpi_handle and the stated special-case constraints.
 
@@ -108156,7 +108157,7 @@ Normative role: `definition`。
 
 ### SV2023-37.71-EXTRACT-DIAGRAM-005
 
-`37.71` / `normal` / Test mapped; execution unconfirmed
+`37.71` / `normal` / Execution confirmed
 
 37.71 defines a one-to-one relation from if-else to statement, using the untagged statement access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -108168,7 +108169,7 @@ Normative role: `definition`。
 
 ### SV2023-37.71-EXTRACT-DIAGRAM-006
 
-`37.71` / `normal` / Test mapped; execution unconfirmed
+`37.71` / `normal` / Execution confirmed
 
 if-else exposes vpiQualifier as integer, representing conditional qualifier; access it with the appropriate property routine under 37.3.1.
 
@@ -108180,7 +108181,7 @@ Normative role: `definition`。
 
 ### SV2023-37.71-EXTRACT-DIAGRAM-007
 
-`37.71` / `normal` / Test mapped; execution unconfirmed
+`37.71` / `normal` / Execution confirmed
 
 37.71 defines a one-to-one relation from if-else to statement, using tag vpiElseStmt; traverse with vpi_handle and the stated special-case constraints.
 
@@ -108204,7 +108205,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.72-EXTRACT-DIAGRAM-001
 
-`37.72` / `normal` / Test mapped; execution unconfirmed
+`37.72` / `normal` / Execution confirmed
 
 37.72 defines a one-to-one relation from case to expression, using tag vpiCondition; traverse with vpi_handle and the stated special-case constraints.
 
@@ -108252,7 +108253,7 @@ Normative role: `definition`。
 
 ### SV2023-37.72-EXTRACT-DIAGRAM-005
 
-`37.72` / `normal` / Test mapped; execution unconfirmed
+`37.72` / `normal` / Execution confirmed
 
 case exposes vpiCaseType as integer, representing case kind; access it with the appropriate property routine under 37.3.1.
 
@@ -108264,7 +108265,7 @@ Normative role: `definition`。
 
 ### SV2023-37.72-EXTRACT-DIAGRAM-006
 
-`37.72` / `normal` / Test mapped; execution unconfirmed
+`37.72` / `normal` / Execution confirmed
 
 case exposes vpiQualifier as integer, representing case qualifier; access it with the appropriate property routine under 37.3.1.
 
@@ -108515,7 +108516,7 @@ Normative role: `definition`。
 
 ### SV2023-37.75-EXTRACT-DIAGRAM-001
 
-`37.75` / `normal` / Test mapped; execution unconfirmed
+`37.75` / `normal` / Execution confirmed
 
 37.75 defines a one-to-one relation from do-while to expression, using tag vpiCondition; traverse with vpi_handle and the stated special-case constraints.
 
@@ -108527,7 +108528,7 @@ Normative role: `definition`。
 
 ### SV2023-37.75-EXTRACT-DIAGRAM-002
 
-`37.75` / `normal` / Test mapped; execution unconfirmed
+`37.75` / `normal` / Execution confirmed
 
 37.75 defines a one-to-one relation from do-while to statement, using the untagged statement access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -108539,7 +108540,7 @@ Normative role: `definition`。
 
 ### SV2023-37.75-EXTRACT-DIAGRAM-003
 
-`37.75` / `normal` / Test mapped; execution unconfirmed
+`37.75` / `normal` / Execution confirmed
 
 37.75 defines a one-to-one relation from foreach to variables, using the untagged variables access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -108551,7 +108552,7 @@ Normative role: `definition`。
 
 ### SV2023-37.75-EXTRACT-DIAGRAM-004
 
-`37.75` / `normal` / Test mapped; execution unconfirmed
+`37.75` / `normal` / Execution confirmed
 
 37.75 defines a one-to-one relation from foreach to statement, using the untagged statement access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -108563,7 +108564,7 @@ Normative role: `definition`。
 
 ### SV2023-37.75-EXTRACT-DIAGRAM-005
 
-`37.75` / `normal` / Test mapped; execution unconfirmed
+`37.75` / `normal` / Execution confirmed
 
 37.75 defines a one-to-many relation from foreach to variables/operation, using tag vpiLoopVars; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -108575,7 +108576,7 @@ Normative role: `definition`。
 
 ### SV2023-37.75-EXTRACT-FOREACH-INDEXED-OBJECT
 
-`37.75` / `normal` / Test mapped; execution unconfirmed
+`37.75` / `normal` / Execution confirmed
 
 foreach vpiVariables returns the indexed packed array, unpacked array or string.
 
@@ -108587,7 +108588,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.75-EXTRACT-FOREACH-INDICES
 
-`37.75` / `normal` / Test mapped; execution unconfirmed
+`37.75` / `normal` / Execution confirmed
 
 vpiLoopVars iterates index variables left-to-right, using vpiOperation/vpiNullOp placeholders for skipped indices.
 
@@ -108683,7 +108684,7 @@ Normative role: `definition`。
 
 ### SV2023-37.78-EXTRACT-DIAGRAM-001
 
-`37.78` / `normal` / Test mapped; execution unconfirmed
+`37.78` / `normal` / Execution confirmed
 
 37.78 defines a one-to-one relation from return statement to expression, using tag vpiCondition; traverse with vpi_handle and the stated special-case constraints.
 
@@ -108695,7 +108696,7 @@ Normative role: `definition`。
 
 ### SV2023-37.79-EXTRACT-DIAGRAM-001
 
-`37.79` / `normal` / Test mapped; execution unconfirmed
+`37.79` / `normal` / Execution confirmed
 
 37.79 defines a one-to-one relation from force to expression, using tag vpiRhs; traverse with vpi_handle and the stated special-case constraints.
 
@@ -108707,7 +108708,7 @@ Normative role: `definition`。
 
 ### SV2023-37.79-EXTRACT-DIAGRAM-002
 
-`37.79` / `normal` / Test mapped; execution unconfirmed
+`37.79` / `normal` / Execution confirmed
 
 37.79 defines a one-to-one relation from force to expression, using tag vpiLhs; traverse with vpi_handle and the stated special-case constraints.
 
@@ -108719,7 +108720,7 @@ Normative role: `definition`。
 
 ### SV2023-37.79-EXTRACT-DIAGRAM-003
 
-`37.79` / `normal` / Test mapped; execution unconfirmed
+`37.79` / `normal` / Execution confirmed
 
 37.79 defines a one-to-one relation from assign statement to expression, using tag vpiRhs; traverse with vpi_handle and the stated special-case constraints.
 
@@ -108731,7 +108732,7 @@ Normative role: `definition`。
 
 ### SV2023-37.79-EXTRACT-DIAGRAM-004
 
-`37.79` / `normal` / Test mapped; execution unconfirmed
+`37.79` / `normal` / Execution confirmed
 
 37.79 defines a one-to-one relation from assign statement to expression, using tag vpiLhs; traverse with vpi_handle and the stated special-case constraints.
 
@@ -108743,7 +108744,7 @@ Normative role: `definition`。
 
 ### SV2023-37.79-EXTRACT-DIAGRAM-005
 
-`37.79` / `normal` / Test mapped; execution unconfirmed
+`37.79` / `normal` / Execution confirmed
 
 37.79 defines a one-to-one relation from deassign to expression, using tag vpiLhs; traverse with vpi_handle and the stated special-case constraints.
 
@@ -108755,7 +108756,7 @@ Normative role: `definition`。
 
 ### SV2023-37.79-EXTRACT-DIAGRAM-006
 
-`37.79` / `normal` / Test mapped; execution unconfirmed
+`37.79` / `normal` / Execution confirmed
 
 37.79 defines a one-to-one relation from release to expression, using tag vpiLhs; traverse with vpi_handle and the stated special-case constraints.
 
@@ -110857,7 +110858,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.10-EXTRACT-DELAY-ARRAY-MEMORY
 
-`38.10` / `normal` / Test mapped; execution unconfirmed
+`38.10` / `normal` / Execution confirmed
 
 The application allocates da as an s_vpi_time array sized from delay count, min/typ/max flag and pulse-reject/error flag.
 
@@ -110881,7 +110882,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.10-EXTRACT-DELAY-LAYOUT-0-1
 
-`38.10` / `normal` / Test mapped; execution unconfirmed
+`38.10` / `normal` / Execution confirmed
 
 With mtm_flag=False and pulsere_flag=True, allocate 3 times no_of_delays elements; each consecutive delay uses this order: delay, reject limit, error limit.
 
@@ -110893,7 +110894,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.10-EXTRACT-DELAY-LAYOUT-1-0
 
-`38.10` / `normal` / Test mapped; execution unconfirmed
+`38.10` / `normal` / Execution confirmed
 
 With mtm_flag=True and pulsere_flag=False, allocate 3 times no_of_delays elements; each consecutive delay uses this order: min delay, typ delay, max delay.
 
@@ -110905,7 +110906,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.10-EXTRACT-DELAY-LAYOUT-1-1
 
-`38.10` / `normal` / Test mapped; execution unconfirmed
+`38.10` / `normal` / Execution confirmed
 
 With mtm_flag=True and pulsere_flag=True, allocate 9 times no_of_delays elements; each consecutive delay uses this order: min delay, typ delay, max delay, min reject, typ reject, max reject, min error, typ error, max error.
 
@@ -111026,7 +111027,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.10-EXTRACT-TIMING-DELAY-COUNT
 
-`38.10` / `normal` / Test mapped; execution unconfirmed
+`38.10` / `normal` / Execution confirmed
 
 Timing-check no_of_delays must match its actual number of limits.
 
@@ -111482,7 +111483,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT
 
-`38.15` / `normal` / Test mapped; execution unconfirmed
+`38.15` / `normal` / Execution confirmed
 
 UDP table-entry symbols fill each s_vpi_vecval element in the order aval bits 31:16, aval bits 15:0, bval bits 31:16, then bval bits 15:0 (the text's abit/bbit are the aval/bval fields); within each two-byte symbol the first character is the more significant byte, and a single-character symbol has ASCII "\0" as its less significant second byte.
 
@@ -111494,7 +111495,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.15-EXTRACT-UDP-SYMBOL-STORAGE
 
-`38.15` / `normal` / Test mapped; execution unconfirmed
+`38.15` / `normal` / Execution confirmed
 
 UDP table-entry vector storage uses ceil(symbol_count/4) s_vpi_vecval elements, two bytes per symbol, with an ASCII zero second byte for a single-character symbol.
 
@@ -111506,7 +111507,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.15-EXTRACT-VALUE-FORMAT
 
-`38.15` / `normal` / Test mapped; execution unconfirmed
+`38.15` / `normal` / Execution confirmed
 
 The caller value.format selects the retrieved format.
 
@@ -111518,7 +111519,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.15-EXTRACT-VALUE-SIGNATURE
 
-`38.15` / `normal` / Test mapped; execution unconfirmed
+`38.15` / `normal` / Execution confirmed
 
 vpi_get_value(vpiHandle obj,p_vpi_value value_p) returns void and fills an application-allocated value structure for the given expression.
 
@@ -111590,7 +111591,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.16-EXTRACT-ARRAY-ERROR-POINTER
 
-`38.16` / `normal` / Test mapped; execution unconfirmed
+`38.16` / `normal` / Execution confirmed
 
 A NULL returned value pointer indicates VPI retrieval error. The application must free its own allocation even if the function overwrites its pointer with NULL, and should retain a separate allocation pointer.
 
@@ -111684,7 +111685,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.16-EXTRACT-ARRAY-USER-STORAGE
 
-`38.16` / `normal` / Test mapped; execution unconfirmed
+`38.16` / `normal` / Execution confirmed
 
 With vpiUserAllocFlag the application supplies a sufficient result buffer; scalar-value array storage is num times the pointed-to element type size, with raw/vector sizes given by their format formulas.
 
@@ -111708,7 +111709,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.16-EXTRACT-ARRAY-VPI-STORAGE
 
-`38.16` / `normal` / Test mapped; execution unconfirmed
+`38.16` / `normal` / Execution confirmed
 
 By default VPI allocates read-only result storage that later calls may overwrite; applications copy it to preserve data.
 
@@ -111720,7 +111721,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.16-EXTRACT-COMMON-ARRAY-FORMATS
 
-`38.16` / `normal` / Test mapped; execution unconfirmed
+`38.16` / `normal` / Execution confirmed
 
 Bulk vpiIntVal/vpiTimeVal/vpiVectorVal/vpiRealVal use integers/times/vectors/reals array members; vector storage comprises consecutive A/B 32-bit word pairs, requiring ceil(element_bits/32)*2*num words.
 
@@ -111804,7 +111805,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.16-EXTRACT-SHORTREAL-ARRAY-FIELD-TEXT
 
-`38.16` / `normal` / Test mapped; execution unconfirmed
+`38.16` / `normal` / Execution confirmed
 
 vpiShortRealVal retrieves num values as an array of floats through the s_vpi_arrayvalue union member shortreals, the prose name shortrealvals denoting this declared float member; the format is appropriate only for arrays of vpiShortRealVar elements.
 
@@ -112489,7 +112490,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.32-EXTRACT-PUT-PRIMITIVE-DELAY-COUNT
 
-`38.32` / `normal` / Test mapped; execution unconfirmed
+`38.32` / `normal` / Execution confirmed
 
 Primitive no_of_delays must be 2 or 3.
 
@@ -112501,7 +112502,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.32-EXTRACT-PUT-TIMING-DELAY-COUNT
 
-`38.32` / `normal` / Test mapped; execution unconfirmed
+`38.32` / `normal` / Execution confirmed
 
 Timing-check no_of_delays must equal the count of limits in that check.
 
@@ -112714,7 +112715,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.34-EXTRACT-PUT-VALUE-ALLOCATION
 
-`38.34` / `normal` / Test mapped; execution unconfirmed
+`38.34` / `normal` / Execution confirmed
 
 The caller allocates s_vpi_value, its referenced value storage and delay s_vpi_time; values follow Table 38-3 formats subject to put-specific exceptions.
 
@@ -112859,7 +112860,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.35-EXTRACT-PROPAGATE-OFF
 
-`38.35` / `normal` / Test mapped; execution unconfirmed
+`38.35` / `normal` / Execution confirmed
 
 vpiPropagateOff inhibits array-fanout value-change notification; during active simulation a subsequent update may be needed to restore correct propagation.
 
@@ -112871,7 +112872,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.35-EXTRACT-PUT-ARRAY-FORMAT
 
-`38.35` / `normal` / Test mapped; execution unconfirmed
+`38.35` / `normal` / Execution confirmed
 
 Caller format selects layout; supported standard common formats include vpiIntVal,vpiVectorVal,vpiTimeVal and vpiRealVal plus the listed raw/short forms.
 
@@ -113156,7 +113157,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.36.1-EXTRACT-ARRAY-MEMBER-CALLBACK
 
-`38.36.1` / `normal` / Test mapped; execution unconfirmed
+`38.36.1` / `normal` / Execution confirmed
 
 For a changed array member, callback value is that member value and index is its rightmost declaration-range index; obtain all indices via vpiIndex iteration.
 
@@ -113227,7 +113228,7 @@ Normative role: `definition`。
 
 ### SV2023-38.36.1-EXTRACT-CALLBACK-FORMAT-VPIOBJTYPEVAL
 
-`38.36.1` / `normal` / Test mapped; execution unconfirmed
+`38.36.1` / `normal` / Execution confirmed
 
 Table 38-5 vpiObjTypeVal supplies closest object-type format.
 
@@ -113274,7 +113275,7 @@ Normative role: `definition`。
 
 ### SV2023-38.36.1-EXTRACT-CALLBACK-FORMAT-VPISTRENGTHVAL
 
-`38.36.1` / `normal` / Test mapped; execution unconfirmed
+`38.36.1` / `normal` / Execution confirmed
 
 Table 38-5 vpiStrengthVal supplies scalar value plus strength only.
 
@@ -113298,7 +113299,7 @@ Normative role: `definition`。
 
 ### SV2023-38.36.1-EXTRACT-CALLBACK-FORMAT-VPITIMEVAL
 
-`38.36.1` / `normal` / Test mapped; execution unconfirmed
+`38.36.1` / `normal` / Execution confirmed
 
 Table 38-5 vpiTimeVal supplies two-integer time value.
 
@@ -113322,7 +113323,7 @@ Normative role: `definition`。
 
 ### SV2023-38.36.1-EXTRACT-CLASS-VARIABLE-CALLBACK
 
-`38.36.1` / `normal` / Test mapped; execution unconfirmed
+`38.36.1` / `normal` / Execution confirmed
 
 A class-variable cbValueChange fires when the reference changes to another dynamic object or null. Its opaque value is not returned: callback value is NULL; vpiObjId identifies the referred object.
 
@@ -113358,7 +113359,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.36.1-EXTRACT-EVENT-CALLBACK-FORMAT
 
-`38.36.1` / `normal` / Test mapped; execution unconfirmed
+`38.36.1` / `normal` / Execution confirmed
 
 Set value.format to a supported Table 38-5 format or vpiSuppressVal; cbStmt ignores value format because it supplies no value.
 
@@ -113474,7 +113475,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.36.1-EXTRACT-EVENT-CBENTERTHREAD
 
-`38.36.1` / `normal` / Test mapped; execution unconfirmed
+`38.36.1` / `normal` / Execution confirmed
 
 cbEnterThread invokes the registered callback when a thread resumes execution.
 
@@ -113521,7 +113522,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.36.1-EXTRACT-EVENT-CBSIZECHANGE
 
-`38.36.1` / `normal` / Test mapped; execution unconfirmed
+`38.36.1` / `normal` / Execution confirmed
 
 cbSizeChange invokes the registered callback after a dynamic/associative array, queue or string is resized.
 
@@ -113613,7 +113614,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.36.1-EXTRACT-STRENGTH-CALLBACK
 
-`38.36.1` / `normal` / Test mapped; execution unconfirmed
+`38.36.1` / `normal` / Execution confirmed
 
 A cbValueChange requested as vpiStrengthVal fires on strength changes even if logic value does not change.
 
@@ -113985,7 +113986,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.36.1.3-EXTRACT-MODULE-STATEMENT-CALLBACK
 
-`38.36.1.3` / `normal` / Test mapped; execution unconfirmed
+`38.36.1.3` / `normal` / Execution confirmed
 
 Registering with a module instance handle places callbacks on every eligible statement in that instance.
 
@@ -114259,7 +114260,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.36.3-EXTRACT-ACTION-CBTCHKVIOLATION
 
-`38.36.3` / `normal` / Test mapped; execution unconfirmed
+`38.36.3` / `normal` / Execution confirmed
 
 Define cbTchkViolation to invoke on a timing-check violation.
 
@@ -114352,7 +114353,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.37.1-EXTRACT-SIZED-FUNCTION-CALLBACK
 
-`38.37.1` / `normal` / Test mapped; execution unconfirmed
+`38.37.1` / `normal` / Execution confirmed
 
 Call sizetf only for vpiSysFunc with vpiSizedFunc/vpiSizedSignedFunc; absent sizetf, these functions return 32 bits.
 
@@ -114364,7 +114365,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.37.1-EXTRACT-SYSTF-CALLBACK-POINTERS
 
-`38.37.1` / `normal` / Test mapped; execution unconfirmed
+`38.37.1` / `normal` / Execution confirmed
 
 compiletf/calltf/sizetf are user routine pointers and unnecessary ones may be NULL. compiletf/sizetf occur during build/compile or first interactive invocation; calltf occurs on each simulated call.
 
@@ -114388,7 +114389,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.37.1-EXTRACT-SYSTF-RESULT-TYPE
 
-`38.37.1` / `normal` / Test mapped; execution unconfirmed
+`38.37.1` / `normal` / Execution confirmed
 
 For system functions sysfunctype must be vpiIntFunc,vpiRealFunc,vpiTimeFunc,vpiSizedFunc or vpiSizedSignedFunc; it is used only when type=vpiSysFunc.
 
@@ -114412,7 +114413,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.37.1-EXTRACT-SYSTF-USER-ARGUMENT
 
-`38.37.1` / `normal` / Test mapped; execution unconfirmed
+`38.37.1` / `normal` / Execution confirmed
 
 Pass registered user_data as the sole PLI_BYTE8* argument to compiletf,sizetf,calltf.
 
@@ -115736,7 +115737,7 @@ Normative role: `mandatory`。
 
 ### SV2023-39.5.3-EXTRACT-PENDING-QUEUE-FLUSH
 
-`39.5.3` / `normal` / Test mapped; execution unconfirmed
+`39.5.3` / `normal` / Execution confirmed
 
 Any VPI action discarding active attempts also flushes unmatured deferred reports and procedural-concurrent pending instances; actions preserving active attempts leave those queues intact.
 
@@ -115820,7 +115821,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.2.2-EXTRACT-ASSERTION-COVERAGE-DEFINITION
 
-`40.2.2` / `normal` / Test mapped; execution unconfirmed
+`40.2.2` / `normal` / Execution confirmed
 
 Assertion coverage records whether an assertion has at least one success, with implementation queries able to give attempts, success/failure counts and failure coverage.
 
@@ -115856,7 +115857,7 @@ Normative role: `definition`。
 
 ### SV2023-40.2.2-EXTRACT-STATEMENT-COVERAGE-DEFINITION
 
-`40.2.2` / `normal` / Test mapped; execution unconfirmed
+`40.2.2` / `normal` / Execution confirmed
 
 A statement is covered after executing at least once; implementation queries may count executions, with statement/block granularity controlled by query.
 
@@ -115868,7 +115869,7 @@ Normative role: `definition`。
 
 ### SV2023-40.2.2-EXTRACT-TOGGLE-COVERAGE-DEFINITION
 
-`40.2.2` / `normal` / Test mapped; execution unconfirmed
+`40.2.2` / `normal` / Execution confirmed
 
 A signal bit is fully toggle-covered after both 0 and 1 values have been seen; partial coverage/toggle counts may be queried by implementations.
 
@@ -116216,7 +116217,7 @@ Normative role: `definition`。
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-OK
 
-`40.3.2.1` / `normal` / Test mapped; execution unconfirmed
+`40.3.2.1` / `normal` / Execution confirmed
 
 Table 40-1 maps SV_COV_CHECK / SV_COV_OK to full availability; not-applicable cells do not prescribe that return for the action.
 
@@ -116228,7 +116229,7 @@ Normative role: `definition`。
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-PARTIAL
 
-`40.3.2.1` / `normal` / Test mapped; execution unconfirmed
+`40.3.2.1` / `normal` / Execution confirmed
 
 Table 40-1 maps SV_COV_CHECK / SV_COV_PARTIAL to partial coverage; not-applicable cells do not prescribe that return for the action.
 
@@ -116457,7 +116458,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT
 
-`40.3.2.3` / `normal` / Test mapped; execution unconfirmed
+`40.3.2.3` / `normal` / Execution confirmed
 
 The positive-return bullet of $coverage_get is read with 40.3.2.3's own rule that the return follows the $coverage_get_max pattern but with pos_num as the current coverage level: a positive result is the number of coverable items of that type covered in the given hierarchy(ies), not the maximum coverable count.
 
@@ -116682,7 +116683,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.4.4-EXTRACT-FSM-NEXT-STATE
 
-`40.4.4` / `normal` / Test mapped; execution unconfirmed
+`40.4.4` / `normal` / Execution confirmed
 
 The next-state signal declaration uses tool enum enumeration_name after its range to link it to the FSM.
 
@@ -116706,7 +116707,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.4.5-EXTRACT-FSM-SAME-DECLARATION
 
-`40.4.5` / `normal` / Test mapped; execution unconfirmed
+`40.4.5` / `normal` / Execution confirmed
 
 For an enum pragma in a multi-signal declaration, the first following signal is current state and second next state; no such role is inferred for further signals.
 
@@ -117030,7 +117031,7 @@ Normative role: `definition`。
 
 ### SV2023-40.5.2-EXTRACT-ASSERTION-COVERED-CRITERION
 
-`40.5.2` / `normal` / Test mapped; execution unconfirmed
+`40.5.2` / `normal` / Execution confirmed
 
 For assertion vpiCovered, it must have been attempted, succeeded at least once and never failed.
 
@@ -117054,7 +117055,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.5.2-EXTRACT-COVER-SEQUENCE-COUNT-EXCEPTION
 
-`40.5.2` / `normal` / Test mapped; execution unconfirmed
+`40.5.2` / `normal` / Execution confirmed
 
 The in-progress equation does not apply to cover sequence because one attempt may have multiple matches.
 
@@ -117077,7 +117078,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.5.2-EXTRACT-COVERED-ENTITIES
 
-`40.5.2` / `normal` / Test mapped; execution unconfirmed
+`40.5.2` / `normal` / Execution confirmed
 
 vpiCovered on assertion/statement/signal/FSM/FSM-state handles returns covered entity count; respective entities are assertions,statements,individual signal bits,FSM states,or one state.
 
@@ -117089,7 +117090,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.5.2-EXTRACT-COVERED-MAX
 
-`40.5.2` / `normal` / Test mapped; execution unconfirmed
+`40.5.2` / `normal` / Execution confirmed
 
 vpiCoveredMax returns the number of coverable entities for assertion/statement/signal/FSM/state handles; it is always 1 for one assertion or FSM-state handle.
 
@@ -117125,7 +117126,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.5.2-EXTRACT-FSM-STATE-VALUE-CALL-TEXT
 
-`40.5.2` / `normal` / Test mapped; execution unconfirmed
+`40.5.2` / `normal` / Execution confirmed
 
 The FSM-state value is retrieved with vpi_get_value(fsm_state_handle, value_p): the FSM state handle is the object argument and the value is placed in the application-allocated s_vpi_value per the 38.15/K.2 prototype; the 'state-handle' second argument in the 40.5.2 text denotes that p_vpi_value.
 
@@ -117149,7 +117150,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.5.2-EXTRACT-INSTANCE-COVERAGE-QUERY
 
-`40.5.2` / `normal` / Test mapped; execution unconfirmed
+`40.5.2` / `normal` / Execution confirmed
 
 vpi_get(coverageType,instance_handle) returns the count of covered items of that type in the instance.
 
@@ -117233,7 +117234,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.5.3-EXTRACT-VPI-COVERAGE-CONTROL
 
-`40.5.3` / `normal` / Test mapped; execution unconfirmed
+`40.5.3` / `normal` / Execution confirmed
 
 Use vpi_control(coverageControl,coverageType,instance_handle or assertion_handle) for coverage collection controls.
 
@@ -117257,7 +117258,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.5.3-EXTRACT-VPI-COVERAGE-MERGE
 
-`40.5.3` / `normal` / Test mapped; execution unconfirmed
+`40.5.3` / `normal` / Execution confirmed
 
 vpi_control(vpiCoverageMerge,coverageType,name) merges current-simulation coverage with $coverage_merge semantics.
 
@@ -117269,7 +117270,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.5.3-EXTRACT-VPI-COVERAGE-SAVE-NAME-TEXT
 
-`40.5.3` / `normal` / Test mapped; execution unconfirmed
+`40.5.3` / `normal` / Execution confirmed
 
 Coverage save uses vpi_control(vpiCoverageSave, coverageType, name), vpiCoverageSave being the coverage-control constant of 40.5.1 (M.2 value 755), and otherwise follows $coverage_save; the coverageSave spelling in 40.5.3 denotes vpiCoverageSave.
 
@@ -117817,7 +117818,7 @@ Normative role: `definition`。
 
 ### SV2023-A.1.3-EXTRACT-ANSI-EXPLICIT-PORT
 
-`A.1.3` / `normal` / Test mapped; execution unconfirmed
+`A.1.3` / `normal` / Execution confirmed
 
 An explicit ANSI port has optional direction, dot port identifier and parentheses with an optional expression.
 
@@ -117877,7 +117878,7 @@ Normative role: `definition`。
 
 ### SV2023-A.1.3-EXTRACT-NONANSI-PORT-LIST
 
-`A.1.3` / `normal` / Test mapped; execution unconfirmed
+`A.1.3` / `normal` / Execution confirmed
 
 A non-ANSI port list is parenthesized one-or-more comma-separated port productions; a port may itself be empty.
 
@@ -117937,7 +117938,7 @@ Normative role: `definition`。
 
 ### SV2023-A.1.3-EXTRACT-PORT-DECL-INOUT
 
-`A.1.3` / `normal` / Test mapped; execution unconfirmed
+`A.1.3` / `normal` / Execution confirmed
 
 A port declaration may be a inout declaration preceded by zero or more attributes.
 
@@ -117949,7 +117950,7 @@ Normative role: `definition`。
 
 ### SV2023-A.1.3-EXTRACT-PORT-DECL-INPUT
 
-`A.1.3` / `normal` / Test mapped; execution unconfirmed
+`A.1.3` / `normal` / Execution confirmed
 
 A port declaration may be a input declaration preceded by zero or more attributes.
 
@@ -117961,7 +117962,7 @@ Normative role: `definition`。
 
 ### SV2023-A.1.3-EXTRACT-PORT-DECL-INTERFACE-PORT
 
-`A.1.3` / `normal` / Test mapped; execution unconfirmed
+`A.1.3` / `normal` / Execution confirmed
 
 A port declaration may be a interface port declaration preceded by zero or more attributes.
 
@@ -117973,7 +117974,7 @@ Normative role: `definition`。
 
 ### SV2023-A.1.3-EXTRACT-PORT-DECL-OUTPUT
 
-`A.1.3` / `normal` / Test mapped; execution unconfirmed
+`A.1.3` / `normal` / Execution confirmed
 
 A port declaration may be a output declaration preceded by zero or more attributes.
 
@@ -117985,7 +117986,7 @@ Normative role: `definition`。
 
 ### SV2023-A.1.3-EXTRACT-PORT-DECL-REF
 
-`A.1.3` / `normal` / Test mapped; execution unconfirmed
+`A.1.3` / `normal` / Execution confirmed
 
 A port declaration may be a ref declaration preceded by zero or more attributes.
 
@@ -118009,7 +118010,7 @@ Normative role: `definition`。
 
 ### SV2023-A.1.3-EXTRACT-PORT-EXPRESSION
 
-`A.1.3` / `normal` / Test mapped; execution unconfirmed
+`A.1.3` / `normal` / Execution confirmed
 
 A port expression is one port reference or a brace concatenation of one or more comma-separated port references; a port reference is an identifier with constant_select.
 
@@ -118021,7 +118022,7 @@ Normative role: `definition`。
 
 ### SV2023-A.1.3-EXTRACT-PORT-FORMS
 
-`A.1.3` / `normal` / Test mapped; execution unconfirmed
+`A.1.3` / `normal` / Execution confirmed
 
 A non-ANSI port is an optional port expression or dot identifier and parentheses containing an optional port expression.
 
@@ -118247,7 +118248,7 @@ Normative role: `definition`。
 
 ### SV2023-A.1.4-EXTRACT-FATAL-GRAMMAR
 
-`A.1.4` / `normal` / Test mapped; execution unconfirmed
+`A.1.4` / `normal` / Execution confirmed
 
 A severity $fatal statement optionally supplies parentheses containing required finish_number and optional comma argument-list, followed by semicolon; finish_number is 0,1 or 2.
 
@@ -118705,7 +118706,7 @@ Normative role: `definition`。
 
 ### SV2023-A.1.8-EXTRACT-CHECKER-DECL-27
 
-`A.1.8` / `normal` / Test mapped; execution unconfirmed
+`A.1.8` / `normal` / Execution confirmed
 
 A checker/generate item declaration permits optional rand plus data declaration.
 
@@ -118729,7 +118730,7 @@ Normative role: `definition`。
 
 ### SV2023-A.1.8-EXTRACT-CHECKER-DECL-29
 
-`A.1.8` / `normal` / Test mapped; execution unconfirmed
+`A.1.8` / `normal` / Execution confirmed
 
 A checker/generate item declaration permits checker declaration.
 
@@ -120399,7 +120400,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.2.3-EXTRACT-DELAY-VALUE
 
-`A.2.2.3` / `normal` / Test mapped; execution unconfirmed
+`A.2.2.3` / `normal` / Execution confirmed
 
 A delay value is unsigned number, real number, package-scoped identifier, time literal or 1step.
 
@@ -120411,7 +120412,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.2.3-EXTRACT-DELAY2
 
-`A.2.2.3` / `normal` / Test mapped; execution unconfirmed
+`A.2.2.3` / `normal` / Execution confirmed
 
 delay2 is # delay value or # parenthesized one or two comma-separated mintypmax expressions.
 
@@ -120423,7 +120424,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.2.3-EXTRACT-DELAY3
 
-`A.2.2.3` / `normal` / Test mapped; execution unconfirmed
+`A.2.2.3` / `normal` / Execution confirmed
 
 delay3 is # delay value or # parenthesized one to three comma-separated mintypmax expressions.
 
@@ -120711,7 +120712,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.5-EXTRACT-PACKED
 
-`A.2.5` / `normal` / Test mapped; execution unconfirmed
+`A.2.5` / `normal` / Execution confirmed
 
 A packed dimension is bracketed constant range or unsized dimension subject to clarification 24.
 
@@ -121166,7 +121167,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.10-EXTRACT-CONCURRENT-ITEM
 
-`A.2.10` / `normal` / Test mapped; execution unconfirmed
+`A.2.10` / `normal` / Execution confirmed
 
 A concurrent assertion item is optionally labeled concurrent assertion statement or checker instantiation.
 
@@ -121731,7 +121732,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-BIN-KINDS
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 Bins keywords are bins, illegal_bins and ignore_bins; bins/options may also be coverage option.
 
@@ -121743,7 +121744,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-BINS-DEFAULT
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 A bins/option entry permits bins keyword, identifier with optional size brackets, = default, optional iff; all parenthesized with/iff expressions follow their respective grammar productions.
 
@@ -121755,7 +121756,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-BINS-DEFAULT-SEQUENCE
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 A bins/option entry permits bins keyword, identifier = default sequence, optional iff; all parenthesized with/iff expressions follow their respective grammar productions.
 
@@ -121767,7 +121768,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-BINS-RANGE
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 A bins/option entry permits optional wildcard, bins keyword, identifier with optional brackets containing optional covergroup expression, = brace-delimited range list, optional with expression and optional iff; all parenthesized with/iff expressions follow their respective grammar productions.
 
@@ -121779,7 +121780,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-BINS-SET
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 A bins/option entry permits optional wildcard, bins keyword, identifier with optional size brackets, = set expression, optional iff; all parenthesized with/iff expressions follow their respective grammar productions.
 
@@ -121791,7 +121792,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-BINS-TRANS
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 A bins/option entry permits optional wildcard, bins keyword, identifier with optional empty brackets, = transition list, optional iff; all parenthesized with/iff expressions follow their respective grammar productions.
 
@@ -121803,7 +121804,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-BINS-WITH
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 A bins/option entry permits optional wildcard, bins keyword, identifier with optional size brackets, = coverpoint identifier with(with expression), optional iff; all parenthesized with/iff expressions follow their respective grammar productions.
 
@@ -121815,7 +121816,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-BINSOF
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 A select condition is binsof(bins expression) with optional intersect brace-delimited range list; bins expression is variable identifier or coverpoint identifier optionally dot bin identifier.
 
@@ -121839,7 +121840,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-COVERAGE-EXPRESSIONS
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 with-covergroup expressions follow clarification 31, set-covergroup expressions clarification 32; integer-covergroup expression is covergroup expression or dollar; cross-set expression is covergroup expression.
 
@@ -121851,7 +121852,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-COVERAGE-RANGES
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 A covergroup range list is nonempty comma-separated values/ranges; each permits expression, bracketed low:high, $:high, low:$, center +/- delta or center +%- percentage.
 
@@ -121863,7 +121864,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-COVERGROUP
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 A covergroup declaration has identifier, optional parentheses with optional tf ports, optional coverage event, semicolon, repeated coverage specifications/options, endgroup and optional identifier label; the extends form has extends identifier, semicolon, body and same ending, subject to clarification 29.
 
@@ -121875,7 +121876,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-COVERPOINT
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 A coverpoint has optional typed identifier label, expression, optional iff(expression), and bins-or-empty; bins body is literal braces containing repeated attributed bins/options terminated by semicolons, or a single semicolon.
 
@@ -121887,7 +121888,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-CROSS
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 A cross permits optional identifier label, cross keyword, at least two comma-separated cross items, optional iff(expression) and cross body; each item is coverpoint or variable identifier.
 
@@ -121899,7 +121900,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-CROSS-BODY
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 A cross body is brace-delimited repeated function declarations or bins-selection/option entries with semicolon, or a single semicolon; bins selections/options permit repeated attributes.
 
@@ -121911,7 +121912,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-EVENT
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 Coverage events are clocking event, with function sample(optional tf-port list), or @@(block event expression).
 
@@ -121924,7 +121925,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-GENERAL-EXPRESSION
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 A covergroup expression is an expression subject to clarification 33.
 
@@ -121936,7 +121937,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-SELECT-AND
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 A select expression permits select && select, subject to matches precedence in clarification 30.
 
@@ -121948,7 +121949,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-SELECT-CONDITION
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 A select expression permits select condition, subject to matches precedence in clarification 30.
 
@@ -121960,7 +121961,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-SELECT-IDENTIFIER
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 A select expression permits cross identifier, subject to matches precedence in clarification 30.
 
@@ -121972,7 +121973,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-SELECT-NEGATED
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 A select expression permits ! select condition, subject to matches precedence in clarification 30.
 
@@ -121984,7 +121985,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-SELECT-OR
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 A select expression permits select || select, subject to matches precedence in clarification 30.
 
@@ -121996,7 +121997,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-SELECT-PAREN
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 A select expression permits parenthesized select expression, subject to matches precedence in clarification 30.
 
@@ -122008,7 +122009,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-SELECT-SET
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 A select expression permits cross-set expression with optional matches integer-covergroup expression, subject to matches precedence in clarification 30.
 
@@ -122020,7 +122021,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-SELECT-WITH
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 A select expression permits select expression with(with-covergroup expression) and optional matches integer-covergroup expression, subject to matches precedence in clarification 30.
 
@@ -122032,7 +122033,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-SELECTION
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 A bins selection is bins keyword identifier = select expression with optional iff(expression).
 
@@ -122056,7 +122057,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-TRANSITION-REPEAT
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 A transition-range list is range-list item optionally followed by \[* repeat\], \[-\> repeat\] or \[= repeat\]; repeat is covergroup expression or expression colon expression.
 
@@ -122068,7 +122069,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.11-EXTRACT-TRANSITIONS
 
-`A.2.11` / `normal` / Test mapped; execution unconfirmed
+`A.2.11` / `normal` / Execution confirmed
 
 A transition list is nonempty comma-separated parenthesized transition sets; each set contains one or more transition-range lists separated by =\>.
 
@@ -122514,7 +122515,7 @@ Normative role: `definition`。
 
 ### SV2023-A.4.1.4-EXTRACT-CHECKER
 
-`A.4.1.4` / `normal` / Test mapped; execution unconfirmed
+`A.4.1.4` / `normal` / Execution confirmed
 
 Checker instantiation uses package-scoped checker identifier, one instance name, parentheses with optional checker-port connections and semicolon.
 
@@ -123319,7 +123320,7 @@ Normative role: `definition`。
 
 ### SV2023-A.6.7-EXTRACT-CASE
 
-`A.6.7` / `normal` / Test mapped; execution unconfirmed
+`A.6.7` / `normal` / Execution confirmed
 
 A case statement has optional unique/unique0/priority then case/casez/casex(expression), nonempty case items and endcase; matched-pattern variant adds matches and uses case-pattern items; inside variant uses only case keyword plus inside and case-inside items.
 
@@ -123332,7 +123333,7 @@ Normative role: `definition`。
 
 ### SV2023-A.6.7-EXTRACT-CASE-ITEMS
 
-`A.6.7` / `normal` / Test mapped; execution unconfirmed
+`A.6.7` / `normal` / Execution confirmed
 
 Ordinary case items use a nonempty comma expression list colon statement/null; pattern items use pattern with optional &&& expression colon statement/null; inside items use range-list colon statement/null; all permit default with optional colon and statement/null.
 
@@ -123357,7 +123358,7 @@ Normative role: `definition`。
 
 ### SV2023-A.6.7-EXTRACT-VALUE-RANGE
 
-`A.6.7` / `normal` / Test mapped; execution unconfirmed
+`A.6.7` / `normal` / Execution confirmed
 
 A range list is nonempty and comma-separated; value ranges are expression or bracketed low:high, $:high, low:$, center +/- delta, or center +%- percentage.
 
@@ -123369,7 +123370,7 @@ Normative role: `definition`。
 
 ### SV2023-A.6.7.1-EXTRACT-ASSIGNMENT-PATTERN
 
-`A.6.7.1` / `normal` / Test mapped; execution unconfirmed
+`A.6.7.1` / `normal` / Execution confirmed
 
 Assignment patterns permit apostrophe braces containing nonempty expressions, structure-key colon expression pairs, array-key colon expression pairs, or a constant replication count followed by brace-delimited nonempty expressions.
 
@@ -123405,7 +123406,7 @@ Normative role: `definition`。
 
 ### SV2023-A.6.7.1-EXTRACT-PATTERN-LVALUE
 
-`A.6.7.1` / `normal` / Test mapped; execution unconfirmed
+`A.6.7.1` / `normal` / Execution confirmed
 
 Assignment-pattern net/variable lvalues use apostrophe braces containing nonempty comma-separated corresponding net/variable lvalues.
 
@@ -123465,7 +123466,7 @@ Normative role: `definition`。
 
 ### SV2023-A.6.7.1-EXTRACT-PATTERN-TYPES
 
-`A.6.7.1` / `normal` / Test mapped; execution unconfirmed
+`A.6.7.1` / `normal` / Execution confirmed
 
 Assignment-pattern expression has optional package-scoped type identifier, package-scoped parameter identifier, integer atom type or type-reference type; its constant form requires every member constant under clarification 37.
 
@@ -123813,7 +123814,7 @@ Normative role: `definition`。
 
 ### SV2023-A.6.12-EXTRACT-ELEMENT
 
-`A.6.12` / `normal` / Test mapped; execution unconfirmed
+`A.6.12` / `normal` / Execution confirmed
 
 Production elements permit production item, code block, if-else, repeat or case; production item is identifier with optional parentheses containing argument list.
 
@@ -123849,7 +123850,7 @@ Normative role: `definition`。
 
 ### SV2023-A.6.12-EXTRACT-PRODUCTION
 
-`A.6.12` / `normal` / Test mapped; execution unconfirmed
+`A.6.12` / `normal` / Execution confirmed
 
 A production has optional return type/void, identifier, optional parentheses with nonempty tf ports, colon, one or more rules separated by | and semicolon.
 
@@ -123873,7 +123874,7 @@ Normative role: `definition`。
 
 ### SV2023-A.6.12-EXTRACT-RULE
 
-`A.6.12` / `normal` / Test mapped; execution unconfirmed
+`A.6.12` / `normal` / Execution confirmed
 
 A rule is production list with optional := weight and optional code block following that weight; weight is integral number, package-scoped identifier or parenthesized expression.
 
@@ -123933,7 +123934,7 @@ Normative role: `definition`。
 
 ### SV2023-A.7.2-EXTRACT-PATH
 
-`A.7.2` / `normal` / Test mapped; execution unconfirmed
+`A.7.2` / `normal` / Execution confirmed
 
 Path declarations are simple, edge-sensitive or state-dependent declarations terminated by semicolon; simple and edge-sensitive declarations assign path-delay value to parallel/full path description.
 
@@ -124079,7 +124080,7 @@ Normative role: `definition`。
 
 ### SV2023-A.7.5.1-EXTRACT-COMMANDS
 
-`A.7.5.1` / `normal` / Test mapped; execution unconfirmed
+`A.7.5.1` / `normal` / Execution confirmed
 
 System timing checks include setup, hold, setuphold, recovery, removal, recrem, skew, timeskew, fullskew, period, width and nochange forms, each a dollar-prefixed call with parentheses and semicolon.
 
@@ -124093,7 +124094,7 @@ Normative role: `definition`。
 
 ### SV2023-A.7.5.1-EXTRACT-FULLSKEW
 
-`A.7.5.1` / `normal` / Test mapped; execution unconfirmed
+`A.7.5.1` / `normal` / Execution confirmed
 
 $fullskew requires reference event,data event,two timing limits; trailing optional positions are notifier,event-based flag,remain-active flag in order, allowing omitted actuals and commas through included trailing positions. This records the supplied BNF; semantic requirements also apply.
 
@@ -124213,7 +124214,7 @@ Normative role: `definition`。
 
 ### SV2023-A.7.5.1-EXTRACT-TIMESKEW
 
-`A.7.5.1` / `normal` / Test mapped; execution unconfirmed
+`A.7.5.1` / `normal` / Execution confirmed
 
 $timeskew requires reference event,data event,timing limit; trailing optional positions are notifier,event-based flag,remain-active flag in order, allowing omitted actuals and commas through included trailing positions. This records the supplied BNF; semantic requirements also apply.
 
@@ -124249,7 +124250,7 @@ Normative role: `definition`。
 
 ### SV2023-A.7.5.2-EXTRACT-ARG-32
 
-`A.7.5.2` / `normal` / Test mapped; execution unconfirmed
+`A.7.5.2` / `normal` / Execution confirmed
 
 The timing-check event-based flag is a constant expression.
 
@@ -124261,7 +124262,7 @@ Normative role: `definition`。
 
 ### SV2023-A.7.5.2-EXTRACT-ARG-33
 
-`A.7.5.2` / `normal` / Test mapped; execution unconfirmed
+`A.7.5.2` / `normal` / Execution confirmed
 
 The timing-check notifier is a variable identifier.
 
@@ -124273,7 +124274,7 @@ Normative role: `definition`。
 
 ### SV2023-A.7.5.2-EXTRACT-ARG-34
 
-`A.7.5.2` / `normal` / Test mapped; execution unconfirmed
+`A.7.5.2` / `normal` / Execution confirmed
 
 The timing-check remain-active flag is a constant mintypmax expression.
 
@@ -124321,7 +124322,7 @@ Normative role: `definition`。
 
 ### SV2023-A.7.5.2-EXTRACT-ARG-38
 
-`A.7.5.2` / `normal` / Test mapped; execution unconfirmed
+`A.7.5.2` / `normal` / Execution confirmed
 
 The timing-check threshold is a constant expression.
 
@@ -124333,7 +124334,7 @@ Normative role: `definition`。
 
 ### SV2023-A.7.5.2-EXTRACT-ARG-39
 
-`A.7.5.2` / `normal` / Test mapped; execution unconfirmed
+`A.7.5.2` / `normal` / Execution confirmed
 
 The timing-check timing-check limit is a expression.
 
@@ -124477,7 +124478,7 @@ Normative role: `definition`。
 
 ### SV2023-A.8.1-EXTRACT-STREAM-RANGE
 
-`A.8.1` / `normal` / Test mapped; execution unconfirmed
+`A.8.1` / `normal` / Execution confirmed
 
 Stream expression is expression with optional with\[range\]; range is expression, low:high, base+:width or base-:width, all using expressions.
 
@@ -125150,7 +125151,7 @@ Normative role: `definition`。
 
 ### SV2023-A.8.4-EXTRACT-PRIMARY-57
 
-`A.8.4` / `normal` / Test mapped; execution unconfirmed
+`A.8.4` / `normal` / Execution confirmed
 
 A primary may be sequence-method call.
 
@@ -125223,7 +125224,7 @@ Normative role: `definition`。
 
 ### SV2023-A.8.5-EXTRACT-NET-LVALUE
 
-`A.8.5` / `normal` / Test mapped; execution unconfirmed
+`A.8.5` / `normal` / Execution confirmed
 
 Net lvalue is package-scoped/hierarchical net identifier and constant select, nonempty brace-delimited net-lvalue concatenation or optionally typed assignment-pattern net lvalue.
 
@@ -125248,7 +125249,7 @@ Normative role: `definition`。
 
 ### SV2023-A.8.5-EXTRACT-VARIABLE-LVALUE
 
-`A.8.5` / `normal` / Test mapped; execution unconfirmed
+`A.8.5` / `normal` / Execution confirmed
 
 Variable lvalue permits optionally implicit-class-handle-dot/package-scoped hierarchical variable with select under clarification 51, nonempty brace-delimited variable-lvalue concatenation, optionally typed assignment-pattern variable lvalue or streaming concatenation under clarification 52.
 
@@ -125791,7 +125792,7 @@ Normative role: `definition`。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-HIERARCHICAL-PROPERTY-IDENTIFIER
 
-`A.9.3` / `normal` / Test mapped; execution unconfirmed
+`A.9.3` / `normal` / Execution confirmed
 
 The identifier category hierarchical_property_identifier uses hierarchical_identifier grammar.
 
@@ -125803,7 +125804,7 @@ Normative role: `definition`。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-HIERARCHICAL-SEQUENCE-IDENTIFIER
 
-`A.9.3` / `normal` / Test mapped; execution unconfirmed
+`A.9.3` / `normal` / Execution confirmed
 
 The identifier category hierarchical_sequence_identifier uses hierarchical_identifier grammar.
 
@@ -126067,7 +126068,7 @@ Normative role: `definition`。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-PROPERTY-IDENTIFIER
 
-`A.9.3` / `normal` / Test mapped; execution unconfirmed
+`A.9.3` / `normal` / Execution confirmed
 
 The identifier category property_identifier uses identifier grammar.
 
@@ -126091,7 +126092,7 @@ Normative role: `definition`。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-SEQUENCE-IDENTIFIER
 
-`A.9.3` / `normal` / Test mapped; execution unconfirmed
+`A.9.3` / `normal` / Execution confirmed
 
 The identifier category sequence_identifier uses identifier grammar.
 
@@ -126296,7 +126297,7 @@ Normative role: `definition`。
 
 ### SV2023-A.9.3-EXTRACT-SCOPED-HIERARCHICAL
 
-`A.9.3` / `normal` / Test mapped; execution unconfirmed
+`A.9.3` / `normal` / Execution confirmed
 
 Net/property/sequence/task-function identifier forms permit optionally package-scoped corresponding simple identifier or corresponding hierarchical identifier.
 
@@ -126550,7 +126551,7 @@ Normative role: `mandatory`。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-24
 
-`A.10` / `normal` / Test mapped; execution unconfirmed
+`A.10` / `normal` / Execution confirmed
 
 An unsized packed dimension is allowed only as the sole packed dimension in a DPI import declaration.
 
@@ -126908,7 +126909,7 @@ Normative role: `mandatory`。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-51
 
-`A.10` / `normal` / Test mapped; execution unconfirmed
+`A.10` / `normal` / Execution confirmed
 
 A variable lvalue assigned in a sequence match item must use constant selects.
 
@@ -133669,7 +133670,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.2-EXTRACT-CANONICAL
 
-`H.2` / `normal` / Test mapped; execution unconfirmed
+`H.2` / `normal` / Execution confirmed
 
 Packed arrays/structures/unions use canonical representation; 4-state representation matches VPI aval/bval and 2-state representation is consistent with it; utility APIs are supplied.
 
@@ -133704,7 +133705,7 @@ Normative role: `definition`。
 
 ### SV2023-H.2-EXTRACT-HEADER
 
-`H.2` / `normal` / Test mapped; execution unconfirmed
+`H.2` / `normal` / Execution confirmed
 
 Normative svdpi.h defines basic types,canonical representations and interface functions.
 
@@ -133988,7 +133989,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.7.1-EXTRACT-PACKED-DIMS
 
-`H.7.1` / `normal` / Test mapped; execution unconfirmed
+`H.7.1` / `normal` / Execution confirmed
 
 Compiler linearizes any number of packed dimensions to one; open-array actual packed dimensions additionally normalize, even though original unpacked ranges are preserved.
 
@@ -134049,7 +134050,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.7.3-EXTRACT-PACKED
 
-`H.7.3` / `normal` / Test mapped; execution unconfirmed
+`H.7.3` / `normal` / Execution confirmed
 
 Packed types including integer/time use canonical H.7.7 representation.
 
@@ -134061,7 +134062,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.7.3-EXTRACT-SIZED-ARRAY
 
-`H.7.3` / `normal` / Test mapped; execution unconfirmed
+`H.7.3` / `normal` / Execution confirmed
 
 Unpacked arrays inside structures and stand-alone actuals to sized formals use C-compatible layout regardless of element type.
 
@@ -134073,7 +134074,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.7.3-EXTRACT-UNPACKED
 
-`H.7.3` / `normal` / Test mapped; execution unconfirmed
+`H.7.3` / `normal` / Execution confirmed
 
 Types without packed constituents use C-compatible representation; basic integer/real types use H.7.4.
 
@@ -134110,7 +134111,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.7.4-EXTRACT-RANDOM-QUALIFIER
 
-`H.7.4` / `normal` / Test mapped; execution unconfirmed
+`H.7.4` / `normal` / Execution confirmed
 
 rand/randc may occur on DPI struct/union formals and actuals but have no C-side semantic effect and undergo qualifier coercion.
 
@@ -134351,7 +134352,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.7.8-EXTRACT-AGGREGATES
 
-`H.7.8` / `normal` / Test mapped; execution unconfirmed
+`H.7.8` / `normal` / Execution confirmed
 
 Imports/exports support unpacked arrays/structures including packed/unpacked elements and nested aggregates of permitted basic types.
 
@@ -134363,7 +134364,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.7.8-EXTRACT-LAYOUT
 
-`H.7.8` / `normal` / Test mapped; execution unconfirmed
+`H.7.8` / `normal` / Execution confirmed
 
 Purely unpacked aggregates have layout compatible with platform C compiler; packed constituents are also permitted subject to canonical rules.
 
@@ -134423,7 +134424,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.8.2-EXTRACT-TASK-RESULT
 
-`H.8.2` / `normal` / Test mapped; execution unconfirmed
+`H.8.2` / `normal` / Execution confirmed
 
 Exported task returns C int for disable protocol under 35.9, unlike ordinary function result.
 
@@ -135373,7 +135374,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.12.1-EXTRACT-CHOICE
 
-`H.12.1` / `normal` / Test mapped; execution unconfirmed
+`H.12.1` / `normal` / Execution confirmed
 
 Programmer can choose sized or open formal arrays; open sizes/ranges depend on actual per call.
 
@@ -135385,7 +135386,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.12.1-EXTRACT-PASSING
 
-`H.12.1` / `normal` / Test mapped; execution unconfirmed
+`H.12.1` / `normal` / Execution confirmed
 
 Sized arrays pass by reference and direct normalized access; open arrays by handle and indirect access.
 
@@ -135409,7 +135410,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.12.1-EXTRACT-SIZED
 
-`H.12.1` / `normal` / Test mapped; execution unconfirmed
+`H.12.1` / `normal` / Execution confirmed
 
 Sized-formal C access is normalized and requires known size and SV-to-C mapping.
 
@@ -135421,7 +135422,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.12.2-EXTRACT-DIMENSION
 
-`H.12.2` / `normal` / Test mapped; execution unconfirmed
+`H.12.2` / `normal` / Execution confirmed
 
 Query dimension zero addresses sole packed dimension; positive dimensions address unpacked dimensions.
 
@@ -136022,7 +136023,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.13-EXTRACT-TIME
 
-`H.13` / `normal` / Test mapped; execution unconfirmed
+`H.13` / `normal` / Execution confirmed
 
 svGetTime returns current time scaled to supplied scope unit, selecting scaled-real/simulation time by svTimeVal.type; NULL scope selects simulation time unit.
 
@@ -136034,7 +136035,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.13-EXTRACT-TIME-TYPE
 
-`H.13` / `normal` / Test mapped; execution unconfirmed
+`H.13` / `normal` / Execution confirmed
 
 svTimeVal is defined in svdpi.h and equivalent to s_vpi_time.
 
@@ -136046,7 +136047,7 @@ Normative role: `definition`。
 
 ### SV2023-H.13-EXTRACT-UNIT-PRECISION
 
-`H.13` / `normal` / Test mapped; execution unconfirmed
+`H.13` / `normal` / Execution confirmed
 
 svGetTimeUnit/svGetTimePrecision query corresponding scope properties, equivalent to VPI time-unit/precision properties; NULL selects simulation time unit as stated.
 
@@ -137949,7 +137950,7 @@ Normative role: `mandatory`。
 
 ### SV2023-I.3-EXTRACT-SEMANTICS-SVGETTIME
 
-`I.3` / `normal` / Test mapped; execution unconfirmed
+`I.3` / `normal` / Execution confirmed
 
 svGetTime queries scoped current time/time-unit/time-precision respectively; NULL scope selects simulation time unit; invalid scope is error; return -1 on error,0 success.
 
@@ -137961,7 +137962,7 @@ Normative role: `mandatory`。
 
 ### SV2023-I.3-EXTRACT-SEMANTICS-SVGETTIMEPRECISION
 
-`I.3` / `normal` / Test mapped; execution unconfirmed
+`I.3` / `normal` / Execution confirmed
 
 svGetTimePrecision queries scoped current time/time-unit/time-precision respectively; NULL scope selects simulation time unit; invalid scope is error; return -1 on error,0 success.
 
@@ -137973,7 +137974,7 @@ Normative role: `mandatory`。
 
 ### SV2023-I.3-EXTRACT-SEMANTICS-SVGETTIMEUNIT
 
-`I.3` / `normal` / Test mapped; execution unconfirmed
+`I.3` / `normal` / Execution confirmed
 
 svGetTimeUnit queries scoped current time/time-unit/time-precision respectively; NULL scope selects simulation time unit; invalid scope is error; return -1 on error,0 success.
 
@@ -145813,7 +145814,7 @@ Normative role: `mandatory`。
 
 ### SV2023-L.2-EXTRACT-RECENT-VERSIONS
 
-`L.2` / `normal` / Test mapped; execution unconfirmed
+`L.2` / `normal` / Execution confirmed
 
 2023 and 2017 compatibility selections define the 2012 compatibility selection for function remapping.
 
