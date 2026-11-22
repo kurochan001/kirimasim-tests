@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_sha256": "c6d8c519cdcba958021bfc1ad8b62abbb291b83e0d6ec64d0ae4299b997c6c45",
+  "source_sha256": "d77d56bcb75740b2bd28ebe3cc6bba8fb35b22b709c3bb8dcf93d7a431b95534",
   "models": [
     {
       "id": "scheduling_visibility",
@@ -65211,8 +65211,8 @@
     {
       "source": "results/ghost.json",
       "simulator": "ghost",
-      "version": "private build dbabb459b24a",
-      "generated_at": "2026-11-21T02:40:17.430588+00:00",
+      "version": "private build 1663bc821744",
+      "generated_at": "2026-11-22T00:31:56.556596+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -66947,8 +66947,8 @@
         },
         "array_reduction_constraint": {
           "case_statuses": {
-            "pass": 11,
-            "fail": 2,
+            "pass": 13,
+            "fail": 0,
             "known": 0,
             "unsupported": 0,
             "stale": 0,
@@ -66956,24 +66956,24 @@
           },
           "coverage": {
             "2": {
-              "passed": 90,
+              "passed": 96,
               "total": 96,
-              "missing": 6
+              "missing": 0
             },
             "3": {
-              "passed": 33,
+              "passed": 40,
               "total": 40,
-              "missing": 7
+              "missing": 0
             }
           },
           "mandatory_witnesses": {
             "tests/gen/ch18/test_gen_cross_randreduce_4_unsigned_fixed_sum_element_2_sat_fail_sat.sv": "pass",
-            "tests/gen/ch18/test_gen_cross_randreduce_33_unsigned_dynamic_product_wide_3_fail_sat_fail.sv": "fail",
+            "tests/gen/ch18/test_gen_cross_randreduce_33_unsigned_dynamic_product_wide_3_fail_sat_fail.sv": "pass",
             "tests/gen/ch18/test_gen_cross_randreduce_8_signed_fixed_product_element_3_fail_sat_fail.sv": "pass",
             "tests/gen/ch18/test_gen_cross_randreduce_33_signed_dynamic_sum_wide_2_sat_fail_sat.sv": "pass"
           },
           "provenance_problem": "",
-          "complete": false
+          "complete": true
         },
         "associative_array_queries": {
           "case_statuses": {
@@ -68762,8 +68762,8 @@
     {
       "source": "results/icarus.json",
       "simulator": "icarus",
-      "version": "Icarus Verilog version 14.0 (devel) (s20260301-1253-gc20d73fe)",
-      "generated_at": "2026-11-21T01:26:17.942420+00:00",
+      "version": "Icarus Verilog version 14.0 (devel) (s20260301-1256-ga225510e)",
+      "generated_at": "2026-11-22T00:09:41.946751+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -72313,8 +72313,8 @@
     {
       "source": "results/kirimasim.json",
       "simulator": "kirimasim",
-      "version": "kirimasim 0.1.3 (commit 256839f71089), built with GNU 13.3.0",
-      "generated_at": "2026-11-21T02:08:35.590607+00:00",
+      "version": "kirimasim 0.1.3 (commit ad004a67d861), built with GNU 13.3.0",
+      "generated_at": "2026-11-22T00:43:53.654163+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -75864,8 +75864,8 @@
     {
       "source": "results/lyra.json",
       "simulator": "lyra",
-      "version": "Lyra (commit e17c9a53c9eb)",
-      "generated_at": "2026-11-21T05:35:16.630166+00:00",
+      "version": "Lyra (commit 387248dcd328)",
+      "generated_at": "2026-11-22T03:50:33.923995+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -78675,8 +78675,8 @@
         },
         "literal_context_extension": {
           "case_statuses": {
-            "pass": 63,
-            "fail": 3,
+            "pass": 65,
+            "fail": 1,
             "known": 0,
             "unsupported": 0,
             "stale": 0,
@@ -78684,14 +78684,14 @@
           },
           "coverage": {
             "2": {
-              "passed": 298,
+              "passed": 299,
               "total": 303,
-              "missing": 5
+              "missing": 4
             },
             "3": {
-              "passed": 140,
+              "passed": 145,
               "total": 148,
-              "missing": 8
+              "missing": 3
             }
           },
           "mandatory_witnesses": {
@@ -78701,8 +78701,8 @@
             "tests/gen/ch5/test_gen_cross_literal_d_signed_unsized_x_cond_bit_65.sv": "pass",
             "tests/gen/ch5/test_gen_cross_literal_fill_unsigned_unsized_one_add_signed_logic_65.sv": "fail",
             "tests/gen/ch5/test_gen_cross_literal_fill_unsigned_unsized_x_assign_bit_8.sv": "pass",
-            "tests/gen/ch5/test_gen_cross_literal_h_unsigned_unsized_x_assign_logic_65.sv": "fail",
-            "tests/gen/ch5/test_gen_cross_literal_b_unsigned_unsized_z_cond_signed_33.sv": "fail"
+            "tests/gen/ch5/test_gen_cross_literal_h_unsigned_unsized_x_assign_logic_65.sv": "pass",
+            "tests/gen/ch5/test_gen_cross_literal_b_unsigned_unsized_z_cond_signed_33.sv": "pass"
           },
           "provenance_problem": "",
           "complete": false
@@ -79280,8 +79280,8 @@
         },
         "program_hierarchy_instances": {
           "case_statuses": {
-            "pass": 14,
-            "fail": 10,
+            "pass": 20,
+            "fail": 4,
             "known": 0,
             "unsupported": 0,
             "stale": 0,
@@ -79289,20 +79289,20 @@
           },
           "coverage": {
             "2": {
-              "passed": 70,
+              "passed": 82,
               "total": 90,
-              "missing": 20
+              "missing": 8
             },
             "3": {
-              "passed": 30,
+              "passed": 43,
               "total": 52,
-              "missing": 22
+              "missing": 9
             }
           },
           "mandatory_witnesses": {
             "tests/gen/ch24/test_gen_cross_progmod_nested_one_upward_defparam_none_ignored.sv": "fail",
             "tests/gen/ch24/test_gen_cross_progmod_implicit_top_one_absolute_default_none_ignored.sv": "pass",
-            "tests/gen/ch24/test_gen_cross_progmod_child_inst_two_absolute_defparam_read_none.sv": "fail",
+            "tests/gen/ch24/test_gen_cross_progmod_child_inst_two_absolute_defparam_read_none.sv": "pass",
             "tests/gen/ch24/test_gen_cross_progmod_nested_inst_two_upward_override_read_ignored.sv": "pass",
             "tests/gen/ch24/test_gen_cross_progmod_top_inst_two_absolute_override_read_none.sv": "pass",
             "tests/gen/ch24/test_gen_cross_progmod_top_inst_one_absolute_default_none_ignored.sv": "pass"
@@ -79384,8 +79384,8 @@
         },
         "aggregate_literal_key": {
           "case_statuses": {
-            "pass": 42,
-            "fail": 6,
+            "pass": 48,
+            "fail": 0,
             "known": 0,
             "unsupported": 0,
             "stale": 0,
@@ -79393,9 +79393,9 @@
           },
           "coverage": {
             "2": {
-              "passed": 92,
+              "passed": 104,
               "total": 104,
-              "missing": 12
+              "missing": 0
             }
           },
           "mandatory_witnesses": {
@@ -79403,20 +79403,20 @@
             "tests/gen/ch5/test_gen_cross_agglit_last_type_real_typed.sv": "pass",
             "tests/gen/ch5/test_gen_cross_agglit_type_fillx_init.sv": "pass",
             "tests/gen/ch5/test_gen_cross_agglit_default_wide_assign.sv": "pass",
-            "tests/gen/ch5/test_gen_cross_agglit_replicate_fill1_typed.sv": "fail",
+            "tests/gen/ch5/test_gen_cross_agglit_replicate_fill1_typed.sv": "pass",
             "tests/gen/ch5/test_gen_cross_agglit_member_neg_assign.sv": "pass",
             "tests/gen/ch5/test_gen_cross_agglit_type_default_fillx_assign.sv": "pass"
           },
           "provenance_problem": "",
-          "complete": false
+          "complete": true
         }
       }
     },
     {
       "source": "results/verilator.json",
       "simulator": "verilator",
-      "version": "Verilator 5.055 devel rev v5.054-348-g9b3b1d98",
-      "generated_at": "2026-11-21T03:13:42.994919+00:00",
+      "version": "Verilator 5.055 devel rev v5.054-354-g005ee501",
+      "generated_at": "2026-11-22T02:10:13.853298+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {

@@ -6,9 +6,9 @@
 
 This report is only for registered finite models. The coverage of the requirements and the combination of all languages is not the same. The coverage on the plan and the confirmation of the pass based on the execution result are divided. The existing test is not reduced. A reduction in selected case count is not a measured reduction in runtime.
 
-For the source, use, and limits of application, see [Import procedure](https://github.com/kurochan001/kirimasim-tests/blob/82b5713ffacca6048e89ffac200dd42bcca8e93a/docs/interaction-verification.en.md).
+For the source, use, and limits of application, see [Import procedure](https://github.com/kurochan001/kirimasim-tests/blob/8569148236db9a89e43ebd5bd56fa5ffe904aaf1/docs/interaction-verification.en.md).
 
-See [a 4-row example](https://github.com/kurochan001/kirimasim-tests/blob/82b5713ffacca6048e89ffac200dd42bcca8e93a/docs/faq.en.md#q28-why-not-simply-cross-every-feature) for what 100% of 2-factor coverage establishes, and [passing-execution satisfaction](https://github.com/kurochan001/kirimasim-tests/blob/82b5713ffacca6048e89ffac200dd42bcca8e93a/docs/faq.en.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution) for the difference between the plan and actual PASS.
+See [a 4-row example](https://github.com/kurochan001/kirimasim-tests/blob/8569148236db9a89e43ebd5bd56fa5ffe904aaf1/docs/faq.en.md#q28-why-not-simply-cross-every-feature) for what 100% of 2-factor coverage establishes, and [passing-execution satisfaction](https://github.com/kurochan001/kirimasim-tests/blob/8569148236db9a89e43ebd5bd56fa5ffe904aaf1/docs/faq.en.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution) for the difference between the plan and actual PASS.
 
 ## scheduling_visibility / model 1
 
@@ -2337,8 +2337,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/ghost.json
 
-- Environment: private build dbabb459b24a.
-- Execution timestamp: 2026-11-21T02:40:17.430588+00:00.
+- Environment: private build 1663bc821744.
+- Execution timestamp: 2026-11-22T00:31:56.556596+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -2620,10 +2620,10 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 4/4.
   - Case statuses: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - array_reduction_constraint:
-  - The confirmed combination of the 2 factor: 90/96.
-  - The confirmed combination of the 3 factor: 33/40.
-  - Mandatory case: 3/4.
-  - Case statuses: pass=11, fail=2, known=0, unsupported=0, stale=0, not_run=0.
+  - The confirmed combination of the 2 factor: 96/96.
+  - The confirmed combination of the 3 factor: 40/40.
+  - Mandatory case: 4/4.
+  - Case statuses: pass=13, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - associative_array_queries:
   - The confirmed combination of the 2 factor: 93/93.
   - The confirmed combination of the 3 factor: 54/54.
@@ -2897,8 +2897,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/icarus.json
 
-- Environment: Icarus Verilog version 14.0 (devel) (s20260301-1253-gc20d73fe).
-- Execution timestamp: 2026-11-21T01:26:17.942420+00:00.
+- Environment: Icarus Verilog version 14.0 (devel) (s20260301-1256-ga225510e).
+- Execution timestamp: 2026-11-22T00:09:41.946751+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -3457,8 +3457,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/kirimasim.json
 
-- Environment: kirimasim 0.1.3 (commit 256839f71089), built with GNU 13.3.0.
-- Execution timestamp: 2026-11-21T02:08:35.590607+00:00.
+- Environment: kirimasim 0.1.3 (commit ad004a67d861), built with GNU 13.3.0.
+- Execution timestamp: 2026-11-22T00:43:53.654163+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -4017,8 +4017,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/lyra.json
 
-- Environment: Lyra (commit e17c9a53c9eb).
-- Execution timestamp: 2026-11-21T05:35:16.630166+00:00.
+- Environment: Lyra (commit 387248dcd328).
+- Execution timestamp: 2026-11-22T03:50:33.923995+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 111/126.
@@ -4470,10 +4470,10 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 6/6.
   - Case statuses: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - literal_context_extension:
-  - The confirmed combination of the 2 factor: 298/303.
-  - The confirmed combination of the 3 factor: 140/148.
-  - Mandatory case: 5/8.
-  - Case statuses: pass=63, fail=3, known=0, unsupported=0, stale=0, not_run=0.
+  - The confirmed combination of the 2 factor: 299/303.
+  - The confirmed combination of the 3 factor: 145/148.
+  - Mandatory case: 7/8.
+  - Case statuses: pass=65, fail=1, known=0, unsupported=0, stale=0, not_run=0.
 - gate_array_connection:
   - The confirmed combination of the 2 factor: 0/278.
   - The confirmed combination of the 3 factor: 0/135.
@@ -4556,10 +4556,10 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 7/7.
   - Case statuses: pass=24, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - program_hierarchy_instances:
-  - The confirmed combination of the 2 factor: 70/90.
-  - The confirmed combination of the 3 factor: 30/52.
-  - Mandatory case: 4/6.
-  - Case statuses: pass=14, fail=10, known=0, unsupported=0, stale=0, not_run=0.
+  - The confirmed combination of the 2 factor: 82/90.
+  - The confirmed combination of the 3 factor: 43/52.
+  - Mandatory case: 5/6.
+  - Case statuses: pass=20, fail=4, known=0, unsupported=0, stale=0, not_run=0.
 - program_interface_regions:
   - The confirmed combination of the 2 factor: 131/131.
   - The confirmed combination of the 3 factor: 82/82.
@@ -4571,14 +4571,14 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 10/10.
   - Case statuses: pass=42, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - aggregate_literal_key:
-  - The confirmed combination of the 2 factor: 92/104.
-  - Mandatory case: 6/7.
-  - Case statuses: pass=42, fail=6, known=0, unsupported=0, stale=0, not_run=0.
+  - The confirmed combination of the 2 factor: 104/104.
+  - Mandatory case: 7/7.
+  - Case statuses: pass=48, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 
 ### results/verilator.json
 
-- Environment: Verilator 5.055 devel rev v5.054-348-g9b3b1d98.
-- Execution timestamp: 2026-11-21T03:13:42.994919+00:00.
+- Environment: Verilator 5.055 devel rev v5.054-354-g005ee501.
+- Execution timestamp: 2026-11-22T02:10:13.853298+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.

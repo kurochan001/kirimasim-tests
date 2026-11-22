@@ -4,9 +4,9 @@
 
 [English](behavior-coverage-summary.en.md) / [日本語](behavior-coverage-summary.md)
 
-[全項目の詳細](behavior-coverage.md) / [管理手順](https://github.com/kurochan001/kirimasim-tests/blob/82b5713ffacca6048e89ffac200dd42bcca8e93a/coverage/README.md) / [解釈・再検討記録](https://github.com/kurochan001/kirimasim-tests/blob/82b5713ffacca6048e89ffac200dd42bcca8e93a/docs/requirement-extraction-notes.md)
+[全項目の詳細](behavior-coverage.md) / [管理手順](https://github.com/kurochan001/kirimasim-tests/blob/8569148236db9a89e43ebd5bd56fa5ffe904aaf1/coverage/README.md) / [解釈・再検討記録](https://github.com/kurochan001/kirimasim-tests/blob/8569148236db9a89e43ebd5bd56fa5ffe904aaf1/docs/requirement-extraction-notes.md)
 
-割合の分母は要求台帳の行で、テスト本数ではありません。[設計・実行・PASSの違い](https://github.com/kurochan001/kirimasim-tests/blob/82b5713ffacca6048e89ffac200dd42bcca8e93a/docs/faq.md#q16-how-do-design-and-execution-coverage-differ)を具体例で確認できます。
+割合の分母は要求台帳の行で、テスト本数ではありません。[設計・実行・PASSの違い](https://github.com/kurochan001/kirimasim-tests/blob/8569148236db9a89e43ebd5bd56fa5ffe904aaf1/docs/faq.md#q16-how-do-design-and-execution-coverage-differ)を具体例で確認できます。
 
 <a id="value-for-all-standards-in-the-required-table"></a>
 
@@ -14,7 +14,7 @@
 
 - 要求カバレッジ（テスト設計）: **93.15%** (11487/12332)。
 - Ghostを除く実行確認率: **43.11%** (5316/12332)。第三者が再現できるIcarus Verilog・Verilator・SymbiYosysの成功の和集合。うちシミュレータで確認した要求は5316行、formalだけで確認した要求は0行です。
-- 実行確認率: **78.39%** (9667/12332)。複数環境の成功の和集合。うちシミュレータで確認した要求は9667行、formalだけで確認した要求は0行です。
+- 実行確認率: **78.40%** (9668/12332)。複数環境の成功の和集合。うちシミュレータで確認した要求は9668行、formalだけで確認した要求は0行です。
 - 分母には解釈保留と未対応も含みます。未実装・未対応を除外していません。
 - 登録単位は要求の出現箇所・条件・観測ケースであり、分母のレビューで意味の重複を統合しています。 全プログラム・全入力の組み合わせを試した割合や、単一シミュレータの規格適合率ではありません。
 
@@ -33,7 +33,7 @@
 ## 確定値
 
 - 要求カバレッジ（テスト設計）: 93.15%。
-- 規格要求の実行確認率: Ghostを除いて 43.11%、Ghostを含めて 78.39%。
+- 規格要求の実行確認率: Ghostを除いて 43.11%、Ghostとkirimasimを含めて 78.40%。
 - 分母の承認: 承認済み。計測状態: `confirmed`。
 - 資料確認、保留解釈の解決、要求単位の重複整理、分母のレビューを経て確定しました。
 
@@ -41,8 +41,8 @@
 
 ## 残件
 
-- 現行入力に対応するパス結果の記録あり: 9667 行。
-- 対応済み・パス結果の記録なし: 1820 行。
+- 現行入力に対応するパス結果の記録あり: 9668 行。
+- 対応済み・パス結果の記録なし: 1819 行。
 - テスト対応未確認（解釈保留以外）: 845 行。
 - 解釈保留: 0 行。
 
@@ -52,13 +52,13 @@
 
 ## シミュレータ別の実行確認率
 
-各行は独立した保存実行です。小範囲の実行で未実行が多い場合もあるため、[日時・版・対象範囲の読み方](https://github.com/kurochan001/kirimasim-tests/blob/82b5713ffacca6048e89ffac200dd42bcca8e93a/docs/faq.md#q14-why-do-main-results-or-simulator-totals-differ)と計測元を確認してください。
+各行は独立した保存実行です。小範囲の実行で未実行が多い場合もあるため、[日時・版・対象範囲の読み方](https://github.com/kurochan001/kirimasim-tests/blob/8569148236db9a89e43ebd5bd56fa5ffe904aaf1/docs/faq.md#q14-why-do-main-results-or-simulator-totals-differ)と計測元を確認してください。
 
-- `ghost` / `private build dbabb459b24a`: 9658/12332 (78.32%)。 計測元: `2026-11-21T02:40:17.430588+00:00` / `ghost.json`。 失敗 26、既知不一致 0、未対応 0、未実行 290、古い証跡 0、規格違反テストの判定根拠が未承認 1513 行。
-- `icarus` / `Icarus Verilog version 14.0 (devel) (s20260301-1253-gc20d73fe)`: 2663/12332 (21.59%)。 計測元: `2026-11-21T01:26:17.942420+00:00` / `icarus.json`。 失敗 27、既知不一致 7360、未対応 0、未実行 290、古い証跡 0、規格違反テストの判定根拠が未承認 1147 行。
-- `kirimasim` / `kirimasim 0.1.3 (commit 256839f71089), built with GNU 13.3.0`: 3108/12332 (25.20%)。 計測元: `2026-11-21T02:08:35.590607+00:00` / `kirimasim.json`。 失敗 163、既知不一致 0、未対応 6531、未実行 290、古い証跡 0、規格違反テストの判定根拠が未承認 1395 行。
-- `lyra` / `Lyra (commit e17c9a53c9eb)`: 3718/12332 (30.15%)。 計測元: `2026-11-21T05:35:16.630166+00:00` / `lyra.json`。 失敗 809、既知不一致 0、未対応 5284、未実行 290、古い証跡 0、規格違反テストの判定根拠が未承認 1386 行。
-- `verilator` / `Verilator 5.055 devel rev v5.054-348-g9b3b1d98`: 3792/12332 (30.75%)。 計測元: `2026-11-21T03:13:42.994919+00:00` / `verilator.json`。 失敗 27、既知不一致 6347、未対応 0、未実行 290、古い証跡 0、規格違反テストの判定根拠が未承認 1031 行。
+- `ghost` / `private build 1663bc821744`: 9659/12332 (78.32%)。 計測元: `2026-11-22T00:31:56.556596+00:00` / `ghost.json`。 失敗 25、既知不一致 0、未対応 0、未実行 290、古い証跡 0、規格違反テストの判定根拠が未承認 1513 行。
+- `icarus` / `Icarus Verilog version 14.0 (devel) (s20260301-1256-ga225510e)`: 2663/12332 (21.59%)。 計測元: `2026-11-22T00:09:41.946751+00:00` / `icarus.json`。 失敗 27、既知不一致 7360、未対応 0、未実行 290、古い証跡 0、規格違反テストの判定根拠が未承認 1147 行。
+- `kirimasim` / `kirimasim 0.1.3 (commit ad004a67d861), built with GNU 13.3.0`: 3120/12332 (25.30%)。 計測元: `2026-11-22T00:43:53.654163+00:00` / `kirimasim.json`。 失敗 163、既知不一致 0、未対応 6519、未実行 290、古い証跡 0、規格違反テストの判定根拠が未承認 1395 行。
+- `lyra` / `Lyra (commit 387248dcd328)`: 3735/12332 (30.29%)。 計測元: `2026-11-22T03:50:33.923995+00:00` / `lyra.json`。 失敗 793、既知不一致 0、未対応 5284、未実行 290、古い証跡 0、規格違反テストの判定根拠が未承認 1385 行。
+- `verilator` / `Verilator 5.055 devel rev v5.054-354-g005ee501`: 3792/12332 (30.75%)。 計測元: `2026-11-22T02:10:13.853298+00:00` / `verilator.json`。 失敗 27、既知不一致 6347、未対応 0、未実行 290、古い証跡 0、規格違反テストの判定根拠が未承認 1031 行。
 - 不採用の結果ファイル: 0 件。
 
 <a id="by-chapter-and-appendix-percentage-of-registered-items"></a>
@@ -82,7 +82,7 @@
 - 15 Interprocess synchronization and communication: テスト対応 84/88 (95.45%)、実行確認 77/88 (87.50%)、Ghostを除く実行確認 46/88 (52.27%)、解釈保留 0 行。
 - 16 Assertions: テスト対応 549/557 (98.56%)、実行確認 402/557 (72.17%)、Ghostを除く実行確認 67/557 (12.03%)、解釈保留 0 行。
 - 17 Checkers: テスト対応 69/81 (85.19%)、実行確認 43/81 (53.09%)、Ghostを除く実行確認 9/81 (11.11%)、解釈保留 0 行。
-- 18 Constrained random value generation: テスト対応 315/323 (97.52%)、実行確認 253/323 (78.33%)、Ghostを除く実行確認 136/323 (42.11%)、解釈保留 0 行。
+- 18 Constrained random value generation: テスト対応 315/323 (97.52%)、実行確認 254/323 (78.64%)、Ghostを除く実行確認 136/323 (42.11%)、解釈保留 0 行。
 - 19 Functional coverage: テスト対応 268/276 (97.10%)、実行確認 212/276 (76.81%)、Ghostを除く実行確認 36/276 (13.04%)、解釈保留 0 行。
 - 20 Utility system tasks and system functions: テスト対応 301/320 (94.06%)、実行確認 289/320 (90.31%)、Ghostを除く実行確認 130/320 (40.62%)、解釈保留 0 行。
 - 21 Input/output system tasks and system functions: テスト対応 362/383 (94.52%)、実行確認 346/383 (90.34%)、Ghostを除く実行確認 221/383 (57.70%)、解釈保留 0 行。
