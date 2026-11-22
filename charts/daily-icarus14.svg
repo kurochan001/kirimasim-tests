@@ -12,7 +12,7 @@
 <text x="304.0" y="74.0" text-anchor="start">kirimasim Intel(R) Xeon(R) 6975P-C / cc3a3005 (last valid): 0.712</text>
 <line class="line c-ratio1" x1="20" x2="38" y1="90" y2="90"/>
 <circle class="mk c-ratio1" cx="29.0" cy="90.0" r="7.5"/>
-<text x="44.0" y="94.0" text-anchor="start">kirimasim Intel(R) Xeon(R) 6975P-C / 341b44a0 (last valid): 0.515</text>
+<text x="44.0" y="94.0" text-anchor="start">kirimasim Intel(R) Xeon(R) 6975P-C / 341b44a0 (last valid): 0.517</text>
 <line class="grid" x1="64" x2="852" y1="360.0" y2="360.0"/>
 <text x="56.0" y="364.0" class="muted" text-anchor="end">0</text>
 <line class="grid" x1="64" x2="852" y1="310.4" y2="310.4"/>
@@ -28,16 +28,20 @@
 <line class="axis" x1="64" x2="852" y1="360" y2="360"/>
 <line class="axis" x1="64.0" x2="64.0" y1="360" y2="364"/>
 <text x="64.0" y="378.0" class="muted" text-anchor="middle">11-18</text>
-<line class="axis" x1="326.7" x2="326.7" y1="360" y2="364"/>
-<text x="326.7" y="378.0" class="muted" text-anchor="middle">11-19</text>
-<line class="axis" x1="589.3" x2="589.3" y1="360" y2="364"/>
-<text x="589.3" y="378.0" class="muted" text-anchor="middle">11-20</text>
+<line class="axis" x1="261.0" x2="261.0" y1="360" y2="364"/>
+<text x="261.0" y="378.0" class="muted" text-anchor="middle">11-19</text>
+<line class="axis" x1="458.0" x2="458.0" y1="360" y2="364"/>
+<text x="458.0" y="378.0" class="muted" text-anchor="middle">11-20</text>
+<line class="axis" x1="655.0" x2="655.0" y1="360" y2="364"/>
+<text x="655.0" y="378.0" class="muted" text-anchor="middle">11-21</text>
 <line class="axis" x1="852.0" x2="852.0" y1="360" y2="364"/>
-<text x="852.0" y="378.0" class="muted" text-anchor="middle">11-21</text>
-<polyline class="line dashed c-reference" points="64.0,153.3 326.7,153.3 589.3,153.3 852.0,153.3"/>
-<polyline class="line c-ratio0" points="64.0,174.6 326.7,174.9 589.3,212.9"/>
+<text x="852.0" y="378.0" class="muted" text-anchor="middle">11-22</text>
+<polyline class="line dashed c-reference" points="64.0,153.3 261.0,153.3 458.0,153.3 655.0,153.3 852.0,153.3"/>
+<polyline class="line c-ratio0" points="64.0,174.6 261.0,174.9 458.0,212.9"/>
+<polyline class="line c-ratio1" points="655.0,253.5 852.0,253.1"/>
 <circle class="mk c-ratio0" cx="64.0" cy="174.6" r="7.5"/>
-<circle class="mk c-ratio0" cx="326.7" cy="174.9" r="7.5"/>
-<circle class="mk c-ratio0" cx="589.3" cy="212.9" r="7.5"/>
-<circle class="mk c-ratio1" cx="852.0" cy="253.5" r="7.5"/>
+<circle class="mk c-ratio0" cx="261.0" cy="174.9" r="7.5"/>
+<circle class="mk c-ratio0" cx="458.0" cy="212.9" r="7.5"/>
+<circle class="mk c-ratio1" cx="655.0" cy="253.5" r="7.5"/>
+<circle class="mk c-ratio1" cx="852.0" cy="253.1" r="7.5"/>
 </svg>
