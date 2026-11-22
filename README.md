@@ -921,9 +921,12 @@ counts.
 
 ### Ghost
 
+Use a private profile with strict LRM checking enabled for every Ghost run,
+including single-test reproductions. The same rule applies to Nightly's `GHOST_PROFILE`.
+
 ```sh
 python3 tools/run_ghost.py --simulator /path/to/private/simulator \
-  --profile /path/to/private-profile.json --include /path/to/include -j 8 \
+  --profile /path/to/private-strict-profile.json --include /path/to/include -j 8 \
   --json out/ghost.json
 ```
 

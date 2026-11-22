@@ -778,9 +778,12 @@ VPIがないため`:vpi_c:`は未対応です。Lyraを根拠に記録した期�
 
 ### Ghost
 
+Ghost のテストは、1件だけの再現実行も含め、毎回 LRM の厳格モードを有効にした非公開プロファイルで実行します。
+Nightly の `GHOST_PROFILE` にも同じ設定を使います。
+
 ```sh
 python3 tools/run_ghost.py --simulator /path/to/private/simulator \
-  --profile /path/to/private-profile.json --include /path/to/include -j 8 \
+  --profile /path/to/private-strict-profile.json --include /path/to/include -j 8 \
   --json out/ghost.json
 ```
 

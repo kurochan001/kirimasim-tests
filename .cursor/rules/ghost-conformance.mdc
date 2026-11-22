@@ -1,0 +1,8 @@
+---
+description: Use strict LRM checking for Ghost tests
+alwaysApply: true
+---
+
+Run every Ghost test with strict LRM checking enabled in the private runtime profile.
+This applies to individual reproductions, local suite runs and Nightly. When selecting
+a profile, check its arguments for the strict LRM option. Keep the profile private.
