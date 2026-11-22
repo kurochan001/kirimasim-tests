@@ -1,6 +1,4 @@
-/* VPI application of test_vpi_program_interface_relations (IEEE 1800-2023 37.9). */
-#include <stdio.h>
-#include <stdlib.h>
+/* VPI application of test_vpi_program_interface_relations (IEEE 1800-2023 37.10). */
 #include <string.h>
 #include "vpi_user.h"
 #include "sv_vpi_user.h"
@@ -10,109 +8,27 @@ extern "C" {
 #endif
 
 #define TOP "test_vpi_program_interface_relations"
-#define MAX 8
 
-/* vpi_get_str() returns every string in one buffer (38.11), so each string is
-   copied into one of a few buffers, enough for the strings of one line. */
-static const char *sprop(PLI_INT32 property, vpiHandle h)
+static void show_instance(const char *label, vpiHandle object, vpiHandle top)
 {
-    static char copies[4][64];
-    static int next;
-    char *c = copies[next++ % 4];
-    PLI_BYTE8 *s = h != NULL ? vpi_get_str(property, h) : NULL;
-
-    snprintf(c, sizeof copies[0], "%s", s != NULL ? s : "(none)");
-    return c;
-}
-
-static vpiHandle by_name(const char *path)
-{
-    char full[128];
-    snprintf(full, sizeof full, "%s.%s", TOP, path);
-    return vpi_handle_by_name((PLI_BYTE8 *)full, NULL);
-}
-
-static int by_text(const void *a, const void *b)
-{
-    return strcmp(*(const char *const *)a, *(const char *const *)b);
-}
-
-/* The interface instances of a program, sorted by name. */
-static void interfaces(vpiHandle prog)
-{
-    vpiHandle it = prog != NULL ? vpi_iterate(vpiInterface, prog) : NULL, h;
-    const char *names[MAX];
-    vpiHandle handles[MAX];
-    char storage[MAX][48];
-    int n = 0, i, j;
-
-    while (it != NULL && (h = vpi_scan(it)) != NULL && n < MAX) {
-        snprintf(storage[n], sizeof storage[0], "%s", sprop(vpiName, h));
-        names[n] = storage[n];
-        handles[n++] = h;
-    }
-    for (i = 0; i < n; i++)
-        for (j = i + 1; j < n; j++)
-            if (by_text(&names[i], &names[j]) > 0) {
-                const char *t = names[i];
-                vpiHandle th = handles[i];
-                names[i] = names[j];
-                handles[i] = handles[j];
-                names[j] = t;
-                handles[j] = th;
-            }
-    vpi_printf((PLI_BYTE8 *)"%s: type %s, interfaces", sprop(vpiName, prog),
-               sprop(vpiType, prog));
-    if (n == 0)
-        vpi_printf((PLI_BYTE8 *)" none\n");
-    else {
-        vpi_printf((PLI_BYTE8 *)" ");
-        for (i = 0; i < n; i++)
-            vpi_printf((PLI_BYTE8 *)"%s%s", i ? "," : "", names[i]);
-        vpi_printf((PLI_BYTE8 *)"\n");
-        for (i = 0; i < n; i++) {
-            vpiHandle back = vpi_handle(vpiInstance, handles[i]);
-            vpi_printf((PLI_BYTE8 *)"  %s: instance is %s %d\n", names[i],
-                       sprop(vpiName, prog),
-                       back != NULL && prog != NULL && vpi_compare_objects(back, prog));
-        }
-    }
+    vpiHandle instance = object ? vpi_handle(vpiInstance, object) : NULL;
+    const char *type = object ? vpi_get_str(vpiType, object) : NULL;
+    vpi_printf((PLI_BYTE8 *)"%s: type %s, instance is module %d\n", label,
+               type ? type : "(none)",
+               top && instance && vpi_compare_objects(instance, top));
 }
 
 static PLI_INT32 program_calltf(PLI_BYTE8 *user_data)
 {
-    vpiHandle one = by_name("one"), two = by_name("two");
-    vpiHandle it, arr;
+    vpiHandle top = vpi_handle_by_name((PLI_BYTE8 *)TOP, NULL);
+    vpiHandle scalar = vpi_handle_by_name((PLI_BYTE8 *)(TOP ".b"), NULL);
+    vpiHandle array = vpi_handle_by_name((PLI_BYTE8 *)(TOP ".ba"), NULL);
 
     (void)user_data;
-    interfaces(one);
-    it = two != NULL ? vpi_iterate(vpiInterfaceArray, two) : NULL;
-    arr = it != NULL ? vpi_scan(it) : NULL;
-    vpi_printf((PLI_BYTE8 *)"%s: type %s, interface arrays", sprop(vpiName, two),
-               sprop(vpiType, two));
-    if (arr == NULL) {
-        vpi_printf((PLI_BYTE8 *)" none\n");
-        return 0;
-    }
-    vpi_printf((PLI_BYTE8 *)" %s\n", sprop(vpiName, arr));
-    {
-        vpiHandle back = vpi_handle(vpiInstance, arr);
-        vpi_printf((PLI_BYTE8 *)"  %s: type %s, instance is %s %d\n",
-                   sprop(vpiName, arr), sprop(vpiType, arr), sprop(vpiName, two),
-                   back != NULL && two != NULL && vpi_compare_objects(back, two));
-    }
-    {
-        int i;
-        for (i = 0; i < MAX; i++) {
-            vpiHandle el = vpi_handle_by_index(arr, i);
-            if (el != NULL) {
-                vpiHandle back = vpi_handle(vpiInstance, el);
-                vpi_printf((PLI_BYTE8 *)"  element %d: type %s, instance is %s %d\n",
-                           i, sprop(vpiType, el), sprop(vpiName, two),
-                           back != NULL && two != NULL && vpi_compare_objects(back, two));
-            }
-        }
-    }
+    show_instance("b", scalar, top);
+    show_instance("ba", array, top);
+    show_instance("ba[0]", array ? vpi_handle_by_index(array, 0) : NULL, top);
+    show_instance("ba[1]", array ? vpi_handle_by_index(array, 1) : NULL, top);
     return 0;
 }
 

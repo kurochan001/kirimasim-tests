@@ -366868,25 +366868,7 @@
       "acceptance": "37.9 defines a one-to-many relation from program to interface, using the untagged interface access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.",
       "source_note": "IEEE 1800-2023 37.9; complete own-body source review, blocks B002, B003, B004, B005, B006, B007, B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [
-        {
-          "test": "tests/ch37/test_vpi_program_interface_relations.sv",
-          "observation": "Program one takes the scalar interface port b; vpi_iterate(vpiInterface, one) returns b, so the output line is 'one: type vpiProgram, interfaces b'. 区別: A missing program-to-interface relation prints 'interfaces none' instead of b.",
-          "reviewed_on": "2026-11-07",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "61c838b37298f5772fa9be1914769766b0984dbc08dd6a8f265180d13428a899",
-          "evidence": [
-            {
-              "file": "tests/ch37/test_vpi_program_interface_relations.sv",
-              "contains": "pri_one one(b);"
-            },
-            {
-              "file": "tests/ch37/test_vpi_program_interface_relations.expected",
-              "contains": "one: type vpiProgram, interfaces b"
-            }
-          ]
-        }
-      ],
+      "checks": [],
       "source_spans": [
         {
           "section": "37.9",
@@ -366910,25 +366892,7 @@
       "acceptance": "37.9 defines a one-to-one relation from interface to program, using tag vpiInstance; traverse with vpi_handle and the stated special-case constraints.",
       "source_note": "IEEE 1800-2023 37.9; complete own-body source review, blocks B002, B003, B004, B005, B006, B007, B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [
-        {
-          "test": "tests/ch37/test_vpi_program_interface_relations.sv",
-          "observation": "The interface instance b obtained from program one gives one with vpiInstance: 'b: instance is one 1'. 区別: Returning the top module or NULL changes 'instance is one 1' to 0 or to another name.",
-          "reviewed_on": "2026-11-07",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "61c838b37298f5772fa9be1914769766b0984dbc08dd6a8f265180d13428a899",
-          "evidence": [
-            {
-              "file": "tests/ch37/test_vpi_program_interface_relations.sv",
-              "contains": "pri_one one(b);"
-            },
-            {
-              "file": "tests/ch37/test_vpi_program_interface_relations.expected",
-              "contains": "b: instance is one 1"
-            }
-          ]
-        }
-      ],
+      "checks": [],
       "source_spans": [
         {
           "section": "37.9",
@@ -366952,25 +366916,7 @@
       "acceptance": "37.9 defines a one-to-many relation from program to interface array, using the untagged interface array access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.",
       "source_note": "IEEE 1800-2023 37.9; complete own-body source review, blocks B002, B003, B004, B005, B006, B007, B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [
-        {
-          "test": "tests/ch37/test_vpi_program_interface_relations.sv",
-          "observation": "Program two takes the interface array port ba; vpi_iterate(vpiInterfaceArray, two) returns the vpiInterfaceArray object ba, printed as 'two: ... interface arrays ba'. 区別: A missing interface-array relation prints 'interface arrays none'.",
-          "reviewed_on": "2026-11-07",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "61c838b37298f5772fa9be1914769766b0984dbc08dd6a8f265180d13428a899",
-          "evidence": [
-            {
-              "file": "tests/ch37/test_vpi_program_interface_relations.sv",
-              "contains": "pri_two two(ba);"
-            },
-            {
-              "file": "tests/ch37/test_vpi_program_interface_relations.expected",
-              "contains": "two: type vpiProgram, interface arrays ba"
-            }
-          ]
-        }
-      ],
+      "checks": [],
       "source_spans": [
         {
           "section": "37.9",
@@ -366994,25 +366940,7 @@
       "acceptance": "37.9 defines a one-to-one relation from interface array to program, using tag vpiInstance; traverse with vpi_handle and the stated special-case constraints.",
       "source_note": "IEEE 1800-2023 37.9; complete own-body source review, blocks B002, B003, B004, B005, B006, B007, B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [
-        {
-          "test": "tests/ch37/test_vpi_program_interface_relations.sv",
-          "observation": "Elements 0 and 1 of the interface array ba, obtained with vpi_handle_by_index, each give program two with vpiInstance ('element 0: type vpiInterface, instance is two 1' and the same for 1). 区別: Returning the top module or NULL for an array element changes the element lines to 0.",
-          "reviewed_on": "2026-11-07",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "61c838b37298f5772fa9be1914769766b0984dbc08dd6a8f265180d13428a899",
-          "evidence": [
-            {
-              "file": "tests/ch37/test_vpi_program_interface_relations.sv",
-              "contains": "pri_two two(ba);"
-            },
-            {
-              "file": "tests/ch37/test_vpi_program_interface_relations.expected",
-              "contains": "element 1: type vpiInterface, instance is two 1"
-            }
-          ]
-        }
-      ],
+      "checks": [],
       "source_spans": [
         {
           "section": "37.9",
@@ -484328,9 +484256,9 @@
         {
           "test": "tests/ch16/test_sequence_method_call_and_match_item_forms.sv",
           "observation": "名前付き sequence s_items の式 a の後に、match item の3つの形（operator assignment の v = 1 と v += 2、increment の v++、subroutine call の report(v)）を並べ、sequence method call の形 s_items.triggered を wait で使う。a が 15 の posedge でだけ 1 なので match item は1回だけ順に実行されて report が 4 を受け取り、b が 25 で 1 なので終点に達して wait が 25 に解放されることを表示する。 区別: どれかの match item の形や sequence_instance.method_identifier の形を受け付けない実装はコンパイルできない。match item を書かれた順に評価しない、あるいは ++ や += を別の演算として扱う実装では 'report(v) got 4' の値が変わり（例: 3 や 2）、呼出しを match のたびに1回行わない実装では 'in 1 call' が変わる。triggered を終点の時間ステップで真にしない実装では 'triggered at 25' が変わる。",
-          "reviewed_on": "2026-11-20",
-          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "f59c84b053534888218086cafb3f34631a507508bf1733f7055e6f2c58859ead",
+          "reviewed_on": "2026-11-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "13b6c71ae89217d4fc499608ece088db64355f08ce410fd1b042dfa4405a3894",
           "evidence": [
             {
               "file": "tests/ch16/test_sequence_method_call_and_match_item_forms.sv",

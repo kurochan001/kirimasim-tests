@@ -59,6 +59,9 @@ module test_sequence_method_call_and_match_item_forms;
     trig_at = $time;
   end
 
-  initial #40 $display("report(v) got %0d in %0d call, s_items.triggered at %0d", seen_v,
-                       calls, trig_at);
+  initial begin
+    #40;
+    $display("report(v) got %0d in %0d call, s_items.triggered at %0d", seen_v, calls, trig_at);
+    $finish;
+  end
 endmodule

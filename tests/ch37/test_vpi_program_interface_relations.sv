@@ -1,9 +1,9 @@
 /*
 :name: test_vpi_program_interface_relations
-:description: A program iterates the interface instances and interface arrays connected to its ports, and each interface instance and interface array element gives the program back with vpiInstance (IEEE 1800-2023 Section 37.9)
+:description: vpiInstance of a scalar interface, an interface array and its elements connected to program ports returns the module that instantiates them (IEEE 1800-2023 Section 37.10)
 :tags: ch37
 :type: simulation
-:lrm: 1800-2023 37.9 25.5 24.3
+:lrm: 1800-2023 37.10 25.5 24.3
 :oracle: spec
 :spec_check: ai
 :fourstate: no
@@ -11,24 +11,13 @@
 :vpi_c: @test_vpi_program_interface_relations.c
 :expected_stdout: @test_vpi_program_interface_relations.expected
 */
-// IEEE 1800-2023 §37.9: a program has a one-to-many relation to the
-// interface instances it is connected to (37.9 diagram, untagged interface
-// access type) and a one-to-many relation to its interface arrays (untagged
-// interface array access type); each interface instance and each element of
-// an interface array has a one-to-one relation back to the program with
-// vpiInstance. The program one takes a scalar interface port and the program
-// two a port that is an array of two interfaces, so the scalar and the array
-// relations are observed apart from each other. Interface instances are
-// printed sorted by name, elements by index. The simulation ends when the
-// initial procedures of both programs have ended, at 3 (§24.3), so the
-// application runs at 1. vpi_get_str() returns each string in the same
-// buffer (§38.11), so the application copies the strings it prints together.
-//
-// The standard is not consistent on vpiInstance here. §37.10 detail 3 says it
-// always returns the immediate instance in which the object is instantiated,
-// which for b and ba would be the test module. The §37.9 diagram gives the
-// interface a one-to-one vpiInstance relation to the program. The test follows
-// §37.9, the clause written for this relation.
+// IEEE 1800-2023 37.10 detail 3: vpiInstance identifies the instance that
+// instantiated the object. The module instantiates b and ba and passes them
+// to programs through interface ports (25.5). Look up the actual interfaces
+// in the module and compare their vpiInstance handles with the module. The
+// program diagram in 37.9 does not say that a port connection instantiates
+// another interface. This test makes no query from the program ports.
+// Run at time 1, before the program initial procedures end (24.3).
 
 `timescale 1ns/1ns
 
