@@ -70,6 +70,76 @@
           "reason": null
         }
       ]
+    },
+    {
+      "id": "actions-45186535033-1",
+      "started_at": "2026-11-23T13:53:27.681573+00:00",
+      "completed_at": "2026-11-23T14:01:27.543368+00:00",
+      "series": "b8009346110cae80da3523d8709f94f836656e3756fe9331f3af13d2d866e399",
+      "status": "complete",
+      "groups": [
+        {
+          "name": "holdout-icarus14",
+          "peer": "icarus_devel",
+          "cases": [
+            "class_pool",
+            "dynarray_resize",
+            "intf_modport",
+            "real_filter",
+            "delayed_nets",
+            "specify_paths",
+            "file_output",
+            "bus_fabric_vcd",
+            "bus_fabric_fst"
+          ],
+          "expected_count": 9,
+          "available_count": 9,
+          "ratio": 0.6092629154981428,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "holdout-regression",
+          "peer": "baseline",
+          "cases": [
+            "class_pool",
+            "dynarray_resize",
+            "intf_modport",
+            "real_filter",
+            "force_release",
+            "delayed_nets",
+            "specify_paths",
+            "file_output",
+            "bus_fabric_vcd",
+            "bus_fabric_fst"
+          ],
+          "expected_count": 10,
+          "available_count": 10,
+          "ratio": 0.6241313161067755,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "holdout-verilator",
+          "peer": "verilator",
+          "cases": [
+            "class_pool",
+            "dynarray_resize",
+            "intf_modport",
+            "real_filter",
+            "force_release",
+            "delayed_nets",
+            "file_output",
+            "bus_fabric_vcd",
+            "bus_fabric_fst"
+          ],
+          "expected_count": 9,
+          "available_count": 9,
+          "ratio": 9.27818054664389,
+          "warning": false,
+          "reason": null
+        }
+      ]
     }
   ]
 }
