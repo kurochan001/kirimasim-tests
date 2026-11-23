@@ -1727,3 +1727,9 @@ Checkの文書ジョブは、既存のunittestの探索コマンドへ`-v`を加
 ## 制約内の符号付き1要素配列の積（Verilator 5.054）
 
 seed 1・73の両方で、`ch18/test_product_constraint_signed_singleton`の最初の`randomize()`は0を返し、動的配列は空のままです。サイズ制約は1で、符号付き4ビットの要素は−8を取れます。1要素の積はその要素に`int'(item) - 1`を適用した値なので、目標値の−9を満たす解があります（18.5.7.2、7.12.3）。[テスト](../tests/ch18/test_product_constraint_signed_singleton.sv) · [期待出力](../tests/ch18/test_product_constraint_signed_singleton.expected)
+
+<a id="package-imports-across-functions"></a>
+
+## 兄弟関数からのパッケージ import（Verilator 5.054）
+
+最初の関数はモジュールのワイルドカード import から `token` を取り込み、局所宣言した `spare` を読みます。兄弟関数が読む値は同じ `token`（11）と明示的に import した `spare`（23）です。Verilator は seed 1・73 の両方で `first=1103 sibling=1113` を表示し、兄弟関数で最初のパッケージの `spare`（13）を読みました。また、関数内で参照済みの `token` と衝突する明示的な import を受理しました。Icarus Verilog 13.0 は `first=1103 sibling=1123` を表示し、衝突も診断しました。[正常系](../tests/ch26/test_package_wildcard_binding_across_functions.sv)・[衝突する import](../tests/ch26/test_illegal_package_explicit_import_after_nested_reference.sv)

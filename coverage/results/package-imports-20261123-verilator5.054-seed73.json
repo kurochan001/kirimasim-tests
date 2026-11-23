@@ -1,0 +1,23 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch26/test_illegal_package_explicit_import_after_nested_reference": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "53bb87f58429f9300521641df8984bb0c89567cbe04aa7db270c4dc952679522"
+  },
+  "ch26/test_package_wildcard_binding_across_functions": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'first=1103 sibling=1113', expected 'first=1103 sibling=1123'",
+   "inputs_sha256": "e9df078d36e0b695a76601c1e81879386e1e29170ad16ccc1f738f1c1e671c58"
+  }
+ },
+ "generated_at": "2026-11-23T11:19:39.666298+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

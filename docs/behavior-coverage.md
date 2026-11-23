@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 93.13%、Ghostを除く実行 51.22%、Ghostとkirimasimを含む実行 88.21%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 93.15%、Ghostを除く実行 51.24%、Ghostとkirimasimを含む実行 88.23%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 93.13%。** 規格要求の実行確認率: Ghostを除いて 51.22%、Ghostとkirimasimを含めて 88.21%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 93.15%。** 規格要求の実行確認率: Ghostを除いて 51.24%、Ghostとkirimasimを含めて 88.23%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対する要求カバレッジ（テスト設計）: 11485/12332 (93.13%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 10878/12332 (88.21%)。
-- 登録済みだがテスト未対応: 847 動作。
+- 登録済み動作に対する要求カバレッジ（テスト設計）: 11487/12332 (93.15%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 10880/12332 (88.23%)。
+- 登録済みだがテスト未対応: 845 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。
 
@@ -147,6 +147,11 @@
 - `oracle-tokens-3-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T23:13:04.014714+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `oracle-tokens-3-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:01.978891+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `oracle-tokens-3-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:03.804411+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
+- `package-imports-20261123-ghost-strict.json`: `private build 683a1617f33d` / `2026-11-23T11:19:38.372737+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `package-imports-20261123-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T11:19:38.381360+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
+- `package-imports-20261123-kirimasim.json`: `kirimasim 0.2.0 (commit 09db7853edac), built with AppleClang 21.0.0.21000334` / `2026-11-23T11:19:38.344117+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `package-imports-20261123-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T11:19:39.668722+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `package-imports-20261123-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T11:19:39.666298+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `packed-lanes-20261119b-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-18T23:25:07.469975+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `packed-lanes-20261119b-kirimasim-441dddbd0fcd-run1.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T23:25:09.791478+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `packed-lanes-20261119b-kirimasim-441dddbd0fcd-run2.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T23:25:12.082997+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
@@ -598,7 +603,7 @@
 - 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 254。
 - 24 Programs: 解釈保留なし 10/10、登録 29、テスト対応 25。
 - 25 Interfaces: 解釈保留なし 25/25、登録 63、テスト対応 58。
-- 26 Packages: 解釈保留なし 8/8、登録 44、テスト対応 41。
+- 26 Packages: 解釈保留なし 8/8、登録 44、テスト対応 43。
 - 27 Generate constructs: 解釈保留なし 7/7、登録 32、テスト対応 28。
 - 28 Gate-level and switch-level modeling: 解釈保留なし 34/34、登録 384、テスト対応 374。
 - 29 User-defined primitives: 解釈保留なし 17/17、登録 52、テスト対応 49。
@@ -70864,7 +70869,7 @@ defparam に影響を受けたインタフェースのインスタンス/階層�
 
 ### SV2023-26.3-EXTRACT-OUTER-SCOPE-IMPORT
 
-`26.3` / `normal` / テスト未対応
+`26.3` / `normal` / 実行確認あり
 
 もし現在のスコープが失敗した場合，各外部辞書スコープは，局所的なそれから前の可能な名前を検索する。ワイルドカードマッチはそのインポートを含む 外部スコープにインポートされます。
 
@@ -70872,6 +70877,7 @@ defparam に影響を受けたインタフェースのインスタンス/階層�
 
 規定の性質: `mandatory`。
 
+- [test_package_wildcard_binding_across_functions.sv](../tests/ch26/test_package_wildcard_binding_across_functions.sv): 関数で取り込んだ名前を別のワイルドカード宣言の後でも兄弟関数が同じ値として読み、最初の関数で隠されていた名前は後から明示的に選んだパッケージの値になる。
 
 ### SV2023-26.3-EXTRACT-PACKAGE-COMPILE-ORDER
 
@@ -70987,7 +70993,7 @@ ANSIヘッダインポートには、次のパラメータポートリストま�
 
 ### SV2023-26.5-EXTRACT-EXPLICIT-WILDCARD-Q
 
-`26.5` / `error` / テスト未対応
+`26.5` / `error` / 実行確認あり
 
 明示的な p::c は未使用の q ワードロップ候補を上書きするが、既に q::c がインポートされている場合は衝突します。
 
@@ -70995,6 +71001,7 @@ ANSIヘッダインポートには、次のパラメータポートリストま�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_package_explicit_import_after_nested_reference.sv](../tests/ch26/test_illegal_package_explicit_import_after_nested_reference.sv): 関数の参照で取り込んだ名前を別パッケージから明示的に取り込む行または元の参照行に衝突の診断を求め、未参照の名前には同じ明示的な取り込みを許す。
 
 ### SV2023-26.5-EXTRACT-QUALIFIED-EXPLICIT-Q
 

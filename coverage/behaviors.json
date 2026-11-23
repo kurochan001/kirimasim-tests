@@ -292886,7 +292886,45 @@
       "acceptance": "If current scope fails, each outer lexical scope searches local then preceding potential names; a wildcard match imports into that outer scope containing its import.",
       "source_note": "IEEE 1800-2023 26.3; complete own-body source review, blocks B029. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch26/test_package_wildcard_binding_across_functions.sv",
+          "observation": "関数で取り込んだ名前を別のワイルドカード宣言の後でも兄弟関数が同じ値として読み、最初の関数で隠されていた名前は後から明示的に選んだパッケージの値になる。",
+          "reviewed_on": "2026-11-23",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "e9df078d36e0b695a76601c1e81879386e1e29170ad16ccc1f738f1c1e671c58",
+          "evidence": [
+            {
+              "file": "tests/ch26/test_package_wildcard_binding_across_functions.sv",
+              "contains": "import binding_first::*;"
+            },
+            {
+              "file": "tests/ch26/test_package_wildcard_binding_across_functions.sv",
+              "contains": "localparam int spare = 3;"
+            },
+            {
+              "file": "tests/ch26/test_package_wildcard_binding_across_functions.sv",
+              "contains": "return 100 * token + spare;"
+            },
+            {
+              "file": "tests/ch26/test_package_wildcard_binding_across_functions.sv",
+              "contains": "import binding_second::spare;"
+            },
+            {
+              "file": "tests/ch26/test_package_wildcard_binding_across_functions.sv",
+              "contains": "import binding_second::*;"
+            },
+            {
+              "file": "tests/ch26/test_package_wildcard_binding_across_functions.sv",
+              "contains": "function automatic int sibling_value();"
+            },
+            {
+              "file": "tests/ch26/test_package_wildcard_binding_across_functions.expected",
+              "contains": "first=1103 sibling=1123"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "26.3",
@@ -293367,7 +293405,37 @@
       "acceptance": "Explicit p::c overrides an unused q wildcard candidate, but conflicts if an earlier reference already imported q::c.",
       "source_note": "IEEE 1800-2023 26.5; complete own-body source review, blocks B007, B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch26/test_illegal_package_explicit_import_after_nested_reference.sv",
+          "observation": "関数の参照で取り込んだ名前を別パッケージから明示的に取り込む行または元の参照行に衝突の診断を求め、未参照の名前には同じ明示的な取り込みを許す。",
+          "reviewed_on": "2026-11-23",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "53bb87f58429f9300521641df8984bb0c89567cbe04aa7db270c4dc952679522",
+          "evidence": [
+            {
+              "file": "tests/ch26/test_illegal_package_explicit_import_after_nested_reference.sv",
+              "contains": "import nested_first::*;"
+            },
+            {
+              "file": "tests/ch26/test_illegal_package_explicit_import_after_nested_reference.sv",
+              "contains": "return token;"
+            },
+            {
+              "file": "tests/ch26/test_illegal_package_explicit_import_after_nested_reference.sv",
+              "contains": "import nested_second::spare;"
+            },
+            {
+              "file": "tests/ch26/test_illegal_package_explicit_import_after_nested_reference.sv",
+              "contains": "import nested_second::token;"
+            },
+            {
+              "file": "tests/ch26/test_illegal_package_explicit_import_after_nested_reference.sv",
+              "contains": ":expected_stderr_regex: ^(?![^\\n]*(?i:unsupported|not supported|not implemented|syntax error))[^\\n]*test_illegal_package_explicit_import_after_nested_reference\\.sv:(?:28|33):(?:\\d+:)?[^\\n]*(?i:import[^\\n]*(?:collid|conflict)|already[^\\n]*import)"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "26.5",

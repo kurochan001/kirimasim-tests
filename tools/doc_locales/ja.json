@@ -25825,6 +25825,8 @@
     "A singleton product constraint applies its signed with expression at ZXQPH0QXZ width": "1要素の積制約で符号付きのwith式をZXQPH0QXZ幅で評価する",
     "Two product constraints apply different projections to the same zero factor": "同じゼロ因子に対して2つの積制約が異なるwith式を適用する",
     "Dynamic array allocation converts a signed ZXQPH0QXZ - ZXQPH1QXZ size to ZXQPH2QXZ": "動的配列の確保時に符号付きZXQPH0QXZ ZXQPH1QXZ幅のサイズをZXQPH2QXZに変換する",
-    "A ZXQPH0QXZ -stream cast exposes the unsigned numeric order of wildcard associative keys": "ZXQPH0QXZストリームキャストでワイルドカード添字の符号なし数値順を確認する"
+    "A ZXQPH0QXZ -stream cast exposes the unsigned numeric order of wildcard associative keys": "ZXQPH0QXZストリームキャストでワイルドカード添字の符号なし数値順を確認する",
+    "A wildcard name first used in a nested function stays bound in the enclosing module when a sibling function sees another wildcard import": "内側の関数で初めて参照した名前は、外側のモジュールに別のワイルドカード import を追加した後も、兄弟関数で同じ宣言を指す",
+    "A name resolved through the enclosing module's wildcard import inside a function conflicts with a later explicit import into that module": "関数内の参照が外側のモジュールのワイルドカード import で解決されると、そのモジュールで後から同じ名前を別パッケージから明示的に import すると衝突する"
   }
 }

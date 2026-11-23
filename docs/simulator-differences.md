@@ -1728,3 +1728,9 @@ The tests added on 2026-11-21 for requirements without tests (saved runs of [Ica
 ## Signed singleton product in a constraint (Verilator 5.054)
 
 At seeds 1 and 73, the first `randomize()` in `ch18/test_product_constraint_signed_singleton` returns 0 and leaves the dynamic array empty. The mandated size is one. Its sole signed four-bit element can be −8, so the product of the single projected value `int'(item) - 1` can satisfy the target −9 (18.5.7.2, 7.12.3). [Test](../tests/ch18/test_product_constraint_signed_singleton.sv) · [Expected output](../tests/ch18/test_product_constraint_signed_singleton.expected)
+
+<a id="package-imports-across-functions"></a>
+
+## Package imports across sibling functions (Verilator 5.054)
+
+The first function reads the module’s wildcard-imported `token` and its own local `spare`. The sibling should read the same `token` (11) and the explicitly imported `spare` (23). At seeds 1 and 73 Verilator printed `first=1103 sibling=1113`, giving the sibling the first package’s `spare` (13). It also accepted a conflicting explicit import of `token` after the first function had referenced it. Icarus Verilog 13.0 produced `first=1103 sibling=1123` and diagnosed the conflict. [Legal case](../tests/ch26/test_package_wildcard_binding_across_functions.sv) · [Conflicting import](../tests/ch26/test_illegal_package_explicit_import_after_nested_reference.sv)

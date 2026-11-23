@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 93.13%, execution without Ghost 51.22%, execution with Ghost and kirimasim 88.21%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 93.15%, execution without Ghost 51.24%, execution with Ghost and kirimasim 88.23%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 93.13%. Requirement execution-confirmation rate: 51.22% without Ghost, 88.21% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 93.15%. Requirement execution-confirmation rate: 51.24% without Ghost, 88.23% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 11485/12332 ( 93.13% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 10878/12332 ( 88.21% ).
-- Registered but not tested: 847.
+- The requirement coverage (test design) for registered behaviors is 11487/12332 ( 93.15% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 10880/12332 ( 88.23% ).
+- Registered but not tested: 845.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -147,6 +147,11 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `oracle-tokens-3-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T23:13:04.014714+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-3-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:01.978891+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-3-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:03.804411+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `package-imports-20261123-ghost-strict.json`: `private build 683a1617f33d` / `2026-11-23T11:19:38.372737+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `package-imports-20261123-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T11:19:38.381360+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `package-imports-20261123-kirimasim.json`: `kirimasim 0.2.0 (commit 09db7853edac), built with AppleClang 21.0.0.21000334` / `2026-11-23T11:19:38.344117+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `package-imports-20261123-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T11:19:39.668722+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `package-imports-20261123-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T11:19:39.666298+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `packed-lanes-20261119b-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-18T23:25:07.469975+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `packed-lanes-20261119b-kirimasim-441dddbd0fcd-run1.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T23:25:09.791478+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `packed-lanes-20261119b-kirimasim-441dddbd0fcd-run2.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T23:25:12.082997+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -598,7 +603,7 @@ The number of items is the investigation status of the article by heading. This 
 - 23 Modules and hierarchy: No interpretation reservation 47/47, registration 260, test support 254.
 - 24 Programs: No interpretation restrictions 10/10, registration 29, test support 25.
 - 25 Interfaces: No interpretation reservation 25/25, registration 63, test support 58.
-- 26 Packages: No interpretation reservation 8/8, registration 44, testing support 41.
+- 26 Packages: No interpretation reservation 8/8, registration 44, testing support 43.
 - 27 Generate constructs: no interpretation reservation 7/7, registration 32, test support 28.
 - 28 Gate-level and switch-level modeling: no interpretation reservation 34/34, registration 384, test support 374.
 - 29 User-defined primitives: no interpretation reservation 17/17, registration 52, test support 49.
@@ -70864,7 +70869,7 @@ Normative role: `mandatory`。
 
 ### SV2023-26.3-EXTRACT-OUTER-SCOPE-IMPORT
 
-`26.3` / `normal` / No mapped test
+`26.3` / `normal` / Execution confirmed
 
 If current scope fails, each outer lexical scope searches local then preceding potential names; a wildcard match imports into that outer scope containing its import.
 
@@ -70872,6 +70877,7 @@ Acceptance criterion: If current scope fails, each outer lexical scope searches 
 
 Normative role: `mandatory`。
 
+- [test_package_wildcard_binding_across_functions.sv](../tests/ch26/test_package_wildcard_binding_across_functions.sv): The sibling function reads the original binding after the second wildcard import and reads the explicitly selected package value for the name shadowed in the first function.
 
 ### SV2023-26.3-EXTRACT-PACKAGE-COMPILE-ORDER
 
@@ -70987,7 +70993,7 @@ Normative role: `mandatory`。
 
 ### SV2023-26.5-EXTRACT-EXPLICIT-WILDCARD-Q
 
-`26.5` / `error` / No mapped test
+`26.5` / `error` / Execution confirmed
 
 Explicit p::c overrides an unused q wildcard candidate, but conflicts if an earlier reference already imported q::c.
 
@@ -70995,6 +71001,7 @@ Acceptance criterion: Explicit p::c overrides an unused q wildcard candidate, bu
 
 Normative role: `mandatory`。
 
+- [test_illegal_package_explicit_import_after_nested_reference.sv](../tests/ch26/test_illegal_package_explicit_import_after_nested_reference.sv): The conflict must be diagnosed at the explicit import or at the earlier reference inside the function. An unused wildcard candidate permits an explicit import from the other package.
 
 ### SV2023-26.5-EXTRACT-QUALIFIED-EXPLICIT-Q
 

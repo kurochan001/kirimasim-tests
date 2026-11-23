@@ -1,0 +1,20 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.0 (commit 09db7853edac), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch26/test_illegal_package_explicit_import_after_nested_reference": {
+   "status": "pass",
+   "inputs_sha256": "53bb87f58429f9300521641df8984bb0c89567cbe04aa7db270c4dc952679522"
+  },
+  "ch26/test_package_wildcard_binding_across_functions": {
+   "status": "fail",
+   "reason": "output differs (exit 2): error: multiple imports found for identifier 'token'",
+   "inputs_sha256": "e9df078d36e0b695a76601c1e81879386e1e29170ad16ccc1f738f1c1e671c58"
+  }
+ },
+ "generated_at": "2026-11-23T11:19:38.344117+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}
